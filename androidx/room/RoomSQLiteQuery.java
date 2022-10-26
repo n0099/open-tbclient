@@ -1,7 +1,5 @@
 package androidx.room;
 
-import androidx.annotation.RestrictTo;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import androidx.sqlite.db.SupportSQLiteProgram;
 import androidx.sqlite.db.SupportSQLiteQuery;
@@ -17,36 +15,33 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOB = 5;
-    @VisibleForTesting
     public static final int DESIRED_POOL_SIZE = 10;
     public static final int DOUBLE = 3;
     public static final int LONG = 2;
     public static final int NULL = 1;
-    @VisibleForTesting
     public static final int POOL_LIMIT = 15;
     public static final int STRING = 4;
-    @VisibleForTesting
     public static final TreeMap<Integer, RoomSQLiteQuery> sQueryPool;
     public transient /* synthetic */ FieldHolder $fh;
-    @VisibleForTesting
     public int mArgCount;
     public final int[] mBindingTypes;
-    @VisibleForTesting
     public final byte[][] mBlobBindings;
-    @VisibleForTesting
     public final int mCapacity;
-    @VisibleForTesting
     public final double[] mDoubleBindings;
-    @VisibleForTesting
     public final long[] mLongBindings;
     public volatile String mQuery;
-    @VisibleForTesting
     public final String[] mStringBindings;
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -62,6 +57,47 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
             }
         }
         sQueryPool = new TreeMap<>();
+    }
+
+    @Override // androidx.sqlite.db.SupportSQLiteProgram
+    public void clearBindings() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Arrays.fill(this.mBindingTypes, 1);
+            Arrays.fill(this.mStringBindings, (Object) null);
+            Arrays.fill(this.mBlobBindings, (Object) null);
+            this.mQuery = null;
+        }
+    }
+
+    @Override // androidx.sqlite.db.SupportSQLiteQuery
+    public int getArgCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mArgCount;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.sqlite.db.SupportSQLiteQuery
+    public String getSql() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mQuery;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (sQueryPool) {
+                sQueryPool.put(Integer.valueOf(this.mCapacity), this);
+                prunePoolLocked();
+            }
+        }
     }
 
     public RoomSQLiteQuery(int i) {
@@ -86,6 +122,35 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
         this.mDoubleBindings = new double[i4];
         this.mStringBindings = new String[i4];
         this.mBlobBindings = new byte[i4];
+    }
+
+    @Override // androidx.sqlite.db.SupportSQLiteQuery
+    public void bindTo(SupportSQLiteProgram supportSQLiteProgram) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, supportSQLiteProgram) == null) {
+            for (int i = 1; i <= this.mArgCount; i++) {
+                int i2 = this.mBindingTypes[i];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 == 5) {
+                                    supportSQLiteProgram.bindBlob(i, this.mBlobBindings[i]);
+                                }
+                            } else {
+                                supportSQLiteProgram.bindString(i, this.mStringBindings[i]);
+                            }
+                        } else {
+                            supportSQLiteProgram.bindDouble(i, this.mDoubleBindings[i]);
+                        }
+                    } else {
+                        supportSQLiteProgram.bindLong(i, this.mLongBindings[i]);
+                    }
+                } else {
+                    supportSQLiteProgram.bindNull(i);
+                }
+            }
+        }
     }
 
     public static RoomSQLiteQuery acquire(String str, int i) {
@@ -118,6 +183,13 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RoomSQLiteQuery val$query;
 
+                @Override // java.io.Closeable, java.lang.AutoCloseable
+                public void close() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048582, this) == null) {
+                    }
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -134,6 +206,14 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
                         }
                     }
                     this.val$query = acquire;
+                }
+
+                @Override // androidx.sqlite.db.SupportSQLiteProgram
+                public void bindNull(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                        this.val$query.bindNull(i);
+                    }
                 }
 
                 @Override // androidx.sqlite.db.SupportSQLiteProgram
@@ -161,14 +241,6 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
                 }
 
                 @Override // androidx.sqlite.db.SupportSQLiteProgram
-                public void bindNull(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
-                        this.val$query.bindNull(i);
-                    }
-                }
-
-                @Override // androidx.sqlite.db.SupportSQLiteProgram
                 public void bindString(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048580, this, i, str) == null) {
@@ -183,34 +255,35 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
                         this.val$query.clearBindings();
                     }
                 }
-
-                @Override // java.io.Closeable, java.lang.AutoCloseable
-                public void close() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048582, this) == null) {
-                    }
-                }
             });
             return acquire;
         }
         return (RoomSQLiteQuery) invokeL.objValue;
     }
 
+    @Override // androidx.sqlite.db.SupportSQLiteProgram
+    public void bindNull(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mBindingTypes[i] = 1;
+        }
+    }
+
     public static void prunePoolLocked() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || sQueryPool.size() <= 15) {
-            return;
-        }
-        int size = sQueryPool.size() - 10;
-        Iterator<Integer> it = sQueryPool.descendingKeySet().iterator();
-        while (true) {
-            int i = size - 1;
-            if (size <= 0) {
-                return;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && sQueryPool.size() > 15) {
+            int size = sQueryPool.size() - 10;
+            Iterator<Integer> it = sQueryPool.descendingKeySet().iterator();
+            while (true) {
+                int i = size - 1;
+                if (size > 0) {
+                    it.next();
+                    it.remove();
+                    size = i;
+                } else {
+                    return;
+                }
             }
-            it.next();
-            it.remove();
-            size = i;
         }
     }
 
@@ -242,14 +315,6 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindNull(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.mBindingTypes[i] = 1;
-        }
-    }
-
-    @Override // androidx.sqlite.db.SupportSQLiteProgram
     public void bindString(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
@@ -258,42 +323,11 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
         }
     }
 
-    @Override // androidx.sqlite.db.SupportSQLiteQuery
-    public void bindTo(SupportSQLiteProgram supportSQLiteProgram) {
+    public void init(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, supportSQLiteProgram) == null) {
-            for (int i = 1; i <= this.mArgCount; i++) {
-                int i2 = this.mBindingTypes[i];
-                if (i2 == 1) {
-                    supportSQLiteProgram.bindNull(i);
-                } else if (i2 == 2) {
-                    supportSQLiteProgram.bindLong(i, this.mLongBindings[i]);
-                } else if (i2 == 3) {
-                    supportSQLiteProgram.bindDouble(i, this.mDoubleBindings[i]);
-                } else if (i2 == 4) {
-                    supportSQLiteProgram.bindString(i, this.mStringBindings[i]);
-                } else if (i2 == 5) {
-                    supportSQLiteProgram.bindBlob(i, this.mBlobBindings[i]);
-                }
-            }
-        }
-    }
-
-    @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void clearBindings() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Arrays.fill(this.mBindingTypes, 1);
-            Arrays.fill(this.mStringBindings, (Object) null);
-            Arrays.fill(this.mBlobBindings, (Object) null);
-            this.mQuery = null;
-        }
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
+            this.mQuery = str;
+            this.mArgCount = i;
         }
     }
 
@@ -306,38 +340,6 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
             System.arraycopy(roomSQLiteQuery.mStringBindings, 0, this.mStringBindings, 0, argCount);
             System.arraycopy(roomSQLiteQuery.mBlobBindings, 0, this.mBlobBindings, 0, argCount);
             System.arraycopy(roomSQLiteQuery.mDoubleBindings, 0, this.mDoubleBindings, 0, argCount);
-        }
-    }
-
-    @Override // androidx.sqlite.db.SupportSQLiteQuery
-    public int getArgCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mArgCount : invokeV.intValue;
-    }
-
-    @Override // androidx.sqlite.db.SupportSQLiteQuery
-    public String getSql() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mQuery : (String) invokeV.objValue;
-    }
-
-    public void init(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
-            this.mQuery = str;
-            this.mArgCount = i;
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            synchronized (sQueryPool) {
-                sQueryPool.put(Integer.valueOf(this.mCapacity), this);
-                prunePoolLocked();
-            }
         }
     }
 }

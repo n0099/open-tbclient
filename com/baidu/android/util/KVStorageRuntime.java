@@ -1,13 +1,10 @@
 package com.baidu.android.util;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes.dex */
 public class KVStorageRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -27,17 +24,21 @@ public class KVStorageRuntime {
         }
     }
 
-    @Inject(force = false)
     public static IKVStorageControl getKVStorageControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? IKVStorageControl.EMPTY : (IKVStorageControl) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return IKVStorageControl.EMPTY;
+        }
+        return (IKVStorageControl) invokeV.objValue;
     }
 
-    @Inject(force = false)
     public static IKVStorageProxy getKVStorageProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? IKVStorageProxy.EMPTY : (IKVStorageProxy) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return IKVStorageProxy.EMPTY;
+        }
+        return (IKVStorageProxy) invokeV.objValue;
     }
 }

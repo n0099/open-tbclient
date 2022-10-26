@@ -1,9 +1,29 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface pb3 {
-    boolean a(long j);
+    String a(String str);
 
-    void b(long j);
+    boolean b(String str);
 
-    long getMaxSize();
+    String c(String str);
+
+    qb3 d();
+
+    String e(String str);
+
+    String f();
+
+    String g(String str);
+
+    String h(String str);
+
+    String i(String str);
+
+    boolean j(String str, boolean z);
+
+    String k();
+
+    boolean l(String str);
+
+    String m(String str);
 }

@@ -44,31 +44,19 @@ public class GetTplStokenStat implements NoProguard {
         return (String) invokeL.objValue;
     }
 
-    public static void onEventAutoStat(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put("auto_statistic", Base64.encodeToString(getEventTypeBase64Value(KEY_GET_STOKEN).getBytes(), 0));
-            httpHashMapWrap.put("source", "native");
-            httpHashMapWrap.put("data_source", "client");
-            httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
-            httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-            httpHashMapWrap.put(KEY_GET_STOKEN_RESULT_CODE, str2);
-            httpHashMapWrap.put(KEY_GET_STOKEN_RESULT_MSG, str3);
-            httpHashMapWrap.put(KEY_GET_STOKEN_TIME_CONSUMING, str);
-            try {
-                sendRequest(httpHashMapWrap);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
     public static void sendRequest(HttpHashMapWrap httpHashMapWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, httpHashMapWrap) == null) {
             new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new HttpHandlerWrap(true) { // from class: com.baidu.sapi2.utils.GetTplStokenStat.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                public void onSuccess(int i, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                    }
+                }
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -89,14 +77,26 @@ public class GetTplStokenStat implements NoProguard {
                         }
                     }
                 }
-
-                @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onSuccess(int i, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
-                    }
-                }
             });
+        }
+    }
+
+    public static void onEventAutoStat(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+            httpHashMapWrap.put("auto_statistic", Base64.encodeToString(getEventTypeBase64Value(KEY_GET_STOKEN).getBytes(), 0));
+            httpHashMapWrap.put("source", "native");
+            httpHashMapWrap.put("data_source", "client");
+            httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
+            httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
+            httpHashMapWrap.put(KEY_GET_STOKEN_RESULT_CODE, str2);
+            httpHashMapWrap.put(KEY_GET_STOKEN_RESULT_MSG, str3);
+            httpHashMapWrap.put(KEY_GET_STOKEN_TIME_CONSUMING, str);
+            try {
+                sendRequest(httpHashMapWrap);
+            } catch (Exception unused) {
+            }
         }
     }
 }

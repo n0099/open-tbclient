@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.eh;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,10 +33,27 @@ public class PersonChangeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public PersonChangeData a;
     public b b;
-    public pb c;
+    public qb c;
 
     /* loaded from: classes5.dex */
-    public class a extends pb {
+    public interface b {
+        void a(String str);
+
+        void b();
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeModel a;
@@ -63,40 +80,34 @@ public class PersonChangeModel extends BdBaseModel {
             this.a = personChangeModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-                if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
-                    if (responsedMessage.getError() != 0) {
-                        if (this.a.b != null) {
-                            this.a.b.a(responsedMessage.getErrorString());
-                            return;
-                        }
+                if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
+                    return;
+                }
+                if (responsedMessage.getError() != 0) {
+                    if (this.a.b != null) {
+                        this.a.b.a(responsedMessage.getErrorString());
                         return;
                     }
-                    if (z) {
-                        ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                        this.a.C(profileSocketResponseMessage.getNicknameInfo(), profileSocketResponseMessage.GetUser());
-                    }
-                    if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                        ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                        this.a.C(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
-                    }
-                    if (this.a.b != null) {
-                        this.a.b.b();
-                    }
+                    return;
+                }
+                if (z) {
+                    ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
+                    this.a.C(profileSocketResponseMessage.getNicknameInfo(), profileSocketResponseMessage.GetUser());
+                }
+                if (responsedMessage instanceof ProfileHttpResponseMessage) {
+                    ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
+                    this.a.C(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
+                }
+                if (this.a.b != null) {
+                    this.a.b.b();
                 }
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -128,6 +139,13 @@ public class PersonChangeModel extends BdBaseModel {
         registerListener(this.c);
     }
 
+    public void E(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,12 +154,16 @@ public class PersonChangeModel extends BdBaseModel {
             if (personChangeData == null) {
                 return false;
             }
-            return ((TextUtils.isEmpty(personChangeData.getNameShow()) && TextUtils.isEmpty(this.a.getTempNickName())) || TextUtils.isEmpty(this.a.getPortrait()) || ListUtils.isEmpty(this.a.getInterestedForums()) || this.a.getBirthdayTime() == 0) ? false : true;
+            if ((TextUtils.isEmpty(personChangeData.getNameShow()) && TextUtils.isEmpty(this.a.getTempNickName())) || TextUtils.isEmpty(this.a.getPortrait()) || ListUtils.isEmpty(this.a.getInterestedForums()) || this.a.getBirthdayTime() == 0) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
     public final void C(NicknameInfo nicknameInfo, User user) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nicknameInfo, user) == null) {
             this.a = new PersonChangeData();
@@ -177,11 +199,20 @@ public class PersonChangeModel extends BdBaseModel {
                 if (businessAccountInfo != null) {
                     PersonChangeData personChangeData = this.a;
                     Integer num = businessAccountInfo.is_business_account;
-                    personChangeData.setIsBusinessAccount(num != null ? num.toString() : "0");
+                    if (num != null) {
+                        str = num.toString();
+                    } else {
+                        str = "0";
+                    }
+                    personChangeData.setIsBusinessAccount(str);
                 }
                 PersonChangeData personChangeData2 = this.a;
                 personChangeData2.nickNameInVerifying = user.editing_nickname;
-                personChangeData2.isNickNameInVerifying = user.is_nickname_editing.intValue() == 1;
+                boolean z = true;
+                if (user.is_nickname_editing.intValue() != 1) {
+                    z = false;
+                }
+                personChangeData2.isNickNameInVerifying = z;
             }
         }
     }
@@ -189,24 +220,10 @@ public class PersonChangeModel extends BdBaseModel {
     public PersonChangeData D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (PersonChangeData) invokeV.objValue;
-    }
-
-    public void E(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (PersonChangeData) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -215,13 +232,13 @@ public class PersonChangeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c59));
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c68));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             } else {
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
-                profileRequestMessage.set_uid(Long.valueOf(dh.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(eh.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
                 profileRequestMessage.set_pn(1);
                 profileRequestMessage.set_rn(1);
                 profileRequestMessage.set_has_plist(1);

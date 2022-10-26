@@ -8,15 +8,15 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cq9;
-import com.baidu.tieba.ll9;
-import com.baidu.tieba.nl9;
-import com.baidu.tieba.ok9;
-import com.baidu.tieba.pq9;
-import com.baidu.tieba.qq9;
-import com.baidu.tieba.rq9;
+import com.baidu.tieba.dm9;
+import com.baidu.tieba.fm9;
+import com.baidu.tieba.gl9;
+import com.baidu.tieba.hr9;
+import com.baidu.tieba.ir9;
+import com.baidu.tieba.jr9;
+import com.baidu.tieba.mr9;
+import com.baidu.tieba.ql9;
 import com.baidu.tieba.uq9;
-import com.baidu.tieba.yk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,11 +59,11 @@ public final class FunAdSdk {
     public static final String PLATFORM_SIG = "sig";
     public static final String PLATFORM_TA = "ta";
     public static final String PLATFORM_VIVO = "vivo";
-    public static pq9 a;
+    public static hr9 a;
     public static FunAdConfig b;
     public static RewardEnv c;
-    public static Set<String> d;
-    public static Set<Pair<String, String>> e;
+    public static Set d;
+    public static Set e;
     public static volatile boolean f;
     public static volatile boolean g;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public final class FunAdSdk {
         }
     }
 
-    public static void a(boolean z, Set<Pair<String, String>> set) {
+    public static void a(boolean z, Set set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(65538, null, z, set) == null) {
             HashSet hashSet = new HashSet(e);
@@ -121,7 +121,7 @@ public final class FunAdSdk {
         }
     }
 
-    public static void addForbiddenAid(Pair<String, String> pair) {
+    public static void addForbiddenAid(Pair pair) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, null, pair) == null) || pair == null || e.contains(pair)) {
             return;
@@ -131,39 +131,17 @@ public final class FunAdSdk {
         a(true, hashSet);
     }
 
-    public static void addForbiddenAid(Set<Pair<String, String>> set) {
+    public static void addForbiddenAid(Set set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, set) == null) {
             a(true, set);
         }
     }
 
-    public static double getARPU() {
+    public static hr9 getAdCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            qq9.a.getClass();
-            return ll9.m() + nl9.a();
-        }
-        return invokeV.doubleValue;
-    }
-
-    public static pq9 getAdCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a : (pq9) invokeV.objValue;
-    }
-
-    public static FunAdFactory getAdFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f) {
-                return yk9.f;
-            }
-            throw new RuntimeException("FunAdSdk not initialized, please call init first.");
-        }
-        return (FunAdFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a : (hr9) invokeV.objValue;
     }
 
     public static Context getAppContext() {
@@ -172,23 +150,7 @@ public final class FunAdSdk {
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b.appContext : (Context) invokeV.objValue;
     }
 
-    public static String getBaiduCustomUserId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            SharedPreferences sharedPreferences = ll9.b;
-            String string = sharedPreferences.getString("key_bd_tk", null);
-            if (TextUtils.isEmpty(string)) {
-                String substring = UUID.randomUUID().toString().replace("-", "").substring(0, 16);
-                sharedPreferences.edit().putString("key_bd_tk", substring).apply();
-                return substring;
-            }
-            return string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static Set<String> getForbiddenPlatforms() {
+    public static Set getForbiddenPlatforms() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? d : (Set) invokeV.objValue;
@@ -200,55 +162,13 @@ public final class FunAdSdk {
         return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? b : (FunAdConfig) invokeV.objValue;
     }
 
-    public static boolean getPersonalRecommendStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            FunAdConfig funAdConfig = b;
-            if (funAdConfig == null) {
-                LogPrinter.e("It's not suggest get this status before init!", new Object[0]);
-                return ll9.b.getBoolean("key_psn_rec_s", true);
-            }
-            return funAdConfig.runtimeAdConfig.personalRecommendStatus;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String getPlatformId(String str) {
-        InterceptResult invokeL;
-        ok9 ok9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            Map<String, Double> map = yk9.a;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            cq9 cq9Var = yk9.e;
-            synchronized (cq9Var) {
-                ok9Var = cq9Var.a;
-            }
-            if (ok9Var == null) {
-                LogPrinter.d("No adConfig found now.", new Object[0]);
-                return null;
-            }
-            for (Ssp ssp : ok9Var.a) {
-                if (ssp.type.equals(str)) {
-                    return ssp.sspId;
-                }
-            }
-            LogPrinter.d("No target ssp found for platform:%s", str);
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static RewardEnv getRewardEnv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? c : (RewardEnv) invokeV.objValue;
     }
 
-    public static Set<Pair<String, String>> getsForbiddenAids() {
+    public static Set getsForbiddenAids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? e : (Set) invokeV.objValue;
@@ -258,6 +178,200 @@ public final class FunAdSdk {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, funAdConfig, funAdCallback)) == null) ? init(funAdConfig, funAdCallback, null) : invokeLL.booleanValue;
+    }
+
+    public static boolean isForBidShowInstalledApp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? g : invokeV.booleanValue;
+    }
+
+    public static boolean isLogEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            FunAdConfig funAdConfig = b;
+            return funAdConfig != null && funAdConfig.logEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isSdkInitializeComplete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? ql9.h : invokeV.booleanValue;
+    }
+
+    public static void removeForbiddenAid(Pair pair) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65558, null, pair) == null) && e.contains(pair)) {
+            HashSet hashSet = new HashSet(1);
+            hashSet.add(pair);
+            a(false, hashSet);
+        }
+    }
+
+    public static void removeForbiddenAid(Set set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65559, null, set) == null) {
+            a(false, set);
+        }
+    }
+
+    public static void setForBidShowInstalledApp(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65560, null, z) == null) {
+            g = z;
+        }
+    }
+
+    public static void setForbiddenPlatforms(Set set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65561, null, set) == null) {
+            if (set == null) {
+                set = new HashSet();
+            }
+            d = Collections.unmodifiableSet(set);
+        }
+    }
+
+    public static void setRewardEnv(RewardEnv rewardEnv) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65563, null, rewardEnv) == null) {
+            c = rewardEnv;
+        }
+    }
+
+    public static double getARPU() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ir9.a.getClass();
+            return dm9.m() + fm9.a();
+        }
+        return invokeV.doubleValue;
+    }
+
+    public static FunAdFactory getAdFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (f) {
+                return ql9.f;
+            }
+            throw new RuntimeException("FunAdSdk not initialized, please call init first.");
+        }
+        return (FunAdFactory) invokeV.objValue;
+    }
+
+    public static boolean getPersonalRecommendStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            FunAdConfig funAdConfig = b;
+            if (funAdConfig == null) {
+                LogPrinter.e("It's not suggest get this status before init!", new Object[0]);
+                return dm9.b.getBoolean("key_psn_rec_s", true);
+            }
+            return funAdConfig.runtimeAdConfig.personalRecommendStatus;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static double getARPU(String str) {
+        InterceptResult invokeL;
+        double d2;
+        gl9 gl9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            Double d3 = (Double) ir9.a.a.get(str);
+            if (d3 != null) {
+                d2 = d3.doubleValue();
+            } else {
+                d2 = -2.0d;
+            }
+            if (d2 == -2.0d) {
+                Map map = ql9.a;
+                Double d4 = null;
+                if (!TextUtils.isEmpty(str)) {
+                    Map map2 = ql9.a;
+                    Double d5 = (Double) map2.get(str);
+                    if (d5 == null) {
+                        map2.clear();
+                        uq9 uq9Var = ql9.e;
+                        synchronized (uq9Var) {
+                            gl9Var = uq9Var.a;
+                        }
+                        if (gl9Var == null) {
+                            LogPrinter.d("No adConfig found now.", new Object[0]);
+                        } else {
+                            HashMap hashMap = new HashMap();
+                            for (Ssp ssp : gl9Var.a) {
+                                for (Ssp.Pid pid : ssp.pids) {
+                                    hashMap.put(pid.pid, Double.valueOf(pid.basePrice));
+                                    if (pid.pid.equals(str)) {
+                                        d5 = Double.valueOf(pid.basePrice);
+                                    }
+                                }
+                            }
+                            ql9.a.putAll(hashMap);
+                            LogPrinter.d("No target basePrice found for pid:%s", str);
+                        }
+                    }
+                    d4 = d5;
+                }
+                if (d4 == null) {
+                    return -1.0d;
+                }
+                return d4.doubleValue() / 1000.0d;
+            }
+            return d2;
+        }
+        return invokeL.doubleValue;
+    }
+
+    public static String getBaiduCustomUserId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            SharedPreferences sharedPreferences = dm9.b;
+            String string = sharedPreferences.getString("key_bd_tk", null);
+            if (TextUtils.isEmpty(string)) {
+                String substring = UUID.randomUUID().toString().replace("-", "").substring(0, 16);
+                sharedPreferences.edit().putString("key_bd_tk", substring).apply();
+                return substring;
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getPlatformId(String str) {
+        InterceptResult invokeL;
+        gl9 gl9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            Map map = ql9.a;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            uq9 uq9Var = ql9.e;
+            synchronized (uq9Var) {
+                gl9Var = uq9Var.a;
+            }
+            if (gl9Var == null) {
+                LogPrinter.d("No adConfig found now.", new Object[0]);
+                return null;
+            }
+            for (Ssp ssp : gl9Var.a) {
+                if (ssp.type.equals(str)) {
+                    return ssp.sspId;
+                }
+            }
+            LogPrinter.d("No target ssp found for platform:%s", str);
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static boolean init(FunAdConfig funAdConfig, FunAdCallback funAdCallback, SdkInitializeCallback sdkInitializeCallback) {
@@ -275,7 +389,7 @@ public final class FunAdSdk {
                         }
                         b = funAdConfig;
                         FunRuntimeAdConfig funRuntimeAdConfig = funAdConfig.runtimeAdConfig;
-                        SharedPreferences sharedPreferences = ll9.b;
+                        SharedPreferences sharedPreferences = dm9.b;
                         funRuntimeAdConfig.personalRecommendStatus = sharedPreferences.getBoolean("key_psn_rec_s", true);
                         b.moduleInitManager.setCallBack(sdkInitializeCallback);
                         Flavors.PLUGIN_RC.init(b.appContext);
@@ -283,10 +397,10 @@ public final class FunAdSdk {
                             sharedPreferences.edit().putLong("key_flt", System.currentTimeMillis()).apply();
                         }
                         if (funAdCallback != null) {
-                            if (funAdCallback instanceof pq9) {
-                                a = (pq9) funAdCallback;
+                            if (funAdCallback instanceof hr9) {
+                                a = (hr9) funAdCallback;
                             } else {
-                                a = new pq9(funAdCallback) { // from class: com.fun.ad.sdk.FunAdSdk.1
+                                a = new hr9(funAdCallback) { // from class: com.fun.ad.sdk.FunAdSdk.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ FunAdCallback a;
@@ -309,7 +423,7 @@ public final class FunAdSdk {
                                         this.a = funAdCallback;
                                     }
 
-                                    @Override // com.baidu.tieba.pq9
+                                    @Override // com.baidu.tieba.hr9
                                     public void onAdClicked(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, pid) == null) {
@@ -317,7 +431,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.pq9
+                                    @Override // com.baidu.tieba.hr9
                                     public void onAdClose(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pid) == null) {
@@ -325,7 +439,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.pq9
+                                    @Override // com.baidu.tieba.hr9
                                     public void onAdLoad(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, pid) == null) {
@@ -333,7 +447,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.pq9
+                                    @Override // com.baidu.tieba.hr9
                                     public void onAdLoadError(Ssp.Pid pid, int i, String str) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeLIL(1048579, this, pid, i, str) == null) {
@@ -341,7 +455,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.pq9
+                                    @Override // com.baidu.tieba.hr9
                                     public void onAdLoaded(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048580, this, pid) == null) {
@@ -349,7 +463,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.pq9
+                                    @Override // com.baidu.tieba.hr9
                                     public void onAdShow(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048581, this, pid) == null) {
@@ -357,7 +471,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.pq9
+                                    @Override // com.baidu.tieba.hr9
                                     public void onAdShowError(Ssp.Pid pid, int i, String str) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeLIL(1048582, this, pid, i, str) == null) {
@@ -365,7 +479,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.pq9
+                                    @Override // com.baidu.tieba.hr9
                                     public void onRewardedVideo(Ssp.Pid pid, boolean z, int i) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeCommon(1048583, this, new Object[]{pid, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -375,17 +489,17 @@ public final class FunAdSdk {
                                 };
                             }
                         }
-                        uq9.a aVar = uq9.a;
-                        uq9.b = System.currentTimeMillis();
-                        uq9.c = SystemClock.currentThreadTimeMillis();
+                        mr9.a aVar = mr9.a;
+                        mr9.b = System.currentTimeMillis();
+                        mr9.c = SystemClock.currentThreadTimeMillis();
                         f = true;
-                        yk9.c = sdkInitializeCallback;
-                        yk9.e(true);
-                        rq9 rq9Var = yk9.f;
+                        ql9.c = sdkInitializeCallback;
+                        ql9.e(true);
+                        jr9 jr9Var = ql9.f;
                         Flavors.CPM_AWARE.init();
-                        uq9.a aVar2 = uq9.a;
-                        aVar2.c = System.currentTimeMillis() - uq9.b;
-                        aVar2.d = SystemClock.currentThreadTimeMillis() - uq9.c;
+                        mr9.a aVar2 = mr9.a;
+                        aVar2.c = System.currentTimeMillis() - mr9.b;
+                        aVar2.d = SystemClock.currentThreadTimeMillis() - mr9.c;
                         return true;
                     }
                     throw new IllegalStateException("This method could only be called on main thread.");
@@ -397,125 +511,16 @@ public final class FunAdSdk {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean isForBidShowInstalledApp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? g : invokeV.booleanValue;
-    }
-
-    public static boolean isLogEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            FunAdConfig funAdConfig = b;
-            return funAdConfig != null && funAdConfig.logEnabled;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isSdkInitializeComplete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? yk9.h : invokeV.booleanValue;
-    }
-
-    public static void removeForbiddenAid(Pair<String, String> pair) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65558, null, pair) == null) && e.contains(pair)) {
-            HashSet hashSet = new HashSet(1);
-            hashSet.add(pair);
-            a(false, hashSet);
-        }
-    }
-
-    public static void removeForbiddenAid(Set<Pair<String, String>> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, null, set) == null) {
-            a(false, set);
-        }
-    }
-
-    public static void setForBidShowInstalledApp(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65560, null, z) == null) {
-            g = z;
-        }
-    }
-
-    public static void setForbiddenPlatforms(Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, set) == null) {
-            if (set == null) {
-                set = new HashSet<>();
-            }
-            d = Collections.unmodifiableSet(set);
-        }
-    }
-
     public static void setPersonalRecommendStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65562, null, z) == null) {
             FunAdConfig funAdConfig = b;
             if (funAdConfig != null) {
                 funAdConfig.runtimeAdConfig.updatePersonalRecommendStatus(z);
-                ll9.b.edit().putBoolean("key_psn_rec_s", z).apply();
+                dm9.b.edit().putBoolean("key_psn_rec_s", z).apply();
                 return;
             }
             throw new RuntimeException("Settings for this status must after the init method!");
         }
-    }
-
-    public static void setRewardEnv(RewardEnv rewardEnv) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, null, rewardEnv) == null) {
-            c = rewardEnv;
-        }
-    }
-
-    public static double getARPU(String str) {
-        InterceptResult invokeL;
-        ok9 ok9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            Double d2 = qq9.a.a.get(str);
-            double doubleValue = d2 != null ? d2.doubleValue() : -2.0d;
-            if (doubleValue == -2.0d) {
-                Map<String, Double> map = yk9.a;
-                Double d3 = null;
-                if (!TextUtils.isEmpty(str)) {
-                    Map<String, Double> map2 = yk9.a;
-                    Double d4 = map2.get(str);
-                    if (d4 == null) {
-                        map2.clear();
-                        cq9 cq9Var = yk9.e;
-                        synchronized (cq9Var) {
-                            ok9Var = cq9Var.a;
-                        }
-                        if (ok9Var == null) {
-                            LogPrinter.d("No adConfig found now.", new Object[0]);
-                        } else {
-                            HashMap hashMap = new HashMap();
-                            for (Ssp ssp : ok9Var.a) {
-                                for (Ssp.Pid pid : ssp.pids) {
-                                    hashMap.put(pid.pid, Double.valueOf(pid.basePrice));
-                                    if (pid.pid.equals(str)) {
-                                        d4 = Double.valueOf(pid.basePrice);
-                                    }
-                                }
-                            }
-                            yk9.a.putAll(hashMap);
-                            LogPrinter.d("No target basePrice found for pid:%s", str);
-                        }
-                    }
-                    d3 = d4;
-                }
-                if (d3 == null) {
-                    return -1.0d;
-                }
-                return d3.doubleValue() / 1000.0d;
-            }
-            return doubleValue;
-        }
-        return invokeL.doubleValue;
     }
 }

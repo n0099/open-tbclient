@@ -36,7 +36,10 @@ public class PassUtil implements com.baidu.pass.a {
             }
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-                return packageInfo.signatures.length > 0 ? SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false) : "";
+                if (packageInfo.signatures.length <= 0) {
+                    return "";
+                }
+                return SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false);
             } catch (Throwable th) {
                 Log.e(th);
                 return "";

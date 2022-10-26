@@ -34,6 +34,15 @@ public class k9 {
         }
     }
 
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
     public k9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,6 +55,33 @@ public class k9 {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.getString("abtest_sap_data", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a.getString("abtest_sap_version", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Set f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new HashSet(a.getStringSet("abtest_switch_keys", new HashSet()));
+        }
+        return (Set) invokeV.objValue;
     }
 
     public static k9 b() {
@@ -63,27 +99,6 @@ public class k9 {
         return (k9) invokeV.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.getString("abtest_sap_data", "") : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a.getString("abtest_sap_version", "") : (String) invokeV.objValue;
-    }
-
     public String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -92,11 +107,5 @@ public class k9 {
             return sharedPreferences.getString("abtest_" + str, "");
         }
         return (String) invokeL.objValue;
-    }
-
-    public Set<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new HashSet(a.getStringSet("abtest_switch_keys", new HashSet())) : (Set) invokeV.objValue;
     }
 }

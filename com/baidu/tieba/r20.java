@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,9 +9,19 @@ public class r20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static v20 a(Context context) {
-        InterceptResult invokeL;
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? s20.e(context).c() : (v20) invokeL.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            int hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode = -hashCode;
+            }
+            return hashCode % i;
+        }
+        return invokeLI.intValue;
     }
 }

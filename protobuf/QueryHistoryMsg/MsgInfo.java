@@ -28,7 +28,13 @@ public final class MsgInfo extends Message {
     public final Integer type;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<MsgInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -82,14 +88,11 @@ public final class MsgInfo extends Message {
         public MsgInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new MsgInfo(this, z, null) : (MsgInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new MsgInfo(this, z, null);
+            }
+            return (MsgInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -108,10 +111,6 @@ public final class MsgInfo extends Message {
         DEFAULT_SENDTIME = 0L;
         DEFAULT_TYPE = 0;
         DEFAULT_ID = 0;
-    }
-
-    public /* synthetic */ MsgInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -164,5 +163,9 @@ public final class MsgInfo extends Message {
         this.type = builder.type;
         this.content = builder.content;
         this.id = builder.id;
+    }
+
+    public /* synthetic */ MsgInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

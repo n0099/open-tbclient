@@ -1,22 +1,19 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.m22;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes5.dex */
 public interface on1 {
-    int a();
+    void a(String str, tq2 tq2Var);
 
-    VideoPlayerFactory b();
+    int getDuration();
 
-    int c();
+    boolean isPlaying();
 
-    void d(boolean z);
+    void onRelease();
 
-    boolean e();
+    void pause();
 
-    boolean f();
+    void play();
 
-    void g(int i);
+    void seek(int i);
 
-    void h(m22.c cVar);
+    void stop();
 }

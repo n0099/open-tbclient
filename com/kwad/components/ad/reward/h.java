@@ -1,10 +1,8 @@
 package com.kwad.components.ad.reward;
 
-import android.annotation.SuppressLint;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,13 +21,13 @@ import org.json.JSONObject;
 public final class h extends com.kwad.components.ad.i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AdTemplate> mc;
+    public List mc;
     public boolean md;
-    public List<com.kwad.components.core.c.a.c> me;
+    public List me;
     public e.b mf;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(List<AdTemplate> list, @Nullable JSONObject jSONObject, e.b bVar) {
+    public h(List list, JSONObject jSONObject, e.b bVar) {
         super(jSONObject, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +77,7 @@ public final class h extends com.kwad.components.ad.i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.a(aVar);
-            List<AdTemplate> list = this.mc;
+            List list = this.mc;
             com.kwad.components.core.webview.jshandler.e eVar = new com.kwad.components.core.webview.jshandler.e(new ArrayList(list.subList(1, list.size() - 1)));
             eVar.a(this.mf);
             aVar.a(eVar);
@@ -102,7 +100,6 @@ public final class h extends com.kwad.components.ad.i.b {
     }
 
     @Override // com.kwad.components.ad.i.b
-    @SuppressLint({"ClickableViewAccessibility"})
     public final void fh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -195,11 +192,11 @@ public final class h extends com.kwad.components.ad.i.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, adTemplate)) == null) {
-            List<AdTemplate> list = this.mc;
+            List list = this.mc;
             if (list == null || list.size() < 2) {
                 return super.l(adTemplate);
             }
-            String aR = com.kwad.sdk.core.response.a.b.aR(this.mc.get(1));
+            String aR = com.kwad.sdk.core.response.a.b.aR((AdTemplate) this.mc.get(1));
             new StringBuilder("getUrl: ").append(aR);
             return aR;
         }

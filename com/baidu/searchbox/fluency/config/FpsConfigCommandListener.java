@@ -9,7 +9,6 @@ import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
-import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-@UpdateAction(action = FpsConfigCommandListener.CLOUD_FLUENCY_FPS_ACTION, module = "aap_share_20")
 /* loaded from: classes2.dex */
 public class FpsConfigCommandListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,12 +46,12 @@ public class FpsConfigCommandListener extends JSONObjectCommandListener {
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) || commandPostData == null || commandPostData.getVersion() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) && commandPostData != null && commandPostData.getVersion() != null) {
+            commandPostData.getVersion().put(str2, getLocalVersion(context, str, str2));
         }
-        commandPostData.getVersion().put(str2, getLocalVersion(context, str, str2));
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -61,10 +59,10 @@ public class FpsConfigCommandListener extends JSONObjectCommandListener {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, actionData)) == null) {
             if (actionData != null && actionData.data != null && TextUtils.equals(str2, CLOUD_FLUENCY_FPS_ACTION)) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "executeCommand: " + actionData.data.toString());
+                    Log.d(TAG, "executeCommand: " + ((JSONObject) actionData.data).toString());
                 }
                 String str3 = actionData.version;
-                JSONObject jSONObject = actionData.data;
+                JSONObject jSONObject = (JSONObject) actionData.data;
                 if (TextUtils.isEmpty(str3) || jSONObject == null || jSONObject.length() == 0 || getLocalVersion(context, str, str2).equals(str3)) {
                     return false;
                 }
@@ -88,6 +86,9 @@ public class FpsConfigCommandListener extends JSONObjectCommandListener {
     public String getLocalVersion(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) ? QuickPersistConfig.getInstance().getString(SP_FLUENCY_FPS_VERSION, "0") : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
+            return QuickPersistConfig.getInstance().getString(SP_FLUENCY_FPS_VERSION, "0");
+        }
+        return (String) invokeLLL.objValue;
     }
 }

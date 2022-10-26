@@ -15,6 +15,18 @@ public class BuddyInitContext {
         return this.last;
     }
 
+    public BuddyInitHolder moveToFirst() {
+        BuddyInitHolder buddyInitHolder = this.head;
+        this.current = buddyInitHolder;
+        return buddyInitHolder;
+    }
+
+    public BuddyInitHolder next() {
+        BuddyInitHolder buddyInitHolder = this.current.next;
+        this.current = buddyInitHolder;
+        return buddyInitHolder;
+    }
+
     public BuddyInitHolder makeNext(int i, int i2) {
         BuddyInitHolder buddyInitHolder = new BuddyInitHolder(i, i2);
         if (this.head == null) {
@@ -28,18 +40,6 @@ public class BuddyInitContext {
             this.current = buddyInitHolder;
         }
         this.last = buddyInitHolder;
-        return buddyInitHolder;
-    }
-
-    public BuddyInitHolder moveToFirst() {
-        BuddyInitHolder buddyInitHolder = this.head;
-        this.current = buddyInitHolder;
-        return buddyInitHolder;
-    }
-
-    public BuddyInitHolder next() {
-        BuddyInitHolder buddyInitHolder = this.current.next;
-        this.current = buddyInitHolder;
         return buddyInitHolder;
     }
 }

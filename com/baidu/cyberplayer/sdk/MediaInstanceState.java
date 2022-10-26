@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@Keep
 /* loaded from: classes2.dex */
 public class MediaInstanceState {
     public static /* synthetic */ Interceptable $ic = null;
@@ -20,7 +19,7 @@ public class MediaInstanceState {
     public static final int INSTANCE_STATE_INACTIVE = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
-    public Map<String, String> B;
+    public Map B;
     public int C;
     public String D;
     public String E;
@@ -129,7 +128,7 @@ public class MediaInstanceState {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.q : (Context) invokeV.objValue;
     }
 
-    public Map<String, String> getInstanceHeader() {
+    public Map getInstanceHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.B : (Map) invokeV.objValue;
@@ -373,7 +372,7 @@ public class MediaInstanceState {
         }
     }
 
-    public void updateDataSource(Context context, Uri uri, Map<String, String> map) {
+    public void updateDataSource(Context context, Uri uri, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048616, this, context, uri, map) == null) {
             this.q = context;
@@ -382,7 +381,7 @@ public class MediaInstanceState {
         }
     }
 
-    public void updateDataSource(String str, Map<String, String> map) {
+    public void updateDataSource(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048617, this, str, map) == null) {
             this.A = str;

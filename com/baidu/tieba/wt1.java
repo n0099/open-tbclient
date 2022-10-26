@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q83;
+import com.baidu.tieba.ld3;
+import com.baidu.tieba.pr1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,24 +11,73 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wt1 extends rt1 {
+public class wt1 extends st1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.pr1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CompassApi" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes6.dex */
-    public class a implements ei3<o83<q83.e>> {
+    public class a implements pr1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ wt1 c;
+        public final /* synthetic */ wt1 a;
 
-        public a(wt1 wt1Var, Context context, String str) {
+        /* renamed from: com.baidu.tieba.wt1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0451a implements ld3.c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ eu1 a;
+            public final /* synthetic */ a b;
+
+            public C0451a(a aVar, eu1 eu1Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, eu1Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = eu1Var;
+            }
+
+            @Override // com.baidu.tieba.ld3.c
+            public void a(float f, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("direction", f);
+                        jSONObject.put("accuracy", ld3.h(i));
+                        this.a.d(this.b.a, jSONObject);
+                    } catch (JSONException e) {
+                        m02.c("CompassApi", "handle compass,json error，" + e.toString());
+                        this.a.f(this.b.a, "Json error");
+                    }
+                }
+            }
+        }
+
+        public a(wt1 wt1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wt1Var, context, str};
+                Object[] objArr = {wt1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,41 +87,40 @@ public class wt1 extends rt1 {
                     return;
                 }
             }
-            this.c = wt1Var;
-            this.a = context;
-            this.b = str;
+            this.a = wt1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ei3
-        /* renamed from: b */
-        public void a(o83<q83.e> o83Var) {
+        @Override // com.baidu.tieba.pr1.a
+        public mv1 a(m33 m33Var, JSONObject jSONObject, String str) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o83Var) == null) {
-                if (j83.h(o83Var)) {
-                    this.c.d(this.b, new lv1(0, this.c.z(this.a)));
-                    return;
-                }
-                int b = o83Var.b();
-                j83.f(b);
-                this.c.d(this.b, new lv1(b, j83.f(b)));
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, m33Var, jSONObject, str)) == null) {
+                eu1 eu1Var = new eu1("compassChange", jSONObject, str);
+                ld3 i = ld3.i();
+                i.l(this.a.getContext());
+                i.o(new C0451a(this, eu1Var));
+                m02.i("CompassApi", "start listen compass");
+                i.p();
+                eu1Var.b(this.a);
+                return mv1.f();
             }
+            return (mv1) invokeLLL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wt1(@NonNull mr1 mr1Var) {
-        super(mr1Var);
+    public wt1(nr1 nr1Var) {
+        super(nr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mr1Var};
+            Object[] objArr = {nr1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((mr1) newInitContext.callArgs[0]);
+                super((nr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,51 +128,24 @@ public class wt1 extends rt1 {
         }
     }
 
-    @Override // com.baidu.tieba.or1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
-    }
-
-    public lv1 y(String str) {
+    public mv1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getDeviceInfo", false);
-            l33 b0 = l33.b0();
-            if (b0 == null) {
-                return new lv1(1001, "swan app is null");
-            }
-            Pair<lv1, JSONObject> s = s(str);
-            lv1 lv1Var = (lv1) s.first;
-            if (lv1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new lv1(202, "cb is empty");
-                }
-                Context context = getContext();
-                b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
-                return lv1.f();
-            }
-            return lv1Var;
+            q("#startCompass", true);
+            return l(str, true, new a(this));
         }
-        return (lv1) invokeL.objValue;
+        return (mv1) invokeL.objValue;
     }
 
-    public final JSONObject z(Context context) {
-        InterceptResult invokeL;
+    public mv1 z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("oaid", qo3.b.b(context));
-                jSONObject.put("androidId", qo3.b.a(context));
-            } catch (JSONException e) {
-                p("#getDeviceInfo json put data fail", e, false);
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#stopCompass", true);
+            ld3.i().q();
+            return mv1.f();
         }
-        return (JSONObject) invokeL.objValue;
+        return (mv1) invokeV.objValue;
     }
 }

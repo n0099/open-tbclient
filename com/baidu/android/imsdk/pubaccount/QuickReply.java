@@ -21,11 +21,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class QuickReply implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<QuickReply> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int MENU_TYPE = 1;
     public static final String TAG = "QuickReply";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ReplyContent> mButtonList;
+    public ArrayList mButtonList;
     public String mMenuName;
     public long mPaId;
     public String mPaName;
@@ -35,15 +35,35 @@ public class QuickReply implements Parcelable {
     public long mType;
     public long mVersionId;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes.dex */
-    public static class Act implements Parcelable {
+    public class Act implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<Act> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCallBackKey;
         public int mIsCallBack;
         public int mType;
         public String mValue;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -58,7 +78,7 @@ public class QuickReply implements Parcelable {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator<Act>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.Act.1
+            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.Act.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,21 +97,25 @@ public class QuickReply implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Act createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new Act(parcel) : (Act) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new Act(parcel);
+                    }
+                    return (Act) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Act[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Act[i] : (Act[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new Act[i];
+                    }
+                    return (Act[]) invokeI.objValue;
                 }
             };
         }
@@ -110,38 +134,61 @@ public class QuickReply implements Parcelable {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
         public String getCallBackKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCallBackKey : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mCallBackKey;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mType : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mType;
+            }
+            return invokeV.intValue;
         }
 
         public String getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mValue : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mValue;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int isCallBack() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIsCallBack : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mIsCallBack;
+            }
+            return invokeV.intValue;
+        }
+
+        public Act(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.mType = parcel.readInt();
+            this.mValue = parcel.readString();
+            this.mIsCallBack = parcel.readInt();
+            this.mCallBackKey = parcel.readString();
         }
 
         public void setCallBack(int i) {
@@ -182,36 +229,25 @@ public class QuickReply implements Parcelable {
                 parcel.writeString(this.mCallBackKey);
             }
         }
-
-        public Act(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.mType = parcel.readInt();
-            this.mValue = parcel.readString();
-            this.mIsCallBack = parcel.readInt();
-            this.mCallBackKey = parcel.readString();
-        }
     }
 
     /* loaded from: classes.dex */
-    public static class ReplyContent implements Parcelable {
+    public class ReplyContent implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<ReplyContent> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public Act mAct;
         public String mName;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -226,7 +262,7 @@ public class QuickReply implements Parcelable {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator<ReplyContent>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.ReplyContent.1
+            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.ReplyContent.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -245,21 +281,25 @@ public class QuickReply implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public ReplyContent createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ReplyContent(parcel) : (ReplyContent) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new ReplyContent(parcel);
+                    }
+                    return (ReplyContent) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public ReplyContent[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ReplyContent[i] : (ReplyContent[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new ReplyContent[i];
+                    }
+                    return (ReplyContent[]) invokeI.objValue;
                 }
             };
         }
@@ -278,26 +318,41 @@ public class QuickReply implements Parcelable {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
         public Act getAct() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAct : (Act) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mAct;
+            }
+            return (Act) invokeV.objValue;
         }
 
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mName : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mName;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public ReplyContent(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.mName = parcel.readString();
+            this.mAct = (Act) parcel.readParcelable(Act.class.getClassLoader());
         }
 
         public void setAct(Act act) {
@@ -322,25 +377,6 @@ public class QuickReply implements Parcelable {
                 parcel.writeParcelable(this.mAct, i);
             }
         }
-
-        public ReplyContent(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.mName = parcel.readString();
-            this.mAct = (Act) parcel.readParcelable(Act.class.getClassLoader());
-        }
     }
 
     static {
@@ -356,7 +392,7 @@ public class QuickReply implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<QuickReply>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -375,21 +411,25 @@ public class QuickReply implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public QuickReply createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new QuickReply(parcel) : (QuickReply) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new QuickReply(parcel);
+                }
+                return (QuickReply) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public QuickReply[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new QuickReply[i] : (QuickReply[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new QuickReply[i];
+                }
+                return (QuickReply[]) invokeI.objValue;
             }
         };
     }
@@ -406,6 +446,113 @@ public class QuickReply implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public ArrayList getButtonList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mButtonList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String getMenuName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMenuName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getPaId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPaId;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getPaName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mPaName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getRefreshTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRefreshTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mStatus;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mTimeStamp;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mType;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getVersionId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mVersionId;
+        }
+        return invokeV.longValue;
+    }
+
+    public QuickReply(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mType = parcel.readLong();
+        this.mVersionId = parcel.readLong();
+        this.mPaId = parcel.readLong();
+        this.mStatus = parcel.readLong();
+        this.mTimeStamp = parcel.readLong();
+        this.mRefreshTime = parcel.readLong();
+        this.mMenuName = parcel.readString();
+        this.mPaName = parcel.readString();
+        this.mButtonList = parcel.createTypedArrayList(ReplyContent.CREATOR);
     }
 
     public static QuickReply createQuickReply(String str) {
@@ -427,7 +574,7 @@ public class QuickReply implements Parcelable {
                 quickReply.setMenuName(jSONObject.getString("name"));
                 quickReply.setPaName(jSONObject.optString("src"));
                 JSONArray jSONArray = jSONObject.getJSONArray("button_list");
-                ArrayList<ReplyContent> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                     ReplyContent replyContent = new ReplyContent();
@@ -453,71 +600,7 @@ public class QuickReply implements Parcelable {
         return (QuickReply) invokeL.objValue;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<ReplyContent> getButtonList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mButtonList : (ArrayList) invokeV.objValue;
-    }
-
-    public String getMenuName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMenuName : (String) invokeV.objValue;
-    }
-
-    public long getPaId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPaId : invokeV.longValue;
-    }
-
-    public String getPaName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPaName : (String) invokeV.objValue;
-    }
-
-    public long getRefreshTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRefreshTime : invokeV.longValue;
-    }
-
-    public long getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mStatus : invokeV.longValue;
-    }
-
-    public long getTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTimeStamp : invokeV.longValue;
-    }
-
-    public long getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mType : invokeV.longValue;
-    }
-
-    public long getVersionId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mVersionId : invokeV.longValue;
-    }
-
-    public void setButtonList(ArrayList<ReplyContent> arrayList) {
+    public void setButtonList(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
             this.mButtonList = arrayList;
@@ -594,31 +677,5 @@ public class QuickReply implements Parcelable {
             parcel.writeString(this.mPaName);
             parcel.writeTypedList(this.mButtonList);
         }
-    }
-
-    public QuickReply(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mType = parcel.readLong();
-        this.mVersionId = parcel.readLong();
-        this.mPaId = parcel.readLong();
-        this.mStatus = parcel.readLong();
-        this.mTimeStamp = parcel.readLong();
-        this.mRefreshTime = parcel.readLong();
-        this.mMenuName = parcel.readString();
-        this.mPaName = parcel.readString();
-        this.mButtonList = parcel.createTypedArrayList(ReplyContent.CREATOR);
     }
 }

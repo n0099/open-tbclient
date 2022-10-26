@@ -28,6 +28,11 @@ public class VoteCountDownView extends LinearLayout {
     public b g;
 
     /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,11 +79,6 @@ public class VoteCountDownView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VoteCountDownView(Context context) {
         this(context, null);
@@ -97,81 +97,6 @@ public class VoteCountDownView extends LinearLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void b() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.g) == null) {
-            return;
-        }
-        bVar.a();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f090e0b);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091542);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e0c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091543);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = getContext();
-            setOrientation(0);
-            setClipToPadding(false);
-            setClipChildren(false);
-            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d090a, (ViewGroup) this, true);
-            c();
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_gradient_round, i);
-            SkinManager.setBackgroundResource(this.c, R.drawable.bg_gradient_round, i);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1, i);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1, i);
-        }
-    }
-
-    public final void f(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && this.f == null) {
-            a aVar = new a(this, j, 1000L);
-            this.f = aVar;
-            aVar.start();
-        }
-    }
-
-    public void setContent(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.e.setText(String.valueOf(j2));
-            this.d.setText(String.valueOf(j));
-        }
-    }
-
-    public void setData(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            long j2 = j + 60000;
-            setContent(j2 / 3600000, (j2 % 3600000) / 60000);
-            f(j);
-        }
-    }
-
-    public void setOnCountDownFinished(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.g = bVar;
         }
     }
 
@@ -195,5 +120,79 @@ public class VoteCountDownView extends LinearLayout {
             }
         }
         d();
+    }
+
+    public void setContent(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.e.setText(String.valueOf(j2));
+            this.d.setText(String.valueOf(j));
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundResource(this.b, R.drawable.bg_gradient_round, i);
+            SkinManager.setBackgroundResource(this.c, R.drawable.bg_gradient_round, i);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1, i);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1, i);
+        }
+    }
+
+    public final void f(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && this.f == null) {
+            a aVar = new a(this, j, 1000L);
+            this.f = aVar;
+            aVar.start();
+        }
+    }
+
+    public void setData(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            long j2 = j + 60000;
+            setContent(j2 / 3600000, (j2 % 3600000) / 60000);
+            f(j);
+        }
+    }
+
+    public void setOnCountDownFinished(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.g = bVar;
+        }
+    }
+
+    public final void b() {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.g) != null) {
+            bVar.a();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = findViewById(R.id.obfuscated_res_0x7f090dff);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091534);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e00);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091535);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = getContext();
+            setOrientation(0);
+            setClipToPadding(false);
+            setClipChildren(false);
+            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d090b, (ViewGroup) this, true);
+            c();
+        }
     }
 }

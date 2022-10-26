@@ -137,7 +137,10 @@ public class DocumentOpenUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return TextUtils.equals(PDF_TYPE, str) || TextUtils.equals(DOCUMENT_TYPE, str) || TextUtils.equals(SHEET_TYPE, str) || TextUtils.equals(PRESENT_TYPE, str) || TextUtils.equals(WORD_TYPE, str) || TextUtils.equals(EXCEL_TYPE, str) || TextUtils.equals(PPT_TYPE, str);
+            if (!TextUtils.equals(PDF_TYPE, str) && !TextUtils.equals(DOCUMENT_TYPE, str) && !TextUtils.equals(SHEET_TYPE, str) && !TextUtils.equals(PRESENT_TYPE, str) && !TextUtils.equals(WORD_TYPE, str) && !TextUtils.equals(EXCEL_TYPE, str) && !TextUtils.equals(PPT_TYPE, str)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -222,7 +225,10 @@ public class DocumentOpenUtil {
                     str2 = "";
                     break;
             }
-            return getSupportMimeType(str2) ? str2 : "";
+            if (!getSupportMimeType(str2)) {
+                return "";
+            }
+            return str2;
         }
         return (String) invokeL.objValue;
     }

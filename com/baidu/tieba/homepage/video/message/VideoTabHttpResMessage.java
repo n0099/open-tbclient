@@ -40,14 +40,13 @@ public class VideoTabHttpResMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         RecomVideoResIdl recomVideoResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (recomVideoResIdl = (RecomVideoResIdl) new Wire(new Class[0]).parseFrom(bArr, RecomVideoResIdl.class)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (recomVideoResIdl = (RecomVideoResIdl) new Wire(new Class[0]).parseFrom(bArr, RecomVideoResIdl.class)) != null) {
+            Error error = recomVideoResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(recomVideoResIdl.error.errmsg);
+            }
+            this.mResultData = recomVideoResIdl.data;
         }
-        Error error = recomVideoResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(recomVideoResIdl.error.errmsg);
-        }
-        this.mResultData = recomVideoResIdl.data;
     }
 }

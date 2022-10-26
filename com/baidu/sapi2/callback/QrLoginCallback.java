@@ -11,6 +11,10 @@ public abstract class QrLoginCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onFinish(QrLoginResult qrLoginResult);
+
+    public abstract void onLocalLogin(WebAuthResult webAuthResult);
+
     public QrLoginCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,8 +28,4 @@ public abstract class QrLoginCallback {
             }
         }
     }
-
-    public abstract void onFinish(QrLoginResult qrLoginResult);
-
-    public abstract void onLocalLogin(WebAuthResult webAuthResult);
 }

@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes8.dex */
-public class d extends c<SubAliasStatus> {
+public class d extends c {
     public String a;
     public int b;
     public String c;
-    public Map<String, Boolean> m;
+    public Map m;
 
     public d(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, null, aVar, scheduledExecutorService);
@@ -38,7 +38,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     private void b(boolean z) {
-        Map<String, Boolean> map = this.m;
+        Map map = this.m;
         map.put(this.h + "_" + this.b, Boolean.valueOf(z));
     }
 
@@ -51,8 +51,8 @@ public class d extends c<SubAliasStatus> {
     }
 
     private boolean q() {
-        Map<String, Boolean> map = this.m;
-        Boolean bool = map.get(this.h + "_" + this.b);
+        Map map = this.m;
+        Boolean bool = (Boolean) map.get(this.h + "_" + this.b);
         if (bool != null) {
             return bool.booleanValue();
         }

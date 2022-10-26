@@ -18,7 +18,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     public int l;
 
     /* loaded from: classes8.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0641a<T> {
+    public abstract class a extends a.AbstractC0637a {
         public String a;
         public String b;
         public String c;
@@ -29,71 +29,71 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         public String h;
         public int i = 0;
 
-        public T a(int i) {
+        public a a(int i) {
             this.i = i;
-            return (T) a();
+            return (a) a();
         }
 
-        public T a(String str) {
+        public a a(String str) {
             this.a = str;
-            return (T) a();
+            return (a) a();
         }
 
-        public T b(String str) {
+        public a b(String str) {
             this.b = str;
-            return (T) a();
+            return (a) a();
         }
 
         public b b() {
             return new b(this);
         }
 
-        public T c(String str) {
+        public a c(String str) {
             this.c = str;
-            return (T) a();
+            return (a) a();
         }
 
-        public T d(String str) {
+        public a d(String str) {
             this.d = str;
-            return (T) a();
+            return (a) a();
         }
 
-        public T e(String str) {
+        public a e(String str) {
             this.e = str;
-            return (T) a();
+            return (a) a();
         }
 
-        public T f(String str) {
+        public a f(String str) {
             this.f = str;
-            return (T) a();
+            return (a) a();
         }
 
-        public T g(String str) {
+        public a g(String str) {
             this.g = str;
-            return (T) a();
+            return (a) a();
         }
 
-        public T h(String str) {
+        public a h(String str) {
             this.h = str;
-            return (T) a();
+            return (a) a();
         }
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0642b extends a<C0642b> {
-        public C0642b() {
+    public class C0638b extends a {
+        public C0638b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0641a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0637a
         /* renamed from: c */
-        public C0642b a() {
+        public C0638b a() {
             return this;
         }
     }
 
-    public b(a<?> aVar) {
+    public b(a aVar) {
         super(aVar);
         this.e = aVar.b;
         this.f = aVar.c;
@@ -106,8 +106,8 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         this.l = aVar.i;
     }
 
-    public static a<?> d() {
-        return new C0642b();
+    public static a d() {
+        return new C0638b();
     }
 
     public c e() {

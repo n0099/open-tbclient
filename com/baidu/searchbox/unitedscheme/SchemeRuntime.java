@@ -1,17 +1,14 @@
 package com.baidu.searchbox.unitedscheme;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
-import com.baidu.tieba.kq3;
-import com.baidu.tieba.mq3;
+import com.baidu.tieba.lq3;
+import com.baidu.tieba.nq3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class SchemeRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -31,17 +28,21 @@ public class SchemeRuntime {
         }
     }
 
-    @Inject
     public static ISchemeHeadIoc getSchemeHeadIoc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? kq3.a() : (ISchemeHeadIoc) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return lq3.a();
+        }
+        return (ISchemeHeadIoc) invokeV.objValue;
     }
 
-    @Inject
     public static ISchemeIoc getSchemeIoc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mq3.a() : (ISchemeIoc) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return nq3.a();
+        }
+        return (ISchemeIoc) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.piff;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +26,7 @@ public class TfrfBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Entry> entries;
+    public List entries;
 
     /* loaded from: classes7.dex */
     public class Entry {
@@ -56,13 +57,19 @@ public class TfrfBox extends AbstractFullBox {
         public long getFragmentAbsoluteDuration() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.fragmentAbsoluteDuration : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.fragmentAbsoluteDuration;
+            }
+            return invokeV.longValue;
         }
 
         public long getFragmentAbsoluteTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fragmentAbsoluteTime : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.fragmentAbsoluteTime;
+            }
+            return invokeV.longValue;
         }
 
         public String toString() {
@@ -91,6 +98,53 @@ public class TfrfBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int size = this.entries.size();
+            if (getVersion() == 1) {
+                i = 16;
+            } else {
+                i = 8;
+            }
+            return (size * i) + 5;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long getFragmentCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.entries.size();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public byte[] getUserType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new byte[]{-44, Byte.MIN_VALUE, 126, -14, ExifInterface.MARKER_SOF10, 57, 70, -107, -114, 84, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, ExifInterface.MARKER_SOF11, -98, 70, -89, -97};
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TfrfBox() {
         super("uuid");
@@ -108,6 +162,16 @@ public class TfrfBox extends AbstractFullBox {
             }
         }
         this.entries = new ArrayList();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return "TfrfBox{entries=" + this.entries + '}';
+        }
+        return (String) invokeV.objValue;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -153,52 +217,5 @@ public class TfrfBox extends AbstractFullBox {
                 }
             }
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (this.entries.size() * (getVersion() == 1 ? 16 : 8)) + 5;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public long getFragmentCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries.size();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public byte[] getUserType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new byte[]{-44, Byte.MIN_VALUE, 126, -14, -54, 57, 70, -107, -114, 84, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -53, -98, 70, -89, -97} : (byte[]) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "TfrfBox{entries=" + this.entries + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

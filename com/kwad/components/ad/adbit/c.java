@@ -1,8 +1,6 @@
 package com.kwad.components.ad.adbit;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,13 +25,12 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T extends com.kwad.components.core.k.a> T a(com.kwad.sdk.d.b<T> bVar) {
+    public static com.kwad.components.core.k.a a(com.kwad.sdk.d.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) ? bVar.get() : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) ? (com.kwad.components.core.k.a) bVar.get() : (com.kwad.components.core.k.a) invokeL.objValue;
     }
 
-    @Nullable
     public static AdTemplate a(AdBitResultData adBitResultData, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
@@ -48,7 +45,7 @@ public final class c {
         return (AdTemplate) invokeLJ.objValue;
     }
 
-    public static List<String> a(AdBitResultData adBitResultData) {
+    public static List a(AdBitResultData adBitResultData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adBitResultData)) == null) {
@@ -63,7 +60,7 @@ public final class c {
         return (List) invokeL.objValue;
     }
 
-    public static List<AdTemplate> a(AdBitResultData adBitResultData, AdBitResultData adBitResultData2) {
+    public static List a(AdBitResultData adBitResultData, AdBitResultData adBitResultData2) {
         InterceptResult invokeLL;
         AdTemplate a;
         Interceptable interceptable = $ic;
@@ -83,14 +80,14 @@ public final class c {
         return (List) invokeLL.objValue;
     }
 
-    public static void a(String str, @NonNull com.kwad.components.core.k.kwai.a aVar) {
+    public static void a(String str, com.kwad.components.core.k.kwai.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 AdBitResultData adBitResultData = new AdBitResultData(aVar.EI.HS);
                 adBitResultData.parseJson(jSONObject);
-                List<String> a = a(adBitResultData);
+                List a = a(adBitResultData);
                 if (a.isEmpty()) {
                     com.kwad.components.core.k.kwai.a.a(aVar, f.Yd.errorCode, f.Yd.Qd, false);
                 } else {
@@ -104,10 +101,10 @@ public final class c {
         }
     }
 
-    public static void a(List<String> list, AdBitResultData adBitResultData, com.kwad.components.core.k.kwai.a aVar) {
+    public static void a(List list, AdBitResultData adBitResultData, com.kwad.components.core.k.kwai.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, list, adBitResultData, aVar) == null) {
-            new m<com.kwad.components.ad.kwai.b, AdBitResultData>(aVar, adBitResultData, list) { // from class: com.kwad.components.ad.adbit.c.4
+            new m(aVar, adBitResultData, list) { // from class: com.kwad.components.ad.adbit.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.components.core.k.kwai.a aB;
@@ -137,7 +134,6 @@ public final class c {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
                 @Override // com.kwad.sdk.core.network.a
-                @NonNull
                 /* renamed from: af */
                 public com.kwad.components.ad.kwai.b createRequest() {
                     InterceptResult invokeV;
@@ -148,7 +144,6 @@ public final class c {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
                 @Override // com.kwad.sdk.core.network.m
-                @NonNull
                 /* renamed from: s */
                 public AdBitResultData parseData(String str) {
                     InterceptResult invokeL;
@@ -161,7 +156,7 @@ public final class c {
                     }
                     return (AdBitResultData) invokeL.objValue;
                 }
-            }.request(new n<com.kwad.components.ad.kwai.b, AdBitResultData>(adBitResultData, aVar) { // from class: com.kwad.components.ad.adbit.c.5
+            }.request(new n(adBitResultData, aVar) { // from class: com.kwad.components.ad.adbit.c.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.components.core.k.kwai.a aB;
@@ -193,7 +188,7 @@ public final class c {
                     }
                 }
 
-                private void c(@NonNull AdBitResultData adBitResultData2) {
+                private void c(AdBitResultData adBitResultData2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65538, this, adBitResultData2) == null) {
                         adBitResultData2.setAdTemplateList(c.a(this.aD, adBitResultData2));
@@ -203,7 +198,7 @@ public final class c {
                             com.kwad.components.core.k.kwai.a.a(aVar2, fVar.errorCode, fVar.Qd, false);
                             return;
                         }
-                        AdTemplate adTemplate = adBitResultData2.getAdTemplateList().get(0);
+                        AdTemplate adTemplate = (AdTemplate) adBitResultData2.getAdTemplateList().get(0);
                         int i = this.aB.EI.HS.adStyle;
                         if (i == 10000 || i == d.bK(adTemplate)) {
                             com.kwad.components.core.k.kwai.a.a(this.aB, adBitResultData2, false);
@@ -216,19 +211,19 @@ public final class c {
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onError(@NonNull g gVar, int i, String str) {
+                public final /* synthetic */ void onError(g gVar, int i, String str) {
                     b(i, str);
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onSuccess(@NonNull g gVar, @NonNull BaseResultData baseResultData) {
+                public final /* synthetic */ void onSuccess(g gVar, BaseResultData baseResultData) {
                     c((AdBitResultData) baseResultData);
                 }
             });
         }
     }
 
-    public static List<AdTemplate> b(AdBitResultData adBitResultData) {
+    public static List b(AdBitResultData adBitResultData) {
         InterceptResult invokeL;
         AdTemplate a;
         Interceptable interceptable = $ic;
@@ -248,7 +243,7 @@ public final class c {
         return (List) invokeL.objValue;
     }
 
-    public static boolean b(@NonNull com.kwad.components.core.k.kwai.a aVar) {
+    public static boolean b(com.kwad.components.core.k.kwai.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aVar)) == null) {
@@ -300,7 +295,7 @@ public final class c {
                                 com.kwad.components.core.k.kwai.a.a(this.aB, f.Yd.errorCode, f.Yd.Qd, true);
                                 return;
                             }
-                            AdTemplate adTemplate = adBitResultData.getAdTemplateList().get(0);
+                            AdTemplate adTemplate = (AdTemplate) adBitResultData.getAdTemplateList().get(0);
                             int adStyle = this.aB.EI.HS.getAdStyle();
                             if (adStyle == 10000 || adStyle == d.bK(adTemplate)) {
                                 com.kwad.components.core.k.kwai.a.a(this.aB, adBitResultData, true);
@@ -325,7 +320,7 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, ksScene)) == null) {
-            b bVar = (b) a(new com.kwad.sdk.d.b<b>(new a.C0575a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo()) { // from class: com.kwad.components.ad.adbit.c.1
+            b bVar = (b) a(new com.kwad.sdk.d.b(new a.C0571a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo()) { // from class: com.kwad.components.ad.adbit.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.components.core.k.kwai.a aB;
@@ -367,7 +362,7 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, ksScene)) == null) {
-            com.kwad.components.ad.kwai.a aVar = (com.kwad.components.ad.kwai.a) a(new com.kwad.sdk.d.b<com.kwad.components.ad.kwai.a>(new a.C0575a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo()) { // from class: com.kwad.components.ad.adbit.c.2
+            com.kwad.components.ad.kwai.a aVar = (com.kwad.components.ad.kwai.a) a(new com.kwad.sdk.d.b(new a.C0571a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo()) { // from class: com.kwad.components.ad.adbit.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.kwad.components.core.k.kwai.a aB;

@@ -1,9 +1,6 @@
 package com.kwad.sdk.crash.report;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
@@ -22,12 +19,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class d {
     public String mErrorMessage = "";
     public e mUploader;
 
-    private void a(ExceptionMessage exceptionMessage, @NonNull List<File> list, @Nullable CountDownLatch countDownLatch) {
+    private void a(ExceptionMessage exceptionMessage, List list, CountDownLatch countDownLatch) {
         com.kwad.sdk.core.e.b.d("ExceptionCollector", "compressAndUpload");
         File wv = this.mUploader.wv();
         if (!wv.exists()) {
@@ -117,8 +114,7 @@ public abstract class d {
         }
     }
 
-    @SuppressLint({"CheckResult"})
-    public static void b(File file, @Nullable CountDownLatch countDownLatch) {
+    public static void b(File file, CountDownLatch countDownLatch) {
         com.kwad.sdk.crash.report.upload.d.a(file, true, countDownLatch);
     }
 
@@ -126,14 +122,14 @@ public abstract class d {
         return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
     }
 
-    public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
+    public abstract ExceptionMessage a(File file, File file2, File file3, String str);
 
     public final void a(e eVar) {
         this.mUploader = eVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, CHECK_CAST, INVOKE, INVOKE, GOTO, INVOKE, MOVE_EXCEPTION, SGET, INVOKE, IF, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public final void a(File file, @Nullable CountDownLatch countDownLatch) {
+    public final void a(File file, CountDownLatch countDownLatch) {
         File[] listFiles;
         String df = com.kwad.sdk.crash.utils.f.df(file.getPath());
         File file2 = new File(df + ".msg");
@@ -191,11 +187,11 @@ public abstract class d {
                 }
             }
             com.kwad.sdk.crash.utils.f.B(file4);
-            List<File> arrayList2 = new ArrayList<>();
+            ArrayList arrayList2 = new ArrayList();
             Collections.addAll(arrayList2, file3, file4);
-            Iterator<File> it = arrayList2.iterator();
+            Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
-                if (!it.next().exists()) {
+                if (!((File) it.next()).exists()) {
                     it.remove();
                 }
             }
@@ -373,7 +369,6 @@ public abstract class d {
         }
     }
 
-    @SuppressLint({"CheckResult"})
     public final void z(File file) {
         com.kwad.sdk.core.e.b.d("ExceptionCollector", "reportException dir =" + file);
         File[] listFiles = file.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.report.d.1

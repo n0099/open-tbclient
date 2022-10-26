@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q11 {
+public class q11 implements s11 {
     public static /* synthetic */ Interceptable $ic;
-    public static q11 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public r11 a;
 
     public q11() {
         Interceptable interceptable = $ic;
@@ -24,36 +20,23 @@ public class q11 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new o11();
-        if (h11.a()) {
-            return;
-        }
-        this.a = new p11();
     }
 
-    public static q11 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s11
+    public void a(Runnable runnable, String str, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (q11.class) {
-                    if (b == null) {
-                        b = new q11();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            x11.f().m(runnable, str, i, j);
         }
-        return (q11) invokeV.objValue;
     }
 
-    @NonNull
-    public r11 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s11
+    public void b(Runnable runnable, String str, long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (r11) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            x11.f().q(runnable, str, j);
+        }
     }
 }

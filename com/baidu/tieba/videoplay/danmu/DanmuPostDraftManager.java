@@ -22,14 +22,22 @@ import kotlin.jvm.internal.Intrinsics;
 public final class DanmuPostDraftManager {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
-    public static final Lazy<DanmuPostDraftManager> c;
+    public static final Lazy c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
+    public HashMap a;
+
+    public /* synthetic */ DanmuPostDraftManager(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,14 +53,13 @@ public final class DanmuPostDraftManager {
             }
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
         public final DanmuPostDraftManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuPostDraftManager) DanmuPostDraftManager.c.getValue() : (DanmuPostDraftManager) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return (DanmuPostDraftManager) DanmuPostDraftManager.c.getValue();
+            }
+            return (DanmuPostDraftManager) invokeV.objValue;
         }
     }
 
@@ -86,11 +93,7 @@ public final class DanmuPostDraftManager {
                 return;
             }
         }
-        this.a = new HashMap<>();
-    }
-
-    public /* synthetic */ DanmuPostDraftManager(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
+        this.a = new HashMap();
     }
 
     public final String b(String threadId) {
@@ -98,8 +101,11 @@ public final class DanmuPostDraftManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadId)) == null) {
             Intrinsics.checkNotNullParameter(threadId, "threadId");
-            String str = this.a.get(threadId);
-            return str == null ? "" : str;
+            String str = (String) this.a.get(threadId);
+            if (str == null) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }

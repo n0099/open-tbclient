@@ -19,7 +19,7 @@ public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    public /* synthetic */ class AnonymousClass2 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class b {
     }
 
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -154,7 +154,7 @@ public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0038b {
+    public final class C0038b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -271,7 +271,7 @@ public class b {
     }
 
     /* loaded from: classes.dex */
-    public static final class c {
+    public final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -332,7 +332,7 @@ public class b {
     }
 
     /* loaded from: classes.dex */
-    public static final class d {
+    public final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;

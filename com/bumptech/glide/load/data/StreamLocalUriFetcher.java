@@ -4,7 +4,6 @@ import android.content.ContentResolver;
 import android.content.UriMatcher;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
+public class StreamLocalUriFetcher extends LocalUriFetcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_CONTACTS_CONTACT = 3;
     public static final int ID_CONTACTS_LOOKUP = 1;
@@ -77,11 +76,12 @@ public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, uri, contentResolver)) == null) {
             int match = URI_MATCHER.match(uri);
             if (match != 1) {
-                if (match == 3) {
+                if (match != 3) {
+                    if (match != 5) {
+                        return contentResolver.openInputStream(uri);
+                    }
+                } else {
                     return openContactPhotoInputStream(contentResolver, uri);
-                }
-                if (match != 5) {
-                    return contentResolver.openInputStream(uri);
                 }
             }
             Uri lookupContact = ContactsContract.Contacts.lookupContact(contentResolver, uri);
@@ -96,28 +96,13 @@ public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
     private InputStream openContactPhotoInputStream(ContentResolver contentResolver, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, contentResolver, uri)) == null) ? ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, uri, true) : (InputStream) invokeLL.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
-    public Class<InputStream> getDataClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? InputStream.class : (Class) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.data.LocalUriFetcher
-    public void close(InputStream inputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, inputStream) == null) {
-            inputStream.close();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, contentResolver, uri)) == null) {
+            return ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, uri, true);
         }
+        return (InputStream) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public InputStream loadResource(Uri uri, ContentResolver contentResolver) throws FileNotFoundException {
         InterceptResult invokeLL;
@@ -130,5 +115,24 @@ public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
             throw new FileNotFoundException("InputStream is null for " + uri);
         }
         return (InputStream) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.data.LocalUriFetcher
+    public void close(InputStream inputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, inputStream) == null) {
+            inputStream.close();
+        }
+    }
+
+    @Override // com.bumptech.glide.load.data.DataFetcher
+    public Class getDataClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return InputStream.class;
+        }
+        return (Class) invokeV.objValue;
     }
 }

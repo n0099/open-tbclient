@@ -20,6 +20,33 @@ public final class WebSocketTask implements IWebSocketClient {
     public final String taskId;
     public final IWebSocketClient webSocketClient;
 
+    @Override // com.baidu.searchbox.websocket.IWebSocketClient
+    public void close(int i, String reason) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, reason) == null) {
+            Intrinsics.checkNotNullParameter(reason, "reason");
+            this.webSocketClient.close(i, reason);
+        }
+    }
+
+    @Override // com.baidu.searchbox.websocket.IWebSocketClient
+    public void send(String message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+            Intrinsics.checkNotNullParameter(message, "message");
+            this.webSocketClient.send(message);
+        }
+    }
+
+    @Override // com.baidu.searchbox.websocket.IWebSocketClient
+    public void send(ByteBuffer data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            this.webSocketClient.send(data);
+        }
+    }
+
     public WebSocketTask(IWebSocketClient webSocketClient) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,15 +68,6 @@ public final class WebSocketTask implements IWebSocketClient {
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
-    public void close(int i, String reason) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, reason) == null) {
-            Intrinsics.checkNotNullParameter(reason, "reason");
-            this.webSocketClient.close(i, reason);
-        }
-    }
-
-    @Override // com.baidu.searchbox.websocket.IWebSocketClient
     public void connect(WebSocketRequest request, final IWebSocketListener listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, listener) == null) {
@@ -61,6 +79,33 @@ public final class WebSocketTask implements IWebSocketClient {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IWebSocketListener $listener;
                 public final /* synthetic */ WebSocketTask this$0;
+
+                @Override // com.baidu.searchbox.websocket.IWebSocketListener
+                public void onMessage(String message) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+                        Intrinsics.checkNotNullParameter(message, "message");
+                        this.$$delegate_0.onMessage(message);
+                    }
+                }
+
+                @Override // com.baidu.searchbox.websocket.IWebSocketListener
+                public void onMessage(ByteBuffer data) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, data) == null) {
+                        Intrinsics.checkNotNullParameter(data, "data");
+                        this.$$delegate_0.onMessage(data);
+                    }
+                }
+
+                @Override // com.baidu.searchbox.websocket.IWebSocketListener
+                public void onOpen(Map headers) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, headers) == null) {
+                        Intrinsics.checkNotNullParameter(headers, "headers");
+                        this.$$delegate_0.onOpen(headers);
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -106,33 +151,6 @@ public final class WebSocketTask implements IWebSocketClient {
                         iWebSocketListener.onError(t, jSONObject.put("taskID", this.this$0.getTaskId()));
                     }
                 }
-
-                @Override // com.baidu.searchbox.websocket.IWebSocketListener
-                public void onMessage(String message) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-                        Intrinsics.checkNotNullParameter(message, "message");
-                        this.$$delegate_0.onMessage(message);
-                    }
-                }
-
-                @Override // com.baidu.searchbox.websocket.IWebSocketListener
-                public void onMessage(ByteBuffer data) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, data) == null) {
-                        Intrinsics.checkNotNullParameter(data, "data");
-                        this.$$delegate_0.onMessage(data);
-                    }
-                }
-
-                @Override // com.baidu.searchbox.websocket.IWebSocketListener
-                public void onOpen(Map<String, String> headers) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, headers) == null) {
-                        Intrinsics.checkNotNullParameter(headers, "headers");
-                        this.$$delegate_0.onOpen(headers);
-                    }
-                }
             });
         }
     }
@@ -140,25 +158,10 @@ public final class WebSocketTask implements IWebSocketClient {
     public final String getTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.taskId : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.websocket.IWebSocketClient
-    public void send(String message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-            Intrinsics.checkNotNullParameter(message, "message");
-            this.webSocketClient.send(message);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.taskId;
         }
-    }
-
-    @Override // com.baidu.searchbox.websocket.IWebSocketClient
-    public void send(ByteBuffer data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            this.webSocketClient.send(data);
-        }
+        return (String) invokeV.objValue;
     }
 
     public final JSONObject toJSON() {

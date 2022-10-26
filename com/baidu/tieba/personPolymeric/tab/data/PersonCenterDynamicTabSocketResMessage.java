@@ -1,6 +1,5 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -22,7 +21,7 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
     public transient /* synthetic */ FieldHolder $fh;
     public long mCursor;
     public boolean mHasMore;
-    public List<ThreadData> mThreadDataList;
+    public List mThreadDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterDynamicTabSocketResMessage() {
@@ -46,11 +45,11 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            boolean z = false;
             GetShoubaiThreadListResIdl getShoubaiThreadListResIdl = (GetShoubaiThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetShoubaiThreadListResIdl.class);
             if (getShoubaiThreadListResIdl == null) {
                 return null;
@@ -62,7 +61,10 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
             PageInfo pageInfo = dataRes.page;
             if (pageInfo != null) {
                 this.mCursor = pageInfo.cursor.longValue();
-                this.mHasMore = getShoubaiThreadListResIdl.data.page.has_more.intValue() == 1;
+                if (getShoubaiThreadListResIdl.data.page.has_more.intValue() == 1) {
+                    z = true;
+                }
+                this.mHasMore = z;
             }
             if (!ListUtils.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
                 for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {

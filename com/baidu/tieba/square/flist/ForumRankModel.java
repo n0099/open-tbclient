@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,13 +27,13 @@ public class ForumRankModel extends BdBaseModel {
     public String c;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<Void, ForumRankData, ForumRankData> {
+    public class b extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankModel a;
@@ -58,6 +58,37 @@ public class ForumRankModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForumRankData forumRankData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRankData) != null) {
+                return;
+            }
+            this.a.b = null;
+            if (this.a.mLoadDataCallBack != null) {
+                this.a.mLoadDataCallBack.c(forumRankData);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(ForumRankData... forumRankDataArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, forumRankDataArr) == null) {
+                super.onProgressUpdate(forumRankDataArr);
+                if (this.a.mLoadDataCallBack != null && forumRankDataArr != null && forumRankDataArr.length > 0) {
+                    this.a.mLoadDataCallBack.c(forumRankDataArr[0]);
+                }
+            }
+        }
+
+        public /* synthetic */ b(ForumRankModel forumRankModel, a aVar) {
+            this(forumRankModel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public ForumRankData doInBackground(Void... voidArr) {
             InterceptResult invokeL;
@@ -65,10 +96,10 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                mu4.f();
-                jf<String> g = mu4.g("tb.forum_rank");
+                ou4.f();
+                kf g = ou4.g("tb.forum_rank");
                 if (g != null) {
-                    str = g.get("forum_rank_cache_key_" + this.a.a);
+                    str = (String) g.get("forum_rank_cache_key_" + this.a.a);
                 } else {
                     str = null;
                 }
@@ -90,19 +121,6 @@ public class ForumRankModel extends BdBaseModel {
             return (ForumRankData) invokeL.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ForumRankData forumRankData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRankData) == null) {
-                this.a.b = null;
-                if (this.a.mLoadDataCallBack != null) {
-                    this.a.mLoadDataCallBack.c(forumRankData);
-                }
-            }
-        }
-
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
@@ -111,24 +129,31 @@ public class ForumRankModel extends BdBaseModel {
                 this.a.b = null;
             }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onProgressUpdate(ForumRankData... forumRankDataArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, forumRankDataArr) == null) {
-                super.onProgressUpdate(forumRankDataArr);
-                if (this.a.mLoadDataCallBack == null || forumRankDataArr == null || forumRankDataArr.length <= 0) {
-                    return;
-                }
-                this.a.mLoadDataCallBack.c(forumRankDataArr[0]);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ForumRankModel(Intent intent) {
+        super(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        public /* synthetic */ b(ForumRankModel forumRankModel, a aVar) {
-            this(forumRankModel);
-        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = intent.getStringExtra("id");
+        this.c = intent.getStringExtra("st_type");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -196,30 +221,5 @@ public class ForumRankModel extends BdBaseModel {
             return true;
         }
         return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumRankModel(Intent intent) {
-        super(null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {intent};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = intent.getStringExtra("id");
-        this.c = intent.getStringExtra("st_type");
     }
 }

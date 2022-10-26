@@ -1,15 +1,30 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface q5a extends n5a {
+public class q5a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
+    public static void a(Context context, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, context, view2) == null) && context != null && view2 != null) {
+            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
+        }
     }
 
-    void setCallback(a aVar);
-
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+    public static void b(Activity activity, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view2) == null) {
+            if (view2 == null && (view2 = activity.getCurrentFocus()) == null) {
+                return;
+            }
+            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view2, 1);
+        }
+    }
 }

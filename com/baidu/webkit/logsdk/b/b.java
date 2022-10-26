@@ -26,9 +26,9 @@ public final class b {
     public static String c = "1_0";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public HashMap<String, a> d;
-    public HashMap<String, String> e;
-    public HashMap<String, c> f;
+    public HashMap d;
+    public HashMap e;
+    public HashMap f;
 
     static {
         InterceptResult invokeClinit;
@@ -58,9 +58,9 @@ public final class b {
                 return;
             }
         }
-        this.d = new HashMap<>();
-        this.e = new HashMap<>();
-        this.f = new HashMap<>();
+        this.d = new HashMap();
+        this.e = new HashMap();
+        this.f = new HashMap();
         this.d.clear();
         this.e.clear();
     }
@@ -151,7 +151,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String str2 = "";
             if (this.d.containsKey(str)) {
-                return this.d.get(str);
+                return (a) this.d.get(str);
             }
             SharedPreferences a = a();
             int i = 1;
@@ -275,7 +275,7 @@ public final class b {
     public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.e.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? (String) this.e.get(str) : (String) invokeL.objValue;
     }
 
     public final c d(String str) {
@@ -283,7 +283,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             if (this.f.containsKey(str)) {
-                return this.f.get(str);
+                return (c) this.f.get(str);
             }
             SharedPreferences a = a();
             String string = a.getString(str + "@body", "");

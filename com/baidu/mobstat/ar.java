@@ -1,69 +1,131 @@
 package com.baidu.mobstat;
 
-import android.app.Activity;
-import android.view.KeyEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.MtjConfig;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
+    public static final ar e;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public float b;
+    public long c;
+    public volatile boolean d;
 
-    public static void a(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, feedTrackStrategy) == null) {
-            at.a().a(feedTrackStrategy);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581657377, "Lcom/baidu/mobstat/ar;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(581657377, "Lcom/baidu/mobstat/ar;");
+                return;
+            }
         }
+        e = new ar();
     }
 
-    public static void b(Activity activity, boolean z) {
+    public ar() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) || !z || as.a().b() || at.a().b()) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        at.a().b(activity);
+        this.a = false;
+        this.b = 50.0f;
+        this.c = 500L;
     }
 
-    public static void c(Activity activity, boolean z) {
+    public static ar a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65542, null, activity, z) == null) || !z || as.a().b() || at.a().b()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return e;
         }
-        at.a().c(activity);
+        return (ar) invokeV.objValue;
     }
 
-    public static void a(Activity activity, boolean z) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) || !z || as.a().b() || at.a().b()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        at.a().a(activity);
+        return invokeV.booleanValue;
     }
 
-    public static void a(View view2, Activity activity) {
+    public float c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, view2, activity) == null) || as.a().b() || at.a().b()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            float f = this.b;
+            if (f < 0.0f) {
+                f = 0.0f;
+            } else if (f > 100.0f) {
+                f = 100.0f;
+            }
+            return f / 100.0f;
         }
-        at.a().a(view2, activity);
+        return invokeV.floatValue;
     }
 
-    public static void a(KeyEvent keyEvent) {
+    public long d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, keyEvent) == null) || as.a().b() || at.a().b()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
-        at.a().a(keyEvent);
+        return invokeV.longValue;
     }
 
-    public static void a(String str) {
+    public void a(String str) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || at.a().b()) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        at.a().a(str);
+        try {
+            JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("sv");
+            if (jSONObject != null) {
+                int optInt = jSONObject.optInt("close");
+                String optString = jSONObject.optString("area");
+                String optString2 = jSONObject.optString("duration");
+                if (optInt != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.a = z;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        this.b = Float.valueOf(optString).floatValue();
+                    } catch (Exception unused) {
+                    }
+                }
+                if (!TextUtils.isEmpty(optString2)) {
+                    this.c = Long.valueOf(optString2).longValue();
+                }
+            }
+        } catch (Exception unused2) {
+        }
+        this.d = true;
     }
 }

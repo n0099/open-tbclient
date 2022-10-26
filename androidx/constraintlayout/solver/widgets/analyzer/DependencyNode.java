@@ -90,13 +90,19 @@ public class DependencyNode implements Dependency {
         public static Type valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Type) Enum.valueOf(Type.class, str);
+            }
+            return (Type) invokeL.objValue;
         }
 
         public static Type[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Type[]) $VALUES.clone();
+            }
+            return (Type[]) invokeV.objValue;
         }
     }
 
@@ -137,6 +143,18 @@ public class DependencyNode implements Dependency {
         }
     }
 
+    public void resolve(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.resolved) {
+            return;
+        }
+        this.resolved = true;
+        this.value = i;
+        for (Dependency dependency : this.dependencies) {
+            dependency.update(dependency);
+        }
+    }
+
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -166,20 +184,9 @@ public class DependencyNode implements Dependency {
         return (String) invokeV.objValue;
     }
 
-    public void resolve(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.resolved) {
-            return;
-        }
-        this.resolved = true;
-        this.value = i;
-        for (Dependency dependency : this.dependencies) {
-            dependency.update(dependency);
-        }
-    }
-
     public String toString() {
         InterceptResult invokeV;
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -187,7 +194,12 @@ public class DependencyNode implements Dependency {
             sb.append(":");
             sb.append(this.type);
             sb.append("(");
-            sb.append(this.resolved ? Integer.valueOf(this.value) : "unresolved");
+            if (this.resolved) {
+                obj = Integer.valueOf(this.value);
+            } else {
+                obj = "unresolved";
+            }
+            sb.append(obj);
             sb.append(") <t=");
             sb.append(this.targets.size());
             sb.append(":d=");
@@ -227,10 +239,11 @@ public class DependencyNode implements Dependency {
             if (dependencyNode2 != null && i == 1 && dependencyNode2.resolved) {
                 DimensionDependency dimensionDependency = this.marginDependency;
                 if (dimensionDependency != null) {
-                    if (!dimensionDependency.resolved) {
+                    if (dimensionDependency.resolved) {
+                        this.margin = this.marginFactor * dimensionDependency.value;
+                    } else {
                         return;
                     }
-                    this.margin = this.marginFactor * dimensionDependency.value;
                 }
                 resolve(dependencyNode2.value + this.margin);
             }

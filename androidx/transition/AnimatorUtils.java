@@ -3,7 +3,6 @@ package androidx.transition;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,15 +34,14 @@ public class AnimatorUtils {
         }
     }
 
-    public static void addPauseListener(@NonNull Animator animator, @NonNull AnimatorListenerAdapter animatorListenerAdapter) {
+    public static void addPauseListener(Animator animator, AnimatorListenerAdapter animatorListenerAdapter) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, animator, animatorListenerAdapter) == null) || Build.VERSION.SDK_INT < 19) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, animator, animatorListenerAdapter) == null) && Build.VERSION.SDK_INT >= 19) {
+            animator.addPauseListener(animatorListenerAdapter);
         }
-        animator.addPauseListener(animatorListenerAdapter);
     }
 
-    public static void pause(@NonNull Animator animator) {
+    public static void pause(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, animator) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
@@ -63,7 +61,7 @@ public class AnimatorUtils {
         }
     }
 
-    public static void resume(@NonNull Animator animator) {
+    public static void resume(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, animator) == null) {
             if (Build.VERSION.SDK_INT >= 19) {

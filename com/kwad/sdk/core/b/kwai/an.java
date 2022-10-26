@@ -4,9 +4,8 @@ import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class an implements com.kwad.sdk.core.d<PhotoInfo.BaseInfo> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {
+public final class an implements com.kwad.sdk.core.d {
+    public static void a(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -41,8 +40,7 @@ public final class an implements com.kwad.sdk.core.d<PhotoInfo.BaseInfo> {
         baseInfo.contentSourceType = jSONObject.optInt("contentSourceType");
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {
+    public static JSONObject b(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -102,15 +100,13 @@ public final class an implements com.kwad.sdk.core.d<PhotoInfo.BaseInfo> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {
-        a2(baseInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((PhotoInfo.BaseInfo) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(PhotoInfo.BaseInfo baseInfo, JSONObject jSONObject) {
-        return b2(baseInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((PhotoInfo.BaseInfo) bVar, jSONObject);
     }
 }

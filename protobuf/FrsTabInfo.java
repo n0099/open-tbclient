@@ -49,7 +49,13 @@ public final class FrsTabInfo extends Message {
     public final Integer tabVersion;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<FrsTabInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer isDefault;
@@ -117,14 +123,11 @@ public final class FrsTabInfo extends Message {
         public FrsTabInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new FrsTabInfo(this, z, null) : (FrsTabInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new FrsTabInfo(this, z, null);
+            }
+            return (FrsTabInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -146,10 +149,6 @@ public final class FrsTabInfo extends Message {
         DEFAULT_TABVERSION = 0;
         DEFAULT_ISDEFAULT = 0;
         DEFAULT_NEEDPAGE = 0;
-    }
-
-    public /* synthetic */ FrsTabInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -251,5 +250,9 @@ public final class FrsTabInfo extends Message {
         this.tabVersion = builder.tabVersion;
         this.isDefault = builder.isDefault;
         this.needPage = builder.needPage;
+    }
+
+    public /* synthetic */ FrsTabInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

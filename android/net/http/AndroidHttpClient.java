@@ -45,58 +45,6 @@ public final class AndroidHttpClient implements HttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    public static AbstractHttpEntity getCompressedEntity(byte[] bArr, ContentResolver contentResolver) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, contentResolver)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (AbstractHttpEntity) invokeLL.objValue;
-    }
-
-    public static long getMinGzipSize(ContentResolver contentResolver) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, contentResolver)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.longValue;
-    }
-
-    public static InputStream getUngzippedContent(HttpEntity httpEntity) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, httpEntity)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (InputStream) invokeL.objValue;
-    }
-
-    public static void modifyRequestToAcceptGzipResponse(HttpRequest httpRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpRequest) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public static AndroidHttpClient newInstance(String str, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, context)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (AndroidHttpClient) invokeLL.objValue;
-    }
-
-    public static long parseDate(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.longValue;
-    }
-
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -109,23 +57,6 @@ public final class AndroidHttpClient implements HttpClient {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public void enableCurlLogging(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.client.HttpClient
-    public HttpResponse execute(HttpUriRequest httpUriRequest) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, httpUriRequest)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpResponse) invokeL.objValue;
     }
 
     public void finalize() throws Throwable {
@@ -155,6 +86,66 @@ public final class AndroidHttpClient implements HttpClient {
         return (HttpParams) invokeV.objValue;
     }
 
+    public static AbstractHttpEntity getCompressedEntity(byte[] bArr, ContentResolver contentResolver) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, contentResolver)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (AbstractHttpEntity) invokeLL.objValue;
+    }
+
+    public static AndroidHttpClient newInstance(String str, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, context)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (AndroidHttpClient) invokeLL.objValue;
+    }
+
+    public void enableCurlLogging(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler) throws IOException, ClientProtocolException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, httpUriRequest, responseHandler)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLL.objValue;
+    }
+
+    public static long getMinGzipSize(ContentResolver contentResolver) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, contentResolver)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.longValue;
+    }
+
+    public static InputStream getUngzippedContent(HttpEntity httpEntity) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, httpEntity)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    public static void modifyRequestToAcceptGzipResponse(HttpRequest httpRequest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpRequest) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public static AndroidHttpClient newInstance(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -164,14 +155,53 @@ public final class AndroidHttpClient implements HttpClient {
         return (AndroidHttpClient) invokeL.objValue;
     }
 
-    @Override // org.apache.http.client.HttpClient
-    public HttpResponse execute(HttpUriRequest httpUriRequest, HttpContext httpContext) throws IOException {
-        InterceptResult invokeLL;
+    public static long parseDate(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, httpUriRequest, httpContext)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (HttpResponse) invokeLL.objValue;
+        return invokeL.longValue;
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public HttpResponse execute(HttpUriRequest httpUriRequest) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, httpUriRequest)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpResponse) invokeL.objValue;
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler) throws IOException, ClientProtocolException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, httpHost, httpRequest, responseHandler)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLLL.objValue;
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, httpHost, httpRequest, responseHandler, httpContext)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLLLL.objValue;
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, httpUriRequest, responseHandler, httpContext)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
@@ -195,42 +225,12 @@ public final class AndroidHttpClient implements HttpClient {
     }
 
     @Override // org.apache.http.client.HttpClient
-    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler) throws IOException, ClientProtocolException {
+    public HttpResponse execute(HttpUriRequest httpUriRequest, HttpContext httpContext) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, httpUriRequest, responseHandler)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, httpUriRequest, httpContext)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // org.apache.http.client.HttpClient
-    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, httpUriRequest, responseHandler, httpContext)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    @Override // org.apache.http.client.HttpClient
-    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler) throws IOException, ClientProtocolException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, httpHost, httpRequest, responseHandler)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    @Override // org.apache.http.client.HttpClient
-    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, httpHost, httpRequest, responseHandler, httpContext)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (T) invokeLLLL.objValue;
+        return (HttpResponse) invokeLL.objValue;
     }
 }

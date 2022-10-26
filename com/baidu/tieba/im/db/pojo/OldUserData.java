@@ -6,8 +6,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
-import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +25,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
     public String lat;
     public String lng;
     public long loginTime;
-    public ArrayList<IconData> mTShowIconInfo;
+    public ArrayList mTShowIconInfo;
     public String name;
     public Permission permission;
     public String portrait;
@@ -36,7 +35,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
     public String userName;
 
     /* loaded from: classes4.dex */
-    public static class Permission extends OrmObject implements Serializable {
+    public class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
         public static final long serialVersionUID = -661968182172681650L;
@@ -61,19 +60,37 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         public boolean getIsGroupManager() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isGroupManager == 1 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.isGroupManager == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean getIsGroupOwner() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isGroupOwner == 1 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.isGroupOwner == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isController() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getIsGroupManager() || getIsGroupOwner() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (!getIsGroupManager() && !getIsGroupOwner()) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         public void setIsGroupManager(int i) {
@@ -108,79 +125,118 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
     public long getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.id : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.id;
+        }
+        return invokeV.longValue;
     }
 
     public long getInTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.inTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.inTime;
+        }
+        return invokeV.longValue;
     }
 
     public long getLastReplyTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.lastReplyTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.lastReplyTime;
+        }
+        return invokeV.longValue;
     }
 
     public String getLat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.lat : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.lat;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLng() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.lng : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.lng;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getLoginTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.loginTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.loginTime;
+        }
+        return invokeV.longValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Permission getPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.permission : (Permission) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.permission;
+        }
+        return (Permission) invokeV.objValue;
     }
 
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.portrait : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.portrait;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.position : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.position;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getSex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.sex : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.sex;
+        }
+        return invokeV.intValue;
     }
 
     public long getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.userId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.userId;
+        }
+        return invokeV.longValue;
     }
 
     public String getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.userName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.userName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setId(long j) {
@@ -260,24 +316,6 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         }
     }
 
-    public void setToUserData(UserData userData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, userData) == null) || userData == null) {
-            return;
-        }
-        userData.setUserIdLong(Math.max(this.id, this.userId));
-        userData.setUserName((dj.isEmpty(this.userName) || StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) ? this.name : this.userName);
-        userData.setPortrait(this.portrait);
-        userData.setSex(this.sex);
-        userData.setPosition(this.position);
-        userData.setLat(this.lat);
-        userData.setLng(this.lng);
-        userData.setInTime(this.inTime);
-        userData.setLoginTime(this.loginTime);
-        userData.setLastReplyTime(this.lastReplyTime);
-        userData.setTShowInfo(this.mTShowIconInfo);
-    }
-
     public void setUserId(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
@@ -290,5 +328,29 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.userName = str;
         }
+    }
+
+    public void setToUserData(UserData userData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048600, this, userData) != null) || userData == null) {
+            return;
+        }
+        userData.setUserIdLong(Math.max(this.id, this.userId));
+        if (!ej.isEmpty(this.userName) && !StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) {
+            str = this.userName;
+        } else {
+            str = this.name;
+        }
+        userData.setUserName(str);
+        userData.setPortrait(this.portrait);
+        userData.setSex(this.sex);
+        userData.setPosition(this.position);
+        userData.setLat(this.lat);
+        userData.setLng(this.lng);
+        userData.setInTime(this.inTime);
+        userData.setLoginTime(this.loginTime);
+        userData.setLastReplyTime(this.lastReplyTime);
+        userData.setTShowInfo(this.mTShowIconInfo);
     }
 }

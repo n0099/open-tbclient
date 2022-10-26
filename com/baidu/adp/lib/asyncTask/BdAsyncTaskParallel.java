@@ -76,13 +76,19 @@ public class BdAsyncTaskParallel {
         public static BdAsyncTaskParallelType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BdAsyncTaskParallelType) Enum.valueOf(BdAsyncTaskParallelType.class, str) : (BdAsyncTaskParallelType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (BdAsyncTaskParallelType) Enum.valueOf(BdAsyncTaskParallelType.class, str);
+            }
+            return (BdAsyncTaskParallelType) invokeL.objValue;
         }
 
         public static BdAsyncTaskParallelType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BdAsyncTaskParallelType[]) $VALUES.clone() : (BdAsyncTaskParallelType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (BdAsyncTaskParallelType[]) $VALUES.clone();
+            }
+            return (BdAsyncTaskParallelType[]) invokeV.objValue;
         }
     }
 
@@ -115,7 +121,10 @@ public class BdAsyncTaskParallel {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
     }
 
     public int b() {
@@ -134,6 +143,9 @@ public class BdAsyncTaskParallel {
     public BdAsyncTaskParallelType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (BdAsyncTaskParallelType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (BdAsyncTaskParallelType) invokeV.objValue;
     }
 }

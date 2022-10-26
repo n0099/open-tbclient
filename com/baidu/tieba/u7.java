@@ -11,18 +11,27 @@ public final class u7 {
     public static int a(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) ? Float.floatToIntBits(f) : invokeF.intValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return Float.floatToIntBits(f);
+        }
+        return invokeF.intValue;
     }
 
     public static int b(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? Float.floatToRawIntBits(f) : invokeF.intValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return Float.floatToRawIntBits(f);
+        }
+        return invokeF.intValue;
     }
 
     public static float c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? Float.intBitsToFloat(i & (-16777217)) : invokeI.floatValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return Float.intBitsToFloat(i & (-16777217));
+        }
+        return invokeI.floatValue;
     }
 }

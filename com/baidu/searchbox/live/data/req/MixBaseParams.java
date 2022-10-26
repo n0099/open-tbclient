@@ -17,7 +17,7 @@ public abstract class MixBaseParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String extReq;
-    public final Map<String, String> store;
+    public final Map store;
     public String tpl;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -59,23 +59,22 @@ public abstract class MixBaseParams {
         this.store = new LinkedHashMap();
     }
 
-    public final void addExtParams(Pair<String, String> pair) {
+    public /* synthetic */ MixBaseParams(String str, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2);
+    }
+
+    public final void addExtParams(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.store.put(str, str2);
+        }
+    }
+
+    public final void addExtParams(Pair pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pair) == null) {
             this.store.put(pair.getFirst(), pair.getSecond());
         }
-    }
-
-    public String getExtReq() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extReq : (String) invokeV.objValue;
-    }
-
-    public String getTpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tpl : (String) invokeV.objValue;
     }
 
     public void setExtReq(String str) {
@@ -92,7 +91,25 @@ public abstract class MixBaseParams {
         }
     }
 
-    public Map<String, String> toMap() {
+    public String getExtReq() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.extReq;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTpl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.tpl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map toMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -101,16 +118,5 @@ public abstract class MixBaseParams {
             return this.store;
         }
         return (Map) invokeV.objValue;
-    }
-
-    public final void addExtParams(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.store.put(str, str2);
-        }
-    }
-
-    public /* synthetic */ MixBaseParams(String str, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2);
     }
 }

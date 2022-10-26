@@ -33,18 +33,24 @@ public class PostTopicData extends OrmObject implements Serializable {
     public String getContentTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.contentTopic : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.contentTopic;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTitleTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.titleTopic : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.titleTopic;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parserProtobuf(PostTopic postTopic) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postTopic) == null) || postTopic == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postTopic) != null) || postTopic == null) {
             return;
         }
         this.titleTopic = postTopic.title_topic;

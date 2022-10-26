@@ -1,13 +1,11 @@
 package com.kwad.sdk.crash.report.upload;
 
-import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.core.api.INet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class c extends com.kwad.sdk.core.network.b {
-    @NonNull
-    public final Map<String, String> ahK;
+    public final Map ahK;
 
     public c(String str, String str2, String str3) {
         HashMap hashMap = new HashMap();
@@ -27,7 +25,7 @@ public final class c extends com.kwad.sdk.core.network.b {
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
-    public final Map<String, String> getBodyMap() {
+    public final Map getBodyMap() {
         return this.ahK;
     }
 

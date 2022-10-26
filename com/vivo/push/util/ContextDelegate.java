@@ -21,8 +21,23 @@ public class ContextDelegate {
     public static Boolean mIsFbeProject;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1591201448, "Lcom/vivo/push/util/ContextDelegate;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1591201448, "Lcom/vivo/push/util/ContextDelegate;");
+        }
+    }
+
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static ContextDelegate a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,21 +59,6 @@ public class ContextDelegate {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1591201448, "Lcom/vivo/push/util/ContextDelegate;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1591201448, "Lcom/vivo/push/util/ContextDelegate;");
-        }
-    }
-
     public ContextDelegate() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,6 +71,24 @@ public class ContextDelegate {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static ContextDelegate getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return a.a;
+        }
+        return (ContextDelegate) invokeV.objValue;
+    }
+
+    public static void setAppContext() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65543, null) != null) || (context = mContext) == null) {
+            return;
+        }
+        setContext(context);
     }
 
     public static Context createCredentialProtectedStorageContext(Context context) {
@@ -111,53 +129,17 @@ public class ContextDelegate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (!isFBEProject() || context == null) {
-                return context;
+            if (isFBEProject() && context != null) {
+                Context context2 = mContext;
+                if (context2 != null) {
+                    return context2;
+                }
+                setContext(context);
+                return mContext;
             }
-            Context context2 = mContext;
-            if (context2 != null) {
-                return context2;
-            }
-            setContext(context);
-            return mContext;
+            return context;
         }
         return (Context) invokeL.objValue;
-    }
-
-    public static ContextDelegate getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a.a : (ContextDelegate) invokeV.objValue;
-    }
-
-    public static boolean isFBEProject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (mIsFbeProject == null) {
-                try {
-                    mIsFbeProject = Boolean.valueOf("file".equals(j.a("ro.crypto.type", "unknow")));
-                    p.b(TAG, "mIsFbeProject = " + mIsFbeProject.toString());
-                } catch (Exception e) {
-                    p.a(TAG, "mIsFbeProject = " + e.getMessage());
-                }
-            }
-            Boolean bool = mIsFbeProject;
-            if (bool == null) {
-                return false;
-            }
-            return bool.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void setAppContext() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || (context = mContext) == null) {
-            return;
-        }
-        setContext(context);
     }
 
     public static void setContext(Context context) {
@@ -177,5 +159,32 @@ public class ContextDelegate {
             mDelegateEnable = z;
             setAppContext();
         }
+    }
+
+    public static boolean isFBEProject() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (mIsFbeProject == null) {
+                try {
+                    if ("file".equals(j.a("ro.crypto.type", "unknow"))) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    mIsFbeProject = Boolean.valueOf(z);
+                    p.b(TAG, "mIsFbeProject = " + mIsFbeProject.toString());
+                } catch (Exception e) {
+                    p.a(TAG, "mIsFbeProject = " + e.getMessage());
+                }
+            }
+            Boolean bool = mIsFbeProject;
+            if (bool == null) {
+                return false;
+            }
+            return bool.booleanValue();
+        }
+        return invokeV.booleanValue;
     }
 }

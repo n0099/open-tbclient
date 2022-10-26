@@ -13,19 +13,19 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableDematerialize<T> extends AbstractObservableWithUpstream<Notification<T>, T> {
+public final class ObservableDematerialize extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class DematerializeObserver<T> implements Observer<Notification<T>>, Disposable {
+    public final class DematerializeObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public boolean done;
         public Disposable s;
 
-        public DematerializeObserver(Observer<? super T> observer) {
+        public DematerializeObserver(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,31 +43,6 @@ public final class ObservableDematerialize<T> extends AbstractObservableWithUpst
             this.actual = observer;
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.s.dispose();
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            this.actual.onComplete();
-        }
-
         @Override // io.reactivex.Observer
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -82,11 +57,6 @@ public final class ObservableDematerialize<T> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.Observer
-        public /* bridge */ /* synthetic */ void onNext(Object obj) {
-            onNext((Notification) ((Notification) obj));
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
@@ -95,7 +65,37 @@ public final class ObservableDematerialize<T> extends AbstractObservableWithUpst
             }
         }
 
-        public void onNext(Notification<T> notification) {
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.s.dispose();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
+                return;
+            }
+            this.done = true;
+            this.actual.onComplete();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // io.reactivex.Observer
+        public void onNext(Notification notification) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, notification) == null) {
                 if (this.done) {
@@ -116,7 +116,7 @@ public final class ObservableDematerialize<T> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDematerialize(ObservableSource<Notification<T>> observableSource) {
+    public ObservableDematerialize(ObservableSource observableSource) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,7 +136,7 @@ public final class ObservableDematerialize<T> extends AbstractObservableWithUpst
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DematerializeObserver(observer));

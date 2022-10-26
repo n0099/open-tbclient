@@ -21,13 +21,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import androidx.annotation.ColorInt;
-import androidx.annotation.FloatRange;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StyleRes;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -76,67 +69,53 @@ public final class MaterialContainerTransform extends Transition {
     public static final int TRANSITION_DIRECTION_RETURN = 2;
     public static final String[] TRANSITION_PROPS;
     public transient /* synthetic */ FieldHolder $fh;
-    @ColorInt
     public int containerColor;
     public boolean drawDebugEnabled;
-    @IdRes
     public int drawingViewId;
     public boolean elevationShadowEnabled;
-    @ColorInt
     public int endContainerColor;
     public float endElevation;
-    @Nullable
     public ShapeAppearanceModel endShapeAppearanceModel;
-    @Nullable
     public View endView;
-    @IdRes
     public int endViewId;
     public int fadeMode;
-    @Nullable
     public ProgressThresholds fadeProgressThresholds;
     public int fitMode;
     public boolean holdAtEndEnabled;
-    @Nullable
     public ProgressThresholds scaleMaskProgressThresholds;
-    @Nullable
     public ProgressThresholds scaleProgressThresholds;
-    @ColorInt
     public int scrimColor;
-    @Nullable
     public ProgressThresholds shapeMaskProgressThresholds;
-    @ColorInt
     public int startContainerColor;
     public float startElevation;
-    @Nullable
     public ShapeAppearanceModel startShapeAppearanceModel;
-    @Nullable
     public View startView;
-    @IdRes
     public int startViewId;
     public int transitionDirection;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface FitMode {
     }
 
+    @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
-    public static class ProgressThresholds {
+    public @interface TransitionDirection {
+    }
+
+    /* loaded from: classes7.dex */
+    public class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @FloatRange(from = 0.0d, to = 1.0d)
         public final float end;
-        @FloatRange(from = 0.0d, to = 1.0d)
         public final float start;
 
-        public ProgressThresholds(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        public ProgressThresholds(float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,35 +134,35 @@ public final class MaterialContainerTransform extends Transition {
             this.end = f2;
         }
 
-        @FloatRange(from = 0.0d, to = 1.0d)
         public float getEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.end : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.end;
+            }
+            return invokeV.floatValue;
         }
 
-        @FloatRange(from = 0.0d, to = 1.0d)
         public float getStart() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.start : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.start;
+            }
+            return invokeV.floatValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class ProgressThresholdsGroup {
+    public class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final ProgressThresholds fade;
-        @NonNull
         public final ProgressThresholds scale;
-        @NonNull
         public final ProgressThresholds scaleMask;
-        @NonNull
         public final ProgressThresholds shapeMask;
 
-        public ProgressThresholdsGroup(@NonNull ProgressThresholds progressThresholds, @NonNull ProgressThresholds progressThresholds2, @NonNull ProgressThresholds progressThresholds3, @NonNull ProgressThresholds progressThresholds4) {
+        public ProgressThresholdsGroup(ProgressThresholds progressThresholds, ProgressThresholds progressThresholds2, ProgressThresholds progressThresholds3, ProgressThresholds progressThresholds4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,14 +184,8 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
-    public @interface TransitionDirection {
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class TransitionDrawable extends Drawable {
+    public final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
         public static final int SHADOW_COLOR = 754974720;
@@ -258,38 +231,106 @@ public final class MaterialContainerTransform extends Transition {
         public final ShapeAppearanceModel startShapeAppearanceModel;
         public final View startView;
 
+        @Override // android.graphics.drawable.Drawable
+        public int getOpacity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return -3;
+            }
+            return invokeV.intValue;
+        }
+
+        public TransitionDrawable(PathMotion pathMotion, View view2, RectF rectF, ShapeAppearanceModel shapeAppearanceModel, float f, View view3, RectF rectF2, ShapeAppearanceModel shapeAppearanceModel2, float f2, int i, int i2, int i3, int i4, boolean z, boolean z2, FadeModeEvaluator fadeModeEvaluator, FitModeEvaluator fitModeEvaluator, ProgressThresholdsGroup progressThresholdsGroup, boolean z3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pathMotion, view2, rectF, shapeAppearanceModel, Float.valueOf(f), view3, rectF2, shapeAppearanceModel2, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), fadeModeEvaluator, fitModeEvaluator, progressThresholdsGroup, Boolean.valueOf(z3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.containerPaint = new Paint();
+            this.startContainerPaint = new Paint();
+            this.endContainerPaint = new Paint();
+            this.shadowPaint = new Paint();
+            this.scrimPaint = new Paint();
+            this.maskEvaluator = new MaskEvaluator();
+            this.motionPathPosition = new float[2];
+            this.compatShadowDrawable = new MaterialShapeDrawable();
+            this.debugPaint = new Paint();
+            this.debugPath = new Path();
+            this.startView = view2;
+            this.startBounds = rectF;
+            this.startShapeAppearanceModel = shapeAppearanceModel;
+            this.startElevation = f;
+            this.endView = view3;
+            this.endBounds = rectF2;
+            this.endShapeAppearanceModel = shapeAppearanceModel2;
+            this.endElevation = f2;
+            this.entering = z;
+            this.elevationShadowEnabled = z2;
+            this.fadeModeEvaluator = fadeModeEvaluator;
+            this.fitModeEvaluator = fitModeEvaluator;
+            this.progressThresholds = progressThresholdsGroup;
+            this.drawDebugEnabled = z3;
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) view2.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            this.displayWidth = displayMetrics.widthPixels;
+            this.displayHeight = displayMetrics.heightPixels;
+            this.containerPaint.setColor(i);
+            this.startContainerPaint.setColor(i2);
+            this.endContainerPaint.setColor(i3);
+            this.compatShadowDrawable.setFillColor(ColorStateList.valueOf(0));
+            this.compatShadowDrawable.setShadowCompatibilityMode(2);
+            this.compatShadowDrawable.setShadowBitmapDrawingEnable(false);
+            this.compatShadowDrawable.setShadowColor(-7829368);
+            this.currentStartBounds = new RectF(rectF);
+            this.currentStartBoundsMasked = new RectF(this.currentStartBounds);
+            this.currentEndBounds = new RectF(this.currentStartBounds);
+            this.currentEndBoundsMasked = new RectF(this.currentEndBounds);
+            PointF motionPathPoint = getMotionPathPoint(rectF);
+            PointF motionPathPoint2 = getMotionPathPoint(rectF2);
+            PathMeasure pathMeasure = new PathMeasure(pathMotion.getPath(motionPathPoint.x, motionPathPoint.y, motionPathPoint2.x, motionPathPoint2.y), false);
+            this.motionPathMeasure = pathMeasure;
+            this.motionPathLength = pathMeasure.getLength();
+            this.motionPathPosition[0] = rectF.centerX();
+            this.motionPathPosition[1] = rectF.top;
+            this.scrimPaint.setStyle(Paint.Style.FILL);
+            this.scrimPaint.setShader(TransitionUtils.createColorShader(i4));
+            this.debugPaint.setStyle(Paint.Style.STROKE);
+            this.debugPaint.setStrokeWidth(10.0f);
+            updateProgress(0.0f);
+        }
+
         public static float calculateElevationDxMultiplier(RectF rectF, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, rectF, f)) == null) ? ((rectF.centerX() / (f / 2.0f)) - 1.0f) * 0.3f : invokeLF.floatValue;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, rectF, f)) == null) {
+                return ((rectF.centerX() / (f / 2.0f)) - 1.0f) * 0.3f;
+            }
+            return invokeLF.floatValue;
         }
 
         public static float calculateElevationDyMultiplier(RectF rectF, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, rectF, f)) == null) ? (rectF.centerY() / f) * 1.5f : invokeLF.floatValue;
-        }
-
-        private void drawDebugCumulativePath(Canvas canvas, RectF rectF, Path path, @ColorInt int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(65543, this, canvas, rectF, path, i) == null) {
-                PointF motionPathPoint = getMotionPathPoint(rectF);
-                if (this.progress == 0.0f) {
-                    path.reset();
-                    path.moveTo(motionPathPoint.x, motionPathPoint.y);
-                    return;
-                }
-                path.lineTo(motionPathPoint.x, motionPathPoint.y);
-                this.debugPaint.setColor(i);
-                canvas.drawPath(path, this.debugPaint);
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, rectF, f)) == null) {
+                return (rectF.centerY() / f) * 1.5f;
             }
+            return invokeLF.floatValue;
         }
 
-        private void drawDebugRect(Canvas canvas, RectF rectF, @ColorInt int i) {
+        private void maybeDrawContainerColor(Canvas canvas, Paint paint) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(65544, this, canvas, rectF, i) == null) {
-                this.debugPaint.setColor(i);
-                canvas.drawRect(rectF, this.debugPaint);
+            if ((interceptable == null || interceptable.invokeLL(65551, this, canvas, paint) == null) && paint.getColor() != 0 && paint.getAlpha() > 0) {
+                canvas.drawRect(getBounds(), paint);
             }
         }
 
@@ -304,32 +345,6 @@ public final class MaterialContainerTransform extends Transition {
                     drawElevationShadowWithMaterialShapeDrawable(canvas);
                 }
                 canvas.restore();
-            }
-        }
-
-        private void drawElevationShadowWithMaterialShapeDrawable(Canvas canvas) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65546, this, canvas) == null) {
-                MaterialShapeDrawable materialShapeDrawable = this.compatShadowDrawable;
-                RectF rectF = this.currentMaskBounds;
-                materialShapeDrawable.setBounds((int) rectF.left, (int) rectF.top, (int) rectF.right, (int) rectF.bottom);
-                this.compatShadowDrawable.setElevation(this.currentElevation);
-                this.compatShadowDrawable.setShadowVerticalOffset((int) this.currentElevationDy);
-                this.compatShadowDrawable.setShapeAppearanceModel(this.maskEvaluator.getCurrentShapeAppearanceModel());
-                this.compatShadowDrawable.draw(canvas);
-            }
-        }
-
-        private void drawElevationShadowWithPaintShadowLayer(Canvas canvas) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65547, this, canvas) == null) {
-                ShapeAppearanceModel currentShapeAppearanceModel = this.maskEvaluator.getCurrentShapeAppearanceModel();
-                if (currentShapeAppearanceModel.isRoundRect(this.currentMaskBounds)) {
-                    float cornerSize = currentShapeAppearanceModel.getTopLeftCornerSize().getCornerSize(this.currentMaskBounds);
-                    canvas.drawRoundRect(this.currentMaskBounds, cornerSize, cornerSize, this.shadowPaint);
-                    return;
-                }
-                canvas.drawPath(this.maskEvaluator.getPath(), this.shadowPaint);
             }
         }
 
@@ -416,55 +431,126 @@ public final class MaterialContainerTransform extends Transition {
         public static PointF getMotionPathPoint(RectF rectF) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, rectF)) == null) ? new PointF(rectF.centerX(), rectF.top) : (PointF) invokeL.objValue;
-        }
-
-        private void maybeDrawContainerColor(Canvas canvas, Paint paint) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65551, this, canvas, paint) == null) || paint.getColor() == 0 || paint.getAlpha() <= 0) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, rectF)) == null) {
+                return new PointF(rectF.centerX(), rectF.top);
             }
-            canvas.drawRect(getBounds(), paint);
+            return (PointF) invokeL.objValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void setProgress(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(65552, this, f) == null) || this.progress == f) {
-                return;
+            if ((interceptable == null || interceptable.invokeF(65552, this, f) == null) && this.progress != f) {
+                updateProgress(f);
             }
-            updateProgress(f);
+        }
+
+        @Override // android.graphics.drawable.Drawable
+        public void setAlpha(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                throw new UnsupportedOperationException("Setting alpha on is not supported");
+            }
+        }
+
+        @Override // android.graphics.drawable.Drawable
+        public void setColorFilter(ColorFilter colorFilter) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, colorFilter) == null) {
+                throw new UnsupportedOperationException("Setting a color filter is not supported");
+            }
+        }
+
+        private void drawDebugCumulativePath(Canvas canvas, RectF rectF, Path path, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLI(65543, this, canvas, rectF, path, i) == null) {
+                PointF motionPathPoint = getMotionPathPoint(rectF);
+                if (this.progress == 0.0f) {
+                    path.reset();
+                    path.moveTo(motionPathPoint.x, motionPathPoint.y);
+                    return;
+                }
+                path.lineTo(motionPathPoint.x, motionPathPoint.y);
+                this.debugPaint.setColor(i);
+                canvas.drawPath(path, this.debugPaint);
+            }
+        }
+
+        private void drawDebugRect(Canvas canvas, RectF rectF, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(65544, this, canvas, rectF, i) == null) {
+                this.debugPaint.setColor(i);
+                canvas.drawRect(rectF, this.debugPaint);
+            }
+        }
+
+        private void drawElevationShadowWithMaterialShapeDrawable(Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65546, this, canvas) == null) {
+                MaterialShapeDrawable materialShapeDrawable = this.compatShadowDrawable;
+                RectF rectF = this.currentMaskBounds;
+                materialShapeDrawable.setBounds((int) rectF.left, (int) rectF.top, (int) rectF.right, (int) rectF.bottom);
+                this.compatShadowDrawable.setElevation(this.currentElevation);
+                this.compatShadowDrawable.setShadowVerticalOffset((int) this.currentElevationDy);
+                this.compatShadowDrawable.setShapeAppearanceModel(this.maskEvaluator.getCurrentShapeAppearanceModel());
+                this.compatShadowDrawable.draw(canvas);
+            }
+        }
+
+        private void drawElevationShadowWithPaintShadowLayer(Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65547, this, canvas) == null) {
+                ShapeAppearanceModel currentShapeAppearanceModel = this.maskEvaluator.getCurrentShapeAppearanceModel();
+                if (currentShapeAppearanceModel.isRoundRect(this.currentMaskBounds)) {
+                    float cornerSize = currentShapeAppearanceModel.getTopLeftCornerSize().getCornerSize(this.currentMaskBounds);
+                    canvas.drawRoundRect(this.currentMaskBounds, cornerSize, cornerSize, this.shadowPaint);
+                    return;
+                }
+                canvas.drawPath(this.maskEvaluator.getPath(), this.shadowPaint);
+            }
         }
 
         private void updateProgress(float f) {
+            float lerp;
+            RectF rectF;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(65553, this, f) == null) {
                 this.progress = f;
-                this.scrimPaint.setAlpha((int) (this.entering ? TransitionUtils.lerp(0.0f, 255.0f, f) : TransitionUtils.lerp(255.0f, 0.0f, f)));
+                Paint paint = this.scrimPaint;
+                if (this.entering) {
+                    lerp = TransitionUtils.lerp(0.0f, 255.0f, f);
+                } else {
+                    lerp = TransitionUtils.lerp(255.0f, 0.0f, f);
+                }
+                paint.setAlpha((int) lerp);
                 this.motionPathMeasure.getPosTan(this.motionPathLength * f, this.motionPathPosition, null);
                 float[] fArr = this.motionPathPosition;
                 float f2 = fArr[0];
                 float f3 = fArr[1];
                 FitModeResult evaluate = this.fitModeEvaluator.evaluate(f, ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scale.start))).floatValue(), ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scale.end))).floatValue(), this.startBounds.width(), this.startBounds.height(), this.endBounds.width(), this.endBounds.height());
                 this.fitModeResult = evaluate;
-                RectF rectF = this.currentStartBounds;
+                RectF rectF2 = this.currentStartBounds;
                 float f4 = evaluate.currentStartWidth;
-                rectF.set(f2 - (f4 / 2.0f), f3, (f4 / 2.0f) + f2, evaluate.currentStartHeight + f3);
-                RectF rectF2 = this.currentEndBounds;
+                rectF2.set(f2 - (f4 / 2.0f), f3, (f4 / 2.0f) + f2, evaluate.currentStartHeight + f3);
+                RectF rectF3 = this.currentEndBounds;
                 FitModeResult fitModeResult = this.fitModeResult;
                 float f5 = fitModeResult.currentEndWidth;
-                rectF2.set(f2 - (f5 / 2.0f), f3, f2 + (f5 / 2.0f), fitModeResult.currentEndHeight + f3);
+                rectF3.set(f2 - (f5 / 2.0f), f3, f2 + (f5 / 2.0f), fitModeResult.currentEndHeight + f3);
                 this.currentStartBoundsMasked.set(this.currentStartBounds);
                 this.currentEndBoundsMasked.set(this.currentEndBounds);
                 float floatValue = ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scaleMask.start))).floatValue();
                 float floatValue2 = ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scaleMask.end))).floatValue();
                 boolean shouldMaskStartBounds = this.fitModeEvaluator.shouldMaskStartBounds(this.fitModeResult);
-                RectF rectF3 = shouldMaskStartBounds ? this.currentStartBoundsMasked : this.currentEndBoundsMasked;
-                float lerp = TransitionUtils.lerp(0.0f, 1.0f, floatValue, floatValue2, f);
-                if (!shouldMaskStartBounds) {
-                    lerp = 1.0f - lerp;
+                if (shouldMaskStartBounds) {
+                    rectF = this.currentStartBoundsMasked;
+                } else {
+                    rectF = this.currentEndBoundsMasked;
                 }
-                this.fitModeEvaluator.applyMask(rectF3, lerp, this.fitModeResult);
+                float lerp2 = TransitionUtils.lerp(0.0f, 1.0f, floatValue, floatValue2, f);
+                if (!shouldMaskStartBounds) {
+                    lerp2 = 1.0f - lerp2;
+                }
+                this.fitModeEvaluator.applyMask(rectF, lerp2, this.fitModeResult);
                 this.currentMaskBounds = new RectF(Math.min(this.currentStartBoundsMasked.left, this.currentEndBoundsMasked.left), Math.min(this.currentStartBoundsMasked.top, this.currentEndBoundsMasked.top), Math.max(this.currentStartBoundsMasked.right, this.currentEndBoundsMasked.right), Math.max(this.currentStartBoundsMasked.bottom, this.currentEndBoundsMasked.bottom));
                 this.maskEvaluator.evaluate(f, this.startShapeAppearanceModel, this.endShapeAppearanceModel, this.currentStartBounds, this.currentStartBoundsMasked, this.currentEndBoundsMasked, this.progressThresholds.shapeMask);
                 this.currentElevation = TransitionUtils.lerp(this.startElevation, this.endElevation, f);
@@ -486,13 +572,18 @@ public final class MaterialContainerTransform extends Transition {
         }
 
         @Override // android.graphics.drawable.Drawable
-        public void draw(@NonNull Canvas canvas) {
+        public void draw(Canvas canvas) {
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
                 if (this.scrimPaint.getAlpha() > 0) {
                     canvas.drawRect(getBounds(), this.scrimPaint);
                 }
-                int save = this.drawDebugEnabled ? canvas.save() : -1;
+                if (this.drawDebugEnabled) {
+                    i = canvas.save();
+                } else {
+                    i = -1;
+                }
                 if (this.elevationShadowEnabled && this.currentElevation > 0.0f) {
                     drawElevationShadow(canvas);
                 }
@@ -506,7 +597,7 @@ public final class MaterialContainerTransform extends Transition {
                     drawStartView(canvas);
                 }
                 if (this.drawDebugEnabled) {
-                    canvas.restoreToCount(save);
+                    canvas.restoreToCount(i);
                     drawDebugCumulativePath(canvas, this.currentStartBounds, this.debugPath, -65281);
                     drawDebugRect(canvas, this.currentStartBoundsMasked, -256);
                     drawDebugRect(canvas, this.currentStartBounds, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
@@ -514,100 +605,6 @@ public final class MaterialContainerTransform extends Transition {
                     drawDebugRect(canvas, this.currentEndBounds, -16776961);
                 }
             }
-        }
-
-        @Override // android.graphics.drawable.Drawable
-        public int getOpacity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return -3;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.graphics.drawable.Drawable
-        public void setAlpha(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                throw new UnsupportedOperationException("Setting alpha on is not supported");
-            }
-        }
-
-        @Override // android.graphics.drawable.Drawable
-        public void setColorFilter(@Nullable ColorFilter colorFilter) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, colorFilter) == null) {
-                throw new UnsupportedOperationException("Setting a color filter is not supported");
-            }
-        }
-
-        public TransitionDrawable(PathMotion pathMotion, View view2, RectF rectF, ShapeAppearanceModel shapeAppearanceModel, float f, View view3, RectF rectF2, ShapeAppearanceModel shapeAppearanceModel2, float f2, @ColorInt int i, @ColorInt int i2, @ColorInt int i3, int i4, boolean z, boolean z2, FadeModeEvaluator fadeModeEvaluator, FitModeEvaluator fitModeEvaluator, ProgressThresholdsGroup progressThresholdsGroup, boolean z3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pathMotion, view2, rectF, shapeAppearanceModel, Float.valueOf(f), view3, rectF2, shapeAppearanceModel2, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), fadeModeEvaluator, fitModeEvaluator, progressThresholdsGroup, Boolean.valueOf(z3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.containerPaint = new Paint();
-            this.startContainerPaint = new Paint();
-            this.endContainerPaint = new Paint();
-            this.shadowPaint = new Paint();
-            this.scrimPaint = new Paint();
-            this.maskEvaluator = new MaskEvaluator();
-            this.motionPathPosition = new float[2];
-            this.compatShadowDrawable = new MaterialShapeDrawable();
-            this.debugPaint = new Paint();
-            this.debugPath = new Path();
-            this.startView = view2;
-            this.startBounds = rectF;
-            this.startShapeAppearanceModel = shapeAppearanceModel;
-            this.startElevation = f;
-            this.endView = view3;
-            this.endBounds = rectF2;
-            this.endShapeAppearanceModel = shapeAppearanceModel2;
-            this.endElevation = f2;
-            this.entering = z;
-            this.elevationShadowEnabled = z2;
-            this.fadeModeEvaluator = fadeModeEvaluator;
-            this.fitModeEvaluator = fitModeEvaluator;
-            this.progressThresholds = progressThresholdsGroup;
-            this.drawDebugEnabled = z3;
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) view2.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            this.displayWidth = displayMetrics.widthPixels;
-            this.displayHeight = displayMetrics.heightPixels;
-            this.containerPaint.setColor(i);
-            this.startContainerPaint.setColor(i2);
-            this.endContainerPaint.setColor(i3);
-            this.compatShadowDrawable.setFillColor(ColorStateList.valueOf(0));
-            this.compatShadowDrawable.setShadowCompatibilityMode(2);
-            this.compatShadowDrawable.setShadowBitmapDrawingEnable(false);
-            this.compatShadowDrawable.setShadowColor(-7829368);
-            this.currentStartBounds = new RectF(rectF);
-            this.currentStartBoundsMasked = new RectF(this.currentStartBounds);
-            this.currentEndBounds = new RectF(this.currentStartBounds);
-            this.currentEndBoundsMasked = new RectF(this.currentEndBounds);
-            PointF motionPathPoint = getMotionPathPoint(rectF);
-            PointF motionPathPoint2 = getMotionPathPoint(rectF2);
-            PathMeasure pathMeasure = new PathMeasure(pathMotion.getPath(motionPathPoint.x, motionPathPoint.y, motionPathPoint2.x, motionPathPoint2.y), false);
-            this.motionPathMeasure = pathMeasure;
-            this.motionPathLength = pathMeasure.getLength();
-            this.motionPathPosition[0] = rectF.centerX();
-            this.motionPathPosition[1] = rectF.top;
-            this.scrimPaint.setStyle(Paint.Style.FILL);
-            this.scrimPaint.setShader(TransitionUtils.createColorShader(i4));
-            this.debugPaint.setStyle(Paint.Style.STROKE);
-            this.debugPaint.setStrokeWidth(10.0f);
-            updateProgress(0.0f);
         }
     }
 
@@ -676,7 +673,205 @@ public final class MaterialContainerTransform extends Transition {
         return (ProgressThresholdsGroup) invokeZ.objValue;
     }
 
-    public static RectF calculateDrawableBounds(View view2, @Nullable View view3, float f, float f2) {
+    public static int getTransitionShapeAppearanceResId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f040743});
+            int resourceId = obtainStyledAttributes.getResourceId(0, -1);
+            obtainStyledAttributes.recycle();
+            return resourceId;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // androidx.transition.Transition
+    public void captureEndValues(TransitionValues transitionValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
+            captureValues(transitionValues, this.endView, this.endViewId, this.endShapeAppearanceModel);
+        }
+    }
+
+    @Override // androidx.transition.Transition
+    public void captureStartValues(TransitionValues transitionValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
+            captureValues(transitionValues, this.startView, this.startViewId, this.startShapeAppearanceModel);
+        }
+    }
+
+    public void setAllContainerColors(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.containerColor = i;
+            this.startContainerColor = i;
+            this.endContainerColor = i;
+        }
+    }
+
+    public void setContainerColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.containerColor = i;
+        }
+    }
+
+    public void setDrawDebugEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.drawDebugEnabled = z;
+        }
+    }
+
+    public void setDrawingViewId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.drawingViewId = i;
+        }
+    }
+
+    public void setElevationShadowEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.elevationShadowEnabled = z;
+        }
+    }
+
+    public void setEndContainerColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.endContainerColor = i;
+        }
+    }
+
+    public void setEndElevation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048609, this, f) == null) {
+            this.endElevation = f;
+        }
+    }
+
+    public void setEndShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, shapeAppearanceModel) == null) {
+            this.endShapeAppearanceModel = shapeAppearanceModel;
+        }
+    }
+
+    public void setEndView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, view2) == null) {
+            this.endView = view2;
+        }
+    }
+
+    public void setEndViewId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.endViewId = i;
+        }
+    }
+
+    public void setFadeMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.fadeMode = i;
+        }
+    }
+
+    public void setFadeProgressThresholds(ProgressThresholds progressThresholds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, progressThresholds) == null) {
+            this.fadeProgressThresholds = progressThresholds;
+        }
+    }
+
+    public void setFitMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.fitMode = i;
+        }
+    }
+
+    public void setHoldAtEndEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
+            this.holdAtEndEnabled = z;
+        }
+    }
+
+    public void setScaleMaskProgressThresholds(ProgressThresholds progressThresholds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, progressThresholds) == null) {
+            this.scaleMaskProgressThresholds = progressThresholds;
+        }
+    }
+
+    public void setScaleProgressThresholds(ProgressThresholds progressThresholds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, progressThresholds) == null) {
+            this.scaleProgressThresholds = progressThresholds;
+        }
+    }
+
+    public void setScrimColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.scrimColor = i;
+        }
+    }
+
+    public void setShapeMaskProgressThresholds(ProgressThresholds progressThresholds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, progressThresholds) == null) {
+            this.shapeMaskProgressThresholds = progressThresholds;
+        }
+    }
+
+    public void setStartContainerColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.startContainerColor = i;
+        }
+    }
+
+    public void setStartElevation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048622, this, f) == null) {
+            this.startElevation = f;
+        }
+    }
+
+    public void setStartShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, shapeAppearanceModel) == null) {
+            this.startShapeAppearanceModel = shapeAppearanceModel;
+        }
+    }
+
+    public void setStartView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, view2) == null) {
+            this.startView = view2;
+        }
+    }
+
+    public void setStartViewId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
+            this.startViewId = i;
+        }
+    }
+
+    public void setTransitionDirection(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.transitionDirection = i;
+        }
+    }
+
+    public static RectF calculateDrawableBounds(View view2, View view3, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, view3, Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -690,48 +885,61 @@ public final class MaterialContainerTransform extends Transition {
         return (RectF) invokeCommon.objValue;
     }
 
-    public static ShapeAppearanceModel captureShapeAppearance(@NonNull View view2, @NonNull RectF rectF, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
+    public static ShapeAppearanceModel captureShapeAppearance(View view2, RectF rectF, ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, view2, rectF, shapeAppearanceModel)) == null) ? TransitionUtils.convertToRelativeCornerSizes(getShapeAppearance(view2, shapeAppearanceModel), rectF) : (ShapeAppearanceModel) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, view2, rectF, shapeAppearanceModel)) == null) {
+            return TransitionUtils.convertToRelativeCornerSizes(getShapeAppearance(view2, shapeAppearanceModel), rectF);
+        }
+        return (ShapeAppearanceModel) invokeLLL.objValue;
     }
 
-    public static void captureValues(@NonNull TransitionValues transitionValues, @Nullable View view2, @IdRes int i, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
+    public static void captureValues(TransitionValues transitionValues, View view2, int i, ShapeAppearanceModel shapeAppearanceModel) {
+        RectF locationOnScreen;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65542, null, transitionValues, view2, i, shapeAppearanceModel) == null) {
             if (i != -1) {
                 transitionValues.f1028view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1028view, i);
             } else if (view2 != null) {
                 transitionValues.f1028view = view2;
-            } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f091599) instanceof View) {
-                transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f091599, null);
-                transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f091599);
+            } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f09158b) instanceof View) {
+                transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f09158b, null);
+                transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f09158b);
             }
             View view3 = transitionValues.f1028view;
-            if (!ViewCompat.isLaidOut(view3) && view3.getWidth() == 0 && view3.getHeight() == 0) {
-                return;
+            if (ViewCompat.isLaidOut(view3) || view3.getWidth() != 0 || view3.getHeight() != 0) {
+                if (view3.getParent() == null) {
+                    locationOnScreen = TransitionUtils.getRelativeBounds(view3);
+                } else {
+                    locationOnScreen = TransitionUtils.getLocationOnScreen(view3);
+                }
+                transitionValues.values.put("materialContainerTransition:bounds", locationOnScreen);
+                transitionValues.values.put("materialContainerTransition:shapeAppearance", captureShapeAppearance(view3, locationOnScreen, shapeAppearanceModel));
             }
-            RectF relativeBounds = view3.getParent() == null ? TransitionUtils.getRelativeBounds(view3) : TransitionUtils.getLocationOnScreen(view3);
-            transitionValues.values.put("materialContainerTransition:bounds", relativeBounds);
-            transitionValues.values.put("materialContainerTransition:shapeAppearance", captureShapeAppearance(view3, relativeBounds, shapeAppearanceModel));
         }
     }
 
     public static float getElevationOrDefault(float f, View view2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f), view2})) == null) ? f != -1.0f ? f : ViewCompat.getElevation(view2) : invokeCommon.floatValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f), view2})) == null) {
+            if (f == -1.0f) {
+                return ViewCompat.getElevation(view2);
+            }
+            return f;
+        }
+        return invokeCommon.floatValue;
     }
 
-    public static ShapeAppearanceModel getShapeAppearance(@NonNull View view2, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
+    public static ShapeAppearanceModel getShapeAppearance(View view2, ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, view2, shapeAppearanceModel)) == null) {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f091599) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091599);
+            if (view2.getTag(R.id.obfuscated_res_0x7f09158b) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f09158b);
             }
             Context context = view2.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
@@ -758,31 +966,21 @@ public final class MaterialContainerTransform extends Transition {
         return (ProgressThresholdsGroup) invokeCommon.objValue;
     }
 
-    @StyleRes
-    public static int getTransitionShapeAppearanceResId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f040743});
-            int resourceId = obtainStyledAttributes.getResourceId(0, -1);
-            obtainStyledAttributes.recycle();
-            return resourceId;
-        }
-        return invokeL.intValue;
-    }
-
-    private boolean isEntering(@NonNull RectF rectF, @NonNull RectF rectF2) {
+    private boolean isEntering(RectF rectF, RectF rectF2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, rectF, rectF2)) == null) {
             int i = this.transitionDirection;
-            if (i == 0) {
-                return TransitionUtils.calculateArea(rectF2) > TransitionUtils.calculateArea(rectF);
-            } else if (i != 1) {
+            if (i != 0) {
+                if (i == 1) {
+                    return true;
+                }
                 if (i == 2) {
                     return false;
                 }
                 throw new IllegalArgumentException("Invalid transition direction: " + this.transitionDirection);
+            } else if (TransitionUtils.calculateArea(rectF2) <= TransitionUtils.calculateArea(rectF)) {
+                return false;
             } else {
                 return true;
             }
@@ -791,25 +989,9 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(@NonNull TransitionValues transitionValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
-            captureValues(transitionValues, this.endView, this.endViewId, this.endShapeAppearanceModel);
-        }
-    }
-
-    @Override // androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
-            captureValues(transitionValues, this.startView, this.startViewId, this.startShapeAppearanceModel);
-        }
-    }
-
-    @Override // androidx.transition.Transition
-    @Nullable
-    public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
+    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
+        View view2;
         View findAncestorById;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
@@ -820,23 +1002,27 @@ public final class MaterialContainerTransform extends Transition {
                     RectF rectF2 = (RectF) transitionValues2.values.get("materialContainerTransition:bounds");
                     ShapeAppearanceModel shapeAppearanceModel2 = (ShapeAppearanceModel) transitionValues2.values.get("materialContainerTransition:shapeAppearance");
                     if (rectF2 != null && shapeAppearanceModel2 != null) {
-                        View view2 = transitionValues.f1028view;
-                        View view3 = transitionValues2.f1028view;
-                        View view4 = view3.getParent() != null ? view3 : view2;
-                        if (this.drawingViewId == view4.getId()) {
-                            findAncestorById = (View) view4.getParent();
+                        View view3 = transitionValues.f1028view;
+                        View view4 = transitionValues2.f1028view;
+                        if (view4.getParent() != null) {
+                            view2 = view4;
                         } else {
-                            findAncestorById = TransitionUtils.findAncestorById(view4, this.drawingViewId);
-                            view4 = null;
+                            view2 = view3;
+                        }
+                        if (this.drawingViewId == view2.getId()) {
+                            findAncestorById = (View) view2.getParent();
+                        } else {
+                            findAncestorById = TransitionUtils.findAncestorById(view2, this.drawingViewId);
+                            view2 = null;
                         }
                         RectF locationOnScreen = TransitionUtils.getLocationOnScreen(findAncestorById);
                         float f = -locationOnScreen.left;
                         float f2 = -locationOnScreen.top;
-                        RectF calculateDrawableBounds = calculateDrawableBounds(findAncestorById, view4, f, f2);
+                        RectF calculateDrawableBounds = calculateDrawableBounds(findAncestorById, view2, f, f2);
                         rectF.offset(f, f2);
                         rectF2.offset(f, f2);
                         boolean isEntering = isEntering(rectF, rectF2);
-                        TransitionDrawable transitionDrawable = new TransitionDrawable(getPathMotion(), view2, rectF, shapeAppearanceModel, getElevationOrDefault(this.startElevation, view2), view3, rectF2, shapeAppearanceModel2, getElevationOrDefault(this.endElevation, view3), this.containerColor, this.startContainerColor, this.endContainerColor, this.scrimColor, isEntering, this.elevationShadowEnabled, FadeModeEvaluators.get(this.fadeMode, isEntering), FitModeEvaluators.get(this.fitMode, isEntering, rectF, rectF2), buildThresholdsGroup(isEntering), this.drawDebugEnabled);
+                        TransitionDrawable transitionDrawable = new TransitionDrawable(getPathMotion(), view3, rectF, shapeAppearanceModel, getElevationOrDefault(this.startElevation, view3), view4, rectF2, shapeAppearanceModel2, getElevationOrDefault(this.endElevation, view4), this.containerColor, this.startContainerColor, this.endContainerColor, this.scrimColor, isEntering, this.elevationShadowEnabled, FadeModeEvaluators.get(this.fadeMode, isEntering), FitModeEvaluators.get(this.fitMode, isEntering, rectF, rectF2), buildThresholdsGroup(isEntering), this.drawDebugEnabled);
                         transitionDrawable.setBounds(Math.round(calculateDrawableBounds.left), Math.round(calculateDrawableBounds.top), Math.round(calculateDrawableBounds.right), Math.round(calculateDrawableBounds.bottom));
                         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, transitionDrawable) { // from class: com.google.android.material.transition.MaterialContainerTransform.1
@@ -867,12 +1053,13 @@ public final class MaterialContainerTransform extends Transition {
                             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                                    this.val$transitionDrawable.setProgress(valueAnimator.getAnimatedFraction());
+                                if (interceptable2 != null && interceptable2.invokeL(1048576, this, valueAnimator) != null) {
+                                    return;
                                 }
+                                this.val$transitionDrawable.setProgress(valueAnimator.getAnimatedFraction());
                             }
                         });
-                        addListener(new TransitionListenerAdapter(this, findAncestorById, transitionDrawable, view2, view3) { // from class: com.google.android.material.transition.MaterialContainerTransform.2
+                        addListener(new TransitionListenerAdapter(this, findAncestorById, transitionDrawable, view3, view4) { // from class: com.google.android.material.transition.MaterialContainerTransform.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ MaterialContainerTransform this$0;
@@ -886,7 +1073,7 @@ public final class MaterialContainerTransform extends Transition {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, findAncestorById, transitionDrawable, view2, view3};
+                                    Object[] objArr = {this, findAncestorById, transitionDrawable, view3, view4};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i = newInitContext.flag;
                                     if ((i & 1) != 0) {
@@ -899,12 +1086,12 @@ public final class MaterialContainerTransform extends Transition {
                                 this.this$0 = this;
                                 this.val$drawingView = findAncestorById;
                                 this.val$transitionDrawable = transitionDrawable;
-                                this.val$startView = view2;
-                                this.val$endView = view3;
+                                this.val$startView = view3;
+                                this.val$endView = view4;
                             }
 
                             @Override // com.google.android.material.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionEnd(@NonNull Transition transition) {
+                            public void onTransitionEnd(Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                                     this.this$0.removeListener(this);
@@ -918,7 +1105,7 @@ public final class MaterialContainerTransform extends Transition {
                             }
 
                             @Override // com.google.android.material.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionStart(@NonNull Transition transition) {
+                            public void onTransitionStart(Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                                     ViewUtils.getOverlay(this.val$drawingView).add(this.val$transitionDrawable);
@@ -939,334 +1126,220 @@ public final class MaterialContainerTransform extends Transition {
         return (Animator) invokeLLL.objValue;
     }
 
-    @ColorInt
     public int getContainerColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.containerColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.containerColor;
+        }
+        return invokeV.intValue;
     }
 
-    @IdRes
     public int getDrawingViewId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.drawingViewId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.drawingViewId;
+        }
+        return invokeV.intValue;
     }
 
-    @ColorInt
     public int getEndContainerColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.endContainerColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.endContainerColor;
+        }
+        return invokeV.intValue;
     }
 
     public float getEndElevation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.endElevation : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.endElevation;
+        }
+        return invokeV.floatValue;
     }
 
-    @Nullable
     public ShapeAppearanceModel getEndShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.endShapeAppearanceModel : (ShapeAppearanceModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.endShapeAppearanceModel;
+        }
+        return (ShapeAppearanceModel) invokeV.objValue;
     }
 
-    @Nullable
     public View getEndView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.endView : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.endView;
+        }
+        return (View) invokeV.objValue;
     }
 
-    @IdRes
     public int getEndViewId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.endViewId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.endViewId;
+        }
+        return invokeV.intValue;
     }
 
     public int getFadeMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.fadeMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.fadeMode;
+        }
+        return invokeV.intValue;
     }
 
-    @Nullable
     public ProgressThresholds getFadeProgressThresholds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.fadeProgressThresholds : (ProgressThresholds) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.fadeProgressThresholds;
+        }
+        return (ProgressThresholds) invokeV.objValue;
     }
 
     public int getFitMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.fitMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.fitMode;
+        }
+        return invokeV.intValue;
     }
 
-    @Nullable
     public ProgressThresholds getScaleMaskProgressThresholds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.scaleMaskProgressThresholds : (ProgressThresholds) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.scaleMaskProgressThresholds;
+        }
+        return (ProgressThresholds) invokeV.objValue;
     }
 
-    @Nullable
     public ProgressThresholds getScaleProgressThresholds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.scaleProgressThresholds : (ProgressThresholds) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.scaleProgressThresholds;
+        }
+        return (ProgressThresholds) invokeV.objValue;
     }
 
-    @ColorInt
     public int getScrimColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.scrimColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.scrimColor;
+        }
+        return invokeV.intValue;
     }
 
-    @Nullable
     public ProgressThresholds getShapeMaskProgressThresholds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.shapeMaskProgressThresholds : (ProgressThresholds) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.shapeMaskProgressThresholds;
+        }
+        return (ProgressThresholds) invokeV.objValue;
     }
 
-    @ColorInt
     public int getStartContainerColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.startContainerColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.startContainerColor;
+        }
+        return invokeV.intValue;
     }
 
     public float getStartElevation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.startElevation : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.startElevation;
+        }
+        return invokeV.floatValue;
     }
 
-    @Nullable
     public ShapeAppearanceModel getStartShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.startShapeAppearanceModel : (ShapeAppearanceModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.startShapeAppearanceModel;
+        }
+        return (ShapeAppearanceModel) invokeV.objValue;
     }
 
-    @Nullable
     public View getStartView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.startView : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.startView;
+        }
+        return (View) invokeV.objValue;
     }
 
-    @IdRes
     public int getStartViewId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.startViewId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.startViewId;
+        }
+        return invokeV.intValue;
     }
 
     public int getTransitionDirection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.transitionDirection : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.transitionDirection;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.transition.Transition
-    @Nullable
     public String[] getTransitionProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? TRANSITION_PROPS : (String[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return TRANSITION_PROPS;
+        }
+        return (String[]) invokeV.objValue;
     }
 
     public boolean isDrawDebugEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.drawDebugEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.drawDebugEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isElevationShadowEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.elevationShadowEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.elevationShadowEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isHoldAtEndEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.holdAtEndEnabled : invokeV.booleanValue;
-    }
-
-    public void setAllContainerColors(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.containerColor = i;
-            this.startContainerColor = i;
-            this.endContainerColor = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.holdAtEndEnabled;
         }
-    }
-
-    public void setContainerColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            this.containerColor = i;
-        }
-    }
-
-    public void setDrawDebugEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.drawDebugEnabled = z;
-        }
-    }
-
-    public void setDrawingViewId(@IdRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            this.drawingViewId = i;
-        }
-    }
-
-    public void setElevationShadowEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.elevationShadowEnabled = z;
-        }
-    }
-
-    public void setEndContainerColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
-            this.endContainerColor = i;
-        }
-    }
-
-    public void setEndElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048609, this, f) == null) {
-            this.endElevation = f;
-        }
-    }
-
-    public void setEndShapeAppearanceModel(@Nullable ShapeAppearanceModel shapeAppearanceModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, shapeAppearanceModel) == null) {
-            this.endShapeAppearanceModel = shapeAppearanceModel;
-        }
-    }
-
-    public void setEndView(@Nullable View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, view2) == null) {
-            this.endView = view2;
-        }
-    }
-
-    public void setEndViewId(@IdRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
-            this.endViewId = i;
-        }
-    }
-
-    public void setFadeMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
-            this.fadeMode = i;
-        }
-    }
-
-    public void setFadeProgressThresholds(@Nullable ProgressThresholds progressThresholds) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, progressThresholds) == null) {
-            this.fadeProgressThresholds = progressThresholds;
-        }
-    }
-
-    public void setFitMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
-            this.fitMode = i;
-        }
-    }
-
-    public void setHoldAtEndEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
-            this.holdAtEndEnabled = z;
-        }
-    }
-
-    public void setScaleMaskProgressThresholds(@Nullable ProgressThresholds progressThresholds) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, progressThresholds) == null) {
-            this.scaleMaskProgressThresholds = progressThresholds;
-        }
-    }
-
-    public void setScaleProgressThresholds(@Nullable ProgressThresholds progressThresholds) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, progressThresholds) == null) {
-            this.scaleProgressThresholds = progressThresholds;
-        }
-    }
-
-    public void setScrimColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
-            this.scrimColor = i;
-        }
-    }
-
-    public void setShapeMaskProgressThresholds(@Nullable ProgressThresholds progressThresholds) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, progressThresholds) == null) {
-            this.shapeMaskProgressThresholds = progressThresholds;
-        }
-    }
-
-    public void setStartContainerColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
-            this.startContainerColor = i;
-        }
-    }
-
-    public void setStartElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048622, this, f) == null) {
-            this.startElevation = f;
-        }
-    }
-
-    public void setStartShapeAppearanceModel(@Nullable ShapeAppearanceModel shapeAppearanceModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, shapeAppearanceModel) == null) {
-            this.startShapeAppearanceModel = shapeAppearanceModel;
-        }
-    }
-
-    public void setStartView(@Nullable View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, view2) == null) {
-            this.startView = view2;
-        }
-    }
-
-    public void setStartViewId(@IdRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
-            this.startViewId = i;
-        }
-    }
-
-    public void setTransitionDirection(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
-            this.transitionDirection = i;
-        }
+        return invokeV.booleanValue;
     }
 }

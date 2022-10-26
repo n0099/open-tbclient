@@ -15,13 +15,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.cp7;
-import com.baidu.tieba.cv8;
-import com.baidu.tieba.ip7;
-import com.baidu.tieba.mp7;
-import com.baidu.tieba.pv8;
-import com.baidu.tieba.yw8;
-import com.baidu.tieba.zw8;
+import com.baidu.tieba.ix8;
+import com.baidu.tieba.jx8;
+import com.baidu.tieba.mv8;
+import com.baidu.tieba.np7;
+import com.baidu.tieba.tp7;
+import com.baidu.tieba.xp7;
+import com.baidu.tieba.zv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,17 +31,45 @@ import com.faceunity.encoder.TextureMovieEncoder;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes6.dex */
-public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callback, yw8, Camera.PreviewCallback {
+public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callback, ix8, Camera.PreviewCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zw8 a;
+    public jx8 a;
     public SurfaceHolder b;
     public MediaRecorder c;
     public boolean d;
     public boolean e;
     public boolean f;
-    public yw8.a g;
-    public ip7 h;
+    public ix8.a g;
+    public tp7 h;
+
+    @Override // com.baidu.tieba.ix8
+    public void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onEncoderStatusUpdateListener) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ix8
+    public void setPreviewSize(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+        }
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048588, this, surfaceHolder, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, surfaceHolder) == null) {
+        }
+    }
 
     /* loaded from: classes6.dex */
     public class a implements MediaRecorder.OnErrorListener {
@@ -81,15 +109,15 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
                     }
                 }
                 if (this.a.h != null) {
-                    ip7 ip7Var = this.a.h;
-                    ip7Var.b(28, "what-->" + i + "  extra-->" + i2);
+                    tp7 tp7Var = this.a.h;
+                    tp7Var.b(28, "what-->" + i + "  extra-->" + i2);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Void, Void, String> {
+    public class b extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ byte[] a;
@@ -127,15 +155,15 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 Bitmap bitmap = null;
                 try {
-                    bitmap = pv8.b(this.a, this.b, this.c);
+                    bitmap = zv8.b(this.a, this.b, this.c);
                     if (this.b > this.c) {
-                        Bitmap h = pv8.h(bitmap, 90.0f);
+                        Bitmap h = zv8.h(bitmap, 90.0f);
                         if (bitmap != null && !bitmap.isRecycled() && h != null) {
                             bitmap.recycle();
                             bitmap = h;
                         }
                     }
-                    return FileHelper.saveFileAsPic(cv8.i, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
+                    return FileHelper.saveFileAsPic(mv8.i, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
                 } finally {
                     if (bitmap != null && !bitmap.isRecycled()) {
                         bitmap.recycle();
@@ -149,21 +177,21 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.d.g == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.d.g != null) {
+                this.d.g.a(!TextUtils.isEmpty(str), str);
             }
-            this.d.g.a(!TextUtils.isEmpty(str), str);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPreviewView(Context context, zw8 zw8Var) {
+    public VideoPreviewView(Context context, jx8 jx8Var) {
         super(context);
+        xp7 xp7Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, zw8Var};
+            Object[] objArr = {context, jx8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -174,36 +202,20 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, mp7.class);
-        mp7 mp7Var = runTask != null ? (mp7) runTask.getData() : null;
-        if (mp7Var != null) {
-            this.h = mp7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, xp7.class);
+        if (runTask != null) {
+            xp7Var = (xp7) runTask.getData();
+        } else {
+            xp7Var = null;
         }
-        this.a = zw8Var;
+        if (xp7Var != null) {
+            this.h = xp7Var.get();
+        }
+        this.a = jx8Var;
         getHolder().addCallback(this);
     }
 
-    @Override // com.baidu.tieba.yw8
-    public void a(Camera camera) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, camera) == null) || this.d || camera == null) {
-            return;
-        }
-        this.d = true;
-        try {
-            camera.setPreviewDisplay(this.b);
-            camera.setPreviewCallback(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-            ip7 ip7Var = this.h;
-            if (ip7Var != null) {
-                ip7Var.b(27, cp7.a(e));
-            }
-        }
-        camera.startPreview();
-    }
-
-    @Override // com.baidu.tieba.yw8
+    @Override // com.baidu.tieba.ix8
     public void b(Camera camera) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, camera) == null) && this.d) {
@@ -211,8 +223,8 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    @Override // com.baidu.tieba.yw8
-    public void c(yw8.a aVar) {
+    @Override // com.baidu.tieba.ix8
+    public void c(ix8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.g = aVar;
@@ -220,10 +232,67 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    @Override // com.baidu.tieba.yw8
+    @Override // com.baidu.tieba.ix8
+    public void e(Camera camera) {
+        MediaRecorder mediaRecorder;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, camera) == null) && (mediaRecorder = this.c) != null) {
+            try {
+                mediaRecorder.stop();
+                this.c.release();
+            } catch (Exception e) {
+                e.printStackTrace();
+                tp7 tp7Var = this.h;
+                if (tp7Var != null) {
+                    tp7Var.b(29, np7.a(e));
+                }
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            return this.a.r(motionEvent, getParent());
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, surfaceHolder) == null) {
+            this.b = surfaceHolder;
+            j();
+            this.e = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.ix8
+    public void a(Camera camera) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, camera) == null) && !this.d && camera != null) {
+            this.d = true;
+            try {
+                camera.setPreviewDisplay(this.b);
+                camera.setPreviewCallback(this);
+            } catch (IOException e) {
+                e.printStackTrace();
+                tp7 tp7Var = this.h;
+                if (tp7Var != null) {
+                    tp7Var.b(27, np7.a(e));
+                }
+            }
+            camera.startPreview();
+        }
+    }
+
+    @Override // com.baidu.tieba.ix8
     public void d(Camera camera) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, camera) == null) || camera == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, camera) != null) || camera == null) {
             return;
         }
         MediaRecorder mediaRecorder = new MediaRecorder();
@@ -255,7 +324,7 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
             this.c.setOrientationHint(90);
         }
         this.c.setVideoSize(1280, 720);
-        File file = new File(cv8.f);
+        File file = new File(mv8.f);
         if (!FileHelper.CheckTempDir(file.getAbsolutePath())) {
             file.mkdirs();
         }
@@ -265,28 +334,9 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
             this.c.start();
         } catch (Throwable th2) {
             th2.printStackTrace();
-            ip7 ip7Var = this.h;
-            if (ip7Var != null) {
-                ip7Var.b(28, cp7.a(th2));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yw8
-    public void e(Camera camera) {
-        MediaRecorder mediaRecorder;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, camera) == null) || (mediaRecorder = this.c) == null) {
-            return;
-        }
-        try {
-            mediaRecorder.stop();
-            this.c.release();
-        } catch (Exception e) {
-            e.printStackTrace();
-            ip7 ip7Var = this.h;
-            if (ip7Var != null) {
-                ip7Var.b(29, cp7.a(e));
+            tp7 tp7Var = this.h;
+            if (tp7Var != null) {
+                tp7Var.b(28, np7.a(th2));
             }
         }
     }
@@ -298,18 +348,18 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    public final void i(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, bArr, i, i2) == null) {
-            new b(this, bArr, i, i2).execute(new Void[0]);
-        }
-    }
-
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             Handler n = this.a.n();
             n.sendMessage(n.obtainMessage(1));
+        }
+    }
+
+    public final void i(byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, bArr, i, i2) == null) {
+            new b(this, bArr, i, i2).execute(new Void[0]);
         }
     }
 
@@ -322,51 +372,6 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
                 i(bArr, previewSize.width, previewSize.height);
             }
             this.f = false;
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) ? this.a.r(motionEvent, getParent()) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yw8
-    public void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onEncoderStatusUpdateListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yw8
-    public void setPreviewSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048588, this, surfaceHolder, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, surfaceHolder) == null) {
-            this.b = surfaceHolder;
-            j();
-            this.e = true;
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, surfaceHolder) == null) {
         }
     }
 }

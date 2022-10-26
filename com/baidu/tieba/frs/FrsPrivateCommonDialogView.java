@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b85;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.f85;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,11 +58,11 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        j = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        k = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds250);
-        l = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        m = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds405);
-        n = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds220);
+        j = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        k = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds250);
+        l = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        m = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds405);
+        n = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds220);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,6 +84,18 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             }
         }
         d(context);
+    }
+
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (!"left_time".equals(str) && !"clear_forum".equals(str) && !"task_complete".equals(str) && !"task_fail".equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public final void a(boolean z) {
@@ -118,24 +130,24 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             }
             a(e(privateForumPopInfoData.C()));
             if (privateForumPopInfoData.C().equals("left_time")) {
-                this.f.setText(R.string.obfuscated_res_0x7f0f0747);
-                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f41);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0753);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f52);
             } else if (!privateForumPopInfoData.C().equals("clear_forum") && !privateForumPopInfoData.C().equals("task_fail")) {
                 if (privateForumPopInfoData.C().equals("task_complete")) {
-                    this.f.setText(R.string.obfuscated_res_0x7f0f0747);
-                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f42);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0753);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f53);
                 } else {
-                    this.f.setText(R.string.obfuscated_res_0x7f0f0747);
+                    this.f.setText(R.string.obfuscated_res_0x7f0f0753);
                     f();
-                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f3e);
-                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3f);
+                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f4f);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f50);
                 }
             } else {
-                this.f.setText(R.string.obfuscated_res_0x7f0f0749);
-                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f40);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0755);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f51);
             }
-            this.f.setTag(R.id.obfuscated_res_0x7f090f89, Boolean.valueOf(z));
-            this.f.setTag(R.id.obfuscated_res_0x7f091a91, privateForumPopInfoData);
+            this.f.setTag(R.id.obfuscated_res_0x7f090f7d, Boolean.valueOf(z));
+            this.f.setTag(R.id.obfuscated_res_0x7f091a8d, privateForumPopInfoData);
             this.d.setText(privateForumPopInfoData.getTitle());
             this.e.setText(privateForumPopInfoData.A());
             return true;
@@ -151,10 +163,10 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (z) {
                 str = str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
-            if (ox4.k().h(str, false)) {
+            if (ux4.k().h(str, false)) {
                 return true;
             }
-            ox4.k().u(str, true);
+            ux4.k().u(str, true);
             return false;
         }
         return invokeLZ.booleanValue;
@@ -163,43 +175,37 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0342, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bd6);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090a92);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0341, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be0);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090a9c);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setDrawBorder(true);
             this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
             this.b.setBorderWidth(j);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090a91);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd7);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd5);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd4);
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a90);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090d46);
-            this.i = findViewById(R.id.obfuscated_res_0x7f091a8f);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090a9b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090be1);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bdf);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bde);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a8c);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090d53);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091a8b);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            hv4 d = hv4.d(this.f);
+            nv4 d = nv4.d(this.f);
             d.l(R.dimen.tbds1);
             d.n(R.string.J_X07);
             d.k(R.color.CAM_X0304);
             d.v(R.color.CAM_X0304);
-            hv4 d2 = hv4.d(this.d);
+            nv4 d2 = nv4.d(this.d);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            hv4 d3 = hv4.d(this.h);
+            nv4 d3 = nv4.d(this.h);
             d3.n(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            hv4 d4 = hv4.d(this.i);
+            nv4 d4 = nv4.d(this.i);
             d4.n(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? ("left_time".equals(str) || "clear_forum".equals(str) || "task_complete".equals(str) || "task_fail".equals(str)) ? false : true : invokeL.booleanValue;
     }
 
     public final void f() {
@@ -207,20 +213,19 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = b85.d().e().getAvater();
+            String avater = f85.d().e().getAvater();
             if (avater.startsWith("http")) {
-                this.b.K(avater, 10, false);
+                this.b.L(avater, 10, false);
             } else {
-                this.b.K(avater, 12, false);
+                this.b.L(avater, 12, false);
             }
         }
     }
 
     public void setConfirmButton(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) || onClickListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) && onClickListener != null) {
+            this.f.setOnClickListener(onClickListener);
         }
-        this.f.setOnClickListener(onClickListener);
     }
 }

@@ -3,13 +3,12 @@ package com.baidu.tieba.ad.browser.newstyle;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
-import com.baidu.tieba.lk0;
-import com.baidu.tieba.tm5;
+import com.baidu.tieba.an5;
+import com.baidu.tieba.mk0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,31 +37,6 @@ public class TBAdWebView extends BaseAdWebView {
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    public void b(@NonNull lk0 lk0Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, lk0Var, z) == null) {
-            if (!tm5.a().f() && !PermissionUtil.checkWriteExternalStorage(this.b)) {
-                PermissionUtil.requestWriteExternalStorage((Activity) this.b, 0);
-                return;
-            }
-            BaseAdWebView.d dVar = this.e;
-            if (dVar != null) {
-                dVar.k1(lk0Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion();
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -105,5 +79,30 @@ public class TBAdWebView extends BaseAdWebView {
                 return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
+    public void b(mk0 mk0Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, mk0Var, z) == null) {
+            if (!an5.a().f() && !PermissionUtil.checkWriteExternalStorage(this.b)) {
+                PermissionUtil.requestWriteExternalStorage((Activity) this.b, 0);
+                return;
+            }
+            BaseAdWebView.d dVar = this.e;
+            if (dVar != null) {
+                dVar.j1(mk0Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion();
+        }
+        return (String) invokeV.objValue;
     }
 }

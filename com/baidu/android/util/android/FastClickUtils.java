@@ -33,7 +33,10 @@ public class FastClickUtils {
             long currentTimeMillis = System.currentTimeMillis();
             long j = currentTimeMillis - lastClickTime;
             lastClickTime = currentTimeMillis;
-            return j > 0 && j < 1300;
+            if (j > 0 && j < 1300) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }

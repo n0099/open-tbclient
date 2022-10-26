@@ -72,24 +72,25 @@ public class a {
                                 @Override // java.lang.Runnable
                                 public final void run() {
                                     Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                                        return;
+                                    }
+                                    try {
                                         try {
-                                            try {
-                                                Object unused = a.b = MethodUtils.invokeStaticMethod(a.a, "currentActivityThread", new Object[0]);
-                                                synchronized (this.a) {
-                                                    this.a.notify();
-                                                }
-                                            } catch (Exception e) {
-                                                ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper main looper invoke currentActivityThread failed.", e);
-                                                synchronized (this.a) {
-                                                    this.a.notify();
-                                                }
-                                            }
-                                        } catch (Throwable th) {
+                                            Object unused = a.b = MethodUtils.invokeStaticMethod(a.a, "currentActivityThread", new Object[0]);
                                             synchronized (this.a) {
                                                 this.a.notify();
-                                                throw th;
                                             }
+                                        } catch (Exception e) {
+                                            ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper main looper invoke currentActivityThread failed.", e);
+                                            synchronized (this.a) {
+                                                this.a.notify();
+                                            }
+                                        }
+                                    } catch (Throwable th) {
+                                        synchronized (this.a) {
+                                            this.a.notify();
+                                            throw th;
                                         }
                                     }
                                 }

@@ -31,7 +31,22 @@ public final class SquareSearchActivityStaticAutoGenerateUrlCollectorImpl implem
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_SQUARE_SEARCH);
+            arrayList.add("create_forum");
+            hashMap.put("com.baidu.tieba.mainentrance.SquareSearchActivityStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,21 +58,6 @@ public final class SquareSearchActivityStaticAutoGenerateUrlCollectorImpl implem
             hashMap.put("2001190", "com.baidu.tieba.mainentrance.SquareSearchActivityStatic");
             hashMap.put("2001191", "com.baidu.tieba.mainentrance.SquareSearchActivityStatic");
             hashMap.put("3001000", "com.baidu.tieba.mainentrance.SquareSearchActivityStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_SQUARE_SEARCH);
-            arrayList.add("create_forum");
-            hashMap.put("com.baidu.tieba.mainentrance.SquareSearchActivityStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

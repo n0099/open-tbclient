@@ -20,6 +20,8 @@ public abstract class HttpRequestBase extends AbstractHttpMessage implements Htt
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getMethod();
+
     public HttpRequestBase() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,8 +54,6 @@ public abstract class HttpRequestBase extends AbstractHttpMessage implements Htt
         }
         return invokeV.objValue;
     }
-
-    public abstract String getMethod();
 
     @Override // org.apache.http.HttpMessage
     public ProtocolVersion getProtocolVersion() {

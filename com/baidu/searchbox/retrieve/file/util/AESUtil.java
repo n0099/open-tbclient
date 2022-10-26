@@ -7,7 +7,6 @@ import android.preference.PreferenceManager;
 import android.security.KeyPairGeneratorSpec;
 import android.text.TextUtils;
 import android.util.Base64;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,13 +47,13 @@ public class AESUtil {
 
     /* renamed from: com.baidu.searchbox.retrieve.file.util.AESUtil$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context context;
@@ -74,22 +73,7 @@ public class AESUtil {
             }
         }
 
-        public AESUtil build() throws ModeNotMatchException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.context != null) {
-                    if (!TextUtils.isEmpty(this.nameSpace)) {
-                        return new AESUtil(this, null);
-                    }
-                    throw new ModeNotMatchException("need package nameSpace");
-                }
-                throw new ModeNotMatchException("need set appContext");
-            }
-            return (AESUtil) invokeV.objValue;
-        }
-
-        public Builder setContext(@NonNull Context context) {
+        public Builder setContext(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -108,10 +92,25 @@ public class AESUtil {
             }
             return (Builder) invokeL.objValue;
         }
+
+        public AESUtil build() throws ModeNotMatchException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.context != null) {
+                    if (!TextUtils.isEmpty(this.nameSpace)) {
+                        return new AESUtil(this, null);
+                    }
+                    throw new ModeNotMatchException("need package nameSpace");
+                }
+                throw new ModeNotMatchException("need set appContext");
+            }
+            return (AESUtil) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes2.dex */
-    public static class CryptResult {
+    public class CryptResult {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FAIL = -1;
         public static final int NOT_INITIALIZED = 1;
@@ -137,18 +136,24 @@ public class AESUtil {
         public byte[] getResult() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.result : (byte[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.result;
+            }
+            return (byte[]) invokeV.objValue;
         }
 
         public int getStatusCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.statusCode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.statusCode;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class ModeNotMatchException extends Exception {
+    public class ModeNotMatchException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -187,8 +192,70 @@ public class AESUtil {
         }
     }
 
+    public AESUtil(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mSecretKey = null;
+        this.nameSpace = builder.nameSpace;
+        Context context = builder.context;
+        this.context = context;
+        if (context != null) {
+            init(context);
+        }
+    }
+
+    private SecretKey unwrap(byte[] bArr) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, bArr)) == null) {
+            if (this.mPair == null) {
+                initKeyPair();
+            }
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(4, this.mPair.getPrivate());
+            return (SecretKey) cipher.unwrap(bArr, "AES", 3);
+        }
+        return (SecretKey) invokeL.objValue;
+    }
+
     public /* synthetic */ AESUtil(Builder builder, AnonymousClass1 anonymousClass1) {
         this(builder);
+    }
+
+    public static byte[] decryptECB(String str, byte[] bArr) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance(ECB_TRANSFORMATION);
+            cipher.init(2, secretKeySpec);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] encryptECB(String str, byte[] bArr) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance(ECB_TRANSFORMATION);
+            cipher.init(1, secretKeySpec);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
     }
 
     public static byte[] decryptCBC(String str, String str2, byte[] bArr) throws Exception {
@@ -203,16 +270,16 @@ public class AESUtil {
         return (byte[]) invokeLLL.objValue;
     }
 
-    public static byte[] decryptECB(String str, byte[] bArr) throws Exception {
-        InterceptResult invokeLL;
+    public static byte[] encryptCBC(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance(ECB_TRANSFORMATION);
-            cipher.init(2, secretKeySpec);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
             return cipher.doFinal(bArr);
         }
-        return (byte[]) invokeLL.objValue;
+        return (byte[]) invokeLLL.objValue;
     }
 
     private CryptResult doCrypt(byte[] bArr, int i) {
@@ -243,30 +310,6 @@ public class AESUtil {
             }
         }
         return (CryptResult) invokeLI.objValue;
-    }
-
-    public static byte[] encryptCBC(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public static byte[] encryptECB(String str, byte[] bArr) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance(ECB_TRANSFORMATION);
-            cipher.init(1, secretKeySpec);
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
     }
 
     private void generateKeyPair(Context context) throws Exception {
@@ -318,19 +361,6 @@ public class AESUtil {
         }
     }
 
-    private void initKeyPair() throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
-            keyStore.load(null);
-            if (!keyStore.containsAlias("default" + this.nameSpace)) {
-                generateKeyPair(this.context);
-            }
-            KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("default" + this.nameSpace, null);
-            this.mPair = new KeyPair(privateKeyEntry.getCertificate().getPublicKey(), privateKeyEntry.getPrivateKey());
-        }
-    }
-
     private SecretKey restoreSecretKey(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -349,6 +379,19 @@ public class AESUtil {
             }
         }
         return (SecretKey) invokeL.objValue;
+    }
+
+    private void initKeyPair() throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+            keyStore.load(null);
+            if (!keyStore.containsAlias("default" + this.nameSpace)) {
+                generateKeyPair(this.context);
+            }
+            KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("default" + this.nameSpace, null);
+            this.mPair = new KeyPair(privateKeyEntry.getCertificate().getPublicKey(), privateKeyEntry.getPrivateKey());
+        }
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0011 */
@@ -421,20 +464,6 @@ public class AESUtil {
         }
     }
 
-    private SecretKey unwrap(byte[] bArr) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, bArr)) == null) {
-            if (this.mPair == null) {
-                initKeyPair();
-            }
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(4, this.mPair.getPrivate());
-            return (SecretKey) cipher.unwrap(bArr, "AES", 3);
-        }
-        return (SecretKey) invokeL.objValue;
-    }
-
     private byte[] wrap(SecretKey secretKey) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -452,36 +481,18 @@ public class AESUtil {
     public CryptResult decrypt(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? doCrypt(bArr, 2) : (CryptResult) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            return doCrypt(bArr, 2);
+        }
+        return (CryptResult) invokeL.objValue;
     }
 
     public CryptResult encrypt(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? doCrypt(bArr, 1) : (CryptResult) invokeL.objValue;
-    }
-
-    public AESUtil(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            return doCrypt(bArr, 1);
         }
-        this.mSecretKey = null;
-        this.nameSpace = builder.nameSpace;
-        Context context = builder.context;
-        this.context = context;
-        if (context != null) {
-            init(context);
-        }
+        return (CryptResult) invokeL.objValue;
     }
 }

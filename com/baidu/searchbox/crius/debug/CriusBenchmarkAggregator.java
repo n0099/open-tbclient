@@ -32,7 +32,7 @@ public class CriusBenchmarkAggregator {
     public long mP90;
     public boolean mStatsFresh;
     public long mStddev;
-    public List<Long> mTimes;
+    public List mTimes;
     public long mVariance;
     public String name;
     public boolean tracing;
@@ -59,7 +59,7 @@ public class CriusBenchmarkAggregator {
 
     private void computeStats() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.mStatsFresh) {
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.mStatsFresh) {
             return;
         }
         Collections.sort(this.mTimes);
@@ -87,12 +87,12 @@ public class CriusBenchmarkAggregator {
         long size = this.mVariance / this.mTimes.size();
         this.mVariance = size;
         this.mStddev = (long) Math.sqrt(size);
-        List<Long> list = this.mTimes;
-        this.mP10 = list.get((list.size() * 10) / 100).longValue();
-        List<Long> list2 = this.mTimes;
-        this.mP50 = list2.get((list2.size() * 50) / 100).longValue();
-        List<Long> list3 = this.mTimes;
-        this.mP90 = list3.get((list3.size() * 90) / 100).longValue();
+        List list = this.mTimes;
+        this.mP10 = ((Long) list.get((list.size() * 10) / 100)).longValue();
+        List list2 = this.mTimes;
+        this.mP50 = ((Long) list2.get((list2.size() * 50) / 100)).longValue();
+        List list3 = this.mTimes;
+        this.mP90 = ((Long) list3.get((list3.size() * 90) / 100)).longValue();
         this.mStatsFresh = true;
     }
 

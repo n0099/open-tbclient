@@ -15,6 +15,8 @@ public abstract class l implements Runnable {
     public int b;
     public o c;
 
+    public abstract void a(o oVar);
+
     public l(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,10 +46,11 @@ public abstract class l implements Runnable {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
-
-    public abstract void a(o oVar);
 
     @Override // java.lang.Runnable
     public final void run() {
@@ -63,13 +66,19 @@ public abstract class l implements Runnable {
 
     public String toString() {
         InterceptResult invokeV;
+        String oVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(getClass().getSimpleName());
             sb.append("{");
-            o oVar = this.c;
-            sb.append(oVar == null ? "[null]" : oVar.toString());
+            o oVar2 = this.c;
+            if (oVar2 == null) {
+                oVar = "[null]";
+            } else {
+                oVar = oVar2.toString();
+            }
+            sb.append(oVar);
             sb.append("}");
             return sb.toString();
         }

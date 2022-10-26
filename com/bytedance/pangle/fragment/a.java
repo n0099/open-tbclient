@@ -11,6 +11,36 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static Class a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return Class.forName(str);
+            } catch (ClassNotFoundException unused) {
+                return null;
+            }
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    public static Field a(Class cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
+            try {
+                Field declaredField = cls.getDeclaredField(str);
+                if (declaredField != null) {
+                    declaredField.setAccessible(true);
+                }
+                return declaredField;
+            } catch (NoSuchFieldException unused) {
+                return null;
+            }
+        }
+        return (Field) invokeLL.objValue;
+    }
+
     public static void a(Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, cls) == null) {
@@ -43,35 +73,5 @@ public final class a {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static Field a(Class cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
-            try {
-                Field declaredField = cls.getDeclaredField(str);
-                if (declaredField != null) {
-                    declaredField.setAccessible(true);
-                }
-                return declaredField;
-            } catch (NoSuchFieldException unused) {
-                return null;
-            }
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Class a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return Class.forName(str);
-            } catch (ClassNotFoundException unused) {
-                return null;
-            }
-        }
-        return (Class) invokeL.objValue;
     }
 }

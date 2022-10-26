@@ -34,10 +34,37 @@ public class RTCBitrateTracker {
         this.mPreByteCount = 0L;
     }
 
+    public String bitRateString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return bitrateStringForBitrate(this.mBitrate);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getBytesDelta() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBytesDelta;
+        }
+        return invokeV.longValue;
+    }
+
     public static String bitrateStringForBitrate(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) ? d > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(d * 1.0E-6d)) : d > 1000.0d ? String.format("%.0fKbps", Double.valueOf(d * 0.001d)) : String.format("%.0fbps", Double.valueOf(d)) : (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            if (d > 1000000.0d) {
+                return String.format("%.2fMbps", Double.valueOf(d * 1.0E-6d));
+            }
+            if (d > 1000.0d) {
+                return String.format("%.0fKbps", Double.valueOf(d * 0.001d));
+            }
+            return String.format("%.0fbps", Double.valueOf(d));
+        }
+        return (String) invokeCommon.objValue;
     }
 
     public static int bitrateToString(String str) {
@@ -65,18 +92,6 @@ public class RTCBitrateTracker {
             }
         }
         return invokeL.intValue;
-    }
-
-    public String bitRateString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bitrateStringForBitrate(this.mBitrate) : (String) invokeV.objValue;
-    }
-
-    public long getBytesDelta() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBytesDelta : invokeV.longValue;
     }
 
     public void updataBitrateWidhCurrentByteCount(long j) {

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.sp4;
+import com.baidu.tieba.tp4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,6 +32,28 @@ public abstract class ICDNIPDirectConnect {
             classClinitInterceptable.invokePostClinit(-2015191969, "Lcom/baidu/tbadk/core/util/httpNet/ICDNIPDirectConnect;");
         }
     }
+
+    public abstract String getAllIPListCanUsed();
+
+    public abstract tp4 getCDNImageTimeData();
+
+    public abstract String getCachedCdnIp(int i);
+
+    public abstract boolean hasImageProblem();
+
+    public abstract HttpGet httpGetFactory(String str, int i, boolean z);
+
+    public abstract HttpGet httpGetFactory(String str, String str2, String str3);
+
+    public abstract void init();
+
+    public abstract boolean isShouldCDNFallBack();
+
+    public abstract void result(String str, String str2, boolean z, boolean z2, boolean z3);
+
+    public abstract void setCDNImageTimeData(tp4 tp4Var);
+
+    public abstract void setIpDisableTime(int i);
 
     public ICDNIPDirectConnect() {
         Interceptable interceptable = $ic;
@@ -68,26 +90,4 @@ public abstract class ICDNIPDirectConnect {
         }
         return (ICDNIPDirectConnect) invokeV.objValue;
     }
-
-    public abstract String getAllIPListCanUsed();
-
-    public abstract sp4 getCDNImageTimeData();
-
-    public abstract String getCachedCdnIp(int i);
-
-    public abstract boolean hasImageProblem();
-
-    public abstract HttpGet httpGetFactory(String str, int i, boolean z);
-
-    public abstract HttpGet httpGetFactory(String str, String str2, String str3);
-
-    public abstract void init();
-
-    public abstract boolean isShouldCDNFallBack();
-
-    public abstract void result(String str, String str2, boolean z, boolean z2, boolean z3);
-
-    public abstract void setCDNImageTimeData(sp4 sp4Var);
-
-    public abstract void setIpDisableTime(int i);
 }

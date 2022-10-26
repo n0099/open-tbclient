@@ -10,17 +10,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.bk5;
-import com.baidu.tieba.ck5;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.mn;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.ik5;
+import com.baidu.tieba.jk5;
+import com.baidu.tieba.kk5;
+import com.baidu.tieba.nn;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -28,15 +28,15 @@ public class ConstrainImageGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
-    public ug<ConstrainImageLayout> b;
-    public ug<TbImageView> c;
-    public ck5 d;
+    public vg b;
+    public vg c;
+    public jk5 d;
     public int e;
     public boolean f;
     public double g;
-    public dk5 h;
+    public kk5 h;
     public View.OnClickListener i;
-    public mn j;
+    public nn j;
     public ViewGroup.OnHierarchyChangeListener k;
     public boolean l;
 
@@ -45,6 +45,13 @@ public class ConstrainImageGroup extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ConstrainImageGroup a;
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewAdded(View view2, View view3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) {
+            }
+        }
 
         public a(ConstrainImageGroup constrainImageGroup) {
             Interceptable interceptable = $ic;
@@ -62,13 +69,6 @@ public class ConstrainImageGroup extends LinearLayout {
                 }
             }
             this.a = constrainImageGroup;
-        }
-
-        @Override // android.view.ViewGroup.OnHierarchyChangeListener
-        public void onChildViewAdded(View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) {
-            }
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -100,7 +100,7 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.d = new bk5();
+        this.d = new ik5();
         this.f = false;
         this.k = new a(this);
         this.l = false;
@@ -108,19 +108,212 @@ public class ConstrainImageGroup extends LinearLayout {
         setOnHierarchyChangeListener(this.k);
     }
 
+    public void setImageMediaList(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) != null) || ListUtils.isEmpty(list) || this.b == null) {
+            return;
+        }
+        c(ListUtils.getCount(list));
+        int childCount = getChildCount();
+        int i = 0;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = getChildAt(i2);
+            if (childAt instanceof ConstrainImageLayout) {
+                ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) childAt;
+                constrainImageLayout.setImageClickListener(this.h);
+                constrainImageLayout.setFromCDN(this.f);
+                double d = this.g;
+                if (d > 0.0d) {
+                    constrainImageLayout.setSingleImageRatio(d);
+                }
+                View.OnClickListener onClickListener = this.i;
+                if (onClickListener == null) {
+                    constrainImageLayout.setClickable(false);
+                } else {
+                    constrainImageLayout.setOnClickListener(onClickListener);
+                }
+                constrainImageLayout.setSinglePicUseStyleV10(this.l);
+                i = this.d.a(constrainImageLayout, list, i2, i);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ConstrainImageGroup(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = new ik5();
+        this.f = false;
+        this.k = new a(this);
+        this.l = false;
+        setOrientation(1);
+        setOnHierarchyChangeListener(this.k);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ConstrainImageGroup(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = new ik5();
+        this.f = false;
+        this.k = new a(this);
+        this.l = false;
+        setOrientation(1);
+        setOnHierarchyChangeListener(this.k);
+    }
+
+    public void setChildClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.i = onClickListener;
+        }
+    }
+
+    @Override // android.view.View
+    public void setClickable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            super.setClickable(z);
+            if (!z) {
+                setImageClickListener(null);
+                setChildClickListener(null);
+            }
+        }
+    }
+
+    public void setConstrainLayoutPool(vg vgVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vgVar) == null) {
+            this.b = vgVar;
+        }
+    }
+
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void setImageClickListener(kk5 kk5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, kk5Var) == null) {
+            this.h = kk5Var;
+            int childCount = getChildCount();
+            if (childCount > 0) {
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = getChildAt(i);
+                    if (childAt instanceof ConstrainImageLayout) {
+                        ((ConstrainImageLayout) childAt).setImageClickListener(this.h);
+                    }
+                }
+            }
+        }
+    }
+
+    public void setImageMargin(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            if (i >= 0) {
+                this.e = i;
+            } else {
+                this.e = 0;
+            }
+        }
+    }
+
+    public void setImageProcessor(jk5 jk5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, jk5Var) == null) && jk5Var != null) {
+            this.d = jk5Var;
+        }
+    }
+
+    public void setImageViewPool(vg vgVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, vgVar) == null) {
+            this.c = vgVar;
+        }
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
+        }
+    }
+
+    public void setPreloadSizeReadyCallback(nn nnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, nnVar) == null) {
+            this.j = nnVar;
+            int childCount = getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
+                if (childAt instanceof ConstrainImageLayout) {
+                    ((ConstrainImageLayout) childAt).setPreloadSizeReadyCallback(nnVar);
+                }
+            }
+        }
+    }
+
+    public void setSingleImageRatio(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.g = d;
+        }
+    }
+
+    public void setSinglePicUseStyleV10(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.l = z;
+        }
+    }
+
     private ConstrainImageLayout getConstrainImageLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            ConstrainImageLayout b = this.b.b();
-            b.setImagePadding(this.e);
-            b.setImageViewObjectPool(this.c);
-            b.setImageMaxChildCount(-1);
-            b.setExtraCenterText(null);
-            b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            b.setPageUniqueId(this.a);
-            b.setPreloadSizeReadyCallback(this.j);
-            return b;
+            ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) this.b.b();
+            constrainImageLayout.setImagePadding(this.e);
+            constrainImageLayout.setImageViewObjectPool(this.c);
+            constrainImageLayout.setImageMaxChildCount(-1);
+            constrainImageLayout.setExtraCenterText(null);
+            constrainImageLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            constrainImageLayout.setPageUniqueId(this.a);
+            constrainImageLayout.setPreloadSizeReadyCallback(this.j);
+            return constrainImageLayout;
         }
         return (ConstrainImageLayout) invokeV.objValue;
     }
@@ -154,214 +347,21 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    public void setChildClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.i = onClickListener;
-        }
-    }
-
-    @Override // android.view.View
-    public void setClickable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            super.setClickable(z);
-            if (z) {
-                return;
-            }
-            setImageClickListener(null);
-            setChildClickListener(null);
-        }
-    }
-
-    public void setConstrainLayoutPool(ug<ConstrainImageLayout> ugVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ugVar) == null) {
-            this.b = ugVar;
-        }
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void setImageClickListener(dk5 dk5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dk5Var) == null) {
-            this.h = dk5Var;
-            int childCount = getChildCount();
-            if (childCount > 0) {
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = getChildAt(i);
-                    if (childAt instanceof ConstrainImageLayout) {
-                        ((ConstrainImageLayout) childAt).setImageClickListener(this.h);
-                    }
-                }
-            }
-        }
-    }
-
-    public void setImageMargin(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            if (i >= 0) {
-                this.e = i;
-            } else {
-                this.e = 0;
-            }
-        }
-    }
-
-    public void setImageMediaList(List<MediaData> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || ListUtils.isEmpty(list) || this.b == null) {
-            return;
-        }
-        c(ListUtils.getCount(list));
-        int childCount = getChildCount();
-        int i = 0;
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = getChildAt(i2);
-            if (childAt instanceof ConstrainImageLayout) {
-                ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) childAt;
-                constrainImageLayout.setImageClickListener(this.h);
-                constrainImageLayout.setFromCDN(this.f);
-                double d = this.g;
-                if (d > 0.0d) {
-                    constrainImageLayout.setSingleImageRatio(d);
-                }
-                View.OnClickListener onClickListener = this.i;
-                if (onClickListener == null) {
-                    constrainImageLayout.setClickable(false);
-                } else {
-                    constrainImageLayout.setOnClickListener(onClickListener);
-                }
-                constrainImageLayout.setSinglePicUseStyleV10(this.l);
-                i = this.d.a(constrainImageLayout, list, i2, i);
-            }
-        }
-    }
-
-    public void setImageProcessor(ck5 ck5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, ck5Var) == null) || ck5Var == null) {
-            return;
-        }
-        this.d = ck5Var;
-    }
-
     @Deprecated
-    public void setImageUrls(List<String> list) {
+    public void setImageUrls(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         LinkedList linkedList = new LinkedList();
-        for (String str : list) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            String str = (String) it.next();
             MediaData mediaData = new MediaData();
             mediaData.setPic(str);
             mediaData.setThumbnails_url(str);
             linkedList.add(mediaData);
         }
         setImageMediaList(linkedList);
-    }
-
-    public void setImageViewPool(ug<TbImageView> ugVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ugVar) == null) {
-            this.c = ugVar;
-        }
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-        }
-    }
-
-    public void setPreloadSizeReadyCallback(mn mnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, mnVar) == null) {
-            this.j = mnVar;
-            int childCount = getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = getChildAt(i);
-                if (childAt instanceof ConstrainImageLayout) {
-                    ((ConstrainImageLayout) childAt).setPreloadSizeReadyCallback(mnVar);
-                }
-            }
-        }
-    }
-
-    public void setSingleImageRatio(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.g = d;
-        }
-    }
-
-    public void setSinglePicUseStyleV10(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstrainImageGroup(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = new bk5();
-        this.f = false;
-        this.k = new a(this);
-        this.l = false;
-        setOrientation(1);
-        setOnHierarchyChangeListener(this.k);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstrainImageGroup(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = new bk5();
-        this.f = false;
-        this.k = new a(this);
-        this.l = false;
-        setOrientation(1);
-        setOnHierarchyChangeListener(this.k);
     }
 }

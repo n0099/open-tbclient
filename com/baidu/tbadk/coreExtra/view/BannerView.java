@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce8;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fs4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hs4;
+import com.baidu.tieba.me8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,17 +34,24 @@ public class BannerView extends RelativeLayout {
     public String b;
     public Button c;
     public TbImageView d;
-    public TbPageContext<?> e;
+    public TbPageContext e;
     public TbImageView f;
     public View g;
     public boolean h;
     public float i;
     public String j;
     public boolean k;
-    public fs4 l;
+    public hs4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a();
+
+        void b();
+    }
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -91,18 +98,18 @@ public class BannerView extends RelativeLayout {
                     TiebaStatic.log(this.a.a);
                 }
                 if (this.a.n == null) {
-                    if (TextUtils.isEmpty(this.a.j)) {
-                        return;
-                    }
-                    UrlManager.getInstance().dealOneLink(this.a.e, new String[]{this.a.j});
-                    if (!this.a.j.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) || !"frs_banner".equals(this.a.m)) {
-                        if (this.a.j.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) && "enterforum_banner".equals(this.a.m)) {
+                    if (!TextUtils.isEmpty(this.a.j)) {
+                        UrlManager.getInstance().dealOneLink(this.a.e, new String[]{this.a.j});
+                        if (this.a.j.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) && "frs_banner".equals(this.a.m)) {
+                            TiebaStatic.eventStat(this.a.e.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", GameCenterCoreUtils.REF_TYPE_FROM_FRS);
+                            return;
+                        } else if (this.a.j.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) && "enterforum_banner".equals(this.a.m)) {
                             TiebaStatic.eventStat(this.a.e.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", GameCenterCoreUtils.REF_TYPE_FROM_FRS);
                             return;
+                        } else {
+                            return;
                         }
-                        return;
                     }
-                    TiebaStatic.eventStat(this.a.e.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", GameCenterCoreUtils.REF_TYPE_FROM_FRS);
                     return;
                 }
                 this.a.n.b();
@@ -110,11 +117,25 @@ public class BannerView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a();
-
-        void b();
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BannerView(Context context) {
+        this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -145,56 +166,11 @@ public class BannerView extends RelativeLayout {
         h(context);
     }
 
-    public TbImageView getBannerView() {
-        InterceptResult invokeV;
+    public void setBannerData(hs4 hs4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (TbImageView) invokeV.objValue;
-    }
-
-    public final void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0134, this);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09042f);
-            this.c = button;
-            button.setOnClickListener(this.o);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090323);
-            this.d = tbImageView;
-            tbImageView.setAutoChangeStyle(true);
-            this.d.setOnClickListener(this.o);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092363);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090327);
-            this.g = findViewById;
-            SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : invokeV.booleanValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.postInvalidate();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.h = false;
-            this.k = false;
-        }
-    }
-
-    public void setBannerData(fs4 fs4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fs4Var) == null) {
-            this.l = fs4Var;
-            ce8.f(fs4Var.g, this.f, fs4Var.h, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, hs4Var) == null) {
+            this.l = hs4Var;
+            me8.f(hs4Var.g, this.f, hs4Var.h, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 
@@ -222,42 +198,9 @@ public class BannerView extends RelativeLayout {
     public void setBannerViewEvent(TbImageView.g gVar) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, gVar) == null) || (tbImageView = this.d) == null || gVar == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, gVar) == null) && (tbImageView = this.d) != null && gVar != null) {
+            tbImageView.setEvent(gVar);
         }
-        tbImageView.setEvent(gVar);
-    }
-
-    public void setData(TbPageContext<?> tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, tbPageContext, str, str2) == null) {
-            this.e = tbPageContext;
-            this.j = str2;
-            this.k = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
-            setVisibility(8);
-            if (!this.h && this.k) {
-                ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
-                layoutParams.width = ej.k(getContext());
-                layoutParams.height = (int) ((ej.k(getContext()) * this.i) + 0.5d);
-                this.d.setLayoutParams(layoutParams);
-                this.d.G(str, 10, 640, 108, false);
-                ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
-                if (layoutParams2 != null) {
-                    layoutParams2.height = layoutParams.height;
-                    setLayoutParams(layoutParams2);
-                }
-                setVisibility(0);
-            }
-        }
-    }
-
-    public void setMtjInfo(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || str == null || str2 == null) {
-            return;
-        }
-        this.a = str;
-        this.b = str2;
     }
 
     public void setTagViewVisible(boolean z) {
@@ -271,31 +214,98 @@ public class BannerView extends RelativeLayout {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BannerView(Context context) {
-        this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void setData(TbPageContext<?> tbPageContext, String str) {
+    public void setData(TbPageContext tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, tbPageContext, str) == null) {
             setData(tbPageContext, str, "");
+        }
+    }
+
+    public void setMtjInfo(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) && str != null && str2 != null) {
+            this.a = str;
+            this.b = str2;
+        }
+    }
+
+    public TbImageView getBannerView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (TbImageView) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d.postInvalidate();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.h = false;
+            this.k = false;
+        }
+    }
+
+    public final void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0134, this);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090438);
+            this.c = button;
+            button.setOnClickListener(this.o);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090323);
+            this.d = tbImageView;
+            tbImageView.setAutoChangeStyle(true);
+            this.d.setOnClickListener(this.o);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09234e);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090327);
+            this.g = findViewById;
+            SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);
+        }
+    }
+
+    public void setData(TbPageContext tbPageContext, String str, String str2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, tbPageContext, str, str2) == null) {
+            this.e = tbPageContext;
+            this.j = str2;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str.trim())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.k = z;
+            setVisibility(8);
+            if (!this.h && this.k) {
+                ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
+                layoutParams.width = fj.k(getContext());
+                layoutParams.height = (int) ((fj.k(getContext()) * this.i) + 0.5d);
+                this.d.setLayoutParams(layoutParams);
+                this.d.H(str, 10, 640, 108, false);
+                ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
+                if (layoutParams2 != null) {
+                    layoutParams2.height = layoutParams.height;
+                    setLayoutParams(layoutParams2);
+                }
+                setVisibility(0);
+            }
         }
     }
 }

@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +34,6 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public transient /* synthetic */ FieldHolder $fh;
     public KsDrawAd.AdInteractionListener aJ;
     public KsLogoView bq;
-    @Nullable
     public KsAppDownloadListener br;
     public TextView cA;
     public DrawDownloadProgressBar cB;
@@ -52,11 +49,10 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public TextView cz;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
-    @Nullable
     public c mApkDownloadHelper;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawVideoTailFrame(@NonNull Context context) {
+    public DrawVideoTailFrame(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,7 +73,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawVideoTailFrame(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public DrawVideoTailFrame(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,7 +95,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawVideoTailFrame(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public DrawVideoTailFrame(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -123,21 +119,21 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d041e, this);
-            this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f091220);
-            this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09105d);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091062);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091064);
-            this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091065);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091061);
-            this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f09105c);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091060);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d041b, this);
+            this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f091214);
+            this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091051);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091056);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
+            this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091059);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091055);
+            this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f091050);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091054);
             this.cB = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(15);
-            this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910b8);
-            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b7);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910bb);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910a9);
+            this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ac);
+            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ab);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0910af);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09109d);
         }
     }
 
@@ -285,7 +281,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0570a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
+            com.kwad.components.core.c.a.a.a(new a.C0566a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DrawVideoTailFrame cF;
@@ -346,7 +342,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
         }
     }
 
-    public void setApkDownloadHelper(@Nullable c cVar) {
+    public void setApkDownloadHelper(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
             this.mApkDownloadHelper = cVar;

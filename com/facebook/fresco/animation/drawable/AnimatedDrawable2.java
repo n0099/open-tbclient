@@ -28,7 +28,7 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public static final int DEFAULT_FRAME_SCHEDULING_DELAY_MS = 8;
     public static final int DEFAULT_FRAME_SCHEDULING_OFFSET_MS = 0;
     public static final AnimationListener NO_OP_LISTENER;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public AnimationBackend mAnimationBackend;
@@ -55,6 +55,16 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     /* loaded from: classes7.dex */
     public interface DrawListener {
         void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, long j6, long j7);
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
     }
 
     static {
@@ -92,23 +102,13 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         }
     }
 
-    @Nullable
-    public static FrameScheduler createSchedulerForBackendAndDelayMethod(@Nullable AnimationBackend animationBackend) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, animationBackend)) == null) {
-            if (animationBackend == null) {
-                return null;
-            }
-            return new DropFramesFrameScheduler(animationBackend);
-        }
-        return (FrameScheduler) invokeL.objValue;
-    }
-
     private long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? SystemClock.uptimeMillis() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return SystemClock.uptimeMillis();
+        }
+        return invokeV.longValue;
     }
 
     private void onFrameDropped() {
@@ -121,96 +121,32 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         }
     }
 
-    private void scheduleNextFrame(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, this, j) == null) {
-            long j2 = this.mStartTimeMs + j;
-            this.mExpectedRenderTimeMs = j2;
-            scheduleSelf(this.mInvalidateRunnable, j2);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        long j;
-        long j2;
-        AnimatedDrawable2 animatedDrawable2;
-        long j3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (this.mAnimationBackend == null || this.mFrameScheduler == null) {
-                return;
-            }
-            long now = now();
-            long max = this.mIsRunning ? (now - this.mStartTimeMs) + this.mFrameSchedulingOffsetMs : Math.max(this.mLastFrameAnimationTimeMs, 0L);
-            int frameNumberToRender = this.mFrameScheduler.getFrameNumberToRender(max, this.mLastFrameAnimationTimeMs);
-            if (frameNumberToRender == -1) {
-                frameNumberToRender = this.mAnimationBackend.getFrameCount() - 1;
-                this.mAnimationListener.onAnimationStop(this);
-                this.mIsRunning = false;
-            } else if (frameNumberToRender == 0 && this.mLastDrawnFrameNumber != -1 && now >= this.mExpectedRenderTimeMs) {
-                this.mAnimationListener.onAnimationRepeat(this);
-            }
-            int i = frameNumberToRender;
-            boolean drawFrame = this.mAnimationBackend.drawFrame(this, canvas, i);
-            if (drawFrame) {
-                this.mAnimationListener.onAnimationFrame(this, i);
-                this.mLastDrawnFrameNumber = i;
-            }
-            if (!drawFrame) {
-                onFrameDropped();
-            }
-            long now2 = now();
-            if (this.mIsRunning) {
-                long targetRenderTimeForNextFrameMs = this.mFrameScheduler.getTargetRenderTimeForNextFrameMs(now2 - this.mStartTimeMs);
-                if (targetRenderTimeForNextFrameMs != -1) {
-                    long j4 = this.mFrameSchedulingDelayMs + targetRenderTimeForNextFrameMs;
-                    scheduleNextFrame(j4);
-                    j2 = j4;
-                } else {
-                    this.mAnimationListener.onAnimationStop(this);
-                    this.mIsRunning = false;
-                    j2 = -1;
-                }
-                j = targetRenderTimeForNextFrameMs;
-            } else {
-                j = -1;
-                j2 = -1;
-            }
-            DrawListener drawListener = this.mDrawListener;
-            if (drawListener != null) {
-                drawListener.onDraw(this, this.mFrameScheduler, i, drawFrame, this.mIsRunning, this.mStartTimeMs, max, this.mLastFrameAnimationTimeMs, now, now2, j, j2);
-                animatedDrawable2 = this;
-                j3 = max;
-            } else {
-                animatedDrawable2 = this;
-                j3 = max;
-            }
-            animatedDrawable2.mLastFrameAnimationTimeMs = j3;
-        }
-    }
-
     @Override // com.facebook.drawable.base.DrawableWithCaches
     public void dropCaches() {
         AnimationBackend animationBackend;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animationBackend = this.mAnimationBackend) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (animationBackend = this.mAnimationBackend) != null) {
+            animationBackend.clear();
         }
-        animationBackend.clear();
     }
 
     @Nullable
     public AnimationBackend getAnimationBackend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAnimationBackend : (AnimationBackend) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAnimationBackend;
+        }
+        return (AnimationBackend) invokeV.objValue;
     }
 
     public long getDroppedFrames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDroppedFrames : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDroppedFrames;
+        }
+        return invokeV.longValue;
     }
 
     public int getFrameCount() {
@@ -267,40 +203,13 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         return invokeV.intValue;
     }
 
-    public long getLoopDurationMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.mAnimationBackend == null) {
-                return 0L;
-            }
-            FrameScheduler frameScheduler = this.mFrameScheduler;
-            if (frameScheduler != null) {
-                return frameScheduler.getLoopDurationMs();
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < this.mAnimationBackend.getFrameCount(); i2++) {
-                i += this.mAnimationBackend.getFrameDurationMs(i2);
-            }
-            return i;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
-    }
-
     public long getStartTimeMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mStartTimeMs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mStartTimeMs;
+        }
+        return invokeV.longValue;
     }
 
     public boolean isInfiniteAnimation() {
@@ -308,7 +217,10 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             FrameScheduler frameScheduler = this.mFrameScheduler;
-            return frameScheduler != null && frameScheduler.isInfiniteAnimation();
+            if (frameScheduler != null && frameScheduler.isInfiniteAnimation()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -317,165 +229,10 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public boolean isRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIsRunning : invokeV.booleanValue;
-    }
-
-    public void jumpToFrame(int i) {
-        FrameScheduler frameScheduler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || this.mAnimationBackend == null || (frameScheduler = this.mFrameScheduler) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mIsRunning;
         }
-        this.mLastFrameAnimationTimeMs = frameScheduler.getTargetRenderTimeMs(i);
-        long now = now() - this.mLastFrameAnimationTimeMs;
-        this.mStartTimeMs = now;
-        this.mExpectedRenderTimeMs = now;
-        invalidateSelf();
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, rect) == null) {
-            super.onBoundsChange(rect);
-            AnimationBackend animationBackend = this.mAnimationBackend;
-            if (animationBackend != null) {
-                animationBackend.setBounds(rect);
-            }
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            if (this.mIsRunning) {
-                return false;
-            }
-            long j = i;
-            if (this.mLastFrameAnimationTimeMs != j) {
-                this.mLastFrameAnimationTimeMs = j;
-                invalidateSelf();
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            if (this.mDrawableProperties == null) {
-                this.mDrawableProperties = new DrawableProperties();
-            }
-            this.mDrawableProperties.setAlpha(i);
-            AnimationBackend animationBackend = this.mAnimationBackend;
-            if (animationBackend != null) {
-                animationBackend.setAlpha(i);
-            }
-        }
-    }
-
-    public void setAnimationBackend(@Nullable AnimationBackend animationBackend) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, animationBackend) == null) {
-            this.mAnimationBackend = animationBackend;
-            if (animationBackend != null) {
-                this.mFrameScheduler = new DropFramesFrameScheduler(animationBackend);
-                this.mAnimationBackend.setBounds(getBounds());
-                DrawableProperties drawableProperties = this.mDrawableProperties;
-                if (drawableProperties != null) {
-                    drawableProperties.applyTo(this);
-                }
-            }
-            this.mFrameScheduler = createSchedulerForBackendAndDelayMethod(this.mAnimationBackend);
-            stop();
-        }
-    }
-
-    public void setAnimationListener(@Nullable AnimationListener animationListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, animationListener) == null) {
-            if (animationListener == null) {
-                animationListener = NO_OP_LISTENER;
-            }
-            this.mAnimationListener = animationListener;
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, colorFilter) == null) {
-            if (this.mDrawableProperties == null) {
-                this.mDrawableProperties = new DrawableProperties();
-            }
-            this.mDrawableProperties.setColorFilter(colorFilter);
-            AnimationBackend animationBackend = this.mAnimationBackend;
-            if (animationBackend != null) {
-                animationBackend.setColorFilter(colorFilter);
-            }
-        }
-    }
-
-    public void setDrawListener(@Nullable DrawListener drawListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, drawListener) == null) {
-            this.mDrawListener = drawListener;
-        }
-    }
-
-    public void setFrameSchedulingDelayMs(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.mFrameSchedulingDelayMs = j;
-        }
-    }
-
-    public void setFrameSchedulingOffsetMs(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
-            this.mFrameSchedulingOffsetMs = j;
-        }
-    }
-
-    @Override // android.graphics.drawable.Animatable
-    public void start() {
-        AnimationBackend animationBackend;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || this.mIsRunning || (animationBackend = this.mAnimationBackend) == null || animationBackend.getFrameCount() <= 1) {
-            return;
-        }
-        this.mIsRunning = true;
-        long now = now();
-        long j = now - this.mPausedStartTimeMsDifference;
-        this.mStartTimeMs = j;
-        this.mExpectedRenderTimeMs = j;
-        this.mLastFrameAnimationTimeMs = now - this.mPausedLastFrameAnimationTimeMsDifference;
-        this.mLastDrawnFrameNumber = this.mPausedLastDrawnFrameNumber;
-        invalidateSelf();
-        this.mAnimationListener.onAnimationStart(this);
-    }
-
-    @Override // android.graphics.drawable.Animatable
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.mIsRunning) {
-            long now = now();
-            this.mPausedStartTimeMsDifference = now - this.mStartTimeMs;
-            this.mPausedLastFrameAnimationTimeMsDifference = now - this.mLastFrameAnimationTimeMs;
-            this.mPausedLastDrawnFrameNumber = this.mLastDrawnFrameNumber;
-            this.mIsRunning = false;
-            this.mStartTimeMs = 0L;
-            this.mExpectedRenderTimeMs = 0L;
-            this.mLastFrameAnimationTimeMs = -1L;
-            this.mLastDrawnFrameNumber = -1;
-            unscheduleSelf(this.mInvalidateRunnable);
-            this.mAnimationListener.onAnimationStop(this);
-        }
+        return invokeV.booleanValue;
     }
 
     public AnimatedDrawable2(@Nullable AnimationBackend animationBackend) {
@@ -532,5 +289,269 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         };
         this.mAnimationBackend = animationBackend;
         this.mFrameScheduler = createSchedulerForBackendAndDelayMethod(animationBackend);
+    }
+
+    @Nullable
+    public static FrameScheduler createSchedulerForBackendAndDelayMethod(@Nullable AnimationBackend animationBackend) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, animationBackend)) == null) {
+            if (animationBackend == null) {
+                return null;
+            }
+            return new DropFramesFrameScheduler(animationBackend);
+        }
+        return (FrameScheduler) invokeL.objValue;
+    }
+
+    private void scheduleNextFrame(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65543, this, j) == null) {
+            long j2 = this.mStartTimeMs + j;
+            this.mExpectedRenderTimeMs = j2;
+            scheduleSelf(this.mInvalidateRunnable, j2);
+        }
+    }
+
+    public void jumpToFrame(int i) {
+        FrameScheduler frameScheduler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && this.mAnimationBackend != null && (frameScheduler = this.mFrameScheduler) != null) {
+            this.mLastFrameAnimationTimeMs = frameScheduler.getTargetRenderTimeMs(i);
+            long now = now() - this.mLastFrameAnimationTimeMs;
+            this.mStartTimeMs = now;
+            this.mExpectedRenderTimeMs = now;
+            invalidateSelf();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, rect) == null) {
+            super.onBoundsChange(rect);
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend != null) {
+                animationBackend.setBounds(rect);
+            }
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean onLevelChange(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            if (this.mIsRunning) {
+                return false;
+            }
+            long j = i;
+            if (this.mLastFrameAnimationTimeMs == j) {
+                return false;
+            }
+            this.mLastFrameAnimationTimeMs = j;
+            invalidateSelf();
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            if (this.mDrawableProperties == null) {
+                this.mDrawableProperties = new DrawableProperties();
+            }
+            this.mDrawableProperties.setAlpha(i);
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend != null) {
+                animationBackend.setAlpha(i);
+            }
+        }
+    }
+
+    public void setAnimationListener(@Nullable AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, animationListener) == null) {
+            if (animationListener == null) {
+                animationListener = NO_OP_LISTENER;
+            }
+            this.mAnimationListener = animationListener;
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, colorFilter) == null) {
+            if (this.mDrawableProperties == null) {
+                this.mDrawableProperties = new DrawableProperties();
+            }
+            this.mDrawableProperties.setColorFilter(colorFilter);
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend != null) {
+                animationBackend.setColorFilter(colorFilter);
+            }
+        }
+    }
+
+    public void setDrawListener(@Nullable DrawListener drawListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, drawListener) == null) {
+            this.mDrawListener = drawListener;
+        }
+    }
+
+    public void setFrameSchedulingDelayMs(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.mFrameSchedulingDelayMs = j;
+        }
+    }
+
+    public void setFrameSchedulingOffsetMs(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.mFrameSchedulingOffsetMs = j;
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        long max;
+        long j;
+        long j2;
+        AnimatedDrawable2 animatedDrawable2;
+        long j3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            if (this.mAnimationBackend != null && this.mFrameScheduler != null) {
+                long now = now();
+                if (this.mIsRunning) {
+                    max = (now - this.mStartTimeMs) + this.mFrameSchedulingOffsetMs;
+                } else {
+                    max = Math.max(this.mLastFrameAnimationTimeMs, 0L);
+                }
+                long j4 = max;
+                int frameNumberToRender = this.mFrameScheduler.getFrameNumberToRender(j4, this.mLastFrameAnimationTimeMs);
+                if (frameNumberToRender == -1) {
+                    frameNumberToRender = this.mAnimationBackend.getFrameCount() - 1;
+                    this.mAnimationListener.onAnimationStop(this);
+                    this.mIsRunning = false;
+                } else if (frameNumberToRender == 0 && this.mLastDrawnFrameNumber != -1 && now >= this.mExpectedRenderTimeMs) {
+                    this.mAnimationListener.onAnimationRepeat(this);
+                }
+                int i = frameNumberToRender;
+                boolean drawFrame = this.mAnimationBackend.drawFrame(this, canvas, i);
+                if (drawFrame) {
+                    this.mAnimationListener.onAnimationFrame(this, i);
+                    this.mLastDrawnFrameNumber = i;
+                }
+                if (!drawFrame) {
+                    onFrameDropped();
+                }
+                long now2 = now();
+                if (this.mIsRunning) {
+                    long targetRenderTimeForNextFrameMs = this.mFrameScheduler.getTargetRenderTimeForNextFrameMs(now2 - this.mStartTimeMs);
+                    if (targetRenderTimeForNextFrameMs != -1) {
+                        long j5 = this.mFrameSchedulingDelayMs + targetRenderTimeForNextFrameMs;
+                        scheduleNextFrame(j5);
+                        j2 = j5;
+                    } else {
+                        this.mAnimationListener.onAnimationStop(this);
+                        this.mIsRunning = false;
+                        j2 = -1;
+                    }
+                    j = targetRenderTimeForNextFrameMs;
+                } else {
+                    j = -1;
+                    j2 = -1;
+                }
+                DrawListener drawListener = this.mDrawListener;
+                if (drawListener != null) {
+                    drawListener.onDraw(this, this.mFrameScheduler, i, drawFrame, this.mIsRunning, this.mStartTimeMs, j4, this.mLastFrameAnimationTimeMs, now, now2, j, j2);
+                    animatedDrawable2 = this;
+                    j3 = j4;
+                } else {
+                    animatedDrawable2 = this;
+                    j3 = j4;
+                }
+                animatedDrawable2.mLastFrameAnimationTimeMs = j3;
+            }
+        }
+    }
+
+    public long getLoopDurationMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.mAnimationBackend == null) {
+                return 0L;
+            }
+            FrameScheduler frameScheduler = this.mFrameScheduler;
+            if (frameScheduler != null) {
+                return frameScheduler.getLoopDurationMs();
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < this.mAnimationBackend.getFrameCount(); i2++) {
+                i += this.mAnimationBackend.getFrameDurationMs(i2);
+            }
+            return i;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // android.graphics.drawable.Animatable
+    public void start() {
+        AnimationBackend animationBackend;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && !this.mIsRunning && (animationBackend = this.mAnimationBackend) != null && animationBackend.getFrameCount() > 1) {
+            this.mIsRunning = true;
+            long now = now();
+            long j = now - this.mPausedStartTimeMsDifference;
+            this.mStartTimeMs = j;
+            this.mExpectedRenderTimeMs = j;
+            this.mLastFrameAnimationTimeMs = now - this.mPausedLastFrameAnimationTimeMsDifference;
+            this.mLastDrawnFrameNumber = this.mPausedLastDrawnFrameNumber;
+            invalidateSelf();
+            this.mAnimationListener.onAnimationStart(this);
+        }
+    }
+
+    @Override // android.graphics.drawable.Animatable
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || !this.mIsRunning) {
+            return;
+        }
+        long now = now();
+        this.mPausedStartTimeMsDifference = now - this.mStartTimeMs;
+        this.mPausedLastFrameAnimationTimeMsDifference = now - this.mLastFrameAnimationTimeMs;
+        this.mPausedLastDrawnFrameNumber = this.mLastDrawnFrameNumber;
+        this.mIsRunning = false;
+        this.mStartTimeMs = 0L;
+        this.mExpectedRenderTimeMs = 0L;
+        this.mLastFrameAnimationTimeMs = -1L;
+        this.mLastDrawnFrameNumber = -1;
+        unscheduleSelf(this.mInvalidateRunnable);
+        this.mAnimationListener.onAnimationStop(this);
+    }
+
+    public void setAnimationBackend(@Nullable AnimationBackend animationBackend) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, animationBackend) == null) {
+            this.mAnimationBackend = animationBackend;
+            if (animationBackend != null) {
+                this.mFrameScheduler = new DropFramesFrameScheduler(animationBackend);
+                this.mAnimationBackend.setBounds(getBounds());
+                DrawableProperties drawableProperties = this.mDrawableProperties;
+                if (drawableProperties != null) {
+                    drawableProperties.applyTo(this);
+                }
+            }
+            this.mFrameScheduler = createSchedulerForBackendAndDelayMethod(this.mAnimationBackend);
+            stop();
+        }
     }
 }

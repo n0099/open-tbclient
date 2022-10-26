@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.r;
@@ -42,7 +41,7 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
     }
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }

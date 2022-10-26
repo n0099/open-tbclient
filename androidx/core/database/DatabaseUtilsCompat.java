@@ -32,13 +32,13 @@ public final class DatabaseUtilsCompat {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, strArr, strArr2)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return strArr2;
+            if (strArr != null && strArr.length != 0) {
+                String[] strArr3 = new String[strArr.length + strArr2.length];
+                System.arraycopy(strArr, 0, strArr3, 0, strArr.length);
+                System.arraycopy(strArr2, 0, strArr3, strArr.length, strArr2.length);
+                return strArr3;
             }
-            String[] strArr3 = new String[strArr.length + strArr2.length];
-            System.arraycopy(strArr, 0, strArr3, 0, strArr.length);
-            System.arraycopy(strArr2, 0, strArr3, strArr.length, strArr2.length);
-            return strArr3;
+            return strArr2;
         }
         return (String[]) invokeLL.objValue;
     }

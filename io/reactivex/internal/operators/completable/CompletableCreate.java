@@ -24,7 +24,7 @@ public final class CompletableCreate extends Completable {
     public final CompletableOnSubscribe source;
 
     /* loaded from: classes8.dex */
-    public static final class Emitter extends AtomicReference<Disposable> implements CompletableEmitter, Disposable {
+    public final class Emitter extends AtomicReference implements CompletableEmitter, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2467358622224974244L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,48 +48,12 @@ public final class CompletableCreate extends Completable {
             this.actual = completableObserver;
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                DisposableHelper.dispose(this);
-            }
-        }
-
-        @Override // io.reactivex.CompletableEmitter, io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.CompletableEmitter
-        public void onComplete() {
-            Disposable andSet;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Disposable disposable = get();
-                DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (disposable == disposableHelper || (andSet = getAndSet(disposableHelper)) == DisposableHelper.DISPOSED) {
-                    return;
-                }
-                try {
-                    this.actual.onComplete();
-                } finally {
-                    if (andSet != null) {
-                        andSet.dispose();
-                    }
-                }
-            }
-        }
-
         @Override // io.reactivex.CompletableEmitter
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, th) == null) || tryOnError(th)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, th) == null) && !tryOnError(th)) {
+                RxJavaPlugins.onError(th);
             }
-            RxJavaPlugins.onError(th);
         }
 
         @Override // io.reactivex.CompletableEmitter
@@ -108,27 +72,64 @@ public final class CompletableCreate extends Completable {
             }
         }
 
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                DisposableHelper.dispose(this);
+            }
+        }
+
+        @Override // io.reactivex.CompletableEmitter, io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.CompletableEmitter
+        public void onComplete() {
+            Disposable disposable;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                Object obj = get();
+                DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
+                if (obj != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                    try {
+                        this.actual.onComplete();
+                    } finally {
+                        if (disposable != null) {
+                            disposable.dispose();
+                        }
+                    }
+                }
+            }
+        }
+
         @Override // io.reactivex.CompletableEmitter
         public boolean tryOnError(Throwable th) {
             InterceptResult invokeL;
-            Disposable andSet;
+            Disposable disposable;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, th)) == null) {
                 if (th == null) {
                     th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
                 }
-                Disposable disposable = get();
+                Object obj = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (disposable == disposableHelper || (andSet = getAndSet(disposableHelper)) == DisposableHelper.DISPOSED) {
-                    return false;
-                }
-                try {
-                    this.actual.onError(th);
-                } finally {
-                    if (andSet != null) {
-                        andSet.dispose();
+                if (obj != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                    try {
+                        this.actual.onError(th);
+                    } finally {
+                        if (disposable != null) {
+                            disposable.dispose();
+                        }
                     }
                 }
+                return false;
             }
             return invokeL.booleanValue;
         }

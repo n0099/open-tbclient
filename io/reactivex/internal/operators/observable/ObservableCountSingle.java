@@ -16,20 +16,20 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableCountSingle<T> extends Single<Long> implements FuseToObservable<Long> {
+public final class ObservableCountSingle extends Single implements FuseToObservable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<T> source;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class CountObserver implements Observer<Object>, Disposable {
+    public final class CountObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Long> actual;
+        public final SingleObserver actual;
         public long count;
         public Disposable d;
 
-        public CountObserver(SingleObserver<? super Long> singleObserver) {
+        public CountObserver(SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,31 +45,6 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
                 }
             }
             this.actual = singleObserver;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.d = DisposableHelper.DISPOSED;
-                this.actual.onSuccess(Long.valueOf(this.count));
-            }
         }
 
         @Override // io.reactivex.Observer
@@ -97,9 +72,37 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
                 this.actual.onSubscribe(this);
             }
         }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.d = DisposableHelper.DISPOSED;
+                this.actual.onSuccess(Long.valueOf(this.count));
+            }
+        }
     }
 
-    public ObservableCountSingle(ObservableSource<T> observableSource) {
+    public ObservableCountSingle(ObservableSource observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,18 +120,21 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
         this.source = observableSource;
     }
 
-    @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable<Long> fuseToObservable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new ObservableCount(this.source)) : (Observable) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Long> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new CountObserver(singleObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.FuseToObservable
+    public Observable fuseToObservable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new ObservableCount(this.source));
+        }
+        return (Observable) invokeV.objValue;
     }
 }

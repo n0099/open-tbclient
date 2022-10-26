@@ -106,10 +106,9 @@ public class ElasticDataUploader {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mUploaderImpl == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.mUploaderImpl != null) {
+                        this.this$0.mUploaderImpl.uploadStatisticData(this.val$content);
                     }
-                    this.this$0.mUploaderImpl.uploadStatisticData(this.val$content);
                 }
             }, "upload_statistic_data", 3);
         }
@@ -146,10 +145,9 @@ public class ElasticDataUploader {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mUploaderImpl == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.mUploaderImpl != null) {
+                        this.this$0.mUploaderImpl.uploadWarningData(this.val$content);
                     }
-                    this.this$0.mUploaderImpl.uploadWarningData(this.val$content);
                 }
             }, "upload_warning_data", 3);
         }

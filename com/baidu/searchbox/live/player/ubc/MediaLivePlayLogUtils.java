@@ -33,14 +33,15 @@ public final class MediaLivePlayLogUtils {
     public static final int V_JUMP_TYPE_FIRST = 1;
     public static final int V_JUMP_TYPE_SCROLL = 2;
     public static String clickFrom;
-    public static final HashMap<String, HashMap<String, Object>> flowInfo;
+    public static final HashMap flowInfo;
     public static final boolean isDebug;
-    public static HashMap<String, Object> launchInfo;
+    public static HashMap launchInfo;
     public static String roomId;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1731939832, "Lcom/baidu/searchbox/live/player/ubc/MediaLivePlayLogUtils;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -54,8 +55,13 @@ public final class MediaLivePlayLogUtils {
         }
         INSTANCE = new MediaLivePlayLogUtils();
         AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        isDebug = appInfoService != null ? appInfoService.isDebug() : false;
-        flowInfo = new HashMap<>();
+        if (appInfoService != null) {
+            z = appInfoService.isDebug();
+        } else {
+            z = false;
+        }
+        isDebug = z;
+        flowInfo = new HashMap();
     }
 
     public MediaLivePlayLogUtils() {
@@ -72,6 +78,25 @@ public final class MediaLivePlayLogUtils {
         }
     }
 
+    public final void clearAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (isDebug) {
+                logDebug("clear all");
+            }
+            flowInfo.clear();
+        }
+    }
+
+    public final String getRoomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return roomId;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static /* synthetic */ boolean createLaunchInfo$default(MediaLivePlayLogUtils mediaLivePlayLogUtils, String str, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = true;
@@ -86,14 +111,60 @@ public final class MediaLivePlayLogUtils {
         mediaLivePlayLogUtils.endFlow(str, str2);
     }
 
-    private final void onCreateFlowInfo(String str, HashMap<String, Object> hashMap) {
+    private final void onCreateFlowInfo(String str, HashMap hashMap) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, hashMap) == null) {
-            if (str == null || str.length() == 0) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 launchInfo = hashMap;
             } else {
                 flowInfo.put(str, hashMap);
             }
+        }
+    }
+
+    public final Object get(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            return FlowInfoHelper.get(getFlowInfo(str), str2);
+        }
+        return invokeLL.objValue;
+    }
+
+    public final void setFirstJump(String str, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
+            if (z) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            put(str, K_JUMP_TYPE, Integer.valueOf(i));
+        }
+    }
+
+    public final void startSigleSlot(String str, String str2) {
+        HashMap flowInfo2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048596, this, str, str2) == null) && (flowInfo2 = getFlowInfo(str)) != null) {
+            FlowInfoHelper.startSingleSlot(flowInfo2, str2);
+        }
+    }
+
+    public final void toJson(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, str, jSONObject) == null) {
+            if (isDebug) {
+                logDebug("toJson " + str);
+            }
+            FlowInfoHelper.toJson(getFlowInfo(str), jSONObject);
         }
     }
 
@@ -105,30 +176,25 @@ public final class MediaLivePlayLogUtils {
     }
 
     private final void updateClickFrom(String str, String str2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, this, str, str2) == null) && clickFrom == null) {
             String str3 = (String) get(str, K_CLICK_FROM);
             clickFrom = str3;
-            boolean z = false;
-            if (str3 == null || str3.length() == 0) {
-                if ((str2 == null || str2.length() == 0) ? true : true) {
-                    return;
-                }
-                clickFrom = str2;
-                if (str2 != null) {
-                    INSTANCE.put(str, K_CLICK_FROM, str2);
+            boolean z2 = false;
+            if (str3 != null && str3.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                    clickFrom = str2;
+                    if (str2 != null) {
+                        INSTANCE.put(str, K_CLICK_FROM, str2);
+                    }
                 }
             }
-        }
-    }
-
-    public final void clearAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (isDebug) {
-                logDebug("clear all");
-            }
-            flowInfo.clear();
         }
     }
 
@@ -166,7 +232,7 @@ public final class MediaLivePlayLogUtils {
     public final void flowEndSlot(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            HashMap<String, Object> flowInfo2 = getFlowInfo(str);
+            HashMap flowInfo2 = getFlowInfo(str);
             if (Intrinsics.areEqual((Boolean) FlowInfoHelper.get(flowInfo2, K_PLAY_STAGE), Boolean.TRUE)) {
                 logDebug("startSigleLineSlot witch play sate " + str2);
             }
@@ -184,7 +250,7 @@ public final class MediaLivePlayLogUtils {
     public final void flowStartSlot(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            HashMap<String, Object> orCreateFlowInfo = getOrCreateFlowInfo(str);
+            HashMap orCreateFlowInfo = getOrCreateFlowInfo(str);
             if (Intrinsics.areEqual((Boolean) FlowInfoHelper.get(orCreateFlowInfo, K_PLAY_STAGE), Boolean.TRUE)) {
                 logDebug("startSigleLineSlot witch play sate " + str2);
             }
@@ -199,20 +265,41 @@ public final class MediaLivePlayLogUtils {
         }
     }
 
-    public final Object get(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void startPlayerSigleLine(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) ? FlowInfoHelper.get(getFlowInfo(str), str2) : invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) {
+            if (isDebug) {
+                logDebug("staSigLin " + str + ": " + str2);
+            }
+            HashMap orCreateFlowInfo = getOrCreateFlowInfo(str);
+            if (orCreateFlowInfo != null) {
+                if (FlowInfoHelper.isFlowClosed(orCreateFlowInfo)) {
+                    logDebug("startPlayerSigleLine witch closed " + str2);
+                    return;
+                }
+                if (isDebug) {
+                    logDebug("startPlayerSigleLine " + str + WebvttCueParser.CHAR_SPACE + str2);
+                }
+                FlowInfoHelper.startSigleLineSlot(orCreateFlowInfo, str2, true);
+                updateClickFrom(str, str2);
+            }
+        }
     }
 
-    public final HashMap<String, Object> getFlowInfo(String str) {
+    public final HashMap getFlowInfo(String str) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (str == null || str.length() == 0) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 return launchInfo;
             }
-            HashMap<String, Object> hashMap = flowInfo.get(str);
+            HashMap hashMap = (HashMap) flowInfo.get(str);
             if (hashMap == null) {
                 hashMap = launchInfo;
                 launchInfo = null;
@@ -229,11 +316,39 @@ public final class MediaLivePlayLogUtils {
         return (HashMap) invokeL.objValue;
     }
 
-    public final HashMap<String, Object> getOrCreateFlowInfo(String str) {
+    public final HashMap remove(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            if (isDebug) {
+                logDebug("remove " + str);
+            }
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                HashMap hashMap = launchInfo;
+                launchInfo = null;
+                return hashMap;
+            }
+            HashMap hashMap2 = (HashMap) flowInfo.remove(str);
+            if (hashMap2 == null) {
+                launchInfo = null;
+                return hashMap2;
+            }
+            return hashMap2;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public final HashMap getOrCreateFlowInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            HashMap<String, Object> flowInfo2 = getFlowInfo(str);
+            HashMap flowInfo2 = getFlowInfo(str);
             if (flowInfo2 == null) {
                 if (isDebug) {
                     logDebug("create flow with unexist ...");
@@ -249,16 +364,48 @@ public final class MediaLivePlayLogUtils {
         return (HashMap) invokeL.objValue;
     }
 
-    public final String getRoomId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? roomId : (String) invokeV.objValue;
-    }
-
     public final boolean isClosed(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? FlowInfoHelper.isFlowClosed(getFlowInfo(str)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return FlowInfoHelper.isFlowClosed(getFlowInfo(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean isPlayStage(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return Intrinsics.areEqual((Boolean) FlowInfoHelper.get(getFlowInfo(str), K_PLAY_STAGE), Boolean.TRUE);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void logDebug(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && isDebug) {
+            Log.d(MEDIA_LIVE_PLUGIN_TAG, str);
+        }
+    }
+
+    public final HashMap popLaunchInfo(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (isDebug) {
+                logDebug("popLaunchInfo " + str);
+            }
+            return remove(str);
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public final void setPlayStage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            put(str, K_PLAY_STAGE, Boolean.TRUE);
+        }
     }
 
     public final boolean isFirstJump(String str) {
@@ -276,35 +423,10 @@ public final class MediaLivePlayLogUtils {
         return invokeL.booleanValue;
     }
 
-    public final boolean isPlayStage(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? Intrinsics.areEqual((Boolean) FlowInfoHelper.get(getFlowInfo(str), K_PLAY_STAGE), Boolean.TRUE) : invokeL.booleanValue;
-    }
-
-    public final void logDebug(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && isDebug) {
-            Log.d(MEDIA_LIVE_PLUGIN_TAG, str);
-        }
-    }
-
-    public final HashMap<String, Object> popLaunchInfo(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (isDebug) {
-                logDebug("popLaunchInfo " + str);
-            }
-            return remove(str);
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
     public final void put(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048590, this, str, str2, obj) == null) {
-            HashMap<String, Object> flowInfo2 = getFlowInfo(str);
+            HashMap flowInfo2 = getFlowInfo(str);
             if (FlowInfoHelper.isFlowClosed(flowInfo2)) {
                 return;
             }
@@ -315,115 +437,56 @@ public final class MediaLivePlayLogUtils {
         }
     }
 
-    public final HashMap<String, Object> remove(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            if (isDebug) {
-                logDebug("remove " + str);
-            }
-            if (str == null || str.length() == 0) {
-                HashMap<String, Object> hashMap = launchInfo;
-                launchInfo = null;
-                return hashMap;
-            }
-            HashMap<String, Object> remove = flowInfo.remove(str);
-            if (remove == null) {
-                launchInfo = null;
-                return remove;
-            }
-            return remove;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public final void setFirstJump(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
-            put(str, K_JUMP_TYPE, Integer.valueOf(z ? 1 : 2));
-        }
-    }
-
-    public final void setPlayStage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            put(str, K_PLAY_STAGE, Boolean.TRUE);
-        }
-    }
-
-    public final void startPlayerSigleLine(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) {
-            if (isDebug) {
-                logDebug("staSigLin " + str + ": " + str2);
-            }
-            HashMap<String, Object> orCreateFlowInfo = getOrCreateFlowInfo(str);
-            if (orCreateFlowInfo != null) {
-                if (FlowInfoHelper.isFlowClosed(orCreateFlowInfo)) {
-                    logDebug("startPlayerSigleLine witch closed " + str2);
-                    return;
-                }
-                if (isDebug) {
-                    logDebug("startPlayerSigleLine " + str + WebvttCueParser.CHAR_SPACE + str2);
-                }
-                FlowInfoHelper.startSigleLineSlot(orCreateFlowInfo, str2, true);
-                updateClickFrom(str, str2);
-            }
-        }
-    }
-
     public final void startSigleLineSlot(String str, String str2, Boolean bool) {
+        HashMap flowInfo2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048595, this, str, str2, bool) == null) {
             if (isDebug) {
                 logDebug("startSigleLineSlot " + str + WebvttCueParser.CHAR_SPACE + str2);
             }
-            HashMap<String, Object> orCreateFlowInfo = Intrinsics.areEqual(bool, Boolean.TRUE) ? getOrCreateFlowInfo(str) : getFlowInfo(str);
-            if (orCreateFlowInfo != null) {
-                if (Intrinsics.areEqual((Boolean) FlowInfoHelper.get(orCreateFlowInfo, K_PLAY_STAGE), Boolean.TRUE)) {
+            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                flowInfo2 = getOrCreateFlowInfo(str);
+            } else {
+                flowInfo2 = getFlowInfo(str);
+            }
+            if (flowInfo2 != null) {
+                if (Intrinsics.areEqual((Boolean) FlowInfoHelper.get(flowInfo2, K_PLAY_STAGE), Boolean.TRUE)) {
                     logDebug("startSigleLineSlot witch play sate " + str2);
                 }
-                if (FlowInfoHelper.isFlowClosed(orCreateFlowInfo)) {
+                if (FlowInfoHelper.isFlowClosed(flowInfo2)) {
                     logDebug("startPlayerSigleLine witch closed " + str2);
                     return;
                 }
-                FlowInfoHelper.startSigleLineSlot(orCreateFlowInfo, str2, true);
+                FlowInfoHelper.startSigleLineSlot(flowInfo2, str2, true);
                 updateClickFrom(str, str2);
             }
         }
     }
 
-    public final void startSigleSlot(String str, String str2) {
-        HashMap<String, Object> flowInfo2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048596, this, str, str2) == null) || (flowInfo2 = getFlowInfo(str)) == null) {
-            return;
-        }
-        FlowInfoHelper.startSingleSlot(flowInfo2, str2);
-    }
-
-    public final void toJson(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, str, jSONObject) == null) {
-            if (isDebug) {
-                logDebug("toJson " + str);
-            }
-            FlowInfoHelper.toJson(getFlowInfo(str), jSONObject);
-        }
-    }
-
-    public final void updateFlow(HashMap<String, Object> hashMap) {
+    public final void updateFlow(HashMap hashMap) {
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, hashMap) == null) {
             if (isDebug) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("last launchInfo ");
-                HashMap<String, Object> hashMap2 = launchInfo;
-                sb.append(hashMap2 != null ? hashMap2.toString() : null);
+                HashMap hashMap2 = launchInfo;
+                if (hashMap2 != null) {
+                    str = hashMap2.toString();
+                } else {
+                    str = null;
+                }
+                sb.append(str);
                 logDebug(sb.toString());
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("updateLaunchInfo ");
-                sb2.append(hashMap != null ? hashMap.toString() : null);
+                if (hashMap != null) {
+                    str2 = hashMap.toString();
+                } else {
+                    str2 = null;
+                }
+                sb2.append(str2);
                 logDebug(sb2.toString());
             }
             if (hashMap == null) {

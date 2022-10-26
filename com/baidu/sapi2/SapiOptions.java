@@ -67,42 +67,42 @@ public final class SapiOptions implements NoProguard {
     public static final String defaultJoinQrLoginPrompt = "登录后%s将获得百度帐号的公开信息（用户名、头像）";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean addressUseWeb;
-    public List<String> authorizedDomains;
+    public List authorizedDomains;
     public Cache cache;
     public boolean canGetBduss;
-    public List<String> cuidAuthorizedDomains;
+    public List cuidAuthorizedDomains;
     public boolean defaultHttpsEnabled;
-    public List<Integer> diExceptIndex;
-    public List<String> dialogSelectAgreementTpls;
+    public List diExceptIndex;
+    public List dialogSelectAgreementTpls;
     public boolean dialogShowChilrenAgreement;
     public LoginShareStrategy globalShareStrategy;
     public Gray gray;
     public boolean httpClientAsyncCookie;
     public String joinQrLoginPrompt;
-    public List<String> loginCookieDiKeys;
+    public List loginCookieDiKeys;
     public int loginStatExtraLimitLen;
-    public Map<String, JSONArray> loginTplsPriority;
-    public List<String> openBdussDomains;
-    public List<String> openBdussTpls;
+    public Map loginTplsPriority;
+    public List openBdussDomains;
+    public List openBdussTpls;
     public boolean resetFileExecPer;
     public int shareCheckOnlineTimeOut;
     public boolean shareCommonStorageEnable;
     public int shareInterGray;
     public boolean shareLivingunameEnabled;
-    public Map<String, LoginShareStrategy> specificShareStrategy;
+    public Map specificShareStrategy;
     public String tid;
 
     /* loaded from: classes2.dex */
-    public static class Cache {
+    public class Cache {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTERNAL_CACHE_DIR = ".BD_SAPI_CACHE";
         public transient /* synthetic */ FieldHolder $fh;
         public boolean enabled;
-        public List<Module> modules;
+        public List modules;
         public String version;
 
         /* loaded from: classes2.dex */
-        public static class Module {
+        public class Module {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String downloadUrl;
@@ -123,59 +123,13 @@ public final class SapiOptions implements NoProguard {
                 }
             }
 
-            public static Module fromJSON(JSONObject jSONObject) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                    Module module = new Module();
-                    module.id = jSONObject.optString("id");
-                    module.downloadUrl = jSONObject.optString("download_url");
-                    module.hash = jSONObject.optString(SapiOptions.KEY_CACHE_MODULE_HASH);
-                    return module;
-                }
-                return (Module) invokeL.objValue;
-            }
-
-            public static String getAssetFile(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.replace(':', WebvttCueParser.CHAR_SLASH) : (String) invokeL.objValue;
-            }
-
-            public static String getExternalFile(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-                    return ShareStorage.SP_FILE_PATH + getAssetFile(str);
-                }
-                return (String) invokeL.objValue;
-            }
-
-            public static String getInternalFile(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? getAssetFile(str).replace(WebvttCueParser.CHAR_SLASH, SignatureImpl.SEP) : (String) invokeL.objValue;
-            }
-
-            public boolean equals(Object obj) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                    if (this == obj) {
-                        return true;
-                    }
-                    if (obj == null || Module.class != obj.getClass()) {
-                        return false;
-                    }
-                    return this.id.equals(((Module) obj).id);
-                }
-                return invokeL.booleanValue;
-            }
-
             public int hashCode() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.id.hashCode() : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.id.hashCode();
+                }
+                return invokeV.intValue;
             }
 
             public JSONObject toJSON() {
@@ -194,6 +148,61 @@ public final class SapiOptions implements NoProguard {
                 }
                 return (JSONObject) invokeV.objValue;
             }
+
+            public static Module fromJSON(JSONObject jSONObject) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                    Module module = new Module();
+                    module.id = jSONObject.optString("id");
+                    module.downloadUrl = jSONObject.optString("download_url");
+                    module.hash = jSONObject.optString(SapiOptions.KEY_CACHE_MODULE_HASH);
+                    return module;
+                }
+                return (Module) invokeL.objValue;
+            }
+
+            public static String getAssetFile(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return str.replace(':', WebvttCueParser.CHAR_SLASH);
+                }
+                return (String) invokeL.objValue;
+            }
+
+            public static String getExternalFile(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                    return ShareStorage.SP_FILE_PATH + getAssetFile(str);
+                }
+                return (String) invokeL.objValue;
+            }
+
+            public static String getInternalFile(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                    return getAssetFile(str).replace(WebvttCueParser.CHAR_SLASH, SignatureImpl.SEP);
+                }
+                return (String) invokeL.objValue;
+            }
+
+            public boolean equals(Object obj) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                    if (this == obj) {
+                        return true;
+                    }
+                    if (obj != null && Module.class == obj.getClass()) {
+                        return this.id.equals(((Module) obj).id);
+                    }
+                    return false;
+                }
+                return invokeL.booleanValue;
+            }
         }
 
         public Cache() {
@@ -211,6 +220,33 @@ public final class SapiOptions implements NoProguard {
             }
             this.modules = new ArrayList();
             this.enabled = true;
+        }
+
+        public List getModules() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.modules;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public String getVersion() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.version;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public boolean isEnabled() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.enabled;
+            }
+            return invokeV.booleanValue;
         }
 
         public static Cache fromJSON(JSONObject jSONObject) {
@@ -232,24 +268,6 @@ public final class SapiOptions implements NoProguard {
                 return cache;
             }
             return (Cache) invokeL.objValue;
-        }
-
-        public List<Module> getModules() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.modules : (List) invokeV.objValue;
-        }
-
-        public String getVersion() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.version : (String) invokeV.objValue;
-        }
-
-        public boolean isEnabled() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enabled : invokeV.booleanValue;
         }
 
         public JSONObject toJSON() {
@@ -275,63 +293,7 @@ public final class SapiOptions implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public static class CacheGray {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<Cache.Module> modules;
-        public String percent;
-
-        public CacheGray() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.modules = new ArrayList();
-        }
-
-        public static CacheGray fromJSON(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                CacheGray cacheGray = new CacheGray();
-                if (jSONObject != null) {
-                    try {
-                        cacheGray.percent = jSONObject.optString("percent");
-                        JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.KEY_CACHE_MODULES);
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            cacheGray.getModules().add(Cache.Module.fromJSON(optJSONArray.getJSONObject(i)));
-                        }
-                    } catch (Throwable unused) {
-                    }
-                }
-                return cacheGray;
-            }
-            return (CacheGray) invokeL.objValue;
-        }
-
-        public List<Cache.Module> getModules() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.modules : (List) invokeV.objValue;
-        }
-
-        public String getPercent() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.percent : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class Gray implements NoProguard {
+    public class Gray implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FUN_NAME_ADDRESS_NA_MAP = "addrmap";
         public static final String FUN_NAME_CHINA_MOBILE_OAUTH = "cm_oauth";
@@ -355,10 +317,25 @@ public final class SapiOptions implements NoProguard {
         public static final String KEY_NEW_INIT_SOFIRE = "new_init_sofire";
         public static final String KEY_SHARE_CHECK_ONLINE_SWITCH = "share_check_online_switch";
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, GrayModule> grayModuleMap;
+        public Map grayModuleMap;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(382613337, "Lcom/baidu/sapi2/SapiOptions$Gray;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(382613337, "Lcom/baidu/sapi2/SapiOptions$Gray;");
+            }
+        }
 
         /* loaded from: classes2.dex */
-        public static class GrayModule implements NoProguard {
+        public class GrayModule implements NoProguard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String extraParams;
@@ -380,19 +357,79 @@ public final class SapiOptions implements NoProguard {
                 }
             }
 
+            public String getExtraParams() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.extraParams;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            public String getMinVersion() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.minVersion;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            public long getPercent() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.percent;
+                }
+                return invokeV.longValue;
+            }
+
+            public boolean isMeetGray() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return this.meetGray;
+                }
+                return invokeV.booleanValue;
+            }
+
             public static GrayModule fromJSON(String str, JSONObject jSONObject) {
                 InterceptResult invokeLL;
+                JSONObject jSONObject2;
+                String optString;
+                long optLong;
+                String optString2;
+                boolean z;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
                     SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
                     GrayModule grayModule = new GrayModule();
-                    JSONObject optJSONObject = jSONObject.has(Gray.KEY_GRAY_TPLS) ? jSONObject.optJSONObject(Gray.KEY_GRAY_TPLS).optJSONObject(confignation.tpl) : new JSONObject();
-                    if (optJSONObject == null) {
-                        optJSONObject = new JSONObject();
+                    if (jSONObject.has(Gray.KEY_GRAY_TPLS)) {
+                        jSONObject2 = jSONObject.optJSONObject(Gray.KEY_GRAY_TPLS).optJSONObject(confignation.tpl);
+                    } else {
+                        jSONObject2 = new JSONObject();
                     }
-                    grayModule.minVersion = optJSONObject.has(Gray.KEY_GRAY_MIN_VERSION) ? optJSONObject.optString(Gray.KEY_GRAY_MIN_VERSION) : jSONObject.optString(Gray.KEY_GRAY_MIN_VERSION);
-                    grayModule.percent = optJSONObject.has(Gray.KEY_GRAY_PERCENT) ? optJSONObject.optLong(Gray.KEY_GRAY_PERCENT) : jSONObject.optLong(Gray.KEY_GRAY_PERCENT);
-                    grayModule.extraParams = optJSONObject.has(Gray.KEY_GRAY_EX) ? optJSONObject.optString(Gray.KEY_GRAY_EX) : jSONObject.optString(Gray.KEY_GRAY_EX);
+                    if (jSONObject2 == null) {
+                        jSONObject2 = new JSONObject();
+                    }
+                    if (jSONObject2.has(Gray.KEY_GRAY_MIN_VERSION)) {
+                        optString = jSONObject2.optString(Gray.KEY_GRAY_MIN_VERSION);
+                    } else {
+                        optString = jSONObject.optString(Gray.KEY_GRAY_MIN_VERSION);
+                    }
+                    grayModule.minVersion = optString;
+                    if (jSONObject2.has(Gray.KEY_GRAY_PERCENT)) {
+                        optLong = jSONObject2.optLong(Gray.KEY_GRAY_PERCENT);
+                    } else {
+                        optLong = jSONObject.optLong(Gray.KEY_GRAY_PERCENT);
+                    }
+                    grayModule.percent = optLong;
+                    if (jSONObject2.has(Gray.KEY_GRAY_EX)) {
+                        optString2 = jSONObject2.optString(Gray.KEY_GRAY_EX);
+                    } else {
+                        optString2 = jSONObject.optString(Gray.KEY_GRAY_EX);
+                    }
+                    grayModule.extraParams = optString2;
                     long j = SapiContext.getInstance().getLong(str, -1L);
                     if (j == -1) {
                         Random random = new Random();
@@ -400,37 +437,18 @@ public final class SapiOptions implements NoProguard {
                         j = random.nextInt(1000000);
                         SapiContext.getInstance().put(str, j);
                     }
-                    grayModule.meetGray = grayModule.percent >= j;
+                    if (grayModule.percent >= j) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    grayModule.meetGray = z;
                     if (!TextUtils.isEmpty(grayModule.minVersion) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), grayModule.minVersion) < 0) {
                         grayModule.meetGray = false;
                     }
                     return grayModule;
                 }
                 return (GrayModule) invokeLL.objValue;
-            }
-
-            public String getExtraParams() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.extraParams : (String) invokeV.objValue;
-            }
-
-            public String getMinVersion() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.minVersion : (String) invokeV.objValue;
-            }
-
-            public long getPercent() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.percent : invokeV.longValue;
-            }
-
-            public boolean isMeetGray() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.meetGray : invokeV.booleanValue;
             }
 
             public JSONObject toJSON() {
@@ -449,21 +467,6 @@ public final class SapiOptions implements NoProguard {
                     }
                 }
                 return (JSONObject) invokeV.objValue;
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(382613337, "Lcom/baidu/sapi2/SapiOptions$Gray;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(382613337, "Lcom/baidu/sapi2/SapiOptions$Gray;");
             }
         }
 
@@ -508,7 +511,7 @@ public final class SapiOptions implements NoProguard {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                GrayModule grayModule = this.grayModuleMap.get(str);
+                GrayModule grayModule = (GrayModule) this.grayModuleMap.get(str);
                 if (grayModule == null) {
                     GrayModule grayModule2 = new GrayModule();
                     grayModule2.meetGray = true;
@@ -526,7 +529,7 @@ public final class SapiOptions implements NoProguard {
                 JSONObject jSONObject = new JSONObject();
                 for (String str : this.grayModuleMap.keySet()) {
                     try {
-                        jSONObject.put(str, this.grayModuleMap.get(str).toJSON());
+                        jSONObject.put(str, ((GrayModule) this.grayModuleMap.get(str)).toJSON());
                     } catch (JSONException e) {
                         Log.e(e);
                     }
@@ -538,13 +541,75 @@ public final class SapiOptions implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public static class PkgSigns {
+    public class CacheGray {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List modules;
+        public String percent;
+
+        public CacheGray() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.modules = new ArrayList();
+        }
+
+        public List getModules() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.modules;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public String getPercent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.percent;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public static CacheGray fromJSON(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                CacheGray cacheGray = new CacheGray();
+                if (jSONObject != null) {
+                    try {
+                        cacheGray.percent = jSONObject.optString("percent");
+                        JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.KEY_CACHE_MODULES);
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            cacheGray.getModules().add(Cache.Module.fromJSON(optJSONArray.getJSONObject(i)));
+                        }
+                    } catch (Throwable unused) {
+                    }
+                }
+                return cacheGray;
+            }
+            return (CacheGray) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class PkgSigns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_AUTHORIZED_PACKAGES = "authorized_packages";
         public static final String KEY_SC_AUTHORIZED_PACKAGES = "sc_authorized_packages";
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, String> authorizedPackages;
-        public Map<String, String> scAuthorizedPackages;
+        public Map authorizedPackages;
+        public Map scAuthorizedPackages;
 
         public PkgSigns() {
             Interceptable interceptable = $ic;
@@ -563,6 +628,46 @@ public final class SapiOptions implements NoProguard {
             this.scAuthorizedPackages = new HashMap();
         }
 
+        public Map getAuthorizedPackages() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.authorizedPackages.isEmpty()) {
+                    return this.authorizedPackages;
+                }
+                return getInitialAuthorizedPackages();
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        public Map getSCAuthorizedPackages() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (!this.scAuthorizedPackages.isEmpty()) {
+                    return this.scAuthorizedPackages;
+                }
+                return getInitialSCAuthorizedPackages();
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        public String toJSON() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    SapiOptions.setMapToJson(jSONObject, KEY_AUTHORIZED_PACKAGES, this.authorizedPackages);
+                    SapiOptions.setMapToJson(jSONObject, KEY_SC_AUTHORIZED_PACKAGES, this.scAuthorizedPackages);
+                } catch (JSONException e) {
+                    Log.e(e);
+                }
+                return jSONObject.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+
         public static PkgSigns fromJSON(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -575,19 +680,7 @@ public final class SapiOptions implements NoProguard {
             return (PkgSigns) invokeL.objValue;
         }
 
-        public Map<String, String> getAuthorizedPackages() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.authorizedPackages.isEmpty()) {
-                    return this.authorizedPackages;
-                }
-                return getInitialAuthorizedPackages();
-            }
-            return (Map) invokeV.objValue;
-        }
-
-        public Map<String, String> getInitialAuthorizedPackages() {
+        public Map getInitialAuthorizedPackages() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -694,7 +787,7 @@ public final class SapiOptions implements NoProguard {
             return (Map) invokeV.objValue;
         }
 
-        public Map<String, String> getInitialSCAuthorizedPackages() {
+        public Map getInitialSCAuthorizedPackages() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -727,34 +820,6 @@ public final class SapiOptions implements NoProguard {
                 return hashMap;
             }
             return (Map) invokeV.objValue;
-        }
-
-        public Map<String, String> getSCAuthorizedPackages() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (!this.scAuthorizedPackages.isEmpty()) {
-                    return this.scAuthorizedPackages;
-                }
-                return getInitialSCAuthorizedPackages();
-            }
-            return (Map) invokeV.objValue;
-        }
-
-        public String toJSON() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    SapiOptions.setMapToJson(jSONObject, KEY_AUTHORIZED_PACKAGES, this.authorizedPackages);
-                    SapiOptions.setMapToJson(jSONObject, KEY_SC_AUTHORIZED_PACKAGES, this.scAuthorizedPackages);
-                } catch (JSONException e) {
-                    Log.e(e);
-                }
-                return jSONObject.toString();
-            }
-            return (String) invokeV.objValue;
         }
     }
 
@@ -789,6 +854,30 @@ public final class SapiOptions implements NoProguard {
         this.gray = new Gray();
     }
 
+    public static void setJsonArrayToList(JSONArray jSONArray, List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65545, null, jSONArray, list) == null) && jSONArray != null) {
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                if (!TextUtils.isEmpty(jSONArray.optString(i))) {
+                    list.add(jSONArray.optString(i));
+                }
+            }
+        }
+    }
+
+    public static void setListToJsonArray(JSONObject jSONObject, String str, List list) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, jSONObject, str, list) == null) {
+            JSONArray jSONArray = new JSONArray();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                jSONArray.put((String) it.next());
+            }
+            jSONObject.put(str, jSONArray);
+        }
+    }
+
     public static void cacheGrayTest(JSONObject jSONObject, SapiOptions sapiOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, jSONObject, sapiOptions) == null) {
@@ -800,18 +889,17 @@ public final class SapiOptions implements NoProguard {
             }
             CacheGray fromJSON = CacheGray.fromJSON(jSONObject.optJSONObject(KEY_CACHE_GRAY));
             String percent = fromJSON.getPercent();
-            if (TextUtils.isEmpty(percent)) {
-                return;
-            }
-            String[] split = percent.split("_");
-            int length = split.length;
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                i2 += Integer.valueOf(split[i3]).intValue();
-                if (i <= i2) {
-                    sapiOptions.cache.modules.clear();
-                    sapiOptions.cache.modules.add(fromJSON.modules.get(i3));
-                    return;
+            if (!TextUtils.isEmpty(percent)) {
+                String[] split = percent.split("_");
+                int length = split.length;
+                int i2 = 0;
+                for (int i3 = 0; i3 < length; i3++) {
+                    i2 += Integer.valueOf(split[i3]).intValue();
+                    if (i <= i2) {
+                        sapiOptions.cache.modules.clear();
+                        sapiOptions.cache.modules.add(fromJSON.modules.get(i3));
+                        return;
+                    }
                 }
             }
         }
@@ -891,7 +979,7 @@ public final class SapiOptions implements NoProguard {
         return (SapiOptions) invokeL.objValue;
     }
 
-    public static List<String> getInitialAuthorizedDomains() {
+    public static List getInitialAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
@@ -905,7 +993,7 @@ public final class SapiOptions implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public static List<String> getInitialCachePackagesWhiteList() {
+    public static List getInitialCachePackagesWhiteList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
@@ -916,7 +1004,7 @@ public final class SapiOptions implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public static List<String> getInitialCuidAuthorizedDomains() {
+    public static List getInitialCuidAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
@@ -929,7 +1017,7 @@ public final class SapiOptions implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public static List<String> getInitialProcessNameWhiteList() {
+    public static List getInitialProcessNameWhiteList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
@@ -941,63 +1029,16 @@ public final class SapiOptions implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public static void setJsonArrayToList(JSONArray jSONArray, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, jSONArray, list) == null) || jSONArray == null) {
-            return;
-        }
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            if (!TextUtils.isEmpty(jSONArray.optString(i))) {
-                list.add(jSONArray.optString(i));
-            }
-        }
-    }
-
-    public static void setJsonToMap(JSONObject jSONObject, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, jSONObject, map) == null) || jSONObject == null) {
-            return;
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            String optString = jSONObject.optString(next);
-            if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
-                map.put(next, optString);
-            }
-        }
-    }
-
-    public static void setListToJsonArray(JSONObject jSONObject, String str, List<String> list) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, jSONObject, str, list) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (String str2 : list) {
-                jSONArray.put(str2);
-            }
-            jSONObject.put(str, jSONArray);
-        }
-    }
-
-    public static void setMapToJson(JSONObject jSONObject, String str, Map<String, String> map) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, jSONObject, str, map) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject2.put(entry.getKey(), entry.getValue());
-            }
-            jSONObject.put(str, jSONObject2);
-        }
-    }
-
     public boolean getAddressUseWeb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.addressUseWeb : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.addressUseWeb;
+        }
+        return invokeV.booleanValue;
     }
 
-    public List<String> getAuthorizedDomains() {
+    public List getAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -1009,22 +1050,7 @@ public final class SapiOptions implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public List<String> getAuthorizedDomainsForPtoken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-            String replaceAll = confignation.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
-            String replaceAll2 = confignation.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
-            arrayList.add(replaceAll);
-            arrayList.add(replaceAll2);
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<String> getAuthorizedPackagesForPtoken() {
+    public List getAuthorizedPackagesForPtoken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -1037,7 +1063,7 @@ public final class SapiOptions implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public List<String> getAuthorizedPackagesForUA() {
+    public List getAuthorizedPackagesForUA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -1051,10 +1077,13 @@ public final class SapiOptions implements NoProguard {
     public Cache getCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cache : (Cache) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.cache;
+        }
+        return (Cache) invokeV.objValue;
     }
 
-    public List<String> getCuidAuthorizedDomains() {
+    public List getCuidAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -1069,60 +1098,98 @@ public final class SapiOptions implements NoProguard {
     public boolean getDefaultHttpsEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.defaultHttpsEnabled : invokeV.booleanValue;
-    }
-
-    public JSONArray getDialogLoginPriority(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            Map<String, JSONArray> map = this.loginTplsPriority;
-            if (map == null || !map.containsKey(str)) {
-                return null;
-            }
-            return this.loginTplsPriority.get(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.defaultHttpsEnabled;
         }
-        return (JSONArray) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
     public LoginShareStrategy getGlobalShareStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.globalShareStrategy : (LoginShareStrategy) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.globalShareStrategy;
+        }
+        return (LoginShareStrategy) invokeV.objValue;
     }
 
     public boolean getHttpAsyncCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.httpClientAsyncCookie : invokeV.booleanValue;
-    }
-
-    public Boolean getIsProtocolCheck(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            List<String> list = this.dialogSelectAgreementTpls;
-            if (list != null && list.contains(str)) {
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.httpClientAsyncCookie;
         }
-        return (Boolean) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
     public boolean getIsShowChildrenAgreement() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.dialogShowChilrenAgreement : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.dialogShowChilrenAgreement;
+        }
+        return invokeV.booleanValue;
     }
 
-    public List<String> getLoginCookieDiKeys() {
+    public List getLoginCookieDiKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.loginCookieDiKeys : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.loginCookieDiKeys;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<String> getOpenBdussDomains() {
+    public Map getSpecificShareStrategy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.specificShareStrategy;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public static void setJsonToMap(JSONObject jSONObject, Map map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, jSONObject, map) == null) && jSONObject != null) {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                    map.put(next, optString);
+                }
+            }
+        }
+    }
+
+    public static void setMapToJson(JSONObject jSONObject, String str, Map map) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, jSONObject, str, map) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            for (Map.Entry entry : map.entrySet()) {
+                jSONObject2.put((String) entry.getKey(), entry.getValue());
+            }
+            jSONObject.put(str, jSONObject2);
+        }
+    }
+
+    public List getAuthorizedDomainsForPtoken() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+            String replaceAll = confignation.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+            String replaceAll2 = confignation.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+            arrayList.add(replaceAll);
+            arrayList.add(replaceAll2);
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getOpenBdussDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -1142,7 +1209,7 @@ public final class SapiOptions implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public List<String> getOpenBdussTpls() {
+    public List getOpenBdussTpls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -1162,7 +1229,7 @@ public final class SapiOptions implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public Map<String, Integer> getOrderAuthorizedPackages() {
+    public Map getOrderAuthorizedPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -1177,10 +1244,30 @@ public final class SapiOptions implements NoProguard {
         return (Map) invokeV.objValue;
     }
 
-    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
-        InterceptResult invokeV;
+    public JSONArray getDialogLoginPriority(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.specificShareStrategy : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            Map map = this.loginTplsPriority;
+            if (map != null && map.containsKey(str)) {
+                return (JSONArray) this.loginTplsPriority.get(str);
+            }
+            return null;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public Boolean getIsProtocolCheck(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            List list = this.dialogSelectAgreementTpls;
+            if (list != null && list.contains(str)) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
+        }
+        return (Boolean) invokeL.objValue;
     }
 
     public void setCache(Cache cache) {
@@ -1207,8 +1294,8 @@ public final class SapiOptions implements NoProguard {
                 jSONObject.put(KEY_DEFAULT_HTTPS_ENABLED, this.defaultHttpsEnabled);
                 jSONObject.put(KEY_ADDRESS_USE_WEB, this.addressUseWeb);
                 JSONObject jSONObject2 = new JSONObject();
-                for (Map.Entry<String, LoginShareStrategy> entry : this.specificShareStrategy.entrySet()) {
-                    jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
+                for (Map.Entry entry : this.specificShareStrategy.entrySet()) {
+                    jSONObject2.put((String) entry.getKey(), ((LoginShareStrategy) entry.getValue()).getStrValue());
                 }
                 jSONObject.put(KEY_SPECIFIC_SHARE_STRATEGY, jSONObject2);
                 setListToJsonArray(jSONObject, KEY_AUTHORIZED_DOMAINS, this.authorizedDomains);
@@ -1239,11 +1326,11 @@ public final class SapiOptions implements NoProguard {
                 jSONObject3.put(KEY_SHOW_CHILREN_AGREEMENT, this.dialogShowChilrenAgreement);
                 if (this.loginTplsPriority != null) {
                     JSONObject jSONObject4 = new JSONObject();
-                    for (Map.Entry<String, JSONArray> entry2 : this.loginTplsPriority.entrySet()) {
-                        String key = entry2.getKey();
-                        JSONArray value = entry2.getValue();
-                        if (key != null && value != null) {
-                            jSONObject4.put(key, value);
+                    for (Map.Entry entry2 : this.loginTplsPriority.entrySet()) {
+                        String str2 = (String) entry2.getKey();
+                        JSONArray jSONArray3 = (JSONArray) entry2.getValue();
+                        if (str2 != null && jSONArray3 != null) {
+                            jSONObject4.put(str2, jSONArray3);
                         }
                     }
                     jSONObject3.put(KEY_LOGIN_TPLS_PRIORITY, jSONObject4);

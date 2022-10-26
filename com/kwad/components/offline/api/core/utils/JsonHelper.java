@@ -1,7 +1,6 @@
 package com.kwad.components.offline.api.core.utils;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +37,7 @@ public class JsonHelper {
         }
     }
 
-    public static <T> List<T> jsonArrayToList(String str, Class<T> cls) {
+    public static List jsonArrayToList(String str, Class cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cls)) == null) {
@@ -56,7 +55,7 @@ public class JsonHelper {
         return (List) invokeLL.objValue;
     }
 
-    public static <T> List<T> jsonArrayToList(JSONArray jSONArray, Class<T> cls) {
+    public static List jsonArrayToList(JSONArray jSONArray, Class cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONArray, cls)) == null) {
@@ -96,7 +95,7 @@ public class JsonHelper {
         }
     }
 
-    public static Map<String, String> parseJSON2MapString(String str) {
+    public static Map parseJSON2MapString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -109,7 +108,7 @@ public class JsonHelper {
         return (Map) invokeL.objValue;
     }
 
-    public static Map<String, String> parseJSON2MapString(JSONObject jSONObject) {
+    public static Map parseJSON2MapString(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
@@ -129,15 +128,15 @@ public class JsonHelper {
         return (Map) invokeL.objValue;
     }
 
-    public static JSONObject parseMap2JSON(Map<String, String> map) {
+    public static JSONObject parseMap2JSON(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (map != null && !map.isEmpty()) {
                 try {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        jSONObject.put(entry.getKey(), entry.getValue());
+                    for (Map.Entry entry : map.entrySet()) {
+                        jSONObject.put((String) entry.getKey(), entry.getValue());
                     }
                 } catch (Exception unused) {
                 }
@@ -225,7 +224,7 @@ public class JsonHelper {
         }
     }
 
-    public static void putValue(JSONObject jSONObject, String str, List<?> list) {
+    public static void putValue(JSONObject jSONObject, String str, List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65551, null, jSONObject, str, list) == null) || list == null) {
             return;
@@ -283,26 +282,28 @@ public class JsonHelper {
         }
     }
 
-    public static JSONArray toJsonArray(@NonNull List<String> list) {
+    public static JSONArray toJsonArray(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
-            for (String str : list) {
-                jSONArray.put(str);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                jSONArray.put((String) it.next());
             }
             return jSONArray;
         }
         return (JSONArray) invokeL.objValue;
     }
 
-    public static <T extends IOfflineCompoJsonParse> JSONArray toJsonArrayForJsonParseList(@NonNull List<T> list) {
+    public static JSONArray toJsonArrayForJsonParseList(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
-            for (T t : list) {
-                jSONArray.put(t.toJson());
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                jSONArray.put(((IOfflineCompoJsonParse) it.next()).toJson());
             }
             return jSONArray;
         }

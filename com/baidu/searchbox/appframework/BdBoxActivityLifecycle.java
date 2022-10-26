@@ -25,34 +25,9 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     public static boolean hasGlobalLifecycle;
     public transient /* synthetic */ FieldHolder $fh;
     public int mActivityCount;
-    public LinkedList<WeakReference<Activity>> mActivityStack;
-    public CopyOnWriteArrayList<IActivityLifecycle> mCustomActivityLifeCycles;
+    public LinkedList mActivityStack;
+    public CopyOnWriteArrayList mCustomActivityLifeCycles;
     public boolean mIsForeground;
-
-    /* loaded from: classes2.dex */
-    public static class BackForegroundEvent {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean isForeground;
-
-        public BackForegroundEvent(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.isForeground = z;
-        }
-    }
 
     /* loaded from: classes2.dex */
     public interface IActivityLifecycle {
@@ -90,6 +65,31 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         }
     }
 
+    /* loaded from: classes2.dex */
+    public class BackForegroundEvent {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean isForeground;
+
+        public BackForegroundEvent(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.isForeground = z;
+        }
+    }
+
     public BdBoxActivityLifecycle() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,80 +103,33 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 return;
             }
         }
-        this.mActivityStack = new LinkedList<>();
+        this.mActivityStack = new LinkedList();
         this.mIsForeground = false;
-        this.mCustomActivityLifeCycles = new CopyOnWriteArrayList<>();
-    }
-
-    private String dump() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            LinkedList<WeakReference<Activity>> linkedList = this.mActivityStack;
-            if (linkedList == null || linkedList.isEmpty()) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(PreferencesUtil.LEFT_MOUNT);
-            for (int size = this.mActivityStack.size() - 1; size >= 0; size--) {
-                Activity activity = this.mActivityStack.get(size).get();
-                if (activity != null) {
-                    String simpleName = activity.getClass().getSimpleName();
-                    sb.append(size + 1);
-                    sb.append(": ");
-                    sb.append(simpleName);
-                    sb.append(" ");
-                }
-            }
-            sb.append("], this = ");
-            sb.append(this);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        this.mCustomActivityLifeCycles = new CopyOnWriteArrayList();
     }
 
     public void finishAllActivity() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mActivityStack.isEmpty()) {
-            return;
-        }
-        for (int i = 0; i < this.mActivityStack.size(); i++) {
-            WeakReference<Activity> weakReference = this.mActivityStack.get(i);
-            if (weakReference != null && (activity = weakReference.get()) != null) {
-                activity.finish();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.mActivityStack.isEmpty()) {
+            for (int i = 0; i < this.mActivityStack.size(); i++) {
+                WeakReference weakReference = (WeakReference) this.mActivityStack.get(i);
+                if (weakReference != null && (activity = (Activity) weakReference.get()) != null) {
+                    activity.finish();
+                }
             }
         }
-    }
-
-    public int getActivityCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedList<WeakReference<Activity>> linkedList = this.mActivityStack;
-            if (linkedList == null || linkedList.isEmpty()) {
-                return 0;
-            }
-            return this.mActivityStack.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public LinkedList<WeakReference<Activity>> getActivityStack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mActivityStack : (LinkedList) invokeV.objValue;
     }
 
     public Activity getPenultimateActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mActivityStack.isEmpty() || this.mActivityStack.size() < 2) {
-                return null;
+            if (!this.mActivityStack.isEmpty() && this.mActivityStack.size() >= 2) {
+                LinkedList linkedList = this.mActivityStack;
+                return (Activity) ((WeakReference) linkedList.get(linkedList.size() - 2)).get();
             }
-            LinkedList<WeakReference<Activity>> linkedList = this.mActivityStack;
-            return linkedList.get(linkedList.size() - 2).get();
+            return null;
         }
         return (Activity) invokeV.objValue;
     }
@@ -192,8 +145,8 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
             }
             for (int i = size - 1; i >= 0; i--) {
                 try {
-                    WeakReference<Activity> weakReference = this.mActivityStack.get(i);
-                    if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
+                    WeakReference weakReference = (WeakReference) this.mActivityStack.get(i);
+                    if (weakReference != null && (activity = (Activity) weakReference.get()) != null && !activity.isFinishing()) {
                         return activity;
                     }
                 } catch (Exception unused) {
@@ -202,6 +155,77 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
             return null;
         }
         return (Activity) invokeV.objValue;
+    }
+
+    private String dump() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            LinkedList linkedList = this.mActivityStack;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(PreferencesUtil.LEFT_MOUNT);
+                for (int size = this.mActivityStack.size() - 1; size >= 0; size--) {
+                    Activity activity = (Activity) ((WeakReference) this.mActivityStack.get(size)).get();
+                    if (activity != null) {
+                        String simpleName = activity.getClass().getSimpleName();
+                        sb.append(size + 1);
+                        sb.append(": ");
+                        sb.append(simpleName);
+                        sb.append(" ");
+                    }
+                }
+                sb.append("], this = ");
+                sb.append(this);
+                return sb.toString();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getActivityCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedList linkedList = this.mActivityStack;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                return this.mActivityStack.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public LinkedList getActivityStack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mActivityStack;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public Activity getTopActivity() {
+        InterceptResult invokeV;
+        WeakReference weakReference;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!this.mActivityStack.isEmpty() && (weakReference = (WeakReference) this.mActivityStack.getLast()) != null) {
+                return (Activity) weakReference.get();
+            }
+            return null;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public boolean isForeground() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mIsForeground;
+        }
+        return invokeV.booleanValue;
     }
 
     public Activity getSpecifiedActivity(Class cls) {
@@ -224,47 +248,6 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         return (Activity) invokeL.objValue;
     }
 
-    public Activity getTopActivity() {
-        InterceptResult invokeV;
-        WeakReference<Activity> last;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mActivityStack.isEmpty() || (last = this.mActivityStack.getLast()) == null) {
-                return null;
-            }
-            return last.get();
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public boolean isActivityInStack(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) ? getSpecifiedActivity(cls) != null : invokeL.booleanValue;
-    }
-
-    public boolean isForeground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mIsForeground : invokeV.booleanValue;
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, activity, bundle) == null) {
-            this.mActivityStack.add(new WeakReference<>(activity));
-            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
-            if (copyOnWriteArrayList == null || copyOnWriteArrayList.size() <= 0) {
-                return;
-            }
-            Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
-            while (it.hasNext()) {
-                it.next().onActivityCreated(activity, bundle);
-            }
-        }
-    }
-
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
@@ -273,12 +256,13 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 int size = this.mActivityStack.size();
                 while (true) {
                     size--;
-                    if (size < 0) {
+                    if (size >= 0) {
+                        Activity activity2 = (Activity) ((WeakReference) this.mActivityStack.get(size)).get();
+                        if (activity2 != null && activity2 == activity) {
+                            break;
+                        }
+                    } else {
                         size = -1;
-                        break;
-                    }
-                    Activity activity2 = this.mActivityStack.get(size).get();
-                    if (activity2 != null && activity2 == activity) {
                         break;
                     }
                 }
@@ -286,53 +270,91 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                     this.mActivityStack.remove(size);
                 }
             }
-            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
-            if (copyOnWriteArrayList == null || copyOnWriteArrayList.size() <= 0) {
-                return;
-            }
-            Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
-            while (it.hasNext()) {
-                it.next().onActivityDestroyed(activity);
+            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
+                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                while (it.hasNext()) {
+                    ((IActivityLifecycle) it.next()).onActivityDestroyed(activity);
+                }
             }
         }
     }
 
+    public boolean isActivityInStack(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
+            if (getSpecifiedActivity(cls) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
-        CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, activity) == null) || (copyOnWriteArrayList = this.mCustomActivityLifeCycles) == null || copyOnWriteArrayList.size() <= 0) {
-            return;
-        }
-        Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
-        while (it.hasNext()) {
-            it.next().onActivityPaused(activity);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, activity) == null) && (copyOnWriteArrayList = this.mCustomActivityLifeCycles) != null && copyOnWriteArrayList.size() > 0) {
+            Iterator it = this.mCustomActivityLifeCycles.iterator();
+            while (it.hasNext()) {
+                ((IActivityLifecycle) it.next()).onActivityPaused(activity);
+            }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, activity) == null) || (copyOnWriteArrayList = this.mCustomActivityLifeCycles) == null || copyOnWriteArrayList.size() <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, activity) == null) && (copyOnWriteArrayList = this.mCustomActivityLifeCycles) != null && copyOnWriteArrayList.size() > 0) {
+            Iterator it = this.mCustomActivityLifeCycles.iterator();
+            while (it.hasNext()) {
+                ((IActivityLifecycle) it.next()).onActivityResumed(activity);
+            }
         }
-        Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
-        while (it.hasNext()) {
-            it.next().onActivityResumed(activity);
+    }
+
+    public void registerGlobalLifeCycle(IActivityLifecycle iActivityLifecycle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048594, this, iActivityLifecycle) == null) && iActivityLifecycle != null && !this.mCustomActivityLifeCycles.contains(iActivityLifecycle)) {
+            hasGlobalLifecycle = true;
+            this.mCustomActivityLifeCycles.add(iActivityLifecycle);
+        }
+    }
+
+    public void unregisterLifeCycle(IActivityLifecycle iActivityLifecycle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, iActivityLifecycle) == null) && iActivityLifecycle != null) {
+            this.mCustomActivityLifeCycles.remove(iActivityLifecycle);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, activity, bundle) == null) {
+            this.mActivityStack.add(new WeakReference(activity));
+            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
+                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                while (it.hasNext()) {
+                    ((IActivityLifecycle) it.next()).onActivityCreated(activity, bundle);
+                }
+            }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, activity, bundle) == null) || (copyOnWriteArrayList = this.mCustomActivityLifeCycles) == null || copyOnWriteArrayList.size() <= 0) {
-            return;
-        }
-        Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
-        while (it.hasNext()) {
-            it.next().onActivitySaveInstanceState(activity, bundle);
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, activity, bundle) == null) && (copyOnWriteArrayList = this.mCustomActivityLifeCycles) != null && copyOnWriteArrayList.size() > 0) {
+            Iterator it = this.mCustomActivityLifeCycles.iterator();
+            while (it.hasNext()) {
+                ((IActivityLifecycle) it.next()).onActivitySaveInstanceState(activity, bundle);
+            }
         }
     }
 
@@ -340,11 +362,11 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     public void onActivityStarted(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, activity) == null) {
-            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
             if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
+                Iterator it = this.mCustomActivityLifeCycles.iterator();
                 while (it.hasNext()) {
-                    it.next().onActivityStarted(activity);
+                    ((IActivityLifecycle) it.next()).onActivityStarted(activity);
                 }
             }
             int i = this.mActivityCount + 1;
@@ -359,11 +381,11 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     public void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
-            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
             if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
+                Iterator it = this.mCustomActivityLifeCycles.iterator();
                 while (it.hasNext()) {
-                    it.next().onActivityStopped(activity);
+                    ((IActivityLifecycle) it.next()).onActivityStopped(activity);
                 }
             }
             int i = this.mActivityCount - 1;
@@ -378,13 +400,12 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, activity) == null) {
             this.mIsForeground = true;
-            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
-            if (copyOnWriteArrayList == null || copyOnWriteArrayList.size() <= 0) {
-                return;
-            }
-            Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
-            while (it.hasNext()) {
-                it.next().onBackgroundToForeground(activity);
+            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
+                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                while (it.hasNext()) {
+                    ((IActivityLifecycle) it.next()).onBackgroundToForeground(activity);
+                }
             }
         }
     }
@@ -393,44 +414,25 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, activity) == null) {
             this.mIsForeground = false;
-            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
-            if (copyOnWriteArrayList == null || copyOnWriteArrayList.size() <= 0) {
-                return;
-            }
-            Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
-            while (it.hasNext()) {
-                it.next().onForegroundToBackground(activity);
+            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
+                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                while (it.hasNext()) {
+                    ((IActivityLifecycle) it.next()).onForegroundToBackground(activity);
+                }
             }
         }
-    }
-
-    public void registerGlobalLifeCycle(IActivityLifecycle iActivityLifecycle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, iActivityLifecycle) == null) || iActivityLifecycle == null || this.mCustomActivityLifeCycles.contains(iActivityLifecycle)) {
-            return;
-        }
-        hasGlobalLifecycle = true;
-        this.mCustomActivityLifeCycles.add(iActivityLifecycle);
     }
 
     public void registerLifeCycle(IActivityLifecycle iActivityLifecycle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, iActivityLifecycle) == null) || iActivityLifecycle == null || this.mCustomActivityLifeCycles.contains(iActivityLifecycle)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, iActivityLifecycle) == null) && iActivityLifecycle != null && !this.mCustomActivityLifeCycles.contains(iActivityLifecycle)) {
+            if (hasGlobalLifecycle && this.mCustomActivityLifeCycles.size() > 0) {
+                CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+                copyOnWriteArrayList.add(copyOnWriteArrayList.size() - 1, iActivityLifecycle);
+                return;
+            }
+            this.mCustomActivityLifeCycles.add(iActivityLifecycle);
         }
-        if (hasGlobalLifecycle && this.mCustomActivityLifeCycles.size() > 0) {
-            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
-            copyOnWriteArrayList.add(copyOnWriteArrayList.size() - 1, iActivityLifecycle);
-            return;
-        }
-        this.mCustomActivityLifeCycles.add(iActivityLifecycle);
-    }
-
-    public void unregisterLifeCycle(IActivityLifecycle iActivityLifecycle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, iActivityLifecycle) == null) || iActivityLifecycle == null) {
-            return;
-        }
-        this.mCustomActivityLifeCycles.remove(iActivityLifecycle);
     }
 }

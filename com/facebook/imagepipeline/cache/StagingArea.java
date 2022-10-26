@@ -11,21 +11,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;
-import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class StagingArea {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("this")
-    public Map<CacheKey, EncodedImage> mMap;
+    public Map mMap;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +59,10 @@ public class StagingArea {
     public static StagingArea getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new StagingArea() : (StagingArea) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new StagingArea();
+        }
+        return (StagingArea) invokeV.objValue;
     }
 
     private synchronized void logStats() {
@@ -97,18 +97,18 @@ public class StagingArea {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cacheKey)) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(cacheKey);
-                if (this.mMap.containsKey(cacheKey)) {
-                    EncodedImage encodedImage = this.mMap.get(cacheKey);
-                    synchronized (encodedImage) {
-                        if (EncodedImage.isValid(encodedImage)) {
-                            return true;
-                        }
-                        this.mMap.remove(cacheKey);
-                        FLog.w(TAG, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(encodedImage)), cacheKey.getUriString(), Integer.valueOf(System.identityHashCode(cacheKey)));
-                        return false;
-                    }
+                if (!this.mMap.containsKey(cacheKey)) {
+                    return false;
                 }
-                return false;
+                EncodedImage encodedImage = (EncodedImage) this.mMap.get(cacheKey);
+                synchronized (encodedImage) {
+                    if (EncodedImage.isValid(encodedImage)) {
+                        return true;
+                    }
+                    this.mMap.remove(cacheKey);
+                    FLog.w(TAG, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(encodedImage)), cacheKey.getUriString(), Integer.valueOf(System.identityHashCode(cacheKey)));
+                    return false;
+                }
             }
         }
         return invokeL.booleanValue;
@@ -121,7 +121,7 @@ public class StagingArea {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cacheKey)) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(cacheKey);
-                EncodedImage encodedImage = this.mMap.get(cacheKey);
+                EncodedImage encodedImage = (EncodedImage) this.mMap.get(cacheKey);
                 if (encodedImage != null) {
                     synchronized (encodedImage) {
                         if (!EncodedImage.isValid(encodedImage)) {
@@ -144,7 +144,7 @@ public class StagingArea {
             synchronized (this) {
                 Preconditions.checkNotNull(cacheKey);
                 Preconditions.checkArgument(EncodedImage.isValid(encodedImage));
-                EncodedImage.closeSafely(this.mMap.put(cacheKey, EncodedImage.cloneOrNull(encodedImage)));
+                EncodedImage.closeSafely((EncodedImage) this.mMap.put(cacheKey, EncodedImage.cloneOrNull(encodedImage)));
                 logStats();
             }
         }
@@ -152,20 +152,20 @@ public class StagingArea {
 
     public boolean remove(CacheKey cacheKey) {
         InterceptResult invokeL;
-        EncodedImage remove;
+        EncodedImage encodedImage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cacheKey)) == null) {
             Preconditions.checkNotNull(cacheKey);
             synchronized (this) {
-                remove = this.mMap.remove(cacheKey);
+                encodedImage = (EncodedImage) this.mMap.remove(cacheKey);
             }
-            if (remove == null) {
+            if (encodedImage == null) {
                 return false;
             }
             try {
-                return remove.isValid();
+                return encodedImage.isValid();
             } finally {
-                remove.close();
+                encodedImage.close();
             }
         }
         return invokeL.booleanValue;
@@ -179,12 +179,12 @@ public class StagingArea {
                 Preconditions.checkNotNull(cacheKey);
                 Preconditions.checkNotNull(encodedImage);
                 Preconditions.checkArgument(EncodedImage.isValid(encodedImage));
-                EncodedImage encodedImage2 = this.mMap.get(cacheKey);
+                EncodedImage encodedImage2 = (EncodedImage) this.mMap.get(cacheKey);
                 if (encodedImage2 == null) {
                     return false;
                 }
-                CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage2.getByteBufferRef();
-                CloseableReference<PooledByteBuffer> byteBufferRef2 = encodedImage.getByteBufferRef();
+                CloseableReference byteBufferRef = encodedImage2.getByteBufferRef();
+                CloseableReference byteBufferRef2 = encodedImage.getByteBufferRef();
                 if (byteBufferRef != null && byteBufferRef2 != null && byteBufferRef.get() == byteBufferRef2.get()) {
                     this.mMap.remove(cacheKey);
                     CloseableReference.closeSafely(byteBufferRef2);

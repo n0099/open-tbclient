@@ -106,12 +106,18 @@ public final class ScalableType {
     public static ScalableType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ScalableType) Enum.valueOf(ScalableType.class, str) : (ScalableType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ScalableType) Enum.valueOf(ScalableType.class, str);
+        }
+        return (ScalableType) invokeL.objValue;
     }
 
     public static ScalableType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScalableType[]) $VALUES.clone() : (ScalableType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ScalableType[]) $VALUES.clone();
+        }
+        return (ScalableType[]) invokeV.objValue;
     }
 }

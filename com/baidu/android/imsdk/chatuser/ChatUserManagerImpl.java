@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.LongSparseArray;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.Filter;
 import com.baidu.android.imsdk.IMListener;
@@ -27,7 +26,7 @@ import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +46,7 @@ public class ChatUserManagerImpl {
     public static volatile ChatUserManagerImpl mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public Filter filter;
-    public LongSparseArray<ChatUser> mWaitSyncDisturbUKs;
+    public LongSparseArray mWaitSyncDisturbUKs;
 
     static {
         InterceptResult invokeClinit;
@@ -77,7 +76,7 @@ public class ChatUserManagerImpl {
                 return;
             }
         }
-        this.mWaitSyncDisturbUKs = new LongSparseArray<>();
+        this.mWaitSyncDisturbUKs = new LongSparseArray();
         this.filter = new Filter(this) { // from class: com.baidu.android.imsdk.chatuser.ChatUserManagerImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -102,27 +101,45 @@ public class ChatUserManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.Filter
-            public void fileter(List<ChatMsg> list) {
+            public void fileter(List list) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
-                    Iterator<ChatMsg> it = list.iterator();
+                    Iterator it = list.iterator();
                     while (it.hasNext()) {
-                        ChatMsg next = it.next();
-                        long fromUser = next.getFromUser();
+                        ChatMsg chatMsg = (ChatMsg) it.next();
+                        long fromUser = chatMsg.getFromUser();
                         if (fromUser == AccountManager.getUK(ChatUserManagerImpl.mContext)) {
-                            fromUser = next.getContacter();
+                            fromUser = chatMsg.getContacter();
                         }
-                        if (next.getCategory() == 0 && (Constants.PAFLAG & fromUser) == 0 && !this.this$0.isUserExist(fromUser)) {
+                        if (chatMsg.getCategory() == 0 && (Constants.PAFLAG & fromUser) == 0 && !this.this$0.isUserExist(fromUser)) {
                             it.remove();
                         }
                     }
                 }
             }
         };
-        Class<?>[] clsArr = {IMGetUserIpLocation.class, IMGetUsersStatusRequest.class};
+        Class[] clsArr = {IMGetUserIpLocation.class, IMGetUsersStatusRequest.class};
         int[] iArr = {91, 21};
         for (int i3 = 0; i3 < 2; i3++) {
             MessageFactory.getInstance().addType(iArr[i3], clsArr[i3]);
+        }
+    }
+
+    public ArrayList getChatUser() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ChatUserDBManager.getInstance(mContext).getChatUser();
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void syncUsersAttr() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            Context context = mContext;
+            IMUserQueryRequest iMUserQueryRequest = new IMUserQueryRequest(context, AccountManager.getAppid(context));
+            HttpHelper.executor(mContext, iMUserQueryRequest, iMUserQueryRequest);
         }
     }
 
@@ -143,53 +160,6 @@ public class ChatUserManagerImpl {
         return (ChatUserManagerImpl) invokeL.objValue;
     }
 
-    private void requestUserIdentity(List<Long> list, IGetUserIdentityListener iGetUserIdentityListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, this, list, iGetUserIdentityListener) == null) {
-            IMGetUserIdentityRequest iMGetUserIdentityRequest = new IMGetUserIdentityRequest(mContext, list, iGetUserIdentityListener);
-            HttpHelper.executor(mContext, iMGetUserIdentityRequest, iMGetUserIdentityRequest);
-        }
-    }
-
-    private ChatUser syncUserDisturbExtra(ChatUser chatUser) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, chatUser)) == null) {
-            if (chatUser != null && this.mWaitSyncDisturbUKs.size() > 0 && this.mWaitSyncDisturbUKs.get(chatUser.getUk()) != null) {
-                ChatUser chatUser2 = this.mWaitSyncDisturbUKs.get(chatUser.getUk());
-                chatUser.setDisturb(chatUser2.getDisturb());
-                chatUser.setBlack(chatUser2.getBlack());
-                ChatUserDBManager.getInstance(mContext).updateUser(chatUser);
-                this.mWaitSyncDisturbUKs.delete(chatUser.getUk());
-                LogUtils.d(TAG, "onGetUsersProfileBatchResult add disturb and black value");
-            }
-            return chatUser;
-        }
-        return (ChatUser) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void updateUserInfoToDB(int i, List<ChatUser> list, String str, ArrayList<Long> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i), list, str, arrayList}) == null) {
-            if (i == 0) {
-                onGetUsersProfileBatchResult(str, 0, Constants.ERROR_MSG_SUCCESS, arrayList, (ArrayList) list);
-                for (ChatUser chatUser : list) {
-                    IMUserManager.getInstance(mContext).updateUser(chatUser);
-                    ChatMessageDBManager.getInstance(mContext).updateSessionClass(chatUser);
-                }
-                return;
-            }
-            onGetUsersProfileBatchResult(str, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList, null);
-        }
-    }
-
-    public ArrayList<ChatUser> getChatUser() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChatUserDBManager.getInstance(mContext).getChatUser() : (ArrayList) invokeV.objValue;
-    }
-
     public ChatUser getChatUserSync(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -204,6 +174,14 @@ public class ChatUserManagerImpl {
             return syncUserDisturbExtra(chatUser);
         }
         return (ChatUser) invokeJ.objValue;
+    }
+
+    private void requestUserIdentity(List list, IGetUserIdentityListener iGetUserIdentityListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, this, list, iGetUserIdentityListener) == null) {
+            IMGetUserIdentityRequest iMGetUserIdentityRequest = new IMGetUserIdentityRequest(mContext, list, iGetUserIdentityListener);
+            HttpHelper.executor(mContext, iMGetUserIdentityRequest, iMGetUserIdentityRequest);
+        }
     }
 
     public void getUKbyBuid(long j, IGetUkByBuidListener iGetUkByBuidListener) {
@@ -242,19 +220,86 @@ public class ChatUserManagerImpl {
                     public void onGetUserResult(int i, long j2, ChatUser chatUser) {
                         IGetUkByBuidListener iGetUkByBuidListener2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j2), chatUser}) == null) || (iGetUkByBuidListener2 = this.val$listener) == null) {
-                            return;
-                        }
-                        if (chatUser != null) {
-                            iGetUkByBuidListener2.onFetchUk(i, this.val$buid, chatUser.getUk());
-                        } else {
-                            iGetUkByBuidListener2.onFetchUk(i, this.val$buid, -1L);
+                        if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j2), chatUser}) == null) && (iGetUkByBuidListener2 = this.val$listener) != null) {
+                            if (chatUser != null) {
+                                iGetUkByBuidListener2.onFetchUk(i, this.val$buid, chatUser.getUk());
+                            } else {
+                                iGetUkByBuidListener2.onFetchUk(i, this.val$buid, -1L);
+                            }
                         }
                     }
                 });
             } else if (iGetUkByBuidListener != null) {
                 iGetUkByBuidListener.onFetchUk(0, j, uKbyBuid);
             }
+        }
+    }
+
+    private ChatUser syncUserDisturbExtra(ChatUser chatUser) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, chatUser)) == null) {
+            if (chatUser != null && this.mWaitSyncDisturbUKs.size() > 0 && this.mWaitSyncDisturbUKs.get(chatUser.getUk()) != null) {
+                ChatUser chatUser2 = (ChatUser) this.mWaitSyncDisturbUKs.get(chatUser.getUk());
+                chatUser.setDisturb(chatUser2.getDisturb());
+                chatUser.setBlack(chatUser2.getBlack());
+                ChatUserDBManager.getInstance(mContext).updateUser(chatUser);
+                this.mWaitSyncDisturbUKs.delete(chatUser.getUk());
+                LogUtils.d(TAG, "onGetUsersProfileBatchResult add disturb and black value");
+            }
+            return chatUser;
+        }
+        return (ChatUser) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateUserInfoToDB(int i, List list, String str, ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i), list, str, arrayList}) == null) {
+            if (i == 0) {
+                onGetUsersProfileBatchResult(str, 0, Constants.ERROR_MSG_SUCCESS, arrayList, (ArrayList) list);
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    ChatUser chatUser = (ChatUser) it.next();
+                    IMUserManager.getInstance(mContext).updateUser(chatUser);
+                    ChatMessageDBManager.getInstance(mContext).updateSessionClass(chatUser);
+                }
+                return;
+            }
+            onGetUsersProfileBatchResult(str, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList, null);
+        }
+    }
+
+    public void onGetUserResult(String str, ChatUser chatUser, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, chatUser, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            IMListener removeListener = ListenerManager.getInstance().removeListener(str);
+            if (removeListener instanceof IGetUserListener) {
+                IGetUserListener iGetUserListener = (IGetUserListener) removeListener;
+                if (chatUser != null) {
+                    String str2 = TAG;
+                    LogUtils.d(str2, "onGetUserResult: " + chatUser.toString());
+                }
+                iGetUserListener.onGetUserResult(i, j, chatUser);
+                return;
+            }
+            LogUtils.d(TAG, "onGetUserResult IGetUserListener is null!");
+        }
+    }
+
+    public void setUserPrivacy(long j, int i, int i2, IUserPrivacyListener iUserPrivacyListener) {
+        long uKbyBuid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iUserPrivacyListener}) == null) {
+            String addListener = ListenerManager.getInstance().addListener(iUserPrivacyListener);
+            long appid = AccountManager.getAppid(mContext);
+            if (j == -2) {
+                uKbyBuid = -2;
+            } else {
+                uKbyBuid = IMUserManager.getInstance(mContext).getUKbyBuid(j);
+            }
+            IMUserSetRequest iMUserSetRequest = new IMUserSetRequest(mContext, addListener, uKbyBuid, appid, i, i2);
+            HttpHelper.executor(mContext, iMUserSetRequest, iMUserSetRequest);
         }
     }
 
@@ -266,6 +311,15 @@ public class ChatUserManagerImpl {
             IMUserQueryRequest iMUserQueryRequest = new IMUserQueryRequest(context, AccountManager.getAppid(context), addListener);
             HttpHelper.executor(mContext, iMUserQueryRequest, iMUserQueryRequest);
         }
+    }
+
+    public boolean isUserExist(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            return IMUserManager.getInstance(mContext).isUserExist(j);
+        }
+        return invokeJ.booleanValue;
     }
 
     public void getUser(long j, int i, IGetUserListener iGetUserListener) {
@@ -321,7 +375,7 @@ public class ChatUserManagerImpl {
         }
     }
 
-    public void getUserIp(int i, ArrayList<Long> arrayList, IGetUserIpListener iGetUserIpListener) {
+    public void getUserIp(int i, ArrayList arrayList, IGetUserIpListener iGetUserIpListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048582, this, i, arrayList, iGetUserIpListener) == null) {
             String str = TAG;
@@ -336,7 +390,7 @@ public class ChatUserManagerImpl {
                     creatMethodIntent.putExtras(bundle);
                     creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
                     try {
-                        b80.g(mContext).f(mContext, creatMethodIntent);
+                        c80.g(mContext).f(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
@@ -353,75 +407,15 @@ public class ChatUserManagerImpl {
         }
     }
 
-    public void getUsersProfileBatch(ArrayList<Long> arrayList, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, arrayList, iGetUsersProfileBatchListener) == null) {
-            String addListener = ListenerManager.getInstance().addListener(iGetUsersProfileBatchListener);
-            if (arrayList != null && arrayList.size() > 0) {
-                ArrayList<ChatUser> arrayList2 = new ArrayList<>();
-                Iterator<Long> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    ChatUser chatUserByBuid = ChatUserDBManager.getInstance(mContext).getChatUserByBuid(it.next().longValue());
-                    if (chatUserByBuid != null) {
-                        arrayList2.add(chatUserByBuid);
-                    }
-                }
-                if (arrayList2.size() > 0) {
-                    onGetUsersProfileBatchResult(addListener, 0, Constants.ERROR_MSG_SUCCESS, arrayList, arrayList2);
-                    return;
-                }
-                String str = TAG;
-                LogUtils.d(str, "getUsersProfileBatch uks :" + arrayList.toString());
-                updateUserIdentity(arrayList, new IGetUserIdentityListener(this, addListener, arrayList) { // from class: com.baidu.android.imsdk.chatuser.ChatUserManagerImpl.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ChatUserManagerImpl this$0;
-                    public final /* synthetic */ String val$key;
-                    public final /* synthetic */ ArrayList val$usersId;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, addListener, arrayList};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$key = addListener;
-                        this.val$usersId = arrayList;
-                    }
-
-                    @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                    public void onGetUserIdentityResult(int i, List<ChatUser> list) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, list) == null) {
-                            this.this$0.updateUserInfoToDB(i, list, this.val$key, this.val$usersId);
-                        }
-                    }
-                });
-                return;
-            }
-            onGetUsersProfileBatchResult(addListener, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList, null);
-        }
-    }
-
-    public void getUsersProfileBatchByBuid(ArrayList<Long> arrayList, boolean z, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
+    public void getUsersProfileBatchByBuid(ArrayList arrayList, boolean z, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{arrayList, Boolean.valueOf(z), iGetUsersProfileBatchListener}) == null) {
             String addListener = ListenerManager.getInstance().addListener(iGetUsersProfileBatchListener);
             if (arrayList != null && arrayList.size() > 0) {
-                ArrayList<ChatUser> arrayList2 = new ArrayList<>();
-                Iterator<Long> it = arrayList.iterator();
+                ArrayList arrayList2 = new ArrayList();
+                Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    ChatUser chatUserByBuid = ChatUserDBManager.getInstance(mContext).getChatUserByBuid(it.next().longValue());
+                    ChatUser chatUserByBuid = ChatUserDBManager.getInstance(mContext).getChatUserByBuid(((Long) it.next()).longValue());
                     if (chatUserByBuid != null) {
                         arrayList2.add(chatUserByBuid);
                     }
@@ -460,11 +454,12 @@ public class ChatUserManagerImpl {
                     }
 
                     @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                    public void onGetUserIdentityResult(int i, List<ChatUser> list) {
+                    public void onGetUserIdentityResult(int i, List list) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, list) == null) {
-                            this.this$0.updateUserInfoToDB(i, list, this.val$key, this.val$buids);
+                        if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i, list) != null) {
+                            return;
                         }
+                        this.this$0.updateUserInfoToDB(i, list, this.val$key, this.val$buids);
                     }
                 });
                 return;
@@ -473,7 +468,68 @@ public class ChatUserManagerImpl {
         }
     }
 
-    public void getUsersStatus(ArrayList<Long> arrayList, IGetUserStatusListener iGetUserStatusListener) {
+    public void getUsersProfileBatch(ArrayList arrayList, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, arrayList, iGetUsersProfileBatchListener) == null) {
+            String addListener = ListenerManager.getInstance().addListener(iGetUsersProfileBatchListener);
+            if (arrayList != null && arrayList.size() > 0) {
+                ArrayList arrayList2 = new ArrayList();
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    ChatUser chatUserByBuid = ChatUserDBManager.getInstance(mContext).getChatUserByBuid(((Long) it.next()).longValue());
+                    if (chatUserByBuid != null) {
+                        arrayList2.add(chatUserByBuid);
+                    }
+                }
+                if (arrayList2.size() > 0) {
+                    onGetUsersProfileBatchResult(addListener, 0, Constants.ERROR_MSG_SUCCESS, arrayList, arrayList2);
+                    return;
+                }
+                String str = TAG;
+                LogUtils.d(str, "getUsersProfileBatch uks :" + arrayList.toString());
+                updateUserIdentity(arrayList, new IGetUserIdentityListener(this, addListener, arrayList) { // from class: com.baidu.android.imsdk.chatuser.ChatUserManagerImpl.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ChatUserManagerImpl this$0;
+                    public final /* synthetic */ String val$key;
+                    public final /* synthetic */ ArrayList val$usersId;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, addListener, arrayList};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$key = addListener;
+                        this.val$usersId = arrayList;
+                    }
+
+                    @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
+                    public void onGetUserIdentityResult(int i, List list) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i, list) != null) {
+                            return;
+                        }
+                        this.this$0.updateUserInfoToDB(i, list, this.val$key, this.val$usersId);
+                    }
+                });
+                return;
+            }
+            onGetUsersProfileBatchResult(addListener, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList, null);
+        }
+    }
+
+    public void getUsersStatus(ArrayList arrayList, IGetUserStatusListener iGetUserStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, arrayList, iGetUserStatusListener) == null) {
             String addListener = ListenerManager.getInstance().addListener(iGetUserStatusListener);
@@ -488,7 +544,7 @@ public class ChatUserManagerImpl {
                     bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
                     creatMethodIntent.putExtras(bundle);
                     try {
-                        b80.g(mContext).f(mContext, creatMethodIntent);
+                        c80.g(mContext).f(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
@@ -506,13 +562,30 @@ public class ChatUserManagerImpl {
         }
     }
 
-    public boolean isUserExist(long j) {
-        InterceptResult invokeJ;
+    public void updateUserIdentity(List list, IGetUserIdentityListener iGetUserIdentityListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) ? IMUserManager.getInstance(mContext).isUserExist(j) : invokeJ.booleanValue;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, list, iGetUserIdentityListener) == null) {
+            if (list != null && list.size() > 0) {
+                String str = TAG;
+                LogUtils.d(str, "updateUserIdentity bduids :" + list.toString());
+                int size = list.size() / 20;
+                int i = 0;
+                while (i < size) {
+                    int i2 = i * 20;
+                    i++;
+                    requestUserIdentity(list.subList(i2, i * 20), iGetUserIdentityListener);
+                }
+                if (list.size() % 20 > 0) {
+                    requestUserIdentity(list.subList(size * 20, list.size()), iGetUserIdentityListener);
+                    return;
+                }
+                return;
+            }
+            iGetUserIdentityListener.onGetUserIdentityResult(1005, null);
+        }
     }
 
-    public void onGetUserIpResult(Context context, int i, String str, int i2, String str2, ArrayList<Long> arrayList, ArrayList<IpInfo> arrayList2) {
+    public void onGetUserIpResult(Context context, int i, String str, int i2, String str2, ArrayList arrayList, ArrayList arrayList2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, Integer.valueOf(i), str, Integer.valueOf(i2), str2, arrayList, arrayList2}) == null) {
             IMListener removeListener = ListenerManager.getInstance().removeListener(str);
@@ -568,24 +641,24 @@ public class ChatUserManagerImpl {
         }
     }
 
-    public void onGetUsersProfileBatchResult(String str, int i, String str2, ArrayList<Long> arrayList, ArrayList<ChatUser> arrayList2) {
+    public void onGetUsersProfileBatchResult(String str, int i, String str2, ArrayList arrayList, ArrayList arrayList2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, Integer.valueOf(i), str2, arrayList, arrayList2}) == null) {
             String str3 = TAG;
             LogUtils.d(str3, "onGetUsersProfileBatchResult----errorCode: " + i);
             if (arrayList2 != null) {
-                Iterator<ChatUser> it = arrayList2.iterator();
+                Iterator it = arrayList2.iterator();
                 while (it.hasNext()) {
-                    ChatUser next = it.next();
+                    ChatUser chatUser = (ChatUser) it.next();
                     String str4 = TAG;
-                    LogUtils.d(str4, "onGetUsersProfileBatchResult ChatUser: " + next.toString());
-                    String iconUrl = next.getIconUrl();
+                    LogUtils.d(str4, "onGetUsersProfileBatchResult ChatUser: " + chatUser.toString());
+                    String iconUrl = chatUser.getIconUrl();
                     if (!TextUtils.isEmpty(iconUrl)) {
-                        next.setIconUrl(iconUrl.replace("http://himg", "https://himg"));
+                        chatUser.setIconUrl(iconUrl.replace("http://himg", "https://himg"));
                     }
-                    String tinyUrl = next.getTinyUrl();
+                    String tinyUrl = chatUser.getTinyUrl();
                     if (!TextUtils.isEmpty(tinyUrl)) {
-                        next.setTinyUrl(tinyUrl.replace("http://himg", "https://himg"));
+                        chatUser.setTinyUrl(tinyUrl.replace("http://himg", "https://himg"));
                     }
                 }
             }
@@ -598,7 +671,7 @@ public class ChatUserManagerImpl {
         }
     }
 
-    public void onGetUsersStatusResult(String str, int i, String str2, ArrayList<UserStatus> arrayList) {
+    public void onGetUsersStatusResult(String str, int i, String str2, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048592, this, str, i, str2, arrayList) == null) {
             String str3 = TAG;
@@ -612,12 +685,14 @@ public class ChatUserManagerImpl {
         }
     }
 
-    public void onQueryResult(int i, String str, List<ChatUser> list, String str2) {
+    public void onQueryResult(int i, String str, List list, String str2) {
         IMListener removeListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), str, list, str2}) == null) {
             if (list != null) {
-                for (ChatUser chatUser : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    ChatUser chatUser = (ChatUser) it.next();
                     if (chatUser.getUk() == -2) {
                         Context context = mContext;
                         com.baidu.android.imsdk.utils.Utility.writeIntData(context, Constants.KEY_USER_SETTING_NOT_CONCERNED + AccountManager.getUK(mContext), chatUser.getDisturb());
@@ -637,13 +712,12 @@ public class ChatUserManagerImpl {
                     }
                 }
             }
-            if (TextUtils.isEmpty(str2) || (removeListener = ListenerManager.getInstance().removeListener(str2)) == null || !(removeListener instanceof IGetUnconcernedMsgListener)) {
-                return;
+            if (!TextUtils.isEmpty(str2) && (removeListener = ListenerManager.getInstance().removeListener(str2)) != null && (removeListener instanceof IGetUnconcernedMsgListener)) {
+                String str5 = TAG;
+                LogUtils.d(str5, "call back for IGetUnconcernedMsgListener error = " + i);
+                Context context2 = mContext;
+                ((IGetUnconcernedMsgListener) removeListener).onResult(i, com.baidu.android.imsdk.utils.Utility.readIntData(context2, Constants.KEY_USER_SETTING_NOT_CONCERNED + AccountManager.getUK(mContext), 0));
             }
-            String str5 = TAG;
-            LogUtils.d(str5, "call back for IGetUnconcernedMsgListener error = " + i);
-            Context context2 = mContext;
-            ((IGetUnconcernedMsgListener) removeListener).onResult(i, com.baidu.android.imsdk.utils.Utility.readIntData(context2, Constants.KEY_USER_SETTING_NOT_CONCERNED + AccountManager.getUK(mContext), 0));
         }
     }
 
@@ -676,46 +750,6 @@ public class ChatUserManagerImpl {
         }
     }
 
-    public void setUserPrivacy(long j, int i, int i2, IUserPrivacyListener iUserPrivacyListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), iUserPrivacyListener}) == null) {
-            IMUserSetRequest iMUserSetRequest = new IMUserSetRequest(mContext, ListenerManager.getInstance().addListener(iUserPrivacyListener), j == -2 ? -2L : IMUserManager.getInstance(mContext).getUKbyBuid(j), AccountManager.getAppid(mContext), i, i2);
-            HttpHelper.executor(mContext, iMUserSetRequest, iMUserSetRequest);
-        }
-    }
-
-    public void syncUsersAttr() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            Context context = mContext;
-            IMUserQueryRequest iMUserQueryRequest = new IMUserQueryRequest(context, AccountManager.getAppid(context));
-            HttpHelper.executor(mContext, iMUserQueryRequest, iMUserQueryRequest);
-        }
-    }
-
-    public void updateUserIdentity(List<Long> list, @NonNull IGetUserIdentityListener iGetUserIdentityListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, list, iGetUserIdentityListener) == null) {
-            if (list != null && list.size() > 0) {
-                String str = TAG;
-                LogUtils.d(str, "updateUserIdentity bduids :" + list.toString());
-                int size = list.size() / 20;
-                int i = 0;
-                while (i < size) {
-                    int i2 = i * 20;
-                    i++;
-                    requestUserIdentity(list.subList(i2, i * 20), iGetUserIdentityListener);
-                }
-                if (list.size() % 20 > 0) {
-                    requestUserIdentity(list.subList(size * 20, list.size()), iGetUserIdentityListener);
-                    return;
-                }
-                return;
-            }
-            iGetUserIdentityListener.onGetUserIdentityResult(1005, null);
-        }
-    }
-
     public void updateUserProfileByUks(long[] jArr, boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{jArr, Boolean.valueOf(z), str}) == null) {
@@ -745,19 +779,19 @@ public class ChatUserManagerImpl {
                 }
 
                 @Override // com.baidu.android.imsdk.account.IGetUidByUkListener
-                public void onGetUidByUkResult(int i, String str2, long[] jArr2, Map<Long, Long> map) {
+                public void onGetUidByUkResult(int i, String str2, long[] jArr2, Map map) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, jArr2, map}) == null) {
                         if (i != 0) {
-                            if (TextUtils.isEmpty(this.val$key)) {
+                            if (!TextUtils.isEmpty(this.val$key)) {
+                                this.this$0.onGetUserResult(ChatUserManagerImpl.mContext, 0, this.val$key, 1011, -1L);
                                 return;
                             }
-                            this.this$0.onGetUserResult(ChatUserManagerImpl.mContext, 0, this.val$key, 1011, -1L);
                             return;
                         }
                         ArrayList arrayList = new ArrayList();
-                        for (Map.Entry<Long, Long> entry : map.entrySet()) {
-                            if (entry.getValue().longValue() > 0) {
+                        for (Map.Entry entry : map.entrySet()) {
+                            if (((Long) entry.getValue()).longValue() > 0) {
                                 arrayList.add(entry.getValue());
                             }
                         }
@@ -787,24 +821,25 @@ public class ChatUserManagerImpl {
                             }
 
                             @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                            public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
+                            public void onGetUserIdentityResult(int i2, List list) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, list) == null) {
-                                    if (i2 != 0 || list == null) {
-                                        LogUtils.i(ChatUserManagerImpl.TAG, "updateUserProfileByUks fail");
-                                        if (TextUtils.isEmpty(this.this$1.val$key)) {
-                                            return;
+                                    if (i2 == 0 && list != null) {
+                                        if (!TextUtils.isEmpty(this.this$1.val$key)) {
+                                            AnonymousClass3 anonymousClass3 = this.this$1;
+                                            anonymousClass3.this$0.onGetUserResult(anonymousClass3.val$key, (ChatUser) list.get(0), 0, ((ChatUser) list.get(0)).getUk());
                                         }
-                                        this.this$1.this$0.onGetUserResult(ChatUserManagerImpl.mContext, 0, this.this$1.val$key, 0, -1L);
+                                        Iterator it = list.iterator();
+                                        while (it.hasNext()) {
+                                            ChatUser chatUser = (ChatUser) it.next();
+                                            ChatUserDBManager.getInstance(ChatUserManagerImpl.mContext).updateUser(chatUser);
+                                            ChatMessageDBManager.getInstance(ChatUserManagerImpl.mContext).updateSessionClass(chatUser);
+                                        }
                                         return;
                                     }
+                                    LogUtils.i(ChatUserManagerImpl.TAG, "updateUserProfileByUks fail");
                                     if (!TextUtils.isEmpty(this.this$1.val$key)) {
-                                        AnonymousClass3 anonymousClass3 = this.this$1;
-                                        anonymousClass3.this$0.onGetUserResult(anonymousClass3.val$key, list.get(0), 0, list.get(0).getUk());
-                                    }
-                                    for (ChatUser chatUser : list) {
-                                        ChatUserDBManager.getInstance(ChatUserManagerImpl.mContext).updateUser(chatUser);
-                                        ChatMessageDBManager.getInstance(ChatUserManagerImpl.mContext).updateSessionClass(chatUser);
+                                        this.this$1.this$0.onGetUserResult(ChatUserManagerImpl.mContext, 0, this.this$1.val$key, 0, -1L);
                                     }
                                 }
                             }
@@ -812,23 +847,6 @@ public class ChatUserManagerImpl {
                     }
                 }
             });
-        }
-    }
-
-    public void onGetUserResult(String str, ChatUser chatUser, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, chatUser, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            IMListener removeListener = ListenerManager.getInstance().removeListener(str);
-            if (removeListener instanceof IGetUserListener) {
-                IGetUserListener iGetUserListener = (IGetUserListener) removeListener;
-                if (chatUser != null) {
-                    String str2 = TAG;
-                    LogUtils.d(str2, "onGetUserResult: " + chatUser.toString());
-                }
-                iGetUserListener.onGetUserResult(i, j, chatUser);
-                return;
-            }
-            LogUtils.d(TAG, "onGetUserResult IGetUserListener is null!");
         }
     }
 }

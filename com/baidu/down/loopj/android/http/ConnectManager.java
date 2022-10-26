@@ -26,9 +26,24 @@ public class ConnectManager {
     public String mProxy;
     public boolean mUseWap;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-862140903, "Lcom/baidu/down/loopj/android/http/ConnectManager;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-862140903, "Lcom/baidu/down/loopj/android/http/ConnectManager;");
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class NetWorkType {
+    public final class NetWorkType {
         public static final /* synthetic */ NetWorkType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetWorkType TYPE_2G;
@@ -84,28 +99,19 @@ public class ConnectManager {
         public static NetWorkType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetWorkType) Enum.valueOf(NetWorkType.class, str) : (NetWorkType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetWorkType) Enum.valueOf(NetWorkType.class, str);
+            }
+            return (NetWorkType) invokeL.objValue;
         }
 
         public static NetWorkType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetWorkType[]) $VALUES.clone() : (NetWorkType[]) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-862140903, "Lcom/baidu/down/loopj/android/http/ConnectManager;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-862140903, "Lcom/baidu/down/loopj/android/http/ConnectManager;");
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetWorkType[]) $VALUES.clone();
+            }
+            return (NetWorkType[]) invokeV.objValue;
         }
     }
 
@@ -126,6 +132,20 @@ public class ConnectManager {
         }
         this.mNetWorkType = NetWorkType.TYPE_UNKNOWN;
         checkNetworkType(context);
+    }
+
+    private void checkNetworkType(Context context) {
+        NetworkInfo activeNetworkInfoSafely;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) && (activeNetworkInfoSafely = Utils.getActiveNetworkInfoSafely(context)) != null) {
+            if ("wifi".equals(activeNetworkInfoSafely.getTypeName().toLowerCase())) {
+                this.mNetWorkType = NetWorkType.TYPE_WF;
+                this.mUseWap = false;
+                return;
+            }
+            checkApn(context, activeNetworkInfoSafely);
+            this.mNetWorkType = checkApnType(activeNetworkInfoSafely);
+        }
     }
 
     private void checkApn(Context context, NetworkInfo networkInfo) {
@@ -224,21 +244,6 @@ public class ConnectManager {
         return (NetWorkType) invokeL.objValue;
     }
 
-    private void checkNetworkType(Context context) {
-        NetworkInfo activeNetworkInfoSafely;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) || (activeNetworkInfoSafely = Utils.getActiveNetworkInfoSafely(context)) == null) {
-            return;
-        }
-        if ("wifi".equals(activeNetworkInfoSafely.getTypeName().toLowerCase())) {
-            this.mNetWorkType = NetWorkType.TYPE_WF;
-            this.mUseWap = false;
-            return;
-        }
-        checkApn(context, activeNetworkInfoSafely);
-        this.mNetWorkType = checkApnType(activeNetworkInfoSafely);
-    }
-
     public static boolean isNetworkConnected(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -255,30 +260,45 @@ public class ConnectManager {
     public String getApn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mApn : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mApn;
+        }
+        return (String) invokeV.objValue;
     }
 
     public NetWorkType getNetType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mNetWorkType : (NetWorkType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mNetWorkType;
+        }
+        return (NetWorkType) invokeV.objValue;
     }
 
     public String getProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProxy : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mProxy;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getProxyPort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPort : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPort;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isWapNetwork() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUseWap : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mUseWap;
+        }
+        return invokeV.booleanValue;
     }
 }

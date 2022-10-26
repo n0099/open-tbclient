@@ -62,6 +62,9 @@ public class RemoteSdpRequest implements IJsonSignalling {
     public String toJSONString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? asJSONObject().toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return asJSONObject().toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

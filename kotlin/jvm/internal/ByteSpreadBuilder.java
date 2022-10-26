@@ -19,14 +19,14 @@ public final class ByteSpreadBuilder extends PrimitiveSpreadBuilder<byte[]> {
         bArr[position] = b;
     }
 
-    public final byte[] toArray() {
-        return toArray(this.values, new byte[size()]);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.PrimitiveSpreadBuilder
     public int getSize(byte[] getSize) {
         Intrinsics.checkNotNullParameter(getSize, "$this$getSize");
         return getSize.length;
+    }
+
+    public final byte[] toArray() {
+        return toArray(this.values, new byte[size()]);
     }
 }

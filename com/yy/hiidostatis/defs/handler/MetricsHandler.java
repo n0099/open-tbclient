@@ -27,8 +27,8 @@ public class MetricsHandler {
     public long defaultMetricsExpire;
     public Context mContext;
     public HttpSendController metricsSend;
-    public Map<String, MetricsWorker> metricsWorkerMap;
-    public Map<String, TimeWorker> timers;
+    public Map metricsWorkerMap;
+    public Map timers;
     public String ver;
 
     /* loaded from: classes8.dex */
@@ -140,6 +140,47 @@ public class MetricsHandler {
         this.defaultMetricsExpire = j;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public MetricsWorker getMetricsWorkerByName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                return (MetricsWorker) this.metricsWorkerMap.get(str);
+            }
+            return null;
+        }
+        return (MetricsWorker) invokeL.objValue;
+    }
+
+    public boolean containMetric(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.metricsWorkerMap.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setVer(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.ver = str;
+        }
+    }
+
+    public MetricsWorker addMetricsWorker(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            if (this.metricsWorkerMap.containsKey(str)) {
+                return null;
+            }
+            return addMetricsWorker(str, this.defaultMetricsExpire, j);
+        }
+        return (MetricsWorker) invokeLJ.objValue;
+    }
+
     private MetricsWorker addMetricsWorker(String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -161,32 +202,38 @@ public class MetricsHandler {
     private MetricsWorker createMetricsWorker(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? createMetricsWorker(j, j2, this.appkey, this.ver) : (MetricsWorker) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return createMetricsWorker(j, j2, this.appkey, this.ver);
+        }
+        return (MetricsWorker) invokeCommon.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public MetricsWorker getMetricsWorkerByName(String str) {
-        InterceptResult invokeL;
+    private MetricsWorker createMetricsWorker(long j, long j2, String str, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) {
-            if (str == null || str.isEmpty()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+            try {
+                AbstractConfig config = HdStatisConfig.getConfig(str);
+                File file = new File(this.mContext.getCacheDir().getAbsolutePath() + "/hiido_metrics");
+                file.mkdirs();
+                if (this.metricsSend == null) {
+                    this.metricsSend = new HttpSendController(new MetricsHttpEncryptUtil(), file, 20, 2);
+                }
+                return new MetricsWorker(this.mContext, 10, this.metricsSend, j, str, str2, config.getSdkVer());
+            } catch (Throwable unused) {
                 return null;
             }
-            return this.metricsWorkerMap.get(str);
         }
-        return (MetricsWorker) invokeL.objValue;
-    }
-
-    public boolean containMetric(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.metricsWorkerMap.containsKey(str) : invokeL.booleanValue;
+        return (MetricsWorker) invokeCommon.objValue;
     }
 
     public String getVer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ver : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.ver;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void onBackground() {
@@ -348,13 +395,14 @@ public class MetricsHandler {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        MetricsWorker metricsWorkerByName = this.this$0.getMetricsWorkerByName(this.val$metricsName);
-                        if (metricsWorkerByName != null) {
-                            metricsWorkerByName.reportCount(this.val$scode, this.val$uri, this.val$countName, this.val$count);
-                        } else {
-                            L.debug(this, "NOT Init %s MetricsWork", this.val$metricsName);
-                        }
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    MetricsWorker metricsWorkerByName = this.this$0.getMetricsWorkerByName(this.val$metricsName);
+                    if (metricsWorkerByName != null) {
+                        metricsWorkerByName.reportCount(this.val$scode, this.val$uri, this.val$countName, this.val$count);
+                    } else {
+                        L.debug(this, "NOT Init %s MetricsWork", this.val$metricsName);
                     }
                 }
             });
@@ -366,86 +414,6 @@ public class MetricsHandler {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3}) == null) {
             reportReturnCode(str, i, str2, j, str3, null);
         }
-    }
-
-    public void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, str, i, str2, str3, j, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MetricsHandler this$0;
-                public final /* synthetic */ Map val$extra;
-                public final /* synthetic */ String val$metricsName;
-                public final /* synthetic */ int val$scode;
-                public final /* synthetic */ String val$topic;
-                public final /* synthetic */ String val$uri;
-                public final /* synthetic */ long val$val;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$metricsName = str;
-                    this.val$scode = i;
-                    this.val$uri = str2;
-                    this.val$topic = str3;
-                    this.val$val = j;
-                    this.val$extra = map;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        MetricsWorker metricsWorkerByName = this.this$0.getMetricsWorkerByName(this.val$metricsName);
-                        if (metricsWorkerByName != null) {
-                            metricsWorkerByName.reportSrcData(this.val$scode, this.val$uri, this.val$topic, this.val$val, this.val$extra);
-                        } else {
-                            L.debug(this, "NOT Init %s MetricsWork", this.val$metricsName);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public void setVer(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.ver = str;
-        }
-    }
-
-    private MetricsWorker createMetricsWorker(long j, long j2, String str, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
-            try {
-                AbstractConfig config = HdStatisConfig.getConfig(str);
-                File file = new File(this.mContext.getCacheDir().getAbsolutePath() + "/hiido_metrics");
-                file.mkdirs();
-                if (this.metricsSend == null) {
-                    this.metricsSend = new HttpSendController(new MetricsHttpEncryptUtil(), file, 20, 2);
-                }
-                return new MetricsWorker(this.mContext, 10, this.metricsSend, j, str, str2, config.getSdkVer());
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (MetricsWorker) invokeCommon.objValue;
     }
 
     public void reportCount(String str, int i, String str2, String str3, long j, int i2) {
@@ -489,20 +457,21 @@ public class MetricsHandler {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        MetricsWorker metricsWorkerByName = this.this$0.getMetricsWorkerByName(this.val$metricsName);
-                        if (metricsWorkerByName != null) {
-                            metricsWorkerByName.reportCount(this.val$scode, this.val$uri, this.val$countName, this.val$count, this.val$times);
-                        } else {
-                            L.debug(this, "NOT Init %s MetricsWork", this.val$metricsName);
-                        }
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    MetricsWorker metricsWorkerByName = this.this$0.getMetricsWorkerByName(this.val$metricsName);
+                    if (metricsWorkerByName != null) {
+                        metricsWorkerByName.reportCount(this.val$scode, this.val$uri, this.val$countName, this.val$count, this.val$times);
+                    } else {
+                        L.debug(this, "NOT Init %s MetricsWork", this.val$metricsName);
                     }
                 }
             });
         }
     }
 
-    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map) {
+    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) == null) {
             ThreadPool.getPool().executeQueue(new Runnable(this, str, i, str2, j, str3, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.4
@@ -543,28 +512,72 @@ public class MetricsHandler {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        MetricsWorker metricsWorkerByName = this.this$0.getMetricsWorkerByName(this.val$metricsName);
-                        if (metricsWorkerByName != null) {
-                            metricsWorkerByName.reportReturnCode(this.val$scode, this.val$uri, this.val$timeConsumption, this.val$code, this.val$moreinfo);
-                        } else {
-                            L.debug(this, "NOT Init %s MetricsWork", this.val$metricsName);
-                        }
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    MetricsWorker metricsWorkerByName = this.this$0.getMetricsWorkerByName(this.val$metricsName);
+                    if (metricsWorkerByName != null) {
+                        metricsWorkerByName.reportReturnCode(this.val$scode, this.val$uri, this.val$timeConsumption, this.val$code, this.val$moreinfo);
+                    } else {
+                        L.debug(this, "NOT Init %s MetricsWork", this.val$metricsName);
                     }
                 }
             });
         }
     }
 
-    public MetricsWorker addMetricsWorker(String str, long j) {
-        InterceptResult invokeLJ;
+    public void reportSrcData(String str, int i, String str2, String str3, long j, Map map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            if (this.metricsWorkerMap.containsKey(str)) {
-                return null;
-            }
-            return addMetricsWorker(str, this.defaultMetricsExpire, j);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, str, i, str2, str3, j, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MetricsHandler this$0;
+                public final /* synthetic */ Map val$extra;
+                public final /* synthetic */ String val$metricsName;
+                public final /* synthetic */ int val$scode;
+                public final /* synthetic */ String val$topic;
+                public final /* synthetic */ String val$uri;
+                public final /* synthetic */ long val$val;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$metricsName = str;
+                    this.val$scode = i;
+                    this.val$uri = str2;
+                    this.val$topic = str3;
+                    this.val$val = j;
+                    this.val$extra = map;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    MetricsWorker metricsWorkerByName = this.this$0.getMetricsWorkerByName(this.val$metricsName);
+                    if (metricsWorkerByName != null) {
+                        metricsWorkerByName.reportSrcData(this.val$scode, this.val$uri, this.val$topic, this.val$val, this.val$extra);
+                    } else {
+                        L.debug(this, "NOT Init %s MetricsWork", this.val$metricsName);
+                    }
+                }
+            });
         }
-        return (MetricsWorker) invokeLJ.objValue;
     }
 }

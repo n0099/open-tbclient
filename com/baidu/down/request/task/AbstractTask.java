@@ -3,7 +3,6 @@ package com.baidu.down.request.task;
 import android.content.Context;
 import com.baidu.down.common.DownConstants;
 import com.baidu.down.common.TaskMsg;
-import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.down.loopj.android.http.BinaryHttpResponseHandler;
 import com.baidu.down.retry.HttpRetryStrategyHandler;
 import com.baidu.down.statistic.TaskSpeedStat;
@@ -20,7 +19,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
+public abstract class AbstractTask implements DownConstants, Comparable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DF_SEG_SIZE = 524288;
     public static int DF_SEG_WRITE_SIZE = 524288;
@@ -56,10 +55,10 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
     public String mFilePath;
     public String mFilename;
     public String mFromParam;
-    public HashMap<String, String> mHeaders;
+    public HashMap mHeaders;
     public String mHost;
     public HttpRetryStrategyHandler mHttpRetryStrategyHandler;
-    public Map<String, IIntercepter<?>> mIntercepters;
+    public Map mIntercepters;
     public boolean mIsVisibility;
     public boolean mKeepNameAndPath;
     public long mLastNotifyBytes;
@@ -107,6 +106,20 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
             classClinitInterceptable.invokePostClinit(-457838231, "Lcom/baidu/down/request/task/AbstractTask;");
         }
     }
+
+    public abstract String getDefaultUrl();
+
+    public abstract String getFastestUrl();
+
+    public abstract String getNoMeasuredUrl(boolean z);
+
+    public abstract void pause();
+
+    public abstract void pend();
+
+    public abstract void start();
+
+    public abstract void stop(boolean z);
 
     public AbstractTask(int i) {
         Interceptable interceptable = $ic;
@@ -156,63 +169,6 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
         this.mTaskType = i;
     }
 
-    public abstract String getDefaultUrl();
-
-    public abstract String getFastestUrl();
-
-    public abstract String getNoMeasuredUrl(boolean z);
-
-    public int getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPriority : invokeV.intValue;
-    }
-
-    public String getTaskKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mUri + this.mDownloadId;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public abstract void pause();
-
-    public abstract void pend();
-
-    public void setPriority(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            if (i < 1) {
-                i = 1;
-            } else if (i > 5) {
-                i = 5;
-            }
-            this.mPriority = i;
-        }
-    }
-
-    public void setTaskmsg(TaskMsg taskMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, taskMsg) == null) {
-            this.mTaskmsg = taskMsg;
-        }
-    }
-
-    public abstract void start();
-
-    public abstract void stop(boolean z);
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "[mUri=" + this.mUri + "][mDownloadId=" + this.mDownloadId + "][status=" + this.mStatus + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(AbstractTask abstractTask) {
@@ -241,7 +197,10 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
                                         if (i3 > 0) {
                                             return 1;
                                         }
-                                        return i3 < 0 ? -1 : 0;
+                                        if (i3 >= 0) {
+                                            return 0;
+                                        }
+                                        return -1;
                                     }
                                 }
                             }
@@ -267,5 +226,51 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
             return 1;
         }
         return invokeL.intValue;
+    }
+
+    public void setPriority(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i < 1) {
+                i = 1;
+            } else if (i > 5) {
+                i = 5;
+            }
+            this.mPriority = i;
+        }
+    }
+
+    public void setTaskmsg(TaskMsg taskMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, taskMsg) == null) {
+            this.mTaskmsg = taskMsg;
+        }
+    }
+
+    public int getPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mPriority;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getTaskKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mUri + this.mDownloadId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return "[mUri=" + this.mUri + "][mDownloadId=" + this.mDownloadId + "][status=" + this.mStatus + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 }

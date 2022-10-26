@@ -14,12 +14,12 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
+public class PostFormRequest extends HttpParaRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class PostFormRequestBuilder extends HttpRequestParasBuilder<PostFormRequestBuilder> {
+    public class PostFormRequestBuilder extends HttpRequestParasBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,14 +64,6 @@ public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        public PostFormRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new PostFormRequest(this) : (PostFormRequest) invokeV.objValue;
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PostFormRequestBuilder(PostFormRequest postFormRequest, AbstractHttpManager abstractHttpManager) {
             super(postFormRequest, abstractHttpManager);
@@ -91,6 +83,17 @@ public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
                     return;
                 }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        public PostFormRequest build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new PostFormRequest(this);
+            }
+            return (PostFormRequest) invokeV.objValue;
         }
     }
 
@@ -118,7 +121,10 @@ public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? this.okRequestBuilder.post(requestBody).build() : (Request) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
+            return this.okRequestBuilder.post(requestBody).build();
+        }
+        return (Request) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest
@@ -126,11 +132,11 @@ public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedHashMap<String, String> linkedHashMap = this.params;
+            LinkedHashMap linkedHashMap = this.params;
             if (linkedHashMap != null && !linkedHashMap.isEmpty()) {
                 FormBody.Builder builder = new FormBody.Builder();
-                for (Map.Entry<String, String> entry : this.params.entrySet()) {
-                    builder.add(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : this.params.entrySet()) {
+                    builder.add((String) entry.getKey(), (String) entry.getValue());
                 }
                 return builder.build();
             }
@@ -144,7 +150,10 @@ public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
     public PostFormRequestBuilder newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new PostFormRequestBuilder(this) : (PostFormRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new PostFormRequestBuilder(this);
+        }
+        return (PostFormRequestBuilder) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -152,6 +161,9 @@ public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
     public PostFormRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, abstractHttpManager)) == null) ? new PostFormRequestBuilder(this, abstractHttpManager) : (PostFormRequestBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, abstractHttpManager)) == null) {
+            return new PostFormRequestBuilder(this, abstractHttpManager);
+        }
+        return (PostFormRequestBuilder) invokeL.objValue;
     }
 }

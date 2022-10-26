@@ -21,8 +21,8 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ku7;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
-import com.baidu.tieba.zt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,6 +114,20 @@ public class AuthActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AuthActivity a;
 
+        @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
+        public void onPageFinished(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
+        public void shouldOverrideUrlLoading(WebView webView, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
+            }
+        }
+
         public c(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -133,13 +147,6 @@ public class AuthActivity extends BaseActivity {
         }
 
         @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) && str != null && str.contains("__wp-action=auth-widget")) {
@@ -148,13 +155,6 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
                 this.a.i(true, queryParameter);
-            }
-        }
-
-        @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
-        public void shouldOverrideUrlLoading(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
             }
         }
     }
@@ -186,9 +186,10 @@ public class AuthActivity extends BaseActivity {
         @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
         public void onSuccess() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i(true, null);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.i(true, null);
         }
     }
 
@@ -208,18 +209,60 @@ public class AuthActivity extends BaseActivity {
         this.t = new SapiResult();
     }
 
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+            } else {
+                onClose();
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onClose();
+            this.t.setResultCode(-301);
+            this.t.setResultMsg("流程已结束");
+            i(false, null);
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onLeftBtnClick();
+            if (this.executeSubClassMethod) {
+                n();
+            }
+        }
+    }
+
+    public String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return new String(Base64.decode(str.getBytes(), 0));
+        }
+        return (String) invokeL.objValue;
+    }
+
     public final void i(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                zt7.f().b(z, str);
+                ku7.f().b(z, str);
             } else if (i == 1) {
-                zt7.f().e(z);
+                ku7.f().e(z);
             } else if (i == 2) {
-                zt7.f().c(z);
+                ku7.f().c(z);
             } else {
-                zt7.f().a(null);
+                ku7.f().a(null);
             }
             finish();
         }
@@ -277,25 +320,6 @@ public class AuthActivity extends BaseActivity {
         return (String) invokeV.objValue;
     }
 
-    public final List<PassNameValuePair> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
-            String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair(environment.getWap(), buildBDUSSCookie));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? new String(Base64.decode(str.getBytes(), 0)) : (String) invokeL.objValue;
-    }
-
     public final String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -322,26 +346,17 @@ public class AuthActivity extends BaseActivity {
         return (String) invokeV.objValue;
     }
 
-    public final void n() {
+    public final List k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.sapiWebView.canGoBack()) {
-                this.sapiWebView.goBack();
-            } else {
-                onClose();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
+            String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair(environment.getWap(), buildBDUSSCookie));
+            return arrayList;
         }
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onClose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onClose();
-            this.t.setResultCode(-301);
-            this.t.setResultMsg("流程已结束");
-            i(false, null);
-        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -350,7 +365,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
                 PassManagerStatic.A();
                 init();
                 setupViews();
@@ -359,17 +374,6 @@ public class AuthActivity extends BaseActivity {
                 this.t.setResultCode(-202);
                 this.t.setResultMsg("网络连接失败，请检查网络设置");
                 i(false, null);
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                n();
             }
         }
     }
@@ -388,7 +392,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(j());
             } else if (i == 1) {
-                setTitleText(R.string.obfuscated_res_0x7f0f0afb);
+                setTitleText(R.string.obfuscated_res_0x7f0f0b0a);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.w);
                 this.sapiWebView.loadUrl(m(), k());
                 this.sapiWebView.setChangePwdCallback(new d(this));

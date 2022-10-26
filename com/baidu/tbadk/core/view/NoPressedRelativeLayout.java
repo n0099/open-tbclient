@@ -32,6 +32,13 @@ public class NoPressedRelativeLayout extends RelativeLayout {
         void a(MotionEvent motionEvent);
     }
 
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchSetPressed(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoPressedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -79,91 +86,11 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     private void setBottomViewClickEventEnabled(boolean z) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65538, this, z) == null) || (view2 = this.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(65538, this, z) == null) && (view2 = this.b) != null) {
+            view2.setEnabled(z);
+            this.b.setClickable(z);
+            this.b.setLongClickable(z);
         }
-        view2.setEnabled(z);
-        this.b.setClickable(z);
-        this.b.setLongClickable(z);
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                return false;
-            }
-            Rect rect = this.f;
-            return rect == null || rect.width() <= 0 || this.f.height() <= 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchSetPressed(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x001d, code lost:
-        if (r0 != 3) goto L50;
-     */
-    @Override // android.view.ViewGroup, android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            a aVar = this.h;
-            if (aVar != null) {
-                aVar.a(motionEvent);
-            }
-            if (this.a != null) {
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1) {
-                        if (action == 2) {
-                            float abs = this.e > Math.abs(this.c - motionEvent.getRawY()) ? this.e : Math.abs(this.c - motionEvent.getRawY());
-                            this.e = abs;
-                            if (this.g && abs < this.d) {
-                                setBottomViewClickEventEnabled(false);
-                            } else {
-                                setBottomViewClickEventEnabled(true);
-                            }
-                            return super.dispatchTouchEvent(motionEvent);
-                        }
-                    }
-                    if (this.g) {
-                        float abs2 = Math.abs(this.c - motionEvent.getRawY());
-                        int i = this.d;
-                        if (abs2 < i && this.e < i && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                            setBottomViewClickEventEnabled(false);
-                            if (this.a.isClickable()) {
-                                this.a.performClick();
-                            }
-                            return true;
-                        }
-                    }
-                } else {
-                    this.c = motionEvent.getRawY();
-                    this.e = 0.0f;
-                    if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        this.g = true;
-                        setBottomViewClickEventEnabled(false);
-                    } else {
-                        this.g = false;
-                        setBottomViewClickEventEnabled(true);
-                    }
-                    return super.dispatchTouchEvent(motionEvent);
-                }
-            }
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup
@@ -205,5 +132,85 @@ public class NoPressedRelativeLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             this.a = view2;
         }
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                return false;
+            }
+            Rect rect = this.f;
+            if (rect != null && rect.width() > 0 && this.f.height() > 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x001d, code lost:
+        if (r0 != 3) goto L50;
+     */
+    @Override // android.view.ViewGroup, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        float abs;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            a aVar = this.h;
+            if (aVar != null) {
+                aVar.a(motionEvent);
+            }
+            if (this.a != null) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            if (this.e > Math.abs(this.c - motionEvent.getRawY())) {
+                                abs = this.e;
+                            } else {
+                                abs = Math.abs(this.c - motionEvent.getRawY());
+                            }
+                            this.e = abs;
+                            if (this.g && abs < this.d) {
+                                setBottomViewClickEventEnabled(false);
+                            } else {
+                                setBottomViewClickEventEnabled(true);
+                            }
+                            return super.dispatchTouchEvent(motionEvent);
+                        }
+                    }
+                    if (this.g) {
+                        float abs2 = Math.abs(this.c - motionEvent.getRawY());
+                        int i = this.d;
+                        if (abs2 < i && this.e < i && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                            setBottomViewClickEventEnabled(false);
+                            if (this.a.isClickable()) {
+                                this.a.performClick();
+                            }
+                            return true;
+                        }
+                    }
+                } else {
+                    this.c = motionEvent.getRawY();
+                    this.e = 0.0f;
+                    if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                        this.g = true;
+                        setBottomViewClickEventEnabled(false);
+                    } else {
+                        this.g = false;
+                        setBottomViewClickEventEnabled(true);
+                    }
+                    return super.dispatchTouchEvent(motionEvent);
+                }
+            }
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

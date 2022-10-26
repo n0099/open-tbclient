@@ -8,10 +8,20 @@ import kotlin.Unit;
 public class JobImpl extends JobSupport implements CompletableJob {
     public final boolean handlesException;
 
+    @Override // kotlinx.coroutines.JobSupport
+    public boolean getOnCancelComplete$kotlinx_coroutines_core() {
+        return true;
+    }
+
     public JobImpl(Job job) {
         super(true);
         initParentJobInternal$kotlinx_coroutines_core(job);
         this.handlesException = handlesException();
+    }
+
+    @Override // kotlinx.coroutines.CompletableJob
+    public boolean completeExceptionally(Throwable th) {
+        return makeCompleting$kotlinx_coroutines_core(new CompletedExceptionally(th, false, 2, null));
     }
 
     private final boolean handlesException() {
@@ -44,18 +54,8 @@ public class JobImpl extends JobSupport implements CompletableJob {
         return makeCompleting$kotlinx_coroutines_core(Unit.INSTANCE);
     }
 
-    @Override // kotlinx.coroutines.CompletableJob
-    public boolean completeExceptionally(Throwable th) {
-        return makeCompleting$kotlinx_coroutines_core(new CompletedExceptionally(th, false, 2, null));
-    }
-
     @Override // kotlinx.coroutines.JobSupport
     public boolean getHandlesException$kotlinx_coroutines_core() {
         return this.handlesException;
-    }
-
-    @Override // kotlinx.coroutines.JobSupport
-    public boolean getOnCancelComplete$kotlinx_coroutines_core() {
-        return true;
     }
 }

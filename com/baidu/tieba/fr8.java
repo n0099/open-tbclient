@@ -12,15 +12,16 @@ public class fr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public final eq8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
-        super(2010000);
+    public fr8(MainTabActivity mainTabActivity, eq8 eq8Var) {
+        super(2921348);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, xp8Var};
+            Object[] objArr = {mainTabActivity, eq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,14 +33,20 @@ public class fr8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = eq8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        eq8 eq8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            this.a.F = true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (eq8Var = this.b) != null && eq8Var.B() != null) {
+            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                this.b.B().getTabWrapper().animate().translationY(this.b.B().getTabWrapper().getHeight()).setDuration(200L).start();
+            } else {
+                this.b.B().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
+            }
         }
     }
 }

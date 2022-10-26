@@ -14,22 +14,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class CountingMemoryCacheInspector<K, V> {
+public class CountingMemoryCacheInspector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CountingMemoryCache<K, V> mCountingBitmapCache;
+    public final CountingMemoryCache mCountingBitmapCache;
 
     /* loaded from: classes7.dex */
-    public static class DumpInfo<K, V> {
+    public class DumpInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<DumpInfoEntry<K, V>> lruEntries;
+        public final List lruEntries;
         public final int lruSize;
         public final int maxEntriesCount;
         public final int maxEntrySize;
         public final int maxSize;
-        public final Map<Bitmap, Object> otherEntries;
-        public final List<DumpInfoEntry<K, V>> sharedEntries;
+        public final Map otherEntries;
+        public final List sharedEntries;
         public final int size;
 
         public DumpInfo(int i, int i2, MemoryCacheParams memoryCacheParams) {
@@ -60,10 +60,10 @@ public class CountingMemoryCacheInspector<K, V> {
         public void release() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (DumpInfoEntry<K, V> dumpInfoEntry : this.lruEntries) {
+                for (DumpInfoEntry dumpInfoEntry : this.lruEntries) {
                     dumpInfoEntry.release();
                 }
-                for (DumpInfoEntry<K, V> dumpInfoEntry2 : this.sharedEntries) {
+                for (DumpInfoEntry dumpInfoEntry2 : this.sharedEntries) {
                     dumpInfoEntry2.release();
                 }
             }
@@ -71,18 +71,18 @@ public class CountingMemoryCacheInspector<K, V> {
     }
 
     /* loaded from: classes7.dex */
-    public static class DumpInfoEntry<K, V> {
+    public class DumpInfoEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final K key;
-        public final CloseableReference<V> value;
+        public final Object key;
+        public final CloseableReference value;
 
-        public DumpInfoEntry(K k, CloseableReference<V> closeableReference) {
+        public DumpInfoEntry(Object obj, CloseableReference closeableReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k, closeableReference};
+                Object[] objArr = {obj, closeableReference};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -92,19 +92,19 @@ public class CountingMemoryCacheInspector<K, V> {
                     return;
                 }
             }
-            this.key = (K) Preconditions.checkNotNull(k);
+            this.key = Preconditions.checkNotNull(obj);
             this.value = CloseableReference.cloneOrNull(closeableReference);
         }
 
         public void release() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CloseableReference.closeSafely((CloseableReference<?>) this.value);
+                CloseableReference.closeSafely(this.value);
             }
         }
     }
 
-    public CountingMemoryCacheInspector(CountingMemoryCache<K, V> countingMemoryCache) {
+    public CountingMemoryCacheInspector(CountingMemoryCache countingMemoryCache) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,18 +129,18 @@ public class CountingMemoryCacheInspector<K, V> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this.mCountingBitmapCache) {
                 dumpInfo = new DumpInfo(this.mCountingBitmapCache.getSizeInBytes(), this.mCountingBitmapCache.getEvictionQueueSizeInBytes(), this.mCountingBitmapCache.mMemoryCacheParams);
-                for (Map.Entry<K, CountingMemoryCache.Entry<K, V>> entry : this.mCountingBitmapCache.mCachedEntries.getMatchingEntries(null)) {
-                    CountingMemoryCache.Entry<K, V> value = entry.getValue();
-                    DumpInfoEntry<K, V> dumpInfoEntry = new DumpInfoEntry<>(value.key, value.valueRef);
-                    if (value.clientCount > 0) {
+                for (Map.Entry entry : this.mCountingBitmapCache.mCachedEntries.getMatchingEntries(null)) {
+                    CountingMemoryCache.Entry entry2 = (CountingMemoryCache.Entry) entry.getValue();
+                    DumpInfoEntry dumpInfoEntry = new DumpInfoEntry(entry2.key, entry2.valueRef);
+                    if (entry2.clientCount > 0) {
                         dumpInfo.sharedEntries.add(dumpInfoEntry);
                     } else {
                         dumpInfo.lruEntries.add(dumpInfoEntry);
                     }
                 }
-                for (Map.Entry<Bitmap, Object> entry2 : this.mCountingBitmapCache.mOtherEntries.entrySet()) {
-                    if (entry2 != null && !entry2.getKey().isRecycled()) {
-                        dumpInfo.otherEntries.put(entry2.getKey(), entry2.getValue());
+                for (Map.Entry entry3 : this.mCountingBitmapCache.mOtherEntries.entrySet()) {
+                    if (entry3 != null && !((Bitmap) entry3.getKey()).isRecycled()) {
+                        dumpInfo.otherEntries.put(entry3.getKey(), entry3.getValue());
                     }
                 }
             }

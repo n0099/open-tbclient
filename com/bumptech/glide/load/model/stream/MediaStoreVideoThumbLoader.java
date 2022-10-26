@@ -2,8 +2,6 @@ package com.bumptech.glide.load.model.stream;
 
 import android.content.Context;
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,18 +16,24 @@ import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import com.bumptech.glide.load.resource.bitmap.VideoDecoder;
 import com.bumptech.glide.signature.ObjectKey;
-import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class MediaStoreVideoThumbLoader implements ModelLoader<Uri, InputStream> {
+public class MediaStoreVideoThumbLoader implements ModelLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context context;
 
     /* loaded from: classes7.dex */
-    public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
+    public class Factory implements ModelLoaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        public void teardown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public Factory(Context context) {
             Interceptable interceptable = $ic;
@@ -50,18 +54,13 @@ public class MediaStoreVideoThumbLoader implements ModelLoader<Uri, InputStream>
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        @NonNull
-        public ModelLoader<Uri, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) ? new MediaStoreVideoThumbLoader(this.context) : (ModelLoader) invokeL.objValue;
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public void teardown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
+                return new MediaStoreVideoThumbLoader(this.context);
             }
+            return (ModelLoader) invokeL.objValue;
         }
     }
 
@@ -88,31 +87,36 @@ public class MediaStoreVideoThumbLoader implements ModelLoader<Uri, InputStream>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, options)) == null) {
             Long l = (Long) options.get(VideoDecoder.TARGET_FRAME);
-            return l != null && l.longValue() == -1;
+            if (l != null && l.longValue() == -1) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    @Nullable
-    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
-        InterceptResult invokeCommon;
+    public boolean handles(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            if (MediaStoreUtil.isThumbnailSize(i, i2) && isRequestingDefaultFrame(options)) {
-                return new ModelLoader.LoadData<>(new ObjectKey(uri), ThumbFetcher.buildVideoFetcher(this.context, uri));
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+            return MediaStoreUtil.isMediaStoreVideoUri(uri);
         }
-        return (ModelLoader.LoadData) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(@NonNull Uri uri) {
-        InterceptResult invokeL;
+    public ModelLoader.LoadData buildLoadData(Uri uri, int i, int i2, Options options) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) ? MediaStoreUtil.isMediaStoreVideoUri(uri) : invokeL.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            if (MediaStoreUtil.isThumbnailSize(i, i2) && isRequestingDefaultFrame(options)) {
+                return new ModelLoader.LoadData(new ObjectKey(uri), ThumbFetcher.buildVideoFetcher(this.context, uri));
+            }
+            return null;
+        }
+        return (ModelLoader.LoadData) invokeCommon.objValue;
     }
 }

@@ -13,12 +13,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q21;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.r21;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,7 +67,15 @@ public class NadDragView extends RelativeLayout {
                 return;
             }
         }
-        p = t21.c.c(zi0.b()) / 5;
+        p = u21.c.c(aj0.b()) / 5;
+    }
+
+    public final void c() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (aVar = this.n) != null) {
+            aVar.b();
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,194 +101,6 @@ public class NadDragView extends RelativeLayout {
         this.l = 0.0f;
         this.m = 1.0f;
         this.o = new RectF();
-    }
-
-    public final boolean a(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            View view2 = this.b;
-            if (view2 != null && view2.getVisibility() == 0) {
-                if (this.c != null && getScrollY() == 0) {
-                    if ((f2 < -15.0f && !this.k) || (f2 > 15.0f && !this.k)) {
-                        this.k = true;
-                        this.l = 0.0f;
-                        this.m = 1.0f;
-                        a aVar = this.n;
-                        if (aVar != null) {
-                            aVar.a();
-                        }
-                    }
-                }
-                if (this.k && this.c != null) {
-                    this.l -= f2;
-                    float measuredHeight = getMeasuredHeight();
-                    if (this.l > measuredHeight) {
-                        this.l = measuredHeight;
-                    }
-                    float f3 = f2 / measuredHeight;
-                    Matrix matrix = this.a;
-                    float f4 = this.m;
-                    matrix.postTranslate((-f) * 1.5f * f4, f2 * (-1.5f) * f4);
-                    if (this.m * (f3 + 1.0f) > 1.0f || this.l < 0.0f) {
-                        f3 = -f3;
-                    }
-                    float f5 = f3 + 1.0f;
-                    this.a.preScale(f5, f5, (this.m * this.c.getWidth()) / 2.0f, this.m * (this.c.getHeight() / 2));
-                    this.m *= f5;
-                    invalidate();
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final RectF b(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float f5 = f3 / 2.0f;
-            float f6 = f4 / 2.0f;
-            return new RectF(f - f5, f2 - f6, f + f5, f2 + f6);
-        }
-        return (RectF) invokeCommon.objValue;
-    }
-
-    public final void c() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.n) == null) {
-            return;
-        }
-        aVar.b();
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            if (this.i && (bitmap2 = this.c) != null && !bitmap2.isRecycled() && this.k) {
-                canvas.drawColor(Color.argb((int) (this.m * 255.0f), 0, 0, 0), PorterDuff.Mode.SRC);
-                if (this.o == null) {
-                    this.o = new RectF();
-                }
-                this.a.mapRect(this.o, new RectF(this.d));
-                canvas.drawBitmap(this.c, this.f, this.o, (Paint) null);
-            } else if (this.j && (bitmap = this.c) != null && !bitmap.isRecycled()) {
-                canvas.drawColor(Color.argb((int) (this.m * 255.0f), 0, 0, 0), PorterDuff.Mode.SRC);
-                canvas.drawBitmap(this.c, this.f, this.o, (Paint) null);
-            } else {
-                super.dispatchDraw(canvas);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        a aVar;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (this.b == null) {
-                return super.dispatchTouchEvent(motionEvent);
-            }
-            if (!this.i && motionEvent.getPointerCount() >= 2) {
-                return super.dispatchTouchEvent(motionEvent);
-            }
-            if (this.i || this.j) {
-                requestDisallowInterceptTouchEvent(true);
-            }
-            int action = motionEvent.getAction();
-            float y = motionEvent.getY();
-            float x = motionEvent.getX();
-            int i = action & 255;
-            if (i == 0) {
-                if (this.c == null) {
-                    this.c = q21.a(this.b);
-                }
-                if (this.d == null && this.c != null) {
-                    int measuredWidth = getMeasuredWidth();
-                    float measuredWidth2 = ((getMeasuredWidth() * 1.0f) / this.c.getWidth()) * this.c.getHeight();
-                    if (measuredWidth2 > getMeasuredHeight()) {
-                        measuredWidth2 = getMeasuredHeight();
-                    }
-                    RectF b = b(getMeasuredWidth() / 2, getMeasuredHeight() / 2, measuredWidth, measuredWidth2);
-                    this.d = new Rect((int) b.left, (int) b.top, (int) b.right, (int) b.bottom);
-                }
-                if (this.e == null && (bitmap = this.c) != null) {
-                    int height = bitmap.getHeight();
-                    int width = bitmap.getWidth();
-                    float b2 = t21.c.b(getContext());
-                    int i2 = (int) (height * b2);
-                    int i3 = (int) (width * b2);
-                    if (i3 > this.c.getWidth() && this.c.getWidth() != 0) {
-                        i2 = (int) (i2 / ((i3 * 1.0f) / this.c.getWidth()));
-                        i3 = this.c.getWidth();
-                    }
-                    if (i2 > this.c.getHeight() && this.c.getHeight() != 0) {
-                        i3 = (int) (i3 / ((i2 * 1.0f) / this.c.getHeight()));
-                        i2 = this.c.getHeight();
-                    }
-                    int c = (t21.c.c(getContext()) - i2) / 2;
-                    int e = (t21.c.e(getContext()) - i3) / 2;
-                    this.e = new Rect(e, c, i3 + e, i2 + c);
-                    this.f = new Rect(0, 0, this.c.getWidth(), this.c.getHeight());
-                }
-                this.g = x;
-                this.h = y;
-            }
-            if (i == 2) {
-                this.i = a(this.g - x, this.h - y);
-                this.g = x;
-                this.h = y;
-            }
-            boolean dispatchTouchEvent = (this.i || this.j) ? true : super.dispatchTouchEvent(motionEvent);
-            if (i == 1 || i == 3) {
-                this.g = 0.0f;
-                this.h = 0.0f;
-                boolean z = (-this.l) > ((float) (p * 2));
-                boolean z2 = this.l > ((float) p);
-                if (!z && !z2) {
-                    if (this.i && (aVar = this.n) != null) {
-                        aVar.c();
-                    }
-                    this.m = 1.0f;
-                    invalidate();
-                } else {
-                    this.j = true;
-                    c();
-                }
-                this.k = false;
-                this.a.reset();
-                this.i = false;
-            }
-            return dispatchTouchEvent;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setDragToExitListener(@Nullable a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.n = aVar;
-        }
-    }
-
-    public void setDragView(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            View view3 = this.b;
-            if (view3 != null) {
-                removeView(view3);
-            }
-            this.b = view2;
-            addView(view2);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -335,5 +153,205 @@ public class NadDragView extends RelativeLayout {
         this.l = 0.0f;
         this.m = 1.0f;
         this.o = new RectF();
+    }
+
+    public final boolean a(float f, float f2) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            View view2 = this.b;
+            if (view2 != null && view2.getVisibility() == 0) {
+                if (this.c != null && getScrollY() == 0) {
+                    if ((f2 < -15.0f && !this.k) || (f2 > 15.0f && !this.k)) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        this.k = true;
+                        this.l = 0.0f;
+                        this.m = 1.0f;
+                        a aVar = this.n;
+                        if (aVar != null) {
+                            aVar.a();
+                        }
+                    }
+                }
+                if (this.k && this.c != null) {
+                    this.l -= f2;
+                    float measuredHeight = getMeasuredHeight();
+                    if (this.l > measuredHeight) {
+                        this.l = measuredHeight;
+                    }
+                    float f3 = f2 / measuredHeight;
+                    Matrix matrix = this.a;
+                    float f4 = this.m;
+                    matrix.postTranslate((-f) * 1.5f * f4, f2 * (-1.5f) * f4);
+                    if (this.m * (f3 + 1.0f) > 1.0f || this.l < 0.0f) {
+                        f3 = -f3;
+                    }
+                    float f5 = f3 + 1.0f;
+                    this.a.preScale(f5, f5, (this.m * this.c.getWidth()) / 2.0f, this.m * (this.c.getHeight() / 2));
+                    this.m *= f5;
+                    invalidate();
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final RectF b(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = f3 / 2.0f;
+            float f6 = f4 / 2.0f;
+            return new RectF(f - f5, f2 - f6, f + f5, f2 + f6);
+        }
+        return (RectF) invokeCommon.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            if (this.i && (bitmap2 = this.c) != null && !bitmap2.isRecycled() && this.k) {
+                canvas.drawColor(Color.argb((int) (this.m * 255.0f), 0, 0, 0), PorterDuff.Mode.SRC);
+                if (this.o == null) {
+                    this.o = new RectF();
+                }
+                this.a.mapRect(this.o, new RectF(this.d));
+                canvas.drawBitmap(this.c, this.f, this.o, (Paint) null);
+            } else if (this.j && (bitmap = this.c) != null && !bitmap.isRecycled()) {
+                canvas.drawColor(Color.argb((int) (this.m * 255.0f), 0, 0, 0), PorterDuff.Mode.SRC);
+                canvas.drawBitmap(this.c, this.f, this.o, (Paint) null);
+            } else {
+                super.dispatchDraw(canvas);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        a aVar;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (this.b == null) {
+                return super.dispatchTouchEvent(motionEvent);
+            }
+            if (!this.i && motionEvent.getPointerCount() >= 2) {
+                return super.dispatchTouchEvent(motionEvent);
+            }
+            if (this.i || this.j) {
+                requestDisallowInterceptTouchEvent(true);
+            }
+            int action = motionEvent.getAction();
+            float y = motionEvent.getY();
+            float x = motionEvent.getX();
+            int i = action & 255;
+            if (i == 0) {
+                if (this.c == null) {
+                    this.c = r21.a(this.b);
+                }
+                if (this.d == null && this.c != null) {
+                    int measuredWidth = getMeasuredWidth();
+                    float measuredWidth2 = ((getMeasuredWidth() * 1.0f) / this.c.getWidth()) * this.c.getHeight();
+                    if (measuredWidth2 > getMeasuredHeight()) {
+                        measuredWidth2 = getMeasuredHeight();
+                    }
+                    RectF b = b(getMeasuredWidth() / 2, getMeasuredHeight() / 2, measuredWidth, measuredWidth2);
+                    this.d = new Rect((int) b.left, (int) b.top, (int) b.right, (int) b.bottom);
+                }
+                if (this.e == null && (bitmap = this.c) != null) {
+                    int height = bitmap.getHeight();
+                    int width = bitmap.getWidth();
+                    float b2 = u21.c.b(getContext());
+                    int i2 = (int) (height * b2);
+                    int i3 = (int) (width * b2);
+                    if (i3 > this.c.getWidth() && this.c.getWidth() != 0) {
+                        i2 = (int) (i2 / ((i3 * 1.0f) / this.c.getWidth()));
+                        i3 = this.c.getWidth();
+                    }
+                    if (i2 > this.c.getHeight() && this.c.getHeight() != 0) {
+                        i3 = (int) (i3 / ((i2 * 1.0f) / this.c.getHeight()));
+                        i2 = this.c.getHeight();
+                    }
+                    int c = (u21.c.c(getContext()) - i2) / 2;
+                    int e = (u21.c.e(getContext()) - i3) / 2;
+                    this.e = new Rect(e, c, i3 + e, i2 + c);
+                    this.f = new Rect(0, 0, this.c.getWidth(), this.c.getHeight());
+                }
+                this.g = x;
+                this.h = y;
+            }
+            if (i == 2) {
+                this.i = a(this.g - x, this.h - y);
+                this.g = x;
+                this.h = y;
+            }
+            if (!this.i && !this.j) {
+                z = super.dispatchTouchEvent(motionEvent);
+            } else {
+                z = true;
+            }
+            if (i == 1 || i == 3) {
+                this.g = 0.0f;
+                this.h = 0.0f;
+                if ((-this.l) > p * 2) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (this.l > p) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (!z2 && !z3) {
+                    if (this.i && (aVar = this.n) != null) {
+                        aVar.c();
+                    }
+                    this.m = 1.0f;
+                    invalidate();
+                } else {
+                    this.j = true;
+                    c();
+                }
+                this.k = false;
+                this.a.reset();
+                this.i = false;
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setDragToExitListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.n = aVar;
+        }
+    }
+
+    public void setDragView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            View view3 = this.b;
+            if (view3 != null) {
+                removeView(view3);
+            }
+            this.b = view2;
+            addView(view2);
+        }
     }
 }

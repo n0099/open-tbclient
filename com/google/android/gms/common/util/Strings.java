@@ -1,7 +1,6 @@
 package com.google.android.gms.common.util;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import java.util.regex.Pattern;
 import org.checkerframework.checker.nullness.qual.EnsuresNonNullIf;
-@VisibleForTesting
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class Strings {
     public static /* synthetic */ Interceptable $ic;
@@ -50,9 +46,7 @@ public class Strings {
         }
     }
 
-    @Nullable
-    @KeepForSdk
-    public static String emptyToNull(@Nullable String str) {
+    public static String emptyToNull(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -65,10 +59,15 @@ public class Strings {
     }
 
     @EnsuresNonNullIf(expression = {"#1"}, result = false)
-    @KeepForSdk
-    public static boolean isEmptyOrWhitespace(@Nullable String str) {
+    public static boolean isEmptyOrWhitespace(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str == null || str.trim().isEmpty() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && !str.trim().isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class b implements a {
     public final String a = b.class.getSimpleName();
-    public final HashMap<String, Object> b = new HashMap<>();
+    public final HashMap b = new HashMap();
 
     public b(String str, Object obj) {
         a(str);
@@ -30,7 +30,7 @@ public class b implements a {
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
-    public Map<String, Object> a() {
+    public Map a() {
         return this.b;
     }
 

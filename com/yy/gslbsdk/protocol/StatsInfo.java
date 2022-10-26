@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class StatsInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<long[]> its;
+    public LinkedList its;
     public String sip;
 
     public StatsInfo() {
@@ -27,7 +27,7 @@ public class StatsInfo {
                 return;
             }
         }
-        LinkedList<long[]> linkedList = new LinkedList<>();
+        LinkedList linkedList = new LinkedList();
         this.its = linkedList;
         linkedList.add(new long[]{0, 0, 0});
         this.its.add(new long[]{0, 0, 0});
@@ -36,19 +36,25 @@ public class StatsInfo {
         this.its.add(new long[]{0, 0, 0});
     }
 
-    public LinkedList<long[]> getIts() {
+    public LinkedList getIts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.its : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.its;
+        }
+        return (LinkedList) invokeV.objValue;
     }
 
     public String getSip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sip : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.sip;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void setIts(LinkedList<long[]> linkedList) {
+    public void setIts(LinkedList linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, linkedList) == null) {
             this.its = linkedList;

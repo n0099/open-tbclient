@@ -18,6 +18,8 @@ public abstract class MediaFileInfo extends OrmObject implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public long sortTime;
 
+    public abstract int getType();
+
     public MediaFileInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,10 +37,11 @@ public abstract class MediaFileInfo extends OrmObject implements Serializable {
     public long getSortTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sortTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sortTime;
+        }
+        return invokeV.longValue;
     }
-
-    public abstract int getType();
 
     public void setSortTime(long j) {
         Interceptable interceptable = $ic;

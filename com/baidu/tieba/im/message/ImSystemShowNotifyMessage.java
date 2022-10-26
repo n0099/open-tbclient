@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ImSystemShowNotifyMessage extends CustomResponsedMessage<String> {
+public class ImSystemShowNotifyMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String curSysMid;
@@ -37,7 +37,10 @@ public class ImSystemShowNotifyMessage extends CustomResponsedMessage<String> {
     public String getCurSysMid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.curSysMid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.curSysMid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setCurSysMid(String str) {

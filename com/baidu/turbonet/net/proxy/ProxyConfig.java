@@ -18,7 +18,7 @@ public class ProxyConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class LibType {
+    public final class LibType {
         public static final /* synthetic */ LibType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LibType NATIVE;
@@ -66,13 +66,19 @@ public class ProxyConfig {
         public static LibType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LibType) Enum.valueOf(LibType.class, str) : (LibType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (LibType) Enum.valueOf(LibType.class, str);
+            }
+            return (LibType) invokeL.objValue;
         }
 
         public static LibType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LibType[]) $VALUES.clone() : (LibType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (LibType[]) $VALUES.clone();
+            }
+            return (LibType[]) invokeV.objValue;
         }
     }
 
@@ -111,7 +117,25 @@ public class ProxyConfig {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == LibType.NATIVE : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == LibType.NATIVE) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == LibType.NATIVE) {
+                return Constant.TYPE_NATIVE;
+            }
+            return "TURBONET";
+        }
+        return (String) invokeV.objValue;
     }
 
     public void b(LibType libType) {
@@ -119,11 +143,5 @@ public class ProxyConfig {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, libType) == null) {
             this.a = libType;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a == LibType.NATIVE ? Constant.TYPE_NATIVE : "TURBONET" : (String) invokeV.objValue;
     }
 }

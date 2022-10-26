@@ -42,6 +42,12 @@ public final class h implements BaseNotifyDataAdapter {
         }
     }
 
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (i == -1 || i == 0) ? false : true : invokeI.booleanValue;
+    }
+
     public h() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,98 +59,6 @@ public final class h implements BaseNotifyDataAdapter {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (i == -1 || i == 0) ? false : true : invokeI.booleanValue;
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (Build.VERSION.SDK_INT < 26) {
-                return false;
-            }
-            if (TextUtils.isEmpty(str)) {
-                p.d("DefaultNotifyDataAdapter", "systemVersion is not suit ");
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.vivo.push.util.BaseNotifyDataAdapter
-    public final int getDefaultNotifyIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (a(e)) {
-                return e;
-            }
-            String str = this.d;
-            int a = !a(str) ? -1 : a(str, "_notifyicon");
-            e = a;
-            if (a(a)) {
-                return e;
-            }
-            for (String str2 = this.c; !TextUtils.isEmpty(str2); str2 = str2.substring(0, str2.length() - 1)) {
-                Resources resources = this.a;
-                int identifier = resources.getIdentifier("vivo_push_rom" + str2 + "_notifyicon", ResourceManager.DRAWABLE, this.b);
-                if (identifier > 0) {
-                    return identifier;
-                }
-            }
-            return this.a.getIdentifier("vivo_push_notifyicon", ResourceManager.DRAWABLE, this.b);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.vivo.push.util.BaseNotifyDataAdapter
-    public final int getDefaultSmallIconId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a(f)) {
-                return f;
-            }
-            String str = this.d;
-            int a = !a(str) ? -1 : a(str, "_icon");
-            f = a;
-            if (a(a)) {
-                return f;
-            }
-            for (String str2 = this.c; !TextUtils.isEmpty(str2); str2 = str2.substring(0, str2.length() - 1)) {
-                Resources resources = this.a;
-                int identifier = resources.getIdentifier("vivo_push_rom" + str2 + "_icon", ResourceManager.DRAWABLE, this.b);
-                if (identifier > 0) {
-                    return identifier;
-                }
-            }
-            return this.a.getIdentifier("vivo_push_icon", ResourceManager.DRAWABLE, this.b);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.vivo.push.util.BaseNotifyDataAdapter
-    public final int getNotifyMode(InsideNotificationItem insideNotificationItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, insideNotificationItem)) == null) ? Build.VERSION.SDK_INT >= 21 ? 2 : 1 : invokeL.intValue;
-    }
-
-    @Override // com.vivo.push.util.BaseNotifyDataAdapter
-    public final void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.b = context.getPackageName();
-            this.a = context.getResources();
-            this.c = j.a();
-            this.d = Build.VERSION.RELEASE;
         }
     }
 
@@ -174,5 +88,107 @@ public final class h implements BaseNotifyDataAdapter {
             return -1;
         }
         return invokeLL.intValue;
+    }
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (Build.VERSION.SDK_INT < 26) {
+                return false;
+            }
+            if (TextUtils.isEmpty(str)) {
+                p.d("DefaultNotifyDataAdapter", "systemVersion is not suit ");
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    public final int getNotifyMode(InsideNotificationItem insideNotificationItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, insideNotificationItem)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return 2;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    public final void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            this.b = context.getPackageName();
+            this.a = context.getResources();
+            this.c = j.a();
+            this.d = Build.VERSION.RELEASE;
+        }
+    }
+
+    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    public final int getDefaultNotifyIcon() {
+        InterceptResult invokeV;
+        int a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (a(e)) {
+                return e;
+            }
+            String str = this.d;
+            if (!a(str)) {
+                a = -1;
+            } else {
+                a = a(str, "_notifyicon");
+            }
+            e = a;
+            if (a(a)) {
+                return e;
+            }
+            for (String str2 = this.c; !TextUtils.isEmpty(str2); str2 = str2.substring(0, str2.length() - 1)) {
+                Resources resources = this.a;
+                int identifier = resources.getIdentifier("vivo_push_rom" + str2 + "_notifyicon", ResourceManager.DRAWABLE, this.b);
+                if (identifier > 0) {
+                    return identifier;
+                }
+            }
+            return this.a.getIdentifier("vivo_push_notifyicon", ResourceManager.DRAWABLE, this.b);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    public final int getDefaultSmallIconId() {
+        InterceptResult invokeV;
+        int a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a(f)) {
+                return f;
+            }
+            String str = this.d;
+            if (!a(str)) {
+                a = -1;
+            } else {
+                a = a(str, "_icon");
+            }
+            f = a;
+            if (a(a)) {
+                return f;
+            }
+            for (String str2 = this.c; !TextUtils.isEmpty(str2); str2 = str2.substring(0, str2.length() - 1)) {
+                Resources resources = this.a;
+                int identifier = resources.getIdentifier("vivo_push_rom" + str2 + "_icon", ResourceManager.DRAWABLE, this.b);
+                if (identifier > 0) {
+                    return identifier;
+                }
+            }
+            return this.a.getIdentifier("vivo_push_icon", ResourceManager.DRAWABLE, this.b);
+        }
+        return invokeV.intValue;
     }
 }

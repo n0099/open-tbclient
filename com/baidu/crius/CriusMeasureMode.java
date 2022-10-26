@@ -1,7 +1,6 @@
 package com.baidu.crius;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.crius.annotations.DoNotStrip;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@DoNotStrip
 /* loaded from: classes.dex */
 public final class CriusMeasureMode {
     public static final /* synthetic */ CriusMeasureMode[] $VALUES;
@@ -86,18 +84,27 @@ public final class CriusMeasureMode {
     public static CriusMeasureMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (CriusMeasureMode) Enum.valueOf(CriusMeasureMode.class, str) : (CriusMeasureMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (CriusMeasureMode) Enum.valueOf(CriusMeasureMode.class, str);
+        }
+        return (CriusMeasureMode) invokeL.objValue;
     }
 
     public static CriusMeasureMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (CriusMeasureMode[]) $VALUES.clone() : (CriusMeasureMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (CriusMeasureMode[]) $VALUES.clone();
+        }
+        return (CriusMeasureMode[]) invokeV.objValue;
     }
 
     public int intValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIntValue : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mIntValue;
+        }
+        return invokeV.intValue;
     }
 }

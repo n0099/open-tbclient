@@ -1,7 +1,6 @@
 package com.kwad.components.core.offline.init;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +12,7 @@ import com.kwad.components.core.k.e;
 import com.kwad.components.offline.api.IOfflineCompo;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.utils.w;
+import com.kwai.sodler.lib.a.f;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.ext.b;
 /* loaded from: classes7.dex */
@@ -107,11 +107,11 @@ public abstract class a {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
-                @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+                @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
                 public void a(com.kwai.sodler.lib.b.a aVar, PluginError pluginError) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(65537, this, aVar, pluginError) == null) {
-                        super.a((AnonymousClass2) aVar, pluginError);
+                        super.a((f) aVar, pluginError);
                         String tag2 = this.EK.getTag();
                         com.kwad.sdk.core.e.b.d(tag2, "loadComponents failed error: " + pluginError);
                     }
@@ -119,11 +119,11 @@ public abstract class a {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
-                @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+                @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
                 public void a(com.kwai.sodler.lib.b.a aVar, com.kwai.sodler.lib.kwai.a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(65538, this, aVar, aVar2) == null) {
-                        super.a((AnonymousClass2) aVar, (com.kwai.sodler.lib.b.a) aVar2);
+                        super.a((f) aVar, (com.kwai.sodler.lib.a.a) aVar2);
                         String tag2 = this.EK.getTag();
                         if (aVar2 == null) {
                             com.kwad.sdk.core.e.b.d(tag2, "loadComponents failed plugin null");
@@ -153,25 +153,25 @@ public abstract class a {
         return (com.kwai.sodler.lib.c.b) invokeV.objValue;
     }
 
-    public final <T extends IOfflineCompo> T a(ClassLoader classLoader, String str) {
+    public final IOfflineCompo a(ClassLoader classLoader, String str) {
         InterceptResult invokeLL;
-        T t;
+        IOfflineCompo iOfflineCompo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, classLoader, str)) == null) {
             String tag = getTag();
             com.kwad.sdk.core.e.b.d(tag, "onOfflineComponentsLoaded classLoader:" + classLoader);
             try {
-                t = (T) classLoader.loadClass(str).newInstance();
+                iOfflineCompo = (IOfflineCompo) classLoader.loadClass(str).newInstance();
             } catch (Throwable th) {
                 String tag2 = getTag();
                 com.kwad.sdk.core.e.b.e(tag2, "loadClass or instance failed: " + str, th);
-                t = null;
+                iOfflineCompo = null;
             }
             String tag3 = getTag();
-            com.kwad.sdk.core.e.b.d(tag3, "onOfflineComponentsLoaded components: " + t);
-            return t;
+            com.kwad.sdk.core.e.b.d(tag3, "onOfflineComponentsLoaded components: " + iOfflineCompo);
+            return iOfflineCompo;
         }
-        return (T) invokeLL.objValue;
+        return (IOfflineCompo) invokeLL.objValue;
     }
 
     public abstract boolean b(Context context, ClassLoader classLoader);
@@ -212,7 +212,7 @@ public abstract class a {
                 }
 
                 @Override // com.kwad.components.core.k.e.a
-                public final void a(@NonNull SdkConfigData sdkConfigData) {
+                public final void a(SdkConfigData sdkConfigData) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, sdkConfigData) == null) || this.EJ) {
                         return;

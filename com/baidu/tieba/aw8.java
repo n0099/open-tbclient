@@ -1,58 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
+import android.content.Context;
+import android.media.MediaCodec;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.os.Build;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.video.editvideo.EditVideoActivity;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.data.PendantData;
-import com.baidu.tieba.video.editvideo.view.MaskVideoView;
-import com.baidu.tieba.yu4;
+import com.baidu.ar.record.EncoderParams;
+import com.baidu.tieba.yv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.ugc.editvideo.editvideo.addfilter.InnerAudioProcessor;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
-public class aw8 extends p9 {
+public class aw8 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public NavigationBar b;
-    public MaskVideoView c;
-    public iv8 d;
-    public Resources e;
-    public wu4 f;
-    public cw8 g;
-    public ew8 h;
-    public dw8 i;
-    public FrameLayout j;
-    public FragmentTabWidget k;
-    public int l;
-    public MediaPlayer m;
-    public boolean n;
-    public ip7 o;
-    public yu4.e p;
+    public String a;
+    public Context b;
+    public bw8 c;
+    public long d;
+    public yv8.c e;
+
+    public abstract void k();
 
     /* loaded from: classes3.dex */
-    public class a implements FragmentTabWidget.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ aw8 a;
@@ -75,749 +59,666 @@ public class aw8 extends p9 {
             this.a = aw8Var;
         }
 
-        @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.b
-        public void onTabSelectionChanged(int i, boolean z) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                aw8 aw8Var = this.a;
-                if (i == aw8Var.l) {
-                    return;
-                }
-                if (i == 0) {
-                    aw8Var.g.p().setVisibility(0);
-                    this.a.h.A().setVisibility(8);
-                    this.a.i.n().setVisibility(8);
-                    this.a.g.x(true);
-                    this.a.h.H(false);
-                    this.a.i.s(false);
-                } else if (i == 1) {
-                    aw8Var.i.n().setVisibility(0);
-                    this.a.h.A().setVisibility(8);
-                    this.a.g.p().setVisibility(8);
-                    this.a.g.x(false);
-                    if (TextUtils.isEmpty(this.a.h.z())) {
-                        this.a.h.H(false);
-                    } else {
-                        this.a.h.H(true);
-                    }
-                    this.a.i.s(true);
-                } else if (i == 2) {
-                    aw8Var.h.A().setVisibility(0);
-                    this.a.g.p().setVisibility(8);
-                    this.a.i.n().setVisibility(8);
-                    this.a.g.x(false);
-                    this.a.h.H(true);
-                    this.a.i.s(false);
-                }
-                aw8 aw8Var2 = this.a;
-                aw8Var2.l = i;
-                aw8Var2.k.setCurrentTab(this.a.l, true, true);
-                this.a.g0();
-                this.a.K();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements MediaPlayer.OnPreparedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw8 a;
-
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g.z();
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.aw8$b$b  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0204b implements MediaPlayer.OnInfoListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public C0204b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.media.MediaPlayer.OnInfoListener
-            public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-                InterceptResult invokeLII;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                    if (i == 3) {
-                        aw8 aw8Var = this.a.a;
-                        if (aw8Var.l == 0) {
-                            aw8Var.c.pause();
-                            return true;
-                        }
-                        return true;
-                    }
-                    return true;
-                }
-                return invokeLII.booleanValue;
-            }
-        }
-
-        public b(aw8 aw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw8Var;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:13:0x0040  */
-        /* JADX WARN: Removed duplicated region for block: B:14:0x0052  */
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onPrepared(MediaPlayer mediaPlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, mediaPlayer) != null) {
-                return;
-            }
-            this.a.m = mediaPlayer;
-            if (!this.a.n) {
-                aw8 aw8Var = this.a;
-                if (aw8Var.l != 0) {
-                    aw8Var.m.setVolume(1.0f, 1.0f);
-                    gh.a().postDelayed(new a(this), 200L);
-                    if (Build.VERSION.SDK_INT < 17) {
-                        this.a.c.start();
-                        mediaPlayer.setOnInfoListener(new C0204b(this));
-                        return;
-                    }
-                    this.a.c.seekTo(this.a.g.getCurrentPosition());
-                    return;
-                }
-            }
-            this.a.m.setVolume(0.0f, 0.0f);
-            gh.a().postDelayed(new a(this), 200L);
-            if (Build.VERSION.SDK_INT < 17) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements MediaPlayer.OnCompletionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw8 a;
-
-        public c(aw8 aw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw8Var;
-        }
-
-        @Override // android.media.MediaPlayer.OnCompletionListener
-        public void onCompletion(MediaPlayer mediaPlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                aw8 aw8Var = this.a;
-                if (aw8Var.l != 0) {
-                    aw8Var.S();
-                    this.a.h.N();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw8 a;
-
-        public d(aw8 aw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.f0();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw8 a;
-
-        public e(aw8 aw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.g.r();
-                if (this.a.d != null) {
-                    this.a.d.onNext();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements yu4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw8 a;
-
-        public f(aw8 aw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw8Var;
-        }
-
-        @Override // com.baidu.tieba.yu4.e
-        public void n0(yu4 yu4Var, int i, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, yu4Var, i, view2) == null) {
-                if (i != 0) {
-                    if (i == 1 && this.a.d != null) {
-                        this.a.d.g();
-                    }
-                } else if (this.a.d != null) {
-                    this.a.d.n();
-                }
-                if (this.a.f == null || !this.a.f.isShowing() || this.a.getPageContext() == null) {
-                    return;
-                }
-                this.a.f.dismiss();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.k();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aw8(r9 r9Var, iv8 iv8Var, View view2, ip7 ip7Var) {
-        super(r9Var);
+    public aw8(Context context, String str, bw8 bw8Var, yv8.c cVar) {
+        super("FilterAudioThread");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var, iv8Var, view2, ip7Var};
+            Object[] objArr = {context, str, bw8Var, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = 0;
-        this.p = new f(this);
-        this.d = iv8Var;
-        this.a = view2;
-        this.o = ip7Var;
-        this.e = view2.getResources();
-        this.g = new cw8(this.mContext, this);
-        this.h = new ew8(this.mContext, this, this.o);
-        this.i = new dw8(this.mContext, this);
-        this.g.s(this.a);
-        this.h.B(this.a);
-        this.i.o(this.a);
-        F();
-        g0();
+        this.d = -1L;
+        this.b = context;
+        this.a = str;
+        this.c = bw8Var;
+        this.e = cVar;
     }
 
-    public View A() {
-        InterceptResult invokeV;
+    public static String g(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
-    }
-
-    public String B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g.q() : (String) invokeV.objValue;
-    }
-
-    public MaskVideoView C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (MaskVideoView) invokeV.objValue;
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setCenterTextTitle(this.e.getString(R.string.obfuscated_res_0x7f0f1109));
-            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            SkinManager.setViewTextColor(this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e.getString(R.string.obfuscated_res_0x7f0f110a), new e(this)), (int) R.color.CAM_X0106);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mediaFormat)) == null) {
+            return mediaFormat.getString("mime");
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void E() {
+    public static boolean h(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String[] stringArray = this.e.getStringArray(R.array.obfuscated_res_0x7f030010);
-            for (int i = 0; i < stringArray.length; i++) {
-                FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.mContext.getPageActivity());
-                fragmentTabIndicator.setText(stringArray[i]);
-                fragmentTabIndicator.setTextColorResId(R.color.edit_video_tab_title_color);
-                fragmentTabIndicator.setTextSize(0, this.e.getDimension(R.dimen.obfuscated_res_0x7f07032f));
-                this.k.addView(fragmentTabIndicator, i);
-            }
-            if (!G() && this.k.getChildAt(1) != null) {
-                this.k.getChildAt(1).setVisibility(8);
-            }
-            this.k.setDiverColor(this.e.getColor(R.color.CAM_X0105));
-            this.k.setCurrentTab(this.l, true, false);
-            this.k.setBackGroundDrawableResId(R.color.CAM_X0201);
-            this.k.setDviderRectWidth(ej.f(this.mContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070258));
-            this.k.setTabSelectionListener(new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaFormat)) == null) {
+            return g(mediaFormat).startsWith("audio/");
         }
+        return invokeL.booleanValue;
     }
 
-    public final void F() {
+    public final MediaCodec a(MediaFormat mediaFormat) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f091657);
-            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f092595);
-            this.c = maskVideoView;
-            maskVideoView.setPreserveEGLContextOnPause(true);
-            this.c.setZOrderMediaOverlay(true);
-            this.c.setPostMonitorManager(this.o);
-            FrameLayout frameLayout = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09086c);
-            this.j = frameLayout;
-            frameLayout.addView(this.g.p());
-            this.k = (FragmentTabWidget) this.a.findViewById(R.id.obfuscated_res_0x7f092024);
-            D();
-            E();
-            this.j.addView(this.h.A());
-            this.j.addView(this.i.n());
-            this.h.A().setVisibility(8);
-            this.i.n().setVisibility(8);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
+            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(g(mediaFormat));
+            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
+            createDecoderByType.start();
+            return createDecoderByType;
         }
+        return (MediaCodec) invokeL.objValue;
     }
 
-    public final boolean G() {
-        InterceptResult invokeV;
+    public final int f(MediaExtractor mediaExtractor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Build.VERSION.SDK_INT >= 18 : invokeV.booleanValue;
-    }
-
-    public boolean H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.n : invokeV.booleanValue;
-    }
-
-    public void I() {
-        MaskVideoView maskVideoView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (maskVideoView = this.c) == null) {
-            return;
-        }
-        maskVideoView.m(this.g.getCurrentPosition());
-    }
-
-    public final void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.l == 0) {
-                P();
-                T();
-                return;
-            }
-            S();
-        }
-    }
-
-    public void L(r9 r9Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, r9Var, i) == null) {
-            this.b.onChangeSkinType(r9Var, i);
-            this.k.h(i);
-            this.k.setDiverColor(SkinManager.getColor(i, (int) R.color.CAM_X0105));
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            cw8 cw8Var = this.g;
-            if (cw8Var != null) {
-                cw8Var.u(r9Var, i);
-            }
-            ew8 ew8Var = this.h;
-            if (ew8Var != null) {
-                ew8Var.D(r9Var, i);
-            }
-        }
-    }
-
-    public void M(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            this.h.E(str, str2);
-        }
-    }
-
-    public void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            P();
-            this.g.v();
-            this.h.F();
-            this.i.q();
-        }
-    }
-
-    public void O() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.c.onResume();
-            if (this.l != 0) {
-                this.c.r();
-            }
-            this.g.w();
-            this.h.G();
-            this.i.r();
-        }
-    }
-
-    public void P() {
-        MaskVideoView maskVideoView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (maskVideoView = this.c) == null) {
-            return;
-        }
-        maskVideoView.p();
-    }
-
-    public void Q() {
-        MaskVideoView maskVideoView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (maskVideoView = this.c) == null) {
-            return;
-        }
-        maskVideoView.onPause();
-    }
-
-    public void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            cw8 cw8Var = this.g;
-            if (cw8Var != null) {
-                cw8Var.y();
-            }
-            MaskVideoView maskVideoView = this.c;
-            if (maskVideoView != null) {
-                maskVideoView.stopPlayback();
-            }
-        }
-    }
-
-    public void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            P();
-            MediaPlayer mediaPlayer = this.m;
-            if (mediaPlayer != null) {
-                if (this.n) {
-                    mediaPlayer.setVolume(0.0f, 0.0f);
-                } else {
-                    mediaPlayer.setVolume(1.0f, 1.0f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, mediaExtractor)) == null) {
+            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+                if (h(mediaExtractor.getTrackFormat(i))) {
+                    mediaExtractor.selectTrack(i);
+                    return i;
                 }
             }
-            this.c.start();
-            this.c.seekTo(0);
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str2)) {
+            BdLog.i(str2);
         }
     }
 
-    public void T() {
-        MaskVideoView maskVideoView;
+    public final MediaCodec b(MediaCodecInfo mediaCodecInfo, MediaFormat mediaFormat) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (maskVideoView = this.c) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaCodecInfo, mediaFormat)) == null) {
+            MediaCodec createByCodecName = MediaCodec.createByCodecName(mediaCodecInfo.getName());
+            createByCodecName.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+            createByCodecName.start();
+            return createByCodecName;
         }
-        maskVideoView.seekTo(this.g.getCurrentPosition());
+        return (MediaCodec) invokeLL.objValue;
     }
 
-    public void U(String str) {
+    public static MediaCodecInfo l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int codecCount = MediaCodecList.getCodecCount();
+            for (int i = 0; i < codecCount; i++) {
+                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
+                if (codecInfoAt.isEncoder()) {
+                    for (String str2 : codecInfoAt.getSupportedTypes()) {
+                        if (str2.equalsIgnoreCase(str)) {
+                            return codecInfoAt;
+                        }
+                    }
+                    continue;
+                }
+            }
+            return null;
+        }
+        return (MediaCodecInfo) invokeL.objValue;
+    }
+
+    public static void m(MediaFormat mediaFormat, MediaFormat mediaFormat2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65541, null, mediaFormat, mediaFormat2, str, i) == null) {
+            if (mediaFormat != null && mediaFormat.containsKey(str) && mediaFormat.getInteger(str) > 0) {
+                i = mediaFormat.getInteger(str);
+            }
+            if (mediaFormat2 != null) {
+                mediaFormat2.setInteger(str, i);
+            }
+        }
+    }
+
+    public final MediaExtractor c() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(this.a);
+            return mediaExtractor;
+        }
+        return (MediaExtractor) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return !Thread.currentThread().isInterrupted();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                e();
+                if (i()) {
+                    hh.a().post(new a(this));
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r32v0, resolved type: android.media.MediaCodec */
+    /* JADX DEBUG: Multi-variable search result rejected for r33v0, resolved type: android.media.MediaCodec */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x01cb A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x01da  */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x01f7 A[ADDED_TO_REGION, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x01f7 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x01b1 A[ADDED_TO_REGION] */
+    /* JADX WARN: Type inference failed for: r11v10 */
+    /* JADX WARN: Type inference failed for: r11v11 */
+    /* JADX WARN: Type inference failed for: r11v2 */
+    /* JADX WARN: Type inference failed for: r11v3, types: [boolean, int] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void d(MediaExtractor mediaExtractor, MediaCodec mediaCodec, MediaCodec mediaCodec2) {
+        int i;
+        ByteBuffer[] byteBufferArr;
+        MediaCodec.BufferInfo bufferInfo;
+        ?? r11;
+        int i2;
+        boolean z;
+        ByteBuffer[] byteBufferArr2;
+        int i3;
+        ByteBuffer[] byteBufferArr3;
+        MediaCodec.BufferInfo bufferInfo2;
+        MediaFormat mediaFormat;
+        boolean z2;
+        int dequeueInputBuffer;
+        int dequeueOutputBuffer;
+        int dequeueInputBuffer2;
+        int i4;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, mediaExtractor, mediaCodec, mediaCodec2) == null) {
+            ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
+            ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
+            ByteBuffer[] inputBuffers2 = mediaCodec2.getInputBuffers();
+            ByteBuffer[] outputBuffers2 = mediaCodec2.getOutputBuffers();
+            MediaCodec.BufferInfo bufferInfo3 = new MediaCodec.BufferInfo();
+            MediaCodec.BufferInfo bufferInfo4 = new MediaCodec.BufferInfo();
+            int i5 = -1;
+            int i6 = 0;
+            ByteBuffer[] byteBufferArr4 = outputBuffers2;
+            MediaFormat mediaFormat2 = null;
+            boolean z4 = false;
+            int i7 = -1;
+            int i8 = -1;
+            boolean z5 = false;
+            boolean z6 = false;
+            boolean z7 = false;
+            ByteBuffer[] byteBufferArr5 = inputBuffers2;
+            while (!z5 && i()) {
+                if (!z4 && ((mediaFormat2 == null || this.c.b()) && i() && (dequeueInputBuffer2 = mediaCodec.dequeueInputBuffer(10000L)) != i5)) {
+                    int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer2], i6);
+                    long sampleTime = mediaExtractor.getSampleTime();
+                    if (readSampleData >= 0) {
+                        i4 = dequeueInputBuffer2;
+                        bufferInfo = bufferInfo4;
+                        i2 = i7;
+                        i = i8;
+                        byteBufferArr = inputBuffers;
+                        z3 = false;
+                        mediaCodec.queueInputBuffer(dequeueInputBuffer2, 0, readSampleData, sampleTime, mediaExtractor.getSampleFlags());
+                    } else {
+                        i4 = dequeueInputBuffer2;
+                        i = i8;
+                        byteBufferArr = inputBuffers;
+                        bufferInfo = bufferInfo4;
+                        z3 = false;
+                        i2 = i7;
+                    }
+                    z = !mediaExtractor.advance();
+                    r11 = z3;
+                    if (z) {
+                        mediaCodec.queueInputBuffer(i4, 0, 0, 0L, 4);
+                        r11 = z3;
+                    }
+                } else {
+                    i = i8;
+                    byteBufferArr = inputBuffers;
+                    bufferInfo = bufferInfo4;
+                    r11 = 0;
+                    i2 = i7;
+                    z = z4;
+                }
+                if (!z6 && i2 == -1 && ((mediaFormat2 == null || this.c.b()) && i() && (dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo3, 10000L)) != -1)) {
+                    if (dequeueOutputBuffer == -3) {
+                        outputBuffers = mediaCodec.getOutputBuffers();
+                    } else if (dequeueOutputBuffer == -2) {
+                        mediaCodec.getOutputFormat();
+                    } else {
+                        ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                        if ((bufferInfo3.flags & 2) != 0) {
+                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, (boolean) r11);
+                        } else {
+                            byteBufferArr2 = outputBuffers;
+                            i3 = dequeueOutputBuffer;
+                            if (i3 == -1 && i() && (dequeueInputBuffer = mediaCodec2.dequeueInputBuffer(10000L)) != -1) {
+                                ByteBuffer byteBuffer2 = byteBufferArr5[dequeueInputBuffer];
+                                int i9 = bufferInfo3.size;
+                                long j = bufferInfo3.presentationTimeUs;
+                                if (i9 >= 0) {
+                                    ByteBuffer duplicate = byteBufferArr2[i3].duplicate();
+                                    duplicate.position(bufferInfo3.offset);
+                                    duplicate.limit(bufferInfo3.offset + i9);
+                                    byteBuffer2.position(r11);
+                                    byteBuffer2.put(duplicate);
+                                    mediaCodec2.queueInputBuffer(dequeueInputBuffer, 0, i9, j, bufferInfo3.flags);
+                                }
+                                mediaCodec.releaseOutputBuffer(i3, (boolean) r11);
+                                i7 = -1;
+                                if ((bufferInfo3.flags & 4) != 0) {
+                                    z6 = true;
+                                }
+                            } else {
+                                i7 = i3;
+                            }
+                            if (z5 && ((mediaFormat2 == null || this.c.b()) && i())) {
+                                bufferInfo2 = bufferInfo;
+                                int dequeueOutputBuffer2 = mediaCodec2.dequeueOutputBuffer(bufferInfo2, 10000L);
+                                if (dequeueOutputBuffer2 != -1) {
+                                    if (dequeueOutputBuffer2 == -3) {
+                                        byteBufferArr4 = mediaCodec2.getOutputBuffers();
+                                        byteBufferArr3 = byteBufferArr5;
+                                        mediaFormat = mediaFormat2;
+                                    } else if (dequeueOutputBuffer2 == -2) {
+                                        if (i >= 0) {
+                                            return;
+                                        }
+                                        mediaFormat = mediaCodec2.getOutputFormat();
+                                        byteBufferArr3 = byteBufferArr5;
+                                    } else {
+                                        ByteBuffer byteBuffer3 = byteBufferArr4[dequeueOutputBuffer2];
+                                        if ((bufferInfo2.flags & 2) != 0) {
+                                            mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer2, (boolean) r11);
+                                        } else {
+                                            if (bufferInfo2.size != 0) {
+                                                byteBufferArr3 = byteBufferArr5;
+                                                if (bufferInfo2.presentationTimeUs > this.d) {
+                                                    this.c.g(i, byteBuffer3, bufferInfo2);
+                                                    this.d = bufferInfo2.presentationTimeUs;
+                                                }
+                                            } else {
+                                                byteBufferArr3 = byteBufferArr5;
+                                            }
+                                            if ((bufferInfo2.flags & 4) != 0) {
+                                                z2 = false;
+                                                z5 = true;
+                                            } else {
+                                                z2 = false;
+                                            }
+                                            mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer2, z2);
+                                            mediaFormat = mediaFormat2;
+                                            if (mediaFormat != null && !z7) {
+                                                j(InnerAudioProcessor.TAG, "muxer: adding audio track.");
+                                                i = this.c.a(mediaFormat);
+                                                z7 = true;
+                                            }
+                                            if (!this.c.b() && z7) {
+                                                this.c.c();
+                                                if (this.c.e()) {
+                                                    synchronized (this.c) {
+                                                        while (!this.c.b()) {
+                                                            try {
+                                                                this.c.wait(100L);
+                                                            } catch (InterruptedException e) {
+                                                                e.printStackTrace();
+                                                            }
+                                                        }
+                                                    }
+                                                } else {
+                                                    continue;
+                                                }
+                                            }
+                                            byteBufferArr5 = byteBufferArr3;
+                                            mediaFormat2 = mediaFormat;
+                                            outputBuffers = byteBufferArr2;
+                                            i8 = i;
+                                            inputBuffers = byteBufferArr;
+                                            i6 = 0;
+                                            i5 = -1;
+                                            bufferInfo4 = bufferInfo2;
+                                            z4 = z;
+                                        }
+                                    }
+                                    if (mediaFormat != null) {
+                                        j(InnerAudioProcessor.TAG, "muxer: adding audio track.");
+                                        i = this.c.a(mediaFormat);
+                                        z7 = true;
+                                    }
+                                    if (!this.c.b()) {
+                                        this.c.c();
+                                        if (this.c.e()) {
+                                        }
+                                    }
+                                    byteBufferArr5 = byteBufferArr3;
+                                    mediaFormat2 = mediaFormat;
+                                    outputBuffers = byteBufferArr2;
+                                    i8 = i;
+                                    inputBuffers = byteBufferArr;
+                                    i6 = 0;
+                                    i5 = -1;
+                                    bufferInfo4 = bufferInfo2;
+                                    z4 = z;
+                                }
+                                byteBufferArr3 = byteBufferArr5;
+                            } else {
+                                byteBufferArr3 = byteBufferArr5;
+                                bufferInfo2 = bufferInfo;
+                            }
+                            mediaFormat = mediaFormat2;
+                            if (mediaFormat != null) {
+                            }
+                            if (!this.c.b()) {
+                            }
+                            byteBufferArr5 = byteBufferArr3;
+                            mediaFormat2 = mediaFormat;
+                            outputBuffers = byteBufferArr2;
+                            i8 = i;
+                            inputBuffers = byteBufferArr;
+                            i6 = 0;
+                            i5 = -1;
+                            bufferInfo4 = bufferInfo2;
+                            z4 = z;
+                        }
+                    }
+                }
+                int i10 = i2;
+                byteBufferArr2 = outputBuffers;
+                i3 = i10;
+                if (i3 == -1) {
+                }
+                i7 = i3;
+                if (z5) {
+                }
+                byteBufferArr3 = byteBufferArr5;
+                bufferInfo2 = bufferInfo;
+                mediaFormat = mediaFormat2;
+                if (mediaFormat != null) {
+                }
+                if (!this.c.b()) {
+                }
+                byteBufferArr5 = byteBufferArr3;
+                mediaFormat2 = mediaFormat;
+                outputBuffers = byteBufferArr2;
+                i8 = i;
+                inputBuffers = byteBufferArr;
+                i6 = 0;
+                i5 = -1;
+                bufferInfo4 = bufferInfo2;
+                z4 = z;
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x0159, code lost:
+        if (r1 == null) goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00b0, code lost:
+        if (r1 == null) goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00b2, code lost:
+        r1.onGenFilterVideoRecordError(233, com.baidu.tieba.np7.a(r0));
+     */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x015f A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x0160  */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x018e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:145:0x0176 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x0164 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void e() throws Exception {
+        MediaCodecInfo l;
+        MediaCodec mediaCodec;
+        MediaCodec mediaCodec2;
+        MediaExtractor mediaExtractor;
+        yv8.c cVar;
+        MediaExtractor c;
+        int f;
+        MediaCodec a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (l = l("audio/mp4a-latm")) == null) {
             return;
+        }
+        Exception e = null;
+        try {
+            c = c();
+            try {
+                f = f(c);
+            } catch (Exception e2) {
+                e = e2;
+                mediaCodec = null;
+                mediaExtractor = c;
+                mediaCodec2 = null;
+            } catch (Throwable th) {
+                th = th;
+                mediaCodec = null;
+                mediaExtractor = c;
+                mediaCodec2 = null;
+            }
+        } catch (Exception e3) {
+            e = e3;
+            mediaCodec = null;
+            mediaCodec2 = null;
+            mediaExtractor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            mediaCodec = null;
+            mediaCodec2 = null;
+            mediaExtractor = null;
+        }
+        if (f < 0 && this.c != null) {
+            this.c.c();
+            if (c != null) {
+                try {
+                    c.release();
+                    return;
+                } catch (Exception e4) {
+                    yv8.c cVar2 = this.e;
+                    if (cVar2 != null) {
+                        cVar2.onGenFilterVideoRecordError(231, np7.a(e4));
+                        return;
+                    }
+                    return;
+                }
+            }
+            return;
+        }
+        MediaFormat trackFormat = c.getTrackFormat(f);
+        MediaFormat mediaFormat = new MediaFormat();
+        mediaFormat.setString("mime", "audio/mp4a-latm");
+        mediaFormat.setInteger("aac-profile", 5);
+        mediaFormat.setInteger("max-input-size", 8192);
+        m(trackFormat, mediaFormat, "sample-rate", 48000);
+        m(trackFormat, mediaFormat, "channel-count", 1);
+        m(trackFormat, mediaFormat, "bitrate", EncoderParams.AUDIO_BIT_RATE);
+        MediaCodec b = b(l, mediaFormat);
+        try {
+            a2 = a(trackFormat);
+        } catch (Exception e5) {
+            mediaExtractor = c;
+            mediaCodec2 = null;
+            mediaCodec = b;
+            e = e5;
+        } catch (Throwable th3) {
+            mediaExtractor = c;
+            mediaCodec2 = null;
+            mediaCodec = b;
+            th = th3;
         }
         try {
-            this.g.A(str);
-            this.c.setVideoPath(str);
-            this.c.setOnPreparedListener(new b(this));
-            this.c.setOnCompletionListener(new c(this));
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            d(c, a2, b);
+            if (c != null) {
+                try {
+                    c.release();
+                } catch (Exception e6) {
+                    e = e6;
+                    yv8.c cVar3 = this.e;
+                    if (cVar3 != null) {
+                        cVar3.onGenFilterVideoRecordError(231, np7.a(e));
+                    }
+                }
+            }
+            if (a2 != null) {
+                try {
+                    a2.stop();
+                    a2.release();
+                } catch (Exception e7) {
+                    if (e == null) {
+                        e = e7;
+                    }
+                    yv8.c cVar4 = this.e;
+                    if (cVar4 != null) {
+                        cVar4.onGenFilterVideoRecordError(232, np7.a(e7));
+                    }
+                }
+            }
+            if (b != null) {
+                try {
+                    b.stop();
+                    b.release();
+                } catch (Exception e8) {
+                    e = e8;
+                    if (e == null) {
+                        e = e;
+                    }
+                    cVar = this.e;
+                }
+            }
+        } catch (Exception e9) {
+            mediaCodec = b;
+            e = e9;
+            mediaExtractor = c;
+            mediaCodec2 = a2;
+            try {
+                e.printStackTrace();
+                if ((Build.VERSION.SDK_INT < 21 || !(e instanceof MediaCodec.CodecException) || ej.isEmpty(e.getMessage()) || !e.getMessage().contains("0xfffffff3")) && this.e != null) {
+                    this.e.onGenFilterVideoRecordError(230, np7.a(e));
+                }
+                if (mediaExtractor != null) {
+                    try {
+                        mediaExtractor.release();
+                    } catch (Exception e10) {
+                        e = e10;
+                        yv8.c cVar5 = this.e;
+                        if (cVar5 != null) {
+                            cVar5.onGenFilterVideoRecordError(231, np7.a(e));
+                        }
+                    }
+                }
+                if (mediaCodec2 != null) {
+                    try {
+                        mediaCodec2.stop();
+                        mediaCodec2.release();
+                    } catch (Exception e11) {
+                        if (e == null) {
+                            e = e11;
+                        }
+                        yv8.c cVar6 = this.e;
+                        if (cVar6 != null) {
+                            cVar6.onGenFilterVideoRecordError(232, np7.a(e11));
+                        }
+                    }
+                }
+                if (mediaCodec != null) {
+                    try {
+                        mediaCodec.stop();
+                        mediaCodec.release();
+                    } catch (Exception e12) {
+                        e = e12;
+                        if (e == null) {
+                            e = e;
+                        }
+                        cVar = this.e;
+                    }
+                }
+                if (e != null) {
+                }
+            } catch (Throwable th4) {
+                th = th4;
+                if (mediaExtractor != null) {
+                    try {
+                        mediaExtractor.release();
+                    } catch (Exception e13) {
+                        e = e13;
+                        yv8.c cVar7 = this.e;
+                        if (cVar7 != null) {
+                            cVar7.onGenFilterVideoRecordError(231, np7.a(e));
+                        }
+                    }
+                }
+                if (mediaCodec2 != null) {
+                    try {
+                        mediaCodec2.stop();
+                        mediaCodec2.release();
+                    } catch (Exception e14) {
+                        if (e == null) {
+                        }
+                        yv8.c cVar8 = this.e;
+                        if (cVar8 != null) {
+                            cVar8.onGenFilterVideoRecordError(232, np7.a(e14));
+                        }
+                    }
+                }
+                if (mediaCodec != null) {
+                    try {
+                        mediaCodec.stop();
+                        mediaCodec.release();
+                    } catch (Exception e15) {
+                        yv8.c cVar9 = this.e;
+                        if (cVar9 != null) {
+                            cVar9.onGenFilterVideoRecordError(233, np7.a(e15));
+                        }
+                    }
+                }
+                throw th;
+            }
+        } catch (Throwable th5) {
+            mediaCodec = b;
+            th = th5;
+            mediaExtractor = c;
+            mediaCodec2 = a2;
+            if (mediaExtractor != null) {
+            }
+            if (mediaCodec2 != null) {
+            }
+            if (mediaCodec != null) {
+            }
+            throw th;
         }
-    }
-
-    public void V(nv8 nv8Var) {
-        dw8 dw8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, nv8Var) == null) || (dw8Var = this.i) == null) {
+        if (e != null) {
             return;
         }
-        dw8Var.u(nv8Var);
-    }
-
-    public void W(MaskVideoView.f fVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) || fVar == null || C() == null) {
-            return;
-        }
-        C().setGenMaskCoverListener(fVar);
-    }
-
-    public void X(List<MusicData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {
-            this.h.P(list);
-        }
-    }
-
-    public void Y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.n = z;
-            if (this.m == null) {
-                return;
-            }
-            S();
-        }
-    }
-
-    public void Z(List<PendantData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
-            this.g.B(list);
-        }
-    }
-
-    public void a0(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, intent) == null) {
-            this.h.R(intent);
-        }
-    }
-
-    public void b0(String str, String str2) {
-        ew8 ew8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048602, this, str, str2) == null) || (ew8Var = this.h) == null) {
-            return;
-        }
-        ew8Var.S(str, str2);
-    }
-
-    public void d0(vv8 vv8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, vv8Var) == null) {
-            MaskVideoView maskVideoView = this.c;
-            if (maskVideoView != null) {
-                maskVideoView.setFilter(vv8Var);
-            }
-            dw8 dw8Var = this.i;
-            if (dw8Var != null) {
-                dw8Var.t(vv8Var);
-            }
-        }
-    }
-
-    public void e0(boolean z) {
-        ew8 ew8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048604, this, z) == null) || (ew8Var = this.h) == null) {
-            return;
-        }
-        ew8Var.Q(z);
-        Y(!z);
-    }
-
-    public void f0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            if ((this.mContext.getPageActivity() instanceof EditVideoActivity) && StringHelper.equals(((EditVideoActivity) this.mContext.getPageActivity()).G1(), EditVideoActivityConfig.FROM_TYPE_WRITE_ACTIVITY_EDIT)) {
-                this.d.g();
-                return;
-            }
-            if (this.f == null) {
-                String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f10a3), getPageContext().getString(R.string.obfuscated_res_0x7f0f0cc3)};
-                wu4 wu4Var = new wu4(getPageContext());
-                this.f = wu4Var;
-                wu4Var.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10b1));
-                this.f.i(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10b1), strArr, this.p);
-            }
-            this.f.k();
-        }
-    }
-
-    public final void g0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c12424");
-            statisticItem.param("obj_locate", this.l == 0 ? 1 : 3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public int getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            MaskVideoView maskVideoView = this.c;
-            if (maskVideoView == null) {
-                return 0;
-            }
-            return maskVideoView.getCurrentPosition();
-        }
-        return invokeV.intValue;
-    }
-
-    public Bitmap v(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, bitmap)) == null) ? this.g.n(bitmap) : (Bitmap) invokeL.objValue;
-    }
-
-    public void w() {
-        iv8 iv8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048609, this) == null) || (iv8Var = this.d) == null) {
-            return;
-        }
-        iv8Var.y();
-    }
-
-    public String x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.h.y() : (String) invokeV.objValue;
-    }
-
-    public vv8 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            if (this.i == null || dj.isEmpty(str)) {
-                return null;
-            }
-            return this.i.m(str);
-        }
-        return (vv8) invokeL.objValue;
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.h.z() : (String) invokeV.objValue;
+        throw e;
     }
 }

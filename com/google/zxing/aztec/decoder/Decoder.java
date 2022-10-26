@@ -1,6 +1,7 @@
 package com.google.zxing.aztec.decoder;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -34,9 +35,18 @@ public final class Decoder {
     public transient /* synthetic */ FieldHolder $fh;
     public AztecDetectorResult ddata;
 
+    public static int totalBitsInLayer(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return ((z ? 88 : 112) + (i << 4)) * i;
+        }
+        return invokeCommon.intValue;
+    }
+
     /* renamed from: com.google.zxing.aztec.decoder.Decoder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +91,7 @@ public final class Decoder {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Table {
+    public final class Table {
         public static final /* synthetic */ Table[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Table BINARY;
@@ -137,13 +147,19 @@ public final class Decoder {
         public static Table valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Table) Enum.valueOf(Table.class, str) : (Table) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Table) Enum.valueOf(Table.class, str);
+            }
+            return (Table) invokeL.objValue;
         }
 
         public static Table[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Table[]) $VALUES.clone() : (Table[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Table[]) $VALUES.clone();
+            }
+            return (Table[]) invokeV.objValue;
         }
     }
 
@@ -160,7 +176,7 @@ public final class Decoder {
                 return;
             }
         }
-        UPPER_TABLE = new String[]{"CTRL_PS", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+        UPPER_TABLE = new String[]{"CTRL_PS", " ", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "B", "C", "D", ExifInterface.LONGITUDE_EAST, "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "U", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
         LOWER_TABLE = new String[]{"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
         MIXED_TABLE = new String[]{"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", IStringUtil.WINDOWS_FOLDER_SEPARATOR, "^", "_", "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
         PUNCT_TABLE = new String[]{"", "\r", "\r\n", ". ", StringUtil.ARRAY_ELEMENT_SEPARATOR, ": ", "!", "\"", "#", "$", "%", "&", "'", "(", SmallTailInfo.EMOTION_SUFFIX, "*", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX, ",", "-", ".", "/", ":", ParamableElem.DIVIDE_PARAM, "<", "=", ">", "?", PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, "{", "}", "CTRL_UL"};
@@ -195,9 +211,20 @@ public final class Decoder {
         return (byte[]) invokeL.objValue;
     }
 
+    public static String highLevelDecode(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, zArr)) == null) {
+            return getEncodedData(zArr);
+        }
+        return (String) invokeL.objValue;
+    }
+
     private boolean[] correctBits(boolean[] zArr) throws FormatException {
         InterceptResult invokeL;
         GenericGF genericGF;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, zArr)) == null) {
             int i = 8;
@@ -230,28 +257,40 @@ public final class Decoder {
                     int i4 = 0;
                     for (int i5 = 0; i5 < nbDatablocks; i5++) {
                         int i6 = iArr[i5];
-                        if (i6 == 0 || i6 == i3) {
+                        if (i6 != 0 && i6 != i3) {
+                            if (i6 == 1 || i6 == i3 - 1) {
+                                i4++;
+                            }
+                        } else {
                             throw FormatException.getFormatInstance();
-                        }
-                        if (i6 == 1 || i6 == i3 - 1) {
-                            i4++;
                         }
                     }
                     boolean[] zArr2 = new boolean[(nbDatablocks * i) - i4];
                     int i7 = 0;
                     for (int i8 = 0; i8 < nbDatablocks; i8++) {
                         int i9 = iArr[i8];
-                        if (i9 == 1 || i9 == i3 - 1) {
-                            Arrays.fill(zArr2, i7, (i7 + i) - 1, i9 > 1);
-                            i7 += i - 1;
-                        } else {
+                        if (i9 != 1 && i9 != i3 - 1) {
                             int i10 = i - 1;
                             while (i10 >= 0) {
                                 int i11 = i7 + 1;
-                                zArr2[i7] = ((1 << i10) & i9) != 0;
+                                if (((1 << i10) & i9) != 0) {
+                                    z2 = true;
+                                } else {
+                                    z2 = false;
+                                }
+                                zArr2[i7] = z2;
                                 i10--;
                                 i7 = i11;
                             }
+                        } else {
+                            int i12 = (i7 + i) - 1;
+                            if (i9 > 1) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            Arrays.fill(zArr2, i7, i12, z);
+                            i7 += i - 1;
                         }
                     }
                     return zArr2;
@@ -264,60 +303,141 @@ public final class Decoder {
         return (boolean[]) invokeL.objValue;
     }
 
+    public static String getEncodedData(boolean[] zArr) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, zArr)) == null) {
+            int length = zArr.length;
+            Table table = Table.UPPER;
+            StringBuilder sb = new StringBuilder(20);
+            Table table2 = table;
+            int i2 = 0;
+            while (i2 < length) {
+                if (table == Table.BINARY) {
+                    if (length - i2 < 5) {
+                        break;
+                    }
+                    int readCode = readCode(zArr, i2, 5);
+                    i2 += 5;
+                    if (readCode == 0) {
+                        if (length - i2 < 11) {
+                            break;
+                        }
+                        readCode = readCode(zArr, i2, 11) + 31;
+                        i2 += 11;
+                    }
+                    int i3 = 0;
+                    while (true) {
+                        if (i3 >= readCode) {
+                            break;
+                        } else if (length - i2 < 8) {
+                            i2 = length;
+                            break;
+                        } else {
+                            sb.append((char) readCode(zArr, i2, 8));
+                            i2 += 8;
+                            i3++;
+                        }
+                    }
+                    table = table2;
+                } else {
+                    if (table == Table.DIGIT) {
+                        i = 4;
+                    } else {
+                        i = 5;
+                    }
+                    if (length - i2 < i) {
+                        break;
+                    }
+                    int readCode2 = readCode(zArr, i2, i);
+                    i2 += i;
+                    String character = getCharacter(table, readCode2);
+                    if (character.startsWith("CTRL_")) {
+                        table2 = getTable(character.charAt(5));
+                        if (character.charAt(6) != 'L') {
+                            table2 = table;
+                            table = table2;
+                        }
+                    } else {
+                        sb.append(character);
+                    }
+                    table = table2;
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
     private boolean[] extractBits(BitMatrix bitMatrix) {
         InterceptResult invokeL;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bitMatrix)) == null) {
             boolean isCompact = this.ddata.isCompact();
             int nbLayers = this.ddata.getNbLayers();
-            int i = (isCompact ? 11 : 14) + (nbLayers << 2);
-            int[] iArr = new int[i];
-            boolean[] zArr = new boolean[totalBitsInLayer(nbLayers, isCompact)];
-            int i2 = 2;
             if (isCompact) {
-                for (int i3 = 0; i3 < i; i3++) {
-                    iArr[i3] = i3;
+                i = 11;
+            } else {
+                i = 14;
+            }
+            int i3 = i + (nbLayers << 2);
+            int[] iArr = new int[i3];
+            boolean[] zArr = new boolean[totalBitsInLayer(nbLayers, isCompact)];
+            int i4 = 2;
+            if (isCompact) {
+                for (int i5 = 0; i5 < i3; i5++) {
+                    iArr[i5] = i5;
                 }
             } else {
-                int i4 = i / 2;
-                int i5 = ((i + 1) + (((i4 - 1) / 15) * 2)) / 2;
-                for (int i6 = 0; i6 < i4; i6++) {
-                    int i7 = (i6 / 15) + i6;
-                    iArr[(i4 - i6) - 1] = (i5 - i7) - 1;
-                    iArr[i4 + i6] = i7 + i5 + 1;
+                int i6 = i3 / 2;
+                int i7 = ((i3 + 1) + (((i6 - 1) / 15) * 2)) / 2;
+                for (int i8 = 0; i8 < i6; i8++) {
+                    int i9 = (i8 / 15) + i8;
+                    iArr[(i6 - i8) - 1] = (i7 - i9) - 1;
+                    iArr[i6 + i8] = i9 + i7 + 1;
                 }
             }
-            int i8 = 0;
-            int i9 = 0;
-            while (i8 < nbLayers) {
-                int i10 = ((nbLayers - i8) << i2) + (isCompact ? 9 : 12);
-                int i11 = i8 << 1;
-                int i12 = (i - 1) - i11;
-                int i13 = 0;
-                while (i13 < i10) {
-                    int i14 = i13 << 1;
-                    int i15 = 0;
-                    while (i15 < i2) {
-                        int i16 = i11 + i15;
-                        int i17 = i11 + i13;
-                        zArr[i9 + i14 + i15] = bitMatrix.get(iArr[i16], iArr[i17]);
-                        int i18 = iArr[i17];
-                        int i19 = i12 - i15;
-                        zArr[(i10 * 2) + i9 + i14 + i15] = bitMatrix.get(i18, iArr[i19]);
-                        int i20 = i12 - i13;
-                        zArr[(i10 * 4) + i9 + i14 + i15] = bitMatrix.get(iArr[i19], iArr[i20]);
-                        zArr[(i10 * 6) + i9 + i14 + i15] = bitMatrix.get(iArr[i20], iArr[i16]);
-                        i15++;
-                        nbLayers = nbLayers;
-                        isCompact = isCompact;
-                        i2 = 2;
-                    }
-                    i13++;
-                    i2 = 2;
+            int i10 = 0;
+            int i11 = 0;
+            while (i10 < nbLayers) {
+                int i12 = (nbLayers - i10) << i4;
+                if (isCompact) {
+                    i2 = 9;
+                } else {
+                    i2 = 12;
                 }
-                i9 += i10 << 3;
-                i8++;
-                i2 = 2;
+                int i13 = i12 + i2;
+                int i14 = i10 << 1;
+                int i15 = (i3 - 1) - i14;
+                int i16 = 0;
+                while (i16 < i13) {
+                    int i17 = i16 << 1;
+                    int i18 = 0;
+                    while (i18 < i4) {
+                        int i19 = i14 + i18;
+                        int i20 = i14 + i16;
+                        zArr[i11 + i17 + i18] = bitMatrix.get(iArr[i19], iArr[i20]);
+                        int i21 = iArr[i20];
+                        int i22 = i15 - i18;
+                        boolean z = isCompact;
+                        zArr[(i13 * 2) + i11 + i17 + i18] = bitMatrix.get(i21, iArr[i22]);
+                        int i23 = i15 - i16;
+                        zArr[(i13 * 4) + i11 + i17 + i18] = bitMatrix.get(iArr[i22], iArr[i23]);
+                        zArr[(i13 * 6) + i11 + i17 + i18] = bitMatrix.get(iArr[i23], iArr[i19]);
+                        i18++;
+                        nbLayers = nbLayers;
+                        isCompact = z;
+                        i4 = 2;
+                    }
+                    i16++;
+                    i4 = 2;
+                }
+                i11 += i13 << 3;
+                i10++;
+                i4 = 2;
             }
             return zArr;
         }
@@ -349,67 +469,6 @@ public final class Decoder {
         return (String) invokeLI.objValue;
     }
 
-    public static String getEncodedData(boolean[] zArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, zArr)) == null) {
-            int length = zArr.length;
-            Table table = Table.UPPER;
-            StringBuilder sb = new StringBuilder(20);
-            Table table2 = table;
-            int i = 0;
-            while (i < length) {
-                if (table != Table.BINARY) {
-                    int i2 = table == Table.DIGIT ? 4 : 5;
-                    if (length - i < i2) {
-                        break;
-                    }
-                    int readCode = readCode(zArr, i, i2);
-                    i += i2;
-                    String character = getCharacter(table, readCode);
-                    if (character.startsWith("CTRL_")) {
-                        table2 = getTable(character.charAt(5));
-                        if (character.charAt(6) != 'L') {
-                            table2 = table;
-                            table = table2;
-                        }
-                    } else {
-                        sb.append(character);
-                    }
-                    table = table2;
-                } else if (length - i < 5) {
-                    break;
-                } else {
-                    int readCode2 = readCode(zArr, i, 5);
-                    i += 5;
-                    if (readCode2 == 0) {
-                        if (length - i < 11) {
-                            break;
-                        }
-                        readCode2 = readCode(zArr, i, 11) + 31;
-                        i += 11;
-                    }
-                    int i3 = 0;
-                    while (true) {
-                        if (i3 >= readCode2) {
-                            break;
-                        } else if (length - i < 8) {
-                            i = length;
-                            break;
-                        } else {
-                            sb.append((char) readCode(zArr, i, 8));
-                            i += 8;
-                            i3++;
-                        }
-                    }
-                    table = table2;
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static Table getTable(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -434,10 +493,17 @@ public final class Decoder {
         return (Table) invokeCommon.objValue;
     }
 
-    public static String highLevelDecode(boolean[] zArr) {
+    public DecoderResult decode(AztecDetectorResult aztecDetectorResult) throws FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, zArr)) == null) ? getEncodedData(zArr) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aztecDetectorResult)) == null) {
+            this.ddata = aztecDetectorResult;
+            boolean[] correctBits = correctBits(extractBits(aztecDetectorResult.getBits()));
+            DecoderResult decoderResult = new DecoderResult(convertBoolArrayToByteArray(correctBits), getEncodedData(correctBits), null, null);
+            decoderResult.setNumBits(correctBits.length);
+            return decoderResult;
+        }
+        return (DecoderResult) invokeL.objValue;
     }
 
     public static byte readByte(boolean[] zArr, int i) {
@@ -470,27 +536,5 @@ public final class Decoder {
             return i3;
         }
         return invokeLII.intValue;
-    }
-
-    public static int totalBitsInLayer(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return ((z ? 88 : 112) + (i << 4)) * i;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public DecoderResult decode(AztecDetectorResult aztecDetectorResult) throws FormatException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aztecDetectorResult)) == null) {
-            this.ddata = aztecDetectorResult;
-            boolean[] correctBits = correctBits(extractBits(aztecDetectorResult.getBits()));
-            DecoderResult decoderResult = new DecoderResult(convertBoolArrayToByteArray(correctBits), getEncodedData(correctBits), null, null);
-            decoderResult.setNumBits(correctBits.length);
-            return decoderResult;
-        }
-        return (DecoderResult) invokeL.objValue;
     }
 }

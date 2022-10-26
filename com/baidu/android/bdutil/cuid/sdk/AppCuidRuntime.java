@@ -1,14 +1,11 @@
 package com.baidu.android.bdutil.cuid.sdk;
 
 import com.baidu.android.bdutil.cuid.api.IAppCuidManagerImpl_Factory;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes.dex */
 public class AppCuidRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -28,10 +25,12 @@ public class AppCuidRuntime {
         }
     }
 
-    @Inject(force = false)
     public static IAppCuidManager getAppCuidManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? IAppCuidManagerImpl_Factory.get() : (IAppCuidManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return IAppCuidManagerImpl_Factory.get();
+        }
+        return (IAppCuidManager) invokeV.objValue;
     }
 }

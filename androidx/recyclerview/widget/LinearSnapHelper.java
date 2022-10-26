@@ -2,8 +2,6 @@ package androidx.recyclerview.widget;
 
 import android.graphics.PointF;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,9 +15,7 @@ public class LinearSnapHelper extends SnapHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float INVALID_DISTANCE = 1.0f;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public OrientationHelper mHorizontalHelper;
-    @Nullable
     public OrientationHelper mVerticalHelper;
 
     public LinearSnapHelper() {
@@ -74,14 +70,18 @@ public class LinearSnapHelper extends SnapHelper {
         return invokeLL.floatValue;
     }
 
-    private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, OrientationHelper orientationHelper) {
+    private int distanceToCenter(RecyclerView.LayoutManager layoutManager, View view2, OrientationHelper orientationHelper) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, layoutManager, view2, orientationHelper)) == null) ? (orientationHelper.getDecoratedStart(view2) + (orientationHelper.getDecoratedMeasurement(view2) / 2)) - (orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2)) : invokeLLL.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, layoutManager, view2, orientationHelper)) == null) {
+            return (orientationHelper.getDecoratedStart(view2) + (orientationHelper.getDecoratedMeasurement(view2) / 2)) - (orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2));
+        }
+        return invokeLLL.intValue;
     }
 
     private int estimateNextPositionDiffForFling(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper, int i, int i2) {
         InterceptResult invokeLLII;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, this, layoutManager, orientationHelper, i, i2)) == null) {
             int[] calculateScrollDistance = calculateScrollDistance(i, i2);
@@ -89,12 +89,16 @@ public class LinearSnapHelper extends SnapHelper {
             if (computeDistancePerChild <= 0.0f) {
                 return 0;
             }
-            return Math.round((Math.abs(calculateScrollDistance[0]) > Math.abs(calculateScrollDistance[1]) ? calculateScrollDistance[0] : calculateScrollDistance[1]) / computeDistancePerChild);
+            if (Math.abs(calculateScrollDistance[0]) > Math.abs(calculateScrollDistance[1])) {
+                i3 = calculateScrollDistance[0];
+            } else {
+                i3 = calculateScrollDistance[1];
+            }
+            return Math.round(i3 / computeDistancePerChild);
         }
         return invokeLLII.intValue;
     }
 
-    @Nullable
     private View findCenterView(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -119,8 +123,7 @@ public class LinearSnapHelper extends SnapHelper {
         return (View) invokeLL.objValue;
     }
 
-    @NonNull
-    private OrientationHelper getHorizontalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
+    private OrientationHelper getHorizontalHelper(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, layoutManager)) == null) {
@@ -133,8 +136,7 @@ public class LinearSnapHelper extends SnapHelper {
         return (OrientationHelper) invokeL.objValue;
     }
 
-    @NonNull
-    private OrientationHelper getVerticalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
+    private OrientationHelper getVerticalHelper(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, layoutManager)) == null) {
@@ -148,7 +150,7 @@ public class LinearSnapHelper extends SnapHelper {
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
-    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2) {
+    public int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutManager, view2)) == null) {
@@ -199,6 +201,7 @@ public class LinearSnapHelper extends SnapHelper {
             if (!(layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) || (itemCount = layoutManager.getItemCount()) == 0 || (findSnapView = findSnapView(layoutManager)) == null || (position = layoutManager.getPosition(findSnapView)) == -1 || (computeScrollVectorForPosition = ((RecyclerView.SmoothScroller.ScrollVectorProvider) layoutManager).computeScrollVectorForPosition(itemCount - 1)) == null) {
                 return -1;
             }
+            int i6 = 0;
             if (layoutManager.canScrollHorizontally()) {
                 i4 = estimateNextPositionDiffForFling(layoutManager, getHorizontalHelper(layoutManager), i, 0);
                 if (computeScrollVectorForPosition.x < 0.0f) {
@@ -221,9 +224,14 @@ public class LinearSnapHelper extends SnapHelper {
             if (i4 == 0) {
                 return -1;
             }
-            int i6 = position + i4;
-            int i7 = i6 >= 0 ? i6 : 0;
-            return i7 >= itemCount ? i3 : i7;
+            int i7 = position + i4;
+            if (i7 >= 0) {
+                i6 = i7;
+            }
+            if (i6 < itemCount) {
+                return i6;
+            }
+            return i3;
         }
         return invokeLII.intValue;
     }

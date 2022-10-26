@@ -13,6 +13,23 @@ public class DefaultUpdateContext implements IUpdateContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.net.update.ioc.IUpdateContext
+    public void doStatistics(int i, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.net.update.ioc.IUpdateContext
+    public List getCustomUpdateBlackList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
     public DefaultUpdateContext() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,22 +42,5 @@ public class DefaultUpdateContext implements IUpdateContext {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.net.update.ioc.IUpdateContext
-    public void doStatistics(int i, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.net.update.ioc.IUpdateContext
-    public List<String> getCustomUpdateBlackList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.airbnb.lottie.model.content;
 
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.GradientStrokeContent;
@@ -14,21 +13,20 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class GradientStroke implements ContentModel {
     public final ShapeStroke.LineCapType capType;
-    @Nullable
     public final AnimatableFloatValue dashOffset;
     public final AnimatablePointValue endPoint;
     public final AnimatableGradientColorValue gradientColor;
     public final GradientType gradientType;
     public final boolean hidden;
     public final ShapeStroke.LineJoinType joinType;
-    public final List<AnimatableFloatValue> lineDashPattern;
+    public final List lineDashPattern;
     public final float miterLimit;
     public final String name;
     public final AnimatableIntegerValue opacity;
     public final AnimatablePointValue startPoint;
     public final AnimatableFloatValue width;
 
-    public GradientStroke(String str, GradientType gradientType, AnimatableGradientColorValue animatableGradientColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatablePointValue animatablePointValue, AnimatablePointValue animatablePointValue2, AnimatableFloatValue animatableFloatValue, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<AnimatableFloatValue> list, @Nullable AnimatableFloatValue animatableFloatValue2, boolean z) {
+    public GradientStroke(String str, GradientType gradientType, AnimatableGradientColorValue animatableGradientColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatablePointValue animatablePointValue, AnimatablePointValue animatablePointValue2, AnimatableFloatValue animatableFloatValue, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List list, AnimatableFloatValue animatableFloatValue2, boolean z) {
         this.name = str;
         this.gradientType = gradientType;
         this.gradientColor = animatableGradientColorValue;
@@ -48,7 +46,6 @@ public class GradientStroke implements ContentModel {
         return this.capType;
     }
 
-    @Nullable
     public AnimatableFloatValue getDashOffset() {
         return this.dashOffset;
     }
@@ -69,7 +66,7 @@ public class GradientStroke implements ContentModel {
         return this.joinType;
     }
 
-    public List<AnimatableFloatValue> getLineDashPattern() {
+    public List getLineDashPattern() {
         return this.lineDashPattern;
     }
 

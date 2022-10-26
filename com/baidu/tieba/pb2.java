@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class pb2 implements qb2 {
+public class pb2 implements xa2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,28 +24,26 @@ public abstract class pb2 implements qb2 {
         }
     }
 
-    @Override // com.baidu.tieba.qb2
-    @Nullable
-    public V8EngineConfiguration.CodeCacheSetting b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xa2
+    public cb2 a(bb2 bb2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bb2Var)) == null) {
+            int type = bb2Var.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (!wj1.a) {
+                            return new sb2();
+                        }
+                        throw new IllegalArgumentException("invalid model object:" + bb2Var);
+                    }
+                    return new g52();
+                }
+                return um2.b();
+            }
+            return new sb2();
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qb2
-    public void c(ta2 ta2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ta2Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qb2
-    public void d(ta2 ta2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ta2Var) == null) {
-        }
+        return (cb2) invokeL.objValue;
     }
 }

@@ -5,8 +5,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class LookMoreReqMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public int is_comm_reverse;
     public Long kz;
-    public List<Long> post_id;
+    public List post_id;
     public int scr_h;
     public int scr_w;
     public int st_type;
@@ -53,8 +53,8 @@ public class LookMoreReqMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
-                int k = ej.k(TbadkCoreApplication.getInst());
-                int i = ej.i(TbadkCoreApplication.getInst());
+                int k = fj.k(TbadkCoreApplication.getInst());
+                int i = fj.i(TbadkCoreApplication.getInst());
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.kz = this.kz;
                 builder.with_floor = Integer.valueOf(this.with_floor);
@@ -64,7 +64,7 @@ public class LookMoreReqMessage extends NetMessage {
                 builder.st_type = Integer.valueOf(this.st_type);
                 builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    sh5.a(builder, true);
+                    yh5.a(builder, true);
                 }
                 GetPostListReqIdl.Builder builder2 = new GetPostListReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -83,7 +83,7 @@ public class LookMoreReqMessage extends NetMessage {
         }
     }
 
-    public void setPost_id(List<Long> list) {
+    public void setPost_id(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.post_id = list;

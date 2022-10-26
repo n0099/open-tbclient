@@ -21,6 +21,27 @@ public class r1 extends Handler {
     public Context c;
     public TextView d;
 
+    public r1(Context context, ImageView imageView, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, imageView, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = null;
+        this.a = imageView;
+        this.b = handler;
+        this.c = context;
+    }
+
     public r1(Context context, TextView textView, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,26 +92,5 @@ public class r1 extends Handler {
                 handler.obtainMessage(6).sendToTarget();
             }
         }
-    }
-
-    public r1(Context context, ImageView imageView, Handler handler) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, imageView, handler};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = null;
-        this.a = imageView;
-        this.b = handler;
-        this.c = context;
     }
 }

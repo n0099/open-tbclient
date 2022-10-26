@@ -25,8 +25,9 @@ public class Validate {
 
     public static void isTrue(boolean z, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
-            throw new IllegalArgumentException(String.format(str, objArr));
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
+            return;
         }
+        throw new IllegalArgumentException(String.format(str, objArr));
     }
 }

@@ -32,7 +32,10 @@ public class DebugOverlayImageOriginListener implements ImageOriginListener {
     public int getImageOrigin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mImageOrigin : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mImageOrigin;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener

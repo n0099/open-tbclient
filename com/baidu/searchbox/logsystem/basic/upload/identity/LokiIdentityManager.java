@@ -61,26 +61,6 @@ public final class LokiIdentityManager {
         init();
     }
 
-    private String addParam(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, str3)) == null) ? !TextUtils.isEmpty(str3) ? UrlUtil.addParam(str, str2, getEncodeValue(str3)) : str : (String) invokeLLL.objValue;
-    }
-
-    public static String getEncodeValue(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static LokiIdentityManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,6 +77,32 @@ public final class LokiIdentityManager {
         return (LokiIdentityManager) invokeV.objValue;
     }
 
+    private String addParam(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str3)) {
+                return UrlUtil.addParam(str, str2, getEncodeValue(str3));
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String getEncodeValue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -109,10 +115,10 @@ public final class LokiIdentityManager {
             if (hasPrivacyAuthority) {
                 String cuid = DeviceId.getCUID(this.mContext);
                 this.mUid = cuid;
-                if (TextUtils.isEmpty(cuid)) {
+                if (!TextUtils.isEmpty(cuid)) {
+                    this.mEnUid = new String(Base64Encoder.B64Encode(this.mUid.getBytes()));
                     return;
                 }
-                this.mEnUid = new String(Base64Encoder.B64Encode(this.mUid.getBytes()));
                 return;
             }
             this.mIID = LokiRuntime.getIdentityContext().getIID();
@@ -149,7 +155,10 @@ public final class LokiIdentityManager {
             if (this.mHasPrivacy && TextUtils.isEmpty(this.mC3Aid)) {
                 this.mC3Aid = identityContext.getC3Aid();
             }
-            return (!this.mHasPrivacy || TextUtils.isEmpty(this.mC3Aid)) ? addParam4 : addParam(addParam4, "c3_aid", this.mC3Aid);
+            if (this.mHasPrivacy && !TextUtils.isEmpty(this.mC3Aid)) {
+                return addParam(addParam4, "c3_aid", this.mC3Aid);
+            }
+            return addParam4;
         }
         return (String) invokeL.objValue;
     }

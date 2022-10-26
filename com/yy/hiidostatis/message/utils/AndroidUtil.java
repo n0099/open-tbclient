@@ -29,6 +29,12 @@ public class AndroidUtil {
     public static Context applicationContext(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? context instanceof Application ? context : context.getApplicationContext() : (Context) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!(context instanceof Application)) {
+                return context.getApplicationContext();
+            }
+            return context;
+        }
+        return (Context) invokeL.objValue;
     }
 }

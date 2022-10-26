@@ -81,65 +81,6 @@ public class Utils {
         return invokeLJ.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0039, code lost:
-        if (r2 == null) goto L27;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String getCurrentProcessName() {
-        InterceptResult invokeV;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        try {
-            fileInputStream = new FileInputStream(ProcessUtils.CMD_LINE_NAME);
-            try {
-                byte[] bArr = new byte[256];
-                int i = 0;
-                while (true) {
-                    int read = fileInputStream.read();
-                    if (read <= 0 || i >= 256) {
-                        break;
-                    }
-                    bArr[i] = (byte) read;
-                    i++;
-                }
-                if (i > 0) {
-                    String str = new String(bArr, 0, i, "UTF-8");
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException unused) {
-                    }
-                    return str;
-                }
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    th.printStackTrace();
-                } catch (Throwable th2) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused2) {
-                        }
-                    }
-                    throw th2;
-                }
-            }
-        } catch (Throwable th3) {
-            th = th3;
-            fileInputStream = null;
-        }
-        try {
-            fileInputStream.close();
-        } catch (IOException unused3) {
-            return null;
-        }
-    }
-
     public static boolean isRecentANR(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -153,14 +94,81 @@ public class Utils {
             if (split.length < 2 || split2.length < 2) {
                 return false;
             }
-            return Integer.valueOf(split2[0]).intValue() - Integer.valueOf(split[0]).intValue() == 0 && Integer.valueOf(split2[1]).intValue() - Integer.valueOf(split[1]).intValue() < i;
+            Integer valueOf = Integer.valueOf(split[0]);
+            Integer valueOf2 = Integer.valueOf(split[1]);
+            Integer valueOf3 = Integer.valueOf(split2[0]);
+            Integer valueOf4 = Integer.valueOf(split2[1]);
+            if (valueOf3.intValue() - valueOf.intValue() != 0 || valueOf4.intValue() - valueOf2.intValue() >= i) {
+                return false;
+            }
+            return true;
         }
         return invokeLI.booleanValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0039, code lost:
+        if (r2 == null) goto L27;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String getCurrentProcessName() {
+        InterceptResult invokeV;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                fileInputStream = new FileInputStream(ProcessUtils.CMD_LINE_NAME);
+                try {
+                    byte[] bArr = new byte[256];
+                    int i = 0;
+                    while (true) {
+                        int read = fileInputStream.read();
+                        if (read <= 0 || i >= 256) {
+                            break;
+                        }
+                        bArr[i] = (byte) read;
+                        i++;
+                    }
+                    if (i > 0) {
+                        String str = new String(bArr, 0, i, "UTF-8");
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused) {
+                        }
+                        return str;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        th.printStackTrace();
+                    } catch (Throwable th2) {
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException unused2) {
+                            }
+                        }
+                        throw th2;
+                    }
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                fileInputStream = null;
+            }
+            try {
+                fileInputStream.close();
+            } catch (IOException unused3) {
+                return null;
+            }
+        } else {
+            return (String) invokeV.objValue;
+        }
+    }
+
     public static void storeAllTraces2File(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         FileWriter fileWriter = null;

@@ -26,39 +26,39 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends AbstractObservableWithUpstream<T, U> {
+public final class ObservableBufferBoundary extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super Open, ? extends ObservableSource<? extends Close>> bufferClose;
-    public final ObservableSource<? extends Open> bufferOpen;
-    public final Callable<U> bufferSupplier;
+    public final Function bufferClose;
+    public final ObservableSource bufferOpen;
+    public final Callable bufferSupplier;
 
     /* loaded from: classes8.dex */
-    public static final class BufferBoundaryObserver<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements Observer<T>, Disposable {
+    public final class BufferBoundaryObserver extends AtomicInteger implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8466418554264089604L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super C> actual;
-        public final Function<? super Open, ? extends ObservableSource<? extends Close>> bufferClose;
-        public final ObservableSource<? extends Open> bufferOpen;
-        public final Callable<C> bufferSupplier;
-        public Map<Long, C> buffers;
+        public final Observer actual;
+        public final Function bufferClose;
+        public final ObservableSource bufferOpen;
+        public final Callable bufferSupplier;
+        public Map buffers;
         public volatile boolean cancelled;
         public volatile boolean done;
         public final AtomicThrowable errors;
         public long index;
         public final CompositeDisposable observers;
-        public final SpscLinkedArrayQueue<C> queue;
-        public final AtomicReference<Disposable> upstream;
+        public final SpscLinkedArrayQueue queue;
+        public final AtomicReference upstream;
 
         /* loaded from: classes8.dex */
-        public static final class BufferOpenObserver<Open> extends AtomicReference<Disposable> implements Observer<Open>, Disposable {
+        public final class BufferOpenObserver extends AtomicReference implements Observer, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8498650778633225126L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final BufferBoundaryObserver<?, ?, Open, ?> parent;
+            public final BufferBoundaryObserver parent;
 
-            public BufferOpenObserver(BufferBoundaryObserver<?, ?, Open, ?> bufferBoundaryObserver) {
+            public BufferOpenObserver(BufferBoundaryObserver bufferBoundaryObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,6 +76,31 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                 this.parent = bufferBoundaryObserver;
             }
 
+            @Override // io.reactivex.Observer
+            public void onError(Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                    lazySet(DisposableHelper.DISPOSED);
+                    this.parent.boundaryError(this, th);
+                }
+            }
+
+            @Override // io.reactivex.Observer
+            public void onNext(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                    this.parent.open(obj);
+                }
+            }
+
+            @Override // io.reactivex.Observer
+            public void onSubscribe(Disposable disposable) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
+                    DisposableHelper.setOnce(this, disposable);
+                }
+            }
+
             @Override // io.reactivex.disposables.Disposable
             public void dispose() {
                 Interceptable interceptable = $ic;
@@ -88,7 +113,13 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             public boolean isDisposed() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    if (get() == DisposableHelper.DISPOSED) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
             }
 
             @Override // io.reactivex.Observer
@@ -99,34 +130,9 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                     this.parent.openComplete(this);
                 }
             }
-
-            @Override // io.reactivex.Observer
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                    lazySet(DisposableHelper.DISPOSED);
-                    this.parent.boundaryError(this, th);
-                }
-            }
-
-            @Override // io.reactivex.Observer
-            public void onNext(Open open) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048580, this, open) == null) {
-                    this.parent.open(open);
-                }
-            }
-
-            @Override // io.reactivex.Observer
-            public void onSubscribe(Disposable disposable) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
-                    DisposableHelper.setOnce(this, disposable);
-                }
-            }
         }
 
-        public BufferBoundaryObserver(Observer<? super C> observer, ObservableSource<? extends Open> observableSource, Function<? super Open, ? extends ObservableSource<? extends Close>> function, Callable<C> callable) {
+        public BufferBoundaryObserver(Observer observer, ObservableSource observableSource, Function function, Callable callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,9 +151,9 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             this.bufferSupplier = callable;
             this.bufferOpen = observableSource;
             this.bufferClose = function;
-            this.queue = new SpscLinkedArrayQueue<>(Observable.bufferSize());
+            this.queue = new SpscLinkedArrayQueue(Observable.bufferSize());
             this.observers = new CompositeDisposable();
-            this.upstream = new AtomicReference<>();
+            this.upstream = new AtomicReference();
             this.buffers = new LinkedHashMap();
             this.errors = new AtomicThrowable();
         }
@@ -161,7 +167,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             }
         }
 
-        public void close(BufferCloseObserver<T, C> bufferCloseObserver, long j) {
+        public void close(BufferCloseObserver bufferCloseObserver, long j) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferCloseObserver, j) == null) {
@@ -200,62 +206,71 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             }
         }
 
-        public void drain() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
-                Observer<? super C> observer = this.actual;
-                SpscLinkedArrayQueue<C> spscLinkedArrayQueue = this.queue;
-                int i = 1;
-                while (!this.cancelled) {
-                    boolean z = this.done;
-                    if (z && this.errors.get() != null) {
-                        spscLinkedArrayQueue.clear();
-                        observer.onError(this.errors.terminate());
-                        return;
-                    }
-                    C poll = spscLinkedArrayQueue.poll();
-                    boolean z2 = poll == null;
-                    if (z && z2) {
-                        observer.onComplete();
-                        return;
-                    } else if (z2) {
-                        i = addAndGet(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    } else {
-                        observer.onNext(poll);
-                    }
-                }
-                spscLinkedArrayQueue.clear();
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.upstream.get()) : invokeV.booleanValue;
-        }
-
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 this.observers.dispose();
                 synchronized (this) {
-                    Map<Long, C> map = this.buffers;
+                    Map map = this.buffers;
                     if (map == null) {
                         return;
                     }
-                    for (C c : map.values()) {
-                        this.queue.offer(c);
+                    for (Collection collection : map.values()) {
+                        this.queue.offer(collection);
                     }
                     this.buffers = null;
                     this.done = true;
                     drain();
                 }
             }
+        }
+
+        public void drain() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            Observer observer = this.actual;
+            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            int i = 1;
+            while (!this.cancelled) {
+                boolean z2 = this.done;
+                if (z2 && this.errors.get() != null) {
+                    spscLinkedArrayQueue.clear();
+                    observer.onError(this.errors.terminate());
+                    return;
+                }
+                Collection collection = (Collection) spscLinkedArrayQueue.poll();
+                if (collection == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z2 && z) {
+                    observer.onComplete();
+                    return;
+                } else if (z) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
+                        return;
+                    }
+                } else {
+                    observer.onNext(collection);
+                }
+            }
+            spscLinkedArrayQueue.clear();
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) this.upstream.get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -276,22 +291,6 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                synchronized (this) {
-                    Map<Long, C> map = this.buffers;
-                    if (map == null) {
-                        return;
-                    }
-                    for (C c : map.values()) {
-                        c.add(t);
-                    }
-                }
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && DisposableHelper.setOnce(this.upstream, disposable)) {
@@ -301,19 +300,45 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.util.Map<java.lang.Long, C extends java.util.Collection<? super T>> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public void open(Open open) {
+        public void openComplete(BufferOpenObserver bufferOpenObserver) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, open) == null) {
+            if (interceptable == null || interceptable.invokeL(1048586, this, bufferOpenObserver) == null) {
+                this.observers.delete(bufferOpenObserver);
+                if (this.observers.size() == 0) {
+                    DisposableHelper.dispose(this.upstream);
+                    this.done = true;
+                    drain();
+                }
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+                synchronized (this) {
+                    Map map = this.buffers;
+                    if (map == null) {
+                        return;
+                    }
+                    for (Collection collection : map.values()) {
+                        collection.add(obj);
+                    }
+                }
+            }
+        }
+
+        public void open(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
                 try {
                     Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null Collection");
-                    ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.bufferClose.apply(open), "The bufferClose returned a null ObservableSource");
+                    ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.bufferClose.apply(obj), "The bufferClose returned a null ObservableSource");
                     long j = this.index;
                     this.index = 1 + j;
                     synchronized (this) {
-                        Map<Long, C> map = this.buffers;
-                        if (map == 0) {
+                        Map map = this.buffers;
+                        if (map == null) {
                             return;
                         }
                         map.put(Long.valueOf(j), collection);
@@ -328,29 +353,17 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                 }
             }
         }
-
-        public void openComplete(BufferOpenObserver<Open> bufferOpenObserver) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, bufferOpenObserver) == null) {
-                this.observers.delete(bufferOpenObserver);
-                if (this.observers.size() == 0) {
-                    DisposableHelper.dispose(this.upstream);
-                    this.done = true;
-                    drain();
-                }
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class BufferCloseObserver<T, C extends Collection<? super T>> extends AtomicReference<Disposable> implements Observer<Object>, Disposable {
+    public final class BufferCloseObserver extends AtomicReference implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8498650778633225126L;
         public transient /* synthetic */ FieldHolder $fh;
         public final long index;
-        public final BufferBoundaryObserver<T, C, ?, ?> parent;
+        public final BufferBoundaryObserver parent;
 
-        public BufferCloseObserver(BufferBoundaryObserver<T, C, ?, ?> bufferBoundaryObserver, long j) {
+        public BufferCloseObserver(BufferBoundaryObserver bufferBoundaryObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -381,16 +394,22 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (get() == DisposableHelper.DISPOSED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Disposable disposable = get();
+                Object obj = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (disposable != disposableHelper) {
+                if (obj != disposableHelper) {
                     lazySet(disposableHelper);
                     this.parent.close(this, this.index);
                 }
@@ -401,9 +420,9 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                Disposable disposable = get();
+                Object obj = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (disposable != disposableHelper) {
+                if (obj != disposableHelper) {
                     lazySet(disposableHelper);
                     this.parent.boundaryError(this, th);
                     return;
@@ -417,12 +436,11 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
             Disposable disposable;
             DisposableHelper disposableHelper;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, obj) == null) || (disposable = get()) == (disposableHelper = DisposableHelper.DISPOSED)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (disposable = (Disposable) get()) != (disposableHelper = DisposableHelper.DISPOSED)) {
+                lazySet(disposableHelper);
+                disposable.dispose();
+                this.parent.close(this, this.index);
             }
-            lazySet(disposableHelper);
-            disposable.dispose();
-            this.parent.close(this, this.index);
         }
 
         @Override // io.reactivex.Observer
@@ -435,7 +453,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableBufferBoundary(ObservableSource<T> observableSource, ObservableSource<? extends Open> observableSource2, Function<? super Open, ? extends ObservableSource<? extends Close>> function, Callable<U> callable) {
+    public ObservableBufferBoundary(ObservableSource observableSource, ObservableSource observableSource2, Function function, Callable callable) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -458,7 +476,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super U> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             BufferBoundaryObserver bufferBoundaryObserver = new BufferBoundaryObserver(observer, this.bufferOpen, this.bufferClose, this.bufferSupplier);

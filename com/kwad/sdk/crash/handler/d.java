@@ -3,7 +3,7 @@ package com.kwad.sdk.crash.handler;
 import android.content.Context;
 import com.kwad.sdk.crash.model.message.JavaExceptionMessage;
 import java.lang.Thread;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class d implements Thread.UncaughtExceptionHandler {
     public volatile boolean ahr = false;
     public Thread.UncaughtExceptionHandler ahs = Thread.getDefaultUncaughtExceptionHandler();

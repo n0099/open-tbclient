@@ -46,18 +46,6 @@ public class F2 {
         return (F2) invokeV.objValue;
     }
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (str.length() > 16) {
-                str = str.substring(0, 16);
-            }
-            return str + str2 + str3;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
     public D2 a(String str) {
         InterceptResult invokeL;
         D2 d2;
@@ -78,5 +66,17 @@ public class F2 {
                 this.a.put(str, d2);
             }
         }
+    }
+
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (str.length() > 16) {
+                str = str.substring(0, 16);
+            }
+            return str + str2 + str3;
+        }
+        return (String) invokeLLL.objValue;
     }
 }

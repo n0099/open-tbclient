@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.ServiceConnection;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,13 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.stats.ConnectionTracker;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public final class zzr extends GmsClientSupervisor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("connectionStatus")
-    public final HashMap<zzn, zzo> zzb;
+    public final HashMap zzb;
     public final Context zzc;
     public volatile Handler zzd;
     public final zzq zze;
@@ -42,7 +39,7 @@ public final class zzr extends GmsClientSupervisor {
                 return;
             }
         }
-        this.zzb = new HashMap<>();
+        this.zzb = new HashMap();
         this.zze = new zzq(this, null);
         this.zzc = context.getApplicationContext();
         this.zzd = new com.google.android.gms.internal.common.zzi(looper, this.zze);
@@ -57,7 +54,7 @@ public final class zzr extends GmsClientSupervisor {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, zznVar, serviceConnection, str) == null) {
             Preconditions.checkNotNull(serviceConnection, "ServiceConnection must not be null");
             synchronized (this.zzb) {
-                zzo zzoVar = this.zzb.get(zznVar);
+                zzo zzoVar = (zzo) this.zzb.get(zznVar);
                 if (zzoVar != null) {
                     if (zzoVar.zzh(serviceConnection)) {
                         zzoVar.zzf(serviceConnection, str);
@@ -83,14 +80,14 @@ public final class zzr extends GmsClientSupervisor {
     }
 
     @Override // com.google.android.gms.common.internal.GmsClientSupervisor
-    public final boolean zzc(zzn zznVar, ServiceConnection serviceConnection, String str, @Nullable Executor executor) {
+    public final boolean zzc(zzn zznVar, ServiceConnection serviceConnection, String str, Executor executor) {
         InterceptResult invokeLLLL;
         boolean zzj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zznVar, serviceConnection, str, executor)) == null) {
             Preconditions.checkNotNull(serviceConnection, "ServiceConnection must not be null");
             synchronized (this.zzb) {
-                zzo zzoVar = this.zzb.get(zznVar);
+                zzo zzoVar = (zzo) this.zzb.get(zznVar);
                 if (zzoVar == null) {
                     zzoVar = new zzo(this, zznVar);
                     zzoVar.zzd(serviceConnection, serviceConnection, str);
@@ -101,10 +98,12 @@ public final class zzr extends GmsClientSupervisor {
                     if (!zzoVar.zzh(serviceConnection)) {
                         zzoVar.zzd(serviceConnection, serviceConnection, str);
                         int zza = zzoVar.zza();
-                        if (zza == 1) {
+                        if (zza != 1) {
+                            if (zza == 2) {
+                                zzoVar.zze(str, executor);
+                            }
+                        } else {
                             serviceConnection.onServiceConnected(zzoVar.zzb(), zzoVar.zzc());
-                        } else if (zza == 2) {
-                            zzoVar.zze(str, executor);
                         }
                     } else {
                         String zznVar2 = zznVar.toString();

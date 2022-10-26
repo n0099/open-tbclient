@@ -15,7 +15,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class ApicFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<ApicFrame> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String ID = "APIC";
     public transient /* synthetic */ FieldHolder $fh;
     public final String description;
@@ -36,7 +36,7 @@ public final class ApicFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ApicFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.ApicFrame.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.ApicFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,23 +55,70 @@ public final class ApicFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ApicFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ApicFrame(parcel) : (ApicFrame) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ApicFrame(parcel);
+                }
+                return (ApicFrame) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ApicFrame[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ApicFrame[i] : (ApicFrame[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ApicFrame[i];
+                }
+                return (ApicFrame[]) invokeI.objValue;
             }
         };
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ApicFrame(Parcel parcel) {
+        super(ID);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mimeType = parcel.readString();
+        this.description = parcel.readString();
+        this.pictureType = parcel.readInt();
+        this.pictureData = parcel.createByteArray();
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || ApicFrame.class != obj.getClass()) {
+                return false;
+            }
+            ApicFrame apicFrame = (ApicFrame) obj;
+            if (this.pictureType == apicFrame.pictureType && Util.areEqual(this.mimeType, apicFrame.mimeType) && Util.areEqual(this.description, apicFrame.description) && Arrays.equals(this.pictureData, apicFrame.pictureData)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,31 +145,25 @@ public final class ApicFrame extends Id3Frame {
         this.pictureData = bArr;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || ApicFrame.class != obj.getClass()) {
-                return false;
-            }
-            ApicFrame apicFrame = (ApicFrame) obj;
-            return this.pictureType == apicFrame.pictureType && Util.areEqual(this.mimeType, apicFrame.mimeType) && Util.areEqual(this.description, apicFrame.description) && Arrays.equals(this.pictureData, apicFrame.pictureData);
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = (527 + this.pictureType) * 31;
+            int i2 = (527 + this.pictureType) * 31;
             String str = this.mimeType;
-            int hashCode = (i + (str != null ? str.hashCode() : 0)) * 31;
+            int i3 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i4 = (i2 + i) * 31;
             String str2 = this.description;
-            return ((hashCode + (str2 != null ? str2.hashCode() : 0)) * 31) + Arrays.hashCode(this.pictureData);
+            if (str2 != null) {
+                i3 = str2.hashCode();
+            }
+            return ((i4 + i3) * 31) + Arrays.hashCode(this.pictureData);
         }
         return invokeV.intValue;
     }
@@ -136,29 +177,5 @@ public final class ApicFrame extends Id3Frame {
             parcel.writeInt(this.pictureType);
             parcel.writeByteArray(this.pictureData);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ApicFrame(Parcel parcel) {
-        super(ID);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mimeType = parcel.readString();
-        this.description = parcel.readString();
-        this.pictureType = parcel.readInt();
-        this.pictureData = parcel.createByteArray();
     }
 }

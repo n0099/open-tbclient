@@ -1,8 +1,7 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.b48;
+import com.baidu.tieba.m48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +33,6 @@ public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -47,8 +45,9 @@ public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
                 if (getError() != 0) {
                     return personalResIdl;
                 }
-                b48 personCenterData = personPolymericReqMsg.getPersonCenterData();
+                m48 personCenterData = personPolymericReqMsg.getPersonCenterData();
                 if (personalResIdl.data != null && personCenterData != null) {
+                    System.out.println("Anthony: PersonPolymericSocketResMsg");
                     personCenterData.a(personalResIdl);
                 }
             }

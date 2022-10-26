@@ -69,7 +69,7 @@ public class SegAR extends c {
 
     /* renamed from: com.baidu.ar.seg.SegAR$3  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass3 {
+    public /* synthetic */ class AnonymousClass3 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] vB;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +186,7 @@ public class SegAR extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, Object> a(a aVar) {
+    public HashMap a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
@@ -194,12 +194,12 @@ public class SegAR extends c {
             if (i != 4) {
                 if (i == 2) {
                     getImgSegOrientation(aVar.getOrientation());
-                    HashMap<String, Object> hashMap = new HashMap<>();
+                    HashMap hashMap = new HashMap();
                     hashMap.put("u_maskRotate", this.vc);
                     return hashMap;
                 } else if (i == 5) {
                     getSkySegOrientation(aVar.getOrientation());
-                    HashMap<String, Object> hashMap2 = new HashMap<>();
+                    HashMap hashMap2 = new HashMap();
                     hashMap2.put("u_maskRotate", this.vc);
                     return hashMap2;
                 } else {
@@ -208,7 +208,7 @@ public class SegAR extends c {
             }
             getHairSegOrientation(aVar.getOrientation());
             b(aVar.gc(), aVar.getWidth(), aVar.getHeight());
-            HashMap<String, Object> hashMap3 = new HashMap<>();
+            HashMap hashMap3 = new HashMap();
             hashMap3.put("enableSeq", Float.valueOf(1.0f));
             hashMap3.put("cameraFront", Integer.valueOf(this.pH ? 1 : 0));
             hashMap3.put("deviceOrientation", Integer.valueOf(this.vb));
@@ -287,7 +287,7 @@ public class SegAR extends c {
                     }
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
-                    public List<String> getMsgKeyListened() {
+                    public List getMsgKeyListened() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
@@ -299,7 +299,7 @@ public class SegAR extends c {
                     }
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
-                    public void onLuaMessage(HashMap<String, Object> hashMap) {
+                    public void onLuaMessage(HashMap hashMap) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) && "adjust_hair_segmentation".equals((String) hashMap.get("event_name"))) {
                             this.vA.m(hashMap);
@@ -384,7 +384,7 @@ public class SegAR extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void l(HashMap<String, Object> hashMap) {
+    private void l(HashMap hashMap) {
         String str;
         int i;
         int i2;
@@ -451,7 +451,7 @@ public class SegAR extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m(HashMap<String, Object> hashMap) {
+    public void m(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65565, this, hashMap) == null) {
             String a = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
@@ -587,7 +587,7 @@ public class SegAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap<String, Object> hashMap) {
+    public void setup(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
             super.setup(hashMap);

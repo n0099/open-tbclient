@@ -13,9 +13,9 @@ public class SimpleOutputBuffer extends OutputBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer data;
-    public final SimpleDecoder<?, SimpleOutputBuffer, ?> owner;
+    public final SimpleDecoder owner;
 
-    public SimpleOutputBuffer(SimpleDecoder<?, SimpleOutputBuffer, ?> simpleDecoder) {
+    public SimpleOutputBuffer(SimpleDecoder simpleDecoder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,6 +45,14 @@ public class SimpleOutputBuffer extends OutputBuffer {
         }
     }
 
+    @Override // com.google.android.exoplayer2.decoder.OutputBuffer
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.owner.releaseOutputBuffer(this);
+        }
+    }
+
     public ByteBuffer init(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -59,13 +67,5 @@ public class SimpleOutputBuffer extends OutputBuffer {
             return this.data;
         }
         return (ByteBuffer) invokeCommon.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.decoder.OutputBuffer
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.owner.releaseOutputBuffer(this);
-        }
     }
 }

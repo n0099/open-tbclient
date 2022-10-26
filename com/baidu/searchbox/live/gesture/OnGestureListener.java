@@ -7,25 +7,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface OnGestureListener {
+    void onCloseEvent();
+
+    void onLeftMove(int i, int i2);
+
+    void onRightMove(int i, int i2);
 
     /* loaded from: classes2.dex */
-    public static class SimpleOnGestureListener implements OnGestureListener {
+    public class SimpleOnGestureListener implements OnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public SimpleOnGestureListener() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.baidu.searchbox.live.gesture.OnGestureListener
         public void onCloseEvent() {
@@ -47,11 +38,19 @@ public interface OnGestureListener {
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             }
         }
+
+        public SimpleOnGestureListener() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
-
-    void onCloseEvent();
-
-    void onLeftMove(int i, int i2);
-
-    void onRightMove(int i, int i2);
 }

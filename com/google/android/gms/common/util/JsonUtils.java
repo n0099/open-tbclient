@@ -1,8 +1,6 @@
 package com.google.android.gms.common.util;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.Iterator;
 import java.util.regex.Matcher;
@@ -19,8 +16,6 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@VisibleForTesting
-@KeepForSdk
 /* loaded from: classes7.dex */
 public final class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -59,8 +54,7 @@ public final class JsonUtils {
         }
     }
 
-    @KeepForSdk
-    public static boolean areJsonValuesEquivalent(@Nullable Object obj, @Nullable Object obj2) {
+    public static boolean areJsonValuesEquivalent(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
@@ -94,15 +88,15 @@ public final class JsonUtils {
             } else if ((obj instanceof JSONArray) && (obj2 instanceof JSONArray)) {
                 JSONArray jSONArray = (JSONArray) obj;
                 JSONArray jSONArray2 = (JSONArray) obj2;
-                if (jSONArray.length() == jSONArray2.length()) {
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        if (!areJsonValuesEquivalent(jSONArray.get(i), jSONArray2.get(i))) {
-                            return false;
-                        }
-                    }
-                    return true;
+                if (jSONArray.length() != jSONArray2.length()) {
+                    return false;
                 }
-                return false;
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    if (!areJsonValuesEquivalent(jSONArray.get(i), jSONArray2.get(i))) {
+                        return false;
+                    }
+                }
+                return true;
             } else {
                 return obj.equals(obj2);
             }
@@ -110,97 +104,115 @@ public final class JsonUtils {
         return invokeLL.booleanValue;
     }
 
-    @Nullable
-    @KeepForSdk
-    public static String escapeString(@Nullable String str) {
+    public static String escapeString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            Matcher matcher = zzb.matcher(str);
-            StringBuffer stringBuffer = null;
-            while (matcher.find()) {
-                if (stringBuffer == null) {
-                    stringBuffer = new StringBuffer();
-                }
-                char charAt = matcher.group().charAt(0);
-                if (charAt == '\f') {
-                    matcher.appendReplacement(stringBuffer, "\\\\f");
-                } else if (charAt == '\r') {
-                    matcher.appendReplacement(stringBuffer, "\\\\r");
-                } else if (charAt == '\"') {
-                    matcher.appendReplacement(stringBuffer, "\\\\\\\"");
-                } else if (charAt == '/') {
-                    matcher.appendReplacement(stringBuffer, "\\\\/");
-                } else if (charAt != '\\') {
-                    switch (charAt) {
-                        case '\b':
-                            matcher.appendReplacement(stringBuffer, "\\\\b");
-                            continue;
-                        case '\t':
-                            matcher.appendReplacement(stringBuffer, "\\\\t");
-                            continue;
-                        case '\n':
-                            matcher.appendReplacement(stringBuffer, "\\\\n");
-                            continue;
+            if (!TextUtils.isEmpty(str)) {
+                Matcher matcher = zzb.matcher(str);
+                StringBuffer stringBuffer = null;
+                while (matcher.find()) {
+                    if (stringBuffer == null) {
+                        stringBuffer = new StringBuffer();
                     }
-                } else {
-                    matcher.appendReplacement(stringBuffer, "\\\\\\\\");
+                    char charAt = matcher.group().charAt(0);
+                    if (charAt != '\f') {
+                        if (charAt != '\r') {
+                            if (charAt != '\"') {
+                                if (charAt != '/') {
+                                    if (charAt != '\\') {
+                                        switch (charAt) {
+                                            case '\b':
+                                                matcher.appendReplacement(stringBuffer, "\\\\b");
+                                                continue;
+                                            case '\t':
+                                                matcher.appendReplacement(stringBuffer, "\\\\t");
+                                                continue;
+                                            case '\n':
+                                                matcher.appendReplacement(stringBuffer, "\\\\n");
+                                                continue;
+                                        }
+                                    } else {
+                                        matcher.appendReplacement(stringBuffer, "\\\\\\\\");
+                                    }
+                                } else {
+                                    matcher.appendReplacement(stringBuffer, "\\\\/");
+                                }
+                            } else {
+                                matcher.appendReplacement(stringBuffer, "\\\\\\\"");
+                            }
+                        } else {
+                            matcher.appendReplacement(stringBuffer, "\\\\r");
+                        }
+                    } else {
+                        matcher.appendReplacement(stringBuffer, "\\\\f");
+                    }
                 }
+                if (stringBuffer == null) {
+                    return str;
+                }
+                matcher.appendTail(stringBuffer);
+                return stringBuffer.toString();
             }
-            if (stringBuffer == null) {
-                return str;
-            }
-            matcher.appendTail(stringBuffer);
-            return stringBuffer.toString();
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static String unescapeString(@NonNull String str) {
+    public static String unescapeString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String zza2 = zzc.zza(str);
-            Matcher matcher = zza.matcher(zza2);
-            StringBuffer stringBuffer = null;
-            while (matcher.find()) {
+            if (!TextUtils.isEmpty(str)) {
+                String zza2 = zzc.zza(str);
+                Matcher matcher = zza.matcher(zza2);
+                StringBuffer stringBuffer = null;
+                while (matcher.find()) {
+                    if (stringBuffer == null) {
+                        stringBuffer = new StringBuffer();
+                    }
+                    char charAt = matcher.group().charAt(1);
+                    if (charAt != '\"') {
+                        if (charAt != '/') {
+                            if (charAt != '\\') {
+                                if (charAt != 'b') {
+                                    if (charAt != 'f') {
+                                        if (charAt != 'n') {
+                                            if (charAt != 'r') {
+                                                if (charAt == 't') {
+                                                    matcher.appendReplacement(stringBuffer, "\t");
+                                                } else {
+                                                    throw new IllegalStateException("Found an escaped character that should never be.");
+                                                }
+                                            } else {
+                                                matcher.appendReplacement(stringBuffer, "\r");
+                                            }
+                                        } else {
+                                            matcher.appendReplacement(stringBuffer, "\n");
+                                        }
+                                    } else {
+                                        matcher.appendReplacement(stringBuffer, "\f");
+                                    }
+                                } else {
+                                    matcher.appendReplacement(stringBuffer, "\b");
+                                }
+                            } else {
+                                matcher.appendReplacement(stringBuffer, "\\\\");
+                            }
+                        } else {
+                            matcher.appendReplacement(stringBuffer, "/");
+                        }
+                    } else {
+                        matcher.appendReplacement(stringBuffer, "\"");
+                    }
+                }
                 if (stringBuffer == null) {
-                    stringBuffer = new StringBuffer();
+                    return zza2;
                 }
-                char charAt = matcher.group().charAt(1);
-                if (charAt == '\"') {
-                    matcher.appendReplacement(stringBuffer, "\"");
-                } else if (charAt == '/') {
-                    matcher.appendReplacement(stringBuffer, "/");
-                } else if (charAt == '\\') {
-                    matcher.appendReplacement(stringBuffer, "\\\\");
-                } else if (charAt == 'b') {
-                    matcher.appendReplacement(stringBuffer, "\b");
-                } else if (charAt == 'f') {
-                    matcher.appendReplacement(stringBuffer, "\f");
-                } else if (charAt == 'n') {
-                    matcher.appendReplacement(stringBuffer, "\n");
-                } else if (charAt == 'r') {
-                    matcher.appendReplacement(stringBuffer, "\r");
-                } else if (charAt == 't') {
-                    matcher.appendReplacement(stringBuffer, "\t");
-                } else {
-                    throw new IllegalStateException("Found an escaped character that should never be.");
-                }
+                matcher.appendTail(stringBuffer);
+                return stringBuffer.toString();
             }
-            if (stringBuffer == null) {
-                return zza2;
-            }
-            matcher.appendTail(stringBuffer);
-            return stringBuffer.toString();
+            return str;
         }
         return (String) invokeL.objValue;
     }

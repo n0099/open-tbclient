@@ -1,7 +1,6 @@
 package com.baidu.titan.sdk.runtime;
 
 import com.baidu.titan.sdk.runtime.Log;
-import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -10,12 +9,11 @@ import java.lang.reflect.Method;
 import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-@DisableIntercept
 /* loaded from: classes6.dex */
 public class TitanRuntime {
     public static Interceptable $ic;
-    public static final ThreadLocal<WeakReference<InterceptResult>> sInterceptStorage = new ThreadLocal<>();
-    public static final ThreadLocal<WeakReference<InitContext>> sInitContextStorage = new ThreadLocal<>();
+    public static final ThreadLocal sInterceptStorage = new ThreadLocal();
+    public static final ThreadLocal sInitContextStorage = new ThreadLocal();
 
     /* loaded from: classes6.dex */
     public interface Logging {
@@ -26,7 +24,28 @@ public class TitanRuntime {
         void log(Level level, String str, Throwable th);
     }
 
+    public static InitContext getInitContext() {
+        return new InitContext();
+    }
+
+    public static InterceptResult getThreadInterceptResult() {
+        InterceptResult interceptResult;
+        WeakReference weakReference = (WeakReference) sInterceptStorage.get();
+        if (weakReference != null && (interceptResult = (InterceptResult) weakReference.get()) != null) {
+            interceptResult.objValue = null;
+            return interceptResult;
+        }
+        InterceptResult interceptResult2 = new InterceptResult();
+        sInterceptStorage.set(new WeakReference(interceptResult2));
+        return interceptResult2;
+    }
+
+    public static InitContext newInitContext() {
+        return new InitContext();
+    }
+
     public static Object getField(Object obj, Class cls, String str) {
+        String str2;
         try {
             return getField(cls, str).get(obj);
         } catch (IllegalAccessException e) {
@@ -34,7 +53,12 @@ public class TitanRuntime {
             if (logging != null) {
                 Level level = Level.SEVERE;
                 Object[] objArr = new Object[2];
-                objArr[0] = obj == null ? " static" : "";
+                if (obj == null) {
+                    str2 = " static";
+                } else {
+                    str2 = "";
+                }
+                objArr[0] = str2;
                 objArr[1] = str;
                 logging.log(level, String.format("Exception during%1$s getField %2$s", objArr), e);
             }
@@ -42,7 +66,30 @@ public class TitanRuntime {
         }
     }
 
-    public static Field getFieldByName(Class<?> cls, String str) {
+    public static void trace(String str, String str2, String str3) {
+        Log.Logging logging = Log.logging;
+        if (logging != null) {
+            logging.log(Level.FINE, String.format("%s %s %s", str, str2, str3));
+        }
+    }
+
+    public static Field getField(Class cls, String str) {
+        Field fieldByName = getFieldByName(cls, str);
+        if (fieldByName != null) {
+            fieldByName.setAccessible(true);
+            return fieldByName;
+        }
+        throw new RuntimeException(new NoSuchElementException(str));
+    }
+
+    public static void trace(String str, String str2) {
+        Log.Logging logging = Log.logging;
+        if (logging != null) {
+            logging.log(Level.FINE, String.format("%s %s", str, str2));
+        }
+    }
+
+    public static Field getFieldByName(Class cls, String str) {
         Log.Logging logging = Log.logging;
         if (logging != null && logging.isLoggable(Level.FINE)) {
             Log.logging.log(Level.FINE, String.format("getFieldByName:%s in %s", str, cls.getName()));
@@ -57,11 +104,7 @@ public class TitanRuntime {
         return null;
     }
 
-    public static InitContext getInitContext() {
-        return new InitContext();
-    }
-
-    public static Method getMethodByName(Class<?> cls, String str, Class[] clsArr) {
+    public static Method getMethodByName(Class cls, String str, Class[] clsArr) {
         Log.Logging logging;
         if (cls == null) {
             return null;
@@ -77,18 +120,6 @@ public class TitanRuntime {
             }
         }
         return null;
-    }
-
-    public static InterceptResult getThreadInterceptResult() {
-        InterceptResult interceptResult;
-        WeakReference<InterceptResult> weakReference = sInterceptStorage.get();
-        if (weakReference != null && (interceptResult = weakReference.get()) != null) {
-            interceptResult.objValue = null;
-            return interceptResult;
-        }
-        InterceptResult interceptResult2 = new InterceptResult();
-        sInterceptStorage.set(new WeakReference<>(interceptResult2));
-        return interceptResult2;
     }
 
     public static Object invokeInstanceMethod(Object obj, Object[] objArr, Class[] clsArr, String str) throws Throwable {
@@ -131,9 +162,9 @@ public class TitanRuntime {
         }
     }
 
-    public static <T> T newForClass(Object[] objArr, Class[] clsArr, Class<T> cls) throws Throwable {
+    public static Object newForClass(Object[] objArr, Class[] clsArr, Class cls) throws Throwable {
         try {
-            Constructor<T> declaredConstructor = cls.getDeclaredConstructor(clsArr);
+            Constructor declaredConstructor = cls.getDeclaredConstructor(clsArr);
             declaredConstructor.setAccessible(true);
             try {
                 return cls.cast(declaredConstructor.newInstance(objArr));
@@ -152,24 +183,8 @@ public class TitanRuntime {
         }
     }
 
-    public static InitContext newInitContext() {
-        return new InitContext();
-    }
-
     public static void setClassClinitInterceptor(ClassClinitInterceptable classClinitInterceptable) {
         ClassClinitInterceptorStorage.$ic = classClinitInterceptable;
-    }
-
-    public static void setField(Object obj, Object obj2, Class cls, String str) {
-        try {
-            getField(cls, str).set(obj, obj2);
-        } catch (IllegalAccessException e) {
-            Log.Logging logging = Log.logging;
-            if (logging != null) {
-                logging.log(Level.SEVERE, String.format("Exception during setPrivateField %s", str), e);
-            }
-            throw new RuntimeException(e);
-        }
     }
 
     public static void setLogger(final Logger logger) {
@@ -198,17 +213,15 @@ public class TitanRuntime {
         }
     }
 
-    public static void trace(String str, String str2) {
-        Log.Logging logging = Log.logging;
-        if (logging != null) {
-            logging.log(Level.FINE, String.format("%s %s", str, str2));
-        }
-    }
-
-    public static void trace(String str, String str2, String str3) {
-        Log.Logging logging = Log.logging;
-        if (logging != null) {
-            logging.log(Level.FINE, String.format("%s %s %s", str, str2, str3));
+    public static void setField(Object obj, Object obj2, Class cls, String str) {
+        try {
+            getField(cls, str).set(obj, obj2);
+        } catch (IllegalAccessException e) {
+            Log.Logging logging = Log.logging;
+            if (logging != null) {
+                logging.log(Level.SEVERE, String.format("Exception during setPrivateField %s", str), e);
+            }
+            throw new RuntimeException(e);
         }
     }
 
@@ -217,14 +230,5 @@ public class TitanRuntime {
         if (logging != null) {
             logging.log(Level.FINE, String.format("%s %s %s %s", str, str2, str3, str4));
         }
-    }
-
-    public static Field getField(Class cls, String str) {
-        Field fieldByName = getFieldByName(cls, str);
-        if (fieldByName != null) {
-            fieldByName.setAccessible(true);
-            return fieldByName;
-        }
-        throw new RuntimeException(new NoSuchElementException(str));
     }
 }

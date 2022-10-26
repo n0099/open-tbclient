@@ -17,13 +17,13 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public abstract class e<Params, Progress, Result> implements k {
+public abstract class e implements k {
     public static /* synthetic */ Interceptable $ic;
     public static final b a;
     public static final Executor b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c<Params, Result> c;
-    public final FutureTask<Result> d;
+    public final c c;
+    public final FutureTask d;
     public final AtomicBoolean e;
     public final AtomicBoolean f;
     public volatile boolean g;
@@ -31,18 +31,18 @@ public abstract class e<Params, Progress, Result> implements k {
     public com.sdk.d.b i;
 
     /* loaded from: classes8.dex */
-    public static class a<Data> {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final e a;
-        public final Data[] b;
+        public final Object[] b;
 
-        public a(e eVar, Data... dataArr) {
+        public a(e eVar, Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, dataArr};
+                Object[] objArr2 = {eVar, objArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,75 +53,7 @@ public abstract class e<Params, Progress, Result> implements k {
                 }
             }
             this.a = eVar;
-            this.b = dataArr;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ b(com.sdk.d.c cVar) {
-            super(Looper.getMainLooper());
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                a aVar = (a) message.obj;
-                int i = message.what;
-                if (i == 1) {
-                    e.c(aVar.a, aVar.b[0]);
-                } else if (i != 2) {
-                } else {
-                    e eVar = aVar.a;
-                    Object[] objArr = aVar.b;
-                    com.sdk.a.e eVar2 = (com.sdk.a.e) eVar;
-                    if (eVar2.p == e.a.e || objArr == null || objArr.length == 0 || eVar2.m == null) {
-                        return;
-                    }
-                    int intValue = ((Integer) objArr[0]).intValue();
-                    if (intValue == 1) {
-                        eVar2.p = e.a.b;
-                        eVar2.m.b();
-                    } else if (intValue == 2) {
-                        if (objArr.length != 3) {
-                            return;
-                        }
-                        eVar2.p = e.a.c;
-                        eVar2.m.a(Long.parseLong(String.valueOf(objArr[1])), Long.parseLong(String.valueOf(objArr[2])), eVar2.r);
-                    } else if (intValue != 3) {
-                        if (intValue == 4 && objArr.length == 2) {
-                            eVar2.p = e.a.f;
-                            eVar2.m.a((com.sdk.a.i) objArr[1], eVar2.y.d);
-                        }
-                    } else if (objArr.length != 3) {
-                    } else {
-                        eVar2.p = e.a.d;
-                        Object obj = eVar2.m;
-                        int intValue2 = ((Integer) objArr[1]).intValue();
-                        com.sdk.g.b bVar = ((com.sdk.g.a) obj).b;
-                        String str = ((Object) ((String) objArr[2])) + "";
-                        com.sdk.e.a<T> aVar2 = bVar.g;
-                        if (aVar2 != 0) {
-                            aVar2.a(intValue2, 302002, str);
-                            bVar.g = null;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static abstract class c<Params, Result> implements Callable<Result> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Params[] a;
-
-        public /* synthetic */ c(com.sdk.d.c cVar) {
+            this.b = objArr;
         }
     }
 
@@ -163,32 +95,108 @@ public abstract class e<Params, Progress, Result> implements k {
         this.d = new d(this, this.c);
     }
 
-    public static /* synthetic */ void b(e eVar, Object obj) {
-        if (eVar.f.get()) {
-            return;
+    public final Object a(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            a.obtainMessage(1, new a(this, obj)).sendToTarget();
+            return obj;
         }
-        eVar.a((e) obj);
+        return invokeL.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ b(com.sdk.d.c cVar) {
+            super(Looper.getMainLooper());
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                a aVar = (a) message.obj;
+                int i = message.what;
+                if (i != 1) {
+                    if (i == 2) {
+                        e eVar = aVar.a;
+                        Object[] objArr = aVar.b;
+                        com.sdk.a.e eVar2 = (com.sdk.a.e) eVar;
+                        if (eVar2.p != e.a.e && objArr != null && objArr.length != 0 && eVar2.m != null) {
+                            int intValue = ((Integer) objArr[0]).intValue();
+                            if (intValue != 1) {
+                                if (intValue != 2) {
+                                    if (intValue != 3) {
+                                        if (intValue == 4 && objArr.length == 2) {
+                                            eVar2.p = e.a.f;
+                                            eVar2.m.a((com.sdk.a.i) objArr[1], eVar2.y.d);
+                                            return;
+                                        }
+                                        return;
+                                    } else if (objArr.length == 3) {
+                                        eVar2.p = e.a.d;
+                                        com.sdk.e.b bVar = eVar2.m;
+                                        int intValue2 = ((Integer) objArr[1]).intValue();
+                                        com.sdk.g.b bVar2 = ((com.sdk.g.a) bVar).b;
+                                        String str = ((Object) ((String) objArr[2])) + "";
+                                        com.sdk.e.a aVar2 = bVar2.g;
+                                        if (aVar2 != null) {
+                                            aVar2.a(intValue2, 302002, str);
+                                            bVar2.g = null;
+                                            return;
+                                        }
+                                        return;
+                                    } else {
+                                        return;
+                                    }
+                                } else if (objArr.length == 3) {
+                                    eVar2.p = e.a.c;
+                                    eVar2.m.a(Long.parseLong(String.valueOf(objArr[1])), Long.parseLong(String.valueOf(objArr[2])), eVar2.r);
+                                    return;
+                                } else {
+                                    return;
+                                }
+                            }
+                            eVar2.p = e.a.b;
+                            eVar2.m.b();
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                e.c(aVar.a, aVar.b[0]);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public abstract class c implements Callable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Object[] a;
+
+        public /* synthetic */ c(com.sdk.d.c cVar) {
+        }
+    }
+
+    public static /* synthetic */ void b(e eVar, Object obj) {
+        if (!eVar.f.get()) {
+            eVar.a(obj);
+        }
     }
 
     public static /* synthetic */ void c(e eVar, Object obj) {
         eVar.e.get();
     }
 
-    public final Result a(Result result) {
-        InterceptResult invokeL;
+    public final void a(Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, result)) == null) {
-            a.obtainMessage(1, new a(this, result)).sendToTarget();
-            return result;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) && !this.e.get()) {
+            a.obtainMessage(2, new a(this, objArr)).sendToTarget();
         }
-        return (Result) invokeL.objValue;
-    }
-
-    public final void a(Progress... progressArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, progressArr) == null) || this.e.get()) {
-            return;
-        }
-        a.obtainMessage(2, new a(this, progressArr)).sendToTarget();
     }
 }

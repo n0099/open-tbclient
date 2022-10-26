@@ -17,9 +17,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.ol8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,12 +43,17 @@ public class PasswordView extends RelativeLayout {
     public ImageView h;
     public ImageView i;
     public FrameLayout j;
-    public List<EditText> k;
-    public List<ImageView> l;
+    public List k;
+    public List l;
     public g m;
-    public Map<EditText, List<TextWatcher>> n;
+    public Map n;
     public Runnable o;
     public Runnable p;
+
+    /* loaded from: classes3.dex */
+    public interface g {
+        void onComplete();
+    }
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -77,10 +82,9 @@ public class PasswordView extends RelativeLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
+                fj.L(this.a.getContext(), this.a.e);
             }
-            ej.L(this.a.getContext(), this.a.e);
         }
     }
 
@@ -112,10 +116,9 @@ public class PasswordView extends RelativeLayout {
         public void run() {
             g gVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.a.m) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gVar = this.a.m) != null) {
+                gVar.onComplete();
             }
-            gVar.onComplete();
         }
     }
 
@@ -160,6 +163,20 @@ public class PasswordView extends RelativeLayout {
         public final /* synthetic */ EditText b;
         public final /* synthetic */ PasswordView c;
 
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
         public d(PasswordView passwordView, ImageView imageView, EditText editText) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -194,6 +211,14 @@ public class PasswordView extends RelativeLayout {
                 this.a.setVisibility(8);
             }
         }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageView a;
+        public final /* synthetic */ PasswordView b;
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -208,14 +233,6 @@ public class PasswordView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
-        public final /* synthetic */ PasswordView b;
 
         public e(PasswordView passwordView, ImageView imageView) {
             Interceptable interceptable = $ic;
@@ -242,24 +259,10 @@ public class PasswordView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable.length() > 0) {
                     this.a.setVisibility(0);
-                    gh.a().post(this.b.p);
+                    hh.a().post(this.b.p);
                     return;
                 }
                 this.a.setVisibility(8);
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
     }
@@ -317,11 +320,6 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface g {
-        void onComplete();
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PasswordView(Context context) {
         this(context, null);
@@ -340,230 +338,6 @@ public class PasswordView extends RelativeLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    private Drawable getEditBackgroundDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setStroke(ej.f(getContext(), R.dimen.tbds3), ol8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
-            return gradientDrawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    private Drawable getEditDotDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setShape(1);
-            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0107));
-            return gradientDrawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    private void setEditBackgroundDrawable(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, editText) == null) {
-            editText.setBackgroundDrawable(getEditBackgroundDrawable());
-        }
-    }
-
-    private void setEditDotDrawable(ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, imageView) == null) {
-            imageView.setImageDrawable(getEditDotDrawable());
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08ef, this);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090876);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090877);
-            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f090878);
-            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090879);
-            this.k.add(this.a);
-            this.k.add(this.b);
-            this.k.add(this.c);
-            this.k.add(this.d);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09086e);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09086f);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090870);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090871);
-            this.l.add(this.f);
-            this.l.add(this.g);
-            this.l.add(this.h);
-            this.l.add(this.i);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0917ad);
-            this.j = frameLayout;
-            frameLayout.setOnClickListener(new c(this));
-            l();
-            j();
-            g();
-            f();
-            h();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            p(this.a);
-            this.a.requestFocus();
-            this.e = this.a;
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (ImageView imageView : this.l) {
-                imageView.setVisibility(8);
-            }
-        }
-    }
-
-    public String getPassWord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (EditText editText : this.k) {
-                sb.append(editText.getText().toString());
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (EditText editText : this.k) {
-                setEditBackgroundDrawable(editText);
-            }
-            for (ImageView imageView : this.l) {
-                setEditDotDrawable(imageView);
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            for (EditText editText : this.k) {
-                for (TextWatcher textWatcher : this.n.get(editText)) {
-                    editText.removeTextChangedListener(textWatcher);
-                }
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (int size = this.k.size() - 1; size > 0; size--) {
-                k(this.k.get(size), this.k.get(size - 1), this.l.get(size));
-            }
-        }
-    }
-
-    public final void k(EditText editText, EditText editText2, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, editText, editText2, imageView) == null) {
-            editText.setOnKeyListener(new f(this, editText, editText2, imageView));
-        }
-    }
-
-    public final void l() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int size = this.k.size();
-            int i2 = 0;
-            while (true) {
-                i = size - 1;
-                if (i2 >= i) {
-                    break;
-                }
-                int i3 = i2 + 1;
-                n(this.k.get(i2), this.k.get(i3), this.l.get(i2));
-                i2 = i3;
-            }
-            if (i >= 0) {
-                m(this.k.get(i), this.l.get(i));
-            }
-        }
-    }
-
-    public final void m(EditText editText, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, editText, imageView) == null) {
-            e eVar = new e(this, imageView);
-            editText.addTextChangedListener(eVar);
-            List<TextWatcher> list = this.n.get(editText);
-            if (ListUtils.isEmpty(list)) {
-                list = new ArrayList<>();
-                this.n.put(editText, list);
-            }
-            list.add(eVar);
-        }
-    }
-
-    public final void n(EditText editText, EditText editText2, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, editText, editText2, imageView) == null) {
-            d dVar = new d(this, imageView, editText2);
-            editText.addTextChangedListener(dVar);
-            List<TextWatcher> list = this.n.get(editText);
-            if (ListUtils.isEmpty(list)) {
-                list = new ArrayList<>();
-                this.n.put(editText, list);
-            }
-            list.add(dVar);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            gh.a().removeCallbacks(this.o);
-            gh.a().postDelayed(this.o, 300L);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onDetachedFromWindow();
-            gh.a().removeCallbacks(this.o);
-            gh.a().removeCallbacks(this.p);
-            i();
-        }
-    }
-
-    public final void p(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, editText) == null) || editText == null) {
-            return;
-        }
-        for (EditText editText2 : this.k) {
-            editText2.setFocusableInTouchMode(false);
-        }
-        editText.setFocusableInTouchMode(true);
-    }
-
-    public void setOnPasswordInputComplete(g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, gVar) == null) {
-            this.m = gVar;
         }
     }
 
@@ -613,5 +387,229 @@ public class PasswordView extends RelativeLayout {
         this.o = new a(this);
         this.p = new b(this);
         e();
+    }
+
+    private void setEditBackgroundDrawable(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, editText) == null) {
+            editText.setBackgroundDrawable(getEditBackgroundDrawable());
+        }
+    }
+
+    private void setEditDotDrawable(ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, this, imageView) == null) {
+            imageView.setImageDrawable(getEditDotDrawable());
+        }
+    }
+
+    public final void p(EditText editText) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, editText) != null) || editText == null) {
+            return;
+        }
+        for (EditText editText2 : this.k) {
+            editText2.setFocusableInTouchMode(false);
+        }
+        editText.setFocusableInTouchMode(true);
+    }
+
+    public void setOnPasswordInputComplete(g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, gVar) == null) {
+            this.m = gVar;
+        }
+    }
+
+    private Drawable getEditBackgroundDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setStroke(fj.f(getContext(), R.dimen.tbds3), vl8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            return gradientDrawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public String getPassWord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (EditText editText : this.k) {
+                sb.append(editText.getText().toString());
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (EditText editText : this.k) {
+                setEditBackgroundDrawable(editText);
+            }
+            for (ImageView imageView : this.l) {
+                setEditDotDrawable(imageView);
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            for (EditText editText : this.k) {
+                for (TextWatcher textWatcher : (List) this.n.get(editText)) {
+                    editText.removeTextChangedListener(textWatcher);
+                }
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            for (int size = this.k.size() - 1; size > 0; size--) {
+                k((EditText) this.k.get(size), (EditText) this.k.get(size - 1), (ImageView) this.l.get(size));
+            }
+        }
+    }
+
+    private Drawable getEditDotDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setShape(1);
+            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0107));
+            return gradientDrawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            p(this.a);
+            this.a.requestFocus();
+            this.e = this.a;
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (ImageView imageView : this.l) {
+                imageView.setVisibility(8);
+            }
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            hh.a().removeCallbacks(this.o);
+            hh.a().postDelayed(this.o, 300L);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onDetachedFromWindow();
+            hh.a().removeCallbacks(this.o);
+            hh.a().removeCallbacks(this.p);
+            i();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08f0, this);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09087f);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090880);
+            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f090881);
+            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090882);
+            this.k.add(this.a);
+            this.k.add(this.b);
+            this.k.add(this.c);
+            this.k.add(this.d);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090877);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090878);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090879);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09087a);
+            this.l.add(this.f);
+            this.l.add(this.g);
+            this.l.add(this.h);
+            this.l.add(this.i);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09179f);
+            this.j = frameLayout;
+            frameLayout.setOnClickListener(new c(this));
+            l();
+            j();
+            g();
+            f();
+            h();
+        }
+    }
+
+    public final void k(EditText editText, EditText editText2, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, editText, editText2, imageView) == null) {
+            editText.setOnKeyListener(new f(this, editText, editText2, imageView));
+        }
+    }
+
+    public final void l() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            int size = this.k.size();
+            int i2 = 0;
+            while (true) {
+                i = size - 1;
+                if (i2 >= i) {
+                    break;
+                }
+                int i3 = i2 + 1;
+                n((EditText) this.k.get(i2), (EditText) this.k.get(i3), (ImageView) this.l.get(i2));
+                i2 = i3;
+            }
+            if (i >= 0) {
+                m((EditText) this.k.get(i), (ImageView) this.l.get(i));
+            }
+        }
+    }
+
+    public final void m(EditText editText, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, editText, imageView) == null) {
+            e eVar = new e(this, imageView);
+            editText.addTextChangedListener(eVar);
+            List list = (List) this.n.get(editText);
+            if (ListUtils.isEmpty(list)) {
+                list = new ArrayList();
+                this.n.put(editText, list);
+            }
+            list.add(eVar);
+        }
+    }
+
+    public final void n(EditText editText, EditText editText2, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, editText, editText2, imageView) == null) {
+            d dVar = new d(this, imageView, editText2);
+            editText.addTextChangedListener(dVar);
+            List list = (List) this.n.get(editText);
+            if (ListUtils.isEmpty(list)) {
+                list = new ArrayList();
+                this.n.put(editText, list);
+            }
+            list.add(dVar);
+        }
     }
 }

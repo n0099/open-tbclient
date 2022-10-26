@@ -27,14 +27,24 @@ public class JniHelper {
         }
     }
 
-    @CalledByNative
+    public static Object getStringClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return String.class;
+        }
+        return invokeV.objValue;
+    }
+
     public static Object getKey(Map.Entry entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, entry)) == null) ? entry.getKey() : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, entry)) == null) {
+            return entry.getKey();
+        }
+        return invokeL.objValue;
     }
 
-    @CalledByNative
     public static byte[] getStringBytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -48,17 +58,12 @@ public class JniHelper {
         return (byte[]) invokeL.objValue;
     }
 
-    @CalledByNative
-    public static Object getStringClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? String.class : invokeV.objValue;
-    }
-
-    @CalledByNative
     public static Object getValue(Map.Entry entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, entry)) == null) ? entry.getValue() : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, entry)) == null) {
+            return entry.getValue();
+        }
+        return invokeL.objValue;
     }
 }

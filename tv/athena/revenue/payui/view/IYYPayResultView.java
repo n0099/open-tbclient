@@ -1,7 +1,7 @@
 package tv.athena.revenue.payui.view;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n5a;
+import com.baidu.tieba.f6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +11,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 /* loaded from: classes9.dex */
-public interface IYYPayResultView extends n5a {
+public interface IYYPayResultView extends f6a {
+
+    /* loaded from: classes9.dex */
+    public interface a {
+        void a();
+
+        boolean b();
+    }
+
+    void setCallback(a aVar);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class Result {
+    public final class Result {
         public static final /* synthetic */ Result[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Result PAY_FAIL;
@@ -65,25 +74,24 @@ public interface IYYPayResultView extends n5a {
         public static Result valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Result) Enum.valueOf(Result.class, str) : (Result) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Result) Enum.valueOf(Result.class, str);
+            }
+            return (Result) invokeL.objValue;
         }
 
         public static Result[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Result[]) $VALUES.clone() : (Result[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Result[]) $VALUES.clone();
+            }
+            return (Result[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public interface a {
-        void a();
-
-        boolean b();
-    }
-
-    /* loaded from: classes9.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Result a;
@@ -126,7 +134,7 @@ public interface IYYPayResultView extends n5a {
     }
 
     /* loaded from: classes9.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
@@ -147,6 +155,4 @@ public interface IYYPayResultView extends n5a {
             }
         }
     }
-
-    void setCallback(a aVar);
 }

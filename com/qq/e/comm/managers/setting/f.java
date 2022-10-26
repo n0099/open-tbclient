@@ -23,24 +23,24 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public static class b<T> {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-        public final T b;
+        public final Object b;
 
-        public b(String str, T t) {
+        public b(String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, t};
+                Object[] objArr = {str, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,17 +51,17 @@ public class f {
                 }
             }
             this.a = str;
-            this.b = t;
+            this.b = obj;
         }
 
         public /* synthetic */ b(String str, Object obj, a aVar) {
             this(str, obj);
         }
 
-        public T a() {
+        public Object a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.objValue;
         }
 
         public String b() {
@@ -71,49 +71,15 @@ public class f {
         }
     }
 
-    public static Pair<String, String> a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            File dir = context.getDir(SystemUtil.buildNewPathByProcessName("e_qq_com_setting"), 0);
-            if (dir.exists()) {
-                File file = new File(dir, str + ".sig");
-                File file2 = new File(dir, str + ".cfg");
-                if (file.exists() && file2.exists()) {
-                    try {
-                        String readAll = StringUtil.readAll(file);
-                        String readAll2 = StringUtil.readAll(file2);
-                        if (!TextUtils.isEmpty(readAll) && !TextUtils.isEmpty(readAll2)) {
-                            com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                            if (a2 != null) {
-                                if (a2.a(readAll, Md5Util.encode(readAll2))) {
-                                    return new Pair<>(readAll, new String(Base64.decode(readAll2, 0), "UTF-8"));
-                                }
-                            } else {
-                                throw null;
-                            }
-                        }
-                        GDTLogger.d("verify " + str + " setting fail");
-                    } catch (Exception unused) {
-                        GDTLogger.d("exception while loading local " + str);
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    public static b<com.qq.e.comm.managers.setting.a> a(Context context) {
+    public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Pair<String, String> a2 = a(context, "devCloudSetting");
+            Pair a2 = a(context, "devCloudSetting");
             if (a2 == null) {
                 return null;
             }
-            return new b<>((String) a2.first, new com.qq.e.comm.managers.setting.a((String) a2.second), null);
+            return new b((String) a2.first, new com.qq.e.comm.managers.setting.a((String) a2.second), null);
         }
         return (b) invokeL.objValue;
     }
@@ -124,15 +90,15 @@ public class f {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, str2)) == null) ? a(context, "devCloudSetting", str, str2) : invokeLLL.booleanValue;
     }
 
-    public static b<d> b(Context context) {
+    public static b b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            Pair<String, String> a2 = a(context, "placementCloudSetting");
+            Pair a2 = a(context, "placementCloudSetting");
             if (a2 == null) {
                 return null;
             }
-            return new b<>((String) a2.first, new d((String) a2.second), null);
+            return new b((String) a2.first, new d((String) a2.second), null);
         }
         return (b) invokeL.objValue;
     }
@@ -230,15 +196,15 @@ public class f {
         return invokeLLLL.booleanValue;
     }
 
-    public static b<e> c(Context context) {
+    public static b c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            Pair<String, String> a2 = a(context, "sdkCloudSetting");
+            Pair a2 = a(context, "sdkCloudSetting");
             if (a2 == null) {
                 return null;
             }
-            return new b<>((String) a2.first, new e((String) a2.second), null);
+            return new b((String) a2.first, new e((String) a2.second), null);
         }
         return (b) invokeL.objValue;
     }
@@ -249,23 +215,57 @@ public class f {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, str2)) == null) ? a(context, "sdkCloudSetting", str, str2) : invokeLLL.booleanValue;
     }
 
+    public static Pair a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            File dir = context.getDir(SystemUtil.buildNewPathByProcessName("e_qq_com_setting"), 0);
+            if (!dir.exists()) {
+                return null;
+            }
+            File file = new File(dir, str + ".sig");
+            File file2 = new File(dir, str + ".cfg");
+            if (file.exists() && file2.exists()) {
+                try {
+                    String readAll = StringUtil.readAll(file);
+                    String readAll2 = StringUtil.readAll(file2);
+                    if (!TextUtils.isEmpty(readAll) && !TextUtils.isEmpty(readAll2)) {
+                        com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
+                        if (a2 != null) {
+                            if (a2.a(readAll, Md5Util.encode(readAll2))) {
+                                return new Pair(readAll, new String(Base64.decode(readAll2, 0), "UTF-8"));
+                            }
+                        } else {
+                            throw null;
+                        }
+                    }
+                    GDTLogger.d("verify " + str + " setting fail");
+                } catch (Exception unused) {
+                    GDTLogger.d("exception while loading local " + str);
+                }
+            }
+            return null;
+        }
+        return (Pair) invokeLL.objValue;
+    }
+
     public static final boolean a(Context context, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, str, str2, str3)) == null) {
-            if (StringUtil.isEmpty(str2) || StringUtil.isEmpty(str3)) {
-                GDTLogger.d(String.format("Fail to update Cloud setting due to sig or setting is empty,name=%s\tsig=%s\tsetting=%s", str, str2, str3));
-                return false;
-            }
-            com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-            if (a2 != null) {
-                if (a2.a(str2, Md5Util.encode(str3))) {
-                    return b(context, str, str2, str3);
+            if (!StringUtil.isEmpty(str2) && !StringUtil.isEmpty(str3)) {
+                com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
+                if (a2 != null) {
+                    if (a2.a(str2, Md5Util.encode(str3))) {
+                        return b(context, str, str2, str3);
+                    }
+                    GDTLogger.d(String.format("Fail to update Cloud setting due to sig verify fail,name=%s\tsig=%s\tsetting=%s", str, str2, str3));
+                    return false;
                 }
-                GDTLogger.d(String.format("Fail to update Cloud setting due to sig verify fail,name=%s\tsig=%s\tsetting=%s", str, str2, str3));
-                return false;
+                throw null;
             }
-            throw null;
+            GDTLogger.d(String.format("Fail to update Cloud setting due to sig or setting is empty,name=%s\tsig=%s\tsetting=%s", str, str2, str3));
+            return false;
         }
         return invokeLLLL.booleanValue;
     }

@@ -8,12 +8,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.CoverFlowLocalView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah6;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.ov4;
-import com.baidu.tieba.pv4;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh6;
+import com.baidu.tieba.tv4;
+import com.baidu.tieba.uv4;
+import com.baidu.tieba.vv4;
+import com.baidu.tieba.xv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,13 +24,13 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowLocalView<ah6> a;
-    public pv4<ah6> b;
-    public List<ah6> c;
-    public pv4<ah6> d;
+    public CoverFlowLocalView a;
+    public vv4 b;
+    public List c;
+    public vv4 d;
 
     /* loaded from: classes4.dex */
-    public class a extends nv4 {
+    public class a extends tv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -53,35 +53,7 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.baidu.tieba.nv4, com.baidu.tieba.lv4
-        public ov4 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ov4 ov4Var = new ov4();
-                ov4Var.c(R.drawable.obfuscated_res_0x7f0807f2);
-                ov4Var.g(R.drawable.obfuscated_res_0x7f0807f3);
-                ov4Var.d(81);
-                ov4Var.e(R.dimen.tbds36);
-                ov4Var.h(R.dimen.tbds20);
-                return ov4Var;
-            }
-            return (ov4) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.nv4, com.baidu.tieba.lv4
-        public rv4 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                rv4 rv4Var = new rv4();
-                rv4Var.a(ej.f(this.a.getContext(), R.dimen.tbds690));
-                return rv4Var;
-            }
-            return (rv4) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.nv4, com.baidu.tieba.lv4
+        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -95,10 +67,38 @@ public class LocalBannerLayout extends RelativeLayout {
             }
             return (TbImageView) invokeL.objValue;
         }
+
+        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
+        public uv4 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                uv4 uv4Var = new uv4();
+                uv4Var.c(R.drawable.obfuscated_res_0x7f0807f7);
+                uv4Var.g(R.drawable.obfuscated_res_0x7f0807f8);
+                uv4Var.d(81);
+                uv4Var.e(R.dimen.tbds36);
+                uv4Var.h(R.dimen.tbds20);
+                return uv4Var;
+            }
+            return (uv4) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
+        public xv4 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                xv4 xv4Var = new xv4();
+                xv4Var.a(fj.f(this.a.getContext(), R.dimen.tbds690));
+                return xv4Var;
+            }
+            return (xv4) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements pv4<ah6> {
+    public class b implements vv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -121,24 +121,22 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.baidu.tieba.pv4
+        @Override // com.baidu.tieba.vv4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || i < 0 || this.a.c == null || i > this.a.c.size() + 1 || this.a.b == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
+                this.a.b.b(i, str);
             }
-            this.a.b.b(i, str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pv4
+        @Override // com.baidu.tieba.vv4
         /* renamed from: c */
-        public void a(int i, ah6 ah6Var) {
+        public void a(int i, hh6 hh6Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ah6Var) == null) || i < 0 || this.a.c == null || i > this.a.c.size() + 1 || this.a.b == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, hh6Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
+                this.a.b.a(i, hh6Var);
             }
-            this.a.b.a(i, ah6Var);
         }
     }
 
@@ -160,37 +158,6 @@ public class LocalBannerLayout extends RelativeLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new CoverFlowLocalView<>(getContext());
-            a aVar = new a(this);
-            this.a.setIndicatorNoOffet(false);
-            this.a.setDisableParentEvent(false);
-            this.a.setCoverFlowFactory(aVar);
-            this.a.setIndicatorVisible(0);
-            this.a.setIsAutoPlayDragging(false);
-            this.a.setAutoPlay(false);
-            this.a.setCallback(this.d);
-            addView(this.a);
-        }
-    }
-
-    public void setData(List<ah6> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.c = list;
-            this.a.setData(list);
-        }
-    }
-
-    public void setOnCoverViewCallback(pv4<ah6> pv4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pv4Var) == null) {
-            this.b = pv4Var;
         }
     }
 
@@ -236,5 +203,36 @@ public class LocalBannerLayout extends RelativeLayout {
         }
         this.d = new b(this);
         c();
+    }
+
+    public void setData(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.c = list;
+            this.a.setData(list);
+        }
+    }
+
+    public void setOnCoverViewCallback(vv4 vv4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vv4Var) == null) {
+            this.b = vv4Var;
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new CoverFlowLocalView(getContext());
+            a aVar = new a(this);
+            this.a.setIndicatorNoOffet(false);
+            this.a.setDisableParentEvent(false);
+            this.a.setCoverFlowFactory(aVar);
+            this.a.setIndicatorVisible(0);
+            this.a.setIsAutoPlayDragging(false);
+            this.a.setAutoPlay(false);
+            this.a.setCallback(this.d);
+            addView(this.a);
+        }
     }
 }

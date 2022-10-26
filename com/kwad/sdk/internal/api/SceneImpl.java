@@ -1,9 +1,6 @@
 package com.kwad.sdk.internal.api;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.model.IKsAdLabel;
 import com.kwad.sdk.api.model.SplashAdExtraData;
@@ -15,8 +12,7 @@ import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-@KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsScene, Serializable, Cloneable {
     public static final long serialVersionUID = 93865491903408451L;
     public int action;
@@ -31,7 +27,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     public transient a mKsAdLabel;
     public boolean needShowMiniWindow;
     public long posId;
-    public Map<String, String> rewardCallbackExtraData;
+    public Map rewardCallbackExtraData;
     public int screenOrientation;
     public b splashExtraData;
     public URLPackage urlPackage;
@@ -105,7 +101,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(@Nullable JSONObject jSONObject) {
+    public void afterParseJson(JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject == null) {
             return;
@@ -120,9 +116,8 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @NonNull
     /* renamed from: clone */
-    public SceneImpl m85clone() {
+    public SceneImpl m84clone() {
         String jSONObject = toJson().toString();
         try {
             SceneImpl sceneImpl = new SceneImpl();
@@ -204,7 +199,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public Map<String, String> getRewardCallbackExtraData() {
+    public Map getRewardCallbackExtraData() {
         return this.rewardCallbackExtraData;
     }
 
@@ -328,7 +323,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setRewardCallbackExtraData(Map<String, String> map) {
+    public void setRewardCallbackExtraData(Map map) {
         this.rewardCallbackExtraData = map;
     }
 

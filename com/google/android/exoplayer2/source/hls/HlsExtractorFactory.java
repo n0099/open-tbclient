@@ -11,5 +11,5 @@ import java.util.List;
 public interface HlsExtractorFactory {
     public static final HlsExtractorFactory DEFAULT = new DefaultHlsExtractorFactory();
 
-    Pair<Extractor, Boolean> createExtractor(Extractor extractor, Uri uri, Format format, List<Format> list, DrmInitData drmInitData, TimestampAdjuster timestampAdjuster);
+    Pair createExtractor(Extractor extractor, Uri uri, Format format, List list, DrmInitData drmInitData, TimestampAdjuster timestampAdjuster);
 }

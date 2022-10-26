@@ -54,15 +54,27 @@ public class Charsets {
         }
     }
 
-    public static Charset toCharset(Charset charset) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, charset)) == null) ? charset == null ? Charset.defaultCharset() : charset : (Charset) invokeL.objValue;
-    }
-
     public static Charset toCharset(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str == null ? Charset.defaultCharset() : Charset.forName(str) : (Charset) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return Charset.defaultCharset();
+            }
+            return Charset.forName(str);
+        }
+        return (Charset) invokeL.objValue;
+    }
+
+    public static Charset toCharset(Charset charset) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, charset)) == null) {
+            if (charset == null) {
+                return Charset.defaultCharset();
+            }
+            return charset;
+        }
+        return (Charset) invokeL.objValue;
     }
 }

@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.ubc;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,20 +12,6 @@ import org.json.JSONObject;
 public class PlayerEmptyFlow implements IUbcFlow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public PlayerEmptyFlow() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
     public void cancelFlow() {
@@ -51,7 +35,6 @@ public class PlayerEmptyFlow implements IUbcFlow {
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    @Nullable
     public Flow getFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,9 +66,23 @@ public class PlayerEmptyFlow implements IUbcFlow {
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    public void uploadFlow(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable JSONObject jSONObject2) {
+    public void uploadFlow(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, bDVideoPlayerUbcContent, jSONObject, jSONObject2) == null) {
+        }
+    }
+
+    public PlayerEmptyFlow() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

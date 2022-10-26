@@ -3,7 +3,6 @@ package com.google.android.gms.common.internal;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-import com.google.android.gms.common.annotation.KeepName;
-@KeepForSdk
-@KeepName
 /* loaded from: classes7.dex */
 public final class BinderWrapper implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
-    public static final Parcelable.Creator<BinderWrapper> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public IBinder zza;
 
@@ -39,8 +33,7 @@ public final class BinderWrapper implements Parcelable {
         CREATOR = new zzh();
     }
 
-    @KeepForSdk
-    public BinderWrapper(@NonNull IBinder iBinder) {
+    public BinderWrapper(IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,7 +62,7 @@ public final class BinderWrapper implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public final void writeToParcel(@NonNull Parcel parcel, int i) {
+    public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             parcel.writeStrongBinder(this.zza);

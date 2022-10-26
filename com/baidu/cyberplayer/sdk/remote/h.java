@@ -50,10 +50,10 @@ public class h extends PlayerProvider implements g.b {
     public boolean p;
 
     /* loaded from: classes2.dex */
-    public static class a extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<h> a;
+        public final WeakReference a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class h extends PlayerProvider implements g.b {
                     return;
                 }
             }
-            this.a = new WeakReference<>(hVar);
+            this.a = new WeakReference(hVar);
         }
 
         public static void a(h hVar, String str) {
@@ -98,7 +98,7 @@ public class h extends PlayerProvider implements g.b {
         public void handleMessage(Message message) {
             h hVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (hVar = this.a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (hVar = (h) this.a.get()) == null) {
                 return;
             }
             switch (message.what) {
@@ -166,7 +166,7 @@ public class h extends PlayerProvider implements g.b {
     }
 
     /* loaded from: classes2.dex */
-    public static class b extends d.a {
+    public class b extends d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public a a;
@@ -226,7 +226,7 @@ public class h extends PlayerProvider implements g.b {
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
-        public void a(String str, List<String> list) {
+        public void a(String str, List list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && str.equals("onHttpDNS")) {
                 if (this.b == null || list == null || list.size() <= 0) {
@@ -237,7 +237,7 @@ public class h extends PlayerProvider implements g.b {
                     return;
                 }
                 list.clear();
-                List<String> ipList = this.b.getIpList(list.get(0));
+                List ipList = this.b.getIpList((String) list.get(0));
                 if (ipList != null) {
                     list.addAll(ipList);
                 }
@@ -379,7 +379,7 @@ public class h extends PlayerProvider implements g.b {
         return (h) invokeIL.objValue;
     }
 
-    private void a(Uri uri, Map<String, String> map) {
+    private void a(Uri uri, Map map) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri, map) == null) || (bVar = this.a) == null) {
@@ -809,12 +809,12 @@ public class h extends PlayerProvider implements g.b {
     public void setDataSource(Context context, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048598, this, context, uri) == null) {
-            a(uri, (Map<String, String>) null);
+            a(uri, (Map) null);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setDataSource(Context context, Uri uri, Map<String, String> map) {
+    public void setDataSource(Context context, Uri uri, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048599, this, context, uri, map) == null) {
             a(uri, map);
@@ -835,12 +835,12 @@ public class h extends PlayerProvider implements g.b {
     public void setDataSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            a(Uri.parse(str), (Map<String, String>) null);
+            a(Uri.parse(str), (Map) null);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setDataSource(String str, Map<String, String> map) {
+    public void setDataSource(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, str, map) == null) {
             a(Uri.parse(str), map);

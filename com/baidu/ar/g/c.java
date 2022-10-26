@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 public class c extends d implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<a> mj;
+    public WeakReference mj;
     public b xS;
 
     public c() {
@@ -33,7 +33,7 @@ public class c extends d implements a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof a)) {
             a aVar = (a) cVar;
-            this.mj = new WeakReference<>(aVar);
+            this.mj = new WeakReference(aVar);
             b bVar = this.xS;
             if (bVar != null) {
                 aVar.a(bVar);
@@ -43,14 +43,14 @@ public class c extends d implements a {
 
     @Override // com.baidu.ar.g.a
     public void a(b bVar) {
-        WeakReference<a> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.xS = bVar;
             if (bVar == null || (weakReference = this.mj) == null || weakReference.get() == null) {
                 return;
             }
-            this.mj.get().a(this.xS);
+            ((a) this.mj.get()).a(this.xS);
         }
     }
 
@@ -58,7 +58,7 @@ public class c extends d implements a {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WeakReference<a> weakReference = this.mj;
+            WeakReference weakReference = this.mj;
             if (weakReference != null) {
                 weakReference.clear();
                 this.mj = null;

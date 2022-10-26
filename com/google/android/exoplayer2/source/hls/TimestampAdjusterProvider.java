@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.TimestampAdjuster;
 public final class TimestampAdjusterProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<TimestampAdjuster> timestampAdjusters;
+    public final SparseArray timestampAdjusters;
 
     public TimestampAdjusterProvider() {
         Interceptable interceptable = $ic;
@@ -27,14 +27,21 @@ public final class TimestampAdjusterProvider {
                 return;
             }
         }
-        this.timestampAdjusters = new SparseArray<>();
+        this.timestampAdjusters = new SparseArray();
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.timestampAdjusters.clear();
+        }
     }
 
     public TimestampAdjuster getAdjuster(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            TimestampAdjuster timestampAdjuster = this.timestampAdjusters.get(i);
+            TimestampAdjuster timestampAdjuster = (TimestampAdjuster) this.timestampAdjusters.get(i);
             if (timestampAdjuster == null) {
                 TimestampAdjuster timestampAdjuster2 = new TimestampAdjuster(Long.MAX_VALUE);
                 this.timestampAdjusters.put(i, timestampAdjuster2);
@@ -43,12 +50,5 @@ public final class TimestampAdjusterProvider {
             return timestampAdjuster;
         }
         return (TimestampAdjuster) invokeI.objValue;
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.timestampAdjusters.clear();
-        }
     }
 }

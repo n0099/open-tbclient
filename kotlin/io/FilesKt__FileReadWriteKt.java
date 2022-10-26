@@ -1,5 +1,6 @@
 package kotlin.io;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import java.io.BufferedReader;
@@ -17,7 +18,6 @@ import java.util.List;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.collections.ArraysKt___ArraysJvmKt;
-import kotlin.internal.InlineOnly;
 import kotlin.internal.PlatformImplementationsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
@@ -26,7 +26,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.sequences.Sequence;
 import kotlin.text.Charsets;
-@Metadata(d1 = {"\u0000z\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\u001a\u0012\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010\u0005\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a!\u0010\n\u001a\u00020\u000b*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001a!\u0010\u000e\u001a\u00020\u000f*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001aB\u0010\u0010\u001a\u00020\u0001*\u00020\u000226\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001aJ\u0010\u0010\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0017\u001a\u00020\r26\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001a7\u0010\u0018\u001a\u00020\u0001*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2!\u0010\u0011\u001a\u001d\u0012\u0013\u0012\u00110\u0007¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u001a\u0012\u0004\u0012\u00020\u00010\u0019\u001a\r\u0010\u001b\u001a\u00020\u001c*\u00020\u0002H\u0087\b\u001a\r\u0010\u001d\u001a\u00020\u001e*\u00020\u0002H\u0087\b\u001a\u0017\u0010\u001f\u001a\u00020 *\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001a\n\u0010!\u001a\u00020\u0004*\u00020\u0002\u001a\u001a\u0010\"\u001a\b\u0012\u0004\u0012\u00020\u00070#*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0014\u0010$\u001a\u00020\u0007*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010%\u001a\u00020&*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001aB\u0010'\u001a\u0002H(\"\u0004\b\u0000\u0010(*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\u0018\u0010)\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070*\u0012\u0004\u0012\u0002H(0\u0019H\u0086\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010,\u001a\u0012\u0010-\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010.\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010/\u001a\u000200*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u0082\u0002\u000f\n\u0006\b\u0011(+0\u0001\n\u0005\b\u009920\u0001¨\u00061"}, d2 = {"appendBytes", "", "Ljava/io/File;", "array", "", "appendText", "text", "", "charset", "Ljava/nio/charset/Charset;", "bufferedReader", "Ljava/io/BufferedReader;", "bufferSize", "", "bufferedWriter", "Ljava/io/BufferedWriter;", "forEachBlock", "action", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "buffer", "bytesRead", "blockSize", "forEachLine", "Lkotlin/Function1;", "line", "inputStream", "Ljava/io/FileInputStream;", "outputStream", "Ljava/io/FileOutputStream;", "printWriter", "Ljava/io/PrintWriter;", "readBytes", "readLines", "", "readText", "reader", "Ljava/io/InputStreamReader;", "useLines", "T", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/sequences/Sequence;", "Requires newer compiler version to be inlined correctly.", "(Ljava/io/File;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "writeBytes", "writeText", "writer", "Ljava/io/OutputStreamWriter;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/io/FilesKt")
+@Metadata(d1 = {"\u0000z\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\u001a\u0012\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010\u0005\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a!\u0010\n\u001a\u00020\u000b*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001a!\u0010\u000e\u001a\u00020\u000f*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\rH\u0087\b\u001aB\u0010\u0010\u001a\u00020\u0001*\u00020\u000226\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001aJ\u0010\u0010\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0017\u001a\u00020\r26\u0010\u0011\u001a2\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0015\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u0016\u0012\u0004\u0012\u00020\u00010\u0012\u001a7\u0010\u0018\u001a\u00020\u0001*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2!\u0010\u0011\u001a\u001d\u0012\u0013\u0012\u00110\u0007¢\u0006\f\b\u0013\u0012\b\b\u0014\u0012\u0004\b\b(\u001a\u0012\u0004\u0012\u00020\u00010\u0019\u001a\r\u0010\u001b\u001a\u00020\u001c*\u00020\u0002H\u0087\b\u001a\r\u0010\u001d\u001a\u00020\u001e*\u00020\u0002H\u0087\b\u001a\u0017\u0010\u001f\u001a\u00020 *\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001a\n\u0010!\u001a\u00020\u0004*\u00020\u0002\u001a\u001a\u0010\"\u001a\b\u0012\u0004\u0012\u00020\u00070#*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0014\u0010$\u001a\u00020\u0007*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010%\u001a\u00020&*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u001aB\u0010'\u001a\u0002H(\"\u0004\b\u0000\u0010(*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\t2\u0018\u0010)\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070*\u0012\u0004\u0012\u0002H(0\u0019H\u0086\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010,\u001a\u0012\u0010-\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004\u001a\u001c\u0010.\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t\u001a\u0017\u0010/\u001a\u000200*\u00020\u00022\b\b\u0002\u0010\b\u001a\u00020\tH\u0087\b\u0082\u0002\u000f\n\u0006\b\u0011(+0\u0001\n\u0005\b\u009920\u0001¨\u00061"}, d2 = {"appendBytes", "", "Ljava/io/File;", "array", "", "appendText", "text", "", "charset", "Ljava/nio/charset/Charset;", "bufferedReader", "Ljava/io/BufferedReader;", "bufferSize", "", "bufferedWriter", "Ljava/io/BufferedWriter;", "forEachBlock", "action", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "buffer", "bytesRead", "blockSize", "forEachLine", "Lkotlin/Function1;", "line", "inputStream", "Ljava/io/FileInputStream;", "outputStream", "Ljava/io/FileOutputStream;", "printWriter", "Ljava/io/PrintWriter;", "readBytes", "readLines", "", "readText", "reader", "Ljava/io/InputStreamReader;", "useLines", ExifInterface.GPS_DIRECTION_TRUE, BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/sequences/Sequence;", "Requires newer compiler version to be inlined correctly.", "(Ljava/io/File;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "writeBytes", "writeText", "writer", "Ljava/io/OutputStreamWriter;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/io/FilesKt")
 /* loaded from: classes8.dex */
 public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -42,6 +42,65 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
+    public static final void forEachBlock(File forEachBlock, Function2<? super byte[], ? super Integer, Unit> action) {
+        Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
+        Intrinsics.checkNotNullParameter(action, "action");
+        forEachBlock(forEachBlock, 4096, action);
+    }
+
+    public static final PrintWriter printWriter(File file, Charset charset) {
+        BufferedWriter bufferedWriter;
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
+        if (outputStreamWriter instanceof BufferedWriter) {
+            bufferedWriter = (BufferedWriter) outputStreamWriter;
+        } else {
+            bufferedWriter = new BufferedWriter(outputStreamWriter, 8192);
+        }
+        return new PrintWriter(bufferedWriter);
+    }
+
+    public static final List<String> readLines(File readLines, Charset charset) {
+        Intrinsics.checkNotNullParameter(readLines, "$this$readLines");
+        Intrinsics.checkNotNullParameter(charset, "charset");
+        ArrayList arrayList = new ArrayList();
+        forEachLine(readLines, charset, new FilesKt__FileReadWriteKt$readLines$1(arrayList));
+        return arrayList;
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final String readText(File readText, Charset charset) {
+        Intrinsics.checkNotNullParameter(readText, "$this$readText");
+        Intrinsics.checkNotNullParameter(charset, "charset");
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(readText), charset);
+        try {
+            String readText2 = TextStreamsKt.readText(inputStreamReader);
+            CloseableKt.closeFinally(inputStreamReader, null);
+            return readText2;
+        } finally {
+        }
+    }
+
+    public static final InputStreamReader reader(File file, Charset charset) {
+        return new InputStreamReader(new FileInputStream(file), charset);
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final void writeBytes(File writeBytes, byte[] array) {
+        Intrinsics.checkNotNullParameter(writeBytes, "$this$writeBytes");
+        Intrinsics.checkNotNullParameter(array, "array");
+        FileOutputStream fileOutputStream = new FileOutputStream(writeBytes);
+        try {
+            fileOutputStream.write(array);
+            Unit unit = Unit.INSTANCE;
+            CloseableKt.closeFinally(fileOutputStream, null);
+        } finally {
+        }
+    }
+
+    public static final OutputStreamWriter writer(File file, Charset charset) {
+        return new OutputStreamWriter(new FileOutputStream(file), charset);
+    }
+
     public static final void appendText(File appendText, String text, Charset charset) {
         Intrinsics.checkNotNullParameter(appendText, "$this$appendText");
         Intrinsics.checkNotNullParameter(text, "text");
@@ -51,17 +110,43 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         appendBytes(appendText, bytes);
     }
 
+    public static final BufferedReader bufferedReader(File file, Charset charset, int i) {
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
+        if (inputStreamReader instanceof BufferedReader) {
+            return (BufferedReader) inputStreamReader;
+        }
+        return new BufferedReader(inputStreamReader, i);
+    }
+
+    public static final BufferedWriter bufferedWriter(File file, Charset charset, int i) {
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
+        if (outputStreamWriter instanceof BufferedWriter) {
+            return (BufferedWriter) outputStreamWriter;
+        }
+        return new BufferedWriter(outputStreamWriter, i);
+    }
+
+    public static final void forEachLine(File forEachLine, Charset charset, Function1<? super String, Unit> action) {
+        Intrinsics.checkNotNullParameter(forEachLine, "$this$forEachLine");
+        Intrinsics.checkNotNullParameter(charset, "charset");
+        Intrinsics.checkNotNullParameter(action, "action");
+        TextStreamsKt.forEachLine(new BufferedReader(new InputStreamReader(new FileInputStream(forEachLine), charset)), action);
+    }
+
+    public static final void writeText(File writeText, String text, Charset charset) {
+        Intrinsics.checkNotNullParameter(writeText, "$this$writeText");
+        Intrinsics.checkNotNullParameter(text, "text");
+        Intrinsics.checkNotNullParameter(charset, "charset");
+        byte[] bytes = text.getBytes(charset);
+        Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
+        writeBytes(writeText, bytes);
+    }
+
     public static /* synthetic */ void appendText$default(File file, String str, Charset charset, int i, Object obj) {
         if ((i & 2) != 0) {
             charset = Charsets.UTF_8;
         }
         appendText(file, str, charset);
-    }
-
-    @InlineOnly
-    public static final BufferedReader bufferedReader(File file, Charset charset, int i) {
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
-        return inputStreamReader instanceof BufferedReader ? (BufferedReader) inputStreamReader : new BufferedReader(inputStreamReader, i);
     }
 
     public static /* synthetic */ BufferedReader bufferedReader$default(File file, Charset charset, int i, int i2, Object obj) {
@@ -72,13 +157,10 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
             i = 8192;
         }
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), charset);
-        return inputStreamReader instanceof BufferedReader ? (BufferedReader) inputStreamReader : new BufferedReader(inputStreamReader, i);
-    }
-
-    @InlineOnly
-    public static final BufferedWriter bufferedWriter(File file, Charset charset, int i) {
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
-        return outputStreamWriter instanceof BufferedWriter ? (BufferedWriter) outputStreamWriter : new BufferedWriter(outputStreamWriter, i);
+        if (inputStreamReader instanceof BufferedReader) {
+            return (BufferedReader) inputStreamReader;
+        }
+        return new BufferedReader(inputStreamReader, i);
     }
 
     public static /* synthetic */ BufferedWriter bufferedWriter$default(File file, Charset charset, int i, int i2, Object obj) {
@@ -89,20 +171,10 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
             i = 8192;
         }
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
-        return outputStreamWriter instanceof BufferedWriter ? (BufferedWriter) outputStreamWriter : new BufferedWriter(outputStreamWriter, i);
-    }
-
-    public static final void forEachBlock(File forEachBlock, Function2<? super byte[], ? super Integer, Unit> action) {
-        Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
-        Intrinsics.checkNotNullParameter(action, "action");
-        forEachBlock(forEachBlock, 4096, action);
-    }
-
-    public static final void forEachLine(File forEachLine, Charset charset, Function1<? super String, Unit> action) {
-        Intrinsics.checkNotNullParameter(forEachLine, "$this$forEachLine");
-        Intrinsics.checkNotNullParameter(charset, "charset");
-        Intrinsics.checkNotNullParameter(action, "action");
-        TextStreamsKt.forEachLine(new BufferedReader(new InputStreamReader(new FileInputStream(forEachLine), charset)), action);
+        if (outputStreamWriter instanceof BufferedWriter) {
+            return (BufferedWriter) outputStreamWriter;
+        }
+        return new BufferedWriter(outputStreamWriter, i);
     }
 
     public static /* synthetic */ void forEachLine$default(File file, Charset charset, Function1 function1, int i, Object obj) {
@@ -112,28 +184,81 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         forEachLine(file, charset, function1);
     }
 
-    @InlineOnly
+    public static /* synthetic */ void writeText$default(File file, String str, Charset charset, int i, Object obj) {
+        if ((i & 2) != 0) {
+            charset = Charsets.UTF_8;
+        }
+        writeText(file, str, charset);
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final void forEachBlock(File forEachBlock, int i, Function2<? super byte[], ? super Integer, Unit> action) {
+        Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
+        Intrinsics.checkNotNullParameter(action, "action");
+        byte[] bArr = new byte[RangesKt___RangesKt.coerceAtLeast(i, 512)];
+        FileInputStream fileInputStream = new FileInputStream(forEachBlock);
+        while (true) {
+            try {
+                int read = fileInputStream.read(bArr);
+                if (read <= 0) {
+                    Unit unit = Unit.INSTANCE;
+                    CloseableKt.closeFinally(fileInputStream, null);
+                    return;
+                }
+                action.invoke(bArr, Integer.valueOf(read));
+            } finally {
+            }
+        }
+    }
+
     public static final FileInputStream inputStream(File file) {
         return new FileInputStream(file);
     }
 
-    @InlineOnly
     public static final FileOutputStream outputStream(File file) {
         return new FileOutputStream(file);
     }
 
-    @InlineOnly
-    public static final PrintWriter printWriter(File file, Charset charset) {
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
-        return new PrintWriter(outputStreamWriter instanceof BufferedWriter ? (BufferedWriter) outputStreamWriter : new BufferedWriter(outputStreamWriter, 8192));
-    }
-
     public static /* synthetic */ PrintWriter printWriter$default(File file, Charset charset, int i, Object obj) {
+        BufferedWriter bufferedWriter;
         if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
         }
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), charset);
-        return new PrintWriter(outputStreamWriter instanceof BufferedWriter ? (BufferedWriter) outputStreamWriter : new BufferedWriter(outputStreamWriter, 8192));
+        if (outputStreamWriter instanceof BufferedWriter) {
+            bufferedWriter = (BufferedWriter) outputStreamWriter;
+        } else {
+            bufferedWriter = new BufferedWriter(outputStreamWriter, 8192);
+        }
+        return new PrintWriter(bufferedWriter);
+    }
+
+    public static /* synthetic */ List readLines$default(File file, Charset charset, int i, Object obj) {
+        if ((i & 1) != 0) {
+            charset = Charsets.UTF_8;
+        }
+        return readLines(file, charset);
+    }
+
+    public static /* synthetic */ String readText$default(File file, Charset charset, int i, Object obj) {
+        if ((i & 1) != 0) {
+            charset = Charsets.UTF_8;
+        }
+        return readText(file, charset);
+    }
+
+    public static /* synthetic */ InputStreamReader reader$default(File file, Charset charset, int i, Object obj) {
+        if ((i & 1) != 0) {
+            charset = Charsets.UTF_8;
+        }
+        return new InputStreamReader(new FileInputStream(file), charset);
+    }
+
+    public static /* synthetic */ OutputStreamWriter writer$default(File file, Charset charset, int i, Object obj) {
+        if ((i & 1) != 0) {
+            charset = Charsets.UTF_8;
+        }
+        return new OutputStreamWriter(new FileOutputStream(file), charset);
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -189,62 +314,20 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         }
     }
 
-    public static final List<String> readLines(File readLines, Charset charset) {
-        Intrinsics.checkNotNullParameter(readLines, "$this$readLines");
-        Intrinsics.checkNotNullParameter(charset, "charset");
-        ArrayList arrayList = new ArrayList();
-        forEachLine(readLines, charset, new FilesKt__FileReadWriteKt$readLines$1(arrayList));
-        return arrayList;
-    }
-
-    public static /* synthetic */ List readLines$default(File file, Charset charset, int i, Object obj) {
-        if ((i & 1) != 0) {
-            charset = Charsets.UTF_8;
-        }
-        return readLines(file, charset);
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final String readText(File readText, Charset charset) {
-        Intrinsics.checkNotNullParameter(readText, "$this$readText");
-        Intrinsics.checkNotNullParameter(charset, "charset");
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(readText), charset);
-        try {
-            String readText2 = TextStreamsKt.readText(inputStreamReader);
-            CloseableKt.closeFinally(inputStreamReader, null);
-            return readText2;
-        } finally {
-        }
-    }
-
-    public static /* synthetic */ String readText$default(File file, Charset charset, int i, Object obj) {
-        if ((i & 1) != 0) {
-            charset = Charsets.UTF_8;
-        }
-        return readText(file, charset);
-    }
-
-    @InlineOnly
-    public static final InputStreamReader reader(File file, Charset charset) {
-        return new InputStreamReader(new FileInputStream(file), charset);
-    }
-
-    public static /* synthetic */ InputStreamReader reader$default(File file, Charset charset, int i, Object obj) {
-        if ((i & 1) != 0) {
-            charset = Charsets.UTF_8;
-        }
-        return new InputStreamReader(new FileInputStream(file), charset);
-    }
-
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static final <T> T useLines(File useLines, Charset charset, Function1<? super Sequence<String>, ? extends T> block) {
+        BufferedReader bufferedReader;
         Intrinsics.checkNotNullParameter(useLines, "$this$useLines");
         Intrinsics.checkNotNullParameter(charset, "charset");
         Intrinsics.checkNotNullParameter(block, "block");
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(useLines), charset);
-        BufferedReader bufferedReader = inputStreamReader instanceof BufferedReader ? (BufferedReader) inputStreamReader : new BufferedReader(inputStreamReader, 8192);
+        if (inputStreamReader instanceof BufferedReader) {
+            bufferedReader = (BufferedReader) inputStreamReader;
+        } else {
+            bufferedReader = new BufferedReader(inputStreamReader, 8192);
+        }
         try {
-            T invoke = block.invoke(TextStreamsKt.lineSequence(bufferedReader));
+            T t = (T) block.invoke(TextStreamsKt.lineSequence(bufferedReader));
             InlineMarker.finallyStart(1);
             if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 1, 0)) {
                 CloseableKt.closeFinally(bufferedReader, null);
@@ -252,19 +335,19 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
                 bufferedReader.close();
             }
             InlineMarker.finallyEnd(1);
-            return invoke;
+            return t;
         } catch (Throwable th) {
             try {
                 throw th;
             } catch (Throwable th2) {
                 InlineMarker.finallyStart(1);
-                if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 1, 0)) {
-                    CloseableKt.closeFinally(bufferedReader, th);
-                } else {
+                if (!PlatformImplementationsKt.apiVersionIsAtLeast(1, 1, 0)) {
                     try {
                         bufferedReader.close();
                     } catch (Throwable unused) {
                     }
+                } else {
+                    CloseableKt.closeFinally(bufferedReader, th);
                 }
                 InlineMarker.finallyEnd(1);
                 throw th2;
@@ -274,6 +357,7 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static /* synthetic */ Object useLines$default(File useLines, Charset charset, Function1 block, int i, Object obj) {
+        BufferedReader bufferedReader;
         if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
         }
@@ -281,7 +365,11 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
         Intrinsics.checkNotNullParameter(charset, "charset");
         Intrinsics.checkNotNullParameter(block, "block");
         InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(useLines), charset);
-        BufferedReader bufferedReader = inputStreamReader instanceof BufferedReader ? (BufferedReader) inputStreamReader : new BufferedReader(inputStreamReader, 8192);
+        if (inputStreamReader instanceof BufferedReader) {
+            bufferedReader = (BufferedReader) inputStreamReader;
+        } else {
+            bufferedReader = new BufferedReader(inputStreamReader, 8192);
+        }
         try {
             Object invoke = block.invoke(TextStreamsKt.lineSequence(bufferedReader));
             InlineMarker.finallyStart(1);
@@ -293,70 +381,6 @@ public class FilesKt__FileReadWriteKt extends FilesKt__FilePathComponentsKt {
             InlineMarker.finallyEnd(1);
             return invoke;
         } finally {
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final void writeBytes(File writeBytes, byte[] array) {
-        Intrinsics.checkNotNullParameter(writeBytes, "$this$writeBytes");
-        Intrinsics.checkNotNullParameter(array, "array");
-        FileOutputStream fileOutputStream = new FileOutputStream(writeBytes);
-        try {
-            fileOutputStream.write(array);
-            Unit unit = Unit.INSTANCE;
-            CloseableKt.closeFinally(fileOutputStream, null);
-        } finally {
-        }
-    }
-
-    public static final void writeText(File writeText, String text, Charset charset) {
-        Intrinsics.checkNotNullParameter(writeText, "$this$writeText");
-        Intrinsics.checkNotNullParameter(text, "text");
-        Intrinsics.checkNotNullParameter(charset, "charset");
-        byte[] bytes = text.getBytes(charset);
-        Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
-        writeBytes(writeText, bytes);
-    }
-
-    public static /* synthetic */ void writeText$default(File file, String str, Charset charset, int i, Object obj) {
-        if ((i & 2) != 0) {
-            charset = Charsets.UTF_8;
-        }
-        writeText(file, str, charset);
-    }
-
-    @InlineOnly
-    public static final OutputStreamWriter writer(File file, Charset charset) {
-        return new OutputStreamWriter(new FileOutputStream(file), charset);
-    }
-
-    public static /* synthetic */ OutputStreamWriter writer$default(File file, Charset charset, int i, Object obj) {
-        if ((i & 1) != 0) {
-            charset = Charsets.UTF_8;
-        }
-        return new OutputStreamWriter(new FileOutputStream(file), charset);
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.io.FileInputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v2, types: [byte[], java.lang.Object] */
-    public static final void forEachBlock(File forEachBlock, int i, Function2<? super byte[], ? super Integer, Unit> action) {
-        Intrinsics.checkNotNullParameter(forEachBlock, "$this$forEachBlock");
-        Intrinsics.checkNotNullParameter(action, "action");
-        ?? r2 = new byte[RangesKt___RangesKt.coerceAtLeast(i, 512)];
-        FileInputStream fileInputStream = new FileInputStream(forEachBlock);
-        while (true) {
-            try {
-                int read = fileInputStream.read(r2);
-                if (read <= 0) {
-                    Unit unit = Unit.INSTANCE;
-                    CloseableKt.closeFinally(fileInputStream, null);
-                    return;
-                }
-                action.invoke(r2, Integer.valueOf(read));
-            } finally {
-            }
         }
     }
 }

@@ -40,7 +40,6 @@ public final class FragmentViewModelLazyKt$viewModels$2 extends Lambda implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final ViewModelStore invoke() {
         InterceptResult invokeV;

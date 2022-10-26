@@ -99,103 +99,154 @@ public final class TornadoLiteRuntime {
     public final String getChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? channel : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return channel;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getClientVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? clientVersion : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return clientVersion;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getCuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? cuid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return cuid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final boolean getDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? debug : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return debug;
+        }
+        return invokeV.booleanValue;
     }
 
     public final String getDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? device : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return device;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getGameID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? gameID : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return gameID;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getGamePackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? gamePackageName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return gamePackageName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getLatencyFromMClientToSClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? latencyFromMClientToSClient : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return latencyFromMClientToSClient;
+        }
+        return invokeV.intValue;
     }
 
     public final int getLatencyFromSClientToRemote() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? latencyFromSClientToRemote : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return latencyFromSClientToRemote;
+        }
+        return invokeV.intValue;
     }
 
     public final int getLossRateFromMClientToSClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? lossRateFromMClientToSClient : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return lossRateFromMClientToSClient;
+        }
+        return invokeV.intValue;
     }
 
     public final int getLossRateFromSClientToRemote() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? lossRateFromSClientToRemote : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return lossRateFromSClientToRemote;
+        }
+        return invokeV.intValue;
     }
 
     public final int getOptimizationRate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? optimizationRate : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return optimizationRate;
+        }
+        return invokeV.intValue;
     }
 
     public final String getRegion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? region : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return region;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final long getStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? startTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return startTime;
+        }
+        return invokeV.longValue;
     }
 
     public final String getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? status : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return status;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getSysVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? sysVersion : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return sysVersion;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? token : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return token;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void onEvent$tun2tornadolite_release(long j) {
@@ -346,31 +397,27 @@ public final class TornadoLiteRuntime {
             } else if (j == 21) {
                 LogTo.INSTANCE.d("*****", "[OnEvent] EVENT_BOOSTER_START_OK");
                 AndroidOperationInterface ai = Engine.INSTANCE.getAi();
-                if (ai == null) {
-                    return;
+                if (ai != null) {
+                    ai.onEvent(j, "");
                 }
-                ai.onEvent(j, "");
             } else if (j == 22) {
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_START_FAIL ", lastEventMsg));
                 AndroidOperationInterface ai2 = Engine.INSTANCE.getAi();
-                if (ai2 == null) {
-                    return;
+                if (ai2 != null) {
+                    ai2.onEvent(j, lastEventMsg);
                 }
-                ai2.onEvent(j, lastEventMsg);
             } else if (j == 23) {
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID ", lastEventMsg));
                 AndroidOperationInterface ai3 = Engine.INSTANCE.getAi();
-                if (ai3 == null) {
-                    return;
+                if (ai3 != null) {
+                    ai3.onEvent(j, lastEventMsg);
                 }
-                ai3.onEvent(j, lastEventMsg);
             } else if (j == 31) {
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_STOP ", lastEventMsg));
                 AndroidOperationInterface ai4 = Engine.INSTANCE.getAi();
-                if (ai4 == null) {
-                    return;
+                if (ai4 != null) {
+                    ai4.onEvent(j, lastEventMsg);
                 }
-                ai4.onEvent(j, lastEventMsg);
             } else if (j == 41) {
                 lastEventMsg = eventMsg;
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_SCLIENT_EOF ", lastEventMsg));

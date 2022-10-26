@@ -1,14 +1,14 @@
 package com.baidu.android.imsdk.conversation;
 
 import android.content.Context;
+import android.os.Handler;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,12 +104,12 @@ public class FetchConversationStudio {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    b80.c.removeCallbacks(this.this$0.fetchRunnable);
+                    c80.c.removeCallbacks(this.this$0.fetchRunnable);
                     if (this.this$0.mReliableFetchCount.get() > 0) {
                         this.this$0.mReliableFetchCount.set(0);
                         if (ConversationStudioManImpl.getInstance(this.this$0.mContext).isReliable(this.this$0.mCastId)) {
                             this.this$0.fetchCastMsgByMsgId();
-                            b80.c.postDelayed(this.this$0.fetchRunnable, 1000L);
+                            c80.c.postDelayed(this.this$0.fetchRunnable, 1000L);
                             return;
                         }
                         return;
@@ -143,7 +143,8 @@ public class FetchConversationStudio {
             }
 
             @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-            public void onFetchMsgByIdResult(int i3, String str, String str2, int i4, long j2, long j3, long j4, int i5, int i6, long j5, ArrayList<ChatMsg> arrayList) {
+            public void onFetchMsgByIdResult(int i3, String str, String str2, int i4, long j2, long j3, long j4, int i5, int i6, long j5, ArrayList arrayList) {
+                Object obj;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), str, str2, Integer.valueOf(i4), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j5), arrayList}) == null) {
                     StringBuilder sb = new StringBuilder();
@@ -152,7 +153,12 @@ public class FetchConversationStudio {
                     sb.append(", maxMsgid :");
                     sb.append(j5);
                     sb.append(", fetch :");
-                    sb.append(arrayList != null ? Integer.valueOf(arrayList.size()) : StringUtil.NULL_STRING);
+                    if (arrayList != null) {
+                        obj = Integer.valueOf(arrayList.size());
+                    } else {
+                        obj = StringUtil.NULL_STRING;
+                    }
+                    sb.append(obj);
                     sb.append(", real :");
                     sb.append(i6);
                     sb.append(", count :");
@@ -165,15 +171,15 @@ public class FetchConversationStudio {
                     this.this$0.mMaxMsgId = j4;
                     if (i3 == 0) {
                         if (i6 >= i5) {
-                            b80.c.removeCallbacks(this.this$0.fetchRunnable);
-                            b80.c.postDelayed(this.this$0.fetchRunnable, 1000L);
+                            c80.c.removeCallbacks(this.this$0.fetchRunnable);
+                            c80.c.postDelayed(this.this$0.fetchRunnable, 1000L);
                         }
                     } else if (i3 == 1024) {
                         int unused = FetchConversationStudio.PULL_COUNT = 80;
                         LogUtils.e(FetchConversationStudio.TAG, "onFetchMsgByIdResult：fetch msg length over 1024*1024");
                     } else if (this.this$0.mFetchNum == 0) {
                         LogUtils.e(FetchConversationStudio.TAG, "onFetchMsgByIdResult：fetch msg failed and first retry.");
-                        b80.c.postDelayed(this.this$0.mReliableRunnable, 1000L);
+                        c80.c.postDelayed(this.this$0.mReliableRunnable, 1000L);
                     }
                 }
             }
@@ -203,17 +209,24 @@ public class FetchConversationStudio {
 
             @Override // java.lang.Runnable
             public void run() {
+                long j2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     FetchConversationStudio.access$708(this.this$0);
-                    if (this.this$0.mFetchNum > 3) {
-                        this.this$0.mFetchNum = 0;
-                        b80.c.removeCallbacks(this);
+                    if (this.this$0.mFetchNum <= 3) {
+                        this.this$0.fetchCastMsgByMsgId();
+                        c80.c.removeCallbacks(this);
+                        Handler handler = c80.c;
+                        if (this.this$0.mFetchNum != 3) {
+                            j2 = 5000;
+                        } else {
+                            j2 = 10000;
+                        }
+                        handler.postDelayed(this, j2);
                         return;
                     }
-                    this.this$0.fetchCastMsgByMsgId();
-                    b80.c.removeCallbacks(this);
-                    b80.c.postDelayed(this, this.this$0.mFetchNum != 3 ? 5000L : 10000L);
+                    this.this$0.mFetchNum = 0;
+                    c80.c.removeCallbacks(this);
                 }
             }
         };
@@ -249,22 +262,24 @@ public class FetchConversationStudio {
     public long getMcastId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCastId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCastId;
+        }
+        return invokeV.longValue;
     }
 
     public void toFetch(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.mCastId <= 0) {
+        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) != null) || this.mCastId <= 0) {
             return;
         }
         this.mMaxMsgId = j;
         this.mReliableFetchCount.incrementAndGet();
-        if (this.mReliableFetching.get()) {
-            return;
+        if (!this.mReliableFetching.get()) {
+            LogUtils.d(TAG, "begin set fetchRunnable");
+            this.mReliableFetching.set(true);
+            c80.c.removeCallbacks(this.fetchRunnable);
+            c80.c.postDelayed(this.fetchRunnable, 1000L);
         }
-        LogUtils.d(TAG, "begin set fetchRunnable");
-        this.mReliableFetching.set(true);
-        b80.c.removeCallbacks(this.fetchRunnable);
-        b80.c.postDelayed(this.fetchRunnable, 1000L);
     }
 }

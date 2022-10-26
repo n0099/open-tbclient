@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public abstract class MultiUriHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Function<Integer, Integer> f;
+    public Function f;
 
     public MultiUriHelper() {
         Interceptable interceptable = $ic;
@@ -29,22 +29,22 @@ public abstract class MultiUriHelper {
         }
     }
 
-    public static <T> Uri getMainUri(@Nullable T t, @Nullable T t2, @Nullable T[] tArr, Fn<T, Uri> fn) {
+    public static Uri getMainUri(@Nullable Object obj, @Nullable Object obj2, @Nullable Object[] objArr, Fn fn) {
         InterceptResult invokeLLLL;
-        Uri apply;
-        Uri apply2;
+        Uri uri;
+        Uri uri2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, t, t2, tArr, fn)) == null) {
-            if (t == null || (apply2 = fn.apply(t)) == null) {
-                if (tArr == null || tArr.length <= 0 || tArr[0] == null || (apply = fn.apply(tArr[0])) == null) {
-                    if (t2 != null) {
-                        return fn.apply(t2);
-                    }
-                    return null;
-                }
-                return apply;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, obj, obj2, objArr, fn)) == null) {
+            if (obj != null && (uri2 = (Uri) fn.apply(obj)) != null) {
+                return uri2;
             }
-            return apply2;
+            if (objArr != null && objArr.length > 0 && objArr[0] != null && (uri = (Uri) fn.apply(objArr[0])) != null) {
+                return uri;
+            }
+            if (obj2 != null) {
+                return (Uri) fn.apply(obj2);
+            }
+            return null;
         }
         return (Uri) invokeLLLL.objValue;
     }

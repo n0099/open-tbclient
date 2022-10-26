@@ -20,6 +20,13 @@ public class MsgSettingItemView2 extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public CheckBox a;
 
+    @Deprecated
+    public void setLineVisibility(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -39,38 +46,6 @@ public class MsgSettingItemView2 extends LinearLayout {
             }
         }
         a(context);
-    }
-
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a7, (ViewGroup) this, true);
-            this.a = (CheckBox) findViewById(R.id.obfuscated_res_0x7f091e6c);
-        }
-    }
-
-    public CheckBox getSwitchView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (CheckBox) invokeV.objValue;
-    }
-
-    @Deprecated
-    public void setLineVisibility(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-        }
-    }
-
-    public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (StringUtils.isNULL(str)) {
-                str = "";
-            }
-            this.a.setText(str);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,11 +70,38 @@ public class MsgSettingItemView2 extends LinearLayout {
         a(context);
     }
 
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setOrientation(1);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a7, (ViewGroup) this, true);
+            this.a = (CheckBox) findViewById(R.id.obfuscated_res_0x7f091e68);
+        }
+    }
+
     public void setText(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i == 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && i != 0) {
+            this.a.setText(i);
         }
-        this.a.setText(i);
+    }
+
+    public CheckBox getSwitchView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (CheckBox) invokeV.objValue;
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (StringUtils.isNULL(str)) {
+                str = "";
+            }
+            this.a.setText(str);
+        }
     }
 }

@@ -2,8 +2,6 @@ package com.baidu.searchbox.player.helper;
 
 import android.app.Activity;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.utils.BdActivityUtils;
@@ -20,7 +18,7 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
     public ViewGroup mOriginPlayerContainer;
     public final UniversalPlayer mPlayer;
 
-    public SimpleStyleSwitchHelper(@NonNull UniversalPlayer universalPlayer) {
+    public SimpleStyleSwitchHelper(UniversalPlayer universalPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,12 +36,11 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
         this.mPlayer = universalPlayer;
     }
 
-    private void setKeepScreenOn(@Nullable Activity activity) {
+    private void setKeepScreenOn(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, activity) == null) || activity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, this, activity) == null) && activity != null) {
+            activity.getWindow().addFlags(128);
         }
-        activity.getWindow().addFlags(128);
     }
 
     public boolean adjustRequestLandscape() {
@@ -52,7 +49,10 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int videoWidth = this.mPlayer.getVideoWidth();
             int videoHeight = this.mPlayer.getVideoHeight();
-            return videoWidth <= 0 || videoHeight <= 0 || videoWidth > videoHeight;
+            if (videoWidth <= 0 || videoHeight <= 0 || videoWidth > videoHeight) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -75,7 +75,7 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
     @Override // com.baidu.searchbox.player.helper.IPlayerStyleSwitchHelper
     public void switchToNormalStyle() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.mOriginPlayerContainer == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.mOriginPlayerContainer == null) {
             return;
         }
         this.mOriginPlayerContainer = this.mPlayer.getAttachedContainer();

@@ -1,63 +1,63 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
+import android.content.Context;
 import android.os.Build;
-import android.os.Process;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.FileReader;
-@TargetApi(21)
+import java.io.File;
 /* loaded from: classes6.dex */
 public class ti {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        String str;
+    public static void a(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return Process.is64Bit();
+        if ((interceptable == null || interceptable.invokeL(65536, null, file) == null) && file != null && file.exists()) {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (File file2 : listFiles) {
+                        a(file2);
+                    }
+                    return;
+                }
+                return;
             }
-            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-            if (strArr == null || strArr.length <= 0 || (str = Build.CPU_ABI) == null) {
-                return false;
+            String absolutePath = file.getAbsolutePath();
+            if (file.delete()) {
+                BdLog.v("Abi64WebViewCompat:Delete[" + absolutePath + PreferencesUtil.RIGHT_MOUNT);
+                return;
             }
-            return str.equals(strArr[0]);
+            BdLog.e("Abi64WebViewCompat:Delete[" + absolutePath + "]Error!");
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static void b(Context context) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            boolean z = false;
-            if (Build.VERSION.SDK_INT >= 21) {
-                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-                if (strArr != null) {
-                    for (String str : strArr) {
-                        if ("arm64-v8a".equals(str)) {
-                            return true;
+        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || Build.VERSION.SDK_INT < 24) {
+            return;
+        }
+        try {
+            context.getApplicationContext().getSharedPreferences("WebViewChromiumPrefs", 0).edit().clear().apply();
+            File filesDir = context.getFilesDir();
+            if (filesDir != null && filesDir.getParent() != null) {
+                File file = new File(filesDir.getParent());
+                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                    for (File file2 : listFiles) {
+                        String absolutePath = file2.getAbsolutePath();
+                        if (!TextUtils.isEmpty(absolutePath) && absolutePath.toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
+                            a(file2);
                         }
                     }
-                    return false;
                 }
-                return false;
             }
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(com.kuaishou.weapon.p0.k1.a));
-                z = bufferedReader.readLine().contains("aarch64");
-                bufferedReader.close();
-                return z;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return z;
-            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        return invokeV.booleanValue;
     }
 }

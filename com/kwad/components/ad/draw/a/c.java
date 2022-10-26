@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -39,7 +38,6 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
     public KsAppDownloadListener br;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
     public g mVideoPlayStateListener;
 
@@ -191,7 +189,7 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
     private void a(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0570a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b(this) { // from class: com.kwad.components.ad.draw.a.c.3
+            com.kwad.components.core.c.a.a.a(new a.C0566a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b(this) { // from class: com.kwad.components.ad.draw.a.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c bs;
@@ -327,12 +325,12 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091056);
-            this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f09105a);
-            this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091059);
-            this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f091057);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091055);
+            this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09104a);
+            this.bi = (TextView) findViewById(R.id.obfuscated_res_0x7f09104e);
+            this.bj = (TextView) findViewById(R.id.obfuscated_res_0x7f09104c);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09104d);
+            this.bk = (TextView) findViewById(R.id.obfuscated_res_0x7f09104b);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091049);
             this.bl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
         }

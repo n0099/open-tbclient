@@ -20,12 +20,19 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<LocationMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static String TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public double mLatitude;
     public double mLongitude;
     public String mTitle;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "[位置]" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +48,7 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
             }
         }
         TAG = LocationMsg.class.getSimpleName();
-        CREATOR = new Parcelable.Creator<LocationMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.LocationMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.LocationMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,21 +67,25 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LocationMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LocationMsg(parcel) : (LocationMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new LocationMsg(parcel);
+                }
+                return (LocationMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LocationMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LocationMsg[i] : (LocationMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new LocationMsg[i];
+                }
+                return (LocationMsg[]) invokeI.objValue;
             }
         };
     }
@@ -98,97 +109,31 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         setMsgType(7);
     }
 
-    private String getLocationContent(String str, double d, double d2, byte[] bArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), bArr})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("x", d2);
-                jSONObject.put("y", d);
-                jSONObject.put("thumbnail", Base64.encode(bArr));
-                jSONObject.put("title", str);
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "getLocationContent", e);
-                return "";
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
     public double getLatitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mLatitude : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mLatitude;
+        }
+        return invokeV.doubleValue;
     }
 
     public double getLongitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLongitude : invokeV.doubleValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "[位置]" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLongitude;
+        }
+        return invokeV.doubleValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTitle : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TextUtils.isEmpty(this.mjsonContent)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(this.mjsonContent);
-                    setTitle(jSONObject.getString("title"));
-                    this.mLatitude = jSONObject.optDouble("x");
-                    this.mLongitude = jSONObject.optDouble("y");
-                    return true;
-                } catch (JSONException e) {
-                    LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTitle;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void setContent(String str, double d, double d2, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), bArr}) == null) {
-            setMsgContent(getLocationContent(str, d2, d, bArr));
-        }
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.mTitle = str;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeString(this.mTitle);
-            parcel.writeDouble(this.mLatitude);
-            parcel.writeDouble(this.mLongitude);
-        }
+        return (String) invokeV.objValue;
     }
 
     public LocationMsg(double d, double d2, String str) {
@@ -240,5 +185,73 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         this.mTitle = parcel.readString();
         this.mLatitude = parcel.readDouble();
         this.mLongitude = parcel.readDouble();
+    }
+
+    private String getLocationContent(String str, double d, double d2, byte[] bArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), bArr})) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("x", d2);
+                    jSONObject.put("y", d);
+                    jSONObject.put("thumbnail", Base64.encode(bArr));
+                    jSONObject.put("title", str);
+                    return jSONObject.toString();
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "getLocationContent", e);
+                    return "";
+                }
+            }
+            return "";
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!TextUtils.isEmpty(this.mjsonContent)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(this.mjsonContent);
+                    setTitle(jSONObject.getString("title"));
+                    this.mLatitude = jSONObject.optDouble("x");
+                    this.mLongitude = jSONObject.optDouble("y");
+                    return true;
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "parseJsonString", e);
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setContent(String str, double d, double d2, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), bArr}) == null) {
+            setMsgContent(getLocationContent(str, d2, d, bArr));
+        }
+    }
+
+    public void setTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.mTitle = str;
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeString(this.mTitle);
+            parcel.writeDouble(this.mLatitude);
+            parcel.writeDouble(this.mLongitude);
+        }
     }
 }

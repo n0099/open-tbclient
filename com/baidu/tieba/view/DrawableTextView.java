@@ -34,19 +34,6 @@ public class DrawableTextView extends TextView {
         }
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            Drawable[] compoundDrawables = getCompoundDrawables();
-            if (compoundDrawables != null && compoundDrawables.length > 0 && (drawable = compoundDrawables[0]) != null && getText().toString() != null) {
-                canvas.translate((getWidth() - ((getPaint().measureText(getText().toString()) + drawable.getIntrinsicWidth()) + getCompoundDrawablePadding())) / 2.0f, 0.0f);
-            }
-            super.onDraw(canvas);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawableTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -86,6 +73,19 @@ public class DrawableTextView extends TextView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            Drawable[] compoundDrawables = getCompoundDrawables();
+            if (compoundDrawables != null && compoundDrawables.length > 0 && (drawable = compoundDrawables[0]) != null && getText().toString() != null) {
+                canvas.translate((getWidth() - ((getPaint().measureText(getText().toString()) + drawable.getIntrinsicWidth()) + getCompoundDrawablePadding())) / 2.0f, 0.0f);
+            }
+            super.onDraw(canvas);
         }
     }
 }

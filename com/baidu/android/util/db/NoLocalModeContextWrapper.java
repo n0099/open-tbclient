@@ -1,6 +1,5 @@
 package com.baidu.android.util.db;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.database.DatabaseErrorHandler;
@@ -38,18 +37,22 @@ public final class NoLocalModeContextWrapper extends ContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    @SuppressLint({"InlinedApi"})
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, cursorFactory)) == null) ? super.openOrCreateDatabase(str, i | 16, cursorFactory) : (SQLiteDatabase) invokeLIL.objValue;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, cursorFactory)) == null) {
+            return super.openOrCreateDatabase(str, i | 16, cursorFactory);
+        }
+        return (SQLiteDatabase) invokeLIL.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    @SuppressLint({"InlinedApi"})
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, cursorFactory, databaseErrorHandler)) == null) ? super.openOrCreateDatabase(str, i | 16, cursorFactory, databaseErrorHandler) : (SQLiteDatabase) invokeLILL.objValue;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, cursorFactory, databaseErrorHandler)) == null) {
+            return super.openOrCreateDatabase(str, i | 16, cursorFactory, databaseErrorHandler);
+        }
+        return (SQLiteDatabase) invokeLILL.objValue;
     }
 }

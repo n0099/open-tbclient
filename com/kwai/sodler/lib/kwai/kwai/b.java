@@ -3,7 +3,6 @@ package com.kwai.sodler.lib.kwai.kwai;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,12 +19,12 @@ public final class b extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ClassLoader axD;
-    public final List<String> axE;
-    public final List<String> axF;
+    public final List axE;
+    public final List axF;
     public final ClassLoader axG;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(ClassLoader classLoader, String str, @Nullable File file, String str2, List<String> list, List<String> list2) {
+    public b(ClassLoader classLoader, String str, File file, String str2, List list, List list2) {
         super(str, file, str2, classLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,20 +73,20 @@ public final class b extends BaseDexClassLoader {
     }
 
     @Override // java.lang.ClassLoader
-    public final Class<?> loadClass(String str, boolean z) {
+    public final Class loadClass(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            List<String> list = this.axE;
+            List list = this.axE;
             if (list != null && list.contains(str)) {
                 Log.i(PluginClassLoader.TAG, "loadClass " + str + " from host by interface");
                 return super.loadClass(str, z);
             }
-            List<String> list2 = this.axF;
+            List list2 = this.axF;
             if (list2 != null) {
-                Iterator<String> it = list2.iterator();
+                Iterator it = list2.iterator();
                 while (it.hasNext()) {
-                    if (str.startsWith(it.next() + ".")) {
+                    if (str.startsWith(((String) it.next()) + ".")) {
                         return super.loadClass(str, z);
                     }
                 }

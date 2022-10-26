@@ -4,10 +4,10 @@ import java.io.File;
 /* loaded from: classes8.dex */
 public class g {
     public static long a(File file) {
-        if (file == null || !file.exists()) {
-            return 0L;
+        if (file != null && file.exists()) {
+            return a(file, file.lastModified(), 0);
         }
-        return a(file, file.lastModified(), 0);
+        return 0L;
     }
 
     public static long a(File file, long j, int i) {

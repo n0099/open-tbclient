@@ -23,7 +23,7 @@ import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000b\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$prepare$ok$1", f = "SClient.kt", i = {1}, l = {63, 66}, m = "invokeSuspend", n = {"ok"}, s = {"I$0"})
 /* loaded from: classes6.dex */
-public final class SClient$prepare$ok$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Boolean>, Object> {
+public final class SClient$prepare$ok$1 extends SuspendLambda implements Function2 {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ SClientConfig $config;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
     public final /* synthetic */ SClient this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SClient$prepare$ok$1(SClientConfig sClientConfig, SClient sClient, Continuation<? super SClient$prepare$ok$1> continuation) {
+    public SClient$prepare$ok$1(SClientConfig sClientConfig, SClient sClient, Continuation continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +55,7 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+    public final Continuation create(Object obj, Continuation continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) ? new SClient$prepare$ok$1(this.$config, this.this$0, continuation) : (Continuation) invokeLL.objValue;
@@ -63,7 +63,7 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Boolean> continuation) {
+    public final Object invoke(CoroutineScope coroutineScope, Continuation continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, coroutineScope, continuation)) == null) ? ((SClient$prepare$ok$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
@@ -83,48 +83,53 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
             int i2 = this.label;
+            boolean z2 = false;
             try {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (i2 == 0) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 == 2) {
+                        i = this.I$0;
+                        ResultKt.throwOnFailure(obj);
+                        connectResult = (SClient.ConnectResult) obj;
+                        LogTo logTo = LogTo.INSTANCE;
+                        logTo.d("*****", "[Connect SClient] address: " + connectResult.getAddress() + " cost: " + connectResult.getConnectTime());
+                        if (connectResult.getStatus() == 0 && connectResult.getSocket() != null) {
+                            SClient.socket = connectResult.getSocket();
+                            SClient.address = connectResult.getAddress();
+                            DatagramSocket datagramSocket = new DatagramSocket();
+                            datagramSocket.setSoTimeout(1000);
+                            datagramSocket.setSendBufferSize(1);
+                            datagramSocket.setReceiveBufferSize(1);
+                            SClient.udpSocket = datagramSocket;
+                            SClient.INSTANCE.openWriteChannel();
+                            SClient sClient = SClient.INSTANCE;
+                            SClient.looping = true;
+                            i = 1;
+                        }
+                        if (i != 0) {
+                            z2 = true;
+                        }
+                        return Boxing.boxBoolean(z2);
+                    }
+                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                }
+                ResultKt.throwOnFailure(obj);
+            } else {
                 ResultKt.throwOnFailure(obj);
                 z = SClient.inited;
                 if (z) {
                     return Boxing.boxBoolean(false);
                 }
-                SClient sClient = SClient.INSTANCE;
+                SClient sClient2 = SClient.INSTANCE;
                 SClientConfig sClientConfig = this.$config;
                 this.label = 1;
-                obj = sClient.selectSClient(sClientConfig, 1000L, this);
+                obj = sClient2.selectSClient(sClientConfig, 1000L, this);
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i2 != 1) {
-                if (i2 != 2) {
-                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                }
-                i = this.I$0;
-                ResultKt.throwOnFailure(obj);
-                connectResult = (SClient.ConnectResult) obj;
-                LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[Connect SClient] address: " + connectResult.getAddress() + " cost: " + connectResult.getConnectTime());
-                if (connectResult.getStatus() == 0 && connectResult.getSocket() != null) {
-                    SClient.socket = connectResult.getSocket();
-                    SClient.address = connectResult.getAddress();
-                    DatagramSocket datagramSocket = new DatagramSocket();
-                    datagramSocket.setSoTimeout(1000);
-                    datagramSocket.setSendBufferSize(1);
-                    datagramSocket.setReceiveBufferSize(1);
-                    SClient.udpSocket = datagramSocket;
-                    SClient.INSTANCE.openWriteChannel();
-                    SClient sClient2 = SClient.INSTANCE;
-                    SClient.looping = true;
-                    i = 1;
-                }
-                return Boxing.boxBoolean(i != 0);
-            } else {
-                ResultKt.throwOnFailure(obj);
             }
             SClient.ConnectResult connectResult2 = (SClient.ConnectResult) obj;
             if (connectResult2.getStatus() == 0) {
@@ -149,14 +154,18 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
                     datagramSocket2.setReceiveBufferSize(1);
                     SClient.udpSocket = datagramSocket2;
                     SClient.INSTANCE.openWriteChannel();
-                    SClient sClient22 = SClient.INSTANCE;
+                    SClient sClient4 = SClient.INSTANCE;
                     SClient.looping = true;
                     i = 1;
                 }
-                return Boxing.boxBoolean(i != 0);
+                if (i != 0) {
+                }
+                return Boxing.boxBoolean(z2);
             }
             i = 0;
-            return Boxing.boxBoolean(i != 0);
+            if (i != 0) {
+            }
+            return Boxing.boxBoolean(z2);
         }
         return invokeL.objValue;
     }

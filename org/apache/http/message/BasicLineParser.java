@@ -38,6 +38,22 @@ public class BasicLineParser implements LineParser {
         }
     }
 
+    public BasicLineParser() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public BasicLineParser(ProtocolVersion protocolVersion) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,24 +117,6 @@ public class BasicLineParser implements LineParser {
         return (ProtocolVersion) invokeII.objValue;
     }
 
-    public RequestLine createRequestLine(String str, String str2, ProtocolVersion protocolVersion) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, protocolVersion)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (RequestLine) invokeLLL.objValue;
-    }
-
-    public StatusLine createStatusLine(ProtocolVersion protocolVersion, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, protocolVersion, i, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (StatusLine) invokeLIL.objValue;
-    }
-
     @Override // org.apache.http.message.LineParser
     public boolean hasProtocolVersion(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) {
         InterceptResult invokeLL;
@@ -136,20 +134,22 @@ public class BasicLineParser implements LineParser {
         }
     }
 
-    public BasicLineParser() {
+    public RequestLine createRequestLine(String str, String str2, ProtocolVersion protocolVersion) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, protocolVersion)) == null) {
+            throw new RuntimeException("Stub!");
         }
-        throw new RuntimeException("Stub!");
+        return (RequestLine) invokeLLL.objValue;
+    }
+
+    public StatusLine createStatusLine(ProtocolVersion protocolVersion, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, protocolVersion, i, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (StatusLine) invokeLIL.objValue;
     }
 
     @Override // org.apache.http.message.LineParser

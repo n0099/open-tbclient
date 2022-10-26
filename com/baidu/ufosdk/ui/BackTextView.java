@@ -35,37 +35,6 @@ public class BackTextView extends TextView {
         }
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action == 1) {
-                    performClick();
-                } else if (action == 3) {
-                    setAlpha(1.0f);
-                }
-                return super.onTouchEvent(motionEvent);
-            }
-            setAlpha(0.3f);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    public boolean performClick() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            super.performClick();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -106,5 +75,38 @@ public class BackTextView extends TextView {
                 return;
             }
         }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 3) {
+                        setAlpha(1.0f);
+                    }
+                } else {
+                    performClick();
+                }
+                return super.onTouchEvent(motionEvent);
+            }
+            setAlpha(0.3f);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean performClick() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            super.performClick();
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

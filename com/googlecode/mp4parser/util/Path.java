@@ -57,32 +57,10 @@ public class Path {
     public static String createPath(Box box) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, box)) == null) ? createPath(box, "") : (String) invokeL.objValue;
-    }
-
-    public static Box getPath(Box box, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, box, str)) == null) {
-            List<Box> paths = getPaths(box, str, true);
-            if (paths.isEmpty()) {
-                return null;
-            }
-            return paths.get(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, box)) == null) {
+            return createPath(box, "");
         }
-        return (Box) invokeLL.objValue;
-    }
-
-    public static List<Box> getPaths(AbstractContainerBox abstractContainerBox, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, abstractContainerBox, str)) == null) ? getPaths(abstractContainerBox, str, false) : (List) invokeLL.objValue;
-    }
-
-    public static boolean isContained(Box box, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, box, str)) == null) ? getPaths(box, str).contains(box) : invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
     public static String createPath(Box box, String str) {
@@ -100,70 +78,120 @@ public class Path {
                 }
             }
             String str2 = String.valueOf(String.format("/%s[%d]", box.getType(), Integer.valueOf(i))) + str;
-            return parent instanceof Box ? createPath((Box) parent, str2) : str2;
+            if (parent instanceof Box) {
+                return createPath((Box) parent, str2);
+            }
+            return str2;
         }
         return (String) invokeLL.objValue;
     }
 
-    public static List<Box> getPaths(Box box, String str) {
+    public static Box getPath(Box box, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, box, str)) == null) ? getPaths(box, str, false) : (List) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, box, str)) == null) {
+            List paths = getPaths(box, str, true);
+            if (paths.isEmpty()) {
+                return null;
+            }
+            return (Box) paths.get(0);
+        }
+        return (Box) invokeLL.objValue;
+    }
+
+    public static List getPaths(Box box, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, box, str)) == null) {
+            return getPaths(box, str, false);
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static boolean isContained(Box box, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, box, str)) == null) {
+            return getPaths(box, str).contains(box);
+        }
+        return invokeLL.booleanValue;
     }
 
     public static Box getPath(Container container, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, container, str)) == null) {
-            List<Box> paths = getPaths(container, str, true);
+            List paths = getPaths(container, str, true);
             if (paths.isEmpty()) {
                 return null;
             }
-            return paths.get(0);
+            return (Box) paths.get(0);
         }
         return (Box) invokeLL.objValue;
     }
 
-    public static List<Box> getPaths(Container container, String str) {
+    public static List getPaths(Container container, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, container, str)) == null) ? getPaths(container, str, false) : (List) invokeLL.objValue;
-    }
-
-    public static List<Box> getPaths(AbstractContainerBox abstractContainerBox, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65548, null, abstractContainerBox, str, z)) == null) ? getPaths((Object) abstractContainerBox, str, z) : (List) invokeLLZ.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, container, str)) == null) {
+            return getPaths(container, str, false);
+        }
+        return (List) invokeLL.objValue;
     }
 
     public static Box getPath(AbstractContainerBox abstractContainerBox, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, abstractContainerBox, str)) == null) {
-            List<Box> paths = getPaths(abstractContainerBox, str, true);
+            List paths = getPaths(abstractContainerBox, str, true);
             if (paths.isEmpty()) {
                 return null;
             }
-            return paths.get(0);
+            return (Box) paths.get(0);
         }
         return (Box) invokeLL.objValue;
     }
 
-    public static List<Box> getPaths(Container container, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static List getPaths(AbstractContainerBox abstractContainerBox, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, container, str, z)) == null) ? getPaths((Object) container, str, z) : (List) invokeLLZ.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, abstractContainerBox, str)) == null) {
+            return getPaths(abstractContainerBox, str, false);
+        }
+        return (List) invokeLL.objValue;
     }
 
-    public static List<Box> getPaths(Box box, String str, boolean z) {
+    public static List getPaths(Box box, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, box, str, z)) == null) ? getPaths((Object) box, str, z) : (List) invokeLLZ.objValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, box, str, z)) == null) {
+            return getPaths((Object) box, str, z);
+        }
+        return (List) invokeLLZ.objValue;
     }
 
-    public static List<Box> getPaths(Object obj, String str, boolean z) {
+    public static List getPaths(Container container, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, container, str, z)) == null) {
+            return getPaths((Object) container, str, z);
+        }
+        return (List) invokeLLZ.objValue;
+    }
+
+    public static List getPaths(AbstractContainerBox abstractContainerBox, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65548, null, abstractContainerBox, str, z)) == null) {
+            return getPaths((Object) abstractContainerBox, str, z);
+        }
+        return (List) invokeLLZ.objValue;
+    }
+
+    public static List getPaths(Object obj, String str, boolean z) {
         InterceptResult invokeLLZ;
         String str2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65549, null, obj, str, z)) == null) {
             if (str.startsWith("/")) {
@@ -179,7 +207,7 @@ public class Path {
                 }
                 throw new RuntimeException("Result of path expression seems to be the root container. This is not allowed!");
             }
-            int i = 0;
+            int i2 = 0;
             if (str.contains("/")) {
                 str2 = str.substring(str.indexOf(47) + 1);
                 str = str.substring(0, str.indexOf(47));
@@ -195,16 +223,20 @@ public class Path {
                     }
                     return Collections.emptyList();
                 } else if (obj instanceof Container) {
-                    int parseInt = matcher.group(2) != null ? Integer.parseInt(matcher.group(3)) : -1;
+                    if (matcher.group(2) != null) {
+                        i = Integer.parseInt(matcher.group(3));
+                    } else {
+                        i = -1;
+                    }
                     LinkedList linkedList = new LinkedList();
                     for (Box box : ((Container) obj).getBoxes()) {
                         if (box.getType().matches(group)) {
-                            if (parseInt == -1 || parseInt == i) {
+                            if (i == -1 || i == i2) {
                                 linkedList.addAll(getPaths(box, str2, z));
                             }
-                            i++;
+                            i2++;
                         }
-                        if (z || parseInt >= 0) {
+                        if (z || i >= 0) {
                             if (!linkedList.isEmpty()) {
                                 return linkedList;
                             }

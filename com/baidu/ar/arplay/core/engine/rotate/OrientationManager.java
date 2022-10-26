@@ -20,7 +20,7 @@ public class OrientationManager extends OrientationEventListener {
     public static Orientation sGlobalOrientation;
     public transient /* synthetic */ FieldHolder $fh;
     public Orientation mCurrentOrientation;
-    public List<OrientationListener> mListeners;
+    public List mListeners;
 
     /* loaded from: classes.dex */
     public interface OrientationListener {

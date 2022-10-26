@@ -6,12 +6,12 @@ import android.graphics.RectF;
 import com.airbnb.lottie.LottieDrawable;
 /* loaded from: classes.dex */
 public class NullLayer extends BaseLayer {
-    public NullLayer(LottieDrawable lottieDrawable, Layer layer) {
-        super(lottieDrawable, layer);
-    }
-
     @Override // com.airbnb.lottie.model.layer.BaseLayer
     public void drawLayer(Canvas canvas, Matrix matrix, int i) {
+    }
+
+    public NullLayer(LottieDrawable lottieDrawable, Layer layer) {
+        super(lottieDrawable, layer);
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.animation.content.DrawingContent

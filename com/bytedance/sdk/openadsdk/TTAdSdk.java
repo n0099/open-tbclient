@@ -21,6 +21,22 @@ public final class TTAdSdk {
         void success();
     }
 
+    public static TTAdManager getAdManager() {
+        TTInitializer tTInitializer = a;
+        if (tTInitializer != null) {
+            return tTInitializer.getAdManager();
+        }
+        return null;
+    }
+
+    public static boolean isInitSuccess() {
+        TTInitializer tTInitializer = a;
+        if (tTInitializer != null) {
+            return tTInitializer.isInitSuccess();
+        }
+        return false;
+    }
+
     public static void a(Context context, TTAdConfig tTAdConfig) {
         if (Looper.getMainLooper() != Looper.myLooper()) {
             a.a("Wrong Thread ! Please exec TTAdSdk.init in main thread.");
@@ -35,12 +51,11 @@ public final class TTAdSdk {
         tTAdConfig.setExtra(TTAdConstant.KEY_S_C, "main");
     }
 
-    public static TTAdManager getAdManager() {
-        TTInitializer tTInitializer = a;
-        if (tTInitializer != null) {
-            return tTInitializer.getAdManager();
+    public static void a(Object obj, String str) {
+        if (obj != null) {
+            return;
         }
-        return null;
+        throw new IllegalArgumentException(str);
     }
 
     public static void getCodeGroupRit(final long j, final TTCodeGroupRit.TTCodeGroupRitListener tTCodeGroupRitListener) {
@@ -74,12 +89,15 @@ public final class TTAdSdk {
         return null;
     }
 
-    public static boolean isInitSuccess() {
+    public static void init(Context context, TTAdConfig tTAdConfig, InitCallback initCallback) {
+        a(context, tTAdConfig);
+        Context applicationContext = context.getApplicationContext();
         TTInitializer tTInitializer = a;
-        if (tTInitializer != null) {
-            return tTInitializer.isInitSuccess();
+        if (tTInitializer == null) {
+            initCallback.fail(4100, "Load initializer failed");
+        } else {
+            tTInitializer.init(applicationContext, tTAdConfig, initCallback);
         }
-        return false;
     }
 
     public static void updateAdConfig(TTAdConfig tTAdConfig) {
@@ -94,10 +112,9 @@ public final class TTAdSdk {
         if (!TextUtils.isEmpty(tTAdConfig.getKeywords())) {
             bundle.putString("keywords", tTAdConfig.getKeywords());
         }
-        if (bundle.keySet().isEmpty()) {
-            return;
+        if (!bundle.keySet().isEmpty()) {
+            adManager.getExtra(AdConfig.class, bundle);
         }
-        adManager.getExtra(AdConfig.class, bundle);
     }
 
     public static void updatePaid(boolean z) {
@@ -107,26 +124,8 @@ public final class TTAdSdk {
         }
         Bundle bundle = new Bundle();
         bundle.putBoolean("is_paid", z);
-        if (bundle.keySet().isEmpty()) {
-            return;
-        }
-        adManager.getExtra(AdConfig.class, bundle);
-    }
-
-    public static void init(Context context, TTAdConfig tTAdConfig, InitCallback initCallback) {
-        a(context, tTAdConfig);
-        Context applicationContext = context.getApplicationContext();
-        TTInitializer tTInitializer = a;
-        if (tTInitializer == null) {
-            initCallback.fail(4100, "Load initializer failed");
-        } else {
-            tTInitializer.init(applicationContext, tTAdConfig, initCallback);
-        }
-    }
-
-    public static void a(Object obj, String str) {
-        if (obj == null) {
-            throw new IllegalArgumentException(str);
+        if (!bundle.keySet().isEmpty()) {
+            adManager.getExtra(AdConfig.class, bundle);
         }
     }
 }

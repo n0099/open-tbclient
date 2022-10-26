@@ -3,9 +3,6 @@ package androidx.arch.core.executor;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,14 +14,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DefaultTaskExecutor extends TaskExecutor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService mDiskIO;
     public final Object mLock;
-    @Nullable
     public volatile Handler mMainHandler;
 
     public DefaultTaskExecutor() {
@@ -81,7 +76,7 @@ public class DefaultTaskExecutor extends TaskExecutor {
         });
     }
 
-    public static Handler createAsync(@NonNull Looper looper) {
+    public static Handler createAsync(Looper looper) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, looper)) == null) {
@@ -111,13 +106,6 @@ public class DefaultTaskExecutor extends TaskExecutor {
     }
 
     @Override // androidx.arch.core.executor.TaskExecutor
-    public boolean isMainThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
-    }
-
-    @Override // androidx.arch.core.executor.TaskExecutor
     public void postToMainThread(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
@@ -130,5 +118,18 @@ public class DefaultTaskExecutor extends TaskExecutor {
             }
             this.mMainHandler.post(runnable);
         }
+    }
+
+    @Override // androidx.arch.core.executor.TaskExecutor
+    public boolean isMainThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

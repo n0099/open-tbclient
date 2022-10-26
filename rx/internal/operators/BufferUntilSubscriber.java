@@ -1,12 +1,12 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c2a;
-import com.baidu.tieba.fx9;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.sx9;
-import com.baidu.tieba.x1a;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.ky9;
+import com.baidu.tieba.p2a;
+import com.baidu.tieba.u2a;
+import com.baidu.tieba.xx9;
+import com.baidu.tieba.yx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,95 +17,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class BufferUntilSubscriber<T> extends x1a<T, T> {
+public final class BufferUntilSubscriber extends p2a {
     public static /* synthetic */ Interceptable $ic;
-    public static final gx9 d;
+    public static final yx9 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final State<T> b;
+    public final State b;
     public boolean c;
 
     /* loaded from: classes9.dex */
-    public static final class State<T> extends AtomicReference<gx9<? super T>> {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final long serialVersionUID = 8026705089538090368L;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ConcurrentLinkedQueue<Object> buffer;
-        public boolean emitting;
-        public final Object guard;
-
-        public State() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.guard = new Object();
-            this.buffer = new ConcurrentLinkedQueue<>();
-        }
-
-        public boolean casObserverRef(gx9<? super T> gx9Var, gx9<? super T> gx9Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gx9Var, gx9Var2)) == null) ? compareAndSet(gx9Var, gx9Var2) : invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class a implements gx9 {
+    public final class b implements xx9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.gx9
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.gx9
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.gx9
-        public void onNext(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class b<T> implements fx9.a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final State<T> a;
+        public final State a;
 
         /* loaded from: classes9.dex */
-        public class a implements sx9 {
+        public class a implements ky9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -128,7 +54,7 @@ public final class BufferUntilSubscriber<T> extends x1a<T, T> {
                 this.a = bVar;
             }
 
-            @Override // com.baidu.tieba.sx9
+            @Override // com.baidu.tieba.ky9
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -137,7 +63,7 @@ public final class BufferUntilSubscriber<T> extends x1a<T, T> {
             }
         }
 
-        public b(State<T> state) {
+        public b(State state) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,45 +81,118 @@ public final class BufferUntilSubscriber<T> extends x1a<T, T> {
             this.a = state;
         }
 
-        @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((lx9) ((lx9) obj));
-        }
-
-        public void call(lx9<? super T> lx9Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
+        public void call(dy9 dy9Var) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, lx9Var) != null) {
-                return;
-            }
-            if (this.a.casObserverRef(null, lx9Var)) {
-                lx9Var.b(c2a.a(new a(this)));
-                synchronized (this.a.guard) {
-                    z = true;
-                    if (this.a.emitting) {
-                        z = false;
-                    } else {
-                        this.a.emitting = true;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dy9Var) == null) {
+                if (this.a.casObserverRef(null, dy9Var)) {
+                    dy9Var.b(u2a.a(new a(this)));
+                    synchronized (this.a.guard) {
+                        z = true;
+                        if (!this.a.emitting) {
+                            this.a.emitting = true;
+                        } else {
+                            z = false;
+                        }
                     }
-                }
-                if (!z) {
-                    return;
-                }
-                while (true) {
-                    Object poll = this.a.buffer.poll();
-                    if (poll != null) {
-                        NotificationLite.a(this.a.get(), poll);
-                    } else {
-                        synchronized (this.a.guard) {
-                            if (this.a.buffer.isEmpty()) {
-                                this.a.emitting = false;
-                                return;
+                    if (!z) {
+                        return;
+                    }
+                    while (true) {
+                        Object poll = this.a.buffer.poll();
+                        if (poll != null) {
+                            NotificationLite.a((yx9) this.a.get(), poll);
+                        } else {
+                            synchronized (this.a.guard) {
+                                if (this.a.buffer.isEmpty()) {
+                                    this.a.emitting = false;
+                                    return;
+                                }
                             }
                         }
                     }
+                } else {
+                    dy9Var.onError(new IllegalStateException("Only one subscriber allowed!"));
                 }
-            } else {
-                lx9Var.onError(new IllegalStateException("Only one subscriber allowed!"));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public final class State extends AtomicReference {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final long serialVersionUID = 8026705089538090368L;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ConcurrentLinkedQueue buffer;
+        public boolean emitting;
+        public final Object guard;
+
+        public State() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.guard = new Object();
+            this.buffer = new ConcurrentLinkedQueue();
+        }
+
+        public boolean casObserverRef(yx9 yx9Var, yx9 yx9Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, yx9Var, yx9Var2)) == null) {
+                return compareAndSet(yx9Var, yx9Var2);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public final class a implements yx9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.yx9
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yx9
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yx9
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
@@ -214,8 +213,29 @@ public final class BufferUntilSubscriber<T> extends x1a<T, T> {
         d = new a();
     }
 
+    public static BufferUntilSubscriber D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new BufferUntilSubscriber(new State());
+        }
+        return (BufferUntilSubscriber) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yx9
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.c) {
+                ((yx9) this.b.get()).onCompleted();
+            } else {
+                E(NotificationLite.b());
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BufferUntilSubscriber(State<T> state) {
+    public BufferUntilSubscriber(State state) {
         super(new b(state));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -226,7 +246,7 @@ public final class BufferUntilSubscriber<T> extends x1a<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fx9.a) newInitContext.callArgs[0]);
+                super((xx9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -235,68 +255,50 @@ public final class BufferUntilSubscriber<T> extends x1a<T, T> {
         this.b = state;
     }
 
-    public static <T> BufferUntilSubscriber<T> D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new BufferUntilSubscriber<>(new State()) : (BufferUntilSubscriber) invokeV.objValue;
-    }
-
     public final void E(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, obj) != null) {
-            return;
-        }
-        synchronized (this.b.guard) {
-            this.b.buffer.add(obj);
-            if (this.b.get() != null && !this.b.emitting) {
-                this.c = true;
-                this.b.emitting = true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            synchronized (this.b.guard) {
+                this.b.buffer.add(obj);
+                if (this.b.get() != null && !this.b.emitting) {
+                    this.c = true;
+                    this.b.emitting = true;
+                }
             }
-        }
-        if (!this.c) {
-            return;
-        }
-        while (true) {
-            Object poll = this.b.buffer.poll();
-            if (poll == null) {
+            if (!this.c) {
                 return;
             }
-            NotificationLite.a(this.b.get(), poll);
-        }
-    }
-
-    @Override // com.baidu.tieba.gx9
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.c) {
-                this.b.get().onCompleted();
-            } else {
-                E(NotificationLite.b());
+            while (true) {
+                Object poll = this.b.buffer.poll();
+                if (poll != null) {
+                    NotificationLite.a((yx9) this.b.get(), poll);
+                } else {
+                    return;
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.gx9
+    @Override // com.baidu.tieba.yx9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
             if (this.c) {
-                this.b.get().onError(th);
+                ((yx9) this.b.get()).onError(th);
             } else {
                 E(NotificationLite.c(th));
             }
         }
     }
 
-    @Override // com.baidu.tieba.gx9
-    public void onNext(T t) {
+    @Override // com.baidu.tieba.yx9
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
             if (this.c) {
-                this.b.get().onNext(t);
+                ((yx9) this.b.get()).onNext(obj);
             } else {
-                E(NotificationLite.h(t));
+                E(NotificationLite.h(obj));
             }
         }
     }

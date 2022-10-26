@@ -1,7 +1,6 @@
 package com.baidu.searchbox.perfframe.basic;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +27,7 @@ public class PerfFrameTrackUIUtil {
         }
     }
 
-    public static String trackUI2StringPage(@NonNull TrackUI trackUI) {
+    public static String trackUI2StringPage(TrackUI trackUI) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, trackUI)) == null) {

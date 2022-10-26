@@ -32,6 +32,13 @@ public final class AudioTagPayloadReader extends TagPayloadReader {
     public boolean hasOutputFormat;
     public boolean hasParsedAudioDataHeader;
 
+    @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
+    public void seek() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -71,20 +78,35 @@ public final class AudioTagPayloadReader extends TagPayloadReader {
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
     public boolean parseHeader(ParsableByteArray parsableByteArray) throws TagPayloadReader.UnsupportedFormatException {
         InterceptResult invokeL;
+        String str;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parsableByteArray)) == null) {
             if (!this.hasParsedAudioDataHeader) {
                 int readUnsignedByte = parsableByteArray.readUnsignedByte();
-                int i = (readUnsignedByte >> 4) & 15;
-                this.audioFormat = i;
-                if (i == 2) {
+                int i2 = (readUnsignedByte >> 4) & 15;
+                this.audioFormat = i2;
+                if (i2 == 2) {
                     this.output.format(Format.createAudioSampleFormat(null, MimeTypes.AUDIO_MPEG, null, -1, -1, 1, AUDIO_SAMPLING_RATE_TABLE[(readUnsignedByte >> 2) & 3], null, null, 0, null));
                     this.hasOutputFormat = true;
-                } else if (i == 7 || i == 8) {
-                    this.output.format(Format.createAudioSampleFormat(null, this.audioFormat == 7 ? MimeTypes.AUDIO_ALAW : MimeTypes.AUDIO_MLAW, null, -1, -1, 1, 8000, (readUnsignedByte & 1) == 1 ? 2 : 3, null, null, 0, null));
+                } else if (i2 != 7 && i2 != 8) {
+                    if (i2 != 10) {
+                        throw new TagPayloadReader.UnsupportedFormatException("Audio format not supported: " + this.audioFormat);
+                    }
+                } else {
+                    if (this.audioFormat == 7) {
+                        str = MimeTypes.AUDIO_ALAW;
+                    } else {
+                        str = MimeTypes.AUDIO_MLAW;
+                    }
+                    String str2 = str;
+                    if ((readUnsignedByte & 1) == 1) {
+                        i = 2;
+                    } else {
+                        i = 3;
+                    }
+                    this.output.format(Format.createAudioSampleFormat(null, str2, null, -1, -1, 1, 8000, i, null, null, 0, null));
                     this.hasOutputFormat = true;
-                } else if (i != 10) {
-                    throw new TagPayloadReader.UnsupportedFormatException("Audio format not supported: " + this.audioFormat);
                 }
                 this.hasParsedAudioDataHeader = true;
             } else {
@@ -110,7 +132,7 @@ public final class AudioTagPayloadReader extends TagPayloadReader {
                 int bytesLeft2 = parsableByteArray.bytesLeft();
                 byte[] bArr = new byte[bytesLeft2];
                 parsableByteArray.readBytes(bArr, 0, bytesLeft2);
-                Pair<Integer, Integer> parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(bArr);
+                Pair parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(bArr);
                 this.output.format(Format.createAudioSampleFormat(null, "audio/mp4a-latm", null, -1, -1, ((Integer) parseAacAudioSpecificConfig.second).intValue(), ((Integer) parseAacAudioSpecificConfig.first).intValue(), Collections.singletonList(bArr), null, 0, null));
                 this.hasOutputFormat = true;
             } else if (this.audioFormat != 10 || readUnsignedByte == 1) {
@@ -118,13 +140,6 @@ public final class AudioTagPayloadReader extends TagPayloadReader {
                 this.output.sampleData(parsableByteArray, bytesLeft3);
                 this.output.sampleMetadata(j, 1, bytesLeft3, 0, null);
             }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
-    public void seek() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

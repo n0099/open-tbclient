@@ -1,29 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class e37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List a;
+    public int b;
+    public int c;
 
-    public static boolean a(TbPageContext<?> tbPageContext, Cdo cdo) {
-        InterceptResult invokeLL;
-        p26 p26Var;
-        ThreadData threadData;
+    public e37() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, cdo)) == null) {
-            if (!(cdo instanceof p26) || (threadData = (p26Var = (p26) cdo).a) == null || threadData.getVoiceRoomData() == null || StringUtils.isNull(p26Var.a.getVoiceRoomData().room_name) || p26Var.a.getVoiceRoomData().room_id.longValue() <= 0) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ((w95) ServiceManager.getService(w95.a.a())).a(tbPageContext, p26Var.a.getVoiceRoomData().room_id.longValue());
-            return true;
         }
-        return invokeLL.booleanValue;
+        this.b = 0;
+        this.c = 0;
     }
 }

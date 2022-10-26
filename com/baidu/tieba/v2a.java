@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
+import java.util.List;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
 /* loaded from: classes6.dex */
-public class v2a {
-    public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface v2a {
+    void addLogDelegate(IRLogDelegate iRLogDelegate);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190276, "Lcom/baidu/tieba/v2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948190276, "Lcom/baidu/tieba/v2a;");
-                return;
-            }
-        }
-        a = new String[]{"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
-    }
+    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
+
+    List getAllRevenue();
+
+    IMiddleRevenue getMiddleRevenue(int i, int i2);
+
+    IRevenue getRevenue(int i, int i2);
+
+    void removeRevenueConfig(int i, int i2);
+
+    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
 }

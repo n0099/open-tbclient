@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
@@ -22,12 +21,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hq4;
-import com.baidu.tieba.i26;
-import com.baidu.tieba.mn;
-import com.baidu.tieba.wx;
-import com.baidu.tieba.yq4;
+import com.baidu.tieba.ar4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.jq4;
+import com.baidu.tieba.nn;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgSingleHorizontalLayout extends LinearLayout implements wx<yq4> {
+public class MutiImgSingleHorizontalLayout extends LinearLayout implements xx {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -49,7 +48,13 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements wx<yq
     public TbImageView b;
     public ImageView c;
     public boolean d;
-    public i26<yq4> e;
+    public p26 e;
+
+    public void setPreloadSizeReadyCallback(nn nnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, nnVar) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -64,8 +69,8 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements wx<yq
                 return;
             }
         }
-        f = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-        int k = ej.k(TbadkCoreApplication.getInst());
+        f = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+        int k = fj.k(TbadkCoreApplication.getInst());
         g = k;
         int i2 = k - f;
         h = i2;
@@ -93,11 +98,56 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements wx<yq
         }
     }
 
+    public final String b(MediaData mediaData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaData)) == null) {
+            if (mediaData == null) {
+                return "";
+            }
+            String picUrl = mediaData.getPicUrl();
+            if (TextUtils.isEmpty(picUrl)) {
+                picUrl = mediaData.getSmallUrl();
+            }
+            if (TextUtils.isEmpty(picUrl)) {
+                picUrl = mediaData.getThumbnails_url();
+            }
+            if (TextUtils.isEmpty(picUrl)) {
+                return mediaData.getSrc_pic();
+            }
+            return picUrl;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MutiImgSingleHorizontalLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = true;
+        c();
+    }
+
     private void setImageData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (hq4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (jq4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i2 = 0; i2 < medias.size(); i2++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i2);
@@ -123,23 +173,30 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements wx<yq
         }
     }
 
-    public final String b(MediaData mediaData) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xx
+    /* renamed from: d */
+    public void a(ar4 ar4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaData)) == null) {
-            if (mediaData == null) {
-                return "";
-            }
-            String picUrl = mediaData.getPicUrl();
-            if (TextUtils.isEmpty(picUrl)) {
-                picUrl = mediaData.getSmallUrl();
-            }
-            if (TextUtils.isEmpty(picUrl)) {
-                picUrl = mediaData.getThumbnails_url();
-            }
-            return TextUtils.isEmpty(picUrl) ? mediaData.getSrc_pic() : picUrl;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ar4Var) == null) {
+            ThreadData threadData = ar4Var.getThreadData();
+            ThreadCardUtils.setTitle(this.a, threadData);
+            setImageData(threadData);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void setSubClickListener(p26 p26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, p26Var) == null) {
+            this.e = p26Var;
+        }
     }
 
     public final void c() {
@@ -148,52 +205,48 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements wx<yq
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cb, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, i));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09217e);
             this.a = textView;
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(textView, R.dimen.tbds7, R.dimen.tbds10);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217f);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217b);
             this.b = tbImageView;
             HomeGroupUbsUIHelper.handleContentInterval(tbImageView, R.dimen.tbds26, R.dimen.tbds14);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919ec);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
-    /* renamed from: d */
-    public void a(yq4 yq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yq4Var) == null) {
-            ThreadData threadData = yq4Var.getThreadData();
-            ThreadCardUtils.setTitle(this.a, threadData);
-            setImageData(threadData);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e8);
         }
     }
 
     public final void e(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i2)}) == null) {
             String b = b(mediaData);
-            int i3 = this.d ? 46 : 47;
+            if (this.d) {
+                i3 = 46;
+            } else {
+                i3 = 47;
+            }
             if (!StringHelper.equals(b, tbImageView.getUrl())) {
-                tbImageView.F();
+                tbImageView.G();
             }
             if (z) {
-                tbImageView.setRadius(ej.f(getContext(), R.dimen.tbds10));
+                tbImageView.setRadius(fj.f(getContext(), R.dimen.tbds10));
                 tbImageView.setDrawBorder(true);
                 tbImageView.setForegroundColor(0);
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
                 tbImageView.setBorderSurroundContent(true);
             }
-            tbImageView.K(b, i3, false);
+            tbImageView.L(b, i3, false);
         }
     }
 
-    public i26<yq4> getSubClickListener() {
+    public p26 getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (i26) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (p26) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -201,13 +254,6 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements wx<yq
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-        }
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.d = z;
         }
     }
 
@@ -220,41 +266,5 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements wx<yq
                 view2.setLayoutParams(marginLayoutParams);
             }
         }
-    }
-
-    public void setPreloadSizeReadyCallback(mn mnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mnVar) == null) {
-        }
-    }
-
-    public void setSubClickListener(i26<yq4> i26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, i26Var) == null) {
-            this.e = i26Var;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = true;
-        c();
     }
 }

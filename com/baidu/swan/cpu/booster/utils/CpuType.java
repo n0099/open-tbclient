@@ -61,12 +61,18 @@ public final class CpuType {
     public static CpuType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CpuType) Enum.valueOf(CpuType.class, str) : (CpuType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (CpuType) Enum.valueOf(CpuType.class, str);
+        }
+        return (CpuType) invokeL.objValue;
     }
 
     public static CpuType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CpuType[]) $VALUES.clone() : (CpuType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (CpuType[]) $VALUES.clone();
+        }
+        return (CpuType[]) invokeV.objValue;
     }
 }

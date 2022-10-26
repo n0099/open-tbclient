@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b90;
+import com.baidu.tieba.c90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import java.io.ObjectStreamException;
 public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHUNK_ID_FIELD_NUMBER = 2;
-    public static Parser<RpcMetaPb$ChunkInfo> PARSER = null;
+    public static Parser PARSER = null;
     public static final int STREAM_ID_FIELD_NUMBER = 1;
     public static final RpcMetaPb$ChunkInfo defaultInstance;
     public static final long serialVersionUID = 0;
@@ -40,7 +40,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
     public long streamId_;
 
     /* loaded from: classes2.dex */
-    public static class a extends AbstractParser<RpcMetaPb$ChunkInfo> {
+    public final class a extends AbstractParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,17 +64,26 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         public RpcMetaPb$ChunkInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, codedInputStream, extensionRegistryLite)) == null) ? new RpcMetaPb$ChunkInfo(codedInputStream, extensionRegistryLite, null) : (RpcMetaPb$ChunkInfo) invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, codedInputStream, extensionRegistryLite)) == null) {
+                return new RpcMetaPb$ChunkInfo(codedInputStream, extensionRegistryLite, null);
+            }
+            return (RpcMetaPb$ChunkInfo) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$ChunkInfo, b> implements Object {
+    public final class b extends GeneratedMessageLite.Builder implements MessageLiteOrBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public long b;
         public long c;
+
+        public final void maybeForceBuilderInitialization() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            }
+        }
 
         public b() {
             Interceptable interceptable = $ic;
@@ -95,7 +104,10 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         public static b q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new b() : (b) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return new b();
+            }
+            return (b) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
@@ -108,7 +120,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         public final boolean isInitialized() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? t() && s() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                if (!t() || !s()) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,39 +141,6 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
                     return buildPartial;
                 }
                 throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
-            }
-            return (RpcMetaPb$ChunkInfo) invokeV.objValue;
-        }
-
-        public final void maybeForceBuilderInitialization() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            }
-        }
-
-        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            v(codedInputStream, extensionRegistryLite);
-            return this;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        /* renamed from: n */
-        public RpcMetaPb$ChunkInfo buildPartial() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this, (b90) null);
-                int i = this.a;
-                int i2 = (i & 1) != 1 ? 0 : 1;
-                rpcMetaPb$ChunkInfo.streamId_ = this.b;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
-                }
-                rpcMetaPb$ChunkInfo.chunkId_ = this.c;
-                rpcMetaPb$ChunkInfo.bitField0_ = i2;
-                return rpcMetaPb$ChunkInfo;
             }
             return (RpcMetaPb$ChunkInfo) invokeV.objValue;
         }
@@ -195,19 +180,104 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         public RpcMetaPb$ChunkInfo getDefaultInstanceForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? RpcMetaPb$ChunkInfo.getDefaultInstance() : (RpcMetaPb$ChunkInfo) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return RpcMetaPb$ChunkInfo.getDefaultInstance();
+            }
+            return (RpcMetaPb$ChunkInfo) invokeV.objValue;
         }
 
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.a & 2) == 2 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                if ((this.a & 2) == 2) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.a & 1) == 1 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                if ((this.a & 1) == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public /* bridge */ /* synthetic */ MessageLite.Builder clear() {
+            o();
+            return this;
+        }
+
+        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            v(codedInputStream, extensionRegistryLite);
+            return this;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder
+        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder mergeFrom(GeneratedMessageLite generatedMessageLite) {
+            u((RpcMetaPb$ChunkInfo) generatedMessageLite);
+            return this;
+        }
+
+        public b w(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j)) == null) {
+                this.a |= 2;
+                this.c = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
+        }
+
+        public b x(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j)) == null) {
+                this.a |= 1;
+                this.b = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
+        }
+
+        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            v(codedInputStream, extensionRegistryLite);
+            return this;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        /* renamed from: n */
+        public RpcMetaPb$ChunkInfo buildPartial() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this, (c90) null);
+                int i = this.a;
+                int i2 = 1;
+                if ((i & 1) != 1) {
+                    i2 = 0;
+                }
+                rpcMetaPb$ChunkInfo.streamId_ = this.b;
+                if ((i & 2) == 2) {
+                    i2 |= 2;
+                }
+                rpcMetaPb$ChunkInfo.chunkId_ = this.c;
+                rpcMetaPb$ChunkInfo.bitField0_ = i2;
+                return rpcMetaPb$ChunkInfo;
+            }
+            return (RpcMetaPb$ChunkInfo) invokeV.objValue;
         }
 
         public b u(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
@@ -239,18 +309,18 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
                 RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = null;
                 try {
                     try {
-                        RpcMetaPb$ChunkInfo parsePartialFrom = RpcMetaPb$ChunkInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                        if (parsePartialFrom != null) {
-                            u(parsePartialFrom);
+                        RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo2 = (RpcMetaPb$ChunkInfo) RpcMetaPb$ChunkInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (rpcMetaPb$ChunkInfo2 != null) {
+                            u(rpcMetaPb$ChunkInfo2);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
-                        RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo2 = (RpcMetaPb$ChunkInfo) e.getUnfinishedMessage();
+                        RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo3 = (RpcMetaPb$ChunkInfo) e.getUnfinishedMessage();
                         try {
                             throw e;
                         } catch (Throwable th) {
                             th = th;
-                            rpcMetaPb$ChunkInfo = rpcMetaPb$ChunkInfo2;
+                            rpcMetaPb$ChunkInfo = rpcMetaPb$ChunkInfo3;
                             if (rpcMetaPb$ChunkInfo != null) {
                             }
                             throw th;
@@ -265,48 +335,6 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
                 }
             }
             return (b) invokeLL.objValue;
-        }
-
-        public b w(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j)) == null) {
-                this.a |= 2;
-                this.c = j;
-                return this;
-            }
-            return (b) invokeJ.objValue;
-        }
-
-        public b x(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j)) == null) {
-                this.a |= 1;
-                this.b = j;
-                return this;
-            }
-            return (b) invokeJ.objValue;
-        }
-
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ MessageLite.Builder clear() {
-            o();
-            return this;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
-        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public /* bridge */ /* synthetic */ b mergeFrom(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
-            u(rpcMetaPb$ChunkInfo);
-            return this;
-        }
-
-        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            v(codedInputStream, extensionRegistryLite);
-            return this;
         }
     }
 
@@ -329,14 +357,13 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         rpcMetaPb$ChunkInfo.initFields();
     }
 
-    public /* synthetic */ RpcMetaPb$ChunkInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b90 b90Var) throws InvalidProtocolBufferException {
-        this(codedInputStream, extensionRegistryLite);
-    }
-
     public static RpcMetaPb$ChunkInfo getDefaultInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? defaultInstance : (RpcMetaPb$ChunkInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return defaultInstance;
+        }
+        return (RpcMetaPb$ChunkInfo) invokeV.objValue;
     }
 
     private void initFields() {
@@ -350,69 +377,73 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
     public static b newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b.q() : (b) invokeV.objValue;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseDelimitedFrom(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, inputStream)) == null) ? PARSER.parseDelimitedFrom(inputStream) : (RpcMetaPb$ChunkInfo) invokeL.objValue;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, byteString)) == null) ? PARSER.parseFrom(byteString) : (RpcMetaPb$ChunkInfo) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return b.q();
+        }
+        return (b) invokeV.objValue;
     }
 
     public long getChunkId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.chunkId_ : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.chunkId_;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.protobuf.MessageLiteOrBuilder
+    public RpcMetaPb$ChunkInfo getDefaultInstanceForType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return defaultInstance;
+        }
+        return (RpcMetaPb$ChunkInfo) invokeV.objValue;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-    public Parser<RpcMetaPb$ChunkInfo> getParserForType() {
+    public Parser getParserForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? PARSER : (Parser) invokeV.objValue;
-    }
-
-    @Override // com.google.protobuf.MessageLite
-    public int getSerializedSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
-            }
-            int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.streamId_) : 0;
-            if ((this.bitField0_ & 2) == 2) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(2, this.chunkId_);
-            }
-            this.memoizedSerializedSize = computeInt64Size;
-            return computeInt64Size;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return PARSER;
         }
-        return invokeV.intValue;
+        return (Parser) invokeV.objValue;
     }
 
     public long getStreamId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.streamId_ : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.streamId_;
+        }
+        return invokeV.longValue;
     }
 
     public boolean hasChunkId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.bitField0_ & 2) == 2 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if ((this.bitField0_ & 2) == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasStreamId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (this.bitField0_ & 1) == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if ((this.bitField0_ & 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -422,7 +453,10 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             byte b2 = this.memoizedIsInitialized;
             if (b2 != -1) {
-                return b2 == 1;
+                if (b2 == 1) {
+                    return true;
+                }
+                return false;
             } else if (!hasStreamId()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -437,68 +471,15 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         return invokeV.booleanValue;
     }
 
-    @Override // com.google.protobuf.GeneratedMessageLite
-    public Object writeReplace() throws ObjectStreamException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? super.writeReplace() : invokeV.objValue;
-    }
-
-    @Override // com.google.protobuf.MessageLite
-    public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, codedOutputStream) == null) {
-            getSerializedSize();
-            if ((this.bitField0_ & 1) == 1) {
-                codedOutputStream.writeInt64(1, this.streamId_);
-            }
-            if ((this.bitField0_ & 2) == 2) {
-                codedOutputStream.writeInt64(2, this.chunkId_);
-            }
-        }
-    }
-
-    public /* synthetic */ RpcMetaPb$ChunkInfo(GeneratedMessageLite.Builder builder, b90 b90Var) {
-        this(builder);
-    }
-
-    public static b newBuilder(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, rpcMetaPb$ChunkInfo)) == null) {
-            b newBuilder = newBuilder();
-            newBuilder.u(rpcMetaPb$ChunkInfo);
-            return newBuilder;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, inputStream, extensionRegistryLite)) == null) ? PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite) : (RpcMetaPb$ChunkInfo) invokeLL.objValue;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, byteString, extensionRegistryLite)) == null) ? PARSER.parseFrom(byteString, extensionRegistryLite) : (RpcMetaPb$ChunkInfo) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.MessageLiteOrBuilder
-    public RpcMetaPb$ChunkInfo getDefaultInstanceForType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? defaultInstance : (RpcMetaPb$ChunkInfo) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.MessageLite
     public b newBuilderForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? newBuilder() : (b) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return newBuilder();
+        }
+        return (b) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -506,84 +487,20 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
     public b toBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? newBuilder(this) : (b) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RpcMetaPb$ChunkInfo(GeneratedMessageLite.Builder builder) {
-        super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return newBuilder(this);
         }
-        this.memoizedIsInitialized = (byte) -1;
-        this.memoizedSerializedSize = -1;
+        return (b) invokeV.objValue;
     }
 
-    public static RpcMetaPb$ChunkInfo parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
-        InterceptResult invokeL;
+    @Override // com.google.protobuf.GeneratedMessageLite
+    public Object writeReplace() throws ObjectStreamException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bArr)) == null) ? PARSER.parseFrom(bArr) : (RpcMetaPb$ChunkInfo) invokeL.objValue;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, bArr, extensionRegistryLite)) == null) ? PARSER.parseFrom(bArr, extensionRegistryLite) : (RpcMetaPb$ChunkInfo) invokeLL.objValue;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseFrom(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) ? PARSER.parseFrom(inputStream) : (RpcMetaPb$ChunkInfo) invokeL.objValue;
-    }
-
-    public RpcMetaPb$ChunkInfo(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return super.writeReplace();
         }
-        this.memoizedIsInitialized = (byte) -1;
-        this.memoizedSerializedSize = -1;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) ? PARSER.parseFrom(inputStream, extensionRegistryLite) : (RpcMetaPb$ChunkInfo) invokeLL.objValue;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseFrom(CodedInputStream codedInputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, codedInputStream)) == null) ? PARSER.parseFrom(codedInputStream) : (RpcMetaPb$ChunkInfo) invokeL.objValue;
-    }
-
-    public static RpcMetaPb$ChunkInfo parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, codedInputStream, extensionRegistryLite)) == null) ? PARSER.parseFrom(codedInputStream, extensionRegistryLite) : (RpcMetaPb$ChunkInfo) invokeLL.objValue;
+        return invokeV.objValue;
     }
 
     public RpcMetaPb$ChunkInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -611,15 +528,17 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
                     try {
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
-                            if (readTag == 8) {
-                                this.bitField0_ |= 1;
-                                this.streamId_ = codedInputStream.readInt64();
-                            } else if (readTag != 16) {
-                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                            if (readTag != 8) {
+                                if (readTag != 16) {
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                    }
+                                } else {
+                                    this.bitField0_ |= 2;
+                                    this.chunkId_ = codedInputStream.readInt64();
                                 }
                             } else {
-                                this.bitField0_ |= 2;
-                                this.chunkId_ = codedInputStream.readInt64();
+                                this.bitField0_ |= 1;
+                                this.streamId_ = codedInputStream.readInt64();
                             }
                         }
                         z = true;
@@ -633,5 +552,191 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
                 makeExtensionsImmutable();
             }
         }
+    }
+
+    public /* synthetic */ RpcMetaPb$ChunkInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c90 c90Var) throws InvalidProtocolBufferException {
+        this(codedInputStream, extensionRegistryLite);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RpcMetaPb$ChunkInfo(GeneratedMessageLite.Builder builder) {
+        super(builder);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.memoizedIsInitialized = (byte) -1;
+        this.memoizedSerializedSize = -1;
+    }
+
+    public /* synthetic */ RpcMetaPb$ChunkInfo(GeneratedMessageLite.Builder builder, c90 c90Var) {
+        this(builder);
+    }
+
+    public static RpcMetaPb$ChunkInfo parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, inputStream, extensionRegistryLite)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeLL.objValue;
+    }
+
+    public static RpcMetaPb$ChunkInfo parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, byteString, extensionRegistryLite)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeLL.objValue;
+    }
+
+    public RpcMetaPb$ChunkInfo(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        this.memoizedIsInitialized = (byte) -1;
+        this.memoizedSerializedSize = -1;
+    }
+
+    public static b newBuilder(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, rpcMetaPb$ChunkInfo)) == null) {
+            b newBuilder = newBuilder();
+            newBuilder.u(rpcMetaPb$ChunkInfo);
+            return newBuilder;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public static RpcMetaPb$ChunkInfo parseDelimitedFrom(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, inputStream)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseDelimitedFrom(inputStream);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeL.objValue;
+    }
+
+    public static RpcMetaPb$ChunkInfo parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, byteString)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseFrom(byteString);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeL.objValue;
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, codedOutputStream) == null) {
+            getSerializedSize();
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeInt64(1, this.streamId_);
+            }
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeInt64(2, this.chunkId_);
+            }
+        }
+    }
+
+    public static RpcMetaPb$ChunkInfo parseFrom(CodedInputStream codedInputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, codedInputStream)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseFrom(codedInputStream);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeL.objValue;
+    }
+
+    public static RpcMetaPb$ChunkInfo parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, codedInputStream, extensionRegistryLite)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeLL.objValue;
+    }
+
+    public static RpcMetaPb$ChunkInfo parseFrom(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseFrom(inputStream);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeL.objValue;
+    }
+
+    public static RpcMetaPb$ChunkInfo parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeLL.objValue;
+    }
+
+    public static RpcMetaPb$ChunkInfo parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bArr)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseFrom(bArr);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeL.objValue;
+    }
+
+    public static RpcMetaPb$ChunkInfo parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, bArr, extensionRegistryLite)) == null) {
+            return (RpcMetaPb$ChunkInfo) PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+        return (RpcMetaPb$ChunkInfo) invokeLL.objValue;
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public int getSerializedSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.memoizedSerializedSize;
+            if (i != -1) {
+                return i;
+            }
+            int i2 = 0;
+            if ((this.bitField0_ & 1) == 1) {
+                i2 = 0 + CodedOutputStream.computeInt64Size(1, this.streamId_);
+            }
+            if ((this.bitField0_ & 2) == 2) {
+                i2 += CodedOutputStream.computeInt64Size(2, this.chunkId_);
+            }
+            this.memoizedSerializedSize = i2;
+            return i2;
+        }
+        return invokeV.intValue;
     }
 }

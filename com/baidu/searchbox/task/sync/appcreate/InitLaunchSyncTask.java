@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.ForeBackLifecycleMonitorUtil;
-import com.baidu.tieba.di5;
-import com.baidu.tieba.gq4;
-import com.baidu.tieba.hi5;
+import com.baidu.tieba.ii5;
+import com.baidu.tieba.iq4;
+import com.baidu.tieba.mi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,6 +25,23 @@ import java.util.ArrayList;
 public class InitLaunchSyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitLaunchSync" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
 
     public InitLaunchSyncTask() {
         Interceptable interceptable = $ic;
@@ -43,7 +60,7 @@ public class InitLaunchSyncTask extends LaunchTask {
     private void cleanDirectoryNewStatIfNeed() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true) && TbadkCoreApplication.getInst().getIsFirstUse()) {
-            hi5.b(new di5<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
+            mi5.b(new ii5(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLaunchSyncTask this$0;
@@ -66,7 +83,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.di5
+                @Override // com.baidu.tieba.ii5
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -97,7 +114,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     }
                 }
             } else {
-                TbadkCoreApplication.getInst().mRemoteActivity = new ArrayList<>();
+                TbadkCoreApplication.getInst().mRemoteActivity = new ArrayList();
             }
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                 TbadkCoreApplication.getInst().sendMessageForEnterBackground();
@@ -131,33 +148,19 @@ public class InitLaunchSyncTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, socketResponsedMessage)) == null) {
                         if (socketResponsedMessage != null) {
-                            return socketResponsedMessage.getError() == 110004 || socketResponsedMessage.getError() == 110005;
+                            if (socketResponsedMessage.getError() == 110004 || socketResponsedMessage.getError() == 110005) {
+                                return true;
+                            }
+                            return false;
                         }
                         return false;
                     }
                     return invokeL.booleanValue;
                 }
             });
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new gq4());
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new iq4());
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
             cleanDirectoryNewStatIfNeed();
         }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitLaunchSync" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
     }
 }

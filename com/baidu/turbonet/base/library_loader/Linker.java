@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h89;
+import com.baidu.tieba.z89;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.AccessedByNative;
 import java.io.IOException;
 import java.util.Locale;
 /* loaded from: classes6.dex */
@@ -35,40 +34,31 @@ public abstract class Linker {
         }
     }
 
-    public Linker() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static native long nativeGetRandomBaseLoadAddress();
 
     /* loaded from: classes6.dex */
-    public static class LibInfo implements Parcelable {
+    public class LibInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<LibInfo> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
-        @AccessedByNative
         public long mLoadAddress;
-        @AccessedByNative
         public long mLoadSize;
-        @AccessedByNative
         public int mRelroFd;
-        @AccessedByNative
         public long mRelroSize;
-        @AccessedByNative
         public long mRelroStart;
 
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+
         /* loaded from: classes6.dex */
-        public static class a implements Parcelable.Creator<LibInfo> {
+        public final class a implements Parcelable.Creator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,7 +82,10 @@ public abstract class Linker {
             public LibInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new LibInfo(parcel) : (LibInfo) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                    return new LibInfo(parcel);
+                }
+                return (LibInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -101,7 +94,10 @@ public abstract class Linker {
             public LibInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new LibInfo[i] : (LibInfo[]) invokeI.objValue;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                    return new LibInfo[i];
+                }
+                return (LibInfo[]) invokeI.objValue;
             }
         }
 
@@ -144,52 +140,17 @@ public abstract class Linker {
         public void close() {
             int i;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i = this.mRelroFd) < 0) {
-                return;
-            }
-            try {
-                ParcelFileDescriptor.adoptFd(i).close();
-            } catch (IOException unused) {
-            }
-            this.mRelroFd = -1;
-        }
-
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format(Locale.US, "[load=0x%x-0x%x relro=0x%x-0x%x fd=%d]", Long.valueOf(this.mLoadAddress), Long.valueOf(this.mLoadAddress + this.mLoadSize), Long.valueOf(this.mRelroStart), Long.valueOf(this.mRelroStart + this.mRelroSize), Integer.valueOf(this.mRelroFd)) : (String) invokeV.objValue;
-        }
-
-        @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) || this.mRelroFd < 0) {
-                return;
-            }
-            parcel.writeLong(this.mLoadAddress);
-            parcel.writeLong(this.mLoadSize);
-            parcel.writeLong(this.mRelroStart);
-            parcel.writeLong(this.mRelroSize);
-            try {
-                ParcelFileDescriptor fromFd = ParcelFileDescriptor.fromFd(this.mRelroFd);
-                fromFd.writeToParcel(parcel, 0);
-                fromFd.close();
-            } catch (IOException e) {
-                h89.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (i = this.mRelroFd) >= 0) {
+                try {
+                    ParcelFileDescriptor.adoptFd(i).close();
+                } catch (IOException unused) {
+                }
+                this.mRelroFd = -1;
             }
         }
 
         public LibInfo(Parcel parcel) {
+            int detachFd;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -209,7 +170,53 @@ public abstract class Linker {
             this.mRelroStart = parcel.readLong();
             this.mRelroSize = parcel.readLong();
             ParcelFileDescriptor parcelFileDescriptor = (ParcelFileDescriptor) ParcelFileDescriptor.CREATOR.createFromParcel(parcel);
-            this.mRelroFd = parcelFileDescriptor == null ? -1 : parcelFileDescriptor.detachFd();
+            if (parcelFileDescriptor == null) {
+                detachFd = -1;
+            } else {
+                detachFd = parcelFileDescriptor.detachFd();
+            }
+            this.mRelroFd = detachFd;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return String.format(Locale.US, "[load=0x%x-0x%x relro=0x%x-0x%x fd=%d]", Long.valueOf(this.mLoadAddress), Long.valueOf(this.mLoadAddress + this.mLoadSize), Long.valueOf(this.mRelroStart), Long.valueOf(this.mRelroStart + this.mRelroSize), Integer.valueOf(this.mRelroFd));
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) && this.mRelroFd >= 0) {
+                parcel.writeLong(this.mLoadAddress);
+                parcel.writeLong(this.mLoadSize);
+                parcel.writeLong(this.mRelroStart);
+                parcel.writeLong(this.mRelroSize);
+                try {
+                    ParcelFileDescriptor fromFd = ParcelFileDescriptor.fromFd(this.mRelroFd);
+                    fromFd.writeToParcel(parcel, 0);
+                    fromFd.close();
+                } catch (IOException e) {
+                    z89.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
+                }
+            }
+        }
+    }
+
+    public Linker() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 }

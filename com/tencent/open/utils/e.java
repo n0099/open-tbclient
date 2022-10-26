@@ -51,6 +51,26 @@ public class e {
         return (String) invokeLLL.objValue;
     }
 
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                char[] cArr = new char[bArr.length * 2];
+                for (int i = 0; i < bArr.length; i++) {
+                    byte b = bArr[i];
+                    int i2 = i * 2;
+                    char[] cArr2 = a;
+                    cArr[i2 + 1] = cArr2[b & 15];
+                    cArr[i2] = cArr2[((byte) (b >>> 4)) & 15];
+                }
+                return new String(cArr);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -65,25 +85,5 @@ public class e {
             }
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return "";
-            }
-            char[] cArr = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                byte b = bArr[i];
-                int i2 = i * 2;
-                char[] cArr2 = a;
-                cArr[i2 + 1] = cArr2[b & 15];
-                cArr[i2] = cArr2[((byte) (b >>> 4)) & 15];
-            }
-            return new String(cArr);
-        }
-        return (String) invokeL.objValue;
     }
 }

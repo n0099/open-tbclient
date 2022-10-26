@@ -27,12 +27,12 @@ public class JDK8PlatformImplementations extends JDK7PlatformImplementations {
         Matcher matcher = (Matcher) matchResult;
         if (matcher != null) {
             IntRange intRange = new IntRange(matcher.start(name), matcher.end(name) - 1);
-            if (intRange.getStart().intValue() >= 0) {
-                String group = matcher.group(name);
-                Intrinsics.checkNotNullExpressionValue(group, "matcher.group(name)");
-                return new MatchGroup(group, intRange);
+            if (intRange.getStart().intValue() < 0) {
+                return null;
             }
-            return null;
+            String group = matcher.group(name);
+            Intrinsics.checkNotNullExpressionValue(group, "matcher.group(name)");
+            return new MatchGroup(group, intRange);
         }
         throw new UnsupportedOperationException("Retrieving groups by name is not supported on this platform.");
     }

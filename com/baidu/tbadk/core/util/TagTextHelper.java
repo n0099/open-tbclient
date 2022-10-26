@@ -1,9 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import androidx.annotation.ColorRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,9 +15,15 @@ public final class TagTextHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int getIndexTextColorRes(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? R.color.CAM_X0315 : R.color.CAM_X0305 : R.color.CAM_X0319 : R.color.CAM_X0301 : invokeI.intValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class HotTopicTag {
+    public final class HotTopicTag {
         public static final /* synthetic */ HotTopicTag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HotTopicTag BAO;
@@ -29,9 +32,7 @@ public final class TagTextHelper {
         public static final HotTopicTag NEW;
         public static final HotTopicTag REC;
         public transient /* synthetic */ FieldHolder $fh;
-        @ColorRes
         public int tagColorRes;
-        @StringRes
         public int tagStrRes;
 
         static {
@@ -47,16 +48,16 @@ public final class TagTextHelper {
                     return;
                 }
             }
-            NEW = new HotTopicTag("NEW", 0, R.string.obfuscated_res_0x7f0f137c, R.color.CAM_X0305);
-            HOT = new HotTopicTag("HOT", 1, R.string.obfuscated_res_0x7f0f137b, R.color.CAM_X0301);
-            REC = new HotTopicTag("REC", 2, R.string.obfuscated_res_0x7f0f137d, R.color.CAM_X0306);
-            BAO = new HotTopicTag("BAO", 3, R.string.obfuscated_res_0x7f0f1379, R.color.CAM_X0308);
-            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, R.string.obfuscated_res_0x7f0f137a, R.color.CAM_X0317);
+            NEW = new HotTopicTag("NEW", 0, R.string.obfuscated_res_0x7f0f1390, R.color.CAM_X0305);
+            HOT = new HotTopicTag("HOT", 1, R.string.obfuscated_res_0x7f0f138f, R.color.CAM_X0301);
+            REC = new HotTopicTag("REC", 2, R.string.obfuscated_res_0x7f0f1391, R.color.CAM_X0306);
+            BAO = new HotTopicTag("BAO", 3, R.string.obfuscated_res_0x7f0f138d, R.color.CAM_X0308);
+            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, R.string.obfuscated_res_0x7f0f138e, R.color.CAM_X0317);
             FEI = hotTopicTag;
             $VALUES = new HotTopicTag[]{NEW, HOT, REC, BAO, hotTopicTag};
         }
 
-        public HotTopicTag(@StringRes String str, @ColorRes int i, int i2, int i3) {
+        public HotTopicTag(String str, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,13 +106,19 @@ public final class TagTextHelper {
         public static HotTopicTag valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (HotTopicTag) Enum.valueOf(HotTopicTag.class, str) : (HotTopicTag) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (HotTopicTag) Enum.valueOf(HotTopicTag.class, str);
+            }
+            return (HotTopicTag) invokeL.objValue;
         }
 
         public static HotTopicTag[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (HotTopicTag[]) $VALUES.clone() : (HotTopicTag[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (HotTopicTag[]) $VALUES.clone();
+            }
+            return (HotTopicTag[]) invokeV.objValue;
         }
     }
 
@@ -129,31 +136,29 @@ public final class TagTextHelper {
         }
     }
 
-    @ColorRes
     public static int getHotTopicTagColorRes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
-            return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
+            if (hotTopicTag != null) {
+                return hotTopicTag.tagColorRes;
+            }
+            return R.color.transparent;
         }
         return invokeI.intValue;
     }
 
-    public static String getHotTopicTagStr(@NonNull Context context, int i) {
+    public static String getHotTopicTagStr(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
             HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
-            return hotTopicTag != null ? context.getString(hotTopicTag.tagStrRes) : "";
+            if (hotTopicTag != null) {
+                return context.getString(hotTopicTag.tagStrRes);
+            }
+            return "";
         }
         return (String) invokeLI.objValue;
-    }
-
-    @ColorRes
-    public static int getIndexTextColorRes(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? R.color.CAM_X0315 : R.color.CAM_X0305 : R.color.CAM_X0319 : R.color.CAM_X0301 : invokeI.intValue;
     }
 }

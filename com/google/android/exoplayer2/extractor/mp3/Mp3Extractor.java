@@ -68,6 +68,19 @@ public final class Mp3Extractor implements Extractor {
         long getTimeUs(long j);
     }
 
+    public static boolean headersMatch(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? ((long) (i & MPEG_AUDIO_HEADER_MASK)) == (j & (-128000)) : invokeCommon.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -129,6 +142,50 @@ public final class Mp3Extractor implements Extractor {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public Mp3Extractor(int i) {
+        this(i, C.TIME_UNSET);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Long) objArr2[1]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public Mp3Extractor(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.flags = i;
+        this.forcedFirstSampleTimestampUs = j;
+        this.scratch = new ParsableByteArray(10);
+        this.synchronizedHeader = new MpegAudioHeader();
+        this.gaplessInfoHolder = new GaplessInfoHolder();
+        this.basisTimeUs = C.TIME_UNSET;
+    }
+
     private Seeker getConstantBitrateSeeker(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -166,10 +223,15 @@ public final class Mp3Extractor implements Extractor {
         return invokeLI.intValue;
     }
 
-    public static boolean headersMatch(int i, long j) {
-        InterceptResult invokeCommon;
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? ((long) (i & MPEG_AUDIO_HEADER_MASK)) == (j & (-128000)) : invokeCommon.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.synchronizedHeaderData = 0;
+            this.basisTimeUs = C.TIME_UNSET;
+            this.samplesRead = 0L;
+            this.sampleBytesRemaining = 0;
+        }
     }
 
     private Seeker maybeReadSeekFrame(ExtractorInput extractorInput) throws IOException, InterruptedException {
@@ -212,42 +274,12 @@ public final class Mp3Extractor implements Extractor {
                 this.gaplessInfoHolder.setFromXingHeaderValue(this.scratch.readUnsignedInt24());
             }
             extractorInput.skipFully(this.synchronizedHeader.frameSize);
-            return (create2 == null || create2.isSeekable() || seekFrameHeader != SEEK_HEADER_INFO) ? create2 : getConstantBitrateSeeker(extractorInput);
+            if (create2 != null && !create2.isSeekable() && seekFrameHeader == SEEK_HEADER_INFO) {
+                return getConstantBitrateSeeker(extractorInput);
+            }
+            return create2;
         }
         return (Seeker) invokeL.objValue;
-    }
-
-    private void peekId3Data(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65544, this, extractorInput) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            extractorInput.peekFully(this.scratch.data, 0, 10);
-            this.scratch.setPosition(0);
-            if (this.scratch.readUnsignedInt24() != Id3Decoder.ID3_TAG) {
-                extractorInput.resetPeekPosition();
-                extractorInput.advancePeekPosition(i);
-                return;
-            }
-            this.scratch.skipBytes(3);
-            int readSynchSafeInt = this.scratch.readSynchSafeInt();
-            int i2 = readSynchSafeInt + 10;
-            if (this.metadata == null) {
-                byte[] bArr = new byte[i2];
-                System.arraycopy(this.scratch.data, 0, bArr, 0, 10);
-                extractorInput.peekFully(bArr, 10, readSynchSafeInt);
-                Metadata decode = new Id3Decoder((this.flags & 2) != 0 ? GaplessInfoHolder.GAPLESS_INFO_ID3_FRAME_PREDICATE : null).decode(bArr, i2);
-                this.metadata = decode;
-                if (decode != null) {
-                    this.gaplessInfoHolder.setFromMetadata(decode);
-                }
-            } else {
-                extractorInput.advancePeekPosition(readSynchSafeInt);
-            }
-            i += i2;
-        }
     }
 
     private int readSample(ExtractorInput extractorInput) throws IOException, InterruptedException {
@@ -294,48 +326,87 @@ public final class Mp3Extractor implements Extractor {
         return invokeL.intValue;
     }
 
+    private void peekId3Data(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        Id3Decoder.FramePredicate framePredicate;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, extractorInput) == null) {
+            int i = 0;
+            while (true) {
+                extractorInput.peekFully(this.scratch.data, 0, 10);
+                this.scratch.setPosition(0);
+                if (this.scratch.readUnsignedInt24() != Id3Decoder.ID3_TAG) {
+                    extractorInput.resetPeekPosition();
+                    extractorInput.advancePeekPosition(i);
+                    return;
+                }
+                this.scratch.skipBytes(3);
+                int readSynchSafeInt = this.scratch.readSynchSafeInt();
+                int i2 = readSynchSafeInt + 10;
+                if (this.metadata == null) {
+                    byte[] bArr = new byte[i2];
+                    System.arraycopy(this.scratch.data, 0, bArr, 0, 10);
+                    extractorInput.peekFully(bArr, 10, readSynchSafeInt);
+                    if ((this.flags & 2) != 0) {
+                        framePredicate = GaplessInfoHolder.GAPLESS_INFO_ID3_FRAME_PREDICATE;
+                    } else {
+                        framePredicate = null;
+                    }
+                    Metadata decode = new Id3Decoder(framePredicate).decode(bArr, i2);
+                    this.metadata = decode;
+                    if (decode != null) {
+                        this.gaplessInfoHolder.setFromMetadata(decode);
+                    }
+                } else {
+                    extractorInput.advancePeekPosition(readSynchSafeInt);
+                }
+                i += i2;
+            }
+        }
+    }
+
     private boolean synchronize(ExtractorInput extractorInput, boolean z) throws IOException, InterruptedException {
         InterceptResult invokeLZ;
         int i;
         int i2;
+        int i3;
+        boolean z2;
         int frameSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, this, extractorInput, z)) == null) {
-            int i3 = z ? 16384 : 131072;
+            if (z) {
+                i = 16384;
+            } else {
+                i = 131072;
+            }
             extractorInput.resetPeekPosition();
             if (extractorInput.getPosition() == 0) {
                 peekId3Data(extractorInput);
-                i2 = (int) extractorInput.getPeekPosition();
+                i3 = (int) extractorInput.getPeekPosition();
                 if (!z) {
-                    extractorInput.skipFully(i2);
+                    extractorInput.skipFully(i3);
                 }
-                i = 0;
-            } else {
-                i = 0;
                 i2 = 0;
+            } else {
+                i2 = 0;
+                i3 = 0;
             }
             int i4 = 0;
             int i5 = 0;
             while (true) {
-                if (!extractorInput.peekFully(this.scratch.data, 0, 4, i > 0)) {
+                byte[] bArr = this.scratch.data;
+                if (i2 > 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!extractorInput.peekFully(bArr, 0, 4, z2)) {
                     break;
                 }
                 this.scratch.setPosition(0);
                 int readInt = this.scratch.readInt();
-                if ((i4 == 0 || headersMatch(readInt, i4)) && (frameSize = MpegAudioHeader.getFrameSize(readInt)) != -1) {
-                    i++;
-                    if (i != 1) {
-                        if (i == 4) {
-                            break;
-                        }
-                    } else {
-                        MpegAudioHeader.populateHeader(readInt, this.synchronizedHeader);
-                        i4 = readInt;
-                    }
-                    extractorInput.advancePeekPosition(frameSize - 4);
-                } else {
+                if ((i4 != 0 && !headersMatch(readInt, i4)) || (frameSize = MpegAudioHeader.getFrameSize(readInt)) == -1) {
                     int i6 = i5 + 1;
-                    if (i5 == i3) {
+                    if (i5 == i) {
                         if (z) {
                             return false;
                         }
@@ -343,17 +414,26 @@ public final class Mp3Extractor implements Extractor {
                     }
                     if (z) {
                         extractorInput.resetPeekPosition();
-                        extractorInput.advancePeekPosition(i2 + i6);
+                        extractorInput.advancePeekPosition(i3 + i6);
                     } else {
                         extractorInput.skipFully(1);
                     }
                     i5 = i6;
-                    i = 0;
+                    i2 = 0;
                     i4 = 0;
+                } else {
+                    i2++;
+                    if (i2 == 1) {
+                        MpegAudioHeader.populateHeader(readInt, this.synchronizedHeader);
+                        i4 = readInt;
+                    } else if (i2 == 4) {
+                        break;
+                    }
+                    extractorInput.advancePeekPosition(frameSize - 4);
                 }
             }
             if (z) {
-                extractorInput.skipFully(i2 + i5);
+                extractorInput.skipFully(i3 + i5);
             } else {
                 extractorInput.resetPeekPosition();
             }
@@ -374,8 +454,19 @@ public final class Mp3Extractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
+    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
+            return synchronize(extractorInput, true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
     public int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
         InterceptResult invokeLL;
+        Metadata metadata;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorInput, positionHolder)) == null) {
             if (this.synchronizedHeaderData == 0) {
@@ -398,79 +489,17 @@ public final class Mp3Extractor implements Extractor {
                 int i = mpegAudioHeader.channels;
                 int i2 = mpegAudioHeader.sampleRate;
                 GaplessInfoHolder gaplessInfoHolder = this.gaplessInfoHolder;
-                trackOutput.format(Format.createAudioSampleFormat(null, str, null, -1, 4096, i, i2, -1, gaplessInfoHolder.encoderDelay, gaplessInfoHolder.encoderPadding, null, null, 0, null, (this.flags & 2) != 0 ? null : this.metadata));
+                int i3 = gaplessInfoHolder.encoderDelay;
+                int i4 = gaplessInfoHolder.encoderPadding;
+                if ((this.flags & 2) != 0) {
+                    metadata = null;
+                } else {
+                    metadata = this.metadata;
+                }
+                trackOutput.format(Format.createAudioSampleFormat(null, str, null, -1, 4096, i, i2, -1, i3, i4, null, null, 0, null, metadata));
             }
             return readSample(extractorInput);
         }
         return invokeLL.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.synchronizedHeaderData = 0;
-            this.basisTimeUs = C.TIME_UNSET;
-            this.samplesRead = 0L;
-            this.sampleBytesRemaining = 0;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) ? synchronize(extractorInput, true) : invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Mp3Extractor(int i) {
-        this(i, C.TIME_UNSET);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), ((Long) objArr2[1]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public Mp3Extractor(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.flags = i;
-        this.forcedFirstSampleTimestampUs = j;
-        this.scratch = new ParsableByteArray(10);
-        this.synchronizedHeader = new MpegAudioHeader();
-        this.gaplessInfoHolder = new GaplessInfoHolder();
-        this.basisTimeUs = C.TIME_UNSET;
     }
 }

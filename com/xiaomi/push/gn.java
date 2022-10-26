@@ -44,10 +44,10 @@ public abstract class gn {
     public gr f439a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gk> f440a;
+    public List f440a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map<String, Object> f441a;
+    public final Map f441a;
     public String d;
     public String e;
     public String f;
@@ -193,7 +193,7 @@ public abstract class gn {
             if (grVar != null) {
                 bundle.putBundle("ext_ERROR", grVar.a());
             }
-            List<gk> list = this.f440a;
+            List list = this.f440a;
             if (list != null) {
                 Bundle[] bundleArr = new Bundle[list.size()];
                 int i = 0;
@@ -223,7 +223,7 @@ public abstract class gn {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             for (gk gkVar : this.f440a) {
                 if (str2 == null || str2.equals(gkVar.b())) {
-                    if (str.equals(gkVar.m368a())) {
+                    if (str.equals(gkVar.m367a())) {
                         return gkVar;
                     }
                 }
@@ -234,14 +234,14 @@ public abstract class gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gr m370a() {
+    public gr m369a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f439a : (gr) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m371a(String str) {
+    public synchronized Object m370a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -256,10 +256,10 @@ public abstract class gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m372a();
+    public abstract String m371a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<gk> m373a() {
+    public synchronized Collection m372a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -284,7 +284,7 @@ public abstract class gn {
         }
     }
 
-    public synchronized Collection<String> b() {
+    public synchronized Collection b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -315,7 +315,7 @@ public abstract class gn {
                         if (str2 == null ? gnVar.e == null : str2.equals(gnVar.e)) {
                             String str3 = this.h;
                             if (str3 == null ? gnVar.h == null : str3.equals(gnVar.h)) {
-                                Map<String, Object> map = this.f441a;
+                                Map map = this.f441a;
                                 if (map == null ? gnVar.f441a == null : map.equals(gnVar.f441a)) {
                                     String str4 = this.f;
                                     if (str4 == null ? gnVar.f == null : str4.equals(gnVar.f)) {
@@ -450,41 +450,41 @@ public abstract class gn {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             synchronized (this) {
                 StringBuilder sb2 = new StringBuilder();
-                for (gk gkVar : m373a()) {
-                    sb2.append(gkVar.d());
+                for (go goVar : m372a()) {
+                    sb2.append(goVar.d());
                 }
                 if (this.f441a != null && !this.f441a.isEmpty()) {
                     sb2.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");
                     for (String str2 : b()) {
-                        Object m371a = m371a(str2);
+                        Object m370a = m370a(str2);
                         sb2.append("<property>");
                         sb2.append("<name>");
                         sb2.append(gy.a(str2));
                         sb2.append("</name>");
                         sb2.append("<value type=\"");
-                        if (m371a instanceof Integer) {
+                        if (m370a instanceof Integer) {
                             sb2.append("integer\">");
-                            sb2.append(m371a);
+                            sb2.append(m370a);
                             str = "</value>";
-                        } else if (m371a instanceof Long) {
+                        } else if (m370a instanceof Long) {
                             sb2.append("long\">");
-                            sb2.append(m371a);
+                            sb2.append(m370a);
                             str = "</value>";
-                        } else if (m371a instanceof Float) {
+                        } else if (m370a instanceof Float) {
                             sb2.append("float\">");
-                            sb2.append(m371a);
+                            sb2.append(m370a);
                             str = "</value>";
-                        } else if (m371a instanceof Double) {
+                        } else if (m370a instanceof Double) {
                             sb2.append("double\">");
-                            sb2.append(m371a);
+                            sb2.append(m370a);
                             str = "</value>";
-                        } else if (m371a instanceof Boolean) {
+                        } else if (m370a instanceof Boolean) {
                             sb2.append("boolean\">");
-                            sb2.append(m371a);
+                            sb2.append(m370a);
                             str = "</value>";
-                        } else if (m371a instanceof String) {
+                        } else if (m370a instanceof String) {
                             sb2.append("string\">");
-                            sb2.append(gy.a((String) m371a));
+                            sb2.append(gy.a((String) m370a));
                             str = "</value>";
                         } else {
                             ObjectOutputStream objectOutputStream2 = null;
@@ -494,7 +494,7 @@ public abstract class gn {
                                     objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                                     try {
                                         try {
-                                            objectOutputStream.writeObject(m371a);
+                                            objectOutputStream.writeObject(m370a);
                                             sb2.append("java-object\">");
                                             sb2.append(gy.a(byteArrayOutputStream.toByteArray()));
                                             sb2.append("</value>");

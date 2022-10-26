@@ -1,15 +1,13 @@
 package com.baidu.searchbox.player.pool;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class SynchronizedFIFOPool<T extends IPoolItem> extends FIFOPool<T> {
+public class SynchronizedFIFOPool extends FIFOPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object mLock;
@@ -35,45 +33,38 @@ public class SynchronizedFIFOPool<T extends IPoolItem> extends FIFOPool<T> {
         this.mLock = new Object();
     }
 
-    @Override // com.baidu.searchbox.player.pool.FIFOPool
-    public void add(T t) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.player.pool.FIFOPool, com.baidu.searchbox.player.pool.IPool
+    public IPoolItem acquire() {
+        InterceptResult invokeV;
+        IPoolItem acquire;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this.mLock) {
-                super.add(t);
+                acquire = super.acquire();
             }
+            return acquire;
         }
+        return (IPoolItem) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.player.pool.SynchronizedFIFOPool<T extends com.baidu.searchbox.player.pool.IPoolItem> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.searchbox.player.pool.FIFOPool, com.baidu.searchbox.player.pool.IPool
-    public /* bridge */ /* synthetic */ void release(@NonNull Object obj) {
-        release((SynchronizedFIFOPool<T>) ((IPoolItem) obj));
+    @Override // com.baidu.searchbox.player.pool.FIFOPool
+    public void add(IPoolItem iPoolItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iPoolItem) == null) {
+            synchronized (this.mLock) {
+                super.add(iPoolItem);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.pool.FIFOPool, com.baidu.searchbox.player.pool.IPool
-    @NonNull
-    public T acquire() {
-        InterceptResult invokeV;
-        T t;
+    public void release(IPoolItem iPoolItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, iPoolItem) == null) {
             synchronized (this.mLock) {
-                t = (T) super.acquire();
-            }
-            return t;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.player.pool.FIFOPool
-    public void release(@NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            synchronized (this.mLock) {
-                super.release((SynchronizedFIFOPool<T>) t);
+                super.release(iPoolItem);
             }
         }
     }

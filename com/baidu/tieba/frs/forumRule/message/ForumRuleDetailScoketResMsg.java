@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs.forumRule.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lm6;
+import com.baidu.tieba.sm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lm6 mForumRuleDetailData;
+    public sm6 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailScoketResMsg() {
@@ -36,8 +35,16 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
         }
     }
 
+    public sm6 getmForumRuleDetailData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mForumRuleDetailData;
+        }
+        return (sm6) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -53,19 +60,13 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
                     setErrorString(forumRuleDetailResIdl.error.usermsg);
                 }
                 if (forumRuleDetailResIdl.data != null) {
-                    lm6 lm6Var = new lm6();
-                    this.mForumRuleDetailData = lm6Var;
-                    lm6Var.q(forumRuleDetailResIdl.data);
+                    sm6 sm6Var = new sm6();
+                    this.mForumRuleDetailData = sm6Var;
+                    sm6Var.q(forumRuleDetailResIdl.data);
                 }
             }
             return forumRuleDetailResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public lm6 getmForumRuleDetailData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumRuleDetailData : (lm6) invokeV.objValue;
     }
 }

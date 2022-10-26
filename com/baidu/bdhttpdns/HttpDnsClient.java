@@ -3,9 +3,9 @@ package com.baidu.bdhttpdns;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.ip;
-import com.baidu.tieba.np;
+import com.baidu.tieba.jp;
 import com.baidu.tieba.op;
+import com.baidu.tieba.pp;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,10 +52,10 @@ public final class HttpDnsClient {
     public String d;
     public boolean e;
     public long f;
-    public final HashSet<String> g;
+    public final HashSet g;
     public final Object h;
     public final Object i;
-    public ArrayList<String> j;
+    public ArrayList j;
     public String k;
     public String l;
     public boolean m;
@@ -63,9 +63,35 @@ public final class HttpDnsClient {
     public int o;
     public int p;
 
+    /* loaded from: classes.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes.dex */
+    public interface b {
+        void a(int i, RequestParamType requestParamType, Map map, String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-661556435, "Lcom/baidu/bdhttpdns/HttpDnsClient;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-661556435, "Lcom/baidu/bdhttpdns/HttpDnsClient;");
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class RequestParamType {
+    public final class RequestParamType {
         public static final /* synthetic */ RequestParamType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RequestParamType DNLIST_HOSTS;
@@ -113,25 +139,20 @@ public final class HttpDnsClient {
         public static RequestParamType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RequestParamType) Enum.valueOf(RequestParamType.class, str) : (RequestParamType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RequestParamType) Enum.valueOf(RequestParamType.class, str);
+            }
+            return (RequestParamType) invokeL.objValue;
         }
 
         public static RequestParamType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RequestParamType[]) $VALUES.clone() : (RequestParamType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RequestParamType[]) $VALUES.clone();
+            }
+            return (RequestParamType[]) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes.dex */
-    public interface b {
-        void a(int i, RequestParamType requestParamType, Map<String, e> map, String str);
     }
 
     /* loaded from: classes.dex */
@@ -185,9 +206,13 @@ public final class HttpDnsClient {
                     if (b == null) {
                         b = this.f.a;
                         this.e = false;
-                        np.a("Using BGPServerIp(%s)", this.f.a);
+                        op.a("Using BGPServerIp(%s)", this.f.a);
                     }
-                    str2 = BDNetworkStateChangeReceiver.isIPv6Reachable() ? "dual_stack" : "ipv4";
+                    if (BDNetworkStateChangeReceiver.isIPv6Reachable()) {
+                        str2 = "dual_stack";
+                    } else {
+                        str2 = "ipv4";
+                    }
                 } else if (!BDNetworkStateChangeReceiver.isIPv6Reachable()) {
                     return null;
                 } else {
@@ -195,7 +220,7 @@ public final class HttpDnsClient {
                     if (b == null) {
                         b = this.f.c;
                         this.e = false;
-                        np.a("Using BGPServerIp(%s)", this.f.c);
+                        op.a("Using BGPServerIp(%s)", this.f.c);
                     }
                     str2 = HttpDnsCacheForHost.JSON_KEY_IPV6;
                 }
@@ -216,12 +241,12 @@ public final class HttpDnsClient {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-                if (str == null || i >= 3) {
-                    return null;
+                if (str != null && i < 3) {
+                    this.e = true;
+                    op.a("Using IDCServerIP(%s)", str);
+                    return str;
                 }
-                this.e = true;
-                np.a("Using IDCServerIP(%s)", str);
-                return str;
+                return null;
             }
             return (String) invokeLI.objValue;
         }
@@ -241,7 +266,6 @@ public final class HttpDnsClient {
         /* JADX WARN: Type inference failed for: r1v27 */
         /* JADX WARN: Type inference failed for: r1v4, types: [java.net.HttpURLConnection] */
         /* JADX WARN: Type inference failed for: r1v7 */
-        /* JADX WARN: Type inference failed for: r7v25, types: [com.baidu.bdhttpdns.HttpDnsClient] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -256,7 +280,7 @@ public final class HttpDnsClient {
             Boolean bool2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                Map<String, e> hashMap = new HashMap<>();
+                Map hashMap = new HashMap();
                 ?? r1 = Boolean.TRUE;
                 try {
                     try {
@@ -282,13 +306,19 @@ public final class HttpDnsClient {
                             } else {
                                 inputStream = httpsURLConnection.getInputStream();
                             }
-                            if (inputStream != null) {
+                            if (inputStream == null) {
+                                Boolean bool3 = Boolean.FALSE;
+                                this.f.H(Boolean.valueOf(this.e));
+                                op.a("Httpdns request failed for %s(%s), get null response stream", this.b.toString(), this.a);
+                                this.c.a(-1, this.b, null, this.a);
+                                bool2 = bool3;
+                            } else {
                                 String F = this.f.F(inputStream, httpsURLConnection);
-                                np.a("Response data is : %s", F);
+                                op.a("Response data is : %s", F);
                                 if (F == null) {
-                                    Boolean bool3 = Boolean.FALSE;
+                                    Boolean bool4 = Boolean.FALSE;
                                     this.f.H(Boolean.valueOf(this.e));
-                                    np.a("Httpdns request failed for %s(%s), get empty response data", this.b.toString(), this.a);
+                                    op.a("Httpdns request failed for %s(%s), get empty response data", this.b.toString(), this.a);
                                     this.c.a(-1, this.b, null, this.a);
                                     if (httpsURLConnection != null) {
                                         httpsURLConnection.disconnect();
@@ -321,12 +351,6 @@ public final class HttpDnsClient {
                                     this.c.a(-1, this.b, null, this.a);
                                     bool2 = r1;
                                 }
-                            } else {
-                                Boolean bool4 = Boolean.FALSE;
-                                this.f.H(Boolean.valueOf(this.e));
-                                np.a("Httpdns request failed for %s(%s), get null response stream", this.b.toString(), this.a);
-                                this.c.a(-1, this.b, null, this.a);
-                                bool2 = bool4;
                             }
                             if (httpsURLConnection != null) {
                                 httpsURLConnection.disconnect();
@@ -344,7 +368,7 @@ public final class HttpDnsClient {
                             e.printStackTrace();
                             bool = Boolean.FALSE;
                             this.f.H(Boolean.valueOf(this.e));
-                            np.a("Httpdns request failed for %s(%s), caught network IOException", this.b.toString(), this.a);
+                            op.a("Httpdns request failed for %s(%s), caught network IOException", this.b.toString(), this.a);
                             this.c.a(-1, this.b, null, this.a);
                             httpURLConnection4 = httpURLConnection3;
                             r1 = httpURLConnection3;
@@ -354,7 +378,7 @@ public final class HttpDnsClient {
                             e.printStackTrace();
                             bool = Boolean.FALSE;
                             this.f.H(Boolean.valueOf(this.e));
-                            np.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.b.toString(), this.a);
+                            op.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.b.toString(), this.a);
                             this.c.a(-1, this.b, null, this.a);
                             r1 = httpURLConnection2;
                             if (httpURLConnection2 != null) {
@@ -371,7 +395,7 @@ public final class HttpDnsClient {
                             th.printStackTrace();
                             bool = Boolean.FALSE;
                             this.f.H(Boolean.valueOf(this.e));
-                            np.a("Httpdns request failed for %s(%s), caught Exception", this.b.toString(), this.a);
+                            op.a("Httpdns request failed for %s(%s), caught Exception", this.b.toString(), this.a);
                             this.c.a(-1, this.b, null, this.a);
                             httpURLConnection4 = httpURLConnection;
                             r1 = httpURLConnection;
@@ -411,10 +435,10 @@ public final class HttpDnsClient {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 String a = a(this.a, this.b);
-                np.a("Request url is :%s", a);
+                op.a("Request url is :%s", a);
                 if (a == null) {
                     this.c.a(-1, this.b, null, this.a);
-                    np.a("Httpdns request failed for  %s(%s), get url error", this.b.toString(), this.a);
+                    op.a("Httpdns request failed for  %s(%s), get url error", this.b.toString(), this.a);
                     return;
                 }
                 c(a);
@@ -427,7 +451,7 @@ public final class HttpDnsClient {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 d();
                 if (this.d) {
-                    np.a("Retry for %s(%s).", this.b.toString(), this.a);
+                    op.a("Retry for %s(%s).", this.b.toString(), this.a);
                     d();
                 }
                 synchronized (this.f.h) {
@@ -469,15 +493,18 @@ public final class HttpDnsClient {
             }
         }
 
+        public /* synthetic */ d(HttpDnsClient httpDnsClient, a aVar) {
+            this(httpDnsClient);
+        }
+
         @Override // javax.net.ssl.HostnameVerifier
         public boolean verify(String str, SSLSession sSLSession) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) ? HttpsURLConnection.getDefaultHostnameVerifier().verify("httpdns.baidubce.com", sSLSession) : invokeLL.booleanValue;
-        }
-
-        public /* synthetic */ d(HttpDnsClient httpDnsClient, a aVar) {
-            this(httpDnsClient);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return HttpsURLConnection.getDefaultHostnameVerifier().verify("httpdns.baidubce.com", sSLSession);
+            }
+            return invokeLL.booleanValue;
         }
     }
 
@@ -485,11 +512,11 @@ public final class HttpDnsClient {
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ArrayList<String> a;
-        public final ArrayList<String> b;
+        public final ArrayList a;
+        public final ArrayList b;
         public final long c;
 
-        public e(HttpDnsClient httpDnsClient, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j) {
+        public e(HttpDnsClient httpDnsClient, ArrayList arrayList, ArrayList arrayList2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -509,37 +536,31 @@ public final class HttpDnsClient {
             this.c = j;
         }
 
-        public ArrayList<String> a() {
+        public ArrayList a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (ArrayList) invokeV.objValue;
         }
 
-        public ArrayList<String> b() {
+        public ArrayList b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (ArrayList) invokeV.objValue;
         }
 
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-661556435, "Lcom/baidu/bdhttpdns/HttpDnsClient;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-661556435, "Lcom/baidu/bdhttpdns/HttpDnsClient;");
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.longValue;
         }
     }
 
@@ -561,13 +582,13 @@ public final class HttpDnsClient {
         this.e = true;
         this.f = 0L;
         this.i = new Object();
-        this.j = new ArrayList<>();
+        this.j = new ArrayList();
         this.k = "";
         this.l = "";
         this.m = false;
         this.p = 10;
         this.h = new Object();
-        this.g = new HashSet<>();
+        this.g = new HashSet();
         s = new d(this, null);
     }
 
@@ -583,6 +604,59 @@ public final class HttpDnsClient {
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public void K(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.k = str;
+        }
+    }
+
+    public void L(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void M(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.m = z;
+        }
+    }
+
+    public void N(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            String d2 = jp.d(str);
+            this.l = d2;
+            if (d2 == null) {
+                this.l = str;
+                r = false;
+            }
+        }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            synchronized (this.i) {
+                if (!this.j.contains(str)) {
+                    this.j.add(str);
+                }
+            }
+        }
+    }
+
+    public final String v(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j)) == null) {
+            return jp.j(String.format("%s-%s-%d", str, D(), Long.valueOf(j)));
+        }
+        return (String) invokeLJ.objValue;
     }
 
     public static HttpDnsClient z() {
@@ -601,31 +675,44 @@ public final class HttpDnsClient {
         return (HttpDnsClient) invokeV.objValue;
     }
 
-    public final ArrayList<String> A(String str, String str2, JSONObject jSONObject) {
-        InterceptResult invokeLLL;
+    public boolean C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("ip");
-            if (optJSONArray != null && optJSONArray.length() != 0) {
-                ArrayList<String> arrayList = new ArrayList<>();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    String optString = optJSONArray.optString(i);
-                    if (optString != null && !optString.isEmpty()) {
-                        if (!ip.l(optString) && !ip.m(optString)) {
-                            np.a("Httpdns request warning, host(%s), response of data get invalid ip(%s) in %s", str2, optString, str);
-                        } else {
-                            arrayList.add(optString);
-                        }
-                    } else {
-                        np.a("Httpdns request warning, host(%s), response of data get ip error in %s", str2, str);
-                    }
-                }
-                return arrayList;
-            }
-            np.a("Httpdns request warning, host(%s), response has no ip field in %s", str2, str);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.m;
         }
-        return (ArrayList) invokeLLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public String D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!r) {
+                return this.l;
+            }
+            return jp.b(this.l);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.n = 0;
+            this.o = 0;
+            this.b = null;
+            this.d = null;
+        }
+    }
+
+    public ArrayList y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.j;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public final String B(String str, String str2, JSONObject jSONObject) {
@@ -639,29 +726,38 @@ public final class HttpDnsClient {
                 return jSONObject.getString("msg");
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                np.a("Httpdns request failed, host(%s), response has no msg in %s ", str2, str);
+                op.a("Httpdns request failed, host(%s), response has no msg in %s ", str2, str);
                 return null;
             }
         }
         return (String) invokeLLL.objValue;
     }
 
-    public boolean C() {
-        InterceptResult invokeV;
+    public final ArrayList A(String str, String str2, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m : invokeV.booleanValue;
-    }
-
-    public String D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!r) {
-                return this.l;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("ip");
+            if (optJSONArray != null && optJSONArray.length() != 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    String optString = optJSONArray.optString(i);
+                    if (optString != null && !optString.isEmpty()) {
+                        if (!jp.l(optString) && !jp.m(optString)) {
+                            op.a("Httpdns request warning, host(%s), response of data get invalid ip(%s) in %s", str2, optString, str);
+                        } else {
+                            arrayList.add(optString);
+                        }
+                    } else {
+                        op.a("Httpdns request warning, host(%s), response of data get ip error in %s", str2, str);
+                    }
+                }
+                return arrayList;
             }
-            return ip.b(this.l);
+            op.a("Httpdns request warning, host(%s), response has no ip field in %s", str2, str);
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeLLL.objValue;
     }
 
     public final String E(byte[] bArr, int i) {
@@ -692,209 +788,57 @@ public final class HttpDnsClient {
     public final String F(InputStream inputStream, HttpURLConnection httpURLConnection) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048581, this, inputStream, httpURLConnection)) != null) {
-            return (String) invokeLL.objValue;
-        }
-        String contentEncoding = httpURLConnection.getContentEncoding();
-        if (contentEncoding != null) {
-            try {
-                if (contentEncoding.contains("gzip")) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    int contentLength = httpURLConnection.getContentLength();
-                    if (contentLength <= 0) {
-                        contentLength = 1024;
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = inputStream.read(bArr);
-                            if (-1 == read) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr, 0, read);
-                        }
-                    } else {
-                        byte[] bArr2 = new byte[contentLength];
-                        inputStream.read(bArr2);
-                        byteArrayOutputStream.write(bArr2, 0, contentLength);
-                    }
-                    byteArrayOutputStream.flush();
-                    byteArrayOutputStream.close();
-                    return E(byteArrayOutputStream.toByteArray(), contentLength);
-                }
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
-                return null;
-            } catch (IOException e3) {
-                e3.printStackTrace();
-                return null;
-            }
-        }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
-        StringBuilder sb = new StringBuilder();
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                sb.append(readLine);
-            } else {
-                bufferedReader.close();
-                return sb.toString();
-            }
-        }
-    }
-
-    public final long G(String str, JSONObject jSONObject, JSONObject jSONObject2) {
-        InterceptResult invokeLLL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, jSONObject, jSONObject2)) == null) {
-            if (jSONObject != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, inputStream, httpURLConnection)) == null) {
+            String contentEncoding = httpURLConnection.getContentEncoding();
+            if (contentEncoding != null) {
                 try {
-                    j = jSONObject.getLong(ResultTB.TTL);
-                } catch (JSONException e2) {
+                    if (contentEncoding.contains("gzip")) {
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        int contentLength = httpURLConnection.getContentLength();
+                        if (contentLength > 0) {
+                            byte[] bArr = new byte[contentLength];
+                            inputStream.read(bArr);
+                            byteArrayOutputStream.write(bArr, 0, contentLength);
+                        } else {
+                            contentLength = 1024;
+                            byte[] bArr2 = new byte[1024];
+                            while (true) {
+                                int read = inputStream.read(bArr2);
+                                if (-1 == read) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr2, 0, read);
+                            }
+                        }
+                        byteArrayOutputStream.flush();
+                        byteArrayOutputStream.close();
+                        return E(byteArrayOutputStream.toByteArray(), contentLength);
+                    }
+                } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
-                    np.a("Httpdns request failed, host(%s), response has no ttl, will use defaults ttl(60s)", str);
-                    return -1L;
-                }
-            } else {
-                j = -1;
-            }
-            long j2 = jSONObject2 != null ? jSONObject2.getLong(ResultTB.TTL) : -1L;
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i > 0 && j2 > 0) {
-                return j < j2 ? j : j2;
-            } else if (i > 0) {
-                return j;
-            } else {
-                if (j2 > 0) {
-                    return j2;
-                }
-                return -1L;
-            }
-        }
-        return invokeLLL.longValue;
-    }
-
-    public final synchronized void H(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bool) == null) {
-            synchronized (this) {
-                if (bool.booleanValue()) {
-                    if (BDNetworkStateChangeReceiver.isIPv4Reachable()) {
-                        int i = this.n + 1;
-                        this.n = i;
-                        np.a("requestV4IDCFailNum: %s", Integer.valueOf(i));
-                    } else if (BDNetworkStateChangeReceiver.isIPv6Reachable()) {
-                        int i2 = this.o + 1;
-                        this.o = i2;
-                        np.a("requestV6IDCFailNum: %s", Integer.valueOf(i2));
-                    }
-                }
-            }
-        }
-    }
-
-    public Map J(String str, String str2) {
-        InterceptResult invokeLL;
-        ArrayList<String> arrayList;
-        ArrayList<String> arrayList2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            HashMap hashMap = new HashMap();
-            boolean z = false;
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.has("serverip")) {
-                    JSONObject optJSONObject = jSONObject.optJSONObject("serverip");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("ipv4");
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        this.b = optJSONArray.optString(0);
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
-                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        this.d = PreferencesUtil.LEFT_MOUNT + optJSONArray2.optString(0) + PreferencesUtil.RIGHT_MOUNT;
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-                if (optJSONObject2 == null) {
-                    np.a("Httpdns request failed, hostsOrTag(%s), response has empty data", str2);
+                    return null;
+                } catch (IOException e3) {
+                    e3.printStackTrace();
                     return null;
                 }
-                Iterator<String> keys = optJSONObject2.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next);
-                    JSONObject optJSONObject4 = optJSONObject3.optJSONObject("ipv4");
-                    JSONObject optJSONObject5 = optJSONObject3.optJSONObject(HttpDnsCacheForHost.JSON_KEY_IPV6);
-                    long G = G(next, optJSONObject4, optJSONObject5);
-                    if (G < 0) {
-                        hashMap.put(next, z);
-                    } else {
-                        String B = B("ipv4Obj", next, optJSONObject4);
-                        String B2 = B("ipv6Obj", next, optJSONObject5);
-                        if (B != null && !B.isEmpty()) {
-                            arrayList = A("ipv4Obj", next, optJSONObject4);
-                        } else {
-                            np.a("Host(%s) ipv4Msg(%s), will deprecated the ipv4List result", next, B);
-                            arrayList = null;
-                        }
-                        if (B2 != null && !B2.isEmpty()) {
-                            arrayList2 = A("ipv6Obj", next, optJSONObject5);
-                        } else {
-                            np.a("Host(%s) ipv6Msg(%s), will deprecated the ipv6List result", next, B2);
-                            arrayList2 = null;
-                        }
-                        if ((arrayList != null && !arrayList.isEmpty()) || (arrayList2 != null && !arrayList2.isEmpty())) {
-                            hashMap.put(next, new e(this, arrayList, arrayList2, G));
-                        } else {
-                            np.a("Httpdns request failed, host(%s), response has no valid ip", next);
-                            hashMap.put(next, null);
-                        }
-                        z = false;
-                    }
+            }
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+            StringBuilder sb = new StringBuilder();
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    sb.append(readLine);
+                } else {
+                    bufferedReader.close();
+                    return sb.toString();
                 }
-                return hashMap;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                np.a("Httpdns request failed, hostsOrTag(%s), response parse data json error", str2);
-                return null;
             }
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public void K(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.k = str;
+        } else {
+            return (String) invokeLL.objValue;
         }
     }
 
-    public void L(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void M(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    public void N(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            String d2 = ip.d(str);
-            this.l = d2;
-            if (d2 == null) {
-                this.l = str;
-                r = false;
-            }
-        }
-    }
-
-    public void O(ArrayList<String> arrayList, b bVar) {
+    public void O(ArrayList arrayList, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, arrayList, bVar) == null) {
             ArrayList arrayList2 = new ArrayList(new HashSet(arrayList));
@@ -914,65 +858,175 @@ public final class HttpDnsClient {
                 i2++;
                 if (str != null && !str.isEmpty()) {
                     String substring = str.substring(0, str.length() - 1);
-                    np.a("Hosts for httpdns request is (%s) ", substring);
+                    op.a("Hosts for httpdns request is (%s) ", substring);
                     u(substring, RequestParamType.DNLIST_HOSTS, bVar);
                 }
             }
         }
     }
 
-    public void t(String str) {
+    public final long G(String str, JSONObject jSONObject, JSONObject jSONObject2) {
+        InterceptResult invokeLLL;
+        long j;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            synchronized (this.i) {
-                if (!this.j.contains(str)) {
-                    this.j.add(str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, jSONObject, jSONObject2)) == null) {
+            if (jSONObject != null) {
+                try {
+                    j = jSONObject.getLong(ResultTB.TTL);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    op.a("Httpdns request failed, host(%s), response has no ttl, will use defaults ttl(60s)", str);
+                    return -1L;
+                }
+            } else {
+                j = -1;
+            }
+            if (jSONObject2 != null) {
+                j2 = jSONObject2.getLong(ResultTB.TTL);
+            } else {
+                j2 = -1;
+            }
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i > 0 && j2 > 0) {
+                if (j >= j2) {
+                    return j2;
+                }
+                return j;
+            } else if (i > 0) {
+                return j;
+            } else {
+                if (j2 <= 0) {
+                    return -1L;
+                }
+                return j2;
+            }
+        }
+        return invokeLLL.longValue;
+    }
+
+    public final synchronized void H(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bool) == null) {
+            synchronized (this) {
+                if (bool.booleanValue()) {
+                    if (BDNetworkStateChangeReceiver.isIPv4Reachable()) {
+                        int i = this.n + 1;
+                        this.n = i;
+                        op.a("requestV4IDCFailNum: %s", Integer.valueOf(i));
+                    } else if (BDNetworkStateChangeReceiver.isIPv6Reachable()) {
+                        int i2 = this.o + 1;
+                        this.o = i2;
+                        op.a("requestV6IDCFailNum: %s", Integer.valueOf(i2));
+                    }
                 }
             }
         }
+    }
+
+    public Map J(String str, String str2) {
+        InterceptResult invokeLL;
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            boolean z = false;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.has("serverip")) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("serverip");
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("ipv4");
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        this.b = optJSONArray.optString(0);
+                    }
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                        this.d = PreferencesUtil.LEFT_MOUNT + optJSONArray2.optString(0) + PreferencesUtil.RIGHT_MOUNT;
+                    }
+                }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+                if (optJSONObject2 == null) {
+                    op.a("Httpdns request failed, hostsOrTag(%s), response has empty data", str2);
+                    return null;
+                }
+                Iterator<String> keys = optJSONObject2.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next);
+                    JSONObject optJSONObject4 = optJSONObject3.optJSONObject("ipv4");
+                    JSONObject optJSONObject5 = optJSONObject3.optJSONObject(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                    long G = G(next, optJSONObject4, optJSONObject5);
+                    if (G < 0) {
+                        hashMap.put(next, z);
+                    } else {
+                        String B = B("ipv4Obj", next, optJSONObject4);
+                        String B2 = B("ipv6Obj", next, optJSONObject5);
+                        if (B != null && !B.isEmpty()) {
+                            arrayList = A("ipv4Obj", next, optJSONObject4);
+                        } else {
+                            op.a("Host(%s) ipv4Msg(%s), will deprecated the ipv4List result", next, B);
+                            arrayList = null;
+                        }
+                        if (B2 != null && !B2.isEmpty()) {
+                            arrayList2 = A("ipv6Obj", next, optJSONObject5);
+                        } else {
+                            op.a("Host(%s) ipv6Msg(%s), will deprecated the ipv6List result", next, B2);
+                            arrayList2 = null;
+                        }
+                        if ((arrayList != null && !arrayList.isEmpty()) || (arrayList2 != null && !arrayList2.isEmpty())) {
+                            hashMap.put(next, new e(this, arrayList, arrayList2, G));
+                        } else {
+                            op.a("Httpdns request failed, host(%s), response has no valid ip", next);
+                            hashMap.put(next, null);
+                        }
+                        z = false;
+                    }
+                }
+                return hashMap;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                op.a("Httpdns request failed, hostsOrTag(%s), response parse data json error", str2);
+                return null;
+            }
+        }
+        return (Map) invokeLL.objValue;
     }
 
     public void u(String str, RequestParamType requestParamType, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048591, this, str, requestParamType, bVar) == null) || str == null || str.isEmpty()) {
-            return;
-        }
-        synchronized (this.h) {
-            if (requestParamType.equals(RequestParamType.DNLIST_HOSTS)) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.addAll(Arrays.asList(str.split(",")));
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    String str2 = (String) it.next();
-                    if (!this.g.contains(str2)) {
-                        this.g.add(str2);
-                    } else {
-                        np.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
-                        it.remove();
+        if ((interceptable == null || interceptable.invokeLLL(1048591, this, str, requestParamType, bVar) == null) && str != null && !str.isEmpty()) {
+            synchronized (this.h) {
+                if (requestParamType.equals(RequestParamType.DNLIST_HOSTS)) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.addAll(Arrays.asList(str.split(",")));
+                    Iterator it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        String str2 = (String) it.next();
+                        if (!this.g.contains(str2)) {
+                            this.g.add(str2);
+                        } else {
+                            op.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
+                            it.remove();
+                        }
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        sb.append((String) arrayList.get(i));
+                        sb.append(",");
+                    }
+                    str = sb.toString().replaceAll("^,*|,*$", "");
+                }
+                if (str != null && !str.isEmpty()) {
+                    try {
+                        pp.b().a().execute(new c(this, str, requestParamType, bVar));
+                    } catch (RejectedExecutionException e2) {
+                        e2.printStackTrace();
+                        op.a("Httpdns request failed, host(%s), async tasks has exceed the maximum thread limit.", str);
                     }
                 }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < arrayList.size(); i++) {
-                    sb.append((String) arrayList.get(i));
-                    sb.append(",");
-                }
-                str = sb.toString().replaceAll("^,*|,*$", "");
-            }
-            if (str != null && !str.isEmpty()) {
-                try {
-                    op.b().a().execute(new c(this, str, requestParamType, bVar));
-                } catch (RejectedExecutionException e2) {
-                    e2.printStackTrace();
-                    np.a("Httpdns request failed, host(%s), async tasks has exceed the maximum thread limit.", str);
-                }
             }
         }
-    }
-
-    public final String v(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j)) == null) ? ip.j(String.format("%s-%s-%d", str, D(), Long.valueOf(j))) : (String) invokeLJ.objValue;
     }
 
     public Map w(String str, String str2, RequestParamType requestParamType) {
@@ -989,44 +1043,28 @@ public final class HttpDnsClient {
                     if ("SignatureExpired".equals(optString)) {
                         int optInt = jSONObject.optInt("timestamp");
                         if (optInt == 0) {
-                            np.a("Httpdns request failed for %s(%s), response get invalid timestamp", requestParamType.toString(), str2);
+                            op.a("Httpdns request failed for %s(%s), response get invalid timestamp", requestParamType.toString(), str2);
                         } else {
                             this.f = optInt - (System.currentTimeMillis() / 1000);
                             hashMap.put("isSignExpired", Boolean.TRUE);
                         }
                         return hashMap;
                     } else if (!"ok".equals(optString)) {
-                        np.a("Httpdns request failed for %s(%s), response msg(%s) is not ok", requestParamType.toString(), str2, optString);
+                        op.a("Httpdns request failed for %s(%s), response msg(%s) is not ok", requestParamType.toString(), str2, optString);
                         return hashMap;
                     } else {
                         hashMap.put("isMsgOK", Boolean.TRUE);
                         return hashMap;
                     }
                 }
-                np.a("Httpdns request failed for %s(%s), response lack of msg", requestParamType.toString(), str2);
+                op.a("Httpdns request failed for %s(%s), response lack of msg", requestParamType.toString(), str2);
                 return hashMap;
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                np.a("Httpdns request failed for %s(%s), response parse json error", requestParamType.toString(), str2);
+                op.a("Httpdns request failed for %s(%s), response parse json error", requestParamType.toString(), str2);
                 return hashMap;
             }
         }
         return (Map) invokeLLL.objValue;
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.n = 0;
-            this.o = 0;
-            this.b = null;
-            this.d = null;
-        }
-    }
-
-    public ArrayList y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.j : (ArrayList) invokeV.objValue;
     }
 }

@@ -29,6 +29,10 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
         void onSqliteUpdateListener(SQLiteDatabase sQLiteDatabase, int i, int i2);
     }
 
+    public abstract String getBatchDeleteSqlStr();
+
+    public abstract int getRestrictionNum();
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -43,6 +47,15 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
             }
         }
         DEBUG = Config.isDebug();
+    }
+
+    public Boolean isEnableCountRestriction() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return Boolean.FALSE;
+        }
+        return (Boolean) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -104,6 +117,13 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void setOnSqliteUpdateListener(OnSqliteUpdateListener onSqliteUpdateListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, onSqliteUpdateListener) == null) {
+            this.onSqliteUpdateListener = onSqliteUpdateListener;
+        }
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     public void execSQL(String str, Object[] objArr) {
         Interceptable interceptable = $ic;
@@ -135,9 +155,26 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public abstract String getBatchDeleteSqlStr();
-
-    public abstract int getRestrictionNum();
+    public Cursor query(String str, String str2) {
+        Cursor query;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            try {
+                synchronized (this) {
+                    query = getReadableDatabase().query(str, null, str2, null, null, null, null);
+                }
+                return query;
+            } catch (Exception e) {
+                if (DEBUG) {
+                    Log.w(TAG, "", e);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (Cursor) invokeLL.objValue;
+    }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x00b4 */
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.database.sqlite.SQLiteDatabase */
@@ -244,20 +281,13 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Boolean isEnableCountRestriction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Boolean.FALSE : (Boolean) invokeV.objValue;
-    }
-
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         OnSqliteUpdateListener onSqliteUpdateListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i, i2) == null) || (onSqliteUpdateListener = this.onSqliteUpdateListener) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i, i2) == null) && (onSqliteUpdateListener = this.onSqliteUpdateListener) != null) {
+            onSqliteUpdateListener.onSqliteUpdateListener(sQLiteDatabase, i, i2);
         }
-        onSqliteUpdateListener.onSqliteUpdateListener(sQLiteDatabase, i, i2);
     }
 
     public Cursor query(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5) {
@@ -268,6 +298,27 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
             try {
                 synchronized (this) {
                     query = getReadableDatabase().query(str, strArr, str2, strArr2, str3, str4, str5);
+                }
+                return query;
+            } catch (Exception e) {
+                if (DEBUG) {
+                    Log.w(TAG, "", e);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (Cursor) invokeCommon.objValue;
+    }
+
+    public Cursor query(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5, String str6) {
+        Cursor query;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, strArr, str2, strArr2, str3, str4, str5, str6})) == null) {
+            try {
+                synchronized (this) {
+                    query = getReadableDatabase().query(str, strArr, str2, strArr2, str3, str4, str5, str6);
                 }
                 return query;
             } catch (Exception e) {
@@ -302,13 +353,6 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
         return (Cursor) invokeLL.objValue;
     }
 
-    public void setOnSqliteUpdateListener(OnSqliteUpdateListener onSqliteUpdateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onSqliteUpdateListener) == null) {
-            this.onSqliteUpdateListener = onSqliteUpdateListener;
-        }
-    }
-
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     public void update(String str, ContentValues contentValues, String str2, String[] strArr) {
         Interceptable interceptable = $ic;
@@ -338,47 +382,5 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                 throw th;
             }
         }
-    }
-
-    public Cursor query(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5, String str6) {
-        Cursor query;
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, strArr, str2, strArr2, str3, str4, str5, str6})) == null) {
-            try {
-                synchronized (this) {
-                    query = getReadableDatabase().query(str, strArr, str2, strArr2, str3, str4, str5, str6);
-                }
-                return query;
-            } catch (Exception e) {
-                if (DEBUG) {
-                    Log.w(TAG, "", e);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Cursor) invokeCommon.objValue;
-    }
-
-    public Cursor query(String str, String str2) {
-        Cursor query;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            try {
-                synchronized (this) {
-                    query = getReadableDatabase().query(str, null, str2, null, null, null, null);
-                }
-                return query;
-            } catch (Exception e) {
-                if (DEBUG) {
-                    Log.w(TAG, "", e);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (Cursor) invokeLL.objValue;
     }
 }

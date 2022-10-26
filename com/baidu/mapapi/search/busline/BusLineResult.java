@@ -19,7 +19,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class BusLineResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<BusLineResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
@@ -27,14 +27,14 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public Date d;
     public Date e;
     public String f;
-    public List<BusStation> g;
-    public List<BusStep> h;
+    public List g;
+    public List h;
     public float i;
     public float j;
     public String k;
 
     /* loaded from: classes2.dex */
-    public static class BusStation extends RouteNode {
+    public class BusStation extends RouteNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +54,7 @@ public class BusLineResult extends SearchResult implements Parcelable {
     }
 
     /* loaded from: classes2.dex */
-    public static class BusStep extends RouteStep {
+    public class BusStep extends RouteStep {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -191,13 +191,13 @@ public class BusLineResult extends SearchResult implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (Date) invokeV.objValue;
     }
 
-    public List<BusStation> getStations() {
+    public List getStations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : (List) invokeV.objValue;
     }
 
-    public List<BusStep> getSteps() {
+    public List getSteps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : (List) invokeV.objValue;
@@ -264,14 +264,14 @@ public class BusLineResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setStations(List<BusStation> list) {
+    public void setStations(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
             this.g = list;
         }
     }
 
-    public void setSteps(List<BusStep> list) {
+    public void setSteps(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
             this.h = list;

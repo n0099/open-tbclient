@@ -47,6 +47,18 @@ public final class NestedEvent {
         $VALUES = new NestedEvent[]{nestedEvent, nestedEvent2, nestedEvent3, nestedEvent4, nestedEvent5};
     }
 
+    public static NestedEvent valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NestedEvent) Enum.valueOf(NestedEvent.class, str) : (NestedEvent) invokeL.objValue;
+    }
+
+    public static NestedEvent[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NestedEvent[]) $VALUES.clone() : (NestedEvent[]) invokeV.objValue;
+    }
+
     public NestedEvent(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,17 +76,5 @@ public final class NestedEvent {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static NestedEvent valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NestedEvent) Enum.valueOf(NestedEvent.class, str) : (NestedEvent) invokeL.objValue;
-    }
-
-    public static NestedEvent[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NestedEvent[]) $VALUES.clone() : (NestedEvent[]) invokeV.objValue;
     }
 }

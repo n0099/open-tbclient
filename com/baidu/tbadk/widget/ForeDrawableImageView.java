@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.hq4;
+import com.baidu.tieba.jq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,124 +20,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForeDrawableImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Drawable v0;
-    public String w0;
-    public int x0;
-    public Paint y0;
+    public Drawable w0;
+    public String x0;
+    public int y0;
+    public Paint z0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForeDrawableImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ForeDrawableImageView(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.y0 = new Paint();
-    }
-
-    public final void Q(Canvas canvas, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) || StringUtils.isNull(this.w0) || hq4.c().g()) {
-            return;
-        }
-        canvas.drawText(this.w0, (int) (i - (this.y0.measureText(this.w0) / 2.0f)), i2 + this.x0, this.y0);
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.drawableStateChanged();
-            Drawable drawable = this.v0;
-            if (drawable != null && drawable.isStateful() && this.v0.setState(getDrawableState())) {
-                invalidate();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (this.v0 != null) {
-                canvas.save();
-                ViewParent parent = getParent();
-                int measuredWidth = parent instanceof View ? ((View) parent).getMeasuredWidth() : 0;
-                int width = getWidth();
-                if (width <= measuredWidth) {
-                    measuredWidth = width;
-                }
-                int intrinsicWidth = this.v0.getIntrinsicWidth();
-                int intrinsicHeight = this.v0.getIntrinsicHeight();
-                int i = intrinsicWidth / 2;
-                int i2 = (measuredWidth / 2) - i;
-                int height = (getHeight() / 2) - (intrinsicHeight / 2);
-                canvas.translate(i2, height);
-                this.v0.draw(canvas);
-                canvas.restore();
-                Q(canvas, i2 + i, height + intrinsicHeight);
-            }
-        }
-    }
-
-    public void setForegroundDrawable(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            setForegroundDrawable(SkinManager.getDrawable(i));
-        }
-    }
-
-    public void setNoImageBottomText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.w0 = str;
-        }
-    }
-
-    public void setNoImageBottomTextColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.y0.setColor(SkinManager.getColor(i));
-        }
-    }
-
-    public void setNoImageBottomTextPadding(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.x0 = i;
-        }
-    }
-
-    public void setNoImageBottomTextSize(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) || f <= 0.0f) {
-            return;
-        }
-        this.y0.setTextSize(f);
-    }
-
-    public void setForegroundDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.v0 = drawable;
-            if (drawable != null) {
-                drawable.setBounds(0, 0, drawable.getIntrinsicHeight(), this.v0.getMinimumWidth());
-            }
-            invalidate();
-        }
+        this.z0 = new Paint();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,27 +65,122 @@ public class ForeDrawableImageView extends TbImageView {
                 return;
             }
         }
-        this.y0 = new Paint();
+        this.z0 = new Paint();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForeDrawableImageView(Context context) {
-        super(context);
+    public ForeDrawableImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.y0 = new Paint();
+        this.z0 = new Paint();
+    }
+
+    public final void R(Canvas canvas, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) && !StringUtils.isNull(this.x0) && !jq4.c().g()) {
+            canvas.drawText(this.x0, (int) (i - (this.z0.measureText(this.x0) / 2.0f)), i2 + this.y0, this.z0);
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.drawableStateChanged();
+            Drawable drawable = this.w0;
+            if (drawable != null && drawable.isStateful() && this.w0.setState(getDrawableState())) {
+                invalidate();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.w0 != null) {
+                canvas.save();
+                ViewParent parent = getParent();
+                int i = 0;
+                if (parent instanceof View) {
+                    i = ((View) parent).getMeasuredWidth();
+                }
+                int width = getWidth();
+                if (width <= i) {
+                    i = width;
+                }
+                int intrinsicWidth = this.w0.getIntrinsicWidth();
+                int intrinsicHeight = this.w0.getIntrinsicHeight();
+                int i2 = intrinsicWidth / 2;
+                int i3 = (i / 2) - i2;
+                int height = (getHeight() / 2) - (intrinsicHeight / 2);
+                canvas.translate(i3, height);
+                this.w0.draw(canvas);
+                canvas.restore();
+                R(canvas, i3 + i2, height + intrinsicHeight);
+            }
+        }
+    }
+
+    public void setForegroundDrawable(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            setForegroundDrawable(SkinManager.getDrawable(i));
+        }
+    }
+
+    public void setNoImageBottomText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.x0 = str;
+        }
+    }
+
+    public void setNoImageBottomTextColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.z0.setColor(SkinManager.getColor(i));
+        }
+    }
+
+    public void setNoImageBottomTextPadding(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.y0 = i;
+        }
+    }
+
+    public void setNoImageBottomTextSize(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) && f > 0.0f) {
+            this.z0.setTextSize(f);
+        }
+    }
+
+    public void setForegroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
+            this.w0 = drawable;
+            if (drawable != null) {
+                drawable.setBounds(0, 0, drawable.getIntrinsicHeight(), this.w0.getMinimumWidth());
+            }
+            invalidate();
+        }
     }
 }

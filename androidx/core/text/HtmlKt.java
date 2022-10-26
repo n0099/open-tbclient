@@ -25,6 +25,15 @@ public final class HtmlKt {
         return (Spanned) invokeLILL.objValue;
     }
 
+    public static /* synthetic */ String toHtml$default(Spanned spanned, int i, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = 0;
+        }
+        String html = HtmlCompat.toHtml(spanned, i);
+        Intrinsics.checkExpressionValueIsNotNull(html, "HtmlCompat.toHtml(this, option)");
+        return html;
+    }
+
     public static /* synthetic */ Spanned parseAsHtml$default(String str, int i, Html.ImageGetter imageGetter, Html.TagHandler tagHandler, int i2, Object obj) {
         if ((i2 & 1) != 0) {
             i = 0;
@@ -49,14 +58,5 @@ public final class HtmlKt {
             return html;
         }
         return (String) invokeLI.objValue;
-    }
-
-    public static /* synthetic */ String toHtml$default(Spanned spanned, int i, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
-            i = 0;
-        }
-        String html = HtmlCompat.toHtml(spanned, i);
-        Intrinsics.checkExpressionValueIsNotNull(html, "HtmlCompat.toHtml(this, option)");
-        return html;
     }
 }

@@ -22,7 +22,7 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public long mCursor;
     public boolean mHasMore;
-    public List<ThreadData> mThreadDataList;
+    public List mThreadDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterDynamicTabHttpResMessage() {
@@ -51,6 +51,7 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
         DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            boolean z = false;
             GetShoubaiThreadListResIdl getShoubaiThreadListResIdl = (GetShoubaiThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetShoubaiThreadListResIdl.class);
             if (getShoubaiThreadListResIdl == null || (dataRes = getShoubaiThreadListResIdl.data) == null) {
                 return;
@@ -58,16 +59,18 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
             PageInfo pageInfo = dataRes.page;
             if (pageInfo != null) {
                 this.mCursor = pageInfo.cursor.longValue();
-                this.mHasMore = getShoubaiThreadListResIdl.data.page.has_more.intValue() == 1;
+                if (getShoubaiThreadListResIdl.data.page.has_more.intValue() == 1) {
+                    z = true;
+                }
+                this.mHasMore = z;
             }
-            if (ListUtils.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
-                return;
-            }
-            for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserProtobuf(threadInfo);
-                    this.mThreadDataList.add(threadData);
+            if (!ListUtils.isEmpty(getShoubaiThreadListResIdl.data.thread_list)) {
+                for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
+                    if (threadInfo != null) {
+                        ThreadData threadData = new ThreadData();
+                        threadData.parserProtobuf(threadInfo);
+                        this.mThreadDataList.add(threadData);
+                    }
                 }
             }
         }

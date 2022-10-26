@@ -1,19 +1,16 @@
 package com.kwad.sdk.core.webview.a;
 
-import androidx.annotation.NonNull;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.webview.kwai.c;
 import com.kwad.sdk.core.webview.request.WebCardGetDataResponse;
 import com.kwad.sdk.core.webview.request.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public c ago;
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
+    public final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public String method;
         public String params;
         public String url;
@@ -22,7 +19,7 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     private void a(a aVar) {
         new com.kwad.sdk.core.webview.request.b().a(aVar, new b.a() { // from class: com.kwad.sdk.core.webview.a.b.1
             @Override // com.kwad.sdk.core.webview.request.b.a
-            public final void a(@NonNull WebCardGetDataResponse webCardGetDataResponse) {
+            public final void a(WebCardGetDataResponse webCardGetDataResponse) {
                 if (b.this.ago != null) {
                     b.this.ago.a(webCardGetDataResponse);
                 }
@@ -38,7 +35,7 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull c cVar) {
+    public final void a(String str, c cVar) {
         this.ago = cVar;
         a aVar = new a();
         try {
@@ -54,7 +51,6 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         return "requestData";
     }

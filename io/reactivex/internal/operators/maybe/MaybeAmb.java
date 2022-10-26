@@ -16,21 +16,21 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class MaybeAmb<T> extends Maybe<T> {
+public final class MaybeAmb extends Maybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource<? extends T>[] sources;
-    public final Iterable<? extends MaybeSource<? extends T>> sourcesIterable;
+    public final MaybeSource[] sources;
+    public final Iterable sourcesIterable;
 
     /* loaded from: classes8.dex */
-    public static final class AmbMaybeObserver<T> extends AtomicBoolean implements MaybeObserver<T>, Disposable {
+    public final class AmbMaybeObserver extends AtomicBoolean implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7044685185359438206L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public final CompositeDisposable set;
 
-        public AmbMaybeObserver(MaybeObserver<? super T> maybeObserver) {
+        public AmbMaybeObserver(MaybeObserver maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +61,10 @@ public final class MaybeAmb<T> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return get();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -95,16 +98,16 @@ public final class MaybeAmb<T> extends Maybe<T> {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, t) == null) && compareAndSet(false, true)) {
+            if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && compareAndSet(false, true)) {
                 this.set.dispose();
-                this.actual.onSuccess(t);
+                this.actual.onSuccess(obj);
             }
         }
     }
 
-    public MaybeAmb(MaybeSource<? extends T>[] maybeSourceArr, Iterable<? extends MaybeSource<? extends T>> iterable) {
+    public MaybeAmb(MaybeSource[] maybeSourceArr, Iterable iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,22 +127,22 @@ public final class MaybeAmb<T> extends Maybe<T> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
-            MaybeSource<? extends T>[] maybeSourceArr = this.sources;
+            MaybeSource[] maybeSourceArr = this.sources;
             if (maybeSourceArr == null) {
                 maybeSourceArr = new MaybeSource[8];
                 try {
                     length = 0;
-                    for (MaybeSource<? extends T> maybeSource : this.sourcesIterable) {
+                    for (MaybeSource maybeSource : this.sourcesIterable) {
                         if (maybeSource == null) {
                             EmptyDisposable.error(new NullPointerException("One of the sources is null"), maybeObserver);
                             return;
                         }
                         if (length == maybeSourceArr.length) {
-                            MaybeSource<? extends T>[] maybeSourceArr2 = new MaybeSource[(length >> 2) + length];
+                            MaybeSource[] maybeSourceArr2 = new MaybeSource[(length >> 2) + length];
                             System.arraycopy(maybeSourceArr, 0, maybeSourceArr2, 0, length);
                             maybeSourceArr = maybeSourceArr2;
                         }
@@ -158,7 +161,7 @@ public final class MaybeAmb<T> extends Maybe<T> {
             AmbMaybeObserver ambMaybeObserver = new AmbMaybeObserver(maybeObserver);
             maybeObserver.onSubscribe(ambMaybeObserver);
             for (int i2 = 0; i2 < length; i2++) {
-                MaybeSource<? extends T> maybeSource2 = maybeSourceArr[i2];
+                MaybeSource maybeSource2 = maybeSourceArr[i2];
                 if (ambMaybeObserver.isDisposed()) {
                     return;
                 }

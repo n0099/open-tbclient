@@ -16,12 +16,18 @@ public final class PorterDuffKt {
     public static final PorterDuffColorFilter toColorFilter(PorterDuff.Mode mode, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, mode, i)) == null) ? new PorterDuffColorFilter(i, mode) : (PorterDuffColorFilter) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, mode, i)) == null) {
+            return new PorterDuffColorFilter(i, mode);
+        }
+        return (PorterDuffColorFilter) invokeLI.objValue;
     }
 
     public static final PorterDuffXfermode toXfermode(PorterDuff.Mode mode) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mode)) == null) ? new PorterDuffXfermode(mode) : (PorterDuffXfermode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mode)) == null) {
+            return new PorterDuffXfermode(mode);
+        }
+        return (PorterDuffXfermode) invokeL.objValue;
     }
 }

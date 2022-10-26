@@ -52,67 +52,13 @@ public class WebRtcAudioEffects {
         AOSP_NOISE_SUPPRESSOR = UUID.fromString("c06c8400-8e06-11e0-9cb6-0002a5d5c51b");
     }
 
-    public WebRtcAudioEffects() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
-    }
-
-    public static void assertTrue(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65538, null, z) == null) && !z) {
-            throw new AssertionError("Expected condition to be true");
-        }
-    }
-
-    public static boolean canUseAcousticEchoCanceler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            boolean z = (!isAcousticEchoCancelerSupported() || WebRtcAudioUtils.useWebRtcBasedAcousticEchoCanceler() || isAcousticEchoCancelerBlacklisted() || isAcousticEchoCancelerExcludedByUUID()) ? false : true;
-            Logging.d(TAG, "canUseAcousticEchoCanceler: " + z);
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean canUseNoiseSuppressor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            boolean z = (!isNoiseSuppressorSupported() || WebRtcAudioUtils.useWebRtcBasedNoiseSuppressor() || isNoiseSuppressorBlacklisted() || isNoiseSuppressorExcludedByUUID()) ? false : true;
-            Logging.d(TAG, "canUseNoiseSuppressor: " + z);
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static WebRtcAudioEffects create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new WebRtcAudioEffects() : (WebRtcAudioEffects) invokeV.objValue;
-    }
-
-    private boolean effectTypeIsVoIP(UUID uuid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, uuid)) == null) {
-            if (Build.VERSION.SDK_INT < 18) {
-                return false;
-            }
-            return (AudioEffect.EFFECT_TYPE_AEC.equals(uuid) && isAcousticEchoCancelerSupported()) || (AudioEffect.EFFECT_TYPE_NS.equals(uuid) && isNoiseSuppressorSupported());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return new WebRtcAudioEffects();
         }
-        return invokeL.booleanValue;
+        return (WebRtcAudioEffects) invokeV.objValue;
     }
 
     @Nullable
@@ -131,6 +77,113 @@ public class WebRtcAudioEffects {
         return (AudioEffect.Descriptor[]) invokeV.objValue;
     }
 
+    public static boolean isAcousticEchoCancelerEffectAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (Build.VERSION.SDK_INT < 18) {
+                return false;
+            }
+            return isEffectTypeAvailable(AudioEffect.EFFECT_TYPE_AEC);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isAcousticEchoCancelerSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return isAcousticEchoCancelerEffectAvailable();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNoiseSuppressorEffectAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            if (Build.VERSION.SDK_INT < 18) {
+                return false;
+            }
+            return isEffectTypeAvailable(AudioEffect.EFFECT_TYPE_NS);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNoiseSuppressorSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            return isNoiseSuppressorEffectAvailable();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Logging.d(TAG, "release");
+            AcousticEchoCanceler acousticEchoCanceler = this.aec;
+            if (acousticEchoCanceler != null) {
+                acousticEchoCanceler.release();
+                this.aec = null;
+            }
+            NoiseSuppressor noiseSuppressor = this.ns;
+            if (noiseSuppressor != null) {
+                noiseSuppressor.release();
+                this.ns = null;
+            }
+        }
+    }
+
+    public WebRtcAudioEffects() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
+    }
+
+    public static boolean canUseAcousticEchoCanceler() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (isAcousticEchoCancelerSupported() && !WebRtcAudioUtils.useWebRtcBasedAcousticEchoCanceler() && !isAcousticEchoCancelerBlacklisted() && !isAcousticEchoCancelerExcludedByUUID()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Logging.d(TAG, "canUseAcousticEchoCanceler: " + z);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean canUseNoiseSuppressor() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (isNoiseSuppressorSupported() && !WebRtcAudioUtils.useWebRtcBasedNoiseSuppressor() && !isNoiseSuppressorBlacklisted() && !isNoiseSuppressorExcludedByUUID()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Logging.d(TAG, "canUseNoiseSuppressor: " + z);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean isAcousticEchoCancelerBlacklisted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,18 +193,6 @@ public class WebRtcAudioEffects {
                 Logging.w(TAG, Build.MODEL + " is blacklisted for HW AEC usage!");
             }
             return contains;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isAcousticEchoCancelerEffectAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (Build.VERSION.SDK_INT < 18) {
-                return false;
-            }
-            return isEffectTypeAvailable(AudioEffect.EFFECT_TYPE_AEC);
         }
         return invokeV.booleanValue;
     }
@@ -174,30 +215,6 @@ public class WebRtcAudioEffects {
         return invokeV.booleanValue;
     }
 
-    public static boolean isAcousticEchoCancelerSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? isAcousticEchoCancelerEffectAvailable() : invokeV.booleanValue;
-    }
-
-    public static boolean isEffectTypeAvailable(UUID uuid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, uuid)) == null) {
-            AudioEffect.Descriptor[] availableEffects = getAvailableEffects();
-            if (availableEffects == null) {
-                return false;
-            }
-            for (AudioEffect.Descriptor descriptor : availableEffects) {
-                if (descriptor.type.equals(uuid)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public static boolean isNoiseSuppressorBlacklisted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,18 +224,6 @@ public class WebRtcAudioEffects {
                 Logging.w(TAG, Build.MODEL + " is blacklisted for HW NS usage!");
             }
             return contains;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isNoiseSuppressorEffectAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (Build.VERSION.SDK_INT < 18) {
-                return false;
-            }
-            return isEffectTypeAvailable(AudioEffect.EFFECT_TYPE_NS);
         }
         return invokeV.booleanValue;
     }
@@ -241,37 +246,102 @@ public class WebRtcAudioEffects {
         return invokeV.booleanValue;
     }
 
-    public static boolean isNoiseSuppressorSupported() {
-        InterceptResult invokeV;
+    public static void assertTrue(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? isNoiseSuppressorEffectAvailable() : invokeV.booleanValue;
+        if ((interceptable != null && interceptable.invokeZ(65538, null, z) != null) || z) {
+            return;
+        }
+        throw new AssertionError("Expected condition to be true");
+    }
+
+    public static boolean isEffectTypeAvailable(UUID uuid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, uuid)) == null) {
+            AudioEffect.Descriptor[] availableEffects = getAvailableEffects();
+            if (availableEffects == null) {
+                return false;
+            }
+            for (AudioEffect.Descriptor descriptor : availableEffects) {
+                if (descriptor.type.equals(uuid)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private boolean effectTypeIsVoIP(UUID uuid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, uuid)) == null) {
+            if (Build.VERSION.SDK_INT < 18) {
+                return false;
+            }
+            if ((!AudioEffect.EFFECT_TYPE_AEC.equals(uuid) || !isAcousticEchoCancelerSupported()) && (!AudioEffect.EFFECT_TYPE_NS.equals(uuid) || !isNoiseSuppressorSupported())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public void enable(int i) {
+        boolean z;
+        boolean z2;
+        String str;
+        boolean z3;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             Logging.d(TAG, "enable(audioSession=" + i + SmallTailInfo.EMOTION_SUFFIX);
-            boolean z = true;
-            assertTrue(this.aec == null);
-            assertTrue(this.ns == null);
+            boolean z4 = true;
+            if (this.aec == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            assertTrue(z);
+            if (this.ns == null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            assertTrue(z2);
             boolean isAcousticEchoCancelerSupported = isAcousticEchoCancelerSupported();
-            String str = SapiOptions.KEY_CACHE_ENABLED;
+            String str4 = SapiOptions.KEY_CACHE_ENABLED;
             if (isAcousticEchoCancelerSupported) {
                 AcousticEchoCanceler create = AcousticEchoCanceler.create(i);
                 this.aec = create;
                 if (create != null) {
                     boolean enabled = create.getEnabled();
-                    boolean z2 = this.shouldEnableAec && canUseAcousticEchoCanceler();
-                    if (this.aec.setEnabled(z2) != 0) {
+                    if (this.shouldEnableAec && canUseAcousticEchoCanceler()) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (this.aec.setEnabled(z3) != 0) {
                         Logging.e(TAG, "Failed to set the AcousticEchoCanceler state");
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append("AcousticEchoCanceler: was ");
-                    sb.append(enabled ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
+                    if (!enabled) {
+                        str2 = "disabled";
+                    } else {
+                        str2 = SapiOptions.KEY_CACHE_ENABLED;
+                    }
+                    sb.append(str2);
                     sb.append(", enable: ");
-                    sb.append(z2);
+                    sb.append(z3);
                     sb.append(", is now: ");
-                    sb.append(this.aec.getEnabled() ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
+                    if (!this.aec.getEnabled()) {
+                        str3 = "disabled";
+                    } else {
+                        str3 = SapiOptions.KEY_CACHE_ENABLED;
+                    }
+                    sb.append(str3);
                     Logging.d(TAG, sb.toString());
                 } else {
                     Logging.e(TAG, "Failed to create the AcousticEchoCanceler instance");
@@ -282,41 +352,29 @@ public class WebRtcAudioEffects {
                 this.ns = create2;
                 if (create2 != null) {
                     boolean enabled2 = create2.getEnabled();
-                    z = (this.shouldEnableNs && canUseNoiseSuppressor()) ? false : false;
-                    if (this.ns.setEnabled(z) != 0) {
+                    z4 = (this.shouldEnableNs && canUseNoiseSuppressor()) ? false : false;
+                    if (this.ns.setEnabled(z4) != 0) {
                         Logging.e(TAG, "Failed to set the NoiseSuppressor state");
                     }
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("NoiseSuppressor: was ");
-                    sb2.append(enabled2 ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
-                    sb2.append(", enable: ");
-                    sb2.append(z);
-                    sb2.append(", is now: ");
-                    if (!this.ns.getEnabled()) {
+                    if (!enabled2) {
                         str = "disabled";
+                    } else {
+                        str = SapiOptions.KEY_CACHE_ENABLED;
                     }
                     sb2.append(str);
+                    sb2.append(", enable: ");
+                    sb2.append(z4);
+                    sb2.append(", is now: ");
+                    if (!this.ns.getEnabled()) {
+                        str4 = "disabled";
+                    }
+                    sb2.append(str4);
                     Logging.d(TAG, sb2.toString());
                     return;
                 }
                 Logging.e(TAG, "Failed to create the NoiseSuppressor instance");
-            }
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Logging.d(TAG, "release");
-            AcousticEchoCanceler acousticEchoCanceler = this.aec;
-            if (acousticEchoCanceler != null) {
-                acousticEchoCanceler.release();
-                this.aec = null;
-            }
-            NoiseSuppressor noiseSuppressor = this.ns;
-            if (noiseSuppressor != null) {
-                noiseSuppressor.release();
-                this.ns = null;
             }
         }
     }

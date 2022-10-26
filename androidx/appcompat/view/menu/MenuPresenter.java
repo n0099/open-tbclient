@@ -3,17 +3,14 @@ package androidx.appcompat.view.menu;
 import android.content.Context;
 import android.os.Parcelable;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public interface MenuPresenter {
 
     /* loaded from: classes.dex */
     public interface Callback {
-        void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z);
+        void onCloseMenu(MenuBuilder menuBuilder, boolean z);
 
-        boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder);
+        boolean onOpenSubMenu(MenuBuilder menuBuilder);
     }
 
     boolean collapseItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl);

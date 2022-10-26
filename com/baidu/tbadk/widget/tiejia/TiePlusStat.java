@@ -1,15 +1,13 @@
 package com.baidu.tbadk.widget.tiejia;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.vn4;
-import com.baidu.tieba.xh5;
-import com.baidu.tieba.zh5;
+import com.baidu.tieba.ci5;
+import com.baidu.tieba.ei5;
+import com.baidu.tieba.wn4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,8 +21,8 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final zh5<Integer> a;
-    public static final zh5<Integer> b;
+    public static final ei5 a;
+    public static final ei5 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -78,6 +76,15 @@ public final class TiePlusStat {
             this.statValue = i2;
         }
 
+        public static CardBtnType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (CardBtnType) Enum.valueOf(CardBtnType.class, str);
+            }
+            return (CardBtnType) invokeL.objValue;
+        }
+
         /* JADX WARN: Code restructure failed: missing block: B:13:0x0012, code lost:
             if (r5 != 4) goto L18;
          */
@@ -90,10 +97,11 @@ public final class TiePlusStat {
             if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
                 if (i == 36) {
                     if (i2 != 1) {
-                        if (i2 == 2) {
+                        if (i2 != 2) {
+                            if (i2 != 3) {
+                            }
+                        } else {
                             return DOWNLOAD;
-                        }
-                        if (i2 != 3) {
                         }
                     }
                     return H5;
@@ -103,16 +111,13 @@ public final class TiePlusStat {
             return (CardBtnType) invokeII.objValue;
         }
 
-        public static CardBtnType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (CardBtnType) Enum.valueOf(CardBtnType.class, str) : (CardBtnType) invokeL.objValue;
-        }
-
         public static CardBtnType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (CardBtnType[]) $VALUES.clone() : (CardBtnType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (CardBtnType[]) $VALUES.clone();
+            }
+            return (CardBtnType[]) invokeV.objValue;
         }
     }
 
@@ -177,7 +182,15 @@ public final class TiePlusStat {
             this.statValue = i2;
         }
 
-        @NonNull
+        public static LandingType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (LandingType) Enum.valueOf(LandingType.class, str);
+            }
+            return (LandingType) invokeL.objValue;
+        }
+
         public static LandingType create(int i) {
             InterceptResult invokeI;
             LandingType landingType;
@@ -209,22 +222,19 @@ public final class TiePlusStat {
                         landingType = null;
                         break;
                 }
-                xh5.b(landingType);
+                ci5.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
         }
 
-        public static LandingType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (LandingType) Enum.valueOf(LandingType.class, str) : (LandingType) invokeL.objValue;
-        }
-
         public static LandingType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (LandingType[]) $VALUES.clone() : (LandingType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (LandingType[]) $VALUES.clone();
+            }
+            return (LandingType[]) invokeV.objValue;
         }
     }
 
@@ -292,13 +302,19 @@ public final class TiePlusStat {
         public static Locate valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Locate) Enum.valueOf(Locate.class, str) : (Locate) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (Locate) Enum.valueOf(Locate.class, str);
+            }
+            return (Locate) invokeL.objValue;
         }
 
         public static Locate[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Locate[]) $VALUES.clone() : (Locate[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (Locate[]) $VALUES.clone();
+            }
+            return (Locate[]) invokeV.objValue;
         }
     }
 
@@ -375,13 +391,19 @@ public final class TiePlusStat {
         public static RichTextType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (RichTextType) Enum.valueOf(RichTextType.class, str) : (RichTextType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (RichTextType) Enum.valueOf(RichTextType.class, str);
+            }
+            return (RichTextType) invokeL.objValue;
         }
 
         public static RichTextType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (RichTextType[]) $VALUES.clone() : (RichTextType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (RichTextType[]) $VALUES.clone();
+            }
+            return (RichTextType[]) invokeV.objValue;
         }
     }
 
@@ -414,8 +436,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, vn4.h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, vn4.i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, wn4.h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, wn4.i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -425,7 +447,7 @@ public final class TiePlusStat {
             $VALUES = new StatType[]{EXPOSE, CLICK, DIALOG_EXPOSE, DIALOG_CLICK, DOWNLOAD_FINISHED, WECHAT_DIALOG_EXPOSE, statType};
         }
 
-        public StatType(@NonNull String str, int i, String str2, int i2) {
+        public StatType(String str, int i, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -450,13 +472,19 @@ public final class TiePlusStat {
         public static StatType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (StatType) Enum.valueOf(StatType.class, str) : (StatType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (StatType) Enum.valueOf(StatType.class, str);
+            }
+            return (StatType) invokeL.objValue;
         }
 
         public static StatType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (StatType[]) $VALUES.clone() : (StatType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (StatType[]) $VALUES.clone();
+            }
+            return (StatType[]) invokeV.objValue;
         }
     }
 
@@ -513,7 +541,7 @@ public final class TiePlusStat {
             this.statValue = i2;
         }
 
-        public static ThreadType create(@NonNull ThreadData threadData) {
+        public static ThreadType create(ThreadData threadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadData)) == null) {
@@ -531,19 +559,25 @@ public final class TiePlusStat {
         public static ThreadType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ThreadType) Enum.valueOf(ThreadType.class, str) : (ThreadType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (ThreadType) Enum.valueOf(ThreadType.class, str);
+            }
+            return (ThreadType) invokeL.objValue;
         }
 
         public static ThreadType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ThreadType[]) $VALUES.clone() : (ThreadType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (ThreadType[]) $VALUES.clone();
+            }
+            return (ThreadType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class WechatDialogType {
+    public final class WechatDialogType {
         public static final /* synthetic */ WechatDialogType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final WechatDialogType COPY;
@@ -595,13 +629,19 @@ public final class TiePlusStat {
         public static WechatDialogType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (WechatDialogType) Enum.valueOf(WechatDialogType.class, str) : (WechatDialogType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (WechatDialogType) Enum.valueOf(WechatDialogType.class, str);
+            }
+            return (WechatDialogType) invokeL.objValue;
         }
 
         public static WechatDialogType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (WechatDialogType[]) $VALUES.clone() : (WechatDialogType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (WechatDialogType[]) $VALUES.clone();
+            }
+            return (WechatDialogType[]) invokeV.objValue;
         }
     }
 
@@ -618,11 +658,11 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new zh5<>(3000, TimeUnit.MILLISECONDS);
-        b = new zh5<>(3000, TimeUnit.MILLISECONDS);
+        a = new ei5(3000, TimeUnit.MILLISECONDS);
+        b = new ei5(3000, TimeUnit.MILLISECONDS);
     }
 
-    public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
+    public static int a(TiebaPlusInfo tiebaPlusInfo, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tiebaPlusInfo, obj)) == null) {
@@ -649,36 +689,38 @@ public final class TiePlusStat {
         return invokeLL.intValue;
     }
 
-    public static void b(int i, @NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, int i2, @NonNull LandingType landingType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @Nullable CardBtnType cardBtnType) {
+    public static void b(int i, StatType statType, Locate locate, ThreadType threadType, RichTextType richTextType, int i2, LandingType landingType, String str, String str2, String str3, String str4, CardBtnType cardBtnType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), statType, locate, threadType, richTextType, Integer.valueOf(i2), landingType, str, str2, str3, str4, cardBtnType}) == null) {
-            if (statType != StatType.EXPOSE || a.a(Integer.valueOf(i))) {
-                StatisticItem addParam = new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("t_obj", i2).addParam(LandingType.STAT_KEY, landingType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4);
-                if (cardBtnType != null) {
-                    addParam.addParam(CardBtnType.STAT_KEY, cardBtnType.statValue);
-                }
-                TiebaStatic.log(addParam);
+            if (statType == StatType.EXPOSE && !a.a(Integer.valueOf(i))) {
+                return;
             }
+            StatisticItem addParam = new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("t_obj", i2).addParam(LandingType.STAT_KEY, landingType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4);
+            if (cardBtnType != null) {
+                addParam.addParam(CardBtnType.STAT_KEY, cardBtnType.statValue);
+            }
+            TiebaStatic.log(addParam);
         }
     }
 
-    public static void c(int i, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i2) {
+    public static void c(int i, StatType statType, Locate locate, String str, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), statType, locate, str, str2, str3, Integer.valueOf(i2)}) == null) {
-            if (statType != StatType.EXPOSE || b.a(Integer.valueOf(i))) {
-                vn4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
+            if (statType == StatType.EXPOSE && !b.a(Integer.valueOf(i))) {
+                return;
             }
+            wn4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
         }
     }
 
-    public static void d(@NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+    public static void d(StatType statType, Locate locate, ThreadType threadType, RichTextType richTextType, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{statType, locate, threadType, richTextType, str, str2, str3, str4}) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4));
         }
     }
 
-    public static void e(@NonNull StatType statType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2) {
+    public static void e(StatType statType, RichTextType richTextType, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65541, null, statType, richTextType, str, str2) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam("order_id", str2));

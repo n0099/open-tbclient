@@ -16,13 +16,13 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.FuseToMaybe;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class MaybeIgnoreElementCompletable<T> extends Completable implements FuseToMaybe<T> {
+public final class MaybeIgnoreElementCompletable extends Completable implements FuseToMaybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource<T> source;
+    public final MaybeSource source;
 
     /* loaded from: classes8.dex */
-    public static final class IgnoreMaybeObserver<T> implements MaybeObserver<T>, Disposable {
+    public final class IgnoreMaybeObserver implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
@@ -46,31 +46,6 @@ public final class MaybeIgnoreElementCompletable<T> extends Completable implemen
             this.actual = completableObserver;
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.MaybeObserver
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.d = DisposableHelper.DISPOSED;
-                this.actual.onComplete();
-            }
-        }
-
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -90,16 +65,44 @@ public final class MaybeIgnoreElementCompletable<T> extends Completable implemen
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.d = DisposableHelper.DISPOSED;
+                this.actual.onComplete();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.MaybeObserver
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.d = DisposableHelper.DISPOSED;
                 this.actual.onComplete();
             }
         }
     }
 
-    public MaybeIgnoreElementCompletable(MaybeSource<T> maybeSource) {
+    public MaybeIgnoreElementCompletable(MaybeSource maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,18 +120,21 @@ public final class MaybeIgnoreElementCompletable<T> extends Completable implemen
         this.source = maybeSource;
     }
 
-    @Override // io.reactivex.internal.fuseable.FuseToMaybe
-    public Maybe<T> fuseToMaybe() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new MaybeIgnoreElement(this.source)) : (Maybe) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Completable
     public void subscribeActual(CompletableObserver completableObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, completableObserver) == null) {
             this.source.subscribe(new IgnoreMaybeObserver(completableObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.FuseToMaybe
+    public Maybe fuseToMaybe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new MaybeIgnoreElement(this.source));
+        }
+        return (Maybe) invokeV.objValue;
     }
 }

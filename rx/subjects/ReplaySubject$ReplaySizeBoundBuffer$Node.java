@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class ReplaySubject$ReplaySizeBoundBuffer$Node<T> extends AtomicReference<ReplaySubject$ReplaySizeBoundBuffer$Node<T>> {
+public final class ReplaySubject$ReplaySizeBoundBuffer$Node extends AtomicReference {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3713592843205853725L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T value;
+    public final Object value;
 
-    public ReplaySubject$ReplaySizeBoundBuffer$Node(T t) {
+    public ReplaySubject$ReplaySizeBoundBuffer$Node(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,6 +27,6 @@ public final class ReplaySubject$ReplaySizeBoundBuffer$Node<T> extends AtomicRef
                 return;
             }
         }
-        this.value = t;
+        this.value = obj;
     }
 }

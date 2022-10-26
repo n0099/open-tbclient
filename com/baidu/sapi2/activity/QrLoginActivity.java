@@ -44,27 +44,22 @@ public class QrLoginActivity extends BaseActivity {
         this.v = new QrLoginResult();
     }
 
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.back();
+            } else {
+                onClose();
+            }
+        }
+    }
+
     private void finishActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             a(true);
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.init();
-            this.t = getIntent().getStringExtra(EXTRA_STRING_QR_LOGIN_URL);
-            this.u = getIntent().getBooleanExtra(EXTRA_BOOLEAN_FINISH_PAGE, true);
-            if (SapiUtils.isQrLoginSchema(this.t)) {
-                return;
-            }
-            Toast.makeText(this, "抱歉，您扫描的二维码有误，请重新扫描", 0).show();
-            this.v.setResultCode(-204);
-            this.v.setResultMsg("参数错误，请稍后再试");
-            finishActivity();
         }
     }
 
@@ -77,33 +72,62 @@ public class QrLoginActivity extends BaseActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
+            a();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
+            try {
+                this.sapiWebView.destroy();
+            } catch (Exception unused) {
+            }
+            QrLoginCallback qrLoginCallback = CoreViewRouter.getInstance().getQrLoginCallback();
+            if (qrLoginCallback != null) {
+                qrLoginCallback.onFinish(this.v);
+            }
+            if (z) {
+                finish();
+            }
+            CoreViewRouter.getInstance().release();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.init();
+            this.t = getIntent().getStringExtra(EXTRA_STRING_QR_LOGIN_URL);
+            this.u = getIntent().getBooleanExtra(EXTRA_BOOLEAN_FINISH_PAGE, true);
+            if (!SapiUtils.isQrLoginSchema(this.t)) {
+                Toast.makeText(this, "抱歉，您扫描的二维码有误，请重新扫描", 0).show();
+                this.v.setResultCode(-204);
+                this.v.setResultMsg("参数错误，请稍后再试");
+                finishActivity();
+            }
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onClose();
-            SapiAccountManager.getInstance().getAccountService().qrAppLogin(new SapiCallback<QrAppLoginResult>(this) { // from class: com.baidu.sapi2.activity.QrLoginActivity.4
+            SapiAccountManager.getInstance().getAccountService().qrAppLogin(new SapiCallback(this) { // from class: com.baidu.sapi2.activity.QrLoginActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ QrLoginActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -134,39 +158,28 @@ public class QrLoginActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, qrAppLoginResult) == null) {
                     }
                 }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
             }, this.t, QrLoginAction.CANCEL.getName());
             this.v.setResultCode(-301);
             this.v.setResultMsg("您已取消操作");
             finishActivity();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.onCreate(bundle);
-            try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
-                init();
-                setupViews();
-            } catch (Throwable th) {
-                reportWebviewError(th);
-                this.v.setResultCode(-202);
-                this.v.setResultMsg("网络连接失败，请检查网络设置");
-                finishActivity();
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                a();
-            }
         }
     }
 
@@ -175,7 +188,7 @@ public class QrLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.setupViews();
-            setTitle(R.string.obfuscated_res_0x7f0f109d);
+            setTitle(R.string.obfuscated_res_0x7f0f10af);
             this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.QrLoginActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -285,34 +298,21 @@ public class QrLoginActivity extends BaseActivity {
         }
     }
 
-    private void a() {
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.back();
-            } else {
-                onClose();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
             try {
-                this.sapiWebView.destroy();
-            } catch (Exception unused) {
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                init();
+                setupViews();
+            } catch (Throwable th) {
+                reportWebviewError(th);
+                this.v.setResultCode(-202);
+                this.v.setResultMsg("网络连接失败，请检查网络设置");
+                finishActivity();
             }
-            QrLoginCallback qrLoginCallback = CoreViewRouter.getInstance().getQrLoginCallback();
-            if (qrLoginCallback != null) {
-                qrLoginCallback.onFinish(this.v);
-            }
-            if (z) {
-                finish();
-            }
-            CoreViewRouter.getInstance().release();
         }
     }
 }

@@ -1,7 +1,6 @@
 package androidx.core.transition;
 
 import android.transition.Transition;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +19,6 @@ public final class TransitionKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @RequiresApi(19)
     public static final Transition.TransitionListener addListener(Transition transition, Function1<? super Transition, Unit> function1, Function1<? super Transition, Unit> function12, Function1<? super Transition, Unit> function13, Function1<? super Transition, Unit> function14, Function1<? super Transition, Unit> function15) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -55,7 +53,6 @@ public final class TransitionKt {
         return transitionKt$addListener$listener$1;
     }
 
-    @RequiresApi(19)
     public static final Transition.TransitionListener doOnCancel(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -64,6 +61,34 @@ public final class TransitionKt {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1 $onCancel;
+
+                @Override // android.transition.Transition.TransitionListener
+                public void onTransitionEnd(Transition transition2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition2) == null) {
+                    }
+                }
+
+                @Override // android.transition.Transition.TransitionListener
+                public void onTransitionPause(Transition transition2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition2) == null) {
+                    }
+                }
+
+                @Override // android.transition.Transition.TransitionListener
+                public void onTransitionResume(Transition transition2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, transition2) == null) {
+                    }
+                }
+
+                @Override // android.transition.Transition.TransitionListener
+                public void onTransitionStart(Transition transition2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, transition2) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -90,11 +115,26 @@ public final class TransitionKt {
                         this.$onCancel.invoke(transition2);
                     }
                 }
+            };
+            transition.addListener(transitionListener);
+            return transitionListener;
+        }
+        return (Transition.TransitionListener) invokeLL.objValue;
+    }
+
+    public static final Transition.TransitionListener doOnEnd(Transition transition, final Function1<? super Transition, Unit> function1) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, transition, function1)) == null) {
+            Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnEnd$$inlined$addListener$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Function1 $onEnd;
 
                 @Override // android.transition.Transition.TransitionListener
-                public void onTransitionEnd(Transition transition2) {
+                public void onTransitionCancel(Transition transition2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition2) == null) {
                     }
                 }
 
@@ -118,22 +158,6 @@ public final class TransitionKt {
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, transition2) == null) {
                     }
                 }
-            };
-            transition.addListener(transitionListener);
-            return transitionListener;
-        }
-        return (Transition.TransitionListener) invokeLL.objValue;
-    }
-
-    @RequiresApi(19)
-    public static final Transition.TransitionListener doOnEnd(Transition transition, final Function1<? super Transition, Unit> function1) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, transition, function1)) == null) {
-            Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnEnd$$inlined$addListener$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Function1 $onEnd;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -154,6 +178,29 @@ public final class TransitionKt {
                 }
 
                 @Override // android.transition.Transition.TransitionListener
+                public void onTransitionEnd(Transition transition2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition2) == null) {
+                        this.$onEnd.invoke(transition2);
+                    }
+                }
+            };
+            transition.addListener(transitionListener);
+            return transitionListener;
+        }
+        return (Transition.TransitionListener) invokeLL.objValue;
+    }
+
+    public static final Transition.TransitionListener doOnPause(Transition transition, final Function1<? super Transition, Unit> function1) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, transition, function1)) == null) {
+            Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnPause$$inlined$addListener$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Function1 $onPause;
+
+                @Override // android.transition.Transition.TransitionListener
                 public void onTransitionCancel(Transition transition2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition2) == null) {
@@ -164,14 +211,6 @@ public final class TransitionKt {
                 public void onTransitionEnd(Transition transition2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition2) == null) {
-                        this.$onEnd.invoke(transition2);
-                    }
-                }
-
-                @Override // android.transition.Transition.TransitionListener
-                public void onTransitionPause(Transition transition2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition2) == null) {
                     }
                 }
 
@@ -188,22 +227,6 @@ public final class TransitionKt {
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, transition2) == null) {
                     }
                 }
-            };
-            transition.addListener(transitionListener);
-            return transitionListener;
-        }
-        return (Transition.TransitionListener) invokeLL.objValue;
-    }
-
-    @RequiresApi(19)
-    public static final Transition.TransitionListener doOnPause(Transition transition, final Function1<? super Transition, Unit> function1) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, transition, function1)) == null) {
-            Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnPause$$inlined$addListener$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Function1 $onPause;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -224,6 +247,29 @@ public final class TransitionKt {
                 }
 
                 @Override // android.transition.Transition.TransitionListener
+                public void onTransitionPause(Transition transition2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition2) == null) {
+                        this.$onPause.invoke(transition2);
+                    }
+                }
+            };
+            transition.addListener(transitionListener);
+            return transitionListener;
+        }
+        return (Transition.TransitionListener) invokeLL.objValue;
+    }
+
+    public static final Transition.TransitionListener doOnResume(Transition transition, final Function1<? super Transition, Unit> function1) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, transition, function1)) == null) {
+            Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnResume$$inlined$addListener$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Function1 $onResume;
+
+                @Override // android.transition.Transition.TransitionListener
                 public void onTransitionCancel(Transition transition2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition2) == null) {
@@ -241,14 +287,6 @@ public final class TransitionKt {
                 public void onTransitionPause(Transition transition2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition2) == null) {
-                        this.$onPause.invoke(transition2);
-                    }
-                }
-
-                @Override // android.transition.Transition.TransitionListener
-                public void onTransitionResume(Transition transition2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, transition2) == null) {
                     }
                 }
 
@@ -258,22 +296,6 @@ public final class TransitionKt {
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, transition2) == null) {
                     }
                 }
-            };
-            transition.addListener(transitionListener);
-            return transitionListener;
-        }
-        return (Transition.TransitionListener) invokeLL.objValue;
-    }
-
-    @RequiresApi(19)
-    public static final Transition.TransitionListener doOnResume(Transition transition, final Function1<? super Transition, Unit> function1) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, transition, function1)) == null) {
-            Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnResume$$inlined$addListener$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Function1 $onResume;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -294,6 +316,29 @@ public final class TransitionKt {
                 }
 
                 @Override // android.transition.Transition.TransitionListener
+                public void onTransitionResume(Transition transition2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, transition2) == null) {
+                        this.$onResume.invoke(transition2);
+                    }
+                }
+            };
+            transition.addListener(transitionListener);
+            return transitionListener;
+        }
+        return (Transition.TransitionListener) invokeLL.objValue;
+    }
+
+    public static final Transition.TransitionListener doOnStart(Transition transition, final Function1<? super Transition, Unit> function1) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, transition, function1)) == null) {
+            Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnStart$$inlined$addListener$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Function1 $onStart;
+
+                @Override // android.transition.Transition.TransitionListener
                 public void onTransitionCancel(Transition transition2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition2) == null) {
@@ -318,32 +363,8 @@ public final class TransitionKt {
                 public void onTransitionResume(Transition transition2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, transition2) == null) {
-                        this.$onResume.invoke(transition2);
                     }
                 }
-
-                @Override // android.transition.Transition.TransitionListener
-                public void onTransitionStart(Transition transition2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, transition2) == null) {
-                    }
-                }
-            };
-            transition.addListener(transitionListener);
-            return transitionListener;
-        }
-        return (Transition.TransitionListener) invokeLL.objValue;
-    }
-
-    @RequiresApi(19)
-    public static final Transition.TransitionListener doOnStart(Transition transition, final Function1<? super Transition, Unit> function1) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, transition, function1)) == null) {
-            Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnStart$$inlined$addListener$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Function1 $onStart;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -361,34 +382,6 @@ public final class TransitionKt {
                         }
                     }
                     this.$onStart = function1;
-                }
-
-                @Override // android.transition.Transition.TransitionListener
-                public void onTransitionCancel(Transition transition2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition2) == null) {
-                    }
-                }
-
-                @Override // android.transition.Transition.TransitionListener
-                public void onTransitionEnd(Transition transition2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition2) == null) {
-                    }
-                }
-
-                @Override // android.transition.Transition.TransitionListener
-                public void onTransitionPause(Transition transition2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition2) == null) {
-                    }
-                }
-
-                @Override // android.transition.Transition.TransitionListener
-                public void onTransitionResume(Transition transition2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, transition2) == null) {
-                    }
                 }
 
                 @Override // android.transition.Transition.TransitionListener

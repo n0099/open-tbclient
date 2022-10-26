@@ -1,6 +1,5 @@
 package androidx.appcompat.widget;
 
-import android.annotation.SuppressLint;
 import android.app.SearchableInfo;
 import android.content.ComponentName;
 import android.content.Context;
@@ -38,7 +37,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.WeakHashMap;
-@SuppressLint({"RestrictedAPI"})
 /* loaded from: classes.dex */
 public class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -64,6 +62,16 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     public int mText2Col;
     public int mText2UrlCol;
     public ColorStateList mUrlColor;
+
+    @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.BaseAdapter, android.widget.Adapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes.dex */
     public static final class ChildViewCache {
@@ -94,7 +102,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             this.mText2 = (TextView) view2.findViewById(16908309);
             this.mIcon1 = (ImageView) view2.findViewById(16908295);
             this.mIcon2 = (ImageView) view2.findViewById(16908296);
-            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090880);
+            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090889);
         }
     }
 
@@ -145,6 +153,68 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         return (Drawable) invokeL.objValue;
     }
 
+    private Drawable getIcon1(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, cursor)) == null) {
+            int i = this.mIconName1Col;
+            if (i == -1) {
+                return null;
+            }
+            Drawable drawableFromResourceValue = getDrawableFromResourceValue(cursor.getString(i));
+            if (drawableFromResourceValue != null) {
+                return drawableFromResourceValue;
+            }
+            return getDefaultIcon1();
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    private Drawable getIcon2(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, cursor)) == null) {
+            int i = this.mIconName2Col;
+            if (i == -1) {
+                return null;
+            }
+            return getDrawableFromResourceValue(cursor.getString(i));
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    private void updateSpinnerState(Cursor cursor) {
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, this, cursor) == null) {
+            if (cursor != null) {
+                bundle = cursor.getExtras();
+            } else {
+                bundle = null;
+            }
+            if (bundle == null || bundle.getBoolean("in_progress")) {
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            Object tag = view2.getTag();
+            if (tag instanceof CharSequence) {
+                this.mSearchView.onQueryRefine((CharSequence) tag);
+            }
+        }
+    }
+
+    public void setQueryRefinement(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mQueryRefinement = i;
+        }
+    }
+
     private CharSequence formatUrl(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -191,24 +261,95 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, componentName)) == null) {
             String flattenToShortString = componentName.flattenToShortString();
+            Drawable.ConstantState constantState = null;
             if (this.mOutsideDrawablesCache.containsKey(flattenToShortString)) {
-                Drawable.ConstantState constantState = this.mOutsideDrawablesCache.get(flattenToShortString);
-                if (constantState == null) {
+                Drawable.ConstantState constantState2 = this.mOutsideDrawablesCache.get(flattenToShortString);
+                if (constantState2 == null) {
                     return null;
                 }
-                return constantState.newDrawable(this.mProviderContext.getResources());
+                return constantState2.newDrawable(this.mProviderContext.getResources());
             }
             Drawable activityIcon = getActivityIcon(componentName);
-            this.mOutsideDrawablesCache.put(flattenToShortString, activityIcon != null ? activityIcon.getConstantState() : null);
+            if (activityIcon != null) {
+                constantState = activityIcon.getConstantState();
+            }
+            this.mOutsideDrawablesCache.put(flattenToShortString, constantState);
             return activityIcon;
         }
         return (Drawable) invokeL.objValue;
     }
 
+    @Override // androidx.cursoradapter.widget.CursorAdapter, androidx.cursoradapter.widget.CursorFilter.CursorFilterClient
+    public void changeCursor(Cursor cursor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor) == null) {
+            if (this.mClosed) {
+                Log.w(LOG_TAG, "Tried to change cursor after adapter was closed.");
+                if (cursor != null) {
+                    cursor.close();
+                    return;
+                }
+                return;
+            }
+            try {
+                super.changeCursor(cursor);
+                if (cursor != null) {
+                    this.mText1Col = cursor.getColumnIndex("suggest_text_1");
+                    this.mText2Col = cursor.getColumnIndex("suggest_text_2");
+                    this.mText2UrlCol = cursor.getColumnIndex("suggest_text_2_url");
+                    this.mIconName1Col = cursor.getColumnIndex("suggest_icon_1");
+                    this.mIconName2Col = cursor.getColumnIndex("suggest_icon_2");
+                    this.mFlagsCol = cursor.getColumnIndex("suggest_flags");
+                }
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "error changing cursor and caching columns", e);
+            }
+        }
+    }
+
     public static String getColumnString(Cursor cursor, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cursor, str)) == null) ? getStringOrNull(cursor, cursor.getColumnIndex(str)) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cursor, str)) == null) {
+            return getStringOrNull(cursor, cursor.getColumnIndex(str));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getStringOrNull(Cursor cursor, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, cursor, i)) == null) {
+            if (i == -1) {
+                return null;
+            }
+            try {
+                return cursor.getString(i);
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "unexpected error retrieving valid column from cursor, did the remote process die?", e);
+                return null;
+            }
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    private void setViewText(TextView textView, CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, this, textView, charSequence) == null) {
+            textView.setText(charSequence);
+            if (TextUtils.isEmpty(charSequence)) {
+                textView.setVisibility(8);
+            } else {
+                textView.setVisibility(0);
+            }
+        }
+    }
+
+    private void storeInIconCache(String str, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65550, this, str, drawable) == null) && drawable != null) {
+            this.mOutsideDrawablesCache.put(str, drawable.getConstantState());
+        }
     }
 
     private Drawable getDefaultIcon1() {
@@ -216,9 +357,47 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             Drawable activityIconWithCache = getActivityIconWithCache(this.mSearchable.getSearchActivity());
-            return activityIconWithCache != null ? activityIconWithCache : this.mContext.getPackageManager().getDefaultActivityIcon();
+            if (activityIconWithCache != null) {
+                return activityIconWithCache;
+            }
+            return this.mContext.getPackageManager().getDefaultActivityIcon();
         }
         return (Drawable) invokeV.objValue;
+    }
+
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            changeCursor(null);
+            this.mClosed = true;
+        }
+    }
+
+    public int getQueryRefinement() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mQueryRefinement;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.BaseAdapter
+    public void notifyDataSetChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.notifyDataSetChanged();
+            updateSpinnerState(getCursor());
+        }
+    }
+
+    @Override // android.widget.BaseAdapter
+    public void notifyDataSetInvalidated() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.notifyDataSetInvalidated();
+            updateSpinnerState(getCursor());
+        }
     }
 
     private Drawable getDrawable(Uri uri) {
@@ -287,50 +466,6 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         return (Drawable) invokeL.objValue;
     }
 
-    private Drawable getIcon1(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, cursor)) == null) {
-            int i = this.mIconName1Col;
-            if (i == -1) {
-                return null;
-            }
-            Drawable drawableFromResourceValue = getDrawableFromResourceValue(cursor.getString(i));
-            return drawableFromResourceValue != null ? drawableFromResourceValue : getDefaultIcon1();
-        }
-        return (Drawable) invokeL.objValue;
-    }
-
-    private Drawable getIcon2(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, cursor)) == null) {
-            int i = this.mIconName2Col;
-            if (i == -1) {
-                return null;
-            }
-            return getDrawableFromResourceValue(cursor.getString(i));
-        }
-        return (Drawable) invokeL.objValue;
-    }
-
-    public static String getStringOrNull(Cursor cursor, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, cursor, i)) == null) {
-            if (i == -1) {
-                return null;
-            }
-            try {
-                return cursor.getString(i);
-            } catch (Exception e) {
-                Log.e(LOG_TAG, "unexpected error retrieving valid column from cursor, did the remote process die?", e);
-                return null;
-            }
-        }
-        return (String) invokeLI.objValue;
-    }
-
     private void setViewDrawable(ImageView imageView, Drawable drawable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65548, this, imageView, drawable, i) == null) {
@@ -345,43 +480,32 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         }
     }
 
-    private void setViewText(TextView textView, CharSequence charSequence) {
+    @Override // androidx.cursoradapter.widget.ResourceCursorAdapter, androidx.cursoradapter.widget.CursorAdapter
+    public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, this, textView, charSequence) == null) {
-            textView.setText(charSequence);
-            if (TextUtils.isEmpty(charSequence)) {
-                textView.setVisibility(8);
-            } else {
-                textView.setVisibility(0);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, cursor, viewGroup)) == null) {
+            View newView = super.newView(context, cursor, viewGroup);
+            newView.setTag(new ChildViewCache(newView));
+            ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090889)).setImageResource(this.mCommitIconResId);
+            return newView;
         }
-    }
-
-    private void storeInIconCache(String str, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65550, this, str, drawable) == null) || drawable == null) {
-            return;
-        }
-        this.mOutsideDrawablesCache.put(str, drawable.getConstantState());
-    }
-
-    private void updateSpinnerState(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, this, cursor) == null) {
-            Bundle extras = cursor != null ? cursor.getExtras() : null;
-            if (extras == null || extras.getBoolean("in_progress")) {
-            }
-        }
+        return (View) invokeLLL.objValue;
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter
     public void bindView(View view2, Context context, Cursor cursor) {
+        int i;
         CharSequence stringOrNull;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, context, cursor) == null) {
             ChildViewCache childViewCache = (ChildViewCache) view2.getTag();
-            int i = this.mFlagsCol;
-            int i2 = i != -1 ? cursor.getInt(i) : 0;
+            int i2 = this.mFlagsCol;
+            if (i2 != -1) {
+                i = cursor.getInt(i2);
+            } else {
+                i = 0;
+            }
             if (childViewCache.mText1 != null) {
                 setViewText(childViewCache.mText1, getStringOrNull(cursor, this.mText1Col));
             }
@@ -416,49 +540,13 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                 setViewDrawable(imageView2, getIcon2(cursor), 8);
             }
             int i3 = this.mQueryRefinement;
-            if (i3 != 2 && (i3 != 1 || (i2 & 1) == 0)) {
+            if (i3 != 2 && (i3 != 1 || (i & 1) == 0)) {
                 childViewCache.mIconRefine.setVisibility(8);
                 return;
             }
             childViewCache.mIconRefine.setVisibility(0);
             childViewCache.mIconRefine.setTag(childViewCache.mText1.getText());
             childViewCache.mIconRefine.setOnClickListener(this);
-        }
-    }
-
-    @Override // androidx.cursoradapter.widget.CursorAdapter, androidx.cursoradapter.widget.CursorFilter.CursorFilterClient
-    public void changeCursor(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor) == null) {
-            if (this.mClosed) {
-                Log.w(LOG_TAG, "Tried to change cursor after adapter was closed.");
-                if (cursor != null) {
-                    cursor.close();
-                    return;
-                }
-                return;
-            }
-            try {
-                super.changeCursor(cursor);
-                if (cursor != null) {
-                    this.mText1Col = cursor.getColumnIndex("suggest_text_1");
-                    this.mText2Col = cursor.getColumnIndex("suggest_text_2");
-                    this.mText2UrlCol = cursor.getColumnIndex("suggest_text_2_url");
-                    this.mIconName1Col = cursor.getColumnIndex("suggest_icon_1");
-                    this.mIconName2Col = cursor.getColumnIndex("suggest_icon_2");
-                    this.mFlagsCol = cursor.getColumnIndex("suggest_flags");
-                }
-            } catch (Exception e) {
-                Log.e(LOG_TAG, "error changing cursor and caching columns", e);
-            }
-        }
-    }
-
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            changeCursor(null);
-            this.mClosed = true;
         }
     }
 
@@ -476,15 +564,42 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             if (columnString3 != null) {
                 return columnString3;
             }
-            if (!this.mSearchable.shouldRewriteQueryFromData() || (columnString2 = getColumnString(cursor, "suggest_intent_data")) == null) {
-                if (!this.mSearchable.shouldRewriteQueryFromText() || (columnString = getColumnString(cursor, "suggest_text_1")) == null) {
-                    return null;
-                }
-                return columnString;
+            if (this.mSearchable.shouldRewriteQueryFromData() && (columnString2 = getColumnString(cursor, "suggest_intent_data")) != null) {
+                return columnString2;
             }
-            return columnString2;
+            if (!this.mSearchable.shouldRewriteQueryFromText() || (columnString = getColumnString(cursor, "suggest_text_1")) == null) {
+                return null;
+            }
+            return columnString;
         }
         return (CharSequence) invokeL.objValue;
+    }
+
+    @Override // androidx.cursoradapter.widget.CursorAdapter, androidx.cursoradapter.widget.CursorFilter.CursorFilterClient
+    public Cursor runQueryOnBackgroundThread(CharSequence charSequence) {
+        InterceptResult invokeL;
+        String charSequence2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
+            if (charSequence == null) {
+                charSequence2 = "";
+            } else {
+                charSequence2 = charSequence.toString();
+            }
+            if (this.mSearchView.getVisibility() == 0 && this.mSearchView.getWindowVisibility() == 0) {
+                try {
+                    Cursor searchManagerSuggestions = getSearchManagerSuggestions(this.mSearchable, charSequence2, 50);
+                    if (searchManagerSuggestions != null) {
+                        searchManagerSuggestions.getCount();
+                        return searchManagerSuggestions;
+                    }
+                } catch (RuntimeException e) {
+                    Log.w(LOG_TAG, "Search suggestions query threw an exception.", e);
+                }
+            }
+            return null;
+        }
+        return (Cursor) invokeL.objValue;
     }
 
     public Drawable getDrawableFromResourceUri(Uri uri) throws FileNotFoundException {
@@ -544,10 +659,23 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         return (View) invokeILL.objValue;
     }
 
-    public int getQueryRefinement() {
-        InterceptResult invokeV;
+    @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mQueryRefinement : invokeV.intValue;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            try {
+                return super.getView(i, view2, viewGroup);
+            } catch (RuntimeException e) {
+                Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e);
+                View newView = newView(this.mContext, this.mCursor, viewGroup);
+                if (newView != null) {
+                    ((ChildViewCache) newView.getTag()).mText1.setText(e.toString());
+                }
+                return newView;
+            }
+        }
+        return (View) invokeILL.objValue;
     }
 
     public Cursor getSearchManagerSuggestions(SearchableInfo searchableInfo, String str, int i) {
@@ -578,105 +706,5 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             return this.mContext.getContentResolver().query(fragment.build(), null, suggestSelection, strArr2, null);
         }
         return (Cursor) invokeLLI.objValue;
-    }
-
-    @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            try {
-                return super.getView(i, view2, viewGroup);
-            } catch (RuntimeException e) {
-                Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e);
-                View newView = newView(this.mContext, this.mCursor, viewGroup);
-                if (newView != null) {
-                    ((ChildViewCache) newView.getTag()).mText1.setText(e.toString());
-                }
-                return newView;
-            }
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.BaseAdapter, android.widget.Adapter
-    public boolean hasStableIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.cursoradapter.widget.ResourceCursorAdapter, androidx.cursoradapter.widget.CursorAdapter
-    public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, cursor, viewGroup)) == null) {
-            View newView = super.newView(context, cursor, viewGroup);
-            newView.setTag(new ChildViewCache(newView));
-            ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090880)).setImageResource(this.mCommitIconResId);
-            return newView;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter
-    public void notifyDataSetChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.notifyDataSetChanged();
-            updateSpinnerState(getCursor());
-        }
-    }
-
-    @Override // android.widget.BaseAdapter
-    public void notifyDataSetInvalidated() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.notifyDataSetInvalidated();
-            updateSpinnerState(getCursor());
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            Object tag = view2.getTag();
-            if (tag instanceof CharSequence) {
-                this.mSearchView.onQueryRefine((CharSequence) tag);
-            }
-        }
-    }
-
-    @Override // androidx.cursoradapter.widget.CursorAdapter, androidx.cursoradapter.widget.CursorFilter.CursorFilterClient
-    public Cursor runQueryOnBackgroundThread(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
-            String charSequence2 = charSequence == null ? "" : charSequence.toString();
-            if (this.mSearchView.getVisibility() == 0 && this.mSearchView.getWindowVisibility() == 0) {
-                try {
-                    Cursor searchManagerSuggestions = getSearchManagerSuggestions(this.mSearchable, charSequence2, 50);
-                    if (searchManagerSuggestions != null) {
-                        searchManagerSuggestions.getCount();
-                        return searchManagerSuggestions;
-                    }
-                } catch (RuntimeException e) {
-                    Log.w(LOG_TAG, "Search suggestions query threw an exception.", e);
-                }
-            }
-            return null;
-        }
-        return (Cursor) invokeL.objValue;
-    }
-
-    public void setQueryRefinement(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.mQueryRefinement = i;
-        }
     }
 }

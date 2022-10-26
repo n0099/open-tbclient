@@ -14,7 +14,6 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
@@ -81,6 +80,27 @@ public final class Code93Reader extends OneDReader {
         }
     }
 
+    public static char patternToChar(int i) throws NotFoundException {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            int i2 = 0;
+            while (true) {
+                int[] iArr = CHARACTER_ENCODINGS;
+                if (i2 < iArr.length) {
+                    if (iArr[i2] == i) {
+                        return ALPHABET[i2];
+                    }
+                    i2++;
+                } else {
+                    throw NotFoundException.getNotFoundInstance();
+                }
+            }
+        } else {
+            return invokeI.charValue;
+        }
+    }
+
     public static void checkOneChecksum(CharSequence charSequence, int i, int i2) throws ChecksumException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65539, null, charSequence, i, i2) == null) {
@@ -93,9 +113,10 @@ public final class Code93Reader extends OneDReader {
                     i4 = 1;
                 }
             }
-            if (charSequence.charAt(i) != ALPHABET[i3 % 47]) {
-                throw ChecksumException.getChecksumInstance();
+            if (charSequence.charAt(i) == ALPHABET[i3 % 47]) {
+                return;
             }
+            throw ChecksumException.getChecksumInstance();
         }
     }
 
@@ -110,65 +131,67 @@ public final class Code93Reader extends OneDReader {
             int i2 = 0;
             while (i2 < length) {
                 char charAt = charSequence.charAt(i2);
-                if (charAt < 'a' || charAt > 'd') {
-                    sb.append(charAt);
-                } else if (i2 < length - 1) {
-                    i2++;
-                    char charAt2 = charSequence.charAt(i2);
-                    switch (charAt) {
-                        case 'a':
-                            if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                                i = charAt2 - '@';
+                if (charAt >= 'a' && charAt <= 'd') {
+                    if (i2 < length - 1) {
+                        i2++;
+                        char charAt2 = charSequence.charAt(i2);
+                        switch (charAt) {
+                            case 'a':
+                                if (charAt2 >= 'A' && charAt2 <= 'Z') {
+                                    i = charAt2 - '@';
+                                    c = (char) i;
+                                    break;
+                                } else {
+                                    throw FormatException.getFormatInstance();
+                                }
+                                break;
+                            case 'b':
+                                if (charAt2 >= 'A' && charAt2 <= 'E') {
+                                    i = charAt2 - '&';
+                                } else if (charAt2 >= 'F' && charAt2 <= 'J') {
+                                    i = charAt2 + DecodedBitStreamParser.TWOSHIFTA;
+                                } else if (charAt2 >= 'K' && charAt2 <= 'O') {
+                                    i = charAt2 + 16;
+                                } else if (charAt2 >= 'P' && charAt2 <= 'S') {
+                                    i = charAt2 + '+';
+                                } else if (charAt2 >= 'T' && charAt2 <= 'Z') {
+                                    c = 127;
+                                    break;
+                                } else {
+                                    throw FormatException.getFormatInstance();
+                                }
                                 c = (char) i;
                                 break;
-                            } else {
-                                throw FormatException.getFormatInstance();
-                            }
-                            break;
-                        case 'b':
-                            if (charAt2 >= 'A' && charAt2 <= 'E') {
-                                i = charAt2 - '&';
-                            } else if (charAt2 >= 'F' && charAt2 <= 'J') {
-                                i = charAt2 + DecodedBitStreamParser.TWOSHIFTA;
-                            } else if (charAt2 >= 'K' && charAt2 <= 'O') {
-                                i = charAt2 + 16;
-                            } else if (charAt2 >= 'P' && charAt2 <= 'S') {
-                                i = charAt2 + '+';
-                            } else if (charAt2 >= 'T' && charAt2 <= 'Z') {
-                                c = 127;
+                            case 'c':
+                                if (charAt2 >= 'A' && charAt2 <= 'O') {
+                                    i = charAt2 - ' ';
+                                    c = (char) i;
+                                    break;
+                                } else if (charAt2 == 'Z') {
+                                    c = ':';
+                                    break;
+                                } else {
+                                    throw FormatException.getFormatInstance();
+                                }
+                            case 'd':
+                                if (charAt2 >= 'A' && charAt2 <= 'Z') {
+                                    i = charAt2 + WebvttCueParser.CHAR_SPACE;
+                                    c = (char) i;
+                                    break;
+                                } else {
+                                    throw FormatException.getFormatInstance();
+                                }
                                 break;
-                            } else {
-                                throw FormatException.getFormatInstance();
-                            }
-                            c = (char) i;
-                            break;
-                        case 'c':
-                            if (charAt2 >= 'A' && charAt2 <= 'O') {
-                                i = charAt2 - ' ';
-                                c = (char) i;
+                            default:
+                                c = 0;
                                 break;
-                            } else if (charAt2 == 'Z') {
-                                c = ':';
-                                break;
-                            } else {
-                                throw FormatException.getFormatInstance();
-                            }
-                        case 'd':
-                            if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                                i = charAt2 + WebvttCueParser.CHAR_SPACE;
-                                c = (char) i;
-                                break;
-                            } else {
-                                throw FormatException.getFormatInstance();
-                            }
-                            break;
-                        default:
-                            c = 0;
-                            break;
+                        }
+                        sb.append(c);
+                    } else {
+                        throw FormatException.getFormatInstance();
                     }
-                    sb.append(c);
                 } else {
-                    throw FormatException.getFormatInstance();
+                    sb.append(charAt);
                 }
                 i2++;
             }
@@ -194,17 +217,18 @@ public final class Code93Reader extends OneDReader {
                     iArr[i2] = iArr[i2] + 1;
                 } else {
                     int i3 = length - 1;
-                    if (i2 != i3) {
-                        i2++;
-                    } else if (toPattern(iArr) == ASTERISK_ENCODING) {
-                        return new int[]{i, nextSet};
-                    } else {
+                    if (i2 == i3) {
+                        if (toPattern(iArr) == ASTERISK_ENCODING) {
+                            return new int[]{i, nextSet};
+                        }
                         i += iArr[0] + iArr[1];
                         int i4 = length - 2;
                         System.arraycopy(iArr, 2, iArr, 0, i4);
                         iArr[i4] = 0;
                         iArr[i3] = 0;
                         i2--;
+                    } else {
+                        i2++;
                     }
                     iArr[i2] = 1;
                     z = !z;
@@ -214,26 +238,6 @@ public final class Code93Reader extends OneDReader {
             throw NotFoundException.getNotFoundInstance();
         }
         return (int[]) invokeL.objValue;
-    }
-
-    public static char patternToChar(int i) throws NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65542, null, i)) != null) {
-            return invokeI.charValue;
-        }
-        int i2 = 0;
-        while (true) {
-            int[] iArr = CHARACTER_ENCODINGS;
-            if (i2 < iArr.length) {
-                if (iArr[i2] == i) {
-                    return ALPHABET[i2];
-                }
-                i2++;
-            } else {
-                throw NotFoundException.getNotFoundInstance();
-            }
-        }
     }
 
     public static int toPattern(int[] iArr) {
@@ -248,15 +252,16 @@ public final class Code93Reader extends OneDReader {
             int i3 = 0;
             for (int i4 = 0; i4 < length; i4++) {
                 int round = Math.round((iArr[i4] * 9.0f) / i);
-                if (round <= 0 || round > 4) {
-                    return -1;
-                }
-                if ((i4 & 1) == 0) {
-                    for (int i5 = 0; i5 < round; i5++) {
-                        i3 = (i3 << 1) | 1;
+                if (round > 0 && round <= 4) {
+                    if ((i4 & 1) == 0) {
+                        for (int i5 = 0; i5 < round; i5++) {
+                            i3 = (i3 << 1) | 1;
+                        }
+                    } else {
+                        i3 <<= round;
                     }
                 } else {
-                    i3 <<= round;
+                    return -1;
                 }
             }
             return i3;
@@ -265,51 +270,52 @@ public final class Code93Reader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeILL;
         int[] findAsteriskPattern;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) != null) {
-            return (Result) invokeILL.objValue;
-        }
-        int nextSet = bitArray.getNextSet(findAsteriskPattern(bitArray)[1]);
-        int size = bitArray.getSize();
-        int[] iArr = this.counters;
-        Arrays.fill(iArr, 0);
-        StringBuilder sb = this.decodeRowResult;
-        sb.setLength(0);
-        while (true) {
-            OneDReader.recordPattern(bitArray, nextSet, iArr);
-            int pattern = toPattern(iArr);
-            if (pattern >= 0) {
-                char patternToChar = patternToChar(pattern);
-                sb.append(patternToChar);
-                int i2 = nextSet;
-                for (int i3 : iArr) {
-                    i2 += i3;
-                }
-                int nextSet2 = bitArray.getNextSet(i2);
-                if (patternToChar == '*') {
-                    sb.deleteCharAt(sb.length() - 1);
-                    int i4 = 0;
-                    for (int i5 : iArr) {
-                        i4 += i5;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
+            int nextSet = bitArray.getNextSet(findAsteriskPattern(bitArray)[1]);
+            int size = bitArray.getSize();
+            int[] iArr = this.counters;
+            Arrays.fill(iArr, 0);
+            StringBuilder sb = this.decodeRowResult;
+            sb.setLength(0);
+            while (true) {
+                OneDReader.recordPattern(bitArray, nextSet, iArr);
+                int pattern = toPattern(iArr);
+                if (pattern >= 0) {
+                    char patternToChar = patternToChar(pattern);
+                    sb.append(patternToChar);
+                    int i2 = nextSet;
+                    for (int i3 : iArr) {
+                        i2 += i3;
                     }
-                    if (nextSet2 != size && bitArray.get(nextSet2)) {
-                        if (sb.length() >= 2) {
-                            checkChecksums(sb);
-                            sb.setLength(sb.length() - 2);
-                            float f = i;
-                            return new Result(decodeExtended(sb), null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f), new ResultPoint(nextSet + (i4 / 2.0f), f)}, BarcodeFormat.CODE_93);
+                    int nextSet2 = bitArray.getNextSet(i2);
+                    if (patternToChar == '*') {
+                        sb.deleteCharAt(sb.length() - 1);
+                        int i4 = 0;
+                        for (int i5 : iArr) {
+                            i4 += i5;
+                        }
+                        if (nextSet2 != size && bitArray.get(nextSet2)) {
+                            if (sb.length() >= 2) {
+                                checkChecksums(sb);
+                                sb.setLength(sb.length() - 2);
+                                float f = i;
+                                return new Result(decodeExtended(sb), null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f), new ResultPoint(nextSet + (i4 / 2.0f), f)}, BarcodeFormat.CODE_93);
+                            }
+                            throw NotFoundException.getNotFoundInstance();
                         }
                         throw NotFoundException.getNotFoundInstance();
                     }
+                    nextSet = nextSet2;
+                } else {
                     throw NotFoundException.getNotFoundInstance();
                 }
-                nextSet = nextSet2;
-            } else {
-                throw NotFoundException.getNotFoundInstance();
             }
+        } else {
+            return (Result) invokeILL.objValue;
         }
     }
 }

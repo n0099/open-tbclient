@@ -19,40 +19,15 @@ public class d {
     public ScheduledExecutorService c;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static d a = new d();
+    }
+
+    public d() {
     }
 
     public static d a() {
         return a.a;
-    }
-
-    public void b(Runnable runnable) {
-        b(runnable, false);
-    }
-
-    public ExecutorService c() {
-        if (this.b == null) {
-            synchronized (d.class) {
-                if (this.b == null) {
-                    TimeUnit timeUnit = TimeUnit.SECONDS;
-                    SynchronousQueue synchronousQueue = new SynchronousQueue();
-                    this.b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
-                }
-            }
-        }
-        return this.b;
-    }
-
-    public ScheduledExecutorService d() {
-        if (this.c == null) {
-            synchronized (d.class) {
-                if (this.c == null) {
-                    this.c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
-                }
-            }
-        }
-        return this.c;
     }
 
     public void e() {
@@ -72,13 +47,14 @@ public class d {
                         x = com.ss.android.socialbase.downloader.downloader.c.x();
                     } catch (Throwable unused) {
                     }
-                    if (x instanceof com.ss.android.socialbase.downloader.impls.d) {
-                        SparseArray<DownloadInfo> a2 = ((com.ss.android.socialbase.downloader.impls.d) x).a().a();
-                        for (int size = a2.size() - 1; size >= 0; size--) {
-                            DownloadInfo downloadInfo = a2.get(a2.keyAt(size));
-                            if (downloadInfo != null) {
-                                Downloader.getInstance(com.ss.android.downloadlib.addownload.j.getContext()).clearDownloadData(downloadInfo.getId());
-                            }
+                    if (!(x instanceof com.ss.android.socialbase.downloader.impls.d)) {
+                        return;
+                    }
+                    SparseArray a2 = ((com.ss.android.socialbase.downloader.impls.d) x).a().a();
+                    for (int size = a2.size() - 1; size >= 0; size--) {
+                        DownloadInfo downloadInfo = (DownloadInfo) a2.get(a2.keyAt(size));
+                        if (downloadInfo != null) {
+                            Downloader.getInstance(com.ss.android.downloadlib.addownload.j.getContext()).clearDownloadData(downloadInfo.getId());
                         }
                     }
                 }
@@ -86,11 +62,20 @@ public class d {
         });
     }
 
-    public d() {
-    }
-
     public void a(Runnable runnable) {
         a(runnable, false);
+    }
+
+    public void b(Runnable runnable) {
+        b(runnable, false);
+    }
+
+    public void a(Runnable runnable, long j) {
+        try {
+            d().schedule(runnable, j, TimeUnit.MILLISECONDS);
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
     public void b(Runnable runnable, boolean z) {
@@ -128,11 +113,27 @@ public class d {
         return this.a;
     }
 
-    public void a(Runnable runnable, long j) {
-        try {
-            d().schedule(runnable, j, TimeUnit.MILLISECONDS);
-        } catch (Throwable th) {
-            th.printStackTrace();
+    public ExecutorService c() {
+        if (this.b == null) {
+            synchronized (d.class) {
+                if (this.b == null) {
+                    TimeUnit timeUnit = TimeUnit.SECONDS;
+                    SynchronousQueue synchronousQueue = new SynchronousQueue();
+                    this.b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
+                }
+            }
         }
+        return this.b;
+    }
+
+    public ScheduledExecutorService d() {
+        if (this.c == null) {
+            synchronized (d.class) {
+                if (this.c == null) {
+                    this.c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
+                }
+            }
+        }
+        return this.c;
     }
 }

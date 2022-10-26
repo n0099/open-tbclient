@@ -23,7 +23,7 @@ public class Enums {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class FingerprintAuthType {
+    public class FingerprintAuthType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOGIN = 3;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class Enums {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class LastLoginType {
+    public final class LastLoginType {
         public static final /* synthetic */ LastLoginType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LastLoginType CFO;
@@ -177,30 +177,42 @@ public class Enums {
         public static LastLoginType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (LastLoginType) Enum.valueOf(LastLoginType.class, str) : (LastLoginType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (LastLoginType) Enum.valueOf(LastLoginType.class, str);
+            }
+            return (LastLoginType) invokeL.objValue;
         }
 
         public static LastLoginType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (LastLoginType[]) $VALUES.clone() : (LastLoginType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (LastLoginType[]) $VALUES.clone();
+            }
+            return (LastLoginType[]) invokeV.objValue;
         }
 
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.key : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.key;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.value;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class NormalizeWay {
+    public class NormalizeWay {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NONE = 0;
         public static final int PWD = 3;
@@ -224,7 +236,7 @@ public class Enums {
     }
 
     /* loaded from: classes2.dex */
-    public static class PreLoginType {
+    public class PreLoginType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CHINA_MOBILE_OAUTH = 12;
         public static final int CHOICE_SHARE = 8;

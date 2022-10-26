@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class VideoCodecStatus {
     public static final /* synthetic */ VideoCodecStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -82,19 +82,27 @@ public final class VideoCodecStatus {
     public static VideoCodecStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VideoCodecStatus) Enum.valueOf(VideoCodecStatus.class, str) : (VideoCodecStatus) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (VideoCodecStatus) Enum.valueOf(VideoCodecStatus.class, str);
+        }
+        return (VideoCodecStatus) invokeL.objValue;
     }
 
     public static VideoCodecStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoCodecStatus[]) $VALUES.clone() : (VideoCodecStatus[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (VideoCodecStatus[]) $VALUES.clone();
+        }
+        return (VideoCodecStatus[]) invokeV.objValue;
     }
 
-    @CalledByNative
     public int getNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.number : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.number;
+        }
+        return invokeV.intValue;
     }
 }

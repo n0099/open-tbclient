@@ -17,7 +17,7 @@ import java.util.Map;
 public class ActAdditionListenerController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<IAct, ActListener> actMap;
+    public Map actMap;
     public HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate;
 
     public ActAdditionListenerController() {
@@ -36,20 +36,44 @@ public class ActAdditionListenerController {
         this.actMap = new HashMap();
     }
 
+    public HiidoSdkAdditionDelegate getHiidoSdkAdditionDelegate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.hiidoSdkAdditionDelegate;
+        }
+        return (HiidoSdkAdditionDelegate) invokeV.objValue;
+    }
+
     public ActListener add(ActListener actListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, actListener)) == null) {
-            ActListener put = this.actMap.put(actListener.getAct(), actListener);
+            ActListener actListener2 = (ActListener) this.actMap.put(actListener.getAct(), actListener);
             L.info(this, "add ActListener act[%s] new listener[%s],old listener[%s]", actListener.getAct(), actListener, actListener);
-            return put;
+            return actListener2;
+        }
+        return (ActListener) invokeL.objValue;
+    }
+
+    public ActListener remove(ActListener actListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, actListener)) == null) {
+            try {
+                L.info(this, "remove ActListener act[%s] listener[%s]", actListener.getAct(), actListener);
+                return (ActListener) this.actMap.remove(actListener.getAct());
+            } catch (Throwable th) {
+                L.error(this, "error %s", th);
+                return null;
+            }
         }
         return (ActListener) invokeL.objValue;
     }
 
     public StatisContent getActAddition(Act act, ActListener actListener) {
         InterceptResult invokeLL;
-        Map<String, String> additionParams;
+        Map additionParams;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, act, actListener)) == null) {
@@ -60,9 +84,9 @@ public class ActAdditionListenerController {
                     if (actAdditionListener.getAdditionMap() != null && !actAdditionListener.getAdditionMap().isEmpty()) {
                         statisContent = new StatisContent();
                         i = actAdditionListener.getAdditionMap().size();
-                        for (Map.Entry<String, String> entry : actAdditionListener.getAdditionMap().entrySet()) {
-                            if (!Util.empty(entry.getKey()) && !Util.empty(entry.getValue())) {
-                                statisContent.put(entry.getKey(), entry.getValue());
+                        for (Map.Entry entry : actAdditionListener.getAdditionMap().entrySet()) {
+                            if (!Util.empty((String) entry.getKey()) && !Util.empty((String) entry.getValue())) {
+                                statisContent.put((String) entry.getKey(), (String) entry.getValue());
                             }
                         }
                         L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
@@ -73,11 +97,11 @@ public class ActAdditionListenerController {
                     if (actListener instanceof ActBakAdditionListener) {
                         ActBakAdditionListener actBakAdditionListener = (ActBakAdditionListener) actListener;
                         StatisContent statisContent2 = new StatisContent();
-                        if (Util.empty(actBakAdditionListener.getBak1())) {
-                            i = 0;
-                        } else {
+                        if (!Util.empty(actBakAdditionListener.getBak1())) {
                             statisContent2.put("bak1", actBakAdditionListener.getBak1());
                             i = 1;
+                        } else {
+                            i = 0;
                         }
                         if (!Util.empty(actBakAdditionListener.getBak2())) {
                             statisContent2.put("bak2", actBakAdditionListener.getBak2());
@@ -99,9 +123,9 @@ public class ActAdditionListenerController {
                 if (statisContent == null) {
                     statisContent = new StatisContent();
                 }
-                for (Map.Entry<String, String> entry2 : additionParams.entrySet()) {
-                    if (!Util.empty(entry2.getKey()) && !Util.empty(entry2.getValue())) {
-                        statisContent.put(entry2.getKey(), entry2.getValue());
+                for (Map.Entry entry2 : additionParams.entrySet()) {
+                    if (!Util.empty((String) entry2.getKey()) && !Util.empty((String) entry2.getValue())) {
+                        statisContent.put((String) entry2.getKey(), (String) entry2.getValue());
                     }
                 }
             }
@@ -110,29 +134,11 @@ public class ActAdditionListenerController {
         return (StatisContent) invokeLL.objValue;
     }
 
-    public HiidoSdkAdditionDelegate getHiidoSdkAdditionDelegate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hiidoSdkAdditionDelegate : (HiidoSdkAdditionDelegate) invokeV.objValue;
-    }
-
     public ActListener getListerner(IAct iAct) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iAct)) == null) ? this.actMap.get(iAct) : (ActListener) invokeL.objValue;
-    }
-
-    public ActListener remove(ActListener actListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, actListener)) == null) {
-            try {
-                L.info(this, "remove ActListener act[%s] listener[%s]", actListener.getAct(), actListener);
-                return this.actMap.remove(actListener.getAct());
-            } catch (Throwable th) {
-                L.error(this, "error %s", th);
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iAct)) == null) {
+            return (ActListener) this.actMap.get(iAct);
         }
         return (ActListener) invokeL.objValue;
     }

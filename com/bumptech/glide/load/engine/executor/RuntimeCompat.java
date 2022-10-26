@@ -38,7 +38,10 @@ public final class RuntimeCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             int availableProcessors = Runtime.getRuntime().availableProcessors();
-            return Build.VERSION.SDK_INT < 17 ? Math.max(getCoreCountPre17(), availableProcessors) : availableProcessors;
+            if (Build.VERSION.SDK_INT < 17) {
+                return Math.max(getCoreCountPre17(), availableProcessors);
+            }
+            return availableProcessors;
         }
         return invokeV.intValue;
     }
@@ -46,6 +49,7 @@ public final class RuntimeCompat {
     public static int getCoreCountPre17() {
         InterceptResult invokeV;
         File[] fileArr;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
@@ -62,9 +66,9 @@ public final class RuntimeCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {r6};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -77,7 +81,10 @@ public final class RuntimeCompat {
                     public boolean accept(File file, String str) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, str)) == null) ? this.val$cpuNamePattern.matcher(str).matches() : invokeLL.booleanValue;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, str)) == null) {
+                            return this.val$cpuNamePattern.matcher(str).matches();
+                        }
+                        return invokeLL.booleanValue;
                     }
                 });
             } catch (Throwable th) {
@@ -91,7 +98,12 @@ public final class RuntimeCompat {
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
                 }
             }
-            return Math.max(1, fileArr != null ? fileArr.length : 0);
+            if (fileArr != null) {
+                i = fileArr.length;
+            } else {
+                i = 0;
+            }
+            return Math.max(1, i);
         }
         return invokeV.intValue;
     }

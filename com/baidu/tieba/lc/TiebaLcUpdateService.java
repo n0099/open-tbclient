@@ -2,12 +2,11 @@ package com.baidu.tieba.lc;
 
 import android.content.Intent;
 import android.os.IBinder;
-import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tieba.tf7;
+import com.baidu.tieba.eg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,17 @@ import java.io.Serializable;
 public class TiebaLcUpdateService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tf7 mLcUpdateAsyncTask;
+    public eg7 mLcUpdateAsyncTask;
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
 
     public TiebaLcUpdateService() {
         Interceptable interceptable = $ic;
@@ -34,32 +43,6 @@ public class TiebaLcUpdateService extends BdBaseService {
         }
     }
 
-    private void startUpdate(ClientUpdateInfo clientUpdateInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, clientUpdateInfo) == null) || clientUpdateInfo == null) {
-            return;
-        }
-        tf7 tf7Var = this.mLcUpdateAsyncTask;
-        if (tf7Var != null) {
-            tf7Var.cancel();
-            this.mLcUpdateAsyncTask = null;
-        }
-        tf7 tf7Var2 = new tf7(clientUpdateInfo);
-        this.mLcUpdateAsyncTask = tf7Var2;
-        tf7Var2.execute(new String[0]);
-    }
-
-    @Override // android.app.Service
-    @Nullable
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         Interceptable interceptable = $ic;
@@ -72,13 +55,28 @@ public class TiebaLcUpdateService extends BdBaseService {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            tf7 tf7Var = this.mLcUpdateAsyncTask;
-            if (tf7Var != null) {
-                tf7Var.cancel();
+            eg7 eg7Var = this.mLcUpdateAsyncTask;
+            if (eg7Var != null) {
+                eg7Var.cancel();
                 this.mLcUpdateAsyncTask = null;
             }
             super.onDestroy();
         }
+    }
+
+    private void startUpdate(ClientUpdateInfo clientUpdateInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, this, clientUpdateInfo) != null) || clientUpdateInfo == null) {
+            return;
+        }
+        eg7 eg7Var = this.mLcUpdateAsyncTask;
+        if (eg7Var != null) {
+            eg7Var.cancel();
+            this.mLcUpdateAsyncTask = null;
+        }
+        eg7 eg7Var2 = new eg7(clientUpdateInfo);
+        this.mLcUpdateAsyncTask = eg7Var2;
+        eg7Var2.execute(new String[0]);
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service

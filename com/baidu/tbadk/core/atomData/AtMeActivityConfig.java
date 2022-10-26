@@ -38,18 +38,16 @@ public class AtMeActivityConfig extends IntentConfig {
     public void setAtNumber(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_AT_NUMBER, i);
         }
-        intent.putExtra(KEY_AT_NUMBER, i);
     }
 
     public void setLastUniqueId(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("last_page_unique_id", i);
         }
-        intent.putExtra("last_page_unique_id", i);
     }
 }

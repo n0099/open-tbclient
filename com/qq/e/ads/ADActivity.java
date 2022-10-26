@@ -69,54 +69,6 @@ public class ADActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            String str = null;
-            try {
-                POFactory pOFactory = GDTADManager.getInstance().getPM().getPOFactory();
-                if (pOFactory != null) {
-                    Intent intent = getIntent();
-                    intent.setExtrasClassLoader(pOFactory.getClass().getClassLoader());
-                    Bundle extras = intent.getExtras();
-                    if (extras != null) {
-                        str = extras.getString(ACTD.DELEGATE_NAME_KEY);
-                        String string = extras.getString("appid");
-                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string) && GDTADManager.getInstance().isInitialized()) {
-                            ACTD activityDelegate = pOFactory.getActivityDelegate(str, this);
-                            this.a = activityDelegate;
-                            if (activityDelegate == null) {
-                                GDTLogger.e("创建 ADActivity Delegate " + str + " 失败");
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                GDTLogger.e("创建ADActivity Delegate" + str + "发生异常", th);
-            }
-            ACTD actd = this.a;
-            if (actd != null) {
-                actd.onBeforeCreate(bundle);
-            } else {
-                try {
-                    finish();
-                } catch (Exception e) {
-                    GDTLogger.e("ADActivity onCreate 发生异常", e);
-                }
-            }
-            try {
-                super.onCreate(bundle);
-            } catch (Exception e2) {
-                GDTLogger.e("ADActivity onCreate 发生异常", e2);
-            }
-            ACTD actd2 = this.a;
-            if (actd2 != null) {
-                actd2.onAfterCreate(bundle);
-            }
-        }
-    }
-
-    @Override // android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -161,6 +113,54 @@ public class ADActivity extends Activity {
                 actd.onStop();
             }
             super.onStop();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            String str = null;
+            try {
+                POFactory pOFactory = GDTADManager.getInstance().getPM().getPOFactory();
+                if (pOFactory != null) {
+                    Intent intent = getIntent();
+                    intent.setExtrasClassLoader(pOFactory.getClass().getClassLoader());
+                    Bundle extras = intent.getExtras();
+                    if (extras != null) {
+                        str = extras.getString(ACTD.DELEGATE_NAME_KEY);
+                        String string = extras.getString("appid");
+                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string) && GDTADManager.getInstance().isInitialized()) {
+                            ACTD activityDelegate = pOFactory.getActivityDelegate(str, this);
+                            this.a = activityDelegate;
+                            if (activityDelegate == null) {
+                                GDTLogger.e("创建 ADActivity Delegate " + str + " 失败");
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th) {
+                GDTLogger.e("创建ADActivity Delegate" + str + "发生异常", th);
+            }
+            ACTD actd = this.a;
+            if (actd != null) {
+                actd.onBeforeCreate(bundle);
+            } else {
+                try {
+                    finish();
+                } catch (Exception e) {
+                    GDTLogger.e("ADActivity onCreate 发生异常", e);
+                }
+            }
+            try {
+                super.onCreate(bundle);
+            } catch (Exception e2) {
+                GDTLogger.e("ADActivity onCreate 发生异常", e2);
+            }
+            ACTD actd2 = this.a;
+            if (actd2 != null) {
+                actd2.onAfterCreate(bundle);
+            }
         }
     }
 }

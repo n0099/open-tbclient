@@ -29,10 +29,10 @@ public class b {
     public String f71a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, a> f72a;
+    public Map f72a;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -108,7 +108,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
                 Context context = this.f73a;
-                return com.xiaomi.push.h.m385a(context, context.getPackageName());
+                return com.xiaomi.push.h.m384a(context, context.getPackageName());
             }
             return (String) invokeV.objValue;
         }
@@ -139,7 +139,7 @@ public class b {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m145a() {
+        public void m144a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 b.a(this.f73a).edit().clear().commit();
@@ -196,14 +196,14 @@ public class b {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m146a() {
+        public boolean m145a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m147a(this.f74a, this.b) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m146a(this.f74a, this.b) : invokeV.booleanValue;
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m147a(String str, String str2) {
+        public boolean m146a(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
@@ -285,7 +285,7 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static b m132a(Context context) {
+    public static b m131a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -336,7 +336,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (this.f72a.containsKey(str)) {
-                return this.f72a.get(str);
+                return (a) this.f72a.get(str);
             }
             String str2 = "hybrid_app_info_" + str;
             SharedPreferences a2 = a(this.f69a);
@@ -351,17 +351,17 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m133a() {
+    public String m132a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70a.f74a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m134a() {
+    public void m133a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f70a.m145a();
+            this.f70a.m144a();
         }
     }
 
@@ -374,7 +374,7 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m135a(String str) {
+    public void m134a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             SharedPreferences.Editor edit = a(this.f69a).edit();
@@ -409,12 +409,12 @@ public class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m136a() {
+    public boolean m135a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Context context = this.f69a;
-            return !TextUtils.equals(com.xiaomi.push.h.m385a(context, context.getPackageName()), this.f70a.e);
+            return !TextUtils.equals(com.xiaomi.push.h.m384a(context, context.getPackageName()), this.f70a.e);
         }
         return invokeV.booleanValue;
     }
@@ -422,11 +422,11 @@ public class b {
     public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? this.f70a.m147a(str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? this.f70a.m146a(str, str2) : invokeLL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m137a(String str, String str2, String str3) {
+    public boolean m136a(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, str2, str3)) == null) {
@@ -443,7 +443,7 @@ public class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m138b() {
+    public void m137b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.f70a.b();
@@ -466,31 +466,31 @@ public class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m139b() {
+    public boolean m138b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.f70a.m146a()) {
+            if (this.f70a.m145a()) {
                 return true;
             }
-            com.xiaomi.channel.commonutils.logger.b.m90a("Don't send message before initialization succeeded!");
+            com.xiaomi.channel.commonutils.logger.b.m89a("Don't send message before initialization succeeded!");
             return false;
         }
         return invokeV.booleanValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m140c() {
+    public String m139c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f70a.c : (String) invokeV.objValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m141c() {
+    public boolean m140c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f70a.m146a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f70a.m145a() : invokeV.booleanValue;
     }
 
     public String d() {
@@ -500,7 +500,7 @@ public class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public boolean m142d() {
+    public boolean m141d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (TextUtils.isEmpty(this.f70a.f74a) || TextUtils.isEmpty(this.f70a.b) || TextUtils.isEmpty(this.f70a.c) || TextUtils.isEmpty(this.f70a.d)) ? false : true : invokeV.booleanValue;
@@ -513,7 +513,7 @@ public class b {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public boolean m143e() {
+    public boolean m142e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f70a.f76b : invokeV.booleanValue;
@@ -526,7 +526,7 @@ public class b {
     }
 
     /* renamed from: f  reason: collision with other method in class */
-    public boolean m144f() {
+    public boolean m143f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? !this.f70a.f75a : invokeV.booleanValue;

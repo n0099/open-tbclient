@@ -57,15 +57,6 @@ public final class LangUtils {
         return invokeLL.booleanValue;
     }
 
-    public static int hashCode(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeCommon.intValue;
-    }
-
     public static int hashCode(int i, Object obj) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -73,5 +64,14 @@ public final class LangUtils {
             throw new RuntimeException("Stub!");
         }
         return invokeIL.intValue;
+    }
+
+    public static int hashCode(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeCommon.intValue;
     }
 }

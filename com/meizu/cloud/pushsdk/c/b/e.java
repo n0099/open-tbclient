@@ -6,9 +6,9 @@ import java.util.LinkedList;
 public class e {
     public final boolean a;
     public final i b;
-    public final LinkedList<Long> c;
+    public final LinkedList c;
 
-    public e(boolean z, i iVar, LinkedList<Long> linkedList) {
+    public e(boolean z, i iVar, LinkedList linkedList) {
         this.a = z;
         this.b = iVar;
         this.c = linkedList;
@@ -18,7 +18,7 @@ public class e {
         return this.b;
     }
 
-    public LinkedList<Long> b() {
+    public LinkedList b() {
         return this.c;
     }
 

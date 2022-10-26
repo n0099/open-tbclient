@@ -47,7 +47,10 @@ public abstract class ForwardingSink implements Sink {
     public final Sink delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delegate : (Sink) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.delegate;
+        }
+        return (Sink) invokeV.objValue;
     }
 
     @Override // okio.Sink, java.io.Flushable
@@ -62,7 +65,10 @@ public abstract class ForwardingSink implements Sink {
     public Timeout timeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.delegate.timeout() : (Timeout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.delegate.timeout();
+        }
+        return (Timeout) invokeV.objValue;
     }
 
     public String toString() {

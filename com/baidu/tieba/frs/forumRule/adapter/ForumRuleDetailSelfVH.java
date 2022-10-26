@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,7 +64,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.m = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.m = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
         this.a = view2;
         a(view2);
         d(TbadkCoreApplication.getInst().getSkinType());
@@ -73,67 +73,62 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090aa5);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090aaf);
             this.b = headImageView;
             headImageView.setRadius(R.dimen.tbds47);
             this.b.setConrers(15);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab2);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab0);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090aaf);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aa0);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aac);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090aa4);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090abc);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aba);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ab9);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aaa);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab6);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090aae);
             this.h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06c4));
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090aa3);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06ce));
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090aad);
             this.l = eMTextView;
-            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06c9));
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090aaa);
-            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090aab);
-            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090aa9);
+            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06d3));
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ab4);
+            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab5);
+            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab3);
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (!"manager".equals(str) && !PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(str)) {
+                return;
+            }
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.m).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0303).build(), DrawableSelector.make().setShape(0).radius(this.m).defaultColor("#4D000000").build()});
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                if (layerDrawable.getDrawable(1) != null) {
+                    layerDrawable.getDrawable(1).setAlpha(255);
+                }
+            } else if (layerDrawable.getDrawable(1) != null) {
+                layerDrawable.getDrawable(1).setAlpha(0);
+            }
+            this.d.setBackgroundDrawable(layerDrawable);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
         }
     }
 
     public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i > 0) {
+            SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(i));
         }
-        SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.k == null || this.i == null) {
-            return;
-        }
-        if (StringUtils.isNull(str)) {
-            this.i.setVisibility(8);
-            return;
-        }
-        this.k.setText(str);
-        this.i.setVisibility(0);
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            hv4 d = hv4.d(this.c);
-            d.A(R.string.F_X01);
-            d.v(R.color.CAM_X0105);
-            hv4 d2 = hv4.d(this.g);
-            d2.A(R.string.F_X01);
-            d2.v(R.color.CAM_X0109);
-            hv4 d3 = hv4.d(this.l);
-            d3.A(R.string.F_X01);
-            d3.v(R.color.CAM_X0107);
-            hv4.d(this.k).v(R.color.CAM_X0105);
-            hv4 d4 = hv4.d(this.j);
-            d4.A(R.string.F_X02);
-            d4.v(R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
-            this.b.setSkinType(i);
-            this.h.setTextSize(R.dimen.T_X08);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.k != null && this.i != null) {
+            if (StringUtils.isNull(str)) {
+                this.i.setVisibility(8);
+                return;
+            }
+            this.k.setText(str);
+            this.i.setVisibility(0);
         }
     }
 
@@ -161,21 +156,25 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(String str) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if ("manager".equals(str) || PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(str)) {
-                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.m).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0303).build(), DrawableSelector.make().setShape(0).radius(this.m).defaultColor("#4D000000").build()});
-                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    if (layerDrawable.getDrawable(1) != null) {
-                        layerDrawable.getDrawable(1).setAlpha(255);
-                    }
-                } else if (layerDrawable.getDrawable(1) != null) {
-                    layerDrawable.getDrawable(1).setAlpha(0);
-                }
-                this.d.setBackgroundDrawable(layerDrawable);
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            nv4 d = nv4.d(this.c);
+            d.A(R.string.F_X01);
+            d.v(R.color.CAM_X0105);
+            nv4 d2 = nv4.d(this.g);
+            d2.A(R.string.F_X01);
+            d2.v(R.color.CAM_X0109);
+            nv4 d3 = nv4.d(this.l);
+            d3.A(R.string.F_X01);
+            d3.v(R.color.CAM_X0107);
+            nv4.d(this.k).v(R.color.CAM_X0105);
+            nv4 d4 = nv4.d(this.j);
+            d4.A(R.string.F_X02);
+            d4.v(R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
+            this.b.setSkinType(i);
+            this.h.setTextSize(R.dimen.T_X08);
         }
     }
 

@@ -1,6 +1,5 @@
 package com.baidu.android.util.devices;
 
-import android.annotation.SuppressLint;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
@@ -32,24 +31,31 @@ public class IMEIRequestUtils {
         }
     }
 
-    @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String getIMEI(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (AppRuntime.getAppContext() == null) {
                 return str;
             }
-            if (!DeviceUtil.OSInfo.hasMarshMallow() || AppRuntime.getAppContext().checkSelfPermission(h.c) == 0) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
-                    String deviceId = telephonyManager != null ? ApiReplaceUtil.getDeviceId(telephonyManager) : null;
-                    return TextUtils.isEmpty(deviceId) ? str : deviceId;
-                } catch (Exception unused) {
-                    return str;
-                }
+            if (DeviceUtil.OSInfo.hasMarshMallow() && AppRuntime.getAppContext().checkSelfPermission(h.c) != 0) {
+                return str;
             }
-            return str;
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
+                if (telephonyManager != null) {
+                    str2 = ApiReplaceUtil.getDeviceId(telephonyManager);
+                } else {
+                    str2 = null;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    return str2;
+                }
+                return str;
+            } catch (Exception unused) {
+                return str;
+            }
         }
         return (String) invokeL.objValue;
     }

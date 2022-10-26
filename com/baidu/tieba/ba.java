@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
@@ -50,6 +49,7 @@ public class ba {
 
     public static String a(String str, Object obj, List list) {
         InterceptResult invokeLLL;
+        boolean z;
         int i;
         Map map;
         Interceptable interceptable = $ic;
@@ -61,28 +61,37 @@ public class ba {
             }
             int i2 = 0;
             if (obj.getClass().isArray()) {
-                if (Array.getLength(obj) <= 0) {
-                    stringBuffer.append(str + "[] = empty\n");
-                } else if (!f(Array.get(obj, 0))) {
-                    stringBuffer.append(str + " = [");
-                    while (i2 < Array.getLength(obj) - 1) {
-                        Object c = c(Array.get(obj, i2));
-                        stringBuffer.append(c + ",");
-                        i2++;
+                if (Array.getLength(obj) > 0) {
+                    if (!f(Array.get(obj, 0))) {
+                        stringBuffer.append(str + " = [");
+                        while (i2 < Array.getLength(obj) - 1) {
+                            Object c = c(Array.get(obj, i2));
+                            stringBuffer.append(c + ",");
+                            i2++;
+                        }
+                        stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
+                    } else {
+                        while (i2 < Array.getLength(obj)) {
+                            Object obj2 = Array.get(obj, i2);
+                            stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT, obj2, list));
+                            i2++;
+                        }
                     }
-                    stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
                 } else {
-                    while (i2 < Array.getLength(obj)) {
-                        Object obj2 = Array.get(obj, i2);
-                        stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT, obj2, list));
-                        i2++;
-                    }
+                    stringBuffer.append(str + "[] = empty\n");
                 }
             } else {
-                boolean z = obj instanceof Collection;
-                boolean z2 = obj instanceof HashSet;
-                boolean z3 = obj instanceof SparseArray;
-                if ((obj instanceof AbstractMap) || (obj instanceof HashMap) || (obj instanceof Hashtable)) {
+                boolean z2 = obj instanceof Collection;
+                boolean z3 = obj instanceof Hashtable;
+                boolean z4 = obj instanceof HashMap;
+                boolean z5 = obj instanceof HashSet;
+                boolean z6 = obj instanceof SparseArray;
+                if (!(obj instanceof AbstractMap) && !z4 && !z3) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
                     Map map2 = (Map) obj;
                     Set keySet = map2.keySet();
                     int size = keySet.size();
@@ -92,19 +101,21 @@ public class ba {
                             Object obj4 = map2.get(obj3);
                             Object c2 = c(obj3);
                             Object c3 = c(obj4);
-                            if (f(c3) || f(c2)) {
-                                map = map2;
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c2 + PreferencesUtil.RIGHT_MOUNT, c3, list));
-                            } else if (i3 == 0) {
-                                stringBuffer.append(str + " = [");
-                                map = map2;
+                            if (!f(c3) && !f(c2)) {
+                                if (i3 == 0) {
+                                    stringBuffer.append(str + " = [");
+                                    map = map2;
+                                } else {
+                                    map = map2;
+                                    if (i3 == size - 1) {
+                                        stringBuffer.append(c2 + " = " + c3 + "]\n");
+                                    } else {
+                                        stringBuffer.append(c2 + " = " + c3 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                                    }
+                                }
                             } else {
                                 map = map2;
-                                if (i3 == size - 1) {
-                                    stringBuffer.append(c2 + " = " + c3 + "]\n");
-                                } else {
-                                    stringBuffer.append(c2 + " = " + c3 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                                }
+                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c2 + PreferencesUtil.RIGHT_MOUNT, c3, list));
                             }
                             i3++;
                             map2 = map;
@@ -112,13 +123,39 @@ public class ba {
                     } else {
                         stringBuffer.append(str + "[] = empty\n");
                     }
-                } else if (z || z2) {
+                } else if (!z2 && !z5) {
+                    if (z6) {
+                        SparseArray sparseArray = (SparseArray) obj;
+                        int size2 = sparseArray.size();
+                        if (size2 > 0) {
+                            for (int i4 = 0; i4 < size2; i4++) {
+                                Integer valueOf = Integer.valueOf(sparseArray.keyAt(i4));
+                                Object valueAt = sparseArray.valueAt(i4);
+                                Object c4 = c(valueOf);
+                                Object c5 = c(valueAt);
+                                if (!f(c5) && !f(c4)) {
+                                    if (i4 == 0) {
+                                        stringBuffer.append(str + " = [");
+                                    } else if (i4 == size2 - 1) {
+                                        stringBuffer.append(c4 + " = " + c5 + "]\n");
+                                    } else {
+                                        stringBuffer.append(c4 + " = " + c5 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                                    }
+                                } else {
+                                    stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c4 + PreferencesUtil.RIGHT_MOUNT, c5, list));
+                                }
+                            }
+                        } else {
+                            stringBuffer.append(str + "[] = empty\n");
+                        }
+                    }
+                } else {
                     Iterator it = null;
-                    if (z) {
+                    if (z2) {
                         Collection collection = (Collection) obj;
                         it = collection.iterator();
                         i = collection.size();
-                    } else if (z2) {
+                    } else if (z5) {
                         HashSet hashSet = (HashSet) obj;
                         it = hashSet.iterator();
                         i = hashSet.size();
@@ -126,41 +163,21 @@ public class ba {
                         i = 0;
                     }
                     if (i > 0) {
-                        int i4 = 0;
+                        int i5 = 0;
                         while (it.hasNext()) {
-                            Object c4 = c(it.next());
-                            if (f(c4)) {
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i4 + PreferencesUtil.RIGHT_MOUNT, c4, list));
-                            } else if (i4 == 0) {
-                                stringBuffer.append(str + " = [");
-                            } else if (i4 == i - 1) {
-                                stringBuffer.append(c4 + "]\n");
+                            Object c6 = c(it.next());
+                            if (!f(c6)) {
+                                if (i5 == 0) {
+                                    stringBuffer.append(str + " = [");
+                                } else if (i5 == i - 1) {
+                                    stringBuffer.append(c6 + "]\n");
+                                } else {
+                                    stringBuffer.append(c6 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                                }
                             } else {
-                                stringBuffer.append(c4 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i5 + PreferencesUtil.RIGHT_MOUNT, c6, list));
                             }
-                            i4++;
-                        }
-                    } else {
-                        stringBuffer.append(str + "[] = empty\n");
-                    }
-                } else if (z3) {
-                    SparseArray sparseArray = (SparseArray) obj;
-                    int size2 = sparseArray.size();
-                    if (size2 > 0) {
-                        for (int i5 = 0; i5 < size2; i5++) {
-                            Integer valueOf = Integer.valueOf(sparseArray.keyAt(i5));
-                            Object valueAt = sparseArray.valueAt(i5);
-                            Object c5 = c(valueOf);
-                            Object c6 = c(valueAt);
-                            if (f(c6) || f(c5)) {
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c5 + PreferencesUtil.RIGHT_MOUNT, c6, list));
-                            } else if (i5 == 0) {
-                                stringBuffer.append(str + " = [");
-                            } else if (i5 == size2 - 1) {
-                                stringBuffer.append(c5 + " = " + c6 + "]\n");
-                            } else {
-                                stringBuffer.append(c5 + " = " + c6 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                            }
+                            i5++;
                         }
                     } else {
                         stringBuffer.append(str + "[] = empty\n");
@@ -217,10 +234,10 @@ public class ba {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj == null || obj.getClass() != String.class) {
-                return obj;
+            if (obj != null && obj.getClass() == String.class) {
+                return "\"" + obj + "\"";
             }
-            return "\"" + obj + "\"";
+            return obj;
         }
         return invokeL.objValue;
     }
@@ -241,18 +258,16 @@ public class ba {
     public static boolean e(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj.getClass().isArray() || (obj instanceof Collection) || (obj instanceof Hashtable) || (obj instanceof HashMap) || (obj instanceof SparseArray) || (obj instanceof HashSet) || (obj instanceof List) || (obj instanceof AbstractMap) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
+            if (!obj.getClass().isArray() && !(obj instanceof Collection) && !(obj instanceof Hashtable) && !(obj instanceof HashMap) && !(obj instanceof SparseArray) && !(obj instanceof HashSet) && !(obj instanceof List) && !(obj instanceof AbstractMap)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
-        Class<?> cls;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? (obj == null || (obj instanceof Boolean) || (obj instanceof Short) || (obj instanceof Byte) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Character) || (obj instanceof Double) || (obj instanceof String) || (cls = obj.getClass()) == Boolean.TYPE || cls == Boolean.class || cls == Short.TYPE || cls == Short.class || cls == Byte.TYPE || cls == Byte.class || cls == Integer.TYPE || cls == Integer.class || cls == Long.TYPE || cls == Long.class || cls == Float.TYPE || cls == Float.class || cls == Character.TYPE || cls == Character.class || cls == Double.TYPE || cls == Double.class || cls == String.class) ? false : true : invokeL.booleanValue;
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public static boolean g(Class<?> cls) {
+    public static boolean g(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
@@ -261,6 +276,19 @@ public class ba {
                 if (cls.getSimpleName().toLowerCase().endsWith(strArr[i])) {
                     return false;
                 }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Object obj) {
+        InterceptResult invokeL;
+        Class<?> cls;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
+            if (obj == null || (obj instanceof Boolean) || (obj instanceof Short) || (obj instanceof Byte) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Character) || (obj instanceof Double) || (obj instanceof String) || (cls = obj.getClass()) == Boolean.TYPE || cls == Boolean.class || cls == Short.TYPE || cls == Short.class || cls == Byte.TYPE || cls == Byte.class || cls == Integer.TYPE || cls == Integer.class || cls == Long.TYPE || cls == Long.class || cls == Float.TYPE || cls == Float.class || cls == Character.TYPE || cls == Character.class || cls == Double.TYPE || cls == Double.class || cls == String.class) {
+                return false;
             }
             return true;
         }

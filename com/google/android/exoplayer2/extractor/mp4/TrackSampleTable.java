@@ -20,6 +20,8 @@ public final class TrackSampleTable {
     public final long[] timestampsUs;
 
     public TrackSampleTable(long[] jArr, int[] iArr, int i, long[] jArr2, int[] iArr2) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,8 +36,18 @@ public final class TrackSampleTable {
                 return;
             }
         }
-        Assertions.checkArgument(iArr.length == jArr2.length);
-        Assertions.checkArgument(jArr.length == jArr2.length);
+        if (iArr.length == jArr2.length) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkArgument(z);
+        if (jArr.length == jArr2.length) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        Assertions.checkArgument(z2);
         Assertions.checkArgument(iArr2.length == jArr2.length);
         this.offsets = jArr;
         this.sizes = iArr;

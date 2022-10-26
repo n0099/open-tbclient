@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Context;
 import android.net.Uri;
@@ -116,7 +115,6 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     }
 
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
-    @SuppressLint({"NewApi"})
     public Notification construct(Context context) {
         InterceptResult invokeL;
         int i;

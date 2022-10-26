@@ -42,6 +42,16 @@ public class VodClient extends AbstractBceClient {
     public static final HttpResponseHandler[] responseHandlers;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidubce.AbstractBceClient
+    public boolean isRegionSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -77,6 +87,45 @@ public class VodClient extends AbstractBceClient {
                 return;
             }
         }
+    }
+
+    private String getFileExtension(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+            if (str != null && str.lastIndexOf(".") != -1) {
+                String substring = str.substring(str.lastIndexOf(".") + 1);
+                if (substring.length() <= 0 || substring.length() > 10 || !substring.matches(VALID_EXTENSION_PATTERN)) {
+                    return null;
+                }
+                return substring;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public GenerateMediaIdResponse applyMediaForSpecificMode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), "media");
+            createRequest.addParameter("apply", null);
+            createRequest.addParameter("mode", str);
+            return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
+        }
+        return (GenerateMediaIdResponse) invokeL.objValue;
+    }
+
+    public ProcessMediaResponse processMedia(ProcessMediaRequest processMediaRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, processMediaRequest)) == null) {
+            InternalRequest createRequest = createRequest(HttpMethodName.POST, processMediaRequest, "media", processMediaRequest.getMediaId());
+            createRequest.addParameter("process", null);
+            return (ProcessMediaResponse) invokeHttpClient(createRequest, ProcessMediaResponse.class);
+        }
+        return (ProcessMediaResponse) invokeL.objValue;
     }
 
     private InternalRequest createRequest(HttpMethodName httpMethodName, VodBceRequest vodBceRequest, String... strArr) {
@@ -117,22 +166,6 @@ public class VodClient extends AbstractBceClient {
         return (InternalRequest) invokeLL.objValue;
     }
 
-    private String getFileExtension(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            if (str != null && str.lastIndexOf(".") != -1) {
-                String substring = str.substring(str.lastIndexOf(".") + 1);
-                if (substring.length() <= 0 || substring.length() > 10 || !substring.matches(VALID_EXTENSION_PATTERN)) {
-                    return null;
-                }
-                return substring;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public GenerateMediaIdResponse applyMedia() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -144,51 +177,27 @@ public class VodClient extends AbstractBceClient {
         return (GenerateMediaIdResponse) invokeV.objValue;
     }
 
-    public GenerateMediaIdResponse applyMediaForSpecificMode(String str) {
+    public GetMediaResourceResponse getMediaResource(GetMediaResourceRequest getMediaResourceRequest) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), "media");
-            createRequest.addParameter("apply", null);
-            createRequest.addParameter("mode", str);
-            return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getMediaResourceRequest)) == null) {
+            if (getMediaResourceRequest.getMediaId() != null && !getMediaResourceRequest.getMediaId().equals("")) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "Media ID should not be null or empty!");
+            return (GetMediaResourceResponse) invokeHttpClient(createRequest(HttpMethodName.GET, getMediaResourceRequest, "media", getMediaResourceRequest.getMediaId()), GetMediaResourceResponse.class);
         }
-        return (GenerateMediaIdResponse) invokeL.objValue;
+        return (GetMediaResourceResponse) invokeL.objValue;
     }
 
     public GetMediaResourceResponse getMediaResource(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? getMediaResource(new GetMediaResourceRequest().withMediaId(str)) : (GetMediaResourceResponse) invokeL.objValue;
-    }
-
-    @Override // com.baidubce.AbstractBceClient
-    public boolean isRegionSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ProcessMediaResponse processMedia(ProcessMediaRequest processMediaRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, processMediaRequest)) == null) {
-            InternalRequest createRequest = createRequest(HttpMethodName.POST, processMediaRequest, "media", processMediaRequest.getMediaId());
-            createRequest.addParameter("process", null);
-            return (ProcessMediaResponse) invokeHttpClient(createRequest, ProcessMediaResponse.class);
-        }
-        return (ProcessMediaResponse) invokeL.objValue;
-    }
-
-    public GetMediaResourceResponse getMediaResource(GetMediaResourceRequest getMediaResourceRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getMediaResourceRequest)) == null) {
-            CheckUtils.checkArgument((getMediaResourceRequest.getMediaId() == null || getMediaResourceRequest.getMediaId().equals("")) ? false : true, "Media ID should not be null or empty!");
-            return (GetMediaResourceResponse) invokeHttpClient(createRequest(HttpMethodName.GET, getMediaResourceRequest, "media", getMediaResourceRequest.getMediaId()), GetMediaResourceResponse.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return getMediaResource(new GetMediaResourceRequest().withMediaId(str));
         }
         return (GetMediaResourceResponse) invokeL.objValue;
     }

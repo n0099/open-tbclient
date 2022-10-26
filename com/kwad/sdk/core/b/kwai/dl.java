@@ -5,9 +5,8 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class dl implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo.MaterialFeature> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {
+public final class dl implements com.kwad.sdk.core.d {
+    public static void a(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -45,8 +44,7 @@ public final class dl implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo.Mater
         }
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {
+    public static JSONObject b(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -109,15 +107,13 @@ public final class dl implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo.Mater
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {
-        a2(materialFeature, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((AdInfo.AdMaterialInfo.MaterialFeature) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdMaterialInfo.MaterialFeature materialFeature, JSONObject jSONObject) {
-        return b2(materialFeature, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((AdInfo.AdMaterialInfo.MaterialFeature) bVar, jSONObject);
     }
 }

@@ -27,13 +27,11 @@ import com.baidu.pass.biometrics.face.liveness.c.e;
 import com.baidu.pass.biometrics.face.liveness.c.f;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
-import com.baidu.pass.biometrics.face.liveness.enums.HeadPose;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceSDKManager;
-import com.baidu.pass.face.platform.LivenessTypeEnum;
 import com.baidu.pass.face.platform.listener.IInitCallback;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.sofire.face.api.FaceApi;
@@ -74,7 +72,7 @@ public class PassFaceRecogManager implements PassBiometric {
     public boolean b;
     public PassFaceRecogCallback c;
     public long d;
-    public List<LivenessTypeEnum> e;
+    public List e;
 
     /* loaded from: classes2.dex */
     public class a implements IInitCallback {
@@ -124,14 +122,15 @@ public class PassFaceRecogManager implements PassBiometric {
         @Override // com.baidu.pass.face.platform.listener.IInitCallback
         public void initSuccess() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d.b = true;
-                Intent intent = new Intent(this.a, PassLivenessRecogActivity.class);
-                if (!(this.a instanceof Activity)) {
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                this.a.startActivity(intent);
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
             }
+            this.d.b = true;
+            Intent intent = new Intent(this.a, PassLivenessRecogActivity.class);
+            if (!(this.a instanceof Activity)) {
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            this.a.startActivity(intent);
         }
     }
 
@@ -163,14 +162,6 @@ public class PassFaceRecogManager implements PassBiometric {
         }
 
         @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
-        public void onFailure(Throwable th, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
-                LocalConfigOptions.getInstance(this.a.a.getApplication()).setBioOptions(LocalConfigOptions.getInstance(this.a.a.getApplication()).getBioOptions());
-            }
-        }
-
-        @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -179,6 +170,14 @@ public class PassFaceRecogManager implements PassBiometric {
                 } catch (JSONException e) {
                     onFailure(e, e.hashCode(), str);
                 }
+            }
+        }
+
+        @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
+        public void onFailure(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                LocalConfigOptions.getInstance(this.a.a.getApplication()).setBioOptions(LocalConfigOptions.getInstance(this.a.a.getApplication()).getBioOptions());
             }
         }
     }
@@ -197,23 +196,16 @@ public class PassFaceRecogManager implements PassBiometric {
         }
     }
 
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put("appid", this.a.appId);
-            httpHashMapWrap.put("tpl", this.a.tpl);
-            new HttpClientWrap(this.a.getApplication()).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new b(this, true));
-        }
-    }
-
-    private Map<String, String> c() {
+    private Map c() {
         InterceptResult invokeV;
-        Map<String, String> map;
+        Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             PassBiometricConfiguration passBiometricConfiguration = this.a;
-            return (passBiometricConfiguration == null || (map = passBiometricConfiguration.faceResPaths) == null) ? a() : map;
+            if (passBiometricConfiguration != null && (map = passBiometricConfiguration.faceResPaths) != null) {
+                return map;
+            }
+            return a();
         }
         return (Map) invokeV.objValue;
     }
@@ -228,48 +220,11 @@ public class PassFaceRecogManager implements PassBiometric {
     private boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? System.currentTimeMillis() - this.d < 300 : invokeV.booleanValue;
-    }
-
-    private boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            try {
-                d.a();
-                FaceConfig faceConfig = new FaceConfig();
-                faceConfig.setBlurnessValue(0.6f);
-                faceConfig.setBrightnessValue(40.0f);
-                faceConfig.setBrightnessMaxValue(220.0f);
-                faceConfig.setOcclusionLeftEyeValue(0.8f);
-                faceConfig.setOcclusionRightEyeValue(0.8f);
-                faceConfig.setOcclusionNoseValue(0.8f);
-                faceConfig.setOcclusionMouthValue(0.8f);
-                faceConfig.setOcclusionLeftContourValue(0.8f);
-                faceConfig.setOcclusionRightContourValue(0.8f);
-                faceConfig.setOcclusionChinValue(0.8f);
-                faceConfig.setHeadPitchValue(20);
-                faceConfig.setHeadYawValue(20);
-                faceConfig.setHeadRollValue(20);
-                faceConfig.setMinFaceSize(200);
-                faceConfig.setNotFaceValue(0.6f);
-                faceConfig.setEyeClosedValue(0.7f);
-                faceConfig.setLivenessTypeList(this.e);
-                faceConfig.setLivenessRandom(false);
-                faceConfig.setSound(false);
-                faceConfig.setTimeDetectModule(30000L);
-                faceConfig.setCacheImageNum(3);
-                faceConfig.setFaceFarRatio(0.3f);
-                faceConfig.setFaceClosedRatio(1.0f);
-                faceConfig.setResPaths(c());
-                faceConfig.setIsCompressImage(true);
-                faceConfig.setCompressValue(t);
-                faceConfig.setOutputImageType(0);
-                FaceSDKManager.getInstance().setFaceConfig(faceConfig);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            if (System.currentTimeMillis() - this.d < 300) {
                 return true;
-            } catch (Exception unused) {
-                return false;
             }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -297,69 +252,77 @@ public class PassFaceRecogManager implements PassBiometric {
         }
     }
 
-    @Override // com.baidu.pass.biometrics.base.PassBiometric
-    public void config(PassBiometricConfiguration passBiometricConfiguration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passBiometricConfiguration) == null) {
-            if (passBiometricConfiguration != null) {
-                if (!TextUtils.isEmpty(passBiometricConfiguration.tpl) && !TextUtils.isEmpty(passBiometricConfiguration.appId) && !TextUtils.isEmpty(passBiometricConfiguration.appSignKey)) {
-                    this.a = passBiometricConfiguration;
-                    FaceApi.setFaceLicenseId("pass_auth_id_01");
-                    ResUtils.setApplicationContext(passBiometricConfiguration.getApplication());
-                    BeanConstants.tpl = passBiometricConfiguration.tpl;
-                    BeanConstants.appid = passBiometricConfiguration.appId;
-                    BeanConstants.appSignKey = passBiometricConfiguration.appSignKey;
-                    b();
-                    return;
-                }
-                throw new IllegalArgumentException("tpl, appId, appsignkey can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey)to initialize them.");
-            }
-            throw new IllegalArgumentException("PassBiometricConfiguration can't be null");
-        }
-    }
-
-    @Override // com.baidu.pass.biometrics.base.PassBiometric
-    public void execute(PassBiometricOperation passBiometricOperation, PassBiometricCallback passBiometricCallback, PassBiometricDto passBiometricDto, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, passBiometricOperation, passBiometricCallback, passBiometricDto, context) == null) {
-            if (passBiometricCallback == null) {
-                throw new IllegalArgumentException(PassBiometricCallback.class.getSimpleName() + " can't be null");
-            } else if (passBiometricOperation == null) {
-                throw new IllegalArgumentException(PassBiometricOperation.class.getSimpleName() + " can't be null");
-            } else if (passBiometricDto != null) {
-                if (((PassFaceOperation) passBiometricOperation).operationType != PassFaceOperation.OperationType.RECOGNIZE || e()) {
-                    return;
-                }
-                d();
-                PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) passBiometricDto;
-                a(passFaceRecogDTO);
-                a((PassFaceRecogCallback) passBiometricCallback, passFaceRecogDTO, context);
-            } else {
-                throw new IllegalArgumentException(PassBiometricDto.class.getSimpleName() + " can't be null");
-            }
-        }
-    }
-
     public PassBiometricConfiguration getConfiguration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (PassBiometricConfiguration) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (PassBiometricConfiguration) invokeV.objValue;
     }
 
     public PassFaceRecogCallback getPassFaceRecogCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (PassFaceRecogCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (PassFaceRecogCallback) invokeV.objValue;
     }
 
     @Override // com.baidu.pass.biometrics.base.PassBiometric
     public void setAgreeDangerousProtocol(boolean z) {
         PassBiometricConfiguration configuration;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (configuration = getConfiguration()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (configuration = getConfiguration()) != null) {
+            configuration.setAgreeDangerousProtocol(z);
         }
-        configuration.setAgreeDangerousProtocol(z);
+    }
+
+    private Map a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("key", "pass-key.face-android");
+            hashMap.put(ConstPath.KEY_DETECT, "detect/detect_rgb-customized-pa-faceid4_0.model.int8.0.0.6.1.pass.mml");
+            hashMap.put(ConstPath.KEY_ALIGN, "align/align-customized-pa-offlineCapture_withScore_quant_20200909.model.int8.6.4.7.1.pass.mml");
+            hashMap.put(ConstPath.KEY_BLUR, "blur/blur-customized-pa-blurnet_9768.model.int8-3.0.9.1.pass.mml");
+            hashMap.put(ConstPath.KEY_OCCLU, "occlusion/occlusion-customized-pa-occ.model.float32.2.0.6.1.pass.mml");
+            hashMap.put(ConstPath.KEY_EYES, "eyes_close/eyes-customized-pa-caiji.model.float32.1.0.3.1.pass.mml");
+            hashMap.put("mouth", "mouth_close/mouth-customized-pa-caiji.model.float32.1.0.3.1.pass.mml");
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    private void a(Context context, PassFaceRecogDTO passFaceRecogDTO) {
+        List list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, context, passFaceRecogDTO) == null) {
+            List list2 = this.e;
+            if (list2 == null) {
+                this.e = new ArrayList();
+            } else {
+                list2.clear();
+            }
+            List list3 = passFaceRecogDTO.poseList;
+            if (list3 != null && !list3.isEmpty()) {
+                f.b(this.e, passFaceRecogDTO.poseList);
+                return;
+            }
+            SdkConfigOptions.LivenessConfigOption livenessConfigOption = LocalConfigOptions.getInstance(context).getBioOptions().livenessConfigOption;
+            if (livenessConfigOption != null && (list = livenessConfigOption.action) != null && !list.isEmpty()) {
+                try {
+                    f.a(this.e, livenessConfigOption.action);
+                    return;
+                } catch (Exception unused) {
+                    f.b(this.e);
+                    return;
+                }
+            }
+            f.b(this.e);
+        }
     }
 
     private void a(PassFaceRecogCallback passFaceRecogCallback, PassFaceRecogDTO passFaceRecogDTO, Context context) {
@@ -448,66 +411,118 @@ public class PassFaceRecogManager implements PassBiometric {
         }
     }
 
-    private void a(Context context, PassFaceRecogDTO passFaceRecogDTO) {
-        List<Integer> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, context, passFaceRecogDTO) == null) {
-            List<LivenessTypeEnum> list2 = this.e;
-            if (list2 == null) {
-                this.e = new ArrayList();
-            } else {
-                list2.clear();
-            }
-            List<HeadPose> list3 = passFaceRecogDTO.poseList;
-            if (list3 != null && !list3.isEmpty()) {
-                f.b(this.e, passFaceRecogDTO.poseList);
-                return;
-            }
-            SdkConfigOptions.LivenessConfigOption livenessConfigOption = LocalConfigOptions.getInstance(context).getBioOptions().livenessConfigOption;
-            if (livenessConfigOption != null && (list = livenessConfigOption.action) != null && !list.isEmpty()) {
-                try {
-                    f.a(this.e, livenessConfigOption.action);
-                    return;
-                } catch (Exception unused) {
-                    f.b(this.e);
-                    return;
-                }
-            }
-            f.b(this.e);
-        }
-    }
-
-    private Map<String, String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("key", "pass-key.face-android");
-            hashMap.put(ConstPath.KEY_DETECT, "detect/detect_rgb-customized-pa-faceid4_0.model.int8.0.0.6.1.pass.mml");
-            hashMap.put(ConstPath.KEY_ALIGN, "align/align-customized-pa-offlineCapture_withScore_quant_20200909.model.int8.6.4.7.1.pass.mml");
-            hashMap.put(ConstPath.KEY_BLUR, "blur/blur-customized-pa-blurnet_9768.model.int8-3.0.9.1.pass.mml");
-            hashMap.put(ConstPath.KEY_OCCLU, "occlusion/occlusion-customized-pa-occ.model.float32.2.0.6.1.pass.mml");
-            hashMap.put(ConstPath.KEY_EYES, "eyes_close/eyes-customized-pa-caiji.model.float32.1.0.3.1.pass.mml");
-            hashMap.put("mouth", "mouth_close/mouth-customized-pa-caiji.model.float32.1.0.3.1.pass.mml");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
     private void a(PassFaceRecogDTO passFaceRecogDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, passFaceRecogDTO) == null) {
-            if (TextUtils.isEmpty(passFaceRecogDTO.passProductId) && (passFaceRecogDTO.extraParamsMap.isEmpty() || TextUtils.isEmpty(passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID)))) {
+            if (TextUtils.isEmpty(passFaceRecogDTO.passProductId) && (passFaceRecogDTO.extraParamsMap.isEmpty() || TextUtils.isEmpty((CharSequence) passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID)))) {
                 throw new IllegalArgumentException("PassFaceRecogDTO.passProductId can't be empty");
             }
             if (TextUtils.isEmpty(passFaceRecogDTO.serviceType)) {
                 passFaceRecogDTO.serviceType = "1008";
             }
-            if (TextUtils.isEmpty(passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID))) {
+            if (TextUtils.isEmpty((CharSequence) passFaceRecogDTO.extraParamsMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID))) {
                 passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, passFaceRecogDTO.passProductId);
             }
             passFaceRecogDTO.processid = PassBiometricUtil.getUUID();
             com.baidu.pass.biometrics.face.liveness.a.a.b().a(com.baidu.pass.biometrics.face.liveness.a.a.c, passFaceRecogDTO);
+        }
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+            httpHashMapWrap.put("appid", this.a.appId);
+            httpHashMapWrap.put("tpl", this.a.tpl);
+            new HttpClientWrap(this.a.getApplication()).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new b(this, true));
+        }
+    }
+
+    private boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            try {
+                d.a();
+                FaceConfig faceConfig = new FaceConfig();
+                faceConfig.setBlurnessValue(0.6f);
+                faceConfig.setBrightnessValue(40.0f);
+                faceConfig.setBrightnessMaxValue(220.0f);
+                faceConfig.setOcclusionLeftEyeValue(0.8f);
+                faceConfig.setOcclusionRightEyeValue(0.8f);
+                faceConfig.setOcclusionNoseValue(0.8f);
+                faceConfig.setOcclusionMouthValue(0.8f);
+                faceConfig.setOcclusionLeftContourValue(0.8f);
+                faceConfig.setOcclusionRightContourValue(0.8f);
+                faceConfig.setOcclusionChinValue(0.8f);
+                faceConfig.setHeadPitchValue(20);
+                faceConfig.setHeadYawValue(20);
+                faceConfig.setHeadRollValue(20);
+                faceConfig.setMinFaceSize(200);
+                faceConfig.setNotFaceValue(0.6f);
+                faceConfig.setEyeClosedValue(0.7f);
+                faceConfig.setLivenessTypeList(this.e);
+                faceConfig.setLivenessRandom(false);
+                faceConfig.setSound(false);
+                faceConfig.setTimeDetectModule(30000L);
+                faceConfig.setCacheImageNum(3);
+                faceConfig.setFaceFarRatio(0.3f);
+                faceConfig.setFaceClosedRatio(1.0f);
+                faceConfig.setResPaths(c());
+                faceConfig.setIsCompressImage(true);
+                faceConfig.setCompressValue(t);
+                faceConfig.setOutputImageType(0);
+                FaceSDKManager.getInstance().setFaceConfig(faceConfig);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.pass.biometrics.base.PassBiometric
+    public void config(PassBiometricConfiguration passBiometricConfiguration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passBiometricConfiguration) == null) {
+            if (passBiometricConfiguration != null) {
+                if (!TextUtils.isEmpty(passBiometricConfiguration.tpl) && !TextUtils.isEmpty(passBiometricConfiguration.appId) && !TextUtils.isEmpty(passBiometricConfiguration.appSignKey)) {
+                    this.a = passBiometricConfiguration;
+                    FaceApi.setFaceLicenseId("pass_auth_id_01");
+                    ResUtils.setApplicationContext(passBiometricConfiguration.getApplication());
+                    BeanConstants.tpl = passBiometricConfiguration.tpl;
+                    BeanConstants.appid = passBiometricConfiguration.appId;
+                    BeanConstants.appSignKey = passBiometricConfiguration.appSignKey;
+                    b();
+                    return;
+                }
+                throw new IllegalArgumentException("tpl, appId, appsignkey can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey)to initialize them.");
+            }
+            throw new IllegalArgumentException("PassBiometricConfiguration can't be null");
+        }
+    }
+
+    @Override // com.baidu.pass.biometrics.base.PassBiometric
+    public void execute(PassBiometricOperation passBiometricOperation, PassBiometricCallback passBiometricCallback, PassBiometricDto passBiometricDto, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, passBiometricOperation, passBiometricCallback, passBiometricDto, context) == null) {
+            if (passBiometricCallback != null) {
+                if (passBiometricOperation != null) {
+                    if (passBiometricDto != null) {
+                        if (((PassFaceOperation) passBiometricOperation).operationType != PassFaceOperation.OperationType.RECOGNIZE || e()) {
+                            return;
+                        }
+                        d();
+                        PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) passBiometricDto;
+                        a(passFaceRecogDTO);
+                        a((PassFaceRecogCallback) passBiometricCallback, passFaceRecogDTO, context);
+                        return;
+                    }
+                    throw new IllegalArgumentException(PassBiometricDto.class.getSimpleName() + " can't be null");
+                }
+                throw new IllegalArgumentException(PassBiometricOperation.class.getSimpleName() + " can't be null");
+            }
+            throw new IllegalArgumentException(PassBiometricCallback.class.getSimpleName() + " can't be null");
         }
     }
 }

@@ -17,7 +17,7 @@ public class IMUController implements c {
     public static final String TAG = "IMUController";
     public transient /* synthetic */ FieldHolder $fh;
     public SensorManager rH;
-    public HashMap<g, h> rI;
+    public HashMap rI;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class IMUController implements c {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap<g, h> hashMap = this.rI;
+            HashMap hashMap = this.rI;
             if (hashMap != null) {
                 for (h hVar : hashMap.values()) {
                     hVar.stop();
@@ -82,9 +82,9 @@ public class IMUController implements c {
                 return false;
             }
             if (this.rI == null) {
-                this.rI = new HashMap<>();
+                this.rI = new HashMap();
             }
-            h hVar = this.rI.get(gVar);
+            h hVar = (h) this.rI.get(gVar);
             if (hVar == null) {
                 hVar = new h();
                 this.rI.put(gVar, hVar);
@@ -96,12 +96,12 @@ public class IMUController implements c {
 
     @Override // com.baidu.ar.imu.c
     public void stop(g gVar) {
-        HashMap<g, h> hashMap;
-        h remove;
+        HashMap hashMap;
+        h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || gVar == null || (hashMap = this.rI) == null || (remove = hashMap.remove(gVar)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || gVar == null || (hashMap = this.rI) == null || (hVar = (h) hashMap.remove(gVar)) == null) {
             return;
         }
-        remove.stop();
+        hVar.stop();
     }
 }

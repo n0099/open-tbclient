@@ -37,32 +37,6 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
         this.i = -1;
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            int i = this.i;
-            if (i != -1) {
-                super.setAnimation(i);
-                this.i = -1;
-            }
-            this.h = true;
-            super.onDraw(canvas);
-        }
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView
-    public void setAnimation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (this.h) {
-                super.setAnimation(i);
-            } else {
-                this.i = i;
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TBLazyLottieAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -107,5 +81,31 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
         }
         this.h = false;
         this.i = -1;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            int i = this.i;
+            if (i != -1) {
+                super.setAnimation(i);
+                this.i = -1;
+            }
+            this.h = true;
+            super.onDraw(canvas);
+        }
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView
+    public void setAnimation(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (this.h) {
+                super.setAnimation(i);
+            } else {
+                this.i = i;
+            }
+        }
     }
 }

@@ -1,8 +1,5 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +12,7 @@ import com.bumptech.glide.request.transition.BitmapTransitionFactory;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.bumptech.glide.request.transition.TransitionFactory;
 /* loaded from: classes7.dex */
-public final class BitmapTransitionOptions extends TransitionOptions<BitmapTransitionOptions, Bitmap> {
+public final class BitmapTransitionOptions extends TransitionOptions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,80 +30,102 @@ public final class BitmapTransitionOptions extends TransitionOptions<BitmapTrans
         }
     }
 
-    @NonNull
-    public static BitmapTransitionOptions with(@NonNull TransitionFactory<Bitmap> transitionFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, transitionFactory)) == null) ? new BitmapTransitionOptions().transition(transitionFactory) : (BitmapTransitionOptions) invokeL.objValue;
-    }
-
-    @NonNull
     public static BitmapTransitionOptions withCrossFade() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new BitmapTransitionOptions().crossFade() : (BitmapTransitionOptions) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new BitmapTransitionOptions().crossFade();
+        }
+        return (BitmapTransitionOptions) invokeV.objValue;
     }
 
-    @NonNull
-    public static BitmapTransitionOptions withWrapped(@NonNull TransitionFactory<Drawable> transitionFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, transitionFactory)) == null) ? new BitmapTransitionOptions().transitionUsing(transitionFactory) : (BitmapTransitionOptions) invokeL.objValue;
-    }
-
-    @NonNull
     public BitmapTransitionOptions crossFade() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? crossFade(new DrawableCrossFadeFactory.Builder()) : (BitmapTransitionOptions) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return crossFade(new DrawableCrossFadeFactory.Builder());
+        }
+        return (BitmapTransitionOptions) invokeV.objValue;
     }
 
-    @NonNull
-    public BitmapTransitionOptions transitionUsing(@NonNull TransitionFactory<Drawable> transitionFactory) {
+    public static BitmapTransitionOptions with(TransitionFactory transitionFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, transitionFactory)) == null) ? transition(new BitmapTransitionFactory(transitionFactory)) : (BitmapTransitionOptions) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, transitionFactory)) == null) {
+            return (BitmapTransitionOptions) new BitmapTransitionOptions().transition(transitionFactory);
+        }
+        return (BitmapTransitionOptions) invokeL.objValue;
     }
 
-    @NonNull
     public static BitmapTransitionOptions withCrossFade(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? new BitmapTransitionOptions().crossFade(i) : (BitmapTransitionOptions) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return new BitmapTransitionOptions().crossFade(i);
+        }
+        return (BitmapTransitionOptions) invokeI.objValue;
     }
 
-    @NonNull
+    public static BitmapTransitionOptions withWrapped(TransitionFactory transitionFactory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, transitionFactory)) == null) {
+            return new BitmapTransitionOptions().transitionUsing(transitionFactory);
+        }
+        return (BitmapTransitionOptions) invokeL.objValue;
+    }
+
     public BitmapTransitionOptions crossFade(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? crossFade(new DrawableCrossFadeFactory.Builder(i)) : (BitmapTransitionOptions) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return crossFade(new DrawableCrossFadeFactory.Builder(i));
+        }
+        return (BitmapTransitionOptions) invokeI.objValue;
     }
 
-    @NonNull
-    public static BitmapTransitionOptions withCrossFade(@NonNull DrawableCrossFadeFactory drawableCrossFadeFactory) {
+    public BitmapTransitionOptions transitionUsing(TransitionFactory transitionFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawableCrossFadeFactory)) == null) ? new BitmapTransitionOptions().crossFade(drawableCrossFadeFactory) : (BitmapTransitionOptions) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, transitionFactory)) == null) {
+            return (BitmapTransitionOptions) transition(new BitmapTransitionFactory(transitionFactory));
+        }
+        return (BitmapTransitionOptions) invokeL.objValue;
     }
 
-    @NonNull
-    public BitmapTransitionOptions crossFade(@NonNull DrawableCrossFadeFactory drawableCrossFadeFactory) {
+    public static BitmapTransitionOptions withCrossFade(DrawableCrossFadeFactory.Builder builder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, drawableCrossFadeFactory)) == null) ? transitionUsing(drawableCrossFadeFactory) : (BitmapTransitionOptions) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, builder)) == null) {
+            return new BitmapTransitionOptions().crossFade(builder);
+        }
+        return (BitmapTransitionOptions) invokeL.objValue;
     }
 
-    @NonNull
-    public static BitmapTransitionOptions withCrossFade(@NonNull DrawableCrossFadeFactory.Builder builder) {
+    public BitmapTransitionOptions crossFade(DrawableCrossFadeFactory.Builder builder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, builder)) == null) ? new BitmapTransitionOptions().crossFade(builder) : (BitmapTransitionOptions) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, builder)) == null) {
+            return transitionUsing(builder.build());
+        }
+        return (BitmapTransitionOptions) invokeL.objValue;
     }
 
-    @NonNull
-    public BitmapTransitionOptions crossFade(@NonNull DrawableCrossFadeFactory.Builder builder) {
+    public static BitmapTransitionOptions withCrossFade(DrawableCrossFadeFactory drawableCrossFadeFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, builder)) == null) ? transitionUsing(builder.build()) : (BitmapTransitionOptions) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawableCrossFadeFactory)) == null) {
+            return new BitmapTransitionOptions().crossFade(drawableCrossFadeFactory);
+        }
+        return (BitmapTransitionOptions) invokeL.objValue;
+    }
+
+    public BitmapTransitionOptions crossFade(DrawableCrossFadeFactory drawableCrossFadeFactory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, drawableCrossFadeFactory)) == null) {
+            return transitionUsing(drawableCrossFadeFactory);
+        }
+        return (BitmapTransitionOptions) invokeL.objValue;
     }
 }

@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 import com.baidu.cloudsdk.common.imgloader.ImageManager;
@@ -54,13 +53,13 @@ public class ShareLoginView extends RelativeLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.ShareLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0137a extends WebAuthListener {
+        public class C0138a extends WebAuthListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0137a(a aVar, long j) {
+            public C0138a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,23 +137,17 @@ public class ShareLoginView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.b != null) {
-                    if (this.a.h != null) {
-                        if (this.a.i != null) {
-                            if (!this.a.i.onPreStart(false)) {
-                                Log.e(QuickLoginDialog.STAG, "sharelogin privacy is not agree");
-                                return;
-                            }
-                            CoreViewRouter.getInstance().invokeV2ShareLogin(this.a.b, this.a.h, new C0137a(this, System.currentTimeMillis()), "quick_login");
-                            return;
-                        }
-                        Log.e(QuickLoginDialog.STAG, "sharelogin mWebAuthListener is null");
-                        return;
-                    }
+                if (this.a.b == null) {
+                    Log.e(QuickLoginDialog.STAG, "sharelogin mActivity is null");
+                } else if (this.a.h == null) {
                     Log.e(QuickLoginDialog.STAG, "sharelogin mShareModel is null");
-                    return;
+                } else if (this.a.i == null) {
+                    Log.e(QuickLoginDialog.STAG, "sharelogin mWebAuthListener is null");
+                } else if (!this.a.i.onPreStart(false)) {
+                    Log.e(QuickLoginDialog.STAG, "sharelogin privacy is not agree");
+                } else {
+                    CoreViewRouter.getInstance().invokeV2ShareLogin(this.a.b, this.a.h, new C0138a(this, System.currentTimeMillis()), "quick_login");
                 }
-                Log.e(QuickLoginDialog.STAG, "sharelogin mActivity is null");
             }
         }
     }
@@ -213,14 +206,8 @@ public class ShareLoginView extends RelativeLayout {
         }
     }
 
-    public TextView getTvButton() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (TextView) invokeV.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ShareLoginView(Context context, @Nullable AttributeSet attributeSet) {
+    public ShareLoginView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -240,43 +227,8 @@ public class ShareLoginView extends RelativeLayout {
         }
     }
 
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04da, this);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091da5);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d1a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d19);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d1b);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091da0);
-            a aVar = new a(this);
-            this.c.setOnClickListener(aVar);
-            this.g.setOnClickListener(aVar);
-        }
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.h == null || this.a == null) {
-            return;
-        }
-        ImageManager.getInstance().loadImage(this.a, Uri.parse(this.h.url), new b(this));
-        this.e.setText(this.h.displayname);
-        this.f.setText(MessageFormat.format("{0}使用中，可直接登录", this.h.app));
-    }
-
-    public void a(Activity activity, ShareStorage.StorageModel storageModel, ILoginConfirmCallback iLoginConfirmCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, storageModel, iLoginConfirmCallback) == null) {
-            this.b = activity;
-            this.h = storageModel;
-            this.i = iLoginConfirmCallback;
-            c();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareLoginView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ShareLoginView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -298,12 +250,55 @@ public class ShareLoginView extends RelativeLayout {
         b();
     }
 
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d7, this);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091da1);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d16);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d15);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d17);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9c);
+            a aVar = new a(this);
+            this.c.setOnClickListener(aVar);
+            this.g.setOnClickListener(aVar);
+        }
+    }
+
+    private void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.h != null && this.a != null) {
+            ImageManager.getInstance().loadImage(this.a, Uri.parse(this.h.url), new b(this));
+            this.e.setText(this.h.displayname);
+            this.f.setText(MessageFormat.format("{0}使用中，可直接登录", this.h.app));
+        }
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setTextColor(Color.parseColor("#CCFFFFFF"));
             this.f.setTextColor(Color.parseColor("#80FFFFFF"));
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ea2));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eb3));
         }
+    }
+
+    public void a(Activity activity, ShareStorage.StorageModel storageModel, ILoginConfirmCallback iLoginConfirmCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, storageModel, iLoginConfirmCallback) == null) {
+            this.b = activity;
+            this.h = storageModel;
+            this.i = iLoginConfirmCallback;
+            c();
+        }
+    }
+
+    public TextView getTvButton() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (TextView) invokeV.objValue;
     }
 }

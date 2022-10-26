@@ -20,54 +20,47 @@ public class VideoFrame implements RefCounted {
 
     /* loaded from: classes9.dex */
     public interface Buffer extends RefCounted {
-        @CalledByNative("Buffer")
         Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6);
 
-        @CalledByNative("Buffer")
         int getHeight();
 
-        @CalledByNative("Buffer")
         int getWidth();
 
         @Override // org.webrtc.RefCounted
-        @CalledByNative("Buffer")
         void release();
 
         @Override // org.webrtc.RefCounted
-        @CalledByNative("Buffer")
         void retain();
 
-        @CalledByNative("Buffer")
         I420Buffer toI420();
     }
 
     /* loaded from: classes9.dex */
     public interface I420Buffer extends Buffer {
-        @CalledByNative("I420Buffer")
         ByteBuffer getDataU();
 
-        @CalledByNative("I420Buffer")
         ByteBuffer getDataV();
 
-        @CalledByNative("I420Buffer")
         ByteBuffer getDataY();
 
-        @CalledByNative("I420Buffer")
         int getStrideU();
 
-        @CalledByNative("I420Buffer")
         int getStrideV();
 
-        @CalledByNative("I420Buffer")
         int getStrideY();
     }
 
     /* loaded from: classes9.dex */
     public interface TextureBuffer extends Buffer {
+        int getTextureId();
+
+        Matrix getTransformMatrix();
+
+        Type getType();
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes9.dex */
-        public static final class Type {
+        public final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final Type OES;
@@ -118,30 +111,32 @@ public class VideoFrame implements RefCounted {
             public static Type valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (Type) Enum.valueOf(Type.class, str);
+                }
+                return (Type) invokeL.objValue;
             }
 
             public static Type[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (Type[]) $VALUES.clone();
+                }
+                return (Type[]) invokeV.objValue;
             }
 
             public int getGlTarget() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.glTarget : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.glTarget;
+                }
+                return invokeV.intValue;
             }
         }
-
-        int getTextureId();
-
-        Matrix getTransformMatrix();
-
-        Type getType();
     }
 
-    @CalledByNative
     public VideoFrame(Buffer buffer, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -169,11 +164,13 @@ public class VideoFrame implements RefCounted {
         throw new IllegalArgumentException("buffer not allowed to be null");
     }
 
-    @CalledByNative
     public Buffer getBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.buffer : (Buffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.buffer;
+        }
+        return (Buffer) invokeV.objValue;
     }
 
     public int getRotatedHeight() {
@@ -200,22 +197,25 @@ public class VideoFrame implements RefCounted {
         return invokeV.intValue;
     }
 
-    @CalledByNative
     public int getRotation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.rotation : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.rotation;
+        }
+        return invokeV.intValue;
     }
 
-    @CalledByNative
     public long getTimestampNs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.timestampNs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.timestampNs;
+        }
+        return invokeV.longValue;
     }
 
     @Override // org.webrtc.RefCounted
-    @CalledByNative
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

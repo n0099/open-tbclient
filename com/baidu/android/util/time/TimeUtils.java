@@ -53,12 +53,18 @@ public class TimeUtils {
     public static String getFormatTeletextTime(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) ? getFormatTeletextTime(context, j, true) : (String) invokeLJ.objValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) {
+            return getFormatTeletextTime(context, j, true);
+        }
+        return (String) invokeLJ.objValue;
     }
 
     public static String getFormatTeletextTime(Context context, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)})) == null) ? DateTimeUtil.getFormatTeletextTime(context, j, z) : (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            return DateTimeUtil.getFormatTeletextTime(context, j, z);
+        }
+        return (String) invokeCommon.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package androidx.room;
 
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,11 +11,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void bind(SupportSQLiteStatement supportSQLiteStatement, T t);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EntityInsertionAdapter(RoomDatabase roomDatabase) {
@@ -36,36 +36,6 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
                 return;
             }
         }
-    }
-
-    public abstract void bind(SupportSQLiteStatement supportSQLiteStatement, T t);
-
-    public final void insert(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            SupportSQLiteStatement acquire = acquire();
-            try {
-                bind(acquire, t);
-                acquire.executeInsert();
-            } finally {
-                release(acquire);
-            }
-        }
-    }
-
-    public final long insertAndReturnId(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
-            SupportSQLiteStatement acquire = acquire();
-            try {
-                bind(acquire, t);
-                return acquire.executeInsert();
-            } finally {
-                release(acquire);
-            }
-        }
-        return invokeL.longValue;
     }
 
     public final long[] insertAndReturnIdsArray(Collection<T> collection) {
@@ -129,6 +99,49 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             }
         }
         return (List) invokeL.objValue;
+    }
+
+    public final void insert(Iterable<T> iterable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iterable) == null) {
+            SupportSQLiteStatement acquire = acquire();
+            try {
+                for (T t : iterable) {
+                    bind(acquire, t);
+                    acquire.executeInsert();
+                }
+            } finally {
+                release(acquire);
+            }
+        }
+    }
+
+    public final long insertAndReturnId(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
+            SupportSQLiteStatement acquire = acquire();
+            try {
+                bind(acquire, t);
+                return acquire.executeInsert();
+            } finally {
+                release(acquire);
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public final void insert(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            SupportSQLiteStatement acquire = acquire();
+            try {
+                bind(acquire, t);
+                acquire.executeInsert();
+            } finally {
+                release(acquire);
+            }
+        }
     }
 
     public final void insert(T[] tArr) {
@@ -207,20 +220,5 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             }
         }
         return (List) invokeL.objValue;
-    }
-
-    public final void insert(Iterable<T> iterable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iterable) == null) {
-            SupportSQLiteStatement acquire = acquire();
-            try {
-                for (T t : iterable) {
-                    bind(acquire, t);
-                    acquire.executeInsert();
-                }
-            } finally {
-                release(acquire);
-            }
-        }
     }
 }

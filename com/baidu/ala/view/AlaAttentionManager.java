@@ -1,6 +1,5 @@
 package com.baidu.ala.view;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -11,19 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.data.AlaAttentionData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.k25;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.r9;
-import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,19 +19,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedList;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AlaAttentionManager {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int ALA_LIVE_PUSH_REMIND_TIME_INTERVAL = 86400000;
     public static final int ATTENTION_REQUEST_MAP_MAX_SIZE = 3;
     public static AlaAttentionManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, AttentionAsyncTask> mAttentionTaskMap;
-    public HashMap<String, LinkedList<AlaAttentionData>> mUserAttentionRequestMap;
+    public HashMap mAttentionTaskMap;
+    public HashMap mUserAttentionRequestMap;
+
+    /* renamed from: com.baidu.ala.view.AlaAttentionManager$1  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* loaded from: classes.dex */
-    public class AttentionAsyncTask extends BdAsyncTask<Integer, Integer, String> {
+    public class AttentionAsyncTask extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String forumId;
@@ -82,6 +75,10 @@ public class AlaAttentionManager {
             this.showToastAfterAttentionSuc = false;
         }
 
+        public /* synthetic */ AttentionAsyncTask(AlaAttentionManager alaAttentionManager, AnonymousClass1 anonymousClass1) {
+            this(alaAttentionManager);
+        }
+
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
@@ -91,23 +88,6 @@ public class AlaAttentionManager {
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                     this.mNetwork = null;
-                }
-            }
-        }
-
-        public void setAlaAttentionData(AlaAttentionData alaAttentionData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, alaAttentionData) == null) {
-                this.isAttention = alaAttentionData.isAttention();
-                this.toUid = alaAttentionData.getUserId();
-                this.portrait = alaAttentionData.getPortrait();
-                this.inLive = alaAttentionData.getInLive();
-                this.pageId = alaAttentionData.getPageId();
-                this.from = alaAttentionData.getFrom();
-                this.forumId = alaAttentionData.getForumId();
-                this.isGod = alaAttentionData.isGod();
-                if (this.forumId != null) {
-                    this.showToastAfterAttentionSuc = true;
                 }
             }
         }
@@ -162,7 +142,7 @@ public class AlaAttentionManager {
                     aVar.c = this.toUid;
                     aVar.f = this.isGod;
                     aVar.b(str, this.showToastAfterAttentionSuc);
-                    aVar.g = this.mNetwork.getNetContext().getResponse();
+                    this.mNetwork.getNetContext().getResponse();
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -171,6 +151,23 @@ public class AlaAttentionManager {
                 if (this.this$0.mUserAttentionRequestMap.containsKey(this.toUid)) {
                     this.this$0.removeRequestListFirstByUid(this.toUid);
                     this.this$0.executeAttentionTask(this.toUid);
+                }
+            }
+        }
+
+        public void setAlaAttentionData(AlaAttentionData alaAttentionData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, alaAttentionData) == null) {
+                this.isAttention = alaAttentionData.isAttention();
+                this.toUid = alaAttentionData.getUserId();
+                this.portrait = alaAttentionData.getPortrait();
+                this.inLive = alaAttentionData.getInLive();
+                this.pageId = alaAttentionData.getPageId();
+                this.from = alaAttentionData.getFrom();
+                this.forumId = alaAttentionData.getForumId();
+                this.isGod = alaAttentionData.isGod();
+                if (this.forumId != null) {
+                    this.showToastAfterAttentionSuc = true;
                 }
             }
         }
@@ -189,50 +186,8 @@ public class AlaAttentionManager {
                 return;
             }
         }
-        this.mUserAttentionRequestMap = new HashMap<>();
-        this.mAttentionTaskMap = new HashMap<>();
-    }
-
-    private void addAttentionReqeustList(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, linkedList, alaAttentionData) == null) || alaAttentionData == null) {
-            return;
-        }
-        linkedList.add(alaAttentionData.m26clone());
-    }
-
-    private void dealAttentionUpdateData(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, this, linkedList, alaAttentionData) == null) {
-            if (linkedList.size() < 1) {
-                addAttentionReqeustList(linkedList, alaAttentionData);
-                return;
-            }
-            AlaAttentionData last = linkedList.getLast();
-            if (last.getPortrait().equals(alaAttentionData.getPortrait()) && last.isAttention() == alaAttentionData.isAttention()) {
-                if (BdLog.isDebugMode()) {
-                    throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
-                }
-            } else if (linkedList.size() < 3) {
-                addAttentionReqeustList(linkedList, alaAttentionData);
-            } else if (linkedList.get(1).equals(alaAttentionData)) {
-                linkedList.removeLast();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void executeAttentionTask(String str) {
-        LinkedList<AlaAttentionData> linkedList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, str) == null) || StringUtils.isNull(str) || this.mAttentionTaskMap.get(str) != null || (linkedList = this.mUserAttentionRequestMap.get(str)) == null || linkedList.size() <= 0) {
-            return;
-        }
-        AttentionAsyncTask attentionAsyncTask = new AttentionAsyncTask();
-        this.mAttentionTaskMap.put(str, attentionAsyncTask);
-        attentionAsyncTask.setPriority(2);
-        attentionAsyncTask.setAlaAttentionData(linkedList.getFirst());
-        attentionAsyncTask.execute(new Integer[0]);
+        this.mUserAttentionRequestMap = new HashMap();
+        this.mAttentionTaskMap = new HashMap();
     }
 
     public static AlaAttentionManager getInstance() {
@@ -251,235 +206,69 @@ public class AlaAttentionManager {
         return (AlaAttentionManager) invokeV.objValue;
     }
 
-    private long getLastShowTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            ox4 k = ox4.k();
-            return k.m("ala_live_push_remind_showtime" + getUserId(), 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    private String getUserId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            if (currentAccountInfo != null) {
-                String id = currentAccountInfo.getID();
-                return !TextUtils.isEmpty(id) ? id : "";
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    private void saveLastShowTime() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            ox4 k = ox4.k();
-            k.x("ala_live_push_remind_showtime" + getUserId(), currentTimeMillis);
-        }
-    }
-
-    public void cancelAllTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (AttentionAsyncTask attentionAsyncTask : this.mAttentionTaskMap.values()) {
-                if (attentionAsyncTask != null) {
-                    attentionAsyncTask.cancel();
-                }
-            }
-            this.mAttentionTaskMap.clear();
-        }
-    }
-
-    public void cancelTaskByToUid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            AttentionAsyncTask attentionAsyncTask = this.mAttentionTaskMap.get(str);
-            if (attentionAsyncTask != null) {
-                attentionAsyncTask.cancel();
-            }
-            this.mAttentionTaskMap.remove(str);
-        }
-    }
-
-    public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, r9<?> r9Var, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, aVar, r9Var, z)) == null) {
-            if (aVar != null && aVar.h != null && aVar.g != null && r9Var != null && r9Var.getPageActivity() != null) {
-                int i = aVar.g.mServerErrorCode;
-                if (!(i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004)) {
-                    return false;
-                }
-                if (aVar.i) {
-                    return true;
-                }
-                JSONObject optJSONObject = aVar.h.optJSONObject("info");
-                if (optJSONObject == null) {
-                    return false;
-                }
-                String optString = optJSONObject.optString("block_content");
-                String optString2 = optJSONObject.optString("block_dealurl");
-                String optString3 = optJSONObject.optString("block_confirm");
-                String optString4 = optJSONObject.optString("block_cancel");
-                if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                    aVar.i = true;
-                    nu4 nu4Var = new nu4(r9Var.getPageActivity());
-                    nu4Var.setAutoNight(z);
-                    nu4Var.setMessage(optString);
-                    nu4Var.setPositiveButton(optString3, new nu4.e(this, r9Var, optString2) { // from class: com.baidu.ala.view.AlaAttentionManager.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ AlaAttentionManager this$0;
-                        public final /* synthetic */ String val$dealurl;
-                        public final /* synthetic */ r9 val$pageContext;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, r9Var, optString2};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$pageContext = r9Var;
-                            this.val$dealurl = optString2;
-                        }
-
-                        @Override // com.baidu.tieba.nu4.e
-                        public void onClick(nu4 nu4Var2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, nu4Var2) == null) {
-                                yo4.o(this.val$pageContext.getPageActivity(), this.val$dealurl);
-                                nu4Var2.dismiss();
-                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                            }
-                        }
-                    });
-                    nu4Var.setNegativeButton(optString4, new nu4.e(this) { // from class: com.baidu.ala.view.AlaAttentionManager.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ AlaAttentionManager this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // com.baidu.tieba.nu4.e
-                        public void onClick(nu4 nu4Var2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, nu4Var2) == null) {
-                                nu4Var2.dismiss();
-                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                            }
-                        }
-                    });
-                    nu4Var.create(r9Var).show();
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public void removeRequestListAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (LinkedList<AlaAttentionData> linkedList : this.mUserAttentionRequestMap.values()) {
-                if (linkedList != null) {
-                    linkedList.clear();
-                }
-            }
-            this.mUserAttentionRequestMap.clear();
-        }
-    }
-
-    public void removeRequestListByUid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.mUserAttentionRequestMap.get(str).clear();
-            this.mUserAttentionRequestMap.remove(str);
-        }
-    }
-
     public void removeRequestListFirstByUid(String str) {
-        LinkedList<AlaAttentionData> linkedList;
+        LinkedList linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (linkedList = this.mUserAttentionRequestMap.get(str)) == null || linkedList.size() <= 0) {
-            return;
-        }
-        try {
-            linkedList.removeFirst();
-        } catch (Exception unused) {
-        }
-    }
-
-    public void showAttentionSucceedTip(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, tbPageContext) != null) || tbPageContext == null) {
-        }
-    }
-
-    public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, tbPageContext, z) == null) {
-            if (System.currentTimeMillis() - getLastShowTime() >= 86400000 && !k25.d().x()) {
-                showLivePushRemindDialog(tbPageContext, z);
-            } else if (z) {
-                showAttentionSucceedTip(tbPageContext);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (linkedList = (LinkedList) this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
+            try {
+                linkedList.removeFirst();
+            } catch (Exception unused) {
             }
         }
     }
 
-    public void showLivePushRemindDialog(TbPageContext tbPageContext, boolean z) {
+    private void addAttentionReqeustList(LinkedList linkedList, AlaAttentionData alaAttentionData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, z) == null) || k25.d().x()) {
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, linkedList, alaAttentionData) != null) || alaAttentionData == null) {
             return;
         }
-        new AlaLivePushRemindDialog(tbPageContext).showDialog(z);
-        saveLastShowTime();
+        linkedList.add(alaAttentionData.m26clone());
+    }
+
+    private void dealAttentionUpdateData(LinkedList linkedList, AlaAttentionData alaAttentionData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, this, linkedList, alaAttentionData) == null) {
+            if (linkedList.size() < 1) {
+                addAttentionReqeustList(linkedList, alaAttentionData);
+                return;
+            }
+            AlaAttentionData alaAttentionData2 = (AlaAttentionData) linkedList.getLast();
+            if (alaAttentionData2.getPortrait().equals(alaAttentionData.getPortrait()) && alaAttentionData2.isAttention() == alaAttentionData.isAttention()) {
+                if (!BdLog.isDebugMode()) {
+                    return;
+                }
+                throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
+            } else if (linkedList.size() < 3) {
+                addAttentionReqeustList(linkedList, alaAttentionData);
+            } else if (((AlaAttentionData) linkedList.get(1)).equals(alaAttentionData)) {
+                linkedList.removeLast();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void executeAttentionTask(String str) {
+        LinkedList linkedList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && !StringUtils.isNull(str) && ((AttentionAsyncTask) this.mAttentionTaskMap.get(str)) == null && (linkedList = (LinkedList) this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
+            AttentionAsyncTask attentionAsyncTask = new AttentionAsyncTask(this, null);
+            this.mAttentionTaskMap.put(str, attentionAsyncTask);
+            attentionAsyncTask.setPriority(2);
+            attentionAsyncTask.setAlaAttentionData((AlaAttentionData) linkedList.getFirst());
+            attentionAsyncTask.execute(new Integer[0]);
+        }
     }
 
     public void updateAttention(String str, AlaAttentionData alaAttentionData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, alaAttentionData) == null) || StringUtils.isNull(str) || alaAttentionData == null || alaAttentionData.getPortrait() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, alaAttentionData) == null) && !StringUtils.isNull(str) && alaAttentionData != null && alaAttentionData.getPortrait() != null) {
+            LinkedList linkedList = (LinkedList) this.mUserAttentionRequestMap.get(str);
+            if (linkedList == null) {
+                linkedList = new LinkedList();
+                this.mUserAttentionRequestMap.put(str, linkedList);
+            }
+            dealAttentionUpdateData(linkedList, alaAttentionData);
+            executeAttentionTask(str);
         }
-        LinkedList<AlaAttentionData> linkedList = this.mUserAttentionRequestMap.get(str);
-        if (linkedList == null) {
-            linkedList = new LinkedList<>();
-            this.mUserAttentionRequestMap.put(str, linkedList);
-        }
-        dealAttentionUpdateData(linkedList, alaAttentionData);
-        executeAttentionTask(str);
     }
 }

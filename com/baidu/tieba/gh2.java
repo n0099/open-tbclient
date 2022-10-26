@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,61 +11,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class gh2<W extends ih2> implements ZeusPlugin {
+public abstract class gh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public hh2<W> a;
-    public ZeusPlugin.Callback b;
-    @NonNull
-    public W c;
-    public boolean d;
-    public final List<ZeusPlugin.Command> e;
-    public ih2.a f;
 
-    /* loaded from: classes4.dex */
-    public class a implements ih2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gh2 a;
+    public abstract void a(ZeusPlugin.Command command, jh2 jh2Var);
 
-        public a(gh2 gh2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gh2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gh2Var;
-        }
+    public abstract String b();
 
-        @Override // com.baidu.tieba.ih2.a
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                synchronized (this.a) {
-                    if (gh2.g) {
-                        Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
-                    }
-                    this.a.d();
-                    this.a.d = true;
-                    if (gh2.g) {
-                        Log.i("BaseInlineController", "指令flush完成=========================");
-                    }
-                }
-            }
+    public void c(ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
         }
     }
 
@@ -83,88 +40,35 @@ public abstract class gh2<W extends ih2> implements ZeusPlugin {
                 return;
             }
         }
-        g = vj1.a;
+        a = wj1.a;
     }
 
-    public gh2(@NonNull W w) {
+    public gh2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {w};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.e = new ArrayList();
-        this.f = new a(this);
-        this.a = new hh2<>();
-        this.c = w;
-        if (g) {
-            Log.i("BaseInlineController", "开始初始化组件");
-        }
-        this.c.A(this.f);
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e.size() == 0) {
-            return;
-        }
-        Iterator<ZeusPlugin.Command> it = this.e.iterator();
-        while (it.hasNext()) {
-            ZeusPlugin.Command next = it.next();
-            if (g) {
-                Log.i("BaseInlineController", "flush-尝试分发Command: + " + next.what);
-            }
-            this.a.b(next, this.c);
-            it.remove();
-        }
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void sendCommand(ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
-            synchronized (this) {
-                if (command == null) {
-                    return;
-                }
-                if (this.d) {
-                    if (g) {
-                        Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
-                    }
-                    this.a.b(command, this.c);
-                } else {
-                    ZeusPlugin.Command command2 = new ZeusPlugin.Command();
-                    command2.what = command.what;
-                    command2.arg1 = command.arg1;
-                    command2.arg2 = command.arg2;
-                    command2.arg3 = command.arg3;
-                    command2.arg4 = command.arg4;
-                    command2.arg5 = command.arg5;
-                    command2.obj = command.obj;
-                    this.e.add(command2);
-                    if (g) {
-                        Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
-                    }
-                    this.a.c(command);
-                }
             }
         }
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void setCallback(ZeusPlugin.Callback callback) {
+    public void d(jh2 jh2Var, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
-            this.b = callback;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{jh2Var, str, str2, Boolean.valueOf(z)}) == null) && a) {
+            String str3 = ("【" + jh2Var.k0() + "-" + jh2Var.hashCode() + "】\t") + "【" + str + "】";
+            if (!TextUtils.isEmpty(str2)) {
+                str3 = str3 + "\t【" + str2 + "】";
+            }
+            if (z) {
+                m02.i("【InlineCommand】", str3);
+            } else {
+                Log.v("【InlineCommand】", str3);
+            }
         }
     }
 }

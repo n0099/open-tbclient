@@ -1,148 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.ApkDetail;
-import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class mp6 extends yq4 {
+public class mp6 extends hx {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rp6> a;
+    public View f;
+    public EMTextView g;
+    public ArrayList h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980406, "Lcom/baidu/tieba/mp6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947980406, "Lcom/baidu/tieba/mp6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public mp6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mp6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public ArrayList<rp6> c() {
+    @Override // com.baidu.tieba.hx
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !ListUtils.isEmpty(this.a) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yq4
-    public vs4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == null) {
+                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null, true);
+                this.f = inflate;
+                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f8f);
+            }
+            return this.f;
         }
-        return (vs4) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yq4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(ItemInfo itemInfo) {
-        ApkDetail apkDetail;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, itemInfo) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            this.a.clear();
-            if (itemInfo == null || (apkDetail = itemInfo.apk_detail) == null) {
-                return;
-            }
-            if (!dj.isEmpty(apkDetail.developer)) {
-                this.a.add(new rp6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04ec), itemInfo.apk_detail.developer, null));
-            }
-            if (!dj.isEmpty(itemInfo.apk_detail.publisher)) {
-                this.a.add(new rp6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0f5e), itemInfo.apk_detail.publisher, null));
-            }
-            if (!dj.isEmpty(itemInfo.apk_detail.version)) {
-                this.a.add(new rp6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0485), itemInfo.apk_detail.version, null));
-            }
-            if (!dj.isEmpty(itemInfo.apk_detail.update_time)) {
-                this.a.add(new rp6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14eb), itemInfo.apk_detail.update_time, null));
-            }
-            if (dh.g(itemInfo.apk_detail.size, 0L) > 0) {
-                this.a.add(new rp6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0628), StringHelper.getFormatSize(dh.g(itemInfo.apk_detail.size, 0L)), null));
-            }
-            int intValue = itemInfo.apk_detail.need_network.intValue();
-            int i = R.string.obfuscated_res_0x7f0f053e;
-            if (intValue > 0) {
-                this.a.add(new rp6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0995), TbadkCoreApplication.getInst().getResources().getString(itemInfo.apk_detail.need_network.intValue() == 1 ? R.string.obfuscated_res_0x7f0f053e : R.string.obfuscated_res_0x7f0f053d), null));
-            }
-            if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
-                ArrayList<rp6> arrayList = this.a;
-                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0844);
-                Resources resources = TbadkCoreApplication.getInst().getResources();
-                if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
-                    i = R.string.obfuscated_res_0x7f0f053d;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            nv4 d = nv4.d(this.f);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            nv4 d2 = nv4.d(this.g);
+            d2.A(R.string.F_X02);
+            d2.v(R.color.CAM_X0105);
+            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
+                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
+                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
                 }
-                arrayList.add(new rp6(string, resources.getString(i), null));
             }
-            if (!dj.isEmpty(itemInfo.apk_detail.authority_url)) {
-                this.a.add(new rp6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e2a), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0998), itemInfo.apk_detail.authority_url));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xx
+    /* renamed from: s */
+    public void a(tp6 tp6Var) {
+        boolean z;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tp6Var) == null) && tp6Var != null && tp6Var.f()) {
+            ArrayList c = tp6Var.c();
+            if (ListUtils.getCount(c) != ListUtils.getCount(this.h)) {
+                if (ListUtils.getCount(this.h) > 0) {
+                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
+                }
+                z = true;
+            } else {
+                z = false;
             }
-            if (dj.isEmpty(itemInfo.apk_detail.privacy_url)) {
-                return;
+            if (c != null) {
+                for (int i = 0; i < c.size(); i++) {
+                    if (z) {
+                        childAt = new CardItemDetailListItemLayout(this.b);
+                        ((ViewGroup) this.f).addView(childAt, -1, -2);
+                    } else {
+                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
+                    }
+                    if (childAt instanceof CardItemDetailListItemLayout) {
+                        ((CardItemDetailListItemLayout) childAt).setData((yp6) c.get(i));
+                    }
+                }
             }
-            this.a.add(new rp6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0f18), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0998), itemInfo.apk_detail.privacy_url));
+            ViewGroup viewGroup = (ViewGroup) this.f;
+            int childCount = viewGroup.getChildCount() - 1;
+            while (true) {
+                if (childCount <= 0) {
+                    break;
+                }
+                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
+                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
+                    break;
+                }
+                childCount--;
+            }
+            this.h = c;
         }
     }
 }

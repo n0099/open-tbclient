@@ -34,7 +34,7 @@ public class ResponseHttpWorkVIdeoGuideMessage extends JsonHttpResponsedMessage 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, jSONObject) != null) || jSONObject == null) {
             return;
         }
         setError(Integer.parseInt(jSONObject.optString("error_code")));

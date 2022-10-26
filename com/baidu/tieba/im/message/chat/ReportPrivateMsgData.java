@@ -13,14 +13,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ReportPrivateMsgData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ReportPrivateMsgData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String content;
     public String msgId;
     public String time;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes4.dex */
-    public static class a implements Parcelable.Creator<ReportPrivateMsgData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,7 +54,10 @@ public class ReportPrivateMsgData implements Parcelable {
         public ReportPrivateMsgData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ReportPrivateMsgData(parcel) : (ReportPrivateMsgData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new ReportPrivateMsgData(parcel);
+            }
+            return (ReportPrivateMsgData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,7 +66,10 @@ public class ReportPrivateMsgData implements Parcelable {
         public ReportPrivateMsgData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ReportPrivateMsgData[i] : (ReportPrivateMsgData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ReportPrivateMsgData[i];
+            }
+            return (ReportPrivateMsgData[]) invokeI.objValue;
         }
     }
 
@@ -71,6 +87,53 @@ public class ReportPrivateMsgData implements Parcelable {
             }
         }
         CREATOR = new a();
+    }
+
+    public String getContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getMsgId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.msgId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.time;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ReportPrivateMsgData(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.msgId = parcel.readString();
+        this.content = parcel.readString();
+        this.time = parcel.readString();
     }
 
     public ReportPrivateMsgData(String str, String str2, String str3) {
@@ -91,34 +154,6 @@ public class ReportPrivateMsgData implements Parcelable {
         this.msgId = str;
         this.content = str2;
         this.time = str3;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
-    }
-
-    public String getMsgId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.msgId : (String) invokeV.objValue;
-    }
-
-    public String getTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.time : (String) invokeV.objValue;
     }
 
     public void setContent(String str) {
@@ -150,25 +185,5 @@ public class ReportPrivateMsgData implements Parcelable {
             parcel.writeString(this.content);
             parcel.writeString(this.time);
         }
-    }
-
-    public ReportPrivateMsgData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.msgId = parcel.readString();
-        this.content = parcel.readString();
-        this.time = parcel.readString();
     }
 }

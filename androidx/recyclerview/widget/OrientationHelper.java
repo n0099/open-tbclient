@@ -22,327 +22,6 @@ public abstract class OrientationHelper {
     public final RecyclerView.LayoutManager mLayoutManager;
     public final Rect mTmpRect;
 
-    public static OrientationHelper createHorizontalHelper(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, layoutManager)) == null) ? new OrientationHelper(layoutManager) { // from class: androidx.recyclerview.widget.OrientationHelper.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(layoutManager);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {layoutManager};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((RecyclerView.LayoutManager) objArr2[0]);
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getDecoratedEnd(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, view2)) == null) ? this.mLayoutManager.getDecoratedRight(view2) + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).rightMargin : invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getDecoratedMeasurement(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-                    return this.mLayoutManager.getDecoratedMeasuredWidth(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
-                }
-                return invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getDecoratedMeasurementInOther(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-                    return this.mLayoutManager.getDecoratedMeasuredHeight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
-                }
-                return invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getDecoratedStart(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048579, this, view2)) == null) ? this.mLayoutManager.getDecoratedLeft(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).leftMargin : invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getEnd() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? this.mLayoutManager.getWidth() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getEndAfterPadding() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) ? this.mLayoutManager.getWidth() - this.mLayoutManager.getPaddingRight() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getEndPadding() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) ? this.mLayoutManager.getPaddingRight() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getMode() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) ? this.mLayoutManager.getWidthMode() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getModeInOther() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mLayoutManager.getHeightMode() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getStartAfterPadding() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) ? this.mLayoutManager.getPaddingLeft() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getTotalSpace() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048586, this)) == null) ? (this.mLayoutManager.getWidth() - this.mLayoutManager.getPaddingLeft()) - this.mLayoutManager.getPaddingRight() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getTransformedEndWithDecoration(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048587, this, view2)) == null) {
-                    this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
-                    return this.mTmpRect.right;
-                }
-                return invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getTransformedStartWithDecoration(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048588, this, view2)) == null) {
-                    this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
-                    return this.mTmpRect.left;
-                }
-                return invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChild(View view2, int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048589, this, view2, i) == null) {
-                    view2.offsetLeftAndRight(i);
-                }
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChildren(int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048590, this, i) == null) {
-                    this.mLayoutManager.offsetChildrenHorizontal(i);
-                }
-            }
-        } : (OrientationHelper) invokeL.objValue;
-    }
-
-    public static OrientationHelper createOrientationHelper(RecyclerView.LayoutManager layoutManager, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, layoutManager, i)) == null) {
-            if (i != 0) {
-                if (i == 1) {
-                    return createVerticalHelper(layoutManager);
-                }
-                throw new IllegalArgumentException("invalid orientation");
-            }
-            return createHorizontalHelper(layoutManager);
-        }
-        return (OrientationHelper) invokeLI.objValue;
-    }
-
-    public static OrientationHelper createVerticalHelper(RecyclerView.LayoutManager layoutManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutManager)) == null) ? new OrientationHelper(layoutManager) { // from class: androidx.recyclerview.widget.OrientationHelper.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(layoutManager);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {layoutManager};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((RecyclerView.LayoutManager) objArr2[0]);
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getDecoratedEnd(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, view2)) == null) ? this.mLayoutManager.getDecoratedBottom(view2) + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).bottomMargin : invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getDecoratedMeasurement(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-                    return this.mLayoutManager.getDecoratedMeasuredHeight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
-                }
-                return invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getDecoratedMeasurementInOther(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-                    return this.mLayoutManager.getDecoratedMeasuredWidth(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
-                }
-                return invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getDecoratedStart(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048579, this, view2)) == null) ? this.mLayoutManager.getDecoratedTop(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).topMargin : invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getEnd() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? this.mLayoutManager.getHeight() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getEndAfterPadding() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) ? this.mLayoutManager.getHeight() - this.mLayoutManager.getPaddingBottom() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getEndPadding() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) ? this.mLayoutManager.getPaddingBottom() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getMode() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) ? this.mLayoutManager.getHeightMode() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getModeInOther() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mLayoutManager.getWidthMode() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getStartAfterPadding() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) ? this.mLayoutManager.getPaddingTop() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getTotalSpace() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048586, this)) == null) ? (this.mLayoutManager.getHeight() - this.mLayoutManager.getPaddingTop()) - this.mLayoutManager.getPaddingBottom() : invokeV.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getTransformedEndWithDecoration(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048587, this, view2)) == null) {
-                    this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
-                    return this.mTmpRect.bottom;
-                }
-                return invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public int getTransformedStartWithDecoration(View view2) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048588, this, view2)) == null) {
-                    this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
-                    return this.mTmpRect.top;
-                }
-                return invokeL2.intValue;
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChild(View view2, int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048589, this, view2, i) == null) {
-                    view2.offsetTopAndBottom(i);
-                }
-            }
-
-            @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChildren(int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048590, this, i) == null) {
-                    this.mLayoutManager.offsetChildrenVertical(i);
-                }
-            }
-        } : (OrientationHelper) invokeL.objValue;
-    }
-
     public abstract int getDecoratedEnd(View view2);
 
     public abstract int getDecoratedMeasurement(View view2);
@@ -357,12 +36,6 @@ public abstract class OrientationHelper {
 
     public abstract int getEndPadding();
 
-    public RecyclerView.LayoutManager getLayoutManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mLayoutManager : (RecyclerView.LayoutManager) invokeV.objValue;
-    }
-
     public abstract int getMode();
 
     public abstract int getModeInOther();
@@ -371,18 +44,6 @@ public abstract class OrientationHelper {
 
     public abstract int getTotalSpace();
 
-    public int getTotalSpaceChange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (Integer.MIN_VALUE == this.mLastTotalSpace) {
-                return 0;
-            }
-            return getTotalSpace() - this.mLastTotalSpace;
-        }
-        return invokeV.intValue;
-    }
-
     public abstract int getTransformedEndWithDecoration(View view2);
 
     public abstract int getTransformedStartWithDecoration(View view2);
@@ -390,13 +51,6 @@ public abstract class OrientationHelper {
     public abstract void offsetChild(View view2, int i);
 
     public abstract void offsetChildren(int i);
-
-    public void onLayoutComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.mLastTotalSpace = getTotalSpace();
-        }
-    }
 
     public OrientationHelper(RecyclerView.LayoutManager layoutManager) {
         Interceptable interceptable = $ic;
@@ -416,5 +70,414 @@ public abstract class OrientationHelper {
         this.mLastTotalSpace = Integer.MIN_VALUE;
         this.mTmpRect = new Rect();
         this.mLayoutManager = layoutManager;
+    }
+
+    public static OrientationHelper createOrientationHelper(RecyclerView.LayoutManager layoutManager, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, layoutManager, i)) == null) {
+            if (i != 0) {
+                if (i == 1) {
+                    return createVerticalHelper(layoutManager);
+                }
+                throw new IllegalArgumentException("invalid orientation");
+            }
+            return createHorizontalHelper(layoutManager);
+        }
+        return (OrientationHelper) invokeLI.objValue;
+    }
+
+    public static OrientationHelper createHorizontalHelper(RecyclerView.LayoutManager layoutManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, layoutManager)) == null) {
+            return new OrientationHelper(layoutManager) { // from class: androidx.recyclerview.widget.OrientationHelper.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(layoutManager);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {layoutManager};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((RecyclerView.LayoutManager) objArr2[0]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getDecoratedEnd(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, view2)) == null) {
+                        return this.mLayoutManager.getDecoratedRight(view2) + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).rightMargin;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getDecoratedMeasurement(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+                        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                        return this.mLayoutManager.getDecoratedMeasuredWidth(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getDecoratedMeasurementInOther(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+                        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                        return this.mLayoutManager.getDecoratedMeasuredHeight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getDecoratedStart(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048579, this, view2)) == null) {
+                        return this.mLayoutManager.getDecoratedLeft(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).leftMargin;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getTransformedEndWithDecoration(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048587, this, view2)) == null) {
+                        this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
+                        return this.mTmpRect.right;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getTransformedStartWithDecoration(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048588, this, view2)) == null) {
+                        this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
+                        return this.mTmpRect.left;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public void offsetChildren(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048590, this, i) == null) {
+                        this.mLayoutManager.offsetChildrenHorizontal(i);
+                    }
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getEnd() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
+                        return this.mLayoutManager.getWidth();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getEndAfterPadding() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {
+                        return this.mLayoutManager.getWidth() - this.mLayoutManager.getPaddingRight();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getEndPadding() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) {
+                        return this.mLayoutManager.getPaddingRight();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getMode() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) {
+                        return this.mLayoutManager.getWidthMode();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getModeInOther() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                        return this.mLayoutManager.getHeightMode();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getStartAfterPadding() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) {
+                        return this.mLayoutManager.getPaddingLeft();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getTotalSpace() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048586, this)) == null) {
+                        return (this.mLayoutManager.getWidth() - this.mLayoutManager.getPaddingLeft()) - this.mLayoutManager.getPaddingRight();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public void offsetChild(View view2, int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(1048589, this, view2, i) == null) {
+                        view2.offsetLeftAndRight(i);
+                    }
+                }
+            };
+        }
+        return (OrientationHelper) invokeL.objValue;
+    }
+
+    public static OrientationHelper createVerticalHelper(RecyclerView.LayoutManager layoutManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutManager)) == null) {
+            return new OrientationHelper(layoutManager) { // from class: androidx.recyclerview.widget.OrientationHelper.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(layoutManager);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {layoutManager};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((RecyclerView.LayoutManager) objArr2[0]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getDecoratedEnd(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, view2)) == null) {
+                        return this.mLayoutManager.getDecoratedBottom(view2) + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).bottomMargin;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getDecoratedMeasurement(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+                        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                        return this.mLayoutManager.getDecoratedMeasuredHeight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getDecoratedMeasurementInOther(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+                        RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                        return this.mLayoutManager.getDecoratedMeasuredWidth(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getDecoratedStart(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048579, this, view2)) == null) {
+                        return this.mLayoutManager.getDecoratedTop(view2) - ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) view2.getLayoutParams())).topMargin;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getTransformedEndWithDecoration(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048587, this, view2)) == null) {
+                        this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
+                        return this.mTmpRect.bottom;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getTransformedStartWithDecoration(View view2) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048588, this, view2)) == null) {
+                        this.mLayoutManager.getTransformedBoundingBox(view2, true, this.mTmpRect);
+                        return this.mTmpRect.top;
+                    }
+                    return invokeL2.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public void offsetChildren(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048590, this, i) == null) {
+                        this.mLayoutManager.offsetChildrenVertical(i);
+                    }
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getEnd() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
+                        return this.mLayoutManager.getHeight();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getEndAfterPadding() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {
+                        return this.mLayoutManager.getHeight() - this.mLayoutManager.getPaddingBottom();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getEndPadding() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) {
+                        return this.mLayoutManager.getPaddingBottom();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getMode() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) {
+                        return this.mLayoutManager.getHeightMode();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getModeInOther() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                        return this.mLayoutManager.getWidthMode();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getStartAfterPadding() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) {
+                        return this.mLayoutManager.getPaddingTop();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public int getTotalSpace() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048586, this)) == null) {
+                        return (this.mLayoutManager.getHeight() - this.mLayoutManager.getPaddingTop()) - this.mLayoutManager.getPaddingBottom();
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // androidx.recyclerview.widget.OrientationHelper
+                public void offsetChild(View view2, int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(1048589, this, view2, i) == null) {
+                        view2.offsetTopAndBottom(i);
+                    }
+                }
+            };
+        }
+        return (OrientationHelper) invokeL.objValue;
+    }
+
+    public RecyclerView.LayoutManager getLayoutManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mLayoutManager;
+        }
+        return (RecyclerView.LayoutManager) invokeV.objValue;
+    }
+
+    public int getTotalSpaceChange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (Integer.MIN_VALUE == this.mLastTotalSpace) {
+                return 0;
+            }
+            return getTotalSpace() - this.mLastTotalSpace;
+        }
+        return invokeV.intValue;
+    }
+
+    public void onLayoutComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.mLastTotalSpace = getTotalSpace();
+        }
     }
 }

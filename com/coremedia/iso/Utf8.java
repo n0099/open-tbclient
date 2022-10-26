@@ -25,20 +25,20 @@ public final class Utf8 {
         }
     }
 
-    public static byte[] convert(String str) {
+    public static String convert(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr != null) {
                 try {
-                    return str.getBytes("UTF-8");
+                    return new String(bArr, "UTF-8");
                 } catch (UnsupportedEncodingException e) {
                     throw new Error(e);
                 }
             }
             return null;
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
     public static int utf8StringLengthInBytes(String str) {
@@ -57,19 +57,19 @@ public final class Utf8 {
         return invokeL.intValue;
     }
 
-    public static String convert(byte[] bArr) {
+    public static byte[] convert(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str != null) {
                 try {
-                    return new String(bArr, "UTF-8");
+                    return str.getBytes("UTF-8");
                 } catch (UnsupportedEncodingException e) {
                     throw new Error(e);
                 }
             }
             return null;
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

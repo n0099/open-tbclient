@@ -29,24 +29,38 @@ public final class KotlinRandom extends java.util.Random {
         this.impl = impl;
     }
 
-    public final Random getImpl() {
-        return this.impl;
-    }
-
     @Override // java.util.Random
     public int next(int i) {
         return this.impl.nextBits(i);
     }
 
     @Override // java.util.Random
-    public boolean nextBoolean() {
-        return this.impl.nextBoolean();
-    }
-
-    @Override // java.util.Random
     public void nextBytes(byte[] bytes) {
         Intrinsics.checkNotNullParameter(bytes, "bytes");
         this.impl.nextBytes(bytes);
+    }
+
+    @Override // java.util.Random
+    public int nextInt(int i) {
+        return this.impl.nextInt(i);
+    }
+
+    @Override // java.util.Random
+    public void setSeed(long j) {
+        if (!this.seedInitialized) {
+            this.seedInitialized = true;
+            return;
+        }
+        throw new UnsupportedOperationException("Setting seed is not supported.");
+    }
+
+    public final Random getImpl() {
+        return this.impl;
+    }
+
+    @Override // java.util.Random
+    public boolean nextBoolean() {
+        return this.impl.nextBoolean();
     }
 
     @Override // java.util.Random
@@ -67,19 +81,5 @@ public final class KotlinRandom extends java.util.Random {
     @Override // java.util.Random
     public long nextLong() {
         return this.impl.nextLong();
-    }
-
-    @Override // java.util.Random
-    public void setSeed(long j) {
-        if (!this.seedInitialized) {
-            this.seedInitialized = true;
-            return;
-        }
-        throw new UnsupportedOperationException("Setting seed is not supported.");
-    }
-
-    @Override // java.util.Random
-    public int nextInt(int i) {
-        return this.impl.nextInt(i);
     }
 }

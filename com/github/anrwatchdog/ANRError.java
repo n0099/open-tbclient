@@ -23,7 +23,7 @@ public class ANRError extends Error {
     public ANRError$$._Thread st;
 
     /* loaded from: classes7.dex */
-    public static class a implements Comparator<Thread> {
+    public final class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Thread a;
@@ -117,7 +117,7 @@ public class ANRError extends Error {
         return (ANRError) invokeCommon.objValue;
     }
 
-    public static ANRError NewMainAllStackTrace(LinkedHashMap<Long, StackTraceElement[]> linkedHashMap, long j) {
+    public static ANRError NewMainAllStackTrace(LinkedHashMap linkedHashMap, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, linkedHashMap, j)) == null) {
@@ -163,7 +163,7 @@ public class ANRError extends Error {
         return (Throwable) invokeV.objValue;
     }
 
-    public LinkedHashMap<Long, StackTraceElement[]> getSTStackMap() {
+    public LinkedHashMap getSTStackMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

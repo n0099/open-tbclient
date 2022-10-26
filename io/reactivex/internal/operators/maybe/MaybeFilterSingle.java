@@ -15,21 +15,21 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class MaybeFilterSingle<T> extends Maybe<T> {
+public final class MaybeFilterSingle extends Maybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate<? super T> predicate;
-    public final SingleSource<T> source;
+    public final Predicate predicate;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class FilterMaybeObserver<T> implements SingleObserver<T>, Disposable {
+    public final class FilterMaybeObserver implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable d;
-        public final Predicate<? super T> predicate;
+        public final Predicate predicate;
 
-        public FilterMaybeObserver(MaybeObserver<? super T> maybeObserver, Predicate<? super T> predicate) {
+        public FilterMaybeObserver(MaybeObserver maybeObserver, Predicate predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,10 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -83,12 +86,12 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 try {
-                    if (this.predicate.test(t)) {
-                        this.actual.onSuccess(t);
+                    if (this.predicate.test(obj)) {
+                        this.actual.onSuccess(obj);
                     } else {
                         this.actual.onComplete();
                     }
@@ -100,7 +103,7 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
         }
     }
 
-    public MaybeFilterSingle(SingleSource<T> singleSource, Predicate<? super T> predicate) {
+    public MaybeFilterSingle(SingleSource singleSource, Predicate predicate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +123,7 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new FilterMaybeObserver(maybeObserver, this.predicate));

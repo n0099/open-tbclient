@@ -39,6 +39,7 @@ public class ConnectionFactory {
 
     public static HttpURLConnection createConnect(String str, Context context) {
         InterceptResult invokeLL;
+        Proxy proxy;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, context)) == null) {
@@ -46,8 +47,12 @@ public class ConnectionFactory {
                 HttpURLConnection httpURLConnection2 = null;
                 try {
                     URL url = new URL(str);
-                    Pair<String, Integer> apn = NetStateManager.getAPN();
-                    Proxy proxy = apn != null ? new Proxy(Proxy.Type.HTTP, new InetSocketAddress((String) apn.first, ((Integer) apn.second).intValue())) : null;
+                    Pair apn = NetStateManager.getAPN();
+                    if (apn != null) {
+                        proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress((String) apn.first, ((Integer) apn.second).intValue()));
+                    } else {
+                        proxy = null;
+                    }
                     if (str.startsWith("http://")) {
                         if (proxy == null) {
                             httpURLConnection = (HttpURLConnection) url.openConnection();

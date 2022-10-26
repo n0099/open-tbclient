@@ -36,6 +36,103 @@ public class SampleFlags {
         }
     }
 
+    public int getReserved() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.reserved;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSampleDegradationPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.sampleDegradationPriority;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSampleDependsOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.sampleDependsOn;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSampleHasRedundancy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sampleHasRedundancy;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSampleIsDependedOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.sampleIsDependedOn;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSamplePaddingValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.samplePaddingValue;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return (((((((((((this.reserved * 31) + this.sampleDependsOn) * 31) + this.sampleIsDependedOn) * 31) + this.sampleHasRedundancy) * 31) + this.samplePaddingValue) * 31) + (this.sampleIsDifferenceSample ? 1 : 0)) * 31) + this.sampleDegradationPriority;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isSampleIsDifferenceSample() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.sampleIsDifferenceSample;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public SampleFlags(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {byteBuffer};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(byteBuffer);
+        this.reserved = bitReaderBuffer.readBits(6);
+        this.sampleDependsOn = bitReaderBuffer.readBits(2);
+        this.sampleIsDependedOn = bitReaderBuffer.readBits(2);
+        this.sampleHasRedundancy = bitReaderBuffer.readBits(2);
+        this.samplePaddingValue = bitReaderBuffer.readBits(3);
+        this.sampleIsDifferenceSample = bitReaderBuffer.readBits(1) == 1;
+        this.sampleDegradationPriority = bitReaderBuffer.readBits(16);
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -47,7 +144,10 @@ public class SampleFlags {
                 return false;
             }
             SampleFlags sampleFlags = (SampleFlags) obj;
-            return this.reserved == sampleFlags.reserved && this.sampleDegradationPriority == sampleFlags.sampleDegradationPriority && this.sampleDependsOn == sampleFlags.sampleDependsOn && this.sampleHasRedundancy == sampleFlags.sampleHasRedundancy && this.sampleIsDependedOn == sampleFlags.sampleIsDependedOn && this.sampleIsDifferenceSample == sampleFlags.sampleIsDifferenceSample && this.samplePaddingValue == sampleFlags.samplePaddingValue;
+            if (this.reserved == sampleFlags.reserved && this.sampleDegradationPriority == sampleFlags.sampleDegradationPriority && this.sampleDependsOn == sampleFlags.sampleDependsOn && this.sampleHasRedundancy == sampleFlags.sampleHasRedundancy && this.sampleIsDependedOn == sampleFlags.sampleIsDependedOn && this.sampleIsDifferenceSample == sampleFlags.sampleIsDifferenceSample && this.samplePaddingValue == sampleFlags.samplePaddingValue) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -64,57 +164,6 @@ public class SampleFlags {
             bitWriterBuffer.writeBits(this.sampleIsDifferenceSample ? 1 : 0, 1);
             bitWriterBuffer.writeBits(this.sampleDegradationPriority, 16);
         }
-    }
-
-    public int getReserved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.reserved : invokeV.intValue;
-    }
-
-    public int getSampleDegradationPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sampleDegradationPriority : invokeV.intValue;
-    }
-
-    public int getSampleDependsOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.sampleDependsOn : invokeV.intValue;
-    }
-
-    public int getSampleHasRedundancy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sampleHasRedundancy : invokeV.intValue;
-    }
-
-    public int getSampleIsDependedOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.sampleIsDependedOn : invokeV.intValue;
-    }
-
-    public int getSamplePaddingValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.samplePaddingValue : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return (((((((((((this.reserved * 31) + this.sampleDependsOn) * 31) + this.sampleIsDependedOn) * 31) + this.sampleHasRedundancy) * 31) + this.samplePaddingValue) * 31) + (this.sampleIsDifferenceSample ? 1 : 0)) * 31) + this.sampleDegradationPriority;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isSampleIsDifferenceSample() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.sampleIsDifferenceSample : invokeV.booleanValue;
     }
 
     public void setReserved(int i) {
@@ -173,30 +222,5 @@ public class SampleFlags {
             return "SampleFlags{reserved=" + this.reserved + ", sampleDependsOn=" + this.sampleDependsOn + ", sampleHasRedundancy=" + this.sampleHasRedundancy + ", samplePaddingValue=" + this.samplePaddingValue + ", sampleIsDifferenceSample=" + this.sampleIsDifferenceSample + ", sampleDegradationPriority=" + this.sampleDegradationPriority + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    public SampleFlags(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {byteBuffer};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(byteBuffer);
-        this.reserved = bitReaderBuffer.readBits(6);
-        this.sampleDependsOn = bitReaderBuffer.readBits(2);
-        this.sampleIsDependedOn = bitReaderBuffer.readBits(2);
-        this.sampleHasRedundancy = bitReaderBuffer.readBits(2);
-        this.samplePaddingValue = bitReaderBuffer.readBits(3);
-        this.sampleIsDifferenceSample = bitReaderBuffer.readBits(1) == 1;
-        this.sampleDegradationPriority = bitReaderBuffer.readBits(16);
     }
 }

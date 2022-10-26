@@ -30,6 +30,33 @@ public class MediaMeta {
         }
     }
 
+    public Long getDurationInSeconds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.durationInSeconds;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public Long getSizeInBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.sizeInBytes;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public Long getSourceSizeInBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sourceSizeInBytes;
+        }
+        return (Long) invokeV.objValue;
+    }
+
     public static MediaMeta formatFromJson(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -41,24 +68,6 @@ public class MediaMeta {
             return mediaMeta;
         }
         return (MediaMeta) invokeL.objValue;
-    }
-
-    public Long getDurationInSeconds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.durationInSeconds : (Long) invokeV.objValue;
-    }
-
-    public Long getSizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sizeInBytes : (Long) invokeV.objValue;
-    }
-
-    public Long getSourceSizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sourceSizeInBytes : (Long) invokeV.objValue;
     }
 
     public void setDurationInSeconds(Long l) {

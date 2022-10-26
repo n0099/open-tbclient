@@ -5,8 +5,8 @@ import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.ue1;
-import com.baidu.tieba.y99;
+import com.baidu.tieba.qa9;
+import com.baidu.tieba.ve1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,39 +16,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InitUBCTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public InitUBCTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    private void initUBC() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            AppIdentityManager.getInstance().setAppName("tieba");
-            if (ue1.g()) {
-                y99.a();
-                CloudControlManager.getInstance().requestCloudControl("0");
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public void execute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            initUBC();
-        }
-    }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -65,5 +32,39 @@ public class InitUBCTask extends LaunchTask {
             return -1;
         }
         return invokeV.intValue;
+    }
+
+    public InitUBCTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public void execute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            initUBC();
+        }
+    }
+
+    private void initUBC() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
+        }
+        AppIdentityManager.getInstance().setAppName("tieba");
+        if (ve1.g()) {
+            qa9.a();
+            CloudControlManager.getInstance().requestCloudControl("0");
+        }
     }
 }

@@ -127,7 +127,7 @@ public class f1 extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class c {
+    public /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public static final /* synthetic */ int[] b;
@@ -182,7 +182,7 @@ public class f1 extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public static class d {
+    public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public e a;
@@ -194,26 +194,6 @@ public class f1 extends FrameLayout {
         public float g;
         public float h;
         public f i;
-
-        public /* synthetic */ d(a aVar) {
-            this();
-        }
-
-        public int[] a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int ordinal = this.i.ordinal();
-                return ordinal != 1 ? ordinal != 2 ? new int[]{0, -16777216, -16777216, 0} : new int[]{-16777216, 0, 0, -16777216} : new int[]{-16777216, -16777216, 0};
-            }
-            return (int[]) invokeV.objValue;
-        }
-
-        public float[] b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i.ordinal() != 1 ? new float[]{Math.max(((1.0f - this.f) - this.c) / 2.0f, 0.0f), Math.max((1.0f - this.f) / 2.0f, 0.0f), Math.min((this.f + 1.0f) / 2.0f, 1.0f), Math.min(((this.f + 1.0f) + this.c) / 2.0f, 1.0f)} : new float[]{0.0f, Math.min(this.f, 1.0f), Math.min(this.f + this.c, 1.0f)} : (float[]) invokeV.objValue;
-        }
 
         public d() {
             Interceptable interceptable = $ic;
@@ -228,11 +208,40 @@ public class f1 extends FrameLayout {
                 }
             }
         }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+
+        public int[] a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int ordinal = this.i.ordinal();
+                if (ordinal != 1) {
+                    if (ordinal != 2) {
+                        return new int[]{0, -16777216, -16777216, 0};
+                    }
+                    return new int[]{-16777216, 0, 0, -16777216};
+                }
+                return new int[]{-16777216, -16777216, 0};
+            }
+            return (int[]) invokeV.objValue;
+        }
+
+        public float[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.i.ordinal() != 1 ? new float[]{Math.max(((1.0f - this.f) - this.c) / 2.0f, 0.0f), Math.max((1.0f - this.f) / 2.0f, 0.0f), Math.min((this.f + 1.0f) / 2.0f, 1.0f), Math.min(((this.f + 1.0f) + this.c) / 2.0f, 1.0f)} : new float[]{0.0f, Math.min(this.f, 1.0f), Math.min(this.f + this.c, 1.0f)};
+            }
+            return (float[]) invokeV.objValue;
+        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class e {
+    public final class e {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
         public static final e b;
@@ -284,19 +293,25 @@ public class f1 extends FrameLayout {
         public static e valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (e) Enum.valueOf(e.class, str) : (e) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (e) Enum.valueOf(e.class, str);
+            }
+            return (e) invokeL.objValue;
         }
 
         public static e[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (e[]) e.clone() : (e[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (e[]) e.clone();
+            }
+            return (e[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class f {
+    public final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
         public static final f b;
@@ -346,18 +361,24 @@ public class f1 extends FrameLayout {
         public static f valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (f) Enum.valueOf(f.class, str) : (f) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (f) Enum.valueOf(f.class, str);
+            }
+            return (f) invokeL.objValue;
         }
 
         public static f[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f[]) d.clone() : (f[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (f[]) d.clone();
+            }
+            return (f[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class g {
+    public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -406,6 +427,212 @@ public class f1 extends FrameLayout {
         r = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
     }
 
+    private ViewTreeObserver.OnGlobalLayoutListener getLayoutListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            return new a(this);
+        }
+        return (ViewTreeObserver.OnGlobalLayoutListener) invokeV.objValue;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c();
+            Bitmap bitmap = this.q;
+            if (bitmap != null) {
+                bitmap.recycle();
+                this.q = null;
+            }
+            Bitmap bitmap2 = this.f;
+            if (bitmap2 != null) {
+                bitmap2.recycle();
+                this.f = null;
+            }
+            Bitmap bitmap3 = this.e;
+            if (bitmap3 != null) {
+                bitmap3.recycle();
+                this.e = null;
+            }
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.n) {
+            Animator shimmerAnimation = getShimmerAnimation();
+            shimmerAnimation.start();
+            ((ValueAnimator) shimmerAnimation).setCurrentPlayTime(300L);
+            this.n = true;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ValueAnimator valueAnimator = this.p;
+            if (valueAnimator != null) {
+                valueAnimator.end();
+                this.p.removeAllUpdateListeners();
+                this.p.cancel();
+            }
+            this.p = null;
+            this.n = false;
+        }
+    }
+
+    public e getAngle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c.a;
+        }
+        return (e) invokeV.objValue;
+    }
+
+    public float getBaseAlpha() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.getAlpha() / 255.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getDropoff() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getFixedHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getFixedWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.c.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getIntensity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.c.f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public f getMaskShape() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.c.i;
+        }
+        return (f) invokeV.objValue;
+    }
+
+    public float getRelativeHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.c.h;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getRelativeWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.c.g;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getRepeatCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getRepeatDelay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getRepeatMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getTilt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.c.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            super.onAttachedToWindow();
+            if (this.o == null) {
+                this.o = getLayoutListener();
+            }
+            getViewTreeObserver().addOnGlobalLayoutListener(this.o);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            c();
+            if (this.o != null) {
+                getViewTreeObserver().removeGlobalOnLayoutListener(this.o);
+                this.o = null;
+            }
+            super.onDetachedFromWindow();
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f1(Context context) {
         this(context, null, 0);
@@ -427,10 +654,125 @@ public class f1 extends FrameLayout {
         }
     }
 
-    private ViewTreeObserver.OnGlobalLayoutListener getLayoutListener() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public f1(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? new a(this) : (ViewTreeObserver.OnGlobalLayoutListener) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f1(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        setWillNotDraw(false);
+        this.c = new d(null);
+        this.a = new Paint();
+        Paint paint = new Paint();
+        this.b = paint;
+        paint.setAntiAlias(true);
+        this.b.setDither(true);
+        this.b.setFilterBitmap(true);
+        this.b.setXfermode(r);
+        e();
+        if (attributeSet != null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.UFOShimmerFrameLayout, 0, 0);
+            try {
+                if (obtainStyledAttributes.hasValue(1)) {
+                    setAutoStart(obtainStyledAttributes.getBoolean(1, false));
+                }
+                if (obtainStyledAttributes.hasValue(2)) {
+                    setBaseAlpha(obtainStyledAttributes.getFloat(2, 0.0f));
+                }
+                if (obtainStyledAttributes.hasValue(4)) {
+                    setDuration(obtainStyledAttributes.getInt(4, 0));
+                }
+                if (obtainStyledAttributes.hasValue(10)) {
+                    setRepeatCount(obtainStyledAttributes.getInt(10, 0));
+                }
+                if (obtainStyledAttributes.hasValue(11)) {
+                    setRepeatDelay(obtainStyledAttributes.getInt(11, 0));
+                }
+                if (obtainStyledAttributes.hasValue(12)) {
+                    setRepeatMode(obtainStyledAttributes.getInt(12, 0));
+                }
+                if (obtainStyledAttributes.hasValue(0)) {
+                    int i4 = obtainStyledAttributes.getInt(0, 0);
+                    if (i4 != 90) {
+                        if (i4 != 180) {
+                            if (i4 != 270) {
+                                this.c.a = e.a;
+                            } else {
+                                this.c.a = e.d;
+                            }
+                        } else {
+                            this.c.a = e.c;
+                        }
+                    } else {
+                        this.c.a = e.b;
+                    }
+                }
+                if (obtainStyledAttributes.hasValue(13)) {
+                    if (obtainStyledAttributes.getInt(13, 0) != 1) {
+                        this.c.i = f.a;
+                    } else {
+                        this.c.i = f.b;
+                    }
+                }
+                if (obtainStyledAttributes.hasValue(3)) {
+                    this.c.c = obtainStyledAttributes.getFloat(3, 0.0f);
+                }
+                if (obtainStyledAttributes.hasValue(6)) {
+                    this.c.d = obtainStyledAttributes.getDimensionPixelSize(6, 0);
+                }
+                if (obtainStyledAttributes.hasValue(5)) {
+                    this.c.e = obtainStyledAttributes.getDimensionPixelSize(5, 0);
+                }
+                if (obtainStyledAttributes.hasValue(7)) {
+                    this.c.f = obtainStyledAttributes.getFloat(7, 0.0f);
+                }
+                if (obtainStyledAttributes.hasValue(9)) {
+                    this.c.g = obtainStyledAttributes.getFloat(9, 0.0f);
+                }
+                if (obtainStyledAttributes.hasValue(8)) {
+                    this.c.h = obtainStyledAttributes.getFloat(8, 0.0f);
+                }
+                if (obtainStyledAttributes.hasValue(14)) {
+                    this.c.b = obtainStyledAttributes.getFloat(14, 0.0f);
+                }
+            } finally {
+                obtainStyledAttributes.recycle();
+            }
+        }
     }
 
     private Bitmap getMaskBitmap() {
@@ -470,21 +812,25 @@ public class f1 extends FrameLayout {
             if (this.c.i.ordinal() != 1) {
                 int ordinal = this.c.a.ordinal();
                 int i6 = 0;
-                if (ordinal == 1) {
+                if (ordinal != 1) {
+                    if (ordinal != 2) {
+                        if (ordinal != 3) {
+                            i = i4;
+                        } else {
+                            i3 = i5;
+                            i = 0;
+                            i2 = 0;
+                            radialGradient = new LinearGradient(i2, i3, i, i6, this.c.a(), this.c.b(), Shader.TileMode.REPEAT);
+                        }
+                    } else {
+                        i2 = i4;
+                        i = 0;
+                        i3 = 0;
+                        radialGradient = new LinearGradient(i2, i3, i, i6, this.c.a(), this.c.b(), Shader.TileMode.REPEAT);
+                    }
+                } else {
                     i6 = i5;
                     i = 0;
-                } else if (ordinal == 2) {
-                    i2 = i4;
-                    i = 0;
-                    i3 = 0;
-                    radialGradient = new LinearGradient(i2, i3, i, i6, this.c.a(), this.c.b(), Shader.TileMode.REPEAT);
-                } else if (ordinal != 3) {
-                    i = i4;
-                } else {
-                    i3 = i5;
-                    i = 0;
-                    i2 = 0;
-                    radialGradient = new LinearGradient(i2, i3, i, i6, this.c.a(), this.c.b(), Shader.TileMode.REPEAT);
                 }
                 i3 = 0;
                 i2 = 0;
@@ -514,14 +860,18 @@ public class f1 extends FrameLayout {
             int height = getHeight();
             int i = c.b[this.c.i.ordinal()];
             int ordinal = this.c.a.ordinal();
-            if (ordinal == 1) {
-                this.d.a(0, -height, 0, height);
-            } else if (ordinal == 2) {
-                this.d.a(width, 0, -width, 0);
-            } else if (ordinal != 3) {
-                this.d.a(-width, 0, width, 0);
+            if (ordinal != 1) {
+                if (ordinal != 2) {
+                    if (ordinal != 3) {
+                        this.d.a(-width, 0, width, 0);
+                    } else {
+                        this.d.a(0, height, 0, -height);
+                    }
+                } else {
+                    this.d.a(width, 0, -width, 0);
+                }
             } else {
-                this.d.a(0, height, 0, -height);
+                this.d.a(0, -height, 0, height);
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, (this.j / this.h) + 1.0f);
             this.p = ofFloat;
@@ -532,40 +882,6 @@ public class f1 extends FrameLayout {
             return this.p;
         }
         return (Animator) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setMaskOffsetX(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65545, this, i) == null) || this.l == i) {
-            return;
-        }
-        this.l = i;
-        invalidate();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setMaskOffsetY(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65546, this, i) == null) || this.m == i) {
-            return;
-        }
-        this.m = i;
-        invalidate();
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ValueAnimator valueAnimator = this.p;
-            if (valueAnimator != null) {
-                valueAnimator.end();
-                this.p.removeAllUpdateListeners();
-                this.p.cancel();
-            }
-            this.p = null;
-            this.n = false;
-        }
     }
 
     public final Bitmap d() {
@@ -599,171 +915,21 @@ public class f1 extends FrameLayout {
         return (Bitmap) invokeV.objValue;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setMaskOffsetX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.n && getWidth() > 0 && getHeight() > 0) {
-                if (this.f == null) {
-                    this.f = d();
-                }
-                Bitmap bitmap = this.f;
-                if (this.e == null) {
-                    this.e = d();
-                }
-                Bitmap bitmap2 = this.e;
-                if (bitmap == null || bitmap2 == null) {
-                    return;
-                }
-                Canvas canvas2 = new Canvas(bitmap);
-                canvas2.drawColor(0, PorterDuff.Mode.CLEAR);
-                super.dispatchDraw(canvas2);
-                canvas.drawBitmap(bitmap, 0.0f, 0.0f, this.a);
-                Canvas canvas3 = new Canvas(bitmap2);
-                Bitmap maskBitmap = getMaskBitmap();
-                if (maskBitmap != null) {
-                    int i = this.l;
-                    canvas3.clipRect(i, this.m, maskBitmap.getWidth() + i, this.m + maskBitmap.getHeight());
-                    canvas3.drawColor(0, PorterDuff.Mode.CLEAR);
-                    super.dispatchDraw(canvas3);
-                    canvas3.drawBitmap(maskBitmap, this.l, this.m, this.b);
-                }
-                canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                return;
-            }
-            super.dispatchDraw(canvas);
+        if ((interceptable == null || interceptable.invokeI(65545, this, i) == null) && this.l != i) {
+            this.l = i;
+            invalidate();
         }
     }
 
-    public void e() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setMaskOffsetY(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            setDuration(1200);
-            setRepeatCount(-1);
-            setRepeatDelay(0);
-            setRepeatMode(1);
-            d dVar = this.c;
-            dVar.a = e.a;
-            dVar.i = f.a;
-            dVar.c = 0.5f;
-            dVar.d = 0;
-            dVar.e = 0;
-            dVar.f = 0.0f;
-            dVar.g = 1.0f;
-            dVar.h = 1.0f;
-            dVar.b = 340.0f;
-            this.d = new g();
-            setBaseAlpha(1.0f);
-            a();
-        }
-    }
-
-    public e getAngle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c.a : (e) invokeV.objValue;
-    }
-
-    public float getBaseAlpha() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.getAlpha() / 255.0f : invokeV.floatValue;
-    }
-
-    public float getDropoff() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c.c : invokeV.floatValue;
-    }
-
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public int getFixedHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c.e : invokeV.intValue;
-    }
-
-    public int getFixedWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c.d : invokeV.intValue;
-    }
-
-    public float getIntensity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c.f : invokeV.floatValue;
-    }
-
-    public f getMaskShape() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.c.i : (f) invokeV.objValue;
-    }
-
-    public float getRelativeHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.c.h : invokeV.floatValue;
-    }
-
-    public float getRelativeWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.c.g : invokeV.floatValue;
-    }
-
-    public int getRepeatCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public int getRepeatDelay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public int getRepeatMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public float getTilt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.c.b : invokeV.floatValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            super.onAttachedToWindow();
-            if (this.o == null) {
-                this.o = getLayoutListener();
-            }
-            getViewTreeObserver().addOnGlobalLayoutListener(this.o);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            c();
-            if (this.o != null) {
-                getViewTreeObserver().removeGlobalOnLayoutListener(this.o);
-                this.o = null;
-            }
-            super.onDetachedFromWindow();
+        if ((interceptable == null || interceptable.invokeI(65546, this, i) == null) && this.m != i) {
+            this.m = i;
+            invalidate();
         }
     }
 
@@ -887,153 +1053,62 @@ public class f1 extends FrameLayout {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f1(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            if (this.n && getWidth() > 0 && getHeight() > 0) {
+                if (this.f == null) {
+                    this.f = d();
+                }
+                Bitmap bitmap = this.f;
+                if (this.e == null) {
+                    this.e = d();
+                }
+                Bitmap bitmap2 = this.e;
+                if (bitmap != null && bitmap2 != null) {
+                    Canvas canvas2 = new Canvas(bitmap);
+                    canvas2.drawColor(0, PorterDuff.Mode.CLEAR);
+                    super.dispatchDraw(canvas2);
+                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, this.a);
+                    Canvas canvas3 = new Canvas(bitmap2);
+                    Bitmap maskBitmap = getMaskBitmap();
+                    if (maskBitmap != null) {
+                        int i = this.l;
+                        canvas3.clipRect(i, this.m, maskBitmap.getWidth() + i, this.m + maskBitmap.getHeight());
+                        canvas3.drawColor(0, PorterDuff.Mode.CLEAR);
+                        super.dispatchDraw(canvas3);
+                        canvas3.drawBitmap(maskBitmap, this.l, this.m, this.b);
+                    }
+                    canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
+                    return;
+                }
                 return;
             }
+            super.dispatchDraw(canvas);
         }
     }
 
-    public final void a() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c();
-            Bitmap bitmap = this.q;
-            if (bitmap != null) {
-                bitmap.recycle();
-                this.q = null;
-            }
-            Bitmap bitmap2 = this.f;
-            if (bitmap2 != null) {
-                bitmap2.recycle();
-                this.f = null;
-            }
-            Bitmap bitmap3 = this.e;
-            if (bitmap3 != null) {
-                bitmap3.recycle();
-                this.e = null;
-            }
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.n) {
-            return;
-        }
-        Animator shimmerAnimation = getShimmerAnimation();
-        shimmerAnimation.start();
-        ((ValueAnimator) shimmerAnimation).setCurrentPlayTime(300L);
-        this.n = true;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f1(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        setWillNotDraw(false);
-        this.c = new d(null);
-        this.a = new Paint();
-        Paint paint = new Paint();
-        this.b = paint;
-        paint.setAntiAlias(true);
-        this.b.setDither(true);
-        this.b.setFilterBitmap(true);
-        this.b.setXfermode(r);
-        e();
-        if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.UFOShimmerFrameLayout, 0, 0);
-            try {
-                if (obtainStyledAttributes.hasValue(1)) {
-                    setAutoStart(obtainStyledAttributes.getBoolean(1, false));
-                }
-                if (obtainStyledAttributes.hasValue(2)) {
-                    setBaseAlpha(obtainStyledAttributes.getFloat(2, 0.0f));
-                }
-                if (obtainStyledAttributes.hasValue(4)) {
-                    setDuration(obtainStyledAttributes.getInt(4, 0));
-                }
-                if (obtainStyledAttributes.hasValue(10)) {
-                    setRepeatCount(obtainStyledAttributes.getInt(10, 0));
-                }
-                if (obtainStyledAttributes.hasValue(11)) {
-                    setRepeatDelay(obtainStyledAttributes.getInt(11, 0));
-                }
-                if (obtainStyledAttributes.hasValue(12)) {
-                    setRepeatMode(obtainStyledAttributes.getInt(12, 0));
-                }
-                if (obtainStyledAttributes.hasValue(0)) {
-                    int i4 = obtainStyledAttributes.getInt(0, 0);
-                    if (i4 == 90) {
-                        this.c.a = e.b;
-                    } else if (i4 == 180) {
-                        this.c.a = e.c;
-                    } else if (i4 != 270) {
-                        this.c.a = e.a;
-                    } else {
-                        this.c.a = e.d;
-                    }
-                }
-                if (obtainStyledAttributes.hasValue(13)) {
-                    if (obtainStyledAttributes.getInt(13, 0) != 1) {
-                        this.c.i = f.a;
-                    } else {
-                        this.c.i = f.b;
-                    }
-                }
-                if (obtainStyledAttributes.hasValue(3)) {
-                    this.c.c = obtainStyledAttributes.getFloat(3, 0.0f);
-                }
-                if (obtainStyledAttributes.hasValue(6)) {
-                    this.c.d = obtainStyledAttributes.getDimensionPixelSize(6, 0);
-                }
-                if (obtainStyledAttributes.hasValue(5)) {
-                    this.c.e = obtainStyledAttributes.getDimensionPixelSize(5, 0);
-                }
-                if (obtainStyledAttributes.hasValue(7)) {
-                    this.c.f = obtainStyledAttributes.getFloat(7, 0.0f);
-                }
-                if (obtainStyledAttributes.hasValue(9)) {
-                    this.c.g = obtainStyledAttributes.getFloat(9, 0.0f);
-                }
-                if (obtainStyledAttributes.hasValue(8)) {
-                    this.c.h = obtainStyledAttributes.getFloat(8, 0.0f);
-                }
-                if (obtainStyledAttributes.hasValue(14)) {
-                    this.c.b = obtainStyledAttributes.getFloat(14, 0.0f);
-                }
-            } finally {
-                obtainStyledAttributes.recycle();
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setDuration(1200);
+            setRepeatCount(-1);
+            setRepeatDelay(0);
+            setRepeatMode(1);
+            d dVar = this.c;
+            dVar.a = e.a;
+            dVar.i = f.a;
+            dVar.c = 0.5f;
+            dVar.d = 0;
+            dVar.e = 0;
+            dVar.f = 0.0f;
+            dVar.g = 1.0f;
+            dVar.h = 1.0f;
+            dVar.b = 340.0f;
+            this.d = new g();
+            setBaseAlpha(1.0f);
+            a();
         }
     }
 }

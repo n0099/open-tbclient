@@ -45,8 +45,15 @@ public final class H265Reader implements ElementaryStreamReader {
     public long totalBytesWritten;
     public final NalUnitTargetBuffer vps;
 
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void packetFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static final class SampleReader {
+    public final class SampleReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FIRST_SLICE_FLAG_OFFSET = 2;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,12 +116,18 @@ public final class H265Reader implements ElementaryStreamReader {
         }
 
         public void readNalUnitData(byte[] bArr, int i, int i2) {
+            boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) && this.lookingForFirstSliceFlag) {
                 int i3 = this.nalUnitBytesRead;
                 int i4 = (i + 2) - i3;
                 if (i4 < i2) {
-                    this.isFirstSlice = (bArr[i4] & 128) != 0;
+                    if ((bArr[i4] & 128) != 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.isFirstSlice = z;
                     this.lookingForFirstSliceFlag = false;
                     return;
                 }
@@ -134,9 +147,10 @@ public final class H265Reader implements ElementaryStreamReader {
         }
 
         public void startNalUnit(long j, int i, int i2, long j2) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                boolean z = false;
+                boolean z2 = false;
                 this.isFirstSlice = false;
                 this.isFirstParameterSet = false;
                 this.nalUnitTimeUs = j2;
@@ -152,9 +166,13 @@ public final class H265Reader implements ElementaryStreamReader {
                         this.writingParameterSets = true;
                     }
                 }
-                boolean z2 = i2 >= 16 && i2 <= 21;
-                this.nalUnitHasKeyframeData = z2;
-                this.lookingForFirstSliceFlag = (z2 || i2 <= 9) ? true : true;
+                if (i2 >= 16 && i2 <= 21) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.nalUnitHasKeyframeData = z;
+                this.lookingForFirstSliceFlag = (z || i2 <= 9) ? true : true;
             }
         }
     }
@@ -182,6 +200,43 @@ public final class H265Reader implements ElementaryStreamReader {
         this.prefixSei = new NalUnitTargetBuffer(39, 128);
         this.suffixSei = new NalUnitTargetBuffer(40, 128);
         this.seiWrapper = new ParsableByteArray();
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void consume(ParsableByteArray parsableByteArray) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) {
+            while (parsableByteArray.bytesLeft() > 0) {
+                int position = parsableByteArray.getPosition();
+                int limit = parsableByteArray.limit();
+                byte[] bArr = parsableByteArray.data;
+                this.totalBytesWritten += parsableByteArray.bytesLeft();
+                this.output.sampleData(parsableByteArray, parsableByteArray.bytesLeft());
+                while (position < limit) {
+                    int findNalUnit = NalUnitUtil.findNalUnit(bArr, position, limit, this.prefixFlags);
+                    if (findNalUnit == limit) {
+                        nalUnitData(bArr, position, limit);
+                        return;
+                    }
+                    int h265NalUnitType = NalUnitUtil.getH265NalUnitType(bArr, findNalUnit);
+                    int i2 = findNalUnit - position;
+                    if (i2 > 0) {
+                        nalUnitData(bArr, position, findNalUnit);
+                    }
+                    int i3 = limit - findNalUnit;
+                    long j = this.totalBytesWritten - i3;
+                    if (i2 < 0) {
+                        i = -i2;
+                    } else {
+                        i = 0;
+                    }
+                    endNalUnit(j, i3, i, this.pesTimeUs);
+                    startNalUnit(j, i3, h265NalUnitType, this.pesTimeUs);
+                    position = findNalUnit + 3;
+                }
+            }
+        }
     }
 
     private void endNalUnit(long j, int i, int i2, long j2) {
@@ -230,12 +285,15 @@ public final class H265Reader implements ElementaryStreamReader {
 
     public static Format parseMediaFormat(String str, NalUnitTargetBuffer nalUnitTargetBuffer, NalUnitTargetBuffer nalUnitTargetBuffer2, NalUnitTargetBuffer nalUnitTargetBuffer3) {
         InterceptResult invokeLLLL;
+        int i;
         float f;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, nalUnitTargetBuffer, nalUnitTargetBuffer2, nalUnitTargetBuffer3)) == null) {
-            int i = nalUnitTargetBuffer.nalLength;
-            byte[] bArr = new byte[nalUnitTargetBuffer2.nalLength + i + nalUnitTargetBuffer3.nalLength];
-            System.arraycopy(nalUnitTargetBuffer.nalData, 0, bArr, 0, i);
+            int i4 = nalUnitTargetBuffer.nalLength;
+            byte[] bArr = new byte[nalUnitTargetBuffer2.nalLength + i4 + nalUnitTargetBuffer3.nalLength];
+            System.arraycopy(nalUnitTargetBuffer.nalData, 0, bArr, 0, i4);
             System.arraycopy(nalUnitTargetBuffer2.nalData, 0, bArr, nalUnitTargetBuffer.nalLength, nalUnitTargetBuffer2.nalLength);
             System.arraycopy(nalUnitTargetBuffer3.nalData, 0, bArr, nalUnitTargetBuffer.nalLength + nalUnitTargetBuffer2.nalLength, nalUnitTargetBuffer3.nalLength);
             ParsableNalUnitBitArray parsableNalUnitBitArray = new ParsableNalUnitBitArray(nalUnitTargetBuffer2.nalData, 0, nalUnitTargetBuffer2.nalLength);
@@ -244,16 +302,16 @@ public final class H265Reader implements ElementaryStreamReader {
             parsableNalUnitBitArray.skipBit();
             parsableNalUnitBitArray.skipBits(88);
             parsableNalUnitBitArray.skipBits(8);
-            int i2 = 0;
-            for (int i3 = 0; i3 < readBits; i3++) {
+            int i5 = 0;
+            for (int i6 = 0; i6 < readBits; i6++) {
                 if (parsableNalUnitBitArray.readBit()) {
-                    i2 += 89;
+                    i5 += 89;
                 }
                 if (parsableNalUnitBitArray.readBit()) {
-                    i2 += 8;
+                    i5 += 8;
                 }
             }
-            parsableNalUnitBitArray.skipBits(i2);
+            parsableNalUnitBitArray.skipBits(i5);
             if (readBits > 0) {
                 parsableNalUnitBitArray.skipBits((8 - readBits) * 2);
             }
@@ -269,18 +327,34 @@ public final class H265Reader implements ElementaryStreamReader {
                 int readUnsignedExpGolombCodedInt5 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 int readUnsignedExpGolombCodedInt6 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 int readUnsignedExpGolombCodedInt7 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
-                readUnsignedExpGolombCodedInt2 -= ((readUnsignedExpGolombCodedInt == 1 || readUnsignedExpGolombCodedInt == 2) ? 2 : 1) * (readUnsignedExpGolombCodedInt4 + readUnsignedExpGolombCodedInt5);
-                readUnsignedExpGolombCodedInt3 -= (readUnsignedExpGolombCodedInt == 1 ? 2 : 1) * (readUnsignedExpGolombCodedInt6 + readUnsignedExpGolombCodedInt7);
+                if (readUnsignedExpGolombCodedInt != 1 && readUnsignedExpGolombCodedInt != 2) {
+                    i2 = 1;
+                } else {
+                    i2 = 2;
+                }
+                if (readUnsignedExpGolombCodedInt == 1) {
+                    i3 = 2;
+                } else {
+                    i3 = 1;
+                }
+                readUnsignedExpGolombCodedInt2 -= i2 * (readUnsignedExpGolombCodedInt4 + readUnsignedExpGolombCodedInt5);
+                readUnsignedExpGolombCodedInt3 -= i3 * (readUnsignedExpGolombCodedInt6 + readUnsignedExpGolombCodedInt7);
             }
-            int i4 = readUnsignedExpGolombCodedInt2;
-            int i5 = readUnsignedExpGolombCodedInt3;
+            int i7 = readUnsignedExpGolombCodedInt2;
+            int i8 = readUnsignedExpGolombCodedInt3;
             parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
             parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
             int readUnsignedExpGolombCodedInt8 = parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
-            for (int i6 = parsableNalUnitBitArray.readBit() ? 0 : readBits; i6 <= readBits; i6++) {
+            if (parsableNalUnitBitArray.readBit()) {
+                i = 0;
+            } else {
+                i = readBits;
+            }
+            while (i <= readBits) {
                 parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
                 parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
+                i++;
             }
             parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
             parsableNalUnitBitArray.readUnsignedExpGolombCodedInt();
@@ -300,7 +374,7 @@ public final class H265Reader implements ElementaryStreamReader {
             }
             skipShortTermRefPicSets(parsableNalUnitBitArray);
             if (parsableNalUnitBitArray.readBit()) {
-                for (int i7 = 0; i7 < parsableNalUnitBitArray.readUnsignedExpGolombCodedInt(); i7++) {
+                for (int i9 = 0; i9 < parsableNalUnitBitArray.readUnsignedExpGolombCodedInt(); i9++) {
                     parsableNalUnitBitArray.skipBits(readUnsignedExpGolombCodedInt8 + 4 + 1);
                 }
             }
@@ -323,10 +397,10 @@ public final class H265Reader implements ElementaryStreamReader {
                         Log.w(TAG, "Unexpected aspect_ratio_idc value: " + readBits2);
                     }
                 }
-                return Format.createVideoSampleFormat(str, MimeTypes.VIDEO_H265, null, -1, -1, i4, i5, -1.0f, Collections.singletonList(bArr), -1, f, null);
+                return Format.createVideoSampleFormat(str, MimeTypes.VIDEO_H265, null, -1, -1, i7, i8, -1.0f, Collections.singletonList(bArr), -1, f, null);
             }
             f = 1.0f;
-            return Format.createVideoSampleFormat(str, MimeTypes.VIDEO_H265, null, -1, -1, i4, i5, -1.0f, Collections.singletonList(bArr), -1, f, null);
+            return Format.createVideoSampleFormat(str, MimeTypes.VIDEO_H265, null, -1, -1, i7, i8, -1.0f, Collections.singletonList(bArr), -1, f, null);
         }
         return (Format) invokeLLLL.objValue;
     }
@@ -410,37 +484,6 @@ public final class H265Reader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void consume(ParsableByteArray parsableByteArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) {
-            while (parsableByteArray.bytesLeft() > 0) {
-                int position = parsableByteArray.getPosition();
-                int limit = parsableByteArray.limit();
-                byte[] bArr = parsableByteArray.data;
-                this.totalBytesWritten += parsableByteArray.bytesLeft();
-                this.output.sampleData(parsableByteArray, parsableByteArray.bytesLeft());
-                while (position < limit) {
-                    int findNalUnit = NalUnitUtil.findNalUnit(bArr, position, limit, this.prefixFlags);
-                    if (findNalUnit == limit) {
-                        nalUnitData(bArr, position, limit);
-                        return;
-                    }
-                    int h265NalUnitType = NalUnitUtil.getH265NalUnitType(bArr, findNalUnit);
-                    int i = findNalUnit - position;
-                    if (i > 0) {
-                        nalUnitData(bArr, position, findNalUnit);
-                    }
-                    int i2 = limit - findNalUnit;
-                    long j = this.totalBytesWritten - i2;
-                    endNalUnit(j, i2, i < 0 ? -i : 0, this.pesTimeUs);
-                    startNalUnit(j, i2, h265NalUnitType, this.pesTimeUs);
-                    position = findNalUnit + 3;
-                }
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void createTracks(ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorOutput, trackIdGenerator) == null) {
@@ -450,13 +493,6 @@ public final class H265Reader implements ElementaryStreamReader {
             this.output = track;
             this.sampleReader = new SampleReader(track);
             this.seiReader.createTracks(extractorOutput, trackIdGenerator);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 

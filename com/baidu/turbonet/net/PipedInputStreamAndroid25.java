@@ -39,30 +39,6 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    public PipedInputStreamAndroid25(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25, int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pipedOutputStreamAndroid25, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.g = -1;
-        this.h = 0;
-        e(i);
-        d(pipedOutputStreamAndroid25);
-    }
-
     public final void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -77,6 +53,48 @@ public class PipedInputStreamAndroid25 extends InputStream {
                 }
             }
         }
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            synchronized (this) {
+                this.g = -1;
+            }
+        }
+    }
+
+    public synchronized void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+                this.a = true;
+                notifyAll();
+            }
+        }
+    }
+
+    public PipedInputStreamAndroid25() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.g = -1;
+        this.h = 0;
+        e(1024);
     }
 
     @Override // java.io.InputStream
@@ -117,15 +135,28 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public PipedInputStreamAndroid25(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            synchronized (this) {
-                this.g = -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pipedOutputStreamAndroid25, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.g = -1;
+        this.h = 0;
+        e(i);
+        d(pipedOutputStreamAndroid25);
     }
 
     public void d(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25) throws IOException {
@@ -195,15 +226,17 @@ public class PipedInputStreamAndroid25 extends InputStream {
                         i4 = this.f.length;
                         i5 = this.g;
                     } else {
-                        if (this.g >= this.h) {
-                            i3 = 0;
-                        } else if (this.g == -1) {
-                            this.h = 0;
-                            this.g = 0;
-                            i3 = this.f.length - 0;
+                        if (this.g < this.h) {
+                            if (this.g == -1) {
+                                this.h = 0;
+                                this.g = 0;
+                                i3 = this.f.length - 0;
+                            } else {
+                                i4 = this.h;
+                                i5 = this.g;
+                            }
                         } else {
-                            i4 = this.h;
-                            i5 = this.g;
+                            i3 = 0;
                         }
                         if (i3 > i2) {
                             i3 = i2;
@@ -232,14 +265,54 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    public synchronized void j() {
+    @Override // java.io.InputStream
+    public synchronized int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048586, this, bArr, i, i2)) == null) {
             synchronized (this) {
-                this.a = true;
-                notifyAll();
+                if (bArr != null) {
+                    if (i >= 0 && i2 >= 0 && i2 <= bArr.length - i) {
+                        if (i2 == 0) {
+                            return 0;
+                        }
+                        int read = read();
+                        if (read < 0) {
+                            return -1;
+                        }
+                        bArr[i] = (byte) read;
+                        int i3 = 1;
+                        while (this.g >= 0 && i2 > 1) {
+                            if (this.g > this.h) {
+                                length = Math.min(this.f.length - this.h, this.g - this.h);
+                            } else {
+                                length = this.f.length - this.h;
+                            }
+                            int i4 = i2 - 1;
+                            if (length > i4) {
+                                length = i4;
+                            }
+                            System.arraycopy(this.f, this.h, bArr, i + i3, length);
+                            int i5 = this.h + length;
+                            this.h = i5;
+                            i3 += length;
+                            i2 -= length;
+                            if (i5 >= this.f.length) {
+                                this.h = 0;
+                            }
+                            if (this.g == this.h) {
+                                this.g = -1;
+                            }
+                        }
+                        return i3;
+                    }
+                    throw new IndexOutOfBoundsException();
+                }
+                throw new NullPointerException();
             }
         }
+        return invokeLII.intValue;
     }
 
     @Override // java.io.InputStream
@@ -289,76 +362,5 @@ public class PipedInputStreamAndroid25 extends InputStream {
             }
         }
         return invokeV.intValue;
-    }
-
-    public PipedInputStreamAndroid25() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.g = -1;
-        this.h = 0;
-        e(1024);
-    }
-
-    @Override // java.io.InputStream
-    public synchronized int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048586, this, bArr, i, i2)) == null) {
-            synchronized (this) {
-                if (bArr != null) {
-                    if (i < 0 || i2 < 0 || i2 > bArr.length - i) {
-                        throw new IndexOutOfBoundsException();
-                    }
-                    if (i2 == 0) {
-                        return 0;
-                    }
-                    int read = read();
-                    if (read < 0) {
-                        return -1;
-                    }
-                    bArr[i] = (byte) read;
-                    int i3 = 1;
-                    while (this.g >= 0 && i2 > 1) {
-                        if (this.g > this.h) {
-                            length = Math.min(this.f.length - this.h, this.g - this.h);
-                        } else {
-                            length = this.f.length - this.h;
-                        }
-                        int i4 = i2 - 1;
-                        if (length > i4) {
-                            length = i4;
-                        }
-                        System.arraycopy(this.f, this.h, bArr, i + i3, length);
-                        int i5 = this.h + length;
-                        this.h = i5;
-                        i3 += length;
-                        i2 -= length;
-                        if (i5 >= this.f.length) {
-                            this.h = 0;
-                        }
-                        if (this.g == this.h) {
-                            this.g = -1;
-                        }
-                    }
-                    return i3;
-                }
-                throw new NullPointerException();
-            }
-        }
-        return invokeLII.intValue;
     }
 }

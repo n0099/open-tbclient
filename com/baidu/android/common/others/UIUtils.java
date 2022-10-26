@@ -69,11 +69,17 @@ public class UIUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (!(obj instanceof String)) {
-                return obj instanceof Integer;
+            if (obj instanceof String) {
+                String valueOf = String.valueOf(obj);
+                if (!TextUtils.isEmpty(valueOf) && valueOf.startsWith("#") && (valueOf.length() == 7 || valueOf.length() == 9)) {
+                    return true;
+                }
+                return false;
+            } else if (obj instanceof Integer) {
+                return true;
+            } else {
+                return false;
             }
-            String valueOf = String.valueOf(obj);
-            return !TextUtils.isEmpty(valueOf) && valueOf.startsWith("#") && (valueOf.length() == 7 || valueOf.length() == 9);
         }
         return invokeL.booleanValue;
     }

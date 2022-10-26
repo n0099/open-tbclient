@@ -120,9 +120,10 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                     this.source = Okio.buffer(Okio.source(this.rawSocket));
                     this.sink = Okio.buffer(Okio.sink(this.rawSocket));
                 } catch (NullPointerException e) {
-                    if (NPE_THROW_WITH_NULL.equals(e.getMessage())) {
-                        throw new IOException(e);
+                    if (!NPE_THROW_WITH_NULL.equals(e.getMessage())) {
+                        return;
                     }
+                    throw new IOException(e);
                 }
             } catch (ConnectException e2) {
                 ConnectException connectException = new ConnectException("Failed to connect to " + this.route.socketAddress());
@@ -139,6 +140,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         if (interceptable == null || interceptable.invokeL(65538, this, connectionSpecSelector) == null) {
             Address address = this.route.address();
             SSLSocket sSLSocket2 = null;
+            String str = null;
             try {
                 try {
                     sSLSocket = (SSLSocket) address.sslSocketFactory().createSocket(this.rawSocket, address.url().host(), address.url().port(), true);
@@ -158,13 +160,15 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 Handshake handshake = Handshake.get(session);
                 if (address.hostnameVerifier().verify(address.url().host(), session)) {
                     address.certificatePinner().check(address.url().host(), handshake.peerCertificates());
-                    String selectedProtocol = configureSecureSocket.supportsTlsExtensions() ? Platform.get().getSelectedProtocol(sSLSocket) : null;
+                    if (configureSecureSocket.supportsTlsExtensions()) {
+                        str = Platform.get().getSelectedProtocol(sSLSocket);
+                    }
                     this.socket = sSLSocket;
                     this.source = Okio.buffer(Okio.source(sSLSocket));
                     this.sink = Okio.buffer(Okio.sink(this.socket));
                     this.handshake = handshake;
-                    if (selectedProtocol != null) {
-                        protocol = Protocol.get(selectedProtocol);
+                    if (str != null) {
+                        protocol = Protocol.get(str);
                     } else {
                         protocol = Protocol.HTTP_1_1;
                     }
@@ -179,10 +183,10 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 throw new SSLPeerUnverifiedException("Hostname " + address.url().host() + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
             } catch (AssertionError e2) {
                 e = e2;
-                if (!Util.isAndroidGetsocknameError(e)) {
-                    throw e;
+                if (Util.isAndroidGetsocknameError(e)) {
+                    throw new IOException(e);
                 }
-                throw new IOException(e);
+                throw e;
             } catch (Throwable th2) {
                 th = th2;
                 sSLSocket2 = sSLSocket;
@@ -203,14 +207,15 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             for (int i4 = 0; i4 < 21; i4++) {
                 connectSocket(i, i2, call, eventListener);
                 createTunnelRequest = createTunnel(i2, i3, createTunnelRequest, url);
-                if (createTunnelRequest == null) {
+                if (createTunnelRequest != null) {
+                    Util.closeQuietly(this.rawSocket);
+                    this.rawSocket = null;
+                    this.sink = null;
+                    this.source = null;
+                    eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), null);
+                } else {
                     return;
                 }
-                Util.closeQuietly(this.rawSocket);
-                this.rawSocket = null;
-                this.sink = null;
-                this.source = null;
-                eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), null);
             }
         }
     }
@@ -218,50 +223,55 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     private Request createTunnel(int i, int i2, Request request, HttpUrl httpUrl) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), request, httpUrl})) != null) {
-            return (Request) invokeCommon.objValue;
-        }
-        String str = "CONNECT " + Util.hostHeader(httpUrl, true) + " HTTP/1.1";
-        while (true) {
-            Http1Codec http1Codec = new Http1Codec(null, null, this.source, this.sink);
-            this.source.timeout().timeout(i, TimeUnit.MILLISECONDS);
-            this.sink.timeout().timeout(i2, TimeUnit.MILLISECONDS);
-            http1Codec.writeRequest(request.headers(), str);
-            http1Codec.finishRequest();
-            Response build = http1Codec.readResponseHeaders(false).request(request).build();
-            long contentLength = HttpHeaders.contentLength(build);
-            if (contentLength == -1) {
-                contentLength = 0;
-            }
-            Source newFixedLengthSource = http1Codec.newFixedLengthSource(contentLength);
-            Util.skipAll(newFixedLengthSource, Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
-            newFixedLengthSource.close();
-            int code = build.code();
-            if (code == 200) {
-                if (this.source.buffer().exhausted() && this.sink.buffer().exhausted()) {
-                    return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), request, httpUrl})) == null) {
+            String str = "CONNECT " + Util.hostHeader(httpUrl, true) + " HTTP/1.1";
+            while (true) {
+                Http1Codec http1Codec = new Http1Codec(null, null, this.source, this.sink);
+                this.source.timeout().timeout(i, TimeUnit.MILLISECONDS);
+                this.sink.timeout().timeout(i2, TimeUnit.MILLISECONDS);
+                http1Codec.writeRequest(request.headers(), str);
+                http1Codec.finishRequest();
+                Response build = http1Codec.readResponseHeaders(false).request(request).build();
+                long contentLength = HttpHeaders.contentLength(build);
+                if (contentLength == -1) {
+                    contentLength = 0;
                 }
-                throw new IOException("TLS tunnel buffered too many bytes!");
-            } else if (code == 407) {
-                Request authenticate = this.route.address().proxyAuthenticator().authenticate(this.route, build);
-                if (authenticate != null) {
-                    if ("close".equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
-                        return authenticate;
+                Source newFixedLengthSource = http1Codec.newFixedLengthSource(contentLength);
+                Util.skipAll(newFixedLengthSource, Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
+                newFixedLengthSource.close();
+                int code = build.code();
+                if (code != 200) {
+                    if (code == 407) {
+                        Request authenticate = this.route.address().proxyAuthenticator().authenticate(this.route, build);
+                        if (authenticate != null) {
+                            if ("close".equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
+                                return authenticate;
+                            }
+                            request = authenticate;
+                        } else {
+                            throw new IOException("Failed to authenticate with proxy");
+                        }
+                    } else {
+                        throw new IOException("Unexpected response code for CONNECT: " + build.code());
                     }
-                    request = authenticate;
+                } else if (this.source.buffer().exhausted() && this.sink.buffer().exhausted()) {
+                    return null;
                 } else {
-                    throw new IOException("Failed to authenticate with proxy");
+                    throw new IOException("TLS tunnel buffered too many bytes!");
                 }
-            } else {
-                throw new IOException("Unexpected response code for CONNECT: " + build.code());
             }
+        } else {
+            return (Request) invokeCommon.objValue;
         }
     }
 
     private Request createTunnelRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent()).build() : (Request) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent()).build();
+        }
+        return (Request) invokeV.objValue;
     }
 
     private void establishProtocol(ConnectionSpecSelector connectionSpecSelector, int i, Call call, EventListener eventListener) throws IOException {
@@ -314,6 +324,58 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Util.closeQuietly(this.rawSocket);
         }
+    }
+
+    @Override // okhttp3.Connection
+    public Handshake handshake() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.handshake;
+        }
+        return (Handshake) invokeV.objValue;
+    }
+
+    public boolean isMultiplexed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.http2Connection != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // okhttp3.Connection
+    public Protocol protocol() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.protocol;
+        }
+        return (Protocol) invokeV.objValue;
+    }
+
+    @Override // okhttp3.Connection
+    public Route route() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.route;
+        }
+        return (Route) invokeV.objValue;
+    }
+
+    @Override // okhttp3.Connection
+    public Socket socket() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.socket;
+        }
+        return (Socket) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x0094 A[Catch: IOException -> 0x00fd, TRY_LEAVE, TryCatch #2 {IOException -> 0x00fd, blocks: (B:20:0x008c, B:22:0x0094), top: B:75:0x008c }] */
@@ -443,13 +505,6 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    @Override // okhttp3.Connection
-    public Handshake handshake() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.handshake : (Handshake) invokeV.objValue;
-    }
-
     public boolean isEligible(Address address, @Nullable Route route) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -460,15 +515,15 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             if (address.url().host().equals(route().address().url().host())) {
                 return true;
             }
-            if (this.http2Connection != null && route != null && route.proxy().type() == Proxy.Type.DIRECT && this.route.proxy().type() == Proxy.Type.DIRECT && this.route.socketAddress().equals(route.socketAddress()) && route.address().hostnameVerifier() == OkHostnameVerifier.INSTANCE && supportsUrl(address.url())) {
-                try {
-                    address.certificatePinner().check(address.url().host(), handshake().peerCertificates());
-                    return true;
-                } catch (SSLPeerUnverifiedException unused) {
-                    return false;
-                }
+            if (this.http2Connection == null || route == null || route.proxy().type() != Proxy.Type.DIRECT || this.route.proxy().type() != Proxy.Type.DIRECT || !this.route.socketAddress().equals(route.socketAddress()) || route.address().hostnameVerifier() != OkHostnameVerifier.INSTANCE || !supportsUrl(address.url())) {
+                return false;
             }
-            return false;
+            try {
+                address.certificatePinner().check(address.url().host(), handshake().peerCertificates());
+                return true;
+            } catch (SSLPeerUnverifiedException unused) {
+                return false;
+            }
         }
         return invokeLL.booleanValue;
     }
@@ -489,7 +544,10 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                     int soTimeout = this.socket.getSoTimeout();
                     try {
                         this.socket.setSoTimeout(1);
-                        return !this.source.exhausted();
+                        if (this.source.exhausted()) {
+                            return false;
+                        }
+                        return true;
                     } finally {
                         this.socket.setSoTimeout(soTimeout);
                     }
@@ -503,10 +561,22 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         return invokeZ.booleanValue;
     }
 
-    public boolean isMultiplexed() {
-        InterceptResult invokeV;
+    public boolean supportsUrl(HttpUrl httpUrl) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.http2Connection != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, httpUrl)) == null) {
+            if (httpUrl.port() != this.route.address().url().port()) {
+                return false;
+            }
+            if (httpUrl.host().equals(this.route.address().url().host())) {
+                return true;
+            }
+            if (this.handshake == null || !OkHostnameVerifier.INSTANCE.verify(httpUrl.host(), (X509Certificate) this.handshake.peerCertificates().get(0))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public HttpCodec newCodec(OkHttpClient okHttpClient, Interceptor.Chain chain, StreamAllocation streamAllocation) throws SocketException {
@@ -527,44 +597,47 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     public RealWebSocket.Streams newWebSocketStreams(StreamAllocation streamAllocation) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, streamAllocation)) == null) ? new RealWebSocket.Streams(this, true, this.source, this.sink, streamAllocation) { // from class: okhttp3.internal.connection.RealConnection.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ RealConnection this$0;
-            public final /* synthetic */ StreamAllocation val$streamAllocation;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, streamAllocation)) == null) {
+            return new RealWebSocket.Streams(this, true, this.source, this.sink, streamAllocation) { // from class: okhttp3.internal.connection.RealConnection.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ RealConnection this$0;
+                public final /* synthetic */ StreamAllocation val$streamAllocation;
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r10, r11, r12);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Boolean.valueOf(r10), r11, r12, streamAllocation};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super(((Boolean) objArr2[0]).booleanValue(), (BufferedSource) objArr2[1], (BufferedSink) objArr2[2]);
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r10, r11, r12);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Boolean.valueOf(r10), r11, r12, streamAllocation};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super(((Boolean) objArr2[0]).booleanValue(), (BufferedSource) objArr2[1], (BufferedSink) objArr2[2]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$streamAllocation = streamAllocation;
+                }
+
+                @Override // java.io.Closeable, java.lang.AutoCloseable
+                public void close() throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        StreamAllocation streamAllocation2 = this.val$streamAllocation;
+                        streamAllocation2.streamFinished(true, streamAllocation2.codec(), -1L, null);
                     }
                 }
-                this.this$0 = this;
-                this.val$streamAllocation = streamAllocation;
-            }
-
-            @Override // java.io.Closeable, java.lang.AutoCloseable
-            public void close() throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    StreamAllocation streamAllocation2 = this.val$streamAllocation;
-                    streamAllocation2.streamFinished(true, streamAllocation2.codec(), -1L, null);
-                }
-            }
-        } : (RealWebSocket.Streams) invokeL.objValue;
+            };
+        }
+        return (RealWebSocket.Streams) invokeL.objValue;
     }
 
     @Override // okhttp3.internal.http2.Http2Connection.Listener
@@ -585,44 +658,9 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    @Override // okhttp3.Connection
-    public Protocol protocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.protocol : (Protocol) invokeV.objValue;
-    }
-
-    @Override // okhttp3.Connection
-    public Route route() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.route : (Route) invokeV.objValue;
-    }
-
-    @Override // okhttp3.Connection
-    public Socket socket() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.socket : (Socket) invokeV.objValue;
-    }
-
-    public boolean supportsUrl(HttpUrl httpUrl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, httpUrl)) == null) {
-            if (httpUrl.port() != this.route.address().url().port()) {
-                return false;
-            }
-            if (httpUrl.host().equals(this.route.address().url().host())) {
-                return true;
-            }
-            return this.handshake != null && OkHostnameVerifier.INSTANCE.verify(httpUrl.host(), (X509Certificate) this.handshake.peerCertificates().get(0));
-        }
-        return invokeL.booleanValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -636,7 +674,12 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             sb.append(this.route.socketAddress());
             sb.append(" cipherSuite=");
             Handshake handshake = this.handshake;
-            sb.append(handshake != null ? handshake.cipherSuite() : "none");
+            if (handshake != null) {
+                obj = handshake.cipherSuite();
+            } else {
+                obj = "none";
+            }
+            sb.append(obj);
             sb.append(" protocol=");
             sb.append(this.protocol);
             sb.append('}');

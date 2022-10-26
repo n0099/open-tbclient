@@ -28,6 +28,9 @@ public class CommandClientService extends CommandService {
     public final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? "com.vivo.pushclient.action.RECEIVE".equals(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return "com.vivo.pushclient.action.RECEIVE".equals(str);
+        }
+        return invokeL.booleanValue;
     }
 }

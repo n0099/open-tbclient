@@ -1,6 +1,5 @@
 package com.kwai.sodler.lib.ext;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ public final class c {
     public boolean ayy;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String Rc;
@@ -109,7 +108,7 @@ public final class c {
             return (a) invokeI.objValue;
         }
 
-        public final a fc(@NonNull String str) {
+        public final a fc(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {

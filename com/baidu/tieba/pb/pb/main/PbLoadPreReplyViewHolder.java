@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,32 +43,36 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923bf);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eec);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923aa);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee0);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hv4.d(this.b).v(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a52, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            nv4.d(this.b).v(R.color.CAM_X0304);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a54, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i == 0) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0fa0);
-                this.c.setVisibility(0);
-            } else if (i == 1) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a5b);
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
+                        this.b.setText(R.string.obfuscated_res_0x7f0f0a66);
+                        this.c.setVisibility(8);
+                        return;
+                    }
+                    return;
+                }
+                this.b.setText(R.string.obfuscated_res_0x7f0f0a68);
                 this.c.setVisibility(8);
-            } else if (i != 2) {
-            } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a59);
-                this.c.setVisibility(8);
+                return;
             }
+            this.b.setText(R.string.obfuscated_res_0x7f0f0fb2);
+            this.c.setVisibility(0);
         }
     }
 

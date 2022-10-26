@@ -39,7 +39,10 @@ public class ConcernPageHttpResMessage extends HttpResponsedMessage {
     public DataRes getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (DataRes) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.resultData;
+        }
+        return (DataRes) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,14 +50,13 @@ public class ConcernPageHttpResMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         UserlikeResIdl userlikeResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (userlikeResIdl = (UserlikeResIdl) new Wire(new Class[0]).parseFrom(bArr, UserlikeResIdl.class)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (userlikeResIdl = (UserlikeResIdl) new Wire(new Class[0]).parseFrom(bArr, UserlikeResIdl.class)) != null) {
+            Error error = userlikeResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(userlikeResIdl.error.errmsg);
+            }
+            this.resultData = userlikeResIdl.data;
         }
-        Error error = userlikeResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(userlikeResIdl.error.errmsg);
-        }
-        this.resultData = userlikeResIdl.data;
     }
 }

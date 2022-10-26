@@ -6,12 +6,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VideoDecoderFallback extends WrappedNativeVideoDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final VideoDecoder fallback;
     public final VideoDecoder primary;
+
+    public static native long nativeCreateDecoder(VideoDecoder videoDecoder, VideoDecoder videoDecoder2);
 
     public VideoDecoderFallback(VideoDecoder videoDecoder, VideoDecoder videoDecoder2) {
         Interceptable interceptable = $ic;
@@ -32,18 +34,14 @@ public class VideoDecoderFallback extends WrappedNativeVideoDecoder {
         this.primary = videoDecoder2;
     }
 
-    public static native long nativeCreateDecoder(VideoDecoder videoDecoder, VideoDecoder videoDecoder2);
-
     @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
     public long createNativeVideoDecoder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeCreateDecoder(this.fallback, this.primary) : invokeV.longValue;
-    }
-
-    @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
-    public /* bridge */ /* synthetic */ VideoCodecStatus decode(EncodedImage encodedImage, VideoDecoder.DecodeInfo decodeInfo) {
-        return super.decode(encodedImage, decodeInfo);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return nativeCreateDecoder(this.fallback, this.primary);
+        }
+        return invokeV.longValue;
     }
 
     @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
@@ -57,12 +55,17 @@ public class VideoDecoderFallback extends WrappedNativeVideoDecoder {
     }
 
     @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
-    public /* bridge */ /* synthetic */ VideoCodecStatus initDecode(VideoDecoder.Settings settings, VideoDecoder.Callback callback) {
-        return super.initDecode(settings, callback);
+    public /* bridge */ /* synthetic */ VideoCodecStatus release() {
+        return super.release();
     }
 
     @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
-    public /* bridge */ /* synthetic */ VideoCodecStatus release() {
-        return super.release();
+    public /* bridge */ /* synthetic */ VideoCodecStatus decode(EncodedImage encodedImage, VideoDecoder.DecodeInfo decodeInfo) {
+        return super.decode(encodedImage, decodeInfo);
+    }
+
+    @Override // org.webrtc.WrappedNativeVideoDecoder, org.webrtc.VideoDecoder
+    public /* bridge */ /* synthetic */ VideoCodecStatus initDecode(VideoDecoder.Settings settings, VideoDecoder.Callback callback) {
+        return super.initDecode(settings, callback);
     }
 }

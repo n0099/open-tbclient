@@ -18,13 +18,13 @@ public class QuickPersistConfig extends SharedPrefsWrapper {
 
     /* renamed from: com.baidu.searchbox.config.QuickPersistConfig$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static final class Holder {
+    public final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final QuickPersistConfig INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,16 +60,6 @@ public class QuickPersistConfig extends SharedPrefsWrapper {
         }
     }
 
-    public /* synthetic */ QuickPersistConfig(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    public static QuickPersistConfig getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.INSTANCE : (QuickPersistConfig) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QuickPersistConfig() {
         super(KVStorageFactory.getSharedPreferences(SP_FILE_STARTUP));
@@ -86,5 +76,18 @@ public class QuickPersistConfig extends SharedPrefsWrapper {
                 return;
             }
         }
+    }
+
+    public static QuickPersistConfig getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Holder.INSTANCE;
+        }
+        return (QuickPersistConfig) invokeV.objValue;
+    }
+
+    public /* synthetic */ QuickPersistConfig(AnonymousClass1 anonymousClass1) {
+        this();
     }
 }

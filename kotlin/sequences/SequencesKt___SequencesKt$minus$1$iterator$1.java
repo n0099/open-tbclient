@@ -1,12 +1,13 @@
 package kotlin.sequences;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\n¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", AdvanceSetting.NETWORK_TYPE, "invoke", "(Ljava/lang/Object;)Z"}, k = 3, mv = {1, 5, 1})
+@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\n¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "invoke", "(Ljava/lang/Object;)Z"}, k = 3, mv = {1, 5, 1})
 /* loaded from: classes8.dex */
 public final class SequencesKt___SequencesKt$minus$1$iterator$1 extends Lambda implements Function1<T, Boolean> {
     public final /* synthetic */ Ref.BooleanRef $removed;
@@ -19,20 +20,17 @@ public final class SequencesKt___SequencesKt$minus$1$iterator$1 extends Lambda i
         this.$removed = booleanRef;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
-        return Boolean.valueOf(invoke2((SequencesKt___SequencesKt$minus$1$iterator$1) obj));
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        return Boolean.valueOf(invoke((SequencesKt___SequencesKt$minus$1$iterator$1) obj));
     }
 
-    /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final Boolean invoke2(T t) {
+    public final boolean invoke(T t) {
         if (this.$removed.element || !Intrinsics.areEqual(t, this.this$0.$element)) {
-            return 1;
+            return true;
         }
         this.$removed.element = true;
-        return null;
+        return false;
     }
 }

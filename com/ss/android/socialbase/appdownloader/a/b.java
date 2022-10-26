@@ -3,9 +3,7 @@ package com.ss.android.socialbase.appdownloader.a;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.annotation.RequiresApi;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-@RequiresApi(api = 26)
 /* loaded from: classes8.dex */
 public class b extends a {
     public b(Context context) {

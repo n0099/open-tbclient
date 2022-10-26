@@ -14,8 +14,8 @@ public class ListObjectsResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String bucketName;
-    public List<String> commonPrefixes;
-    public List<BosObjectSummary> contents;
+    public List commonPrefixes;
+    public List contents;
     public String delimiter;
     public boolean isTruncated;
     public String marker;
@@ -42,55 +42,82 @@ public class ListObjectsResponse extends BosResponse {
     public String getBucketName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bucketName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bucketName;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public List<String> getCommonPrefixes() {
+    public List getCommonPrefixes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.commonPrefixes : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.commonPrefixes;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<BosObjectSummary> getContents() {
+    public List getContents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.contents : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.contents;
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getDelimiter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.delimiter : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.delimiter;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getMarker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.marker : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.marker;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getMaxKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.maxKeys : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.maxKeys;
+        }
+        return invokeV.intValue;
     }
 
     public String getNextMarker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.nextMarker : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.nextMarker;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPrefix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.prefix : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.prefix;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isTruncated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isTruncated : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.isTruncated;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setBucketName(String str) {
@@ -100,14 +127,14 @@ public class ListObjectsResponse extends BosResponse {
         }
     }
 
-    public void setCommonPrefixes(List<String> list) {
+    public void setCommonPrefixes(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.commonPrefixes = list;
         }
     }
 
-    public void setContents(List<BosObjectSummary> list) {
+    public void setContents(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.contents = list;

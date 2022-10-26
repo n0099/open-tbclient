@@ -4,8 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static final BdUniqueId TYPE;
     public static final long serialVersionUID = 6577771607010727691L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<Cdo> mList;
+    public final List mList;
     public boolean showBottomDivider;
     public boolean showTopDivider;
     public String threadId;
@@ -66,38 +65,43 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         this.mList = new ArrayList();
     }
 
-    public final List<Cdo> getDataList() {
+    public final List getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TYPE : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TYPE;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
     public void parseProtobuf(GuessLikeStruct guessLikeStruct) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, guessLikeStruct) == null) || guessLikeStruct == null || ListUtils.getCount(guessLikeStruct.thread_list) < 3) {
-            return;
-        }
-        this.title = StringHelper.trim(guessLikeStruct.title);
-        List<GuessLikeThreadInfo> list = guessLikeStruct.thread_list;
-        if (ListUtils.getCount(list) > 9) {
-            list = ListUtils.subList(list, 0, 9);
-        }
-        if (ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.mList.clear();
-        for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-            if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !dj.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !dj.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
-                CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
-                cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
-                this.mList.add(cardHListViewNormalItemData);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, guessLikeStruct) == null) && guessLikeStruct != null && ListUtils.getCount(guessLikeStruct.thread_list) >= 3) {
+            this.title = StringHelper.trim(guessLikeStruct.title);
+            List<GuessLikeThreadInfo> list = guessLikeStruct.thread_list;
+            if (ListUtils.getCount(list) > 9) {
+                list = ListUtils.subList(list, 0, 9);
+            }
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            this.mList.clear();
+            for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
+                if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !ej.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !ej.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
+                    CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
+                    cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
+                    this.mList.add(cardHListViewNormalItemData);
+                }
             }
         }
     }

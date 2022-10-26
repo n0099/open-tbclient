@@ -93,11 +93,12 @@ public class X1 {
             } catch (Exception unused) {
                 z = false;
             }
-            if (z) {
-                try {
-                    FunOpenIDSdk.getOaid(this.a, new W1(this));
-                } catch (Exception unused2) {
-                }
+            if (!z) {
+                return;
+            }
+            try {
+                FunOpenIDSdk.getOaid(this.a, new W1(this));
+            } catch (Exception unused2) {
             }
         }
     }

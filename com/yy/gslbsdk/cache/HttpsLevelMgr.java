@@ -65,76 +65,6 @@ public class HttpsLevelMgr {
         return (HttpsLevelMgr) invokeV.objValue;
     }
 
-    public String[] request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = GlobalTools.ACCOUNT_ID;
-            if (str == null) {
-                str = "";
-            }
-            String str2 = GlobalTools.APP_DEV_ID;
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = GlobalTools.APP_LOCALIZE_CODE;
-            String str4 = str3 != null ? str3 : "";
-            String identity = DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT);
-            HashMap hashMap = new HashMap();
-            hashMap.put("host", GlobalTools.HTTPDNS_SERVER_HOST);
-            hashMap.put("p", "a");
-            hashMap.put("devid", str2);
-            hashMap.put("gslbid", identity);
-            hashMap.put("appid", str);
-            hashMap.put("version", "2.2.28-live");
-            boolean z = true;
-            if (GlobalTools.IS_TEST_ENV && !GlobalTools.HTTPDNS_SERVER_HOST.equals(GlobalTools.HTTPDNS_HOST_TEST)) {
-                z = false;
-            }
-            if (z) {
-                return HTTPMgr.postSniHttps("https://" + GlobalTools.HTTPDNS_SERVER_HOST + "/https_level?appid=" + str + "&usercfg=" + str4, GlobalTools.HTTPDNS_SERVER_HOST, null, hashMap);
-            }
-            return HTTPMgr.postHttp("http://" + GlobalTools.HTTPDNS_SERVER_HOST + "/https_level?appid=" + str + "&usercfg=" + str4, null, hashMap);
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public int response(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null || str.length() < 1) {
-                return 5;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.getInt("s") != 0) {
-                    SwitchController.getInstance().deal(1);
-                    return 3;
-                }
-                int i = jSONObject.getInt(PollingModel.LEVEL);
-                SwitchController.getInstance().deal(i);
-                if (i >= 0 && 2 >= i) {
-                    setHttpsLevel(i);
-                    return 0;
-                }
-                return 3;
-            } catch (Exception e) {
-                LogTools.printWarning(TAG, e);
-                return 3;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public void setHttpsLevel(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i < 0 || i > 2 || i <= GlobalTools.HTTPS_LEVEL) {
-            return;
-        }
-        GlobalTools.HTTPS_LEVEL = i;
-    }
-
     public int update() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -180,5 +110,78 @@ public class HttpsLevelMgr {
             return 0;
         }
         return invokeV.intValue;
+    }
+
+    public String[] request() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = GlobalTools.ACCOUNT_ID;
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            String str3 = GlobalTools.APP_DEV_ID;
+            if (str3 == null) {
+                str3 = "";
+            }
+            String str4 = GlobalTools.APP_LOCALIZE_CODE;
+            if (str4 != null) {
+                str2 = str4;
+            }
+            String identity = DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT);
+            HashMap hashMap = new HashMap();
+            hashMap.put("host", GlobalTools.HTTPDNS_SERVER_HOST);
+            hashMap.put("p", "a");
+            hashMap.put("devid", str3);
+            hashMap.put("gslbid", identity);
+            hashMap.put("appid", str);
+            hashMap.put("version", "2.2.28-live");
+            boolean z = true;
+            if (GlobalTools.IS_TEST_ENV && !GlobalTools.HTTPDNS_SERVER_HOST.equals(GlobalTools.HTTPDNS_HOST_TEST)) {
+                z = false;
+            }
+            if (z) {
+                return HTTPMgr.postSniHttps("https://" + GlobalTools.HTTPDNS_SERVER_HOST + "/https_level?appid=" + str + "&usercfg=" + str2, GlobalTools.HTTPDNS_SERVER_HOST, null, hashMap);
+            }
+            return HTTPMgr.postHttp("http://" + GlobalTools.HTTPDNS_SERVER_HOST + "/https_level?appid=" + str + "&usercfg=" + str2, null, hashMap);
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public int response(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str != null && str.length() >= 1) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.getInt("s") != 0) {
+                        SwitchController.getInstance().deal(1);
+                        return 3;
+                    }
+                    int i = jSONObject.getInt(PollingModel.LEVEL);
+                    SwitchController.getInstance().deal(i);
+                    if (i >= 0 && 2 >= i) {
+                        setHttpsLevel(i);
+                        return 0;
+                    }
+                    return 3;
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
+                    return 3;
+                }
+            }
+            return 5;
+        }
+        return invokeL.intValue;
+    }
+
+    public void setHttpsLevel(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || i < 0 || i > 2 || i <= GlobalTools.HTTPS_LEVEL) {
+            return;
+        }
+        GlobalTools.HTTPS_LEVEL = i;
     }
 }

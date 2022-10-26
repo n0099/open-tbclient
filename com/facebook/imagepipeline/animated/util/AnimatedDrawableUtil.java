@@ -1,6 +1,5 @@
 package com.facebook.imagepipeline.animated.util;
 
-import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,20 +15,6 @@ public class AnimatedDrawableUtil {
     public static final int FRAME_DURATION_MS_FOR_MIN = 100;
     public static final int MIN_FRAME_DURATION_MS = 11;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public AnimatedDrawableUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static boolean isOutsideRange(int i, int i2, int i3) {
         InterceptResult invokeIII;
@@ -50,6 +35,20 @@ public class AnimatedDrawableUtil {
         return invokeIII.booleanValue;
     }
 
+    public AnimatedDrawableUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public void fixFrameDurations(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iArr) == null) {
@@ -59,16 +58,6 @@ public class AnimatedDrawableUtil {
                 }
             }
         }
-    }
-
-    public int getFrameForTimestampMs(int[] iArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, i)) == null) {
-            int binarySearch = Arrays.binarySearch(iArr, i);
-            return binarySearch < 0 ? ((-binarySearch) - 1) - 1 : binarySearch;
-        }
-        return invokeLI.intValue;
     }
 
     public int[] getFrameTimeStampsFromDurations(int[] iArr) {
@@ -86,7 +75,6 @@ public class AnimatedDrawableUtil {
         return (int[]) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public int getSizeOfBitmap(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -114,5 +102,18 @@ public class AnimatedDrawableUtil {
             return i;
         }
         return invokeL.intValue;
+    }
+
+    public int getFrameForTimestampMs(int[] iArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, i)) == null) {
+            int binarySearch = Arrays.binarySearch(iArr, i);
+            if (binarySearch < 0) {
+                return ((-binarySearch) - 1) - 1;
+            }
+            return binarySearch;
+        }
+        return invokeLI.intValue;
     }
 }

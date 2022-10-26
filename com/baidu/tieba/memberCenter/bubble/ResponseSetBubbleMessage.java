@@ -46,6 +46,9 @@ public class ResponseSetBubbleMessage extends JsonHttpResponsedMessage {
     public SetBubbleResultData getSetBubbleResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.setBubbleResultData : (SetBubbleResultData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.setBubbleResultData;
+        }
+        return (SetBubbleResultData) invokeV.objValue;
     }
 }

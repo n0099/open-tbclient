@@ -37,24 +37,6 @@ public class NamingThreadFactory implements ThreadFactory {
         }
     }
 
-    private String makeName(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) ? String.format("%s-%d", this.mPrefix, Integer.valueOf(i)) : (String) invokeI.objValue;
-    }
-
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            Thread newThread = this.mBackingFactory.newThread(runnable);
-            newThread.setName(makeName(this.mCount.getAndIncrement()));
-            return newThread;
-        }
-        return (Thread) invokeL.objValue;
-    }
-
     public NamingThreadFactory(String str, ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,5 +55,26 @@ public class NamingThreadFactory implements ThreadFactory {
         this.mCount = new AtomicInteger(0);
         this.mPrefix = str;
         this.mBackingFactory = threadFactory;
+    }
+
+    private String makeName(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            return String.format("%s-%d", this.mPrefix, Integer.valueOf(i));
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            Thread newThread = this.mBackingFactory.newThread(runnable);
+            newThread.setName(makeName(this.mCount.getAndIncrement()));
+            return newThread;
+        }
+        return (Thread) invokeL.objValue;
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.live.recmore.ILiveRecMoreFeedView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.cc0;
+import com.baidu.tieba.dc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 return;
             }
         }
-        cc0 a = cc0.a();
+        dc0 a = dc0.a();
         Intrinsics.checkExpressionValueIsNotNull(a, "BdUniqueId.gen()");
         this.bdUniqueId = a.b();
     }
@@ -91,7 +91,10 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.feedView : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.feedView;
+        }
+        return (View) invokeV.objValue;
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -109,52 +112,15 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void handleFollowData(LiveFollowWrapData liveFollowWrapData, boolean z) {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, liveFollowWrapData, z) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        LiveTabFeedView.z(liveTabFeedView, liveFollowWrapData, z, null, 4, null);
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void handleSubTab(int i) {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.A(i);
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void handleTabData(LiveFeedData liveFeedData) {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, liveFeedData) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.B(liveFeedData);
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void initUiScene(FragmentManager fragmentManager, String str, String str2) {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, fragmentManager, str, str2) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.F("recommend", false, this.bdUniqueId, fragmentManager, str, str2);
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
     public boolean isFirstTabIndicatorVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             LiveTabFeedView liveTabFeedView = this.feedView;
-            return liveTabFeedView != null && liveTabFeedView.I();
+            if (liveTabFeedView != null && liveTabFeedView.I()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -165,9 +131,119 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             LiveTabFeedView liveTabFeedView = this.feedView;
-            return liveTabFeedView != null && liveTabFeedView.K();
+            if (liveTabFeedView != null && liveTabFeedView.L()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void onDestroy() {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.Q();
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void resetView() {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.c0();
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void showContentView() {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.g0();
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void showErrorView() {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.h0();
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void handleSubTab(int i) {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.A(i);
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void handleTabData(LiveFeedData liveFeedData) {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, liveFeedData) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.B(liveFeedData);
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void setCurrentRoom(String str) {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.setCurrentRoom(str);
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void setLiveFeedModel(ILiveFeedModel iLiveFeedModel) {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, iLiveFeedModel) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.setFeedModel(iLiveFeedModel);
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void setSubTabPageListener(ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, liveSubTabPageListener) == null) {
+            this.mListener = liveSubTabPageListener;
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void handleFollowData(LiveFollowWrapData liveFollowWrapData, boolean z) {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, liveFollowWrapData, z) == null) && (liveTabFeedView = this.feedView) != null) {
+            LiveTabFeedView.z(liveTabFeedView, liveFollowWrapData, z, null, 4, null);
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void onTabSelectedEvent(String str, String str2) {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.Y(str, str2);
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
+    public void initUiScene(FragmentManager fragmentManager, String str, String str2) {
+        LiveTabFeedView liveTabFeedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048583, this, fragmentManager, str, str2) == null) && (liveTabFeedView = this.feedView) != null) {
+            liveTabFeedView.F("recommend", false, this.bdUniqueId, fragmentManager, str, str2);
+        }
     }
 
     @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
@@ -180,6 +256,27 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveRecMoreFeedView this$0;
+
+                @Override // com.baidu.live.business.listener.TabFeedActionListener
+                public void onClickSearch() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    }
+                }
+
+                @Override // com.baidu.live.business.listener.TabFeedActionListener
+                public void onClickStartLive(View view2, TextView textView) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, textView) == null) {
+                    }
+                }
+
+                @Override // com.baidu.live.business.listener.TabFeedActionListener
+                public void onSearchShowing(boolean z) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeZ(1048579, this, z) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -209,30 +306,8 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 public void onClickErrorRefresh() {
                     ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || liveSubTabPageListener == null) {
-                        return;
-                    }
-                    liveSubTabPageListener.onClickErrorRefresh();
-                }
-
-                @Override // com.baidu.live.business.listener.TabFeedActionListener
-                public void onClickSearch() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    }
-                }
-
-                @Override // com.baidu.live.business.listener.TabFeedActionListener
-                public void onClickStartLive(View view2, TextView textView) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, textView) == null) {
-                    }
-                }
-
-                @Override // com.baidu.live.business.listener.TabFeedActionListener
-                public void onSearchShowing(boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZ(1048579, this, z) == null) {
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && liveSubTabPageListener != null) {
+                        liveSubTabPageListener.onClickErrorRefresh();
                     }
                 }
             });
@@ -269,10 +344,9 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 public void onClickFollow(LiveFollowEntity liveFollowEntity, int i) {
                     ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, liveFollowEntity, i) == null) || liveSubTabPageListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, liveFollowEntity, i) == null) && liveSubTabPageListener != null) {
+                        liveSubTabPageListener.onClickFollow(liveFollowEntity, i);
                     }
-                    liveSubTabPageListener.onClickFollow(liveFollowEntity, i);
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -285,34 +359,15 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 public void onFollowShow(LiveFollowEntity liveFollowEntity, int i) {
                     ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFollowEntity, i) == null) || liveSubTabPageListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFollowEntity, i) == null) && liveSubTabPageListener != null) {
+                        liveSubTabPageListener.onFollowShow(liveFollowEntity, i);
                     }
-                    liveSubTabPageListener.onFollowShow(liveFollowEntity, i);
                 }
             });
             liveTabFeedView.setSubTabPageListener(new LiveBaseFragment.a(this) { // from class: com.baidu.live.recmore.LiveRecMoreFeedView$onCreate$$inlined$apply$lambda$3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveRecMoreFeedView this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
 
                 @Override // com.baidu.live.business.base.LiveBaseFragment.a
                 public void onBannerItemClick(LiveBannerEntity liveBannerEntity) {
@@ -326,38 +381,6 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveBannerEntity) == null) {
                     }
-                }
-
-                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-                    r0 = r4.this$0.mListener;
-                 */
-                @Override // com.baidu.live.business.base.LiveBaseFragment.a
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public void onClickFeedItemRoom(LiveRoomEntity liveRoomEntity, int i) {
-                    ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, liveRoomEntity, i) == null) || liveSubTabPageListener == null) {
-                        return;
-                    }
-                    liveSubTabPageListener.onClickFeedItemRoom(liveRoomEntity, i);
-                }
-
-                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-                    r0 = r4.this$0.mListener;
-                 */
-                @Override // com.baidu.live.business.base.LiveBaseFragment.a
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public void onFeedItemRoomShow(LiveRoomEntity liveRoomEntity, int i) {
-                    ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048579, this, liveRoomEntity, i) == null) || liveSubTabPageListener == null) {
-                        return;
-                    }
-                    liveSubTabPageListener.onFeedItemRoomShow(liveRoomEntity, i);
                 }
 
                 @Override // com.baidu.live.business.base.LiveBaseFragment.a
@@ -415,6 +438,54 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                     }
                 }
 
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
+                    r0 = r4.this$0.mListener;
+                 */
+                @Override // com.baidu.live.business.base.LiveBaseFragment.a
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
+                public void onClickFeedItemRoom(LiveRoomEntity liveRoomEntity, int i) {
+                    ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, liveRoomEntity, i) == null) && liveSubTabPageListener != null) {
+                        liveSubTabPageListener.onClickFeedItemRoom(liveRoomEntity, i);
+                    }
+                }
+
+                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
+                    r0 = r4.this$0.mListener;
+                 */
+                @Override // com.baidu.live.business.base.LiveBaseFragment.a
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
+                public void onFeedItemRoomShow(LiveRoomEntity liveRoomEntity, int i) {
+                    ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048579, this, liveRoomEntity, i) == null) && liveSubTabPageListener != null) {
+                        liveSubTabPageListener.onFeedItemRoomShow(liveRoomEntity, i);
+                    }
+                }
+
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
                     r0 = r4.this$0.mListener;
                  */
@@ -425,10 +496,9 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 public void onSlideLoadMore(String str, String str2) {
                     ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048588, this, str, str2) == null) || liveSubTabPageListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048588, this, str, str2) == null) && liveSubTabPageListener != null) {
+                        liveSubTabPageListener.onSlideLoadMore(str, str2);
                     }
-                    liveSubTabPageListener.onSlideLoadMore(str, str2);
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -441,10 +511,9 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 public void onTabPageHideLog(String str, String str2) {
                     ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048589, this, str, str2) == null) || liveSubTabPageListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048589, this, str, str2) == null) && liveSubTabPageListener != null) {
+                        liveSubTabPageListener.onTabPageHideLog(str, str2);
                     }
-                    liveSubTabPageListener.onTabPageHideLog(str, str2);
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -457,93 +526,14 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 public void onTabPageShowLog(String str, String str2) {
                     ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048590, this, str, str2) == null) || liveSubTabPageListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048590, this, str, str2) == null) && liveSubTabPageListener != null) {
+                        liveSubTabPageListener.onTabPageShowLog(str, str2);
                     }
-                    liveSubTabPageListener.onTabPageShowLog(str, str2);
                 }
             });
             this.feedView = liveTabFeedView;
             return liveTabFeedView;
         }
         return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void onDestroy() {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.P();
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void onTabSelectedEvent(String str, String str2) {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.X(str, str2);
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void resetView() {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.b0();
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void setCurrentRoom(String str) {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.setCurrentRoom(str);
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void setLiveFeedModel(ILiveFeedModel iLiveFeedModel) {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, iLiveFeedModel) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.setFeedModel(iLiveFeedModel);
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void setSubTabPageListener(ILiveRecMoreFeedView.LiveSubTabPageListener liveSubTabPageListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, liveSubTabPageListener) == null) {
-            this.mListener = liveSubTabPageListener;
-        }
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void showContentView() {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.f0();
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecMoreFeedView
-    public void showErrorView() {
-        LiveTabFeedView liveTabFeedView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (liveTabFeedView = this.feedView) == null) {
-            return;
-        }
-        liveTabFeedView.g0();
     }
 }

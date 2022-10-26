@@ -1,7 +1,5 @@
 package androidx.recyclerview.widget;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.Nullable;
 import androidx.core.os.TraceCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +27,6 @@ public final class GapWorker implements Runnable {
     public ArrayList<RecyclerView> mRecyclerViews;
     public ArrayList<Task> mTasks;
 
-    @SuppressLint({"VisibleForTests"})
     /* loaded from: classes.dex */
     public static class LayoutPrefetchRegistryImpl implements RecyclerView.LayoutManager.LayoutPrefetchRegistry {
         public static /* synthetic */ Interceptable $ic;
@@ -53,35 +50,6 @@ public final class GapWorker implements Runnable {
             }
         }
 
-        @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager.LayoutPrefetchRegistry
-        public void addPosition(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                if (i < 0) {
-                    throw new IllegalArgumentException("Layout positions must be non-negative");
-                }
-                if (i2 >= 0) {
-                    int i3 = this.mCount * 2;
-                    int[] iArr = this.mPrefetchArray;
-                    if (iArr == null) {
-                        int[] iArr2 = new int[4];
-                        this.mPrefetchArray = iArr2;
-                        Arrays.fill(iArr2, -1);
-                    } else if (i3 >= iArr.length) {
-                        int[] iArr3 = new int[i3 * 2];
-                        this.mPrefetchArray = iArr3;
-                        System.arraycopy(iArr, 0, iArr3, 0, iArr.length);
-                    }
-                    int[] iArr4 = this.mPrefetchArray;
-                    iArr4[i3] = i;
-                    iArr4[i3 + 1] = i2;
-                    this.mCount++;
-                    return;
-                }
-                throw new IllegalArgumentException("Pixel distance must be non-negative");
-            }
-        }
-
         public void clearPrefetchPositions() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -90,6 +58,35 @@ public final class GapWorker implements Runnable {
                     Arrays.fill(iArr, -1);
                 }
                 this.mCount = 0;
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager.LayoutPrefetchRegistry
+        public void addPosition(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                if (i >= 0) {
+                    if (i2 >= 0) {
+                        int i3 = this.mCount * 2;
+                        int[] iArr = this.mPrefetchArray;
+                        if (iArr == null) {
+                            int[] iArr2 = new int[4];
+                            this.mPrefetchArray = iArr2;
+                            Arrays.fill(iArr2, -1);
+                        } else if (i3 >= iArr.length) {
+                            int[] iArr3 = new int[i3 * 2];
+                            this.mPrefetchArray = iArr3;
+                            System.arraycopy(iArr, 0, iArr3, 0, iArr.length);
+                        }
+                        int[] iArr4 = this.mPrefetchArray;
+                        iArr4[i3] = i;
+                        iArr4[i3 + 1] = i2;
+                        this.mCount++;
+                        return;
+                    }
+                    throw new IllegalArgumentException("Pixel distance must be non-negative");
+                }
+                throw new IllegalArgumentException("Layout positions must be non-negative");
             }
         }
 
@@ -102,21 +99,20 @@ public final class GapWorker implements Runnable {
                     Arrays.fill(iArr, -1);
                 }
                 RecyclerView.LayoutManager layoutManager = recyclerView.mLayout;
-                if (recyclerView.mAdapter == null || layoutManager == null || !layoutManager.isItemPrefetchEnabled()) {
-                    return;
-                }
-                if (z) {
-                    if (!recyclerView.mAdapterHelper.hasPendingUpdates()) {
-                        layoutManager.collectInitialPrefetchPositions(recyclerView.mAdapter.getItemCount(), this);
+                if (recyclerView.mAdapter != null && layoutManager != null && layoutManager.isItemPrefetchEnabled()) {
+                    if (z) {
+                        if (!recyclerView.mAdapterHelper.hasPendingUpdates()) {
+                            layoutManager.collectInitialPrefetchPositions(recyclerView.mAdapter.getItemCount(), this);
+                        }
+                    } else if (!recyclerView.hasPendingAdapterUpdates()) {
+                        layoutManager.collectAdjacentPrefetchPositions(this.mPrefetchDx, this.mPrefetchDy, recyclerView.mState, this);
                     }
-                } else if (!recyclerView.hasPendingAdapterUpdates()) {
-                    layoutManager.collectAdjacentPrefetchPositions(this.mPrefetchDx, this.mPrefetchDy, recyclerView.mState, this);
-                }
-                int i = this.mCount;
-                if (i > layoutManager.mPrefetchMaxCountObserved) {
-                    layoutManager.mPrefetchMaxCountObserved = i;
-                    layoutManager.mPrefetchMaxObservedInInitialPrefetch = z;
-                    recyclerView.mRecycler.updateViewCacheSize();
+                    int i = this.mCount;
+                    if (i > layoutManager.mPrefetchMaxCountObserved) {
+                        layoutManager.mPrefetchMaxCountObserved = i;
+                        layoutManager.mPrefetchMaxObservedInInitialPrefetch = z;
+                        recyclerView.mRecycler.updateViewCacheSize();
+                    }
                 }
             }
         }
@@ -221,24 +217,42 @@ public final class GapWorker implements Runnable {
             @Override // java.util.Comparator
             public int compare(Task task, Task task2) {
                 InterceptResult invokeLL;
+                boolean z;
+                boolean z2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, task, task2)) == null) {
-                    if ((task.f1027view == null) != (task2.f1027view == null)) {
-                        return task.f1027view == null ? 1 : -1;
+                    if (task.f1027view == null) {
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                    boolean z = task.immediate;
-                    if (z != task2.immediate) {
-                        return z ? -1 : 1;
+                    if (task2.f1027view == null) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z != z2) {
+                        if (task.f1027view == null) {
+                            return 1;
+                        }
+                        return -1;
+                    }
+                    boolean z3 = task.immediate;
+                    if (z3 != task2.immediate) {
+                        if (!z3) {
+                            return 1;
+                        }
+                        return -1;
                     }
                     int i = task2.viewVelocity - task.viewVelocity;
                     if (i != 0) {
                         return i;
                     }
                     int i2 = task.distanceToItem - task2.distanceToItem;
-                    if (i2 != 0) {
-                        return i2;
+                    if (i2 == 0) {
+                        return 0;
                     }
-                    return 0;
+                    return i2;
                 }
                 return invokeLL.intValue;
             }
@@ -264,6 +278,7 @@ public final class GapWorker implements Runnable {
 
     private void buildTaskList() {
         Task task;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             int size = this.mRecyclerViews.size();
@@ -290,7 +305,12 @@ public final class GapWorker implements Runnable {
                             task = this.mTasks.get(i3);
                         }
                         int i6 = layoutPrefetchRegistryImpl.mPrefetchArray[i5 + 1];
-                        task.immediate = i6 <= abs;
+                        if (i6 <= abs) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        task.immediate = z;
                         task.viewVelocity = abs;
                         task.distanceToItem = i6;
                         task.f1027view = recyclerView2;
@@ -304,26 +324,17 @@ public final class GapWorker implements Runnable {
     }
 
     private void flushTaskWithDeadline(Task task, long j) {
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65539, this, task, j) == null) {
-            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.f1027view, task.position, task.immediate ? Long.MAX_VALUE : j);
-            if (prefetchPositionWithDeadline == null || prefetchPositionWithDeadline.mNestedRecyclerView == null || !prefetchPositionWithDeadline.isBound() || prefetchPositionWithDeadline.isInvalid()) {
-                return;
+            if (task.immediate) {
+                j2 = Long.MAX_VALUE;
+            } else {
+                j2 = j;
             }
-            prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j);
-        }
-    }
-
-    private void flushTasksWithDeadline(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
-            for (int i = 0; i < this.mTasks.size(); i++) {
-                Task task = this.mTasks.get(i);
-                if (task.f1027view == null) {
-                    return;
-                }
-                flushTaskWithDeadline(task, j);
-                task.clear();
+            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.f1027view, task.position, j2);
+            if (prefetchPositionWithDeadline != null && prefetchPositionWithDeadline.mNestedRecyclerView != null && prefetchPositionWithDeadline.isBound() && !prefetchPositionWithDeadline.isInvalid()) {
+                prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j);
             }
         }
     }
@@ -344,9 +355,46 @@ public final class GapWorker implements Runnable {
         return invokeLI.booleanValue;
     }
 
-    private void prefetchInnerRecyclerViewWithDeadline(@Nullable RecyclerView recyclerView, long j) {
+    private void flushTasksWithDeadline(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65542, this, recyclerView, j) == null) || recyclerView == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            for (int i = 0; i < this.mTasks.size(); i++) {
+                Task task = this.mTasks.get(i);
+                if (task.f1027view != null) {
+                    flushTaskWithDeadline(task, j);
+                    task.clear();
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public void add(RecyclerView recyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, recyclerView) == null) {
+            this.mRecyclerViews.add(recyclerView);
+        }
+    }
+
+    public void prefetch(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            buildTaskList();
+            flushTasksWithDeadline(j);
+        }
+    }
+
+    public void remove(RecyclerView recyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, recyclerView) == null) {
+            this.mRecyclerViews.remove(recyclerView);
+        }
+    }
+
+    private void prefetchInnerRecyclerViewWithDeadline(RecyclerView recyclerView, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(65542, this, recyclerView, j) != null) || recyclerView == null) {
             return;
         }
         if (recyclerView.mDataSetHasChangedAfterLayout && recyclerView.mChildHelper.getUnfilteredChildCount() != 0) {
@@ -393,13 +441,6 @@ public final class GapWorker implements Runnable {
         return (RecyclerView.ViewHolder) invokeCommon.objValue;
     }
 
-    public void add(RecyclerView recyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, recyclerView) == null) {
-            this.mRecyclerViews.add(recyclerView);
-        }
-    }
-
     public void postFromTraversal(RecyclerView recyclerView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
@@ -408,21 +449,6 @@ public final class GapWorker implements Runnable {
                 recyclerView.post(this);
             }
             recyclerView.mPrefetchRegistry.setPrefetchVector(i, i2);
-        }
-    }
-
-    public void prefetch(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            buildTaskList();
-            flushTasksWithDeadline(j);
-        }
-    }
-
-    public void remove(RecyclerView recyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, recyclerView) == null) {
-            this.mRecyclerViews.remove(recyclerView);
         }
     }
 

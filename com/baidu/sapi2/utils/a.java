@@ -52,20 +52,6 @@ public class a {
         return (Bitmap) invokeLII.objValue;
     }
 
-    public static Bitmap b(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i)) == null) {
-            if (bitmap != null) {
-                Matrix matrix = new Matrix();
-                matrix.postRotate(i);
-                return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeLI.objValue;
-    }
-
     public static byte[] a(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -81,5 +67,19 @@ public class a {
             return byteArrayOutputStream.toByteArray();
         }
         return (byte[]) invokeLI.objValue;
+    }
+
+    public static Bitmap b(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i)) == null) {
+            if (bitmap != null) {
+                Matrix matrix = new Matrix();
+                matrix.postRotate(i);
+                return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeLI.objValue;
     }
 }

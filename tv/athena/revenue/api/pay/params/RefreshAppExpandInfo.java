@@ -1,12 +1,10 @@
 package tv.athena.revenue.api.pay.params;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-@Keep
 /* loaded from: classes9.dex */
 public class RefreshAppExpandInfo {
     public static /* synthetic */ Interceptable $ic;

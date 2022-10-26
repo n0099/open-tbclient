@@ -31,6 +31,13 @@ public final class MaxiCodeReader implements Reader {
     public transient /* synthetic */ FieldHolder $fh;
     public final Decoder decoder;
 
+    @Override // com.google.zxing.Reader
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -93,18 +100,14 @@ public final class MaxiCodeReader implements Reader {
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decode(binaryBitmap, null) : (Result) invokeL.objValue;
-    }
-
-    @Override // com.google.zxing.Reader
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) {
+            return decode(binaryBitmap, null);
         }
+        return (Result) invokeL.objValue;
     }
 
     @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {

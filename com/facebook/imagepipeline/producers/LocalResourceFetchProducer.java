@@ -20,6 +20,13 @@ public class LocalResourceFetchProducer extends LocalFetchProducer {
     public transient /* synthetic */ FieldHolder $fh;
     public final Resources mResources;
 
+    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
+    public String getProducerName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalResourceFetchProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Resources resources) {
         super(executor, pooledByteBufferFactory);
@@ -81,20 +88,19 @@ public class LocalResourceFetchProducer extends LocalFetchProducer {
     public static int getResourceId(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageRequest)) == null) ? Integer.parseInt(imageRequest.getSourceUri().getPath().substring(1)) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageRequest)) == null) {
+            return Integer.parseInt(imageRequest.getSourceUri().getPath().substring(1));
+        }
+        return invokeL.intValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
     public EncodedImage getEncodedImage(ImageRequest imageRequest) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageRequest)) == null) ? getEncodedImage(this.mResources.openRawResource(getResourceId(imageRequest)), getLength(imageRequest)) : (EncodedImage) invokeL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
-    public String getProducerName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageRequest)) == null) {
+            return getEncodedImage(this.mResources.openRawResource(getResourceId(imageRequest)), getLength(imageRequest));
+        }
+        return (EncodedImage) invokeL.objValue;
     }
 }

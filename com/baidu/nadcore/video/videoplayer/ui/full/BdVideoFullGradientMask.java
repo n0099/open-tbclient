@@ -23,6 +23,18 @@ public final class BdVideoFullGradientMask extends View {
     public final Lazy a;
     public final Lazy b;
 
+    private final LinearGradient getLinearGradient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? (LinearGradient) this.b.getValue() : (LinearGradient) invokeV.objValue;
+    }
+
+    private final Paint getPaint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (Paint) this.a.getValue() : (Paint) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdVideoFullGradientMask(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -45,18 +57,6 @@ public final class BdVideoFullGradientMask extends View {
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = LazyKt__LazyJVMKt.lazy(BdVideoFullGradientMask$paint$2.INSTANCE);
         this.b = LazyKt__LazyJVMKt.lazy(new BdVideoFullGradientMask$linearGradient$2(this));
-    }
-
-    private final LinearGradient getLinearGradient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? (LinearGradient) this.b.getValue() : (LinearGradient) invokeV.objValue;
-    }
-
-    private final Paint getPaint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (Paint) this.a.getValue() : (Paint) invokeV.objValue;
     }
 
     @Override // android.view.View

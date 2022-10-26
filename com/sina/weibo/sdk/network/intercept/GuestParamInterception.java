@@ -56,10 +56,13 @@ public class GuestParamInterception implements IRequestIntercept {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iRequestParam, bundle)) == null) {
             String url = iRequestParam.getUrl();
-            if (TextUtils.isEmpty(url)) {
+            if (!TextUtils.isEmpty(url)) {
+                if (url.startsWith("https://api.weibo.cn/2/sdk/login") || url.startsWith("http://api.weibo.cn/2/sdk/login")) {
+                    return false;
+                }
                 return true;
             }
-            return (url.startsWith("https://api.weibo.cn/2/sdk/login") || url.startsWith("http://api.weibo.cn/2/sdk/login")) ? false : true;
+            return true;
         }
         return invokeLL.booleanValue;
     }

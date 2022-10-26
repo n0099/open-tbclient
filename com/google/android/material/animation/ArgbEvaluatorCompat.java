@@ -1,7 +1,6 @@
 package com.google.android.material.animation;
 
 import android.animation.TypeEvaluator;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ArgbEvaluatorCompat implements TypeEvaluator<Integer> {
+public class ArgbEvaluatorCompat implements TypeEvaluator {
     public static /* synthetic */ Interceptable $ic;
     public static final ArgbEvaluatorCompat instance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,16 +44,17 @@ public class ArgbEvaluatorCompat implements TypeEvaluator<Integer> {
         }
     }
 
-    @NonNull
     public static ArgbEvaluatorCompat getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? instance : (ArgbEvaluatorCompat) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return instance;
+        }
+        return (ArgbEvaluatorCompat) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
-    @NonNull
     public Integer evaluate(float f, Integer num, Integer num2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

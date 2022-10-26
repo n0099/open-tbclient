@@ -1,7 +1,7 @@
 package com.baidu.audiorecorder.lib.voice;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cp;
+import com.baidu.tieba.dp;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +16,14 @@ public class BdSoundGate {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
+
+    private native void close(int i);
+
+    private native int getChanger(int i, float f, float f2, float f3);
+
+    private native int through(int i, short[] sArr, short[] sArr2);
+
+    private native int throughMono(int i, short[] sArr, short[] sArr2);
 
     static {
         InterceptResult invokeClinit;
@@ -61,18 +69,22 @@ public class BdSoundGate {
         return (BdSoundGate) invokeV.objValue;
     }
 
-    private native void close(int i);
-
-    private native int getChanger(int i, float f, float f2, float f3);
-
-    private native int through(int i, short[] sArr, short[] sArr2);
-
-    private native int throughMono(int i, short[] sArr, short[] sArr2);
-
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void e() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (i = this.a) > 0) {
+            close(i);
+            this.a = -1;
+        }
     }
 
     public void c(int i, float f, float f2, float f3) {
@@ -86,18 +98,8 @@ public class BdSoundGate {
     public void d(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            b().c(i, 0.0f, cp.a(i2), 0.0f);
+            b().c(i, 0.0f, dp.a(i2), 0.0f);
         }
-    }
-
-    public void e() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i = this.a) <= 0) {
-            return;
-        }
-        close(i);
-        this.a = -1;
     }
 
     public void f(short[] sArr, short[] sArr2) {

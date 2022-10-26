@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vk5;
+import com.baidu.tieba.cl5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MultiDelPostMenuView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk5 a;
+    public cl5 a;
     public View b;
     public final Activity c;
     public TextView d;
@@ -37,7 +37,7 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State SELECTED;
@@ -85,13 +85,19 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
@@ -124,7 +130,7 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
                 this.a.b();
@@ -133,13 +139,13 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiDelPostMenuView(TbPageContext tbPageContext, vk5 vk5Var) {
+    public MultiDelPostMenuView(TbPageContext tbPageContext, cl5 cl5Var) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vk5Var};
+            Object[] objArr = {tbPageContext, cl5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -153,7 +159,7 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
         this.g = State.UNSELECTED;
         this.i = new a(this, 2001304);
         this.c = tbPageContext.getPageActivity();
-        this.a = vk5Var;
+        this.a = cl5Var;
         a();
     }
 
@@ -161,27 +167,27 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05c6, this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0915ad);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09159f);
             this.b = findViewById;
             if (findViewById == null) {
                 return;
             }
-            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f0915a9);
+            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09159b);
             this.d = textView;
             if (textView != null) {
                 textView.setText(R.string.obfuscated_res_0x7f0f0375);
                 this.d.setOnClickListener(this);
             }
-            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915a8);
+            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09159a);
             this.e = textView2;
             if (textView2 != null) {
-                textView2.setText(R.string.obfuscated_res_0x7f0f04b0);
+                textView2.setText(R.string.obfuscated_res_0x7f0f04b8);
                 this.e.setOnClickListener(this);
             }
-            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915aa);
+            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09159c);
             this.f = textView3;
             if (textView3 != null) {
-                textView3.setText(R.string.obfuscated_res_0x7f0f04b3);
+                textView3.setText(R.string.obfuscated_res_0x7f0f04bb);
                 this.f.setOnClickListener(this);
             }
             b();
@@ -230,36 +236,34 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        vk5 vk5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (vk5Var = this.a) == null || vk5Var.c() == null) {
-            return;
-        }
-        int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0915a9) {
-            this.a.c().e();
-        }
-        if (id == R.id.obfuscated_res_0x7f0915a8) {
-            this.a.c().f();
-        }
-        if (id == R.id.obfuscated_res_0x7f0915aa) {
-            this.a.c().g();
-        }
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
             MessageManager.getInstance().unRegisterListener(this.i);
-            vk5 vk5Var = this.a;
-            if (vk5Var == null || vk5Var.c() == null) {
-                return;
+            cl5 cl5Var = this.a;
+            if (cl5Var != null && cl5Var.c() != null) {
+                this.a.c().dismiss();
             }
-            this.a.c().dismiss();
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        cl5 cl5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 != null && (cl5Var = this.a) != null && cl5Var.c() != null) {
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f09159b) {
+                this.a.c().e();
+            }
+            if (id == R.id.obfuscated_res_0x7f09159a) {
+                this.a.c().f();
+            }
+            if (id == R.id.obfuscated_res_0x7f09159c) {
+                this.a.c().g();
+            }
         }
     }
 
@@ -272,7 +276,7 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
             } else {
                 this.g = State.SELECTED;
             }
-            String string = this.c.getString(R.string.obfuscated_res_0x7f0f04b0);
+            String string = this.c.getString(R.string.obfuscated_res_0x7f0f04b8);
             TextView textView = this.e;
             if (textView != null) {
                 if (this.g == State.SELECTED) {

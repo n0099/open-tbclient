@@ -16,12 +16,12 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Disposable {
+public abstract class ResourceSubscriber implements FlowableSubscriber, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicLong missedRequested;
     public final ListCompositeDisposable resources;
-    public final AtomicReference<Subscription> s;
+    public final AtomicReference s;
 
     public ResourceSubscriber() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Di
                 return;
             }
         }
-        this.s = new AtomicReference<>();
+        this.s = new AtomicReference();
         this.resources = new ListCompositeDisposable();
         this.missedRequested = new AtomicLong();
     }
@@ -46,28 +46,6 @@ public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Di
         if (interceptable == null || interceptable.invokeL(1048576, this, disposable) == null) {
             ObjectHelper.requireNonNull(disposable, "resource is null");
             this.resources.add(disposable);
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public final void dispose() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SubscriptionHelper.cancel(this.s)) {
-            this.resources.dispose();
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public final boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? SubscriptionHelper.isCancelled(this.s.get()) : invokeV.booleanValue;
-    }
-
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            request(Long.MAX_VALUE);
         }
     }
 
@@ -87,6 +65,31 @@ public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Di
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             SubscriptionHelper.deferredRequest(this.s, this.missedRequested, j);
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public final void dispose() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SubscriptionHelper.cancel(this.s)) {
+            this.resources.dispose();
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public final boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return SubscriptionHelper.isCancelled((Subscription) this.s.get());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            request(Long.MAX_VALUE);
         }
     }
 }

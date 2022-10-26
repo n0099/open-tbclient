@@ -16,6 +16,16 @@ public final class RGBLuminanceSource extends LuminanceSource {
     public final byte[] luminances;
     public final int top;
 
+    @Override // com.google.zxing.LuminanceSource
+    public boolean isCropSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RGBLuminanceSource(int i, int i2, int[] iArr) {
         super(i, i2);
@@ -47,11 +57,44 @@ public final class RGBLuminanceSource extends LuminanceSource {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RGBLuminanceSource(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6) {
+        super(i5, i6);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (i5 + i3 <= i && i6 + i4 <= i2) {
+            this.luminances = bArr;
+            this.dataWidth = i;
+            this.dataHeight = i2;
+            this.left = i3;
+            this.top = i4;
+            return;
+        }
+        throw new IllegalArgumentException("Crop rectangle does not fit within image data.");
+    }
+
     @Override // com.google.zxing.LuminanceSource
     public LuminanceSource crop(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? new RGBLuminanceSource(this.luminances, this.dataWidth, this.dataHeight, this.left + i, this.top + i2, i3, i4) : (LuminanceSource) invokeIIII.objValue;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            return new RGBLuminanceSource(this.luminances, this.dataWidth, this.dataHeight, this.left + i, this.top + i2, i3, i4);
+        }
+        return (LuminanceSource) invokeIIII.objValue;
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -98,45 +141,5 @@ public final class RGBLuminanceSource extends LuminanceSource {
             throw new IllegalArgumentException("Requested row is outside the image: " + i);
         }
         return (byte[]) invokeIL.objValue;
-    }
-
-    @Override // com.google.zxing.LuminanceSource
-    public boolean isCropSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RGBLuminanceSource(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6) {
-        super(i5, i6);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (i5 + i3 <= i && i6 + i4 <= i2) {
-            this.luminances = bArr;
-            this.dataWidth = i;
-            this.dataHeight = i2;
-            this.left = i3;
-            this.top = i4;
-            return;
-        }
-        throw new IllegalArgumentException("Crop rectangle does not fit within image data.");
     }
 }

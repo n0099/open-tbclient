@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,16 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class as8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lq8 a;
+    public final MainTabActivity a;
+    public final pq8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as8(MainTabActivity mainTabActivity) {
-        super(2921725);
+    public as8(MainTabActivity mainTabActivity, eq8 eq8Var) {
+        super(2921532);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, eq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,23 +33,17 @@ public class as8 extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity.e;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        lq8 lq8Var;
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        pq8 pq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (lq8Var = this.a) == null || lq8Var.g() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !TbSingleton.getInstance().isNewUserRedPackageShowed() && this.a.D && TbSingleton.getInstance().hasPerformedFirstLoginTest() && (pq8Var = this.b) != null && pq8Var.c() != null) {
+            this.b.c().d();
         }
-        if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            Runnable runnable = this.a.g().c;
-            gh.a().removeCallbacks(runnable);
-            gh.a().post(runnable);
-            return;
-        }
-        gh.a().removeCallbacks(this.a.g().c);
     }
 }

@@ -1,75 +1,168 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.os.Build;
-import android.view.WindowManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes4.dex */
-public class i5a {
+public class i5a implements d5a {
     public static /* synthetic */ Interceptable $ic;
-    public static Point a;
     public transient /* synthetic */ FieldHolder $fh;
+    public MiddleRevenueConfig a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805876, "Lcom/baidu/tieba/i5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947805876, "Lcom/baidu/tieba/i5a;");
+    public i5a(MiddleRevenueConfig middleRevenueConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {middleRevenueConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Point();
+        this.a = middleRevenueConfig;
     }
 
-    public static Point a(Context context, Point point) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.d5a
+    public GetBannerConfigReqParams a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, point)) == null) {
-            Point point2 = a;
-            if (point2 != null && point2.x > 0 && point2.y > 0) {
-                if (point == null) {
-                    point = new Point();
-                }
-                Point point3 = a;
-                point.x = point3.x;
-                point.y = point3.y;
-                return point;
-            }
-            WindowManager windowManager = (WindowManager) context.getSystemService("window");
-            if (point == null) {
-                point = new Point();
-            }
-            if (Build.VERSION.SDK_INT >= 17) {
-                windowManager.getDefaultDisplay().getRealSize(point);
-            } else {
-                windowManager.getDefaultDisplay().getSize(point);
-            }
-            if (point.x > 0 && point.y > 0) {
-                if (a == null) {
-                    a = new Point();
-                }
-                Point point4 = a;
-                point4.x = point.x;
-                point4.y = point.y;
-            }
-            return point;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
+            getBannerConfigReqParams.setAppId(this.a.getAppId());
+            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
+            getBannerConfigReqParams.setUid(this.a.getUid());
+            getBannerConfigReqParams.setToken(this.a.getToken());
+            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
+            return getBannerConfigReqParams;
         }
-        return (Point) invokeLL.objValue;
+        return (GetBannerConfigReqParams) invokeV.objValue;
     }
 
-    public static int b(Context context) {
+    @Override // com.baidu.tieba.d5a
+    public w2a b(PayFlowType payFlowType, Map map) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType, map)) == null) {
+            w2a w2aVar = new w2a();
+            w2aVar.B(this.a.getUid());
+            w2aVar.y(this.a.getToken());
+            w2aVar.C(this.a.getUseChannel());
+            w2aVar.s(this.a.getCurrencyType());
+            w2aVar.z(this.a.getTokenCallback());
+            String deviceId = this.a.getDeviceId();
+            RLog.info("QueryParamsProvider", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
+            HashMap hashMap = new HashMap();
+            if (deviceId != null) {
+                hashMap.put("deviceId", deviceId);
+            } else {
+                RLog.error("QueryParamsProvider", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
+            }
+            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("chargeScene", str);
+            JSONObject e = e(map);
+            if (e != null) {
+                hashMap.put("clientInfo", e);
+            }
+            w2aVar.t(hashMap);
+            return w2aVar;
+        }
+        return (w2a) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.d5a
+    public QueryCurrencyReqParams c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            queryCurrencyReqParams.setReturnYb(true);
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d5a
+    public QueryCurrencyReqParams d(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? a(context, null).x : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
+            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
+            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
+            queryCurrencyReqParams.setAppId(this.a.getAppId());
+            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
+            queryCurrencyReqParams.setUid(this.a.getUid());
+            queryCurrencyReqParams.setToken(this.a.getToken());
+            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
+            HashMap hashMap = new HashMap();
+            JSONObject e = e(map);
+            if (e != null) {
+                hashMap.put("clientInfo", e);
+            }
+            queryCurrencyReqParams.setExpandMap(hashMap);
+            return queryCurrencyReqParams;
+        }
+        return (QueryCurrencyReqParams) invokeL.objValue;
+    }
+
+    public final JSONObject e(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            JSONObject jSONObject = null;
+            if (map == null) {
+                return null;
+            }
+            try {
+                if (map.size() <= 0) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    for (Map.Entry entry : map.entrySet()) {
+                        if (entry.getKey() != null && entry.getValue() != null) {
+                            jSONObject2.put((String) entry.getKey(), entry.getValue());
+                        }
+                    }
+                    return jSONObject2;
+                } catch (JSONException e) {
+                    e = e;
+                    jSONObject = jSONObject2;
+                    RLog.error("QueryParamsProvider", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
+                    return jSONObject;
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+        } else {
+            return (JSONObject) invokeL.objValue;
+        }
     }
 }

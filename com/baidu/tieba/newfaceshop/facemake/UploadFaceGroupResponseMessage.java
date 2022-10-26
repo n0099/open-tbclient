@@ -49,6 +49,9 @@ public class UploadFaceGroupResponseMessage extends JsonHttpResponsedMessage {
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mGroupId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mGroupId;
+        }
+        return (String) invokeV.objValue;
     }
 }

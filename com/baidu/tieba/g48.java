@@ -6,90 +6,85 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.StateInfo;
-import tbclient.VirtualImageInfo;
 /* loaded from: classes4.dex */
 public class g48 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile g48 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public w45 b;
-    public List<w45> c;
-    public boolean d;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
 
-    public g48() {
+    public g48(String str, String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = 0L;
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = str4;
+        this.e = j;
     }
 
-    public static g48 a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (g48.class) {
-                    e = new g48();
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (g48) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void d(VirtualImageInfo virtualImageInfo) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, virtualImageInfo) == null) || virtualImageInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        this.a = virtualImageInfo.isset_virtual_image.intValue();
-        String str = virtualImageInfo.virtual_image_url;
-        virtualImageInfo.image_agree_count.intValue();
-        virtualImageInfo.is_allow_agree.intValue();
-        virtualImageInfo.virtual_background_type.intValue();
-        String str2 = virtualImageInfo.virtual_background;
-        virtualImageInfo.recent_incr_agree.intValue();
-        virtualImageInfo.snapshoot_id.intValue();
-        if (virtualImageInfo.personal_state != null) {
-            w45 w45Var = new w45();
-            this.b = w45Var;
-            w45Var.d(virtualImageInfo.personal_state);
+        return (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
         }
-        if (virtualImageInfo.state_list != null) {
-            this.c = new ArrayList();
-            for (int i = 0; i < virtualImageInfo.state_list.size(); i++) {
-                StateInfo stateInfo = virtualImageInfo.state_list.get(i);
-                if (stateInfo != null) {
-                    w45 w45Var2 = new w45();
-                    w45Var2.d(stateInfo);
-                    this.c.add(w45Var2);
-                }
-            }
-        }
-        virtualImageInfo.allow_customize.intValue();
-        this.d = true;
+        return invokeV.longValue;
     }
 }

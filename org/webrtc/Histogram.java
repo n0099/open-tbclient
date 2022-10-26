@@ -11,6 +11,12 @@ public class Histogram {
     public transient /* synthetic */ FieldHolder $fh;
     public final long handle;
 
+    public static native void nativeAddSample(long j, int i);
+
+    public static native long nativeCreateCounts(String str, int i, int i2, int i3);
+
+    public static native long nativeCreateEnumeration(String str, int i);
+
     public Histogram(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,20 +38,20 @@ public class Histogram {
     public static Histogram createCounts(String str, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(65537, null, str, i, i2, i3)) == null) ? new Histogram(nativeCreateCounts(str, i, i2, i3)) : (Histogram) invokeLIII.objValue;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65537, null, str, i, i2, i3)) == null) {
+            return new Histogram(nativeCreateCounts(str, i, i2, i3));
+        }
+        return (Histogram) invokeLIII.objValue;
     }
 
     public static Histogram createEnumeration(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) ? new Histogram(nativeCreateEnumeration(str, i)) : (Histogram) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return new Histogram(nativeCreateEnumeration(str, i));
+        }
+        return (Histogram) invokeLI.objValue;
     }
-
-    public static native void nativeAddSample(long j, int i);
-
-    public static native long nativeCreateCounts(String str, int i, int i2, int i3);
-
-    public static native long nativeCreateEnumeration(String str, int i);
 
     public void addSample(int i) {
         Interceptable interceptable = $ic;

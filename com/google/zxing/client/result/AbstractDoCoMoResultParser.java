@@ -28,12 +28,18 @@ public abstract class AbstractDoCoMoResultParser extends ResultParser {
     public static String[] matchDoCoMoPrefixedField(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, str, str2, z)) == null) ? ResultParser.matchPrefixedField(str, str2, WebvttCueParser.CHAR_SEMI_COLON, z) : (String[]) invokeLLZ.objValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, str, str2, z)) == null) {
+            return ResultParser.matchPrefixedField(str, str2, WebvttCueParser.CHAR_SEMI_COLON, z);
+        }
+        return (String[]) invokeLLZ.objValue;
     }
 
     public static String matchSingleDoCoMoPrefixedField(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) ? ResultParser.matchSinglePrefixedField(str, str2, WebvttCueParser.CHAR_SEMI_COLON, z) : (String) invokeLLZ.objValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
+            return ResultParser.matchSinglePrefixedField(str, str2, WebvttCueParser.CHAR_SEMI_COLON, z);
+        }
+        return (String) invokeLLZ.objValue;
     }
 }

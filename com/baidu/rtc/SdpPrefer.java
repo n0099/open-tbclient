@@ -22,7 +22,7 @@ public class SdpPrefer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class AudioSdpAttribute {
+    public class AudioSdpAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean cbr;
@@ -72,9 +72,14 @@ public class SdpPrefer {
 
     public static int findMediaDescriptionLine(boolean z, String[] strArr) {
         InterceptResult invokeZL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65537, null, z, strArr)) == null) {
-            String str = z ? "m=audio " : "m=video ";
+            if (z) {
+                str = "m=audio ";
+            } else {
+                str = "m=video ";
+            }
             for (int i = 0; i < strArr.length; i++) {
                 if (strArr[i].startsWith(str)) {
                     return i;
@@ -90,7 +95,10 @@ public class SdpPrefer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             Matcher matcher = Pattern.compile("([0-9]{1,3}(\\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})").matcher(str);
-            return matcher.find() ? matcher.group(1) : "";
+            if (matcher.find()) {
+                return matcher.group(1);
+            }
+            return "";
         }
         return (String) invokeL.objValue;
     }
@@ -103,7 +111,10 @@ public class SdpPrefer {
             for (int i = 0; i < split.length; i++) {
                 if (split[i].contains("a=candidate:")) {
                     String handleCandidate = handleCandidate(split[i]);
-                    return handleCandidate == null ? "" : handleCandidate;
+                    if (handleCandidate == null) {
+                        return "";
+                    }
+                    return handleCandidate;
                 }
             }
             return "";
@@ -121,17 +132,18 @@ public class SdpPrefer {
             Pattern compile = Pattern.compile("^a=rtpmap:(\\d+) " + str + "(/\\d+)+[\r]?$");
             int i = 0;
             while (true) {
-                if (i >= split.length) {
+                if (i < split.length) {
+                    Matcher matcher = compile.matcher(split[i]);
+                    if (matcher.matches()) {
+                        str3 = matcher.group(1);
+                        break;
+                    }
+                    i++;
+                } else {
                     i = -1;
                     str3 = null;
                     break;
                 }
-                Matcher matcher = compile.matcher(split[i]);
-                if (matcher.matches()) {
-                    str3 = matcher.group(1);
-                    break;
-                }
-                i++;
             }
             if (str3 == null) {
                 Log.w(TAG, "No rtpmap for " + str + " codec");
@@ -145,20 +157,21 @@ public class SdpPrefer {
             Pattern compile2 = Pattern.compile(sb.toString());
             int i2 = 0;
             while (true) {
-                if (i2 >= split.length) {
+                if (i2 < split.length) {
+                    if (compile2.matcher(split[i2]).matches()) {
+                        Log.d(TAG, "Found " + str + " " + split[i2]);
+                        split[i2] = setAudioFmptParam(split[i2], audioSdpAttribute, false);
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("Update remote SDP line: ");
+                        sb2.append(split[i2]);
+                        Log.d(TAG, sb2.toString());
+                        z = true;
+                        break;
+                    }
+                    i2++;
+                } else {
                     z = false;
                     break;
-                } else if (compile2.matcher(split[i2]).matches()) {
-                    Log.d(TAG, "Found " + str + " " + split[i2]);
-                    split[i2] = setAudioFmptParam(split[i2], audioSdpAttribute, false);
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("Update remote SDP line: ");
-                    sb2.append(split[i2]);
-                    Log.d(TAG, sb2.toString());
-                    z = true;
-                    break;
-                } else {
-                    i2++;
                 }
             }
             StringBuilder sb3 = new StringBuilder();
@@ -183,14 +196,26 @@ public class SdpPrefer {
     public static String setAudioFmptParam(String str, AudioSdpAttribute audioSdpAttribute, boolean z) {
         InterceptResult invokeLLZ;
         boolean z2;
+        String str2;
+        char c;
+        String str3;
+        String str4;
+        char c2;
+        String str5;
+        String str6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, audioSdpAttribute, z)) == null) {
             boolean z3 = false;
-            String str2 = "";
+            String str7 = "";
             if (audioSdpAttribute.maxplaybackrate > 0) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
-                sb.append(z ? "" : "; ");
+                if (z) {
+                    str6 = "";
+                } else {
+                    str6 = "; ";
+                }
+                sb.append(str6);
                 sb.append(AUDIO_MAX_PLAYBACK_RATE);
                 sb.append("=");
                 sb.append(audioSdpAttribute.maxplaybackrate);
@@ -202,27 +227,48 @@ public class SdpPrefer {
             if (audioSdpAttribute.sprop_maxcapturerate > 0) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(str);
-                sb2.append((z2 && z) ? "" : "; ");
+                if (z2 && z) {
+                    str5 = "";
+                } else {
+                    str5 = "; ";
+                }
+                sb2.append(str5);
                 sb2.append(AUDIO_MAX_CAPTURER_RATE);
                 sb2.append("=");
                 sb2.append(audioSdpAttribute.maxplaybackrate);
                 str = sb2.toString();
                 z2 = false;
             }
+            char c3 = '1';
             if (audioSdpAttribute.cbr) {
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append(str);
-                sb3.append((z2 && z) ? "" : "; ");
+                if (z2 && z) {
+                    str4 = "";
+                } else {
+                    str4 = "; ";
+                }
+                sb3.append(str4);
                 sb3.append(CBR);
                 sb3.append("=");
-                sb3.append(audioSdpAttribute.cbr ? '1' : '0');
+                if (audioSdpAttribute.cbr) {
+                    c2 = '1';
+                } else {
+                    c2 = '0';
+                }
+                sb3.append(c2);
                 str = sb3.toString();
                 z2 = false;
             }
             if (audioSdpAttribute.maxaveragebitrate > 0) {
                 StringBuilder sb4 = new StringBuilder();
                 sb4.append(str);
-                sb4.append((z2 && z) ? "" : "; ");
+                if (z2 && z) {
+                    str3 = "";
+                } else {
+                    str3 = "; ";
+                }
+                sb4.append(str3);
                 sb4.append(AUDIO_CODEC_PARAM_BITRATE);
                 sb4.append("=");
                 sb4.append(audioSdpAttribute.maxaveragebitrate * 1000);
@@ -232,10 +278,20 @@ public class SdpPrefer {
             if (audioSdpAttribute.usedtx) {
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append(str);
-                sb5.append((z2 && z) ? "" : "; ");
+                if (z2 && z) {
+                    str2 = "";
+                } else {
+                    str2 = "; ";
+                }
+                sb5.append(str2);
                 sb5.append(AUDIO_USE_DTX);
                 sb5.append("=");
-                sb5.append(audioSdpAttribute.usedtx ? '1' : '0');
+                if (audioSdpAttribute.usedtx) {
+                    c = '1';
+                } else {
+                    c = '0';
+                }
+                sb5.append(c);
                 str = sb5.toString();
             } else {
                 z3 = z2;
@@ -246,7 +302,10 @@ public class SdpPrefer {
                 sb6.append((z3 && z) ? "; " : "; ");
                 sb6.append(AUDIO_STEREO);
                 sb6.append("=");
-                sb6.append(audioSdpAttribute.stereo ? '1' : '0');
+                if (!audioSdpAttribute.stereo) {
+                    c3 = '0';
+                }
+                sb6.append(c3);
                 return sb6.toString();
             }
             return str;

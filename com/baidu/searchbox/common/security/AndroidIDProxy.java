@@ -1,6 +1,5 @@
 package com.baidu.searchbox.common.security;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
@@ -31,11 +30,13 @@ public class AndroidIDProxy {
         }
     }
 
-    @SuppressLint({"HardwareIds"})
     public static DeviceIdBag getAndroidId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? getAndroidId(context, false) : (DeviceIdBag) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return getAndroidId(context, false);
+        }
+        return (DeviceIdBag) invokeL.objValue;
     }
 
     public static String realAndroidId(Context context) {
@@ -51,7 +52,6 @@ public class AndroidIDProxy {
         return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"HardwareIds"})
     public static DeviceIdBag getAndroidId(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -63,12 +63,12 @@ public class AndroidIDProxy {
             }
             int i = 1;
             if (androidId == null && !hasInvoked) {
-                if (z || HostAbilityRuntime.getHostAbility().isForeground()) {
+                if (!z && !HostAbilityRuntime.getHostAbility().isForeground()) {
+                    i = -1;
+                } else {
                     androidId = realAndroidId(context);
                     hasInvoked = true;
                     i = 0;
-                } else {
-                    i = -1;
                 }
             } else if (hasInvoked && androidId == null) {
                 i = 2;

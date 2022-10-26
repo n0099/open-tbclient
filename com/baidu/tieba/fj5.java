@@ -1,85 +1,75 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bj5;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Random;
 /* loaded from: classes4.dex */
-public class fj5 implements bj5.j {
+public class fj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final float a;
+    public static final Random b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public ImageView b;
-    public int c;
-    public ListView d;
 
-    public fj5(ListView listView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {listView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947766072, "Lcom/baidu/tieba/fj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947766072, "Lcom/baidu/tieba/fj5;");
                 return;
             }
         }
-        this.c = -16777216;
-        this.d = listView;
+        a = ux4.k().l("key_tb_image_view_track_sample", 0);
+        b = new Random();
     }
 
-    @Override // com.baidu.tieba.bj5.j
-    public void a(View view2) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            ((ImageView) view2).setImageDrawable(null);
-            this.a.recycle();
-            this.a = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.bj5.j
-    public View b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ListView listView = this.d;
-            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
-            if (childAt == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || !str.contains("tiebapic.baidu.com") || str.contains("w%3D120%3Bh%3D120")) {
+                return false;
             }
-            childAt.setPressed(false);
-            childAt.setDrawingCacheEnabled(true);
-            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
-            childAt.setDrawingCacheEnabled(false);
-            if (this.b == null) {
-                this.b = new ImageView(this.d.getContext());
-            }
-            this.b.setBackgroundColor(this.c);
-            this.b.setPadding(0, 0, 0, 0);
-            this.b.setImageBitmap(this.a);
-            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-            return this.b;
+            return true;
         }
-        return (View) invokeI.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void d(int i) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a > b.nextInt(100000)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static void c(String str, float f) {
+        String simpleName;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLF(65539, null, str, f) != null) || !a(str) || !b()) {
+            return;
+        }
+        Activity f2 = n9.g().f(n9.g().h() - 1);
+        if (f2 == null) {
+            simpleName = "unknown";
+        } else {
+            simpleName = f2.getClass().getSimpleName();
+        }
+        TiebaStatic.log(new StatisticItem("TbImageViewTrack").param("obj_name", str).param("obj_source", simpleName).param("obj_param1", String.format("%.2f", Float.valueOf(f))).param(TiebaStatic.Params.OBJ_PARAM2, ma.c(simpleName)));
     }
 }

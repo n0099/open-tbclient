@@ -15,7 +15,7 @@ public final class sw3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx3 a;
+    public ux3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +30,7 @@ public final class sw3 {
                 return;
             }
         }
-        b = vj1.a;
+        b = wj1.a;
     }
 
     public sw3() {
@@ -47,18 +47,37 @@ public final class sw3 {
         }
     }
 
-    public static sw3 d(sv1 sv1Var) {
+    public void c() {
+        ux3 ux3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ux3Var = this.a) != null) {
+            ux3Var.c();
+        }
+    }
+
+    public static sw3 d(tv1 tv1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sv1Var)) == null) {
-            if (sv1Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tv1Var)) == null) {
+            if (tv1Var == null) {
                 return null;
             }
             sw3 sw3Var = new sw3();
-            sw3Var.a = tx3.e(sv1Var);
+            sw3Var.a = ux3.e(tv1Var);
             return sw3Var;
         }
         return (sw3) invokeL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a = a(str);
+            ux3 ux3Var = this.a;
+            if (ux3Var != null) {
+                ux3Var.b(a);
+            }
+        }
     }
 
     public final JSONObject a(String str) {
@@ -69,7 +88,7 @@ public final class sw3 {
             try {
                 jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
                 jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", ys3.a(str));
+                jSONObject.put("errDes", zs3.a(str));
             } catch (Exception e) {
                 if (b) {
                     e.printStackTrace();
@@ -78,25 +97,5 @@ public final class sw3 {
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            tx3 tx3Var = this.a;
-            if (tx3Var != null) {
-                tx3Var.b(a);
-            }
-        }
-    }
-
-    public void c() {
-        tx3 tx3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tx3Var = this.a) == null) {
-            return;
-        }
-        tx3Var.c();
     }
 }

@@ -24,9 +24,16 @@ public class ElasticTask implements Runnable {
     public long g;
     public Status h;
 
+    /* loaded from: classes2.dex */
+    public interface a {
+        void afterExecuteTask();
+
+        void beforeExecuteTask();
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Status {
+    public final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status COMPLETE;
@@ -76,21 +83,20 @@ public class ElasticTask implements Runnable {
         public static Status valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Status) Enum.valueOf(Status.class, str) : (Status) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Status) Enum.valueOf(Status.class, str);
+            }
+            return (Status) invokeL.objValue;
         }
 
         public static Status[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Status[]) $VALUES.clone() : (Status[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Status[]) $VALUES.clone();
+            }
+            return (Status[]) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface a {
-        void afterExecuteTask();
-
-        void beforeExecuteTask();
     }
 
     public ElasticTask(Runnable runnable, String str, long j, int i) {
@@ -117,41 +123,19 @@ public class ElasticTask implements Runnable {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public synchronized long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.h == Status.WAITING) {
-                    return 0L;
-                }
-                return Math.max(0L, (this.h == Status.RUNNING ? SystemClock.elapsedRealtime() : this.g) - this.f);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return invokeV.longValue;
-    }
-
-    public synchronized long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (this.e == 0) {
-                    return 0L;
-                }
-                return Math.max(0L, (this.h == Status.WAITING ? SystemClock.elapsedRealtime() : this.f) - this.e);
-            }
-        }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
     public synchronized void e() {
@@ -184,13 +168,6 @@ public class ElasticTask implements Runnable {
         }
     }
 
-    public void h(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
@@ -208,6 +185,53 @@ public class ElasticTask implements Runnable {
                 }
             } catch (Exception unused2) {
             }
+        }
+    }
+
+    public synchronized long c() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.h == Status.WAITING) {
+                    return 0L;
+                }
+                if (this.h == Status.RUNNING) {
+                    j = SystemClock.elapsedRealtime();
+                } else {
+                    j = this.g;
+                }
+                return Math.max(0L, j - this.f);
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public synchronized long d() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (this.e == 0) {
+                    return 0L;
+                }
+                if (this.h == Status.WAITING) {
+                    j = SystemClock.elapsedRealtime();
+                } else {
+                    j = this.f;
+                }
+                return Math.max(0L, j - this.e);
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public void h(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 }

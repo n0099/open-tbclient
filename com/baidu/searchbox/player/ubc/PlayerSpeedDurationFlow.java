@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.ubc;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,22 +17,6 @@ public class PlayerSpeedDurationFlow implements IUbcFlow {
     public Flow mFlow;
     public final UBCManager mUBCService;
 
-    public PlayerSpeedDurationFlow() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mUBCService = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-    }
-
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
     public void cancelFlow() {
         Interceptable interceptable = $ic;
@@ -43,26 +25,10 @@ public class PlayerSpeedDurationFlow implements IUbcFlow {
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    public void createFlow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mFlow = this.mUBCService.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SPEED_DURATION);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
     public void endSlot(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
-    }
-
-    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    @Nullable
-    public Flow getFlow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFlow : (Flow) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
@@ -86,8 +52,42 @@ public class PlayerSpeedDurationFlow implements IUbcFlow {
         }
     }
 
+    public PlayerSpeedDurationFlow() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mUBCService = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+    }
+
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    public void uploadFlow(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable JSONObject jSONObject2) {
+    public void createFlow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mFlow = this.mUBCService.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SPEED_DURATION);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
+    public Flow getFlow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFlow;
+        }
+        return (Flow) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
+    public void uploadFlow(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, bDVideoPlayerUbcContent, jSONObject, jSONObject2) == null) {
             try {

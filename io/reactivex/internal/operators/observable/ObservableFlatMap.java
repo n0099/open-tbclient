@@ -30,26 +30,26 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstream<T, U> {
+public final class ObservableFlatMap extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
     public final boolean delayErrors;
-    public final Function<? super T, ? extends ObservableSource<? extends U>> mapper;
+    public final Function mapper;
     public final int maxConcurrency;
 
     /* loaded from: classes8.dex */
-    public static final class InnerObserver<T, U> extends AtomicReference<Disposable> implements Observer<U> {
+    public final class InnerObserver extends AtomicReference implements Observer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4606175640614850599L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public int fusionMode;
         public final long id;
-        public final MergeObserver<T, U> parent;
-        public volatile SimpleQueue<U> queue;
+        public final MergeObserver parent;
+        public volatile SimpleQueue queue;
 
-        public InnerObserver(MergeObserver<T, U> mergeObserver, long j) {
+        public InnerObserver(MergeObserver mergeObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +89,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 if (this.parent.errors.addThrowable(th)) {
-                    MergeObserver<T, U> mergeObserver = this.parent;
+                    MergeObserver mergeObserver = this.parent;
                     if (!mergeObserver.delayErrors) {
                         mergeObserver.disposeAll();
                     }
@@ -102,11 +102,11 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(U u) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, u) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
                 if (this.fusionMode == 0) {
-                    this.parent.tryEmit(u, this);
+                    this.parent.tryEmit(obj, this);
                 } else {
                     this.parent.drain();
                 }
@@ -133,13 +133,13 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
     }
 
     /* loaded from: classes8.dex */
-    public static final class MergeObserver<T, U> extends AtomicInteger implements Disposable, Observer<T> {
+    public final class MergeObserver extends AtomicInteger implements Disposable, Observer {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final InnerObserver<?, ?>[] CANCELLED;
-        public static final InnerObserver<?, ?>[] EMPTY;
+        public static final InnerObserver[] CANCELLED;
+        public static final InnerObserver[] EMPTY;
         public static final long serialVersionUID = -2117620485640801370L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super U> actual;
+        public final Observer actual;
         public final int bufferSize;
         public volatile boolean cancelled;
         public final boolean delayErrors;
@@ -147,12 +147,12 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
         public final AtomicThrowable errors;
         public long lastId;
         public int lastIndex;
-        public final Function<? super T, ? extends ObservableSource<? extends U>> mapper;
+        public final Function mapper;
         public final int maxConcurrency;
-        public final AtomicReference<InnerObserver<?, ?>[]> observers;
-        public volatile SimplePlainQueue<U> queue;
+        public final AtomicReference observers;
+        public volatile SimplePlainQueue queue;
         public Disposable s;
-        public Queue<ObservableSource<? extends U>> sources;
+        public Queue sources;
         public long uniqueId;
         public int wip;
 
@@ -173,7 +173,46 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             CANCELLED = new InnerObserver[0];
         }
 
-        public MergeObserver(Observer<? super U> observer, Function<? super T, ? extends ObservableSource<? extends U>> function, boolean z, int i, int i2) {
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Throwable terminate;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                if (disposeAll() && (terminate = this.errors.terminate()) != null && terminate != ExceptionHelper.TERMINATED) {
+                    RxJavaPlugins.onError(terminate);
+                }
+            }
+        }
+
+        public void drain() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getAndIncrement() == 0) {
+                drainLoop();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.done) {
+                return;
+            }
+            this.done = true;
+            drain();
+        }
+
+        public MergeObserver(Observer observer, Function function, boolean z, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,19 +236,17 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             if (i != Integer.MAX_VALUE) {
                 this.sources = new ArrayDeque(i);
             }
-            this.observers = new AtomicReference<>(EMPTY);
+            this.observers = new AtomicReference(EMPTY);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.observable.ObservableFlatMap$InnerObserver<?, ?>[]> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public boolean addInner(InnerObserver<T, U> innerObserver) {
-            InnerObserver<?, ?>[] innerObserverArr;
+        public boolean addInner(InnerObserver innerObserver) {
+            InnerObserver[] innerObserverArr;
             InnerObserver[] innerObserverArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerObserver)) == null) {
                 do {
-                    innerObserverArr = this.observers.get();
+                    innerObserverArr = (InnerObserver[]) this.observers.get();
                     if (innerObserverArr == CANCELLED) {
                         innerObserver.dispose();
                         return false;
@@ -231,58 +268,37 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                 if (this.cancelled) {
                     return true;
                 }
-                Throwable th = this.errors.get();
-                if (this.delayErrors || th == null) {
-                    return false;
+                Throwable th = (Throwable) this.errors.get();
+                if (!this.delayErrors && th != null) {
+                    disposeAll();
+                    Throwable terminate = this.errors.terminate();
+                    if (terminate != ExceptionHelper.TERMINATED) {
+                        this.actual.onError(terminate);
+                    }
+                    return true;
                 }
-                disposeAll();
-                Throwable terminate = this.errors.terminate();
-                if (terminate != ExceptionHelper.TERMINATED) {
-                    this.actual.onError(terminate);
-                }
-                return true;
+                return false;
             }
             return invokeV.booleanValue;
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Throwable terminate;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            if (!disposeAll() || (terminate = this.errors.terminate()) == null || terminate == ExceptionHelper.TERMINATED) {
-                return;
-            }
-            RxJavaPlugins.onError(terminate);
-        }
-
         public boolean disposeAll() {
             InterceptResult invokeV;
-            InnerObserver<?, ?>[] andSet;
+            InnerObserver[] innerObserverArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 this.s.dispose();
-                InnerObserver<?, ?>[] innerObserverArr = this.observers.get();
-                InnerObserver<?, ?>[] innerObserverArr2 = CANCELLED;
-                if (innerObserverArr == innerObserverArr2 || (andSet = this.observers.getAndSet(innerObserverArr2)) == CANCELLED) {
+                InnerObserver[] innerObserverArr2 = (InnerObserver[]) this.observers.get();
+                InnerObserver[] innerObserverArr3 = CANCELLED;
+                if (innerObserverArr2 == innerObserverArr3 || (innerObserverArr = (InnerObserver[]) this.observers.getAndSet(innerObserverArr3)) == CANCELLED) {
                     return false;
                 }
-                for (InnerObserver<?, ?> innerObserver : andSet) {
+                for (InnerObserver innerObserver : innerObserverArr) {
                     innerObserver.dispose();
                 }
                 return true;
             }
             return invokeV.booleanValue;
-        }
-
-        public void drain() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getAndIncrement() == 0) {
-                drainLoop();
-            }
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:71:0x00b9, code lost:
@@ -295,23 +311,25 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                Observer<? super U> observer = this.actual;
+                Observer observer = this.actual;
                 int i2 = 1;
                 while (!checkTerminate()) {
-                    SimplePlainQueue<U> simplePlainQueue = this.queue;
+                    SimplePlainQueue simplePlainQueue = this.queue;
                     if (simplePlainQueue != null) {
                         while (!checkTerminate()) {
-                            Object obj = (U) simplePlainQueue.poll();
-                            if (obj != null) {
-                                observer.onNext(obj);
-                            } else if (obj == null) {
+                            Object poll = simplePlainQueue.poll();
+                            if (poll == null) {
+                                if (poll == null) {
+                                }
+                            } else {
+                                observer.onNext(poll);
                             }
                         }
                         return;
                     }
                     boolean z = this.done;
-                    SimplePlainQueue<U> simplePlainQueue2 = this.queue;
-                    InnerObserver<?, ?>[] innerObserverArr = this.observers.get();
+                    SimplePlainQueue simplePlainQueue2 = this.queue;
+                    InnerObserver[] innerObserverArr = (InnerObserver[]) this.observers.get();
                     int length = innerObserverArr.length;
                     boolean z2 = false;
                     if (this.maxConcurrency != Integer.MAX_VALUE) {
@@ -356,17 +374,17 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                             if (checkTerminate()) {
                                 return;
                             }
-                            InnerObserver<T, U> innerObserver = innerObserverArr[i3];
+                            InnerObserver innerObserver = innerObserverArr[i3];
                             while (!checkTerminate()) {
-                                SimpleQueue<U> simpleQueue = innerObserver.queue;
+                                SimpleQueue simpleQueue = innerObserver.queue;
                                 if (simpleQueue != null) {
                                     while (true) {
                                         try {
-                                            Object obj2 = (U) simpleQueue.poll();
-                                            if (obj2 == null) {
+                                            Object poll2 = simpleQueue.poll();
+                                            if (poll2 == null) {
                                                 break;
                                             }
-                                            observer.onNext(obj2);
+                                            observer.onNext(poll2);
                                             if (checkTerminate()) {
                                                 return;
                                             }
@@ -384,7 +402,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                                     }
                                 }
                                 boolean z4 = innerObserver.done;
-                                SimpleQueue<U> simpleQueue2 = innerObserver.queue;
+                                SimpleQueue simpleQueue2 = innerObserver.queue;
                                 if (z4 && (simpleQueue2 == null || simpleQueue2.isEmpty())) {
                                     removeInner(innerObserver);
                                     if (checkTerminate()) {
@@ -407,11 +425,11 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                     if (z2) {
                         if (this.maxConcurrency != Integer.MAX_VALUE) {
                             synchronized (this) {
-                                ObservableSource<? extends U> poll = this.sources.poll();
-                                if (poll == null) {
+                                ObservableSource observableSource = (ObservableSource) this.sources.poll();
+                                if (observableSource == null) {
                                     this.wip--;
                                 } else {
-                                    subscribeInner(poll);
+                                    subscribeInner(observableSource);
                                 }
                             }
                         } else {
@@ -425,23 +443,6 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                     }
                 }
             }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            drain();
         }
 
         @Override // io.reactivex.Observer
@@ -460,13 +461,22 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048585, this, t) == null) || this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
+                this.s = disposable;
+                this.actual.onSubscribe(this);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048585, this, obj) != null) || this.done) {
                 return;
             }
             try {
-                ObservableSource<? extends U> observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null ObservableSource");
+                ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null ObservableSource");
                 if (this.maxConcurrency != Integer.MAX_VALUE) {
                     synchronized (this) {
                         if (this.wip == this.maxConcurrency) {
@@ -484,22 +494,13 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             }
         }
 
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
-                this.s = disposable;
-                this.actual.onSubscribe(this);
-            }
-        }
-
-        public void removeInner(InnerObserver<T, U> innerObserver) {
-            InnerObserver<?, ?>[] innerObserverArr;
-            InnerObserver<?, ?>[] innerObserverArr2;
+        public void removeInner(InnerObserver innerObserver) {
+            InnerObserver[] innerObserverArr;
+            InnerObserver[] innerObserverArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, innerObserver) == null) {
                 do {
-                    innerObserverArr = this.observers.get();
+                    innerObserverArr = (InnerObserver[]) this.observers.get();
                     int length = innerObserverArr.length;
                     if (length == 0) {
                         return;
@@ -522,7 +523,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                     if (length == 1) {
                         innerObserverArr2 = EMPTY;
                     } else {
-                        InnerObserver<?, ?>[] innerObserverArr3 = new InnerObserver[length - 1];
+                        InnerObserver[] innerObserverArr3 = new InnerObserver[length - 1];
                         System.arraycopy(innerObserverArr, 0, innerObserverArr3, 0, i);
                         System.arraycopy(innerObserverArr, i + 1, innerObserverArr3, i, (length - i) - 1);
                         innerObserverArr2 = innerObserverArr3;
@@ -531,42 +532,43 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             }
         }
 
-        public void subscribeInner(ObservableSource<? extends U> observableSource) {
-            ObservableSource<? extends U> poll;
+        public void subscribeInner(ObservableSource observableSource) {
+            ObservableSource observableSource2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, observableSource) == null) {
                 while (observableSource instanceof Callable) {
-                    if (!tryEmitScalar((Callable) observableSource) || this.maxConcurrency == Integer.MAX_VALUE) {
-                        return;
-                    }
-                    boolean z = false;
-                    synchronized (this) {
-                        poll = this.sources.poll();
-                        if (poll == null) {
-                            this.wip--;
-                            z = true;
+                    if (tryEmitScalar((Callable) observableSource) && this.maxConcurrency != Integer.MAX_VALUE) {
+                        boolean z = false;
+                        synchronized (this) {
+                            observableSource2 = (ObservableSource) this.sources.poll();
+                            if (observableSource2 == null) {
+                                this.wip--;
+                                z = true;
+                            }
                         }
-                    }
-                    if (z) {
-                        drain();
+                        if (z) {
+                            drain();
+                            return;
+                        }
+                        observableSource = observableSource2;
+                    } else {
                         return;
                     }
-                    observableSource = poll;
                 }
                 long j = this.uniqueId;
                 this.uniqueId = 1 + j;
-                InnerObserver<T, U> innerObserver = new InnerObserver<>(this, j);
+                InnerObserver innerObserver = new InnerObserver(this, j);
                 if (addInner(innerObserver)) {
                     observableSource.subscribe(innerObserver);
                 }
             }
         }
 
-        public void tryEmit(U u, InnerObserver<T, U> innerObserver) {
+        public void tryEmit(Object obj, InnerObserver innerObserver) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048589, this, u, innerObserver) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048589, this, obj, innerObserver) == null) {
                 if (get() == 0 && compareAndSet(0, 1)) {
-                    this.actual.onNext(u);
+                    this.actual.onNext(obj);
                     if (decrementAndGet() == 0) {
                         return;
                     }
@@ -576,7 +578,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                         simpleQueue = new SpscLinkedArrayQueue(this.bufferSize);
                         innerObserver.queue = simpleQueue;
                     }
-                    simpleQueue.offer(u);
+                    simpleQueue.offer(obj);
                     if (getAndIncrement() != 0) {
                         return;
                     }
@@ -585,12 +587,12 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             }
         }
 
-        public boolean tryEmitScalar(Callable<? extends U> callable) {
+        public boolean tryEmitScalar(Callable callable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, callable)) == null) {
                 try {
-                    U call = callable.call();
+                    Object call = callable.call();
                     if (call == null) {
                         return true;
                     }
@@ -600,12 +602,12 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                             return true;
                         }
                     } else {
-                        SimplePlainQueue<U> simplePlainQueue = this.queue;
+                        SimplePlainQueue simplePlainQueue = this.queue;
                         if (simplePlainQueue == null) {
                             if (this.maxConcurrency == Integer.MAX_VALUE) {
-                                simplePlainQueue = new SpscLinkedArrayQueue<>(this.bufferSize);
+                                simplePlainQueue = new SpscLinkedArrayQueue(this.bufferSize);
                             } else {
-                                simplePlainQueue = new SpscArrayQueue<>(this.maxConcurrency);
+                                simplePlainQueue = new SpscArrayQueue(this.maxConcurrency);
                             }
                             this.queue = simplePlainQueue;
                         }
@@ -630,7 +632,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableFlatMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends U>> function, boolean z, int i, int i2) {
+    public ObservableFlatMap(ObservableSource observableSource, Function function, boolean z, int i, int i2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -654,9 +656,9 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super U> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, observer) == null) || ObservableScalarXMap.tryScalarXMapSubscribe(this.source, observer, this.mapper)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, observer) != null) || ObservableScalarXMap.tryScalarXMapSubscribe(this.source, observer, this.mapper)) {
             return;
         }
         this.source.subscribe(new MergeObserver(observer, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));

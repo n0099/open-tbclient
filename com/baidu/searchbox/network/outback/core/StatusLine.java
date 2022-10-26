@@ -42,7 +42,10 @@ public final class StatusLine {
     public static StatusLine get(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, response)) == null) ? new StatusLine(response.protocol(), response.code(), response.message()) : (StatusLine) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, response)) == null) {
+            return new StatusLine(response.protocol(), response.code(), response.message());
+        }
+        return (StatusLine) invokeL.objValue;
     }
 
     public static StatusLine parse(String str) throws IOException {
@@ -75,12 +78,14 @@ public final class StatusLine {
             if (str.length() >= i2) {
                 try {
                     int parseInt = Integer.parseInt(str.substring(i, i2));
-                    if (str.length() <= i2) {
-                        str2 = "";
-                    } else if (str.charAt(i2) == ' ') {
-                        str2 = str.substring(i + 4);
+                    if (str.length() > i2) {
+                        if (str.charAt(i2) == ' ') {
+                            str2 = str.substring(i + 4);
+                        } else {
+                            throw new ProtocolException("Unexpected status line: " + str);
+                        }
                     } else {
-                        throw new ProtocolException("Unexpected status line: " + str);
+                        str2 = "";
                     }
                     return new StatusLine(protocol, parseInt, str2);
                 } catch (NumberFormatException unused) {
@@ -94,10 +99,16 @@ public final class StatusLine {
 
     public String toString() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.protocol == Protocol.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
+            if (this.protocol == Protocol.HTTP_1_0) {
+                str = "HTTP/1.0";
+            } else {
+                str = "HTTP/1.1";
+            }
+            sb.append(str);
             sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append(this.code);
             if (this.message != null) {

@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.CreateResultInfo;
 import com.baidu.android.imsdk.group.GroupInfo;
-import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -38,11 +37,43 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public static final String TAG = "IMQueryGroupRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isCreateGroup;
-    public ArrayList<GroupMember> mAddMembers;
+    public ArrayList mAddMembers;
     public long mAppid;
-    public ArrayList<String> mGroupIds;
+    public ArrayList mGroupIds;
     public String mKey;
     public String mRequestParam;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1854938274, "Lcom/baidu/android/imsdk/group/request/IMQueryGroupRequest;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1854938274, "Lcom/baidu/android/imsdk/group/request/IMQueryGroupRequest;");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
@@ -181,59 +212,43 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                 }
                 if (i != 0) {
                     IMListener removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
-                    if (!mytask.this$0.isCreateGroup) {
-                        if (removeListener != null) {
-                            ((BIMValueCallBack) removeListener).onResult(0, "successful", arrayList);
+                    if (mytask.this$0.isCreateGroup) {
+                        BIMValueCallBack bIMValueCallBack = (BIMValueCallBack) removeListener;
+                        CreateResultInfo createResultInfo = new CreateResultInfo();
+                        createResultInfo.groupid = (String) mytask.this$0.mGroupIds.get(0);
+                        createResultInfo.memberlist = mytask.this$0.mAddMembers;
+                        String str4 = IMQueryGroupRequest.TAG;
+                        LogUtils.d(str4, "FXF query group info " + ((GroupInfo) arrayList.get(0)).toString());
+                        if (bIMValueCallBack != null) {
+                            bIMValueCallBack.onResult(0, "successful", createResultInfo);
+                            return;
+                        } else {
+                            LogUtils.e(IMQueryGroupRequest.TAG, "query group info fail, listener is null");
                             return;
                         }
-                        return;
-                    }
-                    BIMValueCallBack bIMValueCallBack = (BIMValueCallBack) removeListener;
-                    CreateResultInfo createResultInfo = new CreateResultInfo();
-                    createResultInfo.groupid = (String) mytask.this$0.mGroupIds.get(0);
-                    createResultInfo.memberlist = mytask.this$0.mAddMembers;
-                    String str4 = IMQueryGroupRequest.TAG;
-                    LogUtils.d(str4, "FXF query group info " + ((GroupInfo) arrayList.get(0)).toString());
-                    if (bIMValueCallBack == null) {
-                        LogUtils.e(IMQueryGroupRequest.TAG, "query group info fail, listener is null");
+                    } else if (removeListener != null) {
+                        ((BIMValueCallBack) removeListener).onResult(0, "successful", arrayList);
                         return;
                     } else {
-                        bIMValueCallBack.onResult(0, "successful", createResultInfo);
                         return;
                     }
                 }
                 IMListener removeListener2 = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
-                if (removeListener2 == null || !(removeListener2 instanceof BIMValueCallBack)) {
-                    return;
+                if (removeListener2 != null && (removeListener2 instanceof BIMValueCallBack)) {
+                    if (mytask.this$0.isCreateGroup) {
+                        CreateResultInfo createResultInfo2 = new CreateResultInfo();
+                        createResultInfo2.groupid = (String) mytask.this$0.mGroupIds.get(0);
+                        createResultInfo2.memberlist = mytask.this$0.mAddMembers;
+                        ((BIMValueCallBack) removeListener2).onResult(0, str, createResultInfo2);
+                        return;
+                    }
+                    ((BIMValueCallBack) removeListener2).onResult(i, str, null);
                 }
-                if (mytask.this$0.isCreateGroup) {
-                    CreateResultInfo createResultInfo2 = new CreateResultInfo();
-                    createResultInfo2.groupid = (String) mytask.this$0.mGroupIds.get(0);
-                    createResultInfo2.memberlist = mytask.this$0.mAddMembers;
-                    ((BIMValueCallBack) removeListener2).onResult(0, str, createResultInfo2);
-                    return;
-                }
-                ((BIMValueCallBack) removeListener2).onResult(i, str, null);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1854938274, "Lcom/baidu/android/imsdk/group/request/IMQueryGroupRequest;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1854938274, "Lcom/baidu/android/imsdk/group/request/IMQueryGroupRequest;");
-        }
-    }
-
-    public IMQueryGroupRequest(Context context, String str, long j, ArrayList<String> arrayList, boolean z, ArrayList<GroupMember> arrayList2) {
+    public IMQueryGroupRequest(Context context, String str, long j, ArrayList arrayList, boolean z, ArrayList arrayList2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,13 +282,6 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
         }
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
@@ -287,12 +295,12 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             sb.append(this.mAppid);
             sb.append("&timestamp=");
             sb.append(currentTimeMillis);
-            ArrayList<String> arrayList = this.mGroupIds;
+            ArrayList arrayList = this.mGroupIds;
             if (arrayList != null && arrayList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator<String> it = this.mGroupIds.iterator();
+                Iterator it = this.mGroupIds.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next());
+                    jSONArray.put((String) it.next());
                 }
                 sb.append("&group_ids=");
                 sb.append(jSONArray.toString());
@@ -310,19 +318,18 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             uploadGroupInfoFailInfo("get_groupinfo_request_onFailure", "param = " + this.mRequestParam + "  reponse = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
-                return;
+            if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
+                if (this.isCreateGroup) {
+                    CreateResultInfo createResultInfo = new CreateResultInfo();
+                    createResultInfo.groupid = (String) this.mGroupIds.get(0);
+                    ((BIMValueCallBack) removeListener).onResult(0, (String) transErrorCode.second, createResultInfo);
+                    return;
+                }
+                ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
             }
-            if (this.isCreateGroup) {
-                CreateResultInfo createResultInfo = new CreateResultInfo();
-                createResultInfo.groupid = this.mGroupIds.get(0);
-                ((BIMValueCallBack) removeListener).onResult(0, (String) transErrorCode.second, createResultInfo);
-                return;
-            }
-            ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
         }
     }
 
@@ -335,15 +342,5 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             LogUtils.d(str2, "IMQueryGroupRequest " + this.mGroupIds + " json is " + str);
             TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

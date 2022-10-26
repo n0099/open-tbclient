@@ -8,10 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class lx1 extends rw1 {
+public class lx1 extends sw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+
+    @Override // com.baidu.tieba.sw1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public lx1() {
         Interceptable interceptable = $ic;
@@ -27,25 +33,16 @@ public class lx1 extends rw1 {
         }
     }
 
-    @Override // com.baidu.tieba.rw1
-    public void a(sw1 sw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.sw1
+    public void a(tw1 tw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) {
-            if (sw1Var.a() == 0) {
-                sw1Var.b(canvas.save());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) {
+            tw1Var.e();
+            try {
+                canvas.restore();
+            } catch (IllegalStateException e) {
+                m02.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
             }
-            canvas.rotate(this.a);
         }
-    }
-
-    @Override // com.baidu.tieba.rw1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
-            return;
-        }
-        float optDouble = (float) jSONArray.optDouble(0);
-        this.a = optDouble;
-        this.a = (float) Math.toDegrees(optDouble);
     }
 }

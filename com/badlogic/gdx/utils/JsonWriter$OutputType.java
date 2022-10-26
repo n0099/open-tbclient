@@ -71,13 +71,19 @@ public final class JsonWriter$OutputType {
     public static JsonWriter$OutputType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (JsonWriter$OutputType) Enum.valueOf(JsonWriter$OutputType.class, str) : (JsonWriter$OutputType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (JsonWriter$OutputType) Enum.valueOf(JsonWriter$OutputType.class, str);
+        }
+        return (JsonWriter$OutputType) invokeL.objValue;
     }
 
     public static JsonWriter$OutputType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (JsonWriter$OutputType[]) $VALUES.clone() : (JsonWriter$OutputType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (JsonWriter$OutputType[]) $VALUES.clone();
+        }
+        return (JsonWriter$OutputType[]) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0031, code lost:
@@ -123,23 +129,23 @@ public final class JsonWriter$OutputType {
                 return StringUtil.NULL_STRING;
             }
             String obj2 = obj.toString();
-            if ((obj instanceof Number) || (obj instanceof Boolean)) {
-                return obj2;
+            if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
+                k8 k8Var = new k8(obj2);
+                k8Var.G('\\', "\\\\");
+                k8Var.G('\r', "\\r");
+                k8Var.G('\n', "\\n");
+                k8Var.G('\t', "\\t");
+                if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = k8Var.length()) > 0 && k8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(k8Var).matches()) {
+                    return k8Var.toString();
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append(Typography.quote);
+                k8Var.G(Typography.quote, "\\\"");
+                sb.append(k8Var.toString());
+                sb.append(Typography.quote);
+                return sb.toString();
             }
-            k8 k8Var = new k8(obj2);
-            k8Var.G('\\', "\\\\");
-            k8Var.G('\r', "\\r");
-            k8Var.G('\n', "\\n");
-            k8Var.G('\t', "\\t");
-            if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = k8Var.length()) > 0 && k8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(k8Var).matches()) {
-                return k8Var.toString();
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(Typography.quote);
-            k8Var.G(Typography.quote, "\\\"");
-            sb.append(k8Var.toString());
-            sb.append(Typography.quote);
-            return sb.toString();
+            return obj2;
         }
         return (String) invokeL.objValue;
     }

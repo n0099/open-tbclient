@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.crash.c;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public JSONObject ahA = new JSONObject();
 

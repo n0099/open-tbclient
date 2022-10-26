@@ -53,14 +53,20 @@ public class GenericHeader extends ProtectionSpecificHeader {
     public ByteBuffer getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.data : (ByteBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.data;
+        }
+        return (ByteBuffer) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.piff.ProtectionSpecificHeader
     public UUID getSystemId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PROTECTION_SYSTEM_ID : (UUID) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return PROTECTION_SYSTEM_ID;
+        }
+        return (UUID) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.piff.ProtectionSpecificHeader

@@ -1,6 +1,5 @@
 package com.kwad.components.core.c.kwai;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,11 +11,9 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 public final class d extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public b DG;
-    public b.C0572b DH;
+    public b.C0568b DH;
     public AdTemplate mAdTemplate;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
     public AdBaseFrameLayout mRootContainer;
 

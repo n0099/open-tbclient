@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
@@ -16,6 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -27,6 +27,8 @@ public class ExceptionAnalysis {
     public Context c;
     public HeadObject d;
     public String e;
+    public List f;
+    public boolean g;
     public Callback mCallback;
 
     /* loaded from: classes2.dex */
@@ -65,6 +67,7 @@ public class ExceptionAnalysis {
         }
         this.b = false;
         this.d = new HeadObject();
+        this.g = true;
     }
 
     private JSONObject a() {
@@ -88,70 +91,10 @@ public class ExceptionAnalysis {
     public static ExceptionAnalysis getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a : (ExceptionAnalysis) invokeV.objValue;
-    }
-
-    public void openExceptionAnalysis(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
-            if (context != null) {
-                this.c = context.getApplicationContext();
-            }
-            if (this.c == null || this.b) {
-                return;
-            }
-            this.b = true;
-            ad.a().a(this.c);
-            if (z) {
-                return;
-            }
-            NativeCrashHandler.init(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return a;
         }
-    }
-
-    public void saveCrashInfo(Context context, Throwable th, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, th, z) == null) {
-            if (context != null) {
-                this.c = context.getApplicationContext();
-            }
-            if (this.c == null) {
-                return;
-            }
-            String th2 = th.toString();
-            String str = "";
-            if (!TextUtils.isEmpty(th2)) {
-                try {
-                    String[] split = th2.split(":");
-                    str = split.length > 1 ? split[0] : th2;
-                } catch (Exception unused) {
-                }
-            }
-            String str2 = TextUtils.isEmpty(str) ? th2 : str;
-            StringWriter stringWriter = new StringWriter();
-            th.printStackTrace(new PrintWriter(stringWriter));
-            String obj = stringWriter.toString();
-            if (z) {
-                i = 0;
-            } else if (th instanceof Exception) {
-                i = 11;
-            } else {
-                i = th instanceof Error ? 12 : 13;
-            }
-            saveCrashInfo(this.c, System.currentTimeMillis(), obj, str2, 0, i);
-        }
-    }
-
-    public void setCrashExtraInfo(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (str.length() > 256) {
-            str = str.substring(0, 256);
-        }
-        this.e = str;
+        return (ExceptionAnalysis) invokeV.objValue;
     }
 
     public ExceptionAnalysis(Callback callback) {
@@ -171,12 +114,13 @@ public class ExceptionAnalysis {
         }
         this.b = false;
         this.d = new HeadObject();
+        this.g = true;
         this.mCallback = callback;
     }
 
-    @SuppressLint({"NewApi"})
     private JSONObject a(Context context) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
@@ -191,12 +135,34 @@ public class ExceptionAnalysis {
                     jSONObject.put("total", memoryInfo.totalMem);
                 }
                 jSONObject.put("free", memoryInfo.availMem);
-                jSONObject.put(Config.EXCEPTION_MEMORY_LOW, memoryInfo.lowMemory ? 1 : 0);
+                if (memoryInfo.lowMemory) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put(Config.EXCEPTION_MEMORY_LOW, i);
             } catch (Exception unused) {
             }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
+    }
+
+    public void openExceptionAnalysis(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            if (context != null) {
+                this.c = context.getApplicationContext();
+            }
+            if (this.c == null || this.b) {
+                return;
+            }
+            this.b = true;
+            ab.a().a(this.c);
+            if (!z) {
+                NativeCrashHandler.init(this.c);
+            }
+        }
     }
 
     public void saveCrashInfo(Context context, long j, String str, String str2, int i, int i2) {
@@ -220,6 +186,7 @@ public class ExceptionAnalysis {
                     jSONObject.put(Config.EXCEPTION_CRASH_TYPE, i);
                     jSONObject.put("mem", a(context));
                     jSONObject.put(Config.EXCEPTION_CRASH_CHANNEL, i2);
+                    jSONObject.put("sv", "4.0.9.7");
                     JSONArray jSONArray = new JSONArray();
                     jSONArray.put(jSONObject);
                     JSONObject jSONObject2 = new JSONObject();
@@ -235,11 +202,79 @@ public class ExceptionAnalysis {
                     if (this.mCallback != null) {
                         this.mCallback.onCallback(jSONObject3);
                     }
-                    bo.a(context, Config.PREFIX_SEND_DATA + System.currentTimeMillis(), jSONObject3.toString(), false);
-                    bc.c().a("dump exception, exception: " + str);
+                    bn.a(context, Config.PREFIX_SEND_DATA + System.currentTimeMillis(), jSONObject3.toString(), false);
+                    bb.c().a("dump exception, exception: " + str);
                 } catch (Exception unused) {
                 }
             }
+        }
+    }
+
+    public void saveCrashInfo(Context context, Throwable th, boolean z) {
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, th, z) == null) {
+            if (context != null) {
+                this.c = context.getApplicationContext();
+            }
+            if (this.c == null) {
+                return;
+            }
+            String th2 = th.toString();
+            String str2 = "";
+            if (!TextUtils.isEmpty(th2)) {
+                try {
+                    String[] split = th2.split(":");
+                    str2 = split.length > 1 ? split[0] : th2;
+                } catch (Exception unused) {
+                }
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str = th2;
+            } else {
+                str = str2;
+            }
+            StringWriter stringWriter = new StringWriter();
+            th.printStackTrace(new PrintWriter(stringWriter));
+            String obj = stringWriter.toString();
+            if (!z) {
+                if (th instanceof Exception) {
+                    i = 11;
+                } else if (th instanceof Error) {
+                    i = 12;
+                } else {
+                    i = 13;
+                }
+            } else {
+                i = 0;
+            }
+            saveCrashInfo(this.c, System.currentTimeMillis(), obj, str, 0, i);
+        }
+    }
+
+    public void setCrashExtraInfo(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (str.length() > 256) {
+            str = str.substring(0, 256);
+        }
+        this.e = str;
+    }
+
+    public void setEnableSend(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void setFilterPackageList(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && list.size() > 0) {
+            this.f = list;
         }
     }
 }

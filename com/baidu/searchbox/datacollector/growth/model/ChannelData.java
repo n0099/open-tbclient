@@ -20,7 +20,7 @@ public class ChannelData {
     public String mType;
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String downChannel;
@@ -50,12 +50,6 @@ public class ChannelData {
             this.launchChannel = "";
             this.downChannel = "";
             this.schema = "";
-        }
-
-        public ChannelData build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ChannelData(this) : (ChannelData) invokeV.objValue;
         }
 
         public Builder setDownChannel(String str) {
@@ -115,6 +109,15 @@ public class ChannelData {
             }
             return (Builder) invokeL.objValue;
         }
+
+        public ChannelData build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ChannelData(this);
+            }
+            return (ChannelData) invokeV.objValue;
+        }
     }
 
     public ChannelData() {
@@ -140,37 +143,55 @@ public class ChannelData {
     public String getDownChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDownChannel : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDownChannel;
+        }
+        return (String) invokeV.objValue;
     }
 
     public JSONObject getExtend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExtend : (JSONObject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mExtend;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public String getLaunchChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLaunchChannel : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLaunchChannel;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSchema() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSchema : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mSchema;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSource : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSource;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ChannelData(Builder builder) {

@@ -19,58 +19,7 @@ public final class a implements HostnameVerifier {
     public static final a a = new a();
     public static final Pattern b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
-    private boolean a(String str, X509Certificate x509Certificate) {
-        if (a(str)) {
-            return b(str, x509Certificate);
-        }
-        return c(str, x509Certificate);
-    }
-
-    private boolean b(String str, X509Certificate x509Certificate) {
-        List<String> a2 = a(x509Certificate, 7);
-        int size = a2.size();
-        for (int i = 0; i < size; i++) {
-            if (str.equalsIgnoreCase(a2.get(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean c(String str, X509Certificate x509Certificate) {
-        String a2;
-        String lowerCase = str.toLowerCase(Locale.US);
-        List<String> a3 = a(x509Certificate, 2);
-        int size = a3.size();
-        int i = 0;
-        boolean z = false;
-        while (i < size) {
-            if (a(lowerCase, a3.get(i))) {
-                return true;
-            }
-            i++;
-            z = true;
-        }
-        if (z || (a2 = new b(x509Certificate.getSubjectX500Principal()).a(AdvanceSetting.CLEAR_NOTIFICATION)) == null) {
-            return false;
-        }
-        return a(lowerCase, a2);
-    }
-
-    @Override // javax.net.ssl.HostnameVerifier
-    public boolean verify(String str, SSLSession sSLSession) {
-        try {
-            return a(str, (X509Certificate) sSLSession.getPeerCertificates()[0]);
-        } catch (SSLException unused) {
-            return false;
-        }
-    }
-
-    public static boolean a(String str) {
-        return b.matcher(str).matches();
-    }
-
-    public static List<String> a(X509Certificate x509Certificate, int i) {
+    public static List a(X509Certificate x509Certificate, int i) {
         Integer num;
         String str;
         ArrayList arrayList = new ArrayList();
@@ -90,6 +39,10 @@ public final class a implements HostnameVerifier {
         }
     }
 
+    public static boolean a(String str) {
+        return b.matcher(str).matches();
+    }
+
     private boolean a(String str, String str2) {
         if (str != null && str.length() != 0 && !str.startsWith(".") && !str.endsWith(IStringUtil.TOP_PATH) && str2 != null && str2.length() != 0 && !str2.startsWith(".") && !str2.endsWith(IStringUtil.TOP_PATH)) {
             if (!str.endsWith(".")) {
@@ -106,12 +59,62 @@ public final class a implements HostnameVerifier {
                 return false;
             }
             String substring = lowerCase.substring(1);
-            if (str.endsWith(substring)) {
-                int length = str.length() - substring.length();
-                return length <= 0 || str.lastIndexOf(46, length - 1) == -1;
+            if (!str.endsWith(substring)) {
+                return false;
             }
-            return false;
+            int length = str.length() - substring.length();
+            if (length > 0 && str.lastIndexOf(46, length - 1) != -1) {
+                return false;
+            }
+            return true;
         }
         return false;
+    }
+
+    private boolean a(String str, X509Certificate x509Certificate) {
+        if (a(str)) {
+            return b(str, x509Certificate);
+        }
+        return c(str, x509Certificate);
+    }
+
+    private boolean b(String str, X509Certificate x509Certificate) {
+        List a2 = a(x509Certificate, 7);
+        int size = a2.size();
+        for (int i = 0; i < size; i++) {
+            if (str.equalsIgnoreCase((String) a2.get(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override // javax.net.ssl.HostnameVerifier
+    public boolean verify(String str, SSLSession sSLSession) {
+        try {
+            return a(str, (X509Certificate) sSLSession.getPeerCertificates()[0]);
+        } catch (SSLException unused) {
+            return false;
+        }
+    }
+
+    private boolean c(String str, X509Certificate x509Certificate) {
+        String a2;
+        String lowerCase = str.toLowerCase(Locale.US);
+        List a3 = a(x509Certificate, 2);
+        int size = a3.size();
+        int i = 0;
+        boolean z = false;
+        while (i < size) {
+            if (a(lowerCase, (String) a3.get(i))) {
+                return true;
+            }
+            i++;
+            z = true;
+        }
+        if (z || (a2 = new b(x509Certificate.getSubjectX500Principal()).a(AdvanceSetting.CLEAR_NOTIFICATION)) == null) {
+            return false;
+        }
+        return a(lowerCase, a2);
     }
 }

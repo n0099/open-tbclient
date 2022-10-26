@@ -66,9 +66,9 @@ public abstract class a extends com.baidu.android.pushservice.g.c {
         InputStream inputStream = null;
         try {
             try {
-                HashMap<String, String> hashMap = new HashMap<>();
+                HashMap hashMap = new HashMap();
                 b(hashMap);
-                HashMap<String, String> hashMap2 = new HashMap<>();
+                HashMap hashMap2 = new HashMap();
                 a(hashMap2);
                 com.baidu.android.pushservice.d.b a = com.baidu.android.pushservice.d.c.a(this.a, this.c, "POST", com.baidu.android.pushservice.d.c.a(hashMap), hashMap2, "application/x-www-form-urlencoded");
                 this.d = System.currentTimeMillis();
@@ -141,7 +141,7 @@ public abstract class a extends com.baidu.android.pushservice.g.c {
                 }
 
                 @Override // com.baidu.android.pushservice.c.a
-                public void a(int i, List<String> list) {
+                public void a(int i, List list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, list) == null) {
                         String str = this.a.c.startsWith("https://") ? "https://" : "http://";
@@ -154,7 +154,7 @@ public abstract class a extends com.baidu.android.pushservice.g.c {
                         }
                         String d = com.baidu.android.pushservice.g.d(this.a.a);
                         if (list != null && list.size() > 0) {
-                            d = list.get(0);
+                            d = (String) list.get(0);
                         }
                         a aVar3 = this.a;
                         aVar3.c = "https://" + d + this.a.c;
@@ -246,7 +246,7 @@ public abstract class a extends com.baidu.android.pushservice.g.c {
         }
     }
 
-    public void a(HashMap<String, String> hashMap) {
+    public void a(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
             hashMap.put("Host", com.baidu.android.pushservice.g.c());
@@ -277,7 +277,7 @@ public abstract class a extends com.baidu.android.pushservice.g.c {
         }
     }
 
-    public void b(HashMap<String, String> hashMap) {
+    public void b(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hashMap) == null) {
             b.a(this.a, hashMap);

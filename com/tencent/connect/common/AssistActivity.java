@@ -136,6 +136,47 @@ public class AssistActivity extends Activity {
         };
     }
 
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SLog.i("openSDK_LOG.AssistActivity", "-->onDestroy");
+            super.onDestroy();
+            QQStayReceiver qQStayReceiver = this.e;
+            if (qQStayReceiver != null) {
+                unregisterReceiver(qQStayReceiver);
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SLog.i("openSDK_LOG.AssistActivity", "-->onPause");
+            this.b.removeMessages(0);
+            super.onPause();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            SLog.i("openSDK_LOG.AssistActivity", "-->onStart");
+            super.onStart();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SLog.i("openSDK_LOG.AssistActivity", "-->onStop");
+            super.onStop();
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:14:0x0047  */
     /* JADX WARN: Removed duplicated region for block: B:18:0x0072  */
     /*
@@ -184,11 +225,26 @@ public class AssistActivity extends Activity {
     public static Intent getAssistActivityIntent(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new Intent(context, AssistActivity.class) : (Intent) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return new Intent(context, AssistActivity.class);
+        }
+        return (Intent) invokeL.objValue;
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            SLog.i("openSDK_LOG.AssistActivity", "--onSaveInstanceState--");
+            bundle.putBoolean("RESTART_FLAG", true);
+            bundle.putBoolean("RESUME_FLAG", this.a);
+            super.onSaveInstanceState(bundle);
+        }
     }
 
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
             StringBuilder sb = new StringBuilder();
@@ -197,7 +253,12 @@ public class AssistActivity extends Activity {
             sb.append(" | resultCode: ");
             sb.append(i2);
             sb.append("data = null ? ");
-            sb.append(intent == null);
+            if (intent == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            sb.append(z);
             SLog.i("openSDK_LOG.AssistActivity", sb.toString());
             super.onActivityResult(i, i2, intent);
             if (i == 0) {
@@ -249,6 +310,8 @@ public class AssistActivity extends Activity {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
+        int intExtra;
+        String stringExtra;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
@@ -261,48 +324,48 @@ public class AssistActivity extends Activity {
                 finish();
             }
             Intent intent = (Intent) getIntent().getParcelableExtra(EXTRA_INTENT);
-            int intExtra = intent == null ? 0 : intent.getIntExtra(Constants.KEY_REQUEST_CODE, 0);
-            this.d = intent == null ? "" : intent.getStringExtra("appid");
+            if (intent == null) {
+                intExtra = 0;
+            } else {
+                intExtra = intent.getIntExtra(Constants.KEY_REQUEST_CODE, 0);
+            }
+            if (intent == null) {
+                stringExtra = "";
+            } else {
+                stringExtra = intent.getStringExtra("appid");
+            }
+            this.d = stringExtra;
             Bundle bundleExtra = getIntent().getBundleExtra("h5_share_data");
             if (bundle != null) {
                 this.c = bundle.getBoolean("RESTART_FLAG");
                 this.a = bundle.getBoolean("RESUME_FLAG", false);
             }
-            if (this.c) {
-                SLog.d("openSDK_LOG.AssistActivity", "is restart");
-            } else if (bundleExtra != null) {
+            if (!this.c) {
+                if (bundleExtra == null) {
+                    if (intent != null) {
+                        SLog.i("openSDK_LOG.AssistActivity", "--onCreate--activityIntent not null, will start activity, reqcode = " + intExtra);
+                        try {
+                            String queryParameter = intent.getData().getQueryParameter("share_id");
+                            IntentFilter intentFilter = new IntentFilter(Constants.SHARE_QQ_AND_STAY + queryParameter);
+                            if (this.e == null) {
+                                this.e = new QQStayReceiver();
+                            }
+                            registerReceiver(this.e, intentFilter);
+                        } catch (Exception e) {
+                            SLog.i("openSDK_LOG.AssistActivity", "registerReceiver exception : " + e.getMessage());
+                        }
+                        startActivityForResult(intent, intExtra);
+                        return;
+                    }
+                    SLog.e("openSDK_LOG.AssistActivity", "--onCreate--activityIntent is null");
+                    finish();
+                    return;
+                }
                 SLog.w("openSDK_LOG.AssistActivity", "--onCreate--h5 bundle not null, will open browser");
                 a(bundleExtra);
-            } else if (intent != null) {
-                SLog.i("openSDK_LOG.AssistActivity", "--onCreate--activityIntent not null, will start activity, reqcode = " + intExtra);
-                try {
-                    String queryParameter = intent.getData().getQueryParameter("share_id");
-                    IntentFilter intentFilter = new IntentFilter(Constants.SHARE_QQ_AND_STAY + queryParameter);
-                    if (this.e == null) {
-                        this.e = new QQStayReceiver();
-                    }
-                    registerReceiver(this.e, intentFilter);
-                } catch (Exception e) {
-                    SLog.i("openSDK_LOG.AssistActivity", "registerReceiver exception : " + e.getMessage());
-                }
-                startActivityForResult(intent, intExtra);
-            } else {
-                SLog.e("openSDK_LOG.AssistActivity", "--onCreate--activityIntent is null");
-                finish();
+                return;
             }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SLog.i("openSDK_LOG.AssistActivity", "-->onDestroy");
-            super.onDestroy();
-            QQStayReceiver qQStayReceiver = this.e;
-            if (qQStayReceiver != null) {
-                unregisterReceiver(qQStayReceiver);
-            }
+            SLog.d("openSDK_LOG.AssistActivity", "is restart");
         }
     }
 
@@ -319,69 +382,53 @@ public class AssistActivity extends Activity {
                     moveTaskToBack(true);
                 }
                 setResult(-1, intent);
-                if (isFinishing()) {
-                    return;
+                if (!isFinishing()) {
+                    finish();
                 }
-                finish();
             } else if (intExtra == 10109) {
                 intent.putExtra(Constants.KEY_ACTION, "action_request_set_emotion");
                 if (intent.getBooleanExtra(Constants.KEY_STAY, false)) {
                     moveTaskToBack(true);
                 }
                 setResult(-1, intent);
-                if (isFinishing()) {
-                    return;
+                if (!isFinishing()) {
+                    finish();
                 }
-                finish();
             } else if (intExtra == 10110) {
                 intent.putExtra(Constants.KEY_ACTION, "action_request_dynamic_avatar");
                 if (intent.getBooleanExtra(Constants.KEY_STAY, false)) {
                     moveTaskToBack(true);
                 }
                 setResult(-1, intent);
-                if (isFinishing()) {
-                    return;
+                if (!isFinishing()) {
+                    finish();
                 }
-                finish();
             } else if (intExtra == 10111) {
                 intent.putExtra(Constants.KEY_ACTION, "joinGroup");
                 if (intent.getBooleanExtra(Constants.KEY_STAY, false)) {
                     moveTaskToBack(true);
                 }
                 setResult(-1, intent);
-                if (isFinishing()) {
-                    return;
+                if (!isFinishing()) {
+                    finish();
                 }
-                finish();
             } else if (intExtra == 10112) {
                 intent.putExtra(Constants.KEY_ACTION, "bindGroup");
                 if (intent.getBooleanExtra(Constants.KEY_STAY, false)) {
                     moveTaskToBack(true);
                 }
                 setResult(-1, intent);
-                if (isFinishing()) {
-                    return;
+                if (!isFinishing()) {
+                    finish();
                 }
-                finish();
             } else {
                 intent.putExtra(Constants.KEY_ACTION, "action_share");
                 setResult(-1, intent);
-                if (isFinishing()) {
-                    return;
+                if (!isFinishing()) {
+                    SLog.i("openSDK_LOG.AssistActivity", "--onNewIntent--activity not finished, finish now");
+                    finish();
                 }
-                SLog.i("openSDK_LOG.AssistActivity", "--onNewIntent--activity not finished, finish now");
-                finish();
             }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SLog.i("openSDK_LOG.AssistActivity", "-->onPause");
-            this.b.removeMessages(0);
-            super.onPause();
         }
     }
 
@@ -403,35 +450,6 @@ public class AssistActivity extends Activity {
                 return;
             }
             this.a = true;
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            SLog.i("openSDK_LOG.AssistActivity", "--onSaveInstanceState--");
-            bundle.putBoolean("RESTART_FLAG", true);
-            bundle.putBoolean("RESUME_FLAG", this.a);
-            super.onSaveInstanceState(bundle);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SLog.i("openSDK_LOG.AssistActivity", "-->onStart");
-            super.onStart();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SLog.i("openSDK_LOG.AssistActivity", "-->onStop");
-            super.onStop();
         }
     }
 

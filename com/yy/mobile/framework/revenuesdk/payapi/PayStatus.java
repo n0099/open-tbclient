@@ -79,30 +79,6 @@ public final class PayStatus {
         this.msg = str2;
     }
 
-    public static PayStatus valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (PayStatus) Enum.valueOf(PayStatus.class, str) : (PayStatus) invokeL.objValue;
-    }
-
-    public static PayStatus[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PayStatus[]) $VALUES.clone() : (PayStatus[]) invokeV.objValue;
-    }
-
-    public int getCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
-    }
-
-    public String getMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msg : (String) invokeV.objValue;
-    }
-
     public static PayStatus valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -131,5 +107,41 @@ public final class PayStatus {
             return SEVER_ERROR;
         }
         return (PayStatus) invokeI.objValue;
+    }
+
+    public static PayStatus valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (PayStatus) Enum.valueOf(PayStatus.class, str);
+        }
+        return (PayStatus) invokeL.objValue;
+    }
+
+    public static PayStatus[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (PayStatus[]) $VALUES.clone();
+        }
+        return (PayStatus[]) invokeV.objValue;
+    }
+
+    public int getCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.code;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.msg;
+        }
+        return (String) invokeV.objValue;
     }
 }

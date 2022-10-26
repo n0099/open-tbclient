@@ -66,144 +66,150 @@ public final class TaskNetRequestMng {
         }
     }
 
+    public static void restoreDefaultConfig(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            DownPrefUtils.setLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, System.currentTimeMillis());
+            DownPrefUtils.setLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 86400L);
+        }
+    }
+
     public static void checkConfigRequest(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             long j = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, 0L);
             long j2 = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 86400L);
-            if (mIsRequestConfig || Math.abs(j - currentTimeMillis) <= j2 * 1000) {
-                return;
-            }
-            mIsRequestConfig = true;
-            requestConfigInfo(context, new HttpURLExecutorRunnable.OnWebRequestListener(context) { // from class: com.baidu.down.request.taskmanager.TaskNetRequestMng.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Context val$context;
+            if (!mIsRequestConfig && Math.abs(j - currentTimeMillis) > j2 * 1000) {
+                mIsRequestConfig = true;
+                requestConfigInfo(context, new HttpURLExecutorRunnable.OnWebRequestListener(context) { // from class: com.baidu.down.request.taskmanager.TaskNetRequestMng.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Context val$context;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$context = context;
-                }
-
-                @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
-                public void onFailed() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        boolean unused = TaskNetRequestMng.mIsRequestConfig = false;
-                    }
-                }
-
-                @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
-                public void onSuccess(String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                        boolean unused = TaskNetRequestMng.mIsRequestConfig = false;
-                        if (str == null) {
-                            return;
-                        }
-                        try {
-                            JSONObject jSONObject = new JSONObject(str);
-                            if (jSONObject.has("errno") && jSONObject.optInt("errno") == 0 && jSONObject.has("data")) {
-                                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                                String optString = optJSONObject.optString("logUrlPrefix");
-                                String optString2 = optJSONObject.optString("infoUrlPrefix");
-                                try {
-                                    String host = new URL(optString).getHost();
-                                    if (TextUtils.isEmpty(new URL(optString2).getHost()) || TextUtils.isEmpty(host)) {
-                                        TaskNetRequestMng.restoreDefaultConfig(this.val$context);
-                                    } else if (!optJSONObject.has("frequency") || TextUtils.isEmpty(optJSONObject.optString("frequency"))) {
-                                        TaskNetRequestMng.restoreDefaultConfig(this.val$context);
-                                    } else {
-                                        long parseLong = Long.parseLong(optJSONObject.optString("frequency"));
-                                        if (parseLong > IMConstants.FANS_GROUP_INFO_EXPIRED_TIME) {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, IMConstants.FANS_GROUP_INFO_EXPIRED_TIME);
-                                        } else {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, parseLong);
-                                        }
-                                        if (!TextUtils.isEmpty(optString)) {
-                                            DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_LOG_HOST, optString);
-                                        }
-                                        if (!TextUtils.isEmpty(optString2)) {
-                                            DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_DOWNLOAD_INFO_HOST, optString2);
-                                        }
-                                        DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, System.currentTimeMillis());
-                                        String optString3 = optJSONObject.optString("isUploadLog");
-                                        if (!TextUtils.isEmpty(optString3)) {
-                                            DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_IS_UPLOAD_LOG, optString3);
-                                        }
-                                        String optString4 = optJSONObject.optString("onSpeedOffsetMin");
-                                        if (!TextUtils.isEmpty(optString4)) {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_DOWNLOAD_SPEED_OFFSET_MIN, Long.parseLong(optString4));
-                                        }
-                                        String optString5 = optJSONObject.optString("onSpeedOffsetMax");
-                                        if (!TextUtils.isEmpty(optString5)) {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_DOWNLOAD_SPEED_OFFSET_MAX, Long.parseLong(optString5));
-                                        }
-                                        String optString6 = optJSONObject.optString("cdnUrlTimeout");
-                                        if (!TextUtils.isEmpty(optString6)) {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_CDN_URL_TIMEOUT, Long.parseLong(optString6));
-                                        }
-                                        String optString7 = optJSONObject.optString("infoUrlTimeout");
-                                        if (!TextUtils.isEmpty(optString7)) {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_DOWNINFO_URL_TIMEOUT, Long.parseLong(optString7));
-                                        }
-                                        String optString8 = optJSONObject.optString("testSpeedDuration");
-                                        if (!TextUtils.isEmpty(optString8)) {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_DURATION, Long.parseLong(optString8));
-                                        }
-                                        String optString9 = optJSONObject.optString("testSpeedDataSize");
-                                        if (!TextUtils.isEmpty(optString9)) {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_DATA_SIZE, Long.parseLong(optString9));
-                                        }
-                                        String optString10 = optJSONObject.optString("testSpeedIpNum");
-                                        if (!TextUtils.isEmpty(optString10)) {
-                                            DownPrefUtils.setInt(this.val$context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_IP_NUM, Integer.parseInt(optString10));
-                                        }
-                                        String optString11 = optJSONObject.optString("testSpeedThreshold");
-                                        if (!TextUtils.isEmpty(optString11)) {
-                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, Long.parseLong(optString11));
-                                        }
-                                        String optString12 = optJSONObject.optString("infoType");
-                                        if (!TextUtils.isEmpty(optString12)) {
-                                            DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_IS_INFO_TYPE, optString12);
-                                            TaskFacade.getInstance(null).getBinaryTaskMng().setInfoTypeList(this.val$context);
-                                        }
-                                        String optString13 = optJSONObject.optString("hostType");
-                                        if (!TextUtils.isEmpty(optString13)) {
-                                            DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_HOST_TYPE, optString13);
-                                        }
-                                        String optString14 = optJSONObject.optString("httpLibType");
-                                        if (TextUtils.isEmpty(optString14)) {
-                                            return;
-                                        }
-                                        DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_HTTP_LIB_TYPE, optString14);
-                                    }
-                                } catch (MalformedURLException e) {
-                                    e.printStackTrace();
-                                    TaskNetRequestMng.restoreDefaultConfig(this.val$context);
-                                }
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {context};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
                             }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            TaskNetRequestMng.restoreDefaultConfig(this.val$context);
+                        }
+                        this.val$context = context;
+                    }
+
+                    @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
+                    public void onFailed() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            boolean unused = TaskNetRequestMng.mIsRequestConfig = false;
                         }
                     }
-                }
-            });
+
+                    @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
+                    public void onSuccess(String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                            boolean unused = TaskNetRequestMng.mIsRequestConfig = false;
+                            if (str == null) {
+                                return;
+                            }
+                            try {
+                                JSONObject jSONObject = new JSONObject(str);
+                                if (jSONObject.has("errno") && jSONObject.optInt("errno") == 0 && jSONObject.has("data")) {
+                                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                                    String optString = optJSONObject.optString("logUrlPrefix");
+                                    String optString2 = optJSONObject.optString("infoUrlPrefix");
+                                    try {
+                                        String host = new URL(optString).getHost();
+                                        if (TextUtils.isEmpty(new URL(optString2).getHost()) || TextUtils.isEmpty(host)) {
+                                            TaskNetRequestMng.restoreDefaultConfig(this.val$context);
+                                        } else if (!optJSONObject.has("frequency") || TextUtils.isEmpty(optJSONObject.optString("frequency"))) {
+                                            TaskNetRequestMng.restoreDefaultConfig(this.val$context);
+                                        } else {
+                                            long parseLong = Long.parseLong(optJSONObject.optString("frequency"));
+                                            if (parseLong > IMConstants.FANS_GROUP_INFO_EXPIRED_TIME) {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, IMConstants.FANS_GROUP_INFO_EXPIRED_TIME);
+                                            } else {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, parseLong);
+                                            }
+                                            if (!TextUtils.isEmpty(optString)) {
+                                                DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_LOG_HOST, optString);
+                                            }
+                                            if (!TextUtils.isEmpty(optString2)) {
+                                                DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_DOWNLOAD_INFO_HOST, optString2);
+                                            }
+                                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, System.currentTimeMillis());
+                                            String optString3 = optJSONObject.optString("isUploadLog");
+                                            if (!TextUtils.isEmpty(optString3)) {
+                                                DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_IS_UPLOAD_LOG, optString3);
+                                            }
+                                            String optString4 = optJSONObject.optString("onSpeedOffsetMin");
+                                            if (!TextUtils.isEmpty(optString4)) {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_DOWNLOAD_SPEED_OFFSET_MIN, Long.parseLong(optString4));
+                                            }
+                                            String optString5 = optJSONObject.optString("onSpeedOffsetMax");
+                                            if (!TextUtils.isEmpty(optString5)) {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_DOWNLOAD_SPEED_OFFSET_MAX, Long.parseLong(optString5));
+                                            }
+                                            String optString6 = optJSONObject.optString("cdnUrlTimeout");
+                                            if (!TextUtils.isEmpty(optString6)) {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_CDN_URL_TIMEOUT, Long.parseLong(optString6));
+                                            }
+                                            String optString7 = optJSONObject.optString("infoUrlTimeout");
+                                            if (!TextUtils.isEmpty(optString7)) {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_DOWNINFO_URL_TIMEOUT, Long.parseLong(optString7));
+                                            }
+                                            String optString8 = optJSONObject.optString("testSpeedDuration");
+                                            if (!TextUtils.isEmpty(optString8)) {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_DURATION, Long.parseLong(optString8));
+                                            }
+                                            String optString9 = optJSONObject.optString("testSpeedDataSize");
+                                            if (!TextUtils.isEmpty(optString9)) {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_DATA_SIZE, Long.parseLong(optString9));
+                                            }
+                                            String optString10 = optJSONObject.optString("testSpeedIpNum");
+                                            if (!TextUtils.isEmpty(optString10)) {
+                                                DownPrefUtils.setInt(this.val$context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_IP_NUM, Integer.parseInt(optString10));
+                                            }
+                                            String optString11 = optJSONObject.optString("testSpeedThreshold");
+                                            if (!TextUtils.isEmpty(optString11)) {
+                                                DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_CONFIG_TEST_SPEED_THRESHOLD, Long.parseLong(optString11));
+                                            }
+                                            String optString12 = optJSONObject.optString("infoType");
+                                            if (!TextUtils.isEmpty(optString12)) {
+                                                DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_IS_INFO_TYPE, optString12);
+                                                TaskFacade.getInstance(null).getBinaryTaskMng().setInfoTypeList(this.val$context);
+                                            }
+                                            String optString13 = optJSONObject.optString("hostType");
+                                            if (!TextUtils.isEmpty(optString13)) {
+                                                DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_HOST_TYPE, optString13);
+                                            }
+                                            String optString14 = optJSONObject.optString("httpLibType");
+                                            if (!TextUtils.isEmpty(optString14)) {
+                                                DownPrefUtils.setString(this.val$context, DownPrefUtils.PREF_CONFI_HTTP_LIB_TYPE, optString14);
+                                            }
+                                        }
+                                    } catch (MalformedURLException e) {
+                                        e.printStackTrace();
+                                        TaskNetRequestMng.restoreDefaultConfig(this.val$context);
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
+                                TaskNetRequestMng.restoreDefaultConfig(this.val$context);
+                            }
+                        }
+                    }
+                });
+            }
         }
     }
 
@@ -220,87 +226,6 @@ public final class TaskNetRequestMng {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, null, context, str, str2, onWebRequestListener) == null) {
             requestRemoteConfig(context, str2, null, null, str, true, null, null, onWebRequestListener);
-        }
-    }
-
-    public static void restoreDefaultConfig(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
-            DownPrefUtils.setLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, System.currentTimeMillis());
-            DownPrefUtils.setLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 86400L);
-        }
-    }
-
-    public static void sendSpeedStat(Context context, TaskSpeedStat taskSpeedStat, ConfigSpeedStat configSpeedStat, boolean z) {
-        String buildSpeedStat;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, taskSpeedStat, configSpeedStat, Boolean.valueOf(z)}) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (z) {
-                buildSpeedStat = SpeedStatData.buildSpeedReqCfg(context, configSpeedStat.cfgVersion);
-            } else {
-                buildSpeedStat = SpeedStatData.buildSpeedStat(context, taskSpeedStat, configSpeedStat);
-            }
-            if (TextUtils.isEmpty(buildSpeedStat)) {
-                return;
-            }
-            String encode = Base64Utils.encode(Utils.getEncodedValue(buildSpeedStat.toString()).getBytes());
-            if (encode != null) {
-                arrayList.add(new BasicNameValuePair("data", new String(encode)));
-            }
-            HttpURLExecutorRunnable httpURLExecutorRunnable = new HttpURLExecutorRunnable(context, TextUtils.equals(DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_NAME), DownPrefUtils.HOST_TYPE_IP), com.baidu.down.utils.Constants.SPEED_STAT_URL_DEFAULT, arrayList, new HttpURLExecutorRunnable.OnWebRequestListener(context) { // from class: com.baidu.down.request.taskmanager.TaskNetRequestMng.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Context val$context;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$context = context;
-                }
-
-                @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
-                public void onFailed() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    }
-                }
-
-                @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
-                public void onSuccess(String str) {
-                    ConfigSpeedStat parseSpeedConfig;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
-                        return;
-                    }
-                    try {
-                        JSONObject jSONObject = new JSONObject(str);
-                        if (jSONObject.optInt("error_code") == 0) {
-                            if (!TextUtils.isEmpty(jSONObject.optString("data", "")) && (parseSpeedConfig = SpeedStatData.parseSpeedConfig(this.val$context, jSONObject.optString("data", ""))) != null) {
-                                TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mConfigSpeedStat = parseSpeedConfig;
-                            }
-                            DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_SPEED_CONFIG_ACQUIRE_TIME_KEY, System.currentTimeMillis());
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }, 1);
-            mHttpURLExecutorRunnable = httpURLExecutorRunnable;
-            httpURLExecutorRunnable.setRequestType("POST");
-            mHttpURLExecutorRunnable.execute();
         }
     }
 
@@ -371,6 +296,77 @@ public final class TaskNetRequestMng {
             mHttpURLExecutorRunnable = httpURLExecutorRunnable;
             httpURLExecutorRunnable.setRequestType("POST");
             mHttpURLExecutorRunnable.execute();
+        }
+    }
+
+    public static void sendSpeedStat(Context context, TaskSpeedStat taskSpeedStat, ConfigSpeedStat configSpeedStat, boolean z) {
+        String buildSpeedStat;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, taskSpeedStat, configSpeedStat, Boolean.valueOf(z)}) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (z) {
+                buildSpeedStat = SpeedStatData.buildSpeedReqCfg(context, configSpeedStat.cfgVersion);
+            } else {
+                buildSpeedStat = SpeedStatData.buildSpeedStat(context, taskSpeedStat, configSpeedStat);
+            }
+            if (!TextUtils.isEmpty(buildSpeedStat)) {
+                String encode = Base64Utils.encode(Utils.getEncodedValue(buildSpeedStat.toString()).getBytes());
+                if (encode != null) {
+                    arrayList.add(new BasicNameValuePair("data", new String(encode)));
+                }
+                HttpURLExecutorRunnable httpURLExecutorRunnable = new HttpURLExecutorRunnable(context, TextUtils.equals(DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_NAME), DownPrefUtils.HOST_TYPE_IP), com.baidu.down.utils.Constants.SPEED_STAT_URL_DEFAULT, arrayList, new HttpURLExecutorRunnable.OnWebRequestListener(context) { // from class: com.baidu.down.request.taskmanager.TaskNetRequestMng.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Context val$context;
+
+                    @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
+                    public void onFailed() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        }
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {context};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.val$context = context;
+                    }
+
+                    @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
+                    public void onSuccess(String str) {
+                        ConfigSpeedStat parseSpeedConfig;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+                            try {
+                                JSONObject jSONObject = new JSONObject(str);
+                                if (jSONObject.optInt("error_code") == 0) {
+                                    if (!TextUtils.isEmpty(jSONObject.optString("data", "")) && (parseSpeedConfig = SpeedStatData.parseSpeedConfig(this.val$context, jSONObject.optString("data", ""))) != null) {
+                                        TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mConfigSpeedStat = parseSpeedConfig;
+                                    }
+                                    DownPrefUtils.setLong(this.val$context, DownPrefUtils.PREF_SPEED_CONFIG_ACQUIRE_TIME_KEY, System.currentTimeMillis());
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }, 1);
+                mHttpURLExecutorRunnable = httpURLExecutorRunnable;
+                httpURLExecutorRunnable.setRequestType("POST");
+                mHttpURLExecutorRunnable.execute();
+            }
         }
     }
 }

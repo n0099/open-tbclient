@@ -30,13 +30,135 @@ public class ChannelNativeAds {
 
     /* renamed from: com.fun.ad.sdk.ChannelNativeAds$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public interface GdtADStatusChangeListener {
+        void onADStatusChanged();
+    }
+
+    public ChannelNativeAds(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.baiduNative = builder.a;
+        this.baiduNative2 = builder.b;
+        this.csjNative = builder.c;
+        this.gdtNative = builder.d;
+        this.jyNative = builder.e;
+        this.ksNative = builder.f;
+        this.kdsNative = builder.g;
+        this.cjNative = builder.h;
+        this.hwNative = builder.i;
+        this.mmNative = builder.j;
+        this.owNative = builder.k;
+        this.mhNative = builder.l;
+        this.maxNative = builder.m;
+        this.oppoNative = builder.n;
+        this.vivoNative = builder.o;
+    }
+
+    public static ChannelNativeAds createBdFeed(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) ? new Builder().setBdFeed(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createBdNaive(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? new Builder().setBdNative(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createCj(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? new Builder().setCj(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createCsj(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? new Builder().setCsj(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createGdt(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? new Builder().setGdt(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createHw(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? new Builder().setHw(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createJy(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? new Builder().setJy(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createKds(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? new Builder().setKds(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createKs(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? new Builder().setKs(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createMm(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) ? new Builder().setMm(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createOw(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, obj)) == null) ? new Builder().setOw(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public static ChannelNativeAds createVivo(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, obj)) == null) ? new Builder().setVivo(obj).build() : (ChannelNativeAds) invokeL.objValue;
+    }
+
+    public GdtADStatusChangeListener getGdtADStatusChangeListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (GdtADStatusChangeListener) invokeV.objValue;
+    }
+
+    public void setGdtADStatusChangeListener(GdtADStatusChangeListener gdtADStatusChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gdtADStatusChangeListener) == null) {
+            this.a = gdtADStatusChangeListener;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Object a;
@@ -67,12 +189,6 @@ public class ChannelNativeAds {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        public ChannelNativeAds build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ChannelNativeAds(this) : (ChannelNativeAds) invokeV.objValue;
         }
 
         public Builder setBdFeed(Object obj) {
@@ -224,127 +340,14 @@ public class ChannelNativeAds {
             }
             return (Builder) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public interface GdtADStatusChangeListener {
-        void onADStatusChanged();
-    }
-
-    public ChannelNativeAds(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public ChannelNativeAds build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ChannelNativeAds(this);
             }
-        }
-        this.baiduNative = builder.a;
-        this.baiduNative2 = builder.b;
-        this.csjNative = builder.c;
-        this.gdtNative = builder.d;
-        this.jyNative = builder.e;
-        this.ksNative = builder.f;
-        this.kdsNative = builder.g;
-        this.cjNative = builder.h;
-        this.hwNative = builder.i;
-        this.mmNative = builder.j;
-        this.owNative = builder.k;
-        this.mhNative = builder.l;
-        this.maxNative = builder.m;
-        this.oppoNative = builder.n;
-        this.vivoNative = builder.o;
-    }
-
-    public static ChannelNativeAds createBdFeed(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) ? new Builder().setBdFeed(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createBdNaive(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? new Builder().setBdNative(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createCj(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? new Builder().setCj(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createCsj(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? new Builder().setCsj(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createGdt(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? new Builder().setGdt(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createHw(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? new Builder().setHw(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createJy(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? new Builder().setJy(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createKds(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? new Builder().setKds(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createKs(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? new Builder().setKs(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createMm(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) ? new Builder().setMm(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createOw(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, obj)) == null) ? new Builder().setOw(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public static ChannelNativeAds createVivo(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, obj)) == null) ? new Builder().setVivo(obj).build() : (ChannelNativeAds) invokeL.objValue;
-    }
-
-    public GdtADStatusChangeListener getGdtADStatusChangeListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (GdtADStatusChangeListener) invokeV.objValue;
-    }
-
-    public void setGdtADStatusChangeListener(GdtADStatusChangeListener gdtADStatusChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gdtADStatusChangeListener) == null) {
-            this.a = gdtADStatusChangeListener;
+            return (ChannelNativeAds) invokeV.objValue;
         }
     }
 }

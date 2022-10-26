@@ -21,7 +21,7 @@ public class Mimetypes {
     public static final String MIMETYPE_OCTET_STREAM = "application/octet-stream";
     public static Mimetypes mimetypes;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> extensionToMimetypeMap;
+    public HashMap extensionToMimetypeMap;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class Mimetypes {
                 return;
             }
         }
-        this.extensionToMimetypeMap = new HashMap<>();
+        this.extensionToMimetypeMap = new HashMap();
     }
 
     public static synchronized Mimetypes getInstance() {
@@ -98,6 +98,15 @@ public class Mimetypes {
         return (Mimetypes) invokeV.objValue;
     }
 
+    public String getMimetype(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+            return getMimetype(file.getName());
+        }
+        return (String) invokeL.objValue;
+    }
+
     public String getMimetype(String str) {
         InterceptResult invokeL;
         int i;
@@ -107,7 +116,7 @@ public class Mimetypes {
             if (lastIndexOf > 0 && (i = lastIndexOf + 1) < str.length()) {
                 String lowerCase = str.substring(i).toLowerCase();
                 if (this.extensionToMimetypeMap.keySet().contains(lowerCase)) {
-                    String str2 = this.extensionToMimetypeMap.get(lowerCase);
+                    String str2 = (String) this.extensionToMimetypeMap.get(lowerCase);
                     BLog.debug("Recognised extension '" + lowerCase + "', mimetype is: '" + str2 + "'");
                     return str2;
                 }
@@ -122,35 +131,29 @@ public class Mimetypes {
 
     public void loadAndReplaceMimetypes(InputStream inputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) != null) {
-            return;
-        }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine == null) {
-                return;
-            }
-            String trim = readLine.trim();
-            if (!trim.startsWith("#") && trim.length() != 0) {
-                StringTokenizer stringTokenizer = new StringTokenizer(trim, " \t");
-                if (stringTokenizer.countTokens() > 1) {
-                    String nextToken = stringTokenizer.nextToken();
-                    while (stringTokenizer.hasMoreTokens()) {
-                        String nextToken2 = stringTokenizer.nextToken();
-                        this.extensionToMimetypeMap.put(nextToken2.toLowerCase(), nextToken);
-                        BLog.debug("Setting mime type for extension '" + nextToken2.toLowerCase() + "' to '" + nextToken + "'");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    String trim = readLine.trim();
+                    if (!trim.startsWith("#") && trim.length() != 0) {
+                        StringTokenizer stringTokenizer = new StringTokenizer(trim, " \t");
+                        if (stringTokenizer.countTokens() > 1) {
+                            String nextToken = stringTokenizer.nextToken();
+                            while (stringTokenizer.hasMoreTokens()) {
+                                String nextToken2 = stringTokenizer.nextToken();
+                                this.extensionToMimetypeMap.put(nextToken2.toLowerCase(), nextToken);
+                                BLog.debug("Setting mime type for extension '" + nextToken2.toLowerCase() + "' to '" + nextToken + "'");
+                            }
+                        } else {
+                            BLog.debug("Ignoring mimetype with no associated file extensions: '" + trim + "'");
+                        }
                     }
                 } else {
-                    BLog.debug("Ignoring mimetype with no associated file extensions: '" + trim + "'");
+                    return;
                 }
             }
         }
-    }
-
-    public String getMimetype(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? getMimetype(file.getName()) : (String) invokeL.objValue;
     }
 }

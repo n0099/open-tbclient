@@ -1,14 +1,14 @@
 package rx.subjects;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ay9;
-import com.baidu.tieba.fx9;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.hx9;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.rx9;
-import com.baidu.tieba.x1a;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.ey9;
+import com.baidu.tieba.jy9;
+import com.baidu.tieba.p2a;
+import com.baidu.tieba.sy9;
+import com.baidu.tieba.xx9;
+import com.baidu.tieba.yx9;
+import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,26 +21,26 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes9.dex */
-public final class PublishSubject<T> extends x1a<T, T> {
+public final class PublishSubject extends p2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PublishSubjectState<T> b;
+    public final PublishSubjectState b;
 
     /* loaded from: classes9.dex */
-    public static final class PublishSubjectProducer<T> extends AtomicLong implements hx9, mx9, gx9<T> {
+    public final class PublishSubjectProducer extends AtomicLong implements zx9, ey9, yx9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6451806817170721536L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final lx9<? super T> actual;
-        public final PublishSubjectState<T> parent;
+        public final dy9 actual;
+        public final PublishSubjectState parent;
         public long produced;
 
-        public PublishSubjectProducer(PublishSubjectState<T> publishSubjectState, lx9<? super T> lx9Var) {
+        public PublishSubjectProducer(PublishSubjectState publishSubjectState, dy9 dy9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {publishSubjectState, lx9Var};
+                Object[] objArr = {publishSubjectState, dy9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,44 +51,70 @@ public final class PublishSubject<T> extends x1a<T, T> {
                 }
             }
             this.parent = publishSubjectState;
-            this.actual = lx9Var;
+            this.actual = dy9Var;
         }
 
-        @Override // com.baidu.tieba.mx9
+        @Override // com.baidu.tieba.ey9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (get() == Long.MIN_VALUE) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.gx9
+        @Override // com.baidu.tieba.yx9
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || get() == Long.MIN_VALUE) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && get() != Long.MIN_VALUE) {
+                this.actual.onCompleted();
             }
-            this.actual.onCompleted();
         }
 
-        @Override // com.baidu.tieba.gx9
+        @Override // com.baidu.tieba.ey9
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
+                this.parent.remove(this);
+            }
+        }
+
+        @Override // com.baidu.tieba.yx9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) || get() == Long.MIN_VALUE) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && get() != Long.MIN_VALUE) {
+                this.actual.onError(th);
             }
-            this.actual.onError(th);
         }
 
-        @Override // com.baidu.tieba.gx9
-        public void onNext(T t) {
+        @Override // com.baidu.tieba.zx9
+        public void request(long j) {
+            long j2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && sy9.h(j)) {
+                do {
+                    j2 = get();
+                    if (j2 == Long.MIN_VALUE) {
+                        return;
+                    }
+                } while (!compareAndSet(j2, sy9.a(j2, j)));
+            }
+        }
+
+        @Override // com.baidu.tieba.yx9
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
                 long j = get();
                 if (j != Long.MIN_VALUE) {
                     long j2 = this.produced;
                     if (j != j2) {
                         this.produced = j2 + 1;
-                        this.actual.onNext(t);
+                        this.actual.onNext(obj);
                         return;
                     }
                     unsubscribe();
@@ -96,33 +122,10 @@ public final class PublishSubject<T> extends x1a<T, T> {
                 }
             }
         }
-
-        @Override // com.baidu.tieba.hx9
-        public void request(long j) {
-            long j2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && ay9.h(j)) {
-                do {
-                    j2 = get();
-                    if (j2 == Long.MIN_VALUE) {
-                        return;
-                    }
-                } while (!compareAndSet(j2, ay9.a(j2, j)));
-            }
-        }
-
-        @Override // com.baidu.tieba.mx9
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
-                return;
-            }
-            this.parent.remove(this);
-        }
     }
 
     /* loaded from: classes9.dex */
-    public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements fx9.a<T>, gx9<T> {
+    public final class PublishSubjectState extends AtomicReference implements xx9.a, yx9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final PublishSubjectProducer[] EMPTY;
         public static final PublishSubjectProducer[] TERMINATED;
@@ -163,14 +166,24 @@ public final class PublishSubject<T> extends x1a<T, T> {
             lazySet(EMPTY);
         }
 
-        public boolean add(PublishSubjectProducer<T> publishSubjectProducer) {
-            PublishSubjectProducer<T>[] publishSubjectProducerArr;
+        @Override // com.baidu.tieba.yx9
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                for (PublishSubjectProducer publishSubjectProducer : (PublishSubjectProducer[]) getAndSet(TERMINATED)) {
+                    publishSubjectProducer.onCompleted();
+                }
+            }
+        }
+
+        public boolean add(PublishSubjectProducer publishSubjectProducer) {
+            PublishSubjectProducer[] publishSubjectProducerArr;
             PublishSubjectProducer[] publishSubjectProducerArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, publishSubjectProducer)) == null) {
                 do {
-                    publishSubjectProducerArr = get();
+                    publishSubjectProducerArr = (PublishSubjectProducer[]) get();
                     if (publishSubjectProducerArr == TERMINATED) {
                         return false;
                     }
@@ -184,95 +197,24 @@ public final class PublishSubject<T> extends x1a<T, T> {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((lx9) ((lx9) obj));
-        }
-
-        @Override // com.baidu.tieba.gx9
-        public void onCompleted() {
+        @Override // com.baidu.tieba.yx9
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                for (PublishSubjectProducer<T> publishSubjectProducer : getAndSet(TERMINATED)) {
-                    publishSubjectProducer.onCompleted();
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                for (PublishSubjectProducer publishSubjectProducer : (PublishSubjectProducer[]) get()) {
+                    publishSubjectProducer.onNext(obj);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.gx9
-        public void onError(Throwable th) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
+        public void call(dy9 dy9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                this.error = th;
-                ArrayList arrayList = null;
-                for (PublishSubjectProducer<T> publishSubjectProducer : getAndSet(TERMINATED)) {
-                    try {
-                        publishSubjectProducer.onError(th);
-                    } catch (Throwable th2) {
-                        if (arrayList == null) {
-                            arrayList = new ArrayList(1);
-                        }
-                        arrayList.add(th2);
-                    }
-                }
-                rx9.d(arrayList);
-            }
-        }
-
-        @Override // com.baidu.tieba.gx9
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                for (PublishSubjectProducer<T> publishSubjectProducer : get()) {
-                    publishSubjectProducer.onNext(t);
-                }
-            }
-        }
-
-        public void remove(PublishSubjectProducer<T> publishSubjectProducer) {
-            PublishSubjectProducer<T>[] publishSubjectProducerArr;
-            PublishSubjectProducer[] publishSubjectProducerArr2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, publishSubjectProducer) == null) {
-                do {
-                    publishSubjectProducerArr = get();
-                    if (publishSubjectProducerArr == TERMINATED || publishSubjectProducerArr == EMPTY) {
-                        return;
-                    }
-                    int length = publishSubjectProducerArr.length;
-                    int i = -1;
-                    int i2 = 0;
-                    while (true) {
-                        if (i2 >= length) {
-                            break;
-                        } else if (publishSubjectProducerArr[i2] == publishSubjectProducer) {
-                            i = i2;
-                            break;
-                        } else {
-                            i2++;
-                        }
-                    }
-                    if (i < 0) {
-                        return;
-                    }
-                    if (length == 1) {
-                        publishSubjectProducerArr2 = EMPTY;
-                    } else {
-                        PublishSubjectProducer[] publishSubjectProducerArr3 = new PublishSubjectProducer[length - 1];
-                        System.arraycopy(publishSubjectProducerArr, 0, publishSubjectProducerArr3, 0, i);
-                        System.arraycopy(publishSubjectProducerArr, i + 1, publishSubjectProducerArr3, i, (length - i) - 1);
-                        publishSubjectProducerArr2 = publishSubjectProducerArr3;
-                    }
-                } while (!compareAndSet(publishSubjectProducerArr, publishSubjectProducerArr2));
-            }
-        }
-
-        public void call(lx9<? super T> lx9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lx9Var) == null) {
-                PublishSubjectProducer<T> publishSubjectProducer = new PublishSubjectProducer<>(this, lx9Var);
-                lx9Var.b(publishSubjectProducer);
-                lx9Var.f(publishSubjectProducer);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dy9Var) == null) {
+                PublishSubjectProducer publishSubjectProducer = new PublishSubjectProducer(this, dy9Var);
+                dy9Var.b(publishSubjectProducer);
+                dy9Var.f(publishSubjectProducer);
                 if (add(publishSubjectProducer)) {
                     if (publishSubjectProducer.isUnsubscribed()) {
                         remove(publishSubjectProducer);
@@ -282,16 +224,75 @@ public final class PublishSubject<T> extends x1a<T, T> {
                 }
                 Throwable th = this.error;
                 if (th != null) {
-                    lx9Var.onError(th);
+                    dy9Var.onError(th);
                 } else {
-                    lx9Var.onCompleted();
+                    dy9Var.onCompleted();
                 }
+            }
+        }
+
+        @Override // com.baidu.tieba.yx9
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
+                this.error = th;
+                ArrayList arrayList = null;
+                for (PublishSubjectProducer publishSubjectProducer : (PublishSubjectProducer[]) getAndSet(TERMINATED)) {
+                    try {
+                        publishSubjectProducer.onError(th);
+                    } catch (Throwable th2) {
+                        if (arrayList == null) {
+                            arrayList = new ArrayList(1);
+                        }
+                        arrayList.add(th2);
+                    }
+                }
+                jy9.d(arrayList);
+            }
+        }
+
+        public void remove(PublishSubjectProducer publishSubjectProducer) {
+            PublishSubjectProducer[] publishSubjectProducerArr;
+            PublishSubjectProducer[] publishSubjectProducerArr2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, publishSubjectProducer) == null) {
+                do {
+                    publishSubjectProducerArr = (PublishSubjectProducer[]) get();
+                    if (publishSubjectProducerArr != TERMINATED && publishSubjectProducerArr != EMPTY) {
+                        int length = publishSubjectProducerArr.length;
+                        int i = -1;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= length) {
+                                break;
+                            } else if (publishSubjectProducerArr[i2] == publishSubjectProducer) {
+                                i = i2;
+                                break;
+                            } else {
+                                i2++;
+                            }
+                        }
+                        if (i < 0) {
+                            return;
+                        }
+                        if (length == 1) {
+                            publishSubjectProducerArr2 = EMPTY;
+                        } else {
+                            PublishSubjectProducer[] publishSubjectProducerArr3 = new PublishSubjectProducer[length - 1];
+                            System.arraycopy(publishSubjectProducerArr, 0, publishSubjectProducerArr3, 0, i);
+                            System.arraycopy(publishSubjectProducerArr, i + 1, publishSubjectProducerArr3, i, (length - i) - 1);
+                            publishSubjectProducerArr2 = publishSubjectProducerArr3;
+                        }
+                    } else {
+                        return;
+                    }
+                } while (!compareAndSet(publishSubjectProducerArr, publishSubjectProducerArr2));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PublishSubject(PublishSubjectState<T> publishSubjectState) {
+    public PublishSubject(PublishSubjectState publishSubjectState) {
         super(publishSubjectState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -302,7 +303,7 @@ public final class PublishSubject<T> extends x1a<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fx9.a) newInitContext.callArgs[0]);
+                super((xx9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -311,13 +312,16 @@ public final class PublishSubject<T> extends x1a<T, T> {
         this.b = publishSubjectState;
     }
 
-    public static <T> PublishSubject<T> D() {
+    public static PublishSubject D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new PublishSubject<>(new PublishSubjectState()) : (PublishSubject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new PublishSubject(new PublishSubjectState());
+        }
+        return (PublishSubject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gx9
+    @Override // com.baidu.tieba.yx9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -325,7 +329,7 @@ public final class PublishSubject<T> extends x1a<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.gx9
+    @Override // com.baidu.tieba.yx9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -333,11 +337,11 @@ public final class PublishSubject<T> extends x1a<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.gx9
-    public void onNext(T t) {
+    @Override // com.baidu.tieba.yx9
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.b.onNext(t);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            this.b.onNext(obj);
         }
     }
 }

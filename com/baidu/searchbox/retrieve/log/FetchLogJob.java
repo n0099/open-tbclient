@@ -3,7 +3,6 @@ package com.baidu.searchbox.retrieve.log;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.NetWorkUtils;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.retrieve.inter.IFetchJob;
@@ -19,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes2.dex */
 public class FetchLogJob extends IFetchJob {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,6 +25,13 @@ public class FetchLogJob extends IFetchJob {
     public static final String TAG = "FetchLogJob";
     public static final String UPLOAD_WIFI_TYPE = "1";
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
+    public String getFetchJobType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "flow" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -61,17 +66,16 @@ public class FetchLogJob extends IFetchJob {
     private void statDispatchData(boolean z, FetchLogBean fetchLogBean, String str) {
         IStatTask iStatTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), fetchLogBean, str}) == null) || (iStatTask = (IStatTask) ServiceManager.getService(IStatTask.SERVICE_REFERENCE)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Boolean.valueOf(z), fetchLogBean, str}) == null) && (iStatTask = (IStatTask) ServiceManager.getService(IStatTask.SERVICE_REFERENCE)) != null) {
+            iStatTask.recordDispatchRetrieveData(z, fetchLogBean.getJobId(), fetchLogBean.getType(), fetchLogBean.getVersion(), str);
         }
-        iStatTask.recordDispatchRetrieveData(z, fetchLogBean.getJobId(), fetchLogBean.getType(), fetchLogBean.getVersion(), str);
     }
 
     @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
     public void dispatch(JSONObject jSONObject) {
         FetchLogBean parseJsonContent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || (parseJsonContent = FetchLog.parseJsonContent(jSONObject)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || (parseJsonContent = FetchLog.parseJsonContent(jSONObject)) == null) {
             return;
         }
         if (DEBUG) {
@@ -83,12 +87,5 @@ public class FetchLogJob extends IFetchJob {
         }
         statDispatchData(true, parseJsonContent, "");
         ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).fetchUpload(parseJsonContent.getType(), parseJsonContent.getJobId(), parseJsonContent.getVersion(), parseJsonContent.getMaxSizeLimit(), parseJsonContent.getStartTime(), parseJsonContent.getEndTime(), parseJsonContent.getSpace());
-    }
-
-    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
-    public String getFetchJobType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "flow" : (String) invokeV.objValue;
     }
 }

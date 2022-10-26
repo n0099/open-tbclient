@@ -46,42 +46,6 @@ public class DecoderInputBuffer extends Buffer {
         this.bufferReplacementMode = i;
     }
 
-    private ByteBuffer createReplacementByteBuffer(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
-            int i2 = this.bufferReplacementMode;
-            if (i2 == 1) {
-                return ByteBuffer.allocate(i);
-            }
-            if (i2 == 2) {
-                return ByteBuffer.allocateDirect(i);
-            }
-            ByteBuffer byteBuffer = this.data;
-            int capacity = byteBuffer == null ? 0 : byteBuffer.capacity();
-            throw new IllegalStateException("Buffer too small (" + capacity + " < " + i + SmallTailInfo.EMOTION_SUFFIX);
-        }
-        return (ByteBuffer) invokeI.objValue;
-    }
-
-    public static DecoderInputBuffer newFlagsOnlyInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new DecoderInputBuffer(0) : (DecoderInputBuffer) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.decoder.Buffer
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.clear();
-            ByteBuffer byteBuffer = this.data;
-            if (byteBuffer != null) {
-                byteBuffer.clear();
-            }
-        }
-    }
-
     public void ensureSpaceForWrite(int i) throws IllegalStateException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -106,6 +70,50 @@ public class DecoderInputBuffer extends Buffer {
         }
     }
 
+    private ByteBuffer createReplacementByteBuffer(int i) {
+        InterceptResult invokeI;
+        int capacity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            int i2 = this.bufferReplacementMode;
+            if (i2 == 1) {
+                return ByteBuffer.allocate(i);
+            }
+            if (i2 == 2) {
+                return ByteBuffer.allocateDirect(i);
+            }
+            ByteBuffer byteBuffer = this.data;
+            if (byteBuffer == null) {
+                capacity = 0;
+            } else {
+                capacity = byteBuffer.capacity();
+            }
+            throw new IllegalStateException("Buffer too small (" + capacity + " < " + i + SmallTailInfo.EMOTION_SUFFIX);
+        }
+        return (ByteBuffer) invokeI.objValue;
+    }
+
+    public static DecoderInputBuffer newFlagsOnlyInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new DecoderInputBuffer(0);
+        }
+        return (DecoderInputBuffer) invokeV.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.decoder.Buffer
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.clear();
+            ByteBuffer byteBuffer = this.data;
+            if (byteBuffer != null) {
+                byteBuffer.clear();
+            }
+        }
+    }
+
     public final void flip() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -116,12 +124,21 @@ public class DecoderInputBuffer extends Buffer {
     public final boolean isEncrypted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getFlag(1073741824) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getFlag(1073741824);
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isFlagsOnly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.data == null && this.bufferReplacementMode == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.data == null && this.bufferReplacementMode == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

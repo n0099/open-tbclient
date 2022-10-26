@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 import com.sdk.a.g;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.ByteArrayOutputStream;
@@ -23,13 +22,13 @@ import java.util.TreeMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c.b {
+public class e extends com.sdk.d.e implements com.sdk.c.b {
     public static /* synthetic */ Interceptable $ic;
     public static final d j;
-    public static Map<String, Long> k;
+    public static Map k;
     public transient /* synthetic */ FieldHolder $fh;
     public long l;
-    public com.sdk.e.b<T> m;
+    public com.sdk.e.b m;
     public String n;
     public String o;
     public a p;
@@ -41,12 +40,12 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
     public Boolean v;
     public Boolean w;
     public Boolean x;
-    public h<T> y;
+    public h y;
     public long z;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -129,7 +128,24 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
         k = new TreeMap();
     }
 
-    public e(g<T> gVar) {
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("code", 1);
+                jSONObject.put("status", 102001);
+                jSONObject.put("msg", "选择流量通道失败");
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public e(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +170,7 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
         this.w = bool;
         this.x = bool;
         if (gVar != null) {
-            h<T> hVar = gVar.f;
+            h hVar = gVar.f;
             this.y = hVar;
             if (hVar != null) {
                 this.n = hVar.c;
@@ -165,88 +181,15 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.p = a.e;
-            if (!this.e.get()) {
-                try {
-                    this.e.set(true);
-                    this.d.cancel(true);
-                } catch (Throwable th) {
-                    com.sdk.n.a.a("PriorityAsyncTask", th.getMessage(), this.h);
-                }
-            }
-            com.sdk.e.b<T> bVar = this.m;
-            if (bVar != null) {
-                bVar.a();
-            }
-        }
-    }
-
-    public final i<T> b(g<T> gVar, HttpURLConnection httpURLConnection) {
-        InterceptResult invokeLL;
-        String a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, gVar, httpURLConnection)) == null) {
-            i<T> iVar = null;
-            try {
-            } catch (Throwable th) {
-                com.sdk.n.b.c(th.toString());
-                com.sdk.n.a.a("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.h);
-                int i = this.q;
-                if (i > 0) {
-                    this.q = i - 1;
-                    iVar = b(gVar, httpURLConnection);
-                }
-            }
-            if (!j.b(this.n) || (a2 = j.a(this.o)) == null) {
-                if (this.v.booleanValue() && this.u) {
-                    File file = new File(this.t);
-                    long length = (file.isFile() && file.exists()) ? file.length() : 0L;
-                    if (length > 0) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("bytes=");
-                        sb.append(length);
-                        sb.append("-");
-                        httpURLConnection.setRequestProperty("RANGE", sb.toString());
-                    }
-                }
-                if (!this.e.get()) {
-                    this.z = System.currentTimeMillis();
-                    iVar = a(gVar, gVar.a(httpURLConnection));
-                }
-                return iVar == null ? new i<>(1, "网络访问异常", false) : iVar;
-            }
-            return new i<>(0, a2, true);
-        }
-        return (i) invokeLL.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("code", 1);
-                jSONObject.put("status", 102001);
-                jSONObject.put("msg", "选择流量通道失败");
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final i<T> a(g<T> gVar, HttpURLConnection httpURLConnection) {
+    public final i a(g gVar, HttpURLConnection httpURLConnection) {
         InterceptResult invokeLL;
         byte[] bArr;
+        boolean z;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gVar, httpURLConnection)) == null) {
             if (this.e.get()) {
-                return new i<>(1, "网络访问已取消", false);
+                return new i(1, "网络访问已取消", false);
             }
             try {
                 com.sdk.n.b.a(httpURLConnection.getURL().toString(), System.currentTimeMillis() - this.z);
@@ -280,13 +223,23 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                     new ArrayList();
                     new ArrayList();
                     new ArrayList();
-                    String str = "qcandroidabc000" + System.currentTimeMillis();
+                    String str2 = "qcandroidabc000" + System.currentTimeMillis();
                 }
                 if (responseCode < 300) {
                     this.r = false;
                     if (this.u) {
-                        this.v = Boolean.valueOf(this.v.booleanValue() && com.sdk.l.a.b(httpURLConnection));
-                        new com.sdk.c.a().a(httpURLConnection, this, this.t, this.v.booleanValue(), this.w.booleanValue() ? com.sdk.l.a.a(httpURLConnection) : null);
+                        if (this.v.booleanValue() && com.sdk.l.a.b(httpURLConnection)) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        this.v = Boolean.valueOf(z);
+                        if (this.w.booleanValue()) {
+                            str = com.sdk.l.a.a(httpURLConnection);
+                        } else {
+                            str = null;
+                        }
+                        new com.sdk.c.a().a(httpURLConnection, this, this.t, this.v.booleanValue(), str);
                     }
                     if (this.x.booleanValue()) {
                         InputStream inputStream = httpURLConnection.getInputStream();
@@ -309,11 +262,11 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                             bArr = a2;
                         }
                     }
-                    return new i<>(0, bArr, false);
+                    return new i(0, bArr, false);
                 }
                 if (responseCode == 301 || responseCode == 302) {
                     com.sdk.n.b.a(gVar.f.d, System.currentTimeMillis() - this.z);
-                    String headerField = httpURLConnection.getHeaderField(Headers.LOCATION);
+                    String headerField = httpURLConnection.getHeaderField("Location");
                     String headerField2 = httpURLConnection.getHeaderField("Set-Cookie");
                     String path = httpURLConnection.getURL().getPath();
                     if (headerField == null) {
@@ -321,7 +274,7 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                         new ArrayList();
                         new ArrayList();
                         new ArrayList();
-                        String str2 = "qcandroidabc000" + System.currentTimeMillis();
+                        String str3 = "qcandroidabc000" + System.currentTimeMillis();
                     }
                     if (com.sdk.n.a.b(headerField).booleanValue()) {
                         gVar.f.d = headerField;
@@ -336,7 +289,7 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                             a3.setRequestProperty("Cookie", com.sdk.j.a.c(SDKManager.mContext, "ctc"));
                         }
                         if (a3 == null) {
-                            return new i<>(0, b(), false);
+                            return new i(0, b(), false);
                         }
                         gVar.f.a(g.a.a.l);
                         return b(gVar, a3);
@@ -344,15 +297,34 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                 }
                 com.sdk.n.b.c("服务异常 ResponseCode = " + responseCode);
                 com.sdk.n.a.a("PriorityAsyncTask", "服务异常 ResponseCode = " + responseCode, this.h);
-                return new i<>(0, "服务端数据格式出错", false);
+                return new i(0, "服务端数据格式出错", false);
             } catch (Exception e) {
                 com.sdk.n.b.a(gVar.f.d, System.currentTimeMillis() - this.z);
                 com.sdk.n.b.c(e.toString());
                 com.sdk.n.a.a("PriorityAsyncTask", e.toString(), this.h);
-                return new i<>(1, "网络访问异常", false);
+                return new i(1, "网络访问异常", false);
             }
         }
         return (i) invokeLL.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.p = a.e;
+            if (!this.e.get()) {
+                try {
+                    this.e.set(true);
+                    this.d.cancel(true);
+                } catch (Throwable th) {
+                    com.sdk.n.a.a("PriorityAsyncTask", th.getMessage(), this.h);
+                }
+            }
+            com.sdk.e.b bVar = this.m;
+            if (bVar != null) {
+                bVar.a();
+            }
+        }
     }
 
     public boolean a(long j2, long j3, boolean z) {
@@ -375,8 +347,58 @@ public class e<T> extends com.sdk.d.e<Object, Object, Void> implements com.sdk.c
                     }
                 }
             }
-            return this.p != a.e;
+            if (this.p != a.e) {
+                return true;
+            }
+            return false;
         }
         return invokeCommon.booleanValue;
+    }
+
+    public final i b(g gVar, HttpURLConnection httpURLConnection) {
+        InterceptResult invokeLL;
+        long j2;
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, gVar, httpURLConnection)) == null) {
+            i iVar = null;
+            try {
+            } catch (Throwable th) {
+                com.sdk.n.b.c(th.toString());
+                com.sdk.n.a.a("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.h);
+                int i = this.q;
+                if (i > 0) {
+                    this.q = i - 1;
+                    iVar = b(gVar, httpURLConnection);
+                }
+            }
+            if (j.b(this.n) && (a2 = j.a(this.o)) != null) {
+                return new i(0, a2, true);
+            }
+            if (this.v.booleanValue() && this.u) {
+                File file = new File(this.t);
+                if (file.isFile() && file.exists()) {
+                    j2 = file.length();
+                } else {
+                    j2 = 0;
+                }
+                if (j2 > 0) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("bytes=");
+                    sb.append(j2);
+                    sb.append("-");
+                    httpURLConnection.setRequestProperty("RANGE", sb.toString());
+                }
+            }
+            if (!this.e.get()) {
+                this.z = System.currentTimeMillis();
+                iVar = a(gVar, gVar.a(httpURLConnection));
+            }
+            if (iVar == null) {
+                return new i(1, "网络访问异常", false);
+            }
+            return iVar;
+        }
+        return (i) invokeLL.objValue;
     }
 }

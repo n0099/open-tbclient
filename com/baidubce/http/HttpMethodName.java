@@ -65,12 +65,18 @@ public final class HttpMethodName {
     public static HttpMethodName valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HttpMethodName) Enum.valueOf(HttpMethodName.class, str) : (HttpMethodName) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (HttpMethodName) Enum.valueOf(HttpMethodName.class, str);
+        }
+        return (HttpMethodName) invokeL.objValue;
     }
 
     public static HttpMethodName[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HttpMethodName[]) $VALUES.clone() : (HttpMethodName[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (HttpMethodName[]) $VALUES.clone();
+        }
+        return (HttpMethodName[]) invokeV.objValue;
     }
 }

@@ -30,6 +30,30 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     public int mStatus;
     public int mSwitchCategory;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMSetMsgSettingSwitchRequest(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,49 +75,53 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
         this.mListener = iSetMsgSettingSwitchListener;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new HashMap() : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new HashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
         InterceptResult invokeV;
-        String replace;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
             if (readIntData != 0) {
-                replace = readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? null : Constants.URL_HTTP_BOX : Constants.URL_HTTP_QA : "http://rd-im-server.bcc-szth.baidu.com:8080/";
+                if (readIntData != 1) {
+                    if (readIntData != 2) {
+                        if (readIntData != 3) {
+                            str = null;
+                        } else {
+                            str = Constants.URL_HTTP_BOX;
+                        }
+                    } else {
+                        str = Constants.URL_HTTP_QA;
+                    }
+                } else {
+                    str = "http://rd-im-server.bcc-szth.baidu.com:8080/";
+                }
+            } else if (!Utility.isPeakTime()) {
+                str = "https://pim.baidu.com/";
             } else {
-                replace = Utility.isPeakTime() ? "https://pim.baidu.com/".replace("https://", "http://") : "https://pim.baidu.com/";
+                str = "https://pim.baidu.com/".replace("https://", "http://");
             }
-            if (TextUtils.isEmpty(replace)) {
-                return replace;
+            if (!TextUtils.isEmpty(str)) {
+                return str + "rest/3.0/im/set_user_setting";
             }
-            return replace + "rest/3.0/im/set_user_setting";
+            return str;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() {
+        int i;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -110,7 +138,12 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
                 jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
                 jSONObject.put("timestamp", currentTimeMillis);
                 jSONObject.put("sign", getMd5("" + currentTimeMillis + uk + appid));
-                jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
+                if (AccountManager.isCuidLogin(this.mContext)) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("account_type", i);
                 if (this.mSwitchCategory == 1) {
                     jSONObject.put("push_privacy", this.mStatus);
                 } else if (this.mSwitchCategory == 0) {
@@ -129,7 +162,7 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener = this.mListener;
             if (iSetMsgSettingSwitchListener != null) {
                 iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
@@ -159,15 +192,5 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
                 iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(i2, str);
             }
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

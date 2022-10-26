@@ -16,12 +16,21 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
-public class DummyMap<K, V> implements Map<K, V> {
+public class DummyMap implements Map {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashSet<K> keys;
-    public V value;
+    public HashSet keys;
+    public Object value;
+
+    public Comparator comparator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (Comparator) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,32 +46,6 @@ public class DummyMap<K, V> implements Map<K, V> {
         }
     }
 
-    public DummyMap(V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.keys = new HashSet<>();
-        this.value = v;
-    }
-
-    public void addKeys(K[] kArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kArr) == null) {
-            Collections.addAll(this.keys, kArr);
-        }
-    }
-
     @Override // java.util.Map
     public void clear() {
         Interceptable interceptable = $ic;
@@ -71,31 +54,8 @@ public class DummyMap<K, V> implements Map<K, V> {
         }
     }
 
-    public Comparator<? super K> comparator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (Comparator) invokeV.objValue;
-    }
-
     @Override // java.util.Map
-    public boolean containsKey(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.keys.contains(obj) : invokeL.booleanValue;
-    }
-
-    @Override // java.util.Map
-    public boolean containsValue(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.value == obj : invokeL.booleanValue;
-    }
-
-    @Override // java.util.Map
-    public Set<Map.Entry<K, V>> entrySet() {
+    public Set entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -105,7 +65,96 @@ public class DummyMap<K, V> implements Map<K, V> {
     }
 
     @Override // java.util.Map
-    public V get(Object obj) {
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.keys.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.Map
+    public Set keySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.keys;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    @Override // java.util.Map
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.keys.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.util.Map
+    public Collection values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (Collection) invokeV.objValue;
+    }
+
+    public DummyMap(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.keys = new HashSet();
+        this.value = obj;
+    }
+
+    public void addKeys(Object[] objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, objArr) == null) {
+            Collections.addAll(this.keys, objArr);
+        }
+    }
+
+    @Override // java.util.Map
+    public boolean containsKey(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            return this.keys.contains(obj);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Map
+    public boolean containsValue(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this.value == obj) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Map
+    public Object get(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
@@ -114,70 +163,39 @@ public class DummyMap<K, V> implements Map<K, V> {
             }
             return null;
         }
-        return (V) invokeL.objValue;
+        return invokeL.objValue;
     }
 
     @Override // java.util.Map
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.keys.isEmpty() : invokeV.booleanValue;
-    }
-
-    @Override // java.util.Map
-    public Set<K> keySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.keys : (Set) invokeV.objValue;
-    }
-
-    @Override // java.util.Map
-    public V put(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
-            this.keys.add(k);
-            return this.value;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    @Override // java.util.Map
-    public void putAll(Map<? extends K, ? extends V> map) {
+    public void putAll(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
-            for (K k : map.keySet()) {
-                this.keys.add(k);
+            for (Object obj : map.keySet()) {
+                this.keys.add(obj);
             }
         }
     }
 
     @Override // java.util.Map
-    public V remove(Object obj) {
+    public Object remove(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
-            V v = get(obj);
+            Object obj2 = get(obj);
             this.keys.remove(obj);
-            return v;
+            return obj2;
         }
-        return (V) invokeL.objValue;
+        return invokeL.objValue;
     }
 
     @Override // java.util.Map
-    public int size() {
-        InterceptResult invokeV;
+    public Object put(Object obj, Object obj2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.keys.size() : invokeV.intValue;
-    }
-
-    @Override // java.util.Map
-    public Collection<V> values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            throw new UnsupportedOperationException();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, obj, obj2)) == null) {
+            this.keys.add(obj);
+            return this.value;
         }
-        return (Collection) invokeV.objValue;
+        return invokeLL.objValue;
     }
 }

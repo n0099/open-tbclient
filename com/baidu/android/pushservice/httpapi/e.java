@@ -90,7 +90,7 @@ public class e extends d {
     }
 
     @Override // com.baidu.android.pushservice.httpapi.a
-    public void a(HashMap<String, String> hashMap) {
+    public void a(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
             super.a(hashMap);
@@ -120,7 +120,7 @@ public class e extends d {
     }
 
     @Override // com.baidu.android.pushservice.httpapi.a
-    public void b(HashMap<String, String> hashMap) {
+    public void b(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
             super.b(hashMap);

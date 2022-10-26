@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w0<p0> a;
-    public final w0<p0> b;
+    public final w0 a;
+    public final w0 b;
     public v0 c;
     public EntityManager d;
     public ComponentOperationHandler e;
@@ -26,13 +26,13 @@ public class o0 {
     public boolean g;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public class b implements w0<p0> {
+    public class b implements w0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o0 a;
@@ -55,18 +55,18 @@ public class o0 {
             this.a = o0Var;
         }
 
+        public /* synthetic */ b(o0 o0Var, a aVar) {
+            this(o0Var);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.w0
         /* renamed from: b */
-        public void a(x0<p0> x0Var, p0 p0Var) {
+        public void a(x0 x0Var, p0 p0Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x0Var, p0Var) == null) {
                 this.a.f.f(p0Var);
             }
-        }
-
-        public /* synthetic */ b(o0 o0Var, a aVar) {
-            this(o0Var);
         }
     }
 
@@ -94,15 +94,18 @@ public class o0 {
             this.a = o0Var;
         }
 
+        public /* synthetic */ c(o0 o0Var, a aVar) {
+            this(o0Var);
+        }
+
         @Override // com.badlogic.ashley.core.ComponentOperationHandler.b
         public boolean value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.g : invokeV.booleanValue;
-        }
-
-        public /* synthetic */ c(o0 o0Var, a aVar) {
-            this(o0Var);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.g;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -212,6 +215,24 @@ public class o0 {
         s0.d(new Class[0]).b();
     }
 
+    public p0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new p0();
+        }
+        return (p0) invokeV.objValue;
+    }
+
+    public z0 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c.c();
+        }
+        return (z0) invokeV.objValue;
+    }
+
     public o0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -234,9 +255,15 @@ public class o0 {
     }
 
     public void c(p0 p0Var) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, p0Var) == null) {
-            this.d.a(p0Var, this.g || this.f.c());
+            if (!this.g && !this.f.c()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.d.a(p0Var, z);
         }
     }
 
@@ -250,20 +277,6 @@ public class o0 {
         }
     }
 
-    public void e(s0 s0Var, int i, q0 q0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, s0Var, i, q0Var) == null) {
-            this.f.a(s0Var, i, q0Var);
-        }
-    }
-
-    public void f(s0 s0Var, q0 q0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, s0Var, q0Var) == null) {
-            e(s0Var, 0, q0Var);
-        }
-    }
-
     public void g(r0 r0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, r0Var) == null) {
@@ -271,47 +284,47 @@ public class o0 {
         }
     }
 
-    public <T extends m0> T h(Class<T> cls) {
+    public m0 h(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
             try {
-                return (T) u8.i(cls);
+                return (m0) u8.i(cls);
             } catch (ReflectionException unused) {
                 return null;
             }
         }
-        return (T) invokeL.objValue;
+        return (m0) invokeL.objValue;
     }
 
-    public p0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new p0() : (p0) invokeV.objValue;
-    }
-
-    public z0<p0> j(s0 s0Var) {
+    public z0 j(s0 s0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, s0Var)) == null) ? this.f.b(s0Var) : (z0) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, s0Var)) == null) {
+            return this.f.b(s0Var);
+        }
+        return (z0) invokeL.objValue;
     }
 
-    public <T extends r0> T k(Class<T> cls) {
+    public r0 k(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) ? (T) this.c.b(cls) : (T) invokeL.objValue;
-    }
-
-    public z0<r0> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c.c() : (z0) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
+            return this.c.b(cls);
+        }
+        return (r0) invokeL.objValue;
     }
 
     public void m(p0 p0Var) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, p0Var) == null) {
-            this.d.e(p0Var, this.g || this.f.c());
+            if (!this.g && !this.f.c()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.d.e(p0Var, z);
         }
     }
 
@@ -339,15 +352,29 @@ public class o0 {
         }
     }
 
+    public void e(s0 s0Var, int i, q0 q0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, s0Var, i, q0Var) == null) {
+            this.f.a(s0Var, i, q0Var);
+        }
+    }
+
+    public void f(s0 s0Var, q0 q0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, s0Var, q0Var) == null) {
+            e(s0Var, 0, q0Var);
+        }
+    }
+
     public void update(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
             if (!this.g) {
                 this.g = true;
-                z0<r0> c2 = this.c.c();
+                z0 c2 = this.c.c();
                 for (int i = 0; i < c2.size(); i++) {
                     try {
-                        r0 r0Var = c2.get(i);
+                        r0 r0Var = (r0) c2.get(i);
                         if (r0Var.e()) {
                             r0Var.update(f);
                         }

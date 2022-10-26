@@ -35,6 +35,9 @@ public class TokenResult extends CodeResult {
     public String getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.token : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.token;
+        }
+        return (String) invokeV.objValue;
     }
 }

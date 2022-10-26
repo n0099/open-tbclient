@@ -1,45 +1,96 @@
 package com.baidu.tieba;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.app.NotificationCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.nearby.viewholder.NearbyForumFriendItemViewHolder;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.myCollection.CollectUpdateReceiver;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeRequestMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes4.dex */
-public class gq7 extends qn<l45, NearbyForumFriendItemViewHolder> {
+public class gq7 {
     public static /* synthetic */ Interceptable $ic;
+    public static gq7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public boolean c;
+    public volatile boolean a;
 
     /* loaded from: classes4.dex */
-    public class a implements no {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gq7 a;
 
-        public a(gq7 gq7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gq7 gq7Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gq7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                List list = Collections.EMPTY_LIST;
+                if (responsedMessage instanceof GetStoreRemindTimeHttpResponseMessage) {
+                    list = ((GetStoreRemindTimeHttpResponseMessage) responsedMessage).getTimeList();
+                } else if (responsedMessage instanceof GetStoreRemindTimeSocketResponseMessage) {
+                    list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
+                }
+                if (!list.isEmpty()) {
+                    ux4.k().y("collect_update_time_key", new JSONArray((Collection) list).toString());
+                    gq7.b().g();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Comparator {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(gq7 gq7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,255 +102,181 @@ public class gq7 extends qn<l45, NearbyForumFriendItemViewHolder> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = gq7Var;
         }
 
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Calendar calendar, Calendar calendar2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof l45)) {
-                l45 l45Var = (l45) cdo;
-                String str = l45Var.a;
-                boolean z = !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str);
-                o37.i(i + 1, this.a.b, 2, l45Var.a);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(dh.g(str, 0L), z, false)));
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, calendar, calendar2)) == null) {
+                if (calendar.before(calendar2)) {
+                    return -1;
+                }
+                return 1;
             }
+            return invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ l45 b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ gq7 d;
-
-        public b(gq7 gq7Var, ViewGroup viewGroup, l45 l45Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gq7Var, viewGroup, l45Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = gq7Var;
-            this.a = viewGroup;
-            this.b = l45Var;
-            this.c = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.d.c) {
-                    PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
-                    personChangeActivityConfig.setIsCompleteLocalInfo(true);
-                    personChangeActivityConfig.start();
-                } else {
-                    l45 l45Var = this.b;
-                    gq7 gq7Var = this.d;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921654, new m65(l45Var, gq7Var.w(gq7Var.b))));
-                }
-                o37.i(this.c + 1, this.d.b, 1, this.b.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gq7(Context context, BdUniqueId bdUniqueId, int i) {
-        super(context, bdUniqueId);
+    public gq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = i;
-        setOnAdapterItemClickListener(new a(this));
+        this.a = false;
+        MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
+        zm8.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, zm8.a("c/f/livegroup/getStoreRemindTime", 309117));
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public final void A(l45 l45Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
-        boolean z;
+    public void g() {
+        Calendar c;
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, l45Var, nearbyForumFriendItemViewHolder) == null) {
-            nearbyForumFriendItemViewHolder.c.K(l45Var.c, 25, false);
-            nearbyForumFriendItemViewHolder.d.setText(l45Var.b);
-            int i = l45Var.d;
-            boolean z2 = true;
-            if ((i != 1 && i != 2) || l45Var.e <= 0) {
-                nearbyForumFriendItemViewHolder.e.setVisibility(8);
-                z = false;
-            } else {
-                nearbyForumFriendItemViewHolder.e.setVisibility(0);
-                nearbyForumFriendItemViewHolder.g.setText(String.valueOf(l45Var.e));
-                z = true;
-            }
-            if (StringUtils.isNull(l45Var.f)) {
-                nearbyForumFriendItemViewHolder.h.setVisibility(8);
-            } else {
-                nearbyForumFriendItemViewHolder.h.setVisibility(0);
-                nearbyForumFriendItemViewHolder.h.setText(l45Var.f);
-                z = true;
-            }
-            if (StringUtils.isNull(l45Var.g)) {
-                nearbyForumFriendItemViewHolder.i.setVisibility(8);
-                z2 = z;
-            } else {
-                nearbyForumFriendItemViewHolder.i.setVisibility(0);
-                nearbyForumFriendItemViewHolder.i.setText(l45Var.g);
-            }
-            z(nearbyForumFriendItemViewHolder, l45Var.k);
-            if (z2 && nearbyForumFriendItemViewHolder.p.getVisibility() == 0) {
-                nearbyForumFriendItemViewHolder.o.setVisibility(0);
-            } else {
-                nearbyForumFriendItemViewHolder.o.setVisibility(8);
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f068e));
-            if (!ListUtils.isEmpty(l45Var.h)) {
-                List<k45> list = l45Var.h;
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    if (i2 > 0) {
-                        sb.append("/");
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = c()) == null || (context = TbadkCoreApplication.getInst().getContext()) == null) {
+            return;
+        }
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
+        intent.setPackage(context.getPackageName());
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(14, 0);
+        if (c.before(calendar)) {
+            c.set(6, calendar.get(6) + 1);
+        }
+        alarmManager.set(1, c.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, 134217728));
+    }
+
+    public static gq7 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (gq7.class) {
+                    if (b == null) {
+                        b = new gq7();
                     }
-                    sb.append(list.get(i2).a);
-                    sb.append(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f066e));
                 }
             }
-            nearbyForumFriendItemViewHolder.j.setText(sb);
-            nearbyForumFriendItemViewHolder.n.setText(l45Var.i);
+            return b;
+        }
+        return (gq7) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a()) {
+            MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
+            h();
         }
     }
 
-    public void B(boolean z) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            ux4.k().x("collect_request_time_key", System.currentTimeMillis());
         }
     }
 
-    public final void C(l45 l45Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, l45Var, nearbyForumFriendItemViewHolder) == null) {
-            nearbyForumFriendItemViewHolder.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            hv4.d(nearbyForumFriendItemViewHolder.d).v(R.color.CAM_X0105);
-            int i = l45Var.d;
-            if (i == 1) {
-                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f0807d3, R.color.CAM_X0330, null);
-                hv4.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0330);
-                hv4 d = hv4.d(nearbyForumFriendItemViewHolder.e);
-                d.e(R.string.A_X11);
-                d.n(R.string.J_X01);
-                d.f(R.color.CAM_X0330);
-            } else if (i == 2) {
-                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f0807f0, R.color.CAM_X0308, null);
-                hv4.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0308);
-                hv4 d2 = hv4.d(nearbyForumFriendItemViewHolder.e);
-                d2.e(R.string.A_X11);
-                d2.n(R.string.J_X01);
-                d2.f(R.color.CAM_X0308);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long m = ux4.k().m("collect_request_time_key", -1L);
+            if (m == -1) {
+                return true;
             }
-            hv4 d3 = hv4.d(nearbyForumFriendItemViewHolder.h);
-            d3.n(R.string.J_X01);
-            d3.v(R.color.CAM_X0107);
-            d3.f(R.color.CAM_X0202);
-            hv4.d(nearbyForumFriendItemViewHolder.i).v(R.color.CAM_X0109);
-            hv4.d(nearbyForumFriendItemViewHolder.o).v(R.color.CAM_X0109);
-            hv4.d(nearbyForumFriendItemViewHolder.p).v(R.color.CAM_X0109);
-            WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.l, R.drawable.obfuscated_res_0x7f0809de, R.color.CAM_X0302, null);
-            hv4.d(nearbyForumFriendItemViewHolder.m).v(R.color.CAM_X0302);
-            hv4 d4 = hv4.d(nearbyForumFriendItemViewHolder.k);
-            d4.n(R.string.J_X01);
-            d4.f(R.color.CAM_X0905);
-            hv4.d(nearbyForumFriendItemViewHolder.j).v(R.color.CAM_X0109);
-            hv4.d(nearbyForumFriendItemViewHolder.n).v(R.color.CAM_X0107);
+            long currentTimeMillis = System.currentTimeMillis() - m;
+            if (currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Calendar c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String q = ux4.k().q("collect_update_time_key", null);
+            if (TextUtils.isEmpty(q)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            Calendar calendar = Calendar.getInstance();
+            try {
+                JSONArray jSONArray = new JSONArray(q);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    String optString = jSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString)) {
+                        Calendar calendar2 = (Calendar) calendar.clone();
+                        calendar2.setTime(simpleDateFormat.parse(optString));
+                        calendar2.set(calendar.get(1), calendar.get(2), calendar.get(5));
+                        arrayList.add(calendar2);
+                    }
+                }
+            } catch (ParseException e) {
+                BdLog.e(e.getMessage());
+                e.printStackTrace();
+                return null;
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            } catch (Exception e3) {
+                BdLog.e(e3.getMessage());
+            }
+            if (arrayList.isEmpty()) {
+                return null;
+            }
+            Collections.sort(arrayList, new b(this));
+            Calendar calendar3 = (Calendar) arrayList.get(0);
+            Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
+            if (arrayList.size() != 1 && !calendar3.after(calendar) && !calendar4.before(calendar)) {
+                for (int i2 = 1; i2 < arrayList.size(); i2++) {
+                    Calendar calendar5 = (Calendar) arrayList.get(i2);
+                    if (!calendar5.before(calendar)) {
+                        return calendar5;
+                    }
+                }
+                return null;
+            }
+            return calendar3;
+        }
+        return (Calendar) invokeV.objValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (this.a) {
+                z = false;
+            }
+            ux4.k().u("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l45 l45Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
-        y(i, view2, viewGroup, l45Var, nearbyForumFriendItemViewHolder);
-        return view2;
-    }
-
-    public final int w(int i) {
-        InterceptResult invokeI;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (i != 1) {
-                return i != 2 ? -1 : 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: x */
-    public NearbyForumFriendItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) ? new NearbyForumFriendItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0631, viewGroup, false), this.a) : (NearbyForumFriendItemViewHolder) invokeL.objValue;
-    }
-
-    public View y(int i, View view2, ViewGroup viewGroup, l45 l45Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l45Var, nearbyForumFriendItemViewHolder})) == null) {
-            if (l45Var != null && nearbyForumFriendItemViewHolder != null) {
-                C(l45Var, nearbyForumFriendItemViewHolder);
-                A(l45Var, nearbyForumFriendItemViewHolder);
-                o37.p(i + 1, this.b);
-                nearbyForumFriendItemViewHolder.k.setOnClickListener(new b(this, viewGroup, l45Var, i));
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void z(NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, nearbyForumFriendItemViewHolder, i) == null) {
-            nearbyForumFriendItemViewHolder.p.setVisibility(0);
-            if (i == 1) {
-                nearbyForumFriendItemViewHolder.p.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0c4d));
-                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(true);
-            } else if (i == 2) {
-                nearbyForumFriendItemViewHolder.p.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0c4b));
-                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(true);
-            } else if (i != 3) {
-                nearbyForumFriendItemViewHolder.p.setVisibility(8);
-                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(false);
-            } else {
-                nearbyForumFriendItemViewHolder.p.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0c4c));
-                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(false);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
         }
     }
 }

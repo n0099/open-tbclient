@@ -8,7 +8,7 @@ import com.samsung.android.deviceidservice.IDeviceIdService;
 public interface e extends IInterface {
 
     /* loaded from: classes7.dex */
-    public static class a implements e {
+    public final class a implements e {
         public IBinder Zz;
 
         public a(IBinder iBinder) {

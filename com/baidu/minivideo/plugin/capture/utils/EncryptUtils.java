@@ -54,51 +54,52 @@ public class EncryptUtils {
         InterceptResult invokeLLZ;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65537, null, str, file, z)) != null) {
-            return (String) invokeLLZ.objValue;
-        }
-        FileInputStream fileInputStream2 = null;
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.reset();
-            fileInputStream = new FileInputStream(file);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, str, file, z)) == null) {
+            FileInputStream fileInputStream2 = null;
             try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                String hexString = toHexString(messageDigest.digest(), "", z);
+                MessageDigest messageDigest = MessageDigest.getInstance(str);
+                messageDigest.reset();
+                fileInputStream = new FileInputStream(file);
                 try {
-                    fileInputStream.close();
-                } catch (IOException unused) {
-                }
-                return hexString;
-            } catch (FileNotFoundException unused2) {
-            } catch (IOException unused3) {
-            } catch (NoSuchAlgorithmException unused4) {
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException unused5) {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
                     }
+                    String hexString = toHexString(messageDigest.digest(), "", z);
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused) {
+                    }
+                    return hexString;
+                } catch (FileNotFoundException unused2) {
+                } catch (IOException unused3) {
+                } catch (NoSuchAlgorithmException unused4) {
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (FileNotFoundException unused6) {
+                fileInputStream = null;
+            } catch (IOException unused7) {
+                fileInputStream = null;
+            } catch (NoSuchAlgorithmException unused8) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (FileNotFoundException unused6) {
-            fileInputStream = null;
-        } catch (IOException unused7) {
-            fileInputStream = null;
-        } catch (NoSuchAlgorithmException unused8) {
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return (String) invokeLLZ.objValue;
         }
     }
 

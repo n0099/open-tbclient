@@ -31,7 +31,10 @@ public class ContextUtils {
     public static Context getApplicationContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? applicationContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return applicationContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static void initialize(Context context) {

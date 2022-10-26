@@ -17,9 +17,11 @@ public abstract class TimeSelector {
     public static final TimeSelector sInclusiveThreadTimeSelector;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract long get(MethodInfo methodInfo, ThreadInfo threadInfo, TimeUnit timeUnit);
+
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.TimeSelector$5  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass5 {
+    public /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$ClockType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +87,10 @@ public abstract class TimeSelector {
             public long get(MethodInfo methodInfo, ThreadInfo threadInfo, TimeUnit timeUnit) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, methodInfo, threadInfo, timeUnit)) == null) ? methodInfo.getProfileData().getInclusiveTime(threadInfo, ClockType.THREAD, timeUnit) : invokeLLL.longValue;
+                if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, methodInfo, threadInfo, timeUnit)) == null) {
+                    return methodInfo.getProfileData().getInclusiveTime(threadInfo, ClockType.THREAD, timeUnit);
+                }
+                return invokeLLL.longValue;
             }
         };
         sInclusiveGlobalTimeSelector = new TimeSelector() { // from class: com.baidu.android.ddmlib.tools.perflib.vmtrace.TimeSelector.2
@@ -110,7 +115,10 @@ public abstract class TimeSelector {
             public long get(MethodInfo methodInfo, ThreadInfo threadInfo, TimeUnit timeUnit) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, methodInfo, threadInfo, timeUnit)) == null) ? methodInfo.getProfileData().getInclusiveTime(threadInfo, ClockType.GLOBAL, timeUnit) : invokeLLL.longValue;
+                if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, methodInfo, threadInfo, timeUnit)) == null) {
+                    return methodInfo.getProfileData().getInclusiveTime(threadInfo, ClockType.GLOBAL, timeUnit);
+                }
+                return invokeLLL.longValue;
             }
         };
         sExclusiveThreadTimeSelector = new TimeSelector() { // from class: com.baidu.android.ddmlib.tools.perflib.vmtrace.TimeSelector.3
@@ -135,7 +143,10 @@ public abstract class TimeSelector {
             public long get(MethodInfo methodInfo, ThreadInfo threadInfo, TimeUnit timeUnit) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, methodInfo, threadInfo, timeUnit)) == null) ? methodInfo.getProfileData().getExclusiveTime(threadInfo, ClockType.THREAD, timeUnit) : invokeLLL.longValue;
+                if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, methodInfo, threadInfo, timeUnit)) == null) {
+                    return methodInfo.getProfileData().getExclusiveTime(threadInfo, ClockType.THREAD, timeUnit);
+                }
+                return invokeLLL.longValue;
             }
         };
         sExclusiveGlobalTimeSelector = new TimeSelector() { // from class: com.baidu.android.ddmlib.tools.perflib.vmtrace.TimeSelector.4
@@ -160,7 +171,10 @@ public abstract class TimeSelector {
             public long get(MethodInfo methodInfo, ThreadInfo threadInfo, TimeUnit timeUnit) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, methodInfo, threadInfo, timeUnit)) == null) ? methodInfo.getProfileData().getExclusiveTime(threadInfo, ClockType.GLOBAL, timeUnit) : invokeLLL.longValue;
+                if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, methodInfo, threadInfo, timeUnit)) == null) {
+                    return methodInfo.getProfileData().getExclusiveTime(threadInfo, ClockType.GLOBAL, timeUnit);
+                }
+                return invokeLLL.longValue;
             }
         };
     }
@@ -184,16 +198,20 @@ public abstract class TimeSelector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, clockType, z)) == null) {
             int i = AnonymousClass5.$SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$ClockType[clockType.ordinal()];
-            if (i == 1) {
-                return z ? sInclusiveThreadTimeSelector : sExclusiveThreadTimeSelector;
-            } else if (i == 2) {
-                return z ? sInclusiveGlobalTimeSelector : sExclusiveGlobalTimeSelector;
-            } else {
+            if (i != 1) {
+                if (i == 2) {
+                    if (z) {
+                        return sInclusiveGlobalTimeSelector;
+                    }
+                    return sExclusiveGlobalTimeSelector;
+                }
                 throw new IllegalArgumentException();
+            } else if (z) {
+                return sInclusiveThreadTimeSelector;
+            } else {
+                return sExclusiveThreadTimeSelector;
             }
         }
         return (TimeSelector) invokeLZ.objValue;
     }
-
-    public abstract long get(MethodInfo methodInfo, ThreadInfo threadInfo, TimeUnit timeUnit);
 }

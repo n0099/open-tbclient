@@ -6,11 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@NotProguard
 /* loaded from: classes2.dex */
 public abstract class InspectorNativeChannel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract String awaitMessage();
+
+    public abstract void sendMessage(String str);
 
     public InspectorNativeChannel() {
         Interceptable interceptable = $ic;
@@ -26,12 +29,13 @@ public abstract class InspectorNativeChannel {
         }
     }
 
-    public abstract String awaitMessage();
-
     public String nativeAwaitMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? awaitMessage() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return awaitMessage();
+        }
+        return (String) invokeV.objValue;
     }
 
     public void nativeSendMessage(String str) {
@@ -40,6 +44,4 @@ public abstract class InspectorNativeChannel {
             sendMessage(str);
         }
     }
-
-    public abstract void sendMessage(String str);
 }

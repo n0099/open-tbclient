@@ -3,8 +3,8 @@ package com.baidu.tieba.pb.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.iu7;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.tu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,9 +55,13 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("agree");
             if (optJSONObject2 != null) {
                 this.mScore = optJSONObject2.optInt("score");
-                this.isFirstAgree = optJSONObject2.optInt("is_first_agree") == 1;
+                boolean z = true;
+                if (optJSONObject2.optInt("is_first_agree") != 1) {
+                    z = false;
+                }
+                this.isFirstAgree = z;
             }
-            this.mActDialogData = iu7.a(optJSONObject);
+            this.mActDialogData = tu7.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             ContriInfo contriInfo = new ContriInfo();
             this.mContriInfo = contriInfo;
@@ -69,31 +73,46 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     public CustomDialogData getActivityDialogData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActDialogData : (CustomDialogData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mActDialogData;
+        }
+        return (CustomDialogData) invokeV.objValue;
     }
 
     public ContriInfo getContriInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mContriInfo : (ContriInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mContriInfo;
+        }
+        return (ContriInfo) invokeV.objValue;
     }
 
     public int getScore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mScore : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mScore;
+        }
+        return invokeV.intValue;
     }
 
     public AuthTokenData getTokenData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tokenData : (AuthTokenData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.tokenData;
+        }
+        return (AuthTokenData) invokeV.objValue;
     }
 
     public boolean isFirstAgree() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isFirstAgree : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.isFirstAgree;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setContriInfo(ContriInfo contriInfo) {

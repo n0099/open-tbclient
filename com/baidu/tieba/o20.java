@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@Singleton
 /* loaded from: classes5.dex */
-public class o20 extends n20 {
+public abstract class o20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract String a(String str);
+
+    public abstract void b(String str, String str2);
 
     public o20() {
         Interceptable interceptable = $ic;
@@ -28,50 +25,5 @@ public class o20 extends n20 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.n20
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c = c();
-            if (new File(c).exists()) {
-                return d().a(c + File.separator + str);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.n20
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            String c = c();
-            File file = new File(c);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            d().b(c + File.separator + str, str2);
-        }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (AppConfig.isDebug() && g9.b() && g9.c()) {
-                return g9.a().getAbsolutePath();
-            }
-            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "abjson";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public l20 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new m20() : (l20) invokeV.objValue;
     }
 }

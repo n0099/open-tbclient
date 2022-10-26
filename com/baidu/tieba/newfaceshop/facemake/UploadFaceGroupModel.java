@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.FaceData;
+import com.baidu.tieba.fs7;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.ur7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,6 +31,16 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpMessageListener a;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -67,56 +77,63 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            ur7.l lVar;
+            fs7.l lVar;
             ArrayList arrayList;
             boolean z;
             Object extra;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003345 || !(httpResponsedMessage instanceof UploadFaceGroupResponseMessage)) {
-                return;
-            }
-            if (httpResponsedMessage.getOrginalMessage() == null || (extra = httpResponsedMessage.getOrginalMessage().getExtra()) == null || !(extra instanceof HashMap)) {
-                lVar = null;
-                arrayList = null;
-            } else {
-                HashMap hashMap = (HashMap) extra;
-                Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                lVar = (obj == null || !(obj instanceof ur7.l)) ? null : (ur7.l) obj;
-                Object obj2 = hashMap.get("list");
-                arrayList = (obj2 == null || !(obj2 instanceof ArrayList)) ? null : (ArrayList) obj2;
-                Object obj3 = hashMap.get("autoInstall");
-                if (obj3 != null && (obj3 instanceof Boolean)) {
-                    z = ((Boolean) obj3).booleanValue();
-                    if (arrayList != null) {
-                        this.a.A(lVar, null);
-                        BdLog.e("msg extra empty");
-                        return;
-                    } else if (httpResponsedMessage.getError() != 0) {
-                        this.a.A(lVar, httpResponsedMessage.getErrorString());
-                        return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003345 && (httpResponsedMessage instanceof UploadFaceGroupResponseMessage)) {
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof HashMap)) {
+                    HashMap hashMap = (HashMap) extra;
+                    Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
+                    if (obj != null && (obj instanceof fs7.l)) {
+                        lVar = (fs7.l) obj;
                     } else {
-                        String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
-                        if (TextUtils.isEmpty(groupId)) {
+                        lVar = null;
+                    }
+                    Object obj2 = hashMap.get("list");
+                    if (obj2 != null && (obj2 instanceof ArrayList)) {
+                        arrayList = (ArrayList) obj2;
+                    } else {
+                        arrayList = null;
+                    }
+                    Object obj3 = hashMap.get("autoInstall");
+                    if (obj3 != null && (obj3 instanceof Boolean)) {
+                        z = ((Boolean) obj3).booleanValue();
+                        if (arrayList != null) {
+                            this.a.A(lVar, null);
+                            BdLog.e("msg extra empty");
+                            return;
+                        } else if (httpResponsedMessage.getError() != 0) {
                             this.a.A(lVar, httpResponsedMessage.getErrorString());
                             return;
-                        }
-                        if (lVar != null) {
-                            lVar.a(groupId, arrayList);
-                        }
-                        ur7.l().u(true, httpResponsedMessage.getErrorString());
-                        if (z) {
-                            ur7.l().p(groupId, arrayList, null);
+                        } else {
+                            String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
+                            if (TextUtils.isEmpty(groupId)) {
+                                this.a.A(lVar, httpResponsedMessage.getErrorString());
+                                return;
+                            }
+                            if (lVar != null) {
+                                lVar.a(groupId, arrayList);
+                            }
+                            fs7.l().u(true, httpResponsedMessage.getErrorString());
+                            if (z) {
+                                fs7.l().p(groupId, arrayList, null);
+                                return;
+                            }
+                            HashMap hashMap2 = new HashMap();
+                            hashMap2.put("upload_result", new Boolean(true));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921040, hashMap2));
                             return;
                         }
-                        HashMap hashMap2 = new HashMap();
-                        hashMap2.put("upload_result", new Boolean(true));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921040, hashMap2));
-                        return;
                     }
+                } else {
+                    lVar = null;
+                    arrayList = null;
                 }
-            }
-            z = true;
-            if (arrayList != null) {
+                z = true;
+                if (arrayList != null) {
+                }
             }
         }
     }
@@ -142,23 +159,24 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public final void A(ur7.l lVar, String str) {
+    public final void A(fs7.l lVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, lVar, str) == null) {
             if (lVar != null) {
                 lVar.onFail(str);
             }
-            ur7.l().u(false, str);
+            fs7.l().u(false, str);
         }
     }
 
-    public void B(String str, List<FaceData> list, ur7.l lVar, int i) {
+    public void B(String str, List list, fs7.l lVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, lVar, i) == null) {
             if (list != null && !list.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
+                boolean z = false;
                 for (int i2 = 0; i2 < list.size(); i2++) {
-                    FaceData faceData = list.get(i2);
+                    FaceData faceData = (FaceData) list.get(i2);
                     if (faceData != null) {
                         sb.append(faceData.pid);
                         if (i2 < list.size() - 1) {
@@ -177,7 +195,10 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 HashMap hashMap = new HashMap();
                 hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, lVar);
                 hashMap.put("list", arrayList);
-                hashMap.put("autoInstall", Boolean.valueOf(i == 0));
+                if (i == 0) {
+                    z = true;
+                }
+                hashMap.put("autoInstall", Boolean.valueOf(z));
                 httpMessage.setExtra(hashMap);
                 sendMessage(httpMessage);
                 return;
@@ -194,16 +215,6 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             MessageManager.getInstance().unRegisterListener(this.a);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
             return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
         }
         return invokeV.booleanValue;
     }

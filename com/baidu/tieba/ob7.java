@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,9 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ob7 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ob7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
     public ob7() {
         Interceptable interceptable = $ic;
@@ -27,32 +26,29 @@ public class ob7 {
         }
     }
 
-    public static ob7 a() {
-        InterceptResult invokeV;
+    public String a(String str) {
+        InterceptResult invokeL;
+        e15 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ob7.class) {
-                    if (b == null) {
-                        b = new ob7();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str != null) {
+                try {
+                    h05 h05Var = new h05(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
+                    String storeFile = FileHelper.getStoreFile(str, 1);
+                    h05Var.a("type", 2);
+                    f15 d = h05Var.d(storeFile);
+                    if (d != null && d.d() && (a = d.a()) != null) {
+                        String b = a.b();
+                        e05.b(str, b);
+                        return b;
                     }
+                    return null;
+                } catch (Exception unused) {
+                    return null;
                 }
             }
-            return b;
+            return null;
         }
-        return (ob7) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
+        return (String) invokeL.objValue;
     }
 }

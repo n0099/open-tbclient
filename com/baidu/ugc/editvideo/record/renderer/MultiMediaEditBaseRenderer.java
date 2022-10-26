@@ -5,7 +5,7 @@ import android.opengl.Matrix;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.nh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,9 +54,9 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
     public MultiMediaData mRotationBtnData;
     public String mRotationButtonPosition;
     public int mSelectStatus;
-    public List<a> mStickerItems;
+    public List mStickerItems;
     public MultiMediaData mSublineData;
-    public List<a> mVisibleStickerItems;
+    public List mVisibleStickerItems;
 
     public MultiMediaEditBaseRenderer() {
         Interceptable interceptable = $ic;
@@ -160,17 +160,17 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             this.mChangeMoveProperty = false;
             if (this.mSelectStatus == 100 || this.mCurrentItem == null) {
-                List<a> list = this.mVisibleStickerItems;
-                ListIterator<a> listIterator = list.listIterator(list.size());
+                List list = this.mVisibleStickerItems;
+                ListIterator listIterator = list.listIterator(list.size());
                 while (true) {
                     if (!listIterator.hasPrevious()) {
                         break;
                     }
-                    a previous = listIterator.previous();
-                    if (previous != null && previous.a()) {
-                        if (previous.a(f, f2)) {
+                    a aVar = (a) listIterator.previous();
+                    if (aVar != null && aVar.a()) {
+                        if (aVar.a(f, f2)) {
                             this.mSelectStatus = 101;
-                            setCurrentItem(previous);
+                            setCurrentItem(aVar);
                             break;
                         }
                         this.mSelectStatus = 102;
@@ -293,7 +293,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
     public void deleteCurrentStickerItem(a aVar, String str, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048579, this, aVar, str, z) == null) || aVar == null || vg9.e(this.mStickerItems)) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048579, this, aVar, str, z) == null) || aVar == null || nh9.e(this.mStickerItems)) {
             return;
         }
         if (TextUtils.equals(SubtitleLog.TAG, str)) {
@@ -301,7 +301,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         } else {
             i = this.mStickerItems.indexOf(aVar);
             this.mStickerItems.remove(aVar);
-            if (!vg9.e(this.mVisibleStickerItems)) {
+            if (!nh9.e(this.mVisibleStickerItems)) {
                 this.mVisibleStickerItems.remove(aVar);
             }
         }
@@ -319,7 +319,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
             return;
         }
         a aVar = null;
-        for (int i = 0; i < this.mStickerItems.size() && ((aVar = this.mStickerItems.get(i)) == null || (b = aVar.b()) == null || !b.uuid.equals(multiMediaData.uuid)); i++) {
+        for (int i = 0; i < this.mStickerItems.size() && ((aVar = (a) this.mStickerItems.get(i)) == null || (b = aVar.b()) == null || !b.uuid.equals(multiMediaData.uuid)); i++) {
         }
         if (aVar == null) {
             return;

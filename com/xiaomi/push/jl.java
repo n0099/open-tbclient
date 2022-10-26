@@ -22,7 +22,7 @@ public class jl extends jb {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a extends jb.a {
+    public class a extends jb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -174,7 +174,7 @@ public class jl extends jb {
                 throw new jg(3, "Thrift string size " + a2 + " out of range!");
             } else if (((jf) this).a.b() >= a2) {
                 try {
-                    String str = new String(((jf) this).a.m557a(), ((jf) this).a.a(), a2, "UTF-8");
+                    String str = new String(((jf) this).a.m556a(), ((jf) this).a.a(), a2, "UTF-8");
                     ((jf) this).a.a(a2);
                     return str;
                 } catch (UnsupportedEncodingException unused) {
@@ -198,7 +198,7 @@ public class jl extends jb {
             }
             c(a2);
             if (((jf) this).a.b() >= a2) {
-                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.m557a(), ((jf) this).a.a(), a2);
+                ByteBuffer wrap = ByteBuffer.wrap(((jf) this).a.m556a(), ((jf) this).a.a(), a2);
                 ((jf) this).a.a(a2);
                 return wrap;
             }

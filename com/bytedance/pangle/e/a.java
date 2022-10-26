@@ -49,20 +49,29 @@ public class a extends c.a {
     public final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? PluginManager.getInstance().checkPluginInstalled(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.bytedance.pangle.c
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? PluginManager.getInstance().syncInstall(str, new File(str2)) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return PluginManager.getInstance().checkPluginInstalled(str);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.bytedance.pangle.c
     public final int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? PluginManager.getInstance().getPlugin(str).getVersion() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return PluginManager.getInstance().getPlugin(str).getVersion();
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.bytedance.pangle.c
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return PluginManager.getInstance().syncInstall(str, new File(str2));
+        }
+        return invokeLL.booleanValue;
     }
 }

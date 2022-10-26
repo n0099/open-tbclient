@@ -9,11 +9,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jd3;
+import com.baidu.tieba.kd3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +28,17 @@ public final class MediaBrightness extends FrameLayout {
     public int e;
     public float f;
 
+    public float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaBrightness(@NonNull Context context) {
+    public MediaBrightness(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,85 +58,8 @@ public final class MediaBrightness extends FrameLayout {
         }
     }
 
-    public float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.floatValue;
-    }
-
-    public float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d083a, (ViewGroup) this, true);
-            this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e34);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091254);
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e1);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
-            layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811e3);
-            this.a.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = jd3.c().a((Activity) getContext());
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setImageResource(this.e);
-            this.c.setText(String.format("%d%%", Integer.valueOf(this.d)));
-            setVisibility(0);
-        }
-    }
-
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            if (f >= 1.0f) {
-                f = 1.0f;
-            } else if (f <= 0.0f) {
-                f = 0.0f;
-            }
-            jd3.c().e((Activity) getContext(), f);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            if (i < 0) {
-                i = 0;
-            } else if (i > 100) {
-                i = 100;
-            }
-            this.d = i;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaBrightness(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public MediaBrightness(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -150,7 +80,7 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaBrightness(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public MediaBrightness(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -169,5 +99,76 @@ public final class MediaBrightness extends FrameLayout {
             }
         }
         c(context);
+    }
+
+    public float a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = kd3.c().a((Activity) getContext());
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.setImageResource(this.e);
+            this.c.setText(String.format("%d%%", Integer.valueOf(this.d)));
+            setVisibility(0);
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d083b, (ViewGroup) this, true);
+            this.a = inflate;
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e28);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091248);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e1);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
+            layoutParams.gravity = 17;
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811f4);
+            this.a.setLayoutParams(layoutParams);
+        }
+    }
+
+    public void f(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            if (f >= 1.0f) {
+                f = 1.0f;
+            } else if (f <= 0.0f) {
+                f = 0.0f;
+            }
+            kd3.c().e((Activity) getContext(), f);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            } else if (i > 100) {
+                i = 100;
+            }
+            this.d = i;
+        }
     }
 }

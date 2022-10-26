@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -62,33 +61,6 @@ public class CircleIndicator extends View {
         }
     }
 
-    private void drawCircles(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
-            this.mTabPaint.setColor(this.mCircleColor);
-            for (int i = 0; i < this.mTabCount; i++) {
-                int i2 = this.mRadius;
-                canvas.drawCircle(this.mInitTranslationX + (this.mInterWidth * i), i2, i2, this.mTabPaint);
-            }
-        }
-    }
-
-    private void drawIndicators() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            int count = this.mViewPager.getAdapter().getCount();
-            this.mTabCount = count;
-            if (count <= 0) {
-                return;
-            }
-            int dp2px = (int) UIUtils.dp2px(getContext(), 10.0f);
-            this.mInterWidth = dp2px;
-            this.mInitTranslationX = (this.mWidth - ((this.mTabCount - 1) * dp2px)) / 2;
-            this.mRadius = dp2px / 5;
-            invalidate();
-        }
-    }
-
     private void drawRoundRect(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, canvas) == null) {
@@ -98,72 +70,22 @@ public class CircleIndicator extends View {
         }
     }
 
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            Paint paint = new Paint();
-            this.mTabPaint = paint;
-            paint.setAntiAlias(true);
-            if (BDEmotionPanelManager.getInstance().isNightMode()) {
-                this.mCircleColor = -13421773;
-                this.mRectColor = NIGHT_COLOR_EMOTION_CIRCLE_INDICATOR_HIGHLIGHT;
-                return;
-            }
-            this.mCircleColor = COLOR_EMOTION_CIRCLE_INDICATOR;
-            this.mRectColor = COLOR_EMOTION_CIRCLE_INDICATOR_HIGHLIGHT;
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            super.onDraw(canvas);
-            drawCircles(canvas);
-            drawRoundRect(canvas);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            this.mHeight = i2;
-            this.mWidth = i;
-            int dp2px = (int) UIUtils.dp2px(getContext(), 10.0f);
-            this.mInterWidth = dp2px;
-            this.mInitTranslationX = (this.mWidth - ((this.mTabCount - 1) * dp2px)) / 2;
-            this.mRadius = dp2px / 5;
-            this.mRectWidth = dp2px;
-        }
-    }
-
-    public void scroll(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            this.mTranslationX = (int) (this.mInterWidth * (f + i));
-            invalidate();
-        }
-    }
-
     public void setViewPager(ViewPager viewPager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, viewPager) == null) {
             this.mViewPager = viewPager;
-            if (viewPager == null || viewPager.getAdapter() == null) {
-                return;
+            if (viewPager != null && viewPager.getAdapter() != null) {
+                drawIndicators();
+                this.mViewPager.removeOnPageChangeListener(this.mPageChangeListener);
+                this.mViewPager.addOnPageChangeListener(this.mPageChangeListener);
+                this.mCurrentPos = this.mViewPager.getCurrentItem();
+                invalidate();
             }
-            drawIndicators();
-            this.mViewPager.removeOnPageChangeListener(this.mPageChangeListener);
-            this.mViewPager.addOnPageChangeListener(this.mPageChangeListener);
-            this.mCurrentPos = this.mViewPager.getCurrentItem();
-            invalidate();
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet) {
+    public CircleIndicator(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -184,7 +106,7 @@ public class CircleIndicator extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CircleIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -236,22 +158,98 @@ public class CircleIndicator extends View {
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int i4, float f, int i5) {
+            public void onPageSelected(int i4) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), Float.valueOf(f), Integer.valueOf(i5)}) == null) || f <= 0.0f) {
+                if (interceptable2 != null && interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i4) != null) {
                     return;
                 }
-                this.this$0.scroll(i4, f);
+                this.this$0.mCurrentPos = i4;
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageSelected(int i4) {
+            public void onPageScrolled(int i4, float f, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i4) == null) {
-                    this.this$0.mCurrentPos = i4;
+                if ((interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), Float.valueOf(f), Integer.valueOf(i5)}) == null) && f > 0.0f) {
+                    this.this$0.scroll(i4, f);
                 }
             }
         };
         init();
+    }
+
+    public void scroll(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.mTranslationX = (int) (this.mInterWidth * (f + i));
+            invalidate();
+        }
+    }
+
+    private void drawCircles(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
+            this.mTabPaint.setColor(this.mCircleColor);
+            for (int i = 0; i < this.mTabCount; i++) {
+                int i2 = this.mRadius;
+                canvas.drawCircle(this.mInitTranslationX + (this.mInterWidth * i), i2, i2, this.mTabPaint);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            super.onDraw(canvas);
+            drawCircles(canvas);
+            drawRoundRect(canvas);
+        }
+    }
+
+    private void drawIndicators() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            int count = this.mViewPager.getAdapter().getCount();
+            this.mTabCount = count;
+            if (count <= 0) {
+                return;
+            }
+            int dp2px = (int) UIUtils.dp2px(getContext(), 10.0f);
+            this.mInterWidth = dp2px;
+            this.mInitTranslationX = (this.mWidth - ((this.mTabCount - 1) * dp2px)) / 2;
+            this.mRadius = dp2px / 5;
+            invalidate();
+        }
+    }
+
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            Paint paint = new Paint();
+            this.mTabPaint = paint;
+            paint.setAntiAlias(true);
+            if (BDEmotionPanelManager.getInstance().isNightMode()) {
+                this.mCircleColor = -13421773;
+                this.mRectColor = NIGHT_COLOR_EMOTION_CIRCLE_INDICATOR_HIGHLIGHT;
+                return;
+            }
+            this.mCircleColor = COLOR_EMOTION_CIRCLE_INDICATOR;
+            this.mRectColor = COLOR_EMOTION_CIRCLE_INDICATOR_HIGHLIGHT;
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.mHeight = i2;
+            this.mWidth = i;
+            int dp2px = (int) UIUtils.dp2px(getContext(), 10.0f);
+            this.mInterWidth = dp2px;
+            this.mInitTranslationX = (this.mWidth - ((this.mTabCount - 1) * dp2px)) / 2;
+            this.mRadius = dp2px / 5;
+            this.mRectWidth = dp2px;
+        }
     }
 }

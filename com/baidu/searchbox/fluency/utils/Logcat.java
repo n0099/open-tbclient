@@ -51,6 +51,15 @@ public final class Logcat {
         }
     }
 
+    public final boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return isDebug;
+        }
+        return invokeV.booleanValue;
+    }
+
     public final void d(String tag, String logStr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, tag, logStr) == null) {
@@ -84,19 +93,6 @@ public final class Logcat {
         }
     }
 
-    public final boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? isDebug : invokeV.booleanValue;
-    }
-
-    public final void setDebug(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            isDebug = z;
-        }
-    }
-
     public final void w(String tag, String logStr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, tag, logStr) == null) {
@@ -105,6 +101,13 @@ public final class Logcat {
             if (isDebug) {
                 Log.w(tag, logStr);
             }
+        }
+    }
+
+    public final void setDebug(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            isDebug = z;
         }
     }
 }

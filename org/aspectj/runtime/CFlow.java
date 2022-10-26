@@ -12,6 +12,15 @@ public class CFlow {
     public transient /* synthetic */ FieldHolder $fh;
     public Object _aspect;
 
+    public Object get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CFlow() {
         this(null);
@@ -30,26 +39,13 @@ public class CFlow {
         }
     }
 
-    public Object get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
     public Object getAspect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this._aspect : invokeV.objValue;
-    }
-
-    public void setAspect(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this._aspect = obj;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this._aspect;
         }
+        return invokeV.objValue;
     }
 
     public CFlow(Object obj) {
@@ -68,5 +64,12 @@ public class CFlow {
             }
         }
         this._aspect = obj;
+    }
+
+    public void setAspect(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            this._aspect = obj;
+        }
     }
 }

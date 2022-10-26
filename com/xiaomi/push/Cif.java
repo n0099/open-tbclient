@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.util.BitSet;
 /* renamed from: com.xiaomi.push.if  reason: invalid class name */
 /* loaded from: classes8.dex */
-public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
+public class Cif implements iu, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -116,11 +116,11 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cif)) == null) {
             if (Cif.class.equals(cif.getClass())) {
-                int compareTo = Boolean.valueOf(m470a()).compareTo(Boolean.valueOf(cif.m470a()));
+                int compareTo = Boolean.valueOf(m469a()).compareTo(Boolean.valueOf(cif.m469a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m470a() || (a9 = iv.a(this.f626a, cif.f626a)) == 0) {
+                if (!m469a() || (a9 = iv.a(this.f626a, cif.f626a)) == 0) {
                     int compareTo2 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(cif.c()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -186,7 +186,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public hw m466a() {
+    public hw m465a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f627a : (hw) invokeV.objValue;
@@ -247,21 +247,21 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
             this.f632a = z;
-            m469a(true);
+            m468a(true);
             return this;
         }
         return (Cif) invokeZ.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m467a() {
+    public String m466a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f629a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m468a() {
+    public void m467a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.f626a == null) {
@@ -281,62 +281,62 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048587, this, jfVar) != null) {
             return;
         }
-        jfVar.m550a();
+        jfVar.m549a();
         while (true) {
-            jc m546a = jfVar.m546a();
-            byte b2 = m546a.a;
+            jc m545a = jfVar.m545a();
+            byte b2 = m545a.a;
             if (b2 == 0) {
                 jfVar.f();
                 if (!c()) {
                     throw new jg("Required field 'encryptAction' was not found in serialized data! Struct: " + toString());
                 } else if (d()) {
-                    m468a();
+                    m467a();
                     return;
                 } else {
                     throw new jg("Required field 'isRequest' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (m546a.f810a) {
+            switch (m545a.f810a) {
                 case 1:
                     if (b2 == 8) {
-                        this.f626a = hj.a(jfVar.m544a());
+                        this.f626a = hj.a(jfVar.m543a());
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 2:
                     if (b2 == 2) {
-                        this.f632a = jfVar.m555a();
-                        m469a(true);
+                        this.f632a = jfVar.m554a();
+                        m468a(true);
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 3:
                     if (b2 == 2) {
-                        this.f634b = jfVar.m555a();
-                        m473b(true);
+                        this.f634b = jfVar.m554a();
+                        m472b(true);
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f630a = jfVar.m552a();
+                        this.f630a = jfVar.m551a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f629a = jfVar.m551a();
+                        this.f629a = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f633b = jfVar.m551a();
+                        this.f633b = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
@@ -366,7 +366,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m469a(boolean z) {
+    public void m468a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.f631a.set(0, z);
@@ -374,23 +374,23 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m470a() {
+    public boolean m469a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f626a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m471a(Cif cif) {
+    public boolean m470a(Cif cif) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, cif)) == null) {
             if (cif == null) {
                 return false;
             }
-            boolean m470a = m470a();
-            boolean m470a2 = cif.m470a();
-            if (((!m470a && !m470a2) || (m470a && m470a2 && this.f626a.equals(cif.f626a))) && this.f632a == cif.f632a && this.f634b == cif.f634b) {
+            boolean m469a = m469a();
+            boolean m469a2 = cif.m469a();
+            if (((!m469a && !m469a2) || (m469a && m469a2 && this.f626a.equals(cif.f626a))) && this.f632a == cif.f632a && this.f634b == cif.f634b) {
                 boolean e2 = e();
                 boolean e3 = cif.e();
                 if ((e2 || e3) && !(e2 && e3 && this.f630a.equals(cif.f630a))) {
@@ -408,13 +408,13 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                 }
                 boolean h2 = h();
                 boolean h3 = cif.h();
-                if ((h2 || h3) && !(h2 && h3 && this.f628a.m444a(cif.f628a))) {
+                if ((h2 || h3) && !(h2 && h3 && this.f628a.m443a(cif.f628a))) {
                     return false;
                 }
                 boolean i = i();
                 boolean i2 = cif.i();
                 if (i || i2) {
-                    return i && i2 && this.f627a.m436a(cif.f627a);
+                    return i && i2 && this.f627a.m435a(cif.f627a);
                 }
                 return true;
             }
@@ -424,7 +424,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m472a() {
+    public byte[] m471a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -449,7 +449,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
             this.f634b = z;
-            m473b(true);
+            m472b(true);
             return this;
         }
         return (Cif) invokeZ.objValue;
@@ -465,7 +465,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public void b(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, jfVar) == null) {
-            m468a();
+            m467a();
             jfVar.a(f625a);
             if (this.f626a != null) {
                 jfVar.a(a);
@@ -504,12 +504,12 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m554a();
+            jfVar.m553a();
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m473b(boolean z) {
+    public void m472b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.f631a.set(1, z);
@@ -517,7 +517,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m474b() {
+    public boolean m473b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f632a : invokeV.booleanValue;
@@ -546,7 +546,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, obj)) == null) {
             if (obj != null && (obj instanceof Cif)) {
-                return m471a((Cif) obj);
+                return m470a((Cif) obj);
             }
             return false;
         }

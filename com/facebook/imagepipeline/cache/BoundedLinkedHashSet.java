@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashSet;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
-public class BoundedLinkedHashSet<E> {
+public class BoundedLinkedHashSet {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashSet<E> mLinkedHashSet;
+    public LinkedHashSet mLinkedHashSet;
     public int mMaxSize;
 
     public BoundedLinkedHashSet(int i) {
@@ -31,34 +29,34 @@ public class BoundedLinkedHashSet<E> {
                 return;
             }
         }
-        this.mLinkedHashSet = new LinkedHashSet<>(i);
+        this.mLinkedHashSet = new LinkedHashSet(i);
         this.mMaxSize = i;
     }
 
-    public synchronized boolean add(E e) {
+    public synchronized boolean add(Object obj) {
         InterceptResult invokeL;
         boolean add;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             synchronized (this) {
                 if (this.mLinkedHashSet.size() == this.mMaxSize) {
                     this.mLinkedHashSet.remove(this.mLinkedHashSet.iterator().next());
                 }
-                this.mLinkedHashSet.remove(e);
-                add = this.mLinkedHashSet.add(e);
+                this.mLinkedHashSet.remove(obj);
+                add = this.mLinkedHashSet.add(obj);
             }
             return add;
         }
         return invokeL.booleanValue;
     }
 
-    public synchronized boolean contains(E e) {
+    public synchronized boolean contains(Object obj) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             synchronized (this) {
-                contains = this.mLinkedHashSet.contains(e);
+                contains = this.mLinkedHashSet.contains(obj);
             }
             return contains;
         }

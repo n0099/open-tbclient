@@ -40,42 +40,6 @@ public final class PlaybackInfo {
         }
     }
 
-    public static void copyMutablePositions(PlaybackInfo playbackInfo, PlaybackInfo playbackInfo2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, playbackInfo, playbackInfo2) == null) {
-            playbackInfo2.positionUs = playbackInfo.positionUs;
-            playbackInfo2.bufferedPositionUs = playbackInfo.bufferedPositionUs;
-        }
-    }
-
-    public PlaybackInfo copyWithPeriodIndex(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            PlaybackInfo playbackInfo = new PlaybackInfo(this.timeline, this.manifest, this.periodId.copyWithPeriodIndex(i), this.startPositionUs, this.contentPositionUs);
-            copyMutablePositions(this, playbackInfo);
-            return playbackInfo;
-        }
-        return (PlaybackInfo) invokeI.objValue;
-    }
-
-    public PlaybackInfo copyWithTimeline(Timeline timeline, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timeline, obj)) == null) {
-            PlaybackInfo playbackInfo = new PlaybackInfo(timeline, obj, this.periodId, this.startPositionUs, this.contentPositionUs);
-            copyMutablePositions(this, playbackInfo);
-            return playbackInfo;
-        }
-        return (PlaybackInfo) invokeLL.objValue;
-    }
-
-    public PlaybackInfo fromNewPosition(int i, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) ? fromNewPosition(new MediaSource.MediaPeriodId(i), j, j2) : (PlaybackInfo) invokeCommon.objValue;
-    }
-
     public PlaybackInfo(Timeline timeline, Object obj, MediaSource.MediaPeriodId mediaPeriodId, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,9 +64,51 @@ public final class PlaybackInfo {
         this.bufferedPositionUs = j;
     }
 
+    public static void copyMutablePositions(PlaybackInfo playbackInfo, PlaybackInfo playbackInfo2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, playbackInfo, playbackInfo2) == null) {
+            playbackInfo2.positionUs = playbackInfo.positionUs;
+            playbackInfo2.bufferedPositionUs = playbackInfo.bufferedPositionUs;
+        }
+    }
+
+    public PlaybackInfo copyWithTimeline(Timeline timeline, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timeline, obj)) == null) {
+            PlaybackInfo playbackInfo = new PlaybackInfo(timeline, obj, this.periodId, this.startPositionUs, this.contentPositionUs);
+            copyMutablePositions(this, playbackInfo);
+            return playbackInfo;
+        }
+        return (PlaybackInfo) invokeLL.objValue;
+    }
+
+    public PlaybackInfo copyWithPeriodIndex(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            PlaybackInfo playbackInfo = new PlaybackInfo(this.timeline, this.manifest, this.periodId.copyWithPeriodIndex(i), this.startPositionUs, this.contentPositionUs);
+            copyMutablePositions(this, playbackInfo);
+            return playbackInfo;
+        }
+        return (PlaybackInfo) invokeI.objValue;
+    }
+
+    public PlaybackInfo fromNewPosition(int i, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return fromNewPosition(new MediaSource.MediaPeriodId(i), j, j2);
+        }
+        return (PlaybackInfo) invokeCommon.objValue;
+    }
+
     public PlaybackInfo fromNewPosition(MediaSource.MediaPeriodId mediaPeriodId, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{mediaPeriodId, Long.valueOf(j), Long.valueOf(j2)})) == null) ? new PlaybackInfo(this.timeline, this.manifest, mediaPeriodId, j, j2) : (PlaybackInfo) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{mediaPeriodId, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return new PlaybackInfo(this.timeline, this.manifest, mediaPeriodId, j, j2);
+        }
+        return (PlaybackInfo) invokeCommon.objValue;
     }
 }

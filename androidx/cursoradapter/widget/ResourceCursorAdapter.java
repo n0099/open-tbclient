@@ -44,32 +44,28 @@ public abstract class ResourceCursorAdapter extends CursorAdapter {
         this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
-    @Override // androidx.cursoradapter.widget.CursorAdapter
-    public View newDropDownView(Context context, Cursor cursor, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ResourceCursorAdapter(Context context, int i, Cursor cursor, int i2) {
+        super(context, cursor, i2);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, cursor, viewGroup)) == null) ? this.mInflater.inflate(this.mDropDownLayout, viewGroup, false) : (View) invokeLLL.objValue;
-    }
-
-    @Override // androidx.cursoradapter.widget.CursorAdapter
-    public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cursor, viewGroup)) == null) ? this.mInflater.inflate(this.mLayout, viewGroup, false) : (View) invokeLLL.objValue;
-    }
-
-    public void setDropDownViewResource(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mDropDownLayout = i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), cursor, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Cursor) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    public void setViewResource(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.mLayout = i;
-        }
+        this.mDropDownLayout = i;
+        this.mLayout = i;
+        this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,27 +93,37 @@ public abstract class ResourceCursorAdapter extends CursorAdapter {
         this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResourceCursorAdapter(Context context, int i, Cursor cursor, int i2) {
-        super(context, cursor, i2);
+    @Override // androidx.cursoradapter.widget.CursorAdapter
+    public View newDropDownView(Context context, Cursor cursor, ViewGroup viewGroup) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), cursor, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Cursor) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, cursor, viewGroup)) == null) {
+            return this.mInflater.inflate(this.mDropDownLayout, viewGroup, false);
         }
-        this.mDropDownLayout = i;
-        this.mLayout = i;
-        this.mInflater = (LayoutInflater) context.getSystemService("layout_inflater");
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // androidx.cursoradapter.widget.CursorAdapter
+    public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cursor, viewGroup)) == null) {
+            return this.mInflater.inflate(this.mLayout, viewGroup, false);
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    public void setDropDownViewResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mDropDownLayout = i;
+        }
+    }
+
+    public void setViewResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mLayout = i;
+        }
     }
 }

@@ -63,7 +63,10 @@ public class CriusDataFactory {
                 public View createView(Context context2) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, context2)) == null) ? this.val$view : (View) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, context2)) == null) {
+                        return this.val$view;
+                    }
+                    return (View) invokeL.objValue;
                 }
             });
             return criusData;

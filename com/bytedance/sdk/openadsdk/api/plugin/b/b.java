@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.api.plugin.b;
 
 import android.text.TextUtils;
-import androidx.annotation.Keep;
 import com.bytedance.JProtect;
 import java.security.SecureRandom;
 import org.json.JSONObject;
@@ -25,7 +24,6 @@ public class b {
         }
     }
 
-    @Keep
     @JProtect
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -49,7 +47,6 @@ public class b {
         return str.substring(i2, i) + str.substring(0, i2);
     }
 
-    @Keep
     @JProtect
     public static JSONObject a(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();

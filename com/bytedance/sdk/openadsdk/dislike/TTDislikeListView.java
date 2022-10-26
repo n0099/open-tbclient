@@ -17,17 +17,17 @@ public class TTDislikeListView extends ListView {
         super(context);
         this.mOnItemClickListenerInner = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
                 if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i) != null && (TTDislikeListView.this.getAdapter().getItem(i) instanceof FilterWord)) {
                     FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i);
-                    if (filterWord.hasSecondOptions()) {
-                        return;
-                    }
-                    if (TTDislikeListView.this.mDislikeController != null) {
-                        TTDislikeListView.this.mDislikeController.onDislikeSelected(filterWord);
-                    }
-                    if (TTDislikeListView.this.mOnItemClickListener != null) {
-                        TTDislikeListView.this.mOnItemClickListener.onItemClick(adapterView, view2, i, j);
+                    if (!filterWord.hasSecondOptions()) {
+                        if (TTDislikeListView.this.mDislikeController != null) {
+                            TTDislikeListView.this.mDislikeController.onDislikeSelected(filterWord);
+                        }
+                        if (TTDislikeListView.this.mOnItemClickListener != null) {
+                            TTDislikeListView.this.mOnItemClickListener.onItemClick(adapterView, view2, i, j);
+                            return;
+                        }
                         return;
                     }
                     return;
@@ -36,10 +36,6 @@ public class TTDislikeListView extends ListView {
             }
         };
         init();
-    }
-
-    private void init() {
-        super.setOnItemClickListener(this.mOnItemClickListenerInner);
     }
 
     public void setDislikeInfo(TTDislikeController tTDislikeController) {
@@ -55,17 +51,17 @@ public class TTDislikeListView extends ListView {
         super(context, attributeSet);
         this.mOnItemClickListenerInner = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
                 if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i) != null && (TTDislikeListView.this.getAdapter().getItem(i) instanceof FilterWord)) {
                     FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i);
-                    if (filterWord.hasSecondOptions()) {
-                        return;
-                    }
-                    if (TTDislikeListView.this.mDislikeController != null) {
-                        TTDislikeListView.this.mDislikeController.onDislikeSelected(filterWord);
-                    }
-                    if (TTDislikeListView.this.mOnItemClickListener != null) {
-                        TTDislikeListView.this.mOnItemClickListener.onItemClick(adapterView, view2, i, j);
+                    if (!filterWord.hasSecondOptions()) {
+                        if (TTDislikeListView.this.mDislikeController != null) {
+                            TTDislikeListView.this.mDislikeController.onDislikeSelected(filterWord);
+                        }
+                        if (TTDislikeListView.this.mOnItemClickListener != null) {
+                            TTDislikeListView.this.mOnItemClickListener.onItemClick(adapterView, view2, i, j);
+                            return;
+                        }
                         return;
                     }
                     return;
@@ -80,17 +76,17 @@ public class TTDislikeListView extends ListView {
         super(context, attributeSet, i);
         this.mOnItemClickListenerInner = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j) {
+            public void onItemClick(AdapterView adapterView, View view2, int i2, long j) {
                 if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i2) != null && (TTDislikeListView.this.getAdapter().getItem(i2) instanceof FilterWord)) {
                     FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i2);
-                    if (filterWord.hasSecondOptions()) {
-                        return;
-                    }
-                    if (TTDislikeListView.this.mDislikeController != null) {
-                        TTDislikeListView.this.mDislikeController.onDislikeSelected(filterWord);
-                    }
-                    if (TTDislikeListView.this.mOnItemClickListener != null) {
-                        TTDislikeListView.this.mOnItemClickListener.onItemClick(adapterView, view2, i2, j);
+                    if (!filterWord.hasSecondOptions()) {
+                        if (TTDislikeListView.this.mDislikeController != null) {
+                            TTDislikeListView.this.mDislikeController.onDislikeSelected(filterWord);
+                        }
+                        if (TTDislikeListView.this.mOnItemClickListener != null) {
+                            TTDislikeListView.this.mOnItemClickListener.onItemClick(adapterView, view2, i2, j);
+                            return;
+                        }
                         return;
                     }
                     return;
@@ -99,5 +95,9 @@ public class TTDislikeListView extends ListView {
             }
         };
         init();
+    }
+
+    private void init() {
+        super.setOnItemClickListener(this.mOnItemClickListenerInner);
     }
 }

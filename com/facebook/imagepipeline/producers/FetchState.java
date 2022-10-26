@@ -9,21 +9,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.common.BytesRange;
-import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class FetchState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<EncodedImage> mConsumer;
+    public final Consumer mConsumer;
     public final ProducerContext mContext;
     public long mLastIntermediateResultTimeMs;
     public int mOnNewResultStatusFlags;
     @Nullable
     public BytesRange mResponseBytesRange;
 
-    public FetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public FetchState(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,71 +42,104 @@ public class FetchState {
         this.mLastIntermediateResultTimeMs = 0L;
     }
 
-    public Consumer<EncodedImage> getConsumer() {
+    public Consumer getConsumer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mConsumer : (Consumer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mConsumer;
+        }
+        return (Consumer) invokeV.objValue;
     }
 
     public ProducerContext getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mContext : (ProducerContext) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mContext;
+        }
+        return (ProducerContext) invokeV.objValue;
     }
 
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mContext.getId() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mContext.getId();
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getLastIntermediateResultTimeMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLastIntermediateResultTimeMs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mLastIntermediateResultTimeMs;
+        }
+        return invokeV.longValue;
     }
 
     public ProducerListener2 getListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContext.getProducerListener() : (ProducerListener2) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mContext.getProducerListener();
+        }
+        return (ProducerListener2) invokeV.objValue;
     }
 
     public String getLogTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContext.getImageRequest().mLogTag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mContext.getImageRequest().mLogTag;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public Map<String, String> getNetRequestHeader() {
+    public Map getNetRequestHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mContext.getImageRequest().getNetRequestHeader() : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mContext.getImageRequest().getNetRequestHeader();
+        }
+        return (Map) invokeV.objValue;
     }
 
     public int getOnNewResultStatusFlags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mOnNewResultStatusFlags : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mOnNewResultStatusFlags;
+        }
+        return invokeV.intValue;
     }
 
     @Nullable
     public BytesRange getResponseBytesRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mResponseBytesRange : (BytesRange) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mResponseBytesRange;
+        }
+        return (BytesRange) invokeV.objValue;
     }
 
     public String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mContext.getImageRequest().mTag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mContext.getImageRequest().mTag;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mContext.getImageRequest().getSourceUri() : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mContext.getImageRequest().getSourceUri();
+        }
+        return (Uri) invokeV.objValue;
     }
 
     public void setLastIntermediateResultTimeMs(long j) {

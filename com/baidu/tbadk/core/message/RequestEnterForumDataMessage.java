@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class RequestEnterForumDataMessage extends CustomResponsedMessage<Boolean> {
+public class RequestEnterForumDataMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isCache;
@@ -38,7 +38,10 @@ public class RequestEnterForumDataMessage extends CustomResponsedMessage<Boolean
     public boolean isCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isCache : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isCache;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setCache(boolean z) {

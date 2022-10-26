@@ -87,12 +87,18 @@ public final class TrackingFailureReason {
     public static TrackingFailureReason valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TrackingFailureReason) Enum.valueOf(TrackingFailureReason.class, str) : (TrackingFailureReason) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (TrackingFailureReason) Enum.valueOf(TrackingFailureReason.class, str);
+        }
+        return (TrackingFailureReason) invokeL.objValue;
     }
 
     public static TrackingFailureReason[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TrackingFailureReason[]) $VALUES.clone() : (TrackingFailureReason[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (TrackingFailureReason[]) $VALUES.clone();
+        }
+        return (TrackingFailureReason[]) invokeV.objValue;
     }
 }

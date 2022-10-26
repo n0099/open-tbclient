@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<UserAccountActionItem> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String KEY_ACTION = "action";
     public static final String KEY_SRC = "src";
     public static final String KEY_SUB_SRC = "subSrc";
@@ -31,9 +31,19 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     public String mSubSrc;
     public String mType;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class UserAccountAction {
+    public final class UserAccountAction {
         public static final /* synthetic */ UserAccountAction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UserAccountAction BIND;
@@ -86,25 +96,34 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         public static UserAccountAction valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (UserAccountAction) Enum.valueOf(UserAccountAction.class, str) : (UserAccountAction) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (UserAccountAction) Enum.valueOf(UserAccountAction.class, str);
+            }
+            return (UserAccountAction) invokeL.objValue;
         }
 
         public static UserAccountAction[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (UserAccountAction[]) $VALUES.clone() : (UserAccountAction[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (UserAccountAction[]) $VALUES.clone();
+            }
+            return (UserAccountAction[]) invokeV.objValue;
         }
 
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mName : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mName;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class UserAccountType {
+    public final class UserAccountType {
         public static final /* synthetic */ UserAccountType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UserAccountType GUEST;
@@ -161,19 +180,28 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         public static UserAccountType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (UserAccountType) Enum.valueOf(UserAccountType.class, str) : (UserAccountType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (UserAccountType) Enum.valueOf(UserAccountType.class, str);
+            }
+            return (UserAccountType) invokeL.objValue;
         }
 
         public static UserAccountType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (UserAccountType[]) $VALUES.clone() : (UserAccountType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (UserAccountType[]) $VALUES.clone();
+            }
+            return (UserAccountType[]) invokeV.objValue;
         }
 
         public String getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mType : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mType;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -190,7 +218,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<UserAccountActionItem>() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -209,23 +237,82 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserAccountActionItem createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new UserAccountActionItem(parcel) : (UserAccountActionItem) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new UserAccountActionItem(parcel);
+                }
+                return (UserAccountActionItem) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserAccountActionItem[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new UserAccountActionItem[i] : (UserAccountActionItem[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new UserAccountActionItem[i];
+                }
+                return (UserAccountActionItem[]) invokeI.objValue;
             }
         };
+    }
+
+    public String getAction() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAction;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSrc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mSrc;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSubSrc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSubSrc;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        JSONObject jSONObject;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            try {
+                jSONObject = buildUserStatInfo();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                jSONObject = null;
+            }
+            if (jSONObject != null) {
+                return jSONObject.toString();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public UserAccountActionItem(Parcel parcel) {
@@ -247,161 +334,6 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         this.mType = parcel.readString();
         this.mSrc = parcel.readString();
         this.mSubSrc = parcel.readString();
-    }
-
-    public JSONObject buildUserStatInfo() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String str = this.mAction;
-            if (str != null) {
-                jSONObject.put("action", str);
-                if (!TextUtils.isEmpty(this.mType)) {
-                    jSONObject.put("type", this.mType);
-                }
-                if (!TextUtils.isEmpty(this.mSrc)) {
-                    if (!TextUtils.isEmpty(this.mSubSrc)) {
-                        jSONObject.put("src", this.mSrc + "_" + this.mSubSrc);
-                    } else {
-                        jSONObject.put("src", this.mSrc);
-                    }
-                }
-                return jSONObject;
-            }
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getAction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAction : (String) invokeV.objValue;
-    }
-
-    public String getSrc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSrc : (String) invokeV.objValue;
-    }
-
-    public String getSubSrc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSubSrc : (String) invokeV.objValue;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mType : (String) invokeV.objValue;
-    }
-
-    public void setAction(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.mAction = str;
-        }
-    }
-
-    public String toString() {
-        JSONObject jSONObject;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                jSONObject = buildUserStatInfo();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONObject = null;
-            }
-            return jSONObject != null ? jSONObject.toString() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
-            parcel.writeString(this.mAction);
-            parcel.writeString(this.mType);
-            parcel.writeString(this.mSrc);
-            parcel.writeString(this.mSubSrc);
-        }
-    }
-
-    public UserAccountActionItem(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        this.mAction = str;
-        this.mType = str2;
-        this.mSrc = str3;
-    }
-
-    public UserAccountActionItem(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65542, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65542, newInitContext);
-                return;
-            }
-        }
-        this.mAction = str;
-        this.mType = str2;
-        this.mSrc = str3;
-        this.mSubSrc = str4;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public UserAccountActionItem(UserAccountAction userAccountAction, String str, String str2) {
-        this(userAccountAction.getName(), str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {userAccountAction, str, str2};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -446,6 +378,68 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public UserAccountActionItem(UserAccountAction userAccountAction, String str, String str2) {
+        this(userAccountAction.getName(), str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {userAccountAction, str, str2};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public UserAccountActionItem(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        this.mAction = str;
+        this.mType = str2;
+        this.mSrc = str3;
+    }
+
+    public UserAccountActionItem(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4};
+            interceptable.invokeUnInit(65542, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65542, newInitContext);
+                return;
+            }
+        }
+        this.mAction = str;
+        this.mType = str2;
+        this.mSrc = str3;
+        this.mSubSrc = str4;
+    }
+
     public UserAccountActionItem(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -478,5 +472,48 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             return;
         }
         throw new JSONException("");
+    }
+
+    public JSONObject buildUserStatInfo() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            String str = this.mAction;
+            if (str != null) {
+                jSONObject.put("action", str);
+                if (!TextUtils.isEmpty(this.mType)) {
+                    jSONObject.put("type", this.mType);
+                }
+                if (!TextUtils.isEmpty(this.mSrc)) {
+                    if (!TextUtils.isEmpty(this.mSubSrc)) {
+                        jSONObject.put("src", this.mSrc + "_" + this.mSubSrc);
+                    } else {
+                        jSONObject.put("src", this.mSrc);
+                    }
+                }
+                return jSONObject;
+            }
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void setAction(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.mAction = str;
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
+            parcel.writeString(this.mAction);
+            parcel.writeString(this.mType);
+            parcel.writeString(this.mSrc);
+            parcel.writeString(this.mSubSrc);
+        }
     }
 }

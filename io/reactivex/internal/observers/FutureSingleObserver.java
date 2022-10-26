@@ -20,12 +20,19 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class FutureSingleObserver<T> extends CountDownLatch implements SingleObserver<T>, Future<T>, Disposable {
+public final class FutureSingleObserver extends CountDownLatch implements SingleObserver, Future, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference<Disposable> s;
-    public T value;
+    public final AtomicReference s;
+    public Object value;
+
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FutureSingleObserver() {
@@ -43,40 +50,11 @@ public final class FutureSingleObserver<T> extends CountDownLatch implements Sin
                 return;
             }
         }
-        this.s = new AtomicReference<>();
+        this.s = new AtomicReference();
     }
 
     @Override // java.util.concurrent.Future
-    public boolean cancel(boolean z) {
-        Disposable disposable;
-        DisposableHelper disposableHelper;
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            do {
-                disposable = this.s.get();
-                if (disposable == this || disposable == (disposableHelper = DisposableHelper.DISPOSED)) {
-                    return false;
-                }
-            } while (!this.s.compareAndSet(disposable, disposableHelper));
-            if (disposable != null) {
-                disposable.dispose();
-            }
-            countDown();
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // java.util.concurrent.Future
-    public T get() throws InterruptedException, ExecutionException {
+    public Object get() throws InterruptedException, ExecutionException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -93,28 +71,85 @@ public final class FutureSingleObserver<T> extends CountDownLatch implements Sin
             }
             throw new CancellationException();
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean cancel(boolean z) {
+        Disposable disposable;
+        DisposableHelper disposableHelper;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            do {
+                disposable = (Disposable) this.s.get();
+                if (disposable == this || disposable == (disposableHelper = DisposableHelper.DISPOSED)) {
+                    return false;
+                }
+            } while (!this.s.compareAndSet(disposable, disposableHelper));
+            if (disposable != null) {
+                disposable.dispose();
+            }
+            countDown();
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // java.util.concurrent.Future
+    public Object get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
+            if (getCount() != 0) {
+                BlockingHelper.verifyNonBlocking();
+                if (!await(j, timeUnit)) {
+                    throw new TimeoutException();
+                }
+            }
+            if (!isCancelled()) {
+                Throwable th = this.error;
+                if (th == null) {
+                    return this.value;
+                }
+                throw new ExecutionException(th);
+            }
+            throw new CancellationException();
+        }
+        return invokeJL.objValue;
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.s.get()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return DisposableHelper.isDisposed((Disposable) this.s.get());
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? isDone() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return isDone();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.util.concurrent.Future
     public boolean isDone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getCount() == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (getCount() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.SingleObserver
@@ -123,7 +158,7 @@ public final class FutureSingleObserver<T> extends CountDownLatch implements Sin
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
             do {
-                disposable = this.s.get();
+                disposable = (Disposable) this.s.get();
                 if (disposable == DisposableHelper.DISPOSED) {
                     RxJavaPlugins.onError(th);
                     return;
@@ -143,37 +178,14 @@ public final class FutureSingleObserver<T> extends CountDownLatch implements Sin
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(T t) {
+    public void onSuccess(Object obj) {
         Disposable disposable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, t) == null) || (disposable = this.s.get()) == DisposableHelper.DISPOSED) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, obj) != null) || (disposable = (Disposable) this.s.get()) == DisposableHelper.DISPOSED) {
             return;
         }
-        this.value = t;
+        this.value = obj;
         this.s.compareAndSet(disposable, this);
         countDown();
-    }
-
-    @Override // java.util.concurrent.Future
-    public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
-            if (getCount() != 0) {
-                BlockingHelper.verifyNonBlocking();
-                if (!await(j, timeUnit)) {
-                    throw new TimeoutException();
-                }
-            }
-            if (!isCancelled()) {
-                Throwable th = this.error;
-                if (th == null) {
-                    return this.value;
-                }
-                throw new ExecutionException(th);
-            }
-            throw new CancellationException();
-        }
-        return (T) invokeJL.objValue;
     }
 }

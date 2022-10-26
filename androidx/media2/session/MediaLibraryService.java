@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.SessionPlayer;
@@ -28,6 +25,10 @@ public abstract class MediaLibraryService extends MediaSessionService {
     public static final String SERVICE_INTERFACE = "androidx.media2.session.MediaLibraryService";
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.media2.session.MediaSessionService
+    public abstract MediaLibrarySession onGetSession(MediaSession.ControllerInfo controllerInfo);
+
     /* loaded from: classes.dex */
     public static final class LibraryParams implements VersionedParcelable {
         public static /* synthetic */ Interceptable $ic;
@@ -36,6 +37,18 @@ public abstract class MediaLibraryService extends MediaSessionService {
         public int mOffline;
         public int mRecent;
         public int mSuggested;
+
+        public static boolean convertToBoolean(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 0 : invokeI.booleanValue;
+        }
+
+        public static int convertToInteger(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
+        }
 
         /* loaded from: classes.dex */
         public static final class Builder {
@@ -60,15 +73,16 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 }
             }
 
-            @NonNull
             public LibraryParams build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LibraryParams(this.mBundle, this.mRecent, this.mOffline, this.mSuggested) : (LibraryParams) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return new LibraryParams(this.mBundle, this.mRecent, this.mOffline, this.mSuggested);
+                }
+                return (LibraryParams) invokeV.objValue;
             }
 
-            @NonNull
-            public Builder setExtras(@Nullable Bundle bundle) {
+            public Builder setExtras(Bundle bundle) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
@@ -78,7 +92,6 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (Builder) invokeL.objValue;
             }
 
-            @NonNull
             public Builder setOffline(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
@@ -89,7 +102,6 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (Builder) invokeZ.objValue;
             }
 
-            @NonNull
             public Builder setRecent(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
@@ -100,7 +112,6 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (Builder) invokeZ.objValue;
             }
 
-            @NonNull
             public Builder setSuggested(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
@@ -126,62 +137,40 @@ public abstract class MediaLibraryService extends MediaSessionService {
             }
         }
 
-        public static boolean convertToBoolean(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 0 : invokeI.booleanValue;
-        }
-
-        public static int convertToInteger(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
-        }
-
-        @Nullable
         public Bundle getExtras() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBundle : (Bundle) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mBundle;
+            }
+            return (Bundle) invokeV.objValue;
         }
 
         public boolean isOffline() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? convertToBoolean(this.mOffline) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return convertToBoolean(this.mOffline);
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isRecent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? convertToBoolean(this.mRecent) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return convertToBoolean(this.mRecent);
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isSuggested() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? convertToBoolean(this.mSuggested) : invokeV.booleanValue;
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public LibraryParams(Bundle bundle, boolean z, boolean z2, boolean z3) {
-            this(bundle, convertToInteger(z), convertToInteger(z2), convertToInteger(z3));
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bundle, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((Bundle) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return convertToBoolean(this.mSuggested);
             }
+            return invokeV.booleanValue;
         }
 
         public LibraryParams(Bundle bundle, int i, int i2, int i3) {
@@ -204,6 +193,27 @@ public abstract class MediaLibraryService extends MediaSessionService {
             this.mOffline = i2;
             this.mSuggested = i3;
         }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public LibraryParams(Bundle bundle, boolean z, boolean z2, boolean z3) {
+            this(bundle, convertToInteger(z), convertToInteger(z2), convertToInteger(z3));
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((Bundle) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
@@ -212,12 +222,47 @@ public abstract class MediaLibraryService extends MediaSessionService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes.dex */
+        public interface MediaLibrarySessionImpl extends MediaSession.MediaSessionImpl {
+            @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+            MediaLibrarySessionCallback getCallback();
+
+            @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+            /* bridge */ /* synthetic */ MediaSession.SessionCallback getCallback();
+
+            @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+            MediaLibrarySession getInstance();
+
+            @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+            /* bridge */ /* synthetic */ MediaSession getInstance();
+
+            void notifyChildrenChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, LibraryParams libraryParams);
+
+            void notifyChildrenChanged(String str, int i, LibraryParams libraryParams);
+
+            void notifySearchResultChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, LibraryParams libraryParams);
+
+            LibraryResult onGetChildrenOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, LibraryParams libraryParams);
+
+            LibraryResult onGetItemOnExecutor(MediaSession.ControllerInfo controllerInfo, String str);
+
+            LibraryResult onGetLibraryRootOnExecutor(MediaSession.ControllerInfo controllerInfo, LibraryParams libraryParams);
+
+            LibraryResult onGetSearchResultOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, LibraryParams libraryParams);
+
+            int onSearchOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, LibraryParams libraryParams);
+
+            int onSubscribeOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, LibraryParams libraryParams);
+
+            int onUnsubscribeOnExecutor(MediaSession.ControllerInfo controllerInfo, String str);
+        }
+
+        /* loaded from: classes.dex */
         public static final class Builder extends MediaSession.BuilderBase<MediaLibrarySession, Builder, MediaLibrarySessionCallback> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public Builder(@NonNull MediaLibraryService mediaLibraryService, @NonNull SessionPlayer sessionPlayer, @NonNull Executor executor, @NonNull MediaLibrarySessionCallback mediaLibrarySessionCallback) {
+            public Builder(MediaLibraryService mediaLibraryService, SessionPlayer sessionPlayer, Executor executor, MediaLibrarySessionCallback mediaLibrarySessionCallback) {
                 super(mediaLibraryService, sessionPlayer);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -241,7 +286,6 @@ public abstract class MediaLibraryService extends MediaSessionService {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSession.BuilderBase
-            @NonNull
             public MediaLibrarySession build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -282,31 +326,37 @@ public abstract class MediaLibraryService extends MediaSessionService {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSession.BuilderBase
-            @NonNull
-            public Builder setExtras(@NonNull Bundle bundle) {
+            public Builder setExtras(Bundle bundle) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) ? (Builder) super.setExtras(bundle) : (Builder) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
+                    return (Builder) super.setExtras(bundle);
+                }
+                return (Builder) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSession.BuilderBase
-            @NonNull
-            public Builder setId(@NonNull String str) {
+            public Builder setId(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (Builder) super.setId(str) : (Builder) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                    return (Builder) super.setId(str);
+                }
+                return (Builder) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSession.BuilderBase
-            @NonNull
-            public Builder setSessionActivity(@Nullable PendingIntent pendingIntent) {
+            public Builder setSessionActivity(PendingIntent pendingIntent) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pendingIntent)) == null) ? (Builder) super.setSessionActivity(pendingIntent) : (Builder) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pendingIntent)) == null) {
+                    return (Builder) super.setSessionActivity(pendingIntent);
+                }
+                return (Builder) invokeL.objValue;
             }
         }
 
@@ -314,6 +364,33 @@ public abstract class MediaLibraryService extends MediaSessionService {
         public static class MediaLibrarySessionCallback extends MediaSession.SessionCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+
+            public int onSearch(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str, LibraryParams libraryParams) {
+                InterceptResult invokeLLLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, mediaLibrarySession, controllerInfo, str, libraryParams)) == null) {
+                    return -6;
+                }
+                return invokeLLLL.intValue;
+            }
+
+            public int onSubscribe(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str, LibraryParams libraryParams) {
+                InterceptResult invokeLLLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, mediaLibrarySession, controllerInfo, str, libraryParams)) == null) {
+                    return -6;
+                }
+                return invokeLLLL.intValue;
+            }
+
+            public int onUnsubscribe(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str) {
+                InterceptResult invokeLLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, mediaLibrarySession, controllerInfo, str)) == null) {
+                    return -6;
+                }
+                return invokeLLL.intValue;
+            }
 
             public MediaLibrarySessionCallback() {
                 Interceptable interceptable = $ic;
@@ -329,95 +406,41 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 }
             }
 
-            @NonNull
-            public LibraryResult onGetChildren(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @IntRange(from = 0) int i, @IntRange(from = 1) int i2, @Nullable LibraryParams libraryParams) {
+            public LibraryResult onGetChildren(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, LibraryParams libraryParams) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mediaLibrarySession, controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) ? new LibraryResult(-6) : (LibraryResult) invokeCommon.objValue;
+                if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mediaLibrarySession, controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
+                    return new LibraryResult(-6);
+                }
+                return (LibraryResult) invokeCommon.objValue;
             }
 
-            @NonNull
-            public LibraryResult onGetItem(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str) {
-                InterceptResult invokeLLL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaLibrarySession, controllerInfo, str)) == null) ? new LibraryResult(-6) : (LibraryResult) invokeLLL.objValue;
-            }
-
-            @NonNull
-            public LibraryResult onGetLibraryRoot(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @Nullable LibraryParams libraryParams) {
-                InterceptResult invokeLLL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaLibrarySession, controllerInfo, libraryParams)) == null) ? new LibraryResult(-6) : (LibraryResult) invokeLLL.objValue;
-            }
-
-            @NonNull
-            public LibraryResult onGetSearchResult(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @IntRange(from = 0) int i, @IntRange(from = 1) int i2, @Nullable LibraryParams libraryParams) {
+            public LibraryResult onGetSearchResult(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, LibraryParams libraryParams) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{mediaLibrarySession, controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) ? new LibraryResult(-6) : (LibraryResult) invokeCommon.objValue;
-            }
-
-            public int onSearch(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @Nullable LibraryParams libraryParams) {
-                InterceptResult invokeLLLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, mediaLibrarySession, controllerInfo, str, libraryParams)) == null) {
-                    return -6;
+                if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{mediaLibrarySession, controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
+                    return new LibraryResult(-6);
                 }
-                return invokeLLLL.intValue;
+                return (LibraryResult) invokeCommon.objValue;
             }
 
-            public int onSubscribe(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @Nullable LibraryParams libraryParams) {
-                InterceptResult invokeLLLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, mediaLibrarySession, controllerInfo, str, libraryParams)) == null) {
-                    return -6;
-                }
-                return invokeLLLL.intValue;
-            }
-
-            public int onUnsubscribe(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str) {
+            public LibraryResult onGetItem(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, mediaLibrarySession, controllerInfo, str)) == null) {
-                    return -6;
+                if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaLibrarySession, controllerInfo, str)) == null) {
+                    return new LibraryResult(-6);
                 }
-                return invokeLLL.intValue;
+                return (LibraryResult) invokeLLL.objValue;
             }
-        }
 
-        /* loaded from: classes.dex */
-        public interface MediaLibrarySessionImpl extends MediaSession.MediaSessionImpl {
-            @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-            MediaLibrarySessionCallback getCallback();
-
-            @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-            /* bridge */ /* synthetic */ MediaSession.SessionCallback getCallback();
-
-            @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-            MediaLibrarySession getInstance();
-
-            @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-            /* bridge */ /* synthetic */ MediaSession getInstance();
-
-            void notifyChildrenChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, @Nullable LibraryParams libraryParams);
-
-            void notifyChildrenChanged(@NonNull String str, int i, @Nullable LibraryParams libraryParams);
-
-            void notifySearchResultChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, @Nullable LibraryParams libraryParams);
-
-            LibraryResult onGetChildrenOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, int i2, @Nullable LibraryParams libraryParams);
-
-            LibraryResult onGetItemOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str);
-
-            LibraryResult onGetLibraryRootOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @Nullable LibraryParams libraryParams);
-
-            LibraryResult onGetSearchResultOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, int i2, @Nullable LibraryParams libraryParams);
-
-            int onSearchOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @Nullable LibraryParams libraryParams);
-
-            int onSubscribeOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @Nullable LibraryParams libraryParams);
-
-            int onUnsubscribeOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str);
+            public LibraryResult onGetLibraryRoot(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, LibraryParams libraryParams) {
+                InterceptResult invokeLLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaLibrarySession, controllerInfo, libraryParams)) == null) {
+                    return new LibraryResult(-6);
+                }
+                return (LibraryResult) invokeLLL.objValue;
+            }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -441,61 +464,26 @@ public abstract class MediaLibraryService extends MediaSessionService {
             }
         }
 
-        public void notifyChildrenChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @IntRange(from = 0) int i, @Nullable LibraryParams libraryParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLIL(1048582, this, controllerInfo, str, i, libraryParams) == null) {
-                if (controllerInfo == null) {
-                    throw new NullPointerException("controller shouldn't be null");
-                }
-                if (str != null) {
-                    if (TextUtils.isEmpty(str)) {
-                        throw new IllegalArgumentException("parentId shouldn't be empty");
-                    }
-                    if (i >= 0) {
-                        getImpl().notifyChildrenChanged(controllerInfo, str, i, libraryParams);
-                        return;
-                    }
-                    throw new IllegalArgumentException("itemCount shouldn't be negative");
-                }
-                throw new NullPointerException("parentId shouldn't be null");
-            }
-        }
-
-        public void notifySearchResultChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @IntRange(from = 0) int i, @Nullable LibraryParams libraryParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, controllerInfo, str, i, libraryParams) == null) {
-                if (controllerInfo == null) {
-                    throw new NullPointerException("controller shouldn't be null");
-                }
-                if (str != null) {
-                    if (TextUtils.isEmpty(str)) {
-                        throw new IllegalArgumentException("query shouldn't be empty");
-                    }
-                    if (i >= 0) {
-                        getImpl().notifySearchResultChanged(controllerInfo, str, i, libraryParams);
-                        return;
-                    }
-                    throw new IllegalArgumentException("itemCount shouldn't be negative");
-                }
-                throw new NullPointerException("query shouldn't be null");
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.session.MediaSession
         public MediaLibrarySessionImpl createImpl(Context context, String str, SessionPlayer sessionPlayer, PendingIntent pendingIntent, Executor executor, MediaSession.SessionCallback sessionCallback, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, sessionPlayer, pendingIntent, executor, sessionCallback, bundle})) == null) ? new MediaLibrarySessionImplBase(this, context, str, sessionPlayer, pendingIntent, executor, sessionCallback, bundle) : (MediaLibrarySessionImpl) invokeCommon.objValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, sessionPlayer, pendingIntent, executor, sessionCallback, bundle})) == null) {
+                return new MediaLibrarySessionImplBase(this, context, str, sessionPlayer, pendingIntent, executor, sessionCallback, bundle);
+            }
+            return (MediaLibrarySessionImpl) invokeCommon.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.session.MediaSession
-        @NonNull
         public MediaLibrarySessionCallback getCallback() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (MediaLibrarySessionCallback) super.getCallback() : (MediaLibrarySessionCallback) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return (MediaLibrarySessionCallback) super.getCallback();
+            }
+            return (MediaLibrarySessionCallback) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -503,20 +491,63 @@ public abstract class MediaLibraryService extends MediaSessionService {
         public MediaLibrarySessionImpl getImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (MediaLibrarySessionImpl) super.getImpl() : (MediaLibrarySessionImpl) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return (MediaLibrarySessionImpl) super.getImpl();
+            }
+            return (MediaLibrarySessionImpl) invokeV.objValue;
         }
 
-        public void notifyChildrenChanged(@NonNull String str, int i, @Nullable LibraryParams libraryParams) {
+        public void notifyChildrenChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, LibraryParams libraryParams) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLIL(1048582, this, controllerInfo, str, i, libraryParams) == null) {
+                if (controllerInfo != null) {
+                    if (str != null) {
+                        if (!TextUtils.isEmpty(str)) {
+                            if (i >= 0) {
+                                getImpl().notifyChildrenChanged(controllerInfo, str, i, libraryParams);
+                                return;
+                            }
+                            throw new IllegalArgumentException("itemCount shouldn't be negative");
+                        }
+                        throw new IllegalArgumentException("parentId shouldn't be empty");
+                    }
+                    throw new NullPointerException("parentId shouldn't be null");
+                }
+                throw new NullPointerException("controller shouldn't be null");
+            }
+        }
+
+        public void notifySearchResultChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, LibraryParams libraryParams) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, controllerInfo, str, i, libraryParams) == null) {
+                if (controllerInfo != null) {
+                    if (str != null) {
+                        if (!TextUtils.isEmpty(str)) {
+                            if (i >= 0) {
+                                getImpl().notifySearchResultChanged(controllerInfo, str, i, libraryParams);
+                                return;
+                            }
+                            throw new IllegalArgumentException("itemCount shouldn't be negative");
+                        }
+                        throw new IllegalArgumentException("query shouldn't be empty");
+                    }
+                    throw new NullPointerException("query shouldn't be null");
+                }
+                throw new NullPointerException("controller shouldn't be null");
+            }
+        }
+
+        public void notifyChildrenChanged(String str, int i, LibraryParams libraryParams) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048583, this, str, i, libraryParams) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    throw new IllegalArgumentException("parentId shouldn't be empty");
+                if (!TextUtils.isEmpty(str)) {
+                    if (i >= 0) {
+                        getImpl().notifyChildrenChanged(str, i, libraryParams);
+                        return;
+                    }
+                    throw new IllegalArgumentException("itemCount shouldn't be negative");
                 }
-                if (i >= 0) {
-                    getImpl().notifyChildrenChanged(str, i, libraryParams);
-                    return;
-                }
-                throw new IllegalArgumentException("itemCount shouldn't be negative");
+                throw new IllegalArgumentException("parentId shouldn't be empty");
             }
         }
     }
@@ -539,18 +570,19 @@ public abstract class MediaLibraryService extends MediaSessionService {
     public MediaSessionService.MediaSessionServiceImpl createImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MediaLibraryServiceImplBase() : (MediaSessionService.MediaSessionServiceImpl) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new MediaLibraryServiceImplBase();
+        }
+        return (MediaSessionService.MediaSessionServiceImpl) invokeV.objValue;
     }
 
     @Override // androidx.media2.session.MediaSessionService, android.app.Service
-    public IBinder onBind(@NonNull Intent intent) {
+    public IBinder onBind(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) ? super.onBind(intent) : (IBinder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            return super.onBind(intent);
+        }
+        return (IBinder) invokeL.objValue;
     }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.media2.session.MediaSessionService
-    @Nullable
-    public abstract MediaLibrarySession onGetSession(@NonNull MediaSession.ControllerInfo controllerInfo);
 }

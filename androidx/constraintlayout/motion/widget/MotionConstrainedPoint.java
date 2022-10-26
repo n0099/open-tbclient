@@ -114,7 +114,19 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
     private boolean diff(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? (Float.isNaN(f) || Float.isNaN(f2)) ? Float.isNaN(f) != Float.isNaN(f2) : Math.abs(f - f2) > 1.0E-6f : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (!Float.isNaN(f) && !Float.isNaN(f2)) {
+                if (Math.abs(f - f2) > 1.0E-6f) {
+                    return true;
+                }
+                return false;
+            } else if (Float.isNaN(f) != Float.isNaN(f2)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 
     public void addValues(HashMap<String, SplineSet> hashMap, int i) {
@@ -209,59 +221,97 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
                         }
                         break;
                 }
+                float f = 1.0f;
+                float f2 = 0.0f;
                 switch (c) {
                     case 0:
-                        splineSet.setPoint(i, Float.isNaN(this.alpha) ? 1.0f : this.alpha);
+                        if (!Float.isNaN(this.alpha)) {
+                            f = this.alpha;
+                        }
+                        splineSet.setPoint(i, f);
                         break;
                     case 1:
-                        splineSet.setPoint(i, Float.isNaN(this.elevation) ? 0.0f : this.elevation);
+                        if (!Float.isNaN(this.elevation)) {
+                            f2 = this.elevation;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case 2:
-                        splineSet.setPoint(i, Float.isNaN(this.rotation) ? 0.0f : this.rotation);
+                        if (!Float.isNaN(this.rotation)) {
+                            f2 = this.rotation;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case 3:
-                        splineSet.setPoint(i, Float.isNaN(this.rotationX) ? 0.0f : this.rotationX);
+                        if (!Float.isNaN(this.rotationX)) {
+                            f2 = this.rotationX;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case 4:
-                        splineSet.setPoint(i, Float.isNaN(this.rotationY) ? 0.0f : this.rotationY);
+                        if (!Float.isNaN(this.rotationY)) {
+                            f2 = this.rotationY;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case 5:
-                        splineSet.setPoint(i, Float.isNaN(this.mPivotX) ? 0.0f : this.mPivotX);
+                        if (!Float.isNaN(this.mPivotX)) {
+                            f2 = this.mPivotX;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case 6:
-                        splineSet.setPoint(i, Float.isNaN(this.mPivotY) ? 0.0f : this.mPivotY);
+                        if (!Float.isNaN(this.mPivotY)) {
+                            f2 = this.mPivotY;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case 7:
-                        splineSet.setPoint(i, Float.isNaN(this.mPathRotate) ? 0.0f : this.mPathRotate);
+                        if (!Float.isNaN(this.mPathRotate)) {
+                            f2 = this.mPathRotate;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case '\b':
-                        splineSet.setPoint(i, Float.isNaN(this.mProgress) ? 0.0f : this.mProgress);
+                        if (!Float.isNaN(this.mProgress)) {
+                            f2 = this.mProgress;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case '\t':
-                        splineSet.setPoint(i, Float.isNaN(this.scaleX) ? 1.0f : this.scaleX);
+                        if (!Float.isNaN(this.scaleX)) {
+                            f = this.scaleX;
+                        }
+                        splineSet.setPoint(i, f);
                         break;
                     case '\n':
-                        splineSet.setPoint(i, Float.isNaN(this.scaleY) ? 1.0f : this.scaleY);
+                        if (!Float.isNaN(this.scaleY)) {
+                            f = this.scaleY;
+                        }
+                        splineSet.setPoint(i, f);
                         break;
                     case 11:
-                        splineSet.setPoint(i, Float.isNaN(this.translationX) ? 0.0f : this.translationX);
+                        if (!Float.isNaN(this.translationX)) {
+                            f2 = this.translationX;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case '\f':
-                        splineSet.setPoint(i, Float.isNaN(this.translationY) ? 0.0f : this.translationY);
+                        if (!Float.isNaN(this.translationY)) {
+                            f2 = this.translationY;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     case '\r':
-                        splineSet.setPoint(i, Float.isNaN(this.translationZ) ? 0.0f : this.translationZ);
+                        if (!Float.isNaN(this.translationZ)) {
+                            f2 = this.translationZ;
+                        }
+                        splineSet.setPoint(i, f2);
                         break;
                     default:
-                        if (!str.startsWith("CUSTOM")) {
-                            Log.e("MotionPaths", "UNKNOWN spline " + str);
-                            break;
-                        } else {
+                        if (str.startsWith("CUSTOM")) {
                             String str2 = str.split(",")[1];
-                            if (!this.attributes.containsKey(str2)) {
-                                Log.e("MotionPaths", "UNKNOWN customName " + str2);
-                                break;
-                            } else {
+                            if (this.attributes.containsKey(str2)) {
                                 ConstraintAttribute constraintAttribute = this.attributes.get(str2);
                                 if (splineSet instanceof SplineSet.CustomSet) {
                                     ((SplineSet.CustomSet) splineSet).setPoint(i, constraintAttribute);
@@ -270,7 +320,13 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
                                     Log.e("MotionPaths", str + " splineSet not a CustomSet frame = " + i + ", value" + constraintAttribute.getValueToInterpolate() + splineSet);
                                     break;
                                 }
+                            } else {
+                                Log.e("MotionPaths", "UNKNOWN customName " + str2);
+                                break;
                             }
+                        } else {
+                            Log.e("MotionPaths", "UNKNOWN spline " + str);
+                            break;
                         }
                 }
             }
@@ -278,10 +334,16 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
     }
 
     public void applyParameters(View view2) {
+        float alpha;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             this.visibility = view2.getVisibility();
-            this.alpha = view2.getVisibility() != 0 ? 0.0f : view2.getAlpha();
+            if (view2.getVisibility() != 0) {
+                alpha = 0.0f;
+            } else {
+                alpha = view2.getAlpha();
+            }
+            this.alpha = alpha;
             this.applyElevation = false;
             if (Build.VERSION.SDK_INT >= 21) {
                 this.elevation = view2.getElevation();
@@ -298,6 +360,85 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
             if (Build.VERSION.SDK_INT >= 21) {
                 this.translationZ = view2.getTranslationZ();
             }
+        }
+    }
+
+    public void applyParameters(ConstraintSet.Constraint constraint) {
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, constraint) == null) {
+            ConstraintSet.PropertySet propertySet = constraint.propertySet;
+            int i = propertySet.mVisibilityMode;
+            this.mVisibilityMode = i;
+            int i2 = propertySet.visibility;
+            this.visibility = i2;
+            if (i2 != 0 && i == 0) {
+                f = 0.0f;
+            } else {
+                f = constraint.propertySet.alpha;
+            }
+            this.alpha = f;
+            ConstraintSet.Transform transform = constraint.transform;
+            this.applyElevation = transform.applyElevation;
+            this.elevation = transform.elevation;
+            this.rotation = transform.rotation;
+            this.rotationX = transform.rotationX;
+            this.rotationY = transform.rotationY;
+            this.scaleX = transform.scaleX;
+            this.scaleY = transform.scaleY;
+            this.mPivotX = transform.transformPivotX;
+            this.mPivotY = transform.transformPivotY;
+            this.translationX = transform.translationX;
+            this.translationY = transform.translationY;
+            this.translationZ = transform.translationZ;
+            this.mKeyFrameEasing = Easing.getInterpolator(constraint.motion.mTransitionEasing);
+            ConstraintSet.Motion motion = constraint.motion;
+            this.mPathRotate = motion.mPathRotate;
+            this.mDrawPath = motion.mDrawPath;
+            this.mProgress = constraint.propertySet.mProgress;
+            for (String str : constraint.mCustomConstraints.keySet()) {
+                ConstraintAttribute constraintAttribute = constraint.mCustomConstraints.get(str);
+                if (constraintAttribute.getType() != ConstraintAttribute.AttributeType.STRING_TYPE) {
+                    this.attributes.put(str, constraintAttribute);
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(MotionConstrainedPoint motionConstrainedPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionConstrainedPoint)) == null) {
+            return Float.compare(this.position, motionConstrainedPoint.position);
+        }
+        return invokeL.intValue;
+    }
+
+    public int getCustomDataCount(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return this.attributes.get(str).noOfInterpValues();
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean hasCustomData(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return this.attributes.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setState(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
+            setBounds(view2.getX(), view2.getY(), view2.getWidth(), view2.getHeight());
+            applyParameters(view2);
         }
     }
 
@@ -354,6 +495,17 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
         }
     }
 
+    public void different(MotionConstrainedPoint motionConstrainedPoint, boolean[] zArr, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, motionConstrainedPoint, zArr, strArr) == null) {
+            zArr[0] = zArr[0] | diff(this.position, motionConstrainedPoint.position);
+            zArr[1] = zArr[1] | diff(this.x, motionConstrainedPoint.x);
+            zArr[2] = zArr[2] | diff(this.y, motionConstrainedPoint.y);
+            zArr[3] = zArr[3] | diff(this.width, motionConstrainedPoint.width);
+            zArr[4] = diff(this.height, motionConstrainedPoint.height) | zArr[4];
+        }
+    }
+
     public void fillStandard(double[] dArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, dArr, iArr) == null) {
@@ -391,18 +543,6 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
         return invokeLLI.intValue;
     }
 
-    public int getCustomDataCount(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.attributes.get(str).noOfInterpValues() : invokeL.intValue;
-    }
-
-    public boolean hasCustomData(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? this.attributes.containsKey(str) : invokeL.booleanValue;
-    }
-
     public void setBounds(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
@@ -413,74 +553,11 @@ public class MotionConstrainedPoint implements Comparable<MotionConstrainedPoint
         }
     }
 
-    public void setState(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
-            setBounds(view2.getX(), view2.getY(), view2.getWidth(), view2.getHeight());
-            applyParameters(view2);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(MotionConstrainedPoint motionConstrainedPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionConstrainedPoint)) == null) ? Float.compare(this.position, motionConstrainedPoint.position) : invokeL.intValue;
-    }
-
     public void setState(ConstraintWidget constraintWidget, ConstraintSet constraintSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048589, this, constraintWidget, constraintSet, i) == null) {
             setBounds(constraintWidget.getX(), constraintWidget.getY(), constraintWidget.getWidth(), constraintWidget.getHeight());
             applyParameters(constraintSet.getParameters(i));
-        }
-    }
-
-    public void applyParameters(ConstraintSet.Constraint constraint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, constraint) == null) {
-            ConstraintSet.PropertySet propertySet = constraint.propertySet;
-            int i = propertySet.mVisibilityMode;
-            this.mVisibilityMode = i;
-            int i2 = propertySet.visibility;
-            this.visibility = i2;
-            this.alpha = (i2 == 0 || i != 0) ? constraint.propertySet.alpha : 0.0f;
-            ConstraintSet.Transform transform = constraint.transform;
-            this.applyElevation = transform.applyElevation;
-            this.elevation = transform.elevation;
-            this.rotation = transform.rotation;
-            this.rotationX = transform.rotationX;
-            this.rotationY = transform.rotationY;
-            this.scaleX = transform.scaleX;
-            this.scaleY = transform.scaleY;
-            this.mPivotX = transform.transformPivotX;
-            this.mPivotY = transform.transformPivotY;
-            this.translationX = transform.translationX;
-            this.translationY = transform.translationY;
-            this.translationZ = transform.translationZ;
-            this.mKeyFrameEasing = Easing.getInterpolator(constraint.motion.mTransitionEasing);
-            ConstraintSet.Motion motion = constraint.motion;
-            this.mPathRotate = motion.mPathRotate;
-            this.mDrawPath = motion.mDrawPath;
-            this.mProgress = constraint.propertySet.mProgress;
-            for (String str : constraint.mCustomConstraints.keySet()) {
-                ConstraintAttribute constraintAttribute = constraint.mCustomConstraints.get(str);
-                if (constraintAttribute.getType() != ConstraintAttribute.AttributeType.STRING_TYPE) {
-                    this.attributes.put(str, constraintAttribute);
-                }
-            }
-        }
-    }
-
-    public void different(MotionConstrainedPoint motionConstrainedPoint, boolean[] zArr, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, motionConstrainedPoint, zArr, strArr) == null) {
-            zArr[0] = zArr[0] | diff(this.position, motionConstrainedPoint.position);
-            zArr[1] = zArr[1] | diff(this.x, motionConstrainedPoint.x);
-            zArr[2] = zArr[2] | diff(this.y, motionConstrainedPoint.y);
-            zArr[3] = zArr[3] | diff(this.width, motionConstrainedPoint.width);
-            zArr[4] = diff(this.height, motionConstrainedPoint.height) | zArr[4];
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.is4;
+import com.baidu.tieba.ks4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int categoryId;
-    public ArrayList<is4> giftList;
+    public ArrayList giftList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CategoryGiftListHttpResponseMessage(int i) {
@@ -42,25 +42,13 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
         }
     }
 
-    public int getCategoryId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.categoryId : invokeV.intValue;
-    }
-
-    public ArrayList<is4> getGiftList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.giftList : (ArrayList) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetGiftListByCategoryIdResIdl getGiftListByCategoryIdResIdl;
         List<PresentGiftListByCategoryId1> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getGiftListByCategoryIdResIdl = (GetGiftListByCategoryIdResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftListByCategoryIdResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getGiftListByCategoryIdResIdl = (GetGiftListByCategoryIdResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftListByCategoryIdResIdl.class)) == null) {
             return;
         }
         Error error = getGiftListByCategoryIdResIdl.error;
@@ -70,34 +58,51 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
         }
         DataRes dataRes = getGiftListByCategoryIdResIdl.data;
         if (dataRes != null && (list = dataRes.gift_list) != null && list.size() > 0) {
-            this.giftList = new ArrayList<>();
+            this.giftList = new ArrayList();
             for (PresentGiftListByCategoryId1 presentGiftListByCategoryId1 : getGiftListByCategoryIdResIdl.data.gift_list) {
                 if (presentGiftListByCategoryId1 != null) {
-                    is4 is4Var = new is4();
-                    is4Var.a = presentGiftListByCategoryId1.gift_id.intValue();
-                    is4Var.b = presentGiftListByCategoryId1.gift_name;
-                    is4Var.c = presentGiftListByCategoryId1.price.intValue();
-                    is4Var.d = presentGiftListByCategoryId1.thumbnail_url;
+                    ks4 ks4Var = new ks4();
+                    ks4Var.a = presentGiftListByCategoryId1.gift_id.intValue();
+                    ks4Var.b = presentGiftListByCategoryId1.gift_name;
+                    ks4Var.c = presentGiftListByCategoryId1.price.intValue();
+                    ks4Var.d = presentGiftListByCategoryId1.thumbnail_url;
                     presentGiftListByCategoryId1.ios_price.intValue();
-                    is4Var.e = presentGiftListByCategoryId1.gift_desc;
-                    is4Var.f = presentGiftListByCategoryId1.activity_type.intValue();
-                    is4Var.g = presentGiftListByCategoryId1.mark_url;
-                    is4Var.h = presentGiftListByCategoryId1.begin_time.intValue();
-                    is4Var.i = presentGiftListByCategoryId1.end_time.intValue();
-                    is4Var.j = presentGiftListByCategoryId1.discount.intValue();
+                    ks4Var.e = presentGiftListByCategoryId1.gift_desc;
+                    ks4Var.f = presentGiftListByCategoryId1.activity_type.intValue();
+                    ks4Var.g = presentGiftListByCategoryId1.mark_url;
+                    ks4Var.h = presentGiftListByCategoryId1.begin_time.intValue();
+                    ks4Var.i = presentGiftListByCategoryId1.end_time.intValue();
+                    ks4Var.j = presentGiftListByCategoryId1.discount.intValue();
                     presentGiftListByCategoryId1.ios_discount.intValue();
                     presentGiftListByCategoryId1.proportion.intValue();
                     presentGiftListByCategoryId1.pitch_on.intValue();
-                    is4Var.k = presentGiftListByCategoryId1.gift_count.intValue();
-                    is4Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
-                    is4Var.s = presentGiftListByCategoryId1.currency.intValue();
-                    this.giftList.add(is4Var);
+                    ks4Var.k = presentGiftListByCategoryId1.gift_count.intValue();
+                    ks4Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
+                    ks4Var.s = presentGiftListByCategoryId1.currency.intValue();
+                    this.giftList.add(ks4Var);
                 }
             }
         }
-        if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CategoryGiftListRequest)) {
-            return;
+        if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof CategoryGiftListRequest)) {
+            this.categoryId = ((CategoryGiftListRequest) getOrginalMessage().getExtra()).getCategoryId();
         }
-        this.categoryId = ((CategoryGiftListRequest) getOrginalMessage().getExtra()).getCategoryId();
+    }
+
+    public int getCategoryId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.categoryId;
+        }
+        return invokeV.intValue;
+    }
+
+    public ArrayList getGiftList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.giftList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

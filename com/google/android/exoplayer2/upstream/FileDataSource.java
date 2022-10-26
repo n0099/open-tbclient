@@ -16,12 +16,12 @@ public final class FileDataSource implements DataSource {
     public transient /* synthetic */ FieldHolder $fh;
     public long bytesRemaining;
     public RandomAccessFile file;
-    public final TransferListener<? super FileDataSource> listener;
+    public final TransferListener listener;
     public boolean opened;
     public Uri uri;
 
     /* loaded from: classes7.dex */
-    public static class FileDataSourceException extends IOException {
+    public class FileDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,6 +65,34 @@ public final class FileDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
+    public Uri getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.uri;
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public FileDataSource(TransferListener transferListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {transferListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.listener = transferListener;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
     public void close() throws FileDataSourceException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -81,7 +109,7 @@ public final class FileDataSource implements DataSource {
                 this.file = null;
                 if (this.opened) {
                     this.opened = false;
-                    TransferListener<? super FileDataSource> transferListener = this.listener;
+                    TransferListener transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferEnd(this);
                     }
@@ -91,14 +119,8 @@ public final class FileDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    public Uri getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (Uri) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.upstream.DataSource
     public long open(DataSpec dataSpec) throws FileDataSourceException {
+        long j;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSpec)) == null) {
@@ -107,11 +129,15 @@ public final class FileDataSource implements DataSource {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(dataSpec.uri.getPath(), "r");
                 this.file = randomAccessFile;
                 randomAccessFile.seek(dataSpec.position);
-                long length = dataSpec.length == -1 ? this.file.length() - dataSpec.position : dataSpec.length;
-                this.bytesRemaining = length;
-                if (length >= 0) {
+                if (dataSpec.length == -1) {
+                    j = this.file.length() - dataSpec.position;
+                } else {
+                    j = dataSpec.length;
+                }
+                this.bytesRemaining = j;
+                if (j >= 0) {
                     this.opened = true;
-                    TransferListener<? super FileDataSource> transferListener = this.listener;
+                    TransferListener transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferStart(this, dataSpec);
                     }
@@ -141,7 +167,7 @@ public final class FileDataSource implements DataSource {
                 int read = this.file.read(bArr, i, (int) Math.min(j, i2));
                 if (read > 0) {
                     this.bytesRemaining -= read;
-                    TransferListener<? super FileDataSource> transferListener = this.listener;
+                    TransferListener transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onBytesTransferred(this, read);
                     }
@@ -152,23 +178,5 @@ public final class FileDataSource implements DataSource {
             }
         }
         return invokeLII.intValue;
-    }
-
-    public FileDataSource(TransferListener<? super FileDataSource> transferListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {transferListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.listener = transferListener;
     }
 }

@@ -1,7 +1,6 @@
 package androidx.core.net;
 
 import android.net.Uri;
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,9 +26,9 @@ public final class UriCompat {
         }
     }
 
-    @NonNull
-    public static String toSafeString(@NonNull Uri uri) {
+    public static String toSafeString(Uri uri) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
             String scheme = uri.getScheme();
@@ -39,8 +38,17 @@ public final class UriCompat {
                     if (scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https") || scheme.equalsIgnoreCase("ftp") || scheme.equalsIgnoreCase("rtsp")) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("//");
-                        sb.append(uri.getHost() != null ? uri.getHost() : "");
-                        sb.append(uri.getPort() != -1 ? ":" + uri.getPort() : "");
+                        String str2 = "";
+                        if (uri.getHost() == null) {
+                            str = "";
+                        } else {
+                            str = uri.getHost();
+                        }
+                        sb.append(str);
+                        if (uri.getPort() != -1) {
+                            str2 = ":" + uri.getPort();
+                        }
+                        sb.append(str2);
                         sb.append("/...");
                         schemeSpecificPart = sb.toString();
                     }

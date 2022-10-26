@@ -1,308 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
+import com.baidu.tieba.write.util.PhotoType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.BufferUnderflowException;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 /* loaded from: classes3.dex */
-public class e39 implements c39 {
+public class e39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewVcodeView a;
-    public final NewWriteModel b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public boolean g;
-    public Runnable h;
-    public final NewWriteModel.d i;
-    public NewWriteModel.d j;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e39 a;
-
-        public a(e39 e39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e39Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
-                return;
-            }
-            if (StringUtils.isNull(this.a.f)) {
-                this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0527));
-            } else {
-                this.a.a.showToast(false, this.a.f);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements NewWriteModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e39 a;
-
-        public b(e39 e39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e39Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, y15 y15Var, WriteData writeData, AntiData antiData) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, y15Var, writeData, antiData}) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.showPostThreadLoadingView(false);
-            if (z) {
-                this.a.g = true;
-                if (writeData != null && writeData.isAddThread()) {
-                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1131);
-                    String str2 = null;
-                    if (postWriteCallBackData != null) {
-                        str2 = postWriteCallBackData.getPreMsg();
-                        str = postWriteCallBackData.getColorMsg();
-                        string = postWriteCallBackData.getErrorString();
-                    } else {
-                        str = null;
-                    }
-                    mp8.b(this.a.a.getContext().getActivity(), string, str2, str);
-                }
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent.putExtras(bundle);
-                np8.a(writeData, postWriteCallBackData.getThreadId());
-                BaseActivity context = this.a.a.getContext();
-                this.a.a.getContext();
-                context.setResult(-1, intent);
-                this.a.a.getContext().finish();
-            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                this.a.a.getContext().setVisible(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && this.a.j != null) {
-                if (this.a.j != null) {
-                    this.a.j.callback(z, postWriteCallBackData, y15Var, writeData, antiData);
-                }
-            } else if (postWriteCallBackData == null) {
-            } else {
-                if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                    this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0913));
-                } else {
-                    this.a.a.showToast(false, postWriteCallBackData.getErrorString());
-                }
-                this.a.m();
-            }
-        }
-    }
-
-    public e39(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {newVcodeView, newWriteModel};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.f = null;
-        this.h = new a(this);
-        b bVar = new b(this);
-        this.i = bVar;
-        this.a = newVcodeView;
-        this.b = newWriteModel;
-        newWriteModel.b0(bVar);
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a.setRatio(1.2631578f);
-            this.a.showWebView(false);
-            String str = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/captcha";
-            if (z) {
-                str = str + "?feedback=1";
-            }
-            this.a.getWebView().loadUrl(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.c39
-    public boolean b(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (str.contains("objc:jsChangeVcode")) {
-                String a2 = vi5.a(str);
-                this.c = a2;
-                if (a2 == null || this.b.S() == null) {
-                    return false;
-                }
-                NewVcodeView newVcodeView = this.a;
-                String str2 = this.c;
-                newVcodeView.runJsMethod(str2, "'" + this.b.S().getVcodeUrl() + "'");
-                return true;
-            } else if (str.equals("objc:jumpToFeedback()")) {
-                NewVcodeView newVcodeView2 = this.a;
-                if (newVcodeView2 != null && newVcodeView2.getContext() != null) {
-                    a39.a(this.a.getContext().getPageContext());
-                }
-                return true;
-            } else if (str.contains("objc:jsSubmit")) {
-                return k(vi5.a(str));
-            } else {
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void c(NewWriteModel.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.j = dVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.showPostThreadLoadingView(false);
-            this.b.cancelLoadData();
-        }
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void e(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
-            this.e = z;
-            this.f = str;
-        }
-    }
-
-    public final boolean k(String str) {
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static PhotoType a(String str) {
         InterceptResult invokeL;
-        String[] split;
+        RandomAccessFile randomAccessFile;
+        RandomAccessFile randomAccessFile2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            PhotoType photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            RandomAccessFile randomAccessFile3 = null;
+            try {
+                try {
+                    try {
+                        randomAccessFile = new RandomAccessFile(str, "r");
+                        try {
+                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
+                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
+                                photoType = PhotoType.APNG;
+                            }
+                            randomAccessFile.close();
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        } catch (IOException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        } catch (BufferUnderflowException e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        randomAccessFile3 = randomAccessFile2;
+                        if (randomAccessFile3 != null) {
+                            try {
+                                randomAccessFile3.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (FileNotFoundException e5) {
+                    e = e5;
+                    randomAccessFile = null;
+                } catch (IOException e6) {
+                    e = e6;
+                    randomAccessFile = null;
+                } catch (BufferUnderflowException e7) {
+                    e = e7;
+                    randomAccessFile = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (randomAccessFile3 != null) {
+                    }
+                    throw th;
+                }
+            } catch (IOException e8) {
+                e8.printStackTrace();
             }
-            this.d = split[0];
-            l(split[1]);
-            return true;
+            return photoType;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (!ej.D()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c59);
-                this.a.getContext().finish();
-            } else if (!StringUtils.isNull(str)) {
-                this.a.showPostThreadLoadingView(true);
-                this.b.S().setVcode(str);
-                this.b.S().setVcodeType("4");
-                this.b.e0();
-            } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c59);
-                this.a.getContext().finish();
-            }
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NewVcodeView newVcodeView = this.a;
-            String str = this.d;
-            newVcodeView.runJsMethod(str, "'" + this.b.S().getVcodeUrl() + "'");
-        }
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            gh.a().removeCallbacks(this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void onPageFinished(WebView webView, String str) {
-        NewVcodeView newVcodeView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) || (newVcodeView = this.a) == null) {
-            return;
-        }
-        newVcodeView.showWebViewDelay(500);
-        if (this.e) {
-            gh.a().postDelayed(this.h, 500L);
-        }
+        return (PhotoType) invokeL.objValue;
     }
 }

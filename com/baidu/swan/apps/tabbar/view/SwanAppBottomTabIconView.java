@@ -45,16 +45,19 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0098, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903fc);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0903fe);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903fd);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0903fb);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090405);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090407);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090406);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090404);
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setBadgeText(String str) {

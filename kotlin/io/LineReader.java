@@ -33,6 +33,29 @@ public final class LineReader {
         sb = new StringBuilder();
     }
 
+    private final int compactBytes() {
+        ByteBuffer byteBuffer = byteBuf;
+        byteBuffer.compact();
+        int position = byteBuffer.position();
+        byteBuffer.position(0);
+        return position;
+    }
+
+    private final void resetAll() {
+        CharsetDecoder charsetDecoder = decoder;
+        if (charsetDecoder == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("decoder");
+        }
+        charsetDecoder.reset();
+        byteBuf.position(0);
+        sb.setLength(0);
+    }
+
+    private final void trimStringBuilder() {
+        sb.setLength(32);
+        sb.trimToSize();
+    }
+
     public static final /* synthetic */ CharsetDecoder access$getDecoder$p(LineReader lineReader) {
         CharsetDecoder charsetDecoder = decoder;
         if (charsetDecoder == null) {
@@ -41,12 +64,17 @@ public final class LineReader {
         return charsetDecoder;
     }
 
-    private final int compactBytes() {
-        ByteBuffer byteBuffer = byteBuf;
-        byteBuffer.compact();
-        int position = byteBuffer.position();
-        byteBuffer.position(0);
-        return position;
+    private final int decodeEndOfInput(int i, int i2) {
+        byteBuf.limit(i);
+        charBuf.position(i2);
+        int decode = decode(true);
+        CharsetDecoder charsetDecoder = decoder;
+        if (charsetDecoder == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("decoder");
+        }
+        charsetDecoder.reset();
+        byteBuf.position(0);
+        return decode;
     }
 
     private final int decode(boolean z) {
@@ -71,34 +99,6 @@ public final class LineReader {
             charBuf.limit(32);
             charBuf.put(chars[i]);
         }
-    }
-
-    private final int decodeEndOfInput(int i, int i2) {
-        byteBuf.limit(i);
-        charBuf.position(i2);
-        int decode = decode(true);
-        CharsetDecoder charsetDecoder = decoder;
-        if (charsetDecoder == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("decoder");
-        }
-        charsetDecoder.reset();
-        byteBuf.position(0);
-        return decode;
-    }
-
-    private final void resetAll() {
-        CharsetDecoder charsetDecoder = decoder;
-        if (charsetDecoder == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("decoder");
-        }
-        charsetDecoder.reset();
-        byteBuf.position(0);
-        sb.setLength(0);
-    }
-
-    private final void trimStringBuilder() {
-        sb.setLength(32);
-        sb.trimToSize();
     }
 
     private final void updateCharset(Charset charset) {
@@ -129,10 +129,11 @@ public final class LineReader {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final synchronized String readLine(InputStream inputStream, Charset charset) {
+        boolean z;
         int decodeEndOfInput;
         Intrinsics.checkNotNullParameter(inputStream, "inputStream");
         Intrinsics.checkNotNullParameter(charset, "charset");
-        boolean z = true;
+        boolean z2 = true;
         if (decoder != null) {
             if (decoder == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("decoder");
@@ -144,7 +145,12 @@ public final class LineReader {
         while (true) {
             int read = inputStream.read();
             if (read == -1) {
-                if ((sb.length() == 0) && i == 0 && i2 == 0) {
+                if (sb.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z && i == 0 && i2 == 0) {
                     return null;
                 }
                 decodeEndOfInput = decodeEndOfInput(i, i2);
@@ -169,9 +175,9 @@ public final class LineReader {
             decodeEndOfInput--;
         }
         if (sb.length() != 0) {
-            z = false;
+            z2 = false;
         }
-        if (z) {
+        if (z2) {
             return new String(chars, 0, decodeEndOfInput);
         }
         sb.append(chars, 0, decodeEndOfInput);

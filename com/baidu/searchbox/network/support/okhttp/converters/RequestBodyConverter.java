@@ -58,10 +58,21 @@ public class RequestBodyConverter {
                 }
 
                 @Override // okhttp3.RequestBody
+                public void writeTo(BufferedSink bufferedSink) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+                        this.val$requestBody.writeTo(bufferedSink.outputStream());
+                    }
+                }
+
+                @Override // okhttp3.RequestBody
                 public long contentLength() throws IOException {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$requestBody.contentLength() : invokeV.longValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.val$requestBody.contentLength();
+                    }
+                    return invokeV.longValue;
                 }
 
                 @Override // okhttp3.RequestBody
@@ -75,14 +86,6 @@ public class RequestBodyConverter {
                         return null;
                     }
                     return (MediaType) invokeV.objValue;
-                }
-
-                @Override // okhttp3.RequestBody
-                public void writeTo(BufferedSink bufferedSink) throws IOException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                        this.val$requestBody.writeTo(bufferedSink.outputStream());
-                    }
                 }
             };
         }

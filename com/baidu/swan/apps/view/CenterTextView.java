@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.view;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.text.Layout;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class CenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -57,10 +55,9 @@ public class CenterTextView extends TextView {
     public void onDraw(Canvas canvas) {
         StaticLayout staticLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || (staticLayout = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && (staticLayout = this.a) != null) {
+            staticLayout.draw(canvas);
         }
-        staticLayout.draw(canvas);
     }
 
     @Override // android.view.View

@@ -92,12 +92,17 @@ public class W0 {
     }
 
     public void a(String str, long j) {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
             b.put(str, Long.valueOf(j));
             try {
                 String j2 = Z1.j(c);
-                JSONObject jSONObject = !TextUtils.isEmpty(j2) ? new JSONObject(j2) : new JSONObject();
+                if (!TextUtils.isEmpty(j2)) {
+                    jSONObject = new JSONObject(j2);
+                } else {
+                    jSONObject = new JSONObject();
+                }
                 jSONObject.put(str, j);
                 Context context = c;
                 String jSONObject2 = jSONObject.toString();

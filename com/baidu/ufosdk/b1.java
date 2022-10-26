@@ -43,7 +43,7 @@ public class b1 implements Runnable {
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < this.a.w.size() - 1; i++) {
-                jSONArray.put(Base64.encodeToString(this.a.w.get(i), 0));
+                jSONArray.put(Base64.encodeToString((byte[]) this.a.w.get(i), 0));
             }
             if (jSONArray.toString().length() < 2097152) {
                 FeedbackReportActivity feedbackReportActivity2 = this.a;

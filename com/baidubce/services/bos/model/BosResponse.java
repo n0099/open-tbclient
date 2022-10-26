@@ -33,6 +33,9 @@ public class BosResponse extends AbstractBceResponse {
     public BosResponseMetadata getMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (BosResponseMetadata) this.metadata : (BosResponseMetadata) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (BosResponseMetadata) this.metadata;
+        }
+        return (BosResponseMetadata) invokeV.objValue;
     }
 }

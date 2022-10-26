@@ -139,7 +139,7 @@ public final class ClientUpdater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x01af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x01b1, code lost:
         if (r0 != null) goto L36;
      */
     /*

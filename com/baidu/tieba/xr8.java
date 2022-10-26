@@ -1,71 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.app.Activity;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.person.ProfileHttpResponseMessage;
+import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xr8 extends CustomMessageListener {
+public class xr8 extends qb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final xp8 b;
+    public final pq8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
-        super(2921452);
+    public xr8(MainTabActivity mainTabActivity, eq8 eq8Var) {
+        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, xp8Var};
+            Object[] objArr = {mainTabActivity, eq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = mainTabActivity;
-        this.b = xp8Var;
+        this.b = mainTabActivity.e;
     }
 
     public final void a() {
-        xp8 xp8Var;
+        pq8 pq8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vp8 vp8Var = this.a.w;
-            if (vp8Var != null) {
-                vp8Var.h();
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921032));
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pq8Var = this.b) != null && pq8Var.a() != null && this.a.A == 1) {
+            this.b.a().d();
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             MainTabActivity mainTabActivity = this.a;
-            if (mainTabActivity.q == null) {
-                mainTabActivity.q = new u19(mainTabActivity.getPageContext(), this.a.p, "main_tab", 3, null);
-                this.a.q.E("8");
+            if (currentActivity == mainTabActivity && mainTabActivity.B.intValue() != 1) {
+                this.b.a().f();
             }
-            if (this.a.v.d() || (xp8Var = this.b) == null || xp8Var.B() == null || this.b.B().getFragmentTabWidget() == null) {
-                return;
-            }
-            this.a.q.I(false, this.b.B().getTabWrapper(), this.b.B().getFragmentTabWidget().getWriteView());
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
+        boolean z;
+        boolean z2;
+        pq8 pq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof p45) && ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity())) {
-            a();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
+            boolean z3 = true;
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
+                this.a.A = profileHttpResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.A == 1 && (pq8Var = this.b) != null && pq8Var.a() != null) {
+                    this.b.a().d();
+                    this.b.a().f();
+                }
+                a();
+                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
+            }
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
+                MainTabActivity mainTabActivity = this.a;
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mainTabActivity.L = z;
+                MainTabActivity mainTabActivity2 = this.a;
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mainTabActivity2.M = z2;
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
+                    z3 = false;
+                }
+                tbSingleton.setUserBan(z3);
+            }
+        }
+    }
+
+    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
+            boolean z3 = true;
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
+                this.a.A = profileSocketResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.A == 1) {
+                    pq8 pq8Var = this.b;
+                    if (pq8Var != null && pq8Var.a() != null) {
+                        this.b.a().d();
+                    }
+                    a();
+                }
+                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
+            }
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
+                MainTabActivity mainTabActivity = this.a;
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mainTabActivity.L = z;
+                MainTabActivity mainTabActivity2 = this.a;
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mainTabActivity2.M = z2;
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
+                    z3 = false;
+                }
+                tbSingleton.setUserBan(z3);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qb
+    public void onMessage(ResponsedMessage responsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, responsedMessage) == null) {
+            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
+            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
+                return;
+            }
+            if (z) {
+                c((ProfileSocketResponseMessage) responsedMessage);
+            }
+            if (responsedMessage instanceof ProfileHttpResponseMessage) {
+                b((ProfileHttpResponseMessage) responsedMessage);
+            }
         }
     }
 }

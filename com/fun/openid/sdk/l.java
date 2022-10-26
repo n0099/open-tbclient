@@ -19,7 +19,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class l implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedBlockingQueue<IBinder> a;
+    public final LinkedBlockingQueue a;
     public ServiceConnection b;
 
     /* loaded from: classes7.dex */
@@ -79,7 +79,7 @@ public class l implements f {
                 return;
             }
         }
-        this.a = new LinkedBlockingQueue<>(1);
+        this.a = new LinkedBlockingQueue(1);
         this.b = new a(this);
     }
 
@@ -95,45 +95,44 @@ public class l implements f {
     public void a(Context context, f.a aVar) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048576, this, context, aVar) != null) {
-            return;
-        }
-        if (context.getPackageManager().getPackageInfo("com.samsung.android.deviceidservice", 0) != null) {
-            z = true;
-            if (z) {
-                if (FunOpenIDSdk.isLogEnabled()) {
-                    Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
-                }
-                aVar.a(false, null);
-                return;
-            }
-            Intent intent = new Intent();
-            intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (context.bindService(intent, this.b, 1)) {
-                try {
-                    IBinder take = this.a.take();
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    obtain.writeInterfaceToken(IDeviceIdService.Stub.DESCRIPTOR);
-                    take.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
-                    String readString = obtain2.readString();
-                    obtain2.recycle();
-                    obtain.recycle();
-                    aVar.a(true, readString);
-                    return;
-                } catch (Exception e) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
+            if (context.getPackageManager().getPackageInfo("com.samsung.android.deviceidservice", 0) != null) {
+                z = true;
+                if (z) {
                     if (FunOpenIDSdk.isLogEnabled()) {
-                        e.printStackTrace();
-                        Log.e(FunOpenIDSdk.TAG, "===========获取OAID出错，需重试");
+                        Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
                     }
-                    aVar.a(true, null);
+                    aVar.a(false, null);
                     return;
                 }
+                Intent intent = new Intent();
+                intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
+                if (context.bindService(intent, this.b, 1)) {
+                    try {
+                        IBinder iBinder = (IBinder) this.a.take();
+                        Parcel obtain = Parcel.obtain();
+                        Parcel obtain2 = Parcel.obtain();
+                        obtain.writeInterfaceToken(IDeviceIdService.Stub.DESCRIPTOR);
+                        iBinder.transact(1, obtain, obtain2, 0);
+                        obtain2.readException();
+                        String readString = obtain2.readString();
+                        obtain2.recycle();
+                        obtain.recycle();
+                        aVar.a(true, readString);
+                        return;
+                    } catch (Exception e) {
+                        if (FunOpenIDSdk.isLogEnabled()) {
+                            e.printStackTrace();
+                            Log.e(FunOpenIDSdk.TAG, "===========获取OAID出错，需重试");
+                        }
+                        aVar.a(true, null);
+                        return;
+                    }
+                }
             }
-        }
-        z = false;
-        if (z) {
+            z = false;
+            if (z) {
+            }
         }
     }
 }

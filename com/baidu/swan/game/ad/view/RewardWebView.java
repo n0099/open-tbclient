@@ -1,6 +1,5 @@
 package com.baidu.swan.game.ad.view;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -9,7 +8,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ds3;
+import com.baidu.tieba.es3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -93,9 +92,10 @@ public class RewardWebView extends WebView {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RewardWebView.super.loadDataWithBaseURL(this.a, this.b, this.c, this.d, this.e);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            RewardWebView.super.loadDataWithBaseURL(this.a, this.b, this.c, this.d, this.e);
         }
     }
 
@@ -130,14 +130,14 @@ public class RewardWebView extends WebView {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RewardWebView.super.evaluateJavascript(this.a, this.b);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            RewardWebView.super.evaluateJavascript(this.a, this.b);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"SetJavaScriptEnabled"})
     public RewardWebView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
@@ -184,6 +184,14 @@ public class RewardWebView extends WebView {
         }
     }
 
+    @Override // android.webkit.WebView
+    public void evaluateJavascript(String str, ValueCallback valueCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) && !this.a) {
+            d(new c(this, str, valueCallback));
+        }
+    }
+
     public final void d(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
@@ -196,18 +204,30 @@ public class RewardWebView extends WebView {
     }
 
     @Override // android.webkit.WebView
+    public void loadUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            try {
+                if (!this.a) {
+                    d(new a(this, str));
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    @Override // android.webkit.WebView
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (this.a) {
-                    return;
+                if (!this.a) {
+                    if (getParent() != null) {
+                        ((ViewGroup) getParent()).removeView(this);
+                    }
+                    super.destroy();
+                    this.a = true;
                 }
-                if (getParent() != null) {
-                    ((ViewGroup) getParent()).removeView(this);
-                }
-                super.destroy();
-                this.a = true;
             } catch (Exception unused) {
             }
         }
@@ -217,39 +237,15 @@ public class RewardWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebSettings settings = getSettings();
-            settings.setUserAgentString(ds3.b().i(settings.getUserAgentString()));
+            settings.setUserAgentString(es3.b().i(settings.getUserAgentString()));
         }
-    }
-
-    @Override // android.webkit.WebView
-    public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) || this.a) {
-            return;
-        }
-        d(new c(this, str, valueCallback));
     }
 
     @Override // android.webkit.WebView
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5) == null) || this.a) {
-            return;
-        }
-        d(new b(this, str, str2, str3, str4, str5));
-    }
-
-    @Override // android.webkit.WebView
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            try {
-                if (this.a) {
-                    return;
-                }
-                d(new a(this, str));
-            } catch (Exception unused) {
-            }
+        if ((interceptable == null || interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5) == null) && !this.a) {
+            d(new b(this, str, str2, str3, str4, str5));
         }
     }
 }

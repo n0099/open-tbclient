@@ -11,14 +11,12 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii0;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.p61;
+import com.baidu.tieba.ji0;
+import com.baidu.tieba.op0;
+import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,10 +30,15 @@ public class SimpleAdInfoView extends FrameLayout {
     public TextView b;
     public TextView c;
     public TextView d;
-    public np0 e;
+    public op0 e;
     public c f;
     public View.OnClickListener g;
     public int h;
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a(String str);
+    }
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -65,35 +68,35 @@ public class SimpleAdInfoView extends FrameLayout {
         public void onClick(View view2) {
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.e == null) {
                 return;
             }
             int id = view2.getId();
             String str2 = "";
-            if (id == R.id.obfuscated_res_0x7f0915d0) {
-                np0.b bVar = this.a.e.g;
+            if (id == R.id.obfuscated_res_0x7f0915c2) {
+                op0.b bVar = this.a.e.g;
                 if (bVar != null) {
                     str2 = bVar.b;
                     str = ClogBuilder.Area.APP_PRIVACY.type;
                 }
                 str = "";
             } else {
-                if (id == R.id.obfuscated_res_0x7f0915cf) {
-                    np0.a aVar = this.a.e.h;
+                if (id == R.id.obfuscated_res_0x7f0915c1) {
+                    op0.a aVar = this.a.e.h;
                     if (aVar != null) {
                         str2 = aVar.b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
                     }
-                } else if (id == R.id.obfuscated_res_0x7f0915fc) {
+                } else if (id == R.id.obfuscated_res_0x7f0915ee) {
                     Toast.makeText(this.a.getContext(), this.a.e.d, 1).show();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f0915d1) {
+                } else if (id == R.id.obfuscated_res_0x7f0915c3) {
                     Toast.makeText(this.a.getContext(), this.a.e.f, 1).show();
                     return;
                 }
                 str = "";
             }
-            ii0.c(str2, this.a.getContext());
+            ji0.c(str2, this.a.getContext());
             c cVar = this.a.f;
             if (cVar != null) {
                 cVar.a(str);
@@ -143,21 +146,15 @@ public class SimpleAdInfoView extends FrameLayout {
                     return;
                 }
                 ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
-                if (viewTreeObserver == null || !viewTreeObserver.isAlive()) {
-                    return;
+                if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
+                    viewTreeObserver.removeOnGlobalLayoutListener(this);
                 }
-                viewTreeObserver.removeOnGlobalLayoutListener(this);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface c {
-        void a(String str);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleAdInfoView(@NonNull Context context) {
+    public SimpleAdInfoView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -179,111 +176,8 @@ public class SimpleAdInfoView extends FrameLayout {
         a(null);
     }
 
-    private void setLayoutByAttrs(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, attributeSet) == null) || attributeSet == null) {
-            return;
-        }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, p61.SimpleAdInfoView);
-        this.h = obtainStyledAttributes.getResourceId(0, -1);
-        obtainStyledAttributes.recycle();
-    }
-
-    public void a(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            setLayoutByAttrs(attributeSet);
-            if (getLayoutId() == -1) {
-                return;
-            }
-            LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fc);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d0);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0915cf);
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setOnClickListener(this.g);
-            }
-            TextView textView2 = this.d;
-            if (textView2 != null) {
-                textView2.setOnClickListener(this.g);
-            }
-        }
-    }
-
-    public final void b(@NonNull TextView textView) {
-        ViewTreeObserver viewTreeObserver;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView) == null) || (viewTreeObserver = textView.getViewTreeObserver()) == null) {
-            return;
-        }
-        viewTreeObserver.addOnGlobalLayoutListener(new b(this, textView, viewTreeObserver));
-    }
-
-    public int getLayoutId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public void setAdInfo(np0 np0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, np0Var) == null) {
-            if (np0Var != null && np0Var.k) {
-                this.e = np0Var;
-                if (this.a != null) {
-                    if (!TextUtils.isEmpty(np0Var.f)) {
-                        this.a.setText(np0Var.f);
-                        this.a.setVisibility(0);
-                        b(this.a);
-                    } else {
-                        this.a.setVisibility(8);
-                    }
-                }
-                if (this.b != null) {
-                    if (!TextUtils.isEmpty(np0Var.d)) {
-                        this.b.setText(np0Var.d);
-                        this.b.setVisibility(0);
-                        b(this.b);
-                    } else {
-                        this.b.setVisibility(8);
-                    }
-                }
-                if (this.c != null) {
-                    np0.b bVar = np0Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(np0Var.g.a)) {
-                        this.c.setText(np0Var.g.a);
-                        this.c.setVisibility(0);
-                    } else {
-                        this.c.setVisibility(8);
-                    }
-                }
-                if (this.d != null) {
-                    np0.a aVar = np0Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(np0Var.h.a)) {
-                        this.d.setText(np0Var.h.a);
-                        this.d.setVisibility(0);
-                        return;
-                    }
-                    this.d.setVisibility(8);
-                    return;
-                }
-                return;
-            }
-            this.e = null;
-        }
-    }
-
-    public void setAfterListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f = cVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public SimpleAdInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -307,7 +201,7 @@ public class SimpleAdInfoView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SimpleAdInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -328,5 +222,111 @@ public class SimpleAdInfoView extends FrameLayout {
         this.g = new a(this);
         this.h = R.layout.obfuscated_res_0x7f0d0606;
         a(attributeSet);
+    }
+
+    private void setLayoutByAttrs(AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, this, attributeSet) != null) || attributeSet == null) {
+            return;
+        }
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, q61.SimpleAdInfoView);
+        this.h = obtainStyledAttributes.getResourceId(0, -1);
+        obtainStyledAttributes.recycle();
+    }
+
+    public final void b(TextView textView) {
+        ViewTreeObserver viewTreeObserver;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView) != null) || (viewTreeObserver = textView.getViewTreeObserver()) == null) {
+            return;
+        }
+        viewTreeObserver.addOnGlobalLayoutListener(new b(this, textView, viewTreeObserver));
+    }
+
+    public void setAfterListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.f = cVar;
+        }
+    }
+
+    public void a(AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
+            setLayoutByAttrs(attributeSet);
+            if (getLayoutId() == -1) {
+                return;
+            }
+            LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0915ee);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c1);
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setOnClickListener(this.g);
+            }
+            TextView textView2 = this.d;
+            if (textView2 != null) {
+                textView2.setOnClickListener(this.g);
+            }
+        }
+    }
+
+    public int getLayoutId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public void setAdInfo(op0 op0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, op0Var) == null) {
+            if (op0Var != null && op0Var.k) {
+                this.e = op0Var;
+                if (this.a != null) {
+                    if (!TextUtils.isEmpty(op0Var.f)) {
+                        this.a.setText(op0Var.f);
+                        this.a.setVisibility(0);
+                        b(this.a);
+                    } else {
+                        this.a.setVisibility(8);
+                    }
+                }
+                if (this.b != null) {
+                    if (!TextUtils.isEmpty(op0Var.d)) {
+                        this.b.setText(op0Var.d);
+                        this.b.setVisibility(0);
+                        b(this.b);
+                    } else {
+                        this.b.setVisibility(8);
+                    }
+                }
+                if (this.c != null) {
+                    op0.b bVar = op0Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(op0Var.g.a)) {
+                        this.c.setText(op0Var.g.a);
+                        this.c.setVisibility(0);
+                    } else {
+                        this.c.setVisibility(8);
+                    }
+                }
+                if (this.d != null) {
+                    op0.a aVar = op0Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(op0Var.h.a)) {
+                        this.d.setText(op0Var.h.a);
+                        this.d.setVisibility(0);
+                        return;
+                    }
+                    this.d.setVisibility(8);
+                    return;
+                }
+                return;
+            }
+            this.e = null;
+        }
     }
 }

@@ -53,15 +53,15 @@ public class DeviceInfo {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
                     String name = file.getName();
-                    if (name.startsWith("cpu")) {
-                        for (int i = 3; i < name.length(); i++) {
-                            if (name.charAt(i) < '0' || name.charAt(i) > '9') {
-                                return false;
-                            }
-                        }
-                        return true;
+                    if (!name.startsWith("cpu")) {
+                        return false;
                     }
-                    return false;
+                    for (int i = 3; i < name.length(); i++) {
+                        if (name.charAt(i) < '0' || name.charAt(i) > '9') {
+                            return false;
+                        }
+                    }
+                    return true;
                 }
                 return invokeL.booleanValue;
             }

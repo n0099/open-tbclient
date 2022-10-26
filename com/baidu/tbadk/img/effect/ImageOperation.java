@@ -32,15 +32,6 @@ public class ImageOperation extends OrmObject implements Serializable {
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.actionName = jSONObject.optString("actionName");
-        this.actionParam = jSONObject.optString("actionParam");
-    }
-
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,5 +47,14 @@ public class ImageOperation extends OrmObject implements Serializable {
             }
         }
         return (JSONObject) invokeV.objValue;
+    }
+
+    public void parseJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.actionName = jSONObject.optString("actionName");
+        this.actionParam = jSONObject.optString("actionParam");
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String bduss;
-    public final Map<String, String> device;
+    public final Map device;
     public int height;
     public double lat;
     public double lng;
@@ -50,18 +50,11 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.device = new HashMap();
         try {
             if (TbadkCoreApplication.getInst().getLocationShared()) {
-                this.lat = dh.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
-                this.lng = dh.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
+                this.lat = eh.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
+                this.lng = eh.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-        }
-    }
-
-    public void addUserInfo(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.device.put(str, str2);
         }
     }
 
@@ -88,6 +81,21 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         return invokeV.objValue;
     }
 
+    public void addUserInfo(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.device.put(str, str2);
+        }
+    }
+
+    public void setBduss(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            this.bduss = str;
+            this.stoken = str2;
+        }
+    }
+
     public String getDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,14 +108,6 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    public void setBduss(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.bduss = str;
-            this.stoken = str2;
-        }
     }
 
     public void setHeight(int i) {

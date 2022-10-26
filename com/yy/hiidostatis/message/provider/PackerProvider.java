@@ -13,10 +13,10 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class PackerProvider implements Provider<Packer> {
+public class PackerProvider implements Provider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, Packer> caches;
+    public ConcurrentHashMap caches;
 
     public PackerProvider() {
         Interceptable interceptable = $ic;
@@ -31,22 +31,21 @@ public class PackerProvider implements Provider<Packer> {
                 return;
             }
         }
-        this.caches = new ConcurrentHashMap<>();
+        this.caches = new ConcurrentHashMap();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.yy.hiidostatis.provider.Provider
     public Packer generate(MessageConfig messageConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, messageConfig)) == null) {
-            Packer packer = this.caches.get(messageConfig.getAppkey());
+            Packer packer = (Packer) this.caches.get(messageConfig.getAppkey());
             if (packer != null) {
                 return packer;
             }
             synchronized (this) {
-                Packer packer2 = this.caches.get(messageConfig.getAppkey());
+                Packer packer2 = (Packer) this.caches.get(messageConfig.getAppkey());
                 if (packer2 != null) {
                     return packer2;
                 }

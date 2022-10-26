@@ -1,10 +1,10 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ex9;
-import com.baidu.tieba.m1a;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.vx9;
+import com.baidu.tieba.e2a;
+import com.baidu.tieba.ey9;
+import com.baidu.tieba.ny9;
+import com.baidu.tieba.wx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,19 +14,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes9.dex */
-public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements mx9 {
+public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements ey9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5539301318568668881L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ex9 actual;
+    public final wx9 actual;
     public final SequentialSubscription resource;
 
-    public CompletableFromEmitter$FromEmitter(ex9 ex9Var) {
+    public CompletableFromEmitter$FromEmitter(wx9 wx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ex9Var};
+            Object[] objArr = {wx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,15 +36,18 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                 return;
             }
         }
-        this.actual = ex9Var;
+        this.actual = wx9Var;
         this.resource = new SequentialSubscription();
     }
 
-    @Override // com.baidu.tieba.mx9
+    @Override // com.baidu.tieba.ey9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return get();
+        }
+        return invokeV.booleanValue;
     }
 
     public void onCompleted() {
@@ -55,6 +58,14 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
             } finally {
                 this.resource.unsubscribe();
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.ey9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && compareAndSet(false, true)) {
+            this.resource.unsubscribe();
         }
     }
 
@@ -69,29 +80,21 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                     this.resource.unsubscribe();
                 }
             }
-            m1a.j(th);
+            e2a.j(th);
         }
     }
 
-    public void setCancellation(vx9 vx9Var) {
+    public void setCancellation(ny9 ny9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vx9Var) == null) {
-            setSubscription(new CancellableSubscription(vx9Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, ny9Var) == null) {
+            setSubscription(new CancellableSubscription(ny9Var));
         }
     }
 
-    public void setSubscription(mx9 mx9Var) {
+    public void setSubscription(ey9 ey9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mx9Var) == null) {
-            this.resource.update(mx9Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.mx9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && compareAndSet(false, true)) {
-            this.resource.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(1048580, this, ey9Var) == null) {
+            this.resource.update(ey9Var);
         }
     }
 }

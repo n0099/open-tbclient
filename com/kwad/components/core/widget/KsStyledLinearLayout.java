@@ -3,8 +3,6 @@ package com.kwad.components.core.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +34,7 @@ public class KsStyledLinearLayout extends LinearLayout implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsStyledLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public KsStyledLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,7 +55,7 @@ public class KsStyledLinearLayout extends LinearLayout implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsStyledLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KsStyledLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,7 +76,6 @@ public class KsStyledLinearLayout extends LinearLayout implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @RequiresApi(api = 21)
     public KsStyledLinearLayout(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;

@@ -14,7 +14,7 @@ import com.qq.e.comm.pi.LADI;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> implements LADI, DownloadConfirmListener {
+public abstract class LiteAbstractAD extends AbstractAD implements LADI, DownloadConfirmListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadConfirmListener f;
@@ -38,9 +38,9 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((LADI) t).getApkInfoUrl();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((LADI) obj).getApkInfoUrl();
             }
             a("getApkInfoUrl");
             return null;
@@ -53,9 +53,9 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((LADI) t).getECPM();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((LADI) obj).getECPM();
             }
             a("getECPM");
             return -1;
@@ -68,9 +68,9 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((LADI) t).getECPMLevel();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((LADI) obj).getECPMLevel();
             }
             a("getECPMLevel");
             return null;
@@ -79,13 +79,13 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     }
 
     @Override // com.qq.e.comm.pi.LADI
-    public Map<String, Object> getExtraInfo() {
+    public Map getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((LADI) t).getExtraInfo();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((LADI) obj).getExtraInfo();
             }
             a("getExtraInfo");
             return new HashMap();
@@ -107,9 +107,9 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     public void sendLossNotification(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((LADI) t).sendLossNotification(i, i2, str);
+            Object obj = this.a;
+            if (obj != null) {
+                ((LADI) obj).sendLossNotification(i, i2, str);
             } else {
                 a("sendLossNotification");
             }
@@ -120,9 +120,9 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     public void sendWinNotification(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((LADI) t).sendWinNotification(i);
+            Object obj = this.a;
+            if (obj != null) {
+                ((LADI) obj).sendWinNotification(i);
             } else {
                 a("sendWinNotification");
             }
@@ -133,9 +133,9 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     public void setBidECPM(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((LADI) t).setBidECPM(i);
+            Object obj = this.a;
+            if (obj != null) {
+                ((LADI) obj).setBidECPM(i);
             } else {
                 a("setBidECPM");
             }
@@ -147,9 +147,9 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadConfirmListener) == null) {
             this.f = downloadConfirmListener;
-            T t = this.a;
-            if (t != 0) {
-                ((LADI) t).setDownloadConfirmListener(this);
+            Object obj = this.a;
+            if (obj != null) {
+                ((LADI) obj).setDownloadConfirmListener(this);
             }
         }
     }

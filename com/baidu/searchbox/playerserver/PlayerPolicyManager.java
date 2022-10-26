@@ -1,6 +1,5 @@
 package com.baidu.searchbox.playerserver;
 
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes2.dex */
 public class PlayerPolicyManager {
     public static /* synthetic */ Interceptable $ic;
@@ -53,51 +51,49 @@ public class PlayerPolicyManager {
     public static PlayerPolicyManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ourInstance : (PlayerPolicyManager) invokeV.objValue;
-    }
-
-    public void notify(String str) {
-        IPlayerPolicy iPlayerPolicy;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (iPlayerPolicy = this.mPlayerPolicy) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return ourInstance;
         }
-        iPlayerPolicy.notify(str);
-    }
-
-    public void register(IPlayerConfig iPlayerConfig) {
-        IPlayerPolicy iPlayerPolicy;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iPlayerConfig) == null) || (iPlayerPolicy = this.mPlayerPolicy) == null) {
-            return;
-        }
-        iPlayerPolicy.register(iPlayerConfig);
+        return (PlayerPolicyManager) invokeV.objValue;
     }
 
     public void stop() {
         IPlayerPolicy iPlayerPolicy;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iPlayerPolicy = this.mPlayerPolicy) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iPlayerPolicy = this.mPlayerPolicy) != null) {
+            iPlayerPolicy.stop();
         }
-        iPlayerPolicy.stop();
-    }
-
-    public void unregister(IPlayerConfig iPlayerConfig) {
-        IPlayerPolicy iPlayerPolicy;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, iPlayerConfig) == null) || (iPlayerPolicy = this.mPlayerPolicy) == null) {
-            return;
-        }
-        iPlayerPolicy.unregister(iPlayerConfig);
     }
 
     public void update() {
         IPlayerPolicy iPlayerPolicy;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iPlayerPolicy = this.mPlayerPolicy) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (iPlayerPolicy = this.mPlayerPolicy) != null) {
+            iPlayerPolicy.start();
         }
-        iPlayerPolicy.start();
+    }
+
+    public void notify(String str) {
+        IPlayerPolicy iPlayerPolicy;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (iPlayerPolicy = this.mPlayerPolicy) != null) {
+            iPlayerPolicy.notify(str);
+        }
+    }
+
+    public void register(IPlayerConfig iPlayerConfig) {
+        IPlayerPolicy iPlayerPolicy;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iPlayerConfig) == null) && (iPlayerPolicy = this.mPlayerPolicy) != null) {
+            iPlayerPolicy.register(iPlayerConfig);
+        }
+    }
+
+    public void unregister(IPlayerConfig iPlayerConfig) {
+        IPlayerPolicy iPlayerPolicy;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, iPlayerConfig) == null) && (iPlayerPolicy = this.mPlayerPolicy) != null) {
+            iPlayerPolicy.unregister(iPlayerConfig);
+        }
     }
 }

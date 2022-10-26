@@ -44,150 +44,6 @@ public class TypeToken<T> {
         this.hashCode = this.type.hashCode();
     }
 
-    public static AssertionError buildUnexpectedTypeError(Type type, Class<?>... clsArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, type, clsArr)) == null) {
-            StringBuilder sb = new StringBuilder("Unexpected type. Expected one of: ");
-            for (Class<?> cls : clsArr) {
-                sb.append(cls.getName());
-                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            }
-            sb.append("but got: ");
-            sb.append(type.getClass().getName());
-            sb.append(", for type token: ");
-            sb.append(type.toString());
-            sb.append(IStringUtil.EXTENSION_SEPARATOR);
-            return new AssertionError(sb.toString());
-        }
-        return (AssertionError) invokeLL.objValue;
-    }
-
-    public static TypeToken<?> get(Type type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, type)) == null) ? new TypeToken<>(type) : (TypeToken) invokeL.objValue;
-    }
-
-    public static TypeToken<?> getArray(Type type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, type)) == null) ? new TypeToken<>(C$Gson$Types.arrayOf(type)) : (TypeToken) invokeL.objValue;
-    }
-
-    public static TypeToken<?> getParameterized(Type type, Type... typeArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, type, typeArr)) == null) ? new TypeToken<>(C$Gson$Types.newParameterizedTypeWithOwner(null, type, typeArr)) : (TypeToken) invokeLL.objValue;
-    }
-
-    public static Type getSuperclassTypeParameter(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
-            Type genericSuperclass = cls.getGenericSuperclass();
-            if (!(genericSuperclass instanceof Class)) {
-                return C$Gson$Types.canonicalize(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
-            }
-            throw new RuntimeException("Missing type parameter.");
-        }
-        return (Type) invokeL.objValue;
-    }
-
-    public static boolean matches(Type type, Type type2, Map<String, Type> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, type, type2, map)) == null) ? type2.equals(type) || ((type instanceof TypeVariable) && type2.equals(map.get(((TypeVariable) type).getName()))) : invokeLLL.booleanValue;
-    }
-
-    public static boolean typeEquals(ParameterizedType parameterizedType, ParameterizedType parameterizedType2, Map<String, Type> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, parameterizedType, parameterizedType2, map)) == null) {
-            if (parameterizedType.getRawType().equals(parameterizedType2.getRawType())) {
-                Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-                Type[] actualTypeArguments2 = parameterizedType2.getActualTypeArguments();
-                for (int i = 0; i < actualTypeArguments.length; i++) {
-                    if (!matches(actualTypeArguments[i], actualTypeArguments2[i], map)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof TypeToken) && C$Gson$Types.equals(this.type, ((TypeToken) obj).type) : invokeL.booleanValue;
-    }
-
-    public final Class<? super T> getRawType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.rawType : (Class) invokeV.objValue;
-    }
-
-    public final Type getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type : (Type) invokeV.objValue;
-    }
-
-    public final int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.hashCode : invokeV.intValue;
-    }
-
-    @Deprecated
-    public boolean isAssignableFrom(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) ? isAssignableFrom((Type) cls) : invokeL.booleanValue;
-    }
-
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? C$Gson$Types.typeToString(this.type) : (String) invokeV.objValue;
-    }
-
-    public static <T> TypeToken<T> get(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? new TypeToken<>(cls) : (TypeToken) invokeL.objValue;
-    }
-
-    @Deprecated
-    public boolean isAssignableFrom(Type type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, type)) == null) {
-            if (type == null) {
-                return false;
-            }
-            if (this.type.equals(type)) {
-                return true;
-            }
-            Type type2 = this.type;
-            if (type2 instanceof Class) {
-                return this.rawType.isAssignableFrom(C$Gson$Types.getRawType(type));
-            }
-            if (type2 instanceof ParameterizedType) {
-                return isAssignableFrom(type, (ParameterizedType) type2, new HashMap());
-            }
-            if (type2 instanceof GenericArrayType) {
-                return this.rawType.isAssignableFrom(C$Gson$Types.getRawType(type)) && isAssignableFrom(type, (GenericArrayType) this.type);
-            }
-            throw buildUnexpectedTypeError(type2, Class.class, ParameterizedType.class, GenericArrayType.class);
-        }
-        return invokeL.booleanValue;
-    }
-
     public TypeToken(Type type) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -209,11 +65,104 @@ public class TypeToken<T> {
         this.hashCode = this.type.hashCode();
     }
 
+    public static AssertionError buildUnexpectedTypeError(Type type, Class<?>... clsArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, type, clsArr)) == null) {
+            StringBuilder sb = new StringBuilder("Unexpected type. Expected one of: ");
+            for (Class<?> cls : clsArr) {
+                sb.append(cls.getName());
+                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            }
+            sb.append("but got: ");
+            sb.append(type.getClass().getName());
+            sb.append(", for type token: ");
+            sb.append(type.toString());
+            sb.append(IStringUtil.EXTENSION_SEPARATOR);
+            return new AssertionError(sb.toString());
+        }
+        return (AssertionError) invokeLL.objValue;
+    }
+
+    public static <T> TypeToken<T> get(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            return new TypeToken<>(cls);
+        }
+        return (TypeToken) invokeL.objValue;
+    }
+
+    public static TypeToken<?> getArray(Type type) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, type)) == null) {
+            return new TypeToken<>(C$Gson$Types.arrayOf(type));
+        }
+        return (TypeToken) invokeL.objValue;
+    }
+
+    public final boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if ((obj instanceof TypeToken) && C$Gson$Types.equals(this.type, ((TypeToken) obj).type)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Deprecated
     public boolean isAssignableFrom(TypeToken<?> typeToken) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, typeToken)) == null) ? isAssignableFrom(typeToken.getType()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, typeToken)) == null) {
+            return isAssignableFrom(typeToken.getType());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static TypeToken<?> get(Type type) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, type)) == null) {
+            return new TypeToken<>(type);
+        }
+        return (TypeToken) invokeL.objValue;
+    }
+
+    @Deprecated
+    public boolean isAssignableFrom(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
+            return isAssignableFrom((Type) cls);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static TypeToken<?> getParameterized(Type type, Type... typeArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, type, typeArr)) == null) {
+            return new TypeToken<>(C$Gson$Types.newParameterizedTypeWithOwner(null, type, typeArr));
+        }
+        return (TypeToken) invokeLL.objValue;
+    }
+
+    public static Type getSuperclassTypeParameter(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
+            Type genericSuperclass = cls.getGenericSuperclass();
+            if (!(genericSuperclass instanceof Class)) {
+                return C$Gson$Types.canonicalize(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
+            }
+            throw new RuntimeException("Missing type parameter.");
+        }
+        return (Type) invokeL.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0028 */
@@ -256,7 +205,10 @@ public class TypeToken<T> {
                 return true;
             }
             Class<?> rawType = C$Gson$Types.getRawType(type);
-            ParameterizedType parameterizedType2 = type instanceof ParameterizedType ? (ParameterizedType) type : null;
+            ParameterizedType parameterizedType2 = null;
+            if (type instanceof ParameterizedType) {
+                parameterizedType2 = (ParameterizedType) type;
+            }
             if (parameterizedType2 != null) {
                 Type[] actualTypeArguments = parameterizedType2.getActualTypeArguments();
                 TypeVariable<Class<?>>[] typeParameters = rawType.getTypeParameters();
@@ -280,5 +232,101 @@ public class TypeToken<T> {
             return isAssignableFrom(rawType.getGenericSuperclass(), parameterizedType, new HashMap(map));
         }
         return invokeLLL.booleanValue;
+    }
+
+    public static boolean matches(Type type, Type type2, Map<String, Type> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, type, type2, map)) == null) {
+            if (!type2.equals(type) && (!(type instanceof TypeVariable) || !type2.equals(map.get(((TypeVariable) type).getName())))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean typeEquals(ParameterizedType parameterizedType, ParameterizedType parameterizedType2, Map<String, Type> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, parameterizedType, parameterizedType2, map)) == null) {
+            if (!parameterizedType.getRawType().equals(parameterizedType2.getRawType())) {
+                return false;
+            }
+            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+            Type[] actualTypeArguments2 = parameterizedType2.getActualTypeArguments();
+            for (int i = 0; i < actualTypeArguments.length; i++) {
+                if (!matches(actualTypeArguments[i], actualTypeArguments2[i], map)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final Class<? super T> getRawType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.rawType;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public final Type getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.type;
+        }
+        return (Type) invokeV.objValue;
+    }
+
+    public final int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.hashCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return C$Gson$Types.typeToString(this.type);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Deprecated
+    public boolean isAssignableFrom(Type type) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, type)) == null) {
+            if (type == null) {
+                return false;
+            }
+            if (this.type.equals(type)) {
+                return true;
+            }
+            Type type2 = this.type;
+            if (type2 instanceof Class) {
+                return this.rawType.isAssignableFrom(C$Gson$Types.getRawType(type));
+            }
+            if (type2 instanceof ParameterizedType) {
+                return isAssignableFrom(type, (ParameterizedType) type2, new HashMap());
+            }
+            if (type2 instanceof GenericArrayType) {
+                if (!this.rawType.isAssignableFrom(C$Gson$Types.getRawType(type)) || !isAssignableFrom(type, (GenericArrayType) this.type)) {
+                    return false;
+                }
+                return true;
+            }
+            throw buildUnexpectedTypeError(type2, Class.class, ParameterizedType.class, GenericArrayType.class);
+        }
+        return invokeL.booleanValue;
     }
 }

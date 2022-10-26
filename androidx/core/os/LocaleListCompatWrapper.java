@@ -1,10 +1,6 @@
 package androidx.core.os;
 
 import android.os.Build;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -29,8 +25,17 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     public static final Locale[] sEmptyList;
     public transient /* synthetic */ FieldHolder $fh;
     public final Locale[] mList;
-    @NonNull
     public final String mStringRepresentation;
+
+    @Override // androidx.core.os.LocaleListInterface
+    public Object getLocaleList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +56,32 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         EN_LATN = LocaleListCompat.forLanguageTagCompat("en-Latn");
     }
 
-    public LocaleListCompatWrapper(@NonNull Locale... localeArr) {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(PreferencesUtil.LEFT_MOUNT);
+            int i = 0;
+            while (true) {
+                Locale[] localeArr = this.mList;
+                if (i < localeArr.length) {
+                    sb.append(localeArr[i]);
+                    if (i < this.mList.length - 1) {
+                        sb.append(',');
+                    }
+                    i++;
+                } else {
+                    sb.append(PreferencesUtil.RIGHT_MOUNT);
+                    return sb.toString();
+                }
+            }
+        } else {
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public LocaleListCompatWrapper(Locale... localeArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,6 +139,18 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         return (Locale) invokeLZ.objValue;
     }
 
+    public static void toLanguageTag(StringBuilder sb, Locale locale) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, sb, locale) == null) {
+            sb.append(locale.getLanguage());
+            String country = locale.getCountry();
+            if (country != null && !country.isEmpty()) {
+                sb.append(SignatureImpl.SEP);
+                sb.append(locale.getCountry());
+            }
+        }
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:16:0x001f, code lost:
         if (r6 < Integer.MAX_VALUE) goto L16;
      */
@@ -151,22 +193,47 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         return invokeLZ.intValue;
     }
 
+    public static int matchScore(Locale locale, Locale locale2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, locale, locale2)) == null) {
+            if (locale.equals(locale2)) {
+                return 1;
+            }
+            if (!locale.getLanguage().equals(locale2.getLanguage()) || isPseudoLocale(locale) || isPseudoLocale(locale2)) {
+                return 0;
+            }
+            String likelyScript = getLikelyScript(locale);
+            if (likelyScript.isEmpty()) {
+                String country = locale.getCountry();
+                if (country.isEmpty() || country.equals(locale2.getCountry())) {
+                    return 1;
+                }
+                return 0;
+            }
+            return likelyScript.equals(getLikelyScript(locale2)) ? 1 : 0;
+        }
+        return invokeLL.intValue;
+    }
+
     private int findFirstMatchIndex(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, locale)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, locale)) == null) {
+            int i = 0;
+            while (true) {
+                Locale[] localeArr = this.mList;
+                if (i < localeArr.length) {
+                    if (matchScore(locale, localeArr[i]) > 0) {
+                        return i;
+                    }
+                    i++;
+                } else {
+                    return Integer.MAX_VALUE;
+                }
+            }
+        } else {
             return invokeL.intValue;
-        }
-        int i = 0;
-        while (true) {
-            Locale[] localeArr = this.mList;
-            if (i >= localeArr.length) {
-                return Integer.MAX_VALUE;
-            }
-            if (matchScore(locale, localeArr[i]) > 0) {
-                return i;
-            }
-            i++;
         }
     }
 
@@ -188,71 +255,13 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     public static boolean isPseudoLocale(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, locale)) == null) ? LOCALE_EN_XA.equals(locale) || LOCALE_AR_XB.equals(locale) : invokeL.booleanValue;
-    }
-
-    @IntRange(from = 0, to = 1)
-    public static int matchScore(Locale locale, Locale locale2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, locale, locale2)) == null) {
-            if (locale.equals(locale2)) {
-                return 1;
-            }
-            if (!locale.getLanguage().equals(locale2.getLanguage()) || isPseudoLocale(locale) || isPseudoLocale(locale2)) {
-                return 0;
-            }
-            String likelyScript = getLikelyScript(locale);
-            if (likelyScript.isEmpty()) {
-                String country = locale.getCountry();
-                return (country.isEmpty() || country.equals(locale2.getCountry())) ? 1 : 0;
-            }
-            return likelyScript.equals(getLikelyScript(locale2)) ? 1 : 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    @VisibleForTesting
-    public static void toLanguageTag(StringBuilder sb, Locale locale) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, sb, locale) == null) {
-            sb.append(locale.getLanguage());
-            String country = locale.getCountry();
-            if (country == null || country.isEmpty()) {
-                return;
-            }
-            sb.append(SignatureImpl.SEP);
-            sb.append(locale.getCountry());
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, obj)) != null) {
-            return invokeL.booleanValue;
-        }
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof LocaleListCompatWrapper)) {
-            return false;
-        }
-        Locale[] localeArr = ((LocaleListCompatWrapper) obj).mList;
-        if (this.mList.length != localeArr.length) {
-            return false;
-        }
-        int i = 0;
-        while (true) {
-            Locale[] localeArr2 = this.mList;
-            if (i >= localeArr2.length) {
-                return true;
-            }
-            if (!localeArr2[i].equals(localeArr[i])) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, locale)) == null) {
+            if (!LOCALE_EN_XA.equals(locale) && !LOCALE_AR_XB.equals(locale)) {
                 return false;
             }
-            i++;
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
     @Override // androidx.core.os.LocaleListInterface
@@ -272,58 +281,84 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     }
 
     @Override // androidx.core.os.LocaleListInterface
-    public Locale getFirstMatch(@NonNull String[] strArr) {
+    public Locale getFirstMatch(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) ? computeFirstMatch(Arrays.asList(strArr), false) : (Locale) invokeL.objValue;
-    }
-
-    @Override // androidx.core.os.LocaleListInterface
-    @Nullable
-    public Object getLocaleList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            return computeFirstMatch(Arrays.asList(strArr), false);
         }
-        return invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
-            return invokeV.intValue;
-        }
-        int i = 1;
-        int i2 = 0;
-        while (true) {
-            Locale[] localeArr = this.mList;
-            if (i2 >= localeArr.length) {
-                return i;
-            }
-            i = (i * 31) + localeArr[i2].hashCode();
-            i2++;
-        }
+        return (Locale) invokeL.objValue;
     }
 
     @Override // androidx.core.os.LocaleListInterface
     public int indexOf(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, locale)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, locale)) == null) {
+            int i = 0;
+            while (true) {
+                Locale[] localeArr = this.mList;
+                if (i < localeArr.length) {
+                    if (localeArr[i].equals(locale)) {
+                        return i;
+                    }
+                    i++;
+                } else {
+                    return -1;
+                }
+            }
+        } else {
             return invokeL.intValue;
         }
-        int i = 0;
-        while (true) {
-            Locale[] localeArr = this.mList;
-            if (i >= localeArr.length) {
-                return -1;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == this) {
+                return true;
             }
-            if (localeArr[i].equals(locale)) {
-                return i;
+            if (!(obj instanceof LocaleListCompatWrapper)) {
+                return false;
             }
-            i++;
+            Locale[] localeArr = ((LocaleListCompatWrapper) obj).mList;
+            if (this.mList.length != localeArr.length) {
+                return false;
+            }
+            int i = 0;
+            while (true) {
+                Locale[] localeArr2 = this.mList;
+                if (i >= localeArr2.length) {
+                    return true;
+                }
+                if (!localeArr2[i].equals(localeArr[i])) {
+                    return false;
+                }
+                i++;
+            }
+        } else {
+            return invokeL.booleanValue;
+        }
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = 1;
+            int i2 = 0;
+            while (true) {
+                Locale[] localeArr = this.mList;
+                if (i2 < localeArr.length) {
+                    i = (i * 31) + localeArr[i2].hashCode();
+                    i2++;
+                } else {
+                    return i;
+                }
+            }
+        } else {
+            return invokeV.intValue;
         }
     }
 
@@ -331,44 +366,32 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mList.length == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mList.length == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.core.os.LocaleListInterface
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mList.length : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mList.length;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.core.os.LocaleListInterface
     public String toLanguageTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mStringRepresentation : (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048585, this)) != null) {
-            return (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mStringRepresentation;
         }
-        StringBuilder sb = new StringBuilder();
-        sb.append(PreferencesUtil.LEFT_MOUNT);
-        int i = 0;
-        while (true) {
-            Locale[] localeArr = this.mList;
-            if (i < localeArr.length) {
-                sb.append(localeArr[i]);
-                if (i < this.mList.length - 1) {
-                    sb.append(',');
-                }
-                i++;
-            } else {
-                sb.append(PreferencesUtil.RIGHT_MOUNT);
-                return sb.toString();
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

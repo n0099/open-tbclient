@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.time.MonotonicClock;
 import com.facebook.fresco.animation.backend.AnimationBackend;
@@ -48,15 +47,15 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
     public static final int CACHING_STRATEGY_NO_CACHE = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public final AnimatedDrawableBackendProvider mAnimatedDrawableBackendProvider;
-    public final CountingMemoryCache<CacheKey, CloseableImage> mBackingCache;
-    public final Supplier<Integer> mCachingStrategySupplier;
+    public final CountingMemoryCache mBackingCache;
+    public final Supplier mCachingStrategySupplier;
     public final ExecutorService mExecutorServiceForFramePreparing;
     public final MonotonicClock mMonotonicClock;
-    public final Supplier<Integer> mNumberOfFramesToPrepareSupplier;
+    public final Supplier mNumberOfFramesToPrepareSupplier;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    public ExperimentalBitmapAnimationDrawableFactory(AnimatedDrawableBackendProvider animatedDrawableBackendProvider, ScheduledExecutorService scheduledExecutorService, ExecutorService executorService, MonotonicClock monotonicClock, PlatformBitmapFactory platformBitmapFactory, CountingMemoryCache<CacheKey, CloseableImage> countingMemoryCache, Supplier<Integer> supplier, Supplier<Integer> supplier2) {
+    public ExperimentalBitmapAnimationDrawableFactory(AnimatedDrawableBackendProvider animatedDrawableBackendProvider, ScheduledExecutorService scheduledExecutorService, ExecutorService executorService, MonotonicClock monotonicClock, PlatformBitmapFactory platformBitmapFactory, CountingMemoryCache countingMemoryCache, Supplier supplier, Supplier supplier2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +93,29 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
     private AnimatedFrameCache createAnimatedFrameCache(AnimatedImageResult animatedImageResult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, animatedImageResult)) == null) ? new AnimatedFrameCache(new AnimationFrameCacheKey(animatedImageResult.hashCode()), this.mBackingCache) : (AnimatedFrameCache) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, animatedImageResult)) == null) {
+            return new AnimatedFrameCache(new AnimationFrameCacheKey(animatedImageResult.hashCode()), this.mBackingCache);
+        }
+        return (AnimatedFrameCache) invokeL.objValue;
+    }
+
+    private BitmapFramePreparer createBitmapFramePreparer(BitmapFrameRenderer bitmapFrameRenderer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bitmapFrameRenderer)) == null) {
+            return new DefaultBitmapFramePreparer(this.mPlatformBitmapFactory, bitmapFrameRenderer, Bitmap.Config.ARGB_8888, this.mExecutorServiceForFramePreparing);
+        }
+        return (BitmapFramePreparer) invokeL.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.drawable.DrawableFactory
+    public boolean supportsImageType(CloseableImage closeableImage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, closeableImage)) == null) {
+            return closeableImage instanceof CloseableAnimatedImage;
+        }
+        return invokeL.booleanValue;
     }
 
     private AnimationBackend createAnimationBackend(AnimatedImageResult animatedImageResult) {
@@ -106,7 +127,7 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
             AnimatedDrawableBackend createAnimatedDrawableBackend = createAnimatedDrawableBackend(animatedImageResult);
             BitmapFrameCache createBitmapFrameCache = createBitmapFrameCache(animatedImageResult);
             AnimatedDrawableBackendFrameRenderer animatedDrawableBackendFrameRenderer = new AnimatedDrawableBackendFrameRenderer(createBitmapFrameCache, createAnimatedDrawableBackend);
-            int intValue = this.mNumberOfFramesToPrepareSupplier.get().intValue();
+            int intValue = ((Integer) this.mNumberOfFramesToPrepareSupplier.get()).intValue();
             if (intValue > 0) {
                 FixedNumberBitmapFramePreparationStrategy fixedNumberBitmapFramePreparationStrategy2 = new FixedNumberBitmapFramePreparationStrategy(intValue);
                 bitmapFramePreparer = createBitmapFramePreparer(animatedDrawableBackendFrameRenderer);
@@ -124,7 +145,7 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, animatedImageResult)) == null) {
-            int intValue = this.mCachingStrategySupplier.get().intValue();
+            int intValue = ((Integer) this.mCachingStrategySupplier.get()).intValue();
             if (intValue != 1) {
                 if (intValue != 2) {
                     if (intValue != 3) {
@@ -139,24 +160,14 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
         return (BitmapFrameCache) invokeL.objValue;
     }
 
-    private BitmapFramePreparer createBitmapFramePreparer(BitmapFrameRenderer bitmapFrameRenderer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bitmapFrameRenderer)) == null) ? new DefaultBitmapFramePreparer(this.mPlatformBitmapFactory, bitmapFrameRenderer, Bitmap.Config.ARGB_8888, this.mExecutorServiceForFramePreparing) : (BitmapFramePreparer) invokeL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.drawable.DrawableFactory
-    public boolean supportsImageType(CloseableImage closeableImage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, closeableImage)) == null) ? closeableImage instanceof CloseableAnimatedImage : invokeL.booleanValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.drawable.DrawableFactory
     public AnimatedDrawable2 createDrawable(CloseableImage closeableImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableImage)) == null) ? new AnimatedDrawable2(createAnimationBackend(((CloseableAnimatedImage) closeableImage).getImageResult())) : (AnimatedDrawable2) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableImage)) == null) {
+            return new AnimatedDrawable2(createAnimationBackend(((CloseableAnimatedImage) closeableImage).getImageResult()));
+        }
+        return (AnimatedDrawable2) invokeL.objValue;
     }
 }

@@ -1,7 +1,6 @@
 package com.kwai.adclient.kscommerciallogger.model;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ public final class c {
     public final String tag;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String asf;
@@ -39,7 +38,7 @@ public final class c {
         public String mTag;
         public JSONObject msg;
 
-        public a(@NonNull String str) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,7 +124,7 @@ public final class c {
             return (a) invokeL.objValue;
         }
 
-        public final a el(@NonNull String str) {
+        public final a el(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -135,7 +134,7 @@ public final class c {
             return (a) invokeL.objValue;
         }
 
-        public final a em(@NonNull String str) {
+        public final a em(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {

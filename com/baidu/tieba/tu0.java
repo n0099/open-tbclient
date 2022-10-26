@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.view.MotionEvent;
 /* loaded from: classes6.dex */
 public interface tu0 {
-    @NonNull
-    uu0 a();
+    boolean onTouchEvent(MotionEvent motionEvent);
 }

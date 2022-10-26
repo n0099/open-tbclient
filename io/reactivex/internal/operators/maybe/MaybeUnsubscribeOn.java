@@ -13,21 +13,21 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeUnsubscribeOn<T> extends AbstractMaybeWithUpstream<T, T> {
+public final class MaybeUnsubscribeOn extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
 
     /* loaded from: classes8.dex */
-    public static final class UnsubscribeOnMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable, Runnable {
+    public final class UnsubscribeOnMaybeObserver extends AtomicReference implements MaybeObserver, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3256698449646456986L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable ds;
         public final Scheduler scheduler;
 
-        public UnsubscribeOnMaybeObserver(MaybeObserver<? super T> maybeObserver, Scheduler scheduler) {
+        public UnsubscribeOnMaybeObserver(MaybeObserver maybeObserver, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,20 +48,22 @@ public final class MaybeUnsubscribeOn<T> extends AbstractMaybeWithUpstream<T, T>
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            Disposable andSet;
+            Disposable disposable;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (andSet = getAndSet(DisposableHelper.DISPOSED)) == DisposableHelper.DISPOSED) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (disposable = (Disposable) getAndSet(DisposableHelper.DISPOSED)) != DisposableHelper.DISPOSED) {
+                this.ds = disposable;
+                this.scheduler.scheduleDirect(this);
             }
-            this.ds = andSet;
-            this.scheduler.scheduleDirect(this);
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -69,6 +71,14 @@ public final class MaybeUnsubscribeOn<T> extends AbstractMaybeWithUpstream<T, T>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.actual.onComplete();
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.ds.dispose();
             }
         }
 
@@ -89,24 +99,16 @@ public final class MaybeUnsubscribeOn<T> extends AbstractMaybeWithUpstream<T, T>
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.actual.onSuccess(t);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.ds.dispose();
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.actual.onSuccess(obj);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeUnsubscribeOn(MaybeSource<T> maybeSource, Scheduler scheduler) {
+    public MaybeUnsubscribeOn(MaybeSource maybeSource, Scheduler scheduler) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +129,7 @@ public final class MaybeUnsubscribeOn<T> extends AbstractMaybeWithUpstream<T, T>
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new UnsubscribeOnMaybeObserver(maybeObserver, this.scheduler));

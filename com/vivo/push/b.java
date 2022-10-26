@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class b implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
-    public static Map<String, b> b;
+    public static Map b;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean c;
     public String d;
@@ -54,6 +54,49 @@ public final class b implements ServiceConnection {
         }
         a = new Object();
         b = new HashMap();
+    }
+
+    private boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            Intent intent = new Intent(this.i);
+            intent.setPackage(this.d);
+            try {
+                return this.e.bindService(intent, this, 1);
+            } catch (Exception e) {
+                com.vivo.push.util.p.a("AidlManager", "bind core error", e);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            this.j.removeMessages(1);
+            this.j.sendEmptyMessageDelayed(1, 3000L);
+        }
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            this.j.removeMessages(1);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            try {
+                this.e.unbindService(this);
+            } catch (Exception e) {
+                com.vivo.push.util.p.a("AidlManager", "On unBindServiceException:" + e.getMessage());
+            }
+        }
     }
 
     public b(Context context, String str) {
@@ -90,31 +133,23 @@ public final class b implements ServiceConnection {
         this.c = false;
     }
 
-    private void d() {
+    public static b a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.j.removeMessages(1);
-            this.j.sendEmptyMessageDelayed(1, 3000L);
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.j.removeMessages(1);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            try {
-                this.e.unbindService(this);
-            } catch (Exception e) {
-                com.vivo.push.util.p.a("AidlManager", "On unBindServiceException:" + e.getMessage());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            b bVar = (b) b.get(str);
+            if (bVar == null) {
+                synchronized (a) {
+                    bVar = (b) b.get(str);
+                    if (bVar == null) {
+                        bVar = new b(context, str);
+                        b.put(str, bVar);
+                    }
+                }
             }
+            return bVar;
         }
+        return (b) invokeLL.objValue;
     }
 
     @Override // android.content.ServiceConnection
@@ -122,29 +157,6 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName) == null) {
             com.vivo.push.util.p.b("AidlManager", "onBindingDied : ".concat(String.valueOf(componentName)));
-        }
-    }
-
-    @Override // android.content.ServiceConnection
-    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, componentName, iBinder) == null) {
-            e();
-            this.g = IPCInvoke.Stub.asInterface(iBinder);
-            if (this.g == null) {
-                com.vivo.push.util.p.d("AidlManager", "onServiceConnected error : aidl must not be null.");
-                f();
-                this.f.set(1);
-                return;
-            }
-            if (this.f.get() == 2) {
-                a(4);
-            } else if (this.f.get() != 4) {
-                f();
-            }
-            synchronized (this.h) {
-                this.h.notifyAll();
-            }
         }
     }
 
@@ -157,23 +169,12 @@ public final class b implements ServiceConnection {
         }
     }
 
-    public static b a(Context context, String str) {
-        InterceptResult invokeLL;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            b bVar = b.get(str);
-            if (bVar == null) {
-                synchronized (a) {
-                    bVar = b.get(str);
-                    if (bVar == null) {
-                        bVar = new b(context, str);
-                        b.put(str, bVar);
-                    }
-                }
-            }
-            return bVar;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            this.f.set(i);
         }
-        return (b) invokeLL.objValue;
     }
 
     private void b() {
@@ -181,33 +182,16 @@ public final class b implements ServiceConnection {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             int i = this.f.get();
             com.vivo.push.util.p.d("AidlManager", "Enter connect, Connection Status: ".concat(String.valueOf(i)));
-            if (i == 4 || i == 2 || i == 3 || i == 5 || !this.c) {
-                return;
-            }
-            a(2);
-            if (!c()) {
-                a(1);
-                com.vivo.push.util.p.a("AidlManager", "bind core service fail");
-                return;
-            }
-            d();
-        }
-    }
-
-    private boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            Intent intent = new Intent(this.i);
-            intent.setPackage(this.d);
-            try {
-                return this.e.bindService(intent, this, 1);
-            } catch (Exception e) {
-                com.vivo.push.util.p.a("AidlManager", "bind core error", e);
-                return false;
+            if (i != 4 && i != 2 && i != 3 && i != 5 && this.c) {
+                a(2);
+                if (!c()) {
+                    a(1);
+                    com.vivo.push.util.p.a("AidlManager", "bind core service fail");
+                    return;
+                }
+                d();
             }
         }
-        return invokeV.booleanValue;
     }
 
     public final boolean a() {
@@ -216,23 +200,18 @@ public final class b implements ServiceConnection {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String b2 = t.b(this.e);
             this.d = b2;
+            boolean z = false;
             if (TextUtils.isEmpty(b2)) {
                 com.vivo.push.util.p.c(this.e, "push pkgname is null");
                 return false;
             }
-            boolean z = z.a(this.e, this.d) >= 1260;
+            if (z.a(this.e, this.d) >= 1260) {
+                z = true;
+            }
             this.c = z;
             return z;
         }
         return invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
-            this.f.set(i);
-        }
     }
 
     public final boolean a(Bundle bundle) {
@@ -263,22 +242,46 @@ public final class b implements ServiceConnection {
                 com.vivo.push.util.p.a("AidlManager", "invoke error ", e2);
                 int i2 = this.f.get();
                 com.vivo.push.util.p.d("AidlManager", "Enter disconnect, Connection Status: ".concat(String.valueOf(i2)));
-                if (i2 == 2) {
-                    e();
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 == 4) {
+                            a(1);
+                            f();
+                            return false;
+                        }
+                        return false;
+                    }
                     a(1);
-                    return false;
-                } else if (i2 == 3) {
-                    a(1);
-                    return false;
-                } else if (i2 != 4) {
-                    return false;
-                } else {
-                    a(1);
-                    f();
                     return false;
                 }
+                e();
+                a(1);
+                return false;
             }
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, componentName, iBinder) == null) {
+            e();
+            this.g = IPCInvoke.Stub.asInterface(iBinder);
+            if (this.g == null) {
+                com.vivo.push.util.p.d("AidlManager", "onServiceConnected error : aidl must not be null.");
+                f();
+                this.f.set(1);
+                return;
+            }
+            if (this.f.get() == 2) {
+                a(4);
+            } else if (this.f.get() != 4) {
+                f();
+            }
+            synchronized (this.h) {
+                this.h.notifyAll();
+            }
+        }
     }
 }

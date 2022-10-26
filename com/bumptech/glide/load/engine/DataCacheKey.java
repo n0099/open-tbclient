@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,26 +39,44 @@ public final class DataCacheKey implements Key {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof DataCacheKey) {
-                DataCacheKey dataCacheKey = (DataCacheKey) obj;
-                return this.sourceKey.equals(dataCacheKey.sourceKey) && this.signature.equals(dataCacheKey.signature);
+            if (!(obj instanceof DataCacheKey)) {
+                return false;
             }
-            return false;
+            DataCacheKey dataCacheKey = (DataCacheKey) obj;
+            if (!this.sourceKey.equals(dataCacheKey.sourceKey) || !this.signature.equals(dataCacheKey.signature)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, messageDigest) == null) {
+            this.sourceKey.updateDiskCacheKey(messageDigest);
+            this.signature.updateDiskCacheKey(messageDigest);
+        }
     }
 
     public Key getSourceKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sourceKey : (Key) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.sourceKey;
+        }
+        return (Key) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.Key
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.sourceKey.hashCode() * 31) + this.signature.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (this.sourceKey.hashCode() * 31) + this.signature.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
@@ -69,14 +86,5 @@ public final class DataCacheKey implements Key {
             return "DataCacheKey{sourceKey=" + this.sourceKey + ", signature=" + this.signature + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, messageDigest) == null) {
-            this.sourceKey.updateDiskCacheKey(messageDigest);
-            this.signature.updateDiskCacheKey(messageDigest);
-        }
     }
 }

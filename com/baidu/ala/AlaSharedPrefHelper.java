@@ -1,7 +1,6 @@
 package com.baidu.ala;
 
 import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -61,43 +60,10 @@ public class AlaSharedPrefHelper {
         return (SharedPreferences) invokeV.objValue;
     }
 
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            SharedPreferences sharedPreferences = getSharedPreferences();
-            this.mSP = sharedPreferences;
-            return sharedPreferences.getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f)) == null) {
-            SharedPreferences sharedPreferences = getSharedPreferences();
-            this.mSP = sharedPreferences;
-            return sharedPreferences.getFloat(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            SharedPreferences sharedPreferences = getSharedPreferences();
-            this.mSP = sharedPreferences;
-            return sharedPreferences.getInt(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
     public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
             try {
                 SharedPreferences sharedPreferences = getSharedPreferences();
                 this.mSP = sharedPreferences;
@@ -113,7 +79,7 @@ public class AlaSharedPrefHelper {
     public String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
             return sharedPreferences.getString(str, str2);
@@ -121,47 +87,18 @@ public class AlaSharedPrefHelper {
         return (String) invokeLL.objValue;
     }
 
-    public boolean isContains(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            SharedPreferences sharedPreferences = getSharedPreferences();
-            this.mSP = sharedPreferences;
-            return sharedPreferences.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
     public void putBoolean(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
             EditorHelper.putBoolean(sharedPreferences, str, z);
         }
     }
 
-    public void putFloat(String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048583, this, str, f) == null) {
-            SharedPreferences sharedPreferences = getSharedPreferences();
-            this.mSP = sharedPreferences;
-            EditorHelper.putFloat(sharedPreferences, str, f);
-        }
-    }
-
-    public void putInt(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i) == null) {
-            SharedPreferences sharedPreferences = getSharedPreferences();
-            this.mSP = sharedPreferences;
-            EditorHelper.putInt(sharedPreferences, str, i);
-        }
-    }
-
     public void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
             EditorHelper.putLong(sharedPreferences, str, j);
@@ -170,7 +107,7 @@ public class AlaSharedPrefHelper {
 
     public void putString(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
             EditorHelper.putString(sharedPreferences, str, str2);
@@ -179,7 +116,7 @@ public class AlaSharedPrefHelper {
 
     public void remove(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
             EditorHelper.remove(sharedPreferences, str);

@@ -74,68 +74,69 @@ public class FetchLog {
         String str2;
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, jSONObject)) != null) {
-            return (FetchLogBean) invokeL.objValue;
-        }
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("info")) == null) {
-            return null;
-        }
-        String optString = jSONObject.optString("type");
-        if (!TextUtils.equals("flow", optString)) {
-            return null;
-        }
-        String optString2 = jSONObject.optString("jobId");
-        String optString3 = jSONObject.optString("version");
-        try {
-            long longValue = Long.valueOf(jSONObject.optString("expiredTime")).longValue() * 1000;
-            try {
-                if (longValue < System.currentTimeMillis()) {
-                    reportTaskCheckFail(optString, optString2, optString2, jSONObject);
-                    return null;
-                }
-                String optString4 = optJSONObject.optString(START_TIME);
-                String optString5 = optJSONObject.optString(END_TIME);
-                long parseLong = Long.parseLong(optString4) * 1000;
-                long parseLong2 = Long.parseLong(optString5) * 1000;
-                ArrayList arrayList = new ArrayList();
-                JSONArray optJSONArray = optJSONObject.optJSONArray("space");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        String string = optJSONArray.getString(i);
-                        if (!TextUtils.isEmpty(string)) {
-                            arrayList.add(string);
-                        }
-                    }
-                }
-                str = optString2;
-                str2 = optString3;
-                try {
-                    return new FetchLogBean(optString2, optString, optString3, longValue, parseLong, parseLong2, Long.parseLong(optJSONObject.optString("maxTotalFileSize")), arrayList, optJSONObject.optString("network"));
-                } catch (Exception e) {
-                    e = e;
-                    jSONObject2 = jSONObject;
-                    reportTaskCheckFail(optString, str, str2, jSONObject2);
-                    if (DEBUG) {
-                    }
-                    reportTaskCheckFail(optString, str, str2, jSONObject2);
-                    return null;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                jSONObject2 = jSONObject;
-                str = optString2;
-                str2 = optString3;
-                reportTaskCheckFail(optString, str, str2, jSONObject2);
-                if (DEBUG) {
-                    Log.d("FetchFileData", e.getMessage());
-                }
-                reportTaskCheckFail(optString, str, str2, jSONObject2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("info")) == null) {
                 return null;
             }
-        } catch (Exception e3) {
-            e = e3;
-            str = optString2;
-            str2 = optString3;
+            String optString = jSONObject.optString("type");
+            if (!TextUtils.equals("flow", optString)) {
+                return null;
+            }
+            String optString2 = jSONObject.optString("jobId");
+            String optString3 = jSONObject.optString("version");
+            try {
+                long longValue = Long.valueOf(jSONObject.optString("expiredTime")).longValue() * 1000;
+                try {
+                    if (longValue < System.currentTimeMillis()) {
+                        reportTaskCheckFail(optString, optString2, optString2, jSONObject);
+                        return null;
+                    }
+                    String optString4 = optJSONObject.optString(START_TIME);
+                    String optString5 = optJSONObject.optString(END_TIME);
+                    long parseLong = Long.parseLong(optString4) * 1000;
+                    long parseLong2 = Long.parseLong(optString5) * 1000;
+                    ArrayList arrayList = new ArrayList();
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("space");
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            String string = optJSONArray.getString(i);
+                            if (!TextUtils.isEmpty(string)) {
+                                arrayList.add(string);
+                            }
+                        }
+                    }
+                    str = optString2;
+                    str2 = optString3;
+                    try {
+                        return new FetchLogBean(optString2, optString, optString3, longValue, parseLong, parseLong2, Long.parseLong(optJSONObject.optString("maxTotalFileSize")), arrayList, optJSONObject.optString("network"));
+                    } catch (Exception e) {
+                        e = e;
+                        jSONObject2 = jSONObject;
+                        reportTaskCheckFail(optString, str, str2, jSONObject2);
+                        if (DEBUG) {
+                        }
+                        reportTaskCheckFail(optString, str, str2, jSONObject2);
+                        return null;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    jSONObject2 = jSONObject;
+                    str = optString2;
+                    str2 = optString3;
+                    reportTaskCheckFail(optString, str, str2, jSONObject2);
+                    if (DEBUG) {
+                        Log.d("FetchFileData", e.getMessage());
+                    }
+                    reportTaskCheckFail(optString, str, str2, jSONObject2);
+                    return null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                str = optString2;
+                str2 = optString3;
+            }
+        } else {
+            return (FetchLogBean) invokeL.objValue;
         }
     }
 

@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ThreadExpressionActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,44 +51,68 @@ public class PraiseData extends OrmObject implements Serializable {
     public int getIsLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isLike : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isLike;
+        }
+        return invokeV.intValue;
     }
 
     public long getNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.num : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.num;
+        }
+        return invokeV.longValue;
     }
 
     public String getPostId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.postId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.postId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ArrayList<MetaData> getUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.users : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.users;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public HashMap<String, MetaData> getUserMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.userMap : (HashMap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.userMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     public boolean isPriaseDataValid() {
         InterceptResult invokeV;
         ArrayList<MetaData> arrayList;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.num > 0 && (arrayList = this.users) != null && arrayList.size() >= 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.num <= 0 || (arrayList = this.users) == null || arrayList.size() < 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parserJson(String str) {
@@ -99,26 +122,6 @@ public class PraiseData extends OrmObject implements Serializable {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void parserProtobuf(Zan zan) {
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, zan) == null) || zan == null) {
-            return;
-        }
-        this.num = zan.num.intValue();
-        this.isLike = zan.is_liked.intValue();
-        List<Long> list = zan.liker_id;
-        if (list == null || list.size() <= 0) {
-            return;
-        }
-        for (int i = 0; i < list.size(); i++) {
-            String l = list.get(i).toString();
-            if (this.userMap != null && l != null && !l.equals("0") && (metaData = this.userMap.get(l)) != null) {
-                this.users.add(metaData);
             }
         }
     }
@@ -168,24 +171,42 @@ public class PraiseData extends OrmObject implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
             this.num = jSONObject.optLong("num", 0L);
-            this.isLike = jSONObject.optInt(ThreadExpressionActivityConfig.IS_LIKED, 0);
+            this.isLike = jSONObject.optInt("is_liked", 0);
             JSONArray jSONArray = jSONObject.getJSONArray("liker_id");
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return;
-            }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                String optString = jSONArray.optString(i);
-                if (this.userMap != null && optString != null && optString.length() > 0 && (metaData = this.userMap.get(optString)) != null) {
-                    this.users.add(metaData);
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    String optString = jSONArray.optString(i);
+                    if (this.userMap != null && optString != null && optString.length() > 0 && (metaData = this.userMap.get(optString)) != null) {
+                        this.users.add(metaData);
+                    }
                 }
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
+        }
+    }
+
+    public void parserProtobuf(Zan zan) {
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, zan) != null) || zan == null) {
+            return;
+        }
+        this.num = zan.num.intValue();
+        this.isLike = zan.is_liked.intValue();
+        List<Long> list = zan.liker_id;
+        if (list != null && list.size() > 0) {
+            for (int i = 0; i < list.size(); i++) {
+                String l = list.get(i).toString();
+                if (this.userMap != null && l != null && !l.equals("0") && (metaData = this.userMap.get(l)) != null) {
+                    this.users.add(metaData);
+                }
+            }
         }
     }
 }

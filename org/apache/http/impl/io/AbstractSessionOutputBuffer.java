@@ -76,6 +76,14 @@ public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
+    public void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.io.SessionOutputBuffer
     public void writeLine(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
@@ -95,14 +103,6 @@ public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer
     public void writeLine(CharArrayBuffer charArrayBuffer) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charArrayBuffer) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

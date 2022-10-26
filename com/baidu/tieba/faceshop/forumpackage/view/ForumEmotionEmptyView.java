@@ -53,12 +53,12 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02ae, this);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a5d);
-            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a5e);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a59);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a62);
-            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f096b), null, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02ad, this);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a67);
+            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a68);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a63);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a6c);
+            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0978), null, true);
             this.b = b;
             b.setVisibility(0);
         }
@@ -84,12 +84,18 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public ViewGroup getFilterDropDownView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (ViewGroup) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (ViewGroup) invokeV.objValue;
     }
 
     public TextView getFilterView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (TextView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (TextView) invokeV.objValue;
     }
 }

@@ -38,12 +38,12 @@ public class jn extends jp {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            byte[] m534a = this.f815a.m534a();
+            byte[] m533a = this.f815a.m533a();
             if (i2 > this.f815a.a() - this.a) {
                 i2 = this.f815a.a() - this.a;
             }
             if (i2 > 0) {
-                System.arraycopy(m534a, this.a, bArr, i, i2);
+                System.arraycopy(m533a, this.a, bArr, i, i2);
                 this.a += i2;
             }
             return i2;

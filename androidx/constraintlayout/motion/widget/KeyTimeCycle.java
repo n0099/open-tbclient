@@ -251,6 +251,22 @@ public class KeyTimeCycle extends Key {
         this.mCustomConstraints = new HashMap<>();
     }
 
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void addValues(HashMap<String, SplineSet> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
+            throw new IllegalArgumentException(" KeyTimeCycles do not support SplineSet");
+        }
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void load(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
+            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyTimeCycle));
+        }
+    }
+
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x0080, code lost:
         if (r1.equals(androidx.constraintlayout.motion.widget.Key.SCALE_Y) != false) goto L14;
@@ -451,14 +467,6 @@ public class KeyTimeCycle extends Key {
     }
 
     @Override // androidx.constraintlayout.motion.widget.Key
-    public void addValues(HashMap<String, SplineSet> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
-            throw new IllegalArgumentException(" KeyTimeCycles do not support SplineSet");
-        }
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
     public void getAttributeNames(HashSet<String> hashSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashSet) == null) {
@@ -508,17 +516,9 @@ public class KeyTimeCycle extends Key {
     }
 
     @Override // androidx.constraintlayout.motion.widget.Key
-    public void load(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyTimeCycle));
-        }
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
     public void setInterpolation(HashMap<String, Integer> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) || this.mCurveFit == -1) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, hashMap) != null) || this.mCurveFit == -1) {
             return;
         }
         if (!Float.isNaN(this.mAlpha)) {

@@ -1,7 +1,6 @@
 package com.baidu.location.b;
 
 import android.location.Location;
-import android.net.wifi.ScanResult;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.Jni;
@@ -27,9 +26,9 @@ public class w {
     public static /* synthetic */ Interceptable $ic;
     public static w A;
     public static long C;
-    public static ArrayList<String> b;
-    public static ArrayList<String> c;
-    public static ArrayList<String> d;
+    public static ArrayList b;
+    public static ArrayList c;
+    public static ArrayList d;
     public static String e;
     public static String f;
     public static String g;
@@ -64,7 +63,7 @@ public class w {
         public int b;
         public int c;
         public final /* synthetic */ w d;
-        public ArrayList<String> e;
+        public ArrayList e;
         public boolean f;
 
         public a(w wVar) {
@@ -86,14 +85,14 @@ public class w {
             this.a = false;
             this.b = 0;
             this.c = 0;
-            this.e = new ArrayList<>();
+            this.e = new ArrayList();
             this.f = true;
             this.k = new HashMap();
         }
 
         @Override // com.baidu.location.e.e
         public void a() {
-            Map<String, Object> map;
+            Map map;
             StringBuilder sb;
             String str;
             Interceptable interceptable = $ic;
@@ -132,7 +131,7 @@ public class w {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 if (z && this.j != null) {
-                    ArrayList<String> arrayList = this.e;
+                    ArrayList arrayList = this.e;
                     if (arrayList != null) {
                         arrayList.clear();
                     }
@@ -145,7 +144,7 @@ public class w {
                         e.printStackTrace();
                     }
                 }
-                Map<String, Object> map = this.k;
+                Map map = this.k;
                 if (map != null) {
                     map.clear();
                 }
@@ -173,7 +172,7 @@ public class w {
                     try {
                         if (this.e == null || this.e.size() < 1) {
                             if (this.e == null) {
-                                this.e = new ArrayList<>();
+                                this.e = new ArrayList();
                             }
                             this.b = 0;
                             int i = 0;
@@ -250,9 +249,9 @@ public class w {
                 return;
             }
         }
-        b = new ArrayList<>();
-        c = new ArrayList<>();
-        d = new ArrayList<>();
+        b = new ArrayList();
+        c = new ArrayList();
+        d = new ArrayList();
         e = com.baidu.location.e.j.a + "/yo.dat";
         f = com.baidu.location.e.j.a + "/yoh.dat";
         g = com.baidu.location.e.j.a + "/yom.dat";
@@ -298,7 +297,7 @@ public class w {
         this.B = 0;
     }
 
-    public static synchronized int a(List<String> list, int i2) {
+    public static synchronized int a(List list, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i2)) == null) {
@@ -393,7 +392,7 @@ public class w {
     public static String a(int i2) {
         InterceptResult invokeI;
         String str;
-        ArrayList<String> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             String str2 = null;
@@ -424,7 +423,7 @@ public class w {
                 if (size > 0) {
                     int i3 = size - 1;
                     try {
-                        String str3 = arrayList.get(i3);
+                        String str3 = (String) arrayList.get(i3);
                         try {
                             arrayList.remove(i3);
                         } catch (Exception unused) {
@@ -455,7 +454,7 @@ public class w {
     */
     public static void a(int i2, boolean z) {
         String str;
-        ArrayList<String> arrayList;
+        ArrayList arrayList;
         File file;
         int size;
         int i3;
@@ -503,7 +502,7 @@ public class w {
                                 break;
                             }
                             randomAccessFile.seek((readInt4 * readInt2) + 128);
-                            byte[] bytes = (arrayList.get(0) + (char) 0).getBytes();
+                            byte[] bytes = (((String) arrayList.get(0)) + (char) 0).getBytes();
                             randomAccessFile.writeInt(bytes.length);
                             randomAccessFile.write(bytes, 0, bytes.length);
                             arrayList.remove(0);
@@ -514,7 +513,7 @@ public class w {
                             readInt4 = i3;
                         } else {
                             randomAccessFile.seek((readInt2 * readInt3) + 128);
-                            byte[] bytes2 = (arrayList.get(0) + (char) 0).getBytes();
+                            byte[] bytes2 = (((String) arrayList.get(0)) + (char) 0).getBytes();
                             randomAccessFile.writeInt(bytes2.length);
                             randomAccessFile.write(bytes2, 0, bytes2.length);
                             arrayList.remove(0);
@@ -729,7 +728,7 @@ public class w {
 
     public static boolean a(Location location, com.baidu.location.c.h hVar) {
         InterceptResult invokeLL;
-        List<ScanResult> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, location, hVar)) == null) {
             boolean z = false;
@@ -753,7 +752,7 @@ public class w {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, location, z)) == null) ? com.baidu.location.c.e.a(v, location, z) : invokeLZ.booleanValue;
     }
 
-    public static boolean a(String str, List<String> list) {
+    public static boolean a(String str, List list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, list)) == null) {
@@ -940,7 +939,7 @@ public class w {
     }
 
     public static synchronized void e(String str) {
-        ArrayList<String> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
             synchronized (w.class) {
@@ -986,7 +985,7 @@ public class w {
             }
             a(d, t);
             if (d.size() > 0) {
-                str = d.get(0);
+                str = (String) d.get(0);
                 d.remove(0);
             }
             if (str != null) {
@@ -994,7 +993,7 @@ public class w {
             }
             a(d, s);
             if (d.size() > 0) {
-                str = d.get(0);
+                str = (String) d.get(0);
                 d.remove(0);
             }
             if (str != null) {
@@ -1002,7 +1001,7 @@ public class w {
             }
             a(d, u);
             if (d.size() > 0) {
-                String str2 = d.get(0);
+                String str2 = (String) d.get(0);
                 d.remove(0);
                 return str2;
             }

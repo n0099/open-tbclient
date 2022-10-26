@@ -15,7 +15,7 @@ public interface IMetricsAPI {
 
     void reportReturnCode(int i, String str, long j, String str2);
 
-    void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map);
+    void reportReturnCode(int i, String str, long j, String str2, Map map);
 
-    void reportSrcData(int i, String str, String str2, long j, Map<String, String> map);
+    void reportSrcData(int i, String str, String str2, long j, Map map);
 }

@@ -16,11 +16,13 @@ public abstract class ExtraInfoCallback {
     public static ExtraInfoDispatcher sExtraInfoDispatcher;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onReceiveClientIP(String str);
+
     /* loaded from: classes2.dex */
-    public static final class ExtraInfoDispatcher {
+    public final class ExtraInfoDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<ExtraInfoCallback> mExtraCallbacks;
+        public List mExtraCallbacks;
 
         public ExtraInfoDispatcher() {
             Interceptable interceptable = $ic;
@@ -38,39 +40,40 @@ public abstract class ExtraInfoCallback {
             this.mExtraCallbacks = new CopyOnWriteArrayList();
         }
 
+        public void clearCallback() {
+            List list;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.mExtraCallbacks) != null) {
+                list.clear();
+            }
+        }
+
+        public List getAllCallbacks() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mExtraCallbacks;
+            }
+            return (List) invokeV.objValue;
+        }
+
         public void addCallback(ExtraInfoCallback extraInfoCallback) {
-            List<ExtraInfoCallback> list;
+            List list;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, extraInfoCallback) == null) {
-                List<ExtraInfoCallback> list2 = this.mExtraCallbacks;
+                List list2 = this.mExtraCallbacks;
                 if ((list2 == null || !list2.contains(extraInfoCallback)) && (list = this.mExtraCallbacks) != null) {
                     list.add(extraInfoCallback);
                 }
             }
         }
 
-        public void clearCallback() {
-            List<ExtraInfoCallback> list;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.mExtraCallbacks) == null) {
-                return;
-            }
-            list.clear();
-        }
-
-        public List<ExtraInfoCallback> getAllCallbacks() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtraCallbacks : (List) invokeV.objValue;
-        }
-
         public void removeCallback(ExtraInfoCallback extraInfoCallback) {
-            List<ExtraInfoCallback> list;
+            List list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, extraInfoCallback) == null) || extraInfoCallback == null || (list = this.mExtraCallbacks) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, extraInfoCallback) == null) && extraInfoCallback != null && (list = this.mExtraCallbacks) != null) {
+                list.remove(extraInfoCallback);
             }
-            list.remove(extraInfoCallback);
         }
     }
 
@@ -107,8 +110,9 @@ public abstract class ExtraInfoCallback {
     public static ExtraInfoDispatcher getExtraInfoDispatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sExtraInfoDispatcher : (ExtraInfoDispatcher) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sExtraInfoDispatcher;
+        }
+        return (ExtraInfoDispatcher) invokeV.objValue;
     }
-
-    public abstract void onReceiveClientIP(String str);
 }

@@ -16,7 +16,7 @@ import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.x10;
+import com.baidu.tieba.y10;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class CommonUtils {
     public static final String SDK_VERSION = "sdkversion";
     public static final String TRUE = "1";
     public static final String UNKNOWN = "-1";
-    public static final HashSet<String> mVSSKey;
+    public static final HashSet mVSSKey;
     public static String sAppVersion;
     public static String sCPU;
     public static String sEmulator;
@@ -56,11 +56,11 @@ public class CommonUtils {
     public static String sProcessBit;
     public static String sROM;
     public static String sRooted;
-    public static final ConcurrentHashMap<String, String> sSDKVersionMap;
+    public static final ConcurrentHashMap sSDKVersionMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class VSSConstants {
+    public final class VSSConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String VMHWM = "VmHWM";
         public static final String VMPEAK = "VmPeak";
@@ -96,8 +96,8 @@ public class CommonUtils {
                 return;
             }
         }
-        sSDKVersionMap = new ConcurrentHashMap<>();
-        mVSSKey = new HashSet<String>() { // from class: com.baidu.searchbox.aperf.param.CommonUtils.1
+        sSDKVersionMap = new ConcurrentHashMap();
+        mVSSKey = new HashSet() { // from class: com.baidu.searchbox.aperf.param.CommonUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,6 +132,88 @@ public class CommonUtils {
         sPackageName = null;
     }
 
+    public static String getPSS() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
+            Debug.getMemoryInfo(memoryInfo);
+            long j = memoryInfo.dalvikPss;
+            StringBuilder sb = new StringBuilder();
+            sb.append(memoryInfo.nativePss);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            sb.append(j);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getROM() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (sROM == null) {
+                sROM = RomUtils.getName() + ParamableElem.DIVIDE_PARAM + RomUtils.getVersion();
+            }
+            return sROM;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getRootedInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            if (sRooted == null) {
+                String prop = RomUtils.getProp("ro.secure");
+                boolean z = true;
+                if (prop != null && "0".equals(prop)) {
+                    z = false;
+                }
+                String str = "1";
+                if (!z) {
+                    sRooted = "1";
+                } else {
+                    if (!isSUExist()) {
+                        str = "-1";
+                    }
+                    sRooted = str;
+                }
+            }
+            return sRooted;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x001c: ARITH  (r0v6 long A[REMOVE]) = (wrap: long : 0x0018: IGET  (r0v5 long A[REMOVE]) = (r1v4 android.app.ActivityManager$MemoryInfo) android.app.ActivityManager.MemoryInfo.availMem long) / (1024 long))] */
+    public static String getSysMem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) AppRuntime.getAppContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            StringBuilder sb = new StringBuilder();
+            sb.append(memoryInfo.availMem / 1024);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean isSUExist() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            String[] strArr = {"/sbin/su", "/system/bin/su", "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su", "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su"};
+            for (int i = 0; i < 8; i++) {
+                if (new File(strArr[i]).exists()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public CommonUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,6 +226,133 @@ public class CommonUtils {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static String getEmulator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (sEmulator == null) {
+                if (mayEmulatorFromBuild()) {
+                    sEmulator = "1";
+                } else {
+                    sEmulator = "-1";
+                }
+            }
+            return sEmulator;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getLogId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return UUID.randomUUID().toString().replace("-", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (sModel == null) {
+                String deviceModel = DeviceUtil.BrandInfo.getDeviceModel();
+                sModel = deviceModel;
+                if (deviceModel == null) {
+                    sModel = "";
+                }
+            }
+            return sModel;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getNetwork() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return new y10().a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getOSVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (sOSVersion == null) {
+                sOSVersion = DeviceUtil.OSInfo.getOsVersion();
+            }
+            return sOSVersion;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            if (sPackageName == null) {
+                String packageName = AppRuntime.getAppContext().getPackageName();
+                sPackageName = packageName;
+                if (packageName == null) {
+                    sPackageName = "";
+                }
+            }
+            return sPackageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getProcessBit() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (sProcessBit == null) {
+                if (is64Bit()) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                sProcessBit = str;
+            }
+            return sProcessBit;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean is64Bit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
+            }
+            if (i < 21) {
+                return false;
+            }
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length <= 0) {
+                return false;
+            }
+            return Build.CPU_ABI.equals(strArr[0]);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isLowMemory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) AppRuntime.getAppContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return memoryInfo.lowMemory;
+        }
+        return invokeV.booleanValue;
     }
 
     public static String getAppVersion() {
@@ -171,6 +380,68 @@ public class CommonUtils {
         return (String) invokeV.objValue;
     }
 
+    public static String getExStorage() {
+        InterceptResult invokeV;
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            long availableExternalMemorySize = StorageUtils.getAvailableExternalMemorySize();
+            long totalExternalMemorySize = StorageUtils.getTotalExternalMemorySize();
+            if (availableExternalMemorySize > 0) {
+                availableExternalMemorySize = Math.round(((float) availableExternalMemorySize) / 1024.0f);
+            }
+            if (totalExternalMemorySize > 0) {
+                totalExternalMemorySize = Math.round(((float) totalExternalMemorySize) / 1024.0f);
+            }
+            StringBuilder sb = new StringBuilder();
+            Object obj = "-1";
+            if (availableExternalMemorySize < 0) {
+                l = "-1";
+            } else {
+                l = Long.valueOf(availableExternalMemorySize);
+            }
+            sb.append(l);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            if (totalExternalMemorySize >= 0) {
+                obj = Long.valueOf(totalExternalMemorySize);
+            }
+            sb.append(obj);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getInStorage() {
+        InterceptResult invokeV;
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            long availableInternalMemorySize = StorageUtils.getAvailableInternalMemorySize();
+            long totalInternalMemorySize = StorageUtils.getTotalInternalMemorySize();
+            if (availableInternalMemorySize > 0) {
+                availableInternalMemorySize = Math.round(((float) availableInternalMemorySize) / 1024.0f);
+            }
+            if (totalInternalMemorySize > 0) {
+                totalInternalMemorySize = Math.round(((float) totalInternalMemorySize) / 1024.0f);
+            }
+            StringBuilder sb = new StringBuilder();
+            Object obj = "-1";
+            if (availableInternalMemorySize < 0) {
+                l = "-1";
+            } else {
+                l = Long.valueOf(availableInternalMemorySize);
+            }
+            sb.append(l);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            if (totalInternalMemorySize >= 0) {
+                obj = Long.valueOf(totalInternalMemorySize);
+            }
+            sb.append(obj);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String getCPUInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -190,43 +461,6 @@ public class CommonUtils {
         return (String) invokeV.objValue;
     }
 
-    public static String getEmulator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (sEmulator == null) {
-                if (mayEmulatorFromBuild()) {
-                    sEmulator = "1";
-                } else {
-                    sEmulator = "-1";
-                }
-            }
-            return sEmulator;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getExStorage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            long availableExternalMemorySize = StorageUtils.getAvailableExternalMemorySize();
-            long totalExternalMemorySize = StorageUtils.getTotalExternalMemorySize();
-            if (availableExternalMemorySize > 0) {
-                availableExternalMemorySize = Math.round(((float) availableExternalMemorySize) / 1024.0f);
-            }
-            if (totalExternalMemorySize > 0) {
-                totalExternalMemorySize = Math.round(((float) totalExternalMemorySize) / 1024.0f);
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(availableExternalMemorySize >= 0 ? Long.valueOf(availableExternalMemorySize) : "-1");
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            sb.append(totalExternalMemorySize >= 0 ? Long.valueOf(totalExternalMemorySize) : "-1");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
     public static String getHeapInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -238,35 +472,9 @@ public class CommonUtils {
         return (String) invokeV.objValue;
     }
 
-    public static String getInStorage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            long availableInternalMemorySize = StorageUtils.getAvailableInternalMemorySize();
-            long totalInternalMemorySize = StorageUtils.getTotalInternalMemorySize();
-            if (availableInternalMemorySize > 0) {
-                availableInternalMemorySize = Math.round(((float) availableInternalMemorySize) / 1024.0f);
-            }
-            if (totalInternalMemorySize > 0) {
-                totalInternalMemorySize = Math.round(((float) totalInternalMemorySize) / 1024.0f);
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(availableInternalMemorySize >= 0 ? Long.valueOf(availableInternalMemorySize) : "-1");
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            sb.append(totalInternalMemorySize >= 0 ? Long.valueOf(totalInternalMemorySize) : "-1");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getLogId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? UUID.randomUUID().toString().replace("-", "") : (String) invokeV.objValue;
-    }
-
     public static String getMemoryInfo() {
         InterceptResult invokeV;
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             if (sMemory == null) {
@@ -286,7 +494,12 @@ public class CommonUtils {
                 sb.append(ParamableElem.DIVIDE_PARAM);
                 sb.append(prop3);
                 sb.append(ParamableElem.DIVIDE_PARAM);
-                sb.append(j >= 0 ? Long.valueOf(j) : "-1");
+                if (j >= 0) {
+                    obj = Long.valueOf(j);
+                } else {
+                    obj = "-1";
+                }
+                sb.append(obj);
                 sMemory = sb.toString().replace("m", "");
             }
             return sMemory;
@@ -294,115 +507,23 @@ public class CommonUtils {
         return (String) invokeV.objValue;
     }
 
-    public static String getModel() {
+    public static boolean mayEmulatorFromBuild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (sModel == null) {
-                String deviceModel = DeviceUtil.BrandInfo.getDeviceModel();
-                sModel = deviceModel;
-                if (deviceModel == null) {
-                    sModel = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            String prop = RomUtils.getProp("ro.product.model");
+            if (!TextUtils.isEmpty(prop) && !prop.toLowerCase().contains("sdk") && !prop.toLowerCase().contains("google_sdk") && !prop.contains("Emulator")) {
+                String prop2 = RomUtils.getProp("ro.product.manufacturer");
+                if (!TextUtils.isEmpty(prop2) && !prop2.toLowerCase().contains("unknown") && !prop2.contains("Genymotion")) {
+                    String prop3 = RomUtils.getProp("ro.product.device");
+                    if (!TextUtils.isEmpty(prop3) && !prop3.toLowerCase().contains("generic")) {
+                        return "1".equals(RomUtils.getProp("ro.kernel.qemu"));
+                    }
                 }
             }
-            return sModel;
+            return true;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getNetwork() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new x10().a() : (String) invokeV.objValue;
-    }
-
-    public static String getOSVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (sOSVersion == null) {
-                sOSVersion = DeviceUtil.OSInfo.getOsVersion();
-            }
-            return sOSVersion;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getPSS() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
-            Debug.getMemoryInfo(memoryInfo);
-            long j = memoryInfo.dalvikPss;
-            StringBuilder sb = new StringBuilder();
-            sb.append(memoryInfo.nativePss);
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            sb.append(j);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (sPackageName == null) {
-                String packageName = AppRuntime.getAppContext().getPackageName();
-                sPackageName = packageName;
-                if (packageName == null) {
-                    sPackageName = "";
-                }
-            }
-            return sPackageName;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getProcessBit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            if (sProcessBit == null) {
-                sProcessBit = is64Bit() ? "1" : "0";
-            }
-            return sProcessBit;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getROM() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            if (sROM == null) {
-                sROM = RomUtils.getName() + ParamableElem.DIVIDE_PARAM + RomUtils.getVersion();
-            }
-            return sROM;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getRootedInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (sRooted == null) {
-                String prop = RomUtils.getProp("ro.secure");
-                boolean z = true;
-                if (prop != null && "0".equals(prop)) {
-                    z = false;
-                }
-                if (!z) {
-                    sRooted = "1";
-                } else {
-                    sRooted = isSUExist() ? "1" : "-1";
-                }
-            }
-            return sRooted;
-        }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x004d */
@@ -444,7 +565,7 @@ public class CommonUtils {
                                 if (jsonReader != null) {
                                     jsonReader.close();
                                 }
-                                return sSDKVersionMap.get(str);
+                                return (String) sSDKVersionMap.get(str);
                             }
                         } catch (Throwable th) {
                             th = th;
@@ -471,23 +592,9 @@ public class CommonUtils {
                     e5.printStackTrace();
                 }
             }
-            return sSDKVersionMap.get(str);
+            return (String) sSDKVersionMap.get(str);
         }
         return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x001c: ARITH  (r0v6 long A[REMOVE]) = (wrap: long : 0x0018: IGET  (r0v5 long A[REMOVE]) = (r1v4 android.app.ActivityManager$MemoryInfo) android.app.ActivityManager.MemoryInfo.availMem long) / (1024 long))] */
-    public static String getSysMem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) AppRuntime.getAppContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            StringBuilder sb = new StringBuilder();
-            sb.append(memoryInfo.availMem / 1024);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:65:0x00dd */
@@ -564,14 +671,20 @@ public class CommonUtils {
                                                                     }
                                                                     break;
                                                             }
-                                                            if (c == 0) {
+                                                            if (c != 0) {
+                                                                if (c != 1) {
+                                                                    if (c != 2) {
+                                                                        if (c == 3) {
+                                                                            bufferedReader2 = upperCase;
+                                                                        }
+                                                                    } else {
+                                                                        str3 = upperCase;
+                                                                    }
+                                                                } else {
+                                                                    str = upperCase;
+                                                                }
+                                                            } else {
                                                                 str2 = upperCase;
-                                                            } else if (c == 1) {
-                                                                str = upperCase;
-                                                            } else if (c == 2) {
-                                                                str3 = upperCase;
-                                                            } else if (c == 3) {
-                                                                bufferedReader2 = upperCase;
                                                             }
                                                         }
                                                     }
@@ -676,70 +789,5 @@ public class CommonUtils {
             return r0 + ParamableElem.DIVIDE_PARAM + str + ParamableElem.DIVIDE_PARAM + str3 + ParamableElem.DIVIDE_PARAM + str2;
         }
         return (String) invokeV.objValue;
-    }
-
-    public static boolean is64Bit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i >= 21) {
-                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-                if (strArr.length > 0) {
-                    return Build.CPU_ABI.equals(strArr[0]);
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isLowMemory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) AppRuntime.getAppContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo.lowMemory;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isSUExist() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            String[] strArr = {"/sbin/su", "/system/bin/su", "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su", "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su"};
-            for (int i = 0; i < 8; i++) {
-                if (new File(strArr[i]).exists()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean mayEmulatorFromBuild() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            String prop = RomUtils.getProp("ro.product.model");
-            if (!TextUtils.isEmpty(prop) && !prop.toLowerCase().contains("sdk") && !prop.toLowerCase().contains("google_sdk") && !prop.contains("Emulator")) {
-                String prop2 = RomUtils.getProp("ro.product.manufacturer");
-                if (!TextUtils.isEmpty(prop2) && !prop2.toLowerCase().contains("unknown") && !prop2.contains("Genymotion")) {
-                    String prop3 = RomUtils.getProp("ro.product.device");
-                    if (!TextUtils.isEmpty(prop3) && !prop3.toLowerCase().contains("generic")) {
-                        return "1".equals(RomUtils.getProp("ro.kernel.qemu"));
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

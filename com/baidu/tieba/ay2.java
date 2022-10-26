@@ -7,11 +7,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ay2 implements dy2 {
+public class ay2 implements ey2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public long b;
+
+    @Override // com.baidu.tieba.ey2
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageInitRender" : (String) invokeV.objValue;
+    }
 
     public ay2() {
         Interceptable interceptable = $ic;
@@ -30,7 +37,7 @@ public class ay2 implements dy2 {
         this.b = -1L;
     }
 
-    @Override // com.baidu.tieba.dy2
+    @Override // com.baidu.tieba.ey2
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,17 +45,17 @@ public class ay2 implements dy2 {
             long j = this.a;
             if (j >= 0) {
                 long j2 = this.b;
-                if (j2 < 0) {
-                    return -1L;
+                if (j2 >= 0) {
+                    return j2 - j;
                 }
-                return j2 - j;
+                return -1L;
             }
             return -1L;
         }
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.dy2
+    @Override // com.baidu.tieba.ey2
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -56,18 +63,11 @@ public class ay2 implements dy2 {
         }
     }
 
-    @Override // com.baidu.tieba.dy2
+    @Override // com.baidu.tieba.ey2
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             this.a = j;
         }
-    }
-
-    @Override // com.baidu.tieba.dy2
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageSwitchCost" : (String) invokeV.objValue;
     }
 }

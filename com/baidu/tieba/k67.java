@@ -1,53 +1,66 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h67;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.RecomVideo.DislikeReason;
+import tbclient.RecomVideo.ThreadPersonalized;
 /* loaded from: classes4.dex */
-public class k67 extends h67.b {
+public class k67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k67(View view2) {
-        super(view2);
+    public static void a(List list, List list2) {
+        w26 w26Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, list, list2) == null) && list != null && list2 != null) {
+            HashMap hashMap = new HashMap();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                ThreadPersonalized threadPersonalized2 = (ThreadPersonalized) it.next();
+                if (threadPersonalized2 != null) {
+                    hashMap.put(String.valueOf(threadPersonalized2.tid), threadPersonalized2);
+                }
+            }
+            int count = ListUtils.getCount(list2);
+            for (int i = 0; i < count; i++) {
+                eo eoVar = (eo) ListUtils.getItem(list2, i);
+                if ((eoVar instanceof w26) && (threadData = (w26Var = (w26) eoVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.getTid())) != null) {
+                    w26Var.J(threadPersonalized.source);
+                    w26Var.M(threadPersonalized.weight);
+                    w26Var.F(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        w26Var.H(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list3 = threadPersonalized.dislike_resource;
+                    if (list3 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list3) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        w26Var.feedBackReasonMap = sparseArray;
+                        w26Var.G(threadPersonalized.extra);
+                    }
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.h67.b, com.baidu.tieba.h67.a
-    @TargetApi(11)
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void b(List list, List list2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.isHardwareAccelerated() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.h67.b, com.baidu.tieba.h67.a
-    @TargetApi(14)
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.setScrollX(i);
+        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
+            a(list, list2);
         }
     }
 }

@@ -22,11 +22,11 @@ public class GetTplStokenResult extends SapiResult {
     public static final String ERROR_MSG_BDUSS_NOT_EXIST = "bduss 本地不存在";
     public transient /* synthetic */ FieldHolder $fh;
     public FailureType failureType;
-    public Map<String, String> tplStokenMap;
+    public Map tplStokenMap;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class FailureType {
+    public final class FailureType {
         public static final /* synthetic */ FailureType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FailureType BDUSS_EXPIRED;
@@ -78,13 +78,19 @@ public class GetTplStokenResult extends SapiResult {
         public static FailureType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FailureType) Enum.valueOf(FailureType.class, str) : (FailureType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (FailureType) Enum.valueOf(FailureType.class, str);
+            }
+            return (FailureType) invokeL.objValue;
         }
 
         public static FailureType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FailureType[]) $VALUES.clone() : (FailureType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (FailureType[]) $VALUES.clone();
+            }
+            return (FailureType[]) invokeV.objValue;
         }
     }
 

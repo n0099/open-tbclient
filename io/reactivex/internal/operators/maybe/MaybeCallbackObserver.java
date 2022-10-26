@@ -18,15 +18,15 @@ import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeCallbackObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable, LambdaConsumerIntrospection {
+public final class MaybeCallbackObserver extends AtomicReference implements MaybeObserver, Disposable, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6076952298809384986L;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onComplete;
-    public final Consumer<? super Throwable> onError;
-    public final Consumer<? super T> onSuccess;
+    public final Consumer onError;
+    public final Consumer onSuccess;
 
-    public MaybeCallbackObserver(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
+    public MaybeCallbackObserver(Consumer consumer, Consumer consumer2, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,14 +58,23 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<Disposable> 
     public boolean hasCustomOnError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.onError != Functions.ON_ERROR_MISSING : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.onError != Functions.ON_ERROR_MISSING) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return DisposableHelper.isDisposed((Disposable) get());
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.MaybeObserver
@@ -105,12 +114,12 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<Disposable> 
     }
 
     @Override // io.reactivex.MaybeObserver
-    public void onSuccess(T t) {
+    public void onSuccess(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
             lazySet(DisposableHelper.DISPOSED);
             try {
-                this.onSuccess.accept(t);
+                this.onSuccess.accept(obj);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

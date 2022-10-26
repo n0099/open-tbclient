@@ -17,16 +17,25 @@ import io.reactivex.internal.util.QueueDrain;
 import io.reactivex.internal.util.QueueDrainHelper;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriberPad4 implements FlowableSubscriber<T>, QueueDrain<U, V> {
+public abstract class QueueDrainSubscriber extends QueueDrainSubscriberPad4 implements FlowableSubscriber, QueueDrain {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber<? super V> actual;
+    public final Subscriber actual;
     public volatile boolean cancelled;
     public volatile boolean done;
     public Throwable error;
-    public final SimplePlainQueue<U> queue;
+    public final SimplePlainQueue queue;
 
-    public QueueDrainSubscriber(Subscriber<? super V> subscriber, SimplePlainQueue<U> simplePlainQueue) {
+    public boolean accept(Subscriber subscriber, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, subscriber, obj)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public QueueDrainSubscriber(Subscriber subscriber, SimplePlainQueue simplePlainQueue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,58 +54,80 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
         this.queue = simplePlainQueue;
     }
 
-    public boolean accept(Subscriber<? super V> subscriber, U u) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, subscriber, u)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
     @Override // io.reactivex.internal.util.QueueDrain
     public final boolean cancelled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cancelled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cancelled;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.internal.util.QueueDrain
     public final boolean done() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.done : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.done;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.internal.util.QueueDrain
     public final boolean enter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.wip.getAndIncrement() == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.wip.getAndIncrement() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.internal.util.QueueDrain
     public final Throwable error() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.error : (Throwable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.error;
+        }
+        return (Throwable) invokeV.objValue;
     }
 
     public final boolean fastEnter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.wip.get() == 0 && this.wip.compareAndSet(0, 1) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.wip.get() == 0 && this.wip.compareAndSet(0, 1)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final void fastPathEmitMax(U u, boolean z, Disposable disposable) {
+    @Override // io.reactivex.internal.util.QueueDrain
+    public final long requested() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{u, Boolean.valueOf(z), disposable}) == null) {
-            Subscriber<? super V> subscriber = this.actual;
-            SimplePlainQueue<U> simplePlainQueue = this.queue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.requested.get();
+        }
+        return invokeV.longValue;
+    }
+
+    public final void fastPathEmitMax(Object obj, boolean z, Disposable disposable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{obj, Boolean.valueOf(z), disposable}) == null) {
+            Subscriber subscriber = this.actual;
+            SimplePlainQueue simplePlainQueue = this.queue;
             if (fastEnter()) {
                 long j = this.requested.get();
                 if (j != 0) {
-                    if (accept(subscriber, u) && j != Long.MAX_VALUE) {
+                    if (accept(subscriber, obj) && j != Long.MAX_VALUE) {
                         produced(1L);
                     }
                     if (leave(-1) == 0) {
@@ -108,7 +139,7 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
                     return;
                 }
             } else {
-                simplePlainQueue.offer(u);
+                simplePlainQueue.offer(obj);
                 if (!enter()) {
                     return;
                 }
@@ -117,23 +148,23 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
         }
     }
 
-    public final void fastPathOrderedEmitMax(U u, boolean z, Disposable disposable) {
+    public final void fastPathOrderedEmitMax(Object obj, boolean z, Disposable disposable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{u, Boolean.valueOf(z), disposable}) == null) {
-            Subscriber<? super V> subscriber = this.actual;
-            SimplePlainQueue<U> simplePlainQueue = this.queue;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, Boolean.valueOf(z), disposable}) == null) {
+            Subscriber subscriber = this.actual;
+            SimplePlainQueue simplePlainQueue = this.queue;
             if (fastEnter()) {
                 long j = this.requested.get();
                 if (j != 0) {
                     if (simplePlainQueue.isEmpty()) {
-                        if (accept(subscriber, u) && j != Long.MAX_VALUE) {
+                        if (accept(subscriber, obj) && j != Long.MAX_VALUE) {
                             produced(1L);
                         }
                         if (leave(-1) == 0) {
                             return;
                         }
                     } else {
-                        simplePlainQueue.offer(u);
+                        simplePlainQueue.offer(obj);
                     }
                 } else {
                     this.cancelled = true;
@@ -142,7 +173,7 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
                     return;
                 }
             } else {
-                simplePlainQueue.offer(u);
+                simplePlainQueue.offer(obj);
                 if (!enter()) {
                     return;
                 }
@@ -155,21 +186,20 @@ public abstract class QueueDrainSubscriber<T, U, V> extends QueueDrainSubscriber
     public final int leave(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.wip.addAndGet(i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return this.wip.addAndGet(i);
+        }
+        return invokeI.intValue;
     }
 
     @Override // io.reactivex.internal.util.QueueDrain
     public final long produced(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) ? this.requested.addAndGet(-j) : invokeJ.longValue;
-    }
-
-    @Override // io.reactivex.internal.util.QueueDrain
-    public final long requested() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.requested.get() : invokeV.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            return this.requested.addAndGet(-j);
+        }
+        return invokeJ.longValue;
     }
 
     public final void requested(long j) {

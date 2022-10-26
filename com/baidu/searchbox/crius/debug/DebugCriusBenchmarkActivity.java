@@ -48,6 +48,30 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         this.mBenchmarkWhich = 1;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startBenchmark() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            int i = this.mBenchmarkWhich;
+            if (i == 1) {
+                benchmarkInflate(textView);
+            } else if (i == 2) {
+                benchmarkMeasure(textView);
+            } else {
+                benchmarkLayout(textView);
+            }
+        }
+    }
+
+    @Override // android.widget.AdapterView.OnItemSelectedListener
+    public void onNothingSelected(AdapterView adapterView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapterView) == null) {
+            this.mBenchmarkWhich = 1;
+        }
+    }
+
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
     /* JADX WARN: Multi-variable type inference failed */
     private void benchmarkInflate(TextView textView) {
@@ -65,6 +89,53 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
                 criusBenchmarkAggregator2.endTrace();
             }
             textView.setText(criusBenchmarkAggregator.toString() + "\n" + criusBenchmarkAggregator2.toString());
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            CriusLoader.init(this);
+            super.onCreate(bundle);
+            setContentView(R.layout.activity_benchmark);
+            updatePreview();
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090424)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DebugCriusBenchmarkActivity this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) {
+                        return;
+                    }
+                    this.this$0.startBenchmark();
+                }
+            });
+            Spinner spinner = (Spinner) findViewById(R.id.benchmarkSelect);
+            spinner.setAdapter((SpinnerAdapter) new ArrayAdapter((Context) this, 17367048, (Object[]) new String[]{"inflate", "measure", TtmlNode.TAG_LAYOUT}));
+            spinner.setOnItemSelectedListener(this);
         }
     }
 
@@ -114,28 +185,12 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startBenchmark() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
-            int i = this.mBenchmarkWhich;
-            if (i == 1) {
-                benchmarkInflate(textView);
-            } else if (i == 2) {
-                benchmarkMeasure(textView);
-            } else {
-                benchmarkLayout(textView);
-            }
-        }
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
     /* JADX WARN: Multi-variable type inference failed */
     private void updatePreview() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6d);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c69);
             View inflate = LayoutInflater.from(this).inflate(R.layout.benchmark_flatten_layout, (ViewGroup) linearLayout, false);
             inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
             linearLayout.removeAllViews();
@@ -143,72 +198,23 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            CriusLoader.init(this);
-            super.onCreate(bundle);
-            setContentView(R.layout.activity_benchmark);
-            updatePreview();
-            ((Button) findViewById(R.id.obfuscated_res_0x7f09041b)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DebugCriusBenchmarkActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.this$0.startBenchmark();
-                    }
-                }
-            });
-            Spinner spinner = (Spinner) findViewById(R.id.benchmarkSelect);
-            spinner.setAdapter((SpinnerAdapter) new ArrayAdapter((Context) this, 17367048, (Object[]) new String[]{"inflate", "measure", TtmlNode.TAG_LAYOUT}));
-            spinner.setOnItemSelectedListener(this);
-        }
-    }
-
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
+    public void onItemSelected(AdapterView adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (i == 0) {
-                this.mBenchmarkWhich = 1;
-            } else if (i == 1) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        this.mBenchmarkWhich = 1;
+                        return;
+                    } else {
+                        this.mBenchmarkWhich = 3;
+                        return;
+                    }
+                }
                 this.mBenchmarkWhich = 2;
-            } else if (i != 2) {
-                this.mBenchmarkWhich = 1;
-            } else {
-                this.mBenchmarkWhich = 3;
+                return;
             }
-        }
-    }
-
-    @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onNothingSelected(AdapterView<?> adapterView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapterView) == null) {
             this.mBenchmarkWhich = 1;
         }
     }

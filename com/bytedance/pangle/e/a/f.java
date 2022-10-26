@@ -26,34 +26,37 @@ public final class f {
         }
     }
 
-    public final String a(int i) {
-        InterceptResult invokeI;
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i < 0 || (iArr = this.a) == null || i >= iArr.length) {
-                return null;
-            }
-            int i2 = iArr[i];
-            int a = a(this.b, i2);
-            StringBuilder sb = new StringBuilder(a);
-            while (a != 0) {
-                i2 += 2;
-                sb.append((char) a(this.b, i2));
-                a--;
-            }
-            return sb.toString();
-        }
-        return (String) invokeI.objValue;
-    }
-
     public static final int a(int[] iArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, iArr, i)) == null) {
             int i2 = iArr[i / 4];
-            return (i % 4) / 2 == 0 ? i2 & 65535 : i2 >>> 16;
+            if ((i % 4) / 2 == 0) {
+                return i2 & 65535;
+            }
+            return i2 >>> 16;
         }
         return invokeLI.intValue;
+    }
+
+    public final String a(int i) {
+        InterceptResult invokeI;
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && (iArr = this.a) != null && i < iArr.length) {
+                int i2 = iArr[i];
+                int a = a(this.b, i2);
+                StringBuilder sb = new StringBuilder(a);
+                while (a != 0) {
+                    i2 += 2;
+                    sb.append((char) a(this.b, i2));
+                    a--;
+                }
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
     }
 }

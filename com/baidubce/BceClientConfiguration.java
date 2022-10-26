@@ -70,11 +70,15 @@ public class BceClientConfiguration {
         DEFAULT_PROTOCOL = Protocol.HTTP;
         DEFAULT_KEEPALIVE_DURATION = 30L;
         String property = System.getProperty("user.language");
+        String str = "";
         if (property == null) {
             property = "";
         }
         String property2 = System.getProperty("user.region");
-        DEFAULT_USER_AGENT = JoinerUtils.on("/", "bce-sdk-android", "1.0.7", System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("java.vm.name"), System.getProperty("java.vm.version"), System.getProperty("java.version"), property, property2 != null ? property2 : "").replace(WebvttCueParser.CHAR_SPACE, '_');
+        if (property2 != null) {
+            str = property2;
+        }
+        DEFAULT_USER_AGENT = JoinerUtils.on("/", "bce-sdk-android", "1.0.7", System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("java.vm.name"), System.getProperty("java.vm.version"), System.getProperty("java.version"), property, str).replace(WebvttCueParser.CHAR_SPACE, '_');
     }
 
     public BceClientConfiguration() {
@@ -113,22 +117,244 @@ public class BceClientConfiguration {
         this.uploadSegmentPart = 2048L;
     }
 
+    public BceClientConfiguration(BceClientConfiguration bceClientConfiguration) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bceClientConfiguration};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.userAgent = DEFAULT_USER_AGENT;
+        this.retryPolicy = RetryPolicy.DEFAULT_RETRY_POLICY;
+        this.localAddress = null;
+        this.protocol = Protocol.HTTP;
+        this.proxyHost = null;
+        this.proxyPort = -1;
+        this.proxyUsername = null;
+        this.proxyPassword = null;
+        this.proxyDomain = null;
+        this.proxyWorkstation = null;
+        this.maxConnections = 5;
+        this.socketTimeoutInMillis = 30000;
+        this.connectionTimeoutInMillis = 30000;
+        this.socketBufferSizeInBytes = 0;
+        this.endpoint = null;
+        this.region = DEFAULT_REGION;
+        this.acceptEncoding = DEFAULT_ACCPET_ENCODING;
+        this.keepAliveDuration = DEFAULT_KEEPALIVE_DURATION;
+        this.token = null;
+        this.credentials = null;
+        this.uploadSegmentPart = 2048L;
+        this.connectionTimeoutInMillis = bceClientConfiguration.connectionTimeoutInMillis;
+        this.maxConnections = bceClientConfiguration.maxConnections;
+        this.retryPolicy = bceClientConfiguration.retryPolicy;
+        this.localAddress = bceClientConfiguration.localAddress;
+        this.protocol = bceClientConfiguration.protocol;
+        this.proxyDomain = bceClientConfiguration.proxyDomain;
+        this.proxyHost = bceClientConfiguration.proxyHost;
+        this.proxyPassword = bceClientConfiguration.proxyPassword;
+        this.proxyPort = bceClientConfiguration.proxyPort;
+        this.proxyUsername = bceClientConfiguration.proxyUsername;
+        this.proxyWorkstation = bceClientConfiguration.proxyWorkstation;
+        this.proxyPreemptiveAuthenticationEnabled = bceClientConfiguration.proxyPreemptiveAuthenticationEnabled;
+        this.socketTimeoutInMillis = bceClientConfiguration.socketTimeoutInMillis;
+        this.userAgent = bceClientConfiguration.userAgent;
+        this.socketBufferSizeInBytes = bceClientConfiguration.socketBufferSizeInBytes;
+        this.endpoint = bceClientConfiguration.endpoint;
+        this.region = bceClientConfiguration.region;
+        this.credentials = bceClientConfiguration.credentials;
+        this.token = bceClientConfiguration.token;
+        this.uploadSegmentPart = bceClientConfiguration.uploadSegmentPart;
+        this.acceptEncoding = bceClientConfiguration.acceptEncoding;
+        this.keepAliveDuration = bceClientConfiguration.keepAliveDuration;
+    }
+
     public String getAcceptEncoding() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.acceptEncoding : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.acceptEncoding;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getConnectionTimeoutInMillis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.connectionTimeoutInMillis : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.connectionTimeoutInMillis;
+        }
+        return invokeV.intValue;
     }
 
     public BceCredentials getCredentials() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.credentials : (BceCredentials) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.credentials;
+        }
+        return (BceCredentials) invokeV.objValue;
+    }
+
+    public long getKeepAliveDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.keepAliveDuration;
+        }
+        return invokeV.longValue;
+    }
+
+    public InetAddress getLocalAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.localAddress;
+        }
+        return (InetAddress) invokeV.objValue;
+    }
+
+    public int getMaxConnections() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.maxConnections;
+        }
+        return invokeV.intValue;
+    }
+
+    public Protocol getProtocol() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.protocol;
+        }
+        return (Protocol) invokeV.objValue;
+    }
+
+    public String getProxyDomain() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.proxyDomain;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getProxyHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.proxyHost;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getProxyPassword() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.proxyPassword;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getProxyPort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.proxyPort;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getProxyUsername() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.proxyUsername;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getProxyWorkstation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.proxyWorkstation;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Region getRegion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.region;
+        }
+        return (Region) invokeV.objValue;
+    }
+
+    public RetryPolicy getRetryPolicy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.retryPolicy;
+        }
+        return (RetryPolicy) invokeV.objValue;
+    }
+
+    public int getSocketBufferSizeInBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.socketBufferSizeInBytes;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSocketTimeoutInMillis() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.socketTimeoutInMillis;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getUploadSegmentPart() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.uploadSegmentPart;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.userAgent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isProxyPreemptiveAuthenticationEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.proxyPreemptiveAuthenticationEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public String getEndpoint() {
@@ -136,114 +362,12 @@ public class BceClientConfiguration {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String str = this.endpoint;
-            if (str == null || str.length() <= 0 || this.endpoint.indexOf("://") >= 0) {
-                return str;
+            if (str != null && str.length() > 0 && this.endpoint.indexOf("://") < 0) {
+                return this.protocol.toString().toLowerCase() + "://" + this.endpoint;
             }
-            return this.protocol.toString().toLowerCase() + "://" + this.endpoint;
+            return str;
         }
         return (String) invokeV.objValue;
-    }
-
-    public long getKeepAliveDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.keepAliveDuration : invokeV.longValue;
-    }
-
-    public InetAddress getLocalAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.localAddress : (InetAddress) invokeV.objValue;
-    }
-
-    public int getMaxConnections() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.maxConnections : invokeV.intValue;
-    }
-
-    public Protocol getProtocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.protocol : (Protocol) invokeV.objValue;
-    }
-
-    public String getProxyDomain() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.proxyDomain : (String) invokeV.objValue;
-    }
-
-    public String getProxyHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.proxyHost : (String) invokeV.objValue;
-    }
-
-    public String getProxyPassword() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.proxyPassword : (String) invokeV.objValue;
-    }
-
-    public int getProxyPort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.proxyPort : invokeV.intValue;
-    }
-
-    public String getProxyUsername() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.proxyUsername : (String) invokeV.objValue;
-    }
-
-    public String getProxyWorkstation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.proxyWorkstation : (String) invokeV.objValue;
-    }
-
-    public Region getRegion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.region : (Region) invokeV.objValue;
-    }
-
-    public RetryPolicy getRetryPolicy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.retryPolicy : (RetryPolicy) invokeV.objValue;
-    }
-
-    public int getSocketBufferSizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.socketBufferSizeInBytes : invokeV.intValue;
-    }
-
-    public int getSocketTimeoutInMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.socketTimeoutInMillis : invokeV.intValue;
-    }
-
-    public long getUploadSegmentPart() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.uploadSegmentPart : invokeV.longValue;
-    }
-
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.userAgent : (String) invokeV.objValue;
-    }
-
-    public boolean isProxyPreemptiveAuthenticationEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.proxyPreemptiveAuthenticationEnabled : invokeV.booleanValue;
     }
 
     public void setAcceptEncoding(String str) {
@@ -254,9 +378,15 @@ public class BceClientConfiguration {
     }
 
     public void setConnectionTimeoutInMillis(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            CheckUtils.checkArgument(i >= 0, "connectionTimeoutInMillis should not be negative.");
+            if (i >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "connectionTimeoutInMillis should not be negative.");
             this.connectionTimeoutInMillis = i;
         }
     }
@@ -292,9 +422,15 @@ public class BceClientConfiguration {
     }
 
     public void setMaxConnections(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            CheckUtils.checkArgument(i >= 0, "maxConnections should not be negative.");
+            if (i >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "maxConnections should not be negative.");
             this.maxConnections = i;
         }
     }
@@ -386,9 +522,15 @@ public class BceClientConfiguration {
     }
 
     public void setSocketTimeoutInMillis(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
-            CheckUtils.checkArgument(i >= 0, "socketTimeoutInMillis should not be negative.");
+            if (i >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "socketTimeoutInMillis should not be negative.");
             this.socketTimeoutInMillis = i;
         }
     }
@@ -398,28 +540,6 @@ public class BceClientConfiguration {
         if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
             this.uploadSegmentPart = (j < 1 || j > PlaybackStateCompat.ACTION_PLAY_FROM_URI) ? 2048L : 2048L;
         }
-    }
-
-    public void setUserAgent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
-            if (str == null) {
-                this.userAgent = DEFAULT_USER_AGENT;
-            } else if (str.endsWith(DEFAULT_USER_AGENT)) {
-                this.userAgent = str;
-            } else {
-                this.userAgent = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + DEFAULT_USER_AGENT;
-            }
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            return "BceClientConfiguration [ \n  userAgent=" + this.userAgent + ", \n  retryPolicy=" + this.retryPolicy + ", \n  localAddress=" + this.localAddress + ", \n  protocol=" + this.protocol + ", \n  proxyHost=" + this.proxyHost + ", \n  proxyPort=" + this.proxyPort + ", \n  proxyUsername=" + this.proxyUsername + ", \n  proxyPassword=" + this.proxyPassword + ", \n  proxyDomain=" + this.proxyDomain + ", \n  proxyWorkstation=" + this.proxyWorkstation + ", \n  proxyPreemptiveAuthenticationEnabled=" + this.proxyPreemptiveAuthenticationEnabled + ", \n  maxConnections=" + this.maxConnections + ", \n  socketTimeoutInMillis=" + this.socketTimeoutInMillis + ", \n  connectionTimeoutInMillis=" + this.connectionTimeoutInMillis + ", \n  socketBufferSizeInBytes=" + this.socketBufferSizeInBytes + ", \n  endpoint=" + this.endpoint + ", \n  region=" + this.region + ", \n  credentials=" + this.credentials + ", \n  uploadSegmentPart=" + this.uploadSegmentPart + ", \n  acceptEncoding=" + this.acceptEncoding + ", \n  keepAliveDuration=" + this.keepAliveDuration + "]\n";
-        }
-        return (String) invokeV.objValue;
     }
 
     public BceClientConfiguration withConnectionTimeoutInMillis(int i) {
@@ -612,63 +732,25 @@ public class BceClientConfiguration {
         return (BceClientConfiguration) invokeL.objValue;
     }
 
-    public BceClientConfiguration(BceClientConfiguration bceClientConfiguration) {
+    public void setUserAgent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bceClientConfiguration};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+            if (str == null) {
+                this.userAgent = DEFAULT_USER_AGENT;
+            } else if (str.endsWith(DEFAULT_USER_AGENT)) {
+                this.userAgent = str;
+            } else {
+                this.userAgent = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + DEFAULT_USER_AGENT;
             }
         }
-        this.userAgent = DEFAULT_USER_AGENT;
-        this.retryPolicy = RetryPolicy.DEFAULT_RETRY_POLICY;
-        this.localAddress = null;
-        this.protocol = Protocol.HTTP;
-        this.proxyHost = null;
-        this.proxyPort = -1;
-        this.proxyUsername = null;
-        this.proxyPassword = null;
-        this.proxyDomain = null;
-        this.proxyWorkstation = null;
-        this.maxConnections = 5;
-        this.socketTimeoutInMillis = 30000;
-        this.connectionTimeoutInMillis = 30000;
-        this.socketBufferSizeInBytes = 0;
-        this.endpoint = null;
-        this.region = DEFAULT_REGION;
-        this.acceptEncoding = DEFAULT_ACCPET_ENCODING;
-        this.keepAliveDuration = DEFAULT_KEEPALIVE_DURATION;
-        this.token = null;
-        this.credentials = null;
-        this.uploadSegmentPart = 2048L;
-        this.connectionTimeoutInMillis = bceClientConfiguration.connectionTimeoutInMillis;
-        this.maxConnections = bceClientConfiguration.maxConnections;
-        this.retryPolicy = bceClientConfiguration.retryPolicy;
-        this.localAddress = bceClientConfiguration.localAddress;
-        this.protocol = bceClientConfiguration.protocol;
-        this.proxyDomain = bceClientConfiguration.proxyDomain;
-        this.proxyHost = bceClientConfiguration.proxyHost;
-        this.proxyPassword = bceClientConfiguration.proxyPassword;
-        this.proxyPort = bceClientConfiguration.proxyPort;
-        this.proxyUsername = bceClientConfiguration.proxyUsername;
-        this.proxyWorkstation = bceClientConfiguration.proxyWorkstation;
-        this.proxyPreemptiveAuthenticationEnabled = bceClientConfiguration.proxyPreemptiveAuthenticationEnabled;
-        this.socketTimeoutInMillis = bceClientConfiguration.socketTimeoutInMillis;
-        this.userAgent = bceClientConfiguration.userAgent;
-        this.socketBufferSizeInBytes = bceClientConfiguration.socketBufferSizeInBytes;
-        this.endpoint = bceClientConfiguration.endpoint;
-        this.region = bceClientConfiguration.region;
-        this.credentials = bceClientConfiguration.credentials;
-        this.token = bceClientConfiguration.token;
-        this.uploadSegmentPart = bceClientConfiguration.uploadSegmentPart;
-        this.acceptEncoding = bceClientConfiguration.acceptEncoding;
-        this.keepAliveDuration = bceClientConfiguration.keepAliveDuration;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            return "BceClientConfiguration [ \n  userAgent=" + this.userAgent + ", \n  retryPolicy=" + this.retryPolicy + ", \n  localAddress=" + this.localAddress + ", \n  protocol=" + this.protocol + ", \n  proxyHost=" + this.proxyHost + ", \n  proxyPort=" + this.proxyPort + ", \n  proxyUsername=" + this.proxyUsername + ", \n  proxyPassword=" + this.proxyPassword + ", \n  proxyDomain=" + this.proxyDomain + ", \n  proxyWorkstation=" + this.proxyWorkstation + ", \n  proxyPreemptiveAuthenticationEnabled=" + this.proxyPreemptiveAuthenticationEnabled + ", \n  maxConnections=" + this.maxConnections + ", \n  socketTimeoutInMillis=" + this.socketTimeoutInMillis + ", \n  connectionTimeoutInMillis=" + this.connectionTimeoutInMillis + ", \n  socketBufferSizeInBytes=" + this.socketBufferSizeInBytes + ", \n  endpoint=" + this.endpoint + ", \n  region=" + this.region + ", \n  credentials=" + this.credentials + ", \n  uploadSegmentPart=" + this.uploadSegmentPart + ", \n  acceptEncoding=" + this.acceptEncoding + ", \n  keepAliveDuration=" + this.keepAliveDuration + "]\n";
+        }
+        return (String) invokeV.objValue;
     }
 }

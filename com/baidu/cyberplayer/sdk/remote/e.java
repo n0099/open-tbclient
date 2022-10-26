@@ -16,10 +16,10 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class e implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<e> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Uri a;
-    public Map<String, String> b;
+    public Map b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class e implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<e>() { // from class: com.baidu.cyberplayer.sdk.remote.e.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.cyberplayer.sdk.remote.e.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +72,7 @@ public class e implements Parcelable {
         };
     }
 
-    public e(Uri uri, Map<String, String> map) {
+    public e(Uri uri, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class e implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Uri) invokeV.objValue;
     }
 
-    public Map<String, String> b() {
+    public Map b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Map) invokeV.objValue;
@@ -141,15 +141,15 @@ public class e implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeParcelable(this.a, i);
-            Map<String, String> map = this.b;
+            Map map = this.b;
             if (map == null || map.size() <= 0) {
                 parcel.writeInt(0);
                 return;
             }
             parcel.writeInt(this.b.size());
-            for (Map.Entry<String, String> entry : this.b.entrySet()) {
-                parcel.writeString(entry.getKey());
-                parcel.writeString(entry.getValue());
+            for (Map.Entry entry : this.b.entrySet()) {
+                parcel.writeString((String) entry.getKey());
+                parcel.writeString((String) entry.getValue());
             }
         }
     }

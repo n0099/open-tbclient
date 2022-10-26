@@ -1,13 +1,11 @@
 package com.baidu.android.imsdk.upload.action;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.track.Ack;
@@ -38,7 +36,6 @@ public class IMTrackDatabase {
     public static final int MAX_QUERY_COUNT = 1000;
     public static String TAG = "IMTrackDatabase";
     public static DbOpenHelper dbOpenHelper;
-    @SuppressLint({"StaticFieldLeak"})
     public static IMTrackDatabase instance;
     public static final Object myLock;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +43,7 @@ public class IMTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class AckEnum {
+    public final class AckEnum {
         public static final /* synthetic */ AckEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "ack";
@@ -103,19 +100,25 @@ public class IMTrackDatabase {
         public static AckEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AckEnum) Enum.valueOf(AckEnum.class, str) : (AckEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AckEnum) Enum.valueOf(AckEnum.class, str);
+            }
+            return (AckEnum) invokeL.objValue;
         }
 
         public static AckEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AckEnum[]) $VALUES.clone() : (AckEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AckEnum[]) $VALUES.clone();
+            }
+            return (AckEnum[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class ConnectionEnum {
+    public final class ConnectionEnum {
         public static final /* synthetic */ ConnectionEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "connection";
@@ -176,19 +179,25 @@ public class IMTrackDatabase {
         public static ConnectionEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ConnectionEnum) Enum.valueOf(ConnectionEnum.class, str) : (ConnectionEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ConnectionEnum) Enum.valueOf(ConnectionEnum.class, str);
+            }
+            return (ConnectionEnum) invokeL.objValue;
         }
 
         public static ConnectionEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ConnectionEnum[]) $VALUES.clone() : (ConnectionEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ConnectionEnum[]) $VALUES.clone();
+            }
+            return (ConnectionEnum[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class CrashEnum {
+    public final class CrashEnum {
         public static final /* synthetic */ CrashEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "crash";
@@ -243,19 +252,25 @@ public class IMTrackDatabase {
         public static CrashEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CrashEnum) Enum.valueOf(CrashEnum.class, str) : (CrashEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CrashEnum) Enum.valueOf(CrashEnum.class, str);
+            }
+            return (CrashEnum) invokeL.objValue;
         }
 
         public static CrashEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CrashEnum[]) $VALUES.clone() : (CrashEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CrashEnum[]) $VALUES.clone();
+            }
+            return (CrashEnum[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class DbEnum {
+    public final class DbEnum {
         public static final /* synthetic */ DbEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "db";
@@ -320,18 +335,24 @@ public class IMTrackDatabase {
         public static DbEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DbEnum) Enum.valueOf(DbEnum.class, str) : (DbEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (DbEnum) Enum.valueOf(DbEnum.class, str);
+            }
+            return (DbEnum) invokeL.objValue;
         }
 
         public static DbEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DbEnum[]) $VALUES.clone() : (DbEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (DbEnum[]) $VALUES.clone();
+            }
+            return (DbEnum[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static class DbOpenHelper extends SQLiteOpenHelper {
+    public class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_ACK;
         public static final String SQL_TABLE_CREATE_CONNECTION;
@@ -410,6 +431,28 @@ public class IMTrackDatabase {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public DbOpenHelper(Context context, String str, int i) {
+            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.context = context;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public DbOpenHelper(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
             super(context, str, null, i, databaseErrorHandler);
             Interceptable interceptable = $ic;
@@ -475,33 +518,11 @@ public class IMTrackDatabase {
                 onCreate(sQLiteDatabase);
             }
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DbOpenHelper(Context context, String str, int i) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.context = context;
-        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class MsgEnum {
+    public final class MsgEnum {
         public static final /* synthetic */ MsgEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "msg";
@@ -562,19 +583,25 @@ public class IMTrackDatabase {
         public static MsgEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MsgEnum) Enum.valueOf(MsgEnum.class, str) : (MsgEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (MsgEnum) Enum.valueOf(MsgEnum.class, str);
+            }
+            return (MsgEnum) invokeL.objValue;
         }
 
         public static MsgEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MsgEnum[]) $VALUES.clone() : (MsgEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (MsgEnum[]) $VALUES.clone();
+            }
+            return (MsgEnum[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class RequestEnum {
+    public final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "request";
@@ -635,19 +662,25 @@ public class IMTrackDatabase {
         public static RequestEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RequestEnum) Enum.valueOf(RequestEnum.class, str) : (RequestEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RequestEnum) Enum.valueOf(RequestEnum.class, str);
+            }
+            return (RequestEnum) invokeL.objValue;
         }
 
         public static RequestEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RequestEnum[]) $VALUES.clone() : (RequestEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RequestEnum[]) $VALUES.clone();
+            }
+            return (RequestEnum[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class UiEnum {
+    public final class UiEnum {
         public static final /* synthetic */ UiEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "ui";
@@ -708,13 +741,19 @@ public class IMTrackDatabase {
         public static UiEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (UiEnum) Enum.valueOf(UiEnum.class, str) : (UiEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (UiEnum) Enum.valueOf(UiEnum.class, str);
+            }
+            return (UiEnum) invokeL.objValue;
         }
 
         public static UiEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (UiEnum[]) $VALUES.clone() : (UiEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (UiEnum[]) $VALUES.clone();
+            }
+            return (UiEnum[]) invokeV.objValue;
         }
     }
 
@@ -753,51 +792,6 @@ public class IMTrackDatabase {
         dbOpenHelper = new DbOpenHelper(context, DB_NAME, 1);
     }
 
-    @Nullable
-    private void checkDadabaseMaxCount(SQLiteDatabase sQLiteDatabase, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65539, this, sQLiteDatabase, str) != null) {
-            return;
-        }
-        Cursor cursor = null;
-        try {
-            try {
-                Cursor rawQuery = sQLiteDatabase.rawQuery("select count(*) from " + str, null);
-                if (rawQuery != null) {
-                    try {
-                        if (rawQuery.moveToFirst() && rawQuery.getInt(0) > 1000) {
-                            sQLiteDatabase.delete(str, null, null);
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        cursor = rawQuery;
-                        e.printStackTrace();
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        sQLiteDatabase.close();
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = rawQuery;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        sQLiteDatabase.close();
-                        throw th;
-                    }
-                }
-                if (rawQuery != null) {
-                    rawQuery.close();
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-            sQLiteDatabase.close();
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
     public static SQLiteDatabase getDb(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -813,6 +807,49 @@ public class IMTrackDatabase {
             }
         }
         return (SQLiteDatabase) invokeL.objValue;
+    }
+
+    private void checkDadabaseMaxCount(SQLiteDatabase sQLiteDatabase, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, sQLiteDatabase, str) == null) {
+            Cursor cursor = null;
+            try {
+                try {
+                    Cursor rawQuery = sQLiteDatabase.rawQuery("select count(*) from " + str, null);
+                    if (rawQuery != null) {
+                        try {
+                            if (rawQuery.moveToFirst() && rawQuery.getInt(0) > 1000) {
+                                sQLiteDatabase.delete(str, null, null);
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            cursor = rawQuery;
+                            e.printStackTrace();
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            sQLiteDatabase.close();
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor = rawQuery;
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            sQLiteDatabase.close();
+                            throw th;
+                        }
+                    }
+                    if (rawQuery != null) {
+                        rawQuery.close();
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                }
+                sQLiteDatabase.close();
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
     }
 
     public static IMTrackDatabase getInstance(Context context) {
@@ -856,6 +893,102 @@ public class IMTrackDatabase {
         }
     }
 
+    public long getConnectionCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (myLock) {
+                long j = 0;
+                SQLiteDatabase db = getDb(this.context);
+                if (db == null) {
+                    return 0L;
+                }
+                Cursor cursor = null;
+                try {
+                    cursor = db.rawQuery("select count(*) from connection", null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        j = cursor.getInt(0);
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                }
+                db.close();
+                return j;
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public long getCrashCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (myLock) {
+                long j = 0;
+                SQLiteDatabase db = getDb(this.context);
+                if (db == null) {
+                    return 0L;
+                }
+                Cursor cursor = null;
+                try {
+                    cursor = db.rawQuery("select count(*) from crash", null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        j = cursor.getInt(0);
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                }
+                db.close();
+                return j;
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public long getRequestCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (myLock) {
+                long j = 0;
+                SQLiteDatabase db = getDb(this.context);
+                if (db == null) {
+                    return 0L;
+                }
+                Cursor cursor = null;
+                try {
+                    cursor = db.rawQuery("select count(*) from request", null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        j = cursor.getInt(0);
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                }
+                db.close();
+                return j;
+            }
+        }
+        return invokeV.longValue;
+    }
+
     public void clearCrashTable() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -875,7 +1008,7 @@ public class IMTrackDatabase {
         }
     }
 
-    public List<Ack> getAcks() {
+    public List getAcks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -915,39 +1048,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public long getConnectionCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (myLock) {
-                long j = 0;
-                SQLiteDatabase db = getDb(this.context);
-                if (db == null) {
-                    return 0L;
-                }
-                Cursor cursor = null;
-                try {
-                    cursor = db.rawQuery("select count(*) from connection", null);
-                    if (cursor != null && cursor.moveToNext()) {
-                        j = cursor.getInt(0);
-                    }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                }
-                db.close();
-                return j;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public List<Connection> getConnections() {
+    public List getConnections() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -989,78 +1090,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public long getCrashCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (myLock) {
-                long j = 0;
-                SQLiteDatabase db = getDb(this.context);
-                if (db == null) {
-                    return 0L;
-                }
-                Cursor cursor = null;
-                try {
-                    cursor = db.rawQuery("select count(*) from crash", null);
-                    if (cursor != null && cursor.moveToNext()) {
-                        j = cursor.getInt(0);
-                    }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                }
-                db.close();
-                return j;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public List<Crash> getCrashes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (myLock) {
-                SQLiteDatabase db = getDb(this.context);
-                Cursor cursor = null;
-                if (db == null) {
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                try {
-                    cursor = db.rawQuery("select * from crash limit 1000", null);
-                    while (cursor != null && cursor.moveToNext()) {
-                        Crash crash = new Crash();
-                        crash.exception = cursor.getString(cursor.getColumnIndex(CrashEnum.exception.name()));
-                        crash.timestamp = cursor.getLong(cursor.getColumnIndex(CrashEnum.timestamp.name()));
-                        crash.ext = cursor.getString(cursor.getColumnIndex(CrashEnum.ext.name()));
-                        crash.aliasId = cursor.getLong(cursor.getColumnIndex(CrashEnum.aliasId.name()));
-                        arrayList.add(crash);
-                    }
-                    checkDadabaseMaxCount(db, "crash");
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                } catch (Exception e) {
-                    String str = TAG;
-                    LogUtils.e(str, "IMTrack getCrashes error " + e.getMessage());
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                }
-                db.close();
-                return arrayList;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<Db> getDbs() {
+    public List getDbs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -1104,7 +1134,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List<Msg> getMsgs() {
+    public List getMsgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -1146,39 +1176,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public long getRequestCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (myLock) {
-                long j = 0;
-                SQLiteDatabase db = getDb(this.context);
-                if (db == null) {
-                    return 0L;
-                }
-                Cursor cursor = null;
-                try {
-                    cursor = db.rawQuery("select count(*) from request", null);
-                    if (cursor != null && cursor.moveToNext()) {
-                        j = cursor.getInt(0);
-                    }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "IMTrack insert Db exception : " + e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                }
-                db.close();
-                return j;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public List<Request> getRequests() {
+    public List getRequests() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -1220,7 +1218,7 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List<Ui> getUis() {
+    public List getUis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -1262,6 +1260,45 @@ public class IMTrackDatabase {
         return (List) invokeV.objValue;
     }
 
+    public List getCrashes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (myLock) {
+                SQLiteDatabase db = getDb(this.context);
+                Cursor cursor = null;
+                if (db == null) {
+                    return null;
+                }
+                ArrayList arrayList = new ArrayList();
+                try {
+                    cursor = db.rawQuery("select * from crash limit 1000", null);
+                    while (cursor != null && cursor.moveToNext()) {
+                        Crash crash = new Crash();
+                        crash.exception = cursor.getString(cursor.getColumnIndex(CrashEnum.exception.name()));
+                        crash.timestamp = cursor.getLong(cursor.getColumnIndex(CrashEnum.timestamp.name()));
+                        crash.ext = cursor.getString(cursor.getColumnIndex(CrashEnum.ext.name()));
+                        crash.aliasId = cursor.getLong(cursor.getColumnIndex(CrashEnum.aliasId.name()));
+                        arrayList.add(crash);
+                    }
+                    checkDadabaseMaxCount(db, "crash");
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                } catch (Exception e) {
+                    String str = TAG;
+                    LogUtils.e(str, "IMTrack getCrashes error " + e.getMessage());
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                }
+                db.close();
+                return arrayList;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
     public void insertAck(Ack ack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, ack) == null) {
@@ -1281,6 +1318,30 @@ public class IMTrackDatabase {
                 } catch (Exception e) {
                     String str = TAG;
                     LogUtils.e(str, "IMTrack insert Ack exception : " + e);
+                }
+                db.close();
+            }
+        }
+    }
+
+    public void insertCrash(Crash crash) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, crash) == null) {
+            synchronized (myLock) {
+                SQLiteDatabase db = getDb(this.context);
+                if (db == null) {
+                    return;
+                }
+                try {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(CrashEnum.exception.name(), crash.exception);
+                    contentValues.put(CrashEnum.timestamp.name(), Long.valueOf(crash.timestamp));
+                    contentValues.put(CrashEnum.ext.name(), crash.ext);
+                    contentValues.put(CrashEnum.aliasId.name(), Long.valueOf(crash.aliasId));
+                    db.insert("crash", null, contentValues);
+                } catch (Exception e) {
+                    String str = TAG;
+                    LogUtils.e(str, "IMTrack insert Crash exception : " + e);
                 }
                 db.close();
             }
@@ -1308,30 +1369,6 @@ public class IMTrackDatabase {
                 } catch (Exception e) {
                     String str = TAG;
                     LogUtils.e(str, "IMTrack insert Connection exception : " + e);
-                }
-                db.close();
-            }
-        }
-    }
-
-    public void insertCrash(Crash crash) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, crash) == null) {
-            synchronized (myLock) {
-                SQLiteDatabase db = getDb(this.context);
-                if (db == null) {
-                    return;
-                }
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put(CrashEnum.exception.name(), crash.exception);
-                    contentValues.put(CrashEnum.timestamp.name(), Long.valueOf(crash.timestamp));
-                    contentValues.put(CrashEnum.ext.name(), crash.ext);
-                    contentValues.put(CrashEnum.aliasId.name(), Long.valueOf(crash.aliasId));
-                    db.insert("crash", null, contentValues);
-                } catch (Exception e) {
-                    String str = TAG;
-                    LogUtils.e(str, "IMTrack insert Crash exception : " + e);
                 }
                 db.close();
             }

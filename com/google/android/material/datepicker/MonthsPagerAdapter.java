@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,24 +20,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.MaterialCalendar;
 /* loaded from: classes7.dex */
-public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class MonthsPagerAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final CalendarConstraints calendarConstraints;
-    public final DateSelector<?> dateSelector;
+    public final DateSelector dateSelector;
     public final int itemHeight;
     public final MaterialCalendar.OnDayClickListener onDayClickListener;
 
     /* loaded from: classes7.dex */
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MaterialCalendarGridView monthGrid;
         public final TextView monthTitle;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(@NonNull LinearLayout linearLayout, boolean z) {
+        public ViewHolder(LinearLayout linearLayout, boolean z) {
             super(linearLayout);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -55,27 +53,27 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091552);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091544);
             this.monthTitle = textView;
             ViewCompat.setAccessibilityHeading(textView, true);
-            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09154c);
-            if (z) {
-                return;
+            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09153e);
+            if (!z) {
+                this.monthTitle.setVisibility(8);
             }
-            this.monthTitle.setVisibility(8);
         }
     }
 
-    public MonthsPagerAdapter(@NonNull Context context, DateSelector<?> dateSelector, @NonNull CalendarConstraints calendarConstraints, MaterialCalendar.OnDayClickListener onDayClickListener) {
+    public MonthsPagerAdapter(Context context, DateSelector dateSelector, CalendarConstraints calendarConstraints, MaterialCalendar.OnDayClickListener onDayClickListener) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, dateSelector, calendarConstraints, onDayClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,7 +84,13 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
         Month openAt = calendarConstraints.getOpenAt();
         if (start.compareTo(openAt) <= 0) {
             if (openAt.compareTo(end) <= 0) {
-                this.itemHeight = (MonthAdapter.MAXIMUM_WEEKS * MaterialCalendar.getDayHeight(context)) + (MaterialDatePicker.isFullscreen(context) ? MaterialCalendar.getDayHeight(context) : 0);
+                int dayHeight = MonthAdapter.MAXIMUM_WEEKS * MaterialCalendar.getDayHeight(context);
+                if (MaterialDatePicker.isFullscreen(context)) {
+                    i = MaterialCalendar.getDayHeight(context);
+                } else {
+                    i = 0;
+                }
+                this.itemHeight = dayHeight + i;
                 this.calendarConstraints = calendarConstraints;
                 this.dateSelector = dateSelector;
                 this.onDayClickListener = onDayClickListener;
@@ -99,47 +103,60 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.calendarConstraints.getMonthSpan() : invokeV.intValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.calendarConstraints.getStart().monthsLater(i).getStableId() : invokeI.longValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.calendarConstraints.getStart().monthsLater(i).getStableId();
+        }
+        return invokeI.longValue;
     }
 
-    @NonNull
     public Month getPageMonth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.calendarConstraints.getStart().monthsLater(i) : (Month) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.calendarConstraints.getStart().monthsLater(i);
+        }
+        return (Month) invokeI.objValue;
     }
 
-    @NonNull
     public CharSequence getPageTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? getPageMonth(i).getLongName() : (CharSequence) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return getPageMonth(i).getLongName();
+        }
+        return (CharSequence) invokeI.objValue;
     }
 
-    public int getPosition(@NonNull Month month) {
+    public int getPosition(Month month) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, month)) == null) ? this.calendarConstraints.getStart().monthsUntil(month) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, month)) == null) {
+            return this.calendarConstraints.getStart().monthsUntil(month);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.calendarConstraints.getMonthSpan();
+        }
+        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
             Month monthsLater = this.calendarConstraints.getStart().monthsLater(i);
             viewHolder.monthTitle.setText(monthsLater.getLongName());
-            MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(R.id.obfuscated_res_0x7f09154c);
+            MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(R.id.obfuscated_res_0x7f09153e);
             if (materialCalendarGridView.getAdapter2() != null && monthsLater.equals(materialCalendarGridView.getAdapter2().month)) {
                 materialCalendarGridView.getAdapter2().notifyDataSetChanged();
             } else {
@@ -173,7 +190,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j) {
+                public void onItemClick(AdapterView adapterView, View view2, int i2, long j) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.val$monthGrid.getAdapter2().withinMonth(i2)) {
                         this.this$0.onDayClickListener.onDayClick(this.val$monthGrid.getAdapter2().getItem(i2).longValue());
@@ -185,8 +202,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {

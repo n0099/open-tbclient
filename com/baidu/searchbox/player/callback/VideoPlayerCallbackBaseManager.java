@@ -2,7 +2,6 @@ package com.baidu.searchbox.player.callback;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
@@ -33,6 +32,79 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
+    public IVideoPlayerCallback getVideoPlayerCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mVideoPlayerCallback;
+        }
+        return (IVideoPlayerCallback) invokeV.objValue;
+    }
+
+    public void onBufferEnd() {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onBufferEnd();
+        }
+    }
+
+    public void onBufferStart() {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onBufferStart();
+        }
+    }
+
+    public void onPause() {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onPause();
+        }
+    }
+
+    public void onPrepared() {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onPrepared();
+        }
+    }
+
+    public void onResume() {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onResume();
+        }
+    }
+
+    public void onSeekEnd() {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onSeekEnd();
+        }
+    }
+
+    public void onStart() {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onStart();
+        }
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.mVideoPlayerCallback = null;
+            this.mLayerActionCallback = null;
+        }
+    }
+
     private void dispatchOnInfoAction(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
@@ -41,6 +113,60 @@ public class VideoPlayerCallbackBaseManager {
             } else if (702 == i) {
                 onBufferEnd();
             }
+        }
+    }
+
+    public void onEnd(int i) {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onEnd(i);
+        }
+    }
+
+    public void onGoBackOrForeground(boolean z) {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.goBackOrForeground(z);
+        }
+    }
+
+    public void onLayerDismiss(ILayer iLayer) {
+        ILayerActionCallback iLayerActionCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLayer) == null) && (iLayerActionCallback = this.mLayerActionCallback) != null) {
+            iLayerActionCallback.onLayerDismiss(iLayer);
+        }
+    }
+
+    public void onLayerShow(ILayer iLayer) {
+        ILayerActionCallback iLayerActionCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, iLayer) == null) && (iLayerActionCallback = this.mLayerActionCallback) != null) {
+            iLayerActionCallback.onLayerShow(iLayer);
+        }
+    }
+
+    public void onNetworkSpeedUpdate(int i) {
+        IVideoPlayerCallback iVideoPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onNetworkSpeedUpdate(i);
+        }
+    }
+
+    public void setLayerActionCallback(ILayerActionCallback iLayerActionCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, iLayerActionCallback) == null) {
+            this.mLayerActionCallback = iLayerActionCallback;
+        }
+    }
+
+    public void setVideoPlayerCallback(IVideoPlayerCallback iVideoPlayerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, iVideoPlayerCallback) == null) {
+            this.mVideoPlayerCallback = iVideoPlayerCallback;
         }
     }
 
@@ -167,177 +293,41 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
-    @PublicMethod
-    public IVideoPlayerCallback getVideoPlayerCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mVideoPlayerCallback : (IVideoPlayerCallback) invokeV.objValue;
-    }
-
-    public void onBufferEnd() {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onBufferEnd();
-    }
-
-    public void onBufferStart() {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onBufferStart();
-    }
-
-    public void onEnd(int i) {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onEnd(i);
-    }
-
     public void onError(int i, int i2, Object obj) {
         IVideoPlayerCallback iVideoPlayerCallback;
+        String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, obj) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, obj) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            if (obj != null) {
+                str = obj.toString();
+            } else {
+                str = "";
+            }
+            iVideoPlayerCallback.onError(i, i2, str);
         }
-        iVideoPlayerCallback.onError(i, i2, obj != null ? obj.toString() : "");
-    }
-
-    public void onGoBackOrForeground(boolean z) {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.goBackOrForeground(z);
     }
 
     public void onInfo(int i, int i2, Object obj) {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, obj) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, obj) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onInfo(i, i2);
         }
-        iVideoPlayerCallback.onInfo(i, i2);
-    }
-
-    public void onLayerDismiss(ILayer iLayer) {
-        ILayerActionCallback iLayerActionCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLayer) == null) || (iLayerActionCallback = this.mLayerActionCallback) == null) {
-            return;
-        }
-        iLayerActionCallback.onLayerDismiss(iLayer);
-    }
-
-    public void onLayerShow(ILayer iLayer) {
-        ILayerActionCallback iLayerActionCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, iLayer) == null) || (iLayerActionCallback = this.mLayerActionCallback) == null) {
-            return;
-        }
-        iLayerActionCallback.onLayerShow(iLayer);
-    }
-
-    public void onNetworkSpeedUpdate(int i) {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onNetworkSpeedUpdate(i);
-    }
-
-    public void onPause() {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onPause();
-    }
-
-    public void onPrepared() {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onPrepared();
-    }
-
-    public void onResume() {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onResume();
-    }
-
-    public void onSeekEnd() {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onSeekEnd();
-    }
-
-    public void onStart() {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onStart();
     }
 
     public void onUpdateProgress(int i, int i2, int i3) {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048592, this, i, i2, i3) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIII(1048592, this, i, i2, i3) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onUpdateProgress(i, i2, i3);
         }
-        iVideoPlayerCallback.onUpdateProgress(i, i2, i3);
     }
 
     public void onVideoSizeChanged(int i, int i2) {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onVideoSizeChanged(i, i2);
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.mVideoPlayerCallback = null;
-            this.mLayerActionCallback = null;
-        }
-    }
-
-    public void setLayerActionCallback(ILayerActionCallback iLayerActionCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, iLayerActionCallback) == null) {
-            this.mLayerActionCallback = iLayerActionCallback;
-        }
-    }
-
-    @PublicMethod
-    public void setVideoPlayerCallback(IVideoPlayerCallback iVideoPlayerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, iVideoPlayerCallback) == null) {
-            this.mVideoPlayerCallback = iVideoPlayerCallback;
+        if ((interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) && (iVideoPlayerCallback = this.mVideoPlayerCallback) != null) {
+            iVideoPlayerCallback.onVideoSizeChanged(i, i2);
         }
     }
 }

@@ -63,7 +63,7 @@ public class PushMessageHelper {
         }
     }
 
-    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3, List<String> list2) {
+    public static MiPushCommandMessage generateCommandMessage(String str, List list, long j, String str2, String str3, List list2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3, list2})) == null) {
@@ -84,7 +84,7 @@ public class PushMessageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, imVar, hwVar, z)) == null) {
             MiPushMessage miPushMessage = new MiPushMessage();
-            miPushMessage.setMessageId(imVar.m504a());
+            miPushMessage.setMessageId(imVar.m503a());
             if (!TextUtils.isEmpty(imVar.d())) {
                 miPushMessage.setMessageType(1);
                 miPushMessage.setAlias(imVar.d());
@@ -103,17 +103,17 @@ public class PushMessageHelper {
             }
             if (hwVar != null) {
                 if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                    miPushMessage.setMessageId(hwVar.m432a());
+                    miPushMessage.setMessageId(hwVar.m431a());
                 }
                 if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                    miPushMessage.setTopic(hwVar.m437b());
+                    miPushMessage.setTopic(hwVar.m436b());
                 }
                 miPushMessage.setDescription(hwVar.d());
-                miPushMessage.setTitle(hwVar.m440c());
+                miPushMessage.setTitle(hwVar.m439c());
                 miPushMessage.setNotifyType(hwVar.a());
                 miPushMessage.setNotifyId(hwVar.c());
                 miPushMessage.setPassThrough(hwVar.b());
-                miPushMessage.setExtra(hwVar.m433a());
+                miPushMessage.setExtra(hwVar.m432a());
             }
             miPushMessage.setNotified(z);
             return miPushMessage;

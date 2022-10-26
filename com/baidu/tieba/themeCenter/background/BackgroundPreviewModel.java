@@ -6,25 +6,40 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
+public class BackgroundPreviewModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DressItemData a;
     public int b;
     public int c;
     public b d;
-    public pb e;
+    public qb e;
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public interface b {
+        void a(int i, String str, DressItemData dressItemData);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BackgroundPreviewModel a;
@@ -51,35 +66,36 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
             this.a = backgroundPreviewModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof BackgroundGetHttpResponseMessage;
-            if (z || (responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
-                if (responsedMessage.getError() == 0) {
-                    if (z) {
-                        this.a.a = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
-                    } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
-                        this.a.a = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
-                    }
-                }
-                if (this.a.d != null) {
-                    if (this.a.a != null) {
-                        this.a.a.setPropsId(this.a.b);
-                        this.a.a.setInUse(this.a.c == 1);
-                    }
-                    this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
+            if (!z && !(responsedMessage instanceof BackgroundGetSocketResponseMessage)) {
+                return;
+            }
+            if (responsedMessage.getError() == 0) {
+                if (z) {
+                    this.a.a = ((BackgroundGetHttpResponseMessage) responsedMessage).getBgItem();
+                } else if (responsedMessage instanceof BackgroundGetSocketResponseMessage) {
+                    this.a.a = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                 }
             }
+            if (this.a.d != null) {
+                if (this.a.a != null) {
+                    this.a.a.setPropsId(this.a.b);
+                    DressItemData dressItemData = this.a.a;
+                    boolean z2 = true;
+                    if (this.a.c != 1) {
+                        z2 = false;
+                    }
+                    dressItemData.setInUse(z2);
+                }
+                this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
+            }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, String str, DressItemData dressItemData);
     }
 
     public BackgroundPreviewModel(int i, int i2) {
@@ -111,16 +127,6 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -144,8 +150,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            sm8.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-            sm8.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+            zm8.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+            zm8.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

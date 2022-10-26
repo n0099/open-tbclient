@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class TaskRepo$finishReq$5$onFail$1$1 extends Lambda implements Function0<String> {
+public final class TaskRepo$finishReq$5$onFail$1$1 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ a.b.RunnableC0072a this$0;
@@ -42,12 +42,18 @@ public final class TaskRepo$finishReq$5$onFail$1$1 extends Lambda implements Fun
     @Override // kotlin.jvm.functions.Function0
     public final String invoke() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("request fail:");
             Exception exc = this.this$0.b;
-            sb.append(exc != null ? exc.getMessage() : null);
+            if (exc != null) {
+                str = exc.getMessage();
+            } else {
+                str = null;
+            }
+            sb.append(str);
             return sb.toString();
         }
         return (String) invokeV.objValue;

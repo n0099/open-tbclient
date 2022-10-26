@@ -19,14 +19,14 @@ public final class CharSpreadBuilder extends PrimitiveSpreadBuilder<char[]> {
         cArr[position] = c;
     }
 
-    public final char[] toArray() {
-        return toArray(this.values, new char[size()]);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.PrimitiveSpreadBuilder
     public int getSize(char[] getSize) {
         Intrinsics.checkNotNullParameter(getSize, "$this$getSize");
         return getSize.length;
+    }
+
+    public final char[] toArray() {
+        return toArray(this.values, new char[size()]);
     }
 }

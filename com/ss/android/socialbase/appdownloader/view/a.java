@@ -18,23 +18,10 @@ public class a extends Fragment {
 
     private Context e() {
         Context N = c.N();
-        return (N != null || getActivity() == null || getActivity().isFinishing()) ? N : getActivity().getApplicationContext();
-    }
-
-    private Intent f() {
-        Context e = e();
-        if (e == null) {
-            return null;
+        if (N == null && getActivity() != null && !getActivity().isFinishing()) {
+            return getActivity().getApplicationContext();
         }
-        Intent intent = new Intent("android.settings.APP_NOTIFICATION_SETTINGS");
-        String packageName = e.getPackageName();
-        intent.putExtra("package", packageName);
-        intent.putExtra("android.provider.extra.APP_PACKAGE", packageName);
-        intent.putExtra("app_package", packageName);
-        int i = e.getApplicationInfo().uid;
-        intent.putExtra("uid", i);
-        intent.putExtra("app_uid", i);
-        return intent;
+        return N;
     }
 
     public void a() {
@@ -51,6 +38,30 @@ public class a extends Fragment {
         } catch (Throwable unused3) {
             startActivityForResult(b(), 1000);
         }
+    }
+
+    public Intent c() {
+        Context e = e();
+        if (e == null) {
+            return null;
+        }
+        return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e.getPackageName()));
+    }
+
+    private Intent f() {
+        Context e = e();
+        if (e == null) {
+            return null;
+        }
+        Intent intent = new Intent("android.settings.APP_NOTIFICATION_SETTINGS");
+        String packageName = e.getPackageName();
+        intent.putExtra("package", packageName);
+        intent.putExtra("android.provider.extra.APP_PACKAGE", packageName);
+        intent.putExtra("app_package", packageName);
+        int i = e.getApplicationInfo().uid;
+        intent.putExtra("uid", i);
+        intent.putExtra("app_uid", i);
+        return intent;
     }
 
     public Intent b() {
@@ -81,14 +92,6 @@ public class a extends Fragment {
                 intent3.setComponent(new ComponentName("com.meizu.safe", "com.meizu.safe.security.AppSecActivity"));
                 return intent3;
             }
-        }
-        return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e.getPackageName()));
-    }
-
-    public Intent c() {
-        Context e = e();
-        if (e == null) {
-            return null;
         }
         return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e.getPackageName()));
     }

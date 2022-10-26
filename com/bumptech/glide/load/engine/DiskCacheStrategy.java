@@ -20,6 +20,14 @@ public abstract class DiskCacheStrategy {
     public static final DiskCacheStrategy RESOURCE;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract boolean decodeCachedData();
+
+    public abstract boolean decodeCachedResource();
+
+    public abstract boolean isDataCacheable(DataSource dataSource);
+
+    public abstract boolean isResourceCacheable(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -37,20 +45,6 @@ public abstract class DiskCacheStrategy {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean decodeCachedData() {
                 InterceptResult invokeV;
@@ -71,38 +65,50 @@ public abstract class DiskCacheStrategy {
                 return invokeV.booleanValue;
             }
 
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean isDataCacheable(DataSource dataSource) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource)) == null) ? dataSource == DataSource.REMOTE : invokeL.booleanValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource)) == null) {
+                    if (dataSource == DataSource.REMOTE) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean isResourceCacheable(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), dataSource, encodeStrategy})) == null) ? (dataSource == DataSource.RESOURCE_DISK_CACHE || dataSource == DataSource.MEMORY_CACHE) ? false : true : invokeCommon.booleanValue;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), dataSource, encodeStrategy})) == null) {
+                    if (dataSource != DataSource.RESOURCE_DISK_CACHE && dataSource != DataSource.MEMORY_CACHE) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeCommon.booleanValue;
             }
         };
         NONE = new DiskCacheStrategy() { // from class: com.bumptech.glide.load.engine.DiskCacheStrategy.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean decodeCachedData() {
                 InterceptResult invokeV;
@@ -141,26 +147,26 @@ public abstract class DiskCacheStrategy {
                     return false;
                 }
                 return invokeCommon.booleanValue;
+            }
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
         };
         DATA = new DiskCacheStrategy() { // from class: com.bumptech.glide.load.engine.DiskCacheStrategy.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean decodeCachedData() {
                 InterceptResult invokeV;
@@ -182,13 +188,6 @@ public abstract class DiskCacheStrategy {
             }
 
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
-            public boolean isDataCacheable(DataSource dataSource) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource)) == null) ? (dataSource == DataSource.DATA_DISK_CACHE || dataSource == DataSource.MEMORY_CACHE) ? false : true : invokeL.booleanValue;
-            }
-
-            @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean isResourceCacheable(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
@@ -197,10 +196,6 @@ public abstract class DiskCacheStrategy {
                 }
                 return invokeCommon.booleanValue;
             }
-        };
-        RESOURCE = new DiskCacheStrategy() { // from class: com.bumptech.glide.load.engine.DiskCacheStrategy.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -215,6 +210,23 @@ public abstract class DiskCacheStrategy {
                     }
                 }
             }
+
+            @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
+            public boolean isDataCacheable(DataSource dataSource) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource)) == null) {
+                    if (dataSource != DataSource.DATA_DISK_CACHE && dataSource != DataSource.MEMORY_CACHE) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeL.booleanValue;
+            }
+        };
+        RESOURCE = new DiskCacheStrategy() { // from class: com.bumptech.glide.load.engine.DiskCacheStrategy.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean decodeCachedData() {
@@ -246,17 +258,6 @@ public abstract class DiskCacheStrategy {
                 return invokeL.booleanValue;
             }
 
-            @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
-            public boolean isResourceCacheable(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), dataSource, encodeStrategy})) == null) ? (dataSource == DataSource.RESOURCE_DISK_CACHE || dataSource == DataSource.MEMORY_CACHE) ? false : true : invokeCommon.booleanValue;
-            }
-        };
-        AUTOMATIC = new DiskCacheStrategy() { // from class: com.bumptech.glide.load.engine.DiskCacheStrategy.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -270,6 +271,23 @@ public abstract class DiskCacheStrategy {
                     }
                 }
             }
+
+            @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
+            public boolean isResourceCacheable(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), dataSource, encodeStrategy})) == null) {
+                    if (dataSource != DataSource.RESOURCE_DISK_CACHE && dataSource != DataSource.MEMORY_CACHE) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeCommon.booleanValue;
+            }
+        };
+        AUTOMATIC = new DiskCacheStrategy() { // from class: com.bumptech.glide.load.engine.DiskCacheStrategy.5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean decodeCachedData() {
@@ -291,18 +309,44 @@ public abstract class DiskCacheStrategy {
                 return invokeV.booleanValue;
             }
 
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean isDataCacheable(DataSource dataSource) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource)) == null) ? dataSource == DataSource.REMOTE : invokeL.booleanValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource)) == null) {
+                    if (dataSource == DataSource.REMOTE) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
 
             @Override // com.bumptech.glide.load.engine.DiskCacheStrategy
             public boolean isResourceCacheable(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), dataSource, encodeStrategy})) == null) ? ((z && dataSource == DataSource.DATA_DISK_CACHE) || dataSource == DataSource.LOCAL) && encodeStrategy == EncodeStrategy.TRANSFORMED : invokeCommon.booleanValue;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), dataSource, encodeStrategy})) == null) {
+                    if (((z && dataSource == DataSource.DATA_DISK_CACHE) || dataSource == DataSource.LOCAL) && encodeStrategy == EncodeStrategy.TRANSFORMED) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeCommon.booleanValue;
             }
         };
     }
@@ -320,12 +364,4 @@ public abstract class DiskCacheStrategy {
             }
         }
     }
-
-    public abstract boolean decodeCachedData();
-
-    public abstract boolean decodeCachedResource();
-
-    public abstract boolean isDataCacheable(DataSource dataSource);
-
-    public abstract boolean isResourceCacheable(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy);
 }

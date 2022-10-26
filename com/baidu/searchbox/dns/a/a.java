@@ -56,22 +56,11 @@ public class a {
         }
     }
 
-    public static a e() {
-        InterceptResult invokeV;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? p : (a) invokeV.objValue;
-    }
-
-    public void a(String str, com.baidu.searchbox.dns.d.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || aVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.o = z;
         }
-        String aVar2 = aVar.toString();
-        if (TextUtils.isEmpty(aVar2)) {
-            return;
-        }
-        this.m.put(str, aVar2);
     }
 
     public com.baidu.searchbox.dns.d.a.a c(String str) {
@@ -79,12 +68,39 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             String str2 = this.m.get(str);
-            if (TextUtils.isEmpty(str2)) {
-                return null;
+            if (!TextUtils.isEmpty(str2)) {
+                return new com.baidu.searchbox.dns.d.a.a(str2);
             }
-            return new com.baidu.searchbox.dns.d.a.a(str2);
+            return null;
         }
         return (com.baidu.searchbox.dns.d.a.a) invokeL.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            SharedPreferences.Editor edit = this.mContext.getSharedPreferences("dns_prefs", 0).edit();
+            edit.putString("SP_BACKUPIP_KEY", str);
+            edit.apply();
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            SharedPreferences.Editor edit = this.mContext.getSharedPreferences("dns_prefs", 0).edit();
+            edit.putString("SP_BACKUPIP_VERSION_KEY", str);
+            edit.apply();
+        }
+    }
+
+    public static a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return p;
+        }
+        return (a) invokeV.objValue;
     }
 
     public void clear() {
@@ -93,6 +109,53 @@ public class a {
             this.m.clear();
             this.n.clear();
             this.o = false;
+        }
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_KEY", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_VERSION_KEY", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isIPv6TestArea() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(String str, com.baidu.searchbox.dns.d.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) && aVar != null) {
+            String aVar2 = aVar.toString();
+            if (!TextUtils.isEmpty(aVar2)) {
+                this.m.put(str, aVar2);
+            }
+        }
+    }
+
+    public void b(String str, com.baidu.searchbox.dns.d.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) && aVar != null) {
+            String aVar2 = aVar.toString();
+            if (!TextUtils.isEmpty(aVar2)) {
+                this.n.put(str, aVar2);
+            }
         }
     }
 
@@ -132,60 +195,5 @@ public class a {
             return null;
         }
         return (com.baidu.searchbox.dns.d.a.a) invokeL.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_KEY", "") : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_VERSION_KEY", "0") : (String) invokeV.objValue;
-    }
-
-    public boolean isIPv6TestArea() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.o : invokeV.booleanValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            SharedPreferences.Editor edit = this.mContext.getSharedPreferences("dns_prefs", 0).edit();
-            edit.putString("SP_BACKUPIP_KEY", str);
-            edit.apply();
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            SharedPreferences.Editor edit = this.mContext.getSharedPreferences("dns_prefs", 0).edit();
-            edit.putString("SP_BACKUPIP_VERSION_KEY", str);
-            edit.apply();
-        }
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    public void b(String str, com.baidu.searchbox.dns.d.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) || aVar == null) {
-            return;
-        }
-        String aVar2 = aVar.toString();
-        if (TextUtils.isEmpty(aVar2)) {
-            return;
-        }
-        this.n.put(str, aVar2);
     }
 }

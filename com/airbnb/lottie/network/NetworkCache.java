@@ -1,8 +1,6 @@
 package com.airbnb.lottie.network;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import androidx.core.util.Pair;
 import com.airbnb.lottie.utils.Logger;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -20,15 +18,6 @@ public class NetworkCache {
         this.appContext = context.getApplicationContext();
     }
 
-    public static String filenameForUrl(String str, FileExtension fileExtension, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("lottie_cache_");
-        sb.append(str.replaceAll("\\W+", ""));
-        sb.append(z ? fileExtension.tempExtension() : fileExtension.extension);
-        return sb.toString();
-    }
-
-    @Nullable
     private File getCachedFile(String str) throws FileNotFoundException {
         File file = new File(parentDir(), filenameForUrl(str, FileExtension.JSON, false));
         if (file.exists()) {
@@ -39,6 +28,20 @@ public class NetworkCache {
             return file2;
         }
         return null;
+    }
+
+    public static String filenameForUrl(String str, FileExtension fileExtension, boolean z) {
+        String str2;
+        StringBuilder sb = new StringBuilder();
+        sb.append("lottie_cache_");
+        sb.append(str.replaceAll("\\W+", ""));
+        if (z) {
+            str2 = fileExtension.tempExtension();
+        } else {
+            str2 = fileExtension.extension;
+        }
+        sb.append(str2);
+        return sb.toString();
     }
 
     private File parentDir() {
@@ -65,9 +68,7 @@ public class NetworkCache {
         }
     }
 
-    @Nullable
-    @WorkerThread
-    public Pair<FileExtension, InputStream> fetch(String str) {
+    public Pair fetch(String str) {
         FileExtension fileExtension;
         try {
             File cachedFile = getCachedFile(str);
@@ -81,7 +82,7 @@ public class NetworkCache {
                 fileExtension = FileExtension.JSON;
             }
             Logger.debug("Cache hit for " + str + " at " + cachedFile.getAbsolutePath());
-            return new Pair<>(fileExtension, fileInputStream);
+            return new Pair(fileExtension, fileInputStream);
         } catch (FileNotFoundException unused) {
             return null;
         }
@@ -92,10 +93,9 @@ public class NetworkCache {
         File file2 = new File(file.getAbsolutePath().replace(".temp", ""));
         boolean renameTo = file.renameTo(file2);
         Logger.debug("Copying temp file to real file (" + file2 + SmallTailInfo.EMOTION_SUFFIX);
-        if (renameTo) {
-            return;
+        if (!renameTo) {
+            Logger.warning("Unable to rename cache file " + file.getAbsolutePath() + " to " + file2.getAbsolutePath() + ".");
         }
-        Logger.warning("Unable to rename cache file " + file.getAbsolutePath() + " to " + file2.getAbsolutePath() + ".");
     }
 
     public File writeTempCacheFile(String str, InputStream inputStream, FileExtension fileExtension) throws IOException {

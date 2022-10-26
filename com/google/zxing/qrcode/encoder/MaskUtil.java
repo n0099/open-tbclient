@@ -32,29 +32,47 @@ public final class MaskUtil {
     public static int applyMaskPenaltyRule1(ByteMatrix byteMatrix) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteMatrix)) == null) ? applyMaskPenaltyRule1Internal(byteMatrix, true) + applyMaskPenaltyRule1Internal(byteMatrix, false) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteMatrix)) == null) {
+            return applyMaskPenaltyRule1Internal(byteMatrix, true) + applyMaskPenaltyRule1Internal(byteMatrix, false);
+        }
+        return invokeL.intValue;
     }
 
     public static int applyMaskPenaltyRule1Internal(ByteMatrix byteMatrix, boolean z) {
         InterceptResult invokeLZ;
+        int width;
+        int height;
+        byte b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, byteMatrix, z)) == null) {
-            int height = z ? byteMatrix.getHeight() : byteMatrix.getWidth();
-            int width = z ? byteMatrix.getWidth() : byteMatrix.getHeight();
+            if (z) {
+                width = byteMatrix.getHeight();
+            } else {
+                width = byteMatrix.getWidth();
+            }
+            if (z) {
+                height = byteMatrix.getWidth();
+            } else {
+                height = byteMatrix.getHeight();
+            }
             byte[][] array = byteMatrix.getArray();
             int i = 0;
-            for (int i2 = 0; i2 < height; i2++) {
-                byte b = -1;
+            for (int i2 = 0; i2 < width; i2++) {
+                byte b2 = -1;
                 int i3 = 0;
-                for (int i4 = 0; i4 < width; i4++) {
-                    byte b2 = z ? array[i2][i4] : array[i4][i2];
-                    if (b2 == b) {
+                for (int i4 = 0; i4 < height; i4++) {
+                    if (z) {
+                        b = array[i2][i4];
+                    } else {
+                        b = array[i4][i2];
+                    }
+                    if (b == b2) {
                         i3++;
                     } else {
                         if (i3 >= 5) {
                             i += (i3 - 5) + 3;
                         }
-                        b = b2;
+                        b2 = b;
                         i3 = 1;
                     }
                 }
@@ -94,6 +112,28 @@ public final class MaskUtil {
         return invokeL.intValue;
     }
 
+    public static int applyMaskPenaltyRule4(ByteMatrix byteMatrix) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteMatrix)) == null) {
+            byte[][] array = byteMatrix.getArray();
+            int width = byteMatrix.getWidth();
+            int height = byteMatrix.getHeight();
+            int i = 0;
+            for (int i2 = 0; i2 < height; i2++) {
+                byte[] bArr = array[i2];
+                for (int i3 = 0; i3 < width; i3++) {
+                    if (bArr[i3] == 1) {
+                        i++;
+                    }
+                }
+            }
+            int height2 = byteMatrix.getHeight() * byteMatrix.getWidth();
+            return ((Math.abs((i << 1) - height2) * 10) / height2) * 10;
+        }
+        return invokeL.intValue;
+    }
+
     public static int applyMaskPenaltyRule3(ByteMatrix byteMatrix) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -116,28 +156,6 @@ public final class MaskUtil {
                 }
             }
             return i * 40;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int applyMaskPenaltyRule4(ByteMatrix byteMatrix) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteMatrix)) == null) {
-            byte[][] array = byteMatrix.getArray();
-            int width = byteMatrix.getWidth();
-            int height = byteMatrix.getHeight();
-            int i = 0;
-            for (int i2 = 0; i2 < height; i2++) {
-                byte[] bArr = array[i2];
-                for (int i3 = 0; i3 < width; i3++) {
-                    if (bArr[i3] == 1) {
-                        i++;
-                    }
-                }
-            }
-            int height2 = byteMatrix.getHeight() * byteMatrix.getWidth();
-            return ((Math.abs((i << 1) - height2) * 10) / height2) * 10;
         }
         return invokeL.intValue;
     }
@@ -185,7 +203,10 @@ public final class MaskUtil {
                 default:
                     throw new IllegalArgumentException("Invalid mask pattern: " + i);
             }
-            return i4 == 0;
+            if (i4 == 0) {
+                return true;
+            }
+            return false;
         }
         return invokeIII.booleanValue;
     }

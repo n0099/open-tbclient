@@ -26,6 +26,18 @@ public final class TornadoENV {
         return new TornadoENV[]{ENABLE_DEBUG, ENABLE_PING_CMD, ENABLE_IPV6, ALLOWED_ALL, PRINT_LOG};
     }
 
+    public static TornadoENV valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TornadoENV) Enum.valueOf(TornadoENV.class, str) : (TornadoENV) invokeL.objValue;
+    }
+
+    public static TornadoENV[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TornadoENV[]) $VALUES.clone() : (TornadoENV[]) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -64,17 +76,5 @@ public final class TornadoENV {
                 interceptable.invokeInitBody(65538, newInitContext);
             }
         }
-    }
-
-    public static TornadoENV valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TornadoENV) Enum.valueOf(TornadoENV.class, str) : (TornadoENV) invokeL.objValue;
-    }
-
-    public static TornadoENV[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TornadoENV[]) $VALUES.clone() : (TornadoENV[]) invokeV.objValue;
     }
 }

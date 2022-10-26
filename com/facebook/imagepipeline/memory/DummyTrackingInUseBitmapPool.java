@@ -15,7 +15,14 @@ import java.util.Set;
 public class DummyTrackingInUseBitmapPool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<Bitmap> mInUseValues;
+    public final Set mInUseValues;
+
+    @Override // com.facebook.common.memory.MemoryTrimmable
+    public void trim(MemoryTrimType memoryTrimType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, memoryTrimType) == null) {
+        }
+    }
 
     public DummyTrackingInUseBitmapPool() {
         Interceptable interceptable = $ic;
@@ -33,15 +40,7 @@ public class DummyTrackingInUseBitmapPool implements BitmapPool {
         this.mInUseValues = Sets.newIdentityHashSet();
     }
 
-    @Override // com.facebook.common.memory.MemoryTrimmable
-    public void trim(MemoryTrimType memoryTrimType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, memoryTrimType) == null) {
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.memory.Pool
     public Bitmap get(int i) {
         InterceptResult invokeI;

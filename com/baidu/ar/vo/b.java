@@ -81,8 +81,8 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, gVar)) == null) {
-            ArrayList<TrackModel> hk = gVar.hk();
-            return (hk == null || hk.isEmpty()) ? new float[0] : hk.get(0).getPose();
+            ArrayList hk = gVar.hk();
+            return (hk == null || hk.isEmpty()) ? new float[0] : ((TrackModel) hk.get(0)).getPose();
         }
         return (float[]) invokeL.objValue;
     }

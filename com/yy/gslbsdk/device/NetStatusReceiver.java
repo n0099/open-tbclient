@@ -78,16 +78,15 @@ public class NetStatusReceiver {
 
     public void register(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || context == null || this.mRegistered) {
-            return;
-        }
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        try {
-            context.registerReceiver(this.mNetReceiver, intentFilter);
-            this.mRegistered = true;
-        } catch (Exception e) {
-            LogTools.printWarning(TAG, String.format(Locale.US, "register net receiver failed! error: %s", e.getMessage()));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && context != null && !this.mRegistered) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            try {
+                context.registerReceiver(this.mNetReceiver, intentFilter);
+                this.mRegistered = true;
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, String.format(Locale.US, "register net receiver failed! error: %s", e.getMessage()));
+            }
         }
     }
 

@@ -35,6 +35,19 @@ public class DownloadUtils {
         }
     }
 
+    public static File getPmsFileDir() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), PMS_DIR);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
     public static boolean copyTo(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -44,7 +57,10 @@ public class DownloadUtils {
             }
             File file = new File(str);
             File file2 = new File(str2);
-            return (!file2.exists() || file2.delete()) && makeDirs(file2.getParentFile()) && FileUtils.copyFile(file, file2) > 0;
+            if ((file2.exists() && !file2.delete()) || !makeDirs(file2.getParentFile()) || FileUtils.copyFile(file, file2) <= 0) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }
@@ -103,47 +119,12 @@ public class DownloadUtils {
                 file = new File(str);
             }
             file = null;
-            return file == null ? getPmsFileDir() : file;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static String getOutputFile(PackageInfo packageInfo, String str) {
-        InterceptResult invokeLL;
-        File outputDir;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, packageInfo, str)) == null) {
-            if (packageInfo == null || (outputDir = getOutputDir(str)) == null) {
-                return null;
-            }
-            return CommonUtils.mergePath(outputDir.getAbsolutePath(), createFileName(packageInfo));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static File getPmsFileDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), PMS_DIR);
-            if (!file.exists()) {
-                file.mkdirs();
+            if (file == null) {
+                return getPmsFileDir();
             }
             return file;
         }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean isSameMD5(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return isSameMD5(new File(str), str2);
-        }
-        return invokeLL.booleanValue;
+        return (File) invokeL.objValue;
     }
 
     public static boolean makeDirs(File file) {
@@ -159,6 +140,46 @@ public class DownloadUtils {
             return file.mkdirs();
         }
         return invokeL.booleanValue;
+    }
+
+    public static String getOutputFile(PackageInfo packageInfo, String str) {
+        InterceptResult invokeLL;
+        File outputDir;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, packageInfo, str)) == null) {
+            if (packageInfo == null || (outputDir = getOutputDir(str)) == null) {
+                return null;
+            }
+            return CommonUtils.mergePath(outputDir.getAbsolutePath(), createFileName(packageInfo));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean isSameMD5(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, str)) == null) {
+            if (file != null && file.exists()) {
+                String md5 = MD5Utils.toMd5(file, true);
+                if (str != null && md5 != null) {
+                    return str.toUpperCase().equals(md5);
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean isSameMD5(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return isSameMD5(new File(str), str2);
+        }
+        return invokeLL.booleanValue;
     }
 
     public static ErrorInfo ubcFileExist(PackageInfo packageInfo) {
@@ -188,20 +209,5 @@ public class DownloadUtils {
             return errorInfo;
         }
         return (ErrorInfo) invokeL.objValue;
-    }
-
-    public static boolean isSameMD5(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, str)) == null) {
-            if (file != null && file.exists()) {
-                String md5 = MD5Utils.toMd5(file, true);
-                if (str != null && md5 != null) {
-                    return str.toUpperCase().equals(md5);
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

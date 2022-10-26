@@ -7,7 +7,6 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DrawableWrapper extends Drawable implements Drawable.Callback {
     public static /* synthetic */ Interceptable $ic;
@@ -50,79 +48,13 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public int getChangingConfigurations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDrawable.getChangingConfigurations() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public Drawable getCurrent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDrawable.getCurrent() : (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDrawable.getIntrinsicHeight() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDrawable.getIntrinsicWidth() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getMinimumHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDrawable.getMinimumHeight() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getMinimumWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mDrawable.getMinimumWidth() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mDrawable.getOpacity() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect)) == null) ? this.mDrawable.getPadding(rect) : invokeL.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int[] getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mDrawable.getState() : (int[]) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public Region getTransparentRegion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mDrawable.getTransparentRegion() : (Region) invokeV.objValue;
-    }
-
-    public Drawable getWrappedDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mDrawable : (Drawable) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect)) == null) {
+            return this.mDrawable.getPadding(rect);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
@@ -130,28 +62,6 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, drawable) == null) {
             invalidateSelf();
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public boolean isAutoMirrored() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? DrawableCompat.isAutoMirrored(this.mDrawable) : invokeV.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public boolean isStateful() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mDrawable.isStateful() : invokeV.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void jumpToCurrentState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.mDrawable.jumpToCurrentState();
         }
     }
 
@@ -167,15 +77,10 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? this.mDrawable.setLevel(i) : invokeI.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
-            scheduleSelf(runnable, j);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            return this.mDrawable.setLevel(i);
         }
+        return invokeI.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -227,26 +132,13 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspot(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            DrawableCompat.setHotspot(this.mDrawable, f, f2);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048602, this, i, i2, i3, i4) == null) {
-            DrawableCompat.setHotspotBounds(this.mDrawable, i, i2, i3, i4);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public boolean setState(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, iArr)) == null) ? this.mDrawable.setState(iArr) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, iArr)) == null) {
+            return this.mDrawable.setState(iArr);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -273,13 +165,6 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public boolean setVisible(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? super.setVisible(z, z2) || this.mDrawable.setVisible(z, z2) : invokeCommon.booleanValue;
-    }
-
     public void setWrappedDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
@@ -294,11 +179,175 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
         }
     }
 
+    @Override // android.graphics.drawable.Drawable
+    public int getChangingConfigurations() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDrawable.getChangingConfigurations();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public Drawable getCurrent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDrawable.getCurrent();
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDrawable.getIntrinsicHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDrawable.getIntrinsicWidth();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getMinimumHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mDrawable.getMinimumHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getMinimumWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mDrawable.getMinimumWidth();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mDrawable.getOpacity();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int[] getState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mDrawable.getState();
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public Region getTransparentRegion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mDrawable.getTransparentRegion();
+        }
+        return (Region) invokeV.objValue;
+    }
+
+    public Drawable getWrappedDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mDrawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean isAutoMirrored() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return DrawableCompat.isAutoMirrored(this.mDrawable);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean isStateful() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mDrawable.isStateful();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void jumpToCurrentState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.mDrawable.jumpToCurrentState();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable.Callback
+    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+            scheduleSelf(runnable, j);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setHotspot(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            DrawableCompat.setHotspot(this.mDrawable, f, f2);
+        }
+    }
+
     @Override // android.graphics.drawable.Drawable.Callback
     public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048609, this, drawable, runnable) == null) {
             unscheduleSelf(runnable);
         }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setHotspotBounds(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048602, this, i, i2, i3, i4) == null) {
+            DrawableCompat.setHotspotBounds(this.mDrawable, i, i2, i3, i4);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean setVisible(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (!super.setVisible(z, z2) && !this.mDrawable.setVisible(z, z2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

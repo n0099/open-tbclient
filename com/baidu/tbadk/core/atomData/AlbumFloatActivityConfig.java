@@ -64,17 +64,6 @@ public class AlbumFloatActivityConfig extends AlbumActivityConfig {
         }
     }
 
-    public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, antiData, postPrefixData, str, str2) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(IntentConfig.FORUM_FIRST_DIR, str);
-        getIntent().putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
-        getIntent().putExtra("prefix_data", postPrefixData);
-        getIntent().putExtra("anti_data", antiData);
-    }
-
     public void setIsVideo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -107,6 +96,16 @@ public class AlbumFloatActivityConfig extends AlbumActivityConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             getIntent().putExtra("video_title", str);
+        }
+    }
+
+    public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048579, this, antiData, postPrefixData, str, str2) == null) && getIntent() != null) {
+            getIntent().putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+            getIntent().putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
+            getIntent().putExtra(BaseWriteConfig.PREFIX_DATA, postPrefixData);
+            getIntent().putExtra("anti_data", antiData);
         }
     }
 }

@@ -9,7 +9,7 @@ public interface Pointcut {
 
     String[] getParameterNames();
 
-    AjType<?>[] getParameterTypes();
+    AjType[] getParameterTypes();
 
     PointcutExpression getPointcutExpression();
 }

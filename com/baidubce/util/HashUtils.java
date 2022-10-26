@@ -56,45 +56,34 @@ public class HashUtils {
     public static byte[] computeHash(InputStream inputStream, MessageDigest messageDigest) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65538, null, inputStream, messageDigest)) != null) {
-            return (byte[]) invokeLL.objValue;
-        }
-        try {
-            byte[] bArr = new byte[16384];
-            while (true) {
-                int read = inputStream.read(bArr, 0, 16384);
-                if (read != -1) {
-                    messageDigest.update(bArr, 0, read);
-                } else {
-                    byte[] digest = messageDigest.digest();
-                    try {
-                        inputStream.close();
-                        return digest;
-                    } catch (Exception e) {
-                        throw new BceClientException("Fail to close InputStream.", e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, messageDigest)) == null) {
+            try {
+                byte[] bArr = new byte[16384];
+                while (true) {
+                    int read = inputStream.read(bArr, 0, 16384);
+                    if (read != -1) {
+                        messageDigest.update(bArr, 0, read);
+                    } else {
+                        byte[] digest = messageDigest.digest();
+                        try {
+                            inputStream.close();
+                            return digest;
+                        } catch (Exception e) {
+                            throw new BceClientException("Fail to close InputStream.", e);
+                        }
                     }
                 }
+            } catch (Throwable th) {
+                try {
+                    inputStream.close();
+                    throw th;
+                } catch (Exception e2) {
+                    throw new BceClientException("Fail to close InputStream.", e2);
+                }
             }
-        } catch (Throwable th) {
-            try {
-                inputStream.close();
-                throw th;
-            } catch (Exception e2) {
-                throw new BceClientException("Fail to close InputStream.", e2);
-            }
+        } else {
+            return (byte[]) invokeLL.objValue;
         }
-    }
-
-    public static byte[] computeMd5Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) ? computeHash(inputStream, MessageDigest.getInstance("MD5")) : (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] computeSha256Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) ? computeHash(inputStream, MessageDigest.getInstance("SHA-256")) : (byte[]) invokeL.objValue;
     }
 
     public static String sha256Hex(String str, String str2) {
@@ -110,5 +99,23 @@ public class HashUtils {
             }
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static byte[] computeMd5Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            return computeHash(inputStream, MessageDigest.getInstance("MD5"));
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] computeSha256Hash(InputStream inputStream) throws NoSuchAlgorithmException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) {
+            return computeHash(inputStream, MessageDigest.getInstance("SHA-256"));
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

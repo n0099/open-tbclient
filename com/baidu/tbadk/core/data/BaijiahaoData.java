@@ -39,7 +39,7 @@ public class BaijiahaoData implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.oriUgcNid = jSONObject.optString("ori_ugc_nid");
@@ -51,7 +51,7 @@ public class BaijiahaoData implements Serializable {
 
     public void parseProto(Baijiahao baijiahao) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baijiahao) == null) || baijiahao == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baijiahao) != null) || baijiahao == null) {
             return;
         }
         this.oriUgcNid = baijiahao.ori_ugc_nid;

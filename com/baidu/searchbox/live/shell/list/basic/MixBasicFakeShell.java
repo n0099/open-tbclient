@@ -26,6 +26,8 @@ public abstract class MixBasicFakeShell extends AbstractMixFakeShell {
     public transient /* synthetic */ FieldHolder $fh;
     public IMixShellInterface mixShellInterfaceImpl;
 
+    public abstract String getLiveTemplateId();
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MixBasicFakeShell(Context context, MiniUniqueId miniUniqueId, IMixActivityInterface iMixActivityInterface) {
         super(context, miniUniqueId, iMixActivityInterface);
@@ -67,13 +69,19 @@ public abstract class MixBasicFakeShell extends AbstractMixFakeShell {
     }
 
     private final void log(String str) {
+        Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append(" mixLiveImpl:");
             IMixShellInterface iMixShellInterface = this.mixShellInterfaceImpl;
-            sb.append(iMixShellInterface != null ? Integer.valueOf(iMixShellInterface.hashCode()) : null);
+            if (iMixShellInterface != null) {
+                num = Integer.valueOf(iMixShellInterface.hashCode());
+            } else {
+                num = null;
+            }
+            sb.append(num);
             sb.append(" this:");
             sb.append(hashCode());
             sb.append(WebvttCueParser.CHAR_SPACE);
@@ -98,8 +106,6 @@ public abstract class MixBasicFakeShell extends AbstractMixFakeShell {
         return (View) invokeV.objValue;
     }
 
-    public abstract String getLiveTemplateId();
-
     @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
     public void onLiveAttach() {
         Interceptable interceptable = $ic;
@@ -109,19 +115,6 @@ public abstract class MixBasicFakeShell extends AbstractMixFakeShell {
             IMixShellInterface shellImpl = getShellImpl();
             if (shellImpl != null) {
                 shellImpl.onLiveAttach(getLiveContainer(), null);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
-    public void onLiveBindData(LiveContainer.LiveItemModel liveItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, liveItemModel) == null) {
-            super.onLiveBindData(liveItemModel);
-            log("onLiveBindData");
-            IMixShellInterface shellImpl = getShellImpl();
-            if (shellImpl != null) {
-                shellImpl.onLiveBindData(getLiveContainer(), liveItemModel, null);
             }
         }
     }
@@ -148,6 +141,19 @@ public abstract class MixBasicFakeShell extends AbstractMixFakeShell {
             IMixShellInterface shellImpl = getShellImpl();
             if (shellImpl != null) {
                 shellImpl.onLiveDetach();
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell
+    public void onLiveBindData(LiveContainer.LiveItemModel liveItemModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, liveItemModel) == null) {
+            super.onLiveBindData(liveItemModel);
+            log("onLiveBindData");
+            IMixShellInterface shellImpl = getShellImpl();
+            if (shellImpl != null) {
+                shellImpl.onLiveBindData(getLiveContainer(), liveItemModel, null);
             }
         }
     }

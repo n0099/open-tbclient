@@ -1,8 +1,6 @@
 package com.airbnb.lottie.network;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import androidx.core.util.Pair;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieCompositionFactory;
@@ -20,11 +18,10 @@ import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class NetworkFetcher {
     public final Context appContext;
-    @Nullable
     public final NetworkCache networkCache;
     public final String url;
 
-    public NetworkFetcher(Context context, String str, @Nullable String str2) {
+    public NetworkFetcher(Context context, String str, String str2) {
         Context applicationContext = context.getApplicationContext();
         this.appContext = applicationContext;
         this.url = str;
@@ -35,63 +32,74 @@ public class NetworkFetcher {
         }
     }
 
-    @Nullable
-    @WorkerThread
+    public static LottieResult fetchSync(Context context, String str, String str2) {
+        return new NetworkFetcher(context, str, str2).fetchSync();
+    }
+
     private LottieComposition fetchFromCache() {
-        Pair<FileExtension, InputStream> fetch;
-        LottieResult<LottieComposition> fromJsonInputStreamSync;
+        Pair fetch;
+        LottieResult fromJsonInputStreamSync;
         NetworkCache networkCache = this.networkCache;
         if (networkCache == null || (fetch = networkCache.fetch(this.url)) == null) {
             return null;
         }
-        FileExtension fileExtension = fetch.first;
-        InputStream inputStream = fetch.second;
+        FileExtension fileExtension = (FileExtension) fetch.first;
+        InputStream inputStream = (InputStream) fetch.second;
         if (fileExtension == FileExtension.ZIP) {
             fromJsonInputStreamSync = LottieCompositionFactory.fromZipStreamSync(new ZipInputStream(inputStream), this.url);
         } else {
             fromJsonInputStreamSync = LottieCompositionFactory.fromJsonInputStreamSync(inputStream, this.url);
         }
-        if (fromJsonInputStreamSync.getValue() != null) {
-            return fromJsonInputStreamSync.getValue();
+        if (fromJsonInputStreamSync.getValue() == null) {
+            return null;
         }
-        return null;
+        return (LottieComposition) fromJsonInputStreamSync.getValue();
     }
 
-    @WorkerThread
-    private LottieResult<LottieComposition> fetchFromNetwork() {
+    private LottieResult fetchFromNetwork() {
         try {
             return fetchFromNetworkInternal();
         } catch (IOException e) {
-            return new LottieResult<>(e);
+            return new LottieResult((Throwable) e);
         }
     }
 
-    @WorkerThread
-    private LottieResult<LottieComposition> fetchFromNetworkInternal() throws IOException {
+    public LottieResult fetchSync() {
+        LottieComposition fetchFromCache = fetchFromCache();
+        if (fetchFromCache != null) {
+            return new LottieResult(fetchFromCache);
+        }
+        Logger.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
+        return fetchFromNetwork();
+    }
+
+    private LottieResult fetchFromNetworkInternal() throws IOException {
+        boolean z;
         Logger.debug("Fetching " + this.url);
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.url).openConnection();
         httpURLConnection.setRequestMethod("GET");
         try {
             httpURLConnection.connect();
             if (httpURLConnection.getErrorStream() == null && httpURLConnection.getResponseCode() == 200) {
-                LottieResult<LottieComposition> resultFromConnection = getResultFromConnection(httpURLConnection);
+                LottieResult resultFromConnection = getResultFromConnection(httpURLConnection);
                 StringBuilder sb = new StringBuilder();
                 sb.append("Completed fetch from network. Success: ");
-                sb.append(resultFromConnection.getValue() != null);
+                if (resultFromConnection.getValue() != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                sb.append(z);
                 Logger.debug(sb.toString());
                 return resultFromConnection;
             }
             String errorFromConnection = getErrorFromConnection(httpURLConnection);
-            return new LottieResult<>(new IllegalArgumentException("Unable to fetch " + this.url + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + errorFromConnection));
+            return new LottieResult((Throwable) new IllegalArgumentException("Unable to fetch " + this.url + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + errorFromConnection));
         } catch (Exception e) {
-            return new LottieResult<>(e);
+            return new LottieResult((Throwable) e);
         } finally {
             httpURLConnection.disconnect();
         }
-    }
-
-    public static LottieResult<LottieComposition> fetchSync(Context context, String str, @Nullable String str2) {
-        return new NetworkFetcher(context, str, str2).fetchSync();
     }
 
     private String getErrorFromConnection(HttpURLConnection httpURLConnection) throws IOException {
@@ -126,10 +134,9 @@ public class NetworkFetcher {
         return sb.toString();
     }
 
-    @Nullable
-    private LottieResult<LottieComposition> getResultFromConnection(HttpURLConnection httpURLConnection) throws IOException {
+    private LottieResult getResultFromConnection(HttpURLConnection httpURLConnection) throws IOException {
         FileExtension fileExtension;
-        LottieResult<LottieComposition> fromJsonInputStreamSync;
+        LottieResult fromJsonInputStreamSync;
         String contentType = httpURLConnection.getContentType();
         if (contentType == null) {
             contentType = "application/json";
@@ -157,15 +164,5 @@ public class NetworkFetcher {
             this.networkCache.renameTempFile(this.url, fileExtension);
         }
         return fromJsonInputStreamSync;
-    }
-
-    @WorkerThread
-    public LottieResult<LottieComposition> fetchSync() {
-        LottieComposition fetchFromCache = fetchFromCache();
-        if (fetchFromCache != null) {
-            return new LottieResult<>(fetchFromCache);
-        }
-        Logger.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return fetchFromNetwork();
     }
 }

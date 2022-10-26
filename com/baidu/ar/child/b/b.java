@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpException;
@@ -69,7 +70,7 @@ public class b {
     private String x(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) ? i != -90 ? i != 0 ? i != 90 ? i != 180 ? "V" : "FV" : "HL" : "V" : "HR" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) ? i != -90 ? i != 0 ? i != 90 ? i != 180 ? ExifInterface.GPS_MEASUREMENT_INTERRUPTED : "FV" : "HL" : ExifInterface.GPS_MEASUREMENT_INTERRUPTED : "HR" : (String) invokeI.objValue;
     }
 
     public void a(byte[] bArr, int i, a aVar) {

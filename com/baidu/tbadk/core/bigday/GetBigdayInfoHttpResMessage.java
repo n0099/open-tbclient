@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.bigday;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
-import com.baidu.tieba.rq4;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.tq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rq4> bigdayInfos;
+    public ArrayList bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoHttpResMessage() {
@@ -49,8 +49,8 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            mu4.f();
-            jf<byte[]> d = mu4.d("tb.bigday_datas");
+            ou4.f();
+            kf d = ou4.d("tb.bigday_datas");
             d.remove("tb.bigday_datas");
             d.g("tb.bigday_datas", bArr);
         }
@@ -61,25 +61,23 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetBigdayResIdl getBigdayResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) || (getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class)) == null) {
-            return;
-        }
-        Error error = getBigdayResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getBigdayResIdl.error.errmsg);
-        }
-        DataRes dataRes = getBigdayResIdl.data;
-        if (dataRes == null || dataRes.bigday_list == null) {
-            return;
-        }
-        this.bigdayInfos = new ArrayList<>();
-        for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
-            if (bigdayInfo != null) {
-                rq4 rq4Var = new rq4();
-                rq4Var.b(bigdayInfo);
-                if (rq4Var.a()) {
-                    this.bigdayInfos.add(rq4Var);
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) && (getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class)) != null) {
+            Error error = getBigdayResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getBigdayResIdl.error.errmsg);
+            }
+            DataRes dataRes = getBigdayResIdl.data;
+            if (dataRes != null && dataRes.bigday_list != null) {
+                this.bigdayInfos = new ArrayList();
+                for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
+                    if (bigdayInfo != null) {
+                        tq4 tq4Var = new tq4();
+                        tq4Var.b(bigdayInfo);
+                        if (tq4Var.a()) {
+                            this.bigdayInfos.add(tq4Var);
+                        }
+                    }
                 }
             }
         }

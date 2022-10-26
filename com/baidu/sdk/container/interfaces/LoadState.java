@@ -62,12 +62,18 @@ public final class LoadState {
     public static LoadState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LoadState) Enum.valueOf(LoadState.class, str) : (LoadState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (LoadState) Enum.valueOf(LoadState.class, str);
+        }
+        return (LoadState) invokeL.objValue;
     }
 
     public static LoadState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoadState[]) $VALUES.clone() : (LoadState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (LoadState[]) $VALUES.clone();
+        }
+        return (LoadState[]) invokeV.objValue;
     }
 }

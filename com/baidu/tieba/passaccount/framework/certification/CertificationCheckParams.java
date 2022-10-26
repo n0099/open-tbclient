@@ -1,20 +1,18 @@
 package com.baidu.tieba.passaccount.framework.certification;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@Keep
 /* loaded from: classes5.dex */
 public class CertificationCheckParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ICheckCertificationCallback callback;
-    public final Map<String, String> params;
+    public final Map params;
 
-    public CertificationCheckParams(Map<String, String> map, ICheckCertificationCallback iCheckCertificationCallback) {
+    public CertificationCheckParams(Map map, ICheckCertificationCallback iCheckCertificationCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

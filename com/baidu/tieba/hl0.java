@@ -1,16 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import java.io.File;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes4.dex */
 public interface hl0 {
-    void a(int i, long j, long j2);
+    public static final ServiceReference a = new ServiceReference("nad.core", "downloadCreator");
 
-    void b(long j, File file);
-
-    void c(int i, int i2);
-
-    void d(@Nullable tk0 tk0Var);
-
-    void onSuccess(int i);
+    IAdDownloader a();
 }

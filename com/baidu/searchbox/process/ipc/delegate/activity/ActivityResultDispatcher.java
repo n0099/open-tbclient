@@ -3,7 +3,6 @@ package com.baidu.searchbox.process.ipc.delegate.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +15,7 @@ import java.util.Set;
 public class ActivityResultDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<ActivityResultConsumer> mConsumers;
+    public final Set mConsumers;
     public final Activity mHolder;
     public final int mRequestCode;
 
@@ -40,7 +39,7 @@ public class ActivityResultDispatcher {
         this.mRequestCode = i;
     }
 
-    public synchronized void addConsumer(@Nullable ActivityResultConsumer activityResultConsumer) {
+    public synchronized void addConsumer(ActivityResultConsumer activityResultConsumer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activityResultConsumer) == null) {
             synchronized (this) {
@@ -48,6 +47,22 @@ public class ActivityResultDispatcher {
                     this.mConsumers.add(activityResultConsumer);
                 }
             }
+        }
+    }
+
+    public synchronized void deleteConsumer(ActivityResultConsumer activityResultConsumer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activityResultConsumer) == null) {
+            synchronized (this) {
+                this.mConsumers.remove(activityResultConsumer);
+            }
+        }
+    }
+
+    public void startActivityForResult(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
+            this.mHolder.startActivityForResult(intent, this.mRequestCode);
         }
     }
 
@@ -64,11 +79,11 @@ public class ActivityResultDispatcher {
         return invokeV.intValue;
     }
 
-    public synchronized void deleteConsumer(ActivityResultConsumer activityResultConsumer) {
+    public synchronized void deleteConsumer() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activityResultConsumer) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.mConsumers.remove(activityResultConsumer);
+                this.mConsumers.clear();
             }
         }
     }
@@ -94,26 +109,10 @@ public class ActivityResultDispatcher {
         return invokeIIL.booleanValue;
     }
 
-    public void startActivityForResult(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
-            this.mHolder.startActivityForResult(intent, this.mRequestCode);
-        }
-    }
-
     public void startActivityForResult(Intent intent, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, intent, bundle) == null) {
             this.mHolder.startActivityForResult(intent, this.mRequestCode, bundle);
-        }
-    }
-
-    public synchronized void deleteConsumer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.mConsumers.clear();
-            }
         }
     }
 }

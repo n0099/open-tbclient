@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,35 +35,6 @@ public class MaxHeightScrollView extends ScrollView {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void a(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.MaxHeightScrollView);
-            this.a = obtainStyledAttributes.getDimensionPixelSize(0, -1);
-            obtainStyledAttributes.recycle();
-        }
-    }
-
-    @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            int i3 = this.a;
-            if (i3 != -1) {
-                i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
-            }
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public void setMaxHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-            requestLayout();
         }
     }
 
@@ -108,5 +79,34 @@ public class MaxHeightScrollView extends ScrollView {
             }
         }
         a(context, attributeSet);
+    }
+
+    public final void a(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.MaxHeightScrollView);
+            this.a = obtainStyledAttributes.getDimensionPixelSize(0, -1);
+            obtainStyledAttributes.recycle();
+        }
+    }
+
+    @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            int i3 = this.a;
+            if (i3 != -1) {
+                i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
+            }
+            super.onMeasure(i, i2);
+        }
+    }
+
+    public void setMaxHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
+            requestLayout();
+        }
     }
 }

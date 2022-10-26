@@ -1,6 +1,5 @@
 package com.baidu.yunjiasu.tornadosdk;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.LinkAddress;
@@ -38,7 +37,6 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0002\u0006\u001e\bÁ\u0002\u0018\u00002\u00020\u0001:\u0001;B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010#\u001a\u00020\t2\u0006\u0010\u0013\u001a\u00020\u0014H\u0002J(\u0010$\u001a\u0004\u0018\u00010%2\u0006\u0010&\u001a\u00020\u00122\u0006\u0010'\u001a\u00020\u00162\u0006\u0010\u0015\u001a\u00020\u00162\u0006\u0010(\u001a\u00020\tJ\u001e\u0010)\u001a\b\u0012\u0004\u0012\u00020%0*2\u0006\u0010&\u001a\u00020\u00122\u0006\u0010'\u001a\u00020\u0016H\u0002J\u0010\u0010+\u001a\u00020\t2\u0006\u0010\u0013\u001a\u00020\u0014H\u0002J\u001e\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020\u00142\u0006\u0010&\u001a\u00020\u00122\u0006\u0010/\u001a\u00020\tJ\u000e\u00100\u001a\u00020-2\u0006\u0010/\u001a\u00020\tJ\u0006\u00101\u001a\u00020\tJ\u0006\u00102\u001a\u00020\tJ\u0006\u00103\u001a\u00020-J\u0018\u00104\u001a\u00020-2\u0006\u00105\u001a\u0002062\u0006\u00107\u001a\u00020\u0016H\u0002J\u0006\u00108\u001a\u00020-J\u0010\u00109\u001a\u00020-2\u0006\u00105\u001a\u000206H\u0002J\u0010\u0010:\u001a\u00020-2\u0006\u0010&\u001a\u00020\u0012H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0007R\u001a\u0010\b\u001a\u00020\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u000b\"\u0004\b\u0010\u0010\rR\u000e\u0010\u0011\u001a\u00020\u0012X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u001a\u0010\u0015\u001a\u00020\u0016X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u000e\u0010\u001b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u00020\u001eX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001fR\u001a\u0010 \u001a\u00020\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\u000b\"\u0004\b\"\u0010\r¨\u0006<"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TornadoNetwork;", "", "()V", "TAG", "", "cellCallback", "com/baidu/yunjiasu/tornadosdk/TornadoNetwork$cellCallback$1", "Lcom/baidu/yunjiasu/tornadosdk/TornadoNetwork$cellCallback$1;", "cellNetworkStatus", "", "getCellNetworkStatus", "()Z", "setCellNetworkStatus", "(Z)V", "cellStatus", "getCellStatus", "setCellStatus", "connectivityManager", "Landroid/net/ConnectivityManager;", "context", "Landroid/content/Context;", "ipVersion", "", "getIpVersion", "()I", "setIpVersion", "(I)V", "mobileDataStatus", "simStatus", "wifiCallback", "com/baidu/yunjiasu/tornadosdk/TornadoNetwork$wifiCallback$1", "Lcom/baidu/yunjiasu/tornadosdk/TornadoNetwork$wifiCallback$1;", "wifiStatus", "getWifiStatus", "setWifiStatus", "getMobileDataStatus", "getNetworkFromAll", "Landroid/net/Network;", FunAdSdk.PLATFORM_CM, "transportType", "checkIP", "getNetworkListByType", "", "getSIMStatus", "init", "", "ctx", "enableIPv6", "initOnIPv6", "isCellActive", "isWifiActive", MiPushClient.COMMAND_REGISTER, "registerNetCallback", "cb", "Landroid/net/ConnectivityManager$NetworkCallback;", "cap", MiPushClient.COMMAND_UNREGISTER, "unregisterNetCallback", "updateStatus", "COMMON", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes7.dex */
 public final class TornadoNetwork {
     public static /* synthetic */ Interceptable $ic = null;
@@ -95,6 +93,7 @@ public final class TornadoNetwork {
 
         public final RouteInfo getDefaultRouteOfNetwork(ConnectivityManager cm, Network network, int i) {
             InterceptResult invokeLLI;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, cm, network, i)) == null) {
                 Intrinsics.checkNotNullParameter(cm, "cm");
@@ -104,15 +103,20 @@ public final class TornadoNetwork {
                     for (RouteInfo routeInfo : linkProperties.getRoutes()) {
                         if (routeInfo.isDefaultRoute()) {
                             InetAddress gateway = routeInfo.getGateway();
-                            boolean z = false;
-                            if (gateway != null && gateway.isLinkLocalAddress()) {
+                            boolean z2 = false;
+                            if (gateway == null || !gateway.isLinkLocalAddress()) {
+                                z = false;
+                            } else {
+                                z = true;
+                            }
+                            if (z) {
                                 continue;
                             } else {
                                 InetAddress gateway2 = routeInfo.getGateway();
                                 if (gateway2 != null && gateway2.isLoopbackAddress()) {
-                                    z = true;
+                                    z2 = true;
                                 }
-                                if (z) {
+                                if (z2) {
                                     continue;
                                 } else if (i == 4 && (routeInfo.getGateway() instanceof Inet4Address)) {
                                     return routeInfo;
@@ -305,6 +309,7 @@ public final class TornadoNetwork {
                     Intrinsics.checkNotNullParameter(network, "network");
                     super.onAvailable(network);
                     LogTo.INSTANCE.i(TornadoNetwork.TAG, "onAvailable: CELL");
+                    boolean z = true;
                     TornadoNetwork.INSTANCE.setCellStatus(true);
                     TornadoNetwork tornadoNetwork = TornadoNetwork.INSTANCE;
                     connectivityManager2 = TornadoNetwork.connectivityManager;
@@ -312,7 +317,10 @@ public final class TornadoNetwork {
                         Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
                         connectivityManager2 = null;
                     }
-                    tornadoNetwork.setCellNetworkStatus(tornadoNetwork.getNetworkFromAll(connectivityManager2, 0, TornadoNetwork.INSTANCE.getIpVersion(), false) != null);
+                    if (tornadoNetwork.getNetworkFromAll(connectivityManager2, 0, TornadoNetwork.INSTANCE.getIpVersion(), false) == null) {
+                        z = false;
+                    }
+                    tornadoNetwork.setCellNetworkStatus(z);
                 }
             }
 
@@ -324,6 +332,7 @@ public final class TornadoNetwork {
                     Intrinsics.checkNotNullParameter(network, "network");
                     super.onLost(network);
                     LogTo.INSTANCE.i(TornadoNetwork.TAG, "onLost: CELL");
+                    boolean z = true;
                     TornadoNetwork.INSTANCE.setCellStatus(true);
                     TornadoNetwork tornadoNetwork = TornadoNetwork.INSTANCE;
                     connectivityManager2 = TornadoNetwork.connectivityManager;
@@ -331,7 +340,10 @@ public final class TornadoNetwork {
                         Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
                         connectivityManager2 = null;
                     }
-                    tornadoNetwork.setCellNetworkStatus(tornadoNetwork.getNetworkFromAll(connectivityManager2, 0, TornadoNetwork.INSTANCE.getIpVersion(), false) != null);
+                    if (tornadoNetwork.getNetworkFromAll(connectivityManager2, 0, TornadoNetwork.INSTANCE.getIpVersion(), false) == null) {
+                        z = false;
+                    }
+                    tornadoNetwork.setCellNetworkStatus(z);
                 }
             }
         };
@@ -348,6 +360,67 @@ public final class TornadoNetwork {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    public final boolean getCellNetworkStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return cellNetworkStatus;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean getCellStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return cellStatus;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int getIpVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ipVersion;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean getWifiStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return wifiStatus;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isWifiActive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return wifiStatus;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void register() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            registerNetCallback(wifiCallback, 1);
+            registerNetCallback(cellCallback, 0);
+        }
+    }
+
+    public final void unregister() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            unregisterNetCallback(wifiCallback);
+            unregisterNetCallback(cellCallback);
         }
     }
 
@@ -400,19 +473,6 @@ public final class TornadoNetwork {
         return (List) invokeLI.objValue;
     }
 
-    private final boolean getSIMStatus(Context context2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context2)) == null) {
-            Object systemService = context2.getSystemService("phone");
-            if (systemService != null) {
-                return ((TelephonyManager) systemService).getSimState() == 5;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type android.telephony.TelephonyManager");
-        }
-        return invokeL.booleanValue;
-    }
-
     private final void registerNetCallback(ConnectivityManager.NetworkCallback networkCallback, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65542, this, networkCallback, i) == null) {
@@ -432,6 +492,22 @@ public final class TornadoNetwork {
         }
     }
 
+    private final boolean getSIMStatus(Context context2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context2)) == null) {
+            Object systemService = context2.getSystemService("phone");
+            if (systemService != null) {
+                if (((TelephonyManager) systemService).getSimState() == 5) {
+                    return true;
+                }
+                return false;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type android.telephony.TelephonyManager");
+        }
+        return invokeL.booleanValue;
+    }
+
     private final void unregisterNetCallback(ConnectivityManager.NetworkCallback networkCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, networkCallback) == null) {
@@ -448,31 +524,78 @@ public final class TornadoNetwork {
         }
     }
 
-    private final void updateStatus(ConnectivityManager connectivityManager2) {
+    public final void initOnIPv6(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, connectivityManager2) == null) {
-            wifiStatus = getNetworkFromAll(connectivityManager2, 1, ipVersion, true) != null;
-            cellStatus = getNetworkFromAll(connectivityManager2, 0, ipVersion, true) != null;
-            cellNetworkStatus = getNetworkFromAll(connectivityManager2, 0, ipVersion, false) != null;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z && ipVersion == 6) {
+                return;
+            }
+            if (!z && ipVersion == 4) {
+                return;
+            }
+            if (z) {
+                ipVersion = 6;
+            }
+            ConnectivityManager connectivityManager2 = connectivityManager;
+            if (connectivityManager2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
+                connectivityManager2 = null;
+            }
+            updateStatus(connectivityManager2);
         }
     }
 
-    public final boolean getCellNetworkStatus() {
-        InterceptResult invokeV;
+    public final void setCellNetworkStatus(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? cellNetworkStatus : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            cellNetworkStatus = z;
+        }
     }
 
-    public final boolean getCellStatus() {
-        InterceptResult invokeV;
+    public final void setCellStatus(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? cellStatus : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            cellStatus = z;
+        }
     }
 
-    public final int getIpVersion() {
-        InterceptResult invokeV;
+    public final void setIpVersion(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ipVersion : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            ipVersion = i;
+        }
+    }
+
+    public final void setWifiStatus(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            wifiStatus = z;
+        }
+    }
+
+    private final void updateStatus(ConnectivityManager connectivityManager2) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, connectivityManager2) == null) {
+            boolean z3 = true;
+            if (getNetworkFromAll(connectivityManager2, 1, ipVersion, true) != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            wifiStatus = z;
+            if (getNetworkFromAll(connectivityManager2, 0, ipVersion, true) != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            cellStatus = z2;
+            if (getNetworkFromAll(connectivityManager2, 0, ipVersion, false) == null) {
+                z3 = false;
+            }
+            cellNetworkStatus = z3;
+        }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0044, code lost:
@@ -509,12 +632,6 @@ public final class TornadoNetwork {
         return (Network) invokeCommon.objValue;
     }
 
-    public final boolean getWifiStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? wifiStatus : invokeV.booleanValue;
-    }
-
     public final void init(Context ctx, ConnectivityManager cm, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048581, this, ctx, cm, z) == null) {
@@ -542,26 +659,6 @@ public final class TornadoNetwork {
         }
     }
 
-    public final void initOnIPv6(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z && ipVersion == 6) {
-                return;
-            }
-            if (z || ipVersion != 4) {
-                if (z) {
-                    ipVersion = 6;
-                }
-                ConnectivityManager connectivityManager2 = connectivityManager;
-                if (connectivityManager2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
-                    connectivityManager2 = null;
-                }
-                updateStatus(connectivityManager2);
-            }
-        }
-    }
-
     public final boolean isCellActive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -584,55 +681,5 @@ public final class TornadoNetwork {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public final boolean isWifiActive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? wifiStatus : invokeV.booleanValue;
-    }
-
-    public final void register() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            registerNetCallback(wifiCallback, 1);
-            registerNetCallback(cellCallback, 0);
-        }
-    }
-
-    public final void setCellNetworkStatus(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            cellNetworkStatus = z;
-        }
-    }
-
-    public final void setCellStatus(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            cellStatus = z;
-        }
-    }
-
-    public final void setIpVersion(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            ipVersion = i;
-        }
-    }
-
-    public final void setWifiStatus(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            wifiStatus = z;
-        }
-    }
-
-    public final void unregister() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            unregisterNetCallback(wifiCallback);
-            unregisterNetCallback(cellCallback);
-        }
     }
 }

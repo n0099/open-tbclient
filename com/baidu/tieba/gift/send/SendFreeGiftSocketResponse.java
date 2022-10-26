@@ -1,6 +1,5 @@
 package com.baidu.tieba.gift.send;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,8 +35,16 @@ public class SendFreeGiftSocketResponse extends TbSocketReponsedMessage {
         }
     }
 
+    public int getFreeChance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.freeChance;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -58,11 +65,5 @@ public class SendFreeGiftSocketResponse extends TbSocketReponsedMessage {
             return sendFreeGiftResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public int getFreeChance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.freeChance : invokeV.intValue;
     }
 }

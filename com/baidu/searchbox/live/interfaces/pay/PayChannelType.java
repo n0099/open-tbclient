@@ -57,12 +57,18 @@ public final class PayChannelType {
     public static PayChannelType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PayChannelType) Enum.valueOf(PayChannelType.class, str) : (PayChannelType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PayChannelType) Enum.valueOf(PayChannelType.class, str);
+        }
+        return (PayChannelType) invokeL.objValue;
     }
 
     public static PayChannelType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PayChannelType[]) $VALUES.clone() : (PayChannelType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PayChannelType[]) $VALUES.clone();
+        }
+        return (PayChannelType[]) invokeV.objValue;
     }
 }

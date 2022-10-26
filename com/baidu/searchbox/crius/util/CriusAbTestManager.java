@@ -52,6 +52,15 @@ public class CriusAbTestManager {
         }
     }
 
+    public static boolean isVisited() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sIsVisited;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean isHitLayoutFlattenTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,12 +75,6 @@ public class CriusAbTestManager {
             return sCriusLayoutFlattenSwitch;
         }
         return invokeV.booleanValue;
-    }
-
-    public static boolean isVisited() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sIsVisited : invokeV.booleanValue;
     }
 
     public static void updateVisitedState(boolean z) {

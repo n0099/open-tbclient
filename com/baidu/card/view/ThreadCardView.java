@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.CardLinkageManager;
-import com.baidu.tieba.jo;
+import com.baidu.tieba.ko;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ThreadCardView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jo a;
+    public ko a;
     public ViewGroup b;
     public int c;
     public boolean d;
@@ -52,16 +52,16 @@ public class ThreadCardView extends FrameLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.d) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d) {
                 return;
             }
             if (this.a.a != null) {
                 CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.c, true);
-            } else if (this.a.b instanceof jo) {
-                CardLinkageManager.INSTANCE.pressLinkage((jo) this.a.b, this.a.c, true);
+            } else if (this.a.b instanceof ko) {
+                CardLinkageManager.INSTANCE.pressLinkage((ko) this.a.b, this.a.c, true);
             }
             if (this.a.d) {
-                CardLinkageManager.INSTANCE.pressLinkage((jo) this.a.b, this.a.c, false);
+                CardLinkageManager.INSTANCE.pressLinkage((ko) this.a.b, this.a.c, false);
             }
         }
     }
@@ -96,8 +96,8 @@ public class ThreadCardView extends FrameLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.a != null) {
                     CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.c, false);
-                } else if (this.a.b instanceof jo) {
-                    CardLinkageManager.INSTANCE.pressLinkage((jo) this.a.b, this.a.c, false);
+                } else if (this.a.b instanceof ko) {
+                    CardLinkageManager.INSTANCE.pressLinkage((ko) this.a.b, this.a.c, false);
                 }
             }
         }
@@ -123,70 +123,6 @@ public class ThreadCardView extends FrameLayout {
         }
         this.e = new a(this);
         this.f = new b(this);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            removeCallbacks(this.e);
-            removeCallbacks(this.f);
-            super.onDetachedFromWindow();
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.d = false;
-                postDelayed(this.e, ViewConfiguration.getTapTimeout());
-            } else if (action == 1) {
-                this.d = true;
-                removeCallbacks(this.e);
-                CardLinkageManager.INSTANCE.pressLinkage(this.a, this.c, true);
-                postDelayed(this.f, ViewConfiguration.getTapTimeout());
-            } else if (action == 3) {
-                this.d = true;
-                removeCallbacks(this.e);
-                removeCallbacks(this.f);
-                jo joVar = this.a;
-                if (joVar != null) {
-                    CardLinkageManager.INSTANCE.pressLinkage(joVar, this.c, false);
-                } else {
-                    ViewGroup viewGroup = this.b;
-                    if (viewGroup instanceof jo) {
-                        CardLinkageManager.INSTANCE.pressLinkage((jo) viewGroup, this.c, false);
-                    }
-                }
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setITypeListView(jo joVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, joVar) == null) {
-            this.a = joVar;
-        }
-    }
-
-    public void setParent(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
-            this.b = viewGroup;
-        }
-    }
-
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -233,5 +169,73 @@ public class ThreadCardView extends FrameLayout {
         }
         this.e = new a(this);
         this.f = new b(this);
+    }
+
+    public void setITypeListView(ko koVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, koVar) == null) {
+            this.a = koVar;
+        }
+    }
+
+    public void setParent(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
+            this.b = viewGroup;
+        }
+    }
+
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            removeCallbacks(this.e);
+            removeCallbacks(this.f);
+            super.onDetachedFromWindow();
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 3) {
+                        this.d = true;
+                        removeCallbacks(this.e);
+                        removeCallbacks(this.f);
+                        ko koVar = this.a;
+                        if (koVar != null) {
+                            CardLinkageManager.INSTANCE.pressLinkage(koVar, this.c, false);
+                        } else {
+                            ViewGroup viewGroup = this.b;
+                            if (viewGroup instanceof ko) {
+                                CardLinkageManager.INSTANCE.pressLinkage((ko) viewGroup, this.c, false);
+                            }
+                        }
+                    }
+                } else {
+                    this.d = true;
+                    removeCallbacks(this.e);
+                    CardLinkageManager.INSTANCE.pressLinkage(this.a, this.c, true);
+                    postDelayed(this.f, ViewConfiguration.getTapTimeout());
+                }
+            } else {
+                this.d = false;
+                postDelayed(this.e, ViewConfiguration.getTapTimeout());
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

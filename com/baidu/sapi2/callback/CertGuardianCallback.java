@@ -10,6 +10,12 @@ public class CertGuardianCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public void onFinish(CertGuardianResult certGuardianResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, certGuardianResult) == null) {
+        }
+    }
+
     public CertGuardianCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -21,12 +27,6 @@ public class CertGuardianCallback {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void onFinish(CertGuardianResult certGuardianResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, certGuardianResult) == null) {
         }
     }
 }

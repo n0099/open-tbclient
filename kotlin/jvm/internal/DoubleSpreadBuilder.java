@@ -19,14 +19,14 @@ public final class DoubleSpreadBuilder extends PrimitiveSpreadBuilder<double[]> 
         dArr[position] = d;
     }
 
-    public final double[] toArray() {
-        return toArray(this.values, new double[size()]);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.PrimitiveSpreadBuilder
     public int getSize(double[] getSize) {
         Intrinsics.checkNotNullParameter(getSize, "$this$getSize");
         return getSize.length;
+    }
+
+    public final double[] toArray() {
+        return toArray(this.values, new double[size()]);
     }
 }

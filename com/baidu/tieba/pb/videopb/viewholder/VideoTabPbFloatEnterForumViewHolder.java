@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,16 +43,15 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         }
         this.a = context;
         this.b = (FlowLabelLayout) ((ViewGroup) view2).getChildAt(0);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090a0c);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090a16);
     }
 
     public void a() {
         ThreadForumEnterButton threadForumEnterButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (threadForumEnterButton = this.c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (threadForumEnterButton = this.c) != null) {
+            threadForumEnterButton.e();
         }
-        threadForumEnterButton.e();
     }
 
     public void b(View.OnClickListener onClickListener) {
@@ -64,17 +63,16 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
 
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) != null) || threadData == null) {
             return;
         }
         this.b.removeAllViews();
-        if (dj.isEmpty(threadData.getForum_name())) {
-            return;
+        if (!ej.isEmpty(threadData.getForum_name())) {
+            ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
+            this.c = threadForumEnterButton;
+            threadForumEnterButton.d(true);
+            this.c.a(threadData);
+            this.b.addView(this.c, new ViewGroup.LayoutParams(-2, -2));
         }
-        ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
-        this.c = threadForumEnterButton;
-        threadForumEnterButton.d(true);
-        this.c.a(threadData);
-        this.b.addView(this.c, new ViewGroup.LayoutParams(-2, -2));
     }
 }

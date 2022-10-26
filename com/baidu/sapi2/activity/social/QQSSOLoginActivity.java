@@ -44,18 +44,6 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.social.QQOauthLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (((BaseSSOLoginActivity) this).f && i == 11101 && i2 == 0) {
-                b(3001);
-                finish();
-            }
-        }
-    }
-
     @Override // com.baidu.sapi2.activity.social.QQOauthLoginActivity, com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         Interceptable interceptable = $ic;
@@ -86,6 +74,18 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
                 return;
             }
             a(ParamsUtil.getUrlQQBind(this.configuration, str, str2, str3), "授权QQ账号登录中");
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.social.QQOauthLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (((BaseSSOLoginActivity) this).f && i == 11101 && i2 == 0) {
+                b(3001);
+                finish();
+            }
         }
     }
 }

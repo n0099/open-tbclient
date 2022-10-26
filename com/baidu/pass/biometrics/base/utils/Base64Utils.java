@@ -1,13 +1,11 @@
 package com.baidu.pass.biometrics.base.utils;
 
-import android.annotation.TargetApi;
 import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(8)
 /* loaded from: classes2.dex */
 public class Base64Utils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,7 +29,10 @@ public class Base64Utils {
     public static byte[] decode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.decode(str.getBytes(), 2) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return Base64.decode(str.getBytes(), 2);
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static byte[] encode(byte[] bArr) {

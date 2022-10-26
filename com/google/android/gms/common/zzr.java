@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 /* loaded from: classes7.dex */
-public final class zzr implements Parcelable.Creator<zzq> {
+public final class zzr implements Parcelable.Creator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,9 +26,8 @@ public final class zzr implements Parcelable.Creator<zzq> {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ zzq createFromParcel(Parcel parcel) {
+    public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
         int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
         boolean z = false;
         String str = null;
@@ -36,23 +35,26 @@ public final class zzr implements Parcelable.Creator<zzq> {
         while (parcel.dataPosition() < validateObjectHeader) {
             int readHeader = SafeParcelReader.readHeader(parcel);
             int fieldId = SafeParcelReader.getFieldId(readHeader);
-            if (fieldId == 1) {
-                z = SafeParcelReader.readBoolean(parcel, readHeader);
-            } else if (fieldId == 2) {
-                str = SafeParcelReader.createString(parcel, readHeader);
-            } else if (fieldId != 3) {
-                SafeParcelReader.skipUnknownField(parcel, readHeader);
+            if (fieldId != 1) {
+                if (fieldId != 2) {
+                    if (fieldId != 3) {
+                        SafeParcelReader.skipUnknownField(parcel, readHeader);
+                    } else {
+                        i = SafeParcelReader.readInt(parcel, readHeader);
+                    }
+                } else {
+                    str = SafeParcelReader.createString(parcel, readHeader);
+                }
             } else {
-                i = SafeParcelReader.readInt(parcel, readHeader);
+                z = SafeParcelReader.readBoolean(parcel, readHeader);
             }
         }
         SafeParcelReader.ensureAtEnd(parcel, validateObjectHeader);
         return new zzq(z, str, i);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ zzq[] newArray(int i) {
+    public final /* synthetic */ Object[] newArray(int i) {
         return new zzq[i];
     }
 }

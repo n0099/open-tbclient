@@ -32,6 +32,27 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     public final List<DateFormat> dateFormats;
     public final Class<? extends Date> dateType;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public DefaultDateTypeAdapter(int i, int i2) {
+        this(Date.class, i, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Class) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
     public DefaultDateTypeAdapter(Class<? extends Date> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,117 +77,6 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (JavaVersion.isJava9OrLater()) {
             this.dateFormats.add(PreJava9DateFormatProvider.getUSDateTimeFormat(2, 2));
         }
-    }
-
-    private Date deserializeToDate(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            synchronized (this.dateFormats) {
-                for (DateFormat dateFormat : this.dateFormats) {
-                    try {
-                        return dateFormat.parse(str);
-                    } catch (ParseException unused) {
-                    }
-                }
-                try {
-                    return ISO8601Utils.parse(str, new ParsePosition(0));
-                } catch (ParseException e) {
-                    throw new JsonSyntaxException(str, e);
-                }
-            }
-        }
-        return (Date) invokeL.objValue;
-    }
-
-    public static Class<? extends Date> verifyDateType(Class<? extends Date> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
-            if (cls == Date.class || cls == java.sql.Date.class || cls == Timestamp.class) {
-                return cls;
-            }
-            throw new IllegalArgumentException("Date type must be one of " + Date.class + StringUtil.ARRAY_ELEMENT_SEPARATOR + Timestamp.class + ", or " + java.sql.Date.class + " but was " + cls);
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            DateFormat dateFormat = this.dateFormats.get(0);
-            if (dateFormat instanceof SimpleDateFormat) {
-                return "DefaultDateTypeAdapter(" + ((SimpleDateFormat) dateFormat).toPattern() + ')';
-            }
-            return "DefaultDateTypeAdapter(" + dateFormat.getClass().getSimpleName() + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.gson.TypeAdapter
-    public Date read(JsonReader jsonReader) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
-            if (jsonReader.peek() == JsonToken.NULL) {
-                jsonReader.nextNull();
-                return null;
-            }
-            Date deserializeToDate = deserializeToDate(jsonReader.nextString());
-            Class<? extends Date> cls = this.dateType;
-            if (cls == Date.class) {
-                return deserializeToDate;
-            }
-            if (cls == Timestamp.class) {
-                return new Timestamp(deserializeToDate.getTime());
-            }
-            if (cls == java.sql.Date.class) {
-                return new java.sql.Date(deserializeToDate.getTime());
-            }
-            throw new AssertionError();
-        }
-        return (Date) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.gson.TypeAdapter
-    public void write(JsonWriter jsonWriter, Date date) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, jsonWriter, date) == null) {
-            if (date == null) {
-                jsonWriter.nullValue();
-                return;
-            }
-            synchronized (this.dateFormats) {
-                jsonWriter.value(this.dateFormats.get(0).format(date));
-            }
-        }
-    }
-
-    public DefaultDateTypeAdapter(Class<? extends Date> cls, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls, str};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.dateFormats = new ArrayList();
-        this.dateType = verifyDateType(cls);
-        this.dateFormats.add(new SimpleDateFormat(str, Locale.US));
-        if (Locale.getDefault().equals(Locale.US)) {
-            return;
-        }
-        this.dateFormats.add(new SimpleDateFormat(str));
     }
 
     public DefaultDateTypeAdapter(Class<? extends Date> cls, int i) {
@@ -195,27 +105,6 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDateTypeAdapter(int i, int i2) {
-        this(Date.class, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Class) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
     public DefaultDateTypeAdapter(Class<? extends Date> cls, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -239,6 +128,116 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         }
         if (JavaVersion.isJava9OrLater()) {
             this.dateFormats.add(PreJava9DateFormatProvider.getUSDateTimeFormat(i, i2));
+        }
+    }
+
+    public DefaultDateTypeAdapter(Class<? extends Date> cls, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, str};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.dateFormats = new ArrayList();
+        this.dateType = verifyDateType(cls);
+        this.dateFormats.add(new SimpleDateFormat(str, Locale.US));
+        if (!Locale.getDefault().equals(Locale.US)) {
+            this.dateFormats.add(new SimpleDateFormat(str));
+        }
+    }
+
+    private Date deserializeToDate(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            synchronized (this.dateFormats) {
+                for (DateFormat dateFormat : this.dateFormats) {
+                    try {
+                        return dateFormat.parse(str);
+                    } catch (ParseException unused) {
+                    }
+                }
+                try {
+                    return ISO8601Utils.parse(str, new ParsePosition(0));
+                } catch (ParseException e) {
+                    throw new JsonSyntaxException(str, e);
+                }
+            }
+        }
+        return (Date) invokeL.objValue;
+    }
+
+    public static Class<? extends Date> verifyDateType(Class<? extends Date> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
+            if (cls != Date.class && cls != java.sql.Date.class && cls != Timestamp.class) {
+                throw new IllegalArgumentException("Date type must be one of " + Date.class + StringUtil.ARRAY_ELEMENT_SEPARATOR + Timestamp.class + ", or " + java.sql.Date.class + " but was " + cls);
+            }
+            return cls;
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.TypeAdapter
+    public Date read(JsonReader jsonReader) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
+            if (jsonReader.peek() == JsonToken.NULL) {
+                jsonReader.nextNull();
+                return null;
+            }
+            Date deserializeToDate = deserializeToDate(jsonReader.nextString());
+            Class<? extends Date> cls = this.dateType;
+            if (cls == Date.class) {
+                return deserializeToDate;
+            }
+            if (cls == Timestamp.class) {
+                return new Timestamp(deserializeToDate.getTime());
+            }
+            if (cls == java.sql.Date.class) {
+                return new java.sql.Date(deserializeToDate.getTime());
+            }
+            throw new AssertionError();
+        }
+        return (Date) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            DateFormat dateFormat = this.dateFormats.get(0);
+            if (dateFormat instanceof SimpleDateFormat) {
+                return "DefaultDateTypeAdapter(" + ((SimpleDateFormat) dateFormat).toPattern() + ')';
+            }
+            return "DefaultDateTypeAdapter(" + dateFormat.getClass().getSimpleName() + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.TypeAdapter
+    public void write(JsonWriter jsonWriter, Date date) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, jsonWriter, date) == null) {
+            if (date == null) {
+                jsonWriter.nullValue();
+                return;
+            }
+            synchronized (this.dateFormats) {
+                jsonWriter.value(this.dateFormats.get(0).format(date));
+            }
         }
     }
 }

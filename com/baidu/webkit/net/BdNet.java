@@ -1,6 +1,5 @@
 package com.baidu.webkit.net;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -49,17 +48,17 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public static final int PRIORITY_NORMAL = 1;
     public static SSLContext mSSLContext;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Context> mContext;
+    public WeakReference mContext;
     public INetListener mListener;
     public int mPoolSize;
     public int mPriority;
     public Handler mPrivateHandler;
-    public Vector<BdNetTask> mTaskList;
-    public Vector<b> mWorkerList;
+    public Vector mTaskList;
+    public Vector mWorkerList;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class HttpMethod implements INoProGuard {
+    public final class HttpMethod implements INoProGuard {
         public static final /* synthetic */ HttpMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HttpMethod METHOD_GET;
@@ -123,7 +122,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class NetError implements INoProGuard {
+    public final class NetError implements INoProGuard {
         public static final /* synthetic */ NetError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetError ERROR_CONNECT_TIMEOUT;
@@ -197,7 +196,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class NetState implements INoProGuard {
+    public final class NetState implements INoProGuard {
         public static final /* synthetic */ NetState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetState STATE_CONNECT_SETUP;
@@ -260,7 +259,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     /* loaded from: classes6.dex */
-    public static class a implements X509TrustManager {
+    public final class a implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public X509TrustManager a;
@@ -356,12 +355,12 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         }
         this.mPriority = 1;
         this.mPoolSize = 2;
-        this.mContext = new WeakReference<>(context);
+        this.mContext = new WeakReference(context);
         if (com.baidu.webkit.net.a.a().c == null) {
             com.baidu.webkit.net.a.a().c = getContext().getApplicationContext();
         }
-        this.mTaskList = new Vector<>();
-        this.mWorkerList = new Vector<>();
+        this.mTaskList = new Vector();
+        this.mWorkerList = new Vector();
     }
 
     private synchronized SSLContext getSSLContext() {
@@ -383,7 +382,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             int size = this.mWorkerList.size();
             for (int i = 0; i < size; i++) {
-                if (this.mWorkerList.get(i).a()) {
+                if (((b) this.mWorkerList.get(i)).a()) {
                     return false;
                 }
             }
@@ -451,7 +450,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                             }
                             int size = a2.b.size();
                             for (int i = 0; i < size; i++) {
-                                a2.b.get(i).stopDownload();
+                                ((BdNetEngine) a2.b.get(i)).stopDownload();
                             }
                             a2.b.clear();
                             releaseSSLContext();
@@ -506,7 +505,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mContext.get() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (Context) this.mContext.get() : (Context) invokeV.objValue;
     }
 
     public int getPriority() {
@@ -642,7 +641,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (this.mTaskList.size() > 0) {
-                return this.mTaskList.get(0);
+                return (BdNetTask) this.mTaskList.get(0);
             }
             return null;
         }
@@ -654,7 +653,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if (this.mTaskList.size() > 0) {
-                return this.mTaskList.remove(0);
+                return (BdNetTask) this.mTaskList.remove(0);
             }
             return null;
         }
@@ -700,11 +699,11 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             if (z) {
                 bdNetTask.setSSLContext(getSSLContext());
             }
-            Iterator<b> it = this.mWorkerList.iterator();
+            Iterator it = this.mWorkerList.iterator();
             while (it.hasNext()) {
-                b next = it.next();
-                if (!next.a()) {
-                    if (next.a(bdNetTask)) {
+                b bVar = (b) it.next();
+                if (!bVar.a()) {
+                    if (bVar.a(bdNetTask)) {
                         return;
                     }
                     startError(bdNetTask);
@@ -715,13 +714,12 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 this.mTaskList.add(bdNetTask);
                 return;
             }
-            b bVar = new b(this);
-            this.mWorkerList.add(bVar);
-            bVar.a(bdNetTask);
+            b bVar2 = new b(this);
+            this.mWorkerList.add(bVar2);
+            bVar2.a(bdNetTask);
         }
     }
 
-    @SuppressLint({"HandlerLeak"})
     public void startError(BdNetTask bdNetTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bdNetTask) == null) {
@@ -771,9 +769,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            Iterator<b> it = this.mWorkerList.iterator();
+            Iterator it = this.mWorkerList.iterator();
             while (it.hasNext()) {
-                it.next().b();
+                ((b) it.next()).b();
             }
             this.mWorkerList.clear();
             this.mTaskList.clear();

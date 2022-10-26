@@ -2,16 +2,10 @@ package com.baidu.tieba.homepage.framework.indicator;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ny4;
-import com.baidu.tieba.oy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,54 +38,8 @@ public class PublishButton extends TBSpecificationBtn {
         m();
     }
 
-    private void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0876));
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.drawableStateChanged();
-            setAlpha(this.o);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                oy4 oy4Var = new oy4();
-                oy4Var.p(R.color.CAM_X0101);
-                oy4Var.v(R.dimen.tbds6);
-                oy4Var.u(R.string.A_X01);
-                oy4Var.i(R.drawable.obfuscated_res_0x7f08096b, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                oy4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                setConfig(oy4Var);
-            } else {
-                ny4 ny4Var = new ny4();
-                ny4Var.i(R.drawable.obfuscated_res_0x7f08096b, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                ny4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                ny4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(ny4Var);
-            }
-            k();
-        }
-    }
-
-    public void setScrollAlpha(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            this.o = f;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PublishButton(Context context, @Nullable AttributeSet attributeSet) {
+    public PublishButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,7 +62,7 @@ public class PublishButton extends TBSpecificationBtn {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PublishButton(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public PublishButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,5 +82,29 @@ public class PublishButton extends TBSpecificationBtn {
         }
         this.o = 1.0f;
         m();
+    }
+
+    private void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            setTextSize(R.dimen.T_X08);
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0882));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.drawableStateChanged();
+            setAlpha(this.o);
+        }
+    }
+
+    public void setScrollAlpha(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.o = f;
+        }
     }
 }

@@ -1,7 +1,6 @@
 package com.kwad.components.ad.interstitial.monitor;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +21,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean g(@NonNull AdTemplate adTemplate) {
+    public static boolean g(AdTemplate adTemplate) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
@@ -51,10 +50,10 @@ public final class a {
                 }
                 return r5;
             } else {
-                a.C0612a c0612a = new a.C0612a();
+                a.C0608a c0608a = new a.C0608a();
                 f bC = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext());
-                r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0612a);
-                str = c0612a.Qd;
+                r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0608a);
+                str = c0608a.Qd;
                 adTemplate.mDownloadSize = sc * 1024;
                 i = 3;
             }

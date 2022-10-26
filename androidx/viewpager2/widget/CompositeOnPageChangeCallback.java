@@ -1,7 +1,5 @@
 package androidx.viewpager2.widget;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Px;
 import androidx.viewpager2.widget.ViewPager2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +13,6 @@ import java.util.List;
 public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final List<ViewPager2.OnPageChangeCallback> mCallbacks;
 
     public CompositeOnPageChangeCallback(int i) {
@@ -65,20 +62,6 @@ public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChange
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageScrolled(int i, float f, @Px int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-            try {
-                for (ViewPager2.OnPageChangeCallback onPageChangeCallback : this.mCallbacks) {
-                    onPageChangeCallback.onPageScrolled(i, f, i2);
-                }
-            } catch (ConcurrentModificationException e) {
-                throwCallbackListModifiedWhileInUse(e);
-            }
-        }
-    }
-
-    @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
     public void onPageSelected(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -96,6 +79,20 @@ public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChange
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onPageChangeCallback) == null) {
             this.mCallbacks.remove(onPageChangeCallback);
+        }
+    }
+
+    @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+    public void onPageScrolled(int i, float f, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            try {
+                for (ViewPager2.OnPageChangeCallback onPageChangeCallback : this.mCallbacks) {
+                    onPageChangeCallback.onPageScrolled(i, f, i2);
+                }
+            } catch (ConcurrentModificationException e) {
+                throwCallbackListModifiedWhileInUse(e);
+            }
         }
     }
 }

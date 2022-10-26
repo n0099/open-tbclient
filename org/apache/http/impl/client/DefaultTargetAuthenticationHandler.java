@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.protocol.HttpContext;
@@ -34,7 +33,7 @@ public class DefaultTargetAuthenticationHandler extends AbstractAuthenticationHa
     }
 
     @Override // org.apache.http.client.AuthenticationHandler
-    public Map<String, Header> getChallenges(HttpResponse httpResponse, HttpContext httpContext) throws MalformedChallengeException {
+    public Map getChallenges(HttpResponse httpResponse, HttpContext httpContext) throws MalformedChallengeException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, httpResponse, httpContext)) == null) {

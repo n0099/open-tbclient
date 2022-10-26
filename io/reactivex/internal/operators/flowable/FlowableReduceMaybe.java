@@ -21,23 +21,23 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableReduceMaybe<T> extends Maybe<T> implements HasUpstreamPublisher<T>, FuseToFlowable<T> {
+public final class FlowableReduceMaybe extends Maybe implements HasUpstreamPublisher, FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction<T, T, T> reducer;
-    public final Flowable<T> source;
+    public final BiFunction reducer;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class ReduceSubscriber<T> implements FlowableSubscriber<T>, Disposable {
+    public final class ReduceSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public boolean done;
-        public final BiFunction<T, T, T> reducer;
+        public final BiFunction reducer;
         public Subscription s;
-        public T value;
+        public Object value;
 
-        public ReduceSubscriber(MaybeObserver<? super T> maybeObserver, BiFunction<T, T, T> biFunction) {
+        public ReduceSubscriber(MaybeObserver maybeObserver, BiFunction biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,19 +69,22 @@ public final class FlowableReduceMaybe<T> extends Maybe<T> implements HasUpstrea
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.done : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.done;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
-            T t = this.value;
-            if (t != null) {
-                this.actual.onSuccess(t);
+            Object obj = this.value;
+            if (obj != null) {
+                this.actual.onSuccess(obj);
             } else {
                 this.actual.onComplete();
             }
@@ -100,26 +103,6 @@ public final class FlowableReduceMaybe<T> extends Maybe<T> implements HasUpstrea
             }
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            T t2 = this.value;
-            if (t2 == null) {
-                this.value = t;
-                return;
-            }
-            try {
-                this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.s.cancel();
-                onError(th);
-            }
-        }
-
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
@@ -129,9 +112,29 @@ public final class FlowableReduceMaybe<T> extends Maybe<T> implements HasUpstrea
                 subscription.request(Long.MAX_VALUE);
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+                return;
+            }
+            Object obj2 = this.value;
+            if (obj2 == null) {
+                this.value = obj;
+                return;
+            }
+            try {
+                this.value = ObjectHelper.requireNonNull(this.reducer.apply(obj2, obj), "The reducer returned a null value");
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                this.s.cancel();
+                onError(th);
+            }
+        }
     }
 
-    public FlowableReduceMaybe(Flowable<T> flowable, BiFunction<T, T, T> biFunction) {
+    public FlowableReduceMaybe(Flowable flowable, BiFunction biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,21 +154,27 @@ public final class FlowableReduceMaybe<T> extends Maybe<T> implements HasUpstrea
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<T> fuseToFlowable() {
+    public Flowable fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableReduce(this.source, this.reducer)) : (Flowable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableReduce(this.source, this.reducer));
+        }
+        return (Flowable) invokeV.objValue;
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamPublisher
-    public Publisher<T> source() {
+    public Publisher source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source : (Publisher) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.source;
+        }
+        return (Publisher) invokeV.objValue;
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, maybeObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new ReduceSubscriber(maybeObserver, this.reducer));

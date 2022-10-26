@@ -2,7 +2,6 @@ package com.baidu.ar.plugin;
 
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.InstrumentationInfo;
@@ -34,30 +33,30 @@ import java.util.TreeMap;
 public class PluginPackageParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<ComponentName, ActivityInfo> mActivityInfoCache;
-    public Map<ComponentName, List<IntentFilter>> mActivityIntentFilterCache;
-    public Map<ComponentName, Object> mActivityObjCache;
+    public Map mActivityInfoCache;
+    public Map mActivityIntentFilterCache;
+    public Map mActivityObjCache;
     public final Context mHostContext;
     public final PackageInfo mHostPackageInfo;
-    public Map<ComponentName, InstrumentationInfo> mInstrumentationInfoCache;
-    public Map<ComponentName, Object> mInstrumentationObjCache;
+    public Map mInstrumentationInfoCache;
+    public Map mInstrumentationObjCache;
     public final String mPackageName;
     public final PackageParser mParser;
-    public Map<ComponentName, PermissionGroupInfo> mPermissionGroupInfoCache;
-    public Map<ComponentName, Object> mPermissionGroupObjCache;
-    public Map<ComponentName, PermissionInfo> mPermissionsInfoCache;
-    public Map<ComponentName, Object> mPermissionsObjCache;
+    public Map mPermissionGroupInfoCache;
+    public Map mPermissionGroupObjCache;
+    public Map mPermissionsInfoCache;
+    public Map mPermissionsObjCache;
     public final File mPluginFile;
-    public Map<ComponentName, ProviderInfo> mProviderInfoCache;
-    public Map<ComponentName, List<IntentFilter>> mProviderIntentFilterCache;
-    public Map<ComponentName, Object> mProviderObjCache;
-    public Map<ComponentName, List<IntentFilter>> mReceiverIntentFilterCache;
-    public Map<ComponentName, ActivityInfo> mReceiversInfoCache;
-    public Map<ComponentName, Object> mReceiversObjCache;
-    public ArrayList<String> mRequestedPermissionsCache;
-    public Map<ComponentName, ServiceInfo> mServiceInfoCache;
-    public Map<ComponentName, List<IntentFilter>> mServiceIntentFilterCache;
-    public Map<ComponentName, Object> mServiceObjCache;
+    public Map mProviderInfoCache;
+    public Map mProviderIntentFilterCache;
+    public Map mProviderObjCache;
+    public Map mReceiverIntentFilterCache;
+    public Map mReceiversInfoCache;
+    public Map mReceiversObjCache;
+    public ArrayList mRequestedPermissionsCache;
+    public Map mServiceInfoCache;
+    public Map mServiceIntentFilterCache;
+    public Map mServiceObjCache;
 
     public PluginPackageParser(Context context, File file) {
         Interceptable interceptable = $ic;
@@ -81,7 +80,7 @@ public class PluginPackageParser {
         this.mInstrumentationObjCache = new TreeMap(new ComponentNameComparator());
         this.mPermissionsObjCache = new TreeMap(new ComponentNameComparator());
         this.mPermissionGroupObjCache = new TreeMap(new ComponentNameComparator());
-        this.mRequestedPermissionsCache = new ArrayList<>();
+        this.mRequestedPermissionsCache = new ArrayList();
         this.mActivityIntentFilterCache = new TreeMap(new ComponentNameComparator());
         this.mServiceIntentFilterCache = new TreeMap(new ComponentNameComparator());
         this.mProviderIntentFilterCache = new TreeMap(new ComponentNameComparator());
@@ -113,7 +112,7 @@ public class PluginPackageParser {
                 }
                 this.mActivityInfoCache.put(componentName, generateActivityInfo);
             }
-            List<IntentFilter> readIntentFilterFromComponent = this.mParser.readIntentFilterFromComponent(obj);
+            List readIntentFilterFromComponent = this.mParser.readIntentFilterFromComponent(obj);
             synchronized (this.mActivityIntentFilterCache) {
                 this.mActivityIntentFilterCache.remove(componentName);
                 this.mActivityIntentFilterCache.put(componentName, new ArrayList(readIntentFilterFromComponent));
@@ -132,7 +131,7 @@ public class PluginPackageParser {
                 }
                 this.mServiceInfoCache.put(componentName2, generateServiceInfo);
             }
-            List<IntentFilter> readIntentFilterFromComponent2 = this.mParser.readIntentFilterFromComponent(obj2);
+            List readIntentFilterFromComponent2 = this.mParser.readIntentFilterFromComponent(obj2);
             synchronized (this.mServiceIntentFilterCache) {
                 this.mServiceIntentFilterCache.remove(componentName2);
                 this.mServiceIntentFilterCache.put(componentName2, new ArrayList(readIntentFilterFromComponent2));
@@ -151,7 +150,7 @@ public class PluginPackageParser {
                 }
                 this.mProviderInfoCache.put(componentName3, generateProviderInfo);
             }
-            List<IntentFilter> readIntentFilterFromComponent3 = this.mParser.readIntentFilterFromComponent(obj3);
+            List readIntentFilterFromComponent3 = this.mParser.readIntentFilterFromComponent(obj3);
             synchronized (this.mProviderIntentFilterCache) {
                 this.mProviderIntentFilterCache.remove(componentName3);
                 this.mProviderIntentFilterCache.put(componentName3, new ArrayList(readIntentFilterFromComponent3));
@@ -170,7 +169,7 @@ public class PluginPackageParser {
                 }
                 this.mReceiversInfoCache.put(componentName4, generateReceiverInfo);
             }
-            List<IntentFilter> readIntentFilterFromComponent4 = this.mParser.readIntentFilterFromComponent(obj4);
+            List readIntentFilterFromComponent4 = this.mParser.readIntentFilterFromComponent(obj4);
             synchronized (this.mReceiverIntentFilterCache) {
                 this.mReceiverIntentFilterCache.remove(componentName4);
                 this.mReceiverIntentFilterCache.put(componentName4, new ArrayList(readIntentFilterFromComponent4));
@@ -201,11 +200,10 @@ public class PluginPackageParser {
             }
         }
         List requestedPermissions = this.mParser.getRequestedPermissions();
-        if (requestedPermissions == null || requestedPermissions.size() <= 0) {
-            return;
-        }
-        synchronized (this.mRequestedPermissionsCache) {
-            this.mRequestedPermissionsCache.addAll(requestedPermissions);
+        if (requestedPermissions != null && requestedPermissions.size() > 0) {
+            synchronized (this.mRequestedPermissionsCache) {
+                this.mRequestedPermissionsCache.addAll(requestedPermissions);
+            }
         }
     }
 
@@ -283,10 +281,158 @@ public class PluginPackageParser {
         }
     }
 
-    public List<ActivityInfo> getActivities() {
+    public List getActivityIntentFilter(ComponentName componentName) {
+        InterceptResult invokeL;
+        List list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, componentName)) == null) {
+            synchronized (this.mActivityIntentFilterCache) {
+                list = (List) this.mActivityIntentFilterCache.get(componentName);
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public ApplicationInfo getApplicationInfo(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i);
+            fixApplicationInfo(generateApplicationInfo);
+            if (TextUtils.isEmpty(generateApplicationInfo.processName)) {
+                generateApplicationInfo.processName = generateApplicationInfo.packageName;
+            }
+            return generateApplicationInfo;
+        }
+        return (ApplicationInfo) invokeI.objValue;
+    }
+
+    public List getProviderIntentFilter(ComponentName componentName) {
+        InterceptResult invokeL;
+        List list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, componentName)) == null) {
+            synchronized (this.mProviderObjCache) {
+                list = (List) this.mProviderIntentFilterCache.get(componentName);
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List getServiceIntentFilter(ComponentName componentName) {
+        InterceptResult invokeL;
+        List list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, componentName)) == null) {
+            synchronized (this.mServiceIntentFilterCache) {
+                list = (List) this.mServiceIntentFilterCache.get(componentName);
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void writeSignature(Signature[] signatureArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048601, this, signatureArr) == null) && signatureArr != null) {
+            this.mParser.writeSignature(signatureArr);
+        }
+    }
+
+    public List getActivities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.mActivityInfoCache.values()) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new ArrayList(this.mActivityInfoCache.values());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getInstrumentationInfos() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new ArrayList(this.mInstrumentationInfoCache.values());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mPackageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List getPermissionGroups() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new ArrayList(this.mPermissionGroupInfoCache.values());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getPermissions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return new ArrayList(this.mPermissionsInfoCache.values());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public File getPluginFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mPluginFile;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public List getProviders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return new ArrayList(this.mProviderInfoCache.values());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getReceivers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return new ArrayList(this.mReceiversInfoCache.values());
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getRequestedPermissions() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            synchronized (this.mRequestedPermissionsCache) {
+                arrayList = new ArrayList(this.mRequestedPermissionsCache);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getServices() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return new ArrayList(this.mServiceInfoCache.values());
+        }
+        return (List) invokeV.objValue;
     }
 
     public ActivityInfo getActivityInfo(ComponentName componentName, int i) {
@@ -310,122 +456,6 @@ public class PluginPackageParser {
         return (ActivityInfo) invokeLI.objValue;
     }
 
-    public List<IntentFilter> getActivityIntentFilter(ComponentName componentName) {
-        InterceptResult invokeL;
-        List<IntentFilter> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, componentName)) == null) {
-            synchronized (this.mActivityIntentFilterCache) {
-                list = this.mActivityIntentFilterCache.get(componentName);
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public ApplicationInfo getApplicationInfo(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i);
-            fixApplicationInfo(generateApplicationInfo);
-            if (TextUtils.isEmpty(generateApplicationInfo.processName)) {
-                generateApplicationInfo.processName = generateApplicationInfo.packageName;
-            }
-            return generateApplicationInfo;
-        }
-        return (ApplicationInfo) invokeI.objValue;
-    }
-
-    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) {
-        InterceptResult invokeLI;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, componentName, i)) == null) {
-            synchronized (this.mInstrumentationObjCache) {
-                obj = this.mInstrumentationObjCache.get(componentName);
-            }
-            if (obj != null) {
-                return this.mParser.generateInstrumentationInfo(obj, i);
-            }
-            return null;
-        }
-        return (InstrumentationInfo) invokeLI.objValue;
-    }
-
-    public List<InstrumentationInfo> getInstrumentationInfos() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ArrayList(this.mInstrumentationInfoCache.values()) : (List) invokeV.objValue;
-    }
-
-    public PackageInfo getPackageInfo(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
-            fixPackageInfo(generatePackageInfo);
-            return generatePackageInfo;
-        }
-        return (PackageInfo) invokeI.objValue;
-    }
-
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
-    }
-
-    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i) {
-        InterceptResult invokeLI;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, componentName, i)) == null) {
-            synchronized (this.mPermissionGroupObjCache) {
-                obj = this.mPermissionGroupObjCache.get(componentName);
-            }
-            if (obj != null) {
-                return this.mParser.generatePermissionGroupInfo(obj, i);
-            }
-            return null;
-        }
-        return (PermissionGroupInfo) invokeLI.objValue;
-    }
-
-    public List<PermissionGroupInfo> getPermissionGroups() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new ArrayList(this.mPermissionGroupInfoCache.values()) : (List) invokeV.objValue;
-    }
-
-    public PermissionInfo getPermissionInfo(ComponentName componentName, int i) {
-        InterceptResult invokeLI;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, componentName, i)) == null) {
-            synchronized (this.mPermissionsObjCache) {
-                obj = this.mPermissionsObjCache.get(componentName);
-            }
-            if (obj != null) {
-                return this.mParser.generatePermissionInfo(obj, i);
-            }
-            return null;
-        }
-        return (PermissionInfo) invokeLI.objValue;
-    }
-
-    public List<PermissionInfo> getPermissions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new ArrayList(this.mPermissionsInfoCache.values()) : (List) invokeV.objValue;
-    }
-
-    public File getPluginFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mPluginFile : (File) invokeV.objValue;
-    }
-
     public ProviderInfo getProviderInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
@@ -445,25 +475,6 @@ public class PluginPackageParser {
             return null;
         }
         return (ProviderInfo) invokeLI.objValue;
-    }
-
-    public List<IntentFilter> getProviderIntentFilter(ComponentName componentName) {
-        InterceptResult invokeL;
-        List<IntentFilter> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, componentName)) == null) {
-            synchronized (this.mProviderObjCache) {
-                list = this.mProviderIntentFilterCache.get(componentName);
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<ProviderInfo> getProviders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new ArrayList(this.mProviderInfoCache.values()) : (List) invokeV.objValue;
     }
 
     public ActivityInfo getReceiverInfo(ComponentName componentName, int i) {
@@ -487,41 +498,6 @@ public class PluginPackageParser {
         return (ActivityInfo) invokeLI.objValue;
     }
 
-    public Map<ActivityInfo, List<IntentFilter>> getReceiverIntentFilter() {
-        InterceptResult invokeV;
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this.mReceiverIntentFilterCache) {
-                hashMap = new HashMap();
-                for (ComponentName componentName : this.mReceiverIntentFilterCache.keySet()) {
-                    hashMap.put(this.mReceiversInfoCache.get(componentName), this.mReceiverIntentFilterCache.get(componentName));
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public List<ActivityInfo> getReceivers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? new ArrayList(this.mReceiversInfoCache.values()) : (List) invokeV.objValue;
-    }
-
-    public List<String> getRequestedPermissions() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            synchronized (this.mRequestedPermissionsCache) {
-                arrayList = new ArrayList(this.mRequestedPermissionsCache);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
     public ServiceInfo getServiceInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
@@ -543,46 +519,94 @@ public class PluginPackageParser {
         return (ServiceInfo) invokeLI.objValue;
     }
 
-    public List<IntentFilter> getServiceIntentFilter(ComponentName componentName) {
-        InterceptResult invokeL;
-        List<IntentFilter> list;
+    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) {
+        InterceptResult invokeLI;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, componentName)) == null) {
-            synchronized (this.mServiceIntentFilterCache) {
-                list = this.mServiceIntentFilterCache.get(componentName);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, componentName, i)) == null) {
+            synchronized (this.mInstrumentationObjCache) {
+                obj = this.mInstrumentationObjCache.get(componentName);
             }
-            return list;
+            if (obj != null) {
+                return this.mParser.generateInstrumentationInfo(obj, i);
+            }
+            return null;
         }
-        return (List) invokeL.objValue;
+        return (InstrumentationInfo) invokeLI.objValue;
     }
 
-    public List<ServiceInfo> getServices() {
-        InterceptResult invokeV;
+    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i) {
+        InterceptResult invokeLI;
+        Object obj;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? new ArrayList(this.mServiceInfoCache.values()) : (List) invokeV.objValue;
-    }
-
-    public void writeSignature(Signature[] signatureArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, signatureArr) == null) || signatureArr == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, componentName, i)) == null) {
+            synchronized (this.mPermissionGroupObjCache) {
+                obj = this.mPermissionGroupObjCache.get(componentName);
+            }
+            if (obj != null) {
+                return this.mParser.generatePermissionGroupInfo(obj, i);
+            }
+            return null;
         }
-        this.mParser.writeSignature(signatureArr);
+        return (PermissionGroupInfo) invokeLI.objValue;
     }
 
-    public List<IntentFilter> getReceiverIntentFilter(ActivityInfo activityInfo) {
+    public PermissionInfo getPermissionInfo(ComponentName componentName, int i) {
+        InterceptResult invokeLI;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, componentName, i)) == null) {
+            synchronized (this.mPermissionsObjCache) {
+                obj = this.mPermissionsObjCache.get(componentName);
+            }
+            if (obj != null) {
+                return this.mParser.generatePermissionInfo(obj, i);
+            }
+            return null;
+        }
+        return (PermissionInfo) invokeLI.objValue;
+    }
+
+    public PackageInfo getPackageInfo(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet(getRequestedPermissions()));
+            fixPackageInfo(generatePackageInfo);
+            return generatePackageInfo;
+        }
+        return (PackageInfo) invokeI.objValue;
+    }
+
+    public List getReceiverIntentFilter(ActivityInfo activityInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, activityInfo)) == null) {
             synchronized (this.mReceiverIntentFilterCache) {
                 for (ComponentName componentName : this.mReceiverIntentFilterCache.keySet()) {
-                    if (TextUtils.equals(activityInfo.name, this.mReceiversInfoCache.get(componentName).name)) {
-                        return this.mReceiverIntentFilterCache.get(componentName);
+                    if (TextUtils.equals(activityInfo.name, ((ActivityInfo) this.mReceiversInfoCache.get(componentName)).name)) {
+                        return (List) this.mReceiverIntentFilterCache.get(componentName);
                     }
                 }
                 return null;
             }
         }
         return (List) invokeL.objValue;
+    }
+
+    public Map getReceiverIntentFilter() {
+        InterceptResult invokeV;
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            synchronized (this.mReceiverIntentFilterCache) {
+                hashMap = new HashMap();
+                for (ComponentName componentName : this.mReceiverIntentFilterCache.keySet()) {
+                    hashMap.put(this.mReceiversInfoCache.get(componentName), this.mReceiverIntentFilterCache.get(componentName));
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 }

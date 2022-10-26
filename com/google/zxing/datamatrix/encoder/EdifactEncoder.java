@@ -11,6 +11,16 @@ public final class EdifactEncoder implements Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
+    }
+
     public EdifactEncoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,20 +50,37 @@ public final class EdifactEncoder implements Encoder {
 
     public static String encodeToCodewords(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
+        char c;
+        char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i)) == null) {
             int length = charSequence.length() - i;
             if (length != 0) {
-                int charAt = (charSequence.charAt(i) << 18) + ((length >= 2 ? charSequence.charAt(i + 1) : (char) 0) << '\f') + ((length >= 3 ? charSequence.charAt(i + 2) : (char) 0) << 6) + (length >= 4 ? charSequence.charAt(i + 3) : (char) 0);
-                char c = (char) ((charAt >> 8) & 255);
-                char c2 = (char) (charAt & 255);
-                StringBuilder sb = new StringBuilder(3);
-                sb.append((char) ((charAt >> 16) & 255));
+                char charAt = charSequence.charAt(i);
+                char c3 = 0;
                 if (length >= 2) {
-                    sb.append(c);
+                    c = charSequence.charAt(i + 1);
+                } else {
+                    c = 0;
                 }
                 if (length >= 3) {
-                    sb.append(c2);
+                    c2 = charSequence.charAt(i + 2);
+                } else {
+                    c2 = 0;
+                }
+                if (length >= 4) {
+                    c3 = charSequence.charAt(i + 3);
+                }
+                int i2 = (charAt << 18) + (c << '\f') + (c2 << 6) + c3;
+                char c4 = (char) ((i2 >> 8) & 255);
+                char c5 = (char) (i2 & 255);
+                StringBuilder sb = new StringBuilder(3);
+                sb.append((char) ((i2 >> 16) & 255));
+                if (length >= 2) {
+                    sb.append(c4);
+                }
+                if (length >= 3) {
+                    sb.append(c5);
                 }
                 return sb.toString();
             }
@@ -129,15 +156,5 @@ public final class EdifactEncoder implements Encoder {
             sb.append((char) 31);
             handleEOD(encoderContext, sb);
         }
-    }
-
-    @Override // com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
     }
 }

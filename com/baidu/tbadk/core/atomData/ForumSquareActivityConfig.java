@@ -36,24 +36,6 @@ public class ForumSquareActivityConfig extends IntentConfig {
         }
     }
 
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
-    public void showCreateBar(int i) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(SHOW_CREATE_BAR, i);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareActivityConfig(Context context, String str) {
         super(context);
@@ -73,5 +55,21 @@ public class ForumSquareActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(FORUM_CLASS_NAME, str);
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
+    public void showCreateBar(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(SHOW_CREATE_BAR, i);
+        }
     }
 }

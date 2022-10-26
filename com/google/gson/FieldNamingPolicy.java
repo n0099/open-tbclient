@@ -65,7 +65,10 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
             public String translateName(Field field) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? field.getName() : (String) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) {
+                    return field.getName();
+                }
+                return (String) invokeL.objValue;
             }
         };
         UPPER_CAMEL_CASE = new FieldNamingPolicy("UPPER_CAMEL_CASE", 1) { // from class: com.google.gson.FieldNamingPolicy.2
@@ -97,7 +100,10 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
             public String translateName(Field field) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? FieldNamingPolicy.upperCaseFirstLetter(field.getName()) : (String) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) {
+                    return FieldNamingPolicy.upperCaseFirstLetter(field.getName());
+                }
+                return (String) invokeL.objValue;
             }
         };
         UPPER_CAMEL_CASE_WITH_SPACES = new FieldNamingPolicy("UPPER_CAMEL_CASE_WITH_SPACES", 2) { // from class: com.google.gson.FieldNamingPolicy.3
@@ -129,7 +135,10 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
             public String translateName(Field field) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? FieldNamingPolicy.upperCaseFirstLetter(FieldNamingPolicy.separateCamelCase(field.getName(), " ")) : (String) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) {
+                    return FieldNamingPolicy.upperCaseFirstLetter(FieldNamingPolicy.separateCamelCase(field.getName(), " "));
+                }
+                return (String) invokeL.objValue;
             }
         };
         LOWER_CASE_WITH_UNDERSCORES = new FieldNamingPolicy("LOWER_CASE_WITH_UNDERSCORES", 3) { // from class: com.google.gson.FieldNamingPolicy.4
@@ -161,7 +170,10 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
             public String translateName(Field field) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? FieldNamingPolicy.separateCamelCase(field.getName(), "_").toLowerCase(Locale.ENGLISH) : (String) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) {
+                    return FieldNamingPolicy.separateCamelCase(field.getName(), "_").toLowerCase(Locale.ENGLISH);
+                }
+                return (String) invokeL.objValue;
             }
         };
         LOWER_CASE_WITH_DASHES = new FieldNamingPolicy("LOWER_CASE_WITH_DASHES", 4) { // from class: com.google.gson.FieldNamingPolicy.5
@@ -193,7 +205,10 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
             public String translateName(Field field) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? FieldNamingPolicy.separateCamelCase(field.getName(), "-").toLowerCase(Locale.ENGLISH) : (String) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) {
+                    return FieldNamingPolicy.separateCamelCase(field.getName(), "-").toLowerCase(Locale.ENGLISH);
+                }
+                return (String) invokeL.objValue;
             }
         };
         FieldNamingPolicy fieldNamingPolicy = new FieldNamingPolicy("LOWER_CASE_WITH_DOTS", 5) { // from class: com.google.gson.FieldNamingPolicy.6
@@ -225,7 +240,10 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
             public String translateName(Field field) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? FieldNamingPolicy.separateCamelCase(field.getName(), ".").toLowerCase(Locale.ENGLISH) : (String) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) {
+                    return FieldNamingPolicy.separateCamelCase(field.getName(), ".").toLowerCase(Locale.ENGLISH);
+                }
+                return (String) invokeL.objValue;
             }
         };
         LOWER_CASE_WITH_DOTS = fieldNamingPolicy;
@@ -294,11 +312,11 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
                 i++;
                 charAt = str.charAt(i);
             }
-            if (Character.isUpperCase(charAt)) {
-                return str;
+            if (!Character.isUpperCase(charAt)) {
+                sb.append(modifyString(Character.toUpperCase(charAt), str, i + 1));
+                return sb.toString();
             }
-            sb.append(modifyString(Character.toUpperCase(charAt), str, i + 1));
-            return sb.toString();
+            return str;
         }
         return (String) invokeL.objValue;
     }
@@ -306,12 +324,18 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
     public static FieldNamingPolicy valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (FieldNamingPolicy) Enum.valueOf(FieldNamingPolicy.class, str) : (FieldNamingPolicy) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return (FieldNamingPolicy) Enum.valueOf(FieldNamingPolicy.class, str);
+        }
+        return (FieldNamingPolicy) invokeL.objValue;
     }
 
     public static FieldNamingPolicy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (FieldNamingPolicy[]) $VALUES.clone() : (FieldNamingPolicy[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return (FieldNamingPolicy[]) $VALUES.clone();
+        }
+        return (FieldNamingPolicy[]) invokeV.objValue;
     }
 }

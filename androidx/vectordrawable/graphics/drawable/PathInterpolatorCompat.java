@@ -8,7 +8,6 @@ import android.graphics.PathMeasure;
 import android.util.AttributeSet;
 import android.view.InflateException;
 import android.view.animation.Interpolator;
-import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import androidx.core.view.InputDeviceCompat;
@@ -18,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.xmlpull.v1.XmlPullParser;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class PathInterpolatorCompat implements Interpolator {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,6 +46,26 @@ public class PathInterpolatorCompat implements Interpolator {
                 return;
             }
         }
+    }
+
+    public PathInterpolatorCompat(Resources resources, Resources.Theme theme, AttributeSet attributeSet, XmlPullParser xmlPullParser) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {resources, theme, attributeSet, xmlPullParser};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_PATH_INTERPOLATOR);
+        parseInterpolatorFromTypeArray(obtainAttributes, xmlPullParser);
+        obtainAttributes.recycle();
     }
 
     private void initCubic(float f, float f2, float f3, float f4) {
@@ -94,10 +112,10 @@ public class PathInterpolatorCompat implements Interpolator {
                                 throw new IllegalArgumentException("The Path cannot loop back on itself, x :" + f2);
                             }
                         }
-                        if (pathMeasure.nextContour()) {
-                            throw new IllegalArgumentException("The Path should be continuous, can't have 2+ contours");
+                        if (!pathMeasure.nextContour()) {
+                            return;
                         }
-                        return;
+                        throw new IllegalArgumentException("The Path should be continuous, can't have 2+ contours");
                     }
                 }
                 StringBuilder sb = new StringBuilder();
@@ -142,16 +160,16 @@ public class PathInterpolatorCompat implements Interpolator {
                     float namedFloat = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "controlX1", 0, 0.0f);
                     float namedFloat2 = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "controlY1", 1, 0.0f);
                     boolean hasAttribute = TypedArrayUtils.hasAttribute(xmlPullParser, "controlX2");
-                    if (hasAttribute != TypedArrayUtils.hasAttribute(xmlPullParser, "controlY2")) {
-                        throw new InflateException("pathInterpolator requires both controlX2 and controlY2 for cubic Beziers.");
+                    if (hasAttribute == TypedArrayUtils.hasAttribute(xmlPullParser, "controlY2")) {
+                        if (!hasAttribute) {
+                            initQuad(namedFloat, namedFloat2);
+                            return;
+                        } else {
+                            initCubic(namedFloat, namedFloat2, TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "controlX2", 2, 0.0f), TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "controlY2", 3, 0.0f));
+                            return;
+                        }
                     }
-                    if (!hasAttribute) {
-                        initQuad(namedFloat, namedFloat2);
-                        return;
-                    } else {
-                        initCubic(namedFloat, namedFloat2, TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "controlX2", 2, 0.0f), TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "controlY2", 3, 0.0f));
-                        return;
-                    }
+                    throw new InflateException("pathInterpolator requires both controlX2 and controlY2 for cubic Beziers.");
                 }
                 throw new InflateException("pathInterpolator requires the controlY1 attribute");
             } else {
@@ -191,25 +209,5 @@ public class PathInterpolatorCompat implements Interpolator {
             return f3 + (((f - fArr[i]) / f2) * (fArr2[length] - f3));
         }
         return invokeF.floatValue;
-    }
-
-    public PathInterpolatorCompat(Resources resources, Resources.Theme theme, AttributeSet attributeSet, XmlPullParser xmlPullParser) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {resources, theme, attributeSet, xmlPullParser};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_PATH_INTERPOLATOR);
-        parseInterpolatorFromTypeArray(obtainAttributes, xmlPullParser);
-        obtainAttributes.recycle();
     }
 }

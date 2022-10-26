@@ -2,10 +2,10 @@ package com.baidu.nadcore.thread.executor;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.tieba.j11;
-import com.baidu.tieba.l11;
+import com.baidu.tieba.k11;
 import com.baidu.tieba.m11;
 import com.baidu.tieba.n11;
+import com.baidu.tieba.o11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,13 +19,17 @@ import java.util.concurrent.ThreadPoolExecutor;
 public abstract class BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ElasticTask> a;
+    public LinkedList a;
     public int b;
     public ThreadPoolExecutor c;
 
+    public abstract boolean a();
+
+    public abstract String d();
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ExecutorType {
+    public final class ExecutorType {
         public static final /* synthetic */ ExecutorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ExecutorType ARTERY;
@@ -77,13 +81,19 @@ public abstract class BaseExecutorCell {
         public static ExecutorType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ExecutorType) Enum.valueOf(ExecutorType.class, str) : (ExecutorType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ExecutorType) Enum.valueOf(ExecutorType.class, str);
+            }
+            return (ExecutorType) invokeL.objValue;
         }
 
         public static ExecutorType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ExecutorType[]) $VALUES.clone() : (ExecutorType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ExecutorType[]) $VALUES.clone();
+            }
+            return (ExecutorType[]) invokeV.objValue;
         }
     }
 
@@ -131,7 +141,7 @@ public abstract class BaseExecutorCell {
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class b {
+    public /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,8 +195,45 @@ public abstract class BaseExecutorCell {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.a = new LinkedList();
         this.b = i;
+    }
+
+    public synchronized boolean c(ElasticTask elasticTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask)) == null) {
+            synchronized (this) {
+                if (!a()) {
+                    return false;
+                }
+                elasticTask.h(new a(this, elasticTask));
+                this.a.add(elasticTask);
+                this.c.execute(elasticTask);
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void h(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, elasticTask) == null) {
+            int b2 = elasticTask.b();
+            Thread currentThread = Thread.currentThread();
+            if (b2 == 0) {
+                currentThread.setPriority(9);
+            } else if (b2 == 1) {
+                currentThread.setPriority(7);
+            } else if (b2 == 2) {
+                currentThread.setPriority(5);
+            } else if (b2 == 3) {
+                currentThread.setPriority(3);
+            } else if (b2 == 4) {
+                currentThread.setPriority(7);
+            }
+            currentThread.setName(elasticTask.a());
+        }
     }
 
     public static BaseExecutorCell b(int i, ExecutorType executorType) {
@@ -198,39 +245,18 @@ public abstract class BaseExecutorCell {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            return new m11(i);
+                            return new n11(i);
                         }
-                        return new n11(i);
+                        return new o11(i);
                     }
-                    return new l11(i);
+                    return new m11(i);
                 }
-                return new m11(i);
+                return new n11(i);
             }
-            return new j11(i);
+            return new k11(i);
         }
         return (BaseExecutorCell) invokeIL.objValue;
     }
-
-    public abstract boolean a();
-
-    public synchronized boolean c(ElasticTask elasticTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask)) == null) {
-            synchronized (this) {
-                if (a()) {
-                    elasticTask.h(new a(this, elasticTask));
-                    this.a.add(elasticTask);
-                    this.c.execute(elasticTask);
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public abstract String d();
 
     public synchronized int e() {
         InterceptResult invokeV;
@@ -262,26 +288,6 @@ public abstract class BaseExecutorCell {
                 elasticTask.e();
                 this.a.remove(elasticTask);
             }
-        }
-    }
-
-    public final void h(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, elasticTask) == null) {
-            int b2 = elasticTask.b();
-            Thread currentThread = Thread.currentThread();
-            if (b2 == 0) {
-                currentThread.setPriority(9);
-            } else if (b2 == 1) {
-                currentThread.setPriority(7);
-            } else if (b2 == 2) {
-                currentThread.setPriority(5);
-            } else if (b2 == 3) {
-                currentThread.setPriority(3);
-            } else if (b2 == 4) {
-                currentThread.setPriority(7);
-            }
-            currentThread.setName(elasticTask.a());
         }
     }
 }

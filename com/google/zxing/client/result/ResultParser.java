@@ -25,6 +25,39 @@ public abstract class ResultParser {
     public static final ResultParser[] PARSERS;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String[] maybeWrap(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return new String[]{str};
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public static int parseHexDigit(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < '0' || c > '9') {
+                char c2 = 'a';
+                if (c < 'a' || c > 'f') {
+                    c2 = 'A';
+                    if (c < 'A' || c > 'F') {
+                        return -1;
+                    }
+                }
+                return (c - c2) + 10;
+            }
+            return c - '0';
+        }
+        return invokeCommon.intValue;
+    }
+
+    public abstract ParsedResult parse(Result result);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -58,7 +91,7 @@ public abstract class ResultParser {
         }
     }
 
-    public static void appendKeyValue(CharSequence charSequence, Map<String, String> map) {
+    public static void appendKeyValue(CharSequence charSequence, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, charSequence, map) == null) {
             String[] split = EQUALS.split(charSequence, 2);
@@ -84,27 +117,78 @@ public abstract class ResultParser {
         return invokeLI.intValue;
     }
 
+    public static boolean isStringOfDigits(CharSequence charSequence, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, charSequence, i)) == null) {
+            if (charSequence != null && i > 0 && i == charSequence.length() && DIGITS.matcher(charSequence).matches()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void maybeAppend(String str, StringBuilder sb) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65545, null, str, sb) == null) && str != null) {
+            sb.append('\n');
+            sb.append(str);
+        }
+    }
+
     public static String getMassagedText(Result result) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, result)) == null) {
             String text = result.getText();
-            return text.startsWith(BYTE_ORDER_MARK) ? text.substring(1) : text;
+            if (text.startsWith(BYTE_ORDER_MARK)) {
+                return text.substring(1);
+            }
+            return text;
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean isStringOfDigits(CharSequence charSequence, int i) {
-        InterceptResult invokeLI;
+    public static ParsedResult parseResult(Result result) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, charSequence, i)) == null) ? charSequence != null && i > 0 && i == charSequence.length() && DIGITS.matcher(charSequence).matches() : invokeLI.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, result)) == null) {
+            for (ResultParser resultParser : PARSERS) {
+                ParsedResult parse = resultParser.parse(result);
+                if (parse != null) {
+                    return parse;
+                }
+            }
+            return new TextParsedResult(result.getText(), null);
+        }
+        return (ParsedResult) invokeL.objValue;
+    }
+
+    public static String urlDecode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            try {
+                return URLDecoder.decode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                throw new IllegalStateException(e);
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public static boolean isSubstringOfDigits(CharSequence charSequence, int i, int i2) {
         InterceptResult invokeLII;
         int i3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, charSequence, i, i2)) == null) ? charSequence != null && i2 > 0 && charSequence.length() >= (i3 = i2 + i) && DIGITS.matcher(charSequence.subSequence(i, i3)).matches() : invokeLII.booleanValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, charSequence, i, i2)) == null) {
+            if (charSequence == null || i2 <= 0 || charSequence.length() < (i3 = i2 + i) || !DIGITS.matcher(charSequence.subSequence(i, i3)).matches()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLII.booleanValue;
     }
 
     public static String[] matchPrefixedField(String str, String str2, char c, boolean z) {
@@ -168,47 +252,17 @@ public abstract class ResultParser {
         return (String) invokeCommon.objValue;
     }
 
-    public static void maybeAppend(String str, StringBuilder sb) {
+    public static void maybeAppend(String[] strArr, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, sb) == null) || str == null) {
-            return;
-        }
-        sb.append('\n');
-        sb.append(str);
-    }
-
-    public static String[] maybeWrap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, strArr, sb) == null) && strArr != null) {
+            for (String str : strArr) {
+                sb.append('\n');
+                sb.append(str);
             }
-            return new String[]{str};
         }
-        return (String[]) invokeL.objValue;
     }
 
-    public static int parseHexDigit(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c < '0' || c > '9') {
-                char c2 = 'a';
-                if (c < 'a' || c > 'f') {
-                    c2 = 'A';
-                    if (c < 'A' || c > 'F') {
-                        return -1;
-                    }
-                }
-                return (c - c2) + 10;
-            }
-            return c - '0';
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static Map<String, String> parseNameValuePairs(String str) {
+    public static Map parseNameValuePairs(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
@@ -225,21 +279,6 @@ public abstract class ResultParser {
         return (Map) invokeL.objValue;
     }
 
-    public static ParsedResult parseResult(Result result) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, result)) == null) {
-            for (ResultParser resultParser : PARSERS) {
-                ParsedResult parse = resultParser.parse(result);
-                if (parse != null) {
-                    return parse;
-                }
-            }
-            return new TextParsedResult(result.getText(), null);
-        }
-        return (ParsedResult) invokeL.objValue;
-    }
-
     public static String unescapeBackslash(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -254,42 +293,16 @@ public abstract class ResultParser {
             boolean z = false;
             while (indexOf < length) {
                 char charAt = str.charAt(indexOf);
-                if (z || charAt != '\\') {
+                if (!z && charAt == '\\') {
+                    z = true;
+                } else {
                     sb.append(charAt);
                     z = false;
-                } else {
-                    z = true;
                 }
                 indexOf++;
             }
             return sb.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String urlDecode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            try {
-                return URLDecoder.decode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                throw new IllegalStateException(e);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public abstract ParsedResult parse(Result result);
-
-    public static void maybeAppend(String[] strArr, StringBuilder sb) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, strArr, sb) == null) || strArr == null) {
-            return;
-        }
-        for (String str : strArr) {
-            sb.append('\n');
-            sb.append(str);
-        }
     }
 }

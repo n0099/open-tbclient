@@ -32,7 +32,7 @@ public class VideoFrameDrawer {
 
     /* renamed from: org.webrtc.VideoFrameDrawer$1  reason: invalid class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class VideoFrameDrawer {
     }
 
     /* loaded from: classes9.dex */
-    public static class YuvUploader {
+    public class YuvUploader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -90,7 +90,10 @@ public class VideoFrameDrawer {
         public int[] getYuvTextures() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.yuvTextures : (int[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.yuvTextures;
+            }
+            return (int[]) invokeV.objValue;
         }
 
         public void release() {
@@ -105,11 +108,18 @@ public class VideoFrameDrawer {
             }
         }
 
+        public /* synthetic */ YuvUploader(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
         @Nullable
         public int[] uploadFromBuffer(VideoFrame.I420Buffer i420Buffer) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i420Buffer)) == null) ? uploadYuvData(i420Buffer.getWidth(), i420Buffer.getHeight(), new int[]{i420Buffer.getStrideY(), i420Buffer.getStrideU(), i420Buffer.getStrideV()}, new ByteBuffer[]{i420Buffer.getDataY(), i420Buffer.getDataU(), i420Buffer.getDataV()}) : (int[]) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i420Buffer)) == null) {
+                return uploadYuvData(i420Buffer.getWidth(), i420Buffer.getHeight(), new int[]{i420Buffer.getStrideY(), i420Buffer.getStrideU(), i420Buffer.getStrideV()}, new ByteBuffer[]{i420Buffer.getDataY(), i420Buffer.getDataU(), i420Buffer.getDataV()});
+            }
+            return (int[]) invokeL.objValue;
         }
 
         @Nullable
@@ -152,10 +162,6 @@ public class VideoFrameDrawer {
                 return this.yuvTextures;
             }
             return (int[]) invokeCommon.objValue;
-        }
-
-        public /* synthetic */ YuvUploader(AnonymousClass1 anonymousClass1) {
-            this();
         }
     }
 
@@ -221,7 +227,10 @@ public class VideoFrameDrawer {
     public static int distance(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (int) Math.round(Math.hypot(f3 - f, f4 - f2)) : invokeCommon.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            return (int) Math.round(Math.hypot(f3 - f, f4 - f2));
+        }
+        return invokeCommon.intValue;
     }
 
     public static void drawTexture(RendererCommon.GlDrawer glDrawer, VideoFrame.TextureBuffer textureBuffer, Matrix matrix, int i, int i2, int i3, int i4, int i5, int i6) {
@@ -231,13 +240,14 @@ public class VideoFrameDrawer {
             matrix2.preConcat(matrix);
             float[] convertMatrixFromAndroidGraphicsMatrix = RendererCommon.convertMatrixFromAndroidGraphicsMatrix(matrix2);
             int i7 = AnonymousClass1.$SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type[textureBuffer.getType().ordinal()];
-            if (i7 == 1) {
-                glDrawer.drawOes(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i, i2, i3, i4, i5, i6);
-            } else if (i7 == 2) {
-                glDrawer.drawRgb(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i, i2, i3, i4, i5, i6);
-            } else {
+            if (i7 != 1) {
+                if (i7 == 2) {
+                    glDrawer.drawRgb(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i, i2, i3, i4, i5, i6);
+                    return;
+                }
                 throw new RuntimeException("Unknown texture type.");
             }
+            glDrawer.drawOes(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i, i2, i3, i4, i5, i6);
         }
     }
 
@@ -245,14 +255,6 @@ public class VideoFrameDrawer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, videoFrame, glDrawer) == null) {
             drawFrame(videoFrame, glDrawer, null);
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.yuvUploader.release();
-            this.lastI420Frame = null;
         }
     }
 
@@ -290,6 +292,14 @@ public class VideoFrameDrawer {
                 i420.release();
             }
             glDrawer.drawYuv(this.yuvUploader.getYuvTextures(), RendererCommon.convertMatrixFromAndroidGraphicsMatrix(this.renderMatrix), this.renderWidth, this.renderHeight, i, i2, i3, i4);
+        }
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.yuvUploader.release();
+            this.lastI420Frame = null;
         }
     }
 }

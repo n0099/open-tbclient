@@ -22,32 +22,6 @@ public final class CriusRecyclerView extends RecyclerView {
     public HashMap _$_findViewCache;
     public final CriusData criusData;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CriusRecyclerView(Context context, CriusData criusData) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, criusData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(criusData, "criusData");
-        this.criusData = criusData;
-        CriusNode criusNode = criusData.criusNode;
-        Intrinsics.checkNotNullExpressionValue(criusNode, "criusData.criusNode");
-        criusNode.setData(this);
-    }
-
     public void _$_clearFindViewByIdCache() {
         HashMap hashMap;
         Interceptable interceptable = $ic;
@@ -75,9 +49,38 @@ public final class CriusRecyclerView extends RecyclerView {
         return (View) invokeI.objValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CriusRecyclerView(Context context, CriusData criusData) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, criusData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(criusData, "criusData");
+        this.criusData = criusData;
+        CriusNode criusNode = criusData.criusNode;
+        Intrinsics.checkNotNullExpressionValue(criusNode, "criusData.criusNode");
+        criusNode.setData(this);
+    }
+
     public final CriusData getCriusData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.criusData : (CriusData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.criusData;
+        }
+        return (CriusData) invokeV.objValue;
     }
 }

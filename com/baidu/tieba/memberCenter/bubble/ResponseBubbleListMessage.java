@@ -1,6 +1,5 @@
 package com.baidu.tieba.memberCenter.bubble;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,13 +38,16 @@ public class ResponseBubbleListMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && getStatusCode() == 200 && jSONObject != null) {
-            this.bubbleListData = (BubbleListData) OrmObject.objectWithJsonStr(jSONObject.toString(), BubbleListData.class);
+            this.bubbleListData = BubbleListData.parse(jSONObject);
         }
     }
 
     public BubbleListData getBubbleListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bubbleListData : (BubbleListData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bubbleListData;
+        }
+        return (BubbleListData) invokeV.objValue;
     }
 }

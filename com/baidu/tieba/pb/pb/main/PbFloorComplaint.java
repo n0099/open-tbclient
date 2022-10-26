@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,72 +53,11 @@ public class PbFloorComplaint extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e2, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bd1);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c3c);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bd2);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bfb);
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a28);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ImageView imageView = this.a;
-            if (imageView != null) {
-                imageView.invalidate();
-            }
-            int i = this.f;
-            if (i == 1) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0fff);
-                hv4.d(this.c).v(R.color.CAM_X0301);
-            } else if (i == 2) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0653);
-                hv4.d(this.c).v(R.color.CAM_X0105);
-            } else if (i == 3) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0654);
-                hv4.d(this.c).v(R.color.CAM_X0301);
-            } else {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0fff);
-                hv4.d(this.c).v(R.color.CAM_X0301);
-            }
-            int i2 = this.g;
-            if (i2 == 1 || i2 == 3) {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4d, R.color.CAM_X0301, null);
-            } else if (i2 == 2) {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080925, R.color.CAM_X0105, null);
-            } else {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4d, R.color.CAM_X0301, null);
-            }
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080922, R.color.CAM_X0304, null);
-            hv4 d = hv4.d(this.d);
-            d.v(R.color.CAM_X0107);
-            d.z(R.dimen.T_X09);
-        }
-    }
-
-    public void setAmendIconListener(View.OnClickListener onClickListener) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (relativeLayout = this.e) == null) {
-            return;
-        }
-        relativeLayout.setOnClickListener(onClickListener);
-    }
-
-    public void setRemindIcon(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.g = i;
-            b();
-        }
-    }
-
-    public void setRemindText(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f = i;
-            b();
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bcd);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c38);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bce);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bf7);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a32);
         }
     }
 
@@ -165,5 +104,67 @@ public class PbFloorComplaint extends RelativeLayout {
         this.f = 0;
         this.g = 0;
         a(context);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ImageView imageView = this.a;
+            if (imageView != null) {
+                imageView.invalidate();
+            }
+            int i = this.f;
+            if (i == 1) {
+                this.c.setText(R.string.obfuscated_res_0x7f0f1011);
+                nv4.d(this.c).v(R.color.CAM_X0301);
+            } else if (i == 2) {
+                this.c.setText(R.string.obfuscated_res_0x7f0f065c);
+                nv4.d(this.c).v(R.color.CAM_X0105);
+            } else if (i == 3) {
+                this.c.setText(R.string.obfuscated_res_0x7f0f065d);
+                nv4.d(this.c).v(R.color.CAM_X0301);
+            } else {
+                this.c.setText(R.string.obfuscated_res_0x7f0f1011);
+                nv4.d(this.c).v(R.color.CAM_X0301);
+            }
+            int i2 = this.g;
+            if (i2 != 1 && i2 != 3) {
+                if (i2 == 2) {
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080924, R.color.CAM_X0105, null);
+                } else {
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4f, R.color.CAM_X0301, null);
+                }
+            } else {
+                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4f, R.color.CAM_X0301, null);
+            }
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080921, R.color.CAM_X0304, null);
+            nv4 d = nv4.d(this.d);
+            d.v(R.color.CAM_X0107);
+            d.z(R.dimen.T_X09);
+        }
+    }
+
+    public void setAmendIconListener(View.OnClickListener onClickListener) {
+        RelativeLayout relativeLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) && (relativeLayout = this.e) != null) {
+            relativeLayout.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setRemindIcon(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.g = i;
+            b();
+        }
+    }
+
+    public void setRemindText(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f = i;
+            b();
+        }
     }
 }

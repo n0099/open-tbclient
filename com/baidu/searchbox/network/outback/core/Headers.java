@@ -1,6 +1,5 @@
 package com.baidu.searchbox.network.outback.core;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.internal.HttpDate;
@@ -26,6 +25,157 @@ public final class Headers {
     public transient /* synthetic */ FieldHolder $fh;
     public final String[] namesAndValues;
 
+    /* loaded from: classes2.dex */
+    public final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List namesAndValues;
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.namesAndValues = new ArrayList(20);
+        }
+
+        public Headers build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new Headers(this);
+            }
+            return (Headers) invokeV.objValue;
+        }
+
+        public Builder add(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                int indexOf = str.indexOf(":");
+                if (indexOf != -1) {
+                    return add(str.substring(0, indexOf).trim(), str.substring(indexOf + 1));
+                }
+                throw new IllegalArgumentException("Unexpected header: " + str);
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder addLenient(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                int indexOf = str.indexOf(":", 1);
+                if (indexOf != -1) {
+                    return addLenient(str.substring(0, indexOf), str.substring(indexOf + 1));
+                }
+                if (str.startsWith(":")) {
+                    return addLenient("", str.substring(1));
+                }
+                return addLenient("", str);
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public String get(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+                for (int size = this.namesAndValues.size() - 2; size >= 0; size -= 2) {
+                    if (str.equalsIgnoreCase((String) this.namesAndValues.get(size))) {
+                        return (String) this.namesAndValues.get(size + 1);
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public Builder removeAll(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+                int i = 0;
+                while (i < this.namesAndValues.size()) {
+                    if (str.equalsIgnoreCase((String) this.namesAndValues.get(i))) {
+                        this.namesAndValues.remove(i);
+                        this.namesAndValues.remove(i);
+                        i -= 2;
+                    }
+                    i += 2;
+                }
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder add(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                Headers.checkName(str);
+                Headers.checkValue(str2, str);
+                return addLenient(str, str2);
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder addLenient(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                this.namesAndValues.add(str);
+                this.namesAndValues.add(str2.trim());
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder addUnsafeNonAscii(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+                Headers.checkName(str);
+                return addLenient(str, str2);
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder set(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
+                Headers.checkName(str);
+                Headers.checkValue(str2, str);
+                removeAll(str);
+                addLenient(str, str2);
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder addAll(Headers headers) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, headers)) == null) {
+                int size = headers.size();
+                for (int i = 0; i < size; i++) {
+                    addLenient(headers.name(i), headers.value(i));
+                }
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+    }
+
     public Headers(Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,8 +191,100 @@ public final class Headers {
                 return;
             }
         }
-        List<String> list = builder.namesAndValues;
+        List list = builder.namesAndValues;
         this.namesAndValues = (String[]) list.toArray(new String[list.size()]);
+    }
+
+    public List values(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            int size = size();
+            ArrayList arrayList = null;
+            for (int i = 0; i < size; i++) {
+                if (str.equalsIgnoreCase(name(i))) {
+                    if (arrayList == null) {
+                        arrayList = new ArrayList(2);
+                    }
+                    arrayList.add(value(i));
+                }
+            }
+            if (arrayList != null) {
+                return Collections.unmodifiableList(arrayList);
+            }
+            return Collections.emptyList();
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public Headers(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {strArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.namesAndValues = strArr;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if ((obj instanceof Headers) && Arrays.equals(((Headers) obj).namesAndValues, this.namesAndValues)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String get(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return get(this.namesAndValues, str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public Date getDate(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            String str2 = get(str);
+            if (str2 != null) {
+                return HttpDate.parse(str2);
+            }
+            return null;
+        }
+        return (Date) invokeL.objValue;
+    }
+
+    public String name(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return this.namesAndValues[i * 2];
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public String value(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            return this.namesAndValues[(i * 2) + 1];
+        }
+        return (String) invokeI.objValue;
     }
 
     public static void checkName(String str) {
@@ -80,6 +322,47 @@ public final class Headers {
             }
             throw new NullPointerException("value for name " + str2 + " == null");
         }
+    }
+
+    public static String get(String[] strArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, str)) == null) {
+            for (int length = strArr.length - 2; length >= 0; length -= 2) {
+                if (str.equalsIgnoreCase(strArr[length])) {
+                    return strArr[length + 1];
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Headers of(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            if (map != null) {
+                String[] strArr = new String[map.size() * 2];
+                int i = 0;
+                for (Map.Entry entry : map.entrySet()) {
+                    if (entry.getKey() != null && entry.getValue() != null) {
+                        String trim = ((String) entry.getKey()).trim();
+                        String trim2 = ((String) entry.getValue()).trim();
+                        checkName(trim);
+                        checkValue(trim2, trim);
+                        strArr[i] = trim;
+                        strArr[i + 1] = trim2;
+                        i += 2;
+                    } else {
+                        throw new IllegalArgumentException("Headers cannot be null");
+                    }
+                }
+                return new Headers(strArr);
+            }
+            throw new NullPointerException("headers == null");
+        }
+        return (Headers) invokeL.objValue;
     }
 
     public static Headers of(String... strArr) {
@@ -125,46 +408,16 @@ public final class Headers {
         return invokeV.longValue;
     }
 
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Headers) && Arrays.equals(((Headers) obj).namesAndValues, this.namesAndValues) : invokeL.booleanValue;
-    }
-
-    @Nullable
-    public String get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? get(this.namesAndValues, str) : (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public Date getDate(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            String str2 = get(str);
-            if (str2 != null) {
-                return HttpDate.parse(str2);
-            }
-            return null;
-        }
-        return (Date) invokeL.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Arrays.hashCode(this.namesAndValues) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Arrays.hashCode(this.namesAndValues);
+        }
+        return invokeV.intValue;
     }
 
-    public String name(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.namesAndValues[i * 2] : (String) invokeI.objValue;
-    }
-
-    public Set<String> names() {
+    public Set names() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -192,10 +445,13 @@ public final class Headers {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.namesAndValues.length / 2 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.namesAndValues.length / 2;
+        }
+        return invokeV.intValue;
     }
 
-    public Map<String, List<String>> toMultimap() {
+    public Map toMultimap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -230,237 +486,5 @@ public final class Headers {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public String value(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this.namesAndValues[(i * 2) + 1] : (String) invokeI.objValue;
-    }
-
-    public List<String> values(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            int size = size();
-            ArrayList arrayList = null;
-            for (int i = 0; i < size; i++) {
-                if (str.equalsIgnoreCase(name(i))) {
-                    if (arrayList == null) {
-                        arrayList = new ArrayList(2);
-                    }
-                    arrayList.add(value(i));
-                }
-            }
-            return arrayList != null ? Collections.unmodifiableList(arrayList) : Collections.emptyList();
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static String get(String[] strArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, str)) == null) {
-            for (int length = strArr.length - 2; length >= 0; length -= 2) {
-                if (str.equalsIgnoreCase(strArr[length])) {
-                    return strArr[length + 1];
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    /* loaded from: classes2.dex */
-    public static final class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> namesAndValues;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.namesAndValues = new ArrayList(20);
-        }
-
-        public Builder add(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                int indexOf = str.indexOf(":");
-                if (indexOf != -1) {
-                    return add(str.substring(0, indexOf).trim(), str.substring(indexOf + 1));
-                }
-                throw new IllegalArgumentException("Unexpected header: " + str);
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder addAll(Headers headers) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, headers)) == null) {
-                int size = headers.size();
-                for (int i = 0; i < size; i++) {
-                    addLenient(headers.name(i), headers.value(i));
-                }
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder addLenient(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                int indexOf = str.indexOf(":", 1);
-                if (indexOf != -1) {
-                    return addLenient(str.substring(0, indexOf), str.substring(indexOf + 1));
-                }
-                if (str.startsWith(":")) {
-                    return addLenient("", str.substring(1));
-                }
-                return addLenient("", str);
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder addUnsafeNonAscii(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-                Headers.checkName(str);
-                return addLenient(str, str2);
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Headers build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Headers(this) : (Headers) invokeV.objValue;
-        }
-
-        public String get(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                for (int size = this.namesAndValues.size() - 2; size >= 0; size -= 2) {
-                    if (str.equalsIgnoreCase(this.namesAndValues.get(size))) {
-                        return this.namesAndValues.get(size + 1);
-                    }
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public Builder removeAll(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                int i = 0;
-                while (i < this.namesAndValues.size()) {
-                    if (str.equalsIgnoreCase(this.namesAndValues.get(i))) {
-                        this.namesAndValues.remove(i);
-                        this.namesAndValues.remove(i);
-                        i -= 2;
-                    }
-                    i += 2;
-                }
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder set(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
-                Headers.checkName(str);
-                Headers.checkValue(str2, str);
-                removeAll(str);
-                addLenient(str, str2);
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder add(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                Headers.checkName(str);
-                Headers.checkValue(str2, str);
-                return addLenient(str, str2);
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder addLenient(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                this.namesAndValues.add(str);
-                this.namesAndValues.add(str2.trim());
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-    }
-
-    public Headers(String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {strArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.namesAndValues = strArr;
-    }
-
-    public static Headers of(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            if (map != null) {
-                String[] strArr = new String[map.size() * 2];
-                int i = 0;
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (entry.getKey() != null && entry.getValue() != null) {
-                        String trim = entry.getKey().trim();
-                        String trim2 = entry.getValue().trim();
-                        checkName(trim);
-                        checkValue(trim2, trim);
-                        strArr[i] = trim;
-                        strArr[i + 1] = trim2;
-                        i += 2;
-                    } else {
-                        throw new IllegalArgumentException("Headers cannot be null");
-                    }
-                }
-                return new Headers(strArr);
-            }
-            throw new NullPointerException("headers == null");
-        }
-        return (Headers) invokeL.objValue;
     }
 }

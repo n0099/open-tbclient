@@ -1,36 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public class eo3 {
+public class eo3 implements xn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public Method b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public Method f;
-    public Method g;
-    public Method h;
-    public boolean i;
+    public fo3 a;
+    public int b;
+    public boolean c;
 
-    public eo3(Object obj) {
+    public eo3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,203 +29,111 @@ public class eo3 {
                 return;
             }
         }
-        this.a = obj;
+        this.b = -1;
+        c(context);
     }
 
-    @SuppressLint({"WrongConstant"})
-    public static eo3 a(@NonNull Context context) {
-        InterceptResult invokeL;
+    public final void e(int i) {
+        int a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Object obj = null;
-            try {
-                obj = context.getSystemService("mtk-perfservice");
-                if (obj != null) {
-                    n74.c(obj.getClass());
-                }
-            } catch (Throwable unused) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            do3 f = ko3.f();
+            int i2 = f.a;
+            if (i2 < 1) {
+                i2 = 10;
             }
-            return new eo3(obj);
-        }
-        return (eo3) invokeL.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c()) {
-                if (this.i) {
-                    return this.b != null;
-                }
-                try {
-                    this.i = true;
-                    if (this.b == null) {
-                        Method i = p74.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                        this.b = i;
-                        if (i != null) {
-                            i.setAccessible(true);
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-                return this.b != null;
+            if (f.a() <= 0) {
+                a = 10000000;
+            } else {
+                a = f.a();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && c()) {
-            try {
-                if (this.f == null) {
-                    Method i2 = p74.i(this.a.getClass(), "userDisable", Integer.TYPE);
-                    this.f = i2;
-                    if (i2 != null) {
-                        i2.setAccessible(true);
-                    }
-                }
-                if (this.f != null) {
-                    this.f.invoke(this.a, Integer.valueOf(i));
-                }
-            } catch (Throwable unused) {
+            int f2 = this.a.f(i2, a, i2, a);
+            this.b = f2;
+            if (f2 != -1) {
+                this.a.e(f2, i);
             }
         }
     }
 
-    public void e(int i, int i2) {
+    @Override // com.baidu.tieba.xn3
+    public void a() {
+        fo3 fo3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) && c()) {
-            try {
-                if (this.e == null) {
-                    Method i3 = p74.i(this.a.getClass(), "userEnableTimeoutMs", Integer.TYPE, Integer.TYPE);
-                    this.e = i3;
-                    if (i3 != null) {
-                        i3.setAccessible(true);
-                    }
-                }
-                if (this.e != null) {
-                    this.e.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2));
-                }
-            } catch (Throwable unused) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (fo3Var = this.a) != null && fo3Var.c()) {
+            this.c = false;
+            if (this.a.b()) {
+                g();
+            } else {
+                f();
             }
         }
     }
 
-    public int f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Object invoke;
+    public final void f() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048580, this, i, i2, i3, i4)) == null) {
-            if (c()) {
-                try {
-                    if (this.b == null) {
-                        Method i5 = p74.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                        this.b = i5;
-                        if (i5 != null) {
-                            i5.setAccessible(true);
-                        }
-                    }
-                    if (this.b == null || (invoke = this.b.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))) == null) {
-                        return -1;
-                    }
-                    return ((Integer) invoke).intValue();
-                } catch (Throwable unused) {
-                    return -1;
-                }
-            }
-            return -1;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
+            this.a.d(i);
+            this.a.j(this.b);
         }
-        return invokeIIII.intValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public final void g() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (c()) {
-                try {
-                    if (this.c == null) {
-                        Method i = p74.i(this.a.getClass(), "userRegScn", new Class[0]);
-                        this.c = i;
-                        if (i != null) {
-                            i.setAccessible(true);
-                        }
-                    }
-                    Object invoke = this.c != null ? this.c.invoke(this.a, new Object[0]) : null;
-                    if (invoke != null) {
-                        return ((Integer) invoke).intValue();
-                    }
-                } catch (Throwable unused) {
-                }
-                return -1;
-            }
-            return -1;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
+            this.a.d(i);
+            this.a.i(this.b);
         }
-        return invokeV.intValue;
     }
 
-    public void h(int i, int i2, int i3, int i4, int i5, int i6) {
+    @Override // com.baidu.tieba.xn3
+    public void b(int i) {
+        fo3 fo3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) && c()) {
-            try {
-                if (this.d == null) {
-                    Method i7 = p74.i(this.a.getClass(), "userRegScnConfig", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                    this.d = i7;
-                    if (i7 != null) {
-                        i7.setAccessible(true);
-                    }
-                }
-                if (this.d != null) {
-                    this.d.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6));
-                }
-            } catch (Throwable unused) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (fo3Var = this.a) != null && fo3Var.c()) {
+            this.c = true;
+            if (this.a.b()) {
+                e(i);
+            } else {
+                d(i);
             }
         }
     }
 
-    public void i(int i) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && c()) {
-            try {
-                if (this.g == null) {
-                    Method i2 = p74.i(this.a.getClass(), "userUnreg", Integer.TYPE);
-                    this.g = i2;
-                    if (i2 != null) {
-                        i2.setAccessible(true);
-                    }
-                }
-                if (this.g != null) {
-                    this.g.invoke(this.a, Integer.valueOf(i));
-                }
-            } catch (Throwable unused) {
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = fo3.a(context);
         }
     }
 
-    public void j(int i) {
+    public final void d(int i) {
+        int a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && c()) {
-            try {
-                if (this.h == null) {
-                    Method i2 = p74.i(this.a.getClass(), "userUnregScn", Integer.TYPE);
-                    this.h = i2;
-                    if (i2 != null) {
-                        i2.setAccessible(true);
-                    }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int g = this.a.g();
+            this.b = g;
+            if (g != -1) {
+                do3 f = ko3.f();
+                int i2 = f.a;
+                if (i2 < 1) {
+                    i2 = 10;
                 }
-                if (this.h != null) {
-                    this.h.invoke(this.a, Integer.valueOf(i));
+                if (f.a() <= 0) {
+                    a = 10000000;
+                } else {
+                    a = f.a();
                 }
-            } catch (Throwable unused) {
+                int i3 = i2;
+                this.a.h(this.b, 0, i3, -1, -1, -1);
+                this.a.h(this.b, 2, i3, i2, -1, -1);
+                int i4 = a;
+                this.a.h(this.b, 4, i4, -1, -1, -1);
+                this.a.h(this.b, 6, i4, a, -1, -1);
+                this.a.h(this.b, 15, i2, i2, i2, i2);
+                this.a.h(this.b, 17, a, a, a, a);
+                this.a.e(this.b, i);
             }
         }
     }

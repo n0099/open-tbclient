@@ -41,6 +41,9 @@ public class GameCodeGetMsg extends HttpMessage {
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.position : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.position;
+        }
+        return invokeV.intValue;
     }
 }

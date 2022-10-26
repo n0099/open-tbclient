@@ -8,11 +8,10 @@ import android.view.OrientationEventListener;
 import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.plugin.PluginManager;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.ah1;
+import com.baidu.tieba.bh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
 import java.io.File;
-@NotProguard
 /* loaded from: classes.dex */
 public class XRSessionAnchor {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,6 +31,18 @@ public class XRSessionAnchor {
     public OrientationEventListener mOrientationEventListener;
     public int mRotation;
     public WindowManager mWM;
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void xRSessionCreateFail(long j, int i);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void xRSessionCreateSuccess(long j, int i);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void xRSessionOrientationChange(long j, int i);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void xRSessionPermissionChange(long j, int i);
 
     public XRSessionAnchor() {
         Interceptable interceptable = $ic;
@@ -81,13 +91,12 @@ public class XRSessionAnchor {
             @Override // android.view.OrientationEventListener
             public void onOrientationChanged(int i3) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) || this.this$0.mWM.getDefaultDisplay().getRotation() == this.this$0.mRotation) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) && this.this$0.mWM.getDefaultDisplay().getRotation() != this.this$0.mRotation) {
+                    XRSessionAnchor xRSessionAnchor = this.this$0;
+                    xRSessionAnchor.mRotation = xRSessionAnchor.mWM.getDefaultDisplay().getRotation();
+                    XRSessionAnchor xRSessionAnchor2 = this.this$0;
+                    xRSessionAnchor2.xRSessionOrientationChange(xRSessionAnchor2.mNativeSessionHandle, this.this$0.mRotation);
                 }
-                XRSessionAnchor xRSessionAnchor = this.this$0;
-                xRSessionAnchor.mRotation = xRSessionAnchor.mWM.getDefaultDisplay().getRotation();
-                XRSessionAnchor xRSessionAnchor2 = this.this$0;
-                xRSessionAnchor2.xRSessionOrientationChange(xRSessionAnchor2.mNativeSessionHandle, this.this$0.mRotation);
             }
         };
     }
@@ -99,7 +108,10 @@ public class XRSessionAnchor {
             try {
                 ArCoreApk.Availability a = ArCoreApk.b().a(context);
                 if (a != null) {
-                    return a.isSupported() || a.isTransient();
+                    if (a.isSupported() || a.isTransient()) {
+                        return true;
+                    }
+                    return false;
                 }
                 return false;
             } catch (Exception unused) {
@@ -109,71 +121,58 @@ public class XRSessionAnchor {
         return invokeL.booleanValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionCreateFail(long j, int i);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionCreateSuccess(long j, int i);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionOrientationChange(long j, int i);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void xRSessionPermissionChange(long j, int i);
-
     public void requestCameraPermission() {
         PermissionProxy permissionProxy;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (permissionProxy = ah1.o) == null) {
-            return;
-        }
-        permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener(this) { // from class: com.baidu.ar.session.XRSessionAnchor.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ XRSessionAnchor this$0;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (permissionProxy = bh1.o) != null) {
+            permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener(this) { // from class: com.baidu.ar.session.XRSessionAnchor.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ XRSessionAnchor this$0;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.smallgame.sdk.permission.PermissionListener
-            public void onPermissionResult(String str, int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i) == null) {
-                    if (i == 0) {
-                        Log.i(XRSessionAnchor.TAG, "requestCameraPermission@ permissionState:" + i);
-                        if (this.this$0.mAppAuthorized) {
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
-                        this.this$0.mAppAuthorized = true;
-                        XRSessionAnchor xRSessionAnchor = this.this$0;
-                        xRSessionAnchor.xRSessionPermissionChange(xRSessionAnchor.mNativeSessionHandle, 0);
-                        return;
                     }
-                    int i2 = i + 1000;
-                    if (this.this$0.mAppAuthorized && i2 == 1002) {
-                        this.this$0.mAppAuthorized = false;
-                        XRSessionAnchor xRSessionAnchor2 = this.this$0;
-                        xRSessionAnchor2.xRSessionPermissionChange(xRSessionAnchor2.mNativeSessionHandle, i2);
-                    }
-                    Log.i(XRSessionAnchor.TAG, "Permission fail:" + i2);
+                    this.this$0 = this;
                 }
-            }
-        });
+
+                @Override // com.baidu.smallgame.sdk.permission.PermissionListener
+                public void onPermissionResult(String str, int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i) == null) {
+                        if (i == 0) {
+                            Log.i(XRSessionAnchor.TAG, "requestCameraPermission@ permissionState:" + i);
+                            if (this.this$0.mAppAuthorized) {
+                                return;
+                            }
+                            this.this$0.mAppAuthorized = true;
+                            XRSessionAnchor xRSessionAnchor = this.this$0;
+                            xRSessionAnchor.xRSessionPermissionChange(xRSessionAnchor.mNativeSessionHandle, 0);
+                            return;
+                        }
+                        int i2 = i + 1000;
+                        if (this.this$0.mAppAuthorized && i2 == 1002) {
+                            this.this$0.mAppAuthorized = false;
+                            XRSessionAnchor xRSessionAnchor2 = this.this$0;
+                            xRSessionAnchor2.xRSessionPermissionChange(xRSessionAnchor2.mNativeSessionHandle, i2);
+                        }
+                        Log.i(XRSessionAnchor.TAG, "Permission fail:" + i2);
+                    }
+                }
+            });
+        }
     }
 
     public void requestInstallArcore() {
@@ -183,7 +182,7 @@ public class XRSessionAnchor {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Context appContext = V8Engine.getAppContext();
             this.mContext = appContext;
-            this.mRotation = ah1.p;
+            this.mRotation = bh1.p;
             if (appContext != null) {
                 str = this.mContext.getFilesDir() + "/aigames_folder/game_ar_resource/arcore";
                 Log.i(TAG, "apk path is:" + str);
@@ -237,10 +236,8 @@ public class XRSessionAnchor {
                             if (installPackage != 1 && installPackage != -1) {
                                 this.this$0.xRSessionCreateFail(this.this$0.mNativeSessionHandle, 1003);
                             }
-                            if (ah1.o == null) {
-                                this.this$0.xRSessionCreateSuccess(this.this$0.mNativeSessionHandle, ah1.p);
-                            } else {
-                                ah1.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener(this) { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
+                            if (bh1.o != null) {
+                                bh1.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener(this) { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass3 this$1;
@@ -270,7 +267,7 @@ public class XRSessionAnchor {
                                             if (i == 0) {
                                                 Log.i(XRSessionAnchor.TAG, "Permission ok!@ permissionState:" + i);
                                                 XRSessionAnchor xRSessionAnchor = this.this$1.this$0;
-                                                xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, ah1.p);
+                                                xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, bh1.p);
                                                 this.this$1.this$0.mOrientationEventListener.enable();
                                                 return;
                                             }
@@ -281,6 +278,8 @@ public class XRSessionAnchor {
                                         }
                                     }
                                 });
+                            } else {
+                                this.this$0.xRSessionCreateSuccess(this.this$0.mNativeSessionHandle, bh1.p);
                             }
                         } catch (Throwable unused2) {
                             XRSessionAnchor xRSessionAnchor = this.this$0;

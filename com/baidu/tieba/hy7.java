@@ -1,114 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
+import com.baidu.tieba.kf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hy7 extends l55 {
+public class hy7 {
     public static /* synthetic */ Interceptable $ic;
+    public static hy7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public VoiceData.VoiceModel b;
-    public PbEditorData.ThreadData c;
-    public BaseActivity<?> d;
+    public kf a;
+    public kf b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hy7(EditorTools editorTools) {
-        super(editorTools);
+    public hy7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.b = null;
+        c();
     }
 
-    public VoiceData.VoiceModel b() {
+    public static synchronized hy7 b() {
         InterceptResult invokeV;
+        hy7 hy7Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (VoiceData.VoiceModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (hy7.class) {
+                if (c == null) {
+                    c = new hy7();
+                }
+                hy7Var = c;
+            }
+            return hy7Var;
+        }
+        return (hy7) invokeV.objValue;
     }
 
-    public void c(BaseActivity baseActivity) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseActivity) == null) || StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) || a() == null) {
-            return;
-        }
-        a().A(new h55(2, 12, " "));
-    }
-
-    public void d(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) && i2 == -1 && i == 23004) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010040));
-        }
-    }
-
-    public void e() {
-        PbEditorData.ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (threadData = this.c) == null || StringUtils.isNull(threadData.getAuthorName()) || this.c.getAuthorId() <= 0) {
-            return;
-        }
-        String valueOf = String.valueOf(this.c.getAuthorId());
-        if (valueOf != null && !valueOf.equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.d.getActivity(), this.c.getAuthorId(), this.c.getAuthorName(), this.c.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, dh.g(this.c.getThreadId(), 0L), dh.g(this.c.getPostId(), 0L))));
-        } else {
-            ej.M(this.d.getActivity(), R.string.obfuscated_res_0x7f0f0372);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                ou4.f();
+                this.a = ou4.d("tb.pb_mark");
+            }
+            if (this.b == null) {
+                ou4.f();
+                this.b = ou4.d("tb.pb_normal");
+            }
         }
     }
 
-    public void f(BaseActivity<?> baseActivity) {
+    public byte[] a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        kf.b h;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, baseActivity) == null) {
-            this.d = baseActivity;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (z) {
+                kf kfVar = this.a;
+                if (kfVar != null && str != null) {
+                    h = kfVar.h(str);
+                }
+                h = null;
+            } else {
+                kf kfVar2 = this.b;
+                if (kfVar2 != null && str != null) {
+                    h = kfVar2.h(str);
+                }
+                h = null;
+            }
+            if (h == null || (obj = h.b) == null) {
+                return null;
+            }
+            return (byte[]) obj;
         }
+        return (byte[]) invokeLZ.objValue;
     }
 
-    public void g(PbEditorData.ThreadData threadData) {
+    public void d(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) {
-            this.c = threadData;
-            if (a() == null || this.c == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            if (z) {
+                kf kfVar = this.a;
+                if (kfVar != null && str != null) {
+                    kfVar.i(str, new byte[0], 0L);
+                    return;
+                }
                 return;
             }
-            a().setFid(dh.g(this.c.getForumId(), 0L));
-            a().setTid(this.c.getThreadId());
+            kf kfVar2 = this.b;
+            if (kfVar2 != null && str != null) {
+                kfVar2.i(str, new byte[0], 0L);
+            }
         }
     }
 
-    public BaseActivity<?> getContext() {
-        InterceptResult invokeV;
+    public void f(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (BaseActivity) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
+            c();
+            this.a.e(str, bArr, 86400000L);
+        }
     }
 
-    public void h(VoiceData.VoiceModel voiceModel) {
+    public void e(String str, boolean z, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, voiceModel) == null) {
-            this.b = voiceModel;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
+            c();
+            if (z) {
+                this.a.e(str, bArr, 86400000L);
+            } else {
+                this.b.e(str, bArr, 86400000L);
+            }
         }
     }
 }

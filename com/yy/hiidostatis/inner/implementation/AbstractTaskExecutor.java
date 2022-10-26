@@ -14,6 +14,21 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract ITaskExecutor.OnTaskRejectedListener getOnTaskRejectedListener();
+
+    public boolean isTerminated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public abstract void submitTask(Runnable runnable);
+
+    public abstract void submitTask(Runnable runnable, int i);
+
     /* loaded from: classes8.dex */
     public class Task implements Runnable {
         public static /* synthetic */ Interceptable $ic;
@@ -44,7 +59,7 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
         public void run() {
             Runnable runnable;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (runnable = this.mRunnable) == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (runnable = this.mRunnable) == null) {
                 return;
             }
             L.brief("Begin run task %s", runnable);
@@ -75,15 +90,20 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
         }
     }
 
-    public abstract ITaskExecutor.OnTaskRejectedListener getOnTaskRejectedListener();
-
-    public boolean isTerminated() {
-        InterceptResult invokeV;
+    @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
+    public void submit(ITaskExecutor.ExecutorTask executorTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, executorTask) == null) {
+            submitTask(new Task(this, executorTask));
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
+    public void submit(ITaskExecutor.ExecutorTask executorTask, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, executorTask, i) == null) {
+            submitTask(new Task(this, executorTask), i);
+        }
     }
 
     @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
@@ -94,31 +114,11 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
         }
     }
 
-    public abstract void submitTask(Runnable runnable);
-
-    public abstract void submitTask(Runnable runnable, int i);
-
-    @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
-    public void submit(ITaskExecutor.ExecutorTask executorTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, executorTask) == null) {
-            submitTask(new Task(this, executorTask));
-        }
-    }
-
     @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
     public void submit(Runnable runnable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, runnable, i) == null) {
             submitTask(new Task(this, runnable), i);
-        }
-    }
-
-    @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
-    public void submit(ITaskExecutor.ExecutorTask executorTask, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, executorTask, i) == null) {
-            submitTask(new Task(this, executorTask), i);
         }
     }
 }

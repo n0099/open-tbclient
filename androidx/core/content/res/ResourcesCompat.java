@@ -10,16 +10,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.util.TypedValue;
-import androidx.annotation.AnyRes;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DimenRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.FontRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.graphics.TypefaceCompat;
@@ -40,15 +30,142 @@ import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public final class ResourcesCompat {
     public static /* synthetic */ Interceptable $ic = null;
-    @AnyRes
     public static final int ID_NULL = 0;
     public static final String TAG = "ResourcesCompat";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
+    public static final class ThemeCompat {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes.dex */
+        public static class ImplApi23 {
+            public static /* synthetic */ Interceptable $ic;
+            public static Method sRebaseMethod;
+            public static boolean sRebaseMethodFetched;
+            public static final Object sRebaseMethodLock;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1763466097, "Landroidx/core/content/res/ResourcesCompat$ThemeCompat$ImplApi23;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(1763466097, "Landroidx/core/content/res/ResourcesCompat$ThemeCompat$ImplApi23;");
+                        return;
+                    }
+                }
+                sRebaseMethodLock = new Object();
+            }
+
+            public ImplApi23() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65537, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65537, newInitContext);
+                    }
+                }
+            }
+
+            public static void rebase(Resources.Theme theme) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(65538, null, theme) == null) {
+                    synchronized (sRebaseMethodLock) {
+                        if (!sRebaseMethodFetched) {
+                            try {
+                                Method declaredMethod = Resources.Theme.class.getDeclaredMethod("rebase", new Class[0]);
+                                sRebaseMethod = declaredMethod;
+                                declaredMethod.setAccessible(true);
+                            } catch (NoSuchMethodException e) {
+                                Log.i(ResourcesCompat.TAG, "Failed to retrieve rebase() method", e);
+                            }
+                            sRebaseMethodFetched = true;
+                        }
+                        if (sRebaseMethod != null) {
+                            try {
+                                sRebaseMethod.invoke(theme, new Object[0]);
+                            } catch (IllegalAccessException | InvocationTargetException e2) {
+                                Log.i(ResourcesCompat.TAG, "Failed to invoke rebase() method via reflection", e2);
+                                sRebaseMethod = null;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes.dex */
+        public static class ImplApi29 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public ImplApi29() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            public static void rebase(Resources.Theme theme) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(65537, null, theme) == null) {
+                    theme.rebase();
+                }
+            }
+        }
+
+        public ThemeCompat() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static void rebase(Resources.Theme theme) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65537, null, theme) == null) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 29) {
+                    ImplApi29.rebase(theme);
+                } else if (i >= 23) {
+                    ImplApi23.rebase(theme);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
     public static abstract class FontCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void onFontRetrievalFailed(int i);
+
+        public abstract void onFontRetrieved(Typeface typeface);
 
         public FontCallback() {
             Interceptable interceptable = $ic;
@@ -64,8 +181,7 @@ public final class ResourcesCompat {
             }
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public final void callbackFailAsync(int i, @Nullable Handler handler) {
+        public final void callbackFailAsync(int i, Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, handler) == null) {
                 if (handler == null) {
@@ -107,8 +223,7 @@ public final class ResourcesCompat {
             }
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public final void callbackSuccessAsync(Typeface typeface, @Nullable Handler handler) {
+        public final void callbackSuccessAsync(Typeface typeface, Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface, handler) == null) {
                 if (handler == null) {
@@ -149,136 +264,6 @@ public final class ResourcesCompat {
                 });
             }
         }
-
-        public abstract void onFontRetrievalFailed(int i);
-
-        public abstract void onFontRetrieved(@NonNull Typeface typeface);
-    }
-
-    /* loaded from: classes.dex */
-    public static final class ThemeCompat {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @RequiresApi(23)
-        /* loaded from: classes.dex */
-        public static class ImplApi23 {
-            public static /* synthetic */ Interceptable $ic;
-            public static Method sRebaseMethod;
-            public static boolean sRebaseMethodFetched;
-            public static final Object sRebaseMethodLock;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1763466097, "Landroidx/core/content/res/ResourcesCompat$ThemeCompat$ImplApi23;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(1763466097, "Landroidx/core/content/res/ResourcesCompat$ThemeCompat$ImplApi23;");
-                        return;
-                    }
-                }
-                sRebaseMethodLock = new Object();
-            }
-
-            public ImplApi23() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65537, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65537, newInitContext);
-                    }
-                }
-            }
-
-            public static void rebase(@NonNull Resources.Theme theme) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(65538, null, theme) == null) {
-                    synchronized (sRebaseMethodLock) {
-                        if (!sRebaseMethodFetched) {
-                            try {
-                                Method declaredMethod = Resources.Theme.class.getDeclaredMethod("rebase", new Class[0]);
-                                sRebaseMethod = declaredMethod;
-                                declaredMethod.setAccessible(true);
-                            } catch (NoSuchMethodException e) {
-                                Log.i(ResourcesCompat.TAG, "Failed to retrieve rebase() method", e);
-                            }
-                            sRebaseMethodFetched = true;
-                        }
-                        if (sRebaseMethod != null) {
-                            try {
-                                sRebaseMethod.invoke(theme, new Object[0]);
-                            } catch (IllegalAccessException | InvocationTargetException e2) {
-                                Log.i(ResourcesCompat.TAG, "Failed to invoke rebase() method via reflection", e2);
-                                sRebaseMethod = null;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        @RequiresApi(29)
-        /* loaded from: classes.dex */
-        public static class ImplApi29 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public ImplApi29() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            public static void rebase(@NonNull Resources.Theme theme) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(65537, null, theme) == null) {
-                    theme.rebase();
-                }
-            }
-        }
-
-        public ThemeCompat() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static void rebase(@NonNull Resources.Theme theme) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65537, null, theme) == null) {
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 29) {
-                    ImplApi29.rebase(theme);
-                } else if (i >= 23) {
-                    ImplApi23.rebase(theme);
-                }
-            }
-        }
     }
 
     public ResourcesCompat() {
@@ -295,8 +280,7 @@ public final class ResourcesCompat {
         }
     }
 
-    @ColorInt
-    public static int getColor(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
+    public static int getColor(Resources resources, int i, Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, resources, i, theme)) == null) {
@@ -308,8 +292,7 @@ public final class ResourcesCompat {
         return invokeLIL.intValue;
     }
 
-    @Nullable
-    public static ColorStateList getColorStateList(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
+    public static ColorStateList getColorStateList(Resources resources, int i, Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, resources, i, theme)) == null) {
@@ -321,8 +304,7 @@ public final class ResourcesCompat {
         return (ColorStateList) invokeLIL.objValue;
     }
 
-    @Nullable
-    public static Drawable getDrawable(@NonNull Resources resources, @DrawableRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
+    public static Drawable getDrawable(Resources resources, int i, Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i, theme)) == null) {
@@ -334,8 +316,7 @@ public final class ResourcesCompat {
         return (Drawable) invokeLIL.objValue;
     }
 
-    @Nullable
-    public static Drawable getDrawableForDensity(@NonNull Resources resources, @DrawableRes int i, int i2, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
+    public static Drawable getDrawableForDensity(Resources resources, int i, int i2, Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), theme})) == null) {
@@ -351,7 +332,7 @@ public final class ResourcesCompat {
         return (Drawable) invokeCommon.objValue;
     }
 
-    public static float getFloat(@NonNull Resources resources, @DimenRes int i) {
+    public static float getFloat(Resources resources, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, resources, i)) == null) {
@@ -365,8 +346,7 @@ public final class ResourcesCompat {
         return invokeLI.floatValue;
     }
 
-    @Nullable
-    public static Typeface getFont(@NonNull Context context, @FontRes int i) throws Resources.NotFoundException {
+    public static Typeface getFont(Context context, int i) throws Resources.NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
@@ -378,7 +358,31 @@ public final class ResourcesCompat {
         return (Typeface) invokeLI.objValue;
     }
 
-    public static Typeface loadFont(@NonNull Context context, int i, TypedValue typedValue, int i2, @Nullable FontCallback fontCallback, @Nullable Handler handler, boolean z) {
+    public static Typeface getFont(Context context, int i, TypedValue typedValue, int i2, FontCallback fontCallback) throws Resources.NotFoundException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), typedValue, Integer.valueOf(i2), fontCallback})) == null) {
+            if (context.isRestricted()) {
+                return null;
+            }
+            return loadFont(context, i, typedValue, i2, fontCallback, null, true);
+        }
+        return (Typeface) invokeCommon.objValue;
+    }
+
+    public static void getFont(Context context, int i, FontCallback fontCallback, Handler handler) throws Resources.NotFoundException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65544, null, context, i, fontCallback, handler) == null) {
+            Preconditions.checkNotNull(fontCallback);
+            if (context.isRestricted()) {
+                fontCallback.callbackFailAsync(-4, handler);
+            } else {
+                loadFont(context, i, new TypedValue(), 0, fontCallback, handler, false);
+            }
+        }
+    }
+
+    public static Typeface loadFont(Context context, int i, TypedValue typedValue, int i2, FontCallback fontCallback, Handler handler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, Integer.valueOf(i), typedValue, Integer.valueOf(i2), fontCallback, handler, Boolean.valueOf(z)})) == null) {
@@ -393,23 +397,11 @@ public final class ResourcesCompat {
         return (Typeface) invokeCommon.objValue;
     }
 
-    public static void getFont(@NonNull Context context, @FontRes int i, @NonNull FontCallback fontCallback, @Nullable Handler handler) throws Resources.NotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65544, null, context, i, fontCallback, handler) == null) {
-            Preconditions.checkNotNull(fontCallback);
-            if (context.isRestricted()) {
-                fontCallback.callbackFailAsync(-4, handler);
-            } else {
-                loadFont(context, i, new TypedValue(), 0, fontCallback, handler, false);
-            }
-        }
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:37:0x00a7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Typeface loadFont(@NonNull Context context, Resources resources, TypedValue typedValue, int i, int i2, @Nullable FontCallback fontCallback, @Nullable Handler handler, boolean z) {
+    public static Typeface loadFont(Context context, Resources resources, TypedValue typedValue, int i, int i2, FontCallback fontCallback, Handler handler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, resources, typedValue, Integer.valueOf(i), Integer.valueOf(i2), fontCallback, handler, Boolean.valueOf(z)})) == null) {
@@ -464,19 +456,6 @@ public final class ResourcesCompat {
                 }
             }
             throw new Resources.NotFoundException("Resource \"" + resources.getResourceName(i) + "\" (" + Integer.toHexString(i) + ") is not a Font: " + typedValue);
-        }
-        return (Typeface) invokeCommon.objValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Typeface getFont(@NonNull Context context, @FontRes int i, TypedValue typedValue, int i2, @Nullable FontCallback fontCallback) throws Resources.NotFoundException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), typedValue, Integer.valueOf(i2), fontCallback})) == null) {
-            if (context.isRestricted()) {
-                return null;
-            }
-            return loadFont(context, i, typedValue, i2, fontCallback, null, true);
         }
         return (Typeface) invokeCommon.objValue;
     }

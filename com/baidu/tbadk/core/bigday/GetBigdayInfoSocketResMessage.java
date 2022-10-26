@@ -1,11 +1,10 @@
 package com.baidu.tbadk.core.bigday;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
-import com.baidu.tieba.rq4;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.tq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rq4> bigdayInfos;
+    public ArrayList bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoSocketResMessage() {
@@ -41,8 +40,23 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            super.afterDispatchInBackGround(i, (int) bArr);
+            if (bArr == null) {
+                return;
+            }
+            ou4.f();
+            kf d = ou4.d("tb.bigday_datas");
+            d.remove("tb.bigday_datas");
+            d.g("tb.bigday_datas", bArr);
+        }
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -56,13 +70,13 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
                 }
                 DataRes dataRes = getBigdayResIdl.data;
                 if (dataRes != null && dataRes.bigday_list != null) {
-                    this.bigdayInfos = new ArrayList<>();
+                    this.bigdayInfos = new ArrayList();
                     for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                         if (bigdayInfo != null) {
-                            rq4 rq4Var = new rq4();
-                            rq4Var.b(bigdayInfo);
-                            if (rq4Var.a()) {
-                                this.bigdayInfos.add(rq4Var);
+                            tq4 tq4Var = new tq4();
+                            tq4Var.b(bigdayInfo);
+                            if (tq4Var.a()) {
+                                this.bigdayInfos.add(tq4Var);
                             }
                         }
                     }
@@ -71,21 +85,5 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             return getBigdayResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            super.afterDispatchInBackGround(i, (int) bArr);
-            if (bArr == null) {
-                return;
-            }
-            mu4.f();
-            jf<byte[]> d = mu4.d("tb.bigday_datas");
-            d.remove("tb.bigday_datas");
-            d.g("tb.bigday_datas", bArr);
-        }
     }
 }

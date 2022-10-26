@@ -19,6 +19,7 @@ public class b implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         final com.ss.android.downloadad.api.a.b a;
+        boolean z;
         if (this.a == null || (a = f.a().a(this.a)) == null) {
             return;
         }
@@ -35,6 +36,11 @@ public class b implements Runnable {
         }
         long a3 = l.a(0L);
         if (a3 >= longValue) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
             a.l("1");
             i.a().a(a);
             JSONObject jSONObject = new JSONObject();

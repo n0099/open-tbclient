@@ -11,6 +11,8 @@ public abstract class ShareBaseMsgData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public int subType;
 
+    public abstract String toChatMessageContent();
+
     public ShareBaseMsgData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,6 +26,4 @@ public abstract class ShareBaseMsgData implements Serializable {
             }
         }
     }
-
-    public abstract String toChatMessageContent();
 }

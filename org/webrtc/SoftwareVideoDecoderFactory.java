@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SoftwareVideoDecoderFactory implements VideoDecoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,6 +27,16 @@ public class SoftwareVideoDecoderFactory implements VideoDecoderFactory {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // org.webrtc.VideoDecoderFactory
+    public VideoCodecInfo[] getSupportedCodecs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return supportedCodecs();
+        }
+        return (VideoCodecInfo[]) invokeV.objValue;
     }
 
     public static VideoCodecInfo[] supportedCodecs() {
@@ -49,14 +59,10 @@ public class SoftwareVideoDecoderFactory implements VideoDecoderFactory {
     public VideoDecoder createDecoder(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? createDecoder(new VideoCodecInfo(str, new HashMap())) : (VideoDecoder) invokeL.objValue;
-    }
-
-    @Override // org.webrtc.VideoDecoderFactory
-    public VideoCodecInfo[] getSupportedCodecs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? supportedCodecs() : (VideoCodecInfo[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return createDecoder(new VideoCodecInfo(str, new HashMap()));
+        }
+        return (VideoDecoder) invokeL.objValue;
     }
 
     @Override // org.webrtc.VideoDecoderFactory

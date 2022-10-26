@@ -1,13 +1,12 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.NoProguard;
-import com.baidu.sapi2.result.SetPortraitResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class SetPortraitCallback implements LoginStatusAware<SetPortraitResult>, NoProguard {
+public abstract class SetPortraitCallback implements LoginStatusAware, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

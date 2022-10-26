@@ -1,28 +1,75 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zg7 {
+public class zg7 extends bh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
+    public final List c;
 
-    public zg7(JSONObject jSONObject) {
+    /* loaded from: classes6.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.tieba.bh7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.bh7
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zg7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-232692831, "Lcom/baidu/tieba/zg7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-232692831, "Lcom/baidu/tieba/zg7$b;");
+                    return;
+                }
+            }
+            a = new zg7(null);
+        }
+    }
+
+    public zg7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,52 +79,134 @@ public class zg7 {
                 return;
             }
         }
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("moreText");
-            this.b = bh7.b(jSONObject.optString("moreColor", ""));
-            this.c = bh7.b(jSONObject.optString("moreColorNight", ""));
-            this.d = jSONObject.optString("moreScheme");
-            return;
-        }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = Integer.MAX_VALUE;
-        this.d = "";
+        this.c = new ArrayList(4);
     }
 
-    public static zg7 a(JSONObject jSONObject) {
+    public static zg7 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (zg7) invokeV.objValue;
+    }
+
+    public /* synthetic */ zg7(a aVar) {
+        this();
+    }
+
+    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new zg7(jSONObject) : (zg7) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            return h().b(jSONObject, jSONObject.optInt("card_type"));
+        }
+        return (ICardInfo) invokeL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public synchronized void g(bh7 bh7Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bh7Var) == null) {
+            synchronized (this) {
+                this.c.add(bh7Var);
+            }
+        }
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public static ICardInfo i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                ICardInfo j = j(new JSONObject(str));
+                if (j != null) {
+                    if (j.isValid()) {
+                        return j;
+                    }
+                }
+                return null;
+            } catch (CardParseException e) {
+                BdLog.detailException("CardFactory.getPageCardInfo", e);
+                return null;
+            } catch (JSONException e2) {
+                BdLog.detailException("CardFactory.getPageCardInfo", e2);
+                return null;
+            }
+        }
+        return (ICardInfo) invokeL.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bh7
+    public uh7 a(TbPageContext tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
+            uh7 e = e(tbPageContext, iCardInfo, i);
+            if (e != null) {
+                e.setBusinessType(i);
+            }
+            return e;
+        }
+        return (uh7) invokeLLI.objValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bh7
+    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
+            return f(jSONObject, i);
+        }
+        return (ICardInfo) invokeLI.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public final uh7 e(TbPageContext tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
+        int cardType;
+        uh7 a2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
+            for (bh7 bh7Var : this.c) {
+                try {
+                    a2 = bh7Var.a(tbPageContext, iCardInfo, i);
+                } catch (Throwable th) {
+                    BdLog.detailException("factory <" + bh7Var.d() + "> respond exception", th);
+                }
+                if (a2 != null) {
+                    return a2;
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("No card factory for card type ");
+            if (iCardInfo == null) {
+                cardType = -1;
+            } else {
+                cardType = iCardInfo.getCardType();
+            }
+            sb.append(cardType);
+            BdLog.e(sb.toString());
+            return null;
+        }
+        return (uh7) invokeLLI.objValue;
+    }
+
+    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
+            for (bh7 bh7Var : this.c) {
+                try {
+                    ICardInfo b2 = bh7Var.b(jSONObject, i);
+                    if (b2 != null) {
+                        return b2;
+                    }
+                } catch (Throwable th) {
+                    throw new CardParseException("Card type " + i + ", factory <" + bh7Var.d() + "> respond exception", th);
+                }
+            }
+            BdLog.e("No card factory for card type " + i);
+            return null;
+        }
+        return (ICardInfo) invokeLI.objValue;
     }
 }

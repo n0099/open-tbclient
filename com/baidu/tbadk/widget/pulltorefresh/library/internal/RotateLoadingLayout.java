@@ -26,6 +26,27 @@ public class RotateLoadingLayout extends LoadingLayout {
     public float p;
     public final boolean q;
 
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
+    public int getDefaultDrawableResId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.drawable.default_ptr_rotate : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RotateLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
@@ -61,26 +82,24 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void a(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) || drawable == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) && drawable != null) {
+            this.o = Math.round(drawable.getIntrinsicWidth() / 2.0f);
+            this.p = Math.round(drawable.getIntrinsicHeight() / 2.0f);
         }
-        this.o = Math.round(drawable.getIntrinsicWidth() / 2.0f);
-        this.p = Math.round(drawable.getIntrinsicHeight() / 2.0f);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void c(float f) {
+        float max;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-            this.n.setRotate(this.q ? f * 90.0f : Math.max(0.0f, Math.min(180.0f, (f * 360.0f) - 180.0f)), this.o, this.p);
+            if (this.q) {
+                max = f * 90.0f;
+            } else {
+                max = Math.max(0.0f, Math.min(180.0f, (f * 360.0f) - 180.0f));
+            }
+            this.n.setRotate(max, this.o, this.p);
             this.b.setImageMatrix(this.n);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
@@ -89,20 +108,6 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b.startAnimation(this.m);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public int getDefaultDrawableResId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.drawable.default_ptr_rotate : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
@@ -118,10 +123,9 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void l() {
         Matrix matrix;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (matrix = this.n) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (matrix = this.n) != null) {
+            matrix.reset();
+            this.b.setImageMatrix(this.n);
         }
-        matrix.reset();
-        this.b.setImageMatrix(this.n);
     }
 }

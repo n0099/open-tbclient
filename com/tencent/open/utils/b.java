@@ -28,30 +28,13 @@ public final class b {
 
     /* renamed from: com.tencent.open.utils.b$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2036591048, "Lcom/tencent/open/utils/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2036591048, "Lcom/tencent/open/utils/b;");
-                return;
-            }
-        }
-        a = new m(101010256L);
-        b = new n(38651);
-    }
-
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Properties a;
@@ -73,9 +56,13 @@ public final class b {
             this.a = new Properties();
         }
 
+        public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
         public void a(byte[] bArr) throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) || bArr == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, bArr) != null) || bArr == null) {
                 return;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
@@ -115,49 +102,66 @@ public final class b {
             }
             return (String) invokeV.objValue;
         }
-
-        public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
-            this();
-        }
     }
 
-    public static String a(File file, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, file, str)) != null) {
-            return (String) invokeLL.objValue;
-        }
-        RandomAccessFile randomAccessFile = null;
-        try {
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "r");
-            try {
-                byte[] a2 = a(randomAccessFile2);
-                if (a2 == null) {
-                    randomAccessFile2.close();
-                    return null;
-                }
-                a aVar = new a(null);
-                aVar.a(a2);
-                String property = aVar.a.getProperty(str);
-                randomAccessFile2.close();
-                return property;
-            } catch (Throwable th) {
-                th = th;
-                randomAccessFile = randomAccessFile2;
-                if (randomAccessFile != null) {
-                    randomAccessFile.close();
-                }
-                throw th;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2036591048, "Lcom/tencent/open/utils/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        } catch (Throwable th2) {
-            th = th2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2036591048, "Lcom/tencent/open/utils/b;");
+                return;
+            }
         }
+        a = new m(101010256L);
+        b = new n(38651);
     }
 
     public static String a(File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) ? a(file, "channelNo") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            return a(file, "channelNo");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(File file, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, file, str)) == null) {
+            RandomAccessFile randomAccessFile = null;
+            try {
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "r");
+                try {
+                    byte[] a2 = a(randomAccessFile2);
+                    if (a2 == null) {
+                        randomAccessFile2.close();
+                        return null;
+                    }
+                    a aVar = new a(null);
+                    aVar.a(a2);
+                    String property = aVar.a.getProperty(str);
+                    randomAccessFile2.close();
+                    return property;
+                } catch (Throwable th) {
+                    th = th;
+                    randomAccessFile = randomAccessFile2;
+                    if (randomAccessFile != null) {
+                        randomAccessFile.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeLL.objValue;
+        }
     }
 
     public static byte[] a(RandomAccessFile randomAccessFile) throws IOException {
@@ -171,15 +175,16 @@ public final class b {
             int read = randomAccessFile.read();
             while (true) {
                 z = true;
-                if (read == -1) {
-                    z = false;
-                    break;
-                } else if (read == a2[0] && randomAccessFile.read() == a2[1] && randomAccessFile.read() == a2[2] && randomAccessFile.read() == a2[3]) {
-                    break;
-                } else {
+                if (read != -1) {
+                    if (read == a2[0] && randomAccessFile.read() == a2[1] && randomAccessFile.read() == a2[2] && randomAccessFile.read() == a2[3]) {
+                        break;
+                    }
                     length--;
                     randomAccessFile.seek(length);
                     read = randomAccessFile.read();
+                } else {
+                    z = false;
+                    break;
                 }
             }
             if (z) {

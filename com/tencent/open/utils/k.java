@@ -1,6 +1,5 @@
 package com.tencent.open.utils;
 
-import android.annotation.TargetApi;
 import android.net.SSLCertificateSocketFactory;
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +21,6 @@ import javax.net.ssl.SSLSocket;
 import org.apache.http.conn.scheme.LayeredSocketFactory;
 import org.apache.http.conn.ssl.StrictHostnameVerifier;
 import org.apache.http.params.HttpParams;
-@TargetApi(17)
 /* loaded from: classes8.dex */
 public class k implements LayeredSocketFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -62,6 +60,16 @@ public class k implements LayeredSocketFactory {
     }
 
     @Override // org.apache.http.conn.scheme.SocketFactory
+    public Socket createSocket() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new Socket();
+        }
+        return (Socket) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.conn.scheme.SocketFactory
     public Socket connectSocket(Socket socket, String str, int i, InetAddress inetAddress, int i2, HttpParams httpParams) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -70,26 +78,6 @@ public class k implements LayeredSocketFactory {
             return socket;
         }
         return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // org.apache.http.conn.scheme.SocketFactory
-    public Socket createSocket() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new Socket() : (Socket) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.conn.scheme.SocketFactory
-    public boolean isSecure(Socket socket) throws IllegalArgumentException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, socket)) == null) {
-            if (socket instanceof SSLSocket) {
-                return ((SSLSocket) socket).isConnected();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // org.apache.http.conn.scheme.LayeredSocketFactory
@@ -121,5 +109,18 @@ public class k implements LayeredSocketFactory {
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);
         }
         return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // org.apache.http.conn.scheme.SocketFactory
+    public boolean isSecure(Socket socket) throws IllegalArgumentException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, socket)) == null) {
+            if (socket instanceof SSLSocket) {
+                return ((SSLSocket) socket).isConnected();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

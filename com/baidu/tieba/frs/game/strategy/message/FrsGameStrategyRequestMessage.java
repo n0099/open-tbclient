@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,16 +50,22 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         InterceptResult invokeZ;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = Long.valueOf(this.mFid);
-            builder.need_tab_stuct = Integer.valueOf((this.mTabId == 0 && this.mLabelId == 0) ? 1 : 0);
+            if (this.mTabId == 0 && this.mLabelId == 0) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            builder.need_tab_stuct = Integer.valueOf(i);
             builder.sub_tab_id = Integer.valueOf(this.mTabId);
             builder.sub_label_id = Integer.valueOf(this.mLabelId);
             builder.pn = Integer.valueOf(this.mPn);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             GameForumGuideTabReqIdl.Builder builder2 = new GameForumGuideTabReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -71,6 +77,9 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
     public long getFid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFid;
+        }
+        return invokeV.longValue;
     }
 }

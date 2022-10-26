@@ -3,7 +3,6 @@ package com.airbnb.lottie.animation.content;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
@@ -14,9 +13,8 @@ import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.value.LottieValueCallback;
 /* loaded from: classes.dex */
 public class StrokeContent extends BaseStrokeContent {
-    public final BaseKeyframeAnimation<Integer, Integer> colorAnimation;
-    @Nullable
-    public BaseKeyframeAnimation<ColorFilter, ColorFilter> colorFilterAnimation;
+    public final BaseKeyframeAnimation colorAnimation;
+    public BaseKeyframeAnimation colorFilterAnimation;
     public final boolean hidden;
     public final BaseLayer layer;
     public final String name;
@@ -26,19 +24,19 @@ public class StrokeContent extends BaseStrokeContent {
         this.layer = baseLayer;
         this.name = shapeStroke.getName();
         this.hidden = shapeStroke.isHidden();
-        BaseKeyframeAnimation<Integer, Integer> createAnimation = shapeStroke.getColor().createAnimation();
+        BaseKeyframeAnimation createAnimation = shapeStroke.getColor().createAnimation();
         this.colorAnimation = createAnimation;
         createAnimation.addUpdateListener(this);
         baseLayer.addAnimation(this.colorAnimation);
     }
 
     @Override // com.airbnb.lottie.animation.content.BaseStrokeContent, com.airbnb.lottie.model.KeyPathElement
-    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
-        super.addValueCallback(t, lottieValueCallback);
-        if (t == LottieProperty.STROKE_COLOR) {
+    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
+        super.addValueCallback(obj, lottieValueCallback);
+        if (obj == LottieProperty.STROKE_COLOR) {
             this.colorAnimation.setValueCallback(lottieValueCallback);
-        } else if (t == LottieProperty.COLOR_FILTER) {
-            BaseKeyframeAnimation<ColorFilter, ColorFilter> baseKeyframeAnimation = this.colorFilterAnimation;
+        } else if (obj == LottieProperty.COLOR_FILTER) {
+            BaseKeyframeAnimation baseKeyframeAnimation = this.colorFilterAnimation;
             if (baseKeyframeAnimation != null) {
                 this.layer.removeAnimation(baseKeyframeAnimation);
             }
@@ -59,9 +57,9 @@ public class StrokeContent extends BaseStrokeContent {
             return;
         }
         this.paint.setColor(((ColorKeyframeAnimation) this.colorAnimation).getIntValue());
-        BaseKeyframeAnimation<ColorFilter, ColorFilter> baseKeyframeAnimation = this.colorFilterAnimation;
+        BaseKeyframeAnimation baseKeyframeAnimation = this.colorFilterAnimation;
         if (baseKeyframeAnimation != null) {
-            this.paint.setColorFilter(baseKeyframeAnimation.getValue());
+            this.paint.setColorFilter((ColorFilter) baseKeyframeAnimation.getValue());
         }
         super.draw(canvas, matrix, i);
     }

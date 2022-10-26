@@ -1,16 +1,13 @@
 package com.google.android.gms.common.util;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.Set;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public final class ScopeUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -30,9 +27,7 @@ public final class ScopeUtil {
         }
     }
 
-    @NonNull
-    @KeepForSdk
-    public static String[] toScopeString(@NonNull Set<Scope> set) {
+    public static String[] toScopeString(Set set) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, set)) == null) {

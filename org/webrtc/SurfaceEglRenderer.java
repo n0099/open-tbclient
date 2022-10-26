@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceEglRenderer";
@@ -48,6 +48,64 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             Logging.d(TAG, this.name + ": " + str);
+        }
+    }
+
+    @Override // org.webrtc.EglRenderer, org.webrtc.VideoSink
+    public void onFrame(VideoFrame videoFrame) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, videoFrame) == null) {
+            updateFrameDimensionsAndReportEvents(videoFrame);
+            super.onFrame(videoFrame);
+        }
+    }
+
+    @Override // org.webrtc.EglRenderer
+    public void setFpsReduction(float f) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            synchronized (this.layoutLock) {
+                if (f == 0.0f) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.isRenderingPaused = z;
+            }
+            super.setFpsReduction(f);
+        }
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            createEglSurface(surfaceHolder.getSurface());
+        }
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) {
+            ThreadUtils.checkIsOnMainThread();
+            final CountDownLatch countDownLatch = new CountDownLatch(1);
+            countDownLatch.getClass();
+            releaseEglSurface(new Runnable() { // from class: com.baidu.tieba.hw9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        countDownLatch.countDown();
+                    }
+                }
+            });
+            ThreadUtils.awaitUninterruptibly(countDownLatch);
         }
     }
 
@@ -89,6 +147,17 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
         }
     }
 
+    @Override // org.webrtc.EglRenderer
+    public void pauseVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.layoutLock) {
+                this.isRenderingPaused = true;
+            }
+            super.pauseVideo();
+        }
+    }
+
     public void init(EglBase.Context context, RendererCommon.RendererEvents rendererEvents, int[] iArr, RendererCommon.GlDrawer glDrawer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rendererEvents, iArr, glDrawer) == null) {
@@ -104,34 +173,11 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
         }
     }
 
-    @Override // org.webrtc.EglRenderer, org.webrtc.VideoSink
-    public void onFrame(VideoFrame videoFrame) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, videoFrame) == null) {
-            updateFrameDimensionsAndReportEvents(videoFrame);
-            super.onFrame(videoFrame);
-        }
-    }
-
     @Override // org.webrtc.EglRenderer
-    public void pauseVideo() {
+    public void init(EglBase.Context context, int[] iArr, RendererCommon.GlDrawer glDrawer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.layoutLock) {
-                this.isRenderingPaused = true;
-            }
-            super.pauseVideo();
-        }
-    }
-
-    @Override // org.webrtc.EglRenderer
-    public void setFpsReduction(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            synchronized (this.layoutLock) {
-                this.isRenderingPaused = f == 0.0f;
-            }
-            super.setFpsReduction(f);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, iArr, glDrawer) == null) {
+            init(context, (RendererCommon.RendererEvents) null, iArr, glDrawer);
         }
     }
 
@@ -141,46 +187,6 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
         if (interceptable == null || interceptable.invokeLIII(1048582, this, surfaceHolder, i, i2, i3) == null) {
             ThreadUtils.checkIsOnMainThread();
             logD("surfaceChanged: format: " + i + " size: " + i2 + "x" + i3);
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) {
-            ThreadUtils.checkIsOnMainThread();
-            createEglSurface(surfaceHolder.getSurface());
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) {
-            ThreadUtils.checkIsOnMainThread();
-            final CountDownLatch countDownLatch = new CountDownLatch(1);
-            countDownLatch.getClass();
-            releaseEglSurface(new Runnable() { // from class: com.baidu.tieba.pv9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        countDownLatch.countDown();
-                    }
-                }
-            });
-            ThreadUtils.awaitUninterruptibly(countDownLatch);
-        }
-    }
-
-    @Override // org.webrtc.EglRenderer
-    public void init(EglBase.Context context, int[] iArr, RendererCommon.GlDrawer glDrawer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, iArr, glDrawer) == null) {
-            init(context, (RendererCommon.RendererEvents) null, iArr, glDrawer);
         }
     }
 }

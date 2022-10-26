@@ -6,10 +6,8 @@ import android.widget.CompoundButton;
 import com.baidu.android.ext.widget.toast.UniversalToast;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.debug.annotation.DebugInfoProvider;
 import com.baidu.searchbox.debug.data.CheckItemInfo;
 import com.baidu.searchbox.debug.data.DebugDataGroupProvider;
-import com.baidu.searchbox.debug.data.DebugItemInfo;
 import com.baidu.searchbox.fluency.utils.FpsSpUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,12 +16,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-@DebugInfoProvider(enable = false, type = "Debug_Fetures")
 /* loaded from: classes2.dex */
 public class FpsOperationProvider extends DebugDataGroupProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CompoundButton.OnCheckedChangeListener mSwitchDebugListener;
+
+    @Override // com.baidu.searchbox.debug.data.DebugDataGroupProvider
+    public String getGroupName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "帧率(FPS)监控" : (String) invokeV.objValue;
+    }
 
     public FpsOperationProvider() {
         Interceptable interceptable = $ic;
@@ -89,7 +93,7 @@ public class FpsOperationProvider extends DebugDataGroupProvider {
         return invokeV.booleanValue;
     }
 
-    private List<DebugItemInfo> getGCommunityOperationInfo() {
+    private List getGCommunityOperationInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
@@ -101,16 +105,12 @@ public class FpsOperationProvider extends DebugDataGroupProvider {
     }
 
     @Override // com.baidu.searchbox.debug.data.DebugDataGroupProvider
-    public List<DebugItemInfo> getChildItemList() {
+    public List getChildItemList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getGCommunityOperationInfo() : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.debug.data.DebugDataGroupProvider
-    public String getGroupName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "帧率(FPS)监控" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getGCommunityOperationInfo();
+        }
+        return (List) invokeV.objValue;
     }
 }

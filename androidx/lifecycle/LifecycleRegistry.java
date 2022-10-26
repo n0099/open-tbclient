@@ -1,8 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.arch.core.internal.FastSafeIterableMap;
 import androidx.arch.core.internal.SafeIterableMap;
 import androidx.core.view.InputDeviceCompat;
@@ -144,7 +141,7 @@ public class LifecycleRegistry extends Lifecycle {
         }
     }
 
-    public LifecycleRegistry(@NonNull LifecycleOwner lifecycleOwner) {
+    public LifecycleRegistry(LifecycleOwner lifecycleOwner) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,16 +184,21 @@ public class LifecycleRegistry extends Lifecycle {
 
     private Lifecycle.State calculateTargetState(LifecycleObserver lifecycleObserver) {
         InterceptResult invokeL;
+        Lifecycle.State state;
+        ArrayList<Lifecycle.State> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, lifecycleObserver)) == null) {
             Map.Entry<LifecycleObserver, ObserverWithState> ceil = this.mObserverMap.ceil(lifecycleObserver);
-            Lifecycle.State state = null;
-            Lifecycle.State state2 = ceil != null ? ceil.getValue().mState : null;
-            if (!this.mParentStates.isEmpty()) {
-                ArrayList<Lifecycle.State> arrayList = this.mParentStates;
-                state = arrayList.get(arrayList.size() - 1);
+            Lifecycle.State state2 = null;
+            if (ceil != null) {
+                state = ceil.getValue().mState;
+            } else {
+                state = null;
             }
-            return min(min(this.mState, state2), state);
+            if (!this.mParentStates.isEmpty()) {
+                state2 = this.mParentStates.get(arrayList.size() - 1);
+            }
+            return min(min(this.mState, state), state2);
         }
         return (Lifecycle.State) invokeL.objValue;
     }
@@ -266,6 +268,33 @@ public class LifecycleRegistry extends Lifecycle {
         return (Lifecycle.State) invokeL.objValue;
     }
 
+    public static Lifecycle.Event upEvent(Lifecycle.State state) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, state)) == null) {
+            int i = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                throw new IllegalArgumentException("Unexpected state value " + state);
+                            }
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
+                    } else {
+                        return Lifecycle.Event.ON_RESUME;
+                    }
+                } else {
+                    return Lifecycle.Event.ON_START;
+                }
+            }
+            return Lifecycle.Event.ON_CREATE;
+        }
+        return (Lifecycle.Event) invokeL.objValue;
+    }
+
     private boolean isSynced() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -275,20 +304,29 @@ public class LifecycleRegistry extends Lifecycle {
             }
             Lifecycle.State state = this.mObserverMap.eldest().getValue().mState;
             Lifecycle.State state2 = this.mObserverMap.newest().getValue().mState;
-            return state == state2 && this.mState == state2;
+            if (state == state2 && this.mState == state2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static Lifecycle.State min(@NonNull Lifecycle.State state, @Nullable Lifecycle.State state2) {
+    public static Lifecycle.State min(Lifecycle.State state, Lifecycle.State state2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, state, state2)) == null) ? (state2 == null || state2.compareTo(state) >= 0) ? state : state2 : (Lifecycle.State) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, state, state2)) == null) {
+            if (state2 != null && state2.compareTo(state) < 0) {
+                return state2;
+            }
+            return state;
+        }
+        return (Lifecycle.State) invokeLL.objValue;
     }
 
     private void moveToState(Lifecycle.State state) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, state) == null) || this.mState == state) {
+        if ((interceptable != null && interceptable.invokeL(65544, this, state) != null) || this.mState == state) {
             return;
         }
         this.mState = state;
@@ -301,6 +339,43 @@ public class LifecycleRegistry extends Lifecycle {
         this.mNewEventOccurred = true;
     }
 
+    private void pushParentState(Lifecycle.State state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, this, state) == null) {
+            this.mParentStates.add(state);
+        }
+    }
+
+    public void handleLifecycleEvent(Lifecycle.Event event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
+            moveToState(getStateAfter(event));
+        }
+    }
+
+    @Deprecated
+    public void markState(Lifecycle.State state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
+            setCurrentState(state);
+        }
+    }
+
+    @Override // androidx.lifecycle.Lifecycle
+    public void removeObserver(LifecycleObserver lifecycleObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, lifecycleObserver) == null) {
+            this.mObserverMap.remove(lifecycleObserver);
+        }
+    }
+
+    public void setCurrentState(Lifecycle.State state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, state) == null) {
+            moveToState(state);
+        }
+    }
+
     private void popParentState() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
@@ -309,11 +384,23 @@ public class LifecycleRegistry extends Lifecycle {
         }
     }
 
-    private void pushParentState(Lifecycle.State state) {
+    @Override // androidx.lifecycle.Lifecycle
+    public Lifecycle.State getCurrentState() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, state) == null) {
-            this.mParentStates.add(state);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mState;
         }
+        return (Lifecycle.State) invokeV.objValue;
+    }
+
+    public int getObserverCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mObserverMap.size();
+        }
+        return invokeV.intValue;
     }
 
     private void sync() {
@@ -338,33 +425,10 @@ public class LifecycleRegistry extends Lifecycle {
         }
     }
 
-    public static Lifecycle.Event upEvent(Lifecycle.State state) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, state)) == null) {
-            int i = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    return Lifecycle.Event.ON_START;
-                }
-                if (i == 3) {
-                    return Lifecycle.Event.ON_RESUME;
-                }
-                if (i == 4) {
-                    throw new IllegalArgumentException();
-                }
-                if (i != 5) {
-                    throw new IllegalArgumentException("Unexpected state value " + state);
-                }
-            }
-            return Lifecycle.Event.ON_CREATE;
-        }
-        return (Lifecycle.Event) invokeL.objValue;
-    }
-
     @Override // androidx.lifecycle.Lifecycle
-    public void addObserver(@NonNull LifecycleObserver lifecycleObserver) {
+    public void addObserver(LifecycleObserver lifecycleObserver) {
         LifecycleOwner lifecycleOwner;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, lifecycleObserver) == null) {
             Lifecycle.State state = this.mState;
@@ -373,67 +437,26 @@ public class LifecycleRegistry extends Lifecycle {
                 state2 = Lifecycle.State.INITIALIZED;
             }
             ObserverWithState observerWithState = new ObserverWithState(lifecycleObserver, state2);
-            if (this.mObserverMap.putIfAbsent(lifecycleObserver, observerWithState) == null && (lifecycleOwner = this.mLifecycleOwner.get()) != null) {
-                boolean z = this.mAddingObserverCounter != 0 || this.mHandlingEvent;
-                Lifecycle.State calculateTargetState = calculateTargetState(lifecycleObserver);
-                this.mAddingObserverCounter++;
-                while (observerWithState.mState.compareTo(calculateTargetState) < 0 && this.mObserverMap.contains(lifecycleObserver)) {
-                    pushParentState(observerWithState.mState);
-                    observerWithState.dispatchEvent(lifecycleOwner, upEvent(observerWithState.mState));
-                    popParentState();
-                    calculateTargetState = calculateTargetState(lifecycleObserver);
-                }
-                if (!z) {
-                    sync();
-                }
-                this.mAddingObserverCounter--;
+            if (this.mObserverMap.putIfAbsent(lifecycleObserver, observerWithState) != null || (lifecycleOwner = this.mLifecycleOwner.get()) == null) {
+                return;
             }
-        }
-    }
-
-    @Override // androidx.lifecycle.Lifecycle
-    @NonNull
-    public Lifecycle.State getCurrentState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mState : (Lifecycle.State) invokeV.objValue;
-    }
-
-    public int getObserverCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mObserverMap.size() : invokeV.intValue;
-    }
-
-    public void handleLifecycleEvent(@NonNull Lifecycle.Event event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
-            moveToState(getStateAfter(event));
-        }
-    }
-
-    @MainThread
-    @Deprecated
-    public void markState(@NonNull Lifecycle.State state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
-            setCurrentState(state);
-        }
-    }
-
-    @Override // androidx.lifecycle.Lifecycle
-    public void removeObserver(@NonNull LifecycleObserver lifecycleObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lifecycleObserver) == null) {
-            this.mObserverMap.remove(lifecycleObserver);
-        }
-    }
-
-    @MainThread
-    public void setCurrentState(@NonNull Lifecycle.State state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, state) == null) {
-            moveToState(state);
+            if (this.mAddingObserverCounter == 0 && !this.mHandlingEvent) {
+                z = false;
+            } else {
+                z = true;
+            }
+            Lifecycle.State calculateTargetState = calculateTargetState(lifecycleObserver);
+            this.mAddingObserverCounter++;
+            while (observerWithState.mState.compareTo(calculateTargetState) < 0 && this.mObserverMap.contains(lifecycleObserver)) {
+                pushParentState(observerWithState.mState);
+                observerWithState.dispatchEvent(lifecycleOwner, upEvent(observerWithState.mState));
+                popParentState();
+                calculateTargetState = calculateTargetState(lifecycleObserver);
+            }
+            if (!z) {
+                sync();
+            }
+            this.mAddingObserverCounter--;
         }
     }
 }

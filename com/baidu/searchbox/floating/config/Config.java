@@ -11,7 +11,6 @@ import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.searchbox.floating.IFloating;
 import com.baidu.searchbox.floating.animator.FloatViewAnimator;
-import com.baidu.searchbox.floating.listener.FloatViewListener;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,23 +36,39 @@ public class Config {
     public FloatViewAnimator animator;
     public Rect blockOffset;
     public boolean canDrag;
-    public final Set<String> filter;
-    public ArrayList<FloatViewListener> floatViewListeners;
+    public final Set filter;
+    public ArrayList floatViewListeners;
     public IFloating floatingContext;
     public View floatingView;
     public boolean isAnimating;
     public boolean isDragging;
     public boolean isForeground;
-    public Pair<Integer, Integer> location;
+    public Pair location;
     public Notification notification;
     public boolean reverse;
-    public Pair<? extends ScaleMode, ? extends ScaleMode> scaleMode;
+    public Pair scaleMode;
     public int shadow;
-    public Pair<Integer, Integer> size;
+    public Pair size;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1778796485, "Lcom/baidu/searchbox/floating/config/Config;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1778796485, "Lcom/baidu/searchbox/floating/config/Config;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/floating/config/Config$Companion;", "", "FLOATING_CLOSE_WARNING", "Ljava/lang/String;", "FLOATING_PERMISSION_AUTH", "<init>", "()V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,22 +91,6 @@ public class Config {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1778796485, "Lcom/baidu/searchbox/floating/config/Config;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1778796485, "Lcom/baidu/searchbox/floating/config/Config;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
-    }
-
     public Config() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,110 +105,157 @@ public class Config {
             }
         }
         this.blockOffset = new Rect(0, 0, 0, 0);
-        this.location = new Pair<>(-1, -1);
-        this.size = new Pair<>(-1, -1);
+        this.location = new Pair(-1, -1);
+        this.size = new Pair(-1, -1);
         ScaleMode scaleMode = ScaleMode.S;
-        this.scaleMode = new Pair<>(scaleMode, scaleMode);
+        this.scaleMode = new Pair(scaleMode, scaleMode);
         this.canDrag = true;
-        this.floatViewListeners = new ArrayList<>();
+        this.floatViewListeners = new ArrayList();
         this.filter = new LinkedHashSet();
     }
 
     public final FloatViewAnimator getAnimator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.animator : (FloatViewAnimator) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.animator;
+        }
+        return (FloatViewAnimator) invokeV.objValue;
     }
 
     public final Rect getBlockOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.blockOffset : (Rect) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.blockOffset;
+        }
+        return (Rect) invokeV.objValue;
     }
 
     public final boolean getCanDrag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.canDrag : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.canDrag;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final Set<String> getFilter() {
+    public final Set getFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.filter : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.filter;
+        }
+        return (Set) invokeV.objValue;
     }
 
-    public final ArrayList<FloatViewListener> getFloatViewListeners() {
+    public final ArrayList getFloatViewListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.floatViewListeners : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.floatViewListeners;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public final IFloating getFloatingContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.floatingContext : (IFloating) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.floatingContext;
+        }
+        return (IFloating) invokeV.objValue;
     }
 
     public final View getFloatingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.floatingView : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.floatingView;
+        }
+        return (View) invokeV.objValue;
     }
 
-    public final Pair<Integer, Integer> getLocation() {
+    public final Pair getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.location : (Pair) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.location;
+        }
+        return (Pair) invokeV.objValue;
     }
 
     public final Notification getNotification() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.notification : (Notification) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.notification;
+        }
+        return (Notification) invokeV.objValue;
     }
 
     public final boolean getReverse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.reverse : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.reverse;
+        }
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.Pair<? extends com.baidu.searchbox.floating.config.ScaleMode, ? extends com.baidu.searchbox.floating.config.ScaleMode>, kotlin.Pair<com.baidu.searchbox.floating.config.ScaleMode, com.baidu.searchbox.floating.config.ScaleMode> */
-    public final Pair<ScaleMode, ScaleMode> getScaleMode() {
+    public final Pair getScaleMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.scaleMode : (Pair) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.scaleMode;
+        }
+        return (Pair) invokeV.objValue;
     }
 
     public final int getShadow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.shadow : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.shadow;
+        }
+        return invokeV.intValue;
     }
 
-    public final Pair<Integer, Integer> getSize() {
+    public final Pair getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.size : (Pair) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.size;
+        }
+        return (Pair) invokeV.objValue;
     }
 
     public final boolean isAnimating() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.isAnimating : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.isAnimating;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isDragging() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.isDragging : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.isDragging;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.isForeground : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.isForeground;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void setAnimating(boolean z) {
@@ -248,7 +294,7 @@ public class Config {
         }
     }
 
-    public final void setFloatViewListeners(ArrayList<FloatViewListener> arrayList) {
+    public final void setFloatViewListeners(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, arrayList) == null) {
             Intrinsics.checkNotNullParameter(arrayList, "<set-?>");
@@ -277,7 +323,7 @@ public class Config {
         }
     }
 
-    public final void setLocation(Pair<Integer, Integer> pair) {
+    public final void setLocation(Pair pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, pair) == null) {
             Intrinsics.checkNotNullParameter(pair, "<set-?>");
@@ -299,7 +345,7 @@ public class Config {
         }
     }
 
-    public final void setScaleMode(Pair<? extends ScaleMode, ? extends ScaleMode> pair) {
+    public final void setScaleMode(Pair pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, pair) == null) {
             Intrinsics.checkNotNullParameter(pair, "<set-?>");
@@ -314,7 +360,7 @@ public class Config {
         }
     }
 
-    public final void setSize(Pair<Integer, Integer> pair) {
+    public final void setSize(Pair pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, pair) == null) {
             Intrinsics.checkNotNullParameter(pair, "<set-?>");

@@ -1,7 +1,6 @@
 package com.google.ar.core;
 
 import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,13 +13,13 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.or9;
-import com.baidu.tieba.qr9;
-import com.baidu.tieba.sr9;
-import com.baidu.tieba.tr9;
-import com.baidu.tieba.ur9;
-import com.baidu.tieba.vr9;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.gs9;
+import com.baidu.tieba.is9;
+import com.baidu.tieba.ks9;
+import com.baidu.tieba.ls9;
+import com.baidu.tieba.ms9;
+import com.baidu.tieba.ns9;
+import com.baidu.tieba.ps9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +31,6 @@ import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 import com.google.protobuf.CodedInputStream;
 import java.util.concurrent.atomic.AtomicReference;
-@TargetApi(24)
 /* loaded from: classes7.dex */
 public class InstallActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -44,6 +42,13 @@ public class InstallActivity extends Activity {
     public boolean e;
     public boolean f;
     public boolean g;
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, intent) == null) {
+        }
+    }
 
     public InstallActivity() {
         Interceptable interceptable = $ic;
@@ -62,36 +67,94 @@ public class InstallActivity extends Activity {
         this.d = p.b;
     }
 
+    @Override // android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j(new UnavailableUserDeclinedInstallationException());
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            startActivity(new Intent(this, InstallActivity.class).setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT));
+        }
+    }
+
+    public final boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == ArCoreApk.InstallBehavior.OPTIONAL) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f = true;
+            this.d = p.b;
+            is9.d().e(this).c(this, new ps9(this));
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (!this.e) {
+                is9.d().g();
+            }
+            super.onDestroy();
+        }
+    }
+
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.xr9.a(com.google.ar.core.p):void, com.baidu.tieba.xr9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ps9.a(com.google.ar.core.p):void, com.baidu.tieba.ps9.b(java.lang.Exception):void] */
     public static /* synthetic */ void a(InstallActivity installActivity, Exception exc) {
         installActivity.j(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.xr9.a(com.google.ar.core.p):void, com.baidu.tieba.xr9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ps9.a(com.google.ar.core.p):void, com.baidu.tieba.ps9.b(java.lang.Exception):void] */
     public static /* synthetic */ p e(InstallActivity installActivity, p pVar) {
         installActivity.d = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.xr9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ps9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean f(InstallActivity installActivity) {
         return installActivity.g;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.xr9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ps9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void g(InstallActivity installActivity) {
         installActivity.i();
     }
 
-    @Override // android.app.Activity
-    public void finish() {
+    public final void j(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j(new UnavailableUserDeclinedInstallationException());
+        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
+            is9.d().a = exc;
+            is9.d().g();
+            this.e = true;
+            super.finish();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putBoolean("didResume", true);
         }
     }
 
@@ -107,50 +170,9 @@ public class InstallActivity extends Activity {
             getWindow().getDecorView().setMinimumWidth(i);
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ofFloat.addUpdateListener(new ur9(this, width, i, height));
-            ofFloat.addListener(new vr9(this));
+            ofFloat.addUpdateListener(new ms9(this, width, i, height));
+            ofFloat.addListener(new ns9(this));
             ofFloat.start();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            startActivity(new Intent(this, InstallActivity.class).setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT));
-        }
-    }
-
-    public final void j(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            qr9.d().a = exc;
-            qr9.d().g();
-            this.e = true;
-            super.finish();
-        }
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c == ArCoreApk.InstallBehavior.OPTIONAL : invokeV.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            setContentView(R.layout.__arcore_education);
-            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new sr9(this));
-            if (!k()) {
-                findViewById(R.id.__arcore_cancelButton).setVisibility(8);
-            }
-            findViewById(R.id.__arcore_continueButton).setOnClickListener(new tr9(this));
-            TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
-            if (this.b.ordinal() != 1) {
-                textView.setText(R.string.__arcore_install_app);
-            } else {
-                textView.setText(R.string.__arcore_install_feature);
-            }
         }
     }
 
@@ -181,12 +203,44 @@ public class InstallActivity extends Activity {
         }
     }
 
-    public final void n() {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f = true;
-            this.d = p.b;
-            qr9.d().e(this).c(this, new xr9(this));
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setContentView(R.layout.__arcore_education);
+            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new ks9(this));
+            if (!k()) {
+                findViewById(R.id.__arcore_cancelButton).setVisibility(8);
+            }
+            findViewById(R.id.__arcore_continueButton).setOnClickListener(new ls9(this));
+            TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
+            if (this.b.ordinal() != 1) {
+                textView.setText(R.string.__arcore_install_app);
+            } else {
+                textView.setText(R.string.__arcore_install_feature);
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onResume();
+            if (!this.f) {
+                if (this.b == ArCoreApk.UserMessageType.USER_ALREADY_INFORMED) {
+                    n();
+                }
+            } else if (!this.e) {
+                synchronized (this) {
+                    if (this.d == p.b) {
+                        finish();
+                    } else if (this.d == p.a) {
+                        this.g = true;
+                    } else {
+                        j(is9.d().a);
+                    }
+                }
+            }
         }
     }
 
@@ -224,13 +278,15 @@ public class InstallActivity extends Activity {
                         return;
                     }
                     AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                    qr9.d().e(this).e(this, new or9(atomicReference));
+                    is9.d().e(this).e(this, new gs9(atomicReference));
                     int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
-                    if (ordinal == 0) {
+                    if (ordinal != 0) {
+                        if (ordinal == 3) {
+                            j(new UnavailableDeviceNotCompatibleException());
+                            return;
+                        }
+                    } else {
                         Log.w("ARCore-InstallActivity", "Preliminary compatibility check failed.");
-                    } else if (ordinal == 3) {
-                        j(new UnavailableDeviceNotCompatibleException());
-                        return;
                     }
                     l();
                     return;
@@ -240,57 +296,6 @@ public class InstallActivity extends Activity {
             } catch (RuntimeException e) {
                 j(new FatalException("Exception starting install flow", e));
             }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!this.e) {
-                qr9.d().g();
-            }
-            super.onDestroy();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, intent) == null) {
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onResume();
-            if (!this.f) {
-                if (this.b == ArCoreApk.UserMessageType.USER_ALREADY_INFORMED) {
-                    n();
-                }
-            } else if (this.e) {
-            } else {
-                synchronized (this) {
-                    if (this.d == p.b) {
-                        finish();
-                    } else if (this.d == p.a) {
-                        this.g = true;
-                    } else {
-                        j(qr9.d().a);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putBoolean("didResume", true);
         }
     }
 }

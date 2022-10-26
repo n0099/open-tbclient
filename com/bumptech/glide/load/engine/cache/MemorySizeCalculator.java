@@ -1,13 +1,11 @@
 package com.bumptech.glide.load.engine.cache;
 
-import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +18,6 @@ import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
 public final class MemorySizeCalculator {
     public static /* synthetic */ Interceptable $ic = null;
-    @VisibleForTesting
     public static final int BYTES_PER_ARGB_8888_PIXEL = 4;
     public static final int LOW_MEMORY_BYTE_ARRAY_POOL_DIVISOR = 2;
     public static final String TAG = "MemorySizeCalculator";
@@ -31,13 +28,19 @@ public final class MemorySizeCalculator {
     public final int memoryCacheSize;
 
     /* loaded from: classes7.dex */
-    public static final class Builder {
+    public interface ScreenDimensions {
+        int getHeightPixels();
+
+        int getWidthPixels();
+    }
+
+    /* loaded from: classes7.dex */
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ARRAY_POOL_SIZE_BYTES = 4194304;
         public static final int BITMAP_POOL_TARGET_SCREENS;
         public static final float LOW_MEMORY_MAX_SIZE_MULTIPLIER = 0.33f;
         public static final float MAX_SIZE_MULTIPLIER = 0.4f;
-        @VisibleForTesting
         public static final int MEMORY_CACHE_TARGET_SCREENS = 2;
         public transient /* synthetic */ FieldHolder $fh;
         public ActivityManager activityManager;
@@ -51,6 +54,7 @@ public final class MemorySizeCalculator {
 
         static {
             InterceptResult invokeClinit;
+            int i;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
             if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1895433924, "Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator$Builder;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
@@ -62,7 +66,21 @@ public final class MemorySizeCalculator {
                     return;
                 }
             }
-            BITMAP_POOL_TARGET_SCREENS = Build.VERSION.SDK_INT < 26 ? 4 : 1;
+            if (Build.VERSION.SDK_INT < 26) {
+                i = 4;
+            } else {
+                i = 1;
+            }
+            BITMAP_POOL_TARGET_SCREENS = i;
+        }
+
+        public MemorySizeCalculator build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new MemorySizeCalculator(this);
+            }
+            return (MemorySizeCalculator) invokeV.objValue;
         }
 
         public Builder(Context context) {
@@ -88,19 +106,11 @@ public final class MemorySizeCalculator {
             this.context = context;
             this.activityManager = (ActivityManager) context.getSystemService("activity");
             this.screenDimensions = new DisplayMetricsScreenDimensions(context.getResources().getDisplayMetrics());
-            if (Build.VERSION.SDK_INT < 26 || !MemorySizeCalculator.isLowMemoryDevice(this.activityManager)) {
-                return;
+            if (Build.VERSION.SDK_INT >= 26 && MemorySizeCalculator.isLowMemoryDevice(this.activityManager)) {
+                this.bitmapPoolScreens = 0.0f;
             }
-            this.bitmapPoolScreens = 0.0f;
         }
 
-        public MemorySizeCalculator build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MemorySizeCalculator(this) : (MemorySizeCalculator) invokeV.objValue;
-        }
-
-        @VisibleForTesting
         public Builder setActivityManager(ActivityManager activityManager) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -123,9 +133,15 @@ public final class MemorySizeCalculator {
 
         public Builder setBitmapPoolScreens(float f) {
             InterceptResult invokeF;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-                Preconditions.checkArgument(f >= 0.0f, "Bitmap pool screens must be greater than or equal to 0");
+                if (f >= 0.0f) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z, "Bitmap pool screens must be greater than or equal to 0");
                 this.bitmapPoolScreens = f;
                 return this;
             }
@@ -134,9 +150,15 @@ public final class MemorySizeCalculator {
 
         public Builder setLowMemoryMaxSizeMultiplier(float f) {
             InterceptResult invokeF;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-                Preconditions.checkArgument(f >= 0.0f && f <= 1.0f, "Low memory max size multiplier must be between 0 and 1");
+                if (f >= 0.0f && f <= 1.0f) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z, "Low memory max size multiplier must be between 0 and 1");
                 this.lowMemoryMaxSizeMultiplier = f;
                 return this;
             }
@@ -145,9 +167,15 @@ public final class MemorySizeCalculator {
 
         public Builder setMaxSizeMultiplier(float f) {
             InterceptResult invokeF;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-                Preconditions.checkArgument(f >= 0.0f && f <= 1.0f, "Size multiplier must be between 0 and 1");
+                if (f >= 0.0f && f <= 1.0f) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z, "Size multiplier must be between 0 and 1");
                 this.maxSizeMultiplier = f;
                 return this;
             }
@@ -156,16 +184,21 @@ public final class MemorySizeCalculator {
 
         public Builder setMemoryCacheScreens(float f) {
             InterceptResult invokeF;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-                Preconditions.checkArgument(f >= 0.0f, "Memory cache screens must be greater than or equal to 0");
+                if (f >= 0.0f) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z, "Memory cache screens must be greater than or equal to 0");
                 this.memoryCacheScreens = f;
                 return this;
             }
             return (Builder) invokeF.objValue;
         }
 
-        @VisibleForTesting
         public Builder setScreenDimensions(ScreenDimensions screenDimensions) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -178,7 +211,7 @@ public final class MemorySizeCalculator {
     }
 
     /* loaded from: classes7.dex */
-    public static final class DisplayMetricsScreenDimensions implements ScreenDimensions {
+    public final class DisplayMetricsScreenDimensions implements ScreenDimensions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DisplayMetrics displayMetrics;
@@ -205,26 +238,26 @@ public final class MemorySizeCalculator {
         public int getHeightPixels() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.displayMetrics.heightPixels : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.displayMetrics.heightPixels;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.bumptech.glide.load.engine.cache.MemorySizeCalculator.ScreenDimensions
         public int getWidthPixels() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.displayMetrics.widthPixels : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.displayMetrics.widthPixels;
+            }
+            return invokeV.intValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface ScreenDimensions {
-        int getHeightPixels();
-
-        int getWidthPixels();
     }
 
     public MemorySizeCalculator(Builder builder) {
         int i;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -272,7 +305,12 @@ public final class MemorySizeCalculator {
             sb.append(", byte array size: ");
             sb.append(toMb(this.arrayPoolSize));
             sb.append(", memory class limited? ");
-            sb.append(i5 > maxSize);
+            if (i5 > maxSize) {
+                z = true;
+            } else {
+                z = false;
+            }
+            sb.append(z);
             sb.append(", max size: ");
             sb.append(toMb(maxSize));
             sb.append(", memoryClass: ");
@@ -297,7 +335,6 @@ public final class MemorySizeCalculator {
         return invokeCommon.intValue;
     }
 
-    @TargetApi(19)
     public static boolean isLowMemoryDevice(ActivityManager activityManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -313,24 +350,36 @@ public final class MemorySizeCalculator {
     private String toMb(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) ? Formatter.formatFileSize(this.context, i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) {
+            return Formatter.formatFileSize(this.context, i);
+        }
+        return (String) invokeI.objValue;
     }
 
     public int getArrayPoolSizeInBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.arrayPoolSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.arrayPoolSize;
+        }
+        return invokeV.intValue;
     }
 
     public int getBitmapPoolSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bitmapPoolSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bitmapPoolSize;
+        }
+        return invokeV.intValue;
     }
 
     public int getMemoryCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.memoryCacheSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.memoryCacheSize;
+        }
+        return invokeV.intValue;
     }
 }

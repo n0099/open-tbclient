@@ -1,7 +1,6 @@
 package com.ss.android.downloadlib.addownload.b;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -16,6 +15,11 @@ public class e implements com.ss.android.downloadad.api.a.a {
     public DownloadModel b;
     public DownloadEventConfig c;
     public DownloadController d;
+
+    @Override // com.ss.android.downloadad.api.a.a
+    public int s() {
+        return 0;
+    }
 
     public e() {
     }
@@ -92,7 +96,7 @@ public class e implements com.ss.android.downloadad.api.a.a {
     }
 
     @Override // com.ss.android.downloadad.api.a.a
-    public List<String> n() {
+    public List n() {
         return this.b.getClickTrackUrl();
     }
 
@@ -114,11 +118,6 @@ public class e implements com.ss.android.downloadad.api.a.a {
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject r() {
         return this.b.getDownloadSettings();
-    }
-
-    @Override // com.ss.android.downloadad.api.a.a
-    public int s() {
-        return 0;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -146,7 +145,17 @@ public class e implements com.ss.android.downloadad.api.a.a {
         if (this.a == 0 || (downloadModel = this.b) == null || this.c == null || this.d == null) {
             return true;
         }
-        return downloadModel.isAd() && this.a <= 0;
+        if (downloadModel.isAd() && this.a <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public e(long j, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
+        this.a = j;
+        this.b = downloadModel;
+        this.c = downloadEventConfig;
+        this.d = downloadController;
     }
 
     public boolean y() {
@@ -155,15 +164,11 @@ public class e implements com.ss.android.downloadad.api.a.a {
         }
         if (this.b.isAd()) {
             DownloadModel downloadModel = this.b;
-            return (downloadModel instanceof AdDownloadModel) && !TextUtils.isEmpty(downloadModel.getLogExtra()) && (this.c instanceof AdDownloadEventConfig) && (this.d instanceof AdDownloadController);
+            if (!(downloadModel instanceof AdDownloadModel) || TextUtils.isEmpty(downloadModel.getLogExtra()) || !(this.c instanceof AdDownloadEventConfig) || !(this.d instanceof AdDownloadController)) {
+                return false;
+            }
+            return true;
         }
         return this.b instanceof AdDownloadModel;
-    }
-
-    public e(long j, @NonNull DownloadModel downloadModel, @NonNull DownloadEventConfig downloadEventConfig, @NonNull DownloadController downloadController) {
-        this.a = j;
-        this.b = downloadModel;
-        this.c = downloadEventConfig;
-        this.d = downloadController;
     }
 }

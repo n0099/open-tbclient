@@ -1,6 +1,5 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ public class AsyncPublishVoiceStatData implements Serializable {
     public long size;
     public long startTime;
 
-    public AsyncPublishVoiceStatData(@NonNull String str) {
+    public AsyncPublishVoiceStatData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

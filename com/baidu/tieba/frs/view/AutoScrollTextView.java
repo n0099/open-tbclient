@@ -38,15 +38,21 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
     public float j;
 
     /* loaded from: classes4.dex */
-    public static class SavedState extends View.BaseSavedState {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<SavedState> CREATOR;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public class SavedState extends View.BaseSavedState {
+        public static /* synthetic */ Interceptable $ic;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isStarting;
         public float step;
 
         /* loaded from: classes4.dex */
-        public static class a implements Parcelable.Creator<SavedState> {
+        public final class a implements Parcelable.Creator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,7 +76,10 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             public SavedState createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel, null) : (SavedState) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                    return new SavedState(parcel, null);
+                }
+                return (SavedState) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +88,10 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             public SavedState[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                    return new SavedState[i];
+                }
+                return (SavedState[]) invokeI.objValue;
             }
         }
 
@@ -97,6 +109,30 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 }
             }
             CREATOR = new a();
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SavedState(Parcel parcel) {
+            super(parcel);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Parcel) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.isStarting = false;
+            this.step = 0.0f;
+            parcel.readBooleanArray(null);
+            this.step = parcel.readFloat();
         }
 
         public /* synthetic */ SavedState(Parcel parcel, a aVar) {
@@ -134,36 +170,6 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
             this.isStarting = false;
             this.step = 0.0f;
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel) {
-            super(parcel);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Parcel) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.isStarting = false;
-            this.step = 0.0f;
-            parcel.readBooleanArray(null);
-            this.step = parcel.readFloat();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -216,97 +222,6 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOnClickListener(this);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = true;
-            invalidate();
-        }
-    }
-
-    public void d(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            this.j = f;
-            setWidth((int) ((f - 0.5f) * 3000.0f));
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (onClickListener = this.i) == null) {
-            return;
-        }
-        onClickListener.onClick(view2);
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            if (!this.f) {
-                float f = this.j;
-                if (f > 0.5f) {
-                    setWidth((int) ((f - 0.5f) * 3000.0f));
-                    canvas.drawText(this.h, this.d - this.c, getTextSize() + 2.7f, this.g);
-                    return;
-                }
-                return;
-            }
-            canvas.drawText(this.h, this.d - this.c, getTextSize() + 2.7f, this.g);
-            float dimensionPixelOffset = this.c + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
-            this.c = dimensionPixelOffset;
-            if (dimensionPixelOffset > this.e) {
-                this.c = this.a;
-            }
-            invalidate();
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, parcelable) == null) {
-            if (!(parcelable instanceof SavedState)) {
-                super.onRestoreInstanceState(parcelable);
-                return;
-            }
-            SavedState savedState = (SavedState) parcelable;
-            super.onRestoreInstanceState(savedState.getSuperState());
-            this.c = savedState.step;
-            this.f = savedState.isStarting;
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public Parcelable onSaveInstanceState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            SavedState savedState = new SavedState(super.onSaveInstanceState());
-            savedState.step = this.c;
-            savedState.isStarting = this.f;
-            return savedState;
-        }
-        return (Parcelable) invokeV.objValue;
-    }
-
-    public void setClickliner(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.i = onClickListener;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -335,5 +250,95 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.g = null;
         this.h = "";
         b();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setOnClickListener(this);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = true;
+            invalidate();
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public Parcelable onSaveInstanceState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            SavedState savedState = new SavedState(super.onSaveInstanceState());
+            savedState.step = this.c;
+            savedState.isStarting = this.f;
+            return savedState;
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
+    public void d(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.j = f;
+            setWidth((int) ((f - 0.5f) * 3000.0f));
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (onClickListener = this.i) != null) {
+            onClickListener.onClick(view2);
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, parcelable) == null) {
+            if (!(parcelable instanceof SavedState)) {
+                super.onRestoreInstanceState(parcelable);
+                return;
+            }
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            this.c = savedState.step;
+            this.f = savedState.isStarting;
+        }
+    }
+
+    public void setClickliner(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+            this.i = onClickListener;
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            if (!this.f) {
+                float f = this.j;
+                if (f > 0.5f) {
+                    setWidth((int) ((f - 0.5f) * 3000.0f));
+                    canvas.drawText(this.h, this.d - this.c, getTextSize() + 2.7f, this.g);
+                    return;
+                }
+                return;
+            }
+            canvas.drawText(this.h, this.d - this.c, getTextSize() + 2.7f, this.g);
+            float dimensionPixelOffset = this.c + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
+            this.c = dimensionPixelOffset;
+            if (dimensionPixelOffset > this.e) {
+                this.c = this.a;
+            }
+            invalidate();
+        }
     }
 }

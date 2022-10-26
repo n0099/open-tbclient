@@ -1,8 +1,6 @@
 package androidx.core.graphics;
 
 import android.graphics.Typeface;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,8 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-@RequiresApi(28)
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi28Impl extends TypefaceCompatApi26Impl {
     public static /* synthetic */ Interceptable $ic = null;

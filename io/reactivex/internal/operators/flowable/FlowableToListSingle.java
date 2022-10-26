@@ -22,26 +22,26 @@ import java.util.Collection;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableToListSingle<T, U extends Collection<? super T>> extends Single<U> implements FuseToFlowable<U> {
+public final class FlowableToListSingle extends Single implements FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<U> collectionSupplier;
-    public final Flowable<T> source;
+    public final Callable collectionSupplier;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class ToListSubscriber<T, U extends Collection<? super T>> implements FlowableSubscriber<T>, Disposable {
+    public final class ToListSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super U> actual;
+        public final SingleObserver actual;
         public Subscription s;
-        public U value;
+        public Collection value;
 
-        public ToListSubscriber(SingleObserver<? super U> singleObserver, U u) {
+        public ToListSubscriber(SingleObserver singleObserver, Collection collection) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, u};
+                Object[] objArr = {singleObserver, collection};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public final class FlowableToListSingle<T, U extends Collection<? super T>> exte
                 }
             }
             this.actual = singleObserver;
-            this.value = u;
+            this.value = collection;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -68,7 +68,13 @@ public final class FlowableToListSingle<T, U extends Collection<? super T>> exte
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == SubscriptionHelper.CANCELLED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -91,10 +97,10 @@ public final class FlowableToListSingle<T, U extends Collection<? super T>> exte
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.value.add(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.value.add(obj);
             }
         }
 
@@ -110,7 +116,7 @@ public final class FlowableToListSingle<T, U extends Collection<? super T>> exte
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FlowableToListSingle(Flowable<T> flowable) {
+    public FlowableToListSingle(Flowable flowable) {
         this(flowable, ArrayListSupplier.asCallable());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,27 +136,7 @@ public final class FlowableToListSingle<T, U extends Collection<? super T>> exte
         }
     }
 
-    @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<U> fuseToFlowable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableToList(this.source, this.collectionSupplier)) : (Flowable) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super U> singleObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
-            try {
-                this.source.subscribe((FlowableSubscriber) new ToListSubscriber(singleObserver, (Collection) ObjectHelper.requireNonNull(this.collectionSupplier.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                EmptyDisposable.error(th, singleObserver);
-            }
-        }
-    }
-
-    public FlowableToListSingle(Flowable<T> flowable, Callable<U> callable) {
+    public FlowableToListSingle(Flowable flowable, Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,5 +153,28 @@ public final class FlowableToListSingle<T, U extends Collection<? super T>> exte
         }
         this.source = flowable;
         this.collectionSupplier = callable;
+    }
+
+    @Override // io.reactivex.internal.fuseable.FuseToFlowable
+    public Flowable fuseToFlowable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableToList(this.source, this.collectionSupplier));
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @Override // io.reactivex.Single
+    public void subscribeActual(SingleObserver singleObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
+            try {
+                this.source.subscribe((FlowableSubscriber) new ToListSubscriber(singleObserver, (Collection) ObjectHelper.requireNonNull(this.collectionSupplier.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                EmptyDisposable.error(th, singleObserver);
+            }
+        }
     }
 }

@@ -6,10 +6,9 @@ public abstract class a extends AbsDownloadListener implements s {
     public static final String a = "a";
 
     public void a(DownloadInfo downloadInfo) {
-        if (!com.ss.android.socialbase.downloader.c.a.a() || downloadInfo == null) {
-            return;
+        if (com.ss.android.socialbase.downloader.c.a.a() && downloadInfo != null) {
+            String str = a;
+            com.ss.android.socialbase.downloader.c.a.b(str, " onWaitingDownloadCompleteHandler -- " + downloadInfo.getName());
         }
-        String str = a;
-        com.ss.android.socialbase.downloader.c.a.b(str, " onWaitingDownloadCompleteHandler -- " + downloadInfo.getName());
     }
 }

@@ -1,18 +1,11 @@
 package androidx.room;
 
-import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Looper;
 import android.util.Log;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.WorkerThread;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.app.ActivityManagerCompat;
@@ -45,11 +38,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public abstract class RoomDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_IMPL_SUFFIX = "_Impl";
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final int MAX_BIND_PARAMETER_CNT = 999;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAllowMainThreadQueries;
-    @Nullable
     public List<Callback> mCallbacks;
     public final ReentrantLock mCloseLock;
     public volatile SupportSQLiteDatabase mDatabase;
@@ -57,6 +48,12 @@ public abstract class RoomDatabase {
     public SupportSQLiteOpenHelper mOpenHelper;
     public Executor mQueryExecutor;
     public boolean mWriteAheadLoggingEnabled;
+
+    public abstract void clearAllTables();
+
+    public abstract InvalidationTracker createInvalidationTracker();
+
+    public abstract SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration databaseConfiguration);
 
     /* loaded from: classes.dex */
     public static class Builder<T extends RoomDatabase> {
@@ -75,7 +72,7 @@ public abstract class RoomDatabase {
         public Executor mQueryExecutor;
         public boolean mRequireMigration;
 
-        public Builder(@NonNull Context context, @NonNull Class<T> cls, @Nullable String str) {
+        public Builder(Context context, Class<T> cls, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,8 +95,7 @@ public abstract class RoomDatabase {
             this.mMigrationContainer = new MigrationContainer();
         }
 
-        @NonNull
-        public Builder<T> addCallback(@NonNull Callback callback) {
+        public Builder<T> addCallback(Callback callback) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, callback)) == null) {
@@ -112,8 +108,52 @@ public abstract class RoomDatabase {
             return (Builder) invokeL.objValue;
         }
 
-        @NonNull
-        public Builder<T> addMigrations(@NonNull Migration... migrationArr) {
+        public Builder<T> fallbackToDestructiveMigrationFrom(int... iArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iArr)) == null) {
+                if (this.mMigrationsNotRequiredFrom == null) {
+                    this.mMigrationsNotRequiredFrom = new HashSet(iArr.length);
+                }
+                for (int i : iArr) {
+                    this.mMigrationsNotRequiredFrom.add(Integer.valueOf(i));
+                }
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder<T> openHelperFactory(SupportSQLiteOpenHelper.Factory factory) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, factory)) == null) {
+                this.mFactory = factory;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder<T> setJournalMode(JournalMode journalMode) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, journalMode)) == null) {
+                this.mJournalMode = journalMode;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder<T> setQueryExecutor(Executor executor) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, executor)) == null) {
+                this.mQueryExecutor = executor;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder<T> addMigrations(Migration... migrationArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, migrationArr)) == null) {
@@ -130,7 +170,6 @@ public abstract class RoomDatabase {
             return (Builder) invokeL.objValue;
         }
 
-        @NonNull
         public Builder<T> allowMainThreadQueries() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -141,7 +180,16 @@ public abstract class RoomDatabase {
             return (Builder) invokeV.objValue;
         }
 
-        @NonNull
+        public Builder<T> fallbackToDestructiveMigration() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                this.mRequireMigration = false;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
+        }
+
         public T build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -174,72 +222,24 @@ public abstract class RoomDatabase {
             }
             return (T) invokeV.objValue;
         }
-
-        @NonNull
-        public Builder<T> fallbackToDestructiveMigration() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                this.mRequireMigration = false;
-                return this;
-            }
-            return (Builder) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder<T> fallbackToDestructiveMigrationFrom(int... iArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, iArr)) == null) {
-                if (this.mMigrationsNotRequiredFrom == null) {
-                    this.mMigrationsNotRequiredFrom = new HashSet(iArr.length);
-                }
-                for (int i : iArr) {
-                    this.mMigrationsNotRequiredFrom.add(Integer.valueOf(i));
-                }
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        @NonNull
-        public Builder<T> openHelperFactory(@Nullable SupportSQLiteOpenHelper.Factory factory) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, factory)) == null) {
-                this.mFactory = factory;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        @NonNull
-        public Builder<T> setJournalMode(@NonNull JournalMode journalMode) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, journalMode)) == null) {
-                this.mJournalMode = journalMode;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        @NonNull
-        public Builder<T> setQueryExecutor(@NonNull Executor executor) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, executor)) == null) {
-                this.mQueryExecutor = executor;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
     }
 
     /* loaded from: classes.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public void onCreate(SupportSQLiteDatabase supportSQLiteDatabase) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, supportSQLiteDatabase) == null) {
+            }
+        }
+
+        public void onOpen(SupportSQLiteDatabase supportSQLiteDatabase) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, supportSQLiteDatabase) == null) {
+            }
+        }
 
         public Callback() {
             Interceptable interceptable = $ic;
@@ -254,18 +254,6 @@ public abstract class RoomDatabase {
                 }
             }
         }
-
-        public void onCreate(@NonNull SupportSQLiteDatabase supportSQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, supportSQLiteDatabase) == null) {
-            }
-        }
-
-        public void onOpen(@NonNull SupportSQLiteDatabase supportSQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, supportSQLiteDatabase) == null) {
-            }
-        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -275,7 +263,6 @@ public abstract class RoomDatabase {
         public static /* synthetic */ Interceptable $ic;
         public static final JournalMode AUTOMATIC;
         public static final JournalMode TRUNCATE;
-        @RequiresApi(16)
         public static final JournalMode WRITE_AHEAD_LOGGING;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -321,16 +308,21 @@ public abstract class RoomDatabase {
         public static JournalMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (JournalMode) Enum.valueOf(JournalMode.class, str) : (JournalMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (JournalMode) Enum.valueOf(JournalMode.class, str);
+            }
+            return (JournalMode) invokeL.objValue;
         }
 
         public static JournalMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (JournalMode[]) $VALUES.clone() : (JournalMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (JournalMode[]) $VALUES.clone();
+            }
+            return (JournalMode[]) invokeV.objValue;
         }
 
-        @SuppressLint({"NewApi"})
         public JournalMode resolve(Context context) {
             InterceptResult invokeL;
             ActivityManager activityManager;
@@ -395,13 +387,19 @@ public abstract class RoomDatabase {
         */
         private List<Migration> findUpMigrationPath(List<Migration> list, boolean z, int i, int i2) {
             InterceptResult invokeCommon;
+            int i3;
             SparseArrayCompat<Migration> sparseArrayCompat;
             boolean z2;
-            int i3;
             int i4;
+            int i5;
+            boolean z3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-                int i5 = z ? -1 : 1;
+                if (z) {
+                    i3 = -1;
+                } else {
+                    i3 = 1;
+                }
                 do {
                     if (z) {
                         if (i >= i2) {
@@ -414,23 +412,28 @@ public abstract class RoomDatabase {
                         int size = sparseArrayCompat.size();
                         z2 = false;
                         if (z) {
-                            i4 = size - 1;
-                            i3 = -1;
+                            i5 = size - 1;
+                            i4 = -1;
                         } else {
-                            i3 = size;
-                            i4 = 0;
+                            i4 = size;
+                            i5 = 0;
                         }
                         while (true) {
-                            if (i4 != i3) {
-                                int keyAt = sparseArrayCompat.keyAt(i4);
-                                if (!z ? keyAt < i2 || keyAt >= i : keyAt > i2 || keyAt <= i) {
-                                    list.add(sparseArrayCompat.valueAt(i4));
+                            if (i5 != i4) {
+                                int keyAt = sparseArrayCompat.keyAt(i5);
+                                if (!z ? !(keyAt < i2 || keyAt >= i) : !(keyAt > i2 || keyAt <= i)) {
+                                    z3 = true;
+                                } else {
+                                    z3 = false;
+                                }
+                                if (z3) {
+                                    list.add(sparseArrayCompat.valueAt(i5));
                                     i = keyAt;
                                     z2 = true;
                                     continue;
                                     break;
                                 }
-                                i4 += i5;
+                                i5 += i3;
                             }
                         }
                     } else {
@@ -447,7 +450,7 @@ public abstract class RoomDatabase {
             return (List) invokeCommon.objValue;
         }
 
-        public void addMigrations(@NonNull Migration... migrationArr) {
+        public void addMigrations(Migration... migrationArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, migrationArr) == null) {
                 for (Migration migration : migrationArr) {
@@ -456,15 +459,20 @@ public abstract class RoomDatabase {
             }
         }
 
-        @Nullable
         public List<Migration> findMigrationPath(int i, int i2) {
             InterceptResult invokeII;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
                 if (i == i2) {
                     return Collections.emptyList();
                 }
-                return findUpMigrationPath(new ArrayList(), i2 > i, i, i2);
+                if (i2 > i) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                return findUpMigrationPath(new ArrayList(), z, i, i2);
             }
             return (List) invokeII.objValue;
         }
@@ -490,15 +498,21 @@ public abstract class RoomDatabase {
     public static boolean isMainThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void assertNotMainThread() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.mAllowMainThreadQueries && isMainThread()) {
-            throw new IllegalStateException("Cannot access database on the main thread since it may potentially lock the UI for a long period of time.");
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.mAllowMainThreadQueries || !isMainThread()) {
+            return;
         }
+        throw new IllegalStateException("Cannot access database on the main thread since it may potentially lock the UI for a long period of time.");
     }
 
     public void beginTransaction() {
@@ -510,9 +524,6 @@ public abstract class RoomDatabase {
             writableDatabase.beginTransaction();
         }
     }
-
-    @WorkerThread
-    public abstract void clearAllTables();
 
     public void close() {
         Interceptable interceptable = $ic;
@@ -526,7 +537,82 @@ public abstract class RoomDatabase {
         }
     }
 
-    public SupportSQLiteStatement compileStatement(@NonNull String str) {
+    public void endTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.mOpenHelper.getWritableDatabase().endTransaction();
+            if (!inTransaction()) {
+                this.mInvalidationTracker.refreshVersionsAsync();
+            }
+        }
+    }
+
+    public Lock getCloseLock() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mCloseLock;
+        }
+        return (Lock) invokeV.objValue;
+    }
+
+    public InvalidationTracker getInvalidationTracker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mInvalidationTracker;
+        }
+        return (InvalidationTracker) invokeV.objValue;
+    }
+
+    public SupportSQLiteOpenHelper getOpenHelper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mOpenHelper;
+        }
+        return (SupportSQLiteOpenHelper) invokeV.objValue;
+    }
+
+    public Executor getQueryExecutor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mQueryExecutor;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public boolean inTransaction() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mOpenHelper.getWritableDatabase().inTransaction();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOpen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            SupportSQLiteDatabase supportSQLiteDatabase = this.mDatabase;
+            if (supportSQLiteDatabase != null && supportSQLiteDatabase.isOpen()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setTransactionSuccessful() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.mOpenHelper.getWritableDatabase().setTransactionSuccessful();
+        }
+    }
+
+    public SupportSQLiteStatement compileStatement(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -536,112 +622,10 @@ public abstract class RoomDatabase {
         return (SupportSQLiteStatement) invokeL.objValue;
     }
 
-    @NonNull
-    public abstract InvalidationTracker createInvalidationTracker();
-
-    @NonNull
-    public abstract SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration databaseConfiguration);
-
-    public void endTransaction() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.mOpenHelper.getWritableDatabase().endTransaction();
-            if (inTransaction()) {
-                return;
-            }
-            this.mInvalidationTracker.refreshVersionsAsync();
-        }
-    }
-
-    public Lock getCloseLock() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mCloseLock : (Lock) invokeV.objValue;
-    }
-
-    @NonNull
-    public InvalidationTracker getInvalidationTracker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mInvalidationTracker : (InvalidationTracker) invokeV.objValue;
-    }
-
-    @NonNull
-    public SupportSQLiteOpenHelper getOpenHelper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mOpenHelper : (SupportSQLiteOpenHelper) invokeV.objValue;
-    }
-
-    @NonNull
-    public Executor getQueryExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mQueryExecutor : (Executor) invokeV.objValue;
-    }
-
-    public boolean inTransaction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mOpenHelper.getWritableDatabase().inTransaction() : invokeV.booleanValue;
-    }
-
-    @CallSuper
-    public void init(@NonNull DatabaseConfiguration databaseConfiguration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, databaseConfiguration) == null) {
-            this.mOpenHelper = createOpenHelper(databaseConfiguration);
-            if (Build.VERSION.SDK_INT >= 16) {
-                r1 = databaseConfiguration.journalMode == JournalMode.WRITE_AHEAD_LOGGING;
-                this.mOpenHelper.setWriteAheadLoggingEnabled(r1);
-            }
-            this.mCallbacks = databaseConfiguration.callbacks;
-            this.mQueryExecutor = databaseConfiguration.queryExecutor;
-            this.mAllowMainThreadQueries = databaseConfiguration.allowMainThreadQueries;
-            this.mWriteAheadLoggingEnabled = r1;
-        }
-    }
-
-    public void internalInitInvalidationTracker(@NonNull SupportSQLiteDatabase supportSQLiteDatabase) {
+    public void internalInitInvalidationTracker(SupportSQLiteDatabase supportSQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, supportSQLiteDatabase) == null) {
             this.mInvalidationTracker.internalInit(supportSQLiteDatabase);
-        }
-    }
-
-    public boolean isOpen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            SupportSQLiteDatabase supportSQLiteDatabase = this.mDatabase;
-            return supportSQLiteDatabase != null && supportSQLiteDatabase.isOpen();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Cursor query(String str, @Nullable Object[] objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, objArr)) == null) ? this.mOpenHelper.getWritableDatabase().query(new SimpleSQLiteQuery(str, objArr)) : (Cursor) invokeLL.objValue;
-    }
-
-    public void runInTransaction(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, runnable) == null) {
-            beginTransaction();
-            try {
-                runnable.run();
-                setTransactionSuccessful();
-            } finally {
-                endTransaction();
-            }
-        }
-    }
-
-    public void setTransactionSuccessful() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.mOpenHelper.getWritableDatabase().setTransactionSuccessful();
         }
     }
 
@@ -655,7 +639,7 @@ public abstract class RoomDatabase {
         return (Cursor) invokeL.objValue;
     }
 
-    public <V> V runInTransaction(@NonNull Callable<V> callable) {
+    public <V> V runInTransaction(Callable<V> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, callable)) == null) {
@@ -677,5 +661,45 @@ public abstract class RoomDatabase {
             }
         }
         return (V) invokeL.objValue;
+    }
+
+    public void init(DatabaseConfiguration databaseConfiguration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, databaseConfiguration) == null) {
+            this.mOpenHelper = createOpenHelper(databaseConfiguration);
+            boolean z = false;
+            if (Build.VERSION.SDK_INT >= 16) {
+                if (databaseConfiguration.journalMode == JournalMode.WRITE_AHEAD_LOGGING) {
+                    z = true;
+                }
+                this.mOpenHelper.setWriteAheadLoggingEnabled(z);
+            }
+            this.mCallbacks = databaseConfiguration.callbacks;
+            this.mQueryExecutor = databaseConfiguration.queryExecutor;
+            this.mAllowMainThreadQueries = databaseConfiguration.allowMainThreadQueries;
+            this.mWriteAheadLoggingEnabled = z;
+        }
+    }
+
+    public Cursor query(String str, Object[] objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, objArr)) == null) {
+            return this.mOpenHelper.getWritableDatabase().query(new SimpleSQLiteQuery(str, objArr));
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    public void runInTransaction(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, runnable) == null) {
+            beginTransaction();
+            try {
+                runnable.run();
+                setTransactionSuccessful();
+            } finally {
+                endTransaction();
+            }
+        }
     }
 }

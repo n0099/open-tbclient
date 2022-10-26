@@ -23,10 +23,16 @@ public final class DataRes extends Message {
     public final Long interval;
 
     /* loaded from: classes.dex */
-    public static final class Builder extends Message.Builder<DataRes> {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<Long> close_live;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List close_live;
         public Long interval;
 
         public Builder() {
@@ -69,19 +75,15 @@ public final class DataRes extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public DataRes build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new DataRes(this, z, null) : (DataRes) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return new DataRes(this, z, null);
+            }
+            return (DataRes) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -99,10 +101,6 @@ public final class DataRes extends Message {
         }
         DEFAULT_CLOSE_LIVE = Collections.emptyList();
         DEFAULT_INTERVAL = 0L;
-    }
-
-    public /* synthetic */ DataRes(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -124,7 +122,7 @@ public final class DataRes extends Message {
             }
         }
         if (z) {
-            List<Long> list = builder.close_live;
+            List list = builder.close_live;
             if (list == null) {
                 this.close_live = DEFAULT_CLOSE_LIVE;
             } else {
@@ -141,5 +139,9 @@ public final class DataRes extends Message {
         }
         this.close_live = Message.immutableCopyOf(builder.close_live);
         this.interval = builder.interval;
+    }
+
+    public /* synthetic */ DataRes(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

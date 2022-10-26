@@ -1,6 +1,5 @@
 package com.google.android.material.shape;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,11 +31,17 @@ public class TriangleEdgeTreatment extends EdgeTreatment {
     }
 
     @Override // com.google.android.material.shape.EdgeTreatment
-    public void getEdgePath(float f, float f2, float f3, @NonNull ShapePath shapePath) {
+    public void getEdgePath(float f, float f2, float f3, ShapePath shapePath) {
+        float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), shapePath}) == null) {
             shapePath.lineTo(f2 - (this.size * f3), 0.0f);
-            shapePath.lineTo(f2, (this.inside ? this.size : -this.size) * f3);
+            if (this.inside) {
+                f4 = this.size;
+            } else {
+                f4 = -this.size;
+            }
+            shapePath.lineTo(f2, f4 * f3);
             shapePath.lineTo(f2 + (this.size * f3), 0.0f);
             shapePath.lineTo(f, 0.0f);
         }

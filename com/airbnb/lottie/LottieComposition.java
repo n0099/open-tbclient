@@ -3,14 +3,8 @@ package com.airbnb.lottie;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
-import androidx.annotation.Nullable;
-import androidx.annotation.RawRes;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.WorkerThread;
 import androidx.collection.LongSparseArray;
 import androidx.collection.SparseArrayCompat;
-import com.airbnb.lottie.model.Font;
-import com.airbnb.lottie.model.FontCharacter;
 import com.airbnb.lottie.model.Marker;
 import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
@@ -26,34 +20,29 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class LottieComposition {
     public Rect bounds;
-    public SparseArrayCompat<FontCharacter> characters;
+    public SparseArrayCompat characters;
     public float endFrame;
-    public Map<String, Font> fonts;
+    public Map fonts;
     public float frameRate;
     public boolean hasDashPattern;
-    public Map<String, LottieImageAsset> images;
-    public LongSparseArray<Layer> layerMap;
-    public List<Layer> layers;
-    public List<Marker> markers;
-    public Map<String, List<Layer>> precomps;
+    public Map images;
+    public LongSparseArray layerMap;
+    public List layers;
+    public List markers;
+    public Map precomps;
     public float startFrame;
     public final PerformanceTracker performanceTracker = new PerformanceTracker();
-    public final HashSet<String> warnings = new HashSet<>();
+    public final HashSet warnings = new HashSet();
     public int maskAndMatteCount = 0;
 
     @Deprecated
     /* loaded from: classes.dex */
-    public static class Factory {
+    public class Factory {
 
         /* loaded from: classes.dex */
-        public static final class ListenerAdapter implements LottieListener<LottieComposition>, Cancellable {
+        public final class ListenerAdapter implements LottieListener, Cancellable {
             public boolean cancelled;
             public final OnCompositionLoadedListener listener;
-
-            @Override // com.airbnb.lottie.Cancellable
-            public void cancel() {
-                this.cancelled = true;
-            }
 
             public ListenerAdapter(OnCompositionLoadedListener onCompositionLoadedListener) {
                 this.cancelled = false;
@@ -68,6 +57,11 @@ public class LottieComposition {
                 }
                 this.listener.onCompositionLoaded(lottieComposition);
             }
+
+            @Override // com.airbnb.lottie.Cancellable
+            public void cancel() {
+                this.cancelled = true;
+            }
         }
 
         @Deprecated
@@ -77,11 +71,16 @@ public class LottieComposition {
             return listenerAdapter;
         }
 
-        @Nullable
-        @WorkerThread
+        @Deprecated
+        public static Cancellable fromRawFile(Context context, int i, OnCompositionLoadedListener onCompositionLoadedListener) {
+            ListenerAdapter listenerAdapter = new ListenerAdapter(onCompositionLoadedListener);
+            LottieCompositionFactory.fromRawRes(context, i).addListener(listenerAdapter);
+            return listenerAdapter;
+        }
+
         @Deprecated
         public static LottieComposition fromFileSync(Context context, String str) {
-            return LottieCompositionFactory.fromAssetSync(context, str).getValue();
+            return (LottieComposition) LottieCompositionFactory.fromAssetSync(context, str).getValue();
         }
 
         @Deprecated
@@ -91,11 +90,12 @@ public class LottieComposition {
             return listenerAdapter;
         }
 
-        @Nullable
-        @WorkerThread
         @Deprecated
-        public static LottieComposition fromInputStreamSync(InputStream inputStream) {
-            return LottieCompositionFactory.fromJsonInputStreamSync(inputStream, null).getValue();
+        public static LottieComposition fromInputStreamSync(InputStream inputStream, boolean z) {
+            if (z) {
+                Logger.warning("Lottie now auto-closes input stream!");
+            }
+            return (LottieComposition) LottieCompositionFactory.fromJsonInputStreamSync(inputStream, null).getValue();
         }
 
         @Deprecated
@@ -112,56 +112,32 @@ public class LottieComposition {
             return listenerAdapter;
         }
 
-        @Nullable
-        @WorkerThread
         @Deprecated
         public static LottieComposition fromJsonSync(Resources resources, JSONObject jSONObject) {
-            return LottieCompositionFactory.fromJsonSync(jSONObject, null).getValue();
+            return (LottieComposition) LottieCompositionFactory.fromJsonSync(jSONObject, null).getValue();
         }
 
         @Deprecated
-        public static Cancellable fromRawFile(Context context, @RawRes int i, OnCompositionLoadedListener onCompositionLoadedListener) {
-            ListenerAdapter listenerAdapter = new ListenerAdapter(onCompositionLoadedListener);
-            LottieCompositionFactory.fromRawRes(context, i).addListener(listenerAdapter);
-            return listenerAdapter;
+        public static LottieComposition fromInputStreamSync(InputStream inputStream) {
+            return (LottieComposition) LottieCompositionFactory.fromJsonInputStreamSync(inputStream, null).getValue();
         }
 
-        @Nullable
-        @WorkerThread
-        @Deprecated
-        public static LottieComposition fromInputStreamSync(InputStream inputStream, boolean z) {
-            if (z) {
-                Logger.warning("Lottie now auto-closes input stream!");
-            }
-            return LottieCompositionFactory.fromJsonInputStreamSync(inputStream, null).getValue();
-        }
-
-        @Nullable
-        @WorkerThread
-        @Deprecated
-        public static LottieComposition fromJsonSync(String str) {
-            return LottieCompositionFactory.fromJsonStringSync(str, null).getValue();
-        }
-
-        @Nullable
-        @WorkerThread
         @Deprecated
         public static LottieComposition fromJsonSync(JsonReader jsonReader) throws IOException {
-            return LottieCompositionFactory.fromJsonReaderSync(jsonReader, null).getValue();
+            return (LottieComposition) LottieCompositionFactory.fromJsonReaderSync(jsonReader, null).getValue();
         }
-    }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void addWarning(String str) {
-        Logger.warning(str);
-        this.warnings.add(str);
+        @Deprecated
+        public static LottieComposition fromJsonSync(String str) {
+            return (LottieComposition) LottieCompositionFactory.fromJsonStringSync(str, null).getValue();
+        }
     }
 
     public Rect getBounds() {
         return this.bounds;
     }
 
-    public SparseArrayCompat<FontCharacter> getCharacters() {
+    public SparseArrayCompat getCharacters() {
         return this.characters;
     }
 
@@ -173,12 +149,11 @@ public class LottieComposition {
         return this.endFrame - this.startFrame;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public float getEndFrame() {
         return this.endFrame;
     }
 
-    public Map<String, Font> getFonts() {
+    public Map getFonts() {
         return this.fonts;
     }
 
@@ -186,31 +161,18 @@ public class LottieComposition {
         return this.frameRate;
     }
 
-    public Map<String, LottieImageAsset> getImages() {
+    public Map getImages() {
         return this.images;
     }
 
-    public List<Layer> getLayers() {
+    public List getLayers() {
         return this.layers;
     }
 
-    @Nullable
-    public Marker getMarker(String str) {
-        this.markers.size();
-        for (int i = 0; i < this.markers.size(); i++) {
-            Marker marker = this.markers.get(i);
-            if (marker.matchesName(str)) {
-                return marker;
-            }
-        }
-        return null;
-    }
-
-    public List<Marker> getMarkers() {
+    public List getMarkers() {
         return this.markers;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int getMaskAndMatteCount() {
         return this.maskAndMatteCount;
     }
@@ -219,23 +181,15 @@ public class LottieComposition {
         return this.performanceTracker;
     }
 
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public List<Layer> getPrecomps(String str) {
-        return this.precomps.get(str);
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public float getStartFrame() {
         return this.startFrame;
     }
 
-    public ArrayList<String> getWarnings() {
-        HashSet<String> hashSet = this.warnings;
-        return new ArrayList<>(Arrays.asList(hashSet.toArray(new String[hashSet.size()])));
+    public ArrayList getWarnings() {
+        HashSet hashSet = this.warnings;
+        return new ArrayList(Arrays.asList(hashSet.toArray(new String[hashSet.size()])));
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean hasDashPattern() {
         return this.hasDashPattern;
     }
@@ -244,13 +198,51 @@ public class LottieComposition {
         return !this.images.isEmpty();
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public String toString() {
+        StringBuilder sb = new StringBuilder("LottieComposition:\n");
+        for (Layer layer : this.layers) {
+            sb.append(layer.toString("\t"));
+        }
+        return sb.toString();
+    }
+
+    public void addWarning(String str) {
+        Logger.warning(str);
+        this.warnings.add(str);
+    }
+
+    public Marker getMarker(String str) {
+        this.markers.size();
+        for (int i = 0; i < this.markers.size(); i++) {
+            Marker marker = (Marker) this.markers.get(i);
+            if (marker.matchesName(str)) {
+                return marker;
+            }
+        }
+        return null;
+    }
+
+    public List getPrecomps(String str) {
+        return (List) this.precomps.get(str);
+    }
+
     public void incrementMatteOrMaskCount(int i) {
         this.maskAndMatteCount += i;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void init(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, LottieImageAsset> map2, SparseArrayCompat<FontCharacter> sparseArrayCompat, Map<String, Font> map3, List<Marker> list2) {
+    public Layer layerModelForId(long j) {
+        return (Layer) this.layerMap.get(j);
+    }
+
+    public void setHasDashPattern(boolean z) {
+        this.hasDashPattern = z;
+    }
+
+    public void setPerformanceTrackingEnabled(boolean z) {
+        this.performanceTracker.setEnabled(z);
+    }
+
+    public void init(Rect rect, float f, float f2, float f3, List list, LongSparseArray longSparseArray, Map map, Map map2, SparseArrayCompat sparseArrayCompat, Map map3, List list2) {
         this.bounds = rect;
         this.startFrame = f;
         this.endFrame = f2;
@@ -262,27 +254,5 @@ public class LottieComposition {
         this.characters = sparseArrayCompat;
         this.fonts = map3;
         this.markers = list2;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer layerModelForId(long j) {
-        return this.layerMap.get(j);
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void setHasDashPattern(boolean z) {
-        this.hasDashPattern = z;
-    }
-
-    public void setPerformanceTrackingEnabled(boolean z) {
-        this.performanceTracker.setEnabled(z);
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.layers) {
-            sb.append(layer.toString("\t"));
-        }
-        return sb.toString();
     }
 }

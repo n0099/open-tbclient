@@ -12,6 +12,8 @@ public abstract class ParsedResult {
     public transient /* synthetic */ FieldHolder $fh;
     public final ParsedResultType type;
 
+    public abstract String getDisplayResult();
+
     public ParsedResult(ParsedResultType parsedResultType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,36 +34,38 @@ public abstract class ParsedResult {
 
     public static void maybeAppend(String str, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, sb) == null) || str == null || str.isEmpty()) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, sb) == null) && str != null && !str.isEmpty()) {
+            if (sb.length() > 0) {
+                sb.append('\n');
+            }
+            sb.append(str);
         }
-        if (sb.length() > 0) {
-            sb.append('\n');
-        }
-        sb.append(str);
     }
 
-    public abstract String getDisplayResult();
+    public static void maybeAppend(String[] strArr, StringBuilder sb) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, strArr, sb) == null) && strArr != null) {
+            for (String str : strArr) {
+                maybeAppend(str, sb);
+            }
+        }
+    }
 
     public final ParsedResultType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.type : (ParsedResultType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.type;
+        }
+        return (ParsedResultType) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getDisplayResult() : (String) invokeV.objValue;
-    }
-
-    public static void maybeAppend(String[] strArr, StringBuilder sb) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, strArr, sb) == null) || strArr == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getDisplayResult();
         }
-        for (String str : strArr) {
-            maybeAppend(str, sb);
-        }
+        return (String) invokeV.objValue;
     }
 }

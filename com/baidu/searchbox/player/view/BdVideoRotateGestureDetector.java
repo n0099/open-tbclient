@@ -38,23 +38,9 @@ public final class BdVideoRotateGestureDetector implements IKernelGestureDetecto
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0005\b\u0016\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\t\u001a\u00020\b2\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector$SimpleOnRotationGestureListener;", "com/baidu/searchbox/player/view/BdVideoRotateGestureDetector$OnRotationGestureListener", "Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector;", "detector", "", "onRotate", "(Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector;)Z", "onRotationBegin", "", "onRotationEnd", "(Lcom/baidu/searchbox/player/view/BdVideoRotateGestureDetector;)V", "<init>", "()V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static class SimpleOnRotationGestureListener implements OnRotationGestureListener {
+    public class SimpleOnRotationGestureListener implements OnRotationGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public SimpleOnRotationGestureListener() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.OnRotationGestureListener
         public boolean onRotate(BdVideoRotateGestureDetector detector) {
@@ -85,6 +71,20 @@ public final class BdVideoRotateGestureDetector implements IKernelGestureDetecto
                 Intrinsics.checkNotNullParameter(detector, "detector");
             }
         }
+
+        public SimpleOnRotationGestureListener() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public BdVideoRotateGestureDetector(OnRotationGestureListener listener) {
@@ -106,72 +106,99 @@ public final class BdVideoRotateGestureDetector implements IKernelGestureDetecto
         this.listener = listener;
     }
 
-    private final void cancelRotation() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.isInProgress) {
-            this.isInProgress = false;
-            if (this.isRotateDetected) {
-                this.listener.onRotationEnd(this);
-                this.isRotateDetected = false;
-            }
-        }
-    }
-
     private final float computeRotation(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, motionEvent)) == null) ? (float) Math.toDegrees(Math.atan2(motionEvent.getY(1) - motionEvent.getY(0), motionEvent.getX(1) - motionEvent.getX(0))) : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, motionEvent)) == null) {
+            return (float) Math.toDegrees(Math.atan2(motionEvent.getY(1) - motionEvent.getY(0), motionEvent.getX(1) - motionEvent.getX(0)));
+        }
+        return invokeL.floatValue;
+    }
+
+    private final void cancelRotation() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || !this.isInProgress) {
+            return;
+        }
+        this.isInProgress = false;
+        if (this.isRotateDetected) {
+            this.listener.onRotationEnd(this);
+            this.isRotateDetected = false;
+        }
     }
 
     private final boolean detectRotation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.isInProgress && this.isRotateDetected && this.listener.onRotate(this) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (this.isInProgress && this.isRotateDetected && this.listener.onRotate(this)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     private final void tryStartRotation() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.isInProgress || Math.abs(this.initialAngle - this.currAngle) < 5.0f) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && !this.isInProgress && Math.abs(this.initialAngle - this.currAngle) >= 5.0f) {
+            this.isInProgress = true;
+            this.isRotateDetected = this.listener.onRotationBegin(this);
         }
-        this.isInProgress = true;
-        this.isRotateDetected = this.listener.onRotationBegin(this);
     }
 
     public final float getFocusX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.focusX : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.focusX;
+        }
+        return invokeV.floatValue;
     }
 
     public final float getFocusY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.focusY : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.focusY;
+        }
+        return invokeV.floatValue;
     }
 
     public final OnRotationGestureListener getListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.listener : (OnRotationGestureListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.listener;
+        }
+        return (OnRotationGestureListener) invokeV.objValue;
     }
 
     public final float getRotationDelta() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.currAngle - this.prevAngle : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.currAngle - this.prevAngle;
+        }
+        return invokeV.floatValue;
     }
 
     public final boolean isInProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isInProgress : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isInProgress;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isRotateDetected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isRotateDetected : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.isRotateDetected;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.player.interfaces.IKernelGestureDetector

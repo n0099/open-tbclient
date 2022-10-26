@@ -51,7 +51,10 @@ public class FadeModeEvaluators {
             public FadeModeResult evaluate(float f, float f2, float f3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? FadeModeResult.endOnTop(255, TransitionUtils.lerp(0, 255, f2, f3, f)) : (FadeModeResult) invokeCommon.objValue;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                    return FadeModeResult.endOnTop(255, TransitionUtils.lerp(0, 255, f2, f3, f));
+                }
+                return (FadeModeResult) invokeCommon.objValue;
             }
         };
         OUT = new FadeModeEvaluator() { // from class: com.google.android.material.transition.FadeModeEvaluators.2
@@ -76,7 +79,10 @@ public class FadeModeEvaluators {
             public FadeModeResult evaluate(float f, float f2, float f3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f2, f3, f), 255) : (FadeModeResult) invokeCommon.objValue;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                    return FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f2, f3, f), 255);
+                }
+                return (FadeModeResult) invokeCommon.objValue;
             }
         };
         CROSS = new FadeModeEvaluator() { // from class: com.google.android.material.transition.FadeModeEvaluators.3
@@ -101,7 +107,10 @@ public class FadeModeEvaluators {
             public FadeModeResult evaluate(float f, float f2, float f3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f2, f3, f), TransitionUtils.lerp(0, 255, f2, f3, f)) : (FadeModeResult) invokeCommon.objValue;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                    return FadeModeResult.startOnTop(TransitionUtils.lerp(255, 0, f2, f3, f), TransitionUtils.lerp(0, 255, f2, f3, f));
+                }
+                return (FadeModeResult) invokeCommon.objValue;
             }
         };
         THROUGH = new FadeModeEvaluator() { // from class: com.google.android.material.transition.FadeModeEvaluators.4
@@ -153,17 +162,24 @@ public class FadeModeEvaluators {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i == 0) {
-                return z ? IN : OUT;
-            } else if (i == 1) {
-                return z ? OUT : IN;
-            } else if (i != 2) {
-                if (i == 3) {
-                    return THROUGH;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return THROUGH;
+                        }
+                        throw new IllegalArgumentException("Invalid fade mode: " + i);
+                    }
+                    return CROSS;
+                } else if (z) {
+                    return OUT;
+                } else {
+                    return IN;
                 }
-                throw new IllegalArgumentException("Invalid fade mode: " + i);
+            } else if (z) {
+                return IN;
             } else {
-                return CROSS;
+                return OUT;
             }
         }
         return (FadeModeEvaluator) invokeCommon.objValue;

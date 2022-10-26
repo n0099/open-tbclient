@@ -182,24 +182,6 @@ public class DefaultPluginRC implements PluginRC {
         this.a = pluginRC;
     }
 
-    public static boolean a(DefaultPluginRC defaultPluginRC, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, defaultPluginRC, str)) == null) {
-            defaultPluginRC.getClass();
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                return FunAdSdk.getAppContext().getPackageManager().getApplicationInfo(str, 0) != null;
-            } catch (PackageManager.NameNotFoundException unused) {
-                LogPrinter.d("not find app", new Object[0]);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
     @Override // com.fun.ad.sdk.internal.api.flavor.PluginRC
     public void init(Context context) {
         PluginRC pluginRC;
@@ -210,38 +192,59 @@ public class DefaultPluginRC implements PluginRC {
         pluginRC.init(context);
     }
 
+    public static boolean a(DefaultPluginRC defaultPluginRC, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, defaultPluginRC, str)) == null) {
+            defaultPluginRC.getClass();
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                if (FunAdSdk.getAppContext().getPackageManager().getApplicationInfo(str, 0) == null) {
+                    return false;
+                }
+                return true;
+            } catch (PackageManager.NameNotFoundException unused) {
+                LogPrinter.d("not find app", new Object[0]);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
     @Override // com.fun.ad.sdk.internal.api.flavor.PluginRC
     public RCInterceptor shouldIntercept(String str, FunAdType funAdType) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, funAdType)) == null) {
-            Set<String> forbiddenPlatforms = FunAdSdk.getForbiddenPlatforms();
-            if (forbiddenPlatforms == null || !forbiddenPlatforms.contains(funAdType.getPlatform())) {
-                String platform = funAdType.getPlatform();
-                Set<Pair<String, String>> set = FunAdSdk.getsForbiddenAids();
-                if (set != null) {
-                    for (Pair<String, String> pair : set) {
-                        if (pair != null && str.equals(pair.second) && platform.equals(pair.first)) {
-                            z = true;
-                            break;
-                        }
+            Set forbiddenPlatforms = FunAdSdk.getForbiddenPlatforms();
+            if (forbiddenPlatforms != null && forbiddenPlatforms.contains(funAdType.getPlatform())) {
+                return this.b;
+            }
+            String platform = funAdType.getPlatform();
+            Set<Pair> set = FunAdSdk.getsForbiddenAids();
+            if (set != null) {
+                for (Pair pair : set) {
+                    if (pair != null && str.equals(pair.second) && platform.equals(pair.first)) {
+                        z = true;
+                        break;
                     }
                 }
-                z = false;
-                if (z) {
-                    return this.b;
-                }
-                if (FunAdSdk.isForBidShowInstalledApp()) {
-                    return this.c;
-                }
-                PluginRC pluginRC = this.a;
-                if (pluginRC != null) {
-                    return pluginRC.shouldIntercept(str, funAdType);
-                }
-                return null;
             }
-            return this.b;
+            z = false;
+            if (z) {
+                return this.b;
+            }
+            if (FunAdSdk.isForBidShowInstalledApp()) {
+                return this.c;
+            }
+            PluginRC pluginRC = this.a;
+            if (pluginRC != null) {
+                return pluginRC.shouldIntercept(str, funAdType);
+            }
+            return null;
         }
         return (RCInterceptor) invokeLL.objValue;
     }

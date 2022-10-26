@@ -3,8 +3,6 @@ package com.google.android.gms.common;
 import android.accounts.Account;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,48 +17,63 @@ public final class AccountPicker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public AccountPicker() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static class AccountChooserOptions {
+    public class AccountChooserOptions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
         public Account zza;
         public boolean zzb;
-        @Nullable
-        public ArrayList<Account> zzc;
-        @Nullable
-        public ArrayList<String> zzd;
+        public ArrayList zzc;
+        public ArrayList zzd;
         public boolean zze;
-        @Nullable
         public String zzf;
-        @Nullable
         public Bundle zzg;
         public boolean zzh;
         public int zzi;
-        @Nullable
         public String zzj;
         public boolean zzk;
-        @Nullable
         public zza zzl;
-        @Nullable
         public String zzm;
         public boolean zzn;
         public boolean zzo;
 
+        public AccountChooserOptions() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         /* loaded from: classes7.dex */
-        public static class Builder {
+        public class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            @Nullable
             public Account zza;
-            @Nullable
-            public ArrayList<Account> zzb;
-            @Nullable
-            public ArrayList<String> zzc;
+            public ArrayList zzb;
+            public ArrayList zzc;
             public boolean zzd;
-            @Nullable
             public String zze;
-            @Nullable
             public Bundle zzf;
 
             public Builder() {
@@ -79,7 +92,46 @@ public final class AccountPicker {
                 this.zzd = false;
             }
 
-            @NonNull
+            public Builder setAlwaysShowAccountPicker(boolean z) {
+                InterceptResult invokeZ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                    this.zzd = z;
+                    return this;
+                }
+                return (Builder) invokeZ.objValue;
+            }
+
+            public Builder setOptionsForAddingAccount(Bundle bundle) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
+                    this.zzf = bundle;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setSelectedAccount(Account account) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, account)) == null) {
+                    this.zza = account;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
+            public Builder setTitleOverrideText(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                    this.zze = str;
+                    return this;
+                }
+                return (Builder) invokeL.objValue;
+            }
+
             public AccountChooserOptions build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -107,105 +159,42 @@ public final class AccountPicker {
                 return (AccountChooserOptions) invokeV.objValue;
             }
 
-            @NonNull
-            public Builder setAllowableAccounts(@Nullable List<Account> list) {
+            public Builder setAllowableAccounts(List list) {
                 InterceptResult invokeL;
+                ArrayList arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                    this.zzb = list == null ? null : new ArrayList<>(list);
+                    if (list == null) {
+                        arrayList = null;
+                    } else {
+                        arrayList = new ArrayList(list);
+                    }
+                    this.zzb = arrayList;
                     return this;
                 }
                 return (Builder) invokeL.objValue;
             }
 
-            @NonNull
-            public Builder setAllowableAccountsTypes(@Nullable List<String> list) {
+            public Builder setAllowableAccountsTypes(List list) {
                 InterceptResult invokeL;
+                ArrayList arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                    this.zzc = list == null ? null : new ArrayList<>(list);
+                    if (list == null) {
+                        arrayList = null;
+                    } else {
+                        arrayList = new ArrayList(list);
+                    }
+                    this.zzc = arrayList;
                     return this;
                 }
                 return (Builder) invokeL.objValue;
-            }
-
-            @NonNull
-            public Builder setAlwaysShowAccountPicker(boolean z) {
-                InterceptResult invokeZ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                    this.zzd = z;
-                    return this;
-                }
-                return (Builder) invokeZ.objValue;
-            }
-
-            @NonNull
-            public Builder setOptionsForAddingAccount(@Nullable Bundle bundle) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
-                    this.zzf = bundle;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            @NonNull
-            public Builder setSelectedAccount(@Nullable Account account) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, account)) == null) {
-                    this.zza = account;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-
-            @NonNull
-            public Builder setTitleOverrideText(@Nullable String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                    this.zze = str;
-                    return this;
-                }
-                return (Builder) invokeL.objValue;
-            }
-        }
-
-        public AccountChooserOptions() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
             }
         }
     }
 
-    public AccountPicker() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @NonNull
     @Deprecated
-    public static Intent newChooseAccountIntent(@Nullable Account account, @Nullable ArrayList<Account> arrayList, @Nullable String[] strArr, boolean z, @Nullable String str, @Nullable String str2, @Nullable String[] strArr2, @Nullable Bundle bundle) {
+    public static Intent newChooseAccountIntent(Account account, ArrayList arrayList, String[] strArr, boolean z, String str, String str2, String[] strArr2, Bundle bundle) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{account, arrayList, strArr, Boolean.valueOf(z), str, str2, strArr2, bundle})) == null) {
@@ -230,8 +219,7 @@ public final class AccountPicker {
         return (Intent) invokeCommon.objValue;
     }
 
-    @NonNull
-    public static Intent newChooseAccountIntent(@NonNull AccountChooserOptions accountChooserOptions) {
+    public static Intent newChooseAccountIntent(AccountChooserOptions accountChooserOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, accountChooserOptions)) == null) {

@@ -1,8 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +16,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class Lifecycling {
     public static /* synthetic */ Interceptable $ic = null;
@@ -77,21 +73,25 @@ public class Lifecycling {
         return (GeneratedAdapter) invokeLL.objValue;
     }
 
-    @Nullable
     public static Constructor<? extends GeneratedAdapter> generatedConstructor(Class<?> cls) {
+        String str;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
             try {
                 Package r0 = cls.getPackage();
                 String canonicalName = cls.getCanonicalName();
-                String name = r0 != null ? r0.getName() : "";
-                if (!name.isEmpty()) {
-                    canonicalName = canonicalName.substring(name.length() + 1);
+                if (r0 != null) {
+                    str = r0.getName();
+                } else {
+                    str = "";
+                }
+                if (!str.isEmpty()) {
+                    canonicalName = canonicalName.substring(str.length() + 1);
                 }
                 String adapterName = getAdapterName(canonicalName);
-                if (!name.isEmpty()) {
-                    adapterName = name + "." + adapterName;
+                if (!str.isEmpty()) {
+                    adapterName = str + "." + adapterName;
                 }
                 Constructor declaredConstructor = Class.forName(adapterName).getDeclaredConstructor(cls);
                 if (!declaredConstructor.isAccessible()) {
@@ -107,75 +107,6 @@ public class Lifecycling {
         return (Constructor) invokeL.objValue;
     }
 
-    public static String getAdapterName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return str.replace(".", "_") + "_LifecycleAdapter";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    @Deprecated
-    public static GenericLifecycleObserver getCallback(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? new GenericLifecycleObserver(lifecycleEventObserver(obj)) { // from class: androidx.lifecycle.Lifecycling.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ LifecycleEventObserver val$observer;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r6};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$observer = r6;
-            }
-
-            @Override // androidx.lifecycle.LifecycleEventObserver
-            public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) {
-                    this.val$observer.onStateChanged(lifecycleOwner, event);
-                }
-            }
-        } : (GenericLifecycleObserver) invokeL.objValue;
-    }
-
-    public static int getObserverConstructorType(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
-            Integer num = sCallbackCache.get(cls);
-            if (num != null) {
-                return num.intValue();
-            }
-            int resolveObserverCallbackType = resolveObserverCallbackType(cls);
-            sCallbackCache.put(cls, Integer.valueOf(resolveObserverCallbackType));
-            return resolveObserverCallbackType;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean isLifecycleParent(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) ? cls != null && LifecycleObserver.class.isAssignableFrom(cls) : invokeL.booleanValue;
-    }
-
-    @NonNull
     public static LifecycleEventObserver lifecycleEventObserver(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -242,13 +173,89 @@ public class Lifecycling {
                         arrayList.addAll(sClassToAdapters.get(cls2));
                     }
                 }
-                if (arrayList != null) {
-                    sClassToAdapters.put(cls, arrayList);
-                    return 2;
+                if (arrayList == null) {
+                    return 1;
                 }
-                return 1;
+                sClassToAdapters.put(cls, arrayList);
+                return 2;
             }
         }
         return invokeL.intValue;
+    }
+
+    public static String getAdapterName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return str.replace(".", "_") + "_LifecycleAdapter";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static GenericLifecycleObserver getCallback(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
+            return new GenericLifecycleObserver(lifecycleEventObserver(obj)) { // from class: androidx.lifecycle.Lifecycling.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ LifecycleEventObserver val$observer;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r6};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$observer = r6;
+                }
+
+                @Override // androidx.lifecycle.LifecycleEventObserver
+                public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) {
+                        this.val$observer.onStateChanged(lifecycleOwner, event);
+                    }
+                }
+            };
+        }
+        return (GenericLifecycleObserver) invokeL.objValue;
+    }
+
+    public static int getObserverConstructorType(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
+            Integer num = sCallbackCache.get(cls);
+            if (num != null) {
+                return num.intValue();
+            }
+            int resolveObserverCallbackType = resolveObserverCallbackType(cls);
+            sCallbackCache.put(cls, Integer.valueOf(resolveObserverCallbackType));
+            return resolveObserverCallbackType;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean isLifecycleParent(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
+            if (cls != null && LifecycleObserver.class.isAssignableFrom(cls)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

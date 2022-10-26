@@ -5,7 +5,6 @@ import android.os.Build;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.collection.ArrayMap;
 import androidx.core.app.SharedElementCallback;
 import androidx.core.os.CancellationSignal;
@@ -33,9 +32,9 @@ public class FragmentTransition {
 
     /* loaded from: classes.dex */
     public interface Callback {
-        void onComplete(@NonNull Fragment fragment, @NonNull CancellationSignal cancellationSignal);
+        void onComplete(Fragment fragment, CancellationSignal cancellationSignal);
 
-        void onStart(@NonNull Fragment fragment, @NonNull CancellationSignal cancellationSignal);
+        void onStart(Fragment fragment, CancellationSignal cancellationSignal);
     }
 
     /* loaded from: classes.dex */
@@ -66,6 +65,7 @@ public class FragmentTransition {
 
     static {
         InterceptResult invokeClinit;
+        FragmentTransitionCompat21 fragmentTransitionCompat21;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-679676957, "Landroidx/fragment/app/FragmentTransition;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -78,7 +78,12 @@ public class FragmentTransition {
             }
         }
         INVERSE_OPS = new int[]{0, 3, 0, 1, 5, 4, 7, 6, 9, 8, 10};
-        PLATFORM_IMPL = Build.VERSION.SDK_INT >= 21 ? new FragmentTransitionCompat21() : null;
+        if (Build.VERSION.SDK_INT >= 21) {
+            fragmentTransitionCompat21 = new FragmentTransitionCompat21();
+        } else {
+            fragmentTransitionCompat21 = null;
+        }
+        PLATFORM_IMPL = fragmentTransitionCompat21;
         SUPPORT_IMPL = resolveSupportImpl();
     }
 
@@ -96,6 +101,31 @@ public class FragmentTransition {
         }
     }
 
+    public static FragmentTransitionImpl resolveSupportImpl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            try {
+                return (FragmentTransitionImpl) Class.forName("androidx.transition.FragmentTransitionSupport").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (FragmentTransitionImpl) invokeV.objValue;
+    }
+
+    public static boolean supportsTransition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+            if (PLATFORM_IMPL == null && SUPPORT_IMPL == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void addSharedElementsWithMatchingNames(ArrayList<View> arrayList, ArrayMap<String, View> arrayMap, Collection<String> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, arrayList, arrayMap, collection) == null) {
@@ -106,6 +136,66 @@ public class FragmentTransition {
                 }
             }
         }
+    }
+
+    public static void calculateFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, backStackRecord, sparseArray, z) == null) {
+            int size = backStackRecord.mOps.size();
+            for (int i = 0; i < size; i++) {
+                addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(i), sparseArray, false, z);
+            }
+        }
+    }
+
+    public static FragmentContainerTransition ensureContainer(FragmentContainerTransition fragmentContainerTransition, SparseArray<FragmentContainerTransition> sparseArray, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, fragmentContainerTransition, sparseArray, i)) == null) {
+            if (fragmentContainerTransition == null) {
+                FragmentContainerTransition fragmentContainerTransition2 = new FragmentContainerTransition();
+                sparseArray.put(i, fragmentContainerTransition2);
+                return fragmentContainerTransition2;
+            }
+            return fragmentContainerTransition;
+        }
+        return (FragmentContainerTransition) invokeLLI.objValue;
+    }
+
+    public static Object getEnterTransition(FragmentTransitionImpl fragmentTransitionImpl, Fragment fragment, boolean z) {
+        InterceptResult invokeLLZ;
+        Object enterTransition;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65555, null, fragmentTransitionImpl, fragment, z)) == null) {
+            if (fragment == null) {
+                return null;
+            }
+            if (z) {
+                enterTransition = fragment.getReenterTransition();
+            } else {
+                enterTransition = fragment.getEnterTransition();
+            }
+            return fragmentTransitionImpl.cloneTransition(enterTransition);
+        }
+        return invokeLLZ.objValue;
+    }
+
+    public static Object getExitTransition(FragmentTransitionImpl fragmentTransitionImpl, Fragment fragment, boolean z) {
+        InterceptResult invokeLLZ;
+        Object exitTransition;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65556, null, fragmentTransitionImpl, fragment, z)) == null) {
+            if (fragment == null) {
+                return null;
+            }
+            if (z) {
+                exitTransition = fragment.getReturnTransition();
+            } else {
+                exitTransition = fragment.getExitTransition();
+            }
+            return fragmentTransitionImpl.cloneTransition(exitTransition);
+        }
+        return invokeLLZ.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x003d, code lost:
@@ -131,6 +221,7 @@ public class FragmentTransition {
     public static void addToFirstInLastOut(BackStackRecord backStackRecord, FragmentTransaction.Op op, SparseArray<FragmentContainerTransition> sparseArray, boolean z, boolean z2) {
         Fragment fragment;
         int i;
+        int i2;
         boolean z3;
         boolean z4;
         boolean z5;
@@ -138,14 +229,104 @@ public class FragmentTransition {
         FragmentContainerTransition fragmentContainerTransition;
         FragmentManager fragmentManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{backStackRecord, op, sparseArray, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (fragment = op.mFragment) == null || (i = fragment.mContainerId) == 0) {
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{backStackRecord, op, sparseArray, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || (fragment = op.mFragment) == null || (i = fragment.mContainerId) == 0) {
             return;
         }
-        int i2 = z ? INVERSE_OPS[op.mCmd] : op.mCmd;
+        if (z) {
+            i2 = INVERSE_OPS[op.mCmd];
+        } else {
+            i2 = op.mCmd;
+        }
         boolean z7 = false;
         if (i2 != 1) {
             if (i2 != 3) {
-                if (i2 == 4) {
+                if (i2 != 4) {
+                    if (i2 != 5) {
+                        if (i2 != 6) {
+                            if (i2 != 7) {
+                                z4 = false;
+                                z6 = false;
+                                z5 = false;
+                                fragmentContainerTransition = sparseArray.get(i);
+                                if (z7) {
+                                    fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
+                                    fragmentContainerTransition.lastIn = fragment;
+                                    fragmentContainerTransition.lastInIsPop = z;
+                                    fragmentContainerTransition.lastInTransaction = backStackRecord;
+                                }
+                                if (!z2 && z4) {
+                                    if (fragmentContainerTransition != null && fragmentContainerTransition.firstOut == fragment) {
+                                        fragmentContainerTransition.firstOut = null;
+                                    }
+                                    fragmentManager = backStackRecord.mManager;
+                                    if (fragment.mState < 1 && fragmentManager.mCurState >= 1 && !backStackRecord.mReorderingAllowed) {
+                                        fragmentManager.makeActive(fragment);
+                                        fragmentManager.moveToState(fragment, 1);
+                                    }
+                                }
+                                if (z5 && (fragmentContainerTransition == null || fragmentContainerTransition.firstOut == null)) {
+                                    fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
+                                    fragmentContainerTransition.firstOut = fragment;
+                                    fragmentContainerTransition.firstOutIsPop = z;
+                                    fragmentContainerTransition.firstOutTransaction = backStackRecord;
+                                }
+                                if (!z2 && z6 && fragmentContainerTransition != null && fragmentContainerTransition.lastIn == fragment) {
+                                    fragmentContainerTransition.lastIn = null;
+                                    return;
+                                }
+                                return;
+                            }
+                        }
+                    } else if (z2) {
+                        if (fragment.mHiddenChanged) {
+                            if (!fragment.mHidden) {
+                            }
+                        }
+                        z3 = false;
+                        z7 = z3;
+                        z4 = true;
+                        z6 = false;
+                        z5 = false;
+                        fragmentContainerTransition = sparseArray.get(i);
+                        if (z7) {
+                        }
+                        if (!z2) {
+                            if (fragmentContainerTransition != null) {
+                                fragmentContainerTransition.firstOut = null;
+                            }
+                            fragmentManager = backStackRecord.mManager;
+                            if (fragment.mState < 1) {
+                                fragmentManager.makeActive(fragment);
+                                fragmentManager.moveToState(fragment, 1);
+                            }
+                        }
+                        if (z5) {
+                            fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
+                            fragmentContainerTransition.firstOut = fragment;
+                            fragmentContainerTransition.firstOutIsPop = z;
+                            fragmentContainerTransition.firstOutTransaction = backStackRecord;
+                        }
+                        if (!z2) {
+                            return;
+                        }
+                        return;
+                    } else {
+                        z3 = fragment.mHidden;
+                        z7 = z3;
+                        z4 = true;
+                        z6 = false;
+                        z5 = false;
+                        fragmentContainerTransition = sparseArray.get(i);
+                        if (z7) {
+                        }
+                        if (!z2) {
+                        }
+                        if (z5) {
+                        }
+                        if (!z2) {
+                        }
+                    }
+                } else {
                     boolean z8 = !z2 ? false : false;
                     z5 = z8;
                     z4 = false;
@@ -157,91 +338,7 @@ public class FragmentTransition {
                     }
                     if (z5) {
                     }
-                    if (z2) {
-                    }
-                } else if (i2 != 5) {
-                    if (i2 != 6) {
-                        if (i2 != 7) {
-                            z4 = false;
-                            z6 = false;
-                            z5 = false;
-                            fragmentContainerTransition = sparseArray.get(i);
-                            if (z7) {
-                                fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
-                                fragmentContainerTransition.lastIn = fragment;
-                                fragmentContainerTransition.lastInIsPop = z;
-                                fragmentContainerTransition.lastInTransaction = backStackRecord;
-                            }
-                            if (!z2 && z4) {
-                                if (fragmentContainerTransition != null && fragmentContainerTransition.firstOut == fragment) {
-                                    fragmentContainerTransition.firstOut = null;
-                                }
-                                fragmentManager = backStackRecord.mManager;
-                                if (fragment.mState < 1 && fragmentManager.mCurState >= 1 && !backStackRecord.mReorderingAllowed) {
-                                    fragmentManager.makeActive(fragment);
-                                    fragmentManager.moveToState(fragment, 1);
-                                }
-                            }
-                            if (z5 && (fragmentContainerTransition == null || fragmentContainerTransition.firstOut == null)) {
-                                fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
-                                fragmentContainerTransition.firstOut = fragment;
-                                fragmentContainerTransition.firstOutIsPop = z;
-                                fragmentContainerTransition.firstOutTransaction = backStackRecord;
-                            }
-                            if (z2 || !z6 || fragmentContainerTransition == null || fragmentContainerTransition.lastIn != fragment) {
-                                return;
-                            }
-                            fragmentContainerTransition.lastIn = null;
-                            return;
-                        }
-                    }
-                } else if (z2) {
-                    if (fragment.mHiddenChanged) {
-                        if (!fragment.mHidden) {
-                        }
-                    }
-                    z3 = false;
-                    z7 = z3;
-                    z4 = true;
-                    z6 = false;
-                    z5 = false;
-                    fragmentContainerTransition = sparseArray.get(i);
-                    if (z7) {
-                    }
                     if (!z2) {
-                        if (fragmentContainerTransition != null) {
-                            fragmentContainerTransition.firstOut = null;
-                        }
-                        fragmentManager = backStackRecord.mManager;
-                        if (fragment.mState < 1) {
-                            fragmentManager.makeActive(fragment);
-                            fragmentManager.moveToState(fragment, 1);
-                        }
-                    }
-                    if (z5) {
-                        fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
-                        fragmentContainerTransition.firstOut = fragment;
-                        fragmentContainerTransition.firstOutIsPop = z;
-                        fragmentContainerTransition.firstOutTransaction = backStackRecord;
-                    }
-                    if (z2) {
-                        return;
-                    }
-                    return;
-                } else {
-                    z3 = fragment.mHidden;
-                    z7 = z3;
-                    z4 = true;
-                    z6 = false;
-                    z5 = false;
-                    fragmentContainerTransition = sparseArray.get(i);
-                    if (z7) {
-                    }
-                    if (!z2) {
-                    }
-                    if (z5) {
-                    }
-                    if (z2) {
                     }
                 }
             }
@@ -257,7 +354,7 @@ public class FragmentTransition {
             }
             if (z5) {
             }
-            if (z2) {
+            if (!z2) {
             }
         }
         if (z2) {
@@ -273,7 +370,7 @@ public class FragmentTransition {
             }
             if (z5) {
             }
-            if (z2) {
+            if (!z2) {
             }
         } else {
             if (!fragment.mAdded) {
@@ -290,17 +387,7 @@ public class FragmentTransition {
             }
             if (z5) {
             }
-            if (z2) {
-            }
-        }
-    }
-
-    public static void calculateFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, backStackRecord, sparseArray, z) == null) {
-            int size = backStackRecord.mOps.size();
-            for (int i = 0; i < size; i++) {
-                addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(i), sparseArray, false, z);
+            if (!z2) {
             }
         }
     }
@@ -345,17 +432,9 @@ public class FragmentTransition {
         return (ArrayMap) invokeCommon.objValue;
     }
 
-    public static void calculatePopFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65542, null, backStackRecord, sparseArray, z) == null) && backStackRecord.mManager.mContainer.onHasView()) {
-            for (int size = backStackRecord.mOps.size() - 1; size >= 0; size--) {
-                addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(size), sparseArray, true, z);
-            }
-        }
-    }
-
     public static void callSharedElementStartEnd(Fragment fragment, Fragment fragment2, boolean z, ArrayMap<String, View> arrayMap, boolean z2) {
         SharedElementCallback enterTransitionCallback;
+        int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{fragment, fragment2, Boolean.valueOf(z), arrayMap, Boolean.valueOf(z2)}) == null) {
             if (z) {
@@ -366,7 +445,11 @@ public class FragmentTransition {
             if (enterTransitionCallback != null) {
                 ArrayList arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
-                int size = arrayMap == null ? 0 : arrayMap.size();
+                if (arrayMap == null) {
+                    size = 0;
+                } else {
+                    size = arrayMap.size();
+                }
                 for (int i = 0; i < size; i++) {
                     arrayList2.add(arrayMap.keyAt(i));
                     arrayList.add(arrayMap.valueAt(i));
@@ -377,6 +460,16 @@ public class FragmentTransition {
                     enterTransitionCallback.onSharedElementEnd(arrayList2, arrayList, null);
                 }
             }
+        }
+    }
+
+    public static void calculatePopFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(65542, null, backStackRecord, sparseArray, z) != null) || !backStackRecord.mManager.mContainer.onHasView()) {
+            return;
+        }
+        for (int size = backStackRecord.mOps.size() - 1; size >= 0; size--) {
+            addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(size), sparseArray, true, z);
         }
     }
 
@@ -393,6 +486,42 @@ public class FragmentTransition {
             return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    public static String findKeyForValue(ArrayMap<String, String> arrayMap, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, arrayMap, str)) == null) {
+            int size = arrayMap.size();
+            for (int i = 0; i < size; i++) {
+                if (str.equals(arrayMap.valueAt(i))) {
+                    return arrayMap.keyAt(i);
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void retainValues(ArrayMap<String, String> arrayMap, ArrayMap<String, View> arrayMap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65562, null, arrayMap, arrayMap2) == null) {
+            for (int size = arrayMap.size() - 1; size >= 0; size--) {
+                if (!arrayMap2.containsKey(arrayMap.valueAt(size))) {
+                    arrayMap.removeAt(size);
+                }
+            }
+        }
+    }
+
+    public static void setViewVisibility(ArrayList<View> arrayList, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65565, null, arrayList, i) != null) || arrayList == null) {
+            return;
+        }
+        for (int size = arrayList.size() - 1; size >= 0; size--) {
+            arrayList.get(size).setVisibility(i);
+        }
     }
 
     public static ArrayMap<String, View> captureInSharedElements(FragmentTransitionImpl fragmentTransitionImpl, ArrayMap<String, String> arrayMap, Object obj, FragmentContainerTransition fragmentContainerTransition) {
@@ -552,11 +681,11 @@ public class FragmentTransition {
                 if (arrayList != null) {
                     arrayList2.removeAll(arrayList);
                 }
-                if (arrayList2.isEmpty()) {
+                if (!arrayList2.isEmpty()) {
+                    arrayList2.add(view2);
+                    fragmentTransitionImpl.addTargets(obj, arrayList2);
                     return arrayList2;
                 }
-                arrayList2.add(view2);
-                fragmentTransitionImpl.addTargets(obj, arrayList2);
                 return arrayList2;
             }
             return null;
@@ -679,6 +808,7 @@ public class FragmentTransition {
 
     public static Object configureSharedElementsReordered(FragmentTransitionImpl fragmentTransitionImpl, ViewGroup viewGroup, View view2, ArrayMap<String, String> arrayMap, FragmentContainerTransition fragmentContainerTransition, ArrayList<View> arrayList, ArrayList<View> arrayList2, Object obj, Object obj2) {
         InterceptResult invokeCommon;
+        Object sharedElementTransition;
         Object obj3;
         View view3;
         Rect rect;
@@ -693,7 +823,11 @@ public class FragmentTransition {
                 return null;
             }
             boolean z = fragmentContainerTransition.lastInIsPop;
-            Object sharedElementTransition = arrayMap.isEmpty() ? null : getSharedElementTransition(fragmentTransitionImpl, fragment, fragment2, z);
+            if (arrayMap.isEmpty()) {
+                sharedElementTransition = null;
+            } else {
+                sharedElementTransition = getSharedElementTransition(fragmentTransitionImpl, fragment, fragment2, z);
+            }
             ArrayMap<String, View> captureOutSharedElements = captureOutSharedElements(fragmentTransitionImpl, arrayMap, sharedElementTransition, fragmentContainerTransition);
             ArrayMap<String, View> captureInSharedElements = captureInSharedElements(fragmentTransitionImpl, arrayMap, sharedElementTransition, fragmentContainerTransition);
             if (arrayMap.isEmpty()) {
@@ -781,13 +915,19 @@ public class FragmentTransition {
     }
 
     public static void configureTransitionsOrdered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view2, ArrayMap<String, String> arrayMap, Callback callback) {
+        ViewGroup viewGroup;
         Fragment fragment;
         Fragment fragment2;
         FragmentTransitionImpl chooseImpl;
         Object obj;
+        Object obj2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view2, arrayMap, callback}) == null) {
-            ViewGroup viewGroup = fragmentManager.mContainer.onHasView() ? (ViewGroup) fragmentManager.mContainer.onFindViewById(i) : null;
+            if (fragmentManager.mContainer.onHasView()) {
+                viewGroup = (ViewGroup) fragmentManager.mContainer.onFindViewById(i);
+            } else {
+                viewGroup = null;
+            }
             if (viewGroup == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
                 return;
             }
@@ -807,7 +947,11 @@ public class FragmentTransition {
                 obj = exitTransition;
             }
             ArrayList<View> configureEnteringExitingViews = configureEnteringExitingViews(chooseImpl, obj, fragment2, arrayList, view2);
-            Object obj2 = (configureEnteringExitingViews == null || configureEnteringExitingViews.isEmpty()) ? null : obj;
+            if (configureEnteringExitingViews != null && !configureEnteringExitingViews.isEmpty()) {
+                obj2 = obj;
+            } else {
+                obj2 = null;
+            }
             chooseImpl.addTarget(enterTransition, view2);
             Object mergeTransitions = mergeTransitions(chooseImpl, enterTransition, obj2, configureSharedElementsOrdered, fragment, fragmentContainerTransition.lastInIsPop);
             if (fragment2 != null && configureEnteringExitingViews != null && (configureEnteringExitingViews.size() > 0 || arrayList.size() > 0)) {
@@ -861,14 +1005,20 @@ public class FragmentTransition {
     }
 
     public static void configureTransitionsReordered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view2, ArrayMap<String, String> arrayMap, Callback callback) {
+        ViewGroup viewGroup;
         Fragment fragment;
         Fragment fragment2;
         FragmentTransitionImpl chooseImpl;
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view2, arrayMap, callback}) == null) {
-            ViewGroup viewGroup = fragmentManager.mContainer.onHasView() ? (ViewGroup) fragmentManager.mContainer.onFindViewById(i) : null;
-            if (viewGroup == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
+            if (fragmentManager.mContainer.onHasView()) {
+                viewGroup = (ViewGroup) fragmentManager.mContainer.onFindViewById(i);
+            } else {
+                viewGroup = null;
+            }
+            ViewGroup viewGroup2 = viewGroup;
+            if (viewGroup2 == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
                 return;
             }
             boolean z = fragmentContainerTransition.lastInIsPop;
@@ -877,7 +1027,7 @@ public class FragmentTransition {
             ArrayList<View> arrayList2 = new ArrayList<>();
             Object enterTransition = getEnterTransition(chooseImpl, fragment, z);
             Object exitTransition = getExitTransition(chooseImpl, fragment2, z2);
-            Object configureSharedElementsReordered = configureSharedElementsReordered(chooseImpl, viewGroup, view2, arrayMap, fragmentContainerTransition, arrayList2, arrayList, enterTransition, exitTransition);
+            Object configureSharedElementsReordered = configureSharedElementsReordered(chooseImpl, viewGroup2, view2, arrayMap, fragmentContainerTransition, arrayList2, arrayList, enterTransition, exitTransition);
             if (enterTransition == null && configureSharedElementsReordered == null) {
                 obj = exitTransition;
                 if (obj == null) {
@@ -933,77 +1083,12 @@ public class FragmentTransition {
                 replaceHide(chooseImpl, obj, fragment2, configureEnteringExitingViews);
                 ArrayList<String> prepareSetNameOverridesReordered = chooseImpl.prepareSetNameOverridesReordered(arrayList);
                 chooseImpl.scheduleRemoveTargets(mergeTransitions, enterTransition, configureEnteringExitingViews2, obj, configureEnteringExitingViews, configureSharedElementsReordered, arrayList);
-                chooseImpl.beginDelayedTransition(viewGroup, mergeTransitions);
-                chooseImpl.setNameOverridesReordered(viewGroup, arrayList2, arrayList, prepareSetNameOverridesReordered, arrayMap);
+                chooseImpl.beginDelayedTransition(viewGroup2, mergeTransitions);
+                chooseImpl.setNameOverridesReordered(viewGroup2, arrayList2, arrayList, prepareSetNameOverridesReordered, arrayMap);
                 setViewVisibility(configureEnteringExitingViews2, 0);
                 chooseImpl.swapSharedElementTargets(configureSharedElementsReordered, arrayList2, arrayList);
             }
         }
-    }
-
-    public static FragmentContainerTransition ensureContainer(FragmentContainerTransition fragmentContainerTransition, SparseArray<FragmentContainerTransition> sparseArray, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, fragmentContainerTransition, sparseArray, i)) == null) {
-            if (fragmentContainerTransition == null) {
-                FragmentContainerTransition fragmentContainerTransition2 = new FragmentContainerTransition();
-                sparseArray.put(i, fragmentContainerTransition2);
-                return fragmentContainerTransition2;
-            }
-            return fragmentContainerTransition;
-        }
-        return (FragmentContainerTransition) invokeLLI.objValue;
-    }
-
-    public static String findKeyForValue(ArrayMap<String, String> arrayMap, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, arrayMap, str)) == null) {
-            int size = arrayMap.size();
-            for (int i = 0; i < size; i++) {
-                if (str.equals(arrayMap.valueAt(i))) {
-                    return arrayMap.keyAt(i);
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static Object getEnterTransition(FragmentTransitionImpl fragmentTransitionImpl, Fragment fragment, boolean z) {
-        InterceptResult invokeLLZ;
-        Object enterTransition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65555, null, fragmentTransitionImpl, fragment, z)) == null) {
-            if (fragment == null) {
-                return null;
-            }
-            if (z) {
-                enterTransition = fragment.getReenterTransition();
-            } else {
-                enterTransition = fragment.getEnterTransition();
-            }
-            return fragmentTransitionImpl.cloneTransition(enterTransition);
-        }
-        return invokeLLZ.objValue;
-    }
-
-    public static Object getExitTransition(FragmentTransitionImpl fragmentTransitionImpl, Fragment fragment, boolean z) {
-        InterceptResult invokeLLZ;
-        Object exitTransition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65556, null, fragmentTransitionImpl, fragment, z)) == null) {
-            if (fragment == null) {
-                return null;
-            }
-            if (z) {
-                exitTransition = fragment.getReturnTransition();
-            } else {
-                exitTransition = fragment.getExitTransition();
-            }
-            return fragmentTransitionImpl.cloneTransition(exitTransition);
-        }
-        return invokeLLZ.objValue;
     }
 
     public static View getInEpicenterView(ArrayMap<String, View> arrayMap, FragmentContainerTransition fragmentContainerTransition, Object obj, boolean z) {
@@ -1013,15 +1098,15 @@ public class FragmentTransition {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{arrayMap, fragmentContainerTransition, obj, Boolean.valueOf(z)})) == null) {
             BackStackRecord backStackRecord = fragmentContainerTransition.lastInTransaction;
-            if (obj == null || arrayMap == null || (arrayList = backStackRecord.mSharedElementSourceNames) == null || arrayList.isEmpty()) {
-                return null;
+            if (obj != null && arrayMap != null && (arrayList = backStackRecord.mSharedElementSourceNames) != null && !arrayList.isEmpty()) {
+                if (z) {
+                    str = backStackRecord.mSharedElementSourceNames.get(0);
+                } else {
+                    str = backStackRecord.mSharedElementTargetNames.get(0);
+                }
+                return arrayMap.get(str);
             }
-            if (z) {
-                str = backStackRecord.mSharedElementSourceNames.get(0);
-            } else {
-                str = backStackRecord.mSharedElementTargetNames.get(0);
-            }
-            return arrayMap.get(str);
+            return null;
         }
         return (View) invokeCommon.objValue;
     }
@@ -1031,35 +1116,15 @@ public class FragmentTransition {
         Object sharedElementEnterTransition;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{fragmentTransitionImpl, fragment, fragment2, Boolean.valueOf(z)})) == null) {
-            if (fragment == null || fragment2 == null) {
-                return null;
+            if (fragment != null && fragment2 != null) {
+                if (z) {
+                    sharedElementEnterTransition = fragment2.getSharedElementReturnTransition();
+                } else {
+                    sharedElementEnterTransition = fragment.getSharedElementEnterTransition();
+                }
+                return fragmentTransitionImpl.wrapTransitionInSet(fragmentTransitionImpl.cloneTransition(sharedElementEnterTransition));
             }
-            if (z) {
-                sharedElementEnterTransition = fragment2.getSharedElementReturnTransition();
-            } else {
-                sharedElementEnterTransition = fragment.getSharedElementEnterTransition();
-            }
-            return fragmentTransitionImpl.wrapTransitionInSet(fragmentTransitionImpl.cloneTransition(sharedElementEnterTransition));
-        }
-        return invokeCommon.objValue;
-    }
-
-    public static Object mergeTransitions(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Object obj2, Object obj3, Fragment fragment, boolean z) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{fragmentTransitionImpl, obj, obj2, obj3, fragment, Boolean.valueOf(z)})) == null) {
-            if (obj == null || obj2 == null || fragment == null) {
-                z2 = true;
-            } else if (z) {
-                z2 = fragment.getAllowReturnTransitionOverlap();
-            } else {
-                z2 = fragment.getAllowEnterTransitionOverlap();
-            }
-            if (z2) {
-                return fragmentTransitionImpl.mergeTransitionsTogether(obj2, obj, obj3);
-            }
-            return fragmentTransitionImpl.mergeTransitionsInSequence(obj2, obj, obj3);
+            return null;
         }
         return invokeCommon.objValue;
     }
@@ -1103,26 +1168,42 @@ public class FragmentTransition {
         }
     }
 
-    public static FragmentTransitionImpl resolveSupportImpl() {
-        InterceptResult invokeV;
+    public static Object mergeTransitions(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Object obj2, Object obj3, Fragment fragment, boolean z) {
+        InterceptResult invokeCommon;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            try {
-                return (FragmentTransitionImpl) Class.forName("androidx.transition.FragmentTransitionSupport").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (Exception unused) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{fragmentTransitionImpl, obj, obj2, obj3, fragment, Boolean.valueOf(z)})) == null) {
+            if (obj != null && obj2 != null && fragment != null) {
+                if (z) {
+                    z2 = fragment.getAllowReturnTransitionOverlap();
+                } else {
+                    z2 = fragment.getAllowEnterTransitionOverlap();
+                }
+            } else {
+                z2 = true;
             }
+            if (z2) {
+                return fragmentTransitionImpl.mergeTransitionsTogether(obj2, obj, obj3);
+            }
+            return fragmentTransitionImpl.mergeTransitionsInSequence(obj2, obj, obj3);
         }
-        return (FragmentTransitionImpl) invokeV.objValue;
+        return invokeCommon.objValue;
     }
 
-    public static void retainValues(ArrayMap<String, String> arrayMap, ArrayMap<String, View> arrayMap2) {
+    public static void setOutEpicenter(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Object obj2, ArrayMap<String, View> arrayMap, boolean z, BackStackRecord backStackRecord) {
+        ArrayList<String> arrayList;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65562, null, arrayMap, arrayMap2) == null) {
-            for (int size = arrayMap.size() - 1; size >= 0; size--) {
-                if (!arrayMap2.containsKey(arrayMap.valueAt(size))) {
-                    arrayMap.removeAt(size);
-                }
+        if ((interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{fragmentTransitionImpl, obj, obj2, arrayMap, Boolean.valueOf(z), backStackRecord}) == null) && (arrayList = backStackRecord.mSharedElementSourceNames) != null && !arrayList.isEmpty()) {
+            if (z) {
+                str = backStackRecord.mSharedElementTargetNames.get(0);
+            } else {
+                str = backStackRecord.mSharedElementSourceNames.get(0);
+            }
+            View view2 = arrayMap.get(str);
+            fragmentTransitionImpl.setEpicenter(obj, view2);
+            if (obj2 != null) {
+                fragmentTransitionImpl.setEpicenter(obj2, view2);
             }
         }
     }
@@ -1191,38 +1272,9 @@ public class FragmentTransition {
         }
     }
 
-    public static void setOutEpicenter(FragmentTransitionImpl fragmentTransitionImpl, Object obj, Object obj2, ArrayMap<String, View> arrayMap, boolean z, BackStackRecord backStackRecord) {
-        ArrayList<String> arrayList;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{fragmentTransitionImpl, obj, obj2, arrayMap, Boolean.valueOf(z), backStackRecord}) == null) || (arrayList = backStackRecord.mSharedElementSourceNames) == null || arrayList.isEmpty()) {
-            return;
-        }
-        if (z) {
-            str = backStackRecord.mSharedElementTargetNames.get(0);
-        } else {
-            str = backStackRecord.mSharedElementSourceNames.get(0);
-        }
-        View view2 = arrayMap.get(str);
-        fragmentTransitionImpl.setEpicenter(obj, view2);
-        if (obj2 != null) {
-            fragmentTransitionImpl.setEpicenter(obj2, view2);
-        }
-    }
-
-    public static void setViewVisibility(ArrayList<View> arrayList, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65565, null, arrayList, i) == null) || arrayList == null) {
-            return;
-        }
-        for (int size = arrayList.size() - 1; size >= 0; size--) {
-            arrayList.get(size).setVisibility(i);
-        }
-    }
-
     public static void startTransitions(FragmentManager fragmentManager, ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i, int i2, boolean z, Callback callback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{fragmentManager, arrayList, arrayList2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), callback}) == null) || fragmentManager.mCurState < 1) {
+        if ((interceptable != null && interceptable.invokeCommon(65566, null, new Object[]{fragmentManager, arrayList, arrayList2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), callback}) != null) || fragmentManager.mCurState < 1) {
             return;
         }
         SparseArray sparseArray = new SparseArray();
@@ -1248,11 +1300,5 @@ public class FragmentTransition {
                 }
             }
         }
-    }
-
-    public static boolean supportsTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? (PLATFORM_IMPL == null && SUPPORT_IMPL == null) ? false : true : invokeV.booleanValue;
     }
 }

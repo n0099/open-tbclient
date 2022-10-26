@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c65;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.ol8;
-import com.baidu.tieba.t55;
+import com.baidu.tieba.g65;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.vl8;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SendView extends TextView implements t55 {
+public class SendView extends TextView implements x55 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int f = 2;
     public static int g = 1;
@@ -34,6 +34,21 @@ public class SendView extends TextView implements t55 {
     public boolean[] c;
     public int[] d;
     public int e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1381963171, "Lcom/baidu/tbadk/editortools/sendtool/SendView;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1381963171, "Lcom/baidu/tbadk/editortools/sendtool/SendView;");
+        }
+    }
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -63,23 +78,8 @@ public class SendView extends TextView implements t55 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.K(new h55(8, -1, null));
+                this.a.K(new l55(8, -1, null));
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1381963171, "Lcom/baidu/tbadk/editortools/sendtool/SendView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1381963171, "Lcom/baidu/tbadk/editortools/sendtool/SendView;");
         }
     }
 
@@ -110,92 +110,117 @@ public class SendView extends TextView implements t55 {
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         setTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
-        setText(R.string.obfuscated_res_0x7f0f112d);
+        setText(R.string.obfuscated_res_0x7f0f113f);
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.i55
-    public void B(h55 h55Var) {
+    @Override // com.baidu.tieba.m55
+    public void B(l55 l55Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || h55Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, l55Var) != null) || l55Var == null) {
             return;
         }
-        int i = h55Var.a;
-        if (i == 4) {
-            Object obj = h55Var.c;
-            if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
+        int i = l55Var.a;
+        if (i != 4) {
+            if (i != 39 && i != 28) {
+                if (i != 29) {
+                    switch (i) {
+                        case 9:
+                            boolean[] zArr = this.c;
+                            zArr[0] = false;
+                            zArr[1] = false;
+                            zArr[2] = false;
+                            zArr[3] = false;
+                            zArr[4] = false;
+                            int[] iArr = this.d;
+                            iArr[0] = 0;
+                            iArr[1] = 0;
+                            break;
+                        case 10:
+                            this.c[2] = true;
+                            break;
+                        case 11:
+                            this.c[2] = false;
+                            break;
+                        case 12:
+                            Object obj = l55Var.c;
+                            if (!(obj instanceof g65)) {
+                                return;
+                            }
+                            g65 g65Var = (g65) obj;
+                            WriteImagesInfo writeImagesInfo = g65Var.a;
+                            if (writeImagesInfo != null) {
+                                if (writeImagesInfo.getChosedFiles() != null) {
+                                    this.d[0] = g65Var.a.getChosedFiles().size();
+                                } else {
+                                    this.d[0] = 0;
+                                }
+                            }
+                            if (this.d[0] > 0) {
+                                this.c[1] = true;
+                                break;
+                            } else {
+                                this.c[1] = false;
+                                break;
+                            }
+                        case 13:
+                            int[] iArr2 = this.d;
+                            iArr2[0] = iArr2[0] - 1;
+                            if (iArr2[0] > 0) {
+                                this.c[1] = true;
+                                break;
+                            } else {
+                                this.c[1] = false;
+                                break;
+                            }
+                    }
+                } else {
+                    this.c[3] = false;
+                }
+            } else {
+                this.c[3] = true;
+            }
+        } else {
+            Object obj2 = l55Var.c;
+            if (obj2 != null && (!(obj2 instanceof String) || !StringUtils.isNull((String) obj2))) {
                 this.c[0] = true;
             } else {
                 this.c[0] = false;
             }
-        } else if (i == 39 || i == 28) {
-            this.c[3] = true;
-        } else if (i != 29) {
-            switch (i) {
-                case 9:
-                    boolean[] zArr = this.c;
-                    zArr[0] = false;
-                    zArr[1] = false;
-                    zArr[2] = false;
-                    zArr[3] = false;
-                    zArr[4] = false;
-                    int[] iArr = this.d;
-                    iArr[0] = 0;
-                    iArr[1] = 0;
-                    break;
-                case 10:
-                    this.c[2] = true;
-                    break;
-                case 11:
-                    this.c[2] = false;
-                    break;
-                case 12:
-                    Object obj2 = h55Var.c;
-                    if (obj2 instanceof c65) {
-                        c65 c65Var = (c65) obj2;
-                        WriteImagesInfo writeImagesInfo = c65Var.a;
-                        if (writeImagesInfo != null) {
-                            if (writeImagesInfo.getChosedFiles() != null) {
-                                this.d[0] = c65Var.a.getChosedFiles().size();
-                            } else {
-                                this.d[0] = 0;
-                            }
-                        }
-                        if (this.d[0] > 0) {
-                            this.c[1] = true;
-                            break;
-                        } else {
-                            this.c[1] = false;
-                            break;
-                        }
-                    } else {
-                        return;
-                    }
-                case 13:
-                    int[] iArr2 = this.d;
-                    iArr2[0] = iArr2[0] - 1;
-                    if (iArr2[0] > 0) {
-                        this.c[1] = true;
-                        break;
-                    } else {
-                        this.c[1] = false;
-                        break;
-                    }
-            }
-        } else {
-            this.c[3] = false;
         }
         a(this.e);
     }
 
-    @Override // com.baidu.tieba.t55
-    public void K(h55 h55Var) {
+    @Override // com.baidu.tieba.x55
+    public void K(l55 l55Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l55Var) == null) && (editorTools = this.a) != null) {
+            editorTools.A(l55Var);
         }
-        editorTools.A(h55Var);
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void setEditorTools(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
+            this.a = editorTools;
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void setToolId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void setType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.e = i;
+        }
     }
 
     public void a(int i) {
@@ -218,7 +243,16 @@ public class SendView extends TextView implements t55 {
         }
     }
 
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{vl8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), vl8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -226,14 +260,17 @@ public class SendView extends TextView implements t55 {
         }
     }
 
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -241,43 +278,11 @@ public class SendView extends TextView implements t55 {
         }
     }
 
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             setClickable(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{ol8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), ol8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void setEditorTools(EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
-            this.a = editorTools;
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void setToolId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void setType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
         }
     }
 }

@@ -7,7 +7,7 @@ import android.content.pm.ApplicationInfo;
 public final class c {
 
     /* loaded from: classes7.dex */
-    public static class a extends Application {
+    public final class a extends Application {
         public final Context a;
 
         public a(Context context) {

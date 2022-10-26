@@ -42,6 +42,51 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
         this.mDelegationName = "";
     }
 
+    @Override // com.baidu.searchbox.process.ipc.agent.Agent
+    public void exit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            exit(0, "");
+        }
+    }
+
+    @Override // android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.finish();
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onAttachedToWindow();
+            this.mDelegation.onAttachedToWindow();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            exit(5, "by BackPresse");
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            ActivityDelegation activityDelegation = this.mDelegation;
+            if (activityDelegation != null) {
+                activityDelegation.onAgentDestroy();
+            }
+            super.onDestroy();
+        }
+    }
+
     private void exitByIllegalDelegationClass(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
@@ -85,77 +130,6 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.agent.Agent
-    public void exit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            exit(0, "");
-        }
-    }
-
-    @Override // android.app.Activity
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.finish();
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onAttachedToWindow();
-            this.mDelegation.onAttachedToWindow();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            exit(5, "by BackPresse");
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            int releaseFixedOrientation = OrientationUtils.releaseFixedOrientation(this);
-            super.onCreate(bundle);
-            OrientationUtils.fixedOrientation(this, releaseFixedOrientation);
-            Intent intent = getIntent();
-            String stringExtra = intent.getStringExtra(DelegateDef.EXTRA_DELEGATION_NAME);
-            this.mDelegationName = stringExtra;
-            if (!TextUtils.isEmpty(stringExtra)) {
-                if (initDelegation()) {
-                    Bundle bundleExtra = intent.getBundleExtra(DelegateDef.EXTRA_PARAMS);
-                    if (bundleExtra != null && !bundleExtra.isEmpty()) {
-                        this.mDelegation.mParams.putAll(bundleExtra);
-                    }
-                    this.mDelegation.setAgent(this);
-                    this.mDelegation.exec();
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("empty action name");
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ActivityDelegation activityDelegation = this.mDelegation;
-            if (activityDelegation != null) {
-                activityDelegation.onAgentDestroy();
-            }
-            super.onDestroy();
-        }
-    }
-
     public void exit(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -171,6 +145,32 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
             }
             setResult(-1, intent);
             finish();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            int releaseFixedOrientation = OrientationUtils.releaseFixedOrientation(this);
+            super.onCreate(bundle);
+            OrientationUtils.fixedOrientation(this, releaseFixedOrientation);
+            Intent intent = getIntent();
+            String stringExtra = intent.getStringExtra(DelegateDef.EXTRA_DELEGATION_NAME);
+            this.mDelegationName = stringExtra;
+            if (!TextUtils.isEmpty(stringExtra)) {
+                if (!initDelegation()) {
+                    return;
+                }
+                Bundle bundleExtra = intent.getBundleExtra(DelegateDef.EXTRA_PARAMS);
+                if (bundleExtra != null && !bundleExtra.isEmpty()) {
+                    this.mDelegation.mParams.putAll(bundleExtra);
+                }
+                this.mDelegation.setAgent(this);
+                this.mDelegation.exec();
+                return;
+            }
+            throw new IllegalArgumentException("empty action name");
         }
     }
 }

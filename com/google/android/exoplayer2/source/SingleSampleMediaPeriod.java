@@ -25,7 +25,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callback<SourceLoadable> {
+public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIAL_SAMPLE_SIZE = 1024;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,10 +41,39 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
     public final int minLoadableRetryCount;
     public byte[] sampleData;
     public int sampleSize;
-    public final ArrayList<SampleStreamImpl> sampleStreams;
+    public final ArrayList sampleStreams;
     public final TrackGroupArray tracks;
     public final boolean treatLoadErrorsAsEndOfStream;
     public final Uri uri;
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public void discardBuffer(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public void maybeThrowPrepareError() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.Loader.Callback
+    public void onLoadCanceled(SourceLoadable sourceLoadable, long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{sourceLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public long readDiscontinuity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? C.TIME_UNSET : invokeV.longValue;
+    }
 
     /* loaded from: classes7.dex */
     public final class SampleStreamImpl implements SampleStream {
@@ -74,11 +103,35 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
             this.this$0 = singleSampleMediaPeriod;
         }
 
+        public void seekToUs(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && this.streamState == 2) {
+                this.streamState = 1;
+            }
+        }
+
+        @Override // com.google.android.exoplayer2.source.SampleStream
+        public int skipData(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                if (j > 0 && this.streamState != 2) {
+                    this.streamState = 2;
+                    return 1;
+                }
+                return 0;
+            }
+            return invokeJ.intValue;
+        }
+
         @Override // com.google.android.exoplayer2.source.SampleStream
         public boolean isReady() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.loadingFinished : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.this$0.loadingFinished;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.google.android.exoplayer2.source.SampleStream
@@ -86,10 +139,9 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 SingleSampleMediaPeriod singleSampleMediaPeriod = this.this$0;
-                if (singleSampleMediaPeriod.treatLoadErrorsAsEndOfStream) {
-                    return;
+                if (!singleSampleMediaPeriod.treatLoadErrorsAsEndOfStream) {
+                    singleSampleMediaPeriod.loader.maybeThrowError();
                 }
-                singleSampleMediaPeriod.loader.maybeThrowError();
             }
         }
 
@@ -127,37 +179,33 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
             }
             return invokeLLZ.intValue;
         }
-
-        public void seekToUs(long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && this.streamState == 2) {
-                this.streamState = 1;
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.source.SampleStream
-        public int skipData(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-                if (j <= 0 || this.streamState == 2) {
-                    return 0;
-                }
-                this.streamState = 2;
-                return 1;
-            }
-            return invokeJ.intValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class SourceLoadable implements Loader.Loadable {
+    public final class SourceLoadable implements Loader.Loadable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSource dataSource;
         public byte[] sampleData;
         public int sampleSize;
         public final Uri uri;
+
+        @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
+        public void cancelLoad() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
+        public boolean isLoadCanceled() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
         public SourceLoadable(Uri uri, DataSource dataSource) {
             Interceptable interceptable = $ic;
@@ -176,23 +224,6 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
             }
             this.uri = uri;
             this.dataSource = dataSource;
-        }
-
-        @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
-        public void cancelLoad() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
-        public boolean isLoadCanceled() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
         }
 
         @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
@@ -244,127 +275,47 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
         this.eventSourceId = i2;
         this.treatLoadErrorsAsEndOfStream = z;
         this.tracks = new TrackGroupArray(new TrackGroup(format));
-        this.sampleStreams = new ArrayList<>();
+        this.sampleStreams = new ArrayList();
         this.loader = new Loader("Loader:SingleSampleMediaPeriod");
     }
 
     private void notifyLoadError(IOException iOException) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, iOException) == null) || (handler = this.eventHandler) == null || this.eventListener == null) {
-            return;
-        }
-        handler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.SingleSampleMediaPeriod.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SingleSampleMediaPeriod this$0;
-            public final /* synthetic */ IOException val$e;
+        if ((interceptable == null || interceptable.invokeL(65539, this, iOException) == null) && (handler = this.eventHandler) != null && this.eventListener != null) {
+            handler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.SingleSampleMediaPeriod.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SingleSampleMediaPeriod this$0;
+                public final /* synthetic */ IOException val$e;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, iOException};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, iOException};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$e = iOException;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.eventListener.onLoadError(this.this$0.eventSourceId, this.val$e);
                     }
                 }
-                this.this$0 = this;
-                this.val$e = iOException;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.eventListener.onLoadError(this.this$0.eventSourceId, this.val$e);
-                }
-            }
-        });
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public boolean continueLoading(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (this.loadingFinished || this.loader.isLoading()) {
-                return false;
-            }
-            this.loader.startLoading(new SourceLoadable(this.uri, this.dataSourceFactory.createDataSource()), this, this.minLoadableRetryCount);
-            return true;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void discardBuffer(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public long getBufferedPositionUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loadingFinished ? Long.MIN_VALUE : 0L : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public long getNextLoadPositionUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.loadingFinished || this.loader.isLoading()) ? Long.MIN_VALUE : 0L : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public TrackGroupArray getTrackGroups() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tracks : (TrackGroupArray) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void maybeThrowPrepareError() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCanceled(SourceLoadable sourceLoadable, long j, long j2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{sourceLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void prepare(MediaPeriod.Callback callback, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048588, this, callback, j) == null) {
-            callback.onPrepared(this);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long readDiscontinuity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? C.TIME_UNSET : invokeV.longValue;
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.loader.release();
+            });
         }
     }
 
@@ -374,33 +325,68 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
             for (int i = 0; i < this.sampleStreams.size(); i++) {
-                this.sampleStreams.get(i).seekToUs(j);
+                ((SampleStreamImpl) this.sampleStreams.get(i)).seekToUs(j);
             }
             return j;
         }
         return invokeJ.longValue;
     }
 
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j) {
-        InterceptResult invokeCommon;
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public boolean continueLoading(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j)})) == null) {
-            for (int i = 0; i < trackSelectionArr.length; i++) {
-                if (sampleStreamArr[i] != null && (trackSelectionArr[i] == null || !zArr[i])) {
-                    this.sampleStreams.remove(sampleStreamArr[i]);
-                    sampleStreamArr[i] = null;
-                }
-                if (sampleStreamArr[i] == null && trackSelectionArr[i] != null) {
-                    SampleStreamImpl sampleStreamImpl = new SampleStreamImpl();
-                    this.sampleStreams.add(sampleStreamImpl);
-                    sampleStreamArr[i] = sampleStreamImpl;
-                    zArr2[i] = true;
-                }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (!this.loadingFinished && !this.loader.isLoading()) {
+                this.loader.startLoading(new SourceLoadable(this.uri, this.dataSourceFactory.createDataSource()), this, this.minLoadableRetryCount);
+                return true;
             }
-            return j;
+            return false;
         }
-        return invokeCommon.longValue;
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public long getBufferedPositionUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.loadingFinished) {
+                return Long.MIN_VALUE;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public long getNextLoadPositionUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.loadingFinished && !this.loader.isLoading()) {
+                return 0L;
+            }
+            return Long.MIN_VALUE;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public TrackGroupArray getTrackGroups() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.tracks;
+        }
+        return (TrackGroupArray) invokeV.objValue;
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.loader.release();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -424,12 +410,42 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
             notifyLoadError(iOException);
             int i = this.errorCount + 1;
             this.errorCount = i;
-            if (!this.treatLoadErrorsAsEndOfStream || i < this.minLoadableRetryCount) {
-                return 0;
+            if (this.treatLoadErrorsAsEndOfStream && i >= this.minLoadableRetryCount) {
+                this.loadingFinished = true;
+                return 2;
             }
-            this.loadingFinished = true;
-            return 2;
+            return 0;
         }
         return invokeCommon.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public void prepare(MediaPeriod.Callback callback, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048588, this, callback, j) == null) {
+            callback.onPrepared(this);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j)})) == null) {
+            for (int i = 0; i < trackSelectionArr.length; i++) {
+                if (sampleStreamArr[i] != null && (trackSelectionArr[i] == null || !zArr[i])) {
+                    this.sampleStreams.remove(sampleStreamArr[i]);
+                    sampleStreamArr[i] = null;
+                }
+                if (sampleStreamArr[i] == null && trackSelectionArr[i] != null) {
+                    SampleStreamImpl sampleStreamImpl = new SampleStreamImpl();
+                    this.sampleStreams.add(sampleStreamImpl);
+                    sampleStreamArr[i] = sampleStreamImpl;
+                    zArr2[i] = true;
+                }
+            }
+            return j;
+        }
+        return invokeCommon.longValue;
     }
 }

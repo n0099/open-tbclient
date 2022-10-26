@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class LiveBannerWrapData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LiveBannerEntity> bannerList;
+    public List bannerList;
     public int count;
     public int errCode;
     public String errMsg;
@@ -35,7 +35,7 @@ public class LiveBannerWrapData {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.errCode = jSONObject.optInt("inner_errno");
@@ -43,18 +43,17 @@ public class LiveBannerWrapData {
         this.count = jSONObject.optInt("count");
         this.position = jSONObject.optInt(CriusAttrConstants.POSITION);
         JSONArray optJSONArray = jSONObject.optJSONArray("items");
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        this.bannerList = new ArrayList();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
-                liveBannerEntity.parserJson(optJSONObject);
-                if (liveBannerEntity.isValid()) {
-                    liveBannerEntity.position = this.bannerList.size();
-                    this.bannerList.add(liveBannerEntity);
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.bannerList = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
+                    liveBannerEntity.parserJson(optJSONObject);
+                    if (liveBannerEntity.isValid()) {
+                        liveBannerEntity.position = this.bannerList.size();
+                        this.bannerList.add(liveBannerEntity);
+                    }
                 }
             }
         }

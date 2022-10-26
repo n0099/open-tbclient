@@ -47,18 +47,16 @@ public class VrPlayerActivityConfig extends IntentConfig {
 
     public void addPicParam(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && getIntent() != null) {
+            getIntent().putExtra(PIC_WIDTH, i);
+            getIntent().putExtra(PIC_HEIGHT, i2);
         }
-        getIntent().putExtra(PIC_WIDTH, i);
-        getIntent().putExtra(PIC_HEIGHT, i2);
     }
 
     public void addTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("title", str);
         }
-        getIntent().putExtra("title", str);
     }
 }

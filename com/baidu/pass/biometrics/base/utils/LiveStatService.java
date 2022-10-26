@@ -30,7 +30,7 @@ public final class LiveStatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = "LiveStatService";
-    public static final Map<String, String> a;
+    public static final Map a;
     public static final String b = "4854";
     public static final String c = "page";
     public static final String d = "source";
@@ -72,80 +72,81 @@ public final class LiveStatService {
         }
     }
 
-    public static void onEvent(Context context, String str, Map<String, String> map) {
+    public static void onEvent(Context context, String str, Map map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, context, str, map) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, context, str, map) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            if (NetworkUtils.isNetworkAvailable(context)) {
-                HashMap hashMap = new HashMap();
-                hashMap.putAll(a);
-                map.put("v", String.valueOf(System.currentTimeMillis()));
-                hashMap.put("name", str);
-                hashMap.put("model", Build.MODEL);
-                hashMap.put("tpl", BeanConstants.tpl);
-                hashMap.put("clientfrom", "mobilesdk_enhanced");
-                hashMap.put("app_version", PassBioBaseUtil.getVersionName(context));
-                hashMap.put("sdk_version", PassBiometricDefaultFactory.VERSION_NAME);
-                hashMap.put("cuid", SapiUtils.getClientId(context));
-                hashMap.put("v", String.valueOf(System.currentTimeMillis()));
-                if (map != null) {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                            hashMap.put(entry.getKey(), entry.getValue());
+            if (!NetworkUtils.isNetworkAvailable(context)) {
+                return;
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(a);
+            map.put("v", String.valueOf(System.currentTimeMillis()));
+            hashMap.put("name", str);
+            hashMap.put("model", Build.MODEL);
+            hashMap.put("tpl", BeanConstants.tpl);
+            hashMap.put("clientfrom", "mobilesdk_enhanced");
+            hashMap.put("app_version", PassBioBaseUtil.getVersionName(context));
+            hashMap.put("sdk_version", PassBiometricDefaultFactory.VERSION_NAME);
+            hashMap.put("cuid", SapiUtils.getClientId(context));
+            hashMap.put("v", String.valueOf(System.currentTimeMillis()));
+            if (map != null) {
+                for (Map.Entry entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
+                        hashMap.put(entry.getKey(), entry.getValue());
+                    }
+                }
+            }
+            PassHttpParamDTO passHttpParamDTO = new PassHttpParamDTO();
+            passHttpParamDTO.url = DOMAIN_NSCLICK_URL;
+            passHttpParamDTO.paramsMap.putAll(hashMap);
+            passHttpParamDTO.priority = ReqPriority.LOW;
+            PassHttpClient.getInstance().get(context.getApplicationContext(), passHttpParamDTO, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.LiveStatService.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.pass.http.HttpResponseHandler
+                public void onFailure(Throwable th, String str2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, th, str2) == null) {
+                    }
+                }
+
+                @Override // com.baidu.pass.http.HttpResponseHandler
+                public void onSuccess(int i, String str2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
+                    }
+                }
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r7);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r7};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super((Looper) newInitContext.callArgs[0]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
                 }
-                PassHttpParamDTO passHttpParamDTO = new PassHttpParamDTO();
-                passHttpParamDTO.url = DOMAIN_NSCLICK_URL;
-                passHttpParamDTO.paramsMap.putAll(hashMap);
-                passHttpParamDTO.priority = ReqPriority.LOW;
-                PassHttpClient.getInstance().get(context.getApplicationContext(), passHttpParamDTO, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.LiveStatService.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(r7);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {r7};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super((Looper) newInitContext.callArgs[0]);
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                    }
-
-                    @Override // com.baidu.pass.http.HttpResponseHandler
-                    public void onFailure(Throwable th, String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, th, str2) == null) {
-                        }
-                    }
-
-                    @Override // com.baidu.pass.http.HttpResponseHandler
-                    public void onSuccess(int i, String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
-                        }
-                    }
-                });
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject(hashMap);
-                jSONObject.put("page", "living_recog");
-                jSONObject.put("source", BeanConstants.tpl);
-                jSONObject.put("ext", jSONObject2);
-                ServiceManager.getInstance().getIsAccountManager().getUbcUploadImplCallback().onEvent(b, jSONObject);
-            }
+            });
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject(hashMap);
+            jSONObject.put("page", "living_recog");
+            jSONObject.put("source", BeanConstants.tpl);
+            jSONObject.put("ext", jSONObject2);
+            ServiceManager.getInstance().getIsAccountManager().getUbcUploadImplCallback().onEvent(b, jSONObject);
         } catch (Throwable unused) {
         }
     }

@@ -12,8 +12,23 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public View a;
     public TTDislikeController b;
 
+    public abstract int getLayoutId();
+
+    public abstract ViewGroup.LayoutParams getLayoutParams();
+
+    public abstract int[] getTTDislikeListViewIds();
+
     public TTDislikeDialogAbstract(Context context) {
         super(context);
+    }
+
+    public void setDislikeModel(TTDislikeController tTDislikeController) {
+        this.b = tTDislikeController;
+        a();
+    }
+
+    public TTDislikeDialogAbstract(Context context, int i) {
+        super(context, i);
     }
 
     public void a() {
@@ -46,11 +61,19 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
         }
     }
 
-    public abstract int getLayoutId();
+    @Override // android.app.Dialog
+    public void show() {
+        super.show();
+        b();
+    }
 
-    public abstract ViewGroup.LayoutParams getLayoutParams();
-
-    public abstract int[] getTTDislikeListViewIds();
+    public void startPersonalizePromptActivity() {
+        TTDislikeController tTDislikeController = this.b;
+        if (tTDislikeController != null) {
+            tTDislikeController.openWebPage(getContext(), true);
+            this.b.onDislikeEvent(getContext(), false);
+        }
+    }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
@@ -68,28 +91,5 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
             return;
         }
         throw new IllegalArgumentException("getLayoutId布局文件id可能异常，请检查");
-    }
-
-    public void setDislikeModel(TTDislikeController tTDislikeController) {
-        this.b = tTDislikeController;
-        a();
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        super.show();
-        b();
-    }
-
-    public void startPersonalizePromptActivity() {
-        TTDislikeController tTDislikeController = this.b;
-        if (tTDislikeController != null) {
-            tTDislikeController.openWebPage(getContext(), true);
-            this.b.onDislikeEvent(getContext(), false);
-        }
-    }
-
-    public TTDislikeDialogAbstract(Context context, int i) {
-        super(context, i);
     }
 }

@@ -1,11 +1,10 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gt8;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.qt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +21,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gt8> mBubbleGroupList;
-    public st8 mRecommand;
+    public List mBubbleGroupList;
+    public cu8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupSocketResponseMessage() {
@@ -43,8 +42,25 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    public List getGroupList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBubbleGroupList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public cu8 getRecommand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mRecommand;
+        }
+        return (cu8) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -61,17 +77,17 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleByCategoryResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    st8 st8Var = new st8();
-                    this.mRecommand = st8Var;
-                    st8Var.d(getBubbleByCategoryResIdl.data.recommend);
+                    cu8 cu8Var = new cu8();
+                    this.mRecommand = cu8Var;
+                    cu8Var.d(getBubbleByCategoryResIdl.data.recommend);
                 }
                 if (getBubbleByCategoryResIdl.data.bubbles != null) {
                     this.mBubbleGroupList = new ArrayList();
                     for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                         if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                            gt8 gt8Var = new gt8();
-                            gt8Var.c(themeBubbleInMain);
-                            this.mBubbleGroupList.add(gt8Var);
+                            qt8 qt8Var = new qt8();
+                            qt8Var.c(themeBubbleInMain);
+                            this.mBubbleGroupList.add(qt8Var);
                         }
                     }
                 }
@@ -79,17 +95,5 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
             return getBubbleByCategoryResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public List<gt8> getGroupList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBubbleGroupList : (List) invokeV.objValue;
-    }
-
-    public st8 getRecommand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
     }
 }

@@ -108,6 +108,21 @@ public final class UPCEANExtension5Support {
         return invokeI.intValue;
     }
 
+    public static Map parseExtensionString(String str) {
+        InterceptResult invokeL;
+        String parseExtension5String;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (str.length() != 5 || (parseExtension5String = parseExtension5String(str)) == null) {
+                return null;
+            }
+            EnumMap enumMap = new EnumMap(ResultMetadataType.class);
+            enumMap.put((EnumMap) ResultMetadataType.SUGGESTED_PRICE, (ResultMetadataType) parseExtension5String);
+            return enumMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
     public static int extensionChecksum(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -133,20 +148,24 @@ public final class UPCEANExtension5Support {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             char charAt = str.charAt(0);
             String str2 = "";
-            if (charAt == '0') {
+            if (charAt != '0') {
+                if (charAt != '5') {
+                    if (charAt == '9') {
+                        if ("90000".equals(str)) {
+                            return null;
+                        }
+                        if ("99991".equals(str)) {
+                            return "0.00";
+                        }
+                        if ("99990".equals(str)) {
+                            return "Used";
+                        }
+                    }
+                } else {
+                    str2 = "$";
+                }
+            } else {
                 str2 = "£";
-            } else if (charAt == '5') {
-                str2 = "$";
-            } else if (charAt == '9') {
-                if ("90000".equals(str)) {
-                    return null;
-                }
-                if ("99991".equals(str)) {
-                    return "0.00";
-                }
-                if ("99990".equals(str)) {
-                    return "Used";
-                }
             }
             int parseInt = Integer.parseInt(str.substring(1));
             String valueOf2 = String.valueOf(parseInt / 100);
@@ -161,21 +180,6 @@ public final class UPCEANExtension5Support {
         return (String) invokeL.objValue;
     }
 
-    public static Map<ResultMetadataType, Object> parseExtensionString(String str) {
-        InterceptResult invokeL;
-        String parseExtension5String;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str.length() == 5 && (parseExtension5String = parseExtension5String(str)) != null) {
-                EnumMap enumMap = new EnumMap(ResultMetadataType.class);
-                enumMap.put((EnumMap) ResultMetadataType.SUGGESTED_PRICE, (ResultMetadataType) parseExtension5String);
-                return enumMap;
-            }
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
     public Result decodeRow(int i, BitArray bitArray, int[] iArr) throws NotFoundException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -184,7 +188,7 @@ public final class UPCEANExtension5Support {
             sb.setLength(0);
             int decodeMiddle = decodeMiddle(bitArray, iArr, sb);
             String sb2 = sb.toString();
-            Map<ResultMetadataType, Object> parseExtensionString = parseExtensionString(sb2);
+            Map parseExtensionString = parseExtensionString(sb2);
             float f = i;
             Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[0] + iArr[1]) / 2.0f, f), new ResultPoint(decodeMiddle, f)}, BarcodeFormat.UPC_EAN_EXTENSION);
             if (parseExtensionString != null) {

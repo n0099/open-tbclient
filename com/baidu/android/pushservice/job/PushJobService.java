@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice.job;
 
-import android.annotation.TargetApi;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 import android.content.Intent;
@@ -21,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(21)
 /* loaded from: classes.dex */
 public class PushJobService extends JobService {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +27,7 @@ public class PushJobService extends JobService {
     public Handler a;
 
     /* loaded from: classes.dex */
-    public static class a extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final JobService a;

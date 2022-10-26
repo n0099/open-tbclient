@@ -17,9 +17,33 @@ public class FrameHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i >= 2000000 && i < 3000000 : invokeI.booleanValue;
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i >= 1000000 && i < 2000000 : invokeI.booleanValue;
+    }
+
+    public static boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 0 && i < 1000000 : invokeI.booleanValue;
+    }
+
+    public static void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class TYPE {
+    public final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TYPE CUSTOM;
@@ -69,41 +93,29 @@ public class FrameHelper {
         public static TYPE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TYPE) Enum.valueOf(TYPE.class, str) : (TYPE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TYPE) Enum.valueOf(TYPE.class, str);
+            }
+            return (TYPE) invokeL.objValue;
         }
 
         public static TYPE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TYPE[]) $VALUES.clone() : (TYPE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TYPE[]) $VALUES.clone();
+            }
+            return (TYPE[]) invokeV.objValue;
         }
     }
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i >= 2000000 && i < 3000000 : invokeI.booleanValue;
-    }
-
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i >= 1000000 && i < 2000000 : invokeI.booleanValue;
-    }
-
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 0 && i < 1000000 : invokeI.booleanValue;
-    }
-
-    public static <T extends ja> int d(LinkedList<T> linkedList, int i) {
+    public static int d(LinkedList linkedList, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, linkedList, i)) == null) {
             int size = linkedList.size();
             int i2 = 0;
-            while (i2 < size && linkedList.get(i2).getPriority() <= i) {
+            while (i2 < size && ((ja) linkedList.get(i2)).getPriority() <= i) {
                 i2++;
             }
             return i2;
@@ -111,36 +123,30 @@ public class FrameHelper {
         return invokeLI.intValue;
     }
 
+    public static void insert(LinkedList linkedList, ja jaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, linkedList, jaVar) != null) || jaVar == null || linkedList.contains(jaVar)) {
+            return;
+        }
+        linkedList.add(d(linkedList, jaVar.getPriority()), jaVar);
+    }
+
     public static TYPE e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (i < 0 || i >= 1000000) {
-                if (i < 1000000 || i >= 2000000) {
-                    if (i >= 2000000 && i < 3000000) {
-                        return TYPE.CUSTOM;
-                    }
-                    BdLog.e("cmd invalid:cmd=" + i);
-                    return null;
-                }
+            if (i >= 0 && i < 1000000) {
+                return TYPE.SOCKET;
+            }
+            if (i >= 1000000 && i < 2000000) {
                 return TYPE.HTTP;
             }
-            return TYPE.SOCKET;
+            if (i >= 2000000 && i < 3000000) {
+                return TYPE.CUSTOM;
+            }
+            BdLog.e("cmd invalid:cmd=" + i);
+            return null;
         }
         return (TYPE) invokeI.objValue;
-    }
-
-    public static void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
-        }
-    }
-
-    public static <T extends ja> void insert(LinkedList<T> linkedList, T t) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, linkedList, t) == null) || t == null || linkedList.contains(t)) {
-            return;
-        }
-        linkedList.add(d(linkedList, t.getPriority()), t);
     }
 }

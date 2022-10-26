@@ -9,10 +9,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface IVideoUpdateStrategy {
+    boolean a();
+
+    boolean b();
+
+    boolean c();
+
+    boolean d();
+
+    boolean e();
+
+    boolean f();
+
+    boolean g();
+
+    boolean h();
+
+    int i();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class VolumeIconState {
+    public final class VolumeIconState {
         public static final /* synthetic */ VolumeIconState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final VolumeIconState ALWAYS_SHOW;
@@ -62,31 +79,19 @@ public interface IVideoUpdateStrategy {
         public static VolumeIconState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VolumeIconState) Enum.valueOf(VolumeIconState.class, str) : (VolumeIconState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (VolumeIconState) Enum.valueOf(VolumeIconState.class, str);
+            }
+            return (VolumeIconState) invokeL.objValue;
         }
 
         public static VolumeIconState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VolumeIconState[]) $VALUES.clone() : (VolumeIconState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (VolumeIconState[]) $VALUES.clone();
+            }
+            return (VolumeIconState[]) invokeV.objValue;
         }
     }
-
-    boolean a();
-
-    boolean b();
-
-    boolean c();
-
-    boolean d();
-
-    boolean e();
-
-    boolean f();
-
-    boolean g();
-
-    boolean h();
-
-    int i();
 }

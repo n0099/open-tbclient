@@ -35,10 +35,19 @@ public class ResponseHttpRorumRuleDraftMessage extends JsonHttpResponsedMessage 
         }
     }
 
+    public ForumRuleBaseData getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.ruleBaseData;
+        }
+        return (ForumRuleBaseData) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, jSONObject) != null) || jSONObject == null) {
             return;
         }
         int parseInt = Integer.parseInt(jSONObject.optString("error_code"));
@@ -54,11 +63,5 @@ public class ResponseHttpRorumRuleDraftMessage extends JsonHttpResponsedMessage 
         }
         setError(parseInt);
         setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
-    }
-
-    public ForumRuleBaseData getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.ruleBaseData : (ForumRuleBaseData) invokeV.objValue;
     }
 }

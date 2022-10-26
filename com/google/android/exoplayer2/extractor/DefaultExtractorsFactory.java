@@ -23,7 +23,7 @@ import java.lang.reflect.Constructor;
 /* loaded from: classes7.dex */
 public final class DefaultExtractorsFactory implements ExtractorsFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static final Constructor<? extends Extractor> FLAC_EXTRACTOR_CONSTRUCTOR;
+    public static final Constructor FLAC_EXTRACTOR_CONSTRUCTOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int fragmentedMp4Flags;
     public int matroskaFlags;
@@ -33,7 +33,7 @@ public final class DefaultExtractorsFactory implements ExtractorsFactory {
     public int tsMode;
 
     static {
-        Constructor<? extends Extractor> constructor;
+        Constructor constructor;
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(863795288, "Lcom/google/android/exoplayer2/extractor/DefaultExtractorsFactory;")) != null) {
@@ -73,11 +73,17 @@ public final class DefaultExtractorsFactory implements ExtractorsFactory {
     @Override // com.google.android.exoplayer2.extractor.ExtractorsFactory
     public synchronized Extractor[] createExtractors() {
         InterceptResult invokeV;
+        int i;
         Extractor[] extractorArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                extractorArr = new Extractor[FLAC_EXTRACTOR_CONSTRUCTOR == null ? 11 : 12];
+                if (FLAC_EXTRACTOR_CONSTRUCTOR == null) {
+                    i = 11;
+                } else {
+                    i = 12;
+                }
+                extractorArr = new Extractor[i];
                 extractorArr[0] = new MatroskaExtractor(this.matroskaFlags);
                 extractorArr[1] = new FragmentedMp4Extractor(this.fragmentedMp4Flags);
                 extractorArr[2] = new Mp4Extractor(this.mp4Flags);
@@ -91,7 +97,7 @@ public final class DefaultExtractorsFactory implements ExtractorsFactory {
                 extractorArr[10] = new WavExtractor();
                 if (FLAC_EXTRACTOR_CONSTRUCTOR != null) {
                     try {
-                        extractorArr[11] = FLAC_EXTRACTOR_CONSTRUCTOR.newInstance(new Object[0]);
+                        extractorArr[11] = (Extractor) FLAC_EXTRACTOR_CONSTRUCTOR.newInstance(new Object[0]);
                     } catch (Exception e) {
                         throw new IllegalStateException("Unexpected error creating FLAC extractor", e);
                     }

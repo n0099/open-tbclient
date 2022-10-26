@@ -57,16 +57,6 @@ public class BasicManagedEntity extends HttpEntityWrapper implements ConnectionR
         }
     }
 
-    @Override // org.apache.http.conn.EofSensorWatcher
-    public boolean eofDetected(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // org.apache.http.entity.HttpEntityWrapper, org.apache.http.HttpEntity
     public InputStream getContent() throws IOException {
         InterceptResult invokeV;
@@ -100,6 +90,16 @@ public class BasicManagedEntity extends HttpEntityWrapper implements ConnectionR
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             throw new RuntimeException("Stub!");
         }
+    }
+
+    @Override // org.apache.http.conn.EofSensorWatcher
+    public boolean eofDetected(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // org.apache.http.conn.EofSensorWatcher

@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public static Object a;
-    public static Class<?> b;
+    public static Class b;
     public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
 

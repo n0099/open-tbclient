@@ -28,6 +28,12 @@ public final class CodecSpecificDataUtil {
     public static final byte[] NAL_START_CODE;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static byte[] buildAacAudioSpecificConfig(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? new byte[]{(byte) (((i << 3) & GDiffPatcher.DATA_INT) | ((i2 >> 1) & 7)), (byte) (((i2 << 7) & 128) | ((i3 << 3) & 120))} : (byte[]) invokeIII.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -58,12 +64,6 @@ public final class CodecSpecificDataUtil {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static byte[] buildAacAudioSpecificConfig(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? new byte[]{(byte) (((i << 3) & GDiffPatcher.DATA_INT) | ((i2 >> 1) & 7)), (byte) (((i2 << 7) & 128) | ((i3 << 3) & 120))} : (byte[]) invokeIII.objValue;
     }
 
     public static byte[] buildAacLcAudioSpecificConfig(int i, int i2) {
@@ -131,113 +131,73 @@ public final class CodecSpecificDataUtil {
         return invokeLI.intValue;
     }
 
+    public static boolean isNalStartCode(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
+            if (bArr.length - i <= NAL_START_CODE.length) {
+                return false;
+            }
+            int i2 = 0;
+            while (true) {
+                byte[] bArr2 = NAL_START_CODE;
+                if (i2 < bArr2.length) {
+                    if (bArr[i + i2] != bArr2[i2]) {
+                        return false;
+                    }
+                    i2++;
+                } else {
+                    return true;
+                }
+            }
+        } else {
+            return invokeLI.booleanValue;
+        }
+    }
+
     public static int getAacAudioObjectType(ParsableBitArray parsableBitArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, parsableBitArray)) == null) {
             int readBits = parsableBitArray.readBits(5);
-            return readBits == 31 ? parsableBitArray.readBits(6) + 32 : readBits;
+            if (readBits == 31) {
+                return parsableBitArray.readBits(6) + 32;
+            }
+            return readBits;
         }
         return invokeL.intValue;
     }
 
     public static int getAacSamplingFrequency(ParsableBitArray parsableBitArray) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, parsableBitArray)) == null) {
             int readBits = parsableBitArray.readBits(4);
             if (readBits == 15) {
                 return parsableBitArray.readBits(24);
             }
-            Assertions.checkArgument(readBits < 13);
+            if (readBits < 13) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
             return AUDIO_SPECIFIC_CONFIG_SAMPLING_RATE_TABLE[readBits];
         }
         return invokeL.intValue;
     }
 
-    public static boolean isNalStartCode(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) != null) {
-            return invokeLI.booleanValue;
-        }
-        if (bArr.length - i <= NAL_START_CODE.length) {
-            return false;
-        }
-        int i2 = 0;
-        while (true) {
-            byte[] bArr2 = NAL_START_CODE;
-            if (i2 >= bArr2.length) {
-                return true;
-            }
-            if (bArr[i + i2] != bArr2[i2]) {
-                return false;
-            }
-            i2++;
-        }
-    }
-
-    public static Pair<Integer, Integer> parseAacAudioSpecificConfig(byte[] bArr) throws ParserException {
+    public static Pair parseAacAudioSpecificConfig(byte[] bArr) throws ParserException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) ? parseAacAudioSpecificConfig(new ParsableBitArray(bArr), false) : (Pair) invokeL.objValue;
-    }
-
-    public static void parseGaSpecificConfig(ParsableBitArray parsableBitArray, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65547, null, parsableBitArray, i, i2) == null) {
-            parsableBitArray.skipBits(1);
-            if (parsableBitArray.readBit()) {
-                parsableBitArray.skipBits(14);
-            }
-            boolean readBit = parsableBitArray.readBit();
-            if (i2 == 0) {
-                throw new UnsupportedOperationException();
-            }
-            if (i == 6 || i == 20) {
-                parsableBitArray.skipBits(3);
-            }
-            if (readBit) {
-                if (i == 22) {
-                    parsableBitArray.skipBits(16);
-                }
-                if (i == 17 || i == 19 || i == 20 || i == 23) {
-                    parsableBitArray.skipBits(3);
-                }
-                parsableBitArray.skipBits(1);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
+            return parseAacAudioSpecificConfig(new ParsableBitArray(bArr), false);
         }
+        return (Pair) invokeL.objValue;
     }
 
-    public static byte[][] splitNalUnits(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, bArr)) == null) {
-            if (isNalStartCode(bArr, 0)) {
-                ArrayList arrayList = new ArrayList();
-                int i = 0;
-                do {
-                    arrayList.add(Integer.valueOf(i));
-                    i = findNalStartCode(bArr, i + NAL_START_CODE.length);
-                } while (i != -1);
-                byte[][] bArr2 = new byte[arrayList.size()];
-                int i2 = 0;
-                while (i2 < arrayList.size()) {
-                    int intValue = ((Integer) arrayList.get(i2)).intValue();
-                    int intValue2 = (i2 < arrayList.size() + (-1) ? ((Integer) arrayList.get(i2 + 1)).intValue() : bArr.length) - intValue;
-                    byte[] bArr3 = new byte[intValue2];
-                    System.arraycopy(bArr, intValue, bArr3, 0, intValue2);
-                    bArr2[i2] = bArr3;
-                    i2++;
-                }
-                return bArr2;
-            }
-            return null;
-        }
-        return (byte[][]) invokeL.objValue;
-    }
-
-    public static Pair<Integer, Integer> parseAacAudioSpecificConfig(ParsableBitArray parsableBitArray, boolean z) throws ParserException {
+    public static Pair parseAacAudioSpecificConfig(ParsableBitArray parsableBitArray, boolean z) throws ParserException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, null, parsableBitArray, z)) == null) {
@@ -251,6 +211,7 @@ public final class CodecSpecificDataUtil {
                     readBits = parsableBitArray.readBits(4);
                 }
             }
+            boolean z2 = true;
             if (z) {
                 if (aacAudioObjectType != 1 && aacAudioObjectType != 2 && aacAudioObjectType != 3 && aacAudioObjectType != 4 && aacAudioObjectType != 6 && aacAudioObjectType != 7 && aacAudioObjectType != 17) {
                     switch (aacAudioObjectType) {
@@ -279,9 +240,72 @@ public final class CodecSpecificDataUtil {
                 }
             }
             int i = AUDIO_SPECIFIC_CONFIG_CHANNEL_COUNT_TABLE[readBits];
-            Assertions.checkArgument(i != -1);
+            if (i == -1) {
+                z2 = false;
+            }
+            Assertions.checkArgument(z2);
             return Pair.create(Integer.valueOf(aacSamplingFrequency), Integer.valueOf(i));
         }
         return (Pair) invokeLZ.objValue;
+    }
+
+    public static void parseGaSpecificConfig(ParsableBitArray parsableBitArray, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65547, null, parsableBitArray, i, i2) == null) {
+            parsableBitArray.skipBits(1);
+            if (parsableBitArray.readBit()) {
+                parsableBitArray.skipBits(14);
+            }
+            boolean readBit = parsableBitArray.readBit();
+            if (i2 != 0) {
+                if (i == 6 || i == 20) {
+                    parsableBitArray.skipBits(3);
+                }
+                if (readBit) {
+                    if (i == 22) {
+                        parsableBitArray.skipBits(16);
+                    }
+                    if (i == 17 || i == 19 || i == 20 || i == 23) {
+                        parsableBitArray.skipBits(3);
+                    }
+                    parsableBitArray.skipBits(1);
+                    return;
+                }
+                return;
+            }
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    public static byte[][] splitNalUnits(byte[] bArr) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, bArr)) == null) {
+            if (!isNalStartCode(bArr, 0)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            do {
+                arrayList.add(Integer.valueOf(i));
+                i = findNalStartCode(bArr, i + NAL_START_CODE.length);
+            } while (i != -1);
+            byte[][] bArr2 = new byte[arrayList.size()];
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                int intValue = ((Integer) arrayList.get(i2)).intValue();
+                if (i2 < arrayList.size() - 1) {
+                    length = ((Integer) arrayList.get(i2 + 1)).intValue();
+                } else {
+                    length = bArr.length;
+                }
+                int i3 = length - intValue;
+                byte[] bArr3 = new byte[i3];
+                System.arraycopy(bArr, intValue, bArr3, 0, i3);
+                bArr2[i2] = bArr3;
+            }
+            return bArr2;
+        }
+        return (byte[][]) invokeL.objValue;
     }
 }

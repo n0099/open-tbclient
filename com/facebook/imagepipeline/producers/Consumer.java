@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.producers;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes7.dex */
-public interface Consumer<T> {
+public interface Consumer {
     public static final int DO_NOT_CACHE_ENCODED = 2;
     public static final int IS_LAST = 1;
     public static final int IS_PARTIAL_RESULT = 8;
@@ -20,7 +20,7 @@ public interface Consumer<T> {
 
     void onFailure(Throwable th);
 
-    void onNewResult(T t, int i);
+    void onNewResult(Object obj, int i);
 
     void onProgressUpdate(float f);
 }

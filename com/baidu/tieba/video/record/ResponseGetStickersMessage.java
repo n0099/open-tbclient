@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class ResponseGetStickersMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StickerItem> mStickerItems;
+    public List mStickerItems;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetStickersMessage() {
@@ -37,6 +37,15 @@ public class ResponseGetStickersMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public List getStickerItems() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mStickerItems;
+        }
+        return (List) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
@@ -44,22 +53,15 @@ public class ResponseGetStickersMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (getError() != 0 || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("list")) == null || optJSONArray.length() <= 0) {
-                return;
-            }
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                StickerItem stickerItem = (StickerItem) OrmObject.objectWithJsonStr(optJSONArray.getString(i2), StickerItem.class);
-                if (this.mStickerItems == null) {
-                    this.mStickerItems = new ArrayList();
+            if (getError() == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (optJSONArray = optJSONObject.optJSONArray("list")) != null && optJSONArray.length() > 0) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    StickerItem stickerItem = (StickerItem) OrmObject.objectWithJsonStr(optJSONArray.getString(i2), StickerItem.class);
+                    if (this.mStickerItems == null) {
+                        this.mStickerItems = new ArrayList();
+                    }
+                    this.mStickerItems.add(stickerItem);
                 }
-                this.mStickerItems.add(stickerItem);
             }
         }
-    }
-
-    public List<StickerItem> getStickerItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mStickerItems : (List) invokeV.objValue;
     }
 }

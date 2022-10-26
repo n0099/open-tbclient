@@ -22,7 +22,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-    public static List<String> b;
+    public static List b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,45 +74,16 @@ public final class d {
         return (String) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + Process.myPid() + "/cmdline"), "iso-8859-1"));
-            try {
-                StringBuilder sb = new StringBuilder();
-                while (true) {
-                    int read = bufferedReader.read();
-                    if (read <= 0) {
-                        break;
-                    }
-                    sb.append((char) read);
-                }
-                if (ZeusLogger.isDebug()) {
-                    ZeusLogger.d("Process", "get processName = " + sb.toString());
-                }
-                String sb2 = sb.toString();
-                try {
-                    bufferedReader.close();
-                } catch (Exception unused) {
-                }
-                return sb2;
-            } catch (Throwable unused2) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.contains(":")) {
+                return str.split(":")[1];
             }
-        } catch (Throwable unused4) {
-            bufferedReader = null;
+            return "main";
         }
+        return (String) invokeL.objValue;
     }
 
     public static boolean a(Context context) {
@@ -120,14 +91,53 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             String a2 = a();
-            return (a2 == null || !a2.contains(":")) && a2 != null && a2.equals(context.getPackageName());
+            if ((a2 != null && a2.contains(":")) || a2 == null || !a2.equals(context.getPackageName())) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TextUtils.isEmpty(str) || !str.contains(":")) ? "main" : str.split(":")[1] : (String) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + Process.myPid() + "/cmdline"), "iso-8859-1"));
+                try {
+                    StringBuilder sb = new StringBuilder();
+                    while (true) {
+                        int read = bufferedReader.read();
+                        if (read <= 0) {
+                            break;
+                        }
+                        sb.append((char) read);
+                    }
+                    if (ZeusLogger.isDebug()) {
+                        ZeusLogger.d("Process", "get processName = " + sb.toString());
+                    }
+                    String sb2 = sb.toString();
+                    try {
+                        bufferedReader.close();
+                    } catch (Exception unused) {
+                    }
+                    return sb2;
+                } catch (Throwable unused2) {
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return null;
+                }
+            } catch (Throwable unused4) {
+                bufferedReader = null;
+            }
+        } else {
+            return (String) invokeV.objValue;
+        }
     }
 }

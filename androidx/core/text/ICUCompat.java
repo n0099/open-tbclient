@@ -3,7 +3,6 @@ package androidx.core.text;
 import android.icu.util.ULocale;
 import android.os.Build;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -37,27 +36,24 @@ public final class ICUCompat {
             }
         }
         int i = Build.VERSION.SDK_INT;
-        if (i >= 21) {
-            if (i < 24) {
-                try {
-                    sAddLikelySubtagsMethod = Class.forName("libcore.icu.ICU").getMethod("addLikelySubtags", Locale.class);
-                    return;
-                } catch (Exception e) {
-                    throw new IllegalStateException(e);
+        if (i < 21) {
+            try {
+                Class<?> cls = Class.forName("libcore.icu.ICU");
+                if (cls != null) {
+                    sGetScriptMethod = cls.getMethod("getScript", String.class);
+                    sAddLikelySubtagsMethod = cls.getMethod("addLikelySubtags", String.class);
                 }
+            } catch (Exception e) {
+                sGetScriptMethod = null;
+                sAddLikelySubtagsMethod = null;
+                Log.w(TAG, e);
             }
-            return;
-        }
-        try {
-            Class<?> cls = Class.forName("libcore.icu.ICU");
-            if (cls != null) {
-                sGetScriptMethod = cls.getMethod("getScript", String.class);
-                sAddLikelySubtagsMethod = cls.getMethod("addLikelySubtags", String.class);
+        } else if (i < 24) {
+            try {
+                sAddLikelySubtagsMethod = Class.forName("libcore.icu.ICU").getMethod("addLikelySubtags", Locale.class);
+            } catch (Exception e2) {
+                throw new IllegalStateException(e2);
             }
-        } catch (Exception e2) {
-            sGetScriptMethod = null;
-            sAddLikelySubtagsMethod = null;
-            Log.w(TAG, e2);
         }
     }
 
@@ -112,7 +108,6 @@ public final class ICUCompat {
         return (String) invokeL.objValue;
     }
 
-    @Nullable
     public static String maximizeAndGetScript(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -133,10 +128,10 @@ public final class ICUCompat {
                 }
             }
             String addLikelySubtags = addLikelySubtags(locale);
-            if (addLikelySubtags != null) {
-                return getScript(addLikelySubtags);
+            if (addLikelySubtags == null) {
+                return null;
             }
-            return null;
+            return getScript(addLikelySubtags);
         }
         return (String) invokeL.objValue;
     }

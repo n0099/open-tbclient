@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes8.dex */
-public final class ArrayCompositeDisposable extends AtomicReferenceArray<Disposable> implements Disposable {
+public final class ArrayCompositeDisposable extends AtomicReferenceArray implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2746389416410565408L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,16 +36,16 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray<Disposa
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        Disposable andSet;
+        Disposable disposable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (get(0) != DisposableHelper.DISPOSED) {
                 int length = length();
                 for (int i = 0; i < length; i++) {
-                    Disposable disposable = get(i);
+                    Disposable disposable2 = (Disposable) get(i);
                     DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                    if (disposable != disposableHelper && (andSet = getAndSet(i, disposableHelper)) != DisposableHelper.DISPOSED && andSet != null) {
-                        andSet.dispose();
+                    if (disposable2 != disposableHelper && (disposable = (Disposable) getAndSet(i, disposableHelper)) != DisposableHelper.DISPOSED && disposable != null) {
+                        disposable.dispose();
                     }
                 }
             }
@@ -56,7 +56,13 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray<Disposa
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get(0) == DisposableHelper.DISPOSED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (get(0) != DisposableHelper.DISPOSED) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public Disposable replaceResource(int i, Disposable disposable) {
@@ -65,7 +71,7 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray<Disposa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, disposable)) == null) {
             do {
-                disposable2 = get(i);
+                disposable2 = (Disposable) get(i);
                 if (disposable2 == DisposableHelper.DISPOSED) {
                     disposable.dispose();
                     return null;
@@ -82,7 +88,7 @@ public final class ArrayCompositeDisposable extends AtomicReferenceArray<Disposa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, disposable)) == null) {
             do {
-                disposable2 = get(i);
+                disposable2 = (Disposable) get(i);
                 if (disposable2 == DisposableHelper.DISPOSED) {
                     disposable.dispose();
                     return false;

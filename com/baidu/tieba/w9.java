@@ -10,7 +10,7 @@ public class w9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static r9<?> a(Context context) {
+    public static r9 a(Context context) {
         InterceptResult invokeL;
         Object a;
         Interceptable interceptable = $ic;
@@ -24,33 +24,13 @@ public class w9 {
             if (context instanceof s9) {
                 return ((s9) context).getPageContext();
             }
-            Field b = vi.b(context.getClass(), v9.class);
-            if (b == null || (a = vi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
+            Field b = wi.b(context.getClass(), v9.class);
+            if (b == null || (a = wi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
                 return null;
             }
             return ((s9) a).getPageContext();
         }
         return (r9) invokeL.objValue;
-    }
-
-    public static s9<?> b(Context context) {
-        InterceptResult invokeL;
-        Object a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (context instanceof s9) {
-                return (s9) context;
-            }
-            Field b = vi.b(context.getClass(), v9.class);
-            if (b == null || (a = vi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
-                return null;
-            }
-            return (s9) a;
-        }
-        return (s9) invokeL.objValue;
     }
 
     public static v9 c(Context context) {
@@ -70,12 +50,32 @@ public class w9 {
                     return (v9) orignalPage;
                 }
             }
-            Field b = vi.b(context.getClass(), v9.class);
-            if (b == null || (a = vi.a(context, b)) == null || !(a instanceof v9)) {
+            Field b = wi.b(context.getClass(), v9.class);
+            if (b == null || (a = wi.a(context, b)) == null || !(a instanceof v9)) {
                 return null;
             }
             return (v9) a;
         }
         return (v9) invokeL.objValue;
+    }
+
+    public static s9 b(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof s9) {
+                return (s9) context;
+            }
+            Field b = wi.b(context.getClass(), v9.class);
+            if (b == null || (a = wi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
+                return null;
+            }
+            return (s9) a;
+        }
+        return (s9) invokeL.objValue;
     }
 }

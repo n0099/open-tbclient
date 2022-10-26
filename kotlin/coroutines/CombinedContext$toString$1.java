@@ -18,9 +18,15 @@ public final class CombinedContext$toString$1 extends Lambda implements Function
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
     public final String invoke(String acc, CoroutineContext.Element element) {
+        boolean z;
         Intrinsics.checkNotNullParameter(acc, "acc");
         Intrinsics.checkNotNullParameter(element, "element");
         if (acc.length() == 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
             return element.toString();
         }
         return acc + StringUtil.ARRAY_ELEMENT_SEPARATOR + element;

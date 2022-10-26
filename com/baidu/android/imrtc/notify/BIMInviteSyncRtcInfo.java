@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.notify;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcUtility;
@@ -39,6 +38,69 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         }
     }
 
+    public int getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMediaType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getRtcAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mRtcAppId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRtcRoomDes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRtcRoomDes;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRtcRoomName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRtcRoomName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRtcRoomToken() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRtcRoomToken;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getRtcRoomType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mRtcRoomType;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getRtcUserId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mRtcUserId;
+        }
+        return invokeV.longValue;
+    }
+
     public String createOpenVideoJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,48 +126,6 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
             return jSONObject.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public int getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMediaType : invokeV.intValue;
-    }
-
-    public String getRtcAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRtcAppId : (String) invokeV.objValue;
-    }
-
-    public String getRtcRoomDes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRtcRoomDes : (String) invokeV.objValue;
-    }
-
-    public String getRtcRoomName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRtcRoomName : (String) invokeV.objValue;
-    }
-
-    public String getRtcRoomToken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRtcRoomToken : (String) invokeV.objValue;
-    }
-
-    public int getRtcRoomType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mRtcRoomType : invokeV.intValue;
-    }
-
-    public long getRtcUserId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRtcUserId : invokeV.longValue;
     }
 
     public void setMediaType(int i) {
@@ -158,7 +178,6 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.notify.BIMSyncRtcInfo, com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

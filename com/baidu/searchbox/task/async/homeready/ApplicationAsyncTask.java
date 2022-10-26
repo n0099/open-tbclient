@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.ImageChangeCacheKeySwitch;
-import com.baidu.tieba.zd5;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.fe5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,6 +17,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ApplicationAsyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_initAppAsync" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
     public ApplicationAsyncTask() {
         Interceptable interceptable = $ic;
@@ -39,40 +56,23 @@ public class ApplicationAsyncTask extends LaunchTask {
         }
     }
 
-    private void trackPushSwitchOpen() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (zd5.a(TbadkCoreApplication.getInst())) {
-                TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
-            } else {
-                TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
-            }
-        }
-    }
-
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             initAppAsync();
-            zg.h().q(ImageChangeCacheKeySwitch.isOn());
+            ah.h().q(ImageChangeCacheKeySwitch.isOn());
         }
     }
 
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
+    private void trackPushSwitchOpen() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_initAppAsync" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            if (fe5.a(TbadkCoreApplication.getInst())) {
+                TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
+            } else {
+                TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
+            }
         }
-        return invokeV.intValue;
     }
 }

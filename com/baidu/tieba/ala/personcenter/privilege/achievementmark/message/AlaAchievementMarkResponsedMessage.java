@@ -5,7 +5,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.data.AlaUserInfoData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.qz5;
+import com.baidu.tieba.xz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qz5> list;
+    public List list;
     public AlaUserInfoData user_info;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,9 +59,9 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject3 != null) {
-                        qz5 qz5Var = new qz5();
-                        qz5Var.c(optJSONObject3);
-                        this.list.add(qz5Var);
+                        xz5 xz5Var = new xz5();
+                        xz5Var.c(optJSONObject3);
+                        this.list.add(xz5Var);
                     }
                 }
             }
@@ -71,10 +71,13 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
     public AlaUserInfoData getAlaUserInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.user_info : (AlaUserInfoData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.user_info;
+        }
+        return (AlaUserInfoData) invokeV.objValue;
     }
 
-    public List<qz5> getList() {
+    public List getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

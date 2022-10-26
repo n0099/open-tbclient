@@ -1,6 +1,5 @@
 package com.baidu.searchbox.bddownload.core.file;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -19,6 +18,12 @@ public class ProcessFileStrategy {
     public transient /* synthetic */ FieldHolder $fh;
     public final FileLock fileLock;
 
+    public void completeProcessStream(MultiPointOutputStream multiPointOutputStream, DownloadTask downloadTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, multiPointOutputStream, downloadTask) == null) {
+        }
+    }
+
     public ProcessFileStrategy() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,20 +40,25 @@ public class ProcessFileStrategy {
         this.fileLock = new FileLock();
     }
 
-    public void completeProcessStream(@NonNull MultiPointOutputStream multiPointOutputStream, @NonNull DownloadTask downloadTask) {
+    public FileLock getFileLock() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, multiPointOutputStream, downloadTask) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.fileLock;
         }
+        return (FileLock) invokeV.objValue;
     }
 
-    @NonNull
-    public MultiPointOutputStream createProcessStream(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadStore downloadStore) {
+    public MultiPointOutputStream createProcessStream(DownloadTask downloadTask, BreakpointInfo breakpointInfo, DownloadStore downloadStore) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, breakpointInfo, downloadStore)) == null) ? new MultiPointOutputStream(downloadTask, breakpointInfo, downloadStore) : (MultiPointOutputStream) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, breakpointInfo, downloadStore)) == null) {
+            return new MultiPointOutputStream(downloadTask, breakpointInfo, downloadStore);
+        }
+        return (MultiPointOutputStream) invokeLLL.objValue;
     }
 
-    public void discardProcess(@NonNull DownloadTask downloadTask) throws IOException {
+    public void discardProcess(DownloadTask downloadTask) throws IOException {
         File file;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask) == null) && (file = downloadTask.getFile()) != null && file.exists() && !file.delete()) {
@@ -56,24 +66,17 @@ public class ProcessFileStrategy {
         }
     }
 
-    @NonNull
-    public FileLock getFileLock() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.fileLock : (FileLock) invokeV.objValue;
-    }
-
-    public boolean isPreAllocateLength(@NonNull DownloadTask downloadTask) {
+    public boolean isPreAllocateLength(DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadTask)) == null) {
-            if (BdDownload.with().outputStreamFactory().supportSeek()) {
-                if (downloadTask.getSetPreAllocateLength() != null) {
-                    return downloadTask.getSetPreAllocateLength().booleanValue();
-                }
-                return true;
+            if (!BdDownload.with().outputStreamFactory().supportSeek()) {
+                return false;
             }
-            return false;
+            if (downloadTask.getSetPreAllocateLength() != null) {
+                return downloadTask.getSetPreAllocateLength().booleanValue();
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

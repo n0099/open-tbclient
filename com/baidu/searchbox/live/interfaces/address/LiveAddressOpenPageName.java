@@ -19,6 +19,18 @@ public final class LiveAddressOpenPageName {
     public transient /* synthetic */ FieldHolder $fh;
     public final String value;
 
+    public static LiveAddressOpenPageName valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LiveAddressOpenPageName) Enum.valueOf(LiveAddressOpenPageName.class, str) : (LiveAddressOpenPageName) invokeL.objValue;
+    }
+
+    public static LiveAddressOpenPageName[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LiveAddressOpenPageName[]) $VALUES.clone() : (LiveAddressOpenPageName[]) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,21 +72,12 @@ public final class LiveAddressOpenPageName {
         this.value = str2;
     }
 
-    public static LiveAddressOpenPageName valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LiveAddressOpenPageName) Enum.valueOf(LiveAddressOpenPageName.class, str) : (LiveAddressOpenPageName) invokeL.objValue;
-    }
-
-    public static LiveAddressOpenPageName[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LiveAddressOpenPageName[]) $VALUES.clone() : (LiveAddressOpenPageName[]) invokeV.objValue;
-    }
-
     public final String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
     }
 }

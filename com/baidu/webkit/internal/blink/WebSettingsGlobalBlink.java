@@ -88,15 +88,15 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static String mBrowserVersion = null;
     public static boolean mChromiumNetInit = false;
     public static String mCloudSettings = null;
-    public static Map<String, String> mCloudSettingsMap = null;
+    public static Map mCloudSettingsMap = null;
     public static boolean mCronetEnable = false;
     public static final String mDateFomat = "yyyy-MM-dd HH:mm:ss";
     public static boolean mDoubleLogEnabled;
-    public static HashSet<String> mFCCheatBlackList;
+    public static HashSet mFCCheatBlackList;
     public static boolean mFirstGetLogEnable;
-    public static HashMap<String, Boolean> mGetUserMediaConfirmed;
+    public static HashMap mGetUserMediaConfirmed;
     public static boolean mHijackEnv;
-    public static Map<String, String> mHttpDnsCacheMap;
+    public static Map mHttpDnsCacheMap;
     public static boolean mHttpDnsNetChangedAfterPause;
     public static long mHttpDnsUpdateTime;
     public static boolean mHttpDnsUpdated;
@@ -114,14 +114,14 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static long mTotalMem;
     public static boolean mUseLogSdk;
     public static boolean mUseT5Log;
-    public static Map<String, JSONArray> mWhiteAndBlackList;
-    public static HashSet<String> sBlackListModels;
-    public static HashSet<String> sDeviceSet;
+    public static Map mWhiteAndBlackList;
+    public static HashSet sBlackListModels;
+    public static HashSet sDeviceSet;
     public static boolean sDitingMaxHit;
     public static JSONObject sMf30InitInfo;
     public static Boolean sMultiprocessEnabled;
     public static long sNativeV8FunctionTablePointer;
-    public static final List<ValueCallback<Long>> sOnCronetThreadInitializedListenerList;
+    public static final List sOnCronetThreadInitializedListenerList;
     public static int zeusNetLogLevel;
     public static boolean zeusNetLogLevelSetted;
     public transient /* synthetic */ FieldHolder $fh;
@@ -141,9 +141,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
         mCloudSettingsMap = new HashMap();
         mHttpDnsCacheMap = new HashMap();
-        mGetUserMediaConfirmed = new HashMap<>();
+        mGetUserMediaConfirmed = new HashMap();
         mWhiteAndBlackList = new HashMap();
-        mFCCheatBlackList = new HashSet<>();
+        mFCCheatBlackList = new HashSet();
         sOnCronetThreadInitializedListenerList = new ArrayList();
         mProxyType = WebSettings.ProxyType.SPDYANDOVERSEAS_PROXY;
         mCronetEnable = true;
@@ -179,7 +179,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (mSelfLock) {
-                str2 = mCloudSettingsMap.get(str);
+                str2 = (String) mCloudSettingsMap.get(str);
             }
             return str2;
         }
@@ -195,7 +195,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return invokeL.booleanValue;
     }
 
-    public static void addOnCronetThreadInitializedListener(ValueCallback<Long> valueCallback) {
+    public static void addOnCronetThreadInitializedListener(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, valueCallback) == null) {
             Log.i(LOGTAG, "addOnCronetThreadInitializedListener. listener=%s, list size=%d", valueCallback, Integer.valueOf(sOnCronetThreadInitializedListenerList.size()));
@@ -776,7 +776,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) {
             String stripQueryAndAnchor = stripQueryAndAnchor(str);
-            return (mGetUserMediaConfirmed.containsKey(stripQueryAndAnchor) && mGetUserMediaConfirmed.get(stripQueryAndAnchor).booleanValue()) ? Boolean.TRUE : Boolean.FALSE;
+            return (mGetUserMediaConfirmed.containsKey(stripQueryAndAnchor) && ((Boolean) mGetUserMediaConfirmed.get(stripQueryAndAnchor)).booleanValue()) ? Boolean.TRUE : Boolean.FALSE;
         }
         return (Boolean) invokeL.objValue;
     }
@@ -1956,11 +1956,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return invokeV.booleanValue;
     }
 
-    public static List<String> getWhiteAndBlackList(String str) {
+    public static List getWhiteAndBlackList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65642, null, str)) == null) {
-            JSONArray jSONArray = mWhiteAndBlackList.get(str);
+            JSONArray jSONArray = (JSONArray) mWhiteAndBlackList.get(str);
             if (jSONArray != null) {
                 try {
                     ArrayList arrayList = new ArrayList();
@@ -2223,7 +2223,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65655, null, str)) == null) {
-            if (mFCCheatBlackList.isEmpty() && (jSONArray = mWhiteAndBlackList.get("FC_Landing_Cheat")) != null) {
+            if (mFCCheatBlackList.isEmpty() && (jSONArray = (JSONArray) mWhiteAndBlackList.get("FC_Landing_Cheat")) != null) {
                 try {
                     synchronized (mFCCheatBlackList) {
                         for (int i = 0; i < jSONArray.length(); i++) {
@@ -2254,7 +2254,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                     }
                 } else if ("model".equals(next)) {
                     if (sBlackListModels == null) {
-                        sBlackListModels = new HashSet<>();
+                        sBlackListModels = new HashSet();
                         for (String str : jSONObject.getString(next).split(",")) {
                             sBlackListModels.add(str);
                         }
@@ -2449,7 +2449,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 Log.w(LOGTAG, "isWhiteListedDevice error ".concat(String.valueOf(th)));
             }
             if (sDeviceSet == null) {
-                sDeviceSet = new HashSet<>();
+                sDeviceSet = new HashSet();
                 for (String str : DEFAULT_MULTIPROCESS_MODELS.split(",")) {
                     sDeviceSet.add(str);
                 }
@@ -2561,7 +2561,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             Log.i(LOGTAG, "NotifyAllOnCronetThreadInitializedListener. nativeTablePointer=%d, list size=%d", Long.valueOf(j), Integer.valueOf(sOnCronetThreadInitializedListenerList.size()));
             synchronized (sOnCronetThreadInitializedListenerList) {
                 sNativeV8FunctionTablePointer = j;
-                for (ValueCallback<Long> valueCallback : sOnCronetThreadInitializedListenerList) {
+                for (ValueCallback valueCallback : sOnCronetThreadInitializedListenerList) {
                     valueCallback.onReceiveValue(Long.valueOf(j));
                 }
                 sOnCronetThreadInitializedListenerList.clear();
@@ -2697,7 +2697,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void removeOnCronetThreadInitializedListener(ValueCallback<Long> valueCallback) {
+    public static void removeOnCronetThreadInitializedListener(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65678, null, valueCallback) == null) {
             synchronized (sOnCronetThreadInitializedListenerList) {

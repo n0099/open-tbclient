@@ -33,6 +33,28 @@ public class RTCAudioSamples extends JavaAudioDeviceModule.AudioSamples {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RTCAudioSamples(int i, int i2, int i3, byte[] bArr) {
+        super(i, i2, i3, bArr);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (byte[]) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.captureTime = 0L;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RTCAudioSamples(int i, int i2, int i3, byte[] bArr, long j) {
         super(i, i2, i3, bArr);
         Interceptable interceptable = $ic;
@@ -58,28 +80,9 @@ public class RTCAudioSamples extends JavaAudioDeviceModule.AudioSamples {
     public long getCaptureTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.captureTime : invokeV.longValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RTCAudioSamples(int i, int i2, int i3, byte[] bArr) {
-        super(i, i2, i3, bArr);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (byte[]) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.captureTime;
         }
-        this.captureTime = 0L;
+        return invokeV.longValue;
     }
 }

@@ -1,11 +1,9 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.mb5;
-import com.baidu.tieba.ya6;
+import com.baidu.tieba.fb6;
+import com.baidu.tieba.rb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +14,10 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes3.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements mb5 {
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements rb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ya6 enterForumTabFeedData;
+    public fb6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -39,8 +37,25 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
         }
     }
 
+    public Object getExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.enterForumTabFeedData.c();
+        }
+        return invokeV.objValue;
+    }
+
+    public ArrayList getThreadList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.enterForumTabFeedData.e();
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         String str;
@@ -56,26 +71,17 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
             if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
-            if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                ya6 ya6Var = new ya6();
-                this.enterForumTabFeedData = ya6Var;
-                ya6Var.g(tabfeedlistResIdl.data);
+            if (getError() != 0) {
                 return tabfeedlistResIdl;
             }
+            if (tabfeedlistResIdl.data == null) {
+                return tabfeedlistResIdl;
+            }
+            fb6 fb6Var = new fb6();
+            this.enterForumTabFeedData = fb6Var;
+            fb6Var.g(tabfeedlistResIdl.data);
             return tabfeedlistResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public Object getExtra() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.enterForumTabFeedData.c() : invokeV.objValue;
-    }
-
-    public ArrayList<Cdo> getThreadList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enterForumTabFeedData.e() : (ArrayList) invokeV.objValue;
     }
 }

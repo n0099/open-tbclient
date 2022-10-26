@@ -7,28 +7,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ap0 {
+public final class ap0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public int a;
-    @JvmField
-    public int b;
-    @JvmField
-    public Object c;
-    @JvmField
-    public uo0 d;
-    @JvmField
-    public xo0 e;
+    public String a;
+    public String b;
+    public String c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622728, "Lcom/baidu/tieba/ap0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947622728, "Lcom/baidu/tieba/ap0;");
+                return;
+            }
+        }
+        d = new a(null);
+    }
 
     /* loaded from: classes3.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,52 +54,34 @@ public class ap0 {
             }
         }
 
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         @JvmStatic
         public final ap0 a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    JSONObject optJSONObject = jSONObject.optJSONObject("popover");
-                    if (optJSONObject == null) {
-                        optJSONObject = xz0.c(jSONObject.optString("popover"));
-                    }
-                    if (optJSONObject != null) {
-                        ap0 ap0Var = new ap0();
-                        ap0Var.a = optJSONObject.optInt("type");
-                        ap0Var.b = optJSONObject.optInt("show_time");
-                        optJSONObject.optInt("async_get_popover_data_switch");
-                        optJSONObject.optInt("async_get_popover_data_delay_time");
-                        optJSONObject.optString("popover_data_request_url");
-                        optJSONObject.optJSONObject("popover_data_request_params");
-                        return ap0Var;
-                    }
+                if (jSONObject == null) {
                     return null;
                 }
-                return null;
+                JSONObject optJSONObject = jSONObject.optJSONObject("panel");
+                if (optJSONObject == null) {
+                    optJSONObject = yz0.c(jSONObject.optString("panel"));
+                }
+                if (optJSONObject == null) {
+                    return null;
+                }
+                ap0 ap0Var = new ap0();
+                ap0Var.a = optJSONObject.optString("title");
+                ap0Var.b = optJSONObject.optString("brand_name");
+                ap0Var.c = optJSONObject.optString("avatar");
+                optJSONObject.optJSONArray("tag_list");
+                return ap0Var;
             }
             return (ap0) invokeL.objValue;
         }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622728, "Lcom/baidu/tieba/ap0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947622728, "Lcom/baidu/tieba/ap0;");
-                return;
-            }
-        }
-        f = new a(null);
     }
 
     public ap0() {

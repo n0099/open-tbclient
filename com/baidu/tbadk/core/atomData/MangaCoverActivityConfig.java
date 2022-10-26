@@ -38,13 +38,6 @@ public class MangaCoverActivityConfig extends IntentConfig {
         }
     }
 
-    public void setFrom(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            getIntent().putExtra("from", i);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MangaCoverActivityConfig(Context context, long j) {
         super(context);
@@ -64,5 +57,12 @@ public class MangaCoverActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("forum_id", j);
+    }
+
+    public void setFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            getIntent().putExtra("from", i);
+        }
     }
 }

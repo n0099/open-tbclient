@@ -1,14 +1,10 @@
 package com.bumptech.glide.manager;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,14 +21,11 @@ public class SupportRequestManagerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SupportRMFragment";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<SupportRequestManagerFragment> childRequestManagerFragments;
+    public final Set childRequestManagerFragments;
     public final ActivityFragmentLifecycle lifecycle;
-    @Nullable
     public Fragment parentFragmentHint;
-    @Nullable
     public RequestManager requestManager;
     public final RequestManagerTreeNode requestManagerTreeNode;
-    @Nullable
     public SupportRequestManagerFragment rootRequestManagerFragment;
 
     /* loaded from: classes7.dex */
@@ -60,8 +53,7 @@ public class SupportRequestManagerFragment extends Fragment {
         }
 
         @Override // com.bumptech.glide.manager.RequestManagerTreeNode
-        @NonNull
-        public Set<RequestManager> getDescendants() {
+        public Set getDescendants() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -105,130 +97,53 @@ public class SupportRequestManagerFragment extends Fragment {
         }
     }
 
-    private void addChildRequestManagerFragment(SupportRequestManagerFragment supportRequestManagerFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, supportRequestManagerFragment) == null) {
-            this.childRequestManagerFragments.add(supportRequestManagerFragment);
-        }
-    }
-
-    @Nullable
     private Fragment getParentFragmentUsingHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             Fragment parentFragment = getParentFragment();
-            return parentFragment != null ? parentFragment : this.parentFragmentHint;
+            if (parentFragment == null) {
+                return this.parentFragmentHint;
+            }
+            return parentFragment;
         }
         return (Fragment) invokeV.objValue;
-    }
-
-    private boolean isDescendant(@NonNull Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragment)) != null) {
-            return invokeL.booleanValue;
-        }
-        Fragment parentFragmentUsingHint = getParentFragmentUsingHint();
-        while (true) {
-            Fragment parentFragment = fragment.getParentFragment();
-            if (parentFragment == null) {
-                return false;
-            }
-            if (parentFragment.equals(parentFragmentUsingHint)) {
-                return true;
-            }
-            fragment = fragment.getParentFragment();
-        }
-    }
-
-    private void registerFragmentWithRoot(@NonNull FragmentActivity fragmentActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, fragmentActivity) == null) {
-            unregisterFragmentWithRoot();
-            SupportRequestManagerFragment supportRequestManagerFragment = Glide.get(fragmentActivity).getRequestManagerRetriever().getSupportRequestManagerFragment(fragmentActivity);
-            this.rootRequestManagerFragment = supportRequestManagerFragment;
-            if (equals(supportRequestManagerFragment)) {
-                return;
-            }
-            this.rootRequestManagerFragment.addChildRequestManagerFragment(this);
-        }
-    }
-
-    private void removeChildRequestManagerFragment(SupportRequestManagerFragment supportRequestManagerFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, supportRequestManagerFragment) == null) {
-            this.childRequestManagerFragments.remove(supportRequestManagerFragment);
-        }
     }
 
     private void unregisterFragmentWithRoot() {
         SupportRequestManagerFragment supportRequestManagerFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (supportRequestManagerFragment = this.rootRequestManagerFragment) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && (supportRequestManagerFragment = this.rootRequestManagerFragment) != null) {
+            supportRequestManagerFragment.removeChildRequestManagerFragment(this);
+            this.rootRequestManagerFragment = null;
         }
-        supportRequestManagerFragment.removeChildRequestManagerFragment(this);
-        this.rootRequestManagerFragment = null;
     }
 
-    @NonNull
-    public Set<SupportRequestManagerFragment> getDescendantRequestManagerFragments() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SupportRequestManagerFragment supportRequestManagerFragment = this.rootRequestManagerFragment;
-            if (supportRequestManagerFragment == null) {
-                return Collections.emptySet();
-            }
-            if (equals(supportRequestManagerFragment)) {
-                return Collections.unmodifiableSet(this.childRequestManagerFragments);
-            }
-            HashSet hashSet = new HashSet();
-            for (SupportRequestManagerFragment supportRequestManagerFragment2 : this.rootRequestManagerFragment.getDescendantRequestManagerFragments()) {
-                if (isDescendant(supportRequestManagerFragment2.getParentFragmentUsingHint())) {
-                    hashSet.add(supportRequestManagerFragment2);
-                }
-            }
-            return Collections.unmodifiableSet(hashSet);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    @NonNull
     public ActivityFragmentLifecycle getGlideLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.lifecycle : (ActivityFragmentLifecycle) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.lifecycle;
+        }
+        return (ActivityFragmentLifecycle) invokeV.objValue;
     }
 
-    @Nullable
     public RequestManager getRequestManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.requestManager : (RequestManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.requestManager;
+        }
+        return (RequestManager) invokeV.objValue;
     }
 
-    @NonNull
     public RequestManagerTreeNode getRequestManagerTreeNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.requestManagerTreeNode : (RequestManagerTreeNode) invokeV.objValue;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onAttach(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            super.onAttach(context);
-            try {
-                registerFragmentWithRoot(getActivity());
-            } catch (IllegalStateException e) {
-                if (Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Unable to register fragment with root", e);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.requestManagerTreeNode;
         }
+        return (RequestManagerTreeNode) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -269,37 +184,7 @@ public class SupportRequestManagerFragment extends Fragment {
         }
     }
 
-    public void setParentFragmentHint(@Nullable Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, fragment) == null) {
-            this.parentFragmentHint = fragment;
-            if (fragment == null || fragment.getActivity() == null) {
-                return;
-            }
-            registerFragmentWithRoot(fragment.getActivity());
-        }
-    }
-
-    public void setRequestManager(@Nullable RequestManager requestManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, requestManager) == null) {
-            this.requestManager = requestManager;
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return super.toString() + "{parent=" + getParentFragmentUsingHint() + "}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @SuppressLint({"ValidFragment"})
-    @VisibleForTesting
-    public SupportRequestManagerFragment(@NonNull ActivityFragmentLifecycle activityFragmentLifecycle) {
+    public SupportRequestManagerFragment(ActivityFragmentLifecycle activityFragmentLifecycle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -317,5 +202,138 @@ public class SupportRequestManagerFragment extends Fragment {
         this.requestManagerTreeNode = new SupportFragmentRequestManagerTreeNode(this);
         this.childRequestManagerFragments = new HashSet();
         this.lifecycle = activityFragmentLifecycle;
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onAttach(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            super.onAttach(context);
+            FragmentManager rootFragmentManager = getRootFragmentManager(this);
+            if (rootFragmentManager == null) {
+                if (Log.isLoggable(TAG, 5)) {
+                    Log.w(TAG, "Unable to register fragment with root, ancestor detached");
+                    return;
+                }
+                return;
+            }
+            try {
+                registerFragmentWithRoot(getContext(), rootFragmentManager);
+            } catch (IllegalStateException e) {
+                if (Log.isLoggable(TAG, 5)) {
+                    Log.w(TAG, "Unable to register fragment with root", e);
+                }
+            }
+        }
+    }
+
+    private void addChildRequestManagerFragment(SupportRequestManagerFragment supportRequestManagerFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, supportRequestManagerFragment) == null) {
+            this.childRequestManagerFragments.add(supportRequestManagerFragment);
+        }
+    }
+
+    public static FragmentManager getRootFragmentManager(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fragment)) == null) {
+            while (fragment.getParentFragment() != null) {
+                fragment = fragment.getParentFragment();
+            }
+            return fragment.getFragmentManager();
+        }
+        return (FragmentManager) invokeL.objValue;
+    }
+
+    private boolean isDescendant(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, fragment)) == null) {
+            Fragment parentFragmentUsingHint = getParentFragmentUsingHint();
+            while (true) {
+                Fragment parentFragment = fragment.getParentFragment();
+                if (parentFragment != null) {
+                    if (parentFragment.equals(parentFragmentUsingHint)) {
+                        return true;
+                    }
+                    fragment = fragment.getParentFragment();
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return invokeL.booleanValue;
+        }
+    }
+
+    private void removeChildRequestManagerFragment(SupportRequestManagerFragment supportRequestManagerFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, supportRequestManagerFragment) == null) {
+            this.childRequestManagerFragments.remove(supportRequestManagerFragment);
+        }
+    }
+
+    public void setParentFragmentHint(Fragment fragment) {
+        FragmentManager rootFragmentManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, fragment) == null) {
+            this.parentFragmentHint = fragment;
+            if (fragment == null || fragment.getContext() == null || (rootFragmentManager = getRootFragmentManager(fragment)) == null) {
+                return;
+            }
+            registerFragmentWithRoot(fragment.getContext(), rootFragmentManager);
+        }
+    }
+
+    public void setRequestManager(RequestManager requestManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, requestManager) == null) {
+            this.requestManager = requestManager;
+        }
+    }
+
+    private void registerFragmentWithRoot(Context context, FragmentManager fragmentManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, this, context, fragmentManager) == null) {
+            unregisterFragmentWithRoot();
+            SupportRequestManagerFragment supportRequestManagerFragment = Glide.get(context).getRequestManagerRetriever().getSupportRequestManagerFragment(fragmentManager);
+            this.rootRequestManagerFragment = supportRequestManagerFragment;
+            if (!equals(supportRequestManagerFragment)) {
+                this.rootRequestManagerFragment.addChildRequestManagerFragment(this);
+            }
+        }
+    }
+
+    public Set getDescendantRequestManagerFragments() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            SupportRequestManagerFragment supportRequestManagerFragment = this.rootRequestManagerFragment;
+            if (supportRequestManagerFragment == null) {
+                return Collections.emptySet();
+            }
+            if (equals(supportRequestManagerFragment)) {
+                return Collections.unmodifiableSet(this.childRequestManagerFragments);
+            }
+            HashSet hashSet = new HashSet();
+            for (SupportRequestManagerFragment supportRequestManagerFragment2 : this.rootRequestManagerFragment.getDescendantRequestManagerFragments()) {
+                if (isDescendant(supportRequestManagerFragment2.getParentFragmentUsingHint())) {
+                    hashSet.add(supportRequestManagerFragment2);
+                }
+            }
+            return Collections.unmodifiableSet(hashSet);
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return super.toString() + "{parent=" + getParentFragmentUsingHint() + "}";
+        }
+        return (String) invokeV.objValue;
     }
 }

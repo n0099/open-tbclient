@@ -47,6 +47,38 @@ public class MetricsWorker implements IMetricsAPI {
     public MetricsPkg pkg;
     public String sdkVer;
 
+    private String notNull(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    }
+
+    public MetricsWorker(Context context, int i, HttpSendController httpSendController, long j, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), httpSendController, Long.valueOf(j), str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.count = new AtomicInteger(0);
+        this.maxCount = i;
+        this.httpSendController = httpSendController;
+        this.expire = j;
+        this.appKey = str;
+        this.appVer = str2;
+        this.context = context;
+        this.sdkVer = str3;
+        this.pkg = new MetricsPkg(i);
+    }
+
     @Deprecated
     public MetricsWorker(Context context, int i, HttpSendController httpSendController, long j, String str, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
@@ -75,12 +107,6 @@ public class MetricsWorker implements IMetricsAPI {
         this.pkg = new MetricsPkg(i);
     }
 
-    private String notNull(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
-    }
-
     private void sendPkg(MetricsPkg metricsPkg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, metricsPkg) == null) {
@@ -100,6 +126,9 @@ public class MetricsWorker implements IMetricsAPI {
     private String toContent(JSONObject jSONObject) {
         InterceptResult invokeL;
         String str;
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
+        JSONArray jSONArray3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
             try {
@@ -129,9 +158,21 @@ public class MetricsWorker implements IMetricsAPI {
                 statisContent.put(BaseStatisContent.GUID, StringUtil.geneGuid());
                 System.currentTimeMillis();
                 statisContent.put("clienttime", String.valueOf(jSONObject.getLong("clienttime") / 1000));
-                JSONArray jSONArray = jSONObject.has("reqdata") ? jSONObject.getJSONArray("reqdata") : null;
-                JSONArray jSONArray2 = jSONObject.has("counterdata") ? jSONObject.getJSONArray("counterdata") : null;
-                JSONArray jSONArray3 = jSONObject.has("flatdata") ? jSONObject.getJSONArray("flatdata") : null;
+                if (jSONObject.has("reqdata")) {
+                    jSONArray = jSONObject.getJSONArray("reqdata");
+                } else {
+                    jSONArray = null;
+                }
+                if (jSONObject.has("counterdata")) {
+                    jSONArray2 = jSONObject.getJSONArray("counterdata");
+                } else {
+                    jSONArray2 = null;
+                }
+                if (jSONObject.has("flatdata")) {
+                    jSONArray3 = jSONObject.getJSONArray("flatdata");
+                } else {
+                    jSONArray3 = null;
+                }
                 if (jSONArray != null) {
                     statisContent.put("reqdata", notNull(jSONArray.toString()));
                 }
@@ -182,6 +223,18 @@ public class MetricsWorker implements IMetricsAPI {
         }
     }
 
+    public void sendNow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            MetricsPkg metricsPkg = this.pkg;
+            this.pkg = new MetricsPkg(this.maxCount);
+            this.count.set(0);
+            if (!metricsPkg.isEmpty()) {
+                sendPkg(metricsPkg);
+            }
+        }
+    }
+
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
     public void reportCount(int i, String str, String str2, long j) {
         Interceptable interceptable = $ic;
@@ -199,81 +252,39 @@ public class MetricsWorker implements IMetricsAPI {
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
-        MetricsPkg cutPiece;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
-            this.pkg.addMetricsValue(new MetricsValue(i, str, str2, j, map));
-            if (this.count.incrementAndGet() <= this.maxCount || (cutPiece = cutPiece()) == null) {
-                return;
-            }
-            sendPkg(cutPiece);
-        }
-    }
-
-    public void sendNow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MetricsPkg metricsPkg = this.pkg;
-            this.pkg = new MetricsPkg(this.maxCount);
-            this.count.set(0);
-            if (metricsPkg.isEmpty()) {
-                return;
-            }
-            sendPkg(metricsPkg);
-        }
-    }
-
-    @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
     public void reportCount(int i, String str, String str2, long j, int i2) {
         MetricsPkg cutPiece;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
             Counter counter = new Counter(i, str, str2);
             counter.count(j, i2);
-            if (!this.pkg.addCounter(counter) || this.count.incrementAndGet() <= this.maxCount || (cutPiece = cutPiece()) == null) {
-                return;
+            if (this.pkg.addCounter(counter) && this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
+                sendPkg(cutPiece);
             }
-            sendPkg(cutPiece);
         }
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
+    public void reportReturnCode(int i, String str, long j, String str2, Map map) {
         MetricsPkg cutPiece;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
             this.pkg.addActionResult(new ActionResult(i, str, j, str2, map));
-            if (this.count.incrementAndGet() <= this.maxCount || (cutPiece = cutPiece()) == null) {
-                return;
+            if (this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
+                sendPkg(cutPiece);
             }
-            sendPkg(cutPiece);
         }
     }
 
-    public MetricsWorker(Context context, int i, HttpSendController httpSendController, long j, String str, String str2, String str3) {
+    @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
+    public void reportSrcData(int i, String str, String str2, long j, Map map) {
+        MetricsPkg cutPiece;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), httpSendController, Long.valueOf(j), str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
+            this.pkg.addMetricsValue(new MetricsValue(i, str, str2, j, map));
+            if (this.count.incrementAndGet() > this.maxCount && (cutPiece = cutPiece()) != null) {
+                sendPkg(cutPiece);
             }
         }
-        this.count = new AtomicInteger(0);
-        this.maxCount = i;
-        this.httpSendController = httpSendController;
-        this.expire = j;
-        this.appKey = str;
-        this.appVer = str2;
-        this.context = context;
-        this.sdkVer = str3;
-        this.pkg = new MetricsPkg(i);
     }
 }

@@ -1,12 +1,10 @@
 package com.kwad.sdk.core.video.kwai;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.TimedText;
 import android.net.Uri;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import androidx.annotation.NonNull;
 import java.io.FileDescriptor;
 import java.util.Map;
 /* loaded from: classes7.dex */
@@ -24,7 +22,7 @@ public interface c {
 
     /* renamed from: com.kwad.sdk.core.video.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0611c {
+    public interface InterfaceC0607c {
         boolean j(int i, int i2);
     }
 
@@ -53,13 +51,13 @@ public interface c {
         void i(int i, int i2);
     }
 
-    void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar);
+    void a(com.kwad.sdk.contentalliance.kwai.kwai.b bVar);
 
     void a(a aVar);
 
     void a(b bVar);
 
-    void a(InterfaceC0611c interfaceC0611c);
+    void a(InterfaceC0607c interfaceC0607c);
 
     void a(f fVar);
 
@@ -105,8 +103,7 @@ public interface c {
 
     void setDataSource(Context context, Uri uri);
 
-    @TargetApi(14)
-    void setDataSource(Context context, Uri uri, Map<String, String> map);
+    void setDataSource(Context context, Uri uri, Map map);
 
     void setDataSource(FileDescriptor fileDescriptor);
 

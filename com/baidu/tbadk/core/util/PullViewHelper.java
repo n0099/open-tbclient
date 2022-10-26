@@ -15,8 +15,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jh;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.kh;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ public class PullViewHelper {
     public int pullview_backgroundColor_night;
 
     /* loaded from: classes3.dex */
-    public static class PullViewDrawable {
+    public class PullViewDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Drawable dayDrawable;
@@ -84,7 +84,45 @@ public class PullViewHelper {
         this.pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         this.nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
         this.defaultResources = new int[]{R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
-        setShouldShowLoadingView(ox4.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+        setShouldShowLoadingView(ux4.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+    }
+
+    private File createFileDir(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, file)) == null) {
+            if (file.exists() && file.isDirectory()) {
+                return file;
+            }
+            if (file.mkdirs()) {
+                return file;
+            }
+            return null;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public int getPullViewBackgroundColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            boolean z = true;
+            if (i != 1 && i != 4) {
+                z = false;
+            }
+            if (z) {
+                return this.pullview_backgroundColor_night;
+            }
+            return this.pullview_backgroundColor_day;
+        }
+        return invokeI.intValue;
+    }
+
+    public void setShouldShowLoadingView(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.defaultShouldShowLoadingView = z;
+        }
     }
 
     private Drawable buildDrawable(File[] fileArr, String str) {
@@ -122,15 +160,30 @@ public class PullViewHelper {
         return (Drawable) invokeLL.objValue;
     }
 
+    private boolean hasFileName(File file, String str) {
+        InterceptResult invokeLL;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, file, str)) == null) {
+            for (File file2 : file.listFiles()) {
+                if (file2.exists() && file2.isFile() && !TextUtils.isEmpty(file2.getName()) && file2.getName().startsWith(str) && file2.length() > 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void buildDrawables() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            String q = ox4.k().q("pull_image_url", "");
+            String q = ux4.k().q("pull_image_url", "");
             boolean z = false;
-            int l = ox4.k().l("pull_image_num", 0);
-            this.pullview_backgroundColor_day = ox4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            this.pullview_backgroundColor_night = ox4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            int l = ux4.k().l("pull_image_num", 0);
+            this.pullview_backgroundColor_day = ux4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            this.pullview_backgroundColor_night = ux4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             if (!TextUtils.isEmpty(q)) {
                 if (l > 0 && isImagesExist(l)) {
                     this.drawables = new Drawable[l];
@@ -147,13 +200,14 @@ public class PullViewHelper {
                     int length = drawableArr.length;
                     int i2 = 0;
                     while (true) {
-                        if (i2 >= length) {
+                        if (i2 < length) {
+                            if (drawableArr[i2] == null) {
+                                break;
+                            }
+                            i2++;
+                        } else {
                             z = true;
                             break;
-                        } else if (drawableArr[i2] == null) {
-                            break;
-                        } else {
-                            i2++;
                         }
                     }
                 }
@@ -167,21 +221,9 @@ public class PullViewHelper {
         }
     }
 
-    private File createFileDir(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, file)) == null) {
-            if ((file.exists() && file.isDirectory()) || file.mkdirs()) {
-                return file;
-            }
-            return null;
-        }
-        return (File) invokeL.objValue;
-    }
-
     private void deleteDir(File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, file) == null) || file == null) {
+        if ((interceptable != null && interceptable.invokeL(65542, this, file) != null) || file == null) {
             return;
         }
         if (file.isFile()) {
@@ -194,22 +236,40 @@ public class PullViewHelper {
         }
     }
 
+    public AnimationDrawable getAnimationDrawable(int i) {
+        InterceptResult invokeI;
+        Drawable[] drawableArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            PorterDuffColorFilter porterDuffColorFilter = null;
+            if (this.drawables == null) {
+                return null;
+            }
+            boolean z = true;
+            if (i != 1 && i != 4) {
+                z = false;
+            }
+            AnimationDrawable animationDrawable = new AnimationDrawable();
+            if (z) {
+                porterDuffColorFilter = this.nightColorSkin;
+            }
+            animationDrawable.setColorFilter(porterDuffColorFilter);
+            for (Drawable drawable : this.drawables) {
+                if (drawable != null) {
+                    animationDrawable.addFrame(drawable, 100);
+                }
+            }
+            return animationDrawable;
+        }
+        return (AnimationDrawable) invokeI.objValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void deletePullDir() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             deleteDir(new File(TbadkCoreApplication.getInst().getFilesDir(), PULL_FILE_DIR));
         }
-    }
-
-    private File getImageFileDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            File filesDir = TbadkCoreApplication.getInst().getFilesDir();
-            return createFileDir(new File(filesDir, PULL_FILE_DIR + File.separator + "images"));
-        }
-        return (File) invokeV.objValue;
     }
 
     public static PullViewHelper getInstance() {
@@ -226,19 +286,23 @@ public class PullViewHelper {
         return (PullViewHelper) invokeV.objValue;
     }
 
-    private boolean hasFileName(File file, String str) {
-        InterceptResult invokeLL;
-        File[] listFiles;
+    public boolean isShouldShowLoadingView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, file, str)) == null) {
-            for (File file2 : file.listFiles()) {
-                if (file2.exists() && file2.isFile() && !TextUtils.isEmpty(file2.getName()) && file2.getName().startsWith(str) && file2.length() > 0) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.defaultShouldShowLoadingView;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    private File getImageFileDir() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            File filesDir = TbadkCoreApplication.getInst().getFilesDir();
+            return createFileDir(new File(filesDir, PULL_FILE_DIR + File.separator + "images"));
+        }
+        return (File) invokeV.objValue;
     }
 
     private boolean isImagesExist(int i) {
@@ -263,33 +327,11 @@ public class PullViewHelper {
         return invokeI.booleanValue;
     }
 
-    public AnimationDrawable getAnimationDrawable(int i) {
-        InterceptResult invokeI;
-        Drawable[] drawableArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.drawables != null) {
-                boolean z = true;
-                if (i != 1 && i != 4) {
-                    z = false;
-                }
-                AnimationDrawable animationDrawable = new AnimationDrawable();
-                animationDrawable.setColorFilter(z ? this.nightColorSkin : null);
-                for (Drawable drawable : this.drawables) {
-                    if (drawable != null) {
-                        animationDrawable.addFrame(drawable, 100);
-                    }
-                }
-                return animationDrawable;
-            }
-            return null;
-        }
-        return (AnimationDrawable) invokeI.objValue;
-    }
-
     public AnimationDrawable getDefaultAnimationDrawable(int i) {
         InterceptResult invokeI;
+        boolean z;
         PullViewDrawable[] pullViewDrawableArr;
+        Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (this.defaultDrawables == null) {
@@ -298,7 +340,11 @@ public class PullViewHelper {
                     this.defaultDrawables[i2] = new PullViewDrawable();
                 }
             }
-            boolean z = i == 1 || i == 4;
+            if (i != 1 && i != 4) {
+                z = false;
+            } else {
+                z = true;
+            }
             if (z && !this.hasNightDefault) {
                 this.hasNightDefault = true;
                 for (int i3 = 0; i3 < this.defaultResources.length; i3++) {
@@ -314,7 +360,11 @@ public class PullViewHelper {
             AnimationDrawable animationDrawable = new AnimationDrawable();
             for (PullViewDrawable pullViewDrawable : this.defaultDrawables) {
                 if (pullViewDrawable != null) {
-                    Drawable drawable = z ? pullViewDrawable.nightDrawable : pullViewDrawable.dayDrawable;
+                    if (z) {
+                        drawable = pullViewDrawable.nightDrawable;
+                    } else {
+                        drawable = pullViewDrawable.dayDrawable;
+                    }
                     if (drawable != null) {
                         animationDrawable.addFrame(drawable, 100);
                     }
@@ -325,28 +375,6 @@ public class PullViewHelper {
         return (AnimationDrawable) invokeI.objValue;
     }
 
-    public int getPullViewBackgroundColor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            boolean z = true;
-            if (i != 1 && i != 4) {
-                z = false;
-            }
-            if (z) {
-                return this.pullview_backgroundColor_night;
-            }
-            return this.pullview_backgroundColor_day;
-        }
-        return invokeI.intValue;
-    }
-
-    public boolean isShouldShowLoadingView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.defaultShouldShowLoadingView : invokeV.booleanValue;
-    }
-
     public void saveOrUpdateImages(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5) == null) {
@@ -354,8 +382,8 @@ public class PullViewHelper {
             int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
             int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
-                int l = ox4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                int l2 = ox4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                int l = ux4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                int l2 = ux4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
                     i2 = Color.parseColor(str4);
                 } catch (Exception unused) {
@@ -365,19 +393,19 @@ public class PullViewHelper {
                 } catch (Exception unused2) {
                 }
                 if (l != i2 || i != l2) {
-                    ox4.k().w("pullview_background_color_day", i2);
-                    ox4.k().w("pullview_background_color_night", i);
+                    ux4.k().w("pullview_background_color_day", i2);
+                    ux4.k().w("pullview_background_color_night", i);
                     this.pullview_backgroundColor_day = i2;
                     this.pullview_backgroundColor_night = i;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
                 }
             } else {
-                ox4.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                ox4.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                ux4.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                ux4.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             }
-            ox4.k().u("pullview_should_show_3d_loading", true);
+            ux4.k().u("pullview_should_show_3d_loading", true);
             setShouldShowLoadingView(true);
-            jh.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
+            kh.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PullViewHelper this$0;
@@ -404,22 +432,15 @@ public class PullViewHelper {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ox4.k().D("pull_image_url");
-                        ox4.k().D("pull_image_num");
-                        ox4.k().D("pullview_background_color_day");
-                        ox4.k().D("pullview_background_color_night");
+                        ux4.k().D("pull_image_url");
+                        ux4.k().D("pull_image_num");
+                        ux4.k().D("pullview_background_color_day");
+                        ux4.k().D("pullview_background_color_night");
                         this.this$0.deletePullDir();
                         this.this$0.buildDrawables();
                     }
                 }
             });
-        }
-    }
-
-    public void setShouldShowLoadingView(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.defaultShouldShowLoadingView = z;
         }
     }
 }

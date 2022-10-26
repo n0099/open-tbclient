@@ -11,14 +11,14 @@ import com.facebook.imagepipeline.instrumentation.FrescoInstrumenter;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class ThreadHandoffProducer<T> implements Producer<T> {
+public class ThreadHandoffProducer implements Producer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "BackgroundThreadHandoffProducer";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Producer<T> mInputProducer;
+    public final Producer mInputProducer;
     public final ThreadHandoffProducerQueue mThreadHandoffProducerQueue;
 
-    public ThreadHandoffProducer(Producer<T> producer, ThreadHandoffProducerQueue threadHandoffProducerQueue) {
+    public ThreadHandoffProducer(Producer producer, ThreadHandoffProducerQueue threadHandoffProducerQueue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public class ThreadHandoffProducer<T> implements Producer<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<T> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             try {
@@ -59,13 +59,31 @@ public class ThreadHandoffProducer<T> implements Producer<T> {
                     FrescoSystrace.beginSection("ThreadHandoffProducer#produceResults");
                 }
                 ProducerListener2 producerListener = producerContext.getProducerListener();
-                StatefulProducerRunnable<T> statefulProducerRunnable = new StatefulProducerRunnable<T>(this, consumer, producerListener, producerContext, PRODUCER_NAME, producerListener, producerContext, consumer) { // from class: com.facebook.imagepipeline.producers.ThreadHandoffProducer.1
+                StatefulProducerRunnable statefulProducerRunnable = new StatefulProducerRunnable(this, consumer, producerListener, producerContext, PRODUCER_NAME, producerListener, producerContext, consumer) { // from class: com.facebook.imagepipeline.producers.ThreadHandoffProducer.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ThreadHandoffProducer this$0;
                     public final /* synthetic */ Consumer val$consumer;
                     public final /* synthetic */ ProducerContext val$context;
                     public final /* synthetic */ ProducerListener2 val$producerListener;
+
+                    @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
+                    public void disposeResult(Object obj) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        }
+                    }
+
+                    @Override // com.facebook.common.executors.StatefulRunnable
+                    @Nullable
+                    public Object getResult() throws Exception {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return null;
+                        }
+                        return invokeV.objValue;
+                    }
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -93,27 +111,9 @@ public class ThreadHandoffProducer<T> implements Producer<T> {
                     }
 
                     @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                    public void disposeResult(T t) {
+                    public void onSuccess(Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, t) == null) {
-                        }
-                    }
-
-                    @Override // com.facebook.common.executors.StatefulRunnable
-                    @Nullable
-                    public T getResult() throws Exception {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                            return null;
-                        }
-                        return (T) invokeV.objValue;
-                    }
-
-                    @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                    public void onSuccess(T t) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                             this.val$producerListener.onProducerFinishWithSuccess(this.val$context, ThreadHandoffProducer.PRODUCER_NAME, null);
                             this.this$0.mInputProducer.produceResults(this.val$consumer, this.val$context);
                         }

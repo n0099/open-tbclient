@@ -13,6 +13,23 @@ public class InitVersionTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitVersion" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
     public InitVersionTask() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,10 +46,9 @@ public class InitVersionTask extends LaunchTask {
 
     private void initVersion() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || VersionInitHelper.hasInitFinish()) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && !VersionInitHelper.hasInitFinish()) {
+            VersionInitHelper.init();
         }
-        VersionInitHelper.init();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -41,22 +57,5 @@ public class InitVersionTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             initVersion();
         }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitVersion" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
     }
 }

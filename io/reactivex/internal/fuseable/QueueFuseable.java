@@ -1,6 +1,6 @@
 package io.reactivex.internal.fuseable;
 /* loaded from: classes8.dex */
-public interface QueueFuseable<T> extends SimpleQueue<T> {
+public interface QueueFuseable extends SimpleQueue {
     public static final int ANY = 3;
     public static final int ASYNC = 2;
     public static final int BOUNDARY = 4;

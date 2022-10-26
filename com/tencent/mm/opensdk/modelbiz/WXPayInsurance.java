@@ -17,7 +17,7 @@ public class WXPayInsurance {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class Req extends BaseReq {
+    public final class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.WXPayInsurance.Req";
         public static final int URL_LENGTH_LIMIT = 10240;
@@ -86,7 +86,7 @@ public class WXPayInsurance {
     }
 
     /* loaded from: classes8.dex */
-    public static final class Resp extends BaseResp {
+    public final class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String wxOrderId;

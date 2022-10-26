@@ -27,30 +27,34 @@ public class Strings {
     public static String repeat(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65537, null, str, i)) != null) {
-            return (String) invokeLI.objValue;
-        }
-        if (i <= 1) {
-            return i == 0 ? "" : str;
-        }
-        int length = str.length();
-        long j = length * i;
-        int i2 = (int) j;
-        if (i2 == j) {
-            char[] cArr = new char[i2];
-            str.getChars(0, length, cArr, 0);
-            while (true) {
-                int i3 = i2 - length;
-                if (length < i3) {
-                    System.arraycopy(cArr, 0, cArr, length, length);
-                    length <<= 1;
-                } else {
-                    System.arraycopy(cArr, 0, cArr, length, i3);
-                    return new String(cArr);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (i <= 1) {
+                if (i == 0) {
+                    return "";
                 }
+                return str;
+            }
+            int length = str.length();
+            long j = length * i;
+            int i2 = (int) j;
+            if (i2 == j) {
+                char[] cArr = new char[i2];
+                str.getChars(0, length, cArr, 0);
+                while (true) {
+                    int i3 = i2 - length;
+                    if (length < i3) {
+                        System.arraycopy(cArr, 0, cArr, length, length);
+                        length <<= 1;
+                    } else {
+                        System.arraycopy(cArr, 0, cArr, length, i3);
+                        return new String(cArr);
+                    }
+                }
+            } else {
+                throw new ArrayIndexOutOfBoundsException("Required array size too large: " + j);
             }
         } else {
-            throw new ArrayIndexOutOfBoundsException("Required array size too large: " + j);
+            return (String) invokeLI.objValue;
         }
     }
 }

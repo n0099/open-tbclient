@@ -35,41 +35,42 @@ public abstract class d {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        byte[] bArr = new byte[str.length()];
-        str.getBytes(0, str.length(), bArr, 0);
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        PushbackInputStream pushbackInputStream = new PushbackInputStream(byteArrayInputStream);
-        while (true) {
-            try {
-                a aVar = (a) this;
-                int i2 = 0;
-                while (true) {
-                    a aVar2 = (a) this;
-                    i = i2 + 4;
-                    if (i >= 72) {
-                        break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            byte[] bArr = new byte[str.length()];
+            str.getBytes(0, str.length(), bArr, 0);
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            PushbackInputStream pushbackInputStream = new PushbackInputStream(byteArrayInputStream);
+            while (true) {
+                try {
+                    a aVar = (a) this;
+                    int i2 = 0;
+                    while (true) {
+                        a aVar2 = (a) this;
+                        i = i2 + 4;
+                        if (i >= 72) {
+                            break;
+                        }
+                        a aVar3 = (a) this;
+                        a(pushbackInputStream, byteArrayOutputStream, 4);
+                        a aVar4 = (a) this;
+                        a aVar5 = (a) this;
+                        i2 = i;
                     }
-                    a aVar3 = (a) this;
-                    a(pushbackInputStream, byteArrayOutputStream, 4);
-                    a aVar4 = (a) this;
-                    a aVar5 = (a) this;
-                    i2 = i;
+                    a aVar6 = (a) this;
+                    if (i == 72) {
+                        a aVar7 = (a) this;
+                        a(pushbackInputStream, byteArrayOutputStream, 4);
+                        a aVar8 = (a) this;
+                    } else {
+                        a(pushbackInputStream, byteArrayOutputStream, 72 - i2);
+                    }
+                } catch (c unused) {
+                    return byteArrayOutputStream.toByteArray();
                 }
-                a aVar6 = (a) this;
-                if (i == 72) {
-                    a aVar7 = (a) this;
-                    a(pushbackInputStream, byteArrayOutputStream, 4);
-                    a aVar8 = (a) this;
-                } else {
-                    a(pushbackInputStream, byteArrayOutputStream, 72 - i2);
-                }
-            } catch (c unused) {
-                return byteArrayOutputStream.toByteArray();
             }
+        } else {
+            return (byte[]) invokeL.objValue;
         }
     }
 }

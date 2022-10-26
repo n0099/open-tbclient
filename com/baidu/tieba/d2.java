@@ -9,13 +9,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d2 extends p1<Texture, b> {
+public class d2 extends p1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a b;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.o1
+    /* renamed from: f */
+    public b7 a(String str, k3 k3Var, b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, bVar)) == null) {
+            return null;
+        }
+        return (b7) invokeLLL.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -38,7 +50,7 @@ public class d2 extends p1<Texture, b> {
     }
 
     /* loaded from: classes3.dex */
-    public static class b extends l1<Texture> {
+    public class b extends l1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Pixmap.Format b;
@@ -98,18 +110,6 @@ public class d2 extends p1<Texture, b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o1
-    /* renamed from: f */
-    public b7<j1> a(String str, k3 k3Var, b bVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, bVar)) == null) {
-            return null;
-        }
-        return (b7) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.p1
     /* renamed from: g */
     public void c(n1 n1Var, String str, k3 k3Var, b bVar) {
@@ -133,10 +133,9 @@ public class d2 extends p1<Texture, b> {
                 }
                 this.b.b = TextureData.a.a(k3Var, format, z);
             }
-            if (this.b.b.isPrepared()) {
-                return;
+            if (!this.b.b.isPrepared()) {
+                this.b.b.prepare();
             }
-            this.b.b.prepare();
         }
     }
 

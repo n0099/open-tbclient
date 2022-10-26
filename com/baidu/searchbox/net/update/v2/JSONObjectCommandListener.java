@@ -30,6 +30,9 @@ public abstract class JSONObjectCommandListener extends AbstractCommandListener<
     public TypeAdapter<JSONObject> getTypeAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new JSONObjectAdapter() : (TypeAdapter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new JSONObjectAdapter();
+        }
+        return (TypeAdapter) invokeV.objValue;
     }
 }

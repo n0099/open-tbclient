@@ -6,9 +6,6 @@ import android.view.ActionMode;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.CheckedTextView;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.widget.TextViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -42,8 +39,20 @@ public class AppCompatCheckedTextView extends CheckedTextView {
         TINT_ATTRS = new int[]{16843016};
     }
 
+    @Override // android.widget.CheckedTextView, android.widget.TextView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.drawableStateChanged();
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.applyCompoundDrawablesTints();
+            }
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckedTextView(@NonNull Context context) {
+    public AppCompatCheckedTextView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,55 +72,8 @@ public class AppCompatCheckedTextView extends CheckedTextView {
         }
     }
 
-    @Override // android.widget.CheckedTextView, android.widget.TextView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.drawableStateChanged();
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                appCompatTextHelper.applyCompoundDrawablesTints();
-            }
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorInfo)) == null) ? AppCompatHintHelper.onCreateInputConnection(super.onCreateInputConnection(editorInfo), editorInfo, this) : (InputConnection) invokeL.objValue;
-    }
-
-    @Override // android.widget.CheckedTextView
-    public void setCheckMarkDrawable(@DrawableRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            setCheckMarkDrawable(AppCompatResources.getDrawable(getContext(), i));
-        }
-    }
-
-    @Override // android.widget.TextView
-    public void setCustomSelectionActionModeCallback(ActionMode.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
-            super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
-        }
-    }
-
-    @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, context, i) == null) {
-            super.setTextAppearance(context, i);
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                appCompatTextHelper.onSetTextAppearance(context, i);
-            }
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckedTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 16843720);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -132,7 +94,7 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckedTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -158,5 +120,43 @@ public class AppCompatCheckedTextView extends CheckedTextView {
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i, 0);
         setCheckMarkDrawable(obtainStyledAttributes.getDrawable(0));
         obtainStyledAttributes.recycle();
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorInfo)) == null) {
+            return AppCompatHintHelper.onCreateInputConnection(super.onCreateInputConnection(editorInfo), editorInfo, this);
+        }
+        return (InputConnection) invokeL.objValue;
+    }
+
+    @Override // android.widget.CheckedTextView
+    public void setCheckMarkDrawable(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            setCheckMarkDrawable(AppCompatResources.getDrawable(getContext(), i));
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setCustomSelectionActionModeCallback(ActionMode.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
+            super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setTextAppearance(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, context, i) == null) {
+            super.setTextAppearance(context, i);
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.onSetTextAppearance(context, i);
+            }
+        }
     }
 }

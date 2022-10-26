@@ -30,6 +30,13 @@ public final class zzl extends zzk {
         this.zza = c;
     }
 
+    @Override // com.google.android.gms.internal.common.zzo
+    public final boolean zza(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c)})) == null) ? c == this.zza : invokeCommon.booleanValue;
+    }
+
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,12 +55,5 @@ public final class zzl extends zzk {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.google.android.gms.internal.common.zzo
-    public final boolean zza(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c)})) == null) ? c == this.zza : invokeCommon.booleanValue;
     }
 }

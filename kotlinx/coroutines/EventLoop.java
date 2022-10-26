@@ -7,8 +7,70 @@ import kotlinx.coroutines.internal.ArrayQueue;
 /* loaded from: classes8.dex */
 public abstract class EventLoop extends CoroutineDispatcher {
     public boolean shared;
-    public ArrayQueue<DispatchedTask<?>> unconfinedQueue;
+    public ArrayQueue unconfinedQueue;
     public long useCount;
+
+    private final long delta(boolean z) {
+        return z ? 4294967296L : 1L;
+    }
+
+    public boolean shouldBeProcessedFromContext() {
+        return false;
+    }
+
+    public void shutdown() {
+    }
+
+    public long getNextTime() {
+        ArrayQueue arrayQueue = this.unconfinedQueue;
+        if (arrayQueue == null || arrayQueue.isEmpty()) {
+            return Long.MAX_VALUE;
+        }
+        return 0L;
+    }
+
+    public final boolean isActive() {
+        if (this.useCount > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isEmpty() {
+        return isUnconfinedQueueEmpty();
+    }
+
+    public final boolean isUnconfinedLoopActive() {
+        if (this.useCount >= delta(true)) {
+            return true;
+        }
+        return false;
+    }
+
+    public final boolean isUnconfinedQueueEmpty() {
+        ArrayQueue arrayQueue = this.unconfinedQueue;
+        if (arrayQueue != null) {
+            return arrayQueue.isEmpty();
+        }
+        return true;
+    }
+
+    public long processNextEvent() {
+        if (!processUnconfinedEvent()) {
+            return Long.MAX_VALUE;
+        }
+        return getNextTime();
+    }
+
+    public final boolean processUnconfinedEvent() {
+        DispatchedTask dispatchedTask;
+        ArrayQueue arrayQueue = this.unconfinedQueue;
+        if (arrayQueue == null || (dispatchedTask = (DispatchedTask) arrayQueue.removeFirstOrNull()) == null) {
+            return false;
+        }
+        dispatchedTask.run();
+        return true;
+    }
 
     public static /* synthetic */ void decrementUseCount$default(EventLoop eventLoop, boolean z, int i, Object obj) {
         if (obj == null) {
@@ -19,10 +81,6 @@ public abstract class EventLoop extends CoroutineDispatcher {
             return;
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: decrementUseCount");
-    }
-
-    private final long delta(boolean z) {
-        return z ? 4294967296L : 1L;
     }
 
     public static /* synthetic */ void incrementUseCount$default(EventLoop eventLoop, boolean z, int i, Object obj) {
@@ -37,13 +95,19 @@ public abstract class EventLoop extends CoroutineDispatcher {
     }
 
     public final void decrementUseCount(boolean z) {
+        boolean z2;
         long delta = this.useCount - delta(z);
         this.useCount = delta;
         if (delta > 0) {
             return;
         }
         if (DebugKt.getASSERTIONS_ENABLED()) {
-            if (!(this.useCount == 0)) {
+            if (this.useCount == 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z2) {
                 throw new AssertionError();
             }
         }
@@ -52,69 +116,19 @@ public abstract class EventLoop extends CoroutineDispatcher {
         }
     }
 
-    public final void dispatchUnconfined(DispatchedTask<?> dispatchedTask) {
-        ArrayQueue<DispatchedTask<?>> arrayQueue = this.unconfinedQueue;
+    public final void dispatchUnconfined(DispatchedTask dispatchedTask) {
+        ArrayQueue arrayQueue = this.unconfinedQueue;
         if (arrayQueue == null) {
-            arrayQueue = new ArrayQueue<>();
+            arrayQueue = new ArrayQueue();
             this.unconfinedQueue = arrayQueue;
         }
         arrayQueue.addLast(dispatchedTask);
     }
 
-    public long getNextTime() {
-        ArrayQueue<DispatchedTask<?>> arrayQueue = this.unconfinedQueue;
-        return (arrayQueue == null || arrayQueue.isEmpty()) ? Long.MAX_VALUE : 0L;
-    }
-
     public final void incrementUseCount(boolean z) {
         this.useCount += delta(z);
-        if (z) {
-            return;
+        if (!z) {
+            this.shared = true;
         }
-        this.shared = true;
-    }
-
-    public final boolean isActive() {
-        return this.useCount > 0;
-    }
-
-    public boolean isEmpty() {
-        return isUnconfinedQueueEmpty();
-    }
-
-    public final boolean isUnconfinedLoopActive() {
-        return this.useCount >= delta(true);
-    }
-
-    public final boolean isUnconfinedQueueEmpty() {
-        ArrayQueue<DispatchedTask<?>> arrayQueue = this.unconfinedQueue;
-        if (arrayQueue != null) {
-            return arrayQueue.isEmpty();
-        }
-        return true;
-    }
-
-    public long processNextEvent() {
-        if (processUnconfinedEvent()) {
-            return getNextTime();
-        }
-        return Long.MAX_VALUE;
-    }
-
-    public final boolean processUnconfinedEvent() {
-        DispatchedTask<?> removeFirstOrNull;
-        ArrayQueue<DispatchedTask<?>> arrayQueue = this.unconfinedQueue;
-        if (arrayQueue == null || (removeFirstOrNull = arrayQueue.removeFirstOrNull()) == null) {
-            return false;
-        }
-        removeFirstOrNull.run();
-        return true;
-    }
-
-    public boolean shouldBeProcessedFromContext() {
-        return false;
-    }
-
-    public void shutdown() {
     }
 }

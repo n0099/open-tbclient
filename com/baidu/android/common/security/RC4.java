@@ -42,21 +42,21 @@ public class RC4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
             if (i + i2 <= bArr.length) {
-                if (i3 + i2 > bArr2.length) {
-                    throw new RuntimeException("output buffer too short");
+                if (i3 + i2 <= bArr2.length) {
+                    for (int i4 = 0; i4 < i2; i4++) {
+                        int i5 = (this.x + 1) & 255;
+                        this.x = i5;
+                        byte[] bArr3 = this.engineState;
+                        int i6 = (bArr3[i5] + this.y) & 255;
+                        this.y = i6;
+                        byte b = bArr3[i5];
+                        bArr3[i5] = bArr3[i6];
+                        bArr3[i6] = b;
+                        bArr2[i4 + i3] = (byte) (bArr3[(bArr3[i5] + bArr3[i6]) & 255] ^ bArr[i4 + i]);
+                    }
+                    return;
                 }
-                for (int i4 = 0; i4 < i2; i4++) {
-                    int i5 = (this.x + 1) & 255;
-                    this.x = i5;
-                    byte[] bArr3 = this.engineState;
-                    int i6 = (bArr3[i5] + this.y) & 255;
-                    this.y = i6;
-                    byte b = bArr3[i5];
-                    bArr3[i5] = bArr3[i6];
-                    bArr3[i6] = b;
-                    bArr2[i4 + i3] = (byte) (bArr3[(bArr3[i5] + bArr3[i6]) & 255] ^ bArr[i4 + i]);
-                }
-                return;
+                throw new RuntimeException("output buffer too short");
             }
             throw new RuntimeException("input buffer too short");
         }

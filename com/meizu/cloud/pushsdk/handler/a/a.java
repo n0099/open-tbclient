@@ -15,10 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
+public abstract class a implements com.meizu.cloud.pushsdk.handler.c {
     public com.meizu.cloud.pushsdk.handler.a a;
     public Context b;
-    public Map<Integer, String> c;
+    public Map c;
 
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         if (context == null) {
@@ -49,14 +49,14 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     private String a(int i) {
-        return this.c.get(Integer.valueOf(i));
+        return (String) this.c.get(Integer.valueOf(i));
     }
 
-    public com.meizu.cloud.pushsdk.notification.c a(T t) {
+    public com.meizu.cloud.pushsdk.notification.c a(Object obj) {
         return null;
     }
 
-    public abstract void a(T t, com.meizu.cloud.pushsdk.notification.c cVar);
+    public abstract void a(Object obj, com.meizu.cloud.pushsdk.notification.c cVar);
 
     public boolean a(int i, String str) {
         boolean z = true;
@@ -139,7 +139,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         }
     }
 
-    public void b(T t) {
+    public void b(Object obj) {
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
@@ -148,14 +148,14 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         boolean z = false;
         if (a(intent)) {
             DebugLogger.e("AbstractMessageHandler", "current message Type " + a(a()));
-            T c = c(intent);
-            if (!g((a<T>) c)) {
+            Object c = c(intent);
+            if (!g(c)) {
                 DebugLogger.e("AbstractMessageHandler", "invalid push message");
                 return false;
             }
             DebugLogger.e("AbstractMessageHandler", "current Handler message " + c);
-            b((a<T>) c);
-            int d = d((a<T>) c);
+            b(c);
+            int d = d(c);
             boolean z2 = true;
             if (d != 0) {
                 if (d == 1) {
@@ -164,15 +164,15 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
                     str = "notification on time ,show message";
                 } else if (d == 3) {
                     DebugLogger.e("AbstractMessageHandler", "schedule notification");
-                    e((a<T>) c);
+                    e(c);
                     z = true;
                 }
                 z2 = false;
-                boolean f = f((a<T>) c);
+                boolean f = f(c);
                 DebugLogger.e("AbstractMessageHandler", "can send message " + f);
                 if (z && z2 && f) {
-                    a((a<T>) c, a((a<T>) c));
-                    c((a<T>) c);
+                    a(c, a(c));
+                    c(c);
                     DebugLogger.e("AbstractMessageHandler", "send message end ");
                 }
             } else {
@@ -180,11 +180,11 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
             }
             DebugLogger.e("AbstractMessageHandler", str);
             z = true;
-            boolean f2 = f((a<T>) c);
+            boolean f2 = f(c);
             DebugLogger.e("AbstractMessageHandler", "can send message " + f2);
             if (z) {
-                a((a<T>) c, a((a<T>) c));
-                c((a<T>) c);
+                a(c, a(c));
+                c(c);
                 DebugLogger.e("AbstractMessageHandler", "send message end ");
             }
         }
@@ -195,7 +195,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         return this.b;
     }
 
-    public abstract T c(Intent intent);
+    public abstract Object c(Intent intent);
 
     public void c(MessageV3 messageV3) {
         if (!MinSdkChecker.isSupportSetDrawableSmallIcon()) {
@@ -209,10 +209,10 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         }
     }
 
-    public void c(T t) {
+    public void c(Object obj) {
     }
 
-    public int d(T t) {
+    public int d(Object obj) {
         return 0;
     }
 
@@ -230,14 +230,14 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         return intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_TASK_ID);
     }
 
-    public void e(T t) {
+    public void e(Object obj) {
     }
 
     public String f(Intent intent) {
         return intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID);
     }
 
-    public boolean f(T t) {
+    public boolean f(Object obj) {
         return true;
     }
 
@@ -246,7 +246,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         return TextUtils.isEmpty(stringExtra) ? c().getPackageName() : stringExtra;
     }
 
-    public boolean g(T t) {
+    public boolean g(Object obj) {
         return true;
     }
 

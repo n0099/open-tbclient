@@ -52,76 +52,6 @@ public final class AspectRatioFrameLayout extends FrameLayout {
         }
     }
 
-    public int getResizeMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.resizeMode : invokeV.intValue;
-    }
-
-    @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        float f;
-        float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            if (this.resizeMode == 3 || this.videoAspectRatio <= 0.0f) {
-                return;
-            }
-            int measuredWidth = getMeasuredWidth();
-            int measuredHeight = getMeasuredHeight();
-            float f3 = measuredWidth;
-            float f4 = measuredHeight;
-            float f5 = (this.videoAspectRatio / (f3 / f4)) - 1.0f;
-            if (Math.abs(f5) <= 0.01f) {
-                return;
-            }
-            int i3 = this.resizeMode;
-            if (i3 == 1) {
-                f = this.videoAspectRatio;
-            } else {
-                if (i3 == 2) {
-                    f2 = this.videoAspectRatio;
-                } else {
-                    if (i3 != 4) {
-                        if (f5 > 0.0f) {
-                            f = this.videoAspectRatio;
-                        } else {
-                            f2 = this.videoAspectRatio;
-                        }
-                    } else if (f5 > 0.0f) {
-                        f2 = this.videoAspectRatio;
-                    } else {
-                        f = this.videoAspectRatio;
-                    }
-                    super.onMeasure(View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824));
-                }
-                measuredWidth = (int) (f4 * f2);
-                super.onMeasure(View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824));
-            }
-            measuredHeight = (int) (f3 / f);
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824));
-        }
-    }
-
-    public void setAspectRatio(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) || this.videoAspectRatio == f) {
-            return;
-        }
-        this.videoAspectRatio = f;
-        requestLayout();
-    }
-
-    public void setResizeMode(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.resizeMode == i) {
-            return;
-        }
-        this.resizeMode = i;
-        requestLayout();
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AspectRatioFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -149,6 +79,74 @@ public final class AspectRatioFrameLayout extends FrameLayout {
             } finally {
                 obtainStyledAttributes.recycle();
             }
+        }
+    }
+
+    public int getResizeMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.resizeMode;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        float f;
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (this.resizeMode != 3 && this.videoAspectRatio > 0.0f) {
+                int measuredWidth = getMeasuredWidth();
+                int measuredHeight = getMeasuredHeight();
+                float f3 = measuredWidth;
+                float f4 = measuredHeight;
+                float f5 = (this.videoAspectRatio / (f3 / f4)) - 1.0f;
+                if (Math.abs(f5) <= 0.01f) {
+                    return;
+                }
+                int i3 = this.resizeMode;
+                if (i3 != 1) {
+                    if (i3 != 2) {
+                        if (i3 != 4) {
+                            if (f5 > 0.0f) {
+                                f = this.videoAspectRatio;
+                            } else {
+                                f2 = this.videoAspectRatio;
+                            }
+                        } else if (f5 > 0.0f) {
+                            f2 = this.videoAspectRatio;
+                        } else {
+                            f = this.videoAspectRatio;
+                        }
+                        super.onMeasure(View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824));
+                    }
+                    f2 = this.videoAspectRatio;
+                    measuredWidth = (int) (f4 * f2);
+                    super.onMeasure(View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824));
+                }
+                f = this.videoAspectRatio;
+                measuredHeight = (int) (f3 / f);
+                super.onMeasure(View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824));
+            }
+        }
+    }
+
+    public void setAspectRatio(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) && this.videoAspectRatio != f) {
+            this.videoAspectRatio = f;
+            requestLayout();
+        }
+    }
+
+    public void setResizeMode(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.resizeMode != i) {
+            this.resizeMode = i;
+            requestLayout();
         }
     }
 }

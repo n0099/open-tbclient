@@ -73,12 +73,18 @@ public final class NetRequestType {
     public static NetRequestType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetRequestType) Enum.valueOf(NetRequestType.class, str) : (NetRequestType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (NetRequestType) Enum.valueOf(NetRequestType.class, str);
+        }
+        return (NetRequestType) invokeL.objValue;
     }
 
     public static NetRequestType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetRequestType[]) $VALUES.clone() : (NetRequestType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (NetRequestType[]) $VALUES.clone();
+        }
+        return (NetRequestType[]) invokeV.objValue;
     }
 }

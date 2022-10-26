@@ -15,22 +15,22 @@ import java.util.Map;
 public class ImageDecoderConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<ImageFormat, ImageDecoder> mCustomImageDecoders;
-    public final List<ImageFormat.FormatChecker> mCustomImageFormats;
+    public final Map mCustomImageDecoders;
+    public final List mCustomImageFormats;
 
     /* renamed from: com.facebook.imagepipeline.decoder.ImageDecoderConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<ImageFormat, ImageDecoder> mCustomImageDecoders;
-        public List<ImageFormat.FormatChecker> mCustomImageFormats;
+        public Map mCustomImageDecoders;
+        public List mCustomImageFormats;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -44,6 +44,15 @@ public class ImageDecoderConfig {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public ImageDecoderConfig build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new ImageDecoderConfig(this, null);
+            }
+            return (ImageDecoderConfig) invokeV.objValue;
         }
 
         public Builder addDecodingCapability(ImageFormat imageFormat, ImageFormat.FormatChecker formatChecker, ImageDecoder imageDecoder) {
@@ -60,12 +69,6 @@ public class ImageDecoderConfig {
             return (Builder) invokeLLL.objValue;
         }
 
-        public ImageDecoderConfig build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ImageDecoderConfig(this, null) : (ImageDecoderConfig) invokeV.objValue;
-        }
-
         public Builder overrideDecoder(ImageFormat imageFormat, ImageDecoder imageDecoder) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -78,28 +81,6 @@ public class ImageDecoderConfig {
             }
             return (Builder) invokeLL.objValue;
         }
-    }
-
-    public /* synthetic */ ImageDecoderConfig(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    public static Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new Builder() : (Builder) invokeV.objValue;
-    }
-
-    public Map<ImageFormat, ImageDecoder> getCustomImageDecoders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCustomImageDecoders : (Map) invokeV.objValue;
-    }
-
-    public List<ImageFormat.FormatChecker> getCustomImageFormats() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCustomImageFormats : (List) invokeV.objValue;
     }
 
     public ImageDecoderConfig(Builder builder) {
@@ -119,5 +100,36 @@ public class ImageDecoderConfig {
         }
         this.mCustomImageDecoders = builder.mCustomImageDecoders;
         this.mCustomImageFormats = builder.mCustomImageFormats;
+    }
+
+    public /* synthetic */ ImageDecoderConfig(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    public static Builder newBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new Builder();
+        }
+        return (Builder) invokeV.objValue;
+    }
+
+    public Map getCustomImageDecoders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCustomImageDecoders;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public List getCustomImageFormats() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCustomImageFormats;
+        }
+        return (List) invokeV.objValue;
     }
 }

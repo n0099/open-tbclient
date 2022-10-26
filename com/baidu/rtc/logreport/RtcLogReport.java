@@ -62,7 +62,10 @@ public class RtcLogReport {
     public static String getDeviceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.MODEL : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Build.MODEL;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static synchronized RtcLogReport getInstance() {
@@ -81,6 +84,15 @@ public class RtcLogReport {
         return (RtcLogReport) invokeV.objValue;
     }
 
+    public void release() {
+        ScheduledExecutorService scheduledExecutorService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (scheduledExecutorService = this.executor) != null) {
+            scheduledExecutorService.shutdown();
+            this.executor = null;
+        }
+    }
+
     public static String getNetworkType(Context context) {
         InterceptResult invokeL;
         ConnectivityManager connectivityManager;
@@ -92,40 +104,45 @@ public class RtcLogReport {
                 return StringUtil.NULL_STRING;
             }
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
-            if (networkInfo == null || (state = networkInfo.getState()) == null || !(state == NetworkInfo.State.CONNECTED || state == NetworkInfo.State.CONNECTING)) {
-                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        return "2G";
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        return "3G";
-                    case 13:
-                        return "4G";
-                    default:
-                        return "MOBILE";
-                }
+            if (networkInfo != null && (state = networkInfo.getState()) != null && (state == NetworkInfo.State.CONNECTED || state == NetworkInfo.State.CONNECTING)) {
+                return "wifi";
             }
-            return "wifi";
+            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    return "2G";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return "3G";
+                case 13:
+                    return "4G";
+                default:
+                    return "MOBILE";
+            }
         }
         return (String) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendGet(String str, int i) {
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65541, this, str, i) == null) {
-            String str2 = i == 3 ? UPLOAD_SLI_PERFFIX : UPLOAD_PERFFIX;
+            if (i == 3) {
+                str2 = UPLOAD_SLI_PERFFIX;
+            } else {
+                str2 = UPLOAD_PERFFIX;
+            }
             if (i == 4) {
                 str2 = UPLOAD_ERROR_PERFFIX;
             }
@@ -135,6 +152,13 @@ public class RtcLogReport {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RtcLogReport this$0;
+
+                @Override // okhttp3.Callback
+                public void onResponse(Call call, Response response) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -161,25 +185,8 @@ public class RtcLogReport {
                         Log.e(RtcLogReport.LOG, "qualityinfo send fail: " + iOException);
                     }
                 }
-
-                @Override // okhttp3.Callback
-                public void onResponse(Call call, Response response) throws IOException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                    }
-                }
             });
         }
-    }
-
-    public void release() {
-        ScheduledExecutorService scheduledExecutorService;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (scheduledExecutorService = this.executor) == null) {
-            return;
-        }
-        scheduledExecutorService.shutdown();
-        this.executor = null;
     }
 
     public synchronized void report(String str, int i) {

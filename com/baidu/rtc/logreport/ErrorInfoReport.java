@@ -34,15 +34,30 @@ public class ErrorInfoReport {
     public long publisherHandleId;
     public String remoteIp;
     public long roomId;
-    public Map<BigInteger, String> serverIpMap;
+    public Map serverIpMap;
     public long sessionId;
     public long userId;
     public long value;
     public String version;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2047405916, "Lcom/baidu/rtc/logreport/ErrorInfoReport;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2047405916, "Lcom/baidu/rtc/logreport/ErrorInfoReport;");
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ErrorCode {
+    public final class ErrorCode {
         public static final /* synthetic */ ErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ErrorCode ANCHOR_LIVE_INTRERRUPT;
@@ -139,40 +154,37 @@ public class ErrorInfoReport {
         public static ErrorCode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ErrorCode) Enum.valueOf(ErrorCode.class, str) : (ErrorCode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ErrorCode) Enum.valueOf(ErrorCode.class, str);
+            }
+            return (ErrorCode) invokeL.objValue;
         }
 
         public static ErrorCode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ErrorCode[]) $VALUES.clone() : (ErrorCode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ErrorCode[]) $VALUES.clone();
+            }
+            return (ErrorCode[]) invokeV.objValue;
         }
 
         public int getErrorCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.code;
+            }
+            return invokeV.intValue;
         }
 
         public String getMessage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.message : (String) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2047405916, "Lcom/baidu/rtc/logreport/ErrorInfoReport;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2047405916, "Lcom/baidu/rtc/logreport/ErrorInfoReport;");
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.message;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -208,79 +220,118 @@ public class ErrorInfoReport {
     public String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.appId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.appId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getClientIp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.clientIp : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.clientIp;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.code : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.code;
+        }
+        return invokeV.intValue;
     }
 
     public String getDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.device : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.device;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getEnv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.env : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.env;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.message : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.message;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getPublishHandleId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.publisherHandleId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.publisherHandleId;
+        }
+        return invokeV.longValue;
     }
 
     public String getRemoteIp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.remoteIp : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.remoteIp;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.roomId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.roomId;
+        }
+        return invokeV.longValue;
     }
 
     public long getSessionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.sessionId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.sessionId;
+        }
+        return invokeV.longValue;
     }
 
     public long getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.userId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.userId;
+        }
+        return invokeV.longValue;
     }
 
     public long getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.value : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.value;
+        }
+        return invokeV.longValue;
     }
 
     public String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.version : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.version;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void putServerMap(BigInteger bigInteger, String str) {
@@ -290,29 +341,50 @@ public class ErrorInfoReport {
         }
     }
 
-    public void reportErrorInfo(ErrorCode errorCode, long j, BigInteger bigInteger, BigInteger bigInteger2) {
+    public void reportErrorInfo(int i, String str, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{errorCode, Long.valueOf(j), bigInteger, bigInteger2}) == null) {
-            reportErrorInfo(errorCode, j, this.serverIpMap.containsKey(bigInteger) ? this.serverIpMap.get(bigInteger) : "", bigInteger2.longValue(), bigInteger.longValue());
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            reportErrorInfo(i, str, -1L, getRemoteIp(), j, j2);
         }
     }
 
-    public void resetParam() {
+    public void reportErrorInfo(int i, String str, long j, String str2, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.env = "";
-            this.version = "";
-            this.device = "";
-            this.clientIp = "";
-            this.appId = "";
-            this.roomId = -1L;
-            this.userId = -1L;
-            this.sessionId = -1L;
-            this.publisherHandleId = -1L;
-            this.code = 700;
-            this.message = "";
-            this.value = -1L;
-            this.serverIpMap.clear();
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("env", this.env);
+                jSONObject.put("timestamp", System.currentTimeMillis());
+                jSONObject.put("version", this.version);
+                jSONObject.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
+                jSONObject.put("clientIp", this.clientIp);
+                jSONObject.put("serverIp", str2);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
+                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.roomId);
+                jSONObject.put("userId", this.userId);
+                if (j2 > 0) {
+                    jSONObject.put("feedId", j2);
+                }
+                jSONObject.put("sessionId", this.sessionId);
+                jSONObject.put("handleId", j3);
+                jSONObject.put("code", i);
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("message", i);
+                }
+                if (j > 0) {
+                    jSONObject.put("value", j);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            RtcLogReport.getInstance().report(jSONObject.toString(), 4);
+        }
+    }
+
+    public void reportErrorInfo(ErrorCode errorCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, errorCode) == null) {
+            reportErrorInfo(errorCode, -1L, (String) this.serverIpMap.get(BigInteger.valueOf(this.publisherHandleId)), -1L, this.publisherHandleId);
         }
     }
 
@@ -407,13 +479,6 @@ public class ErrorInfoReport {
         }
     }
 
-    public void reportErrorInfo(ErrorCode errorCode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, errorCode) == null) {
-            reportErrorInfo(errorCode, -1L, this.serverIpMap.get(BigInteger.valueOf(this.publisherHandleId)), -1L, this.publisherHandleId);
-        }
-    }
-
     public void reportErrorInfo(ErrorCode errorCode, long j, String str, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{errorCode, Long.valueOf(j), str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
@@ -421,43 +486,35 @@ public class ErrorInfoReport {
         }
     }
 
-    public void reportErrorInfo(int i, String str, long j, long j2) {
+    public void reportErrorInfo(ErrorCode errorCode, long j, BigInteger bigInteger, BigInteger bigInteger2) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            reportErrorInfo(i, str, -1L, getRemoteIp(), j, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{errorCode, Long.valueOf(j), bigInteger, bigInteger2}) == null) {
+            if (this.serverIpMap.containsKey(bigInteger)) {
+                str = (String) this.serverIpMap.get(bigInteger);
+            } else {
+                str = "";
+            }
+            reportErrorInfo(errorCode, j, str, bigInteger2.longValue(), bigInteger.longValue());
         }
     }
 
-    public void reportErrorInfo(int i, String str, long j, String str2, long j2, long j3) {
+    public void resetParam() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("env", this.env);
-                jSONObject.put("timestamp", System.currentTimeMillis());
-                jSONObject.put("version", this.version);
-                jSONObject.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
-                jSONObject.put("clientIp", this.clientIp);
-                jSONObject.put("serverIp", str2);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.roomId);
-                jSONObject.put("userId", this.userId);
-                if (j2 > 0) {
-                    jSONObject.put("feedId", j2);
-                }
-                jSONObject.put("sessionId", this.sessionId);
-                jSONObject.put("handleId", j3);
-                jSONObject.put("code", i);
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("message", i);
-                }
-                if (j > 0) {
-                    jSONObject.put("value", j);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            RtcLogReport.getInstance().report(jSONObject.toString(), 4);
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.env = "";
+            this.version = "";
+            this.device = "";
+            this.clientIp = "";
+            this.appId = "";
+            this.roomId = -1L;
+            this.userId = -1L;
+            this.sessionId = -1L;
+            this.publisherHandleId = -1L;
+            this.code = 700;
+            this.message = "";
+            this.value = -1L;
+            this.serverIpMap.clear();
         }
     }
 }

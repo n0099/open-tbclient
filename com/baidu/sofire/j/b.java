@@ -112,7 +112,10 @@ public class b implements SharedPreferences.Editor {
             try {
                 if (this.c == 1 && (!this.e || TextUtils.isEmpty(this.f))) {
                     SharedPreferences.Editor editor = this.a;
-                    if (editor != null && editor != null) {
+                    if (editor == null) {
+                        return this;
+                    }
+                    if (editor != null) {
                         editor.putBoolean(str, z);
                     }
                 } else {
@@ -138,7 +141,10 @@ public class b implements SharedPreferences.Editor {
             try {
                 if (this.c == 1 && (!this.e || TextUtils.isEmpty(this.f))) {
                     SharedPreferences.Editor editor = this.a;
-                    if (editor != null && editor != null) {
+                    if (editor == null) {
+                        return this;
+                    }
+                    if (editor != null) {
                         editor.putFloat(str, f);
                     }
                 } else {
@@ -164,7 +170,10 @@ public class b implements SharedPreferences.Editor {
             try {
                 if (this.c == 1 && (!this.e || TextUtils.isEmpty(this.f))) {
                     SharedPreferences.Editor editor = this.a;
-                    if (editor != null && editor != null) {
+                    if (editor == null) {
+                        return this;
+                    }
+                    if (editor != null) {
                         editor.putInt(str, i);
                     }
                 } else {
@@ -190,7 +199,10 @@ public class b implements SharedPreferences.Editor {
             try {
                 if (this.c == 1 && (!this.e || TextUtils.isEmpty(this.f))) {
                     SharedPreferences.Editor editor = this.a;
-                    if (editor != null && editor != null) {
+                    if (editor == null) {
+                        return this;
+                    }
+                    if (editor != null) {
                         editor.putLong(str, j);
                     }
                 } else {
@@ -216,7 +228,10 @@ public class b implements SharedPreferences.Editor {
             try {
                 if (this.c == 1 && (!this.e || TextUtils.isEmpty(this.f))) {
                     SharedPreferences.Editor editor = this.a;
-                    if (editor != null && editor != null) {
+                    if (editor == null) {
+                        return this;
+                    }
+                    if (editor != null) {
                         editor.putString(str, str2);
                     }
                 } else {
@@ -235,7 +250,7 @@ public class b implements SharedPreferences.Editor {
     }
 
     @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
+    public SharedPreferences.Editor putStringSet(String str, Set set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {

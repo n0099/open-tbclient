@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,18 +35,21 @@ public class ResponseCheckUserMaskMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            boolean z = false;
             CheckMaskUserResIdl checkMaskUserResIdl = (CheckMaskUserResIdl) new Wire(new Class[0]).parseFrom(bArr, CheckMaskUserResIdl.class);
             setError(checkMaskUserResIdl.error.errorno.intValue());
             setErrorString(checkMaskUserResIdl.error.usermsg);
             if (getError() != 0) {
                 return checkMaskUserResIdl;
             }
-            this.isMasked = checkMaskUserResIdl.data.isMask.intValue() == 1;
+            if (checkMaskUserResIdl.data.isMask.intValue() == 1) {
+                z = true;
+            }
+            this.isMasked = z;
             return checkMaskUserResIdl;
         }
         return invokeIL.objValue;
@@ -56,6 +58,9 @@ public class ResponseCheckUserMaskMessage extends SocketResponsedMessage {
     public boolean isMasked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isMasked : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isMasked;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -41,12 +41,42 @@ public final class a {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0041 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0042  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Constructor a(Class cls, Class... clsArr) {
+        InterceptResult invokeLL;
+        Constructor constructor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
+            Method method = c;
+            if (method != null) {
+                try {
+                    constructor = (Constructor) method.invoke(cls, clsArr);
+                } catch (Throwable th) {
+                    ZeusLogger.w(ZeusLogger.TAG, "DoubleReflector" + String.format("getConstructor %s<init>%s failed !!!", cls.getName(), 1), th);
+                }
+                if (constructor == null) {
+                    return constructor;
+                }
+                return com.bytedance.pangle.a.a.a.a(cls, clsArr);
+            }
+            constructor = null;
+            if (constructor == null) {
+            }
+        } else {
+            return (Constructor) invokeLL.objValue;
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:18:0x0048 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0049  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Field a(Class<?> cls, String str) {
+    public static Field a(Class cls, String str) {
         InterceptResult invokeLL;
         Throwable th;
         Field field;
@@ -74,7 +104,10 @@ public final class a {
                 }
                 field2 = field;
             }
-            return field2 == null ? field2 : com.bytedance.pangle.a.a.a.a(cls, str);
+            if (field2 == null) {
+                return field2;
+            }
+            return com.bytedance.pangle.a.a.a.a(cls, str);
         }
         return (Field) invokeLL.objValue;
     }
@@ -84,7 +117,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
+    public static Method a(Class cls, String str, Class... clsArr) {
         InterceptResult invokeLLL;
         Throwable th;
         Method method;
@@ -112,34 +145,11 @@ public final class a {
                 }
                 method3 = method;
             }
-            return method3 == null ? method3 : com.bytedance.pangle.a.a.a.a(cls, str, clsArr);
+            if (method3 == null) {
+                return method3;
+            }
+            return com.bytedance.pangle.a.a.a.a(cls, str, clsArr);
         }
         return (Method) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0041 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0042  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Constructor a(Class<?> cls, Class<?>... clsArr) {
-        InterceptResult invokeLL;
-        Constructor constructor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) != null) {
-            return (Constructor) invokeLL.objValue;
-        }
-        Method method = c;
-        if (method != null) {
-            try {
-                constructor = (Constructor) method.invoke(cls, clsArr);
-            } catch (Throwable th) {
-                ZeusLogger.w(ZeusLogger.TAG, "DoubleReflector" + String.format("getConstructor %s<init>%s failed !!!", cls.getName(), 1), th);
-            }
-            return constructor == null ? constructor : com.bytedance.pangle.a.a.a.a(cls, clsArr);
-        }
-        constructor = null;
-        if (constructor == null) {
-        }
     }
 }

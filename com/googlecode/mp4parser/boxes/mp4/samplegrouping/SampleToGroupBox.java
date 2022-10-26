@@ -33,12 +33,12 @@ public class SampleToGroupBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_4 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Entry> entries;
+    public List entries;
     public String groupingType;
     public String groupingTypeParameter;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int groupDescriptionIndex;
@@ -74,7 +74,10 @@ public class SampleToGroupBox extends AbstractFullBox {
                     return false;
                 }
                 Entry entry = (Entry) obj;
-                return this.groupDescriptionIndex == entry.groupDescriptionIndex && this.sampleCount == entry.sampleCount;
+                if (this.groupDescriptionIndex == entry.groupDescriptionIndex && this.sampleCount == entry.sampleCount) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
@@ -82,13 +85,19 @@ public class SampleToGroupBox extends AbstractFullBox {
         public int getGroupDescriptionIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.groupDescriptionIndex : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.groupDescriptionIndex;
+            }
+            return invokeV.intValue;
         }
 
         public long getSampleCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sampleCount : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.sampleCount;
+            }
+            return invokeV.longValue;
         }
 
         public int hashCode() {
@@ -141,6 +150,52 @@ public class SampleToGroupBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getVersion() == 1) {
+                size = (this.entries.size() * 8) + 16;
+            } else {
+                size = (this.entries.size() * 8) + 12;
+            }
+            return size;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String getGroupingType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.groupingType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getGroupingTypeParameter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.groupingTypeParameter;
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SampleToGroupBox() {
         super(TYPE);
@@ -173,22 +228,21 @@ public class SampleToGroupBox extends AbstractFullBox {
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, byteBuffer) != null) {
-            return;
-        }
-        parseVersionAndFlags(byteBuffer);
-        this.groupingType = IsoTypeReader.read4cc(byteBuffer);
-        if (getVersion() == 1) {
-            this.groupingTypeParameter = IsoTypeReader.read4cc(byteBuffer);
-        }
-        long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
-        while (true) {
-            long j = readUInt32 - 1;
-            if (readUInt32 <= 0) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseVersionAndFlags(byteBuffer);
+            this.groupingType = IsoTypeReader.read4cc(byteBuffer);
+            if (getVersion() == 1) {
+                this.groupingTypeParameter = IsoTypeReader.read4cc(byteBuffer);
             }
-            this.entries.add(new Entry(CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer)), CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer))));
-            readUInt32 = j;
+            long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
+            while (true) {
+                long j = readUInt32 - 1;
+                if (readUInt32 <= 0) {
+                    return;
+                }
+                this.entries.add(new Entry(CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer)), CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer))));
+                readUInt32 = j;
+            }
         }
     }
 
@@ -209,47 +263,7 @@ public class SampleToGroupBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return getVersion() == 1 ? (this.entries.size() * 8) + 16 : (this.entries.size() * 8) + 12;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String getGroupingType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.groupingType;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getGroupingTypeParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.groupingTypeParameter;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, list));

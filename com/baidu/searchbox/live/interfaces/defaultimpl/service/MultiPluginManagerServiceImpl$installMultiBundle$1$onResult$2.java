@@ -47,10 +47,9 @@ public final class MultiPluginManagerServiceImpl$installMultiBundle$1$onResult$2
     public void onProgress(String str, long j, long j2) {
         MultiPluginInstallCallback multiPluginInstallCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || (multiPluginInstallCallback = this.this$0.$installCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) && (multiPluginInstallCallback = this.this$0.$installCallback) != null) {
+            multiPluginInstallCallback.onProgress(str, j, j2);
         }
-        multiPluginInstallCallback.onProgress(str, j, j2);
     }
 
     @Override // com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl.PluginDownloadCallback
@@ -68,7 +67,6 @@ public final class MultiPluginManagerServiceImpl$installMultiBundle$1$onResult$2
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MultiPluginManagerServiceImpl$installMultiBundle$1$onResult$2 this$0;
 
-                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {

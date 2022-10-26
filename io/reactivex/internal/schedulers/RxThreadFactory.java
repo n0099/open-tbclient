@@ -20,7 +20,7 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     public final int priority;
 
     /* loaded from: classes8.dex */
-    public static final class RxCustomThread extends Thread implements NonBlockingThread {
+    public final class RxCustomThread extends Thread implements NonBlockingThread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,30 +67,6 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
         }
     }
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            String str = this.prefix + SignatureImpl.SEP + incrementAndGet();
-            Thread rxCustomThread = this.nonBlocking ? new RxCustomThread(runnable, str) : new Thread(runnable, str);
-            rxCustomThread.setPriority(this.priority);
-            rxCustomThread.setDaemon(true);
-            return rxCustomThread;
-        }
-        return (Thread) invokeL.objValue;
-    }
-
-    @Override // java.util.concurrent.atomic.AtomicLong
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "RxThreadFactory[" + this.prefix + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RxThreadFactory(String str, int i) {
         this(str, i, false);
@@ -130,5 +106,34 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
         this.prefix = str;
         this.priority = i;
         this.nonBlocking = z;
+    }
+
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
+        Thread thread;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            String str = this.prefix + SignatureImpl.SEP + incrementAndGet();
+            if (this.nonBlocking) {
+                thread = new RxCustomThread(runnable, str);
+            } else {
+                thread = new Thread(runnable, str);
+            }
+            thread.setPriority(this.priority);
+            thread.setDaemon(true);
+            return thread;
+        }
+        return (Thread) invokeL.objValue;
+    }
+
+    @Override // java.util.concurrent.atomic.AtomicLong
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "RxThreadFactory[" + this.prefix + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 }

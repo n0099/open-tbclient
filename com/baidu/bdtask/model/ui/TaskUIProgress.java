@@ -42,25 +42,6 @@ public final class TaskUIProgress implements ITaskModelData {
         }
     }
 
-    public TaskUIProgress(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.foreColor = str;
-        this.backColor = str2;
-    }
-
     public static /* synthetic */ TaskUIProgress copy$default(TaskUIProgress taskUIProgress, String str, String str2, int i, Object obj) {
         if ((i & 1) != 0) {
             str = taskUIProgress.foreColor;
@@ -105,18 +86,6 @@ public final class TaskUIProgress implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final String getBackColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.backColor : (String) invokeV.objValue;
-    }
-
-    public final String getForeColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.foreColor : (String) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,11 +98,67 @@ public final class TaskUIProgress implements ITaskModelData {
         return invokeV.intValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "TaskUIProgress(foreColor=" + this.foreColor + ", backColor=" + this.backColor + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public TaskUIProgress(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.foreColor = str;
+        this.backColor = str2;
+    }
+
+    public /* synthetic */ TaskUIProgress(String str, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2);
+    }
+
+    public final String getBackColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.backColor;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getForeColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.foreColor;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Intrinsics.areEqual(this.foreColor, "") && Intrinsics.areEqual(this.backColor, "") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (Intrinsics.areEqual(this.foreColor, "") && Intrinsics.areEqual(this.backColor, "")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -149,24 +174,14 @@ public final class TaskUIProgress implements ITaskModelData {
         return (JSONObject) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "TaskUIProgress(foreColor=" + this.foreColor + ", backColor=" + this.backColor + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskUIProgress(String str, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.bdtask.model.ITaskModelData
     public TaskUIProgress deepCopy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? copy$default(this, null, null, 3, null) : (TaskUIProgress) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return copy$default(this, null, null, 3, null);
+        }
+        return (TaskUIProgress) invokeV.objValue;
     }
 }

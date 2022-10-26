@@ -10,12 +10,12 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.fuseable.HasUpstreamPublisher;
 import org.reactivestreams.Publisher;
 /* loaded from: classes8.dex */
-public abstract class AbstractFlowableWithUpstream<T, R> extends Flowable<R> implements HasUpstreamPublisher<T> {
+public abstract class AbstractFlowableWithUpstream extends Flowable implements HasUpstreamPublisher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Flowable<T> source;
+    public final Flowable source;
 
-    public AbstractFlowableWithUpstream(Flowable<T> flowable) {
+    public AbstractFlowableWithUpstream(Flowable flowable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,9 +34,12 @@ public abstract class AbstractFlowableWithUpstream<T, R> extends Flowable<R> imp
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamPublisher
-    public final Publisher<T> source() {
+    public final Publisher source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.source : (Publisher) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.source;
+        }
+        return (Publisher) invokeV.objValue;
     }
 }

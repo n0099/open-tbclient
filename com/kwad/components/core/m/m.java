@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.core.config.item.n;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
@@ -61,14 +62,15 @@ public class m {
         this.Jg = false;
     }
 
-    public static boolean a(List<String> list, Class cls) {
+    public static boolean a(List list, Class cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, cls)) == null) {
             int i = 0;
             while (cls != null && !TextUtils.equals(cls.getName(), "java.lang.Object")) {
-                for (String str : list) {
-                    if (cls.getName().contains(str)) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    if (cls.getName().contains((String) it.next())) {
                         return true;
                     }
                 }
@@ -83,7 +85,7 @@ public class m {
         return invokeLL.booleanValue;
     }
 
-    private boolean a(List<String> list, StackTraceElement[] stackTraceElementArr) {
+    private boolean a(List list, StackTraceElement[] stackTraceElementArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, list, stackTraceElementArr)) == null) {
@@ -141,7 +143,7 @@ public class m {
         return invokeL.booleanValue;
     }
 
-    private boolean c(List<String> list, List<String> list2) {
+    private boolean c(List list, List list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, list, list2)) == null) {
@@ -152,8 +154,9 @@ public class m {
             for (StackTraceElement stackTraceElement : stackTrace) {
                 String className = stackTraceElement.getClassName();
                 if (className != null) {
-                    for (String str : list) {
-                        if (className.contains(str)) {
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        if (className.contains((String) it.next())) {
                             return true;
                         }
                     }
@@ -199,8 +202,8 @@ public class m {
         if (this.Jg) {
             ArrayList arrayList = new ArrayList();
             if (this.Jh.VI.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.Jh.VI.entrySet()) {
-                    if (az(entry.getValue())) {
+                for (Map.Entry entry : this.Jh.VI.entrySet()) {
+                    if (az((String) entry.getValue())) {
                         arrayList.add(entry.getKey());
                     }
                 }
@@ -243,7 +246,7 @@ public class m {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
         if (sharedPreferences != null) {
             com.kwad.sdk.core.config.c.Uj.a(sharedPreferences);
-            this.Jh = com.kwad.sdk.core.config.c.Uj.getValue();
+            this.Jh = (n.a) com.kwad.sdk.core.config.c.Uj.getValue();
         }
         if (this.Jh != null) {
             oH();

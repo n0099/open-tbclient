@@ -9,7 +9,7 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class LimitedAgeMemoryCache implements MemoryCache {
     public final MemoryCache cache;
-    public final Map<String, Long> loadingDates = Collections.synchronizedMap(new HashMap());
+    public final Map loadingDates = Collections.synchronizedMap(new HashMap());
     public final long maxAge;
 
     public LimitedAgeMemoryCache(MemoryCache memoryCache, long j) {
@@ -25,7 +25,7 @@ public class LimitedAgeMemoryCache implements MemoryCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public DecodedResult get(String str) {
-        Long l = this.loadingDates.get(str);
+        Long l = (Long) this.loadingDates.get(str);
         if (l != null && System.currentTimeMillis() - l.longValue() > this.maxAge) {
             this.cache.remove(str);
             this.loadingDates.remove(str);
@@ -34,7 +34,7 @@ public class LimitedAgeMemoryCache implements MemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public Collection<String> keys() {
+    public Collection keys() {
         return this.cache.keys();
     }
 

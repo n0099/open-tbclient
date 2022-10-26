@@ -6,20 +6,37 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.d57;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.v47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicListModel> {
+public class LocalChannelTopicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(d57 d57Var);
+
+        void onFail(String str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -52,27 +69,21 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof LocalChannelTopicListResponseMessage)) {
-                if (httpResponsedMessage.getError() != 0) {
-                    if (this.a.a != null) {
-                        this.a.a.onFail(httpResponsedMessage.getErrorString());
-                        return;
-                    }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof LocalChannelTopicListResponseMessage)) {
+                return;
+            }
+            if (httpResponsedMessage.getError() != 0) {
+                if (this.a.a != null) {
+                    this.a.a.onFail(httpResponsedMessage.getErrorString());
                     return;
                 }
-                v47 v47Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
-                if (this.a.a != null) {
-                    this.a.a.a(v47Var);
-                }
+                return;
+            }
+            d57 d57Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+            if (this.a.a != null) {
+                this.a.a.a(d57Var);
             }
         }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(v47 v47Var);
-
-        void onFail(String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -103,16 +114,6 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a = bVar;
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

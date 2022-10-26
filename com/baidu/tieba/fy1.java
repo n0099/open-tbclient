@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.text.TextPaint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,15 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class fy1 extends rw1 {
+public class fy1 extends sw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
+    public ax1 a;
 
     public fy1() {
         Interceptable interceptable = $ic;
@@ -32,75 +23,30 @@ public class fy1 extends rw1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sw1
+    public void a(tw1 tw1Var, Canvas canvas) {
+        ax1 ax1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) && (ax1Var = this.a) != null && ax1Var.d()) {
+            if (this.a.c()) {
+                tw1Var.c.setShader(this.a.b());
                 return;
             }
+            tw1Var.m = this.a.a();
+            tw1Var.c.setColor(this.a.a());
+            tw1Var.b.setShader(null);
         }
-        this.d = -1.0f;
-        this.e = 0.0f;
-        this.f = 1.0f;
     }
 
-    @Override // com.baidu.tieba.rw1
-    public void a(sw1 sw1Var, Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
-            return;
-        }
-        TextPaint textPaint = sw1Var.e;
-        int i = sw1Var.k;
-        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        float f = fontMetrics.top;
-        int i2 = this.c;
-        float f2 = i2 + f;
-        float f3 = fontMetrics.ascent + i2;
-        float f4 = fontMetrics.bottom;
-        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
-        if (this.e == 0.0d) {
-            Rect rect = new Rect();
-            String str = this.a;
-            textPaint.getTextBounds(str, 0, str.length(), rect);
-            if (this.d != -1.0f) {
-                float f6 = this.d;
-                if (rect.width() > f6) {
-                    this.e = f6 / rect.width();
-                }
-            }
-            this.e = 1.0f;
-        }
-        canvas.save();
-        int alpha = textPaint.getAlpha();
-        int color = textPaint.getColor();
-        textPaint.setStyle(Paint.Style.STROKE);
-        textPaint.setStrokeWidth(this.f);
-        textPaint.setColor(sw1Var.m);
-        sw1Var.c(textPaint);
-        canvas.scale(this.e, 1.0f);
-        canvas.drawText(this.a, this.b, f5, textPaint);
-        textPaint.setStyle(Paint.Style.FILL);
-        textPaint.setAlpha(alpha);
-        textPaint.setColor(color);
-        canvas.restore();
-    }
-
-    @Override // com.baidu.tieba.rw1
+    @Override // com.baidu.tieba.sw1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 2) {
-                    this.a = jSONArray.optString(0);
-                    this.b = ch3.g((float) jSONArray.optDouble(1));
-                    this.c = ch3.g((float) jSONArray.optDouble(2));
-                    if (jSONArray.length() > 3) {
-                        this.d = ch3.g((float) jSONArray.optDouble(3));
-                    }
-                    this.f = ch3.g(1.0f);
-                }
-            } catch (Exception e) {
-                if (vj1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new ax1(jSONArray);
         }
     }
 }

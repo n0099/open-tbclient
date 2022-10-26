@@ -18,24 +18,24 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class BlockingObservableNext<T> implements Iterable<T> {
+public final class BlockingObservableNext implements Iterable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<T> source;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class NextIterator<T> implements Iterator<T> {
+    public final class NextIterator implements Iterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Throwable error;
         public boolean hasNext;
         public boolean isNextConsumed;
-        public final ObservableSource<T> items;
-        public T next;
-        public final NextObserver<T> observer;
+        public final ObservableSource items;
+        public Object next;
+        public final NextObserver observer;
         public boolean started;
 
-        public NextIterator(ObservableSource<T> observableSource, NextObserver<T> nextObserver) {
+        public NextIterator(ObservableSource observableSource, NextObserver nextObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
                     new ObservableMaterialize(this.items).subscribe(this.observer);
                 }
                 try {
-                    Notification<T> takeNext = this.observer.takeNext();
+                    Notification takeNext = this.observer.takeNext();
                     if (takeNext.isOnNext()) {
                         this.isNextConsumed = false;
                         this.next = takeNext.getValue();
@@ -95,10 +95,13 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 Throwable th = this.error;
                 if (th == null) {
-                    if (this.hasNext) {
-                        return !this.isNextConsumed || moveToNext();
+                    if (!this.hasNext) {
+                        return false;
                     }
-                    return false;
+                    if (this.isNextConsumed && !moveToNext()) {
+                        return false;
+                    }
+                    return true;
                 }
                 throw ExceptionHelper.wrapOrThrow(th);
             }
@@ -106,7 +109,7 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
         }
 
         @Override // java.util.Iterator
-        public T next() {
+        public Object next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -120,7 +123,7 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
                 }
                 throw ExceptionHelper.wrapOrThrow(th);
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
 
         @Override // java.util.Iterator
@@ -133,11 +136,18 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class NextObserver<T> extends DisposableObserver<Notification<T>> {
+    public final class NextObserver extends DisposableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BlockingQueue<Notification<T>> buf;
+        public final BlockingQueue buf;
         public final AtomicInteger waiting;
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
 
         public NextObserver() {
             Interceptable interceptable = $ic;
@@ -156,11 +166,22 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
             this.waiting = new AtomicInteger();
         }
 
-        @Override // io.reactivex.Observer
-        public void onComplete() {
+        public void setWaiting() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.waiting.set(1);
             }
+        }
+
+        public Notification takeNext() throws InterruptedException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                setWaiting();
+                BlockingHelper.verifyNonBlocking();
+                return (Notification) this.buf.take();
+            }
+            return (Notification) invokeV.objValue;
         }
 
         @Override // io.reactivex.Observer
@@ -171,37 +192,16 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.Observer
-        public /* bridge */ /* synthetic */ void onNext(Object obj) {
-            onNext((Notification) ((Notification) obj));
-        }
-
-        public void setWaiting() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.waiting.set(1);
-            }
-        }
-
-        public Notification<T> takeNext() throws InterruptedException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                setWaiting();
-                BlockingHelper.verifyNonBlocking();
-                return this.buf.take();
-            }
-            return (Notification) invokeV.objValue;
-        }
-
-        public void onNext(Notification<T> notification) {
+        public void onNext(Notification notification) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, notification) == null) {
                 if (this.waiting.getAndSet(0) == 1 || !notification.isOnNext()) {
                     while (!this.buf.offer(notification)) {
-                        Notification<T> poll = this.buf.poll();
-                        if (poll != null && !poll.isOnNext()) {
-                            notification = poll;
+                        Notification notification2 = (Notification) this.buf.poll();
+                        if (notification2 != null && !notification2.isOnNext()) {
+                            notification = notification2;
                         }
                     }
                 }
@@ -209,7 +209,7 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
         }
     }
 
-    public BlockingObservableNext(ObservableSource<T> observableSource) {
+    public BlockingObservableNext(ObservableSource observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -228,9 +228,12 @@ public final class BlockingObservableNext<T> implements Iterable<T> {
     }
 
     @Override // java.lang.Iterable
-    public Iterator<T> iterator() {
+    public Iterator iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NextIterator(this.source, new NextObserver()) : (Iterator) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new NextIterator(this.source, new NextObserver());
+        }
+        return (Iterator) invokeV.objValue;
     }
 }

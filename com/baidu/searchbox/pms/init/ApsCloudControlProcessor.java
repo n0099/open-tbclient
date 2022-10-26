@@ -9,7 +9,6 @@ import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.pms.IPmsContext;
 import com.baidu.searchbox.pms.PmsRuntime;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.searchbox.pms.init.request.RequestDataUtils;
 import com.baidu.searchbox.pms.init.request.RequestTask;
 import com.baidu.searchbox.pms.init.response.ResponseDataProcess;
@@ -45,6 +44,25 @@ public class ApsCloudControlProcessor implements ICloudControlProcessor {
             }
         }
         this.serviceName = "aps";
+    }
+
+    public ApsCloudControlProcessor(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.serviceName = "aps";
+        this.serviceName = str;
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
@@ -142,7 +160,7 @@ public class ApsCloudControlProcessor implements ICloudControlProcessor {
                     if (pmsContext == null) {
                         return;
                     }
-                    List<RequestParams.Channel> longConnectParams = pmsContext.getLongConnectParams();
+                    List longConnectParams = pmsContext.getLongConnectParams();
                     if (longConnectParams != null && longConnectParams.size() > 0) {
                         responseDataProcess.setResponseInfo(cloudControlResponseInfo);
                         responseDataProcess.setChannelList(longConnectParams);
@@ -156,24 +174,5 @@ public class ApsCloudControlProcessor implements ICloudControlProcessor {
                 ResponseDataProcess.sendCloudControlUBCData(iCloudControlUBCCallBack, responseDataProcess);
             }
         }
-    }
-
-    public ApsCloudControlProcessor(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.serviceName = "aps";
-        this.serviceName = str;
     }
 }

@@ -1,43 +1,43 @@
 package com.baidu.tieba;
+
+import android.graphics.Rect;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface y06 {
 
     /* loaded from: classes6.dex */
     public interface a {
-        boolean a(float f);
+        int a(byte[] bArr, int i);
     }
 
     /* loaded from: classes6.dex */
     public interface b {
-        float getSpeed();
+        void a(byte[] bArr);
     }
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        boolean a();
-    }
+    View a();
 
-    boolean a();
+    void b(b bVar);
 
-    boolean b();
+    void c(int i);
 
-    int getMaxDuration();
+    int d();
 
-    float getProgress();
+    void e();
 
-    int getSlideNum();
+    Rect f();
 
-    boolean pause();
+    void g();
 
-    boolean reset();
+    void h(int i);
 
-    boolean setMaxDuration(int i);
+    void i(z06 z06Var);
 
-    boolean setMinDuration(int i);
+    void pause();
 
-    boolean setProgress(long j);
+    void resume();
 
-    boolean setShowDeleteLastTip(boolean z);
+    void start();
 
-    boolean start();
+    void stop();
 }

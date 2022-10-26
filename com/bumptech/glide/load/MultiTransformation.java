@@ -1,7 +1,6 @@
 package com.bumptech.glide.load;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,13 +12,35 @@ import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Collection;
 /* loaded from: classes7.dex */
-public class MultiTransformation<T> implements Transformation<T> {
+public class MultiTransformation implements Transformation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Collection<? extends Transformation<T>> transformations;
+    public final Collection transformations;
+
+    public MultiTransformation(Collection collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {collection};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (!collection.isEmpty()) {
+            this.transformations = collection;
+            return;
+        }
+        throw new IllegalArgumentException("MultiTransformation must contain at least one Transformation");
+    }
 
     @SafeVarargs
-    public MultiTransformation(@NonNull Transformation<T>... transformationArr) {
+    public MultiTransformation(Transformation... transformationArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,21 +76,33 @@ public class MultiTransformation<T> implements Transformation<T> {
     }
 
     @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
+            for (Transformation transformation : this.transformations) {
+                transformation.updateDiskCacheKey(messageDigest);
+            }
+        }
+    }
+
+    @Override // com.bumptech.glide.load.Key
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.transformations.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.transformations.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.bumptech.glide.load.Transformation
-    @NonNull
-    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i, int i2) {
+    public Resource transform(Context context, Resource resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i, i2)) == null) {
-            Resource<T> resource2 = resource;
-            for (Transformation<T> transformation : this.transformations) {
-                Resource<T> transform = transformation.transform(context, resource2, i, i2);
+            Resource resource2 = resource;
+            for (Transformation transformation : this.transformations) {
+                Resource transform = transformation.transform(context, resource2, i, i2);
                 if (resource2 != null && !resource2.equals(resource) && !resource2.equals(transform)) {
                     resource2.recycle();
                 }
@@ -78,37 +111,5 @@ public class MultiTransformation<T> implements Transformation<T> {
             return resource2;
         }
         return (Resource) invokeLLII.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
-            for (Transformation<T> transformation : this.transformations) {
-                transformation.updateDiskCacheKey(messageDigest);
-            }
-        }
-    }
-
-    public MultiTransformation(@NonNull Collection<? extends Transformation<T>> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {collection};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (!collection.isEmpty()) {
-            this.transformations = collection;
-            return;
-        }
-        throw new IllegalArgumentException("MultiTransformation must contain at least one Transformation");
     }
 }

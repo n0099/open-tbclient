@@ -14,13 +14,13 @@ public final class FixedSampleSizeRechunker {
 
     /* renamed from: com.google.android.exoplayer2.extractor.mp4.FixedSampleSizeRechunker$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class Results {
+    public final class Results {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int[] flags;
@@ -28,10 +28,6 @@ public final class FixedSampleSizeRechunker {
         public final long[] offsets;
         public final int[] sizes;
         public final long[] timestamps;
-
-        public /* synthetic */ Results(long[] jArr, int[] iArr, int i, long[] jArr2, int[] iArr2, AnonymousClass1 anonymousClass1) {
-            this(jArr, iArr, i, jArr2, iArr2);
-        }
 
         public Results(long[] jArr, int[] iArr, int i, long[] jArr2, int[] iArr2) {
             Interceptable interceptable = $ic;
@@ -53,6 +49,10 @@ public final class FixedSampleSizeRechunker {
             this.maximumSize = i;
             this.timestamps = jArr2;
             this.flags = iArr2;
+        }
+
+        public /* synthetic */ Results(long[] jArr, int[] iArr, int i, long[] jArr2, int[] iArr2, AnonymousClass1 anonymousClass1) {
+            this(jArr, iArr, i, jArr2, iArr2);
         }
     }
 

@@ -35,7 +35,10 @@ public class FileUtil {
     public static final boolean isExist(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new File(str).exists() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new File(str).exists();
+        }
+        return invokeL.booleanValue;
     }
 
     public static final String readFile(String str) {
@@ -43,12 +46,12 @@ public class FileUtil {
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        try {
-            File file = new File(str);
-            if (file.exists()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                File file = new File(str);
+                if (!file.exists()) {
+                    return null;
+                }
                 fileInputStream = new FileInputStream(file);
                 try {
                     byteArrayOutputStream = new ByteArrayOutputStream();
@@ -104,12 +107,13 @@ public class FileUtil {
                         throw th3;
                     }
                 }
+            } catch (Throwable th4) {
+                th = th4;
+                fileInputStream = null;
+                byteArrayOutputStream = null;
             }
-            return null;
-        } catch (Throwable th4) {
-            th = th4;
-            fileInputStream = null;
-            byteArrayOutputStream = null;
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
@@ -164,31 +168,32 @@ public class FileUtil {
     public static boolean writeFile(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) != null) {
-            return invokeLL.booleanValue;
-        }
-        PrintWriter printWriter = null;
-        try {
-            PrintWriter printWriter2 = new PrintWriter(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            PrintWriter printWriter = null;
             try {
-                printWriter2.print(str2);
-                printWriter2.flush();
-                printWriter2.close();
-                return true;
-            } catch (Throwable th) {
-                th = th;
-                printWriter = printWriter2;
+                PrintWriter printWriter2 = new PrintWriter(str);
                 try {
-                    th.printStackTrace();
-                    return false;
-                } finally {
-                    if (printWriter != null) {
-                        printWriter.close();
+                    printWriter2.print(str2);
+                    printWriter2.flush();
+                    printWriter2.close();
+                    return true;
+                } catch (Throwable th) {
+                    th = th;
+                    printWriter = printWriter2;
+                    try {
+                        th.printStackTrace();
+                        return false;
+                    } finally {
+                        if (printWriter != null) {
+                            printWriter.close();
+                        }
                     }
                 }
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 }

@@ -7,12 +7,11 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.f09;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.p09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RecordProgressBar extends View implements f09, Runnable {
+public class RecordProgressBar extends View implements p09, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -34,7 +33,7 @@ public class RecordProgressBar extends View implements f09, Runnable {
     public Paint h;
     public Paint i;
     public Paint j;
-    public List<Float> k;
+    public List k;
     public long l;
     public int m;
     public int n;
@@ -42,7 +41,7 @@ public class RecordProgressBar extends View implements f09, Runnable {
     public int p;
     public boolean q;
     public boolean r;
-    public f09.a s;
+    public p09.a s;
     public float t;
 
     /* loaded from: classes6.dex */
@@ -112,29 +111,94 @@ public class RecordProgressBar extends View implements f09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.f09
+    @Override // com.baidu.tieba.p09
+    public void setProgress(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048591, this, j) == null) && this.k.size() > 0) {
+            List list = this.k;
+            list.set(list.size() - 1, Float.valueOf(((float) j) / 1000.0f));
+            this.t = getProgress();
+            postInvalidate();
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public RecordProgressBar(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RecordProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.k = new ArrayList();
+        this.p = 255;
+        this.q = false;
+        this.t = 0.0f;
+        this.c = getContext().getResources().getColor(R.color.CAM_X0302);
+        this.d = getContext().getResources().getColor(R.color.CAM_X0301);
+        this.f = getContext().getResources().getColor(R.color.CAM_X0313);
+        this.g = getContext().getResources().getColor(R.color.CAM_X0615);
+        this.e = getContext().getResources().getColor(R.color.CAM_X0312);
+        this.a = fj.d(context, 2.0f);
+        this.b = fj.d(context, 2.0f);
+        fj.d(context, 6.0f);
+        Paint paint = new Paint();
+        this.j = paint;
+        paint.setColor(this.g);
+        this.h = new Paint();
+        Paint paint2 = new Paint();
+        this.i = paint2;
+        paint2.setColor(this.f);
+    }
+
+    @Override // com.baidu.tieba.p09
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.o = false;
             if (this.k.size() > 0) {
-                List<Float> list = this.k;
+                List list = this.k;
                 list.remove(list.size() - 1);
                 this.t = getProgress();
                 invalidate();
             }
-            f09.a aVar = this.s;
+            p09.a aVar = this.s;
             if (aVar != null) {
                 aVar.a(this.t);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.f09
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.o : invokeV.booleanValue;
     }
 
     public final void c() {
@@ -153,21 +217,60 @@ public class RecordProgressBar extends View implements f09, Runnable {
     }
 
     public final void d() {
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f09.a aVar = this.s;
-            postDelayed(this, (aVar == null || !(aVar.getSpeed() == 0.5f || this.s.getSpeed() == 0.33333334f)) ? 50L : 25L);
+            p09.a aVar = this.s;
+            if (aVar != null && (aVar.getSpeed() == 0.5f || this.s.getSpeed() == 0.33333334f)) {
+                j = 25;
+            } else {
+                j = 50;
+            }
+            postDelayed(this, j);
         }
     }
 
-    @Override // com.baidu.tieba.f09
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.l != 0 && this.k.size() != 0) {
+            p09.a aVar = this.s;
+            if (aVar != null) {
+                aVar.onProgress(this.t);
+            }
+            if (this.t >= this.n) {
+                p09.a aVar2 = this.s;
+                if (aVar2 != null) {
+                    aVar2.onFinish();
+                    return;
+                }
+                return;
+            }
+            d();
+        }
+    }
+
+    @Override // com.baidu.tieba.p09
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.p09
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.n;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.f09
+    @Override // com.baidu.tieba.p09
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -181,11 +284,14 @@ public class RecordProgressBar extends View implements f09, Runnable {
         return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.f09
+    @Override // com.baidu.tieba.p09
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.k.size();
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.view.View
@@ -194,6 +300,39 @@ public class RecordProgressBar extends View implements f09, Runnable {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
             stop();
+        }
+    }
+
+    @Override // com.baidu.tieba.p09
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.l = 0L;
+            removeCallbacks(this);
+            this.k.clear();
+            this.o = false;
+            this.t = getProgress();
+            invalidate();
+        }
+    }
+
+    @Override // com.baidu.tieba.p09
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.l = System.currentTimeMillis();
+            this.k.add(Float.valueOf(0.0f));
+            d();
+        }
+    }
+
+    @Override // com.baidu.tieba.p09
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.l = 0L;
+            removeCallbacks(this);
+            invalidate();
         }
     }
 
@@ -233,15 +372,15 @@ public class RecordProgressBar extends View implements f09, Runnable {
                 }
                 if (i2 != 0) {
                     float f3 = f * width;
-                    f += this.k.get(i2).floatValue();
+                    f += ((Float) this.k.get(i2)).floatValue();
                     canvas.drawRect(f3, 0.0f, f * width, getHeight(), this.h);
                 } else if (Build.VERSION.SDK_INT >= 21) {
                     float f4 = f * width;
-                    f += this.k.get(i2).floatValue();
+                    f += ((Float) this.k.get(i2)).floatValue();
                     canvas.drawRoundRect(f4, 0.0f, f * width, getHeight(), 20.0f, 20.0f, this.h);
                 } else {
                     float f5 = f * width;
-                    f += this.k.get(i2).floatValue();
+                    f += ((Float) this.k.get(i2)).floatValue();
                     canvas.drawRect(f5, 0.0f, f * width, getHeight(), this.h);
                 }
                 if (i2 == 0 && getProgress() >= 0.2f) {
@@ -256,40 +395,6 @@ public class RecordProgressBar extends View implements f09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.f09
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.l = 0L;
-            removeCallbacks(this);
-            this.k.clear();
-            this.o = false;
-            this.t = getProgress();
-            invalidate();
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.l == 0 || this.k.size() == 0) {
-            return;
-        }
-        f09.a aVar = this.s;
-        if (aVar != null) {
-            aVar.onProgress(this.t);
-        }
-        if (this.t >= this.n) {
-            f09.a aVar2 = this.s;
-            if (aVar2 != null) {
-                aVar2.onFinish();
-                return;
-            }
-            return;
-        }
-        d();
-    }
-
     public void setIsAbandonMin(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
@@ -297,7 +402,7 @@ public class RecordProgressBar extends View implements f09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.f09
+    @Override // com.baidu.tieba.p09
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -305,7 +410,7 @@ public class RecordProgressBar extends View implements f09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.f09
+    @Override // com.baidu.tieba.p09
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
@@ -313,15 +418,15 @@ public class RecordProgressBar extends View implements f09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.f09
-    public void setOnProgressListener(f09.a aVar) {
+    @Override // com.baidu.tieba.p09
+    public void setOnProgressListener(p09.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
             this.s = aVar;
         }
     }
 
-    public void setProgress(List<Float> list) {
+    public void setProgress(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             this.k = list;
@@ -329,106 +434,12 @@ public class RecordProgressBar extends View implements f09, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.f09
+    @Override // com.baidu.tieba.p09
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.o == z) {
-            return;
-        }
-        this.o = z;
-        invalidate();
-    }
-
-    @Override // com.baidu.tieba.f09
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.l = System.currentTimeMillis();
-            this.k.add(Float.valueOf(0.0f));
-            d();
-        }
-    }
-
-    @Override // com.baidu.tieba.f09
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.l = 0L;
-            removeCallbacks(this);
+        if ((interceptable == null || interceptable.invokeZ(1048593, this, z) == null) && this.o != z) {
+            this.o = z;
             invalidate();
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RecordProgressBar(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecordProgressBar(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.k = new ArrayList();
-        this.p = 255;
-        this.q = false;
-        this.t = 0.0f;
-        this.c = getContext().getResources().getColor(R.color.CAM_X0302);
-        this.d = getContext().getResources().getColor(R.color.CAM_X0301);
-        this.f = getContext().getResources().getColor(R.color.CAM_X0313);
-        this.g = getContext().getResources().getColor(R.color.CAM_X0615);
-        this.e = getContext().getResources().getColor(R.color.CAM_X0312);
-        this.a = ej.d(context, 2.0f);
-        this.b = ej.d(context, 2.0f);
-        ej.d(context, 6.0f);
-        Paint paint = new Paint();
-        this.j = paint;
-        paint.setColor(this.g);
-        this.h = new Paint();
-        Paint paint2 = new Paint();
-        this.i = paint2;
-        paint2.setColor(this.f);
-    }
-
-    @Override // com.baidu.tieba.f09
-    public void setProgress(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048591, this, j) == null) || this.k.size() <= 0) {
-            return;
-        }
-        List<Float> list = this.k;
-        list.set(list.size() - 1, Float.valueOf(((float) j) / 1000.0f));
-        this.t = getProgress();
-        postInvalidate();
     }
 }

@@ -78,33 +78,87 @@ public final class MixRoomRepository {
         $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixRoomRepository.class), "accountService", "getAccountService()Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixRoomRepository.class), "enterIdCallbacks", "getEnterIdCallbacks()Ljava/util/Map;"))};
     }
 
+    private final AccountManagerService getAccountService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            Lazy lazy = this.accountService$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (AccountManagerService) lazy.getValue();
+        }
+        return (AccountManagerService) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final Map getEnterIdCallbacks() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            Lazy lazy = this.enterIdCallbacks$delegate;
+            KProperty kProperty = $$delegatedProperties[1];
+            return (Map) lazy.getValue();
+        }
+        return (Map) invokeV.objValue;
+    }
+
     public MixRoomRepository() {
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         AbConfigService abConfigService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
-        boolean z = false;
-        if (abConfigService != null ? abConfigService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false) : false) {
+        boolean z2 = false;
+        if (abConfigService != null) {
+            z = abConfigService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false);
+        } else {
+            z = false;
+        }
+        if (z) {
             PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
-            if ((pluginMgrService != null ? pluginMgrService.getPluginVersionCode("com.baidu.searchbox.livenps") : 0) >= 603000000) {
-                z = true;
+            if (pluginMgrService != null) {
+                i = pluginMgrService.getPluginVersionCode("com.baidu.searchbox.livenps");
+            } else {
+                i = 0;
+            }
+            if (i >= 604000000) {
+                z2 = true;
             }
         }
-        this.prefetchEnterSwitch = z;
+        this.prefetchEnterSwitch = z2;
         this.accountService$delegate = LazyKt__LazyJVMKt.lazy(MixRoomRepository$accountService$2.INSTANCE);
         this.enterIdCallbacks$delegate = LazyKt__LazyJVMKt.lazy(MixRoomRepository$enterIdCallbacks$2.INSTANCE);
     }
 
+    private final void putAudioExtraAppId(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, this, jSONObject) == null) && jSONObject != null) {
+            jSONObject.put("connector_app_id", MixConstants.Companion.getAudioConnectorAppId());
+        }
+    }
+
+    public final void removeEnterIdCallbacks(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (str == null) {
+                getEnterIdCallbacks().clear();
+            } else {
+                getEnterIdCallbacks().remove(str);
+            }
+        }
+    }
+
     private final void addAudioExtraParams(RoomEnterParams roomEnterParams, String str) {
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, roomEnterParams, str) == null) {
             try {
@@ -112,21 +166,30 @@ public final class MixRoomRepository {
                 jSONObject.put("room_id", str);
                 if (isLogin()) {
                     UserAccount account = getAccount();
-                    jSONObject.put("nickname", account != null ? account.getNickName() : null);
+                    String str3 = null;
+                    if (account != null) {
+                        str2 = account.getNickName();
+                    } else {
+                        str2 = null;
+                    }
+                    jSONObject.put("nickname", str2);
                     UserAccount account2 = getAccount();
-                    jSONObject.put("avatar", account2 != null ? account2.getProtrait() : null);
+                    if (account2 != null) {
+                        str3 = account2.getProtrait();
+                    }
+                    jSONObject.put("avatar", str3);
                 }
                 jSONObject.put("im_uk", String.valueOf(AccountManager.getUK(MiniShellRuntime.INSTANCE.getAppContext())));
                 jSONObject.put("tags", "[\"follow\",\"others\"]");
                 putAudioExtraAppId(jSONObject);
-                roomEnterParams.addExtParams(new Pair<>("audio_extra", jSONObject.toString()));
+                roomEnterParams.addExtParams(new Pair("audio_extra", jSONObject.toString()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private final Map<String, String> genRoomEnterReqParams(RoomEnterParams roomEnterParams) {
+    private final Map genRoomEnterReqParams(RoomEnterParams roomEnterParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, roomEnterParams)) == null) {
@@ -158,29 +221,6 @@ public final class MixRoomRepository {
         return (UserAccount) invokeV.objValue;
     }
 
-    private final AccountManagerService getAccountService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            Lazy lazy = this.accountService$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (AccountManagerService) lazy.getValue();
-        }
-        return (AccountManagerService) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final Map<String, List<OnMixDataLoaded<MixResult<LiveRoomEnterRespData>>>> getEnterIdCallbacks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            Lazy lazy = this.enterIdCallbacks$delegate;
-            KProperty kProperty = $$delegatedProperties[1];
-            return (Map) lazy.getValue();
-        }
-        return (Map) invokeV.objValue;
-    }
-
     private final boolean isLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,152 +234,181 @@ public final class MixRoomRepository {
         return invokeV.booleanValue;
     }
 
-    private final void putAudioExtraAppId(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.put("connector_app_id", MixConstants.Companion.getAudioConnectorAppId());
-    }
-
-    public final void fetchRoomEnter(final RoomEnterParams roomEnterParams, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
+    public final void fetchRoomEnter(final RoomEnterParams roomEnterParams, OnMixDataLoaded onMixDataLoaded) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, roomEnterParams, onMixDataLoaded) == null) {
-            List<OnMixDataLoaded<MixResult<LiveRoomEnterRespData>>> list = getEnterIdCallbacks().get(roomEnterParams.getId());
-            boolean z = list == null || list.isEmpty();
+            List list = (List) getEnterIdCallbacks().get(roomEnterParams.getId());
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
             if (onMixDataLoaded != null) {
                 if (list == null) {
-                    list = new ArrayList<>();
+                    list = new ArrayList();
                 }
                 if (list != null) {
                     list.add(onMixDataLoaded);
                 }
-                getEnterIdCallbacks().put(roomEnterParams.getId(), list);
+                List list2 = (List) getEnterIdCallbacks().put(roomEnterParams.getId(), list);
             }
-            if (z) {
-                if (Intrinsics.areEqual(roomEnterParams.isAudio(), Boolean.TRUE)) {
-                    addAudioExtraParams(roomEnterParams, roomEnterParams.getId());
-                }
-                Map<String, String> genRoomEnterReqParams = genRoomEnterReqParams(roomEnterParams);
-                MixYaLogService mixYaLogService = (MixYaLogService) MixRequestServiceLocator.Companion.getGlobalService(MixYaLogService.class);
-                if (mixYaLogService != null) {
-                    mixYaLogService.yaLogWithStringFormat(MixYaLogConstants.ENTER_TAG_ID, "request", genRoomEnterReqParams.toString());
-                }
-                MediaLivePluginLogger.Companion.getInstance().logPageEnterLiveRoomReqNetStart();
-                MediaLivePlayLogger.Companion.getInstance().logLiveRoomPageStartEnterLiveReq();
-                MixRequesterKt.fetchData(MixUrlConfigKt.getRoomEnterUrl(), genRoomEnterReqParams, new MixNetCallback<JSONObject>(this, roomEnterParams) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomEnter$3
-                    public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ RoomEnterParams $enterParams;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MixRoomRepository this$0;
+            if (!z) {
+                return;
+            }
+            if (Intrinsics.areEqual(roomEnterParams.isAudio(), Boolean.TRUE)) {
+                addAudioExtraParams(roomEnterParams, roomEnterParams.getId());
+            }
+            Map genRoomEnterReqParams = genRoomEnterReqParams(roomEnterParams);
+            MixYaLogService mixYaLogService = (MixYaLogService) MixRequestServiceLocator.Companion.getGlobalService(MixYaLogService.class);
+            if (mixYaLogService != null) {
+                mixYaLogService.yaLogWithStringFormat(MixYaLogConstants.ENTER_TAG_ID, "request", genRoomEnterReqParams.toString());
+            }
+            MediaLivePluginLogger.Companion.getInstance().logPageEnterLiveRoomReqNetStart();
+            MediaLivePlayLogger.Companion.getInstance().logLiveRoomPageStartEnterLiveReq();
+            MixRequesterKt.fetchData(MixUrlConfigKt.getRoomEnterUrl(), genRoomEnterReqParams, new MixNetCallback(this, roomEnterParams) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomEnter$3
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ RoomEnterParams $enterParams;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MixRoomRepository this$0;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, roomEnterParams};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, roomEnterParams};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
-                        this.this$0 = this;
-                        this.$enterParams = roomEnterParams;
                     }
+                    this.this$0 = this;
+                    this.$enterParams = roomEnterParams;
+                }
 
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.searchbox.live.model.net.MixNetCallback
-                    public void onNetResponse(NetResponse netResponse, JSONObject jSONObject) {
-                        Map enterIdCallbacks;
-                        Map enterIdCallbacks2;
-                        NetStatData netStatData;
-                        NetStatData netStatData2;
-                        Map enterIdCallbacks3;
-                        Map enterIdCallbacks4;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse, jSONObject) == null) {
-                            MediaLivePluginLogger.Companion.getInstance().logPageEnterLiveRoomReqNetEnd();
-                            if (netResponse != null && !netResponse.isSuccessful()) {
-                                enterIdCallbacks4 = this.this$0.getEnterIdCallbacks();
-                                List<OnMixDataLoaded> list2 = (List) enterIdCallbacks4.get(this.$enterParams.getId());
-                                if (list2 != null) {
-                                    for (OnMixDataLoaded onMixDataLoaded2 : list2) {
-                                        if (onMixDataLoaded2 != null) {
-                                            StringBuilder sb = new StringBuilder();
-                                            sb.append("errno Invalid, errno = ");
-                                            sb.append((netResponse != null ? Integer.valueOf(netResponse.responseCode) : null).intValue());
-                                            onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(new Exception(sb.toString()), null, null, 6, null));
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.searchbox.live.model.net.MixNetCallback
+                public void onNetResponse(NetResponse netResponse, JSONObject jSONObject) {
+                    int i;
+                    Map enterIdCallbacks;
+                    long j;
+                    Map enterIdCallbacks2;
+                    NetStatData netStatData;
+                    NetStatData netStatData2;
+                    Map enterIdCallbacks3;
+                    Map enterIdCallbacks4;
+                    Integer num;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse, jSONObject) == null) {
+                        MediaLivePluginLogger.Companion.getInstance().logPageEnterLiveRoomReqNetEnd();
+                        LiveRoomEnterRespData liveRoomEnterRespData = null;
+                        String str = null;
+                        if (netResponse != null && !netResponse.isSuccessful()) {
+                            enterIdCallbacks4 = this.this$0.getEnterIdCallbacks();
+                            List<OnMixDataLoaded> list3 = (List) enterIdCallbacks4.get(this.$enterParams.getId());
+                            if (list3 != null) {
+                                for (OnMixDataLoaded onMixDataLoaded2 : list3) {
+                                    if (onMixDataLoaded2 != null) {
+                                        StringBuilder sb = new StringBuilder();
+                                        sb.append("errno Invalid, errno = ");
+                                        if (netResponse != null) {
+                                            num = Integer.valueOf(netResponse.responseCode);
+                                        } else {
+                                            num = null;
                                         }
+                                        sb.append(num.intValue());
+                                        onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(new Exception(sb.toString()), null, null, 6, null));
                                     }
                                 }
-                            } else if (jSONObject != null && jSONObject.optInt("errno") == 0) {
-                                LiveRoomEnterRespData liveRoomEnterRespData = new LiveRoomEnterRespData(jSONObject);
-                                MixResultStatData mixResultStatData = new MixResultStatData();
-                                long j = 0;
-                                mixResultStatData.requestTime = (netResponse == null || (netStatData2 = netResponse.statData) == null) ? 0L : netStatData2.requestTimestamp;
-                                if (netResponse != null && (netStatData = netResponse.statData) != null) {
-                                    j = netStatData.responseTimestamp;
-                                }
-                                mixResultStatData.responseTime = j;
-                                enterIdCallbacks2 = this.this$0.getEnterIdCallbacks();
-                                List<OnMixDataLoaded> list3 = (List) enterIdCallbacks2.get(this.$enterParams.getId());
-                                if (list3 != null) {
-                                    for (OnMixDataLoaded onMixDataLoaded3 : list3) {
-                                        if (onMixDataLoaded3 != null) {
-                                            onMixDataLoaded3.onMixDataLoaded(new MixResult.MixSuccess(liveRoomEnterRespData, mixResultStatData));
-                                        }
-                                    }
-                                }
+                            }
+                        } else if (jSONObject != null && jSONObject.optInt("errno") == 0) {
+                            LiveRoomEnterRespData liveRoomEnterRespData2 = new LiveRoomEnterRespData(jSONObject);
+                            if (netResponse != null) {
+                                str = netResponse.traceid;
+                            }
+                            liveRoomEnterRespData2.setTraceid(str);
+                            MixResultStatData mixResultStatData = new MixResultStatData();
+                            long j2 = 0;
+                            if (netResponse != null && (netStatData2 = netResponse.statData) != null) {
+                                j = netStatData2.requestTimestamp;
                             } else {
-                                int optInt = jSONObject != null ? jSONObject.optInt("errno") : -1;
-                                LiveRoomEnterRespData liveRoomEnterRespData2 = jSONObject != null ? new LiveRoomEnterRespData(jSONObject) : null;
-                                enterIdCallbacks = this.this$0.getEnterIdCallbacks();
-                                List<OnMixDataLoaded> list4 = (List) enterIdCallbacks.get(this.$enterParams.getId());
-                                if (list4 != null) {
-                                    for (OnMixDataLoaded onMixDataLoaded4 : list4) {
-                                        if (onMixDataLoaded4 != null) {
-                                            onMixDataLoaded4.onMixDataLoaded(new MixResult.MixError(new Exception("errno Invalid, errno = " + optInt), Integer.valueOf(optInt), liveRoomEnterRespData2));
-                                        }
+                                j = 0;
+                            }
+                            mixResultStatData.requestTime = j;
+                            if (netResponse != null && (netStatData = netResponse.statData) != null) {
+                                j2 = netStatData.responseTimestamp;
+                            }
+                            mixResultStatData.responseTime = j2;
+                            enterIdCallbacks2 = this.this$0.getEnterIdCallbacks();
+                            List<OnMixDataLoaded> list4 = (List) enterIdCallbacks2.get(this.$enterParams.getId());
+                            if (list4 != null) {
+                                for (OnMixDataLoaded onMixDataLoaded3 : list4) {
+                                    if (onMixDataLoaded3 != null) {
+                                        onMixDataLoaded3.onMixDataLoaded(new MixResult.MixSuccess(liveRoomEnterRespData2, mixResultStatData));
                                     }
                                 }
                             }
-                            enterIdCallbacks3 = this.this$0.getEnterIdCallbacks();
-                            enterIdCallbacks3.remove(this.$enterParams.getId());
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.searchbox.live.model.net.MixNetCallback
-                    public JSONObject onParseResponseInBackground(NetResponse netResponse) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048579, this, netResponse)) == null) {
-                            MixYaLogService mixYaLogService2 = (MixYaLogService) MixRequestServiceLocator.Companion.getGlobalService(MixYaLogService.class);
-                            if (mixYaLogService2 != null) {
-                                mixYaLogService2.yaLogWithStringFormat(MixYaLogConstants.ENTER_TAG_ID, "response", netResponse != null ? netResponse.decodedResponseStr : null);
+                        } else {
+                            if (jSONObject != null) {
+                                i = jSONObject.optInt("errno");
+                            } else {
+                                i = -1;
                             }
-                            if (netResponse != null && netResponse.isSuccessful()) {
-                                try {
-                                    return new JSONObject(netResponse.decodedResponseStr);
-                                } catch (Throwable th) {
-                                    th.printStackTrace();
+                            if (jSONObject != null) {
+                                liveRoomEnterRespData = new LiveRoomEnterRespData(jSONObject);
+                            }
+                            enterIdCallbacks = this.this$0.getEnterIdCallbacks();
+                            List<OnMixDataLoaded> list5 = (List) enterIdCallbacks.get(this.$enterParams.getId());
+                            if (list5 != null) {
+                                for (OnMixDataLoaded onMixDataLoaded4 : list5) {
+                                    if (onMixDataLoaded4 != null) {
+                                        onMixDataLoaded4.onMixDataLoaded(new MixResult.MixError(new Exception("errno Invalid, errno = " + i), Integer.valueOf(i), liveRoomEnterRespData));
+                                    }
                                 }
                             }
-                            return null;
                         }
-                        return (JSONObject) invokeL.objValue;
+                        enterIdCallbacks3 = this.this$0.getEnterIdCallbacks();
+                        enterIdCallbacks3.remove(this.$enterParams.getId());
                     }
-                }, 17, 101, true, null, this.prefetchEnterSwitch);
-            }
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.searchbox.live.model.net.MixNetCallback
+                public JSONObject onParseResponseInBackground(NetResponse netResponse) {
+                    InterceptResult invokeL;
+                    String str;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048579, this, netResponse)) == null) {
+                        MixYaLogService mixYaLogService2 = (MixYaLogService) MixRequestServiceLocator.Companion.getGlobalService(MixYaLogService.class);
+                        if (mixYaLogService2 != null) {
+                            if (netResponse != null) {
+                                str = netResponse.decodedResponseStr;
+                            } else {
+                                str = null;
+                            }
+                            mixYaLogService2.yaLogWithStringFormat(MixYaLogConstants.ENTER_TAG_ID, "response", str);
+                        }
+                        if (netResponse != null && netResponse.isSuccessful()) {
+                            try {
+                                return new JSONObject(netResponse.decodedResponseStr);
+                            } catch (Throwable th) {
+                                th.printStackTrace();
+                            }
+                        }
+                        return null;
+                    }
+                    return (JSONObject) invokeL.objValue;
+                }
+            }, 17, 101, true, null, this.prefetchEnterSwitch);
         }
     }
 
-    public final void fetchRoomExit(RoomExitParams roomExitParams, final OnMixDataLoaded<MixResult<Boolean>> onMixDataLoaded) {
+    public final void fetchRoomExit(RoomExitParams roomExitParams, final OnMixDataLoaded onMixDataLoaded) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, roomExitParams, onMixDataLoaded) == null) {
             if (Intrinsics.areEqual(roomExitParams.isAudio(), Boolean.TRUE)) {
@@ -350,7 +419,7 @@ public final class MixRoomRepository {
                 Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "audioExtra.toString()");
                 roomExitParams.addExtParams("audio_extra", jSONObject2);
             }
-            MixRequesterKt.fetchData(MixUrlConfigKt.getRoomExitUrl(), roomExitParams.toMap(), new MixNetCallback<Integer>(onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomExit$1
+            MixRequesterKt.fetchData$default(MixUrlConfigKt.getRoomExitUrl(), roomExitParams.toMap(), new MixNetCallback(onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomExit$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ OnMixDataLoaded $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -376,8 +445,10 @@ public final class MixRoomRepository {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.live.model.net.MixNetCallback
                 public void onNetResponse(NetResponse netResponse, Integer num) {
+                    long j;
                     NetStatData netStatData;
                     NetStatData netStatData2;
+                    Integer num2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netResponse, num) == null) {
                         if (num == null) {
@@ -385,17 +456,27 @@ public final class MixRoomRepository {
                             if (onMixDataLoaded2 != null) {
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("exitRoom Invalid, code = ");
-                                sb.append(netResponse != null ? Integer.valueOf(netResponse.responseCode) : null);
+                                if (netResponse != null) {
+                                    num2 = Integer.valueOf(netResponse.responseCode);
+                                } else {
+                                    num2 = null;
+                                }
+                                sb.append(num2);
                                 onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(new Exception(sb.toString()), null, null, 6, null));
                             }
                         } else if (num.intValue() == 0) {
                             MixResultStatData mixResultStatData = new MixResultStatData();
-                            long j = 0;
-                            mixResultStatData.requestTime = (netResponse == null || (netStatData2 = netResponse.statData) == null) ? 0L : netStatData2.requestTimestamp;
-                            if (netResponse != null && (netStatData = netResponse.statData) != null) {
-                                j = netStatData.responseTimestamp;
+                            long j2 = 0;
+                            if (netResponse != null && (netStatData2 = netResponse.statData) != null) {
+                                j = netStatData2.requestTimestamp;
+                            } else {
+                                j = 0;
                             }
-                            mixResultStatData.responseTime = j;
+                            mixResultStatData.requestTime = j;
+                            if (netResponse != null && (netStatData = netResponse.statData) != null) {
+                                j2 = netStatData.responseTimestamp;
+                            }
+                            mixResultStatData.responseTime = j2;
                             OnMixDataLoaded onMixDataLoaded3 = this.$callback;
                             if (onMixDataLoaded3 != null) {
                                 onMixDataLoaded3.onMixDataLoaded(new MixResult.MixSuccess(Boolean.TRUE, mixResultStatData));
@@ -410,36 +491,24 @@ public final class MixRoomRepository {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.searchbox.live.model.net.MixNetCallback
                 public Integer onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, netResponse)) == null) {
-                        if (netResponse == null || !netResponse.isSuccessful()) {
-                            return null;
+                        if (netResponse != null && netResponse.isSuccessful()) {
+                            try {
+                                return Integer.valueOf(new JSONObject(netResponse.decodedResponseStr).optInt("errno"));
+                            } catch (Throwable th) {
+                                th.printStackTrace();
+                                return null;
+                            }
                         }
-                        try {
-                            return Integer.valueOf(new JSONObject(netResponse.decodedResponseStr).optInt("errno"));
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                            return null;
-                        }
+                        return null;
                     }
                     return (Integer) invokeL.objValue;
                 }
-            }, (r19 & 8) != 0 ? 0 : 17, (r19 & 16) != 0 ? 0 : 102, (r19 & 32) != 0 ? false : true, (r19 & 64) != 0 ? null : null, (r19 & 128) != 0 ? false : false);
-        }
-    }
-
-    public final void removeEnterIdCallbacks(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (str == null) {
-                getEnterIdCallbacks().clear();
-            } else {
-                getEnterIdCallbacks().remove(str);
-            }
+            }, 17, 102, true, null, false, 192, null);
         }
     }
 }

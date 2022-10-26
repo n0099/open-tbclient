@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.MyBalanceInfo;
-@Keep
 /* loaded from: classes8.dex */
 public class MyBalanceResult {
     public static /* synthetic */ Interceptable $ic;
@@ -62,6 +60,9 @@ public class MyBalanceResult {
     public MyBalanceInfo getMyBalanceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.myBalanceInfo : (MyBalanceInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.myBalanceInfo;
+        }
+        return (MyBalanceInfo) invokeV.objValue;
     }
 }

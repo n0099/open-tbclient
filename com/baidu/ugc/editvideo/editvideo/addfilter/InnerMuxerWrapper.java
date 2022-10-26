@@ -1,12 +1,11 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
-import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.ih9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-@TargetApi(18)
 /* loaded from: classes6.dex */
 public class InnerMuxerWrapper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -51,10 +49,9 @@ public class InnerMuxerWrapper {
 
     public static void log(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && !TextUtils.isEmpty(str2)) {
+            ih9.i(str2);
         }
-        qg9.i(str2);
     }
 
     public synchronized int addTrack(MediaFormat mediaFormat) {
@@ -72,6 +69,16 @@ public class InnerMuxerWrapper {
             return addTrack;
         }
         return invokeL.intValue;
+    }
+
+    public void setMuxAudio(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.mMuxAudio = z;
+            if (!z) {
+                this.mEncoderCount = 1;
+            }
+        }
     }
 
     public synchronized boolean isStarted() {
@@ -94,41 +101,11 @@ public class InnerMuxerWrapper {
         }
     }
 
-    public void setMuxAudio(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.mMuxAudio = z;
-            if (z) {
-                return;
-            }
-            this.mEncoderCount = 1;
-        }
-    }
-
     public void setVideoStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.mVideoStart = true;
         }
-    }
-
-    public synchronized boolean start() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                if ((!this.mMuxAudio || this.mAudioStart) && this.mVideoStart) {
-                    if (this.mEncoderCount > 0 && ((!this.mMuxAudio || this.mAudioStart) && this.mVideoStart)) {
-                        this.mMediaMuxer.start();
-                        this.mIsStarted = true;
-                        notifyAll();
-                    }
-                    return this.mIsStarted;
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
     }
 
     public synchronized void stop() {
@@ -146,6 +123,25 @@ public class InnerMuxerWrapper {
                 }
             }
         }
+    }
+
+    public synchronized boolean start() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                if ((this.mMuxAudio && !this.mAudioStart) || !this.mVideoStart) {
+                    return false;
+                }
+                if (this.mEncoderCount > 0 && ((!this.mMuxAudio || this.mAudioStart) && this.mVideoStart)) {
+                    this.mMediaMuxer.start();
+                    this.mIsStarted = true;
+                    notifyAll();
+                }
+                return this.mIsStarted;
+            }
+        }
+        return invokeV.booleanValue;
     }
 
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {

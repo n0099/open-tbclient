@@ -36,44 +36,6 @@ public class EllipsizeRichTextView extends TextView {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new SpannableStringBuilder();
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (getText() == null || getLayout() == null) {
-                return;
-            }
-            CharSequence text = getText();
-            int lineCount = getLineCount();
-            if (lineCount > 2) {
-                lineCount = 2;
-            }
-            int lineVisibleEnd = getLayout().getLineVisibleEnd(lineCount - 1);
-            if (text == null || text.length() <= lineVisibleEnd) {
-                return;
-            }
-            SpannableStringBuilder spannableStringBuilder = this.a;
-            if (spannableStringBuilder == null) {
-                a();
-            } else {
-                spannableStringBuilder.clear();
-            }
-            SpannableStringBuilder spannableStringBuilder2 = this.a;
-            if (spannableStringBuilder2 != null) {
-                spannableStringBuilder2.append(text.subSequence(0, lineVisibleEnd));
-                setText(this.a);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EllipsizeRichTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -116,5 +78,41 @@ public class EllipsizeRichTextView extends TextView {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new SpannableStringBuilder();
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (getText() != null && getLayout() != null) {
+                CharSequence text = getText();
+                int lineCount = getLineCount();
+                if (lineCount > 2) {
+                    lineCount = 2;
+                }
+                int lineVisibleEnd = getLayout().getLineVisibleEnd(lineCount - 1);
+                if (text != null && text.length() > lineVisibleEnd) {
+                    SpannableStringBuilder spannableStringBuilder = this.a;
+                    if (spannableStringBuilder == null) {
+                        a();
+                    } else {
+                        spannableStringBuilder.clear();
+                    }
+                    SpannableStringBuilder spannableStringBuilder2 = this.a;
+                    if (spannableStringBuilder2 != null) {
+                        spannableStringBuilder2.append(text.subSequence(0, lineVisibleEnd));
+                        setText(this.a);
+                    }
+                }
+            }
+        }
     }
 }

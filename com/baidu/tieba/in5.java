@@ -1,9 +1,25 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes4.dex */
-public interface in5 {
-    void M(gn5 gn5Var);
+public interface in5 extends on5 {
 
-    hn5 P0(int i);
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(qn5 qn5Var, View view2);
 
-    void o0(int i, hn5 hn5Var);
+        void b(qn5 qn5Var, View view2);
+    }
+
+    void a(int i);
+
+    void c(Object obj);
+
+    View getView();
+
+    void h(a aVar);
+
+    void j();
+
+    void l(int i);
 }

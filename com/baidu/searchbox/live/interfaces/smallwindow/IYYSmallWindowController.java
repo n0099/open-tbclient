@@ -24,7 +24,7 @@ public interface IYYSmallWindowController {
 
     boolean getSmallWindowSwitch();
 
-    void onChangeToSmallWindow(Map<String, String> map, IPlayController iPlayController);
+    void onChangeToSmallWindow(Map map, IPlayController iPlayController);
 
     boolean querySmallWindowPlayingStatus();
 

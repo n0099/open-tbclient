@@ -13,6 +13,16 @@ public interface Authenticator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // okhttp3.Authenticator
+        public Request authenticate(Route route, Response response) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, route, response)) == null) {
+                return null;
+            }
+            return (Request) invokeLL.objValue;
+        }
+
         {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -25,16 +35,6 @@ public interface Authenticator {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // okhttp3.Authenticator
-        public Request authenticate(Route route, Response response) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, route, response)) == null) {
-                return null;
-            }
-            return (Request) invokeLL.objValue;
         }
     };
 

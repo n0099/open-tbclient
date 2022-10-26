@@ -18,7 +18,49 @@ public abstract class JsonReader implements Closeable {
     public int[] pathIndices = new int[32];
 
     /* loaded from: classes.dex */
-    public static final class Options {
+    public enum Token {
+        BEGIN_ARRAY,
+        END_ARRAY,
+        BEGIN_OBJECT,
+        END_OBJECT,
+        NAME,
+        STRING,
+        NUMBER,
+        BOOLEAN,
+        NULL,
+        END_DOCUMENT
+    }
+
+    public abstract void beginArray() throws IOException;
+
+    public abstract void beginObject() throws IOException;
+
+    public abstract void endArray() throws IOException;
+
+    public abstract void endObject() throws IOException;
+
+    public abstract boolean hasNext() throws IOException;
+
+    public abstract boolean nextBoolean() throws IOException;
+
+    public abstract double nextDouble() throws IOException;
+
+    public abstract int nextInt() throws IOException;
+
+    public abstract String nextName() throws IOException;
+
+    public abstract String nextString() throws IOException;
+
+    public abstract Token peek() throws IOException;
+
+    public abstract int selectName(Options options) throws IOException;
+
+    public abstract void skipName() throws IOException;
+
+    public abstract void skipValue() throws IOException;
+
+    /* loaded from: classes.dex */
+    public final class Options {
         public final okio.Options doubleQuoteSuffix;
         public final String[] strings;
 
@@ -43,20 +85,6 @@ public abstract class JsonReader implements Closeable {
         }
     }
 
-    /* loaded from: classes.dex */
-    public enum Token {
-        BEGIN_ARRAY,
-        END_ARRAY,
-        BEGIN_OBJECT,
-        END_OBJECT,
-        NAME,
-        STRING,
-        NUMBER,
-        BOOLEAN,
-        NULL,
-        END_DOCUMENT
-    }
-
     static {
         for (int i = 0; i <= 31; i++) {
             REPLACEMENT_CHARS[i] = String.format("\\u%04x", Integer.valueOf(i));
@@ -71,8 +99,16 @@ public abstract class JsonReader implements Closeable {
         strArr[12] = "\\f";
     }
 
+    public final String getPath() {
+        return JsonScope.getPath(this.stackSize, this.scopes, this.pathNames, this.pathIndices);
+    }
+
     public static JsonReader of(BufferedSource bufferedSource) {
         return new JsonUtf8Reader(bufferedSource);
+    }
+
+    public final JsonEncodingException syntaxError(String str) throws JsonEncodingException {
+        throw new JsonEncodingException(str + " at path " + getPath());
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002b  */
@@ -80,65 +116,39 @@ public abstract class JsonReader implements Closeable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void string(BufferedSink bufferedSink, String str) throws IOException {
-        int i;
         String str2;
         String[] strArr = REPLACEMENT_CHARS;
         bufferedSink.writeByte(34);
         int length = str.length();
-        int i2 = 0;
-        while (i < length) {
-            char charAt = str.charAt(i);
+        int i = 0;
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (charAt < 128) {
                 str2 = strArr[charAt];
-                i = str2 == null ? i + 1 : 0;
-                if (i2 < i) {
-                    bufferedSink.writeUtf8(str, i2, i);
+                if (str2 == null) {
+                }
+                if (i < i2) {
+                    bufferedSink.writeUtf8(str, i, i2);
                 }
                 bufferedSink.writeUtf8(str2);
-                i2 = i + 1;
+                i = i2 + 1;
             } else {
                 if (charAt == 8232) {
                     str2 = "\\u2028";
                 } else if (charAt == 8233) {
                     str2 = "\\u2029";
                 }
-                if (i2 < i) {
+                if (i < i2) {
                 }
                 bufferedSink.writeUtf8(str2);
-                i2 = i + 1;
+                i = i2 + 1;
             }
         }
-        if (i2 < length) {
-            bufferedSink.writeUtf8(str, i2, length);
+        if (i < length) {
+            bufferedSink.writeUtf8(str, i, length);
         }
         bufferedSink.writeByte(34);
     }
-
-    public abstract void beginArray() throws IOException;
-
-    public abstract void beginObject() throws IOException;
-
-    public abstract void endArray() throws IOException;
-
-    public abstract void endObject() throws IOException;
-
-    public final String getPath() {
-        return JsonScope.getPath(this.stackSize, this.scopes, this.pathNames, this.pathIndices);
-    }
-
-    public abstract boolean hasNext() throws IOException;
-
-    public abstract boolean nextBoolean() throws IOException;
-
-    public abstract double nextDouble() throws IOException;
-
-    public abstract int nextInt() throws IOException;
-
-    public abstract String nextName() throws IOException;
-
-    public abstract String nextString() throws IOException;
-
-    public abstract Token peek() throws IOException;
 
     public final void pushScope(int i) {
         int i2 = this.stackSize;
@@ -158,15 +168,5 @@ public abstract class JsonReader implements Closeable {
         int i3 = this.stackSize;
         this.stackSize = i3 + 1;
         iArr3[i3] = i;
-    }
-
-    public abstract int selectName(Options options) throws IOException;
-
-    public abstract void skipName() throws IOException;
-
-    public abstract void skipValue() throws IOException;
-
-    public final JsonEncodingException syntaxError(String str) throws JsonEncodingException {
-        throw new JsonEncodingException(str + " at path " + getPath());
     }
 }

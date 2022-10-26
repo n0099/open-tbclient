@@ -91,7 +91,7 @@ public class e extends com.baidu.platform.base.d {
         return (ReverseGeoCodeResult.AddressComponent) invokeLL.objValue;
     }
 
-    private List<PoiInfo> a(JSONObject jSONObject, String str, String str2) {
+    private List a(JSONObject jSONObject, String str, String str2) {
         InterceptResult invokeLLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
@@ -183,7 +183,7 @@ public class e extends com.baidu.platform.base.d {
         return invokeLL.booleanValue;
     }
 
-    private List<ReverseGeoCodeResult.PoiRegionsInfo> b(JSONObject jSONObject, String str) {
+    private List b(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;

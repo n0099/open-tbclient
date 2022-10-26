@@ -29,7 +29,7 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class AndroidBug5497Workaround {
+    public class AndroidBug5497Workaround {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -81,9 +81,10 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.b();
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    this.a.b();
                 }
             });
             this.e = (FrameLayout.LayoutParams) this.b.getLayoutParams();
@@ -91,11 +92,15 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
             this.a = activity.getWindowManager().getDefaultDisplay().getWidth();
         }
 
-        public static void assistActivity(Activity activity) {
+        private int a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity) == null) {
-                new AndroidBug5497Workaround(activity);
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                Rect rect = new Rect();
+                this.b.getWindowVisibleDisplayFrame(rect);
+                return rect.bottom - rect.top;
             }
+            return invokeV.intValue;
         }
 
         private WebView a(ViewGroup viewGroup) {
@@ -120,25 +125,66 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
             return (WebView) invokeL.objValue;
         }
 
+        public static void assistActivity(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity) == null) {
+                new AndroidBug5497Workaround(activity);
+            }
+        }
+
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
             int a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (a = a()) == this.d) {
-                return;
-            }
-            int i = this.a;
-            int i2 = i - a;
-            int i3 = i / 4;
-            if (i2 > i3) {
-                this.e.height = i - i2;
-            } else {
-                this.e.height = i;
-            }
-            this.b.requestLayout();
-            if (i2 > i3) {
-                if (this.c.getUrl() != null && (this.c.getUrl().endsWith("/sms_login_new") || this.c.getUrl().contains("sms_login") || this.c.getUrl().contains("act=bind_mobile"))) {
-                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.2
+            if ((interceptable == null || interceptable.invokeV(65542, this) == null) && (a = a()) != this.d) {
+                int i = this.a;
+                int i2 = i - a;
+                int i3 = i / 4;
+                if (i2 > i3) {
+                    this.e.height = i - i2;
+                } else {
+                    this.e.height = i;
+                }
+                this.b.requestLayout();
+                if (i2 > i3) {
+                    if (this.c.getUrl() != null && (this.c.getUrl().endsWith("/sms_login_new") || this.c.getUrl().contains("sms_login") || this.c.getUrl().contains("act=bind_mobile"))) {
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.2
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AndroidBug5497Workaround a;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i4 = newInitContext.flag;
+                                    if ((i4 & 1) != 0) {
+                                        int i5 = i4 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.a = this;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    try {
+                                        this.a.c.scrollTo(0, HorizontalScreenLoginActivity.I);
+                                    } catch (Exception unused) {
+                                    }
+                                }
+                            }
+                        }, 200L);
+                    }
+                } else {
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AndroidBug5497Workaround a;
@@ -166,61 +212,15 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    this.a.c.scrollTo(0, HorizontalScreenLoginActivity.I);
+                                    this.a.c.scrollTo(0, 0);
                                 } catch (Exception unused) {
                                 }
                             }
                         }
                     }, 200L);
                 }
-            } else {
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AndroidBug5497Workaround a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            try {
-                                this.a.c.scrollTo(0, 0);
-                            } catch (Exception unused) {
-                            }
-                        }
-                    }
-                }, 200L);
+                this.d = a;
             }
-            this.d = a;
-        }
-
-        private int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-                Rect rect = new Rect();
-                this.b.getWindowVisibleDisplayFrame(rect);
-                return rect.bottom - rect.top;
-            }
-            return invokeV.intValue;
         }
     }
 
@@ -238,6 +238,14 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDestroy();
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.LoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -245,7 +253,7 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
             ViewUtility.setOrientationToUndefined(this);
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04f8);
+                setContentView(R.layout.obfuscated_res_0x7f0d04f5);
                 AndroidBug5497Workaround.assistActivity(this);
                 init();
                 setupViews();
@@ -277,9 +285,10 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
                     @Override // com.baidu.sapi2.SapiJsCallBacks.FocusEdittextCoordinateYCallBack
                     public void onCallback(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                            int unused = HorizontalScreenLoginActivity.I = (int) (i * this.a.getResources().getDisplayMetrics().density);
+                        if (interceptable2 != null && interceptable2.invokeI(1048576, this, i) != null) {
+                            return;
                         }
+                        int unused = HorizontalScreenLoginActivity.I = (int) (i * this.a.getResources().getDisplayMetrics().density);
                     }
                 });
                 ((LoginActivity) this).sapiWebView.setOverScrollMode(2);
@@ -295,14 +304,6 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
                 this.webAuthResult.setResultMsg("网络连接失败，请检查网络设置");
                 loginFail(this.webAuthResult);
             }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onDestroy();
         }
     }
 }

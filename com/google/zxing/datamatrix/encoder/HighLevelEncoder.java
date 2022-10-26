@@ -35,89 +35,6 @@ public final class HighLevelEncoder {
     public static final char X12_UNLATCH = 254;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public HighLevelEncoder() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static int determineConsecutiveDigitCount(CharSequence charSequence, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, charSequence, i)) == null) {
-            int length = charSequence.length();
-            int i2 = 0;
-            if (i < length) {
-                char charAt = charSequence.charAt(i);
-                while (isDigit(charAt) && i < length) {
-                    i2++;
-                    i++;
-                    if (i < length) {
-                        charAt = charSequence.charAt(i);
-                    }
-                }
-            }
-            return i2;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static String encodeHighLevel(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? encodeHighLevel(str, SymbolShapeHint.FORCE_NONE, null, null) : (String) invokeL.objValue;
-    }
-
-    public static int findMinimums(float[] fArr, int[] iArr, int i, byte[] bArr) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr, iArr, i, bArr)) == null) {
-            Arrays.fill(bArr, (byte) 0);
-            for (int i2 = 0; i2 < 6; i2++) {
-                iArr[i2] = (int) Math.ceil(fArr[i2]);
-                int i3 = iArr[i2];
-                if (i > i3) {
-                    Arrays.fill(bArr, (byte) 0);
-                    i = i3;
-                }
-                if (i == i3) {
-                    bArr[i2] = (byte) (bArr[i2] + 1);
-                }
-            }
-            return i;
-        }
-        return invokeLLIL.intValue;
-    }
-
-    public static int getMinimumCount(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            int i = 0;
-            for (int i2 = 0; i2 < 6; i2++) {
-                i += bArr[i2];
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void illegalCharacter(char c) {
-        String hexString;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)}) == null) {
-            throw new IllegalArgumentException("Illegal character: " + c + " (0x" + ("0000".substring(0, 4 - hexString.length()) + Integer.toHexString(c)) + ')');
-        }
-    }
-
     public static boolean isDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -166,21 +83,6 @@ public final class HighLevelEncoder {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isNativeX12(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (isX12TermSep(c) || c == ' ') {
-                return true;
-            }
-            if (c < '0' || c > '9') {
-                return c >= 'A' && c <= 'Z';
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
     public static boolean isSpecialB256(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -196,143 +98,61 @@ public final class HighLevelEncoder {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Character.valueOf(c)})) == null) ? c == '\r' || c == '*' || c == '>' : invokeCommon.booleanValue;
     }
 
-    public static int lookAheadTest(CharSequence charSequence, int i, int i2) {
-        InterceptResult invokeLII;
-        float[] fArr;
-        char c;
+    public HighLevelEncoder() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLII = interceptable.invokeLII(65551, null, charSequence, i, i2)) != null) {
-            return invokeLII.intValue;
-        }
-        if (i >= charSequence.length()) {
-            return i2;
-        }
-        if (i2 == 0) {
-            fArr = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.25f};
-        } else {
-            fArr = new float[]{1.0f, 2.0f, 2.0f, 2.0f, 2.0f, 2.25f};
-            fArr[i2] = 0.0f;
-        }
-        int i3 = 0;
-        while (true) {
-            int i4 = i + i3;
-            if (i4 == charSequence.length()) {
-                byte[] bArr = new byte[6];
-                int[] iArr = new int[6];
-                int findMinimums = findMinimums(fArr, iArr, Integer.MAX_VALUE, bArr);
-                int minimumCount = getMinimumCount(bArr);
-                if (iArr[0] == findMinimums) {
-                    return 0;
-                }
-                if (minimumCount != 1 || bArr[5] <= 0) {
-                    if (minimumCount != 1 || bArr[4] <= 0) {
-                        if (minimumCount != 1 || bArr[2] <= 0) {
-                            return (minimumCount != 1 || bArr[3] <= 0) ? 1 : 3;
-                        }
-                        return 2;
-                    }
-                    return 4;
-                }
-                return 5;
-            }
-            char charAt = charSequence.charAt(i4);
-            i3++;
-            if (isDigit(charAt)) {
-                fArr[0] = fArr[0] + 0.5f;
-            } else if (isExtendedASCII(charAt)) {
-                fArr[0] = (float) Math.ceil(fArr[0]);
-                fArr[0] = fArr[0] + 2.0f;
-            } else {
-                fArr[0] = (float) Math.ceil(fArr[0]);
-                fArr[0] = fArr[0] + 1.0f;
-            }
-            if (isNativeC40(charAt)) {
-                fArr[1] = fArr[1] + 0.6666667f;
-            } else if (isExtendedASCII(charAt)) {
-                fArr[1] = fArr[1] + 2.6666667f;
-            } else {
-                fArr[1] = fArr[1] + 1.3333334f;
-            }
-            if (isNativeText(charAt)) {
-                fArr[2] = fArr[2] + 0.6666667f;
-            } else if (isExtendedASCII(charAt)) {
-                fArr[2] = fArr[2] + 2.6666667f;
-            } else {
-                fArr[2] = fArr[2] + 1.3333334f;
-            }
-            if (isNativeX12(charAt)) {
-                fArr[3] = fArr[3] + 0.6666667f;
-            } else if (isExtendedASCII(charAt)) {
-                fArr[3] = fArr[3] + 4.3333335f;
-            } else {
-                fArr[3] = fArr[3] + 3.3333333f;
-            }
-            if (isNativeEDIFACT(charAt)) {
-                fArr[4] = fArr[4] + 0.75f;
-            } else if (isExtendedASCII(charAt)) {
-                fArr[4] = fArr[4] + 4.25f;
-            } else {
-                fArr[4] = fArr[4] + 3.25f;
-            }
-            if (isSpecialB256(charAt)) {
-                c = 5;
-                fArr[5] = fArr[5] + 4.0f;
-            } else {
-                c = 5;
-                fArr[5] = fArr[5] + 1.0f;
-            }
-            if (i3 >= 4) {
-                int[] iArr2 = new int[6];
-                byte[] bArr2 = new byte[6];
-                findMinimums(fArr, iArr2, Integer.MAX_VALUE, bArr2);
-                int minimumCount2 = getMinimumCount(bArr2);
-                if (iArr2[0] < iArr2[c] && iArr2[0] < iArr2[1] && iArr2[0] < iArr2[2] && iArr2[0] < iArr2[3] && iArr2[0] < iArr2[4]) {
-                    return 0;
-                }
-                if (iArr2[5] < iArr2[0] || bArr2[1] + bArr2[2] + bArr2[3] + bArr2[4] == 0) {
-                    return 5;
-                }
-                if (minimumCount2 == 1 && bArr2[4] > 0) {
-                    return 4;
-                }
-                if (minimumCount2 == 1 && bArr2[2] > 0) {
-                    return 2;
-                }
-                if (minimumCount2 == 1 && bArr2[3] > 0) {
-                    return 3;
-                }
-                if (iArr2[1] + 1 < iArr2[0] && iArr2[1] + 1 < iArr2[5] && iArr2[1] + 1 < iArr2[4] && iArr2[1] + 1 < iArr2[2]) {
-                    if (iArr2[1] < iArr2[3]) {
-                        return 1;
-                    }
-                    if (iArr2[1] == iArr2[3]) {
-                        for (int i5 = i + i3 + 1; i5 < charSequence.length(); i5++) {
-                            char charAt2 = charSequence.charAt(i5);
-                            if (isX12TermSep(charAt2)) {
-                                return 3;
-                            }
-                            if (!isNativeX12(charAt2)) {
-                                break;
-                            }
-                        }
-                        return 1;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static char randomize253State(char c, int i) {
-        InterceptResult invokeCommon;
+    public static int determineConsecutiveDigitCount(CharSequence charSequence, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
-            int i2 = c + ((i * 149) % GDiffPatcher.COPY_INT_USHORT) + 1;
-            if (i2 > 254) {
-                i2 += UIMsg.m_AppUI.V_WM_LISTLISTUPDATE;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, charSequence, i)) == null) {
+            int length = charSequence.length();
+            int i2 = 0;
+            if (i < length) {
+                char charAt = charSequence.charAt(i);
+                while (isDigit(charAt) && i < length) {
+                    i2++;
+                    i++;
+                    if (i < length) {
+                        charAt = charSequence.charAt(i);
+                    }
+                }
             }
-            return (char) i2;
+            return i2;
         }
-        return invokeCommon.charValue;
+        return invokeLI.intValue;
+    }
+
+    public static String encodeHighLevel(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return encodeHighLevel(str, SymbolShapeHint.FORCE_NONE, null, null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int getMinimumCount(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            int i = 0;
+            for (int i2 = 0; i2 < 6; i2++) {
+                i += bArr[i2];
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 
     public static String encodeHighLevel(String str, SymbolShapeHint symbolShapeHint, Dimension dimension, Dimension dimension2) {
@@ -376,5 +196,196 @@ public final class HighLevelEncoder {
             return encoderContext.getCodewords().toString();
         }
         return (String) invokeLLLL.objValue;
+    }
+
+    public static int findMinimums(float[] fArr, int[] iArr, int i, byte[] bArr) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr, iArr, i, bArr)) == null) {
+            Arrays.fill(bArr, (byte) 0);
+            for (int i2 = 0; i2 < 6; i2++) {
+                iArr[i2] = (int) Math.ceil(fArr[i2]);
+                int i3 = iArr[i2];
+                if (i > i3) {
+                    Arrays.fill(bArr, (byte) 0);
+                    i = i3;
+                }
+                if (i == i3) {
+                    bArr[i2] = (byte) (bArr[i2] + 1);
+                }
+            }
+            return i;
+        }
+        return invokeLLIL.intValue;
+    }
+
+    public static void illegalCharacter(char c) {
+        String hexString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)}) == null) {
+            throw new IllegalArgumentException("Illegal character: " + c + " (0x" + ("0000".substring(0, 4 - hexString.length()) + Integer.toHexString(c)) + ')');
+        }
+    }
+
+    public static boolean isNativeX12(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (!isX12TermSep(c) && c != ' ') {
+                if (c < '0' || c > '9') {
+                    if (c < 'A' || c > 'Z') {
+                        return false;
+                    }
+                    return true;
+                }
+                return true;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static int lookAheadTest(CharSequence charSequence, int i, int i2) {
+        InterceptResult invokeLII;
+        float[] fArr;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65551, null, charSequence, i, i2)) == null) {
+            if (i >= charSequence.length()) {
+                return i2;
+            }
+            if (i2 == 0) {
+                fArr = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.25f};
+            } else {
+                fArr = new float[]{1.0f, 2.0f, 2.0f, 2.0f, 2.0f, 2.25f};
+                fArr[i2] = 0.0f;
+            }
+            int i3 = 0;
+            while (true) {
+                int i4 = i + i3;
+                if (i4 == charSequence.length()) {
+                    byte[] bArr = new byte[6];
+                    int[] iArr = new int[6];
+                    int findMinimums = findMinimums(fArr, iArr, Integer.MAX_VALUE, bArr);
+                    int minimumCount = getMinimumCount(bArr);
+                    if (iArr[0] == findMinimums) {
+                        return 0;
+                    }
+                    if (minimumCount == 1 && bArr[5] > 0) {
+                        return 5;
+                    }
+                    if (minimumCount == 1 && bArr[4] > 0) {
+                        return 4;
+                    }
+                    if (minimumCount == 1 && bArr[2] > 0) {
+                        return 2;
+                    }
+                    if (minimumCount == 1 && bArr[3] > 0) {
+                        return 3;
+                    }
+                    return 1;
+                }
+                char charAt = charSequence.charAt(i4);
+                i3++;
+                if (isDigit(charAt)) {
+                    fArr[0] = fArr[0] + 0.5f;
+                } else if (isExtendedASCII(charAt)) {
+                    fArr[0] = (float) Math.ceil(fArr[0]);
+                    fArr[0] = fArr[0] + 2.0f;
+                } else {
+                    fArr[0] = (float) Math.ceil(fArr[0]);
+                    fArr[0] = fArr[0] + 1.0f;
+                }
+                if (isNativeC40(charAt)) {
+                    fArr[1] = fArr[1] + 0.6666667f;
+                } else if (isExtendedASCII(charAt)) {
+                    fArr[1] = fArr[1] + 2.6666667f;
+                } else {
+                    fArr[1] = fArr[1] + 1.3333334f;
+                }
+                if (isNativeText(charAt)) {
+                    fArr[2] = fArr[2] + 0.6666667f;
+                } else if (isExtendedASCII(charAt)) {
+                    fArr[2] = fArr[2] + 2.6666667f;
+                } else {
+                    fArr[2] = fArr[2] + 1.3333334f;
+                }
+                if (isNativeX12(charAt)) {
+                    fArr[3] = fArr[3] + 0.6666667f;
+                } else if (isExtendedASCII(charAt)) {
+                    fArr[3] = fArr[3] + 4.3333335f;
+                } else {
+                    fArr[3] = fArr[3] + 3.3333333f;
+                }
+                if (isNativeEDIFACT(charAt)) {
+                    fArr[4] = fArr[4] + 0.75f;
+                } else if (isExtendedASCII(charAt)) {
+                    fArr[4] = fArr[4] + 4.25f;
+                } else {
+                    fArr[4] = fArr[4] + 3.25f;
+                }
+                if (isSpecialB256(charAt)) {
+                    c = 5;
+                    fArr[5] = fArr[5] + 4.0f;
+                } else {
+                    c = 5;
+                    fArr[5] = fArr[5] + 1.0f;
+                }
+                if (i3 >= 4) {
+                    int[] iArr2 = new int[6];
+                    byte[] bArr2 = new byte[6];
+                    findMinimums(fArr, iArr2, Integer.MAX_VALUE, bArr2);
+                    int minimumCount2 = getMinimumCount(bArr2);
+                    if (iArr2[0] < iArr2[c] && iArr2[0] < iArr2[1] && iArr2[0] < iArr2[2] && iArr2[0] < iArr2[3] && iArr2[0] < iArr2[4]) {
+                        return 0;
+                    }
+                    if (iArr2[5] >= iArr2[0] && bArr2[1] + bArr2[2] + bArr2[3] + bArr2[4] != 0) {
+                        if (minimumCount2 == 1 && bArr2[4] > 0) {
+                            return 4;
+                        }
+                        if (minimumCount2 == 1 && bArr2[2] > 0) {
+                            return 2;
+                        }
+                        if (minimumCount2 == 1 && bArr2[3] > 0) {
+                            return 3;
+                        }
+                        if (iArr2[1] + 1 < iArr2[0] && iArr2[1] + 1 < iArr2[5] && iArr2[1] + 1 < iArr2[4] && iArr2[1] + 1 < iArr2[2]) {
+                            if (iArr2[1] < iArr2[3]) {
+                                return 1;
+                            }
+                            if (iArr2[1] == iArr2[3]) {
+                                for (int i5 = i + i3 + 1; i5 < charSequence.length(); i5++) {
+                                    char charAt2 = charSequence.charAt(i5);
+                                    if (isX12TermSep(charAt2)) {
+                                        return 3;
+                                    }
+                                    if (!isNativeX12(charAt2)) {
+                                        break;
+                                    }
+                                }
+                                return 1;
+                            }
+                        }
+                    } else {
+                        return 5;
+                    }
+                }
+            }
+        } else {
+            return invokeLII.intValue;
+        }
+    }
+
+    public static char randomize253State(char c, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            int i2 = c + ((i * 149) % GDiffPatcher.COPY_INT_USHORT) + 1;
+            if (i2 > 254) {
+                i2 += UIMsg.m_AppUI.V_WM_LISTLISTUPDATE;
+            }
+            return (char) i2;
+        }
+        return invokeCommon.charValue;
     }
 }

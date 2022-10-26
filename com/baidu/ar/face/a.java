@@ -13,7 +13,7 @@ public class a extends d implements IFace {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String L;
-    public WeakReference<IFace> nD;
+    public WeakReference nD;
     public FaceListener nq;
 
     public a() {
@@ -35,7 +35,7 @@ public class a extends d implements IFace {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (cVar == null) {
-                WeakReference<IFace> weakReference = this.nD;
+                WeakReference weakReference = this.nD;
                 if (weakReference != null) {
                     weakReference.clear();
                     this.nD = null;
@@ -44,13 +44,13 @@ public class a extends d implements IFace {
                 return;
             }
             if (cVar instanceof IFace) {
-                this.nD = new WeakReference<>((IFace) cVar);
+                this.nD = new WeakReference((IFace) cVar);
                 if (!TextUtils.isEmpty(this.L)) {
-                    this.nD.get().setFaceModelPath(this.L);
+                    ((IFace) this.nD.get()).setFaceModelPath(this.L);
                 }
             }
             if (this.nq != null) {
-                this.nD.get().setFaceListener(this.nq);
+                ((IFace) this.nD.get()).setFaceListener(this.nq);
             }
         }
     }
@@ -59,7 +59,7 @@ public class a extends d implements IFace {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            WeakReference<IFace> weakReference = this.nD;
+            WeakReference weakReference = this.nD;
             if (weakReference != null) {
                 weakReference.clear();
                 this.nD = null;
@@ -73,9 +73,9 @@ public class a extends d implements IFace {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faceListener) == null) {
             this.nq = faceListener;
-            WeakReference<IFace> weakReference = this.nD;
+            WeakReference weakReference = this.nD;
             if (weakReference != null) {
-                weakReference.get().setFaceListener(this.nq);
+                ((IFace) weakReference.get()).setFaceListener(this.nq);
             }
         }
     }
@@ -85,9 +85,9 @@ public class a extends d implements IFace {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.L = str;
-            WeakReference<IFace> weakReference = this.nD;
+            WeakReference weakReference = this.nD;
             if (weakReference != null) {
-                weakReference.get().setFaceModelPath(str);
+                ((IFace) weakReference.get()).setFaceModelPath(str);
             }
         }
     }

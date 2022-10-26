@@ -1,293 +1,813 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.db.pojo.OldUserData;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class w97 {
     public static /* synthetic */ Interceptable $ic;
+    public static w97 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(LinkedList<ImMessageCenterPojo> linkedList, ImMessageCenterPojo imMessageCenterPojo) {
+    public w97() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, linkedList, imMessageCenterPojo) == null) || linkedList == null || imMessageCenterPojo == null) {
-            return;
-        }
-        int i = 0;
-        int size = linkedList.size();
-        while (i < size) {
-            ImMessageCenterPojo imMessageCenterPojo2 = linkedList.get(i);
-            if (imMessageCenterPojo2 != null && imMessageCenterPojo.getLast_content_time() > imMessageCenterPojo2.getLast_content_time()) {
-                break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            i++;
         }
-        linkedList.add(i, imMessageCenterPojo);
     }
 
-    public static void b() {
-        LinkedList<ImMessageCenterPojo> e;
-        long j;
-        String str;
-        ImMessageCenterPojo imMessageCenterPojo;
-        ImMessageCenterPojo fromCommonMsg;
+    public static synchronized w97 h() {
+        InterceptResult invokeV;
+        w97 w97Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (e = v97.f().e()) == null || e.size() == 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (w97.class) {
+                if (a == null) {
+                    a = new w97();
+                }
+                w97Var = a;
+            }
+            return w97Var;
+        }
+        return (w97) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        BdLog.i("upgradeData");
-        LinkedList linkedList = new LinkedList();
-        LinkedList linkedList2 = new LinkedList();
-        long j2 = 0;
-        int i = 0;
-        for (String str2 : y97.w().i()) {
-            if (!TextUtils.isEmpty(str2)) {
-                long j3 = y97.w().j(str2);
-                if (j2 < j3) {
-                    j2 = j3;
-                }
-                CommonMsgPojo k = y97.w().k(str2);
-                if (k != null && (fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(k)) != null) {
-                    if (fromCommonMsg.getIsFriend() == 0 && fromCommonMsg.getUnread_count() > 0) {
-                        i = 1;
-                    }
-                    fromCommonMsg.setUnread_count(y97.w().m(str2));
-                    a(linkedList, fromCommonMsg);
-                }
+        ba7.d().c("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
+    }
+
+    public long i(String str) {
+        InterceptResult invokeL;
+        long j;
+        Cursor e;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
             }
-        }
-        int i2 = 0;
-        for (String str3 : x97.w().i()) {
-            if (!TextUtils.isEmpty(str3)) {
-                long j4 = x97.w().j(str3);
-                if (j2 < j4) {
-                    j2 = j4;
-                }
-                CommonMsgPojo k2 = x97.w().k(str3);
-                if (k2 != null) {
-                    k2.checkRidAndSelf();
-                    ImMessageCenterPojo fromCommonMsg2 = ImMessageCenterPojo.fromCommonMsg(k2);
-                    if (fromCommonMsg2 != null) {
-                        int m = x97.w().m(str3);
-                        fromCommonMsg2.setUnread_count(m);
-                        if (m > 0) {
-                            i2 = 1;
-                        }
-                        a(linkedList2, fromCommonMsg2);
-                    }
-                }
-            }
-        }
-        Iterator<ImMessageCenterPojo> it = e.iterator();
-        ImMessageCenterPojo imMessageCenterPojo2 = null;
-        ImMessageCenterPojo imMessageCenterPojo3 = null;
-        ImMessageCenterPojo imMessageCenterPojo4 = null;
-        ImMessageCenterPojo imMessageCenterPojo5 = null;
-        ImMessageCenterPojo imMessageCenterPojo6 = null;
-        ImMessageCenterPojo imMessageCenterPojo7 = null;
-        while (it.hasNext()) {
-            ImMessageCenterPojo next = it.next();
-            if (next != null && next.getGid() != null) {
-                if (next.getGid().equals(TbEnum.CustomGroupId.OFFICIAL_MERGE)) {
-                    imMessageCenterPojo2 = next;
-                } else if (next.getGid().equals(TbEnum.CustomGroupId.STRANGE_MERGE)) {
-                    imMessageCenterPojo3 = next;
-                } else if (next.getCustomGroupType() == 0 && next.getGroup_name() != null && next.getGroup_name().equals("系统消息群")) {
-                    imMessageCenterPojo4 = next;
-                } else if (next.getGid().equals("9") && next.getCustomGroupType() == 5) {
-                    imMessageCenterPojo5 = next;
-                } else if (next.getGid().equals("10") && next.getCustomGroupType() == 6) {
-                    imMessageCenterPojo6 = next;
-                } else if (next.getGroup_name() != null && next.getGroup_name().equals("我的私聊") && next.getCustomGroupType() == 2) {
-                    imMessageCenterPojo7 = next;
-                }
-            }
-        }
-        if (imMessageCenterPojo2 == null) {
-            imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
-            imMessageCenterPojo2.setCustomGroupType(-8);
-            imMessageCenterPojo2.setIs_hidden(1);
-            imMessageCenterPojo2.setUnread_count(0);
-        } else {
-            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.OFFICIAL_MERGE);
-            imMessageCenterPojo2.setCustomGroupType(-8);
-            imMessageCenterPojo2.setUnread_count(i2);
-            e.remove(imMessageCenterPojo2);
-        }
-        if (linkedList2.size() > 0) {
-            imMessageCenterPojo2.setLast_content(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content());
-            j = j2;
-            imMessageCenterPojo2.setLast_content_time(((ImMessageCenterPojo) linkedList2.get(0)).getLast_content_time());
-            imMessageCenterPojo2.setLast_rid(((ImMessageCenterPojo) linkedList2.get(0)).getLast_rid());
-            imMessageCenterPojo2.setLast_user_name(((ImMessageCenterPojo) linkedList2.get(0)).getLast_user_name());
-        } else {
-            j = j2;
-        }
-        v97.f().n(imMessageCenterPojo2, 2);
-        if (linkedList2.size() > 0) {
-            Iterator it2 = linkedList2.iterator();
-            while (it2.hasNext()) {
-                ImMessageCenterPojo imMessageCenterPojo8 = (ImMessageCenterPojo) it2.next();
-                imMessageCenterPojo8.setCustomGroupType(4);
-                Iterator<ImMessageCenterPojo> it3 = e.iterator();
-                while (true) {
-                    if (it3.hasNext()) {
-                        ImMessageCenterPojo next2 = it3.next();
-                        if (next2.getGid() != null && next2.getGid().equals(imMessageCenterPojo8.getGid())) {
-                            imMessageCenterPojo8.setIs_hidden(next2.getIs_hidden());
-                            break;
+            String str2 = "tb_group_msg_" + str;
+            Cursor cursor = null;
+            try {
+                try {
+                    Cursor e2 = ba7.d().e("select max(mid) from " + str2, null);
+                    if (e2 != null) {
+                        try {
+                            if (e2.moveToNext()) {
+                                j = e2.getLong(0);
+                                e = ba7.d().e("select count(*) from " + str2, null);
+                                if (e == null && e.moveToNext()) {
+                                    i = e.getInt(0);
+                                } else {
+                                    i = 0;
+                                }
+                                if (i != 1 && j % 100 != 0) {
+                                    long a2 = ad7.a(j);
+                                    gj.a(e);
+                                    return a2;
+                                }
+                                gj.a(e);
+                                return j;
+                            }
+                        } catch (SQLiteException e3) {
+                            e = e3;
+                            cursor = e2;
+                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
+                            e.printStackTrace();
+                            a(str);
+                            gj.a(cursor);
+                            return 0L;
+                        } catch (Exception e4) {
+                            e = e4;
+                            cursor = e2;
+                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
+                            e.printStackTrace();
+                            gj.a(cursor);
+                            return 0L;
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor = e2;
+                            gj.a(cursor);
+                            throw th;
                         }
                     }
-                }
-                v97.f().n(imMessageCenterPojo8, 2);
-            }
-        }
-        if (linkedList.size() > 0) {
-            Iterator it4 = linkedList.iterator();
-            while (it4.hasNext()) {
-                ImMessageCenterPojo imMessageCenterPojo9 = (ImMessageCenterPojo) it4.next();
-                imMessageCenterPojo9.setCustomGroupType(2);
-                Iterator<ImMessageCenterPojo> it5 = e.iterator();
-                while (true) {
-                    if (it5.hasNext()) {
-                        ImMessageCenterPojo next3 = it5.next();
-                        if (next3.getGid() != null && next3.getGid().equals(imMessageCenterPojo9.getGid())) {
-                            imMessageCenterPojo9.setIs_hidden(next3.getIs_hidden());
-                            break;
-                        }
+                    j = 0;
+                    e = ba7.d().e("select count(*) from " + str2, null);
+                    if (e == null) {
                     }
+                    i = 0;
+                    if (i != 1) {
+                    }
+                    gj.a(e);
+                    return j;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-                v97.f().n(imMessageCenterPojo9, 2);
+            } catch (SQLiteException e5) {
+                e = e5;
+            } catch (Exception e6) {
+                e = e6;
             }
-        }
-        if (imMessageCenterPojo3 == null) {
-            imMessageCenterPojo3 = new ImMessageCenterPojo();
-            imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
-            imMessageCenterPojo3.setCustomGroupType(-7);
-            imMessageCenterPojo3.setIs_hidden(1);
-            imMessageCenterPojo3.setUnread_count(0);
         } else {
-            imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
-            imMessageCenterPojo3.setCustomGroupType(-7);
-            imMessageCenterPojo3.setUnread_count(i);
-            e.remove(imMessageCenterPojo3);
+            return invokeL.longValue;
         }
-        if (linkedList.size() > 0) {
-            Iterator it6 = linkedList.iterator();
-            while (true) {
-                if (!it6.hasNext()) {
-                    imMessageCenterPojo = null;
-                    break;
-                }
-                ImMessageCenterPojo imMessageCenterPojo10 = (ImMessageCenterPojo) it6.next();
-                if (imMessageCenterPojo10.getIsFriend() == 0) {
-                    imMessageCenterPojo = imMessageCenterPojo10;
-                    break;
-                }
+    }
+
+    public int k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            if (imMessageCenterPojo != null) {
-                imMessageCenterPojo3.setLast_content(imMessageCenterPojo.getLast_content());
-                imMessageCenterPojo3.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-                imMessageCenterPojo3.setLast_rid(imMessageCenterPojo.getLast_rid());
-                imMessageCenterPojo3.setLast_user_name(imMessageCenterPojo.getLast_user_name());
-            }
-        }
-        v97.f().n(imMessageCenterPojo3, 2);
-        if (imMessageCenterPojo4 == null) {
-            imMessageCenterPojo4 = new ImMessageCenterPojo();
-        } else {
-            v97.f().c(imMessageCenterPojo4.getGid(), 0);
-        }
-        imMessageCenterPojo4.setCustomGroupType(-2);
-        imMessageCenterPojo4.setIs_hidden(1);
-        imMessageCenterPojo4.setPulled_msgId(o97.h().i(imMessageCenterPojo4.getGid()));
-        v97.f().n(imMessageCenterPojo4, 2);
-        if (imMessageCenterPojo5 == null) {
-            imMessageCenterPojo5 = new ImMessageCenterPojo();
-        }
-        imMessageCenterPojo5.setCustomGroupType(5);
-        imMessageCenterPojo5.setIs_hidden(1);
-        imMessageCenterPojo5.setPulled_msgId(o97.h().i(imMessageCenterPojo5.getGid()));
-        v97.f().n(imMessageCenterPojo5, 2);
-        if (imMessageCenterPojo6 == null) {
-            imMessageCenterPojo6 = new ImMessageCenterPojo();
-        }
-        imMessageCenterPojo6.setCustomGroupType(6);
-        imMessageCenterPojo6.setIs_hidden(1);
-        imMessageCenterPojo6.setPulled_msgId(o97.h().i(imMessageCenterPojo6.getGid()));
-        v97.f().n(imMessageCenterPojo6, 2);
-        if (imMessageCenterPojo7 == null) {
-            imMessageCenterPojo7 = new ImMessageCenterPojo();
-        } else {
-            v97.f().c(imMessageCenterPojo7.getGid(), 2);
-        }
-        ImMessageCenterPojo imMessageCenterPojo11 = imMessageCenterPojo7;
-        imMessageCenterPojo11.setCustomGroupType(-1);
-        imMessageCenterPojo11.setIs_hidden(1);
-        imMessageCenterPojo11.setPulled_msgId(j);
-        v97.f().n(imMessageCenterPojo11, 2);
-        ImMessageCenterPojo imMessageCenterPojo12 = new ImMessageCenterPojo();
-        imMessageCenterPojo12.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
-        imMessageCenterPojo12.setCustomGroupType(-4);
-        imMessageCenterPojo12.setIs_hidden(!ox4.k().h("is_show_validate", true));
-        imMessageCenterPojo12.setUnread_count(p97.c().d("apply_join_group", 1));
-        LinkedList<GroupNewsPojo> b = p97.c().b(0L, 1, 0, "apply_join_group");
-        if (b != null && b.size() > 0) {
-            imMessageCenterPojo12.setLast_content(b.get(0).getContent());
-            imMessageCenterPojo12.setLast_content_time(b.get(0).getTime());
-        }
-        v97.f().n(imMessageCenterPojo12, 2);
-        Iterator<ImMessageCenterPojo> it7 = e.iterator();
-        while (it7.hasNext()) {
-            ImMessageCenterPojo next4 = it7.next();
-            if (next4 != null && next4.getGid() != null && next4.getCustomGroupType() == 1) {
-                next4.setUnread_count(o97.h().k(next4.getGid()));
-                next4.setPulled_msgId(o97.h().i(next4.getGid()));
-                CommonMsgPojo j5 = o97.h().j(next4.getGid());
-                if (j5 != null) {
-                    j5.checkRidAndSelf();
-                    String A = tc7.A(j5.getMsg_type(), j5.getContent());
-                    UserData userData = new UserData();
+            Cursor cursor = null;
+            try {
+                try {
                     try {
-                        userData = (UserData) OrmObject.objectWithJsonStr(j5.getUser_info(), UserData.class);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    if (userData != null) {
-                        if (dj.isEmpty(userData.getUserId())) {
-                            OldUserData oldUserData = new OldUserData();
-                            try {
-                                oldUserData = (OldUserData) OrmObject.objectWithJsonStr(j5.getUser_info(), OldUserData.class);
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                            if (oldUserData != null) {
-                                oldUserData.setToUserData(userData);
-                            }
+                        cursor = ba7.d().e("select count(*) from " + ("tb_group_msg_" + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                        if (cursor != null && cursor.moveToNext()) {
+                            return cursor.getInt(0);
                         }
-                        str = userData.getName_show();
-                    } else {
-                        str = "";
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getUnreadcount", new Object[0]);
+                        e.printStackTrace();
                     }
-                    next4.setLast_content(A);
-                    next4.setLast_user_name(str);
-                    next4.setLast_rid(j5.getRid());
-                    next4.setLast_content_time(j5.getCreate_time() * 1000);
+                } catch (SQLiteException e2) {
+                    TiebaStatic.printDBExceptionLog(e2, "GroupMsgDao.getUnreadcount", new Object[0]);
+                    e2.printStackTrace();
                 }
-                v97.f().n(next4, 2);
+                return 0;
+            } finally {
+                gj.a(cursor);
             }
         }
-        t97.d().c("delete from tb_message_center where custom_group_type is null or custom_group_type=0 or gid in (0,2,3,6,11,12)");
+        return invokeL.intValue;
+    }
+
+    public void b(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && list.size() != 0) {
+            LinkedList linkedList = new LinkedList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = ba7.d().e("select * from sqlite_master where type='table'", null);
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        while (cursor.moveToNext()) {
+                            linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.createMsgTable", new Object[0]);
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) it.next();
+                    if (!linkedList.contains("tb_group_msg_" + imMessageCenterPojo.getGid())) {
+                        a(imMessageCenterPojo.getGid());
+                    }
+                }
+            } finally {
+                gj.a(cursor);
+            }
+        }
+    }
+
+    public boolean c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                ba7.d().delete("tb_group_msg_" + str, "mid=?", new String[]{str2});
+                return true;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.deleteMsgByMid", new Object[0]);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                ba7 d = ba7.d();
+                d.c("delete from " + ("tb_group_msg_" + str));
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.deleteMsgTableById", new Object[0]);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                ba7 d = ba7.d();
+                d.c("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
+            } catch (Exception e) {
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.dropMsgTableById", new Object[0]);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public LinkedHashMap f(String str, int i, String str2, int i2) {
+        InterceptResult invokeCommon;
+        int i3;
+        Cursor e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)})) == null) {
+            Cursor cursor = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (i2 <= 0) {
+                i3 = 20;
+            } else {
+                i3 = i2;
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            String str3 = "tb_group_msg_" + str;
+            try {
+                try {
+                    if (TextUtils.isEmpty(str2)) {
+                        e = ba7.d().e("select * from " + str3 + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i3, new String[]{String.valueOf(i), String.valueOf(0)});
+                    } else {
+                        e = ba7.d().e("select * from " + str3 + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i3, new String[]{str2, String.valueOf(i), String.valueOf(0)});
+                    }
+                    Cursor cursor2 = e;
+                    if (cursor2 != null) {
+                        while (cursor2.moveToNext()) {
+                            try {
+                                linkedHashMap.put(cursor2.getString(cursor2.getColumnIndex("mid")), cursor2.getString(cursor2.getColumnIndex("content")));
+                            } catch (SQLiteException e2) {
+                                e = e2;
+                                cursor = cursor2;
+                                e.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAllByMsgType" + i, new Object[0]);
+                                gj.a(cursor);
+                                return linkedHashMap;
+                            } catch (Exception e3) {
+                                e = e3;
+                                cursor = cursor2;
+                                e.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAllByMsgType" + i, new Object[0]);
+                                gj.a(cursor);
+                                return linkedHashMap;
+                            } catch (Throwable th) {
+                                th = th;
+                                cursor = cursor2;
+                                gj.a(cursor);
+                                throw th;
+                            }
+                        }
+                    }
+                    gj.a(cursor2);
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (SQLiteException e4) {
+                e = e4;
+                cursor = null;
+            } catch (Exception e5) {
+                e = e5;
+                cursor = null;
+            } catch (Throwable th3) {
+                th = th3;
+                cursor = null;
+            }
+            return linkedHashMap;
+        }
+        return (LinkedHashMap) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0112 A[EXC_TOP_SPLITTER, LOOP:0: B:53:0x0112->B:28:0x0118, LOOP_START, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public LinkedList g(String str, String str2, String str3, int i) {
+        InterceptResult invokeLLLI;
+        int i2;
+        Cursor cursor;
+        Cursor e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048582, this, str, str2, str3, i)) == null) {
+            Cursor cursor2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (i <= 0) {
+                i2 = 20;
+            } else {
+                i2 = i;
+            }
+            LinkedList linkedList = new LinkedList();
+            String str4 = "tb_group_msg_" + str;
+            try {
+                try {
+                } catch (Throwable th) {
+                    th = th;
+                    gj.a(cursor2);
+                    throw th;
+                }
+            } catch (SQLiteException e2) {
+                e = e2;
+                cursor = null;
+            } catch (Exception e3) {
+                e = e3;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor2 = null;
+                gj.a(cursor2);
+                throw th;
+            }
+            if (!TextUtils.isEmpty(str3) && !"0".equals(str3)) {
+                e = ba7.d().e("select * from " + str4 + " WHERE rid<? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{str3, String.valueOf(0)});
+                cursor = e;
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        try {
+                            CommonGroupChatMessage commonGroupChatMessage = new CommonGroupChatMessage();
+                            commonGroupChatMessage.setGroupId(str);
+                            commonGroupChatMessage.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            commonGroupChatMessage.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
+                            commonGroupChatMessage.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
+                            commonGroupChatMessage.setMsgId(cursor.getLong(cursor.getColumnIndex("mid")));
+                            MsgLocalData msgLocalData = new MsgLocalData();
+                            commonGroupChatMessage.setLocalData(msgLocalData);
+                            msgLocalData.setStatus(Short.valueOf((short) cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS))));
+                            commonGroupChatMessage.setMsgType(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                            commonGroupChatMessage.setUserId(cursor.getColumnIndex("uid"));
+                            commonGroupChatMessage.setUserInfo((UserData) OrmObject.objectWithJsonStr(cursor.getString(cursor.getColumnIndex("user_info")), UserData.class));
+                            commonGroupChatMessage.setRecordId(cursor.getLong(cursor.getColumnIndex("rid")));
+                            bd7.q(commonGroupChatMessage);
+                            linkedList.addFirst(commonGroupChatMessage);
+                        } catch (SQLiteException e4) {
+                            e = e4;
+                            e.printStackTrace();
+                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAll", new Object[0]);
+                            a(str);
+                            gj.a(cursor);
+                            return linkedList;
+                        } catch (Exception e5) {
+                            e = e5;
+                            e.printStackTrace();
+                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAll", new Object[0]);
+                            gj.a(cursor);
+                            return linkedList;
+                        }
+                    }
+                }
+                gj.a(cursor);
+                return linkedList;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                e = ba7.d().e("select * from " + str4 + " WHERE is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i2, new String[]{String.valueOf(0)});
+            } else {
+                e = ba7.d().e("select * from " + str4 + " WHERE mid<? AND is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i2, new String[]{str2, String.valueOf(0)});
+            }
+            cursor = e;
+            if (cursor != null) {
+            }
+            gj.a(cursor);
+            return linkedList;
+        }
+        return (LinkedList) invokeLLLI.objValue;
+    }
+
+    public CommonMsgPojo j(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            Cursor cursor2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String str2 = "tb_group_msg_" + str;
+            try {
+                try {
+                    cursor = ba7.d().e("select * from " + str2 + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
+                    try {
+                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
+                        if (cursor != null && cursor.moveToNext()) {
+                            commonMsgPojo.setGid(str);
+                            commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
+                            commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                            commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
+                            commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
+                            commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                            commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
+                            commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
+                            commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
+                            commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
+                            commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
+                            gj.a(cursor);
+                            return commonMsgPojo;
+                        }
+                    } catch (SQLiteException e) {
+                        e = e;
+                        e.printStackTrace();
+                        TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
+                        a(str);
+                        gj.a(cursor);
+                        return null;
+                    } catch (Exception e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
+                        gj.a(cursor);
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = str2;
+                    gj.a(cursor2);
+                    throw th;
+                }
+            } catch (SQLiteException e3) {
+                e = e3;
+                cursor = null;
+            } catch (Exception e4) {
+                e = e4;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                gj.a(cursor2);
+                throw th;
+            }
+            gj.a(cursor);
+            return null;
+        }
+        return (CommonMsgPojo) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00fe A[Catch: all -> 0x0102, Exception -> 0x0107, TRY_ENTER, TRY_LEAVE, TryCatch #12 {Exception -> 0x0107, all -> 0x0102, blocks: (B:27:0x00d4, B:37:0x00fe), top: B:102:0x00d4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x019b A[Catch: all -> 0x024b, Exception -> 0x0250, TryCatch #13 {Exception -> 0x0250, all -> 0x024b, blocks: (B:34:0x00f6, B:43:0x010c, B:45:0x019b, B:48:0x01ab), top: B:100:0x00f6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x023c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean l(String str, List list, boolean z) {
+        InterceptResult invokeLLZ;
+        Cursor cursor;
+        SQLiteStatement sQLiteStatement;
+        Iterator it;
+        String str2;
+        SQLiteStatement sQLiteStatement2;
+        SQLiteStatement sQLiteStatement3;
+        ContentValues contentValues;
+        String str3;
+        String content;
+        String ext;
+        String uid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048586, this, str, list, z)) == null) {
+            String str4 = "is_delete";
+            String str5 = "read_flag";
+            String str6 = "rid";
+            if (list != null && !TextUtils.isEmpty(str) && list != null && list.size() != 0) {
+                String str7 = "tb_group_msg_" + str;
+                try {
+                    sQLiteStatement = ba7.d().a(" INSERT INTO " + str7 + "(content,create_time,ext,mid," + IMConstants.MSG_STATUS + ",msg_type,uid,user_info,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+                    try {
+                        Iterator it2 = list.iterator();
+                        while (it2.hasNext()) {
+                            CommonMsgPojo commonMsgPojo = (CommonMsgPojo) it2.next();
+                            try {
+                                if (z) {
+                                    try {
+                                        if (commonMsgPojo.isSelf() && commonMsgPojo.getRid() != 0) {
+                                            it = it2;
+                                            str2 = str4;
+                                            sQLiteStatement2 = sQLiteStatement;
+                                            try {
+                                                ba7.d().delete(str7, "mid=?", new String[]{String.valueOf(commonMsgPojo.getRid())});
+                                                String str8 = "";
+                                                if (commonMsgPojo.getContent() == null) {
+                                                    commonMsgPojo.setContent("");
+                                                }
+                                                contentValues = new ContentValues();
+                                                contentValues.put("content", commonMsgPojo.getContent());
+                                                contentValues.put("create_time", Long.valueOf(commonMsgPojo.getCreate_time()));
+                                                contentValues.put("ext", commonMsgPojo.getExt());
+                                                contentValues.put("mid", Long.valueOf(commonMsgPojo.getMid()));
+                                                contentValues.put(IMConstants.MSG_STATUS, Integer.valueOf(commonMsgPojo.getMsg_status()));
+                                                contentValues.put("msg_type", Integer.valueOf(commonMsgPojo.getMsg_type()));
+                                                contentValues.put("uid", commonMsgPojo.getUid());
+                                                contentValues.put("user_info", commonMsgPojo.getUser_info());
+                                                contentValues.put(str6, Long.valueOf(commonMsgPojo.getRid()));
+                                                contentValues.put(str5, Integer.valueOf(commonMsgPojo.getRead_flag()));
+                                                String str9 = str5;
+                                                String str10 = str2;
+                                                contentValues.put(str10, Integer.valueOf(commonMsgPojo.getIs_delete()));
+                                                String str11 = str6;
+                                                if (ba7.d().update(str7, contentValues, "mid=?", new String[]{String.valueOf(commonMsgPojo.getMid())}) != 0) {
+                                                    sQLiteStatement2.clearBindings();
+                                                    if (TextUtils.isEmpty(commonMsgPojo.getContent())) {
+                                                        content = "";
+                                                    } else {
+                                                        content = commonMsgPojo.getContent();
+                                                    }
+                                                    sQLiteStatement3 = sQLiteStatement2;
+                                                    try {
+                                                        sQLiteStatement3.bindString(1, content);
+                                                        str3 = str7;
+                                                        sQLiteStatement3.bindLong(2, commonMsgPojo.getCreate_time());
+                                                        if (TextUtils.isEmpty(commonMsgPojo.getExt())) {
+                                                            ext = "";
+                                                        } else {
+                                                            ext = commonMsgPojo.getExt();
+                                                        }
+                                                        sQLiteStatement3.bindString(3, ext);
+                                                        sQLiteStatement3.bindLong(4, commonMsgPojo.getMid());
+                                                        sQLiteStatement3.bindLong(5, commonMsgPojo.getMsg_status());
+                                                        sQLiteStatement3.bindLong(6, commonMsgPojo.getMsg_type());
+                                                        if (TextUtils.isEmpty(commonMsgPojo.getUid())) {
+                                                            uid = "";
+                                                        } else {
+                                                            uid = commonMsgPojo.getUid();
+                                                        }
+                                                        sQLiteStatement3.bindString(7, uid);
+                                                        if (!TextUtils.isEmpty(commonMsgPojo.getUser_info())) {
+                                                            str8 = commonMsgPojo.getUser_info();
+                                                        }
+                                                        sQLiteStatement3.bindString(8, str8);
+                                                        sQLiteStatement3.bindLong(9, commonMsgPojo.getRid());
+                                                        sQLiteStatement3.bindLong(10, commonMsgPojo.getRead_flag());
+                                                        sQLiteStatement3.bindLong(11, commonMsgPojo.getIs_delete());
+                                                        ba7.d().insert(sQLiteStatement3);
+                                                    } catch (Exception e) {
+                                                        e = e;
+                                                        sQLiteStatement = sQLiteStatement3;
+                                                        try {
+                                                            e.printStackTrace();
+                                                            TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.insertOrUpdate", new Object[0]);
+                                                            gj.a(null);
+                                                            gj.c(sQLiteStatement);
+                                                            return false;
+                                                        } catch (Throwable th) {
+                                                            th = th;
+                                                            cursor = null;
+                                                            gj.a(cursor);
+                                                            gj.c(sQLiteStatement);
+                                                            throw th;
+                                                        }
+                                                    } catch (Throwable th2) {
+                                                        th = th2;
+                                                        sQLiteStatement = sQLiteStatement3;
+                                                        cursor = null;
+                                                        gj.a(cursor);
+                                                        gj.c(sQLiteStatement);
+                                                        throw th;
+                                                    }
+                                                } else {
+                                                    str3 = str7;
+                                                    sQLiteStatement3 = sQLiteStatement2;
+                                                }
+                                                it2 = it;
+                                                sQLiteStatement = sQLiteStatement3;
+                                                str7 = str3;
+                                                str4 = str10;
+                                                str5 = str9;
+                                                str6 = str11;
+                                            } catch (Exception e2) {
+                                                e = e2;
+                                                sQLiteStatement = sQLiteStatement2;
+                                                e.printStackTrace();
+                                                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.insertOrUpdate", new Object[0]);
+                                                gj.a(null);
+                                                gj.c(sQLiteStatement);
+                                                return false;
+                                            } catch (Throwable th3) {
+                                                th = th3;
+                                                sQLiteStatement = sQLiteStatement2;
+                                                cursor = null;
+                                                gj.a(cursor);
+                                                gj.c(sQLiteStatement);
+                                                throw th;
+                                            }
+                                        }
+                                    } catch (Exception e3) {
+                                        e = e3;
+                                    } catch (Throwable th4) {
+                                        th = th4;
+                                    }
+                                }
+                                String str82 = "";
+                                if (commonMsgPojo.getContent() == null) {
+                                }
+                                contentValues = new ContentValues();
+                                contentValues.put("content", commonMsgPojo.getContent());
+                                contentValues.put("create_time", Long.valueOf(commonMsgPojo.getCreate_time()));
+                                contentValues.put("ext", commonMsgPojo.getExt());
+                                contentValues.put("mid", Long.valueOf(commonMsgPojo.getMid()));
+                                contentValues.put(IMConstants.MSG_STATUS, Integer.valueOf(commonMsgPojo.getMsg_status()));
+                                contentValues.put("msg_type", Integer.valueOf(commonMsgPojo.getMsg_type()));
+                                contentValues.put("uid", commonMsgPojo.getUid());
+                                contentValues.put("user_info", commonMsgPojo.getUser_info());
+                                contentValues.put(str6, Long.valueOf(commonMsgPojo.getRid()));
+                                contentValues.put(str5, Integer.valueOf(commonMsgPojo.getRead_flag()));
+                                String str92 = str5;
+                                String str102 = str2;
+                                contentValues.put(str102, Integer.valueOf(commonMsgPojo.getIs_delete()));
+                                String str112 = str6;
+                                if (ba7.d().update(str7, contentValues, "mid=?", new String[]{String.valueOf(commonMsgPojo.getMid())}) != 0) {
+                                }
+                                it2 = it;
+                                sQLiteStatement = sQLiteStatement3;
+                                str7 = str3;
+                                str4 = str102;
+                                str5 = str92;
+                                str6 = str112;
+                            } catch (Exception e4) {
+                                e = e4;
+                                sQLiteStatement3 = sQLiteStatement2;
+                            } catch (Throwable th5) {
+                                th = th5;
+                                sQLiteStatement3 = sQLiteStatement2;
+                            }
+                            str2 = str4;
+                            sQLiteStatement2 = sQLiteStatement;
+                            it = it2;
+                        }
+                        gj.a(null);
+                        gj.c(sQLiteStatement);
+                        return true;
+                    } catch (Exception e5) {
+                        e = e5;
+                    } catch (Throwable th6) {
+                        th = th6;
+                    }
+                } catch (Exception e6) {
+                    e = e6;
+                    sQLiteStatement = null;
+                } catch (Throwable th7) {
+                    th = th7;
+                    cursor = null;
+                    sQLiteStatement = null;
+                    gj.a(cursor);
+                    gj.c(sQLiteStatement);
+                    throw th;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return invokeLLZ.booleanValue;
+        }
+    }
+
+    public boolean m(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("is_delete", (Integer) 1);
+                ba7.d().update("tb_group_msg_" + str, contentValues, "mid=?", new String[]{str2});
+                return true;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.markDeleteMsgByMid", new Object[0]);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean n(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
+        Cursor e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
+            Cursor cursor = null;
+            String str3 = null;
+            cursor = null;
+            try {
+                try {
+                    str2 = "tb_group_msg_" + str;
+                    if (i < 1000) {
+                        i = 1000;
+                    }
+                    e = ba7.d().e("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT " + i + ", 1", null);
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                if (e.moveToNext()) {
+                    str3 = e.getString(e.getColumnIndex("mid"));
+                }
+                gj.a(e);
+                if (str3 != null) {
+                    ba7.d().delete(str2, "mid<?", new String[]{str3});
+                }
+                gj.a(e);
+                return true;
+            } catch (Exception e3) {
+                e = e3;
+                cursor = e;
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
+                gj.a(cursor);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = e;
+                gj.a(cursor);
+                throw th;
+            }
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public boolean o(String str, String str2, String str3, int i) {
+        InterceptResult invokeLLLI;
+        Boolean bool;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048589, this, str, str2, str3, i)) == null) {
+            Boolean bool2 = Boolean.FALSE;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return false;
+            }
+            String str4 = "tb_group_msg_" + str;
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("mid", str3);
+                contentValues.put(IMConstants.MSG_STATUS, Integer.valueOf(i));
+                if (ba7.d().update(str4, contentValues, "mid=?", new String[]{str2}) > 0) {
+                    bool = Boolean.TRUE;
+                } else {
+                    bool = Boolean.FALSE;
+                }
+                bool2 = bool;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.updateState", new Object[0]);
+                e.printStackTrace();
+            }
+            return bool2.booleanValue();
+        }
+        return invokeLLLI.booleanValue;
     }
 }

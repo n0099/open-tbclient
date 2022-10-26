@@ -33,39 +33,35 @@ public class C implements E {
     public void onClicked() {
         E e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (e = this.a.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (e = this.a.b) != null) {
+            e.onClicked();
         }
-        e.onClicked();
     }
 
     @Override // com.win.opensdk.E
     public void onDisplayed() {
         E e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (e = this.a.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (e = this.a.b) != null) {
+            e.onDisplayed();
         }
-        e.onDisplayed();
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        E e;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (e = this.a.b) == null) {
-            return;
-        }
-        e.onFail(pBError);
     }
 
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
         E e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (e = this.a.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (e = this.a.b) != null) {
+            e.onLoaded();
         }
-        e.onLoaded();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        E e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) && (e = this.a.b) != null) {
+            e.onFail(pBError);
+        }
     }
 }

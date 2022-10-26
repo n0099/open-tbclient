@@ -15,19 +15,54 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
 /* loaded from: classes8.dex */
-public final class CompletableToObservable<T> extends Observable<T> {
+public final class CompletableToObservable extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class ObserverCompletableObserver extends BasicQueueDisposable<Void> implements CompletableObserver {
+    public final class ObserverCompletableObserver extends BasicQueueDisposable implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<?> observer;
+        public final Observer observer;
         public Disposable upstream;
 
-        public ObserverCompletableObserver(Observer<?> observer) {
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public Void poll() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+
+        @Override // io.reactivex.internal.fuseable.QueueFuseable
+        public int requestFusion(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i & 2 : invokeI.intValue;
+        }
+
+        public ObserverCompletableObserver(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,46 +78,6 @@ public final class CompletableToObservable<T> extends Observable<T> {
                 }
             }
             this.observer = observer;
-        }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public void clear() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.upstream.dispose();
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.upstream.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.observer.onComplete();
-            }
         }
 
         @Override // io.reactivex.CompletableObserver
@@ -102,22 +97,30 @@ public final class CompletableToObservable<T> extends Observable<T> {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Void poll() throws Exception {
-            InterceptResult invokeV;
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return null;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.upstream.dispose();
             }
-            return (Void) invokeV.objValue;
         }
 
-        @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i) {
-            InterceptResult invokeI;
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i & 2 : invokeI.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.upstream.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.observer.onComplete();
+            }
         }
     }
 
@@ -140,7 +143,7 @@ public final class CompletableToObservable<T> extends Observable<T> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new ObserverCompletableObserver(observer));

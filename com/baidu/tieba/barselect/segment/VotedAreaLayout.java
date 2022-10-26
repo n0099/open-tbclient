@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.l06;
-import com.baidu.tieba.n06;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.s06;
+import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,61 +45,13 @@ public class VotedAreaLayout extends CardBasicLayout {
         }
     }
 
-    public final void a() {
+    public void setMyRecordData(s06 s06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092636);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, s06Var) == null) && s06Var != null) {
+            this.c = s06Var;
+            TextView textView = this.e;
+            textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = getContext();
-            setClipChildren(false);
-            setClipToPadding(false);
-            setOrientation(0);
-            setGravity(17);
-            setBackgroundResource(R.drawable.bar_select_bg_voted_area_layout);
-            setMinimumHeight(ej.f(getContext(), R.dimen.tbds62));
-            setMinimumWidth(ej.f(getContext(), R.dimen.tbds172));
-            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d090e, (ViewGroup) this, true);
-            a();
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
-            SkinManager.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, n06 n06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, n06Var) == null) {
-            super.setData(i, n06Var);
-            if (this.b != null && this.c != null && this.a >= 0) {
-                TextView textView = this.e;
-                textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
-                c(TbadkCoreApplication.getInst().getSkinType());
-                return;
-            }
-            setVisibility(8);
-        }
-    }
-
-    public void setMyRecordData(l06 l06Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, l06Var) == null) || l06Var == null) {
-            return;
-        }
-        this.c = l06Var;
-        TextView textView = this.e;
-        textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -122,5 +74,52 @@ public class VotedAreaLayout extends CardBasicLayout {
             }
         }
         b();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09261e);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = getContext();
+            setClipChildren(false);
+            setClipToPadding(false);
+            setOrientation(0);
+            setGravity(17);
+            setBackgroundResource(R.drawable.bar_select_bg_voted_area_layout);
+            setMinimumHeight(fj.f(getContext(), R.dimen.tbds62));
+            setMinimumWidth(fj.f(getContext(), R.dimen.tbds172));
+            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d090f, (ViewGroup) this, true);
+            a();
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
+            SkinManager.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
+        }
+    }
+
+    @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
+    public void setData(int i, u06 u06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, u06Var) == null) {
+            super.setData(i, u06Var);
+            if (this.b != null && this.c != null && this.a >= 0) {
+                TextView textView = this.e;
+                textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
+                c(TbadkCoreApplication.getInst().getSkinType());
+                return;
+            }
+            setVisibility(8);
+        }
     }
 }

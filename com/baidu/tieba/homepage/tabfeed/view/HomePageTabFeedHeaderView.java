@@ -11,15 +11,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ks4;
-import com.baidu.tieba.lr4;
-import com.baidu.tieba.np4;
-import com.baidu.tieba.o37;
-import com.baidu.tieba.p47;
-import com.baidu.tieba.pv4;
-import com.baidu.tieba.qp4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.ms4;
+import com.baidu.tieba.nr4;
+import com.baidu.tieba.op4;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.vv4;
+import com.baidu.tieba.w37;
 import com.baidu.tieba.w9;
+import com.baidu.tieba.x47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,15 +29,22 @@ import java.util.List;
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public TbPageContext a;
     public AutoBannerLayout b;
     public GridIconLayout c;
     public String d;
-    public qp4 e;
-    public pv4<lr4> f;
+    public rp4 e;
+    public vv4 f;
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements np4 {
+    public class a implements op4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
@@ -60,7 +67,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.a = homePageTabFeedHeaderView;
         }
 
-        @Override // com.baidu.tieba.np4
+        @Override // com.baidu.tieba.op4
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z && this.a.b != null) {
@@ -70,7 +77,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     }
 
     /* loaded from: classes4.dex */
-    public class b implements np4 {
+    public class b implements op4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
@@ -93,20 +100,29 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.a = homePageTabFeedHeaderView;
         }
 
-        @Override // com.baidu.tieba.np4
+        @Override // com.baidu.tieba.op4
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                o37.c("c13751", this.a.d);
+                w37.c("c13751", this.a.d);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements qp4<lr4> {
+    public class c implements rp4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rp4
+        /* renamed from: a */
+        public void d(View view2, nr4 nr4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nr4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            }
+        }
 
         public c(HomePageTabFeedHeaderView homePageTabFeedHeaderView) {
             Interceptable interceptable = $ic;
@@ -127,27 +143,18 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qp4
-        /* renamed from: a */
-        public void d(View view2, lr4 lr4Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, lr4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qp4
+        @Override // com.baidu.tieba.rp4
         /* renamed from: b */
-        public void c(View view2, lr4 lr4Var, int i, long j) {
+        public void c(View view2, nr4 nr4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, lr4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                o37.a("c13751", lr4Var, i + 1, this.a.d);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, nr4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                w37.a("c13751", nr4Var, i + 1, this.a.d);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements pv4<lr4> {
+    public class d implements vv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedHeaderView a;
@@ -170,25 +177,25 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.a = homePageTabFeedHeaderView;
         }
 
-        @Override // com.baidu.tieba.pv4
+        @Override // com.baidu.tieba.vv4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                lr4 lr4Var = new lr4();
-                lr4Var.e(str);
-                o37.a("c13750", lr4Var, i, this.a.d);
+                nr4 nr4Var = new nr4();
+                nr4Var.e(str);
+                w37.a("c13750", nr4Var, i, this.a.d);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pv4
+        @Override // com.baidu.tieba.vv4
         /* renamed from: c */
-        public void a(int i, lr4 lr4Var) {
+        public void a(int i, nr4 nr4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, lr4Var) == null) || lr4Var == null) {
+            if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, nr4Var) != null) || nr4Var == null) {
                 return;
             }
-            o37.b("c13750", lr4Var, i, this.a.d);
+            w37.b("c13750", nr4Var, i, this.a.d);
         }
     }
 
@@ -213,101 +220,6 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         this.e = new c(this);
         this.f = new d(this);
         c();
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOrientation(1);
-            setDescendantFocusability(262144);
-            this.a = (TbPageContext) w9.a(getContext());
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            AutoBannerLayout autoBannerLayout = this.b;
-            if (autoBannerLayout != null) {
-                autoBannerLayout.onChangeSkinType(this.a, i);
-            }
-            GridIconLayout gridIconLayout = this.c;
-            if (gridIconLayout != null) {
-                gridIconLayout.onChangeSkinType(this.a, i);
-            }
-        }
-    }
-
-    public void e() {
-        GridIconLayout gridIconLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gridIconLayout = this.c) == null) {
-            return;
-        }
-        gridIconLayout.f();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            super.onWindowVisibilityChanged(i);
-        }
-    }
-
-    public void setData(p47 p47Var) {
-        List<lr4> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, p47Var) == null) || p47Var == null) {
-            return;
-        }
-        setPadding(0, ej.f(getContext(), R.dimen.M_H_X003), 0, 0);
-        if (this.b == null) {
-            AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
-            this.b = autoBannerLayout;
-            autoBannerLayout.setFrom(YYLiveUtil.SOURCE_CHANNEL_BANNER);
-            this.b.setMarqueenTime(3000L);
-            this.b.setOnCoverViewCallback(this.f);
-            this.b.setBannerHeight(ej.f(getContext(), R.dimen.tbds343));
-            addView(this.b);
-            this.b.setIWindowChangedListener(new a(this));
-        }
-        this.b.a(p47Var.e);
-        if (this.c == null) {
-            GridIconLayout gridIconLayout = new GridIconLayout(getContext());
-            this.c = gridIconLayout;
-            gridIconLayout.setOnItemCoverListener(this.e);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = ej.f(this.a.getPageActivity(), R.dimen.M_H_X003);
-            addView(this.c, layoutParams);
-            int f = ej.f(this.a.getPageActivity(), R.dimen.M_H_X002);
-            int f2 = ej.f(this.a.getPageActivity(), R.dimen.tbds30);
-            ks4 ks4Var = p47Var.f;
-            int size = (ks4Var == null || (list = ks4Var.a) == null) ? 0 : list.size();
-            if (size == 5 || size >= 9) {
-                this.c.setPadding(0, f, 0, f);
-            } else if (size >= 4 && size < 9) {
-                this.c.setPadding(f2, f, f2, f);
-            }
-            this.c.setIWindowChangedListener(new b(this));
-            this.c.setMaxItem(10);
-        }
-        this.c.a(p47Var.f);
-        this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public void setTabCode(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.d = str;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -356,5 +268,99 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         this.e = new c(this);
         this.f = new d(this);
         c();
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            AutoBannerLayout autoBannerLayout = this.b;
+            if (autoBannerLayout != null) {
+                autoBannerLayout.onChangeSkinType(this.a, i);
+            }
+            GridIconLayout gridIconLayout = this.c;
+            if (gridIconLayout != null) {
+                gridIconLayout.onChangeSkinType(this.a, i);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onWindowVisibilityChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.onWindowVisibilityChanged(i);
+        }
+    }
+
+    public void setTabCode(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(1);
+            setDescendantFocusability(262144);
+            this.a = (TbPageContext) w9.a(getContext());
+        }
+    }
+
+    public void e() {
+        GridIconLayout gridIconLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gridIconLayout = this.c) != null) {
+            gridIconLayout.f();
+        }
+    }
+
+    public void setData(x47 x47Var) {
+        int i;
+        List list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, x47Var) != null) || x47Var == null) {
+            return;
+        }
+        setPadding(0, fj.f(getContext(), R.dimen.M_H_X003), 0, 0);
+        if (this.b == null) {
+            AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
+            this.b = autoBannerLayout;
+            autoBannerLayout.setFrom(YYLiveUtil.SOURCE_CHANNEL_BANNER);
+            this.b.setMarqueenTime(3000L);
+            this.b.setOnCoverViewCallback(this.f);
+            this.b.setBannerHeight(fj.f(getContext(), R.dimen.tbds343));
+            addView(this.b);
+            this.b.setIWindowChangedListener(new a(this));
+        }
+        this.b.a(x47Var.e);
+        if (this.c == null) {
+            GridIconLayout gridIconLayout = new GridIconLayout(getContext());
+            this.c = gridIconLayout;
+            gridIconLayout.setOnItemCoverListener(this.e);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams.topMargin = fj.f(this.a.getPageActivity(), R.dimen.M_H_X003);
+            addView(this.c, layoutParams);
+            int f = fj.f(this.a.getPageActivity(), R.dimen.M_H_X002);
+            int f2 = fj.f(this.a.getPageActivity(), R.dimen.tbds30);
+            ms4 ms4Var = x47Var.f;
+            if (ms4Var != null && (list = ms4Var.a) != null) {
+                i = list.size();
+            } else {
+                i = 0;
+            }
+            if (i != 5 && i < 9) {
+                if (i >= 4 && i < 9) {
+                    this.c.setPadding(f2, f, f2, f);
+                }
+            } else {
+                this.c.setPadding(0, f, 0, f);
+            }
+            this.c.setIWindowChangedListener(new b(this));
+            this.c.setMaxItem(10);
+        }
+        this.c.a(x47Var.f);
+        this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 }

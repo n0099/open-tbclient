@@ -35,7 +35,7 @@ public class ClientContextConfigurer implements ClientContext {
         throw new RuntimeException("Stub!");
     }
 
-    public void setAuthSchemePref(List<String> list) {
+    public void setAuthSchemePref(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             throw new RuntimeException("Stub!");

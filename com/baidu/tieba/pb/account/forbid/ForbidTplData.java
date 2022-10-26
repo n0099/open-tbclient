@@ -16,7 +16,7 @@ public class ForbidTplData extends OrmObject implements Serializable {
     public int type;
 
     /* loaded from: classes5.dex */
-    public static class ErrorInfo extends OrmObject {
+    public class ErrorInfo extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String errMsg;

@@ -1,351 +1,156 @@
 package com.baidu.mobstat;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Rect;
 import android.text.TextUtils;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import java.lang.ref.WeakReference;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.security.SecureRandom;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes2.dex */
-public class bl {
+public final class bl {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<WebView> b;
-    public WeakReference<Activity> c;
-    public JSONObject d;
-    public boolean e;
-    public boolean f;
 
-    public bl() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes2.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(Activity activity, WebView webView, Rect rect) {
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, activity, webView, rect) == null) {
-            int i4 = 0;
-            if (rect != null) {
-                i4 = ah.a(activity, rect.left);
-                i2 = ah.a(activity, rect.top);
-                i3 = ah.a(activity, rect.width());
-                i = ah.a(activity, rect.height());
-            } else {
-                i = 0;
-                i2 = 0;
-                i3 = 0;
-            }
-            activity.runOnUiThread(new Runnable(webView, "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i4 + ", \"y\": " + i2 + ", \"w\": " + i3 + ", \"h\": " + i + ", \"sw\": " + ah.a(activity, bj.c(activity)) + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')") { // from class: com.baidu.mobstat.bl.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebView a;
-                public final /* synthetic */ String b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {webView, r7};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = webView;
-                    this.b = r7;
+        public static String a(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+                try {
+                    return b(a(), b(), bArr);
+                } catch (Exception unused) {
+                    return "";
                 }
+            }
+            return (String) invokeL.objValue;
+        }
 
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.loadUrl(this.b);
-                    }
+        public static byte[] a() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+                keyGenerator.init(128, new SecureRandom());
+                return keyGenerator.generateKey().getEncoded();
+            }
+            return (byte[]) invokeV.objValue;
+        }
+
+        public static byte[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                byte[] bArr = new byte[16];
+                new SecureRandom().nextBytes(bArr);
+                return bArr;
+            }
+            return (byte[]) invokeV.objValue;
+        }
+
+        public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, bArr2, bArr3)) == null) {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr2);
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipher.init(1, secretKeySpec, ivParameterSpec);
+                return cipher.doFinal(bArr3);
+            }
+            return (byte[]) invokeLLL.objValue;
+        }
+
+        public static String b(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
+                try {
+                    byte[] a = a(bArr, bArr2, br.a(bArr3));
+                    return bo.b(a) + "|" + bv.a(bArr) + "|" + bv.a(bArr2);
+                } catch (Exception unused) {
+                    return "";
                 }
-            });
-        }
-    }
-
-    public void a(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        webView.loadUrl("javascript:" + str);
-    }
-
-    @JavascriptInterface
-    public void setEventToNative(String str) {
-        Activity activity;
-        WeakReference<WebView> weakReference;
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (bd.c().b() && this.f) {
-                bd c = bd.c();
-                c.a("setEventToNative: " + str);
             }
-            if (bh.c().b()) {
-                bh c2 = bh.c();
-                c2.a("setEventToNative: " + str);
-            }
-            WeakReference<Activity> weakReference2 = this.c;
-            if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.b) == null || (webView = weakReference.get()) == null) {
-                return;
-            }
-            a(str, activity, webView);
-        }
-    }
-
-    @JavascriptInterface
-    public void setViewportTreeToNative(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (bd.c().b()) {
-                bd c = bd.c();
-                c.a("setViewportTreeToNative " + str);
-            }
-            a = str;
-        }
-    }
-
-    public static String a(Activity activity, WebView webView, Rect rect) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, activity, webView, rect)) != null) {
             return (String) invokeLLL.objValue;
         }
-        a = "";
-        b(activity, webView, rect);
-        int i = 0;
-        while (true) {
-            int i2 = i + 1;
-            if (i >= 15) {
-                return "";
-            }
-            try {
-                Thread.sleep(20L);
-            } catch (Exception unused) {
-            }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            i = i2;
-        }
     }
 
-    public void a(Activity activity, WebView webView, String str, JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, webView, str, jSONObject, Boolean.valueOf(z)}) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (z) {
-            this.f = z;
-            this.d = jSONObject;
-        }
-        if (z) {
-            bd.c().a("injectTrackJs circleConfig: " + jSONObject);
-        }
-        if (a(webView, z)) {
-            if (z) {
-                bd.c().a("injectTrackJs, no need to entry");
-                return;
-            } else {
-                bh.c().a("injectTrackJs, no need to entry");
-                return;
-            }
-        }
-        if (activity != null) {
-            this.c = new WeakReference<>(activity);
-        }
-        if (webView != null) {
-            this.b = new WeakReference<>(webView);
-        }
-        this.e = z;
-        String a2 = a();
-        if (TextUtils.isEmpty(a2)) {
-            a2 = new JSONObject().toString();
-        }
-        if (bd.c().b() && this.f) {
-            bd.c().a("injectTrackJs h5Config: " + a2);
-        }
-        if (bh.c().b()) {
-            bh.c().a("injectTrackJs h5Config: " + a2);
-        }
-        String str2 = "(function(){var h5conf = {\"sdkAPI\": \"window.WebViewInterface.setEventToNative\", \"sdkType\": \"android\", \"events\": " + a2 + "};" + str + "})()";
-        if (webView != null) {
-            webView.loadUrl("javascript:" + str2);
-        }
-    }
+    /* loaded from: classes2.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    private boolean a(WebView webView, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, webView, z)) == null) {
-            WeakReference<WebView> weakReference = this.b;
-            return (weakReference == null || weakReference.get() != webView || this.e == z) ? false : true;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    private String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("matchAll", 1);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("meta", jSONObject);
-                return jSONObject2.toString();
-            } catch (Exception unused) {
-                return new JSONObject().toString();
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0038 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0039  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void a(String str, Activity activity, WebView webView) {
-        JSONArray jSONArray;
-        String str2;
-        String str3;
-        boolean z;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, this, str, activity, webView) == null) {
-            JSONObject jSONObject2 = null;
-            try {
-                jSONObject = new JSONObject(str);
-                jSONArray = jSONObject.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
-            } catch (Exception unused) {
-                jSONArray = null;
-                str2 = null;
-            }
-            try {
-                str2 = jSONObject.optString("p2");
-                try {
-                    str3 = jSONObject.optString("l");
-                    try {
-                        jSONObject2 = jSONObject.optJSONObject(Config.EVENT_HEAT_POINT);
-                        z = true;
-                    } catch (Exception unused2) {
-                        z = false;
-                        JSONObject jSONObject3 = jSONObject2;
-                        JSONArray jSONArray2 = jSONArray;
-                        String str4 = str3;
-                        if (z) {
-                        }
+        public static byte[] a(int i, byte[] bArr) throws Exception {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, bArr)) == null) {
+                int i2 = i - 1;
+                if (i2 >= 0) {
+                    String[] strArr = bq.a;
+                    if (strArr.length > i2) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i2].getBytes(), "AES");
+                        Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+                        cipher.init(1, secretKeySpec);
+                        return cipher.doFinal(bArr);
                     }
-                } catch (Exception unused3) {
-                    str3 = null;
                 }
-            } catch (Exception unused4) {
-                str2 = null;
-                str3 = str2;
-                z = false;
-                JSONObject jSONObject32 = jSONObject2;
-                JSONArray jSONArray22 = jSONArray;
-                String str42 = str3;
-                if (z) {
-                }
+                return new byte[0];
             }
-            JSONObject jSONObject322 = jSONObject2;
-            JSONArray jSONArray222 = jSONArray;
-            String str422 = str3;
-            if (z) {
-                String str5 = TextUtils.isEmpty(str2) ? "/" : str2;
-                JSONArray a2 = bj.a(activity, webView);
-                String name = activity.getClass().getName();
-                String a3 = bj.a(a2);
-                String b = bj.b(jSONArray222);
-                String f = bj.f(webView);
-                Map<String, String> g = bj.g(webView);
-                Context applicationContext = activity.getApplicationContext();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (a(this.d, activity.getClass().getName(), str5, a3, b)) {
-                    BDStatCore.instance().onEvent(applicationContext, "", str422, 1, System.currentTimeMillis(), a2, jSONArray222, name, str5, f, g, true);
-                } else if (bd.c().b() && this.f) {
-                    bd.c().a("setEventToNative: not circle event, will not take effect");
-                }
-                aw.a().a(applicationContext, "", str422, 1, currentTimeMillis, name, a2, str5, jSONArray222, f, g, true, jSONObject322, "");
-            }
+            return (byte[]) invokeIL.objValue;
         }
-    }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    private boolean a(JSONObject jSONObject, String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLLL = interceptable.invokeLLLLL(65541, this, jSONObject, str, str2, str3, str4)) != null) {
-            return invokeLLLLL.booleanValue;
-        }
-        int i = 0;
-        if (jSONObject == null || jSONObject.toString().equals(new JSONObject().toString()) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
-            return false;
-        }
-        try {
-            if (((JSONObject) jSONObject.get("meta")).getInt("matchAll") != 0) {
-                return true;
-            }
-        } catch (Exception unused) {
-        }
-        try {
-            JSONArray jSONArray = (JSONArray) jSONObject.get("data");
-            boolean z = false;
-            while (i < jSONArray.length()) {
-                try {
-                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
-                    String optString = jSONObject2.optString("page");
-                    String optString2 = jSONObject2.optString(TtmlNode.TAG_LAYOUT);
-                    String str5 = (String) jSONObject2.opt("url");
-                    String str6 = (String) jSONObject2.opt("webLayout");
-                    if (str.equals(optString) && str2.equals(str5) && str3.equals(optString2) && str4.equals(str6)) {
-                        z = true;
+        public static byte[] b(int i, byte[] bArr) throws Exception {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, bArr)) == null) {
+                int i2 = i - 1;
+                if (i2 >= 0) {
+                    String[] strArr = bq.a;
+                    if (strArr.length > i2) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i2].getBytes(), "AES");
+                        Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+                        cipher.init(2, secretKeySpec);
+                        return cipher.doFinal(bArr);
                     }
-                    i++;
-                } catch (Exception unused2) {
-                    i = z ? 1 : 0;
-                    return i;
+                }
+                return new byte[0];
+            }
+            return (byte[]) invokeIL.objValue;
+        }
+
+        public static String d(int i, byte[] bArr) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
+                String c = c(i, bArr);
+                if (TextUtils.isEmpty(c)) {
+                    return "";
+                }
+                return c + "|" + i;
+            }
+            return (String) invokeIL.objValue;
+        }
+
+        public static String c(int i, byte[] bArr) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, bArr)) == null) {
+                try {
+                    return bo.b(a(i, bArr));
+                } catch (Exception unused) {
+                    return "";
                 }
             }
-            return z;
-        } catch (Exception unused3) {
+            return (String) invokeIL.objValue;
         }
     }
 }

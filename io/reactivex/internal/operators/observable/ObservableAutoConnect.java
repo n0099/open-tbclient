@@ -6,20 +6,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.observables.ConnectableObservable;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class ObservableAutoConnect<T> extends Observable<T> {
+public final class ObservableAutoConnect extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicInteger clients;
-    public final Consumer<? super Disposable> connection;
+    public final Consumer connection;
     public final int numberOfObservers;
-    public final ConnectableObservable<? extends T> source;
+    public final ConnectableObservable source;
 
-    public ObservableAutoConnect(ConnectableObservable<? extends T> connectableObservable, int i, Consumer<? super Disposable> consumer) {
+    public ObservableAutoConnect(ConnectableObservable connectableObservable, int i, Consumer consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,10 +40,10 @@ public final class ObservableAutoConnect<T> extends Observable<T> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            this.source.subscribe((Observer<? super Object>) observer);
+            this.source.subscribe(observer);
             if (this.clients.incrementAndGet() == this.numberOfObservers) {
                 this.source.connect(this.connection);
             }

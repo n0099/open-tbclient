@@ -30,7 +30,7 @@ public class k3 {
     public Files.FileType b;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,43 +83,17 @@ public class k3 {
         }
     }
 
-    public k3 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.getPath().length() == 0 ? new k3(new File(str), this.b) : new k3(new File(this.a, str), this.b) : (k3) invokeL.objValue;
-    }
-
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int f = (int) f();
-            if (f != 0) {
-                return f;
+            if (f == 0) {
+                return 512;
             }
-            return 512;
+            return f;
         }
         return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = a.a[this.b.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return e().exists();
-                }
-            } else if (e().exists()) {
-                return true;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("/");
-            sb.append(this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH));
-            return k3.class.getResource(sb.toString()) != null;
-        }
-        return invokeV.booleanValue;
     }
 
     public String d() {
@@ -128,74 +102,33 @@ public class k3 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String name = this.a.getName();
             int lastIndexOf = name.lastIndexOf(46);
-            return lastIndexOf == -1 ? "" : name.substring(lastIndexOf + 1);
+            if (lastIndexOf == -1) {
+                return "";
+            }
+            return name.substring(lastIndexOf + 1);
         }
         return (String) invokeV.objValue;
-    }
-
-    public boolean delete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Files.FileType fileType = this.b;
-            if (fileType != Files.FileType.Classpath) {
-                if (fileType != Files.FileType.Internal) {
-                    return e().delete();
-                }
-                throw new GdxRuntimeException("Cannot delete an internal file: " + this.a);
-            }
-            throw new GdxRuntimeException("Cannot delete a classpath file: " + this.a);
-        }
-        return invokeV.booleanValue;
     }
 
     public File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b == Files.FileType.External ? new File(f1.d.e(), this.a.getPath()) : this.a : (File) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj instanceof k3) {
-                k3 k3Var = (k3) obj;
-                return this.b == k3Var.b && j().equals(k3Var.j());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b == Files.FileType.External) {
+                return new File(f1.d.e(), this.a.getPath());
             }
-            return false;
+            return this.a;
         }
-        return invokeL.booleanValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Files.FileType fileType = this.b;
-            if (fileType != Files.FileType.Classpath && (fileType != Files.FileType.Internal || this.a.exists())) {
-                return e().length();
-            }
-            InputStream m = m();
-            try {
-                long available = m.available();
-                j8.a(m);
-                return available;
-            } catch (Exception unused) {
-                j8.a(m);
-                return 0L;
-            } catch (Throwable th) {
-                j8.a(m);
-                throw th;
-            }
-        }
-        return invokeV.longValue;
+        return (File) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.getName();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String h() {
@@ -204,7 +137,10 @@ public class k3 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             String name = this.a.getName();
             int lastIndexOf = name.lastIndexOf(46);
-            return lastIndexOf == -1 ? name : name.substring(0, lastIndexOf);
+            if (lastIndexOf == -1) {
+                return name;
+            }
+            return name.substring(0, lastIndexOf);
         }
         return (String) invokeV.objValue;
     }
@@ -212,30 +148,19 @@ public class k3 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((37 + this.b.hashCode()) * 67) + j().hashCode() : invokeV.intValue;
-    }
-
-    public k3 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            File parentFile = this.a.getParentFile();
-            if (parentFile == null) {
-                if (this.b == Files.FileType.Absolute) {
-                    parentFile = new File("/");
-                } else {
-                    parentFile = new File("");
-                }
-            }
-            return new k3(parentFile, this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return ((37 + this.b.hashCode()) * 67) + j().hashCode();
         }
-        return (k3) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String k() {
@@ -244,102 +169,89 @@ public class k3 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             String replace = this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH);
             int lastIndexOf = replace.lastIndexOf(46);
-            return lastIndexOf == -1 ? replace : replace.substring(0, lastIndexOf);
+            if (lastIndexOf == -1) {
+                return replace;
+            }
+            return replace.substring(0, lastIndexOf);
         }
         return (String) invokeV.objValue;
-    }
-
-    public BufferedInputStream l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) ? new BufferedInputStream(m(), i) : (BufferedInputStream) invokeI.objValue;
-    }
-
-    public InputStream m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Files.FileType fileType = this.b;
-            if (fileType != Files.FileType.Classpath && ((fileType != Files.FileType.Internal || e().exists()) && (this.b != Files.FileType.Local || e().exists()))) {
-                try {
-                    return new FileInputStream(e());
-                } catch (Exception e) {
-                    if (e().isDirectory()) {
-                        throw new GdxRuntimeException("Cannot open a stream to a directory: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
-                    }
-                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
-                }
-            }
-            InputStream resourceAsStream = k3.class.getResourceAsStream("/" + this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH));
-            if (resourceAsStream != null) {
-                return resourceAsStream;
-            }
-            throw new GdxRuntimeException("File not found: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX);
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    public byte[] n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            InputStream m = m();
-            try {
-                try {
-                    return j8.d(m, b());
-                } catch (IOException e) {
-                    throw new GdxRuntimeException("Error reading file: " + this, e);
-                }
-            } finally {
-                j8.a(m);
-            }
-        }
-        return (byte[]) invokeV.objValue;
     }
 
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? p(null) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return p(null);
+        }
+        return (String) invokeV.objValue;
     }
 
-    public String p(String str) {
+    public Files.FileType t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.b;
+        }
+        return (Files.FileType) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public k3(File file, Files.FileType fileType) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, fileType};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = file;
+        this.b = fileType;
+    }
+
+    public k3(String str, Files.FileType fileType) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, fileType};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = fileType;
+        this.a = new File(str);
+    }
+
+    public k3 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048594, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        StringBuilder sb = new StringBuilder(b());
-        InputStreamReader inputStreamReader = null;
-        try {
-            try {
-                if (str == null) {
-                    inputStreamReader = new InputStreamReader(m());
-                } else {
-                    inputStreamReader = new InputStreamReader(m(), str);
-                }
-                char[] cArr = new char[256];
-                while (true) {
-                    int read = inputStreamReader.read(cArr);
-                    if (read == -1) {
-                        j8.a(inputStreamReader);
-                        return sb.toString();
-                    }
-                    sb.append(cArr, 0, read);
-                }
-            } catch (IOException e) {
-                throw new GdxRuntimeException("Error reading layout file: " + this, e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a.getPath().length() == 0) {
+                return new k3(new File(str), this.b);
             }
-        } catch (Throwable th) {
-            j8.a(inputStreamReader);
-            throw th;
+            return new k3(new File(this.a, str), this.b);
         }
-    }
-
-    public BufferedReader q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) ? new BufferedReader(new InputStreamReader(m()), i) : (BufferedReader) invokeI.objValue;
+        return (k3) invokeL.objValue;
     }
 
     public Reader r(String str) {
@@ -369,53 +281,190 @@ public class k3 {
         return (k3) invokeL.objValue;
     }
 
-    public Files.FileType t() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.b : (Files.FileType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = a.a[this.b.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return e().exists();
+                }
+            } else if (e().exists()) {
+                return true;
+            }
+            if (k3.class.getResource("/" + this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH)) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public String toString() {
+    public boolean delete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Files.FileType fileType = this.b;
+            if (fileType != Files.FileType.Classpath) {
+                if (fileType != Files.FileType.Internal) {
+                    return e().delete();
+                }
+                throw new GdxRuntimeException("Cannot delete an internal file: " + this.a);
+            }
+            throw new GdxRuntimeException("Cannot delete a classpath file: " + this.a);
+        }
+        return invokeV.booleanValue;
     }
 
-    public k3(String str, Files.FileType fileType) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, fileType};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (!(obj instanceof k3)) {
+                return false;
             }
+            k3 k3Var = (k3) obj;
+            if (this.b != k3Var.b || !j().equals(k3Var.j())) {
+                return false;
+            }
+            return true;
         }
-        this.b = fileType;
-        this.a = new File(str);
+        return invokeL.booleanValue;
     }
 
-    public k3(File file, Files.FileType fileType) {
+    public BufferedInputStream l(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file, fileType};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            return new BufferedInputStream(m(), i);
+        }
+        return (BufferedInputStream) invokeI.objValue;
+    }
+
+    public BufferedReader q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            return new BufferedReader(new InputStreamReader(m()), i);
+        }
+        return (BufferedReader) invokeI.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Files.FileType fileType = this.b;
+            if (fileType != Files.FileType.Classpath && (fileType != Files.FileType.Internal || this.a.exists())) {
+                return e().length();
+            }
+            InputStream m = m();
+            try {
+                long available = m.available();
+                j8.a(m);
+                return available;
+            } catch (Exception unused) {
+                j8.a(m);
+                return 0L;
+            } catch (Throwable th) {
+                j8.a(m);
+                throw th;
             }
         }
-        this.a = file;
-        this.b = fileType;
+        return invokeV.longValue;
+    }
+
+    public k3 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            File parentFile = this.a.getParentFile();
+            if (parentFile == null) {
+                if (this.b == Files.FileType.Absolute) {
+                    parentFile = new File("/");
+                } else {
+                    parentFile = new File("");
+                }
+            }
+            return new k3(parentFile, this.b);
+        }
+        return (k3) invokeV.objValue;
+    }
+
+    public byte[] n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            InputStream m = m();
+            try {
+                try {
+                    return j8.d(m, b());
+                } catch (IOException e) {
+                    throw new GdxRuntimeException("Error reading file: " + this, e);
+                }
+            } finally {
+                j8.a(m);
+            }
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public InputStream m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            Files.FileType fileType = this.b;
+            if (fileType != Files.FileType.Classpath && ((fileType != Files.FileType.Internal || e().exists()) && (this.b != Files.FileType.Local || e().exists()))) {
+                try {
+                    return new FileInputStream(e());
+                } catch (Exception e) {
+                    if (e().isDirectory()) {
+                        throw new GdxRuntimeException("Cannot open a stream to a directory: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
+                    }
+                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
+                }
+            }
+            InputStream resourceAsStream = k3.class.getResourceAsStream("/" + this.a.getPath().replace('\\', WebvttCueParser.CHAR_SLASH));
+            if (resourceAsStream != null) {
+                return resourceAsStream;
+            }
+            throw new GdxRuntimeException("File not found: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX);
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    public String p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            StringBuilder sb = new StringBuilder(b());
+            InputStreamReader inputStreamReader = null;
+            try {
+                try {
+                    if (str == null) {
+                        inputStreamReader = new InputStreamReader(m());
+                    } else {
+                        inputStreamReader = new InputStreamReader(m(), str);
+                    }
+                    char[] cArr = new char[256];
+                    while (true) {
+                        int read = inputStreamReader.read(cArr);
+                        if (read == -1) {
+                            j8.a(inputStreamReader);
+                            return sb.toString();
+                        }
+                        sb.append(cArr, 0, read);
+                    }
+                } catch (IOException e) {
+                    throw new GdxRuntimeException("Error reading layout file: " + this, e);
+                }
+            } catch (Throwable th) {
+                j8.a(inputStreamReader);
+                throw th;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
     }
 }

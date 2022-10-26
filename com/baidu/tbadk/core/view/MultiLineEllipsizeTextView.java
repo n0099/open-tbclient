@@ -8,12 +8,11 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +54,51 @@ public class MultiLineEllipsizeTextView extends EMTextView {
         this.b = StringHelper.STRING_MORE;
     }
 
-    public final List<Point> a(TextPaint textPaint, CharSequence charSequence, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MultiLineEllipsizeTextView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = StringHelper.STRING_MORE;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MultiLineEllipsizeTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = StringHelper.STRING_MORE;
+    }
+
+    public final List a(TextPaint textPaint, CharSequence charSequence, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, textPaint, charSequence, i)) == null) {
@@ -72,61 +115,66 @@ public class MultiLineEllipsizeTextView extends EMTextView {
 
     @Override // android.widget.TextView, android.view.View
     public void onMeasure(int i, int i2) {
+        String str;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             super.onMeasure(i, i2);
             CharSequence text = getText();
             Rect rect = new Rect();
-            if (dj.isEmpty(text.toString())) {
-                return;
-            }
-            TextPaint paint = getPaint();
-            if (!dj.isEmpty(this.b)) {
-                String str = this.b;
-                paint.getTextBounds(str, 0, str.length() - 1, rect);
-            }
-            float width = rect.width();
-            float paddingRight = getPaddingRight() + getPaddingLeft();
-            Drawable[] compoundDrawables = getCompoundDrawables();
-            if (compoundDrawables.length == 4) {
-                if (compoundDrawables[0] != null) {
-                    paddingRight += compoundDrawables[0].getBounds().width() + getCompoundDrawablePadding();
+            if (!ej.isEmpty(text.toString())) {
+                TextPaint paint = getPaint();
+                if (!ej.isEmpty(this.b)) {
+                    String str2 = this.b;
+                    paint.getTextBounds(str2, 0, str2.length() - 1, rect);
                 }
-                if (compoundDrawables[2] != null) {
-                    paddingRight += compoundDrawables[2].getBounds().width() + getCompoundDrawablePadding();
-                }
-            }
-            float measuredWidth = getMeasuredWidth() - paddingRight;
-            List<Point> a2 = a(paint, text, (int) measuredWidth);
-            if (ListUtils.getCount(a2) > getMaxLines()) {
-                Point point = a2.get(getMaxLines() - 1);
-                text.toString();
-                paint.getTextBounds(String.valueOf(text), point.x, point.y, rect);
-                float f = (measuredWidth - width) - this.c;
-                for (float width2 = rect.width(); width2 > f && (i3 = point.y) > point.x; width2 = rect.width()) {
-                    point.y = i3 - 1;
-                    paint.getTextBounds(String.valueOf(text), point.x, point.y, rect);
-                }
-                if (paint.measureText(((Object) text.subSequence(point.x, point.y)) + this.b) > f + width) {
-                    point.y--;
-                }
-                setText(point.y <= 0 ? this.b : ((Object) text.subSequence(0, point.y)) + this.b);
-                a aVar = this.d;
-                if (aVar != null) {
-                    aVar.a(true);
-                }
-            } else if (getMaxLines() == Integer.MAX_VALUE && this.c != 0) {
-                if (!ListUtils.isEmpty(a2)) {
-                    Point point2 = a2.get(a2.size() - 1);
-                    paint.getTextBounds(String.valueOf(text), point2.x, point2.y, rect);
-                    if (rect.width() > measuredWidth - this.c) {
-                        setMeasuredDimension(getMeasuredWidth(), (int) (getMeasuredHeight() + rect.height() + getLineSpacingExtra()));
+                float width = rect.width();
+                float paddingRight = getPaddingRight() + getPaddingLeft();
+                Drawable[] compoundDrawables = getCompoundDrawables();
+                if (compoundDrawables.length == 4) {
+                    if (compoundDrawables[0] != null) {
+                        paddingRight += compoundDrawables[0].getBounds().width() + getCompoundDrawablePadding();
+                    }
+                    if (compoundDrawables[2] != null) {
+                        paddingRight += compoundDrawables[2].getBounds().width() + getCompoundDrawablePadding();
                     }
                 }
-                a aVar2 = this.d;
-                if (aVar2 != null) {
-                    aVar2.a(false);
+                float measuredWidth = getMeasuredWidth() - paddingRight;
+                List a2 = a(paint, text, (int) measuredWidth);
+                if (ListUtils.getCount(a2) > getMaxLines()) {
+                    Point point = (Point) a2.get(getMaxLines() - 1);
+                    text.toString();
+                    paint.getTextBounds(String.valueOf(text), point.x, point.y, rect);
+                    float f = (measuredWidth - width) - this.c;
+                    for (float width2 = rect.width(); width2 > f && (i3 = point.y) > point.x; width2 = rect.width()) {
+                        point.y = i3 - 1;
+                        paint.getTextBounds(String.valueOf(text), point.x, point.y, rect);
+                    }
+                    if (paint.measureText(((Object) text.subSequence(point.x, point.y)) + this.b) > f + width) {
+                        point.y--;
+                    }
+                    if (point.y <= 0) {
+                        str = this.b;
+                    } else {
+                        str = ((Object) text.subSequence(0, point.y)) + this.b;
+                    }
+                    setText(str);
+                    a aVar = this.d;
+                    if (aVar != null) {
+                        aVar.a(true);
+                    }
+                } else if (getMaxLines() == Integer.MAX_VALUE && this.c != 0) {
+                    if (!ListUtils.isEmpty(a2)) {
+                        Point point2 = (Point) a2.get(a2.size() - 1);
+                        paint.getTextBounds(String.valueOf(text), point2.x, point2.y, rect);
+                        if (rect.width() > measuredWidth - this.c) {
+                            setMeasuredDimension(getMeasuredWidth(), (int) (getMeasuredHeight() + rect.height() + getLineSpacingExtra()));
+                        }
+                    }
+                    a aVar2 = this.d;
+                    if (aVar2 != null) {
+                        aVar2.a(false);
+                    }
                 }
             }
         }
@@ -151,49 +199,5 @@ public class MultiLineEllipsizeTextView extends EMTextView {
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.d = aVar;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = StringHelper.STRING_MORE;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = StringHelper.STRING_MORE;
     }
 }

@@ -27,15 +27,17 @@ public abstract class BaseTraceFragmentCallback implements ITraceFragmentCallbac
 
     public void doOnFragmentCreated(Object obj, boolean z, Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{obj, Boolean.valueOf(z), activity}) == null) && z) {
-            TraceManager.getInstance().saveTraceInfo(activity, null, obj, "onCreated");
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{obj, Boolean.valueOf(z), activity}) != null) || !z) {
+            return;
         }
+        TraceManager.getInstance().saveTraceInfo(activity, null, obj, "onCreated");
     }
 
     public void doOnFragmentResumed(Object obj, boolean z, Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{obj, Boolean.valueOf(z), activity}) == null) && z) {
-            TraceManager.getInstance().saveTraceInfo(activity, null, obj, "onResumed");
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{obj, Boolean.valueOf(z), activity}) != null) || !z) {
+            return;
         }
+        TraceManager.getInstance().saveTraceInfo(activity, null, obj, "onResumed");
     }
 }

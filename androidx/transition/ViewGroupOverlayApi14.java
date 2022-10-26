@@ -3,7 +3,6 @@ package androidx.transition;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,11 +38,14 @@ public class ViewGroupOverlayApi14 extends ViewOverlayApi14 implements ViewGroup
     public static ViewGroupOverlayApi14 createFrom(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) ? (ViewGroupOverlayApi14) ViewOverlayApi14.createFrom(viewGroup) : (ViewGroupOverlayApi14) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) {
+            return (ViewGroupOverlayApi14) ViewOverlayApi14.createFrom(viewGroup);
+        }
+        return (ViewGroupOverlayApi14) invokeL.objValue;
     }
 
     @Override // androidx.transition.ViewGroupOverlayImpl
-    public void add(@NonNull View view2) {
+    public void add(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             this.mOverlayViewGroup.add(view2);
@@ -51,7 +53,7 @@ public class ViewGroupOverlayApi14 extends ViewOverlayApi14 implements ViewGroup
     }
 
     @Override // androidx.transition.ViewGroupOverlayImpl
-    public void remove(@NonNull View view2) {
+    public void remove(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             this.mOverlayViewGroup.remove(view2);

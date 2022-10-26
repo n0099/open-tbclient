@@ -15,6 +15,12 @@ public abstract class MAActivity extends Activity {
     public static final String TAG = "MAActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
+    }
+
     public MAActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,16 +35,13 @@ public abstract class MAActivity extends Activity {
         }
     }
 
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
-    }
-
     public final Context getMAParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.getParent() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.getParent();
+        }
+        return (Context) invokeV.objValue;
     }
 
     public MABottomToolBar onGetBottomBar() {

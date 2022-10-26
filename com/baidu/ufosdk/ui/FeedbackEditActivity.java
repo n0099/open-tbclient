@@ -1,6 +1,5 @@
 package com.baidu.ufosdk.ui;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -78,7 +77,6 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes6.dex */
 public class FeedbackEditActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +84,6 @@ public class FeedbackEditActivity extends Activity {
     public int A;
     public int B;
     public IFeedbackMethodCallback C;
-    @SuppressLint({"HandlerLeak"})
     public Handler D;
     public ScrollView E;
     public String F;
@@ -123,8 +120,8 @@ public class FeedbackEditActivity extends Activity {
     public TextView p;
     public TextView q;
     public LinearLayout r;
-    public List<byte[]> s;
-    public HashMap<String, String> t;
+    public List s;
+    public HashMap t;
     public Boolean u;
     public String v;
     public View w;
@@ -132,542 +129,7 @@ public class FeedbackEditActivity extends Activity {
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FeedbackEditActivity a;
-
-        public a(FeedbackEditActivity feedbackEditActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {feedbackEditActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = feedbackEditActivity;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.K.a();
-                if (TextUtils.isEmpty(this.a.K.b)) {
-                    this.a.D.obtainMessage(4, null).sendToTarget();
-                } else {
-                    this.a.D.obtainMessage(1, null).sendToTarget();
-                }
-                Context applicationContext = this.a.getApplicationContext();
-                String str = this.a.K.a;
-                String g = com.baidu.ufosdk.b.g(applicationContext);
-                if (g != null) {
-                    this.a.D.obtainMessage(0, g).sendToTarget();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FeedbackEditActivity a;
-
-        public b(FeedbackEditActivity feedbackEditActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {feedbackEditActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = feedbackEditActivity;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context applicationContext = this.a.getApplicationContext();
-                String str = this.a.K.a;
-                String g = com.baidu.ufosdk.b.g(applicationContext);
-                if (g != null) {
-                    this.a.D.obtainMessage(0, g).sendToTarget();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FeedbackEditActivity a;
-
-        public c(FeedbackEditActivity feedbackEditActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {feedbackEditActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = feedbackEditActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                FeedbackEditActivity feedbackEditActivity = this.a;
-                if (feedbackEditActivity.x) {
-                    return;
-                }
-                feedbackEditActivity.s.remove(((Integer) view2.getTag()).intValue());
-                if (this.a.s.size() == 1) {
-                    byte[] a = p1.a(this.a.getApplicationContext(), this.a.d);
-                    if (a == null) {
-                        return;
-                    }
-                    this.a.s.set(0, a);
-                }
-                this.a.b();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FeedbackEditActivity a;
-
-        public d(FeedbackEditActivity feedbackEditActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {feedbackEditActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = feedbackEditActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                FeedbackEditActivity feedbackEditActivity = this.a;
-                if (feedbackEditActivity.x) {
-                    return;
-                }
-                feedbackEditActivity.A = ((Integer) view2.getTag()).intValue();
-                FeedbackEditActivity feedbackEditActivity2 = this.a;
-                byte[] bArr = feedbackEditActivity2.s.get(feedbackEditActivity2.A);
-                int i = this.a.A;
-                if (feedbackEditActivity2 != null) {
-                    Intent intent = new Intent(feedbackEditActivity2, ScreenCapEditActivity.class);
-                    intent.putExtra("shot", bArr);
-                    intent.putExtra("direct", true);
-                    feedbackEditActivity2.startActivityForResult(intent, i);
-                    return;
-                }
-                throw null;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FeedbackEditActivity a;
-
-        public e(FeedbackEditActivity feedbackEditActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {feedbackEditActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = feedbackEditActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                FeedbackEditActivity feedbackEditActivity = this.a;
-                if (feedbackEditActivity.x) {
-                    return;
-                }
-                feedbackEditActivity.A = ((Integer) view2.getTag()).intValue();
-                if (p1.a() >= 23) {
-                    FeedbackEditActivity.c(this.a);
-                } else {
-                    FeedbackEditActivity.c(this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FeedbackEditActivity a;
-
-        public f(FeedbackEditActivity feedbackEditActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {feedbackEditActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = feedbackEditActivity;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                int i = message.what;
-                if (i == 12) {
-                    this.a.x = false;
-                    FeedbackEditActivity feedbackEditActivity = this.a;
-                    if (feedbackEditActivity != null) {
-                        feedbackEditActivity.s = new ArrayList();
-                        feedbackEditActivity.b();
-                        FeedbackEditActivity feedbackEditActivity2 = this.a;
-                        if (feedbackEditActivity2.y) {
-                            feedbackEditActivity2.y = false;
-                            return;
-                        }
-                        feedbackEditActivity2.u = Boolean.FALSE;
-                        if (!TextUtils.isEmpty(feedbackEditActivity2.v) && TextUtils.isEmpty(this.a.e)) {
-                            FeedbackEditActivity feedbackEditActivity3 = this.a;
-                            feedbackEditActivity3.a.putString(feedbackEditActivity3.v, "");
-                        }
-                        if (!TextUtils.isEmpty(this.a.e)) {
-                            FeedbackEditActivity feedbackEditActivity4 = this.a;
-                            feedbackEditActivity4.a.putString(feedbackEditActivity4.e, "");
-                        }
-                        this.a.a.commit();
-                        this.a.w.setVisibility(8);
-                        this.a.finish();
-                        return;
-                    }
-                    throw null;
-                } else if (i == 13) {
-                    this.a.x = false;
-                    this.a.w.setVisibility(8);
-                    this.a.i.setTextColor(-12814593);
-                    if (this.a.C != null) {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put(TiebaStatic.LogFields.RESULT, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        this.a.C.onMessageSubmit(jSONObject.toString());
-                    }
-                    Toast.makeText(this.a, t1.a("18"), 1).show();
-                } else if (i != 14) {
-                    if (i == 15) {
-                        try {
-                            ((InputMethodManager) this.a.l.getContext().getSystemService("input_method")).showSoftInput(this.a.l, 0);
-                        } catch (Exception unused) {
-                        }
-                    } else if (i == 16) {
-                        if (this.a.getCurrentFocus() == null || this.a.getCurrentFocus().getWindowToken() == null) {
-                            return;
-                        }
-                        ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
-                    } else if (i == 17) {
-                        this.a.b();
-                    } else if (i == 19) {
-                        this.a.x = false;
-                        this.a.i.setTextColor(-12814593);
-                        this.a.w.setVisibility(8);
-                        String str = (String) message.obj;
-                        if (TextUtils.isEmpty(str)) {
-                            return;
-                        }
-                        Toast.makeText(this.a, str, 1).show();
-                    }
-                } else {
-                    this.a.x = false;
-                    FeedbackEditActivity feedbackEditActivity5 = this.a;
-                    if (feedbackEditActivity5 != null) {
-                        feedbackEditActivity5.s = new ArrayList();
-                        feedbackEditActivity5.b();
-                        FeedbackEditActivity feedbackEditActivity6 = this.a;
-                        if (feedbackEditActivity6.y) {
-                            feedbackEditActivity6.y = false;
-                            return;
-                        }
-                        feedbackEditActivity6.u = Boolean.FALSE;
-                        if (!TextUtils.isEmpty(feedbackEditActivity6.v) && TextUtils.isEmpty(this.a.e)) {
-                            FeedbackEditActivity feedbackEditActivity7 = this.a;
-                            feedbackEditActivity7.a.putString(feedbackEditActivity7.v, "");
-                        }
-                        if (!TextUtils.isEmpty(this.a.e)) {
-                            FeedbackEditActivity feedbackEditActivity8 = this.a;
-                            feedbackEditActivity8.a.putString(feedbackEditActivity8.e, "");
-                        }
-                        this.a.a.commit();
-                        this.a.w.setVisibility(8);
-                        if (this.a.C != null) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            try {
-                                jSONObject2.put(TiebaStatic.LogFields.RESULT, "success");
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
-                            }
-                            this.a.C.onMessageSubmit(jSONObject2.toString());
-                        }
-                        Toast.makeText(this.a, t1.a("35"), 0).show();
-                        this.a.finish();
-                        return;
-                    }
-                    throw null;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class g extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FeedbackEditActivity a;
-
-        public g(FeedbackEditActivity feedbackEditActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {feedbackEditActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = feedbackEditActivity;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                FeedbackEditActivity.b(this.a);
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setColor(-16776961);
-                textPaint.setUnderlineText(false);
-            }
-        }
-    }
-
-    public FeedbackEditActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = 0;
-        this.d = false;
-        this.e = "";
-        this.f = "";
-        this.u = Boolean.TRUE;
-        this.x = false;
-        this.y = false;
-        this.z = false;
-        this.A = -1;
-        this.B = -1;
-        this.D = new f(this);
-        this.G = -1;
-        this.H = "反馈建议";
-        this.I = null;
-        this.J = null;
-        this.O = true;
-        this.U = new g(this);
-    }
-
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Uri uri;
-        byte[] bArr;
-        Exception e2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
-            String str = " --*^o^*-- requestCode = " + i + "; resultCode = " + i2;
-            if (!this.z) {
-                this.z = true;
-            }
-            if (i2 == -1 && intent != null) {
-                try {
-                    uri = intent.getData();
-                } catch (Exception unused) {
-                    uri = null;
-                }
-                if (uri == null) {
-                    String stringExtra = intent.getStringExtra("shotUrl");
-                    byte[] byteArrayExtra = intent.getByteArrayExtra("shot");
-                    boolean booleanExtra = intent.getBooleanExtra("editAgain", false);
-                    if (byteArrayExtra != null && byteArrayExtra.length > 0) {
-                        this.s.set(i, byteArrayExtra);
-                        if (!booleanExtra) {
-                            this.s.add(p1.a(this, this.d));
-                        }
-                        b();
-                        return;
-                    } else if (stringExtra == null || stringExtra.length() <= 0) {
-                        return;
-                    } else {
-                        new Thread(new l0(this, stringExtra, i)).start();
-                        return;
-                    }
-                }
-                try {
-                    InputStream openInputStream = getContentResolver().openInputStream(uri);
-                    byte[] bArr2 = new byte[1024];
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    while (true) {
-                        int read = openInputStream.read(bArr2);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr2, 0, read);
-                    }
-                    bArr = byteArrayOutputStream.toByteArray();
-                    byteArrayOutputStream.close();
-                    openInputStream.close();
-                    try {
-                    } catch (Exception e3) {
-                        e2 = e3;
-                        System.out.println(e2.getMessage());
-                        if (i == this.s.size() - 1) {
-                            Intent intent2 = new Intent(this, ScreenCapEditActivity.class);
-                            intent2.putExtra("shot", bArr);
-                            intent2.putExtra("direct", false);
-                            startActivityForResult(intent2, i);
-                        }
-                        b();
-                    }
-                } catch (Exception e4) {
-                    bArr = null;
-                    e2 = e4;
-                }
-                if (bArr == null) {
-                    Toast.makeText(this, t1.a("21"), 1).show();
-                    return;
-                }
-                try {
-                    Cursor query = getContentResolver().query(uri, null, null, null, null);
-                    if (query != null) {
-                        query.moveToFirst();
-                        String string = query.getString(query.getColumnIndex("orientation"));
-                        i3 = string == null ? 0 : Integer.parseInt(string);
-                        try {
-                            query.close();
-                        } catch (Exception unused2) {
-                        }
-                    }
-                } catch (Exception unused3) {
-                }
-                i3 = 0;
-                bArr = com.baidu.ufosdk.b.a(bArr, i3);
-                if (bArr == null) {
-                    Toast.makeText(this, t1.a("21"), 1).show();
-                } else if (bArr.length > 512000) {
-                    Toast.makeText(this, t1.a("21"), 1).show();
-                } else if (bArr.length == 0) {
-                    Toast.makeText(this, "图片错误，请重新选择一张。", 1).show();
-                } else {
-                    if (p1.d(this) < 35000) {
-                        Toast.makeText(this, "内存不足，图片读取失败，请尝试清理内存稍后再试.", 1).show();
-                        System.gc();
-                        return;
-                    }
-                    if (i == this.s.size() - 1 && bArr != null && bArr.length != 0) {
-                        Intent intent22 = new Intent(this, ScreenCapEditActivity.class);
-                        intent22.putExtra("shot", bArr);
-                        intent22.putExtra("direct", false);
-                        startActivityForResult(intent22, i);
-                    }
-                    b();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Activity
-    @SuppressLint({"ObsoleteSdkInt"})
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
@@ -718,7 +180,7 @@ public class FeedbackEditActivity extends Activity {
             this.a.putBoolean("ADD_PIC_FLAG", true);
             this.a.commit();
             this.s = new ArrayList();
-            this.t = new HashMap<>();
+            this.t = new HashMap();
             this.E = new ScrollView(this);
             RelativeLayout relativeLayout = new RelativeLayout(this);
             this.g = relativeLayout;
@@ -1045,145 +507,439 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            IFeedbackMethodCallback iFeedbackMethodCallback = this.C;
-            if (iFeedbackMethodCallback != null) {
-                iFeedbackMethodCallback.onDestory();
-                FeedbackManager.getInstance(this).setFeedbackCallback(null);
-                this.C = null;
-            }
-            SpannableString spannableString = this.T;
-            if (spannableString != null) {
-                spannableString.removeSpan(this.U);
-                this.U = null;
-                this.T = null;
-            }
-            super.onDestroy();
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FeedbackEditActivity a;
 
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
-            if (i == 4) {
-                this.y = true;
-                a();
-                return true;
-            }
-            return super.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onPause();
-            String obj = this.m.getText().toString();
-            if (obj != null && obj.trim().length() > 0) {
-                this.a.putString("cryptContactData", com.baidu.ufosdk.b.b(obj));
-            } else {
-                this.a.putString("cryptContactData", "");
-            }
-            if (this.u.booleanValue()) {
-                if (!TextUtils.isEmpty(this.e)) {
-                    this.a.putString(this.e, this.l.getText().toString());
-                } else {
-                    this.a.putString(this.v, this.l.getText().toString());
-                }
-            }
-            this.a.commit();
-            if (this.c == 33013) {
-                finish();
-            }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onResume() {
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onResume();
-            p1.a((RelativeLayout) this.w, t1.a("25"));
-            this.i.setTextSize(14.0f);
-            this.u = Boolean.TRUE;
-            String str = this.v;
-            if (str == null) {
-                this.v = "newMessage";
-            } else if (str.length() == 0) {
-                this.v = "newMessage";
-            }
-            if (!TextUtils.isEmpty(this.e)) {
-                string = this.b.getString(this.e, "");
-                this.l.setText(string);
-            } else {
-                string = this.b.getString(this.v, "");
-                this.l.setText(string);
-            }
-            this.l.setSelection(string.length());
-            String string2 = this.b.getString("cryptContactData", "");
-            if (string2 != null && string2.trim().length() > 0) {
-                this.m.setText(com.baidu.ufosdk.b.a(string2));
-            } else {
-                this.m.setText("");
-            }
-            if (TextUtils.isEmpty(this.K.b)) {
-                new Thread(new a(this)).start();
-            } else {
-                new Thread(new b(this)).start();
-            }
-        }
-    }
-
-    public static void b(FeedbackEditActivity feedbackEditActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, feedbackEditActivity) == null) {
-            if (feedbackEditActivity != null) {
-                new i1(feedbackEditActivity).show();
-                return;
-            }
-            throw null;
-        }
-    }
-
-    public static void c(FeedbackEditActivity feedbackEditActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, feedbackEditActivity) == null) {
-            if (feedbackEditActivity != null) {
-                if (com.baidu.ufosdk.b.n()) {
+        public a(FeedbackEditActivity feedbackEditActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedbackEditActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                Intent intent = new Intent("android.intent.action.GET_CONTENT");
-                intent.addCategory("android.intent.category.OPENABLE");
-                intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-                if (feedbackEditActivity.A == feedbackEditActivity.s.size() - 1) {
-                    if (feedbackEditActivity.getCurrentFocus() != null && feedbackEditActivity.getCurrentFocus().getWindowToken() != null) {
-                        ((InputMethodManager) feedbackEditActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackEditActivity.getCurrentFocus().getWindowToken(), 2);
-                    }
-                    try {
-                        feedbackEditActivity.startActivityForResult(intent, feedbackEditActivity.A);
-                        try {
-                            feedbackEditActivity.overridePendingTransition(p1.a(feedbackEditActivity.getApplicationContext(), "ufo_slide_in_from_bottom"), 0);
-                            return;
-                        } catch (Exception unused) {
-                            return;
-                        }
-                    } catch (ActivityNotFoundException unused2) {
-                        Toast.makeText(feedbackEditActivity, t1.a("0"), 1).show();
+            }
+            this.a = feedbackEditActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.K.a();
+                if (TextUtils.isEmpty(this.a.K.b)) {
+                    this.a.D.obtainMessage(4, null).sendToTarget();
+                } else {
+                    this.a.D.obtainMessage(1, null).sendToTarget();
+                }
+                Context applicationContext = this.a.getApplicationContext();
+                String str = this.a.K.a;
+                String g = com.baidu.ufosdk.b.g(applicationContext);
+                if (g != null) {
+                    this.a.D.obtainMessage(0, g).sendToTarget();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FeedbackEditActivity a;
+
+        public b(FeedbackEditActivity feedbackEditActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedbackEditActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feedbackEditActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Context applicationContext = this.a.getApplicationContext();
+                String str = this.a.K.a;
+                String g = com.baidu.ufosdk.b.g(applicationContext);
+                if (g != null) {
+                    this.a.D.obtainMessage(0, g).sendToTarget();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FeedbackEditActivity a;
+
+        public c(FeedbackEditActivity feedbackEditActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedbackEditActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feedbackEditActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                FeedbackEditActivity feedbackEditActivity = this.a;
+                if (feedbackEditActivity.x) {
+                    return;
+                }
+                feedbackEditActivity.s.remove(((Integer) view2.getTag()).intValue());
+                if (this.a.s.size() == 1) {
+                    byte[] a = p1.a(this.a.getApplicationContext(), this.a.d);
+                    if (a == null) {
                         return;
                     }
+                    this.a.s.set(0, a);
                 }
+                this.a.b();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FeedbackEditActivity a;
+
+        public d(FeedbackEditActivity feedbackEditActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedbackEditActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feedbackEditActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                FeedbackEditActivity feedbackEditActivity = this.a;
+                if (feedbackEditActivity.x) {
+                    return;
+                }
+                feedbackEditActivity.A = ((Integer) view2.getTag()).intValue();
+                FeedbackEditActivity feedbackEditActivity2 = this.a;
+                byte[] bArr = (byte[]) feedbackEditActivity2.s.get(feedbackEditActivity2.A);
+                int i = this.a.A;
+                if (feedbackEditActivity2 != null) {
+                    Intent intent = new Intent(feedbackEditActivity2, ScreenCapEditActivity.class);
+                    intent.putExtra("shot", bArr);
+                    intent.putExtra("direct", true);
+                    feedbackEditActivity2.startActivityForResult(intent, i);
+                    return;
+                }
+                throw null;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FeedbackEditActivity a;
+
+        public e(FeedbackEditActivity feedbackEditActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedbackEditActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feedbackEditActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                FeedbackEditActivity feedbackEditActivity = this.a;
+                if (feedbackEditActivity.x) {
+                    return;
+                }
+                feedbackEditActivity.A = ((Integer) view2.getTag()).intValue();
+                if (p1.a() >= 23) {
+                    FeedbackEditActivity.c(this.a);
+                } else {
+                    FeedbackEditActivity.c(this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FeedbackEditActivity a;
+
+        public f(FeedbackEditActivity feedbackEditActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedbackEditActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feedbackEditActivity;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                int i = message.what;
+                if (i != 12) {
+                    if (i != 13) {
+                        if (i != 14) {
+                            if (i == 15) {
+                                try {
+                                    ((InputMethodManager) this.a.l.getContext().getSystemService("input_method")).showSoftInput(this.a.l, 0);
+                                    return;
+                                } catch (Exception unused) {
+                                    return;
+                                }
+                            } else if (i == 16) {
+                                if (this.a.getCurrentFocus() != null && this.a.getCurrentFocus().getWindowToken() != null) {
+                                    ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
+                                    return;
+                                }
+                                return;
+                            } else if (i != 17) {
+                                if (i != 19) {
+                                    return;
+                                }
+                                this.a.x = false;
+                                this.a.i.setTextColor(-12814593);
+                                this.a.w.setVisibility(8);
+                                String str = (String) message.obj;
+                                if (!TextUtils.isEmpty(str)) {
+                                    Toast.makeText(this.a, str, 1).show();
+                                    return;
+                                }
+                                return;
+                            } else {
+                                this.a.b();
+                                return;
+                            }
+                        }
+                        this.a.x = false;
+                        FeedbackEditActivity feedbackEditActivity = this.a;
+                        if (feedbackEditActivity != null) {
+                            feedbackEditActivity.s = new ArrayList();
+                            feedbackEditActivity.b();
+                            FeedbackEditActivity feedbackEditActivity2 = this.a;
+                            if (!feedbackEditActivity2.y) {
+                                feedbackEditActivity2.u = Boolean.FALSE;
+                                if (!TextUtils.isEmpty(feedbackEditActivity2.v) && TextUtils.isEmpty(this.a.e)) {
+                                    FeedbackEditActivity feedbackEditActivity3 = this.a;
+                                    feedbackEditActivity3.a.putString(feedbackEditActivity3.v, "");
+                                }
+                                if (!TextUtils.isEmpty(this.a.e)) {
+                                    FeedbackEditActivity feedbackEditActivity4 = this.a;
+                                    feedbackEditActivity4.a.putString(feedbackEditActivity4.e, "");
+                                }
+                                this.a.a.commit();
+                                this.a.w.setVisibility(8);
+                                if (this.a.C != null) {
+                                    JSONObject jSONObject = new JSONObject();
+                                    try {
+                                        jSONObject.put(TiebaStatic.LogFields.RESULT, "success");
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    this.a.C.onMessageSubmit(jSONObject.toString());
+                                }
+                                Toast.makeText(this.a, t1.a("35"), 0).show();
+                                this.a.finish();
+                                return;
+                            }
+                            feedbackEditActivity2.y = false;
+                            return;
+                        }
+                        throw null;
+                    }
+                    this.a.x = false;
+                    this.a.w.setVisibility(8);
+                    this.a.i.setTextColor(-12814593);
+                    if (this.a.C != null) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        try {
+                            jSONObject2.put(TiebaStatic.LogFields.RESULT, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                        } catch (JSONException e2) {
+                            e2.printStackTrace();
+                        }
+                        this.a.C.onMessageSubmit(jSONObject2.toString());
+                    }
+                    Toast.makeText(this.a, t1.a("18"), 1).show();
+                    return;
+                }
+                this.a.x = false;
+                FeedbackEditActivity feedbackEditActivity5 = this.a;
+                if (feedbackEditActivity5 != null) {
+                    feedbackEditActivity5.s = new ArrayList();
+                    feedbackEditActivity5.b();
+                    FeedbackEditActivity feedbackEditActivity6 = this.a;
+                    if (!feedbackEditActivity6.y) {
+                        feedbackEditActivity6.u = Boolean.FALSE;
+                        if (!TextUtils.isEmpty(feedbackEditActivity6.v) && TextUtils.isEmpty(this.a.e)) {
+                            FeedbackEditActivity feedbackEditActivity7 = this.a;
+                            feedbackEditActivity7.a.putString(feedbackEditActivity7.v, "");
+                        }
+                        if (!TextUtils.isEmpty(this.a.e)) {
+                            FeedbackEditActivity feedbackEditActivity8 = this.a;
+                            feedbackEditActivity8.a.putString(feedbackEditActivity8.e, "");
+                        }
+                        this.a.a.commit();
+                        this.a.w.setVisibility(8);
+                        this.a.finish();
+                        return;
+                    }
+                    feedbackEditActivity6.y = false;
+                    return;
+                }
+                throw null;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FeedbackEditActivity a;
+
+        public g(FeedbackEditActivity feedbackEditActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {feedbackEditActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = feedbackEditActivity;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                FeedbackEditActivity.b(this.a);
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                textPaint.setColor(-16776961);
+                textPaint.setUnderlineText(false);
+            }
+        }
+    }
+
+    public FeedbackEditActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            throw null;
         }
+        this.c = 0;
+        this.d = false;
+        this.e = "";
+        this.f = "";
+        this.u = Boolean.TRUE;
+        this.x = false;
+        this.y = false;
+        this.z = false;
+        this.A = -1;
+        this.B = -1;
+        this.D = new f(this);
+        this.G = -1;
+        this.H = "反馈建议";
+        this.I = null;
+        this.J = null;
+        this.O = true;
+        this.U = new g(this);
     }
 
     public final void a() {
@@ -1205,197 +961,9 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    public final void b() {
-        LinearLayout linearLayout;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linearLayout = this.r) == null) {
-            return;
-        }
-        linearLayout.removeAllViews();
-        for (int i = 0; i < this.s.size(); i++) {
-            RelativeLayout relativeLayout = new RelativeLayout(this);
-            if (i != this.s.size() - 1) {
-                e1 e1Var = new e1(this);
-                e1Var.setTag(Integer.valueOf(i));
-                e1Var.setBackgroundDrawable(null);
-                e1Var.setPadding(0, 0, 0, 0);
-                e1Var.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                e1Var.setMaxHeight(p1.a(getApplicationContext(), 77.0f));
-                e1Var.setMinimumHeight(p1.a(getApplicationContext(), 77.0f));
-                e1Var.setMaxWidth(p1.a(getApplicationContext(), 77.0f));
-                e1Var.setMinimumWidth(p1.a(getApplicationContext(), 77.0f));
-                relativeLayout.addView(e1Var, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f)));
-                try {
-                    if (this.s.get(i) != null) {
-                        bitmap = BitmapFactory.decodeByteArray(this.s.get(i), 0, this.s.get(i).length);
-                        if (bitmap == null) {
-                            return;
-                        }
-                    } else {
-                        bitmap = null;
-                    }
-                    if (bitmap == null || a(bitmap, p1.a(getApplicationContext(), 45.0f)) == null) {
-                        return;
-                    }
-                    e1Var.setImageBitmap(bitmap);
-                    ImageButton imageButton = new ImageButton(this);
-                    imageButton.setTag(Integer.valueOf(i));
-                    imageButton.setBackgroundDrawable(null);
-                    imageButton.setPadding(p1.a(getApplicationContext(), 2.0f), p1.a(getApplicationContext(), 0.0f), p1.a(getApplicationContext(), 0.0f), p1.a(getApplicationContext(), 2.0f));
-                    imageButton.setScaleType(ImageView.ScaleType.FIT_XY);
-                    Bitmap b2 = p1.b(getApplicationContext(), "ufo_delete_little_icon.png");
-                    if (b2 == null) {
-                        return;
-                    }
-                    imageButton.setImageBitmap(b2);
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 19.0f), p1.a(getApplicationContext(), 19.0f));
-                    layoutParams.addRule(11);
-                    layoutParams.addRule(10);
-                    layoutParams.setMargins(0, 0, 0, 0);
-                    relativeLayout.addView(imageButton, layoutParams);
-                    imageButton.setOnClickListener(new c(this));
-                    e1Var.setOnClickListener(new d(this));
-                } catch (OutOfMemoryError unused) {
-                    System.gc();
-                    return;
-                }
-            } else {
-                ImageView imageView = new ImageView(this);
-                imageView.setTag(Integer.valueOf(i));
-                imageView.setBackgroundDrawable(null);
-                imageView.setPadding(0, 0, 0, 0);
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                imageView.setMaxHeight(p1.a(getApplicationContext(), 77.0f));
-                imageView.setMinimumHeight(p1.a(getApplicationContext(), 77.0f));
-                imageView.setMaxWidth(p1.a(getApplicationContext(), 77.0f));
-                imageView.setMinimumWidth(p1.a(getApplicationContext(), 77.0f));
-                relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f)));
-                try {
-                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray(this.s.get(i), 0, this.s.get(i).length);
-                    if (decodeByteArray == null || a(decodeByteArray, p1.a(getApplicationContext(), 45.0f)) == null) {
-                        return;
-                    }
-                    imageView.setImageBitmap(decodeByteArray);
-                    imageView.setOnClickListener(new e(this));
-                } catch (OutOfMemoryError unused2) {
-                    System.gc();
-                    return;
-                }
-            }
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f));
-            layoutParams2.setMargins(p1.a(getApplicationContext(), 7.0f), 0, 0, 0);
-            layoutParams2.gravity = 80;
-            this.r.addView(relativeLayout, layoutParams2);
-        }
-    }
-
-    public boolean a(Context context, String str, String str2, String str3, String str4, String str5, Handler handler) {
-        InterceptResult invokeCommon;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, str3, str4, str5, handler})) == null) {
-            String str6 = s1.f;
-            String str7 = "url is " + str6;
-            HashMap hashMap = new HashMap();
-            hashMap.put("clientid", str);
-            hashMap.put("appid", this.K.b);
-            hashMap.put("devid", this.K.c);
-            hashMap.put("id", str2);
-            StringBuilder sb = new StringBuilder();
-            if (this.L) {
-                sb.append("问题类型: ");
-                sb.append(this.S.getText());
-                sb.append("  问题描述: ");
-            }
-            sb.append(str3);
-            hashMap.put("content", sb.toString());
-            if (p1.a(str4)) {
-                c2 = 1;
-            } else if (p1.b(str4)) {
-                c2 = 2;
-            } else {
-                c2 = p1.c(str4) ? (char) 3 : (char) 0;
-            }
-            String str8 = "contactWay is " + str4;
-            if (c2 == 0) {
-                hashMap.put("contact_way", str4);
-            } else if (c2 == 1) {
-                hashMap.put("email", str4);
-            } else if (c2 == 2) {
-                hashMap.put("tel", str4);
-            } else if (c2 == 3) {
-                hashMap.put(LoginConstants.QQ_LOGIN, str4);
-            } else {
-                hashMap.put("contact_way", str4);
-            }
-            hashMap.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, "");
-            hashMap.put("model", "");
-            hashMap.put("sdkvn", "4.1.9.1");
-            hashMap.put("os", com.baidu.ufosdk.b.e(context));
-            hashMap.put("appvn", com.baidu.ufosdk.c.b());
-            hashMap.put("baiducuid", com.baidu.ufosdk.b.f());
-            hashMap.put("uid", com.baidu.ufosdk.b.c());
-            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.c());
-            hashMap.put("username", com.baidu.ufosdk.b.b());
-            hashMap.put("osvn", "");
-            hashMap.put("extend_feedback_channel", com.baidu.ufosdk.b.h());
-            hashMap.put("extra", com.baidu.ufosdk.b.g());
-            if (!TextUtils.isEmpty(this.e)) {
-                hashMap.put("faq_id", this.e);
-            }
-            hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));
-            hashMap.put(FpsTracer.UBC_KEY_NET_TYPE, p1.b(context));
-            hashMap.put("screenSize", com.baidu.ufosdk.b.h(context));
-            hashMap.put("ip_location", com.baidu.ufosdk.b.k());
-            String b2 = com.baidu.ufosdk.b.b(com.baidu.ufosdk.b.a(hashMap));
-            try {
-                HashMap hashMap2 = new HashMap();
-                hashMap2.put("sdk_encrypt", b2);
-                if (!TextUtils.isEmpty(str5)) {
-                    hashMap2.put(StatisticConstants.SCREENSHOT, str5);
-                }
-                String a2 = d0.a(str6, d0.a(hashMap2));
-                if (!TextUtils.isEmpty(a2)) {
-                    JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.b.a(a2));
-                    r0 = "response is -----------------> " + jSONObject.toString();
-                    int intValue = ((Integer) jSONObject.get("errno")).intValue();
-                    if (intValue == 0) {
-                        com.baidu.ufosdk.b.a(context, System.currentTimeMillis());
-                        if (str2.contains("newMessage")) {
-                            handler.obtainMessage(14, String.valueOf(jSONObject.get("id"))).sendToTarget();
-                        } else {
-                            handler.obtainMessage(12).sendToTarget();
-                        }
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("id", this.K.d + "_" + jSONObject.optString("feedback_id"));
-                        if (this.L) {
-                            jSONObject2.put("type", this.N[this.B]);
-                        } else if (this.G == 3) {
-                            jSONObject2.put("type", 1002);
-                        } else {
-                            jSONObject2.put("type", 1001);
-                        }
-                        String jSONObject3 = jSONObject2.toString();
-                        String str9 = "callback json: " + jSONObject3;
-                        com.baidu.ufosdk.b.a((Context) this, 0, true, jSONObject3);
-                    } else if (intValue == 4) {
-                        handler.obtainMessage(19, (String) jSONObject.get("errmsg")).sendToTarget();
-                    }
-                    return true;
-                }
-            } catch (Exception unused) {
-                handler.obtainMessage(13).sendToTarget();
-            }
-            this.x = false;
-            com.baidu.ufosdk.b.a((Context) this, 0, false, "");
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
     public static Bitmap a(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bitmap, i)) == null) {
             if (bitmap == null || i <= 0) {
@@ -1403,24 +971,54 @@ public class FeedbackEditActivity extends Activity {
             }
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            if (width <= i || height <= i) {
-                return bitmap;
+            if (width > i && height > i) {
+                int max = (Math.max(width, height) * i) / Math.min(width, height);
+                if (width > height) {
+                    i2 = max;
+                } else {
+                    i2 = i;
+                }
+                if (width > height) {
+                    max = i;
+                }
+                try {
+                    Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i2, max, true);
+                    Bitmap createBitmap = Bitmap.createBitmap(createScaledBitmap, (i2 - i) / 2, (max - i) / 2, i, i);
+                    createScaledBitmap.recycle();
+                    return createBitmap;
+                } catch (Exception unused) {
+                    return null;
+                }
             }
-            int max = (Math.max(width, height) * i) / Math.min(width, height);
-            int i2 = width > height ? max : i;
-            if (width > height) {
-                max = i;
-            }
-            try {
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i2, max, true);
-                Bitmap createBitmap = Bitmap.createBitmap(createScaledBitmap, (i2 - i) / 2, (max - i) / 2, i, i);
-                createScaledBitmap.recycle();
-                return createBitmap;
-            } catch (Exception unused) {
-                return null;
-            }
+            return bitmap;
         }
         return (Bitmap) invokeLI.objValue;
+    }
+
+    public static void b(FeedbackEditActivity feedbackEditActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, feedbackEditActivity) == null) {
+            if (feedbackEditActivity != null) {
+                new i1(feedbackEditActivity).show();
+                return;
+            }
+            throw null;
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
+            if (i == 4) {
+                this.y = true;
+                a();
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x004c A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -1504,5 +1102,427 @@ public class FeedbackEditActivity extends Activity {
             throw null;
         }
         return (byte[]) invokeLL.objValue;
+    }
+
+    public static void c(FeedbackEditActivity feedbackEditActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, feedbackEditActivity) == null) {
+            if (feedbackEditActivity != null) {
+                if (!com.baidu.ufosdk.b.n()) {
+                    Intent intent = new Intent("android.intent.action.GET_CONTENT");
+                    intent.addCategory("android.intent.category.OPENABLE");
+                    intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
+                    if (feedbackEditActivity.A == feedbackEditActivity.s.size() - 1) {
+                        if (feedbackEditActivity.getCurrentFocus() != null && feedbackEditActivity.getCurrentFocus().getWindowToken() != null) {
+                            ((InputMethodManager) feedbackEditActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackEditActivity.getCurrentFocus().getWindowToken(), 2);
+                        }
+                        try {
+                            feedbackEditActivity.startActivityForResult(intent, feedbackEditActivity.A);
+                            try {
+                                feedbackEditActivity.overridePendingTransition(p1.a(feedbackEditActivity.getApplicationContext(), "ufo_slide_in_from_bottom"), 0);
+                                return;
+                            } catch (Exception unused) {
+                                return;
+                            }
+                        } catch (ActivityNotFoundException unused2) {
+                            Toast.makeText(feedbackEditActivity, t1.a("0"), 1).show();
+                            return;
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            throw null;
+        }
+    }
+
+    public boolean a(Context context, String str, String str2, String str3, String str4, String str5, Handler handler) {
+        InterceptResult invokeCommon;
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, str3, str4, str5, handler})) == null) {
+            String str6 = s1.f;
+            String str7 = "url is " + str6;
+            HashMap hashMap = new HashMap();
+            hashMap.put("clientid", str);
+            hashMap.put("appid", this.K.b);
+            hashMap.put("devid", this.K.c);
+            hashMap.put("id", str2);
+            StringBuilder sb = new StringBuilder();
+            if (this.L) {
+                sb.append("问题类型: ");
+                sb.append(this.S.getText());
+                sb.append("  问题描述: ");
+            }
+            sb.append(str3);
+            hashMap.put("content", sb.toString());
+            if (p1.a(str4)) {
+                c2 = 1;
+            } else if (p1.b(str4)) {
+                c2 = 2;
+            } else if (p1.c(str4)) {
+                c2 = 3;
+            } else {
+                c2 = 0;
+            }
+            String str8 = "contactWay is " + str4;
+            if (c2 == 0) {
+                hashMap.put("contact_way", str4);
+            } else if (c2 == 1) {
+                hashMap.put("email", str4);
+            } else if (c2 == 2) {
+                hashMap.put("tel", str4);
+            } else if (c2 == 3) {
+                hashMap.put(LoginConstants.QQ_LOGIN, str4);
+            } else {
+                hashMap.put("contact_way", str4);
+            }
+            hashMap.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, "");
+            hashMap.put("model", "");
+            hashMap.put("sdkvn", "4.1.9.1");
+            hashMap.put("os", com.baidu.ufosdk.b.e(context));
+            hashMap.put("appvn", com.baidu.ufosdk.c.b());
+            hashMap.put("baiducuid", com.baidu.ufosdk.b.f());
+            hashMap.put("uid", com.baidu.ufosdk.b.c());
+            hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.c());
+            hashMap.put("username", com.baidu.ufosdk.b.b());
+            hashMap.put("osvn", "");
+            hashMap.put("extend_feedback_channel", com.baidu.ufosdk.b.h());
+            hashMap.put("extra", com.baidu.ufosdk.b.g());
+            if (!TextUtils.isEmpty(this.e)) {
+                hashMap.put("faq_id", this.e);
+            }
+            hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));
+            hashMap.put(FpsTracer.UBC_KEY_NET_TYPE, p1.b(context));
+            hashMap.put("screenSize", com.baidu.ufosdk.b.h(context));
+            hashMap.put("ip_location", com.baidu.ufosdk.b.k());
+            String b2 = com.baidu.ufosdk.b.b(com.baidu.ufosdk.b.a(hashMap));
+            try {
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("sdk_encrypt", b2);
+                if (!TextUtils.isEmpty(str5)) {
+                    hashMap2.put(StatisticConstants.SCREENSHOT, str5);
+                }
+                String a2 = d0.a(str6, d0.a(hashMap2));
+                if (!TextUtils.isEmpty(a2)) {
+                    JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.b.a(a2));
+                    r0 = "response is -----------------> " + jSONObject.toString();
+                    int intValue = ((Integer) jSONObject.get("errno")).intValue();
+                    if (intValue == 0) {
+                        com.baidu.ufosdk.b.a(context, System.currentTimeMillis());
+                        if (str2.contains("newMessage")) {
+                            handler.obtainMessage(14, String.valueOf(jSONObject.get("id"))).sendToTarget();
+                        } else {
+                            handler.obtainMessage(12).sendToTarget();
+                        }
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("id", this.K.d + "_" + jSONObject.optString("feedback_id"));
+                        if (this.L) {
+                            jSONObject2.put("type", this.N[this.B]);
+                        } else if (this.G == 3) {
+                            jSONObject2.put("type", 1002);
+                        } else {
+                            jSONObject2.put("type", 1001);
+                        }
+                        String jSONObject3 = jSONObject2.toString();
+                        String str9 = "callback json: " + jSONObject3;
+                        com.baidu.ufosdk.b.a((Context) this, 0, true, jSONObject3);
+                    } else if (intValue == 4) {
+                        handler.obtainMessage(19, (String) jSONObject.get("errmsg")).sendToTarget();
+                    }
+                    return true;
+                }
+            } catch (Exception unused) {
+                handler.obtainMessage(13).sendToTarget();
+            }
+            this.x = false;
+            com.baidu.ufosdk.b.a((Context) this, 0, false, "");
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void b() {
+        LinearLayout linearLayout;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (linearLayout = this.r) == null) {
+            return;
+        }
+        linearLayout.removeAllViews();
+        for (int i = 0; i < this.s.size(); i++) {
+            RelativeLayout relativeLayout = new RelativeLayout(this);
+            if (i != this.s.size() - 1) {
+                e1 e1Var = new e1(this);
+                e1Var.setTag(Integer.valueOf(i));
+                e1Var.setBackgroundDrawable(null);
+                e1Var.setPadding(0, 0, 0, 0);
+                e1Var.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                e1Var.setMaxHeight(p1.a(getApplicationContext(), 77.0f));
+                e1Var.setMinimumHeight(p1.a(getApplicationContext(), 77.0f));
+                e1Var.setMaxWidth(p1.a(getApplicationContext(), 77.0f));
+                e1Var.setMinimumWidth(p1.a(getApplicationContext(), 77.0f));
+                relativeLayout.addView(e1Var, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f)));
+                try {
+                    if (this.s.get(i) != null) {
+                        bitmap = BitmapFactory.decodeByteArray((byte[]) this.s.get(i), 0, ((byte[]) this.s.get(i)).length);
+                        if (bitmap == null) {
+                            return;
+                        }
+                    } else {
+                        bitmap = null;
+                    }
+                    if (bitmap != null && a(bitmap, p1.a(getApplicationContext(), 45.0f)) != null) {
+                        e1Var.setImageBitmap(bitmap);
+                        ImageButton imageButton = new ImageButton(this);
+                        imageButton.setTag(Integer.valueOf(i));
+                        imageButton.setBackgroundDrawable(null);
+                        imageButton.setPadding(p1.a(getApplicationContext(), 2.0f), p1.a(getApplicationContext(), 0.0f), p1.a(getApplicationContext(), 0.0f), p1.a(getApplicationContext(), 2.0f));
+                        imageButton.setScaleType(ImageView.ScaleType.FIT_XY);
+                        Bitmap b2 = p1.b(getApplicationContext(), "ufo_delete_little_icon.png");
+                        if (b2 == null) {
+                            return;
+                        }
+                        imageButton.setImageBitmap(b2);
+                        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 19.0f), p1.a(getApplicationContext(), 19.0f));
+                        layoutParams.addRule(11);
+                        layoutParams.addRule(10);
+                        layoutParams.setMargins(0, 0, 0, 0);
+                        relativeLayout.addView(imageButton, layoutParams);
+                        imageButton.setOnClickListener(new c(this));
+                        e1Var.setOnClickListener(new d(this));
+                    } else {
+                        return;
+                    }
+                } catch (OutOfMemoryError unused) {
+                    System.gc();
+                    return;
+                }
+            } else {
+                ImageView imageView = new ImageView(this);
+                imageView.setTag(Integer.valueOf(i));
+                imageView.setBackgroundDrawable(null);
+                imageView.setPadding(0, 0, 0, 0);
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                imageView.setMaxHeight(p1.a(getApplicationContext(), 77.0f));
+                imageView.setMinimumHeight(p1.a(getApplicationContext(), 77.0f));
+                imageView.setMaxWidth(p1.a(getApplicationContext(), 77.0f));
+                imageView.setMinimumWidth(p1.a(getApplicationContext(), 77.0f));
+                relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f)));
+                try {
+                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray((byte[]) this.s.get(i), 0, ((byte[]) this.s.get(i)).length);
+                    if (decodeByteArray != null && a(decodeByteArray, p1.a(getApplicationContext(), 45.0f)) != null) {
+                        imageView.setImageBitmap(decodeByteArray);
+                        imageView.setOnClickListener(new e(this));
+                    } else {
+                        return;
+                    }
+                } catch (OutOfMemoryError unused2) {
+                    System.gc();
+                    return;
+                }
+            }
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f));
+            layoutParams2.setMargins(p1.a(getApplicationContext(), 7.0f), 0, 0, 0);
+            layoutParams2.gravity = 80;
+            this.r.addView(relativeLayout, layoutParams2);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Uri uri;
+        byte[] bArr;
+        Exception e2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            String str = " --*^o^*-- requestCode = " + i + "; resultCode = " + i2;
+            if (!this.z) {
+                this.z = true;
+            }
+            if (i2 != -1 || intent == null) {
+                return;
+            }
+            try {
+                uri = intent.getData();
+            } catch (Exception unused) {
+                uri = null;
+            }
+            if (uri == null) {
+                String stringExtra = intent.getStringExtra("shotUrl");
+                byte[] byteArrayExtra = intent.getByteArrayExtra("shot");
+                boolean booleanExtra = intent.getBooleanExtra("editAgain", false);
+                if (byteArrayExtra != null && byteArrayExtra.length > 0) {
+                    this.s.set(i, byteArrayExtra);
+                    if (!booleanExtra) {
+                        this.s.add(p1.a(this, this.d));
+                    }
+                    b();
+                    return;
+                } else if (stringExtra != null && stringExtra.length() > 0) {
+                    new Thread(new l0(this, stringExtra, i)).start();
+                    return;
+                } else {
+                    return;
+                }
+            }
+            try {
+                InputStream openInputStream = getContentResolver().openInputStream(uri);
+                byte[] bArr2 = new byte[1024];
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                while (true) {
+                    int read = openInputStream.read(bArr2);
+                    if (read == -1) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr2, 0, read);
+                }
+                bArr = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                openInputStream.close();
+                try {
+                } catch (Exception e3) {
+                    e2 = e3;
+                    System.out.println(e2.getMessage());
+                    if (i == this.s.size() - 1) {
+                        Intent intent2 = new Intent(this, ScreenCapEditActivity.class);
+                        intent2.putExtra("shot", bArr);
+                        intent2.putExtra("direct", false);
+                        startActivityForResult(intent2, i);
+                    }
+                    b();
+                }
+            } catch (Exception e4) {
+                bArr = null;
+                e2 = e4;
+            }
+            if (bArr == null) {
+                Toast.makeText(this, t1.a("21"), 1).show();
+                return;
+            }
+            try {
+                Cursor query = getContentResolver().query(uri, null, null, null, null);
+                if (query != null) {
+                    query.moveToFirst();
+                    String string = query.getString(query.getColumnIndex("orientation"));
+                    if (string == null) {
+                        i3 = 0;
+                    } else {
+                        i3 = Integer.parseInt(string);
+                    }
+                    try {
+                        query.close();
+                    } catch (Exception unused2) {
+                    }
+                }
+            } catch (Exception unused3) {
+            }
+            i3 = 0;
+            bArr = com.baidu.ufosdk.b.a(bArr, i3);
+            if (bArr == null) {
+                Toast.makeText(this, t1.a("21"), 1).show();
+            } else if (bArr.length > 512000) {
+                Toast.makeText(this, t1.a("21"), 1).show();
+            } else if (bArr.length == 0) {
+                Toast.makeText(this, "图片错误，请重新选择一张。", 1).show();
+            } else {
+                if (p1.d(this) < 35000) {
+                    Toast.makeText(this, "内存不足，图片读取失败，请尝试清理内存稍后再试.", 1).show();
+                    System.gc();
+                    return;
+                }
+                if (i == this.s.size() - 1 && bArr != null && bArr.length != 0) {
+                    Intent intent22 = new Intent(this, ScreenCapEditActivity.class);
+                    intent22.putExtra("shot", bArr);
+                    intent22.putExtra("direct", false);
+                    startActivityForResult(intent22, i);
+                }
+                b();
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            IFeedbackMethodCallback iFeedbackMethodCallback = this.C;
+            if (iFeedbackMethodCallback != null) {
+                iFeedbackMethodCallback.onDestory();
+                FeedbackManager.getInstance(this).setFeedbackCallback(null);
+                this.C = null;
+            }
+            SpannableString spannableString = this.T;
+            if (spannableString != null) {
+                spannableString.removeSpan(this.U);
+                this.U = null;
+                this.T = null;
+            }
+            super.onDestroy();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onPause();
+            String obj = this.m.getText().toString();
+            if (obj != null && obj.trim().length() > 0) {
+                this.a.putString("cryptContactData", com.baidu.ufosdk.b.b(obj));
+            } else {
+                this.a.putString("cryptContactData", "");
+            }
+            if (this.u.booleanValue()) {
+                if (!TextUtils.isEmpty(this.e)) {
+                    this.a.putString(this.e, this.l.getText().toString());
+                } else {
+                    this.a.putString(this.v, this.l.getText().toString());
+                }
+            }
+            this.a.commit();
+            if (this.c == 33013) {
+                finish();
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onResume();
+            p1.a((RelativeLayout) this.w, t1.a("25"));
+            this.i.setTextSize(14.0f);
+            this.u = Boolean.TRUE;
+            String str = this.v;
+            if (str == null) {
+                this.v = "newMessage";
+            } else if (str.length() == 0) {
+                this.v = "newMessage";
+            }
+            if (!TextUtils.isEmpty(this.e)) {
+                string = this.b.getString(this.e, "");
+                this.l.setText(string);
+            } else {
+                string = this.b.getString(this.v, "");
+                this.l.setText(string);
+            }
+            this.l.setSelection(string.length());
+            String string2 = this.b.getString("cryptContactData", "");
+            if (string2 != null && string2.trim().length() > 0) {
+                this.m.setText(com.baidu.ufosdk.b.a(string2));
+            } else {
+                this.m.setText("");
+            }
+            if (TextUtils.isEmpty(this.K.b)) {
+                new Thread(new a(this)).start();
+            } else {
+                new Thread(new b(this)).start();
+            }
+        }
     }
 }

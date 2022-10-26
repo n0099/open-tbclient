@@ -15,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class RLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEADER = "MidPay:";
-    public static CopyOnWriteArrayList<IRLogDelegate> logDelegates;
+    public static CopyOnWriteArrayList logDelegates;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class RLog {
                 return;
             }
         }
-        logDelegates = new CopyOnWriteArrayList<>();
+        logDelegates = new CopyOnWriteArrayList();
     }
 
     public RLog() {
@@ -50,19 +50,109 @@ public class RLog {
 
     public static void addLogDelegate(IRLogDelegate iRLogDelegate) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, iRLogDelegate) == null) || logDelegates.contains(iRLogDelegate)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65538, null, iRLogDelegate) == null) && !logDelegates.contains(iRLogDelegate)) {
+            logDelegates.add(iRLogDelegate);
         }
-        logDelegates.add(iRLogDelegate);
+    }
+
+    public static String tagWithHeader(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) {
+            return HEADER + obj;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void debug(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, obj, str) == null) {
+            if (!logDelegates.isEmpty()) {
+                Iterator it = logDelegates.iterator();
+                while (it.hasNext()) {
+                    ((IRLogDelegate) it.next()).debug(tagWithHeader(obj), str);
+                }
+                return;
+            }
+            Log.d(tagWithHeader(obj), str);
+        }
+    }
+
+    public static void info(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, obj, str) == null) {
+            if (!logDelegates.isEmpty()) {
+                Iterator it = logDelegates.iterator();
+                while (it.hasNext()) {
+                    ((IRLogDelegate) it.next()).info(tagWithHeader(obj), str);
+                }
+            } else {
+                Log.i(tagWithHeader(obj), str);
+            }
+            try {
+                CloudLogUtil.addLogContent(tagWithHeader(obj), str);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static void verbose(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, obj, str) == null) {
+            if (!logDelegates.isEmpty()) {
+                Iterator it = logDelegates.iterator();
+                while (it.hasNext()) {
+                    ((IRLogDelegate) it.next()).verbose(tagWithHeader(obj), str);
+                }
+            } else {
+                Log.v(tagWithHeader(obj), str);
+            }
+            try {
+                CloudLogUtil.addLogContent(tagWithHeader(obj), str);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static void warn(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, obj, str) == null) {
+            if (!logDelegates.isEmpty()) {
+                Iterator it = logDelegates.iterator();
+                while (it.hasNext()) {
+                    ((IRLogDelegate) it.next()).warn(tagWithHeader(obj), str);
+                }
+            } else {
+                Log.w(tagWithHeader(obj), str);
+            }
+            try {
+                CloudLogUtil.addLogContent(tagWithHeader(obj), str);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static void debug(Object obj, String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, th) == null) {
+            if (!logDelegates.isEmpty()) {
+                Iterator it = logDelegates.iterator();
+                while (it.hasNext()) {
+                    ((IRLogDelegate) it.next()).debug(tagWithHeader(obj), str, th);
+                }
+                return;
+            }
+            Log.d(tagWithHeader(obj), str, th);
+        }
     }
 
     public static void debug(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
+                Iterator it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    it.next().debug(tagWithHeader(obj), str, objArr);
+                    ((IRLogDelegate) it.next()).debug(tagWithHeader(obj), str, objArr);
                 }
                 return;
             }
@@ -73,23 +163,21 @@ public class RLog {
         }
     }
 
-    public static void error(Object obj, String str, Object... objArr) {
+    public static void error(Object obj, String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, obj, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, obj, str, th) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
+                Iterator it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    it.next().error(tagWithHeader(obj), str, objArr);
+                    ((IRLogDelegate) it.next()).error(tagWithHeader(obj), str, th);
                 }
             } else {
-                try {
-                    Log.e(tagWithHeader(obj), String.format(str, objArr));
-                } catch (Exception unused) {
-                }
+                Log.e(tagWithHeader(obj), str, th);
             }
             try {
-                CloudLogUtil.addLogContent(tagWithHeader(obj), String.format(str, objArr));
-            } catch (Exception unused2) {
+                String tagWithHeader = tagWithHeader(obj);
+                CloudLogUtil.addLogContent(tagWithHeader, str + ":" + th.getLocalizedMessage());
+            } catch (Exception unused) {
             }
         }
     }
@@ -98,9 +186,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
+                Iterator it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    it.next().info(tagWithHeader(obj), str, objArr);
+                    ((IRLogDelegate) it.next()).info(tagWithHeader(obj), str, objArr);
                 }
             } else {
                 try {
@@ -115,22 +203,13 @@ public class RLog {
         }
     }
 
-    public static String tagWithHeader(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) {
-            return HEADER + obj;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static void verbose(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
+                Iterator it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    it.next().verbose(tagWithHeader(obj), str, objArr);
+                    ((IRLogDelegate) it.next()).verbose(tagWithHeader(obj), str, objArr);
                 }
             } else {
                 try {
@@ -149,9 +228,9 @@ public class RLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65550, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
+                Iterator it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    it.next().warn(tagWithHeader(obj), str, objArr);
+                    ((IRLogDelegate) it.next()).warn(tagWithHeader(obj), str, objArr);
                 }
             } else {
                 try {
@@ -166,104 +245,24 @@ public class RLog {
         }
     }
 
-    public static void debug(Object obj, String str) {
+    public static void error(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, obj, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65543, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
+                Iterator it = logDelegates.iterator();
                 while (it.hasNext()) {
-                    it.next().debug(tagWithHeader(obj), str);
-                }
-                return;
-            }
-            Log.d(tagWithHeader(obj), str);
-        }
-    }
-
-    public static void error(Object obj, String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, obj, str, th) == null) {
-            if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
-                while (it.hasNext()) {
-                    it.next().error(tagWithHeader(obj), str, th);
+                    ((IRLogDelegate) it.next()).error(tagWithHeader(obj), str, objArr);
                 }
             } else {
-                Log.e(tagWithHeader(obj), str, th);
+                try {
+                    Log.e(tagWithHeader(obj), String.format(str, objArr));
+                } catch (Exception unused) {
+                }
             }
             try {
-                String tagWithHeader = tagWithHeader(obj);
-                CloudLogUtil.addLogContent(tagWithHeader, str + ":" + th.getLocalizedMessage());
-            } catch (Exception unused) {
+                CloudLogUtil.addLogContent(tagWithHeader(obj), String.format(str, objArr));
+            } catch (Exception unused2) {
             }
-        }
-    }
-
-    public static void info(Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, obj, str) == null) {
-            if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
-                while (it.hasNext()) {
-                    it.next().info(tagWithHeader(obj), str);
-                }
-            } else {
-                Log.i(tagWithHeader(obj), str);
-            }
-            try {
-                CloudLogUtil.addLogContent(tagWithHeader(obj), str);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void verbose(Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, obj, str) == null) {
-            if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
-                while (it.hasNext()) {
-                    it.next().verbose(tagWithHeader(obj), str);
-                }
-            } else {
-                Log.v(tagWithHeader(obj), str);
-            }
-            try {
-                CloudLogUtil.addLogContent(tagWithHeader(obj), str);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void warn(Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, obj, str) == null) {
-            if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
-                while (it.hasNext()) {
-                    it.next().warn(tagWithHeader(obj), str);
-                }
-            } else {
-                Log.w(tagWithHeader(obj), str);
-            }
-            try {
-                CloudLogUtil.addLogContent(tagWithHeader(obj), str);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void debug(Object obj, String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, th) == null) {
-            if (!logDelegates.isEmpty()) {
-                Iterator<IRLogDelegate> it = logDelegates.iterator();
-                while (it.hasNext()) {
-                    it.next().debug(tagWithHeader(obj), str, th);
-                }
-                return;
-            }
-            Log.d(tagWithHeader(obj), str, th);
         }
     }
 }

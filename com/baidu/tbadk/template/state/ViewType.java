@@ -61,12 +61,18 @@ public final class ViewType {
     public static ViewType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ViewType) Enum.valueOf(ViewType.class, str) : (ViewType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ViewType) Enum.valueOf(ViewType.class, str);
+        }
+        return (ViewType) invokeL.objValue;
     }
 
     public static ViewType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ViewType[]) $VALUES.clone() : (ViewType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ViewType[]) $VALUES.clone();
+        }
+        return (ViewType[]) invokeV.objValue;
     }
 }

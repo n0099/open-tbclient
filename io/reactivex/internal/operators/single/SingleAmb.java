@@ -15,21 +15,21 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class SingleAmb<T> extends Single<T> {
+public final class SingleAmb extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<? extends T>[] sources;
-    public final Iterable<? extends SingleSource<? extends T>> sourcesIterable;
+    public final SingleSource[] sources;
+    public final Iterable sourcesIterable;
 
     /* loaded from: classes8.dex */
-    public static final class AmbSingleObserver<T> extends AtomicBoolean implements SingleObserver<T> {
+    public final class AmbSingleObserver extends AtomicBoolean implements SingleObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1944085461036028108L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> s;
+        public final SingleObserver s;
         public final CompositeDisposable set;
 
-        public AmbSingleObserver(SingleObserver<? super T> singleObserver, CompositeDisposable compositeDisposable) {
+        public AmbSingleObserver(SingleObserver singleObserver, CompositeDisposable compositeDisposable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,16 +70,16 @@ public final class SingleAmb<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) && compareAndSet(false, true)) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && compareAndSet(false, true)) {
                 this.set.dispose();
-                this.s.onSuccess(t);
+                this.s.onSuccess(obj);
             }
         }
     }
 
-    public SingleAmb(SingleSource<? extends T>[] singleSourceArr, Iterable<? extends SingleSource<? extends T>> iterable) {
+    public SingleAmb(SingleSource[] singleSourceArr, Iterable iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,22 +99,22 @@ public final class SingleAmb<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
-            SingleSource<? extends T>[] singleSourceArr = this.sources;
+            SingleSource[] singleSourceArr = this.sources;
             if (singleSourceArr == null) {
                 singleSourceArr = new SingleSource[8];
                 try {
                     length = 0;
-                    for (SingleSource<? extends T> singleSource : this.sourcesIterable) {
+                    for (SingleSource singleSource : this.sourcesIterable) {
                         if (singleSource == null) {
                             EmptyDisposable.error(new NullPointerException("One of the sources is null"), singleObserver);
                             return;
                         }
                         if (length == singleSourceArr.length) {
-                            SingleSource<? extends T>[] singleSourceArr2 = new SingleSource[(length >> 2) + length];
+                            SingleSource[] singleSourceArr2 = new SingleSource[(length >> 2) + length];
                             System.arraycopy(singleSourceArr, 0, singleSourceArr2, 0, length);
                             singleSourceArr = singleSourceArr2;
                         }
@@ -134,13 +134,13 @@ public final class SingleAmb<T> extends Single<T> {
             AmbSingleObserver ambSingleObserver = new AmbSingleObserver(singleObserver, compositeDisposable);
             singleObserver.onSubscribe(compositeDisposable);
             for (int i2 = 0; i2 < length; i2++) {
-                SingleSource<? extends T> singleSource2 = singleSourceArr[i2];
+                SingleSource singleSource2 = singleSourceArr[i2];
                 if (ambSingleObserver.get()) {
                     return;
                 }
                 if (singleSource2 == null) {
                     compositeDisposable.dispose();
-                    NullPointerException nullPointerException = new NullPointerException("One of the sources is null");
+                    Throwable nullPointerException = new NullPointerException("One of the sources is null");
                     if (ambSingleObserver.compareAndSet(false, true)) {
                         singleObserver.onError(nullPointerException);
                         return;

@@ -41,10 +41,9 @@ public class ChosenPbZanHttpResponse extends HttpResponsedMessage {
         ExcZanResIdl excZanResIdl;
         Error error;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (excZanResIdl = (ExcZanResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcZanResIdl.class)) == null || (error = excZanResIdl.error) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (excZanResIdl = (ExcZanResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcZanResIdl.class)) != null && (error = excZanResIdl.error) != null) {
+            setError(error.errorno.intValue());
+            setErrorString(excZanResIdl.error.usermsg);
         }
-        setError(error.errorno.intValue());
-        setErrorString(excZanResIdl.error.usermsg);
     }
 }

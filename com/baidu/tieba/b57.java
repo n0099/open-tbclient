@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkModule;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TopicDetail;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
     public String b;
-    public String c;
-    public String d;
-    public q57 e;
-    public f57 f;
 
     public b57() {
         Interceptable interceptable = $ic;
@@ -33,37 +27,18 @@ public class b57 {
         }
     }
 
-    public void a(TopicDetail topicDetail) {
+    public static b57 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicDetail) == null) || topicDetail == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            b57 b57Var = new b57();
+            b57Var.a = jSONObject.optString("content");
+            b57Var.b = jSONObject.optString("tid");
+            return b57Var;
         }
-        this.a = topicDetail.topic_id.longValue();
-        this.b = topicDetail.topic_desc;
-        topicDetail.discuss_num.longValue();
-        this.c = topicDetail.topic_image;
-        this.d = topicDetail.bg_image;
-    }
-
-    public void b(PkModule pkModule) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
-            return;
-        }
-        q57 q57Var = new q57();
-        this.e = q57Var;
-        q57Var.a = this.a;
-        q57Var.f = 2;
-        q57Var.a(pkModule);
-    }
-
-    public void c(TimeLine timeLine) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) == null) || timeLine == null) {
-            return;
-        }
-        f57 f57Var = new f57();
-        this.f = f57Var;
-        f57Var.a(this.a, timeLine);
+        return (b57) invokeL.objValue;
     }
 }

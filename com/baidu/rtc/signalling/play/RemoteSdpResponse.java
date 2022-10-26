@@ -1,7 +1,6 @@
 package com.baidu.rtc.signalling.play;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,6 +38,78 @@ public class RemoteSdpResponse {
         }
     }
 
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.appId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.feed;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRemoteHandleId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.remoteHandleId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRoomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.roomId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRoomName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.roomName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSdp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sdp;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSessionId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.sessionId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUserId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.userId;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static RemoteSdpResponse newFromJsonStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -54,60 +125,12 @@ public class RemoteSdpResponse {
                 remoteSdpResponse.roomId = jSONObject2.optString("room");
                 remoteSdpResponse.roomName = jSONObject2.optString("roomname");
                 remoteSdpResponse.userId = jSONObject2.optString("id");
-                remoteSdpResponse.feed = jSONObject2.optString(ExternalTransferSpeedStats.FEED_PAGE);
+                remoteSdpResponse.feed = jSONObject2.optString("feed");
             } catch (JSONException e) {
                 Logging.e("RemoteSdpRequest", "Caught error while play response parse" + e.getMessage());
             }
             return remoteSdpResponse;
         }
         return (RemoteSdpResponse) invokeL.objValue;
-    }
-
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.appId : (String) invokeV.objValue;
-    }
-
-    public String getFeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.feed : (String) invokeV.objValue;
-    }
-
-    public String getRemoteHandleId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.remoteHandleId : (String) invokeV.objValue;
-    }
-
-    public String getRoomId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.roomId : (String) invokeV.objValue;
-    }
-
-    public String getRoomName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.roomName : (String) invokeV.objValue;
-    }
-
-    public String getSdp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sdp : (String) invokeV.objValue;
-    }
-
-    public String getSessionId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.sessionId : (String) invokeV.objValue;
-    }
-
-    public String getUserId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.userId : (String) invokeV.objValue;
     }
 }

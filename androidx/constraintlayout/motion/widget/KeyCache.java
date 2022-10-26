@@ -34,18 +34,18 @@ public class KeyCache {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, obj, str, i)) == null) {
-            if (this.map.containsKey(obj)) {
-                HashMap<String, float[]> hashMap = this.map.get(obj);
-                if (hashMap.containsKey(str)) {
-                    float[] fArr = hashMap.get(str);
-                    if (fArr.length > i) {
-                        return fArr[i];
-                    }
-                    return Float.NaN;
-                }
+            if (!this.map.containsKey(obj)) {
                 return Float.NaN;
             }
-            return Float.NaN;
+            HashMap<String, float[]> hashMap = this.map.get(obj);
+            if (!hashMap.containsKey(str)) {
+                return Float.NaN;
+            }
+            float[] fArr = hashMap.get(str);
+            if (fArr.length <= i) {
+                return Float.NaN;
+            }
+            return fArr[i];
         }
         return invokeLLI.floatValue;
     }

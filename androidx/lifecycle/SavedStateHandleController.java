@@ -1,7 +1,6 @@
 package androidx.lifecycle;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryOwner;
@@ -40,7 +39,7 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
         }
 
         @Override // androidx.savedstate.SavedStateRegistry.AutoRecreated
-        public void onRecreated(@NonNull SavedStateRegistryOwner savedStateRegistryOwner) {
+        public void onRecreated(SavedStateRegistryOwner savedStateRegistryOwner) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, savedStateRegistryOwner) == null) {
                 if (savedStateRegistryOwner instanceof ViewModelStoreOwner) {
@@ -49,10 +48,10 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
                     for (String str : viewModelStore.keys()) {
                         SavedStateHandleController.attachHandleIfNeeded(viewModelStore.get(str), savedStateRegistry, savedStateRegistryOwner.getLifecycle());
                     }
-                    if (viewModelStore.keys().isEmpty()) {
+                    if (!viewModelStore.keys().isEmpty()) {
+                        savedStateRegistry.runOnNextRecreation(OnRecreation.class);
                         return;
                     }
-                    savedStateRegistry.runOnNextRecreation(OnRecreation.class);
                     return;
                 }
                 throw new IllegalStateException("Internal error: OnRecreation should be registered only on componentsthat implement ViewModelStoreOwner");
@@ -83,11 +82,10 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
     public static void attachHandleIfNeeded(ViewModel viewModel, SavedStateRegistry savedStateRegistry, Lifecycle lifecycle) {
         SavedStateHandleController savedStateHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, viewModel, savedStateRegistry, lifecycle) == null) || (savedStateHandleController = (SavedStateHandleController) viewModel.getTag("androidx.lifecycle.savedstate.vm.tag")) == null || savedStateHandleController.isAttached()) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, viewModel, savedStateRegistry, lifecycle) == null) && (savedStateHandleController = (SavedStateHandleController) viewModel.getTag("androidx.lifecycle.savedstate.vm.tag")) != null && !savedStateHandleController.isAttached()) {
+            savedStateHandleController.attachToLifecycle(savedStateRegistry, lifecycle);
+            tryToAddRecreator(savedStateRegistry, lifecycle);
         }
-        savedStateHandleController.attachToLifecycle(savedStateRegistry, lifecycle);
-        tryToAddRecreator(savedStateRegistry, lifecycle);
     }
 
     public static SavedStateHandleController create(SavedStateRegistry savedStateRegistry, Lifecycle lifecycle, String str, Bundle bundle) {
@@ -133,7 +131,7 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
                     }
 
                     @Override // androidx.lifecycle.LifecycleEventObserver
-                    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
+                    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_START) {
                             this.val$lifecycle.removeObserver(this);
@@ -160,24 +158,30 @@ public final class SavedStateHandleController implements LifecycleEventObserver 
         }
     }
 
-    public SavedStateHandle getHandle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHandle : (SavedStateHandle) invokeV.objValue;
-    }
-
-    public boolean isAttached() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsAttached : invokeV.booleanValue;
-    }
-
     @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
+    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_DESTROY) {
             this.mIsAttached = false;
             lifecycleOwner.getLifecycle().removeObserver(this);
         }
+    }
+
+    public SavedStateHandle getHandle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mHandle;
+        }
+        return (SavedStateHandle) invokeV.objValue;
+    }
+
+    public boolean isAttached() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIsAttached;
+        }
+        return invokeV.booleanValue;
     }
 }

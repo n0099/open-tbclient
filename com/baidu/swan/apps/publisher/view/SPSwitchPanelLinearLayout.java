@@ -5,12 +5,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e13;
-import com.baidu.tieba.n13;
+import com.baidu.tieba.f13;
 import com.baidu.tieba.o13;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.p13;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class SPSwitchPanelLinearLayout extends LinearLayout implements n13, o13 {
+public class SPSwitchPanelLinearLayout extends LinearLayout implements o13, p13 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public e13 a;
+    public f13 a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +37,30 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements n13, o13 
                 return;
             }
         }
-        b = vj1.a;
+        b = wj1.a;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new f13(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.o13
+    public void handleHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.handleHide();
+        }
+    }
+
+    @Override // com.baidu.tieba.o13
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.setVisibility(0);
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -62,71 +84,8 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements n13, o13 
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new e13(this);
-        }
-    }
-
-    @Override // com.baidu.tieba.n13
-    public void handleHide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.handleHide();
-        }
-    }
-
-    @Override // com.baidu.tieba.n13
-    public void handleShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.setVisibility(0);
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (b) {
-                Log.d("SPSwitchPanel", "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
-            }
-            int[] c = this.a.c(i, i2);
-            if (b) {
-                Log.d("SPSwitchPanel", "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(c[1]));
-            }
-            super.onMeasure(c[0], c[1]);
-        }
-    }
-
-    @Override // com.baidu.tieba.o13
-    public void onSoftInputShowing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a.e(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.o13
-    public void refreshHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.d(i);
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.a.a(i)) {
-            return;
-        }
-        super.setVisibility(i);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public SPSwitchPanelLinearLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -146,8 +105,23 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements n13, o13 
         }
     }
 
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (b) {
+                Log.d("SPSwitchPanel", "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
+            }
+            int[] c = this.a.c(i, i2);
+            if (b) {
+                Log.d("SPSwitchPanel", "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(c[1]));
+            }
+            super.onMeasure(c[0], c[1]);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SPSwitchPanelLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -166,5 +140,30 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements n13, o13 
             }
         }
         a();
+    }
+
+    @Override // com.baidu.tieba.p13
+    public void onSoftInputShowing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a.e(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.p13
+    public void refreshHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.d(i);
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || this.a.a(i)) {
+            return;
+        }
+        super.setVisibility(i);
     }
 }

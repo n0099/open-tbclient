@@ -5,7 +5,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -30,13 +29,6 @@ import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.FrameLayout;
-import androidx.annotation.IdRes;
-import androidx.annotation.IntRange;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.AccessibilityDelegateCompat;
@@ -46,7 +38,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,13 +45,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.behavior.SwipeDismissBehavior;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialResources;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.SnackbarManager;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.lang.annotation.Retention;
@@ -68,7 +59,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>> {
+public abstract class BaseTransientBottomBar {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_DURATION = 250;
     public static final int ANIMATION_FADE_DURATION = 180;
@@ -85,18 +76,13 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public static final int[] SNACKBAR_STYLE_ATTR;
     public static final String TAG;
     public static final boolean USE_OFFSET_API;
-    @NonNull
     public static final Handler handler;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final AccessibilityManager accessibilityManager;
-    @Nullable
     public View anchorView;
     public Behavior behavior;
-    @RequiresApi(29)
     public final Runnable bottomMarginGestureInsetRunnable;
-    public List<BaseCallback<B>> callbacks;
-    @NonNull
+    public List callbacks;
     public final com.google.android.material.snackbar.ContentViewCallback contentViewCallback;
     public final Context context;
     public int duration;
@@ -106,25 +92,42 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     public int extraLeftMarginWindowInset;
     public int extraRightMarginWindowInset;
     public boolean gestureInsetBottomIgnored;
-    @NonNull
     public SnackbarManager.Callback managerCallback;
-    @Nullable
     public Rect originalMargins;
-    @NonNull
     public final ViewGroup targetParent;
-    @NonNull
 
     /* renamed from: view  reason: collision with root package name */
     public final SnackbarBaseLayout f1075view;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface AnimationMode {
     }
 
+    @Deprecated
     /* loaded from: classes7.dex */
-    public static abstract class BaseCallback<B> {
+    public interface ContentViewCallback extends com.google.android.material.snackbar.ContentViewCallback {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes7.dex */
+    public @interface Duration {
+    }
+
+    /* loaded from: classes7.dex */
+    public interface OnAttachStateChangeListener {
+        void onViewAttachedToWindow(View view2);
+
+        void onViewDetachedFromWindow(View view2);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface OnLayoutChangeListener {
+        void onLayoutChange(View view2, int i, int i2, int i3, int i4);
+    }
+
+    /* loaded from: classes7.dex */
+    public abstract class BaseCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DISMISS_EVENT_ACTION = 1;
         public static final int DISMISS_EVENT_CONSECUTIVE = 4;
@@ -134,9 +137,20 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         /* loaded from: classes7.dex */
         public @interface DismissEvent {
+        }
+
+        public void onDismissed(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, obj, i) == null) {
+            }
+        }
+
+        public void onShown(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            }
         }
 
         public BaseCallback() {
@@ -152,25 +166,12 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 }
             }
         }
-
-        public void onDismissed(B b, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, b, i) == null) {
-            }
-        }
-
-        public void onShown(B b) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b) == null) {
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class Behavior extends SwipeDismissBehavior<View> {
+    public class Behavior extends SwipeDismissBehavior {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final BehaviorDelegate delegate;
 
         public Behavior() {
@@ -190,7 +191,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void setBaseTransientBottomBar(@NonNull BaseTransientBottomBar<?> baseTransientBottomBar) {
+        public void setBaseTransientBottomBar(BaseTransientBottomBar baseTransientBottomBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, baseTransientBottomBar) == null) {
                 this.delegate.setBaseTransientBottomBar(baseTransientBottomBar);
@@ -201,11 +202,14 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         public boolean canSwipeDismissView(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? this.delegate.canSwipeDismissView(view2) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                return this.delegate.canSwipeDismissView(view2);
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // com.google.android.material.behavior.SwipeDismissBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onInterceptTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull MotionEvent motionEvent) {
+        public boolean onInterceptTouchEvent(CoordinatorLayout coordinatorLayout, View view2, MotionEvent motionEvent) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, view2, motionEvent)) == null) {
@@ -216,14 +220,13 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
-    public static class BehaviorDelegate {
+    public class BehaviorDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SnackbarManager.Callback managerCallback;
 
-        public BehaviorDelegate(@NonNull SwipeDismissBehavior<?> swipeDismissBehavior) {
+        public BehaviorDelegate(SwipeDismissBehavior swipeDismissBehavior) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -246,60 +249,36 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         public boolean canSwipeDismissView(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? view2 instanceof SnackbarBaseLayout : invokeL.booleanValue;
-        }
-
-        public void onInterceptTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, view2, motionEvent) == null) {
-                int actionMasked = motionEvent.getActionMasked();
-                if (actionMasked == 0) {
-                    if (coordinatorLayout.isPointInChildBounds(view2, (int) motionEvent.getX(), (int) motionEvent.getY())) {
-                        SnackbarManager.getInstance().pauseTimeout(this.managerCallback);
-                    }
-                } else if (actionMasked == 1 || actionMasked == 3) {
-                    SnackbarManager.getInstance().restoreTimeoutIfPaused(this.managerCallback);
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                return view2 instanceof SnackbarBaseLayout;
             }
+            return invokeL.booleanValue;
         }
 
-        public void setBaseTransientBottomBar(@NonNull BaseTransientBottomBar<?> baseTransientBottomBar) {
+        public void setBaseTransientBottomBar(BaseTransientBottomBar baseTransientBottomBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, baseTransientBottomBar) == null) {
                 this.managerCallback = baseTransientBottomBar.managerCallback;
             }
         }
+
+        public void onInterceptTouchEvent(CoordinatorLayout coordinatorLayout, View view2, MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, view2, motionEvent) == null) {
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked != 0) {
+                    if (actionMasked == 1 || actionMasked == 3) {
+                        SnackbarManager.getInstance().restoreTimeoutIfPaused(this.managerCallback);
+                    }
+                } else if (coordinatorLayout.isPointInChildBounds(view2, (int) motionEvent.getX(), (int) motionEvent.getY())) {
+                    SnackbarManager.getInstance().pauseTimeout(this.managerCallback);
+                }
+            }
+        }
     }
 
-    @Deprecated
     /* loaded from: classes7.dex */
-    public interface ContentViewCallback extends com.google.android.material.snackbar.ContentViewCallback {
-    }
-
-    @IntRange(from = 1)
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
-    public @interface Duration {
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
-    public interface OnAttachStateChangeListener {
-        void onViewAttachedToWindow(View view2);
-
-        void onViewDetachedFromWindow(View view2);
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
-    public interface OnLayoutChangeListener {
-        void onLayoutChange(View view2, int i, int i2, int i3, int i4);
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
-    public static class SnackbarBaseLayout extends FrameLayout {
+    public class SnackbarBaseLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public static final View.OnTouchListener consumeAllTouchListener;
         public transient /* synthetic */ FieldHolder $fh;
@@ -328,6 +307,16 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
+                @Override // android.view.View.OnTouchListener
+                public boolean onTouch(View view2, MotionEvent motionEvent) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                        return true;
+                    }
+                    return invokeLL.booleanValue;
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -341,77 +330,34 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                         }
                     }
                 }
-
-                @Override // android.view.View.OnTouchListener
-                @SuppressLint({"ClickableViewAccessibility"})
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                        return true;
-                    }
-                    return invokeLL.booleanValue;
-                }
             };
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public SnackbarBaseLayout(@NonNull Context context) {
-            this(context, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @NonNull
-        private Drawable createThemedBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d0);
-                GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setShape(0);
-                gradientDrawable.setCornerRadius(dimension);
-                gradientDrawable.setColor(MaterialColors.layer(this, R.attr.obfuscated_res_0x7f04017e, R.attr.obfuscated_res_0x7f040177, getBackgroundOverlayColorAlpha()));
-                if (this.backgroundTint != null) {
-                    Drawable wrap = DrawableCompat.wrap(gradientDrawable);
-                    DrawableCompat.setTintList(wrap, this.backgroundTint);
-                    return wrap;
-                }
-                return DrawableCompat.wrap(gradientDrawable);
-            }
-            return (Drawable) invokeV.objValue;
         }
 
         public float getActionTextColorAlpha() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.actionTextColorAlpha : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.actionTextColorAlpha;
+            }
+            return invokeV.floatValue;
         }
 
         public int getAnimationMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.animationMode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.animationMode;
+            }
+            return invokeV.intValue;
         }
 
         public float getBackgroundOverlayColorAlpha() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.backgroundOverlayColorAlpha : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.backgroundOverlayColorAlpha;
+            }
+            return invokeV.floatValue;
         }
 
         @Override // android.view.ViewGroup, android.view.View
@@ -439,6 +385,99 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             }
         }
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public SnackbarBaseLayout(Context context) {
+            this(context, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.view.View
+        public void setBackgroundTintList(ColorStateList colorStateList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, colorStateList) == null) {
+                this.backgroundTint = colorStateList;
+                if (getBackground() != null) {
+                    Drawable wrap = DrawableCompat.wrap(getBackground().mutate());
+                    DrawableCompat.setTintList(wrap, colorStateList);
+                    DrawableCompat.setTintMode(wrap, this.backgroundTintMode);
+                    if (wrap != getBackground()) {
+                        super.setBackgroundDrawable(wrap);
+                    }
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SnackbarBaseLayout(Context context, AttributeSet attributeSet) {
+            super(MaterialThemeOverlay.wrap(context, attributeSet, 0, 0), attributeSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            Context context2 = getContext();
+            TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, R.styleable.SnackbarLayout);
+            if (obtainStyledAttributes.hasValue(6)) {
+                ViewCompat.setElevation(this, obtainStyledAttributes.getDimensionPixelSize(6, 0));
+            }
+            this.animationMode = obtainStyledAttributes.getInt(2, 0);
+            this.backgroundOverlayColorAlpha = obtainStyledAttributes.getFloat(3, 1.0f);
+            setBackgroundTintList(MaterialResources.getColorStateList(context2, obtainStyledAttributes, 4));
+            setBackgroundTintMode(ViewUtils.parseTintMode(obtainStyledAttributes.getInt(5, -1), PorterDuff.Mode.SRC_IN));
+            this.actionTextColorAlpha = obtainStyledAttributes.getFloat(1, 1.0f);
+            obtainStyledAttributes.recycle();
+            setOnTouchListener(consumeAllTouchListener);
+            setFocusable(true);
+            if (getBackground() == null) {
+                ViewCompat.setBackground(this, createThemedBackground());
+            }
+        }
+
+        private Drawable createThemedBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0704d0);
+                GradientDrawable gradientDrawable = new GradientDrawable();
+                gradientDrawable.setShape(0);
+                gradientDrawable.setCornerRadius(dimension);
+                gradientDrawable.setColor(MaterialColors.layer(this, com.baidu.tieba.R.attr.obfuscated_res_0x7f04017e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040177, getBackgroundOverlayColorAlpha()));
+                if (this.backgroundTint != null) {
+                    Drawable wrap = DrawableCompat.wrap(gradientDrawable);
+                    DrawableCompat.setTintList(wrap, this.backgroundTint);
+                    return wrap;
+                }
+                return DrawableCompat.wrap(gradientDrawable);
+            }
+            return (Drawable) invokeV.objValue;
+        }
+
         @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
         public void onLayout(boolean z, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -459,7 +498,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
 
         @Override // android.view.View
-        public void setBackground(@Nullable Drawable drawable) {
+        public void setBackground(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
                 setBackgroundDrawable(drawable);
@@ -467,7 +506,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
 
         @Override // android.view.View
-        public void setBackgroundDrawable(@Nullable Drawable drawable) {
+        public void setBackgroundDrawable(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
                 if (drawable != null && this.backgroundTint != null) {
@@ -480,23 +519,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
 
         @Override // android.view.View
-        public void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, colorStateList) == null) {
-                this.backgroundTint = colorStateList;
-                if (getBackground() != null) {
-                    Drawable wrap = DrawableCompat.wrap(getBackground().mutate());
-                    DrawableCompat.setTintList(wrap, colorStateList);
-                    DrawableCompat.setTintMode(wrap, this.backgroundTintMode);
-                    if (wrap != getBackground()) {
-                        super.setBackgroundDrawable(wrap);
-                    }
-                }
-            }
-        }
-
-        @Override // android.view.View
-        public void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
+        public void setBackgroundTintMode(PorterDuff.Mode mode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, mode) == null) {
                 this.backgroundTintMode = mode;
@@ -518,10 +541,16 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
 
         @Override // android.view.View
-        public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
+        public void setOnClickListener(View.OnClickListener onClickListener) {
+            View.OnTouchListener onTouchListener;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-                setOnTouchListener(onClickListener != null ? null : consumeAllTouchListener);
+                if (onClickListener != null) {
+                    onTouchListener = null;
+                } else {
+                    onTouchListener = consumeAllTouchListener;
+                }
+                setOnTouchListener(onTouchListener);
                 super.setOnClickListener(onClickListener);
             }
         }
@@ -532,47 +561,11 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 this.onLayoutChangeListener = onLayoutChangeListener;
             }
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SnackbarBaseLayout(@NonNull Context context, AttributeSet attributeSet) {
-            super(MaterialThemeOverlay.wrap(context, attributeSet, 0, 0), attributeSet);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            Context context2 = getContext();
-            TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.SnackbarLayout);
-            if (obtainStyledAttributes.hasValue(6)) {
-                ViewCompat.setElevation(this, obtainStyledAttributes.getDimensionPixelSize(6, 0));
-            }
-            this.animationMode = obtainStyledAttributes.getInt(2, 0);
-            this.backgroundOverlayColorAlpha = obtainStyledAttributes.getFloat(3, 1.0f);
-            setBackgroundTintList(MaterialResources.getColorStateList(context2, obtainStyledAttributes, 4));
-            setBackgroundTintMode(ViewUtils.parseTintMode(obtainStyledAttributes.getInt(5, -1), PorterDuff.Mode.SRC_IN));
-            this.actionTextColorAlpha = obtainStyledAttributes.getFloat(1, 1.0f);
-            obtainStyledAttributes.recycle();
-            setOnTouchListener(consumeAllTouchListener);
-            setFocusable(true);
-            if (getBackground() == null) {
-                ViewCompat.setBackground(this, createThemedBackground());
-            }
-        }
     }
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-600010546, "Lcom/google/android/material/snackbar/BaseTransientBottomBar;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -585,8 +578,13 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             }
         }
         int i = Build.VERSION.SDK_INT;
-        USE_OFFSET_API = i >= 16 && i <= 19;
-        SNACKBAR_STYLE_ATTR = new int[]{R.attr.obfuscated_res_0x7f040637};
+        if (i >= 16 && i <= 19) {
+            z = true;
+        } else {
+            z = false;
+        }
+        USE_OFFSET_API = z;
+        SNACKBAR_STYLE_ATTR = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040637};
         TAG = BaseTransientBottomBar.class.getSimpleName();
         handler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.1
             public static /* synthetic */ Interceptable $ic;
@@ -607,27 +605,293 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             }
 
             @Override // android.os.Handler.Callback
-            public boolean handleMessage(@NonNull Message message) {
+            public boolean handleMessage(Message message) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
                     int i2 = message.what;
-                    if (i2 == 0) {
-                        ((BaseTransientBottomBar) message.obj).showView();
-                        return true;
-                    } else if (i2 != 1) {
-                        return false;
-                    } else {
+                    if (i2 != 0) {
+                        if (i2 != 1) {
+                            return false;
+                        }
                         ((BaseTransientBottomBar) message.obj).hideView(message.arg1);
                         return true;
                     }
+                    ((BaseTransientBottomBar) message.obj).showView();
+                    return true;
                 }
                 return invokeL.booleanValue;
             }
         });
     }
 
-    public BaseTransientBottomBar(@NonNull ViewGroup viewGroup, @NonNull View view2, @NonNull com.google.android.material.snackbar.ContentViewCallback contentViewCallback) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startFadeInAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
+            ValueAnimator alphaAnimator = getAlphaAnimator(0.0f, 1.0f);
+            ValueAnimator scaleAnimator = getScaleAnimator(0.8f, 1.0f);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(alphaAnimator, scaleAnimator);
+            animatorSet.setDuration(150L);
+            animatorSet.addListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaseTransientBottomBar this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                        this.this$0.onViewShown();
+                    }
+                }
+            });
+            animatorSet.start();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startSlideInAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
+            int translationYBottom = getTranslationYBottom();
+            if (USE_OFFSET_API) {
+                ViewCompat.offsetTopAndBottom(this.f1075view, translationYBottom);
+            } else {
+                this.f1075view.setTranslationY(translationYBottom);
+            }
+            ValueAnimator valueAnimator = new ValueAnimator();
+            valueAnimator.setIntValues(translationYBottom, 0);
+            valueAnimator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
+            valueAnimator.setDuration(250L);
+            valueAnimator.addListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.14
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaseTransientBottomBar this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                        this.this$0.onViewShown();
+                    }
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                        this.this$0.contentViewCallback.animateContentIn(70, 180);
+                    }
+                }
+            });
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, translationYBottom) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public int previousAnimatedIntValue;
+                public final /* synthetic */ BaseTransientBottomBar this$0;
+                public final /* synthetic */ int val$translationYBottom;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(translationYBottom)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$translationYBottom = translationYBottom;
+                    this.previousAnimatedIntValue = this.val$translationYBottom;
+                }
+
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public void onAnimationUpdate(ValueAnimator valueAnimator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
+                        int intValue = ((Integer) valueAnimator2.getAnimatedValue()).intValue();
+                        if (BaseTransientBottomBar.USE_OFFSET_API) {
+                            ViewCompat.offsetTopAndBottom(this.this$0.f1075view, intValue - this.previousAnimatedIntValue);
+                        } else {
+                            this.this$0.f1075view.setTranslationY(intValue);
+                        }
+                        this.previousAnimatedIntValue = intValue;
+                    }
+                }
+            });
+            valueAnimator.start();
+        }
+    }
+
+    public final void showView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            this.f1075view.setOnAttachStateChangeListener(new OnAttachStateChangeListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BaseTransientBottomBar this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.google.android.material.snackbar.BaseTransientBottomBar.OnAttachStateChangeListener
+                public void onViewAttachedToWindow(View view2) {
+                    WindowInsets rootWindowInsets;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) || Build.VERSION.SDK_INT < 29 || (rootWindowInsets = this.this$0.f1075view.getRootWindowInsets()) == null) {
+                        return;
+                    }
+                    this.this$0.extraBottomMarginGestureInset = rootWindowInsets.getMandatorySystemGestureInsets().bottom;
+                    this.this$0.updateMargins();
+                }
+
+                @Override // com.google.android.material.snackbar.BaseTransientBottomBar.OnAttachStateChangeListener
+                public void onViewDetachedFromWindow(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.this$0.isShownOrQueued()) {
+                        BaseTransientBottomBar.handler.post(new Runnable(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.6.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass6 this$1;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$1 = this;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    this.this$1.this$0.onViewHidden(3);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+            if (this.f1075view.getParent() == null) {
+                ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
+                if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
+                    setUpBehavior((CoordinatorLayout.LayoutParams) layoutParams);
+                }
+                this.extraBottomMarginAnchorView = calculateBottomMarginForAnchorView();
+                updateMargins();
+                this.f1075view.setVisibility(4);
+                this.targetParent.addView(this.f1075view);
+            }
+            if (ViewCompat.isLaidOut(this.f1075view)) {
+                showViewImpl();
+            } else {
+                this.f1075view.setOnLayoutChangeListener(new OnLayoutChangeListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ BaseTransientBottomBar this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.google.android.material.snackbar.BaseTransientBottomBar.OnLayoutChangeListener
+                    public void onLayoutChange(View view2, int i, int i2, int i3, int i4) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+                            this.this$0.f1075view.setOnLayoutChangeListener(null);
+                            this.this$0.showViewImpl();
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public BaseTransientBottomBar(ViewGroup viewGroup, View view2, com.google.android.material.snackbar.ContentViewCallback contentViewCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -725,121 +989,120 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 }
             }
         };
-        if (viewGroup == null) {
-            throw new IllegalArgumentException("Transient bottom bar must have non-null parent");
-        }
-        if (view2 == null) {
+        if (viewGroup != null) {
+            if (view2 != null) {
+                if (contentViewCallback != null) {
+                    this.targetParent = viewGroup;
+                    this.contentViewCallback = contentViewCallback;
+                    Context context = viewGroup.getContext();
+                    this.context = context;
+                    ThemeEnforcement.checkAppCompatTheme(context);
+                    SnackbarBaseLayout snackbarBaseLayout = (SnackbarBaseLayout) LayoutInflater.from(this.context).inflate(getSnackbarBaseLayoutResId(), this.targetParent, false);
+                    this.f1075view = snackbarBaseLayout;
+                    if (view2 instanceof SnackbarContentLayout) {
+                        ((SnackbarContentLayout) view2).updateActionTextColorAlphaIfNeeded(snackbarBaseLayout.getActionTextColorAlpha());
+                    }
+                    this.f1075view.addView(view2);
+                    ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
+                    if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                        this.originalMargins = new Rect(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+                    }
+                    ViewCompat.setAccessibilityLiveRegion(this.f1075view, 1);
+                    ViewCompat.setImportantForAccessibility(this.f1075view, 1);
+                    ViewCompat.setFitsSystemWindows(this.f1075view, true);
+                    ViewCompat.setOnApplyWindowInsetsListener(this.f1075view, new OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.3
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ BaseTransientBottomBar this$0;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext2 = TitanRuntime.newInitContext();
+                                newInitContext2.initArgs = r2;
+                                Object[] objArr2 = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext2);
+                                int i3 = newInitContext2.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext2.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext2);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // androidx.core.view.OnApplyWindowInsetsListener
+                        public WindowInsetsCompat onApplyWindowInsets(View view3, WindowInsetsCompat windowInsetsCompat) {
+                            InterceptResult invokeLL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null && (invokeLL = interceptable2.invokeLL(1048576, this, view3, windowInsetsCompat)) != null) {
+                                return (WindowInsetsCompat) invokeLL.objValue;
+                            }
+                            this.this$0.extraBottomMarginWindowInset = windowInsetsCompat.getSystemWindowInsetBottom();
+                            this.this$0.extraLeftMarginWindowInset = windowInsetsCompat.getSystemWindowInsetLeft();
+                            this.this$0.extraRightMarginWindowInset = windowInsetsCompat.getSystemWindowInsetRight();
+                            this.this$0.updateMargins();
+                            return windowInsetsCompat;
+                        }
+                    });
+                    ViewCompat.setAccessibilityDelegate(this.f1075view, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.4
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ BaseTransientBottomBar this$0;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext2 = TitanRuntime.newInitContext();
+                                newInitContext2.initArgs = r2;
+                                Object[] objArr2 = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext2);
+                                int i3 = newInitContext2.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext2.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext2);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // androidx.core.view.AccessibilityDelegateCompat
+                        public void onInitializeAccessibilityNodeInfo(View view3, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view3, accessibilityNodeInfoCompat) == null) {
+                                super.onInitializeAccessibilityNodeInfo(view3, accessibilityNodeInfoCompat);
+                                accessibilityNodeInfoCompat.addAction(1048576);
+                                accessibilityNodeInfoCompat.setDismissable(true);
+                            }
+                        }
+
+                        @Override // androidx.core.view.AccessibilityDelegateCompat
+                        public boolean performAccessibilityAction(View view3, int i3, Bundle bundle) {
+                            InterceptResult invokeLIL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view3, i3, bundle)) == null) {
+                                if (i3 == 1048576) {
+                                    this.this$0.dismiss();
+                                    return true;
+                                }
+                                return super.performAccessibilityAction(view3, i3, bundle);
+                            }
+                            return invokeLIL.booleanValue;
+                        }
+                    });
+                    this.accessibilityManager = (AccessibilityManager) this.context.getSystemService("accessibility");
+                    return;
+                }
+                throw new IllegalArgumentException("Transient bottom bar must have non-null callback");
+            }
             throw new IllegalArgumentException("Transient bottom bar must have non-null content");
         }
-        if (contentViewCallback != null) {
-            this.targetParent = viewGroup;
-            this.contentViewCallback = contentViewCallback;
-            Context context = viewGroup.getContext();
-            this.context = context;
-            ThemeEnforcement.checkAppCompatTheme(context);
-            SnackbarBaseLayout snackbarBaseLayout = (SnackbarBaseLayout) LayoutInflater.from(this.context).inflate(getSnackbarBaseLayoutResId(), this.targetParent, false);
-            this.f1075view = snackbarBaseLayout;
-            if (view2 instanceof SnackbarContentLayout) {
-                ((SnackbarContentLayout) view2).updateActionTextColorAlphaIfNeeded(snackbarBaseLayout.getActionTextColorAlpha());
-            }
-            this.f1075view.addView(view2);
-            ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                this.originalMargins = new Rect(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-            }
-            ViewCompat.setAccessibilityLiveRegion(this.f1075view, 1);
-            ViewCompat.setImportantForAccessibility(this.f1075view, 1);
-            ViewCompat.setFitsSystemWindows(this.f1075view, true);
-            ViewCompat.setOnApplyWindowInsetsListener(this.f1075view, new OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BaseTransientBottomBar this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr2 = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i3 = newInitContext2.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.core.view.OnApplyWindowInsetsListener
-                @NonNull
-                public WindowInsetsCompat onApplyWindowInsets(View view3, @NonNull WindowInsetsCompat windowInsetsCompat) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, windowInsetsCompat)) == null) {
-                        this.this$0.extraBottomMarginWindowInset = windowInsetsCompat.getSystemWindowInsetBottom();
-                        this.this$0.extraLeftMarginWindowInset = windowInsetsCompat.getSystemWindowInsetLeft();
-                        this.this$0.extraRightMarginWindowInset = windowInsetsCompat.getSystemWindowInsetRight();
-                        this.this$0.updateMargins();
-                        return windowInsetsCompat;
-                    }
-                    return (WindowInsetsCompat) invokeLL.objValue;
-                }
-            });
-            ViewCompat.setAccessibilityDelegate(this.f1075view, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BaseTransientBottomBar this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                        newInitContext2.initArgs = r2;
-                        Object[] objArr2 = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i3 = newInitContext2.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext2.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext2);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // androidx.core.view.AccessibilityDelegateCompat
-                public void onInitializeAccessibilityNodeInfo(View view3, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view3, accessibilityNodeInfoCompat) == null) {
-                        super.onInitializeAccessibilityNodeInfo(view3, accessibilityNodeInfoCompat);
-                        accessibilityNodeInfoCompat.addAction(1048576);
-                        accessibilityNodeInfoCompat.setDismissable(true);
-                    }
-                }
-
-                @Override // androidx.core.view.AccessibilityDelegateCompat
-                public boolean performAccessibilityAction(View view3, int i3, Bundle bundle) {
-                    InterceptResult invokeLIL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view3, i3, bundle)) == null) {
-                        if (i3 == 1048576) {
-                            this.this$0.dismiss();
-                            return true;
-                        }
-                        return super.performAccessibilityAction(view3, i3, bundle);
-                    }
-                    return invokeLIL.booleanValue;
-                }
-            });
-            this.accessibilityManager = (AccessibilityManager) this.context.getSystemService("accessibility");
-            return;
-        }
-        throw new IllegalArgumentException("Transient bottom bar must have non-null callback");
+        throw new IllegalArgumentException("Transient bottom bar must have non-null parent");
     }
 
     private void animateViewOut(int i) {
@@ -851,24 +1114,6 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 startSlideOutAnimation(i);
             }
         }
-    }
-
-    private int calculateBottomMarginForAnchorView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            View view2 = this.anchorView;
-            if (view2 == null) {
-                return 0;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i = iArr[1];
-            int[] iArr2 = new int[2];
-            this.targetParent.getLocationOnScreen(iArr2);
-            return (iArr2[1] + this.targetParent.getHeight()) - i;
-        }
-        return invokeV.intValue;
     }
 
     private ValueAnimator getAlphaAnimator(float... fArr) {
@@ -901,7 +1146,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         this.this$0.f1075view.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
@@ -943,7 +1188,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
@@ -955,176 +1200,6 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             return ofFloat;
         }
         return (ValueAnimator) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @RequiresApi(17)
-    public int getScreenHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) this.context.getSystemService("window")).getDefaultDisplay().getRealMetrics(displayMetrics);
-            return displayMetrics.heightPixels;
-        }
-        return invokeV.intValue;
-    }
-
-    private int getTranslationYBottom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
-            int height = this.f1075view.getHeight();
-            ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
-            return layoutParams instanceof ViewGroup.MarginLayoutParams ? height + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin : height;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int getViewAbsoluteBottom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
-            int[] iArr = new int[2];
-            this.f1075view.getLocationOnScreen(iArr);
-            return iArr[1] + this.f1075view.getHeight();
-        }
-        return invokeV.intValue;
-    }
-
-    private boolean isSwipeDismissable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, this)) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
-            return (layoutParams instanceof CoordinatorLayout.LayoutParams) && (((CoordinatorLayout.LayoutParams) layoutParams).getBehavior() instanceof SwipeDismissBehavior);
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void setUpBehavior(CoordinatorLayout.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, this, layoutParams) == null) {
-            SwipeDismissBehavior<? extends View> swipeDismissBehavior = this.behavior;
-            if (swipeDismissBehavior == null) {
-                swipeDismissBehavior = getNewBehavior();
-            }
-            if (swipeDismissBehavior instanceof Behavior) {
-                ((Behavior) swipeDismissBehavior).setBaseTransientBottomBar(this);
-            }
-            swipeDismissBehavior.setListener(new SwipeDismissBehavior.OnDismissListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BaseTransientBottomBar this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.google.android.material.behavior.SwipeDismissBehavior.OnDismissListener
-                public void onDismiss(@NonNull View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        view2.setVisibility(8);
-                        this.this$0.dispatchDismiss(0);
-                    }
-                }
-
-                @Override // com.google.android.material.behavior.SwipeDismissBehavior.OnDismissListener
-                public void onDragStateChanged(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                        if (i == 0) {
-                            SnackbarManager.getInstance().restoreTimeoutIfPaused(this.this$0.managerCallback);
-                        } else if (i == 1 || i == 2) {
-                            SnackbarManager.getInstance().pauseTimeout(this.this$0.managerCallback);
-                        }
-                    }
-                }
-            });
-            layoutParams.setBehavior(swipeDismissBehavior);
-            if (this.anchorView == null) {
-                layoutParams.insetEdge = 80;
-            }
-        }
-    }
-
-    private boolean shouldUpdateGestureInset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, this)) == null) ? this.extraBottomMarginGestureInset > 0 && !this.gestureInsetBottomIgnored && isSwipeDismissable() : invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showViewImpl() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            if (shouldAnimate()) {
-                animateViewIn();
-                return;
-            }
-            this.f1075view.setVisibility(0);
-            onViewShown();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startFadeInAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
-            ValueAnimator alphaAnimator = getAlphaAnimator(0.0f, 1.0f);
-            ValueAnimator scaleAnimator = getScaleAnimator(0.8f, 1.0f);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(alphaAnimator, scaleAnimator);
-            animatorSet.setDuration(150L);
-            animatorSet.addListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.10
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BaseTransientBottomBar this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.this$0.onViewShown();
-                    }
-                }
-            });
-            animatorSet.start();
-        }
     }
 
     private void startFadeOutAnimation(int i) {
@@ -1169,21 +1244,205 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startSlideInAnimation() {
+    public BaseTransientBottomBar addCallback(BaseCallback baseCallback) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
-            int translationYBottom = getTranslationYBottom();
-            if (USE_OFFSET_API) {
-                ViewCompat.offsetTopAndBottom(this.f1075view, translationYBottom);
-            } else {
-                this.f1075view.setTranslationY(translationYBottom);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, baseCallback)) == null) {
+            if (baseCallback == null) {
+                return this;
             }
-            ValueAnimator valueAnimator = new ValueAnimator();
-            valueAnimator.setIntValues(translationYBottom, 0);
-            valueAnimator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
-            valueAnimator.setDuration(250L);
-            valueAnimator.addListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.14
+            if (this.callbacks == null) {
+                this.callbacks = new ArrayList();
+            }
+            this.callbacks.add(baseCallback);
+            return this;
+        }
+        return (BaseTransientBottomBar) invokeL.objValue;
+    }
+
+    public void dispatchDismiss(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SnackbarManager.getInstance().dismiss(this.managerCallback, i);
+        }
+    }
+
+    public final void hideView(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (shouldAnimate() && this.f1075view.getVisibility() == 0) {
+                animateViewOut(i);
+            } else {
+                onViewHidden(i);
+            }
+        }
+    }
+
+    public BaseTransientBottomBar removeCallback(BaseCallback baseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, baseCallback)) == null) {
+            if (baseCallback == null) {
+                return this;
+            }
+            List list = this.callbacks;
+            if (list == null) {
+                return this;
+            }
+            list.remove(baseCallback);
+            return this;
+        }
+        return (BaseTransientBottomBar) invokeL.objValue;
+    }
+
+    public BaseTransientBottomBar setAnchorView(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, view2)) == null) {
+            this.anchorView = view2;
+            return this;
+        }
+        return (BaseTransientBottomBar) invokeL.objValue;
+    }
+
+    public BaseTransientBottomBar setAnimationMode(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            this.f1075view.setAnimationMode(i);
+            return this;
+        }
+        return (BaseTransientBottomBar) invokeI.objValue;
+    }
+
+    public BaseTransientBottomBar setBehavior(Behavior behavior) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, behavior)) == null) {
+            this.behavior = behavior;
+            return this;
+        }
+        return (BaseTransientBottomBar) invokeL.objValue;
+    }
+
+    public BaseTransientBottomBar setDuration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            this.duration = i;
+            return this;
+        }
+        return (BaseTransientBottomBar) invokeI.objValue;
+    }
+
+    public BaseTransientBottomBar setGestureInsetBottomIgnored(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048601, this, z)) == null) {
+            this.gestureInsetBottomIgnored = z;
+            return this;
+        }
+        return (BaseTransientBottomBar) invokeZ.objValue;
+    }
+
+    private int calculateBottomMarginForAnchorView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
+            View view2 = this.anchorView;
+            if (view2 == null) {
+                return 0;
+            }
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            int i = iArr[1];
+            int[] iArr2 = new int[2];
+            this.targetParent.getLocationOnScreen(iArr2);
+            return (iArr2[1] + this.targetParent.getHeight()) - i;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int getScreenHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) this.context.getSystemService("window")).getDefaultDisplay().getRealMetrics(displayMetrics);
+            return displayMetrics.heightPixels;
+        }
+        return invokeV.intValue;
+    }
+
+    private int getTranslationYBottom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
+            int height = this.f1075view.getHeight();
+            ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                return height + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+            }
+            return height;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int getViewAbsoluteBottom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
+            int[] iArr = new int[2];
+            this.f1075view.getLocationOnScreen(iArr);
+            return iArr[1] + this.f1075view.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    private boolean isSwipeDismissable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, this)) == null) {
+            ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
+            if ((layoutParams instanceof CoordinatorLayout.LayoutParams) && (((CoordinatorLayout.LayoutParams) layoutParams).getBehavior() instanceof SwipeDismissBehavior)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private boolean shouldUpdateGestureInset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, this)) == null) {
+            if (this.extraBottomMarginGestureInset > 0 && !this.gestureInsetBottomIgnored && isSwipeDismissable()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showViewImpl() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+            if (shouldAnimate()) {
+                animateViewIn();
+                return;
+            }
+            this.f1075view.setVisibility(0);
+            onViewShown();
+        }
+    }
+
+    public void animateViewIn() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f1075view.post(new Runnable(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseTransientBottomBar this$0;
@@ -1206,35 +1465,189 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     this.this$0 = this;
                 }
 
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
+                @Override // java.lang.Runnable
+                public void run() {
+                    SnackbarBaseLayout snackbarBaseLayout;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.this$0.onViewShown();
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || (snackbarBaseLayout = this.this$0.f1075view) == null) {
+                        return;
                     }
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                        this.this$0.contentViewCallback.animateContentIn(70, 180);
+                    snackbarBaseLayout.setVisibility(0);
+                    if (this.this$0.f1075view.getAnimationMode() == 1) {
+                        this.this$0.startFadeInAnimation();
+                    } else {
+                        this.this$0.startSlideInAnimation();
                     }
                 }
             });
-            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, translationYBottom) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.15
+        }
+    }
+
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            dispatchDismiss(3);
+        }
+    }
+
+    public View getAnchorView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.anchorView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public int getAnimationMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f1075view.getAnimationMode();
+        }
+        return invokeV.intValue;
+    }
+
+    public Behavior getBehavior() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.behavior;
+        }
+        return (Behavior) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.context;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.duration;
+        }
+        return invokeV.intValue;
+    }
+
+    public SwipeDismissBehavior getNewBehavior() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return new Behavior();
+        }
+        return (SwipeDismissBehavior) invokeV.objValue;
+    }
+
+    public int getSnackbarBaseLayoutResId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (hasSnackbarStyleAttr()) {
+                return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05b9;
+            }
+            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0215;
+        }
+        return invokeV.intValue;
+    }
+
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.f1075view;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean hasSnackbarStyleAttr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            TypedArray obtainStyledAttributes = this.context.obtainStyledAttributes(SNACKBAR_STYLE_ATTR);
+            int resourceId = obtainStyledAttributes.getResourceId(0, -1);
+            obtainStyledAttributes.recycle();
+            if (resourceId == -1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isGestureInsetBottomIgnored() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.gestureInsetBottomIgnored;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShown() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return SnackbarManager.getInstance().isCurrent(this.managerCallback);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShownOrQueued() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return SnackbarManager.getInstance().isCurrentOrNext(this.managerCallback);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean shouldAnimate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            List<AccessibilityServiceInfo> enabledAccessibilityServiceList = this.accessibilityManager.getEnabledAccessibilityServiceList(1);
+            if (enabledAccessibilityServiceList != null && enabledAccessibilityServiceList.isEmpty()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            SnackbarManager.getInstance().show(getDuration(), this.managerCallback);
+        }
+    }
+
+    private void setUpBehavior(CoordinatorLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65561, this, layoutParams) == null) {
+            SwipeDismissBehavior swipeDismissBehavior = this.behavior;
+            if (swipeDismissBehavior == null) {
+                swipeDismissBehavior = getNewBehavior();
+            }
+            if (swipeDismissBehavior instanceof Behavior) {
+                ((Behavior) swipeDismissBehavior).setBaseTransientBottomBar(this);
+            }
+            swipeDismissBehavior.setListener(new SwipeDismissBehavior.OnDismissListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public int previousAnimatedIntValue;
                 public final /* synthetic */ BaseTransientBottomBar this$0;
-                public final /* synthetic */ int val$translationYBottom;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(translationYBottom)};
+                        Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -1245,25 +1658,36 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                         }
                     }
                     this.this$0 = this;
-                    this.val$translationYBottom = translationYBottom;
-                    this.previousAnimatedIntValue = this.val$translationYBottom;
                 }
 
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator2) {
+                @Override // com.google.android.material.behavior.SwipeDismissBehavior.OnDismissListener
+                public void onDismiss(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
-                        int intValue = ((Integer) valueAnimator2.getAnimatedValue()).intValue();
-                        if (BaseTransientBottomBar.USE_OFFSET_API) {
-                            ViewCompat.offsetTopAndBottom(this.this$0.f1075view, intValue - this.previousAnimatedIntValue);
-                        } else {
-                            this.this$0.f1075view.setTranslationY(intValue);
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        view2.setVisibility(8);
+                        this.this$0.dispatchDismiss(0);
+                    }
+                }
+
+                @Override // com.google.android.material.behavior.SwipeDismissBehavior.OnDismissListener
+                public void onDragStateChanged(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                        if (i != 0) {
+                            if (i == 1 || i == 2) {
+                                SnackbarManager.getInstance().pauseTimeout(this.this$0.managerCallback);
+                                return;
+                            }
+                            return;
                         }
-                        this.previousAnimatedIntValue = intValue;
+                        SnackbarManager.getInstance().restoreTimeoutIfPaused(this.this$0.managerCallback);
                     }
                 }
             });
-            valueAnimator.start();
+            layoutParams.setBehavior(swipeDismissBehavior);
+            if (this.anchorView == null) {
+                layoutParams.insetEdge = 80;
+            }
         }
     }
 
@@ -1341,7 +1765,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator2) {
+                public void onAnimationUpdate(ValueAnimator valueAnimator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
                         int intValue = ((Integer) valueAnimator2.getAnimatedValue()).intValue();
@@ -1358,207 +1782,14 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void updateMargins() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
-            if ((layoutParams instanceof ViewGroup.MarginLayoutParams) && this.originalMargins != null) {
-                int i = this.anchorView != null ? this.extraBottomMarginAnchorView : this.extraBottomMarginWindowInset;
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                Rect rect = this.originalMargins;
-                marginLayoutParams.bottomMargin = rect.bottom + i;
-                marginLayoutParams.leftMargin = rect.left + this.extraLeftMarginWindowInset;
-                marginLayoutParams.rightMargin = rect.right + this.extraRightMarginWindowInset;
-                this.f1075view.requestLayout();
-                if (Build.VERSION.SDK_INT < 29 || !shouldUpdateGestureInset()) {
-                    return;
-                }
-                this.f1075view.removeCallbacks(this.bottomMarginGestureInsetRunnable);
-                this.f1075view.post(this.bottomMarginGestureInsetRunnable);
-                return;
-            }
-            Log.w(TAG, "Unable to update margins because layout params are not MarginLayoutParams");
-        }
-    }
-
-    @NonNull
-    public B addCallback(@Nullable BaseCallback<B> baseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, baseCallback)) == null) {
-            if (baseCallback == null) {
-                return this;
-            }
-            if (this.callbacks == null) {
-                this.callbacks = new ArrayList();
-            }
-            this.callbacks.add(baseCallback);
-            return this;
-        }
-        return (B) invokeL.objValue;
-    }
-
-    public void animateViewIn() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1075view.post(new Runnable(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BaseTransientBottomBar this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    SnackbarBaseLayout snackbarBaseLayout;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (snackbarBaseLayout = this.this$0.f1075view) == null) {
-                        return;
-                    }
-                    snackbarBaseLayout.setVisibility(0);
-                    if (this.this$0.f1075view.getAnimationMode() == 1) {
-                        this.this$0.startFadeInAnimation();
-                    } else {
-                        this.this$0.startSlideInAnimation();
-                    }
-                }
-            });
-        }
-    }
-
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            dispatchDismiss(3);
-        }
-    }
-
-    public void dispatchDismiss(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SnackbarManager.getInstance().dismiss(this.managerCallback, i);
-        }
-    }
-
-    @Nullable
-    public View getAnchorView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.anchorView : (View) invokeV.objValue;
-    }
-
-    public int getAnimationMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1075view.getAnimationMode() : invokeV.intValue;
-    }
-
-    public Behavior getBehavior() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.behavior : (Behavior) invokeV.objValue;
-    }
-
-    @NonNull
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.context : (Context) invokeV.objValue;
-    }
-
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.duration : invokeV.intValue;
-    }
-
-    @NonNull
-    public SwipeDismissBehavior<? extends View> getNewBehavior() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new Behavior() : (SwipeDismissBehavior) invokeV.objValue;
-    }
-
-    @LayoutRes
-    public int getSnackbarBaseLayoutResId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? hasSnackbarStyleAttr() ? R.layout.obfuscated_res_0x7f0d05b9 : R.layout.obfuscated_res_0x7f0d0216 : invokeV.intValue;
-    }
-
-    @NonNull
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1075view : (View) invokeV.objValue;
-    }
-
-    public boolean hasSnackbarStyleAttr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            TypedArray obtainStyledAttributes = this.context.obtainStyledAttributes(SNACKBAR_STYLE_ATTR);
-            int resourceId = obtainStyledAttributes.getResourceId(0, -1);
-            obtainStyledAttributes.recycle();
-            return resourceId != -1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void hideView(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            if (shouldAnimate() && this.f1075view.getVisibility() == 0) {
-                animateViewOut(i);
-            } else {
-                onViewHidden(i);
-            }
-        }
-    }
-
-    public boolean isGestureInsetBottomIgnored() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.gestureInsetBottomIgnored : invokeV.booleanValue;
-    }
-
-    public boolean isShown() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? SnackbarManager.getInstance().isCurrent(this.managerCallback) : invokeV.booleanValue;
-    }
-
-    public boolean isShownOrQueued() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? SnackbarManager.getInstance().isCurrentOrNext(this.managerCallback) : invokeV.booleanValue;
-    }
-
     public void onViewHidden(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             SnackbarManager.getInstance().onDismissed(this.managerCallback);
-            List<BaseCallback<B>> list = this.callbacks;
+            List list = this.callbacks;
             if (list != null) {
                 for (int size = list.size() - 1; size >= 0; size--) {
-                    this.callbacks.get(size).onDismissed(this, i);
+                    ((BaseCallback) this.callbacks.get(size)).onDismissed(this, i);
                 }
             }
             ViewParent parent = this.f1075view.getParent();
@@ -1568,232 +1799,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
     }
 
-    public void onViewShown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            SnackbarManager.getInstance().onShown(this.managerCallback);
-            List<BaseCallback<B>> list = this.callbacks;
-            if (list != null) {
-                for (int size = list.size() - 1; size >= 0; size--) {
-                    this.callbacks.get(size).onShown(this);
-                }
-            }
-        }
-    }
-
-    @NonNull
-    public B removeCallback(@Nullable BaseCallback<B> baseCallback) {
-        InterceptResult invokeL;
-        List<BaseCallback<B>> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, baseCallback)) == null) {
-            if (baseCallback == null || (list = this.callbacks) == null) {
-                return this;
-            }
-            list.remove(baseCallback);
-            return this;
-        }
-        return (B) invokeL.objValue;
-    }
-
-    @NonNull
-    public B setAnchorView(@Nullable View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, view2)) == null) {
-            this.anchorView = view2;
-            return this;
-        }
-        return (B) invokeL.objValue;
-    }
-
-    @NonNull
-    public B setAnimationMode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            this.f1075view.setAnimationMode(i);
-            return this;
-        }
-        return (B) invokeI.objValue;
-    }
-
-    @NonNull
-    public B setBehavior(Behavior behavior) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, behavior)) == null) {
-            this.behavior = behavior;
-            return this;
-        }
-        return (B) invokeL.objValue;
-    }
-
-    @NonNull
-    public B setDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
-            this.duration = i;
-            return this;
-        }
-        return (B) invokeI.objValue;
-    }
-
-    @NonNull
-    public B setGestureInsetBottomIgnored(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048601, this, z)) == null) {
-            this.gestureInsetBottomIgnored = z;
-            return this;
-        }
-        return (B) invokeZ.objValue;
-    }
-
-    public boolean shouldAnimate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            List<AccessibilityServiceInfo> enabledAccessibilityServiceList = this.accessibilityManager.getEnabledAccessibilityServiceList(1);
-            return enabledAccessibilityServiceList != null && enabledAccessibilityServiceList.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            SnackbarManager.getInstance().show(getDuration(), this.managerCallback);
-        }
-    }
-
-    public final void showView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            this.f1075view.setOnAttachStateChangeListener(new OnAttachStateChangeListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BaseTransientBottomBar this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.google.android.material.snackbar.BaseTransientBottomBar.OnAttachStateChangeListener
-                public void onViewAttachedToWindow(View view2) {
-                    WindowInsets rootWindowInsets;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || Build.VERSION.SDK_INT < 29 || (rootWindowInsets = this.this$0.f1075view.getRootWindowInsets()) == null) {
-                        return;
-                    }
-                    this.this$0.extraBottomMarginGestureInset = rootWindowInsets.getMandatorySystemGestureInsets().bottom;
-                    this.this$0.updateMargins();
-                }
-
-                @Override // com.google.android.material.snackbar.BaseTransientBottomBar.OnAttachStateChangeListener
-                public void onViewDetachedFromWindow(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.this$0.isShownOrQueued()) {
-                        BaseTransientBottomBar.handler.post(new Runnable(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.6.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ AnonymousClass6 this$1;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i = newInitContext.flag;
-                                    if ((i & 1) != 0) {
-                                        int i2 = i & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$1 = this;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.this$1.this$0.onViewHidden(3);
-                                }
-                            }
-                        });
-                    }
-                }
-            });
-            if (this.f1075view.getParent() == null) {
-                ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
-                if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
-                    setUpBehavior((CoordinatorLayout.LayoutParams) layoutParams);
-                }
-                this.extraBottomMarginAnchorView = calculateBottomMarginForAnchorView();
-                updateMargins();
-                this.f1075view.setVisibility(4);
-                this.targetParent.addView(this.f1075view);
-            }
-            if (ViewCompat.isLaidOut(this.f1075view)) {
-                showViewImpl();
-            } else {
-                this.f1075view.setOnLayoutChangeListener(new OnLayoutChangeListener(this) { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ BaseTransientBottomBar this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // com.google.android.material.snackbar.BaseTransientBottomBar.OnLayoutChangeListener
-                    public void onLayoutChange(View view2, int i, int i2, int i3, int i4) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-                            this.this$0.f1075view.setOnLayoutChangeListener(null);
-                            this.this$0.showViewImpl();
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    @NonNull
-    public B setAnchorView(@IdRes int i) {
+    public BaseTransientBottomBar setAnchorView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
@@ -1804,6 +1810,48 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             }
             throw new IllegalArgumentException("Unable to find anchor view with id: " + i);
         }
-        return (B) invokeI.objValue;
+        return (BaseTransientBottomBar) invokeI.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateMargins() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
+            ViewGroup.LayoutParams layoutParams = this.f1075view.getLayoutParams();
+            if ((layoutParams instanceof ViewGroup.MarginLayoutParams) && this.originalMargins != null) {
+                if (this.anchorView != null) {
+                    i = this.extraBottomMarginAnchorView;
+                } else {
+                    i = this.extraBottomMarginWindowInset;
+                }
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                Rect rect = this.originalMargins;
+                marginLayoutParams.bottomMargin = rect.bottom + i;
+                marginLayoutParams.leftMargin = rect.left + this.extraLeftMarginWindowInset;
+                marginLayoutParams.rightMargin = rect.right + this.extraRightMarginWindowInset;
+                this.f1075view.requestLayout();
+                if (Build.VERSION.SDK_INT >= 29 && shouldUpdateGestureInset()) {
+                    this.f1075view.removeCallbacks(this.bottomMarginGestureInsetRunnable);
+                    this.f1075view.post(this.bottomMarginGestureInsetRunnable);
+                    return;
+                }
+                return;
+            }
+            Log.w(TAG, "Unable to update margins because layout params are not MarginLayoutParams");
+        }
+    }
+
+    public void onViewShown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            SnackbarManager.getInstance().onShown(this.managerCallback);
+            List list = this.callbacks;
+            if (list != null) {
+                for (int size = list.size() - 1; size >= 0; size--) {
+                    ((BaseCallback) this.callbacks.get(size)).onShown(this);
+                }
+            }
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.clientupdate.d;
 
-import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -174,7 +173,6 @@ public final class j {
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? PreferenceManager.getDefaultSharedPreferences(context).getLong("client_update_ignore_time", 0L) : invokeL.longValue;
     }
 
-    @TargetApi(9)
     public static String c(Context context, String str) {
         InterceptResult invokeLL;
         Object a2;
@@ -259,7 +257,6 @@ public final class j {
         }
     }
 
-    @TargetApi(9)
     public static Object[] g(Context context) {
         InterceptResult invokeL;
         Object a2;

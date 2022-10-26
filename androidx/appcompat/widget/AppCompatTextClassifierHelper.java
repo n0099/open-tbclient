@@ -3,9 +3,6 @@ package androidx.appcompat.widget;
 import android.view.textclassifier.TextClassificationManager;
 import android.view.textclassifier.TextClassifier;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,12 +14,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class AppCompatTextClassifierHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public TextClassifier mTextClassifier;
-    @NonNull
     public TextView mTextView;
 
-    public AppCompatTextClassifierHelper(@NonNull TextView textView) {
+    public AppCompatTextClassifierHelper(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,8 +35,6 @@ public final class AppCompatTextClassifierHelper {
         this.mTextView = (TextView) Preconditions.checkNotNull(textView);
     }
 
-    @NonNull
-    @RequiresApi(api = 26)
     public TextClassifier getTextClassifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,8 +52,7 @@ public final class AppCompatTextClassifierHelper {
         return (TextClassifier) invokeV.objValue;
     }
 
-    @RequiresApi(api = 26)
-    public void setTextClassifier(@Nullable TextClassifier textClassifier) {
+    public void setTextClassifier(TextClassifier textClassifier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textClassifier) == null) {
             this.mTextClassifier = textClassifier;

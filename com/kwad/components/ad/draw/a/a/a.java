@@ -1,7 +1,5 @@
 package com.kwad.components.ad.draw.a.a;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,15 +11,14 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public b bA;
     public boolean bB;
-    public InterfaceC0521a bz;
+    public InterfaceC0517a bz;
     public AdTemplate mAdTemplate;
 
     /* renamed from: com.kwad.components.ad.draw.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0521a {
+    public interface InterfaceC0517a {
         void ax();
     }
 
@@ -49,15 +46,13 @@ public final class a {
         this.bB = false;
     }
 
-    @MainThread
-    public final void a(InterfaceC0521a interfaceC0521a) {
+    public final void a(InterfaceC0517a interfaceC0517a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0521a) == null) {
-            this.bz = interfaceC0521a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0517a) == null) {
+            this.bz = interfaceC0517a;
         }
     }
 
-    @MainThread
     public final void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
@@ -66,7 +61,7 @@ public final class a {
     }
 
     public final void aw() {
-        InterfaceC0521a interfaceC0521a;
+        InterfaceC0517a interfaceC0517a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.bB) {
             return;
@@ -76,8 +71,8 @@ public final class a {
             return;
         }
         b bVar = this.bA;
-        if ((bVar == null || !bVar.ay()) && (interfaceC0521a = this.bz) != null) {
-            interfaceC0521a.ax();
+        if ((bVar == null || !bVar.ay()) && (interfaceC0517a = this.bz) != null) {
+            interfaceC0517a.ax();
         }
     }
 }

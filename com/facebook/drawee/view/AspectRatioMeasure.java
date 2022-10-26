@@ -13,8 +13,14 @@ public class AspectRatioMeasure {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean shouldAdjust(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 0 || i == -2 : invokeI.booleanValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class Spec {
+    public class Spec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int height;
@@ -49,21 +55,14 @@ public class AspectRatioMeasure {
         }
     }
 
-    public static boolean shouldAdjust(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 0 || i == -2 : invokeI.booleanValue;
-    }
-
     public static void updateMeasureSpec(Spec spec, float f, @Nullable ViewGroup.LayoutParams layoutParams, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{spec, Float.valueOf(f), layoutParams, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || f <= 0.0f || layoutParams == null) {
-            return;
-        }
-        if (shouldAdjust(layoutParams.height)) {
-            spec.height = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(spec.width) - i) / f) + i2), spec.height), 1073741824);
-        } else if (shouldAdjust(layoutParams.width)) {
-            spec.width = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(spec.height) - i2) * f) + i), spec.width), 1073741824);
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{spec, Float.valueOf(f), layoutParams, Integer.valueOf(i), Integer.valueOf(i2)}) == null) && f > 0.0f && layoutParams != null) {
+            if (shouldAdjust(layoutParams.height)) {
+                spec.height = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(spec.width) - i) / f) + i2), spec.height), 1073741824);
+            } else if (shouldAdjust(layoutParams.width)) {
+                spec.width = View.MeasureSpec.makeMeasureSpec(View.resolveSize((int) (((View.MeasureSpec.getSize(spec.height) - i2) * f) + i), spec.width), 1073741824);
+            }
         }
     }
 }

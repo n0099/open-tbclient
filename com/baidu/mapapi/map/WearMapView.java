@@ -2,7 +2,6 @@ package com.baidu.mapapi.map;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -46,7 +45,6 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
-@TargetApi(20)
 /* loaded from: classes2.dex */
 public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -58,7 +56,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public static int s;
     public static int t;
     public static int u;
-    public static final SparseArray<Integer> x;
+    public static final SparseArray x;
     public transient /* synthetic */ FieldHolder $fh;
     public float A;
     public com.baidu.mapsdkplatform.comapi.map.l B;
@@ -134,7 +132,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ScreenShape {
+    public final class ScreenShape {
         public static /* synthetic */ Interceptable $ic;
         public static final ScreenShape RECTANGLE;
         public static final ScreenShape ROUND;
@@ -199,7 +197,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WearMapView a;
-        public final WeakReference<Context> b;
+        public final WeakReference b;
 
         public a(WearMapView wearMapView, Context context) {
             Interceptable interceptable = $ic;
@@ -217,13 +215,13 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                 }
             }
             this.a = wearMapView;
-            this.b = new WeakReference<>(context);
+            this.b = new WeakReference(context);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.b.get() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || ((Context) this.b.get()) == null) {
                 return;
             }
             super.handleMessage(message);
@@ -252,7 +250,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         s = 0;
         t = 0;
         u = 10;
-        SparseArray<Integer> sparseArray = new SparseArray<>();
+        SparseArray sparseArray = new SparseArray();
         x = sparseArray;
         sparseArray.append(3, 2000000);
         x.append(4, 1000000);
@@ -707,7 +705,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public final int getMapLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x.get((int) this.f.a().E().a).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((Integer) x.get((int) this.f.a().E().a)).intValue() : invokeV.intValue;
     }
 
     public int getScaleControlViewHeight() {
@@ -841,7 +839,6 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    @TargetApi(20)
     public final void onLayout(boolean z, int i, int i2, int i3, int i4) {
         float f;
         int i5;

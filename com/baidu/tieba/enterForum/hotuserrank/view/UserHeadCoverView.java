@@ -5,15 +5,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.u96;
+import com.baidu.tieba.ba6;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +25,7 @@ public class UserHeadCoverView extends FrameLayout {
     public ImageView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserHeadCoverView(@NonNull Context context) {
+    public UserHeadCoverView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,76 +45,8 @@ public class UserHeadCoverView extends FrameLayout {
         a(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = new ImageView(context);
-            int f = ej.f(context, R.dimen.tbds78);
-            addView(this.a, new FrameLayout.LayoutParams(f, f));
-            this.b = new View(context);
-            int f2 = ej.f(context, R.dimen.tbds158);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f2, f2);
-            int f3 = ej.f(context, R.dimen.tbds26);
-            layoutParams.leftMargin = f3;
-            layoutParams.topMargin = f3;
-            addView(this.b, layoutParams);
-            this.c = new ImageView(context);
-            int f4 = ej.f(context, R.dimen.tbds36);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f4, f4);
-            layoutParams2.gravity = 85;
-            addView(this.c, layoutParams2);
-        }
-    }
-
-    public void setData(u96 u96Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u96Var) == null) || u96Var == null) {
-            return;
-        }
-        String str = u96Var.a;
-        if (str != null) {
-            if (!str.equals("1") && !u96Var.a.equals("2") && !u96Var.a.equals("3")) {
-                this.a.setVisibility(8);
-                this.b.setVisibility(8);
-            } else {
-                this.a.setVisibility(0);
-                this.b.setVisibility(0);
-                if (u96Var.a.equals("1")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f081120, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810f4));
-                } else if (u96Var.a.equals("2")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f081121, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810f3));
-                } else if (u96Var.a.equals("3")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f081122, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810f2));
-                }
-            }
-        } else {
-            this.a.setVisibility(8);
-            this.b.setVisibility(8);
-        }
-        if (u96Var.g) {
-            int f = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
-            layoutParams.gravity = 85;
-            this.c.setLayoutParams(layoutParams);
-            this.c.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805fa, null);
-        } else if (u96Var.h) {
-            int f2 = ej.f(TbadkApplication.getInst(), R.dimen.tbds40);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f2, f2);
-            layoutParams2.gravity = 85;
-            this.c.setLayoutParams(layoutParams2);
-            this.c.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
-        } else {
-            this.c.setVisibility(8);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserHeadCoverView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public UserHeadCoverView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,7 +68,7 @@ public class UserHeadCoverView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserHeadCoverView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public UserHeadCoverView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -157,5 +87,73 @@ public class UserHeadCoverView extends FrameLayout {
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = new ImageView(context);
+            int f = fj.f(context, R.dimen.tbds78);
+            addView(this.a, new FrameLayout.LayoutParams(f, f));
+            this.b = new View(context);
+            int f2 = fj.f(context, R.dimen.tbds158);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f2, f2);
+            int f3 = fj.f(context, R.dimen.tbds26);
+            layoutParams.leftMargin = f3;
+            layoutParams.topMargin = f3;
+            addView(this.b, layoutParams);
+            this.c = new ImageView(context);
+            int f4 = fj.f(context, R.dimen.tbds36);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f4, f4);
+            layoutParams2.gravity = 85;
+            addView(this.c, layoutParams2);
+        }
+    }
+
+    public void setData(ba6 ba6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ba6Var) != null) || ba6Var == null) {
+            return;
+        }
+        String str = ba6Var.a;
+        if (str != null) {
+            if (!str.equals("1") && !ba6Var.a.equals("2") && !ba6Var.a.equals("3")) {
+                this.a.setVisibility(8);
+                this.b.setVisibility(8);
+            } else {
+                this.a.setVisibility(0);
+                this.b.setVisibility(0);
+                if (ba6Var.a.equals("1")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f081131, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081105));
+                } else if (ba6Var.a.equals("2")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f081132, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081104));
+                } else if (ba6Var.a.equals("3")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f081133, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081103));
+                }
+            }
+        } else {
+            this.a.setVisibility(8);
+            this.b.setVisibility(8);
+        }
+        if (ba6Var.g) {
+            int f = fj.f(TbadkApplication.getInst(), R.dimen.tbds36);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
+            layoutParams.gravity = 85;
+            this.c.setLayoutParams(layoutParams);
+            this.c.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805fb, null);
+        } else if (ba6Var.h) {
+            int f2 = fj.f(TbadkApplication.getInst(), R.dimen.tbds40);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f2, f2);
+            layoutParams2.gravity = 85;
+            this.c.setLayoutParams(layoutParams2);
+            this.c.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+        } else {
+            this.c.setVisibility(8);
+        }
     }
 }

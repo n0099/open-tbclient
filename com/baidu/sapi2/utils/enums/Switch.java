@@ -57,12 +57,18 @@ public final class Switch {
     public static Switch valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Switch) Enum.valueOf(Switch.class, str) : (Switch) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Switch) Enum.valueOf(Switch.class, str);
+        }
+        return (Switch) invokeL.objValue;
     }
 
     public static Switch[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Switch[]) $VALUES.clone() : (Switch[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Switch[]) $VALUES.clone();
+        }
+        return (Switch[]) invokeV.objValue;
     }
 }

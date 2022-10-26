@@ -18,6 +18,8 @@ public abstract class LongSerializationPolicy {
     public static final LongSerializationPolicy STRING;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract JsonElement serialize(Long l);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,7 +62,10 @@ public abstract class LongSerializationPolicy {
             public JsonElement serialize(Long l) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, l)) == null) ? new JsonPrimitive((Number) l) : (JsonElement) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, l)) == null) {
+                    return new JsonPrimitive((Number) l);
+                }
+                return (JsonElement) invokeL.objValue;
             }
         };
         LongSerializationPolicy longSerializationPolicy = new LongSerializationPolicy("STRING", 1) { // from class: com.google.gson.LongSerializationPolicy.2
@@ -92,7 +97,10 @@ public abstract class LongSerializationPolicy {
             public JsonElement serialize(Long l) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, l)) == null) ? new JsonPrimitive(String.valueOf(l)) : (JsonElement) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, l)) == null) {
+                    return new JsonPrimitive(String.valueOf(l));
+                }
+                return (JsonElement) invokeL.objValue;
             }
         };
         STRING = longSerializationPolicy;
@@ -121,14 +129,18 @@ public abstract class LongSerializationPolicy {
     public static LongSerializationPolicy valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (LongSerializationPolicy) Enum.valueOf(LongSerializationPolicy.class, str) : (LongSerializationPolicy) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (LongSerializationPolicy) Enum.valueOf(LongSerializationPolicy.class, str);
+        }
+        return (LongSerializationPolicy) invokeL.objValue;
     }
 
     public static LongSerializationPolicy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (LongSerializationPolicy[]) $VALUES.clone() : (LongSerializationPolicy[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (LongSerializationPolicy[]) $VALUES.clone();
+        }
+        return (LongSerializationPolicy[]) invokeV.objValue;
     }
-
-    public abstract JsonElement serialize(Long l);
 }

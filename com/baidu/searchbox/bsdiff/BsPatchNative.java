@@ -12,6 +12,8 @@ public class BsPatchNative {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native int patch(String str, String str2, String str3);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -41,6 +43,4 @@ public class BsPatchNative {
             }
         }
     }
-
-    public static native int patch(String str, String str2, String str3);
 }

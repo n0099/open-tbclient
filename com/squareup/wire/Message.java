@@ -37,6 +37,8 @@ public abstract class Message {
         public transient /* synthetic */ FieldHolder $fh;
         public UnknownFieldMap unknownFieldMap;
 
+        public abstract T build(boolean z);
+
         public Builder() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -48,6 +50,45 @@ public abstract class Message {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+
+        private UnknownFieldMap ensureUnknownFieldMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                if (this.unknownFieldMap == null) {
+                    this.unknownFieldMap = new UnknownFieldMap();
+                }
+                return this.unknownFieldMap;
+            }
+            return (UnknownFieldMap) invokeV.objValue;
+        }
+
+        public void checkRequiredFields() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                Message.WIRE.builderAdapter(getClass()).checkRequiredFields(this);
+            }
+        }
+
+        public Builder(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {message};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            if (message != null && message.unknownFields != null) {
+                this.unknownFieldMap = new UnknownFieldMap(message.unknownFields);
             }
         }
 
@@ -65,18 +106,6 @@ public abstract class Message {
                 return list;
             }
             return (List) invokeL.objValue;
-        }
-
-        private UnknownFieldMap ensureUnknownFieldMap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                if (this.unknownFieldMap == null) {
-                    this.unknownFieldMap = new UnknownFieldMap();
-                }
-                return this.unknownFieldMap;
-            }
-            return (UnknownFieldMap) invokeV.objValue;
         }
 
         public void addFixed32(int i, int i2) {
@@ -105,36 +134,6 @@ public abstract class Message {
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 ensureUnknownFieldMap().addVarint(i, Long.valueOf(j));
             }
-        }
-
-        public abstract T build(boolean z);
-
-        public void checkRequiredFields() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                Message.WIRE.builderAdapter(getClass()).checkRequiredFields(this);
-            }
-        }
-
-        public Builder(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {message};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            if (message == null || message.unknownFields == null) {
-                return;
-            }
-            this.unknownFieldMap = new UnknownFieldMap(message.unknownFields);
         }
     }
 
@@ -299,7 +298,10 @@ public abstract class Message {
                 public int compare(Datatype datatype2, Datatype datatype3) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, datatype2, datatype3)) == null) ? datatype2.name().compareTo(datatype3.name()) : invokeLL.intValue;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, datatype2, datatype3)) == null) {
+                        return datatype2.name().compareTo(datatype3.name());
+                    }
+                    return invokeLL.intValue;
                 }
             };
             LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -347,13 +349,19 @@ public abstract class Message {
         public static Datatype of(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TYPES_BY_NAME.get(str) : (Datatype) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return TYPES_BY_NAME.get(str);
+            }
+            return (Datatype) invokeL.objValue;
         }
 
         public static Datatype valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (Datatype) Enum.valueOf(Datatype.class, str) : (Datatype) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (Datatype) Enum.valueOf(Datatype.class, str);
+            }
+            return (Datatype) invokeL.objValue;
         }
 
         public static Datatype[] values() {
@@ -372,7 +380,10 @@ public abstract class Message {
         public int value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.value;
+            }
+            return invokeV.intValue;
         }
 
         public WireType wireType() {
@@ -464,7 +475,10 @@ public abstract class Message {
                 public int compare(Label label2, Label label3) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, label2, label3)) == null) ? label2.name().compareTo(label3.name()) : invokeLL.intValue;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, label2, label3)) == null) {
+                        return label2.name().compareTo(label3.name());
+                    }
+                    return invokeLL.intValue;
                 }
             };
         }
@@ -493,7 +507,10 @@ public abstract class Message {
         public static Label valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Label) Enum.valueOf(Label.class, str) : (Label) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Label) Enum.valueOf(Label.class, str);
+            }
+            return (Label) invokeL.objValue;
         }
 
         public static Label[] values() {
@@ -512,19 +529,34 @@ public abstract class Message {
         public boolean isPacked() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == PACKED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this == PACKED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isRepeated() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this == REPEATED || this == PACKED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this != REPEATED && this != PACKED) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         public int value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.value : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.value;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -542,93 +574,6 @@ public abstract class Message {
             }
         }
         WIRE = new Wire(new Class[0]);
-    }
-
-    public Message(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.hashCode = 0;
-        UnknownFieldMap unknownFieldMap = builder.unknownFieldMap;
-        if (unknownFieldMap != null) {
-            this.unknownFields = new UnknownFieldMap(unknownFieldMap);
-        }
-    }
-
-    public static <T> List<T> asList(T... tArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tArr)) == null) ? Arrays.asList(tArr) : (List) invokeL.objValue;
-    }
-
-    public static <T> List<T> copyOf(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            return new ArrayList(list);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cls, i)) == null) ? (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i)) : (E) ((Enum) invokeLI.objValue);
-    }
-
-    public static <T> List<T> immutableCopyOf(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
-            if (list == null) {
-                return Collections.emptyList();
-            }
-            return Collections.unmodifiableList(new ArrayList(list));
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static <E extends Enum & ProtoEnum> int intFromEnum(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, e)) == null) ? WIRE.enumAdapter(e.getClass()).toInt(e) : invokeL.intValue;
-    }
-
-    private void write(WireOutput wireOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, wireOutput) == null) {
-            try {
-                WIRE.messageAdapter(getClass()).write(this, wireOutput);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public boolean equals(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-            if (obj != obj2) {
-                return obj != null && obj.equals(obj2);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
     }
 
     public int getSerializedSize() {
@@ -660,13 +605,19 @@ public abstract class Message {
     public byte[] toByteArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? WIRE.messageAdapter(getClass()).toByteArray(this) : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return WIRE.messageAdapter(getClass()).toByteArray(this);
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WIRE.messageAdapter(getClass()).toString(this) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return WIRE.messageAdapter(getClass()).toString(this);
+        }
+        return (String) invokeV.objValue;
     }
 
     public Collection<List<UnknownFieldMap.FieldValue>> unknownFields() {
@@ -674,9 +625,87 @@ public abstract class Message {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             UnknownFieldMap unknownFieldMap = this.unknownFields;
-            return unknownFieldMap == null ? Collections.emptySet() : unknownFieldMap.fieldMap.values();
+            if (unknownFieldMap == null) {
+                return Collections.emptySet();
+            }
+            return unknownFieldMap.fieldMap.values();
         }
         return (Collection) invokeV.objValue;
+    }
+
+    public Message(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.hashCode = 0;
+        UnknownFieldMap unknownFieldMap = builder.unknownFieldMap;
+        if (unknownFieldMap != null) {
+            this.unknownFields = new UnknownFieldMap(unknownFieldMap);
+        }
+    }
+
+    public static <T> List<T> asList(T... tArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tArr)) == null) {
+            return Arrays.asList(tArr);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static <T> List<T> copyOf(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            return new ArrayList(list);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static <T> List<T> immutableCopyOf(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
+            if (list == null) {
+                return Collections.emptyList();
+            }
+            return Collections.unmodifiableList(new ArrayList(list));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static <E extends Enum & ProtoEnum> int intFromEnum(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, e)) == null) {
+            return WIRE.enumAdapter(e.getClass()).toInt(e);
+        }
+        return invokeL.intValue;
+    }
+
+    private void write(WireOutput wireOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, wireOutput) == null) {
+            try {
+                WIRE.messageAdapter(getClass()).write(this, wireOutput);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public void writeTo(byte[] bArr) {
@@ -689,10 +718,33 @@ public abstract class Message {
     public void writeUnknownFieldMap(WireOutput wireOutput) throws IOException {
         UnknownFieldMap unknownFieldMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, wireOutput) == null) || (unknownFieldMap = this.unknownFields) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, wireOutput) == null) && (unknownFieldMap = this.unknownFields) != null) {
+            unknownFieldMap.write(wireOutput);
         }
-        unknownFieldMap.write(wireOutput);
+    }
+
+    public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cls, i)) == null) {
+            return (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i));
+        }
+        return (E) ((Enum) invokeLI.objValue);
+    }
+
+    public boolean equals(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+            if (obj != obj2) {
+                if (obj == null || !obj.equals(obj2)) {
+                    return false;
+                }
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     public boolean equals(List<?> list, List<?> list2) {
@@ -706,7 +758,10 @@ public abstract class Message {
                 list2 = null;
             }
             if (list != list2) {
-                return list != null && list.equals(list2);
+                if (list == null || !list.equals(list2)) {
+                    return false;
+                }
+                return true;
             }
             return true;
         }

@@ -7,8 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.annotation.concurrent.Immutable;
-@Immutable
 /* loaded from: classes7.dex */
 public class AnimatedDrawableOptions {
     public static /* synthetic */ Interceptable $ic;
@@ -35,6 +33,15 @@ public class AnimatedDrawableOptions {
         DEFAULTS = newBuilder().build();
     }
 
+    public static AnimatedDrawableOptionsBuilder newBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new AnimatedDrawableOptionsBuilder();
+        }
+        return (AnimatedDrawableOptionsBuilder) invokeV.objValue;
+    }
+
     public AnimatedDrawableOptions(AnimatedDrawableOptionsBuilder animatedDrawableOptionsBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,11 +61,5 @@ public class AnimatedDrawableOptions {
         this.allowPrefetching = animatedDrawableOptionsBuilder.getAllowPrefetching();
         this.maximumBytes = animatedDrawableOptionsBuilder.getMaximumBytes();
         this.enableDebugging = animatedDrawableOptionsBuilder.getEnableDebugging();
-    }
-
-    public static AnimatedDrawableOptionsBuilder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new AnimatedDrawableOptionsBuilder() : (AnimatedDrawableOptionsBuilder) invokeV.objValue;
     }
 }

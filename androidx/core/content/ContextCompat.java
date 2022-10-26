@@ -61,11 +61,6 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.CaptioningManager;
 import android.view.inputmethod.InputMethodManager;
 import android.view.textservice.TextServicesManager;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
@@ -198,7 +193,7 @@ public class ContextCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public final Handler mHandler;
 
-        public MainHandlerExecutor(@NonNull Handler handler) {
+        public MainHandlerExecutor(Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -219,7 +214,7 @@ public class ContextCompat {
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) || this.mHandler.post(runnable)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, runnable) != null) || this.mHandler.post(runnable)) {
                 return;
             }
             throw new RejectedExecutionException(this.mHandler + " is shutting down");
@@ -256,7 +251,7 @@ public class ContextCompat {
         }
     }
 
-    public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
+    public static int checkSelfPermission(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
@@ -268,51 +263,7 @@ public class ContextCompat {
         return invokeLL.intValue;
     }
 
-    @Nullable
-    public static Context createDeviceProtectedStorageContext(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return context.createDeviceProtectedStorageContext();
-            }
-            return null;
-        }
-        return (Context) invokeL.objValue;
-    }
-
-    public static synchronized File createFilesDir(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            synchronized (ContextCompat.class) {
-                if (file.exists() || file.mkdirs()) {
-                    return file;
-                }
-                if (file.exists()) {
-                    return file;
-                }
-                Log.w("ContextCompat", "Unable to create files subdir " + file.getPath());
-                return null;
-            }
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static File getCodeCacheDir(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return context.getCodeCacheDir();
-            }
-            return createFilesDir(new File(context.getApplicationInfo().dataDir, MultiDex.CODE_CACHE_NAME));
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @ColorInt
-    public static int getColor(@NonNull Context context, @ColorRes int i) {
+    public static int getColor(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
@@ -324,8 +275,7 @@ public class ContextCompat {
         return invokeLI.intValue;
     }
 
-    @Nullable
-    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
+    public static ColorStateList getColorStateList(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
@@ -337,8 +287,88 @@ public class ContextCompat {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    @Nullable
-    public static File getDataDir(@NonNull Context context) {
+    public static File[] getExternalFilesDirs(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
+            return Build.VERSION.SDK_INT >= 19 ? context.getExternalFilesDirs(str) : new File[]{context.getExternalFilesDir(str)};
+        }
+        return (File[]) invokeLL.objValue;
+    }
+
+    public static <T> T getSystemService(Context context, Class<T> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, context, cls)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return (T) context.getSystemService(cls);
+            }
+            String systemServiceName = getSystemServiceName(context, cls);
+            if (systemServiceName != null) {
+                return (T) context.getSystemService(systemServiceName);
+            }
+            return null;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static String getSystemServiceName(Context context, Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, cls)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return context.getSystemServiceName(cls);
+            }
+            return LegacyServiceMapHolder.SERVICES.get(cls);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean startActivities(Context context, Intent[] intentArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, intentArr)) == null) {
+            return startActivities(context, intentArr, null);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void startForegroundService(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65557, null, context, intent) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                context.startForegroundService(intent);
+            } else {
+                context.startService(intent);
+            }
+        }
+    }
+
+    public static Context createDeviceProtectedStorageContext(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return context.createDeviceProtectedStorageContext();
+            }
+            return null;
+        }
+        return (Context) invokeL.objValue;
+    }
+
+    public static File getCodeCacheDir(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return context.getCodeCacheDir();
+            }
+            return createFilesDir(new File(context.getApplicationInfo().dataDir, MultiDex.CODE_CACHE_NAME));
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static File getDataDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -354,8 +384,79 @@ public class ContextCompat {
         return (File) invokeL.objValue;
     }
 
-    @Nullable
-    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
+    public static File[] getExternalCacheDirs(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            return Build.VERSION.SDK_INT >= 19 ? context.getExternalCacheDirs() : new File[]{context.getExternalCacheDir()};
+        }
+        return (File[]) invokeL.objValue;
+    }
+
+    public static Executor getMainExecutor(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return context.getMainExecutor();
+            }
+            return new MainHandlerExecutor(new Handler(context.getMainLooper()));
+        }
+        return (Executor) invokeL.objValue;
+    }
+
+    public static File getNoBackupFilesDir(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return context.getNoBackupFilesDir();
+            }
+            return createFilesDir(new File(context.getApplicationInfo().dataDir, "no_backup"));
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static File[] getObbDirs(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            return Build.VERSION.SDK_INT >= 19 ? context.getObbDirs() : new File[]{context.getObbDir()};
+        }
+        return (File[]) invokeL.objValue;
+    }
+
+    public static boolean isDeviceProtectedStorage(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return context.isDeviceProtectedStorage();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static synchronized File createFilesDir(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            synchronized (ContextCompat.class) {
+                if (!file.exists() && !file.mkdirs()) {
+                    if (file.exists()) {
+                        return file;
+                    }
+                    Log.w("ContextCompat", "Unable to create files subdir " + file.getPath());
+                    return null;
+                }
+                return file;
+            }
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static Drawable getDrawable(Context context, int i) {
         InterceptResult invokeLI;
         int i2;
         Interceptable interceptable = $ic;
@@ -379,123 +480,7 @@ public class ContextCompat {
         return (Drawable) invokeLI.objValue;
     }
 
-    @NonNull
-    public static File[] getExternalCacheDirs(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? Build.VERSION.SDK_INT >= 19 ? context.getExternalCacheDirs() : new File[]{context.getExternalCacheDir()} : (File[]) invokeL.objValue;
-    }
-
-    @NonNull
-    public static File[] getExternalFilesDirs(@NonNull Context context, @Nullable String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) ? Build.VERSION.SDK_INT >= 19 ? context.getExternalFilesDirs(str) : new File[]{context.getExternalFilesDir(str)} : (File[]) invokeLL.objValue;
-    }
-
-    public static Executor getMainExecutor(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return context.getMainExecutor();
-            }
-            return new MainHandlerExecutor(new Handler(context.getMainLooper()));
-        }
-        return (Executor) invokeL.objValue;
-    }
-
-    @Nullable
-    public static File getNoBackupFilesDir(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return context.getNoBackupFilesDir();
-            }
-            return createFilesDir(new File(context.getApplicationInfo().dataDir, "no_backup"));
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @NonNull
-    public static File[] getObbDirs(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? Build.VERSION.SDK_INT >= 19 ? context.getObbDirs() : new File[]{context.getObbDir()} : (File[]) invokeL.objValue;
-    }
-
-    @Nullable
-    public static <T> T getSystemService(@NonNull Context context, @NonNull Class<T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, context, cls)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return (T) context.getSystemService(cls);
-            }
-            String systemServiceName = getSystemServiceName(context, cls);
-            if (systemServiceName != null) {
-                return (T) context.getSystemService(systemServiceName);
-            }
-            return null;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static String getSystemServiceName(@NonNull Context context, @NonNull Class<?> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, cls)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return context.getSystemServiceName(cls);
-            }
-            return LegacyServiceMapHolder.SERVICES.get(cls);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean isDeviceProtectedStorage(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return context.isDeviceProtectedStorage();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean startActivities(@NonNull Context context, @NonNull Intent[] intentArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, intentArr)) == null) ? startActivities(context, intentArr, null) : invokeLL.booleanValue;
-    }
-
-    public static void startActivity(@NonNull Context context, @NonNull Intent intent, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65556, null, context, intent, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                context.startActivity(intent, bundle);
-            } else {
-                context.startActivity(intent);
-            }
-        }
-    }
-
-    public static void startForegroundService(@NonNull Context context, @NonNull Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, null, context, intent) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                context.startForegroundService(intent);
-            } else {
-                context.startService(intent);
-            }
-        }
-    }
-
-    public static boolean startActivities(@NonNull Context context, @NonNull Intent[] intentArr, @Nullable Bundle bundle) {
+    public static boolean startActivities(Context context, Intent[] intentArr, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, intentArr, bundle)) == null) {
@@ -507,5 +492,16 @@ public class ContextCompat {
             return true;
         }
         return invokeLLL.booleanValue;
+    }
+
+    public static void startActivity(Context context, Intent intent, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65556, null, context, intent, bundle) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                context.startActivity(intent, bundle);
+            } else {
+                context.startActivity(intent);
+            }
+        }
     }
 }

@@ -7,14 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.common.CacheKey;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
-import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.producers.ProducerContext;
-import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes7.dex */
-public class BitmapMemoryCacheKeyMultiplexProducer extends MultiplexProducer<Pair<CacheKey, ImageRequest.RequestLevel>, CloseableReference<CloseableImage>> {
+public class BitmapMemoryCacheKeyMultiplexProducer extends MultiplexProducer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
@@ -43,18 +40,23 @@ public class BitmapMemoryCacheKeyMultiplexProducer extends MultiplexProducer<Pai
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.MultiplexProducer
-    public CloseableReference<CloseableImage> cloneOrNull(CloseableReference<CloseableImage> closeableReference) {
+    public CloseableReference cloneOrNull(CloseableReference closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, closeableReference)) == null) ? CloseableReference.cloneOrNull(closeableReference) : (CloseableReference) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, closeableReference)) == null) {
+            return CloseableReference.cloneOrNull(closeableReference);
+        }
+        return (CloseableReference) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.producers.MultiplexProducer
-    public Pair<CacheKey, ImageRequest.RequestLevel> getKey(ProducerContext producerContext) {
+    public Pair getKey(ProducerContext producerContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, producerContext)) == null) ? Pair.create(this.mCacheKeyFactory.getBitmapCacheKey(producerContext.getImageRequest(), producerContext.getCallerContext()), producerContext.getLowestPermittedRequestLevel()) : (Pair) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, producerContext)) == null) {
+            return Pair.create(this.mCacheKeyFactory.getBitmapCacheKey(producerContext.getImageRequest(), producerContext.getCallerContext()), producerContext.getLowestPermittedRequestLevel());
+        }
+        return (Pair) invokeL.objValue;
     }
 }

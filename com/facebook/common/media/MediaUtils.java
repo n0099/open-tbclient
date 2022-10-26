@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class MediaUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, String> ADDITIONAL_ALLOWED_MIME_TYPES;
+    public static final Map ADDITIONAL_ALLOWED_MIME_TYPES;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,12 +56,57 @@ public class MediaUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             int lastIndexOf = str.lastIndexOf(46);
-            if (lastIndexOf < 0 || lastIndexOf == str.length() - 1) {
-                return null;
+            if (lastIndexOf >= 0 && lastIndexOf != str.length() - 1) {
+                return str.substring(lastIndexOf + 1);
             }
-            return str.substring(lastIndexOf + 1);
+            return null;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static boolean isNonNativeSupportedMimeType(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return ADDITIONAL_ALLOWED_MIME_TYPES.containsValue(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isPhoto(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (str != null && str.startsWith(FileUtils.IMAGE_FILE_START)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isThreeD(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (str != null && str.equals("model/gltf-binary")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isVideo(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (str != null && str.startsWith(FileUtils.VIDEO_FILE_START)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Nullable
@@ -75,32 +120,11 @@ public class MediaUtils {
             }
             String lowerCase = extractExtension.toLowerCase(Locale.US);
             String mimeTypeFromExtension = MimeTypeMapWrapper.getMimeTypeFromExtension(lowerCase);
-            return mimeTypeFromExtension == null ? ADDITIONAL_ALLOWED_MIME_TYPES.get(lowerCase) : mimeTypeFromExtension;
+            if (mimeTypeFromExtension == null) {
+                return (String) ADDITIONAL_ALLOWED_MIME_TYPES.get(lowerCase);
+            }
+            return mimeTypeFromExtension;
         }
         return (String) invokeL.objValue;
-    }
-
-    public static boolean isNonNativeSupportedMimeType(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? ADDITIONAL_ALLOWED_MIME_TYPES.containsValue(str) : invokeL.booleanValue;
-    }
-
-    public static boolean isPhoto(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? str != null && str.startsWith(FileUtils.IMAGE_FILE_START) : invokeL.booleanValue;
-    }
-
-    public static boolean isThreeD(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? str != null && str.equals("model/gltf-binary") : invokeL.booleanValue;
-    }
-
-    public static boolean isVideo(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? str != null && str.startsWith(FileUtils.VIDEO_FILE_START) : invokeL.booleanValue;
     }
 }

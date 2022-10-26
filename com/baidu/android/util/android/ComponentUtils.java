@@ -21,7 +21,7 @@ public final class ComponentUtils {
 
     /* renamed from: com.baidu.android.util.android.ComponentUtils$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public final class ComponentUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class ComponentType {
+    public final class ComponentType {
         public static final /* synthetic */ ComponentType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ComponentType ACTIVITY;
@@ -120,13 +120,19 @@ public final class ComponentUtils {
         public static ComponentType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ComponentType) Enum.valueOf(ComponentType.class, str) : (ComponentType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ComponentType) Enum.valueOf(ComponentType.class, str);
+            }
+            return (ComponentType) invokeL.objValue;
         }
 
         public static ComponentType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ComponentType[]) $VALUES.clone() : (ComponentType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ComponentType[]) $VALUES.clone();
+            }
+            return (ComponentType[]) invokeV.objValue;
         }
     }
 
@@ -155,35 +161,6 @@ public final class ComponentUtils {
             }
         }
         return (ComponentInfo) invokeLL.objValue;
-    }
-
-    public static ComponentInfo getComponentInfo(Context context, ComponentType componentType, ComponentName componentName) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, componentType, componentName)) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType[componentType.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            ComponentInfo receiverInfo = getReceiverInfo(context, componentName);
-                            if (receiverInfo == null) {
-                                receiverInfo = getActivityInfo(context, componentName);
-                            }
-                            if (receiverInfo == null) {
-                                receiverInfo = getServiceInfo(context, componentName);
-                            }
-                            return receiverInfo == null ? getProviderInfo(context, componentName) : receiverInfo;
-                        }
-                        return getProviderInfo(context, componentName);
-                    }
-                    return getServiceInfo(context, componentName);
-                }
-                return getActivityInfo(context, componentName);
-            }
-            return getReceiverInfo(context, componentName);
-        }
-        return (ComponentInfo) invokeLLL.objValue;
     }
 
     public static ComponentInfo getProviderInfo(Context context, ComponentName componentName) {
@@ -228,7 +205,45 @@ public final class ComponentUtils {
     public static boolean isComponentEnabledSetting(Context context, ComponentName componentName) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, componentName)) == null) ? 1 == context.getPackageManager().getComponentEnabledSetting(componentName) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, componentName)) == null) {
+            if (1 == context.getPackageManager().getComponentEnabledSetting(componentName)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static ComponentInfo getComponentInfo(Context context, ComponentType componentType, ComponentName componentName) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, componentType, componentName)) == null) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType[componentType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            ComponentInfo receiverInfo = getReceiverInfo(context, componentName);
+                            if (receiverInfo == null) {
+                                receiverInfo = getActivityInfo(context, componentName);
+                            }
+                            if (receiverInfo == null) {
+                                receiverInfo = getServiceInfo(context, componentName);
+                            }
+                            if (receiverInfo == null) {
+                                return getProviderInfo(context, componentName);
+                            }
+                            return receiverInfo;
+                        }
+                        return getProviderInfo(context, componentName);
+                    }
+                    return getServiceInfo(context, componentName);
+                }
+                return getActivityInfo(context, componentName);
+            }
+            return getReceiverInfo(context, componentName);
+        }
+        return (ComponentInfo) invokeLLL.objValue;
     }
 
     public static boolean isComponetEnable(Context context, ComponentType componentType, ComponentName componentName) {
@@ -249,10 +264,9 @@ public final class ComponentUtils {
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, componentType, componentName, Boolean.valueOf(z)}) == null) {
             boolean isComponetEnable = isComponetEnable(context, componentType, componentName);
             if (z) {
-                if (isComponetEnable) {
-                    return;
+                if (!isComponetEnable) {
+                    context.getPackageManager().setComponentEnabledSetting(componentName, 1, 1);
                 }
-                context.getPackageManager().setComponentEnabledSetting(componentName, 1, 1);
             } else if (isComponetEnable) {
                 context.getPackageManager().setComponentEnabledSetting(componentName, 2, 1);
             }

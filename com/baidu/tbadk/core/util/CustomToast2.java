@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,33 +79,6 @@ public class CustomToast2 {
         }
     }
 
-    public static void showToast(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65542, null, context, str, i) == null) || str == null || str.length() <= 0) {
-            return;
-        }
-        mHandler.removeCallbacks(r);
-        if (mToast != null) {
-            if (!str.equals(mText)) {
-                mText = str;
-                mToast.setText(str);
-            }
-        } else {
-            mText = str;
-            mToast = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
-            mToast.setGravity(17, 0, ej.d(context, 100.0f));
-        }
-        mHandler.postDelayed(r, i);
-        mToast.show();
-    }
-
-    public static void showToast(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
-            showToast(context, str, 2000);
-        }
-    }
-
     public static void showToast(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) {
@@ -117,6 +90,32 @@ public class CustomToast2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, i2) == null) {
             showToast(context, context.getResources().getString(i), i2);
+        }
+    }
+
+    public static void showToast(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
+            showToast(context, str, 2000);
+        }
+    }
+
+    public static void showToast(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65542, null, context, str, i) == null) && str != null && str.length() > 0) {
+            mHandler.removeCallbacks(r);
+            if (mToast != null) {
+                if (!str.equals(mText)) {
+                    mText = str;
+                    mToast.setText(str);
+                }
+            } else {
+                mText = str;
+                mToast = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
+                mToast.setGravity(17, 0, fj.d(context, 100.0f));
+            }
+            mHandler.postDelayed(r, i);
+            mToast.show();
         }
     }
 }

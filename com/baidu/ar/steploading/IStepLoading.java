@@ -7,5 +7,5 @@ public interface IStepLoading {
 
     void retry();
 
-    void setLoadErrorListener(ICallbackWith<IStepLoading> iCallbackWith);
+    void setLoadErrorListener(ICallbackWith iCallbackWith);
 }

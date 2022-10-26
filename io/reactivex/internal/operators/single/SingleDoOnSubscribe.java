@@ -14,21 +14,21 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class SingleDoOnSubscribe<T> extends Single<T> {
+public final class SingleDoOnSubscribe extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<? super Disposable> onSubscribe;
-    public final SingleSource<T> source;
+    public final Consumer onSubscribe;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class DoOnSubscribeSingleObserver<T> implements SingleObserver<T> {
+    public final class DoOnSubscribeSingleObserver implements SingleObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
+        public final SingleObserver actual;
         public boolean done;
-        public final Consumer<? super Disposable> onSubscribe;
+        public final Consumer onSubscribe;
 
-        public DoOnSubscribeSingleObserver(SingleObserver<? super T> singleObserver, Consumer<? super Disposable> consumer) {
+        public DoOnSubscribeSingleObserver(SingleObserver singleObserver, Consumer consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,16 +76,16 @@ public final class SingleDoOnSubscribe<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || this.done) {
                 return;
             }
-            this.actual.onSuccess(t);
+            this.actual.onSuccess(obj);
         }
     }
 
-    public SingleDoOnSubscribe(SingleSource<T> singleSource, Consumer<? super Disposable> consumer) {
+    public SingleDoOnSubscribe(SingleSource singleSource, Consumer consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public final class SingleDoOnSubscribe<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DoOnSubscribeSingleObserver(singleObserver, this.onSubscribe));

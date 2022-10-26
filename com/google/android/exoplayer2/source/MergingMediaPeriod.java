@@ -23,7 +23,7 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
     public int pendingChildPrepareCount;
     public final MediaPeriod[] periods;
     public SequenceableLoader sequenceableLoader;
-    public final IdentityHashMap<SampleStream, Integer> streamPeriodIndices;
+    public final IdentityHashMap streamPeriodIndices;
     public TrackGroupArray trackGroups;
 
     public MergingMediaPeriod(MediaPeriod... mediaPeriodArr) {
@@ -42,14 +42,41 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
             }
         }
         this.periods = mediaPeriodArr;
-        this.streamPeriodIndices = new IdentityHashMap<>();
+        this.streamPeriodIndices = new IdentityHashMap();
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public long seekToUs(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            long seekToUs = this.enabledPeriods[0].seekToUs(j);
+            int i = 1;
+            while (true) {
+                MediaPeriod[] mediaPeriodArr = this.enabledPeriods;
+                if (i < mediaPeriodArr.length) {
+                    if (mediaPeriodArr[i].seekToUs(seekToUs) == seekToUs) {
+                        i++;
+                    } else {
+                        throw new IllegalStateException("Children seeked to different positions");
+                    }
+                } else {
+                    return seekToUs;
+                }
+            }
+        } else {
+            return invokeJ.longValue;
+        }
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
     public boolean continueLoading(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.sequenceableLoader.continueLoading(j) : invokeJ.booleanValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.sequenceableLoader.continueLoading(j);
+        }
+        return invokeJ.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
@@ -62,25 +89,44 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
+    public void onContinueLoadingRequested(MediaPeriod mediaPeriod) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, mediaPeriod) != null) || this.trackGroups == null) {
+            return;
+        }
+        this.callback.onContinueLoadingRequested(this);
+    }
+
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
     public long getBufferedPositionUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sequenceableLoader.getBufferedPositionUs() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sequenceableLoader.getBufferedPositionUs();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
     public long getNextLoadPositionUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sequenceableLoader.getNextLoadPositionUs() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.sequenceableLoader.getNextLoadPositionUs();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
     public TrackGroupArray getTrackGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.trackGroups : (TrackGroupArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.trackGroups;
+        }
+        return (TrackGroupArray) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
@@ -141,61 +187,51 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
         InterceptResult invokeV;
         MediaPeriod[] mediaPeriodArr;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048586, this)) != null) {
-            return invokeV.longValue;
-        }
-        long readDiscontinuity = this.periods[0].readDiscontinuity();
-        int i = 1;
-        while (true) {
-            MediaPeriod[] mediaPeriodArr2 = this.periods;
-            if (i >= mediaPeriodArr2.length) {
-                if (readDiscontinuity != C.TIME_UNSET) {
-                    for (MediaPeriod mediaPeriod : this.enabledPeriods) {
-                        if (mediaPeriod != this.periods[0] && mediaPeriod.seekToUs(readDiscontinuity) != readDiscontinuity) {
-                            throw new IllegalStateException("Children seeked to different positions");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            long readDiscontinuity = this.periods[0].readDiscontinuity();
+            int i = 1;
+            while (true) {
+                MediaPeriod[] mediaPeriodArr2 = this.periods;
+                if (i < mediaPeriodArr2.length) {
+                    if (mediaPeriodArr2[i].readDiscontinuity() == C.TIME_UNSET) {
+                        i++;
+                    } else {
+                        throw new IllegalStateException("Child reported discontinuity");
+                    }
+                } else {
+                    if (readDiscontinuity != C.TIME_UNSET) {
+                        for (MediaPeriod mediaPeriod : this.enabledPeriods) {
+                            if (mediaPeriod != this.periods[0] && mediaPeriod.seekToUs(readDiscontinuity) != readDiscontinuity) {
+                                throw new IllegalStateException("Children seeked to different positions");
+                            }
                         }
                     }
+                    return readDiscontinuity;
                 }
-                return readDiscontinuity;
-            } else if (mediaPeriodArr2[i].readDiscontinuity() != C.TIME_UNSET) {
-                throw new IllegalStateException("Child reported discontinuity");
-            } else {
-                i++;
             }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long seekToUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048587, this, j)) != null) {
-            return invokeJ.longValue;
-        }
-        long seekToUs = this.enabledPeriods[0].seekToUs(j);
-        int i = 1;
-        while (true) {
-            MediaPeriod[] mediaPeriodArr = this.enabledPeriods;
-            if (i >= mediaPeriodArr.length) {
-                return seekToUs;
-            }
-            if (mediaPeriodArr[i].seekToUs(seekToUs) != seekToUs) {
-                throw new IllegalStateException("Children seeked to different positions");
-            }
-            i++;
+        } else {
+            return invokeV.longValue;
         }
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
     public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j) {
         InterceptResult invokeCommon;
+        boolean z;
+        SampleStream sampleStream;
+        int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j)})) == null) {
             SampleStream[] sampleStreamArr2 = sampleStreamArr;
             int[] iArr = new int[trackSelectionArr.length];
             int[] iArr2 = new int[trackSelectionArr.length];
             for (int i = 0; i < trackSelectionArr.length; i++) {
-                iArr[i] = sampleStreamArr2[i] == null ? -1 : this.streamPeriodIndices.get(sampleStreamArr2[i]).intValue();
+                if (sampleStreamArr2[i] == null) {
+                    intValue = -1;
+                } else {
+                    intValue = ((Integer) this.streamPeriodIndices.get(sampleStreamArr2[i])).intValue();
+                }
+                iArr[i] = intValue;
                 iArr2[i] = -1;
                 if (trackSelectionArr[i] != null) {
                     TrackGroup trackGroup = trackSelectionArr[i].getTrackGroup();
@@ -224,7 +260,12 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
             while (i3 < this.periods.length) {
                 for (int i4 = 0; i4 < trackSelectionArr.length; i4++) {
                     TrackSelection trackSelection = null;
-                    sampleStreamArr4[i4] = iArr[i4] == i3 ? sampleStreamArr2[i4] : null;
+                    if (iArr[i4] == i3) {
+                        sampleStream = sampleStreamArr2[i4];
+                    } else {
+                        sampleStream = null;
+                    }
+                    sampleStreamArr4[i4] = sampleStream;
                     if (iArr2[i4] == i3) {
                         trackSelection = trackSelectionArr[i4];
                     }
@@ -239,18 +280,27 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
                 } else if (selectTracks != j2) {
                     throw new IllegalStateException("Children enabled at different positions");
                 }
-                boolean z = false;
+                boolean z2 = false;
                 for (int i6 = 0; i6 < trackSelectionArr.length; i6++) {
+                    boolean z3 = true;
                     if (iArr2[i6] == i5) {
-                        Assertions.checkState(sampleStreamArr4[i6] != null);
+                        if (sampleStreamArr4[i6] != null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        Assertions.checkState(z);
                         sampleStreamArr3[i6] = sampleStreamArr4[i6];
                         this.streamPeriodIndices.put(sampleStreamArr4[i6], Integer.valueOf(i5));
-                        z = true;
+                        z2 = true;
                     } else if (iArr[i6] == i5) {
-                        Assertions.checkState(sampleStreamArr4[i6] == null);
+                        if (sampleStreamArr4[i6] != null) {
+                            z3 = false;
+                        }
+                        Assertions.checkState(z3);
                     }
                 }
-                if (z) {
+                if (z2) {
                     arrayList2.add(this.periods[i5]);
                 }
                 i3 = i5 + 1;
@@ -268,15 +318,5 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
             return j2;
         }
         return invokeCommon.longValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
-    public void onContinueLoadingRequested(MediaPeriod mediaPeriod) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, mediaPeriod) == null) || this.trackGroups == null) {
-            return;
-        }
-        this.callback.onContinueLoadingRequested(this);
     }
 }

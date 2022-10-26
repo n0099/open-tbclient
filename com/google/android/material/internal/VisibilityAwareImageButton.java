@@ -1,18 +1,14 @@
 package com.google.android.material.internal;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"AppCompatCustomView"})
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class VisibilityAwareImageButton extends ImageButton {
     public static /* synthetic */ Interceptable $ic;
@@ -37,30 +33,6 @@ public class VisibilityAwareImageButton extends ImageButton {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final int getUserSetVisibility() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.userSetVisibility : invokeV.intValue;
-    }
-
-    public final void internalSetVisibility(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            super.setVisibility(i);
-            if (z) {
-                this.userSetVisibility = i;
-            }
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            internalSetVisibility(i, true);
         }
     }
 
@@ -105,5 +77,32 @@ public class VisibilityAwareImageButton extends ImageButton {
             }
         }
         this.userSetVisibility = getVisibility();
+    }
+
+    public final int getUserSetVisibility() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.userSetVisibility;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void internalSetVisibility(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            super.setVisibility(i);
+            if (z) {
+                this.userSetVisibility = i;
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            internalSetVisibility(i, true);
+        }
     }
 }

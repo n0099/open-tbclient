@@ -32,7 +32,7 @@ public class HttpClientFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class NTLMAuthenticator implements Authenticator {
+    public class NTLMAuthenticator implements Authenticator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String domain;
@@ -142,7 +142,10 @@ public class HttpClientFactory {
                 public boolean verify(String str, SSLSession sSLSession) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) ? HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession) : invokeLL.booleanValue;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
+                        return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
+                    }
+                    return invokeLL.booleanValue;
                 }
             }).retryOnConnectionFailure(false).cache(null).followRedirects(false).followSslRedirects(false);
             if (bceClientConfiguration != null) {

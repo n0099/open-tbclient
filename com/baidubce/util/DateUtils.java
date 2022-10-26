@@ -50,6 +50,15 @@ public class DateUtils {
         }
     }
 
+    public static String rfc822DateFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return rfc822DateFormat(new Date());
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String alternateIso8601DateFormat(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -59,17 +68,6 @@ public class DateUtils {
             return simpleDateFormat.format(Long.valueOf(date.getTime()));
         }
         return (String) invokeL.objValue;
-    }
-
-    public static Date parseAlternateIso8601Date(String str) throws ParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATA_TIME_AlternateIso8601_FORMAT);
-            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-            return simpleDateFormat.parse(str);
-        }
-        return (Date) invokeL.objValue;
     }
 
     public static Date parseRfc822Date(String str) {
@@ -89,12 +87,6 @@ public class DateUtils {
         return (Date) invokeL.objValue;
     }
 
-    public static String rfc822DateFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? rfc822DateFormat(new Date()) : (String) invokeV.objValue;
-    }
-
     public static String rfc822DateFormat(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -106,5 +98,16 @@ public class DateUtils {
             return simpleDateFormat.format(calendar.getTime());
         }
         return (String) invokeL.objValue;
+    }
+
+    public static Date parseAlternateIso8601Date(String str) throws ParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATA_TIME_AlternateIso8601_FORMAT);
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            return simpleDateFormat.parse(str);
+        }
+        return (Date) invokeL.objValue;
     }
 }

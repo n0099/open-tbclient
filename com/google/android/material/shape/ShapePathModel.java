@@ -73,28 +73,6 @@ public class ShapePathModel extends ShapeAppearanceModel {
     }
 
     @Deprecated
-    public void setCornerTreatments(CornerTreatment cornerTreatment, CornerTreatment cornerTreatment2, CornerTreatment cornerTreatment3, CornerTreatment cornerTreatment4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, cornerTreatment, cornerTreatment2, cornerTreatment3, cornerTreatment4) == null) {
-            this.topLeftCorner = cornerTreatment;
-            this.topRightCorner = cornerTreatment2;
-            this.bottomRightCorner = cornerTreatment3;
-            this.bottomLeftCorner = cornerTreatment4;
-        }
-    }
-
-    @Deprecated
-    public void setEdgeTreatments(EdgeTreatment edgeTreatment, EdgeTreatment edgeTreatment2, EdgeTreatment edgeTreatment3, EdgeTreatment edgeTreatment4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, edgeTreatment, edgeTreatment2, edgeTreatment3, edgeTreatment4) == null) {
-            this.leftEdge = edgeTreatment;
-            this.topEdge = edgeTreatment2;
-            this.rightEdge = edgeTreatment3;
-            this.bottomEdge = edgeTreatment4;
-        }
-    }
-
-    @Deprecated
     public void setLeftEdge(EdgeTreatment edgeTreatment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, edgeTreatment) == null) {
@@ -131,6 +109,28 @@ public class ShapePathModel extends ShapeAppearanceModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cornerTreatment) == null) {
             this.topRightCorner = cornerTreatment;
+        }
+    }
+
+    @Deprecated
+    public void setCornerTreatments(CornerTreatment cornerTreatment, CornerTreatment cornerTreatment2, CornerTreatment cornerTreatment3, CornerTreatment cornerTreatment4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, cornerTreatment, cornerTreatment2, cornerTreatment3, cornerTreatment4) == null) {
+            this.topLeftCorner = cornerTreatment;
+            this.topRightCorner = cornerTreatment2;
+            this.bottomRightCorner = cornerTreatment3;
+            this.bottomLeftCorner = cornerTreatment4;
+        }
+    }
+
+    @Deprecated
+    public void setEdgeTreatments(EdgeTreatment edgeTreatment, EdgeTreatment edgeTreatment2, EdgeTreatment edgeTreatment3, EdgeTreatment edgeTreatment4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, edgeTreatment, edgeTreatment2, edgeTreatment3, edgeTreatment4) == null) {
+            this.leftEdge = edgeTreatment;
+            this.topEdge = edgeTreatment2;
+            this.rightEdge = edgeTreatment3;
+            this.bottomEdge = edgeTreatment4;
         }
     }
 }

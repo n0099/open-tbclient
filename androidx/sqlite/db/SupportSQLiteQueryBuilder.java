@@ -43,6 +43,16 @@ public final class SupportSQLiteQueryBuilder {
         sLimitPattern = Pattern.compile("\\s*\\d+\\s*(,\\s*\\d+\\s*)?");
     }
 
+    public SupportSQLiteQueryBuilder distinct() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            this.mDistinct = true;
+            return this;
+        }
+        return (SupportSQLiteQueryBuilder) invokeV.objValue;
+    }
+
     public SupportSQLiteQueryBuilder(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,13 +77,25 @@ public final class SupportSQLiteQueryBuilder {
         this.mTable = str;
     }
 
+    public SupportSQLiteQueryBuilder limit(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (!isEmpty(str) && !sLimitPattern.matcher(str).matches()) {
+                throw new IllegalArgumentException("invalid LIMIT clauses:" + str);
+            }
+            this.mLimit = str;
+            return this;
+        }
+        return (SupportSQLiteQueryBuilder) invokeL.objValue;
+    }
+
     public static void appendClause(StringBuilder sb, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, sb, str, str2) == null) || isEmpty(str2)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, sb, str, str2) == null) && !isEmpty(str2)) {
+            sb.append(str);
+            sb.append(str2);
         }
-        sb.append(str);
-        sb.append(str2);
     }
 
     public static void appendColumns(StringBuilder sb, String[] strArr) {
@@ -91,16 +113,36 @@ public final class SupportSQLiteQueryBuilder {
         }
     }
 
+    public SupportSQLiteQueryBuilder selection(String str, Object[] objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, objArr)) == null) {
+            this.mSelection = str;
+            this.mBindArgs = objArr;
+            return this;
+        }
+        return (SupportSQLiteQueryBuilder) invokeLL.objValue;
+    }
+
     public static SupportSQLiteQueryBuilder builder(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? new SupportSQLiteQueryBuilder(str) : (SupportSQLiteQueryBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return new SupportSQLiteQueryBuilder(str);
+        }
+        return (SupportSQLiteQueryBuilder) invokeL.objValue;
     }
 
     public static boolean isEmpty(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? str == null || str.length() == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (str != null && str.length() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public SupportSQLiteQueryBuilder columns(String[] strArr) {
@@ -108,6 +150,36 @@ public final class SupportSQLiteQueryBuilder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
             this.mColumns = strArr;
+            return this;
+        }
+        return (SupportSQLiteQueryBuilder) invokeL.objValue;
+    }
+
+    public SupportSQLiteQueryBuilder groupBy(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.mGroupBy = str;
+            return this;
+        }
+        return (SupportSQLiteQueryBuilder) invokeL.objValue;
+    }
+
+    public SupportSQLiteQueryBuilder having(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.mHaving = str;
+            return this;
+        }
+        return (SupportSQLiteQueryBuilder) invokeL.objValue;
+    }
+
+    public SupportSQLiteQueryBuilder orderBy(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.mOrderBy = str;
             return this;
         }
         return (SupportSQLiteQueryBuilder) invokeL.objValue;
@@ -141,69 +213,5 @@ public final class SupportSQLiteQueryBuilder {
             return new SimpleSQLiteQuery(sb.toString(), this.mBindArgs);
         }
         return (SupportSQLiteQuery) invokeV.objValue;
-    }
-
-    public SupportSQLiteQueryBuilder distinct() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.mDistinct = true;
-            return this;
-        }
-        return (SupportSQLiteQueryBuilder) invokeV.objValue;
-    }
-
-    public SupportSQLiteQueryBuilder groupBy(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.mGroupBy = str;
-            return this;
-        }
-        return (SupportSQLiteQueryBuilder) invokeL.objValue;
-    }
-
-    public SupportSQLiteQueryBuilder having(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.mHaving = str;
-            return this;
-        }
-        return (SupportSQLiteQueryBuilder) invokeL.objValue;
-    }
-
-    public SupportSQLiteQueryBuilder limit(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (!isEmpty(str) && !sLimitPattern.matcher(str).matches()) {
-                throw new IllegalArgumentException("invalid LIMIT clauses:" + str);
-            }
-            this.mLimit = str;
-            return this;
-        }
-        return (SupportSQLiteQueryBuilder) invokeL.objValue;
-    }
-
-    public SupportSQLiteQueryBuilder orderBy(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.mOrderBy = str;
-            return this;
-        }
-        return (SupportSQLiteQueryBuilder) invokeL.objValue;
-    }
-
-    public SupportSQLiteQueryBuilder selection(String str, Object[] objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, objArr)) == null) {
-            this.mSelection = str;
-            this.mBindArgs = objArr;
-            return this;
-        }
-        return (SupportSQLiteQueryBuilder) invokeLL.objValue;
     }
 }

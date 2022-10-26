@@ -13,6 +13,19 @@ public final class BackpressureHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static long addCap(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j + j2;
+            if (j3 < 0) {
+                return Long.MAX_VALUE;
+            }
+            return j3;
+        }
+        return invokeCommon.longValue;
+    }
+
     public BackpressureHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,28 +77,15 @@ public final class BackpressureHelper {
         return invokeLJ.longValue;
     }
 
-    public static long addCap(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = j + j2;
-            if (j3 < 0) {
-                return Long.MAX_VALUE;
-            }
-            return j3;
-        }
-        return invokeCommon.longValue;
-    }
-
     public static long multiplyCap(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             long j3 = j * j2;
-            if (((j | j2) >>> 31) == 0 || j3 / j == j2) {
-                return j3;
+            if (((j | j2) >>> 31) != 0 && j3 / j != j2) {
+                return Long.MAX_VALUE;
             }
-            return Long.MAX_VALUE;
+            return j3;
         }
         return invokeCommon.longValue;
     }

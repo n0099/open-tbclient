@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,14 +45,26 @@ public final class LayoutInflaterCompat {
             this.mDelegateFactory = layoutInflaterFactory;
         }
 
+        @Override // android.view.LayoutInflater.Factory2
+        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
+                return this.mDelegateFactory.onCreateView(view2, str, context, attributeSet);
+            }
+            return (View) invokeLLLL.objValue;
+        }
+
         @Override // android.view.LayoutInflater.Factory
         public View onCreateView(String str, Context context, AttributeSet attributeSet) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) ? this.mDelegateFactory.onCreateView(null, str, context, attributeSet) : (View) invokeLLL.objValue;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
+                return this.mDelegateFactory.onCreateView(null, str, context, attributeSet);
+            }
+            return (View) invokeLLL.objValue;
         }
 
-        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -61,13 +72,6 @@ public final class LayoutInflaterCompat {
                 return Factory2Wrapper.class.getName() + "{" + this.mDelegateFactory + "}";
             }
             return (String) invokeV.objValue;
-        }
-
-        @Override // android.view.LayoutInflater.Factory2
-        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) ? this.mDelegateFactory.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
         }
     }
 
@@ -124,14 +128,20 @@ public final class LayoutInflaterCompat {
     }
 
     @Deprecated
-    public static void setFactory(@NonNull LayoutInflater layoutInflater, @NonNull LayoutInflaterFactory layoutInflaterFactory) {
+    public static void setFactory(LayoutInflater layoutInflater, LayoutInflaterFactory layoutInflaterFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, layoutInflater, layoutInflaterFactory) == null) {
+            Factory2Wrapper factory2Wrapper = null;
             if (Build.VERSION.SDK_INT >= 21) {
-                layoutInflater.setFactory2(layoutInflaterFactory != null ? new Factory2Wrapper(layoutInflaterFactory) : null);
+                if (layoutInflaterFactory != null) {
+                    factory2Wrapper = new Factory2Wrapper(layoutInflaterFactory);
+                }
+                layoutInflater.setFactory2(factory2Wrapper);
                 return;
             }
-            Factory2Wrapper factory2Wrapper = layoutInflaterFactory != null ? new Factory2Wrapper(layoutInflaterFactory) : null;
+            if (layoutInflaterFactory != null) {
+                factory2Wrapper = new Factory2Wrapper(layoutInflaterFactory);
+            }
             layoutInflater.setFactory2(factory2Wrapper);
             LayoutInflater.Factory factory = layoutInflater.getFactory();
             if (factory instanceof LayoutInflater.Factory2) {
@@ -142,7 +152,7 @@ public final class LayoutInflaterCompat {
         }
     }
 
-    public static void setFactory2(@NonNull LayoutInflater layoutInflater, @NonNull LayoutInflater.Factory2 factory2) {
+    public static void setFactory2(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutInflater, factory2) == null) {
             layoutInflater.setFactory2(factory2);

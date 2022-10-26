@@ -6,7 +6,6 @@ import com.baidu.pass.permissions.PermissionsDTO;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.ecommerce.callback.MapStatusAndLocateCallback;
-import com.baidu.sapi2.ecommerce.enums.PassAddrColorLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,8 +19,8 @@ public class AddressManageDTO extends SapiWebDTO implements NoProguard {
     public static final String TYPE_MANAGE = "0";
     public static final String TYPE_SELECT = "1";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<PassAddrColorLocation, String> addrListColorMap;
-    public HashMap<PassAddrColorLocation, Boolean> addrListTextStyle;
+    public HashMap addrListColorMap;
+    public HashMap addrListTextStyle;
     public Drawable backBtnDrawable;
     public Drawable itemAddEditBtnDrawable;
     public View loadingView;

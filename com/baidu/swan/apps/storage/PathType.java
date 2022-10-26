@@ -63,12 +63,18 @@ public final class PathType {
     public static PathType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PathType) Enum.valueOf(PathType.class, str) : (PathType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PathType) Enum.valueOf(PathType.class, str);
+        }
+        return (PathType) invokeL.objValue;
     }
 
     public static PathType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PathType[]) $VALUES.clone() : (PathType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PathType[]) $VALUES.clone();
+        }
+        return (PathType[]) invokeV.objValue;
     }
 }

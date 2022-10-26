@@ -11,6 +11,8 @@ public abstract class OutputBuffer extends Buffer {
     public int skippedOutputBufferCount;
     public long timeUs;
 
+    public abstract void release();
+
     public OutputBuffer() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,6 +26,4 @@ public abstract class OutputBuffer extends Buffer {
             }
         }
     }
-
-    public abstract void release();
 }

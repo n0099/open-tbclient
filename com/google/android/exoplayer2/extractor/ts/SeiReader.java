@@ -19,10 +19,10 @@ import java.util.List;
 public final class SeiReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<Format> closedCaptionFormats;
+    public final List closedCaptionFormats;
     public final TrackOutput[] outputs;
 
-    public SeiReader(List<Format> list) {
+    public SeiReader(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,14 +49,19 @@ public final class SeiReader {
     }
 
     public void createTracks(ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorOutput, trackIdGenerator) == null) {
             for (int i = 0; i < this.outputs.length; i++) {
                 trackIdGenerator.generateNewId();
                 TrackOutput track = extractorOutput.track(trackIdGenerator.getTrackId(), 3);
-                Format format = this.closedCaptionFormats.get(i);
+                Format format = (Format) this.closedCaptionFormats.get(i);
                 String str = format.sampleMimeType;
-                boolean z = MimeTypes.APPLICATION_CEA608.equals(str) || MimeTypes.APPLICATION_CEA708.equals(str);
+                if (!MimeTypes.APPLICATION_CEA608.equals(str) && !MimeTypes.APPLICATION_CEA708.equals(str)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
                 Assertions.checkArgument(z, "Invalid closed caption mime type provided: " + str);
                 String str2 = format.id;
                 if (str2 == null) {

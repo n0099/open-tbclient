@@ -12,6 +12,7 @@ import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.sapi2.result.OpenBdussResult;
+import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiEnv;
@@ -66,13 +67,16 @@ public class OpenBdussService extends AbstractService implements NoProguard {
             if (currentAccount == null && TextUtils.isEmpty(cookieBduss)) {
                 return 1;
             }
-            if (currentAccount != null || TextUtils.isEmpty(cookieBduss)) {
-                if (currentAccount == null || !TextUtils.isEmpty(cookieBduss)) {
-                    return (currentAccount == null || cookieBduss.equals(currentAccount.bduss)) ? 0 : 4;
-                }
+            if (currentAccount == null && !TextUtils.isEmpty(cookieBduss)) {
+                return 2;
+            }
+            if (currentAccount != null && TextUtils.isEmpty(cookieBduss)) {
                 return 3;
             }
-            return 2;
+            if (currentAccount != null && !cookieBduss.equals(currentAccount.bduss)) {
+                return 4;
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -82,9 +86,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void getOpenBduss(GetOpenBdussDTO getOpenBdussDTO, GetOpenBdussCallback getOpenBdussCallback) {
-        Map<String, String> map;
+        Map map;
         HttpHashMapWrap httpHashMapWrap;
-        List<String> list;
+        List list;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getOpenBdussDTO, getOpenBdussCallback) == null) {
@@ -93,7 +97,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
             SapiUtils.notEmpty(getOpenBdussDTO.clientId, "GetOpenBdussDTO.clientId can't empty");
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             if (currentAccount == null) {
-                OpenBdussResult openBdussResult = new OpenBdussResult();
+                SapiResult openBdussResult = new OpenBdussResult();
                 openBdussResult.setResultCode(-901);
                 getOpenBdussCallback.onFailure(openBdussResult);
                 return;
@@ -101,10 +105,10 @@ public class OpenBdussService extends AbstractService implements NoProguard {
             OpenBdussResult fromJson = OpenBdussResult.fromJson(SapiContext.getInstance().getDecryptStr(SapiContext.KEY_OPEN_BDUSS_INFO));
             if (fromJson != null && fromJson.getResultCode() == 0) {
                 if (SecurityUtil.md5((currentAccount.bduss + getOpenBdussDTO.clientId).getBytes(), false).equals(fromJson.flag)) {
-                    Iterator<String> it = getOpenBdussDTO.targetTplList.iterator();
+                    Iterator it = getOpenBdussDTO.targetTplList.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            if (!fromJson.tplStokenMap.containsKey(it.next())) {
+                            if (!fromJson.tplStokenMap.containsKey((String) it.next())) {
                                 z = false;
                                 break;
                             }
@@ -125,9 +129,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                     httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_OPEN_BDUSS));
                     list = getOpenBdussDTO.targetTplList;
                     if (list != null && list.size() > 0) {
-                        String str = getOpenBdussDTO.targetTplList.get(0);
+                        String str = (String) getOpenBdussDTO.targetTplList.get(0);
                         for (int i = 1; i < getOpenBdussDTO.targetTplList.size(); i++) {
-                            str = str + "|" + getOpenBdussDTO.targetTplList.get(i);
+                            str = str + "|" + ((String) getOpenBdussDTO.targetTplList.get(i));
                         }
                         httpHashMapWrap.put("tpl_list", str);
                     }
@@ -236,7 +240,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
             httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_OPEN_BDUSS));
             list = getOpenBdussDTO.targetTplList;
             if (list != null) {
-                String str2 = getOpenBdussDTO.targetTplList.get(0);
+                String str2 = (String) getOpenBdussDTO.targetTplList.get(0);
                 while (i < getOpenBdussDTO.targetTplList.size()) {
                 }
                 httpHashMapWrap.put("tpl_list", str2);

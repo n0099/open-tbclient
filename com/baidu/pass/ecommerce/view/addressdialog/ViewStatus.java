@@ -61,12 +61,18 @@ public final class ViewStatus {
     public static ViewStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ViewStatus) Enum.valueOf(ViewStatus.class, str) : (ViewStatus) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ViewStatus) Enum.valueOf(ViewStatus.class, str);
+        }
+        return (ViewStatus) invokeL.objValue;
     }
 
     public static ViewStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ViewStatus[]) $VALUES.clone() : (ViewStatus[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ViewStatus[]) $VALUES.clone();
+        }
+        return (ViewStatus[]) invokeV.objValue;
     }
 }

@@ -77,12 +77,18 @@ public final class EncodeHintType {
     public static EncodeHintType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EncodeHintType) Enum.valueOf(EncodeHintType.class, str) : (EncodeHintType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (EncodeHintType) Enum.valueOf(EncodeHintType.class, str);
+        }
+        return (EncodeHintType) invokeL.objValue;
     }
 
     public static EncodeHintType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EncodeHintType[]) $VALUES.clone() : (EncodeHintType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (EncodeHintType[]) $VALUES.clone();
+        }
+        return (EncodeHintType[]) invokeV.objValue;
     }
 }

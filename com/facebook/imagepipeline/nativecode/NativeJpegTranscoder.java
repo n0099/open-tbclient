@@ -8,9 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Closeables;
-import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imageformat.DefaultImageFormats;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.common.ResizeOptions;
@@ -24,7 +22,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
-@DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeJpegTranscoder implements ImageTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,6 +30,17 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     public int mMaxBitmapSize;
     public boolean mResizingEnabled;
     public boolean mUseDownsamplingRatio;
+
+    public static native void nativeTranscodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
+
+    public static native void nativeTranscodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
+
+    @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TAG : (String) invokeV.objValue;
+    }
 
     public NativeJpegTranscoder(boolean z, int i, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
@@ -57,38 +65,78 @@ public class NativeJpegTranscoder implements ImageTranscoder {
         }
     }
 
-    @DoNotStrip
-    public static native void nativeTranscodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
-
-    @DoNotStrip
-    public static native void nativeTranscodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
-
-    @VisibleForTesting
     public static void transcodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             NativeJpegTranscoderSoLoader.ensure();
-            boolean z = false;
-            Preconditions.checkArgument(i2 >= 1);
-            Preconditions.checkArgument(i2 <= 16);
-            Preconditions.checkArgument(i3 >= 0);
-            Preconditions.checkArgument(i3 <= 100);
+            boolean z5 = false;
+            if (i2 >= 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            if (i2 <= 16) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Preconditions.checkArgument(z2);
+            if (i3 >= 0) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            Preconditions.checkArgument(z3);
+            if (i3 <= 100) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            Preconditions.checkArgument(z4);
             Preconditions.checkArgument(JpegTranscoderUtils.isRotationAngleAllowed(i));
             Preconditions.checkArgument((i2 == 8 && i == 0) ? true : true, "no transformation requested");
             nativeTranscodeJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i, i2, i3);
         }
     }
 
-    @VisibleForTesting
     public static void transcodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             NativeJpegTranscoderSoLoader.ensure();
-            boolean z = false;
-            Preconditions.checkArgument(i2 >= 1);
-            Preconditions.checkArgument(i2 <= 16);
-            Preconditions.checkArgument(i3 >= 0);
-            Preconditions.checkArgument(i3 <= 100);
+            boolean z5 = false;
+            if (i2 >= 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            if (i2 <= 16) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Preconditions.checkArgument(z2);
+            if (i3 >= 0) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            Preconditions.checkArgument(z3);
+            if (i3 <= 100) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            Preconditions.checkArgument(z4);
             Preconditions.checkArgument(JpegTranscoderUtils.isExifOrientationAllowed(i));
             Preconditions.checkArgument((i2 == 8 && i == 1) ? true : true, "no transformation requested");
             nativeTranscodeJpegWithExifOrientation((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i, i2, i3);
@@ -103,7 +151,10 @@ public class NativeJpegTranscoder implements ImageTranscoder {
             if (rotationOptions == null) {
                 rotationOptions = RotationOptions.autoRotate();
             }
-            return JpegTranscoderUtils.getSoftwareNumerator(rotationOptions, resizeOptions, encodedImage, this.mResizingEnabled) < 8;
+            if (JpegTranscoderUtils.getSoftwareNumerator(rotationOptions, resizeOptions, encodedImage, this.mResizingEnabled) < 8) {
+                return true;
+            }
+            return false;
         }
         return invokeLLL.booleanValue;
     }
@@ -112,14 +163,13 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     public boolean canTranscode(ImageFormat imageFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFormat)) == null) ? imageFormat == DefaultImageFormats.JPEG : invokeL.booleanValue;
-    }
-
-    @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TAG : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFormat)) == null) {
+            if (imageFormat == DefaultImageFormats.JPEG) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
@@ -147,7 +197,11 @@ public class NativeJpegTranscoder implements ImageTranscoder {
                     transcodeJpeg(inputStream, outputStream, JpegTranscoderUtils.getRotationAngle(rotationOptions, encodedImage), softwareNumerator, num.intValue());
                 }
                 Closeables.closeQuietly(inputStream);
-                return new ImageTranscodeResult(determineSampleSize != 1 ? 0 : 1);
+                int i = 1;
+                if (determineSampleSize != 1) {
+                    i = 0;
+                }
+                return new ImageTranscodeResult(i);
             } catch (Throwable th) {
                 Closeables.closeQuietly((InputStream) null);
                 throw th;

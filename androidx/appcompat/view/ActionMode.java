@@ -4,7 +4,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,20 +27,6 @@ public abstract class ActionMode {
         boolean onPrepareActionMode(ActionMode actionMode, Menu menu);
     }
 
-    public ActionMode() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public abstract void finish();
 
     public abstract View getCustomView();
@@ -52,19 +37,7 @@ public abstract class ActionMode {
 
     public abstract CharSequence getSubtitle();
 
-    public Object getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTag : invokeV.objValue;
-    }
-
     public abstract CharSequence getTitle();
-
-    public boolean getTitleOptionalHint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTitleOptionalHint : invokeV.booleanValue;
-    }
 
     public abstract void invalidate();
 
@@ -77,7 +50,6 @@ public abstract class ActionMode {
         return invokeV.booleanValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isUiFocusable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,16 +65,48 @@ public abstract class ActionMode {
 
     public abstract void setSubtitle(CharSequence charSequence);
 
+    public abstract void setTitle(int i);
+
+    public abstract void setTitle(CharSequence charSequence);
+
+    public ActionMode() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public Object getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mTag;
+        }
+        return invokeV.objValue;
+    }
+
+    public boolean getTitleOptionalHint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mTitleOptionalHint;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void setTag(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, obj) == null) {
             this.mTag = obj;
         }
     }
-
-    public abstract void setTitle(int i);
-
-    public abstract void setTitle(CharSequence charSequence);
 
     public void setTitleOptionalHint(boolean z) {
         Interceptable interceptable = $ic;

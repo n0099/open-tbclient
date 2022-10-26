@@ -14,57 +14,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface IPCCallback extends IInterface {
+    void call(Bundle bundle) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static class Default implements IPCCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Default() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (IBinder) invokeV.objValue;
-        }
-
-        @Override // com.vivo.vms.IPCCallback
-        public void call(Bundle bundle) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static abstract class Stub extends Binder implements IPCCallback {
+    public abstract class Stub extends Binder implements IPCCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.vivo.vms.IPCCallback";
         public static final int TRANSACTION_call = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+        }
+
         /* loaded from: classes8.dex */
-        public static class Proxy implements IPCCallback {
+        public class Proxy implements IPCCallback {
             public static /* synthetic */ Interceptable $ic;
             public static IPCCallback sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
+
+            public String getInterfaceDescriptor() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
+            }
 
             public Proxy(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -88,7 +65,10 @@ public interface IPCCallback extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRemote : (IBinder) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.mRemote;
+                }
+                return (IBinder) invokeV.objValue;
             }
 
             @Override // com.vivo.vms.IPCCallback
@@ -113,12 +93,6 @@ public interface IPCCallback extends IInterface {
                     }
                 }
             }
-
-            public String getInterfaceDescriptor() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
-            }
         }
 
         public Stub() {
@@ -137,6 +111,15 @@ public interface IPCCallback extends IInterface {
             attachInterface(this, DESCRIPTOR);
         }
 
+        public static IPCCallback getDefaultImpl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return Proxy.sDefaultImpl;
+            }
+            return (IPCCallback) invokeV.objValue;
+        }
+
         public static IPCCallback asInterface(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -153,30 +136,17 @@ public interface IPCCallback extends IInterface {
             return (IPCCallback) invokeL.objValue;
         }
 
-        public static IPCCallback getDefaultImpl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IPCCallback) invokeV.objValue;
-        }
-
         public static boolean setDefaultImpl(IPCCallback iPCCallback) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iPCCallback)) == null) {
-                if (Proxy.sDefaultImpl != null || iPCCallback == null) {
-                    return false;
+                if (Proxy.sDefaultImpl == null && iPCCallback != null) {
+                    Proxy.sDefaultImpl = iPCCallback;
+                    return true;
                 }
-                Proxy.sDefaultImpl = iPCCallback;
-                return true;
+                return false;
             }
             return invokeL.booleanValue;
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
         @Override // android.os.Binder
@@ -203,5 +173,40 @@ public interface IPCCallback extends IInterface {
         }
     }
 
-    void call(Bundle bundle) throws RemoteException;
+    /* loaded from: classes8.dex */
+    public class Default implements IPCCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
+        }
+
+        @Override // com.vivo.vms.IPCCallback
+        public void call(Bundle bundle) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            }
+        }
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

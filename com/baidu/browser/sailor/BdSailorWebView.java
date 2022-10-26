@@ -1,6 +1,5 @@
 package com.baidu.browser.sailor;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -38,9 +37,9 @@ import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.dx;
-import com.baidu.tieba.uw;
-import com.baidu.tieba.ww;
+import com.baidu.tieba.ex;
+import com.baidu.tieba.vw;
+import com.baidu.tieba.xw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -416,7 +415,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
-        public List<String> getPictureUrlListExt() {
+        public List getPictureUrlListExt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
@@ -431,7 +430,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
                 try {
-                    return (String) uw.a(WebView.class, this, "nativeGetSelection", null, null, "");
+                    return (String) vw.a(WebView.class, this, "nativeGetSelection", null, null, "");
                 } catch (Exception unused) {
                     return "";
                 }
@@ -494,7 +493,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
                 try {
-                    return (ZoomButtonsController) uw.a(WebView.class, this, "getZoomControls", null, null, null);
+                    return (ZoomButtonsController) vw.a(WebView.class, this, "getZoomControls", null, null, null);
                 } catch (Exception unused) {
                     return null;
                 }
@@ -523,7 +522,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
                 try {
-                    return ((Boolean) uw.a(WebView.class, this, "getDrawSelectionPointer", null, null, Boolean.FALSE)).booleanValue();
+                    return ((Boolean) vw.a(WebView.class, this, "getDrawSelectionPointer", null, null, Boolean.FALSE)).booleanValue();
                 } catch (Exception unused) {
                     return false;
                 }
@@ -552,7 +551,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         public boolean isForegroundExt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? dx.e(this.this$0) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? ex.e(this.this$0) : invokeV.booleanValue;
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
@@ -575,7 +574,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
                 try {
-                    return ((Boolean) uw.a(WebView.class, this, "getShiftIsPressed", null, null, Boolean.FALSE)).booleanValue();
+                    return ((Boolean) vw.a(WebView.class, this, "getShiftIsPressed", null, null, Boolean.FALSE)).booleanValue();
                 } catch (Exception unused) {
                     return false;
                 }
@@ -606,7 +605,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebViewExt
-        public void loadUrl(String str, Map<String, String> map, boolean z) {
+        public void loadUrl(String str, Map map, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048625, this, str, map, z) == null) {
                 this.this$0.mCurrentWebView.loadUrl(str, map, z);
@@ -795,7 +794,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
                 try {
-                    uw.a(WebView.class, this, "setDrawSelectionPointer", new Class[]{Boolean.TYPE}, new Object[]{Boolean.valueOf(z)}, Boolean.FALSE);
+                    vw.a(WebView.class, this, "setDrawSelectionPointer", new Class[]{Boolean.TYPE}, new Object[]{Boolean.valueOf(z)}, Boolean.FALSE);
                 } catch (Exception unused) {
                 }
             }
@@ -874,7 +873,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048656, this, z) == null) {
                 try {
-                    uw.a(WebView.class, this, "setShiftIsPressed", new Class[]{Boolean.TYPE}, new Object[]{Boolean.valueOf(z)}, Boolean.FALSE);
+                    vw.a(WebView.class, this, "setShiftIsPressed", new Class[]{Boolean.TYPE}, new Object[]{Boolean.valueOf(z)}, Boolean.FALSE);
                 } catch (Exception unused) {
                 }
             }
@@ -3015,7 +3014,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         init();
     }
 
-    public static void addToWebCache(String str, Map<String, String> map, boolean z) {
+    public static void addToWebCache(String str, Map map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65559, null, str, map, z) == null) {
             WebView.addToWebCache(str, map, z);
@@ -3029,7 +3028,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    public static void addToWebCache(String str, boolean z, Map<String, String> map) {
+    public static void addToWebCache(String str, boolean z, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{str, Boolean.valueOf(z), map}) == null) {
             WebView.addToWebCache(str, z, map);
@@ -3043,7 +3042,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    public static void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map) {
+    public static void addToWebCache(String str, boolean z, boolean z2, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), map}) == null) {
             WebView.addToWebCache(str, z, z2, map);
@@ -3063,7 +3062,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             h hVar = new h(this, webView);
             this.mViewDelegate = hVar;
             webView.setViewDelegate(hVar);
-            if (dx.c() && BdZeusUtil.isWebkitLoaded()) {
+            if (ex.c() && BdZeusUtil.isWebkitLoaded()) {
                 return;
             }
             getWebViewContainer().addView(webView, i, new FrameLayout.LayoutParams(-1, -1));
@@ -3073,7 +3072,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     private void bringStatusBarToFront() {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65566, this) == null) || !dx.c() || (view2 = this.mStatusBar) == null || indexOfChild(view2) < 0) {
+        if (!(interceptable == null || interceptable.invokeV(65566, this) == null) || !ex.c() || (view2 = this.mStatusBar) == null || indexOfChild(view2) < 0) {
             return;
         }
         bringChildToFront(this.mStatusBar);
@@ -3093,7 +3092,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             this.mWebViewExt = new BdSailorWebViewExt(this, null);
             this.mWebViewLayer = new FrameLayout(this.mCurrentWebView.getContext());
             this.mWebViewLayerLp = new FrameLayout.LayoutParams(-1, -1);
-            if (!dx.c() || !BdZeusUtil.isWebkitLoaded()) {
+            if (!ex.c() || !BdZeusUtil.isWebkitLoaded()) {
                 addView(this.mWebViewLayer, this.mWebViewLayerLp);
             }
             initWebView(this.mCurrentWebView);
@@ -3167,7 +3166,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65575, this, webView) == null) {
             try {
-                if (dx.c() && BdZeusUtil.isWebkitLoaded()) {
+                if (ex.c() && BdZeusUtil.isWebkitLoaded()) {
                     webView.getWebViewPager().removeView(webView);
                 } else {
                     getWebViewContainer().removeView(webView);
@@ -3179,7 +3178,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     private void setSearchBarTopMargin() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65576, this) == null) && dx.c()) {
+        if ((interceptable == null || interceptable.invokeV(65576, this) == null) && ex.c()) {
             setViewTopMargin(this.mSearchResultTitleBar, this.mStatusBarHeight);
             setViewTopMargin(this.mLandingPageTitleBar, this.mStatusBarHeight);
         }
@@ -3502,7 +3501,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
+    public void evaluateJavascript(String str, ValueCallback valueCallback) {
         WebView webView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048608, this, str, valueCallback) == null) || (webView = this.mCurrentWebView) == null) {
@@ -3511,7 +3510,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         webView.evaluateJavascript(str, valueCallback);
     }
 
-    public void evaluateJavascriptMethod(String str, String str2, String str3, ValueCallback<String> valueCallback) {
+    public void evaluateJavascriptMethod(String str, String str2, String str3, ValueCallback valueCallback) {
         WebView webView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(1048609, this, str, str2, str3, valueCallback) == null) || (webView = this.mCurrentWebView) == null) {
@@ -3862,7 +3861,6 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) ? this.mCustomView != null : invokeV.booleanValue;
     }
 
-    @SuppressLint({"all"})
     public void hideCustomView() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048656, this) == null) || this.mCustomView == null) {
@@ -3996,7 +3994,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    public void loadUrl(String str, Map<String, String> map) {
+    public void loadUrl(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048673, this, str, map) == null) {
             if (str.startsWith("javascript:")) {
@@ -4049,7 +4047,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048678, this) == null) {
             super.onAttachedToWindow();
-            if (dx.e(this)) {
+            if (ex.e(this)) {
                 BdSailor.getInstance().setCurrentSailorWebView(this);
             }
         }
@@ -4349,7 +4347,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         }
     }
 
-    public void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback) {
+    public void saveWebArchive(String str, boolean z, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048713, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) {
             this.mCurrentWebView.saveWebArchive(str, z, valueCallback);
@@ -4444,7 +4442,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     public void setEmbeddedTitleBar(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048722, this, view2, i) == null) {
-            if (!dx.c()) {
+            if (!ex.c()) {
                 setNewTitlebar(view2, i, true, true);
             } else if (view2 == null) {
                 setNewTitlebar(view2, i, true, true);
@@ -4452,7 +4450,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 this.mSearchResultTitleBar = view2;
                 this.mCurrentTitleBar = view2;
                 this.mEmbeddedTitlebar = view2;
-                this.mEmbeddedTitlebarHeightPix = ww.a(i);
+                this.mEmbeddedTitlebarHeightPix = xw.a(i);
             }
         }
     }
@@ -4554,7 +4552,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             this.mCanHideTitlebar = z;
             this.mCanShowTitlebar = z2;
             this.mLockEmbeddedTitlebar = false;
-            this.mEmbeddedTitlebarHeightPix = ww.a(i);
+            this.mEmbeddedTitlebarHeightPix = xw.a(i);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             this.mEmbeddedTitlebar.setLayoutParams(layoutParams);
             if (BdZeusUtil.isWebkitLoaded()) {
@@ -4569,7 +4567,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                     ((ViewGroup) this.mEmbeddedTitlebar.getParent()).removeView(this.mEmbeddedTitlebar);
                 }
                 addView(this.mEmbeddedTitlebar);
-                if (dx.c()) {
+                if (ex.c()) {
                     View view5 = this.mEmbeddedTitlebar;
                     View view6 = this.mLandingPageTitleBar;
                     if (view5 == view6) {
@@ -4602,7 +4600,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setOuterTitlebarHeight(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048733, this, i) == null) && BdZeusUtil.isWebkitLoaded() && !dx.c()) {
+        if ((interceptable == null || interceptable.invokeI(1048733, this, i) == null) && BdZeusUtil.isWebkitLoaded() && !ex.c()) {
             this.mOuterTitlebarHeightPix = i;
             setWebViewLayerMarginInternal(this.mMarginLeft, this.mMarginTop + i, this.mMarginRight, this.mMarginBottom);
         }
@@ -4663,7 +4661,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
 
     public void setStatusBar(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048740, this, view2, i) == null) && dx.c()) {
+        if ((interceptable == null || interceptable.invokeLI(1048740, this, view2, i) == null) && ex.c()) {
             if (view2 == null) {
                 View view3 = this.mStatusBar;
                 if (view3 != null) {
@@ -4875,7 +4873,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         if (z3) {
             return;
         }
-        if (dx.c()) {
+        if (ex.c()) {
             if (!z) {
                 setTopControlsHeight(this.mEmbeddedTitlebarHeightPix, true);
                 return;

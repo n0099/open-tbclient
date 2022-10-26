@@ -1,6 +1,5 @@
 package com.google.android.gms.actions;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,9 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class SearchIntents {
     public static /* synthetic */ Interceptable $ic = null;
-    @NonNull
     public static final String ACTION_SEARCH = "com.google.android.gms.actions.SEARCH_ACTION";
-    @NonNull
     public static final String EXTRA_QUERY = "query";
     public transient /* synthetic */ FieldHolder $fh;
 

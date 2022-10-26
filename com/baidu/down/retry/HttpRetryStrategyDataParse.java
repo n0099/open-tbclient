@@ -77,41 +77,38 @@ public class HttpRetryStrategyDataParse {
     /* JADX INFO: Access modifiers changed from: private */
     public void parserHttpDNSData(Context context, JSONObject jSONObject, HttpDNSCacheInfo httpDNSCacheInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65542, this, context, jSONObject, httpDNSCacheInfo) == null) || jSONObject == null || jSONObject == null) {
-            return;
-        }
-        try {
-            String string = jSONObject.getString("data");
-            if (TextUtils.isEmpty(string)) {
-                return;
-            }
-            String decryptCdnData = CryptUtil.decryptCdnData(context, string);
-            if (TextUtils.isEmpty(decryptCdnData)) {
-                return;
-            }
-            JSONObject jSONObject2 = new JSONObject(decryptCdnData);
-            int optInt = jSONObject.optInt("status");
-            if (optInt == 0) {
-                JSONArray optJSONArray = jSONObject2.optJSONArray("vips");
-                httpDNSCacheInfo.mXCode = jSONObject2.optString("xcode");
-                httpDNSCacheInfo.mHost = jSONObject2.optString("host");
-                httpDNSCacheInfo.mIpLiveTime = jSONObject2.optInt("live_time");
-                httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(context);
-                if (optJSONArray != null && !TextUtils.isEmpty(httpDNSCacheInfo.mHost)) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        if (Utils.isIpAddress(optJSONArray.getString(i))) {
-                            httpDNSCacheInfo.mIpList.add(optJSONArray.getString(i));
+        if ((interceptable == null || interceptable.invokeLLL(65542, this, context, jSONObject, httpDNSCacheInfo) == null) && jSONObject != null && jSONObject != null) {
+            try {
+                String string = jSONObject.getString("data");
+                if (!TextUtils.isEmpty(string)) {
+                    String decryptCdnData = CryptUtil.decryptCdnData(context, string);
+                    if (!TextUtils.isEmpty(decryptCdnData)) {
+                        JSONObject jSONObject2 = new JSONObject(decryptCdnData);
+                        int optInt = jSONObject.optInt("status");
+                        if (optInt == 0) {
+                            JSONArray optJSONArray = jSONObject2.optJSONArray("vips");
+                            httpDNSCacheInfo.mXCode = jSONObject2.optString("xcode");
+                            httpDNSCacheInfo.mHost = jSONObject2.optString("host");
+                            httpDNSCacheInfo.mIpLiveTime = jSONObject2.optInt("live_time");
+                            httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(context);
+                            if (optJSONArray != null && !TextUtils.isEmpty(httpDNSCacheInfo.mHost)) {
+                                for (int i = 0; i < optJSONArray.length(); i++) {
+                                    if (Utils.isIpAddress(optJSONArray.getString(i))) {
+                                        httpDNSCacheInfo.mIpList.add(optJSONArray.getString(i));
+                                    }
+                                }
+                            }
+                        } else if (optInt == 1) {
+                            httpDNSCacheInfo.mIpLiveTime = 600;
+                            httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(context);
+                            httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
                         }
+                        httpDNSCacheInfo.mStatus = optInt;
                     }
                 }
-            } else if (optInt == 1) {
-                httpDNSCacheInfo.mIpLiveTime = 600;
-                httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(context);
-                httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            httpDNSCacheInfo.mStatus = optInt;
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -149,7 +146,7 @@ public class HttpRetryStrategyDataParse {
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mFetchServerDataOverTime == null) {
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || this.this$0.mFetchServerDataOverTime == null) {
                         return;
                     }
                     this.this$0.mFetchServerDataOverTime = null;
@@ -195,7 +192,7 @@ public class HttpRetryStrategyDataParse {
                 @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
                 public void onFailed() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mFetchServerDataOverTime == null) {
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || this.this$0.mFetchServerDataOverTime == null) {
                         return;
                     }
                     this.this$0.mFetchServerDataOverTime.cancel();
@@ -210,7 +207,7 @@ public class HttpRetryStrategyDataParse {
                 @Override // com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable.OnWebRequestListener
                 public void onSuccess(String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) || this.this$0.mFetchServerDataOverTime == null) {
+                    if ((interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) != null) || this.this$0.mFetchServerDataOverTime == null) {
                         return;
                     }
                     this.this$0.mFetchServerDataOverTime.cancel();
@@ -264,19 +261,20 @@ public class HttpRetryStrategyDataParse {
                                         }
                                         return;
                                     }
-                                    if (jSONObject.optInt("dystat", 1) == 0) {
-                                        this.this$0.parserHttpDNSData(this.val$context, jSONObject.optJSONObject("dyres"), httpDNSCacheInfo);
+                                    if (jSONObject.optInt("dystat", 1) != 0) {
                                         if (this.val$onRequestListener != null) {
                                             this.val$onRequestListener.afterRequest(true, httpDNSCacheInfo, 1);
                                             return;
+                                        } else {
+                                            return;
                                         }
-                                        return;
-                                    } else if (this.val$onRequestListener != null) {
+                                    }
+                                    this.this$0.parserHttpDNSData(this.val$context, jSONObject.optJSONObject("dyres"), httpDNSCacheInfo);
+                                    if (this.val$onRequestListener != null) {
                                         this.val$onRequestListener.afterRequest(true, httpDNSCacheInfo, 1);
                                         return;
-                                    } else {
-                                        return;
                                     }
+                                    return;
                                 }
                             }
                         } catch (Exception e) {

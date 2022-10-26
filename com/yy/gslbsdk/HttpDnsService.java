@@ -29,7 +29,6 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.IPTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -63,6 +62,12 @@ public class HttpDnsService {
         }
     }
 
+    public String getSdkVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "2.2.28-live" : (String) invokeV.objValue;
+    }
+
     public HttpDnsService() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -94,75 +99,44 @@ public class HttpDnsService {
         }
     }
 
-    public static synchronized HttpDnsService getService(Context context, String str, ThreadPoolMgr.ITaskExecutor iTaskExecutor, String str2) {
-        InterceptResult invokeLLLL;
-        HttpDnsService service;
+    public static synchronized HttpDnsService getService() {
+        InterceptResult invokeV;
+        HttpDnsService httpDnsService;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, iTaskExecutor, str2)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (HttpDnsService.class) {
-                service = getService(context, str, iTaskExecutor, str2, false);
+                httpDnsService = mHttpDnsService;
             }
-            return service;
+            return httpDnsService;
         }
-        return (HttpDnsService) invokeLLLL.objValue;
-    }
-
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            synchronized (this.mInit) {
-                if (this.mInit.get()) {
-                    this.mUpdateIp.set(true);
-                    return;
-                }
-                IpVersionController.getInstance().judgeIpVersion();
-                ServerIPMgr.getInstance().initServerIP(GlobalTools.APP_CONTEXT, GlobalTools.APP_LOCALIZE_CODE);
-                ServerIPV6Mgr.getInstance().initServerIP(GlobalTools.APP_CONTEXT, GlobalTools.APP_LOCALIZE_CODE);
-                ServerIPMgr.getInstance().updateServerIpByLocalDns(GlobalTools.APP_CONTEXT);
-                AsynTaskMgr.INSTANCE.startMonitors();
-                this.mInit.set(true);
-                this.mUpdateIp.set(false);
-                LogTools.printDebug(TAG, "init, mHttpDnsService: " + mHttpDnsService);
-            }
-        }
-    }
-
-    @Deprecated
-    public void cancelRequest(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            LogTools.printDebug(TAG, "This interface is Deprecated.");
-        }
+        return (HttpDnsService) invokeV.objValue;
     }
 
     public DegradationFilter getDegradationFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDegradationFilter : (DegradationFilter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDegradationFilter;
+        }
+        return (DegradationFilter) invokeV.objValue;
     }
 
     public String getGslbID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT) : (String) invokeV.objValue;
-    }
-
-    public DnsResultInfo getIpsByHost(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? getIpsByHost(str, false) : (DnsResultInfo) invokeL.objValue;
-    }
-
-    public DnsResultInfo getIpsByHostAsync(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? getIpsByHostAsync(str, false) : (DnsResultInfo) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT);
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getNetWorkStackStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? IpVersionController.getInstance().getCurrIpVer() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return IpVersionController.getInstance().getCurrIpVer();
+        }
+        return invokeV.intValue;
     }
 
     @Deprecated
@@ -176,242 +150,17 @@ public class HttpDnsService {
         return invokeV.intValue;
     }
 
-    public String getSdkVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "2.2.28-live" : (String) invokeV.objValue;
-    }
-
-    public void loadAssetsIp(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            ExternalCache.getInstance().loadFromAssets(GlobalTools.APP_CONTEXT, str);
-        }
-    }
-
-    public void setBackgroundModel(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            GlobalTools.IS_BACKGOUND_MODEL = z;
-        }
-    }
-
-    public void setCacheMaxExpired(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            GlobalTools.TTL_HOST_ALIVE_SECOND = Math.max(GlobalTools.TTL_HOST_ALIVE_SECOND, i);
-        }
-    }
-
-    public void setDectorHost(String str, int i, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
-            QualityDetectFlow.getInstance().updateDectorList(str, i, i2, str2);
-        }
-    }
-
-    public void setDegradationFilter(DegradationFilter degradationFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, degradationFilter) == null) {
-            this.mDegradationFilter = degradationFilter;
-        }
-    }
-
-    public void setEnableIpv6(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            IpVersionController.getInstance().setEnableIpv6(z);
-        }
-    }
-
-    public void setExternalIpData(Map<String, Map<String, List<String>>> map, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048596, this, map, i) == null) {
-            ExternalCache.getInstance().setData(map);
-            ExternalCache.getInstance().setScene(i);
-        }
-    }
-
-    public void setExternalIpEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            ExternalCache.getInstance().setEnable(z);
-        }
-    }
-
-    public void setExternalIpNetType(ExternalCache.NetType netType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, netType) == null) {
-            ExternalCache.getInstance().setNetType(netType);
-        }
-    }
-
-    public void setExternalIpScene(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            ExternalCache.getInstance().setScene(i);
-        }
-    }
-
-    public void setGslbEventMessager(GslbEvent.GslbEventListener gslbEventListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, gslbEventListener) == null) {
-            GslbEvent.INSTANCE.setListener(gslbEventListener);
-        }
-    }
-
-    public void setGslbStatistic(StatisticMgr.IGslbStatistic iGslbStatistic) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, iGslbStatistic) == null) {
-            StatisticMgr.getInstance().setStatistic(iGslbStatistic);
-        }
-    }
-
-    public void setHttpsEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            if (z) {
-                setHttpsEnable(1);
-            } else {
-                setHttpsEnable(0);
-            }
-        }
-    }
-
-    public void setLogEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            GlobalTools.LOG_IS_OPEN = z;
-        }
-    }
-
-    public void setMinTTL(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048605, this, i) == null) || i < 180) {
-            return;
-        }
-        GlobalTools.sMinSecondTTL = i;
-    }
-
-    public void setNetworkStatus(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            IpVersionController.getInstance().setNetworkStatus(i);
-        }
-    }
-
-    @Deprecated
-    public void setNetworkSupportV6(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            IpVersionController.getInstance().setNetworkStatus(z ? 3 : 1);
-        }
-    }
-
-    @Deprecated
-    public void setPreResolveAfterNetworkChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            GlobalTools.REFRESH_AFTER_NETWORK_CHANGE = z;
-        }
-    }
-
-    public void setPreResolveHosts(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, arrayList) == null) {
-            DnsResolveFlow.getInstance().updateHostList(arrayList, true);
-            init();
-            if (Build.VERSION.SDK_INT == 28) {
-                DnsResolveFlow.getInstance().preHost(arrayList);
-            } else {
-                DnsResolveFlow.getInstance().preHost();
-            }
-        }
-    }
-
-    public void setReport(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && QualityDetectFlow.getInstance().canReport(str)) {
-            QualityDetectFlow.getInstance().addReportData(str, str2, j);
-        }
-    }
-
-    public static synchronized HttpDnsService getService(Context context, String str, ThreadPoolMgr.ITaskExecutor iTaskExecutor, String str2, boolean z) {
-        InterceptResult invokeCommon;
+    public static synchronized HttpDnsService getService(Context context, String str, ThreadPoolMgr.ITaskExecutor iTaskExecutor, String str2) {
+        InterceptResult invokeLLLL;
         HttpDnsService service;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, str, iTaskExecutor, str2, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, iTaskExecutor, str2)) == null) {
             synchronized (HttpDnsService.class) {
-                service = getService(context, str, iTaskExecutor, str2, z, "");
+                service = getService(context, str, iTaskExecutor, str2, false);
             }
             return service;
         }
-        return (HttpDnsService) invokeCommon.objValue;
-    }
-
-    @Deprecated
-    public DnsResultInfo getIpsByHost(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) ? getIpsByHost(str) : (DnsResultInfo) invokeLI.objValue;
-    }
-
-    public DnsResultInfo getIpsByHostAsync(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) ? getIpsByHostAsync(str, z, true) : (DnsResultInfo) invokeLZ.objValue;
-    }
-
-    public static synchronized HttpDnsService getService(Context context, String str, ThreadPoolMgr.ITaskExecutor iTaskExecutor, String str2, boolean z, String str3) {
-        InterceptResult invokeCommon;
-        HttpDnsService service;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, str, iTaskExecutor, str2, Boolean.valueOf(z), str3})) == null) {
-            synchronized (HttpDnsService.class) {
-                service = getService(context, str, iTaskExecutor, str2, "CN", z, str3);
-            }
-            return service;
-        }
-        return (HttpDnsService) invokeCommon.objValue;
-    }
-
-    public DnsResultInfo getIpsByHost(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, str, z)) == null) ? getIpsByHost(str, z, true) : (DnsResultInfo) invokeLZ.objValue;
-    }
-
-    public DnsResultInfo getIpsByHostAsync(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (!SwitchController.getInstance().switchGslb()) {
-                return new DnsResultInfo();
-            }
-            init();
-            if (!IPTools.isHost(str)) {
-                return new DnsResultInfo();
-            }
-            DegradationFilter degradationFilter = this.mDegradationFilter;
-            boolean shouldDegradeHttpDNS = degradationFilter != null ? degradationFilter.shouldDegradeHttpDNS(str) : false;
-            LogTools.printDebug(TAG, String.format(Locale.US, "getIpsByHostAsync, host: %s, expiredIPEnabled: %b, enableLocalDns: %b", str, Boolean.valueOf(z), Boolean.valueOf(z2)));
-            return DnsResolveFlow.getInstance().handleDNS(str, shouldDegradeHttpDNS, true, z, false, z2, this.mUpdateIp.get());
-        }
-        return (DnsResultInfo) invokeCommon.objValue;
-    }
-
-    public void setExternalIpData(Map<String, Map<String, List<String>>> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, map) == null) {
-            ExternalCache.getInstance().setData(map);
-        }
-    }
-
-    public void setHttpsEnable(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            HttpsLevelMgr.getInstance().setHttpsLevel(i);
-        }
+        return (HttpDnsService) invokeLLLL.objValue;
     }
 
     @Deprecated
@@ -426,25 +175,6 @@ public class HttpDnsService {
             return service;
         }
         return (HttpDnsService) invokeLLLLL.objValue;
-    }
-
-    public DnsResultInfo getIpsByHost(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (!SwitchController.getInstance().switchGslb()) {
-                return new DnsResultInfo();
-            }
-            init();
-            if (!IPTools.isHost(str)) {
-                return new DnsResultInfo();
-            }
-            DegradationFilter degradationFilter = this.mDegradationFilter;
-            boolean shouldDegradeHttpDNS = degradationFilter != null ? degradationFilter.shouldDegradeHttpDNS(str) : false;
-            LogTools.printDebug(TAG, String.format(Locale.US, "getIpsByHost, host: %s, forceRefresh: %b, enableLocalDns: %b", str, Boolean.valueOf(z), Boolean.valueOf(z2)));
-            return DnsResolveFlow.getInstance().handleDNS(str, shouldDegradeHttpDNS, false, false, z, z2, this.mUpdateIp.get());
-        }
-        return (DnsResultInfo) invokeCommon.objValue;
     }
 
     @Deprecated
@@ -506,7 +236,88 @@ public class HttpDnsService {
         return (HttpDnsService) invokeCommon.objValue;
     }
 
-    public void setPreResolveHosts(ArrayList<String> arrayList, long j) {
+    public static synchronized HttpDnsService getService(Context context, String str, ThreadPoolMgr.ITaskExecutor iTaskExecutor, String str2, boolean z) {
+        InterceptResult invokeCommon;
+        HttpDnsService service;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, str, iTaskExecutor, str2, Boolean.valueOf(z)})) == null) {
+            synchronized (HttpDnsService.class) {
+                service = getService(context, str, iTaskExecutor, str2, z, "");
+            }
+            return service;
+        }
+        return (HttpDnsService) invokeCommon.objValue;
+    }
+
+    public static synchronized HttpDnsService getService(Context context, String str, ThreadPoolMgr.ITaskExecutor iTaskExecutor, String str2, boolean z, String str3) {
+        InterceptResult invokeCommon;
+        HttpDnsService service;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, str, iTaskExecutor, str2, Boolean.valueOf(z), str3})) == null) {
+            synchronized (HttpDnsService.class) {
+                service = getService(context, str, iTaskExecutor, str2, "CN", z, str3);
+            }
+            return service;
+        }
+        return (HttpDnsService) invokeCommon.objValue;
+    }
+
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            synchronized (this.mInit) {
+                if (this.mInit.get()) {
+                    this.mUpdateIp.set(true);
+                    return;
+                }
+                IpVersionController.getInstance().judgeIpVersion();
+                ServerIPMgr.getInstance().initServerIP(GlobalTools.APP_CONTEXT, GlobalTools.APP_LOCALIZE_CODE);
+                ServerIPV6Mgr.getInstance().initServerIP(GlobalTools.APP_CONTEXT, GlobalTools.APP_LOCALIZE_CODE);
+                ServerIPMgr.getInstance().updateServerIpByLocalDns(GlobalTools.APP_CONTEXT);
+                AsynTaskMgr.INSTANCE.startMonitors();
+                this.mInit.set(true);
+                this.mUpdateIp.set(false);
+                LogTools.printDebug(TAG, "init, mHttpDnsService: " + mHttpDnsService);
+            }
+        }
+    }
+
+    @Deprecated
+    public void cancelRequest(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            LogTools.printDebug(TAG, "This interface is Deprecated.");
+        }
+    }
+
+    @Deprecated
+    public DnsResultInfo getIpsByHost(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
+            return getIpsByHost(str);
+        }
+        return (DnsResultInfo) invokeLI.objValue;
+    }
+
+    public DnsResultInfo getIpsByHostAsync(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
+            return getIpsByHostAsync(str, z, true);
+        }
+        return (DnsResultInfo) invokeLZ.objValue;
+    }
+
+    public void setExternalIpData(Map map, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048596, this, map, i) == null) {
+            ExternalCache.getInstance().setData(map);
+            ExternalCache.getInstance().setScene(i);
+        }
+    }
+
+    public void setPreResolveHosts(ArrayList arrayList, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048610, this, arrayList, j) == null) {
             AsynTaskMgr.INSTANCE.postDelayed(new Runnable(this, arrayList) { // from class: com.yy.gslbsdk.HttpDnsService.1
@@ -545,16 +356,244 @@ public class HttpDnsService {
         }
     }
 
-    public static synchronized HttpDnsService getService() {
-        InterceptResult invokeV;
-        HttpDnsService httpDnsService;
+    public DnsResultInfo getIpsByHost(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (HttpDnsService.class) {
-                httpDnsService = mHttpDnsService;
-            }
-            return httpDnsService;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return getIpsByHost(str, false);
         }
-        return (HttpDnsService) invokeV.objValue;
+        return (DnsResultInfo) invokeL.objValue;
+    }
+
+    public DnsResultInfo getIpsByHostAsync(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return getIpsByHostAsync(str, false);
+        }
+        return (DnsResultInfo) invokeL.objValue;
+    }
+
+    public void loadAssetsIp(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            ExternalCache.getInstance().loadFromAssets(GlobalTools.APP_CONTEXT, str);
+        }
+    }
+
+    public void setBackgroundModel(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            GlobalTools.IS_BACKGOUND_MODEL = z;
+        }
+    }
+
+    public void setCacheMaxExpired(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            GlobalTools.TTL_HOST_ALIVE_SECOND = Math.max(GlobalTools.TTL_HOST_ALIVE_SECOND, i);
+        }
+    }
+
+    public void setDegradationFilter(DegradationFilter degradationFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, degradationFilter) == null) {
+            this.mDegradationFilter = degradationFilter;
+        }
+    }
+
+    public void setEnableIpv6(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            IpVersionController.getInstance().setEnableIpv6(z);
+        }
+    }
+
+    public void setExternalIpData(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, map) == null) {
+            ExternalCache.getInstance().setData(map);
+        }
+    }
+
+    public void setExternalIpEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            ExternalCache.getInstance().setEnable(z);
+        }
+    }
+
+    public void setExternalIpNetType(ExternalCache.NetType netType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, netType) == null) {
+            ExternalCache.getInstance().setNetType(netType);
+        }
+    }
+
+    public void setExternalIpScene(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            ExternalCache.getInstance().setScene(i);
+        }
+    }
+
+    public void setGslbEventMessager(GslbEvent.GslbEventListener gslbEventListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, gslbEventListener) == null) {
+            GslbEvent.INSTANCE.setListener(gslbEventListener);
+        }
+    }
+
+    public void setGslbStatistic(StatisticMgr.IGslbStatistic iGslbStatistic) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, iGslbStatistic) == null) {
+            StatisticMgr.getInstance().setStatistic(iGslbStatistic);
+        }
+    }
+
+    public void setHttpsEnable(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            HttpsLevelMgr.getInstance().setHttpsLevel(i);
+        }
+    }
+
+    public void setLogEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            GlobalTools.LOG_IS_OPEN = z;
+        }
+    }
+
+    public void setMinTTL(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048605, this, i) != null) || i < 180) {
+            return;
+        }
+        GlobalTools.sMinSecondTTL = i;
+    }
+
+    public void setNetworkStatus(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            IpVersionController.getInstance().setNetworkStatus(i);
+        }
+    }
+
+    @Deprecated
+    public void setNetworkSupportV6(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            if (z) {
+                i = 3;
+            } else {
+                i = 1;
+            }
+            IpVersionController.getInstance().setNetworkStatus(i);
+        }
+    }
+
+    @Deprecated
+    public void setPreResolveAfterNetworkChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            GlobalTools.REFRESH_AFTER_NETWORK_CHANGE = z;
+        }
+    }
+
+    public void setPreResolveHosts(ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, arrayList) == null) {
+            DnsResolveFlow.getInstance().updateHostList(arrayList, true);
+            init();
+            if (Build.VERSION.SDK_INT == 28) {
+                DnsResolveFlow.getInstance().preHost(arrayList);
+            } else {
+                DnsResolveFlow.getInstance().preHost();
+            }
+        }
+    }
+
+    public DnsResultInfo getIpsByHost(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, str, z)) == null) {
+            return getIpsByHost(str, z, true);
+        }
+        return (DnsResultInfo) invokeLZ.objValue;
+    }
+
+    public DnsResultInfo getIpsByHost(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (!SwitchController.getInstance().switchGslb()) {
+                return new DnsResultInfo();
+            }
+            init();
+            if (!IPTools.isHost(str)) {
+                return new DnsResultInfo();
+            }
+            DegradationFilter degradationFilter = this.mDegradationFilter;
+            if (degradationFilter != null) {
+                z3 = degradationFilter.shouldDegradeHttpDNS(str);
+            } else {
+                z3 = false;
+            }
+            LogTools.printDebug(TAG, String.format(Locale.US, "getIpsByHost, host: %s, forceRefresh: %b, enableLocalDns: %b", str, Boolean.valueOf(z), Boolean.valueOf(z2)));
+            return DnsResolveFlow.getInstance().handleDNS(str, z3, false, false, z, z2, this.mUpdateIp.get());
+        }
+        return (DnsResultInfo) invokeCommon.objValue;
+    }
+
+    public DnsResultInfo getIpsByHostAsync(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (!SwitchController.getInstance().switchGslb()) {
+                return new DnsResultInfo();
+            }
+            init();
+            if (!IPTools.isHost(str)) {
+                return new DnsResultInfo();
+            }
+            DegradationFilter degradationFilter = this.mDegradationFilter;
+            if (degradationFilter != null) {
+                z3 = degradationFilter.shouldDegradeHttpDNS(str);
+            } else {
+                z3 = false;
+            }
+            LogTools.printDebug(TAG, String.format(Locale.US, "getIpsByHostAsync, host: %s, expiredIPEnabled: %b, enableLocalDns: %b", str, Boolean.valueOf(z), Boolean.valueOf(z2)));
+            return DnsResolveFlow.getInstance().handleDNS(str, z3, true, z, false, z2, this.mUpdateIp.get());
+        }
+        return (DnsResultInfo) invokeCommon.objValue;
+    }
+
+    public void setDectorHost(String str, int i, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
+            QualityDetectFlow.getInstance().updateDectorList(str, i, i2, str2);
+        }
+    }
+
+    public void setHttpsEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            if (z) {
+                setHttpsEnable(1);
+            } else {
+                setHttpsEnable(0);
+            }
+        }
+    }
+
+    public void setReport(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && QualityDetectFlow.getInstance().canReport(str)) {
+            QualityDetectFlow.getInstance().addReportData(str, str2, j);
+        }
     }
 }

@@ -44,7 +44,7 @@ public class m {
     public boolean a;
 
     /* loaded from: classes7.dex */
-    public static class a implements X509TrustManager {
+    public final class a implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -444,13 +444,13 @@ public class m {
         }
     }
 
-    public String a(Map<String, String> map) {
+    public String a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             String str = "";
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                str = str + "&" + entry.getKey() + "=" + entry.getValue();
+            for (Map.Entry entry : map.entrySet()) {
+                str = str + "&" + ((String) entry.getKey()) + "=" + ((String) entry.getValue());
             }
             return str.substring(1);
         }

@@ -37,14 +37,20 @@ public class CustomTypefaceSpan extends TypefaceSpan {
     }
 
     private void apply(Paint paint, Typeface typeface) {
+        int style;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, paint, typeface) == null) {
             Typeface typeface2 = paint.getTypeface();
-            int style = (typeface2 == null ? 0 : typeface2.getStyle()) & (~typeface.getStyle());
-            if ((style & 1) != 0) {
+            if (typeface2 == null) {
+                style = 0;
+            } else {
+                style = typeface2.getStyle();
+            }
+            int i = style & (~typeface.getStyle());
+            if ((i & 1) != 0) {
                 paint.setFakeBoldText(true);
             }
-            if ((style & 2) != 0) {
+            if ((i & 2) != 0) {
                 paint.setTextSkewX(-0.25f);
             }
             paint.getShader();

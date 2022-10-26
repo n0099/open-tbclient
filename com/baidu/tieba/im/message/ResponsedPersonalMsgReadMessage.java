@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,8 +36,43 @@ public class ResponsedPersonalMsgReadMessage extends TbSocketReponsedMessage {
         }
     }
 
+    public long getGroupId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.groupId;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getHasSentMsgId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.hasSentMsgId;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getToUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.toUid;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getToUserType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.toUserType;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -56,29 +90,5 @@ public class ResponsedPersonalMsgReadMessage extends TbSocketReponsedMessage {
             return commitReceivedPmsgResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public long getGroupId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.groupId : invokeV.longValue;
-    }
-
-    public long getHasSentMsgId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hasSentMsgId : invokeV.longValue;
-    }
-
-    public long getToUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.toUid : invokeV.longValue;
-    }
-
-    public int getToUserType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.toUserType : invokeV.intValue;
     }
 }

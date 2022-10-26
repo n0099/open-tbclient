@@ -4,9 +4,7 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.view.MenuItem;
 import android.view.View;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.ActionProvider;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public interface SupportMenuItem extends MenuItem {
     public static final int SHOW_AS_ACTION_ALWAYS = 2;

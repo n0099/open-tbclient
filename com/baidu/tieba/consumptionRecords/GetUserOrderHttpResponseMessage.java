@@ -2,8 +2,8 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.o36;
-import com.baidu.tieba.p36;
+import com.baidu.tieba.v36;
+import com.baidu.tieba.w36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,8 +17,8 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public ArrayList<o36> orderList;
-    public p36 recommendData;
+    public ArrayList orderList;
+    public w36 recommendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserOrderHttpResponseMessage(int i) {
@@ -39,36 +39,41 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.hasMore = false;
-        this.orderList = new ArrayList<>();
+        this.orderList = new ArrayList();
     }
 
     private void parseOrderListData(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONArray) == null) || jSONArray == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, this, jSONArray) != null) || jSONArray == null) {
             return;
         }
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            o36 o36Var = new o36();
-            o36Var.n(optJSONObject);
-            this.orderList.add(o36Var);
+            v36 v36Var = new v36();
+            v36Var.n(optJSONObject);
+            this.orderList.add(v36Var);
         }
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.hasMore = jSONObject.optInt("hasmore") != 0;
-                JSONArray optJSONArray = jSONObject.optJSONArray("order_list");
-                if (optJSONArray == null || optJSONArray.length() <= 0) {
-                    return;
+                if (jSONObject.optInt("hasmore") == 0) {
+                    z = false;
+                } else {
+                    z = true;
                 }
-                parseOrderListData(optJSONArray);
+                this.hasMore = z;
+                JSONArray optJSONArray = jSONObject.optJSONArray("order_list");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    parseOrderListData(optJSONArray);
+                }
             }
         }
     }
@@ -76,18 +81,27 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     public boolean getHasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hasMore : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.hasMore;
+        }
+        return invokeV.booleanValue;
     }
 
-    public ArrayList<o36> getOrderList() {
+    public ArrayList getOrderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.orderList : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.orderList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public p36 getRecommendInfo() {
+    public w36 getRecommendInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommendData : (p36) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.recommendData;
+        }
+        return (w36) invokeV.objValue;
     }
 }

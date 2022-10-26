@@ -33,6 +33,57 @@ public class ImmutableQualityInfo implements QualityInfo {
         FULL_QUALITY = of(Integer.MAX_VALUE, true, true);
     }
 
+    @Override // com.facebook.imagepipeline.image.QualityInfo
+    public int getQuality() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mQuality;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i2 = this.mQuality;
+            int i3 = 0;
+            if (this.mIsOfGoodEnoughQuality) {
+                i = 4194304;
+            } else {
+                i = 0;
+            }
+            int i4 = i2 ^ i;
+            if (this.mIsOfFullQuality) {
+                i3 = 8388608;
+            }
+            return i4 ^ i3;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.image.QualityInfo
+    public boolean isOfFullQuality() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsOfFullQuality;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.facebook.imagepipeline.image.QualityInfo
+    public boolean isOfGoodEnoughQuality() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mIsOfGoodEnoughQuality;
+        }
+        return invokeV.booleanValue;
+    }
+
     public ImmutableQualityInfo(int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,7 +107,10 @@ public class ImmutableQualityInfo implements QualityInfo {
     public static QualityInfo of(int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? new ImmutableQualityInfo(i, z, z2) : (QualityInfo) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return new ImmutableQualityInfo(i, z, z2);
+        }
+        return (QualityInfo) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -66,42 +120,15 @@ public class ImmutableQualityInfo implements QualityInfo {
             if (obj == this) {
                 return true;
             }
-            if (obj instanceof ImmutableQualityInfo) {
-                ImmutableQualityInfo immutableQualityInfo = (ImmutableQualityInfo) obj;
-                return this.mQuality == immutableQualityInfo.mQuality && this.mIsOfGoodEnoughQuality == immutableQualityInfo.mIsOfGoodEnoughQuality && this.mIsOfFullQuality == immutableQualityInfo.mIsOfFullQuality;
+            if (!(obj instanceof ImmutableQualityInfo)) {
+                return false;
+            }
+            ImmutableQualityInfo immutableQualityInfo = (ImmutableQualityInfo) obj;
+            if (this.mQuality == immutableQualityInfo.mQuality && this.mIsOfGoodEnoughQuality == immutableQualityInfo.mIsOfGoodEnoughQuality && this.mIsOfFullQuality == immutableQualityInfo.mIsOfFullQuality) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.facebook.imagepipeline.image.QualityInfo
-    public int getQuality() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mQuality : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (this.mQuality ^ (this.mIsOfGoodEnoughQuality ? 4194304 : 0)) ^ (this.mIsOfFullQuality ? 8388608 : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.image.QualityInfo
-    public boolean isOfFullQuality() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsOfFullQuality : invokeV.booleanValue;
-    }
-
-    @Override // com.facebook.imagepipeline.image.QualityInfo
-    public boolean isOfGoodEnoughQuality() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIsOfGoodEnoughQuality : invokeV.booleanValue;
     }
 }

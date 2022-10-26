@@ -46,7 +46,10 @@ public class IMLikeRequest implements LikeRequest {
             if (this.mFirstClickTime == 0) {
                 this.mFirstClickTime = System.currentTimeMillis();
             }
-            return System.currentTimeMillis() - this.mFirstClickTime > TIME_INTERVAL && this.mClickHeartCount > 0;
+            if (System.currentTimeMillis() - this.mFirstClickTime > TIME_INTERVAL && this.mClickHeartCount > 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -111,10 +114,9 @@ public class IMLikeRequest implements LikeRequest {
                             public void onResult(int i3, long j, long j2) {
                                 SimpleResponseListener simpleResponseListener2;
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) || (simpleResponseListener2 = this.val$listener) == null) {
-                                    return;
+                                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) && (simpleResponseListener2 = this.val$listener) != null) {
+                                    simpleResponseListener2.onResult(i3, j, j2);
                                 }
-                                simpleResponseListener2.onResult(i3, j, j2);
                             }
                         });
                     } else if (simpleResponseListener != null) {

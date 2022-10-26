@@ -32,6 +32,16 @@ public final class EAN8Reader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
+    public BarcodeFormat getBarcodeFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BarcodeFormat.EAN_8;
+        }
+        return (BarcodeFormat) invokeV.objValue;
+    }
+
+    @Override // com.google.zxing.oned.UPCEANReader
     public int decodeMiddle(BitArray bitArray, int[] iArr, StringBuilder sb) throws NotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -59,12 +69,5 @@ public final class EAN8Reader extends UPCEANReader {
             return i4;
         }
         return invokeLLL.intValue;
-    }
-
-    @Override // com.google.zxing.oned.UPCEANReader
-    public BarcodeFormat getBarcodeFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? BarcodeFormat.EAN_8 : (BarcodeFormat) invokeV.objValue;
     }
 }

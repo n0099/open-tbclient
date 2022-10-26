@@ -2,13 +2,13 @@ package androidx.recyclerview.widget;
 
 import androidx.recyclerview.widget.TileList;
 /* loaded from: classes.dex */
-public interface ThreadUtil<T> {
+public interface ThreadUtil {
 
     /* loaded from: classes.dex */
-    public interface BackgroundCallback<T> {
+    public interface BackgroundCallback {
         void loadTile(int i, int i2);
 
-        void recycleTile(TileList.Tile<T> tile);
+        void recycleTile(TileList.Tile tile);
 
         void refresh(int i);
 
@@ -16,15 +16,15 @@ public interface ThreadUtil<T> {
     }
 
     /* loaded from: classes.dex */
-    public interface MainThreadCallback<T> {
-        void addTile(int i, TileList.Tile<T> tile);
+    public interface MainThreadCallback {
+        void addTile(int i, TileList.Tile tile);
 
         void removeTile(int i, int i2);
 
         void updateItemCount(int i, int i2);
     }
 
-    BackgroundCallback<T> getBackgroundProxy(BackgroundCallback<T> backgroundCallback);
+    BackgroundCallback getBackgroundProxy(BackgroundCallback backgroundCallback);
 
-    MainThreadCallback<T> getMainThreadProxy(MainThreadCallback<T> mainThreadCallback);
+    MainThreadCallback getMainThreadProxy(MainThreadCallback mainThreadCallback);
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenterPojo> {
+public class MemoryChangedMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_DELETE = 2;
     public static final int TYPE_INSERT_OR_UPDATE = 1;
@@ -43,12 +43,18 @@ public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenter
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isFromServer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isFromServer : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isFromServer;
+        }
+        return invokeV.booleanValue;
     }
 }

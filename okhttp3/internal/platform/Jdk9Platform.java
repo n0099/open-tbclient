@@ -79,10 +79,10 @@ public final class Jdk9Platform extends Platform {
             try {
                 String str = (String) this.getProtocolMethod.invoke(sSLSocket, new Object[0]);
                 if (str != null) {
-                    if (str.equals("")) {
-                        return null;
+                    if (!str.equals("")) {
+                        return str;
                     }
-                    return str;
+                    return null;
                 }
                 return null;
             } catch (IllegalAccessException | InvocationTargetException e) {

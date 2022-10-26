@@ -3,8 +3,6 @@ package com.google.android.material.expandable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewParent;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,9 +15,7 @@ public final class ExpandableWidgetHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean expanded;
-    @IdRes
     public int expandedComponentIdHint;
-    @NonNull
     public final View widget;
 
     public ExpandableWidgetHelper(ExpandableWidget expandableWidget) {
@@ -52,31 +48,24 @@ public final class ExpandableWidgetHelper {
         }
     }
 
-    @IdRes
     public int getExpandedComponentIdHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.expandedComponentIdHint : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.expandedComponentIdHint;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isExpanded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.expanded : invokeV.booleanValue;
-    }
-
-    public void onRestoreInstanceState(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            this.expanded = bundle.getBoolean("expanded", false);
-            this.expandedComponentIdHint = bundle.getInt("expandedComponentIdHint", 0);
-            if (this.expanded) {
-                dispatchExpandedStateChanged();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.expanded;
         }
+        return invokeV.booleanValue;
     }
 
-    @NonNull
     public Bundle onSaveInstanceState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,6 +76,17 @@ public final class ExpandableWidgetHelper {
             return bundle;
         }
         return (Bundle) invokeV.objValue;
+    }
+
+    public void onRestoreInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            this.expanded = bundle.getBoolean("expanded", false);
+            this.expandedComponentIdHint = bundle.getInt("expandedComponentIdHint", 0);
+            if (this.expanded) {
+                dispatchExpandedStateChanged();
+            }
+        }
     }
 
     public boolean setExpanded(boolean z) {
@@ -103,7 +103,7 @@ public final class ExpandableWidgetHelper {
         return invokeZ.booleanValue;
     }
 
-    public void setExpandedComponentIdHint(@IdRes int i) {
+    public void setExpandedComponentIdHint(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.expandedComponentIdHint = i;

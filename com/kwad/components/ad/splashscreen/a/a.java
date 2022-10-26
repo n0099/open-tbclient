@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.item.d;
 import com.kwad.sdk.core.config.item.j;
 import com.kwad.sdk.core.config.item.o;
@@ -47,7 +46,6 @@ public final class a {
         yt = new d("splashCropSwitch", true);
     }
 
-    @InvokeBy(invokerClass = com.kwad.sdk.core.config.d.class, methodId = "initConfigList")
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {

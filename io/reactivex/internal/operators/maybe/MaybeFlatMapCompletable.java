@@ -18,21 +18,21 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeFlatMapCompletable<T> extends Completable {
+public final class MaybeFlatMapCompletable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends CompletableSource> mapper;
-    public final MaybeSource<T> source;
+    public final Function mapper;
+    public final MaybeSource source;
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapCompletableObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, CompletableObserver, Disposable {
+    public final class FlatMapCompletableObserver extends AtomicReference implements MaybeObserver, CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2177128922851101253L;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
-        public final Function<? super T, ? extends CompletableSource> mapper;
+        public final Function mapper;
 
-        public FlatMapCompletableObserver(CompletableObserver completableObserver, Function<? super T, ? extends CompletableSource> function) {
+        public FlatMapCompletableObserver(CompletableObserver completableObserver, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,10 @@ public final class MaybeFlatMapCompletable<T> extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -91,15 +94,14 @@ public final class MaybeFlatMapCompletable<T> extends Completable {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
                 try {
-                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null CompletableSource");
-                    if (isDisposed()) {
-                        return;
+                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null CompletableSource");
+                    if (!isDisposed()) {
+                        completableSource.subscribe(this);
                     }
-                    completableSource.subscribe(this);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     onError(th);
@@ -108,7 +110,7 @@ public final class MaybeFlatMapCompletable<T> extends Completable {
         }
     }
 
-    public MaybeFlatMapCompletable(MaybeSource<T> maybeSource, Function<? super T, ? extends CompletableSource> function) {
+    public MaybeFlatMapCompletable(MaybeSource maybeSource, Function function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

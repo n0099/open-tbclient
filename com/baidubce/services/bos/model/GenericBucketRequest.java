@@ -15,6 +15,8 @@ public abstract class GenericBucketRequest extends AbstractBceRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public String bucketName;
 
+    public abstract GenericBucketRequest withBucketName(String str);
+
     public GenericBucketRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,16 +31,43 @@ public abstract class GenericBucketRequest extends AbstractBceRequest {
         }
     }
 
-    public static boolean isLowercaseOrDigit(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) ? Character.isDigit(c) || (c >= 'a' && c <= 'z') : invokeCommon.booleanValue;
-    }
-
     public String getBucketName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bucketName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bucketName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public GenericBucketRequest(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setBucketName(str);
+    }
+
+    public static boolean isLowercaseOrDigit(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (!Character.isDigit(c) && (c < 'a' || c > 'z')) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 
     public void setBucketName(String str) {
@@ -69,25 +98,5 @@ public abstract class GenericBucketRequest extends AbstractBceRequest {
             }
             this.bucketName = str;
         }
-    }
-
-    public abstract GenericBucketRequest withBucketName(String str);
-
-    public GenericBucketRequest(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        setBucketName(str);
     }
 }

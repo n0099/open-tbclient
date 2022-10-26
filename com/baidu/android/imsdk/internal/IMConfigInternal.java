@@ -49,6 +49,20 @@ public class IMConfigInternal {
         }
     }
 
+    public static IMConfigInternal getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (IMConfigInternal.class) {
+                if (sConfig == null) {
+                    sConfig = new IMConfigInternal();
+                }
+            }
+            return sConfig;
+        }
+        return (IMConfigInternal) invokeV.objValue;
+    }
+
     private IIMConfig createConfig(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -74,29 +88,25 @@ public class IMConfigInternal {
         return (IIMConfig) invokeLL.objValue;
     }
 
-    public static IMConfigInternal getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (IMConfigInternal.class) {
-                if (sConfig == null) {
-                    sConfig = new IMConfigInternal();
-                }
-            }
-            return sConfig;
-        }
-        return (IMConfigInternal) invokeV.objValue;
-    }
-
     public IIMConfig getIMConfig(Context context) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             if (this.mConfig == null) {
                 synchronized (IMConfigInternal.class) {
                     if (this.mConfig == null) {
                         int productLine = getProductLine(context);
-                        IIMConfig createConfig = createConfig(context, productLine != 1 ? productLine != 3 ? "com.baidu.android.imsdk.internal.DefaultConfig" : "com.baidu.android.imsdk.box.BoxConfig" : "com.baidu.android.imsdk.internal.DefaultConfig");
+                        if (productLine != 1) {
+                            if (productLine != 3) {
+                                str = "com.baidu.android.imsdk.internal.DefaultConfig";
+                            } else {
+                                str = "com.baidu.android.imsdk.box.BoxConfig";
+                            }
+                        } else {
+                            str = "com.baidu.android.imsdk.internal.DefaultConfig";
+                        }
+                        IIMConfig createConfig = createConfig(context, str);
                         this.mConfig = createConfig;
                         if (createConfig == null) {
                             this.mConfig = new DefaultConfig();
@@ -117,10 +127,10 @@ public class IMConfigInternal {
                 return 1;
             }
             int readIntData = Utility.readIntData(context, Constants.KEY_PRODUCT_LINE, 1);
-            if (readIntData == 3 || readIntData == 1 || readIntData == 6 || readIntData == 4) {
-                return readIntData;
+            if (readIntData != 3 && readIntData != 1 && readIntData != 6 && readIntData != 4) {
+                return 1;
             }
-            return 1;
+            return readIntData;
         }
         return invokeL.intValue;
     }

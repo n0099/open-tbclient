@@ -1,6 +1,5 @@
 package org.apache.commons.codec.binary4util;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +13,6 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes8.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -63,40 +61,34 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         }
     }
 
-    public static byte[] fromAscii(char[] cArr) {
+    public static byte[] fromAscii(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cArr)) == null) {
-            if (cArr != null && cArr.length != 0) {
-                int length = cArr.length >> 3;
-                byte[] bArr = new byte[length];
-                int length2 = cArr.length - 1;
-                int i = 0;
-                while (i < length) {
-                    int i2 = 0;
-                    while (true) {
-                        int[] iArr = BITS;
-                        if (i2 < iArr.length) {
-                            if (cArr[length2 - i2] == '1') {
-                                bArr[i] = (byte) (iArr[i2] | bArr[i]);
-                            }
-                            i2++;
-                        }
-                    }
-                    i++;
-                    length2 -= 8;
-                }
-                return bArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (isEmpty(bArr)) {
+                return EMPTY_BYTE_ARRAY;
             }
-            return EMPTY_BYTE_ARRAY;
+            int length = bArr.length >> 3;
+            byte[] bArr2 = new byte[length];
+            int length2 = bArr.length - 1;
+            int i = 0;
+            while (i < length) {
+                int i2 = 0;
+                while (true) {
+                    int[] iArr = BITS;
+                    if (i2 < iArr.length) {
+                        if (bArr[length2 - i2] == 49) {
+                            bArr2[i] = (byte) (iArr[i2] | bArr2[i]);
+                        }
+                        i2++;
+                    }
+                }
+                i++;
+                length2 -= 8;
+            }
+            return bArr2;
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean isEmpty(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? bArr == null || bArr.length == 0 : invokeL.booleanValue;
     }
 
     public static byte[] toAsciiBytes(byte[] bArr) {
@@ -163,10 +155,90 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         return (char[]) invokeL.objValue;
     }
 
+    public static byte[] fromAscii(char[] cArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cArr)) == null) {
+            if (cArr != null && cArr.length != 0) {
+                int length = cArr.length >> 3;
+                byte[] bArr = new byte[length];
+                int length2 = cArr.length - 1;
+                int i = 0;
+                while (i < length) {
+                    int i2 = 0;
+                    while (true) {
+                        int[] iArr = BITS;
+                        if (i2 < iArr.length) {
+                            if (cArr[length2 - i2] == '1') {
+                                bArr[i] = (byte) (iArr[i2] | bArr[i]);
+                            }
+                            i2++;
+                        }
+                    }
+                    i++;
+                    length2 -= 8;
+                }
+                return bArr;
+            }
+            return EMPTY_BYTE_ARRAY;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean isEmpty(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static String toAsciiString(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? new String(toAsciiChars(bArr)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
+            return new String(toAsciiChars(bArr));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.base.BinaryDecoder
+    public byte[] decode(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            return fromAscii(bArr);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.base.Encoder
+    public Object encode(Object obj) throws EncoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj instanceof byte[]) {
+                return toAsciiChars((byte[]) obj);
+            }
+            throw new EncoderException("argument not a byte array");
+        }
+        return invokeL.objValue;
+    }
+
+    public byte[] toByteArray(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str == null) {
+                return EMPTY_BYTE_ARRAY;
+            }
+            return fromAscii(str.toCharArray());
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     @Override // org.apache.commons.base.Decoder
@@ -195,68 +267,9 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public byte[] encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) ? toAsciiBytes(bArr) : (byte[]) invokeL.objValue;
-    }
-
-    public byte[] toByteArray(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null) {
-                return EMPTY_BYTE_ARRAY;
-            }
-            return fromAscii(str.toCharArray());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            return toAsciiBytes(bArr);
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.base.Encoder
-    public Object encode(Object obj) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj instanceof byte[]) {
-                return toAsciiChars((byte[]) obj);
-            }
-            throw new EncoderException("argument not a byte array");
-        }
-        return invokeL.objValue;
-    }
-
-    public static byte[] fromAscii(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            if (isEmpty(bArr)) {
-                return EMPTY_BYTE_ARRAY;
-            }
-            int length = bArr.length >> 3;
-            byte[] bArr2 = new byte[length];
-            int length2 = bArr.length - 1;
-            int i = 0;
-            while (i < length) {
-                int i2 = 0;
-                while (true) {
-                    int[] iArr = BITS;
-                    if (i2 < iArr.length) {
-                        if (bArr[length2 - i2] == 49) {
-                            bArr2[i] = (byte) (iArr[i2] | bArr2[i]);
-                        }
-                        i2++;
-                    }
-                }
-                i++;
-                length2 -= 8;
-            }
-            return bArr2;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.base.BinaryDecoder
-    public byte[] decode(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? fromAscii(bArr) : (byte[]) invokeL.objValue;
     }
 }

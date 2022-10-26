@@ -26,10 +26,40 @@ public class ThreadPoolMgr {
     public transient /* synthetic */ FieldHolder $fh;
     public ITaskExecutor mExecutorSvc;
     public boolean mReleaseAble;
-    public HashMap<String, String> mThreadName;
+    public HashMap mThreadName;
 
     /* loaded from: classes8.dex */
-    public static class CustomThreadPoolExecutor implements ITaskExecutor {
+    public interface ITaskExecutor {
+        boolean addTask(Runnable runnable);
+
+        int getActiveCount();
+
+        int getPoolSize();
+
+        boolean isShutdown();
+
+        boolean isTerminated();
+
+        void shutdownNow(long j);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(212247426, "Lcom/yy/gslbsdk/thread/ThreadPoolMgr;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(212247426, "Lcom/yy/gslbsdk/thread/ThreadPoolMgr;");
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class CustomThreadPoolExecutor implements ITaskExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ThreadPoolExecutor mExcutorSvc;
@@ -71,34 +101,6 @@ public class ThreadPoolMgr {
         }
 
         @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
-        public int getActiveCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExcutorSvc.getActiveCount() : invokeV.intValue;
-        }
-
-        @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
-        public int getPoolSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExcutorSvc.getPoolSize() : invokeV.intValue;
-        }
-
-        @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
-        public boolean isShutdown() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mExcutorSvc.isShutdown() : invokeV.booleanValue;
-        }
-
-        @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
-        public boolean isTerminated() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mExcutorSvc.isTerminated() : invokeV.booleanValue;
-        }
-
-        @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
         public void shutdownNow(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
@@ -110,10 +112,50 @@ public class ThreadPoolMgr {
                 }
             }
         }
+
+        @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
+        public int getActiveCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mExcutorSvc.getActiveCount();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
+        public int getPoolSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mExcutorSvc.getPoolSize();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
+        public boolean isShutdown() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mExcutorSvc.isShutdown();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.yy.gslbsdk.thread.ThreadPoolMgr.ITaskExecutor
+        public boolean isTerminated() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mExcutorSvc.isTerminated();
+            }
+            return invokeV.booleanValue;
+        }
     }
 
     /* loaded from: classes8.dex */
-    public static class DefaultThreadFactory implements ThreadFactory {
+    public class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ThreadGroup group;
@@ -157,36 +199,6 @@ public class ThreadPoolMgr {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public interface ITaskExecutor {
-        boolean addTask(Runnable runnable);
-
-        int getActiveCount();
-
-        int getPoolSize();
-
-        boolean isShutdown();
-
-        boolean isTerminated();
-
-        void shutdownNow(long j);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(212247426, "Lcom/yy/gslbsdk/thread/ThreadPoolMgr;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(212247426, "Lcom/yy/gslbsdk/thread/ThreadPoolMgr;");
-        }
-    }
-
     public ThreadPoolMgr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -200,7 +212,7 @@ public class ThreadPoolMgr {
                 return;
             }
         }
-        this.mThreadName = new HashMap<>();
+        this.mThreadName = new HashMap();
     }
 
     public static ThreadPoolMgr getInstance() {
@@ -213,6 +225,41 @@ public class ThreadPoolMgr {
             return mThreadPoolMgr;
         }
         return (ThreadPoolMgr) invokeV.objValue;
+    }
+
+    public int getActiveCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mExecutorSvc.getActiveCount();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPoolSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mExecutorSvc.getPoolSize();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return !this.mExecutorSvc.isShutdown();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void stop(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJ(1048583, this, j) != null) || !this.mReleaseAble) {
+            return;
+        }
+        this.mExecutorSvc.shutdownNow(j);
     }
 
     public synchronized int addTask(ThreadInfo threadInfo) {
@@ -272,6 +319,14 @@ public class ThreadPoolMgr {
         return invokeL.intValue;
     }
 
+    public void create(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.mReleaseAble = true;
+            this.mExecutorSvc = new CustomThreadPoolExecutor(i, i2);
+        }
+    }
+
     public void create(ITaskExecutor iTaskExecutor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iTaskExecutor) == null) {
@@ -290,44 +345,11 @@ public class ThreadPoolMgr {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mExecutorSvc.isShutdown() || this.mExecutorSvc.isTerminated()) {
-                return "thread pool is shutdown";
+            if (!this.mExecutorSvc.isShutdown() && !this.mExecutorSvc.isTerminated()) {
+                return " poolSize=" + getPoolSize() + " activeCount=" + getActiveCount();
             }
-            return " poolSize=" + getPoolSize() + " activeCount=" + getActiveCount();
+            return "thread pool is shutdown";
         }
         return (String) invokeV.objValue;
-    }
-
-    public int getActiveCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mExecutorSvc.getActiveCount() : invokeV.intValue;
-    }
-
-    public int getPoolSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mExecutorSvc.getPoolSize() : invokeV.intValue;
-    }
-
-    public boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.mExecutorSvc.isShutdown() : invokeV.booleanValue;
-    }
-
-    public void stop(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && this.mReleaseAble) {
-            this.mExecutorSvc.shutdownNow(j);
-        }
-    }
-
-    public void create(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.mReleaseAble = true;
-            this.mExecutorSvc = new CustomThreadPoolExecutor(i, i2);
-        }
     }
 }

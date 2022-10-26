@@ -11,10 +11,10 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.d05;
-import com.baidu.tieba.e05;
-import com.baidu.tieba.f05;
+import com.baidu.tieba.g05;
+import com.baidu.tieba.i05;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.k05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,12 +31,32 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     public String mFilePath;
     public Handler mHandler;
     public Runnable mPlayTimeThread;
-    public d05 mPlayer;
+    public i05 mPlayer;
     public Runnable mRecordTimeThread;
-    public e05 mRecorder;
+    public j05 mRecorder;
     public long mSeekTime;
     public long mStartRecorderTime;
     public Voice mVoice;
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    @Override // android.media.MediaPlayer.OnErrorListener
+    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, mediaPlayer, i, i2)) == null) {
+            return false;
+        }
+        return invokeLII.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -65,7 +85,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.mHandler == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.mHandler == null) {
                 return;
             }
             int f = this.a.mPlayer.f() + this.a.mCurBeginSecond;
@@ -146,7 +166,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.a.mPlayer == null || this.a.mVoice == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, mediaPlayer) != null) || this.a.mPlayer == null || this.a.mVoice == null) {
                 return;
             }
             this.a.mPlayer.a();
@@ -176,58 +196,8 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         this.mPlayTimeThread = new a(this);
         this.mRecordTimeThread = new b(this);
         this.mRecorder = null;
-        this.mPlayer = f05.h();
+        this.mPlayer = k05.h();
         this.mSeekTime = 0L;
-    }
-
-    private int getVoiceTotalTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            Voice voice = this.mVoice;
-            if (voice == null) {
-                return 0;
-            }
-            long duration = voice.getDuration();
-            if (duration == 0) {
-                d05 d05Var = this.mPlayer;
-                if (d05Var instanceof f05) {
-                    duration = ((f05) d05Var).getDuration() / 1000;
-                }
-            }
-            return (int) duration;
-        }
-        return invokeV.intValue;
-    }
-
-    private long getVoiceTotalTimeByMediaPlayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            d05 d05Var = this.mPlayer;
-            if (d05Var instanceof f05) {
-                return ((f05) d05Var).getDuration();
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public static void initBroadcastReceivers(Context context, BroadcastReceiver broadcastReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, broadcastReceiver) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.baidu.playPrepared");
-            intentFilter.addAction("com.baidu.isPlaying");
-            intentFilter.addAction("com.baidu.isStoped");
-            intentFilter.addAction("com.baidu.playElapsedTime");
-            intentFilter.addAction("com.baidu.recognize");
-            try {
-                LocalBroadcastManager.getInstance(context).registerReceiver(broadcastReceiver, intentFilter);
-            } catch (Throwable unused) {
-                context.registerReceiver(broadcastReceiver, intentFilter);
-            }
-        }
     }
 
     public static void pausePlay(Context context) {
@@ -239,136 +209,20 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         }
     }
 
-    private void pauseRecord(Intent intent) {
-        e05 e05Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65551, this, intent) == null) && (e05Var = this.mRecorder) != null && e05Var.c()) {
-            this.mRecorder.a();
-            this.mHandler.removeCallbacks(this.mRecordTimeThread);
-            Intent intent2 = new Intent("com.baidu.recordPaused");
-            intent2.putExtra("com.baidu.msg.recordElapsedTime", this.mElapsedTime);
-            sendBroadcast(intent2);
-            this.mStartRecorderTime = 0L;
-            this.mElapsedTime = 0;
-        }
-    }
-
-    private void pauseVoice(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65552, this, intent) == null) && this.mPlayer.isPlaying()) {
-            this.mPlayer.d();
-            this.mHandler.removeCallbacks(this.mPlayTimeThread);
-            if (this.mPlayer.isPlaying()) {
-                return;
-            }
-            Intent intent2 = new Intent("com.baidu.isPlaying");
-            intent2.putExtra("com.baidu.msg.isPlaying", false);
-            sendBroadcast(intent2);
-        }
-    }
-
-    private void playVoice(Intent intent) {
-        d05 d05Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65553, this, intent) == null) && (d05Var = this.mPlayer) != null && d05Var.isPrepared()) {
-            this.mPlayer.g();
-            this.mHandler.post(this.mPlayTimeThread);
-            if (this.mPlayer.isPlaying()) {
-                Intent intent2 = new Intent("com.baidu.isPlaying");
-                intent2.putExtra("com.baidu.msg.isPlaying", true);
-                sendBroadcast(intent2);
-            }
-        }
-    }
-
-    public static void preparePlay(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65554, null, context, str, i) == null) {
-            preparePlay(context, str, i, 0);
-        }
-    }
-
     private void preparePlayer(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, intent) == null) {
             this.mVoice = (Voice) intent.getParcelableExtra("com.baidu.voices");
+            int i = 0;
             int intExtra = intent.getIntExtra("com.baidu.msg.curr_time", 0);
-            int i = intExtra >= 0 ? intExtra : 0;
+            if (intExtra >= 0) {
+                i = intExtra;
+            }
             if (this.mVoice == null) {
                 return;
             }
             setPlayerCompleteListener();
             tryPreparePlayVoices(i);
-        }
-    }
-
-    private void prepareRecorder(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, intent) == null) {
-            String stringExtra = intent.getStringExtra("com.baidu.notePath");
-            String stringExtra2 = intent.getStringExtra("filePath");
-            if (PermissionUtil.checkRecodeAudio(getApplicationContext())) {
-                if (stringExtra2.endsWith(".amr")) {
-                    this.mRecorder = MyAudioRecorder.f(Boolean.TRUE);
-                } else {
-                    this.mRecorder = new b05();
-                }
-                boolean z = false;
-                File file = new File(stringExtra);
-                this.mFilePath = stringExtra + File.separator + stringExtra2;
-                if (file.exists()) {
-                    if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                        z = this.mRecorder.d(this.mFilePath);
-                    }
-                } else {
-                    file.mkdir();
-                    if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                        z = this.mRecorder.d(this.mFilePath);
-                    }
-                }
-                if (z) {
-                    Intent intent2 = new Intent();
-                    intent2.setAction("com.baidu.recordPrepared");
-                    intent2.putExtra("com.baidu.msg.recordPrepared", true);
-                    intent2.putExtra("com.baidu.msg.preparedName", stringExtra2);
-                    sendBroadcast(intent2);
-                }
-            }
-        }
-    }
-
-    public static void seekVoice(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65558, null, context, j) == null) {
-            Intent intent = new Intent();
-            intent.putExtra("com.baidu.seekTime", j);
-            intent.setAction("seekVoice");
-            startMy(context, intent);
-        }
-    }
-
-    private void setPlayerCompleteListener() {
-        d05 d05Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65560, this) == null) && (d05Var = this.mPlayer) != null && (d05Var instanceof f05)) {
-            ((f05) d05Var).setOnErrorListener(this);
-            ((f05) this.mPlayer).setOnPreparedListener(this);
-            ((f05) this.mPlayer).setOnCompletionListener(new c(this));
-        }
-    }
-
-    public static void startMy(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65561, null, context, intent) == null) || context == null) {
-            return;
-        }
-        if (intent == null) {
-            intent = new Intent();
-        }
-        intent.setClass(context, MediaService.class);
-        try {
-            context.startService(intent);
-        } catch (Exception unused) {
         }
     }
 
@@ -378,46 +232,6 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             Intent intent = new Intent();
             intent.setAction("playVoice");
             startMy(context, intent);
-        }
-    }
-
-    private void startRecord(Intent intent) {
-        e05 e05Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65563, this, intent) == null) || (e05Var = this.mRecorder) == null) {
-            return;
-        }
-        e05Var.e();
-        this.mStartRecorderTime = System.currentTimeMillis();
-        this.mHandler.post(this.mRecordTimeThread);
-        Intent intent2 = new Intent("com.baidu.mediaIsRecording");
-        intent2.putExtra("com.baidu.msg.isRecording", true);
-        sendBroadcast(intent2);
-    }
-
-    private void stopAndReplay(Intent intent) {
-        d05 d05Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65564, this, intent) == null) || this.mVoice == null || (d05Var = this.mPlayer) == null) {
-            return;
-        }
-        long f = d05Var.f();
-        if (f < 0) {
-            return;
-        }
-        this.mPlayer.a();
-        this.mPlayer.e();
-        long duration = this.mVoice.getDuration();
-        if (duration <= 0 || f > duration) {
-            return;
-        }
-        d05 d05Var2 = this.mPlayer;
-        if (d05Var2 instanceof f05) {
-            ((f05) d05Var2).setOnPreparedListener(null);
-        }
-        if (this.mPlayer.b(this.mVoice.getName())) {
-            this.mPlayer.seek((int) f);
-            playVoice(null);
         }
     }
 
@@ -432,7 +246,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     public static void stopMy(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65566, null, context) == null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(65566, null, context) != null) || context == null) {
             return;
         }
         Intent intent = new Intent();
@@ -452,83 +266,105 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         }
     }
 
-    private void stopRecord(Intent intent) {
-        e05 e05Var;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void sendBroadcast(Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65568, this, intent) == null) || (e05Var = this.mRecorder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, intent) == null) {
+            try {
+                LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+            } catch (Throwable unused) {
+                super.sendBroadcast(intent);
+            }
+        }
+    }
+
+    public static void seekVoice(Context context, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65558, null, context, j) == null) {
+            Intent intent = new Intent();
+            intent.putExtra("com.baidu.seekTime", j);
+            intent.setAction("seekVoice");
+            startMy(context, intent);
+        }
+    }
+
+    public static void startMy(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65561, null, context, intent) != null) || context == null) {
             return;
         }
-        e05Var.a();
-        this.mHandler.removeCallbacks(this.mRecordTimeThread);
-        Intent intent2 = new Intent("com.baidu.recordStopped");
-        intent2.putExtra("com.baidu.msg.recordElapsedTime", this.mElapsedTime);
-        File file = new File(this.mFilePath);
-        if (file.exists()) {
-            intent2.putExtra("com.baidu.msg.sizeofbyte", file.length());
+        if (intent == null) {
+            intent = new Intent();
         }
-        sendBroadcast(intent2);
-        this.mStartRecorderTime = 0L;
-        this.mElapsedTime = 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void stopVoice(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65569, this, intent) == null) {
-            this.mHandler.removeCallbacks(this.mPlayTimeThread);
-            this.mElapsedTime = 0;
-            this.mCurBeginSecond = 0;
-            d05 d05Var = this.mPlayer;
-            if (d05Var instanceof f05) {
-                ((f05) d05Var).setOnCompletionListener(null);
-            }
-            int f = this.mPlayer.f();
-            Intent intent2 = new Intent("com.baidu.isStoped");
-            intent2.putExtra("com.baidu.msg.curr_time", f);
-            sendBroadcast(intent2);
-            this.mPlayer.a();
-        }
-    }
-
-    private void tryPreparePlayVoices(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
-            this.mSeekTime = j;
-            Voice voice = this.mVoice;
-            f05.h().e();
-            if (!this.mPlayer.b(voice.getName()) && this.mPlayer.c() != -1) {
-                Intent intent = new Intent("com.baidu.playPrepared");
-                intent.putExtra("com.baidu.playPrepared_err_code", this.mPlayer.c());
-                sendBroadcast(intent);
-                this.mSeekTime = 0L;
-            }
-            this.mCurBeginSecond = 0;
+        intent.setClass(context, MediaService.class);
+        try {
+            context.startService(intent);
+        } catch (Exception unused) {
         }
     }
 
     public static void unregisterReceiver(Context context, BroadcastReceiver broadcastReceiver) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65571, null, context, broadcastReceiver) == null) || context == null || broadcastReceiver == null) {
-            return;
-        }
-        try {
-            LocalBroadcastManager.getInstance(context).unregisterReceiver(broadcastReceiver);
-        } catch (Throwable unused) {
-            if (context == null || broadcastReceiver == null) {
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65571, null, context, broadcastReceiver) == null) && context != null && broadcastReceiver != null) {
+            try {
+                LocalBroadcastManager.getInstance(context).unregisterReceiver(broadcastReceiver);
+            } catch (Throwable unused) {
+                if (context != null && broadcastReceiver != null) {
+                    context.unregisterReceiver(broadcastReceiver);
+                }
             }
-            context.unregisterReceiver(broadcastReceiver);
         }
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, intent, i) == null) {
+            super.onStart(intent, i);
         }
-        return (IBinder) invokeL.objValue;
+    }
+
+    private int getVoiceTotalTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            Voice voice = this.mVoice;
+            if (voice == null) {
+                return 0;
+            }
+            long duration = voice.getDuration();
+            if (duration == 0) {
+                i05 i05Var = this.mPlayer;
+                if (i05Var instanceof k05) {
+                    duration = ((k05) i05Var).getDuration() / 1000;
+                }
+            }
+            return (int) duration;
+        }
+        return invokeV.intValue;
+    }
+
+    private long getVoiceTotalTimeByMediaPlayer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            i05 i05Var = this.mPlayer;
+            if (i05Var instanceof k05) {
+                return ((k05) i05Var).getDuration();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    private void setPlayerCompleteListener() {
+        i05 i05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65560, this) == null) && (i05Var = this.mPlayer) != null && (i05Var instanceof k05)) {
+            ((k05) i05Var).setOnErrorListener(this);
+            ((k05) this.mPlayer).setOnPreparedListener(this);
+            ((k05) this.mPlayer).setOnCompletionListener(new c(this));
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
@@ -553,14 +389,235 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         }
     }
 
-    @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        InterceptResult invokeLII;
+    public static void initBroadcastReceivers(Context context, BroadcastReceiver broadcastReceiver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, mediaPlayer, i, i2)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, broadcastReceiver) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.baidu.playPrepared");
+            intentFilter.addAction("com.baidu.isPlaying");
+            intentFilter.addAction("com.baidu.isStoped");
+            intentFilter.addAction("com.baidu.playElapsedTime");
+            intentFilter.addAction("com.baidu.recognize");
+            try {
+                LocalBroadcastManager.getInstance(context).registerReceiver(broadcastReceiver, intentFilter);
+            } catch (Throwable unused) {
+                context.registerReceiver(broadcastReceiver, intentFilter);
+            }
         }
-        return invokeLII.booleanValue;
+    }
+
+    private void pauseRecord(Intent intent) {
+        j05 j05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65551, this, intent) == null) && (j05Var = this.mRecorder) != null && j05Var.c()) {
+            this.mRecorder.a();
+            this.mHandler.removeCallbacks(this.mRecordTimeThread);
+            Intent intent2 = new Intent("com.baidu.recordPaused");
+            intent2.putExtra("com.baidu.msg.recordElapsedTime", this.mElapsedTime);
+            sendBroadcast(intent2);
+            this.mStartRecorderTime = 0L;
+            this.mElapsedTime = 0;
+        }
+    }
+
+    private void pauseVoice(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65552, this, intent) == null) && this.mPlayer.isPlaying()) {
+            this.mPlayer.d();
+            this.mHandler.removeCallbacks(this.mPlayTimeThread);
+            if (!this.mPlayer.isPlaying()) {
+                Intent intent2 = new Intent("com.baidu.isPlaying");
+                intent2.putExtra("com.baidu.msg.isPlaying", false);
+                sendBroadcast(intent2);
+            }
+        }
+    }
+
+    private void playVoice(Intent intent) {
+        i05 i05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65553, this, intent) != null) || (i05Var = this.mPlayer) == null || !i05Var.isPrepared()) {
+            return;
+        }
+        this.mPlayer.g();
+        this.mHandler.post(this.mPlayTimeThread);
+        if (this.mPlayer.isPlaying()) {
+            Intent intent2 = new Intent("com.baidu.isPlaying");
+            intent2.putExtra("com.baidu.msg.isPlaying", true);
+            sendBroadcast(intent2);
+        }
+    }
+
+    private void startRecord(Intent intent) {
+        j05 j05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65563, this, intent) != null) || (j05Var = this.mRecorder) == null) {
+            return;
+        }
+        j05Var.e();
+        this.mStartRecorderTime = System.currentTimeMillis();
+        this.mHandler.post(this.mRecordTimeThread);
+        Intent intent2 = new Intent("com.baidu.mediaIsRecording");
+        intent2.putExtra("com.baidu.msg.isRecording", true);
+        sendBroadcast(intent2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void stopVoice(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65569, this, intent) == null) {
+            this.mHandler.removeCallbacks(this.mPlayTimeThread);
+            this.mElapsedTime = 0;
+            this.mCurBeginSecond = 0;
+            i05 i05Var = this.mPlayer;
+            if (i05Var instanceof k05) {
+                ((k05) i05Var).setOnCompletionListener(null);
+            }
+            int f = this.mPlayer.f();
+            Intent intent2 = new Intent("com.baidu.isStoped");
+            intent2.putExtra("com.baidu.msg.curr_time", f);
+            sendBroadcast(intent2);
+            this.mPlayer.a();
+        }
+    }
+
+    public static void preparePlay(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65554, null, context, str, i) == null) {
+            preparePlay(context, str, i, 0);
+        }
+    }
+
+    public static void preparePlay(Context context, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65555, null, context, str, i, i2) == null) {
+            Intent intent = new Intent();
+            intent.setAction("preparePlayer");
+            Voice voice = new Voice();
+            voice.setName(str);
+            voice.setDuration(i);
+            intent.putExtra("com.baidu.voices", voice);
+            intent.putExtra("com.baidu.msg.curr_time", i2);
+            startMy(context, intent);
+        }
+    }
+
+    private void prepareRecorder(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65557, this, intent) == null) {
+            String stringExtra = intent.getStringExtra("com.baidu.notePath");
+            String stringExtra2 = intent.getStringExtra("filePath");
+            if (!PermissionUtil.checkRecodeAudio(getApplicationContext())) {
+                return;
+            }
+            if (stringExtra2.endsWith(".amr")) {
+                this.mRecorder = MyAudioRecorder.f(Boolean.TRUE);
+            } else {
+                this.mRecorder = new g05();
+            }
+            boolean z = false;
+            File file = new File(stringExtra);
+            this.mFilePath = stringExtra + File.separator + stringExtra2;
+            if (file.exists()) {
+                if (file.isDirectory() && file.canRead() && file.canWrite()) {
+                    z = this.mRecorder.d(this.mFilePath);
+                }
+            } else {
+                file.mkdir();
+                if (file.isDirectory() && file.canRead() && file.canWrite()) {
+                    z = this.mRecorder.d(this.mFilePath);
+                }
+            }
+            if (z) {
+                Intent intent2 = new Intent();
+                intent2.setAction("com.baidu.recordPrepared");
+                intent2.putExtra("com.baidu.msg.recordPrepared", true);
+                intent2.putExtra("com.baidu.msg.preparedName", stringExtra2);
+                sendBroadcast(intent2);
+            }
+        }
+    }
+
+    private void seekVoice(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65559, this, intent) != null) || this.mVoice == null) {
+            return;
+        }
+        this.mPlayer.e();
+        long longExtra = intent.getLongExtra("com.baidu.seekTime", 0L);
+        if (longExtra < 0) {
+            return;
+        }
+        long duration = this.mVoice.getDuration();
+        if (duration > 0 && longExtra <= duration) {
+            i05 i05Var = this.mPlayer;
+            if (i05Var instanceof k05) {
+                ((k05) i05Var).setOnPreparedListener(null);
+            }
+            if (this.mPlayer.b(this.mVoice.getName())) {
+                this.mPlayer.seek((int) longExtra);
+                playVoice(null);
+            }
+        }
+    }
+
+    private void stopAndReplay(Intent intent) {
+        i05 i05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65564, this, intent) == null) && this.mVoice != null && (i05Var = this.mPlayer) != null) {
+            long f = i05Var.f();
+            if (f < 0) {
+                return;
+            }
+            this.mPlayer.a();
+            this.mPlayer.e();
+            long duration = this.mVoice.getDuration();
+            if (duration > 0 && f <= duration) {
+                i05 i05Var2 = this.mPlayer;
+                if (i05Var2 instanceof k05) {
+                    ((k05) i05Var2).setOnPreparedListener(null);
+                }
+                if (this.mPlayer.b(this.mVoice.getName())) {
+                    this.mPlayer.seek((int) f);
+                    playVoice(null);
+                }
+            }
+        }
+    }
+
+    private void stopRecord(Intent intent) {
+        j05 j05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65568, this, intent) != null) || (j05Var = this.mRecorder) == null) {
+            return;
+        }
+        j05Var.a();
+        this.mHandler.removeCallbacks(this.mRecordTimeThread);
+        Intent intent2 = new Intent("com.baidu.recordStopped");
+        intent2.putExtra("com.baidu.msg.recordElapsedTime", this.mElapsedTime);
+        File file = new File(this.mFilePath);
+        if (file.exists()) {
+            intent2.putExtra("com.baidu.msg.sizeofbyte", file.length());
+        }
+        sendBroadcast(intent2);
+        this.mStartRecorderTime = 0L;
+        this.mElapsedTime = 0;
+    }
+
+    private void tryPreparePlayVoices(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
+            this.mSeekTime = j;
+            Voice voice = this.mVoice;
+            k05.h().e();
+            if (!this.mPlayer.b(voice.getName()) && this.mPlayer.c() != -1) {
+                Intent intent = new Intent("com.baidu.playPrepared");
+                intent.putExtra("com.baidu.playPrepared_err_code", this.mPlayer.c());
+                sendBroadcast(intent);
+                this.mSeekTime = 0L;
+            }
+            this.mCurBeginSecond = 0;
+        }
     }
 
     @Override // android.media.MediaPlayer.OnPreparedListener
@@ -581,14 +638,6 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             int i = (this.mSeekTime > 0L ? 1 : (this.mSeekTime == 0L ? 0 : -1));
             this.mSeekTime = 0L;
             sendBroadcast(intent);
-        }
-    }
-
-    @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, intent, i) == null) {
-            super.onStart(intent, i);
         }
     }
 
@@ -614,55 +663,5 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void sendBroadcast(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, intent) == null) {
-            try {
-                LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-            } catch (Throwable unused) {
-                super.sendBroadcast(intent);
-            }
-        }
-    }
-
-    public static void preparePlay(Context context, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65555, null, context, str, i, i2) == null) {
-            Intent intent = new Intent();
-            intent.setAction("preparePlayer");
-            Voice voice = new Voice();
-            voice.setName(str);
-            voice.setDuration(i);
-            intent.putExtra("com.baidu.voices", voice);
-            intent.putExtra("com.baidu.msg.curr_time", i2);
-            startMy(context, intent);
-        }
-    }
-
-    private void seekVoice(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65559, this, intent) == null) || this.mVoice == null) {
-            return;
-        }
-        this.mPlayer.e();
-        long longExtra = intent.getLongExtra("com.baidu.seekTime", 0L);
-        if (longExtra < 0) {
-            return;
-        }
-        long duration = this.mVoice.getDuration();
-        if (duration <= 0 || longExtra > duration) {
-            return;
-        }
-        d05 d05Var = this.mPlayer;
-        if (d05Var instanceof f05) {
-            ((f05) d05Var).setOnPreparedListener(null);
-        }
-        if (this.mPlayer.b(this.mVoice.getName())) {
-            this.mPlayer.seek((int) longExtra);
-            playVoice(null);
-        }
     }
 }

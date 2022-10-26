@@ -37,6 +37,15 @@ public final class EncodingUtils {
         return (byte[]) invokeL.objValue;
     }
 
+    public static String getAsciiString(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String getAsciiString(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -55,24 +64,6 @@ public final class EncodingUtils {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static String getString(byte[] bArr, int i, int i2, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String getAsciiString(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getString(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -80,5 +71,14 @@ public final class EncodingUtils {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static String getString(byte[] bArr, int i, int i2, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeCommon.objValue;
     }
 }

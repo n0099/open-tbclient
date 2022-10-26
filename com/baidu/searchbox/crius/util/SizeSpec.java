@@ -17,9 +17,18 @@ public class SizeSpec {
     public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int round(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65543, null, f)) == null) {
+            return (int) (f > 0.0f ? f + 0.5d : f - 0.5d);
+        }
+        return invokeF.intValue;
+    }
+
     /* renamed from: com.baidu.searchbox.crius.util.SizeSpec$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$crius$CriusMeasureMode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,19 +96,37 @@ public class SizeSpec {
     public static int getMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? View.MeasureSpec.getMode(i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return View.MeasureSpec.getMode(i);
+        }
+        return invokeI.intValue;
     }
 
     public static int getSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? View.MeasureSpec.getSize(i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return View.MeasureSpec.getSize(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static String toString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            return View.MeasureSpec.toString(i);
+        }
+        return (String) invokeI.objValue;
     }
 
     public static int makeSizeSpec(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? View.MeasureSpec.makeMeasureSpec(i, i2) : invokeII.intValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            return View.MeasureSpec.makeMeasureSpec(i, i2);
+        }
+        return invokeII.intValue;
     }
 
     public static int makeSizeSpecFromCssSpec(float f, CriusMeasureMode criusMeasureMode) {
@@ -110,10 +137,10 @@ public class SizeSpec {
             if (i != 1) {
                 if (i != 2) {
                     if (i != 3) {
-                        if (DEBUG) {
-                            throw new IllegalArgumentException("Unexpected YogaMeasureMode: " + criusMeasureMode);
+                        if (!DEBUG) {
+                            return 0;
                         }
-                        return 0;
+                        throw new IllegalArgumentException("Unexpected YogaMeasureMode: " + criusMeasureMode);
                     }
                     return makeSizeSpec(round(f), Integer.MIN_VALUE);
                 }
@@ -132,10 +159,10 @@ public class SizeSpec {
             if (mode != Integer.MIN_VALUE) {
                 if (mode != 0) {
                     if (mode != 1073741824) {
-                        if (DEBUG) {
-                            throw new IllegalStateException("Unexpected size mode: " + getMode(i));
+                        if (!DEBUG) {
+                            return 0;
                         }
-                        return 0;
+                        throw new IllegalStateException("Unexpected size mode: " + getMode(i));
                     }
                     return getSize(i);
                 }
@@ -144,20 +171,5 @@ public class SizeSpec {
             return Math.min(getSize(i), i2);
         }
         return invokeII.intValue;
-    }
-
-    public static int round(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65543, null, f)) == null) {
-            return (int) (f > 0.0f ? f + 0.5d : f - 0.5d);
-        }
-        return invokeF.intValue;
-    }
-
-    public static String toString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? View.MeasureSpec.toString(i) : (String) invokeI.objValue;
     }
 }

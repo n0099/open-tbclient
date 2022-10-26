@@ -1,6 +1,5 @@
 package com.baidu.tbadk.game;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,8 +37,25 @@ public class ResponseGameDetailMessage extends TbSocketReponsedMessage {
         }
     }
 
+    public GameInfo getGameInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mGameInfo;
+        }
+        return (GameInfo) invokeV.objValue;
+    }
+
+    public RankInfo getRankInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mRankInfo;
+        }
+        return (RankInfo) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -59,17 +75,5 @@ public class ResponseGameDetailMessage extends TbSocketReponsedMessage {
             return getGameDetailResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public GameInfo getGameInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mGameInfo : (GameInfo) invokeV.objValue;
-    }
-
-    public RankInfo getRankInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRankInfo : (RankInfo) invokeV.objValue;
     }
 }

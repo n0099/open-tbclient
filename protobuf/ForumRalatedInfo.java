@@ -34,7 +34,13 @@ public final class ForumRalatedInfo extends Message {
     public final String name;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<ForumRalatedInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String avatar;
@@ -92,14 +98,11 @@ public final class ForumRalatedInfo extends Message {
         public ForumRalatedInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new ForumRalatedInfo(this, z, null) : (ForumRalatedInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new ForumRalatedInfo(this, z, null);
+            }
+            return (ForumRalatedInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -119,10 +122,6 @@ public final class ForumRalatedInfo extends Message {
         DEFAULT_LEVEL = 0;
         DEFAULT_CURSCORE = 0;
         DEFAULT_LEFTSCORE = 0;
-    }
-
-    public /* synthetic */ ForumRalatedInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -189,5 +188,9 @@ public final class ForumRalatedInfo extends Message {
         this.level = builder.level;
         this.curScore = builder.curScore;
         this.leftScore = builder.leftScore;
+    }
+
+    public /* synthetic */ ForumRalatedInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

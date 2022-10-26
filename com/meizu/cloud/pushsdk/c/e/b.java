@@ -12,12 +12,12 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class b {
     public static String a = "b";
-    public HashMap<String, String> b;
-    public HashMap<String, Object> c;
-    public HashMap<String, String> d;
+    public HashMap b;
+    public HashMap c;
+    public HashMap d;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public Context a = null;
 
         public a a(Context context) {
@@ -31,9 +31,9 @@ public class b {
     }
 
     public b(a aVar) {
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new HashMap();
         d();
         e();
         f();
@@ -74,7 +74,7 @@ public class b {
         a("df", Build.MANUFACTURER);
     }
 
-    public Map<String, Object> a() {
+    public Map a() {
         return this.c;
     }
 
@@ -83,7 +83,7 @@ public class b {
         c(context);
     }
 
-    public Map<String, String> b() {
+    public Map b() {
         return this.d;
     }
 
@@ -101,7 +101,7 @@ public class b {
         a(TtmlNode.TAG_BR, Float.valueOf(c.getBearing()));
     }
 
-    public Map<String, String> c() {
+    public Map c() {
         return this.b;
     }
 

@@ -18,10 +18,10 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public final class DrivingRouteResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<DrivingRouteResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<DrivingRouteLine> a;
-    public List<TaxiInfo> b;
+    public List a;
+    public List b;
     public TaxiInfo c;
     public SuggestAddrInfo d;
 
@@ -89,7 +89,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
         return invokeV.intValue;
     }
 
-    public List<DrivingRouteLine> getRouteLines() {
+    public List getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -108,13 +108,13 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (TaxiInfo) invokeV.objValue;
     }
 
-    public List<TaxiInfo> getTaxiInfos() {
+    public List getTaxiInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    public void setRouteLines(List<DrivingRouteLine> list) {
+    public void setRouteLines(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a = list;
@@ -128,7 +128,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
         }
     }
 
-    public void setTaxiInfos(List<TaxiInfo> list) {
+    public void setTaxiInfos(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.b = list;

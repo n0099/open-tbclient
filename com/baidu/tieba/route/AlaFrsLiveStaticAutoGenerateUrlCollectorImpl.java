@@ -30,7 +30,22 @@ public final class AlaFrsLiveStaticAutoGenerateUrlCollectorImpl implements ICmdR
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("AlaFrsStoryLiveGatherActivityConfig");
+            arrayList.add("AlaGameFrsLiveListActivityConfig");
+            hashMap.put("com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -41,21 +56,6 @@ public final class AlaFrsLiveStaticAutoGenerateUrlCollectorImpl implements ICmdR
             hashMap.put("2001616", "com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic");
             hashMap.put("2001620", "com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic");
             hashMap.put("2913032", "com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("AlaFrsStoryLiveGatherActivityConfig");
-            arrayList.add("AlaGameFrsLiveListActivityConfig");
-            hashMap.put("com.baidu.tieba.ala.frsgamelive.AlaFrsLiveStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

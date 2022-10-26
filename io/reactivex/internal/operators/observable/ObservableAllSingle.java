@@ -18,22 +18,22 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableAllSingle<T> extends Single<Boolean> implements FuseToObservable<Boolean> {
+public final class ObservableAllSingle extends Single implements FuseToObservable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate<? super T> predicate;
-    public final ObservableSource<T> source;
+    public final Predicate predicate;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class AllObserver<T> implements Observer<T>, Disposable {
+    public final class AllObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Boolean> actual;
+        public final SingleObserver actual;
         public boolean done;
-        public final Predicate<? super T> predicate;
+        public final Predicate predicate;
         public Disposable s;
 
-        public AllObserver(SingleObserver<? super Boolean> singleObserver, Predicate<? super T> predicate) {
+        public AllObserver(SingleObserver singleObserver, Predicate predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,13 +64,16 @@ public final class ObservableAllSingle<T> extends Single<Boolean> implements Fus
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -91,26 +94,6 @@ public final class ObservableAllSingle<T> extends Single<Boolean> implements Fus
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            try {
-                if (this.predicate.test(t)) {
-                    return;
-                }
-                this.done = true;
-                this.s.dispose();
-                this.actual.onSuccess(Boolean.FALSE);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.s.dispose();
-                onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
@@ -118,9 +101,28 @@ public final class ObservableAllSingle<T> extends Single<Boolean> implements Fus
                 this.actual.onSubscribe(this);
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+                return;
+            }
+            try {
+                if (!this.predicate.test(obj)) {
+                    this.done = true;
+                    this.s.dispose();
+                    this.actual.onSuccess(Boolean.FALSE);
+                }
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                this.s.dispose();
+                onError(th);
+            }
+        }
     }
 
-    public ObservableAllSingle(ObservableSource<T> observableSource, Predicate<? super T> predicate) {
+    public ObservableAllSingle(ObservableSource observableSource, Predicate predicate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,14 +142,17 @@ public final class ObservableAllSingle<T> extends Single<Boolean> implements Fus
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable<Boolean> fuseToObservable() {
+    public Observable fuseToObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new ObservableAll(this.source, this.predicate)) : (Observable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new ObservableAll(this.source, this.predicate));
+        }
+        return (Observable) invokeV.objValue;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new AllObserver(singleObserver, this.predicate));

@@ -10,6 +10,7 @@ import com.xiaomi.push.al;
 import com.xiaomi.push.hj;
 import com.xiaomi.push.hw;
 import com.xiaomi.push.ii;
+import com.xiaomi.push.iu;
 import com.xiaomi.push.service.bd;
 /* loaded from: classes8.dex */
 public final class p extends al.a {
@@ -41,7 +42,7 @@ public final class p extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo208a() {
+    public String mo207a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -55,6 +56,6 @@ public final class p extends al.a {
             return;
         }
         iiVar.a(bd.a());
-        ao.a(this.a.getApplicationContext()).a((ao) this.f85a, hj.i, true, (hw) null, true);
+        ao.a(this.a.getApplicationContext()).a((iu) this.f85a, hj.i, true, (hw) null, true);
     }
 }

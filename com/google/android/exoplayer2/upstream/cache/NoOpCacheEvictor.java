@@ -10,20 +10,6 @@ public final class NoOpCacheEvictor implements CacheEvictor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public NoOpCacheEvictor() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.google.android.exoplayer2.upstream.cache.CacheEvictor
     public void onCacheInitialized() {
         Interceptable interceptable = $ic;
@@ -56,6 +42,20 @@ public final class NoOpCacheEvictor implements CacheEvictor {
     public void onStartFile(Cache cache, String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{cache, str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    public NoOpCacheEvictor() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

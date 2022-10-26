@@ -44,6 +44,18 @@ public final class VideoEventTypeEnum {
         $VALUES = new VideoEventTypeEnum[]{videoEventTypeEnum, videoEventTypeEnum2, videoEventTypeEnum3, videoEventTypeEnum4};
     }
 
+    public static VideoEventTypeEnum valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VideoEventTypeEnum) Enum.valueOf(VideoEventTypeEnum.class, str) : (VideoEventTypeEnum) invokeL.objValue;
+    }
+
+    public static VideoEventTypeEnum[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoEventTypeEnum[]) $VALUES.clone() : (VideoEventTypeEnum[]) invokeV.objValue;
+    }
+
     public VideoEventTypeEnum(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,17 +73,5 @@ public final class VideoEventTypeEnum {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static VideoEventTypeEnum valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VideoEventTypeEnum) Enum.valueOf(VideoEventTypeEnum.class, str) : (VideoEventTypeEnum) invokeL.objValue;
-    }
-
-    public static VideoEventTypeEnum[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoEventTypeEnum[]) $VALUES.clone() : (VideoEventTypeEnum[]) invokeV.objValue;
     }
 }

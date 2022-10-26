@@ -5,7 +5,6 @@ import android.util.LruCache;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.spswitch.emotion.EmotionUtils;
 import com.baidu.spswitch.emotion.resource.EmotionAPSManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,7 +27,7 @@ public class EmotionUsageUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_USAGE_FILE_NAME = "emotion-usage.json";
     public static int LRU_MAX_COUNT = 5;
-    public static LruCache<String, Object> sUsageData;
+    public static LruCache sUsageData;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +43,7 @@ public class EmotionUsageUtil {
                 return;
             }
         }
-        sUsageData = new LruCache<>(LRU_MAX_COUNT);
+        sUsageData = new LruCache(LRU_MAX_COUNT);
         restoreFromDisk();
     }
 
@@ -62,64 +61,13 @@ public class EmotionUsageUtil {
         }
     }
 
-    public static List<String> getEmotionUsageList(Map<String, EmotionUtils.EmotionClassic> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
-            if (sUsageData.size() > 0) {
-                boolean z = map != null && map.size() > 0;
-                ArrayList arrayList = new ArrayList();
-                for (Map.Entry<String, Object> entry : sUsageData.snapshot().entrySet()) {
-                    if (z) {
-                        if (map.containsKey(entry.getKey())) {
-                            arrayList.add(entry.getKey());
-                        }
-                    } else {
-                        arrayList.add(entry.getKey());
-                    }
-                }
-                Collections.reverse(arrayList);
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
     public static File getRootDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new File(AppRuntime.getAppContext().getFilesDir().getPath(), EmotionAPSManager.EMOTION_ROOT_DIR_NAME) : (File) invokeV.objValue;
-    }
-
-    public static Map<String, Object> jsonToMap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("id", "");
-                        if (!TextUtils.isEmpty(optString)) {
-                            hashMap.put(optString, new Object());
-                        }
-                    }
-                }
-                if (hashMap.isEmpty()) {
-                    return null;
-                }
-                return hashMap;
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir().getPath(), EmotionAPSManager.EMOTION_ROOT_DIR_NAME);
         }
-        return (Map) invokeL.objValue;
+        return (File) invokeV.objValue;
     }
 
     public static void makeRootDirIfNecessary() {
@@ -131,42 +79,6 @@ public class EmotionUsageUtil {
             }
             rootDir.mkdirs();
         }
-    }
-
-    public static String mapToJson(Map<String, Object> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) {
-            if (map == null || map.isEmpty()) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            Set<Map.Entry<String, Object>> entrySet = map.entrySet();
-            if (entrySet != null) {
-                for (Map.Entry<String, Object> entry : entrySet) {
-                    String key = entry.getKey();
-                    if (!TextUtils.isEmpty(key)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("id", key);
-                            jSONArray.put(jSONObject);
-                        } catch (Exception unused) {
-                        }
-                    }
-                }
-            }
-            return jSONArray.length() > 0 ? jSONArray.toString() : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void recordEmotionUsage(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        sUsageData.put(str, new Object());
-        saveToDisk();
     }
 
     public static void restoreFromDisk() {
@@ -197,11 +109,11 @@ public class EmotionUsageUtil {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         EmotionUsageUtil.makeRootDirIfNecessary();
                         File file = new File(EmotionUsageUtil.getRootDir(), EmotionUsageUtil.EMOTION_USAGE_FILE_NAME);
-                        if (file.exists()) {
-                            String readFileData = FileUtils.readFileData(file);
-                            if (TextUtils.isEmpty(readFileData) || (jsonToMap = EmotionUsageUtil.jsonToMap(readFileData)) == null || jsonToMap.isEmpty()) {
-                                return;
-                            }
+                        if (!file.exists()) {
+                            return;
+                        }
+                        String readFileData = FileUtils.readFileData(file);
+                        if (!TextUtils.isEmpty(readFileData) && (jsonToMap = EmotionUsageUtil.jsonToMap(readFileData)) != null && !jsonToMap.isEmpty()) {
                             EmotionUsageUtil.sUsageData.evictAll();
                             Set<Map.Entry> entrySet = jsonToMap.entrySet();
                             if (entrySet != null) {
@@ -240,19 +152,115 @@ public class EmotionUsageUtil {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || EmotionUsageUtil.sUsageData.size() <= 0) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && EmotionUsageUtil.sUsageData.size() > 0) {
+                        String mapToJson = EmotionUsageUtil.mapToJson(EmotionUsageUtil.sUsageData.snapshot());
+                        if (!TextUtils.isEmpty(mapToJson)) {
+                            EmotionUsageUtil.makeRootDirIfNecessary();
+                            File file = new File(EmotionUsageUtil.getRootDir(), EmotionUsageUtil.EMOTION_USAGE_FILE_NAME);
+                            FileUtils.deleteFile(file);
+                            FileUtils.saveFile(mapToJson, file);
+                        }
                     }
-                    String mapToJson = EmotionUsageUtil.mapToJson(EmotionUsageUtil.sUsageData.snapshot());
-                    if (TextUtils.isEmpty(mapToJson)) {
-                        return;
-                    }
-                    EmotionUsageUtil.makeRootDirIfNecessary();
-                    File file = new File(EmotionUsageUtil.getRootDir(), EmotionUsageUtil.EMOTION_USAGE_FILE_NAME);
-                    FileUtils.deleteFile(file);
-                    FileUtils.saveFile(mapToJson, file);
                 }
             }, "EmotionUsageSaveToDisk", 2);
         }
+    }
+
+    public static void recordEmotionUsage(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65548, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        sUsageData.put(str, new Object());
+        saveToDisk();
+    }
+
+    public static List getEmotionUsageList(Map map) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
+            if (sUsageData.size() > 0) {
+                if (map != null && map.size() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (Map.Entry entry : sUsageData.snapshot().entrySet()) {
+                    if (z) {
+                        if (map.containsKey(entry.getKey())) {
+                            arrayList.add(entry.getKey());
+                        }
+                    } else {
+                        arrayList.add(entry.getKey());
+                    }
+                }
+                Collections.reverse(arrayList);
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static Map jsonToMap(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("id", "");
+                        if (!TextUtils.isEmpty(optString)) {
+                            hashMap.put(optString, new Object());
+                        }
+                    }
+                }
+                if (hashMap.isEmpty()) {
+                    return null;
+                }
+                return hashMap;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static String mapToJson(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) {
+            if (map == null || map.isEmpty()) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            Set<Map.Entry> entrySet = map.entrySet();
+            if (entrySet != null) {
+                for (Map.Entry entry : entrySet) {
+                    String str = (String) entry.getKey();
+                    if (!TextUtils.isEmpty(str)) {
+                        try {
+                            JSONObject jSONObject = new JSONObject();
+                            jSONObject.put("id", str);
+                            jSONArray.put(jSONObject);
+                        } catch (Exception unused) {
+                        }
+                    }
+                }
+            }
+            if (jSONArray.length() <= 0) {
+                return "";
+            }
+            return jSONArray.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

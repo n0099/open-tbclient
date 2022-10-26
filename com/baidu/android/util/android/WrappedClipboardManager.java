@@ -1,7 +1,5 @@
 package com.baidu.android.util.android;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -20,9 +18,14 @@ public abstract class WrappedClipboardManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @TargetApi(11)
+    public abstract CharSequence getText();
+
+    public abstract boolean hasText();
+
+    public abstract void setText(CharSequence charSequence);
+
     /* loaded from: classes.dex */
-    public static class HoneycombClipboardManager extends WrappedClipboardManager {
+    public class HoneycombClipboardManager extends WrappedClipboardManager {
         public static /* synthetic */ Interceptable $ic;
         public static ClipData sClipData;
         public static ClipboardManager sInstance;
@@ -43,7 +46,6 @@ public abstract class WrappedClipboardManager {
             }
         }
 
-        @SuppressLint({"ServiceCast"})
         public HoneycombClipboardManager() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -61,6 +63,16 @@ public abstract class WrappedClipboardManager {
         }
 
         @Override // com.baidu.android.util.android.WrappedClipboardManager
+        public boolean hasText() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return sInstance.hasPrimaryClip();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.android.util.android.WrappedClipboardManager
         public CharSequence getText() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -70,16 +82,12 @@ public abstract class WrappedClipboardManager {
                 } catch (Exception unused) {
                 }
                 ClipData clipData = sClipData;
-                return (clipData == null || clipData.getItemCount() <= 0) ? "" : sClipData.getItemAt(0).getText();
+                if (clipData != null && clipData.getItemCount() > 0) {
+                    return sClipData.getItemAt(0).getText();
+                }
+                return "";
             }
             return (CharSequence) invokeV.objValue;
-        }
-
-        @Override // com.baidu.android.util.android.WrappedClipboardManager
-        public boolean hasText() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? sInstance.hasPrimaryClip() : invokeV.booleanValue;
         }
 
         @Override // com.baidu.android.util.android.WrappedClipboardManager
@@ -114,12 +122,9 @@ public abstract class WrappedClipboardManager {
     public static WrappedClipboardManager newInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? new HoneycombClipboardManager() : (WrappedClipboardManager) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return new HoneycombClipboardManager();
+        }
+        return (WrappedClipboardManager) invokeL.objValue;
     }
-
-    public abstract CharSequence getText();
-
-    public abstract boolean hasText();
-
-    public abstract void setText(CharSequence charSequence);
 }

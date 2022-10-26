@@ -59,19 +59,28 @@ public class WebViewProviderAdapter {
     public WebChromeClient getWebChromeClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mImpl.getWebChromeClient() : (WebChromeClient) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mImpl.getWebChromeClient();
+        }
+        return (WebChromeClient) invokeV.objValue;
     }
 
     public WebViewClient getWebViewClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImpl.getWebViewClient() : (WebViewClient) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mImpl.getWebViewClient();
+        }
+        return (WebViewClient) invokeV.objValue;
     }
 
     public WebViewRenderProcess getWebViewRenderProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? WebViewRenderProcessImpl.forInvocationHandler(this.mImpl.getWebViewRenderer()) : (WebViewRenderProcess) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return WebViewRenderProcessImpl.forInvocationHandler(this.mImpl.getWebViewRenderer());
+        }
+        return (WebViewRenderProcess) invokeV.objValue;
     }
 
     public WebViewRenderProcessClient getWebViewRenderProcessClient() {
@@ -102,9 +111,15 @@ public class WebViewProviderAdapter {
     }
 
     public void setWebViewRenderProcessClient(Executor executor, WebViewRenderProcessClient webViewRenderProcessClient) {
+        InvocationHandler invocationHandler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, executor, webViewRenderProcessClient) == null) {
-            this.mImpl.setWebViewRendererClient(webViewRenderProcessClient != null ? BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebViewRenderProcessClientAdapter(executor, webViewRenderProcessClient)) : null);
+            if (webViewRenderProcessClient != null) {
+                invocationHandler = BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new WebViewRenderProcessClientAdapter(executor, webViewRenderProcessClient));
+            } else {
+                invocationHandler = null;
+            }
+            this.mImpl.setWebViewRendererClient(invocationHandler);
         }
     }
 }

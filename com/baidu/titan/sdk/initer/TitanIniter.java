@@ -2,8 +2,6 @@ package com.baidu.titan.sdk.initer;
 
 import android.app.Application;
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
-@DisableIntercept
 /* loaded from: classes6.dex */
 public class TitanIniter {
     public static Context sContext;
@@ -22,8 +20,9 @@ public class TitanIniter {
         } else {
             sContext = context.getApplicationContext();
         }
-        if (sContext == null) {
-            throw new IllegalStateException("context.getApplicationContext == null");
+        if (sContext != null) {
+            return;
         }
+        throw new IllegalStateException("context.getApplicationContext == null");
     }
 }

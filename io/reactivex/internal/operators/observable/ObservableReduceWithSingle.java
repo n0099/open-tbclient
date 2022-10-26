@@ -14,14 +14,14 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.operators.observable.ObservableReduceSeedSingle;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableReduceWithSingle<T, R> extends Single<R> {
+public final class ObservableReduceWithSingle extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction<R, ? super T, R> reducer;
-    public final Callable<R> seedSupplier;
-    public final ObservableSource<T> source;
+    public final BiFunction reducer;
+    public final Callable seedSupplier;
+    public final ObservableSource source;
 
-    public ObservableReduceWithSingle(ObservableSource<T> observableSource, Callable<R> callable, BiFunction<R, ? super T, R> biFunction) {
+    public ObservableReduceWithSingle(ObservableSource observableSource, Callable callable, BiFunction biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public final class ObservableReduceWithSingle<T, R> extends Single<R> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super R> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             try {

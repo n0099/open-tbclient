@@ -51,77 +51,76 @@ public class k implements f {
         String a;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048576, this, context, aVar) != null) {
-            return;
-        }
-        c cVar = c.b.a;
-        Context applicationContext = context.getApplicationContext();
-        cVar.getClass();
-        try {
-            packageInfo = applicationContext.getPackageManager().getPackageInfo("com.heytap.openid", 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (Build.VERSION.SDK_INT >= 28) {
-            if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
-                z = true;
-                b.b = z;
-                b.a = true;
-                if (!b.b) {
-                    if (FunOpenIDSdk.isLogEnabled()) {
-                        Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
-                    }
-                    aVar.a(false, null);
-                    return;
-                } else if (b.a) {
-                    c cVar2 = c.b.a;
-                    Context applicationContext2 = context.getApplicationContext();
-                    synchronized (cVar2) {
-                        if (Looper.myLooper() != Looper.getMainLooper()) {
-                            if (cVar2.a == null) {
-                                Intent intent = new Intent();
-                                intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
-                                intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.e, 1)) {
-                                    synchronized (cVar2.d) {
-                                        try {
-                                            cVar2.d.wait(3000L);
-                                        } catch (InterruptedException e2) {
-                                            e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
+            c cVar = c.b.a;
+            Context applicationContext = context.getApplicationContext();
+            cVar.getClass();
+            try {
+                packageInfo = applicationContext.getPackageManager().getPackageInfo("com.heytap.openid", 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (Build.VERSION.SDK_INT >= 28) {
+                if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
+                    z = true;
+                    b.b = z;
+                    b.a = true;
+                    if (!b.b) {
+                        if (FunOpenIDSdk.isLogEnabled()) {
+                            Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
+                        }
+                        aVar.a(false, null);
+                        return;
+                    } else if (b.a) {
+                        c cVar2 = c.b.a;
+                        Context applicationContext2 = context.getApplicationContext();
+                        synchronized (cVar2) {
+                            if (Looper.myLooper() != Looper.getMainLooper()) {
+                                if (cVar2.a == null) {
+                                    Intent intent = new Intent();
+                                    intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+                                    intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+                                    if (applicationContext2.bindService(intent, cVar2.e, 1)) {
+                                        synchronized (cVar2.d) {
+                                            try {
+                                                cVar2.d.wait(3000L);
+                                            } catch (InterruptedException e2) {
+                                                e2.printStackTrace();
+                                            }
                                         }
                                     }
                                 }
+                                try {
+                                    a = cVar2.a(applicationContext2, "OUID");
+                                } catch (RemoteException e3) {
+                                    e3.printStackTrace();
+                                    a = "";
+                                    aVar.a(true, a);
+                                    return;
+                                }
+                            } else {
+                                throw new IllegalStateException("Cannot run on MainThread");
                             }
-                            try {
-                                a = cVar2.a(applicationContext2, "OUID");
-                            } catch (RemoteException e3) {
-                                e3.printStackTrace();
-                                a = "";
-                                aVar.a(true, a);
-                                return;
-                            }
-                        } else {
-                            throw new IllegalStateException("Cannot run on MainThread");
                         }
+                        aVar.a(true, a);
+                        return;
+                    } else {
+                        throw new RuntimeException("SDK Need Init First!");
                     }
-                    aVar.a(true, a);
-                    return;
-                } else {
-                    throw new RuntimeException("SDK Need Init First!");
                 }
-            }
-            z = false;
-            b.b = z;
-            b.a = true;
-            if (!b.b) {
-            }
-        } else {
-            if (packageInfo != null) {
-            }
-            z = false;
-            b.b = z;
-            b.a = true;
-            if (!b.b) {
+                z = false;
+                b.b = z;
+                b.a = true;
+                if (!b.b) {
+                }
+            } else {
+                if (packageInfo != null) {
+                }
+                z = false;
+                b.b = z;
+                b.a = true;
+                if (!b.b) {
+                }
             }
         }
     }

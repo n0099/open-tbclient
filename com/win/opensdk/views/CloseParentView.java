@@ -78,12 +78,12 @@ public class CloseParentView extends LinearLayout {
         }
         this.i = new t2(this, Looper.getMainLooper());
         this.d = context;
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d092d, this);
-        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092695);
-        this.e = findViewById(R.id.obfuscated_res_0x7f092692);
-        this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092696);
-        this.f = findViewById(R.id.obfuscated_res_0x7f09269c);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0926a0);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d092e, this);
+        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09267d);
+        this.e = findViewById(R.id.obfuscated_res_0x7f09267a);
+        this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09267e);
+        this.f = findViewById(R.id.obfuscated_res_0x7f092684);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092688);
         this.b.setOnClickListener(new u2(this));
         this.f.setOnClickListener(new v2(this));
         setAreaLevel(1);
@@ -141,6 +141,19 @@ public class CloseParentView extends LinearLayout {
         }
     }
 
+    public void setOnCloseListener(w2 w2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, w2Var) == null) {
+            this.g = w2Var;
+        }
+    }
+
+    public void setOnCollectListener(x2 x2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, x2Var) == null) {
+        }
+    }
+
     public void setLocation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -152,19 +165,6 @@ public class CloseParentView extends LinearLayout {
             this.b.addView(this.c, 0);
             ((LinearLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = 0;
             ((LinearLayout.LayoutParams) this.c.getLayoutParams()).rightMargin = M.a(this.d, 12);
-        }
-    }
-
-    public void setOnCloseListener(w2 w2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, w2Var) == null) {
-            this.g = w2Var;
-        }
-    }
-
-    public void setOnCollectListener(x2 x2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, x2Var) == null) {
         }
     }
 }

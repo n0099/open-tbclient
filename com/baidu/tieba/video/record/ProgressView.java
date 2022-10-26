@@ -33,7 +33,7 @@ public class ProgressView extends View {
     public Paint g;
     public float h;
     public float i;
-    public LinkedList<Integer> j;
+    public LinkedList j;
     public float k;
     public volatile State l;
     public boolean m;
@@ -46,9 +46,14 @@ public class ProgressView extends View {
     public long t;
     public long u;
 
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i);
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State DELETE;
@@ -118,25 +123,29 @@ public class ProgressView extends View {
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
 
         public int getIntValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIntValue : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mIntValue;
+            }
+            return invokeV.intValue;
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -157,7 +166,73 @@ public class ProgressView extends View {
                 return;
             }
         }
-        this.j = new LinkedList<>();
+        this.j = new LinkedList();
+        this.k = 0.0f;
+        this.l = State.PAUSE;
+        this.m = true;
+        this.n = 0.0f;
+        this.o = 0.0f;
+        this.p = 0.0f;
+        this.r = 0L;
+        this.s = 0L;
+        this.t = 0L;
+        this.u = 0L;
+        a(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ProgressView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.j = new LinkedList();
+        this.k = 0.0f;
+        this.l = State.PAUSE;
+        this.m = true;
+        this.n = 0.0f;
+        this.o = 0.0f;
+        this.p = 0.0f;
+        this.r = 0L;
+        this.s = 0L;
+        this.t = 0L;
+        this.u = 0L;
+        a(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ProgressView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.j = new LinkedList();
         this.k = 0.0f;
         this.l = State.PAUSE;
         this.m = true;
@@ -201,14 +276,10 @@ public class ProgressView extends View {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j.isEmpty() : invokeV.booleanValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.j.add(Integer.valueOf(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j.isEmpty();
         }
+        return invokeV.booleanValue;
     }
 
     public void d() {
@@ -229,31 +300,78 @@ public class ProgressView extends View {
     public State getCurrentState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : (State) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.l;
+        }
+        return (State) invokeV.objValue;
     }
 
     public int getLastProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            LinkedList<Integer> linkedList = this.j;
-            if (linkedList == null || linkedList.isEmpty()) {
-                return 0;
+            LinkedList linkedList = this.j;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                return ((Integer) this.j.getLast()).intValue();
             }
-            return this.j.getLast().intValue();
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public LinkedList<Integer> getTimeList() {
+    public LinkedList getTimeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.j;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.j.add(Integer.valueOf(i));
+        }
+    }
+
+    public void setCurrentState(State state) {
+        LinkedList linkedList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state) == null) {
+            this.l = state;
+            if (state != State.START) {
+                this.o = this.p;
+            }
+            if (state == State.DELETE && (linkedList = this.j) != null && !linkedList.isEmpty()) {
+                this.j.removeLast();
+            }
+        }
+    }
+
+    public void setListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    public void setPaintHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.u = i;
+        }
+    }
+
+    public void setTimeList(LinkedList linkedList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, linkedList) == null) && linkedList != null && linkedList.size() > 0) {
+            this.j = linkedList;
+        }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             super.onDraw(canvas);
@@ -269,11 +387,11 @@ public class ProgressView extends View {
             long currentTimeMillis = System.currentTimeMillis();
             this.n = 0.0f;
             if (!this.j.isEmpty()) {
-                Iterator<Integer> it = this.j.iterator();
+                Iterator it = this.j.iterator();
                 long j2 = 0;
                 while (it.hasNext()) {
                     this.s = j2;
-                    long intValue = it.next().intValue();
+                    long intValue = ((Integer) it.next()).intValue();
                     this.t = intValue;
                     float f = this.n;
                     float f2 = (((float) (intValue - j2)) * this.k) + f;
@@ -287,7 +405,7 @@ public class ProgressView extends View {
                     canvas.drawRect(f4, 0.0f, this.n, (float) (this.u - 1), this.e);
                     j2 = intValue;
                 }
-                if (this.j.getLast().intValue() <= 3000.0f) {
+                if (((Integer) this.j.getLast()).intValue() <= 3000.0f) {
                     float f5 = this.k;
                     canvas.drawRect(f5 * 3000.0f, 0.0f, (f5 * 3000.0f) + this.h, (float) (this.u - 1), this.d);
                 }
@@ -299,6 +417,7 @@ public class ProgressView extends View {
                 float f7 = this.n;
                 canvas.drawRect(f7 - (((float) (this.t - this.s)) * this.k), 0.0f, f7, (float) this.u, this.g);
             }
+            int i = 100;
             if (this.l == State.START) {
                 float f8 = this.o + (this.p * ((float) (currentTimeMillis - this.q)));
                 this.o = f8;
@@ -314,7 +433,9 @@ public class ProgressView extends View {
                 canvas.drawRect(f11, 0.0f, f11 + ((float) j3), (float) (j3 - 1), this.f);
                 if (this.a != null) {
                     int measuredWidth = (int) ((f9 / getMeasuredWidth()) * 100.0f);
-                    i = measuredWidth <= 100 ? measuredWidth : 100;
+                    if (measuredWidth <= 100) {
+                        i = measuredWidth;
+                    }
                     if (i != this.b) {
                         this.b = i;
                         this.a.a(i);
@@ -323,7 +444,9 @@ public class ProgressView extends View {
             } else {
                 if (this.a != null) {
                     int measuredWidth2 = (int) ((this.n / getMeasuredWidth()) * 100.0f);
-                    i = measuredWidth2 <= 100 ? measuredWidth2 : 100;
+                    if (measuredWidth2 <= 100) {
+                        i = measuredWidth2;
+                    }
                     if (i != this.b) {
                         this.b = i;
                         this.a.a(i);
@@ -343,108 +466,5 @@ public class ProgressView extends View {
             this.q = System.currentTimeMillis();
             invalidate();
         }
-    }
-
-    public void setCurrentState(State state) {
-        LinkedList<Integer> linkedList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state) == null) {
-            this.l = state;
-            if (state != State.START) {
-                this.o = this.p;
-            }
-            if (state != State.DELETE || (linkedList = this.j) == null || linkedList.isEmpty()) {
-                return;
-            }
-            this.j.removeLast();
-        }
-    }
-
-    public void setListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void setPaintHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.u = i;
-        }
-    }
-
-    public void setTimeList(LinkedList<Integer> linkedList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, linkedList) == null) || linkedList == null || linkedList.size() <= 0) {
-            return;
-        }
-        this.j = linkedList;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ProgressView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.j = new LinkedList<>();
-        this.k = 0.0f;
-        this.l = State.PAUSE;
-        this.m = true;
-        this.n = 0.0f;
-        this.o = 0.0f;
-        this.p = 0.0f;
-        this.r = 0L;
-        this.s = 0L;
-        this.t = 0L;
-        this.u = 0L;
-        a(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ProgressView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.j = new LinkedList<>();
-        this.k = 0.0f;
-        this.l = State.PAUSE;
-        this.m = true;
-        this.n = 0.0f;
-        this.o = 0.0f;
-        this.p = 0.0f;
-        this.r = 0L;
-        this.s = 0L;
-        this.t = 0L;
-        this.u = 0L;
-        a(context);
     }
 }

@@ -16,10 +16,19 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes8.dex */
 public @interface WireField {
+    String adapter();
+
+    String keyAdapter() default "";
+
+    Label label() default Label.OPTIONAL;
+
+    boolean redacted() default false;
+
+    int tag();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Label {
+    public final class Label {
         public static final /* synthetic */ Label[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Label ONE_OF;
@@ -73,41 +82,55 @@ public @interface WireField {
         public static Label valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Label) Enum.valueOf(Label.class, str) : (Label) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Label) Enum.valueOf(Label.class, str);
+            }
+            return (Label) invokeL.objValue;
         }
 
         public static Label[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Label[]) $VALUES.clone() : (Label[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Label[]) $VALUES.clone();
+            }
+            return (Label[]) invokeV.objValue;
         }
 
         public boolean isOneOf() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == ONE_OF : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this == ONE_OF) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isPacked() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this == PACKED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this == PACKED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isRepeated() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this == REPEATED || this == PACKED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this != REPEATED && this != PACKED) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
-
-    String adapter();
-
-    String keyAdapter() default "";
-
-    Label label() default Label.OPTIONAL;
-
-    boolean redacted() default false;
-
-    int tag();
 }

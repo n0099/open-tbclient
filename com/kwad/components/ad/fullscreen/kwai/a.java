@@ -5,8 +5,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.config.item.j;
 /* loaded from: classes7.dex */
 public final class a {
@@ -34,7 +32,6 @@ public final class a {
         el = new j("fullScreenShakeMaxCount", 0);
     }
 
-    @InvokeBy(invokerClass = d.class, methodId = "initConfigList")
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {

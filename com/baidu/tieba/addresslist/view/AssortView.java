@@ -10,7 +10,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x25;
+import com.baidu.tieba.d35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,93 +51,6 @@ public class AssortView extends View {
         }
         this.b = -1;
         a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new Paint();
-        }
-    }
-
-    @Override // android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            super.onDraw(canvas);
-            int height = getHeight();
-            int width = getWidth();
-            float f = (float) (width / 48.0d);
-            String[] strArr = x25.a;
-            int length = height / strArr.length;
-            int length2 = strArr.length;
-            for (int i = 0; i < length2; i++) {
-                this.a.setAntiAlias(true);
-                this.a.setTypeface(Typeface.DEFAULT_BOLD);
-                this.a.setColor(SkinManager.getColor(R.color.CAM_X0108));
-                this.a.setTextSize(26.0f * f);
-                canvas.drawText(x25.a[i], (width / 2.0f) - (this.a.measureText(x25.a[i]) / 2.0f), (length * i) + length, this.a);
-                this.a.reset();
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            super.onTouchEvent(motionEvent);
-            float y = motionEvent.getY() / getHeight();
-            String[] strArr = x25.a;
-            int length = (int) (y * strArr.length);
-            if (length >= 0 && length < strArr.length) {
-                int action = motionEvent.getAction();
-                if (action == 0) {
-                    this.b = length;
-                    a aVar = this.c;
-                    if (aVar != null) {
-                        aVar.a1(x25.a[length]);
-                    }
-                } else if (action != 1) {
-                    if (action == 2 && this.b != length) {
-                        this.b = length;
-                        a aVar2 = this.c;
-                        if (aVar2 != null) {
-                            aVar2.a1(x25.a[length]);
-                        }
-                    }
-                } else {
-                    a aVar3 = this.c;
-                    if (aVar3 != null) {
-                        aVar3.l1();
-                    }
-                    this.b = -1;
-                }
-            } else {
-                this.b = -1;
-                a aVar4 = this.c;
-                if (aVar4 != null) {
-                    aVar4.l1();
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setOnTouchListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.c = aVar;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,5 +97,97 @@ public class AssortView extends View {
         }
         this.b = -1;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new Paint();
+        }
+    }
+
+    @Override // android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setOnTouchListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.c = aVar;
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            int height = getHeight();
+            int width = getWidth();
+            float f = (float) (width / 48.0d);
+            String[] strArr = d35.a;
+            int length = height / strArr.length;
+            int length2 = strArr.length;
+            for (int i = 0; i < length2; i++) {
+                this.a.setAntiAlias(true);
+                this.a.setTypeface(Typeface.DEFAULT_BOLD);
+                this.a.setColor(SkinManager.getColor(R.color.CAM_X0108));
+                this.a.setTextSize(26.0f * f);
+                canvas.drawText(d35.a[i], (width / 2.0f) - (this.a.measureText(d35.a[i]) / 2.0f), (length * i) + length, this.a);
+                this.a.reset();
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            super.onTouchEvent(motionEvent);
+            float y = motionEvent.getY() / getHeight();
+            String[] strArr = d35.a;
+            int length = (int) (y * strArr.length);
+            if (length >= 0 && length < strArr.length) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2 && this.b != length) {
+                            this.b = length;
+                            a aVar = this.c;
+                            if (aVar != null) {
+                                aVar.a1(d35.a[length]);
+                            }
+                        }
+                    } else {
+                        a aVar2 = this.c;
+                        if (aVar2 != null) {
+                            aVar2.l1();
+                        }
+                        this.b = -1;
+                    }
+                } else {
+                    this.b = length;
+                    a aVar3 = this.c;
+                    if (aVar3 != null) {
+                        aVar3.a1(d35.a[length]);
+                    }
+                }
+            } else {
+                this.b = -1;
+                a aVar4 = this.c;
+                if (aVar4 != null) {
+                    aVar4.l1();
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

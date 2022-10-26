@@ -5,7 +5,7 @@ import android.media.MediaCodecList;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ax9;
+import com.baidu.tieba.sx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,6 +24,13 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     public final String[] prefixWhitelist;
     @Nullable
     public final EglBase.Context sharedContext;
+
+    @Override // org.webrtc.VideoDecoderFactory
+    @Nullable
+    @Deprecated
+    public /* synthetic */ VideoDecoder createDecoder(String str) {
+        return sx9.$default$createDecoder(this, str);
+    }
 
     public MediaCodecVideoDecoderFactory(@Nullable EglBase.Context context, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
@@ -70,6 +77,22 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
         return (MediaCodecInfo) invokeL.objValue;
     }
 
+    private boolean isH264HighProfileSupported(MediaCodecInfo mediaCodecInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, mediaCodecInfo)) == null) {
+            String name = mediaCodecInfo.getName();
+            if (Build.VERSION.SDK_INT >= 21 && name.startsWith("OMX.qcom.")) {
+                return true;
+            }
+            if (Build.VERSION.SDK_INT >= 23 && name.startsWith("OMX.Exynos.")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     private boolean isBlacklisted(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -82,29 +105,6 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    private boolean isH264HighProfileSupported(MediaCodecInfo mediaCodecInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, mediaCodecInfo)) == null) {
-            String name = mediaCodecInfo.getName();
-            if (Build.VERSION.SDK_INT < 21 || !name.startsWith("OMX.qcom.")) {
-                return Build.VERSION.SDK_INT >= 23 && name.startsWith("OMX.Exynos.");
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    private boolean isSupportedCodec(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, mediaCodecInfo, videoCodecType)) == null) {
-            String name = mediaCodecInfo.getName();
-            return MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) && MediaCodecUtils.selectColorFormat(MediaCodecUtils.DECODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) != null && isWhitelisted(name) && !isBlacklisted(name);
-        }
-        return invokeLL.booleanValue;
     }
 
     private boolean isWhitelisted(String str) {
@@ -121,11 +121,17 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
         return invokeL.booleanValue;
     }
 
-    @Override // org.webrtc.VideoDecoderFactory
-    @Nullable
-    @Deprecated
-    public /* synthetic */ VideoDecoder createDecoder(String str) {
-        return ax9.$default$createDecoder(this, str);
+    private boolean isSupportedCodec(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, mediaCodecInfo, videoCodecType)) == null) {
+            String name = mediaCodecInfo.getName();
+            if (!MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) || MediaCodecUtils.selectColorFormat(MediaCodecUtils.DECODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) == null || !isWhitelisted(name) || isBlacklisted(name)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     @Override // org.webrtc.VideoDecoderFactory

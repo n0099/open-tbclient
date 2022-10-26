@@ -147,18 +147,16 @@ public class e {
 
     public final void a(Activity activity, FaceProcessCallback faceProcessCallback, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, activity, faceProcessCallback, i) == null) || faceProcessCallback == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, activity, faceProcessCallback, i) == null) && faceProcessCallback != null) {
+            activity.runOnUiThread(new a(this, faceProcessCallback, i));
         }
-        activity.runOnUiThread(new a(this, faceProcessCallback, i));
     }
 
     public final void a(Activity activity, RecordCallback recordCallback, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, recordCallback, i) == null) || recordCallback == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, recordCallback, i) == null) && recordCallback != null) {
+            activity.runOnUiThread(new b(this, recordCallback, i));
         }
-        activity.runOnUiThread(new b(this, recordCallback, i));
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:35:0x006e, code lost:
@@ -208,7 +206,10 @@ public class e {
                         f = i;
                     }
                 }
-                return f == 1;
+                if (f != 1) {
+                    return false;
+                }
+                return true;
             } catch (Throwable unused2) {
                 return false;
             }

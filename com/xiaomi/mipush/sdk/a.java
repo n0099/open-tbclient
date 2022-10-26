@@ -1,6 +1,5 @@
 package com.xiaomi.mipush.sdk;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -15,12 +14,11 @@ import com.xiaomi.push.en;
 import com.xiaomi.push.eo;
 import java.util.HashSet;
 import java.util.Set;
-@TargetApi(14)
 /* loaded from: classes8.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<String> a;
+    public Set a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -78,7 +76,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
         Intent intent;
         eo a;
         String packageName;
-        String m310a;
+        String m309a;
         int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (intent = activity.getIntent()) == null) {
@@ -93,17 +91,17 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (intExtra == 3000) {
             a = eo.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m310a = en.m310a(intExtra);
+            m309a = en.m309a(intExtra);
             i = 3008;
         } else if (intExtra != 1000) {
             return;
         } else {
             a = eo.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m310a = en.m310a(intExtra);
+            m309a = en.m309a(intExtra);
             i = 1008;
         }
-        a.a(packageName, m310a, stringExtra, i, null);
+        a.a(packageName, m309a, stringExtra, i, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

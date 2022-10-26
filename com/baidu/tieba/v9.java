@@ -7,7 +7,7 @@ public interface v9 {
 
     boolean isScroll();
 
-    void onPreLoad(ho hoVar);
+    void onPreLoad(io ioVar);
 
     void setIsScroll(boolean z);
 }

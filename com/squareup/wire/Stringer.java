@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.nio.charset.Charset;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes8.dex */
@@ -101,7 +100,60 @@ public final class Stringer {
                     int i11 = i9 + 1;
                     int i12 = iArr[bArr[i9] & 255];
                     if (i8 != 0) {
-                        if (i8 == 1) {
+                        if (i8 != 1) {
+                            if (i8 != 2) {
+                                if (i8 != 3) {
+                                    if (i8 != 4) {
+                                        if (i8 == 5) {
+                                            if (i12 != -1) {
+                                                this.state = 6;
+                                                return false;
+                                            }
+                                        } else {
+                                            throw new AssertionError("state = " + i8);
+                                        }
+                                    } else {
+                                        if (i12 != -2) {
+                                            if (i12 != -1) {
+                                                this.state = 6;
+                                                return false;
+                                            }
+                                        }
+                                        i8++;
+                                    }
+                                } else if (i12 >= 0) {
+                                    i6 = (i6 << 6) | i12;
+                                    bArr2[i7 + 2] = (byte) i6;
+                                    bArr2[i7 + 1] = (byte) (i6 >> 8);
+                                    bArr2[i7] = (byte) (i6 >> 16);
+                                    i7 += 3;
+                                    i9 = i11;
+                                    i8 = 0;
+                                } else if (i12 == -2) {
+                                    bArr2[i7 + 1] = (byte) (i6 >> 2);
+                                    bArr2[i7] = (byte) (i6 >> 10);
+                                    i7 += 2;
+                                    i9 = i11;
+                                    i8 = 5;
+                                } else if (i12 != -1) {
+                                    this.state = 6;
+                                    return false;
+                                }
+                            } else if (i12 < 0) {
+                                if (i12 == -2) {
+                                    bArr2[i7] = (byte) (i6 >> 4);
+                                    i7++;
+                                    i9 = i11;
+                                    i8 = 4;
+                                } else if (i12 != -1) {
+                                    this.state = 6;
+                                    return false;
+                                }
+                            } else {
+                                i6 = (i6 << 6) | i12;
+                                i8++;
+                            }
+                        } else {
                             if (i12 < 0) {
                                 if (i12 != -1) {
                                     this.state = 6;
@@ -110,51 +162,6 @@ public final class Stringer {
                             }
                             i6 = (i6 << 6) | i12;
                             i8++;
-                        } else if (i8 != 2) {
-                            if (i8 != 3) {
-                                if (i8 == 4) {
-                                    if (i12 != -2) {
-                                        if (i12 != -1) {
-                                            this.state = 6;
-                                            return false;
-                                        }
-                                    }
-                                    i8++;
-                                } else if (i8 != 5) {
-                                    throw new AssertionError("state = " + i8);
-                                } else if (i12 != -1) {
-                                    this.state = 6;
-                                    return false;
-                                }
-                            } else if (i12 >= 0) {
-                                i6 = (i6 << 6) | i12;
-                                bArr2[i7 + 2] = (byte) i6;
-                                bArr2[i7 + 1] = (byte) (i6 >> 8);
-                                bArr2[i7] = (byte) (i6 >> 16);
-                                i7 += 3;
-                                i9 = i11;
-                                i8 = 0;
-                            } else if (i12 == -2) {
-                                bArr2[i7 + 1] = (byte) (i6 >> 2);
-                                bArr2[i7] = (byte) (i6 >> 10);
-                                i7 += 2;
-                                i9 = i11;
-                                i8 = 5;
-                            } else if (i12 != -1) {
-                                this.state = 6;
-                                return false;
-                            }
-                        } else if (i12 >= 0) {
-                            i6 = (i6 << 6) | i12;
-                            i8++;
-                        } else if (i12 == -2) {
-                            bArr2[i7] = (byte) (i6 >> 4);
-                            i7++;
-                            i9 = i11;
-                            i8 = 4;
-                        } else if (i12 != -1) {
-                            this.state = 6;
-                            return false;
                         }
                     } else if (i12 >= 0) {
                         i8++;
@@ -172,22 +179,30 @@ public final class Stringer {
                     return true;
                 }
                 if (i8 != 0) {
-                    if (i8 == 1) {
+                    if (i8 != 1) {
+                        if (i8 != 2) {
+                            if (i8 != 3) {
+                                if (i8 != 4) {
+                                    if (i8 != 5) {
+                                        throw new AssertionError("state = " + i8);
+                                    }
+                                } else {
+                                    this.state = 6;
+                                    return false;
+                                }
+                            } else {
+                                int i13 = i7 + 1;
+                                bArr2[i7] = (byte) (i6 >> 10);
+                                i7 = i13 + 1;
+                                bArr2[i13] = (byte) (i6 >> 2);
+                            }
+                        } else {
+                            bArr2[i7] = (byte) (i6 >> 4);
+                            i7++;
+                        }
+                    } else {
                         this.state = 6;
                         return false;
-                    } else if (i8 == 2) {
-                        bArr2[i7] = (byte) (i6 >> 4);
-                        i7++;
-                    } else if (i8 == 3) {
-                        int i13 = i7 + 1;
-                        bArr2[i7] = (byte) (i6 >> 10);
-                        i7 = i13 + 1;
-                        bArr2[i13] = (byte) (i6 >> 2);
-                    } else if (i8 == 4) {
-                        this.state = 6;
-                        return false;
-                    } else if (i8 != 5) {
-                        throw new AssertionError("state = " + i8);
                     }
                 }
                 this.state = i8;
@@ -220,7 +235,7 @@ public final class Stringer {
                     return;
                 }
             }
-            ENCODE = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
+            ENCODE = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         }
 
         public Encoder(byte[] bArr) {
@@ -261,136 +276,135 @@ public final class Stringer {
             byte b2;
             byte b3;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) != null) {
-                return;
-            }
-            byte[] bArr2 = ENCODE;
-            byte[] bArr3 = this.output;
-            int i7 = i2 + i;
-            int i8 = this.tailLen;
-            int i9 = 0;
-            if (i8 != 0) {
-                if (i8 != 1) {
-                    if (i8 != 2) {
-                        throw new AssertionError("tailLen = " + this.tailLen);
-                    }
-                    i3 = i + 1;
-                    if (i3 <= i7) {
-                        byte[] bArr4 = this.tail;
-                        i4 = (bArr[i] & 255) | ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+                byte[] bArr2 = ENCODE;
+                byte[] bArr3 = this.output;
+                int i7 = i2 + i;
+                int i8 = this.tailLen;
+                int i9 = 0;
+                if (i8 != 0) {
+                    if (i8 != 1) {
+                        if (i8 == 2) {
+                            i3 = i + 1;
+                            if (i3 <= i7) {
+                                byte[] bArr4 = this.tail;
+                                i4 = (bArr[i] & 255) | ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16);
+                                this.tailLen = 0;
+                            }
+                        } else {
+                            throw new AssertionError("tailLen = " + this.tailLen);
+                        }
+                    } else if (i + 2 <= i7) {
+                        int i10 = i + 1;
+                        i3 = i10 + 1;
+                        i4 = ((bArr[i] & 255) << 8) | ((this.tail[0] & 255) << 16) | (bArr[i10] & 255);
                         this.tailLen = 0;
                     }
-                } else if (i + 2 <= i7) {
-                    int i10 = i + 1;
-                    i3 = i10 + 1;
-                    i4 = ((bArr[i] & 255) << 8) | ((this.tail[0] & 255) << 16) | (bArr[i10] & 255);
-                    this.tailLen = 0;
+                    if (i4 == -1) {
+                        bArr3[0] = bArr2[(i4 >> 18) & 63];
+                        bArr3[1] = bArr2[(i4 >> 12) & 63];
+                        bArr3[2] = bArr2[(i4 >> 6) & 63];
+                        bArr3[3] = bArr2[i4 & 63];
+                        i5 = 4;
+                    } else {
+                        i5 = 0;
+                    }
+                    while (true) {
+                        i6 = i3 + 3;
+                        if (i6 <= i7) {
+                            break;
+                        }
+                        int i11 = (bArr[i3 + 2] & 255) | ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8);
+                        bArr3[i5] = bArr2[(i11 >> 18) & 63];
+                        bArr3[i5 + 1] = bArr2[(i11 >> 12) & 63];
+                        bArr3[i5 + 2] = bArr2[(i11 >> 6) & 63];
+                        bArr3[i5 + 3] = bArr2[i11 & 63];
+                        i5 += 4;
+                        i3 = i6;
+                    }
+                    if (!z) {
+                        int i12 = this.tailLen;
+                        if (i3 - i12 == i7 - 1) {
+                            if (i12 > 0) {
+                                b3 = this.tail[0];
+                                i9 = 1;
+                            } else {
+                                b3 = bArr[i3];
+                            }
+                            int i13 = (b3 & 255) << 4;
+                            this.tailLen -= i9;
+                            int i14 = i5 + 1;
+                            bArr3[i5] = bArr2[(i13 >> 6) & 63];
+                            int i15 = i14 + 1;
+                            bArr3[i14] = bArr2[i13 & 63];
+                            bArr3[i15] = BaseNCodec.PAD_DEFAULT;
+                            bArr3[i15 + 1] = BaseNCodec.PAD_DEFAULT;
+                            return;
+                        } else if (i3 - i12 == i7 - 2) {
+                            if (i12 > 1) {
+                                b = this.tail[0];
+                                i9 = 1;
+                            } else {
+                                byte b4 = bArr[i3];
+                                i3++;
+                                b = b4;
+                            }
+                            int i16 = (b & 255) << 10;
+                            if (this.tailLen > 0) {
+                                b2 = this.tail[i9];
+                                i9++;
+                            } else {
+                                b2 = bArr[i3];
+                            }
+                            int i17 = ((b2 & 255) << 2) | i16;
+                            this.tailLen -= i9;
+                            int i18 = i5 + 1;
+                            bArr3[i5] = bArr2[(i17 >> 12) & 63];
+                            int i19 = i18 + 1;
+                            bArr3[i18] = bArr2[(i17 >> 6) & 63];
+                            bArr3[i19] = bArr2[i17 & 63];
+                            bArr3[i19 + 1] = BaseNCodec.PAD_DEFAULT;
+                            return;
+                        } else {
+                            return;
+                        }
+                    } else if (i3 == i7 - 1) {
+                        byte[] bArr5 = this.tail;
+                        int i20 = this.tailLen;
+                        this.tailLen = i20 + 1;
+                        bArr5[i20] = bArr[i3];
+                        return;
+                    } else if (i3 == i7 - 2) {
+                        byte[] bArr6 = this.tail;
+                        int i21 = this.tailLen;
+                        int i22 = i21 + 1;
+                        this.tailLen = i22;
+                        bArr6[i21] = bArr[i3];
+                        this.tailLen = i22 + 1;
+                        bArr6[i22] = bArr[i3 + 1];
+                        return;
+                    } else {
+                        return;
+                    }
                 }
+                i3 = i;
+                i4 = -1;
                 if (i4 == -1) {
-                    bArr3[0] = bArr2[(i4 >> 18) & 63];
-                    bArr3[1] = bArr2[(i4 >> 12) & 63];
-                    bArr3[2] = bArr2[(i4 >> 6) & 63];
-                    bArr3[3] = bArr2[i4 & 63];
-                    i5 = 4;
-                } else {
-                    i5 = 0;
                 }
                 while (true) {
                     i6 = i3 + 3;
                     if (i6 <= i7) {
-                        break;
                     }
-                    int i11 = (bArr[i3 + 2] & 255) | ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8);
-                    bArr3[i5] = bArr2[(i11 >> 18) & 63];
-                    bArr3[i5 + 1] = bArr2[(i11 >> 12) & 63];
-                    bArr3[i5 + 2] = bArr2[(i11 >> 6) & 63];
-                    bArr3[i5 + 3] = bArr2[i11 & 63];
+                    int i112 = (bArr[i3 + 2] & 255) | ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8);
+                    bArr3[i5] = bArr2[(i112 >> 18) & 63];
+                    bArr3[i5 + 1] = bArr2[(i112 >> 12) & 63];
+                    bArr3[i5 + 2] = bArr2[(i112 >> 6) & 63];
+                    bArr3[i5 + 3] = bArr2[i112 & 63];
                     i5 += 4;
                     i3 = i6;
                 }
-                if (z) {
-                    if (i3 == i7 - 1) {
-                        byte[] bArr5 = this.tail;
-                        int i12 = this.tailLen;
-                        this.tailLen = i12 + 1;
-                        bArr5[i12] = bArr[i3];
-                        return;
-                    } else if (i3 == i7 - 2) {
-                        byte[] bArr6 = this.tail;
-                        int i13 = this.tailLen;
-                        int i14 = i13 + 1;
-                        this.tailLen = i14;
-                        bArr6[i13] = bArr[i3];
-                        this.tailLen = i14 + 1;
-                        bArr6[i14] = bArr[i3 + 1];
-                        return;
-                    } else {
-                        return;
-                    }
+                if (!z) {
                 }
-                int i15 = this.tailLen;
-                if (i3 - i15 == i7 - 1) {
-                    if (i15 > 0) {
-                        b3 = this.tail[0];
-                        i9 = 1;
-                    } else {
-                        b3 = bArr[i3];
-                    }
-                    int i16 = (b3 & 255) << 4;
-                    this.tailLen -= i9;
-                    int i17 = i5 + 1;
-                    bArr3[i5] = bArr2[(i16 >> 6) & 63];
-                    int i18 = i17 + 1;
-                    bArr3[i17] = bArr2[i16 & 63];
-                    bArr3[i18] = BaseNCodec.PAD_DEFAULT;
-                    bArr3[i18 + 1] = BaseNCodec.PAD_DEFAULT;
-                    return;
-                } else if (i3 - i15 == i7 - 2) {
-                    if (i15 > 1) {
-                        b = this.tail[0];
-                        i9 = 1;
-                    } else {
-                        byte b4 = bArr[i3];
-                        i3++;
-                        b = b4;
-                    }
-                    int i19 = (b & 255) << 10;
-                    if (this.tailLen > 0) {
-                        b2 = this.tail[i9];
-                        i9++;
-                    } else {
-                        b2 = bArr[i3];
-                    }
-                    int i20 = ((b2 & 255) << 2) | i19;
-                    this.tailLen -= i9;
-                    int i21 = i5 + 1;
-                    bArr3[i5] = bArr2[(i20 >> 12) & 63];
-                    int i22 = i21 + 1;
-                    bArr3[i21] = bArr2[(i20 >> 6) & 63];
-                    bArr3[i22] = bArr2[i20 & 63];
-                    bArr3[i22 + 1] = BaseNCodec.PAD_DEFAULT;
-                    return;
-                } else {
-                    return;
-                }
-            }
-            i3 = i;
-            i4 = -1;
-            if (i4 == -1) {
-            }
-            while (true) {
-                i6 = i3 + 3;
-                if (i6 <= i7) {
-                }
-                int i112 = (bArr[i3 + 2] & 255) | ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8);
-                bArr3[i5] = bArr2[(i112 >> 18) & 63];
-                bArr3[i5 + 1] = bArr2[(i112 >> 12) & 63];
-                bArr3[i5 + 2] = bArr2[(i112 >> 6) & 63];
-                bArr3[i5 + 3] = bArr2[i112 & 63];
-                i5 += 4;
-                i3 = i6;
-            }
-            if (z) {
             }
         }
     }
@@ -432,12 +446,12 @@ public final class Stringer {
             byte[] bytes = str.getBytes(UTF_8);
             Decoder decoder = new Decoder(new byte[(bytes.length * 3) / 4]);
             if (decoder.process(bytes, 0, bytes.length, true)) {
-                if (decoder.op == decoder.output.length) {
-                    return decoder.output;
+                if (decoder.op != decoder.output.length) {
+                    byte[] bArr = new byte[decoder.op];
+                    System.arraycopy(decoder.output, 0, bArr, 0, decoder.op);
+                    return bArr;
                 }
-                byte[] bArr = new byte[decoder.op];
-                System.arraycopy(decoder.output, 0, bArr, 0, decoder.op);
-                return bArr;
+                return decoder.output;
             }
             throw new IllegalArgumentException("bad base-64");
         }

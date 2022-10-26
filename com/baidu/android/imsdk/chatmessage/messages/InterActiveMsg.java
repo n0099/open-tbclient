@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class InterActiveMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<InterActiveMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "InterActiveMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public int mTemplate;
@@ -36,7 +36,7 @@ public class InterActiveMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<InterActiveMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.InterActiveMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.InterActiveMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,72 +55,52 @@ public class InterActiveMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public InterActiveMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new InterActiveMsg(parcel) : (InterActiveMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new InterActiveMsg(parcel);
+                }
+                return (InterActiveMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public InterActiveMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new InterActiveMsg[i] : (InterActiveMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new InterActiveMsg[i];
+                }
+                return (InterActiveMsg[]) invokeI.objValue;
             }
         };
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterActiveMsg(Parcel parcel) {
-        super(parcel);
+    public InterActiveMsg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mTemplate = parcel.readInt();
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = "";
-            try {
-                JSONObject optJSONObject = new JSONObject(getJsonContent()).optJSONObject("text");
-                if (optJSONObject != null) {
-                    str = optJSONObject.optString("level2");
-                    if (TextUtils.isEmpty(str)) {
-                        str = optJSONObject.optString("level1");
-                    }
-                }
-            } catch (Exception e) {
-                LogUtils.e(TAG, "getRecommendDescription JSONException", e);
-            }
-            return TextUtils.isEmpty(str) ? IMConstants.INTER_ACTIVE_MSG_RECOMMEND_DESC : str;
-        }
-        return (String) invokeV.objValue;
+        setMsgType(24);
     }
 
     public int getTemplate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTemplate : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTemplate;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -161,6 +141,52 @@ public class InterActiveMsg extends NormalMsg {
         return invokeV.booleanValue;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public InterActiveMsg(Parcel parcel) {
+        super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mTemplate = parcel.readInt();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = "";
+            try {
+                JSONObject optJSONObject = new JSONObject(getJsonContent()).optJSONObject("text");
+                if (optJSONObject != null) {
+                    str = optJSONObject.optString("level2");
+                    if (TextUtils.isEmpty(str)) {
+                        str = optJSONObject.optString("level1");
+                    }
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "getRecommendDescription JSONException", e);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return IMConstants.INTER_ACTIVE_MSG_RECOMMEND_DESC;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void setTemplate(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -175,21 +201,5 @@ public class InterActiveMsg extends NormalMsg {
             super.writeToParcel(parcel, i);
             parcel.writeInt(this.mTemplate);
         }
-    }
-
-    public InterActiveMsg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        setMsgType(24);
     }
 }

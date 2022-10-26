@@ -1,11 +1,11 @@
 package com.baidu.tieba.advert.sdk.stretagy;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bj;
-import com.baidu.tieba.dr5;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.cj;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.kr5;
+import com.baidu.tieba.ww4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,6 +41,18 @@ public class SplashNativePolicy {
     public final boolean loadResult;
     public int plgAdType;
 
+    @ww4
+    private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
+
+    @ww4
+    private native void nativeReleaseSplash();
+
+    @ww4
+    private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
+
+    @ww4
+    private native void onNativeSplashEvent(int i, int i2);
+
     /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
@@ -71,15 +83,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        dr5.d().l(true);
+                        kr5.d().l(true);
                         return;
                     case 129:
-                        dr5.d().l(false);
+                        kr5.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        dr5.d().b();
+                        kr5.d().b();
                         return;
                     case 131:
                     default:
@@ -103,67 +115,114 @@ public class SplashNativePolicy {
             }
         }
         this.plgAdType = 0;
-        this.loadResult = bj.d().h("splash_policy", 1);
+        this.loadResult = cj.d().h("splash_policy", 1);
         PrintStream printStream = System.out;
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @qw4
-    private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
-
-    @qw4
-    private native void nativeReleaseSplash();
-
-    @qw4
-    private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
-
-    @qw4
-    private native void onNativeSplashEvent(int i, int i2);
-
-    @qw4
+    @ww4
     public void eventCallback(int i) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             PrintStream printStream = System.out;
             printStream.println("SplashPolicy eventCallback=>" + i);
-            if (i == 128 || i == 129) {
-                int i2 = this.plgAdType;
-                dr5.d().i(i2 > 120 ? 1 : i2 == 120 ? 2 : 3);
-            } else if (i == 131) {
-                dr5.d().i(-1);
-            } else if (i == 132) {
-                dr5.d().i(-2);
-            } else if (i == 130) {
-                dr5.d().i(-3);
+            if (i != 128 && i != 129) {
+                if (i == 131) {
+                    kr5.d().i(-1);
+                } else if (i == 132) {
+                    kr5.d().i(-2);
+                } else if (i == 130) {
+                    kr5.d().i(-3);
+                }
+            } else {
+                int i3 = this.plgAdType;
+                if (i3 > 120) {
+                    i2 = 1;
+                } else if (i3 == 120) {
+                    i2 = 2;
+                } else {
+                    i2 = 3;
+                }
+                kr5.d().i(i2);
             }
-            if (ej.C()) {
+            if (fj.C()) {
                 switch (i) {
                     case 128:
-                        dr5.d().l(true);
+                        kr5.d().l(true);
                         return;
                     case 129:
-                        dr5.d().l(false);
+                        kr5.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        dr5.d().b();
+                        kr5.d().b();
                         return;
                     case 131:
                     default:
                         return;
                 }
             }
-            gh.a().postAtFrontOfQueue(new a(this, i));
+            hh.a().postAtFrontOfQueue(new a(this, i));
         }
     }
 
     public boolean initSplashPolicy(boolean z, boolean z2, boolean z3, int i, int i2) {
         InterceptResult invokeCommon;
+        int i3;
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if (this.loadResult) {
-                nativeInitSplashPolicy("eventCallback", "(I)V", z ? 32 : 33, z2 ? 17 : 16, z3 ? 48 : 49, i, i2);
+                if (z) {
+                    i3 = 32;
+                } else {
+                    i3 = 33;
+                }
+                if (z2) {
+                    i4 = 17;
+                } else {
+                    i4 = 16;
+                }
+                if (z3) {
+                    i5 = 48;
+                } else {
+                    i5 = 49;
+                }
+                nativeInitSplashPolicy("eventCallback", "(I)V", i3, i4, i5, i, i2);
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean updateSplashConfig(boolean z, boolean z2, boolean z3, int i, int i2) {
+        InterceptResult invokeCommon;
+        int i3;
+        int i4;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (this.loadResult) {
+                if (z) {
+                    i3 = 32;
+                } else {
+                    i3 = 33;
+                }
+                if (z2) {
+                    i4 = 17;
+                } else {
+                    i4 = 16;
+                }
+                if (z3) {
+                    i5 = 48;
+                } else {
+                    i5 = 49;
+                }
+                nativeUpdateSplashConfig(i3, i4, i5, i, i2);
                 return true;
             }
             return false;
@@ -174,14 +233,10 @@ public class SplashNativePolicy {
     public boolean nativePolicyEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loadResult : invokeV.booleanValue;
-    }
-
-    public void onSplashEvent(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.loadResult) {
-            onNativeSplashEvent(i, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.loadResult;
         }
+        return invokeV.booleanValue;
     }
 
     public void releaseSplash() {
@@ -191,32 +246,32 @@ public class SplashNativePolicy {
         }
     }
 
-    public boolean updateSplashConfig(boolean z, boolean z2, boolean z3, int i, int i2) {
-        InterceptResult invokeCommon;
+    public void onSplashEvent(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (this.loadResult) {
-                nativeUpdateSplashConfig(z ? 32 : 33, z2 ? 17 : 16, z3 ? 48 : 49, i, i2);
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.loadResult) {
+            onNativeSplashEvent(i, 0);
         }
-        return invokeCommon.booleanValue;
     }
 
     public void onSplashEvent(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) && this.loadResult) {
-            if (i2 == 0) {
-                this.plgAdType = 123;
-            } else if (i2 == 1) {
-                this.plgAdType = 113;
-            } else if (i2 == 2) {
-                this.plgAdType = 122;
-            } else if (i2 != 3) {
-                this.plgAdType = 112;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            this.plgAdType = 112;
+                        } else {
+                            this.plgAdType = 120;
+                        }
+                    } else {
+                        this.plgAdType = 122;
+                    }
+                } else {
+                    this.plgAdType = 113;
+                }
             } else {
-                this.plgAdType = 120;
+                this.plgAdType = 123;
             }
             onNativeSplashEvent(i, this.plgAdType);
         }

@@ -91,6 +91,12 @@ public class RegionList implements NoProguard {
     public static String getStrFromBuilder(StringBuilder sb) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sb)) == null) ? (sb == null || sb.length() <= 0) ? "" : sb.substring(0, sb.length() - 1) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sb)) == null) {
+            if (sb != null && sb.length() > 0) {
+                return sb.substring(0, sb.length() - 1);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

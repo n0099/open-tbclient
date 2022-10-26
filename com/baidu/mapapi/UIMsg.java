@@ -60,7 +60,7 @@ public class UIMsg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class NetDetectedType {
+    public class NetDetectedType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NETYPE_2G = 2;
         public static final int NETYPE_3G = 3;
@@ -196,7 +196,7 @@ public class UIMsg {
     }
 
     /* loaded from: classes2.dex */
-    public static class WalkNaviMsg {
+    public class WalkNaviMsg {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_APP_PB_DATA_OK = 2008;
         public static final int NL_UI_MESSAGE_TYPE_COMPASS_GUIDEINFO_UPDATE = 4106;

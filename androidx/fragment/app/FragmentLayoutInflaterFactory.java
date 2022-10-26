@@ -6,8 +6,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -41,91 +39,104 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
         this.mFragmentManager = fragmentManager;
     }
 
-    @Override // android.view.LayoutInflater.Factory
-    @Nullable
-    public View onCreateView(@NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) ? onCreateView(null, str, context, attributeSet) : (View) invokeLLL.objValue;
-    }
-
     @Override // android.view.LayoutInflater.Factory2
-    @Nullable
-    public View onCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
+    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
             if (FragmentContainerView.class.getName().equals(str)) {
                 return new FragmentContainerView(context, attributeSet, this.mFragmentManager);
             }
-            if ("fragment".equals(str)) {
-                String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Fragment);
-                if (attributeValue == null) {
-                    attributeValue = obtainStyledAttributes.getString(0);
-                }
-                int resourceId = obtainStyledAttributes.getResourceId(1, -1);
-                String string = obtainStyledAttributes.getString(2);
-                obtainStyledAttributes.recycle();
-                if (attributeValue == null || !FragmentFactory.isFragmentClass(context.getClassLoader(), attributeValue)) {
-                    return null;
-                }
-                int id = view2 != null ? view2.getId() : 0;
-                if (id == -1 && resourceId == -1 && string == null) {
-                    throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
-                }
-                Fragment findFragmentById = resourceId != -1 ? this.mFragmentManager.findFragmentById(resourceId) : null;
-                if (findFragmentById == null && string != null) {
-                    findFragmentById = this.mFragmentManager.findFragmentByTag(string);
-                }
-                if (findFragmentById == null && id != -1) {
-                    findFragmentById = this.mFragmentManager.findFragmentById(id);
-                }
-                if (FragmentManager.isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + findFragmentById);
-                }
-                if (findFragmentById == null) {
-                    findFragmentById = this.mFragmentManager.getFragmentFactory().instantiate(context.getClassLoader(), attributeValue);
-                    findFragmentById.mFromLayout = true;
-                    findFragmentById.mFragmentId = resourceId != 0 ? resourceId : id;
-                    findFragmentById.mContainerId = id;
-                    findFragmentById.mTag = string;
-                    findFragmentById.mInLayout = true;
-                    FragmentManager fragmentManager = this.mFragmentManager;
-                    findFragmentById.mFragmentManager = fragmentManager;
-                    FragmentHostCallback<?> fragmentHostCallback = fragmentManager.mHost;
-                    findFragmentById.mHost = fragmentHostCallback;
-                    findFragmentById.onInflate(fragmentHostCallback.getContext(), attributeSet, findFragmentById.mSavedFragmentState);
-                    this.mFragmentManager.addFragment(findFragmentById);
-                    this.mFragmentManager.moveToState(findFragmentById);
-                } else if (!findFragmentById.mInLayout) {
-                    findFragmentById.mInLayout = true;
-                    FragmentHostCallback<?> fragmentHostCallback2 = this.mFragmentManager.mHost;
-                    findFragmentById.mHost = fragmentHostCallback2;
-                    findFragmentById.onInflate(fragmentHostCallback2.getContext(), attributeSet, findFragmentById.mSavedFragmentState);
-                } else {
-                    throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + attributeValue);
-                }
-                FragmentManager fragmentManager2 = this.mFragmentManager;
-                if (fragmentManager2.mCurState < 1 && findFragmentById.mFromLayout) {
-                    fragmentManager2.moveToState(findFragmentById, 1);
-                } else {
-                    this.mFragmentManager.moveToState(findFragmentById);
-                }
-                View view3 = findFragmentById.mView;
-                if (view3 != null) {
-                    if (resourceId != 0) {
-                        view3.setId(resourceId);
-                    }
-                    if (findFragmentById.mView.getTag() == null) {
-                        findFragmentById.mView.setTag(string);
-                    }
-                    return findFragmentById.mView;
-                }
-                throw new IllegalStateException("Fragment " + attributeValue + " did not create a view.");
+            Fragment fragment = null;
+            if (!"fragment".equals(str)) {
+                return null;
             }
-            return null;
+            String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Fragment);
+            int i2 = 0;
+            if (attributeValue == null) {
+                attributeValue = obtainStyledAttributes.getString(0);
+            }
+            int resourceId = obtainStyledAttributes.getResourceId(1, -1);
+            String string = obtainStyledAttributes.getString(2);
+            obtainStyledAttributes.recycle();
+            if (attributeValue == null || !FragmentFactory.isFragmentClass(context.getClassLoader(), attributeValue)) {
+                return null;
+            }
+            if (view2 != null) {
+                i2 = view2.getId();
+            }
+            if (i2 == -1 && resourceId == -1 && string == null) {
+                throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
+            }
+            if (resourceId != -1) {
+                fragment = this.mFragmentManager.findFragmentById(resourceId);
+            }
+            if (fragment == null && string != null) {
+                fragment = this.mFragmentManager.findFragmentByTag(string);
+            }
+            if (fragment == null && i2 != -1) {
+                fragment = this.mFragmentManager.findFragmentById(i2);
+            }
+            if (FragmentManager.isLoggingEnabled(2)) {
+                Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + fragment);
+            }
+            if (fragment == null) {
+                fragment = this.mFragmentManager.getFragmentFactory().instantiate(context.getClassLoader(), attributeValue);
+                fragment.mFromLayout = true;
+                if (resourceId != 0) {
+                    i = resourceId;
+                } else {
+                    i = i2;
+                }
+                fragment.mFragmentId = i;
+                fragment.mContainerId = i2;
+                fragment.mTag = string;
+                fragment.mInLayout = true;
+                FragmentManager fragmentManager = this.mFragmentManager;
+                fragment.mFragmentManager = fragmentManager;
+                FragmentHostCallback<?> fragmentHostCallback = fragmentManager.mHost;
+                fragment.mHost = fragmentHostCallback;
+                fragment.onInflate(fragmentHostCallback.getContext(), attributeSet, fragment.mSavedFragmentState);
+                this.mFragmentManager.addFragment(fragment);
+                this.mFragmentManager.moveToState(fragment);
+            } else if (!fragment.mInLayout) {
+                fragment.mInLayout = true;
+                FragmentHostCallback<?> fragmentHostCallback2 = this.mFragmentManager.mHost;
+                fragment.mHost = fragmentHostCallback2;
+                fragment.onInflate(fragmentHostCallback2.getContext(), attributeSet, fragment.mSavedFragmentState);
+            } else {
+                throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(i2) + " with another fragment for " + attributeValue);
+            }
+            FragmentManager fragmentManager2 = this.mFragmentManager;
+            if (fragmentManager2.mCurState < 1 && fragment.mFromLayout) {
+                fragmentManager2.moveToState(fragment, 1);
+            } else {
+                this.mFragmentManager.moveToState(fragment);
+            }
+            View view3 = fragment.mView;
+            if (view3 != null) {
+                if (resourceId != 0) {
+                    view3.setId(resourceId);
+                }
+                if (fragment.mView.getTag() == null) {
+                    fragment.mView.setTag(string);
+                }
+                return fragment.mView;
+            }
+            throw new IllegalStateException("Fragment " + attributeValue + " did not create a view.");
         }
         return (View) invokeLLLL.objValue;
+    }
+
+    @Override // android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
+            return onCreateView(null, str, context, attributeSet);
+        }
+        return (View) invokeLLL.objValue;
     }
 }

@@ -32,45 +32,22 @@ public class TaskOperation {
         this.mTaskManagerStatus = TaskManager.TaskManagerState.CONTINUE;
     }
 
-    public void appendTaskParam(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            appendTaskParams(new Object[]{obj});
-        }
-    }
-
-    public void appendTaskParams(Object[] objArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) || objArr == null) {
-            return;
-        }
-        setTaskParams(new TaskOperation(objArr));
-    }
-
     public TaskManager.TaskManagerState getTaskManagerStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTaskManagerStatus : (TaskManager.TaskManagerState) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mTaskManagerStatus;
+        }
+        return (TaskManager.TaskManagerState) invokeV.objValue;
     }
 
     public Object[] getTaskParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mNextTaskParams : (Object[]) invokeV.objValue;
-    }
-
-    public void setTaskManagerStatus(TaskManager.TaskManagerState taskManagerState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, taskManagerState) == null) {
-            this.mTaskManagerStatus = taskManagerState;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mNextTaskParams;
         }
-    }
-
-    public void setTaskParams(Object[] objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, objArr) == null) {
-            this.mNextTaskParams = objArr;
-        }
+        return (Object[]) invokeV.objValue;
     }
 
     public void setTaskParamsEmpty() {
@@ -80,28 +57,24 @@ public class TaskOperation {
         }
     }
 
-    public void setTaskParams(TaskOperation taskOperation) {
-        Object[] taskParams;
+    public TaskOperation(TaskOperation taskOperation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, taskOperation) == null) {
-            if (taskOperation == this) {
-                throw new IllegalArgumentException("The argument can NOT be self.");
-            }
-            if (taskOperation == null || (taskParams = taskOperation.getTaskParams()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {taskOperation};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            Object[] objArr = this.mNextTaskParams;
-            if (objArr != null) {
-                for (Object obj : objArr) {
-                    arrayList.add(obj);
-                }
-            }
-            for (Object obj2 : taskParams) {
-                arrayList.add(obj2);
-            }
-            this.mNextTaskParams = arrayList.toArray();
         }
+        this.mNextTaskParams = null;
+        this.mTaskManagerStatus = TaskManager.TaskManagerState.CONTINUE;
+        setTaskParams(taskOperation);
     }
 
     public TaskOperation(Object[] objArr) {
@@ -124,23 +97,56 @@ public class TaskOperation {
         this.mNextTaskParams = objArr;
     }
 
-    public TaskOperation(TaskOperation taskOperation) {
+    public void appendTaskParam(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskOperation};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            appendTaskParams(new Object[]{obj});
+        }
+    }
+
+    public void appendTaskParams(Object[] objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) && objArr != null) {
+            setTaskParams(new TaskOperation(objArr));
+        }
+    }
+
+    public void setTaskManagerStatus(TaskManager.TaskManagerState taskManagerState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, taskManagerState) == null) {
+            this.mTaskManagerStatus = taskManagerState;
+        }
+    }
+
+    public void setTaskParams(Object[] objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, objArr) == null) {
+            this.mNextTaskParams = objArr;
+        }
+    }
+
+    public void setTaskParams(TaskOperation taskOperation) {
+        Object[] taskParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, taskOperation) == null) {
+            if (taskOperation != this) {
+                if (taskOperation == null || (taskParams = taskOperation.getTaskParams()) == null) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                Object[] objArr = this.mNextTaskParams;
+                if (objArr != null) {
+                    for (Object obj : objArr) {
+                        arrayList.add(obj);
+                    }
+                }
+                for (Object obj2 : taskParams) {
+                    arrayList.add(obj2);
+                }
+                this.mNextTaskParams = arrayList.toArray();
                 return;
             }
+            throw new IllegalArgumentException("The argument can NOT be self.");
         }
-        this.mNextTaskParams = null;
-        this.mTaskManagerStatus = TaskManager.TaskManagerState.CONTINUE;
-        setTaskParams(taskOperation);
     }
 }

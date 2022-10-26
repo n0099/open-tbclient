@@ -11,20 +11,6 @@ public class SystemDelegate implements NativeLoaderDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public SystemDelegate() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
     public String getLibraryPath(String str) {
         InterceptResult invokeL;
@@ -43,6 +29,20 @@ public class SystemDelegate implements NativeLoaderDelegate {
             return 0;
         }
         return invokeV.intValue;
+    }
+
+    public SystemDelegate() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate

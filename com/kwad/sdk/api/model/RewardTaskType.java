@@ -1,9 +1,7 @@
 package com.kwad.sdk.api.model;
 
-import androidx.annotation.Keep;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-@Keep
 @Retention(RetentionPolicy.SOURCE)
 /* loaded from: classes7.dex */
 public @interface RewardTaskType {

@@ -29,12 +29,12 @@ public interface ProducerContext {
     EncodedImageOrigin getEncodedImageOrigin();
 
     @Nullable
-    <E> E getExtra(String str);
+    Object getExtra(String str);
 
     @Nullable
-    <E> E getExtra(String str, @Nullable E e);
+    Object getExtra(String str, @Nullable Object obj);
 
-    Map<String, Object> getExtras();
+    Map getExtras();
 
     String getId();
 
@@ -55,7 +55,7 @@ public interface ProducerContext {
 
     boolean isPrefetch();
 
-    void putExtras(@Nullable Map<String, ?> map);
+    void putExtras(@Nullable Map map);
 
     void putOriginExtra(@Nullable String str);
 
@@ -63,5 +63,5 @@ public interface ProducerContext {
 
     void setEncodedImageOrigin(EncodedImageOrigin encodedImageOrigin);
 
-    <E> void setExtra(String str, @Nullable E e);
+    void setExtra(String str, @Nullable Object obj);
 }

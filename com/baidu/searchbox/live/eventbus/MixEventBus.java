@@ -9,24 +9,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes2.dex */
 public class MixEventBus {
     public static /* synthetic */ Interceptable $ic;
     public static MixEventBus sInstance;
-    public static ConcurrentHashMap<Object, CopyOnWriteArrayList<EventPoster>> sSubscriberMap;
+    public static ConcurrentHashMap sSubscriberMap;
     public transient /* synthetic */ FieldHolder $fh;
     public MixEventBusCore eventBusCore;
 
     /* renamed from: com.baidu.searchbox.live.eventbus.MixEventBus$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Holder {
+    public class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final MixEventBus INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +61,21 @@ public class MixEventBus {
         }
     }
 
-    public /* synthetic */ MixEventBus(AnonymousClass1 anonymousClass1) {
-        this();
+    public MixEventBus() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        sSubscriberMap = new ConcurrentHashMap();
+        this.eventBusCore = new MixEventBusCore();
     }
 
     public static MixEventBus getInstance() {
@@ -78,53 +90,38 @@ public class MixEventBus {
         return (MixEventBus) invokeV.objValue;
     }
 
+    public /* synthetic */ MixEventBus(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
     public void post(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || sSubscriberMap.isEmpty()) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || obj == null || sSubscriberMap.isEmpty()) {
             return;
         }
         this.eventBusCore.post(sSubscriberMap, obj);
     }
 
-    public synchronized void register(Object obj, Class<?> cls, EventAction eventAction) {
+    public void unRegister(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && obj != null && !sSubscriberMap.isEmpty() && sSubscriberMap.containsKey(obj)) {
+            this.eventBusCore.unRegister(sSubscriberMap, obj);
+        }
+    }
+
+    public void register(Object obj, Class cls, int i, EventAction eventAction) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i, eventAction) == null) && obj != null && cls != null && eventAction != null && ThreadMode.isValid(i)) {
+            this.eventBusCore.register(sSubscriberMap, obj, cls, i, eventAction);
+        }
+    }
+
+    public synchronized void register(Object obj, Class cls, EventAction eventAction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, cls, eventAction) == null) {
             synchronized (this) {
                 register(obj, cls, 1, eventAction);
             }
         }
-    }
-
-    public void unRegister(Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, obj) == null) || obj == null || sSubscriberMap.isEmpty() || !sSubscriberMap.containsKey(obj)) {
-            return;
-        }
-        this.eventBusCore.unRegister(sSubscriberMap, obj);
-    }
-
-    public MixEventBus() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        sSubscriberMap = new ConcurrentHashMap<>();
-        this.eventBusCore = new MixEventBusCore();
-    }
-
-    public void register(Object obj, Class<?> cls, int i, EventAction eventAction) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i, eventAction) == null) || obj == null || cls == null || eventAction == null || !ThreadMode.isValid(i)) {
-            return;
-        }
-        this.eventBusCore.register(sSubscriberMap, obj, cls, i, eventAction);
     }
 }

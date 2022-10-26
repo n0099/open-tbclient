@@ -3,7 +3,6 @@ package com.baidu.webkit.sdk.system;
 import android.os.Build;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,7 +46,7 @@ public class ServiceWorkerControllerImpl extends ServiceWorkerController {
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerController
-    public void setServiceWorkerClient(@Nullable ServiceWorkerClient serviceWorkerClient) {
+    public void setServiceWorkerClient(ServiceWorkerClient serviceWorkerClient) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, serviceWorkerClient) == null) || Build.VERSION.SDK_INT < 24) {
             return;

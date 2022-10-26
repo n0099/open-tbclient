@@ -31,7 +31,7 @@ public final class DisplayImageOptions {
     public final boolean resetViewBeforeLoading;
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public int imageResOnLoading = 0;
         public int imageResForEmptyUri = 0;
         public int imageResOnFail = 0;

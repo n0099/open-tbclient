@@ -22,6 +22,16 @@ public class CommonParamInterception implements IRequestIntercept {
     public static String appKey;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.sina.weibo.sdk.network.IRequestIntercept
+    public boolean needIntercept(IRequestParam iRequestParam, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iRequestParam, bundle)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
     public CommonParamInterception() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,7 +49,10 @@ public class CommonParamInterception implements IRequestIntercept {
     public static String getTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return String.valueOf(System.currentTimeMillis() / 1000);
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void setAppKey(String str) {
@@ -75,8 +88,10 @@ public class CommonParamInterception implements IRequestIntercept {
                     str = (String) obj;
                 } else if (obj2 != null && (obj2 instanceof String)) {
                     str = (String) obj2;
+                } else if (obj3 != null && (obj3 instanceof String)) {
+                    str = (String) obj3;
                 } else {
-                    str = (obj3 == null || !(obj3 instanceof String)) ? "" : (String) obj3;
+                    str = "";
                 }
                 String timestamp = getTimestamp();
                 bundle.putString("oauth_timestamp", timestamp);
@@ -85,16 +100,6 @@ public class CommonParamInterception implements IRequestIntercept {
                 return false;
             }
             throw new InterceptException("aid get error");
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.sina.weibo.sdk.network.IRequestIntercept
-    public boolean needIntercept(IRequestParam iRequestParam, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iRequestParam, bundle)) == null) {
-            return true;
         }
         return invokeLL.booleanValue;
     }

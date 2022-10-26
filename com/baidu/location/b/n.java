@@ -1,6 +1,5 @@
 package com.baidu.location.b;
 
-import android.annotation.SuppressLint;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -127,7 +126,6 @@ public class n implements SensorEventListener {
     }
 
     @Override // android.hardware.SensorEventListener
-    @SuppressLint({"NewApi"})
     public void onSensorChanged(SensorEvent sensorEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) {

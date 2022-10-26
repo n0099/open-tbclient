@@ -38,7 +38,20 @@ public final class d implements IPushClientFactory {
     public final z createReceiveTask(o oVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oVar)) == null) ? ag.b(oVar) : (z) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oVar)) == null) {
+            return ag.b(oVar);
+        }
+        return (z) invokeL.objValue;
+    }
+
+    @Override // com.vivo.push.IPushClientFactory
+    public final l createTask(o oVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oVar)) == null) {
+            return ag.a(oVar);
+        }
+        return (l) invokeL.objValue;
     }
 
     @Override // com.vivo.push.IPushClientFactory
@@ -52,50 +65,52 @@ public final class d implements IPushClientFactory {
             if (intExtra < 0) {
                 intExtra = intent.getIntExtra("method", -1);
             }
-            if (intExtra == 20) {
-                uVar = new u();
-            } else if (intExtra != 2016) {
-                switch (intExtra) {
-                    case 1:
-                    case 2:
-                        tVar = new t(intExtra);
-                        uVar = tVar;
-                        break;
-                    case 3:
-                        uVar = new com.vivo.push.b.o();
-                        break;
-                    case 4:
-                        uVar = new com.vivo.push.b.q();
-                        break;
-                    case 5:
-                        uVar = new com.vivo.push.b.p();
-                        break;
-                    case 6:
-                        uVar = new r();
-                        break;
-                    case 7:
-                        uVar = new com.vivo.push.b.n();
-                        break;
-                    case 8:
-                        uVar = new com.vivo.push.b.m();
-                        break;
-                    case 9:
-                        uVar = new com.vivo.push.b.k();
-                        break;
-                    case 10:
-                    case 11:
-                        tVar = new com.vivo.push.b.i(intExtra);
-                        uVar = tVar;
-                        break;
-                    case 12:
-                        uVar = new com.vivo.push.b.j();
-                        break;
-                    default:
-                        uVar = null;
-                        break;
+            if (intExtra != 20) {
+                if (intExtra != 2016) {
+                    switch (intExtra) {
+                        case 1:
+                        case 2:
+                            tVar = new t(intExtra);
+                            uVar = tVar;
+                            break;
+                        case 3:
+                            uVar = new com.vivo.push.b.o();
+                            break;
+                        case 4:
+                            uVar = new com.vivo.push.b.q();
+                            break;
+                        case 5:
+                            uVar = new com.vivo.push.b.p();
+                            break;
+                        case 6:
+                            uVar = new r();
+                            break;
+                        case 7:
+                            uVar = new com.vivo.push.b.n();
+                            break;
+                        case 8:
+                            uVar = new com.vivo.push.b.m();
+                            break;
+                        case 9:
+                            uVar = new com.vivo.push.b.k();
+                            break;
+                        case 10:
+                        case 11:
+                            tVar = new com.vivo.push.b.i(intExtra);
+                            uVar = tVar;
+                            break;
+                        case 12:
+                            uVar = new com.vivo.push.b.j();
+                            break;
+                        default:
+                            uVar = null;
+                            break;
+                    }
+                } else {
+                    uVar = new com.vivo.push.b.l();
                 }
             } else {
-                uVar = new com.vivo.push.b.l();
+                uVar = new u();
             }
             if (uVar != null) {
                 a a = a.a(intent);
@@ -108,12 +123,5 @@ public final class d implements IPushClientFactory {
             return uVar;
         }
         return (o) invokeL.objValue;
-    }
-
-    @Override // com.vivo.push.IPushClientFactory
-    public final l createTask(o oVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oVar)) == null) ? ag.a(oVar) : (l) invokeL.objValue;
     }
 }

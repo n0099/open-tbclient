@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CancellationSignal;
-import androidx.annotation.Keep;
-import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +15,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.provider.ContentProviderManager;
 import com.bytedance.pangle.util.MethodUtils;
-@Keep
 /* loaded from: classes7.dex */
 public class ZeusProviderTransform {
     public static /* synthetic */ Interceptable $ic;
@@ -53,63 +50,15 @@ public class ZeusProviderTransform {
         return (Bundle) invokeCommon.objValue;
     }
 
-    public static int delete(Object obj, Uri uri, String str, String[] strArr, String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, uri, str, strArr, str2)) == null) {
-            if (obj instanceof ContentResolver) {
-                return ContentProviderManager.getInstance().delete((ContentResolver) obj, uri, str, strArr, str2);
-            }
-            try {
-                return ((Integer) MethodUtils.invokeMethod(obj, "delete", new Object[]{uri, str, strArr}, new Class[]{Uri.class, String.class, String[].class})).intValue();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return invokeLLLLL.intValue;
-    }
-
-    public static String getType(Object obj, Uri uri, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, obj, uri, str)) == null) {
-            if (obj instanceof ContentResolver) {
-                return ContentProviderManager.getInstance().getType((ContentResolver) obj, uri, str);
-            }
-            try {
-                return (String) MethodUtils.invokeMethod(obj, "getType", new Object[]{uri}, new Class[]{Uri.class});
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static Uri insert(Object obj, Uri uri, ContentValues contentValues, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, obj, uri, contentValues, str)) == null) {
-            if (obj instanceof ContentResolver) {
-                return ContentProviderManager.getInstance().insert((ContentResolver) obj, uri, contentValues, str);
-            }
-            try {
-                return (Uri) MethodUtils.invokeMethod(obj, "insert", new Object[]{uri, contentValues}, new Class[]{Uri.class, ContentValues.class});
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (Uri) invokeLLLL.objValue;
-    }
-
-    public static Cursor query(Object obj, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal, String str3) {
+    public static Cursor query(Object obj, Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{obj, uri, strArr, str, strArr2, str2, cancellationSignal, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{obj, uri, strArr, bundle, cancellationSignal, str})) == null) {
             if (obj instanceof ContentResolver) {
-                return ContentProviderManager.getInstance().query((ContentResolver) obj, uri, strArr, str, strArr2, str2, cancellationSignal, str3);
+                return ContentProviderManager.getInstance().query((ContentResolver) obj, uri, strArr, bundle, cancellationSignal, str);
             }
             try {
-                return (Cursor) MethodUtils.invokeMethod(obj, "query", new Object[]{uri, strArr, str, strArr2, str2, cancellationSignal}, new Class[]{Uri.class, String[].class, String.class, String[].class, String.class, CancellationSignal.class});
+                return (Cursor) MethodUtils.invokeMethod(obj, "query", new Object[]{uri, strArr, bundle, cancellationSignal}, new Class[]{Uri.class, String[].class, Bundle.class, CancellationSignal.class});
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -165,6 +114,38 @@ public class ZeusProviderTransform {
         return invokeLLLL.intValue;
     }
 
+    public static Uri insert(Object obj, Uri uri, ContentValues contentValues, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, obj, uri, contentValues, str)) == null) {
+            if (obj instanceof ContentResolver) {
+                return ContentProviderManager.getInstance().insert((ContentResolver) obj, uri, contentValues, str);
+            }
+            try {
+                return (Uri) MethodUtils.invokeMethod(obj, "insert", new Object[]{uri, contentValues}, new Class[]{Uri.class, ContentValues.class});
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (Uri) invokeLLLL.objValue;
+    }
+
+    public static int delete(Object obj, Uri uri, String str, String[] strArr, String str2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, uri, str, strArr, str2)) == null) {
+            if (obj instanceof ContentResolver) {
+                return ContentProviderManager.getInstance().delete((ContentResolver) obj, uri, str, strArr, str2);
+            }
+            try {
+                return ((Integer) MethodUtils.invokeMethod(obj, "delete", new Object[]{uri, str, strArr}, new Class[]{Uri.class, String.class, String[].class})).intValue();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return invokeLLLLL.intValue;
+    }
+
     public static Uri insert(Object obj, Uri uri, ContentValues contentValues, Bundle bundle, String str) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -179,22 +160,6 @@ public class ZeusProviderTransform {
             }
         }
         return (Uri) invokeLLLLL.objValue;
-    }
-
-    public static Cursor query(Object obj, Uri uri, String[] strArr, String str, String[] strArr2, String str2, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{obj, uri, strArr, str, strArr2, str2, str3})) == null) {
-            if (obj instanceof ContentResolver) {
-                return ContentProviderManager.getInstance().query((ContentResolver) obj, uri, strArr, str, strArr2, str2, str3);
-            }
-            try {
-                return (Cursor) MethodUtils.invokeMethod(obj, "query", new Object[]{uri, strArr, str, strArr2, str2}, new Class[]{Uri.class, String[].class, String.class, String[].class, String.class});
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (Cursor) invokeCommon.objValue;
     }
 
     public static int update(Object obj, Uri uri, ContentValues contentValues, Bundle bundle, String str) {
@@ -213,16 +178,47 @@ public class ZeusProviderTransform {
         return invokeLLLLL.intValue;
     }
 
-    @RequiresApi(api = 26)
-    public static Cursor query(Object obj, Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal, String str) {
-        InterceptResult invokeCommon;
+    public static String getType(Object obj, Uri uri, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{obj, uri, strArr, bundle, cancellationSignal, str})) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, obj, uri, str)) == null) {
             if (obj instanceof ContentResolver) {
-                return ContentProviderManager.getInstance().query((ContentResolver) obj, uri, strArr, bundle, cancellationSignal, str);
+                return ContentProviderManager.getInstance().getType((ContentResolver) obj, uri, str);
             }
             try {
-                return (Cursor) MethodUtils.invokeMethod(obj, "query", new Object[]{uri, strArr, bundle, cancellationSignal}, new Class[]{Uri.class, String[].class, Bundle.class, CancellationSignal.class});
+                return (String) MethodUtils.invokeMethod(obj, "getType", new Object[]{uri}, new Class[]{Uri.class});
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static Cursor query(Object obj, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{obj, uri, strArr, str, strArr2, str2, cancellationSignal, str3})) == null) {
+            if (obj instanceof ContentResolver) {
+                return ContentProviderManager.getInstance().query((ContentResolver) obj, uri, strArr, str, strArr2, str2, cancellationSignal, str3);
+            }
+            try {
+                return (Cursor) MethodUtils.invokeMethod(obj, "query", new Object[]{uri, strArr, str, strArr2, str2, cancellationSignal}, new Class[]{Uri.class, String[].class, String.class, String[].class, String.class, CancellationSignal.class});
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (Cursor) invokeCommon.objValue;
+    }
+
+    public static Cursor query(Object obj, Uri uri, String[] strArr, String str, String[] strArr2, String str2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{obj, uri, strArr, str, strArr2, str2, str3})) == null) {
+            if (obj instanceof ContentResolver) {
+                return ContentProviderManager.getInstance().query((ContentResolver) obj, uri, strArr, str, strArr2, str2, str3);
+            }
+            try {
+                return (Cursor) MethodUtils.invokeMethod(obj, "query", new Object[]{uri, strArr, str, strArr2, str2}, new Class[]{Uri.class, String[].class, String.class, String[].class, String.class});
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

@@ -11,6 +11,16 @@ public final class Base256Encoder implements Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 5;
+        }
+        return invokeV.intValue;
+    }
+
     public Base256Encoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,13 +40,17 @@ public final class Base256Encoder implements Encoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
             int i2 = c + ((i * 149) % 255) + 1;
-            return i2 <= 255 ? (char) i2 : (char) (i2 - 256);
+            if (i2 <= 255) {
+                return (char) i2;
+            }
+            return (char) (i2 - 256);
         }
         return invokeCommon.charValue;
     }
 
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public void encode(EncoderContext encoderContext) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, encoderContext) == null) {
             StringBuilder sb = new StringBuilder();
@@ -56,7 +70,11 @@ public final class Base256Encoder implements Encoder {
             int length = sb.length() - 1;
             int codewordCount = encoderContext.getCodewordCount() + length + 1;
             encoderContext.updateSymbolInfo(codewordCount);
-            boolean z = encoderContext.getSymbolInfo().getDataCapacity() - codewordCount > 0;
+            if (encoderContext.getSymbolInfo().getDataCapacity() - codewordCount > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (encoderContext.hasMoreCharacters() || z) {
                 if (length <= 249) {
                     sb.setCharAt(0, (char) length);
@@ -72,15 +90,5 @@ public final class Base256Encoder implements Encoder {
                 encoderContext.writeCodeword(randomize255State(sb.charAt(i), encoderContext.getCodewordCount() + 1));
             }
         }
-    }
-
-    @Override // com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 5;
-        }
-        return invokeV.intValue;
     }
 }

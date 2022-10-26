@@ -89,7 +89,10 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public static ThirdLoginCallback getThirdLoginCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (ThirdLoginCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (ThirdLoginCallback) invokeV.objValue;
     }
 
     public static void releaseThirdLoginCallback() {
@@ -152,37 +155,6 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
-    public void loadThirdPartyLogin(Context context, SocialType socialType, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, context, socialType, i) == null) {
-            loadThirdPartyLogin(context, socialType, i, null, false);
-        }
-    }
-
-    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
-    public void loadWechatLogin(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, context, i) == null) || c == null) {
-            return;
-        }
-        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
-        if (confignation == null) {
-            c.onAuthFailure(-404, "pass没有初始化");
-        } else if (!WXAPIFactory.createWXAPI(confignation.context, confignation.wxAppID).isWXAppInstalled()) {
-            c.onAuthFailure(-404, "微信未安装");
-            releaseThirdLoginCallback();
-        } else {
-            d = true;
-            Intent intent = new Intent(context, WXLoginActivity.class);
-            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
-            if (!(context instanceof Activity)) {
-                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            context.startActivity(intent);
-        }
-    }
-
-    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadYYSSOLogin(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
@@ -196,39 +168,21 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         }
     }
 
-    public SapiAccount sapiAccountResponseToAccount(Context context, SapiAccountResponse sapiAccountResponse) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
+    public void loadThirdPartyLogin(Context context, SocialType socialType, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, context, sapiAccountResponse)) == null) {
-            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-            SapiAccount sapiAccount = new SapiAccount();
-            sapiAccount.uid = sapiAccountResponse.uid;
-            sapiAccount.bduss = sapiAccountResponse.bduss;
-            sapiAccount.displayname = sapiAccountResponse.displayname;
-            sapiAccount.stoken = sapiAccountResponse.stoken;
-            sapiAccount.ptoken = sapiAccountResponse.ptoken;
-            sapiAccount.email = sapiAccountResponse.email;
-            sapiAccount.username = sapiAccountResponse.username;
-            sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(context) : sapiAccountResponse.app;
-            sapiAccount.extra = sapiAccountResponse.extra;
-            SocialType socialType = SocialType.UNKNOWN;
-            SocialType socialType2 = sapiAccountResponse.socialType;
-            if (socialType != socialType2) {
-                sapiAccount.addSocialInfo(socialType2, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
-                sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
-            }
-            sapiAccount.putExtra("tpl", sapiConfiguration.tpl);
-            if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
-                sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
-            }
-            SapiContext.getInstance().setAccountActionType(sapiAccountResponse.actionType);
-            sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
-            if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
-                new FaceLoginService().syncFaceLoginUID(context, sapiAccountResponse.livingUname);
-            }
-            return sapiAccount;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, context, socialType, i) == null) {
+            loadThirdPartyLogin(context, socialType, i, null, false);
         }
-        return (SapiAccount) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
+    public void loadThirdPartyLogin(Context context, SocialType socialType, int i, ThirdLoginCallback thirdLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048580, this, context, socialType, i, thirdLoginCallback) == null) {
+            c = thirdLoginCallback;
+            loadThirdPartyLogin(context, socialType, i, null, false);
+        }
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
@@ -244,15 +198,6 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
-    public void loadThirdPartyLogin(Context context, SocialType socialType, int i, ThirdLoginCallback thirdLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048580, this, context, socialType, i, thirdLoginCallback) == null) {
-            c = thirdLoginCallback;
-            loadThirdPartyLogin(context, socialType, i, null, false);
-        }
-    }
-
-    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048581, this, context, socialType, i, str) == null) {
@@ -264,7 +209,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str, boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, socialType, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) || System.currentTimeMillis() - this.a < 500) {
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{context, socialType, Integer.valueOf(i), str, Boolean.valueOf(z)}) != null) || System.currentTimeMillis() - this.a < 500) {
             return;
         }
         this.a = System.currentTimeMillis();
@@ -345,11 +290,74 @@ public class ThirdPartyService implements AbstractThirdPartyService {
             webAuthResult.setResultCode(13);
             webAuthResult.setResultMsg(WebAuthResult.ERROR_MSG_CONTEXT_ERROR);
             CoreViewRouter coreViewRouter = CoreViewRouter.getInstance();
-            if (coreViewRouter == null || coreViewRouter.getWebAuthListener() == null) {
-                return;
+            if (coreViewRouter != null && coreViewRouter.getWebAuthListener() != null) {
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(webAuthResult);
+                CoreViewRouter.getInstance().release();
             }
-            CoreViewRouter.getInstance().getWebAuthListener().onFailure(webAuthResult);
-            CoreViewRouter.getInstance().release();
         }
+    }
+
+    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
+    public void loadWechatLogin(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048583, this, context, i) != null) || c == null) {
+            return;
+        }
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        if (confignation == null) {
+            c.onAuthFailure(-404, "pass没有初始化");
+        } else if (!WXAPIFactory.createWXAPI(confignation.context, confignation.wxAppID).isWXAppInstalled()) {
+            c.onAuthFailure(-404, "微信未安装");
+            releaseThirdLoginCallback();
+        } else {
+            d = true;
+            Intent intent = new Intent(context, WXLoginActivity.class);
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
+            if (!(context instanceof Activity)) {
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            context.startActivity(intent);
+        }
+    }
+
+    public SapiAccount sapiAccountResponseToAccount(Context context, SapiAccountResponse sapiAccountResponse) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, context, sapiAccountResponse)) == null) {
+            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+            SapiAccount sapiAccount = new SapiAccount();
+            sapiAccount.uid = sapiAccountResponse.uid;
+            sapiAccount.bduss = sapiAccountResponse.bduss;
+            sapiAccount.displayname = sapiAccountResponse.displayname;
+            sapiAccount.stoken = sapiAccountResponse.stoken;
+            sapiAccount.ptoken = sapiAccountResponse.ptoken;
+            sapiAccount.email = sapiAccountResponse.email;
+            sapiAccount.username = sapiAccountResponse.username;
+            if (TextUtils.isEmpty(sapiAccountResponse.app)) {
+                str = SapiUtils.getAppName(context);
+            } else {
+                str = sapiAccountResponse.app;
+            }
+            sapiAccount.app = str;
+            sapiAccount.extra = sapiAccountResponse.extra;
+            SocialType socialType = SocialType.UNKNOWN;
+            SocialType socialType2 = sapiAccountResponse.socialType;
+            if (socialType != socialType2) {
+                sapiAccount.addSocialInfo(socialType2, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
+                sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
+            }
+            sapiAccount.putExtra("tpl", sapiConfiguration.tpl);
+            if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
+                sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
+            }
+            SapiContext.getInstance().setAccountActionType(sapiAccountResponse.actionType);
+            sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
+            if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
+                new FaceLoginService().syncFaceLoginUID(context, sapiAccountResponse.livingUname);
+            }
+            return sapiAccount;
+        }
+        return (SapiAccount) invokeLL.objValue;
     }
 }

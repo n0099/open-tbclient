@@ -39,35 +39,52 @@ public class ForumCreateInfoData extends OrmObject {
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
     }
 
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b != 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a != 0 : invokeV.booleanValue;
-    }
-
-    public void D(ForumCreateInfo forumCreateInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, forumCreateInfo) == null) || forumCreateInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a != 0) {
+                return true;
+            }
+            return false;
         }
-        this.a = forumCreateInfo.is_show_create.intValue();
-        this.b = forumCreateInfo.is_can_create.intValue();
-        this.c = forumCreateInfo.can_create_errno.intValue();
-        this.d = forumCreateInfo.can_create_errdata;
+        return invokeV.booleanValue;
     }
 
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void D(ForumCreateInfo forumCreateInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, forumCreateInfo) == null) && forumCreateInfo != null) {
+            this.a = forumCreateInfo.is_show_create.intValue();
+            this.b = forumCreateInfo.is_can_create.intValue();
+            this.c = forumCreateInfo.can_create_errno.intValue();
+            this.d = forumCreateInfo.can_create_errdata;
+        }
     }
 }

@@ -13,20 +13,6 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public BaseViewPagerTransformer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,11 +37,28 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         }
     }
 
+    public abstract void e(View view2, float f);
+
+    public BaseViewPagerTransformer() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public void d(View view2, float f) {
+        float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
             float width = view2.getWidth();
-            float f2 = 0.0f;
+            float f3 = 0.0f;
             view2.setRotationX(0.0f);
             view2.setRotationY(0.0f);
             view2.setRotation(0.0f);
@@ -64,12 +67,17 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
             view2.setPivotX(0.0f);
             view2.setPivotY(0.0f);
             view2.setTranslationY(0.0f);
-            view2.setTranslationX(b() ? 0.0f : (-width) * f);
+            if (b()) {
+                f2 = 0.0f;
+            } else {
+                f2 = (-width) * f;
+            }
+            view2.setTranslationX(f2);
             if (a()) {
                 if (f > -1.0f && f < 1.0f) {
-                    f2 = 1.0f;
+                    f3 = 1.0f;
                 }
-                view2.setAlpha(f2);
+                view2.setAlpha(f3);
                 view2.setEnabled(false);
                 return;
             }
@@ -77,8 +85,6 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
             view2.setAlpha(1.0f);
         }
     }
-
-    public abstract void e(View view2, float f);
 
     @Override // androidx.viewpager.widget.ViewPager.PageTransformer
     public void transformPage(View view2, float f) {

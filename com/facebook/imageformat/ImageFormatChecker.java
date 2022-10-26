@@ -23,7 +23,7 @@ public class ImageFormatChecker {
     public static ImageFormatChecker sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public List<ImageFormat.FormatChecker> mCustomImageFormatCheckers;
+    public List mCustomImageFormatCheckers;
     public final ImageFormat.FormatChecker mDefaultFormatChecker;
     public int mMaxHeaderLength;
 
@@ -44,25 +44,6 @@ public class ImageFormatChecker {
         updateMaxHeaderLength();
     }
 
-    public static ImageFormat getImageFormat(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? getInstance().determineImageFormat(inputStream) : (ImageFormat) invokeL.objValue;
-    }
-
-    public static ImageFormat getImageFormat_WrapIOException(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            try {
-                return getImageFormat(inputStream);
-            } catch (IOException e) {
-                throw Throwables.propagate(e);
-            }
-        }
-        return (ImageFormat) invokeL.objValue;
-    }
-
     public static synchronized ImageFormatChecker getInstance() {
         InterceptResult invokeV;
         ImageFormatChecker imageFormatChecker;
@@ -79,66 +60,29 @@ public class ImageFormatChecker {
         return (ImageFormatChecker) invokeV.objValue;
     }
 
-    public static int readHeaderFromStream(int i, InputStream inputStream, byte[] bArr) throws IOException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, null, i, inputStream, bArr)) == null) {
-            Preconditions.checkNotNull(inputStream);
-            Preconditions.checkNotNull(bArr);
-            Preconditions.checkArgument(bArr.length >= i);
-            if (inputStream.markSupported()) {
-                try {
-                    inputStream.mark(i);
-                    return ByteStreams.read(inputStream, bArr, 0, i);
-                } finally {
-                    inputStream.reset();
-                }
-            }
-            return ByteStreams.read(inputStream, bArr, 0, i);
-        }
-        return invokeILL.intValue;
-    }
-
-    private void updateMaxHeaderLength() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mMaxHeaderLength = this.mDefaultFormatChecker.getHeaderSize();
-            List<ImageFormat.FormatChecker> list = this.mCustomImageFormatCheckers;
-            if (list != null) {
-                for (ImageFormat.FormatChecker formatChecker : list) {
-                    this.mMaxHeaderLength = Math.max(this.mMaxHeaderLength, formatChecker.getHeaderSize());
-                }
-            }
-        }
-    }
-
-    public ImageFormat determineImageFormat(InputStream inputStream) throws IOException {
+    public static ImageFormat getImageFormat(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            Preconditions.checkNotNull(inputStream);
-            int i = this.mMaxHeaderLength;
-            byte[] bArr = new byte[i];
-            int readHeaderFromStream = readHeaderFromStream(i, inputStream, bArr);
-            ImageFormat determineFormat = this.mDefaultFormatChecker.determineFormat(bArr, readHeaderFromStream);
-            if (determineFormat == null || determineFormat == ImageFormat.UNKNOWN) {
-                List<ImageFormat.FormatChecker> list = this.mCustomImageFormatCheckers;
-                if (list != null) {
-                    for (ImageFormat.FormatChecker formatChecker : list) {
-                        ImageFormat determineFormat2 = formatChecker.determineFormat(bArr, readHeaderFromStream);
-                        if (determineFormat2 != null && determineFormat2 != ImageFormat.UNKNOWN) {
-                            return determineFormat2;
-                        }
-                    }
-                }
-                return ImageFormat.UNKNOWN;
-            }
-            return determineFormat;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return getInstance().determineImageFormat(inputStream);
         }
         return (ImageFormat) invokeL.objValue;
     }
 
-    public void setCustomImageFormatCheckers(@Nullable List<ImageFormat.FormatChecker> list) {
+    public static ImageFormat getImageFormat_WrapIOException(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            try {
+                return getImageFormat(inputStream);
+            } catch (IOException e) {
+                throw Throwables.propagate(e);
+            }
+        }
+        return (ImageFormat) invokeL.objValue;
+    }
+
+    public void setCustomImageFormatCheckers(@Nullable List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.mCustomImageFormatCheckers = list;
@@ -175,6 +119,71 @@ public class ImageFormatChecker {
                 Closeables.closeQuietly(fileInputStream2);
                 throw th;
             }
+        }
+        return (ImageFormat) invokeL.objValue;
+    }
+
+    public static int readHeaderFromStream(int i, InputStream inputStream, byte[] bArr) throws IOException {
+        InterceptResult invokeILL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, null, i, inputStream, bArr)) == null) {
+            Preconditions.checkNotNull(inputStream);
+            Preconditions.checkNotNull(bArr);
+            if (bArr.length >= i) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            if (inputStream.markSupported()) {
+                try {
+                    inputStream.mark(i);
+                    return ByteStreams.read(inputStream, bArr, 0, i);
+                } finally {
+                    inputStream.reset();
+                }
+            }
+            return ByteStreams.read(inputStream, bArr, 0, i);
+        }
+        return invokeILL.intValue;
+    }
+
+    private void updateMaxHeaderLength() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            this.mMaxHeaderLength = this.mDefaultFormatChecker.getHeaderSize();
+            List<ImageFormat.FormatChecker> list = this.mCustomImageFormatCheckers;
+            if (list != null) {
+                for (ImageFormat.FormatChecker formatChecker : list) {
+                    this.mMaxHeaderLength = Math.max(this.mMaxHeaderLength, formatChecker.getHeaderSize());
+                }
+            }
+        }
+    }
+
+    public ImageFormat determineImageFormat(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
+            Preconditions.checkNotNull(inputStream);
+            int i = this.mMaxHeaderLength;
+            byte[] bArr = new byte[i];
+            int readHeaderFromStream = readHeaderFromStream(i, inputStream, bArr);
+            ImageFormat determineFormat = this.mDefaultFormatChecker.determineFormat(bArr, readHeaderFromStream);
+            if (determineFormat != null && determineFormat != ImageFormat.UNKNOWN) {
+                return determineFormat;
+            }
+            List<ImageFormat.FormatChecker> list = this.mCustomImageFormatCheckers;
+            if (list != null) {
+                for (ImageFormat.FormatChecker formatChecker : list) {
+                    ImageFormat determineFormat2 = formatChecker.determineFormat(bArr, readHeaderFromStream);
+                    if (determineFormat2 != null && determineFormat2 != ImageFormat.UNKNOWN) {
+                        return determineFormat2;
+                    }
+                }
+            }
+            return ImageFormat.UNKNOWN;
         }
         return (ImageFormat) invokeL.objValue;
     }

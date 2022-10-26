@@ -40,6 +40,18 @@ public class CertGuardianActivity extends BaseActivity {
         }
     }
 
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.back();
+            } else {
+                onClose();
+            }
+        }
+    }
+
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -64,7 +76,10 @@ public class CertGuardianActivity extends BaseActivity {
     public SapiWebDTO getWebDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CoreViewRouter.getInstance().getRealNameDTO() : (SapiWebDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CoreViewRouter.getInstance().getRealNameDTO();
+        }
+        return (SapiWebDTO) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -81,6 +96,18 @@ public class CertGuardianActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onBottomBackBtnClick();
+            a();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
             a();
         }
     }
@@ -112,7 +139,7 @@ public class CertGuardianActivity extends BaseActivity {
             try {
                 this.u = CoreViewRouter.getInstance().getCertGuardianCallback();
                 CoreViewRouter.getInstance().releaseCertGuardianCallback();
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -125,22 +152,11 @@ public class CertGuardianActivity extends BaseActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                a();
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1091);
+            setTitleText(R.string.obfuscated_res_0x7f0f10a3);
             this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.CertGuardianActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -238,24 +254,13 @@ public class CertGuardianActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.SapiJsCallBacks.CertGuardianRusultCallback
                 public void onFinish(CertGuardianResult certGuardianResult) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, certGuardianResult) == null) {
-                        this.a.v = certGuardianResult;
-                        this.a.onClose();
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, certGuardianResult) != null) {
+                        return;
                     }
+                    this.a.v = certGuardianResult;
+                    this.a.onClose();
                 }
             });
-        }
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.back();
-            } else {
-                onClose();
-            }
         }
     }
 }

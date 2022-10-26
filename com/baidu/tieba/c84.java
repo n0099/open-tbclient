@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c84 extends x74<xp2> {
+public class c84 extends y74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +31,7 @@ public class c84 extends x74<xp2> {
                 return;
             }
         }
-        boolean z = vj1.a;
+        boolean z = wj1.a;
     }
 
     public c84() {
@@ -50,45 +51,50 @@ public class c84 extends x74<xp2> {
     public static c84 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new c84() : (c84) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new c84();
+        }
+        return (c84) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x74
-    public boolean b(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.y74
+    public boolean b(Context context, yp2 yp2Var, vp2 vp2Var, m33 m33Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, xp2Var, up2Var, l33Var, jSONObject)) == null) ? e(context, xp2Var, up2Var, l33Var, jSONObject) : invokeLLLLL.booleanValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, yp2Var, vp2Var, m33Var, jSONObject)) == null) {
+            return e(context, yp2Var, vp2Var, m33Var, jSONObject);
+        }
+        return invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var, JSONObject jSONObject) {
+    public final boolean e(Context context, yp2 yp2Var, vp2 vp2Var, m33 m33Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xp2Var, up2Var, l33Var, jSONObject)) == null) {
-            l02.i("map", "GetRegionAction start");
-            tp1 A = yo2.U().A(xp2Var.c);
-            if (!(A instanceof rp1)) {
-                l02.c("map", "WebViewManager is null");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yp2Var, vp2Var, m33Var, jSONObject)) == null) {
+            m02.i("map", "GetCenterLcationAction start");
+            up1 A = zo2.U().A(yp2Var.c);
+            if (!(A instanceof sp1)) {
+                m02.c("map", "WebViewManager is null");
                 return false;
             }
-            v84 d = u74.b().c((rp1) A).d(xp2Var.b);
+            w84 d = v74.b().c((sp1) A).d(yp2Var.b);
             if (d == null) {
-                l02.c("map", "can not find map by id " + xp2Var.b);
+                m02.c("map", "can not find map by id " + yp2Var.b);
                 return false;
             }
             MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
+            fq2 fq2Var = new fq2();
+            LatLng latLng = mapStatus.target;
+            double d2 = latLng.latitude;
+            fq2Var.a = d2;
+            fq2Var.b = latLng.longitude;
             try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
+                jSONObject.put("latitude", d2);
+                jSONObject.put("longitude", fq2Var.b);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            l02.i("map", "GetRegionAction end");
+            m02.i("map", "GetCenterLocationAction end");
             return true;
         }
         return invokeLLLLL.booleanValue;

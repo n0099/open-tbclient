@@ -47,7 +47,10 @@ public class ResultPoint {
     public static float distance(ResultPoint resultPoint, ResultPoint resultPoint2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resultPoint, resultPoint2)) == null) ? MathUtils.distance(resultPoint.x, resultPoint.y, resultPoint2.x, resultPoint2.y) : invokeLL.floatValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resultPoint, resultPoint2)) == null) {
+            return MathUtils.distance(resultPoint.x, resultPoint.y, resultPoint2.x, resultPoint2.y);
+        }
+        return invokeLL.floatValue;
     }
 
     public static void orderBestPatterns(ResultPoint[] resultPointArr) {
@@ -101,19 +104,28 @@ public class ResultPoint {
     public final float getX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.x : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.x;
+        }
+        return invokeV.floatValue;
     }
 
     public final float getY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.y : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.y;
+        }
+        return invokeV.floatValue;
     }
 
     public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (Float.floatToIntBits(this.x) * 31) + Float.floatToIntBits(this.y) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (Float.floatToIntBits(this.x) * 31) + Float.floatToIntBits(this.y);
+        }
+        return invokeV.intValue;
     }
 
     public final String toString() {

@@ -22,7 +22,7 @@ public class WorkerService extends JobIntentService {
     public static final String TAG = WorkerService.class.getSimpleName();
     public static final String TOKEN = "token";
     public final AtomicLong mTokenGen = new AtomicLong(1000);
-    public HashMap<Long, InstallParameter> mInstallParameters = new HashMap<>();
+    public HashMap mInstallParameters = new HashMap();
     public IPatchManager.Stub mPatchManager = new IPatchManager.Stub() { // from class: com.baidu.titan.sdk.sandbox.WorkerService.1
         @Override // com.baidu.titan.sdk.pm.IPatchManager
         public void install(Uri uri, int i, Bundle bundle, IPatchInstallObserver iPatchInstallObserver) throws RemoteException {
@@ -56,7 +56,7 @@ public class WorkerService extends JobIntentService {
     };
 
     /* loaded from: classes6.dex */
-    public static class InstallParameter {
+    public class InstallParameter {
         public Bundle extra;
         public int flages;
         public IPatchInstallObserver observer;
@@ -70,27 +70,8 @@ public class WorkerService extends JobIntentService {
         }
     }
 
-    public static void enqueueWork(Context context, Intent intent) {
-        JobIntentService.enqueueWork(context, WorkerService.class, 1001, intent);
-    }
-
     private void handleCleanPatches() {
         PatchManagerService.getInstance().doCleanPatchsLocked();
-    }
-
-    private void handleInstallPatch(Intent intent) {
-        InstallParameter installParameter;
-        Long valueOf = Long.valueOf(intent.getLongExtra("token", -1L));
-        if (valueOf.longValue() >= 0 && (installParameter = this.mInstallParameters.get(valueOf)) != null) {
-            IPatchInstallObserver iPatchInstallObserver = installParameter.observer;
-            PatchManagerService patchManagerService = PatchManagerService.getInstance();
-            Bundle bundle = new Bundle();
-            try {
-                iPatchInstallObserver.onPatchInstalled(patchManagerService.installSyncLocked(installParameter.uri, installParameter.extra, bundle), bundle);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     @Override // com.baidu.titan.sdk.sandbox.JobIntentService, android.app.Service
@@ -111,6 +92,26 @@ public class WorkerService extends JobIntentService {
             handleInstallPatch(intent);
         } else if ("action_clean_patch".equals(action)) {
             handleCleanPatches();
+        }
+    }
+
+    public static void enqueueWork(Context context, Intent intent) {
+        JobIntentService.enqueueWork(context, WorkerService.class, 1001, intent);
+    }
+
+    private void handleInstallPatch(Intent intent) {
+        InstallParameter installParameter;
+        Long valueOf = Long.valueOf(intent.getLongExtra("token", -1L));
+        if (valueOf.longValue() < 0 || (installParameter = (InstallParameter) this.mInstallParameters.get(valueOf)) == null) {
+            return;
+        }
+        IPatchInstallObserver iPatchInstallObserver = installParameter.observer;
+        PatchManagerService patchManagerService = PatchManagerService.getInstance();
+        Bundle bundle = new Bundle();
+        try {
+            iPatchInstallObserver.onPatchInstalled(patchManagerService.installSyncLocked(installParameter.uri, installParameter.extra, bundle), bundle);
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 }

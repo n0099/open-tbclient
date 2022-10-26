@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.fa0;
-import com.baidu.tieba.fc0;
+import com.baidu.tieba.ga0;
+import com.baidu.tieba.gc0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedWrapData implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<LiveFeedWrapData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String LIVE_FEED_PAGE_FEED_CACHE_KEY = "live_feed_page_feed_cache_key";
     public static final String LIVE_FEED_PAGE_FEED_CACHE_TIME = "live_feed_page_feed_cache_time";
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +34,20 @@ public class LiveFeedWrapData implements Parcelable {
     public int refreshIndex;
     public int refreshType;
     public String resource;
-    public List<LiveRoomEntity> roomInfoList;
+    public List roomInfoList;
     public String sessionId;
     public String subTab;
     public String tab;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +62,7 @@ public class LiveFeedWrapData implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<LiveFeedWrapData>() { // from class: com.baidu.live.business.model.data.LiveFeedWrapData.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveFeedWrapData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,21 +81,25 @@ public class LiveFeedWrapData implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedWrapData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LiveFeedWrapData(parcel) : (LiveFeedWrapData) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new LiveFeedWrapData(parcel);
+                }
+                return (LiveFeedWrapData) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedWrapData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LiveFeedWrapData[i] : (LiveFeedWrapData[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new LiveFeedWrapData[i];
+                }
+                return (LiveFeedWrapData[]) invokeI.objValue;
             }
         };
     }
@@ -104,6 +118,53 @@ public class LiveFeedWrapData implements Parcelable {
         }
     }
 
+    public boolean isBigRefresh() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.refreshType == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public LiveFeedWrapData(Parcel parcel) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.resource = parcel.readString();
+        this.errCode = parcel.readInt();
+        this.errMsg = parcel.readString();
+        this.sessionId = parcel.readString();
+        this.tab = parcel.readString();
+        this.subTab = parcel.readString();
+        this.refreshType = parcel.readInt();
+        this.refreshIndex = parcel.readInt();
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.hasMore = z;
+        this.isCacheData = parcel.readByte() != 0;
+        this.cacheTime = parcel.readLong();
+        this.roomInfoList = parcel.createTypedArrayList(LiveRoomEntity.CREATOR);
+    }
+
     public static String getFeedCacheKey(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -113,25 +174,9 @@ public class LiveFeedWrapData implements Parcelable {
         return (String) invokeLL.objValue;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isBigRefresh() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.refreshType == 0 : invokeV.booleanValue;
-    }
-
     public void parseJsonByResponseOnly(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.errCode = jSONObject.optInt("inner_errno");
@@ -155,23 +200,22 @@ public class LiveFeedWrapData implements Parcelable {
                 }
             }
         }
-        this.hasMore = (this.errCode == 0 && fc0.c(this.roomInfoList)) ? true : true;
+        this.hasMore = (this.errCode == 0 && gc0.c(this.roomInfoList)) ? true : true;
     }
 
     public void parserJson(JSONObject jSONObject, int i, boolean z) {
-        List<LiveRoomEntity> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{jSONObject, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             parseJsonByResponseOnly(jSONObject);
-            if (!z || TextUtils.isEmpty(this.tab) || (list = this.roomInfoList) == null || list.isEmpty() || i != 0) {
-                return;
+            if (z && !TextUtils.isEmpty(this.tab) && (list = this.roomInfoList) != null && !list.isEmpty() && i == 0) {
+                try {
+                    jSONObject.put(LIVE_FEED_PAGE_FEED_CACHE_TIME, System.currentTimeMillis());
+                } catch (JSONException e) {
+                    LiveFeedPageSdk.liveLog("Feed 缓存记录时间失败 " + e.getMessage());
+                }
+                ga0.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
             }
-            try {
-                jSONObject.put(LIVE_FEED_PAGE_FEED_CACHE_TIME, System.currentTimeMillis());
-            } catch (JSONException e) {
-                LiveFeedPageSdk.liveLog("Feed 缓存记录时间失败 " + e.getMessage());
-            }
-            fa0.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
         }
     }
 
@@ -192,34 +236,5 @@ public class LiveFeedWrapData implements Parcelable {
             parcel.writeLong(this.cacheTime);
             parcel.writeTypedList(this.roomInfoList);
         }
-    }
-
-    public LiveFeedWrapData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.resource = parcel.readString();
-        this.errCode = parcel.readInt();
-        this.errMsg = parcel.readString();
-        this.sessionId = parcel.readString();
-        this.tab = parcel.readString();
-        this.subTab = parcel.readString();
-        this.refreshType = parcel.readInt();
-        this.refreshIndex = parcel.readInt();
-        this.hasMore = parcel.readByte() != 0;
-        this.isCacheData = parcel.readByte() != 0;
-        this.cacheTime = parcel.readLong();
-        this.roomInfoList = parcel.createTypedArrayList(LiveRoomEntity.CREATOR);
     }
 }

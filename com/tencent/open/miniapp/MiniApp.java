@@ -38,7 +38,7 @@ public class MiniApp extends BaseApi {
     public static final String MINIAPP_VERSION_RELEASE = "release";
     public static final String MINIAPP_VERSION_TRIAL = "trial";
     public static final int MINIAPP_VERSION_WRONG = -7;
-    public static final List<String> OPEN_CONNECT_DEMO_MINI_APP_VERSIONS;
+    public static final List OPEN_CONNECT_DEMO_MINI_APP_VERSIONS;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,6 +58,26 @@ public class MiniApp extends BaseApi {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MiniApp(Context context, QQToken qQToken) {
+        super(qQToken);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, qQToken};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((QQToken) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MiniApp(Context context, c cVar, QQToken qQToken) {
         super(cVar, qQToken);
         Interceptable interceptable = $ic;
@@ -73,6 +93,26 @@ public class MiniApp extends BaseApi {
                 super((c) objArr2[0], (QQToken) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MiniApp(QQToken qQToken) {
+        super(qQToken);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qQToken};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((QQToken) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
@@ -123,45 +163,5 @@ public class MiniApp extends BaseApi {
             }
         }
         return invokeCommon.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MiniApp(Context context, QQToken qQToken) {
-        super(qQToken);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, qQToken};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((QQToken) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MiniApp(QQToken qQToken) {
-        super(qQToken);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qQToken};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((QQToken) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
     }
 }

@@ -5,20 +5,19 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.fh3;
-import com.baidu.tieba.j22;
-import com.baidu.tieba.lg3;
-import com.baidu.tieba.qn2;
-import com.baidu.tieba.s52;
-import com.baidu.tieba.s93;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.vj1;
-import com.baidu.tieba.x93;
-import com.baidu.tieba.yw2;
+import com.baidu.tieba.gh3;
+import com.baidu.tieba.k22;
+import com.baidu.tieba.mg3;
+import com.baidu.tieba.rn2;
+import com.baidu.tieba.t52;
+import com.baidu.tieba.t93;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.wj1;
+import com.baidu.tieba.y93;
+import com.baidu.tieba.zw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes2.dex */
 public class SwanAppUtilsJavaScriptInterface {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,7 +40,7 @@ public class SwanAppUtilsJavaScriptInterface {
     public Context mActivity;
     public boolean mIsForceLight;
     public String mSource;
-    public j22 mWebView;
+    public k22 mWebView;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -87,7 +85,7 @@ public class SwanAppUtilsJavaScriptInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements qn2.a {
+    public class b implements rn2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -114,20 +112,22 @@ public class SwanAppUtilsJavaScriptInterface {
             this.b = str2;
         }
 
-        @Override // com.baidu.tieba.qn2.a
+        @Override // com.baidu.tieba.rn2.a
         public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.notifyCallback(this.b, String.valueOf(false));
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.c.notifyCallback(this.b, String.valueOf(false));
         }
 
-        @Override // com.baidu.tieba.qn2.a
+        @Override // com.baidu.tieba.rn2.a
         public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.notifyCallback(this.a, String.valueOf(true));
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
             }
+            this.c.notifyCallback(this.a, String.valueOf(true));
         }
     }
 
@@ -182,15 +182,15 @@ public class SwanAppUtilsJavaScriptInterface {
                 return;
             }
         }
-        DEBUG = vj1.a;
+        DEBUG = wj1.a;
     }
 
-    public SwanAppUtilsJavaScriptInterface(Context context, j22 j22Var) {
+    public SwanAppUtilsJavaScriptInterface(Context context, k22 k22Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, j22Var};
+            Object[] objArr = {context, k22Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -203,75 +203,13 @@ public class SwanAppUtilsJavaScriptInterface {
         this.mIsForceLight = false;
         this.mSource = "";
         this.mActivity = context;
-        this.mWebView = j22Var;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void doUbcEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("min_v");
-                if ((TextUtils.isEmpty(optString) ? 0L : Long.valueOf(optString).longValue()) < UBC_MIN_VERSION) {
-                    return;
-                }
-                s93.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
-                yw2.h().g().b(jSONObject);
-            } catch (NumberFormatException | JSONException e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void notifyCallback(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
-            loadJavaScript("javascript:" + str + "(" + str2 + ");");
-        }
-    }
-
-    @JavascriptInterface
-    public void callShare(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-            callShare(str, str2, true, str3);
-        }
-    }
-
-    @JavascriptInterface
-    public void consoleLog(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !TextUtils.isEmpty(str) && DEBUG) {
-            Log.e(TAG, "consoleLog : " + str + "->" + System.currentTimeMillis());
-        }
+        this.mWebView = k22Var;
     }
 
     public void loadJavaScript(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.mWebView == null) {
-            return;
-        }
-        fh3.e0(new a(this, str));
-    }
-
-    public void realCallShare(Context context, String str, String str2, String str3, boolean z, boolean z2, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), str4}) == null) {
-            if (DEBUG) {
-                Log.i(TAG, "callShare");
-            }
-            JSONObject d = lg3.d(str2);
-            try {
-                d.put(KEY_SHARE_SNAPSHOT, z);
-                d.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sm2.f0().a(context, d, new b(this, str3, str4));
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.mWebView != null) {
+            gh3.e0(new a(this, str));
         }
     }
 
@@ -297,16 +235,43 @@ public class SwanAppUtilsJavaScriptInterface {
     }
 
     @JavascriptInterface
-    public void ubcEvent(String str) {
+    public void callShare(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || TextUtils.isEmpty(str) || x93.b(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+            callShare(str, str2, true, str3);
         }
-        j22 j22Var = this.mWebView;
-        if (s52.a(j22Var, "ubcEvent - " + str)) {
-            return;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void notifyCallback(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
+            loadJavaScript("javascript:" + str + "(" + str2 + ");");
         }
-        ExecutorUtilsExt.postOnElastic(new c(this, str), "ubcEvent", 3);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void doUbcEvent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                long j = 0;
+                String optString = jSONObject.optString("min_v");
+                if (!TextUtils.isEmpty(optString)) {
+                    j = Long.valueOf(optString).longValue();
+                }
+                if (j < UBC_MIN_VERSION) {
+                    return;
+                }
+                t93.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
+                zw2.h().g().b(jSONObject);
+            } catch (NumberFormatException | JSONException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @JavascriptInterface
@@ -326,6 +291,44 @@ public class SwanAppUtilsJavaScriptInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3}) == null) {
             realCallShare(this.mActivity, this.mSource, str, str2, z, z2, str3);
+        }
+    }
+
+    @JavascriptInterface
+    public void consoleLog(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !TextUtils.isEmpty(str) && DEBUG) {
+            Log.e(TAG, "consoleLog : " + str + "->" + System.currentTimeMillis());
+        }
+    }
+
+    @JavascriptInterface
+    public void ubcEvent(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || TextUtils.isEmpty(str) || y93.b(str)) {
+            return;
+        }
+        k22 k22Var = this.mWebView;
+        if (t52.a(k22Var, "ubcEvent - " + str)) {
+            return;
+        }
+        ExecutorUtilsExt.postOnElastic(new c(this, str), "ubcEvent", 3);
+    }
+
+    public void realCallShare(Context context, String str, String str2, String str3, boolean z, boolean z2, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), str4}) == null) {
+            if (DEBUG) {
+                Log.i(TAG, "callShare");
+            }
+            JSONObject d = mg3.d(str2);
+            try {
+                d.put(KEY_SHARE_SNAPSHOT, z);
+                d.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            tm2.f0().a(context, d, new b(this, str3, str4));
         }
     }
 }

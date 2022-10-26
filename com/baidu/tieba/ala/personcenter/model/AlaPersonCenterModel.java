@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.messages.AlaPersonCenterResponseMessage;
-import com.baidu.tieba.jz5;
+import com.baidu.tieba.qz5;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaPersonCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jz5 a;
+    public qz5 a;
     public String b;
     public final HttpMessageListener c;
 
@@ -58,20 +58,21 @@ public class AlaPersonCenterModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1021001 || this.a.a == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1021001 || this.a.a == null) {
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
-            if (statusCode != 200 || !(httpResponsedMessage instanceof AlaPersonCenterResponseMessage)) {
-                this.a.a.b(statusCode, null, null);
-                return;
+            if (statusCode == 200 && (httpResponsedMessage instanceof AlaPersonCenterResponseMessage)) {
+                AlaPersonCenterResponseMessage alaPersonCenterResponseMessage = (AlaPersonCenterResponseMessage) httpResponsedMessage;
+                if (alaPersonCenterResponseMessage.getError() == 0) {
+                    this.a.a.c(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
+                    return;
+                } else {
+                    this.a.a.b(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
+                    return;
+                }
             }
-            AlaPersonCenterResponseMessage alaPersonCenterResponseMessage = (AlaPersonCenterResponseMessage) httpResponsedMessage;
-            if (alaPersonCenterResponseMessage.getError() == 0) {
-                this.a.a.c(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
-            } else {
-                this.a.a.b(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
-            }
+            this.a.a.b(statusCode, null, null);
         }
     }
 
@@ -102,10 +103,17 @@ public class AlaPersonCenterModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void A(jz5 jz5Var) {
+    public void A(qz5 qz5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jz5Var) == null) {
-            this.a = jz5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qz5Var) == null) {
+            this.a = qz5Var;
+        }
+    }
+
+    public void setUid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
         }
     }
 
@@ -140,12 +148,5 @@ public class AlaPersonCenterModel extends BdBaseModel {
             return true;
         }
         return invokeV.booleanValue;
-    }
-
-    public void setUid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-        }
     }
 }

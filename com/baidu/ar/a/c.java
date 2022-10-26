@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Integer> bQ;
+    public static Map bQ;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,11 +46,11 @@ public class c {
             if (bQ.size() <= 0) {
                 s("{\n  \"high\": [\n    \"kirin990\",\n    \"qualcomm technologies, inc sdm855\",\n    \"qualcomm technologies, inc sm8150\",\n    \"kirin980\",\n    \"qualcomm technologies, inc sdm845\",\n    \"kirin810\",\n    \"kirin970\",\n    \"qualcomm technologies, inc sdm730\",\n    \"qualcomm technologies, inc msm8998\",\n    \"hi3660\",\n    \"qualcomm technologies, inc sdm712\",\n    \"kirin960\",\n    \"qualcomm technologies, inc sdm710\",\n    \"qualcomm technologies, inc sdm675\",\n    \"mt6799\",\n    \"mt6785\",\n    \"mt6779\",\n    \"qualcomm technologies, inc sdm670\",\n    \"qualcomm technologies, inc msm8996\",\n    \"mt6775\",\n    \"mt6771v/c\",\n    \"qualcomm technologies, inc sdm665\",\n    \"hisilicon kirin 955\",\n    \"qualcomm technologies, inc sdm660\"\n  ],\n  \"medium\": [\n    \"sailfish\",\n    \"qualcomm technologies, inc sdm636\",\n    \"hi3650\",\n    \"qualcomm technologies, inc msm8994\",\n    \"mt6797\",\n    \"mt6758\",\n    \"mt6763\",\n    \"mt6762\",\n    \"mt6757\",\n    \"mt6795\",\n    \"mt6755\",\n    \"qualcomm technologies, inc msm8976sg\",\n    \"qualcomm technologies, inc msm8976\",\n    \"qualcomm technologies, inc msm8965\",\n    \"qualcomm technologies, inc msm8956\",\n    \"qualcomm technologies, inc msm8992\",\n    \"hi3635\",\n    \"qualcomm technologies, inc 626\",\n    \"qualcomm technologies, inc msm8953\"\n  ],\n  \"low\": [\n    \"qualcomm technologies, inc msm8940\",\n    \"qualcomm technologies, inc msm8974\",\n    \"hi3630\"\n  ],\n  \"blackList\": []\n}");
             }
-            String str = ah().get("Hardware");
+            String str = (String) ah().get("Hardware");
             if (!TextUtils.isEmpty(str)) {
                 String trim = str.toLowerCase().replace("hisilicon", "").trim();
                 if (bQ.containsKey(trim)) {
-                    return bQ.get(trim).intValue();
+                    return ((Integer) bQ.get(trim)).intValue();
                 }
             }
             return q.gI() ? 2 : 0;
@@ -58,7 +58,7 @@ public class c {
         return invokeV.intValue;
     }
 
-    public static Map<String, String> ah() {
+    public static Map ah() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

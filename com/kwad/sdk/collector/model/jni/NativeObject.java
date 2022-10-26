@@ -1,10 +1,6 @@
 package com.kwad.sdk.collector.model.jni;
-
-import androidx.annotation.Keep;
-@Keep
 /* loaded from: classes7.dex */
 public abstract class NativeObject {
-    @Keep
     public long mPtr;
 
     public abstract void destroy();

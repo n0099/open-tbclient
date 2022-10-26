@@ -14,30 +14,31 @@ public class f {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, context)) != null) {
-            return (String) invokeL.objValue;
-        }
-        String str = null;
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            String str2 = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(d(context), 0));
-            if (str2 != null) {
-                return str2;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            String str = null;
             try {
-                PackageInfo c = c(context);
-                if (c == null) {
-                    return null;
+                PackageManager packageManager = context.getPackageManager();
+                String str2 = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(d(context), 0));
+                if (str2 != null) {
+                    return str2;
                 }
-                return context.getResources().getString(c.applicationInfo.labelRes);
-            } catch (Exception e) {
-                e = e;
-                str = str2;
-                e.printStackTrace();
-                return str;
+                try {
+                    PackageInfo c = c(context);
+                    if (c == null) {
+                        return null;
+                    }
+                    return context.getResources().getString(c.applicationInfo.labelRes);
+                } catch (Exception e) {
+                    e = e;
+                    str = str2;
+                    e.printStackTrace();
+                    return str;
+                }
+            } catch (Exception e2) {
+                e = e2;
             }
-        } catch (Exception e2) {
-            e = e2;
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
@@ -82,7 +83,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             PackageInfo c = c(context);
-            return c == null ? "" : c.packageName;
+            if (c == null) {
+                return "";
+            }
+            return c.packageName;
         }
         return (String) invokeL.objValue;
     }

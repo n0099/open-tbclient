@@ -20,11 +20,11 @@ import org.apache.http.params.HttpParams;
 public class ConnPoolByRoute extends AbstractConnPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<BasicPoolEntry> freeConnections;
+    public Queue freeConnections;
     public final int maxTotalConnections;
     public final ClientConnectionOperator operator;
-    public final Map<HttpRoute, RouteSpecificPool> routeToPool;
-    public Queue<WaitingThread> waitingThreads;
+    public final Map routeToPool;
+    public Queue waitingThreads;
 
     public ConnPoolByRoute(ClientConnectionOperator clientConnectionOperator, HttpParams httpParams) {
         Interceptable interceptable = $ic;
@@ -53,81 +53,6 @@ public class ConnPoolByRoute extends AbstractConnPool {
         return (BasicPoolEntry) invokeLL.objValue;
     }
 
-    public Queue<BasicPoolEntry> createFreeConnQueue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Queue) invokeV.objValue;
-    }
-
-    public Map<HttpRoute, RouteSpecificPool> createRouteToPoolMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public Queue<WaitingThread> createWaitingThreadQueue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Queue) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
-    public void deleteClosedConnections() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void deleteEntry(BasicPoolEntry basicPoolEntry) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, basicPoolEntry) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void deleteLeastUsedEntry() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
-    public void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j, TimeUnit timeUnit) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{basicPoolEntry, Boolean.valueOf(z), Long.valueOf(j), timeUnit}) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public int getConnectionsInPool(HttpRoute httpRoute) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpRoute)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.intValue;
-    }
-
-    public BasicPoolEntry getEntryBlocking(HttpRoute httpRoute, Object obj, long j, TimeUnit timeUnit, WaitingThreadAborter waitingThreadAborter) throws ConnectionPoolTimeoutException, InterruptedException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{httpRoute, obj, Long.valueOf(j), timeUnit, waitingThreadAborter})) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (BasicPoolEntry) invokeCommon.objValue;
-    }
-
     public BasicPoolEntry getFreeEntry(RouteSpecificPool routeSpecificPool, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -144,6 +69,91 @@ public class ConnPoolByRoute extends AbstractConnPool {
             throw new RuntimeException("Stub!");
         }
         return (RouteSpecificPool) invokeLZ.objValue;
+    }
+
+    public WaitingThread newWaitingThread(Condition condition, RouteSpecificPool routeSpecificPool) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, condition, routeSpecificPool)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (WaitingThread) invokeLL.objValue;
+    }
+
+    @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
+    public PoolEntryRequest requestPoolEntry(HttpRoute httpRoute, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, httpRoute, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (PoolEntryRequest) invokeLL.objValue;
+    }
+
+    public Queue createFreeConnQueue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Queue) invokeV.objValue;
+    }
+
+    public Map createRouteToPoolMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public Queue createWaitingThreadQueue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Queue) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
+    public void deleteClosedConnections() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void deleteLeastUsedEntry() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
+    public void shutdown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void deleteEntry(BasicPoolEntry basicPoolEntry) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, basicPoolEntry) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public int getConnectionsInPool(HttpRoute httpRoute) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpRoute)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.intValue;
     }
 
     @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
@@ -163,15 +173,6 @@ public class ConnPoolByRoute extends AbstractConnPool {
         return (RouteSpecificPool) invokeL.objValue;
     }
 
-    public WaitingThread newWaitingThread(Condition condition, RouteSpecificPool routeSpecificPool) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, condition, routeSpecificPool)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (WaitingThread) invokeLL.objValue;
-    }
-
     public void notifyWaitingThread(RouteSpecificPool routeSpecificPool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, routeSpecificPool) == null) {
@@ -180,20 +181,19 @@ public class ConnPoolByRoute extends AbstractConnPool {
     }
 
     @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
-    public PoolEntryRequest requestPoolEntry(HttpRoute httpRoute, Object obj) {
-        InterceptResult invokeLL;
+    public void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, httpRoute, obj)) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{basicPoolEntry, Boolean.valueOf(z), Long.valueOf(j), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (PoolEntryRequest) invokeLL.objValue;
     }
 
-    @Override // org.apache.http.impl.conn.tsccm.AbstractConnPool
-    public void shutdown() {
+    public BasicPoolEntry getEntryBlocking(HttpRoute httpRoute, Object obj, long j, TimeUnit timeUnit, WaitingThreadAborter waitingThreadAborter) throws ConnectionPoolTimeoutException, InterruptedException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{httpRoute, obj, Long.valueOf(j), timeUnit, waitingThreadAborter})) == null) {
             throw new RuntimeException("Stub!");
         }
+        return (BasicPoolEntry) invokeCommon.objValue;
     }
 }

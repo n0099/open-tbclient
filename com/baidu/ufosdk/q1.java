@@ -15,6 +15,12 @@ public class q1 {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TextUtils.equals("com.baidu.searchbox", c.a()) || TextUtils.equals(BdSailorPlatform.LITE_PACKAGE_NAME, c.a()) || TextUtils.equals("com.baidu.searchbox.tomas", c.a()) || TextUtils.equals("com.baidu.searchbox.vision", c.a()) || TextUtils.equals(WebViewFactory.CHROMIUM_HOST_APP, c.a()) || TextUtils.equals("com.baidu.hao123", c.a()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (!TextUtils.equals("com.baidu.searchbox", c.a()) && !TextUtils.equals(BdSailorPlatform.LITE_PACKAGE_NAME, c.a()) && !TextUtils.equals("com.baidu.searchbox.tomas", c.a()) && !TextUtils.equals("com.baidu.searchbox.vision", c.a()) && !TextUtils.equals(WebViewFactory.CHROMIUM_HOST_APP, c.a()) && !TextUtils.equals("com.baidu.hao123", c.a())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

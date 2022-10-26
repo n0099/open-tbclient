@@ -26,7 +26,7 @@ public class Watermark {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class CoordinateType {
+    public final class CoordinateType {
         public static final /* synthetic */ CoordinateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CoordinateType LEFT_BOTTOM;

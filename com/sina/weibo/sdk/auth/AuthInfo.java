@@ -18,13 +18,23 @@ import java.io.Serializable;
 /* loaded from: classes8.dex */
 public class AuthInfo implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<AuthInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String mAppKey;
     public String mKeyHash;
     public String mPackageName;
     public String mRedirectUrl;
     public String mScope;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +49,7 @@ public class AuthInfo implements Parcelable, Serializable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<AuthInfo>() { // from class: com.sina.weibo.sdk.auth.AuthInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.auth.AuthInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,23 +68,72 @@ public class AuthInfo implements Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AuthInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new AuthInfo(parcel) : (AuthInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new AuthInfo(parcel);
+                }
+                return (AuthInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AuthInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new AuthInfo[i] : (AuthInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new AuthInfo[i];
+                }
+                return (AuthInfo[]) invokeI.objValue;
             }
         };
+    }
+
+    public String getAppKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAppKey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getKeyHash() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mKeyHash;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mPackageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRedirectUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRedirectUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getScope() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mScope;
+        }
+        return (String) invokeV.objValue;
     }
 
     public AuthInfo(Context context, String str, String str2, String str3) {
@@ -105,79 +164,6 @@ public class AuthInfo implements Parcelable, Serializable {
         this.mKeyHash = Utility.getSign(context, packageName);
     }
 
-    public static AuthInfo parseBundleData(Context context, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, bundle)) == null) ? new AuthInfo(context, bundle.getString("appKey"), bundle.getString(WBConstants.SSO_REDIRECT_URL), bundle.getString("scope")) : (AuthInfo) invokeLL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getAppKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAppKey : (String) invokeV.objValue;
-    }
-
-    public Bundle getAuthBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("appKey", this.mAppKey);
-            bundle.putString(WBConstants.SSO_REDIRECT_URL, this.mRedirectUrl);
-            bundle.putString("scope", this.mScope);
-            bundle.putString("packagename", this.mPackageName);
-            bundle.putString("key_hash", this.mKeyHash);
-            return bundle;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public String getKeyHash() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mKeyHash : (String) invokeV.objValue;
-    }
-
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
-    }
-
-    public String getRedirectUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRedirectUrl : (String) invokeV.objValue;
-    }
-
-    public String getScope() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mScope : (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
-            parcel.writeString(this.mAppKey);
-            parcel.writeString(this.mRedirectUrl);
-            parcel.writeString(this.mScope);
-            parcel.writeString(this.mPackageName);
-            parcel.writeString(this.mKeyHash);
-        }
-    }
-
     public AuthInfo(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -203,5 +189,41 @@ public class AuthInfo implements Parcelable, Serializable {
         this.mScope = parcel.readString();
         this.mPackageName = parcel.readString();
         this.mKeyHash = parcel.readString();
+    }
+
+    public static AuthInfo parseBundleData(Context context, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, bundle)) == null) {
+            return new AuthInfo(context, bundle.getString("appKey"), bundle.getString(WBConstants.SSO_REDIRECT_URL), bundle.getString("scope"));
+        }
+        return (AuthInfo) invokeLL.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
+            parcel.writeString(this.mAppKey);
+            parcel.writeString(this.mRedirectUrl);
+            parcel.writeString(this.mScope);
+            parcel.writeString(this.mPackageName);
+            parcel.writeString(this.mKeyHash);
+        }
+    }
+
+    public Bundle getAuthBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appKey", this.mAppKey);
+            bundle.putString(WBConstants.SSO_REDIRECT_URL, this.mRedirectUrl);
+            bundle.putString("scope", this.mScope);
+            bundle.putString("packagename", this.mPackageName);
+            bundle.putString("key_hash", this.mKeyHash);
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
     }
 }

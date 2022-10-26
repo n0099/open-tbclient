@@ -1,12 +1,10 @@
 package com.kwad.components.offline.api.core.video;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.TimedText;
 import android.net.Uri;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo;
 import java.io.FileDescriptor;
 import java.util.Map;
@@ -87,10 +85,9 @@ public interface IMediaPlayer {
 
     void setDataSource(Context context, Uri uri);
 
-    @TargetApi(14)
-    void setDataSource(Context context, Uri uri, Map<String, String> map);
+    void setDataSource(Context context, Uri uri, Map map);
 
-    void setDataSource(@NonNull PlayVideoInfo playVideoInfo);
+    void setDataSource(PlayVideoInfo playVideoInfo);
 
     void setDataSource(FileDescriptor fileDescriptor);
 

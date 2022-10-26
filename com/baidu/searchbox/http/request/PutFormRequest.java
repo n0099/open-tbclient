@@ -14,12 +14,12 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
+public class PutFormRequest extends HttpParaRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class PutFormRequestBuilder extends HttpRequestParasBuilder<PutFormRequestBuilder> {
+    public class PutFormRequestBuilder extends HttpRequestParasBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,14 +64,6 @@ public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        public PutFormRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new PutFormRequest(this) : (PutFormRequest) invokeV.objValue;
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PutFormRequestBuilder(PutFormRequest putFormRequest, AbstractHttpManager abstractHttpManager) {
             super(putFormRequest, abstractHttpManager);
@@ -91,6 +83,17 @@ public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
                     return;
                 }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        public PutFormRequest build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new PutFormRequest(this);
+            }
+            return (PutFormRequest) invokeV.objValue;
         }
     }
 
@@ -118,7 +121,10 @@ public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? this.okRequestBuilder.put(requestBody).build() : (Request) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
+            return this.okRequestBuilder.put(requestBody).build();
+        }
+        return (Request) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest
@@ -126,11 +132,11 @@ public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedHashMap<String, String> linkedHashMap = this.params;
+            LinkedHashMap linkedHashMap = this.params;
             if (linkedHashMap != null && !linkedHashMap.isEmpty()) {
                 FormBody.Builder builder = new FormBody.Builder();
-                for (Map.Entry<String, String> entry : this.params.entrySet()) {
-                    builder.add(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : this.params.entrySet()) {
+                    builder.add((String) entry.getKey(), (String) entry.getValue());
                 }
                 return builder.build();
             }
@@ -144,7 +150,10 @@ public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
     public PutFormRequestBuilder newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new PutFormRequestBuilder(this) : (PutFormRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new PutFormRequestBuilder(this);
+        }
+        return (PutFormRequestBuilder) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -152,6 +161,9 @@ public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
     public PutFormRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, abstractHttpManager)) == null) ? new PutFormRequestBuilder(this, abstractHttpManager) : (PutFormRequestBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, abstractHttpManager)) == null) {
+            return new PutFormRequestBuilder(this, abstractHttpManager);
+        }
+        return (PutFormRequestBuilder) invokeL.objValue;
     }
 }

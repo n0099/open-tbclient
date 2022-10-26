@@ -53,12 +53,39 @@ public final class CacheInterceptor implements Interceptor {
         this.cache = internalCache;
     }
 
+    public static boolean isContentSpecificHeader(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!"Content-Length".equalsIgnoreCase(str) && !"Content-Encoding".equalsIgnoreCase(str) && !"Content-Type".equalsIgnoreCase(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static Response stripBody(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, response)) == null) {
+            if (response != null && response.body() != null) {
+                return response.newBuilder().body(null).build();
+            }
+            return response;
+        }
+        return (Response) invokeL.objValue;
+    }
+
     private Response cacheWritingResponse(CacheRequest cacheRequest, Response response) throws IOException {
         InterceptResult invokeLL;
-        Sink body;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, cacheRequest, response)) == null) {
-            if (cacheRequest == null || (body = cacheRequest.body()) == null) {
+            if (cacheRequest == null) {
+                return response;
+            }
+            Sink body = cacheRequest.body();
+            if (body == null) {
                 return response;
             }
             return response.newBuilder().body(new RealResponseBody(response.header("Content-Type"), response.body().contentLength(), Okio.buffer(new Source(this, response.body().source(), cacheRequest, Okio.buffer(body)) { // from class: okhttp3.internal.cache.CacheInterceptor.1
@@ -104,6 +131,16 @@ public final class CacheInterceptor implements Interceptor {
                 }
 
                 @Override // okio.Source
+                public Timeout timeout() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        return this.val$source.timeout();
+                    }
+                    return (Timeout) invokeV.objValue;
+                }
+
+                @Override // okio.Source
                 public long read(Buffer buffer, long j) throws IOException {
                     InterceptResult invokeLJ;
                     Interceptable interceptable2 = $ic;
@@ -129,13 +166,6 @@ public final class CacheInterceptor implements Interceptor {
                         }
                     }
                     return invokeLJ.longValue;
-                }
-
-                @Override // okio.Source
-                public Timeout timeout() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.val$source.timeout() : (Timeout) invokeV.objValue;
                 }
             }))).build();
         }
@@ -167,31 +197,30 @@ public final class CacheInterceptor implements Interceptor {
         return (Headers) invokeLL.objValue;
     }
 
-    public static boolean isContentSpecificHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? "Content-Length".equalsIgnoreCase(str) || "Content-Encoding".equalsIgnoreCase(str) || "Content-Type".equalsIgnoreCase(str) : invokeL.booleanValue;
-    }
-
     public static boolean isEndToEnd(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (HTTP.CONN_DIRECTIVE.equalsIgnoreCase(str) || HTTP.CONN_KEEP_ALIVE.equalsIgnoreCase(str) || AUTH.PROXY_AUTH.equalsIgnoreCase(str) || AUTH.PROXY_AUTH_RESP.equalsIgnoreCase(str) || "TE".equalsIgnoreCase(str) || "Trailers".equalsIgnoreCase(str) || "Transfer-Encoding".equalsIgnoreCase(str) || "Upgrade".equalsIgnoreCase(str)) ? false : true : invokeL.booleanValue;
-    }
-
-    public static Response stripBody(Response response) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, response)) == null) ? (response == null || response.body() == null) ? response : response.newBuilder().body(null).build() : (Response) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!HTTP.CONN_DIRECTIVE.equalsIgnoreCase(str) && !HTTP.CONN_KEEP_ALIVE.equalsIgnoreCase(str) && !AUTH.PROXY_AUTH.equalsIgnoreCase(str) && !AUTH.PROXY_AUTH_RESP.equalsIgnoreCase(str) && !"TE".equalsIgnoreCase(str) && !"Trailers".equalsIgnoreCase(str) && !"Transfer-Encoding".equalsIgnoreCase(str) && !"Upgrade".equalsIgnoreCase(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
+        Response response;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
             InternalCache internalCache = this.cache;
-            Response response = internalCache != null ? internalCache.get(chain.request()) : null;
+            if (internalCache != null) {
+                response = internalCache.get(chain.request());
+            } else {
+                response = null;
+            }
             CacheStrategy cacheStrategy = new CacheStrategy.Factory(System.currentTimeMillis(), chain.request(), response).get();
             Request request = cacheStrategy.networkRequest;
             Response response2 = cacheStrategy.cacheResponse;

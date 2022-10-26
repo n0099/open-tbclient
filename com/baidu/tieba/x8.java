@@ -20,10 +20,17 @@ public class x8 {
     public static final x8 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
-    public pd1 b;
+    public qd1 b;
     public long c;
     public final Handler d;
-    public final CopyOnWriteArrayList<lg1> e;
+    public final CopyOnWriteArrayList e;
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onFailed();
+
+        void onSuccess();
+    }
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -55,22 +62,16 @@ public class x8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != 1 || ((float) (System.currentTimeMillis() - this.b.c)) >= ae1.i() * 60000.0f) {
-                    if (this.b.b == null) {
-                        this.b.b = new pd1();
-                    }
-                    this.b.b.k();
-                    this.b.c = System.currentTimeMillis();
+                if (this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < be1.i() * 60000.0f) {
+                    return;
                 }
+                if (this.b.b == null) {
+                    this.b.b = new qd1();
+                }
+                this.b.b.k();
+                this.b.c = System.currentTimeMillis();
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onFailed();
-
-        void onSuccess();
     }
 
     static {
@@ -89,6 +90,54 @@ public class x8 {
         f = new x8();
     }
 
+    public static x8 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return f;
+        }
+        return (x8) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.clear();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Context b2 = aj0.b();
+            if (b2 instanceof Application) {
+                ((Application) b2).registerActivityLifecycleCallbacks(new ud1());
+            }
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject d = od1.a().d();
+            if (d == null || d.optBoolean("real_time_query_switch", true)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
     public x8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -104,46 +153,7 @@ public class x8 {
         }
         this.a = false;
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new CopyOnWriteArrayList<>();
-    }
-
-    public static x8 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f : (x8) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.clear();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Context b2 = zi0.b();
-            if (b2 instanceof Application) {
-                ((Application) b2).registerActivityLifecycleCallbacks(new td1());
-            }
-        }
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = nd1.a().d();
-            return d == null || d.optBoolean("real_time_query_switch", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
+        this.e = new CopyOnWriteArrayList();
     }
 
     public void j(int i) {

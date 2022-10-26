@@ -40,7 +40,11 @@ public class n2 extends Handler {
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
             this.a.e = true;
             this.a.k.removeMessages(11);
-            e1.a(this.a.b).a(new f1(this.a.f), 2002, (this.a.b() ? this.a.f.getWt() : 0) * 1000).a();
+            int i = 0;
+            if (this.a.b()) {
+                i = this.a.f.getWt();
+            }
+            e1.a(this.a.b).a(new f1(this.a.f), 2002, i * 1000).a();
             this.a.h.onFail(PBError.TIMEOUT);
         }
     }

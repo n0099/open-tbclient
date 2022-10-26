@@ -1,8 +1,5 @@
 package com.baidu.searchbox.player.kernel;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes2.dex */
 public interface IKernelFactory {
-    @NonNull
-    AbsVideoKernel create(@NonNull String str);
+    AbsVideoKernel create(String str);
 }

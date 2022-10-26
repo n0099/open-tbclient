@@ -2,9 +2,9 @@ package com.fun.ad.sdk.internal.api.ripper;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.tieba.dq9;
-import com.baidu.tieba.gl9;
-import com.baidu.tieba.lq9;
+import com.baidu.tieba.dr9;
+import com.baidu.tieba.vq9;
+import com.baidu.tieba.yl9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,9 +26,9 @@ public abstract class BaseAdRipper implements AdRipper {
     public static AdRipper FAKE_AD_RIPPER;
     public static final Random a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<Object, Boolean> b;
-    public final HashMap<Object, Boolean> c;
-    public final HashMap<Object, RippedAd> d;
+    public final HashMap b;
+    public final HashMap c;
+    public final HashMap d;
     public final Ssp.Pid mPid;
 
     static {
@@ -44,7 +44,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        FAKE_AD_RIPPER = new gl9();
+        FAKE_AD_RIPPER = new yl9();
         a = new Random();
     }
 
@@ -63,9 +63,9 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new HashMap();
         this.mPid = pid;
     }
 
@@ -75,10 +75,10 @@ public abstract class BaseAdRipper implements AdRipper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             synchronized (this.c) {
-                Boolean bool = this.c.get(obj);
+                Boolean bool = (Boolean) this.c.get(obj);
                 if (bool == null || bool.booleanValue()) {
                     synchronized (this.d) {
-                        rippedAd = this.d.get(obj);
+                        rippedAd = (RippedAd) this.d.get(obj);
                         if (rippedAd == null) {
                             rippedAd = getRippedAdInternal(obj);
                             boolean z = false;
@@ -95,41 +95,6 @@ public abstract class BaseAdRipper implements AdRipper {
                 }
                 return null;
             }
-        }
-        return (RippedAd) invokeL.objValue;
-    }
-
-    public final RippedAd b(Object obj) {
-        InterceptResult invokeL;
-        RippedAd rippedAd;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            synchronized (this.b) {
-                Boolean bool = this.b.get(obj);
-                RippedAd rippedAd2 = null;
-                if (bool == null) {
-                    float nextFloat = a.nextFloat();
-                    boolean z = false;
-                    if (nextFloat >= this.mPid.sample) {
-                        LogPrinter.d("Forbid getRipped-report with sample %.2f ratio:%.2f", Float.valueOf(nextFloat), Float.valueOf(this.mPid.sample));
-                    } else {
-                        z = true;
-                    }
-                    if (z) {
-                        RippedAd a2 = a(obj);
-                        this.b.put(obj, Boolean.TRUE);
-                        rippedAd2 = a2;
-                    } else {
-                        this.b.put(obj, Boolean.FALSE);
-                    }
-                } else if (bool.booleanValue()) {
-                    synchronized (this.d) {
-                        rippedAd = this.d.get(obj);
-                    }
-                }
-                rippedAd = rippedAd2;
-            }
-            return rippedAd;
         }
         return (RippedAd) invokeL.objValue;
     }
@@ -163,7 +128,7 @@ public abstract class BaseAdRipper implements AdRipper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, obj, z)) == null) {
             synchronized (this.d) {
-                RippedAd rippedAd = this.d.get(obj);
+                RippedAd rippedAd = (RippedAd) this.d.get(obj);
                 return rippedAd != null ? rippedAd : z ? a(obj) : b(obj);
             }
         }
@@ -181,47 +146,80 @@ public abstract class BaseAdRipper implements AdRipper {
         b(obj);
     }
 
-    /* JADX WARN: Type inference failed for: r6v18, types: [T, java.lang.Object] */
+    public final RippedAd b(Object obj) {
+        InterceptResult invokeL;
+        RippedAd rippedAd;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            synchronized (this.b) {
+                Boolean bool = (Boolean) this.b.get(obj);
+                RippedAd rippedAd2 = null;
+                if (bool == null) {
+                    float nextFloat = a.nextFloat();
+                    boolean z = false;
+                    if (nextFloat >= this.mPid.sample) {
+                        LogPrinter.d("Forbid getRipped-report with sample %.2f ratio:%.2f", Float.valueOf(nextFloat), Float.valueOf(this.mPid.sample));
+                    } else {
+                        z = true;
+                    }
+                    if (z) {
+                        RippedAd a2 = a(obj);
+                        this.b.put(obj, Boolean.TRUE);
+                        rippedAd2 = a2;
+                    } else {
+                        this.b.put(obj, Boolean.FALSE);
+                    }
+                } else if (bool.booleanValue()) {
+                    synchronized (this.d) {
+                        rippedAd = (RippedAd) this.d.get(obj);
+                    }
+                }
+                rippedAd = rippedAd2;
+            }
+            return rippedAd;
+        }
+        return (RippedAd) invokeL.objValue;
+    }
+
     @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
     public final void report(Object obj, String str, long j) {
         RippedAd b;
-        Reporter reporter;
+        Object obj2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, str, Long.valueOf(j)}) == null) || !BuildConfig.IS_ADM_REPORT.booleanValue() || obj == null || (b = b(obj)) == null) {
-            return;
-        }
-        Ssp.Pid pid = this.mPid;
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ad_platform", pid.ssp.type);
-            jSONObject.put("aid", pid.pid);
-            jSONObject.put("type", pid.type);
-            jSONObject.put("sid", str);
-            jSONObject.put("corp", b.corporation);
-            jSONObject.put("title", b.title);
-            jSONObject.put("desc", b.description);
-            jSONObject.put("iU", b.iconUrl);
-            jSONObject.put("appN", b.appName);
-            jSONObject.put("pkg", b.appPkg);
-            jSONObject.put(DeepLinkItem.DEEPLINK_APPURL_KEY, b.appUrl);
-            jSONObject.put("imgU", b.imageUrl);
-            jSONObject.put("viU", b.videoImageUrl);
-            jSONObject.put("vU", b.videoUrl);
-            jSONObject.put("clkU", b.clickUrl);
-            jSONObject.put("dpU", b.deepLinkUrl);
-            jSONObject.put("convU", b.convUrl);
-            jSONObject.put("uniqueId", b.uniqueId);
-            jSONObject.put("lid", j);
-            lq9<Reporter> lq9Var = dq9.b;
-            synchronized (lq9Var) {
-                if (lq9Var.a == null) {
-                    lq9Var.a = lq9Var.a();
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, str, Long.valueOf(j)}) == null) && BuildConfig.IS_ADM_REPORT.booleanValue() && obj != null && (b = b(obj)) != null) {
+            Ssp.Pid pid = this.mPid;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("ad_platform", pid.ssp.type);
+                jSONObject.put("aid", pid.pid);
+                jSONObject.put("type", pid.type);
+                jSONObject.put("sid", str);
+                jSONObject.put("corp", b.corporation);
+                jSONObject.put("title", b.title);
+                jSONObject.put("desc", b.description);
+                jSONObject.put("iU", b.iconUrl);
+                jSONObject.put("appN", b.appName);
+                jSONObject.put("pkg", b.appPkg);
+                jSONObject.put(DeepLinkItem.DEEPLINK_APPURL_KEY, b.appUrl);
+                jSONObject.put("imgU", b.imageUrl);
+                jSONObject.put("viU", b.videoImageUrl);
+                jSONObject.put("vU", b.videoUrl);
+                jSONObject.put("clkU", b.clickUrl);
+                jSONObject.put("dpU", b.deepLinkUrl);
+                jSONObject.put("convU", b.convUrl);
+                jSONObject.put("uniqueId", b.uniqueId);
+                jSONObject.put("lid", j);
+                dr9 dr9Var = vq9.b;
+                synchronized (dr9Var) {
+                    if (dr9Var.a == null) {
+                        dr9Var.a = dr9Var.a();
+                    }
+                    obj2 = dr9Var.a;
                 }
-                reporter = lq9Var.a;
+                ((Reporter) obj2).logEvent("adM", jSONObject);
+            } catch (JSONException e) {
+                LogPrinter.e(e);
             }
-            reporter.logEvent("adM", jSONObject);
-        } catch (JSONException e) {
-            LogPrinter.e(e);
         }
     }
 }

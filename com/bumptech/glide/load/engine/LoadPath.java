@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,15 +15,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class LoadPath<Data, ResourceType, Transcode> {
+public class LoadPath {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<Data> dataClass;
-    public final List<? extends DecodePath<Data, ResourceType, Transcode>> decodePaths;
+    public final Class dataClass;
+    public final List decodePaths;
     public final String failureMessage;
-    public final Pools.Pool<List<Throwable>> listPool;
+    public final Pools.Pool listPool;
 
-    public LoadPath(Class<Data> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<DecodePath<Data, ResourceType, Transcode>> list, Pools.Pool<List<Throwable>> pool) {
+    public LoadPath(Class cls, Class cls2, Class cls3, List list, Pools.Pool pool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,15 +44,15 @@ public class LoadPath<Data, ResourceType, Transcode> {
         this.failureMessage = "Failed LoadPath{" + cls.getSimpleName() + "->" + cls2.getSimpleName() + "->" + cls3.getSimpleName() + "}";
     }
 
-    private Resource<Transcode> loadWithExceptionList(DataRewinder<Data> dataRewinder, @NonNull Options options, int i, int i2, DecodePath.DecodeCallback<ResourceType> decodeCallback, List<Throwable> list) throws GlideException {
+    private Resource loadWithExceptionList(DataRewinder dataRewinder, Options options, int i, int i2, DecodePath.DecodeCallback decodeCallback, List list) throws GlideException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{dataRewinder, options, Integer.valueOf(i), Integer.valueOf(i2), decodeCallback, list})) == null) {
             int size = this.decodePaths.size();
-            Resource<Transcode> resource = null;
+            Resource resource = null;
             for (int i3 = 0; i3 < size; i3++) {
                 try {
-                    resource = this.decodePaths.get(i3).decode(dataRewinder, i, i2, options, decodeCallback);
+                    resource = ((DecodePath) this.decodePaths.get(i3)).decode(dataRewinder, i, i2, options, decodeCallback);
                 } catch (GlideException e) {
                     list.add(e);
                 }
@@ -69,17 +68,20 @@ public class LoadPath<Data, ResourceType, Transcode> {
         return (Resource) invokeCommon.objValue;
     }
 
-    public Class<Data> getDataClass() {
+    public Class getDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dataClass : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dataClass;
+        }
+        return (Class) invokeV.objValue;
     }
 
-    public Resource<Transcode> load(DataRewinder<Data> dataRewinder, @NonNull Options options, int i, int i2, DecodePath.DecodeCallback<ResourceType> decodeCallback) throws GlideException {
+    public Resource load(DataRewinder dataRewinder, Options options, int i, int i2, DecodePath.DecodeCallback decodeCallback) throws GlideException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRewinder, options, Integer.valueOf(i), Integer.valueOf(i2), decodeCallback})) == null) {
-            List<Throwable> list = (List) Preconditions.checkNotNull(this.listPool.acquire());
+            List list = (List) Preconditions.checkNotNull(this.listPool.acquire());
             try {
                 return loadWithExceptionList(dataRewinder, options, i, i2, decodeCallback, list);
             } finally {

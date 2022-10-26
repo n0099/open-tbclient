@@ -60,12 +60,18 @@ public final class RegularEmitter$EmissionMode {
     public static RegularEmitter$EmissionMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RegularEmitter$EmissionMode) Enum.valueOf(RegularEmitter$EmissionMode.class, str) : (RegularEmitter$EmissionMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (RegularEmitter$EmissionMode) Enum.valueOf(RegularEmitter$EmissionMode.class, str);
+        }
+        return (RegularEmitter$EmissionMode) invokeL.objValue;
     }
 
     public static RegularEmitter$EmissionMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RegularEmitter$EmissionMode[]) $VALUES.clone() : (RegularEmitter$EmissionMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (RegularEmitter$EmissionMode[]) $VALUES.clone();
+        }
+        return (RegularEmitter$EmissionMode[]) invokeV.objValue;
     }
 }

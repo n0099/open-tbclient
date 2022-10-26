@@ -36,10 +36,34 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
     public String mKey;
-    public ArrayList<Long> mPaids;
+    public ArrayList mPaids;
     public long mUk;
 
-    public IMPaGetOneInfoRequest(Context context, String str, ArrayList<Long> arrayList, long j, long j2) {
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public IMPaGetOneInfoRequest(Context context, String str, ArrayList arrayList, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,26 +86,18 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     }
 
     private void onRequestReturn(Integer num, String str, IGetPaInfoListener iGetPaInfoListener) {
-        ArrayList<Long> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, this, num, str, iGetPaInfoListener) == null) || (arrayList = this.mPaids) == null || arrayList.size() <= 0) {
-            return;
-        }
-        PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(this.mPaids.get(0).longValue());
-        if (iGetPaInfoListener != null) {
-            if (queryPaInfo != null) {
-                iGetPaInfoListener.onGetPaInfoResult(0, Constants.ERROR_MSG_SUCCESS, queryPaInfo);
-            } else {
-                iGetPaInfoListener.onGetPaInfoResult(num.intValue(), str, null);
+        if ((interceptable == null || interceptable.invokeLLL(65537, this, num, str, iGetPaInfoListener) == null) && (arrayList = this.mPaids) != null && arrayList.size() > 0) {
+            PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(((Long) this.mPaids.get(0)).longValue());
+            if (iGetPaInfoListener != null) {
+                if (queryPaInfo != null) {
+                    iGetPaInfoListener.onGetPaInfoResult(0, Constants.ERROR_MSG_SUCCESS, queryPaInfo);
+                } else {
+                    iGetPaInfoListener.onGetPaInfoResult(num.intValue(), str, null);
+                }
             }
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.pubaccount.request.PaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -95,13 +111,6 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
             return getHostUrl() + "rest/3.0/im/box?method=all_pa_detail_list";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -119,11 +128,11 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                 jSONObject.put("timestamp", currentTimeMillis);
                 JSONArray jSONArray = new JSONArray();
                 if (this.mPaids != null) {
-                    Iterator<Long> it = this.mPaids.iterator();
+                    Iterator it = this.mPaids.iterator();
                     while (it.hasNext()) {
-                        Long next = it.next();
-                        if (next.longValue() > 0) {
-                            jSONArray.put(next);
+                        Long l = (Long) it.next();
+                        if (l.longValue() > 0) {
+                            jSONArray.put(l);
                         }
                     }
                 }
@@ -151,7 +160,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             onRequestReturn((Integer) transErrorCode.first, (String) transErrorCode.second, (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey));
         }
     }
@@ -169,113 +178,104 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         IGetPaInfoListener iGetPaInfoListener;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeIL(1048581, this, i, bArr) != null) {
-            return;
-        }
-        String str2 = new String(bArr);
-        PaInfo paInfo = null;
-        try {
-            jSONObject = new JSONObject(str2);
-            i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-        } catch (JSONException e) {
-            e = e;
-            arrayList = null;
-        }
-        if (i2 != 0) {
-            LogUtils.e(TAG, "error code :" + i2 + "===errorMsg:" + str);
-        } else if (jSONObject.has("response_params")) {
-            JSONArray jSONArray = jSONObject.getJSONArray("response_params");
-            arrayList = new ArrayList();
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                try {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                    if (jSONObject2.optInt("pa_type") != 16) {
-                        PaInfo paInfo2 = new PaInfo();
-                        paInfo2.setPaId(jSONObject2.optLong("pa_uid"));
-                        paInfo2.setNickName(jSONObject2.optString("pa_nickname"));
-                        paInfo2.setUsername(jSONObject2.optString("pa_username"));
-                        paInfo2.setAvatar(jSONObject2.optString("pa_avatar"));
-                        paInfo2.setDescription(jSONObject2.optString("description"));
-                        paInfo2.setDetail(jSONObject2.optString("detail_description"));
-                        paInfo2.setTPL(jSONObject2.optLong("tpl", -1L));
-                        paInfo2.setAcceptPush(jSONObject2.optBoolean("is_accept_msg"));
-                        paInfo2.setUrl(jSONObject2.optString("pa_url"));
-                        paInfo2.setSubcribeTime(jSONObject2.optLong("create_time"));
-                        paInfo2.setDisturb(jSONObject2.optInt("do_not_disturb"));
-                        paInfo2.setSubtype(jSONObject2.optInt("pa_type"));
-                        paInfo2.setClassType(jSONObject2.optInt("pa_classtype", 0));
-                        paInfo2.setClasstitle(jSONObject2.optString("pa_classtitle"));
-                        paInfo2.setClassAvatar(jSONObject2.optString("pa_classavatar"));
-                        paInfo2.setClassshow(jSONObject2.optInt("pa_classshow", 0));
-                        paInfo2.setStatus(jSONObject2.optInt("status", 0));
-                        String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
-                        paInfo2.setPaExt(optString);
-                        if (!TextUtils.isEmpty(optString)) {
-                            try {
-                                paInfo2.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
-                            } catch (JSONException e2) {
-                                LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
+            String str2 = new String(bArr);
+            PaInfo paInfo = null;
+            try {
+                jSONObject = new JSONObject(str2);
+                i2 = jSONObject.getInt("error_code");
+                str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+            } catch (JSONException e) {
+                e = e;
+                arrayList = null;
+            }
+            if (i2 == 0) {
+                if (jSONObject.has("response_params")) {
+                    JSONArray jSONArray = jSONObject.getJSONArray("response_params");
+                    arrayList = new ArrayList();
+                    for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                        try {
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                            if (jSONObject2.optInt("pa_type") != 16) {
+                                PaInfo paInfo2 = new PaInfo();
+                                paInfo2.setPaId(jSONObject2.optLong("pa_uid"));
+                                paInfo2.setNickName(jSONObject2.optString("pa_nickname"));
+                                paInfo2.setUsername(jSONObject2.optString("pa_username"));
+                                paInfo2.setAvatar(jSONObject2.optString("pa_avatar"));
+                                paInfo2.setDescription(jSONObject2.optString("description"));
+                                paInfo2.setDetail(jSONObject2.optString("detail_description"));
+                                paInfo2.setTPL(jSONObject2.optLong("tpl", -1L));
+                                paInfo2.setAcceptPush(jSONObject2.optBoolean("is_accept_msg"));
+                                paInfo2.setUrl(jSONObject2.optString("pa_url"));
+                                paInfo2.setSubcribeTime(jSONObject2.optLong("create_time"));
+                                paInfo2.setDisturb(jSONObject2.optInt("do_not_disturb"));
+                                paInfo2.setSubtype(jSONObject2.optInt("pa_type"));
+                                paInfo2.setClassType(jSONObject2.optInt("pa_classtype", 0));
+                                paInfo2.setClasstitle(jSONObject2.optString("pa_classtitle"));
+                                paInfo2.setClassAvatar(jSONObject2.optString("pa_classavatar"));
+                                paInfo2.setClassshow(jSONObject2.optInt("pa_classshow", 0));
+                                paInfo2.setStatus(jSONObject2.optInt("status", 0));
+                                String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT, "");
+                                paInfo2.setPaExt(optString);
+                                if (!TextUtils.isEmpty(optString)) {
+                                    try {
+                                        paInfo2.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
+                                    } catch (JSONException e2) {
+                                        LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
+                                    }
+                                }
+                                paInfo2.setVipId(jSONObject2.optString("vip"));
+                                paInfo2.setVPortrait(jSONObject2.optString("v_portrait", ""));
+                                paInfo2.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
+                                paInfo2.setIdentity(jSONObject2.optString("identity", ""));
+                                paInfo2.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
+                                paInfo2.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
+                                PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo2.getPaId());
+                                if (queryPaInfo != null) {
+                                    paInfo2.setMarkTop(queryPaInfo.getMarkTop());
+                                    paInfo2.setMarkTopTime(queryPaInfo.getMarkTopTime());
+                                    paInfo2.setShield(queryPaInfo.getShield());
+                                    paInfo2.setShieldTime(queryPaInfo.getShieldTime());
+                                }
+                                arrayList.add(paInfo2);
+                            }
+                        } catch (JSONException e3) {
+                            e = e3;
+                            LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
+                            i2 = 1010;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                            iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
+                            if (iGetPaInfoListener != null) {
                             }
                         }
-                        paInfo2.setVipId(jSONObject2.optString("vip"));
-                        paInfo2.setVPortrait(jSONObject2.optString("v_portrait", ""));
-                        paInfo2.setHasIdentity(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY, 0));
-                        paInfo2.setIdentity(jSONObject2.optString("identity", ""));
-                        paInfo2.setThirdExt(jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, ""));
-                        paInfo2.setRejectMenu(jSONObject2.optInt(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU, 1));
-                        PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo2.getPaId());
-                        if (queryPaInfo != null) {
-                            paInfo2.setMarkTop(queryPaInfo.getMarkTop());
-                            paInfo2.setMarkTopTime(queryPaInfo.getMarkTopTime());
-                            paInfo2.setShield(queryPaInfo.getShield());
-                            paInfo2.setShieldTime(queryPaInfo.getShieldTime());
-                        }
-                        arrayList.add(paInfo2);
                     }
-                } catch (JSONException e3) {
-                    e = e3;
-                    LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
-                    i2 = 1010;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                    Iterator it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        PaInfoDBManager.getInstance(this.mContext).subscribePa((PaInfo) it.next());
+                    }
                     iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
                     if (iGetPaInfoListener != null) {
+                        if (arrayList != null && arrayList.size() > 0) {
+                            paInfo = (PaInfo) arrayList.get(0);
+                        }
+                        if (paInfo != null) {
+                            iGetPaInfoListener.onGetPaInfoResult(i2, str, PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId()));
+                            return;
+                        } else {
+                            onRequestReturn(Integer.valueOf(i2), str, iGetPaInfoListener);
+                            return;
+                        }
                     }
+                    return;
                 }
+            } else {
+                LogUtils.e(TAG, "error code :" + i2 + "===errorMsg:" + str);
             }
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                PaInfoDBManager.getInstance(this.mContext).subscribePa((PaInfo) it.next());
-            }
+            arrayList = null;
             iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
             if (iGetPaInfoListener != null) {
-                if (arrayList != null && arrayList.size() > 0) {
-                    paInfo = (PaInfo) arrayList.get(0);
-                }
-                if (paInfo != null) {
-                    iGetPaInfoListener.onGetPaInfoResult(i2, str, PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId()));
-                    return;
-                } else {
-                    onRequestReturn(Integer.valueOf(i2), str, iGetPaInfoListener);
-                    return;
-                }
             }
-            return;
         }
-        arrayList = null;
-        iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey);
-        if (iGetPaInfoListener != null) {
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

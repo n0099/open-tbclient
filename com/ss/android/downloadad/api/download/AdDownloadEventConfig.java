@@ -22,46 +22,21 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
     public String mRefer;
     public String mStorageDenyLabel;
 
+    @Deprecated
+    public void setQuickAppEventTag(String str) {
+    }
+
     /* loaded from: classes8.dex */
-    public static final class Builder {
+    public final class Builder {
         public AdDownloadEventConfig eventConfig = new AdDownloadEventConfig();
-
-        public AdDownloadEventConfig build() {
-            return this.eventConfig;
-        }
-
-        public Builder setClickButtonTag(String str) {
-            this.eventConfig.mClickButtonTag = str;
-            return this;
-        }
-
-        public Builder setClickContinueLabel(String str) {
-            this.eventConfig.mClickContinueLabel = str;
-            return this;
-        }
 
         @Deprecated
         public Builder setClickContinueTag(String str) {
             return this;
         }
 
-        public Builder setClickInstallLabel(String str) {
-            this.eventConfig.mClickInstallLabel = str;
-            return this;
-        }
-
         @Deprecated
         public Builder setClickInstallTag(String str) {
-            return this;
-        }
-
-        public Builder setClickItemTag(String str) {
-            this.eventConfig.mClickItemTag = str;
-            return this;
-        }
-
-        public Builder setClickLabel(String str) {
-            this.eventConfig.mClickLabel = str;
             return this;
         }
 
@@ -75,18 +50,8 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             return this;
         }
 
-        public Builder setClickPauseLabel(String str) {
-            this.eventConfig.mClickPauseLabel = str;
-            return this;
-        }
-
         @Deprecated
         public Builder setClickPauseTag(String str) {
-            return this;
-        }
-
-        public Builder setClickStartLabel(String str) {
-            this.eventConfig.mClickStartLabel = str;
             return this;
         }
 
@@ -110,6 +75,75 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             return this;
         }
 
+        @Deprecated
+        public Builder setIsEnableCompletedEvent(boolean z) {
+            return this;
+        }
+
+        @Deprecated
+        public Builder setIsEnableNoChargeClickEvent(boolean z) {
+            return this;
+        }
+
+        @Deprecated
+        public Builder setOpenLabel(String str) {
+            return this;
+        }
+
+        @Deprecated
+        public Builder setOpenTag(String str) {
+            return this;
+        }
+
+        @Deprecated
+        public Builder setQuickAppEventTag(String str) {
+            return this;
+        }
+
+        @Deprecated
+        public Builder setStorageDenyTag(String str) {
+            return this;
+        }
+
+        public AdDownloadEventConfig build() {
+            return this.eventConfig;
+        }
+
+        public Builder setClickButtonTag(String str) {
+            this.eventConfig.mClickButtonTag = str;
+            return this;
+        }
+
+        public Builder setClickContinueLabel(String str) {
+            this.eventConfig.mClickContinueLabel = str;
+            return this;
+        }
+
+        public Builder setClickInstallLabel(String str) {
+            this.eventConfig.mClickInstallLabel = str;
+            return this;
+        }
+
+        public Builder setClickItemTag(String str) {
+            this.eventConfig.mClickItemTag = str;
+            return this;
+        }
+
+        public Builder setClickLabel(String str) {
+            this.eventConfig.mClickLabel = str;
+            return this;
+        }
+
+        public Builder setClickPauseLabel(String str) {
+            this.eventConfig.mClickPauseLabel = str;
+            return this;
+        }
+
+        public Builder setClickStartLabel(String str) {
+            this.eventConfig.mClickStartLabel = str;
+            return this;
+        }
+
         public Builder setDownloadScene(int i) {
             this.eventConfig.mDownloadScene = i;
             return this;
@@ -130,38 +164,13 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             return this;
         }
 
-        @Deprecated
-        public Builder setIsEnableCompletedEvent(boolean z) {
-            return this;
-        }
-
-        @Deprecated
-        public Builder setIsEnableNoChargeClickEvent(boolean z) {
-            return this;
-        }
-
         public Builder setIsEnableV3Event(boolean z) {
             this.eventConfig.mIsEnableV3Event = z;
             return this;
         }
 
-        @Deprecated
-        public Builder setOpenLabel(String str) {
-            return this;
-        }
-
-        @Deprecated
-        public Builder setOpenTag(String str) {
-            return this;
-        }
-
         public Builder setParamsJson(JSONObject jSONObject) {
             this.eventConfig.mParamsJson = jSONObject;
-            return this;
-        }
-
-        @Deprecated
-        public Builder setQuickAppEventTag(String str) {
             return this;
         }
 
@@ -174,42 +183,11 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             this.eventConfig.mStorageDenyLabel = str;
             return this;
         }
-
-        @Deprecated
-        public Builder setStorageDenyTag(String str) {
-            return this;
-        }
     }
 
     public AdDownloadEventConfig() {
         this.mIsEnableClickEvent = true;
         this.mIsEnableV3Event = false;
-    }
-
-    public static AdDownloadEventConfig fromJson(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
-        }
-        Builder builder = new Builder();
-        try {
-            builder.setClickButtonTag(jSONObject.optString("click_button_tag"));
-            builder.setClickItemTag(jSONObject.optString("click_item_tag"));
-            builder.setClickLabel(jSONObject.optString("click_label"));
-            builder.setClickStartLabel(jSONObject.optString("click_start_label"));
-            builder.setClickContinueLabel(jSONObject.optString("click_continue_label"));
-            builder.setClickPauseLabel(jSONObject.optString("click_pause_label"));
-            builder.setClickInstallLabel(jSONObject.optString("click_install_label"));
-            builder.setStorageDenyLabel(jSONObject.optString("storage_deny_label"));
-            builder.setRefer(jSONObject.optString(TiebaStatic.Params.REFER));
-            builder.setDownloadScene(jSONObject.optInt("download_scene"));
-            builder.setIsEnableClickEvent(jSONObject.optInt("enable_click_event") == 1);
-            builder.setIsEnableV3Event(jSONObject.optInt("enable_v3_event") == 1);
-            builder.setExtraJson(jSONObject.optJSONObject("extra"));
-            builder.setParamsJson(jSONObject.optJSONObject("params_json"));
-        } catch (Exception e) {
-            j.s().a(e, "AdDownloadEventConfig fromJson");
-        }
-        return builder.build();
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -287,6 +265,64 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
         return this.mIsEnableV3Event;
     }
 
+    public AdDownloadEventConfig(AdDownloadEventConfig adDownloadEventConfig) {
+        this.mIsEnableClickEvent = true;
+        this.mIsEnableV3Event = false;
+        if (adDownloadEventConfig == null) {
+            return;
+        }
+        this.mClickButtonTag = adDownloadEventConfig.mClickButtonTag;
+        this.mClickItemTag = adDownloadEventConfig.mClickItemTag;
+        this.mClickLabel = adDownloadEventConfig.mClickLabel;
+        this.mClickStartLabel = adDownloadEventConfig.mClickStartLabel;
+        this.mClickPauseLabel = adDownloadEventConfig.mClickPauseLabel;
+        this.mClickContinueLabel = adDownloadEventConfig.mClickContinueLabel;
+        this.mClickInstallLabel = adDownloadEventConfig.mClickInstallLabel;
+        this.mStorageDenyLabel = adDownloadEventConfig.mStorageDenyLabel;
+        this.mDownloadScene = adDownloadEventConfig.mDownloadScene;
+        this.mIsEnableClickEvent = adDownloadEventConfig.mIsEnableClickEvent;
+        this.mIsEnableV3Event = adDownloadEventConfig.mIsEnableV3Event;
+        this.mRefer = adDownloadEventConfig.mRefer;
+        this.mExtraJson = adDownloadEventConfig.mExtraJson;
+        this.mParamsJson = adDownloadEventConfig.mParamsJson;
+    }
+
+    public static AdDownloadEventConfig fromJson(JSONObject jSONObject) {
+        boolean z;
+        if (jSONObject == null) {
+            return null;
+        }
+        Builder builder = new Builder();
+        try {
+            builder.setClickButtonTag(jSONObject.optString("click_button_tag"));
+            builder.setClickItemTag(jSONObject.optString("click_item_tag"));
+            builder.setClickLabel(jSONObject.optString("click_label"));
+            builder.setClickStartLabel(jSONObject.optString("click_start_label"));
+            builder.setClickContinueLabel(jSONObject.optString("click_continue_label"));
+            builder.setClickPauseLabel(jSONObject.optString("click_pause_label"));
+            builder.setClickInstallLabel(jSONObject.optString("click_install_label"));
+            builder.setStorageDenyLabel(jSONObject.optString("storage_deny_label"));
+            builder.setRefer(jSONObject.optString(TiebaStatic.Params.REFER));
+            builder.setDownloadScene(jSONObject.optInt("download_scene"));
+            boolean z2 = false;
+            if (jSONObject.optInt("enable_click_event") == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            builder.setIsEnableClickEvent(z);
+            if (jSONObject.optInt("enable_v3_event") == 1) {
+                z2 = true;
+            }
+            builder.setIsEnableV3Event(z2);
+            builder.setExtraJson(jSONObject.optJSONObject("extra"));
+            builder.setParamsJson(jSONObject.optJSONObject("params_json"));
+        } catch (Exception e) {
+            j.s().a(e, "AdDownloadEventConfig fromJson");
+        }
+        return builder.build();
+    }
+
     public void setClickButtonTag(String str) {
         this.mClickButtonTag = str;
     }
@@ -312,16 +348,13 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
         this.mParamsJson = jSONObject;
     }
 
-    @Deprecated
-    public void setQuickAppEventTag(String str) {
-    }
-
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public void setRefer(String str) {
         this.mRefer = str;
     }
 
     public JSONObject toJson() {
+        int i;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("click_button_tag", this.mClickButtonTag);
@@ -334,39 +367,22 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             jSONObject.putOpt("storage_deny_label", this.mStorageDenyLabel);
             jSONObject.putOpt(TiebaStatic.Params.REFER, this.mRefer);
             jSONObject.putOpt("download_scene", Integer.valueOf(this.mDownloadScene));
-            int i = 1;
-            jSONObject.putOpt("enable_click_event", Integer.valueOf(this.mIsEnableClickEvent ? 1 : 0));
-            if (!this.mIsEnableV3Event) {
+            int i2 = 1;
+            if (this.mIsEnableClickEvent) {
+                i = 1;
+            } else {
                 i = 0;
             }
-            jSONObject.putOpt("enable_v3_event", Integer.valueOf(i));
+            jSONObject.putOpt("enable_click_event", Integer.valueOf(i));
+            if (!this.mIsEnableV3Event) {
+                i2 = 0;
+            }
+            jSONObject.putOpt("enable_v3_event", Integer.valueOf(i2));
             jSONObject.putOpt("extra", this.mExtraJson);
             jSONObject.putOpt("params_json", this.mParamsJson);
         } catch (Exception e) {
             j.s().a(e, "AdDownloadEventConfig toJson");
         }
         return jSONObject;
-    }
-
-    public AdDownloadEventConfig(AdDownloadEventConfig adDownloadEventConfig) {
-        this.mIsEnableClickEvent = true;
-        this.mIsEnableV3Event = false;
-        if (adDownloadEventConfig == null) {
-            return;
-        }
-        this.mClickButtonTag = adDownloadEventConfig.mClickButtonTag;
-        this.mClickItemTag = adDownloadEventConfig.mClickItemTag;
-        this.mClickLabel = adDownloadEventConfig.mClickLabel;
-        this.mClickStartLabel = adDownloadEventConfig.mClickStartLabel;
-        this.mClickPauseLabel = adDownloadEventConfig.mClickPauseLabel;
-        this.mClickContinueLabel = adDownloadEventConfig.mClickContinueLabel;
-        this.mClickInstallLabel = adDownloadEventConfig.mClickInstallLabel;
-        this.mStorageDenyLabel = adDownloadEventConfig.mStorageDenyLabel;
-        this.mDownloadScene = adDownloadEventConfig.mDownloadScene;
-        this.mIsEnableClickEvent = adDownloadEventConfig.mIsEnableClickEvent;
-        this.mIsEnableV3Event = adDownloadEventConfig.mIsEnableV3Event;
-        this.mRefer = adDownloadEventConfig.mRefer;
-        this.mExtraJson = adDownloadEventConfig.mExtraJson;
-        this.mParamsJson = adDownloadEventConfig.mParamsJson;
     }
 }

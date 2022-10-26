@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.gg8;
+import com.baidu.tieba.qg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.GetMoreMsg.GetMoreMsgResIdl;
 public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gg8 loadMoreData;
+    public qg8 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreHttpResponseMessage() {
@@ -37,10 +37,13 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
     }
 
-    public gg8 getData() {
+    public qg8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loadMoreData : (gg8) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.loadMoreData;
+        }
+        return (qg8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +51,7 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetMoreMsgResIdl getMoreMsgResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getMoreMsgResIdl = (GetMoreMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMoreMsgResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getMoreMsgResIdl = (GetMoreMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMoreMsgResIdl.class)) == null) {
             return;
         }
         Error error = getMoreMsgResIdl.error;
@@ -57,11 +60,10 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
             setErrorString(getMoreMsgResIdl.error.errmsg);
         }
         DataRes dataRes = getMoreMsgResIdl.data;
-        if (dataRes == null || dataRes == null) {
-            return;
+        if (dataRes != null && dataRes != null) {
+            qg8 qg8Var = new qg8();
+            this.loadMoreData = qg8Var;
+            qg8Var.c(getMoreMsgResIdl.data);
         }
-        gg8 gg8Var = new gg8();
-        this.loadMoreData = gg8Var;
-        gg8Var.c(getMoreMsgResIdl.data);
     }
 }

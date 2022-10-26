@@ -2,8 +2,8 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ah9;
-import com.baidu.tieba.ih9;
+import com.baidu.tieba.ai9;
+import com.baidu.tieba.sh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,6 +30,42 @@ public class InnerMediaProcessor extends Thread {
     public int mPreviewHeight;
     public int mPreviewWidth;
     public volatile boolean mUserInterrupted;
+
+    public void extractDecodeEditEncodeMux() throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public String getMuxerLog() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "no more log" : (String) invokeV.objValue;
+    }
+
+    public void onInterrupt() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public void onPostExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    public void onProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InnerMediaProcessor(String str) {
@@ -60,31 +96,18 @@ public class InnerMediaProcessor extends Thread {
             } else {
                 this.mMuxer.setAudioStart();
             }
-            if (this.mMuxer.start()) {
-                return;
-            }
-            synchronized (this.mMuxer) {
-                while (!this.mMuxer.isStarted()) {
-                    try {
-                        this.mMuxer.wait(100L);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+            if (!this.mMuxer.start()) {
+                synchronized (this.mMuxer) {
+                    while (!this.mMuxer.isStarted()) {
+                        try {
+                            this.mMuxer.wait(100L);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
         }
-    }
-
-    public void extractDecodeEditEncodeMux() throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public String getMuxerLog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "no more log" : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Thread
@@ -99,37 +122,51 @@ public class InnerMediaProcessor extends Thread {
     public boolean isUnInterrupted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (Thread.currentThread().isInterrupted() || this.mUserInterrupted) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!Thread.currentThread().isInterrupted() && !this.mUserInterrupted) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void log(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            ah9.l(str, str2);
+            sh9.l(str, str2);
         }
     }
 
-    public void onInterrupt() {
+    public void setClipRange(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.mClipPoint = j;
+            this.mClipDuration = j2;
         }
     }
 
-    public void onPostExecute() {
+    public void setErrMsg(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048588, this, z, str) == null) {
+            this.mCanRetry = z;
+            this.mErrMsg = str;
         }
     }
 
-    public void onPreExecute() {
+    public void setOutputVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+            this.mOutWidth = i;
+            this.mOutHeight = i2;
         }
     }
 
-    public void onProgress(int i) {
+    public void setPreviewVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+            this.mPreviewWidth = i;
+            this.mPreviewHeight = i2;
         }
     }
 
@@ -140,7 +177,7 @@ public class InnerMediaProcessor extends Thread {
             try {
                 extractDecodeEditEncodeMux();
                 if (isUnInterrupted()) {
-                    ih9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
+                    ai9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InnerMediaProcessor this$0;
@@ -174,7 +211,7 @@ public class InnerMediaProcessor extends Thread {
                 }
             } catch (Exception unused) {
                 if (this.mListener != null) {
-                    ih9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
+                    ai9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InnerMediaProcessor this$0;
@@ -201,31 +238,20 @@ public class InnerMediaProcessor extends Thread {
                         public void run() {
                             InnerMediaProcessor innerMediaProcessor;
                             OnGenFilterVideoListener onGenFilterVideoListener;
+                            int i;
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (onGenFilterVideoListener = (innerMediaProcessor = this.this$0).mListener) == null) {
-                                return;
+                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (onGenFilterVideoListener = (innerMediaProcessor = this.this$0).mListener) != null) {
+                                if (!innerMediaProcessor.mCanRetry && !this.this$0.mCurrentEncodeHevcVideo) {
+                                    i = -4;
+                                } else {
+                                    i = -100;
+                                }
+                                onGenFilterVideoListener.onGenFilterVideoFail(i, this.this$0.mErrMsg);
                             }
-                            onGenFilterVideoListener.onGenFilterVideoFail((innerMediaProcessor.mCanRetry || this.this$0.mCurrentEncodeHevcVideo) ? -100 : -4, this.this$0.mErrMsg);
                         }
                     });
                 }
             }
-        }
-    }
-
-    public void setClipRange(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.mClipPoint = j;
-            this.mClipDuration = j2;
-        }
-    }
-
-    public void setErrMsg(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048588, this, z, str) == null) {
-            this.mCanRetry = z;
-            this.mErrMsg = str;
         }
     }
 
@@ -247,22 +273,6 @@ public class InnerMediaProcessor extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.mOutBitRate = i;
-        }
-    }
-
-    public void setOutputVideoSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
-            this.mOutWidth = i;
-            this.mOutHeight = i2;
-        }
-    }
-
-    public void setPreviewVideoSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
-            this.mPreviewWidth = i;
-            this.mPreviewHeight = i2;
         }
     }
 

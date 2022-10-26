@@ -1,6 +1,7 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,6 +20,7 @@ import com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestP
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.googlecode.mp4parser.Version;
 import com.googlecode.mp4parser.authoring.Movie;
+import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.builder.FragmentIntersectionFinder;
 import com.googlecode.mp4parser.boxes.DTSSpecificBox;
@@ -48,6 +50,12 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public Document customizeManifest(Document document) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, document)) == null) ? document : (Document) invokeL.objValue;
+    }
 
     /* loaded from: classes7.dex */
     public class DependentSubstreamMask {
@@ -82,13 +90,19 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         public byte getdWChannelMaskFirstByte() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dWChannelMaskFirstByte : invokeV.byteValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.dWChannelMaskFirstByte;
+            }
+            return invokeV.byteValue;
         }
 
         public byte getdWChannelMaskSecondByte() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dWChannelMaskSecondByte : invokeV.byteValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.dWChannelMaskSecondByte;
+            }
+            return invokeV.byteValue;
         }
 
         public DependentSubstreamMask process() {
@@ -96,18 +110,28 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 int i = this.entry.chan_loc;
-                if (i == 0) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i != 6) {
+                                    if (i == 7) {
+                                        this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 2);
+                                    }
+                                } else {
+                                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 5);
+                                }
+                            } else {
+                                this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 8);
+                            }
+                        } else {
+                            this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 128);
+                        }
+                    } else {
+                        this.dWChannelMaskFirstByte = (byte) (this.dWChannelMaskFirstByte | 12);
+                    }
+                } else {
                     this.dWChannelMaskFirstByte = (byte) (this.dWChannelMaskFirstByte | 3);
-                } else if (i == 1) {
-                    this.dWChannelMaskFirstByte = (byte) (this.dWChannelMaskFirstByte | 12);
-                } else if (i == 2) {
-                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 128);
-                } else if (i == 3) {
-                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 8);
-                } else if (i == 6) {
-                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 5);
-                } else if (i == 7) {
-                    this.dWChannelMaskSecondByte = (byte) (this.dWChannelMaskSecondByte | 2);
                 }
                 return this;
             }
@@ -176,10 +200,33 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         return (AudioQuality) invokeLL.objValue;
     }
 
+    private VideoQuality getVideoQuality(Track track, VisualSampleEntry visualSampleEntry) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, track, visualSampleEntry)) == null) {
+            if ("avc1".equals(getFormat(visualSampleEntry))) {
+                AvcConfigurationBox avcConfigurationBox = (AvcConfigurationBox) visualSampleEntry.getBoxes(AvcConfigurationBox.class).get(0);
+                VideoQuality videoQuality = new VideoQuality();
+                videoQuality.bitrate = getBitrate(track);
+                videoQuality.codecPrivateData = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
+                videoQuality.fourCC = "AVC1";
+                videoQuality.width = visualSampleEntry.getWidth();
+                videoQuality.height = visualSampleEntry.getHeight();
+                videoQuality.nalLength = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+                return videoQuality;
+            }
+            throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
+        }
+        return (VideoQuality) invokeLL.objValue;
+    }
+
     private String getAudioCodecPrivateData(AudioSpecificConfig audioSpecificConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, audioSpecificConfig)) == null) ? Hex.encodeHex(audioSpecificConfig.getConfigBytes()) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, audioSpecificConfig)) == null) {
+            return Hex.encodeHex(audioSpecificConfig.getConfigBytes());
+        }
+        return (String) invokeL.objValue;
     }
 
     private AudioQuality getAudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
@@ -230,13 +277,30 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
 
     private AudioQuality getDtsAudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
         InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, track, audioSampleEntry)) == null) {
             DTSSpecificBox dTSSpecificBox = (DTSSpecificBox) audioSampleEntry.getBoxes(DTSSpecificBox.class).get(0);
             if (dTSSpecificBox != null) {
                 ByteBuffer allocate = ByteBuffer.allocate(22);
                 int frameDuration = dTSSpecificBox.getFrameDuration();
-                int i = frameDuration != 0 ? frameDuration != 1 ? frameDuration != 2 ? frameDuration != 3 ? 0 : 4096 : 2048 : 1024 : 512;
+                if (frameDuration != 0) {
+                    if (frameDuration != 1) {
+                        if (frameDuration != 2) {
+                            if (frameDuration != 3) {
+                                i = 0;
+                            } else {
+                                i = 4096;
+                            }
+                        } else {
+                            i = 2048;
+                        }
+                    } else {
+                        i = 1024;
+                    }
+                } else {
+                    i = 512;
+                }
                 allocate.put((byte) (i & 255));
                 allocate.put((byte) (i >>> 8));
                 int i2 = getNumChannelsAndMask(dTSSpecificBox)[1];
@@ -261,7 +325,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 audioQuality.samplingRate = dTSSpecificBox.getDTSSamplingFrequency();
                 audioQuality.channels = getNumChannelsAndMask(dTSSpecificBox)[0];
                 audioQuality.bitPerSample = 16;
-                audioQuality.packetSize = (int) track.getSamples().get(0).getSize();
+                audioQuality.packetSize = (int) ((Sample) track.getSamples().get(0)).getSize();
                 audioQuality.codecPrivateData = String.valueOf(Hex.encodeHex(allocate.array())) + Hex.encodeHex(allocate2.array());
                 return audioQuality;
             }
@@ -322,7 +386,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i = b2 | 192;
+                                i = b2 | ExifInterface.MARKER_SOF0;
                                 b2 = (byte) i;
                                 if (entry.lfeon == 1) {
                                 }
@@ -356,7 +420,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i2 = b2 | 192;
+                                i2 = b2 | ExifInterface.MARKER_SOF0;
                                 b2 = (byte) i2;
                                 i3 = b3 | 128;
                                 b3 = (byte) i3;
@@ -428,7 +492,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 allocate.put(b2);
                 allocate.put(b3);
                 allocate.put(new byte[2]);
-                allocate.put(new byte[]{-81, -121, -5, -89, 2, 45, -5, 66, -92, -44, 5, -51, -109, -124, 59, -35});
+                allocate.put(new byte[]{-81, -121, -5, -89, 2, 45, -5, 66, -92, -44, 5, ExifInterface.MARKER_SOF13, -109, -124, 59, -35});
                 ByteBuffer allocate2 = ByteBuffer.allocate((int) eC3SpecificBox.getContentSize());
                 eC3SpecificBox.getContent(allocate2);
                 AudioQuality audioQuality = new AudioQuality();
@@ -438,7 +502,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 audioQuality.samplingRate = audioSampleEntry.getSampleRate();
                 audioQuality.channels = s + s2;
                 audioQuality.bitPerSample = 16;
-                audioQuality.packetSize = (int) track.getSamples().get(0).getSize();
+                audioQuality.packetSize = (int) ((Sample) track.getSamples().get(0)).getSize();
                 audioQuality.codecPrivateData = String.valueOf(Hex.encodeHex(allocate.array())) + Hex.encodeHex(allocate2.array());
                 return audioQuality;
             }
@@ -530,32 +594,6 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             return new int[]{i, i2};
         }
         return (int[]) invokeL.objValue;
-    }
-
-    private VideoQuality getVideoQuality(Track track, VisualSampleEntry visualSampleEntry) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, track, visualSampleEntry)) == null) {
-            if ("avc1".equals(getFormat(visualSampleEntry))) {
-                AvcConfigurationBox avcConfigurationBox = (AvcConfigurationBox) visualSampleEntry.getBoxes(AvcConfigurationBox.class).get(0);
-                VideoQuality videoQuality = new VideoQuality();
-                videoQuality.bitrate = getBitrate(track);
-                videoQuality.codecPrivateData = Hex.encodeHex(getAvcCodecPrivateData(avcConfigurationBox));
-                videoQuality.fourCC = "AVC1";
-                videoQuality.width = visualSampleEntry.getWidth();
-                videoQuality.height = visualSampleEntry.getHeight();
-                videoQuality.nalLength = avcConfigurationBox.getLengthSizeMinusOne() + 1;
-                return videoQuality;
-            }
-            throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
-        }
-        return (VideoQuality) invokeLL.objValue;
-    }
-
-    public Document customizeManifest(Document document) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, document)) == null) ? document : (Document) invokeL.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.adaptivestreaming.ManifestWriter
@@ -690,7 +728,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         createElement6.setAttribute("AudioTag", Integer.toString(audioQuality.audioTag));
                         createElement6.setAttribute(SsManifestParser.QualityLevelParser.KEY_SAMPLING_RATE, Long.toString(audioQuality.samplingRate));
                         createElement6.setAttribute(SsManifestParser.QualityLevelParser.KEY_CHANNELS, Integer.toString(audioQuality.channels));
-                        createElement6.setAttribute("BitsPerSample", Integer.toString(audioQuality.bitPerSample));
+                        createElement6.setAttribute(ExifInterface.TAG_BITS_PER_SAMPLE, Integer.toString(audioQuality.bitPerSample));
                         createElement6.setAttribute("PacketSize", Integer.toString(audioQuality.packetSize));
                         createElement6.setAttribute(str, audioQuality.codecPrivateData);
                         createElement5.appendChild(createElement6);

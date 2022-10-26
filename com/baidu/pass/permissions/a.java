@@ -33,10 +33,11 @@ public class a implements View.OnClickListener {
     public void onClick(View view2) {
         PermissionsCallback permissionsCallback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            permissionsCallback = this.a.d;
-            permissionsCallback.onFailure(-2);
-            this.a.finish();
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
+        permissionsCallback = this.a.d;
+        permissionsCallback.onFailure(-2);
+        this.a.finish();
     }
 }

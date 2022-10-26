@@ -1,35 +1,31 @@
 package com.baidu.searchbox.bddownload.core.listener;
 
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public interface DownloadListener {
-    void connectEnd(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, int i2, @NonNull Map<String, List<String>> map);
+    void connectEnd(DownloadTask downloadTask, int i, int i2, Map map);
 
-    void connectStart(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, @NonNull Map<String, List<String>> map);
+    void connectStart(DownloadTask downloadTask, int i, Map map);
 
-    void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map);
+    void connectTrialEnd(DownloadTask downloadTask, int i, Map map);
 
-    void connectTrialStart(@NonNull DownloadTask downloadTask, @NonNull Map<String, List<String>> map);
+    void connectTrialStart(DownloadTask downloadTask, Map map);
 
-    void downloadFromBeginning(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull ResumeFailedCause resumeFailedCause);
+    void downloadFromBeginning(DownloadTask downloadTask, BreakpointInfo breakpointInfo, ResumeFailedCause resumeFailedCause);
 
-    void downloadFromBreakpoint(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo);
+    void downloadFromBreakpoint(DownloadTask downloadTask, BreakpointInfo breakpointInfo);
 
-    void fetchEnd(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, @IntRange(from = 0) long j);
+    void fetchEnd(DownloadTask downloadTask, int i, long j);
 
-    void fetchProgress(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, @IntRange(from = 0) long j);
+    void fetchProgress(DownloadTask downloadTask, int i, long j);
 
-    void fetchStart(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, @IntRange(from = 0) long j);
+    void fetchStart(DownloadTask downloadTask, int i, long j);
 
-    void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc);
+    void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc);
 
-    void taskStart(@NonNull DownloadTask downloadTask);
+    void taskStart(DownloadTask downloadTask);
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class GetHistoryPortraitsResult extends SapiResult implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> historyPortraits;
+    public List historyPortraits;
 
     public GetHistoryPortraitsResult() {
         Interceptable interceptable = $ic;

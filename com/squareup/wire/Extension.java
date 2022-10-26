@@ -22,245 +22,6 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
     public final String name;
     public final int tag;
 
-    public Extension(Class<T> cls, Class<? extends Message> cls2, Class<? extends ProtoEnum> cls3, String str, int i, Message.Label label, Message.Datatype datatype) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, cls3, str, Integer.valueOf(i), label, datatype};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.extendedType = cls;
-        this.name = str;
-        this.tag = i;
-        this.datatype = datatype;
-        this.label = label;
-        this.messageType = cls2;
-        this.enumType = cls3;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Boolean> boolExtending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.BOOL, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, ByteString> bytesExtending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.BYTES, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Double> doubleExtending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.DOUBLE, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>, E extends Enum & ProtoEnum> Builder<T, E> enumExtending(Class<E> cls, Class<T> cls2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, cls2)) == null) ? new Builder<>(cls2, null, cls, Message.Datatype.ENUM, null) : (Builder) invokeLL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Integer> fixed32Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.FIXED32, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Long> fixed64Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.FIXED64, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Float> floatExtending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.FLOAT, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Integer> int32Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.INT32, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Long> int64Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.INT64, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>, M extends Message> Builder<T, M> messageExtending(Class<M> cls, Class<T> cls2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, cls, cls2)) == null) ? new Builder<>(cls2, cls, null, Message.Datatype.MESSAGE, null) : (Builder) invokeLL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Integer> sfixed32Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.SFIXED32, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Long> sfixed64Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.SFIXED64, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Integer> sint32Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.SINT32, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Long> sint64Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.SINT64, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, String> stringExtending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.STRING, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Integer> uint32Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.UINT32, null) : (Builder) invokeL.objValue;
-    }
-
-    public static <T extends ExtendableMessage<?>> Builder<T, Long> uint64Extending(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.UINT64, null) : (Builder) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof Extension) && compareTo((Extension) obj) == 0 : invokeL.booleanValue;
-    }
-
-    public Message.Datatype getDatatype() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.datatype : (Message.Datatype) invokeV.objValue;
-    }
-
-    public Class<? extends ProtoEnum> getEnumType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.enumType : (Class) invokeV.objValue;
-    }
-
-    public Class<T> getExtendedType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extendedType : (Class) invokeV.objValue;
-    }
-
-    public Message.Label getLabel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.label : (Message.Label) invokeV.objValue;
-    }
-
-    public Class<? extends Message> getMessageType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.messageType : (Class) invokeV.objValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public int getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.tag : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int value = ((((((this.tag * 37) + this.datatype.value()) * 37) + this.label.value()) * 37) + this.extendedType.hashCode()) * 37;
-            Class<? extends Message> cls = this.messageType;
-            int hashCode = (value + (cls != null ? cls.hashCode() : 0)) * 37;
-            Class<? extends ProtoEnum> cls2 = this.enumType;
-            return hashCode + (cls2 != null ? cls2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? String.format("[%s %s %s = %d]", this.label, this.datatype, this.name, Integer.valueOf(this.tag)) : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(Extension<?, ?> extension) {
-        InterceptResult invokeL;
-        int value;
-        int value2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, extension)) == null) {
-            if (extension == this) {
-                return 0;
-            }
-            int i = this.tag;
-            int i2 = extension.tag;
-            if (i != i2) {
-                return i - i2;
-            }
-            Message.Datatype datatype = this.datatype;
-            if (datatype != extension.datatype) {
-                value = datatype.value();
-                value2 = extension.datatype.value();
-            } else {
-                Message.Label label = this.label;
-                if (label != extension.label) {
-                    value = label.value();
-                    value2 = extension.label.value();
-                } else {
-                    Class<T> cls = this.extendedType;
-                    if (cls != null && !cls.equals(extension.extendedType)) {
-                        return this.extendedType.getName().compareTo(extension.extendedType.getName());
-                    }
-                    Class<? extends Message> cls2 = this.messageType;
-                    if (cls2 != null && !cls2.equals(extension.messageType)) {
-                        return this.messageType.getName().compareTo(extension.messageType.getName());
-                    }
-                    Class<? extends ProtoEnum> cls3 = this.enumType;
-                    if (cls3 == null || cls3.equals(extension.enumType)) {
-                        return 0;
-                    }
-                    return this.enumType.getName().compareTo(extension.enumType.getName());
-                }
-            }
-            return value - value2;
-        }
-        return invokeL.intValue;
-    }
-
     /* loaded from: classes8.dex */
     public static final class Builder<T extends ExtendableMessage<?>, E> {
         public static /* synthetic */ Interceptable $ic;
@@ -297,6 +58,38 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
             this.datatype = datatype;
         }
 
+        public /* synthetic */ Builder(Class cls, Message.Datatype datatype, Builder builder) {
+            this(cls, datatype);
+        }
+
+        public Builder(Class<T> cls, Class<? extends Message> cls2, Class<? extends ProtoEnum> cls3, Message.Datatype datatype) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cls, cls2, cls3, datatype};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.name = null;
+            this.tag = -1;
+            this.label = null;
+            this.extendedType = cls;
+            this.messageType = cls2;
+            this.enumType = cls3;
+            this.datatype = datatype;
+        }
+
+        public /* synthetic */ Builder(Class cls, Class cls2, Class cls3, Message.Datatype datatype, Builder builder) {
+            this(cls, cls2, cls3, datatype);
+        }
+
         private void validate() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -316,10 +109,10 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
                                             throw new IllegalStateException("Enum w/ messageType or w/o enumType");
                                         }
                                         return;
-                                    } else if (this.messageType != null || this.enumType != null) {
-                                        throw new IllegalStateException("Scalar w/ messageType or enumType");
-                                    } else {
+                                    } else if (this.messageType == null && this.enumType == null) {
                                         return;
+                                    } else {
+                                        throw new IllegalStateException("Scalar w/ messageType or enumType");
                                     }
                                 }
                                 throw new IllegalArgumentException("tag == " + this.tag);
@@ -397,41 +190,339 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
             }
             return (Builder) invokeI.objValue;
         }
+    }
 
-        public /* synthetic */ Builder(Class cls, Message.Datatype datatype, Builder builder) {
-            this(cls, datatype);
-        }
-
-        public Builder(Class<T> cls, Class<? extends Message> cls2, Class<? extends ProtoEnum> cls3, Message.Datatype datatype) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cls, cls2, cls3, datatype};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
+    public Extension(Class<T> cls, Class<? extends Message> cls2, Class<? extends ProtoEnum> cls3, String str, int i, Message.Label label, Message.Datatype datatype) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, cls2, cls3, str, Integer.valueOf(i), label, datatype};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.name = null;
-            this.tag = -1;
-            this.label = null;
-            this.extendedType = cls;
-            this.messageType = cls2;
-            this.enumType = cls3;
-            this.datatype = datatype;
         }
-
-        public /* synthetic */ Builder(Class cls, Class cls2, Class cls3, Message.Datatype datatype, Builder builder) {
-            this(cls, cls2, cls3, datatype);
-        }
+        this.extendedType = cls;
+        this.name = str;
+        this.tag = i;
+        this.datatype = datatype;
+        this.label = label;
+        this.messageType = cls2;
+        this.enumType = cls3;
     }
 
     public /* synthetic */ Extension(Class cls, Class cls2, Class cls3, String str, int i, Message.Label label, Message.Datatype datatype, Extension extension) {
         this(cls, cls2, cls3, str, i, label, datatype);
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Boolean> boolExtending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.BOOL, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, ByteString> bytesExtending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.BYTES, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Double> doubleExtending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.DOUBLE, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Integer> fixed32Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.FIXED32, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Long> fixed64Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.FIXED64, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Float> floatExtending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.FLOAT, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Integer> int32Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.INT32, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Long> int64Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.INT64, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Integer> sfixed32Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.SFIXED32, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Long> sfixed64Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.SFIXED64, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Integer> sint32Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.SINT32, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Long> sint64Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.SINT64, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, String> stringExtending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.STRING, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Integer> uint32Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.UINT32, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>> Builder<T, Long> uint64Extending(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, cls)) == null) {
+            return new Builder<>(cls, Message.Datatype.UINT64, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if ((obj instanceof Extension) && compareTo((Extension) obj) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static <T extends ExtendableMessage<?>, E extends Enum & ProtoEnum> Builder<T, E> enumExtending(Class<E> cls, Class<T> cls2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, cls2)) == null) {
+            return new Builder<>(cls2, null, cls, Message.Datatype.ENUM, null);
+        }
+        return (Builder) invokeLL.objValue;
+    }
+
+    public static <T extends ExtendableMessage<?>, M extends Message> Builder<T, M> messageExtending(Class<M> cls, Class<T> cls2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, cls, cls2)) == null) {
+            return new Builder<>(cls2, cls, null, Message.Datatype.MESSAGE, null);
+        }
+        return (Builder) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(Extension<?, ?> extension) {
+        InterceptResult invokeL;
+        int value;
+        int value2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, extension)) == null) {
+            if (extension == this) {
+                return 0;
+            }
+            int i = this.tag;
+            int i2 = extension.tag;
+            if (i != i2) {
+                return i - i2;
+            }
+            Message.Datatype datatype = this.datatype;
+            if (datatype != extension.datatype) {
+                value = datatype.value();
+                value2 = extension.datatype.value();
+            } else {
+                Message.Label label = this.label;
+                if (label != extension.label) {
+                    value = label.value();
+                    value2 = extension.label.value();
+                } else {
+                    Class<T> cls = this.extendedType;
+                    if (cls != null && !cls.equals(extension.extendedType)) {
+                        return this.extendedType.getName().compareTo(extension.extendedType.getName());
+                    }
+                    Class<? extends Message> cls2 = this.messageType;
+                    if (cls2 != null && !cls2.equals(extension.messageType)) {
+                        return this.messageType.getName().compareTo(extension.messageType.getName());
+                    }
+                    Class<? extends ProtoEnum> cls3 = this.enumType;
+                    if (cls3 == null || cls3.equals(extension.enumType)) {
+                        return 0;
+                    }
+                    return this.enumType.getName().compareTo(extension.enumType.getName());
+                }
+            }
+            return value - value2;
+        }
+        return invokeL.intValue;
+    }
+
+    public Message.Datatype getDatatype() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.datatype;
+        }
+        return (Message.Datatype) invokeV.objValue;
+    }
+
+    public Class<? extends ProtoEnum> getEnumType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.enumType;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public Class<T> getExtendedType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.extendedType;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public Message.Label getLabel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.label;
+        }
+        return (Message.Label) invokeV.objValue;
+    }
+
+    public Class<? extends Message> getMessageType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.messageType;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.tag;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int value = ((((((this.tag * 37) + this.datatype.value()) * 37) + this.label.value()) * 37) + this.extendedType.hashCode()) * 37;
+            Class<? extends Message> cls = this.messageType;
+            int i2 = 0;
+            if (cls != null) {
+                i = cls.hashCode();
+            } else {
+                i = 0;
+            }
+            int i3 = (value + i) * 37;
+            Class<? extends ProtoEnum> cls2 = this.enumType;
+            if (cls2 != null) {
+                i2 = cls2.hashCode();
+            }
+            return i3 + i2;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return String.format("[%s %s %s = %d]", this.label, this.datatype, this.name, Integer.valueOf(this.tag));
+        }
+        return (String) invokeV.objValue;
     }
 }

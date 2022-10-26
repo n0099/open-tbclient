@@ -41,7 +41,7 @@ public class AccessTokenKeeper {
 
     public static void clear(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || context == null) {
             return;
         }
         SharedPreferences.Editor edit = context.getSharedPreferences(PREFERENCES_NAME, 32768).edit();
@@ -70,7 +70,7 @@ public class AccessTokenKeeper {
     public static void refreshToken(String str, Context context, RequestListener requestListener) {
         Oauth2AccessToken readAccessToken;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, context, requestListener) == null) || (readAccessToken = readAccessToken(context)) == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, context, requestListener) != null) || (readAccessToken = readAccessToken(context)) == null) {
             return;
         }
         IRequestService requestService = RequestService.getInstance();
@@ -109,10 +109,9 @@ public class AccessTokenKeeper {
             public void onFailure(Exception exc) {
                 RequestListener requestListener2;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, exc) == null) || (requestListener2 = this.val$listener) == null) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, exc) == null) && (requestListener2 = this.val$listener) != null) {
+                    requestListener2.onWeiboException(new WeiboException(exc));
                 }
-                requestListener2.onWeiboException(new WeiboException(exc));
             }
 
             @Override // com.sina.weibo.sdk.network.target.SimpleTarget
@@ -131,14 +130,13 @@ public class AccessTokenKeeper {
 
     public static void writeAccessToken(Context context, Oauth2AccessToken oauth2AccessToken) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, oauth2AccessToken) == null) || context == null || oauth2AccessToken == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, oauth2AccessToken) == null) && context != null && oauth2AccessToken != null) {
+            SharedPreferences.Editor edit = context.getSharedPreferences(PREFERENCES_NAME, 32768).edit();
+            edit.putString("uid", oauth2AccessToken.getUid());
+            edit.putString("access_token", oauth2AccessToken.getToken());
+            edit.putString("refresh_token", oauth2AccessToken.getRefreshToken());
+            edit.putLong("expires_in", oauth2AccessToken.getExpiresTime());
+            edit.commit();
         }
-        SharedPreferences.Editor edit = context.getSharedPreferences(PREFERENCES_NAME, 32768).edit();
-        edit.putString("uid", oauth2AccessToken.getUid());
-        edit.putString("access_token", oauth2AccessToken.getToken());
-        edit.putString("refresh_token", oauth2AccessToken.getRefreshToken());
-        edit.putLong("expires_in", oauth2AccessToken.getExpiresTime());
-        edit.commit();
     }
 }

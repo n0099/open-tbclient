@@ -4,10 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 import android.webkit.WebResourceResponse;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
-import androidx.annotation.WorkerThread;
 import androidx.webkit.internal.AssetHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -31,10 +27,67 @@ public final class WebViewAssetLoader {
     public final List<PathMatcher> mMatchers;
 
     /* loaded from: classes.dex */
+    public interface PathHandler {
+        WebResourceResponse handle(String str);
+    }
+
+    /* loaded from: classes.dex */
+    public static final class AssetsPathHandler implements PathHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public AssetHelper mAssetHelper;
+
+        public AssetsPathHandler(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mAssetHelper = new AssetHelper(context);
+        }
+
+        public AssetsPathHandler(AssetHelper assetHelper) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {assetHelper};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mAssetHelper = assetHelper;
+        }
+
+        @Override // androidx.webkit.WebViewAssetLoader.PathHandler
+        public WebResourceResponse handle(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return new WebResourceResponse(AssetHelper.guessMimeType(str), null, this.mAssetHelper.openAsset(str));
+            }
+            return (WebResourceResponse) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public List<PathMatcher> mBuilderMatcherList;
         public String mDomain;
         public boolean mHttpAllowed;
@@ -57,8 +110,16 @@ public final class WebViewAssetLoader {
             this.mBuilderMatcherList = new ArrayList();
         }
 
-        @NonNull
-        public Builder addPathHandler(@NonNull String str, @NonNull PathHandler pathHandler) {
+        public WebViewAssetLoader build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new WebViewAssetLoader(this.mBuilderMatcherList);
+            }
+            return (WebViewAssetLoader) invokeV.objValue;
+        }
+
+        public Builder addPathHandler(String str, PathHandler pathHandler) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, pathHandler)) == null) {
@@ -68,15 +129,7 @@ public final class WebViewAssetLoader {
             return (Builder) invokeLL.objValue;
         }
 
-        @NonNull
-        public WebViewAssetLoader build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new WebViewAssetLoader(this.mBuilderMatcherList) : (WebViewAssetLoader) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder setDomain(@NonNull String str) {
+        public Builder setDomain(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -86,7 +139,6 @@ public final class WebViewAssetLoader {
             return (Builder) invokeL.objValue;
         }
 
-        @NonNull
         public Builder setHttpAllowed(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -103,7 +155,6 @@ public final class WebViewAssetLoader {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] FORBIDDEN_DATA_DIRS;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final File mDirectory;
 
         static {
@@ -122,7 +173,7 @@ public final class WebViewAssetLoader {
             FORBIDDEN_DATA_DIRS = new String[]{"app_webview/", "databases/", "lib/", "shared_prefs/", "code_cache/"};
         }
 
-        public InternalStoragePathHandler(@NonNull Context context, @NonNull File file) {
+        public InternalStoragePathHandler(Context context, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,7 +195,7 @@ public final class WebViewAssetLoader {
             throw new IllegalArgumentException("The given directory \"" + file + "\" doesn't exist under an allowed app internal storage directory");
         }
 
-        public static boolean isAllowedInternalStorageDir(@NonNull Context context, @NonNull File file) {
+        public static boolean isAllowedInternalStorageDir(Context context, File file) {
             InterceptResult invokeLL;
             String[] strArr;
             Interceptable interceptable = $ic;
@@ -169,9 +220,7 @@ public final class WebViewAssetLoader {
         }
 
         @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-        @NonNull
-        @WorkerThread
-        public WebResourceResponse handle(@NonNull String str) {
+        public WebResourceResponse handle(String str) {
             InterceptResult invokeL;
             InputStream inputStream;
             Interceptable interceptable = $ic;
@@ -190,28 +239,17 @@ public final class WebViewAssetLoader {
     }
 
     /* loaded from: classes.dex */
-    public interface PathHandler {
-        @Nullable
-        @WorkerThread
-        WebResourceResponse handle(@NonNull String str);
-    }
-
-    @VisibleForTesting
-    /* loaded from: classes.dex */
     public static class PathMatcher {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String HTTPS_SCHEME = "https";
         public static final String HTTP_SCHEME = "http";
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final String mAuthority;
-        @NonNull
         public final PathHandler mHandler;
         public final boolean mHttpEnabled;
-        @NonNull
         public final String mPath;
 
-        public PathMatcher(@NonNull String str, @NonNull String str2, boolean z, @NonNull PathHandler pathHandler) {
+        public PathMatcher(String str, String str2, boolean z, PathHandler pathHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,33 +277,85 @@ public final class WebViewAssetLoader {
             throw new IllegalArgumentException("Path should start with a slash '/'.");
         }
 
-        @NonNull
-        @WorkerThread
-        public String getSuffixPath(@NonNull String str) {
+        public String getSuffixPath(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str.replaceFirst(this.mPath, "") : (String) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return str.replaceFirst(this.mPath, "");
+            }
+            return (String) invokeL.objValue;
         }
 
-        @Nullable
-        @WorkerThread
-        public PathHandler match(@NonNull Uri uri) {
+        public PathHandler match(Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-                if (!uri.getScheme().equals("http") || this.mHttpEnabled) {
-                    if ((uri.getScheme().equals("http") || uri.getScheme().equals("https")) && uri.getAuthority().equals(this.mAuthority) && uri.getPath().startsWith(this.mPath)) {
-                        return this.mHandler;
-                    }
+                if (uri.getScheme().equals("http") && !this.mHttpEnabled) {
                     return null;
                 }
-                return null;
+                if ((!uri.getScheme().equals("http") && !uri.getScheme().equals("https")) || !uri.getAuthority().equals(this.mAuthority) || !uri.getPath().startsWith(this.mPath)) {
+                    return null;
+                }
+                return this.mHandler;
             }
             return (PathHandler) invokeL.objValue;
         }
     }
 
-    public WebViewAssetLoader(@NonNull List<PathMatcher> list) {
+    /* loaded from: classes.dex */
+    public static final class ResourcesPathHandler implements PathHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public AssetHelper mAssetHelper;
+
+        public ResourcesPathHandler(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mAssetHelper = new AssetHelper(context);
+        }
+
+        public ResourcesPathHandler(AssetHelper assetHelper) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {assetHelper};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mAssetHelper = assetHelper;
+        }
+
+        @Override // androidx.webkit.WebViewAssetLoader.PathHandler
+        public WebResourceResponse handle(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return new WebResourceResponse(AssetHelper.guessMimeType(str), null, this.mAssetHelper.openResource(str));
+            }
+            return (WebResourceResponse) invokeL.objValue;
+        }
+    }
+
+    public WebViewAssetLoader(List<PathMatcher> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -283,9 +373,7 @@ public final class WebViewAssetLoader {
         this.mMatchers = list;
     }
 
-    @Nullable
-    @WorkerThread
-    public WebResourceResponse shouldInterceptRequest(@NonNull Uri uri) {
+    public WebResourceResponse shouldInterceptRequest(Uri uri) {
         InterceptResult invokeL;
         WebResourceResponse handle;
         Interceptable interceptable = $ic;
@@ -299,111 +387,5 @@ public final class WebViewAssetLoader {
             return null;
         }
         return (WebResourceResponse) invokeL.objValue;
-    }
-
-    /* loaded from: classes.dex */
-    public static final class AssetsPathHandler implements PathHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AssetHelper mAssetHelper;
-
-        public AssetsPathHandler(@NonNull Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mAssetHelper = new AssetHelper(context);
-        }
-
-        @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-        @Nullable
-        @WorkerThread
-        public WebResourceResponse handle(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new WebResourceResponse(AssetHelper.guessMimeType(str), null, this.mAssetHelper.openAsset(str)) : (WebResourceResponse) invokeL.objValue;
-        }
-
-        @VisibleForTesting
-        public AssetsPathHandler(@NonNull AssetHelper assetHelper) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {assetHelper};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mAssetHelper = assetHelper;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static final class ResourcesPathHandler implements PathHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AssetHelper mAssetHelper;
-
-        public ResourcesPathHandler(@NonNull Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mAssetHelper = new AssetHelper(context);
-        }
-
-        @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-        @Nullable
-        @WorkerThread
-        public WebResourceResponse handle(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new WebResourceResponse(AssetHelper.guessMimeType(str), null, this.mAssetHelper.openResource(str)) : (WebResourceResponse) invokeL.objValue;
-        }
-
-        @VisibleForTesting
-        public ResourcesPathHandler(@NonNull AssetHelper assetHelper) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {assetHelper};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mAssetHelper = assetHelper;
-        }
     }
 }

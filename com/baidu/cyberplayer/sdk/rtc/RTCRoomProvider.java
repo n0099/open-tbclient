@@ -2,7 +2,6 @@ package com.baidu.cyberplayer.sdk.rtc;
 
 import android.content.Context;
 import android.view.Surface;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCAudioSamples;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,16 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-@Keep
 /* loaded from: classes2.dex */
 public abstract class RTCRoomProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    @Keep
     /* loaded from: classes2.dex */
-    public static final class CyberRtcLiveTransferMode {
+    public final class CyberRtcLiveTransferMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION;
         public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION;
@@ -80,9 +77,8 @@ public abstract class RTCRoomProvider {
         }
     }
 
-    @Keep
     /* loaded from: classes2.dex */
-    public static class CyberRtcRoomAudioLevel {
+    public class CyberRtcRoomAudioLevel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String nicName;
@@ -110,7 +106,6 @@ public abstract class RTCRoomProvider {
         }
     }
 
-    @Keep
     /* loaded from: classes2.dex */
     public interface CyberRtcRoomDelegate {
         void onEngineStatisticsInfo(int i);
@@ -126,9 +121,8 @@ public abstract class RTCRoomProvider {
         void onStreamInfoUpdate(String[] strArr);
     }
 
-    @Keep
     /* loaded from: classes2.dex */
-    public static class CyberRtcRoomUserInfo {
+    public class CyberRtcRoomUserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String attribute;
@@ -158,9 +152,8 @@ public abstract class RTCRoomProvider {
         }
     }
 
-    @Keep
     /* loaded from: classes2.dex */
-    public static class CyberRtcRoomVideoDimension {
+    public class CyberRtcRoomVideoDimension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int videoHeight;
@@ -183,9 +176,8 @@ public abstract class RTCRoomProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    @Keep
     /* loaded from: classes2.dex */
-    public static final class CyberRtcSoundMode {
+    public final class CyberRtcSoundMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcSoundMode RTC_SOUND_MODE_EAR;
         public static final CyberRtcSoundMode RTC_SOUND_MODE_SPEAKER;

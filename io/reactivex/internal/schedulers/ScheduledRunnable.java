@@ -14,7 +14,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes8.dex */
-public final class ScheduledRunnable extends AtomicReferenceArray<Object> implements Runnable, Callable<Object>, Disposable {
+public final class ScheduledRunnable extends AtomicReferenceArray implements Runnable, Callable, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object ASYNC_DISPOSED;
     public static final Object DONE;
@@ -80,20 +80,45 @@ public final class ScheduledRunnable extends AtomicReferenceArray<Object> implem
     }
 
     @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Object obj = get(0);
+            if (obj != PARENT_DISPOSED && obj != DONE) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         Object obj;
         Object obj2;
+        boolean z;
+        Object obj3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             while (true) {
-                Object obj3 = get(1);
-                if (obj3 == DONE || obj3 == SYNC_DISPOSED || obj3 == ASYNC_DISPOSED) {
+                Object obj4 = get(1);
+                if (obj4 == DONE || obj4 == SYNC_DISPOSED || obj4 == ASYNC_DISPOSED) {
                     break;
                 }
-                boolean z = get(2) != Thread.currentThread();
-                if (compareAndSet(1, obj3, z ? ASYNC_DISPOSED : SYNC_DISPOSED)) {
-                    if (obj3 != null) {
-                        ((Future) obj3).cancel(z);
+                if (get(2) != Thread.currentThread()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    obj3 = ASYNC_DISPOSED;
+                } else {
+                    obj3 = SYNC_DISPOSED;
+                }
+                if (compareAndSet(1, obj4, obj3)) {
+                    if (obj4 != null) {
+                        ((Future) obj4).cancel(z);
                     }
                 }
             }
@@ -105,17 +130,6 @@ public final class ScheduledRunnable extends AtomicReferenceArray<Object> implem
             } while (!compareAndSet(0, obj, obj2));
             ((DisposableContainer) obj).delete(this);
         }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Object obj = get(0);
-            return obj == PARENT_DISPOSED || obj == DONE;
-        }
-        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF, SGET, INVOKE, IF, SGET, IF, INVOKE, SGET, CHECK_CAST, INVOKE, IF, SGET, INVOKE, IF, SGET, IF, INVOKE, SGET, IF, IF, SGET, INVOKE, IF, SGET, IF, INVOKE, SGET, IF, SGET, INVOKE, IF, SGET, INVOKE, IF, SGET, IF, INVOKE, SGET, IF, INVOKE, INVOKE, SGET, MOVE_EXCEPTION, INVOKE, IF, SGET, INVOKE, IF, SGET, IF, INVOKE, SGET, CHECK_CAST, INVOKE, IF, SGET, INVOKE, IF, SGET, IF, INVOKE, SGET, IF, IF, SGET, INVOKE, IF, SGET, IF, INVOKE, SGET, IF, SGET, INVOKE, IF, SGET, INVOKE, IF, SGET, IF, INVOKE, SGET, IF, INVOKE, INVOKE, SGET, MOVE_EXCEPTION] complete} */
@@ -170,7 +184,7 @@ public final class ScheduledRunnable extends AtomicReferenceArray<Object> implem
         }
     }
 
-    public void setFuture(Future<?> future) {
+    public void setFuture(Future future) {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, future) == null) {

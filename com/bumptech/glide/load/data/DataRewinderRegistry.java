@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.data;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,17 +16,24 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class DataRewinderRegistry {
     public static /* synthetic */ Interceptable $ic;
-    public static final DataRewinder.Factory<?> DEFAULT_FACTORY;
+    public static final DataRewinder.Factory DEFAULT_FACTORY;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Class<?>, DataRewinder.Factory<?>> rewinders;
+    public final Map rewinders;
 
     /* loaded from: classes7.dex */
-    public static final class DefaultRewinder implements DataRewinder<Object> {
+    public final class DefaultRewinder implements DataRewinder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object data;
 
-        public DefaultRewinder(@NonNull Object obj) {
+        @Override // com.bumptech.glide.load.data.DataRewinder
+        public void cleanup() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public DefaultRewinder(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,18 +52,13 @@ public class DataRewinderRegistry {
         }
 
         @Override // com.bumptech.glide.load.data.DataRewinder
-        public void cleanup() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.bumptech.glide.load.data.DataRewinder
-        @NonNull
         public Object rewindAndGet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.data;
+            }
+            return invokeV.objValue;
         }
     }
 
@@ -74,7 +75,7 @@ public class DataRewinderRegistry {
                 return;
             }
         }
-        DEFAULT_FACTORY = new DataRewinder.Factory<Object>() { // from class: com.bumptech.glide.load.data.DataRewinderRegistry.1
+        DEFAULT_FACTORY = new DataRewinder.Factory() { // from class: com.bumptech.glide.load.data.DataRewinderRegistry.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,22 +94,23 @@ public class DataRewinderRegistry {
             }
 
             @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-            @NonNull
-            public DataRewinder<Object> build(@NonNull Object obj) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? new DefaultRewinder(obj) : (DataRewinder) invokeL.objValue;
-            }
-
-            @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-            @NonNull
-            public Class<Object> getDataClass() {
+            public Class getDataClass() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     throw new UnsupportedOperationException("Not implemented");
                 }
                 return (Class) invokeV.objValue;
+            }
+
+            @Override // com.bumptech.glide.load.data.DataRewinder.Factory
+            public DataRewinder build(Object obj) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
+                    return new DefaultRewinder(obj);
+                }
+                return (DataRewinder) invokeL.objValue;
             }
         };
     }
@@ -129,24 +131,23 @@ public class DataRewinderRegistry {
         this.rewinders = new HashMap();
     }
 
-    @NonNull
-    public synchronized <T> DataRewinder<T> build(@NonNull T t) {
+    public synchronized DataRewinder build(Object obj) {
         InterceptResult invokeL;
-        DataRewinder<T> dataRewinder;
+        DataRewinder build;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             synchronized (this) {
-                Preconditions.checkNotNull(t);
-                DataRewinder.Factory<?> factory = this.rewinders.get(t.getClass());
+                Preconditions.checkNotNull(obj);
+                DataRewinder.Factory factory = (DataRewinder.Factory) this.rewinders.get(obj.getClass());
                 if (factory == null) {
-                    Iterator<DataRewinder.Factory<?>> it = this.rewinders.values().iterator();
+                    Iterator it = this.rewinders.values().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
-                        DataRewinder.Factory<?> next = it.next();
-                        if (next.getDataClass().isAssignableFrom(t.getClass())) {
-                            factory = next;
+                        DataRewinder.Factory factory2 = (DataRewinder.Factory) it.next();
+                        if (factory2.getDataClass().isAssignableFrom(obj.getClass())) {
+                            factory = factory2;
                             break;
                         }
                     }
@@ -154,14 +155,14 @@ public class DataRewinderRegistry {
                 if (factory == null) {
                     factory = DEFAULT_FACTORY;
                 }
-                dataRewinder = (DataRewinder<T>) factory.build(t);
+                build = factory.build(obj);
             }
-            return dataRewinder;
+            return build;
         }
         return (DataRewinder) invokeL.objValue;
     }
 
-    public synchronized void register(@NonNull DataRewinder.Factory<?> factory) {
+    public synchronized void register(DataRewinder.Factory factory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, factory) == null) {
             synchronized (this) {

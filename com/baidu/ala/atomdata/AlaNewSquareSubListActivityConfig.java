@@ -40,7 +40,7 @@ public class AlaNewSquareSubListActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaNewSquareSubListActivityConfig(Context context, String str, String str2, String str3, ArrayList<String> arrayList) {
+    public AlaNewSquareSubListActivityConfig(Context context, String str, String str2, String str3, ArrayList arrayList) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

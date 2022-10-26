@@ -20,7 +20,7 @@ public class e {
     public d c = new d("lo");
 
     /* loaded from: classes8.dex */
-    public class a implements Comparator<File> {
+    public class a implements Comparator {
         public a() {
         }
 

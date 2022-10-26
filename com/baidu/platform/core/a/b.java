@@ -135,7 +135,7 @@ public class b extends com.baidu.platform.base.d {
     */
     private boolean b(String str, DistrictResult districtResult) {
         InterceptResult invokeLL;
-        List<List<LatLng>> decodeLocationList2D;
+        List<List> decodeLocationList2D;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, districtResult)) == null) {
             if (str != null && !str.equals("") && districtResult != null) {

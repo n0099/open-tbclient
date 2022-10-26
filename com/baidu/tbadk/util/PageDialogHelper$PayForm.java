@@ -59,12 +59,18 @@ public final class PageDialogHelper$PayForm {
     public static PageDialogHelper$PayForm valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PageDialogHelper$PayForm) Enum.valueOf(PageDialogHelper$PayForm.class, str) : (PageDialogHelper$PayForm) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PageDialogHelper$PayForm) Enum.valueOf(PageDialogHelper$PayForm.class, str);
+        }
+        return (PageDialogHelper$PayForm) invokeL.objValue;
     }
 
     public static PageDialogHelper$PayForm[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PageDialogHelper$PayForm[]) $VALUES.clone() : (PageDialogHelper$PayForm[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PageDialogHelper$PayForm[]) $VALUES.clone();
+        }
+        return (PageDialogHelper$PayForm[]) invokeV.objValue;
     }
 }

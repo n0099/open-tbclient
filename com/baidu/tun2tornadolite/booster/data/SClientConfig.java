@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class SClientConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> sclients;
+    public ArrayList sclients;
 
     public SClientConfig() {
         Interceptable interceptable = $ic;
@@ -29,21 +29,16 @@ public final class SClientConfig {
                 return;
             }
         }
-        this.sclients = new ArrayList<>();
+        this.sclients = new ArrayList();
     }
 
-    public final ArrayList<String> getSclients() {
+    public final ArrayList getSclients() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sclients : (ArrayList) invokeV.objValue;
-    }
-
-    public final void setSclients(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            Intrinsics.checkNotNullParameter(arrayList, "<set-?>");
-            this.sclients = arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sclients;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
     public String toString() {
@@ -53,5 +48,13 @@ public final class SClientConfig {
             return "SClientConfig(sclients=" + this.sclients + ')';
         }
         return (String) invokeV.objValue;
+    }
+
+    public final void setSclients(ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+            Intrinsics.checkNotNullParameter(arrayList, "<set-?>");
+            this.sclients = arrayList;
+        }
     }
 }

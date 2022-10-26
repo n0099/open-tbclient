@@ -28,6 +28,18 @@ public class UiThreadUtils {
         }
     }
 
+    public static boolean isOnUiThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static Handler getMainHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,12 +54,6 @@ public class UiThreadUtils {
             return sMainHandler;
         }
         return (Handler) invokeV.objValue;
-    }
-
-    public static boolean isOnUiThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
     }
 
     public static void runOnUiThread(Runnable runnable) {

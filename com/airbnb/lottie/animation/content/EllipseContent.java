@@ -2,7 +2,6 @@ package com.airbnb.lottie.animation.content;
 
 import android.graphics.Path;
 import android.graphics.PointF;
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
@@ -20,8 +19,8 @@ public class EllipseContent implements PathContent, BaseKeyframeAnimation.Animat
     public boolean isPathValid;
     public final LottieDrawable lottieDrawable;
     public final String name;
-    public final BaseKeyframeAnimation<?, PointF> positionAnimation;
-    public final BaseKeyframeAnimation<?, PointF> sizeAnimation;
+    public final BaseKeyframeAnimation positionAnimation;
+    public final BaseKeyframeAnimation sizeAnimation;
     public final Path path = new Path();
     public CompoundTrimPathContent trimPaths = new CompoundTrimPathContent();
 
@@ -42,18 +41,37 @@ public class EllipseContent implements PathContent, BaseKeyframeAnimation.Animat
         this.lottieDrawable.invalidateSelf();
     }
 
+    @Override // com.airbnb.lottie.animation.content.Content
+    public String getName() {
+        return this.name;
+    }
+
+    @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.AnimationListener
+    public void onValueChanged() {
+        invalidate();
+    }
+
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
-        if (t == LottieProperty.ELLIPSE_SIZE) {
+    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
+        if (obj == LottieProperty.ELLIPSE_SIZE) {
             this.sizeAnimation.setValueCallback(lottieValueCallback);
-        } else if (t == LottieProperty.POSITION) {
+        } else if (obj == LottieProperty.POSITION) {
             this.positionAnimation.setValueCallback(lottieValueCallback);
         }
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
-    public String getName() {
-        return this.name;
+    public void setContents(List list, List list2) {
+        for (int i = 0; i < list.size(); i++) {
+            Content content = (Content) list.get(i);
+            if (content instanceof TrimPathContent) {
+                TrimPathContent trimPathContent = (TrimPathContent) content;
+                if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {
+                    this.trimPaths.addTrimPath(trimPathContent);
+                    trimPathContent.addListener(this);
+                }
+            }
+        }
     }
 
     @Override // com.airbnb.lottie.animation.content.PathContent
@@ -66,9 +84,9 @@ public class EllipseContent implements PathContent, BaseKeyframeAnimation.Animat
             this.isPathValid = true;
             return this.path;
         }
-        PointF value = this.sizeAnimation.getValue();
-        float f = value.x / 2.0f;
-        float f2 = value.y / 2.0f;
+        PointF pointF = (PointF) this.sizeAnimation.getValue();
+        float f = pointF.x / 2.0f;
+        float f2 = pointF.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = 0.55228f * f2;
         this.path.reset();
@@ -97,35 +115,16 @@ public class EllipseContent implements PathContent, BaseKeyframeAnimation.Animat
             this.path.cubicTo(f15, f2, f16, f14, f16, 0.0f);
             this.path.cubicTo(f16, f13, f15, f11, 0.0f, f11);
         }
-        PointF value2 = this.positionAnimation.getValue();
-        this.path.offset(value2.x, value2.y);
+        PointF pointF2 = (PointF) this.positionAnimation.getValue();
+        this.path.offset(pointF2.x, pointF2.y);
         this.path.close();
         this.trimPaths.apply(this.path);
         this.isPathValid = true;
         return this.path;
     }
 
-    @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.AnimationListener
-    public void onValueChanged() {
-        invalidate();
-    }
-
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+    public void resolveKeyPath(KeyPath keyPath, int i, List list, KeyPath keyPath2) {
         MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
-    }
-
-    @Override // com.airbnb.lottie.animation.content.Content
-    public void setContents(List<Content> list, List<Content> list2) {
-        for (int i = 0; i < list.size(); i++) {
-            Content content = list.get(i);
-            if (content instanceof TrimPathContent) {
-                TrimPathContent trimPathContent = (TrimPathContent) content;
-                if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {
-                    this.trimPaths.addTrimPath(trimPathContent);
-                    trimPathContent.addListener(this);
-                }
-            }
-        }
     }
 }

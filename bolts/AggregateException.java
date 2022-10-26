@@ -18,7 +18,38 @@ public class AggregateException extends Exception {
     public static final String DEFAULT_MESSAGE = "There were multiple errors.";
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Throwable> innerThrowables;
+    public List innerThrowables;
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public AggregateException(String str, List list) {
+        super(str, r0);
+        Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Throwable) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (list != null && list.size() > 0) {
+            th = (Throwable) list.get(0);
+        } else {
+            th = null;
+        }
+        this.innerThrowables = Collections.unmodifiableList(list);
+    }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AggregateException(String str, Throwable[] thArr) {
@@ -41,43 +72,25 @@ public class AggregateException extends Exception {
         }
     }
 
-    @Deprecated
-    public Throwable[] getCauses() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AggregateException(List list) {
+        this(DEFAULT_MESSAGE, list);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Throwable> list = this.innerThrowables;
-            return (Throwable[]) list.toArray(new Throwable[list.size()]);
-        }
-        return (Throwable[]) invokeV.objValue;
-    }
-
-    @Deprecated
-    public List<Exception> getErrors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<Throwable> list = this.innerThrowables;
-            if (list == null) {
-                return arrayList;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (List) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            for (Throwable th : list) {
-                if (th instanceof Exception) {
-                    arrayList.add((Exception) th);
-                } else {
-                    arrayList.add(new Exception(th));
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public List<Throwable> getInnerThrowables() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.innerThrowables : (List) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable
@@ -98,47 +111,46 @@ public class AggregateException extends Exception {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AggregateException(String str, List<? extends Throwable> list) {
-        super(str, (list == null || list.size() <= 0) ? null : list.get(0));
+    @Deprecated
+    public Throwable[] getCauses() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Throwable) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List list = this.innerThrowables;
+            return (Throwable[]) list.toArray(new Throwable[list.size()]);
         }
-        this.innerThrowables = Collections.unmodifiableList(list);
+        return (Throwable[]) invokeV.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AggregateException(List<? extends Throwable> list) {
-        this(DEFAULT_MESSAGE, list);
+    public List getInnerThrowables() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (List) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.innerThrowables;
         }
+        return (List) invokeV.objValue;
+    }
+
+    @Deprecated
+    public List getErrors() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<Throwable> list = this.innerThrowables;
+            if (list == null) {
+                return arrayList;
+            }
+            for (Throwable th : list) {
+                if (th instanceof Exception) {
+                    arrayList.add((Exception) th);
+                } else {
+                    arrayList.add(new Exception(th));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // java.lang.Throwable

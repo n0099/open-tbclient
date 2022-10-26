@@ -29,53 +29,9 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
 
     /* renamed from: com.facebook.soloader.ExtractFromZipSoSource$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class ZipDso extends UnpackingSoSource.Dso implements Comparable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int abiScore;
-        public final ZipEntry backingEntry;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ZipDso(String str, ZipEntry zipEntry, int i) {
-            super(str, makePseudoHash(zipEntry));
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, zipEntry, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.backingEntry = zipEntry;
-            this.abiScore = i;
-        }
-
-        public static String makePseudoHash(ZipEntry zipEntry) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zipEntry)) == null) ? String.format("pseudo-zip-hash-1-%s-%s-%s-%s", zipEntry.getName(), Long.valueOf(zipEntry.getSize()), Long.valueOf(zipEntry.getCompressedSize()), Long.valueOf(zipEntry.getCrc())) : (String) invokeL.objValue;
-        }
-
-        @Override // java.lang.Comparable
-        public int compareTo(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.name.compareTo(((ZipDso) obj).name) : invokeL.intValue;
-        }
     }
 
     /* loaded from: classes7.dex */
@@ -87,6 +43,15 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         public final UnpackingSoSource mSoSource;
         public final ZipFile mZipFile;
         public final /* synthetic */ ExtractFromZipSoSource this$0;
+
+        public boolean shouldExtract(ZipEntry zipEntry, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, zipEntry, str)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
 
         /* loaded from: classes7.dex */
         public final class ZipBackedInputDsoIterator extends UnpackingSoSource.InputDsoIterator {
@@ -113,13 +78,20 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
                 this.this$1 = zipUnpacker;
             }
 
+            public /* synthetic */ ZipBackedInputDsoIterator(ZipUnpacker zipUnpacker, AnonymousClass1 anonymousClass1) {
+                this(zipUnpacker);
+            }
+
             @Override // com.facebook.soloader.UnpackingSoSource.InputDsoIterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     this.this$1.ensureDsos();
-                    return this.mCurrentDso < this.this$1.mDsos.length;
+                    if (this.mCurrentDso < this.this$1.mDsos.length) {
+                        return true;
+                    }
+                    return false;
                 }
                 return invokeV.booleanValue;
             }
@@ -145,10 +117,6 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
                     }
                 }
                 return (UnpackingSoSource.InputDso) invokeV.objValue;
-            }
-
-            public /* synthetic */ ZipBackedInputDsoIterator(ZipUnpacker zipUnpacker, AnonymousClass1 anonymousClass1) {
-                this(zipUnpacker);
             }
         }
 
@@ -178,6 +146,26 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.mZipFile.close();
             }
+        }
+
+        @Override // com.facebook.soloader.UnpackingSoSource.Unpacker
+        public final UnpackingSoSource.DsoManifest getDsoManifest() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new UnpackingSoSource.DsoManifest(ensureDsos());
+            }
+            return (UnpackingSoSource.DsoManifest) invokeV.objValue;
+        }
+
+        @Override // com.facebook.soloader.UnpackingSoSource.Unpacker
+        public final UnpackingSoSource.InputDsoIterator openDsoIterator() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return new ZipBackedInputDsoIterator(this, null);
+            }
+            return (UnpackingSoSource.InputDsoIterator) invokeV.objValue;
         }
 
         public final ZipDso[] ensureDsos() {
@@ -232,28 +220,55 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
             }
             return (ZipDso[]) invokeV.objValue;
         }
+    }
 
-        @Override // com.facebook.soloader.UnpackingSoSource.Unpacker
-        public final UnpackingSoSource.DsoManifest getDsoManifest() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new UnpackingSoSource.DsoManifest(ensureDsos()) : (UnpackingSoSource.DsoManifest) invokeV.objValue;
-        }
+    /* loaded from: classes7.dex */
+    public final class ZipDso extends UnpackingSoSource.Dso implements Comparable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int abiScore;
+        public final ZipEntry backingEntry;
 
-        @Override // com.facebook.soloader.UnpackingSoSource.Unpacker
-        public final UnpackingSoSource.InputDsoIterator openDsoIterator() throws IOException {
-            InterceptResult invokeV;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ZipDso(String str, ZipEntry zipEntry, int i) {
+            super(str, makePseudoHash(zipEntry));
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ZipBackedInputDsoIterator(this, null) : (UnpackingSoSource.InputDsoIterator) invokeV.objValue;
-        }
-
-        public boolean shouldExtract(ZipEntry zipEntry, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, zipEntry, str)) == null) {
-                return true;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, zipEntry, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return invokeLL.booleanValue;
+            this.backingEntry = zipEntry;
+            this.abiScore = i;
+        }
+
+        public static String makePseudoHash(ZipEntry zipEntry) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zipEntry)) == null) {
+                return String.format("pseudo-zip-hash-1-%s-%s-%s-%s", zipEntry.getName(), Long.valueOf(zipEntry.getSize()), Long.valueOf(zipEntry.getCompressedSize()), Long.valueOf(zipEntry.getCrc()));
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // java.lang.Comparable
+        public int compareTo(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return this.name.compareTo(((ZipDso) obj).name);
+            }
+            return invokeL.intValue;
         }
     }
 
@@ -284,6 +299,9 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
     public UnpackingSoSource.Unpacker makeUnpacker() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ZipUnpacker(this, this) : (UnpackingSoSource.Unpacker) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ZipUnpacker(this, this);
+        }
+        return (UnpackingSoSource.Unpacker) invokeV.objValue;
     }
 }

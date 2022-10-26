@@ -18,7 +18,7 @@ public class cs {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ArrayList<cr> f185a;
+    public final ArrayList f185a;
 
     public cs() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class cs {
                 return;
             }
         }
-        this.f185a = new ArrayList<>();
+        this.f185a = new ArrayList();
     }
 
     public cs(String str) {
@@ -51,7 +51,7 @@ public class cs {
                 return;
             }
         }
-        this.f185a = new ArrayList<>();
+        this.f185a = new ArrayList();
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
@@ -64,9 +64,9 @@ public class cs {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 for (int size = this.f185a.size() - 1; size >= 0; size--) {
-                    cr crVar = this.f185a.get(size);
-                    if (crVar.m246a()) {
-                        cv.a().m256a(crVar.a());
+                    cr crVar = (cr) this.f185a.get(size);
+                    if (crVar.m245a()) {
+                        cv.a().m255a(crVar.a());
                         return crVar;
                     }
                 }
@@ -93,21 +93,21 @@ public class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m247a() {
+    public String m246a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cr> m248a() {
+    public ArrayList m247a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f185a : (ArrayList) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m249a() {
+    public synchronized JSONObject m248a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -116,9 +116,9 @@ public class cs {
                 jSONObject = new JSONObject();
                 jSONObject.put("host", this.a);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<cr> it = this.f185a.iterator();
+                Iterator it = this.f185a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().m244a());
+                    jSONArray.put(((cr) it.next()).m243a());
                 }
                 jSONObject.put("fbs", jSONArray);
             }
@@ -135,7 +135,7 @@ public class cs {
                 while (true) {
                     if (i >= this.f185a.size()) {
                         break;
-                    } else if (this.f185a.get(i).a(crVar)) {
+                    } else if (((cr) this.f185a.get(i)).a(crVar)) {
                         this.f185a.set(i, crVar);
                         break;
                     } else {
@@ -150,12 +150,12 @@ public class cs {
     }
 
     public synchronized void a(boolean z) {
-        ArrayList<cr> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             synchronized (this) {
                 for (int size = this.f185a.size() - 1; size >= 0; size--) {
-                    cr crVar = this.f185a.get(size);
+                    cr crVar = (cr) this.f185a.get(size);
                     if (z) {
                         if (crVar.c()) {
                             arrayList = this.f185a;
@@ -177,9 +177,9 @@ public class cs {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
             sb.append("\n");
-            Iterator<cr> it = this.f185a.iterator();
+            Iterator it = this.f185a.iterator();
             while (it.hasNext()) {
-                sb.append(it.next());
+                sb.append((cr) it.next());
             }
             return sb.toString();
         }

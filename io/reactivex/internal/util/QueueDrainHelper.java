@@ -42,223 +42,7 @@ public final class QueueDrainHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static <T, U> boolean checkTerminated(boolean z, boolean z2, Subscriber<?> subscriber, boolean z3, SimpleQueue<?> simpleQueue, QueueDrain<T, U> queueDrain) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, Boolean.valueOf(z3), simpleQueue, queueDrain})) == null) {
-            if (queueDrain.cancelled()) {
-                simpleQueue.clear();
-                return true;
-            } else if (z) {
-                if (z3) {
-                    if (z2) {
-                        Throwable error = queueDrain.error();
-                        if (error != null) {
-                            subscriber.onError(error);
-                        } else {
-                            subscriber.onComplete();
-                        }
-                        return true;
-                    }
-                    return false;
-                }
-                Throwable error2 = queueDrain.error();
-                if (error2 != null) {
-                    simpleQueue.clear();
-                    subscriber.onError(error2);
-                    return true;
-                } else if (z2) {
-                    subscriber.onComplete();
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static <T> SimpleQueue<T> createQueue(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i < 0) {
-                return new SpscLinkedArrayQueue(-i);
-            }
-            return new SpscArrayQueue(i);
-        }
-        return (SimpleQueue) invokeI.objValue;
-    }
-
-    public static <T, U> void drainLoop(SimplePlainQueue<T> simplePlainQueue, Observer<? super U> observer, boolean z, Disposable disposable, ObservableQueueDrain<T, U> observableQueueDrain) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{simplePlainQueue, observer, Boolean.valueOf(z), disposable, observableQueueDrain}) == null) {
-            int i = 1;
-            while (!checkTerminated(observableQueueDrain.done(), simplePlainQueue.isEmpty(), observer, z, simplePlainQueue, disposable, observableQueueDrain)) {
-                while (true) {
-                    boolean done = observableQueueDrain.done();
-                    T poll = simplePlainQueue.poll();
-                    boolean z2 = poll == null;
-                    if (checkTerminated(done, z2, observer, z, simplePlainQueue, disposable, observableQueueDrain)) {
-                        return;
-                    }
-                    if (z2) {
-                        i = observableQueueDrain.leave(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    } else {
-                        observableQueueDrain.accept(observer, poll);
-                    }
-                }
-            }
-        }
-    }
-
-    public static <T, U> void drainMaxLoop(SimplePlainQueue<T> simplePlainQueue, Subscriber<? super U> subscriber, boolean z, Disposable disposable, QueueDrain<T, U> queueDrain) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{simplePlainQueue, subscriber, Boolean.valueOf(z), disposable, queueDrain}) != null) {
-            return;
-        }
-        int i = 1;
-        while (true) {
-            boolean done = queueDrain.done();
-            T poll = simplePlainQueue.poll();
-            boolean z2 = poll == null;
-            if (checkTerminated(done, z2, subscriber, z, simplePlainQueue, queueDrain)) {
-                if (disposable != null) {
-                    disposable.dispose();
-                    return;
-                }
-                return;
-            } else if (z2) {
-                i = queueDrain.leave(-i);
-                if (i == 0) {
-                    return;
-                }
-            } else {
-                long requested = queueDrain.requested();
-                if (requested != 0) {
-                    if (queueDrain.accept(subscriber, poll) && requested != Long.MAX_VALUE) {
-                        queueDrain.produced(1L);
-                    }
-                } else {
-                    simplePlainQueue.clear();
-                    if (disposable != null) {
-                        disposable.dispose();
-                    }
-                    subscriber.onError(new MissingBackpressureException("Could not emit value due to lack of requests."));
-                    return;
-                }
-            }
-        }
-    }
-
-    public static boolean isCancelled(BooleanSupplier booleanSupplier) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, booleanSupplier)) == null) {
-            try {
-                return booleanSupplier.getAsBoolean();
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> void postComplete(Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
-        long j;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65543, null, subscriber, queue, atomicLong, booleanSupplier) == null) {
-            if (queue.isEmpty()) {
-                subscriber.onComplete();
-            } else if (postCompleteDrain(atomicLong.get(), subscriber, queue, atomicLong, booleanSupplier)) {
-            } else {
-                do {
-                    j = atomicLong.get();
-                    if ((j & Long.MIN_VALUE) != 0) {
-                        return;
-                    }
-                    j2 = j | Long.MIN_VALUE;
-                } while (!atomicLong.compareAndSet(j, j2));
-                if (j != 0) {
-                    postCompleteDrain(j2, subscriber, queue, atomicLong, booleanSupplier);
-                }
-            }
-        }
-    }
-
-    public static <T> boolean postCompleteDrain(long j, Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), subscriber, queue, atomicLong, booleanSupplier})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        long j2 = j & Long.MIN_VALUE;
-        while (true) {
-            if (j2 != j) {
-                if (isCancelled(booleanSupplier)) {
-                    return true;
-                }
-                Object obj = (T) queue.poll();
-                if (obj == null) {
-                    subscriber.onComplete();
-                    return true;
-                }
-                subscriber.onNext(obj);
-                j2++;
-            } else if (isCancelled(booleanSupplier)) {
-                return true;
-            } else {
-                if (queue.isEmpty()) {
-                    subscriber.onComplete();
-                    return true;
-                }
-                j = atomicLong.get();
-                if (j == j2) {
-                    long addAndGet = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
-                    if ((Long.MAX_VALUE & addAndGet) == 0) {
-                        return false;
-                    }
-                    j = addAndGet;
-                    j2 = addAndGet & Long.MIN_VALUE;
-                } else {
-                    continue;
-                }
-            }
-        }
-    }
-
-    public static <T> boolean postCompleteRequest(long j, Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
-        InterceptResult invokeCommon;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), subscriber, queue, atomicLong, booleanSupplier})) == null) {
-            do {
-                j2 = atomicLong.get();
-            } while (!atomicLong.compareAndSet(j2, BackpressureHelper.addCap(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
-            if (j2 == Long.MIN_VALUE) {
-                postCompleteDrain(j | Long.MIN_VALUE, subscriber, queue, atomicLong, booleanSupplier);
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static void request(Subscription subscription, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, subscription, i) == null) {
-            subscription.request(i < 0 ? Long.MAX_VALUE : i);
-        }
-    }
-
-    public static <T, U> boolean checkTerminated(boolean z, boolean z2, Observer<?> observer, boolean z3, SimpleQueue<?> simpleQueue, Disposable disposable, ObservableQueueDrain<T, U> observableQueueDrain) {
+    public static boolean checkTerminated(boolean z, boolean z2, Observer observer, boolean z3, SimpleQueue simpleQueue, Disposable disposable, ObservableQueueDrain observableQueueDrain) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), observer, Boolean.valueOf(z3), simpleQueue, disposable, observableQueueDrain})) == null) {
@@ -304,5 +88,237 @@ public final class QueueDrainHelper {
             }
         }
         return invokeCommon.booleanValue;
+    }
+
+    public static boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber, boolean z3, SimpleQueue simpleQueue, QueueDrain queueDrain) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, Boolean.valueOf(z3), simpleQueue, queueDrain})) == null) {
+            if (queueDrain.cancelled()) {
+                simpleQueue.clear();
+                return true;
+            } else if (z) {
+                if (z3) {
+                    if (z2) {
+                        Throwable error = queueDrain.error();
+                        if (error != null) {
+                            subscriber.onError(error);
+                        } else {
+                            subscriber.onComplete();
+                        }
+                        return true;
+                    }
+                    return false;
+                }
+                Throwable error2 = queueDrain.error();
+                if (error2 != null) {
+                    simpleQueue.clear();
+                    subscriber.onError(error2);
+                    return true;
+                } else if (z2) {
+                    subscriber.onComplete();
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static SimpleQueue createQueue(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i < 0) {
+                return new SpscLinkedArrayQueue(-i);
+            }
+            return new SpscArrayQueue(i);
+        }
+        return (SimpleQueue) invokeI.objValue;
+    }
+
+    public static boolean isCancelled(BooleanSupplier booleanSupplier) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, booleanSupplier)) == null) {
+            try {
+                return booleanSupplier.getAsBoolean();
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void drainLoop(SimplePlainQueue simplePlainQueue, Observer observer, boolean z, Disposable disposable, ObservableQueueDrain observableQueueDrain) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{simplePlainQueue, observer, Boolean.valueOf(z), disposable, observableQueueDrain}) == null) {
+            int i = 1;
+            while (!checkTerminated(observableQueueDrain.done(), simplePlainQueue.isEmpty(), observer, z, simplePlainQueue, disposable, observableQueueDrain)) {
+                while (true) {
+                    boolean done = observableQueueDrain.done();
+                    Object poll = simplePlainQueue.poll();
+                    if (poll == null) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (checkTerminated(done, z2, observer, z, simplePlainQueue, disposable, observableQueueDrain)) {
+                        return;
+                    }
+                    if (z2) {
+                        i = observableQueueDrain.leave(-i);
+                        if (i == 0) {
+                            return;
+                        }
+                    } else {
+                        observableQueueDrain.accept(observer, poll);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void drainMaxLoop(SimplePlainQueue simplePlainQueue, Subscriber subscriber, boolean z, Disposable disposable, QueueDrain queueDrain) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{simplePlainQueue, subscriber, Boolean.valueOf(z), disposable, queueDrain}) == null) {
+            int i = 1;
+            while (true) {
+                boolean done = queueDrain.done();
+                Object poll = simplePlainQueue.poll();
+                if (poll == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (checkTerminated(done, z2, subscriber, z, simplePlainQueue, queueDrain)) {
+                    if (disposable != null) {
+                        disposable.dispose();
+                        return;
+                    }
+                    return;
+                } else if (z2) {
+                    i = queueDrain.leave(-i);
+                    if (i == 0) {
+                        return;
+                    }
+                } else {
+                    long requested = queueDrain.requested();
+                    if (requested != 0) {
+                        if (queueDrain.accept(subscriber, poll) && requested != Long.MAX_VALUE) {
+                            queueDrain.produced(1L);
+                        }
+                    } else {
+                        simplePlainQueue.clear();
+                        if (disposable != null) {
+                            disposable.dispose();
+                        }
+                        subscriber.onError(new MissingBackpressureException("Could not emit value due to lack of requests."));
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public static boolean postCompleteDrain(long j, Subscriber subscriber, Queue queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), subscriber, queue, atomicLong, booleanSupplier})) == null) {
+            long j2 = j & Long.MIN_VALUE;
+            while (true) {
+                if (j2 != j) {
+                    if (isCancelled(booleanSupplier)) {
+                        return true;
+                    }
+                    Object poll = queue.poll();
+                    if (poll == null) {
+                        subscriber.onComplete();
+                        return true;
+                    }
+                    subscriber.onNext(poll);
+                    j2++;
+                } else if (isCancelled(booleanSupplier)) {
+                    return true;
+                } else {
+                    if (queue.isEmpty()) {
+                        subscriber.onComplete();
+                        return true;
+                    }
+                    j = atomicLong.get();
+                    if (j == j2) {
+                        long addAndGet = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
+                        if ((Long.MAX_VALUE & addAndGet) == 0) {
+                            return false;
+                        }
+                        j = addAndGet;
+                        j2 = addAndGet & Long.MIN_VALUE;
+                    } else {
+                        continue;
+                    }
+                }
+            }
+        } else {
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    public static void postComplete(Subscriber subscriber, Queue queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+        long j;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, subscriber, queue, atomicLong, booleanSupplier) == null) {
+            if (queue.isEmpty()) {
+                subscriber.onComplete();
+            } else if (postCompleteDrain(atomicLong.get(), subscriber, queue, atomicLong, booleanSupplier)) {
+            } else {
+                do {
+                    j = atomicLong.get();
+                    if ((j & Long.MIN_VALUE) != 0) {
+                        return;
+                    }
+                    j2 = j | Long.MIN_VALUE;
+                } while (!atomicLong.compareAndSet(j, j2));
+                if (j != 0) {
+                    postCompleteDrain(j2, subscriber, queue, atomicLong, booleanSupplier);
+                }
+            }
+        }
+    }
+
+    public static boolean postCompleteRequest(long j, Subscriber subscriber, Queue queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+        InterceptResult invokeCommon;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), subscriber, queue, atomicLong, booleanSupplier})) == null) {
+            do {
+                j2 = atomicLong.get();
+            } while (!atomicLong.compareAndSet(j2, BackpressureHelper.addCap(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
+            if (j2 == Long.MIN_VALUE) {
+                postCompleteDrain(j | Long.MIN_VALUE, subscriber, queue, atomicLong, booleanSupplier);
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void request(Subscription subscription, int i) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65546, null, subscription, i) == null) {
+            if (i < 0) {
+                j = Long.MAX_VALUE;
+            } else {
+                j = i;
+            }
+            subscription.request(j);
+        }
     }
 }

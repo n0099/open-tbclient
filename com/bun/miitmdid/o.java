@@ -1,7 +1,6 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,28 +11,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import org.aspectj.runtime.reflect.SignatureImpl;
-@Keep
 /* loaded from: classes7.dex */
 public abstract class o implements IIdProvider {
     public static /* synthetic */ Interceptable $ic;
-    @Keep
     public static final char[] e;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public IIdentifierListener a;
-    @Keep
     public boolean b;
-    @Keep
     public boolean c;
-    @Keep
     public boolean d;
 
-    @Keep
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Keep
         public final /* synthetic */ o a;
 
         public a(o oVar) {
@@ -55,16 +46,13 @@ public abstract class o implements IIdProvider {
         }
 
         @Override // java.lang.Runnable
-        @Keep
         public native void run();
     }
 
-    @Keep
     /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Keep
         public final /* synthetic */ o a;
 
         public b(o oVar) {
@@ -86,7 +74,6 @@ public abstract class o implements IIdProvider {
         }
 
         @Override // java.lang.Runnable
-        @Keep
         public native void run();
     }
 
@@ -120,30 +107,22 @@ public abstract class o implements IIdProvider {
         }
     }
 
-    @Keep
     public native Context a(Context context);
 
-    @Keep
     public native void a(String str, String str2, String str3, boolean z, boolean z2);
 
-    @Keep
     public native boolean a();
 
-    @Keep
     public native boolean b();
 
-    @Keep
     public native boolean c();
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void doStartInThreadPool(IIdentifierListener iIdentifierListener);
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void doStartSync(IIdentifierListener iIdentifierListener);
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void setGetIdFlag(boolean z, boolean z2, boolean z3);
 }

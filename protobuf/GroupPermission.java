@@ -46,7 +46,13 @@ public final class GroupPermission extends Message {
     public final Integer isForumManager;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<GroupPermission> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer canCreateNormal;
@@ -112,14 +118,11 @@ public final class GroupPermission extends Message {
         public GroupPermission build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new GroupPermission(this, z, null) : (GroupPermission) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new GroupPermission(this, z, null);
+            }
+            return (GroupPermission) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -142,10 +145,6 @@ public final class GroupPermission extends Message {
         DEFAULT_CANCREATENORMALNUM = 0;
         DEFAULT_CANCREATEOFFICIALNUM = 0;
         DEFAULT_CANCREATEPERSONALNUM = 0;
-    }
-
-    public /* synthetic */ GroupPermission(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -240,5 +239,9 @@ public final class GroupPermission extends Message {
         this.canCreateNormalNum = builder.canCreateNormalNum;
         this.canCreateOfficialNum = builder.canCreateOfficialNum;
         this.canCreatePersonalNum = builder.canCreatePersonalNum;
+    }
+
+    public /* synthetic */ GroupPermission(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

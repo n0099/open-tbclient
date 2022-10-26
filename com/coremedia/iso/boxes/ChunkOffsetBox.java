@@ -19,6 +19,8 @@ public abstract class ChunkOffsetBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract long[] getChunkOffsets();
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -33,6 +35,11 @@ public abstract class ChunkOffsetBox extends AbstractFullBox {
             }
         }
         ajc$preClinit();
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("ChunkOffsetBox.java", ChunkOffsetBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.ChunkOffsetBox", "", "", "", "java.lang.String"), 17);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,13 +61,6 @@ public abstract class ChunkOffsetBox extends AbstractFullBox {
             }
         }
     }
-
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("ChunkOffsetBox.java", ChunkOffsetBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.ChunkOffsetBox", "", "", "", "java.lang.String"), 17);
-    }
-
-    public abstract long[] getChunkOffsets();
 
     public String toString() {
         InterceptResult invokeV;

@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.impl;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
@@ -20,6 +21,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
@@ -38,10 +40,10 @@ public class H5PayManager {
     public static final String TAG = "H5PayManager";
     public static H5PayManager instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> mAct;
+    public WeakReference mAct;
     public IH5PayActivityVisit mH5PayActivityVisit;
     public Handler mHandler;
-    public Map<String, H5PayVerifyTask> mOrderVerifyTaskMap;
+    public Map mOrderVerifyTaskMap;
     public Class mPayWebViewActivityClass;
     public String mReadyVerifyOrderId;
 
@@ -63,12 +65,65 @@ public class H5PayManager {
         this.mHandler = new Handler(Looper.getMainLooper());
     }
 
+    public synchronized void verifyPayOrder() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                RLog.info(TAG, "try verifyPayOrder");
+                if (TextUtils.isEmpty(this.mReadyVerifyOrderId)) {
+                    RLog.error(TAG, "try verifyPayOrder error mReadyVerifyOrderId null", new Object[0]);
+                    return;
+                }
+                String str = this.mReadyVerifyOrderId;
+                this.mReadyVerifyOrderId = null;
+                this.mHandler.postDelayed(new Runnable(this, str) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ H5PayManager this$0;
+                    public final /* synthetic */ String val$newVerifyOrderId;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$newVerifyOrderId = str;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            if (!TextUtils.isEmpty(this.val$newVerifyOrderId)) {
+                                this.this$0.verifyOrder(this.val$newVerifyOrderId);
+                            } else {
+                                RLog.error(H5PayManager.TAG, "postDelayed error newVerifyOrderId null", new Object[0]);
+                            }
+                        }
+                    }
+                }, 1000L);
+            }
+        }
+    }
+
     private synchronized void doPay(Activity activity, String str, H5PayParams h5PayParams) {
+        PayType payType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, activity, str, h5PayParams) == null) {
             synchronized (this) {
                 setReadyOrderId(str, h5PayParams);
-                WeakReference<Activity> weakReference = new WeakReference<>(activity);
+                WeakReference weakReference = new WeakReference(activity);
                 this.mAct = weakReference;
                 if (weakReference != null && weakReference.get() != null) {
                     if (this.mPayWebViewActivityClass == null) {
@@ -77,8 +132,12 @@ public class H5PayManager {
                         return;
                     }
                     try {
-                        Intent intent = new Intent(this.mAct.get(), this.mPayWebViewActivityClass);
-                        PayType payType = h5PayParams.payType != null ? h5PayParams.payType : PayType.DXM_PAY_KJ;
+                        Intent intent = new Intent((Context) this.mAct.get(), this.mPayWebViewActivityClass);
+                        if (h5PayParams.payType != null) {
+                            payType = h5PayParams.payType;
+                        } else {
+                            payType = PayType.DXM_PAY_KJ;
+                        }
                         if (PayType.MOCK_TEST_PAY.equals(payType)) {
                             intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 3);
                             intent.putExtra(H5PayConstant.EXTRA_TITLE, "MOCK支付");
@@ -100,7 +159,7 @@ public class H5PayManager {
                             if (this.mH5PayActivityVisit != null) {
                                 this.mH5PayActivityVisit.notifyPayFlowActivityVisit("H5Pay:" + str, h5PayParams.appId, h5PayParams.usedChannel, h5PayParams.payFlowTypeId);
                             }
-                            this.mAct.get().startActivity(intent);
+                            ((Activity) this.mAct.get()).startActivity(intent);
                         } else {
                             removeOrderVerifyTask(str);
                             RLog.error(TAG, "dopay error mAct.get() null", new Object[0]);
@@ -133,6 +192,16 @@ public class H5PayManager {
         return (H5PayManager) invokeV.objValue;
     }
 
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RLog.info(TAG, "release()");
+            this.mAct = null;
+            this.mOrderVerifyTaskMap.clear();
+            this.mHandler.removeCallbacksAndMessages(null);
+        }
+    }
+
     private synchronized void notifyPayResult(String str, H5PayParams h5PayParams, GetChargeOrderStatusResult getChargeOrderStatusResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, this, str, h5PayParams, getChargeOrderStatusResult) == null) {
@@ -154,7 +223,7 @@ public class H5PayManager {
                 currencyChargeMessage.cid = h5PayParams.cid;
                 currencyChargeMessage.appClientExpand = h5PayParams.appClientExpand;
                 if (getChargeOrderStatusResult.giftbags != null && getChargeOrderStatusResult.giftbags.size() > 0) {
-                    currencyChargeMessage.giftBagsInfo = getChargeOrderStatusResult.giftbags.get(0);
+                    currencyChargeMessage.giftBagsInfo = (GiftBagsInfo) getChargeOrderStatusResult.giftbags.get(0);
                 }
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     h5PayParams.payServiceCallback.onCurrencyChargeMessage(currencyChargeMessage);
@@ -262,7 +331,7 @@ public class H5PayManager {
     public void verifyOrder(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
-            H5PayVerifyTask h5PayVerifyTask = this.mOrderVerifyTaskMap.get(str);
+            H5PayVerifyTask h5PayVerifyTask = (H5PayVerifyTask) this.mOrderVerifyTaskMap.get(str);
             H5PayParams h5PayParams = h5PayVerifyTask.h5PayParams;
             if (h5PayParams == null) {
                 RLog.error(TAG, "verifyOrder error payParams null orderId:" + str, new Object[0]);
@@ -276,7 +345,7 @@ public class H5PayManager {
             getChargeOrderStatusReqParams.setOrderId(str);
             getChargeOrderStatusReqParams.setToken(h5PayParams.token);
             getChargeOrderStatusReqParams.setTokenCallback(h5PayParams.tokenCallback);
-            h5PayParams.appPayService.queryChargeOrderStatus(getChargeOrderStatusReqParams, new IResult<GetChargeOrderStatusResult>(this, str, h5PayVerifyTask) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.3
+            h5PayParams.appPayService.queryChargeOrderStatus(getChargeOrderStatusReqParams, new IResult(this, str, h5PayVerifyTask) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ H5PayManager this$0;
@@ -338,13 +407,52 @@ public class H5PayManager {
         }
     }
 
-    public void release() {
+    private synchronized void verifyPayOrder(H5PayVerifyTask h5PayVerifyTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info(TAG, "release()");
-            this.mAct = null;
-            this.mOrderVerifyTaskMap.clear();
-            this.mHandler.removeCallbacksAndMessages(null);
+        if (interceptable == null || interceptable.invokeL(65546, this, h5PayVerifyTask) == null) {
+            synchronized (this) {
+                if (h5PayVerifyTask == null) {
+                    RLog.error(TAG, "verifyPayOrder error orderVerifyTask null", new Object[0]);
+                    return;
+                }
+                int i = h5PayVerifyTask.mCurrentRetryInterval;
+                int i2 = h5PayVerifyTask.mCurrentRetryCount;
+                RLog.debug(TAG, "verifyPayOrder mCurrentRetryInterval:" + i + " mCurrentRetryCount:" + i2);
+                this.mHandler.postDelayed(new Runnable(this, h5PayVerifyTask) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ H5PayManager this$0;
+                    public final /* synthetic */ H5PayVerifyTask val$orderVerifyTask;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, h5PayVerifyTask};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$orderVerifyTask = h5PayVerifyTask;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        H5PayVerifyTask h5PayVerifyTask2;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (h5PayVerifyTask2 = this.val$orderVerifyTask) != null && !TextUtils.isEmpty(h5PayVerifyTask2.mCurrentOrderId)) {
+                            this.this$0.verifyOrder(this.val$orderVerifyTask.mCurrentOrderId);
+                        }
+                    }
+                }, (long) i);
+            }
         }
     }
 
@@ -392,108 +500,6 @@ public class H5PayManager {
                 RLog.info(TAG, "setYYPayWebviewActClass payWebviewActClass:" + cls + " h5PayActivityVisit:" + iH5PayActivityVisit);
                 this.mPayWebViewActivityClass = cls;
                 this.mH5PayActivityVisit = iH5PayActivityVisit;
-            }
-        }
-    }
-
-    public synchronized void verifyPayOrder() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                RLog.info(TAG, "try verifyPayOrder");
-                if (TextUtils.isEmpty(this.mReadyVerifyOrderId)) {
-                    RLog.error(TAG, "try verifyPayOrder error mReadyVerifyOrderId null", new Object[0]);
-                    return;
-                }
-                String str = this.mReadyVerifyOrderId;
-                this.mReadyVerifyOrderId = null;
-                this.mHandler.postDelayed(new Runnable(this, str) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ H5PayManager this$0;
-                    public final /* synthetic */ String val$newVerifyOrderId;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$newVerifyOrderId = str;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (!TextUtils.isEmpty(this.val$newVerifyOrderId)) {
-                                this.this$0.verifyOrder(this.val$newVerifyOrderId);
-                            } else {
-                                RLog.error(H5PayManager.TAG, "postDelayed error newVerifyOrderId null", new Object[0]);
-                            }
-                        }
-                    }
-                }, 1000L);
-            }
-        }
-    }
-
-    private synchronized void verifyPayOrder(H5PayVerifyTask h5PayVerifyTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, h5PayVerifyTask) == null) {
-            synchronized (this) {
-                if (h5PayVerifyTask == null) {
-                    RLog.error(TAG, "verifyPayOrder error orderVerifyTask null", new Object[0]);
-                    return;
-                }
-                int i = h5PayVerifyTask.mCurrentRetryInterval;
-                int i2 = h5PayVerifyTask.mCurrentRetryCount;
-                RLog.debug(TAG, "verifyPayOrder mCurrentRetryInterval:" + i + " mCurrentRetryCount:" + i2);
-                this.mHandler.postDelayed(new Runnable(this, h5PayVerifyTask) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ H5PayManager this$0;
-                    public final /* synthetic */ H5PayVerifyTask val$orderVerifyTask;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, h5PayVerifyTask};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$orderVerifyTask = h5PayVerifyTask;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        H5PayVerifyTask h5PayVerifyTask2;
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (h5PayVerifyTask2 = this.val$orderVerifyTask) == null || TextUtils.isEmpty(h5PayVerifyTask2.mCurrentOrderId)) {
-                            return;
-                        }
-                        this.this$0.verifyOrder(this.val$orderVerifyTask.mCurrentOrderId);
-                    }
-                }, (long) i);
             }
         }
     }

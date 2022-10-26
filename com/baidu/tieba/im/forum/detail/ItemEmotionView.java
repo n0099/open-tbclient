@@ -39,32 +39,6 @@ public class ItemEmotionView extends RelativeLayout {
         a(context);
     }
 
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b0, (ViewGroup) this, true);
-            setVisibility(8);
-        }
-    }
-
-    public void setEmotionData(BarEmotionResponseMessage.ForumEmotionData forumEmotionData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumEmotionData) == null) {
-            if (forumEmotionData != null && forumEmotionData.forum_pkg_status == 1) {
-                setVisibility(0);
-            } else {
-                setVisibility(8);
-            }
-        }
-    }
-
-    public void setEmotionOnClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090339).setOnClickListener(onClickListener);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemEmotionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -85,5 +59,31 @@ public class ItemEmotionView extends RelativeLayout {
             }
         }
         a(context);
+    }
+
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02af, (ViewGroup) this, true);
+            setVisibility(8);
+        }
+    }
+
+    public void setEmotionData(BarEmotionResponseMessage.ForumEmotionData forumEmotionData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumEmotionData) == null) {
+            if (forumEmotionData != null && forumEmotionData.forum_pkg_status == 1) {
+                setVisibility(0);
+            } else {
+                setVisibility(8);
+            }
+        }
+    }
+
+    public void setEmotionOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            findViewById(R.id.obfuscated_res_0x7f090339).setOnClickListener(onClickListener);
+        }
     }
 }

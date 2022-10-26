@@ -18,6 +18,7 @@ public final class ScrollerCompat {
     public OverScroller mScroller;
 
     public ScrollerCompat(Context context, Interpolator interpolator) {
+        OverScroller overScroller;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,14 +33,32 @@ public final class ScrollerCompat {
                 return;
             }
         }
-        this.mScroller = interpolator != null ? new OverScroller(context, interpolator) : new OverScroller(context);
+        if (interpolator != null) {
+            overScroller = new OverScroller(context, interpolator);
+        } else {
+            overScroller = new OverScroller(context);
+        }
+        this.mScroller = overScroller;
     }
 
     @Deprecated
     public static ScrollerCompat create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? create(context, null) : (ScrollerCompat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return create(context, null);
+        }
+        return (ScrollerCompat) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static ScrollerCompat create(Context context, Interpolator interpolator) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, interpolator)) == null) {
+            return new ScrollerCompat(context, interpolator);
+        }
+        return (ScrollerCompat) invokeLL.objValue;
     }
 
     @Deprecated
@@ -54,7 +73,80 @@ public final class ScrollerCompat {
     public boolean computeScrollOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mScroller.computeScrollOffset() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mScroller.computeScrollOffset();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Deprecated
+    public float getCurrVelocity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mScroller.getCurrVelocity();
+        }
+        return invokeV.floatValue;
+    }
+
+    @Deprecated
+    public int getCurrX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mScroller.getCurrX();
+        }
+        return invokeV.intValue;
+    }
+
+    @Deprecated
+    public int getCurrY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mScroller.getCurrY();
+        }
+        return invokeV.intValue;
+    }
+
+    @Deprecated
+    public int getFinalX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mScroller.getFinalX();
+        }
+        return invokeV.intValue;
+    }
+
+    @Deprecated
+    public int getFinalY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mScroller.getFinalY();
+        }
+        return invokeV.intValue;
+    }
+
+    @Deprecated
+    public boolean isFinished() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mScroller.isFinished();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Deprecated
+    public boolean isOverScrolled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mScroller.isOverScrolled();
+        }
+        return invokeV.booleanValue;
     }
 
     @Deprecated
@@ -66,52 +158,11 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public float getCurrVelocity() {
-        InterceptResult invokeV;
+    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mScroller.getCurrVelocity() : invokeV.floatValue;
-    }
-
-    @Deprecated
-    public int getCurrX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mScroller.getCurrX() : invokeV.intValue;
-    }
-
-    @Deprecated
-    public int getCurrY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mScroller.getCurrY() : invokeV.intValue;
-    }
-
-    @Deprecated
-    public int getFinalX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mScroller.getFinalX() : invokeV.intValue;
-    }
-
-    @Deprecated
-    public int getFinalY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mScroller.getFinalY() : invokeV.intValue;
-    }
-
-    @Deprecated
-    public boolean isFinished() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mScroller.isFinished() : invokeV.booleanValue;
-    }
-
-    @Deprecated
-    public boolean isOverScrolled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mScroller.isOverScrolled() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)}) == null) {
+            this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8, i9, i10);
+        }
     }
 
     @Deprecated
@@ -134,7 +185,10 @@ public final class ScrollerCompat {
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) ? this.mScroller.springBack(i, i2, i3, i4, i5, i6) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            return this.mScroller.springBack(i, i2, i3, i4, i5, i6);
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Deprecated
@@ -142,21 +196,6 @@ public final class ScrollerCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
             this.mScroller.startScroll(i, i2, i3, i4);
-        }
-    }
-
-    @Deprecated
-    public static ScrollerCompat create(Context context, Interpolator interpolator) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, interpolator)) == null) ? new ScrollerCompat(context, interpolator) : (ScrollerCompat) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)}) == null) {
-            this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8, i9, i10);
         }
     }
 

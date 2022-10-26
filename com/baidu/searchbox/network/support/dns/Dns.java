@@ -30,7 +30,7 @@ public interface Dns {
         }
 
         @Override // com.baidu.searchbox.network.support.dns.Dns
-        public List<InetAddress> lookup(String str) throws UnknownHostException {
+        public List lookup(String str) throws UnknownHostException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -49,5 +49,5 @@ public interface Dns {
         }
     };
 
-    List<InetAddress> lookup(String str) throws UnknownHostException;
+    List lookup(String str) throws UnknownHostException;
 }

@@ -28,7 +28,7 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
     public long startUs;
 
     /* loaded from: classes7.dex */
-    public static final class ClippingSampleStream implements SampleStream {
+    public final class ClippingSampleStream implements SampleStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long endUs;
@@ -60,6 +60,16 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
             this.pendingDiscontinuity = z;
         }
 
+        @Override // com.google.android.exoplayer2.source.SampleStream
+        public int skipData(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                return this.stream.skipData(this.startUs + j);
+            }
+            return invokeJ.intValue;
+        }
+
         public void clearPendingDiscontinuity() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -78,7 +88,10 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
         public boolean isReady() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.stream.isReady() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.stream.isReady();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.google.android.exoplayer2.source.SampleStream
@@ -92,6 +105,7 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
         @Override // com.google.android.exoplayer2.source.SampleStream
         public int readData(FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z) {
             InterceptResult invokeLLZ;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, formatHolder, decoderInputBuffer, z)) == null) {
                 if (this.pendingDiscontinuity) {
@@ -104,7 +118,16 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
                 int readData = this.stream.readData(formatHolder, decoderInputBuffer, z);
                 if (readData == -5) {
                     Format format = formatHolder.format;
-                    formatHolder.format = format.copyWithGaplessInfo(this.startUs != 0 ? 0 : format.encoderDelay, this.endUs == Long.MIN_VALUE ? format.encoderPadding : 0);
+                    int i2 = 0;
+                    if (this.startUs != 0) {
+                        i = 0;
+                    } else {
+                        i = format.encoderDelay;
+                    }
+                    if (this.endUs == Long.MIN_VALUE) {
+                        i2 = format.encoderPadding;
+                    }
+                    formatHolder.format = format.copyWithGaplessInfo(i, i2);
                     return -5;
                 }
                 long j = this.endUs;
@@ -120,13 +143,6 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
                 return readData;
             }
             return invokeLLZ.intValue;
-        }
-
-        @Override // com.google.android.exoplayer2.source.SampleStream
-        public int skipData(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) ? this.stream.skipData(this.startUs + j) : invokeJ.intValue;
         }
     }
 
@@ -170,7 +186,10 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
     public boolean continueLoading(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.mediaPeriod.continueLoading(j + this.startUs) : invokeJ.booleanValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.mediaPeriod.continueLoading(j + this.startUs);
+        }
+        return invokeJ.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
@@ -178,6 +197,30 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             this.mediaPeriod.discardBuffer(j + this.startUs);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
+    public void onContinueLoadingRequested(MediaPeriod mediaPeriod) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mediaPeriod) == null) {
+            this.callback.onContinueLoadingRequested(this);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod.Callback
+    public void onPrepared(MediaPeriod mediaPeriod) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaPeriod) == null) {
+            if (this.startUs != C.TIME_UNSET && this.endUs != C.TIME_UNSET) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.callback.onPrepared(this);
         }
     }
 
@@ -219,7 +262,10 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
     public TrackGroupArray getTrackGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mediaPeriod.getTrackGroups() : (TrackGroupArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mediaPeriod.getTrackGroups();
+        }
+        return (TrackGroupArray) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
@@ -227,15 +273,6 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.mediaPeriod.maybeThrowPrepareError();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod.Callback
-    public void onPrepared(MediaPeriod mediaPeriod) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaPeriod) == null) {
-            Assertions.checkState((this.startUs == C.TIME_UNSET || this.endUs == C.TIME_UNSET) ? false : true);
-            this.callback.onPrepared(this);
         }
     }
 
@@ -248,13 +285,22 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
         }
     }
 
+    public void setClipping(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.startUs = j;
+            this.endUs = j2;
+        }
+    }
+
     @Override // com.google.android.exoplayer2.source.MediaPeriod
     public long readDiscontinuity() {
         InterceptResult invokeV;
+        boolean z;
         ClippingSampleStream[] clippingSampleStreamArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            boolean z = false;
+            boolean z2 = false;
             if (this.pendingInitialDiscontinuity) {
                 for (ClippingSampleStream clippingSampleStream : this.sampleStreams) {
                     if (clippingSampleStream != null) {
@@ -263,16 +309,21 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
                 }
                 this.pendingInitialDiscontinuity = false;
                 long readDiscontinuity = readDiscontinuity();
-                if (readDiscontinuity != C.TIME_UNSET) {
-                    return readDiscontinuity;
+                if (readDiscontinuity == C.TIME_UNSET) {
+                    return 0L;
                 }
-                return 0L;
+                return readDiscontinuity;
             }
             long readDiscontinuity2 = this.mediaPeriod.readDiscontinuity();
             if (readDiscontinuity2 == C.TIME_UNSET) {
                 return C.TIME_UNSET;
             }
-            Assertions.checkState(readDiscontinuity2 >= this.startUs);
+            if (readDiscontinuity2 >= this.startUs) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             long j = this.endUs;
             Assertions.checkState((j == Long.MIN_VALUE || readDiscontinuity2 <= j) ? true : true);
             return readDiscontinuity2 - this.startUs;
@@ -325,6 +376,7 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
     */
     public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j) {
         InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j)})) == null) {
             this.sampleStreams = new ClippingSampleStream[sampleStreamArr.length];
@@ -344,9 +396,14 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
                 i++;
             }
             long selectTracks = this.mediaPeriod.selectTracks(trackSelectionArr, zArr, sampleStreamArr2, zArr2, j + this.startUs);
-            boolean z = true;
+            boolean z2 = true;
             if (this.pendingInitialDiscontinuity) {
-                this.pendingInitialDiscontinuity = this.startUs != 0 && shouldKeepInitialDiscontinuity(trackSelectionArr);
+                if (this.startUs != 0 && shouldKeepInitialDiscontinuity(trackSelectionArr)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.pendingInitialDiscontinuity = z;
             }
             long j2 = this.startUs;
             if (selectTracks != j + j2) {
@@ -355,9 +412,9 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
                     if (j3 != Long.MIN_VALUE) {
                     }
                 }
-                z = false;
+                z2 = false;
             }
-            Assertions.checkState(z);
+            Assertions.checkState(z2);
             for (int i2 = 0; i2 < sampleStreamArr.length; i2++) {
                 if (sampleStreamArr2[i2] == null) {
                     this.sampleStreams[i2] = null;
@@ -369,22 +426,5 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
             return selectTracks - this.startUs;
         }
         return invokeCommon.longValue;
-    }
-
-    public void setClipping(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.startUs = j;
-            this.endUs = j2;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
-    public void onContinueLoadingRequested(MediaPeriod mediaPeriod) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mediaPeriod) == null) {
-            this.callback.onContinueLoadingRequested(this);
-        }
     }
 }

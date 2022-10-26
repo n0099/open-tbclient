@@ -31,71 +31,10 @@ public class SystemEventTrigger extends AbsEventTrigger implements VideoReceiver
     }
 
     @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
-    public void onBatteryChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_BATTERY_CHANGED);
-            obtainEvent.setLogLevel(1);
-            obtainEvent.putExtra(4, Integer.valueOf(i));
-            triggerEvent(obtainEvent);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
-    public void onBluetoothHeadsetChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_BLUETOOTH_HEADSET);
-            obtainEvent.putExtra(6, Boolean.valueOf(z));
-            triggerEvent(obtainEvent);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
     public void onConfigurationChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             triggerEvent(SystemEvent.obtainEvent(SystemEvent.ACTION_CONFIGURATION_CHANGED));
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
-    public void onConnectChanged(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, netStatus, netStatus2) == null) {
-            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_CONNECT_CHANGED);
-            obtainEvent.putExtra(1, netStatus2);
-            triggerEvent(obtainEvent);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
-    public void onHeadsetPlug(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_HEADSET_PLUG);
-            obtainEvent.putExtra(3, Boolean.valueOf(z));
-            triggerEvent(obtainEvent);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
-    public void onScreenStatusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            VideoEvent obtainEvent = SystemEvent.obtainEvent(z ? SystemEvent.ACTION_SCREEN_OFF : SystemEvent.ACTION_SCREEN_ON);
-            obtainEvent.putExtra(2, Boolean.valueOf(z));
-            triggerEvent(obtainEvent);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
-    public void onVolumeChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_VOLUME_CHANGED);
-            obtainEvent.putExtra(5, Integer.valueOf(i));
-            triggerEvent(obtainEvent);
         }
     }
 
@@ -118,6 +57,73 @@ public class SystemEventTrigger extends AbsEventTrigger implements VideoReceiver
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
+    public void onBatteryChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_BATTERY_CHANGED);
+            obtainEvent.setLogLevel(1);
+            obtainEvent.putExtra(4, Integer.valueOf(i));
+            triggerEvent(obtainEvent);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
+    public void onBluetoothHeadsetChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_BLUETOOTH_HEADSET);
+            obtainEvent.putExtra(6, Boolean.valueOf(z));
+            triggerEvent(obtainEvent);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
+    public void onHeadsetPlug(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_HEADSET_PLUG);
+            obtainEvent.putExtra(3, Boolean.valueOf(z));
+            triggerEvent(obtainEvent);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
+    public void onScreenStatusChanged(boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            if (z) {
+                str = SystemEvent.ACTION_SCREEN_OFF;
+            } else {
+                str = SystemEvent.ACTION_SCREEN_ON;
+            }
+            VideoEvent obtainEvent = SystemEvent.obtainEvent(str);
+            obtainEvent.putExtra(2, Boolean.valueOf(z));
+            triggerEvent(obtainEvent);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
+    public void onVolumeChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_VOLUME_CHANGED);
+            obtainEvent.putExtra(5, Integer.valueOf(i));
+            triggerEvent(obtainEvent);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.event.VideoReceiver.VideoReceiverListener
+    public void onConnectChanged(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, netStatus, netStatus2) == null) {
+            VideoEvent obtainEvent = SystemEvent.obtainEvent(SystemEvent.ACTION_CONNECT_CHANGED);
+            obtainEvent.putExtra(1, netStatus2);
+            triggerEvent(obtainEvent);
         }
     }
 }

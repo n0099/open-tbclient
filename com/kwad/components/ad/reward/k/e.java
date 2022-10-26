@@ -1,10 +1,7 @@
 package com.kwad.components.ad.reward.k;
 
-import android.annotation.SuppressLint;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,9 +24,7 @@ public class e extends com.kwad.sdk.core.download.kwai.a implements r.b, x.b {
     public transient /* synthetic */ FieldHolder $fh;
     public KsAdWebView bF;
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
-    @Nullable
     public AdTemplate mAdTemplate;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
     public com.kwad.sdk.core.webview.b mJsBridgeContext;
     public com.kwad.components.core.webview.a mJsInterface;
@@ -38,7 +33,7 @@ public class e extends com.kwad.sdk.core.download.kwai.a implements r.b, x.b {
     public ae uF;
     public f uG;
 
-    public e(KsAdWebView ksAdWebView, View view2, @Nullable com.kwad.components.core.c.a.c cVar, com.kwad.sdk.core.webview.a.kwai.a aVar) {
+    public e(KsAdWebView ksAdWebView, View view2, com.kwad.components.core.c.a.c cVar, com.kwad.sdk.core.webview.a.kwai.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +143,6 @@ public class e extends com.kwad.sdk.core.download.kwai.a implements r.b, x.b {
         this.mJsInterface = null;
     }
 
-    @NonNull
     private KsAdWebView.d getWebErrorListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -221,7 +215,6 @@ public class e extends com.kwad.sdk.core.download.kwai.a implements r.b, x.b {
         fVar.h(str, i);
     }
 
-    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
@@ -247,7 +240,7 @@ public class e extends com.kwad.sdk.core.download.kwai.a implements r.b, x.b {
     }
 
     @Override // com.kwad.components.core.webview.jshandler.r.b
-    public final void a(@NonNull r.a aVar) {
+    public final void a(r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             com.kwad.sdk.core.e.b.d("BottomCardWebViewHelper", "onAdFrameValid : " + aVar.toJson());

@@ -18,6 +18,7 @@ public final class TrackGroup {
     public final int length;
 
     public TrackGroup(Format... formatArr) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,7 +33,12 @@ public final class TrackGroup {
                 return;
             }
         }
-        Assertions.checkState(formatArr.length > 0);
+        if (formatArr.length > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkState(z);
         this.formats = formatArr;
         this.length = formatArr.length;
     }
@@ -48,7 +54,10 @@ public final class TrackGroup {
                 return false;
             }
             TrackGroup trackGroup = (TrackGroup) obj;
-            return this.length == trackGroup.length && Arrays.equals(this.formats, trackGroup.formats);
+            if (this.length == trackGroup.length && Arrays.equals(this.formats, trackGroup.formats)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -56,7 +65,31 @@ public final class TrackGroup {
     public Format getFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.formats[i] : (Format) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.formats[i];
+        }
+        return (Format) invokeI.objValue;
+    }
+
+    public int indexOf(Format format) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, format)) == null) {
+            int i = 0;
+            while (true) {
+                Format[] formatArr = this.formats;
+                if (i < formatArr.length) {
+                    if (format == formatArr[i]) {
+                        return i;
+                    }
+                    i++;
+                } else {
+                    return -1;
+                }
+            }
+        } else {
+            return invokeL.intValue;
+        }
     }
 
     public int hashCode() {
@@ -69,24 +102,5 @@ public final class TrackGroup {
             return this.hashCode;
         }
         return invokeV.intValue;
-    }
-
-    public int indexOf(Format format) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, format)) != null) {
-            return invokeL.intValue;
-        }
-        int i = 0;
-        while (true) {
-            Format[] formatArr = this.formats;
-            if (i >= formatArr.length) {
-                return -1;
-            }
-            if (format == formatArr[i]) {
-                return i;
-            }
-            i++;
-        }
     }
 }

@@ -33,21 +33,6 @@ public class MeasureLinearLayout extends LinearLayout {
         }
     }
 
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int childCount = getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = getChildAt(i3);
-                if (childAt.getVisibility() == 8) {
-                    measureChildWithMargins(childAt, i, 0, i2, 0);
-                }
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MeasureLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -65,6 +50,21 @@ public class MeasureLinearLayout extends LinearLayout {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int childCount = getChildCount();
+            for (int i3 = 0; i3 < childCount; i3++) {
+                View childAt = getChildAt(i3);
+                if (childAt.getVisibility() == 8) {
+                    measureChildWithMargins(childAt, i, 0, i2, 0);
+                }
             }
         }
     }

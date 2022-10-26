@@ -36,15 +36,6 @@ public class TransparentBgLinearLayout extends LinearLayout {
         }
     }
 
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.drawColor(Color.argb(168, 0, 0, 0), PorterDuff.Mode.SRC);
-            super.onDraw(canvas);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TransparentBgLinearLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -84,6 +75,15 @@ public class TransparentBgLinearLayout extends LinearLayout {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            canvas.drawColor(Color.argb(168, 0, 0, 0), PorterDuff.Mode.SRC);
+            super.onDraw(canvas);
         }
     }
 }

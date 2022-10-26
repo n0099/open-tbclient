@@ -1,8 +1,8 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.fx9;
-import com.baidu.tieba.lx9;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.xx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +12,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class NeverObservableHolder implements fx9.a<Object> {
+public final class NeverObservableHolder implements xx9.a {
     public static final /* synthetic */ NeverObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final NeverObservableHolder INSTANCE;
-    public static final fx9<Object> NEVER;
+    public static final xx9 NEVER;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
+    public void call(dy9 dy9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dy9Var) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +43,7 @@ public final class NeverObservableHolder implements fx9.a<Object> {
         NeverObservableHolder neverObservableHolder = new NeverObservableHolder("INSTANCE", 0);
         INSTANCE = neverObservableHolder;
         $VALUES = new NeverObservableHolder[]{neverObservableHolder};
-        NEVER = fx9.a(neverObservableHolder);
+        NEVER = xx9.a(neverObservableHolder);
     }
 
     public NeverObservableHolder(String str, int i) {
@@ -57,29 +65,30 @@ public final class NeverObservableHolder implements fx9.a<Object> {
         }
     }
 
-    public static <T> fx9<T> instance() {
+    public static xx9 instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (fx9<T>) NEVER : (fx9) invokeV.objValue;
-    }
-
-    public static NeverObservableHolder valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (NeverObservableHolder) Enum.valueOf(NeverObservableHolder.class, str) : (NeverObservableHolder) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return NEVER;
+        }
+        return (xx9) invokeV.objValue;
     }
 
     public static NeverObservableHolder[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (NeverObservableHolder[]) $VALUES.clone() : (NeverObservableHolder[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (NeverObservableHolder[]) $VALUES.clone();
+        }
+        return (NeverObservableHolder[]) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
-    public void call(lx9<? super Object> lx9Var) {
+    public static NeverObservableHolder valueOf(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lx9Var) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (NeverObservableHolder) Enum.valueOf(NeverObservableHolder.class, str);
         }
+        return (NeverObservableHolder) invokeL.objValue;
     }
 }

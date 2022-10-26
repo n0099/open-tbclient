@@ -42,6 +42,8 @@ public class CommonStatisticKey {
     public static final String KEY_CARD_ENTER_FORUM_CLICK = "C12888";
     public static final String KEY_CARD_ENTER_FORUM_SHOW = "c12887";
     public static final String KEY_CHANGE_RICH_TEXT_MODE = "c14553";
+    public static final String KEY_CHECK_DIALOG_CLICK = "c15029";
+    public static final String KEY_CHECK_DIALOG_SHOW = "c15028";
     public static final String KEY_CLICK_VIDEO_TOPIC = "c14410";
     public static final String KEY_COMMUNITY_CONVENTION_CLICK = "c14687";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_CLICK = "c14279";
@@ -245,7 +247,7 @@ public class CommonStatisticKey {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static final class TbMemberOfficialStatic {
+    public final class TbMemberOfficialStatic {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MEMBER_MSG_CENTER_NOTIFY_CLICK = "c14939";
         public static final String MEMBER_MSG_CENTER_NOTIFY_SHOW = "c14938";
@@ -271,7 +273,7 @@ public class CommonStatisticKey {
     }
 
     /* loaded from: classes3.dex */
-    public static final class Transmitthread {
+    public final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";
         public static final String OBJ_TYPE_SOURCE_PB = "3";

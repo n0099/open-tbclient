@@ -35,32 +35,6 @@ public class CustomVideoView extends VideoView {
         }
     }
 
-    @Override // android.widget.VideoView, android.view.SurfaceView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (this.b == 0 && this.a == 0) {
-                super.onMeasure(i, i2);
-            } else {
-                setMeasuredDimension(this.a, this.b);
-            }
-        }
-    }
-
-    public void setVideoHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void setVideoWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -100,6 +74,32 @@ public class CustomVideoView extends VideoView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.widget.VideoView, android.view.SurfaceView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            if (this.b == 0 && this.a == 0) {
+                super.onMeasure(i, i2);
+            } else {
+                setMeasuredDimension(this.a, this.b);
+            }
+        }
+    }
+
+    public void setVideoHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void setVideoWidth(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
     }
 }

@@ -27,19 +27,19 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "d";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LivenessTypeEnum> b;
+    public List b;
     public long c;
     public volatile int d;
     public boolean e;
     public volatile LivenessTypeEnum f;
     public long g;
-    public HashMap<LivenessTypeEnum, Boolean> h;
+    public HashMap h;
     public long i;
     public long j;
 
     /* renamed from: com.baidu.pass.face.platform.c.d$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class d {
         this.e = false;
         this.f = null;
         this.g = -1L;
-        this.h = new HashMap<>();
+        this.h = new HashMap();
         this.i = 0L;
         this.j = 0L;
         this.d = 0;
@@ -233,22 +233,22 @@ public class d {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, Rect rect) {
-        HashMap<LivenessTypeEnum, Boolean> hashMap;
+        HashMap hashMap;
         LivenessTypeEnum livenessTypeEnum;
         boolean z;
-        HashMap<LivenessTypeEnum, Boolean> hashMap2;
+        HashMap hashMap2;
         LivenessTypeEnum livenessTypeEnum2;
         boolean z2;
-        HashMap<LivenessTypeEnum, Boolean> hashMap3;
+        HashMap hashMap3;
         LivenessTypeEnum livenessTypeEnum3;
         boolean z3;
-        HashMap<LivenessTypeEnum, Boolean> hashMap4;
+        HashMap hashMap4;
         LivenessTypeEnum livenessTypeEnum4;
         boolean z4;
-        HashMap<LivenessTypeEnum, Boolean> hashMap5;
+        HashMap hashMap5;
         LivenessTypeEnum livenessTypeEnum5;
         boolean z5;
-        HashMap<LivenessTypeEnum, Boolean> hashMap6;
+        HashMap hashMap6;
         LivenessTypeEnum livenessTypeEnum6;
         FaceSDKManager faceSDKManager;
         BDFaceSDKCommon.BDFaceActionLiveType bDFaceActionLiveType;
@@ -595,13 +595,13 @@ public class d {
         }
     }
 
-    public void a(List<LivenessTypeEnum> list) {
+    public void a(List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() <= 0) {
             return;
         }
         this.b = list;
-        this.f = list.get(0);
+        this.f = (LivenessTypeEnum) list.get(0);
         k();
     }
 
@@ -647,16 +647,16 @@ public class d {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Iterator<Map.Entry<LivenessTypeEnum, Boolean>> it = this.h.entrySet().iterator();
+            Iterator it = this.h.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
                 }
-                Map.Entry<LivenessTypeEnum, Boolean> next = it.next();
-                if (!next.getValue().booleanValue()) {
+                Map.Entry entry = (Map.Entry) it.next();
+                if (!((Boolean) entry.getValue()).booleanValue()) {
                     z = false;
-                    next.getKey().name();
+                    ((LivenessTypeEnum) entry.getKey()).name();
                     break;
                 }
             }
@@ -672,7 +672,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            boolean booleanValue = this.h.containsKey(this.f) ? this.h.get(this.f).booleanValue() : false;
+            boolean booleanValue = this.h.containsKey(this.f) ? ((Boolean) this.h.get(this.f)).booleanValue() : false;
             if (booleanValue) {
                 this.j = 0L;
             }
@@ -703,7 +703,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.d++;
-            this.f = this.b.get(this.d);
+            this.f = (LivenessTypeEnum) this.b.get(this.d);
             this.c = 0L;
         }
     }
@@ -714,7 +714,7 @@ public class d {
             this.d = 0;
             k();
             if (this.b != null && this.d < this.b.size()) {
-                this.f = this.b.get(this.d);
+                this.f = (LivenessTypeEnum) this.b.get(this.d);
             }
             this.c = 0L;
             this.e = false;

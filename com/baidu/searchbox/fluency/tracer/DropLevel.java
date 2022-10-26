@@ -22,6 +22,18 @@ public final class DropLevel {
     public transient /* synthetic */ FieldHolder $fh;
     public final int index;
 
+    public static DropLevel valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DropLevel) Enum.valueOf(DropLevel.class, str) : (DropLevel) invokeL.objValue;
+    }
+
+    public static DropLevel[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DropLevel[]) $VALUES.clone() : (DropLevel[]) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -69,21 +81,12 @@ public final class DropLevel {
         this.index = i2;
     }
 
-    public static DropLevel valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DropLevel) Enum.valueOf(DropLevel.class, str) : (DropLevel) invokeL.objValue;
-    }
-
-    public static DropLevel[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DropLevel[]) $VALUES.clone() : (DropLevel[]) invokeV.objValue;
-    }
-
     public final int getIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.index : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.index;
+        }
+        return invokeV.intValue;
     }
 }

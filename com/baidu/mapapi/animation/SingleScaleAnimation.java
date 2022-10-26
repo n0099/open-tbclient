@@ -19,7 +19,7 @@ public class SingleScaleAnimation extends Animation {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ScaleType {
+    public final class ScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType SCALE_X;
         public static final ScaleType SCALE_Y;

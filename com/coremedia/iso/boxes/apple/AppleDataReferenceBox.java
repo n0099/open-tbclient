@@ -64,41 +64,14 @@ public class AppleDataReferenceBox extends AbstractFullBox {
         }
     }
 
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("AppleDataReferenceBox.java", AppleDataReferenceBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataReferenceSize", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "long"), 63);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataReferenceType", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 67);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataReference", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 71);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            this.dataReferenceType = IsoTypeReader.read4cc(byteBuffer);
-            int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
-            this.dataReferenceSize = l2i;
-            this.dataReference = IsoTypeReader.readString(byteBuffer, l2i);
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            byteBuffer.put(IsoFile.fourCCtoBytes(this.dataReferenceType));
-            IsoTypeWriter.writeUInt32(byteBuffer, this.dataReferenceSize);
-            byteBuffer.put(Utf8.convert(this.dataReference));
-        }
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.dataReferenceSize + 12 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.dataReferenceSize + 12;
+        }
+        return invokeV.longValue;
     }
 
     public String getDataReference() {
@@ -129,5 +102,35 @@ public class AppleDataReferenceBox extends AbstractFullBox {
             return this.dataReferenceType;
         }
         return (String) invokeV.objValue;
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("AppleDataReferenceBox.java", AppleDataReferenceBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataReferenceSize", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "long"), 63);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataReferenceType", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 67);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDataReference", "com.coremedia.iso.boxes.apple.AppleDataReferenceBox", "", "", "", "java.lang.String"), 71);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseVersionAndFlags(byteBuffer);
+            this.dataReferenceType = IsoTypeReader.read4cc(byteBuffer);
+            int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
+            this.dataReferenceSize = l2i;
+            this.dataReference = IsoTypeReader.readString(byteBuffer, l2i);
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            byteBuffer.put(IsoFile.fourCCtoBytes(this.dataReferenceType));
+            IsoTypeWriter.writeUInt32(byteBuffer, this.dataReferenceSize);
+            byteBuffer.put(Utf8.convert(this.dataReference));
+        }
     }
 }

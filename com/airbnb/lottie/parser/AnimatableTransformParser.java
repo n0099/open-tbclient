@@ -19,27 +19,45 @@ public class AnimatableTransformParser {
     public static JsonReader.Options ANIMATABLE_NAMES = JsonReader.Options.of("k");
 
     public static boolean isAnchorPointIdentity(AnimatablePathValue animatablePathValue) {
-        return animatablePathValue == null || (animatablePathValue.isStatic() && animatablePathValue.getKeyframes().get(0).startValue.equals(0.0f, 0.0f));
+        if (animatablePathValue != null && (!animatablePathValue.isStatic() || !((PointF) ((Keyframe) animatablePathValue.getKeyframes().get(0)).startValue).equals(0.0f, 0.0f))) {
+            return false;
+        }
+        return true;
     }
 
-    public static boolean isPositionIdentity(AnimatableValue<PointF, PointF> animatableValue) {
-        return animatableValue == null || (!(animatableValue instanceof AnimatableSplitDimensionPathValue) && animatableValue.isStatic() && animatableValue.getKeyframes().get(0).startValue.equals(0.0f, 0.0f));
+    public static boolean isPositionIdentity(AnimatableValue animatableValue) {
+        if (animatableValue != null && ((animatableValue instanceof AnimatableSplitDimensionPathValue) || !animatableValue.isStatic() || !((PointF) ((Keyframe) animatableValue.getKeyframes().get(0)).startValue).equals(0.0f, 0.0f))) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean isRotationIdentity(AnimatableFloatValue animatableFloatValue) {
-        return animatableFloatValue == null || (animatableFloatValue.isStatic() && ((Float) ((Keyframe) animatableFloatValue.getKeyframes().get(0)).startValue).floatValue() == 0.0f);
+        if (animatableFloatValue != null && (!animatableFloatValue.isStatic() || ((Float) ((Keyframe) animatableFloatValue.getKeyframes().get(0)).startValue).floatValue() != 0.0f)) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean isScaleIdentity(AnimatableScaleValue animatableScaleValue) {
-        return animatableScaleValue == null || (animatableScaleValue.isStatic() && ((ScaleXY) ((Keyframe) animatableScaleValue.getKeyframes().get(0)).startValue).equals(1.0f, 1.0f));
+        if (animatableScaleValue != null && (!animatableScaleValue.isStatic() || !((ScaleXY) ((Keyframe) animatableScaleValue.getKeyframes().get(0)).startValue).equals(1.0f, 1.0f))) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean isSkewAngleIdentity(AnimatableFloatValue animatableFloatValue) {
-        return animatableFloatValue == null || (animatableFloatValue.isStatic() && ((Float) ((Keyframe) animatableFloatValue.getKeyframes().get(0)).startValue).floatValue() == 0.0f);
+        if (animatableFloatValue != null && (!animatableFloatValue.isStatic() || ((Float) ((Keyframe) animatableFloatValue.getKeyframes().get(0)).startValue).floatValue() != 0.0f)) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean isSkewIdentity(AnimatableFloatValue animatableFloatValue) {
-        return animatableFloatValue == null || (animatableFloatValue.isStatic() && ((Float) ((Keyframe) animatableFloatValue.getKeyframes().get(0)).startValue).floatValue() == 0.0f);
+        if (animatableFloatValue != null && (!animatableFloatValue.isStatic() || ((Float) ((Keyframe) animatableFloatValue.getKeyframes().get(0)).startValue).floatValue() != 0.0f)) {
+            return false;
+        }
+        return true;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x0068  */
@@ -48,21 +66,31 @@ public class AnimatableTransformParser {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static AnimatableTransform parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
+        boolean z;
+        AnimatablePathValue animatablePathValue;
+        AnimatableValue animatableValue;
+        AnimatableFloatValue animatableFloatValue;
+        AnimatableFloatValue animatableFloatValue2;
+        AnimatableFloatValue animatableFloatValue3;
         AnimatableFloatValue parseFloat;
-        boolean z = false;
-        boolean z2 = jsonReader.peek() == JsonReader.Token.BEGIN_OBJECT;
-        if (z2) {
+        boolean z2 = false;
+        if (jsonReader.peek() == JsonReader.Token.BEGIN_OBJECT) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
             jsonReader.beginObject();
         }
-        AnimatableFloatValue animatableFloatValue = null;
-        AnimatablePathValue animatablePathValue = null;
-        AnimatableValue<PointF, PointF> animatableValue = null;
-        AnimatableScaleValue animatableScaleValue = null;
-        AnimatableFloatValue animatableFloatValue2 = null;
-        AnimatableFloatValue animatableFloatValue3 = null;
-        AnimatableIntegerValue animatableIntegerValue = null;
         AnimatableFloatValue animatableFloatValue4 = null;
+        AnimatablePathValue animatablePathValue2 = null;
+        AnimatableValue animatableValue2 = null;
+        AnimatableScaleValue animatableScaleValue = null;
         AnimatableFloatValue animatableFloatValue5 = null;
+        AnimatableFloatValue animatableFloatValue6 = null;
+        AnimatableIntegerValue animatableIntegerValue = null;
+        AnimatableFloatValue animatableFloatValue7 = null;
+        AnimatableFloatValue animatableFloatValue8 = null;
         while (jsonReader.hasNext()) {
             switch (jsonReader.selectName(NAMES)) {
                 case 0:
@@ -72,65 +100,87 @@ public class AnimatableTransformParser {
                             jsonReader.skipName();
                             jsonReader.skipValue();
                         } else {
-                            animatablePathValue = AnimatablePathValueParser.parse(jsonReader, lottieComposition);
+                            animatablePathValue2 = AnimatablePathValueParser.parse(jsonReader, lottieComposition);
                         }
                     }
                     jsonReader.endObject();
                     break;
                 case 1:
-                    animatableValue = AnimatablePathValueParser.parseSplitPath(jsonReader, lottieComposition);
+                    animatableValue2 = AnimatablePathValueParser.parseSplitPath(jsonReader, lottieComposition);
                     break;
                 case 2:
                     animatableScaleValue = AnimatableValueParser.parseScale(jsonReader, lottieComposition);
                     break;
                 case 3:
                     lottieComposition.addWarning("Lottie doesn't support 3D layers.");
-                    parseFloat = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z);
+                    parseFloat = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z2);
                     if (!parseFloat.getKeyframes().isEmpty()) {
                         parseFloat.getKeyframes().add(new Keyframe(lottieComposition, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(lottieComposition.getEndFrame())));
-                    } else if (((Keyframe) parseFloat.getKeyframes().get(0)).startValue == 0) {
+                    } else if (((Keyframe) parseFloat.getKeyframes().get(0)).startValue == null) {
                         parseFloat.getKeyframes().set(0, new Keyframe(lottieComposition, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(lottieComposition.getEndFrame())));
-                        animatableFloatValue = parseFloat;
+                        animatableFloatValue4 = parseFloat;
                         break;
                     }
-                    animatableFloatValue = parseFloat;
+                    animatableFloatValue4 = parseFloat;
                 case 4:
-                    parseFloat = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z);
+                    parseFloat = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z2);
                     if (!parseFloat.getKeyframes().isEmpty()) {
                     }
-                    animatableFloatValue = parseFloat;
+                    animatableFloatValue4 = parseFloat;
                     break;
                 case 5:
                     animatableIntegerValue = AnimatableValueParser.parseInteger(jsonReader, lottieComposition);
                     continue;
                 case 6:
-                    animatableFloatValue4 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z);
+                    animatableFloatValue7 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z2);
                     continue;
                 case 7:
-                    animatableFloatValue5 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z);
+                    animatableFloatValue8 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z2);
                     continue;
                 case 8:
-                    animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z);
+                    animatableFloatValue5 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z2);
                     continue;
                 case 9:
-                    animatableFloatValue3 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z);
+                    animatableFloatValue6 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, z2);
                     continue;
                 default:
                     jsonReader.skipName();
                     jsonReader.skipValue();
                     break;
             }
-            z = false;
+            z2 = false;
         }
-        if (z2) {
+        if (z) {
             jsonReader.endObject();
         }
-        AnimatablePathValue animatablePathValue2 = isAnchorPointIdentity(animatablePathValue) ? null : animatablePathValue;
-        AnimatableValue<PointF, PointF> animatableValue2 = isPositionIdentity(animatableValue) ? null : animatableValue;
-        AnimatableFloatValue animatableFloatValue6 = isRotationIdentity(animatableFloatValue) ? null : animatableFloatValue;
+        if (isAnchorPointIdentity(animatablePathValue2)) {
+            animatablePathValue = null;
+        } else {
+            animatablePathValue = animatablePathValue2;
+        }
+        if (isPositionIdentity(animatableValue2)) {
+            animatableValue = null;
+        } else {
+            animatableValue = animatableValue2;
+        }
+        if (isRotationIdentity(animatableFloatValue4)) {
+            animatableFloatValue = null;
+        } else {
+            animatableFloatValue = animatableFloatValue4;
+        }
         if (isScaleIdentity(animatableScaleValue)) {
             animatableScaleValue = null;
         }
-        return new AnimatableTransform(animatablePathValue2, animatableValue2, animatableScaleValue, animatableFloatValue6, animatableIntegerValue, animatableFloatValue4, animatableFloatValue5, isSkewIdentity(animatableFloatValue2) ? null : animatableFloatValue2, isSkewAngleIdentity(animatableFloatValue3) ? null : animatableFloatValue3);
+        if (isSkewIdentity(animatableFloatValue5)) {
+            animatableFloatValue2 = null;
+        } else {
+            animatableFloatValue2 = animatableFloatValue5;
+        }
+        if (isSkewAngleIdentity(animatableFloatValue6)) {
+            animatableFloatValue3 = null;
+        } else {
+            animatableFloatValue3 = animatableFloatValue6;
+        }
+        return new AnimatableTransform(animatablePathValue, animatableValue, animatableScaleValue, animatableFloatValue, animatableIntegerValue, animatableFloatValue7, animatableFloatValue8, animatableFloatValue2, animatableFloatValue3);
     }
 }

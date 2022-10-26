@@ -24,9 +24,9 @@ import java.util.Map;
 public class VirtualCriusLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<View> mChildren;
+    public final List mChildren;
     public CriusData mCriusData;
-    public Map<View, CriusData> mCriusDatas;
+    public Map mCriusDatas;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VirtualCriusLayout(Context context) {
@@ -49,90 +49,6 @@ public class VirtualCriusLayout extends ViewGroup {
         }
     }
 
-    @Override // android.view.ViewGroup
-    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, layoutParams) == null) {
-            if (view2 instanceof VirtualCriusLayout) {
-                VirtualCriusLayout virtualCriusLayout = (VirtualCriusLayout) view2;
-                virtualCriusLayout.transferChildren(this);
-                if (this.mCriusDatas.containsKey(view2)) {
-                    return;
-                }
-                CriusData criusData = virtualCriusLayout.getCriusData();
-                CriusData criusData2 = this.mCriusData;
-                criusData2.addChildAt(criusData, criusData2.getChildCount());
-            } else if (this.mCriusDatas.containsKey(view2)) {
-                CriusData criusData3 = this.mCriusDatas.get(view2);
-                CriusLayout.applyLayoutParams((CriusLayout.LayoutParams) view2.getLayoutParams(), criusData3.criusNode, view2);
-                criusData3.criusNode.setData(view2);
-                criusData3.criusNode.setMeasureFunction(new CriusLayout.ViewMeasureFunction());
-                addView(view2, criusData3);
-            } else {
-                CriusData create = CriusDataFactory.create(getContext(), view2);
-                CriusLayout.applyLayoutParams(new CriusLayout.LayoutParams(layoutParams), create.criusNode, view2);
-                create.criusNode.setData(view2);
-                create.criusNode.setMeasureFunction(new CriusLayout.ViewMeasureFunction());
-                CriusData criusData4 = this.mCriusData;
-                criusData4.addChildAt(create, criusData4.getChildCount());
-                addView(view2, create);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutParams)) == null) ? layoutParams instanceof CriusLayout.LayoutParams : invokeL.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup
-    public ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new CriusLayout.LayoutParams(-1, -1) : (ViewGroup.LayoutParams) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup
-    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, attributeSet)) == null) ? new CriusLayout.LayoutParams(getContext(), attributeSet) : (ViewGroup.LayoutParams) invokeL.objValue;
-    }
-
-    public CriusData getCriusData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mCriusData : (CriusData) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && AppConfig.isDebug()) {
-            throw new RuntimeException("Attempting to layout a VirtualCriusLayout");
-        }
-    }
-
-    public void transferChildren(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, viewGroup) == null) {
-            if (viewGroup instanceof VirtualCriusLayout) {
-                for (View view2 : this.mChildren) {
-                    ((VirtualCriusLayout) viewGroup).addView(view2, this.mCriusDatas.get(view2));
-                }
-            } else if (viewGroup instanceof CriusLayout) {
-                for (View view3 : this.mChildren) {
-                    ((CriusLayout) viewGroup).addView(view3, this.mCriusDatas.get(view3));
-                }
-            } else if (CriusRuntime.DEBUG) {
-                throw new RuntimeException("VirtualCriusLayout cannot transfer children to ViewGroup of type " + viewGroup.getClass().getCanonicalName() + ".  Must either be a VirtualCriusLayout or a CriusLayout.");
-            }
-            this.mChildren.clear();
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VirtualCriusLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -152,13 +68,6 @@ public class VirtualCriusLayout extends ViewGroup {
                 return;
             }
         }
-    }
-
-    @Override // android.view.ViewGroup
-    public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutParams)) == null) ? new CriusLayout.LayoutParams(layoutParams) : (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,6 +95,36 @@ public class VirtualCriusLayout extends ViewGroup {
         CriusLayout.applyLayoutParams(new CriusLayout.LayoutParams(context, attributeSet), this.mCriusData.criusNode, this);
     }
 
+    @Override // android.view.ViewGroup
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, layoutParams) == null) {
+            if (view2 instanceof VirtualCriusLayout) {
+                VirtualCriusLayout virtualCriusLayout = (VirtualCriusLayout) view2;
+                virtualCriusLayout.transferChildren(this);
+                if (!this.mCriusDatas.containsKey(view2)) {
+                    CriusData criusData = virtualCriusLayout.getCriusData();
+                    CriusData criusData2 = this.mCriusData;
+                    criusData2.addChildAt(criusData, criusData2.getChildCount());
+                }
+            } else if (this.mCriusDatas.containsKey(view2)) {
+                CriusData criusData3 = (CriusData) this.mCriusDatas.get(view2);
+                CriusLayout.applyLayoutParams((CriusLayout.LayoutParams) view2.getLayoutParams(), criusData3.criusNode, view2);
+                criusData3.criusNode.setData(view2);
+                criusData3.criusNode.setMeasureFunction(new CriusLayout.ViewMeasureFunction());
+                addView(view2, criusData3);
+            } else {
+                CriusData create = CriusDataFactory.create(getContext(), view2);
+                CriusLayout.applyLayoutParams(new CriusLayout.LayoutParams(layoutParams), create.criusNode, view2);
+                create.criusNode.setData(view2);
+                create.criusNode.setMeasureFunction(new CriusLayout.ViewMeasureFunction());
+                CriusData criusData4 = this.mCriusData;
+                criusData4.addChildAt(create, criusData4.getChildCount());
+                addView(view2, create);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VirtualCriusLayout(Context context, CriusData criusData) {
         super(context, null, 0);
@@ -210,6 +149,14 @@ public class VirtualCriusLayout extends ViewGroup {
         this.mCriusData = criusData;
     }
 
+    public void addView(View view2, int i, CriusData criusData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, criusData) == null) {
+            this.mCriusDatas.put(view2, criusData);
+            addView(view2, i);
+        }
+    }
+
     public void addView(View view2, CriusData criusData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, criusData) == null) {
@@ -218,11 +165,79 @@ public class VirtualCriusLayout extends ViewGroup {
         }
     }
 
-    public void addView(View view2, int i, CriusData criusData) {
+    @Override // android.view.ViewGroup
+    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, criusData) == null) {
-            this.mCriusDatas.put(view2, criusData);
-            addView(view2, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutParams)) == null) {
+            return layoutParams instanceof CriusLayout.LayoutParams;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, attributeSet)) == null) {
+            return new CriusLayout.LayoutParams(getContext(), attributeSet);
+        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public ViewGroup.LayoutParams generateDefaultLayoutParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new CriusLayout.LayoutParams(-1, -1);
+        }
+        return (ViewGroup.LayoutParams) invokeV.objValue;
+    }
+
+    public CriusData getCriusData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mCriusData;
+        }
+        return (CriusData) invokeV.objValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutParams)) == null) {
+            return new CriusLayout.LayoutParams(layoutParams);
+        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || !AppConfig.isDebug()) {
+            return;
+        }
+        throw new RuntimeException("Attempting to layout a VirtualCriusLayout");
+    }
+
+    public void transferChildren(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, viewGroup) == null) {
+            if (viewGroup instanceof VirtualCriusLayout) {
+                for (View view2 : this.mChildren) {
+                    ((VirtualCriusLayout) viewGroup).addView(view2, (CriusData) this.mCriusDatas.get(view2));
+                }
+            } else if (viewGroup instanceof CriusLayout) {
+                for (View view3 : this.mChildren) {
+                    ((CriusLayout) viewGroup).addView(view3, (CriusData) this.mCriusDatas.get(view3));
+                }
+            } else if (CriusRuntime.DEBUG) {
+                throw new RuntimeException("VirtualCriusLayout cannot transfer children to ViewGroup of type " + viewGroup.getClass().getCanonicalName() + ".  Must either be a VirtualCriusLayout or a CriusLayout.");
+            }
+            this.mChildren.clear();
         }
     }
 }

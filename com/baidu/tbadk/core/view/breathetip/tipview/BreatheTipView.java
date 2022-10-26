@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.hy4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ny4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,51 +41,6 @@ public class BreatheTipView extends FrameLayout {
             }
         }
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = new TextView(context);
-            this.b = new TextView(context);
-            int f = ej.f(context, R.dimen.M_W_X007);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 1;
-            layoutParams.leftMargin = f;
-            layoutParams.rightMargin = f;
-            this.a.setMaxLines(1);
-            addView(this.a, layoutParams);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams2.gravity = 1;
-            layoutParams2.leftMargin = f;
-            layoutParams2.rightMargin = f;
-            addView(this.b, layoutParams2);
-            hv4 d = hv4.d(this.a);
-            d.z(R.dimen.T_X08);
-            d.A(R.string.F_X02);
-            hv4 d2 = hv4.d(this.b);
-            d2.z(R.dimen.T_X09);
-            d2.A(R.string.F_X01);
-        }
-    }
-
-    public void setData(hy4 hy4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy4Var) == null) {
-            int i = hy4Var.g;
-            if (i < 0) {
-                i = -2;
-            }
-            int i2 = hy4Var.h;
-            setLayoutParams(new LinearLayout.LayoutParams(i, i2 >= 0 ? i2 : -2));
-            this.a.setText(hy4Var.a);
-            SkinManager.setViewTextColor(this.a, hy4Var.c);
-            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = hy4Var.f;
-            this.b.setText(hy4Var.b);
-            SkinManager.setViewTextColor(this.b, hy4Var.d);
-            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = hy4Var.f + ej.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-            SkinManager.setBackgroundResource(this, hy4Var.e);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,5 +85,54 @@ public class BreatheTipView extends FrameLayout {
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = new TextView(context);
+            this.b = new TextView(context);
+            int f = fj.f(context, R.dimen.M_W_X007);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 1;
+            layoutParams.leftMargin = f;
+            layoutParams.rightMargin = f;
+            this.a.setMaxLines(1);
+            addView(this.a, layoutParams);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams2.gravity = 1;
+            layoutParams2.leftMargin = f;
+            layoutParams2.rightMargin = f;
+            addView(this.b, layoutParams2);
+            nv4 d = nv4.d(this.a);
+            d.z(R.dimen.T_X08);
+            d.A(R.string.F_X02);
+            nv4 d2 = nv4.d(this.b);
+            d2.z(R.dimen.T_X09);
+            d2.A(R.string.F_X01);
+        }
+    }
+
+    public void setData(ny4 ny4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ny4Var) == null) {
+            int i = ny4Var.g;
+            int i2 = -2;
+            if (i < 0) {
+                i = -2;
+            }
+            int i3 = ny4Var.h;
+            if (i3 >= 0) {
+                i2 = i3;
+            }
+            setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+            this.a.setText(ny4Var.a);
+            SkinManager.setViewTextColor(this.a, ny4Var.c);
+            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ny4Var.f;
+            this.b.setText(ny4Var.b);
+            SkinManager.setViewTextColor(this.b, ny4Var.d);
+            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = ny4Var.f + fj.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+            SkinManager.setBackgroundResource(this, ny4Var.e);
+        }
     }
 }

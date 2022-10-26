@@ -19,8 +19,8 @@ public class FacePackageData extends AbstractImageProvider implements Serializab
     public long downloadTotal;
     public int downloaded;
     public int downloading;
-    public ArrayList<String> face_dynamic_list;
-    public ArrayList<String> face_list;
+    public ArrayList face_dynamic_list;
+    public ArrayList face_list;
     public String pdesc;
     public int pid;
     public String pname;

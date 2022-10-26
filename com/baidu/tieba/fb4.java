@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.os.Bundle;
+import java.util.Set;
 /* loaded from: classes4.dex */
 public interface fb4 {
-    void a(PMSAppInfo pMSAppInfo);
+    Bundle m(Bundle bundle, Set set);
 }

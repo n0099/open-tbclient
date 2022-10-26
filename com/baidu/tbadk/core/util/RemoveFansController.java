@@ -75,14 +75,18 @@ public class RemoveFansController {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 Message<?> orginalMessage;
+                boolean z;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || (orginalMessage = httpResponsedMessage.getOrginalMessage()) == null || !(orginalMessage.getExtra() instanceof Long)) {
-                    return;
-                }
-                long longValue = ((Long) orginalMessage.getExtra()).longValue();
-                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == this.this$0.mUniqueId;
-                if (this.this$0.mCallBack != null) {
-                    this.this$0.mCallBack.onResultCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
+                    long longValue = ((Long) orginalMessage.getExtra()).longValue();
+                    if (httpResponsedMessage.getOrginalMessage().getTag() == this.this$0.mUniqueId) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (this.this$0.mCallBack != null) {
+                        this.this$0.mCallBack.onResultCallBack(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                    }
                 }
             }
         };
@@ -92,18 +96,6 @@ public class RemoveFansController {
         httpMessageListener.setTag(bdUniqueId);
         this.mPageContext.registerListener(this.mListener);
         registerRemoveFansTask();
-    }
-
-    public static void registerRemoveFansTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
-            tbHttpMessageTask.setIsNeedLogin(true);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
     }
 
     public void removeFans(long j) {
@@ -121,6 +113,18 @@ public class RemoveFansController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iResultCallBack) == null) {
             this.mCallBack = iResultCallBack;
+        }
+    }
+
+    public static void registerRemoveFansTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

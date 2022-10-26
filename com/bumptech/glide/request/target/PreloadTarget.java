@@ -1,10 +1,9 @@
 package com.bumptech.glide.request.target;
 
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,12 +15,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes7.dex */
-public final class PreloadTarget<Z> extends SimpleTarget<Z> {
+public final class PreloadTarget extends CustomTarget {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Handler HANDLER;
     public static final int MESSAGE_CLEAR = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final RequestManager requestManager;
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void onLoadCleared(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,6 +76,13 @@ public final class PreloadTarget<Z> extends SimpleTarget<Z> {
         });
     }
 
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.requestManager.clear(this);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PreloadTarget(RequestManager requestManager, int i, int i2) {
         super(i, i2);
@@ -92,23 +105,19 @@ public final class PreloadTarget<Z> extends SimpleTarget<Z> {
         this.requestManager = requestManager;
     }
 
-    public static <Z> PreloadTarget<Z> obtain(RequestManager requestManager, int i, int i2) {
+    public static PreloadTarget obtain(RequestManager requestManager, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, requestManager, i, i2)) == null) ? new PreloadTarget<>(requestManager, i, i2) : (PreloadTarget) invokeLII.objValue;
-    }
-
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.requestManager.clear(this);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, requestManager, i, i2)) == null) {
+            return new PreloadTarget(requestManager, i, i2);
         }
+        return (PreloadTarget) invokeLII.objValue;
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onResourceReady(@NonNull Z z, @Nullable Transition<? super Z> transition) {
+    public void onResourceReady(Object obj, Transition transition) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, transition) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, transition) == null) {
             HANDLER.obtainMessage(1, this).sendToTarget();
         }
     }

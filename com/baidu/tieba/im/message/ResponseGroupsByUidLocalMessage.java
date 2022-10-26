@@ -17,14 +17,14 @@ import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
 /* loaded from: classes4.dex */
-public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Object> {
+public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int commonGroupNum;
-    public List<GroupInfoData> commonGroups;
+    public List commonGroups;
     public int groupNum;
     public GroupPermData groupPerm;
-    public List<GroupInfoData> groups;
+    public List groups;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGroupsByUidLocalMessage() {
@@ -44,7 +44,74 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
+    public int getCommonGroupNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.commonGroupNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public List getCommonGroups() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.commonGroups;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getGroupNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.groupNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public GroupPermData getGroupPerm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.groupPerm;
+        }
+        return (GroupPermData) invokeV.objValue;
+    }
+
+    public List getGroups() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.groups;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ResponseGroupsByUidLocalMessage(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
             QueryGroupsByUidResIdl queryGroupsByUidResIdl = (QueryGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupsByUidResIdl.class);
@@ -69,7 +136,12 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
                     groupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
                     groupInfoData.setMemberNum(groupInfo.memberNum.intValue());
                     groupInfoData.setPortrait(groupInfo.portrait);
-                    groupInfoData.setMemGroup(groupInfo.isMemberGroup.intValue() == 1);
+                    if (groupInfo.isMemberGroup.intValue() == 1) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    groupInfoData.setMemGroup(z2);
                     getGroups().add(groupInfoData);
                 }
             }
@@ -89,7 +161,12 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
                     groupInfoData2.setMaxMemberNum(groupInfo2.maxMemberNum.intValue());
                     groupInfoData2.setMemberNum(groupInfo2.memberNum.intValue());
                     groupInfoData2.setPortrait(groupInfo2.portrait);
-                    groupInfoData2.setMemGroup(groupInfo2.isMemberGroup.intValue() == 1);
+                    if (groupInfo2.isMemberGroup.intValue() == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    groupInfoData2.setMemGroup(z);
                     getCommonGroups().add(groupInfoData2);
                 }
             }
@@ -108,36 +185,6 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public int getCommonGroupNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.commonGroupNum : invokeV.intValue;
-    }
-
-    public List<GroupInfoData> getCommonGroups() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.commonGroups : (List) invokeV.objValue;
-    }
-
-    public int getGroupNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.groupNum : invokeV.intValue;
-    }
-
-    public GroupPermData getGroupPerm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.groupPerm : (GroupPermData) invokeV.objValue;
-    }
-
-    public List<GroupInfoData> getGroups() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.groups : (List) invokeV.objValue;
-    }
-
     public void setCommonGroupNum(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -145,7 +192,7 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public void setCommonGroups(List<GroupInfoData> list) {
+    public void setCommonGroups(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.commonGroups = list;
@@ -166,30 +213,10 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public void setGroups(List<GroupInfoData> list) {
+    public void setGroups(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.groups = list;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseGroupsByUidLocalMessage(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
         }
     }
 }

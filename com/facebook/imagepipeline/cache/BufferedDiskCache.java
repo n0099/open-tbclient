@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class BufferedDiskCache {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final FileCache mFileCache;
     public final ImageCacheStatsTracker mImageCacheStatsTracker;
@@ -58,6 +58,32 @@ public class BufferedDiskCache {
             }
         }
         TAG = BufferedDiskCache.class;
+    }
+
+    public long getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            FileCache fileCache = this.mFileCache;
+            if (fileCache != null) {
+                return fileCache.getCount();
+            }
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            FileCache fileCache = this.mFileCache;
+            if (fileCache != null) {
+                return fileCache.getSize();
+            }
+            return -1L;
+        }
+        return invokeV.longValue;
     }
 
     public BufferedDiskCache(FileCache fileCache, PooledByteBufferFactory pooledByteBufferFactory, PooledByteStreams pooledByteStreams, Executor executor, Executor executor2, ImageCacheStatsTracker imageCacheStatsTracker) {
@@ -84,6 +110,61 @@ public class BufferedDiskCache {
         this.mStagingArea = StagingArea.getInstance();
     }
 
+    private j0 foundPinnedImage(CacheKey cacheKey, EncodedImage encodedImage) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, cacheKey, encodedImage)) == null) {
+            FLog.v(TAG, "Found image for %s in staging area", cacheKey.getUriString());
+            this.mImageCacheStatsTracker.onStagingAreaHit(cacheKey);
+            return j0.j(encodedImage);
+        }
+        return (j0) invokeLL.objValue;
+    }
+
+    public void addKeyForAsyncProbing(CacheKey cacheKey) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cacheKey) == null) {
+            Preconditions.checkNotNull(cacheKey);
+            this.mFileCache.probe(cacheKey);
+        }
+    }
+
+    public j0 contains(CacheKey cacheKey) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cacheKey)) == null) {
+            if (containsSync(cacheKey)) {
+                return j0.j(Boolean.TRUE);
+            }
+            return containsAsync(cacheKey);
+        }
+        return (j0) invokeL.objValue;
+    }
+
+    public boolean containsSync(CacheKey cacheKey) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cacheKey)) == null) {
+            if (!this.mStagingArea.containsKey(cacheKey) && !this.mFileCache.hasKeySync(cacheKey)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean diskCheckSync(CacheKey cacheKey) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cacheKey)) == null) {
+            if (containsSync(cacheKey)) {
+                return true;
+            }
+            return checkInStagingAreaAndFileCache(cacheKey);
+        }
+        return invokeL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public boolean checkInStagingAreaAndFileCache(CacheKey cacheKey) {
         InterceptResult invokeL;
@@ -107,12 +188,12 @@ public class BufferedDiskCache {
         return invokeL.booleanValue;
     }
 
-    private j0<Boolean> containsAsync(CacheKey cacheKey) {
+    private j0 containsAsync(CacheKey cacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, cacheKey)) == null) {
             try {
-                return j0.call(new Callable<Boolean>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_containsAsync"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.1
+                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_containsAsync"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedDiskCache this$0;
@@ -141,18 +222,18 @@ public class BufferedDiskCache {
 
                     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                     /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // java.util.concurrent.Callable
                     public Boolean call() throws Exception {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
+                            try {
+                                return Boolean.valueOf(this.this$0.checkInStagingAreaAndFileCache(this.val$key));
+                            } finally {
+                            }
+                        } else {
                             return (Boolean) invokeV.objValue;
-                        }
-                        Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
-                        try {
-                            return Boolean.valueOf(this.this$0.checkInStagingAreaAndFileCache(this.val$key));
-                        } finally {
                         }
                     }
                 }, this.mReadExecutor);
@@ -164,23 +245,131 @@ public class BufferedDiskCache {
         return (j0) invokeL.objValue;
     }
 
-    private j0<EncodedImage> foundPinnedImage(CacheKey cacheKey, EncodedImage encodedImage) {
-        InterceptResult invokeLL;
+    public j0 probe(CacheKey cacheKey) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, cacheKey, encodedImage)) == null) {
-            FLog.v(TAG, "Found image for %s in staging area", cacheKey.getUriString());
-            this.mImageCacheStatsTracker.onStagingAreaHit(cacheKey);
-            return j0.j(encodedImage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cacheKey)) == null) {
+            Preconditions.checkNotNull(cacheKey);
+            try {
+                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_probe"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ BufferedDiskCache this$0;
+                    public final /* synthetic */ CacheKey val$key;
+                    public final /* synthetic */ Object val$token;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, r7, cacheKey};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$token = r7;
+                        this.val$key = cacheKey;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // java.util.concurrent.Callable
+                    public Void call() throws Exception {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
+                            try {
+                                this.this$0.mFileCache.probe(this.val$key);
+                                return null;
+                            } finally {
+                                FrescoInstrumenter.onEndWork(onBeginWork);
+                            }
+                        }
+                        return (Void) invokeV.objValue;
+                    }
+                }, this.mWriteExecutor);
+            } catch (Exception e) {
+                FLog.w(TAG, e, "Failed to schedule disk-cache probe for %s", cacheKey.getUriString());
+                return j0.i(e);
+            }
         }
-        return (j0) invokeLL.objValue;
+        return (j0) invokeL.objValue;
     }
 
-    private j0<EncodedImage> getAsync(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
+    public j0 remove(CacheKey cacheKey) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cacheKey)) == null) {
+            Preconditions.checkNotNull(cacheKey);
+            this.mStagingArea.remove(cacheKey);
+            try {
+                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_remove"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ BufferedDiskCache this$0;
+                    public final /* synthetic */ CacheKey val$key;
+                    public final /* synthetic */ Object val$token;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, r7, cacheKey};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$token = r7;
+                        this.val$key = cacheKey;
+                    }
+
+                    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // java.util.concurrent.Callable
+                    public Void call() throws Exception {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
+                            try {
+                                this.this$0.mStagingArea.remove(this.val$key);
+                                this.this$0.mFileCache.remove(this.val$key);
+                                return null;
+                            } finally {
+                            }
+                        } else {
+                            return (Void) invokeV.objValue;
+                        }
+                    }
+                }, this.mWriteExecutor);
+            } catch (Exception e) {
+                FLog.w(TAG, e, "Failed to schedule disk-cache remove for %s", cacheKey.getUriString());
+                return j0.i(e);
+            }
+        }
+        return (j0) invokeL.objValue;
+    }
+
+    private j0 getAsync(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, cacheKey, atomicBoolean)) == null) {
             try {
-                return j0.call(new Callable<EncodedImage>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_getAsync"), atomicBoolean, cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.3
+                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_getAsync"), atomicBoolean, cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedDiskCache this$0;
@@ -211,51 +400,51 @@ public class BufferedDiskCache {
 
                     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                     /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // java.util.concurrent.Callable
                     @Nullable
                     public EncodedImage call() throws Exception {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                            return (EncodedImage) invokeV.objValue;
-                        }
-                        Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
-                        try {
-                            if (!this.val$isCancelled.get()) {
-                                EncodedImage encodedImage = this.this$0.mStagingArea.get(this.val$key);
-                                if (encodedImage != null) {
-                                    FLog.v(BufferedDiskCache.TAG, "Found image for %s in staging area", this.val$key.getUriString());
-                                    this.this$0.mImageCacheStatsTracker.onStagingAreaHit(this.val$key);
-                                } else {
-                                    FLog.v(BufferedDiskCache.TAG, "Did not find image for %s in staging area", this.val$key.getUriString());
-                                    this.this$0.mImageCacheStatsTracker.onStagingAreaMiss(this.val$key);
-                                    try {
-                                        PooledByteBuffer readFromDiskCache = this.this$0.readFromDiskCache(this.val$key);
-                                        if (readFromDiskCache == null) {
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
+                            try {
+                                if (!this.val$isCancelled.get()) {
+                                    EncodedImage encodedImage = this.this$0.mStagingArea.get(this.val$key);
+                                    if (encodedImage != null) {
+                                        FLog.v(BufferedDiskCache.TAG, "Found image for %s in staging area", this.val$key.getUriString());
+                                        this.this$0.mImageCacheStatsTracker.onStagingAreaHit(this.val$key);
+                                    } else {
+                                        FLog.v(BufferedDiskCache.TAG, "Did not find image for %s in staging area", this.val$key.getUriString());
+                                        this.this$0.mImageCacheStatsTracker.onStagingAreaMiss(this.val$key);
+                                        try {
+                                            PooledByteBuffer readFromDiskCache = this.this$0.readFromDiskCache(this.val$key);
+                                            if (readFromDiskCache == null) {
+                                                return null;
+                                            }
+                                            CloseableReference of = CloseableReference.of(readFromDiskCache);
+                                            try {
+                                                encodedImage = new EncodedImage(of);
+                                            } finally {
+                                                CloseableReference.closeSafely(of);
+                                            }
+                                        } catch (Exception unused) {
                                             return null;
                                         }
-                                        CloseableReference of = CloseableReference.of(readFromDiskCache);
-                                        try {
-                                            encodedImage = new EncodedImage(of);
-                                        } finally {
-                                            CloseableReference.closeSafely(of);
+                                    }
+                                    if (Thread.interrupted()) {
+                                        FLog.v(BufferedDiskCache.TAG, "Host thread was interrupted, decreasing reference count");
+                                        if (encodedImage != null) {
+                                            encodedImage.close();
                                         }
-                                    } catch (Exception unused) {
-                                        return null;
+                                        throw new InterruptedException();
                                     }
+                                    return encodedImage;
                                 }
-                                if (Thread.interrupted()) {
-                                    FLog.v(BufferedDiskCache.TAG, "Host thread was interrupted, decreasing reference count");
-                                    if (encodedImage != null) {
-                                        encodedImage.close();
-                                    }
-                                    throw new InterruptedException();
-                                }
-                                return encodedImage;
+                                throw new CancellationException();
+                            } finally {
                             }
-                            throw new CancellationException();
-                        } finally {
+                        } else {
+                            return (EncodedImage) invokeV.objValue;
                         }
                     }
                 }, this.mReadExecutor);
@@ -344,21 +533,40 @@ public class BufferedDiskCache {
         }
     }
 
-    public void addKeyForAsyncProbing(CacheKey cacheKey) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
+    public j0 get(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cacheKey) == null) {
-            Preconditions.checkNotNull(cacheKey);
-            this.mFileCache.probe(cacheKey);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cacheKey, atomicBoolean)) == null) {
+            try {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.beginSection("BufferedDiskCache#get");
+                }
+                EncodedImage encodedImage = this.mStagingArea.get(cacheKey);
+                if (encodedImage != null) {
+                    return foundPinnedImage(cacheKey, encodedImage);
+                }
+                j0 async = getAsync(cacheKey, atomicBoolean);
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.endSection();
+                }
+                return async;
+            } finally {
+                if (FrescoSystrace.isTracing()) {
+                    FrescoSystrace.endSection();
+                }
+            }
         }
+        return (j0) invokeLL.objValue;
     }
 
-    public j0<Void> clearAll() {
+    public j0 clearAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             this.mStagingArea.clearAll();
             try {
-                return j0.call(new Callable<Void>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_clearAll")) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.6
+                return j0.call(new Callable(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_clearAll")) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BufferedDiskCache this$0;
@@ -389,15 +597,16 @@ public class BufferedDiskCache {
                     public Void call() throws Exception {
                         InterceptResult invokeV2;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+                        if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
+                            try {
+                                this.this$0.mStagingArea.clearAll();
+                                this.this$0.mFileCache.clearAll();
+                                return null;
+                            } finally {
+                            }
+                        } else {
                             return (Void) invokeV2.objValue;
-                        }
-                        Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
-                        try {
-                            this.this$0.mStagingArea.clearAll();
-                            this.this$0.mFileCache.clearAll();
-                            return null;
-                        } finally {
                         }
                     }
                 }, this.mWriteExecutor);
@@ -407,147 +616,6 @@ public class BufferedDiskCache {
             }
         }
         return (j0) invokeV.objValue;
-    }
-
-    public j0<Boolean> contains(CacheKey cacheKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cacheKey)) == null) {
-            if (containsSync(cacheKey)) {
-                return j0.j(Boolean.TRUE);
-            }
-            return containsAsync(cacheKey);
-        }
-        return (j0) invokeL.objValue;
-    }
-
-    public boolean containsSync(CacheKey cacheKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cacheKey)) == null) ? this.mStagingArea.containsKey(cacheKey) || this.mFileCache.hasKeySync(cacheKey) : invokeL.booleanValue;
-    }
-
-    public boolean diskCheckSync(CacheKey cacheKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cacheKey)) == null) {
-            if (containsSync(cacheKey)) {
-                return true;
-            }
-            return checkInStagingAreaAndFileCache(cacheKey);
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
-    public j0<EncodedImage> get(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cacheKey, atomicBoolean)) == null) {
-            try {
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.beginSection("BufferedDiskCache#get");
-                }
-                EncodedImage encodedImage = this.mStagingArea.get(cacheKey);
-                if (encodedImage != null) {
-                    return foundPinnedImage(cacheKey, encodedImage);
-                }
-                j0<EncodedImage> async = getAsync(cacheKey, atomicBoolean);
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.endSection();
-                }
-                return async;
-            } finally {
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.endSection();
-                }
-            }
-        }
-        return (j0) invokeLL.objValue;
-    }
-
-    public long getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            FileCache fileCache = this.mFileCache;
-            if (fileCache != null) {
-                return fileCache.getCount();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            FileCache fileCache = this.mFileCache;
-            if (fileCache != null) {
-                return fileCache.getSize();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public j0<Void> probe(CacheKey cacheKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cacheKey)) == null) {
-            Preconditions.checkNotNull(cacheKey);
-            try {
-                return j0.call(new Callable<Void>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_probe"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ BufferedDiskCache this$0;
-                    public final /* synthetic */ CacheKey val$key;
-                    public final /* synthetic */ Object val$token;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, r7, cacheKey};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$token = r7;
-                        this.val$key = cacheKey;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // java.util.concurrent.Callable
-                    public Void call() throws Exception {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                            Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
-                            try {
-                                this.this$0.mFileCache.probe(this.val$key);
-                                return null;
-                            } finally {
-                                FrescoInstrumenter.onEndWork(onBeginWork);
-                            }
-                        }
-                        return (Void) invokeV.objValue;
-                    }
-                }, this.mWriteExecutor);
-            } catch (Exception e) {
-                FLog.w(TAG, e, "Failed to schedule disk-cache probe for %s", cacheKey.getUriString());
-                return j0.i(e);
-            }
-        }
-        return (j0) invokeL.objValue;
     }
 
     public void put(CacheKey cacheKey, EncodedImage encodedImage) {
@@ -595,13 +663,12 @@ public class BufferedDiskCache {
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
-                                return;
-                            }
-                            Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
-                            try {
-                                this.this$0.writeToDiskCache(this.val$key, this.val$finalEncodedImage);
-                            } finally {
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
+                                try {
+                                    this.this$0.writeToDiskCache(this.val$key, this.val$finalEncodedImage);
+                                } finally {
+                                }
                             }
                         }
                     });
@@ -616,65 +683,5 @@ public class BufferedDiskCache {
                 }
             }
         }
-    }
-
-    public j0<Void> remove(CacheKey cacheKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cacheKey)) == null) {
-            Preconditions.checkNotNull(cacheKey);
-            this.mStagingArea.remove(cacheKey);
-            try {
-                return j0.call(new Callable<Void>(this, FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_remove"), cacheKey) { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ BufferedDiskCache this$0;
-                    public final /* synthetic */ CacheKey val$key;
-                    public final /* synthetic */ Object val$token;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, r7, cacheKey};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$token = r7;
-                        this.val$key = cacheKey;
-                    }
-
-                    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // java.util.concurrent.Callable
-                    public Void call() throws Exception {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                            return (Void) invokeV.objValue;
-                        }
-                        Object onBeginWork = FrescoInstrumenter.onBeginWork(this.val$token, null);
-                        try {
-                            this.this$0.mStagingArea.remove(this.val$key);
-                            this.this$0.mFileCache.remove(this.val$key);
-                            return null;
-                        } finally {
-                        }
-                    }
-                }, this.mWriteExecutor);
-            } catch (Exception e) {
-                FLog.w(TAG, e, "Failed to schedule disk-cache remove for %s", cacheKey.getUriString());
-                return j0.i(e);
-            }
-        }
-        return (j0) invokeL.objValue;
     }
 }

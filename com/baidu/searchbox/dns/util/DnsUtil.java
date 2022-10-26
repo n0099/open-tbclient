@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DnsUtil {
@@ -52,6 +53,15 @@ public class DnsUtil {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static boolean isIPv6TestArea() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a.e().isIPv6TestArea();
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x001e  */
@@ -101,40 +111,36 @@ public class DnsUtil {
         }
     }
 
-    public static boolean isIPv6TestArea() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.e().isIPv6TestArea() : invokeV.booleanValue;
-    }
-
-    public static List<InetAddress> parseInetAddressList(List<String> list) {
+    public static List parseInetAddressList(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list == null || list.size() <= 0) {
-                return null;
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList(list.size());
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    arrayList.add(InetAddress.getByName((String) it.next()));
+                }
+                return arrayList;
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (String str : list) {
-                arrayList.add(InetAddress.getByName(str));
-            }
-            return arrayList;
+            return null;
         }
         return (List) invokeL.objValue;
     }
 
-    public static List<String> parseRawAddressList(List<InetAddress> list) {
+    public static List parseRawAddressList(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
-            if (list == null || list.size() <= 0) {
-                return null;
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList(list.size());
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    arrayList.add(((InetAddress) it.next()).getHostAddress());
+                }
+                return arrayList;
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (InetAddress inetAddress : list) {
-                arrayList.add(inetAddress.getHostAddress());
-            }
-            return arrayList;
+            return null;
         }
         return (List) invokeL.objValue;
     }

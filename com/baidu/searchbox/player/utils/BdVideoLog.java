@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.utils;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +16,7 @@ public final class BdVideoLog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class DefaultVideoLog extends VideoLog {
+    public class DefaultVideoLog extends VideoLog {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,10 +35,13 @@ public final class BdVideoLog {
         }
 
         @Override // com.baidu.searchbox.player.utils.VideoLog
-        public boolean isLoggable(int i, @Nullable String str) {
+        public boolean isLoggable(int i, String str) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) ? BDPlayerConfig.isDebug() : invokeIL.booleanValue;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+                return BDPlayerConfig.isDebug();
+            }
+            return invokeIL.booleanValue;
         }
     }
 
@@ -74,78 +75,6 @@ public final class BdVideoLog {
         }
     }
 
-    public static void d(@Nullable String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            doLog(3, str, str2, null);
-        }
-    }
-
-    public static void doLog(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            sVideoLog.doLog(i, str, str2, th);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            doLog(6, str, str2, null);
-        }
-    }
-
-    public static void ex(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            doLog(6, null, str, null);
-        }
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            doLog(4, str, str2, null);
-        }
-    }
-
-    public static void inject(@NonNull VideoLog videoLog) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, videoLog) == null) {
-            sVideoLog = videoLog;
-        }
-    }
-
-    @Deprecated
-    public static void logException(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, exc) == null) {
-            doLog(6, str, null, exc);
-        }
-    }
-
-    @Deprecated
-    public static void printStackTrace(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, exc) == null) {
-            doLog(6, null, null, exc);
-        }
-    }
-
-    public static void v(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
-            doLog(2, str, str2, null);
-        }
-    }
-
-    public static void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            doLog(5, null, str, null);
-        }
-    }
-
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
@@ -160,6 +89,13 @@ public final class BdVideoLog {
         }
     }
 
+    public static void ex(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            doLog(6, null, str, null);
+        }
+    }
+
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
@@ -167,10 +103,68 @@ public final class BdVideoLog {
         }
     }
 
+    public static void inject(VideoLog videoLog) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, videoLog) == null) {
+            sVideoLog = videoLog;
+        }
+    }
+
+    @Deprecated
+    public static void printStackTrace(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, exc) == null) {
+            doLog(6, null, null, exc);
+        }
+    }
+
     public static void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
             doLog(2, null, str, null);
+        }
+    }
+
+    public static void w(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
+            doLog(5, null, str, null);
+        }
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            doLog(3, str, str2, null);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            doLog(6, str, str2, null);
+        }
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+            doLog(4, str, str2, null);
+        }
+    }
+
+    @Deprecated
+    public static void logException(String str, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, str, exc) == null) {
+            doLog(6, str, null, exc);
+        }
+    }
+
+    public static void v(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
+            doLog(2, str, str2, null);
         }
     }
 
@@ -213,6 +207,13 @@ public final class BdVideoLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, str, th) == null) {
             doLog(5, null, str, th);
+        }
+    }
+
+    public static void doLog(int i, String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            sVideoLog.doLog(i, str, str2, th);
         }
     }
 }

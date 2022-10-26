@@ -88,23 +88,22 @@ public class NativeMethodInjectHelper {
         Method[] declaredMethods;
         Class<?>[] parameterTypes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (size = this.b.size()) == 0) {
-            return;
-        }
-        this.a.clear();
-        for (int i = 0; i < size; i++) {
-            Class cls = (Class) this.b.get(i);
-            if (cls != null) {
-                ArrayMap arrayMap = new ArrayMap();
-                for (Method method : cls.getDeclaredMethods()) {
-                    int modifiers = method.getModifiers();
-                    if ((modifiers & 1) != 0 && (modifiers & 8) != 0 && method.getReturnType() == Void.TYPE && (parameterTypes = method.getParameterTypes()) != null && parameterTypes.length == 3 && WebView.class == parameterTypes[0] && JSONObject.class == parameterTypes[1] && JsCallback.class == parameterTypes[2]) {
-                        arrayMap.put(method.getName(), method);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (size = this.b.size()) != 0) {
+            this.a.clear();
+            for (int i = 0; i < size; i++) {
+                Class cls = (Class) this.b.get(i);
+                if (cls != null) {
+                    ArrayMap arrayMap = new ArrayMap();
+                    for (Method method : cls.getDeclaredMethods()) {
+                        int modifiers = method.getModifiers();
+                        if ((modifiers & 1) != 0 && (modifiers & 8) != 0 && method.getReturnType() == Void.TYPE && (parameterTypes = method.getParameterTypes()) != null && parameterTypes.length == 3 && WebView.class == parameterTypes[0] && JSONObject.class == parameterTypes[1] && JsCallback.class == parameterTypes[2]) {
+                            arrayMap.put(method.getName(), method);
+                        }
                     }
+                    this.a.put(cls.getSimpleName(), arrayMap);
                 }
-                this.a.put(cls.getSimpleName(), arrayMap);
             }
+            this.b.clear();
         }
-        this.b.clear();
     }
 }

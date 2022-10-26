@@ -16,17 +16,24 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableIgnoreElementsCompletable<T> extends Completable implements FuseToFlowable<T> {
+public final class FlowableIgnoreElementsCompletable extends Completable implements FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Flowable<T> source;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class IgnoreElementsSubscriber<T> implements FlowableSubscriber<T>, Disposable {
+    public final class IgnoreElementsSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
         public Subscription s;
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            }
+        }
 
         public IgnoreElementsSubscriber(CompletableObserver completableObserver) {
             Interceptable interceptable = $ic;
@@ -46,6 +53,25 @@ public final class FlowableIgnoreElementsCompletable<T> extends Completable impl
             this.actual = completableObserver;
         }
 
+        @Override // org.reactivestreams.Subscriber
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                this.s = SubscriptionHelper.CANCELLED;
+                this.actual.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+        public void onSubscribe(Subscription subscription) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
+                this.s = subscription;
+                this.actual.onSubscribe(this);
+                subscription.request(Long.MAX_VALUE);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -59,7 +85,13 @@ public final class FlowableIgnoreElementsCompletable<T> extends Completable impl
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == SubscriptionHelper.CANCELLED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -70,35 +102,9 @@ public final class FlowableIgnoreElementsCompletable<T> extends Completable impl
                 this.actual.onComplete();
             }
         }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.s = SubscriptionHelper.CANCELLED;
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            }
-        }
-
-        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
-        public void onSubscribe(Subscription subscription) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
-                this.s = subscription;
-                this.actual.onSubscribe(this);
-                subscription.request(Long.MAX_VALUE);
-            }
-        }
     }
 
-    public FlowableIgnoreElementsCompletable(Flowable<T> flowable) {
+    public FlowableIgnoreElementsCompletable(Flowable flowable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,18 +122,21 @@ public final class FlowableIgnoreElementsCompletable<T> extends Completable impl
         this.source = flowable;
     }
 
-    @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<T> fuseToFlowable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableIgnoreElements(this.source)) : (Flowable) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Completable
     public void subscribeActual(CompletableObserver completableObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, completableObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new IgnoreElementsSubscriber(completableObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.FuseToFlowable
+    public Flowable fuseToFlowable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableIgnoreElements(this.source));
+        }
+        return (Flowable) invokeV.objValue;
     }
 }

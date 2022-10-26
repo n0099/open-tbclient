@@ -10,8 +10,6 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(21)
 /* loaded from: classes.dex */
 public class RoundRectDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic;
@@ -35,6 +32,16 @@ public class RoundRectDrawable extends Drawable {
     public ColorStateList mTint;
     public PorterDuffColorFilter mTintFilter;
     public PorterDuff.Mode mTintMode;
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
+    }
 
     public RoundRectDrawable(ColorStateList colorStateList, float f) {
         Interceptable interceptable = $ic;
@@ -65,10 +72,10 @@ public class RoundRectDrawable extends Drawable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, colorStateList, mode)) == null) {
-            if (colorStateList == null || mode == null) {
-                return null;
+            if (colorStateList != null && mode != null) {
+                return new PorterDuffColorFilter(colorStateList.getColorForState(getState(), 0), mode);
             }
-            return new PorterDuffColorFilter(colorStateList.getColorForState(getState(), 0), mode);
+            return null;
         }
         return (PorterDuffColorFilter) invokeLL.objValue;
     }
@@ -84,33 +91,17 @@ public class RoundRectDrawable extends Drawable {
         }
     }
 
-    private void updateBounds(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, rect) == null) {
-            if (rect == null) {
-                rect = getBounds();
-            }
-            this.mBoundsF.set(rect.left, rect.top, rect.right, rect.bottom);
-            this.mBoundsI.set(rect);
-            if (this.mInsetForPadding) {
-                float calculateVerticalPadding = RoundRectDrawableWithShadow.calculateVerticalPadding(this.mPadding, this.mRadius, this.mInsetForRadius);
-                this.mBoundsI.inset((int) Math.ceil(RoundRectDrawableWithShadow.calculateHorizontalPadding(this.mPadding, this.mRadius, this.mInsetForRadius)), (int) Math.ceil(calculateVerticalPadding));
-                this.mBoundsF.set(this.mBoundsI);
-            }
-        }
-    }
-
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             Paint paint = this.mPaint;
-            if (this.mTintFilter == null || paint.getColorFilter() != null) {
-                z = false;
-            } else {
+            if (this.mTintFilter != null && paint.getColorFilter() == null) {
                 paint.setColorFilter(this.mTintFilter);
                 z = true;
+            } else {
+                z = false;
             }
             RectF rectF = this.mBoundsF;
             float f = this.mRadius;
@@ -121,52 +112,12 @@ public class RoundRectDrawable extends Drawable {
         }
     }
 
-    public ColorStateList getColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBackground : (ColorStateList) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
-    }
-
     @Override // android.graphics.drawable.Drawable
     public void getOutline(Outline outline) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, outline) == null) {
             outline.setRoundRect(this.mBoundsI, this.mRadius);
         }
-    }
-
-    public float getPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPadding : invokeV.floatValue;
-    }
-
-    public float getRadius() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRadius : invokeV.floatValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public boolean isStateful() {
-        InterceptResult invokeV;
-        ColorStateList colorStateList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ColorStateList colorStateList2 = this.mTint;
-            return (colorStateList2 != null && colorStateList2.isStateful()) || ((colorStateList = this.mBackground) != null && colorStateList.isStateful()) || super.isStateful();
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -179,28 +130,6 @@ public class RoundRectDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onStateChange(int[] iArr) {
-        InterceptResult invokeL;
-        PorterDuff.Mode mode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
-            ColorStateList colorStateList = this.mBackground;
-            int colorForState = colorStateList.getColorForState(iArr, colorStateList.getDefaultColor());
-            boolean z = colorForState != this.mPaint.getColor();
-            if (z) {
-                this.mPaint.setColor(colorForState);
-            }
-            ColorStateList colorStateList2 = this.mTint;
-            if (colorStateList2 == null || (mode = this.mTintMode) == null) {
-                return z;
-            }
-            this.mTintFilter = createTintFilter(colorStateList2, mode);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -208,7 +137,7 @@ public class RoundRectDrawable extends Drawable {
         }
     }
 
-    public void setColor(@Nullable ColorStateList colorStateList) {
+    public void setColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) {
             setBackground(colorStateList);
@@ -224,23 +153,9 @@ public class RoundRectDrawable extends Drawable {
         }
     }
 
-    public void setPadding(float f, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (f == this.mPadding && this.mInsetForPadding == z && this.mInsetForRadius == z2) {
-                return;
-            }
-            this.mPadding = f;
-            this.mInsetForPadding = z;
-            this.mInsetForRadius = z2;
-            updateBounds(null);
-            invalidateSelf();
-        }
-    }
-
     public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || f == this.mRadius) {
+        if ((interceptable != null && interceptable.invokeF(1048589, this, f) != null) || f == this.mRadius) {
             return;
         }
         this.mRadius = f;
@@ -264,6 +179,105 @@ public class RoundRectDrawable extends Drawable {
         if (interceptable == null || interceptable.invokeL(1048591, this, mode) == null) {
             this.mTintMode = mode;
             this.mTintFilter = createTintFilter(this.mTint, mode);
+            invalidateSelf();
+        }
+    }
+
+    private void updateBounds(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, rect) == null) {
+            if (rect == null) {
+                rect = getBounds();
+            }
+            this.mBoundsF.set(rect.left, rect.top, rect.right, rect.bottom);
+            this.mBoundsI.set(rect);
+            if (this.mInsetForPadding) {
+                float calculateVerticalPadding = RoundRectDrawableWithShadow.calculateVerticalPadding(this.mPadding, this.mRadius, this.mInsetForRadius);
+                this.mBoundsI.inset((int) Math.ceil(RoundRectDrawableWithShadow.calculateHorizontalPadding(this.mPadding, this.mRadius, this.mInsetForRadius)), (int) Math.ceil(calculateVerticalPadding));
+                this.mBoundsF.set(this.mBoundsI);
+            }
+        }
+    }
+
+    public ColorStateList getColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBackground;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    public float getPadding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mPadding;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getRadius() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRadius;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean isStateful() {
+        InterceptResult invokeV;
+        ColorStateList colorStateList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ColorStateList colorStateList2 = this.mTint;
+            if ((colorStateList2 != null && colorStateList2.isStateful()) || (((colorStateList = this.mBackground) != null && colorStateList.isStateful()) || super.isStateful())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean onStateChange(int[] iArr) {
+        InterceptResult invokeL;
+        boolean z;
+        PorterDuff.Mode mode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
+            ColorStateList colorStateList = this.mBackground;
+            int colorForState = colorStateList.getColorForState(iArr, colorStateList.getDefaultColor());
+            if (colorForState != this.mPaint.getColor()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                this.mPaint.setColor(colorForState);
+            }
+            ColorStateList colorStateList2 = this.mTint;
+            if (colorStateList2 != null && (mode = this.mTintMode) != null) {
+                this.mTintFilter = createTintFilter(colorStateList2, mode);
+                return true;
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setPadding(float f, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (f == this.mPadding && this.mInsetForPadding == z && this.mInsetForRadius == z2) {
+                return;
+            }
+            this.mPadding = f;
+            this.mInsetForPadding = z;
+            this.mInsetForRadius = z2;
+            updateBounds(null);
             invalidateSelf();
         }
     }

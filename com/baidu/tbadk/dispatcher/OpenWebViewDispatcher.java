@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dp4;
-import com.baidu.tieba.yo4;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.ep4;
+import com.baidu.tieba.jg8;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class OpenWebViewDispatcher implements zf8 {
+public class OpenWebViewDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +43,7 @@ public class OpenWebViewDispatcher implements zf8 {
             }
             String checkUrl = TbadkCoreApplication.getInst().getCheckUrl();
             if (checkUrl == null) {
-                checkUrl = dp4.a;
+                checkUrl = ep4.a;
             } else if (checkUrl.trim().length() == 0) {
                 return str;
             }
@@ -76,12 +76,11 @@ public class OpenWebViewDispatcher implements zf8 {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zf8
+    @Override // com.baidu.tieba.jg8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
+            zo4.q(context, null, redirectUrl(jSONObject.optString("url")), null);
         }
-        yo4.q(context, null, redirectUrl(jSONObject.optString("url")), null);
     }
 }

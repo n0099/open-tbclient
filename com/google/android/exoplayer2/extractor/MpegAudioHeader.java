@@ -78,30 +78,44 @@ public final class MpegAudioHeader {
         int i4;
         int i5;
         int i6;
+        int i7;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             if ((i & (-2097152)) != -2097152 || (i2 = (i >>> 19) & 3) == 1 || (i3 = (i >>> 17) & 3) == 0 || (i4 = (i >>> 12) & 15) == 0 || i4 == 15 || (i5 = (i >>> 10) & 3) == 3) {
                 return -1;
             }
-            int i7 = SAMPLING_RATE_V1[i5];
+            int i8 = SAMPLING_RATE_V1[i5];
             if (i2 == 2) {
-                i7 /= 2;
+                i8 /= 2;
             } else if (i2 == 0) {
-                i7 /= 4;
+                i8 /= 4;
             }
-            int i8 = (i >>> 9) & 1;
+            int i9 = (i >>> 9) & 1;
             if (i3 == 3) {
-                return ((((i2 == 3 ? BITRATE_V1_L1[i4 - 1] : BITRATE_V2_L1[i4 - 1]) * 12000) / i7) + i8) * 4;
+                if (i2 == 3) {
+                    i7 = BITRATE_V1_L1[i4 - 1];
+                } else {
+                    i7 = BITRATE_V2_L1[i4 - 1];
+                }
+                return (((i7 * 12000) / i8) + i9) * 4;
             }
             if (i2 == 3) {
-                i6 = i3 == 2 ? BITRATE_V1_L2[i4 - 1] : BITRATE_V1_L3[i4 - 1];
+                if (i3 == 2) {
+                    i6 = BITRATE_V1_L2[i4 - 1];
+                } else {
+                    i6 = BITRATE_V1_L3[i4 - 1];
+                }
             } else {
                 i6 = BITRATE_V2[i4 - 1];
             }
+            int i10 = 144000;
             if (i2 == 3) {
-                return ((i6 * 144000) / i7) + i8;
+                return ((i6 * 144000) / i8) + i9;
             }
-            return (((i3 == 1 ? DefaultOggSeeker.MATCH_RANGE : 144000) * i6) / i7) + i8;
+            if (i3 == 1) {
+                i10 = DefaultOggSeeker.MATCH_RANGE;
+            }
+            return ((i10 * i6) / i8) + i9;
         }
         return invokeI.intValue;
     }
@@ -115,39 +129,58 @@ public final class MpegAudioHeader {
         int i6;
         int i7;
         int i8;
+        int i9;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, mpegAudioHeader)) == null) {
             if ((i & (-2097152)) != -2097152 || (i2 = (i >>> 19) & 3) == 1 || (i3 = (i >>> 17) & 3) == 0 || (i4 = (i >>> 12) & 15) == 0 || i4 == 15 || (i5 = (i >>> 10) & 3) == 3) {
                 return false;
             }
-            int i9 = SAMPLING_RATE_V1[i5];
+            int i10 = SAMPLING_RATE_V1[i5];
             if (i2 == 2) {
-                i9 /= 2;
+                i10 /= 2;
             } else if (i2 == 0) {
-                i9 /= 4;
+                i10 /= 4;
             }
-            int i10 = i9;
-            int i11 = (i >>> 9) & 1;
-            int i12 = MP3TrackImpl.SAMPLES_PER_FRAME;
+            int i11 = i10;
+            int i12 = (i >>> 9) & 1;
+            int i13 = MP3TrackImpl.SAMPLES_PER_FRAME;
             if (i3 == 3) {
-                i6 = i2 == 3 ? BITRATE_V1_L1[i4 - 1] : BITRATE_V2_L1[i4 - 1];
-                i7 = (((i6 * 12000) / i10) + i11) * 4;
+                if (i2 == 3) {
+                    i6 = BITRATE_V1_L1[i4 - 1];
+                } else {
+                    i6 = BITRATE_V2_L1[i4 - 1];
+                }
+                i7 = (((i6 * 12000) / i11) + i12) * 4;
                 i8 = 384;
             } else {
+                int i14 = 144000;
                 if (i2 == 3) {
-                    i6 = i3 == 2 ? BITRATE_V1_L2[i4 - 1] : BITRATE_V1_L3[i4 - 1];
-                    i7 = ((144000 * i6) / i10) + i11;
+                    if (i3 == 2) {
+                        i6 = BITRATE_V1_L2[i4 - 1];
+                    } else {
+                        i6 = BITRATE_V1_L3[i4 - 1];
+                    }
+                    i7 = ((144000 * i6) / i11) + i12;
                     i8 = MP3TrackImpl.SAMPLES_PER_FRAME;
                 } else {
                     i6 = BITRATE_V2[i4 - 1];
                     if (i3 == 1) {
-                        i12 = 576;
+                        i13 = 576;
                     }
-                    i7 = (((i3 == 1 ? DefaultOggSeeker.MATCH_RANGE : 144000) * i6) / i10) + i11;
-                    i8 = i12;
+                    if (i3 == 1) {
+                        i14 = DefaultOggSeeker.MATCH_RANGE;
+                    }
+                    i7 = ((i14 * i6) / i11) + i12;
+                    i8 = i13;
                 }
             }
-            mpegAudioHeader.setValues(i2, MIME_TYPE_BY_LAYER[3 - i3], i7, i10, ((i >> 6) & 3) == 3 ? 1 : 2, i6 * 1000, i8);
+            String str = MIME_TYPE_BY_LAYER[3 - i3];
+            if (((i >> 6) & 3) == 3) {
+                i9 = 1;
+            } else {
+                i9 = 2;
+            }
+            mpegAudioHeader.setValues(i2, str, i7, i11, i9, i6 * 1000, i8);
             return true;
         }
         return invokeIL.booleanValue;

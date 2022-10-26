@@ -1,173 +1,195 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes5.dex */
-public class sh4<K, V> extends xh4<K, V> implements Map<K, V> {
+public class sh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wh4<K, V> h;
+    public int a;
+    public b b;
+    public a c;
+    public Context d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     /* loaded from: classes5.dex */
-    public class a extends wh4<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sh4 d;
-
-        public a(sh4 sh4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sh4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = sh4Var;
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.clear();
-            }
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public Object b(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? this.d.b[(i << 1) + i2] : invokeII.objValue;
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public Map<K, V> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (Map) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public int d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d.c : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public int e(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.d.e(obj) : invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public int f(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this.d.g(obj) : invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public void g(K k, V v) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
-                this.d.put(k, v);
-            }
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public void h(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-                this.d.i(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.wh4
-        public V i(int i, V v) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) ? this.d.j(i, v) : (V) invokeIL.objValue;
-        }
+    public interface a {
     }
 
-    public sh4() {
+    /* loaded from: classes5.dex */
+    public interface b {
+    }
+
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // java.util.Map
-    public Set<Map.Entry<K, V>> entrySet() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l().l() : (Set) invokeV.objValue;
-    }
-
-    @Override // java.util.Map
-    public Set<K> keySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l().m() : (Set) invokeV.objValue;
-    }
-
-    public final wh4<K, V> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h == null) {
-                this.h = new a(this);
-            }
-            return this.h;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (wh4) invokeV.objValue;
     }
 
-    public boolean m(Collection<?> collection) {
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public String a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) ? wh4.p(this, collection) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            StringBuilder sb = new StringBuilder(64);
+            vh4.a(obj, sb);
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
-    @Override // java.util.Map
-    public void putAll(Map<? extends K, ? extends V> map) {
+    public void g(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            b(this.c + map.size());
-            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-                put(entry.getKey(), entry.getValue());
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            if (this.c == null) {
+                this.c = aVar;
+                return;
+            }
+            throw new IllegalStateException("There is already a listener registered");
+        }
+    }
+
+    public void k(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+            b bVar2 = this.b;
+            if (bVar2 != null) {
+                if (bVar2 == bVar) {
+                    this.b = null;
+                    return;
+                }
+                throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+            }
+            throw new IllegalStateException("No listener register");
+        }
+    }
+
+    public void l(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            a aVar2 = this.c;
+            if (aVar2 != null) {
+                if (aVar2 == aVar) {
+                    this.c = null;
+                    return;
+                }
+                throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+            }
+            throw new IllegalStateException("No listener register");
+        }
+    }
+
+    public void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fileDescriptor, printWriter, strArr) == null) {
+            printWriter.print(str);
+            printWriter.print("mId=");
+            printWriter.print(this.a);
+            printWriter.print(" mListener=");
+            printWriter.println(this.b);
+            if (this.e || this.h || this.i) {
+                printWriter.print(str);
+                printWriter.print("mStarted=");
+                printWriter.print(this.e);
+                printWriter.print(" mContentChanged=");
+                printWriter.print(this.h);
+                printWriter.print(" mProcessingChange=");
+                printWriter.println(this.i);
+            }
+            if (this.f || this.g) {
+                printWriter.print(str);
+                printWriter.print("mAbandoned=");
+                printWriter.print(this.f);
+                printWriter.print(" mReset=");
+                printWriter.println(this.g);
             }
         }
     }
 
-    @Override // java.util.Map
-    public Collection<V> values() {
+    public void f(int i, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bVar) == null) {
+            if (this.b == null) {
+                this.b = bVar;
+                this.a = i;
+                return;
+            }
+            throw new IllegalStateException("There is already a listener registered");
+        }
+    }
+
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l().n() : (Collection) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            c();
+            this.g = true;
+            this.e = false;
+            this.f = false;
+            this.h = false;
+            this.i = false;
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e = true;
+            this.g = false;
+            this.f = false;
+            d();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.e = false;
+            e();
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            StringBuilder sb = new StringBuilder(64);
+            vh4.a(this, sb);
+            sb.append(" id=");
+            sb.append(this.a);
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

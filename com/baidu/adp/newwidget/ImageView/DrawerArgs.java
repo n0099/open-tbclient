@@ -1,7 +1,7 @@
 package com.baidu.adp.newwidget.ImageView;
 
 import android.graphics.Matrix;
-import com.baidu.tieba.fl;
+import com.baidu.tieba.gl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,13 +81,19 @@ public class DrawerArgs {
         public static SkinType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SkinType) Enum.valueOf(SkinType.class, str) : (SkinType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SkinType) Enum.valueOf(SkinType.class, str);
+            }
+            return (SkinType) invokeL.objValue;
         }
 
         public static SkinType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SkinType[]) $VALUES.clone() : (SkinType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SkinType[]) $VALUES.clone();
+            }
+            return (SkinType[]) invokeV.objValue;
         }
     }
 
@@ -108,7 +114,7 @@ public class DrawerArgs {
         this.f = SkinType.DAY;
         this.h = false;
         this.i = true;
-        this.j = fl.a;
+        this.j = gl.a;
         this.k = 1.0f;
         this.o = false;
     }

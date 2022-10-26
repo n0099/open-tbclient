@@ -29,38 +29,39 @@ public class AppRuntimePreloader {
 
     public static void preload(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65537, null, z) == null) && z) {
-            Thread thread = new Thread(new Runnable() { // from class: com.baidu.searchbox.preload.AppRuntimePreloader.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        VersionInitHelper.init();
-                        TbadkCoreApplication.setClientId(TbadkCoreApplication.getInst().readClientId(TbadkCoreApplication.getInst().getContext()));
-                        ChannelInitHelper.init();
-                        ScheduleStrategy.getDeviceScore();
-                    }
-                }
-            });
-            thread.setPriority(10);
-            thread.start();
+        if ((interceptable != null && interceptable.invokeZ(65537, null, z) != null) || !z) {
+            return;
         }
+        Thread thread = new Thread(new Runnable() { // from class: com.baidu.searchbox.preload.AppRuntimePreloader.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    VersionInitHelper.init();
+                    TbadkCoreApplication.setClientId(TbadkCoreApplication.getInst().readClientId(TbadkCoreApplication.getInst().getContext()));
+                    ChannelInitHelper.init();
+                    ScheduleStrategy.getDeviceScore();
+                }
+            }
+        });
+        thread.setPriority(10);
+        thread.start();
     }
 }

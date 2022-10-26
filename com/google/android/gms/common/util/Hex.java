@@ -1,6 +1,5 @@
 package com.google.android.gms.common.util;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,10 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-import com.google.android.gms.common.internal.ShowFirstParty;
-@ShowFirstParty
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class Hex {
     public static /* synthetic */ Interceptable $ic;
@@ -51,9 +46,7 @@ public class Hex {
         }
     }
 
-    @NonNull
-    @KeepForSdk
-    public static String bytesToStringLowercase(@NonNull byte[] bArr) {
+    public static String bytesToStringLowercase(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
@@ -73,17 +66,7 @@ public class Hex {
         return (String) invokeL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static String bytesToStringUppercase(@NonNull byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? bytesToStringUppercase(bArr, false) : (String) invokeL.objValue;
-    }
-
-    @NonNull
-    @KeepForSdk
-    public static byte[] stringToBytes(@NonNull String str) throws IllegalArgumentException {
+    public static byte[] stringToBytes(String str) throws IllegalArgumentException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
@@ -103,9 +86,16 @@ public class Hex {
         return (byte[]) invokeL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static String bytesToStringUppercase(@NonNull byte[] bArr, boolean z) {
+    public static String bytesToStringUppercase(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            return bytesToStringUppercase(bArr, false);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String bytesToStringUppercase(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, z)) == null) {

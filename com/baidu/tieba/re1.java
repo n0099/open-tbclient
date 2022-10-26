@@ -6,14 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class re1<T> implements te1<T> {
+public class re1 implements te1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
-    public pe1<List<T>> b;
-    public pe1<List<T>> c;
+    public Object a;
+    public qe1 b;
+    public qe1 c;
 
     public re1() {
         Interceptable interceptable = $ic;
@@ -32,39 +31,42 @@ public class re1<T> implements te1<T> {
     public static re1 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new re1() : (re1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.te1
-    public void a(pe1<List<T>> pe1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pe1Var) == null) {
-            this.b = pe1Var;
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new re1();
         }
+        return (re1) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.te1
-    public List<T> getList() {
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<T> list = this.a;
-            if (list != null) {
-                return list;
+            Object obj = this.a;
+            if (obj != null) {
+                return obj;
             }
-            pe1<List<T>> pe1Var = this.b;
-            if (pe1Var != null) {
-                List<T> list2 = pe1Var.get();
-                this.a = list2;
-                return list2;
+            qe1 qe1Var = this.b;
+            if (qe1Var != null) {
+                Object obj2 = qe1Var.get();
+                this.a = obj2;
+                return obj2;
             }
-            pe1<List<T>> pe1Var2 = this.c;
-            if (pe1Var2 != null) {
-                return pe1Var2.get();
+            qe1 qe1Var2 = this.c;
+            if (qe1Var2 != null) {
+                return qe1Var2.get();
             }
             return null;
         }
-        return (List) invokeV.objValue;
+        return invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.te1
+    public void a(qe1 qe1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qe1Var) == null) {
+            this.b = qe1Var;
+            this.a = null;
+        }
     }
 }

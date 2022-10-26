@@ -1,35 +1,90 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class ic2 {
+public class ic2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"SwitchIntDef"})
-    public static tc2 a(@NonNull rc2 rc2Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947848625, "Lcom/baidu/tieba/ic2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947848625, "Lcom/baidu/tieba/ic2;");
+                return;
+            }
+        }
+        tm2.g0().getSwitch("swan_recovery_enable", true);
+        a = true;
+    }
+
+    public ic2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void c(sc2 sc2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, sc2Var) != null) || !a || sc2Var == null) {
+            return;
+        }
+        if (ProcessUtils.isMainProcess()) {
+            jc2.a(sc2Var).b();
+            rc2.b().a(sc2Var.a);
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putInt("recovery_level", sc2Var.a);
+        bundle.putStringArrayList("recovery_app_list", sc2Var.b);
+        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), ic2.class, bundle);
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rc2Var)) == null) {
-            int i = rc2Var.a;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return new sc2(rc2Var);
-                        }
-                        return new wc2(rc2Var);
-                    }
-                    return new uc2(rc2Var);
-                }
-                return new xc2(rc2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (!a) {
+                return null;
             }
-            return new vc2(rc2Var);
+            int i = bundle.getInt("recovery_level", -1);
+            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
+            sc2 sc2Var = new sc2();
+            sc2Var.a = i;
+            if (stringArrayList != null) {
+                sc2Var.b = stringArrayList;
+            }
+            jc2.a(sc2Var).b();
+            rc2.b().a(sc2Var.a);
+            return null;
         }
-        return (tc2) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

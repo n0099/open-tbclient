@@ -34,19 +34,19 @@ public class NetWorkUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    if (BdNetTypeUtil.isWifiNet()) {
-                        return "3";
-                    }
-                    String defaultHost = Proxy.getDefaultHost();
-                    if (defaultHost != null) {
-                        if (defaultHost.length() > 0) {
-                            return "2";
-                        }
-                    }
-                    return "1";
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    return null;
                 }
-                return null;
+                if (BdNetTypeUtil.isWifiNet()) {
+                    return "3";
+                }
+                String defaultHost = Proxy.getDefaultHost();
+                if (defaultHost != null) {
+                    if (defaultHost.length() > 0) {
+                        return "2";
+                    }
+                }
+                return "1";
             } catch (Exception unused) {
                 return null;
             }

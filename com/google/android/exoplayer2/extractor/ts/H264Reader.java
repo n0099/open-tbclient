@@ -40,13 +40,20 @@ public final class H264Reader implements ElementaryStreamReader {
 
     /* renamed from: com.google.android.exoplayer2.extractor.ts.H264Reader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void packetFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static final class SampleReader {
+    public final class SampleReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_BUFFER_SIZE = 128;
         public static final int NAL_UNIT_TYPE_AUD = 9;
@@ -64,17 +71,17 @@ public final class H264Reader implements ElementaryStreamReader {
         public long nalUnitTimeUs;
         public int nalUnitType;
         public final TrackOutput output;
-        public final SparseArray<NalUnitUtil.PpsData> pps;
+        public final SparseArray pps;
         public SliceHeaderData previousSliceHeader;
         public boolean readingSample;
         public boolean sampleIsKeyframe;
         public long samplePosition;
         public long sampleTimeUs;
         public SliceHeaderData sliceHeader;
-        public final SparseArray<NalUnitUtil.SpsData> sps;
+        public final SparseArray sps;
 
         /* loaded from: classes7.dex */
-        public static final class SliceHeaderData {
+        public final class SliceHeaderData {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int SLICE_TYPE_ALL_I = 7;
             public static final int SLICE_TYPE_I = 2;
@@ -107,6 +114,39 @@ public final class H264Reader implements ElementaryStreamReader {
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
+                }
+            }
+
+            public void clear() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.hasSliceType = false;
+                    this.isComplete = false;
+                }
+            }
+
+            public boolean isISlice() {
+                InterceptResult invokeV;
+                int i;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    if (this.hasSliceType && ((i = this.sliceType) == 7 || i == 2)) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
+            }
+
+            public /* synthetic */ SliceHeaderData(AnonymousClass1 anonymousClass1) {
+                this();
+            }
+
+            public void setSliceType(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                    this.sliceType = i;
+                    this.hasSliceType = true;
                 }
             }
 
@@ -144,21 +184,6 @@ public final class H264Reader implements ElementaryStreamReader {
                 return invokeL.booleanValue;
             }
 
-            public void clear() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.hasSliceType = false;
-                    this.isComplete = false;
-                }
-            }
-
-            public boolean isISlice() {
-                InterceptResult invokeV;
-                int i;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hasSliceType && ((i = this.sliceType) == 7 || i == 2) : invokeV.booleanValue;
-            }
-
             public void setAll(NalUnitUtil.SpsData spsData, int i, int i2, int i3, int i4, boolean z, boolean z2, boolean z3, boolean z4, int i5, int i6, int i7, int i8, int i9) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{spsData, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
@@ -180,18 +205,6 @@ public final class H264Reader implements ElementaryStreamReader {
                     this.hasSliceType = true;
                 }
             }
-
-            public void setSliceType(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                    this.sliceType = i;
-                    this.hasSliceType = true;
-                }
-            }
-
-            public /* synthetic */ SliceHeaderData(AnonymousClass1 anonymousClass1) {
-                this();
-            }
         }
 
         public SampleReader(TrackOutput trackOutput, boolean z, boolean z2) {
@@ -212,8 +225,8 @@ public final class H264Reader implements ElementaryStreamReader {
             this.output = trackOutput;
             this.allowNonIdrKeyframes = z;
             this.detectAccessUnits = z2;
-            this.sps = new SparseArray<>();
-            this.pps = new SparseArray<>();
+            this.sps = new SparseArray();
+            this.pps = new SparseArray();
             this.previousSliceHeader = new SliceHeaderData(null);
             this.sliceHeader = new SliceHeaderData(null);
             byte[] bArr = new byte[128];
@@ -227,6 +240,20 @@ public final class H264Reader implements ElementaryStreamReader {
             if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
                 boolean z = this.sampleIsKeyframe;
                 this.output.sampleMetadata(this.sampleTimeUs, z ? 1 : 0, (int) (this.nalUnitStartPosition - this.samplePosition), i, null);
+            }
+        }
+
+        public void putPps(NalUnitUtil.PpsData ppsData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, ppsData) == null) {
+                this.pps.append(ppsData.picParameterSetId, ppsData);
+            }
+        }
+
+        public void putSps(NalUnitUtil.SpsData spsData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, spsData) == null) {
+                this.sps.append(spsData.seqParameterSetId, spsData);
             }
         }
 
@@ -251,136 +278,148 @@ public final class H264Reader implements ElementaryStreamReader {
             int i7;
             int readSignedExpGolombCodedInt;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i, i2) == null) && this.isFilling) {
-                int i8 = i2 - i;
-                byte[] bArr2 = this.buffer;
-                int length = bArr2.length;
-                int i9 = this.bufferLength;
-                if (length < i9 + i8) {
-                    this.buffer = Arrays.copyOf(bArr2, (i9 + i8) * 2);
+            if ((interceptable != null && interceptable.invokeLII(1048576, this, bArr, i, i2) != null) || !this.isFilling) {
+                return;
+            }
+            int i8 = i2 - i;
+            byte[] bArr2 = this.buffer;
+            int length = bArr2.length;
+            int i9 = this.bufferLength;
+            if (length < i9 + i8) {
+                this.buffer = Arrays.copyOf(bArr2, (i9 + i8) * 2);
+            }
+            System.arraycopy(bArr, i, this.buffer, this.bufferLength, i8);
+            int i10 = this.bufferLength + i8;
+            this.bufferLength = i10;
+            this.bitArray.reset(this.buffer, 0, i10);
+            if (!this.bitArray.canReadBits(8)) {
+                return;
+            }
+            this.bitArray.skipBit();
+            int readBits = this.bitArray.readBits(2);
+            this.bitArray.skipBits(5);
+            if (!this.bitArray.canReadExpGolombCodedNum()) {
+                return;
+            }
+            this.bitArray.readUnsignedExpGolombCodedInt();
+            if (!this.bitArray.canReadExpGolombCodedNum()) {
+                return;
+            }
+            int readUnsignedExpGolombCodedInt = this.bitArray.readUnsignedExpGolombCodedInt();
+            if (!this.detectAccessUnits) {
+                this.isFilling = false;
+                this.sliceHeader.setSliceType(readUnsignedExpGolombCodedInt);
+            } else if (!this.bitArray.canReadExpGolombCodedNum()) {
+            } else {
+                int readUnsignedExpGolombCodedInt2 = this.bitArray.readUnsignedExpGolombCodedInt();
+                if (this.pps.indexOfKey(readUnsignedExpGolombCodedInt2) < 0) {
+                    this.isFilling = false;
+                    return;
                 }
-                System.arraycopy(bArr, i, this.buffer, this.bufferLength, i8);
-                int i10 = this.bufferLength + i8;
-                this.bufferLength = i10;
-                this.bitArray.reset(this.buffer, 0, i10);
-                if (this.bitArray.canReadBits(8)) {
-                    this.bitArray.skipBit();
-                    int readBits = this.bitArray.readBits(2);
-                    this.bitArray.skipBits(5);
-                    if (this.bitArray.canReadExpGolombCodedNum()) {
-                        this.bitArray.readUnsignedExpGolombCodedInt();
-                        if (this.bitArray.canReadExpGolombCodedNum()) {
-                            int readUnsignedExpGolombCodedInt = this.bitArray.readUnsignedExpGolombCodedInt();
-                            if (!this.detectAccessUnits) {
-                                this.isFilling = false;
-                                this.sliceHeader.setSliceType(readUnsignedExpGolombCodedInt);
-                            } else if (this.bitArray.canReadExpGolombCodedNum()) {
-                                int readUnsignedExpGolombCodedInt2 = this.bitArray.readUnsignedExpGolombCodedInt();
-                                if (this.pps.indexOfKey(readUnsignedExpGolombCodedInt2) < 0) {
-                                    this.isFilling = false;
+                NalUnitUtil.PpsData ppsData = (NalUnitUtil.PpsData) this.pps.get(readUnsignedExpGolombCodedInt2);
+                NalUnitUtil.SpsData spsData = (NalUnitUtil.SpsData) this.sps.get(ppsData.seqParameterSetId);
+                if (spsData.separateColorPlaneFlag) {
+                    if (!this.bitArray.canReadBits(2)) {
+                        return;
+                    }
+                    this.bitArray.skipBits(2);
+                }
+                if (!this.bitArray.canReadBits(spsData.frameNumLength)) {
+                    return;
+                }
+                int readBits2 = this.bitArray.readBits(spsData.frameNumLength);
+                if (!spsData.frameMbsOnlyFlag) {
+                    if (!this.bitArray.canReadBits(1)) {
+                        return;
+                    }
+                    boolean readBit = this.bitArray.readBit();
+                    if (readBit) {
+                        if (!this.bitArray.canReadBits(1)) {
+                            return;
+                        }
+                        z = readBit;
+                        z3 = this.bitArray.readBit();
+                        z2 = true;
+                        if (this.nalUnitType != 5) {
+                            z4 = true;
+                        } else {
+                            z4 = false;
+                        }
+                        if (!z4) {
+                            if (!this.bitArray.canReadExpGolombCodedNum()) {
+                                return;
+                            }
+                            i3 = this.bitArray.readUnsignedExpGolombCodedInt();
+                        } else {
+                            i3 = 0;
+                        }
+                        i4 = spsData.picOrderCountType;
+                        if (i4 != 0) {
+                            if (!this.bitArray.canReadBits(spsData.picOrderCntLsbLength)) {
+                                return;
+                            }
+                            int readBits3 = this.bitArray.readBits(spsData.picOrderCntLsbLength);
+                            if (ppsData.bottomFieldPicOrderInFramePresentFlag && !z) {
+                                if (!this.bitArray.canReadExpGolombCodedNum()) {
                                     return;
                                 }
-                                NalUnitUtil.PpsData ppsData = this.pps.get(readUnsignedExpGolombCodedInt2);
-                                NalUnitUtil.SpsData spsData = this.sps.get(ppsData.seqParameterSetId);
-                                if (spsData.separateColorPlaneFlag) {
-                                    if (!this.bitArray.canReadBits(2)) {
-                                        return;
-                                    }
-                                    this.bitArray.skipBits(2);
-                                }
-                                if (this.bitArray.canReadBits(spsData.frameNumLength)) {
-                                    int readBits2 = this.bitArray.readBits(spsData.frameNumLength);
-                                    if (spsData.frameMbsOnlyFlag) {
-                                        z = false;
-                                    } else if (!this.bitArray.canReadBits(1)) {
-                                        return;
-                                    } else {
-                                        boolean readBit = this.bitArray.readBit();
-                                        if (readBit) {
-                                            if (this.bitArray.canReadBits(1)) {
-                                                z = readBit;
-                                                z3 = this.bitArray.readBit();
-                                                z2 = true;
-                                                z4 = this.nalUnitType != 5;
-                                                if (z4) {
-                                                    i3 = 0;
-                                                } else if (!this.bitArray.canReadExpGolombCodedNum()) {
-                                                    return;
-                                                } else {
-                                                    i3 = this.bitArray.readUnsignedExpGolombCodedInt();
-                                                }
-                                                i4 = spsData.picOrderCountType;
-                                                if (i4 != 0) {
-                                                    if (!this.bitArray.canReadBits(spsData.picOrderCntLsbLength)) {
-                                                        return;
-                                                    }
-                                                    int readBits3 = this.bitArray.readBits(spsData.picOrderCntLsbLength);
-                                                    if (ppsData.bottomFieldPicOrderInFramePresentFlag && !z) {
-                                                        if (this.bitArray.canReadExpGolombCodedNum()) {
-                                                            i7 = this.bitArray.readSignedExpGolombCodedInt();
-                                                            i5 = readBits3;
-                                                            i6 = 0;
-                                                            readSignedExpGolombCodedInt = 0;
-                                                            this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
-                                                            this.isFilling = false;
-                                                        }
-                                                        return;
-                                                    }
-                                                    i5 = readBits3;
-                                                } else if (i4 == 1 && !spsData.deltaPicOrderAlwaysZeroFlag) {
-                                                    if (this.bitArray.canReadExpGolombCodedNum()) {
-                                                        int readSignedExpGolombCodedInt2 = this.bitArray.readSignedExpGolombCodedInt();
-                                                        if (ppsData.bottomFieldPicOrderInFramePresentFlag && !z) {
-                                                            if (this.bitArray.canReadExpGolombCodedNum()) {
-                                                                readSignedExpGolombCodedInt = this.bitArray.readSignedExpGolombCodedInt();
-                                                                i6 = readSignedExpGolombCodedInt2;
-                                                                i5 = 0;
-                                                                i7 = 0;
-                                                                this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
-                                                                this.isFilling = false;
-                                                            }
-                                                            return;
-                                                        }
-                                                        i6 = readSignedExpGolombCodedInt2;
-                                                        i5 = 0;
-                                                        i7 = 0;
-                                                        readSignedExpGolombCodedInt = 0;
-                                                        this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
-                                                        this.isFilling = false;
-                                                    }
-                                                    return;
-                                                } else {
-                                                    i5 = 0;
-                                                }
-                                                i7 = 0;
-                                                i6 = 0;
-                                                readSignedExpGolombCodedInt = 0;
-                                                this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
-                                                this.isFilling = false;
-                                            }
-                                            return;
-                                        }
-                                        z = readBit;
-                                    }
-                                    z2 = false;
-                                    z3 = false;
-                                    if (this.nalUnitType != 5) {
-                                    }
-                                    if (z4) {
-                                    }
-                                    i4 = spsData.picOrderCountType;
-                                    if (i4 != 0) {
-                                    }
-                                    i7 = 0;
-                                    i6 = 0;
-                                    readSignedExpGolombCodedInt = 0;
-                                    this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
-                                    this.isFilling = false;
-                                }
+                                i7 = this.bitArray.readSignedExpGolombCodedInt();
+                                i5 = readBits3;
+                                i6 = 0;
+                                readSignedExpGolombCodedInt = 0;
+                                this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
+                                this.isFilling = false;
                             }
+                            i5 = readBits3;
+                        } else if (i4 == 1 && !spsData.deltaPicOrderAlwaysZeroFlag) {
+                            if (!this.bitArray.canReadExpGolombCodedNum()) {
+                                return;
+                            }
+                            int readSignedExpGolombCodedInt2 = this.bitArray.readSignedExpGolombCodedInt();
+                            if (ppsData.bottomFieldPicOrderInFramePresentFlag && !z) {
+                                if (!this.bitArray.canReadExpGolombCodedNum()) {
+                                    return;
+                                }
+                                readSignedExpGolombCodedInt = this.bitArray.readSignedExpGolombCodedInt();
+                                i6 = readSignedExpGolombCodedInt2;
+                                i5 = 0;
+                                i7 = 0;
+                                this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
+                                this.isFilling = false;
+                            }
+                            i6 = readSignedExpGolombCodedInt2;
+                            i5 = 0;
+                            i7 = 0;
+                            readSignedExpGolombCodedInt = 0;
+                            this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
+                            this.isFilling = false;
+                        } else {
+                            i5 = 0;
                         }
+                        i7 = 0;
+                        i6 = 0;
+                        readSignedExpGolombCodedInt = 0;
+                        this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
+                        this.isFilling = false;
                     }
+                    z = readBit;
+                } else {
+                    z = false;
                 }
+                z2 = false;
+                z3 = false;
+                if (this.nalUnitType != 5) {
+                }
+                if (!z4) {
+                }
+                i4 = spsData.picOrderCountType;
+                if (i4 != 0) {
+                }
+                i7 = 0;
+                i6 = 0;
+                readSignedExpGolombCodedInt = 0;
+                this.sliceHeader.setAll(spsData, readBits, readUnsignedExpGolombCodedInt, readBits2, readUnsignedExpGolombCodedInt2, z, z2, z3, z4, i3, i5, i7, i6, readSignedExpGolombCodedInt);
+                this.isFilling = false;
             }
         }
 
@@ -409,21 +448,10 @@ public final class H264Reader implements ElementaryStreamReader {
         public boolean needsSpsPps() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.detectAccessUnits : invokeV.booleanValue;
-        }
-
-        public void putPps(NalUnitUtil.PpsData ppsData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, ppsData) == null) {
-                this.pps.append(ppsData.picParameterSetId, ppsData);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.detectAccessUnits;
             }
-        }
-
-        public void putSps(NalUnitUtil.SpsData spsData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, spsData) == null) {
-                this.sps.append(spsData.seqParameterSetId, spsData);
-            }
+            return invokeV.booleanValue;
         }
 
         public void reset() {
@@ -442,11 +470,12 @@ public final class H264Reader implements ElementaryStreamReader {
                 this.nalUnitTimeUs = j2;
                 this.nalUnitStartPosition = j;
                 if (!this.allowNonIdrKeyframes || i != 1) {
-                    if (!this.detectAccessUnits) {
-                        return;
-                    }
-                    int i2 = this.nalUnitType;
-                    if (i2 != 5 && i2 != 1 && i2 != 2) {
+                    if (this.detectAccessUnits) {
+                        int i2 = this.nalUnitType;
+                        if (i2 != 5 && i2 != 1 && i2 != 2) {
+                            return;
+                        }
+                    } else {
                         return;
                     }
                 }
@@ -555,31 +584,36 @@ public final class H264Reader implements ElementaryStreamReader {
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void consume(ParsableByteArray parsableByteArray) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, parsableByteArray) != null) {
-            return;
-        }
-        int position = parsableByteArray.getPosition();
-        int limit = parsableByteArray.limit();
-        byte[] bArr = parsableByteArray.data;
-        this.totalBytesWritten += parsableByteArray.bytesLeft();
-        this.output.sampleData(parsableByteArray, parsableByteArray.bytesLeft());
-        while (true) {
-            int findNalUnit = NalUnitUtil.findNalUnit(bArr, position, limit, this.prefixFlags);
-            if (findNalUnit == limit) {
-                nalUnitData(bArr, position, limit);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) {
+            int position = parsableByteArray.getPosition();
+            int limit = parsableByteArray.limit();
+            byte[] bArr = parsableByteArray.data;
+            this.totalBytesWritten += parsableByteArray.bytesLeft();
+            this.output.sampleData(parsableByteArray, parsableByteArray.bytesLeft());
+            while (true) {
+                int findNalUnit = NalUnitUtil.findNalUnit(bArr, position, limit, this.prefixFlags);
+                if (findNalUnit == limit) {
+                    nalUnitData(bArr, position, limit);
+                    return;
+                }
+                int nalUnitType = NalUnitUtil.getNalUnitType(bArr, findNalUnit);
+                int i2 = findNalUnit - position;
+                if (i2 > 0) {
+                    nalUnitData(bArr, position, findNalUnit);
+                }
+                int i3 = limit - findNalUnit;
+                long j = this.totalBytesWritten - i3;
+                if (i2 < 0) {
+                    i = -i2;
+                } else {
+                    i = 0;
+                }
+                endNalUnit(j, i3, i, this.pesTimeUs);
+                startNalUnit(j, nalUnitType, this.pesTimeUs);
+                position = findNalUnit + 3;
             }
-            int nalUnitType = NalUnitUtil.getNalUnitType(bArr, findNalUnit);
-            int i = findNalUnit - position;
-            if (i > 0) {
-                nalUnitData(bArr, position, findNalUnit);
-            }
-            int i2 = limit - findNalUnit;
-            long j = this.totalBytesWritten - i2;
-            endNalUnit(j, i2, i < 0 ? -i : 0, this.pesTimeUs);
-            startNalUnit(j, nalUnitType, this.pesTimeUs);
-            position = findNalUnit + 3;
         }
     }
 
@@ -593,13 +627,6 @@ public final class H264Reader implements ElementaryStreamReader {
             this.output = track;
             this.sampleReader = new SampleReader(track, this.allowNonIdrKeyframes, this.detectAccessUnits);
             this.seiReader.createTracks(extractorOutput, trackIdGenerator);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 

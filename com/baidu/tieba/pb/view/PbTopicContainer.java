@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,10 +18,10 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hh5;
-import com.baidu.tieba.vh5;
-import com.baidu.tieba.yo4;
+import com.baidu.tieba.ai5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nh5;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,20 +55,61 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
     }
 
+    public void setData(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            if (ListUtils.isEmpty(list)) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            removeAllViews();
+            for (int i = 0; i < 3 && i < list.size(); i++) {
+                RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) list.get(i);
+                if (recommendTopicListData != null) {
+                    a(recommendTopicListData);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PbTopicContainer(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        setOrientation(0);
+    }
+
     public final void a(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, recommendTopicListData) == null) || recommendTopicListData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, recommendTopicListData) != null) || recommendTopicListData == null) {
             return;
         }
         Context context = getContext();
         TextView textView = new TextView(context);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, ej.f(context, R.dimen.tbds72));
-        int f = ej.f(context, R.dimen.tbds22);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, fj.f(context, R.dimen.tbds72));
+        int f = fj.f(context, R.dimen.tbds22);
         layoutParams.rightMargin = f;
         textView.setTag(recommendTopicListData);
-        textView.setText(hh5.a(recommendTopicListData.getTopicName()));
+        textView.setText(nh5.a(recommendTopicListData.getTopicName()));
         addView(textView, layoutParams);
-        textView.setTextSize(0, ej.f(context, R.dimen.tbds33));
+        textView.setTextSize(0, fj.f(context, R.dimen.tbds33));
         textView.setGravity(17);
         textView.setOnClickListener(this);
         textView.setPadding(f, 0, f, 0);
@@ -84,10 +124,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view2.getTag();
             TbPageContext tbPageContext = this.b;
-            if (tbPageContext != null && !hh5.c(tbPageContext, false, true)) {
+            if (tbPageContext != null && !nh5.c(tbPageContext, false, true)) {
                 if (recommendTopicListData.getIsVideoTopicInt() != 1 && NewWebHotTopicPageSwitch.isOn()) {
                     TbPageContext tbPageContext2 = this.b;
-                    vh5.e(tbPageContext2, recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName());
+                    ai5.e(tbPageContext2, recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName());
                     return;
                 }
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
@@ -95,7 +135,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
                 return;
             }
             Context context = getContext();
-            yo4.o(context, "https://tieba.baidu.com/mo/q/hotmessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            zo4.o(context, "https://tieba.baidu.com/mo/q/hotmessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 
@@ -133,51 +173,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public void setData(List<RecommendTopicData.RecommendTopicListData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            if (ListUtils.isEmpty(list)) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            removeAllViews();
-            for (int i = 0; i < 3 && i < list.size(); i++) {
-                RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i);
-                if (recommendTopicListData != null) {
-                    a(recommendTopicListData);
-                }
-            }
-        }
-    }
-
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
             this.b = tbPageContext;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        setOrientation(0);
     }
 }

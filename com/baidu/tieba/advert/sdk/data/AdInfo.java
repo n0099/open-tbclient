@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tieba.jr5;
-import com.baidu.tieba.qq5;
+import com.baidu.tieba.qr5;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.xq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,8 +34,8 @@ public class AdInfo implements Serializable {
     public int advisible;
     public String apkFilePath;
     public Integer chargingMode;
-    public ArrayList<String> dcu;
-    public ArrayList<String> ddu;
+    public ArrayList dcu;
+    public ArrayList ddu;
     public int dduTime;
     public String desc;
     public String displayName;
@@ -86,11 +86,23 @@ public class AdInfo implements Serializable {
         this.advisible = -1;
     }
 
-    public static ArrayList<String> convertStrToList(String str) {
+    public boolean isVideoUrlValide() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.adVideoUrl)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static ArrayList convertStrToList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             if (!TextUtils.isEmpty(str)) {
                 for (String str2 : str.split(",")) {
                     try {
@@ -125,12 +137,6 @@ public class AdInfo implements Serializable {
         return (AdInfo) invokeL.objValue;
     }
 
-    public boolean isVideoUrlValide() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.adVideoUrl) : invokeV.booleanValue;
-    }
-
     public void parseFromJson(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject jSONObject2;
@@ -140,7 +146,7 @@ public class AdInfo implements Serializable {
         JSONObject jSONObject5;
         JSONObject jSONObject6;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -157,21 +163,20 @@ public class AdInfo implements Serializable {
                     this.extraParam = jSONObject4.getString("v");
                     if (jSONArray3 != null && jSONArray3.length() > 0 && (jSONObject5 = jSONArray3.getJSONObject(0)) != null) {
                         String optString = jSONObject5.optString("info");
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        JSONArray jSONArray5 = new JSONArray(optString);
-                        if (jSONArray5.length() > 0 && (jSONObject6 = jSONArray5.getJSONObject(0)) != null) {
-                            this.adImgUrl = jSONObject6.optString("thread_pic");
-                            this.redirectUrl = jSONObject6.optString("url");
-                            this.displayName = jSONObject6.optString("displayName");
-                            this.startShowTime = jSONObject6.optLong("start_show_time");
-                            this.endShowTime = jSONObject6.optLong("end_show_time");
-                            this.adVideoUrl = jSONObject6.optString("adVideo");
-                            this.videoJumpUrl = jSONObject6.optString("video_jump");
-                            this.videoWidth = jSONObject6.optInt("video_width");
-                            this.videoHight = jSONObject6.optInt("video_height");
-                            this.videoMd5 = jSONObject6.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                        if (!TextUtils.isEmpty(optString)) {
+                            JSONArray jSONArray5 = new JSONArray(optString);
+                            if (jSONArray5.length() > 0 && (jSONObject6 = jSONArray5.getJSONObject(0)) != null) {
+                                this.adImgUrl = jSONObject6.optString("thread_pic");
+                                this.redirectUrl = jSONObject6.optString("url");
+                                this.displayName = jSONObject6.optString("displayName");
+                                this.startShowTime = jSONObject6.optLong("start_show_time");
+                                this.endShowTime = jSONObject6.optLong("end_show_time");
+                                this.adVideoUrl = jSONObject6.optString("adVideo");
+                                this.videoJumpUrl = jSONObject6.optString("video_jump");
+                                this.videoWidth = jSONObject6.optInt("video_width");
+                                this.videoHight = jSONObject6.optInt("video_height");
+                                this.videoMd5 = jSONObject6.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                            }
                         }
                     }
                 }
@@ -187,11 +192,20 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            qq5 b = qq5.b(jr5.f());
+            xq5 b = xq5.b(qr5.f());
             if (TextUtils.isEmpty(b.d)) {
                 return true;
             }
-            return TextUtils.isEmpty(b.c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b.c.equals(this.adVideoUrl);
+            if (TextUtils.isEmpty(b.c)) {
+                if (!TextUtils.isEmpty(this.adVideoUrl)) {
+                    return true;
+                }
+                return false;
+            } else if (!b.c.equals(this.adVideoUrl)) {
+                return true;
+            } else {
+                return false;
+            }
         }
         return invokeV.booleanValue;
     }

@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,8 +28,8 @@ public class g {
     public static volatile g d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public final List<ZeusPluginStateListener> b;
-    public final List<ZeusPluginEventCallback> c;
+    public final List b;
+    public final List c;
     public final Handler e;
 
     public g() {
@@ -67,6 +66,26 @@ public class g {
         return (g) invokeV.objValue;
     }
 
+    private Object[] c() {
+        InterceptResult invokeV;
+        Object[] objArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            synchronized (this.c) {
+                if (!this.c.isEmpty()) {
+                    objArr = this.c.toArray();
+                } else {
+                    objArr = null;
+                }
+            }
+            if (objArr == null) {
+                return new Object[0];
+            }
+            return objArr;
+        }
+        return (Object[]) invokeV.objValue;
+    }
+
     public static void b() {
         ProviderInfo[] providerInfoArr;
         String str;
@@ -78,12 +97,12 @@ public class g {
                         if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.e)) {
                             if (!TextUtils.isEmpty(providerInfo.processName) && providerInfo.processName.contains(":")) {
                                 str = providerInfo.processName.split(":")[1];
-                                if (Zeus.getServerManagerHashMap().get(str) != null || !TextUtils.equals(str, "main") || !TextUtils.equals(providerInfo.name, MainServerManager.class.getName())) {
+                                if (((ProviderInfo) Zeus.getServerManagerHashMap().get(str)) != null || !TextUtils.equals(str, "main") || !TextUtils.equals(providerInfo.name, MainServerManager.class.getName())) {
                                     Zeus.getServerManagerHashMap().put(str, providerInfo);
                                 }
                             }
                             str = "main";
-                            if (Zeus.getServerManagerHashMap().get(str) != null) {
+                            if (((ProviderInfo) Zeus.getServerManagerHashMap().get(str)) != null) {
                             }
                             Zeus.getServerManagerHashMap().put(str, providerInfo);
                         }
@@ -95,20 +114,62 @@ public class g {
         }
     }
 
-    private Object[] c() {
-        InterceptResult invokeV;
-        Object[] array;
+    public final void a(int i, int i2, String str, int i3, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            synchronized (this.c) {
-                array = !this.c.isEmpty() ? this.c.toArray() : null;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), th}) == null) {
+            for (Object obj : c()) {
+                this.e.post(new Runnable(this, obj, i, i2, str, i3, th) { // from class: com.bytedance.pangle.g.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Object a;
+                    public final /* synthetic */ int b;
+                    public final /* synthetic */ int c;
+                    public final /* synthetic */ String d;
+                    public final /* synthetic */ int e;
+                    public final /* synthetic */ Throwable f;
+                    public final /* synthetic */ g g;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, obj, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), th};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.g = this;
+                        this.a = obj;
+                        this.b = i;
+                        this.c = i2;
+                        this.d = str;
+                        this.e = i3;
+                        this.f = th;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                ((ZeusPluginEventCallback) this.a).onPluginEvent(this.b, this.c, this.d, this.e, this.f);
+                            } catch (Throwable unused) {
+                            }
+                        }
+                    }
+                });
             }
-            return array == null ? new Object[0] : array;
         }
-        return (Object[]) invokeV.objValue;
     }
 
     public final synchronized void a(Application application) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) {
             synchronized (this) {
@@ -160,6 +221,11 @@ public class g {
                     }
                     b.a();
                     if (Build.VERSION.SDK_INT == 29) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
                         com.bytedance.pangle.c.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.g.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -211,60 +277,6 @@ public class g {
                     return;
                 }
                 throw new IllegalArgumentException("context must be not null !!!");
-            }
-        }
-    }
-
-    public final void a(int i, int i2, @Nullable String str, int i3, @Nullable Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), th}) == null) {
-            for (Object obj : c()) {
-                this.e.post(new Runnable(this, obj, i, i2, str, i3, th) { // from class: com.bytedance.pangle.g.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Object a;
-                    public final /* synthetic */ int b;
-                    public final /* synthetic */ int c;
-                    public final /* synthetic */ String d;
-                    public final /* synthetic */ int e;
-                    public final /* synthetic */ Throwable f;
-                    public final /* synthetic */ g g;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, obj, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), th};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.g = this;
-                        this.a = obj;
-                        this.b = i;
-                        this.c = i2;
-                        this.d = str;
-                        this.e = i3;
-                        this.f = th;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            try {
-                                ((ZeusPluginEventCallback) this.a).onPluginEvent(this.b, this.c, this.d, this.e, this.f);
-                            } catch (Throwable unused) {
-                            }
-                        }
-                    }
-                });
             }
         }
     }

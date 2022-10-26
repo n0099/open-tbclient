@@ -2,7 +2,6 @@ package com.google.android.gms.common;
 
 import android.os.RemoteException;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +19,23 @@ public abstract class zzi extends com.google.android.gms.common.internal.zzy {
     public transient /* synthetic */ FieldHolder $fh;
     public final int zza;
 
+    public final int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zza : invokeV.intValue;
+    }
+
+    @Override // com.google.android.gms.common.internal.zzz
+    public final int zzc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zza : invokeV.intValue;
+    }
+
+    public abstract byte[] zzf();
+
     public zzi(byte[] bArr) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,8 +50,34 @@ public abstract class zzi extends com.google.android.gms.common.internal.zzy {
                 return;
             }
         }
-        Preconditions.checkArgument(bArr.length == 25);
+        if (bArr.length == 25) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkArgument(z);
         this.zza = Arrays.hashCode(bArr);
+    }
+
+    public final boolean equals(Object obj) {
+        InterceptResult invokeL;
+        IObjectWrapper zzd;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj != null && (obj instanceof com.google.android.gms.common.internal.zzz)) {
+                try {
+                    com.google.android.gms.common.internal.zzz zzzVar = (com.google.android.gms.common.internal.zzz) obj;
+                    if (zzzVar.zzc() != this.zza || (zzd = zzzVar.zzd()) == null) {
+                        return false;
+                    }
+                    return Arrays.equals(zzf(), (byte[]) ObjectWrapper.unwrap(zzd));
+                } catch (RemoteException e) {
+                    Log.e("GoogleCertificates", "Failed to get Google certificates from remote", e);
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static byte[] zze(String str) {
@@ -52,46 +93,13 @@ public abstract class zzi extends com.google.android.gms.common.internal.zzy {
         return (byte[]) invokeL.objValue;
     }
 
-    public final boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        IObjectWrapper zzd;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj != null && (obj instanceof com.google.android.gms.common.internal.zzz)) {
-                try {
-                    com.google.android.gms.common.internal.zzz zzzVar = (com.google.android.gms.common.internal.zzz) obj;
-                    if (zzzVar.zzc() == this.zza && (zzd = zzzVar.zzd()) != null) {
-                        return Arrays.equals(zzf(), (byte[]) ObjectWrapper.unwrap(zzd));
-                    }
-                    return false;
-                } catch (RemoteException e) {
-                    Log.e("GoogleCertificates", "Failed to get Google certificates from remote", e);
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zza : invokeV.intValue;
-    }
-
-    @Override // com.google.android.gms.common.internal.zzz
-    public final int zzc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zza : invokeV.intValue;
-    }
-
     @Override // com.google.android.gms.common.internal.zzz
     public final IObjectWrapper zzd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ObjectWrapper.wrap(zzf()) : (IObjectWrapper) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ObjectWrapper.wrap(zzf());
+        }
+        return (IObjectWrapper) invokeV.objValue;
     }
-
-    public abstract byte[] zzf();
 }

@@ -1,5 +1,6 @@
 package kotlinx.coroutines.flow;
 
+import androidx.exifinterface.media.ExifInterface;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -10,15 +11,15 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Ref;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__TransformKt$$special$$inlined$collect$9"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1 implements FlowCollector<T> {
+public final class FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1 implements FlowCollector {
     public final /* synthetic */ Ref.ObjectRef $accumulator$inlined;
     public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
     public final /* synthetic */ FlowKt__TransformKt$scan$$inlined$unsafeFlow$1 this$0;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u00022\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005H\u0096@¨\u0006\b"}, d2 = {"emit", "", "T", "value", "continuation", "Lkotlin/coroutines/Continuation;", "", "kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3$emit$1", "kotlinx/coroutines/flow/FlowKt__TransformKt$$special$$inlined$collect$9$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u00022\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005H\u0096@¨\u0006\b"}, d2 = {"emit", "", ExifInterface.GPS_DIRECTION_TRUE, "value", "continuation", "Lkotlin/coroutines/Continuation;", "", "kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3$emit$1", "kotlinx/coroutines/flow/FlowKt__TransformKt$$special$$inlined$collect$9$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* renamed from: kotlinx.coroutines.flow.FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static final class AnonymousClass1 extends ContinuationImpl {
+    public final class AnonymousClass1 extends ContinuationImpl {
         public Object L$0;
         public Object L$1;
         public Object L$2;
@@ -67,27 +68,46 @@ public final class FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1 imple
         T t;
         Object obj3;
         FlowCollector flowCollector;
-        T t2;
+        Object obj4;
         if (continuation instanceof AnonymousClass1) {
             anonymousClass1 = (AnonymousClass1) continuation;
             int i2 = anonymousClass1.label;
             if ((i2 & Integer.MIN_VALUE) != 0) {
                 anonymousClass1.label = i2 - Integer.MIN_VALUE;
-                Object obj4 = anonymousClass1.result;
+                Object obj5 = anonymousClass1.result;
                 coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
                 i = anonymousClass1.label;
-                if (i != 0) {
-                    ResultKt.throwOnFailure(obj4);
+                if (i == 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            Object obj6 = anonymousClass1.L$3;
+                            Continuation continuation3 = (Continuation) anonymousClass1.L$2;
+                            Object obj7 = anonymousClass1.L$1;
+                            FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1 flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$12 = (FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1) anonymousClass1.L$0;
+                            ResultKt.throwOnFailure(obj5);
+                            return Unit.INSTANCE;
+                        }
+                        throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                    }
+                    objectRef = (Ref.ObjectRef) anonymousClass1.L$4;
+                    obj3 = anonymousClass1.L$3;
+                    continuation2 = (Continuation) anonymousClass1.L$2;
+                    obj2 = anonymousClass1.L$1;
+                    flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1 = (FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1) anonymousClass1.L$0;
+                    ResultKt.throwOnFailure(obj5);
+                    t = obj5;
+                } else {
+                    ResultKt.throwOnFailure(obj5);
                     Ref.ObjectRef objectRef2 = this.$accumulator$inlined;
                     Function3 function3 = this.this$0.$operation$inlined;
-                    T t3 = objectRef2.element;
+                    Object obj8 = objectRef2.element;
                     anonymousClass1.L$0 = this;
                     anonymousClass1.L$1 = obj;
                     anonymousClass1.L$2 = anonymousClass1;
                     anonymousClass1.L$3 = obj;
                     anonymousClass1.L$4 = objectRef2;
                     anonymousClass1.label = 1;
-                    Object invoke = function3.invoke(t3, obj, anonymousClass1);
+                    Object invoke = function3.invoke(obj8, obj, anonymousClass1);
                     if (invoke == coroutine_suspended) {
                         return coroutine_suspended;
                     }
@@ -97,54 +117,36 @@ public final class FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1 imple
                     objectRef = objectRef2;
                     t = invoke;
                     obj3 = obj2;
-                } else if (i != 1) {
-                    if (i != 2) {
-                        throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                    }
-                    Object obj5 = anonymousClass1.L$3;
-                    Continuation continuation3 = (Continuation) anonymousClass1.L$2;
-                    Object obj6 = anonymousClass1.L$1;
-                    FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1 flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$12 = (FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1) anonymousClass1.L$0;
-                    ResultKt.throwOnFailure(obj4);
-                    return Unit.INSTANCE;
-                } else {
-                    objectRef = (Ref.ObjectRef) anonymousClass1.L$4;
-                    obj3 = anonymousClass1.L$3;
-                    continuation2 = (Continuation) anonymousClass1.L$2;
-                    obj2 = anonymousClass1.L$1;
-                    flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1 = (FlowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1) anonymousClass1.L$0;
-                    ResultKt.throwOnFailure(obj4);
-                    t = obj4;
                 }
                 objectRef.element = t;
                 flowCollector = flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1.$this_unsafeFlow$inlined;
-                t2 = flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1.$accumulator$inlined.element;
+                obj4 = flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1.$accumulator$inlined.element;
                 anonymousClass1.L$0 = flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1;
                 anonymousClass1.L$1 = obj2;
                 anonymousClass1.L$2 = continuation2;
                 anonymousClass1.L$3 = obj3;
                 anonymousClass1.label = 2;
-                if (flowCollector.emit(t2, anonymousClass1) == coroutine_suspended) {
+                if (flowCollector.emit(obj4, anonymousClass1) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
                 return Unit.INSTANCE;
             }
         }
         anonymousClass1 = new AnonymousClass1(continuation);
-        Object obj42 = anonymousClass1.result;
+        Object obj52 = anonymousClass1.result;
         coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         i = anonymousClass1.label;
-        if (i != 0) {
+        if (i == 0) {
         }
         objectRef.element = t;
         flowCollector = flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1.$this_unsafeFlow$inlined;
-        t2 = flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1.$accumulator$inlined.element;
+        obj4 = flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1.$accumulator$inlined.element;
         anonymousClass1.L$0 = flowKt__TransformKt$scan$$inlined$unsafeFlow$1$lambda$1;
         anonymousClass1.L$1 = obj2;
         anonymousClass1.L$2 = continuation2;
         anonymousClass1.L$3 = obj3;
         anonymousClass1.label = 2;
-        if (flowCollector.emit(t2, anonymousClass1) == coroutine_suspended) {
+        if (flowCollector.emit(obj4, anonymousClass1) == coroutine_suspended) {
         }
         return Unit.INSTANCE;
     }

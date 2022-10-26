@@ -27,6 +27,13 @@ public class OggExtractor implements Extractor {
     public StreamReader streamReader;
     public boolean streamReaderInitialized;
 
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -91,6 +98,28 @@ public class OggExtractor implements Extractor {
         return (ParsableByteArray) invokeL.objValue;
     }
 
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void init(ExtractorOutput extractorOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, extractorOutput) == null) {
+            this.output = extractorOutput;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
+            try {
+                return sniffInternal(extractorInput);
+            } catch (ParserException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
     private boolean sniffInternal(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -112,14 +141,6 @@ public class OggExtractor implements Extractor {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void init(ExtractorOutput extractorOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, extractorOutput) == null) {
-            this.output = extractorOutput;
-        }
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
@@ -146,33 +167,11 @@ public class OggExtractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
     public void seek(long j, long j2) {
         StreamReader streamReader;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (streamReader = this.streamReader) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (streamReader = this.streamReader) != null) {
+            streamReader.seek(j, j2);
         }
-        streamReader.seek(j, j2);
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
-            try {
-                return sniffInternal(extractorInput);
-            } catch (ParserException unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

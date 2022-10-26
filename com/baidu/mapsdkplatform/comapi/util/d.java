@@ -15,11 +15,11 @@ import java.util.ArrayList;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Integer> a;
+    public ArrayList a;
     public Context b;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static final d a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class d {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.a = new ArrayList();
     }
 
     public /* synthetic */ d(e eVar) {
@@ -113,8 +113,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<Integer> arrayList = this.a;
-            return arrayList != null && arrayList.size() > 0 && this.a.get(0).intValue() == 1;
+            ArrayList arrayList = this.a;
+            return arrayList != null && arrayList.size() > 0 && ((Integer) this.a.get(0)).intValue() == 1;
         }
         return invokeV.booleanValue;
     }

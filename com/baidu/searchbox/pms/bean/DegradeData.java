@@ -11,7 +11,7 @@ public class DegradeData {
     public transient /* synthetic */ FieldHolder $fh;
     public String channelId;
     public boolean isAllDegrade;
-    public List<String> packageNames;
+    public List packageNames;
 
     public DegradeData() {
         Interceptable interceptable = $ic;

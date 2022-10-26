@@ -10,7 +10,7 @@ import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subscription> implements Disposable {
+public final class ArrayCompositeSubscription extends AtomicReferenceArray implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2746389416410565408L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,16 +37,16 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        Subscription andSet;
+        Subscription subscription;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (get(0) != SubscriptionHelper.CANCELLED) {
                 int length = length();
                 for (int i = 0; i < length; i++) {
-                    Subscription subscription = get(i);
+                    Subscription subscription2 = (Subscription) get(i);
                     SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-                    if (subscription != subscriptionHelper && (andSet = getAndSet(i, subscriptionHelper)) != SubscriptionHelper.CANCELLED && andSet != null) {
-                        andSet.cancel();
+                    if (subscription2 != subscriptionHelper && (subscription = (Subscription) getAndSet(i, subscriptionHelper)) != SubscriptionHelper.CANCELLED && subscription != null) {
+                        subscription.cancel();
                     }
                 }
             }
@@ -57,7 +57,13 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get(0) == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (get(0) != SubscriptionHelper.CANCELLED) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public Subscription replaceResource(int i, Subscription subscription) {
@@ -66,7 +72,7 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, subscription)) == null) {
             do {
-                subscription2 = get(i);
+                subscription2 = (Subscription) get(i);
                 if (subscription2 == SubscriptionHelper.CANCELLED) {
                     if (subscription != null) {
                         subscription.cancel();
@@ -86,7 +92,7 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, subscription)) == null) {
             do {
-                subscription2 = get(i);
+                subscription2 = (Subscription) get(i);
                 if (subscription2 == SubscriptionHelper.CANCELLED) {
                     if (subscription != null) {
                         subscription.cancel();

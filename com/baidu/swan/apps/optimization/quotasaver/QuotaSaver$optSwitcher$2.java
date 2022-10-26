@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ip2;
+import com.baidu.tieba.jp2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,71 +15,10 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\t\n\u0000\n\u0002\b\u0003*\u0001\u0001\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "com/baidu/swan/apps/optimization/quotasaver/QuotaSaver$optSwitcher$2$1", "invoke", "()Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver$optSwitcher$2$1;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<a> {
+public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$optSwitcher$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes2.dex */
-    public static final class a implements ip2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ip2
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (QuotaSaver.l.l() > 0) {
-                    return (int) TimeUnit.MILLISECONDS.toSeconds(QuotaSaver.l.l());
-                }
-                return -1;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ip2
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.h() && QuotaSaver.l.k() : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ip2
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.i() : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ip2
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.j() : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ip2
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? QuotaSaver.l.c() && QuotaSaver.l.k() : invokeV.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -115,12 +54,99 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
         }
     }
 
+    /* loaded from: classes2.dex */
+    public final class a implements jp2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jp2
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (QuotaSaver.l.l() > 0) {
+                    return (int) TimeUnit.MILLISECONDS.toSeconds(QuotaSaver.l.l());
+                }
+                return -1;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.jp2
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (QuotaSaver.l.c() && QuotaSaver.l.h() && QuotaSaver.l.k()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.jp2
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (QuotaSaver.l.c() && QuotaSaver.l.i()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.jp2
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (QuotaSaver.l.c() && QuotaSaver.l.j()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.jp2
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (QuotaSaver.l.c() && QuotaSaver.l.k()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final a invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
+        }
+        return (a) invokeV.objValue;
     }
 }

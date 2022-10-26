@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class c extends com.sdk.b.c<String, String> {
+public class c extends com.sdk.b.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,17 +30,17 @@ public class c extends com.sdk.b.c<String, String> {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // com.sdk.b.c
-    public int b(String str, String str2) {
+    public int b(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = str2;
-            if (str3 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+            String str = (String) obj;
+            String str2 = (String) obj2;
+            if (str2 == null) {
                 return 0;
             }
-            return str3.length();
+            return str2.length();
         }
         return invokeLL.intValue;
     }

@@ -82,7 +82,7 @@ public class LegoListActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
             Intent intent = getIntent();
-            intent.putExtra("page_id", j);
+            intent.putExtra(PAGE_ID, j);
             intent.putExtra("page_type", i);
             if (!TextUtils.isEmpty(str)) {
                 intent.putExtra("item_id", str);

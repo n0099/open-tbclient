@@ -46,6 +46,27 @@ public class EventElementInfo extends ParamableElem implements Elem {
         this.cvalue = Integer.toString(i);
     }
 
+    public EventElementInfo(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.property = new Property();
+        this.cid = str;
+        this.ctype = 0;
+        this.cvalue = str2;
+    }
+
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, objectInputStream) == null) {
@@ -62,57 +83,6 @@ public class EventElementInfo extends ParamableElem implements Elem {
             objectOutputStream.writeInt(this.ctype);
             objectOutputStream.writeUTF(this.cvalue);
         }
-    }
-
-    public String getCustomValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cvalue : (String) invokeV.objValue;
-    }
-
-    public String getEventId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cid : (String) invokeV.objValue;
-    }
-
-    public int getEventType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ctype : invokeV.intValue;
-    }
-
-    public Property getProperty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.property : (Property) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.defs.obj.Elem
-    public String getStringRep() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(Util.replaceEncode(this.cid, ":"));
-            sb.append(":");
-            sb.append(this.ctype);
-            sb.append(":");
-            sb.append(Util.replaceEncode(this.cvalue, ":"));
-            sb.append(":");
-            String connectedParams = getConnectedParams();
-            if (!Util.empty(connectedParams)) {
-                sb.append(Util.replaceEncode(connectedParams, ":"));
-            }
-            sb.append(":");
-            Property property = this.property;
-            String connectedPropertys = property == null ? null : property.getConnectedPropertys();
-            if (!Util.empty(connectedPropertys)) {
-                sb.append(Util.replaceEncode(connectedPropertys, ":"));
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 
     public void setCid(String str) {
@@ -150,40 +120,93 @@ public class EventElementInfo extends ParamableElem implements Elem {
         }
     }
 
+    public String getCustomValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cvalue;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getEventId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getEventType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.ctype;
+        }
+        return invokeV.intValue;
+    }
+
+    public Property getProperty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.property;
+        }
+        return (Property) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.defs.obj.Elem
+    public String getStringRep() {
+        InterceptResult invokeV;
+        String connectedPropertys;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(Util.replaceEncode(this.cid, ":"));
+            sb.append(":");
+            sb.append(this.ctype);
+            sb.append(":");
+            sb.append(Util.replaceEncode(this.cvalue, ":"));
+            sb.append(":");
+            String connectedParams = getConnectedParams();
+            if (!Util.empty(connectedParams)) {
+                sb.append(Util.replaceEncode(connectedParams, ":"));
+            }
+            sb.append(":");
+            Property property = this.property;
+            if (property == null) {
+                connectedPropertys = null;
+            } else {
+                connectedPropertys = property.getConnectedPropertys();
+            }
+            if (!Util.empty(connectedPropertys)) {
+                sb.append(Util.replaceEncode(connectedPropertys, ":"));
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("eventId=");
             sb.append(this.cid);
             sb.append(", event type=");
-            sb.append(this.ctype == 0 ? "Custom" : "Times");
+            if (this.ctype == 0) {
+                str = "Custom";
+            } else {
+                str = "Times";
+            }
+            sb.append(str);
             sb.append(", value=");
             sb.append(this.cvalue);
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public EventElementInfo(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.property = new Property();
-        this.cid = str;
-        this.ctype = 0;
-        this.cvalue = str2;
     }
 }

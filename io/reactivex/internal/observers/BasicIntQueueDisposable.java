@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.internal.fuseable.QueueDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public abstract class BasicIntQueueDisposable<T> extends AtomicInteger implements QueueDisposable<T> {
+public abstract class BasicIntQueueDisposable extends AtomicInteger implements QueueDisposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1001730202384742097L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,20 +29,20 @@ public abstract class BasicIntQueueDisposable<T> extends AtomicInteger implement
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean offer(T t) {
+    public final boolean offer(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             throw new UnsupportedOperationException("Should not be called");
         }
         return invokeL.booleanValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean offer(T t, T t2) {
+    public final boolean offer(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, t2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, obj2)) == null) {
             throw new UnsupportedOperationException("Should not be called");
         }
         return invokeLL.booleanValue;

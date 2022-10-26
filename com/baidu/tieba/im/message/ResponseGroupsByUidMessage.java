@@ -1,12 +1,11 @@
 package com.baidu.tieba.im.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.ou4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,10 +23,10 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     public static final String CACHE_KEY_PREFIX = "p_group_info";
     public transient /* synthetic */ FieldHolder $fh;
     public int commonGroupNum;
-    public List<GroupInfoData> commonGroups;
+    public List commonGroups;
     public int groupNum;
     public GroupPermData groupPerm;
-    public List<GroupInfoData> groups;
+    public List groups;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGroupsByUidMessage() {
@@ -47,103 +46,49 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
         }
     }
 
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
-    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
-            QueryGroupsByUidResIdl queryGroupsByUidResIdl = (QueryGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupsByUidResIdl.class);
-            setError(queryGroupsByUidResIdl.error.errorno.intValue());
-            setErrorString(queryGroupsByUidResIdl.error.usermsg);
-            if (getError() != 0) {
-                return queryGroupsByUidResIdl;
-            }
-            this.groups = new ArrayList();
-            List<GroupInfo> list = queryGroupsByUidResIdl.data.groups;
-            if (list != null) {
-                for (GroupInfo groupInfo : list) {
-                    GroupInfoData groupInfoData = new GroupInfoData();
-                    groupInfoData.setGroupId(groupInfo.groupId.longValue());
-                    groupInfoData.setAuthorId(groupInfo.authorId.longValue());
-                    groupInfoData.setAuthorName(groupInfo.authorName);
-                    groupInfoData.setForumId(groupInfo.forumId.intValue());
-                    groupInfoData.setGrade(groupInfo.grade.intValue());
-                    groupInfoData.setIntro(groupInfo.intro);
-                    groupInfoData.setName(groupInfo.name);
-                    groupInfoData.setIsGroupManager(groupInfo.isGroupManager.intValue());
-                    groupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
-                    groupInfoData.setMemberNum(groupInfo.memberNum.intValue());
-                    groupInfoData.setPortrait(groupInfo.portrait);
-                    groupInfoData.setMemGroup(groupInfo.isMemberGroup.intValue() == 1);
-                    getGroups().add(groupInfoData);
-                }
-            }
-            this.commonGroups = new ArrayList();
-            List<GroupInfo> list2 = queryGroupsByUidResIdl.data.commonGroups;
-            if (list2 != null) {
-                for (GroupInfo groupInfo2 : list2) {
-                    GroupInfoData groupInfoData2 = new GroupInfoData();
-                    groupInfoData2.setGroupId(groupInfo2.groupId.longValue());
-                    groupInfoData2.setAuthorId(groupInfo2.authorId.longValue());
-                    groupInfoData2.setAuthorName(groupInfo2.authorName);
-                    groupInfoData2.setForumId(groupInfo2.forumId.intValue());
-                    groupInfoData2.setGrade(groupInfo2.grade.intValue());
-                    groupInfoData2.setIntro(groupInfo2.intro);
-                    groupInfoData2.setName(groupInfo2.name);
-                    groupInfoData2.setIsGroupManager(groupInfo2.isGroupManager.intValue());
-                    groupInfoData2.setMaxMemberNum(groupInfo2.maxMemberNum.intValue());
-                    groupInfoData2.setMemberNum(groupInfo2.memberNum.intValue());
-                    groupInfoData2.setPortrait(groupInfo2.portrait);
-                    groupInfoData2.setMemGroup(groupInfo2.isMemberGroup.intValue() == 1);
-                    getCommonGroups().add(groupInfoData2);
-                }
-            }
-            GroupPermission groupPermission = queryGroupsByUidResIdl.data.groupPerm;
-            GroupPermData groupPermData = new GroupPermData();
-            groupPermData.setCanCreateNormal(groupPermission.canCreateNormal.intValue());
-            groupPermData.setCanCreateOfficial(groupPermission.canCreateOfficial.intValue());
-            groupPermData.setCanCreatePersonal(groupPermission.canCreatePersonal.intValue());
-            groupPermData.setCreateNormalTip(groupPermission.createNormalTip);
-            groupPermData.setCreateOfficialTip(groupPermission.createOfficialTip);
-            groupPermData.setCreatePersonalTip(groupPermission.createPersonalTip);
-            groupPermData.setIsManager(groupPermission.isForumManager.intValue());
-            this.groupPerm = groupPermData;
-            this.groupNum = queryGroupsByUidResIdl.data.groupnum.intValue();
-            this.commonGroupNum = queryGroupsByUidResIdl.data.commongroupnum.intValue();
-            return queryGroupsByUidResIdl;
-        }
-        return invokeIL.objValue;
-    }
-
     public int getCommonGroupNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.commonGroupNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.commonGroupNum;
+        }
+        return invokeV.intValue;
     }
 
-    public List<GroupInfoData> getCommonGroups() {
+    public List getCommonGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.commonGroups : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.commonGroups;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getGroupNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.groupNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.groupNum;
+        }
+        return invokeV.intValue;
     }
 
     public GroupPermData getGroupPerm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.groupPerm : (GroupPermData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.groupPerm;
+        }
+        return (GroupPermData) invokeV.objValue;
     }
 
-    public List<GroupInfoData> getGroups() {
+    public List getGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.groups : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.groups;
+        }
+        return (List) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -169,15 +114,100 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && getError() == 0) {
-            GroupsByUidMessage groupsByUidMessage = (GroupsByUidMessage) getOrginalMessage();
-            String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
-            if (groupsByUidMessage == null || groupsByUidMessage.getFriendUid() != 0) {
-                return;
-            }
-            mu4.f();
-            TbSocketReponsedMessage.saveProtocolBufferDataToCache(mu4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + id, bArr);
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || getError() != 0) {
+            return;
         }
+        GroupsByUidMessage groupsByUidMessage = (GroupsByUidMessage) getOrginalMessage();
+        if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+            str = TbadkCoreApplication.getCurrentAccountObj().getID();
+        } else {
+            str = "";
+        }
+        if (groupsByUidMessage != null && groupsByUidMessage.getFriendUid() == 0) {
+            ou4.f();
+            TbSocketReponsedMessage.saveProtocolBufferDataToCache(ou4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
+        }
+    }
+
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            QueryGroupsByUidResIdl queryGroupsByUidResIdl = (QueryGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupsByUidResIdl.class);
+            setError(queryGroupsByUidResIdl.error.errorno.intValue());
+            setErrorString(queryGroupsByUidResIdl.error.usermsg);
+            if (getError() != 0) {
+                return queryGroupsByUidResIdl;
+            }
+            this.groups = new ArrayList();
+            List<GroupInfo> list = queryGroupsByUidResIdl.data.groups;
+            if (list != null) {
+                for (GroupInfo groupInfo : list) {
+                    GroupInfoData groupInfoData = new GroupInfoData();
+                    groupInfoData.setGroupId(groupInfo.groupId.longValue());
+                    groupInfoData.setAuthorId(groupInfo.authorId.longValue());
+                    groupInfoData.setAuthorName(groupInfo.authorName);
+                    groupInfoData.setForumId(groupInfo.forumId.intValue());
+                    groupInfoData.setGrade(groupInfo.grade.intValue());
+                    groupInfoData.setIntro(groupInfo.intro);
+                    groupInfoData.setName(groupInfo.name);
+                    groupInfoData.setIsGroupManager(groupInfo.isGroupManager.intValue());
+                    groupInfoData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
+                    groupInfoData.setMemberNum(groupInfo.memberNum.intValue());
+                    groupInfoData.setPortrait(groupInfo.portrait);
+                    if (groupInfo.isMemberGroup.intValue() == 1) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    groupInfoData.setMemGroup(z2);
+                    getGroups().add(groupInfoData);
+                }
+            }
+            this.commonGroups = new ArrayList();
+            List<GroupInfo> list2 = queryGroupsByUidResIdl.data.commonGroups;
+            if (list2 != null) {
+                for (GroupInfo groupInfo2 : list2) {
+                    GroupInfoData groupInfoData2 = new GroupInfoData();
+                    groupInfoData2.setGroupId(groupInfo2.groupId.longValue());
+                    groupInfoData2.setAuthorId(groupInfo2.authorId.longValue());
+                    groupInfoData2.setAuthorName(groupInfo2.authorName);
+                    groupInfoData2.setForumId(groupInfo2.forumId.intValue());
+                    groupInfoData2.setGrade(groupInfo2.grade.intValue());
+                    groupInfoData2.setIntro(groupInfo2.intro);
+                    groupInfoData2.setName(groupInfo2.name);
+                    groupInfoData2.setIsGroupManager(groupInfo2.isGroupManager.intValue());
+                    groupInfoData2.setMaxMemberNum(groupInfo2.maxMemberNum.intValue());
+                    groupInfoData2.setMemberNum(groupInfo2.memberNum.intValue());
+                    groupInfoData2.setPortrait(groupInfo2.portrait);
+                    if (groupInfo2.isMemberGroup.intValue() == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    groupInfoData2.setMemGroup(z);
+                    getCommonGroups().add(groupInfoData2);
+                }
+            }
+            GroupPermission groupPermission = queryGroupsByUidResIdl.data.groupPerm;
+            GroupPermData groupPermData = new GroupPermData();
+            groupPermData.setCanCreateNormal(groupPermission.canCreateNormal.intValue());
+            groupPermData.setCanCreateOfficial(groupPermission.canCreateOfficial.intValue());
+            groupPermData.setCanCreatePersonal(groupPermission.canCreatePersonal.intValue());
+            groupPermData.setCreateNormalTip(groupPermission.createNormalTip);
+            groupPermData.setCreateOfficialTip(groupPermission.createOfficialTip);
+            groupPermData.setCreatePersonalTip(groupPermission.createPersonalTip);
+            groupPermData.setIsManager(groupPermission.isForumManager.intValue());
+            this.groupPerm = groupPermData;
+            this.groupNum = queryGroupsByUidResIdl.data.groupnum.intValue();
+            this.commonGroupNum = queryGroupsByUidResIdl.data.commongroupnum.intValue();
+            return queryGroupsByUidResIdl;
+        }
+        return invokeIL.objValue;
     }
 }

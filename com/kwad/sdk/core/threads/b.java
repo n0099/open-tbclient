@@ -1,7 +1,5 @@
 package com.kwad.sdk.core.threads;
 
-import androidx.annotation.NonNull;
-import com.kwad.sdk.core.threads.GlobalThreadPools;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,35 +16,33 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class b {
     public static String TAG;
     public static final int adA;
-    public static Map<String, WeakReference<ExecutorService>> adB;
+    public static Map adB;
     public static final int ady;
     public static final int adz;
 
     /* loaded from: classes7.dex */
     public interface a {
-        @NonNull
         ExecutorService vu();
     }
 
     /* renamed from: com.kwad.sdk.core.threads.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0610b implements a {
-        public C0610b() {
+    public final class C0606b implements a {
+        public C0606b() {
         }
 
-        public /* synthetic */ C0610b(byte b) {
+        public /* synthetic */ C0606b(byte b) {
             this();
         }
 
         @Override // com.kwad.sdk.core.threads.b.a
-        @NonNull
         public final ExecutorService vu() {
             return new ThreadPoolExecutor(b.adz, b.adA, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "diskAndHttp"));
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class c implements ThreadFactory {
+    public final class c implements ThreadFactory {
         public static final AtomicInteger poolNumber = new AtomicInteger(1);
         public final String namePrefix;
         public final int threadPriority;
@@ -71,7 +67,7 @@ public final class b {
     }
 
     /* loaded from: classes7.dex */
-    public static class d implements a {
+    public final class d implements a {
         public d() {
         }
 
@@ -80,14 +76,13 @@ public final class b {
         }
 
         @Override // com.kwad.sdk.core.threads.b.a
-        @NonNull
         public final ExecutorService vu() {
             return new ThreadPoolExecutor(1, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(3, "uil-pool-"));
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class e implements a {
+    public final class e implements a {
         public e() {
         }
 
@@ -96,14 +91,13 @@ public final class b {
         }
 
         @Override // com.kwad.sdk.core.threads.b.a
-        @NonNull
         public final ExecutorService vu() {
             return new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "lruDiskCache"));
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class f implements a {
+    public final class f implements a {
         public f() {
         }
 
@@ -112,14 +106,13 @@ public final class b {
         }
 
         @Override // com.kwad.sdk.core.threads.b.a
-        @NonNull
         public final ExecutorService vu() {
             return Executors.newSingleThreadExecutor(new c(3, "report-"));
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class g implements a {
+    public final class g implements a {
         public g() {
         }
 
@@ -128,7 +121,6 @@ public final class b {
         }
 
         @Override // com.kwad.sdk.core.threads.b.a
-        @NonNull
         public final ExecutorService vu() {
             return new ThreadPoolExecutor(3, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "videoCache"));
         }
@@ -144,15 +136,14 @@ public final class b {
         adB = new ConcurrentHashMap();
     }
 
-    @NonNull
-    public static ExecutorService a(@GlobalThreadPools.PoolNames String str, @NonNull a aVar) {
-        WeakReference<ExecutorService> weakReference = adB.get(str);
+    public static ExecutorService a(String str, a aVar) {
+        WeakReference weakReference = (WeakReference) adB.get(str);
         if (weakReference == null || weakReference.get() == null) {
             ExecutorService vu = aVar.vu();
-            adB.put(str, new WeakReference<>(vu));
+            adB.put(str, new WeakReference(vu));
             return vu;
         }
-        return weakReference.get();
+        return (ExecutorService) weakReference.get();
     }
 
     public static ExecutorService vh() {
@@ -202,7 +193,7 @@ public final class b {
 
     public static ExecutorService vn() {
         com.kwad.sdk.core.e.b.d(TAG, "forBaseNetwork");
-        return a("httpIO", new C0610b((byte) 0));
+        return a("httpIO", new C0606b((byte) 0));
     }
 
     public static ExecutorService vo() {
@@ -226,7 +217,6 @@ public final class b {
         com.kwad.sdk.core.e.b.d(TAG, "forAsync");
         return a("async", new a() { // from class: com.kwad.sdk.core.threads.b.2
             @Override // com.kwad.sdk.core.threads.b.a
-            @NonNull
             public final ExecutorService vu() {
                 return new ThreadPoolExecutor(3, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "async"));
             }
@@ -237,7 +227,6 @@ public final class b {
         com.kwad.sdk.core.e.b.d(TAG, "forAsyncSchedule");
         ExecutorService a2 = a("async-schedule", new a() { // from class: com.kwad.sdk.core.threads.b.3
             @Override // com.kwad.sdk.core.threads.b.a
-            @NonNull
             public final ExecutorService vu() {
                 return new ScheduledThreadPoolExecutor(1, new c(5, "async-schedule"));
             }

@@ -40,85 +40,6 @@ public final class SMSParsedResult extends ParsedResult {
         this.body = str4;
     }
 
-    public String getBody() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.body : (String) invokeV.objValue;
-    }
-
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder(100);
-            ParsedResult.maybeAppend(this.numbers, sb);
-            ParsedResult.maybeAppend(this.subject, sb);
-            ParsedResult.maybeAppend(this.body, sb);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String[] getNumbers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.numbers : (String[]) invokeV.objValue;
-    }
-
-    public String getSMSURI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(UrlSchemaHelper.SCHEMA_TYPE_SMS);
-            boolean z = true;
-            for (int i = 0; i < this.numbers.length; i++) {
-                if (z) {
-                    z = false;
-                } else {
-                    sb.append(',');
-                }
-                sb.append(this.numbers[i]);
-                String[] strArr = this.vias;
-                if (strArr != null && strArr[i] != null) {
-                    sb.append(";via=");
-                    sb.append(this.vias[i]);
-                }
-            }
-            boolean z2 = this.body != null;
-            boolean z3 = this.subject != null;
-            if (z2 || z3) {
-                sb.append('?');
-                if (z2) {
-                    sb.append("body=");
-                    sb.append(this.body);
-                }
-                if (z3) {
-                    if (z2) {
-                        sb.append('&');
-                    }
-                    sb.append("subject=");
-                    sb.append(this.subject);
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getSubject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.subject : (String) invokeV.objValue;
-    }
-
-    public String[] getVias() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.vias : (String[]) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SMSParsedResult(String[] strArr, String[] strArr2, String str, String str2) {
         super(ParsedResultType.SMS);
@@ -141,5 +62,104 @@ public final class SMSParsedResult extends ParsedResult {
         this.vias = strArr2;
         this.subject = str;
         this.body = str2;
+    }
+
+    public String getBody() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.body;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder(100);
+            ParsedResult.maybeAppend(this.numbers, sb);
+            ParsedResult.maybeAppend(this.subject, sb);
+            ParsedResult.maybeAppend(this.body, sb);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String[] getNumbers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.numbers;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String getSubject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.subject;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String[] getVias() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.vias;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String getSMSURI() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(UrlSchemaHelper.SCHEMA_TYPE_SMS);
+            boolean z2 = false;
+            boolean z3 = true;
+            for (int i = 0; i < this.numbers.length; i++) {
+                if (z3) {
+                    z3 = false;
+                } else {
+                    sb.append(',');
+                }
+                sb.append(this.numbers[i]);
+                String[] strArr = this.vias;
+                if (strArr != null && strArr[i] != null) {
+                    sb.append(";via=");
+                    sb.append(this.vias[i]);
+                }
+            }
+            if (this.body != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.subject != null) {
+                z2 = true;
+            }
+            if (z || z2) {
+                sb.append('?');
+                if (z) {
+                    sb.append("body=");
+                    sb.append(this.body);
+                }
+                if (z2) {
+                    if (z) {
+                        sb.append('&');
+                    }
+                    sb.append("subject=");
+                    sb.append(this.subject);
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

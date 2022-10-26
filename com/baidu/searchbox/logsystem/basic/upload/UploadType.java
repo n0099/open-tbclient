@@ -57,12 +57,18 @@ public final class UploadType {
     public static UploadType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (UploadType) Enum.valueOf(UploadType.class, str) : (UploadType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (UploadType) Enum.valueOf(UploadType.class, str);
+        }
+        return (UploadType) invokeL.objValue;
     }
 
     public static UploadType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (UploadType[]) $VALUES.clone() : (UploadType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (UploadType[]) $VALUES.clone();
+        }
+        return (UploadType[]) invokeV.objValue;
     }
 }

@@ -8,43 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@NotProguard
 /* loaded from: classes2.dex */
 public class JsFunction extends JsReleaser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JsFunction";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mReleaseAfterInvoke;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JsFunction(long j, long j2, long j3) {
-        super(j, j2, j3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r9;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mReleaseAfterInvoke = true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void freeIfNeeded() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && this.mReleaseAfterInvoke) {
-            release();
-        }
-    }
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void invokeJsFunctionParamBoolean(long j, boolean z);
@@ -96,6 +65,35 @@ public class JsFunction extends JsReleaser {
 
     private native boolean nativeStrictEquals(long j, long j2);
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public JsFunction(long j, long j2, long j3) {
+        super(j, j2, j3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r9;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mReleaseAfterInvoke = true;
+    }
+
+    public void call(Object obj, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, obj, z) == null) {
+            call(null, obj, z);
+        }
+    }
+
     private void runOnJSThreadSafely(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65572, this, runnable) == null) {
@@ -105,6 +103,127 @@ public class JsFunction extends JsReleaser {
             } else {
                 v8Engine.runOnJSThread(runnable);
             }
+        }
+    }
+
+    public void call(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)}) == null) {
+            runOnJSThreadSafely(new Runnable(this, d) { // from class: com.baidu.searchbox.v8engine.JsFunction.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ JsFunction this$0;
+                public final /* synthetic */ double val$result;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Double.valueOf(d)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$result = d;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        long j = this.this$0.mNativeObject.get();
+                        if (j != 0) {
+                            JsFunction jsFunction = this.this$0;
+                            V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
+                            this.this$0.invokeJsFunctionParamDouble(j, this.val$result);
+                            this.this$0.freeIfNeeded();
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
+            if (obj instanceof JsFunction) {
+                return strictEquals((JsFunction) obj);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setReleaseMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.mReleaseAfterInvoke = z;
+        }
+    }
+
+    public void call(Object obj, Object obj2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, obj, obj2, z) == null) {
+            runOnJSThreadSafely(new Runnable(this, obj, obj2, z) { // from class: com.baidu.searchbox.v8engine.JsFunction.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ JsFunction this$0;
+                public final /* synthetic */ boolean val$binding;
+                public final /* synthetic */ Object val$receiver;
+                public final /* synthetic */ Object val$result;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, obj, obj2, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$receiver = obj;
+                    this.val$result = obj2;
+                    this.val$binding = z;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        long j = this.this$0.mNativeObject.get();
+                        if (j != 0) {
+                            JsFunction jsFunction = this.this$0;
+                            V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
+                            this.this$0.invokeJsFunctionParamObject(j, this.val$receiver, this.val$result, this.val$binding);
+                            this.this$0.freeIfNeeded();
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void freeIfNeeded() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && this.mReleaseAfterInvoke) {
+            release();
         }
     }
 
@@ -143,88 +262,6 @@ public class JsFunction extends JsReleaser {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                             this.this$0.invokeJsFunctionParamUndefined(j);
-                            this.this$0.freeIfNeeded();
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
-            if (obj instanceof JsFunction) {
-                return strictEquals((JsFunction) obj);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setReleaseMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.mReleaseAfterInvoke = z;
-        }
-    }
-
-    public boolean strictEquals(JsFunction jsFunction) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, jsFunction)) == null) {
-            long j = this.mNativeObject.get();
-            long j2 = jsFunction.mNativeObject.get();
-            if (this == jsFunction || j == j2) {
-                return true;
-            }
-            if (j == 0 || j2 == 0) {
-                return false;
-            }
-            V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
-            return nativeStrictEquals(j, j2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void call(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            runOnJSThreadSafely(new Runnable(this, z) { // from class: com.baidu.searchbox.v8engine.JsFunction.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ JsFunction this$0;
-                public final /* synthetic */ boolean val$result;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$result = z;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
-                            JsFunction jsFunction = this.this$0;
-                            V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamBoolean(j, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -323,48 +360,10 @@ public class JsFunction extends JsReleaser {
         }
     }
 
-    public void call(double d) {
+    public void call(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)}) == null) {
-            runOnJSThreadSafely(new Runnable(this, d) { // from class: com.baidu.searchbox.v8engine.JsFunction.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ JsFunction this$0;
-                public final /* synthetic */ double val$result;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Double.valueOf(d)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$result = d;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
-                            JsFunction jsFunction = this.this$0;
-                            V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamDouble(j, this.val$result);
-                            this.this$0.freeIfNeeded();
-                        }
-                    }
-                }
-            });
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            call(obj, true);
         }
     }
 
@@ -413,37 +412,21 @@ public class JsFunction extends JsReleaser {
         }
     }
 
-    public void call(Object obj) {
+    public void call(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            call(obj, true);
-        }
-    }
-
-    public void call(Object obj, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, obj, z) == null) {
-            call(null, obj, z);
-        }
-    }
-
-    public void call(Object obj, Object obj2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048581, this, obj, obj2, z) == null) {
-            runOnJSThreadSafely(new Runnable(this, obj, obj2, z) { // from class: com.baidu.searchbox.v8engine.JsFunction.7
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            runOnJSThreadSafely(new Runnable(this, z) { // from class: com.baidu.searchbox.v8engine.JsFunction.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ JsFunction this$0;
-                public final /* synthetic */ boolean val$binding;
-                public final /* synthetic */ Object val$receiver;
-                public final /* synthetic */ Object val$result;
+                public final /* synthetic */ boolean val$result;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, obj, obj2, Boolean.valueOf(z)};
+                        Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -454,9 +437,7 @@ public class JsFunction extends JsReleaser {
                         }
                     }
                     this.this$0 = this;
-                    this.val$receiver = obj;
-                    this.val$result = obj2;
-                    this.val$binding = z;
+                    this.val$result = z;
                 }
 
                 @Override // java.lang.Runnable
@@ -467,7 +448,7 @@ public class JsFunction extends JsReleaser {
                         if (j != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamObject(j, this.val$receiver, this.val$result, this.val$binding);
+                            this.this$0.invokeJsFunctionParamBoolean(j, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -521,21 +502,21 @@ public class JsFunction extends JsReleaser {
         }
     }
 
-    public void call(boolean[] zArr) {
+    public void call(char[] cArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, zArr) == null) {
-            runOnJSThreadSafely(new Runnable(this, zArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.9
+        if (interceptable == null || interceptable.invokeL(1048586, this, cArr) == null) {
+            runOnJSThreadSafely(new Runnable(this, cArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ JsFunction this$0;
-                public final /* synthetic */ boolean[] val$result;
+                public final /* synthetic */ char[] val$result;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, zArr};
+                        Object[] objArr = {this, cArr};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -546,7 +527,7 @@ public class JsFunction extends JsReleaser {
                         }
                     }
                     this.this$0 = this;
-                    this.val$result = zArr;
+                    this.val$result = cArr;
                 }
 
                 @Override // java.lang.Runnable
@@ -557,9 +538,98 @@ public class JsFunction extends JsReleaser {
                         if (j != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamBooleanArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamCharArray(j, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
+                    }
+                }
+            });
+        }
+    }
+
+    public void call(double[] dArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, dArr) == null) {
+            runOnJSThreadSafely(new Runnable(this, dArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.13
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ JsFunction this$0;
+                public final /* synthetic */ double[] val$result;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, dArr};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$result = dArr;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        long j = this.this$0.mNativeObject.get();
+                        if (j != 0) {
+                            JsFunction jsFunction = this.this$0;
+                            V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
+                            this.this$0.invokeJsFunctionParamDoubleArray(j, this.val$result);
+                            this.this$0.freeIfNeeded();
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public void call(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, fArr) == null) {
+            runOnJSThreadSafely(new Runnable(this, fArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.12
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ JsFunction this$0;
+                public final /* synthetic */ float[] val$result;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, fArr};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$result = fArr;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        long j = this.this$0.mNativeObject.get();
+                        if (j == 0) {
+                            return;
+                        }
+                        this.this$0.invokeJsFunctionParamFloatArray(j, this.val$result);
+                        this.this$0.freeIfNeeded();
                     }
                 }
             });
@@ -656,21 +726,21 @@ public class JsFunction extends JsReleaser {
         }
     }
 
-    public void call(float[] fArr) {
+    public void call(String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, fArr) == null) {
-            runOnJSThreadSafely(new Runnable(this, fArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.12
+        if (interceptable == null || interceptable.invokeL(1048591, this, strArr) == null) {
+            runOnJSThreadSafely(new Runnable(this, strArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.16
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ JsFunction this$0;
-                public final /* synthetic */ float[] val$result;
+                public final /* synthetic */ String[] val$result;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, fArr};
+                        Object[] objArr = {this, strArr};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -681,50 +751,7 @@ public class JsFunction extends JsReleaser {
                         }
                     }
                     this.this$0 = this;
-                    this.val$result = fArr;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
-                            this.this$0.invokeJsFunctionParamFloatArray(j, this.val$result);
-                            this.this$0.freeIfNeeded();
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public void call(double[] dArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dArr) == null) {
-            runOnJSThreadSafely(new Runnable(this, dArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.13
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ JsFunction this$0;
-                public final /* synthetic */ double[] val$result;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, dArr};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$result = dArr;
+                    this.val$result = strArr;
                 }
 
                 @Override // java.lang.Runnable
@@ -735,7 +762,7 @@ public class JsFunction extends JsReleaser {
                         if (j != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamDoubleArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamStringArray(j, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -789,21 +816,21 @@ public class JsFunction extends JsReleaser {
         }
     }
 
-    public void call(char[] cArr) {
+    public void call(boolean[] zArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cArr) == null) {
-            runOnJSThreadSafely(new Runnable(this, cArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.15
+        if (interceptable == null || interceptable.invokeL(1048593, this, zArr) == null) {
+            runOnJSThreadSafely(new Runnable(this, zArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ JsFunction this$0;
-                public final /* synthetic */ char[] val$result;
+                public final /* synthetic */ boolean[] val$result;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, cArr};
+                        Object[] objArr = {this, zArr};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -814,7 +841,7 @@ public class JsFunction extends JsReleaser {
                         }
                     }
                     this.this$0 = this;
-                    this.val$result = cArr;
+                    this.val$result = zArr;
                 }
 
                 @Override // java.lang.Runnable
@@ -825,7 +852,7 @@ public class JsFunction extends JsReleaser {
                         if (j != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamCharArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamBooleanArray(j, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -834,48 +861,21 @@ public class JsFunction extends JsReleaser {
         }
     }
 
-    public void call(String[] strArr) {
+    public boolean strictEquals(JsFunction jsFunction) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, strArr) == null) {
-            runOnJSThreadSafely(new Runnable(this, strArr) { // from class: com.baidu.searchbox.v8engine.JsFunction.16
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ JsFunction this$0;
-                public final /* synthetic */ String[] val$result;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, strArr};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$result = strArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, jsFunction)) == null) {
+            long j = this.mNativeObject.get();
+            long j2 = jsFunction.mNativeObject.get();
+            if (this != jsFunction && j != j2) {
+                if (j != 0 && j2 != 0) {
+                    V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
+                    return nativeStrictEquals(j, j2);
                 }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
-                            JsFunction jsFunction = this.this$0;
-                            V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamStringArray(j, this.val$result);
-                            this.this$0.freeIfNeeded();
-                        }
-                    }
-                }
-            });
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -35,6 +35,25 @@ public class g8 {
         }
     }
 
+    public g8(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = z;
+        this.a = new short[i];
+    }
+
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Short.valueOf(s)}) == null) {
@@ -49,11 +68,68 @@ public class g8 {
         }
     }
 
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (!this.c || !(obj instanceof g8)) {
+                return false;
+            }
+            g8 g8Var = (g8) obj;
+            if (!g8Var.c || (i = this.b) != g8Var.b) {
+                return false;
+            }
+            short[] sArr = this.a;
+            short[] sArr2 = g8Var.a;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (sArr[i2] != sArr2[i2]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = 0;
         }
+    }
+
+    public short[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i = this.b;
+            short[] sArr = new short[i];
+            System.arraycopy(this.a, 0, sArr, 0, i);
+            return sArr;
+        }
+        return (short[]) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!this.c) {
+                return super.hashCode();
+            }
+            short[] sArr = this.a;
+            int i = this.b;
+            int i2 = 1;
+            for (int i3 = 0; i3 < i; i3++) {
+                i2 = (i2 * 31) + sArr[i3];
+            }
+            return i2;
+        }
+        return invokeV.intValue;
     }
 
     public short[] c(int i) {
@@ -106,63 +182,6 @@ public class g8 {
         return (short[]) invokeI.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (this.c && (obj instanceof g8)) {
-                g8 g8Var = (g8) obj;
-                if (g8Var.c && (i = this.b) == g8Var.b) {
-                    short[] sArr = this.a;
-                    short[] sArr2 = g8Var.a;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        if (sArr[i2] != sArr2[i2]) {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public short[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = this.b;
-            short[] sArr = new short[i];
-            System.arraycopy(this.a, 0, sArr, 0, i);
-            return sArr;
-        }
-        return (short[]) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.c) {
-                short[] sArr = this.a;
-                int i = this.b;
-                int i2 = 1;
-                for (int i3 = 0; i3 < i; i3++) {
-                    i2 = (i2 * 31) + sArr[i3];
-                }
-                return i2;
-            }
-            return super.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
     public void insert(int i, short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Short.valueOf(s)}) == null) {
@@ -204,24 +223,5 @@ public class g8 {
             return k8Var.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public g8(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = z;
-        this.a = new short[i];
     }
 }

@@ -64,12 +64,18 @@ public final class Emitter$BackpressureMode {
     public static Emitter$BackpressureMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Emitter$BackpressureMode) Enum.valueOf(Emitter$BackpressureMode.class, str) : (Emitter$BackpressureMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Emitter$BackpressureMode) Enum.valueOf(Emitter$BackpressureMode.class, str);
+        }
+        return (Emitter$BackpressureMode) invokeL.objValue;
     }
 
     public static Emitter$BackpressureMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Emitter$BackpressureMode[]) $VALUES.clone() : (Emitter$BackpressureMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Emitter$BackpressureMode[]) $VALUES.clone();
+        }
+        return (Emitter$BackpressureMode[]) invokeV.objValue;
     }
 }

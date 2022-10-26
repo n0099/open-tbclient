@@ -9,10 +9,6 @@ import android.net.Uri;
 import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -29,8 +25,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.util.Map;
-@RequiresApi(26)
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     public static /* synthetic */ Interceptable $ic = null;
@@ -108,7 +102,57 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         }
     }
 
-    private boolean addFontFromAssetManager(Context context, Object obj, String str, int i, int i2, int i3, @Nullable FontVariationAxis[] fontVariationAxisArr) {
+    private boolean freeze(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj)) == null) {
+            try {
+                return ((Boolean) this.mFreeze.invoke(obj, new Object[0])).booleanValue();
+            } catch (IllegalAccessException | InvocationTargetException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Method obtainAbortCreationMethod(Class<?> cls) throws NoSuchMethodException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
+            return cls.getMethod(ABORT_CREATION_METHOD, new Class[0]);
+        }
+        return (Method) invokeL.objValue;
+    }
+
+    public Method obtainAddFontFromBufferMethod(Class<?> cls) throws NoSuchMethodException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cls)) == null) {
+            Class<?> cls2 = Integer.TYPE;
+            return cls.getMethod(ADD_FONT_FROM_BUFFER_METHOD, ByteBuffer.class, cls2, FontVariationAxis[].class, cls2, cls2);
+        }
+        return (Method) invokeL.objValue;
+    }
+
+    public Constructor<?> obtainFontFamilyCtor(Class<?> cls) throws NoSuchMethodException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, cls)) == null) {
+            return cls.getConstructor(new Class[0]);
+        }
+        return (Constructor) invokeL.objValue;
+    }
+
+    public Method obtainFreezeMethod(Class<?> cls) throws NoSuchMethodException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) {
+            return cls.getMethod(FREEZE_METHOD, new Class[0]);
+        }
+        return (Method) invokeL.objValue;
+    }
+
+    private boolean addFontFromAssetManager(Context context, Object obj, String str, int i, int i2, int i3, FontVariationAxis[] fontVariationAxisArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{context, obj, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), fontVariationAxisArr})) == null) {
@@ -134,17 +178,28 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         return invokeCommon.booleanValue;
     }
 
-    private boolean freeze(Object obj) {
-        InterceptResult invokeL;
+    @Override // androidx.core.graphics.TypefaceCompatBaseImpl
+    public Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj)) == null) {
-            try {
-                return ((Boolean) this.mFreeze.invoke(obj, new Object[0])).booleanValue();
-            } catch (IllegalAccessException | InvocationTargetException unused) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, resources, Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
+            if (!isFontFamilyPrivateAPIAvailable()) {
+                return super.createFromResourcesFontFile(context, resources, i, str, i2);
+            }
+            Object newFamily = newFamily();
+            if (newFamily == null) {
+                return null;
+            }
+            if (!addFontFromAssetManager(context, newFamily, str, 0, -1, -1, null)) {
+                abortCreation(newFamily);
+                return null;
+            } else if (!freeze(newFamily)) {
+                return null;
+            } else {
+                return createFromFamiliesWithDefault(newFamily);
             }
         }
-        return invokeL.booleanValue;
+        return (Typeface) invokeCommon.objValue;
     }
 
     private boolean isFontFamilyPrivateAPIAvailable() {
@@ -154,12 +209,14 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             if (this.mAddFontFromAssetManager == null) {
                 Log.w(TAG, "Unable to collect necessary private methods. Fallback to legacy implementation.");
             }
-            return this.mAddFontFromAssetManager != null;
+            if (this.mAddFontFromAssetManager != null) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Nullable
     private Object newFamily() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -173,7 +230,15 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         return invokeV.objValue;
     }
 
-    @Nullable
+    public Class<?> obtainFontFamily() throws ClassNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return Class.forName("android.graphics.FontFamily");
+        }
+        return (Class) invokeV.objValue;
+    }
+
     public Typeface createFromFamiliesWithDefault(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -189,8 +254,29 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         return (Typeface) invokeL.objValue;
     }
 
+    public Method obtainAddFontFromAssetManagerMethod(Class<?> cls) throws NoSuchMethodException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
+            Class<?> cls2 = Integer.TYPE;
+            return cls.getMethod(ADD_FONT_FROM_ASSET_MANAGER_METHOD, AssetManager.class, String.class, Integer.TYPE, Boolean.TYPE, cls2, cls2, cls2, FontVariationAxis[].class);
+        }
+        return (Method) invokeL.objValue;
+    }
+
+    public Method obtainCreateFromFamiliesWithDefaultMethod(Class<?> cls) throws NoSuchMethodException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
+            Class cls2 = Integer.TYPE;
+            Method declaredMethod = Typeface.class.getDeclaredMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass(), cls2, cls2);
+            declaredMethod.setAccessible(true);
+            return declaredMethod;
+        }
+        return (Method) invokeL.objValue;
+    }
+
     @Override // androidx.core.graphics.TypefaceCompatApi21Impl, androidx.core.graphics.TypefaceCompatBaseImpl
-    @Nullable
     public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
         FontResourcesParserCompat.FontFileResourceEntry[] entries;
@@ -209,17 +295,16 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
                     return null;
                 }
             }
-            if (freeze(newFamily)) {
-                return createFromFamiliesWithDefault(newFamily);
+            if (!freeze(newFamily)) {
+                return null;
             }
-            return null;
+            return createFromFamiliesWithDefault(newFamily);
         }
         return (Typeface) invokeLLLI.objValue;
     }
 
     @Override // androidx.core.graphics.TypefaceCompatApi21Impl, androidx.core.graphics.TypefaceCompatBaseImpl
-    @Nullable
-    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Typeface createFromFamiliesWithDefault;
         Interceptable interceptable = $ic;
@@ -265,93 +350,12 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             if (!z) {
                 abortCreation(newFamily);
                 return null;
-            } else if (freeze(newFamily) && (createFromFamiliesWithDefault = createFromFamiliesWithDefault(newFamily)) != null) {
-                return Typeface.create(createFromFamiliesWithDefault, i);
-            } else {
+            } else if (!freeze(newFamily) || (createFromFamiliesWithDefault = createFromFamiliesWithDefault(newFamily)) == null) {
                 return null;
+            } else {
+                return Typeface.create(createFromFamiliesWithDefault, i);
             }
         }
         return (Typeface) invokeLLLI.objValue;
-    }
-
-    @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    @Nullable
-    public Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, resources, Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
-            if (!isFontFamilyPrivateAPIAvailable()) {
-                return super.createFromResourcesFontFile(context, resources, i, str, i2);
-            }
-            Object newFamily = newFamily();
-            if (newFamily == null) {
-                return null;
-            }
-            if (!addFontFromAssetManager(context, newFamily, str, 0, -1, -1, null)) {
-                abortCreation(newFamily);
-                return null;
-            } else if (freeze(newFamily)) {
-                return createFromFamiliesWithDefault(newFamily);
-            } else {
-                return null;
-            }
-        }
-        return (Typeface) invokeCommon.objValue;
-    }
-
-    public Method obtainAbortCreationMethod(Class<?> cls) throws NoSuchMethodException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) ? cls.getMethod(ABORT_CREATION_METHOD, new Class[0]) : (Method) invokeL.objValue;
-    }
-
-    public Method obtainAddFontFromAssetManagerMethod(Class<?> cls) throws NoSuchMethodException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
-            Class<?> cls2 = Integer.TYPE;
-            return cls.getMethod(ADD_FONT_FROM_ASSET_MANAGER_METHOD, AssetManager.class, String.class, Integer.TYPE, Boolean.TYPE, cls2, cls2, cls2, FontVariationAxis[].class);
-        }
-        return (Method) invokeL.objValue;
-    }
-
-    public Method obtainAddFontFromBufferMethod(Class<?> cls) throws NoSuchMethodException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cls)) == null) {
-            Class<?> cls2 = Integer.TYPE;
-            return cls.getMethod(ADD_FONT_FROM_BUFFER_METHOD, ByteBuffer.class, cls2, FontVariationAxis[].class, cls2, cls2);
-        }
-        return (Method) invokeL.objValue;
-    }
-
-    public Method obtainCreateFromFamiliesWithDefaultMethod(Class<?> cls) throws NoSuchMethodException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
-            Class cls2 = Integer.TYPE;
-            Method declaredMethod = Typeface.class.getDeclaredMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass(), cls2, cls2);
-            declaredMethod.setAccessible(true);
-            return declaredMethod;
-        }
-        return (Method) invokeL.objValue;
-    }
-
-    public Class<?> obtainFontFamily() throws ClassNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Class.forName("android.graphics.FontFamily") : (Class) invokeV.objValue;
-    }
-
-    public Constructor<?> obtainFontFamilyCtor(Class<?> cls) throws NoSuchMethodException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, cls)) == null) ? cls.getConstructor(new Class[0]) : (Constructor) invokeL.objValue;
-    }
-
-    public Method obtainFreezeMethod(Class<?> cls) throws NoSuchMethodException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) ? cls.getMethod(FREEZE_METHOD, new Class[0]) : (Method) invokeL.objValue;
     }
 }

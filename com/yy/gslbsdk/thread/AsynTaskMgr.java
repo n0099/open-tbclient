@@ -44,7 +44,7 @@ public final class AsynTaskMgr {
     public AtomicBoolean mMonitorStarted;
 
     /* loaded from: classes8.dex */
-    public static class AsynTaskHandler extends Handler {
+    public class AsynTaskHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,11 +73,14 @@ public final class AsynTaskMgr {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                if (message.what == AsynTaskMgr.KTaskUpdateHost) {
-                    AsynTaskMgr.INSTANCE.doUpdateHost(message.getData());
-                } else if (message.what == AsynTaskMgr.KTaskParseLocalDns) {
+                if (message.what != AsynTaskMgr.KTaskUpdateHost) {
+                    if (message.what != AsynTaskMgr.KTaskParseLocalDns) {
+                        return;
+                    }
                     AsynTaskMgr.INSTANCE.doParseLocalDns(message.getData());
+                    return;
                 }
+                AsynTaskMgr.INSTANCE.doUpdateHost(message.getData());
             }
         }
     }
@@ -125,127 +128,31 @@ public final class AsynTaskMgr {
         this.mMonitorStarted = new AtomicBoolean(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void doParseLocalDns(Bundle bundle) {
-        String string;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, bundle) == null) || (string = bundle.getString("host")) == null || string.length() == 0) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        DnsInfo requestProtocol = LocalDNSProtocolMgr.requestProtocol(string);
-        if (requestProtocol != null) {
-            NetStatusInfo cachedNetStatusInfo = DataCacheMgr.INSTANCE.getCachedNetStatusInfo();
-            requestProtocol.setNt(cachedNetStatusInfo.getNetType());
-            DnsInfo dnsInfo = new DnsInfo();
-            if (IpVersionController.getInstance().getHttpDNSFromCache(GlobalTools.APP_CONTEXT, cachedNetStatusInfo, string, dnsInfo) == 0) {
-                requestProtocol.setUip(dnsInfo.getUip());
-            }
-            IpVersionController.getInstance().putLocalDNSIntoCache(requestProtocol);
-        } else {
-            LogTools.printError(TAG, "local parse error");
-        }
-        LogTools.printDebug(TAG, "parse local dns, timespent = " + (System.currentTimeMillis() - currentTimeMillis) + ", host = " + string);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void doUpdateHost(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, bundle) == null) || bundle == null) {
-            return;
-        }
-        ArrayList<String> stringArrayList = bundle.getStringArrayList("hostList");
-        boolean z = bundle.getBoolean("isPre");
-        if (stringArrayList == null || GlobalTools.APP_CONTEXT == null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
-        Iterator<String> it = stringArrayList.iterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            List<HostTB> hostByHost = dBAccessMgr.getHostByHost(next);
-            if (hostByHost.isEmpty()) {
-                HostTB hostTB = new HostTB();
-                hostTB.setHost(next);
-                hostTB.setInsertTime(currentTimeMillis);
-                hostTB.setIsPre(z ? 1 : 0);
-                dBAccessMgr.addHost(hostTB);
-            } else {
-                HostTB hostTB2 = hostByHost.get(0);
-                hostTB2.setInsertTime(currentTimeMillis);
-                if (hostTB2.getIsPre() == 0) {
-                    hostTB2.setIsPre(z ? 1 : 0);
-                }
-                dBAccessMgr.updateHost(hostTB2);
-            }
-        }
-        List<HostTB> allHost = dBAccessMgr.getAllHost();
-        int size = allHost.size();
-        if (size > GlobalTools.KEEP_HOST_NUM) {
-            for (int i = size - 1; i > 0; i--) {
-                if (allHost.get(i).getIsPre() != 1) {
-                    LogTools.printDebug(TAG, "remove host " + allHost.get(i).getHost());
-                    dBAccessMgr.delHost(allHost.get(i));
-                    size += -1;
-                    if (size <= GlobalTools.KEEP_HOST_NUM) {
-                        break;
-                    }
-                }
-            }
-        }
-        allHost.clear();
-    }
-
-    public static AsynTaskMgr valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? (AsynTaskMgr) Enum.valueOf(AsynTaskMgr.class, str) : (AsynTaskMgr) invokeL.objValue;
-    }
-
     public static AsynTaskMgr[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? (AsynTaskMgr[]) $VALUES.clone() : (AsynTaskMgr[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return (AsynTaskMgr[]) $VALUES.clone();
+        }
+        return (AsynTaskMgr[]) invokeV.objValue;
     }
 
     public boolean isHandlerRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHandlerThread.isAlive() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mHandlerThread.isAlive();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isMonitorRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMonitorStarted.get() : invokeV.booleanValue;
-    }
-
-    public void parseLocalDns(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = KTaskParseLocalDns;
-            Bundle bundle = new Bundle();
-            bundle.putString("host", str);
-            obtain.setData(bundle);
-            this.mHandler.sendMessage(obtain);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMonitorStarted.get();
         }
-    }
-
-    public void post(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
-            this.mHandler.post(runnable);
-        }
-    }
-
-    public void postDelayed(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, runnable, j) == null) {
-            this.mHandler.removeCallbacks(runnable);
-            this.mHandler.postDelayed(runnable, j);
-        }
+        return invokeV.booleanValue;
     }
 
     public synchronized void start() {
@@ -315,7 +222,15 @@ public final class AsynTaskMgr {
         }
     }
 
-    public void updateHost(ArrayList<String> arrayList, boolean z) {
+    public void postDelayed(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, runnable, j) == null) {
+            this.mHandler.removeCallbacks(runnable);
+            this.mHandler.postDelayed(runnable, j);
+        }
+    }
+
+    public void updateHost(ArrayList arrayList, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048585, this, arrayList, z) == null) {
             Message obtain = Message.obtain();
@@ -325,6 +240,103 @@ public final class AsynTaskMgr {
             bundle.putBoolean("isPre", z);
             obtain.setData(bundle);
             this.mHandler.sendMessage(obtain);
+        }
+    }
+
+    public static AsynTaskMgr valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            return (AsynTaskMgr) Enum.valueOf(AsynTaskMgr.class, str);
+        }
+        return (AsynTaskMgr) invokeL.objValue;
+    }
+
+    public void parseLocalDns(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = KTaskParseLocalDns;
+            Bundle bundle = new Bundle();
+            bundle.putString("host", str);
+            obtain.setData(bundle);
+            this.mHandler.sendMessage(obtain);
+        }
+    }
+
+    public void post(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
+            this.mHandler.post(runnable);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void doParseLocalDns(Bundle bundle) {
+        String string;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, this, bundle) == null) && (string = bundle.getString("host")) != null && string.length() != 0) {
+            long currentTimeMillis = System.currentTimeMillis();
+            DnsInfo requestProtocol = LocalDNSProtocolMgr.requestProtocol(string);
+            if (requestProtocol != null) {
+                NetStatusInfo cachedNetStatusInfo = DataCacheMgr.INSTANCE.getCachedNetStatusInfo();
+                requestProtocol.setNt(cachedNetStatusInfo.getNetType());
+                DnsInfo dnsInfo = new DnsInfo();
+                if (IpVersionController.getInstance().getHttpDNSFromCache(GlobalTools.APP_CONTEXT, cachedNetStatusInfo, string, dnsInfo) == 0) {
+                    requestProtocol.setUip(dnsInfo.getUip());
+                }
+                IpVersionController.getInstance().putLocalDNSIntoCache(requestProtocol);
+            } else {
+                LogTools.printError(TAG, "local parse error");
+            }
+            LogTools.printDebug(TAG, "parse local dns, timespent = " + (System.currentTimeMillis() - currentTimeMillis) + ", host = " + string);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void doUpdateHost(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, this, bundle) == null) && bundle != null) {
+            ArrayList<String> stringArrayList = bundle.getStringArrayList("hostList");
+            boolean z = bundle.getBoolean("isPre");
+            if (stringArrayList != null && GlobalTools.APP_CONTEXT != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
+                Iterator<String> it = stringArrayList.iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    List hostByHost = dBAccessMgr.getHostByHost(next);
+                    if (hostByHost.isEmpty()) {
+                        HostTB hostTB = new HostTB();
+                        hostTB.setHost(next);
+                        hostTB.setInsertTime(currentTimeMillis);
+                        hostTB.setIsPre(z ? 1 : 0);
+                        dBAccessMgr.addHost(hostTB);
+                    } else {
+                        HostTB hostTB2 = (HostTB) hostByHost.get(0);
+                        hostTB2.setInsertTime(currentTimeMillis);
+                        if (hostTB2.getIsPre() == 0) {
+                            hostTB2.setIsPre(z ? 1 : 0);
+                        }
+                        dBAccessMgr.updateHost(hostTB2);
+                    }
+                }
+                List allHost = dBAccessMgr.getAllHost();
+                int size = allHost.size();
+                if (size > GlobalTools.KEEP_HOST_NUM) {
+                    for (int i = size - 1; i > 0; i--) {
+                        if (((HostTB) allHost.get(i)).getIsPre() != 1) {
+                            LogTools.printDebug(TAG, "remove host " + ((HostTB) allHost.get(i)).getHost());
+                            dBAccessMgr.delHost((HostTB) allHost.get(i));
+                            size += -1;
+                            if (size <= GlobalTools.KEEP_HOST_NUM) {
+                                break;
+                            }
+                        }
+                    }
+                }
+                allHost.clear();
+            }
         }
     }
 }

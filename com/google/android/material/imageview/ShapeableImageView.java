@@ -1,6 +1,5 @@
 package com.google.android.material.imageview;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -16,11 +15,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DimenRes;
-import androidx.annotation.Dimension;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
@@ -54,10 +48,23 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     public final MaterialShapeDrawable shadowDrawable;
     public ShapeAppearanceModel shapeAppearanceModel;
     public ColorStateList strokeColor;
-    @Dimension
     public float strokeWidth;
 
-    @TargetApi(21)
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1481047227, "Lcom/google/android/material/imageview/ShapeableImageView;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1481047227, "Lcom/google/android/material/imageview/ShapeableImageView;");
+        }
+    }
+
     /* loaded from: classes7.dex */
     public class OutlineProvider extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
@@ -87,27 +94,12 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         @Override // android.view.ViewOutlineProvider
         public void getOutline(View view2, Outline outline) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) || this.this$0.shapeAppearanceModel == null) {
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, outline) != null) || this.this$0.shapeAppearanceModel == null) {
                 return;
             }
             this.this$0.destination.round(this.rect);
             this.this$0.shadowDrawable.setBounds(this.rect);
             this.this$0.shadowDrawable.getOutline(outline);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1481047227, "Lcom/google/android/material/imageview/ShapeableImageView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1481047227, "Lcom/google/android/material/imageview/ShapeableImageView;");
         }
     }
 
@@ -132,135 +124,8 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         }
     }
 
-    private void drawStroke(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, canvas) == null) || this.strokeColor == null) {
-            return;
-        }
-        this.borderPaint.setStrokeWidth(this.strokeWidth);
-        int colorForState = this.strokeColor.getColorForState(getDrawableState(), this.strokeColor.getDefaultColor());
-        if (this.strokeWidth <= 0.0f || colorForState == 0) {
-            return;
-        }
-        this.borderPaint.setColor(colorForState);
-        canvas.drawPath(this.path, this.borderPaint);
-    }
-
-    private void updateShapeMask(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65544, this, i, i2) == null) {
-            this.destination.set(getPaddingLeft(), getPaddingTop(), i - getPaddingRight(), i2 - getPaddingBottom());
-            this.pathProvider.calculatePath(this.shapeAppearanceModel, 1.0f, this.destination, this.path);
-            this.maskPath.rewind();
-            this.maskPath.addPath(this.path);
-            this.maskRect.set(0.0f, 0.0f, i, i2);
-            this.maskPath.addRect(this.maskRect, Path.Direction.CCW);
-        }
-    }
-
-    @Override // com.google.android.material.shape.Shapeable
-    @NonNull
-    public ShapeAppearanceModel getShapeAppearanceModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.shapeAppearanceModel : (ShapeAppearanceModel) invokeV.objValue;
-    }
-
-    @Nullable
-    public ColorStateList getStrokeColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.strokeColor : (ColorStateList) invokeV.objValue;
-    }
-
-    @Dimension
-    public float getStrokeWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.strokeWidth : invokeV.floatValue;
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onAttachedToWindow();
-            setLayerType(2, null);
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setLayerType(0, null);
-            super.onDetachedFromWindow();
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            super.onDraw(canvas);
-            canvas.drawPath(this.maskPath, this.clearPaint);
-            drawStroke(canvas);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            updateShapeMask(i, i2);
-        }
-    }
-
-    @Override // com.google.android.material.shape.Shapeable
-    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, shapeAppearanceModel) == null) {
-            this.shapeAppearanceModel = shapeAppearanceModel;
-            this.shadowDrawable.setShapeAppearanceModel(shapeAppearanceModel);
-            updateShapeMask(getWidth(), getHeight());
-            invalidate();
-        }
-    }
-
-    public void setStrokeColor(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorStateList) == null) {
-            this.strokeColor = colorStateList;
-            invalidate();
-        }
-    }
-
-    public void setStrokeColorResource(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            setStrokeColor(AppCompatResources.getColorStateList(getContext(), i));
-        }
-    }
-
-    public void setStrokeWidth(@Dimension float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048586, this, f) == null) || this.strokeWidth == f) {
-            return;
-        }
-        this.strokeWidth = f;
-        invalidate();
-    }
-
-    public void setStrokeWidthResource(@DimenRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            setStrokeWidth(getResources().getDimensionPixelSize(i));
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet) {
+    public ShapeableImageView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -280,8 +145,20 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         }
     }
 
+    private void updateShapeMask(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65544, this, i, i2) == null) {
+            this.destination.set(getPaddingLeft(), getPaddingTop(), i - getPaddingRight(), i2 - getPaddingBottom());
+            this.pathProvider.calculatePath(this.shapeAppearanceModel, 1.0f, this.destination, this.path);
+            this.maskPath.rewind();
+            this.maskPath.addPath(this.path);
+            this.maskRect.set(0.0f, 0.0f, i, i2);
+            this.maskPath.addRect(this.maskRect, Path.Direction.CCW);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ShapeableImageView(Context context, AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -321,6 +198,125 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         this.shadowDrawable = new MaterialShapeDrawable(this.shapeAppearanceModel);
         if (Build.VERSION.SDK_INT >= 21) {
             setOutlineProvider(new OutlineProvider(this));
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            super.onDraw(canvas);
+            canvas.drawPath(this.maskPath, this.clearPaint);
+            drawStroke(canvas);
+        }
+    }
+
+    @Override // com.google.android.material.shape.Shapeable
+    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, shapeAppearanceModel) == null) {
+            this.shapeAppearanceModel = shapeAppearanceModel;
+            this.shadowDrawable.setShapeAppearanceModel(shapeAppearanceModel);
+            updateShapeMask(getWidth(), getHeight());
+            invalidate();
+        }
+    }
+
+    public void setStrokeColor(ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorStateList) == null) {
+            this.strokeColor = colorStateList;
+            invalidate();
+        }
+    }
+
+    public void setStrokeColorResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            setStrokeColor(AppCompatResources.getColorStateList(getContext(), i));
+        }
+    }
+
+    public void setStrokeWidth(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048586, this, f) == null) && this.strokeWidth != f) {
+            this.strokeWidth = f;
+            invalidate();
+        }
+    }
+
+    public void setStrokeWidthResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            setStrokeWidth(getResources().getDimensionPixelSize(i));
+        }
+    }
+
+    private void drawStroke(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, this, canvas) != null) || this.strokeColor == null) {
+            return;
+        }
+        this.borderPaint.setStrokeWidth(this.strokeWidth);
+        int colorForState = this.strokeColor.getColorForState(getDrawableState(), this.strokeColor.getDefaultColor());
+        if (this.strokeWidth > 0.0f && colorForState != 0) {
+            this.borderPaint.setColor(colorForState);
+            canvas.drawPath(this.path, this.borderPaint);
+        }
+    }
+
+    @Override // com.google.android.material.shape.Shapeable
+    public ShapeAppearanceModel getShapeAppearanceModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.shapeAppearanceModel;
+        }
+        return (ShapeAppearanceModel) invokeV.objValue;
+    }
+
+    public ColorStateList getStrokeColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.strokeColor;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    public float getStrokeWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.strokeWidth;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onAttachedToWindow();
+            setLayerType(2, null);
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            setLayerType(0, null);
+            super.onDetachedFromWindow();
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            updateShapeMask(i, i2);
         }
     }
 }

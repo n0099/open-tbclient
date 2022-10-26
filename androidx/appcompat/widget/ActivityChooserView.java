@@ -22,9 +22,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.ActionProvider;
@@ -40,7 +37,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActivityChooserView extends ViewGroup implements ActivityChooserModel.ActivityChooserModelClient {
     public static /* synthetic */ Interceptable $ic;
@@ -80,6 +76,23 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         public boolean mShowFooterView;
         public final /* synthetic */ ActivityChooserView this$0;
 
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+        }
+
+        @Override // android.widget.BaseAdapter, android.widget.Adapter
+        public int getViewTypeCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return 3;
+            }
+            return invokeV.intValue;
+        }
+
         public ActivityChooserViewAdapter(ActivityChooserView activityChooserView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -99,10 +112,42 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             this.mMaxActivityCount = 4;
         }
 
+        @Override // android.widget.BaseAdapter, android.widget.Adapter
+        public int getItemViewType(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                if (this.mShowFooterView && i == getCount() - 1) {
+                    return 1;
+                }
+                return 0;
+            }
+            return invokeI.intValue;
+        }
+
+        public void setMaxActivityCount(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && this.mMaxActivityCount != i) {
+                this.mMaxActivityCount = i;
+                notifyDataSetChanged();
+            }
+        }
+
+        public void setShowFooterView(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048591, this, z) == null) && this.mShowFooterView != z) {
+                this.mShowFooterView = z;
+                notifyDataSetChanged();
+            }
+        }
+
         public int getActivityCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDataModel.getActivityCount() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mDataModel.getActivityCount();
+            }
+            return invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -115,7 +160,10 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     activityCount--;
                 }
                 int min = Math.min(activityCount, this.mMaxActivityCount);
-                return this.mShowFooterView ? min + 1 : min;
+                if (this.mShowFooterView) {
+                    return min + 1;
+                }
+                return min;
             }
             return invokeV.intValue;
         }
@@ -123,19 +171,37 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         public ActivityChooserModel getDataModel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDataModel : (ActivityChooserModel) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mDataModel;
+            }
+            return (ActivityChooserModel) invokeV.objValue;
         }
 
         public ResolveInfo getDefaultActivity() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDataModel.getDefaultActivity() : (ResolveInfo) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mDataModel.getDefaultActivity();
+            }
+            return (ResolveInfo) invokeV.objValue;
         }
 
         public int getHistorySize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDataModel.getHistorySize() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mDataModel.getHistorySize();
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean getShowDefaultActivity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.mShowDefaultActivity;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // android.widget.Adapter
@@ -158,24 +224,19 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             return invokeI.objValue;
         }
 
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
+        public void setDataModel(ActivityChooserModel activityChooserModel) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
-        }
-
-        @Override // android.widget.BaseAdapter, android.widget.Adapter
-        public int getItemViewType(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (this.mShowFooterView && i == getCount() - 1) ? 1 : 0 : invokeI.intValue;
-        }
-
-        public boolean getShowDefaultActivity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mShowDefaultActivity : invokeV.booleanValue;
+            if (interceptable == null || interceptable.invokeL(1048588, this, activityChooserModel) == null) {
+                ActivityChooserModel dataModel = this.this$0.mAdapter.getDataModel();
+                if (dataModel != null && this.this$0.isShown()) {
+                    dataModel.unregisterObserver(this.this$0.mModelDataSetObserver);
+                }
+                this.mDataModel = activityChooserModel;
+                if (activityChooserModel != null && this.this$0.isShown()) {
+                    activityChooserModel.registerObserver(this.this$0.mModelDataSetObserver);
+                }
+                notifyDataSetChanged();
+            }
         }
 
         @Override // android.widget.Adapter
@@ -189,20 +250,20 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                         if (view2 == null || view2.getId() != 1) {
                             View inflate = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                             inflate.setId(1);
-                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092219)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003c));
+                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092203)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003c));
                             return inflate;
                         }
                         return view2;
                     }
                     throw new IllegalArgumentException();
                 }
-                if (view2 == null || view2.getId() != R.id.obfuscated_res_0x7f09132d) {
+                if (view2 == null || view2.getId() != R.id.obfuscated_res_0x7f09131d) {
                     view2 = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                 }
                 PackageManager packageManager = this.this$0.getContext().getPackageManager();
                 ResolveInfo resolveInfo = (ResolveInfo) getItem(i);
-                ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e20)).setImageDrawable(resolveInfo.loadIcon(packageManager));
-                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092219)).setText(resolveInfo.loadLabel(packageManager));
+                ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e14)).setImageDrawable(resolveInfo.loadIcon(packageManager));
+                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092203)).setText(resolveInfo.loadLabel(packageManager));
                 if (this.mShowDefaultActivity && i == 0 && this.mHighlightDefaultActivity) {
                     view2.setActivated(true);
                 } else {
@@ -211,16 +272,6 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 return view2;
             }
             return (View) invokeILL.objValue;
-        }
-
-        @Override // android.widget.BaseAdapter, android.widget.Adapter
-        public int getViewTypeCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                return 3;
-            }
-            return invokeV.intValue;
         }
 
         public int measureContentWidth() {
@@ -245,49 +296,15 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             return invokeV.intValue;
         }
 
-        public void setDataModel(ActivityChooserModel activityChooserModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, activityChooserModel) == null) {
-                ActivityChooserModel dataModel = this.this$0.mAdapter.getDataModel();
-                if (dataModel != null && this.this$0.isShown()) {
-                    dataModel.unregisterObserver(this.this$0.mModelDataSetObserver);
-                }
-                this.mDataModel = activityChooserModel;
-                if (activityChooserModel != null && this.this$0.isShown()) {
-                    activityChooserModel.registerObserver(this.this$0.mModelDataSetObserver);
-                }
-                notifyDataSetChanged();
-            }
-        }
-
-        public void setMaxActivityCount(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || this.mMaxActivityCount == i) {
-                return;
-            }
-            this.mMaxActivityCount = i;
-            notifyDataSetChanged();
-        }
-
         public void setShowDefaultActivity(boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (this.mShowDefaultActivity == z && this.mHighlightDefaultActivity == z2) {
-                    return;
+                if (this.mShowDefaultActivity != z || this.mHighlightDefaultActivity != z2) {
+                    this.mShowDefaultActivity = z;
+                    this.mHighlightDefaultActivity = z2;
+                    notifyDataSetChanged();
                 }
-                this.mShowDefaultActivity = z;
-                this.mHighlightDefaultActivity = z2;
-                notifyDataSetChanged();
             }
-        }
-
-        public void setShowFooterView(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.mShowFooterView == z) {
-                return;
-            }
-            this.mShowFooterView = z;
-            notifyDataSetChanged();
         }
     }
 
@@ -315,13 +332,43 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             this.this$0 = activityChooserView;
         }
 
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+                ActivityChooserView activityChooserView = this.this$0;
+                if (view2 == activityChooserView.mDefaultActivityButton) {
+                    if (activityChooserView.mAdapter.getCount() > 0) {
+                        ActivityChooserView activityChooserView2 = this.this$0;
+                        activityChooserView2.mIsSelectingDefaultActivity = true;
+                        activityChooserView2.showPopupUnchecked(activityChooserView2.mInitialActivityCount);
+                    }
+                    return true;
+                }
+                throw new IllegalArgumentException();
+            }
+            return invokeL.booleanValue;
+        }
+
         private void notifyOnDismissListener() {
             PopupWindow.OnDismissListener onDismissListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (onDismissListener = this.this$0.mOnDismissListener) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (onDismissListener = this.this$0.mOnDismissListener) != null) {
+                onDismissListener.onDismiss();
             }
-            onDismissListener.onDismiss();
+        }
+
+        @Override // android.widget.PopupWindow.OnDismissListener
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                notifyOnDismissListener();
+                ActionProvider actionProvider = this.this$0.mProvider;
+                if (actionProvider != null) {
+                    actionProvider.subUiVisibilityChanged(false);
+                }
+            }
         }
 
         @Override // android.view.View.OnClickListener
@@ -341,18 +388,6 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     activityChooserView.showPopupUnchecked(activityChooserView.mInitialActivityCount);
                 } else {
                     throw new IllegalArgumentException();
-                }
-            }
-        }
-
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                notifyOnDismissListener();
-                ActionProvider actionProvider = this.this$0.mProvider;
-                if (actionProvider != null) {
-                    actionProvider.subUiVisibilityChanged(false);
                 }
             }
         }
@@ -388,28 +423,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 }
             }
         }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-                ActivityChooserView activityChooserView = this.this$0;
-                if (view2 == activityChooserView.mDefaultActivityButton) {
-                    if (activityChooserView.mAdapter.getCount() > 0) {
-                        ActivityChooserView activityChooserView2 = this.this$0;
-                        activityChooserView2.mIsSelectingDefaultActivity = true;
-                        activityChooserView2.showPopupUnchecked(activityChooserView2.mInitialActivityCount);
-                    }
-                    return true;
-                }
-                throw new IllegalArgumentException();
-            }
-            return invokeL.booleanValue;
-        }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public static class InnerLayout extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
@@ -458,7 +473,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActivityChooserView(@NonNull Context context) {
+    public ActivityChooserView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -478,254 +493,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    public boolean dismissPopup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (isShowingPopup()) {
-                getListPopupWindow().dismiss();
-                ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-                if (viewTreeObserver.isAlive()) {
-                    viewTreeObserver.removeGlobalOnLayoutListener(this.mOnGlobalLayoutListener);
-                    return true;
-                }
-                return true;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ActivityChooserModel getDataModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAdapter.getDataModel() : (ActivityChooserModel) invokeV.objValue;
-    }
-
-    public ListPopupWindow getListPopupWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mListPopupWindow == null) {
-                ListPopupWindow listPopupWindow = new ListPopupWindow(getContext());
-                this.mListPopupWindow = listPopupWindow;
-                listPopupWindow.setAdapter(this.mAdapter);
-                this.mListPopupWindow.setAnchorView(this);
-                this.mListPopupWindow.setModal(true);
-                this.mListPopupWindow.setOnItemClickListener(this.mCallbacks);
-                this.mListPopupWindow.setOnDismissListener(this.mCallbacks);
-            }
-            return this.mListPopupWindow;
-        }
-        return (ListPopupWindow) invokeV.objValue;
-    }
-
-    public boolean isShowingPopup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getListPopupWindow().isShowing() : invokeV.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onAttachedToWindow();
-            ActivityChooserModel dataModel = this.mAdapter.getDataModel();
-            if (dataModel != null) {
-                dataModel.registerObserver(this.mModelDataSetObserver);
-            }
-            this.mIsAttachedToWindow = true;
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onDetachedFromWindow();
-            ActivityChooserModel dataModel = this.mAdapter.getDataModel();
-            if (dataModel != null) {
-                dataModel.unregisterObserver(this.mModelDataSetObserver);
-            }
-            ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            if (viewTreeObserver.isAlive()) {
-                viewTreeObserver.removeGlobalOnLayoutListener(this.mOnGlobalLayoutListener);
-            }
-            if (isShowingPopup()) {
-                dismissPopup();
-            }
-            this.mIsAttachedToWindow = false;
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mActivityChooserContent.layout(0, 0, i3 - i, i4 - i2);
-            if (isShowingPopup()) {
-                return;
-            }
-            dismissPopup();
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            View view2 = this.mActivityChooserContent;
-            if (this.mDefaultActivityButton.getVisibility() != 0) {
-                i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), 1073741824);
-            }
-            measureChild(view2, i, i2);
-            setMeasuredDimension(view2.getMeasuredWidth(), view2.getMeasuredHeight());
-        }
-    }
-
-    @Override // androidx.appcompat.widget.ActivityChooserModel.ActivityChooserModelClient
-    public void setActivityChooserModel(ActivityChooserModel activityChooserModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activityChooserModel) == null) {
-            this.mAdapter.setDataModel(activityChooserModel);
-            if (isShowingPopup()) {
-                dismissPopup();
-                showPopup();
-            }
-        }
-    }
-
-    public void setDefaultActionButtonContentDescription(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.mDefaultActionButtonContentDescription = i;
-        }
-    }
-
-    public void setExpandActivityOverflowButtonContentDescription(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.mExpandActivityOverflowButtonImage.setContentDescription(getContext().getString(i));
-        }
-    }
-
-    public void setExpandActivityOverflowButtonDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
-            this.mExpandActivityOverflowButtonImage.setImageDrawable(drawable);
-        }
-    }
-
-    public void setInitialActivityCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.mInitialActivityCount = i;
-        }
-    }
-
-    public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onDismissListener) == null) {
-            this.mOnDismissListener = onDismissListener;
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setProvider(ActionProvider actionProvider) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, actionProvider) == null) {
-            this.mProvider = actionProvider;
-        }
-    }
-
-    public boolean showPopup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (isShowingPopup() || !this.mIsAttachedToWindow) {
-                return false;
-            }
-            this.mIsSelectingDefaultActivity = false;
-            showPopupUnchecked(this.mInitialActivityCount);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v17 */
-    /* JADX WARN: Type inference failed for: r0v8 */
-    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
-    public void showPopupUnchecked(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            if (this.mAdapter.getDataModel() != null) {
-                getViewTreeObserver().addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
-                ?? r0 = this.mDefaultActivityButton.getVisibility() == 0 ? 1 : 0;
-                int activityCount = this.mAdapter.getActivityCount();
-                if (i != Integer.MAX_VALUE && activityCount > i + r0) {
-                    this.mAdapter.setShowFooterView(true);
-                    this.mAdapter.setMaxActivityCount(i - 1);
-                } else {
-                    this.mAdapter.setShowFooterView(false);
-                    this.mAdapter.setMaxActivityCount(i);
-                }
-                ListPopupWindow listPopupWindow = getListPopupWindow();
-                if (listPopupWindow.isShowing()) {
-                    return;
-                }
-                if (!this.mIsSelectingDefaultActivity && r0 != 0) {
-                    this.mAdapter.setShowDefaultActivity(false, false);
-                } else {
-                    this.mAdapter.setShowDefaultActivity(true, r0);
-                }
-                listPopupWindow.setContentWidth(Math.min(this.mAdapter.measureContentWidth(), this.mListPopupMaxWidth));
-                listPopupWindow.show();
-                ActionProvider actionProvider = this.mProvider;
-                if (actionProvider != null) {
-                    actionProvider.subUiVisibilityChanged(true);
-                }
-                listPopupWindow.getListView().setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f003d));
-                listPopupWindow.getListView().setSelector(new ColorDrawable(0));
-                return;
-            }
-            throw new IllegalStateException("No data model. Did you call #setDataModel?");
-        }
-    }
-
-    public void updateAppearance() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.mAdapter.getCount() > 0) {
-                this.mExpandActivityOverflowButton.setEnabled(true);
-            } else {
-                this.mExpandActivityOverflowButton.setEnabled(false);
-            }
-            int activityCount = this.mAdapter.getActivityCount();
-            int historySize = this.mAdapter.getHistorySize();
-            if (activityCount != 1 && (activityCount <= 1 || historySize <= 0)) {
-                this.mDefaultActivityButton.setVisibility(8);
-            } else {
-                this.mDefaultActivityButton.setVisibility(0);
-                ResolveInfo defaultActivity = this.mAdapter.getDefaultActivity();
-                PackageManager packageManager = getContext().getPackageManager();
-                this.mDefaultActivityButtonImage.setImageDrawable(defaultActivity.loadIcon(packageManager));
-                if (this.mDefaultActionButtonContentDescription != 0) {
-                    this.mDefaultActivityButton.setContentDescription(getContext().getString(this.mDefaultActionButtonContentDescription, defaultActivity.loadLabel(packageManager)));
-                }
-            }
-            if (this.mDefaultActivityButton.getVisibility() == 0) {
-                this.mActivityChooserContent.setBackgroundDrawable(this.mActivityChooserContentBackground);
-            } else {
-                this.mActivityChooserContent.setBackgroundDrawable(null);
-            }
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActivityChooserView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public ActivityChooserView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -746,7 +515,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActivityChooserView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ActivityChooserView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -855,12 +624,12 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         View findViewById = findViewById(R.id.obfuscated_res_0x7f090074);
         this.mActivityChooserContent = findViewById;
         this.mActivityChooserContentBackground = findViewById.getBackground();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09077d);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090786);
         this.mDefaultActivityButton = frameLayout;
         frameLayout.setOnClickListener(this.mCallbacks);
         this.mDefaultActivityButton.setOnLongClickListener(this.mCallbacks);
-        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R.id.obfuscated_res_0x7f090e94);
-        FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090953);
+        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R.id.obfuscated_res_0x7f090e88);
+        FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09095d);
         frameLayout2.setOnClickListener(this.mCallbacks);
         frameLayout2.setAccessibilityDelegate(new View.AccessibilityDelegate(this) { // from class: androidx.appcompat.widget.ActivityChooserView.3
             public static /* synthetic */ Interceptable $ic;
@@ -924,7 +693,10 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             public ShowableListMenu getPopup() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.this$0.getListPopupWindow() : (ShowableListMenu) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return this.this$0.getListPopupWindow();
+                }
+                return (ShowableListMenu) invokeV.objValue;
             }
 
             @Override // androidx.appcompat.widget.ForwardingListener
@@ -950,7 +722,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         });
         this.mExpandActivityOverflowButton = frameLayout2;
-        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.obfuscated_res_0x7f090e94);
+        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.obfuscated_res_0x7f090e88);
         this.mExpandActivityOverflowButtonImage = imageView;
         imageView.setImageDrawable(drawable);
         ActivityChooserViewAdapter activityChooserViewAdapter = new ActivityChooserViewAdapter(this);
@@ -989,5 +761,260 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         });
         Resources resources = context.getResources();
         this.mListPopupMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700a2));
+    }
+
+    public boolean dismissPopup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (isShowingPopup()) {
+                getListPopupWindow().dismiss();
+                ViewTreeObserver viewTreeObserver = getViewTreeObserver();
+                if (viewTreeObserver.isAlive()) {
+                    viewTreeObserver.removeGlobalOnLayoutListener(this.mOnGlobalLayoutListener);
+                    return true;
+                }
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ActivityChooserModel getDataModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAdapter.getDataModel();
+        }
+        return (ActivityChooserModel) invokeV.objValue;
+    }
+
+    public boolean isShowingPopup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getListPopupWindow().isShowing();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onAttachedToWindow();
+            ActivityChooserModel dataModel = this.mAdapter.getDataModel();
+            if (dataModel != null) {
+                dataModel.registerObserver(this.mModelDataSetObserver);
+            }
+            this.mIsAttachedToWindow = true;
+        }
+    }
+
+    public boolean showPopup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (isShowingPopup() || !this.mIsAttachedToWindow) {
+                return false;
+            }
+            this.mIsSelectingDefaultActivity = false;
+            showPopupUnchecked(this.mInitialActivityCount);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ListPopupWindow getListPopupWindow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mListPopupWindow == null) {
+                ListPopupWindow listPopupWindow = new ListPopupWindow(getContext());
+                this.mListPopupWindow = listPopupWindow;
+                listPopupWindow.setAdapter(this.mAdapter);
+                this.mListPopupWindow.setAnchorView(this);
+                this.mListPopupWindow.setModal(true);
+                this.mListPopupWindow.setOnItemClickListener(this.mCallbacks);
+                this.mListPopupWindow.setOnDismissListener(this.mCallbacks);
+            }
+            return this.mListPopupWindow;
+        }
+        return (ListPopupWindow) invokeV.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDetachedFromWindow();
+            ActivityChooserModel dataModel = this.mAdapter.getDataModel();
+            if (dataModel != null) {
+                dataModel.unregisterObserver(this.mModelDataSetObserver);
+            }
+            ViewTreeObserver viewTreeObserver = getViewTreeObserver();
+            if (viewTreeObserver.isAlive()) {
+                viewTreeObserver.removeGlobalOnLayoutListener(this.mOnGlobalLayoutListener);
+            }
+            if (isShowingPopup()) {
+                dismissPopup();
+            }
+            this.mIsAttachedToWindow = false;
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mActivityChooserContent.layout(0, 0, i3 - i, i4 - i2);
+            if (!isShowingPopup()) {
+                dismissPopup();
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            View view2 = this.mActivityChooserContent;
+            if (this.mDefaultActivityButton.getVisibility() != 0) {
+                i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), 1073741824);
+            }
+            measureChild(view2, i, i2);
+            setMeasuredDimension(view2.getMeasuredWidth(), view2.getMeasuredHeight());
+        }
+    }
+
+    @Override // androidx.appcompat.widget.ActivityChooserModel.ActivityChooserModelClient
+    public void setActivityChooserModel(ActivityChooserModel activityChooserModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activityChooserModel) == null) {
+            this.mAdapter.setDataModel(activityChooserModel);
+            if (isShowingPopup()) {
+                dismissPopup();
+                showPopup();
+            }
+        }
+    }
+
+    public void setDefaultActionButtonContentDescription(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mDefaultActionButtonContentDescription = i;
+        }
+    }
+
+    public void setExpandActivityOverflowButtonContentDescription(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mExpandActivityOverflowButtonImage.setContentDescription(getContext().getString(i));
+        }
+    }
+
+    public void setExpandActivityOverflowButtonDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
+            this.mExpandActivityOverflowButtonImage.setImageDrawable(drawable);
+        }
+    }
+
+    public void setInitialActivityCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mInitialActivityCount = i;
+        }
+    }
+
+    public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onDismissListener) == null) {
+            this.mOnDismissListener = onDismissListener;
+        }
+    }
+
+    public void setProvider(ActionProvider actionProvider) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, actionProvider) == null) {
+            this.mProvider = actionProvider;
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: androidx.appcompat.widget.ActivityChooserView$ActivityChooserViewAdapter */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v17 */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
+    public void showPopupUnchecked(int i) {
+        ?? r0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            if (this.mAdapter.getDataModel() != null) {
+                getViewTreeObserver().addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
+                if (this.mDefaultActivityButton.getVisibility() == 0) {
+                    r0 = 1;
+                } else {
+                    r0 = 0;
+                }
+                int activityCount = this.mAdapter.getActivityCount();
+                if (i != Integer.MAX_VALUE && activityCount > i + r0) {
+                    this.mAdapter.setShowFooterView(true);
+                    this.mAdapter.setMaxActivityCount(i - 1);
+                } else {
+                    this.mAdapter.setShowFooterView(false);
+                    this.mAdapter.setMaxActivityCount(i);
+                }
+                ListPopupWindow listPopupWindow = getListPopupWindow();
+                if (!listPopupWindow.isShowing()) {
+                    if (!this.mIsSelectingDefaultActivity && r0 != 0) {
+                        this.mAdapter.setShowDefaultActivity(false, false);
+                    } else {
+                        this.mAdapter.setShowDefaultActivity(true, r0);
+                    }
+                    listPopupWindow.setContentWidth(Math.min(this.mAdapter.measureContentWidth(), this.mListPopupMaxWidth));
+                    listPopupWindow.show();
+                    ActionProvider actionProvider = this.mProvider;
+                    if (actionProvider != null) {
+                        actionProvider.subUiVisibilityChanged(true);
+                    }
+                    listPopupWindow.getListView().setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f003d));
+                    listPopupWindow.getListView().setSelector(new ColorDrawable(0));
+                    return;
+                }
+                return;
+            }
+            throw new IllegalStateException("No data model. Did you call #setDataModel?");
+        }
+    }
+
+    public void updateAppearance() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            if (this.mAdapter.getCount() > 0) {
+                this.mExpandActivityOverflowButton.setEnabled(true);
+            } else {
+                this.mExpandActivityOverflowButton.setEnabled(false);
+            }
+            int activityCount = this.mAdapter.getActivityCount();
+            int historySize = this.mAdapter.getHistorySize();
+            if (activityCount != 1 && (activityCount <= 1 || historySize <= 0)) {
+                this.mDefaultActivityButton.setVisibility(8);
+            } else {
+                this.mDefaultActivityButton.setVisibility(0);
+                ResolveInfo defaultActivity = this.mAdapter.getDefaultActivity();
+                PackageManager packageManager = getContext().getPackageManager();
+                this.mDefaultActivityButtonImage.setImageDrawable(defaultActivity.loadIcon(packageManager));
+                if (this.mDefaultActionButtonContentDescription != 0) {
+                    this.mDefaultActivityButton.setContentDescription(getContext().getString(this.mDefaultActionButtonContentDescription, defaultActivity.loadLabel(packageManager)));
+                }
+            }
+            if (this.mDefaultActivityButton.getVisibility() == 0) {
+                this.mActivityChooserContent.setBackgroundDrawable(this.mActivityChooserContentBackground);
+            } else {
+                this.mActivityChooserContent.setBackgroundDrawable(null);
+            }
+        }
     }
 }

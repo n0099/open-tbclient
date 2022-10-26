@@ -50,22 +50,30 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.context : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.context;
+        }
+        return (Context) invokeV.objValue;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public final void onCreate() {
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ListLogKt.log(MixTagConstants.MIX_YY_LIVE, "onActivityCreate " + this.context.hashCode());
             try {
                 PluginInvokeService pluginInvokeService = this.pluginInvokeService;
-                Object obj = null;
-                Object createYYMixLiveSingletonManagerImpl = pluginInvokeService != null ? pluginInvokeService.createYYMixLiveSingletonManagerImpl() : null;
-                if (createYYMixLiveSingletonManagerImpl instanceof MixLiveSingletonManagerInterface) {
-                    obj = createYYMixLiveSingletonManagerImpl;
+                Object obj2 = null;
+                if (pluginInvokeService != null) {
+                    obj = pluginInvokeService.createYYMixLiveSingletonManagerImpl();
+                } else {
+                    obj = null;
                 }
-                this.mixLiveImpl = (MixLiveSingletonManagerInterface) obj;
+                if (obj instanceof MixLiveSingletonManagerInterface) {
+                    obj2 = obj;
+                }
+                this.mixLiveImpl = (MixLiveSingletonManagerInterface) obj2;
             } catch (Throwable th) {
                 th.printStackTrace();
                 ListLogKt.log(MixTagConstants.MIX_YY_LIVE, "crash throwable th" + th);
@@ -74,10 +82,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
                 MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
                 if (mixLiveSingletonManagerInterface != null) {
                     Context context = this.context;
-                    if (context == null) {
-                        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                    if (context != null) {
+                        mixLiveSingletonManagerInterface.onActivityCreate((Activity) context);
+                        return;
                     }
-                    mixLiveSingletonManagerInterface.onActivityCreate((Activity) context);
+                    throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
                 }
             } catch (Throwable th2) {
                 th2.printStackTrace();
@@ -95,10 +104,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
                 MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
                 if (mixLiveSingletonManagerInterface != null) {
                     Context context = this.context;
-                    if (context == null) {
-                        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                    if (context != null) {
+                        mixLiveSingletonManagerInterface.onActivityDestroy((Activity) context);
+                        return;
                     }
-                    mixLiveSingletonManagerInterface.onActivityDestroy((Activity) context);
+                    throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -116,10 +126,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
                 MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
                 if (mixLiveSingletonManagerInterface != null) {
                     Context context = this.context;
-                    if (context == null) {
-                        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                    if (context != null) {
+                        mixLiveSingletonManagerInterface.onActivityPause((Activity) context);
+                        return;
                     }
-                    mixLiveSingletonManagerInterface.onActivityPause((Activity) context);
+                    throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -137,10 +148,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
                 MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
                 if (mixLiveSingletonManagerInterface != null) {
                     Context context = this.context;
-                    if (context == null) {
-                        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                    if (context != null) {
+                        mixLiveSingletonManagerInterface.onActivityResume((Activity) context);
+                        return;
                     }
-                    mixLiveSingletonManagerInterface.onActivityResume((Activity) context);
+                    throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -158,10 +170,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
                 MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
                 if (mixLiveSingletonManagerInterface != null) {
                     Context context = this.context;
-                    if (context == null) {
-                        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                    if (context != null) {
+                        mixLiveSingletonManagerInterface.onActivityStart((Activity) context);
+                        return;
                     }
-                    mixLiveSingletonManagerInterface.onActivityStart((Activity) context);
+                    throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -179,10 +192,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
                 MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
                 if (mixLiveSingletonManagerInterface != null) {
                     Context context = this.context;
-                    if (context == null) {
-                        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                    if (context != null) {
+                        mixLiveSingletonManagerInterface.onActivityStop((Activity) context);
+                        return;
                     }
-                    mixLiveSingletonManagerInterface.onActivityStop((Activity) context);
+                    throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

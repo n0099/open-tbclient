@@ -19,7 +19,7 @@ public class MtjConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class FeedTrackStrategy {
+    public final class FeedTrackStrategy {
         public static /* synthetic */ Interceptable $ic;
         public static final FeedTrackStrategy TRACK_ALL;
         public static final FeedTrackStrategy TRACK_NONE;
@@ -69,19 +69,25 @@ public class MtjConfig {
         public static FeedTrackStrategy valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FeedTrackStrategy) Enum.valueOf(FeedTrackStrategy.class, str) : (FeedTrackStrategy) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (FeedTrackStrategy) Enum.valueOf(FeedTrackStrategy.class, str);
+            }
+            return (FeedTrackStrategy) invokeL.objValue;
         }
 
         public static FeedTrackStrategy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FeedTrackStrategy[]) a.clone() : (FeedTrackStrategy[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (FeedTrackStrategy[]) a.clone();
+            }
+            return (FeedTrackStrategy[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class PushPlatform {
+    public final class PushPlatform {
         public static /* synthetic */ Interceptable $ic;
         public static final PushPlatform ALIYUN;
         public static final PushPlatform BAIDUYUN;
@@ -150,19 +156,28 @@ public class MtjConfig {
         public static PushPlatform valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PushPlatform) Enum.valueOf(PushPlatform.class, str) : (PushPlatform) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PushPlatform) Enum.valueOf(PushPlatform.class, str);
+            }
+            return (PushPlatform) invokeL.objValue;
         }
 
         public static PushPlatform[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) c.clone() : (PushPlatform[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PushPlatform[]) c.clone();
+            }
+            return (PushPlatform[]) invokeV.objValue;
         }
 
         public String showName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String value() {

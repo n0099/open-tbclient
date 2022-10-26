@@ -21,6 +21,16 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
     public ByteBuffer outputBuffer;
     public int sampleRateHz;
 
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public int getOutputEncoding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
     public ResamplingAudioProcessor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,29 +50,6 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
         ByteBuffer byteBuffer = AudioProcessor.EMPTY_BUFFER;
         this.buffer = byteBuffer;
         this.outputBuffer = byteBuffer;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
-            if (i3 != 3 && i3 != 2 && i3 != Integer.MIN_VALUE && i3 != 1073741824) {
-                throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
-            }
-            if (this.sampleRateHz == i && this.channelCount == i2 && this.encoding == i3) {
-                return false;
-            }
-            this.sampleRateHz = i;
-            this.channelCount = i2;
-            this.encoding = i3;
-            if (i3 == 2) {
-                this.buffer = AudioProcessor.EMPTY_BUFFER;
-                return true;
-            }
-            return true;
-        }
-        return invokeIII.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -90,15 +77,8 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
     public int getOutputChannelCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.channelCount : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int getOutputEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.channelCount;
         }
         return invokeV.intValue;
     }
@@ -107,7 +87,10 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
     public int getOutputSampleRateHz() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sampleRateHz : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sampleRateHz;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -116,7 +99,10 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int i = this.encoding;
-            return (i == 0 || i == 2) ? false : true;
+            if (i != 0 && i != 2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -125,7 +111,13 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
     public boolean isEnded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.inputEnded && this.outputBuffer == AudioProcessor.EMPTY_BUFFER : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.inputEnded && this.outputBuffer == AudioProcessor.EMPTY_BUFFER) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -134,6 +126,41 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.inputEnded = true;
         }
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            flush();
+            this.buffer = AudioProcessor.EMPTY_BUFFER;
+            this.sampleRateHz = -1;
+            this.channelCount = -1;
+            this.encoding = 0;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            if (i3 != 3 && i3 != 2 && i3 != Integer.MIN_VALUE && i3 != 1073741824) {
+                throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
+            }
+            if (this.sampleRateHz == i && this.channelCount == i2 && this.encoding == i3) {
+                return false;
+            }
+            this.sampleRateHz = i;
+            this.channelCount = i2;
+            this.encoding = i3;
+            if (i3 == 2) {
+                this.buffer = AudioProcessor.EMPTY_BUFFER;
+                return true;
+            }
+            return true;
+        }
+        return invokeIII.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x002f  */
@@ -154,65 +181,59 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
             int limit = byteBuffer.limit();
             int i3 = limit - position;
             int i4 = this.encoding;
-            if (i4 == Integer.MIN_VALUE) {
-                i3 /= 3;
-            } else if (i4 != 3) {
-                if (i4 == 1073741824) {
-                    i = i3 / 2;
-                    if (this.buffer.capacity() >= i) {
-                        this.buffer = ByteBuffer.allocateDirect(i).order(ByteOrder.nativeOrder());
-                    } else {
-                        this.buffer.clear();
+            if (i4 != Integer.MIN_VALUE) {
+                if (i4 != 3) {
+                    if (i4 == 1073741824) {
+                        i = i3 / 2;
+                        if (this.buffer.capacity() >= i) {
+                            this.buffer = ByteBuffer.allocateDirect(i).order(ByteOrder.nativeOrder());
+                        } else {
+                            this.buffer.clear();
+                        }
+                        i2 = this.encoding;
+                        if (i2 == Integer.MIN_VALUE) {
+                            if (i2 != 3) {
+                                if (i2 == 1073741824) {
+                                    while (position < limit) {
+                                        this.buffer.put(byteBuffer.get(position + 2));
+                                        this.buffer.put(byteBuffer.get(position + 3));
+                                        position += 4;
+                                    }
+                                } else {
+                                    throw new IllegalStateException();
+                                }
+                            } else {
+                                while (position < limit) {
+                                    this.buffer.put((byte) 0);
+                                    this.buffer.put((byte) ((byteBuffer.get(position) & 255) - 128));
+                                    position++;
+                                }
+                            }
+                        } else {
+                            while (position < limit) {
+                                this.buffer.put(byteBuffer.get(position + 1));
+                                this.buffer.put(byteBuffer.get(position + 2));
+                                position += 3;
+                            }
+                        }
+                        byteBuffer.position(byteBuffer.limit());
+                        this.buffer.flip();
+                        this.outputBuffer = this.buffer;
                     }
-                    i2 = this.encoding;
-                    if (i2 != Integer.MIN_VALUE) {
-                        while (position < limit) {
-                            this.buffer.put(byteBuffer.get(position + 1));
-                            this.buffer.put(byteBuffer.get(position + 2));
-                            position += 3;
-                        }
-                    } else if (i2 == 3) {
-                        while (position < limit) {
-                            this.buffer.put((byte) 0);
-                            this.buffer.put((byte) ((byteBuffer.get(position) & 255) - 128));
-                            position++;
-                        }
-                    } else if (i2 != 1073741824) {
-                        throw new IllegalStateException();
-                    } else {
-                        while (position < limit) {
-                            this.buffer.put(byteBuffer.get(position + 2));
-                            this.buffer.put(byteBuffer.get(position + 3));
-                            position += 4;
-                        }
-                    }
-                    byteBuffer.position(byteBuffer.limit());
-                    this.buffer.flip();
-                    this.outputBuffer = this.buffer;
+                    throw new IllegalStateException();
                 }
-                throw new IllegalStateException();
+            } else {
+                i3 /= 3;
             }
             i = i3 * 2;
             if (this.buffer.capacity() >= i) {
             }
             i2 = this.encoding;
-            if (i2 != Integer.MIN_VALUE) {
+            if (i2 == Integer.MIN_VALUE) {
             }
             byteBuffer.position(byteBuffer.limit());
             this.buffer.flip();
             this.outputBuffer = this.buffer;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            flush();
-            this.buffer = AudioProcessor.EMPTY_BUFFER;
-            this.sampleRateHz = -1;
-            this.channelCount = -1;
-            this.encoding = 0;
         }
     }
 }

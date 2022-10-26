@@ -77,10 +77,9 @@ public final class MixNetwork$downloadSync$1 implements DownLoadCallback {
                 public final void run() {
                     MixNetDownloadCallback mixNetDownloadCallback;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (mixNetDownloadCallback = this.this$0.$callback) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (mixNetDownloadCallback = this.this$0.$callback) != null) {
+                        mixNetDownloadCallback.onFileDownloaded(this.$key, this.$statusCode, this.$errCode, this.$exception);
                     }
-                    mixNetDownloadCallback.onFileDownloaded(this.$key, this.$statusCode, this.$errCode, this.$exception);
                 }
             });
         }
@@ -125,10 +124,9 @@ public final class MixNetwork$downloadSync$1 implements DownLoadCallback {
                 public final void run() {
                     MixNetDownloadCallback mixNetDownloadCallback;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (mixNetDownloadCallback = this.this$0.$callback) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (mixNetDownloadCallback = this.this$0.$callback) != null) {
+                        mixNetDownloadCallback.onFileUpdateProgress(this.$key, this.$downloadLength, this.$totalLength);
                     }
-                    mixNetDownloadCallback.onFileUpdateProgress(this.$key, this.$downloadLength, this.$totalLength);
                 }
             });
         }

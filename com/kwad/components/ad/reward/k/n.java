@@ -46,7 +46,7 @@ public final class n extends d implements View.OnClickListener {
     public ViewStub vk;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String kY;
@@ -186,15 +186,15 @@ public final class n extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091115);
-            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f091119);
-            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091118);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09111c);
-            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09111b);
-            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091116);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091117);
-            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091114);
-            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091113);
+            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091109);
+            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09110d);
+            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09110c);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091110);
+            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09110f);
+            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09110a);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09110b);
+            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091108);
+            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091107);
             this.vM.setOnClickListener(this);
             this.vQ.setOnClickListener(this);
             this.vP.setOnClickListener(this);

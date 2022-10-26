@@ -13,6 +13,22 @@ public class Asc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native String fai(String str, String str2, String str3);
+
+    public native byte[] ac(byte[] bArr, byte[] bArr2);
+
+    public native byte[] acn(byte[] bArr, byte[] bArr2);
+
+    public native byte[] ar(byte[] bArr, byte[] bArr2);
+
+    public native byte[] dc(byte[] bArr, byte[] bArr2);
+
+    public native byte[] dcn(byte[] bArr, byte[] bArr2);
+
+    public native int df(String str, String str2, byte[] bArr);
+
+    public native byte[] dr(byte[] bArr, byte[] bArr2);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -46,20 +62,4 @@ public class Asc {
             }
         }
     }
-
-    public static native String fai(String str, String str2, String str3);
-
-    public native byte[] ac(byte[] bArr, byte[] bArr2);
-
-    public native byte[] acn(byte[] bArr, byte[] bArr2);
-
-    public native byte[] ar(byte[] bArr, byte[] bArr2);
-
-    public native byte[] dc(byte[] bArr, byte[] bArr2);
-
-    public native byte[] dcn(byte[] bArr, byte[] bArr2);
-
-    public native int df(String str, String str2, byte[] bArr);
-
-    public native byte[] dr(byte[] bArr, byte[] bArr2);
 }

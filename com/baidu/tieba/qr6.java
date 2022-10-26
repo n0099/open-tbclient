@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.shrinkhead.LogicField;
+import tbclient.ThemeElement;
 /* loaded from: classes5.dex */
-public interface qr6 {
-    void d(int i, @NonNull String str);
+public interface qr6 extends wr6 {
+    Object a(LogicField logicField);
 
-    void g(boolean z);
+    void b(ThemeElement themeElement);
 
-    void h(View.OnClickListener onClickListener);
+    void c(FrsFragment frsFragment, View view2);
 
-    void i(long j, long j2);
+    ur6 e();
 
-    void j(@Nullable String str, @NonNull String str2);
+    void f(boolean z);
 
-    void k(@NonNull LogicField logicField, int i);
-
-    void onChangeSkinType(int i);
+    int l(LogicField logicField);
 }

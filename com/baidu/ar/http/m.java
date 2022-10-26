@@ -24,8 +24,8 @@ public class m implements k {
     public Charset qI;
     public StringBuilder qJ;
     public String rm;
-    public Map<String, String> rn;
-    public Map<String, byte[]> ro;
+    public Map rn;
+    public Map ro;
     public int rp;
 
     public m() {
@@ -111,9 +111,9 @@ public class m implements k {
             String str = "";
             if (!this.rn.isEmpty()) {
                 String str2 = "";
-                for (Map.Entry<String, String> entry : this.rn.entrySet()) {
-                    arrayList.add(a(str2, entry.getKey(), new File(entry.getValue()).getName(), j.ar(entry.getValue()), false));
-                    arrayList.add(new FileInputStream(entry.getValue()));
+                for (Map.Entry entry : this.rn.entrySet()) {
+                    arrayList.add(a(str2, (String) entry.getKey(), new File((String) entry.getValue()).getName(), j.ar((String) entry.getValue()), false));
+                    arrayList.add(new FileInputStream((String) entry.getValue()));
                     str2 = "\r\n";
                 }
                 str = str2;
@@ -122,9 +122,9 @@ public class m implements k {
                 String valueOf = String.valueOf(System.currentTimeMillis());
                 int i = 1;
                 String str3 = str;
-                for (Map.Entry<String, byte[]> entry2 : this.ro.entrySet()) {
-                    arrayList.add(a(str3, entry2.getKey(), valueOf + i + ".jpg", "application/octet-stream", true));
-                    arrayList.add(new ByteArrayInputStream(entry2.getValue()));
+                for (Map.Entry entry2 : this.ro.entrySet()) {
+                    arrayList.add(a(str3, (String) entry2.getKey(), valueOf + i + ".jpg", "application/octet-stream", true));
+                    arrayList.add(new ByteArrayInputStream((byte[]) entry2.getValue()));
                     str3 = "\r\n";
                     i++;
                 }

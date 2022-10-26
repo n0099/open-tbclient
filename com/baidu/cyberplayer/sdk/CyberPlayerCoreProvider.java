@@ -22,16 +22,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-@Keep
 /* loaded from: classes.dex */
 public abstract class CyberPlayerCoreProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    @Keep
     /* loaded from: classes.dex */
-    public static final class LibsVersionType {
+    public final class LibsVersionType {
         public static /* synthetic */ Interceptable $ic;
         public static final LibsVersionType ALL_VERSION;
         public static final LibsVersionType SUCCESS_LOADED_VERSION;
@@ -135,13 +133,13 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract String getCoreVersion();
 
-    public abstract int getDevicePlayQualityScore(String str, int i, int i2, int i3, Map<String, String> map);
+    public abstract int getDevicePlayQualityScore(String str, int i, int i2, int i3, Map map);
 
     public abstract String[] getLibsSearchPath();
 
-    public abstract Map<String, String> getLibsVersion(LibsVersionType libsVersionType);
+    public abstract Map getLibsVersion(LibsVersionType libsVersionType);
 
-    public abstract HashMap<Integer, Long> getSystemInfraInfo();
+    public abstract HashMap getSystemInfraInfo();
 
     public abstract boolean hasCacheFile(String str);
 
@@ -151,7 +149,7 @@ public abstract class CyberPlayerCoreProvider {
 
     public abstract int kernelNetInit(long j);
 
-    public abstract void loadlibs(int i, Map<String, String> map) throws FileNotFoundException, UnsatisfiedLinkError, SecurityException;
+    public abstract void loadlibs(int i, Map map) throws FileNotFoundException, UnsatisfiedLinkError, SecurityException;
 
     public abstract void pauseDownload(String str);
 

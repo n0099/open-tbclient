@@ -1,6 +1,5 @@
 package com.baidu.live.feed.search.model.data;
 
-import androidx.annotation.NonNull;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,11 +15,11 @@ public class SearchResultBean {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasmore;
     public LiveErrorInfo liveErrorInfo;
-    public ArrayList<LiveRoomEntity> recommendList;
+    public ArrayList recommendList;
     public String refreshIndex;
     public String refreshType;
-    public ArrayList<LiveSearchResultInfo> searchResultList;
-    public ArrayList<LiveRoomEntity> searchResultVideoList;
+    public ArrayList searchResultList;
+    public ArrayList searchResultVideoList;
     public String sessionId;
     public String subtab;
     public String tab;
@@ -41,8 +40,7 @@ public class SearchResultBean {
         this.hasmore = false;
     }
 
-    @NonNull
-    public void parse(@NonNull JSONObject jSONObject) {
+    public void parse(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             LiveErrorInfo liveErrorInfo = new LiveErrorInfo();
@@ -55,7 +53,7 @@ public class SearchResultBean {
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("recommend_info");
                 if (optJSONObject2 != null) {
                     JSONArray optJSONArray = optJSONObject2.optJSONArray("anchor_list");
-                    this.searchResultList = new ArrayList<>();
+                    this.searchResultList = new ArrayList();
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             JSONObject optJSONObject5 = optJSONArray.optJSONObject(i);
@@ -68,9 +66,13 @@ public class SearchResultBean {
                     }
                 }
                 if (optJSONObject3 != null) {
-                    this.hasmore = optJSONObject3.optInt("has_more") == 1;
+                    boolean z = true;
+                    if (optJSONObject3.optInt("has_more") != 1) {
+                        z = false;
+                    }
+                    this.hasmore = z;
                     JSONArray optJSONArray2 = optJSONObject3.optJSONArray("live_list");
-                    this.searchResultVideoList = new ArrayList<>();
+                    this.searchResultVideoList = new ArrayList();
                     if (optJSONArray2 != null) {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i2);
@@ -89,7 +91,7 @@ public class SearchResultBean {
                     this.tab = optJSONObject4.optString("tab");
                     this.subtab = optJSONObject4.optString("subtab");
                     JSONArray optJSONArray3 = optJSONObject4.optJSONArray("items");
-                    this.recommendList = new ArrayList<>();
+                    this.recommendList = new ArrayList();
                     if (optJSONArray3 != null) {
                         for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                             JSONObject optJSONObject7 = optJSONArray3.optJSONObject(i3);

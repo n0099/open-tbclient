@@ -8,19 +8,21 @@ import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
 import com.ss.android.socialbase.downloader.depend.IDownloadListener;
 import com.ss.android.socialbase.downloader.depend.ac;
 import com.ss.android.socialbase.downloader.depend.af;
+import com.ss.android.socialbase.downloader.depend.x;
 import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.impls.DownloadHandleService;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d {
     public static volatile d a;
-    public volatile SparseArray<Boolean> b = new SparseArray<>();
+    public volatile SparseArray b = new SparseArray();
     public Handler c = new Handler(Looper.getMainLooper());
-    public volatile List<ac> d = new ArrayList();
+    public volatile List d = new ArrayList();
 
     public static d a() {
         if (a == null) {
@@ -31,15 +33,147 @@ public class d {
         return a;
     }
 
-    public void b(ac acVar) {
-        if (acVar == null) {
-            return;
-        }
+    public void b() {
         synchronized (this.d) {
-            if (this.d.contains(acVar)) {
-                this.d.remove(acVar);
+            for (ac acVar : this.d) {
+                if (acVar != null) {
+                    acVar.a();
+                }
             }
         }
+    }
+
+    public void c() {
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        if (a2 != null) {
+            a2.a();
+        }
+        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
+        if (a3 != null) {
+            a3.a();
+        }
+    }
+
+    public boolean d() {
+        return c.O();
+    }
+
+    public List e() {
+        List list;
+        SparseArray sparseArray = new SparseArray();
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        List list2 = null;
+        if (a2 != null) {
+            list = a2.d();
+        } else {
+            list = null;
+        }
+        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
+        if (a3 != null) {
+            list2 = a3.d();
+        }
+        return a(list, list2, sparseArray);
+    }
+
+    public boolean f() {
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        if (a2 == null) {
+            return false;
+        }
+        return a2.e();
+    }
+
+    private List a(List list, List list2, SparseArray sparseArray) {
+        ArrayList arrayList = new ArrayList();
+        if (list != null) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                DownloadInfo downloadInfo = (DownloadInfo) it.next();
+                if (downloadInfo != null && sparseArray.get(downloadInfo.getId()) == null) {
+                    sparseArray.put(downloadInfo.getId(), downloadInfo);
+                }
+            }
+        }
+        if (list2 != null) {
+            Iterator it2 = list2.iterator();
+            while (it2.hasNext()) {
+                DownloadInfo downloadInfo2 = (DownloadInfo) it2.next();
+                if (downloadInfo2 != null && sparseArray.get(downloadInfo2.getId()) == null) {
+                    sparseArray.put(downloadInfo2.getId(), downloadInfo2);
+                }
+            }
+        }
+        for (int i = 0; i < sparseArray.size(); i++) {
+            arrayList.add((DownloadInfo) sparseArray.get(sparseArray.keyAt(i)));
+        }
+        return arrayList;
+    }
+
+    private m b(DownloadTask downloadTask) {
+        DownloadInfo downloadInfo;
+        boolean z;
+        List i;
+        if (downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
+            return null;
+        }
+        downloadInfo.isNeedIndependentProcess();
+        boolean z2 = true;
+        boolean z3 = (com.ss.android.socialbase.downloader.i.f.c() || !com.ss.android.socialbase.downloader.i.f.a()) ? true : true;
+        int a2 = a(downloadInfo.getId());
+        if (a2 >= 0 && a2 != z3) {
+            try {
+                if (a2 == 1) {
+                    if (com.ss.android.socialbase.downloader.i.f.a()) {
+                        com.ss.android.socialbase.downloader.impls.l.a(true).a(downloadInfo.getId());
+                        DownloadInfo h = com.ss.android.socialbase.downloader.impls.l.a(true).h(downloadInfo.getId());
+                        if (h != null) {
+                            com.ss.android.socialbase.downloader.impls.l.a(false).b(h);
+                        }
+                        if (h.getChunkCount() > 1 && (i = com.ss.android.socialbase.downloader.impls.l.a(true).i(downloadInfo.getId())) != null) {
+                            com.ss.android.socialbase.downloader.impls.l.a(false).a(downloadInfo.getId(), com.ss.android.socialbase.downloader.i.f.a(i));
+                        }
+                    }
+                } else if (com.ss.android.socialbase.downloader.i.f.a()) {
+                    com.ss.android.socialbase.downloader.impls.l.a(false).a(downloadInfo.getId());
+                    List i2 = com.ss.android.socialbase.downloader.impls.l.a(false).i(downloadInfo.getId());
+                    if (i2 != null) {
+                        com.ss.android.socialbase.downloader.impls.l.a(true).a(downloadInfo.getId(), com.ss.android.socialbase.downloader.i.f.a(i2));
+                    }
+                } else {
+                    downloadTask.setNeedDelayForCacheSync(true);
+                    com.ss.android.socialbase.downloader.impls.l.a(true).a(1, downloadInfo.getId());
+                }
+            } catch (Throwable unused) {
+            }
+        }
+        int id = downloadInfo.getId();
+        if (z3) {
+            z = true;
+        } else {
+            z = false;
+        }
+        a(id, z);
+        if (!z3) {
+            z2 = false;
+        }
+        return com.ss.android.socialbase.downloader.impls.l.a(z2);
+    }
+
+    public int a(int i) {
+        if (!c.S()) {
+            return -1;
+        }
+        if (!com.ss.android.socialbase.downloader.i.f.c() && com.ss.android.socialbase.downloader.impls.l.a(true).g()) {
+            return com.ss.android.socialbase.downloader.impls.l.a(true).m(i);
+        }
+        return b(i);
+    }
+
+    public synchronized int b(int i) {
+        if (this.b.get(i) == null) {
+            return -1;
+        }
+        return ((Boolean) this.b.get(i)).booleanValue() ? 1 : 0;
     }
 
     public m c(int i) {
@@ -47,20 +181,38 @@ public class d {
         return com.ss.android.socialbase.downloader.impls.l.a((a(i) != 1 || com.ss.android.socialbase.downloader.i.f.c()) ? false : false);
     }
 
-    public void d(int i) {
-        m c = c(i);
-        if (c == null) {
-            return;
+    public List d(String str) {
+        List list;
+        SparseArray sparseArray = new SparseArray();
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        List list2 = null;
+        if (a2 != null) {
+            list = a2.d(str);
+        } else {
+            list = null;
         }
-        c.a(i);
+        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
+        if (a3 != null) {
+            list2 = a3.d(str);
+        }
+        return a(list, list2, sparseArray);
     }
 
-    public boolean e(int i) {
-        m c = c(i);
-        if (c == null) {
-            return false;
+    public List e(String str) {
+        List list;
+        SparseArray sparseArray = new SparseArray();
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        List list2 = null;
+        if (a2 != null) {
+            list = a2.e(str);
+        } else {
+            list = null;
         }
-        return c.b(i);
+        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
+        if (a3 != null) {
+            list2 = a3.e(str);
+        }
+        return a(list, list2, sparseArray);
     }
 
     public void f(int i) {
@@ -174,6 +326,168 @@ public class d {
         return c.s(i);
     }
 
+    public int a(String str, String str2) {
+        return c.a(str, str2);
+    }
+
+    public DownloadInfo b(String str, String str2) {
+        int a2 = a(str, str2);
+        m c = c(a2);
+        if (c == null) {
+            return null;
+        }
+        return c.h(a2);
+    }
+
+    public void d(int i, boolean z) {
+        m c = c(i);
+        if (c == null) {
+            return;
+        }
+        c.b(i, z);
+    }
+
+    public List a(String str) {
+        List a2 = com.ss.android.socialbase.downloader.impls.l.a(false).a(str);
+        List a3 = com.ss.android.socialbase.downloader.impls.l.a(true).a(str);
+        if (a2 == null && a3 == null) {
+            return null;
+        }
+        if (a2 != null && a3 != null) {
+            ArrayList arrayList = new ArrayList(a2);
+            arrayList.addAll(a3);
+            return arrayList;
+        } else if (a2 == null) {
+            return a3;
+        } else {
+            return a2;
+        }
+    }
+
+    public List b(String str) {
+        List list;
+        SparseArray sparseArray = new SparseArray();
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        List list2 = null;
+        if (a2 != null) {
+            list = a2.b(str);
+        } else {
+            list = null;
+        }
+        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
+        if (a3 != null) {
+            list2 = a3.b(str);
+        }
+        return a(list, list2, sparseArray);
+    }
+
+    public List c(String str) {
+        List list;
+        SparseArray sparseArray = new SparseArray();
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        List list2 = null;
+        if (a2 != null) {
+            list = a2.c(str);
+        } else {
+            list = null;
+        }
+        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
+        if (a3 != null) {
+            list2 = a3.c(str);
+        }
+        return a(list, list2, sparseArray);
+    }
+
+    public void d(int i) {
+        m c = c(i);
+        if (c == null) {
+            return;
+        }
+        c.a(i);
+    }
+
+    public boolean e(int i) {
+        m c = c(i);
+        if (c == null) {
+            return false;
+        }
+        return c.b(i);
+    }
+
+    public void a(int i, long j) {
+        m c = c(i);
+        if (c == null) {
+            return;
+        }
+        c.a(i, j);
+    }
+
+    public synchronized void b(int i, boolean z) {
+        Boolean bool;
+        SparseArray sparseArray = this.b;
+        if (z) {
+            bool = Boolean.TRUE;
+        } else {
+            bool = Boolean.FALSE;
+        }
+        sparseArray.put(i, bool);
+    }
+
+    public void a(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
+        int hashCode;
+        m c = c(i);
+        if (c == null) {
+            return;
+        }
+        if (iDownloadListener == null) {
+            hashCode = 0;
+        } else {
+            hashCode = iDownloadListener.hashCode();
+        }
+        c.b(i, hashCode, iDownloadListener, fVar, z);
+    }
+
+    public void b(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
+        m c = c(i);
+        if (c == null) {
+            return;
+        }
+        c.a(i, iDownloadListener.hashCode(), iDownloadListener, fVar, z);
+    }
+
+    public void a(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
+        m c = c(i);
+        if (c == null) {
+            return;
+        }
+        c.a(i, iDownloadListener.hashCode(), iDownloadListener, fVar, z, z2);
+    }
+
+    public void a(int i, z zVar) {
+        m c = c(i);
+        if (c == null) {
+            return;
+        }
+        c.a(i, zVar);
+    }
+
+    public void a(int i, boolean z) {
+        b(i, z);
+        if (c.S() && !com.ss.android.socialbase.downloader.i.f.c() && com.ss.android.socialbase.downloader.impls.l.a(true).g()) {
+            com.ss.android.socialbase.downloader.impls.l.a(true).c(i, z);
+        }
+        if (!c.c() && !com.ss.android.socialbase.downloader.i.f.c() && !com.ss.android.socialbase.downloader.i.f.a()) {
+            try {
+                Intent intent = new Intent(c.N(), DownloadHandleService.class);
+                intent.setAction("com.ss.android.downloader.action.PROCESS_NOTIFY");
+                intent.putExtra("extra_download_id", i);
+                c.N().startService(intent);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
+
     public void c(int i, boolean z) {
         if (com.ss.android.socialbase.downloader.i.f.a()) {
             if (com.ss.android.socialbase.downloader.i.a.a(8388608)) {
@@ -206,44 +520,6 @@ public class d {
         com.ss.android.socialbase.downloader.impls.l.a(true).a(2, i);
     }
 
-    public void d(int i, boolean z) {
-        m c = c(i);
-        if (c == null) {
-            return;
-        }
-        c.b(i, z);
-    }
-
-    public List<DownloadInfo> e(String str) {
-        SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> e = a2 != null ? a2.e(str) : null;
-        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(e, a3 != null ? a3.e(str) : null, sparseArray);
-    }
-
-    public boolean f() {
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        if (a2 != null) {
-            return a2.e();
-        }
-        return false;
-    }
-
-    public void b() {
-        synchronized (this.d) {
-            for (ac acVar : this.d) {
-                if (acVar != null) {
-                    acVar.a();
-                }
-            }
-        }
-    }
-
-    public boolean d() {
-        return c.O();
-    }
-
     public void a(ac acVar) {
         if (acVar == null) {
             return;
@@ -262,247 +538,39 @@ public class d {
         }
     }
 
-    public List<DownloadInfo> d(String str) {
-        SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> d = a2 != null ? a2.d(str) : null;
-        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(d, a3 != null ? a3.d(str) : null, sparseArray);
-    }
-
-    public List<DownloadInfo> e() {
-        SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> d = a2 != null ? a2.d() : null;
-        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(d, a3 != null ? a3.d() : null, sparseArray);
-    }
-
-    public synchronized void b(int i, boolean z) {
-        this.b.put(i, z ? Boolean.TRUE : Boolean.FALSE);
-    }
-
-    public synchronized int b(int i) {
-        if (this.b.get(i) == null) {
-            return -1;
-        }
-        return this.b.get(i).booleanValue() ? 1 : 0;
-    }
-
-    public void a(int i, boolean z) {
-        b(i, z);
-        if (c.S() && !com.ss.android.socialbase.downloader.i.f.c() && com.ss.android.socialbase.downloader.impls.l.a(true).g()) {
-            com.ss.android.socialbase.downloader.impls.l.a(true).c(i, z);
-        }
-        if (c.c() || com.ss.android.socialbase.downloader.i.f.c() || com.ss.android.socialbase.downloader.i.f.a()) {
+    public void b(ac acVar) {
+        if (acVar == null) {
             return;
         }
-        try {
-            Intent intent = new Intent(c.N(), DownloadHandleService.class);
-            intent.setAction("com.ss.android.downloader.action.PROCESS_NOTIFY");
-            intent.putExtra("extra_download_id", i);
-            c.N().startService(intent);
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    public void c() {
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        if (a2 != null) {
-            a2.a();
-        }
-        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        if (a3 != null) {
-            a3.a();
-        }
-    }
-
-    private m b(DownloadTask downloadTask) {
-        DownloadInfo downloadInfo;
-        List<com.ss.android.socialbase.downloader.model.b> i;
-        if (downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
-            return null;
-        }
-        downloadInfo.isNeedIndependentProcess();
-        boolean z = (com.ss.android.socialbase.downloader.i.f.c() || !com.ss.android.socialbase.downloader.i.f.a()) ? true : true;
-        int a2 = a(downloadInfo.getId());
-        if (a2 >= 0 && a2 != z) {
-            try {
-                if (a2 == 1) {
-                    if (com.ss.android.socialbase.downloader.i.f.a()) {
-                        com.ss.android.socialbase.downloader.impls.l.a(true).a(downloadInfo.getId());
-                        DownloadInfo h = com.ss.android.socialbase.downloader.impls.l.a(true).h(downloadInfo.getId());
-                        if (h != null) {
-                            com.ss.android.socialbase.downloader.impls.l.a(false).b(h);
-                        }
-                        if (h.getChunkCount() > 1 && (i = com.ss.android.socialbase.downloader.impls.l.a(true).i(downloadInfo.getId())) != null) {
-                            com.ss.android.socialbase.downloader.impls.l.a(false).a(downloadInfo.getId(), com.ss.android.socialbase.downloader.i.f.a(i));
-                        }
-                    }
-                } else if (com.ss.android.socialbase.downloader.i.f.a()) {
-                    com.ss.android.socialbase.downloader.impls.l.a(false).a(downloadInfo.getId());
-                    List<com.ss.android.socialbase.downloader.model.b> i2 = com.ss.android.socialbase.downloader.impls.l.a(false).i(downloadInfo.getId());
-                    if (i2 != null) {
-                        com.ss.android.socialbase.downloader.impls.l.a(true).a(downloadInfo.getId(), com.ss.android.socialbase.downloader.i.f.a(i2));
-                    }
-                } else {
-                    downloadTask.setNeedDelayForCacheSync(true);
-                    com.ss.android.socialbase.downloader.impls.l.a(true).a(1, downloadInfo.getId());
-                }
-            } catch (Throwable unused) {
+        synchronized (this.d) {
+            if (this.d.contains(acVar)) {
+                this.d.remove(acVar);
             }
         }
-        a(downloadInfo.getId(), z);
-        return com.ss.android.socialbase.downloader.impls.l.a(z);
     }
 
-    public List<DownloadInfo> c(String str) {
-        SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> c = a2 != null ? a2.c(str) : null;
-        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(c, a3 != null ? a3.c(str) : null, sparseArray);
-    }
-
-    public int a(int i) {
-        if (c.S()) {
-            if (!com.ss.android.socialbase.downloader.i.f.c() && com.ss.android.socialbase.downloader.impls.l.a(true).g()) {
-                return com.ss.android.socialbase.downloader.impls.l.a(true).m(i);
-            }
-            return b(i);
-        }
-        return -1;
-    }
-
-    public int a(String str, String str2) {
-        return c.a(str, str2);
-    }
-
-    public List<DownloadInfo> a(String str) {
-        List<DownloadInfo> a2 = com.ss.android.socialbase.downloader.impls.l.a(false).a(str);
-        List<DownloadInfo> a3 = com.ss.android.socialbase.downloader.impls.l.a(true).a(str);
-        if (a2 == null && a3 == null) {
-            return null;
-        }
-        if (a2 == null || a3 == null) {
-            return a2 != null ? a2 : a3;
-        }
-        ArrayList arrayList = new ArrayList(a2);
-        arrayList.addAll(a3);
-        return arrayList;
-    }
-
-    public void a(int i, z zVar) {
-        m c = c(i);
-        if (c == null) {
-            return;
-        }
-        c.a(i, zVar);
-    }
-
-    private List<DownloadInfo> a(List<DownloadInfo> list, List<DownloadInfo> list2, SparseArray<DownloadInfo> sparseArray) {
-        ArrayList arrayList = new ArrayList();
-        if (list != null) {
-            for (DownloadInfo downloadInfo : list) {
-                if (downloadInfo != null && sparseArray.get(downloadInfo.getId()) == null) {
-                    sparseArray.put(downloadInfo.getId(), downloadInfo);
-                }
-            }
-        }
-        if (list2 != null) {
-            for (DownloadInfo downloadInfo2 : list2) {
-                if (downloadInfo2 != null && sparseArray.get(downloadInfo2.getId()) == null) {
-                    sparseArray.put(downloadInfo2.getId(), downloadInfo2);
-                }
-            }
-        }
-        for (int i = 0; i < sparseArray.size(); i++) {
-            arrayList.add(sparseArray.get(sparseArray.keyAt(i)));
-        }
-        return arrayList;
-    }
-
-    public DownloadInfo b(String str, String str2) {
-        int a2 = a(str, str2);
-        m c = c(a2);
-        if (c == null) {
-            return null;
-        }
-        return c.h(a2);
-    }
-
-    public List<DownloadInfo> b(String str) {
-        SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> b = a2 != null ? a2.b(str) : null;
-        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(b, a3 != null ? a3.b(str) : null, sparseArray);
-    }
-
-    public void a(List<String> list) {
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        if (a2 != null) {
-            a2.a(list);
-        }
-        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        if (a3 != null) {
-            a3.a(list);
-        }
-    }
-
-    public void b(List<String> list) {
-        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        if (a2 != null) {
-            a2.b(list);
-        }
-        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        if (a3 != null) {
-            a3.b(list);
-        }
-    }
-
-    public void a(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
-        m c = c(i);
-        if (c == null) {
-            return;
-        }
-        c.b(i, iDownloadListener == null ? 0 : iDownloadListener.hashCode(), iDownloadListener, fVar, z);
-    }
-
-    public void b(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
-        m c = c(i);
-        if (c == null) {
-            return;
-        }
-        c.a(i, iDownloadListener.hashCode(), iDownloadListener, fVar, z);
-    }
-
-    public void a(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
-        m c = c(i);
-        if (c == null) {
-            return;
-        }
-        c.a(i, iDownloadListener.hashCode(), iDownloadListener, fVar, z, z2);
+    public void a(com.ss.android.socialbase.downloader.depend.k kVar) {
+        c.a(kVar);
     }
 
     public void b(com.ss.android.socialbase.downloader.depend.k kVar) {
         c.b(kVar);
     }
 
-    public boolean a(DownloadInfo downloadInfo) {
-        m c;
-        if (downloadInfo == null || (c = c(downloadInfo.getId())) == null) {
-            return false;
-        }
-        return c.a(downloadInfo);
-    }
-
     public void a(final DownloadTask downloadTask) {
+        int i;
         final m b = b(downloadTask);
         if (b == null) {
             if (downloadTask != null) {
-                com.ss.android.socialbase.downloader.d.a.a(downloadTask.getMonitorDepend(), downloadTask.getDownloadInfo(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), downloadTask.getDownloadInfo() != null ? downloadTask.getDownloadInfo().getStatus() : 0);
+                x monitorDepend = downloadTask.getMonitorDepend();
+                DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
+                BaseException baseException = new BaseException(1003, "tryDownload but getDownloadHandler failed");
+                if (downloadTask.getDownloadInfo() != null) {
+                    i = downloadTask.getDownloadInfo().getStatus();
+                } else {
+                    i = 0;
+                }
+                com.ss.android.socialbase.downloader.d.a.a(monitorDepend, downloadInfo, baseException, i);
             }
         } else if (downloadTask.isNeedDelayForCacheSync()) {
             this.c.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.d.1
@@ -516,15 +584,33 @@ public class d {
         }
     }
 
-    public void a(com.ss.android.socialbase.downloader.depend.k kVar) {
-        c.a(kVar);
+    public void a(List list) {
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        if (a2 != null) {
+            a2.a(list);
+        }
+        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
+        if (a3 != null) {
+            a3.a(list);
+        }
     }
 
-    public void a(int i, long j) {
-        m c = c(i);
-        if (c == null) {
-            return;
+    public void b(List list) {
+        m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
+        if (a2 != null) {
+            a2.b(list);
         }
-        c.a(i, j);
+        m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
+        if (a3 != null) {
+            a3.b(list);
+        }
+    }
+
+    public boolean a(DownloadInfo downloadInfo) {
+        m c;
+        if (downloadInfo == null || (c = c(downloadInfo.getId())) == null) {
+            return false;
+        }
+        return c.a(downloadInfo);
     }
 }

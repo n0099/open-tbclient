@@ -10,10 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface Files {
+    k3 a(String str);
+
+    String b();
+
+    k3 d(String str, FileType fileType);
+
+    String e();
+
+    k3 f(String str);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class FileType {
+    public final class FileType {
         public static final /* synthetic */ FileType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FileType Absolute;
@@ -67,23 +76,19 @@ public interface Files {
         public static FileType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FileType) Enum.valueOf(FileType.class, str) : (FileType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (FileType) Enum.valueOf(FileType.class, str);
+            }
+            return (FileType) invokeL.objValue;
         }
 
         public static FileType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FileType[]) $VALUES.clone() : (FileType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (FileType[]) $VALUES.clone();
+            }
+            return (FileType[]) invokeV.objValue;
         }
     }
-
-    k3 a(String str);
-
-    String b();
-
-    k3 d(String str, FileType fileType);
-
-    String e();
-
-    k3 f(String str);
 }

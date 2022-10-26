@@ -35,26 +35,27 @@ public final class PDF417CodewordDecoder {
         int i2 = 0;
         while (true) {
             int[] iArr = PDF417Common.SYMBOL_TABLE;
-            if (i2 >= iArr.length) {
+            if (i2 < iArr.length) {
+                int i3 = iArr[i2];
+                int i4 = i3 & 1;
+                int i5 = 0;
+                while (i5 < 8) {
+                    float f = 0.0f;
+                    while (true) {
+                        i = i3 & 1;
+                        if (i == i4) {
+                            f += 1.0f;
+                            i3 >>= 1;
+                        }
+                    }
+                    RATIOS_TABLE[i2][(8 - i5) - 1] = f / 17.0f;
+                    i5++;
+                    i4 = i;
+                }
+                i2++;
+            } else {
                 return;
             }
-            int i3 = iArr[i2];
-            int i4 = i3 & 1;
-            int i5 = 0;
-            while (i5 < 8) {
-                float f = 0.0f;
-                while (true) {
-                    i = i3 & 1;
-                    if (i == i4) {
-                        f += 1.0f;
-                        i3 >>= 1;
-                    }
-                }
-                RATIOS_TABLE[i2][(8 - i5) - 1] = f / 17.0f;
-                i5++;
-                i4 = i;
-            }
-            i2++;
         }
     }
 
@@ -92,42 +93,6 @@ public final class PDF417CodewordDecoder {
         return invokeL.intValue;
     }
 
-    public static int getClosestDecodedValue(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, iArr)) != null) {
-            return invokeL.intValue;
-        }
-        int sum = MathUtils.sum(iArr);
-        float[] fArr = new float[8];
-        for (int i = 0; i < 8; i++) {
-            fArr[i] = iArr[i] / sum;
-        }
-        float f = Float.MAX_VALUE;
-        int i2 = -1;
-        int i3 = 0;
-        while (true) {
-            float[][] fArr2 = RATIOS_TABLE;
-            if (i3 >= fArr2.length) {
-                return i2;
-            }
-            float f2 = 0.0f;
-            float[] fArr3 = fArr2[i3];
-            for (int i4 = 0; i4 < 8; i4++) {
-                float f3 = fArr3[i4] - fArr[i4];
-                f2 += f3 * f3;
-                if (f2 >= f) {
-                    break;
-                }
-            }
-            if (f2 < f) {
-                i2 = PDF417Common.SYMBOL_TABLE[i3];
-                f = f2;
-            }
-            i3++;
-        }
-    }
-
     public static int getDecodedCodewordValue(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -146,9 +111,50 @@ public final class PDF417CodewordDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
             int decodedCodewordValue = getDecodedCodewordValue(sampleBitCounts(iArr));
-            return decodedCodewordValue != -1 ? decodedCodewordValue : getClosestDecodedValue(iArr);
+            if (decodedCodewordValue != -1) {
+                return decodedCodewordValue;
+            }
+            return getClosestDecodedValue(iArr);
         }
         return invokeL.intValue;
+    }
+
+    public static int getClosestDecodedValue(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) {
+            int sum = MathUtils.sum(iArr);
+            float[] fArr = new float[8];
+            for (int i = 0; i < 8; i++) {
+                fArr[i] = iArr[i] / sum;
+            }
+            float f = Float.MAX_VALUE;
+            int i2 = -1;
+            int i3 = 0;
+            while (true) {
+                float[][] fArr2 = RATIOS_TABLE;
+                if (i3 < fArr2.length) {
+                    float f2 = 0.0f;
+                    float[] fArr3 = fArr2[i3];
+                    for (int i4 = 0; i4 < 8; i4++) {
+                        float f3 = fArr3[i4] - fArr[i4];
+                        f2 += f3 * f3;
+                        if (f2 >= f) {
+                            break;
+                        }
+                    }
+                    if (f2 < f) {
+                        i2 = PDF417Common.SYMBOL_TABLE[i3];
+                        f = f2;
+                    }
+                    i3++;
+                } else {
+                    return i2;
+                }
+            }
+        } else {
+            return invokeL.intValue;
+        }
     }
 
     public static int[] sampleBitCounts(int[] iArr) {

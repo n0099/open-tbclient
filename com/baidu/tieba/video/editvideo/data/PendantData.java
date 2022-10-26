@@ -43,24 +43,6 @@ public class PendantData extends OrmObject {
         this.pendantType = 4;
     }
 
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.size)) {
-            return;
-        }
-        String[] split = this.size.split(",");
-        if (split.length != 4) {
-            return;
-        }
-        try {
-            this.top = Integer.parseInt(split[0]);
-            this.left = Integer.parseInt(split[1]);
-            this.bottom = Integer.parseInt(split[2]);
-            this.right = Integer.parseInt(split[3]);
-        } catch (NumberFormatException unused) {
-        }
-    }
-
     public PendantData(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,5 +60,23 @@ public class PendantData extends OrmObject {
         }
         this.pendantType = 4;
         this.pendantType = i;
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.isEmpty(this.size)) {
+            return;
+        }
+        String[] split = this.size.split(",");
+        if (split.length != 4) {
+            return;
+        }
+        try {
+            this.top = Integer.parseInt(split[0]);
+            this.left = Integer.parseInt(split[1]);
+            this.bottom = Integer.parseInt(split[2]);
+            this.right = Integer.parseInt(split[3]);
+        } catch (NumberFormatException unused) {
+        }
     }
 }

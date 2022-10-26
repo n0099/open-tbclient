@@ -1,51 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
-public class xu8 extends zu8<Integer> {
+public class xu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xu8(String str, Integer num, String str2) {
-        super(str, num, str2);
+    public static String a(r9 r9Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, num, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, r9Var, str)) == null) {
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sb.append(jSONArray.optJSONObject(i).optString("src"));
+                }
+                return sb.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return r9Var.getString(R.string.obfuscated_res_0x7f0f0eac);
             }
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.yu8
-    public void h() {
+    public static String b(r9 r9Var, ChatMessage chatMessage) {
+        InterceptResult invokeLL;
+        String content;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.m(b(), d().intValue());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, r9Var, chatMessage)) == null) {
+            int msgType = chatMessage.getMsgType();
+            if (msgType != 1) {
+                if (msgType != 2) {
+                    if (msgType != 3) {
+                        if (msgType != 30) {
+                            if (msgType != 32) {
+                                if (msgType != 33) {
+                                    content = "";
+                                } else {
+                                    content = r9Var.getString(R.string.obfuscated_res_0x7f0f09eb);
+                                }
+                            } else {
+                                content = r9Var.getString(R.string.obfuscated_res_0x7f0f09f0);
+                            }
+                        }
+                    } else {
+                        content = r9Var.getString(R.string.obfuscated_res_0x7f0f15b8);
+                    }
+                } else {
+                    content = a(r9Var, chatMessage.getContent());
+                }
+                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
+                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f45);
+                    } else {
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f42);
+                    }
+                    return string + chatMessage.getToUserInfo().getUserName() + r9Var.getString(R.string.obfuscated_res_0x7f0f0f43) + content;
+                }
+                return r9Var.getString(R.string.obfuscated_res_0x7f0f0f42);
+            }
+            content = chatMessage.getContent();
+            if (chatMessage == null) {
+            }
+            return r9Var.getString(R.string.obfuscated_res_0x7f0f0f42);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yu8
-    /* renamed from: n */
-    public Integer f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Integer.valueOf(super.l(b(), a().intValue())) : (Integer) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 }

@@ -42,7 +42,10 @@ public class d {
 
     public String f() {
         String b = f.b(this.b, Headers.LAST_MODIFIED);
-        return TextUtils.isEmpty(b) ? f.b(this.b, com.baidubce.http.Headers.LAST_MODIFIED) : b;
+        if (TextUtils.isEmpty(b)) {
+            return f.b(this.b, com.baidubce.http.Headers.LAST_MODIFIED);
+        }
+        return b;
     }
 
     public String g() {

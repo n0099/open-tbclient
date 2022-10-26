@@ -1,47 +1,162 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.tieba.cn0;
+import com.baidu.tieba.pr0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Iterator;
+import kotlin.Pair;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes4.dex */
-public class lz0 {
+public final class lz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static final Pair a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? oz0.l().getString("key_clarity_lifecycle", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) {
+            if (i <= 0) {
+                return new Pair(0, Integer.valueOf(i2));
+            }
+            if (i >= i3) {
+                return new Pair(Integer.valueOf(i3 - 1), Integer.valueOf(i2));
+            }
+            return new Pair(Integer.valueOf(i), Integer.valueOf(i2));
+        }
+        return (Pair) invokeIII.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static final Pair b(int i, Pair pair, int i2, int i3, double d, ClarityUrlList clarityUrlList, int i4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? oz0.l().getString("key_clarity_login", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pair, Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), clarityUrlList, Integer.valueOf(i4)})) == null) {
+            if (i < 0) {
+                return c(pair, i2, i3, d);
+            }
+            return e(clarityUrlList.size(), i, i4, i2);
+        }
+        return (Pair) invokeCommon.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static final Pair c(Pair defaultClarity, int i, int i2, double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? oz0.l().getString("key_clarity_mobile", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{defaultClarity, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
+            Intrinsics.checkNotNullParameter(defaultClarity, "defaultClarity");
+            if (!NetUtils.c()) {
+                return a(((Number) defaultClarity.getFirst()).intValue(), 2, i);
+            }
+            return d(i2, i, d, ((Number) defaultClarity.getSecond()).intValue());
+        }
+        return (Pair) invokeCommon.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public static final Pair d(int i, int i2, double d, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? oz0.l().getString("key_clarity_smart", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)})) == null) {
+            if (!qr0.g()) {
+                return a(i3, 4, i2);
+            }
+            cn0 a = cn0.a.a();
+            Intrinsics.checkNotNullExpressionValue(a, "IPlayerSpeedScoreManager.Impl.getInstance()");
+            float staticDeviceScore = a.getStaticDeviceScore();
+            boolean z = false;
+            if (staticDeviceScore > 0 && staticDeviceScore < 0.3d) {
+                z = true;
+            }
+            if (z) {
+                return a(i, 3, i2);
+            }
+            if (d > 5.6f) {
+                return a(i, 6, i2);
+            }
+            return a(i3, 4, i2);
+        }
+        return (Pair) invokeCommon.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public static final lx0 g(ClarityUrlList list, int i, double d, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? oz0.l().getString("key_clarity_wifi", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, Integer.valueOf(i), Double.valueOf(d), Boolean.valueOf(z)})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Pair a = qr0.a(list);
+            int size = list.size();
+            Pair h = h(z, list, b(i, a, size, size - 1, d, list, 0));
+            lx0 lx0Var = new lx0();
+            lx0Var.a = ((Number) h.getFirst()).intValue();
+            lx0Var.b = ((Number) h.getSecond()).intValue();
+            return lx0Var;
+        }
+        return (lx0) invokeCommon.objValue;
     }
 
-    public static int f() {
-        InterceptResult invokeV;
+    public static final Pair e(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? oz0.l().getInt("key_clarity_user", -2) : invokeV.intValue;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3, i4)) == null) {
+            if (i <= i2) {
+                return a(i3, 4, i4);
+            }
+            return a((i4 - i2) - 1, 1, i4);
+        }
+        return (Pair) invokeIIII.objValue;
+    }
+
+    public static final int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != -2) {
+                return i;
+            }
+            if (Intrinsics.areEqual(qr0.c(), pr0.a.a)) {
+                return mz0.f();
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public static final Pair h(boolean z, ClarityUrlList list, Pair selectedClarity) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), list, selectedClarity})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Intrinsics.checkNotNullParameter(selectedClarity, "selectedClarity");
+            if (!z) {
+                Object obj = list.get(((Number) selectedClarity.getFirst()).intValue());
+                Intrinsics.checkNotNullExpressionValue(obj, "list[result.first]");
+                String selectKey = ((ClarityUrlList.c) obj).c();
+                String d = qr0.d();
+                Intrinsics.checkNotNullExpressionValue(selectKey, "selectKey");
+                if (StringsKt__StringsKt.contains$default((CharSequence) d, (CharSequence) selectKey, false, 2, (Object) null)) {
+                    Iterator<E> it = list.iterator();
+                    int i = 0;
+                    while (it.hasNext()) {
+                        ClarityUrlList.c entity = (ClarityUrlList.c) it.next();
+                        String d2 = qr0.d();
+                        Intrinsics.checkNotNullExpressionValue(entity, "entity");
+                        String c = entity.c();
+                        Intrinsics.checkNotNullExpressionValue(c, "entity.key");
+                        if (!StringsKt__StringsKt.contains$default((CharSequence) d2, (CharSequence) c, false, 2, (Object) null)) {
+                            return new Pair(Integer.valueOf(i), 0);
+                        }
+                        i++;
+                    }
+                    return selectedClarity;
+                }
+                return selectedClarity;
+            }
+            return selectedClarity;
+        }
+        return (Pair) invokeCommon.objValue;
     }
 }

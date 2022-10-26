@@ -2,7 +2,6 @@ package com.baidu.android.imrtc.send;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -19,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMClientReportInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<BIMClientReportInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "BIMClientReportInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public long mEvent;
@@ -41,7 +40,7 @@ public class BIMClientReportInfo extends BIMRtcInfo {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<BIMClientReportInfo>() { // from class: com.baidu.android.imrtc.send.BIMClientReportInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imrtc.send.BIMClientReportInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,23 +59,86 @@ public class BIMClientReportInfo extends BIMRtcInfo {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMClientReportInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BIMClientReportInfo(parcel) : (BIMClientReportInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BIMClientReportInfo(parcel);
+                }
+                return (BIMClientReportInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMClientReportInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BIMClientReportInfo[i] : (BIMClientReportInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BIMClientReportInfo[i];
+                }
+                return (BIMClientReportInfo[]) invokeI.objValue;
             }
         };
+    }
+
+    public BIMClientReportInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public long getEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mEvent;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getExtInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mExtInfo;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMethod;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRtcType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRtcType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mUk;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -104,34 +166,25 @@ public class BIMClientReportInfo extends BIMRtcInfo {
         this.mRtcExt = parcel.readString();
     }
 
-    public long getEvent() {
-        InterceptResult invokeV;
+    public BIMClientReportInfo(BIMRtcInfo bIMRtcInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mEvent : invokeV.longValue;
-    }
-
-    public String getExtInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExtInfo : (String) invokeV.objValue;
-    }
-
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMethod : (String) invokeV.objValue;
-    }
-
-    public String getRtcType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRtcType : (String) invokeV.objValue;
-    }
-
-    public String getUk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUk : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bIMRtcInfo};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        setAction(bIMRtcInfo.getAction());
+        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
+        setRtcExt(bIMRtcInfo.getRtcExt());
+        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 
     public void setEvent(long j) {
@@ -170,7 +223,6 @@ public class BIMClientReportInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -192,7 +244,6 @@ public class BIMClientReportInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -236,40 +287,5 @@ public class BIMClientReportInfo extends BIMRtcInfo {
             parcel.writeLong(this.mEvent);
             parcel.writeString(this.mRtcExt);
         }
-    }
-
-    public BIMClientReportInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public BIMClientReportInfo(BIMRtcInfo bIMRtcInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bIMRtcInfo};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        setAction(bIMRtcInfo.getAction());
-        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
-        setRtcExt(bIMRtcInfo.getRtcExt());
-        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 }

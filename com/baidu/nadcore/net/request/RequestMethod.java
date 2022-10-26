@@ -31,7 +31,7 @@ public final class RequestMethod {
     public final String value;
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,13 +211,19 @@ public final class RequestMethod {
     public static RequestMethod valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (RequestMethod) Enum.valueOf(RequestMethod.class, str) : (RequestMethod) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (RequestMethod) Enum.valueOf(RequestMethod.class, str);
+        }
+        return (RequestMethod) invokeL.objValue;
     }
 
     public static RequestMethod[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (RequestMethod[]) $VALUES.clone() : (RequestMethod[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (RequestMethod[]) $VALUES.clone();
+        }
+        return (RequestMethod[]) invokeV.objValue;
     }
 
     public boolean allowBody() {
@@ -225,7 +231,10 @@ public final class RequestMethod {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i = a.a[ordinal()];
-            return i == 1 || i == 2 || i == 3 || i == 4;
+            if (i == 1 || i == 2 || i == 3 || i == 4) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -234,6 +243,9 @@ public final class RequestMethod {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
     }
 }

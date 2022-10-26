@@ -24,6 +24,27 @@ public final class ImageSource {
     public boolean tile;
     public final Uri uri;
 
+    public ImageSource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.bitmap = null;
+        this.uri = null;
+        this.resource = Integer.valueOf(i);
+        this.tile = true;
+    }
+
     public ImageSource(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,6 +66,27 @@ public final class ImageSource {
         this.tile = false;
         this.sWidth = bitmap.getWidth();
         this.sHeight = bitmap.getHeight();
+    }
+
+    public ImageSource(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.bitmap = null;
+        this.uri = uri;
+        this.resource = null;
+        this.tile = true;
     }
 
     public static ImageSource asset(String str) {
@@ -74,18 +116,134 @@ public final class ImageSource {
     public static ImageSource resource(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? new ImageSource(i) : (ImageSource) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            return new ImageSource(i);
+        }
+        return (ImageSource) invokeI.objValue;
+    }
+
+    public static ImageSource uri(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, uri)) == null) {
+            if (uri != null) {
+                return new ImageSource(uri);
+            }
+            throw new NullPointerException("Uri must not be null");
+        }
+        return (ImageSource) invokeL.objValue;
+    }
+
+    public ImageSource region(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect)) == null) {
+            this.sRegion = rect;
+            setInvariants();
+            return this;
+        }
+        return (ImageSource) invokeL.objValue;
+    }
+
+    public ImageSource tiling(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            this.tile = z;
+            return this;
+        }
+        return (ImageSource) invokeZ.objValue;
     }
 
     private void setInvariants() {
         Rect rect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (rect = this.sRegion) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && (rect = this.sRegion) != null) {
+            this.tile = true;
+            this.sWidth = rect.width();
+            this.sHeight = this.sRegion.height();
         }
-        this.tile = true;
-        this.sWidth = rect.width();
-        this.sHeight = this.sRegion.height();
+    }
+
+    public final Bitmap getBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bitmap;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public final Integer getResource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.resource;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final int getSHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.sHeight;
+        }
+        return invokeV.intValue;
+    }
+
+    public final Rect getSRegion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.sRegion;
+        }
+        return (Rect) invokeV.objValue;
+    }
+
+    public final int getSWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sWidth;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean getTile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.tile;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Uri getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.uri;
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public ImageSource tilingDisabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return tiling(false);
+        }
+        return (ImageSource) invokeV.objValue;
+    }
+
+    public ImageSource tilingEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return tiling(true);
+        }
+        return (ImageSource) invokeV.objValue;
     }
 
     public static ImageSource uri(String str) {
@@ -118,134 +276,5 @@ public final class ImageSource {
             return this;
         }
         return (ImageSource) invokeII.objValue;
-    }
-
-    public final Bitmap getBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bitmap : (Bitmap) invokeV.objValue;
-    }
-
-    public final Integer getResource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resource : (Integer) invokeV.objValue;
-    }
-
-    public final int getSHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sHeight : invokeV.intValue;
-    }
-
-    public final Rect getSRegion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.sRegion : (Rect) invokeV.objValue;
-    }
-
-    public final int getSWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sWidth : invokeV.intValue;
-    }
-
-    public final boolean getTile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.tile : invokeV.booleanValue;
-    }
-
-    public final Uri getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.uri : (Uri) invokeV.objValue;
-    }
-
-    public ImageSource region(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect)) == null) {
-            this.sRegion = rect;
-            setInvariants();
-            return this;
-        }
-        return (ImageSource) invokeL.objValue;
-    }
-
-    public ImageSource tiling(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            this.tile = z;
-            return this;
-        }
-        return (ImageSource) invokeZ.objValue;
-    }
-
-    public ImageSource tilingDisabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? tiling(false) : (ImageSource) invokeV.objValue;
-    }
-
-    public ImageSource tilingEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? tiling(true) : (ImageSource) invokeV.objValue;
-    }
-
-    public static ImageSource uri(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, uri)) == null) {
-            if (uri != null) {
-                return new ImageSource(uri);
-            }
-            throw new NullPointerException("Uri must not be null");
-        }
-        return (ImageSource) invokeL.objValue;
-    }
-
-    public ImageSource(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.bitmap = null;
-        this.uri = uri;
-        this.resource = null;
-        this.tile = true;
-    }
-
-    public ImageSource(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.bitmap = null;
-        this.uri = null;
-        this.resource = Integer.valueOf(i);
-        this.tile = true;
     }
 }

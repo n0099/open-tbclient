@@ -43,7 +43,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     public String auxInfoTypeParameter;
     public int defaultSampleInfoSize;
     public int sampleCount;
-    public List<Short> sampleInfoSizes;
+    public List sampleInfoSizes;
 
     static {
         InterceptResult invokeClinit;
@@ -115,26 +115,6 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         }
     }
 
-    public String getAuxInfoType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.auxInfoType;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getAuxInfoTypeParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.auxInfoTypeParameter;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -156,12 +136,45 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         }
     }
 
+    public String getAuxInfoType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.auxInfoType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAuxInfoTypeParameter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.auxInfoTypeParameter;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
         InterceptResult invokeV;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return ((getFlags() & 1) == 1 ? 12 : 4) + 5 + (this.defaultSampleInfoSize == 0 ? this.sampleInfoSizes.size() : 0);
+            if ((getFlags() & 1) == 1) {
+                i = 12;
+            } else {
+                i = 4;
+            }
+            int i3 = i + 5;
+            if (this.defaultSampleInfoSize == 0) {
+                i2 = this.sampleInfoSizes.size();
+            } else {
+                i2 = 0;
+            }
+            return i3 + i2;
         }
         return invokeV.longValue;
     }
@@ -186,7 +199,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         return invokeV.intValue;
     }
 
-    public List<Short> getSampleInfoSizes() {
+    public List getSampleInfoSizes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -228,7 +241,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         }
     }
 
-    public void setSampleInfoSizes(List<Short> list) {
+    public void setSampleInfoSizes(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, list));

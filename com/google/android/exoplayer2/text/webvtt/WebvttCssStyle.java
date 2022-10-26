@@ -38,7 +38,7 @@ public final class WebvttCssStyle {
     public boolean hasFontColor;
     public int italic;
     public int linethrough;
-    public List<String> targetClasses;
+    public List targetClasses;
     public String targetId;
     public String targetTag;
     public String targetVoice;
@@ -71,17 +71,141 @@ public final class WebvttCssStyle {
         reset();
     }
 
+    public int getBackgroundColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.hasBackgroundColor) {
+                return this.backgroundColor;
+            }
+            throw new IllegalStateException("Background color not defined.");
+        }
+        return invokeV.intValue;
+    }
+
+    public int getFontColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.hasFontColor) {
+                return this.fontColor;
+            }
+            throw new IllegalStateException("Font color not defined");
+        }
+        return invokeV.intValue;
+    }
+
+    public String getFontFamily() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.fontFamily;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public float getFontSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.fontSize;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getFontSizeUnit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.fontSizeUnit;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getStyle() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.bold == -1 && this.italic == -1) {
+                return -1;
+            }
+            int i2 = 0;
+            if (this.bold == 1) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            if (this.italic == 1) {
+                i2 = 2;
+            }
+            return i | i2;
+        }
+        return invokeV.intValue;
+    }
+
+    public Layout.Alignment getTextAlign() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.textAlign;
+        }
+        return (Layout.Alignment) invokeV.objValue;
+    }
+
+    public boolean hasBackgroundColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.hasBackgroundColor;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hasFontColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.hasFontColor;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLinethrough() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.linethrough == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isUnderline() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.underline == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static int updateScoreForMatch(int i, String str, String str2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
-            if (str.isEmpty() || i == -1) {
-                return i;
-            }
-            if (str.equals(str2)) {
+            if (!str.isEmpty() && i != -1) {
+                if (!str.equals(str2)) {
+                    return -1;
+                }
                 return i + i2;
             }
-            return -1;
+            return i;
         }
         return invokeCommon.intValue;
     }
@@ -123,48 +247,6 @@ public final class WebvttCssStyle {
         }
     }
 
-    public int getBackgroundColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.hasBackgroundColor) {
-                return this.backgroundColor;
-            }
-            throw new IllegalStateException("Background color not defined.");
-        }
-        return invokeV.intValue;
-    }
-
-    public int getFontColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.hasFontColor) {
-                return this.fontColor;
-            }
-            throw new IllegalStateException("Font color not defined");
-        }
-        return invokeV.intValue;
-    }
-
-    public String getFontFamily() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.fontFamily : (String) invokeV.objValue;
-    }
-
-    public float getFontSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.fontSize : invokeV.floatValue;
-    }
-
-    public int getFontSizeUnit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.fontSizeUnit : invokeV.intValue;
-    }
-
     public int getSpecificityScore(String str, String str2, String[] strArr, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -179,48 +261,6 @@ public final class WebvttCssStyle {
             return updateScoreForMatch + (this.targetClasses.size() * 4);
         }
         return invokeLLLL.intValue;
-    }
-
-    public int getStyle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.bold == -1 && this.italic == -1) {
-                return -1;
-            }
-            return (this.bold == 1 ? 1 : 0) | (this.italic == 1 ? 2 : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public Layout.Alignment getTextAlign() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.textAlign : (Layout.Alignment) invokeV.objValue;
-    }
-
-    public boolean hasBackgroundColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.hasBackgroundColor : invokeV.booleanValue;
-    }
-
-    public boolean hasFontColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.hasFontColor : invokeV.booleanValue;
-    }
-
-    public boolean isLinethrough() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.linethrough == 1 : invokeV.booleanValue;
-    }
-
-    public boolean isUnderline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.underline == 1 : invokeV.booleanValue;
     }
 
     public void reset() {

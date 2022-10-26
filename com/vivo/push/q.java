@@ -19,8 +19,10 @@ public abstract class q {
     public Handler b;
     public final Object c;
 
+    public abstract void b(Message message);
+
     /* loaded from: classes8.dex */
-    public class a extends Handler {
+    public final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ q a;
@@ -80,8 +82,6 @@ public abstract class q {
             this.a = context;
         }
     }
-
-    public abstract void b(Message message);
 
     public final void a(Message message) {
         Interceptable interceptable = $ic;

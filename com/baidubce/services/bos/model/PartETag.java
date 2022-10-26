@@ -29,6 +29,59 @@ public class PartETag {
         }
     }
 
+    public String getETag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.eTag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getPartNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.partNumber;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int hashCode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.eTag;
+            if (str == null) {
+                hashCode = 0;
+            } else {
+                hashCode = str.hashCode();
+            }
+            return ((hashCode + 31) * 31) + this.partNumber;
+        }
+        return invokeV.intValue;
+    }
+
+    public PartETag(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setPartNumber(i);
+        setETag(str);
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -36,43 +89,24 @@ public class PartETag {
             if (this == obj) {
                 return true;
             }
-            if (obj != null && PartETag.class == obj.getClass()) {
-                PartETag partETag = (PartETag) obj;
-                String str = this.eTag;
-                if (str == null) {
-                    if (partETag.eTag != null) {
-                        return false;
-                    }
-                } else if (!str.equals(partETag.eTag)) {
+            if (obj == null || PartETag.class != obj.getClass()) {
+                return false;
+            }
+            PartETag partETag = (PartETag) obj;
+            String str = this.eTag;
+            if (str == null) {
+                if (partETag.eTag != null) {
                     return false;
                 }
-                return this.partNumber == partETag.partNumber;
+            } else if (!str.equals(partETag.eTag)) {
+                return false;
+            }
+            if (this.partNumber == partETag.partNumber) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public String getETag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.eTag : (String) invokeV.objValue;
-    }
-
-    public int getPartNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.partNumber : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.eTag;
-            return (((str == null ? 0 : str.hashCode()) + 31) * 31) + this.partNumber;
-        }
-        return invokeV.intValue;
     }
 
     public void setETag(String str) {
@@ -87,15 +121,6 @@ public class PartETag {
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.partNumber = i;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "PartETag [partNumber=" + this.partNumber + ", eTag=" + this.eTag + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
     }
 
     public PartETag withETag(String str) {
@@ -118,22 +143,12 @@ public class PartETag {
         return (PartETag) invokeI.objValue;
     }
 
-    public PartETag(int i, String str) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "PartETag [partNumber=" + this.partNumber + ", eTag=" + this.eTag + PreferencesUtil.RIGHT_MOUNT;
         }
-        setPartNumber(i);
-        setETag(str);
+        return (String) invokeV.objValue;
     }
 }

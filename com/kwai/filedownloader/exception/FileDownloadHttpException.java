@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.e.f;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class FileDownloadHttpException extends IOException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int mCode;
-    public final Map<String, List<String>> mRequestHeaderMap;
-    public final Map<String, List<String>> mResponseHeaderMap;
+    public final Map mRequestHeaderMap;
+    public final Map mResponseHeaderMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FileDownloadHttpException(int i, Map<String, List<String>> map, Map<String, List<String>> map2) {
+    public FileDownloadHttpException(int i, Map map, Map map2) {
         super(f.h("response requestHttpCode error: %d, \n request headers: %s \n response headers: %s", Integer.valueOf(i), map, map2));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,13 +43,13 @@ public class FileDownloadHttpException extends IOException {
         this.mResponseHeaderMap = cloneSerializableMap(map);
     }
 
-    public static Map<String, List<String>> cloneSerializableMap(Map<String, List<String>> map) {
+    public static Map cloneSerializableMap(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
             HashMap hashMap = new HashMap();
-            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-                hashMap.put(entry.getKey(), new ArrayList(entry.getValue()));
+            for (Map.Entry entry : map.entrySet()) {
+                hashMap.put((String) entry.getKey(), new ArrayList((Collection) entry.getValue()));
             }
             return hashMap;
         }
@@ -62,13 +62,13 @@ public class FileDownloadHttpException extends IOException {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCode : invokeV.intValue;
     }
 
-    public Map<String, List<String>> getRequestHeader() {
+    public Map getRequestHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRequestHeaderMap : (Map) invokeV.objValue;
     }
 
-    public Map<String, List<String>> getResponseHeader() {
+    public Map getResponseHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mResponseHeaderMap : (Map) invokeV.objValue;

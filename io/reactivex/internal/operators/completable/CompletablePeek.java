@@ -24,8 +24,8 @@ public final class CompletablePeek extends Completable {
     public final Action onAfterTerminate;
     public final Action onComplete;
     public final Action onDispose;
-    public final Consumer<? super Throwable> onError;
-    public final Consumer<? super Disposable> onSubscribe;
+    public final Consumer onError;
+    public final Consumer onSubscribe;
     public final Action onTerminate;
     public final CompletableSource source;
 
@@ -86,13 +86,16 @@ public final class CompletablePeek extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.d == DisposableHelper.DISPOSED) {
+            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
@@ -146,7 +149,7 @@ public final class CompletablePeek extends Completable {
         }
     }
 
-    public CompletablePeek(CompletableSource completableSource, Consumer<? super Disposable> consumer, Consumer<? super Throwable> consumer2, Action action, Action action2, Action action3, Action action4) {
+    public CompletablePeek(CompletableSource completableSource, Consumer consumer, Consumer consumer2, Action action, Action action2, Action action3, Action action4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

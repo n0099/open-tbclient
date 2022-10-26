@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.presenter;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,11 +18,8 @@ public final class n extends com.kwad.components.ad.reward.presenter.a implement
     public transient /* synthetic */ FieldHolder $fh;
     public float pY;
     public boolean qn;
-    @Nullable
     public a qo;
-    @Nullable
     public m qp;
-    @Nullable
     public k qq;
     public l qr;
     public int qs;
@@ -33,7 +29,7 @@ public final class n extends com.kwad.components.ad.reward.presenter.a implement
     public boolean qw;
 
     /* loaded from: classes7.dex */
-    public class a extends com.kwad.components.core.video.h {
+    public final class a extends com.kwad.components.core.video.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long qx;
@@ -173,7 +169,7 @@ public final class n extends com.kwad.components.ad.reward.presenter.a implement
     }
 
     @Override // com.kwad.components.ad.reward.d.f
-    public final void a(PlayableSource playableSource, @Nullable com.kwad.components.ad.reward.d.j jVar) {
+    public final void a(PlayableSource playableSource, com.kwad.components.ad.reward.d.j jVar) {
         k kVar;
         m mVar;
         Interceptable interceptable = $ic;

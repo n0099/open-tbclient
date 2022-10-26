@@ -1,7 +1,6 @@
 package com.google.android.gms.common.util;
 
 import android.os.SystemClock;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,8 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class DefaultClock implements Clock {
     public static /* synthetic */ Interceptable $ic;
@@ -48,8 +45,6 @@ public class DefaultClock implements Clock {
         }
     }
 
-    @NonNull
-    @KeepForSdk
     public static Clock getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,27 +55,39 @@ public class DefaultClock implements Clock {
     public final long currentThreadTimeMillis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SystemClock.currentThreadTimeMillis() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SystemClock.currentThreadTimeMillis();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.gms.common.util.Clock
     public final long currentTimeMillis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return System.currentTimeMillis();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.gms.common.util.Clock
     public final long elapsedRealtime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? SystemClock.elapsedRealtime() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return SystemClock.elapsedRealtime();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.gms.common.util.Clock
     public final long nanoTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? System.nanoTime() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return System.nanoTime();
+        }
+        return invokeV.longValue;
     }
 }

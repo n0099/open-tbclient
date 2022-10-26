@@ -1,6 +1,5 @@
 package com.facebook.imagepipeline.animated.base;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import com.facebook.common.references.CloseableReference;
@@ -32,7 +31,7 @@ public interface AnimatedDrawableBackend {
     int getMemoryUsage();
 
     @Nullable
-    CloseableReference<Bitmap> getPreDecodedFrame(int i);
+    CloseableReference getPreDecodedFrame(int i);
 
     int getRenderedHeight();
 

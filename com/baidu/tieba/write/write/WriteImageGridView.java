@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.GridView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,18 +30,6 @@ public class WriteImageGridView extends GridView {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-        }
-    }
-
-    @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            if (getCount() > 0) {
-                int ceil = (int) Math.ceil(getCount() / 3.0f);
-                setMeasuredDimension(getMeasuredWidth(), ((((ej.k(getContext()) - (ej.f(getContext(), R.dimen.tbds44) * 2)) - (ej.f(getContext(), R.dimen.M_H_X003) * 2)) / 3) * ceil) + ((ceil - 1) * ej.f(getContext(), R.dimen.M_H_X003)) + getPaddingTop() + getPaddingBottom() + ej.f(getContext(), R.dimen.tbds24));
             }
         }
     }
@@ -84,6 +72,18 @@ public class WriteImageGridView extends GridView {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
+            }
+        }
+    }
+
+    @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (getCount() > 0) {
+                int ceil = (int) Math.ceil(getCount() / 3.0f);
+                setMeasuredDimension(getMeasuredWidth(), ((((fj.k(getContext()) - (fj.f(getContext(), R.dimen.tbds44) * 2)) - (fj.f(getContext(), R.dimen.M_H_X003) * 2)) / 3) * ceil) + ((ceil - 1) * fj.f(getContext(), R.dimen.M_H_X003)) + getPaddingTop() + getPaddingBottom() + fj.f(getContext(), R.dimen.tbds24));
             }
         }
     }

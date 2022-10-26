@@ -1,7 +1,7 @@
 package com.baidu.cesium.i;
 
-import com.baidu.tieba.b00;
-import com.baidu.tieba.f00;
+import com.baidu.tieba.c00;
+import com.baidu.tieba.g00;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a extends Exception {
+    public class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -84,13 +84,13 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] a2 = f00.a();
-            return new String(b00.c(a2, a2, bArr));
+            byte[] a2 = g00.a();
+            return new String(c00.c(a2, a2, bArr));
         }
         return (String) invokeL.objValue;
     }
 
-    public static Method b(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException {
+    public static Method b(Class cls, String str, Class[] clsArr) throws NoSuchMethodException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {

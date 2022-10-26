@@ -1,24 +1,12 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes4.dex */
-public interface kr6 extends qr6 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+public interface kr6 {
+    void a(wm8 wm8Var, FrsViewData frsViewData);
 
-    void b(@NonNull ThemeElement themeElement);
+    View getView();
 
-    void c(@NonNull FrsFragment frsFragment, @NonNull View view2);
-
-    @NonNull
-    or6 e();
-
-    void f(boolean z);
-
-    int l(@NonNull LogicField logicField);
+    void onChangeSkinType(int i);
 }

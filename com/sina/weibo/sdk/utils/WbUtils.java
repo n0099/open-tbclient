@@ -22,6 +22,15 @@ public class WbUtils {
     public static final String WEIBO_IDENTITY_ACTION = "com.sina.weibo.action.sdkidentity";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean supportMixtureShare() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public WbUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,7 +81,10 @@ public class WbUtils {
             Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
             intent.addCategory("android.intent.category.DEFAULT");
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
-            return (queryIntentServices == null || queryIntentServices.isEmpty()) ? false : true;
+            if (queryIntentServices == null || queryIntentServices.isEmpty()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -88,14 +100,5 @@ public class WbUtils {
             }
         }
         return (Bundle) invokeL.objValue;
-    }
-
-    public static boolean supportMixtureShare() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

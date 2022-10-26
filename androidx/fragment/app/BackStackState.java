@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class BackStackState implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -37,6 +35,16 @@ public final class BackStackState implements Parcelable {
     public final ArrayList<String> mSharedElementSourceNames;
     public final ArrayList<String> mSharedElementTargetNames;
     public final int mTransition;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +83,10 @@ public final class BackStackState implements Parcelable {
             public BackStackState createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BackStackState(parcel) : (BackStackState) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BackStackState(parcel);
+                }
+                return (BackStackState) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -84,12 +95,53 @@ public final class BackStackState implements Parcelable {
             public BackStackState[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BackStackState[i] : (BackStackState[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BackStackState[i];
+                }
+                return (BackStackState[]) invokeI.objValue;
             }
         };
     }
 
+    public BackStackState(Parcel parcel) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mOps = parcel.createIntArray();
+        this.mFragmentWhos = parcel.createStringArrayList();
+        this.mOldMaxLifecycleStates = parcel.createIntArray();
+        this.mCurrentMaxLifecycleStates = parcel.createIntArray();
+        this.mTransition = parcel.readInt();
+        this.mName = parcel.readString();
+        this.mIndex = parcel.readInt();
+        this.mBreadCrumbTitleRes = parcel.readInt();
+        this.mBreadCrumbTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.mBreadCrumbShortTitleRes = parcel.readInt();
+        this.mBreadCrumbShortTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.mSharedElementSourceNames = parcel.createStringArrayList();
+        this.mSharedElementTargetNames = parcel.createStringArrayList();
+        if (parcel.readInt() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mReorderingAllowed = z;
+    }
+
     public BackStackState(BackStackRecord backStackRecord) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +170,12 @@ public final class BackStackState implements Parcelable {
                 this.mOps[i4] = op.mCmd;
                 ArrayList<String> arrayList = this.mFragmentWhos;
                 Fragment fragment = op.mFragment;
-                arrayList.add(fragment != null ? fragment.mWho : null);
+                if (fragment != null) {
+                    str = fragment.mWho;
+                } else {
+                    str = null;
+                }
+                arrayList.add(str);
                 int[] iArr = this.mOps;
                 int i6 = i5 + 1;
                 iArr[i5] = op.mEnterAnim;
@@ -145,16 +202,6 @@ public final class BackStackState implements Parcelable {
             return;
         }
         throw new IllegalStateException("Not on back stack");
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 
     public BackStackRecord instantiate(FragmentManager fragmentManager) {
@@ -235,36 +282,5 @@ public final class BackStackState implements Parcelable {
             parcel.writeStringList(this.mSharedElementTargetNames);
             parcel.writeInt(this.mReorderingAllowed ? 1 : 0);
         }
-    }
-
-    public BackStackState(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mOps = parcel.createIntArray();
-        this.mFragmentWhos = parcel.createStringArrayList();
-        this.mOldMaxLifecycleStates = parcel.createIntArray();
-        this.mCurrentMaxLifecycleStates = parcel.createIntArray();
-        this.mTransition = parcel.readInt();
-        this.mName = parcel.readString();
-        this.mIndex = parcel.readInt();
-        this.mBreadCrumbTitleRes = parcel.readInt();
-        this.mBreadCrumbTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.mBreadCrumbShortTitleRes = parcel.readInt();
-        this.mBreadCrumbShortTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.mSharedElementSourceNames = parcel.createStringArrayList();
-        this.mSharedElementTargetNames = parcel.createStringArrayList();
-        this.mReorderingAllowed = parcel.readInt() != 0;
     }
 }

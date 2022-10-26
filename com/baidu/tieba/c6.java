@@ -5,6 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
@@ -55,22 +56,40 @@ public class c6 {
     }
 
     public c6(int i) {
+        boolean z;
+        int i2;
+        BlockingQueue linkedBlockingQueue;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = i == Integer.MAX_VALUE;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(z ? 0 : i, i, 60L, TimeUnit.SECONDS, z ? new SynchronousQueue() : new LinkedBlockingQueue(), new a(this));
+        if (i == Integer.MAX_VALUE) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            i2 = 0;
+        } else {
+            i2 = i;
+        }
+        TimeUnit timeUnit = TimeUnit.SECONDS;
+        if (z) {
+            linkedBlockingQueue = new SynchronousQueue();
+        } else {
+            linkedBlockingQueue = new LinkedBlockingQueue();
+        }
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i, 60L, timeUnit, linkedBlockingQueue, new a(this));
         this.a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(!z);
         new x7();

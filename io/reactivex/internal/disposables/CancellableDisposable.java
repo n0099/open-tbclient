@@ -12,7 +12,7 @@ import io.reactivex.functions.Cancellable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class CancellableDisposable extends AtomicReference<Cancellable> implements Disposable {
+public final class CancellableDisposable extends AtomicReference implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5718521705281392066L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,16 +39,15 @@ public final class CancellableDisposable extends AtomicReference<Cancellable> im
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        Cancellable andSet;
+        Cancellable cancellable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || get() == null || (andSet = getAndSet(null)) == null) {
-            return;
-        }
-        try {
-            andSet.cancel();
-        } catch (Exception e) {
-            Exceptions.throwIfFatal(e);
-            RxJavaPlugins.onError(e);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && get() != null && (cancellable = (Cancellable) getAndSet(null)) != null) {
+            try {
+                cancellable.cancel();
+            } catch (Exception e) {
+                Exceptions.throwIfFatal(e);
+                RxJavaPlugins.onError(e);
+            }
         }
     }
 
@@ -56,6 +55,12 @@ public final class CancellableDisposable extends AtomicReference<Cancellable> im
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (get() == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

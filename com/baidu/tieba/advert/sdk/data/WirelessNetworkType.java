@@ -70,18 +70,27 @@ public final class WirelessNetworkType {
     public static WirelessNetworkType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (WirelessNetworkType) Enum.valueOf(WirelessNetworkType.class, str) : (WirelessNetworkType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (WirelessNetworkType) Enum.valueOf(WirelessNetworkType.class, str);
+        }
+        return (WirelessNetworkType) invokeL.objValue;
     }
 
     public static WirelessNetworkType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (WirelessNetworkType[]) $VALUES.clone() : (WirelessNetworkType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (WirelessNetworkType[]) $VALUES.clone();
+        }
+        return (WirelessNetworkType[]) invokeV.objValue;
     }
 
     public int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 }

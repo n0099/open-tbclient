@@ -15,7 +15,7 @@ public class FaceEnum {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class FaceType {
+    public final class FaceType {
         public static final /* synthetic */ FaceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FaceType CERT;
@@ -73,19 +73,25 @@ public class FaceEnum {
         public static FaceType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FaceType) Enum.valueOf(FaceType.class, str) : (FaceType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (FaceType) Enum.valueOf(FaceType.class, str);
+            }
+            return (FaceType) invokeL.objValue;
         }
 
         public static FaceType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FaceType[]) $VALUES.clone() : (FaceType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (FaceType[]) $VALUES.clone();
+            }
+            return (FaceType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ImageType {
+    public final class ImageType {
         public static final /* synthetic */ ImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ImageType BASE64;
@@ -137,19 +143,25 @@ public class FaceEnum {
         public static ImageType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ImageType) Enum.valueOf(ImageType.class, str) : (ImageType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ImageType) Enum.valueOf(ImageType.class, str);
+            }
+            return (ImageType) invokeL.objValue;
         }
 
         public static ImageType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ImageType[]) $VALUES.clone() : (ImageType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ImageType[]) $VALUES.clone();
+            }
+            return (ImageType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class LivenessControl {
+    public final class LivenessControl {
         public static final /* synthetic */ LivenessControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LivenessControl HIGH;
@@ -204,19 +216,25 @@ public class FaceEnum {
         public static LivenessControl valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LivenessControl) Enum.valueOf(LivenessControl.class, str) : (LivenessControl) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (LivenessControl) Enum.valueOf(LivenessControl.class, str);
+            }
+            return (LivenessControl) invokeL.objValue;
         }
 
         public static LivenessControl[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LivenessControl[]) $VALUES.clone() : (LivenessControl[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (LivenessControl[]) $VALUES.clone();
+            }
+            return (LivenessControl[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class QualityControl {
+    public final class QualityControl {
         public static final /* synthetic */ QualityControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final QualityControl HIGH;
@@ -271,19 +289,25 @@ public class FaceEnum {
         public static QualityControl valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (QualityControl) Enum.valueOf(QualityControl.class, str) : (QualityControl) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (QualityControl) Enum.valueOf(QualityControl.class, str);
+            }
+            return (QualityControl) invokeL.objValue;
         }
 
         public static QualityControl[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (QualityControl[]) $VALUES.clone() : (QualityControl[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (QualityControl[]) $VALUES.clone();
+            }
+            return (QualityControl[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class SpoofingControl {
+    public final class SpoofingControl {
         public static final /* synthetic */ SpoofingControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SpoofingControl HIGH;
@@ -338,13 +362,19 @@ public class FaceEnum {
         public static SpoofingControl valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SpoofingControl) Enum.valueOf(SpoofingControl.class, str) : (SpoofingControl) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SpoofingControl) Enum.valueOf(SpoofingControl.class, str);
+            }
+            return (SpoofingControl) invokeL.objValue;
         }
 
         public static SpoofingControl[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SpoofingControl[]) $VALUES.clone() : (SpoofingControl[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SpoofingControl[]) $VALUES.clone();
+            }
+            return (SpoofingControl[]) invokeV.objValue;
         }
     }
 

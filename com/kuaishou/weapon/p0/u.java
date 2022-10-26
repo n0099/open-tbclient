@@ -434,7 +434,7 @@ public class u {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List<t> b() {
+    public List b() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;

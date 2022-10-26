@@ -1,8 +1,6 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -32,6 +30,8 @@ public abstract class BaseContentUploader {
     public static final int TAG_ERRNO_NO_ERROR = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract ResponseEntity uploadDataRequestSync(String str, File file, Map map);
+
     public BaseContentUploader() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,17 +48,24 @@ public abstract class BaseContentUploader {
 
     private String getUploadUrl() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            String processUrl = LokiIdentityManager.getInstance().processUrl(AppConfig.isDebug() ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=crash" : "https://tcbox.baidu.com/ztbox?action=crash");
-            return (!AppConfig.isDebug() || TextUtils.isEmpty(processUrl)) ? processUrl : UrlUtil.addParam(processUrl, "debug", "1");
+            if (AppConfig.isDebug()) {
+                str = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=crash";
+            } else {
+                str = "https://tcbox.baidu.com/ztbox?action=crash";
+            }
+            String processUrl = LokiIdentityManager.getInstance().processUrl(str);
+            if (AppConfig.isDebug() && !TextUtils.isEmpty(processUrl)) {
+                return UrlUtil.addParam(processUrl, "debug", "1");
+            }
+            return processUrl;
         }
         return (String) invokeV.objValue;
     }
 
-    public abstract ResponseEntity uploadDataRequestSync(@NonNull String str, @NonNull File file, @Nullable Map<String, String> map);
-
-    public ResponseEntity uploadSync(@NonNull File file) {
+    public ResponseEntity uploadSync(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {

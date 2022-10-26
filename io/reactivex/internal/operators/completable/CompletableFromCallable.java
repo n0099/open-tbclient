@@ -14,9 +14,9 @@ import java.util.concurrent.Callable;
 public final class CompletableFromCallable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<?> callable;
+    public final Callable callable;
 
-    public CompletableFromCallable(Callable<?> callable) {
+    public CompletableFromCallable(Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,16 +42,14 @@ public final class CompletableFromCallable extends Completable {
             completableObserver.onSubscribe(empty);
             try {
                 this.callable.call();
-                if (empty.isDisposed()) {
-                    return;
+                if (!empty.isDisposed()) {
+                    completableObserver.onComplete();
                 }
-                completableObserver.onComplete();
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                if (empty.isDisposed()) {
-                    return;
+                if (!empty.isDisposed()) {
+                    completableObserver.onError(th);
                 }
-                completableObserver.onError(th);
             }
         }
     }

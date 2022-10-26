@@ -17,29 +17,6 @@ public class m2 {
     public WebView b;
     public Info c;
 
-    public m2(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        if (c2.a()) {
-            a();
-        } else {
-            c2.a.post(new i2(this));
-        }
-    }
-
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null) {
@@ -70,6 +47,29 @@ public class m2 {
             this.b.clearHistory();
             this.b.setWebChromeClient(new j2(this));
             this.b.setWebViewClient(new k2(this));
+        }
+    }
+
+    public m2(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        if (c2.a()) {
+            a();
+        } else {
+            c2.a.post(new i2(this));
         }
     }
 }

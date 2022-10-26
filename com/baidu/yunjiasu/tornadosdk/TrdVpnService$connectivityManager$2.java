@@ -38,7 +38,6 @@ public final class TrdVpnService$connectivityManager$2 extends Lambda implements
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final ConnectivityManager invoke() {
         InterceptResult invokeV;

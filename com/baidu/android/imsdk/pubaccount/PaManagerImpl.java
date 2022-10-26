@@ -37,7 +37,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,11 +56,11 @@ import org.json.JSONObject;
 public class PaManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PaManagerImpl";
-    public static ArrayList<IAcceptMsgChangeListener> mAcceptMsgChangeListeners;
+    public static ArrayList mAcceptMsgChangeListeners;
     public static Context mContext;
     public static volatile PaManagerImpl mInstance;
-    public static ArrayList<IPaSubscriptionChangeListener> mPaSubscriptionChangeListeners;
-    public static ArrayList<ISubscriptionChangeListener> mSubscriptionChangeListeners;
+    public static ArrayList mPaSubscriptionChangeListeners;
+    public static ArrayList mSubscriptionChangeListeners;
     public transient /* synthetic */ FieldHolder $fh;
     public Dispatcher.MsgListener listener;
     public Timer mTimer;
@@ -79,9 +79,9 @@ public class PaManagerImpl {
                 return;
             }
         }
-        mPaSubscriptionChangeListeners = new ArrayList<>();
-        mSubscriptionChangeListeners = new ArrayList<>();
-        mAcceptMsgChangeListeners = new ArrayList<>();
+        mPaSubscriptionChangeListeners = new ArrayList();
+        mSubscriptionChangeListeners = new ArrayList();
+        mAcceptMsgChangeListeners = new ArrayList();
     }
 
     public PaManagerImpl() {
@@ -102,6 +102,13 @@ public class PaManagerImpl {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PaManagerImpl this$0;
+
+            @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+            public void dealMessage(int i3, ArrayList arrayList) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, arrayList) == null) {
+                }
+            }
 
             {
                 Interceptable interceptable2 = $ic;
@@ -137,6 +144,7 @@ public class PaManagerImpl {
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
             public void dealMessage(int i3, ChatMsg chatMsg) {
                 String str;
+                boolean z;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, chatMsg) == null) {
                     String str2 = PaManagerImpl.TAG;
@@ -156,7 +164,11 @@ public class PaManagerImpl {
                     } else {
                         UserSettingPaCmdMsg userSettingPaCmdMsg = (UserSettingPaCmdMsg) chatMsg;
                         long paId = userSettingPaCmdMsg.getPaId();
-                        boolean z = userSettingPaCmdMsg.getSyncStatus() == 1;
+                        if (userSettingPaCmdMsg.getSyncStatus() == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
                         GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) GetChatObjectInfoForRecordManager.newInstance(PaManagerImpl.mContext, 0, paId, 1);
                         if (getChatObjectInfoForRecordHandler == null) {
                             return;
@@ -167,6 +179,13 @@ public class PaManagerImpl {
                             public final /* synthetic */ AnonymousClass2 this$1;
                             public final /* synthetic */ boolean val$acception;
                             public final /* synthetic */ long val$paId;
+
+                            @Override // com.baidu.android.imsdk.CallBack
+                            public void onError(int i4, int i5, long j) {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+                                }
+                            }
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -189,13 +208,6 @@ public class PaManagerImpl {
                             }
 
                             @Override // com.baidu.android.imsdk.CallBack
-                            public void onError(int i4, int i5, long j) {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
-                                }
-                            }
-
-                            @Override // com.baidu.android.imsdk.CallBack
                             public void onSuccess(int i4, int i5, Object obj) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, i5, obj) == null) {
@@ -215,15 +227,8 @@ public class PaManagerImpl {
                     }
                 }
             }
-
-            @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i3, ArrayList<ChatMsg> arrayList) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, arrayList) == null) {
-                }
-            }
         };
-        Class<?>[] clsArr = {IMPaAcceptPushMsg.class, IMPaSearchListMsg.class, IMPaSubscribedListMsg.class, IMPaSubscribedMsg.class, IMPaSubscribeMsg.class, IMPaUnsubscribeMsg.class};
+        Class[] clsArr = {IMPaAcceptPushMsg.class, IMPaSearchListMsg.class, IMPaSubscribedListMsg.class, IMPaSubscribedMsg.class, IMPaSubscribeMsg.class, IMPaUnsubscribeMsg.class};
         int[] iArr = {105, 103, 104, 109, 100, 101};
         for (int i3 = 0; i3 < 6; i3++) {
             MessageFactory.getInstance().addType(iArr[i3], clsArr[i3]);
@@ -232,6 +237,13 @@ public class PaManagerImpl {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PaManagerImpl this$0;
+
+            @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
+            public void dealMessage(int i4, ArrayList arrayList) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, arrayList) == null) {
+                }
+            }
 
             {
                 Interceptable interceptable2 = $ic;
@@ -255,91 +267,27 @@ public class PaManagerImpl {
             public void dealMessage(int i4, ChatMsg chatMsg) {
                 String str;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, chatMsg) == null) {
-                    String str2 = PaManagerImpl.TAG;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("dealMessage ");
-                    if (chatMsg == null) {
-                        str = null;
-                    } else {
-                        str = " msgs size is" + chatMsg.toString();
-                    }
-                    sb.append(str);
-                    LogUtils.d(str2, sb.toString());
-                    if (chatMsg == null) {
-                        return;
-                    }
-                    try {
-                        JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
-                        long optLong = jSONObject.optLong("pa_uid");
-                        boolean optBoolean = jSONObject.optBoolean(IMConstants.SERVICE_TYPE_SUBSCRIPTION);
-                        if (optBoolean) {
-                            LogUtils.d(PaManagerImpl.TAG, "dealmessage subscription " + chatMsg.toString());
-                            GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) GetChatObjectInfoForRecordManager.newInstance(PaManagerImpl.mContext, 0, optLong, 1);
-                            if (getChatObjectInfoForRecordHandler == null) {
-                                return;
-                            }
-                            getChatObjectInfoForRecordHandler.getChatObjectInfo(optLong, new CallBack(this, optLong, optBoolean) { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.1.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass1 this$1;
-                                public final /* synthetic */ long val$paId;
-                                public final /* synthetic */ boolean val$subscription;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext2 = TitanRuntime.newInitContext();
-                                        newInitContext2.initArgs = r2;
-                                        Object[] objArr = {this, Long.valueOf(optLong), Boolean.valueOf(optBoolean)};
-                                        interceptable3.invokeUnInit(65536, newInitContext2);
-                                        int i5 = newInitContext2.flag;
-                                        if ((i5 & 1) != 0) {
-                                            int i6 = i5 & 2;
-                                            newInitContext2.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext2);
-                                            return;
-                                        }
-                                    }
-                                    this.this$1 = this;
-                                    this.val$paId = optLong;
-                                    this.val$subscription = optBoolean;
-                                }
-
-                                @Override // com.baidu.android.imsdk.CallBack
-                                public void onError(int i5, int i6, long j) {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j)}) == null) {
-                                    }
-                                }
-
-                                @Override // com.baidu.android.imsdk.CallBack
-                                public void onSuccess(int i5, int i6, Object obj) {
-                                    Interceptable interceptable3 = $ic;
-                                    if (!(interceptable3 == null || interceptable3.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i5, i6, obj) == null) || PaManagerImpl.mPaSubscriptionChangeListeners == null) {
-                                        return;
-                                    }
-                                    Iterator it = PaManagerImpl.mPaSubscriptionChangeListeners.iterator();
-                                    while (it.hasNext()) {
-                                        IPaSubscriptionChangeListener iPaSubscriptionChangeListener = (IPaSubscriptionChangeListener) it.next();
-                                        if (iPaSubscriptionChangeListener != null) {
-                                            iPaSubscriptionChangeListener.onPaSubscriptionChangeResult(this.val$paId, this.val$subscription);
-                                        }
-                                    }
-                                    synchronized (PaManagerImpl.mPaSubscriptionChangeListeners) {
-                                        Iterator it2 = PaManagerImpl.mSubscriptionChangeListeners.iterator();
-                                        while (it2.hasNext()) {
-                                            ISubscriptionChangeListener iSubscriptionChangeListener = (ISubscriptionChangeListener) it2.next();
-                                            if (iSubscriptionChangeListener != null) {
-                                                iSubscriptionChangeListener.onSubscriptionResult(i5, this.val$paId, obj);
-                                            }
-                                        }
-                                    }
-                                }
-                            });
-                            this.this$0.getPaInfo(optLong, null);
-                            return;
-                        }
+                if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i4, chatMsg) != null) {
+                    return;
+                }
+                String str2 = PaManagerImpl.TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append("dealMessage ");
+                if (chatMsg == null) {
+                    str = null;
+                } else {
+                    str = " msgs size is" + chatMsg.toString();
+                }
+                sb.append(str);
+                LogUtils.d(str2, sb.toString());
+                if (chatMsg == null) {
+                    return;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
+                    long optLong = jSONObject.optLong("pa_uid");
+                    boolean optBoolean = jSONObject.optBoolean(IMConstants.SERVICE_TYPE_SUBSCRIPTION);
+                    if (!optBoolean) {
                         PaInfoDBManager.getInstance(PaManagerImpl.mContext).unSubscribePa(optLong);
                         if (PaManagerImpl.mPaSubscriptionChangeListeners != null) {
                             Iterator it = PaManagerImpl.mPaSubscriptionChangeListeners.iterator();
@@ -355,18 +303,76 @@ public class PaManagerImpl {
                                     }
                                 }
                             }
+                            return;
                         }
-                    } catch (JSONException e) {
-                        LogUtils.e(LogUtils.TAG, "json error dealMessage:", e);
-                        new IMTrack.CrashBuilder(PaManagerImpl.mContext).exception(Log.getStackTraceString(e)).build();
+                        return;
                     }
-                }
-            }
+                    LogUtils.d(PaManagerImpl.TAG, "dealmessage subscription " + chatMsg.toString());
+                    GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) GetChatObjectInfoForRecordManager.newInstance(PaManagerImpl.mContext, 0, optLong, 1);
+                    if (getChatObjectInfoForRecordHandler == null) {
+                        return;
+                    }
+                    getChatObjectInfoForRecordHandler.getChatObjectInfo(optLong, new CallBack(this, optLong, optBoolean) { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.1.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AnonymousClass1 this$1;
+                        public final /* synthetic */ long val$paId;
+                        public final /* synthetic */ boolean val$subscription;
 
-            @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ArrayList<ChatMsg> arrayList) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, arrayList) == null) {
+                        @Override // com.baidu.android.imsdk.CallBack
+                        public void onError(int i5, int i6, long j) {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j)}) == null) {
+                            }
+                        }
+
+                        {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 != null) {
+                                InitContext newInitContext2 = TitanRuntime.newInitContext();
+                                newInitContext2.initArgs = r2;
+                                Object[] objArr = {this, Long.valueOf(optLong), Boolean.valueOf(optBoolean)};
+                                interceptable3.invokeUnInit(65536, newInitContext2);
+                                int i5 = newInitContext2.flag;
+                                if ((i5 & 1) != 0) {
+                                    int i6 = i5 & 2;
+                                    newInitContext2.thisArg = this;
+                                    interceptable3.invokeInitBody(65536, newInitContext2);
+                                    return;
+                                }
+                            }
+                            this.this$1 = this;
+                            this.val$paId = optLong;
+                            this.val$subscription = optBoolean;
+                        }
+
+                        @Override // com.baidu.android.imsdk.CallBack
+                        public void onSuccess(int i5, int i6, Object obj) {
+                            Interceptable interceptable3 = $ic;
+                            if ((interceptable3 == null || interceptable3.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i5, i6, obj) == null) && PaManagerImpl.mPaSubscriptionChangeListeners != null) {
+                                Iterator it3 = PaManagerImpl.mPaSubscriptionChangeListeners.iterator();
+                                while (it3.hasNext()) {
+                                    IPaSubscriptionChangeListener iPaSubscriptionChangeListener = (IPaSubscriptionChangeListener) it3.next();
+                                    if (iPaSubscriptionChangeListener != null) {
+                                        iPaSubscriptionChangeListener.onPaSubscriptionChangeResult(this.val$paId, this.val$subscription);
+                                    }
+                                }
+                                synchronized (PaManagerImpl.mPaSubscriptionChangeListeners) {
+                                    Iterator it4 = PaManagerImpl.mSubscriptionChangeListeners.iterator();
+                                    while (it4.hasNext()) {
+                                        ISubscriptionChangeListener iSubscriptionChangeListener2 = (ISubscriptionChangeListener) it4.next();
+                                        if (iSubscriptionChangeListener2 != null) {
+                                            iSubscriptionChangeListener2.onSubscriptionResult(i5, this.val$paId, obj);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    this.this$0.getPaInfo(optLong, null);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "json error dealMessage:", e);
+                    new IMTrack.CrashBuilder(PaManagerImpl.mContext).exception(Log.getStackTraceString(e)).build();
                 }
             }
         };
@@ -397,11 +403,64 @@ public class PaManagerImpl {
         return (PaManagerImpl) invokeL.objValue;
     }
 
-    private void requestPaInfos(List<Long> list, long j, long j2, GetPaInfoSliceListener getPaInfoSliceListener) {
+    public void queryPaInfoList(IQuerySubscribedPaListListener iQuerySubscribedPaListListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048594, this, iQuerySubscribedPaListListener) != null) || AccountManager.isCuidLogin(mContext)) {
+            return;
+        }
+        String addListener = ListenerManager.getInstance().addListener(iQuerySubscribedPaListListener);
+        AccountManager.getAppid(mContext);
+        IMPaGetInfoRequest iMPaGetInfoRequest = new IMPaGetInfoRequest(mContext, addListener, AccountManager.getAppid(mContext), IMSDK.getInstance(mContext).getUk());
+        HttpHelper.executor(mContext, iMPaGetInfoRequest, iMPaGetInfoRequest);
+    }
+
+    private void requestPaInfos(List list, long j, long j2, GetPaInfoSliceListener getPaInfoSliceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{list, Long.valueOf(j), Long.valueOf(j2), getPaInfoSliceListener}) == null) {
             IMPaGetInfoListRequest iMPaGetInfoListRequest = new IMPaGetInfoListRequest(mContext, list, j, j2, getPaInfoSliceListener);
             HttpHelper.executor(mContext, iMPaGetInfoListRequest, iMPaGetInfoListRequest);
+        }
+    }
+
+    public void onGetPaInfoResult(String str, int i, String str2, PaInfo paInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048587, this, str, i, str2, paInfo) == null) {
+            String str3 = TAG;
+            LogUtils.d(str3, "onGetPaInfoResult----errorCode: " + i + " msg: " + str2);
+            IGetPaInfoListener iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(str);
+            if (iGetPaInfoListener != null) {
+                iGetPaInfoListener.onGetPaInfoResult(i, str2, paInfo);
+            } else {
+                LogUtils.d(TAG, "IGetPaInfoListener is null");
+            }
+        }
+    }
+
+    public void onQueryScribedPaListResult(String str, int i, String str2, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048590, this, str, i, str2, list) == null) {
+            String str3 = TAG;
+            LogUtils.d(str3, "onQueryScribedPaListResult----errorCode: " + i + " msg: " + str2);
+            IQuerySubscribedPaListListener iQuerySubscribedPaListListener = (IQuerySubscribedPaListListener) ListenerManager.getInstance().removeListener(str);
+            if (iQuerySubscribedPaListListener != null) {
+                iQuerySubscribedPaListListener.onQuerySubscribedPaResult(i, str2, list);
+            } else {
+                LogUtils.d(TAG, "IQuerySubscribePaListListener is null");
+            }
+        }
+    }
+
+    public void onSearchPaListResult(String str, int i, String str2, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048591, this, str, i, str2, list) == null) {
+            String str3 = TAG;
+            LogUtils.d(str3, "onSearchPaResult----errorCode: " + i + " msg: " + str2);
+            ISearchPaListListener iSearchPaListListener = (ISearchPaListListener) ListenerManager.getInstance().removeListener(str);
+            if (iSearchPaListListener != null) {
+                iSearchPaListListener.onSearchPaListResult(i, str2, list);
+            } else {
+                LogUtils.d(TAG, "ISearchPaListListener is null");
+            }
         }
     }
 
@@ -415,7 +474,7 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ACCEPT_PUSH, z);
                 try {
-                    b80.g(mContext).f(mContext, creatMethodIntent);
+                    c80.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -436,6 +495,48 @@ public class PaManagerImpl {
                 HttpHelper.executor(mContext, iMPaClickQuickReply, iMPaClickQuickReply);
             } else if (iClickPaQuickReplyListener != null) {
                 iClickPaQuickReplyListener.onClickQuickReply(1000);
+            }
+        }
+    }
+
+    public void onAcceptPaPushResult(String str, int i, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
+            String str3 = TAG;
+            LogUtils.d(str3, "onAcceptPaPushResult----errorCode: " + i + " msg: " + str2);
+            IAcceptPaPushListener iAcceptPaPushListener = (IAcceptPaPushListener) ListenerManager.getInstance().removeListener(str);
+            if (iAcceptPaPushListener != null) {
+                iAcceptPaPushListener.onAcceptPaPushResult(i, str2, j);
+            } else {
+                LogUtils.d(TAG, "IAcceptPaPushListener is null");
+            }
+        }
+    }
+
+    public void onSubscribePaResult(String str, int i, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
+            String str3 = TAG;
+            LogUtils.d(str3, "onSubscribePaResult----errorCode: " + i + " msg: " + str2);
+            ISubscribePaListener iSubscribePaListener = (ISubscribePaListener) ListenerManager.getInstance().removeListener(str);
+            if (iSubscribePaListener != null) {
+                iSubscribePaListener.onSubsribePaResult(i, str2, j);
+            } else {
+                LogUtils.d(TAG, "ISubscribePaListener is null");
+            }
+        }
+    }
+
+    public void onUnsubscribePaResult(String str, int i, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
+            String str3 = TAG;
+            LogUtils.d(str3, "onUnscribePaResult----errorCode: " + i + " msg: " + str2);
+            ISubscribePaListener iSubscribePaListener = (ISubscribePaListener) ListenerManager.getInstance().removeListener(str);
+            if (iSubscribePaListener != null) {
+                iSubscribePaListener.onUnsubsribePaResult(i, str2, j);
+            } else {
+                LogUtils.d(TAG, "ISubscribePaListener is null");
             }
         }
     }
@@ -471,11 +572,12 @@ public class PaManagerImpl {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String str = PaManagerImpl.TAG;
-                        LogUtils.d(str, "---delPaLocalInfosByPaType---paType = " + this.val$paType);
-                        ChatMessageDBManager.getInstance(PaManagerImpl.mContext).delPaLocalInfosByPaType(this.val$paType);
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    String str = PaManagerImpl.TAG;
+                    LogUtils.d(str, "---delPaLocalInfosByPaType---paType = " + this.val$paType);
+                    ChatMessageDBManager.getInstance(PaManagerImpl.mContext).delPaLocalInfosByPaType(this.val$paType);
                 }
             });
         }
@@ -484,65 +586,10 @@ public class PaManagerImpl {
     public PaInfo getPaInfo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? PaInfoDBManager.getInstance(mContext).queryPaInfo(j) : (PaInfo) invokeJ.objValue;
-    }
-
-    public void getPaInfos(ArrayList<Long> arrayList, IGetPaInfosListener iGetPaInfosListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, arrayList, iGetPaInfosListener) == null) {
-            if (!AccountManager.isLogin(mContext)) {
-                if (iGetPaInfosListener != null) {
-                    iGetPaInfosListener.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
-                }
-            } else if (arrayList != null && arrayList.size() != 0) {
-                long appid = AccountManager.getAppid(mContext);
-                long uk = IMSDK.getInstance(mContext).getUk();
-                int size = arrayList.size() / 20;
-                if (arrayList.size() % 20 > 0) {
-                    size++;
-                }
-                GetPaInfoSliceListener getPaInfoSliceListener = new GetPaInfoSliceListener(iGetPaInfosListener, size);
-                int i = 0;
-                while (i < size) {
-                    int i2 = i + 1;
-                    int i3 = i2 * 20;
-                    if (i3 > arrayList.size()) {
-                        i3 = arrayList.size();
-                    }
-                    requestPaInfos(arrayList.subList(i * 20, i3), appid, uk, getPaInfoSliceListener);
-                    i = i2;
-                }
-            } else {
-                iGetPaInfosListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
-            }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            return PaInfoDBManager.getInstance(mContext).queryPaInfo(j);
         }
-    }
-
-    public void getPaQuickReplies(long j, IGetQuickReplyListener iGetQuickReplyListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048582, this, j, iGetQuickReplyListener) == null) {
-            if (!AccountManager.isLogin(mContext)) {
-                if (iGetQuickReplyListener != null) {
-                    iGetQuickReplyListener.onGetQuickReply(null, true);
-                    return;
-                }
-                return;
-            }
-            PaInfo paInfo = getPaInfo(j);
-            QuickReply createQuickReply = QuickReply.createQuickReply(paInfo.getRepliesStr());
-            if (createQuickReply != null && System.currentTimeMillis() < (createQuickReply.getRefreshTime() * 1000) + paInfo.getLastRefreshTime()) {
-                if (createQuickReply.getStatus() == 0) {
-                    iGetQuickReplyListener.onGetQuickReply(createQuickReply, true);
-                    return;
-                } else {
-                    iGetQuickReplyListener.onGetQuickReply(null, true);
-                    return;
-                }
-            }
-            setPaQuickRelies(j, "", System.currentTimeMillis());
-            IMPaGetQuickReplies iMPaGetQuickReplies = new IMPaGetQuickReplies(mContext, j, ListenerManager.getInstance().addListener(iGetQuickReplyListener));
-            HttpHelper.executor(mContext, iMPaGetQuickReplies, iMPaGetQuickReplies);
-        }
+        return (PaInfo) invokeJ.objValue;
     }
 
     public String getPaThirdId(long j) {
@@ -550,18 +597,157 @@ public class PaManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
             PaInfo paInfo = PaManager.getPaInfo(mContext, j);
-            return paInfo != null ? paInfo.getThirdId() : "";
+            if (paInfo != null) {
+                return paInfo.getThirdId();
+            }
+            return "";
         }
         return (String) invokeJ.objValue;
     }
 
-    public void getPaType(long j, IGetPaTypeListener iGetPaTypeListener) {
+    public void registerAcceptChangeListener(IAcceptMsgChangeListener iAcceptMsgChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, iGetPaTypeListener) == null) {
-            String str = TAG;
-            LogUtils.d(str, "getPaType listener =" + iGetPaTypeListener);
-            IMGetPaTypeRequest iMGetPaTypeRequest = new IMGetPaTypeRequest(mContext, ListenerManager.getInstance().addListener(iGetPaTypeListener), j);
-            HttpHelper.executor(mContext, iMGetPaTypeRequest, iMGetPaTypeRequest);
+        if ((interceptable != null && interceptable.invokeL(1048597, this, iAcceptMsgChangeListener) != null) || iAcceptMsgChangeListener == null) {
+            return;
+        }
+        synchronized (mAcceptMsgChangeListeners) {
+            if (!mAcceptMsgChangeListeners.contains(iAcceptMsgChangeListener)) {
+                mAcceptMsgChangeListeners.add(iAcceptMsgChangeListener);
+            }
+        }
+    }
+
+    public void registerSubscriptionChangeListener(ISubscriptionChangeListener iSubscriptionChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, iSubscriptionChangeListener) == null) {
+            synchronized (mSubscriptionChangeListeners) {
+                mSubscriptionChangeListeners.add(iSubscriptionChangeListener);
+            }
+        }
+    }
+
+    public void syncAllPainfo(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, context) == null) {
+            if (this.mTimer == null) {
+                this.mTimer = new Timer();
+            }
+            this.mTimer.schedule(new TimerTask(this) { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PaManagerImpl this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.util.TimerTask, java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        int sDKVersionValue = IMConfigInternal.getInstance().getSDKVersionValue(PaManagerImpl.mContext);
+                        String str = PaManagerImpl.TAG;
+                        LogUtils.d(str, "syncpa sdkversion =  " + sDKVersionValue);
+                        if (sDKVersionValue >= 2900036) {
+                            ArrayList queryPaidList = PaInfoDBManager.getInstance(PaManagerImpl.mContext).queryPaidList();
+                            if (queryPaidList == null || queryPaidList.size() == 0) {
+                                LogUtils.e(PaManagerImpl.TAG, "syncpa syncAllPainfo paidlist is null");
+                                return;
+                            }
+                            String str2 = PaManagerImpl.TAG;
+                            LogUtils.d(str2, "syncAllPainfo> paidlist = " + queryPaidList.toString());
+                            this.this$0.getPaInfos(queryPaidList, new IGetPaInfosListener(this) { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.5.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ AnonymousClass5 this$1;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$1 = this;
+                                }
+
+                                @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
+                                public void onResult(int i, String str3, ArrayList arrayList) {
+                                    Interceptable interceptable3 = $ic;
+                                    if ((interceptable3 == null || interceptable3.invokeILL(1048576, this, i, str3, arrayList) == null) && i == 0) {
+                                        Iterator it = arrayList.iterator();
+                                        while (it.hasNext()) {
+                                            PaInfo paInfo = (PaInfo) it.next();
+                                            String str4 = PaManagerImpl.TAG;
+                                            LogUtils.d(str4, "syncAllPainfo> paid=" + paInfo.getPaId() + ", classtype=" + paInfo.getClassType() + ", classtitle=" + paInfo.getClassTitle() + ", classshow=" + paInfo.getClassshow() + ", marktop=" + paInfo.getMarkTop() + ", markTopTime=" + paInfo.getMarkTopTime());
+                                            PaInfoDBManager.getInstance(PaManagerImpl.mContext).subscribePa(paInfo);
+                                            ChatMessageDBManager.getInstance(PaManagerImpl.mContext).updateSessionClass(paInfo);
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+            }, 60000L);
+        }
+    }
+
+    public void unRegisterAcceptChangeListener(IAcceptMsgChangeListener iAcceptMsgChangeListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048605, this, iAcceptMsgChangeListener) != null) || iAcceptMsgChangeListener == null) {
+            return;
+        }
+        synchronized (mAcceptMsgChangeListeners) {
+            mAcceptMsgChangeListeners.remove(iAcceptMsgChangeListener);
+        }
+    }
+
+    public void unregisterPaSubscriptionChangeListener(ISubscriptionChangeListener iSubscriptionChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, iSubscriptionChangeListener) == null) {
+            synchronized (mSubscriptionChangeListeners) {
+                mSubscriptionChangeListeners.remove(iSubscriptionChangeListener);
+            }
+        }
+    }
+
+    public void getPaInfo(long j, IGetPaInfoListener iGetPaInfoListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048580, this, j, iGetPaInfoListener) == null) {
+            if (AccountManager.isLogin(mContext)) {
+                String addListener = ListenerManager.getInstance().addListener(iGetPaInfoListener);
+                long appid = AccountManager.getAppid(mContext);
+                long uk = IMSDK.getInstance(mContext).getUk();
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Long.valueOf(j));
+                IMPaGetOneInfoRequest iMPaGetOneInfoRequest = new IMPaGetOneInfoRequest(mContext, addListener, arrayList, appid, uk);
+                HttpHelper.executor(mContext, iMPaGetOneInfoRequest, iMPaGetOneInfoRequest);
+            } else if (iGetPaInfoListener != null) {
+                iGetPaInfoListener.onGetPaInfoResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
+            }
         }
     }
 
@@ -574,7 +760,7 @@ public class PaManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
                 try {
-                    b80.g(mContext).f(mContext, creatMethodIntent);
+                    c80.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -587,31 +773,112 @@ public class PaManagerImpl {
         }
     }
 
-    public void onAcceptPaPushResult(String str, int i, String str2, long j) {
+    public void searchPaList(String str, ISearchPaListListener iSearchPaListListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
-            String str3 = TAG;
-            LogUtils.d(str3, "onAcceptPaPushResult----errorCode: " + i + " msg: " + str2);
-            IAcceptPaPushListener iAcceptPaPushListener = (IAcceptPaPushListener) ListenerManager.getInstance().removeListener(str);
-            if (iAcceptPaPushListener != null) {
-                iAcceptPaPushListener.onAcceptPaPushResult(i, str2, j);
-            } else {
-                LogUtils.d(TAG, "IAcceptPaPushListener is null");
+        if (interceptable == null || interceptable.invokeLL(1048600, this, str, iSearchPaListListener) == null) {
+            String addListener = ListenerManager.getInstance().addListener(iSearchPaListListener);
+            if (AccountManager.isLogin(mContext)) {
+                Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 103);
+                creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+                creatMethodIntent.putExtra(Constants.EXTRA_PA_SEARCH_CONTENT, str);
+                try {
+                    c80.g(mContext).f(mContext, creatMethodIntent);
+                    return;
+                } catch (Exception e) {
+                    ListenerManager.getInstance().removeListener(addListener);
+                    onSearchPaListResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
+                    LogUtils.e(TAG, "Exception ", e);
+                    return;
+                }
+            }
+            onSearchPaListResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
+        }
+    }
+
+    public void unsubscribePa(long j, ISubscribePaListener iSubscribePaListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048608, this, j, iSubscribePaListener) == null) {
+            String addListener = ListenerManager.getInstance().addListener(iSubscribePaListener);
+            if (AccountManager.isLogin(mContext)) {
+                Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 101);
+                creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+                creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
+                try {
+                    c80.g(mContext).f(mContext, creatMethodIntent);
+                    return;
+                } catch (Exception e) {
+                    ListenerManager.getInstance().removeListener(addListener);
+                    onUnsubscribePaResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
+                    LogUtils.e(TAG, "Exception ", e);
+                    return;
+                }
+            }
+            onUnsubscribePaResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, j);
+        }
+    }
+
+    public void getPaInfos(ArrayList arrayList, IGetPaInfosListener iGetPaInfosListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, arrayList, iGetPaInfosListener) == null) {
+            if (AccountManager.isLogin(mContext)) {
+                if (arrayList != null && arrayList.size() != 0) {
+                    long appid = AccountManager.getAppid(mContext);
+                    long uk = IMSDK.getInstance(mContext).getUk();
+                    int size = arrayList.size() / 20;
+                    if (arrayList.size() % 20 > 0) {
+                        size++;
+                    }
+                    GetPaInfoSliceListener getPaInfoSliceListener = new GetPaInfoSliceListener(iGetPaInfosListener, size);
+                    int i = 0;
+                    while (i < size) {
+                        int i2 = i + 1;
+                        int i3 = i2 * 20;
+                        if (i3 > arrayList.size()) {
+                            i3 = arrayList.size();
+                        }
+                        requestPaInfos(arrayList.subList(i * 20, i3), appid, uk, getPaInfoSliceListener);
+                        i = i2;
+                    }
+                    return;
+                }
+                iGetPaInfosListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
+            } else if (iGetPaInfosListener != null) {
+                iGetPaInfosListener.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
             }
         }
     }
 
-    public void onGetPaInfoResult(String str, int i, String str2, PaInfo paInfo) {
+    public void getPaQuickReplies(long j, IGetQuickReplyListener iGetQuickReplyListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048587, this, str, i, str2, paInfo) == null) {
-            String str3 = TAG;
-            LogUtils.d(str3, "onGetPaInfoResult----errorCode: " + i + " msg: " + str2);
-            IGetPaInfoListener iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(str);
-            if (iGetPaInfoListener != null) {
-                iGetPaInfoListener.onGetPaInfoResult(i, str2, paInfo);
-            } else {
-                LogUtils.d(TAG, "IGetPaInfoListener is null");
+        if (interceptable == null || interceptable.invokeJL(1048582, this, j, iGetQuickReplyListener) == null) {
+            if (AccountManager.isLogin(mContext)) {
+                PaInfo paInfo = getPaInfo(j);
+                QuickReply createQuickReply = QuickReply.createQuickReply(paInfo.getRepliesStr());
+                if (createQuickReply != null && System.currentTimeMillis() < (createQuickReply.getRefreshTime() * 1000) + paInfo.getLastRefreshTime()) {
+                    if (createQuickReply.getStatus() == 0) {
+                        iGetQuickReplyListener.onGetQuickReply(createQuickReply, true);
+                        return;
+                    } else {
+                        iGetQuickReplyListener.onGetQuickReply(null, true);
+                        return;
+                    }
+                }
+                setPaQuickRelies(j, "", System.currentTimeMillis());
+                IMPaGetQuickReplies iMPaGetQuickReplies = new IMPaGetQuickReplies(mContext, j, ListenerManager.getInstance().addListener(iGetQuickReplyListener));
+                HttpHelper.executor(mContext, iMPaGetQuickReplies, iMPaGetQuickReplies);
+            } else if (iGetQuickReplyListener != null) {
+                iGetQuickReplyListener.onGetQuickReply(null, true);
             }
+        }
+    }
+
+    public void getPaType(long j, IGetPaTypeListener iGetPaTypeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, iGetPaTypeListener) == null) {
+            String str = TAG;
+            LogUtils.d(str, "getPaType listener =" + iGetPaTypeListener);
+            IMGetPaTypeRequest iMGetPaTypeRequest = new IMGetPaTypeRequest(mContext, ListenerManager.getInstance().addListener(iGetPaTypeListener), j);
+            HttpHelper.executor(mContext, iMGetPaTypeRequest, iMGetPaTypeRequest);
         }
     }
 
@@ -643,73 +910,6 @@ public class PaManagerImpl {
         }
     }
 
-    public void onQueryScribedPaListResult(String str, int i, String str2, List<PaInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048590, this, str, i, str2, list) == null) {
-            String str3 = TAG;
-            LogUtils.d(str3, "onQueryScribedPaListResult----errorCode: " + i + " msg: " + str2);
-            IQuerySubscribedPaListListener iQuerySubscribedPaListListener = (IQuerySubscribedPaListListener) ListenerManager.getInstance().removeListener(str);
-            if (iQuerySubscribedPaListListener != null) {
-                iQuerySubscribedPaListListener.onQuerySubscribedPaResult(i, str2, list);
-            } else {
-                LogUtils.d(TAG, "IQuerySubscribePaListListener is null");
-            }
-        }
-    }
-
-    public void onSearchPaListResult(String str, int i, String str2, List<PaInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048591, this, str, i, str2, list) == null) {
-            String str3 = TAG;
-            LogUtils.d(str3, "onSearchPaResult----errorCode: " + i + " msg: " + str2);
-            ISearchPaListListener iSearchPaListListener = (ISearchPaListListener) ListenerManager.getInstance().removeListener(str);
-            if (iSearchPaListListener != null) {
-                iSearchPaListListener.onSearchPaListResult(i, str2, list);
-            } else {
-                LogUtils.d(TAG, "ISearchPaListListener is null");
-            }
-        }
-    }
-
-    public void onSubscribePaResult(String str, int i, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
-            String str3 = TAG;
-            LogUtils.d(str3, "onSubscribePaResult----errorCode: " + i + " msg: " + str2);
-            ISubscribePaListener iSubscribePaListener = (ISubscribePaListener) ListenerManager.getInstance().removeListener(str);
-            if (iSubscribePaListener != null) {
-                iSubscribePaListener.onSubsribePaResult(i, str2, j);
-            } else {
-                LogUtils.d(TAG, "ISubscribePaListener is null");
-            }
-        }
-    }
-
-    public void onUnsubscribePaResult(String str, int i, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
-            String str3 = TAG;
-            LogUtils.d(str3, "onUnscribePaResult----errorCode: " + i + " msg: " + str2);
-            ISubscribePaListener iSubscribePaListener = (ISubscribePaListener) ListenerManager.getInstance().removeListener(str);
-            if (iSubscribePaListener != null) {
-                iSubscribePaListener.onUnsubsribePaResult(i, str2, j);
-            } else {
-                LogUtils.d(TAG, "ISubscribePaListener is null");
-            }
-        }
-    }
-
-    public void queryPaInfoList(IQuerySubscribedPaListListener iQuerySubscribedPaListListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, iQuerySubscribedPaListListener) == null) || AccountManager.isCuidLogin(mContext)) {
-            return;
-        }
-        String addListener = ListenerManager.getInstance().addListener(iQuerySubscribedPaListListener);
-        AccountManager.getAppid(mContext);
-        IMPaGetInfoRequest iMPaGetInfoRequest = new IMPaGetInfoRequest(mContext, addListener, AccountManager.getAppid(mContext), IMSDK.getInstance(mContext).getUk());
-        HttpHelper.executor(mContext, iMPaGetInfoRequest, iMPaGetInfoRequest);
-    }
-
     public void querySubscribedPaList(IQuerySubscribedPaListListener iQuerySubscribedPaListListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, iQuerySubscribedPaListListener) == null) {
@@ -718,7 +918,7 @@ public class PaManagerImpl {
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 104);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 try {
-                    b80.g(mContext).f(mContext, creatMethodIntent);
+                    c80.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -731,7 +931,7 @@ public class PaManagerImpl {
         }
     }
 
-    public List<PaInfo> querySubscribedPaListSync(Context context) {
+    public List querySubscribedPaListSync(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, context)) == null) {
@@ -749,61 +949,11 @@ public class PaManagerImpl {
         return (List) invokeL.objValue;
     }
 
-    public void registerAcceptChangeListener(IAcceptMsgChangeListener iAcceptMsgChangeListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, iAcceptMsgChangeListener) == null) || iAcceptMsgChangeListener == null) {
-            return;
-        }
-        synchronized (mAcceptMsgChangeListeners) {
-            if (!mAcceptMsgChangeListeners.contains(iAcceptMsgChangeListener)) {
-                mAcceptMsgChangeListeners.add(iAcceptMsgChangeListener);
-            }
-        }
-    }
-
     public void registerPaSubscriptionChangeListener(Context context, IPaSubscriptionChangeListener iPaSubscriptionChangeListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048598, this, context, iPaSubscriptionChangeListener) == null) || iPaSubscriptionChangeListener == null || mPaSubscriptionChangeListeners.contains(iPaSubscriptionChangeListener)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048598, this, context, iPaSubscriptionChangeListener) == null) && iPaSubscriptionChangeListener != null && !mPaSubscriptionChangeListeners.contains(iPaSubscriptionChangeListener)) {
+            mPaSubscriptionChangeListeners.add(iPaSubscriptionChangeListener);
         }
-        mPaSubscriptionChangeListeners.add(iPaSubscriptionChangeListener);
-    }
-
-    public void registerSubscriptionChangeListener(ISubscriptionChangeListener iSubscriptionChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, iSubscriptionChangeListener) == null) {
-            synchronized (mSubscriptionChangeListeners) {
-                mSubscriptionChangeListeners.add(iSubscriptionChangeListener);
-            }
-        }
-    }
-
-    public void searchPaList(String str, ISearchPaListListener iSearchPaListListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, str, iSearchPaListListener) == null) {
-            String addListener = ListenerManager.getInstance().addListener(iSearchPaListListener);
-            if (AccountManager.isLogin(mContext)) {
-                Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 103);
-                creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-                creatMethodIntent.putExtra(Constants.EXTRA_PA_SEARCH_CONTENT, str);
-                try {
-                    b80.g(mContext).f(mContext, creatMethodIntent);
-                    return;
-                } catch (Exception e) {
-                    ListenerManager.getInstance().removeListener(addListener);
-                    onSearchPaListResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
-                    LogUtils.e(TAG, "Exception ", e);
-                    return;
-                }
-            }
-            onSearchPaListResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
-        }
-    }
-
-    public int setPaQuickRelies(long j, String str, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), str, Long.valueOf(j2)})) == null) ? PaInfoDBManager.getInstance(mContext).setPaQuickRelies(j, str, j2) : invokeCommon.intValue;
     }
 
     public void subscribePa(long j, ISubscribePaListener iSubscribePaListener) {
@@ -848,7 +998,7 @@ public class PaManagerImpl {
                                 creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, this.val$paId);
                                 creatMethodIntent.putExtra(Constants.EXTRA_PA_INFO, paInfo);
                                 try {
-                                    b80.g(PaManagerImpl.mContext).f(PaManagerImpl.mContext, creatMethodIntent);
+                                    c80.g(PaManagerImpl.mContext).f(PaManagerImpl.mContext, creatMethodIntent);
                                     return;
                                 } catch (Exception e) {
                                     ListenerManager.getInstance().removeListener(this.val$key);
@@ -867,93 +1017,20 @@ public class PaManagerImpl {
         }
     }
 
-    public void syncAllPainfo(Context context) {
+    public void unregisterPaSubscriptionChangeListener(Context context, IPaSubscriptionChangeListener iPaSubscriptionChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, context) == null) {
-            if (this.mTimer == null) {
-                this.mTimer = new Timer();
-            }
-            this.mTimer.schedule(new TimerTask(this) { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PaManagerImpl this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.util.TimerTask, java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int sDKVersionValue = IMConfigInternal.getInstance().getSDKVersionValue(PaManagerImpl.mContext);
-                        String str = PaManagerImpl.TAG;
-                        LogUtils.d(str, "syncpa sdkversion =  " + sDKVersionValue);
-                        if (sDKVersionValue >= 2900036) {
-                            ArrayList<Long> queryPaidList = PaInfoDBManager.getInstance(PaManagerImpl.mContext).queryPaidList();
-                            if (queryPaidList == null || queryPaidList.size() == 0) {
-                                LogUtils.e(PaManagerImpl.TAG, "syncpa syncAllPainfo paidlist is null");
-                                return;
-                            }
-                            String str2 = PaManagerImpl.TAG;
-                            LogUtils.d(str2, "syncAllPainfo> paidlist = " + queryPaidList.toString());
-                            this.this$0.getPaInfos(queryPaidList, new IGetPaInfosListener(this) { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.5.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass5 this$1;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$1 = this;
-                                }
-
-                                @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-                                public void onResult(int i, String str3, ArrayList<PaInfo> arrayList) {
-                                    Interceptable interceptable3 = $ic;
-                                    if ((interceptable3 == null || interceptable3.invokeILL(1048576, this, i, str3, arrayList) == null) && i == 0) {
-                                        Iterator<PaInfo> it = arrayList.iterator();
-                                        while (it.hasNext()) {
-                                            PaInfo next = it.next();
-                                            String str4 = PaManagerImpl.TAG;
-                                            LogUtils.d(str4, "syncAllPainfo> paid=" + next.getPaId() + ", classtype=" + next.getClassType() + ", classtitle=" + next.getClassTitle() + ", classshow=" + next.getClassshow() + ", marktop=" + next.getMarkTop() + ", markTopTime=" + next.getMarkTopTime());
-                                            PaInfoDBManager.getInstance(PaManagerImpl.mContext).subscribePa(next);
-                                            ChatMessageDBManager.getInstance(PaManagerImpl.mContext).updateSessionClass(next);
-                                        }
-                                    }
-                                }
-                            });
-                        }
-                    }
-                }
-            }, 60000L);
+        if ((interceptable == null || interceptable.invokeLL(1048606, this, context, iPaSubscriptionChangeListener) == null) && iPaSubscriptionChangeListener != null && mPaSubscriptionChangeListeners.contains(iPaSubscriptionChangeListener)) {
+            mPaSubscriptionChangeListeners.remove(iPaSubscriptionChangeListener);
         }
+    }
+
+    public int setPaQuickRelies(long j, String str, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), str, Long.valueOf(j2)})) == null) {
+            return PaInfoDBManager.getInstance(mContext).setPaQuickRelies(j, str, j2);
+        }
+        return invokeCommon.intValue;
     }
 
     public void syncAndQueryAllPaInfo() {
@@ -964,74 +1041,6 @@ public class PaManagerImpl {
             if (Utility.readBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, true) && Utility.isNeedSync(mContext, str)) {
                 Utility.writeLongData(mContext, str, System.currentTimeMillis() + Utility.getPaSyncDelay());
                 syncAllPainfo(mContext);
-            }
-        }
-    }
-
-    public void unRegisterAcceptChangeListener(IAcceptMsgChangeListener iAcceptMsgChangeListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, iAcceptMsgChangeListener) == null) || iAcceptMsgChangeListener == null) {
-            return;
-        }
-        synchronized (mAcceptMsgChangeListeners) {
-            mAcceptMsgChangeListeners.remove(iAcceptMsgChangeListener);
-        }
-    }
-
-    public void unregisterPaSubscriptionChangeListener(Context context, IPaSubscriptionChangeListener iPaSubscriptionChangeListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048606, this, context, iPaSubscriptionChangeListener) == null) && iPaSubscriptionChangeListener != null && mPaSubscriptionChangeListeners.contains(iPaSubscriptionChangeListener)) {
-            mPaSubscriptionChangeListeners.remove(iPaSubscriptionChangeListener);
-        }
-    }
-
-    public void unsubscribePa(long j, ISubscribePaListener iSubscribePaListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048608, this, j, iSubscribePaListener) == null) {
-            String addListener = ListenerManager.getInstance().addListener(iSubscribePaListener);
-            if (AccountManager.isLogin(mContext)) {
-                Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 101);
-                creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-                creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
-                try {
-                    b80.g(mContext).f(mContext, creatMethodIntent);
-                    return;
-                } catch (Exception e) {
-                    ListenerManager.getInstance().removeListener(addListener);
-                    onUnsubscribePaResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
-                    LogUtils.e(TAG, "Exception ", e);
-                    return;
-                }
-            }
-            onUnsubscribePaResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, j);
-        }
-    }
-
-    public void getPaInfo(long j, IGetPaInfoListener iGetPaInfoListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048580, this, j, iGetPaInfoListener) == null) {
-            if (!AccountManager.isLogin(mContext)) {
-                if (iGetPaInfoListener != null) {
-                    iGetPaInfoListener.onGetPaInfoResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
-                    return;
-                }
-                return;
-            }
-            String addListener = ListenerManager.getInstance().addListener(iGetPaInfoListener);
-            long appid = AccountManager.getAppid(mContext);
-            long uk = IMSDK.getInstance(mContext).getUk();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(j));
-            IMPaGetOneInfoRequest iMPaGetOneInfoRequest = new IMPaGetOneInfoRequest(mContext, addListener, arrayList, appid, uk);
-            HttpHelper.executor(mContext, iMPaGetOneInfoRequest, iMPaGetOneInfoRequest);
-        }
-    }
-
-    public void unregisterPaSubscriptionChangeListener(ISubscriptionChangeListener iSubscriptionChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, iSubscriptionChangeListener) == null) {
-            synchronized (mSubscriptionChangeListeners) {
-                mSubscriptionChangeListeners.remove(iSubscriptionChangeListener);
             }
         }
     }

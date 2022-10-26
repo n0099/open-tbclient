@@ -19,7 +19,7 @@ public final class PolygonOptions extends OverlayOptions {
     public Bundle c;
     public Stroke d;
     public int e;
-    public List<LatLng> f;
+    public List f;
 
     public PolygonOptions() {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public final class PolygonOptions extends OverlayOptions {
             polygon.A = this.b;
             polygon.z = this.a;
             polygon.B = this.c;
-            List<LatLng> list = this.f;
+            List list = this.f;
             if (list == null || list.size() < 2) {
                 throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
             }
@@ -91,7 +91,7 @@ public final class PolygonOptions extends OverlayOptions {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public List<LatLng> getPoints() {
+    public List getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (List) invokeV.objValue;
@@ -115,7 +115,7 @@ public final class PolygonOptions extends OverlayOptions {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public PolygonOptions points(List<LatLng> list) {
+    public PolygonOptions points(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
@@ -128,7 +128,7 @@ public final class PolygonOptions extends OverlayOptions {
                     while (i < list.size()) {
                         int i2 = i + 1;
                         for (int i3 = i2; i3 < list.size(); i3++) {
-                            if (list.get(i) == list.get(i3)) {
+                            if (((LatLng) list.get(i)) == ((LatLng) list.get(i3))) {
                                 throw new IllegalArgumentException("BDMapSDKException: points list can not has same points");
                             }
                         }

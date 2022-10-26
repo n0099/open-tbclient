@@ -33,6 +33,9 @@ public class AudioSource extends MediaSource {
     public long getNativeAudioSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getNativeMediaSource() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getNativeMediaSource();
+        }
+        return invokeV.longValue;
     }
 }

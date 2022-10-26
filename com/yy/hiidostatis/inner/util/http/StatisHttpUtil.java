@@ -22,6 +22,27 @@ public class StatisHttpUtil extends AbstractStatisHttpUtil {
     public String body;
     public String urlParams;
 
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
+    public String getUrlFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "http://%s/c.gif" : (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
+    public String getUrlService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -52,70 +73,53 @@ public class StatisHttpUtil extends AbstractStatisHttpUtil {
         }
     }
 
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
     @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
     public String[] getUrlAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ADDRESSES : (String[]) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
-    public String getUrlFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "http://%s/c.gif" : (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
-    public String getUrlService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ADDRESSES;
+        }
+        return (String[]) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
     public boolean sendContent(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(1048580, this, str, str2, i)) != null) {
-            return invokeLLI.booleanValue;
-        }
-        L.brief("hiido service address is %s", str);
-        this.mThrowable = null;
-        int i2 = i;
-        while (true) {
-            try {
-            } catch (Throwable th) {
-                this.mThrowable = th;
-                L.debug("StatisHttpUtil", "guid:%s. http statis exception %s", Util.parseParam(str2, BaseStatisContent.GUID), th);
-            }
-            if (getLastTryTimes() > 0 && !ArdUtil.isNetworkReach()) {
-                L.debug(this, "isNetworkReach false.", new Object[0]);
-                return false;
-            }
-            if (i != i2) {
-                L.brief("Try again to send %s with url %s, tried times %d.", str2, str, Integer.valueOf(i - i2));
-            }
-            this.lastTryTimes++;
-            if (!get(str, str2)) {
-                L.debug(this, "Failed to send %s to %s.", str2, str);
-                int i3 = i2 - 1;
-                if (i2 <= 0) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, str, str2, i)) == null) {
+            L.brief("hiido service address is %s", str);
+            this.mThrowable = null;
+            int i2 = i;
+            while (true) {
+                try {
+                } catch (Throwable th) {
+                    this.mThrowable = th;
+                    L.debug("StatisHttpUtil", "guid:%s. http statis exception %s", Util.parseParam(str2, BaseStatisContent.GUID), th);
+                }
+                if (getLastTryTimes() > 0 && !ArdUtil.isNetworkReach()) {
+                    L.debug(this, "isNetworkReach false.", new Object[0]);
                     return false;
                 }
-                i2 = i3;
-            } else {
-                this.mThrowable = null;
-                L.debug(this, "Successfully sent %s to %s", str2, str);
-                return true;
+                if (i != i2) {
+                    L.brief("Try again to send %s with url %s, tried times %d.", str2, str, Integer.valueOf(i - i2));
+                }
+                this.lastTryTimes++;
+                if (!get(str, str2)) {
+                    L.debug(this, "Failed to send %s to %s.", str2, str);
+                    int i3 = i2 - 1;
+                    if (i2 <= 0) {
+                        return false;
+                    }
+                    i2 = i3;
+                } else {
+                    this.mThrowable = null;
+                    L.debug(this, "Successfully sent %s to %s", str2, str);
+                    return true;
+                }
             }
+        } else {
+            return invokeLLI.booleanValue;
         }
     }
 }

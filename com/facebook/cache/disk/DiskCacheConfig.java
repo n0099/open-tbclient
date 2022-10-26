@@ -25,7 +25,7 @@ public class DiskCacheConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String mBaseDirectoryName;
-    public final Supplier<File> mBaseDirectoryPathSupplier;
+    public final Supplier mBaseDirectoryPathSupplier;
     public final CacheErrorLogger mCacheErrorLogger;
     public final CacheEventListener mCacheEventListener;
     public final Context mContext;
@@ -38,11 +38,11 @@ public class DiskCacheConfig {
     public final int mVersion;
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mBaseDirectoryName;
-        public Supplier<File> mBaseDirectoryPathSupplier;
+        public Supplier mBaseDirectoryPathSupplier;
         public CacheErrorLogger mCacheErrorLogger;
         public CacheEventListener mCacheEventListener;
         @Nullable
@@ -55,10 +55,28 @@ public class DiskCacheConfig {
         public long mMaxCacheSizeOnVeryLowDiskSpace;
         public int mVersion;
 
-        public DiskCacheConfig build() {
-            InterceptResult invokeV;
+        public Builder(@Nullable Context context) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DiskCacheConfig(this) : (DiskCacheConfig) invokeV.objValue;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mVersion = 1;
+            this.mBaseDirectoryName = "image_cache";
+            this.mMaxCacheSize = 41943040L;
+            this.mMaxCacheSizeOnLowDiskSpace = Config.FULL_TRACE_LOG_LIMIT;
+            this.mMaxCacheSizeOnVeryLowDiskSpace = 2097152L;
+            this.mEntryEvictionComparatorSupplier = new DefaultEntryEvictionComparatorSupplier();
+            this.mContext = context;
         }
 
         public Builder setBaseDirectoryName(String str) {
@@ -81,7 +99,7 @@ public class DiskCacheConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setBaseDirectoryPathSupplier(Supplier<File> supplier) {
+        public Builder setBaseDirectoryPathSupplier(Supplier supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, supplier)) == null) {
@@ -181,32 +199,18 @@ public class DiskCacheConfig {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder(@Nullable Context context) {
+        public DiskCacheConfig build() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new DiskCacheConfig(this);
             }
-            this.mVersion = 1;
-            this.mBaseDirectoryName = "image_cache";
-            this.mMaxCacheSize = 41943040L;
-            this.mMaxCacheSizeOnLowDiskSpace = Config.FULL_TRACE_LOG_LIMIT;
-            this.mMaxCacheSizeOnVeryLowDiskSpace = 2097152L;
-            this.mEntryEvictionComparatorSupplier = new DefaultEntryEvictionComparatorSupplier();
-            this.mContext = context;
+            return (DiskCacheConfig) invokeV.objValue;
         }
     }
 
     public DiskCacheConfig(Builder builder) {
+        boolean z;
         CacheErrorLogger cacheErrorLogger;
         CacheEventListener cacheEventListener;
         DiskTrimmableRegistry diskTrimmableRegistry;
@@ -225,9 +229,14 @@ public class DiskCacheConfig {
             }
         }
         this.mContext = builder.mContext;
-        Preconditions.checkState((builder.mBaseDirectoryPathSupplier == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
+        if (builder.mBaseDirectoryPathSupplier == null && this.mContext == null) {
+            z = false;
+        } else {
+            z = true;
+        }
+        Preconditions.checkState(z, "Either a non-null context or a base directory path or supplier must be provided.");
         if (builder.mBaseDirectoryPathSupplier == null && this.mContext != null) {
-            builder.mBaseDirectoryPathSupplier = new Supplier<File>(this) { // from class: com.facebook.cache.disk.DiskCacheConfig.1
+            builder.mBaseDirectoryPathSupplier = new Supplier(this) { // from class: com.facebook.cache.disk.DiskCacheConfig.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DiskCacheConfig this$0;
@@ -251,12 +260,14 @@ public class DiskCacheConfig {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.facebook.common.internal.Supplier
                 public File get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.this$0.mContext.getApplicationContext().getCacheDir() : (File) invokeV.objValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.this$0.mContext.getApplicationContext().getCacheDir();
+                    }
+                    return (File) invokeV.objValue;
                 }
             };
         }
@@ -267,22 +278,22 @@ public class DiskCacheConfig {
         this.mLowDiskSpaceSizeLimit = builder.mMaxCacheSizeOnLowDiskSpace;
         this.mMinimumSizeLimit = builder.mMaxCacheSizeOnVeryLowDiskSpace;
         this.mEntryEvictionComparatorSupplier = (EntryEvictionComparatorSupplier) Preconditions.checkNotNull(builder.mEntryEvictionComparatorSupplier);
-        if (builder.mCacheErrorLogger != null) {
-            cacheErrorLogger = builder.mCacheErrorLogger;
-        } else {
+        if (builder.mCacheErrorLogger == null) {
             cacheErrorLogger = NoOpCacheErrorLogger.getInstance();
+        } else {
+            cacheErrorLogger = builder.mCacheErrorLogger;
         }
         this.mCacheErrorLogger = cacheErrorLogger;
-        if (builder.mCacheEventListener != null) {
-            cacheEventListener = builder.mCacheEventListener;
-        } else {
+        if (builder.mCacheEventListener == null) {
             cacheEventListener = NoOpCacheEventListener.getInstance();
+        } else {
+            cacheEventListener = builder.mCacheEventListener;
         }
         this.mCacheEventListener = cacheEventListener;
-        if (builder.mDiskTrimmableRegistry != null) {
-            diskTrimmableRegistry = builder.mDiskTrimmableRegistry;
-        } else {
+        if (builder.mDiskTrimmableRegistry == null) {
             diskTrimmableRegistry = NoOpDiskTrimmableRegistry.getInstance();
+        } else {
+            diskTrimmableRegistry = builder.mDiskTrimmableRegistry;
         }
         this.mDiskTrimmableRegistry = diskTrimmableRegistry;
         this.mIndexPopulateAtStartupEnabled = builder.mIndexPopulateAtStartupEnabled;
@@ -291,78 +302,117 @@ public class DiskCacheConfig {
     public static Builder newBuilder(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new Builder(context) : (Builder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return new Builder(context);
+        }
+        return (Builder) invokeL.objValue;
     }
 
     public String getBaseDirectoryName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBaseDirectoryName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBaseDirectoryName;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public Supplier<File> getBaseDirectoryPathSupplier() {
+    public Supplier getBaseDirectoryPathSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBaseDirectoryPathSupplier : (Supplier) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBaseDirectoryPathSupplier;
+        }
+        return (Supplier) invokeV.objValue;
     }
 
     public CacheErrorLogger getCacheErrorLogger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCacheErrorLogger : (CacheErrorLogger) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCacheErrorLogger;
+        }
+        return (CacheErrorLogger) invokeV.objValue;
     }
 
     public CacheEventListener getCacheEventListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCacheEventListener : (CacheEventListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCacheEventListener;
+        }
+        return (CacheEventListener) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public long getDefaultSizeLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDefaultSizeLimit : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mDefaultSizeLimit;
+        }
+        return invokeV.longValue;
     }
 
     public DiskTrimmableRegistry getDiskTrimmableRegistry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mDiskTrimmableRegistry : (DiskTrimmableRegistry) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mDiskTrimmableRegistry;
+        }
+        return (DiskTrimmableRegistry) invokeV.objValue;
     }
 
     public EntryEvictionComparatorSupplier getEntryEvictionComparatorSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mEntryEvictionComparatorSupplier : (EntryEvictionComparatorSupplier) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mEntryEvictionComparatorSupplier;
+        }
+        return (EntryEvictionComparatorSupplier) invokeV.objValue;
     }
 
     public boolean getIndexPopulateAtStartupEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mIndexPopulateAtStartupEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mIndexPopulateAtStartupEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public long getLowDiskSpaceSizeLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mLowDiskSpaceSizeLimit : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mLowDiskSpaceSizeLimit;
+        }
+        return invokeV.longValue;
     }
 
     public long getMinimumSizeLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mMinimumSizeLimit : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mMinimumSizeLimit;
+        }
+        return invokeV.longValue;
     }
 
     public int getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mVersion : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mVersion;
+        }
+        return invokeV.intValue;
     }
 }

@@ -24,6 +24,16 @@ public final class YY2MediaServiceImpl implements YY2MediaService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
+    public IYYSmallWindowController getYYSmallWindowController() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (IYYSmallWindowController) invokeV.objValue;
+    }
+
     public YY2MediaServiceImpl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,20 +46,6 @@ public final class YY2MediaServiceImpl implements YY2MediaService {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
-    public int getInstallPluginVersion(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? LiveMediaPluginManager.getInstance().getInstallPluginVersion(str) : invokeL.intValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
-    public ILiveRecMoreController getRecMoreController(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? LiveMediaPluginManager.getInstance().getRecMoreController(context) : (ILiveRecMoreController) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
@@ -77,20 +73,41 @@ public final class YY2MediaServiceImpl implements YY2MediaService {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
-    public IYYSmallWindowController getYYSmallWindowController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (IYYSmallWindowController) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
     public boolean isMediaPluginLoaded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? LiveMediaPluginManager.getInstance().isLoaded("com.baidu.live.media.business") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return LiveMediaPluginManager.getInstance().isLoaded("com.baidu.live.media.business");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
+    public int getInstallPluginVersion(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return LiveMediaPluginManager.getInstance().getInstallPluginVersion(str);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
+    public ILiveRecMoreController getRecMoreController(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return LiveMediaPluginManager.getInstance().getRecMoreController(context);
+        }
+        return (ILiveRecMoreController) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
+    public void onYYJoinChannelSuc(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            LiveMediaPluginManager.getInstance().onYYJoinChannelSuc(str);
+        }
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
@@ -124,20 +141,11 @@ public final class YY2MediaServiceImpl implements YY2MediaService {
                 public void onResult(boolean z, int i, String str) {
                     MultiPluginLoadCallback multiPluginLoadCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str}) == null) || (multiPluginLoadCallback2 = this.$callback) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str}) == null) && (multiPluginLoadCallback2 = this.$callback) != null) {
+                        multiPluginLoadCallback2.onResult(z, i, str);
                     }
-                    multiPluginLoadCallback2.onResult(z, i, str);
                 }
             });
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.YY2MediaService
-    public void onYYJoinChannelSuc(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            LiveMediaPluginManager.getInstance().onYYJoinChannelSuc(str);
         }
     }
 }

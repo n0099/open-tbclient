@@ -17,7 +17,7 @@ public class TaskSpeedStat {
     public long did;
     public String docid;
     public long endWriteTimeMillis;
-    public List<ThreadSpeedStat> mSpeedStatThreadList;
+    public List mSpeedStatThreadList;
     public boolean speedStatEnable;
     public long startTimeMillis;
     public long startWriteTimeMillis;
@@ -41,27 +41,20 @@ public class TaskSpeedStat {
         this.endWriteTimeMillis = -1L;
     }
 
-    public void addThreadSpeedStat(ThreadSpeedStat threadSpeedStat) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, threadSpeedStat) == null) || this.mSpeedStatThreadList.contains(threadSpeedStat)) {
-            return;
-        }
-        this.mSpeedStatThreadList.add(threadSpeedStat);
-    }
-
-    public String generateCqid(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return IdentityManager.getInstance(context).getEncodedUid() + this.docid + this.did + System.currentTimeMillis();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public List<ThreadSpeedStat> getSpeedStatThreadList() {
+    public List getSpeedStatThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSpeedStatThreadList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSpeedStatThreadList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void addThreadSpeedStat(ThreadSpeedStat threadSpeedStat) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, threadSpeedStat) == null) && !this.mSpeedStatThreadList.contains(threadSpeedStat)) {
+            this.mSpeedStatThreadList.add(threadSpeedStat);
+        }
     }
 
     public void initThreadSpeedStat(boolean z) {
@@ -71,5 +64,14 @@ public class TaskSpeedStat {
             this.mSpeedStatThreadList = new ArrayList();
             this.startTimeMillis = System.currentTimeMillis();
         }
+    }
+
+    public String generateCqid(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return IdentityManager.getInstance(context).getEncodedUid() + this.docid + this.did + System.currentTimeMillis();
+        }
+        return (String) invokeL.objValue;
     }
 }

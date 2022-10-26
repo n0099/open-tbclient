@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
@@ -45,115 +43,27 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
     public int slideOffset;
 
     /* loaded from: classes2.dex */
-    public class PagerHelper extends PagerSnapHelper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public OrientationHelper mHorizontalHelper;
-        public OrientationHelper mVerticalHelper;
-        public final /* synthetic */ PagerLayoutManager this$0;
-
-        public PagerHelper(PagerLayoutManager pagerLayoutManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pagerLayoutManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = pagerLayoutManager;
-        }
-
-        private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, OrientationHelper orientationHelper) {
-            InterceptResult invokeLLL;
-            int end;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, layoutManager, view2, orientationHelper)) == null) {
-                int decoratedStart = orientationHelper.getDecoratedStart(view2) + (orientationHelper.getDecoratedMeasurement(view2) / 2);
-                if (layoutManager.getClipToPadding()) {
-                    end = orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2);
-                } else {
-                    end = orientationHelper.getEnd() / 2;
-                }
-                return decoratedStart - end;
-            }
-            return invokeLLL.intValue;
-        }
-
-        private OrientationHelper getHorizontalHelper(RecyclerView.LayoutManager layoutManager) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, layoutManager)) == null) {
-                if (this.mHorizontalHelper == null) {
-                    this.mHorizontalHelper = OrientationHelper.createHorizontalHelper(layoutManager);
-                }
-                return this.mHorizontalHelper;
-            }
-            return (OrientationHelper) invokeL.objValue;
-        }
-
-        private OrientationHelper getVerticalHelper(RecyclerView.LayoutManager layoutManager) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, layoutManager)) == null) {
-                if (this.mVerticalHelper == null) {
-                    this.mVerticalHelper = OrientationHelper.createVerticalHelper(layoutManager);
-                }
-                return this.mVerticalHelper;
-            }
-            return (OrientationHelper) invokeL.objValue;
-        }
-
-        @Override // androidx.recyclerview.widget.PagerSnapHelper, androidx.recyclerview.widget.SnapHelper
-        @Nullable
-        public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutManager, view2)) == null) {
-                int[] iArr = new int[2];
-                if (layoutManager.canScrollHorizontally()) {
-                    iArr[0] = distanceToCenter(layoutManager, view2, getHorizontalHelper(layoutManager));
-                } else {
-                    iArr[0] = 0;
-                }
-                if (layoutManager.canScrollVertically()) {
-                    iArr[1] = distanceToCenter(layoutManager, view2, getVerticalHelper(layoutManager));
-                } else {
-                    iArr[1] = 0;
-                }
-                this.this$0.mLastMoveY = iArr[1];
-                return iArr;
-            }
-            return (int[]) invokeLL.objValue;
-        }
-
-        @Override // androidx.recyclerview.widget.PagerSnapHelper, androidx.recyclerview.widget.SnapHelper
-        public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutManager, i, i2)) == null) {
-                int findTargetSnapPosition = super.findTargetSnapPosition(layoutManager, i, i2);
-                if (findTargetSnapPosition > 0 || this.this$0.mPosition != 0) {
-                    return findTargetSnapPosition;
-                }
-                return -1;
-            }
-            return invokeLII.intValue;
-        }
+    public interface TouchListener {
+        void onTouch(MotionEvent motionEvent);
     }
 
     /* loaded from: classes2.dex */
     public interface PagerListener {
+        void onAttachedToWindow(View view2);
+
+        void onDetachedToWindow(View view2);
+
+        void onPageScrolled(boolean z, int i, boolean z2, boolean z3);
+
+        void onPageSelected(PageAction pageAction, int i, View view2);
+
+        void onScrollStateChanged(int i, int i2);
+
+        void onStartPageScrolledOffset(boolean z, int i);
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public static final class PageAction {
+        public final class PageAction {
             public static final /* synthetic */ PageAction[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final PageAction DOWN;
@@ -203,47 +113,130 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
             public static PageAction valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PageAction) Enum.valueOf(PageAction.class, str) : (PageAction) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (PageAction) Enum.valueOf(PageAction.class, str);
+                }
+                return (PageAction) invokeL.objValue;
             }
 
             public static PageAction[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PageAction[]) $VALUES.clone() : (PageAction[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (PageAction[]) $VALUES.clone();
+                }
+                return (PageAction[]) invokeV.objValue;
             }
         }
-
-        void onAttachedToWindow(View view2);
-
-        void onDetachedToWindow(View view2);
-
-        void onPageScrolled(boolean z, int i, boolean z2, boolean z3);
-
-        void onPageSelected(PageAction pageAction, int i, @Nullable View view2);
-
-        void onScrollStateChanged(int i, int i2);
-
-        void onStartPageScrolledOffset(boolean z, int i);
     }
 
     /* loaded from: classes2.dex */
-    public static class SimplePagerListener implements PagerListener {
+    public class PagerHelper extends PagerSnapHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public OrientationHelper mHorizontalHelper;
+        public OrientationHelper mVerticalHelper;
+        public final /* synthetic */ PagerLayoutManager this$0;
 
-        public SimplePagerListener() {
+        public PagerHelper(PagerLayoutManager pagerLayoutManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pagerLayoutManager};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.this$0 = pagerLayoutManager;
         }
+
+        private OrientationHelper getHorizontalHelper(RecyclerView.LayoutManager layoutManager) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, layoutManager)) == null) {
+                if (this.mHorizontalHelper == null) {
+                    this.mHorizontalHelper = OrientationHelper.createHorizontalHelper(layoutManager);
+                }
+                return this.mHorizontalHelper;
+            }
+            return (OrientationHelper) invokeL.objValue;
+        }
+
+        private OrientationHelper getVerticalHelper(RecyclerView.LayoutManager layoutManager) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, layoutManager)) == null) {
+                if (this.mVerticalHelper == null) {
+                    this.mVerticalHelper = OrientationHelper.createVerticalHelper(layoutManager);
+                }
+                return this.mVerticalHelper;
+            }
+            return (OrientationHelper) invokeL.objValue;
+        }
+
+        private int distanceToCenter(RecyclerView.LayoutManager layoutManager, View view2, OrientationHelper orientationHelper) {
+            InterceptResult invokeLLL;
+            int end;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, layoutManager, view2, orientationHelper)) == null) {
+                int decoratedStart = orientationHelper.getDecoratedStart(view2) + (orientationHelper.getDecoratedMeasurement(view2) / 2);
+                if (layoutManager.getClipToPadding()) {
+                    end = orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2);
+                } else {
+                    end = orientationHelper.getEnd() / 2;
+                }
+                return decoratedStart - end;
+            }
+            return invokeLLL.intValue;
+        }
+
+        @Override // androidx.recyclerview.widget.PagerSnapHelper, androidx.recyclerview.widget.SnapHelper
+        public int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View view2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutManager, view2)) == null) {
+                int[] iArr = new int[2];
+                if (layoutManager.canScrollHorizontally()) {
+                    iArr[0] = distanceToCenter(layoutManager, view2, getHorizontalHelper(layoutManager));
+                } else {
+                    iArr[0] = 0;
+                }
+                if (layoutManager.canScrollVertically()) {
+                    iArr[1] = distanceToCenter(layoutManager, view2, getVerticalHelper(layoutManager));
+                } else {
+                    iArr[1] = 0;
+                }
+                this.this$0.mLastMoveY = iArr[1];
+                return iArr;
+            }
+            return (int[]) invokeLL.objValue;
+        }
+
+        @Override // androidx.recyclerview.widget.PagerSnapHelper, androidx.recyclerview.widget.SnapHelper
+        public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutManager, i, i2)) == null) {
+                int findTargetSnapPosition = super.findTargetSnapPosition(layoutManager, i, i2);
+                if (findTargetSnapPosition <= 0 && this.this$0.mPosition == 0) {
+                    return -1;
+                }
+                return findTargetSnapPosition;
+            }
+            return invokeLII.intValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class SimplePagerListener implements PagerListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.searchbox.live.widget.PagerLayoutManager.PagerListener
         public void onAttachedToWindow(View view2) {
@@ -267,7 +260,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
         }
 
         @Override // com.baidu.searchbox.live.widget.PagerLayoutManager.PagerListener
-        public void onPageSelected(PagerListener.PageAction pageAction, int i, @Nullable View view2) {
+        public void onPageSelected(PagerListener.PageAction pageAction, int i, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048579, this, pageAction, i, view2) == null) {
             }
@@ -286,11 +279,20 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             }
         }
-    }
 
-    /* loaded from: classes2.dex */
-    public interface TouchListener {
-        void onTouch(MotionEvent motionEvent);
+        public SimplePagerListener() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -345,27 +347,37 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-            public void onChildViewAttachedToWindow(View view2) {
+            public void onChildViewDetachedFromWindow(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.this$0.mPagerListener == null) {
-                    return;
-                }
-                this.this$0.mPagerListener.onAttachedToWindow(view2);
-                if (this.this$0.getChildCount() == 1) {
-                    this.this$0.mPagerListener.onPageSelected(PagerListener.PageAction.NONE, 0, view2);
+                if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.this$0.mPagerListener != null) {
+                    this.this$0.mPagerListener.onDetachedToWindow(view2);
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-            public void onChildViewDetachedFromWindow(View view2) {
+            public void onChildViewAttachedToWindow(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.this$0.mPagerListener == null) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.this$0.mPagerListener != null) {
+                    this.this$0.mPagerListener.onAttachedToWindow(view2);
+                    if (this.this$0.getChildCount() == 1) {
+                        this.this$0.mPagerListener.onPageSelected(PagerListener.PageAction.NONE, 0, view2);
+                    }
                 }
-                this.this$0.mPagerListener.onDetachedToWindow(view2);
             }
         };
         init();
+    }
+
+    @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
+    public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, recycler, state) == null) {
+            try {
+                super.onLayoutChildren(recycler, state);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -378,53 +390,6 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
                 this.hasUpTriggerSlide = false;
             }
         }
-    }
-
-    private void dispatchScrollEvent() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || this.mPagerListener == null) {
-            return;
-        }
-        View findSnapView = this.mPagerSnapHelper.findSnapView(this);
-        int position = findSnapView != null ? getPosition(findSnapView) : 0;
-        this.mPagerListener.onPageScrolled(this.mFlipY > 0, position, this.mPosition != position, this.mLastMoveY == 0);
-        if (this.mLastMoveY != 0 || canScrollVertically()) {
-            this.mPosition = position;
-            this.mPagerListener.onPageSelected(this.mFlipY > 0 ? PagerListener.PageAction.UP : PagerListener.PageAction.DOWN, this.mPosition, findSnapView);
-        }
-    }
-
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.mPagerSnapHelper = new PagerHelper();
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-    public boolean canScrollVertically() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.scroll && this.isCanScroll : invokeV.booleanValue;
-    }
-
-    public void clearPageListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mPagerListener = null;
-        }
-    }
-
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPosition : invokeV.intValue;
-    }
-
-    public boolean isScrollerIdle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mState == 0 : invokeV.booleanValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
@@ -460,7 +425,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrollStateChanged(@NonNull RecyclerView recyclerView2, int i) {
+                public void onScrollStateChanged(RecyclerView recyclerView2, int i) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView2, i) == null) {
                         super.onScrollStateChanged(recyclerView2, i);
@@ -469,7 +434,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrolled(@NonNull RecyclerView recyclerView2, int i, int i2) {
+                public void onScrolled(RecyclerView recyclerView2, int i, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView2, i, i2) == null) {
                         super.onScrolled(recyclerView2, i, i2);
@@ -482,25 +447,157 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
                             this.this$0.hasUpTriggerSlide = true;
                             this.this$0.mPagerListener.onStartPageScrolledOffset(true, this.this$0.mPosition);
                         }
-                        if (this.this$0.slideOffset > -10.0f || this.this$0.hasDownTriggerSlide) {
-                            return;
+                        if (this.this$0.slideOffset <= -10.0f && !this.this$0.hasDownTriggerSlide) {
+                            this.this$0.hasDownTriggerSlide = true;
+                            this.this$0.mPagerListener.onStartPageScrolledOffset(false, this.this$0.mPosition);
                         }
-                        this.this$0.hasDownTriggerSlide = true;
-                        this.this$0.mPagerListener.onStartPageScrolledOffset(false, this.this$0.mPosition);
                     }
                 }
             });
         }
     }
 
-    @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-    public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+    public void setIsCanScroll(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, recycler, state) == null) {
-            try {
-                super.onLayoutChildren(recycler, state);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.isCanScroll = z;
+        }
+    }
+
+    public void setOnPagerListener(PagerListener pagerListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, pagerListener) == null) {
+            this.mPagerListener = pagerListener;
+        }
+    }
+
+    public void setScroll(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.scroll = z;
+        }
+    }
+
+    public void setTouchListener(TouchListener touchListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, touchListener) == null) {
+            this.mTouchListener = touchListener;
+        }
+    }
+
+    public void updatePosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mPosition = i;
+        }
+    }
+
+    private void dispatchScrollEvent() {
+        int i;
+        boolean z;
+        boolean z2;
+        PagerListener.PageAction pageAction;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65549, this) != null) || this.mPagerListener == null) {
+            return;
+        }
+        View findSnapView = this.mPagerSnapHelper.findSnapView(this);
+        boolean z3 = false;
+        if (findSnapView != null) {
+            i = getPosition(findSnapView);
+        } else {
+            i = 0;
+        }
+        PagerListener pagerListener = this.mPagerListener;
+        if (this.mFlipY > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (this.mPosition != i) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        if (this.mLastMoveY == 0) {
+            z3 = true;
+        }
+        pagerListener.onPageScrolled(z, i, z2, z3);
+        if (this.mLastMoveY == 0 && !canScrollVertically()) {
+            return;
+        }
+        this.mPosition = i;
+        if (this.mFlipY > 0) {
+            pageAction = PagerListener.PageAction.UP;
+        } else {
+            pageAction = PagerListener.PageAction.DOWN;
+        }
+        this.mPagerListener.onPageSelected(pageAction, this.mPosition, findSnapView);
+    }
+
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            this.mPagerSnapHelper = new PagerHelper();
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
+    public boolean canScrollVertically() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.scroll && this.isCanScroll) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void clearPageListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mPagerListener = null;
+        }
+    }
+
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mPosition;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isScrollerIdle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mState == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void snapToNext() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.mPosition + 1 < getItemCount()) {
+            this.mLastMoveY = -1;
+            this.mRecyclerView.smoothScrollToPosition(this.mPosition + 1);
+        }
+    }
+
+    public void snapToPre() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            int i = this.mPosition;
+            if (i - 1 >= 0) {
+                this.mLastMoveY = -1;
+                this.mRecyclerView.smoothScrollToPosition(i - 1);
             }
         }
     }
@@ -558,34 +655,6 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
         return invokeILL.intValue;
     }
 
-    public void setIsCanScroll(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.isCanScroll = z;
-        }
-    }
-
-    public void setOnPagerListener(PagerListener pagerListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, pagerListener) == null) {
-            this.mPagerListener = pagerListener;
-        }
-    }
-
-    public void setScroll(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.scroll = z;
-        }
-    }
-
-    public void setTouchListener(TouchListener touchListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, touchListener) == null) {
-            this.mTouchListener = touchListener;
-        }
-    }
-
     @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
     public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int i) {
         Interceptable interceptable = $ic;
@@ -620,38 +689,14 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
                 public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, displayMetrics)) == null) ? 70.0f / displayMetrics.densityDpi : invokeL.floatValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, displayMetrics)) == null) {
+                        return 70.0f / displayMetrics.densityDpi;
+                    }
+                    return invokeL.floatValue;
                 }
             };
             linearSmoothScroller.setTargetPosition(i);
             startSmoothScroll(linearSmoothScroller);
-        }
-    }
-
-    public void snapToNext() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.mPosition + 1 >= getItemCount()) {
-            return;
-        }
-        this.mLastMoveY = -1;
-        this.mRecyclerView.smoothScrollToPosition(this.mPosition + 1);
-    }
-
-    public void snapToPre() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            int i = this.mPosition;
-            if (i - 1 >= 0) {
-                this.mLastMoveY = -1;
-                this.mRecyclerView.smoothScrollToPosition(i - 1);
-            }
-        }
-    }
-
-    public void updatePosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.mPosition = i;
         }
     }
 }

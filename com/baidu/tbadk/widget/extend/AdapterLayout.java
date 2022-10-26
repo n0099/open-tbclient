@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hj5;
+import com.baidu.tieba.oj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class AdapterLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hj5 a;
+    public oj5 a;
     public DataSetObserver b;
     public boolean c;
 
@@ -73,87 +73,6 @@ public abstract class AdapterLayout extends ViewGroup {
         }
     }
 
-    public void a() {
-        hj5 hj5Var;
-        DataSetObserver dataSetObserver;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hj5Var = this.a) == null || (dataSetObserver = this.b) == null) {
-            return;
-        }
-        hj5Var.e(dataSetObserver);
-        this.a = null;
-        this.b = null;
-    }
-
-    public final void b() {
-        hj5 hj5Var;
-        DataSetObserver dataSetObserver;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (hj5Var = this.a) == null || (dataSetObserver = this.b) == null || this.c) {
-            return;
-        }
-        hj5Var.d(dataSetObserver);
-        this.c = true;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
-            return;
-        }
-        removeAllViews();
-        int a2 = this.a.a();
-        for (int i = 0; i < a2; i++) {
-            View b = this.a.b(i, this);
-            b.setFocusable(true);
-            addView(b);
-        }
-    }
-
-    public final void d() {
-        hj5 hj5Var;
-        DataSetObserver dataSetObserver;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hj5Var = this.a) == null || (dataSetObserver = this.b) == null || !this.c) {
-            return;
-        }
-        this.c = false;
-        hj5Var.e(dataSetObserver);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onAttachedToWindow();
-            b();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d();
-            super.onDetachedFromWindow();
-        }
-    }
-
-    public void setAdapter(hj5 hj5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hj5Var) == null) {
-            d();
-            if (hj5Var != null) {
-                this.a = hj5Var;
-                this.b = new a(this);
-                b();
-                c();
-                return;
-            }
-            throw new NullPointerException("FlowBaseAdapter is null");
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdapterLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -195,5 +114,83 @@ public abstract class AdapterLayout extends ViewGroup {
             }
         }
         this.c = false;
+    }
+
+    public void a() {
+        oj5 oj5Var;
+        DataSetObserver dataSetObserver;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (oj5Var = this.a) != null && (dataSetObserver = this.b) != null) {
+            oj5Var.e(dataSetObserver);
+            this.a = null;
+            this.b = null;
+        }
+    }
+
+    public final void b() {
+        oj5 oj5Var;
+        DataSetObserver dataSetObserver;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (oj5Var = this.a) != null && (dataSetObserver = this.b) != null && !this.c) {
+            oj5Var.d(dataSetObserver);
+            this.c = true;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
+            return;
+        }
+        removeAllViews();
+        int a2 = this.a.a();
+        for (int i = 0; i < a2; i++) {
+            View b = this.a.b(i, this);
+            b.setFocusable(true);
+            addView(b);
+        }
+    }
+
+    public final void d() {
+        oj5 oj5Var;
+        DataSetObserver dataSetObserver;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (oj5Var = this.a) != null && (dataSetObserver = this.b) != null && this.c) {
+            this.c = false;
+            oj5Var.e(dataSetObserver);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onAttachedToWindow();
+            b();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d();
+            super.onDetachedFromWindow();
+        }
+    }
+
+    public void setAdapter(oj5 oj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, oj5Var) == null) {
+            d();
+            if (oj5Var != null) {
+                this.a = oj5Var;
+                this.b = new a(this);
+                b();
+                c();
+                return;
+            }
+            throw new NullPointerException("FlowBaseAdapter is null");
+        }
     }
 }

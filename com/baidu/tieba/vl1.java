@@ -1,20 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.tg2;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ao1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vl1 implements ao1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ao1
+    public void b(Context context, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3) == null) {
+        }
+    }
 
     public vl1() {
         Interceptable interceptable = $ic;
@@ -31,64 +40,39 @@ public class vl1 implements ao1 {
     }
 
     @Override // com.baidu.tieba.ao1
-    public boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public void a(HashMap hashMap, File file, ao1.a aVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ao1
-    public void b(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, hashMap, file, aVar, str) == null) {
+            e(aVar);
         }
     }
 
     @Override // com.baidu.tieba.ao1
-    public void c(@NonNull String str) {
+    public void d(Bitmap bitmap, HashMap hashMap, File[] fileArr, ao1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, bitmap, hashMap, fileArr, aVar) == null) {
+            e(aVar);
         }
     }
 
     @Override // com.baidu.tieba.ao1
-    public void d(@NonNull CallbackHandler callbackHandler) {
+    public void c(HashMap hashMap, File file, ao1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
-            callbackHandler.handleSchemeDispatchCallback("", "");
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, hashMap, file, aVar) == null) {
+            e(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.ao1
-    public void e(l33 l33Var) {
+    public final void e(ao1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, l33Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(TiebaStatic.LogFields.RESULT, "success");
+                aVar.onResult(jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.ao1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? context.getString(R.string.obfuscated_res_0x7f0f015d) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ao1
-    public void g(l33 l33Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, l33Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ao1
-    public void h(@NonNull Activity activity, String str, String str2, sg2 sg2Var, tg2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, sg2Var, bVar) == null) || bVar == null) {
-            return;
-        }
-        bVar.a();
     }
 }

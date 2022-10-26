@@ -21,12 +21,19 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class FutureObserver<T> extends CountDownLatch implements Observer<T>, Future<T>, Disposable {
+public final class FutureObserver extends CountDownLatch implements Observer, Future, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference<Disposable> s;
-    public T value;
+    public final AtomicReference s;
+    public Object value;
+
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FutureObserver() {
@@ -44,40 +51,11 @@ public final class FutureObserver<T> extends CountDownLatch implements Observer<
                 return;
             }
         }
-        this.s = new AtomicReference<>();
+        this.s = new AtomicReference();
     }
 
     @Override // java.util.concurrent.Future
-    public boolean cancel(boolean z) {
-        Disposable disposable;
-        DisposableHelper disposableHelper;
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            do {
-                disposable = this.s.get();
-                if (disposable == this || disposable == (disposableHelper = DisposableHelper.DISPOSED)) {
-                    return false;
-                }
-            } while (!this.s.compareAndSet(disposable, disposableHelper));
-            if (disposable != null) {
-                disposable.dispose();
-            }
-            countDown();
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // java.util.concurrent.Future
-    public T get() throws InterruptedException, ExecutionException {
+    public Object get() throws InterruptedException, ExecutionException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -94,28 +72,7 @@ public final class FutureObserver<T> extends CountDownLatch implements Observer<
             }
             throw new CancellationException();
         }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public boolean isCancelled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.s.get()) : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? isDone() : invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public boolean isDone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getCount() == 0 : invokeV.booleanValue;
+        return invokeV.objValue;
     }
 
     @Override // io.reactivex.Observer
@@ -128,13 +85,35 @@ public final class FutureObserver<T> extends CountDownLatch implements Observer<
                 return;
             }
             do {
-                disposable = this.s.get();
+                disposable = (Disposable) this.s.get();
                 if (disposable == this || disposable == DisposableHelper.DISPOSED) {
                     return;
                 }
             } while (!this.s.compareAndSet(disposable, this));
             countDown();
         }
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean cancel(boolean z) {
+        Disposable disposable;
+        DisposableHelper disposableHelper;
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            do {
+                disposable = (Disposable) this.s.get();
+                if (disposable == this || disposable == (disposableHelper = DisposableHelper.DISPOSED)) {
+                    return false;
+                }
+            } while (!this.s.compareAndSet(disposable, disposableHelper));
+            if (disposable != null) {
+                disposable.dispose();
+            }
+            countDown();
+            return true;
+        }
+        return invokeZ.booleanValue;
     }
 
     @Override // io.reactivex.Observer
@@ -145,7 +124,7 @@ public final class FutureObserver<T> extends CountDownLatch implements Observer<
             if (this.error == null) {
                 this.error = th;
                 do {
-                    disposable = this.s.get();
+                    disposable = (Disposable) this.s.get();
                     if (disposable == this || disposable == DisposableHelper.DISPOSED) {
                         RxJavaPlugins.onError(th);
                         return;
@@ -158,29 +137,8 @@ public final class FutureObserver<T> extends CountDownLatch implements Observer<
         }
     }
 
-    @Override // io.reactivex.Observer
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
-            if (this.value != null) {
-                this.s.get().dispose();
-                onError(new IndexOutOfBoundsException("More than one element received"));
-                return;
-            }
-            this.value = t;
-        }
-    }
-
-    @Override // io.reactivex.Observer
-    public void onSubscribe(Disposable disposable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) {
-            DisposableHelper.setOnce(this.s, disposable);
-        }
-    }
-
     @Override // java.util.concurrent.Future
-    public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public Object get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
@@ -199,6 +157,60 @@ public final class FutureObserver<T> extends CountDownLatch implements Observer<
             }
             throw new CancellationException();
         }
-        return (T) invokeJL.objValue;
+        return invokeJL.objValue;
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean isCancelled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return DisposableHelper.isDisposed((Disposable) this.s.get());
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return isDone();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean isDone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (getCount() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.Observer
+    public void onNext(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            if (this.value != null) {
+                ((Disposable) this.s.get()).dispose();
+                onError(new IndexOutOfBoundsException("More than one element received"));
+                return;
+            }
+            this.value = obj;
+        }
+    }
+
+    @Override // io.reactivex.Observer
+    public void onSubscribe(Disposable disposable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) {
+            DisposableHelper.setOnce(this.s, disposable);
+        }
     }
 }

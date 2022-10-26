@@ -45,77 +45,6 @@ public class DredgeManager implements Recordable {
         this.lastAdjustTime = 0L;
     }
 
-    private void downgradeStrategy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            int i = this.currentDredgeStrategy;
-            if (1 == i) {
-                getFirstDredgeExecutor().shutdown();
-                this.currentDredgeStrategy = 0;
-            } else if (2 == i) {
-                getSecondDredgeExecutor().shutdown();
-                this.currentDredgeStrategy = 1;
-            } else if (3 == i) {
-                getDisasterDredgeExecutor().shutdown();
-                this.currentDredgeStrategy = 2;
-            }
-        }
-    }
-
-    private void upgradeStrategy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            int i = this.currentDredgeStrategy;
-            if (i == 0) {
-                getFirstDredgeExecutor().open();
-                this.currentDredgeStrategy = 1;
-            } else if (1 == i) {
-                getSecondDredgeExecutor().open();
-                this.currentDredgeStrategy = 2;
-            } else if (2 == i) {
-                getDisasterDredgeExecutor().open();
-                this.currentDredgeStrategy = 3;
-            }
-        }
-    }
-
-    public int adjustDredgeStrategy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            double blockWeight = ElasticTaskScheduler.getInstance().getQueueManager().getBlockWeight();
-            if (blockWeight >= ElasticConfig.DREDGE_CONFIG_UPGRADE_THRESHOLD && 3 != this.currentDredgeStrategy) {
-                if ((blockWeight >= ElasticConfig.DREDGE_CONFIG_UPGRADE_RIGHT_AWAY_THRESHOLD) || SystemClock.elapsedRealtime() - this.lastAdjustTime > ElasticConfig.DREDGE_CONFIG_UPGRADE_STRATEGY_PROTECTION_TIME) {
-                    upgradeStrategy();
-                    this.lastAdjustTime = SystemClock.elapsedRealtime();
-                    ElasticTaskScheduler.getInstance().postConcurrentDredgeDelay(ElasticConfig.DREDGE_CONFIG_UPGRADE_STRATEGY_PROTECTION_TIME + 10);
-                    return 1;
-                }
-            }
-            if (this.currentDredgeStrategy == 0 || blockWeight >= ElasticConfig.DREDGE_CONFIG_DOWNGRADE_THRESHOLD || SystemClock.elapsedRealtime() - this.lastAdjustTime <= ElasticConfig.DREDGE_CONFIG_DOWNGRADE_STRATEGY_PROTECTION_TIME) {
-                return 0;
-            }
-            downgradeStrategy();
-            this.lastAdjustTime = SystemClock.elapsedRealtime();
-            ElasticTaskScheduler.getInstance().postConcurrentDredgeDelay(ElasticConfig.DREDGE_CONFIG_DOWNGRADE_STRATEGY_PROTECTION_TIME + 10);
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean execute(ElasticTask elasticTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask)) == null) {
-            int i = this.currentDredgeStrategy;
-            if (i == 0) {
-                return false;
-            }
-            return i == 1 ? getFirstDredgeExecutor().execute(elasticTask) : i == 2 ? getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) : i == 3 && (getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) || getDisasterDredgeExecutor().execute(elasticTask));
-        }
-        return invokeL.booleanValue;
-    }
-
     public BaseDredgeExecutorCell getDisasterDredgeExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,5 +111,96 @@ public class DredgeManager implements Recordable {
             getSecondDredgeExecutor().onRecordEnd();
             getDisasterDredgeExecutor().onRecordEnd();
         }
+    }
+
+    private void downgradeStrategy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            int i = this.currentDredgeStrategy;
+            if (1 == i) {
+                getFirstDredgeExecutor().shutdown();
+                this.currentDredgeStrategy = 0;
+            } else if (2 == i) {
+                getSecondDredgeExecutor().shutdown();
+                this.currentDredgeStrategy = 1;
+            } else if (3 == i) {
+                getDisasterDredgeExecutor().shutdown();
+                this.currentDredgeStrategy = 2;
+            }
+        }
+    }
+
+    private void upgradeStrategy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            int i = this.currentDredgeStrategy;
+            if (i == 0) {
+                getFirstDredgeExecutor().open();
+                this.currentDredgeStrategy = 1;
+            } else if (1 == i) {
+                getSecondDredgeExecutor().open();
+                this.currentDredgeStrategy = 2;
+            } else if (2 == i) {
+                getDisasterDredgeExecutor().open();
+                this.currentDredgeStrategy = 3;
+            }
+        }
+    }
+
+    public int adjustDredgeStrategy() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            double blockWeight = ElasticTaskScheduler.getInstance().getQueueManager().getBlockWeight();
+            if (blockWeight >= ElasticConfig.DREDGE_CONFIG_UPGRADE_THRESHOLD && 3 != this.currentDredgeStrategy) {
+                if (blockWeight >= ElasticConfig.DREDGE_CONFIG_UPGRADE_RIGHT_AWAY_THRESHOLD) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z || SystemClock.elapsedRealtime() - this.lastAdjustTime > ElasticConfig.DREDGE_CONFIG_UPGRADE_STRATEGY_PROTECTION_TIME) {
+                    upgradeStrategy();
+                    this.lastAdjustTime = SystemClock.elapsedRealtime();
+                    ElasticTaskScheduler.getInstance().postConcurrentDredgeDelay(ElasticConfig.DREDGE_CONFIG_UPGRADE_STRATEGY_PROTECTION_TIME + 10);
+                    return 1;
+                }
+            }
+            if (this.currentDredgeStrategy == 0 || blockWeight >= ElasticConfig.DREDGE_CONFIG_DOWNGRADE_THRESHOLD || SystemClock.elapsedRealtime() - this.lastAdjustTime <= ElasticConfig.DREDGE_CONFIG_DOWNGRADE_STRATEGY_PROTECTION_TIME) {
+                return 0;
+            }
+            downgradeStrategy();
+            this.lastAdjustTime = SystemClock.elapsedRealtime();
+            ElasticTaskScheduler.getInstance().postConcurrentDredgeDelay(ElasticConfig.DREDGE_CONFIG_DOWNGRADE_STRATEGY_PROTECTION_TIME + 10);
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean execute(ElasticTask elasticTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask)) == null) {
+            int i = this.currentDredgeStrategy;
+            if (i == 0) {
+                return false;
+            }
+            if (i == 1) {
+                if (!getFirstDredgeExecutor().execute(elasticTask)) {
+                    return false;
+                }
+                return true;
+            } else if (i == 2) {
+                if (!getFirstDredgeExecutor().execute(elasticTask) && !getSecondDredgeExecutor().execute(elasticTask)) {
+                    return false;
+                }
+                return true;
+            } else if (i != 3 || (!getFirstDredgeExecutor().execute(elasticTask) && !getSecondDredgeExecutor().execute(elasticTask) && !getDisasterDredgeExecutor().execute(elasticTask))) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

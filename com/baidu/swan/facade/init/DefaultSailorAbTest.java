@@ -13,27 +13,6 @@ public class DefaultSailorAbTest implements ISailorAbTestInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public DefaultSailorAbTest() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.webkit.sdk.IABTestInterface
-    public JSONObject getRawSwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new JSONObject() : (JSONObject) invokeV.objValue;
-    }
-
     @Override // com.baidu.webkit.sdk.IABTestInterface
     public double getSwitch(String str, double d) {
         InterceptResult invokeCommon;
@@ -77,5 +56,29 @@ public class DefaultSailorAbTest implements ISailorAbTestInterface {
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public DefaultSailorAbTest() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.IABTestInterface
+    public JSONObject getRawSwitch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new JSONObject();
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

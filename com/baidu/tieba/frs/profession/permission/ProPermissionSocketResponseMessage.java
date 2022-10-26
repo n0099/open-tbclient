@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs.profession.permission;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.dr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes4.dex */
-public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<xq6, ZoneRightResIdl> {
+public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,16 +37,15 @@ public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessag
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             try {
                 ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class);
-                xq6 xq6Var = new xq6();
-                xq6Var.initByProtobuf(zoneRightResIdl);
-                setData(xq6Var);
+                dr6 dr6Var = new dr6();
+                dr6Var.initByProtobuf(zoneRightResIdl);
+                setData(dr6Var);
                 return zoneRightResIdl;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -58,9 +56,12 @@ public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessag
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class<ZoneRightResIdl> getProtobufResponseIdlClass() {
+    public Class getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ZoneRightResIdl.class : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ZoneRightResIdl.class;
+        }
+        return (Class) invokeV.objValue;
     }
 }

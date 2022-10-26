@@ -36,9 +36,8 @@ public class AlaTabFeedActivityConfig extends IntentConfig {
     public void setPageSource(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_PAGE_SOURCE, str);
         }
-        intent.putExtra(KEY_PAGE_SOURCE, str);
     }
 }

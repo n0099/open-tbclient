@@ -1,9 +1,8 @@
 package com.baidu.swan.apps.core.prefetch.image.config.image;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g82;
-import com.baidu.tieba.r72;
+import com.baidu.tieba.h82;
+import com.baidu.tieba.s72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,10 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class CustomStrategyImpl implements r72 {
+public class CustomStrategyImpl implements s72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> a;
+    public final List a;
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "CustomStrategyImpl" : (String) invokeV.objValue;
+    }
 
     public CustomStrategyImpl() {
         Interceptable interceptable = $ic;
@@ -30,7 +35,7 @@ public class CustomStrategyImpl implements r72 {
                 return;
             }
         }
-        this.a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.CustomStrategyImpl.1
+        this.a = new ArrayList(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.CustomStrategyImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomStrategyImpl this$0;
@@ -57,8 +62,8 @@ public class CustomStrategyImpl implements r72 {
         };
     }
 
-    @Override // com.baidu.tieba.r72
-    public boolean a(@NonNull g82.a aVar) {
+    @Override // com.baidu.tieba.s72
+    public boolean a(h82.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
@@ -71,12 +76,5 @@ public class CustomStrategyImpl implements r72 {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "CustomStrategyImpl" : (String) invokeV.objValue;
     }
 }

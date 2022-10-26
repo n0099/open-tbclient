@@ -1,5 +1,6 @@
 package kotlinx.coroutines.flow;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -17,14 +18,14 @@ import kotlin.jvm.internal.Lambda;
 import kotlinx.coroutines.flow.internal.CombineKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0017\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J!\u0010\u0005\u001a\u00020\u00042\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\b"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "Lkotlinx/coroutines/flow/FlowCollector;", "collector", "", "collect", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$combine$3"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class FlowKt__MigrationKt$combineLatest$$inlined$combine$3 implements Flow<R> {
+public final class FlowKt__MigrationKt$combineLatest$$inlined$combine$3 implements Flow {
     public final /* synthetic */ Flow[] $flows$inlined;
     public final /* synthetic */ Function6 $transform$inlined$1;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000®\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0006\n\u0002\b\u0006\n\u0002\b\u0006\n\u0002\b\u0006\n\u0002\b\u0006\n\u0002\b\u0007\u0010\u0000\u001a\n\u0012\u0006\u0012\u0004\u0018\u0001H\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003H\n¢\u0006\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"<anonymous>", "", "T", "R", "invoke", "()[Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$5$1", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$unsafeFlow$3$lambda$1", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$combine$3$2"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000®\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0005\n\u0002\b\u0006\n\u0002\b\u0006\n\u0002\b\u0006\n\u0002\b\u0006\n\u0002\b\u0006\n\u0002\b\u0007\u0010\u0000\u001a\n\u0012\u0006\u0012\u0004\u0018\u0001H\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003H\n¢\u0006\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "invoke", "()[Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$5$1", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$unsafeFlow$3$lambda$1", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$combine$3$2"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* renamed from: kotlinx.coroutines.flow.FlowKt__MigrationKt$combineLatest$$inlined$combine$3$2  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static final class AnonymousClass2 extends Lambda implements Function0<Object[]> {
+    public final class AnonymousClass2 extends Lambda implements Function0 {
         public AnonymousClass2() {
             super(0);
         }
@@ -36,11 +37,11 @@ public final class FlowKt__MigrationKt$combineLatest$$inlined$combine$3 implemen
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000h\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0006H\u008a@¢\u0006\u0004\b\u0007\u0010\b¨\u0006\u000b"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;", AdvanceSetting.NETWORK_TYPE, "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$5$2", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$unsafeFlow$3$lambda$2", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$combine$3$3"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000h\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0006H\u008a@¢\u0006\u0004\b\u0007\u0010\b¨\u0006\u000b"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlinx/coroutines/flow/FlowCollector;", AdvanceSetting.NETWORK_TYPE, "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$5$2", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$unsafeFlow$3$lambda$2", "kotlinx/coroutines/flow/FlowKt__MigrationKt$combine$$inlined$combine$3$3"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MigrationKt$combineLatest$$inlined$combine$3$3", f = "Migration.kt", i = {0, 0, 0, 0, 1, 1}, l = {324, 325}, m = "invokeSuspend", n = {"$receiver", AdvanceSetting.NETWORK_TYPE, "continuation", "args", "$receiver", AdvanceSetting.NETWORK_TYPE}, s = {"L$0", "L$1", "L$2", "L$3", "L$0", "L$1"})
     /* renamed from: kotlinx.coroutines.flow.FlowKt__MigrationKt$combineLatest$$inlined$combine$3$3  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static final class AnonymousClass3 extends SuspendLambda implements Function3<FlowCollector<? super R>, Object[], Continuation<? super Unit>, Object> {
+    public final class AnonymousClass3 extends SuspendLambda implements Function3 {
         public Object L$0;
         public Object L$1;
         public Object L$2;
@@ -57,17 +58,16 @@ public final class FlowKt__MigrationKt$combineLatest$$inlined$combine$3 implemen
             this.this$0 = flowKt__MigrationKt$combineLatest$$inlined$combine$3;
         }
 
-        public final Continuation<Unit> create(FlowCollector<? super R> flowCollector, Object[] objArr, Continuation<? super Unit> continuation) {
+        public final Continuation create(FlowCollector flowCollector, Object[] objArr, Continuation continuation) {
             AnonymousClass3 anonymousClass3 = new AnonymousClass3(continuation, this.this$0);
             anonymousClass3.p$ = flowCollector;
             anonymousClass3.p$0 = objArr;
             return anonymousClass3;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
         @Override // kotlin.jvm.functions.Function3
-        public final Object invoke(Object obj, Object[] objArr, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass3) create((FlowCollector) obj, objArr, continuation)).invokeSuspend(Unit.INSTANCE);
+        public final Object invoke(Object obj, Object obj2, Object obj3) {
+            return ((AnonymousClass3) create((FlowCollector) obj, (Object[]) obj2, (Continuation) obj3)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -77,20 +77,36 @@ public final class FlowKt__MigrationKt$combineLatest$$inlined$combine$3 implemen
             Object[] objArr;
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
             int i = this.label;
-            if (i == 0) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
+                        Object[] objArr2 = (Object[]) this.L$1;
+                        FlowCollector flowCollector3 = (FlowCollector) this.L$0;
+                        ResultKt.throwOnFailure(obj);
+                        return Unit.INSTANCE;
+                    }
+                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                }
+                flowCollector = (FlowCollector) this.L$4;
+                Object[] objArr3 = (Object[]) this.L$3;
+                Continuation continuation = (Continuation) this.L$2;
+                objArr = (Object[]) this.L$1;
+                flowCollector2 = (FlowCollector) this.L$0;
+                ResultKt.throwOnFailure(obj);
+            } else {
                 ResultKt.throwOnFailure(obj);
                 flowCollector = this.p$;
-                Object[] objArr2 = this.p$0;
+                Object[] objArr4 = this.p$0;
                 Function6 function6 = this.this$0.$transform$inlined$1;
-                Object obj2 = objArr2[0];
-                Object obj3 = objArr2[1];
-                Object obj4 = objArr2[2];
-                Object obj5 = objArr2[3];
-                Object obj6 = objArr2[4];
+                Object obj2 = objArr4[0];
+                Object obj3 = objArr4[1];
+                Object obj4 = objArr4[2];
+                Object obj5 = objArr4[3];
+                Object obj6 = objArr4[4];
                 this.L$0 = flowCollector;
-                this.L$1 = objArr2;
+                this.L$1 = objArr4;
                 this.L$2 = this;
-                this.L$3 = objArr2;
+                this.L$3 = objArr4;
                 this.L$4 = flowCollector;
                 this.label = 1;
                 Object invoke = function6.invoke(obj2, obj3, obj4, obj5, obj6, this);
@@ -98,23 +114,8 @@ public final class FlowKt__MigrationKt$combineLatest$$inlined$combine$3 implemen
                     return coroutine_suspended;
                 }
                 flowCollector2 = flowCollector;
-                objArr = objArr2;
+                objArr = objArr4;
                 obj = invoke;
-            } else if (i != 1) {
-                if (i == 2) {
-                    Object[] objArr3 = (Object[]) this.L$1;
-                    FlowCollector flowCollector3 = (FlowCollector) this.L$0;
-                    ResultKt.throwOnFailure(obj);
-                    return Unit.INSTANCE;
-                }
-                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-            } else {
-                flowCollector = (FlowCollector) this.L$4;
-                Object[] objArr4 = (Object[]) this.L$3;
-                Continuation continuation = (Continuation) this.L$2;
-                objArr = (Object[]) this.L$1;
-                flowCollector2 = (FlowCollector) this.L$0;
-                ResultKt.throwOnFailure(obj);
             }
             this.L$0 = flowCollector2;
             this.L$1 = objArr;
@@ -153,7 +154,10 @@ public final class FlowKt__MigrationKt$combineLatest$$inlined$combine$3 implemen
     @Override // kotlinx.coroutines.flow.Flow
     public Object collect(FlowCollector flowCollector, Continuation continuation) {
         Object combineInternal = CombineKt.combineInternal(flowCollector, this.$flows$inlined, new AnonymousClass2(), new AnonymousClass3(null, this), continuation);
-        return combineInternal == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? combineInternal : Unit.INSTANCE;
+        if (combineInternal == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+            return combineInternal;
+        }
+        return Unit.INSTANCE;
     }
 
     public Object collect$$forInline(FlowCollector flowCollector, Continuation continuation) {

@@ -27,7 +27,20 @@ public class b {
         }
     }
 
-    public static Field a(Class<?> cls, String str) {
+    public static Constructor a(Class cls, Class... clsArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
+            Constructor declaredConstructor = cls.getDeclaredConstructor(clsArr);
+            if (declaredConstructor != null && !declaredConstructor.isAccessible()) {
+                declaredConstructor.setAccessible(true);
+            }
+            return declaredConstructor;
+        }
+        return (Constructor) invokeLL.objValue;
+    }
+
+    public static Field a(Class cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
@@ -40,7 +53,7 @@ public class b {
         return (Field) invokeLL.objValue;
     }
 
-    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
+    public static Method a(Class cls, String str, Class... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
@@ -51,18 +64,5 @@ public class b {
             return declaredMethod;
         }
         return (Method) invokeLLL.objValue;
-    }
-
-    public static Constructor a(Class<?> cls, Class<?>... clsArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
-            Constructor<?> declaredConstructor = cls.getDeclaredConstructor(clsArr);
-            if (declaredConstructor != null && !declaredConstructor.isAccessible()) {
-                declaredConstructor.setAccessible(true);
-            }
-            return declaredConstructor;
-        }
-        return (Constructor) invokeLL.objValue;
     }
 }

@@ -55,6 +55,12 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public String mKey;
     public int mReqSource;
 
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -69,29 +75,6 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
             }
         }
         FORM_LINEEND = System.getProperty("line.separator");
-    }
-
-    public IMAudioTransRequest(Context context, String str, String str2, String str3, int i, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i), str4};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-        this.mKey = str4;
-        this.mFilePath = str;
-        this.mContentType = str2;
-        this.mFormat = str3;
-        this.mReqSource = i;
     }
 
     public void execute() {
@@ -132,128 +115,100 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                     FileInputStream fileInputStream;
                     IMTrack.CrashBuilder crashBuilder;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
-                        return;
-                    }
-                    OutputStream outputStream = null;
-                    try {
-                        if (this.this$0.mContext != null && !TextUtils.isEmpty(this.this$0.getHost())) {
-                            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.this$0.getHost()).openConnection();
-                            httpURLConnection.setReadTimeout(60000);
-                            httpURLConnection.setConnectTimeout(60000);
-                            httpURLConnection.setDoInput(true);
-                            httpURLConnection.setDoOutput(true);
-                            httpURLConnection.setUseCaches(false);
-                            httpURLConnection.setRequestMethod(this.this$0.getMethod());
-                            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-                            IMAudioTransRequest.FORM_BOUNDARY += UUID.randomUUID().toString();
-                            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + IMAudioTransRequest.FORM_BOUNDARY);
-                            httpURLConnection.setRequestProperty("Accept", "*/*");
-                            httpURLConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
-                            String bduss = IMConfigInternal.getInstance().getIMConfig(this.this$0.mContext).getBduss(this.this$0.mContext);
-                            CookieManager cookieManager = CookieManager.getInstance();
-                            cookieManager.setCookie("baidu.com", "BDUSS=" + bduss);
-                            httpURLConnection.setRequestProperty("Cookie", cookieManager.getCookie("baidu.com"));
-                            File file = new File(this.this$0.mFilePath);
-                            OutputStream outputStream2 = httpURLConnection.getOutputStream();
-                            try {
-                                dataOutputStream = new DataOutputStream(outputStream2);
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        OutputStream outputStream = null;
+                        try {
+                            if (this.this$0.mContext != null && !TextUtils.isEmpty(this.this$0.getHost())) {
+                                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.this$0.getHost()).openConnection();
+                                httpURLConnection.setReadTimeout(60000);
+                                httpURLConnection.setConnectTimeout(60000);
+                                httpURLConnection.setDoInput(true);
+                                httpURLConnection.setDoOutput(true);
+                                httpURLConnection.setUseCaches(false);
+                                httpURLConnection.setRequestMethod(this.this$0.getMethod());
+                                httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                                IMAudioTransRequest.FORM_BOUNDARY += UUID.randomUUID().toString();
+                                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + IMAudioTransRequest.FORM_BOUNDARY);
+                                httpURLConnection.setRequestProperty("Accept", "*/*");
+                                httpURLConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
+                                String bduss = IMConfigInternal.getInstance().getIMConfig(this.this$0.mContext).getBduss(this.this$0.mContext);
+                                CookieManager cookieManager = CookieManager.getInstance();
+                                cookieManager.setCookie("baidu.com", "BDUSS=" + bduss);
+                                httpURLConnection.setRequestProperty("Cookie", cookieManager.getCookie("baidu.com"));
+                                File file = new File(this.this$0.mFilePath);
+                                OutputStream outputStream2 = httpURLConnection.getOutputStream();
                                 try {
-                                    for (Map.Entry<String, String> entry : this.this$0.getRequestParameter().entrySet()) {
-                                        StringBuffer stringBuffer = new StringBuffer();
-                                        stringBuffer.append("--");
-                                        stringBuffer.append(IMAudioTransRequest.FORM_BOUNDARY);
-                                        stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
-                                        stringBuffer.append("Content-Disposition: form-data; name=\"" + entry.getKey() + "\"" + IMAudioTransRequest.FORM_LINEEND);
-                                        stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
-                                        stringBuffer.append(entry.getValue());
-                                        stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
-                                        dataOutputStream.write(stringBuffer.toString().getBytes(IMAudioTransRequest.CHARSET));
+                                    dataOutputStream = new DataOutputStream(outputStream2);
+                                    try {
+                                        for (Map.Entry entry : this.this$0.getRequestParameter().entrySet()) {
+                                            StringBuffer stringBuffer = new StringBuffer();
+                                            stringBuffer.append("--");
+                                            stringBuffer.append(IMAudioTransRequest.FORM_BOUNDARY);
+                                            stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
+                                            stringBuffer.append("Content-Disposition: form-data; name=\"" + ((String) entry.getKey()) + "\"" + IMAudioTransRequest.FORM_LINEEND);
+                                            stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
+                                            stringBuffer.append((String) entry.getValue());
+                                            stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
+                                            dataOutputStream.write(stringBuffer.toString().getBytes(IMAudioTransRequest.CHARSET));
+                                        }
+                                        StringBuffer stringBuffer2 = new StringBuffer();
+                                        stringBuffer2.append("--");
+                                        stringBuffer2.append(IMAudioTransRequest.FORM_BOUNDARY);
+                                        stringBuffer2.append(IMAudioTransRequest.FORM_LINEEND);
+                                        stringBuffer2.append("Content-Disposition: form-data; name=\"file\"; filename=\"" + file.getName() + "\"" + IMAudioTransRequest.FORM_LINEEND);
+                                        StringBuilder sb = new StringBuilder();
+                                        sb.append("Content-Type: audio/amr");
+                                        sb.append(IMAudioTransRequest.FORM_LINEEND);
+                                        stringBuffer2.append(sb.toString());
+                                        stringBuffer2.append(IMAudioTransRequest.FORM_LINEEND);
+                                        dataOutputStream.write(stringBuffer2.toString().getBytes(IMAudioTransRequest.CHARSET));
+                                        fileInputStream = new FileInputStream(file);
+                                    } catch (Exception e) {
+                                        e = e;
+                                        fileInputStream = null;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        fileInputStream = null;
                                     }
-                                    StringBuffer stringBuffer2 = new StringBuffer();
-                                    stringBuffer2.append("--");
-                                    stringBuffer2.append(IMAudioTransRequest.FORM_BOUNDARY);
-                                    stringBuffer2.append(IMAudioTransRequest.FORM_LINEEND);
-                                    stringBuffer2.append("Content-Disposition: form-data; name=\"file\"; filename=\"" + file.getName() + "\"" + IMAudioTransRequest.FORM_LINEEND);
-                                    StringBuilder sb = new StringBuilder();
-                                    sb.append("Content-Type: audio/amr");
-                                    sb.append(IMAudioTransRequest.FORM_LINEEND);
-                                    stringBuffer2.append(sb.toString());
-                                    stringBuffer2.append(IMAudioTransRequest.FORM_LINEEND);
-                                    dataOutputStream.write(stringBuffer2.toString().getBytes(IMAudioTransRequest.CHARSET));
-                                    fileInputStream = new FileInputStream(file);
-                                } catch (Exception e) {
-                                    e = e;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    dataOutputStream = null;
                                     fileInputStream = null;
-                                } catch (Throwable th) {
-                                    th = th;
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    dataOutputStream = null;
                                     fileInputStream = null;
                                 }
-                            } catch (Exception e2) {
-                                e = e2;
-                                dataOutputStream = null;
-                                fileInputStream = null;
-                            } catch (Throwable th2) {
-                                th = th2;
-                                dataOutputStream = null;
-                                fileInputStream = null;
-                            }
-                            try {
-                                byte[] bArr = new byte[1024];
-                                while (true) {
-                                    int read = fileInputStream.read(bArr);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    dataOutputStream.write(bArr, 0, read);
-                                }
-                                dataOutputStream.write(IMAudioTransRequest.FORM_LINEEND.getBytes(IMAudioTransRequest.CHARSET));
-                                dataOutputStream.write(("--" + IMAudioTransRequest.FORM_BOUNDARY + "--" + IMAudioTransRequest.FORM_LINEEND).getBytes(IMAudioTransRequest.CHARSET));
-                                dataOutputStream.flush();
-                                int responseCode = httpURLConnection.getResponseCode();
-                                if (responseCode == 200) {
-                                    StringBuffer stringBuffer3 = new StringBuffer();
-                                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+                                try {
+                                    byte[] bArr = new byte[1024];
                                     while (true) {
-                                        String readLine = bufferedReader.readLine();
-                                        if (readLine == null) {
+                                        int read = fileInputStream.read(bArr);
+                                        if (read == -1) {
                                             break;
                                         }
-                                        stringBuffer3.append(readLine);
+                                        dataOutputStream.write(bArr, 0, read);
                                     }
-                                    this.this$0.onSuccess(responseCode, stringBuffer3.toString().getBytes());
-                                }
-                                if (outputStream2 != null) {
-                                    try {
-                                        outputStream2.close();
-                                    } catch (Exception e3) {
-                                        e = e3;
-                                        LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
-                                        crashBuilder = new IMTrack.CrashBuilder(this.this$0.mContext);
-                                        crashBuilder.exception(Log.getStackTraceString(e)).build();
-                                        return;
+                                    dataOutputStream.write(IMAudioTransRequest.FORM_LINEEND.getBytes(IMAudioTransRequest.CHARSET));
+                                    dataOutputStream.write(("--" + IMAudioTransRequest.FORM_BOUNDARY + "--" + IMAudioTransRequest.FORM_LINEEND).getBytes(IMAudioTransRequest.CHARSET));
+                                    dataOutputStream.flush();
+                                    int responseCode = httpURLConnection.getResponseCode();
+                                    if (responseCode == 200) {
+                                        StringBuffer stringBuffer3 = new StringBuffer();
+                                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+                                        while (true) {
+                                            String readLine = bufferedReader.readLine();
+                                            if (readLine == null) {
+                                                break;
+                                            }
+                                            stringBuffer3.append(readLine);
+                                        }
+                                        this.this$0.onSuccess(responseCode, stringBuffer3.toString().getBytes());
                                     }
-                                }
-                                if (dataOutputStream != null) {
-                                    dataOutputStream.close();
-                                }
-                                if (fileInputStream != null) {
-                                    fileInputStream.close();
-                                    return;
-                                }
-                                return;
-                            } catch (Exception e4) {
-                                e = e4;
-                                outputStream = outputStream2;
-                                try {
-                                    LogUtils.d(IMAudioTransRequest.TAG, "Http Unknown exception");
-                                    this.this$0.onFailure(-1003, "Http Unknown exception".getBytes(), e);
-                                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                                    if (outputStream != null) {
+                                    if (outputStream2 != null) {
                                         try {
-                                            outputStream.close();
-                                        } catch (Exception e5) {
-                                            e = e5;
+                                            outputStream2.close();
+                                        } catch (Exception e3) {
+                                            e = e3;
                                             LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
                                             crashBuilder = new IMTrack.CrashBuilder(this.this$0.mContext);
                                             crashBuilder.exception(Log.getStackTraceString(e)).build();
@@ -268,46 +223,73 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                         return;
                                     }
                                     return;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    if (outputStream != null) {
-                                        try {
-                                            outputStream.close();
-                                        } catch (Exception e6) {
-                                            LogUtils.d(IMAudioTransRequest.TAG, e6.getMessage());
-                                            new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e6)).build();
-                                            throw th;
+                                } catch (Exception e4) {
+                                    e = e4;
+                                    outputStream = outputStream2;
+                                    try {
+                                        LogUtils.d(IMAudioTransRequest.TAG, "Http Unknown exception");
+                                        this.this$0.onFailure(-1003, "Http Unknown exception".getBytes(), e);
+                                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                                        if (outputStream != null) {
+                                            try {
+                                                outputStream.close();
+                                            } catch (Exception e5) {
+                                                e = e5;
+                                                LogUtils.d(IMAudioTransRequest.TAG, e.getMessage());
+                                                crashBuilder = new IMTrack.CrashBuilder(this.this$0.mContext);
+                                                crashBuilder.exception(Log.getStackTraceString(e)).build();
+                                                return;
+                                            }
                                         }
+                                        if (dataOutputStream != null) {
+                                            dataOutputStream.close();
+                                        }
+                                        if (fileInputStream != null) {
+                                            fileInputStream.close();
+                                            return;
+                                        }
+                                        return;
+                                    } catch (Throwable th3) {
+                                        th = th3;
+                                        if (outputStream != null) {
+                                            try {
+                                                outputStream.close();
+                                            } catch (Exception e6) {
+                                                LogUtils.d(IMAudioTransRequest.TAG, e6.getMessage());
+                                                new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e6)).build();
+                                                throw th;
+                                            }
+                                        }
+                                        if (dataOutputStream != null) {
+                                            dataOutputStream.close();
+                                        }
+                                        if (fileInputStream != null) {
+                                            fileInputStream.close();
+                                        }
+                                        throw th;
+                                    }
+                                } catch (Throwable th4) {
+                                    th = th4;
+                                    outputStream = outputStream2;
+                                    if (outputStream != null) {
                                     }
                                     if (dataOutputStream != null) {
-                                        dataOutputStream.close();
                                     }
                                     if (fileInputStream != null) {
-                                        fileInputStream.close();
                                     }
                                     throw th;
                                 }
-                            } catch (Throwable th4) {
-                                th = th4;
-                                outputStream = outputStream2;
-                                if (outputStream != null) {
-                                }
-                                if (dataOutputStream != null) {
-                                }
-                                if (fileInputStream != null) {
-                                }
-                                throw th;
                             }
+                            this.this$0.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
+                        } catch (Exception e7) {
+                            e = e7;
+                            dataOutputStream = null;
+                            fileInputStream = null;
+                        } catch (Throwable th5) {
+                            th = th5;
+                            dataOutputStream = null;
+                            fileInputStream = null;
                         }
-                        this.this$0.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
-                    } catch (Exception e7) {
-                        e = e7;
-                        dataOutputStream = null;
-                        fileInputStream = null;
-                    } catch (Throwable th5) {
-                        th = th5;
-                        dataOutputStream = null;
-                        fileInputStream = null;
                     }
                 }
             });
@@ -319,9 +301,41 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
-            return readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? "https://pim.baidu.com/rest/3.0/im/transcode" : "http://180.97.36.95:8080/rest/3.0/im/transcode" : "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/3.0/im/transcode" : "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/transcode";
+            if (readIntData != 1) {
+                if (readIntData != 2) {
+                    if (readIntData != 3) {
+                        return "https://pim.baidu.com/rest/3.0/im/transcode";
+                    }
+                    return "http://180.97.36.95:8080/rest/3.0/im/transcode";
+                }
+                return "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/3.0/im/transcode";
+            }
+            return "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/transcode";
         }
         return (String) invokeV.objValue;
+    }
+
+    public IMAudioTransRequest(Context context, String str, String str2, String str3, int i, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i), str4};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mContext = context;
+        this.mKey = str4;
+        this.mFilePath = str;
+        this.mContentType = str2;
+        this.mFormat = str3;
+        this.mReqSource = i;
     }
 
     public String getMd5(String str) throws NoSuchAlgorithmException {
@@ -335,18 +349,12 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
         return (String) invokeL.objValue;
     }
 
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    public HashMap<String, String> getRequestParameter() {
+    public HashMap getRequestParameter() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             long appid = AccountManager.getAppid(this.mContext);
             hashMap.put("appid", String.valueOf(appid));
             hashMap.put("uk", AccountManager.getUK(this.mContext) + "");
@@ -372,10 +380,31 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMAudio Trans onFailure " + transErrorCode.first);
             ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
         }
+    }
+
+    public Pair transErrorCode(int i, byte[] bArr, Throwable th) {
+        InterceptResult invokeILL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, bArr, th)) == null) {
+            if (th == null) {
+                if (i == 1005) {
+                    str = new String(bArr);
+                } else {
+                    str = "http response is error! response code:" + i;
+                    i = 1011;
+                }
+            } else {
+                i = 1012;
+                str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
+            }
+            return new Pair(Integer.valueOf(i), str);
+        }
+        return (Pair) invokeILL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -410,24 +439,5 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
             str3 = "";
             ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i2, str2, str3);
         }
-    }
-
-    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
-        InterceptResult invokeILL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, bArr, th)) == null) {
-            if (th != null) {
-                i = 1012;
-                str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-            } else if (i == 1005) {
-                str = new String(bArr);
-            } else {
-                str = "http response is error! response code:" + i;
-                i = 1011;
-            }
-            return new Pair<>(Integer.valueOf(i), str);
-        }
-        return (Pair) invokeILL.objValue;
     }
 }

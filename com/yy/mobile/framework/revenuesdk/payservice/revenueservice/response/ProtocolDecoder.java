@@ -51,7 +51,21 @@ public final class ProtocolDecoder {
     private final ServiceResponse newResponse(int i, String str, Object obj) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(65537, this, i, str, obj)) == null) ? newResponse(i, str, obj, 1, "") : (ServiceResponse) invokeILL.objValue;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, this, i, str, obj)) == null) {
+            return newResponse(i, str, obj, 1, "");
+        }
+        return (ServiceResponse) invokeILL.objValue;
+    }
+
+    private final ServiceResponse newResponse(int i, String str, Object obj, int i2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), str, obj, Integer.valueOf(i2), str2})) == null) {
+            ServiceResponse serviceResponse = new ServiceResponse(i, str, i2, str2);
+            serviceResponse.setData(obj);
+            return serviceResponse;
+        }
+        return (ServiceResponse) invokeCommon.objValue;
     }
 
     private final CurrencyChargeMessage parseCurrencyChargeMessage(String str) {
@@ -66,67 +80,6 @@ public final class ProtocolDecoder {
             }
         }
         return (CurrencyChargeMessage) invokeL.objValue;
-    }
-
-    public final ServiceResponse decode(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (i == 2005) {
-                GetUserAccountResponse getUserAccountResponse = new GetUserAccountResponse(str);
-                return newResponse(1005, getUserAccountResponse.seq, new MyBalanceResult(new MyBalanceInfo(getUserAccountResponse.accountList, getUserAccountResponse.accountPeriodList, getUserAccountResponse.minAmountLimit, getUserAccountResponse.imid)), getUserAccountResponse.result, getUserAccountResponse.message);
-            } else if (i == 2061) {
-                GetChargeOrderStatusResponse getChargeOrderStatusResponse = new GetChargeOrderStatusResponse(str);
-                return newResponse(RevenueServerConst.GetChargeOrderStatusRequest, getChargeOrderStatusResponse.seq, getChargeOrderStatusResponse.getResponse(), getChargeOrderStatusResponse.result, getChargeOrderStatusResponse.message);
-            } else if (i == 2071) {
-                GetBannerConfigResponse getBannerConfigResponse = new GetBannerConfigResponse(str);
-                return newResponse(RevenueServerConst.GetBannerConfigRequest, getBannerConfigResponse.seq, getBannerConfigResponse.getResponse(), getBannerConfigResponse.result, getBannerConfigResponse.message);
-            } else if (i != 40423898) {
-                if (i == 2021) {
-                    GetChargeCurrencyConfigResponse getChargeCurrencyConfigResponse = new GetChargeCurrencyConfigResponse(str);
-                    ProductListResult productListResult = new ProductListResult(getChargeCurrencyConfigResponse.currencyType, getChargeCurrencyConfigResponse.currencyName, getChargeCurrencyConfigResponse.paysSettingInfo, getChargeCurrencyConfigResponse.confList, getChargeCurrencyConfigResponse.payWayInfoList, getChargeCurrencyConfigResponse.defaultCid, getChargeCurrencyConfigResponse.bubbleActMsg);
-                    StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                    String format = String.format("GetChargeCurrencyConfigResponse response.seq = %s", Arrays.copyOf(new Object[]{getChargeCurrencyConfigResponse.seq}, 1));
-                    Intrinsics.checkExpressionValueIsNotNull(format, "java.lang.String.format(format, *args)");
-                    RLog.debug("ProtocolDecoder", format);
-                    return newResponse(1021, getChargeCurrencyConfigResponse.seq, productListResult, getChargeCurrencyConfigResponse.result, "");
-                } else if (i != 2022) {
-                    StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
-                    String format2 = String.format("decode  null", Arrays.copyOf(new Object[0], 0));
-                    Intrinsics.checkExpressionValueIsNotNull(format2, "java.lang.String.format(format, *args)");
-                    RLog.info("ProtocolDecoder", format2);
-                    return decodeError(i, "", -1, str);
-                } else {
-                    ChargeCurrencyResponse chargeCurrencyResponse = new ChargeCurrencyResponse(str);
-                    PayOrderResult payOrderResult = new PayOrderResult(chargeCurrencyResponse.result, chargeCurrencyResponse.payUrl, chargeCurrencyResponse.payChannel, chargeCurrencyResponse.orderId, chargeCurrencyResponse.payMethod, chargeCurrencyResponse.closeRiskEnhance, chargeCurrencyResponse.expand, chargeCurrencyResponse.pollingModeInfo);
-                    StringCompanionObject stringCompanionObject3 = StringCompanionObject.INSTANCE;
-                    String format3 = String.format("ChargeCurrencyResponse response.seq = %s", Arrays.copyOf(new Object[]{chargeCurrencyResponse.seq}, 1));
-                    Intrinsics.checkExpressionValueIsNotNull(format3, "java.lang.String.format(format, *args)");
-                    RLog.debug("ProtocolDecoder", format3);
-                    return newResponse(1022, chargeCurrencyResponse.seq, payOrderResult, chargeCurrencyResponse.result, chargeCurrencyResponse.message);
-                }
-            } else {
-                return newResponse(RevenueServerConst.CurrencyChargeMessage, "", parseCurrencyChargeMessage(str));
-            }
-        }
-        return (ServiceResponse) invokeIL.objValue;
-    }
-
-    public final ServiceResponse decodeError(int i, String str, int i2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2})) == null) ? newResponse(new ErrorResponse(str2).cmd, str, null, i2, "revenue sdk respone parse error") : (ServiceResponse) invokeCommon.objValue;
-    }
-
-    private final ServiceResponse newResponse(int i, String str, Object obj, int i2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), str, obj, Integer.valueOf(i2), str2})) == null) {
-            ServiceResponse serviceResponse = new ServiceResponse(i, str, i2, str2);
-            serviceResponse.setData(obj);
-            return serviceResponse;
-        }
-        return (ServiceResponse) invokeCommon.objValue;
     }
 
     private final CurrencyChargeMessage parseCurrencyChargeMessage(JSONObject jSONObject) {
@@ -149,5 +102,60 @@ public final class ProtocolDecoder {
             return null;
         }
         return (CurrencyChargeMessage) invokeL.objValue;
+    }
+
+    public final ServiceResponse decode(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (i != 2005) {
+                if (i != 2061) {
+                    if (i != 2071) {
+                        if (i != 40423898) {
+                            if (i != 2021) {
+                                if (i != 2022) {
+                                    StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                                    String format = String.format("decode  null", Arrays.copyOf(new Object[0], 0));
+                                    Intrinsics.checkExpressionValueIsNotNull(format, "java.lang.String.format(format, *args)");
+                                    RLog.info("ProtocolDecoder", format);
+                                    return decodeError(i, "", -1, str);
+                                }
+                                ChargeCurrencyResponse chargeCurrencyResponse = new ChargeCurrencyResponse(str);
+                                PayOrderResult payOrderResult = new PayOrderResult(chargeCurrencyResponse.result, chargeCurrencyResponse.payUrl, chargeCurrencyResponse.payChannel, chargeCurrencyResponse.orderId, chargeCurrencyResponse.payMethod, chargeCurrencyResponse.closeRiskEnhance, chargeCurrencyResponse.expand, chargeCurrencyResponse.pollingModeInfo);
+                                StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
+                                String format2 = String.format("ChargeCurrencyResponse response.seq = %s", Arrays.copyOf(new Object[]{chargeCurrencyResponse.seq}, 1));
+                                Intrinsics.checkExpressionValueIsNotNull(format2, "java.lang.String.format(format, *args)");
+                                RLog.debug("ProtocolDecoder", format2);
+                                return newResponse(1022, chargeCurrencyResponse.seq, payOrderResult, chargeCurrencyResponse.result, chargeCurrencyResponse.message);
+                            }
+                            GetChargeCurrencyConfigResponse getChargeCurrencyConfigResponse = new GetChargeCurrencyConfigResponse(str);
+                            ProductListResult productListResult = new ProductListResult(getChargeCurrencyConfigResponse.currencyType, getChargeCurrencyConfigResponse.currencyName, getChargeCurrencyConfigResponse.paysSettingInfo, getChargeCurrencyConfigResponse.confList, getChargeCurrencyConfigResponse.payWayInfoList, getChargeCurrencyConfigResponse.defaultCid, getChargeCurrencyConfigResponse.bubbleActMsg);
+                            StringCompanionObject stringCompanionObject3 = StringCompanionObject.INSTANCE;
+                            String format3 = String.format("GetChargeCurrencyConfigResponse response.seq = %s", Arrays.copyOf(new Object[]{getChargeCurrencyConfigResponse.seq}, 1));
+                            Intrinsics.checkExpressionValueIsNotNull(format3, "java.lang.String.format(format, *args)");
+                            RLog.debug("ProtocolDecoder", format3);
+                            return newResponse(1021, getChargeCurrencyConfigResponse.seq, productListResult, getChargeCurrencyConfigResponse.result, "");
+                        }
+                        return newResponse(RevenueServerConst.CurrencyChargeMessage, "", parseCurrencyChargeMessage(str));
+                    }
+                    GetBannerConfigResponse getBannerConfigResponse = new GetBannerConfigResponse(str);
+                    return newResponse(RevenueServerConst.GetBannerConfigRequest, getBannerConfigResponse.seq, getBannerConfigResponse.getResponse(), getBannerConfigResponse.result, getBannerConfigResponse.message);
+                }
+                GetChargeOrderStatusResponse getChargeOrderStatusResponse = new GetChargeOrderStatusResponse(str);
+                return newResponse(RevenueServerConst.GetChargeOrderStatusRequest, getChargeOrderStatusResponse.seq, getChargeOrderStatusResponse.getResponse(), getChargeOrderStatusResponse.result, getChargeOrderStatusResponse.message);
+            }
+            GetUserAccountResponse getUserAccountResponse = new GetUserAccountResponse(str);
+            return newResponse(1005, getUserAccountResponse.seq, new MyBalanceResult(new MyBalanceInfo(getUserAccountResponse.accountList, getUserAccountResponse.accountPeriodList, getUserAccountResponse.minAmountLimit, getUserAccountResponse.imid)), getUserAccountResponse.result, getUserAccountResponse.message);
+        }
+        return (ServiceResponse) invokeIL.objValue;
+    }
+
+    public final ServiceResponse decodeError(int i, String str, int i2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2})) == null) {
+            return newResponse(new ErrorResponse(str2).cmd, str, null, i2, "revenue sdk respone parse error");
+        }
+        return (ServiceResponse) invokeCommon.objValue;
     }
 }

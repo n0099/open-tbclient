@@ -12,7 +12,7 @@ public class GetBucketAclResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SUPPORTED_ACL_VERSION = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Grant> accessControlList;
+    public List accessControlList;
     public Grantee owner;
     public int version;
 
@@ -32,25 +32,34 @@ public class GetBucketAclResponse extends BosResponse {
         this.version = 1;
     }
 
-    public List<Grant> getAccessControlList() {
+    public List getAccessControlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.accessControlList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.accessControlList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public Grantee getOwner() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.owner : (Grantee) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.owner;
+        }
+        return (Grantee) invokeV.objValue;
     }
 
     public int getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.version : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.version;
+        }
+        return invokeV.intValue;
     }
 
-    public void setAccessControlList(List<Grant> list) {
+    public void setAccessControlList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.accessControlList = list;

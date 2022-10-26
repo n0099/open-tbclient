@@ -15,9 +15,19 @@ import kotlin.Metadata;
 public interface IYYStorageController {
     public static final Companion Companion = Companion.$$INSTANCE;
 
+    Map getInfos(String str);
+
+    double getMediaProportion();
+
+    long getNormalQuota(String str);
+
+    long getVipQuota(String str);
+
+    void onEnterYY();
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\t\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\b\u0010\tR\u001c\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005R\u001c\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086D¢\u0006\f\n\u0004\b\u0006\u0010\u0003\u001a\u0004\b\u0007\u0010\u0005¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/storage/IYYStorageController$Companion;", "", "TYPE_MEDIA", "Ljava/lang/String;", "getTYPE_MEDIA", "()Ljava/lang/String;", "TYPE_YY", "getTYPE_YY", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TYPE_MEDIA;
@@ -59,23 +69,19 @@ public interface IYYStorageController {
         public final String getTYPE_MEDIA() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TYPE_MEDIA : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return TYPE_MEDIA;
+            }
+            return (String) invokeV.objValue;
         }
 
         public final String getTYPE_YY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TYPE_YY : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return TYPE_YY;
+            }
+            return (String) invokeV.objValue;
         }
     }
-
-    Map<String, String> getInfos(String str);
-
-    double getMediaProportion();
-
-    long getNormalQuota(String str);
-
-    long getVipQuota(String str);
-
-    void onEnterYY();
 }

@@ -5,8 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -28,15 +26,12 @@ public class p extends v implements View.OnClickListener {
     public TextView li;
     public ImageView ll;
     public TextView nH;
-    @Nullable
     public KsAppTagsView uu;
     public KSCornerButton vX;
     public KsConvertButton vY;
     public View vZ;
-    @Nullable
     public TextView wa;
     public a wb;
-    @LayoutRes
     public int wc;
     public boolean wd;
 
@@ -64,7 +59,7 @@ public class p extends v implements View.OnClickListener {
                 return;
             }
         }
-        this.wc = R.layout.obfuscated_res_0x7f0d0455;
+        this.wc = R.layout.obfuscated_res_0x7f0d0452;
         this.wd = true;
     }
 
@@ -164,27 +159,27 @@ public class p extends v implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911bb);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911b8);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911bd);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911be);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911b6);
-        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911b7);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911ba);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911b3);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f0911bc);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911af);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911ac);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911b1);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911b2);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911aa);
+        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911ab);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911ae);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911a7);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f0911b0);
     }
 
     public int jb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.id.obfuscated_res_0x7f0911b5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.id.obfuscated_res_0x7f0911a9 : invokeV.intValue;
     }
 
     public int jc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.id.obfuscated_res_0x7f0911b4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.id.obfuscated_res_0x7f0911a8 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener

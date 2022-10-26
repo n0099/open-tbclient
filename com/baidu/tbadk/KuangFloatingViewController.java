@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.pu8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.zu8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,10 +102,10 @@ public class KuangFloatingViewController {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                Boolean data;
+            public void onMessage(CustomResponsedMessage customResponsedMessage) {
+                Boolean bool;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null && data.booleanValue()) {
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && (bool = (Boolean) ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null && bool.booleanValue()) {
                     this.this$0.hideFloatingView();
                 }
             }
@@ -138,10 +138,10 @@ public class KuangFloatingViewController {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                Class<?> intentClass;
+            public void onMessage(CustomResponsedMessage customResponsedMessage) {
+                Class intentClass;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof IntentConfig) || (intentClass = RegisterIntentConfigHelper.getInst().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) == null) {
+                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof IntentConfig) || (intentClass = RegisterIntentConfigHelper.getInst().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) == null) {
                     return;
                 }
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
@@ -170,19 +170,18 @@ public class KuangFloatingViewController {
                 this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
             }
             View view2 = this.mFloatingView;
-            if (view2 == null || view2.getParent() == null) {
-                return;
-            }
-            try {
-                if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
+            if (view2 != null && view2.getParent() != null) {
+                try {
+                    if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
+                        this.wm = null;
+                        this.mFloatingView = null;
+                        return;
+                    }
+                    this.wm.removeView(this.mFloatingView);
+                } catch (SecurityException unused) {
                     this.wm = null;
                     this.mFloatingView = null;
-                    return;
                 }
-                this.wm.removeView(this.mFloatingView);
-            } catch (SecurityException unused) {
-                this.wm = null;
-                this.mFloatingView = null;
             }
         }
     }
@@ -193,7 +192,7 @@ public class KuangFloatingViewController {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             View view2 = this.mFloatingView;
             if (view2 == null) {
-                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0297, (ViewGroup) null);
+                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0296, (ViewGroup) null);
                 this.mFloatingView = inflate;
                 inflate.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.3
                     public static /* synthetic */ Interceptable $ic;
@@ -237,7 +236,7 @@ public class KuangFloatingViewController {
                         }
                     }
                 });
-                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090a06).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
+                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090a10).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ KuangFloatingViewController this$0;
@@ -271,7 +270,7 @@ public class KuangFloatingViewController {
             } else if (view2.getParent() != null) {
                 return false;
             }
-            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090f25)).setText(this.mInfo);
+            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090f19)).setText(this.mInfo);
             return true;
         }
         return invokeV.booleanValue;
@@ -288,11 +287,11 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = pu8.a(2002);
+            layoutParams.type = zu8.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
-            layoutParams.y = ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07028a) + UtilHelper.getStatusBarHeight();
+            layoutParams.y = fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07028a) + UtilHelper.getStatusBarHeight();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 51;

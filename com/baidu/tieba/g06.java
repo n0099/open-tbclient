@@ -1,182 +1,144 @@
 package com.baidu.tieba;
 
-import androidx.annotation.FloatRange;
-import androidx.annotation.RestrictTo;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d06;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class g06 {
+public class g06 extends p16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public double b;
-    public boolean c;
-    public double d;
-    public double e;
-    public double f;
-    public double g;
-    public double h;
-    public double i;
-    public final d06.i j;
+    public View i;
+    public TextView j;
+    public TextView k;
+    public HeadImageView l;
+    public HeadImageView m;
+    public HeadImageView n;
+    public ImageView o;
 
-    public g06(float f) {
+    @Override // com.baidu.tieba.p16
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0105 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p16
+    /* renamed from: t */
+    public void l(yy5 yy5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, yy5Var) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g06(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = Math.sqrt(1500.0d);
-        this.b = 0.5d;
-        this.c = false;
-        this.i = Double.MAX_VALUE;
-        this.j = new d06.i();
-        this.i = f;
+        s(k());
     }
 
-    public float a() {
+    public void u(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (textView = this.k) != null) {
+            textView.setText(str);
+        }
+    }
+
+    public void v(int i) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (imageView = this.o) != null) {
+            imageView.setVisibility(i);
+        }
+    }
+
+    public void w(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (view2 = this.i) != null) {
+            view2.setVisibility(i);
+        }
+    }
+
+    public void x(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (textView = this.j) != null) {
+            textView.setText(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.p16
+    public void m(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (i == 1) {
+                this.o.setAlpha(0.7f);
+            } else {
+                this.o.setAlpha(1);
+            }
+            this.i.setBackgroundColor(SkinManager.getColor(i, (int) R.color.CAM_X0204));
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        }
+    }
+
+    public TextView r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (float) this.i : invokeV.floatValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
-            return;
-        }
-        if (this.i != Double.MAX_VALUE) {
-            double d = this.b;
-            if (d > 1.0d) {
-                double d2 = this.a;
-                this.f = ((-d) * d2) + (d2 * Math.sqrt((d * d) - 1.0d));
-                double d3 = this.b;
-                double d4 = this.a;
-                this.g = ((-d3) * d4) - (d4 * Math.sqrt((d3 * d3) - 1.0d));
-            } else if (d >= 0.0d && d < 1.0d) {
-                this.h = this.a * Math.sqrt(1.0d - (d * d));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            TextView textView = this.k;
+            if (textView != null) {
+                return textView;
             }
-            this.c = true;
-            return;
+            return null;
         }
-        throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
+        return (TextView) invokeV.objValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean c(float f, float f2) {
-        InterceptResult invokeCommon;
+    public final void s(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? ((double) Math.abs(f2)) < this.e && ((double) Math.abs(f - a())) < this.d : invokeCommon.booleanValue;
-    }
-
-    public g06 d(@FloatRange(from = 0.0d) float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (f >= 0.0f) {
-                this.b = f;
-                this.c = false;
-                return this;
-            }
-            throw new IllegalArgumentException("Damping ratio must be non-negative");
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090211);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090212);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090210);
+            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09020c);
+            this.l = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09020d);
+            this.m = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09020e);
+            this.n = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09020f);
         }
-        return (g06) invokeF.objValue;
-    }
-
-    public g06 e(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            this.i = f;
-            return this;
-        }
-        return (g06) invokeF.objValue;
-    }
-
-    public g06 f(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f > 0.0f) {
-                this.a = Math.sqrt(f);
-                this.c = false;
-                return this;
-            }
-            throw new IllegalArgumentException("Spring stiffness constant must be positive.");
-        }
-        return (g06) invokeF.objValue;
-    }
-
-    public void g(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
-            double abs = Math.abs(d);
-            this.d = abs;
-            this.e = abs * 62.5d;
-        }
-    }
-
-    public d06.i h(double d, double d2, long j) {
-        InterceptResult invokeCommon;
-        double cos;
-        double d3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Long.valueOf(j)})) == null) {
-            b();
-            double d4 = j / 1000.0d;
-            double d5 = d - this.i;
-            double d6 = this.b;
-            if (d6 > 1.0d) {
-                double d7 = this.g;
-                double d8 = this.f;
-                double d9 = d5 - (((d7 * d5) - d2) / (d7 - d8));
-                double d10 = ((d5 * d7) - d2) / (d7 - d8);
-                d3 = (Math.pow(2.718281828459045d, d7 * d4) * d9) + (Math.pow(2.718281828459045d, this.f * d4) * d10);
-                double d11 = this.g;
-                double pow = d9 * d11 * Math.pow(2.718281828459045d, d11 * d4);
-                double d12 = this.f;
-                cos = pow + (d10 * d12 * Math.pow(2.718281828459045d, d12 * d4));
-            } else if (d6 == 1.0d) {
-                double d13 = this.a;
-                double d14 = d2 + (d13 * d5);
-                double d15 = d5 + (d14 * d4);
-                d3 = Math.pow(2.718281828459045d, (-d13) * d4) * d15;
-                double pow2 = d15 * Math.pow(2.718281828459045d, (-this.a) * d4);
-                double d16 = this.a;
-                cos = (d14 * Math.pow(2.718281828459045d, (-d16) * d4)) + (pow2 * (-d16));
-            } else {
-                double d17 = 1.0d / this.h;
-                double d18 = this.a;
-                double d19 = d17 * ((d6 * d18 * d5) + d2);
-                double pow3 = Math.pow(2.718281828459045d, (-d6) * d18 * d4) * ((Math.cos(this.h * d4) * d5) + (Math.sin(this.h * d4) * d19));
-                double d20 = this.a;
-                double d21 = this.b;
-                double d22 = (-d20) * pow3 * d21;
-                double pow4 = Math.pow(2.718281828459045d, (-d21) * d20 * d4);
-                double d23 = this.h;
-                double sin = (-d23) * d5 * Math.sin(d23 * d4);
-                double d24 = this.h;
-                cos = d22 + (pow4 * (sin + (d19 * d24 * Math.cos(d24 * d4))));
-                d3 = pow3;
-            }
-            d06.i iVar = this.j;
-            iVar.a = (float) (d3 + this.i);
-            iVar.b = (float) cos;
-            return iVar;
-        }
-        return (d06.i) invokeCommon.objValue;
     }
 }

@@ -11,6 +11,13 @@ public class RegistrationPolicyAlwaysRegister extends NetworkChangeNotifierAutoD
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.RegistrationPolicy
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     public RegistrationPolicyAlwaysRegister() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,13 +29,6 @@ public class RegistrationPolicyAlwaysRegister extends NetworkChangeNotifierAutoD
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.RegistrationPolicy
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 

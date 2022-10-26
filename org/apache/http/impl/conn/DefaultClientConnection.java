@@ -50,36 +50,6 @@ public class DefaultClientConnection extends SocketHttpClientConnection implemen
         }
     }
 
-    @Override // org.apache.http.impl.AbstractHttpClientConnection
-    public HttpMessageParser createResponseParser(SessionInputBuffer sessionInputBuffer, HttpResponseFactory httpResponseFactory, HttpParams httpParams) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionInputBuffer, httpResponseFactory, httpParams)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpMessageParser) invokeLLL.objValue;
-    }
-
-    @Override // org.apache.http.impl.SocketHttpClientConnection
-    public SessionInputBuffer createSessionInputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, socket, i, httpParams)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (SessionInputBuffer) invokeLIL.objValue;
-    }
-
-    @Override // org.apache.http.impl.SocketHttpClientConnection
-    public SessionOutputBuffer createSessionOutputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, socket, i, httpParams)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (SessionOutputBuffer) invokeLIL.objValue;
-    }
-
     @Override // org.apache.http.impl.SocketHttpClientConnection, org.apache.http.conn.OperatedClientConnection
     public final Socket getSocket() {
         InterceptResult invokeV;
@@ -110,6 +80,54 @@ public class DefaultClientConnection extends SocketHttpClientConnection implemen
         return invokeV.booleanValue;
     }
 
+    @Override // org.apache.http.impl.AbstractHttpClientConnection, org.apache.http.HttpClientConnection
+    public HttpResponse receiveResponseHeader() throws HttpException, IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpResponse) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.impl.SocketHttpClientConnection, org.apache.http.HttpConnection
+    public void shutdown() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.impl.AbstractHttpClientConnection
+    public HttpMessageParser createResponseParser(SessionInputBuffer sessionInputBuffer, HttpResponseFactory httpResponseFactory, HttpParams httpParams) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionInputBuffer, httpResponseFactory, httpParams)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpMessageParser) invokeLLL.objValue;
+    }
+
+    @Override // org.apache.http.impl.SocketHttpClientConnection
+    public SessionInputBuffer createSessionInputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, socket, i, httpParams)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (SessionInputBuffer) invokeLIL.objValue;
+    }
+
+    @Override // org.apache.http.impl.SocketHttpClientConnection
+    public SessionOutputBuffer createSessionOutputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, socket, i, httpParams)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (SessionOutputBuffer) invokeLIL.objValue;
+    }
+
     @Override // org.apache.http.conn.OperatedClientConnection
     public void openCompleted(boolean z, HttpParams httpParams) throws IOException {
         Interceptable interceptable = $ic;
@@ -127,27 +145,9 @@ public class DefaultClientConnection extends SocketHttpClientConnection implemen
     }
 
     @Override // org.apache.http.impl.AbstractHttpClientConnection, org.apache.http.HttpClientConnection
-    public HttpResponse receiveResponseHeader() throws HttpException, IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpResponse) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.impl.AbstractHttpClientConnection, org.apache.http.HttpClientConnection
     public void sendRequestHeader(HttpRequest httpRequest) throws HttpException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, httpRequest) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.impl.SocketHttpClientConnection, org.apache.http.HttpConnection
-    public void shutdown() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             throw new RuntimeException("Stub!");
         }
     }

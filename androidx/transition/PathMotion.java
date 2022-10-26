@@ -12,6 +12,8 @@ public abstract class PathMotion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract Path getPath(float f, float f2, float f3, float f4);
+
     public PathMotion() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,8 +27,6 @@ public abstract class PathMotion {
             }
         }
     }
-
-    public abstract Path getPath(float f, float f2, float f3, float f4);
 
     public PathMotion(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;

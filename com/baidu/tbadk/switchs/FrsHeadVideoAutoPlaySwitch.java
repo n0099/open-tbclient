@@ -13,6 +13,13 @@ public class FrsHeadVideoAutoPlaySwitch extends BaseNormalSwitch {
     public static final FrsHeadVideoAutoPlaySwitch mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.rf
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "is_auto_play_forumheadvideo" : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -46,13 +53,9 @@ public class FrsHeadVideoAutoPlaySwitch extends BaseNormalSwitch {
     public static boolean getIsOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mInstance.isOn() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "is_auto_play_forumheadvideo" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return mInstance.isOn();
+        }
+        return invokeV.booleanValue;
     }
 }

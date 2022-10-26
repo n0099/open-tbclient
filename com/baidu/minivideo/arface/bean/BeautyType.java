@@ -138,22 +138,25 @@ public final class BeautyType {
         this.type = filterParam;
     }
 
-    public static BeautyType valueOf(String str) {
-        InterceptResult invokeL;
+    public BeautyType(String str, int i, FilterParam filterParam) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (BeautyType) Enum.valueOf(BeautyType.class, str) : (BeautyType) invokeL.objValue;
-    }
-
-    public static BeautyType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (BeautyType[]) $VALUES.clone() : (BeautyType[]) invokeV.objValue;
-    }
-
-    public String getTypeValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type.getParamName() : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), filterParam};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.type = filterParam;
     }
 
     public BeautyType(String str, int i, String str2, FilterParam filterParam) {
@@ -178,24 +181,30 @@ public final class BeautyType {
         this.type = filterParam;
     }
 
-    public BeautyType(String str, int i, FilterParam filterParam) {
+    public static BeautyType valueOf(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), filterParam};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (BeautyType) Enum.valueOf(BeautyType.class, str);
         }
-        this.type = filterParam;
+        return (BeautyType) invokeL.objValue;
+    }
+
+    public static BeautyType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (BeautyType[]) $VALUES.clone();
+        }
+        return (BeautyType[]) invokeV.objValue;
+    }
+
+    public String getTypeValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.type.getParamName();
+        }
+        return (String) invokeV.objValue;
     }
 }

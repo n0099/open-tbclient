@@ -1,13 +1,11 @@
 package com.kwad.components.core.playable;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,25 +38,23 @@ public final class a implements b {
     public final KsAdWebView Hq;
     public long Hr;
     public PlayableSource Hs;
-    public List<x.b> Ht;
-    public List<KsAdWebView.d> Hu;
+    public List Ht;
+    public List Hu;
     public aa bI;
-    @Nullable
     public AdTemplate mAdTemplate;
     public c mApkDownloadHelper;
     public Context mContext;
-    @Nullable
     public com.kwad.components.core.webview.a mJsInterface;
     public AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.playable.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0580a implements ag.b {
+    public final class C0576a implements ag.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<a> Hw;
+        public final WeakReference Hw;
 
-        public C0580a(a aVar) {
+        public C0576a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,21 +69,20 @@ public final class a implements b {
                     return;
                 }
             }
-            this.Hw = new WeakReference<>(aVar);
+            this.Hw = new WeakReference(aVar);
         }
 
         @Override // com.kwad.components.core.webview.jshandler.ag.b
         public final void al(int i) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (aVar = this.Hw.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (aVar = (a) this.Hw.get()) == null) {
                 return;
             }
             aVar.ak(i);
         }
     }
 
-    @SuppressLint({"ClickableViewAccessibility"})
     public a(KsAdWebView ksAdWebView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -151,7 +146,7 @@ public final class a implements b {
     private void a(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.webview.a aVar, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar, aVar, cVar) == null) {
-            aVar.a(new ag(bVar, cVar, new C0580a(this)));
+            aVar.a(new ag(bVar, cVar, new C0576a(this)));
             aVar.a(new x(new x.b(this) { // from class: com.kwad.components.core.playable.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +205,7 @@ public final class a implements b {
             u.b bVar = new u.b();
             bVar.gJ = i;
             bVar.gL = this.mRootContainer.getTouchCoords();
-            com.kwad.components.core.c.a.a.a(new a.C0570a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
+            com.kwad.components.core.c.a.a.a(new a.C0566a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
         }
     }
 
@@ -231,7 +226,6 @@ public final class a implements b {
         this.mJsInterface = null;
     }
 
-    @Nullable
     private AdTemplate getAdTemplate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,7 +300,7 @@ public final class a implements b {
         } : (KsAdWebView.d) invokeV.objValue;
     }
 
-    public final void a(@Nullable KsAdWebView.d dVar) {
+    public final void a(KsAdWebView.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             this.Hu.add(dVar);
@@ -328,14 +322,13 @@ public final class a implements b {
         }
     }
 
-    public final void a(@Nullable x.b bVar) {
+    public final void a(x.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.Ht.add(bVar);
         }
     }
 
-    @SuppressLint({"AddJavascriptInterface"})
     public final void a(AdTemplate adTemplate, AdBaseFrameLayout adBaseFrameLayout, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, adTemplate, adBaseFrameLayout, cVar) == null) {
@@ -363,7 +356,7 @@ public final class a implements b {
         }
     }
 
-    public final void b(@Nullable x.b bVar) {
+    public final void b(x.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             this.Ht.remove(bVar);

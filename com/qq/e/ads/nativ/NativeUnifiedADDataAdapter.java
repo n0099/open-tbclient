@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
 
     /* renamed from: com.qq.e.ads.nativ.NativeUnifiedADDataAdapter$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -100,94 +100,8 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
         }
     }
 
-    public static void a(NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter, ADEvent aDEvent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, nativeUnifiedADDataAdapter, aDEvent) == null) || nativeUnifiedADDataAdapter.b == null) {
-            return;
-        }
-        int type = aDEvent.getType();
-        if (type == 1) {
-            nativeUnifiedADDataAdapter.b.onADExposed();
-        } else if (type != 2) {
-            if (type != 3) {
-                if (type != 4) {
-                    return;
-                }
-                nativeUnifiedADDataAdapter.b.onADStatusChanged();
-            } else if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                nativeUnifiedADDataAdapter.b.onADError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
-            }
-        } else if (aDEvent.getParas().length < 1 || !(aDEvent.getParas()[0] instanceof String)) {
-        } else {
-            try {
-                NativeUnifiedADData.ext.put(Constants.KEYS.EXPOSED_CLICK_URL_KEY, (String) aDEvent.getParas()[0]);
-            } catch (Exception unused) {
-            }
-            NativeADEventListener nativeADEventListener = nativeUnifiedADDataAdapter.b;
-            if (!(nativeADEventListener instanceof NativeADEventListenerWithClickInfo)) {
-                nativeADEventListener.onADClicked();
-                return;
-            }
-            View view2 = null;
-            if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[1] instanceof View)) {
-                view2 = (View) aDEvent.getParas()[1];
-            }
-            ((NativeADEventListenerWithClickInfo) nativeUnifiedADDataAdapter.b).onADClicked(view2);
-        }
-    }
-
-    public static void b(NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter, ADEvent aDEvent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, nativeUnifiedADDataAdapter, aDEvent) == null) || nativeUnifiedADDataAdapter.c == null) {
-            return;
-        }
-        switch (aDEvent.getType()) {
-            case 5:
-                nativeUnifiedADDataAdapter.c.onVideoInit();
-                return;
-            case 6:
-                nativeUnifiedADDataAdapter.c.onVideoLoading();
-                return;
-            case 7:
-                nativeUnifiedADDataAdapter.c.onVideoReady();
-                return;
-            case 8:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                    nativeUnifiedADDataAdapter.c.onVideoLoaded(((Integer) aDEvent.getParas()[0]).intValue());
-                    return;
-                }
-                return;
-            case 9:
-                nativeUnifiedADDataAdapter.c.onVideoStart();
-                return;
-            case 10:
-                nativeUnifiedADDataAdapter.c.onVideoPause();
-                return;
-            case 11:
-                nativeUnifiedADDataAdapter.c.onVideoResume();
-                return;
-            case 12:
-                nativeUnifiedADDataAdapter.c.onVideoCompleted();
-                return;
-            case 13:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                    nativeUnifiedADDataAdapter.c.onVideoError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
-                    return;
-                }
-                return;
-            case 14:
-                nativeUnifiedADDataAdapter.c.onVideoStop();
-                return;
-            case 15:
-                nativeUnifiedADDataAdapter.c.onVideoClicked();
-                return;
-            default:
-                return;
-        }
-    }
-
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list) {
+    public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, nativeAdContainer, layoutParams, list) == null) {
             this.a.bindAdToView(context, nativeAdContainer, layoutParams, list);
@@ -195,23 +109,23 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list, List<View> list2) {
+    public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List list, List list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, nativeAdContainer, layoutParams, list, list2) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, nativeAdContainer, layoutParams, list, list2) == null) {
             this.a.bindAdToView(context, nativeAdContainer, layoutParams, list, list2);
         }
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindCTAViews(List<View> list) {
+    public void bindCTAViews(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a.bindCTAViews(list);
         }
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindImageViews(List<ImageView> list, int i) {
+    public void bindImageViews(List list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, list, i) == null) {
             this.a.bindImageViews(list, i);
@@ -219,7 +133,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public void bindImageViews(List<ImageView> list, byte[] bArr) {
+    public void bindImageViews(List list, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, bArr) == null) {
             this.a.bindImageViews(list, bArr);
@@ -341,7 +255,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public Map<String, Object> getExtraInfo() {
+    public Map getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.a.getExtraInfo() : (Map) invokeV.objValue;
@@ -355,7 +269,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
-    public List<String> getImgList() {
+    public List getImgList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.getImgList() : (List) invokeV.objValue;
@@ -591,6 +505,97 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
             this.a.stopVideo();
+        }
+    }
+
+    public static void a(NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter, ADEvent aDEvent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, nativeUnifiedADDataAdapter, aDEvent) == null) && nativeUnifiedADDataAdapter.b != null) {
+            int type = aDEvent.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (type == 4) {
+                            nativeUnifiedADDataAdapter.b.onADStatusChanged();
+                            return;
+                        }
+                        return;
+                    } else if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
+                        nativeUnifiedADDataAdapter.b.onADError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                        return;
+                    } else {
+                        return;
+                    }
+                } else if (aDEvent.getParas().length >= 1 && (aDEvent.getParas()[0] instanceof String)) {
+                    try {
+                        NativeUnifiedADData.ext.put(Constants.KEYS.EXPOSED_CLICK_URL_KEY, (String) aDEvent.getParas()[0]);
+                    } catch (Exception unused) {
+                    }
+                    NativeADEventListener nativeADEventListener = nativeUnifiedADDataAdapter.b;
+                    if (nativeADEventListener instanceof NativeADEventListenerWithClickInfo) {
+                        View view2 = null;
+                        if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[1] instanceof View)) {
+                            view2 = (View) aDEvent.getParas()[1];
+                        }
+                        ((NativeADEventListenerWithClickInfo) nativeUnifiedADDataAdapter.b).onADClicked(view2);
+                        return;
+                    }
+                    nativeADEventListener.onADClicked();
+                    return;
+                } else {
+                    return;
+                }
+            }
+            nativeUnifiedADDataAdapter.b.onADExposed();
+        }
+    }
+
+    public static void b(NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter, ADEvent aDEvent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, nativeUnifiedADDataAdapter, aDEvent) == null) && nativeUnifiedADDataAdapter.c != null) {
+            switch (aDEvent.getType()) {
+                case 5:
+                    nativeUnifiedADDataAdapter.c.onVideoInit();
+                    return;
+                case 6:
+                    nativeUnifiedADDataAdapter.c.onVideoLoading();
+                    return;
+                case 7:
+                    nativeUnifiedADDataAdapter.c.onVideoReady();
+                    return;
+                case 8:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
+                        nativeUnifiedADDataAdapter.c.onVideoLoaded(((Integer) aDEvent.getParas()[0]).intValue());
+                        return;
+                    }
+                    return;
+                case 9:
+                    nativeUnifiedADDataAdapter.c.onVideoStart();
+                    return;
+                case 10:
+                    nativeUnifiedADDataAdapter.c.onVideoPause();
+                    return;
+                case 11:
+                    nativeUnifiedADDataAdapter.c.onVideoResume();
+                    return;
+                case 12:
+                    nativeUnifiedADDataAdapter.c.onVideoCompleted();
+                    return;
+                case 13:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
+                        nativeUnifiedADDataAdapter.c.onVideoError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                        return;
+                    }
+                    return;
+                case 14:
+                    nativeUnifiedADDataAdapter.c.onVideoStop();
+                    return;
+                case 15:
+                    nativeUnifiedADDataAdapter.c.onVideoClicked();
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     public Context mContext;
     public ARCaseBundleInfo xA;
     public a xB;
-    public ICallbackWith<IStepLoading> xC;
+    public ICallbackWith xC;
     public String xD;
     public boolean xE;
 
@@ -59,7 +59,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     public static void d(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, str, i) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str);
             hashMap.put(Constants.KEYS.RET, Integer.valueOf(i));
             ARPMessage.getInstance().sendMessage(5003, hashMap);
@@ -69,14 +69,14 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     public static void e(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str);
             hashMap.put("progress", Integer.valueOf(i));
             ARPMessage.getInstance().sendMessage(5002, hashMap);
         }
     }
 
-    private void r(HashMap<String, Object> hashMap) {
+    private void r(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, hashMap) == null) {
             String str = (String) hashMap.get("res_path");
@@ -191,7 +191,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     }
 
     @Override // com.baidu.ar.lua.c
-    public void a(int i, int i2, HashMap<String, Object> hashMap) {
+    public void a(int i, int i2, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, hashMap) == null) {
             if (i == 5001) {
@@ -201,7 +201,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
                 }
             } else if (i == 1901 && com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 3010) {
                 this.xE = true;
-                ICallbackWith<IStepLoading> iCallbackWith = this.xC;
+                ICallbackWith iCallbackWith = this.xC;
                 if (iCallbackWith != null) {
                     iCallbackWith.run(this);
                 } else {
@@ -223,7 +223,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) && this.xE && !TextUtils.isEmpty(this.xD)) {
             this.xE = false;
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_CLIENT_CONFIG_END_STAMP_KEY));
             hashMap.put("if_download", 0);
             hashMap.put("download_batchid", this.xD);
@@ -232,7 +232,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     }
 
     @Override // com.baidu.ar.lua.c
-    public List<Integer> n() {
+    public List n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -261,7 +261,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.xE && !TextUtils.isEmpty(this.xD)) {
             this.xE = false;
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_CLIENT_CONFIG_END_STAMP_KEY));
             hashMap.put("if_download", 1);
             hashMap.put("download_batchid", this.xD);
@@ -270,7 +270,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     }
 
     @Override // com.baidu.ar.steploading.IStepLoading
-    public void setLoadErrorListener(ICallbackWith<IStepLoading> iCallbackWith) {
+    public void setLoadErrorListener(ICallbackWith iCallbackWith) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, iCallbackWith) == null) {
             this.xC = iCallbackWith;

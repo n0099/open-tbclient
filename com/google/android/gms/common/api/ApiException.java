@@ -1,7 +1,5 @@
 package com.google.android.gms.common.api;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,16 +10,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ApiException extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     @Deprecated
     public final Status mStatus;
+
+    public Status getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStatus : (Status) invokeV.objValue;
+    }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ApiException(@NonNull Status status) {
+    public ApiException(Status status) {
         super(r3.toString());
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,32 +42,34 @@ public class ApiException extends Exception {
             }
         }
         int statusCode = status.getStatusCode();
-        String statusMessage = status.getStatusMessage() != null ? status.getStatusMessage() : "";
-        StringBuilder sb = new StringBuilder(String.valueOf(statusMessage).length() + 13);
+        if (status.getStatusMessage() != null) {
+            str = status.getStatusMessage();
+        } else {
+            str = "";
+        }
+        StringBuilder sb = new StringBuilder(String.valueOf(str).length() + 13);
         sb.append(statusCode);
         sb.append(": ");
-        sb.append(statusMessage);
+        sb.append(str);
         this.mStatus = status;
-    }
-
-    @NonNull
-    public Status getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStatus : (Status) invokeV.objValue;
     }
 
     public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mStatus.getStatusCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mStatus.getStatusCode();
+        }
+        return invokeV.intValue;
     }
 
-    @Nullable
     @Deprecated
     public String getStatusMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mStatus.getStatusMessage() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mStatus.getStatusMessage();
+        }
+        return (String) invokeV.objValue;
     }
 }

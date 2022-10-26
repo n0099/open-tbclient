@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface dn1 {
-    ef3 a(Context context, String str, String str2, String str3, String str4, String str5);
+    boolean a(JSONObject jSONObject);
 }

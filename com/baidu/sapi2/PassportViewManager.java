@@ -21,7 +21,7 @@ public class PassportViewManager implements NoProguard {
     public TitleViewModule b;
 
     /* loaded from: classes2.dex */
-    public static class TitleViewModule implements NoProguard {
+    public class TitleViewModule implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public static final int DEFAULT_TEXT_COLOR;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,29 +145,22 @@ public class PassportViewManager implements NoProguard {
         return (PassportViewManager) invokeV.objValue;
     }
 
-    public void configTitle(TitleViewModule titleViewModule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, titleViewModule) == null) {
-            this.b = titleViewModule;
-            if (titleViewModule.bgColor == Integer.MAX_VALUE) {
-                titleViewModule.bgColor = -1;
-            }
-            if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f08102f;
-            }
-        }
-    }
-
     public TitleBtnCallback getTitleBtnCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (TitleBtnCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (TitleBtnCallback) invokeV.objValue;
     }
 
     public TitleViewModule getTitleViewModule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TitleViewModule) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (TitleViewModule) invokeV.objValue;
     }
 
     public void release() {
@@ -176,6 +169,19 @@ public class PassportViewManager implements NoProguard {
             this.a = null;
             this.b = null;
             SapiWebView.statLoadLogin = null;
+        }
+    }
+
+    public void configTitle(TitleViewModule titleViewModule) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, titleViewModule) == null) {
+            this.b = titleViewModule;
+            if (titleViewModule.bgColor == Integer.MAX_VALUE) {
+                titleViewModule.bgColor = -1;
+            }
+            if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
+                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f081040;
+            }
         }
     }
 

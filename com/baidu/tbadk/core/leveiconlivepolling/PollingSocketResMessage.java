@@ -1,12 +1,11 @@
 package com.baidu.tbadk.core.leveiconlivepolling;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.IconPopData;
 import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tieba.ax4;
+import com.baidu.tieba.gx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.AlaLiveInfo;
 import tbclient.Error;
 import tbclient.Loop.DataRes;
 import tbclient.Loop.IconRes;
@@ -23,11 +21,11 @@ import tbclient.Loop.LevelRes;
 import tbclient.Loop.LiveRes;
 import tbclient.Loop.LoopResIdl;
 /* loaded from: classes3.dex */
-public class PollingSocketResMessage extends SocketResponsedMessage implements ax4 {
+public class PollingSocketResMessage extends SocketResponsedMessage implements gx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AlaLiveInfo> liveFollowSecondFloor;
-    public List<AlaLiveInfo> liveIndexSecondFloor;
+    public List liveFollowSecondFloor;
+    public List liveIndexSecondFloor;
     public IconPopData mIconPopData;
     public LevePopData mLevePopData;
     public LiveRemindData mLiveRemindData;
@@ -58,7 +56,6 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements a
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -102,38 +99,53 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements a
         return invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.ax4
+    @Override // com.baidu.tieba.gx4
     public IconPopData getIconPopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIconPopData : (IconPopData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mIconPopData;
+        }
+        return (IconPopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ax4
+    @Override // com.baidu.tieba.gx4
     public LevePopData getLevePopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLevePopData : (LevePopData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLevePopData;
+        }
+        return (LevePopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ax4
-    public List<AlaLiveInfo> getLiveFollowSecondFloor() {
+    @Override // com.baidu.tieba.gx4
+    public List getLiveFollowSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.liveFollowSecondFloor : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.liveFollowSecondFloor;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ax4
-    public List<AlaLiveInfo> getLiveIndexSecondFloor() {
+    @Override // com.baidu.tieba.gx4
+    public List getLiveIndexSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.liveIndexSecondFloor : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.liveIndexSecondFloor;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ax4
+    @Override // com.baidu.tieba.gx4
     public LiveRemindData getLiveRemindData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLiveRemindData : (LiveRemindData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mLiveRemindData;
+        }
+        return (LiveRemindData) invokeV.objValue;
     }
 }

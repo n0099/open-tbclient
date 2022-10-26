@@ -52,14 +52,15 @@ public class IPTools {
             if (7 <= str.length() && str.length() <= 15) {
                 int i = 0;
                 while (true) {
-                    if (i >= str.length()) {
+                    if (i < str.length()) {
+                        if (str.charAt(i) != '.' && !Character.isDigit(str.charAt(i))) {
+                            z = false;
+                            break;
+                        }
+                        i++;
+                    } else {
                         z = true;
                         break;
-                    } else if (str.charAt(i) != '.' && !Character.isDigit(str.charAt(i))) {
-                        z = false;
-                        break;
-                    } else {
-                        i++;
                     }
                 }
                 if (z) {
@@ -74,6 +75,9 @@ public class IPTools {
     public static boolean isValidIP(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.matches("((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return str.matches("((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)");
+        }
+        return invokeL.booleanValue;
     }
 }

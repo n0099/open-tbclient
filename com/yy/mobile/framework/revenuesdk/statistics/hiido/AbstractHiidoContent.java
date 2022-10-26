@@ -12,6 +12,12 @@ public abstract class AbstractHiidoContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getAct();
+
+    public abstract String getContent();
+
+    public abstract Map getMapContent();
+
     public AbstractHiidoContent() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,10 +31,4 @@ public abstract class AbstractHiidoContent {
             }
         }
     }
-
-    public abstract String getAct();
-
-    public abstract String getContent();
-
-    public abstract Map<String, String> getMapContent();
 }

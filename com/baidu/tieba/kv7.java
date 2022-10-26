@@ -1,127 +1,152 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.lv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.PbContent;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes4.dex */
 public class kv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HeadImageView a;
+    public TextView b;
+    public TbRichTextView c;
+    public ViewStub d;
+    public View e;
+    public ImageView f;
+    public View g;
+    public lv7.a h;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo F = tbRichTextData.F();
-            if (F != null) {
-                if (!StringUtils.isNull(F.z())) {
-                    return F.z();
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Post a;
+        public final /* synthetic */ kv7 b;
+
+        public a(kv7 kv7Var, Post post) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kv7Var, post};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (F.getHeight() * F.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                    double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (F.getHeight() * F.getWidth()));
-                    sb.append(BigImageLoaderProc.NCDN_PER);
-                    sb.append(String.valueOf((int) (F.getWidth() * sqrt)));
-                    sb.append("&height=");
-                    sb.append(String.valueOf((int) (F.getHeight() * sqrt)));
-                } else {
-                    double width = F.getWidth() / F.getHeight();
-                    double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                    sb.append(BigImageLoaderProc.NCDN_PER);
-                    sb.append(String.valueOf((int) (width * sqrt2)));
-                    sb.append("&height=");
-                    sb.append(String.valueOf((int) sqrt2));
-                }
-                sb.append("&src=");
-                sb.append(dj.getUrlEncode(F.F()));
-                return sb.toString();
             }
-            return null;
+            this.b = kv7Var;
+            this.a = post;
         }
-        return (String) invokeL.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Post post;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (post = this.a) != null && post.id != null && this.b.h != null) {
+                this.b.h.a(String.valueOf(this.a.id));
+            }
+        }
     }
 
-    public static void b(PostData postData, AbsPbActivity.e eVar) {
+    public kv7(ViewStub viewStub, lv7.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.W() == null || postData.W().B() == null || eVar == null || eVar.a == null || eVar.b == null || postData.W().B().size() == 0) {
-            return;
-        }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = postData.W().B().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, concurrentHashMap.get(a));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewStub, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
+        this.d = viewStub;
+        this.h = aVar;
     }
 
-    public static PostData c(jv7 jv7Var, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public void d(boolean z) {
+        View view2;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jv7Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (view2 = this.e) != null) {
             if (z) {
-                if (jv7Var == null || jv7Var.F() == null || jv7Var.F().size() <= 0) {
-                    return null;
-                }
-                PostData postData = jv7Var.F().get(0);
-                return postData.C() != 1 ? d(jv7Var) : postData;
+                i = 0;
+            } else {
+                i = 8;
             }
-            return d(jv7Var);
+            view2.setVisibility(i);
         }
-        return (PostData) invokeCommon.objValue;
     }
 
-    public static PostData d(jv7 jv7Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jv7Var)) == null) {
-            if (jv7Var == null || jv7Var.O() == null || jv7Var.O().getAuthor() == null) {
-                return null;
-            }
-            PostData postData = new PostData();
-            MetaData author = jv7Var.O().getAuthor();
-            String userId = author.getUserId();
-            HashMap<String, MetaData> userMap = jv7Var.O().getUserMap();
-            if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                author = metaData;
-            }
-            postData.D0(1);
-            postData.J0(jv7Var.O().getFirstPostId());
-            postData.a1(jv7Var.O().getTitle());
-            postData.Z0(jv7Var.O().getCreateTime());
-            postData.B0(author);
-            return postData;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
+            View inflate = this.d.inflate();
+            this.e = inflate;
+            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090631);
+            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090633);
+            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090630);
+            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090634);
+            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f090632);
+            this.c.setTextSize(TbConfig.getContentSize());
+            c();
         }
-        return (PostData) invokeL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 1);
+            SkinManager.setImageResource(this.f, R.drawable.btn_comment_list);
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            TbRichTextView tbRichTextView = this.c;
+            if (tbRichTextView != null) {
+                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            }
+        }
+    }
+
+    public boolean update(Post post, User user) {
+        InterceptResult invokeLL;
+        List<PbContent> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, post, user)) == null) {
+            if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
+                b();
+                d(true);
+                this.b.setText(user.name_show);
+                this.f.setOnClickListener(new a(this, post));
+                this.a.L(user.portrait, 12, false);
+                this.c.setVisibility(0);
+                this.c.setText(TbRichTextView.X(post.content, false));
+                return true;
+            }
+            d(false);
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

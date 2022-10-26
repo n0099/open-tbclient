@@ -2,10 +2,6 @@ package androidx.media2.common;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.CustomVersionedParcelable;
@@ -27,12 +23,15 @@ public class MediaItem extends CustomVersionedParcelable {
     public static final String TAG = "MediaItem";
     public transient /* synthetic */ FieldHolder $fh;
     public long mEndPositionMs;
-    @GuardedBy("mLock")
     public final List<Pair<OnMetadataChangedListener, Executor>> mListeners;
     public final Object mLock;
-    @GuardedBy("mLock")
     public MediaMetadata mMetadata;
     public long mStartPositionMs;
+
+    /* loaded from: classes.dex */
+    public interface OnMetadataChangedListener {
+        void onMetadataChanged(MediaItem mediaItem, MediaMetadata mediaMetadata);
+    }
 
     /* loaded from: classes.dex */
     public static class Builder {
@@ -59,14 +58,15 @@ public class MediaItem extends CustomVersionedParcelable {
             this.mEndPositionMs = 576460752303423487L;
         }
 
-        @NonNull
         public MediaItem build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MediaItem(this) : (MediaItem) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new MediaItem(this);
+            }
+            return (MediaItem) invokeV.objValue;
         }
 
-        @NonNull
         public Builder setEndPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -80,8 +80,7 @@ public class MediaItem extends CustomVersionedParcelable {
             return (Builder) invokeJ.objValue;
         }
 
-        @NonNull
-        public Builder setMetadata(@Nullable MediaMetadata mediaMetadata) {
+        public Builder setMetadata(MediaMetadata mediaMetadata) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaMetadata)) == null) {
@@ -91,7 +90,6 @@ public class MediaItem extends CustomVersionedParcelable {
             return (Builder) invokeL.objValue;
         }
 
-        @NonNull
         public Builder setStartPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -104,12 +102,6 @@ public class MediaItem extends CustomVersionedParcelable {
             }
             return (Builder) invokeJ.objValue;
         }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes.dex */
-    public interface OnMetadataChangedListener {
-        void onMetadataChanged(@NonNull MediaItem mediaItem, @Nullable MediaMetadata mediaMetadata);
     }
 
     public MediaItem() {
@@ -131,7 +123,82 @@ public class MediaItem extends CustomVersionedParcelable {
         this.mListeners = new ArrayList();
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public MediaItem(Builder builder) {
+        this(builder.mMetadata, builder.mStartPositionMs, builder.mEndPositionMs);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((MediaMetadata) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public MediaItem(MediaItem mediaItem) {
+        this(mediaItem.mMetadata, mediaItem.mStartPositionMs, mediaItem.mEndPositionMs);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {mediaItem};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((MediaMetadata) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public MediaItem(MediaMetadata mediaMetadata, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mediaMetadata, Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mLock = new Object();
+        this.mStartPositionMs = 0L;
+        this.mEndPositionMs = 576460752303423487L;
+        this.mListeners = new ArrayList();
+        if (j <= j2) {
+            if (mediaMetadata != null && mediaMetadata.containsKey("android.media.metadata.DURATION")) {
+                long j3 = mediaMetadata.getLong("android.media.metadata.DURATION");
+                if (j3 != Long.MIN_VALUE && j2 != 576460752303423487L && j2 > j3) {
+                    throw new IllegalStateException("endPositionMs shouldn't be greater than duration in the metdata, endPositionMs=" + j2 + ", durationMs=" + j3);
+                }
+            }
+            this.mMetadata = mediaMetadata;
+            this.mStartPositionMs = j;
+            this.mEndPositionMs = j2;
+            return;
+        }
+        throw new IllegalStateException("Illegal start/end position: " + j + ZeusCrashHandler.NAME_SEPERATOR + j2);
+    }
+
     public void addOnMetadataChangedListener(Executor executor, OnMetadataChangedListener onMetadataChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, executor, onMetadataChangedListener) == null) {
@@ -149,25 +216,29 @@ public class MediaItem extends CustomVersionedParcelable {
     public long getEndPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEndPositionMs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mEndPositionMs;
+        }
+        return invokeV.longValue;
     }
 
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public String getMediaId() {
         InterceptResult invokeV;
-        String string;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this.mLock) {
-                string = this.mMetadata != null ? this.mMetadata.getString("android.media.metadata.MEDIA_ID") : null;
+                if (this.mMetadata != null) {
+                    str = this.mMetadata.getString("android.media.metadata.MEDIA_ID");
+                } else {
+                    str = null;
+                }
             }
-            return string;
+            return str;
         }
         return (String) invokeV.objValue;
     }
 
-    @Nullable
     public MediaMetadata getMetadata() {
         InterceptResult invokeV;
         MediaMetadata mediaMetadata;
@@ -184,11 +255,13 @@ public class MediaItem extends CustomVersionedParcelable {
     public long getStartPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStartPositionMs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mStartPositionMs;
+        }
+        return invokeV.longValue;
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onPreParceling(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -200,7 +273,6 @@ public class MediaItem extends CustomVersionedParcelable {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void removeOnMetadataChangedListener(OnMetadataChangedListener onMetadataChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onMetadataChangedListener) == null) {
@@ -215,7 +287,7 @@ public class MediaItem extends CustomVersionedParcelable {
         }
     }
 
-    public void setMetadata(@Nullable MediaMetadata mediaMetadata) {
+    public void setMetadata(MediaMetadata mediaMetadata) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, mediaMetadata) == null) {
             ArrayList<Pair> arrayList = new ArrayList();
@@ -289,81 +361,5 @@ public class MediaItem extends CustomVersionedParcelable {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaItem(Builder builder) {
-        this(builder.mMetadata, builder.mStartPositionMs, builder.mEndPositionMs);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r8;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((MediaMetadata) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaItem(MediaItem mediaItem) {
-        this(mediaItem.mMetadata, mediaItem.mStartPositionMs, mediaItem.mEndPositionMs);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r8;
-            Object[] objArr = {mediaItem};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((MediaMetadata) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public MediaItem(@Nullable MediaMetadata mediaMetadata, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mediaMetadata, Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mLock = new Object();
-        this.mStartPositionMs = 0L;
-        this.mEndPositionMs = 576460752303423487L;
-        this.mListeners = new ArrayList();
-        if (j <= j2) {
-            if (mediaMetadata != null && mediaMetadata.containsKey("android.media.metadata.DURATION")) {
-                long j3 = mediaMetadata.getLong("android.media.metadata.DURATION");
-                if (j3 != Long.MIN_VALUE && j2 != 576460752303423487L && j2 > j3) {
-                    throw new IllegalStateException("endPositionMs shouldn't be greater than duration in the metdata, endPositionMs=" + j2 + ", durationMs=" + j3);
-                }
-            }
-            this.mMetadata = mediaMetadata;
-            this.mStartPositionMs = j;
-            this.mEndPositionMs = j2;
-            return;
-        }
-        throw new IllegalStateException("Illegal start/end position: " + j + ZeusCrashHandler.NAME_SEPERATOR + j2);
     }
 }

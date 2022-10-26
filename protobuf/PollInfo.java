@@ -57,14 +57,20 @@ public final class PollInfo extends Message {
     public final Integer type;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<PollInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer endTime;
         public Integer isMulti;
         public Integer isPolled;
         public Integer lastTime;
-        public List<PollOption> options;
+        public List options;
         public Integer optionsCount;
         public String polledValue;
         public Integer status;
@@ -129,14 +135,11 @@ public final class PollInfo extends Message {
         public PollInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new PollInfo(this, z, null) : (PollInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new PollInfo(this, z, null);
+            }
+            return (PollInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -162,10 +165,6 @@ public final class PollInfo extends Message {
         DEFAULT_STATUS = 0;
         DEFAULT_TOTALPOLL = 0L;
         DEFAULT_LASTTIME = 0;
-    }
-
-    public /* synthetic */ PollInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -235,7 +234,7 @@ public final class PollInfo extends Message {
             } else {
                 this.endTime = num5;
             }
-            List<PollOption> list = builder.options;
+            List list = builder.options;
             if (list == null) {
                 this.options = DEFAULT_OPTIONS;
             } else {
@@ -281,5 +280,9 @@ public final class PollInfo extends Message {
         this.totalPoll = builder.totalPoll;
         this.title = builder.title;
         this.lastTime = builder.lastTime;
+    }
+
+    public /* synthetic */ PollInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

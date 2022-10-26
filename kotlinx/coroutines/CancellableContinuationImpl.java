@@ -1,37 +1,45 @@
 package kotlinx.coroutines;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import kotlin.Metadata;
-import kotlin.PublishedApi;
-import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.CoroutineStackFrame;
-import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlinx.coroutines.Job;
 import kotlinx.coroutines.internal.StackTraceRecoveryKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000¬\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u000f\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\t\b\u0011\u0018\u0000*\u0006\b\u0000\u0010\u0001 \u00002\u00020\u00022\u00020\u00032\u00020\u0004B\u001d\u0012\f\u0010k\u001a\b\u0012\u0004\u0012\u00028\u00000j\u0012\u0006\u0010J\u001a\u00020\u001c¢\u0006\u0004\by\u0010zJ\u0019\u0010\b\u001a\u00020\u00072\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0002¢\u0006\u0004\b\b\u0010\tJ\u0019\u0010\r\u001a\u00020\f2\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u0017\u0010\u000f\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u000f\u0010\u000eJ!\u0010\u0013\u001a\u00020\u00072\b\u0010\u0010\u001a\u0004\u0018\u00010\u00052\u0006\u0010\u000b\u001a\u00020\nH\u0010¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0014\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0017\u001a\u00020\u00072\u0006\u0010\u0016\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0017\u0010\tJ\u000f\u0010\u001a\u001a\u00020\u0007H\u0000¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001b\u0010\u0019J\u0017\u0010\u001e\u001a\u00020\u00072\u0006\u0010\u001d\u001a\u00020\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010\"\u001a\u00020\n2\u0006\u0010!\u001a\u00020 H\u0016¢\u0006\u0004\b\"\u0010#J\u0011\u0010$\u001a\u0004\u0018\u00010\u0005H\u0001¢\u0006\u0004\b$\u0010%J\u0017\u0010(\u001a\n\u0018\u00010&j\u0004\u0018\u0001`'H\u0016¢\u0006\u0004\b(\u0010)J\u001f\u0010,\u001a\u00028\u0001\"\u0004\b\u0001\u0010\u00012\b\u0010\u0010\u001a\u0004\u0018\u00010\u0005H\u0010¢\u0006\u0004\b*\u0010+J\u000f\u0010-\u001a\u00020\u0007H\u0016¢\u0006\u0004\b-\u0010\u0019J\u001e\u00100\u001a\u00020\u00072\f\u0010/\u001a\b\u0012\u0004\u0012\u00020\u00070.H\u0082\b¢\u0006\u0004\b0\u00101J8\u00107\u001a\u00020\u00072'\u00106\u001a#\u0012\u0015\u0012\u0013\u0018\u00010\n¢\u0006\f\b3\u0012\b\b4\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u000702j\u0002`5H\u0016¢\u0006\u0004\b7\u00108J\u000f\u00109\u001a\u00020\fH\u0002¢\u0006\u0004\b9\u0010\u0015J8\u0010;\u001a\u00020:2'\u00106\u001a#\u0012\u0015\u0012\u0013\u0018\u00010\n¢\u0006\f\b3\u0012\b\b4\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u000702j\u0002`5H\u0002¢\u0006\u0004\b;\u0010<JB\u0010=\u001a\u00020\u00072'\u00106\u001a#\u0012\u0015\u0012\u0013\u0018\u00010\n¢\u0006\f\b3\u0012\b\b4\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u000702j\u0002`52\b\u0010\u0010\u001a\u0004\u0018\u00010\u0005H\u0002¢\u0006\u0004\b=\u0010>J\u000f\u0010@\u001a\u00020?H\u0014¢\u0006\u0004\b@\u0010AJ\u0017\u0010D\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\nH\u0000¢\u0006\u0004\bB\u0010CJ\u000f\u0010E\u001a\u00020\fH\u0001¢\u0006\u0004\bE\u0010\u0015J:\u0010H\u001a\u00020\u00072\u0006\u0010F\u001a\u00028\u00002!\u0010G\u001a\u001d\u0012\u0013\u0012\u00110\n¢\u0006\f\b3\u0012\b\b4\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u000702H\u0016¢\u0006\u0004\bH\u0010IJ#\u0010L\u001a\u0004\u0018\u00010K2\b\u0010\u0006\u001a\u0004\u0018\u00010\u00052\u0006\u0010J\u001a\u00020\u001cH\u0002¢\u0006\u0004\bL\u0010MJ \u0010P\u001a\u00020\u00072\f\u0010O\u001a\b\u0012\u0004\u0012\u00028\u00000NH\u0016ø\u0001\u0000¢\u0006\u0004\bP\u0010\tJ\u000f\u0010Q\u001a\u00020\u0007H\u0002¢\u0006\u0004\bQ\u0010\u0019J\u0011\u0010S\u001a\u0004\u0018\u00010\u0005H\u0010¢\u0006\u0004\bR\u0010%J\u000f\u0010T\u001a\u00020?H\u0016¢\u0006\u0004\bT\u0010AJ\u000f\u0010U\u001a\u00020\fH\u0002¢\u0006\u0004\bU\u0010\u0015J#\u0010U\u001a\u0004\u0018\u00010\u00052\u0006\u0010F\u001a\u00028\u00002\b\u0010V\u001a\u0004\u0018\u00010\u0005H\u0016¢\u0006\u0004\bU\u0010WJ\u0019\u0010Y\u001a\u0004\u0018\u00010\u00052\u0006\u0010X\u001a\u00020\nH\u0016¢\u0006\u0004\bY\u0010ZJ\u000f\u0010[\u001a\u00020\fH\u0002¢\u0006\u0004\b[\u0010\u0015J\u001b\u0010]\u001a\u00020\u0007*\u00020\\2\u0006\u0010F\u001a\u00028\u0000H\u0016¢\u0006\u0004\b]\u0010^J\u001b\u0010_\u001a\u00020\u0007*\u00020\\2\u0006\u0010X\u001a\u00020\nH\u0016¢\u0006\u0004\b_\u0010`R\u001e\u0010d\u001a\n\u0018\u00010\u0003j\u0004\u0018\u0001`a8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bb\u0010cR\u001c\u0010f\u001a\u00020e8\u0016@\u0016X\u0096\u0004¢\u0006\f\n\u0004\bf\u0010g\u001a\u0004\bh\u0010iR\"\u0010k\u001a\b\u0012\u0004\u0012\u00028\u00000j8\u0000@\u0000X\u0080\u0004¢\u0006\f\n\u0004\bk\u0010l\u001a\u0004\bm\u0010nR\u0016\u0010o\u001a\u00020\f8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bo\u0010\u0015R\u0016\u0010p\u001a\u00020\f8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bp\u0010\u0015R\u0016\u0010q\u001a\u00020\f8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bq\u0010\u0015R(\u0010w\u001a\u0004\u0018\u00010r2\b\u0010F\u001a\u0004\u0018\u00010r8B@BX\u0082\u000e¢\u0006\f\u001a\u0004\bs\u0010t\"\u0004\bu\u0010vR\u0018\u0010\u0010\u001a\u0004\u0018\u00010\u00058@@\u0000X\u0080\u0004¢\u0006\u0006\u001a\u0004\bx\u0010%\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006{"}, d2 = {"Lkotlinx/coroutines/CancellableContinuationImpl;", "T", "Lkotlinx/coroutines/CancellableContinuation;", "Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;", "Lkotlinx/coroutines/DispatchedTask;", "", "proposedUpdate", "", "alreadyResumedError", "(Ljava/lang/Object;)V", "", "cause", "", "cancel", "(Ljava/lang/Throwable;)Z", "cancelLater", "state", "cancelResult$kotlinx_coroutines_core", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", "cancelResult", "checkCompleted", "()Z", "token", "completeResume", "detachChild$kotlinx_coroutines_core", "()V", "detachChild", "detachChildIfNonResuable", "", "mode", "dispatchResume", "(I)V", "Lkotlinx/coroutines/Job;", "parent", "getContinuationCancellationCause", "(Lkotlinx/coroutines/Job;)Ljava/lang/Throwable;", "getResult", "()Ljava/lang/Object;", "Ljava/lang/StackTraceElement;", "Lkotlinx/coroutines/internal/StackTraceElement;", "getStackTraceElement", "()Ljava/lang/StackTraceElement;", "getSuccessfulResult$kotlinx_coroutines_core", "(Ljava/lang/Object;)Ljava/lang/Object;", "getSuccessfulResult", "initCancellability", "Lkotlin/Function0;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "invokeHandlerSafely", "(Lkotlin/jvm/functions/Function0;)V", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "Lkotlinx/coroutines/CompletionHandler;", "handler", "invokeOnCancellation", "(Lkotlin/jvm/functions/Function1;)V", "isReusable", "Lkotlinx/coroutines/CancelHandler;", "makeHandler", "(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/CancelHandler;", "multipleHandlersError", "(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V", "", "nameString", "()Ljava/lang/String;", "parentCancelled$kotlinx_coroutines_core", "(Ljava/lang/Throwable;)V", "parentCancelled", "resetState", "value", "onCancellation", "resume", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V", "resumeMode", "Lkotlinx/coroutines/CancelledContinuation;", "resumeImpl", "(Ljava/lang/Object;I)Lkotlinx/coroutines/CancelledContinuation;", "Lkotlin/Result;", TiebaStatic.LogFields.RESULT, "resumeWith", "setupCancellation", "takeState$kotlinx_coroutines_core", "takeState", "toString", "tryResume", "idempotent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "exception", "tryResumeWithException", "(Ljava/lang/Throwable;)Ljava/lang/Object;", "trySuspend", "Lkotlinx/coroutines/CoroutineDispatcher;", "resumeUndispatched", "(Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/Object;)V", "resumeUndispatchedWithException", "(Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/Throwable;)V", "Lkotlinx/coroutines/internal/CoroutineStackFrame;", "getCallerFrame", "()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;", "callerFrame", "Lkotlin/coroutines/CoroutineContext;", "context", "Lkotlin/coroutines/CoroutineContext;", "getContext", "()Lkotlin/coroutines/CoroutineContext;", "Lkotlin/coroutines/Continuation;", "delegate", "Lkotlin/coroutines/Continuation;", "getDelegate$kotlinx_coroutines_core", "()Lkotlin/coroutines/Continuation;", "isActive", "isCancelled", "isCompleted", "Lkotlinx/coroutines/DisposableHandle;", "getParentHandle", "()Lkotlinx/coroutines/DisposableHandle;", "setParentHandle", "(Lkotlinx/coroutines/DisposableHandle;)V", "parentHandle", "getState$kotlinx_coroutines_core", "<init>", "(Lkotlin/coroutines/Continuation;I)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-@PublishedApi
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000¬\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u000f\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\t\b\u0011\u0018\u0000*\u0006\b\u0000\u0010\u0001 \u00002\u00020\u00022\u00020\u00032\u00020\u0004B\u001d\u0012\f\u0010k\u001a\b\u0012\u0004\u0012\u00028\u00000j\u0012\u0006\u0010J\u001a\u00020\u001c¢\u0006\u0004\by\u0010zJ\u0019\u0010\b\u001a\u00020\u00072\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0002¢\u0006\u0004\b\b\u0010\tJ\u0019\u0010\r\u001a\u00020\f2\b\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u0017\u0010\u000f\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u000f\u0010\u000eJ!\u0010\u0013\u001a\u00020\u00072\b\u0010\u0010\u001a\u0004\u0018\u00010\u00052\u0006\u0010\u000b\u001a\u00020\nH\u0010¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0014\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0017\u001a\u00020\u00072\u0006\u0010\u0016\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0017\u0010\tJ\u000f\u0010\u001a\u001a\u00020\u0007H\u0000¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u001b\u0010\u0019J\u0017\u0010\u001e\u001a\u00020\u00072\u0006\u0010\u001d\u001a\u00020\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010\"\u001a\u00020\n2\u0006\u0010!\u001a\u00020 H\u0016¢\u0006\u0004\b\"\u0010#J\u0011\u0010$\u001a\u0004\u0018\u00010\u0005H\u0001¢\u0006\u0004\b$\u0010%J\u0017\u0010(\u001a\n\u0018\u00010&j\u0004\u0018\u0001`'H\u0016¢\u0006\u0004\b(\u0010)J\u001f\u0010,\u001a\u00028\u0001\"\u0004\b\u0001\u0010\u00012\b\u0010\u0010\u001a\u0004\u0018\u00010\u0005H\u0010¢\u0006\u0004\b*\u0010+J\u000f\u0010-\u001a\u00020\u0007H\u0016¢\u0006\u0004\b-\u0010\u0019J\u001e\u00100\u001a\u00020\u00072\f\u0010/\u001a\b\u0012\u0004\u0012\u00020\u00070.H\u0082\b¢\u0006\u0004\b0\u00101J8\u00107\u001a\u00020\u00072'\u00106\u001a#\u0012\u0015\u0012\u0013\u0018\u00010\n¢\u0006\f\b3\u0012\b\b4\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u000702j\u0002`5H\u0016¢\u0006\u0004\b7\u00108J\u000f\u00109\u001a\u00020\fH\u0002¢\u0006\u0004\b9\u0010\u0015J8\u0010;\u001a\u00020:2'\u00106\u001a#\u0012\u0015\u0012\u0013\u0018\u00010\n¢\u0006\f\b3\u0012\b\b4\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u000702j\u0002`5H\u0002¢\u0006\u0004\b;\u0010<JB\u0010=\u001a\u00020\u00072'\u00106\u001a#\u0012\u0015\u0012\u0013\u0018\u00010\n¢\u0006\f\b3\u0012\b\b4\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u000702j\u0002`52\b\u0010\u0010\u001a\u0004\u0018\u00010\u0005H\u0002¢\u0006\u0004\b=\u0010>J\u000f\u0010@\u001a\u00020?H\u0014¢\u0006\u0004\b@\u0010AJ\u0017\u0010D\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\nH\u0000¢\u0006\u0004\bB\u0010CJ\u000f\u0010E\u001a\u00020\fH\u0001¢\u0006\u0004\bE\u0010\u0015J:\u0010H\u001a\u00020\u00072\u0006\u0010F\u001a\u00028\u00002!\u0010G\u001a\u001d\u0012\u0013\u0012\u00110\n¢\u0006\f\b3\u0012\b\b4\u0012\u0004\b\b(\u000b\u0012\u0004\u0012\u00020\u000702H\u0016¢\u0006\u0004\bH\u0010IJ#\u0010L\u001a\u0004\u0018\u00010K2\b\u0010\u0006\u001a\u0004\u0018\u00010\u00052\u0006\u0010J\u001a\u00020\u001cH\u0002¢\u0006\u0004\bL\u0010MJ \u0010P\u001a\u00020\u00072\f\u0010O\u001a\b\u0012\u0004\u0012\u00028\u00000NH\u0016ø\u0001\u0000¢\u0006\u0004\bP\u0010\tJ\u000f\u0010Q\u001a\u00020\u0007H\u0002¢\u0006\u0004\bQ\u0010\u0019J\u0011\u0010S\u001a\u0004\u0018\u00010\u0005H\u0010¢\u0006\u0004\bR\u0010%J\u000f\u0010T\u001a\u00020?H\u0016¢\u0006\u0004\bT\u0010AJ\u000f\u0010U\u001a\u00020\fH\u0002¢\u0006\u0004\bU\u0010\u0015J#\u0010U\u001a\u0004\u0018\u00010\u00052\u0006\u0010F\u001a\u00028\u00002\b\u0010V\u001a\u0004\u0018\u00010\u0005H\u0016¢\u0006\u0004\bU\u0010WJ\u0019\u0010Y\u001a\u0004\u0018\u00010\u00052\u0006\u0010X\u001a\u00020\nH\u0016¢\u0006\u0004\bY\u0010ZJ\u000f\u0010[\u001a\u00020\fH\u0002¢\u0006\u0004\b[\u0010\u0015J\u001b\u0010]\u001a\u00020\u0007*\u00020\\2\u0006\u0010F\u001a\u00028\u0000H\u0016¢\u0006\u0004\b]\u0010^J\u001b\u0010_\u001a\u00020\u0007*\u00020\\2\u0006\u0010X\u001a\u00020\nH\u0016¢\u0006\u0004\b_\u0010`R\u001e\u0010d\u001a\n\u0018\u00010\u0003j\u0004\u0018\u0001`a8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bb\u0010cR\u001c\u0010f\u001a\u00020e8\u0016@\u0016X\u0096\u0004¢\u0006\f\n\u0004\bf\u0010g\u001a\u0004\bh\u0010iR\"\u0010k\u001a\b\u0012\u0004\u0012\u00028\u00000j8\u0000@\u0000X\u0080\u0004¢\u0006\f\n\u0004\bk\u0010l\u001a\u0004\bm\u0010nR\u0016\u0010o\u001a\u00020\f8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bo\u0010\u0015R\u0016\u0010p\u001a\u00020\f8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bp\u0010\u0015R\u0016\u0010q\u001a\u00020\f8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\bq\u0010\u0015R(\u0010w\u001a\u0004\u0018\u00010r2\b\u0010F\u001a\u0004\u0018\u00010r8B@BX\u0082\u000e¢\u0006\f\u001a\u0004\bs\u0010t\"\u0004\bu\u0010vR\u0018\u0010\u0010\u001a\u0004\u0018\u00010\u00058@@\u0000X\u0080\u0004¢\u0006\u0006\u001a\u0004\bx\u0010%\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006{"}, d2 = {"Lkotlinx/coroutines/CancellableContinuationImpl;", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CancellableContinuation;", "Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;", "Lkotlinx/coroutines/DispatchedTask;", "", "proposedUpdate", "", "alreadyResumedError", "(Ljava/lang/Object;)V", "", "cause", "", "cancel", "(Ljava/lang/Throwable;)Z", "cancelLater", "state", "cancelResult$kotlinx_coroutines_core", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", "cancelResult", "checkCompleted", "()Z", "token", "completeResume", "detachChild$kotlinx_coroutines_core", "()V", "detachChild", "detachChildIfNonResuable", "", "mode", "dispatchResume", "(I)V", "Lkotlinx/coroutines/Job;", "parent", "getContinuationCancellationCause", "(Lkotlinx/coroutines/Job;)Ljava/lang/Throwable;", "getResult", "()Ljava/lang/Object;", "Ljava/lang/StackTraceElement;", "Lkotlinx/coroutines/internal/StackTraceElement;", "getStackTraceElement", "()Ljava/lang/StackTraceElement;", "getSuccessfulResult$kotlinx_coroutines_core", "(Ljava/lang/Object;)Ljava/lang/Object;", "getSuccessfulResult", "initCancellability", "Lkotlin/Function0;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "invokeHandlerSafely", "(Lkotlin/jvm/functions/Function0;)V", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "Lkotlinx/coroutines/CompletionHandler;", "handler", "invokeOnCancellation", "(Lkotlin/jvm/functions/Function1;)V", "isReusable", "Lkotlinx/coroutines/CancelHandler;", "makeHandler", "(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/CancelHandler;", "multipleHandlersError", "(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)V", "", "nameString", "()Ljava/lang/String;", "parentCancelled$kotlinx_coroutines_core", "(Ljava/lang/Throwable;)V", "parentCancelled", "resetState", "value", "onCancellation", "resume", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V", "resumeMode", "Lkotlinx/coroutines/CancelledContinuation;", "resumeImpl", "(Ljava/lang/Object;I)Lkotlinx/coroutines/CancelledContinuation;", "Lkotlin/Result;", TiebaStatic.LogFields.RESULT, "resumeWith", "setupCancellation", "takeState$kotlinx_coroutines_core", "takeState", "toString", "tryResume", "idempotent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "exception", "tryResumeWithException", "(Ljava/lang/Throwable;)Ljava/lang/Object;", "trySuspend", "Lkotlinx/coroutines/CoroutineDispatcher;", "resumeUndispatched", "(Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/Object;)V", "resumeUndispatchedWithException", "(Lkotlinx/coroutines/CoroutineDispatcher;Ljava/lang/Throwable;)V", "Lkotlinx/coroutines/internal/CoroutineStackFrame;", "getCallerFrame", "()Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;", "callerFrame", "Lkotlin/coroutines/CoroutineContext;", "context", "Lkotlin/coroutines/CoroutineContext;", "getContext", "()Lkotlin/coroutines/CoroutineContext;", "Lkotlin/coroutines/Continuation;", "delegate", "Lkotlin/coroutines/Continuation;", "getDelegate$kotlinx_coroutines_core", "()Lkotlin/coroutines/Continuation;", "isActive", "isCancelled", "isCompleted", "Lkotlinx/coroutines/DisposableHandle;", "getParentHandle", "()Lkotlinx/coroutines/DisposableHandle;", "setParentHandle", "(Lkotlinx/coroutines/DisposableHandle;)V", "parentHandle", "getState$kotlinx_coroutines_core", "<init>", "(Lkotlin/coroutines/Continuation;I)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements CancellableContinuation<T>, CoroutineStackFrame {
+public class CancellableContinuationImpl extends DispatchedTask implements CancellableContinuation, CoroutineStackFrame {
     public static final AtomicIntegerFieldUpdater _decision$FU = AtomicIntegerFieldUpdater.newUpdater(CancellableContinuationImpl.class, "_decision");
     public static final AtomicReferenceFieldUpdater _state$FU = AtomicReferenceFieldUpdater.newUpdater(CancellableContinuationImpl.class, Object.class, "_state");
     public volatile int _decision;
     public volatile Object _parentHandle;
     public volatile Object _state;
     public final CoroutineContext context;
-    public final Continuation<T> delegate;
+    public final Continuation delegate;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlin.coroutines.Continuation<? super T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public CancellableContinuationImpl(Continuation<? super T> continuation, int i) {
+    @Override // kotlin.coroutines.jvm.internal.CoroutineStackFrame
+    public StackTraceElement getStackTraceElement() {
+        return null;
+    }
+
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public /* synthetic */ void initCancellability() {
+    }
+
+    public String nameString() {
+        return "CancellableContinuation";
+    }
+
+    public CancellableContinuationImpl(Continuation continuation, int i) {
         super(i);
         this.delegate = continuation;
         this.context = continuation.getContext();
@@ -40,82 +48,7 @@ public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements
         this._parentHandle = null;
     }
 
-    private final void alreadyResumedError(Object obj) {
-        throw new IllegalStateException(("Already resumed, but proposed with update " + obj).toString());
-    }
-
-    private final boolean cancelLater(Throwable th) {
-        if (this.resumeMode != 0) {
-            return false;
-        }
-        Continuation<T> continuation = this.delegate;
-        if (!(continuation instanceof DispatchedContinuation)) {
-            continuation = null;
-        }
-        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
-        if (dispatchedContinuation != null) {
-            return dispatchedContinuation.postponeCancellation(th);
-        }
-        return false;
-    }
-
-    private final boolean checkCompleted() {
-        Throwable checkPostponedCancellation;
-        boolean isCompleted = isCompleted();
-        if (this.resumeMode != 0) {
-            return isCompleted;
-        }
-        Continuation<T> continuation = this.delegate;
-        if (!(continuation instanceof DispatchedContinuation)) {
-            continuation = null;
-        }
-        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
-        if (dispatchedContinuation == null || (checkPostponedCancellation = dispatchedContinuation.checkPostponedCancellation(this)) == null) {
-            return isCompleted;
-        }
-        if (!isCompleted) {
-            cancel(checkPostponedCancellation);
-        }
-        return true;
-    }
-
-    private final void detachChildIfNonResuable() {
-        if (isReusable()) {
-            return;
-        }
-        detachChild$kotlinx_coroutines_core();
-    }
-
-    private final void dispatchResume(int i) {
-        if (tryResume()) {
-            return;
-        }
-        DispatchedTaskKt.dispatch(this, i);
-    }
-
-    private final DisposableHandle getParentHandle() {
-        return (DisposableHandle) this._parentHandle;
-    }
-
-    private final void invokeHandlerSafely(Function0<Unit> function0) {
-        try {
-            function0.invoke();
-        } catch (Throwable th) {
-            CoroutineContext context = getContext();
-            CoroutineExceptionHandlerKt.handleCoroutineException(context, new CompletionHandlerException("Exception in cancellation handler for " + this, th));
-        }
-    }
-
-    private final boolean isReusable() {
-        Continuation<T> continuation = this.delegate;
-        return (continuation instanceof DispatchedContinuation) && ((DispatchedContinuation) continuation).isReusable(this);
-    }
-
-    private final CancelHandler makeHandler(Function1<? super Throwable, Unit> function1) {
-        return function1 instanceof CancelHandler ? (CancelHandler) function1 : new InvokeOnCancel(function1);
-    }
-
-    private final void multipleHandlersError(Function1<? super Throwable, Unit> function1, Object obj) {
+    private final void multipleHandlersError(Function1 function1, Object obj) {
         throw new IllegalStateException(("It's prohibited to register multiple handlers, tried to register " + function1 + ", already has " + obj).toString());
     }
 
@@ -140,23 +73,209 @@ public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements
         }
     }
 
+    @Override // kotlinx.coroutines.DispatchedTask
+    public void cancelResult$kotlinx_coroutines_core(Object obj, Throwable th) {
+        if (obj instanceof CompletedWithCancellation) {
+            try {
+                ((CompletedWithCancellation) obj).onCancellation.invoke(th);
+            } catch (Throwable th2) {
+                CoroutineContext context = getContext();
+                CoroutineExceptionHandlerKt.handleCoroutineException(context, new CompletionHandlerException("Exception in cancellation handler for " + this, th2));
+            }
+        }
+    }
+
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public void resume(Object obj, Function1 function1) {
+        CancelledContinuation resumeImpl = resumeImpl(new CompletedWithCancellation(obj, function1), this.resumeMode);
+        if (resumeImpl != null) {
+            try {
+                function1.invoke(resumeImpl.cause);
+            } catch (Throwable th) {
+                CoroutineContext context = getContext();
+                CoroutineExceptionHandlerKt.handleCoroutineException(context, new CompletionHandlerException("Exception in cancellation handler for " + this, th));
+            }
+        }
+    }
+
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public void resumeUndispatched(CoroutineDispatcher coroutineDispatcher, Object obj) {
+        int i;
+        Continuation continuation = this.delegate;
+        CoroutineDispatcher coroutineDispatcher2 = null;
+        if (!(continuation instanceof DispatchedContinuation)) {
+            continuation = null;
+        }
+        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
+        if (dispatchedContinuation != null) {
+            coroutineDispatcher2 = dispatchedContinuation.dispatcher;
+        }
+        if (coroutineDispatcher2 == coroutineDispatcher) {
+            i = 2;
+        } else {
+            i = this.resumeMode;
+        }
+        resumeImpl(obj, i);
+    }
+
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public void resumeUndispatchedWithException(CoroutineDispatcher coroutineDispatcher, Throwable th) {
+        Continuation continuation = this.delegate;
+        CoroutineDispatcher coroutineDispatcher2 = null;
+        if (!(continuation instanceof DispatchedContinuation)) {
+            continuation = null;
+        }
+        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
+        int i = 2;
+        CompletedExceptionally completedExceptionally = new CompletedExceptionally(th, false, 2, null);
+        if (dispatchedContinuation != null) {
+            coroutineDispatcher2 = dispatchedContinuation.dispatcher;
+        }
+        if (coroutineDispatcher2 != coroutineDispatcher) {
+            i = this.resumeMode;
+        }
+        resumeImpl(completedExceptionally, i);
+    }
+
+    private final void alreadyResumedError(Object obj) {
+        throw new IllegalStateException(("Already resumed, but proposed with update " + obj).toString());
+    }
+
+    private final boolean cancelLater(Throwable th) {
+        if (this.resumeMode != 0) {
+            return false;
+        }
+        Continuation continuation = this.delegate;
+        if (!(continuation instanceof DispatchedContinuation)) {
+            continuation = null;
+        }
+        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
+        if (dispatchedContinuation == null) {
+            return false;
+        }
+        return dispatchedContinuation.postponeCancellation(th);
+    }
+
+    private final void dispatchResume(int i) {
+        if (tryResume()) {
+            return;
+        }
+        DispatchedTaskKt.dispatch(this, i);
+    }
+
+    private final void invokeHandlerSafely(Function0 function0) {
+        try {
+            function0.invoke();
+        } catch (Throwable th) {
+            CoroutineContext context = getContext();
+            CoroutineExceptionHandlerKt.handleCoroutineException(context, new CompletionHandlerException("Exception in cancellation handler for " + this, th));
+        }
+    }
+
+    private final CancelHandler makeHandler(Function1 function1) {
+        if (function1 instanceof CancelHandler) {
+            return (CancelHandler) function1;
+        }
+        return new InvokeOnCancel(function1);
+    }
+
     private final void setParentHandle(DisposableHandle disposableHandle) {
         this._parentHandle = disposableHandle;
     }
 
-    private final void setupCancellation() {
-        Job job;
-        if (checkCompleted() || getParentHandle() != null || (job = (Job) this.delegate.getContext().get(Job.Key)) == null) {
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public void completeResume(Object obj) {
+        boolean z;
+        if (DebugKt.getASSERTIONS_ENABLED()) {
+            if (obj == CancellableContinuationImplKt.RESUME_TOKEN) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                throw new AssertionError();
+            }
+        }
+        dispatchResume(this.resumeMode);
+    }
+
+    public Throwable getContinuationCancellationCause(Job job) {
+        return job.getCancellationException();
+    }
+
+    @Override // kotlinx.coroutines.DispatchedTask
+    public Object getSuccessfulResult$kotlinx_coroutines_core(Object obj) {
+        if (obj instanceof CompletedIdempotentResult) {
+            return ((CompletedIdempotentResult) obj).result;
+        }
+        if (obj instanceof CompletedWithCancellation) {
+            return ((CompletedWithCancellation) obj).result;
+        }
+        return obj;
+    }
+
+    public final void parentCancelled$kotlinx_coroutines_core(Throwable th) {
+        if (cancelLater(th)) {
             return;
         }
-        job.start();
-        DisposableHandle invokeOnCompletion$default = Job.DefaultImpls.invokeOnCompletion$default(job, true, false, new ChildContinuation(job, this), 2, null);
-        setParentHandle(invokeOnCompletion$default);
-        if (!isCompleted() || isReusable()) {
-            return;
+        cancel(th);
+        detachChildIfNonResuable();
+    }
+
+    @Override // kotlin.coroutines.Continuation
+    public void resumeWith(Object obj) {
+        resumeImpl(CompletedExceptionallyKt.toState(obj, this), this.resumeMode);
+    }
+
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public Object tryResumeWithException(Throwable th) {
+        Object obj;
+        do {
+            obj = this._state;
+            if (!(obj instanceof NotCompleted)) {
+                return null;
+            }
+        } while (!_state$FU.compareAndSet(this, obj, new CompletedExceptionally(th, false, 2, null)));
+        detachChildIfNonResuable();
+        return CancellableContinuationImplKt.RESUME_TOKEN;
+    }
+
+    private final boolean checkCompleted() {
+        Throwable checkPostponedCancellation;
+        boolean isCompleted = isCompleted();
+        if (this.resumeMode != 0) {
+            return isCompleted;
         }
-        invokeOnCompletion$default.dispose();
-        setParentHandle(NonDisposableHandle.INSTANCE);
+        Continuation continuation = this.delegate;
+        if (!(continuation instanceof DispatchedContinuation)) {
+            continuation = null;
+        }
+        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
+        if (dispatchedContinuation != null && (checkPostponedCancellation = dispatchedContinuation.checkPostponedCancellation(this)) != null) {
+            if (!isCompleted) {
+                cancel(checkPostponedCancellation);
+            }
+            return true;
+        }
+        return isCompleted;
+    }
+
+    private final void detachChildIfNonResuable() {
+        if (!isReusable()) {
+            detachChild$kotlinx_coroutines_core();
+        }
+    }
+
+    private final DisposableHandle getParentHandle() {
+        return (DisposableHandle) this._parentHandle;
+    }
+
+    private final boolean isReusable() {
+        Continuation continuation = this.delegate;
+        if ((continuation instanceof DispatchedContinuation) && ((DispatchedContinuation) continuation).isReusable(this)) {
+            return true;
+        }
+        return false;
     }
 
     private final boolean tryResume() {
@@ -185,52 +304,6 @@ public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements
         return true;
     }
 
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public boolean cancel(Throwable th) {
-        Object obj;
-        boolean z;
-        do {
-            obj = this._state;
-            if (!(obj instanceof NotCompleted)) {
-                return false;
-            }
-            z = obj instanceof CancelHandler;
-        } while (!_state$FU.compareAndSet(this, obj, new CancelledContinuation(this, th, z)));
-        if (z) {
-            try {
-                ((CancelHandler) obj).invoke(th);
-            } catch (Throwable th2) {
-                CoroutineContext context = getContext();
-                CoroutineExceptionHandlerKt.handleCoroutineException(context, new CompletionHandlerException("Exception in cancellation handler for " + this, th2));
-            }
-        }
-        detachChildIfNonResuable();
-        dispatchResume(0);
-        return true;
-    }
-
-    @Override // kotlinx.coroutines.DispatchedTask
-    public void cancelResult$kotlinx_coroutines_core(Object obj, Throwable th) {
-        if (obj instanceof CompletedWithCancellation) {
-            try {
-                ((CompletedWithCancellation) obj).onCancellation.invoke(th);
-            } catch (Throwable th2) {
-                CoroutineContext context = getContext();
-                CoroutineExceptionHandlerKt.handleCoroutineException(context, new CompletionHandlerException("Exception in cancellation handler for " + this, th2));
-            }
-        }
-    }
-
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public void completeResume(Object obj) {
-        if (DebugKt.getASSERTIONS_ENABLED()) {
-            if (!(obj == CancellableContinuationImplKt.RESUME_TOKEN)) {
-                throw new AssertionError();
-            }
-        }
-        dispatchResume(this.resumeMode);
-    }
-
     public final void detachChild$kotlinx_coroutines_core() {
         DisposableHandle parentHandle = getParentHandle();
         if (parentHandle != null) {
@@ -241,7 +314,7 @@ public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements
 
     @Override // kotlin.coroutines.jvm.internal.CoroutineStackFrame
     public CoroutineStackFrame getCallerFrame() {
-        Continuation<T> continuation = this.delegate;
+        Continuation continuation = this.delegate;
         if (!(continuation instanceof CoroutineStackFrame)) {
             continuation = null;
         }
@@ -253,16 +326,48 @@ public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements
         return this.context;
     }
 
-    public Throwable getContinuationCancellationCause(Job job) {
-        return job.getCancellationException();
-    }
-
     @Override // kotlinx.coroutines.DispatchedTask
-    public final Continuation<T> getDelegate$kotlinx_coroutines_core() {
+    public final Continuation getDelegate$kotlinx_coroutines_core() {
         return this.delegate;
     }
 
-    @PublishedApi
+    public final Object getState$kotlinx_coroutines_core() {
+        return this._state;
+    }
+
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public boolean isActive() {
+        return getState$kotlinx_coroutines_core() instanceof NotCompleted;
+    }
+
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public boolean isCancelled() {
+        return getState$kotlinx_coroutines_core() instanceof CancelledContinuation;
+    }
+
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public boolean isCompleted() {
+        return !(getState$kotlinx_coroutines_core() instanceof NotCompleted);
+    }
+
+    @Override // kotlinx.coroutines.DispatchedTask
+    public Object takeState$kotlinx_coroutines_core() {
+        return getState$kotlinx_coroutines_core();
+    }
+
+    private final void setupCancellation() {
+        Job job;
+        if (!checkCompleted() && getParentHandle() == null && (job = (Job) this.delegate.getContext().get(Job.Key)) != null) {
+            job.start();
+            DisposableHandle invokeOnCompletion$default = Job.DefaultImpls.invokeOnCompletion$default(job, true, false, new ChildContinuation(job, this), 2, null);
+            setParentHandle(invokeOnCompletion$default);
+            if (isCompleted() && !isReusable()) {
+                invokeOnCompletion$default.dispose();
+                setParentHandle(NonDisposableHandle.INSTANCE);
+            }
+        }
+    }
+
     public final Object getResult() {
         Job job;
         setupCancellation();
@@ -288,28 +393,33 @@ public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements
         }
     }
 
-    @Override // kotlin.coroutines.jvm.internal.CoroutineStackFrame
-    public StackTraceElement getStackTraceElement() {
-        return null;
-    }
-
-    public final Object getState$kotlinx_coroutines_core() {
-        return this._state;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // kotlinx.coroutines.DispatchedTask
-    public <T> T getSuccessfulResult$kotlinx_coroutines_core(Object obj) {
-        return obj instanceof CompletedIdempotentResult ? (T) ((CompletedIdempotentResult) obj).result : obj instanceof CompletedWithCancellation ? (T) ((CompletedWithCancellation) obj).result : obj;
+    @Override // kotlinx.coroutines.CancellableContinuation
+    public boolean cancel(Throwable th) {
+        Object obj;
+        boolean z;
+        do {
+            obj = this._state;
+            if (!(obj instanceof NotCompleted)) {
+                return false;
+            }
+            z = obj instanceof CancelHandler;
+        } while (!_state$FU.compareAndSet(this, obj, new CancelledContinuation(this, th, z)));
+        if (z) {
+            try {
+                ((CancelHandler) obj).invoke(th);
+            } catch (Throwable th2) {
+                CoroutineContext context = getContext();
+                CoroutineExceptionHandlerKt.handleCoroutineException(context, new CompletionHandlerException("Exception in cancellation handler for " + this, th2));
+            }
+        }
+        detachChildIfNonResuable();
+        dispatchResume(0);
+        return true;
     }
 
     @Override // kotlinx.coroutines.CancellableContinuation
-    public /* synthetic */ void initCancellability() {
-    }
-
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public void invokeOnCancellation(Function1<? super Throwable, Unit> function1) {
+    public void invokeOnCancellation(Function1 function1) {
+        Throwable th = null;
         CancelHandler cancelHandler = null;
         while (true) {
             Object obj = this._state;
@@ -320,118 +430,55 @@ public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements
                 if (_state$FU.compareAndSet(this, obj, cancelHandler)) {
                     return;
                 }
-            } else if (!(obj instanceof CancelHandler)) {
-                if (obj instanceof CancelledContinuation) {
-                    if (!((CancelledContinuation) obj).makeHandled()) {
-                        multipleHandlersError(function1, obj);
-                    }
-                    try {
-                        if (!(obj instanceof CompletedExceptionally)) {
-                            obj = null;
-                        }
-                        CompletedExceptionally completedExceptionally = (CompletedExceptionally) obj;
-                        function1.invoke(completedExceptionally != null ? completedExceptionally.cause : null);
-                        return;
-                    } catch (Throwable th) {
-                        CoroutineExceptionHandlerKt.handleCoroutineException(getContext(), new CompletionHandlerException("Exception in cancellation handler for " + this, th));
-                        return;
-                    }
-                }
-                return;
-            } else {
+            } else if (obj instanceof CancelHandler) {
                 multipleHandlersError(function1, obj);
+            } else if (obj instanceof CancelledContinuation) {
+                if (!((CancelledContinuation) obj).makeHandled()) {
+                    multipleHandlersError(function1, obj);
+                }
+                try {
+                    if (!(obj instanceof CompletedExceptionally)) {
+                        obj = null;
+                    }
+                    CompletedExceptionally completedExceptionally = (CompletedExceptionally) obj;
+                    if (completedExceptionally != null) {
+                        th = completedExceptionally.cause;
+                    }
+                    function1.invoke(th);
+                    return;
+                } catch (Throwable th2) {
+                    CoroutineExceptionHandlerKt.handleCoroutineException(getContext(), new CompletionHandlerException("Exception in cancellation handler for " + this, th2));
+                    return;
+                }
+            } else {
+                return;
             }
         }
     }
 
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public boolean isActive() {
-        return getState$kotlinx_coroutines_core() instanceof NotCompleted;
-    }
-
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public boolean isCancelled() {
-        return getState$kotlinx_coroutines_core() instanceof CancelledContinuation;
-    }
-
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public boolean isCompleted() {
-        return !(getState$kotlinx_coroutines_core() instanceof NotCompleted);
-    }
-
-    public String nameString() {
-        return "CancellableContinuation";
-    }
-
-    public final void parentCancelled$kotlinx_coroutines_core(Throwable th) {
-        if (cancelLater(th)) {
-            return;
-        }
-        cancel(th);
-        detachChildIfNonResuable();
-    }
-
-    @JvmName(name = "resetState")
     public final boolean resetState() {
+        boolean z;
         if (DebugKt.getASSERTIONS_ENABLED()) {
-            if (!(getParentHandle() != NonDisposableHandle.INSTANCE)) {
+            if (getParentHandle() != NonDisposableHandle.INSTANCE) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
                 throw new AssertionError();
             }
         }
         Object obj = this._state;
-        if (!DebugKt.getASSERTIONS_ENABLED() || (!(obj instanceof NotCompleted))) {
-            if (obj instanceof CompletedIdempotentResult) {
-                detachChild$kotlinx_coroutines_core();
-                return false;
-            }
-            this._decision = 0;
-            this._state = Active.INSTANCE;
-            return true;
+        if (DebugKt.getASSERTIONS_ENABLED() && !(!(obj instanceof NotCompleted))) {
+            throw new AssertionError();
         }
-        throw new AssertionError();
-    }
-
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public void resume(T t, Function1<? super Throwable, Unit> function1) {
-        CancelledContinuation resumeImpl = resumeImpl(new CompletedWithCancellation(t, function1), this.resumeMode);
-        if (resumeImpl != null) {
-            try {
-                function1.invoke(resumeImpl.cause);
-            } catch (Throwable th) {
-                CoroutineContext context = getContext();
-                CoroutineExceptionHandlerKt.handleCoroutineException(context, new CompletionHandlerException("Exception in cancellation handler for " + this, th));
-            }
+        if (obj instanceof CompletedIdempotentResult) {
+            detachChild$kotlinx_coroutines_core();
+            return false;
         }
-    }
-
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public void resumeUndispatched(CoroutineDispatcher coroutineDispatcher, T t) {
-        Continuation<T> continuation = this.delegate;
-        if (!(continuation instanceof DispatchedContinuation)) {
-            continuation = null;
-        }
-        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
-        resumeImpl(t, (dispatchedContinuation != null ? dispatchedContinuation.dispatcher : null) == coroutineDispatcher ? 2 : this.resumeMode);
-    }
-
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public void resumeUndispatchedWithException(CoroutineDispatcher coroutineDispatcher, Throwable th) {
-        Continuation<T> continuation = this.delegate;
-        if (!(continuation instanceof DispatchedContinuation)) {
-            continuation = null;
-        }
-        DispatchedContinuation dispatchedContinuation = (DispatchedContinuation) continuation;
-        resumeImpl(new CompletedExceptionally(th, false, 2, null), (dispatchedContinuation != null ? dispatchedContinuation.dispatcher : null) != coroutineDispatcher ? this.resumeMode : 2);
-    }
-
-    @Override // kotlin.coroutines.Continuation
-    public void resumeWith(Object obj) {
-        resumeImpl(CompletedExceptionallyKt.toState(obj, this), this.resumeMode);
-    }
-
-    @Override // kotlinx.coroutines.DispatchedTask
-    public Object takeState$kotlinx_coroutines_core() {
-        return getState$kotlinx_coroutines_core();
+        this._decision = 0;
+        this._state = Active.INSTANCE;
+        return true;
     }
 
     public String toString() {
@@ -439,39 +486,38 @@ public class CancellableContinuationImpl<T> extends DispatchedTask<T> implements
     }
 
     @Override // kotlinx.coroutines.CancellableContinuation
-    public Object tryResumeWithException(Throwable th) {
-        Object obj;
+    public Object tryResume(Object obj, Object obj2) {
+        Object obj3;
+        boolean z;
+        Object completedIdempotentResult;
         do {
-            obj = this._state;
-            if (!(obj instanceof NotCompleted)) {
+            obj3 = this._state;
+            if (obj3 instanceof NotCompleted) {
+                if (obj2 == null) {
+                    completedIdempotentResult = obj;
+                } else {
+                    completedIdempotentResult = new CompletedIdempotentResult(obj2, obj);
+                }
+            } else if (!(obj3 instanceof CompletedIdempotentResult)) {
                 return null;
-            }
-        } while (!_state$FU.compareAndSet(this, obj, new CompletedExceptionally(th, false, 2, null)));
-        detachChildIfNonResuable();
-        return CancellableContinuationImplKt.RESUME_TOKEN;
-    }
-
-    @Override // kotlinx.coroutines.CancellableContinuation
-    public Object tryResume(T t, Object obj) {
-        Object obj2;
-        do {
-            obj2 = this._state;
-            if (!(obj2 instanceof NotCompleted)) {
-                if (obj2 instanceof CompletedIdempotentResult) {
-                    CompletedIdempotentResult completedIdempotentResult = (CompletedIdempotentResult) obj2;
-                    if (completedIdempotentResult.idempotentResume == obj) {
-                        if (DebugKt.getASSERTIONS_ENABLED()) {
-                            if (!(completedIdempotentResult.result == t)) {
-                                throw new AssertionError();
-                            }
-                        }
-                        return CancellableContinuationImplKt.RESUME_TOKEN;
-                    }
+            } else {
+                CompletedIdempotentResult completedIdempotentResult2 = (CompletedIdempotentResult) obj3;
+                if (completedIdempotentResult2.idempotentResume != obj2) {
                     return null;
                 }
-                return null;
+                if (DebugKt.getASSERTIONS_ENABLED()) {
+                    if (completedIdempotentResult2.result == obj) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!z) {
+                        throw new AssertionError();
+                    }
+                }
+                return CancellableContinuationImplKt.RESUME_TOKEN;
             }
-        } while (!_state$FU.compareAndSet(this, obj2, obj == null ? t : new CompletedIdempotentResult(obj, t)));
+        } while (!_state$FU.compareAndSet(this, obj3, completedIdempotentResult));
         detachChildIfNonResuable();
         return CancellableContinuationImplKt.RESUME_TOKEN;
     }

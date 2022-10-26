@@ -29,8 +29,8 @@ public class WriteThread implements Runnable {
     public static final int MAX_DOWNLOAD_WRITE_PROGRESS = 1500;
     public static final String TAG = "WriteThread";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, RandomAccessFile> mHashMap;
-    public BlockingQueue<ByteArrayInfo> mQueue;
+    public HashMap mHashMap;
+    public BlockingQueue mQueue;
     public TaskMsg mTaskmsg;
 
     public WriteThread() {
@@ -47,7 +47,7 @@ public class WriteThread implements Runnable {
             }
         }
         this.mQueue = new ArrayBlockingQueue(1000);
-        this.mHashMap = new HashMap<>();
+        this.mHashMap = new HashMap();
         this.mTaskmsg = null;
     }
 
@@ -81,10 +81,11 @@ public class WriteThread implements Runnable {
 
     private void tryToCreateDownloadFile(AbstractTask abstractTask) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, this, abstractTask) == null) && this.mHashMap.get(abstractTask.getTaskKey()) == null) {
-            abstractTask.mTaskSpeedStat.startWriteTimeMillis = SystemClock.elapsedRealtime();
-            this.mHashMap.put(abstractTask.getTaskKey(), getRandomAccessFile(abstractTask));
+        if ((interceptable != null && interceptable.invokeL(65538, this, abstractTask) != null) || ((RandomAccessFile) this.mHashMap.get(abstractTask.getTaskKey())) != null) {
+            return;
         }
+        abstractTask.mTaskSpeedStat.startWriteTimeMillis = SystemClock.elapsedRealtime();
+        this.mHashMap.put(abstractTask.getTaskKey(), getRandomAccessFile(abstractTask));
     }
 
     private boolean wrirteToFile(ByteArrayInfo byteArrayInfo, AbstractTask abstractTask) throws IOException {
@@ -92,7 +93,7 @@ public class WriteThread implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, byteArrayInfo, abstractTask)) == null) {
             if (byteArrayInfo.mByteArrayLength > 0) {
-                RandomAccessFile randomAccessFile = this.mHashMap.get(byteArrayInfo.mkey);
+                RandomAccessFile randomAccessFile = (RandomAccessFile) this.mHashMap.get(byteArrayInfo.mkey);
                 if (randomAccessFile == null) {
                     return false;
                 }
@@ -105,31 +106,30 @@ public class WriteThread implements Runnable {
                     TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(abstractTask.mDownloadId)});
                     abstractTask.mWriteFileLastTime = System.currentTimeMillis();
                 }
-                return abstractTask.mTaskHandler.mSupportRange && abstractTask.mProgressInfo.getCurrentLength() >= abstractTask.mTotalLength;
+                if (abstractTask.mTaskHandler.mSupportRange && abstractTask.mProgressInfo.getCurrentLength() >= abstractTask.mTotalLength) {
+                    return true;
+                }
+                return false;
             } else if (abstractTask.mTotalLength == Long.MAX_VALUE) {
                 abstractTask.mTotalLength = byteArrayInfo.mFilePos;
                 return true;
             } else {
                 abstractTask.mProgressInfo.checkSegEnd(byteArrayInfo.mFilePos);
-                return !abstractTask.mTaskHandler.mSupportRange;
+                if (!abstractTask.mTaskHandler.mSupportRange) {
+                    return true;
+                }
+                return false;
             }
         }
         return invokeLL.booleanValue;
     }
 
     public void closeOutputFile(String str) throws Exception {
-        RandomAccessFile remove;
+        RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (remove = this.mHashMap.remove(str)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (randomAccessFile = (RandomAccessFile) this.mHashMap.remove(str)) != null) {
+            randomAccessFile.close();
         }
-        remove.close();
-    }
-
-    public int getQueueSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mQueue.size() : invokeV.intValue;
     }
 
     public void put(ByteArrayInfo byteArrayInfo) {
@@ -140,6 +140,15 @@ public class WriteThread implements Runnable {
             } catch (InterruptedException unused) {
             }
         }
+    }
+
+    public int getQueueSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mQueue.size();
+        }
+        return invokeV.intValue;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(6:(11:41|42|43|(1:45)|94|52|53|54|55|57|58)(1:100)|(9:48|(1:50)|51|52|53|54|55|57|58)|54|55|57|58) */
@@ -175,7 +184,7 @@ public class WriteThread implements Runnable {
             this.mTaskmsg = new TaskMsg();
             while (TaskFacade.getInstance(null) != null && (binaryTaskMng = TaskFacade.getInstance(null).getBinaryTaskMng()) != null) {
                 try {
-                    byteArrayInfo = this.mQueue.take();
+                    byteArrayInfo = (ByteArrayInfo) this.mQueue.take();
                     try {
                         AbstractTask taskByKey = binaryTaskMng.getTaskByKey(byteArrayInfo.mkey);
                         if (taskByKey != null && taskByKey.mStatus != 1006 && taskByKey.mStatus != 1004 && taskByKey.mStatus != 1008 && taskByKey.mStatus != 1005) {

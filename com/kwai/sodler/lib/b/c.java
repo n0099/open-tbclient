@@ -5,9 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 /* loaded from: classes8.dex */
-public final class c extends b<h> {
+public final class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,9 +43,8 @@ public final class c extends b<h> {
         return ff(str);
     }
 
-    /* JADX DEBUG: Return type fixed from 'com.kwai.sodler.lib.g' to match base method */
     @Override // com.kwai.sodler.lib.b.b
-    public final /* synthetic */ h fe(String str) {
+    public final /* synthetic */ g fe(String str) {
         return ff(str);
     }
 }

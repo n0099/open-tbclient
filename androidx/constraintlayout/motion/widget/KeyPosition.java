@@ -45,6 +45,13 @@ public class KeyPosition extends KeyPositionBase {
     public int mPositionType;
     public String mTransitionEasing;
 
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void addValues(HashMap<String, SplineSet> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+        }
+    }
+
     /* loaded from: classes.dex */
     public static class Loader {
         public static /* synthetic */ Interceptable $ic = null;
@@ -211,15 +218,34 @@ public class KeyPosition extends KeyPositionBase {
     }
 
     private void calcCartesianPosition(float f, float f2, float f3, float f4) {
+        float f5;
+        float f6;
+        float f7;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            float f5 = f3 - f;
-            float f6 = f4 - f2;
-            float f7 = Float.isNaN(this.mPercentX) ? 0.0f : this.mPercentX;
-            float f8 = Float.isNaN(this.mAltPercentY) ? 0.0f : this.mAltPercentY;
-            float f9 = Float.isNaN(this.mPercentY) ? 0.0f : this.mPercentY;
-            this.mCalculatedPositionX = (int) (f + (f7 * f5) + ((Float.isNaN(this.mAltPercentX) ? 0.0f : this.mAltPercentX) * f6));
-            this.mCalculatedPositionY = (int) (f2 + (f5 * f8) + (f6 * f9));
+            float f8 = f3 - f;
+            float f9 = f4 - f2;
+            float f10 = 0.0f;
+            if (Float.isNaN(this.mPercentX)) {
+                f5 = 0.0f;
+            } else {
+                f5 = this.mPercentX;
+            }
+            if (Float.isNaN(this.mAltPercentY)) {
+                f6 = 0.0f;
+            } else {
+                f6 = this.mAltPercentY;
+            }
+            if (Float.isNaN(this.mPercentY)) {
+                f7 = 0.0f;
+            } else {
+                f7 = this.mPercentY;
+            }
+            if (!Float.isNaN(this.mAltPercentX)) {
+                f10 = this.mAltPercentX;
+            }
+            this.mCalculatedPositionX = (int) (f + (f5 * f8) + (f10 * f9));
+            this.mCalculatedPositionY = (int) (f2 + (f8 * f6) + (f9 * f7));
         }
     }
 
@@ -246,53 +272,6 @@ public class KeyPosition extends KeyPositionBase {
     }
 
     @Override // androidx.constraintlayout.motion.widget.Key
-    public void addValues(HashMap<String, SplineSet> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-        }
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
-    public void calcPosition(int i, int i2, float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            int i3 = this.mPositionType;
-            if (i3 == 1) {
-                calcPathPosition(f, f2, f3, f4);
-            } else if (i3 != 2) {
-                calcCartesianPosition(f, f2, f3, f4);
-            } else {
-                calcScreenPosition(i, i2);
-            }
-        }
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
-    public float getPositionX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCalculatedPositionX : invokeV.floatValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
-    public float getPositionY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCalculatedPositionY : invokeV.floatValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
-    public boolean intersects(int i, int i2, RectF rectF, RectF rectF2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rectF, rectF2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            calcPosition(i, i2, rectF.centerX(), rectF.centerY(), rectF2.centerX(), rectF2.centerY());
-            return Math.abs(f - this.mCalculatedPositionX) < 20.0f && Math.abs(f2 - this.mCalculatedPositionY) < 20.0f;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
     public void load(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, attributeSet) == null) {
@@ -301,18 +280,55 @@ public class KeyPosition extends KeyPositionBase {
     }
 
     @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
-    public void positionAttributes(View view2, RectF rectF, RectF rectF2, float f, float f2, String[] strArr, float[] fArr) {
+    public void calcPosition(int i, int i2, float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, rectF, rectF2, Float.valueOf(f), Float.valueOf(f2), strArr, fArr}) == null) {
-            int i = this.mPositionType;
-            if (i == 1) {
-                positionPathAttributes(rectF, rectF2, f, f2, strArr, fArr);
-            } else if (i != 2) {
-                positionCartAttributes(rectF, rectF2, f, f2, strArr, fArr);
-            } else {
-                positionScreenAttributes(view2, rectF, rectF2, f, f2, strArr, fArr);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            int i3 = this.mPositionType;
+            if (i3 != 1) {
+                if (i3 != 2) {
+                    calcCartesianPosition(f, f2, f3, f4);
+                    return;
+                } else {
+                    calcScreenPosition(i, i2);
+                    return;
+                }
             }
+            calcPathPosition(f, f2, f3, f4);
         }
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
+    public float getPositionX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCalculatedPositionX;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
+    public float getPositionY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCalculatedPositionY;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
+    public boolean intersects(int i, int i2, RectF rectF, RectF rectF2, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rectF, rectF2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            calcPosition(i, i2, rectF.centerX(), rectF.centerY(), rectF2.centerX(), rectF2.centerY());
+            if (Math.abs(f - this.mCalculatedPositionX) < 20.0f && Math.abs(f2 - this.mCalculatedPositionY) < 20.0f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 
     public void positionCartAttributes(RectF rectF, RectF rectF2, float f, float f2, String[] strArr, float[] fArr) {
@@ -371,6 +387,24 @@ public class KeyPosition extends KeyPositionBase {
             strArr[1] = PERCENT_Y;
             fArr[0] = f8;
             fArr[1] = f7;
+        }
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.KeyPositionBase
+    public void positionAttributes(View view2, RectF rectF, RectF rectF2, float f, float f2, String[] strArr, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, rectF, rectF2, Float.valueOf(f), Float.valueOf(f2), strArr, fArr}) == null) {
+            int i = this.mPositionType;
+            if (i != 1) {
+                if (i != 2) {
+                    positionCartAttributes(rectF, rectF2, f, f2, strArr, fArr);
+                    return;
+                } else {
+                    positionScreenAttributes(view2, rectF, rectF2, f, f2, strArr, fArr);
+                    return;
+                }
+            }
+            positionPathAttributes(rectF, rectF2, f, f2, strArr, fArr);
         }
     }
 

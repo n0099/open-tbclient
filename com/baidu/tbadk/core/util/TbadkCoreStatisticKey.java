@@ -33,6 +33,8 @@ public class TbadkCoreStatisticKey {
     public static final String FLOATING_VIEW_CLICK_KEY = "C12265";
     public static final String FLOATING_VIEW_SHOW_KEY = "C12266";
     public static final String FLOOR_VOICE_PLAY = "floor_voice_play";
+    public static final String FRS_BOTTOM_BAR_TAB_CLICK = "c14023";
+    public static final String FRS_BOTTOM_BAR_TAB_SHOW = "c14022";
     public static final String FRS_EXPERIENCE_SPEED = "c10752";
     public static final String FRS_EXPERIENCE_SPEED_BUY_MEMBER = "c10764";
     public static final String FRS_HOT_TOPIC_CARD_SHOW = "c10835";
@@ -278,7 +280,7 @@ public class TbadkCoreStatisticKey {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class AntiLocateValue {
+    public class AntiLocateValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static int LOCATE_CHAT = 6;
         public static int LOCATE_COLD_BOOT = 8;

@@ -22,14 +22,15 @@ import com.baidu.live.business.model.data.ThirdLabelInfo;
 import com.baidu.live.business.util.LiveBaseLottieView;
 import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.qc0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.rc0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class Live16Ratio9ItemView extends LiveBaseItemView {
@@ -78,6 +79,30 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
         d(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Live16Ratio9ItemView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.q = false;
+        this.z = false;
+        d(context);
+    }
+
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void a() {
         LiveBaseLottieView liveBaseLottieView;
@@ -88,10 +113,9 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 this.i.c();
             }
             View view2 = this.v;
-            if (view2 == null || view2.getVisibility() != 0 || (liveBaseLottieView = this.w) == null) {
-                return;
+            if (view2 != null && view2.getVisibility() == 0 && (liveBaseLottieView = this.w) != null) {
+                liveBaseLottieView.playAnimation();
             }
-            liveBaseLottieView.playAnimation();
         }
     }
 
@@ -132,27 +156,27 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.y = context;
             setNeedRatio(false);
-            int e = (int) (((da0.e(context) - (da0.b(context, 12.0f) * 2)) - da0.b(context, 7.0f)) / 2.0d);
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d052f, this);
-            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091357);
-            this.u = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091374);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091359);
+            int e = (int) (((ea0.e(context) - (ea0.b(context, 12.0f) * 2)) - ea0.b(context, 7.0f)) / 2.0d);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d052e, this);
+            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091348);
+            this.u = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091365);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09134a);
             this.p = frameLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.width = e;
             layoutParams.height = (int) ((e * 9) / 16.0d);
             this.p.setLayoutParams(layoutParams);
-            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09135a);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091360);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09135c);
-            this.l = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091354);
-            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091356);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f09135d);
-            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09135f);
-            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f0913ce);
-            this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913cf);
-            this.t = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0913d6);
-            float b = da0.b(getContext(), 10.0f);
+            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09134b);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091351);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09134d);
+            this.l = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091345);
+            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091347);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f09134e);
+            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091350);
+            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f0913bf);
+            this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913c0);
+            this.t = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0913c7);
+            float b = ea0.b(getContext(), 10.0f);
             this.x = new float[]{b, b, b, b, b, b, b, b};
         }
     }
@@ -161,38 +185,38 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(uc0.f().a(getContext(), this.c, "color_white2"));
+            gradientDrawable.setColor(vc0.f().a(getContext(), this.c, "color_white2"));
             gradientDrawable.setCornerRadii(this.x);
             setBackgroundDrawable(gradientDrawable);
             SimpleDraweeView simpleDraweeView = this.h;
             if (simpleDraweeView != null) {
-                simpleDraweeView.getHierarchy().setPlaceholderImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-                this.h.getHierarchy().setFailureImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+                ((GenericDraweeHierarchy) simpleDraweeView.getHierarchy()).setPlaceholderImage(vc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+                ((GenericDraweeHierarchy) this.h.getHierarchy()).setFailureImage(vc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
             }
             SimpleDraweeView simpleDraweeView2 = this.l;
             if (simpleDraweeView2 != null) {
-                simpleDraweeView2.getHierarchy().setPlaceholderImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-                this.l.getHierarchy().setFailureImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+                ((GenericDraweeHierarchy) simpleDraweeView2.getHierarchy()).setPlaceholderImage(vc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+                ((GenericDraweeHierarchy) this.l.getHierarchy()).setFailureImage(vc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
             }
             TextView textView = this.k;
             if (textView != null) {
-                textView.setTextColor(uc0.f().a(getContext(), this.c, "color_white4"));
+                textView.setTextColor(vc0.f().a(getContext(), this.c, "color_white4"));
             }
             TextView textView2 = this.j;
             if (textView2 != null) {
-                textView2.setTextColor(uc0.f().a(getContext(), this.c, "color_858585"));
+                textView2.setTextColor(vc0.f().a(getContext(), this.c, "color_858585"));
             }
             TextView textView3 = this.m;
             if (textView3 != null) {
-                textView3.setTextColor(uc0.f().a(getContext(), this.c, "color_858585"));
+                textView3.setTextColor(vc0.f().a(getContext(), this.c, "color_858585"));
             }
             TextView textView4 = this.n;
             if (textView4 != null) {
-                textView4.setTextColor(uc0.f().a(getContext(), this.c, "color_858585"));
+                textView4.setTextColor(vc0.f().a(getContext(), this.c, "color_858585"));
             }
             TextView textView5 = this.s;
             if (textView5 != null) {
-                textView5.setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
+                textView5.setTextColor(vc0.f().a(getContext(), this.c, "color_white3"));
             }
         }
     }
@@ -225,9 +249,9 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                         }
                     }
                 }
-                qc0.h(this.k, 1, 14.0f);
+                rc0.h(this.k, 1, 14.0f);
                 this.k.setText(liveRoomEntity.title);
-                qc0.h(this.j, 1, 10.0f);
+                rc0.h(this.j, 1, 10.0f);
                 LiveHostInfo liveHostInfo = liveRoomEntity.hostInfo;
                 if (liveHostInfo != null) {
                     this.j.setText(liveHostInfo.name);
@@ -242,14 +266,14 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                         this.l.setImageURI(liveRoomEntity.hostInfo.avatar);
                     }
                 }
-                qc0.h(this.m, 1, 10.0f);
-                qc0.h(this.n, 1, 10.0f);
+                rc0.h(this.m, 1, 10.0f);
+                rc0.h(this.n, 1, 10.0f);
                 if (liveRoomEntity.liveStatus == 0) {
                     this.m.setVisibility(8);
                     this.n.setVisibility(0);
                     this.n.setText(liveRoomEntity.formatReserveStartTime());
                 } else {
-                    this.m.setText(da0.a(this.y, liveRoomEntity.audienceCount));
+                    this.m.setText(ea0.a(this.y, liveRoomEntity.audienceCount));
                     this.m.setVisibility(0);
                     this.n.setVisibility(8);
                 }
@@ -261,10 +285,10 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                     this.o.setVisibility(8);
                 }
                 if (LiveFeedPageSdk.IMMERSION.equals(this.c) || "recommend".equals(this.c) || LiveFeedPageSdk.VIDEO_BAR.equals(this.c)) {
-                    this.h.getHierarchy().setUseGlobalColorFilter(false);
-                    this.l.getHierarchy().setUseGlobalColorFilter(false);
-                    this.o.getHierarchy().setUseGlobalColorFilter(false);
-                    this.t.getHierarchy().setUseGlobalColorFilter(false);
+                    ((GenericDraweeHierarchy) this.h.getHierarchy()).setUseGlobalColorFilter(false);
+                    ((GenericDraweeHierarchy) this.l.getHierarchy()).setUseGlobalColorFilter(false);
+                    ((GenericDraweeHierarchy) this.o.getHierarchy()).setUseGlobalColorFilter(false);
+                    ((GenericDraweeHierarchy) this.t.getHierarchy()).setUseGlobalColorFilter(false);
                 }
                 ThirdLabelInfo thirdLabelInfo = liveRoomEntity.thirdLabel;
                 if (thirdLabelInfo != null && thirdLabelInfo.canShowLabel()) {
@@ -300,7 +324,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 if (view2 == null) {
                     View inflate = this.u.inflate();
                     this.v = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091373);
+                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091364);
                     this.w = liveBaseLottieView;
                     liveBaseLottieView.setRepeatCount(-1);
                     this.w.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
@@ -313,29 +337,5 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 this.v.setVisibility(8);
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Live16Ratio9ItemView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.q = false;
-        this.z = false;
-        d(context);
     }
 }

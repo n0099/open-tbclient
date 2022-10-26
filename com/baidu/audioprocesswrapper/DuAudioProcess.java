@@ -15,6 +15,30 @@ public class DuAudioProcess {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
+    private native int nativeAvailableBytes(long j);
+
+    private native void nativeChangeAirType(long j, int i);
+
+    private native void nativeChangeEqualizerType(long j, int i, int[] iArr);
+
+    private native void nativeChangeHarmonyType(long j, int i);
+
+    private native void nativeChangePitchType(long j, int i);
+
+    private native void nativeChangeReverbType(long j, int i, double[] dArr);
+
+    private native void nativeClearQueues(long j);
+
+    private native void nativeClose(long j);
+
+    private native void nativeFlushStream(long j);
+
+    private native long nativeInit(int i, int i2, long j);
+
+    private native boolean nativePutBytes(long j, byte[] bArr, int i);
+
+    private native int nativeReceiveBytes(long j, byte[] bArr, int i);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -47,34 +71,13 @@ public class DuAudioProcess {
         this.a = 0L;
     }
 
-    private native int nativeAvailableBytes(long j);
-
-    private native void nativeChangeAirType(long j, int i);
-
-    private native void nativeChangeEqualizerType(long j, int i, int[] iArr);
-
-    private native void nativeChangeHarmonyType(long j, int i);
-
-    private native void nativeChangePitchType(long j, int i);
-
-    private native void nativeChangeReverbType(long j, int i, double[] dArr);
-
-    private native void nativeClearQueues(long j);
-
-    private native void nativeClose(long j);
-
-    private native void nativeFlushStream(long j);
-
-    private native long nativeInit(int i, int i2, long j);
-
-    private native boolean nativePutBytes(long j, byte[] bArr, int i);
-
-    private native int nativeReceiveBytes(long j, byte[] bArr, int i);
-
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeAvailableBytes(this.a) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return nativeAvailableBytes(this.a);
+        }
+        return invokeV.intValue;
     }
 
     public void b() {
@@ -102,16 +105,55 @@ public class DuAudioProcess {
         }
     }
 
+    public DuAudioProcess(int i, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+        this.a = nativeInit(i, i2, j);
+    }
+
     public boolean e(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i)) == null) ? nativePutBytes(this.a, bArr, i) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i)) == null) {
+            return nativePutBytes(this.a, bArr, i);
+        }
+        return invokeLI.booleanValue;
     }
 
     public int f(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, bArr, i)) == null) ? nativeReceiveBytes(this.a, bArr, i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, bArr, i)) == null) {
+            return nativeReceiveBytes(this.a, bArr, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void i(int i, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, iArr) == null) {
+            nativeChangeEqualizerType(this.a, i, iArr);
+        }
+    }
+
+    public void m(int i, double[] dArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, dArr) == null) {
+            nativeChangeReverbType(this.a, i, dArr);
+        }
     }
 
     public void g(int i) {
@@ -125,13 +167,6 @@ public class DuAudioProcess {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             nativeChangeEqualizerType(this.a, i, null);
-        }
-    }
-
-    public void i(int i, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, iArr) == null) {
-            nativeChangeEqualizerType(this.a, i, iArr);
         }
     }
 
@@ -154,31 +189,5 @@ public class DuAudioProcess {
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             nativeChangeReverbType(this.a, i, null);
         }
-    }
-
-    public void m(int i, double[] dArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, dArr) == null) {
-            nativeChangeReverbType(this.a, i, dArr);
-        }
-    }
-
-    public DuAudioProcess(int i, int i2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        this.a = nativeInit(i, i2, j);
     }
 }

@@ -60,11 +60,38 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0882, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921c6);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092189);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0883, (ViewGroup) this, true);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b6);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092185);
             this.c = context;
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        a(context);
     }
 
     public void b() {
@@ -77,33 +104,39 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     public final void c(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || this.b == null || threadData == null || !this.e) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) != null) || this.b == null || threadData == null || !this.e) {
             return;
         }
         if (threadData.getReply_num() >= 0) {
             this.b.setVisibility(0);
-            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0410), StringHelper.numberUniformFormat(threadData.getReply_num())));
+            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0417), StringHelper.numberUniformFormat(threadData.getReply_num())));
             return;
         }
         this.b.setVisibility(8);
     }
 
     public final void d(ThreadData threadData) {
+        int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) && this.b != null && threadData != null && this.h && threadData.isSharedLiveThread()) {
             this.b.setVisibility(0);
-            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e89), StringHelper.numberUniformFormat((threadData.getThreadAlaInfo() == null || threadData.getThreadAlaInfo().share_info == null) ? 0 : threadData.getThreadAlaInfo().share_info.share_count)));
+            if (threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().share_info != null) {
+                i = threadData.getThreadAlaInfo().share_info.share_count;
+            } else {
+                i = 0;
+            }
+            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e9a), StringHelper.numberUniformFormat(i)));
         }
     }
 
     public final void e(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || this.a == null || threadData == null || !this.d) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, threadData) != null) || this.a == null || threadData == null || !this.d) {
             return;
         }
         if (threadData.getView_num() >= 0) {
             this.a.setVisibility(0);
-            this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e8c), StringHelper.numberUniformFormat(threadData.getView_num())));
+            this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e9d), StringHelper.numberUniformFormat(threadData.getView_num())));
             return;
         }
         this.a.setVisibility(8);
@@ -111,18 +144,17 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     public final void f(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) || this.a == null || threadData == null || !this.f || threadData.getThreadAlaInfo() == null || !threadData.isSharedLiveThread()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) && this.a != null && threadData != null && this.f && threadData.getThreadAlaInfo() != null && threadData.isSharedLiveThread()) {
+            this.a.setVisibility(0);
+            this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e9b), StringHelper.numberUniformFormat(threadData.getThreadAlaInfo().audience_count)));
         }
-        this.a.setVisibility(0);
-        this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e8a), StringHelper.numberUniformFormat(threadData.getThreadAlaInfo().audience_count)));
     }
 
     public final void g(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) && this.b != null && threadData != null && this.g && threadData.isSharedLiveThread()) {
             this.b.setVisibility(0);
-            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e8b), StringHelper.numberUniformFormat(threadData.getAgreeNum())));
+            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e9c), StringHelper.numberUniformFormat(threadData.getAgreeNum())));
         }
     }
 
@@ -175,32 +207,5 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.g = z;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        a(context);
     }
 }

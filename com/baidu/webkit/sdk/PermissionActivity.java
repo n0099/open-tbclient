@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
@@ -84,7 +83,6 @@ public class PermissionActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    @SuppressLint({"NewApi"})
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

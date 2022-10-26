@@ -19,7 +19,7 @@ public class ElasticQueue implements Recordable {
     public static final boolean DEBUG = false;
     public static final String TAG = "ElasticQueue";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ElasticTask> mElasticTasks;
+    public List mElasticTasks;
     public Recordable.RecordStatus mRecordStatus;
     public long outputTaskNumInRecordLifeCycle;
     public long waitingTimeInRecordLifeCycle;
@@ -63,7 +63,7 @@ public class ElasticQueue implements Recordable {
             if (this.mElasticTasks.isEmpty()) {
                 return null;
             }
-            return this.mElasticTasks.get(0);
+            return (ElasticTask) this.mElasticTasks.get(0);
         }
         return (ElasticTask) invokeV.objValue;
     }
@@ -71,38 +71,37 @@ public class ElasticQueue implements Recordable {
     public long getOutputTaskNumInRecordLifeCycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.outputTaskNumInRecordLifeCycle : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.outputTaskNumInRecordLifeCycle;
+        }
+        return invokeV.longValue;
     }
 
     public int getTaskNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mElasticTasks.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mElasticTasks.size();
+        }
+        return invokeV.intValue;
     }
 
     public long getWaitingTimeInRecordLifeCycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.waitingTimeInRecordLifeCycle : invokeV.longValue;
-    }
-
-    public void insertTask(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, runnable, str, i) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                ElasticTask build = ElasticTaskBuilder.getInstance().build(runnable, str, i);
-                this.mElasticTasks.add(build);
-                build.recordEnqueueTime();
-                return;
-            }
-            throw new IllegalArgumentException("illegal params");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.waitingTimeInRecordLifeCycle;
         }
+        return invokeV.longValue;
     }
 
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mElasticTasks.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mElasticTasks.isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
@@ -120,6 +119,19 @@ public class ElasticQueue implements Recordable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mRecordStatus = Recordable.RecordStatus.RECORD_END;
+        }
+    }
+
+    public void insertTask(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, runnable, str, i) == null) {
+            if (runnable != null && !TextUtils.isEmpty(str)) {
+                ElasticTask build = ElasticTaskBuilder.getInstance().build(runnable, str, i);
+                this.mElasticTasks.add(build);
+                build.recordEnqueueTime();
+                return;
+            }
+            throw new IllegalArgumentException("illegal params");
         }
     }
 

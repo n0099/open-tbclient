@@ -1,6 +1,6 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import com.baidu.tieba.q46;
+import com.baidu.tieba.x46;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/data/DanmakuItem;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class AkTopRetainer$layout$1 extends Lambda implements Function1<q46, Boolean> {
+public final class AkTopRetainer$layout$1 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public static final AkTopRetainer$layout$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,11 +55,17 @@ public final class AkTopRetainer$layout$1 extends Lambda implements Function1<q4
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Boolean invoke(q46 q46Var) {
+    public final Boolean invoke(x46 x46Var) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q46Var)) == null) {
-            return Boolean.valueOf(q46Var == null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x46Var)) == null) {
+            if (x46Var == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return Boolean.valueOf(z);
         }
         return (Boolean) invokeL.objValue;
     }

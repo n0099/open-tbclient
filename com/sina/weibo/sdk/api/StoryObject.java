@@ -13,13 +13,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class StoryObject implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<StoryObject> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String appId;
     public String appPackage;
     public String callbackAction;
     public String sourcePath;
     public int sourceType;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +44,7 @@ public class StoryObject implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<StoryObject>() { // from class: com.sina.weibo.sdk.api.StoryObject.1
+        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.api.StoryObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,21 +63,25 @@ public class StoryObject implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public StoryObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new StoryObject(parcel) : (StoryObject) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new StoryObject(parcel);
+                }
+                return (StoryObject) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public StoryObject[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new StoryObject[i] : (StoryObject[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new StoryObject[i];
+                }
+                return (StoryObject[]) invokeI.objValue;
             }
         };
     }
@@ -86,28 +100,6 @@ public class StoryObject implements Parcelable {
             }
         }
         this.callbackAction = "com.sina.weibo.sdk.action.ACTION_SDK_REQ_STORY";
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            parcel.writeString(this.sourcePath);
-            parcel.writeInt(this.sourceType);
-            parcel.writeString(this.appId);
-            parcel.writeString(this.appPackage);
-            parcel.writeString(this.callbackAction);
-        }
     }
 
     public StoryObject(Parcel parcel) {
@@ -131,5 +123,17 @@ public class StoryObject implements Parcelable {
         this.appId = parcel.readString();
         this.appPackage = parcel.readString();
         this.callbackAction = parcel.readString();
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeString(this.sourcePath);
+            parcel.writeInt(this.sourceType);
+            parcel.writeString(this.appId);
+            parcel.writeString(this.appPackage);
+            parcel.writeString(this.callbackAction);
+        }
     }
 }

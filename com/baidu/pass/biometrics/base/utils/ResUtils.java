@@ -48,16 +48,18 @@ public final class ResUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             Context context = a;
-            return context != null ? context.getString(i) : "";
+            if (context != null) {
+                return context.getString(i);
+            }
+            return "";
         }
         return (String) invokeI.objValue;
     }
 
     public static void setApplicationContext(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && context != null) {
+            a = context.getApplicationContext();
         }
-        a = context.getApplicationContext();
     }
 }

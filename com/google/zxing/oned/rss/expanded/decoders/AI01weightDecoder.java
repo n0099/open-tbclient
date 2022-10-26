@@ -11,6 +11,10 @@ public abstract class AI01weightDecoder extends AI01decoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void addWeightCode(StringBuilder sb, int i);
+
+    public abstract int checkWeight(int i);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AI01weightDecoder(BitArray bitArray) {
         super(bitArray);
@@ -30,10 +34,6 @@ public abstract class AI01weightDecoder extends AI01decoder {
             }
         }
     }
-
-    public abstract void addWeightCode(StringBuilder sb, int i);
-
-    public abstract int checkWeight(int i);
 
     public final void encodeCompressedWeight(StringBuilder sb, int i, int i2) {
         Interceptable interceptable = $ic;

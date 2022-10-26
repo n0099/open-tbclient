@@ -23,7 +23,7 @@ public class ThirdPartyUtil implements NoProguard {
     public static final String TYPE_QQ = "qzone";
     public static final String TYPE_WEIBO = "tsina";
     public static final String TYPE_WEIXIN = "weixin";
-    public static HashMap<String, String> wxAuthCodeMap;
+    public static HashMap wxAuthCodeMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class ThirdPartyUtil implements NoProguard {
                 return;
             }
         }
-        wxAuthCodeMap = new HashMap<>();
+        wxAuthCodeMap = new HashMap();
     }
 
     public ThirdPartyUtil() {
@@ -59,7 +59,43 @@ public class ThirdPartyUtil implements NoProguard {
     public static boolean checkAliPayInstalled(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isQQClientAvailable(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (!SapiUtils.isAppInstalled(context, "com.tencent.mobileqq") && !SapiUtils.isAppInstalled(context, Constants.PACKAGE_QQ_SPEED)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isSinaInstalled(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return SapiUtils.isAppInstalled(context, "com.sina.weibo");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isWeixinAvilible(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return SapiUtils.isAppInstalled(context, "com.tencent.mm");
+        }
+        return invokeL.booleanValue;
     }
 
     public static Message getVerificationMsg(String str) {
@@ -83,23 +119,5 @@ public class ThirdPartyUtil implements NoProguard {
             return message;
         }
         return (Message) invokeL.objValue;
-    }
-
-    public static boolean isQQClientAvailable(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? SapiUtils.isAppInstalled(context, "com.tencent.mobileqq") || SapiUtils.isAppInstalled(context, Constants.PACKAGE_QQ_SPEED) : invokeL.booleanValue;
-    }
-
-    public static boolean isSinaInstalled(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? SapiUtils.isAppInstalled(context, "com.sina.weibo") : invokeL.booleanValue;
-    }
-
-    public static boolean isWeixinAvilible(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? SapiUtils.isAppInstalled(context, "com.tencent.mm") : invokeL.booleanValue;
     }
 }

@@ -36,30 +36,6 @@ public final class TaskResponseData implements ITaskModelData {
     public final TaskUIData ui;
     public final int uiType;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -93,27 +69,6 @@ public final class TaskResponseData implements ITaskModelData {
                 return;
             }
         }
-    }
-
-    public TaskResponseData(int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), taskProcessData, taskUIData, nextActive};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.uiType = i;
-        this.processData = taskProcessData;
-        this.ui = taskUIData;
-        this.nextActive = nextActive;
     }
 
     public static /* synthetic */ TaskResponseData copy$default(TaskResponseData taskResponseData, int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive, int i2, Object obj) {
@@ -179,30 +134,6 @@ public final class TaskResponseData implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final NextActive getNextActive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.nextActive : (NextActive) invokeV.objValue;
-    }
-
-    public final TaskProcessData getProcessData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.processData : (TaskProcessData) invokeV.objValue;
-    }
-
-    public final TaskUIData getUi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.ui : (TaskUIData) invokeV.objValue;
-    }
-
-    public final int getUiType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.uiType : invokeV.intValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,11 +149,138 @@ public final class TaskResponseData implements ITaskModelData {
         return invokeV.intValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return "TaskResponseData(uiType=" + this.uiType + ", processData=" + this.processData + ", ui=" + this.ui + ", nextActive=" + this.nextActive + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public TaskResponseData(int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), taskProcessData, taskUIData, nextActive};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.uiType = i;
+        this.processData = taskProcessData;
+        this.ui = taskUIData;
+        this.nextActive = nextActive;
+    }
+
+    public /* synthetic */ TaskResponseData(int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        int i3;
+        TaskProcessData taskProcessData2;
+        TaskUIData taskUIData2;
+        TaskResponseData taskResponseData;
+        NextActive nextActive2;
+        if ((i2 & 1) != 0) {
+            i3 = -1;
+        } else {
+            i3 = i;
+        }
+        if ((i2 & 2) != 0) {
+            taskProcessData2 = new TaskProcessData(0, 0, false, 7, null);
+        } else {
+            taskProcessData2 = taskProcessData;
+        }
+        if ((i2 & 4) != 0) {
+            taskUIData2 = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+        } else {
+            taskUIData2 = taskUIData;
+        }
+        if ((i2 & 8) != 0) {
+            nextActive2 = new NextActive(0L, null, 3, null);
+            taskResponseData = this;
+        } else {
+            taskResponseData = this;
+            nextActive2 = nextActive;
+        }
+        new TaskResponseData(i3, taskProcessData2, taskUIData2, nextActive2);
+    }
+
+    public final NextActive getNextActive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.nextActive;
+        }
+        return (NextActive) invokeV.objValue;
+    }
+
+    public final TaskProcessData getProcessData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.processData;
+        }
+        return (TaskProcessData) invokeV.objValue;
+    }
+
+    public final TaskUIData getUi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.ui;
+        }
+        return (TaskUIData) invokeV.objValue;
+    }
+
+    public final int getUiType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.uiType;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.uiType == -1 || this.ui.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.uiType != -1 && !this.ui.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isLayer() {
@@ -230,9 +288,22 @@ public final class TaskResponseData implements ITaskModelData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             int i = this.uiType;
-            return i == 2 || i == 4;
+            if (i != 2 && i != 4) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskResponseData deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new TaskResponseData(this.uiType, this.processData.deepCopy(), this.ui.deepCopy(), this.nextActive.deepCopy());
+        }
+        return (TaskResponseData) invokeV.objValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -248,37 +319,5 @@ public final class TaskResponseData implements ITaskModelData {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return "TaskResponseData(uiType=" + this.uiType + ", processData=" + this.processData + ", ui=" + this.ui + ", nextActive=" + this.nextActive + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskResponseData(int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        TaskResponseData taskResponseData;
-        NextActive nextActive2;
-        int i3 = (i2 & 1) != 0 ? -1 : i;
-        TaskProcessData taskProcessData2 = (i2 & 2) != 0 ? new TaskProcessData(0, 0, false, 7, null) : taskProcessData;
-        TaskUIData taskUIData2 = (i2 & 4) != 0 ? new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null) : taskUIData;
-        if ((i2 & 8) != 0) {
-            nextActive2 = new NextActive(0L, null, 3, null);
-            taskResponseData = this;
-        } else {
-            taskResponseData = this;
-            nextActive2 = nextActive;
-        }
-        new TaskResponseData(i3, taskProcessData2, taskUIData2, nextActive2);
-    }
-
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskResponseData deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new TaskResponseData(this.uiType, this.processData.deepCopy(), this.ui.deepCopy(), this.nextActive.deepCopy()) : (TaskResponseData) invokeV.objValue;
     }
 }

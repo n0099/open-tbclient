@@ -18,16 +18,16 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ForEachWhileSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Disposable {
+public final class ForEachWhileSubscriber extends AtomicReference implements FlowableSubscriber, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4403180040475402120L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean done;
     public final Action onComplete;
-    public final Consumer<? super Throwable> onError;
-    public final Predicate<? super T> onNext;
+    public final Consumer onError;
+    public final Predicate onNext;
 
-    public ForEachWhileSubscriber(Predicate<? super T> predicate, Consumer<? super Throwable> consumer, Action action) {
+    public ForEachWhileSubscriber(Predicate predicate, Consumer consumer, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,13 +59,16 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<Subscriptio
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SubscriptionHelper.isCancelled(get()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return SubscriptionHelper.isCancelled((Subscription) get());
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // org.reactivestreams.Subscriber
     public void onComplete() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
             return;
         }
         this.done = true;
@@ -96,17 +99,16 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<Subscriptio
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
             return;
         }
         try {
-            if (this.onNext.test(t)) {
-                return;
+            if (!this.onNext.test(obj)) {
+                dispose();
+                onComplete();
             }
-            dispose();
-            onComplete();
         } catch (Throwable th) {
             Exceptions.throwIfFatal(th);
             dispose();

@@ -9,7 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -27,22 +26,22 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bu4;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ek5;
-import com.baidu.tieba.fk6;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.ds6;
+import com.baidu.tieba.du4;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.eo;
+import com.baidu.tieba.es6;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.gk6;
-import com.baidu.tieba.hk6;
+import com.baidu.tieba.gj6;
+import com.baidu.tieba.lk5;
+import com.baidu.tieba.mk6;
+import com.baidu.tieba.nk6;
+import com.baidu.tieba.ok6;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.xc5;
-import com.baidu.tieba.xr6;
-import com.baidu.tieba.yr6;
-import com.baidu.tieba.zi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,12 +65,12 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public ImageView N;
     public ImageView O;
     public NoNetworkView P;
-    public xr6 Q;
-    public yr6 R;
+    public ds6 Q;
+    public es6 R;
     public CollapsingToolbarLayout S;
     public AppBarLayout T;
     public FrameLayout U;
-    public zi6 V;
+    public gj6 V;
     public TextView W;
     public long X;
     public boolean Y;
@@ -80,8 +79,29 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public CustomMessageListener b0;
     public AppBarLayout.OnOffsetChangedListener c0;
 
+    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment
+    public int F1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d034d : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.zc5
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "a063" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void hideLoadingView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+        }
+    }
+
     /* loaded from: classes4.dex */
-    public class a implements ek5 {
+    public class a implements lk5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsSportsRecommendFragment a;
@@ -104,13 +124,12 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             this.a = frsSportsRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.ek5
+        @Override // com.baidu.tieba.lk5
         public void a(View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || i2 == i4) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && i2 != i4) {
+                this.a.S.setMinimumHeight(i2);
             }
-            this.a.S.setMinimumHeight(i2);
         }
     }
 
@@ -178,16 +197,15 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || TextUtils.isEmpty((String) customResponsedMessage.getData())) {
-                return;
-            }
-            String[] split = ((String) customResponsedMessage.getData()).split("_");
-            if (split.length == 2 && "FrsSportsRecommendTab".equals(split[0]) && 25 == dh.e(split[1], 0)) {
-                this.a.T.setExpanded(true, false);
-                this.a.a.z(0);
-                this.a.x();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
+                String[] split = ((String) customResponsedMessage.getData()).split("_");
+                if (split.length == 2 && "FrsSportsRecommendTab".equals(split[0]) && 25 == eh.e(split[1], 0)) {
+                    this.a.T.setExpanded(true, false);
+                    this.a.a.z(0);
+                    this.a.x();
+                }
             }
         }
     }
@@ -218,39 +236,51 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
 
         @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
+            int i2;
+            int i3;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, appBarLayout, i) == null) || this.a.Z == i) {
-                return;
-            }
-            int statusBarHeight = UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
-            int height = this.a.J.getHeight();
-            int height2 = (this.a.P == null || BdNetTypeUtil.isNetWorkAvailable()) ? 0 : this.a.P.getHeight();
-            int f = ((ej.f(this.a.getContext(), R.dimen.tbds318) - height) - height2) - statusBarHeight;
-            int i2 = statusBarHeight + height + height2 + f;
-            int totalScrollRange = (appBarLayout.getTotalScrollRange() - i2) - f;
-            int totalScrollRange2 = appBarLayout.getTotalScrollRange() - Math.abs(i);
-            if (totalScrollRange <= 0) {
-                return;
-            }
-            float f2 = 1.0f;
-            float abs = (Math.abs(i * 1.0f) - f) / totalScrollRange;
-            if (Float.compare(abs, 1.0f) > 0) {
-                abs = 1.0f;
-            }
-            if (Float.compare(abs, 0.05f) <= 0 && this.a.Z - i < 0) {
-                abs = 0.0f;
-            }
-            if (f + i <= 0 || this.a.J == null || this.a.J.getBarBgView() == null || this.a.J.getBarBgView().getAlpha() != 0.0f) {
-                if (Float.compare(abs, 1.0f) == 0) {
-                    this.a.j2(Math.abs(i2 - totalScrollRange2));
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, appBarLayout, i) == null) && this.a.Z != i) {
+                if (UtilHelper.canUseStyleImmersiveSticky()) {
+                    i2 = UtilHelper.getStatusBarHeight();
+                } else {
+                    i2 = 0;
+                }
+                int height = this.a.J.getHeight();
+                if (this.a.P != null && !BdNetTypeUtil.isNetWorkAvailable()) {
+                    i3 = this.a.P.getHeight();
+                } else {
+                    i3 = 0;
+                }
+                int f = ((fj.f(this.a.getContext(), R.dimen.tbds318) - height) - i3) - i2;
+                int i4 = i2 + height + i3 + f;
+                int totalScrollRange = (appBarLayout.getTotalScrollRange() - i4) - f;
+                int totalScrollRange2 = appBarLayout.getTotalScrollRange() - Math.abs(i);
+                if (totalScrollRange <= 0) {
+                    return;
+                }
+                float f2 = 1.0f;
+                float abs = (Math.abs(i * 1.0f) - f) / totalScrollRange;
+                if (Float.compare(abs, 1.0f) > 0) {
+                    abs = 1.0f;
+                }
+                if (Float.compare(abs, 0.05f) <= 0 && this.a.Z - i < 0) {
+                    abs = 0.0f;
+                }
+                if (f + i > 0 && this.a.J != null && this.a.J.getBarBgView() != null && this.a.J.getBarBgView().getAlpha() == 0.0f) {
+                    return;
+                }
+                if (Float.compare(abs, 1.0f) != 0) {
+                    if (this.a.G != null && this.a.H != null) {
+                        if (this.a.H.getHeight() != UtilHelper.getStatusBarHeight()) {
+                            this.a.j2(0);
+                        }
+                        this.a.G.setVisibility(8);
+                    }
+                } else {
+                    this.a.j2(Math.abs(i4 - totalScrollRange2));
                     if (this.a.G != null) {
                         this.a.G.setVisibility(0);
                     }
-                } else if (this.a.G != null && this.a.H != null) {
-                    if (this.a.H.getHeight() != UtilHelper.getStatusBarHeight()) {
-                        this.a.j2(0);
-                    }
-                    this.a.G.setVisibility(8);
                 }
                 if (abs > 0.5f) {
                     UtilHelper.changeStatusBarIconAndTextColor(false, this.a.getPageContext().getPageActivity());
@@ -288,377 +318,6 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         this.c0 = new d(this);
     }
 
-    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment
-    public int F1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d034e : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment
-    public void L1(hk6 hk6Var) {
-        FrsViewData frsViewData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hk6Var) == null) {
-            super.L1(hk6Var);
-            if (hk6Var == null) {
-                return;
-            }
-            xr6 xr6Var = this.Q;
-            if (xr6Var != null) {
-                xr6Var.k(hk6Var.e, hk6Var.f, hk6Var.g);
-            }
-            if (this.R != null && (frsViewData = this.d) != null && frsViewData.getForum() != null) {
-                this.R.e(hk6Var.h, this.d.getForum().getId());
-            }
-            gk6 gk6Var = this.b;
-            if (gk6Var != null && gk6Var.j()) {
-                i2(hk6Var.d);
-            }
-            if (!ListUtils.isEmpty(hk6Var.c)) {
-                Iterator<Cdo> it = hk6Var.c.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Cdo next = it.next();
-                    ThreadData threadData = null;
-                    if (next instanceof ThreadData) {
-                        threadData = (ThreadData) next;
-                    } else if (next instanceof bu4) {
-                        threadData = ((bu4) next).t;
-                    }
-                    if (threadData != null && !threadData.isTop()) {
-                        long g = dh.g(threadData.getId(), 0L);
-                        if (g > 0) {
-                            this.X = g;
-                            break;
-                        }
-                    }
-                }
-            }
-            this.Y = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tieba.mi6
-    public void U0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f2();
-            gk6 gk6Var = this.b;
-            if (gk6Var != null) {
-                gk6Var.q(this.X);
-            }
-            super.U0();
-        }
-    }
-
-    public final void f2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.T.setExpanded(true);
-        }
-    }
-
-    public final void g2() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.H == null) {
-            return;
-        }
-        if (UtilHelper.canUseStyleImmersiveSticky() && this.H.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams = this.H.getLayoutParams();
-            layoutParams.height = UtilHelper.getStatusBarHeight();
-            this.H.setLayoutParams(layoutParams);
-            this.H.setVisibility(0);
-            ImageView imageView = this.O;
-            if (imageView == null || !(imageView.getLayoutParams() instanceof CollapsingToolbarLayout.LayoutParams)) {
-                return;
-            }
-            ((FrameLayout.LayoutParams) ((CollapsingToolbarLayout.LayoutParams) this.O.getLayoutParams())).topMargin = layoutParams.height;
-            return;
-        }
-        this.H.setVisibility(8);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.uc5
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "a063" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public xc5 getPageStayDurationItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            xc5 pageStayDurationItem = super.getPageStayDurationItem();
-            if (pageStayDurationItem != null) {
-                pageStayDurationItem.t(dh.g(this.e, 0L));
-            }
-            return pageStayDurationItem;
-        }
-        return (xc5) invokeV.objValue;
-    }
-
-    public final void h2() {
-        FrsViewData frsViewData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.J == null) {
-                NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c5);
-                this.J = navigationBar;
-                navigationBar.getBarBgView().setAlpha(0.0f);
-            }
-            if (this.I == null) {
-                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091661);
-                this.I = observedChangeLinearLayout;
-                observedChangeLinearLayout.setOnSizeChangeListener(new a(this));
-            }
-            if (this.K == null) {
-                this.K = this.c.findViewById(R.id.obfuscated_res_0x7f09162d);
-            }
-            if (this.L == null) {
-                this.L = this.c.findViewById(R.id.obfuscated_res_0x7f0909b3);
-            }
-            if (this.M == null) {
-                View addSystemImageButton = this.J.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-                this.M = addSystemImageButton;
-                addSystemImageButton.setOnClickListener(this.a0);
-                this.N = (ImageView) this.M.findViewById(R.id.obfuscated_res_0x7f092680);
-            }
-            if (this.O == null) {
-                this.O = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09162f);
-            }
-            if (this.P == null) {
-                this.P = new NoNetworkView(getContext());
-                this.P.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-                this.I.addView(this.P);
-            }
-            if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.P.setVisibility(8);
-            } else {
-                this.P.setVisibility(0);
-            }
-            if (this.J == null || (frsViewData = this.d) == null || frsViewData.getForum() == null) {
-                return;
-            }
-            String name = this.d.getForum().getName();
-            if (StringHelper.getChineseAndEnglishLength(name) > 14) {
-                name = StringHelper.cutForumNameWithSuffix(name, 14, StringHelper.STRING_MORE);
-            }
-            this.J.setCenterTextTitle(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0761), name));
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void hideLoadingView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-        }
-    }
-
-    public final void i2(int i) {
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            if (this.W == null) {
-                TextView textView = new TextView(getContext());
-                this.W = textView;
-                textView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
-                this.W.setGravity(17);
-            }
-            if (this.W != null) {
-                if (this.Y) {
-                    if (i <= 0) {
-                        return;
-                    }
-                    string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0762);
-                } else if (i > 0) {
-                    string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0763), Integer.valueOf(i));
-                } else {
-                    string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0764);
-                }
-                this.W.setText(string);
-            }
-            SkinManager.setBackgroundResource(this.W, R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.W, (int) R.color.CAM_X0112);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd));
-            if (this.V == null) {
-                this.V = new zi6();
-            }
-            this.V.h(this.W, this.U, layoutParams, 2000);
-        }
-    }
-
-    public final void j2(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || !UtilHelper.canUseStyleImmersiveSticky() || (view2 = this.H) == null || this.G == null || view2.getLayoutParams() == null || this.G.getLayoutParams() == null) {
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams = this.H.getLayoutParams();
-        int statusBarHeight = UtilHelper.getStatusBarHeight() - i;
-        layoutParams.height = statusBarHeight;
-        if (statusBarHeight < 0) {
-            layoutParams.height = 0;
-        }
-        this.H.setLayoutParams(layoutParams);
-        ViewGroup.LayoutParams layoutParams2 = this.G.getLayoutParams();
-        layoutParams2.height = i;
-        if (i > UtilHelper.getStatusBarHeight()) {
-            layoutParams2.height = UtilHelper.getStatusBarHeight();
-        }
-        this.G.setLayoutParams(layoutParams2);
-    }
-
-    public final void k2() {
-        NavigationBar navigationBar;
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (navigationBar = this.J) == null) {
-            return;
-        }
-        float alpha = navigationBar.getBarBgView() != null ? this.J.getBarBgView().getAlpha() : 0.0f;
-        TextView textView = this.J.mCenterText;
-        if (textView != null) {
-            textView.setAlpha(alpha);
-        }
-        if (this.N != null && (imageView = this.O) != null) {
-            imageView.setAlpha(1.0f - alpha);
-            this.N.setAlpha(alpha);
-        }
-        View view2 = this.H;
-        if (view2 != null) {
-            view2.setAlpha(alpha);
-        }
-        View view3 = this.G;
-        if (view3 != null) {
-            view3.setAlpha(alpha);
-        }
-    }
-
-    public final void l2(int i, float f) {
-        NavigationBar navigationBar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || this.K == null || this.L == null || (navigationBar = this.J) == null) {
-            return;
-        }
-        int height = navigationBar.getHeight();
-        if (!(new BigDecimal((double) f).compareTo(BigDecimal.ONE) == 0)) {
-            this.K.setVisibility(8);
-            this.L.setVisibility(8);
-            return;
-        }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.K.getLayoutParams();
-        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.L.getLayoutParams();
-        if (this.a.j().getFirstCompletelyVisiblePosition() != 0) {
-            this.K.setVisibility(8);
-            this.L.setVisibility(0);
-            if (layoutParams2.topMargin != 0) {
-                layoutParams2.topMargin = 0;
-                return;
-            }
-            return;
-        }
-        int height2 = height - (this.T.getHeight() + i);
-        int f2 = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-        if (height2 > 0 && height2 < f2) {
-            this.K.setVisibility(0);
-            this.L.setVisibility(0);
-            layoutParams.bottomMargin = -height2;
-            layoutParams2.topMargin = -(f2 - height2);
-        } else if (height2 > f2) {
-            this.K.setVisibility(8);
-            this.L.setVisibility(0);
-            if (layoutParams2.topMargin != 0) {
-                layoutParams2.topMargin = 0;
-            }
-        } else {
-            if (layoutParams.bottomMargin != 0) {
-                layoutParams.bottomMargin = 0;
-            }
-            this.K.setVisibility(0);
-            this.L.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            super.onChangeSkinType(i);
-            xr6 xr6Var = this.Q;
-            if (xr6Var != null) {
-                xr6Var.h();
-            }
-            yr6 yr6Var = this.R;
-            if (yr6Var != null) {
-                yr6Var.d();
-            }
-            NoNetworkView noNetworkView = this.P;
-            if (noNetworkView != null) {
-                noNetworkView.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            }
-            SkinManager.setBackgroundResource(this.K, R.drawable.obfuscated_res_0x7f08121f);
-            SkinManager.setBackgroundResource(this.L, R.drawable.obfuscated_res_0x7f08121f);
-            SkinManager.setBackgroundColor(this.H, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.G, R.color.CAM_X0201);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.O, R.drawable.obfuscated_res_0x7f080628, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.N, R.drawable.obfuscated_res_0x7f080628, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            NavigationBar navigationBar = this.J;
-            if (navigationBar != null) {
-                SkinManager.setBackgroundColor(navigationBar.getBarBgView(), R.color.CAM_X0207);
-                this.J.onChangeSkinType(getPageContext(), i);
-                if (this.J.getBackground() != null && this.J.getBackground().mutate() != null) {
-                    this.J.getBackground().mutate().setAlpha(0);
-                }
-            }
-            k2();
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
-            super.onCreate(bundle);
-            registerListener(this.b0);
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    @Nullable
-    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
-            super.onCreateView(layoutInflater, viewGroup, bundle);
-            this.a.w(true);
-            h2();
-            this.S = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090b0c);
-            this.H = this.c.findViewById(R.id.obfuscated_res_0x7f091f80);
-            this.G = this.c.findViewById(R.id.obfuscated_res_0x7f091f81);
-            AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090af1);
-            this.T = appBarLayout;
-            appBarLayout.addOnOffsetChangedListener(this.c0);
-            g2();
-            xr6 xr6Var = new xr6(this, this.c);
-            this.Q = xr6Var;
-            xr6Var.j(this.d);
-            this.R = new yr6(this, this.c);
-            gk6 gk6Var = this.b;
-            if (gk6Var != null) {
-                gk6Var.q(0L);
-            }
-            this.U = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090bf3);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            return this.c;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
@@ -687,14 +346,22 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         }
     }
 
+    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
+            super.onCreate(bundle);
+            registerListener(this.b0);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view2, boolean z, int i) {
-        fk6 fk6Var;
+        mk6 mk6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (fk6Var = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (mk6Var = this.a) != null) {
+            mk6Var.x(true);
         }
-        fk6Var.x(true);
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment
@@ -704,5 +371,352 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             super.showNetRefreshView(this.U, str, z);
             B1(0);
         }
+    }
+
+    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment
+    public void L1(ok6 ok6Var) {
+        FrsViewData frsViewData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ok6Var) == null) {
+            super.L1(ok6Var);
+            if (ok6Var == null) {
+                return;
+            }
+            ds6 ds6Var = this.Q;
+            if (ds6Var != null) {
+                ds6Var.k(ok6Var.e, ok6Var.f, ok6Var.g);
+            }
+            if (this.R != null && (frsViewData = this.d) != null && frsViewData.getForum() != null) {
+                this.R.e(ok6Var.h, this.d.getForum().getId());
+            }
+            nk6 nk6Var = this.b;
+            if (nk6Var != null && nk6Var.j()) {
+                i2(ok6Var.d);
+            }
+            if (!ListUtils.isEmpty(ok6Var.c)) {
+                Iterator it = ok6Var.c.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    eo eoVar = (eo) it.next();
+                    ThreadData threadData = null;
+                    if (eoVar instanceof ThreadData) {
+                        threadData = (ThreadData) eoVar;
+                    } else if (eoVar instanceof du4) {
+                        threadData = ((du4) eoVar).t;
+                    }
+                    if (threadData != null && !threadData.isTop()) {
+                        long g = eh.g(threadData.getId(), 0L);
+                        if (g > 0) {
+                            this.X = g;
+                            break;
+                        }
+                    }
+                }
+            }
+            this.Y = false;
+        }
+    }
+
+    public final void i2(int i) {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (this.W == null) {
+                TextView textView = new TextView(getContext());
+                this.W = textView;
+                textView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
+                this.W.setGravity(17);
+            }
+            if (this.W != null) {
+                if (this.Y) {
+                    if (i > 0) {
+                        string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f076e);
+                    } else {
+                        return;
+                    }
+                } else if (i > 0) {
+                    string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f076f), Integer.valueOf(i));
+                } else {
+                    string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0770);
+                }
+                this.W.setText(string);
+            }
+            SkinManager.setBackgroundResource(this.W, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.W, (int) R.color.CAM_X0112);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd));
+            if (this.V == null) {
+                this.V = new gj6();
+            }
+            this.V.h(this.W, this.U, layoutParams, 2000);
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            super.onChangeSkinType(i);
+            ds6 ds6Var = this.Q;
+            if (ds6Var != null) {
+                ds6Var.h();
+            }
+            es6 es6Var = this.R;
+            if (es6Var != null) {
+                es6Var.d();
+            }
+            NoNetworkView noNetworkView = this.P;
+            if (noNetworkView != null) {
+                noNetworkView.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            }
+            SkinManager.setBackgroundResource(this.K, R.drawable.obfuscated_res_0x7f081230);
+            SkinManager.setBackgroundResource(this.L, R.drawable.obfuscated_res_0x7f081230);
+            SkinManager.setBackgroundColor(this.H, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.G, R.color.CAM_X0201);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.O, R.drawable.obfuscated_res_0x7f080629, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.N, R.drawable.obfuscated_res_0x7f080629, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            NavigationBar navigationBar = this.J;
+            if (navigationBar != null) {
+                SkinManager.setBackgroundColor(navigationBar.getBarBgView(), R.color.CAM_X0207);
+                this.J.onChangeSkinType(getPageContext(), i);
+                if (this.J.getBackground() != null && this.J.getBackground().mutate() != null) {
+                    this.J.getBackground().mutate().setAlpha(0);
+                }
+            }
+            k2();
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tieba.ti6
+    public void U0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f2();
+            nk6 nk6Var = this.b;
+            if (nk6Var != null) {
+                nk6Var.q(this.X);
+            }
+            super.U0();
+        }
+    }
+
+    public final void f2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.T.setExpanded(true);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public cd5 getPageStayDurationItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            cd5 pageStayDurationItem = super.getPageStayDurationItem();
+            if (pageStayDurationItem != null) {
+                pageStayDurationItem.t(eh.g(this.e, 0L));
+            }
+            return pageStayDurationItem;
+        }
+        return (cd5) invokeV.objValue;
+    }
+
+    public final void g2() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.H == null) {
+            return;
+        }
+        if (UtilHelper.canUseStyleImmersiveSticky() && this.H.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams = this.H.getLayoutParams();
+            layoutParams.height = UtilHelper.getStatusBarHeight();
+            this.H.setLayoutParams(layoutParams);
+            this.H.setVisibility(0);
+            ImageView imageView = this.O;
+            if (imageView != null && (imageView.getLayoutParams() instanceof CollapsingToolbarLayout.LayoutParams)) {
+                ((FrameLayout.LayoutParams) ((CollapsingToolbarLayout.LayoutParams) this.O.getLayoutParams())).topMargin = layoutParams.height;
+                return;
+            }
+            return;
+        }
+        this.H.setVisibility(8);
+    }
+
+    public final void k2() {
+        NavigationBar navigationBar;
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (navigationBar = this.J) == null) {
+            return;
+        }
+        float f = 0.0f;
+        if (navigationBar.getBarBgView() != null) {
+            f = this.J.getBarBgView().getAlpha();
+        }
+        TextView textView = this.J.mCenterText;
+        if (textView != null) {
+            textView.setAlpha(f);
+        }
+        if (this.N != null && (imageView = this.O) != null) {
+            imageView.setAlpha(1.0f - f);
+            this.N.setAlpha(f);
+        }
+        View view2 = this.H;
+        if (view2 != null) {
+            view2.setAlpha(f);
+        }
+        View view3 = this.G;
+        if (view3 != null) {
+            view3.setAlpha(f);
+        }
+    }
+
+    public final void h2() {
+        FrsViewData frsViewData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.J == null) {
+                NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925ad);
+                this.J = navigationBar;
+                navigationBar.getBarBgView().setAlpha(0.0f);
+            }
+            if (this.I == null) {
+                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091653);
+                this.I = observedChangeLinearLayout;
+                observedChangeLinearLayout.setOnSizeChangeListener(new a(this));
+            }
+            if (this.K == null) {
+                this.K = this.c.findViewById(R.id.obfuscated_res_0x7f09161f);
+            }
+            if (this.L == null) {
+                this.L = this.c.findViewById(R.id.obfuscated_res_0x7f0909bd);
+            }
+            if (this.M == null) {
+                View addSystemImageButton = this.J.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+                this.M = addSystemImageButton;
+                addSystemImageButton.setOnClickListener(this.a0);
+                this.N = (ImageView) this.M.findViewById(R.id.obfuscated_res_0x7f092668);
+            }
+            if (this.O == null) {
+                this.O = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091621);
+            }
+            if (this.P == null) {
+                this.P = new NoNetworkView(getContext());
+                this.P.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                this.I.addView(this.P);
+            }
+            if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                this.P.setVisibility(8);
+            } else {
+                this.P.setVisibility(0);
+            }
+            if (this.J != null && (frsViewData = this.d) != null && frsViewData.getForum() != null) {
+                String name = this.d.getForum().getName();
+                if (StringHelper.getChineseAndEnglishLength(name) > 14) {
+                    name = StringHelper.cutForumNameWithSuffix(name, 14, StringHelper.STRING_MORE);
+                }
+                this.J.setCenterTextTitle(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f076d), name));
+            }
+        }
+    }
+
+    public final void j2(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && UtilHelper.canUseStyleImmersiveSticky() && (view2 = this.H) != null && this.G != null && view2.getLayoutParams() != null && this.G.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams = this.H.getLayoutParams();
+            int statusBarHeight = UtilHelper.getStatusBarHeight() - i;
+            layoutParams.height = statusBarHeight;
+            if (statusBarHeight < 0) {
+                layoutParams.height = 0;
+            }
+            this.H.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams2 = this.G.getLayoutParams();
+            layoutParams2.height = i;
+            if (i > UtilHelper.getStatusBarHeight()) {
+                layoutParams2.height = UtilHelper.getStatusBarHeight();
+            }
+            this.G.setLayoutParams(layoutParams2);
+        }
+    }
+
+    public final void l2(int i, float f) {
+        NavigationBar navigationBar;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) && this.K != null && this.L != null && (navigationBar = this.J) != null) {
+            int height = navigationBar.getHeight();
+            if (new BigDecimal(f).compareTo(BigDecimal.ONE) == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                this.K.setVisibility(8);
+                this.L.setVisibility(8);
+                return;
+            }
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.K.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.L.getLayoutParams();
+            if (this.a.j().getFirstCompletelyVisiblePosition() != 0) {
+                this.K.setVisibility(8);
+                this.L.setVisibility(0);
+                if (layoutParams2.topMargin != 0) {
+                    layoutParams2.topMargin = 0;
+                    return;
+                }
+                return;
+            }
+            int height2 = height - (this.T.getHeight() + i);
+            int f2 = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
+            if (height2 > 0 && height2 < f2) {
+                this.K.setVisibility(0);
+                this.L.setVisibility(0);
+                layoutParams.bottomMargin = -height2;
+                layoutParams2.topMargin = -(f2 - height2);
+            } else if (height2 > f2) {
+                this.K.setVisibility(8);
+                this.L.setVisibility(0);
+                if (layoutParams2.topMargin != 0) {
+                    layoutParams2.topMargin = 0;
+                }
+            } else {
+                if (layoutParams.bottomMargin != 0) {
+                    layoutParams.bottomMargin = 0;
+                }
+                this.K.setVisibility(0);
+                this.L.setVisibility(8);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
+            super.onCreateView(layoutInflater, viewGroup, bundle);
+            this.a.w(true);
+            h2();
+            this.S = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090b16);
+            this.H = this.c.findViewById(R.id.obfuscated_res_0x7f091f7f);
+            this.G = this.c.findViewById(R.id.obfuscated_res_0x7f091f80);
+            AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090afb);
+            this.T = appBarLayout;
+            appBarLayout.addOnOffsetChangedListener(this.c0);
+            g2();
+            ds6 ds6Var = new ds6(this, this.c);
+            this.Q = ds6Var;
+            ds6Var.j(this.d);
+            this.R = new es6(this, this.c);
+            nk6 nk6Var = this.b;
+            if (nk6Var != null) {
+                nk6Var.q(0L);
+            }
+            this.U = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090bfd);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            return this.c;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

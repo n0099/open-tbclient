@@ -13,7 +13,7 @@ import com.facebook.fresco.animation.frame.FrameScheduler;
 /* loaded from: classes7.dex */
 public class AnimatedDrawable2DebugDrawListener implements AnimatedDrawable2.DrawListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public int mDrawCalls;
     public int mDuplicateFrames;
@@ -55,7 +55,7 @@ public class AnimatedDrawable2DebugDrawListener implements AnimatedDrawable2.Dra
     @Override // com.facebook.fresco.animation.drawable.AnimatedDrawable2.DrawListener
     public void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, long j6, long j7) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{animatedDrawable2, frameScheduler, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7)}) == null) || animatedDrawable2.getAnimationBackend() == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{animatedDrawable2, frameScheduler, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7)}) != null) || animatedDrawable2.getAnimationBackend() == null) {
             return;
         }
         int frameCount = animatedDrawable2.getAnimationBackend().getFrameCount();

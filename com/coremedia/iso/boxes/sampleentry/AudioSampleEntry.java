@@ -65,6 +65,123 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
         }
     }
 
+    public long getBytesPerFrame() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bytesPerFrame;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getBytesPerPacket() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bytesPerPacket;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getBytesPerSample() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.bytesPerSample;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getChannelCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.channelCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getCompressionId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.compressionId;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPacketSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.packetSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getReserved1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.reserved1;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getReserved2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.reserved2;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getSampleRate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.sampleRate;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSampleSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.sampleSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getSamplesPerPacket() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.samplesPerPacket;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSoundVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.soundVersion;
+        }
+        return invokeV.intValue;
+    }
+
+    public byte[] getSoundVersion2Data() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.soundVersion2Data;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AudioSampleEntry(String str) {
         super(str);
@@ -87,10 +204,21 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public void getBox(WritableByteChannel writableByteChannel) throws IOException {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, writableByteChannel) == null) {
             writableByteChannel.write(getHeader());
-            ByteBuffer allocate = ByteBuffer.allocate((this.soundVersion == 1 ? 16 : 0) + 28 + (this.soundVersion == 2 ? 36 : 0));
+            int i2 = 0;
+            if (this.soundVersion == 1) {
+                i = 16;
+            } else {
+                i = 0;
+            }
+            int i3 = i + 28;
+            if (this.soundVersion == 2) {
+                i2 = 36;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(i3 + i2);
             allocate.position(6);
             IsoTypeWriter.writeUInt16(allocate, this.dataReferenceIndex);
             IsoTypeWriter.writeUInt16(allocate, this.soundVersion);
@@ -123,97 +251,30 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public long getBytesPerFrame() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bytesPerFrame : invokeV.longValue;
-    }
-
-    public long getBytesPerPacket() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bytesPerPacket : invokeV.longValue;
-    }
-
-    public long getBytesPerSample() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bytesPerSample : invokeV.longValue;
-    }
-
-    public int getChannelCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.channelCount : invokeV.intValue;
-    }
-
-    public int getCompressionId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.compressionId : invokeV.intValue;
-    }
-
-    public int getPacketSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.packetSize : invokeV.intValue;
-    }
-
-    public int getReserved1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.reserved1 : invokeV.intValue;
-    }
-
-    public long getReserved2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.reserved2 : invokeV.longValue;
-    }
-
-    public long getSampleRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.sampleRate : invokeV.longValue;
-    }
-
-    public int getSampleSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.sampleSize : invokeV.intValue;
-    }
-
-    public long getSamplesPerPacket() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.samplesPerPacket : invokeV.longValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = 16;
-            long containerSize = (this.soundVersion == 1 ? 16 : 0) + 28 + (this.soundVersion == 2 ? 36 : 0) + getContainerSize();
-            if (!this.largeBox && 8 + containerSize < 4294967296L) {
-                i = 8;
+            int i2 = 16;
+            int i3 = 0;
+            if (this.soundVersion == 1) {
+                i = 16;
+            } else {
+                i = 0;
             }
-            return containerSize + i;
+            int i4 = i + 28;
+            if (this.soundVersion == 2) {
+                i3 = 36;
+            }
+            long containerSize = i4 + i3 + getContainerSize();
+            if (!this.largeBox && 8 + containerSize < 4294967296L) {
+                i2 = 8;
+            }
+            return containerSize + i2;
         }
         return invokeV.longValue;
-    }
-
-    public int getSoundVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.soundVersion : invokeV.intValue;
-    }
-
-    public byte[] getSoundVersion2Data() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.soundVersion2Data : (byte[]) invokeV.objValue;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -232,6 +293,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
             this.compressionId = IsoTypeReader.readUInt16(allocate);
             this.packetSize = IsoTypeReader.readUInt16(allocate);
             this.sampleRate = IsoTypeReader.readUInt32(allocate);
+            int i = 16;
             if (!this.type.equals(TYPE10)) {
                 this.sampleRate >>>= 16;
             }
@@ -244,6 +306,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
                 this.bytesPerFrame = IsoTypeReader.readUInt32(allocate2);
                 this.bytesPerSample = IsoTypeReader.readUInt32(allocate2);
             }
+            int i2 = 36;
             if (this.soundVersion == 2) {
                 ByteBuffer allocate3 = ByteBuffer.allocate(36);
                 dataSource.read(allocate3);
@@ -258,33 +321,58 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
             }
             if (TYPE7.equals(this.type)) {
                 System.err.println(TYPE7);
-                long j2 = ((j - 28) - (this.soundVersion != 1 ? 0 : 16)) - (this.soundVersion != 2 ? 0 : 36);
-                ByteBuffer allocate4 = ByteBuffer.allocate(CastUtils.l2i(j2));
+                long j2 = j - 28;
+                if (this.soundVersion != 1) {
+                    i = 0;
+                }
+                long j3 = j2 - i;
+                if (this.soundVersion != 2) {
+                    i2 = 0;
+                }
+                long j4 = j3 - i2;
+                ByteBuffer allocate4 = ByteBuffer.allocate(CastUtils.l2i(j4));
                 dataSource.read(allocate4);
-                addBox(new Box(this, j2, allocate4) { // from class: com.coremedia.iso.boxes.sampleentry.AudioSampleEntry.1
+                addBox(new Box(this, j4, allocate4) { // from class: com.coremedia.iso.boxes.sampleentry.AudioSampleEntry.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AudioSampleEntry this$0;
                     public final /* synthetic */ ByteBuffer val$owmaSpecifics;
                     public final /* synthetic */ long val$remaining;
 
+                    @Override // com.coremedia.iso.boxes.Box
+                    public long getOffset() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return 0L;
+                        }
+                        return invokeV.longValue;
+                    }
+
+                    @Override // com.coremedia.iso.boxes.Box
+                    public String getType() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? "----" : (String) invokeV.objValue;
+                    }
+
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j2), allocate4};
+                            Object[] objArr = {this, Long.valueOf(j4), allocate4};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.this$0 = this;
-                        this.val$remaining = j2;
+                        this.val$remaining = j4;
                         this.val$owmaSpecifics = allocate4;
                     }
 
@@ -298,55 +386,52 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
                     }
 
                     @Override // com.coremedia.iso.boxes.Box
-                    public long getOffset() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                            return 0L;
-                        }
-                        return invokeV.longValue;
-                    }
-
-                    @Override // com.coremedia.iso.boxes.Box
-                    public Container getParent() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0 : (Container) invokeV.objValue;
-                    }
-
-                    @Override // com.coremedia.iso.boxes.Box
-                    public long getSize() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? this.val$remaining : invokeV.longValue;
-                    }
-
-                    @Override // com.coremedia.iso.boxes.Box
-                    public String getType() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? "----" : (String) invokeV.objValue;
-                    }
-
-                    @Override // com.coremedia.iso.boxes.Box
-                    public void parse(DataSource dataSource2, ByteBuffer byteBuffer2, long j3, BoxParser boxParser2) throws IOException {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{dataSource2, byteBuffer2, Long.valueOf(j3), boxParser2}) == null) {
-                            throw new RuntimeException("NotImplemented");
-                        }
-                    }
-
-                    @Override // com.coremedia.iso.boxes.Box
                     public void setParent(Container container) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(1048582, this, container) == null) && !AudioSampleEntry.$assertionsDisabled && container != this.this$0) {
                             throw new AssertionError("you cannot diswown this special box");
                         }
                     }
+
+                    @Override // com.coremedia.iso.boxes.Box
+                    public Container getParent() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                            return this.this$0;
+                        }
+                        return (Container) invokeV.objValue;
+                    }
+
+                    @Override // com.coremedia.iso.boxes.Box
+                    public long getSize() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                            return this.val$remaining;
+                        }
+                        return invokeV.longValue;
+                    }
+
+                    @Override // com.coremedia.iso.boxes.Box
+                    public void parse(DataSource dataSource2, ByteBuffer byteBuffer2, long j5, BoxParser boxParser2) throws IOException {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{dataSource2, byteBuffer2, Long.valueOf(j5), boxParser2}) == null) {
+                            throw new RuntimeException("NotImplemented");
+                        }
+                    }
                 });
                 return;
             }
-            parseContainer(dataSource, ((j - 28) - (this.soundVersion != 1 ? 0 : 16)) - (this.soundVersion != 2 ? 0 : 36), boxParser);
+            long j5 = j - 28;
+            if (this.soundVersion != 1) {
+                i = 0;
+            }
+            long j6 = j5 - i;
+            if (this.soundVersion != 2) {
+                i2 = 0;
+            }
+            parseContainer(dataSource, j6 - i2, boxParser);
         }
     }
 

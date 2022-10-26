@@ -18,7 +18,7 @@ public interface IDevices {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class ARCH {
+    public final class ARCH {
         public static final /* synthetic */ ARCH[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ARCH ARM;
@@ -72,13 +72,19 @@ public interface IDevices {
         public static ARCH valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ARCH) Enum.valueOf(ARCH.class, str) : (ARCH) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ARCH) Enum.valueOf(ARCH.class, str);
+            }
+            return (ARCH) invokeL.objValue;
         }
 
         public static ARCH[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ARCH[]) $VALUES.clone() : (ARCH[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ARCH[]) $VALUES.clone();
+            }
+            return (ARCH[]) invokeV.objValue;
         }
     }
 }

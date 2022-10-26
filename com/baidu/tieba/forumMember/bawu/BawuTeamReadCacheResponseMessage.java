@@ -13,7 +13,7 @@ import tbclient.GetBawuInfo.DataRes;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
 /* loaded from: classes4.dex */
-public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Object> {
+public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BawuTeam mBawuTeamInfo;
@@ -38,10 +38,37 @@ public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Obj
         }
     }
 
+    public BawuTeam getBawuTeamInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBawuTeamInfo;
+        }
+        return (BawuTeam) invokeV.objValue;
+    }
+
+    public ManagerApplyInfo getManagerApplyInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mManagerApplyInfo;
+        }
+        return (ManagerApplyInfo) invokeV.objValue;
+    }
+
+    public int isPrivateForum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsPrivateForum;
+        }
+        return invokeV.intValue;
+    }
+
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) || bArr == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, bArr) != null) || bArr == null) {
             return;
         }
         GetBawuInfoResIdl getBawuInfoResIdl = (GetBawuInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBawuInfoResIdl.class);
@@ -52,24 +79,6 @@ public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Obj
             this.mIsPrivateForum = dataRes.is_private_forum.intValue();
             this.mManagerApplyInfo = getBawuInfoResIdl.data.manager_apply_info;
         }
-    }
-
-    public BawuTeam getBawuTeamInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBawuTeamInfo : (BawuTeam) invokeV.objValue;
-    }
-
-    public ManagerApplyInfo getManagerApplyInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mManagerApplyInfo : (ManagerApplyInfo) invokeV.objValue;
-    }
-
-    public int isPrivateForum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsPrivateForum : invokeV.intValue;
     }
 
     public void setBawuTeamInfo(BawuTeam bawuTeam) {

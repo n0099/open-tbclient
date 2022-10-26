@@ -19,14 +19,14 @@ public final class ShortSpreadBuilder extends PrimitiveSpreadBuilder<short[]> {
         sArr[position] = s;
     }
 
-    public final short[] toArray() {
-        return toArray(this.values, new short[size()]);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.PrimitiveSpreadBuilder
     public int getSize(short[] getSize) {
         Intrinsics.checkNotNullParameter(getSize, "$this$getSize");
         return getSize.length;
+    }
+
+    public final short[] toArray() {
+        return toArray(this.values, new short[size()]);
     }
 }

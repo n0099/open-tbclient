@@ -37,34 +37,6 @@ public class BasicHttpEntityEnclosingRequest extends BasicHttpRequest implements
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpEntityEnclosingRequest
-    public boolean expectContinue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.apache.http.HttpEntityEnclosingRequest
-    public HttpEntity getEntity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpEntity) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.HttpEntityEnclosingRequest
-    public void setEntity(HttpEntity httpEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpEntity) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicHttpEntityEnclosingRequest(String str, String str2, ProtocolVersion protocolVersion) {
         super(null);
@@ -105,5 +77,33 @@ public class BasicHttpEntityEnclosingRequest extends BasicHttpRequest implements
             }
         }
         throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpEntityEnclosingRequest
+    public boolean expectContinue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.http.HttpEntityEnclosingRequest
+    public HttpEntity getEntity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpEntity) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.HttpEntityEnclosingRequest
+    public void setEntity(HttpEntity httpEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpEntity) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 }

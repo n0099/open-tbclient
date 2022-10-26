@@ -20,7 +20,7 @@ public class PointcutBasedPerClauseImpl extends PerClauseImpl implements Pointcu
 
     /* renamed from: org.aspectj.internal.lang.reflect.PointcutBasedPerClauseImpl$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$PerClauseKind;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,10 @@ public class PointcutBasedPerClauseImpl extends PerClauseImpl implements Pointcu
     public PointcutExpression getPointcutExpression() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.pointcutExpression : (PointcutExpression) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.pointcutExpression;
+        }
+        return (PointcutExpression) invokeV.objValue;
     }
 
     @Override // org.aspectj.internal.lang.reflect.PerClauseImpl
@@ -94,14 +97,20 @@ public class PointcutBasedPerClauseImpl extends PerClauseImpl implements Pointcu
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             int i = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$PerClauseKind[getKind().ordinal()];
-            if (i == 1) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            stringBuffer.append("perthis(");
+                        }
+                    } else {
+                        stringBuffer.append("pertarget(");
+                    }
+                } else {
+                    stringBuffer.append("percflowbelow(");
+                }
+            } else {
                 stringBuffer.append("percflow(");
-            } else if (i == 2) {
-                stringBuffer.append("percflowbelow(");
-            } else if (i == 3) {
-                stringBuffer.append("pertarget(");
-            } else if (i == 4) {
-                stringBuffer.append("perthis(");
             }
             stringBuffer.append(this.pointcutExpression.asString());
             stringBuffer.append(SmallTailInfo.EMOTION_SUFFIX);

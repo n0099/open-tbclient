@@ -11,7 +11,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,6 +33,18 @@ public class MaskView extends View {
     public Drawable f;
     public Path g;
 
+    public void setLineColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        }
+    }
+
+    public void setOrientation(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaskView(Context context) {
         super(context);
@@ -49,6 +60,72 @@ public class MaskView extends View {
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 1;
+        this.b = Color.argb(100, 0, 0, 0);
+        this.c = new Paint(1);
+        this.d = new Paint(1);
+        this.e = new Rect();
+        this.g = new Path();
+        setLayerType(1, null);
+        this.d.setColor(-1);
+        this.d.setStyle(Paint.Style.STROKE);
+        this.d.setStrokeWidth(6.0f);
+        this.c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        b();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MaskView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 1;
+        this.b = Color.argb(100, 0, 0, 0);
+        this.c = new Paint(1);
+        this.d = new Paint(1);
+        this.e = new Rect();
+        this.g = new Path();
+        setLayerType(1, null);
+        this.d.setColor(-1);
+        this.d.setStyle(Paint.Style.STROKE);
+        this.d.setStrokeWidth(6.0f);
+        this.c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        b();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MaskView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -131,6 +208,15 @@ public class MaskView extends View {
         return (Rect) invokeV.objValue;
     }
 
+    public int getMaskType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
     public Rect getFrameRectExtend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,14 +234,7 @@ public class MaskView extends View {
         return (Rect) invokeV.objValue;
     }
 
-    public int getMaskType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
     @Override // android.view.View
-    @RequiresApi(api = 21)
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
@@ -192,27 +271,26 @@ public class MaskView extends View {
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            if (i <= 0 || i2 <= 0) {
-                return;
+            if (i > 0 && i2 > 0) {
+                if (i2 > i) {
+                    f = 0.9f;
+                } else {
+                    f = 0.72f;
+                }
+                int i5 = (int) (i * f);
+                int i6 = (i5 * 400) / PassBiometricUtil.f;
+                int i7 = (i - i5) / 2;
+                int i8 = (i2 - i6) / 2;
+                Rect rect = this.e;
+                rect.left = i7;
+                rect.top = i8;
+                rect.right = i5 + i7;
+                rect.bottom = i6 + i8;
             }
-            int i5 = (int) (i * (i2 > i ? 0.9f : 0.72f));
-            int i6 = (i5 * 400) / PassBiometricUtil.f;
-            int i7 = (i - i5) / 2;
-            int i8 = (i2 - i6) / 2;
-            Rect rect = this.e;
-            rect.left = i7;
-            rect.top = i8;
-            rect.right = i5 + i7;
-            rect.bottom = i6 + i8;
-        }
-    }
-
-    public void setLineColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
@@ -227,84 +305,14 @@ public class MaskView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.a = i;
-            if (i == 1) {
+            if (i != 1) {
+                if (i == 2) {
+                    this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080204, null);
+                }
+            } else {
                 this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080205, null);
-            } else if (i == 2) {
-                this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080204, null);
             }
             invalidate();
         }
-    }
-
-    public void setOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaskView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 1;
-        this.b = Color.argb(100, 0, 0, 0);
-        this.c = new Paint(1);
-        this.d = new Paint(1);
-        this.e = new Rect();
-        this.g = new Path();
-        setLayerType(1, null);
-        this.d.setColor(-1);
-        this.d.setStyle(Paint.Style.STROKE);
-        this.d.setStrokeWidth(6.0f);
-        this.c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        b();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaskView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 1;
-        this.b = Color.argb(100, 0, 0, 0);
-        this.c = new Paint(1);
-        this.d = new Paint(1);
-        this.e = new Rect();
-        this.g = new Path();
-        setLayerType(1, null);
-        this.d.setColor(-1);
-        this.d.setStyle(Paint.Style.STROKE);
-        this.d.setStrokeWidth(6.0f);
-        this.c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        b();
     }
 }

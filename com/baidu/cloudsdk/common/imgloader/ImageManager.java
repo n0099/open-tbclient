@@ -1,6 +1,5 @@
 package com.baidu.cloudsdk.common.imgloader;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -52,14 +51,74 @@ public class ImageManager {
         }
     }
 
+    public String getCachedFilePath(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
+            Validator.notNull(uri, "uri");
+            return this.mFSCache.getFilePath(Utils.md5(uri.toString()));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public ImageManager setHitCountRequired(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.mFSCache.setHitCountRequired(i);
+            return this;
+        }
+        return (ImageManager) invokeI.objValue;
+    }
+
+    public ImageManager setMaxMemCacheSize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.mMemCache.setMaxSize(i);
+            return this;
+        }
+        return (ImageManager) invokeI.objValue;
+    }
+
+    public ImageManager setMaxNumOfPixels(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.mMaxNumOfPixels = i;
+            this.mFSCache.setMaxNumOfPixels(i);
+            return this;
+        }
+        return (ImageManager) invokeI.objValue;
+    }
+
+    public ImageManager setMemCacheEvictPolicy(MemoryBitmapCache.IEvictPolicy iEvictPolicy) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iEvictPolicy)) == null) {
+            this.mMemCache.setEvictPolicy(iEvictPolicy);
+            return this;
+        }
+        return (ImageManager) invokeL.objValue;
+    }
+
+    public ImageManager setStorageDir(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            this.mFSCache.setStorageDir(str);
+            return this;
+        }
+        return (ImageManager) invokeL.objValue;
+    }
+
     public static void clean() {
         ImageManager imageManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || (imageManager = sImageManager) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && (imageManager = sImageManager) != null) {
+            imageManager.mMemCache.clean();
+            sImageManager = null;
         }
-        imageManager.mMemCache.clean();
-        sImageManager = null;
     }
 
     public static ImageManager getInstance() {
@@ -82,17 +141,6 @@ public class ImageManager {
         }
     }
 
-    public String getCachedFilePath(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            Validator.notNull(uri, "uri");
-            return this.mFSCache.getFilePath(Utils.md5(uri.toString()));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @TargetApi(3)
     public void loadImage(Context context, Uri uri, AsyncImageLoader.IAsyncImageLoaderListener iAsyncImageLoaderListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, uri, iAsyncImageLoaderListener) == null) {
@@ -104,7 +152,7 @@ public class ImageManager {
             if (bitmap != null) {
                 iAsyncImageLoaderListener.onComplete(bitmap);
             } else if (Utils.isUrl(uri)) {
-                new AsyncTask<String, Integer, Bitmap>(this, md5, iAsyncImageLoaderListener, context, uri) { // from class: com.baidu.cloudsdk.common.imgloader.ImageManager.1
+                new AsyncTask(this, md5, iAsyncImageLoaderListener, context, uri) { // from class: com.baidu.cloudsdk.common.imgloader.ImageManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ImageManager this$0;
@@ -140,7 +188,10 @@ public class ImageManager {
                     public Bitmap doInBackground(String... strArr) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, strArr)) == null) ? this.this$0.mFSCache.get(this.val$key) : (Bitmap) invokeL.objValue;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, strArr)) == null) {
+                            return this.this$0.mFSCache.get(this.val$key);
+                        }
+                        return (Bitmap) invokeL.objValue;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -241,56 +292,5 @@ public class ImageManager {
                 }).execute(uri);
             }
         }
-    }
-
-    public ImageManager setHitCountRequired(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.mFSCache.setHitCountRequired(i);
-            return this;
-        }
-        return (ImageManager) invokeI.objValue;
-    }
-
-    public ImageManager setMaxMemCacheSize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.mMemCache.setMaxSize(i);
-            return this;
-        }
-        return (ImageManager) invokeI.objValue;
-    }
-
-    public ImageManager setMaxNumOfPixels(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.mMaxNumOfPixels = i;
-            this.mFSCache.setMaxNumOfPixels(i);
-            return this;
-        }
-        return (ImageManager) invokeI.objValue;
-    }
-
-    public ImageManager setMemCacheEvictPolicy(MemoryBitmapCache.IEvictPolicy iEvictPolicy) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iEvictPolicy)) == null) {
-            this.mMemCache.setEvictPolicy(iEvictPolicy);
-            return this;
-        }
-        return (ImageManager) invokeL.objValue;
-    }
-
-    public ImageManager setStorageDir(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.mFSCache.setStorageDir(str);
-            return this;
-        }
-        return (ImageManager) invokeL.objValue;
     }
 }

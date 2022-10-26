@@ -5,12 +5,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ut8;
+import com.baidu.tieba.eu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,13 +18,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ShareScrollableLayout extends LinearLayout implements ut8 {
+public class ShareScrollableLayout extends LinearLayout implements eu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public List<LinearLayout> a;
+    public List a;
     public int b;
     public int c;
+
+    @Override // com.baidu.tieba.eu8
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareScrollableLayout(Context context) {
@@ -49,7 +54,7 @@ public class ShareScrollableLayout extends LinearLayout implements ut8 {
         d();
     }
 
-    @Override // com.baidu.tieba.ut8
+    @Override // com.baidu.tieba.eu8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -58,63 +63,6 @@ public class ShareScrollableLayout extends LinearLayout implements ut8 {
             layoutParams.setMargins(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0, 0, 0);
             SkinManager.setBackgroundColor(view2, R.color.CAM_X0112);
             addView(view2, i + 1, layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.ut8
-    public void b(int i, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
-            int size = this.a.size() - 1;
-            for (int i2 = 0; i2 < i - size; i2++) {
-                c();
-            }
-            this.a.get(i).addView(view2, new LinearLayout.LayoutParams(this.b, -1));
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HorizontalScrollView horizontalScrollView = new HorizontalScrollView(getContext());
-            horizontalScrollView.setHorizontalScrollBarEnabled(false);
-            LinearLayout linearLayout = new LinearLayout(getContext());
-            this.a.add(linearLayout);
-            horizontalScrollView.addView(linearLayout);
-            addView(horizontalScrollView, new LinearLayout.LayoutParams(-1, this.c));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setOrientation(1);
-        }
-    }
-
-    @Override // com.baidu.tieba.ut8
-    @NonNull
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup, com.baidu.tieba.ut8
-    public void removeAllViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.removeAllViews();
-            this.a.clear();
-        }
-    }
-
-    @Override // com.baidu.tieba.ut8
-    public void setItemParams(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-            this.b = i;
-            this.c = i2;
         }
     }
 
@@ -162,5 +110,54 @@ public class ShareScrollableLayout extends LinearLayout implements ut8 {
         }
         this.a = new ArrayList();
         d();
+    }
+
+    @Override // com.baidu.tieba.eu8
+    public void b(int i, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
+            int size = this.a.size() - 1;
+            for (int i2 = 0; i2 < i - size; i2++) {
+                c();
+            }
+            ((LinearLayout) this.a.get(i)).addView(view2, new LinearLayout.LayoutParams(this.b, -1));
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            HorizontalScrollView horizontalScrollView = new HorizontalScrollView(getContext());
+            horizontalScrollView.setHorizontalScrollBarEnabled(false);
+            LinearLayout linearLayout = new LinearLayout(getContext());
+            this.a.add(linearLayout);
+            horizontalScrollView.addView(linearLayout);
+            addView(horizontalScrollView, new LinearLayout.LayoutParams(-1, this.c));
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setOrientation(1);
+        }
+    }
+
+    @Override // android.view.ViewGroup, com.baidu.tieba.eu8
+    public void removeAllViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.removeAllViews();
+            this.a.clear();
+        }
+    }
+
+    @Override // com.baidu.tieba.eu8
+    public void setItemParams(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            this.b = i;
+            this.c = i2;
+        }
     }
 }

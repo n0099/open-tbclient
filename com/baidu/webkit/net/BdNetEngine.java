@@ -1,6 +1,5 @@
 package com.baidu.webkit.net;
 
-import android.annotation.SuppressLint;
 import android.net.http.Headers;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -84,7 +83,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     public String mProxyUrl;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -502,14 +501,14 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     private void addHeaders(BdNetTask bdNetTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, bdNetTask) == null) {
-            for (Map.Entry<String, String> entry : bdNetTask.getHeaders().entrySet()) {
-                this.mConnection.setRequestProperty(entry.getKey(), entry.getValue());
+            for (Map.Entry entry : bdNetTask.getHeaders().entrySet()) {
+                this.mConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
             }
             StringBuffer stringBuffer = new StringBuffer();
-            for (Map.Entry<String, String> entry2 : bdNetTask.getCookies().entrySet()) {
-                stringBuffer.append(entry2.getKey().trim());
+            for (Map.Entry entry2 : bdNetTask.getCookies().entrySet()) {
+                stringBuffer.append(((String) entry2.getKey()).trim());
                 stringBuffer.append("=");
-                stringBuffer.append(entry2.getValue().trim());
+                stringBuffer.append(((String) entry2.getValue()).trim());
                 stringBuffer.append(ParamableElem.DIVIDE_PARAM);
             }
             if (stringBuffer.length() > 0) {
@@ -943,7 +942,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         return invokeL.intValue;
     }
 
-    public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i) {
+    public static List getSubjectAltNames(X509Certificate x509Certificate, int i) {
         InterceptResult invokeLI;
         Integer num;
         String str;
@@ -1373,7 +1372,6 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     }
 
     @Override // android.os.HandlerThread
-    @SuppressLint({"HandlerLeak"})
     public void onLooperPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

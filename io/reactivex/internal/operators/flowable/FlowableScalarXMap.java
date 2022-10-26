@@ -21,18 +21,18 @@ public final class FlowableScalarXMap {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class ScalarXMapFlowable<T, R> extends Flowable<R> {
+    public final class ScalarXMapFlowable extends Flowable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function<? super T, ? extends Publisher<? extends R>> mapper;
-        public final T value;
+        public final Function mapper;
+        public final Object value;
 
-        public ScalarXMapFlowable(T t, Function<? super T, ? extends Publisher<? extends R>> function) {
+        public ScalarXMapFlowable(Object obj, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, function};
+                Object[] objArr = {obj, function};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,17 +42,16 @@ public final class FlowableScalarXMap {
                     return;
                 }
             }
-            this.value = t;
+            this.value = obj;
             this.mapper = function;
         }
 
-        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
         @Override // io.reactivex.Flowable
-        public void subscribeActual(Subscriber<? super R> subscriber) {
+        public void subscribeActual(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
                 try {
-                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply((T) this.value), "The mapper returned a null Publisher");
+                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply(this.value), "The mapper returned a null Publisher");
                     if (publisher instanceof Callable) {
                         try {
                             Object call = ((Callable) publisher).call();
@@ -93,33 +92,36 @@ public final class FlowableScalarXMap {
         throw new IllegalStateException("No instances!");
     }
 
-    public static <T, U> Flowable<U> scalarXMap(T t, Function<? super T, ? extends Publisher<? extends U>> function) {
+    public static Flowable scalarXMap(Object obj, Function function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, function)) == null) ? RxJavaPlugins.onAssembly(new ScalarXMapFlowable(t, function)) : (Flowable) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, function)) == null) {
+            return RxJavaPlugins.onAssembly(new ScalarXMapFlowable(obj, function));
+        }
+        return (Flowable) invokeLL.objValue;
     }
 
-    public static <T, R> boolean tryScalarXMapSubscribe(Publisher<T> publisher, Subscriber<? super R> subscriber, Function<? super T, ? extends Publisher<? extends R>> function) {
+    public static boolean tryScalarXMapSubscribe(Publisher publisher, Subscriber subscriber, Function function) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, publisher, subscriber, function)) == null) {
             if (publisher instanceof Callable) {
                 try {
-                    Object obj = (Object) ((Callable) publisher).call();
-                    if (obj == 0) {
+                    Object call = ((Callable) publisher).call();
+                    if (call == null) {
                         EmptySubscription.complete(subscriber);
                         return true;
                     }
                     try {
-                        Publisher publisher2 = (Publisher) ObjectHelper.requireNonNull(function.apply(obj), "The mapper returned a null Publisher");
+                        Publisher publisher2 = (Publisher) ObjectHelper.requireNonNull(function.apply(call), "The mapper returned a null Publisher");
                         if (publisher2 instanceof Callable) {
                             try {
-                                Object call = ((Callable) publisher2).call();
-                                if (call == null) {
+                                Object call2 = ((Callable) publisher2).call();
+                                if (call2 == null) {
                                     EmptySubscription.complete(subscriber);
                                     return true;
                                 }
-                                subscriber.onSubscribe(new ScalarSubscription(subscriber, call));
+                                subscriber.onSubscribe(new ScalarSubscription(subscriber, call2));
                             } catch (Throwable th) {
                                 Exceptions.throwIfFatal(th);
                                 EmptySubscription.error(th, subscriber);

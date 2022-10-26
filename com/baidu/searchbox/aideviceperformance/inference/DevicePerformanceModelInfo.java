@@ -12,6 +12,31 @@ public class DevicePerformanceModelInfo {
     public String modelPath;
     public long versionCode;
 
+    public DevicePerformanceModelInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.versionCode = -1L;
+    }
+
+    public String getModelPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.modelPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public DevicePerformanceModelInfo(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,27 +55,5 @@ public class DevicePerformanceModelInfo {
         this.versionCode = -1L;
         this.modelPath = str;
         this.versionCode = j;
-    }
-
-    public String getModelPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.modelPath : (String) invokeV.objValue;
-    }
-
-    public DevicePerformanceModelInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.versionCode = -1L;
     }
 }

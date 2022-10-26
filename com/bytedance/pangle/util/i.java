@@ -6,7 +6,6 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
@@ -42,7 +41,7 @@ public final class i {
         }
     }
 
-    public static List<String> a() {
+    public static List a() {
         AssetManager assetManager;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,26 +57,7 @@ public final class i {
         return (List) invokeV.objValue;
     }
 
-    public static String b(AssetManager assetManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, assetManager)) == null) {
-            List<String> a2 = a(assetManager);
-            StringBuilder sb = new StringBuilder(PreferencesUtil.LEFT_MOUNT);
-            if (a2.size() > 0) {
-                for (String str : a2) {
-                    sb.append(str);
-                    sb.append(" , ");
-                }
-                sb.delete(sb.lastIndexOf(" , "), sb.length());
-            }
-            sb.append(PreferencesUtil.RIGHT_MOUNT);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static List<String> a(AssetManager assetManager) {
+    public static List a(AssetManager assetManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, assetManager)) == null) {
@@ -113,39 +93,6 @@ public final class i {
         return (List) invokeL.objValue;
     }
 
-    public static List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            boolean z = false;
-            if (h.b()) {
-                try {
-                    Resources resources = Zeus.getAppApplication().getResources();
-                    arrayList.add(Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", EMABTest.TYPE_STRING, "android")), 0).getApplicationInfo().sourceDir);
-                } catch (Exception e) {
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths1 failed.", e);
-                }
-            } else if (h.c()) {
-                try {
-                    Object invokeStaticMethod = MethodUtils.invokeStaticMethod(Class.forName("android.webkit.WebViewFactory"), "getWebViewContextAndSetProvider", new Object[0]);
-                    if (Build.VERSION.SDK_INT >= 29 || (Build.VERSION.SDK_INT == 28 && Build.VERSION.PREVIEW_SDK_INT > 0)) {
-                        z = true;
-                    }
-                    if (z) {
-                        Collections.addAll(arrayList, a(((Context) invokeStaticMethod).getApplicationInfo()));
-                    } else {
-                        arrayList.add(((Context) invokeStaticMethod).getApplicationInfo().sourceDir);
-                    }
-                } catch (Exception e2) {
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths2 failed.", e2);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
     public static boolean a(AssetManager assetManager, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -178,7 +125,6 @@ public final class i {
         return invokeLL.booleanValue;
     }
 
-    @RequiresApi(api = 21)
     public static String[] a(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         String[] strArr;
@@ -205,5 +151,57 @@ public final class i {
             return (String[]) arrayList.toArray(new String[0]);
         }
         return (String[]) invokeL.objValue;
+    }
+
+    public static String b(AssetManager assetManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, assetManager)) == null) {
+            List<String> a2 = a(assetManager);
+            StringBuilder sb = new StringBuilder(PreferencesUtil.LEFT_MOUNT);
+            if (a2.size() > 0) {
+                for (String str : a2) {
+                    sb.append(str);
+                    sb.append(" , ");
+                }
+                sb.delete(sb.lastIndexOf(" , "), sb.length());
+            }
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static List b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            boolean z = false;
+            if (h.b()) {
+                try {
+                    Resources resources = Zeus.getAppApplication().getResources();
+                    arrayList.add(Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", EMABTest.TYPE_STRING, "android")), 0).getApplicationInfo().sourceDir);
+                } catch (Exception e) {
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths1 failed.", e);
+                }
+            } else if (h.c()) {
+                try {
+                    Object invokeStaticMethod = MethodUtils.invokeStaticMethod(Class.forName("android.webkit.WebViewFactory"), "getWebViewContextAndSetProvider", new Object[0]);
+                    if (Build.VERSION.SDK_INT >= 29 || (Build.VERSION.SDK_INT == 28 && Build.VERSION.PREVIEW_SDK_INT > 0)) {
+                        z = true;
+                    }
+                    if (z) {
+                        Collections.addAll(arrayList, a(((Context) invokeStaticMethod).getApplicationInfo()));
+                    } else {
+                        arrayList.add(((Context) invokeStaticMethod).getApplicationInfo().sourceDir);
+                    }
+                } catch (Exception e2) {
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths2 failed.", e2);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

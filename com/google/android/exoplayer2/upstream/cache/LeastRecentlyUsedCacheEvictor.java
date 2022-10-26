@@ -10,12 +10,19 @@ import com.google.android.exoplayer2.upstream.cache.Cache;
 import java.util.Comparator;
 import java.util.TreeSet;
 /* loaded from: classes7.dex */
-public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Comparator<CacheSpan> {
+public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Comparator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long currentSize;
-    public final TreeSet<CacheSpan> leastRecentlyUsed;
+    public final TreeSet leastRecentlyUsed;
     public final long maxBytes;
+
+    @Override // com.google.android.exoplayer2.upstream.cache.CacheEvictor
+    public void onCacheInitialized() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     public LeastRecentlyUsedCacheEvictor(long j) {
         Interceptable interceptable = $ic;
@@ -33,7 +40,7 @@ public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Compar
             }
         }
         this.maxBytes = j;
-        this.leastRecentlyUsed = new TreeSet<>(this);
+        this.leastRecentlyUsed = new TreeSet(this);
     }
 
     private void evictCache(Cache cache, long j) {
@@ -41,18 +48,30 @@ public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Compar
         if (interceptable == null || interceptable.invokeLJ(65537, this, cache, j) == null) {
             while (this.currentSize + j > this.maxBytes && !this.leastRecentlyUsed.isEmpty()) {
                 try {
-                    cache.removeSpan(this.leastRecentlyUsed.first());
+                    cache.removeSpan((CacheSpan) this.leastRecentlyUsed.first());
                 } catch (Cache.CacheException unused) {
                 }
             }
         }
     }
 
-    @Override // com.google.android.exoplayer2.upstream.cache.CacheEvictor
-    public void onCacheInitialized() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    public int compare(CacheSpan cacheSpan, CacheSpan cacheSpan2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cacheSpan, cacheSpan2)) == null) {
+            long j = cacheSpan.lastAccessTimestamp;
+            long j2 = cacheSpan2.lastAccessTimestamp;
+            if (j - j2 == 0) {
+                return cacheSpan.compareTo(cacheSpan2);
+            }
+            if (j < j2) {
+                return -1;
+            }
+            return 1;
         }
+        return invokeLL.intValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.Cache.Listener
@@ -89,21 +108,5 @@ public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Compar
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{cache, str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             evictCache(cache, j2);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    public int compare(CacheSpan cacheSpan, CacheSpan cacheSpan2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cacheSpan, cacheSpan2)) == null) {
-            long j = cacheSpan.lastAccessTimestamp;
-            long j2 = cacheSpan2.lastAccessTimestamp;
-            if (j - j2 == 0) {
-                return cacheSpan.compareTo(cacheSpan2);
-            }
-            return j < j2 ? -1 : 1;
-        }
-        return invokeLL.intValue;
     }
 }

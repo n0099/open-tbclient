@@ -29,6 +29,9 @@ public class StringUtil {
     public static String geneGuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? UUID.randomUUID().toString().substring(0, 20) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return UUID.randomUUID().toString().substring(0, 20);
+        }
+        return (String) invokeV.objValue;
     }
 }

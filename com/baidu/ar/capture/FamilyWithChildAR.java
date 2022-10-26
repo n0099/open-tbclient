@@ -34,7 +34,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     public com.baidu.ar.d.e lp;
     public com.baidu.ar.d.e lq;
     public com.baidu.ar.d.e lr;
-    public ICallbackWith<ICaptureResult> ls;
+    public ICallbackWith ls;
     public volatile boolean lt;
     public e lu;
     public boolean lv;
@@ -230,7 +230,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                 }
             };
             this.lr = eVar3;
-            a("FaceDetector", eVar3, (HashMap<String, Object>) null);
+            a("FaceDetector", eVar3, (HashMap) null);
         }
     }
 
@@ -410,7 +410,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(ICallbackWith<ICaptureResult> iCallbackWith) {
+    public void d(ICallbackWith iCallbackWith) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, iCallbackWith) == null) {
             if (iCallbackWith != null) {
@@ -449,7 +449,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     }
 
     @Override // com.baidu.ar.capture.ICapture
-    public void capture(ICallbackWith<ICaptureResult> iCallbackWith) {
+    public void capture(ICallbackWith iCallbackWith) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iCallbackWith) == null) {
             V(null);
@@ -531,7 +531,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     }
 
     @Override // com.baidu.ar.capture.ICapture
-    public void setCaptureCallback(ICallbackWith<ICaptureResult> iCallbackWith) {
+    public void setCaptureCallback(ICallbackWith iCallbackWith) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, iCallbackWith) == null) {
             this.ls = iCallbackWith;
@@ -539,7 +539,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap<String, Object> hashMap) {
+    public void setup(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
             super.setup(hashMap);
@@ -577,20 +577,20 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                 }
 
                 @Override // com.baidu.ar.lua.LuaMsgListener
-                public List<String> getMsgKeyListened() {
+                public List getMsgKeyListened() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Arrays.asList("event_name") : (List) invokeV.objValue;
                 }
 
                 @Override // com.baidu.ar.lua.LuaMsgListener
-                public void onLuaMessage(HashMap<String, Object> hashMap2) {
+                public void onLuaMessage(HashMap hashMap2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap2) == null) {
                         String str = (String) hashMap2.get("event_name");
                         if ("get_pixel_frame".equals(str)) {
                             this.ly.V((String) hashMap2.get("filter_id"));
-                            this.ly.d((ICallbackWith<ICaptureResult>) null);
+                            this.ly.d((ICallbackWith) null);
                         } else if (!"need_face".equals(str) || this.ly.lb == null) {
                         } else {
                             this.ly.lb.onOpen();

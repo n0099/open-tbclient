@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.RemoteException;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,21 +27,31 @@ public class a extends d.a {
     public static volatile a b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler a;
-    public final HashMap<ComponentName, IBinder> c;
-    public final HashMap<ComponentName, b> d;
-    public final C0502a<Intent> e;
-    public final HashMap<ComponentName, com.bytedance.pangle.service.a> f;
-    public final HashSet<ComponentName> g;
-    public final HashSet<ComponentName> h;
+    public final HashMap c;
+    public final HashMap d;
+    public final C0498a e;
+    public final HashMap f;
+    public final HashSet g;
+    public final HashSet h;
+
+    @Override // com.bytedance.pangle.d.a, android.os.IInterface
+    public IBinder asBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (IBinder) invokeV.objValue;
+    }
 
     /* renamed from: com.bytedance.pangle.service.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0502a<T> extends HashMap<f, T> {
+    public final class C0498a extends HashMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0502a(a aVar) {
+        public C0498a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,24 +70,24 @@ public class a extends d.a {
         }
 
         @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
-        public final boolean containsKey(@Nullable Object obj) {
+        public final boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (super.containsKey(obj)) {
                     return true;
                 }
-                if (obj instanceof f) {
-                    for (f fVar : keySet()) {
-                        try {
-                        } catch (RemoteException e) {
-                            e.printStackTrace();
-                        }
-                        if (fVar.a() == ((f) obj).a()) {
-                            return true;
-                        }
-                    }
+                if (!(obj instanceof f)) {
                     return false;
+                }
+                for (f fVar : keySet()) {
+                    try {
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    if (fVar.a() == ((f) obj).a()) {
+                        return true;
+                    }
                 }
                 return false;
             }
@@ -86,39 +95,39 @@ public class a extends d.a {
         }
 
         @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
-        @Nullable
-        public final T remove(@Nullable Object obj) {
+        public final Object remove(Object obj) {
             InterceptResult invokeL;
             f fVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                T t = (T) super.remove(obj);
-                if (t != null) {
-                    return t;
+                Object remove = super.remove(obj);
+                if (remove != null) {
+                    return remove;
                 }
-                Iterator<f> it = keySet().iterator();
+                Iterator it = keySet().iterator();
                 while (true) {
-                    if (!it.hasNext()) {
+                    if (it.hasNext()) {
+                        fVar = (f) it.next();
+                        try {
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
+                        if (fVar.a() == ((f) obj).a()) {
+                            break;
+                        }
+                    } else {
                         fVar = null;
                         break;
                     }
-                    fVar = it.next();
-                    try {
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
-                    }
-                    if (fVar.a() == ((f) obj).a()) {
-                        break;
-                    }
                 }
-                return (T) super.remove(fVar);
+                return super.remove(fVar);
             }
-            return (T) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends HashSet<f> {
+    public final class b extends HashSet {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
@@ -142,25 +151,25 @@ public class a extends d.a {
         }
 
         @Override // java.util.HashSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
-        public final boolean contains(@Nullable Object obj) {
+        public final boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (super.contains(obj)) {
                     return true;
                 }
-                if (obj instanceof f) {
-                    Iterator<f> it = iterator();
-                    while (it.hasNext()) {
-                        try {
-                        } catch (RemoteException e) {
-                            e.printStackTrace();
-                        }
-                        if (it.next().a() == ((f) obj).a()) {
-                            return true;
-                        }
-                    }
+                if (!(obj instanceof f)) {
                     return false;
+                }
+                Iterator it = iterator();
+                while (it.hasNext()) {
+                    try {
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    if (((f) it.next()).a() == ((f) obj).a()) {
+                        return true;
+                    }
                 }
                 return false;
             }
@@ -168,7 +177,7 @@ public class a extends d.a {
         }
 
         @Override // java.util.HashSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
-        public final boolean remove(@Nullable Object obj) {
+        public final boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -176,18 +185,18 @@ public class a extends d.a {
                     return true;
                 }
                 f fVar = null;
-                Iterator<f> it = iterator();
+                Iterator it = iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    f next = it.next();
+                    f fVar2 = (f) it.next();
                     try {
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
-                    if (next.a() == ((f) obj).a()) {
-                        fVar = next;
+                    if (fVar2.a() == ((f) obj).a()) {
+                        fVar = fVar2;
                         break;
                     }
                 }
@@ -210,13 +219,66 @@ public class a extends d.a {
                 return;
             }
         }
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
-        this.e = new C0502a<>(this);
-        this.f = new HashMap<>();
-        this.g = new HashSet<>();
-        this.h = new HashSet<>();
+        this.c = new HashMap();
+        this.d = new HashMap();
+        this.e = new C0498a(this);
+        this.f = new HashMap();
+        this.g = new HashSet();
+        this.h = new HashSet();
         this.a = new Handler(Looper.getMainLooper());
+    }
+
+    public static com.bytedance.pangle.service.a d(Intent intent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, intent, str)) == null) {
+            com.bytedance.pangle.service.a e = e(intent, str);
+            if (e != null) {
+                e.onCreate();
+            }
+            return e;
+        }
+        return (com.bytedance.pangle.service.a) invokeLL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized boolean a(Intent intent, f fVar, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, intent, fVar, str)) == null) {
+            synchronized (this) {
+                ComponentName component = intent.getComponent();
+                if (!this.f.containsKey(component)) {
+                    com.bytedance.pangle.service.a d = d(intent, str);
+                    if (d == null) {
+                        return false;
+                    }
+                    this.f.put(component, d);
+                }
+                com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) this.f.get(component);
+                if (!this.c.containsKey(component)) {
+                    this.c.put(component, aVar.onBind(intent));
+                }
+                IBinder iBinder = (IBinder) this.c.get(component);
+                if (iBinder != null) {
+                    if (this.d.containsKey(component)) {
+                        if (!((b) this.d.get(component)).contains(fVar)) {
+                            ((b) this.d.get(component)).add(fVar);
+                            this.e.put(fVar, intent);
+                            fVar.a(component, iBinder);
+                        }
+                    } else {
+                        b bVar = new b(this);
+                        bVar.add(fVar);
+                        this.d.put(component, bVar);
+                        this.e.put(fVar, intent);
+                        fVar.a(component, iBinder);
+                    }
+                }
+                return true;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 
     public static a b() {
@@ -236,6 +298,51 @@ public class a extends d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void b(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, fVar) == null) {
+            synchronized (this) {
+                for (ComponentName componentName : this.d.keySet()) {
+                    b bVar = (b) this.d.get(componentName);
+                    if (bVar.contains(fVar)) {
+                        bVar.remove(fVar);
+                        Intent intent = (Intent) this.e.remove(fVar);
+                        if (bVar.size() == 0) {
+                            this.d.remove(componentName);
+                            com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) this.f.get(componentName);
+                            if (aVar != null) {
+                                aVar.onUnbind(intent);
+                            }
+                        }
+                        b(componentName);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean b(ComponentName componentName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, componentName)) == null) {
+            if (!this.g.contains(componentName)) {
+                if (this.d.get(componentName) == null) {
+                    c(componentName);
+                    return true;
+                }
+                return false;
+            } else if (this.h.contains(componentName) && !this.d.containsKey(componentName)) {
+                c(componentName);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public synchronized ComponentName c(Intent intent, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -250,109 +357,12 @@ public class a extends d.a {
                     this.f.put(component, d);
                     this.g.add(component);
                 }
-                com.bytedance.pangle.service.a aVar = this.f.get(component);
+                com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) this.f.get(component);
                 if (aVar != null) {
                     aVar.onStartCommand(intent, 0, 0);
                 }
                 return component;
             }
-        }
-        return (ComponentName) invokeLL.objValue;
-    }
-
-    public static com.bytedance.pangle.service.a d(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, intent, str)) == null) {
-            com.bytedance.pangle.service.a e = e(intent, str);
-            if (e != null) {
-                e.onCreate();
-            }
-            return e;
-        }
-        return (com.bytedance.pangle.service.a) invokeLL.objValue;
-    }
-
-    public static com.bytedance.pangle.service.a e(Intent intent, String str) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, intent, str)) == null) {
-            ComponentName component = intent.getComponent();
-            Plugin plugin = PluginManager.getInstance().getPlugin(str);
-            try {
-                z = Zeus.loadPlugin(str);
-            } catch (Exception e) {
-                e = e;
-                z = false;
-            }
-            try {
-                com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) plugin.mClassLoader.loadClass(component.getClassName()).newInstance();
-                aVar.attach(plugin);
-                return aVar;
-            } catch (Exception e2) {
-                e = e2;
-                ZeusLogger.e(ZeusLogger.TAG_SERVICE, "newServiceInstance failed! loadPlugin = ".concat(String.valueOf(z)), e);
-                throw new RuntimeException(e);
-            }
-        }
-        return (com.bytedance.pangle.service.a) invokeLL.objValue;
-    }
-
-    @Override // com.bytedance.pangle.d.a, android.os.IInterface
-    public IBinder asBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (IBinder) invokeV.objValue;
-    }
-
-    @Override // com.bytedance.pangle.d
-    public final ComponentName a(Intent intent, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, intent, str)) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                return c(intent, str);
-            }
-            this.a.post(new Runnable(this, intent, str) { // from class: com.bytedance.pangle.service.a.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Intent a;
-                public final /* synthetic */ String b;
-                public final /* synthetic */ a c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, intent, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.c = this;
-                    this.a = intent;
-                    this.b = str;
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.c.c(this.a, this.b);
-                    }
-                }
-            });
-            return intent.getComponent();
         }
         return (ComponentName) invokeLL.objValue;
     }
@@ -404,6 +414,138 @@ public class a extends d.a {
         return invokeLL.booleanValue;
     }
 
+    private void c(ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, componentName) == null) {
+            com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) this.f.remove(componentName);
+            this.h.remove(componentName);
+            this.c.remove(componentName);
+            this.g.remove(componentName);
+            if (aVar != null) {
+                aVar.onDestroy();
+            }
+        }
+    }
+
+    @Override // com.bytedance.pangle.d
+    public final void a(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                b(fVar);
+            } else {
+                this.a.post(new Runnable(this, fVar) { // from class: com.bytedance.pangle.service.a.a.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ f a;
+                    public final /* synthetic */ a b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, fVar};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.b = this;
+                        this.a = fVar;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
+                        }
+                        this.b.b(this.a);
+                    }
+                });
+            }
+        }
+    }
+
+    public static com.bytedance.pangle.service.a e(Intent intent, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, intent, str)) == null) {
+            ComponentName component = intent.getComponent();
+            Plugin plugin = PluginManager.getInstance().getPlugin(str);
+            try {
+                z = Zeus.loadPlugin(str);
+            } catch (Exception e) {
+                e = e;
+                z = false;
+            }
+            try {
+                com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) plugin.mClassLoader.loadClass(component.getClassName()).newInstance();
+                aVar.attach(plugin);
+                return aVar;
+            } catch (Exception e2) {
+                e = e2;
+                ZeusLogger.e(ZeusLogger.TAG_SERVICE, "newServiceInstance failed! loadPlugin = ".concat(String.valueOf(z)), e);
+                throw new RuntimeException(e);
+            }
+        }
+        return (com.bytedance.pangle.service.a) invokeLL.objValue;
+    }
+
+    @Override // com.bytedance.pangle.d
+    public final ComponentName a(Intent intent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, intent, str)) == null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                return c(intent, str);
+            }
+            this.a.post(new Runnable(this, intent, str) { // from class: com.bytedance.pangle.service.a.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Intent a;
+                public final /* synthetic */ String b;
+                public final /* synthetic */ a c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, intent, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.c = this;
+                    this.a = intent;
+                    this.b = str;
+                }
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.c.c(this.a, this.b);
+                    }
+                }
+            });
+            return intent.getComponent();
+        }
+        return (ComponentName) invokeLL.objValue;
+    }
+
     public final synchronized boolean a(ComponentName componentName) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -417,39 +559,6 @@ public class a extends d.a {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    private boolean b(ComponentName componentName) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, componentName)) == null) {
-            if (!this.g.contains(componentName)) {
-                if (this.d.get(componentName) == null) {
-                    c(componentName);
-                    return true;
-                }
-                return false;
-            } else if (!this.h.contains(componentName) || this.d.containsKey(componentName)) {
-                return false;
-            } else {
-                c(componentName);
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    private void c(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, componentName) == null) {
-            com.bytedance.pangle.service.a remove = this.f.remove(componentName);
-            this.h.remove(componentName);
-            this.c.remove(componentName);
-            this.g.remove(componentName);
-            if (remove != null) {
-                remove.onDestroy();
-            }
-        }
     }
 
     @Override // com.bytedance.pangle.d
@@ -494,126 +603,18 @@ public class a extends d.a {
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            this.e.a(this.a, this.b, this.d);
-                        } catch (RemoteException e) {
-                            ZeusLogger.e(ZeusLogger.TAG_SERVICE, "bindService failed", e);
-                        }
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    try {
+                        this.e.a(this.a, this.b, this.d);
+                    } catch (RemoteException e) {
+                        ZeusLogger.e(ZeusLogger.TAG_SERVICE, "bindService failed", e);
                     }
                 }
             });
             return true;
         }
         return invokeLLIL.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized boolean a(Intent intent, f fVar, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, intent, fVar, str)) == null) {
-            synchronized (this) {
-                ComponentName component = intent.getComponent();
-                if (!this.f.containsKey(component)) {
-                    com.bytedance.pangle.service.a d = d(intent, str);
-                    if (d == null) {
-                        return false;
-                    }
-                    this.f.put(component, d);
-                }
-                com.bytedance.pangle.service.a aVar = this.f.get(component);
-                if (!this.c.containsKey(component)) {
-                    this.c.put(component, aVar.onBind(intent));
-                }
-                IBinder iBinder = this.c.get(component);
-                if (iBinder != null) {
-                    if (this.d.containsKey(component)) {
-                        if (!this.d.get(component).contains(fVar)) {
-                            this.d.get(component).add(fVar);
-                            this.e.put(fVar, intent);
-                            fVar.a(component, iBinder);
-                        }
-                    } else {
-                        b bVar = new b(this);
-                        bVar.add(fVar);
-                        this.d.put(component, bVar);
-                        this.e.put(fVar, intent);
-                        fVar.a(component, iBinder);
-                    }
-                }
-                return true;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void b(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, fVar) == null) {
-            synchronized (this) {
-                for (ComponentName componentName : this.d.keySet()) {
-                    b bVar = this.d.get(componentName);
-                    if (bVar.contains(fVar)) {
-                        bVar.remove(fVar);
-                        Intent remove = this.e.remove(fVar);
-                        if (bVar.size() == 0) {
-                            this.d.remove(componentName);
-                            com.bytedance.pangle.service.a aVar = this.f.get(componentName);
-                            if (aVar != null) {
-                                aVar.onUnbind(remove);
-                            }
-                        }
-                        b(componentName);
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.bytedance.pangle.d
-    public final void a(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                b(fVar);
-            } else {
-                this.a.post(new Runnable(this, fVar) { // from class: com.bytedance.pangle.service.a.a.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ f a;
-                    public final /* synthetic */ a b;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, fVar};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.b = this;
-                        this.a = fVar;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.b.b(this.a);
-                        }
-                    }
-                });
-            }
-        }
     }
 }

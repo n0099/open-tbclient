@@ -4,8 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import androidx.annotation.FloatRange;
-import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieComposition;
@@ -22,20 +20,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CompositionLayer extends BaseLayer {
-    @Nullable
     public Boolean hasMasks;
-    @Nullable
     public Boolean hasMatte;
     public Paint layerPaint;
-    public final List<BaseLayer> layers;
+    public final List layers;
     public final RectF newClipRect;
     public final RectF rect;
-    @Nullable
-    public BaseKeyframeAnimation<Float, Float> timeRemapping;
+    public BaseKeyframeAnimation timeRemapping;
 
     /* renamed from: com.airbnb.lottie.model.layer.CompositionLayer$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType;
 
         static {
@@ -52,7 +47,7 @@ public class CompositionLayer extends BaseLayer {
         }
     }
 
-    public CompositionLayer(LottieDrawable lottieDrawable, Layer layer, List<Layer> list, LottieComposition lottieComposition) {
+    public CompositionLayer(LottieDrawable lottieDrawable, Layer layer, List list, LottieComposition lottieComposition) {
         super(lottieDrawable, layer);
         int i;
         BaseLayer baseLayer;
@@ -62,7 +57,7 @@ public class CompositionLayer extends BaseLayer {
         this.layerPaint = new Paint();
         AnimatableFloatValue timeRemapping = layer.getTimeRemapping();
         if (timeRemapping != null) {
-            BaseKeyframeAnimation<Float, Float> createAnimation = timeRemapping.createAnimation();
+            BaseKeyframeAnimation createAnimation = timeRemapping.createAnimation();
             this.timeRemapping = createAnimation;
             addAnimation(createAnimation);
             this.timeRemapping.addUpdateListener(this);
@@ -76,7 +71,7 @@ public class CompositionLayer extends BaseLayer {
             if (size < 0) {
                 break;
             }
-            Layer layer2 = list.get(size);
+            Layer layer2 = (Layer) list.get(size);
             BaseLayer forModel = BaseLayer.forModel(layer2, lottieDrawable, lottieComposition);
             if (forModel != null) {
                 longSparseArray.put(forModel.getLayerModel().getId(), forModel);
@@ -102,11 +97,11 @@ public class CompositionLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.model.KeyPathElement
-    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
-        super.addValueCallback(t, lottieValueCallback);
-        if (t == LottieProperty.TIME_REMAP) {
+    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
+        super.addValueCallback(obj, lottieValueCallback);
+        if (obj == LottieProperty.TIME_REMAP) {
             if (lottieValueCallback == null) {
-                BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation = this.timeRemapping;
+                BaseKeyframeAnimation baseKeyframeAnimation = this.timeRemapping;
                 if (baseKeyframeAnimation != null) {
                     baseKeyframeAnimation.setValueCallback(null);
                     return;
@@ -122,10 +117,16 @@ public class CompositionLayer extends BaseLayer {
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
     public void drawLayer(Canvas canvas, Matrix matrix, int i) {
+        boolean z;
+        boolean z2;
         L.beginSection("CompositionLayer#draw");
         this.newClipRect.set(0.0f, 0.0f, this.layerModel.getPreCompWidth(), this.layerModel.getPreCompHeight());
         matrix.mapRect(this.newClipRect);
-        boolean z = this.lottieDrawable.isApplyingOpacityToLayersEnabled() && this.layers.size() > 1 && i != 255;
+        if (this.lottieDrawable.isApplyingOpacityToLayersEnabled() && this.layers.size() > 1 && i != 255) {
+            z = true;
+        } else {
+            z = false;
+        }
         if (z) {
             this.layerPaint.setAlpha(i);
             Utils.saveLayerCompat(canvas, this.newClipRect, this.layerPaint);
@@ -136,8 +137,13 @@ public class CompositionLayer extends BaseLayer {
             i = 255;
         }
         for (int size = this.layers.size() - 1; size >= 0; size--) {
-            if (!this.newClipRect.isEmpty() ? canvas.clipRect(this.newClipRect) : true) {
-                this.layers.get(size).draw(canvas, matrix, i);
+            if (!this.newClipRect.isEmpty()) {
+                z2 = canvas.clipRect(this.newClipRect);
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                ((BaseLayer) this.layers.get(size)).draw(canvas, matrix, i);
             }
         }
         canvas.restore();
@@ -149,7 +155,7 @@ public class CompositionLayer extends BaseLayer {
         super.getBounds(rectF, matrix, z);
         for (int size = this.layers.size() - 1; size >= 0; size--) {
             this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-            this.layers.get(size).getBounds(this.rect, this.boundsMatrix, true);
+            ((BaseLayer) this.layers.get(size)).getBounds(this.rect, this.boundsMatrix, true);
             rectF.union(this.rect);
         }
     }
@@ -157,7 +163,7 @@ public class CompositionLayer extends BaseLayer {
     public boolean hasMasks() {
         if (this.hasMasks == null) {
             for (int size = this.layers.size() - 1; size >= 0; size--) {
-                BaseLayer baseLayer = this.layers.get(size);
+                BaseLayer baseLayer = (BaseLayer) this.layers.get(size);
                 if (baseLayer instanceof ShapeLayer) {
                     if (baseLayer.hasMasksOnThisLayer()) {
                         this.hasMasks = Boolean.TRUE;
@@ -180,7 +186,7 @@ public class CompositionLayer extends BaseLayer {
                 return true;
             }
             for (int size = this.layers.size() - 1; size >= 0; size--) {
-                if (this.layers.get(size).hasMatteOnThisLayer()) {
+                if (((BaseLayer) this.layers.get(size)).hasMatteOnThisLayer()) {
                     this.hasMatte = Boolean.TRUE;
                     return true;
                 }
@@ -191,17 +197,17 @@ public class CompositionLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void resolveChildKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+    public void resolveChildKeyPath(KeyPath keyPath, int i, List list, KeyPath keyPath2) {
         for (int i2 = 0; i2 < this.layers.size(); i2++) {
-            this.layers.get(i2).resolveKeyPath(keyPath, i, list, keyPath2);
+            ((BaseLayer) this.layers.get(i2)).resolveKeyPath(keyPath, i, list, keyPath2);
         }
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+    public void setProgress(float f) {
         super.setProgress(f);
         if (this.timeRemapping != null) {
-            f = ((this.timeRemapping.getValue().floatValue() * this.layerModel.getComposition().getFrameRate()) - this.layerModel.getComposition().getStartFrame()) / (this.lottieDrawable.getComposition().getDurationFrames() + 0.01f);
+            f = ((((Float) this.timeRemapping.getValue()).floatValue() * this.layerModel.getComposition().getFrameRate()) - this.layerModel.getComposition().getStartFrame()) / (this.lottieDrawable.getComposition().getDurationFrames() + 0.01f);
         }
         if (this.timeRemapping == null) {
             f -= this.layerModel.getStartProgress();
@@ -210,7 +216,7 @@ public class CompositionLayer extends BaseLayer {
             f /= this.layerModel.getTimeStretch();
         }
         for (int size = this.layers.size() - 1; size >= 0; size--) {
-            this.layers.get(size).setProgress(f);
+            ((BaseLayer) this.layers.get(size)).setProgress(f);
         }
     }
 }

@@ -30,7 +30,27 @@ public class PrefOperate {
     public static String getAppKey(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? CooperService.instance().getAppKey(context) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return CooperService.instance().getAppKey(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void setAppChannel(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            if (str == null || str.equals("")) {
+                bb.c().c("[WARNING] The channel you have set is empty");
+            }
+            CooperService.instance().getHeadObject().l = str;
+        }
+    }
+
+    public static void setAppKey(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            CooperService.instance().getHeadObject().e = str;
+        }
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x0085 -> B:45:0x0085). Please submit an issue!!! */
@@ -50,14 +70,14 @@ public class PrefOperate {
                 if (!TextUtils.isEmpty(a2)) {
                     if (a2.equals(SendStrategyEnum.APP_START.name())) {
                         sendStrategyEnum = SendStrategyEnum.APP_START;
-                        bq.a().a(context, sendStrategyEnum.ordinal());
+                        bp.a().a(context, sendStrategyEnum.ordinal());
                     } else if (a2.equals(SendStrategyEnum.ONCE_A_DAY.name())) {
                         sendStrategyEnum = SendStrategyEnum.ONCE_A_DAY;
-                        bq.a().a(context, sendStrategyEnum.ordinal());
-                        bq.a().b(context, 24);
+                        bp.a().a(context, sendStrategyEnum.ordinal());
+                        bp.a().b(context, 24);
                     } else if (a2.equals(SendStrategyEnum.SET_TIME_INTERVAL.name())) {
                         sendStrategyEnum = SendStrategyEnum.SET_TIME_INTERVAL;
-                        bq.a().a(context, sendStrategyEnum.ordinal());
+                        bp.a().a(context, sendStrategyEnum.ordinal());
                     }
                 }
             } catch (Exception unused2) {
@@ -67,40 +87,22 @@ public class PrefOperate {
                 if (!TextUtils.isEmpty(a3)) {
                     int parseInt = Integer.parseInt(a3);
                     if (sendStrategyEnum.ordinal() == SendStrategyEnum.SET_TIME_INTERVAL.ordinal() && parseInt > 0 && parseInt <= 24) {
-                        bq.a().b(context, parseInt);
+                        bp.a().b(context, parseInt);
                     }
                 }
             } catch (Exception unused3) {
             }
             try {
                 String a4 = bw.a(context, Config.ONLY_WIFI_META_NAME);
-                if (TextUtils.isEmpty(a4)) {
-                    return;
-                }
-                if ("true".equals(a4)) {
-                    bq.a().a(context, true);
-                } else if ("false".equals(a4)) {
-                    bq.a().a(context, false);
+                if (!TextUtils.isEmpty(a4)) {
+                    if ("true".equals(a4)) {
+                        bp.a().a(context, true);
+                    } else if ("false".equals(a4)) {
+                        bp.a().a(context, false);
+                    }
                 }
             } catch (Exception unused4) {
             }
-        }
-    }
-
-    public static void setAppChannel(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            if (str == null || str.equals("")) {
-                bc.c().c("[WARNING] The channel you have set is empty");
-            }
-            CooperService.instance().getHeadObject().l = str;
-        }
-    }
-
-    public static void setAppKey(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            CooperService.instance().getHeadObject().e = str;
         }
     }
 
@@ -108,18 +110,17 @@ public class PrefOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65539, null, context, str, z) == null) {
             if (str == null || str.equals("")) {
-                bc.c().c("[WARNING] The channel you have set is empty");
+                bb.c().c("[WARNING] The channel you have set is empty");
             }
             CooperService.instance().getHeadObject().l = str;
             if (z && str != null && !str.equals("")) {
-                bq.a().d(context, str);
-                bq.a().b(context, true);
+                bp.a().d(context, str);
+                bp.a().b(context, true);
             }
-            if (z) {
-                return;
+            if (!z) {
+                bp.a().d(context, "");
+                bp.a().b(context, false);
             }
-            bq.a().d(context, "");
-            bq.a().b(context, false);
         }
     }
 }

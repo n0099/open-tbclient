@@ -1,7 +1,6 @@
 package com.baidu.searchbox.player.event;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +24,6 @@ public class InternalSyncControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    @PublicMethod
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -35,7 +33,6 @@ public class InternalSyncControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    @PublicMethod
     public void prepare() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -45,7 +42,6 @@ public class InternalSyncControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    @PublicMethod
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -55,7 +51,6 @@ public class InternalSyncControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    @PublicMethod
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -65,7 +60,6 @@ public class InternalSyncControlEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    @PublicMethod
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

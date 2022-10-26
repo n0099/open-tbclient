@@ -3,8 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mr9;
-import com.baidu.tieba.rr9;
+import com.baidu.tieba.es9;
+import com.baidu.tieba.js9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,11 +41,53 @@ public class Session {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public final Object b;
-    public final rr9 c;
+    public final js9 c;
+
+    private native long[] nativeAcquireAllAnchors(long j);
+
+    private native void nativeCloseSession(long j);
+
+    private native void nativeConfigure(long j, long j2);
+
+    private native long nativeCreateAnchor(long j, Pose pose);
+
+    public static native long nativeCreateSession(Context context);
+
+    public static native long nativeCreateSessionForSharedCamera(Context context);
+
+    public static native long nativeCreateSessionWithFeatures(Context context, int[] iArr);
+
+    private native void nativeDestroySession(long j);
+
+    private native long nativeGetCameraConfig(long j);
+
+    private native void nativeGetConfig(long j, long j2);
+
+    private native long[] nativeGetSupportedCameraConfigs(long j);
+
+    private native long nativeHostCloudAnchor(long j, long j2);
+
+    private native boolean nativeIsSupported(long j, long j2);
+
+    private native void nativePause(long j);
+
+    private native long nativeResolveCloudAnchor(long j, String str);
+
+    private native void nativeResume(long j);
+
+    private native int nativeSetCameraConfig(long j, long j2);
+
+    private native void nativeSetCameraTextureName(long j, int i);
+
+    private native void nativeSetDisplayGeometry(long j, int i, int i2, int i3);
+
+    private native void nativeUpdate(long j, long j2);
+
+    public native long[] nativeAcquireAllTrackables(long j, int i);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Feature {
+    public final class Feature {
         public static final /* synthetic */ Feature[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Feature FRONT_CAMERA;
@@ -96,19 +138,25 @@ public class Session {
         public static Feature valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Feature) Enum.valueOf(Feature.class, str) : (Feature) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Feature) Enum.valueOf(Feature.class, str);
+            }
+            return (Feature) invokeL.objValue;
         }
 
         public static Feature[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Feature[]) $VALUES.clone() : (Feature[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Feature[]) $VALUES.clone();
+            }
+            return (Feature[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final /* synthetic */ a[] c;
@@ -133,6 +181,15 @@ public class Session {
             c = new a[]{aVar};
         }
 
+        public static a[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return (a[]) c.clone();
+            }
+            return (a[]) invokeV.objValue;
+        }
+
         public a(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -153,17 +210,11 @@ public class Session {
             }
             this.b = 0;
         }
-
-        public static a[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (a[]) c.clone() : (a[]) invokeV.objValue;
-        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b A;
         public static final b B;
@@ -194,7 +245,7 @@ public class Session {
         public static final b z;
         public transient /* synthetic */ FieldHolder $fh;
         public final int j;
-        public final Class<? extends Exception> k;
+        public final Class k;
         public final String l;
 
         static {
@@ -261,12 +312,6 @@ public class Session {
             }
         }
 
-        public static b[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) D.clone() : (b[]) invokeV.objValue;
-        }
-
         public b(String str, int i2, int i3, Class cls, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -289,109 +334,20 @@ public class Session {
             this.k = cls;
             this.l = str2;
         }
-    }
 
-    public Session() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public static b[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (b[]) D.clone();
             }
+            return (b[]) invokeV.objValue;
         }
-        this.b = new Object();
-        this.c = new rr9();
-        this.a = 0L;
-    }
-
-    public static ByteBuffer a(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
-            if (byteBuffer == null) {
-                return ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
-            }
-            return byteBuffer.order(ByteOrder.nativeOrder());
-        }
-        return (ByteBuffer) invokeL.objValue;
-    }
-
-    private native long[] nativeAcquireAllAnchors(long j);
-
-    private native void nativeCloseSession(long j);
-
-    private native void nativeConfigure(long j, long j2);
-
-    private native long nativeCreateAnchor(long j, Pose pose);
-
-    public static native long nativeCreateSession(Context context);
-
-    public static native long nativeCreateSessionForSharedCamera(Context context);
-
-    public static native long nativeCreateSessionWithFeatures(Context context, int[] iArr);
-
-    private native void nativeDestroySession(long j);
-
-    private native long nativeGetCameraConfig(long j);
-
-    private native void nativeGetConfig(long j, long j2);
-
-    private native long[] nativeGetSupportedCameraConfigs(long j);
-
-    private native long nativeHostCloudAnchor(long j, long j2);
-
-    private native boolean nativeIsSupported(long j, long j2);
-
-    private native void nativePause(long j);
-
-    private native long nativeResolveCloudAnchor(long j, String str);
-
-    private native void nativeResume(long j);
-
-    private native int nativeSetCameraConfig(long j, long j2);
-
-    private native void nativeSetCameraTextureName(long j, int i);
-
-    private native void nativeSetDisplayGeometry(long j, int i, int i2, int i3);
-
-    private native void nativeUpdate(long j, long j2);
-
-    public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.a;
-            if (j != 0) {
-                nativeDestroySession(j);
-                this.a = 0L;
-            }
-            super.finalize();
-        }
-    }
-
-    public native long[] nativeAcquireAllTrackables(long j, int i);
-
-    public Frame update() {
-        InterceptResult invokeV;
-        Frame frame;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.b) {
-                frame = new Frame(this);
-                nativeUpdate(this.a, frame.c);
-            }
-            return frame;
-        }
-        return (Frame) invokeV.objValue;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static abstract class c {
+    public abstract class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public static final c c;
@@ -402,7 +358,9 @@ public class Session {
         public static final /* synthetic */ c[] i;
         public transient /* synthetic */ FieldHolder $fh;
         public final int b;
-        public final Class<?> h;
+        public final Class h;
+
+        public abstract es9 a(long j, Session session);
 
         static {
             InterceptResult invokeClinit;
@@ -417,7 +375,7 @@ public class Session {
                     return;
                 }
             }
-            c = new ad("BASE_TRACKABLE", 0, 1095893248, mr9.class);
+            c = new ad("BASE_TRACKABLE", 0, 1095893248, es9.class);
             a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
             d = new af("PLANE", 2, 1095893249, Plane.class);
             e = new ag("POINT", 3, 1095893250, Point.class);
@@ -449,13 +407,17 @@ public class Session {
             this.h = cls;
         }
 
-        public static c a(Class<? extends mr9> cls) {
+        public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b) {
+            this(str, i2, i3, cls);
+        }
+
+        public static c a(Class cls) {
             InterceptResult invokeL;
             c[] values;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
                 for (c cVar : values()) {
-                    Class<?> cls2 = cVar.h;
+                    Class cls2 = cVar.h;
                     if (cls2 != null && cls2.equals(cls)) {
                         return cVar;
                     }
@@ -468,13 +430,66 @@ public class Session {
         public static c[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) i.clone() : (c[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (c[]) i.clone();
+            }
+            return (c[]) invokeV.objValue;
         }
+    }
 
-        public abstract mr9 a(long j, Session session);
-
-        public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b) {
-            this(str, i2, i3, cls);
+    public Session() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.b = new Object();
+        this.c = new js9();
+        this.a = 0L;
+    }
+
+    public static ByteBuffer a(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
+            if (byteBuffer == null) {
+                return ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
+            }
+            return byteBuffer.order(ByteOrder.nativeOrder());
+        }
+        return (ByteBuffer) invokeL.objValue;
+    }
+
+    public void finalize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.a;
+            if (j != 0) {
+                nativeDestroySession(j);
+                this.a = 0L;
+            }
+            super.finalize();
+        }
+    }
+
+    public Frame update() {
+        InterceptResult invokeV;
+        Frame frame;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.b) {
+                frame = new Frame(this);
+                nativeUpdate(this.a, frame.c);
+            }
+            return frame;
+        }
+        return (Frame) invokeV.objValue;
     }
 }

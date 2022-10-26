@@ -8,7 +8,6 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.text.TextUtils;
 import android.view.View;
-import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
@@ -39,7 +38,7 @@ public class GamenowDownloadButtomView extends View {
     public float m;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,6 +104,30 @@ public class GamenowDownloadButtomView extends View {
         this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f0603ad);
     }
 
+    public final void e(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            float f = 0;
+            RectF rectF = new RectF(f, f, getWidth() + 0, getHeight() + 0);
+            this.a.setColor(this.b);
+            this.a.setStyle(Paint.Style.FILL);
+            float f2 = this.m;
+            if (f2 <= 0.0f) {
+                if (this.d) {
+                    f2 = rectF.height() / 2.0f;
+                } else {
+                    f2 = 0.0f;
+                }
+            }
+            canvas.drawRoundRect(rectF, f2, f2, this.a);
+            this.g.setColor(this.h);
+            this.g.setTextSize(this.i);
+            Paint.FontMetrics fontMetrics = this.g.getFontMetrics();
+            float f3 = fontMetrics.descent;
+            canvas.drawText(this.j, (getMeasuredWidth() - this.g.measureText(this.j)) / 2.0f, ((getHeight() / 2) - f3) + ((f3 - fontMetrics.ascent) / 2.0f), this.g);
+        }
+    }
+
     public final void a(Canvas canvas, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, rectF) == null) {
@@ -140,41 +163,43 @@ public class GamenowDownloadButtomView extends View {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, rectF) == null) {
             int i = a.a[this.l.ordinal()];
             float f = 0.0f;
-            if (i == 1 || i == 2) {
-                Paint paint = new Paint();
-                paint.setStyle(Paint.Style.FILL);
-                float f2 = 1;
-                RectF rectF2 = new RectF(f2, f2, getWidth() - 2, getHeight() - 2);
-                float f3 = this.e / this.k;
-                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF2.width(), 0.0f, new int[]{this.c, 0}, new float[]{f3, f3 + 1.0E-4f}, Shader.TileMode.CLAMP));
-                float f4 = this.m;
-                if (f4 > 0.0f) {
-                    f = f4;
-                } else if (this.d) {
-                    f = rectF2.height() / 2.0f;
+            if (i != 1 && i != 2) {
+                if (i != 3) {
+                    this.a.setColor(this.b);
+                    this.a.setStyle(Paint.Style.FILL);
+                    float f2 = this.m;
+                    if (f2 > 0.0f) {
+                        f = f2;
+                    } else if (this.d) {
+                        f = rectF.height() / 2.0f;
+                    }
+                    canvas.drawRoundRect(rectF, f, f, this.a);
+                    return;
                 }
-                canvas.drawRoundRect(rectF2, f, f, paint);
-            } else if (i != 3) {
-                this.a.setColor(this.b);
-                this.a.setStyle(Paint.Style.FILL);
-                float f5 = this.m;
-                if (f5 > 0.0f) {
-                    f = f5;
-                } else if (this.d) {
-                    f = rectF.height() / 2.0f;
-                }
-                canvas.drawRoundRect(rectF, f, f, this.a);
-            } else {
                 this.a.setColor(this.c);
                 this.a.setStyle(Paint.Style.FILL);
-                float f6 = this.m;
-                if (f6 > 0.0f) {
-                    f = f6;
+                float f3 = this.m;
+                if (f3 > 0.0f) {
+                    f = f3;
                 } else if (this.d) {
                     f = rectF.height() / 2.0f;
                 }
                 canvas.drawRoundRect(rectF, f, f, this.a);
+                return;
             }
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.FILL);
+            float f4 = 1;
+            RectF rectF2 = new RectF(f4, f4, getWidth() - 2, getHeight() - 2);
+            float f5 = this.e / this.k;
+            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF2.width(), 0.0f, new int[]{this.c, 0}, new float[]{f5, f5 + 1.0E-4f}, Shader.TileMode.CLAMP));
+            float f6 = this.m;
+            if (f6 > 0.0f) {
+                f = f6;
+            } else if (this.d) {
+                f = rectF2.height() / 2.0f;
+            }
+            canvas.drawRoundRect(rectF2, f, f, paint);
         }
     }
 
@@ -200,42 +225,6 @@ public class GamenowDownloadButtomView extends View {
         }
     }
 
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            super.draw(canvas);
-            if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.j)) {
-                return;
-            }
-            if (!this.f) {
-                e(canvas);
-            } else {
-                d(canvas);
-            }
-        }
-    }
-
-    public final void e(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            float f = 0;
-            RectF rectF = new RectF(f, f, getWidth() + 0, getHeight() + 0);
-            this.a.setColor(this.b);
-            this.a.setStyle(Paint.Style.FILL);
-            float f2 = this.m;
-            if (f2 <= 0.0f) {
-                f2 = this.d ? rectF.height() / 2.0f : 0.0f;
-            }
-            canvas.drawRoundRect(rectF, f2, f2, this.a);
-            this.g.setColor(this.h);
-            this.g.setTextSize(this.i);
-            Paint.FontMetrics fontMetrics = this.g.getFontMetrics();
-            float f3 = fontMetrics.descent;
-            canvas.drawText(this.j, (getMeasuredWidth() - this.g.measureText(this.j)) / 2.0f, ((getHeight() / 2) - f3) + ((f3 - fontMetrics.ascent) / 2.0f), this.g);
-        }
-    }
-
     public GamenowDownloadButtomView f(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -254,12 +243,6 @@ public class GamenowDownloadButtomView extends View {
             return this;
         }
         return (GamenowDownloadButtomView) invokeZ.objValue;
-    }
-
-    public int getMax() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public GamenowDownloadButtomView h(int i) {
@@ -282,7 +265,7 @@ public class GamenowDownloadButtomView extends View {
         return (GamenowDownloadButtomView) invokeI.objValue;
     }
 
-    public GamenowDownloadButtomView j(@ColorInt int i) {
+    public GamenowDownloadButtomView j(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
@@ -342,5 +325,29 @@ public class GamenowDownloadButtomView extends View {
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.j = str;
         }
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            super.draw(canvas);
+            if (getWidth() != 0 && getHeight() != 0 && !TextUtils.isEmpty(this.j)) {
+                if (!this.f) {
+                    e(canvas);
+                } else {
+                    d(canvas);
+                }
+            }
+        }
+    }
+
+    public int getMax() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
     }
 }

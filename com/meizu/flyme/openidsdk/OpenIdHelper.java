@@ -1,19 +1,15 @@
 package com.meizu.flyme.openidsdk;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-@Keep
 /* loaded from: classes8.dex */
 public class OpenIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
-    @Keep
     public static final String TAG = "OpenIdHelper";
-    @Keep
     public static Method sContextMethod;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,21 +27,15 @@ public class OpenIdHelper {
         }
     }
 
-    @Keep
     public static native String getAAID(Context context);
 
-    @Keep
     public static native String getOAID(Context context);
 
-    @Keep
     public static native String getUDID(Context context);
 
-    @Keep
     public static native String getVAID(Context context);
 
-    @Keep
     public static final native boolean isSupported();
 
-    @Keep
     public static native void setLogEnable(boolean z);
 }

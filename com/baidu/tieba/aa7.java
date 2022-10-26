@@ -1,100 +1,132 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import protobuf.Item;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class aa7 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static volatile SQLiteDatabase b;
+    public static HashMap c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public Double c;
-    public String d;
-    public List<String> e;
-    public Double f;
-    public Integer g;
-    public String h;
-    public String i;
-    public String j;
-    public Integer k;
-    public Integer l;
-    public String m;
-    public String n;
-    public ApkDetailPojo o;
 
-    public aa7() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947608530, "Lcom/baidu/tieba/aa7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947608530, "Lcom/baidu/tieba/aa7;");
+                return;
+            }
+        }
+        c = new HashMap();
+    }
+
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        ba7.d().f();
+                        Iterator it = b().iterator();
+                        while (it.hasNext()) {
+                            String str2 = (String) it.next();
+                            if (str2 != null) {
+                                if (str2.equals("tb_message_center")) {
+                                    ContentValues contentValues = new ContentValues();
+                                    contentValues.put("is_hidden", (Integer) 1);
+                                    ba7.d().update("tb_message_center", contentValues, null, null);
+                                } else if (!str2.equals("tb_new_friends")) {
+                                    ba7.d().delete(str2, null, null);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+                    e.printStackTrace();
+                }
+            } finally {
+                ba7.d().b();
             }
         }
     }
 
-    public static aa7 a(Item item) {
-        InterceptResult invokeL;
+    public static LinkedList b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
-            if (item == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            SQLiteDatabase c2 = c();
+            LinkedList linkedList = new LinkedList();
+            Cursor cursor = null;
+            try {
+                if (c2 != null) {
+                    try {
+                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            while (cursor.moveToNext()) {
+                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                            }
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
+                        e.printStackTrace();
+                    }
+                }
+                return linkedList;
+            } finally {
+                gj.a(cursor);
             }
-            aa7 aa7Var = new aa7();
-            aa7Var.a = item.itemId;
-            aa7Var.b = item.itemName;
-            aa7Var.c = item.iconSize;
-            aa7Var.d = item.iconUrl;
-            aa7Var.e = item.tags;
-            aa7Var.f = item.score;
-            aa7Var.g = item.star;
-            aa7Var.h = item.buttonName;
-            aa7Var.i = item.buttonLink;
-            aa7Var.j = item.itemAppid;
-            aa7Var.k = item.categoryId;
-            aa7Var.l = item.buttonLinkType;
-            aa7Var.m = item.apkName;
-            aa7Var.n = item.forumName;
-            aa7Var.o = ApkDetailPojo.z(item.apkDetail);
-            return aa7Var;
         }
-        return (aa7) invokeL.objValue;
+        return (LinkedList) invokeV.objValue;
     }
 
-    public static aa7 b(tbclient.Item item) {
-        InterceptResult invokeL;
+    public static synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
-            if (item == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (aa7.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
+                }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (c.containsKey(str)) {
+                    return (SQLiteDatabase) c.get(str);
+                }
+                if (b != null && str.equals(a) && b.isOpen()) {
+                    return b;
+                }
+                if (b != null) {
+                    gj.b(b);
+                }
+                z97 z97Var = new z97(TbadkCoreApplication.getInst().getApp(), str);
+                a = str;
+                b = z97Var.getWritableDatabase();
+                return b;
             }
-            aa7 aa7Var = new aa7();
-            aa7Var.a = item.item_id;
-            aa7Var.b = item.item_name;
-            aa7Var.c = item.icon_size;
-            aa7Var.d = item.icon_url;
-            aa7Var.e = item.tags;
-            aa7Var.f = item.score;
-            aa7Var.g = item.star;
-            aa7Var.h = item.button_name;
-            aa7Var.i = item.button_link;
-            aa7Var.j = item.item_appid;
-            aa7Var.k = item.category_id;
-            aa7Var.l = item.button_link_type;
-            aa7Var.m = item.apk_name;
-            aa7Var.n = item.forum_name;
-            aa7Var.o = ApkDetailPojo.A(item.apk_detail);
-            return aa7Var;
         }
-        return (aa7) invokeL.objValue;
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

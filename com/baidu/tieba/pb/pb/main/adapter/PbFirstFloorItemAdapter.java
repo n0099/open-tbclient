@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.mv7;
-import com.baidu.tieba.qn;
-import com.baidu.tieba.xy4;
+import com.baidu.tieba.cz4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.xv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ApkDetail;
 import tbclient.Item;
 /* loaded from: classes5.dex */
-public class PbFirstFloorItemAdapter extends qn<mv7, PbFirstFloorItemViewHolder> {
+public class PbFirstFloorItemAdapter extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener a;
@@ -44,19 +44,26 @@ public class PbFirstFloorItemAdapter extends qn<mv7, PbFirstFloorItemViewHolder>
         public View c;
         public final /* synthetic */ PbFirstFloorItemAdapter d;
 
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            }
+        }
+
         /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ mv7 a;
+            public final /* synthetic */ xv7 a;
             public final /* synthetic */ PbFirstFloorItemViewHolder b;
 
-            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, mv7 mv7Var) {
+            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, xv7 xv7Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {pbFirstFloorItemViewHolder, mv7Var};
+                    Object[] objArr = {pbFirstFloorItemViewHolder, xv7Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -67,16 +74,22 @@ public class PbFirstFloorItemAdapter extends qn<mv7, PbFirstFloorItemViewHolder>
                     }
                 }
                 this.b = pbFirstFloorItemViewHolder;
-                this.a = mv7Var;
+                this.a = xv7Var;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
+                int i;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     int intValue = this.a.a.button_link_type.intValue();
                     ApkDetail apkDetail = this.a.a.apk_detail;
-                    int a = xy4.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
+                    if (apkDetail != null) {
+                        i = apkDetail.pkg_source.intValue();
+                    } else {
+                        i = 0;
+                    }
+                    int a = cz4.a(intValue, i);
                     ItemData itemData = new ItemData();
                     itemData.parseProto(this.a.a);
                     ItemCardHelper.q(this.b.b.getPosition(), this.a.a.item_id.longValue(), this.b.b.z(itemData), this.a.b, a, "", 2);
@@ -124,26 +137,19 @@ public class PbFirstFloorItemAdapter extends qn<mv7, PbFirstFloorItemViewHolder>
             }
         }
 
-        public void c(mv7 mv7Var) {
+        public void c(xv7 xv7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mv7Var) == null) {
-                if (mv7Var != null) {
-                    this.a.setText(this.d.mContext.getText(R.string.obfuscated_res_0x7f0f0fde));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xv7Var) == null) {
+                if (xv7Var != null) {
+                    this.a.setText(this.d.mContext.getText(R.string.obfuscated_res_0x7f0f0ff0));
                     ItemData itemData = new ItemData();
-                    itemData.parseProto(mv7Var.a);
-                    this.b.setData(itemData, 17, mv7Var.b);
-                    this.b.setOnClickListener(new a(this, mv7Var));
+                    itemData.parseProto(xv7Var.a);
+                    this.b.setData(itemData, 17, xv7Var.b);
+                    this.b.setOnClickListener(new a(this, xv7Var));
                 }
                 if (this.d.a != null) {
                     this.b.setOnClickListenerOfRightBtn(this.d.a);
                 }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             }
         }
     }
@@ -200,15 +206,21 @@ public class PbFirstFloorItemAdapter extends qn<mv7, PbFirstFloorItemViewHolder>
         this.a = null;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mv7 mv7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
-        v(i, view2, viewGroup, mv7Var, pbFirstFloorItemViewHolder);
+    public void w(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.a = onClickListener;
+        }
+    }
+
+    @Override // com.baidu.tieba.rn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, (xv7) obj, (PbFirstFloorItemViewHolder) viewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.rn
     /* renamed from: u */
     public PbFirstFloorItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -217,12 +229,12 @@ public class PbFirstFloorItemAdapter extends qn<mv7, PbFirstFloorItemViewHolder>
             LinearLayout linearLayout = new LinearLayout(this.mContext);
             linearLayout.setOrientation(1);
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            int f = ej.f(this.mContext, R.dimen.M_W_X007);
-            int f2 = ej.f(this.mContext, R.dimen.T_X09);
-            int f3 = ej.f(this.mContext, R.dimen.M_H_X005);
-            int f4 = ej.f(this.mContext, R.dimen.M_H_X003);
+            int f = fj.f(this.mContext, R.dimen.M_W_X007);
+            int f2 = fj.f(this.mContext, R.dimen.T_X09);
+            int f3 = fj.f(this.mContext, R.dimen.M_H_X005);
+            int f4 = fj.f(this.mContext, R.dimen.M_H_X003);
             View view2 = new View(this.mContext);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ej.f(this.mContext, R.dimen.tbds1));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, fj.f(this.mContext, R.dimen.tbds1));
             layoutParams.leftMargin = f;
             layoutParams.rightMargin = f;
             linearLayout.addView(view2, layoutParams);
@@ -247,27 +259,20 @@ public class PbFirstFloorItemAdapter extends qn<mv7, PbFirstFloorItemViewHolder>
         return (PbFirstFloorItemViewHolder) invokeL.objValue;
     }
 
-    public View v(int i, View view2, ViewGroup viewGroup, mv7 mv7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, xv7 xv7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mv7Var, pbFirstFloorItemViewHolder})) == null) {
-            if (mv7Var != null && mv7Var.a != null) {
-                pbFirstFloorItemViewHolder.c(mv7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xv7Var, pbFirstFloorItemViewHolder})) == null) {
+            if (xv7Var != null && xv7Var.a != null) {
+                pbFirstFloorItemViewHolder.c(xv7Var);
             }
             pbFirstFloorItemViewHolder.b();
             StatisticItem statisticItem = new StatisticItem("c14070");
-            statisticItem.param("tid", mv7Var.b);
-            statisticItem.param("obj_locate", mv7Var.a.item_id.longValue());
+            statisticItem.param("tid", xv7Var.b);
+            statisticItem.param("obj_locate", xv7Var.a.item_id.longValue());
             TiebaStatic.log(statisticItem);
             return view2;
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void w(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.a = onClickListener;
-        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.location.b;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -300,7 +299,6 @@ public class o extends com.baidu.location.e.e {
     }
 
     @Override // com.baidu.location.e.e
-    @SuppressLint({"NewApi"})
     public void a() {
         String str;
         Interceptable interceptable = $ic;

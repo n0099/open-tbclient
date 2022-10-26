@@ -11,8 +11,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,20 +21,20 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm0;
-import com.baidu.tieba.dh0;
-import com.baidu.tieba.e81;
-import com.baidu.tieba.fm0;
-import com.baidu.tieba.h01;
-import com.baidu.tieba.i81;
-import com.baidu.tieba.ii0;
-import com.baidu.tieba.l31;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.cm0;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.f81;
+import com.baidu.tieba.gm0;
+import com.baidu.tieba.i01;
+import com.baidu.tieba.j81;
+import com.baidu.tieba.ji0;
 import com.baidu.tieba.m31;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.uo0;
-import com.baidu.tieba.vh0;
-import com.baidu.tieba.yo0;
-import com.baidu.tieba.zi0;
+import com.baidu.tieba.n31;
+import com.baidu.tieba.u21;
+import com.baidu.tieba.vo0;
+import com.baidu.tieba.wh0;
+import com.baidu.tieba.zo0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,9 +56,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public RelativeLayout g;
     public View.OnClickListener h;
     public LinearLayout i;
-    public e81<View> j;
+    public f81 j;
     public FrameLayout k;
-    public vh0 l;
+    public wh0 l;
     public f m;
     public boolean n;
     public View o;
@@ -68,10 +66,23 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public SimpleAdInfoView q;
     public boolean r;
     public TextView s;
-    public l31 t;
+    public m31 t;
     public Runnable u;
     public final Object v;
     public String w;
+
+    /* loaded from: classes2.dex */
+    public interface f {
+        int a();
+
+        int getPosition();
+    }
+
+    public final void t(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, adBaseModel) == null) {
+        }
+    }
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -104,13 +115,13 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.c.v()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.c.v()) {
                 return;
             }
             AdBaseModel adBaseModel = this.a;
-            yo0 yo0Var = adBaseModel.m;
-            if (yo0Var != null && yo0Var.a == 0) {
-                ii0.c(adBaseModel.f.c, this.c.getContext());
+            zo0 zo0Var = adBaseModel.m;
+            if (zo0Var != null && zo0Var.a == 0) {
+                ji0.c(adBaseModel.f.c, this.c.getContext());
             }
             this.c.y(ClogBuilder.LogType.CLICK, this.b, this.a);
             if (this.c.h != null) {
@@ -120,7 +131,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends l31.b {
+    public class b extends m31.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadVideoAdOverContainer a;
@@ -143,7 +154,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
             this.a = nadVideoAdOverContainer;
         }
 
-        @Override // com.baidu.tieba.l31.b
+        @Override // com.baidu.tieba.m31.b
         public void f(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -228,7 +239,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class e extends fm0<dh0> {
+    public class e extends gm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBaseModel b;
@@ -257,26 +268,17 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fm0
-        public void onEvent(@NonNull dh0 dh0Var) {
+        @Override // com.baidu.tieba.gm0
+        public void onEvent(eh0 eh0Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dh0Var) == null) || this.c.j == null || this.c.j.getRealView() == null || !(this.c.j.getRealView() instanceof NadEnhanceButtonDownloadView)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eh0Var) == null) && this.c.j != null && this.c.j.getRealView() != null && (this.c.j.getRealView() instanceof NadEnhanceButtonDownloadView)) {
+                NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = (NadEnhanceButtonDownloadView) this.c.j.getRealView();
+                vo0 vo0Var = eh0Var.a;
+                if (vo0Var != null && vo0Var == this.b.l && nadEnhanceButtonDownloadView.getDownloadStatus() != AdDownloadStatus.DOWNLOADING) {
+                    nadEnhanceButtonDownloadView.performClick();
+                }
             }
-            NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = (NadEnhanceButtonDownloadView) this.c.j.getRealView();
-            uo0 uo0Var = dh0Var.a;
-            if (uo0Var == null || uo0Var != this.b.l || nadEnhanceButtonDownloadView.getDownloadStatus() == AdDownloadStatus.DOWNLOADING) {
-                return;
-            }
-            nadEnhanceButtonDownloadView.performClick();
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface f {
-        int a();
-
-        int getPosition();
     }
 
     static {
@@ -294,6 +296,39 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         }
         x = new char[]{21704};
         new String(x);
+    }
+
+    public boolean getHotAreaEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            m31 m31Var = new m31(100000L, 1000L);
+            m31Var.d(new b(this));
+            this.t = m31Var;
+            c cVar = new c(this);
+            this.u = cVar;
+            post(cVar);
+        }
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (this.f.getVisibility() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -321,151 +356,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         n(context);
     }
 
-    public void A(int i) {
-        e81<View> e81Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (e81Var = this.j) == null) {
-            return;
-        }
-        e81Var.update(i);
-    }
-
-    public boolean getHotAreaEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : invokeV.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (getTag() instanceof AdBaseModel)) {
-            AdBaseModel adBaseModel = (AdBaseModel) getTag();
-            if (adBaseModel.f == null) {
-                return;
-            }
-            if (this.b.getParent() instanceof View) {
-                ((View) this.b.getParent()).setVisibility(0);
-            }
-            if (!TextUtils.isEmpty(adBaseModel.f.f)) {
-                this.b.setVisibility(0);
-                this.c.setVisibility(8);
-                this.b.g(adBaseModel.f.f);
-            } else if (!TextUtils.isEmpty(adBaseModel.f.e)) {
-                this.b.setVisibility(8);
-                this.c.setVisibility(0);
-                this.c.setText(adBaseModel.f.e);
-            } else {
-                this.b.setVisibility(8);
-                this.c.setVisibility(8);
-            }
-        }
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.n = z;
-            this.a.setClickable(z);
-            this.e.setClickable(z);
-            this.q.setClickable(z);
-            e81<View> e81Var = this.j;
-            if (e81Var == null || e81Var.getRealView() == null) {
-                return;
-            }
-            this.j.getRealView().setClickable(z);
-        }
-    }
-
-    public final SpannableStringBuilder l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (getResources() == null) {
-                return new SpannableStringBuilder(str);
-            }
-            return i81.b(str, 2, this.a, getContext(), ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dfd), (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070530));
-        }
-        return (SpannableStringBuilder) invokeL.objValue;
-    }
-
-    public final String m(@Nullable String str, @Nullable TextPaint textPaint) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, textPaint)) == null) ? m31.b(str, "", (int) (((int) (t21.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070536))) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070532)), textPaint) : (String) invokeLL.objValue;
-    }
-
-    public final void n(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0603, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09161e);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915d2);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091603);
-            this.f = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f0900d9);
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0900d7);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091615);
-            this.k = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fb);
-            this.o = findViewById(R.id.obfuscated_res_0x7f0915d5);
-            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091607);
-            this.q = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f0915ce);
-            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d3);
-            this.b = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09008a);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09008b);
-        }
-    }
-
-    public final void o(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) {
-            findViewById(R.id.obfuscated_res_0x7f09161c).setVisibility(adBaseModel.d ? 0 : 8);
-            q(adBaseModel);
-            this.k.setVisibility(0);
-            p();
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            l31 l31Var = new l31(100000L, 1000L);
-            l31Var.d(new b(this));
-            this.t = l31Var;
-            c cVar = new c(this);
-            this.u = cVar;
-            post(cVar);
-        }
-    }
-
-    public final void q(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) {
-            e81<View> e81Var = this.j;
-            if (e81Var != null) {
-                e81Var.a();
-                this.k.setVisibility(8);
-                this.j = null;
-            }
-            if (adBaseModel.m == null) {
-                return;
-            }
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09161c);
-            findViewById.setVisibility(0);
-            this.k.setVisibility(0);
-            if (this.k.getChildCount() > 0) {
-                this.k.removeAllViews();
-            }
-            AdEnhanceButtonView adEnhanceButtonView = new AdEnhanceButtonView(zi0.b(), this.k, findViewById);
-            this.j = adEnhanceButtonView;
-            vh0 vh0Var = new vh0(adBaseModel, adEnhanceButtonView);
-            this.l = vh0Var;
-            vh0Var.h(this.h);
-            this.j.setEnhanceBtnListener(this.l);
-            this.j.setData(adBaseModel.m);
-            this.j.setBtnIconNightModeEnable(false);
-        }
-    }
-
-    public final void r(@NonNull AdBaseModel adBaseModel) {
+    public final void r(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, adBaseModel) == null) {
             this.a.setOnClickListener(s(adBaseModel, ClogBuilder.Area.TITTLE.type));
@@ -478,197 +369,6 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 adImageView.setOnClickListener(s(adBaseModel, ClogBuilder.Area.AVATAR.type));
             }
             this.e.setOnClickListener(s(adBaseModel, ClogBuilder.Area.NAME.type));
-        }
-    }
-
-    public final View.OnClickListener s(@NonNull AdBaseModel adBaseModel, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, adBaseModel, str)) == null) ? new a(this, adBaseModel, str) : (View.OnClickListener) invokeLL.objValue;
-    }
-
-    public void setAdInfoVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            if (z) {
-                this.o.setVisibility(0);
-                if (this.j != null) {
-                    this.k.setVisibility(0);
-                }
-                this.a.setVisibility(0);
-                this.d.setVisibility(0);
-                this.p.setVisibility(0);
-                this.q.setVisibility(this.r ? 0 : 8);
-                return;
-            }
-            this.o.setVisibility(4);
-            if (this.j != null) {
-                this.k.setVisibility(4);
-            }
-            this.a.setVisibility(4);
-            this.d.setVisibility(4);
-            this.p.setVisibility(4);
-            this.q.setVisibility(this.r ? 4 : 8);
-        }
-    }
-
-    public void setAdOverInfoVisiblity(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            if (z) {
-                this.g.setVisibility(0);
-            } else {
-                this.g.setVisibility(4);
-            }
-        }
-    }
-
-    public void setAlsLogPage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.w = str;
-        }
-    }
-
-    public void setData(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, adBaseModel) == null) {
-            if (!u(adBaseModel)) {
-                setVisibility(8);
-                return;
-            }
-            setTag(adBaseModel);
-            setVisibility(0);
-            o(adBaseModel);
-            w(adBaseModel);
-            j();
-            r(adBaseModel);
-            t(adBaseModel);
-            x(adBaseModel);
-        }
-    }
-
-    public void setFeedbackBtnVisibility(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.s.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public void setOnNewTailFrameReplayClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
-            this.f.setOnReplayClickListener(onClickListener);
-        }
-    }
-
-    public void setOnNewTailJumpHandler(PortraitVideoTailView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) {
-            this.f.setOnTailJumpHandler(cVar);
-        }
-    }
-
-    public void setOnUiClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
-            this.h = onClickListener;
-            PortraitVideoTailView portraitVideoTailView = this.f;
-            if (portraitVideoTailView != null) {
-                portraitVideoTailView.setOnAdClickListener(onClickListener);
-            }
-            vh0 vh0Var = this.l;
-            if (vh0Var != null) {
-                vh0Var.h(onClickListener);
-            }
-        }
-    }
-
-    public void setOverLayInfoVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            setAdInfoVisible(z);
-        }
-    }
-
-    public void setPlayerProgressHandler(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) {
-            this.m = fVar;
-        }
-    }
-
-    public final void t(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, adBaseModel) == null) {
-        }
-    }
-
-    public final boolean u(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f == null) ? false : true : invokeL.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f.getVisibility() == 0 : invokeV.booleanValue;
-    }
-
-    public final void w(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, adBaseModel) == null) {
-            String str = adBaseModel.f.g;
-            if (str == null) {
-                str = "";
-            }
-            this.a.post(new d(this, adBaseModel, str));
-        }
-    }
-
-    public final void x(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, adBaseModel) == null) {
-            bm0.a().c(this.v, 1, new e(this, dh0.class, adBaseModel));
-        }
-    }
-
-    public final void y(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048603, this, logType, str, adBaseModel) == null) || adBaseModel == null || TextUtils.isEmpty(adBaseModel.f.d)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.y(logType);
-        clogBuilder.j(str);
-        clogBuilder.v(this.w);
-        f fVar = this.m;
-        if (fVar != null) {
-            clogBuilder.k(String.valueOf(fVar.getPosition()));
-            clogBuilder.l(String.valueOf(this.m.a()));
-        }
-        clogBuilder.p(adBaseModel.f.d);
-        h01.b(clogBuilder);
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            Object tag = getTag();
-            if (!(tag instanceof AdBaseModel)) {
-                this.f.e();
-                setAdOverInfoVisiblity(true);
-                k(true);
-            } else if (z) {
-                this.f.j((AdBaseModel) tag);
-                setAdOverInfoVisiblity(false);
-                k(false);
-            } else {
-                this.f.e();
-                setAdOverInfoVisiblity(true);
-                k(true);
-            }
         }
     }
 
@@ -722,5 +422,343 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         this.v = new Object();
         this.w = "";
         n(context);
+    }
+
+    public void A(int i) {
+        f81 f81Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (f81Var = this.j) != null) {
+            f81Var.update(i);
+        }
+    }
+
+    public final void o(AdBaseModel adBaseModel) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) {
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09160e);
+            if (adBaseModel.d) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            findViewById.setVisibility(i);
+            q(adBaseModel);
+            this.k.setVisibility(0);
+            p();
+        }
+    }
+
+    public void setAdOverInfoVisiblity(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            if (z) {
+                this.g.setVisibility(0);
+            } else {
+                this.g.setVisibility(4);
+            }
+        }
+    }
+
+    public void setAlsLogPage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.w = str;
+        }
+    }
+
+    public void setFeedbackBtnVisibility(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            TextView textView = this.s;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            textView.setVisibility(i);
+        }
+    }
+
+    public void setOnNewTailFrameReplayClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
+            this.f.setOnReplayClickListener(onClickListener);
+        }
+    }
+
+    public void setOnNewTailJumpHandler(PortraitVideoTailView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) {
+            this.f.setOnTailJumpHandler(cVar);
+        }
+    }
+
+    public void setOnUiClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
+            this.h = onClickListener;
+            PortraitVideoTailView portraitVideoTailView = this.f;
+            if (portraitVideoTailView != null) {
+                portraitVideoTailView.setOnAdClickListener(onClickListener);
+            }
+            wh0 wh0Var = this.l;
+            if (wh0Var != null) {
+                wh0Var.h(onClickListener);
+            }
+        }
+    }
+
+    public void setOverLayInfoVisible(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            setAdInfoVisible(z);
+        }
+    }
+
+    public void setPlayerProgressHandler(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) {
+            this.m = fVar;
+        }
+    }
+
+    public final boolean u(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, adBaseModel)) == null) {
+            if (adBaseModel != null && adBaseModel.f != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void w(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, adBaseModel) == null) {
+            String str = adBaseModel.f.g;
+            if (str == null) {
+                str = "";
+            }
+            this.a.post(new d(this, adBaseModel, str));
+        }
+    }
+
+    public final void x(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, adBaseModel) == null) {
+            cm0.a().c(this.v, 1, new e(this, eh0.class, adBaseModel));
+        }
+    }
+
+    public final View.OnClickListener s(AdBaseModel adBaseModel, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, adBaseModel, str)) == null) {
+            return new a(this, adBaseModel, str);
+        }
+        return (View.OnClickListener) invokeLL.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !(getTag() instanceof AdBaseModel)) {
+            return;
+        }
+        AdBaseModel adBaseModel = (AdBaseModel) getTag();
+        if (adBaseModel.f == null) {
+            return;
+        }
+        if (this.b.getParent() instanceof View) {
+            ((View) this.b.getParent()).setVisibility(0);
+        }
+        if (!TextUtils.isEmpty(adBaseModel.f.f)) {
+            this.b.setVisibility(0);
+            this.c.setVisibility(8);
+            this.b.g(adBaseModel.f.f);
+        } else if (!TextUtils.isEmpty(adBaseModel.f.e)) {
+            this.b.setVisibility(8);
+            this.c.setVisibility(0);
+            this.c.setText(adBaseModel.f.e);
+        } else {
+            this.b.setVisibility(8);
+            this.c.setVisibility(8);
+        }
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.n = z;
+            this.a.setClickable(z);
+            this.e.setClickable(z);
+            this.q.setClickable(z);
+            f81 f81Var = this.j;
+            if (f81Var != null && f81Var.getRealView() != null) {
+                ((View) this.j.getRealView()).setClickable(z);
+            }
+        }
+    }
+
+    public final SpannableStringBuilder l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (getResources() == null) {
+                return new SpannableStringBuilder(str);
+            }
+            return j81.b(str, 2, this.a, getContext(), ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e0e), (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070530));
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public void setData(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, adBaseModel) == null) {
+            if (!u(adBaseModel)) {
+                setVisibility(8);
+                return;
+            }
+            setTag(adBaseModel);
+            setVisibility(0);
+            o(adBaseModel);
+            w(adBaseModel);
+            j();
+            r(adBaseModel);
+            t(adBaseModel);
+            x(adBaseModel);
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            Object tag = getTag();
+            if (!(tag instanceof AdBaseModel)) {
+                this.f.e();
+                setAdOverInfoVisiblity(true);
+                k(true);
+            } else if (z) {
+                this.f.j((AdBaseModel) tag);
+                setAdOverInfoVisiblity(false);
+                k(false);
+            } else {
+                this.f.e();
+                setAdOverInfoVisiblity(true);
+                k(true);
+            }
+        }
+    }
+
+    public final String m(String str, TextPaint textPaint) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, textPaint)) == null) {
+            return n31.b(str, "", (int) (((int) (u21.c.e(getContext()) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070536))) - getResources().getDimension(R.dimen.obfuscated_res_0x7f070532)), textPaint);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final void n(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0603, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091610);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915c4);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0915f5);
+            this.f = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f0900d9);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0900d7);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091607);
+            this.k = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fb);
+            this.o = findViewById(R.id.obfuscated_res_0x7f0915c7);
+            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915f9);
+            this.q = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f0915c0);
+            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f0915c5);
+            this.b = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09008a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09008b);
+        }
+    }
+
+    public final void q(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) {
+            f81 f81Var = this.j;
+            if (f81Var != null) {
+                f81Var.a();
+                this.k.setVisibility(8);
+                this.j = null;
+            }
+            if (adBaseModel.m == null) {
+                return;
+            }
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09160e);
+            findViewById.setVisibility(0);
+            this.k.setVisibility(0);
+            if (this.k.getChildCount() > 0) {
+                this.k.removeAllViews();
+            }
+            AdEnhanceButtonView adEnhanceButtonView = new AdEnhanceButtonView(aj0.b(), this.k, findViewById);
+            this.j = adEnhanceButtonView;
+            wh0 wh0Var = new wh0(adBaseModel, adEnhanceButtonView);
+            this.l = wh0Var;
+            wh0Var.h(this.h);
+            this.j.setEnhanceBtnListener(this.l);
+            this.j.setData(adBaseModel.m);
+            this.j.setBtnIconNightModeEnable(false);
+        }
+    }
+
+    public void setAdInfoVisible(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            int i = 8;
+            if (z) {
+                this.o.setVisibility(0);
+                if (this.j != null) {
+                    this.k.setVisibility(0);
+                }
+                this.a.setVisibility(0);
+                this.d.setVisibility(0);
+                this.p.setVisibility(0);
+                SimpleAdInfoView simpleAdInfoView = this.q;
+                if (this.r) {
+                    i = 0;
+                }
+                simpleAdInfoView.setVisibility(i);
+                return;
+            }
+            this.o.setVisibility(4);
+            if (this.j != null) {
+                this.k.setVisibility(4);
+            }
+            this.a.setVisibility(4);
+            this.d.setVisibility(4);
+            this.p.setVisibility(4);
+            SimpleAdInfoView simpleAdInfoView2 = this.q;
+            if (this.r) {
+                i = 4;
+            }
+            simpleAdInfoView2.setVisibility(i);
+        }
+    }
+
+    public final void y(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048603, this, logType, str, adBaseModel) == null) && adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.j(str);
+            clogBuilder.v(this.w);
+            f fVar = this.m;
+            if (fVar != null) {
+                clogBuilder.k(String.valueOf(fVar.getPosition()));
+                clogBuilder.l(String.valueOf(this.m.a()));
+            }
+            clogBuilder.p(adBaseModel.f.d);
+            i01.b(clogBuilder);
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.download.a;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -18,8 +17,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.widget.RemoteViews;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.util.io.ActionJsonData;
 import com.ksad.download.DownloadTask;
 import com.ksad.download.d;
@@ -38,17 +35,17 @@ import java.util.HashMap;
 /* loaded from: classes7.dex */
 public final class a implements f {
     public static c Xd;
-    public static HashMap<String, WeakReference<Bitmap>> Xc = new HashMap<>();
-    public static final Handler Xe = new HandlerC0605a();
+    public static HashMap Xc = new HashMap();
+    public static final Handler Xe = new HandlerC0601a();
 
     /* renamed from: com.kwad.sdk.core.download.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class HandlerC0605a extends Handler {
-        public final SparseArray<Long> Xf;
+    public final class HandlerC0601a extends Handler {
+        public final SparseArray Xf;
 
-        public HandlerC0605a() {
+        public HandlerC0601a() {
             super(Looper.getMainLooper());
-            this.Xf = new SparseArray<>();
+            this.Xf = new SparseArray();
         }
 
         @Override // android.os.Handler
@@ -56,7 +53,7 @@ public final class a implements f {
             boolean z = message.arg1 == 1;
             boolean z2 = message.arg2 == 1;
             boolean z3 = message.arg2 == 2;
-            Long l = this.Xf.get(message.what);
+            Long l = (Long) this.Xf.get(message.what);
             NotificationManager notificationManager = (NotificationManager) com.ksad.download.b.getContext().getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (notificationManager == null) {
                 return;
@@ -77,7 +74,7 @@ public final class a implements f {
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public final class b {
         public static String Xg = "ksad_notification_default_icon";
         public String NY;
         public String Xh;
@@ -164,8 +161,8 @@ public final class a implements f {
     }
 
     /* loaded from: classes7.dex */
-    public static class c extends BroadcastReceiver {
-        public static void g(@NonNull Intent intent) {
+    public final class c extends BroadcastReceiver {
+        public static void g(Intent intent) {
             DownloadTask i = i(intent);
             if (i == null) {
                 return;
@@ -173,7 +170,7 @@ public final class a implements f {
             d.N().u(i.getId());
         }
 
-        public static void h(@NonNull Intent intent) {
+        public static void h(Intent intent) {
             DownloadTask i = i(intent);
             if (i == null) {
                 return;
@@ -181,7 +178,6 @@ public final class a implements f {
             i.setNotificationRemoved(true);
         }
 
-        @Nullable
         public static DownloadTask i(Intent intent) {
             int i = intent.getExtras().getInt("taskId", 0);
             if (i == 0) {
@@ -229,7 +225,7 @@ public final class a implements f {
         }
     }
 
-    public static void a(Context context, RemoteViews remoteViews, boolean z, boolean z2, @Nullable PendingIntent pendingIntent, int i, int i2, int i3) {
+    public static void a(Context context, RemoteViews remoteViews, boolean z, boolean z2, PendingIntent pendingIntent, int i, int i2, int i3) {
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(remoteViews).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(pendingIntent).setSmallIcon(ao.ab(context, "ksad_notification_small_icon"));
         if (z2) {
@@ -338,28 +334,27 @@ public final class a implements f {
 
     public static Bitmap n(File file) {
         String absolutePath = file.getAbsolutePath();
-        WeakReference<Bitmap> weakReference = Xc.get(absolutePath);
-        Bitmap bitmap = weakReference != null ? weakReference.get() : null;
+        WeakReference weakReference = (WeakReference) Xc.get(absolutePath);
+        Bitmap bitmap = weakReference != null ? (Bitmap) weakReference.get() : null;
         if (bitmap == null || bitmap.isRecycled()) {
             Bitmap decodeFile = BitmapFactory.decodeFile(absolutePath);
-            Xc.put(absolutePath, new WeakReference<>(decodeFile));
+            Xc.put(absolutePath, new WeakReference(decodeFile));
             return decodeFile;
         }
         return bitmap;
     }
 
     public static Bitmap t(Context context, String str) {
-        WeakReference<Bitmap> weakReference = Xc.get(str);
-        Bitmap bitmap = weakReference != null ? weakReference.get() : null;
+        WeakReference weakReference = (WeakReference) Xc.get(str);
+        Bitmap bitmap = weakReference != null ? (Bitmap) weakReference.get() : null;
         if (bitmap == null || bitmap.isRecycled()) {
             Bitmap decodeResource = BitmapFactory.decodeResource(ao.cH(context), ao.ab(context, str));
-            Xc.put(str, new WeakReference<>(decodeResource));
+            Xc.put(str, new WeakReference(decodeResource));
             return decodeResource;
         }
         return bitmap;
     }
 
-    @SuppressLint({"DefaultLocale"})
     public static String x(long j) {
         return String.format("%.2fMB", Float.valueOf((((float) j) / 1000.0f) / 1000.0f));
     }

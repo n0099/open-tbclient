@@ -1,12 +1,9 @@
 package com.google.android.gms.dynamic;
 
-import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,11 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.dynamic.IFragmentWrapper;
-@KeepForSdk
-@SuppressLint({"NewApi"})
 /* loaded from: classes7.dex */
 public final class FragmentWrapper extends IFragmentWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
@@ -43,9 +37,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
         this.zza = fragment;
     }
 
-    @Nullable
-    @KeepForSdk
-    public static FragmentWrapper wrap(@Nullable Fragment fragment) {
+    public static FragmentWrapper wrap(Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
@@ -58,84 +50,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final boolean zzA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zza.isVisible() : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final int zzb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zza.getId() : invokeV.intValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final int zzc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zza.getTargetRequestCode() : invokeV.intValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    @Nullable
-    public final Bundle zzd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zza.getArguments() : (Bundle) invokeV.objValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    @Nullable
-    public final IFragmentWrapper zze() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? wrap(this.zza.getParentFragment()) : (IFragmentWrapper) invokeV.objValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    @Nullable
-    public final IFragmentWrapper zzf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? wrap(this.zza.getTargetFragment()) : (IFragmentWrapper) invokeV.objValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    @NonNull
-    public final IObjectWrapper zzg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ObjectWrapper.wrap(this.zza.getActivity()) : (IObjectWrapper) invokeV.objValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    @NonNull
-    public final IObjectWrapper zzh() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ObjectWrapper.wrap(this.zza.getResources()) : (IObjectWrapper) invokeV.objValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    @NonNull
-    public final IObjectWrapper zzi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ObjectWrapper.wrap(this.zza.getView()) : (IObjectWrapper) invokeV.objValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    @Nullable
-    public final String zzj() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.zza.getTag() : (String) invokeV.objValue;
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final void zzk(@NonNull IObjectWrapper iObjectWrapper) {
+    public final void zzk(IObjectWrapper iObjectWrapper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
@@ -178,7 +93,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final void zzp(@NonNull Intent intent) {
+    public final void zzp(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, intent) == null) {
             this.zza.startActivity(intent);
@@ -186,15 +101,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final void zzq(@NonNull Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, intent, i) == null) {
-            this.zza.startActivityForResult(intent, i);
-        }
-    }
-
-    @Override // com.google.android.gms.dynamic.IFragmentWrapper
-    public final void zzr(@NonNull IObjectWrapper iObjectWrapper) {
+    public final void zzr(IObjectWrapper iObjectWrapper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
@@ -205,58 +112,190 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final boolean zzA() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.zza.isVisible();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final int zzb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.zza.getId();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final int zzc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.zza.getTargetRequestCode();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final Bundle zzd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.zza.getArguments();
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final IFragmentWrapper zze() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return wrap(this.zza.getParentFragment());
+        }
+        return (IFragmentWrapper) invokeV.objValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final IFragmentWrapper zzf() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return wrap(this.zza.getTargetFragment());
+        }
+        return (IFragmentWrapper) invokeV.objValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final IObjectWrapper zzg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ObjectWrapper.wrap(this.zza.getActivity());
+        }
+        return (IObjectWrapper) invokeV.objValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final IObjectWrapper zzh() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return ObjectWrapper.wrap(this.zza.getResources());
+        }
+        return (IObjectWrapper) invokeV.objValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final IObjectWrapper zzi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ObjectWrapper.wrap(this.zza.getView());
+        }
+        return (IObjectWrapper) invokeV.objValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final String zzj() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.zza.getTag();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
     public final boolean zzs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.zza.getRetainInstance() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.zza.getRetainInstance();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
     public final boolean zzt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.zza.getUserVisibleHint() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.zza.getUserVisibleHint();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
     public final boolean zzu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.zza.isAdded() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.zza.isAdded();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
     public final boolean zzv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.zza.isDetached() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.zza.isDetached();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
     public final boolean zzw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.zza.isHidden() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.zza.isHidden();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
     public final boolean zzx() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.zza.isInLayout() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.zza.isInLayout();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
     public final boolean zzy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.zza.isRemoving() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.zza.isRemoving();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.gms.dynamic.IFragmentWrapper
     public final boolean zzz() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.zza.isResumed() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.zza.isResumed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.gms.dynamic.IFragmentWrapper
+    public final void zzq(Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048592, this, intent, i) == null) {
+            this.zza.startActivityForResult(intent, i);
+        }
     }
 }

@@ -29,6 +29,12 @@ public final class MatrixUtil {
     public static final int VERSION_INFO_POLY = 7973;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isEmpty(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) ? i == -1 : invokeI.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -97,16 +103,6 @@ public final class MatrixUtil {
         }
     }
 
-    public static void embedBasicPatterns(Version version, ByteMatrix byteMatrix) throws WriterException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, version, byteMatrix) == null) {
-            embedPositionDetectionPatternsAndSeparators(byteMatrix);
-            embedDarkDotAtLeftBottomCorner(byteMatrix);
-            maybeEmbedPositionAdjustmentPatterns(version, byteMatrix);
-            embedTimingPatterns(byteMatrix);
-        }
-    }
-
     public static void embedDarkDotAtLeftBottomCorner(ByteMatrix byteMatrix) throws WriterException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, byteMatrix) == null) {
@@ -115,6 +111,25 @@ public final class MatrixUtil {
                 return;
             }
             throw new WriterException();
+        }
+    }
+
+    public static int findMSBSet(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
+            return 32 - Integer.numberOfLeadingZeros(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static void embedBasicPatterns(Version version, ByteMatrix byteMatrix) throws WriterException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, version, byteMatrix) == null) {
+            embedPositionDetectionPatternsAndSeparators(byteMatrix);
+            embedDarkDotAtLeftBottomCorner(byteMatrix);
+            maybeEmbedPositionAdjustmentPatterns(version, byteMatrix);
+            embedTimingPatterns(byteMatrix);
         }
     }
 
@@ -195,6 +210,20 @@ public final class MatrixUtil {
         }
     }
 
+    public static void embedVerticalSeparationPattern(int i, int i2, ByteMatrix byteMatrix) throws WriterException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65550, null, i, i2, byteMatrix) == null) {
+            for (int i3 = 0; i3 < 7; i3++) {
+                int i4 = i2 + i3;
+                if (isEmpty(byteMatrix.get(i, i4))) {
+                    byteMatrix.set(i, i4, 0);
+                } else {
+                    throw new WriterException();
+                }
+            }
+        }
+    }
+
     public static void embedPositionDetectionPatternsAndSeparators(ByteMatrix byteMatrix) throws WriterException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, byteMatrix) == null) {
@@ -247,32 +276,6 @@ public final class MatrixUtil {
         }
     }
 
-    public static void embedVerticalSeparationPattern(int i, int i2, ByteMatrix byteMatrix) throws WriterException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65550, null, i, i2, byteMatrix) == null) {
-            for (int i3 = 0; i3 < 7; i3++) {
-                int i4 = i2 + i3;
-                if (isEmpty(byteMatrix.get(i, i4))) {
-                    byteMatrix.set(i, i4, 0);
-                } else {
-                    throw new WriterException();
-                }
-            }
-        }
-    }
-
-    public static int findMSBSet(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) ? 32 - Integer.numberOfLeadingZeros(i) : invokeI.intValue;
-    }
-
-    public static boolean isEmpty(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) ? i == -1 : invokeI.booleanValue;
-    }
-
     public static void makeTypeInfoBits(ErrorCorrectionLevel errorCorrectionLevel, int i, BitArray bitArray) throws WriterException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65553, null, errorCorrectionLevel, i, bitArray) == null) {
@@ -306,7 +309,7 @@ public final class MatrixUtil {
 
     public static void maybeEmbedPositionAdjustmentPatterns(Version version, ByteMatrix byteMatrix) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65555, null, version, byteMatrix) == null) || version.getVersionNumber() < 2) {
+        if ((interceptable != null && interceptable.invokeLL(65555, null, version, byteMatrix) != null) || version.getVersionNumber() < 2) {
             return;
         }
         int versionNumber = version.getVersionNumber() - 1;
@@ -326,7 +329,7 @@ public final class MatrixUtil {
 
     public static void maybeEmbedVersionInfo(Version version, ByteMatrix byteMatrix) throws WriterException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65556, null, version, byteMatrix) == null) || version.getVersionNumber() < 7) {
+        if ((interceptable != null && interceptable.invokeLL(65556, null, version, byteMatrix) != null) || version.getVersionNumber() < 7) {
             return;
         }
         BitArray bitArray = new BitArray();

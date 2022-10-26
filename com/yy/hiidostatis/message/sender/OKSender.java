@@ -15,7 +15,6 @@ import com.yy.hiidostatis.message.MessageSender;
 import com.yy.hiidostatis.message.bean.Message;
 import com.yy.hiidostatis.message.utils.NoNull;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.util.Arrays;
@@ -45,7 +44,7 @@ public class OKSender implements MessageSender {
 
     /* renamed from: com.yy.hiidostatis.message.sender.OKSender$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -88,6 +87,10 @@ public class OKSender implements MessageSender {
                 }
             }
             this.this$0 = oKSender;
+        }
+
+        public /* synthetic */ MyCallback(OKSender oKSender, AnonymousClass1 anonymousClass1) {
+            this(oKSender);
         }
 
         @Override // okhttp3.Callback
@@ -141,10 +144,6 @@ public class OKSender implements MessageSender {
                 }
             }
         }
-
-        public /* synthetic */ MyCallback(OKSender oKSender, AnonymousClass1 anonymousClass1) {
-            this(oKSender);
-        }
     }
 
     /* loaded from: classes8.dex */
@@ -172,10 +171,13 @@ public class OKSender implements MessageSender {
         }
 
         @Override // okhttp3.Dns
-        public List<InetAddress> lookup(String str) throws UnknownHostException {
+        public List lookup(String str) throws UnknownHostException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.this$0.host.lookup(str) : (List) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return this.this$0.host.lookup(str);
+            }
+            return (List) invokeL.objValue;
         }
 
         public /* synthetic */ MyDns(OKSender oKSender, AnonymousClass1 anonymousClass1) {
@@ -184,7 +186,7 @@ public class OKSender implements MessageSender {
     }
 
     /* loaded from: classes8.dex */
-    public static class ReqTag {
+    public class ReqTag {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Message msg;
@@ -210,7 +212,10 @@ public class OKSender implements MessageSender {
         public Message getMsg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.msg : (Message) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.msg;
+            }
+            return (Message) invokeV.objValue;
         }
     }
 
@@ -234,6 +239,14 @@ public class OKSender implements MessageSender {
         this.client = new OkHttpClient.Builder().protocols(Collections.unmodifiableList(Arrays.asList(Protocol.HTTP_1_1, Protocol.HTTP_2))).connectTimeout(5L, TimeUnit.SECONDS).retryOnConnectionFailure(true).dns(this.dns).readTimeout(30L, TimeUnit.SECONDS).build();
         this.host = hostManager;
         this.appInfo = appInfo;
+    }
+
+    @Override // com.yy.hiidostatis.message.MessageSender
+    public void setResultListener(MessageSender.ResultListener resultListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resultListener) == null) {
+            this.listener = resultListener;
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0037  */
@@ -261,7 +274,10 @@ public class OKSender implements MessageSender {
                 if (!message.isSingle()) {
                 }
             }
-            return !message.isSingle() ? String.format("https://%s/c.gif?%s&host_appkey=%s&host_ver=%s", this.host.getHost(message), message.getUrlParams(), str, str2) : String.format("https://%s/x.gif?%s&host_appkey=%s&host_ver=%s", this.host.getHost(message), message.getUrlParams(), str, str2);
+            if (!message.isSingle()) {
+                return String.format("https://%s/c.gif?%s&host_appkey=%s&host_ver=%s", this.host.getHost(message), message.getUrlParams(), str, str2);
+            }
+            return String.format("https://%s/x.gif?%s&host_appkey=%s&host_ver=%s", this.host.getHost(message), message.getUrlParams(), str, str2);
         }
         return (String) invokeL.objValue;
     }
@@ -281,14 +297,6 @@ public class OKSender implements MessageSender {
             String smartUrl = smartUrl(message);
             L.debug(this, "send url: %s", smartUrl);
             this.client.newCall(new Request.Builder().url(smartUrl).post(create).tag(new ReqTag(message)).build()).enqueue(this.callback);
-        }
-    }
-
-    @Override // com.yy.hiidostatis.message.MessageSender
-    public void setResultListener(MessageSender.ResultListener resultListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resultListener) == null) {
-            this.listener = resultListener;
         }
     }
 }

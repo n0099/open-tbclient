@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ls8;
-import com.baidu.tieba.ms8;
+import com.baidu.tieba.vs8;
+import com.baidu.tieba.ws8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,6 +15,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InitSDKAsyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "InitSDKAsync" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
 
     public InitSDKAsyncTask() {
         Interceptable interceptable = $ic;
@@ -33,7 +50,7 @@ public class InitSDKAsyncTask extends LaunchTask {
     private void initJpusbSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            ls8.b().d(TbadkCoreApplication.getInst());
+            vs8.b().d(TbadkCoreApplication.getInst());
         }
     }
 
@@ -43,17 +60,6 @@ public class InitSDKAsyncTask extends LaunchTask {
             Ruka.startAnrMonitor(TbadkCoreApplication.getInst());
             Ruka.startLooperMonitor(TbadkCoreApplication.getInst());
             Ruka.startBlockMonitor(TbadkCoreApplication.getInst());
-        }
-    }
-
-    private void initStatSdk() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            ms8.b().a(TbadkCoreApplication.getInst());
-            ms8 b = ms8.b();
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            TbadkCoreApplication.getInst();
-            b.e(inst, TbadkCoreApplication.getFrom(), true);
         }
     }
 
@@ -67,20 +73,15 @@ public class InitSDKAsyncTask extends LaunchTask {
         }
     }
 
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
+    private void initStatSdk() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "InitSDKAsync" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
+            ws8.b().d(TbadkCoreApplication.getInst());
+            ws8.b().a(TbadkCoreApplication.getInst());
+            ws8 b = ws8.b();
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            TbadkCoreApplication.getInst();
+            b.f(inst, TbadkCoreApplication.getFrom(), true);
         }
-        return invokeV.intValue;
     }
 }

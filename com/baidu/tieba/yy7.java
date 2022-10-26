@@ -4,35 +4,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.adapter.PbNoDataItemViewHolder;
+import com.baidu.tieba.pb.pb.main.PbListAlaRecommendVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yy7 extends ay7<tv7, PbNoDataItemViewHolder> {
+public class yy7 extends ly7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public uv7 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yy7(t28 t28Var, BdUniqueId bdUniqueId) {
-        super(t28Var, bdUniqueId);
+    public yy7(e38 e38Var) {
+        super(e38Var, zy7.o);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t28Var, bdUniqueId};
+            Object[] objArr = {e38Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((t28) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((e38) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,48 +38,38 @@ public class yy7 extends ay7<tv7, PbNoDataItemViewHolder> {
         }
     }
 
-    @Override // com.baidu.tieba.ay7, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (tv7) obj, (PbNoDataItemViewHolder) viewHolder);
-        return view2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: u */
+    public PbListAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PbListAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06d4, (ViewGroup) null), this.a.P());
+        }
+        return (PbListAlaRecommendVH) invokeL.objValue;
+    }
+
+    public void w(uv7 uv7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uv7Var) == null) {
+            this.g = uv7Var;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: u */
-    public PbNoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06da, viewGroup, false), this.mContext) : (PbNoDataItemViewHolder) invokeL.objValue;
-    }
-
-    public View v(int i, View view2, ViewGroup viewGroup, tv7 tv7Var, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
+    @Override // com.baidu.tieba.ly7, com.baidu.tieba.rn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zy7 zy7Var, PbListAlaRecommendVH pbListAlaRecommendVH) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tv7Var, pbNoDataItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, tv7Var, pbNoDataItemViewHolder);
-            this.d = TbadkCoreApplication.getInst().getSkinType();
-            pbNoDataItemViewHolder.a.setText(tv7Var.V0);
-            int i2 = tv7Var.U0;
-            if (i2 != 0) {
-                SkinManager.setImageResource(pbNoDataItemViewHolder.b, i2);
-            } else {
-                SkinManager.setImageResource(pbNoDataItemViewHolder.b, R.drawable.new_pic_emotion_06);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zy7Var, pbListAlaRecommendVH})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, zy7Var, pbListAlaRecommendVH);
+            if (zy7Var == null) {
+                return null;
             }
-            SkinManager.setViewTextColor(pbNoDataItemViewHolder.a, (int) R.color.CAM_X0109);
-            if (tv7Var.W0 != 0 && view2.getLayoutParams() != null) {
-                view2.getLayoutParams().height = tv7Var.W0;
-            }
-            if (tv7Var.X0 != 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.b.getLayoutParams();
-                marginLayoutParams.setMargins(marginLayoutParams.leftMargin, tv7Var.X0, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-            }
-            if (tv7Var.Y0 != 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.a.getLayoutParams();
-                int i3 = marginLayoutParams2.leftMargin;
-                marginLayoutParams2.setMargins(i3, i3, marginLayoutParams2.rightMargin, tv7Var.Y0);
-            }
-            pbNoDataItemViewHolder.b.setVisibility(tv7Var.Z0);
+            pbListAlaRecommendVH.b(zy7Var);
+            pbListAlaRecommendVH.g(this.g);
             return view2;
         }
         return (View) invokeCommon.objValue;

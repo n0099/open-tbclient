@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
@@ -29,18 +30,20 @@ public class NetworkQuality {
     public static final String TAG = "NetworkQualityLog";
     public static final int UNKNOWN_NETWORK_QUALITY = -1;
     public static int sLastNetworkQualityQuality = 1;
-    public static Map<String, List<Integer>> sLastSdtProbeErrorCodeMap = null;
+    public static Map sLastSdtProbeErrorCodeMap = null;
     public static int sNetworkQuality = 1;
-    public static final List<NetworkQualityListener> sNetworkQualityListeners;
+    public static final List sNetworkQualityListeners;
     public static volatile int sNetworkQualityUpdateFrom;
     public static WeakNetCheckConfig sWeakNetCheckConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static abstract class NetworkQualityListener {
+    public abstract class NetworkQualityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Executor mExecutor;
+
+        public abstract void onNetworkQualityChanged(int i);
 
         public NetworkQualityListener(Executor executor) {
             Interceptable interceptable = $ic;
@@ -68,10 +71,93 @@ public class NetworkQuality {
         public Executor getExecutor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.mExecutor : (Executor) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                return this.mExecutor;
+            }
+            return (Executor) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class WeakNetCheckConfig {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;
+        public static final long DEFAULT_TTFB_GOOD_THRESHOLD = 590;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean enableNqe;
+        public boolean enableSdt;
+        public long goodTtfbThresholdMillis;
+        public long nqeWeakTtfbThresholdMillis;
+        public List sdtProbeDomains;
+        public long weakTtfbThresholdMillis;
+
+        public WeakNetCheckConfig() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.goodTtfbThresholdMillis = 590L;
+            this.weakTtfbThresholdMillis = 1000L;
+            this.nqeWeakTtfbThresholdMillis = 1000L;
+            this.sdtProbeDomains = new ArrayList();
         }
 
-        public abstract void onNetworkQualityChanged(int i);
+        public WeakNetCheckConfig(long j, long j2, long j3, List list, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.goodTtfbThresholdMillis = 590L;
+            this.weakTtfbThresholdMillis = 1000L;
+            this.nqeWeakTtfbThresholdMillis = 1000L;
+            this.sdtProbeDomains = new ArrayList();
+            if (j > 0) {
+                this.goodTtfbThresholdMillis = j;
+            }
+            if (j2 > 0) {
+                this.weakTtfbThresholdMillis = j2;
+            }
+            if (j3 > 0) {
+                this.nqeWeakTtfbThresholdMillis = j3;
+            }
+            if (list != null && !list.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    String str = (String) it.next();
+                    if (!TextUtils.isEmpty(str)) {
+                        arrayList.add(str);
+                    }
+                }
+                if (!arrayList.isEmpty()) {
+                    this.sdtProbeDomains = Collections.unmodifiableList(arrayList);
+                }
+            }
+            List list2 = this.sdtProbeDomains;
+            if (list2 == null || list2.isEmpty()) {
+                this.sdtProbeDomains = Arrays.asList("www.baidu.com");
+            }
+            this.enableSdt = z;
+            this.enableNqe = z2;
+        }
     }
 
     static {
@@ -106,17 +192,6 @@ public class NetworkQuality {
         }
     }
 
-    public static void addNetworkQualityListener(NetworkQualityListener networkQualityListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, networkQualityListener) == null) {
-            synchronized (sNetworkQualityListeners) {
-                if (!sNetworkQualityListeners.contains(networkQualityListener)) {
-                    sNetworkQualityListeners.add(networkQualityListener);
-                }
-            }
-        }
-    }
-
     public static JSONObject getLastSdtProbeErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,34 +206,43 @@ public class NetworkQuality {
         return (JSONObject) invokeV.objValue;
     }
 
-    public static String getNameOfQuality(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i != -1 ? i != 1 ? i != 2 ? i != 3 ? String.valueOf(i) : "Offline" : "Bad" : "Good" : "Unknown" : (String) invokeI.objValue;
-    }
-
     public static int getNetworkQuality() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sNetworkQuality : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return sNetworkQuality;
+        }
+        return invokeV.intValue;
     }
 
     public static int getNetworkQualityUpdateFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sNetworkQualityUpdateFrom : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return sNetworkQualityUpdateFrom;
+        }
+        return invokeV.intValue;
     }
 
     public static WeakNetCheckConfig getWeakNetCheckConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? sWeakNetCheckConfig : (WeakNetCheckConfig) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return sWeakNetCheckConfig;
+        }
+        return (WeakNetCheckConfig) invokeV.objValue;
     }
 
     public static boolean isEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getWeakNetCheckConfig().enableNqe || getWeakNetCheckConfig().enableSdt : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (!getWeakNetCheckConfig().enableNqe && !getWeakNetCheckConfig().enableSdt) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isWeakNet() {
@@ -166,9 +250,44 @@ public class NetworkQuality {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             int i = sNetworkQuality;
-            return i == 2 || i == 3;
+            if (i != 2 && i != 3) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public static void addNetworkQualityListener(NetworkQualityListener networkQualityListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, networkQualityListener) == null) {
+            synchronized (sNetworkQualityListeners) {
+                if (!sNetworkQualityListeners.contains(networkQualityListener)) {
+                    sNetworkQualityListeners.add(networkQualityListener);
+                }
+            }
+        }
+    }
+
+    public static String getNameOfQuality(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != -1) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            return String.valueOf(i);
+                        }
+                        return "Offline";
+                    }
+                    return "Bad";
+                }
+                return "Good";
+            }
+            return "Unknown";
+        }
+        return (String) invokeI.objValue;
     }
 
     public static void removeNetworkQualityListener(NetworkQualityListener networkQualityListener) {
@@ -187,7 +306,7 @@ public class NetworkQuality {
         }
     }
 
-    public static void updateLastSdtProbeErrCode(Map<String, List<Integer>> map) {
+    public static void updateLastSdtProbeErrCode(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, map) == null) {
             synchronized (NetworkQuality.class) {
@@ -201,131 +320,49 @@ public class NetworkQuality {
 
     public static void updateNetworkQuality(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65550, null, i, i2) == null) || i == sLastNetworkQualityQuality) {
-            return;
-        }
-        synchronized (sNetworkQualityListeners) {
-            sNetworkQuality = i;
-            sNetworkQualityUpdateFrom = i2;
-            for (NetworkQualityListener networkQualityListener : sNetworkQualityListeners) {
-                try {
-                    networkQualityListener.getExecutor().execute(new Runnable(networkQualityListener) { // from class: com.baidu.searchbox.http.NetworkQuality.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ NetworkQualityListener val$listener;
+        if ((interceptable == null || interceptable.invokeII(65550, null, i, i2) == null) && i != sLastNetworkQualityQuality) {
+            synchronized (sNetworkQualityListeners) {
+                sNetworkQuality = i;
+                sNetworkQualityUpdateFrom = i2;
+                for (NetworkQualityListener networkQualityListener : sNetworkQualityListeners) {
+                    try {
+                        networkQualityListener.getExecutor().execute(new Runnable(networkQualityListener) { // from class: com.baidu.searchbox.http.NetworkQuality.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ NetworkQualityListener val$listener;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {networkQualityListener};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {networkQualityListener};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i3 = newInitContext.flag;
+                                    if ((i3 & 1) != 0) {
+                                        int i4 = i3 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.val$listener = networkQualityListener;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                NetworkQualityListener networkQualityListener2;
+                                Interceptable interceptable2 = $ic;
+                                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (networkQualityListener2 = this.val$listener) != null) {
+                                    networkQualityListener2.onNetworkQualityChanged(NetworkQuality.sNetworkQuality);
                                 }
                             }
-                            this.val$listener = networkQualityListener;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            NetworkQualityListener networkQualityListener2;
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (networkQualityListener2 = this.val$listener) == null) {
-                                return;
-                            }
-                            networkQualityListener2.onNetworkQualityChanged(NetworkQuality.sNetworkQuality);
-                        }
-                    });
-                } catch (Exception unused) {
-                }
-            }
-            sLastNetworkQualityQuality = i;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class WeakNetCheckConfig {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;
-        public static final long DEFAULT_TTFB_GOOD_THRESHOLD = 590;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean enableNqe;
-        public boolean enableSdt;
-        public long goodTtfbThresholdMillis;
-        public long nqeWeakTtfbThresholdMillis;
-        public List<String> sdtProbeDomains;
-        public long weakTtfbThresholdMillis;
-
-        public WeakNetCheckConfig() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.goodTtfbThresholdMillis = 590L;
-            this.weakTtfbThresholdMillis = 1000L;
-            this.nqeWeakTtfbThresholdMillis = 1000L;
-            this.sdtProbeDomains = new ArrayList();
-        }
-
-        public WeakNetCheckConfig(long j, long j2, long j3, List<String> list, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z), Boolean.valueOf(z2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.goodTtfbThresholdMillis = 590L;
-            this.weakTtfbThresholdMillis = 1000L;
-            this.nqeWeakTtfbThresholdMillis = 1000L;
-            this.sdtProbeDomains = new ArrayList();
-            if (j > 0) {
-                this.goodTtfbThresholdMillis = j;
-            }
-            if (j2 > 0) {
-                this.weakTtfbThresholdMillis = j2;
-            }
-            if (j3 > 0) {
-                this.nqeWeakTtfbThresholdMillis = j3;
-            }
-            if (list != null && !list.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (String str : list) {
-                    if (!TextUtils.isEmpty(str)) {
-                        arrayList.add(str);
+                        });
+                    } catch (Exception unused) {
                     }
                 }
-                if (!arrayList.isEmpty()) {
-                    this.sdtProbeDomains = Collections.unmodifiableList(arrayList);
-                }
+                sLastNetworkQualityQuality = i;
             }
-            List<String> list2 = this.sdtProbeDomains;
-            if (list2 == null || list2.isEmpty()) {
-                this.sdtProbeDomains = Arrays.asList("www.baidu.com");
-            }
-            this.enableSdt = z;
-            this.enableNqe = z2;
         }
     }
 }

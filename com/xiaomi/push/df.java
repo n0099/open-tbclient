@@ -28,7 +28,7 @@ public class df {
     public Context f207a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ConcurrentLinkedQueue<b> f208a;
+    public final ConcurrentLinkedQueue f208a;
 
     /* loaded from: classes8.dex */
     public class a extends b {
@@ -214,9 +214,9 @@ public class df {
                 try {
                     if (c()) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bv.m649a());
+                        hashMap.put("uid", com.xiaomi.push.service.bv.m648a());
                         hashMap.put("token", this.b);
-                        hashMap.put("net", bj.m195a(this.f209a.f207a));
+                        hashMap.put("net", bj.m194a(this.f209a.f207a));
                         bj.a(this.f211a, hashMap, this.f210a, "file");
                     }
                     this.f212a = true;
@@ -227,7 +227,7 @@ public class df {
 
         @Override // com.xiaomi.push.ao.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo266c() {
+        public void mo265c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!this.f212a) {
@@ -275,7 +275,7 @@ public class df {
                 return;
             }
         }
-        ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+        ConcurrentLinkedQueue concurrentLinkedQueue = new ConcurrentLinkedQueue();
         this.f208a = concurrentLinkedQueue;
         this.f207a = context;
         concurrentLinkedQueue.add(new a(this));
@@ -301,9 +301,9 @@ public class df {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        b peek;
+        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f208a.peek()) != null && peek.a()) {
+        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (bVar = (b) this.f208a.peek()) != null && bVar.a()) {
             b(j);
         }
     }
@@ -311,7 +311,7 @@ public class df {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m163a()) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || ad.b() || ad.m162a()) {
             return;
         }
         try {
@@ -337,13 +337,13 @@ public class df {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             while (!this.f208a.isEmpty()) {
-                b peek = this.f208a.peek();
-                if (peek != null) {
-                    if (!peek.b() && this.f208a.size() <= 6) {
+                b bVar = (b) this.f208a.peek();
+                if (bVar != null) {
+                    if (!bVar.b() && this.f208a.size() <= 6) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                    this.f208a.remove(peek);
+                    this.f208a.remove(bVar);
                 }
             }
         }

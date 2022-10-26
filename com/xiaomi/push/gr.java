@@ -24,13 +24,13 @@ public class gr {
     public String f446a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gk> f447a;
+    public List f447a;
     public String b;
     public String c;
     public String d;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -125,7 +125,7 @@ public class gr {
         }
     }
 
-    public gr(int i, String str, String str2, String str3, String str4, List<gk> list) {
+    public gr(int i, String str, String str2, String str3, String str4, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -233,7 +233,7 @@ public class gr {
             if (str4 != null) {
                 bundle.putString("ext_err_msg", str4);
             }
-            List<gk> list = this.f447a;
+            List list = this.f447a;
             if (list != null) {
                 Bundle[] bundleArr = new Bundle[list.size()];
                 int i = 0;
@@ -252,7 +252,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m374a() {
+    public String m373a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -281,8 +281,8 @@ public class gr {
                 sb.append(this.d);
                 sb.append("</text>");
             }
-            for (gk gkVar : m375a()) {
-                sb.append(gkVar.d());
+            for (go goVar : m374a()) {
+                sb.append(goVar.d());
             }
             sb.append("</error>");
             return sb.toString();
@@ -291,7 +291,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<gk> m375a() {
+    public synchronized List m374a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

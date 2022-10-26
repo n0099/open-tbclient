@@ -1,7 +1,5 @@
 package androidx.media2.common;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.util.Preconditions;
 import androidx.media2.common.MediaItem;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +20,7 @@ public class CallbackMediaItem extends MediaItem {
         public transient /* synthetic */ FieldHolder $fh;
         public DataSourceCallback mDataSourceCallback;
 
-        public Builder(@NonNull DataSourceCallback dataSourceCallback) {
+        public Builder(DataSourceCallback dataSourceCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,38 +41,46 @@ public class CallbackMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
-        public CallbackMediaItem build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new CallbackMediaItem(this) : (CallbackMediaItem) invokeV.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
         public Builder setEndPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? (Builder) super.setEndPosition(j) : (Builder) invokeJ.objValue;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                return (Builder) super.setEndPosition(j);
+            }
+            return (Builder) invokeJ.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
-        public Builder setMetadata(@Nullable MediaMetadata mediaMetadata) {
+        public Builder setMetadata(MediaMetadata mediaMetadata) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mediaMetadata)) == null) ? (Builder) super.setMetadata(mediaMetadata) : (Builder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mediaMetadata)) == null) {
+                return (Builder) super.setMetadata(mediaMetadata);
+            }
+            return (Builder) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
         public Builder setStartPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) ? (Builder) super.setStartPosition(j) : (Builder) invokeJ.objValue;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                return (Builder) super.setStartPosition(j);
+            }
+            return (Builder) invokeJ.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.media2.common.MediaItem.Builder
+        public CallbackMediaItem build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new CallbackMediaItem(this);
+            }
+            return (CallbackMediaItem) invokeV.objValue;
         }
     }
 
@@ -99,10 +105,12 @@ public class CallbackMediaItem extends MediaItem {
         this.mDataSourceCallback = builder.mDataSourceCallback;
     }
 
-    @NonNull
     public DataSourceCallback getDataSourceCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDataSourceCallback : (DataSourceCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDataSourceCallback;
+        }
+        return (DataSourceCallback) invokeV.objValue;
     }
 }

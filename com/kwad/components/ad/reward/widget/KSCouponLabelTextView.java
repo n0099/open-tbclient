@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -11,8 +10,6 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import androidx.annotation.ColorInt;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,13 +19,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.widget.e;
 import com.kwad.components.core.widget.f;
 import com.kwad.sdk.R;
-@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes7.dex */
 public class KSCouponLabelTextView extends TextView implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint mPaint;
-    @ColorInt
     public int strokeColor;
     public Path wA;
     public boolean wB;
@@ -132,7 +127,6 @@ public class KSCouponLabelTextView extends TextView implements e {
         a(context, attributeSet, i);
     }
 
-    @SuppressLint({"CustomViewStyleable"})
     private void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
@@ -147,7 +141,6 @@ public class KSCouponLabelTextView extends TextView implements e {
         }
     }
 
-    @RequiresApi(api = 19)
     private void a(Path path, Path path2, Path path3, RectF rectF, RectF rectF2, RectF rectF3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{path, path2, path3, rectF, rectF2, rectF3}) == null) {

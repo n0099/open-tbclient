@@ -24,8 +24,23 @@ public class SmsLoginStat implements NoProguard {
     public static final String UBC_ID = "4922";
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(600757614, "Lcom/baidu/sapi2/stat/SmsLoginStat;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(600757614, "Lcom/baidu/sapi2/stat/SmsLoginStat;");
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class GetdpassStat implements NoProguard {
+    public class GetdpassStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -36,7 +51,7 @@ public class SmsLoginStat implements NoProguard {
         public static final String VALUE_PAGE = "getdpass";
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
-        public static Map<String, Object> statExtMap;
+        public static Map statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -116,7 +131,7 @@ public class SmsLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public static class SmsClickLoginStat implements NoProguard {
+    public class SmsClickLoginStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -127,7 +142,7 @@ public class SmsLoginStat implements NoProguard {
         public static final String VALUE_PAGE = "smslogin";
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
-        public static Map<String, Object> statExtMap;
+        public static Map statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -203,21 +218,6 @@ public class SmsLoginStat implements NoProguard {
                 ubcUploadImplCallback.onEvent(SmsLoginStat.UBC_ID, jSONObject2);
                 resetData();
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(600757614, "Lcom/baidu/sapi2/stat/SmsLoginStat;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(600757614, "Lcom/baidu/sapi2/stat/SmsLoginStat;");
         }
     }
 

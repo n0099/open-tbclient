@@ -14,6 +14,12 @@ public final class NativeBds implements NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native byte[] ae0(String str, String str2);
+
+    public static native byte[] ae1(String str, byte[] bArr);
+
+    public static native byte[] dae1(String str, byte[] bArr);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -47,24 +53,27 @@ public final class NativeBds implements NoProGuard {
     public static byte[] ae(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? ae0(str, str2) : (byte[]) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return ae0(str, str2);
+        }
+        return (byte[]) invokeLL.objValue;
     }
-
-    public static native byte[] ae0(String str, String str2);
-
-    public static native byte[] ae1(String str, byte[] bArr);
 
     public static byte[] dae(String str, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, bArr)) == null) ? dae1(str, bArr) : (byte[]) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, bArr)) == null) {
+            return dae1(str, bArr);
+        }
+        return (byte[]) invokeLL.objValue;
     }
-
-    public static native byte[] dae1(String str, byte[] bArr);
 
     public static byte[] ae(String str, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) ? ae1(str, bArr) : (byte[]) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
+            return ae1(str, bArr);
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

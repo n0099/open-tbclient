@@ -31,10 +31,21 @@ public class CommandService extends Service {
         }
     }
 
+    @Override // android.app.Service
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
+        }
+    }
+
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? "com.vivo.pushservice.action.RECEIVE".equals(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return "com.vivo.pushservice.action.RECEIVE".equals(str);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.app.Service
@@ -49,20 +60,22 @@ public class CommandService extends Service {
     }
 
     @Override // android.app.Service
+    public boolean onUnbind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, intent)) == null) {
+            return super.onUnbind(intent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Service
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             p.c("CommandService", getClass().getSimpleName() + " -- oncreate " + getPackageName());
             super.onCreate();
             a.a().a(ContextDelegate.getContext(getApplicationContext()));
-        }
-    }
-
-    @Override // android.app.Service
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroy();
         }
     }
 
@@ -91,12 +104,5 @@ public class CommandService extends Service {
             }
         }
         return invokeLII.intValue;
-    }
-
-    @Override // android.app.Service
-    public boolean onUnbind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, intent)) == null) ? super.onUnbind(intent) : invokeL.booleanValue;
     }
 }

@@ -10,7 +10,7 @@ public class AddressBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasLeaf;
-    public List<AddressBean> hotlists;
+    public List hotlists;
     public String id;
     public boolean isHmt;
     public boolean isHotCity;

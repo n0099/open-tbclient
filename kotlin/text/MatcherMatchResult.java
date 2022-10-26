@@ -46,13 +46,6 @@ public final class MatcherMatchResult implements MatchResult {
                     return false;
                 }
 
-                @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
-                public int getSize() {
-                    java.util.regex.MatchResult matchResult;
-                    matchResult = MatcherMatchResult.this.getMatchResult();
-                    return matchResult.groupCount() + 1;
-                }
-
                 @Override // kotlin.collections.AbstractList, java.util.List
                 public final /* bridge */ int indexOf(Object obj) {
                     if (obj instanceof String) {
@@ -79,7 +72,10 @@ public final class MatcherMatchResult implements MatchResult {
                     java.util.regex.MatchResult matchResult;
                     matchResult = MatcherMatchResult.this.getMatchResult();
                     String group = matchResult.group(i);
-                    return group != null ? group : "";
+                    if (group == null) {
+                        return "";
+                    }
+                    return group;
                 }
 
                 public /* bridge */ int indexOf(String str) {
@@ -88,6 +84,13 @@ public final class MatcherMatchResult implements MatchResult {
 
                 public /* bridge */ int lastIndexOf(String str) {
                     return super.lastIndexOf((Object) str);
+                }
+
+                @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
+                public int getSize() {
+                    java.util.regex.MatchResult matchResult;
+                    matchResult = MatcherMatchResult.this.getMatchResult();
+                    return matchResult.groupCount() + 1;
                 }
             };
         }
@@ -117,12 +120,19 @@ public final class MatcherMatchResult implements MatchResult {
 
     @Override // kotlin.text.MatchResult
     public MatchResult next() {
+        int i;
         MatchResult findNext;
-        int end = getMatchResult().end() + (getMatchResult().end() == getMatchResult().start() ? 1 : 0);
-        if (end <= this.input.length()) {
+        int end = getMatchResult().end();
+        if (getMatchResult().end() == getMatchResult().start()) {
+            i = 1;
+        } else {
+            i = 0;
+        }
+        int i2 = end + i;
+        if (i2 <= this.input.length()) {
             Matcher matcher = this.matcher.pattern().matcher(this.input);
             Intrinsics.checkNotNullExpressionValue(matcher, "matcher.pattern().matcher(input)");
-            findNext = RegexKt.findNext(matcher, end, this.input);
+            findNext = RegexKt.findNext(matcher, i2, this.input);
             return findNext;
         }
         return null;

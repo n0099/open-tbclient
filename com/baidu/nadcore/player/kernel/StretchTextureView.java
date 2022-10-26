@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dz0;
+import com.baidu.tieba.ez0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,6 +18,18 @@ public class StretchTextureView extends TextureView {
     public int a;
     public int b;
     public int c;
+
+    public final int a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i : (int) (i3 * (i2 / i4)) : invokeIIII.intValue;
+    }
+
+    public final int b(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i2 : (int) (i4 * (i / i3)) : invokeIIII.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StretchTextureView(Context context) {
@@ -40,16 +52,26 @@ public class StretchTextureView extends TextureView {
         this.a = 0;
     }
 
-    public final int a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public StretchTextureView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i : (int) (i3 * (i2 / i4)) : invokeIIII.intValue;
-    }
-
-    public final int b(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i2 : (int) (i4 * (i / i3)) : invokeIIII.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:51:0x00e5, code lost:
@@ -67,7 +89,7 @@ public class StretchTextureView extends TextureView {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             int defaultSize = TextureView.getDefaultSize(this.b, i);
             int defaultSize2 = TextureView.getDefaultSize(this.c, i2);
-            dz0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "onMeasure ** mVideoWidth : " + this.b + ", mVideoHeight : " + this.c + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
+            ez0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "onMeasure ** mVideoWidth : " + this.b + ", mVideoHeight : " + this.c + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
             int i5 = this.a;
             if (i5 == 0) {
                 int defaultSize3 = TextureView.getDefaultSize(this.b, i);
@@ -111,17 +133,17 @@ public class StretchTextureView extends TextureView {
                     } else {
                         int i11 = this.b;
                         int i12 = this.c;
-                        if (mode2 != Integer.MIN_VALUE || i12 <= size2) {
-                            defaultSize2 = i12;
-                        } else {
+                        if (mode2 == Integer.MIN_VALUE && i12 > size2) {
                             i11 = (i11 * size2) / i12;
                             defaultSize2 = size2;
-                        }
-                        if (mode != Integer.MIN_VALUE || i11 <= size) {
-                            defaultSize = i11;
                         } else {
+                            defaultSize2 = i12;
+                        }
+                        if (mode == Integer.MIN_VALUE && i11 > size) {
                             defaultSize2 = (this.c * size) / this.b;
                             defaultSize = size;
+                        } else {
+                            defaultSize = i11;
                         }
                     }
                 }
@@ -139,15 +161,17 @@ public class StretchTextureView extends TextureView {
             } else if (i5 == 2) {
                 defaultSize2 = b(defaultSize, defaultSize2, this.b, this.c);
             } else if (i5 == 3 && (i3 = this.b) > 0 && (i4 = this.c) > 0) {
-                if (i3 / i4 > 1.0f) {
-                    defaultSize2 = b(defaultSize, defaultSize2, i3, i4);
-                } else if (i3 / i4 <= defaultSize / defaultSize2) {
-                    defaultSize2 = b(defaultSize, defaultSize2, i3, i4);
+                if (i3 / i4 <= 1.0f) {
+                    if (i3 / i4 <= defaultSize / defaultSize2) {
+                        defaultSize2 = b(defaultSize, defaultSize2, i3, i4);
+                    } else {
+                        defaultSize = a(defaultSize, defaultSize2, i3, i4);
+                    }
                 } else {
-                    defaultSize = a(defaultSize, defaultSize2, i3, i4);
+                    defaultSize2 = b(defaultSize, defaultSize2, i3, i4);
                 }
             }
-            dz0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "setMeasuredDimension **  TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
+            ez0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "setMeasuredDimension **  TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
             setMeasuredDimension(defaultSize, defaultSize2);
         }
     }
@@ -170,27 +194,5 @@ public class StretchTextureView extends TextureView {
             this.b = i;
             this.c = i2;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StretchTextureView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
     }
 }

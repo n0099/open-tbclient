@@ -63,6 +63,51 @@ public abstract class p3 implements i7 {
         }
     }
 
+    public p3(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
+        this.c = textureFilter;
+        this.d = textureFilter;
+        Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
+        this.e = textureWrap;
+        this.f = textureWrap;
+        this.g = 1.0f;
+        this.a = i;
+        this.b = i2;
+    }
+
+    public float n(float f, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)})) == null) {
+            float g = g();
+            if (g == 1.0f) {
+                return 1.0f;
+            }
+            float min = Math.min(f, g);
+            if (!z && com.badlogic.gdx.math.d.f(min, this.g, 0.1f)) {
+                return this.g;
+            }
+            f1.f.u(3553, 34046, min);
+            this.g = min;
+            return min;
+        }
+        return invokeCommon.floatValue;
+    }
+
     public static float g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,9 +138,31 @@ public abstract class p3 implements i7 {
         }
     }
 
+    public void l(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textureFilter, textureFilter2) == null) {
+            this.c = textureFilter;
+            this.d = textureFilter2;
+            a();
+            f1.e.j(this.a, 10241, textureFilter.getGLEnum());
+            f1.e.j(this.a, 10240, textureFilter2.getGLEnum());
+        }
+    }
+
+    public void m(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, textureWrap, textureWrap2) == null) {
+            this.e = textureWrap;
+            this.f = textureWrap2;
+            a();
+            f1.e.j(this.a, 10242, textureWrap.getGLEnum());
+            f1.e.j(this.a, 10243, textureWrap2.getGLEnum());
+        }
+    }
+
     public static void r(int i, TextureData textureData, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), textureData, Integer.valueOf(i2)}) == null) || textureData == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), textureData, Integer.valueOf(i2)}) != null) || textureData == null) {
             return;
         }
         if (!textureData.isPrepared()) {
@@ -138,11 +205,10 @@ public abstract class p3 implements i7 {
     public void delete() {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i = this.b) == 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (i = this.b) != 0) {
+            f1.e.S(i);
+            this.b = 0;
         }
-        f1.e.S(i);
-        this.b = 0;
     }
 
     @Override // com.baidu.tieba.i7
@@ -156,72 +222,46 @@ public abstract class p3 implements i7 {
     public Texture.TextureFilter f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (Texture.TextureFilter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (Texture.TextureFilter) invokeV.objValue;
     }
 
     public Texture.TextureFilter h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Texture.TextureFilter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (Texture.TextureFilter) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 
     public Texture.TextureWrap j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (Texture.TextureWrap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (Texture.TextureWrap) invokeV.objValue;
     }
 
     public Texture.TextureWrap k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (Texture.TextureWrap) invokeV.objValue;
-    }
-
-    public void l(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textureFilter, textureFilter2) == null) {
-            this.c = textureFilter;
-            this.d = textureFilter2;
-            a();
-            f1.e.j(this.a, 10241, textureFilter.getGLEnum());
-            f1.e.j(this.a, 10240, textureFilter2.getGLEnum());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
         }
-    }
-
-    public void m(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, textureWrap, textureWrap2) == null) {
-            this.e = textureWrap;
-            this.f = textureWrap2;
-            a();
-            f1.e.j(this.a, 10242, textureWrap.getGLEnum());
-            f1.e.j(this.a, 10243, textureWrap2.getGLEnum());
-        }
-    }
-
-    public float n(float f, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)})) == null) {
-            float g = g();
-            if (g == 1.0f) {
-                return 1.0f;
-            }
-            float min = Math.min(f, g);
-            if (!z && com.badlogic.gdx.math.d.f(min, this.g, 0.1f)) {
-                return this.g;
-            }
-            f1.f.u(3553, 34046, min);
-            this.g = min;
-            return min;
-        }
-        return invokeCommon.floatValue;
+        return (Texture.TextureWrap) invokeV.objValue;
     }
 
     public void o(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, boolean z) {
@@ -254,31 +294,5 @@ public abstract class p3 implements i7 {
                 }
             }
         }
-    }
-
-    public p3(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-        this.c = textureFilter;
-        this.d = textureFilter;
-        Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-        this.e = textureWrap;
-        this.f = textureWrap;
-        this.g = 1.0f;
-        this.a = i;
-        this.b = i2;
     }
 }

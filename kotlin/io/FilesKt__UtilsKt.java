@@ -1,12 +1,10 @@
 package kotlin.io;
 
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.sapi2.activity.BindVerifyActivity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.webkit.internal.ETAG;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.File;
@@ -37,14 +35,17 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         Intrinsics.checkNotNullParameter(target, "target");
         Intrinsics.checkNotNullParameter(onError, "onError");
         if (!copyRecursively.exists()) {
-            return onError.invoke(copyRecursively, new NoSuchFileException(copyRecursively, null, "The source file doesn't exist.", 2, null)) != OnErrorAction.TERMINATE;
+            if (((OnErrorAction) onError.invoke(copyRecursively, new NoSuchFileException(copyRecursively, null, "The source file doesn't exist.", 2, null))) != OnErrorAction.TERMINATE) {
+                return true;
+            }
+            return false;
         }
         try {
             Iterator<File> it = FilesKt__FileTreeWalkKt.walkTopDown(copyRecursively).onFail(new FilesKt__UtilsKt$copyRecursively$2(onError)).iterator();
             while (it.hasNext()) {
                 File next = it.next();
                 if (!next.exists()) {
-                    if (onError.invoke(next, new NoSuchFileException(next, null, "The source file doesn't exist.", 2, null)) == OnErrorAction.TERMINATE) {
+                    if (((OnErrorAction) onError.invoke(next, new NoSuchFileException(next, null, "The source file doesn't exist.", 2, null))) == OnErrorAction.TERMINATE) {
                         return false;
                     }
                 } else {
@@ -61,7 +62,7 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
                                 z2 = false;
                             }
                             if (!z2) {
-                                if (onError.invoke(file, new FileAlreadyExistsException(next, file, "The destination file already exists.")) == OnErrorAction.TERMINATE) {
+                                if (((OnErrorAction) onError.invoke(file, new FileAlreadyExistsException(next, file, "The destination file already exists."))) == OnErrorAction.TERMINATE) {
                                     return false;
                                 }
                             }
@@ -72,7 +73,7 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
                     }
                     if (next.isDirectory()) {
                         file.mkdirs();
-                    } else if (copyTo$default(next, file, z, 0, 4, null).length() != next.length() && onError.invoke(next, new IOException("Source file wasn't copied completely, length of destination file differs.")) == OnErrorAction.TERMINATE) {
+                    } else if (copyTo$default(next, file, z, 0, 4, null).length() != next.length() && ((OnErrorAction) onError.invoke(next, new IOException("Source file wasn't copied completely, length of destination file differs."))) == OnErrorAction.TERMINATE) {
                         return false;
                     }
                 }
@@ -91,6 +92,16 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
             function2 = FilesKt__UtilsKt$copyRecursively$1.INSTANCE;
         }
         return copyRecursively(file, file2, z, function2);
+    }
+
+    public static /* synthetic */ File copyTo$default(File file, File file2, boolean z, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            z = false;
+        }
+        if ((i2 & 4) != 0) {
+            i = 8192;
+        }
+        return copyTo(file, file2, z, i);
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -130,16 +141,6 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         throw new NoSuchFileException(copyTo, null, "The source file doesn't exist.", 2, null);
     }
 
-    public static /* synthetic */ File copyTo$default(File file, File file2, boolean z, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            z = false;
-        }
-        if ((i2 & 4) != 0) {
-            i = 8192;
-        }
-        return copyTo(file, file2, z, i);
-    }
-
     @Deprecated(message = "Avoid creating temporary directories in the default temp location with this function due to too wide permissions on the newly created directory. Use kotlin.io.path.createTempDirectory instead.")
     public static final File createTempDir(String prefix, String str, File file) {
         Intrinsics.checkNotNullParameter(prefix, "prefix");
@@ -165,14 +166,6 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         return createTempDir(str, str2, file);
     }
 
-    @Deprecated(message = "Avoid creating temporary files in the default temp location with this function due to too wide permissions on the newly created file. Use kotlin.io.path.createTempFile instead or resort to java.io.File.createTempFile.")
-    public static final File createTempFile(String prefix, String str, File file) {
-        Intrinsics.checkNotNullParameter(prefix, "prefix");
-        File createTempFile = File.createTempFile(prefix, str, file);
-        Intrinsics.checkNotNullExpressionValue(createTempFile, "File.createTempFile(prefix, suffix, directory)");
-        return createTempFile;
-    }
-
     public static /* synthetic */ File createTempFile$default(String str, String str2, File file, int i, Object obj) {
         if ((i & 1) != 0) {
             str = "tmp";
@@ -184,6 +177,14 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
             file = null;
         }
         return createTempFile(str, str2, file);
+    }
+
+    @Deprecated(message = "Avoid creating temporary files in the default temp location with this function due to too wide permissions on the newly created file. Use kotlin.io.path.createTempFile instead or resort to java.io.File.createTempFile.")
+    public static final File createTempFile(String prefix, String str, File file) {
+        Intrinsics.checkNotNullParameter(prefix, "prefix");
+        File createTempFile = File.createTempFile(prefix, str, file);
+        Intrinsics.checkNotNullExpressionValue(createTempFile, "File.createTempFile(prefix, suffix, directory)");
+        return createTempFile;
     }
 
     public static final boolean deleteRecursively(File deleteRecursively) {
@@ -200,21 +201,6 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
             }
             return z;
         }
-    }
-
-    public static final boolean endsWith(File endsWith, File other) {
-        Intrinsics.checkNotNullParameter(endsWith, "$this$endsWith");
-        Intrinsics.checkNotNullParameter(other, "other");
-        FilePathComponents components = FilesKt__FilePathComponentsKt.toComponents(endsWith);
-        FilePathComponents components2 = FilesKt__FilePathComponentsKt.toComponents(other);
-        if (components2.isRooted()) {
-            return Intrinsics.areEqual(endsWith, other);
-        }
-        int size = components.getSize() - components2.getSize();
-        if (size < 0) {
-            return false;
-        }
-        return components.getSegments().subList(size, components.getSize()).equals(components2.getSegments());
     }
 
     public static final String getExtension(File extension) {
@@ -257,6 +243,61 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         return new FilePathComponents(filePathComponents.getRoot(), normalize$FilesKt__UtilsKt(filePathComponents.getSegments()));
     }
 
+    public static final boolean endsWith(File endsWith, File other) {
+        Intrinsics.checkNotNullParameter(endsWith, "$this$endsWith");
+        Intrinsics.checkNotNullParameter(other, "other");
+        FilePathComponents components = FilesKt__FilePathComponentsKt.toComponents(endsWith);
+        FilePathComponents components2 = FilesKt__FilePathComponentsKt.toComponents(other);
+        if (components2.isRooted()) {
+            return Intrinsics.areEqual(endsWith, other);
+        }
+        int size = components.getSize() - components2.getSize();
+        if (size < 0) {
+            return false;
+        }
+        return components.getSegments().subList(size, components.getSize()).equals(components2.getSegments());
+    }
+
+    public static final File resolveSibling(File resolveSibling, File relative) {
+        File subPath;
+        Intrinsics.checkNotNullParameter(resolveSibling, "$this$resolveSibling");
+        Intrinsics.checkNotNullParameter(relative, "relative");
+        FilePathComponents components = FilesKt__FilePathComponentsKt.toComponents(resolveSibling);
+        if (components.getSize() == 0) {
+            subPath = new File(IStringUtil.TOP_PATH);
+        } else {
+            subPath = components.subPath(0, components.getSize() - 1);
+        }
+        return resolve(resolve(components.getRoot(), subPath), relative);
+    }
+
+    public static final boolean startsWith(File startsWith, File other) {
+        Intrinsics.checkNotNullParameter(startsWith, "$this$startsWith");
+        Intrinsics.checkNotNullParameter(other, "other");
+        FilePathComponents components = FilesKt__FilePathComponentsKt.toComponents(startsWith);
+        FilePathComponents components2 = FilesKt__FilePathComponentsKt.toComponents(other);
+        if ((!Intrinsics.areEqual(components.getRoot(), components2.getRoot())) || components.getSize() < components2.getSize()) {
+            return false;
+        }
+        return components.getSegments().subList(0, components2.getSize()).equals(components2.getSegments());
+    }
+
+    public static final String toRelativeString(File toRelativeString, File base) {
+        Intrinsics.checkNotNullParameter(toRelativeString, "$this$toRelativeString");
+        Intrinsics.checkNotNullParameter(base, "base");
+        String relativeStringOrNull$FilesKt__UtilsKt = toRelativeStringOrNull$FilesKt__UtilsKt(toRelativeString, base);
+        if (relativeStringOrNull$FilesKt__UtilsKt != null) {
+            return relativeStringOrNull$FilesKt__UtilsKt;
+        }
+        throw new IllegalArgumentException("this and base files have different roots: " + toRelativeString + " and " + base + IStringUtil.EXTENSION_SEPARATOR);
+    }
+
+    public static final boolean endsWith(File endsWith, String other) {
+        Intrinsics.checkNotNullParameter(endsWith, "$this$endsWith");
+        Intrinsics.checkNotNullParameter(other, "other");
+        return endsWith(endsWith, new File(other));
+    }
+
     public static final File relativeTo(File relativeTo, File base) {
         Intrinsics.checkNotNullParameter(relativeTo, "$this$relativeTo");
         Intrinsics.checkNotNullParameter(base, "base");
@@ -277,10 +318,54 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         Intrinsics.checkNotNullParameter(relativeToOrSelf, "$this$relativeToOrSelf");
         Intrinsics.checkNotNullParameter(base, "base");
         String relativeStringOrNull$FilesKt__UtilsKt = toRelativeStringOrNull$FilesKt__UtilsKt(relativeToOrSelf, base);
-        return relativeStringOrNull$FilesKt__UtilsKt != null ? new File(relativeStringOrNull$FilesKt__UtilsKt) : relativeToOrSelf;
+        if (relativeStringOrNull$FilesKt__UtilsKt != null) {
+            return new File(relativeStringOrNull$FilesKt__UtilsKt);
+        }
+        return relativeToOrSelf;
+    }
+
+    public static final File resolve(File resolve, String relative) {
+        Intrinsics.checkNotNullParameter(resolve, "$this$resolve");
+        Intrinsics.checkNotNullParameter(relative, "relative");
+        return resolve(resolve, new File(relative));
+    }
+
+    public static final File resolveSibling(File resolveSibling, String relative) {
+        Intrinsics.checkNotNullParameter(resolveSibling, "$this$resolveSibling");
+        Intrinsics.checkNotNullParameter(relative, "relative");
+        return resolveSibling(resolveSibling, new File(relative));
+    }
+
+    public static final boolean startsWith(File startsWith, String other) {
+        Intrinsics.checkNotNullParameter(startsWith, "$this$startsWith");
+        Intrinsics.checkNotNullParameter(other, "other");
+        return startsWith(startsWith, new File(other));
+    }
+
+    public static final List<File> normalize$FilesKt__UtilsKt(List<? extends File> list) {
+        ArrayList arrayList = new ArrayList(list.size());
+        for (File file : list) {
+            String name = file.getName();
+            if (name != null) {
+                int hashCode = name.hashCode();
+                if (hashCode != 46) {
+                    if (hashCode == 1472 && name.equals(IStringUtil.TOP_PATH)) {
+                        if (!arrayList.isEmpty() && (!Intrinsics.areEqual(((File) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).getName(), IStringUtil.TOP_PATH))) {
+                            arrayList.remove(arrayList.size() - 1);
+                        } else {
+                            arrayList.add(file);
+                        }
+                    }
+                } else if (name.equals(".")) {
+                }
+            }
+            arrayList.add(file);
+        }
+        return arrayList;
     }
 
     public static final File resolve(File resolve, File relative) {
+        boolean z;
         Intrinsics.checkNotNullParameter(resolve, "$this$resolve");
         Intrinsics.checkNotNullParameter(relative, "relative");
         if (FilesKt__FilePathComponentsKt.isRooted(relative)) {
@@ -288,38 +373,15 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
         }
         String file = resolve.toString();
         Intrinsics.checkNotNullExpressionValue(file, "this.toString()");
-        if ((file.length() == 0) || StringsKt__StringsKt.endsWith$default((CharSequence) file, File.separatorChar, false, 2, (Object) null)) {
-            return new File(file + relative);
+        if (file.length() == 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        return new File(file + File.separatorChar + relative);
-    }
-
-    public static final File resolveSibling(File resolveSibling, File relative) {
-        Intrinsics.checkNotNullParameter(resolveSibling, "$this$resolveSibling");
-        Intrinsics.checkNotNullParameter(relative, "relative");
-        FilePathComponents components = FilesKt__FilePathComponentsKt.toComponents(resolveSibling);
-        return resolve(resolve(components.getRoot(), components.getSize() == 0 ? new File(IStringUtil.TOP_PATH) : components.subPath(0, components.getSize() - 1)), relative);
-    }
-
-    public static final boolean startsWith(File startsWith, File other) {
-        Intrinsics.checkNotNullParameter(startsWith, "$this$startsWith");
-        Intrinsics.checkNotNullParameter(other, "other");
-        FilePathComponents components = FilesKt__FilePathComponentsKt.toComponents(startsWith);
-        FilePathComponents components2 = FilesKt__FilePathComponentsKt.toComponents(other);
-        if (!(!Intrinsics.areEqual(components.getRoot(), components2.getRoot())) && components.getSize() >= components2.getSize()) {
-            return components.getSegments().subList(0, components2.getSize()).equals(components2.getSegments());
+        if (!z && !StringsKt__StringsKt.endsWith$default((CharSequence) file, File.separatorChar, false, 2, (Object) null)) {
+            return new File(file + File.separatorChar + relative);
         }
-        return false;
-    }
-
-    public static final String toRelativeString(File toRelativeString, File base) {
-        Intrinsics.checkNotNullParameter(toRelativeString, "$this$toRelativeString");
-        Intrinsics.checkNotNullParameter(base, "base");
-        String relativeStringOrNull$FilesKt__UtilsKt = toRelativeStringOrNull$FilesKt__UtilsKt(toRelativeString, base);
-        if (relativeStringOrNull$FilesKt__UtilsKt != null) {
-            return relativeStringOrNull$FilesKt__UtilsKt;
-        }
-        throw new IllegalArgumentException("this and base files have different roots: " + toRelativeString + " and " + base + IStringUtil.EXTENSION_SEPARATOR);
+        return new File(file + relative);
     }
 
     public static final String toRelativeStringOrNull$FilesKt__UtilsKt(File file, File file2) {
@@ -356,54 +418,8 @@ public class FilesKt__UtilsKt extends FilesKt__FileTreeWalkKt {
             List drop = CollectionsKt___CollectionsKt.drop(normalize$FilesKt__UtilsKt.getSegments(), i);
             String str = File.separator;
             Intrinsics.checkNotNullExpressionValue(str, "File.separator");
-            CollectionsKt___CollectionsKt.joinTo(drop, sb, (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : str, (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? StringHelper.STRING_MORE : null, (r14 & 64) != 0 ? null : null);
+            CollectionsKt___CollectionsKt.joinTo$default(drop, sb, str, null, null, 0, null, null, 124, null);
         }
         return sb.toString();
-    }
-
-    public static final List<File> normalize$FilesKt__UtilsKt(List<? extends File> list) {
-        ArrayList arrayList = new ArrayList(list.size());
-        for (File file : list) {
-            String name = file.getName();
-            if (name != null) {
-                int hashCode = name.hashCode();
-                if (hashCode != 46) {
-                    if (hashCode == 1472 && name.equals(IStringUtil.TOP_PATH)) {
-                        if (arrayList.isEmpty() || !(!Intrinsics.areEqual(((File) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).getName(), IStringUtil.TOP_PATH))) {
-                            arrayList.add(file);
-                        } else {
-                            arrayList.remove(arrayList.size() - 1);
-                        }
-                    }
-                } else if (name.equals(".")) {
-                }
-            }
-            arrayList.add(file);
-        }
-        return arrayList;
-    }
-
-    public static final File resolve(File resolve, String relative) {
-        Intrinsics.checkNotNullParameter(resolve, "$this$resolve");
-        Intrinsics.checkNotNullParameter(relative, "relative");
-        return resolve(resolve, new File(relative));
-    }
-
-    public static final File resolveSibling(File resolveSibling, String relative) {
-        Intrinsics.checkNotNullParameter(resolveSibling, "$this$resolveSibling");
-        Intrinsics.checkNotNullParameter(relative, "relative");
-        return resolveSibling(resolveSibling, new File(relative));
-    }
-
-    public static final boolean startsWith(File startsWith, String other) {
-        Intrinsics.checkNotNullParameter(startsWith, "$this$startsWith");
-        Intrinsics.checkNotNullParameter(other, "other");
-        return startsWith(startsWith, new File(other));
-    }
-
-    public static final boolean endsWith(File endsWith, String other) {
-        Intrinsics.checkNotNullParameter(endsWith, "$this$endsWith");
-        Intrinsics.checkNotNullParameter(other, "other");
-        return endsWith(endsWith, new File(other));
     }
 }

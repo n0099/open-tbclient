@@ -10,6 +10,11 @@ import kotlin.jvm.internal.markers.KMappedMarker;
 public final class CollectionsKt__IteratorsJVMKt$iterator$1 implements Iterator<T>, KMappedMarker {
     public final /* synthetic */ Enumeration $this_iterator;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     public CollectionsKt__IteratorsJVMKt$iterator$1(Enumeration<T> enumeration) {
         this.$this_iterator = enumeration;
     }
@@ -23,10 +28,5 @@ public final class CollectionsKt__IteratorsJVMKt$iterator$1 implements Iterator<
     @Override // java.util.Iterator
     public T next() {
         return this.$this_iterator.nextElement();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 }

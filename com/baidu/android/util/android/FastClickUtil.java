@@ -55,10 +55,15 @@ public class FastClickUtil {
     @Deprecated
     public static boolean isFastShowDialogCallback() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            boolean z = currentTimeMillis - sLastShowDiologTime <= 1300;
+            if (currentTimeMillis - sLastShowDiologTime > 1300) {
+                z = false;
+            } else {
+                z = true;
+            }
             sLastShowDiologTime = currentTimeMillis;
             return z;
         }

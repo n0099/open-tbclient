@@ -38,17 +38,25 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
     }
 
     @Override // com.baidu.live.recmore.ILiveRecSubTabAdapter
-    public void addNew(List<LiveRoomEntity> list) {
+    public void notifyDataSetChanged() {
         LiveSubTabAdapter liveSubTabAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (liveSubTabAdapter = this.adapter) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (liveSubTabAdapter = this.adapter) != null) {
+            liveSubTabAdapter.notifyDataSetChanged();
         }
-        LiveSubTabAdapter.f(liveSubTabAdapter, list, null, 2, null);
     }
 
     @Override // com.baidu.live.recmore.ILiveRecSubTabAdapter
-    public RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context) {
+    public void addNew(List list) {
+        LiveSubTabAdapter liveSubTabAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && (liveSubTabAdapter = this.adapter) != null) {
+            LiveSubTabAdapter.f(liveSubTabAdapter, list, null, 2, null);
+        }
+    }
+
+    @Override // com.baidu.live.recmore.ILiveRecSubTabAdapter
+    public RecyclerView.Adapter createAdapter(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -57,24 +65,6 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveRecSubTabAdapter this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
 
                 @Override // com.baidu.live.business.adapter.LiveSubTabAdapter.a
                 public void onBannerItemClick(LiveBannerEntity liveBannerEntity) {
@@ -110,6 +100,31 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
                     }
                 }
 
+                @Override // com.baidu.live.business.adapter.LiveSubTabAdapter.a
+                public void onItemViewRecycled(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048582, this, i) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
                     r0 = r4.this$0.mListener;
                  */
@@ -120,16 +135,8 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
                 public void onItemViewClick(LiveRoomEntity liveRoomEntity, int i) {
                     ILiveRecSubTabAdapter.ItemViewListener itemViewListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048581, this, liveRoomEntity, i) == null) || itemViewListener == null) {
-                        return;
-                    }
-                    itemViewListener.onItemViewClick(liveRoomEntity, i);
-                }
-
-                @Override // com.baidu.live.business.adapter.LiveSubTabAdapter.a
-                public void onItemViewRecycled(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048582, this, i) == null) {
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048581, this, liveRoomEntity, i) == null) && itemViewListener != null) {
+                        itemViewListener.onItemViewClick(liveRoomEntity, i);
                     }
                 }
 
@@ -143,26 +150,15 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
                 public void onItemViewShow(LiveRoomEntity liveRoomEntity, int i) {
                     ILiveRecSubTabAdapter.ItemViewListener itemViewListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048583, this, liveRoomEntity, i) == null) || itemViewListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048583, this, liveRoomEntity, i) == null) && itemViewListener != null) {
+                        itemViewListener.onItemViewShow(liveRoomEntity, i);
                     }
-                    itemViewListener.onItemViewShow(liveRoomEntity, i);
                 }
             });
             this.adapter = liveSubTabAdapter;
             return liveSubTabAdapter;
         }
         return (RecyclerView.Adapter) invokeL.objValue;
-    }
-
-    @Override // com.baidu.live.recmore.ILiveRecSubTabAdapter
-    public void notifyDataSetChanged() {
-        LiveSubTabAdapter liveSubTabAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (liveSubTabAdapter = this.adapter) == null) {
-            return;
-        }
-        liveSubTabAdapter.notifyDataSetChanged();
     }
 
     @Override // com.baidu.live.recmore.ILiveRecSubTabAdapter

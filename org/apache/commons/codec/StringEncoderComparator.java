@@ -28,16 +28,6 @@ public class StringEncoderComparator implements Comparator {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // java.util.Comparator
-    public int compare(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeLL.intValue;
-    }
-
     public StringEncoderComparator(StringEncoder stringEncoder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,5 +44,15 @@ public class StringEncoderComparator implements Comparator {
             }
         }
         throw new RuntimeException("Stub!");
+    }
+
+    @Override // java.util.Comparator
+    public int compare(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLL.intValue;
     }
 }

@@ -15,7 +15,13 @@ public final class AlaMgetLiveStatusReqIdl extends Message {
     public final DataReq data;
 
     /* loaded from: classes.dex */
-    public static final class Builder extends Message.Builder<AlaMgetLiveStatusReqIdl> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DataReq data;
@@ -59,23 +65,15 @@ public final class AlaMgetLiveStatusReqIdl extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public AlaMgetLiveStatusReqIdl build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new AlaMgetLiveStatusReqIdl(this, z, null) : (AlaMgetLiveStatusReqIdl) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return new AlaMgetLiveStatusReqIdl(this, z, null);
+            }
+            return (AlaMgetLiveStatusReqIdl) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public /* synthetic */ AlaMgetLiveStatusReqIdl(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,5 +99,9 @@ public final class AlaMgetLiveStatusReqIdl extends Message {
         } else {
             this.data = builder.data;
         }
+    }
+
+    public /* synthetic */ AlaMgetLiveStatusReqIdl(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

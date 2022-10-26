@@ -21,26 +21,6 @@ public final class SubPluginBundleInfo {
     public final Integer minVersion;
     public final String packageName;
 
-    public SubPluginBundleInfo(String str, Integer num, Integer num2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, num, num2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.packageName = str;
-        this.minVersion = num;
-        this.maxVersion = num2;
-    }
-
     public static /* synthetic */ SubPluginBundleInfo copy$default(SubPluginBundleInfo subPluginBundleInfo, String str, Integer num, Integer num2, int i, Object obj) {
         if ((i & 1) != 0) {
             str = subPluginBundleInfo.packageName;
@@ -94,24 +74,6 @@ public final class SubPluginBundleInfo {
         return invokeL.booleanValue;
     }
 
-    public final Integer getMaxVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.maxVersion : (Integer) invokeV.objValue;
-    }
-
-    public final Integer getMinVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.minVersion : (Integer) invokeV.objValue;
-    }
-
-    public final String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.packageName : (String) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -126,6 +88,57 @@ public final class SubPluginBundleInfo {
         return invokeV.intValue;
     }
 
+    public SubPluginBundleInfo(String str, Integer num, Integer num2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, num, num2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.packageName = str;
+        this.minVersion = num;
+        this.maxVersion = num2;
+    }
+
+    public /* synthetic */ SubPluginBundleInfo(String str, Integer num, Integer num2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i & 2) != 0 ? 0 : num, (i & 4) != 0 ? 0 : num2);
+    }
+
+    public final Integer getMaxVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.maxVersion;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final Integer getMinVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.minVersion;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.packageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,9 +146,5 @@ public final class SubPluginBundleInfo {
             return "SubBundleInfo{ packageName=" + this.packageName + ", minVersion=" + this.minVersion + ", maxVersion=" + this.maxVersion + " }";
         }
         return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ SubPluginBundleInfo(String str, Integer num, Integer num2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, (i & 2) != 0 ? 0 : num, (i & 4) != 0 ? 0 : num2);
     }
 }

@@ -59,37 +59,55 @@ public class DelayConfig implements Serializable {
     public float getDecrease() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.decrease : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.decrease;
+        }
+        return invokeV.floatValue;
     }
 
     public int getDelayMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.delayMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.delayMode;
+        }
+        return invokeV.intValue;
     }
 
     public int getDelayTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.delayTime : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.delayTime;
+        }
+        return invokeV.intValue;
     }
 
     public int getNewPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.newPosition : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.newPosition;
+        }
+        return invokeV.intValue;
     }
 
     public int[] getPairTimeArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pairTimeArray : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.pairTimeArray;
+        }
+        return (int[]) invokeV.objValue;
     }
 
     public int getPairTimeLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pairTimeLength : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.pairTimeLength;
+        }
+        return invokeV.intValue;
     }
 
     public DelayConfig setDecrease(float f) {
@@ -100,17 +118,6 @@ public class DelayConfig implements Serializable {
             return this;
         }
         return (DelayConfig) invokeF.objValue;
-    }
-
-    public DelayConfig setDelayInterval(int i, int[] iArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, iArr)) == null) {
-            this.pairTimeLength = i;
-            this.pairTimeArray = iArr;
-            return this;
-        }
-        return (DelayConfig) invokeIL.objValue;
     }
 
     public DelayConfig setDelayTime(int i) {
@@ -131,6 +138,17 @@ public class DelayConfig implements Serializable {
             return this;
         }
         return (DelayConfig) invokeI.objValue;
+    }
+
+    public DelayConfig setDelayInterval(int i, int[] iArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, iArr)) == null) {
+            this.pairTimeLength = i;
+            this.pairTimeArray = iArr;
+            return this;
+        }
+        return (DelayConfig) invokeIL.objValue;
     }
 
     public String toString() {

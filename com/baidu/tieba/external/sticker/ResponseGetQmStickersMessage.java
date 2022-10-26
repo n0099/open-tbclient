@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class ResponseGetQmStickersMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<QmStickerItem> mQmStickerItems;
+    public List mQmStickerItems;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetQmStickersMessage() {
@@ -37,29 +37,31 @@ public class ResponseGetQmStickersMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public List getStickerItems() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mQmStickerItems;
+        }
+        return (List) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (getError() != 0 || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("sticker_list")) == null || optJSONArray.length() <= 0) {
-                return;
-            }
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                QmStickerItem qmStickerItem = new QmStickerItem();
-                qmStickerItem.parseJson(optJSONArray.getJSONObject(i2));
-                if (this.mQmStickerItems == null) {
-                    this.mQmStickerItems = new ArrayList();
+            if (getError() == 0 && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("sticker_list")) != null && optJSONArray.length() > 0) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    QmStickerItem qmStickerItem = new QmStickerItem();
+                    qmStickerItem.parseJson(optJSONArray.getJSONObject(i2));
+                    if (this.mQmStickerItems == null) {
+                        this.mQmStickerItems = new ArrayList();
+                    }
+                    this.mQmStickerItems.add(qmStickerItem);
                 }
-                this.mQmStickerItems.add(qmStickerItem);
             }
         }
-    }
-
-    public List<QmStickerItem> getStickerItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mQmStickerItems : (List) invokeV.objValue;
     }
 }

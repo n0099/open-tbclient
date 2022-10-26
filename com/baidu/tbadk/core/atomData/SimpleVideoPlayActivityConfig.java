@@ -17,13 +17,13 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -46,7 +46,10 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         public SimpleVideoPlayActivityConfig c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new SimpleVideoPlayActivityConfig(context, this, null) : (SimpleVideoPlayActivityConfig) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return new SimpleVideoPlayActivityConfig(context, this, null);
+            }
+            return (SimpleVideoPlayActivityConfig) invokeL.objValue;
         }
 
         public b d(String str) {
@@ -68,10 +71,6 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             }
             return (b) invokeL.objValue;
         }
-    }
-
-    public /* synthetic */ SimpleVideoPlayActivityConfig(Context context, b bVar, a aVar) {
-        this(context, bVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,5 +97,9 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         }
         intent.putExtra("video_url", bVar.a);
         intent.putExtra("thumb_url", bVar.b);
+    }
+
+    public /* synthetic */ SimpleVideoPlayActivityConfig(Context context, b bVar, a aVar) {
+        this(context, bVar);
     }
 }

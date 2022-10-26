@@ -61,12 +61,18 @@ public final class MediaGestureMode {
     public static MediaGestureMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MediaGestureMode) Enum.valueOf(MediaGestureMode.class, str) : (MediaGestureMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (MediaGestureMode) Enum.valueOf(MediaGestureMode.class, str);
+        }
+        return (MediaGestureMode) invokeL.objValue;
     }
 
     public static MediaGestureMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MediaGestureMode[]) $VALUES.clone() : (MediaGestureMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (MediaGestureMode[]) $VALUES.clone();
+        }
+        return (MediaGestureMode[]) invokeV.objValue;
     }
 }

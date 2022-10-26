@@ -61,12 +61,18 @@ public final class Direction {
     public static Direction valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Direction) Enum.valueOf(Direction.class, str) : (Direction) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Direction) Enum.valueOf(Direction.class, str);
+        }
+        return (Direction) invokeL.objValue;
     }
 
     public static Direction[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Direction[]) $VALUES.clone() : (Direction[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Direction[]) $VALUES.clone();
+        }
+        return (Direction[]) invokeV.objValue;
     }
 }

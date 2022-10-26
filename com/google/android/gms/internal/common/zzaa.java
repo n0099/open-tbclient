@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class zzaa<E> extends zzab<E> {
+public class zzaa extends zzab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Object[] zza;
@@ -38,37 +38,34 @@ public class zzaa<E> extends zzab<E> {
         if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
             Object[] objArr = this.zza;
             int length = objArr.length;
-            if (length >= i) {
-                if (this.zzc) {
-                    this.zza = (Object[]) objArr.clone();
-                    this.zzc = false;
-                    return;
+            if (length < i) {
+                int i2 = length + (length >> 1) + 1;
+                if (i2 < i) {
+                    int highestOneBit = Integer.highestOneBit(i - 1);
+                    i2 = highestOneBit + highestOneBit;
                 }
-                return;
+                if (i2 < 0) {
+                    i2 = Integer.MAX_VALUE;
+                }
+                this.zza = Arrays.copyOf(objArr, i2);
+                this.zzc = false;
+            } else if (this.zzc) {
+                this.zza = (Object[]) objArr.clone();
+                this.zzc = false;
             }
-            int i2 = length + (length >> 1) + 1;
-            if (i2 < i) {
-                int highestOneBit = Integer.highestOneBit(i - 1);
-                i2 = highestOneBit + highestOneBit;
-            }
-            if (i2 < 0) {
-                i2 = Integer.MAX_VALUE;
-            }
-            this.zza = Arrays.copyOf(objArr, i2);
-            this.zzc = false;
         }
     }
 
-    public final zzaa<E> zza(E e) {
+    public final zzaa zza(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj != null) {
                 zzb(this.zzb + 1);
                 Object[] objArr = this.zza;
                 int i = this.zzb;
                 this.zzb = i + 1;
-                objArr[i] = e;
+                objArr[i] = obj;
                 return this;
             }
             throw null;

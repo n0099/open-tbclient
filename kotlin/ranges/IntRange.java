@@ -26,14 +26,36 @@ public final class IntRange extends IntProgression implements ClosedRange<Intege
         }
     }
 
+    @Override // kotlin.ranges.IntProgression
+    public int hashCode() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return (getFirst() * 31) + getLast();
+    }
+
+    @Override // kotlin.ranges.IntProgression, kotlin.ranges.ClosedRange
+    public boolean isEmpty() {
+        if (getFirst() > getLast()) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // kotlin.ranges.IntProgression
+    public String toString() {
+        return getFirst() + IStringUtil.TOP_PATH + getLast();
+    }
+
     public IntRange(int i, int i2) {
         super(i, i2, 1);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
-    @Override // kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ boolean contains(Integer num) {
-        return contains(num.intValue());
+    public boolean contains(int i) {
+        if (getFirst() <= i && i <= getLast()) {
+            return true;
+        }
+        return false;
     }
 
     @Override // kotlin.ranges.IntProgression
@@ -49,26 +71,9 @@ public final class IntRange extends IntProgression implements ClosedRange<Intege
         return false;
     }
 
-    @Override // kotlin.ranges.IntProgression
-    public int hashCode() {
-        if (isEmpty()) {
-            return -1;
-        }
-        return (getFirst() * 31) + getLast();
-    }
-
-    @Override // kotlin.ranges.IntProgression, kotlin.ranges.ClosedRange
-    public boolean isEmpty() {
-        return getFirst() > getLast();
-    }
-
-    @Override // kotlin.ranges.IntProgression
-    public String toString() {
-        return getFirst() + IStringUtil.TOP_PATH + getLast();
-    }
-
-    public boolean contains(int i) {
-        return getFirst() <= i && i <= getLast();
+    @Override // kotlin.ranges.ClosedRange
+    public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
+        return contains(((Number) comparable).intValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

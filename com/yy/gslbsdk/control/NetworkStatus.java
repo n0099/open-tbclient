@@ -72,7 +72,93 @@ public class NetworkStatus {
     public static NetworkStatus getInstanceClone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m693clone() : (NetworkStatus) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return getInstance().m692clone();
+        }
+        return (NetworkStatus) invokeV.objValue;
+    }
+
+    public boolean canV4() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if ((this.mStatus & 1) > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.mStatus == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2 || z || this.mStatus == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean canV6() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if ((this.mStatus & 2) > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.mStatus == 2) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2) {
+                return true;
+            }
+            if (this.mEnableV6 && z) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public NetworkStatus m692clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            NetworkStatus networkStatus = new NetworkStatus();
+            networkStatus.mEnableV6 = this.mEnableV6;
+            networkStatus.mStatus = this.mStatus;
+            return networkStatus;
+        }
+        return (NetworkStatus) invokeV.objValue;
+    }
+
+    public int getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isEnableV6() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mEnableV6;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void updateEnableV6(boolean z) {
@@ -89,64 +175,22 @@ public class NetworkStatus {
         }
     }
 
-    public boolean canV4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (this.mStatus == 1) || ((this.mStatus & 1) > 0) || this.mStatus == 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean canV6() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean z = (this.mStatus & 2) > 0;
-            if (this.mStatus == 2) {
-                return true;
-            }
-            return this.mEnableV6 && z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStatus : invokeV.intValue;
-    }
-
-    public boolean isEnableV6() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mEnableV6 : invokeV.booleanValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Locale locale = Locale.US;
             Object[] objArr = new Object[2];
-            objArr[0] = this.mEnableV6 ? "true" : "false";
+            if (this.mEnableV6) {
+                str = "true";
+            } else {
+                str = "false";
+            }
+            objArr[0] = str;
             objArr[1] = Integer.valueOf(this.mStatus);
             return String.format(locale, "[EnableV6=%s, Status=%d]", objArr);
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public NetworkStatus m693clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetworkStatus networkStatus = new NetworkStatus();
-            networkStatus.mEnableV6 = this.mEnableV6;
-            networkStatus.mStatus = this.mStatus;
-            return networkStatus;
-        }
-        return (NetworkStatus) invokeV.objValue;
     }
 }

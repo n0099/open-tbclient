@@ -16,7 +16,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.videoplayer.SwanVideoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lk4;
+import com.baidu.tieba.mk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,12 +52,18 @@ public class MediaController extends RelativeLayout {
     public SwanVideoView r;
     public boolean s;
     public boolean t;
-    public lk4 u;
+    public mk4 u;
     public boolean v;
     public boolean w;
     public View.OnClickListener x;
     public boolean y;
     public boolean z;
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        }
+    }
 
     /* loaded from: classes3.dex */
     public class a extends TimerTask {
@@ -67,12 +73,12 @@ public class MediaController extends RelativeLayout {
 
         /* renamed from: com.baidu.swan.videoplayer.widget.MediaController$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0182a implements Runnable {
+        public class RunnableC0183a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0182a(a aVar) {
+            public RunnableC0183a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +127,76 @@ public class MediaController extends RelativeLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.getMainThreadHandler().post(new RunnableC0182a(this));
+                this.a.getMainThreadHandler().post(new RunnableC0183a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class j extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MediaController a;
+
+        /* loaded from: classes3.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ j a;
+
+            public a(j jVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {jVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = jVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.a.a.r != null && this.a.a.r.getVideoPlayerCallback() != null) {
+                        this.a.a.r.getVideoPlayerCallback().c(this.a.a.r);
+                    }
+                    this.a.a.n();
+                }
+            }
+        }
+
+        public j(MediaController mediaController) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mediaController};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mediaController;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.getMainThreadHandler().post(new a(this));
             }
         }
     }
@@ -153,27 +228,26 @@ public class MediaController extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.r == null) {
-                return;
-            }
-            if (this.a.r.z()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.r != null) {
+                if (this.a.r.z()) {
+                    if (this.a.a.getVisibility() == 0) {
+                        this.a.a.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    }
+                    if (this.a.i.getVisibility() == 0) {
+                        this.a.i.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    }
+                    this.a.r.C();
+                    return;
+                }
+                Log.d("SimpleMediaController", "mPlayButton clicked : to resume");
                 if (this.a.a.getVisibility() == 0) {
-                    this.a.a.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
+                    this.a.a.setImageResource(R.drawable.obfuscated_res_0x7f0811ea);
                 }
                 if (this.a.i.getVisibility() == 0) {
-                    this.a.i.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
+                    this.a.i.setImageResource(R.drawable.obfuscated_res_0x7f0811ea);
                 }
-                this.a.r.C();
-                return;
+                this.a.r.X();
             }
-            Log.d("SimpleMediaController", "mPlayButton clicked : to resume");
-            if (this.a.a.getVisibility() == 0) {
-                this.a.a.setImageResource(R.drawable.obfuscated_res_0x7f0811d9);
-            }
-            if (this.a.i.getVisibility() == 0) {
-                this.a.i.setImageResource(R.drawable.obfuscated_res_0x7f0811d9);
-            }
-            this.a.r.X();
         }
     }
 
@@ -202,19 +276,20 @@ public class MediaController extends RelativeLayout {
         }
 
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                this.a.D(i);
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
         public void onStartTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
                 this.a.s = true;
             }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) != null) {
+                return;
+            }
+            this.a.D(i);
         }
 
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
@@ -298,10 +373,9 @@ public class MediaController extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.u == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.u != null) {
+                this.a.u.d(!this.a.v);
             }
-            this.a.u.d(!this.a.v);
         }
     }
 
@@ -365,9 +439,10 @@ public class MediaController extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.B();
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.B();
         }
     }
 
@@ -437,75 +512,6 @@ public class MediaController extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class j extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MediaController a;
-
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ j a;
-
-            public a(j jVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {jVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = jVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.a.a.r != null && this.a.a.r.getVideoPlayerCallback() != null) {
-                        this.a.a.r.getVideoPlayerCallback().c(this.a.a.r);
-                    }
-                    this.a.a.n();
-                }
-            }
-        }
-
-        public j(MediaController mediaController) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaController};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mediaController;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.getMainThreadHandler().post(new a(this));
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MediaController(Context context) {
         super(context);
@@ -530,438 +536,37 @@ public class MediaController extends RelativeLayout {
         m();
     }
 
-    public static String j(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
-            if (i2 < 0) {
-                return "";
-            }
-            int i3 = i2 / 1000;
-            int i4 = i3 / 3600;
-            int i5 = (i3 % 3600) / 60;
-            int i6 = i3 % 60;
-            return i4 != 0 ? String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)) : String.format(Locale.US, "%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i6));
-        }
-        return (String) invokeI.objValue;
-    }
-
-    private void setMax(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65547, this, i2) == null) || this.t) {
-            return;
-        }
-        SeekBar seekBar = this.e;
-        if (seekBar != null) {
-            seekBar.setMax(i2);
-        }
-        C(i2);
-        if (i2 > 0) {
-            this.t = true;
-        }
-    }
-
-    public final void A() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (timer = this.o) == null) {
-            return;
-        }
-        timer.cancel();
-        this.o = null;
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean z = !this.y;
-            this.y = z;
-            if (z) {
-                this.k.setImageResource(R.drawable.obfuscated_res_0x7f0811d8);
-                this.B.setVisibility(8);
-                this.C.setVisibility(8);
-                this.l.setVisibility(8);
-                this.a.setVisibility(8);
-            } else {
-                this.k.setImageResource(R.drawable.obfuscated_res_0x7f0811dc);
-                this.B.setVisibility(0);
-                this.C.setVisibility(0);
-                this.l.setVisibility(this.z ? 0 : 8);
-                this.a.setVisibility(this.A ? 0 : 8);
-            }
-            SwanVideoView swanVideoView = this.r;
-            if (swanVideoView != null) {
-                swanVideoView.b0(this.y);
-            }
-        }
-    }
-
-    public final void C(int i2) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (textView = this.f) == null) {
-            return;
-        }
-        textView.setText(j(i2));
-    }
-
-    public final void D(int i2) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (textView = this.d) == null) {
-            return;
-        }
-        textView.setText(j(i2));
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int currentPlayerState = this.r.getCurrentPlayerState();
-            this.t = false;
-            switch (currentPlayerState) {
-                case -1:
-                case 0:
-                    A();
-                    this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
-                    this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
-                    this.e.setEnabled(false);
-                    SwanVideoView swanVideoView = this.r;
-                    D(swanVideoView == null ? 0 : swanVideoView.getCurrentPosition());
-                    SwanVideoView swanVideoView2 = this.r;
-                    C(swanVideoView2 != null ? swanVideoView2.getDuration() : 0);
-                    return;
-                case 1:
-                    this.a.setEnabled(false);
-                    this.i.setEnabled(false);
-                    this.e.setEnabled(false);
-                    return;
-                case 2:
-                    this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
-                    this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
-                    this.e.setEnabled(true);
-                    SwanVideoView swanVideoView3 = this.r;
-                    C(swanVideoView3 == null ? 0 : swanVideoView3.getDuration());
-                    SeekBar seekBar = this.e;
-                    SwanVideoView swanVideoView4 = this.r;
-                    seekBar.setMax(swanVideoView4 != null ? swanVideoView4.getDuration() : 0);
-                    return;
-                case 3:
-                    z();
-                    this.e.setEnabled(true);
-                    this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811d9);
-                    this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811d9);
-                    return;
-                case 4:
-                    this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
-                    this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
-                    return;
-                case 5:
-                    A();
-                    SeekBar seekBar2 = this.e;
-                    seekBar2.setProgress(seekBar2.getMax());
-                    this.e.setEnabled(false);
-                    this.a.setEnabled(true);
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
-                    this.i.setEnabled(true);
-                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811da);
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public Handler getMainThreadHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.p == null) {
-                this.p = new Handler(Looper.getMainLooper());
-            }
-            return this.p;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public void i(SwanVideoView swanVideoView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, swanVideoView) == null) {
-            this.r = swanVideoView;
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            q();
-            Timer timer = this.q;
-            if (timer != null) {
-                timer.cancel();
-                this.q = null;
-            }
-            Timer timer2 = new Timer();
-            this.q = timer2;
-            timer2.schedule(new a(this), 3000L);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d082c, this);
-            this.B = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091fd8);
-            this.C = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091fce);
-            this.x = new b(this);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd3);
-            this.a = imageView;
-            imageView.setOnClickListener(this.x);
-            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd4);
-            this.i = imageView2;
-            imageView2.setOnClickListener(this.x);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fda);
-            this.e = (SeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f091fd7);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd9);
-            this.e.setOnSeekBarChangeListener(new c(this));
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd2);
-            SwanVideoView swanVideoView = this.r;
-            this.c.setImageResource(swanVideoView != null && swanVideoView.y() ? R.drawable.obfuscated_res_0x7f0811e6 : R.drawable.obfuscated_res_0x7f0811e5);
-            this.c.setOnClickListener(new d(this));
-            ImageView imageView3 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd6);
-            this.b = imageView3;
-            imageView3.setOnClickListener(new e(this));
-            this.e.setEnabled(false);
-            this.a.setEnabled(false);
-            this.i.setEnabled(false);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091fcf);
-            this.g = findViewById;
-            findViewById.setOnClickListener(new f(this));
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fdc);
-            this.h = textView;
-            textView.setVisibility(4);
-            this.g.setVisibility(8);
-            ImageView imageView4 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd0);
-            this.j = imageView4;
-            imageView4.setVisibility(8);
-            ImageView imageView5 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd1);
-            this.k = imageView5;
-            imageView5.setVisibility(8);
-            this.k.setOnClickListener(new g(this));
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fdb);
-            this.l = textView2;
-            textView2.setOnClickListener(new h(this));
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091fd5);
-            this.m = findViewById2;
-            findViewById2.setVisibility(8);
-            this.m.setOnClickListener(new i(this));
-        }
-    }
-
-    public void n() {
-        SwanVideoView swanVideoView;
-        int duration;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (swanVideoView = this.r) == null || this.s) {
-            return;
-        }
-        long currentPosition = swanVideoView.getCurrentPosition();
-        if (currentPosition >= 0) {
-            this.n = currentPosition;
-        }
-        if (getVisibility() == 0 && (duration = this.r.getDuration()) > 0) {
-            setMax(duration);
-            setProgress((int) currentPosition);
-        }
-    }
-
-    public void o(int i2) {
-        SeekBar seekBar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (seekBar = this.e) == null || i2 == seekBar.getSecondaryProgress()) {
-            return;
-        }
-        this.e.setSecondaryProgress(i2);
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.v = z;
-            this.b.setImageResource(z ? R.drawable.obfuscated_res_0x7f0811d7 : R.drawable.obfuscated_res_0x7f0811d6);
-            int i2 = 8;
-            if (this.v) {
-                this.h.setVisibility(0);
-                this.g.setVisibility(0);
-                this.k.setVisibility(0);
-                this.m.setVisibility(this.w ? 0 : 8);
-                this.B.setVisibility(this.y ? 8 : 0);
-                this.C.setVisibility(this.y ? 8 : 0);
-                this.a.setVisibility((this.y || !this.A) ? 8 : 0);
-                TextView textView = this.l;
-                if (!this.y && this.z) {
-                    i2 = 0;
-                }
-                textView.setVisibility(i2);
-                return;
-            }
-            this.h.setVisibility(4);
-            this.g.setVisibility(8);
-            this.k.setVisibility(8);
-            this.C.setVisibility(0);
-            this.l.setVisibility(this.z ? 0 : 8);
-            this.m.setVisibility(8);
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.r == null) {
-            return;
-        }
-        setProgress((int) this.n);
-        setVisibility(0);
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.A = z;
-            ImageView imageView = this.a;
-            if (imageView != null) {
-                imageView.setVisibility(z ? 0 : 8);
-            }
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-        }
-    }
-
-    public void setMute(boolean z) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (imageView = this.c) == null) {
-            return;
-        }
-        imageView.setImageResource(z ? R.drawable.obfuscated_res_0x7f0811e6 : R.drawable.obfuscated_res_0x7f0811e5);
-    }
-
-    public void setProgress(int i2) {
-        SeekBar seekBar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (seekBar = this.e) == null) {
-            return;
-        }
-        seekBar.setProgress(i2);
-    }
-
-    public void setTitle(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (textView = this.h) == null) {
-            return;
-        }
-        textView.setText(str);
-    }
-
-    public void setToggleScreenListener(lk4 lk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, lk4Var) == null) {
-            this.u = lk4Var;
-        }
-    }
-
-    public void t(boolean z) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || (imageView = this.c) == null) {
-            return;
-        }
-        imageView.setVisibility(z ? 0 : 8);
-    }
-
-    public void u(boolean z) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (imageView = this.i) == null) {
-            return;
-        }
-        imageView.setVisibility(z ? 0 : 8);
-    }
-
-    public void v(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.z = z;
-            TextView textView = this.l;
-            if (textView != null) {
-                textView.setVisibility(z ? 0 : 8);
-            }
-        }
-    }
-
     public void w(boolean z) {
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             SeekBar seekBar = this.e;
+            int i4 = 0;
             if (seekBar != null) {
-                seekBar.setVisibility(z ? 0 : 4);
+                if (z) {
+                    i3 = 0;
+                } else {
+                    i3 = 4;
+                }
+                seekBar.setVisibility(i3);
             }
             TextView textView = this.f;
             if (textView != null) {
-                textView.setVisibility(z ? 0 : 4);
+                if (z) {
+                    i2 = 0;
+                } else {
+                    i2 = 4;
+                }
+                textView.setVisibility(i2);
             }
             TextView textView2 = this.d;
             if (textView2 != null) {
-                textView2.setVisibility(z ? 0 : 4);
+                if (!z) {
+                    i4 = 4;
+                }
+                textView2.setVisibility(i4);
             }
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.w = z;
-        }
-    }
-
-    public void y(boolean z) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (imageView = this.b) == null) {
-            return;
-        }
-        imageView.setVisibility(z ? 0 : 8);
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            Timer timer = this.o;
-            if (timer != null) {
-                timer.cancel();
-                this.o = null;
-            }
-            Timer timer2 = new Timer();
-            this.o = timer2;
-            timer2.schedule(new j(this), 0L, 1000L);
         }
     }
 
@@ -988,5 +593,528 @@ public class MediaController extends RelativeLayout {
         this.v = false;
         this.w = false;
         m();
+    }
+
+    private void setMax(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(65547, this, i2) != null) || this.t) {
+            return;
+        }
+        SeekBar seekBar = this.e;
+        if (seekBar != null) {
+            seekBar.setMax(i2);
+        }
+        C(i2);
+        if (i2 > 0) {
+            this.t = true;
+        }
+    }
+
+    public final void C(int i2) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && (textView = this.f) != null) {
+            textView.setText(j(i2));
+        }
+    }
+
+    public final void D(int i2) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && (textView = this.d) != null) {
+            textView.setText(j(i2));
+        }
+    }
+
+    public void i(SwanVideoView swanVideoView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, swanVideoView) == null) {
+            this.r = swanVideoView;
+        }
+    }
+
+    public void o(int i2) {
+        SeekBar seekBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i2) == null) && (seekBar = this.e) != null && i2 != seekBar.getSecondaryProgress()) {
+            this.e.setSecondaryProgress(i2);
+        }
+    }
+
+    public void r(boolean z) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.A = z;
+            ImageView imageView = this.a;
+            if (imageView != null) {
+                if (z) {
+                    i2 = 0;
+                } else {
+                    i2 = 8;
+                }
+                imageView.setVisibility(i2);
+            }
+        }
+    }
+
+    public void setMute(boolean z) {
+        ImageView imageView;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && (imageView = this.c) != null) {
+            if (z) {
+                i2 = R.drawable.obfuscated_res_0x7f0811f7;
+            } else {
+                i2 = R.drawable.obfuscated_res_0x7f0811f6;
+            }
+            imageView.setImageResource(i2);
+        }
+    }
+
+    public void setProgress(int i2) {
+        SeekBar seekBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048593, this, i2) == null) && (seekBar = this.e) != null) {
+            seekBar.setProgress(i2);
+        }
+    }
+
+    public void setTitle(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && (textView = this.h) != null) {
+            textView.setText(str);
+        }
+    }
+
+    public void setToggleScreenListener(mk4 mk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, mk4Var) == null) {
+            this.u = mk4Var;
+        }
+    }
+
+    public void t(boolean z) {
+        ImageView imageView;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048596, this, z) == null) && (imageView = this.c) != null) {
+            if (z) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            imageView.setVisibility(i2);
+        }
+    }
+
+    public void u(boolean z) {
+        ImageView imageView;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048597, this, z) == null) && (imageView = this.i) != null) {
+            if (z) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            imageView.setVisibility(i2);
+        }
+    }
+
+    public void v(boolean z) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.z = z;
+            TextView textView = this.l;
+            if (textView != null) {
+                if (z) {
+                    i2 = 0;
+                } else {
+                    i2 = 8;
+                }
+                textView.setVisibility(i2);
+            }
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            this.w = z;
+        }
+    }
+
+    public void y(boolean z) {
+        ImageView imageView;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048601, this, z) == null) && (imageView = this.b) != null) {
+            if (z) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            imageView.setVisibility(i2);
+        }
+    }
+
+    public static String j(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
+            if (i2 < 0) {
+                return "";
+            }
+            int i3 = i2 / 1000;
+            int i4 = i3 / 3600;
+            int i5 = (i3 % 3600) / 60;
+            int i6 = i3 % 60;
+            if (i4 != 0) {
+                return String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6));
+            }
+            return String.format(Locale.US, "%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i6));
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final void A() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (timer = this.o) != null) {
+            timer.cancel();
+            this.o = null;
+        }
+    }
+
+    public Handler getMainThreadHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.p == null) {
+                this.p = new Handler(Looper.getMainLooper());
+            }
+            return this.p;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            q();
+            Timer timer = this.q;
+            if (timer != null) {
+                timer.cancel();
+                this.q = null;
+            }
+            Timer timer2 = new Timer();
+            this.q = timer2;
+            timer2.schedule(new a(this), 3000L);
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.r == null) {
+            return;
+        }
+        setProgress((int) this.n);
+        setVisibility(0);
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            Timer timer = this.o;
+            if (timer != null) {
+                timer.cancel();
+                this.o = null;
+            }
+            Timer timer2 = new Timer();
+            this.o = timer2;
+            timer2.schedule(new j(this), 0L, 1000L);
+        }
+    }
+
+    public final void B() {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean z = !this.y;
+            this.y = z;
+            int i3 = 8;
+            if (z) {
+                this.k.setImageResource(R.drawable.obfuscated_res_0x7f0811e9);
+                this.B.setVisibility(8);
+                this.C.setVisibility(8);
+                this.l.setVisibility(8);
+                this.a.setVisibility(8);
+            } else {
+                this.k.setImageResource(R.drawable.obfuscated_res_0x7f0811ed);
+                this.B.setVisibility(0);
+                this.C.setVisibility(0);
+                TextView textView = this.l;
+                if (this.z) {
+                    i2 = 0;
+                } else {
+                    i2 = 8;
+                }
+                textView.setVisibility(i2);
+                ImageView imageView = this.a;
+                if (this.A) {
+                    i3 = 0;
+                }
+                imageView.setVisibility(i3);
+            }
+            SwanVideoView swanVideoView = this.r;
+            if (swanVideoView != null) {
+                swanVideoView.b0(this.y);
+            }
+        }
+    }
+
+    public void E() {
+        int currentPosition;
+        int duration;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int currentPlayerState = this.r.getCurrentPlayerState();
+            int i2 = 0;
+            this.t = false;
+            switch (currentPlayerState) {
+                case -1:
+                case 0:
+                    A();
+                    this.a.setEnabled(true);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    this.i.setEnabled(true);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    this.e.setEnabled(false);
+                    SwanVideoView swanVideoView = this.r;
+                    if (swanVideoView == null) {
+                        currentPosition = 0;
+                    } else {
+                        currentPosition = swanVideoView.getCurrentPosition();
+                    }
+                    D(currentPosition);
+                    SwanVideoView swanVideoView2 = this.r;
+                    if (swanVideoView2 != null) {
+                        i2 = swanVideoView2.getDuration();
+                    }
+                    C(i2);
+                    return;
+                case 1:
+                    this.a.setEnabled(false);
+                    this.i.setEnabled(false);
+                    this.e.setEnabled(false);
+                    return;
+                case 2:
+                    this.a.setEnabled(true);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    this.i.setEnabled(true);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    this.e.setEnabled(true);
+                    SwanVideoView swanVideoView3 = this.r;
+                    if (swanVideoView3 == null) {
+                        duration = 0;
+                    } else {
+                        duration = swanVideoView3.getDuration();
+                    }
+                    C(duration);
+                    SeekBar seekBar = this.e;
+                    SwanVideoView swanVideoView4 = this.r;
+                    if (swanVideoView4 != null) {
+                        i2 = swanVideoView4.getDuration();
+                    }
+                    seekBar.setMax(i2);
+                    return;
+                case 3:
+                    z();
+                    this.e.setEnabled(true);
+                    this.a.setEnabled(true);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811ea);
+                    this.i.setEnabled(true);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811ea);
+                    return;
+                case 4:
+                    this.a.setEnabled(true);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    this.i.setEnabled(true);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    return;
+                case 5:
+                    A();
+                    SeekBar seekBar2 = this.e;
+                    seekBar2.setProgress(seekBar2.getMax());
+                    this.e.setEnabled(false);
+                    this.a.setEnabled(true);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    this.i.setEnabled(true);
+                    this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811eb);
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    public final void m() {
+        boolean z;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d082d, this);
+            this.B = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091fd7);
+            this.C = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091fcd);
+            this.x = new b(this);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd2);
+            this.a = imageView;
+            imageView.setOnClickListener(this.x);
+            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd3);
+            this.i = imageView2;
+            imageView2.setOnClickListener(this.x);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd9);
+            this.e = (SeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f091fd6);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd8);
+            this.e.setOnSeekBarChangeListener(new c(this));
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd1);
+            SwanVideoView swanVideoView = this.r;
+            if (swanVideoView != null && swanVideoView.y()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            ImageView imageView3 = this.c;
+            if (z) {
+                i2 = R.drawable.obfuscated_res_0x7f0811f7;
+            } else {
+                i2 = R.drawable.obfuscated_res_0x7f0811f6;
+            }
+            imageView3.setImageResource(i2);
+            this.c.setOnClickListener(new d(this));
+            ImageView imageView4 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd5);
+            this.b = imageView4;
+            imageView4.setOnClickListener(new e(this));
+            this.e.setEnabled(false);
+            this.a.setEnabled(false);
+            this.i.setEnabled(false);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091fce);
+            this.g = findViewById;
+            findViewById.setOnClickListener(new f(this));
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fdb);
+            this.h = textView;
+            textView.setVisibility(4);
+            this.g.setVisibility(8);
+            ImageView imageView5 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fcf);
+            this.j = imageView5;
+            imageView5.setVisibility(8);
+            ImageView imageView6 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd0);
+            this.k = imageView6;
+            imageView6.setVisibility(8);
+            this.k.setOnClickListener(new g(this));
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fda);
+            this.l = textView2;
+            textView2.setOnClickListener(new h(this));
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091fd4);
+            this.m = findViewById2;
+            findViewById2.setVisibility(8);
+            this.m.setOnClickListener(new i(this));
+        }
+    }
+
+    public void n() {
+        SwanVideoView swanVideoView;
+        int duration;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (swanVideoView = this.r) != null && !this.s) {
+            long currentPosition = swanVideoView.getCurrentPosition();
+            if (currentPosition >= 0) {
+                this.n = currentPosition;
+            }
+            if (getVisibility() == 0 && (duration = this.r.getDuration()) > 0) {
+                setMax(duration);
+                setProgress((int) currentPosition);
+            }
+        }
+    }
+
+    public void p(boolean z) {
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.v = z;
+            ImageView imageView = this.b;
+            if (z) {
+                i2 = R.drawable.obfuscated_res_0x7f0811e8;
+            } else {
+                i2 = R.drawable.obfuscated_res_0x7f0811e7;
+            }
+            imageView.setImageResource(i2);
+            int i7 = 8;
+            int i8 = 0;
+            if (this.v) {
+                this.h.setVisibility(0);
+                this.g.setVisibility(0);
+                this.k.setVisibility(0);
+                View view2 = this.m;
+                if (this.w) {
+                    i3 = 0;
+                } else {
+                    i3 = 8;
+                }
+                view2.setVisibility(i3);
+                LinearLayout linearLayout = this.B;
+                if (this.y) {
+                    i4 = 8;
+                } else {
+                    i4 = 0;
+                }
+                linearLayout.setVisibility(i4);
+                LinearLayout linearLayout2 = this.C;
+                if (this.y) {
+                    i5 = 8;
+                } else {
+                    i5 = 0;
+                }
+                linearLayout2.setVisibility(i5);
+                ImageView imageView2 = this.a;
+                if (!this.y && this.A) {
+                    i6 = 0;
+                } else {
+                    i6 = 8;
+                }
+                imageView2.setVisibility(i6);
+                TextView textView = this.l;
+                if (!this.y && this.z) {
+                    i7 = 0;
+                }
+                textView.setVisibility(i7);
+                return;
+            }
+            this.h.setVisibility(4);
+            this.g.setVisibility(8);
+            this.k.setVisibility(8);
+            this.C.setVisibility(0);
+            TextView textView2 = this.l;
+            if (!this.z) {
+                i8 = 8;
+            }
+            textView2.setVisibility(i8);
+            this.m.setVisibility(8);
+        }
     }
 }

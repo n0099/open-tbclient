@@ -53,6 +53,15 @@ public class b {
         return (b) invokeL.objValue;
     }
 
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Message message = new Message();
+            message.what = 2;
+            this.b.a.sendMessage(message);
+        }
+    }
+
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -66,15 +75,6 @@ public class b {
             Message message = new Message();
             message.what = 5;
             aVar.a.sendMessage(message);
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Message message = new Message();
-            message.what = 2;
-            this.b.a.sendMessage(message);
         }
     }
 }

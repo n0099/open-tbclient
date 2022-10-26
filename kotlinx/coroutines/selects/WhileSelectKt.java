@@ -7,7 +7,6 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugProbesKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.InlineMarker;
-import kotlinx.coroutines.ExperimentalCoroutinesApi;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u001a4\u0010\u0006\u001a\u00020\u00032\u001f\b\u0004\u0010\u0005\u001a\u0019\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00020\u0001\u0012\u0004\u0012\u00020\u00030\u0000¢\u0006\u0002\b\u0004H\u0087Hø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0007\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\b"}, d2 = {"Lkotlin/Function1;", "Lkotlinx/coroutines/selects/SelectBuilder;", "", "", "Lkotlin/ExtensionFunctionType;", "builder", "whileSelect", "(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
 public final class WhileSelectKt {
@@ -21,11 +20,10 @@ public final class WhileSelectKt {
     /* JADX WARN: Removed duplicated region for block: B:24:0x0058 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:28:0x0062  */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:23:0x0056 -> B:25:0x0059). Please submit an issue!!! */
-    @kotlinx.coroutines.ExperimentalCoroutinesApi
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final java.lang.Object whileSelect(kotlin.jvm.functions.Function1<? super kotlinx.coroutines.selects.SelectBuilder<? super java.lang.Boolean>, kotlin.Unit> r4, kotlin.coroutines.Continuation<? super kotlin.Unit> r5) {
+    public static final java.lang.Object whileSelect(kotlin.jvm.functions.Function1 r4, kotlin.coroutines.Continuation r5) {
         /*
             boolean r0 = r5 instanceof kotlinx.coroutines.selects.WhileSelectKt$whileSelect$1
             if (r0 == 0) goto L13
@@ -89,7 +87,6 @@ public final class WhileSelectKt {
         throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.selects.WhileSelectKt.whileSelect(kotlin.jvm.functions.Function1, kotlin.coroutines.Continuation):java.lang.Object");
     }
 
-    @ExperimentalCoroutinesApi
     public static final Object whileSelect$$forInline(Function1 function1, Continuation continuation) {
         Object result;
         do {

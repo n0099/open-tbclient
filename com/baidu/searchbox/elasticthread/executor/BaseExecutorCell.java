@@ -24,15 +24,19 @@ public abstract class BaseExecutorCell implements Recordable {
     public int completedTaskCountInRecordLifeCycle;
     public ThreadPoolExecutor mExecutor;
     public Recordable.RecordStatus mRecordStatus;
-    public List<ElasticTask> mWorkingTasks;
+    public List mWorkingTasks;
     public int maxThreadNum;
     public long recordBeginTime;
     public long recordEndTime;
     public long workTimeInRecordLifeCycle;
 
+    public abstract boolean available();
+
+    public abstract String getTag();
+
     /* renamed from: com.baidu.searchbox.elasticthread.executor.BaseExecutorCell$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    public /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$elasticthread$executor$BaseExecutorCell$ExecutorType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +77,7 @@ public abstract class BaseExecutorCell implements Recordable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ExecutorType {
+    public final class ExecutorType {
         public static final /* synthetic */ ExecutorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ExecutorType ARTERY;
@@ -125,13 +129,19 @@ public abstract class BaseExecutorCell implements Recordable {
         public static ExecutorType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ExecutorType) Enum.valueOf(ExecutorType.class, str) : (ExecutorType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ExecutorType) Enum.valueOf(ExecutorType.class, str);
+            }
+            return (ExecutorType) invokeL.objValue;
         }
 
         public static ExecutorType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ExecutorType[]) $VALUES.clone() : (ExecutorType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ExecutorType[]) $VALUES.clone();
+            }
+            return (ExecutorType[]) invokeV.objValue;
         }
     }
 
@@ -157,6 +167,26 @@ public abstract class BaseExecutorCell implements Recordable {
         this.maxThreadNum = i;
     }
 
+    private void setTreadPriorityAndName(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, elasticTask) == null) {
+            int priority = elasticTask.getPriority();
+            Thread currentThread = Thread.currentThread();
+            if (priority == 0) {
+                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_IMMEDIATE);
+            } else if (priority == 1) {
+                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_USER_RELATED);
+            } else if (priority == 2) {
+                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_INTIME);
+            } else if (priority == 3) {
+                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_BACKGROUND);
+            } else if (priority == 4) {
+                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_SERIAL);
+            }
+            currentThread.setName(elasticTask.getName());
+        }
+    }
+
     public static BaseExecutorCell build(int i, ExecutorType executorType) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -179,83 +209,75 @@ public abstract class BaseExecutorCell implements Recordable {
         return (BaseExecutorCell) invokeIL.objValue;
     }
 
-    private void setTreadPriorityAndName(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, elasticTask) == null) {
-            int priority = elasticTask.getPriority();
-            Thread currentThread = Thread.currentThread();
-            if (priority == 0) {
-                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_IMMEDIATE);
-            } else if (priority == 1) {
-                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_USER_RELATED);
-            } else if (priority == 2) {
-                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_INTIME);
-            } else if (priority == 3) {
-                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_BACKGROUND);
-            } else if (priority == 4) {
-                currentThread.setPriority(ElasticConfig.EXECUTOR_CONFIG_THREAD_PRIORITY_SERIAL);
-            }
-            currentThread.setName(elasticTask.getName());
-        }
-    }
-
-    public abstract boolean available();
-
     public synchronized boolean execute(ElasticTask elasticTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask)) == null) {
             synchronized (this) {
-                if (available()) {
-                    elasticTask.setElasticTaskCallback(new ElasticTask.ElasticTaskCallback(this, elasticTask) { // from class: com.baidu.searchbox.elasticthread.executor.BaseExecutorCell.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ BaseExecutorCell this$0;
-                        public final /* synthetic */ ElasticTask val$elasticTask;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, elasticTask};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$elasticTask = elasticTask;
-                        }
-
-                        @Override // com.baidu.searchbox.elasticthread.task.ElasticTask.ElasticTaskCallback
-                        public void afterExecuteTask() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$0.onTaskEnd(this.val$elasticTask);
-                            }
-                        }
-
-                        @Override // com.baidu.searchbox.elasticthread.task.ElasticTask.ElasticTaskCallback
-                        public void beforeExecuteTask() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                this.this$0.onTaskBegin(this.val$elasticTask);
-                            }
-                        }
-                    });
-                    this.mWorkingTasks.add(elasticTask);
-                    this.mExecutor.execute(elasticTask);
-                    return true;
+                if (!available()) {
+                    return false;
                 }
-                return false;
+                elasticTask.setElasticTaskCallback(new ElasticTask.ElasticTaskCallback(this, elasticTask) { // from class: com.baidu.searchbox.elasticthread.executor.BaseExecutorCell.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ BaseExecutorCell this$0;
+                    public final /* synthetic */ ElasticTask val$elasticTask;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, elasticTask};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$elasticTask = elasticTask;
+                    }
+
+                    @Override // com.baidu.searchbox.elasticthread.task.ElasticTask.ElasticTaskCallback
+                    public void afterExecuteTask() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.onTaskEnd(this.val$elasticTask);
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.elasticthread.task.ElasticTask.ElasticTaskCallback
+                    public void beforeExecuteTask() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                            this.this$0.onTaskBegin(this.val$elasticTask);
+                        }
+                    }
+                });
+                this.mWorkingTasks.add(elasticTask);
+                this.mExecutor.execute(elasticTask);
+                return true;
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public synchronized void onTaskEnd(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, elasticTask) == null) {
+            synchronized (this) {
+                elasticTask.recordCompleteTime();
+                this.mWorkingTasks.remove(elasticTask);
+                if (this.mRecordStatus == Recordable.RecordStatus.RECORDING) {
+                    this.workTimeInRecordLifeCycle += elasticTask.getWorkTimeInRecordLifeCycle(this.recordBeginTime, this.recordEndTime);
+                    this.completedTaskCountInRecordLifeCycle++;
+                }
+            }
+        }
     }
 
     public synchronized int getCompletedTaskCountInRecordLifeCycle() {
@@ -274,10 +296,11 @@ public abstract class BaseExecutorCell implements Recordable {
     public int getMaxThreadNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.maxThreadNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.maxThreadNum;
+        }
+        return invokeV.intValue;
     }
-
-    public abstract String getTag();
 
     public synchronized long getWorkTimeInRecordLifeCycle() {
         InterceptResult invokeV;
@@ -339,20 +362,6 @@ public abstract class BaseExecutorCell implements Recordable {
             synchronized (this) {
                 elasticTask.recordExecuteTime();
                 setTreadPriorityAndName(elasticTask);
-            }
-        }
-    }
-
-    public synchronized void onTaskEnd(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, elasticTask) == null) {
-            synchronized (this) {
-                elasticTask.recordCompleteTime();
-                this.mWorkingTasks.remove(elasticTask);
-                if (this.mRecordStatus == Recordable.RecordStatus.RECORDING) {
-                    this.workTimeInRecordLifeCycle += elasticTask.getWorkTimeInRecordLifeCycle(this.recordBeginTime, this.recordEndTime);
-                    this.completedTaskCountInRecordLifeCycle++;
-                }
             }
         }
     }

@@ -26,6 +26,15 @@ public abstract class OneDReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException, ChecksumException, FormatException;
+
+    @Override // com.google.zxing.Reader
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
     public OneDReader() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,38 +49,60 @@ public abstract class OneDReader implements Reader {
         }
     }
 
-    private Result doDecode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
+    private Result doDecode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
         InterceptResult invokeLL;
-        Map<DecodeHintType, ?> map2;
+        boolean z;
         int i;
+        int i2;
+        boolean z2;
+        Map map2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, binaryBitmap, map)) == null) {
             EnumMap enumMap = map;
             int width = binaryBitmap.getWidth();
             int height = binaryBitmap.getHeight();
             BitArray bitArray = new BitArray(width);
-            int i2 = height >> 1;
+            int i4 = height >> 1;
             char c = 0;
-            int i3 = 1;
-            boolean z = enumMap != null && enumMap.containsKey(DecodeHintType.TRY_HARDER);
-            int max = Math.max(1, height >> (z ? 8 : 5));
-            int i4 = z ? height : 15;
-            int i5 = 0;
-            while (i5 < i4) {
-                int i6 = i5 + 1;
-                int i7 = i6 / 2;
-                if (!((i5 & 1) == 0)) {
-                    i7 = -i7;
+            int i5 = 1;
+            if (enumMap != null && enumMap.containsKey(DecodeHintType.TRY_HARDER)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                i = 8;
+            } else {
+                i = 5;
+            }
+            int max = Math.max(1, height >> i);
+            if (z) {
+                i2 = height;
+            } else {
+                i2 = 15;
+            }
+            int i6 = 0;
+            while (i6 < i2) {
+                int i7 = i6 + 1;
+                int i8 = i7 / 2;
+                if ((i6 & 1) == 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
                 }
-                int i8 = (i7 * max) + i2;
-                if (i8 < 0 || i8 >= height) {
+                if (!z2) {
+                    i8 = -i8;
+                }
+                int i9 = (i8 * max) + i4;
+                if (i9 < 0 || i9 >= height) {
                     break;
                 }
                 try {
-                    bitArray = binaryBitmap.getBlackRow(i8, bitArray);
-                    int i9 = 0;
-                    while (i9 < 2) {
-                        if (i9 == i3) {
+                    bitArray = binaryBitmap.getBlackRow(i9, bitArray);
+                    int i10 = 0;
+                    while (i10 < 2) {
+                        if (i10 == i5) {
                             bitArray.reverse();
                             if (enumMap != null && enumMap.containsKey(DecodeHintType.NEED_RESULT_POINT_CALLBACK)) {
                                 EnumMap enumMap2 = new EnumMap(DecodeHintType.class);
@@ -81,22 +112,22 @@ public abstract class OneDReader implements Reader {
                             }
                         }
                         try {
-                            Result decodeRow = decodeRow(i8, bitArray, enumMap);
-                            if (i9 == i3) {
+                            Result decodeRow = decodeRow(i9, bitArray, enumMap);
+                            if (i10 == i5) {
                                 decodeRow.putMetadata(ResultMetadataType.ORIENTATION, 180);
                                 ResultPoint[] resultPoints = decodeRow.getResultPoints();
                                 if (resultPoints != null) {
                                     map2 = enumMap;
                                     float f = width;
                                     try {
-                                        i = width;
+                                        i3 = width;
                                     } catch (ReaderException unused) {
-                                        i = width;
-                                        i9++;
+                                        i3 = width;
+                                        i10++;
                                         enumMap = map2;
-                                        width = i;
+                                        width = i3;
                                         c = 0;
-                                        i3 = 1;
+                                        i5 = 1;
                                     }
                                     try {
                                         resultPoints[0] = new ResultPoint((f - resultPoints[c].getX()) - 1.0f, resultPoints[c].getY());
@@ -104,18 +135,18 @@ public abstract class OneDReader implements Reader {
                                             resultPoints[1] = new ResultPoint((f - resultPoints[1].getX()) - 1.0f, resultPoints[1].getY());
                                         } catch (ReaderException unused2) {
                                             continue;
-                                            i9++;
+                                            i10++;
                                             enumMap = map2;
-                                            width = i;
+                                            width = i3;
                                             c = 0;
-                                            i3 = 1;
+                                            i5 = 1;
                                         }
                                     } catch (ReaderException unused3) {
-                                        i9++;
+                                        i10++;
                                         enumMap = map2;
-                                        width = i;
+                                        width = i3;
                                         c = 0;
-                                        i3 = 1;
+                                        i5 = 1;
                                     }
                                 }
                             }
@@ -127,10 +158,10 @@ public abstract class OneDReader implements Reader {
                     continue;
                 } catch (NotFoundException unused5) {
                 }
-                i5 = i6;
+                i6 = i7;
                 width = width;
                 c = 0;
-                i3 = 1;
+                i5 = 1;
             }
             throw NotFoundException.getNotFoundInstance();
         }
@@ -139,6 +170,7 @@ public abstract class OneDReader implements Reader {
 
     public static float patternMatchVariance(int[] iArr, int[] iArr2, float f) {
         InterceptResult invokeCommon;
+        float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{iArr, iArr2, Float.valueOf(f)})) == null) {
             int length = iArr.length;
@@ -151,20 +183,24 @@ public abstract class OneDReader implements Reader {
             if (i < i2) {
                 return Float.POSITIVE_INFINITY;
             }
-            float f2 = i;
-            float f3 = f2 / i2;
-            float f4 = f * f3;
-            float f5 = 0.0f;
+            float f3 = i;
+            float f4 = f3 / i2;
+            float f5 = f * f4;
+            float f6 = 0.0f;
             for (int i4 = 0; i4 < length; i4++) {
-                float f6 = iArr2[i4] * f3;
-                float f7 = iArr[i4];
-                float f8 = f7 > f6 ? f7 - f6 : f6 - f7;
-                if (f8 > f4) {
+                float f7 = iArr2[i4] * f4;
+                float f8 = iArr[i4];
+                if (f8 > f7) {
+                    f2 = f8 - f7;
+                } else {
+                    f2 = f7 - f8;
+                }
+                if (f2 > f5) {
                     return Float.POSITIVE_INFINITY;
                 }
-                f5 += f8;
+                f6 += f2;
             }
-            return f5 / f2;
+            return f6 / f3;
         }
         return invokeCommon.floatValue;
     }
@@ -179,15 +215,15 @@ public abstract class OneDReader implements Reader {
             if (i < size) {
                 boolean z = !bitArray.get(i);
                 while (i < size) {
-                    if (!(bitArray.get(i) ^ z)) {
+                    if (bitArray.get(i) ^ z) {
+                        iArr[i2] = iArr[i2] + 1;
+                    } else {
                         i2++;
                         if (i2 == length) {
                             break;
                         }
                         iArr[i2] = 1;
                         z = !z;
-                    } else {
-                        iArr[i2] = iArr[i2] + 1;
                     }
                     i++;
                 }
@@ -227,30 +263,30 @@ public abstract class OneDReader implements Reader {
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decode(binaryBitmap, null) : (Result) invokeL.objValue;
-    }
-
-    public abstract Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException;
-
-    @Override // com.google.zxing.Reader
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) {
+            return decode(binaryBitmap, null);
         }
+        return (Result) invokeL.objValue;
     }
 
     @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, FormatException {
+        boolean z;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
             try {
                 return doDecode(binaryBitmap, map);
             } catch (NotFoundException e) {
-                if ((map != null && map.containsKey(DecodeHintType.TRY_HARDER)) && binaryBitmap.isRotateSupported()) {
+                if (map != null && map.containsKey(DecodeHintType.TRY_HARDER)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z && binaryBitmap.isRotateSupported()) {
                     BinaryBitmap rotateCounterClockwise = binaryBitmap.rotateCounterClockwise();
                     Result doDecode = doDecode(rotateCounterClockwise, map);
-                    Map<ResultMetadataType, Object> resultMetadata = doDecode.getResultMetadata();
+                    Map resultMetadata = doDecode.getResultMetadata();
                     int i = 270;
                     if (resultMetadata != null && resultMetadata.containsKey(ResultMetadataType.ORIENTATION)) {
                         i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % 360;

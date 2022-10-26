@@ -49,11 +49,12 @@ public final class FrameRefreshMonitor$run$1 implements Runnable {
     public final void run() {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameRefreshMonitor.INSTANCE.doQueueEnd(0);
-            FrameRefreshMonitor frameRefreshMonitor = FrameRefreshMonitor.INSTANCE;
-            i = FrameRefreshMonitor.CALLBACK_ANIMATION;
-            frameRefreshMonitor.doQueueBegin(i);
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
         }
+        FrameRefreshMonitor.INSTANCE.doQueueEnd(0);
+        FrameRefreshMonitor frameRefreshMonitor = FrameRefreshMonitor.INSTANCE;
+        i = FrameRefreshMonitor.CALLBACK_ANIMATION;
+        frameRefreshMonitor.doQueueBegin(i);
     }
 }

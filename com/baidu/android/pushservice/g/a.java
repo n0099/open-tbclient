@@ -19,20 +19,20 @@ public class a extends ThreadPoolExecutor {
 
     /* renamed from: com.baidu.android.pushservice.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0021a<V> extends FutureTask<V> implements Comparable<C0021a<V>> {
+    public class C0021a extends FutureTask implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
         public Object b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0021a(a aVar, Runnable runnable, V v) {
-            super(runnable, v);
+        public C0021a(a aVar, Runnable runnable, Object obj) {
+            super(runnable, obj);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, runnable, v};
+                Object[] objArr = {aVar, runnable, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,7 +49,7 @@ public class a extends ThreadPoolExecutor {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0021a(a aVar, Callable<V> callable) {
+        public C0021a(a aVar, Callable callable) {
             super(callable);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -73,7 +73,7 @@ public class a extends ThreadPoolExecutor {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: a */
-        public int compareTo(C0021a<V> c0021a) {
+        public int compareTo(C0021a c0021a) {
             InterceptResult invokeL;
             Object obj;
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class a extends ThreadPoolExecutor {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(int i, int i2, long j, TimeUnit timeUnit, b<Runnable> bVar) {
+    public a(int i, int i2, long j, TimeUnit timeUnit, b bVar) {
         super(i, i2, j, timeUnit, bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,14 +134,14 @@ public class a extends ThreadPoolExecutor {
     }
 
     @Override // java.util.concurrent.AbstractExecutorService
-    public <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
+    public RunnableFuture newTaskFor(Runnable runnable, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, t)) == null) ? new C0021a(this, runnable, t) : (RunnableFuture) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, obj)) == null) ? new C0021a(this, runnable, obj) : (RunnableFuture) invokeLL.objValue;
     }
 
     @Override // java.util.concurrent.AbstractExecutorService
-    public <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
+    public RunnableFuture newTaskFor(Callable callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable)) == null) ? new C0021a(this, callable) : (RunnableFuture) invokeL.objValue;

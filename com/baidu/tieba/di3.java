@@ -1,93 +1,129 @@
 package com.baidu.tieba;
 
 import android.os.Handler;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Looper;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes3.dex */
-public final class di3 {
+public abstract class di3 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final gi3 a;
+    public Object b;
+
+    public abstract void c();
 
     /* loaded from: classes3.dex */
-    public static class a implements Runnable {
+    public final class a extends di3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ei3 a;
-        public final /* synthetic */ Object b;
+        public final /* synthetic */ CountDownLatch c;
 
-        public a(ei3 ei3Var, Object obj) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gi3 gi3Var, CountDownLatch countDownLatch) {
+            super(gi3Var, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ei3Var, obj};
+                Object[] objArr = {gi3Var, countDownLatch};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((gi3) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ei3Var;
-            this.b = obj;
+            this.c = countDownLatch;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.di3
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
+                this.c.countDown();
             }
         }
     }
 
-    public static <T> void a(Handler handler, ei3<T> ei3Var, Collection<T> collection) {
+    public di3(gi3 gi3Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, handler, ei3Var, collection) == null) || ei3Var == null || collection == null || collection.isEmpty()) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gi3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        for (T t : collection) {
-            e(handler, ei3Var, t);
-        }
+        this.b = null;
+        this.a = gi3Var;
     }
 
-    public static <T> void b(Handler handler, ei3<T> ei3Var, T... tArr) {
+    public static Object b(gi3 gi3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, handler, ei3Var, tArr) == null) || ei3Var == null || tArr == null || tArr.length < 1) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gi3Var)) == null) {
+            return a(Looper.getMainLooper(), gi3Var);
         }
-        for (T t : tArr) {
-            e(handler, ei3Var, t);
-        }
+        return invokeL.objValue;
     }
 
-    public static <T> void c(ei3<T> ei3Var, Collection<T> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ei3Var, collection) == null) {
-            a(null, ei3Var, collection);
-        }
+    public /* synthetic */ di3(gi3 gi3Var, a aVar) {
+        this(gi3Var);
     }
 
-    public static <T> void d(ei3<T> ei3Var, T... tArr) {
+    public static Object a(Looper looper, gi3 gi3Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, ei3Var, tArr) == null) {
-            b(null, ei3Var, tArr);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, gi3Var)) == null) {
+            if (gi3Var == null) {
+                return null;
+            }
+            if (looper != null && Thread.currentThread() != looper.getThread()) {
+                CountDownLatch countDownLatch = new CountDownLatch(1);
+                a aVar = new a(gi3Var, countDownLatch);
+                new Handler(looper).post(aVar);
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    m02.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
+                    e.printStackTrace();
+                }
+                return aVar.b;
+            }
+            return gi3Var.create();
         }
+        return invokeLL.objValue;
     }
 
-    public static <T> void e(Handler handler, ei3<T> ei3Var, T t) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, ei3Var, t) == null) {
-            if (handler == null) {
-                ei3Var.a(t);
-            } else {
-                handler.post(new a(ei3Var, t));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                try {
+                    this.b = this.a.create();
+                } catch (Exception e) {
+                    m02.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
+                }
+            } finally {
+                c();
             }
         }
     }

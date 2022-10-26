@@ -30,14 +30,14 @@ public class UriUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, uri, bundle)) == null) {
-            if (bundle == null || bundle.isEmpty()) {
-                return uri;
+            if (bundle != null && !bundle.isEmpty()) {
+                Uri.Builder buildUpon = uri.buildUpon();
+                for (String str : bundle.keySet()) {
+                    buildUpon.appendQueryParameter(str, String.valueOf(bundle.get(str)));
+                }
+                return buildUpon.build();
             }
-            Uri.Builder buildUpon = uri.buildUpon();
-            for (String str : bundle.keySet()) {
-                buildUpon.appendQueryParameter(str, String.valueOf(bundle.get(str)));
-            }
-            return buildUpon.build();
+            return uri;
         }
         return (Uri) invokeLL.objValue;
     }

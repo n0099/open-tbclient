@@ -1,6 +1,5 @@
 package com.baidu.searchbox.afx.gl;
 
-import android.annotation.SuppressLint;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
@@ -76,11 +75,35 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         Matrix.setIdentityM(this.mSTMatrix, 0);
     }
 
-    @SuppressLint({"BDThrowableCheck"})
+    private void prepareSurface() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            GLES20.glTexParameterf(36197, 10241, 9728.0f);
+            GLES20.glTexParameterf(36197, 10240, 9729.0f);
+            int[] iArr = new int[1];
+            GLES20.glGenTextures(1, iArr, 0);
+            int i = iArr[0];
+            GLES20.glActiveTexture(33984);
+            GLES20.glBindTexture(36197, i);
+            checkGlError("glBindTexture textureID");
+            SurfaceTexture surfaceTexture = new SurfaceTexture(i);
+            this.mSurfaceTexture = surfaceTexture;
+            surfaceTexture.setOnFrameAvailableListener(this);
+            Surface surface = new Surface(this.mSurfaceTexture);
+            OnSurfacePrepareListener onSurfacePrepareListener = this.mOnSurfacePrepareListener;
+            if (onSurfacePrepareListener != null) {
+                onSurfacePrepareListener.onSurfacePrepared(surface);
+            }
+            synchronized (this) {
+                this.mUpdateSurface = false;
+            }
+        }
+    }
+
     private void checkGlError(String str) {
         int glGetError;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
+        if ((interceptable != null && interceptable.invokeL(65537, this, str) != null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
         Log.e(TAG, str + ": glError " + glGetError);
@@ -140,31 +163,6 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         return invokeIL.intValue;
     }
 
-    private void prepareSurface() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            GLES20.glTexParameterf(36197, 10241, 9728.0f);
-            GLES20.glTexParameterf(36197, 10240, 9729.0f);
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(36197, i);
-            checkGlError("glBindTexture textureID");
-            SurfaceTexture surfaceTexture = new SurfaceTexture(i);
-            this.mSurfaceTexture = surfaceTexture;
-            surfaceTexture.setOnFrameAvailableListener(this);
-            Surface surface = new Surface(this.mSurfaceTexture);
-            OnSurfacePrepareListener onSurfacePrepareListener = this.mOnSurfacePrepareListener;
-            if (onSurfacePrepareListener != null) {
-                onSurfacePrepareListener.onSurfacePrepared(surface);
-            }
-            synchronized (this) {
-                this.mUpdateSurface = false;
-            }
-        }
-    }
-
     public synchronized void clearLastFrame() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -174,9 +172,17 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         }
     }
 
+    public synchronized void onPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.onPlay = true;
+            }
+        }
+    }
+
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
     public void onDrawFrame(GL10 gl10) {
-        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gl10) == null) {
             synchronized (this) {
@@ -189,6 +195,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
             GLES20.glClear(16640);
             GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
             GLES20.glBlendFunc(770, 771);
+            float f = 0.0f;
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GLES20.glUseProgram(this.mProgram);
             checkGlError("glUseProgram");
@@ -214,7 +221,9 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
             GLES20.glDrawArrays(5, 0, 4);
             checkGlError("glDrawArrays");
             synchronized (this) {
-                f = this.clearLastFrame ? -1.0f : 0.0f;
+                if (this.clearLastFrame) {
+                    f = -1.0f;
+                }
                 this.mDismissFlag = f;
             }
             GLES20.glUniform1f(this.uDismissFlagHandle, f);
@@ -236,12 +245,23 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         }
     }
 
-    public synchronized void onPlay() {
+    public void setDarkFilter(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.onPlay = true;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            if (f < 0.0f) {
+                this.mFilterFactor = 0.0f;
+            } else if (f > 1.0f) {
+                this.mFilterFactor = 1.0f;
+            } else {
+                this.mFilterFactor = f;
             }
+        }
+    }
+
+    public void setOnSurfacePrepareListener(OnSurfacePrepareListener onSurfacePrepareListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onSurfacePrepareListener) == null) {
+            this.mOnSurfacePrepareListener = onSurfacePrepareListener;
         }
     }
 
@@ -254,7 +274,6 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     }
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
-    @SuppressLint({"BDThrowableCheck"})
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, gl10, eGLConfig) == null) {
@@ -300,26 +319,6 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
                 throw new RuntimeException("Could not get attrib alpha location for aTextureAlphaCoord");
             }
             throw new RuntimeException("Could not get attrib location for aPosition");
-        }
-    }
-
-    public void setDarkFilter(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            if (f < 0.0f) {
-                this.mFilterFactor = 0.0f;
-            } else if (f > 1.0f) {
-                this.mFilterFactor = 1.0f;
-            } else {
-                this.mFilterFactor = f;
-            }
-        }
-    }
-
-    public void setOnSurfacePrepareListener(OnSurfacePrepareListener onSurfacePrepareListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onSurfacePrepareListener) == null) {
-            this.mOnSurfacePrepareListener = onSurfacePrepareListener;
         }
     }
 }

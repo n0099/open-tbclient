@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o03;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.p03;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,8 +26,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ReplyEditorParams implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<ReplyEditorParams> CREATOR;
-    public static final List<String> DEFAULT_LIST;
+    public static final Parcelable.Creator CREATOR;
+    public static final List DEFAULT_LIST;
     public static final String MODULE_EMOJI = "emoji";
     public static final String MODULE_PICTURE = "image";
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,20 @@ public class ReplyEditorParams implements Parcelable {
     public final String sendText;
     public final int sendTextBgColor;
     public final int sendTextColor;
-    public List<String> showList;
+    public List showList;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<ReplyEditorParams> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +74,10 @@ public class ReplyEditorParams implements Parcelable {
         public ReplyEditorParams createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ReplyEditorParams(parcel) : (ReplyEditorParams) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new ReplyEditorParams(parcel);
+            }
+            return (ReplyEditorParams) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +86,10 @@ public class ReplyEditorParams implements Parcelable {
         public ReplyEditorParams[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ReplyEditorParams[i] : (ReplyEditorParams[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ReplyEditorParams[i];
+            }
+            return (ReplyEditorParams[]) invokeI.objValue;
         }
     }
 
@@ -94,7 +110,57 @@ public class ReplyEditorParams implements Parcelable {
         CREATOR = new a();
     }
 
-    public ReplyEditorParams(String str, String str2, String str3, String str4, int i, int i2, List<String> list) {
+    public boolean supportEmoji() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List list = this.showList;
+            if (list != null && list.contains("emoji")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean supportPicture() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List list = this.showList;
+            if (list != null && list.contains("image")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ReplyEditorParams(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.contentHint = parcel.readString();
+        this.sendText = parcel.readString();
+        this.sendTextColor = parcel.readInt();
+        this.sendTextBgColor = parcel.readInt();
+        this.emojiPath = parcel.readString();
+        this.callback = parcel.readString();
+        this.showList = parcel.createStringArrayList();
+    }
+
+    public ReplyEditorParams(String str, String str2, String str3, String str4, int i, int i2, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,76 +204,49 @@ public class ReplyEditorParams implements Parcelable {
                     }
                 }
             }
-            String c = o03.c(jSONObject, "sendText", "发表");
+            String c = p03.c(jSONObject, "sendText", "发表");
             if (c.length() > 2) {
                 c = c.substring(0, 2);
             }
             String str = c;
             try {
-                i = SwanAppConfigData.t(o03.c(jSONObject, "sendTextColor", "#FFFFFF"));
+                i = SwanAppConfigData.t(p03.c(jSONObject, "sendTextColor", "#FFFFFF"));
             } catch (Exception e) {
-                if (vj1.a) {
+                if (wj1.a) {
                     e.printStackTrace();
                 }
                 i = -1;
             }
-            Application c2 = sm2.c();
-            String c3 = o03.c(jSONObject, "sendBackgroundColor", "#3388FF");
+            Application c2 = tm2.c();
+            String c3 = p03.c(jSONObject, "sendBackgroundColor", "#3388FF");
             int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060aab);
             try {
                 i2 = SwanAppConfigData.t(c3);
             } catch (Exception e2) {
-                if (vj1.a) {
+                if (wj1.a) {
                     e2.printStackTrace();
                 }
                 i2 = color;
             }
-            String d = o03.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f130c)), 20, StringHelper.STRING_MORE);
+            String d = p03.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f1320)), 20, StringHelper.STRING_MORE);
             String optString2 = jSONObject.optString("emojiPath");
             if (TextUtils.isEmpty(optString2)) {
-                arrayList.remove(MODULE_EMOJI);
+                arrayList.remove("emoji");
             }
             return new ReplyEditorParams(d, optString2, jSONObject.optString("cb"), str, i, i2, arrayList);
         }
         return (ReplyEditorParams) invokeL.objValue;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean supportEmoji() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<String> list = this.showList;
-            return list != null && list.contains(MODULE_EMOJI);
-        }
-        return invokeV.booleanValue;
-    }
-
     public boolean supportNoModule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<String> list = this.showList;
-            return list == null || list.isEmpty() || !(this.showList.contains(MODULE_EMOJI) || this.showList.contains("image"));
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean supportPicture() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.showList;
-            return list != null && list.contains("image");
+            List list = this.showList;
+            if (list != null && !list.isEmpty() && (this.showList.contains("emoji") || this.showList.contains("image"))) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -224,29 +263,5 @@ public class ReplyEditorParams implements Parcelable {
             parcel.writeString(this.callback);
             parcel.writeStringList(this.showList);
         }
-    }
-
-    public ReplyEditorParams(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.contentHint = parcel.readString();
-        this.sendText = parcel.readString();
-        this.sendTextColor = parcel.readInt();
-        this.sendTextBgColor = parcel.readInt();
-        this.emojiPath = parcel.readString();
-        this.callback = parcel.readString();
-        this.showList = parcel.createStringArrayList();
     }
 }

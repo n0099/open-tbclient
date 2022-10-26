@@ -7,8 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -29,10 +27,9 @@ public class AppCompatCompoundButtonHelper {
     public boolean mHasButtonTint;
     public boolean mHasButtonTintMode;
     public boolean mSkipNextApply;
-    @NonNull
     public final CompoundButton mView;
 
-    public AppCompatCompoundButtonHelper(@NonNull CompoundButton compoundButton) {
+    public AppCompatCompoundButtonHelper(CompoundButton compoundButton) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,21 +54,20 @@ public class AppCompatCompoundButtonHelper {
     public void applyButtonTint() {
         Drawable buttonDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) == null) {
-            return;
-        }
-        if (this.mHasButtonTint || this.mHasButtonTintMode) {
-            Drawable mutate = DrawableCompat.wrap(buttonDrawable).mutate();
-            if (this.mHasButtonTint) {
-                DrawableCompat.setTintList(mutate, this.mButtonTintList);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) != null) {
+            if (this.mHasButtonTint || this.mHasButtonTintMode) {
+                Drawable mutate = DrawableCompat.wrap(buttonDrawable).mutate();
+                if (this.mHasButtonTint) {
+                    DrawableCompat.setTintList(mutate, this.mButtonTintList);
+                }
+                if (this.mHasButtonTintMode) {
+                    DrawableCompat.setTintMode(mutate, this.mButtonTintMode);
+                }
+                if (mutate.isStateful()) {
+                    mutate.setState(this.mView.getDrawableState());
+                }
+                this.mView.setButtonDrawable(mutate);
             }
-            if (this.mHasButtonTintMode) {
-                DrawableCompat.setTintMode(mutate, this.mButtonTintMode);
-            }
-            if (mutate.isStateful()) {
-                mutate.setState(this.mView.getDrawableState());
-            }
-            this.mView.setButtonDrawable(mutate);
         }
     }
 
@@ -79,19 +75,61 @@ public class AppCompatCompoundButtonHelper {
         InterceptResult invokeI;
         Drawable buttonDrawable;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (Build.VERSION.SDK_INT >= 17 || (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) == null) ? i : i + buttonDrawable.getIntrinsicWidth() : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (Build.VERSION.SDK_INT < 17 && (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) != null) {
+                return i + buttonDrawable.getIntrinsicWidth();
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public void setSupportButtonTintList(ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, colorStateList) == null) {
+            this.mButtonTintList = colorStateList;
+            this.mHasButtonTint = true;
+            applyButtonTint();
+        }
+    }
+
+    public void setSupportButtonTintMode(PorterDuff.Mode mode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, mode) == null) {
+            this.mButtonTintMode = mode;
+            this.mHasButtonTintMode = true;
+            applyButtonTint();
+        }
     }
 
     public ColorStateList getSupportButtonTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mButtonTintList : (ColorStateList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mButtonTintList;
+        }
+        return (ColorStateList) invokeV.objValue;
     }
 
     public PorterDuff.Mode getSupportButtonTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mButtonTintMode : (PorterDuff.Mode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mButtonTintMode;
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
+    }
+
+    public void onSetButtonDrawable() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.mSkipNextApply) {
+                this.mSkipNextApply = false;
+                return;
+            }
+            this.mSkipNextApply = true;
+            applyButtonTint();
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0065 A[Catch: all -> 0x0088, TryCatch #0 {all -> 0x0088, blocks: (B:5:0x0024, B:7:0x002a, B:9:0x0030, B:13:0x0043, B:15:0x0049, B:17:0x004f, B:18:0x005e, B:20:0x0065, B:21:0x006e, B:23:0x0075), top: B:33:0x0024 }] */
@@ -99,7 +137,7 @@ public class AppCompatCompoundButtonHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
+    public void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
         int resourceId2;
         Interceptable interceptable = $ic;
@@ -135,36 +173,6 @@ public class AppCompatCompoundButtonHelper {
             } finally {
                 obtainStyledAttributes.recycle();
             }
-        }
-    }
-
-    public void onSetButtonDrawable() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.mSkipNextApply) {
-                this.mSkipNextApply = false;
-                return;
-            }
-            this.mSkipNextApply = true;
-            applyButtonTint();
-        }
-    }
-
-    public void setSupportButtonTintList(ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, colorStateList) == null) {
-            this.mButtonTintList = colorStateList;
-            this.mHasButtonTint = true;
-            applyButtonTint();
-        }
-    }
-
-    public void setSupportButtonTintMode(@Nullable PorterDuff.Mode mode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mode) == null) {
-            this.mButtonTintMode = mode;
-            this.mHasButtonTintMode = true;
-            applyButtonTint();
         }
     }
 }

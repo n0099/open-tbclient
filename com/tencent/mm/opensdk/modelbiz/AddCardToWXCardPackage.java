@@ -24,10 +24,10 @@ public class AddCardToWXCardPackage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class Req extends BaseReq {
+    public class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<WXCardItem> cardArrary;
+        public List cardArrary;
 
         public Req() {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class AddCardToWXCardPackage {
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<WXCardItem> list = this.cardArrary;
+                List list = this.cardArrary;
                 if (list == null || list.size() == 0 || this.cardArrary.size() > 40) {
                     return false;
                 }
@@ -103,10 +103,10 @@ public class AddCardToWXCardPackage {
     }
 
     /* loaded from: classes8.dex */
-    public static class Resp extends BaseResp {
+    public class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<WXCardItem> cardArrary;
+        public List cardArrary;
 
         public Resp() {
             Interceptable interceptable = $ic;
@@ -145,7 +145,7 @@ public class AddCardToWXCardPackage {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<WXCardItem> list = this.cardArrary;
+                List list = this.cardArrary;
                 return (list == null || list.size() == 0) ? false : true;
             }
             return invokeV.booleanValue;
@@ -219,7 +219,7 @@ public class AddCardToWXCardPackage {
     }
 
     /* loaded from: classes8.dex */
-    public static final class WXCardItem {
+    public final class WXCardItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String cardExtMsg;

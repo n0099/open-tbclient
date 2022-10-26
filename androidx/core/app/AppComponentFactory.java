@@ -6,9 +6,6 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
-@RequiresApi(28)
 /* loaded from: classes.dex */
 public class AppComponentFactory extends android.app.AppComponentFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -38,15 +34,36 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
     }
 
     @Override // android.app.AppComponentFactory
-    @NonNull
-    public final Activity instantiateActivity(@NonNull ClassLoader classLoader, @NonNull String str, @Nullable Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+    public final Activity instantiateActivity(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, classLoader, str, intent)) == null) ? (Activity) CoreComponentFactory.checkCompatWrapper(instantiateActivityCompat(classLoader, str, intent)) : (Activity) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, classLoader, str, intent)) == null) {
+            return (Activity) CoreComponentFactory.checkCompatWrapper(instantiateActivityCompat(classLoader, str, intent));
+        }
+        return (Activity) invokeLLL.objValue;
     }
 
-    @NonNull
-    public Activity instantiateActivityCompat(@NonNull ClassLoader classLoader, @NonNull String str, @Nullable Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+    @Override // android.app.AppComponentFactory
+    public final BroadcastReceiver instantiateReceiver(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, classLoader, str, intent)) == null) {
+            return (BroadcastReceiver) CoreComponentFactory.checkCompatWrapper(instantiateReceiverCompat(classLoader, str, intent));
+        }
+        return (BroadcastReceiver) invokeLLL.objValue;
+    }
+
+    @Override // android.app.AppComponentFactory
+    public final Service instantiateService(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, classLoader, str, intent)) == null) {
+            return (Service) CoreComponentFactory.checkCompatWrapper(instantiateServiceCompat(classLoader, str, intent));
+        }
+        return (Service) invokeLLL.objValue;
+    }
+
+    public Activity instantiateActivityCompat(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader, str, intent)) == null) {
@@ -59,60 +76,7 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
         return (Activity) invokeLLL.objValue;
     }
 
-    @Override // android.app.AppComponentFactory
-    @NonNull
-    public final Application instantiateApplication(@NonNull ClassLoader classLoader, @NonNull String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, classLoader, str)) == null) ? (Application) CoreComponentFactory.checkCompatWrapper(instantiateApplicationCompat(classLoader, str)) : (Application) invokeLL.objValue;
-    }
-
-    @NonNull
-    public Application instantiateApplicationCompat(@NonNull ClassLoader classLoader, @NonNull String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, classLoader, str)) == null) {
-            try {
-                return (Application) Class.forName(str, false, classLoader).asSubclass(Application.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (NoSuchMethodException | InvocationTargetException e) {
-                throw new RuntimeException("Couldn't call constructor", e);
-            }
-        }
-        return (Application) invokeLL.objValue;
-    }
-
-    @Override // android.app.AppComponentFactory
-    @NonNull
-    public final ContentProvider instantiateProvider(@NonNull ClassLoader classLoader, @NonNull String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, classLoader, str)) == null) ? (ContentProvider) CoreComponentFactory.checkCompatWrapper(instantiateProviderCompat(classLoader, str)) : (ContentProvider) invokeLL.objValue;
-    }
-
-    @NonNull
-    public ContentProvider instantiateProviderCompat(@NonNull ClassLoader classLoader, @NonNull String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, classLoader, str)) == null) {
-            try {
-                return (ContentProvider) Class.forName(str, false, classLoader).asSubclass(ContentProvider.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (NoSuchMethodException | InvocationTargetException e) {
-                throw new RuntimeException("Couldn't call constructor", e);
-            }
-        }
-        return (ContentProvider) invokeLL.objValue;
-    }
-
-    @Override // android.app.AppComponentFactory
-    @NonNull
-    public final BroadcastReceiver instantiateReceiver(@NonNull ClassLoader classLoader, @NonNull String str, @Nullable Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, classLoader, str, intent)) == null) ? (BroadcastReceiver) CoreComponentFactory.checkCompatWrapper(instantiateReceiverCompat(classLoader, str, intent)) : (BroadcastReceiver) invokeLLL.objValue;
-    }
-
-    @NonNull
-    public BroadcastReceiver instantiateReceiverCompat(@NonNull ClassLoader classLoader, @NonNull String str, @Nullable Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+    public BroadcastReceiver instantiateReceiverCompat(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, classLoader, str, intent)) == null) {
@@ -125,16 +89,7 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
         return (BroadcastReceiver) invokeLLL.objValue;
     }
 
-    @Override // android.app.AppComponentFactory
-    @NonNull
-    public final Service instantiateService(@NonNull ClassLoader classLoader, @NonNull String str, @Nullable Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, classLoader, str, intent)) == null) ? (Service) CoreComponentFactory.checkCompatWrapper(instantiateServiceCompat(classLoader, str, intent)) : (Service) invokeLLL.objValue;
-    }
-
-    @NonNull
-    public Service instantiateServiceCompat(@NonNull ClassLoader classLoader, @NonNull String str, @Nullable Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+    public Service instantiateServiceCompat(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, classLoader, str, intent)) == null) {
@@ -145,5 +100,51 @@ public class AppComponentFactory extends android.app.AppComponentFactory {
             }
         }
         return (Service) invokeLLL.objValue;
+    }
+
+    @Override // android.app.AppComponentFactory
+    public final Application instantiateApplication(ClassLoader classLoader, String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, classLoader, str)) == null) {
+            return (Application) CoreComponentFactory.checkCompatWrapper(instantiateApplicationCompat(classLoader, str));
+        }
+        return (Application) invokeLL.objValue;
+    }
+
+    @Override // android.app.AppComponentFactory
+    public final ContentProvider instantiateProvider(ClassLoader classLoader, String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, classLoader, str)) == null) {
+            return (ContentProvider) CoreComponentFactory.checkCompatWrapper(instantiateProviderCompat(classLoader, str));
+        }
+        return (ContentProvider) invokeLL.objValue;
+    }
+
+    public Application instantiateApplicationCompat(ClassLoader classLoader, String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, classLoader, str)) == null) {
+            try {
+                return (Application) Class.forName(str, false, classLoader).asSubclass(Application.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException("Couldn't call constructor", e);
+            }
+        }
+        return (Application) invokeLL.objValue;
+    }
+
+    public ContentProvider instantiateProviderCompat(ClassLoader classLoader, String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, classLoader, str)) == null) {
+            try {
+                return (ContentProvider) Class.forName(str, false, classLoader).asSubclass(ContentProvider.class).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException("Couldn't call constructor", e);
+            }
+        }
+        return (ContentProvider) invokeLL.objValue;
     }
 }

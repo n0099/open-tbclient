@@ -24,32 +24,12 @@ public class bv {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
             try {
-                return bp.b(a(false, br.a(), bArr));
+                return bo.b(a(false, bq.a(), bArr));
             } catch (Exception unused) {
                 return "";
             }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static byte[] b(boolean z, byte[] bArr, byte[] bArr2) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), bArr, bArr2})) == null) {
-            RSAKey a = a(z, bArr);
-            return a(2, (Key) a, (a.getModulus().bitLength() + 1) / 8, bArr2);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] a(boolean z, byte[] bArr, byte[] bArr2) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), bArr, bArr2})) == null) {
-            RSAKey a = a(z, bArr);
-            return a(1, (Key) a, ((a.getModulus().bitLength() + 1) / 8) - 11, bArr2);
-        }
-        return (byte[]) invokeCommon.objValue;
     }
 
     public static RSAKey a(boolean z, byte[] bArr) throws Exception {
@@ -82,6 +62,26 @@ public class bv {
                 i3 += i2;
             }
             return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static byte[] a(boolean z, byte[] bArr, byte[] bArr2) throws Exception {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), bArr, bArr2})) == null) {
+            RSAKey a = a(z, bArr);
+            return a(1, (Key) a, ((a.getModulus().bitLength() + 1) / 8) - 11, bArr2);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static byte[] b(boolean z, byte[] bArr, byte[] bArr2) throws Exception {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), bArr, bArr2})) == null) {
+            RSAKey a = a(z, bArr);
+            return a(2, (Key) a, (a.getModulus().bitLength() + 1) / 8, bArr2);
         }
         return (byte[]) invokeCommon.objValue;
     }

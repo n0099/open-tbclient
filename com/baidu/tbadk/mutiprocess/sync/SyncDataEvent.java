@@ -3,6 +3,7 @@ package com.baidu.tbadk.mutiprocess.sync;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,6 +14,7 @@ public class SyncDataEvent extends SerializableEvent {
     public static final long serialVersionUID = -4019344353242140288L;
     public transient /* synthetic */ FieldHolder $fh;
     public ABTestExtraData abtestExtraData;
+    public ProfileVirtualImageInfo profileVirtualImageInfo;
     public String sampleId;
     public String ubsABTest;
     public UserGrowthTaskListData userGrowthTaskListData;

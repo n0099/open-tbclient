@@ -3,7 +3,6 @@ package com.kwad.components.offline.api.core.video;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +33,7 @@ public abstract class BaseKsMediaPlayerView extends FrameLayout implements IKsMe
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseKsMediaPlayerView(Context context, @Nullable AttributeSet attributeSet) {
+    public BaseKsMediaPlayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +54,7 @@ public abstract class BaseKsMediaPlayerView extends FrameLayout implements IKsMe
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseKsMediaPlayerView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public BaseKsMediaPlayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

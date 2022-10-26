@@ -1,6 +1,5 @@
 package com.google.android.gms.common.internal;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public final class AccountType {
     public static /* synthetic */ Interceptable $ic = null;
-    @NonNull
-    @KeepForSdk
     public static final String GOOGLE = "com.google";
-    @NonNull
     public static final String[] zza;
     public transient /* synthetic */ FieldHolder $fh;
 

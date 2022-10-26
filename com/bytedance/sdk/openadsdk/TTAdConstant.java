@@ -179,6 +179,15 @@ public class TTAdConstant {
     public @interface ORIENTATION_STATE {
     }
 
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes7.dex */
+    public @interface TITLE_BAR_THEME {
+    }
+
+    public static int getBuildInVersion() {
+        return 4526;
+    }
+
     /* loaded from: classes7.dex */
     public enum RitScenes {
         CUSTOMIZE_SCENES("customize_scenes"),
@@ -205,11 +214,6 @@ public class TTAdConstant {
         }
     }
 
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
-    public @interface TITLE_BAR_THEME {
-    }
-
     public static String b(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
@@ -217,10 +221,9 @@ public class TTAdConstant {
         if (str.contains("KLLK")) {
             return str.replace("KLLK", "OPPO");
         }
-        return str.contains("kllk") ? str.replace("kllk", "oppo") : "";
-    }
-
-    public static int getBuildInVersion() {
-        return 4526;
+        if (!str.contains("kllk")) {
+            return "";
+        }
+        return str.replace("kllk", "oppo");
     }
 }

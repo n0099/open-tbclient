@@ -1,8 +1,6 @@
 package com.baidu.searchbox.player.event;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +11,7 @@ import java.util.ArrayList;
 public abstract class AbsEventTrigger implements IEventTrigger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<IMessenger> mMessengers;
+    public final ArrayList mMessengers;
 
     public AbsEventTrigger() {
         Interceptable interceptable = $ic;
@@ -28,19 +26,9 @@ public abstract class AbsEventTrigger implements IEventTrigger {
                 return;
             }
         }
-        this.mMessengers = new ArrayList<>();
+        this.mMessengers = new ArrayList();
     }
 
-    @PublicMethod
-    public void bindMessenger(@NonNull IMessenger iMessenger) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iMessenger) == null) || this.mMessengers.contains(iMessenger)) {
-            return;
-        }
-        this.mMessengers.add(iMessenger);
-    }
-
-    @PublicMethod
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -48,14 +36,20 @@ public abstract class AbsEventTrigger implements IEventTrigger {
         }
     }
 
+    public void bindMessenger(IMessenger iMessenger) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, iMessenger) == null) && !this.mMessengers.contains(iMessenger)) {
+            this.mMessengers.add(iMessenger);
+        }
+    }
+
     @Override // com.baidu.searchbox.player.event.IEventTrigger
-    @PublicMethod
-    public void triggerEvent(@NonNull VideoEvent videoEvent) {
+    public void triggerEvent(VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) == null) {
             int size = this.mMessengers.size();
             for (int i = 0; i < size; i++) {
-                IMessenger iMessenger = this.mMessengers.get(i);
+                IMessenger iMessenger = (IMessenger) this.mMessengers.get(i);
                 if (i == 0) {
                     iMessenger.notifyEvent(videoEvent);
                 } else {
@@ -65,8 +59,7 @@ public abstract class AbsEventTrigger implements IEventTrigger {
         }
     }
 
-    @PublicMethod
-    public void unbindMessenger(@NonNull IMessenger iMessenger) {
+    public void unbindMessenger(IMessenger iMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iMessenger) == null) {
             this.mMessengers.remove(iMessenger);

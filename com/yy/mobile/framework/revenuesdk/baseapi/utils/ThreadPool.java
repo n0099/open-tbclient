@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.baseapi.utils;
 
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,13 +28,20 @@ public class ThreadPool {
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public static class DefaultThreadFactory implements ThreadFactory {
+    public interface ScheduleExecutor extends Executor {
+        void postDelay(Runnable runnable, long j);
+
+        void removeCallback(Runnable runnable);
+    }
+
+    /* loaded from: classes8.dex */
+    public class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String namePrefix;
@@ -79,10 +85,54 @@ public class ThreadPool {
     }
 
     /* loaded from: classes8.dex */
-    public interface ScheduleExecutor extends Executor {
-        void postDelay(Runnable runnable, long j);
+    public class MainThreadExecutor implements ScheduleExecutor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Handler handler;
 
-        void removeCallback(Runnable runnable);
+        public MainThreadExecutor() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.handler = new Handler(Looper.getMainLooper());
+        }
+
+        public /* synthetic */ MainThreadExecutor(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
+        @Override // java.util.concurrent.Executor
+        public void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                this.handler.post(runnable);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool.ScheduleExecutor
+        public void removeCallback(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+                this.handler.removeCallbacks(runnable);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool.ScheduleExecutor
+        public void postDelay(Runnable runnable, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) {
+                this.handler.postDelayed(runnable, j);
+            }
+        }
     }
 
     public ThreadPool() {
@@ -124,69 +174,27 @@ public class ThreadPool {
     public ScheduleExecutor mainThreadIO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mainThreadIO : (ScheduleExecutor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mainThreadIO;
+        }
+        return (ScheduleExecutor) invokeV.objValue;
     }
 
     public ExecutorService networkIO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.netIO : (ExecutorService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.netIO;
+        }
+        return (ExecutorService) invokeV.objValue;
     }
 
     public ScheduledExecutorService scheduledIO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.scheduledIO : (ScheduledExecutorService) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class MainThreadExecutor implements ScheduleExecutor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Handler handler;
-
-        public MainThreadExecutor() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.handler = new Handler(Looper.getMainLooper());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.scheduledIO;
         }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(@NonNull Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                this.handler.post(runnable);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool.ScheduleExecutor
-        public void postDelay(Runnable runnable, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) {
-                this.handler.postDelayed(runnable, j);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool.ScheduleExecutor
-        public void removeCallback(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-                this.handler.removeCallbacks(runnable);
-            }
-        }
-
-        public /* synthetic */ MainThreadExecutor(AnonymousClass1 anonymousClass1) {
-            this();
-        }
+        return (ScheduledExecutorService) invokeV.objValue;
     }
 }

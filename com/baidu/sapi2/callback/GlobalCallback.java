@@ -11,6 +11,16 @@ public abstract class GlobalCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onLoginStatusChange();
+
+    public void onLogoutSuccess(SapiAccount sapiAccount) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiAccount) == null) {
+        }
+    }
+
+    public abstract void onNeedInitPassSdk();
+
     public GlobalCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,14 +34,4 @@ public abstract class GlobalCallback {
             }
         }
     }
-
-    public abstract void onLoginStatusChange();
-
-    public void onLogoutSuccess(SapiAccount sapiAccount) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiAccount) == null) {
-        }
-    }
-
-    public abstract void onNeedInitPassSdk();
 }

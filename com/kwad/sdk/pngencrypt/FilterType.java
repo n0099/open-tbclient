@@ -19,7 +19,7 @@ public enum FilterType {
     FILTER_CYCLIC(-50),
     FILTER_UNKNOWN(-100);
     
-    public static HashMap<Integer, FilterType> byVal = new HashMap<>();
+    public static HashMap byVal = new HashMap();
     public final int val;
 
     static {
@@ -50,7 +50,7 @@ public enum FilterType {
     }
 
     public static FilterType getByVal(int i) {
-        return byVal.get(Integer.valueOf(i));
+        return (FilterType) byVal.get(Integer.valueOf(i));
     }
 
     public static boolean isAdaptive(FilterType filterType) {

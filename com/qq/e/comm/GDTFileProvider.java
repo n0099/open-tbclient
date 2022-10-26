@@ -36,7 +36,7 @@ public class GDTFileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] b;
     public static final File c;
-    public static HashMap<String, a> d;
+    public static HashMap d;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
@@ -48,11 +48,11 @@ public class GDTFileProvider extends ContentProvider {
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements a {
+    public class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-        public final HashMap<String, File> b;
+        public final HashMap b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class GDTFileProvider extends ContentProvider {
                     return;
                 }
             }
-            this.b = new HashMap<>();
+            this.b = new HashMap();
             this.a = str;
         }
 
@@ -80,24 +80,24 @@ public class GDTFileProvider extends ContentProvider {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
                 try {
                     String canonicalPath = file.getCanonicalPath();
-                    Map.Entry<String, File> entry = null;
-                    for (Map.Entry<String, File> entry2 : this.b.entrySet()) {
-                        String path = entry2.getValue().getPath();
-                        if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
+                    Map.Entry entry = null;
+                    for (Map.Entry entry2 : this.b.entrySet()) {
+                        String path = ((File) entry2.getValue()).getPath();
+                        if (canonicalPath.startsWith(path) && (entry == null || path.length() > ((File) entry.getValue()).getPath().length())) {
                             entry = entry2;
                         }
                     }
                     if (entry == null) {
                         throw new IllegalArgumentException("Failed to find configured root that contains " + canonicalPath);
                     }
-                    String path2 = entry.getValue().getPath();
+                    String path2 = ((File) entry.getValue()).getPath();
                     boolean endsWith = path2.endsWith("/");
                     int length = path2.length();
                     if (!endsWith) {
                         length++;
                     }
                     String substring = canonicalPath.substring(length);
-                    return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
+                    return new Uri.Builder().scheme("content").authority(this.a).encodedPath(Uri.encode((String) entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
                 } catch (IOException unused) {
                     throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
                 }
@@ -114,7 +114,7 @@ public class GDTFileProvider extends ContentProvider {
                 int indexOf = encodedPath.indexOf(47, 1);
                 String decode = Uri.decode(encodedPath.substring(1, indexOf));
                 String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = this.b.get(decode);
+                File file = (File) this.b.get(decode);
                 if (file == null) {
                     throw new IllegalArgumentException("Unable to find configured root for " + uri);
                 }
@@ -162,7 +162,7 @@ public class GDTFileProvider extends ContentProvider {
         }
         b = new String[]{"_display_name", "_size"};
         c = new File("/");
-        d = new HashMap<>();
+        d = new HashMap();
     }
 
     public GDTFileProvider() {
@@ -185,7 +185,7 @@ public class GDTFileProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             synchronized (d) {
-                aVar = d.get(str);
+                aVar = (a) d.get(str);
                 if (aVar == null) {
                     try {
                         aVar = b(context, str);
@@ -200,65 +200,6 @@ public class GDTFileProvider extends ContentProvider {
             return aVar;
         }
         return (a) invokeLL.objValue;
-    }
-
-    public static a b(Context context, String str) throws IOException, XmlPullParserException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, context, str)) != null) {
-            return (a) invokeLL.objValue;
-        }
-        b bVar = new b(str);
-        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
-        if (loadXmlMetaData == null) {
-            throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
-        }
-        while (true) {
-            int next = loadXmlMetaData.next();
-            if (next == 1) {
-                loadXmlMetaData.close();
-                return bVar;
-            } else if (next == 2) {
-                String name = loadXmlMetaData.getName();
-                File file = null;
-                String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
-                String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
-                if ("root-path".equals(name)) {
-                    file = c;
-                } else if ("files-path".equals(name)) {
-                    file = context.getFilesDir();
-                } else if ("cache-path".equals(name)) {
-                    file = context.getCacheDir();
-                } else if ("external-path".equals(name)) {
-                    file = Environment.getExternalStorageDirectory();
-                } else if ("external-files-path".equals(name)) {
-                    File[] externalFilesDirs = Build.VERSION.SDK_INT >= 19 ? context.getExternalFilesDirs(null) : new File[]{context.getExternalFilesDir(null)};
-                    if (externalFilesDirs.length > 0) {
-                        file = externalFilesDirs[0];
-                    }
-                } else if ("external-cache-path".equals(name)) {
-                    File[] externalCacheDirs = getExternalCacheDirs(context);
-                    if (externalCacheDirs.length > 0) {
-                        file = externalCacheDirs[0];
-                    }
-                } else if (Build.VERSION.SDK_INT >= 21 && FileProvider.TAG_EXTERNAL_MEDIA.equals(name)) {
-                    File[] externalMediaDirs = context.getExternalMediaDirs();
-                    if (externalMediaDirs.length > 0) {
-                        file = externalMediaDirs[0];
-                    }
-                }
-                if (file != null) {
-                    String[] strArr = {attributeValue2};
-                    for (int i = 0; i < 1; i++) {
-                        String str2 = strArr[i];
-                        if (str2 != null) {
-                            file = new File(file, str2);
-                        }
-                    }
-                    bVar.a(attributeValue, file);
-                }
-            }
-        }
     }
 
     public static File[] getExternalCacheDirs(Context context) {
@@ -340,6 +281,78 @@ public class GDTFileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
+            throw new UnsupportedOperationException("No external updates");
+        }
+        return invokeLLLL.intValue;
+    }
+
+    public static a b(Context context, String str) throws IOException, XmlPullParserException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            b bVar = new b(str);
+            XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
+            if (loadXmlMetaData == null) {
+                throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
+            }
+            while (true) {
+                int next = loadXmlMetaData.next();
+                if (next != 1) {
+                    if (next == 2) {
+                        String name = loadXmlMetaData.getName();
+                        File file = null;
+                        String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
+                        String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
+                        if ("root-path".equals(name)) {
+                            file = c;
+                        } else if ("files-path".equals(name)) {
+                            file = context.getFilesDir();
+                        } else if ("cache-path".equals(name)) {
+                            file = context.getCacheDir();
+                        } else if ("external-path".equals(name)) {
+                            file = Environment.getExternalStorageDirectory();
+                        } else if ("external-files-path".equals(name)) {
+                            File[] externalFilesDirs = Build.VERSION.SDK_INT >= 19 ? context.getExternalFilesDirs(null) : new File[]{context.getExternalFilesDir(null)};
+                            if (externalFilesDirs.length > 0) {
+                                file = externalFilesDirs[0];
+                            }
+                        } else if ("external-cache-path".equals(name)) {
+                            File[] externalCacheDirs = getExternalCacheDirs(context);
+                            if (externalCacheDirs.length > 0) {
+                                file = externalCacheDirs[0];
+                            }
+                        } else if (Build.VERSION.SDK_INT >= 21 && FileProvider.TAG_EXTERNAL_MEDIA.equals(name)) {
+                            File[] externalMediaDirs = context.getExternalMediaDirs();
+                            if (externalMediaDirs.length > 0) {
+                                file = externalMediaDirs[0];
+                            }
+                        }
+                        if (file != null) {
+                            String[] strArr = {attributeValue2};
+                            for (int i = 0; i < 1; i++) {
+                                String str2 = strArr[i];
+                                if (str2 != null) {
+                                    file = new File(file, str2);
+                                }
+                            }
+                            bVar.a(attributeValue, file);
+                        }
+                    }
+                } else {
+                    loadXmlMetaData.close();
+                    return bVar;
+                }
+            }
+        } else {
+            return (a) invokeLL.objValue;
+        }
+    }
+
+    @Override // android.content.ContentProvider
     public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
         InterceptResult invokeLL;
         int i;
@@ -348,16 +361,18 @@ public class GDTFileProvider extends ContentProvider {
             File a2 = this.a.a(uri);
             if ("r".equals(str)) {
                 i = LaunchTaskConstants.OTHER_PROCESS;
-            } else if ("w".equals(str) || "wt".equals(str)) {
-                i = 738197504;
-            } else if ("wa".equals(str)) {
-                i = 704643072;
-            } else if ("rw".equals(str)) {
-                i = 939524096;
-            } else if (!"rwt".equals(str)) {
-                throw new IllegalArgumentException("Invalid mode: " + str);
+            } else if (!"w".equals(str) && !"wt".equals(str)) {
+                if ("wa".equals(str)) {
+                    i = 704643072;
+                } else if ("rw".equals(str)) {
+                    i = 939524096;
+                } else if ("rwt".equals(str)) {
+                    i = 1006632960;
+                } else {
+                    throw new IllegalArgumentException("Invalid mode: " + str);
+                }
             } else {
-                i = 1006632960;
+                i = 738197504;
             }
             return ParcelFileDescriptor.open(a2, i);
         }
@@ -398,15 +413,5 @@ public class GDTFileProvider extends ContentProvider {
             return matrixCursor;
         }
         return (Cursor) invokeLLLLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
-            throw new UnsupportedOperationException("No external updates");
-        }
-        return invokeLLLL.intValue;
     }
 }

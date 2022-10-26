@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iq1;
+import com.baidu.tieba.jq1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ public class CustomerAdScrollView extends ScrollView {
     public boolean a;
     public boolean b;
     public float c;
-    public iq1 d;
+    public jq1 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomerAdScrollView(Context context) {
@@ -50,16 +50,18 @@ public class CustomerAdScrollView extends ScrollView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             float y = motionEvent.getY();
             int action = motionEvent.getAction();
-            if (action == 0) {
-                this.c = y;
-            } else if (action == 2) {
-                if (y - this.c < 0.0f) {
-                    if (!this.a || this.b) {
+            if (action != 0) {
+                if (action == 2) {
+                    if (y - this.c < 0.0f) {
+                        if (!this.a || this.b) {
+                            return false;
+                        }
+                    } else if (!this.b) {
                         return false;
                     }
-                } else if (!this.b) {
-                    return false;
                 }
+            } else {
+                this.c = y;
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -71,9 +73,9 @@ public class CustomerAdScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onScrollChanged(i, i2, i3, i4);
-            iq1 iq1Var = this.d;
-            if (iq1Var != null) {
-                iq1Var.onScrollChanged(i, i2, i3, i4);
+            jq1 jq1Var = this.d;
+            if (jq1Var != null) {
+                jq1Var.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
@@ -92,10 +94,10 @@ public class CustomerAdScrollView extends ScrollView {
         }
     }
 
-    public void setScrollViewListener(iq1 iq1Var) {
+    public void setScrollViewListener(jq1 jq1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iq1Var) == null) {
-            this.d = iq1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jq1Var) == null) {
+            this.d = jq1Var;
         }
     }
 }

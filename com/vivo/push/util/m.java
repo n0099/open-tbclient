@@ -13,7 +13,7 @@ public final class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<String, String> a(JSONObject jSONObject) throws JSONException {
+    public static Map a(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {

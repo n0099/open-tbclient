@@ -33,26 +33,6 @@ public class BasicHttpRequest extends AbstractHttpMessage implements HttpRequest
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpMessage
-    public ProtocolVersion getProtocolVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (ProtocolVersion) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.HttpRequest
-    public RequestLine getRequestLine() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (RequestLine) invokeV.objValue;
-    }
-
     public BasicHttpRequest(String str, String str2, ProtocolVersion protocolVersion) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,5 +67,25 @@ public class BasicHttpRequest extends AbstractHttpMessage implements HttpRequest
             }
         }
         throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public ProtocolVersion getProtocolVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (ProtocolVersion) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.HttpRequest
+    public RequestLine getRequestLine() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (RequestLine) invokeV.objValue;
     }
 }

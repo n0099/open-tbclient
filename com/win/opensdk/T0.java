@@ -63,13 +63,19 @@ public class T0 {
 
     public U0 a() {
         InterceptResult invokeV;
+        boolean z;
         HttpURLConnection httpURLConnection;
         InputStream errorStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             String url = this.a.toString();
-            if (!TextUtils.isEmpty(url) ? url.startsWith("http") : false) {
+            if (!TextUtils.isEmpty(url)) {
+                z = url.startsWith("http");
+            } else {
+                z = false;
+            }
+            if (z) {
                 httpURLConnection = (HttpURLConnection) this.a.openConnection();
             } else {
                 httpURLConnection = (HttpsURLConnection) this.a.openConnection();
@@ -93,6 +99,7 @@ public class T0 {
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 PrintWriter printWriter = null;
+                String str4 = null;
                 PrintWriter printWriter2 = null;
                 try {
                     OutputStream outputStream = httpURLConnection.getOutputStream();
@@ -101,7 +108,10 @@ public class T0 {
                         PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
                         try {
                             URL url2 = this.a;
-                            printWriter3.print(url2 != null ? url2.getQuery() : null);
+                            if (url2 != null) {
+                                str4 = url2.getQuery();
+                            }
+                            printWriter3.print(str4);
                             printWriter3.flush();
                             printWriter2 = printWriter3;
                         } catch (Throwable th) {
@@ -130,7 +140,11 @@ public class T0 {
             }
             try {
                 String contentEncoding = httpURLConnection.getContentEncoding();
-                errorStream = (contentEncoding == null || !contentEncoding.contains("gzip")) ? httpURLConnection.getInputStream() : new GZIPInputStream(httpURLConnection.getInputStream());
+                if (contentEncoding != null && contentEncoding.contains("gzip")) {
+                    errorStream = new GZIPInputStream(httpURLConnection.getInputStream());
+                } else {
+                    errorStream = httpURLConnection.getInputStream();
+                }
             } catch (IOException e) {
                 errorStream = httpURLConnection.getErrorStream();
                 if (errorStream == null) {

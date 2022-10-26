@@ -1,12 +1,10 @@
 package com.fun.ad.sdk;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +14,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.channel.GdtHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-@SuppressLint({"ViewConstructor"})
 /* loaded from: classes7.dex */
 public final class FunNativeView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +22,7 @@ public final class FunNativeView extends FrameLayout {
     public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunNativeView(@NonNull Context context, ViewGroup viewGroup) {
+    public FunNativeView(Context context, ViewGroup viewGroup) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

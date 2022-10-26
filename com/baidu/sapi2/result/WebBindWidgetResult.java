@@ -11,6 +11,12 @@ public class WebBindWidgetResult extends SapiResult {
     public static final String ERROR_MSG_HANDLE_LOGIN = "请登录";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public void loginSuc() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     public WebBindWidgetResult() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,11 +31,5 @@ public class WebBindWidgetResult extends SapiResult {
             }
         }
         this.msgMap.put(-10001, "请登录");
-    }
-
-    public void loginSuc() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
     }
 }

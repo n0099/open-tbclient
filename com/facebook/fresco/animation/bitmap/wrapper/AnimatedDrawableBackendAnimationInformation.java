@@ -33,23 +33,32 @@ public class AnimatedDrawableBackendAnimationInformation implements AnimationInf
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
-    public int getFrameCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAnimatedDrawableBackend.getFrameCount() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationInformation
     public int getFrameDurationMs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mAnimatedDrawableBackend.getDurationMsForFrame(i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.mAnimatedDrawableBackend.getDurationMsForFrame(i);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationInformation
+    public int getFrameCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAnimatedDrawableBackend.getFrameCount();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
     public int getLoopCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAnimatedDrawableBackend.getLoopCount() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAnimatedDrawableBackend.getLoopCount();
+        }
+        return invokeV.intValue;
     }
 }

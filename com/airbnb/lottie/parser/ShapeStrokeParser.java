@@ -65,38 +65,44 @@ public class ShapeStrokeParser {
                             String str2 = null;
                             while (jsonReader.hasNext()) {
                                 int selectName = jsonReader.selectName(DASH_PATTERN_NAMES);
-                                if (selectName == 0) {
-                                    str2 = jsonReader.nextString();
-                                } else if (selectName != i2) {
-                                    jsonReader.skipName();
-                                    jsonReader.skipValue();
+                                if (selectName != 0) {
+                                    if (selectName != i2) {
+                                        jsonReader.skipName();
+                                        jsonReader.skipValue();
+                                    } else {
+                                        animatableFloatValue3 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
+                                    }
                                 } else {
-                                    animatableFloatValue3 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
+                                    str2 = jsonReader.nextString();
                                 }
                             }
                             jsonReader.endObject();
                             int hashCode = str2.hashCode();
-                            if (hashCode == i) {
+                            if (hashCode != i) {
+                                if (hashCode != 103) {
+                                    if (hashCode == 111 && str2.equals("o")) {
+                                        c = 0;
+                                    }
+                                    c = 65535;
+                                } else {
+                                    if (str2.equals("g")) {
+                                        c = 2;
+                                    }
+                                    c = 65535;
+                                }
+                            } else {
                                 if (str2.equals("d")) {
                                     c = 1;
                                 }
                                 c = 65535;
-                            } else if (hashCode != 103) {
-                                if (hashCode == 111 && str2.equals("o")) {
-                                    c = 0;
-                                }
-                                c = 65535;
-                            } else {
-                                if (str2.equals("g")) {
-                                    c = 2;
-                                }
-                                c = 65535;
                             }
-                            if (c == 0) {
+                            if (c != 0) {
+                                if (c == 1 || c == 2) {
+                                    lottieComposition.setHasDashPattern(true);
+                                    arrayList.add(animatableFloatValue3);
+                                }
+                            } else {
                                 animatableFloatValue = animatableFloatValue3;
-                            } else if (c == 1 || c == 2) {
-                                lottieComposition.setHasDashPattern(true);
-                                arrayList.add(animatableFloatValue3);
                             }
                             i = 100;
                             i2 = 1;

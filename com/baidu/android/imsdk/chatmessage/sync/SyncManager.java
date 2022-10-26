@@ -14,7 +14,7 @@ import java.util.Iterator;
 public class SyncManager {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sSyncDone;
-    public static ArrayList<ISyncStateListener> sSyncStateListeners;
+    public static ArrayList sSyncStateListeners;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class SyncManager {
                 return;
             }
         }
-        sSyncStateListeners = new ArrayList<>();
+        sSyncStateListeners = new ArrayList();
     }
 
     public SyncManager() {
@@ -50,7 +50,10 @@ public class SyncManager {
     public static Boolean isSyncDone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Boolean.valueOf(sSyncDone) : (Boolean) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Boolean.valueOf(sSyncDone);
+        }
+        return (Boolean) invokeV.objValue;
     }
 
     public static synchronized void notifySyncDone() {
@@ -58,9 +61,9 @@ public class SyncManager {
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (SyncManager.class) {
                 sSyncDone = true;
-                Iterator<ISyncStateListener> it = sSyncStateListeners.iterator();
+                Iterator it = sSyncStateListeners.iterator();
                 while (it.hasNext()) {
-                    it.next().onSyncDone();
+                    ((ISyncStateListener) it.next()).onSyncDone();
                 }
                 sSyncStateListeners.clear();
             }

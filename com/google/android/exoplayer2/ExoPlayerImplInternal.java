@@ -7,7 +7,6 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.util.Log;
 import android.util.Pair;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +100,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     public final Timeline.Window window;
 
     /* loaded from: classes7.dex */
-    public static final class MediaPeriodHolder {
+    public final class MediaPeriodHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean hasEnabledTracks;
@@ -159,37 +158,37 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
 
         private void associateNoSampleRenderersWithEmptySampleStream(SampleStream[] sampleStreamArr) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(65537, this, sampleStreamArr) != null) {
-                return;
-            }
-            int i = 0;
-            while (true) {
-                RendererCapabilities[] rendererCapabilitiesArr = this.rendererCapabilities;
-                if (i >= rendererCapabilitiesArr.length) {
-                    return;
+            if (interceptable == null || interceptable.invokeL(65537, this, sampleStreamArr) == null) {
+                int i = 0;
+                while (true) {
+                    RendererCapabilities[] rendererCapabilitiesArr = this.rendererCapabilities;
+                    if (i < rendererCapabilitiesArr.length) {
+                        if (rendererCapabilitiesArr[i].getTrackType() == 5 && this.trackSelectorResult.renderersEnabled[i]) {
+                            sampleStreamArr[i] = new EmptySampleStream();
+                        }
+                        i++;
+                    } else {
+                        return;
+                    }
                 }
-                if (rendererCapabilitiesArr[i].getTrackType() == 5 && this.trackSelectorResult.renderersEnabled[i]) {
-                    sampleStreamArr[i] = new EmptySampleStream();
-                }
-                i++;
             }
         }
 
         private void disassociateNoSampleRenderersWithEmptySampleStream(SampleStream[] sampleStreamArr) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(65538, this, sampleStreamArr) != null) {
-                return;
-            }
-            int i = 0;
-            while (true) {
-                RendererCapabilities[] rendererCapabilitiesArr = this.rendererCapabilities;
-                if (i >= rendererCapabilitiesArr.length) {
-                    return;
+            if (interceptable == null || interceptable.invokeL(65538, this, sampleStreamArr) == null) {
+                int i = 0;
+                while (true) {
+                    RendererCapabilities[] rendererCapabilitiesArr = this.rendererCapabilities;
+                    if (i < rendererCapabilitiesArr.length) {
+                        if (rendererCapabilitiesArr[i].getTrackType() == 5) {
+                            sampleStreamArr[i] = null;
+                        }
+                        i++;
+                    } else {
+                        return;
+                    }
                 }
-                if (rendererCapabilitiesArr[i].getTrackType() == 5) {
-                    sampleStreamArr[i] = null;
-                }
-                i++;
             }
         }
 
@@ -200,10 +199,52 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             }
         }
 
+        public boolean shouldContinueLoading(long j) {
+            InterceptResult invokeJ;
+            long nextLoadPositionUs;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                if (!this.prepared) {
+                    nextLoadPositionUs = 0;
+                } else {
+                    nextLoadPositionUs = this.mediaPeriod.getNextLoadPositionUs();
+                }
+                if (nextLoadPositionUs == Long.MIN_VALUE) {
+                    return false;
+                }
+                return this.loadControl.shouldContinueLoading(nextLoadPositionUs - toPeriodTime(j));
+            }
+            return invokeJ.booleanValue;
+        }
+
+        public long toPeriodTime(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+                return j - getRendererOffset();
+            }
+            return invokeJ.longValue;
+        }
+
+        public long toRendererTime(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+                return j + getRendererOffset();
+            }
+            return invokeJ.longValue;
+        }
+
         public long getRendererOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.index == 0 ? this.rendererPositionOffsetUs : this.rendererPositionOffsetUs - this.info.startPositionUs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.index == 0) {
+                    return this.rendererPositionOffsetUs;
+                }
+                return this.rendererPositionOffsetUs - this.info.startPositionUs;
+            }
+            return invokeV.longValue;
         }
 
         public void handlePrepared() throws ExoPlaybackException {
@@ -215,11 +256,42 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             }
         }
 
+        public boolean isFullyBuffered() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.prepared && (!this.hasEnabledTracks || this.mediaPeriod.getBufferedPositionUs() == Long.MIN_VALUE)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean selectTracks() throws ExoPlaybackException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                TrackSelectorResult selectTracks = this.trackSelector.selectTracks(this.rendererCapabilities, this.mediaPeriod.getTrackGroups());
+                if (selectTracks.isEquivalent(this.periodTrackSelectorResult)) {
+                    return false;
+                }
+                this.trackSelectorResult = selectTracks;
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
         public boolean haveSufficientBuffer(boolean z, long j) {
             InterceptResult invokeCommon;
+            long bufferedPositionUs;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
-                long bufferedPositionUs = !this.prepared ? this.info.startPositionUs : this.mediaPeriod.getBufferedPositionUs();
+                if (!this.prepared) {
+                    bufferedPositionUs = this.info.startPositionUs;
+                } else {
+                    bufferedPositionUs = this.mediaPeriod.getBufferedPositionUs();
+                }
                 if (bufferedPositionUs == Long.MIN_VALUE) {
                     MediaPeriodInfoSequence.MediaPeriodInfo mediaPeriodInfo = this.info;
                     if (mediaPeriodInfo.isFinal) {
@@ -230,12 +302,6 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 return this.loadControl.shouldStartPlayback(bufferedPositionUs - toPeriodTime(j), z);
             }
             return invokeCommon.booleanValue;
-        }
-
-        public boolean isFullyBuffered() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.prepared && (!this.hasEnabledTracks || this.mediaPeriod.getBufferedPositionUs() == Long.MIN_VALUE) : invokeV.booleanValue;
         }
 
         public void release() {
@@ -253,99 +319,70 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             }
         }
 
-        public boolean selectTracks() throws ExoPlaybackException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TrackSelectorResult selectTracks = this.trackSelector.selectTracks(this.rendererCapabilities, this.mediaPeriod.getTrackGroups());
-                if (selectTracks.isEquivalent(this.periodTrackSelectorResult)) {
-                    return false;
-                }
-                this.trackSelectorResult = selectTracks;
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean shouldContinueLoading(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-                long nextLoadPositionUs = !this.prepared ? 0L : this.mediaPeriod.getNextLoadPositionUs();
-                if (nextLoadPositionUs == Long.MIN_VALUE) {
-                    return false;
-                }
-                return this.loadControl.shouldContinueLoading(nextLoadPositionUs - toPeriodTime(j));
-            }
-            return invokeJ.booleanValue;
-        }
-
-        public long toPeriodTime(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) ? j - getRendererOffset() : invokeJ.longValue;
-        }
-
-        public long toRendererTime(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) ? j + getRendererOffset() : invokeJ.longValue;
-        }
-
         public long updatePeriodTrackSelection(long j, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) ? updatePeriodTrackSelection(j, z, new boolean[this.renderers.length]) : invokeCommon.longValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+                return updatePeriodTrackSelection(j, z, new boolean[this.renderers.length]);
+            }
+            return invokeCommon.longValue;
         }
 
         public long updatePeriodTrackSelection(long j, boolean z, boolean[] zArr) {
             InterceptResult invokeCommon;
+            boolean z2;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), zArr})) != null) {
-                return invokeCommon.longValue;
-            }
-            TrackSelectionArray trackSelectionArray = this.trackSelectorResult.selections;
-            int i = 0;
-            while (true) {
-                boolean z2 = true;
-                if (i >= trackSelectionArray.length) {
-                    break;
-                }
-                boolean[] zArr2 = this.mayRetainStreamFlags;
-                if (z || !this.trackSelectorResult.isEquivalent(this.periodTrackSelectorResult, i)) {
-                    z2 = false;
-                }
-                zArr2[i] = z2;
-                i++;
-            }
-            disassociateNoSampleRenderersWithEmptySampleStream(this.sampleStreams);
-            long selectTracks = this.mediaPeriod.selectTracks(trackSelectionArray.getAll(), this.mayRetainStreamFlags, this.sampleStreams, zArr, j);
-            associateNoSampleRenderersWithEmptySampleStream(this.sampleStreams);
-            this.periodTrackSelectorResult = this.trackSelectorResult;
-            this.hasEnabledTracks = false;
-            int i2 = 0;
-            while (true) {
-                SampleStream[] sampleStreamArr = this.sampleStreams;
-                if (i2 < sampleStreamArr.length) {
-                    if (sampleStreamArr[i2] != null) {
-                        Assertions.checkState(this.trackSelectorResult.renderersEnabled[i2]);
-                        if (this.rendererCapabilities[i2].getTrackType() != 5) {
-                            this.hasEnabledTracks = true;
-                        }
-                    } else {
-                        Assertions.checkState(trackSelectionArray.get(i2) == null);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), zArr})) == null) {
+                TrackSelectionArray trackSelectionArray = this.trackSelectorResult.selections;
+                int i = 0;
+                while (true) {
+                    boolean z3 = true;
+                    if (i >= trackSelectionArray.length) {
+                        break;
                     }
-                    i2++;
-                } else {
-                    this.loadControl.onTracksSelected(this.renderers, this.trackSelectorResult.groups, trackSelectionArray);
-                    return selectTracks;
+                    boolean[] zArr2 = this.mayRetainStreamFlags;
+                    if (z || !this.trackSelectorResult.isEquivalent(this.periodTrackSelectorResult, i)) {
+                        z3 = false;
+                    }
+                    zArr2[i] = z3;
+                    i++;
                 }
+                disassociateNoSampleRenderersWithEmptySampleStream(this.sampleStreams);
+                long selectTracks = this.mediaPeriod.selectTracks(trackSelectionArray.getAll(), this.mayRetainStreamFlags, this.sampleStreams, zArr, j);
+                associateNoSampleRenderersWithEmptySampleStream(this.sampleStreams);
+                this.periodTrackSelectorResult = this.trackSelectorResult;
+                this.hasEnabledTracks = false;
+                int i2 = 0;
+                while (true) {
+                    SampleStream[] sampleStreamArr = this.sampleStreams;
+                    if (i2 < sampleStreamArr.length) {
+                        if (sampleStreamArr[i2] != null) {
+                            Assertions.checkState(this.trackSelectorResult.renderersEnabled[i2]);
+                            if (this.rendererCapabilities[i2].getTrackType() != 5) {
+                                this.hasEnabledTracks = true;
+                            }
+                        } else {
+                            if (trackSelectionArray.get(i2) == null) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            Assertions.checkState(z2);
+                        }
+                        i2++;
+                    } else {
+                        this.loadControl.onTracksSelected(this.renderers, this.trackSelectorResult.groups, trackSelectionArray);
+                        return selectTracks;
+                    }
+                }
+            } else {
+                return invokeCommon.longValue;
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class MediaSourceRefreshInfo {
+    public final class MediaSourceRefreshInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object manifest;
@@ -374,7 +411,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     }
 
     /* loaded from: classes7.dex */
-    public static final class SeekPosition {
+    public final class SeekPosition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Timeline timeline;
@@ -457,10 +494,172 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
+    private void ensureStopped(Renderer renderer) throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, this, renderer) == null) && renderer.getState() == 2) {
+            renderer.stop();
+        }
+    }
+
+    public static Format[] getFormats(TrackSelection trackSelection) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, trackSelection)) == null) {
+            if (trackSelection != null) {
+                i = trackSelection.length();
+            } else {
+                i = 0;
+            }
+            Format[] formatArr = new Format[i];
+            for (int i2 = 0; i2 < i; i2++) {
+                formatArr[i2] = trackSelection.getFormat(i2);
+            }
+            return formatArr;
+        }
+        return (Format[]) invokeL.objValue;
+    }
+
+    private void handleContinueLoadingRequested(MediaPeriod mediaPeriod) {
+        MediaPeriodHolder mediaPeriodHolder;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, this, mediaPeriod) == null) && (mediaPeriodHolder = this.loadingPeriodHolder) != null && mediaPeriodHolder.mediaPeriod == mediaPeriod) {
+            maybeContinueLoading();
+        }
+    }
+
+    private void releasePeriodHoldersFrom(MediaPeriodHolder mediaPeriodHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, this, mediaPeriodHolder) == null) {
+            while (mediaPeriodHolder != null) {
+                mediaPeriodHolder.release();
+                mediaPeriodHolder = mediaPeriodHolder.next;
+            }
+        }
+    }
+
+    private boolean rendererWaitingForNextStream(Renderer renderer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, this, renderer)) == null) {
+            MediaPeriodHolder mediaPeriodHolder = this.readingPeriodHolder.next;
+            if (mediaPeriodHolder != null && mediaPeriodHolder.prepared && renderer.hasReadStreamToEnd()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void setIsLoading(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65569, this, z) == null) && this.isLoading != z) {
+            this.isLoading = z;
+            this.eventHandler.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
+        }
+    }
+
+    private void setPlaybackParametersInternal(PlaybackParameters playbackParameters) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65571, this, playbackParameters) == null) {
+            MediaClock mediaClock = this.rendererMediaClock;
+            if (mediaClock != null) {
+                playbackParameters = mediaClock.setPlaybackParameters(playbackParameters);
+            }
+            this.standaloneMediaClock.setPlaybackParameters(playbackParameters);
+            this.playbackParameters = playbackParameters;
+            this.eventHandler.obtainMessage(6, playbackParameters).sendToTarget();
+        }
+    }
+
+    private void setRepeatModeInternal(int i) throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65573, this, i) == null) {
+            this.repeatMode = i;
+            this.mediaPeriodInfoSequence.setRepeatMode(i);
+            validateExistingPeriodHolders();
+        }
+    }
+
+    private void setShuffleModeEnabledInternal(boolean z) throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65574, this, z) == null) {
+            this.shuffleModeEnabled = z;
+            this.mediaPeriodInfoSequence.setShuffleModeEnabled(z);
+            validateExistingPeriodHolders();
+        }
+    }
+
+    private void setState(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65575, this, i) == null) && this.state != i) {
+            this.state = i;
+            this.eventHandler.obtainMessage(0, i, 0).sendToTarget();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
+    public void onContinueLoadingRequested(MediaPeriod mediaPeriod) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
+            this.handler.obtainMessage(9, mediaPeriod).sendToTarget();
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod.Callback
+    public void onPrepared(MediaPeriod mediaPeriod) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mediaPeriod) == null) {
+            this.handler.obtainMessage(8, mediaPeriod).sendToTarget();
+        }
+    }
+
+    public void sendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, exoPlayerMessageArr) == null) {
+            if (this.released) {
+                Log.w(TAG, "Ignoring messages sent after release.");
+                return;
+            }
+            this.customMessagesSent++;
+            this.handler.obtainMessage(11, exoPlayerMessageArr).sendToTarget();
+        }
+    }
+
+    public void setPlayWhenReady(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.handler.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
+        }
+    }
+
+    public void setPlaybackParameters(PlaybackParameters playbackParameters) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, playbackParameters) == null) {
+            this.handler.obtainMessage(4, playbackParameters).sendToTarget();
+        }
+    }
+
+    public void setRepeatMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.handler.obtainMessage(12, i, 0).sendToTarget();
+        }
+    }
+
+    public void setShuffleModeEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.handler.obtainMessage(13, z ? 1 : 0, 0).sendToTarget();
+        }
+    }
+
     private void doSomeWork() throws ExoPlaybackException, IOException {
         Renderer[] rendererArr;
         boolean isTimelineReady;
         int i;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -473,18 +672,30 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             TraceUtil.beginSection("doSomeWork");
             updatePlaybackPositions();
             this.playingPeriodHolder.mediaPeriod.discardBuffer(this.playbackInfo.positionUs);
-            boolean z = true;
             boolean z2 = true;
+            boolean z3 = true;
             for (Renderer renderer : this.enabledRenderers) {
                 renderer.render(this.rendererPositionUs, this.elapsedRealtimeUs);
-                z2 = z2 && renderer.isEnded();
-                boolean z3 = renderer.isReady() || renderer.isEnded() || rendererWaitingForNextStream(renderer);
-                if (!z3) {
+                if (z3 && renderer.isEnded()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (!renderer.isReady() && !renderer.isEnded() && !rendererWaitingForNextStream(renderer)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
                     renderer.maybeThrowStreamError();
                 }
-                z = z && z3;
+                if (z2 && z) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
             }
-            if (!z) {
+            if (!z2) {
                 maybeThrowPeriodPrepareError();
             }
             MediaClock mediaClock = this.rendererMediaClock;
@@ -497,14 +708,18 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 }
             }
             long j = this.playingPeriodHolder.info.durationUs;
-            if (z2 && ((j == C.TIME_UNSET || j <= this.playbackInfo.positionUs) && this.playingPeriodHolder.info.isFinal)) {
+            if (z3 && ((j == C.TIME_UNSET || j <= this.playbackInfo.positionUs) && this.playingPeriodHolder.info.isFinal)) {
                 setState(4);
                 stopRenderers();
             } else {
                 int i2 = this.state;
                 if (i2 == 2) {
                     if (this.enabledRenderers.length > 0) {
-                        isTimelineReady = z && this.loadingPeriodHolder.haveSufficientBuffer(this.rebuffering, this.rendererPositionUs);
+                        if (z2 && this.loadingPeriodHolder.haveSufficientBuffer(this.rebuffering, this.rendererPositionUs)) {
+                            isTimelineReady = true;
+                        } else {
+                            isTimelineReady = false;
+                        }
                     } else {
                         isTimelineReady = isTimelineReady(j);
                     }
@@ -516,9 +731,9 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     }
                 } else if (i2 == 3) {
                     if (this.enabledRenderers.length <= 0) {
-                        z = isTimelineReady(j);
+                        z2 = isTimelineReady(j);
                     }
-                    if (!z) {
+                    if (!z2) {
                         this.rebuffering = this.playWhenReady;
                         setState(2);
                         stopRenderers();
@@ -541,7 +756,124 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
+    private void updatePeriods() throws ExoPlaybackException, IOException {
+        boolean z;
+        boolean z2;
+        MediaPeriodHolder mediaPeriodHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65581, this) == null) {
+            if (this.playbackInfo.timeline == null) {
+                this.mediaSource.maybeThrowSourceInfoRefreshError();
+                return;
+            }
+            maybeUpdateLoadingPeriod();
+            MediaPeriodHolder mediaPeriodHolder2 = this.loadingPeriodHolder;
+            int i = 0;
+            if (mediaPeriodHolder2 != null && !mediaPeriodHolder2.isFullyBuffered()) {
+                if (this.loadingPeriodHolder != null && !this.isLoading) {
+                    maybeContinueLoading();
+                }
+            } else {
+                setIsLoading(false);
+            }
+            if (this.playingPeriodHolder == null) {
+                return;
+            }
+            while (this.playWhenReady && (mediaPeriodHolder = this.playingPeriodHolder) != this.readingPeriodHolder && this.rendererPositionUs >= mediaPeriodHolder.next.rendererPositionOffsetUs) {
+                mediaPeriodHolder.release();
+                setPlayingPeriodHolder(this.playingPeriodHolder.next);
+                PlaybackInfo playbackInfo = this.playbackInfo;
+                MediaPeriodInfoSequence.MediaPeriodInfo mediaPeriodInfo = this.playingPeriodHolder.info;
+                this.playbackInfo = playbackInfo.fromNewPosition(mediaPeriodInfo.id, mediaPeriodInfo.startPositionUs, mediaPeriodInfo.contentPositionUs);
+                updatePlaybackPositions();
+                this.eventHandler.obtainMessage(4, 0, 0, this.playbackInfo).sendToTarget();
+            }
+            MediaPeriodHolder mediaPeriodHolder3 = this.readingPeriodHolder;
+            if (mediaPeriodHolder3.info.isFinal) {
+                while (true) {
+                    Renderer[] rendererArr = this.renderers;
+                    if (i < rendererArr.length) {
+                        Renderer renderer = rendererArr[i];
+                        SampleStream sampleStream = this.readingPeriodHolder.sampleStreams[i];
+                        if (sampleStream != null && renderer.getStream() == sampleStream && renderer.hasReadStreamToEnd()) {
+                            renderer.setCurrentStreamFinal();
+                        }
+                        i++;
+                    } else {
+                        return;
+                    }
+                }
+            } else {
+                MediaPeriodHolder mediaPeriodHolder4 = mediaPeriodHolder3.next;
+                if (mediaPeriodHolder4 != null && mediaPeriodHolder4.prepared) {
+                    int i2 = 0;
+                    while (true) {
+                        Renderer[] rendererArr2 = this.renderers;
+                        if (i2 < rendererArr2.length) {
+                            Renderer renderer2 = rendererArr2[i2];
+                            SampleStream sampleStream2 = this.readingPeriodHolder.sampleStreams[i2];
+                            if (renderer2.getStream() == sampleStream2) {
+                                if (sampleStream2 == null || renderer2.hasReadStreamToEnd()) {
+                                    i2++;
+                                } else {
+                                    return;
+                                }
+                            } else {
+                                return;
+                            }
+                        } else {
+                            MediaPeriodHolder mediaPeriodHolder5 = this.readingPeriodHolder;
+                            TrackSelectorResult trackSelectorResult = mediaPeriodHolder5.trackSelectorResult;
+                            MediaPeriodHolder mediaPeriodHolder6 = mediaPeriodHolder5.next;
+                            this.readingPeriodHolder = mediaPeriodHolder6;
+                            TrackSelectorResult trackSelectorResult2 = mediaPeriodHolder6.trackSelectorResult;
+                            if (mediaPeriodHolder6.mediaPeriod.readDiscontinuity() != C.TIME_UNSET) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            int i3 = 0;
+                            while (true) {
+                                Renderer[] rendererArr3 = this.renderers;
+                                if (i3 < rendererArr3.length) {
+                                    Renderer renderer3 = rendererArr3[i3];
+                                    if (trackSelectorResult.renderersEnabled[i3]) {
+                                        if (z) {
+                                            renderer3.setCurrentStreamFinal();
+                                        } else if (!renderer3.isCurrentStreamFinal()) {
+                                            TrackSelection trackSelection = trackSelectorResult2.selections.get(i3);
+                                            boolean z3 = trackSelectorResult2.renderersEnabled[i3];
+                                            if (this.rendererCapabilities[i3].getTrackType() == 5) {
+                                                z2 = true;
+                                            } else {
+                                                z2 = false;
+                                            }
+                                            RendererConfiguration rendererConfiguration = trackSelectorResult.rendererConfigurations[i3];
+                                            RendererConfiguration rendererConfiguration2 = trackSelectorResult2.rendererConfigurations[i3];
+                                            if (z3 && rendererConfiguration2.equals(rendererConfiguration) && !z2) {
+                                                Format[] formats = getFormats(trackSelection);
+                                                MediaPeriodHolder mediaPeriodHolder7 = this.readingPeriodHolder;
+                                                renderer3.replaceStream(formats, mediaPeriodHolder7.sampleStreams[i3], mediaPeriodHolder7.getRendererOffset());
+                                            } else {
+                                                renderer3.setCurrentStreamFinal();
+                                            }
+                                        }
+                                    }
+                                    i3++;
+                                } else {
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private void enableRenderer(int i, boolean z, int i2) throws ExoPlaybackException {
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             Renderer renderer = this.renderers[i];
@@ -550,8 +882,16 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 TrackSelectorResult trackSelectorResult = this.playingPeriodHolder.trackSelectorResult;
                 RendererConfiguration rendererConfiguration = trackSelectorResult.rendererConfigurations[i];
                 Format[] formats = getFormats(trackSelectorResult.selections.get(i));
-                boolean z2 = this.playWhenReady && this.state == 3;
-                boolean z3 = !z && z2;
+                if (this.playWhenReady && this.state == 3) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!z && z2) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
                 MediaPeriodHolder mediaPeriodHolder = this.playingPeriodHolder;
                 renderer.enable(rendererConfiguration, formats, mediaPeriodHolder.sampleStreams[i], this.rendererPositionUs, z3, mediaPeriodHolder.getRendererOffset());
                 MediaClock mediaClock = renderer.getMediaClock();
@@ -585,39 +925,70 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void ensureStopped(Renderer renderer) throws ExoPlaybackException {
+    private void notifySourceInfoRefresh(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, this, renderer) == null) && renderer.getState() == 2) {
-            renderer.stop();
+        if (interceptable == null || interceptable.invokeII(65554, this, i, i2) == null) {
+            notifySourceInfoRefresh(i, i2, this.playbackInfo);
         }
     }
 
-    @NonNull
-    public static Format[] getFormats(TrackSelection trackSelection) {
-        InterceptResult invokeL;
+    private MediaPeriodHolder updatePeriodInfo(MediaPeriodHolder mediaPeriodHolder, int i) {
+        MediaPeriodHolder mediaPeriodHolder2;
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, trackSelection)) == null) {
-            int length = trackSelection != null ? trackSelection.length() : 0;
-            Format[] formatArr = new Format[length];
-            for (int i = 0; i < length; i++) {
-                formatArr[i] = trackSelection.getFormat(i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65580, this, mediaPeriodHolder, i)) == null) {
+            while (true) {
+                MediaPeriodInfoSequence.MediaPeriodInfo updatedMediaPeriodInfo = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder.info, i);
+                mediaPeriodHolder.info = updatedMediaPeriodInfo;
+                if (updatedMediaPeriodInfo.isLastInTimelinePeriod || (mediaPeriodHolder2 = mediaPeriodHolder.next) == null) {
+                    break;
+                }
+                mediaPeriodHolder = mediaPeriodHolder2;
             }
-            return formatArr;
+            return mediaPeriodHolder;
         }
-        return (Format[]) invokeL.objValue;
+        return (MediaPeriodHolder) invokeLI.objValue;
     }
 
-    private Pair<Integer, Long> getPeriodPosition(Timeline timeline, int i, long j) {
+    public void prepare(MediaSource mediaSource, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSource, z) == null) {
+            this.handler.obtainMessage(0, z ? 1 : 0, 0, mediaSource).sendToTarget();
+        }
+    }
+
+    private Pair getPeriodPosition(Timeline timeline, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{timeline, Integer.valueOf(i), Long.valueOf(j)})) == null) ? timeline.getPeriodPosition(this.window, this.period, i, j) : (Pair) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{timeline, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            return timeline.getPeriodPosition(this.window, this.period, i, j);
+        }
+        return (Pair) invokeCommon.objValue;
     }
 
-    private void handleContinueLoadingRequested(MediaPeriod mediaPeriod) {
-        MediaPeriodHolder mediaPeriodHolder;
+    private int resolveSubsequentPeriod(int i, Timeline timeline, Timeline timeline2) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, this, mediaPeriod) == null) && (mediaPeriodHolder = this.loadingPeriodHolder) != null && mediaPeriodHolder.mediaPeriod == mediaPeriod) {
-            maybeContinueLoading();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65564, this, i, timeline, timeline2)) == null) {
+            int periodCount = timeline.getPeriodCount();
+            int i2 = i;
+            int i3 = -1;
+            for (int i4 = 0; i4 < periodCount && i3 == -1; i4++) {
+                i2 = timeline.getNextPeriodIndex(i2, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
+                if (i2 == -1) {
+                    break;
+                }
+                i3 = timeline2.getIndexOfPeriod(timeline.getPeriod(i2, this.period, true).uid);
+            }
+            return i3;
+        }
+        return invokeILL.intValue;
+    }
+
+    public void seekTo(Timeline timeline, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{timeline, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.handler.obtainMessage(3, new SeekPosition(timeline, i, j)).sendToTarget();
         }
     }
 
@@ -636,10 +1007,210 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
+    private boolean isTimelineReady(long j) {
+        InterceptResult invokeJ;
+        MediaPeriodHolder mediaPeriodHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, this, j)) == null) {
+            if (j != C.TIME_UNSET && this.playbackInfo.positionUs >= j && ((mediaPeriodHolder = this.playingPeriodHolder.next) == null || (!mediaPeriodHolder.prepared && !mediaPeriodHolder.info.id.isAd()))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    private void resetRendererPosition(long j) throws ExoPlaybackException {
+        long rendererTime;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65562, this, j) == null) {
+            MediaPeriodHolder mediaPeriodHolder = this.playingPeriodHolder;
+            if (mediaPeriodHolder == null) {
+                rendererTime = j + 60000000;
+            } else {
+                rendererTime = mediaPeriodHolder.toRendererTime(j);
+            }
+            this.rendererPositionUs = rendererTime;
+            this.standaloneMediaClock.setPositionUs(rendererTime);
+            for (Renderer renderer : this.enabledRenderers) {
+                renderer.resetPosition(this.rendererPositionUs);
+            }
+        }
+    }
+
+    private void setPlayWhenReadyInternal(boolean z) throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65570, this, z) == null) {
+            this.rebuffering = false;
+            this.playWhenReady = z;
+            if (!z) {
+                stopRenderers();
+                updatePlaybackPositions();
+                return;
+            }
+            int i = this.state;
+            if (i == 3) {
+                startRenderers();
+                this.handler.sendEmptyMessage(2);
+            } else if (i == 2) {
+                this.handler.sendEmptyMessage(2);
+            }
+        }
+    }
+
+    public synchronized void blockingSendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, exoPlayerMessageArr) == null) {
+            synchronized (this) {
+                if (this.released) {
+                    Log.w(TAG, "Ignoring messages sent after release.");
+                    return;
+                }
+                int i = this.customMessagesSent;
+                this.customMessagesSent = i + 1;
+                this.handler.obtainMessage(11, exoPlayerMessageArr).sendToTarget();
+                boolean z = false;
+                while (this.customMessagesProcessed <= i) {
+                    try {
+                        wait();
+                    } catch (InterruptedException unused) {
+                        z = true;
+                    }
+                }
+                if (z) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
+    }
+
     private void handleSourceInfoRefreshEndedPlayback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             handleSourceInfoRefreshEndedPlayback(0, 0);
+        }
+    }
+
+    private void maybeContinueLoading() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            boolean shouldContinueLoading = this.loadingPeriodHolder.shouldContinueLoading(this.rendererPositionUs);
+            setIsLoading(shouldContinueLoading);
+            if (shouldContinueLoading) {
+                this.loadingPeriodHolder.continueLoading(this.rendererPositionUs);
+            }
+        }
+    }
+
+    private void notifySourceInfoRefresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            notifySourceInfoRefresh(0, 0);
+        }
+    }
+
+    private void releaseInternal() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            resetInternal(true);
+            this.loadControl.onReleased();
+            setState(1);
+            this.internalPlaybackThread.quit();
+            synchronized (this) {
+                this.released = true;
+                notifyAll();
+            }
+        }
+    }
+
+    private void startRenderers() throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65577, this) == null) {
+            this.rebuffering = false;
+            this.standaloneMediaClock.start();
+            for (Renderer renderer : this.enabledRenderers) {
+                renderer.start();
+            }
+        }
+    }
+
+    private void stopInternal() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65578, this) == null) {
+            resetInternal(true);
+            this.loadControl.onStopped();
+            setState(1);
+        }
+    }
+
+    private void stopRenderers() throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65579, this) == null) {
+            this.standaloneMediaClock.stop();
+            for (Renderer renderer : this.enabledRenderers) {
+                ensureStopped(renderer);
+            }
+        }
+    }
+
+    public Looper getPlaybackLooper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.internalPlaybackThread.getLooper();
+        }
+        return (Looper) invokeV.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelector.InvalidationListener
+    public void onTrackSelectionsInvalidated() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.handler.sendEmptyMessage(10);
+        }
+    }
+
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.handler.sendEmptyMessage(5);
+        }
+    }
+
+    private void handleSourceInfoRefreshEndedPlayback(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65547, this, i, i2) == null) {
+            Timeline timeline = this.playbackInfo.timeline;
+            if (timeline.isEmpty()) {
+                i3 = 0;
+            } else {
+                i3 = timeline.getWindow(timeline.getFirstWindowIndex(this.shuffleModeEnabled), this.window).firstPeriodIndex;
+            }
+            int i4 = i3;
+            this.playbackInfo = this.playbackInfo.fromNewPosition(i4, C.TIME_UNSET, C.TIME_UNSET);
+            setState(4);
+            notifySourceInfoRefresh(i, i2, this.playbackInfo.fromNewPosition(i4, 0L, C.TIME_UNSET));
+            resetInternal(false);
+        }
+    }
+
+    private void prepareInternal(MediaSource mediaSource, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65556, this, mediaSource, z) == null) {
+            this.pendingPrepareCount++;
+            resetInternal(true);
+            this.loadControl.onPrepared();
+            if (z) {
+                this.playbackInfo = new PlaybackInfo(null, null, 0, C.TIME_UNSET);
+            } else {
+                PlaybackInfo playbackInfo = this.playbackInfo;
+                this.playbackInfo = new PlaybackInfo(null, null, playbackInfo.periodId, playbackInfo.positionUs, this.playbackInfo.contentPositionUs);
+            }
+            this.mediaSource = mediaSource;
+            mediaSource.prepareSource(this.player, true, this);
+            setState(2);
+            this.handler.sendEmptyMessage(2);
         }
     }
 
@@ -672,191 +1243,229 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void handleSourceInfoRefreshed(MediaSourceRefreshInfo mediaSourceRefreshInfo) throws ExoPlaybackException {
+        Object obj;
+        long j;
+        long j2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, mediaSourceRefreshInfo) == null) && mediaSourceRefreshInfo.source == this.mediaSource) {
-            Timeline timeline = this.playbackInfo.timeline;
-            Timeline timeline2 = mediaSourceRefreshInfo.timeline;
-            Object obj = mediaSourceRefreshInfo.manifest;
-            this.mediaPeriodInfoSequence.setTimeline(timeline2);
-            PlaybackInfo copyWithTimeline = this.playbackInfo.copyWithTimeline(timeline2, obj);
-            this.playbackInfo = copyWithTimeline;
-            long j = C.TIME_UNSET;
-            boolean z = false;
-            if (timeline == null) {
-                int i = this.pendingPrepareCount;
-                this.pendingPrepareCount = 0;
-                if (this.pendingInitialSeekCount > 0) {
-                    Pair<Integer, Long> resolveSeekPosition = resolveSeekPosition(this.pendingSeekPosition);
-                    int i2 = this.pendingInitialSeekCount;
-                    this.pendingInitialSeekCount = 0;
-                    this.pendingSeekPosition = null;
-                    if (resolveSeekPosition == null) {
-                        handleSourceInfoRefreshEndedPlayback(i, i2);
-                        return;
-                    }
-                    int intValue = ((Integer) resolveSeekPosition.first).intValue();
-                    long longValue = ((Long) resolveSeekPosition.second).longValue();
-                    MediaSource.MediaPeriodId resolvePeriodPositionForAds = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue, longValue);
-                    this.playbackInfo = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds, resolvePeriodPositionForAds.isAd() ? 0L : longValue, longValue);
-                    notifySourceInfoRefresh(i, i2);
+        if ((interceptable != null && interceptable.invokeL(65548, this, mediaSourceRefreshInfo) != null) || mediaSourceRefreshInfo.source != this.mediaSource) {
+            return;
+        }
+        Timeline timeline = this.playbackInfo.timeline;
+        Timeline timeline2 = mediaSourceRefreshInfo.timeline;
+        Object obj2 = mediaSourceRefreshInfo.manifest;
+        this.mediaPeriodInfoSequence.setTimeline(timeline2);
+        PlaybackInfo copyWithTimeline = this.playbackInfo.copyWithTimeline(timeline2, obj2);
+        this.playbackInfo = copyWithTimeline;
+        long j3 = C.TIME_UNSET;
+        boolean z = false;
+        if (timeline == null) {
+            int i = this.pendingPrepareCount;
+            this.pendingPrepareCount = 0;
+            if (this.pendingInitialSeekCount > 0) {
+                Pair resolveSeekPosition = resolveSeekPosition(this.pendingSeekPosition);
+                int i2 = this.pendingInitialSeekCount;
+                this.pendingInitialSeekCount = 0;
+                this.pendingSeekPosition = null;
+                if (resolveSeekPosition == null) {
+                    handleSourceInfoRefreshEndedPlayback(i, i2);
                     return;
-                } else if (copyWithTimeline.startPositionUs == C.TIME_UNSET) {
-                    if (timeline2.isEmpty()) {
-                        handleSourceInfoRefreshEndedPlayback(i, 0);
-                        return;
-                    }
-                    Pair<Integer, Long> periodPosition = getPeriodPosition(timeline2, timeline2.getFirstWindowIndex(this.shuffleModeEnabled), C.TIME_UNSET);
-                    int intValue2 = ((Integer) periodPosition.first).intValue();
-                    long longValue2 = ((Long) periodPosition.second).longValue();
-                    MediaSource.MediaPeriodId resolvePeriodPositionForAds2 = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue2, longValue2);
-                    this.playbackInfo = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds2, resolvePeriodPositionForAds2.isAd() ? 0L : longValue2, longValue2);
-                    notifySourceInfoRefresh(i, 0);
-                    return;
+                }
+                int intValue = ((Integer) resolveSeekPosition.first).intValue();
+                long longValue = ((Long) resolveSeekPosition.second).longValue();
+                MediaSource.MediaPeriodId resolvePeriodPositionForAds = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue, longValue);
+                PlaybackInfo playbackInfo = this.playbackInfo;
+                if (resolvePeriodPositionForAds.isAd()) {
+                    j2 = 0;
                 } else {
-                    notifySourceInfoRefresh(i, 0);
+                    j2 = longValue;
+                }
+                this.playbackInfo = playbackInfo.fromNewPosition(resolvePeriodPositionForAds, j2, longValue);
+                notifySourceInfoRefresh(i, i2);
+                return;
+            } else if (copyWithTimeline.startPositionUs == C.TIME_UNSET) {
+                if (timeline2.isEmpty()) {
+                    handleSourceInfoRefreshEndedPlayback(i, 0);
                     return;
                 }
-            }
-            int i3 = copyWithTimeline.periodId.periodIndex;
-            MediaPeriodHolder mediaPeriodHolder = this.playingPeriodHolder;
-            if (mediaPeriodHolder == null) {
-                mediaPeriodHolder = this.loadingPeriodHolder;
-            }
-            if (mediaPeriodHolder == null && i3 >= timeline.getPeriodCount()) {
-                notifySourceInfoRefresh();
+                Pair periodPosition = getPeriodPosition(timeline2, timeline2.getFirstWindowIndex(this.shuffleModeEnabled), C.TIME_UNSET);
+                int intValue2 = ((Integer) periodPosition.first).intValue();
+                long longValue2 = ((Long) periodPosition.second).longValue();
+                MediaSource.MediaPeriodId resolvePeriodPositionForAds2 = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue2, longValue2);
+                PlaybackInfo playbackInfo2 = this.playbackInfo;
+                if (resolvePeriodPositionForAds2.isAd()) {
+                    j = 0;
+                } else {
+                    j = longValue2;
+                }
+                this.playbackInfo = playbackInfo2.fromNewPosition(resolvePeriodPositionForAds2, j, longValue2);
+                notifySourceInfoRefresh(i, 0);
+                return;
+            } else {
+                notifySourceInfoRefresh(i, 0);
                 return;
             }
-            int indexOfPeriod = timeline2.getIndexOfPeriod(mediaPeriodHolder == null ? timeline.getPeriod(i3, this.period, true).uid : mediaPeriodHolder.uid);
-            if (indexOfPeriod == -1) {
-                int resolveSubsequentPeriod = resolveSubsequentPeriod(i3, timeline, timeline2);
-                if (resolveSubsequentPeriod == -1) {
-                    handleSourceInfoRefreshEndedPlayback();
-                    return;
-                }
-                Pair<Integer, Long> periodPosition2 = getPeriodPosition(timeline2, timeline2.getPeriod(resolveSubsequentPeriod, this.period).windowIndex, C.TIME_UNSET);
-                int intValue3 = ((Integer) periodPosition2.first).intValue();
-                long longValue3 = ((Long) periodPosition2.second).longValue();
-                timeline2.getPeriod(intValue3, this.period, true);
-                if (mediaPeriodHolder != null) {
-                    Object obj2 = this.period.uid;
-                    mediaPeriodHolder.info = mediaPeriodHolder.info.copyWithPeriodIndex(-1);
-                    while (true) {
-                        mediaPeriodHolder = mediaPeriodHolder.next;
-                        if (mediaPeriodHolder == null) {
-                            break;
-                        } else if (mediaPeriodHolder.uid.equals(obj2)) {
-                            mediaPeriodHolder.info = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder.info, intValue3);
-                        } else {
-                            mediaPeriodHolder.info = mediaPeriodHolder.info.copyWithPeriodIndex(-1);
-                        }
-                    }
-                }
-                MediaSource.MediaPeriodId mediaPeriodId = new MediaSource.MediaPeriodId(intValue3);
-                this.playbackInfo = this.playbackInfo.fromNewPosition(mediaPeriodId, seekToPeriodPosition(mediaPeriodId, longValue3), C.TIME_UNSET);
-                notifySourceInfoRefresh();
-                return;
-            }
-            if (indexOfPeriod != i3) {
-                this.playbackInfo = this.playbackInfo.copyWithPeriodIndex(indexOfPeriod);
-            }
-            if (this.playbackInfo.periodId.isAd()) {
-                MediaSource.MediaPeriodId resolvePeriodPositionForAds3 = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(indexOfPeriod, this.playbackInfo.contentPositionUs);
-                if (!resolvePeriodPositionForAds3.isAd() || resolvePeriodPositionForAds3.adIndexInAdGroup != this.playbackInfo.periodId.adIndexInAdGroup) {
-                    long seekToPeriodPosition = seekToPeriodPosition(resolvePeriodPositionForAds3, this.playbackInfo.contentPositionUs);
-                    if (resolvePeriodPositionForAds3.isAd()) {
-                        j = this.playbackInfo.contentPositionUs;
-                    }
-                    this.playbackInfo = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds3, seekToPeriodPosition, j);
-                    notifySourceInfoRefresh();
-                    return;
-                }
-            }
-            if (mediaPeriodHolder == null) {
-                notifySourceInfoRefresh();
-                return;
-            }
-            MediaPeriodHolder updatePeriodInfo = updatePeriodInfo(mediaPeriodHolder, indexOfPeriod);
-            int i4 = indexOfPeriod;
-            while (true) {
-                MediaPeriodHolder mediaPeriodHolder2 = updatePeriodInfo.next;
-                if (mediaPeriodHolder2 == null) {
-                    break;
-                }
-                i4 = timeline2.getNextPeriodIndex(i4, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
-                if (i4 == -1 || !mediaPeriodHolder2.uid.equals(timeline2.getPeriod(i4, this.period, true).uid)) {
-                    break;
-                }
-                updatePeriodInfo = updatePeriodInfo(mediaPeriodHolder2, i4);
-            }
+        }
+        int i3 = copyWithTimeline.periodId.periodIndex;
+        MediaPeriodHolder mediaPeriodHolder = this.playingPeriodHolder;
+        if (mediaPeriodHolder == null) {
+            mediaPeriodHolder = this.loadingPeriodHolder;
+        }
+        if (mediaPeriodHolder == null && i3 >= timeline.getPeriodCount()) {
             notifySourceInfoRefresh();
+            return;
         }
-    }
-
-    private boolean isTimelineReady(long j) {
-        InterceptResult invokeJ;
-        MediaPeriodHolder mediaPeriodHolder;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65549, this, j)) == null) ? j == C.TIME_UNSET || this.playbackInfo.positionUs < j || ((mediaPeriodHolder = this.playingPeriodHolder.next) != null && (mediaPeriodHolder.prepared || mediaPeriodHolder.info.id.isAd())) : invokeJ.booleanValue;
-    }
-
-    private void maybeContinueLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            boolean shouldContinueLoading = this.loadingPeriodHolder.shouldContinueLoading(this.rendererPositionUs);
-            setIsLoading(shouldContinueLoading);
-            if (shouldContinueLoading) {
-                this.loadingPeriodHolder.continueLoading(this.rendererPositionUs);
+        if (mediaPeriodHolder == null) {
+            obj = timeline.getPeriod(i3, this.period, true).uid;
+        } else {
+            obj = mediaPeriodHolder.uid;
+        }
+        int indexOfPeriod = timeline2.getIndexOfPeriod(obj);
+        if (indexOfPeriod == -1) {
+            int resolveSubsequentPeriod = resolveSubsequentPeriod(i3, timeline, timeline2);
+            if (resolveSubsequentPeriod == -1) {
+                handleSourceInfoRefreshEndedPlayback();
+                return;
+            }
+            Pair periodPosition2 = getPeriodPosition(timeline2, timeline2.getPeriod(resolveSubsequentPeriod, this.period).windowIndex, C.TIME_UNSET);
+            int intValue3 = ((Integer) periodPosition2.first).intValue();
+            long longValue3 = ((Long) periodPosition2.second).longValue();
+            timeline2.getPeriod(intValue3, this.period, true);
+            if (mediaPeriodHolder != null) {
+                Object obj3 = this.period.uid;
+                mediaPeriodHolder.info = mediaPeriodHolder.info.copyWithPeriodIndex(-1);
+                while (true) {
+                    mediaPeriodHolder = mediaPeriodHolder.next;
+                    if (mediaPeriodHolder == null) {
+                        break;
+                    } else if (mediaPeriodHolder.uid.equals(obj3)) {
+                        mediaPeriodHolder.info = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder.info, intValue3);
+                    } else {
+                        mediaPeriodHolder.info = mediaPeriodHolder.info.copyWithPeriodIndex(-1);
+                    }
+                }
+            }
+            MediaSource.MediaPeriodId mediaPeriodId = new MediaSource.MediaPeriodId(intValue3);
+            this.playbackInfo = this.playbackInfo.fromNewPosition(mediaPeriodId, seekToPeriodPosition(mediaPeriodId, longValue3), C.TIME_UNSET);
+            notifySourceInfoRefresh();
+            return;
+        }
+        if (indexOfPeriod != i3) {
+            this.playbackInfo = this.playbackInfo.copyWithPeriodIndex(indexOfPeriod);
+        }
+        if (this.playbackInfo.periodId.isAd()) {
+            MediaSource.MediaPeriodId resolvePeriodPositionForAds3 = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(indexOfPeriod, this.playbackInfo.contentPositionUs);
+            if (!resolvePeriodPositionForAds3.isAd() || resolvePeriodPositionForAds3.adIndexInAdGroup != this.playbackInfo.periodId.adIndexInAdGroup) {
+                long seekToPeriodPosition = seekToPeriodPosition(resolvePeriodPositionForAds3, this.playbackInfo.contentPositionUs);
+                if (resolvePeriodPositionForAds3.isAd()) {
+                    j3 = this.playbackInfo.contentPositionUs;
+                }
+                this.playbackInfo = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds3, seekToPeriodPosition, j3);
+                notifySourceInfoRefresh();
+                return;
             }
         }
+        if (mediaPeriodHolder == null) {
+            notifySourceInfoRefresh();
+            return;
+        }
+        MediaPeriodHolder updatePeriodInfo = updatePeriodInfo(mediaPeriodHolder, indexOfPeriod);
+        int i4 = indexOfPeriod;
+        while (true) {
+            MediaPeriodHolder mediaPeriodHolder2 = updatePeriodInfo.next;
+            if (mediaPeriodHolder2 == null) {
+                break;
+            }
+            i4 = timeline2.getNextPeriodIndex(i4, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
+            if (i4 == -1 || !mediaPeriodHolder2.uid.equals(timeline2.getPeriod(i4, this.period, true).uid)) {
+                break;
+            }
+            updatePeriodInfo = updatePeriodInfo(mediaPeriodHolder2, i4);
+        }
+        notifySourceInfoRefresh();
     }
 
     private void maybeThrowPeriodPrepareError() throws IOException {
         MediaPeriodHolder mediaPeriodHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || (mediaPeriodHolder = this.loadingPeriodHolder) == null || mediaPeriodHolder.prepared) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && (mediaPeriodHolder = this.loadingPeriodHolder) != null && !mediaPeriodHolder.prepared) {
+            MediaPeriodHolder mediaPeriodHolder2 = this.readingPeriodHolder;
+            if (mediaPeriodHolder2 == null || mediaPeriodHolder2.next == mediaPeriodHolder) {
+                for (Renderer renderer : this.enabledRenderers) {
+                    if (!renderer.hasReadStreamToEnd()) {
+                        return;
+                    }
+                }
+                this.loadingPeriodHolder.mediaPeriod.maybeThrowPrepareError();
+            }
         }
-        MediaPeriodHolder mediaPeriodHolder2 = this.readingPeriodHolder;
-        if (mediaPeriodHolder2 == null || mediaPeriodHolder2.next == mediaPeriodHolder) {
-            for (Renderer renderer : this.enabledRenderers) {
-                if (!renderer.hasReadStreamToEnd()) {
+    }
+
+    public synchronized void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            synchronized (this) {
+                if (this.released) {
                     return;
                 }
+                this.handler.sendEmptyMessage(6);
+                boolean z = false;
+                while (!this.released) {
+                    try {
+                        wait();
+                    } catch (InterruptedException unused) {
+                        z = true;
+                    }
+                }
+                if (z) {
+                    Thread.currentThread().interrupt();
+                }
             }
-            this.loadingPeriodHolder.mediaPeriod.maybeThrowPrepareError();
         }
     }
 
     private void maybeUpdateLoadingPeriod() throws IOException {
         MediaPeriodInfoSequence.MediaPeriodInfo nextMediaPeriodInfo;
+        long rendererOffset;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             MediaPeriodHolder mediaPeriodHolder = this.loadingPeriodHolder;
             if (mediaPeriodHolder == null) {
                 nextMediaPeriodInfo = this.mediaPeriodInfoSequence.getFirstMediaPeriodInfo(this.playbackInfo);
-            } else if (mediaPeriodHolder.info.isFinal || !mediaPeriodHolder.isFullyBuffered()) {
-                return;
-            } else {
+            } else if (!mediaPeriodHolder.info.isFinal && mediaPeriodHolder.isFullyBuffered()) {
                 MediaPeriodHolder mediaPeriodHolder2 = this.loadingPeriodHolder;
-                if (mediaPeriodHolder2.info.durationUs == C.TIME_UNSET) {
+                if (mediaPeriodHolder2.info.durationUs != C.TIME_UNSET) {
+                    MediaPeriodHolder mediaPeriodHolder3 = this.playingPeriodHolder;
+                    if (mediaPeriodHolder3 != null && mediaPeriodHolder2.index - mediaPeriodHolder3.index == 100) {
+                        return;
+                    }
+                    MediaPeriodInfoSequence mediaPeriodInfoSequence = this.mediaPeriodInfoSequence;
+                    MediaPeriodHolder mediaPeriodHolder4 = this.loadingPeriodHolder;
+                    nextMediaPeriodInfo = mediaPeriodInfoSequence.getNextMediaPeriodInfo(mediaPeriodHolder4.info, mediaPeriodHolder4.getRendererOffset(), this.rendererPositionUs);
+                } else {
                     return;
                 }
-                MediaPeriodHolder mediaPeriodHolder3 = this.playingPeriodHolder;
-                if (mediaPeriodHolder3 != null && mediaPeriodHolder2.index - mediaPeriodHolder3.index == 100) {
-                    return;
-                }
-                MediaPeriodInfoSequence mediaPeriodInfoSequence = this.mediaPeriodInfoSequence;
-                MediaPeriodHolder mediaPeriodHolder4 = this.loadingPeriodHolder;
-                nextMediaPeriodInfo = mediaPeriodInfoSequence.getNextMediaPeriodInfo(mediaPeriodHolder4.info, mediaPeriodHolder4.getRendererOffset(), this.rendererPositionUs);
+            } else {
+                return;
             }
             if (nextMediaPeriodInfo == null) {
                 this.mediaSource.maybeThrowSourceInfoRefreshError();
                 return;
             }
             MediaPeriodHolder mediaPeriodHolder5 = this.loadingPeriodHolder;
-            long rendererOffset = mediaPeriodHolder5 == null ? 60000000L : mediaPeriodHolder5.getRendererOffset() + this.loadingPeriodHolder.info.durationUs;
+            if (mediaPeriodHolder5 == null) {
+                rendererOffset = 60000000;
+            } else {
+                rendererOffset = mediaPeriodHolder5.getRendererOffset() + this.loadingPeriodHolder.info.durationUs;
+            }
+            long j = rendererOffset;
             MediaPeriodHolder mediaPeriodHolder6 = this.loadingPeriodHolder;
-            MediaPeriodHolder mediaPeriodHolder7 = new MediaPeriodHolder(this.renderers, this.rendererCapabilities, rendererOffset, this.trackSelector, this.loadControl, this.mediaSource, this.playbackInfo.timeline.getPeriod(nextMediaPeriodInfo.id.periodIndex, this.period, true).uid, mediaPeriodHolder6 == null ? 0 : mediaPeriodHolder6.index + 1, nextMediaPeriodInfo);
+            if (mediaPeriodHolder6 == null) {
+                i = 0;
+            } else {
+                i = mediaPeriodHolder6.index + 1;
+            }
+            MediaPeriodHolder mediaPeriodHolder7 = new MediaPeriodHolder(this.renderers, this.rendererCapabilities, j, this.trackSelector, this.loadControl, this.mediaSource, this.playbackInfo.timeline.getPeriod(nextMediaPeriodInfo.id.periodIndex, this.period, true).uid, i, nextMediaPeriodInfo);
             MediaPeriodHolder mediaPeriodHolder8 = this.loadingPeriodHolder;
             if (mediaPeriodHolder8 != null) {
                 mediaPeriodHolder8.next = mediaPeriodHolder7;
@@ -867,84 +1476,147 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void notifySourceInfoRefresh() {
+    private void updatePlaybackPositions() throws ExoPlaybackException {
+        MediaPeriodHolder mediaPeriodHolder;
+        long bufferedPositionUs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            notifySourceInfoRefresh(0, 0);
+        if ((interceptable != null && interceptable.invokeV(65582, this) != null) || (mediaPeriodHolder = this.playingPeriodHolder) == null) {
+            return;
         }
-    }
-
-    private void prepareInternal(MediaSource mediaSource, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65556, this, mediaSource, z) == null) {
-            this.pendingPrepareCount++;
-            resetInternal(true);
-            this.loadControl.onPrepared();
-            if (z) {
-                this.playbackInfo = new PlaybackInfo(null, null, 0, C.TIME_UNSET);
+        long readDiscontinuity = mediaPeriodHolder.mediaPeriod.readDiscontinuity();
+        if (readDiscontinuity != C.TIME_UNSET) {
+            resetRendererPosition(readDiscontinuity);
+            PlaybackInfo playbackInfo = this.playbackInfo;
+            PlaybackInfo fromNewPosition = playbackInfo.fromNewPosition(playbackInfo.periodId, readDiscontinuity, playbackInfo.contentPositionUs);
+            this.playbackInfo = fromNewPosition;
+            this.eventHandler.obtainMessage(4, 3, 0, fromNewPosition).sendToTarget();
+        } else {
+            Renderer renderer = this.rendererMediaClockSource;
+            if (renderer != null && !renderer.isEnded() && (this.rendererMediaClockSource.isReady() || !rendererWaitingForNextStream(this.rendererMediaClockSource))) {
+                long positionUs = this.rendererMediaClock.getPositionUs();
+                this.rendererPositionUs = positionUs;
+                this.standaloneMediaClock.setPositionUs(positionUs);
             } else {
-                PlaybackInfo playbackInfo = this.playbackInfo;
-                this.playbackInfo = new PlaybackInfo(null, null, playbackInfo.periodId, playbackInfo.positionUs, this.playbackInfo.contentPositionUs);
+                this.rendererPositionUs = this.standaloneMediaClock.getPositionUs();
             }
-            this.mediaSource = mediaSource;
-            mediaSource.prepareSource(this.player, true, this);
-            setState(2);
-            this.handler.sendEmptyMessage(2);
+            readDiscontinuity = this.playingPeriodHolder.toPeriodTime(this.rendererPositionUs);
+        }
+        this.playbackInfo.positionUs = readDiscontinuity;
+        this.elapsedRealtimeUs = SystemClock.elapsedRealtime() * 1000;
+        if (this.enabledRenderers.length == 0) {
+            bufferedPositionUs = Long.MIN_VALUE;
+        } else {
+            bufferedPositionUs = this.playingPeriodHolder.mediaPeriod.getBufferedPositionUs();
+        }
+        PlaybackInfo playbackInfo2 = this.playbackInfo;
+        if (bufferedPositionUs == Long.MIN_VALUE) {
+            bufferedPositionUs = this.playingPeriodHolder.info.durationUs;
+        }
+        playbackInfo2.bufferedPositionUs = bufferedPositionUs;
+    }
+
+    private void validateExistingPeriodHolders() throws ExoPlaybackException {
+        int i;
+        boolean z;
+        MediaPeriodHolder mediaPeriodHolder;
+        MediaPeriodHolder mediaPeriodHolder2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65583, this) == null) {
+            MediaPeriodHolder mediaPeriodHolder3 = this.playingPeriodHolder;
+            if (mediaPeriodHolder3 == null) {
+                mediaPeriodHolder3 = this.loadingPeriodHolder;
+            }
+            if (mediaPeriodHolder3 == null) {
+                return;
+            }
+            while (true) {
+                int nextPeriodIndex = this.playbackInfo.timeline.getNextPeriodIndex(mediaPeriodHolder3.info.id.periodIndex, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
+                while (true) {
+                    MediaPeriodHolder mediaPeriodHolder4 = mediaPeriodHolder3.next;
+                    if (mediaPeriodHolder4 == null || mediaPeriodHolder3.info.isLastInTimelinePeriod) {
+                        break;
+                    }
+                    mediaPeriodHolder3 = mediaPeriodHolder4;
+                }
+                if (nextPeriodIndex == -1 || (mediaPeriodHolder2 = mediaPeriodHolder3.next) == null || mediaPeriodHolder2.info.id.periodIndex != nextPeriodIndex) {
+                    break;
+                }
+                mediaPeriodHolder3 = mediaPeriodHolder2;
+            }
+            int i2 = this.loadingPeriodHolder.index;
+            MediaPeriodHolder mediaPeriodHolder5 = this.readingPeriodHolder;
+            if (mediaPeriodHolder5 != null) {
+                i = mediaPeriodHolder5.index;
+            } else {
+                i = -1;
+            }
+            MediaPeriodHolder mediaPeriodHolder6 = mediaPeriodHolder3.next;
+            if (mediaPeriodHolder6 != null) {
+                releasePeriodHoldersFrom(mediaPeriodHolder6);
+                mediaPeriodHolder3.next = null;
+            }
+            mediaPeriodHolder3.info = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder3.info);
+            boolean z2 = true;
+            if (i2 <= mediaPeriodHolder3.index) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                this.loadingPeriodHolder = mediaPeriodHolder3;
+            }
+            if (!((i == -1 || i > mediaPeriodHolder3.index) ? false : false) && (mediaPeriodHolder = this.playingPeriodHolder) != null) {
+                MediaSource.MediaPeriodId mediaPeriodId = mediaPeriodHolder.info.id;
+                long seekToPeriodPosition = seekToPeriodPosition(mediaPeriodId, this.playbackInfo.positionUs);
+                if (seekToPeriodPosition != this.playbackInfo.positionUs) {
+                    PlaybackInfo playbackInfo = this.playbackInfo;
+                    PlaybackInfo fromNewPosition = playbackInfo.fromNewPosition(mediaPeriodId, seekToPeriodPosition, playbackInfo.contentPositionUs);
+                    this.playbackInfo = fromNewPosition;
+                    this.eventHandler.obtainMessage(4, 3, 0, fromNewPosition).sendToTarget();
+                }
+            }
         }
     }
 
-    private void releaseInternal() {
+    private void notifySourceInfoRefresh(int i, int i2, PlaybackInfo playbackInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            resetInternal(true);
-            this.loadControl.onReleased();
-            setState(1);
-            this.internalPlaybackThread.quit();
-            synchronized (this) {
-                this.released = true;
-                notifyAll();
-            }
+        if (interceptable == null || interceptable.invokeIIL(65555, this, i, i2, playbackInfo) == null) {
+            this.eventHandler.obtainMessage(5, i, i2, playbackInfo).sendToTarget();
         }
     }
 
-    private void releasePeriodHoldersFrom(MediaPeriodHolder mediaPeriodHolder) {
+    @Override // com.google.android.exoplayer2.source.MediaSource.Listener
+    public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, this, mediaPeriodHolder) == null) {
-            while (mediaPeriodHolder != null) {
-                mediaPeriodHolder.release();
-                mediaPeriodHolder = mediaPeriodHolder.next;
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, mediaSource, timeline, obj) == null) {
+            this.handler.obtainMessage(7, new MediaSourceRefreshInfo(mediaSource, timeline, obj)).sendToTarget();
         }
-    }
-
-    private boolean rendererWaitingForNextStream(Renderer renderer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, this, renderer)) == null) {
-            MediaPeriodHolder mediaPeriodHolder = this.readingPeriodHolder.next;
-            return mediaPeriodHolder != null && mediaPeriodHolder.prepared && renderer.hasReadStreamToEnd();
-        }
-        return invokeL.booleanValue;
     }
 
     private void reselectTracksInternal() throws ExoPlaybackException {
         MediaPeriodHolder mediaPeriodHolder;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65560, this) == null) || (mediaPeriodHolder = this.playingPeriodHolder) == null) {
+        if ((interceptable != null && interceptable.invokeV(65560, this) != null) || (mediaPeriodHolder = this.playingPeriodHolder) == null) {
             return;
         }
-        boolean z = true;
+        boolean z3 = true;
         for (mediaPeriodHolder = this.playingPeriodHolder; mediaPeriodHolder != null && mediaPeriodHolder.prepared; mediaPeriodHolder = mediaPeriodHolder.next) {
             if (mediaPeriodHolder.selectTracks()) {
-                if (z) {
-                    boolean z2 = this.readingPeriodHolder != this.playingPeriodHolder;
+                if (z3) {
+                    if (this.readingPeriodHolder != this.playingPeriodHolder) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     releasePeriodHoldersFrom(this.playingPeriodHolder.next);
                     MediaPeriodHolder mediaPeriodHolder2 = this.playingPeriodHolder;
                     mediaPeriodHolder2.next = null;
                     this.loadingPeriodHolder = mediaPeriodHolder2;
                     this.readingPeriodHolder = mediaPeriodHolder2;
                     boolean[] zArr = new boolean[this.renderers.length];
-                    long updatePeriodTrackSelection = mediaPeriodHolder2.updatePeriodTrackSelection(this.playbackInfo.positionUs, z2, zArr);
+                    long updatePeriodTrackSelection = mediaPeriodHolder2.updatePeriodTrackSelection(this.playbackInfo.positionUs, z, zArr);
                     if (this.state != 4 && updatePeriodTrackSelection != this.playbackInfo.positionUs) {
                         PlaybackInfo playbackInfo = this.playbackInfo;
                         PlaybackInfo fromNewPosition = playbackInfo.fromNewPosition(playbackInfo.periodId, updatePeriodTrackSelection, playbackInfo.contentPositionUs);
@@ -961,7 +1633,12 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                             break;
                         }
                         Renderer renderer = rendererArr[i];
-                        zArr2[i] = renderer.getState() != 0;
+                        if (renderer.getState() != 0) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        zArr2[i] = z2;
                         SampleStream sampleStream = this.playingPeriodHolder.sampleStreams[i];
                         if (sampleStream != null) {
                             i2++;
@@ -997,7 +1674,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 return;
             }
             if (mediaPeriodHolder == this.readingPeriodHolder) {
-                z = false;
+                z3 = false;
             }
         }
     }
@@ -1038,20 +1715,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void resetRendererPosition(long j) throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65562, this, j) == null) {
-            MediaPeriodHolder mediaPeriodHolder = this.playingPeriodHolder;
-            long rendererTime = mediaPeriodHolder == null ? j + 60000000 : mediaPeriodHolder.toRendererTime(j);
-            this.rendererPositionUs = rendererTime;
-            this.standaloneMediaClock.setPositionUs(rendererTime);
-            for (Renderer renderer : this.enabledRenderers) {
-                renderer.resetPosition(this.rendererPositionUs);
-            }
-        }
-    }
-
-    private Pair<Integer, Long> resolveSeekPosition(SeekPosition seekPosition) {
+    private Pair resolveSeekPosition(SeekPosition seekPosition) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, seekPosition)) == null) {
@@ -1061,7 +1725,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 timeline2 = timeline;
             }
             try {
-                Pair<Integer, Long> periodPosition = timeline2.getPeriodPosition(this.window, this.period, seekPosition.windowIndex, seekPosition.windowPositionUs);
+                Pair periodPosition = timeline2.getPeriodPosition(this.window, this.period, seekPosition.windowIndex, seekPosition.windowPositionUs);
                 if (timeline == timeline2) {
                     return periodPosition;
                 }
@@ -1081,23 +1745,39 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         return (Pair) invokeL.objValue;
     }
 
-    private int resolveSubsequentPeriod(int i, Timeline timeline, Timeline timeline2) {
-        InterceptResult invokeILL;
+    private void setPlayingPeriodHolder(MediaPeriodHolder mediaPeriodHolder) throws ExoPlaybackException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65564, this, i, timeline, timeline2)) == null) {
-            int periodCount = timeline.getPeriodCount();
-            int i2 = i;
-            int i3 = -1;
-            for (int i4 = 0; i4 < periodCount && i3 == -1; i4++) {
-                i2 = timeline.getNextPeriodIndex(i2, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
-                if (i2 == -1) {
-                    break;
-                }
-                i3 = timeline2.getIndexOfPeriod(timeline.getPeriod(i2, this.period, true).uid);
-            }
-            return i3;
+        if ((interceptable != null && interceptable.invokeL(65572, this, mediaPeriodHolder) != null) || this.playingPeriodHolder == mediaPeriodHolder) {
+            return;
         }
-        return invokeILL.intValue;
+        boolean[] zArr = new boolean[this.renderers.length];
+        int i = 0;
+        int i2 = 0;
+        while (true) {
+            Renderer[] rendererArr = this.renderers;
+            if (i < rendererArr.length) {
+                Renderer renderer = rendererArr[i];
+                if (renderer.getState() != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                zArr[i] = z;
+                if (mediaPeriodHolder.trackSelectorResult.renderersEnabled[i]) {
+                    i2++;
+                }
+                if (zArr[i] && (!mediaPeriodHolder.trackSelectorResult.renderersEnabled[i] || (renderer.isCurrentStreamFinal() && renderer.getStream() == this.playingPeriodHolder.sampleStreams[i]))) {
+                    disableRenderer(renderer);
+                }
+                i++;
+            } else {
+                this.playingPeriodHolder = mediaPeriodHolder;
+                this.eventHandler.obtainMessage(2, mediaPeriodHolder.trackSelectorResult).sendToTarget();
+                enableRenderers(zArr, i2);
+                return;
+            }
+        }
     }
 
     private void scheduleNextWork(long j, long j2) {
@@ -1115,7 +1795,10 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
 
     private void seekToInternal(SeekPosition seekPosition) throws ExoPlaybackException {
         int i;
+        int i2;
         long j;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65566, this, seekPosition) == null) {
             Timeline timeline = this.playbackInfo.timeline;
@@ -1124,24 +1807,33 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 this.pendingSeekPosition = seekPosition;
                 return;
             }
-            Pair<Integer, Long> resolveSeekPosition = resolveSeekPosition(seekPosition);
+            Pair resolveSeekPosition = resolveSeekPosition(seekPosition);
             if (resolveSeekPosition == null) {
-                int i2 = timeline.isEmpty() ? 0 : timeline.getWindow(timeline.getFirstWindowIndex(this.shuffleModeEnabled), this.window).firstPeriodIndex;
-                this.playbackInfo = this.playbackInfo.fromNewPosition(i2, C.TIME_UNSET, C.TIME_UNSET);
+                if (timeline.isEmpty()) {
+                    i4 = 0;
+                } else {
+                    i4 = timeline.getWindow(timeline.getFirstWindowIndex(this.shuffleModeEnabled), this.window).firstPeriodIndex;
+                }
+                int i5 = i4;
+                this.playbackInfo = this.playbackInfo.fromNewPosition(i5, C.TIME_UNSET, C.TIME_UNSET);
                 setState(4);
-                this.eventHandler.obtainMessage(3, 1, 0, this.playbackInfo.fromNewPosition(i2, 0L, C.TIME_UNSET)).sendToTarget();
+                this.eventHandler.obtainMessage(3, 1, 0, this.playbackInfo.fromNewPosition(i5, 0L, C.TIME_UNSET)).sendToTarget();
                 resetInternal(false);
                 return;
             }
-            int i3 = seekPosition.windowPositionUs == C.TIME_UNSET ? 1 : 0;
+            if (seekPosition.windowPositionUs == C.TIME_UNSET) {
+                i = 1;
+            } else {
+                i = 0;
+            }
             int intValue = ((Integer) resolveSeekPosition.first).intValue();
             long longValue = ((Long) resolveSeekPosition.second).longValue();
             MediaSource.MediaPeriodId resolvePeriodPositionForAds = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue, longValue);
             if (resolvePeriodPositionForAds.isAd()) {
                 j = 0;
-                i = 1;
+                i2 = 1;
             } else {
-                i = i3;
+                i2 = i;
                 j = longValue;
             }
             try {
@@ -1149,16 +1841,104 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     return;
                 }
                 long seekToPeriodPosition = seekToPeriodPosition(resolvePeriodPositionForAds, j);
-                int i4 = i | (j != seekToPeriodPosition ? 1 : 0);
+                if (j != seekToPeriodPosition) {
+                    i3 = 1;
+                } else {
+                    i3 = 0;
+                }
+                int i6 = i2 | i3;
                 PlaybackInfo fromNewPosition = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds, seekToPeriodPosition, longValue);
                 this.playbackInfo = fromNewPosition;
-                this.eventHandler.obtainMessage(3, i4, 0, fromNewPosition).sendToTarget();
+                this.eventHandler.obtainMessage(3, i6, 0, fromNewPosition).sendToTarget();
             } finally {
                 PlaybackInfo fromNewPosition2 = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds, j, longValue);
                 this.playbackInfo = fromNewPosition2;
-                this.eventHandler.obtainMessage(3, i, 0, fromNewPosition2).sendToTarget();
+                this.eventHandler.obtainMessage(3, i2, 0, fromNewPosition2).sendToTarget();
             }
         }
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message)) == null) {
+            try {
+                boolean z = false;
+                switch (message.what) {
+                    case 0:
+                        MediaSource mediaSource = (MediaSource) message.obj;
+                        if (message.arg1 != 0) {
+                            z = true;
+                        }
+                        prepareInternal(mediaSource, z);
+                        return true;
+                    case 1:
+                        if (message.arg1 != 0) {
+                            z = true;
+                        }
+                        setPlayWhenReadyInternal(z);
+                        return true;
+                    case 2:
+                        doSomeWork();
+                        return true;
+                    case 3:
+                        seekToInternal((SeekPosition) message.obj);
+                        return true;
+                    case 4:
+                        setPlaybackParametersInternal((PlaybackParameters) message.obj);
+                        return true;
+                    case 5:
+                        stopInternal();
+                        return true;
+                    case 6:
+                        releaseInternal();
+                        return true;
+                    case 7:
+                        handleSourceInfoRefreshed((MediaSourceRefreshInfo) message.obj);
+                        return true;
+                    case 8:
+                        handlePeriodPrepared((MediaPeriod) message.obj);
+                        return true;
+                    case 9:
+                        handleContinueLoadingRequested((MediaPeriod) message.obj);
+                        return true;
+                    case 10:
+                        reselectTracksInternal();
+                        return true;
+                    case 11:
+                        sendMessagesInternal((ExoPlayer.ExoPlayerMessage[]) message.obj);
+                        return true;
+                    case 12:
+                        setRepeatModeInternal(message.arg1);
+                        return true;
+                    case 13:
+                        if (message.arg1 != 0) {
+                            z = true;
+                        }
+                        setShuffleModeEnabledInternal(z);
+                        return true;
+                    default:
+                        return false;
+                }
+            } catch (ExoPlaybackException e) {
+                Log.e(TAG, "Renderer error.", e);
+                this.eventHandler.obtainMessage(7, e).sendToTarget();
+                stopInternal();
+                return true;
+            } catch (IOException e2) {
+                Log.e(TAG, "Source error.", e2);
+                this.eventHandler.obtainMessage(7, ExoPlaybackException.createForSource(e2)).sendToTarget();
+                stopInternal();
+                return true;
+            } catch (RuntimeException e3) {
+                Log.e(TAG, "Internal runtime error.", e3);
+                this.eventHandler.obtainMessage(7, ExoPlaybackException.createForUnexpected(e3)).sendToTarget();
+                stopInternal();
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
     private long seekToPeriodPosition(MediaSource.MediaPeriodId mediaPeriodId, long j) throws ExoPlaybackException {
@@ -1243,104 +2023,6 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void setIsLoading(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65569, this, z) == null) || this.isLoading == z) {
-            return;
-        }
-        this.isLoading = z;
-        this.eventHandler.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
-    }
-
-    private void setPlayWhenReadyInternal(boolean z) throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65570, this, z) == null) {
-            this.rebuffering = false;
-            this.playWhenReady = z;
-            if (!z) {
-                stopRenderers();
-                updatePlaybackPositions();
-                return;
-            }
-            int i = this.state;
-            if (i == 3) {
-                startRenderers();
-                this.handler.sendEmptyMessage(2);
-            } else if (i == 2) {
-                this.handler.sendEmptyMessage(2);
-            }
-        }
-    }
-
-    private void setPlaybackParametersInternal(PlaybackParameters playbackParameters) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65571, this, playbackParameters) == null) {
-            MediaClock mediaClock = this.rendererMediaClock;
-            if (mediaClock != null) {
-                playbackParameters = mediaClock.setPlaybackParameters(playbackParameters);
-            }
-            this.standaloneMediaClock.setPlaybackParameters(playbackParameters);
-            this.playbackParameters = playbackParameters;
-            this.eventHandler.obtainMessage(6, playbackParameters).sendToTarget();
-        }
-    }
-
-    private void setPlayingPeriodHolder(MediaPeriodHolder mediaPeriodHolder) throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65572, this, mediaPeriodHolder) == null) || this.playingPeriodHolder == mediaPeriodHolder) {
-            return;
-        }
-        boolean[] zArr = new boolean[this.renderers.length];
-        int i = 0;
-        int i2 = 0;
-        while (true) {
-            Renderer[] rendererArr = this.renderers;
-            if (i < rendererArr.length) {
-                Renderer renderer = rendererArr[i];
-                zArr[i] = renderer.getState() != 0;
-                if (mediaPeriodHolder.trackSelectorResult.renderersEnabled[i]) {
-                    i2++;
-                }
-                if (zArr[i] && (!mediaPeriodHolder.trackSelectorResult.renderersEnabled[i] || (renderer.isCurrentStreamFinal() && renderer.getStream() == this.playingPeriodHolder.sampleStreams[i]))) {
-                    disableRenderer(renderer);
-                }
-                i++;
-            } else {
-                this.playingPeriodHolder = mediaPeriodHolder;
-                this.eventHandler.obtainMessage(2, mediaPeriodHolder.trackSelectorResult).sendToTarget();
-                enableRenderers(zArr, i2);
-                return;
-            }
-        }
-    }
-
-    private void setRepeatModeInternal(int i) throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65573, this, i) == null) {
-            this.repeatMode = i;
-            this.mediaPeriodInfoSequence.setRepeatMode(i);
-            validateExistingPeriodHolders();
-        }
-    }
-
-    private void setShuffleModeEnabledInternal(boolean z) throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65574, this, z) == null) {
-            this.shuffleModeEnabled = z;
-            this.mediaPeriodInfoSequence.setShuffleModeEnabled(z);
-            validateExistingPeriodHolders();
-        }
-    }
-
-    private void setState(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65575, this, i) == null) || this.state == i) {
-            return;
-        }
-        this.state = i;
-        this.eventHandler.obtainMessage(0, i, 0).sendToTarget();
-    }
-
     private boolean shouldKeepPeriodHolder(MediaSource.MediaPeriodId mediaPeriodId, long j, MediaPeriodHolder mediaPeriodHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -1348,495 +2030,13 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             if (mediaPeriodId.equals(mediaPeriodHolder.info.id) && mediaPeriodHolder.prepared) {
                 this.playbackInfo.timeline.getPeriod(mediaPeriodHolder.info.id.periodIndex, this.period);
                 int adGroupIndexAfterPositionUs = this.period.getAdGroupIndexAfterPositionUs(j);
-                return adGroupIndexAfterPositionUs == -1 || this.period.getAdGroupTimeUs(adGroupIndexAfterPositionUs) == mediaPeriodHolder.info.endPositionUs;
+                if (adGroupIndexAfterPositionUs == -1 || this.period.getAdGroupTimeUs(adGroupIndexAfterPositionUs) == mediaPeriodHolder.info.endPositionUs) {
+                    return true;
+                }
+                return false;
             }
             return false;
         }
         return invokeCommon.booleanValue;
-    }
-
-    private void startRenderers() throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65577, this) == null) {
-            this.rebuffering = false;
-            this.standaloneMediaClock.start();
-            for (Renderer renderer : this.enabledRenderers) {
-                renderer.start();
-            }
-        }
-    }
-
-    private void stopInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65578, this) == null) {
-            resetInternal(true);
-            this.loadControl.onStopped();
-            setState(1);
-        }
-    }
-
-    private void stopRenderers() throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65579, this) == null) {
-            this.standaloneMediaClock.stop();
-            for (Renderer renderer : this.enabledRenderers) {
-                ensureStopped(renderer);
-            }
-        }
-    }
-
-    private MediaPeriodHolder updatePeriodInfo(MediaPeriodHolder mediaPeriodHolder, int i) {
-        MediaPeriodHolder mediaPeriodHolder2;
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65580, this, mediaPeriodHolder, i)) == null) {
-            while (true) {
-                MediaPeriodInfoSequence.MediaPeriodInfo updatedMediaPeriodInfo = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder.info, i);
-                mediaPeriodHolder.info = updatedMediaPeriodInfo;
-                if (updatedMediaPeriodInfo.isLastInTimelinePeriod || (mediaPeriodHolder2 = mediaPeriodHolder.next) == null) {
-                    break;
-                }
-                mediaPeriodHolder = mediaPeriodHolder2;
-            }
-            return mediaPeriodHolder;
-        }
-        return (MediaPeriodHolder) invokeLI.objValue;
-    }
-
-    private void updatePeriods() throws ExoPlaybackException, IOException {
-        MediaPeriodHolder mediaPeriodHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65581, this) != null) {
-            return;
-        }
-        if (this.playbackInfo.timeline == null) {
-            this.mediaSource.maybeThrowSourceInfoRefreshError();
-            return;
-        }
-        maybeUpdateLoadingPeriod();
-        MediaPeriodHolder mediaPeriodHolder2 = this.loadingPeriodHolder;
-        int i = 0;
-        if (mediaPeriodHolder2 != null && !mediaPeriodHolder2.isFullyBuffered()) {
-            if (this.loadingPeriodHolder != null && !this.isLoading) {
-                maybeContinueLoading();
-            }
-        } else {
-            setIsLoading(false);
-        }
-        if (this.playingPeriodHolder == null) {
-            return;
-        }
-        while (this.playWhenReady && (mediaPeriodHolder = this.playingPeriodHolder) != this.readingPeriodHolder && this.rendererPositionUs >= mediaPeriodHolder.next.rendererPositionOffsetUs) {
-            mediaPeriodHolder.release();
-            setPlayingPeriodHolder(this.playingPeriodHolder.next);
-            PlaybackInfo playbackInfo = this.playbackInfo;
-            MediaPeriodInfoSequence.MediaPeriodInfo mediaPeriodInfo = this.playingPeriodHolder.info;
-            this.playbackInfo = playbackInfo.fromNewPosition(mediaPeriodInfo.id, mediaPeriodInfo.startPositionUs, mediaPeriodInfo.contentPositionUs);
-            updatePlaybackPositions();
-            this.eventHandler.obtainMessage(4, 0, 0, this.playbackInfo).sendToTarget();
-        }
-        MediaPeriodHolder mediaPeriodHolder3 = this.readingPeriodHolder;
-        if (mediaPeriodHolder3.info.isFinal) {
-            while (true) {
-                Renderer[] rendererArr = this.renderers;
-                if (i >= rendererArr.length) {
-                    return;
-                }
-                Renderer renderer = rendererArr[i];
-                SampleStream sampleStream = this.readingPeriodHolder.sampleStreams[i];
-                if (sampleStream != null && renderer.getStream() == sampleStream && renderer.hasReadStreamToEnd()) {
-                    renderer.setCurrentStreamFinal();
-                }
-                i++;
-            }
-        } else {
-            MediaPeriodHolder mediaPeriodHolder4 = mediaPeriodHolder3.next;
-            if (mediaPeriodHolder4 == null || !mediaPeriodHolder4.prepared) {
-                return;
-            }
-            int i2 = 0;
-            while (true) {
-                Renderer[] rendererArr2 = this.renderers;
-                if (i2 < rendererArr2.length) {
-                    Renderer renderer2 = rendererArr2[i2];
-                    SampleStream sampleStream2 = this.readingPeriodHolder.sampleStreams[i2];
-                    if (renderer2.getStream() != sampleStream2) {
-                        return;
-                    }
-                    if (sampleStream2 != null && !renderer2.hasReadStreamToEnd()) {
-                        return;
-                    }
-                    i2++;
-                } else {
-                    MediaPeriodHolder mediaPeriodHolder5 = this.readingPeriodHolder;
-                    TrackSelectorResult trackSelectorResult = mediaPeriodHolder5.trackSelectorResult;
-                    MediaPeriodHolder mediaPeriodHolder6 = mediaPeriodHolder5.next;
-                    this.readingPeriodHolder = mediaPeriodHolder6;
-                    TrackSelectorResult trackSelectorResult2 = mediaPeriodHolder6.trackSelectorResult;
-                    boolean z = mediaPeriodHolder6.mediaPeriod.readDiscontinuity() != C.TIME_UNSET;
-                    int i3 = 0;
-                    while (true) {
-                        Renderer[] rendererArr3 = this.renderers;
-                        if (i3 >= rendererArr3.length) {
-                            return;
-                        }
-                        Renderer renderer3 = rendererArr3[i3];
-                        if (trackSelectorResult.renderersEnabled[i3]) {
-                            if (z) {
-                                renderer3.setCurrentStreamFinal();
-                            } else if (!renderer3.isCurrentStreamFinal()) {
-                                TrackSelection trackSelection = trackSelectorResult2.selections.get(i3);
-                                boolean z2 = trackSelectorResult2.renderersEnabled[i3];
-                                boolean z3 = this.rendererCapabilities[i3].getTrackType() == 5;
-                                RendererConfiguration rendererConfiguration = trackSelectorResult.rendererConfigurations[i3];
-                                RendererConfiguration rendererConfiguration2 = trackSelectorResult2.rendererConfigurations[i3];
-                                if (z2 && rendererConfiguration2.equals(rendererConfiguration) && !z3) {
-                                    Format[] formats = getFormats(trackSelection);
-                                    MediaPeriodHolder mediaPeriodHolder7 = this.readingPeriodHolder;
-                                    renderer3.replaceStream(formats, mediaPeriodHolder7.sampleStreams[i3], mediaPeriodHolder7.getRendererOffset());
-                                } else {
-                                    renderer3.setCurrentStreamFinal();
-                                }
-                            }
-                        }
-                        i3++;
-                    }
-                }
-            }
-        }
-    }
-
-    private void updatePlaybackPositions() throws ExoPlaybackException {
-        MediaPeriodHolder mediaPeriodHolder;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65582, this) == null) || (mediaPeriodHolder = this.playingPeriodHolder) == null) {
-            return;
-        }
-        long readDiscontinuity = mediaPeriodHolder.mediaPeriod.readDiscontinuity();
-        if (readDiscontinuity != C.TIME_UNSET) {
-            resetRendererPosition(readDiscontinuity);
-            PlaybackInfo playbackInfo = this.playbackInfo;
-            PlaybackInfo fromNewPosition = playbackInfo.fromNewPosition(playbackInfo.periodId, readDiscontinuity, playbackInfo.contentPositionUs);
-            this.playbackInfo = fromNewPosition;
-            this.eventHandler.obtainMessage(4, 3, 0, fromNewPosition).sendToTarget();
-        } else {
-            Renderer renderer = this.rendererMediaClockSource;
-            if (renderer != null && !renderer.isEnded() && (this.rendererMediaClockSource.isReady() || !rendererWaitingForNextStream(this.rendererMediaClockSource))) {
-                long positionUs = this.rendererMediaClock.getPositionUs();
-                this.rendererPositionUs = positionUs;
-                this.standaloneMediaClock.setPositionUs(positionUs);
-            } else {
-                this.rendererPositionUs = this.standaloneMediaClock.getPositionUs();
-            }
-            readDiscontinuity = this.playingPeriodHolder.toPeriodTime(this.rendererPositionUs);
-        }
-        this.playbackInfo.positionUs = readDiscontinuity;
-        this.elapsedRealtimeUs = SystemClock.elapsedRealtime() * 1000;
-        long bufferedPositionUs = this.enabledRenderers.length == 0 ? Long.MIN_VALUE : this.playingPeriodHolder.mediaPeriod.getBufferedPositionUs();
-        PlaybackInfo playbackInfo2 = this.playbackInfo;
-        if (bufferedPositionUs == Long.MIN_VALUE) {
-            bufferedPositionUs = this.playingPeriodHolder.info.durationUs;
-        }
-        playbackInfo2.bufferedPositionUs = bufferedPositionUs;
-    }
-
-    private void validateExistingPeriodHolders() throws ExoPlaybackException {
-        MediaPeriodHolder mediaPeriodHolder;
-        MediaPeriodHolder mediaPeriodHolder2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65583, this) == null) {
-            MediaPeriodHolder mediaPeriodHolder3 = this.playingPeriodHolder;
-            if (mediaPeriodHolder3 == null) {
-                mediaPeriodHolder3 = this.loadingPeriodHolder;
-            }
-            if (mediaPeriodHolder3 == null) {
-                return;
-            }
-            while (true) {
-                int nextPeriodIndex = this.playbackInfo.timeline.getNextPeriodIndex(mediaPeriodHolder3.info.id.periodIndex, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
-                while (true) {
-                    MediaPeriodHolder mediaPeriodHolder4 = mediaPeriodHolder3.next;
-                    if (mediaPeriodHolder4 == null || mediaPeriodHolder3.info.isLastInTimelinePeriod) {
-                        break;
-                    }
-                    mediaPeriodHolder3 = mediaPeriodHolder4;
-                }
-                if (nextPeriodIndex == -1 || (mediaPeriodHolder2 = mediaPeriodHolder3.next) == null || mediaPeriodHolder2.info.id.periodIndex != nextPeriodIndex) {
-                    break;
-                }
-                mediaPeriodHolder3 = mediaPeriodHolder2;
-            }
-            int i = this.loadingPeriodHolder.index;
-            MediaPeriodHolder mediaPeriodHolder5 = this.readingPeriodHolder;
-            int i2 = mediaPeriodHolder5 != null ? mediaPeriodHolder5.index : -1;
-            MediaPeriodHolder mediaPeriodHolder6 = mediaPeriodHolder3.next;
-            if (mediaPeriodHolder6 != null) {
-                releasePeriodHoldersFrom(mediaPeriodHolder6);
-                mediaPeriodHolder3.next = null;
-            }
-            mediaPeriodHolder3.info = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder3.info);
-            boolean z = true;
-            if (!(i <= mediaPeriodHolder3.index)) {
-                this.loadingPeriodHolder = mediaPeriodHolder3;
-            }
-            if (((i2 == -1 || i2 > mediaPeriodHolder3.index) ? false : false) || (mediaPeriodHolder = this.playingPeriodHolder) == null) {
-                return;
-            }
-            MediaSource.MediaPeriodId mediaPeriodId = mediaPeriodHolder.info.id;
-            long seekToPeriodPosition = seekToPeriodPosition(mediaPeriodId, this.playbackInfo.positionUs);
-            if (seekToPeriodPosition != this.playbackInfo.positionUs) {
-                PlaybackInfo playbackInfo = this.playbackInfo;
-                PlaybackInfo fromNewPosition = playbackInfo.fromNewPosition(mediaPeriodId, seekToPeriodPosition, playbackInfo.contentPositionUs);
-                this.playbackInfo = fromNewPosition;
-                this.eventHandler.obtainMessage(4, 3, 0, fromNewPosition).sendToTarget();
-            }
-        }
-    }
-
-    public synchronized void blockingSendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, exoPlayerMessageArr) == null) {
-            synchronized (this) {
-                if (this.released) {
-                    Log.w(TAG, "Ignoring messages sent after release.");
-                    return;
-                }
-                int i = this.customMessagesSent;
-                this.customMessagesSent = i + 1;
-                this.handler.obtainMessage(11, exoPlayerMessageArr).sendToTarget();
-                boolean z = false;
-                while (this.customMessagesProcessed <= i) {
-                    try {
-                        wait();
-                    } catch (InterruptedException unused) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    Thread.currentThread().interrupt();
-                }
-            }
-        }
-    }
-
-    public Looper getPlaybackLooper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.internalPlaybackThread.getLooper() : (Looper) invokeV.objValue;
-    }
-
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message)) == null) {
-            try {
-                switch (message.what) {
-                    case 0:
-                        prepareInternal((MediaSource) message.obj, message.arg1 != 0);
-                        return true;
-                    case 1:
-                        setPlayWhenReadyInternal(message.arg1 != 0);
-                        return true;
-                    case 2:
-                        doSomeWork();
-                        return true;
-                    case 3:
-                        seekToInternal((SeekPosition) message.obj);
-                        return true;
-                    case 4:
-                        setPlaybackParametersInternal((PlaybackParameters) message.obj);
-                        return true;
-                    case 5:
-                        stopInternal();
-                        return true;
-                    case 6:
-                        releaseInternal();
-                        return true;
-                    case 7:
-                        handleSourceInfoRefreshed((MediaSourceRefreshInfo) message.obj);
-                        return true;
-                    case 8:
-                        handlePeriodPrepared((MediaPeriod) message.obj);
-                        return true;
-                    case 9:
-                        handleContinueLoadingRequested((MediaPeriod) message.obj);
-                        return true;
-                    case 10:
-                        reselectTracksInternal();
-                        return true;
-                    case 11:
-                        sendMessagesInternal((ExoPlayer.ExoPlayerMessage[]) message.obj);
-                        return true;
-                    case 12:
-                        setRepeatModeInternal(message.arg1);
-                        return true;
-                    case 13:
-                        setShuffleModeEnabledInternal(message.arg1 != 0);
-                        return true;
-                    default:
-                        return false;
-                }
-            } catch (ExoPlaybackException e) {
-                Log.e(TAG, "Renderer error.", e);
-                this.eventHandler.obtainMessage(7, e).sendToTarget();
-                stopInternal();
-                return true;
-            } catch (IOException e2) {
-                Log.e(TAG, "Source error.", e2);
-                this.eventHandler.obtainMessage(7, ExoPlaybackException.createForSource(e2)).sendToTarget();
-                stopInternal();
-                return true;
-            } catch (RuntimeException e3) {
-                Log.e(TAG, "Internal runtime error.", e3);
-                this.eventHandler.obtainMessage(7, ExoPlaybackException.createForUnexpected(e3)).sendToTarget();
-                stopInternal();
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod.Callback
-    public void onPrepared(MediaPeriod mediaPeriod) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mediaPeriod) == null) {
-            this.handler.obtainMessage(8, mediaPeriod).sendToTarget();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource.Listener
-    public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, mediaSource, timeline, obj) == null) {
-            this.handler.obtainMessage(7, new MediaSourceRefreshInfo(mediaSource, timeline, obj)).sendToTarget();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelector.InvalidationListener
-    public void onTrackSelectionsInvalidated() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.handler.sendEmptyMessage(10);
-        }
-    }
-
-    public void prepare(MediaSource mediaSource, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSource, z) == null) {
-            this.handler.obtainMessage(0, z ? 1 : 0, 0, mediaSource).sendToTarget();
-        }
-    }
-
-    public synchronized void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            synchronized (this) {
-                if (this.released) {
-                    return;
-                }
-                this.handler.sendEmptyMessage(6);
-                boolean z = false;
-                while (!this.released) {
-                    try {
-                        wait();
-                    } catch (InterruptedException unused) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    Thread.currentThread().interrupt();
-                }
-            }
-        }
-    }
-
-    public void seekTo(Timeline timeline, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{timeline, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            this.handler.obtainMessage(3, new SeekPosition(timeline, i, j)).sendToTarget();
-        }
-    }
-
-    public void sendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, exoPlayerMessageArr) == null) {
-            if (this.released) {
-                Log.w(TAG, "Ignoring messages sent after release.");
-                return;
-            }
-            this.customMessagesSent++;
-            this.handler.obtainMessage(11, exoPlayerMessageArr).sendToTarget();
-        }
-    }
-
-    public void setPlayWhenReady(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.handler.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
-        }
-    }
-
-    public void setPlaybackParameters(PlaybackParameters playbackParameters) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, playbackParameters) == null) {
-            this.handler.obtainMessage(4, playbackParameters).sendToTarget();
-        }
-    }
-
-    public void setRepeatMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.handler.obtainMessage(12, i, 0).sendToTarget();
-        }
-    }
-
-    public void setShuffleModeEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.handler.obtainMessage(13, z ? 1 : 0, 0).sendToTarget();
-        }
-    }
-
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.handler.sendEmptyMessage(5);
-        }
-    }
-
-    private void handleSourceInfoRefreshEndedPlayback(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65547, this, i, i2) == null) {
-            Timeline timeline = this.playbackInfo.timeline;
-            int i3 = timeline.isEmpty() ? 0 : timeline.getWindow(timeline.getFirstWindowIndex(this.shuffleModeEnabled), this.window).firstPeriodIndex;
-            this.playbackInfo = this.playbackInfo.fromNewPosition(i3, C.TIME_UNSET, C.TIME_UNSET);
-            setState(4);
-            notifySourceInfoRefresh(i, i2, this.playbackInfo.fromNewPosition(i3, 0L, C.TIME_UNSET));
-            resetInternal(false);
-        }
-    }
-
-    private void notifySourceInfoRefresh(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65554, this, i, i2) == null) {
-            notifySourceInfoRefresh(i, i2, this.playbackInfo);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
-    public void onContinueLoadingRequested(MediaPeriod mediaPeriod) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
-            this.handler.obtainMessage(9, mediaPeriod).sendToTarget();
-        }
-    }
-
-    private void notifySourceInfoRefresh(int i, int i2, PlaybackInfo playbackInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65555, this, i, i2, playbackInfo) == null) {
-            this.eventHandler.obtainMessage(5, i, i2, playbackInfo).sendToTarget();
-        }
     }
 }

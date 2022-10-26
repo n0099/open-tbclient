@@ -60,6 +60,7 @@ import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import org.apache.http.HttpStatus;
 /* loaded from: classes7.dex */
 public final class PDF417Common {
@@ -116,7 +117,10 @@ public final class PDF417Common {
     public static int getBitCountSum(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) ? MathUtils.sum(iArr) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
+            return MathUtils.sum(iArr);
+        }
+        return invokeL.intValue;
     }
 
     public static int getCodeword(int i) {
@@ -132,15 +136,16 @@ public final class PDF417Common {
         return invokeI.intValue;
     }
 
-    public static int[] toIntArray(Collection<Integer> collection) {
+    public static int[] toIntArray(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
             if (collection != null && !collection.isEmpty()) {
                 int[] iArr = new int[collection.size()];
                 int i = 0;
-                for (Integer num : collection) {
-                    iArr[i] = num.intValue();
+                Iterator it = collection.iterator();
+                while (it.hasNext()) {
+                    iArr[i] = ((Integer) it.next()).intValue();
                     i++;
                 }
                 return iArr;

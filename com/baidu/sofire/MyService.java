@@ -27,6 +27,16 @@ public class MyService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public volatile int a;
 
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
     /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
@@ -114,6 +124,21 @@ public class MyService extends Service {
         this.a = 0;
     }
 
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                this.a--;
+                if (this.a <= 0) {
+                    this.a = 0;
+                    stopSelf();
+                }
+            } catch (Throwable unused) {
+                int i = b.a;
+            }
+        }
+    }
+
     public static void a(MyService myService, ClassLoader classLoader, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, myService, classLoader, intent) == null) {
@@ -124,16 +149,6 @@ public class MyService extends Service {
             } catch (Throwable unused) {
             }
         }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
@@ -174,20 +189,5 @@ public class MyService extends Service {
             return 2;
         }
         return invokeLII.intValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a--;
-                if (this.a <= 0) {
-                    this.a = 0;
-                    stopSelf();
-                }
-            } catch (Throwable unused) {
-                int i = b.a;
-            }
-        }
     }
 }

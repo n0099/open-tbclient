@@ -32,30 +32,6 @@ public final class TaskUIBtn implements ITaskModelData {
     public final String txt;
     public final String txtColor;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -89,28 +65,6 @@ public final class TaskUIBtn implements ITaskModelData {
                 return;
             }
         }
-    }
-
-    public TaskUIBtn(String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.txt = str;
-        this.color = str2;
-        this.bgUrl = str3;
-        this.txtColor = str4;
-        this.scheme = str5;
     }
 
     public static /* synthetic */ TaskUIBtn copy$default(TaskUIBtn taskUIBtn, String str, String str2, String str3, String str4, String str5, int i, Object obj) {
@@ -187,36 +141,6 @@ public final class TaskUIBtn implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final String getBgUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.bgUrl : (String) invokeV.objValue;
-    }
-
-    public final String getColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.color : (String) invokeV.objValue;
-    }
-
-    public final String getScheme() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.scheme : (String) invokeV.objValue;
-    }
-
-    public final String getTxt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.txt : (String) invokeV.objValue;
-    }
-
-    public final String getTxtColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.txtColor : (String) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -235,11 +159,163 @@ public final class TaskUIBtn implements ITaskModelData {
         return invokeV.intValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return "TaskUIBtn(txt=" + this.txt + ", color=" + this.color + ", bgUrl=" + this.bgUrl + ", txtColor=" + this.txtColor + ", scheme=" + this.scheme + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public TaskUIBtn(String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, str5};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.txt = str;
+        this.color = str2;
+        this.bgUrl = str3;
+        this.txtColor = str4;
+        this.scheme = str5;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ TaskUIBtn(String str, String str2, String str3, String str4, String str5, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r11, r1, r2, r3, r10);
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        if ((i & 1) != 0) {
+            str6 = "";
+        } else {
+            str6 = str;
+        }
+        if ((i & 2) != 0) {
+            str7 = "";
+        } else {
+            str7 = str2;
+        }
+        if ((i & 4) != 0) {
+            str8 = "";
+        } else {
+            str8 = str3;
+        }
+        if ((i & 8) != 0) {
+            str9 = "";
+        } else {
+            str9 = str4;
+        }
+        if ((i & 16) != 0) {
+            str10 = "";
+        } else {
+            str10 = str5;
+        }
+    }
+
+    public final String getBgUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.bgUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.color;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getScheme() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.scheme;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getTxt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.txt;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getTxtColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.txtColor;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? Intrinsics.areEqual(this.scheme, "") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return Intrinsics.areEqual(this.scheme, "");
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskUIBtn deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return copy$default(this, null, null, null, null, null, 31, null);
+        }
+        return (TaskUIBtn) invokeV.objValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -256,26 +332,5 @@ public final class TaskUIBtn implements ITaskModelData {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "TaskUIBtn(txt=" + this.txt + ", color=" + this.color + ", bgUrl=" + this.bgUrl + ", txtColor=" + this.txtColor + ", scheme=" + this.scheme + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskUIBtn(String str, String str2, String str3, String str4, String str5, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3, (i & 8) != 0 ? "" : str4, (i & 16) != 0 ? "" : str5);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskUIBtn deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? copy$default(this, null, null, null, null, null, 31, null) : (TaskUIBtn) invokeV.objValue;
     }
 }

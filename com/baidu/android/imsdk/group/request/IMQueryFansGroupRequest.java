@@ -36,8 +36,25 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> mGroupIds;
+    public ArrayList mGroupIds;
     public String mKey;
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
@@ -151,7 +168,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                                 new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                                 removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
-                                if (removeListener instanceof BIMValueCallBack) {
+                                if (!(removeListener instanceof BIMValueCallBack)) {
                                 }
                             }
                         }
@@ -162,15 +179,14 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                     e = e2;
                 }
                 removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
-                if (removeListener instanceof BIMValueCallBack) {
-                    return;
+                if (!(removeListener instanceof BIMValueCallBack)) {
+                    ((BIMValueCallBack) removeListener).onResult(i, str, arrayList);
                 }
-                ((BIMValueCallBack) removeListener).onResult(i, str, arrayList);
             }
         }
     }
 
-    public IMQueryFansGroupRequest(Context context, String str, ArrayList<String> arrayList) {
+    public IMQueryFansGroupRequest(Context context, String str, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -190,43 +206,47 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
         this.mGroupIds = arrayList;
     }
 
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair transErrorCode = transErrorCode(i, bArr, th);
+            IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+            if (removeListener instanceof BIMValueCallBack) {
+                ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void updateGroupInfo(long j, int i, int i2, GroupInfo groupInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), groupInfo}) == null) && i == 0) {
-            String valueOf = String.valueOf(j);
-            if (i2 == 1) {
-                GroupInfoDAOImpl.quitGroup(this.mContext, valueOf);
-                DialogRecordDBManager.getInstance(this.mContext).delete(1, j);
-                ConversationManagerImpl.getInstance(this.mContext).deleteConversation(1, valueOf);
-                return;
-            }
-            GroupInfoDAOImpl.modifyGroupInfoVersion(this.mContext, valueOf, groupInfo.getInfoVersion(), groupInfo.getLocalInfoVersion());
-            if (GroupInfoDAOImpl.updateGroupInfo(this.mContext, groupInfo) > 0) {
-                updateGroupSession(j, groupInfo.getGroupName(), groupInfo.getHeadUrl());
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), groupInfo}) != null) || i != 0) {
+            return;
+        }
+        String valueOf = String.valueOf(j);
+        if (i2 == 1) {
+            GroupInfoDAOImpl.quitGroup(this.mContext, valueOf);
+            DialogRecordDBManager.getInstance(this.mContext).delete(1, j);
+            ConversationManagerImpl.getInstance(this.mContext).deleteConversation(1, valueOf);
+            return;
+        }
+        GroupInfoDAOImpl.modifyGroupInfoVersion(this.mContext, valueOf, groupInfo.getInfoVersion(), groupInfo.getLocalInfoVersion());
+        if (GroupInfoDAOImpl.updateGroupInfo(this.mContext, groupInfo) > 0) {
+            updateGroupSession(j, groupInfo.getGroupName(), groupInfo.getHeadUrl());
         }
     }
 
     private void updateGroupSession(long j, String str, String str2) {
         ChatSession chatRecordByContacter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) || (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j))) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) && (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j))) != null) {
+            if (!TextUtils.equals(str, chatRecordByContacter.getName()) || !TextUtils.equals(str2, chatRecordByContacter.getIconUrl())) {
+                chatRecordByContacter.setName(str);
+                chatRecordByContacter.setIconUrl(str2);
+                ChatMessageDBManager.getInstance(this.mContext).updateChatSession(1, chatRecordByContacter);
+            }
         }
-        if (TextUtils.equals(str, chatRecordByContacter.getName()) && TextUtils.equals(str2, chatRecordByContacter.getIconUrl())) {
-            return;
-        }
-        chatRecordByContacter.setName(str);
-        chatRecordByContacter.setIconUrl(str2);
-        ChatMessageDBManager.getInstance(this.mContext).updateChatSession(1, chatRecordByContacter);
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -236,12 +256,12 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("method=get_group_info");
-            ArrayList<String> arrayList = this.mGroupIds;
+            ArrayList arrayList = this.mGroupIds;
             if (arrayList != null && arrayList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator<String> it = this.mGroupIds.iterator();
+                Iterator it = this.mGroupIds.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next());
+                    jSONArray.put((String) it.next());
                 }
                 sb.append("&group_ids=");
                 sb.append(jSONArray.toString());
@@ -255,18 +275,6 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-            IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener instanceof BIMValueCallBack) {
-                ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
-            }
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
@@ -274,15 +282,5 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
             LogUtils.d(TAG, "IMQueryFansGroupRequest " + this.mGroupIds + " json is " + str);
             TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

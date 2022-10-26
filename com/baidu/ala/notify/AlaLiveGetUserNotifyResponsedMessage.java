@@ -15,8 +15,7 @@ import org.json.JSONObject;
 public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<AlaLiveUserNotifyData> dataList;
-    public int notify_count;
+    public ArrayList dataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaLiveGetUserNotifyResponsedMessage() {
@@ -36,19 +35,24 @@ public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessa
         }
     }
 
+    public ArrayList getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dataList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                return;
-            }
-            this.notify_count = optJSONObject.optInt("notify_count");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("notify_list");
-            if (optJSONArray != null) {
-                this.dataList = new ArrayList<>();
+            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (optJSONArray = optJSONObject.optJSONArray("notify_list")) != null) {
+                this.dataList = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     if (optJSONArray.optJSONObject(i2) != null) {
                         AlaLiveUserNotifyData alaLiveUserNotifyData = new AlaLiveUserNotifyData();
@@ -58,17 +62,5 @@ public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessa
                 }
             }
         }
-    }
-
-    public ArrayList<AlaLiveUserNotifyData> getDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataList : (ArrayList) invokeV.objValue;
-    }
-
-    public int getNofifyCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.notify_count : invokeV.intValue;
     }
 }

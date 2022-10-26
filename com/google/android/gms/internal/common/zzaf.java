@@ -15,37 +15,6 @@ public final class zzaf extends zzag {
     public final transient int zzb;
     public final /* synthetic */ zzag zzc;
 
-    public zzaf(zzag zzagVar, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zzagVar, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.zzc = zzagVar;
-        this.zza = i;
-        this.zzb = i2;
-    }
-
-    @Override // java.util.List
-    public final Object get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            zzs.zza(i, this.zzb, "index");
-            return this.zzc.get(i + this.zza);
-        }
-        return invokeI.objValue;
-    }
-
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public final int size() {
         InterceptResult invokeV;
@@ -83,6 +52,37 @@ public final class zzaf extends zzag {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.zzc.zzg() : (Object[]) invokeV.objValue;
+    }
+
+    public zzaf(zzag zzagVar, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zzagVar, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.zzc = zzagVar;
+        this.zza = i;
+        this.zzb = i2;
+    }
+
+    @Override // java.util.List
+    public final Object get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            zzs.zza(i, this.zzb, "index");
+            return this.zzc.get(i + this.zza);
+        }
+        return invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

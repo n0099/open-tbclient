@@ -61,71 +61,6 @@ public final class AssetUtils {
         return invokeLL.booleanValue;
     }
 
-    public static boolean extractFileFromAsset(AssetManager assetManager, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, assetManager, str, str2)) == null) {
-            boolean z = false;
-            try {
-                z = StreamUtils.streamToFile(assetManager.open(str, 0), new File(str2));
-                if (!z) {
-                    new File(str2).delete();
-                }
-            } catch (IOException unused) {
-            }
-            return z;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:35:0x006d A[EDGE_INSN: B:35:0x006d->B:23:0x006d ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x006a A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean extractFolderFromAsset(AssetManager assetManager, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, assetManager, str, str2)) == null) {
-            try {
-                String[] list = assetManager.list(str);
-                if (list != null) {
-                    boolean z = false;
-                    for (String str3 : list) {
-                        try {
-                            if (!TextUtils.isEmpty(str3)) {
-                                String str4 = str + File.separator + str3;
-                                String[] list2 = assetManager.list(str4);
-                                if (list2 != null && list2.length != 0) {
-                                    z = extractFolderFromAsset(assetManager, str4, str2 + File.separator + str3);
-                                    if (z) {
-                                        break;
-                                    }
-                                }
-                                z = extractFileFromAsset(assetManager, str4, str2 + File.separator + str3);
-                                if (z) {
-                                }
-                            }
-                        } catch (IOException unused) {
-                        }
-                    }
-                    return z;
-                }
-                return false;
-            } catch (IOException unused2) {
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Deprecated
-    public static String loadAssetsFile(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? loadFile(context, str) : (String) invokeLL.objValue;
-    }
-
     public static String loadFile(Context context, String str) {
         InterceptResult invokeLL;
         InputStream inputStream;
@@ -189,6 +124,74 @@ public final class AssetUtils {
                 }
             }
             return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean extractFileFromAsset(AssetManager assetManager, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, assetManager, str, str2)) == null) {
+            boolean z = false;
+            try {
+                z = StreamUtils.streamToFile(assetManager.open(str, 0), new File(str2));
+                if (!z) {
+                    new File(str2).delete();
+                }
+            } catch (IOException unused) {
+            }
+            return z;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:35:0x006d A[EDGE_INSN: B:35:0x006d->B:23:0x006d ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x006a A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean extractFolderFromAsset(AssetManager assetManager, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, assetManager, str, str2)) == null) {
+            try {
+                String[] list = assetManager.list(str);
+                if (list == null) {
+                    return false;
+                }
+                boolean z = false;
+                for (String str3 : list) {
+                    try {
+                        if (!TextUtils.isEmpty(str3)) {
+                            String str4 = str + File.separator + str3;
+                            String[] list2 = assetManager.list(str4);
+                            if (list2 != null && list2.length != 0) {
+                                z = extractFolderFromAsset(assetManager, str4, str2 + File.separator + str3);
+                                if (z) {
+                                    break;
+                                }
+                            }
+                            z = extractFileFromAsset(assetManager, str4, str2 + File.separator + str3);
+                            if (z) {
+                            }
+                        }
+                    } catch (IOException unused) {
+                    }
+                }
+                return z;
+            } catch (IOException unused2) {
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Deprecated
+    public static String loadAssetsFile(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            return loadFile(context, str);
         }
         return (String) invokeLL.objValue;
     }

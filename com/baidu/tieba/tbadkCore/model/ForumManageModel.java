@@ -1,6 +1,5 @@
 package com.baidu.tieba.tbadkCore.model;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
@@ -16,7 +15,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.ls4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -59,7 +58,31 @@ public class ForumManageModel extends BdBaseModel {
     public int k;
 
     /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<String, Integer, Boolean> {
+    public class c extends BdAsyncTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -156,15 +179,7 @@ public class ForumManageModel extends BdBaseModel {
                 } else {
                     this.a.addPostData("is_vipdel", "0");
                 }
-                if (this.f == 0 && this.l.e) {
-                    this.l.e = false;
-                    this.a.addPostData("ori_ugc_nid", this.l.f);
-                    this.a.addPostData("thread_type", String.valueOf(this.l.g));
-                    this.a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.l.h));
-                    this.a.addPostData("owner_uid", this.l.i);
-                    this.a.addPostData("ori_ugc_vid", this.l.j);
-                    this.a.addPostData("video_type", String.valueOf(this.l.k));
-                } else {
+                if (this.f != 0 || !this.l.e) {
                     BaijiahaoData baijiahaoData = this.j;
                     if (baijiahaoData != null) {
                         this.a.addPostData("ori_ugc_nid", baijiahaoData.oriUgcNid);
@@ -173,6 +188,14 @@ public class ForumManageModel extends BdBaseModel {
                         this.a.addPostData("ori_ugc_vid", this.j.oriUgcVid);
                         this.a.addPostData("owner_uid", TbadkCoreApplication.getCurrentAccount());
                     }
+                } else {
+                    this.l.e = false;
+                    this.a.addPostData("ori_ugc_nid", this.l.f);
+                    this.a.addPostData("thread_type", String.valueOf(this.l.g));
+                    this.a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.l.h));
+                    this.a.addPostData("owner_uid", this.l.i);
+                    this.a.addPostData("ori_ugc_vid", this.l.j);
+                    this.a.addPostData("video_type", String.valueOf(this.l.k));
                 }
                 if (this.k) {
                     this.a.addPostData("is_frs_mask", "1");
@@ -208,20 +231,20 @@ public class ForumManageModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((a) bool);
                 this.l.a = null;
-                if (this.a == null || bool == null) {
-                    this.l.mLoadDataCallBack.c(null);
+                if (this.a != null && bool != null) {
+                    b bVar = new b(this.l);
+                    bVar.d = this.f;
+                    bVar.g = this.e;
+                    bVar.f = this.h;
+                    bVar.e = this.g;
+                    bVar.b = this.a.getErrorString();
+                    bVar.c = this.a.getServerErrorCode();
+                    bVar.a = bool.booleanValue();
+                    bVar.h = this.k;
+                    this.l.mLoadDataCallBack.c(bVar);
                     return;
                 }
-                b bVar = new b(this.l);
-                bVar.d = this.f;
-                bVar.g = this.e;
-                bVar.f = this.h;
-                bVar.e = this.g;
-                bVar.b = this.a.getErrorString();
-                bVar.c = this.a.getServerErrorCode();
-                bVar.a = bool.booleanValue();
-                bVar.h = this.k;
-                this.l.mLoadDataCallBack.c(bVar);
+                this.l.mLoadDataCallBack.c(null);
             }
         }
     }
@@ -257,21 +280,7 @@ public class ForumManageModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<String, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e {
+    public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -295,7 +304,7 @@ public class ForumManageModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class f extends BdAsyncTask<String, String, Boolean> {
+    public class f extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -303,7 +312,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<ls4> f;
+        public ArrayList f;
         public String g;
         public final /* synthetic */ ForumManageModel h;
 
@@ -331,7 +340,7 @@ public class ForumManageModel extends BdBaseModel {
             this.d = str3;
             this.e = i;
             this.g = str4;
-            this.f = new ArrayList<>();
+            this.f = new ArrayList();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -367,9 +376,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                ls4 ls4Var = new ls4();
-                                ls4Var.c(optJSONArray.optJSONObject(i2));
-                                this.f.add(ls4Var);
+                                ns4 ns4Var = new ns4();
+                                ns4Var.c(optJSONArray.optJSONObject(i2));
+                                this.f.add(ns4Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -428,7 +437,7 @@ public class ForumManageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<ls4> c;
+        public ArrayList c;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -463,6 +472,59 @@ public class ForumManageModel extends BdBaseModel {
         UNIQUE_ID_DEL_POST_TASK = BdUniqueId.gen();
     }
 
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.cancel();
+                this.a = null;
+            }
+            c cVar = this.b;
+            if (cVar != null) {
+                cVar.cancel();
+                this.b = null;
+            }
+            f fVar = this.c;
+            if (fVar != null) {
+                fVar.cancel();
+                this.c = null;
+            }
+        }
+    }
+
+    public String R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a == null && this.b == null && this.c == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            P();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumManageModel(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -487,79 +549,80 @@ public class ForumManageModel extends BdBaseModel {
         this.e = false;
     }
 
-    public void P() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ForumManageModel(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.cancel();
-                this.a = null;
-            }
-            c cVar = this.b;
-            if (cVar != null) {
-                cVar.cancel();
-                this.b = null;
-            }
-            f fVar = this.c;
-            if (fVar != null) {
-                fVar.cancel();
-                this.c = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-    }
-
-    @NonNull
-    public BarManageResultListener.a Q(int i, g gVar) {
-        InterceptResult invokeIL;
-        BarManageResultListener.OptType optType;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, gVar)) == null) {
-            if (i == 2) {
-                optType = BarManageResultListener.OptType.ADD_GOOD;
-            } else if (i == 3) {
-                optType = BarManageResultListener.OptType.CANCEL_GOOD;
-            } else if (i == 4) {
-                optType = BarManageResultListener.OptType.MAKE_TOP;
-            } else if (i == 5) {
-                optType = BarManageResultListener.OptType.CANCEL_TOP;
-            } else {
-                throw new IllegalStateException();
-            }
-            return BarManageResultListener.a.a(optType, gVar.a, gVar.b);
-        }
-        return (BarManageResultListener.a) invokeIL.objValue;
-    }
-
-    public String R() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public boolean S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a == null && this.b == null && this.c == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public void T(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || threadData == null || threadData.getBaijiahaoData() == null) {
-            return;
-        }
-        this.e = true;
-        this.f = threadData.getBaijiahaoData().oriUgcNid;
-        this.h = threadData.getBaijiahaoData().oriUgcType;
-        this.j = threadData.getBaijiahaoData().oriUgcVid;
-        this.g = threadData.threadType;
-        this.i = TbadkCoreApplication.getCurrentAccount();
-        this.k = threadData.getThreadVideoInfo() != null ? threadData.getThreadVideoInfo().video_type.intValue() : 0;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.e = false;
     }
 
     public void U(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.d = str;
+        }
+    }
+
+    public BarManageResultListener.a Q(int i, g gVar) {
+        InterceptResult invokeIL;
+        BarManageResultListener.OptType optType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, gVar)) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i == 5) {
+                            optType = BarManageResultListener.OptType.CANCEL_TOP;
+                        } else {
+                            throw new IllegalStateException();
+                        }
+                    } else {
+                        optType = BarManageResultListener.OptType.MAKE_TOP;
+                    }
+                } else {
+                    optType = BarManageResultListener.OptType.CANCEL_GOOD;
+                }
+            } else {
+                optType = BarManageResultListener.OptType.ADD_GOOD;
+            }
+            return BarManageResultListener.a.a(optType, gVar.a, gVar.b);
+        }
+        return (BarManageResultListener.a) invokeIL.objValue;
+    }
+
+    public void T(ThreadData threadData) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData != null && threadData.getBaijiahaoData() != null) {
+            this.e = true;
+            this.f = threadData.getBaijiahaoData().oriUgcNid;
+            this.h = threadData.getBaijiahaoData().oriUgcType;
+            this.j = threadData.getBaijiahaoData().oriUgcVid;
+            this.g = threadData.threadType;
+            this.i = TbadkCoreApplication.getCurrentAccount();
+            if (threadData.getThreadVideoInfo() != null) {
+                i = threadData.getThreadVideoInfo().video_type.intValue();
+            } else {
+                i = 0;
+            }
+            this.k = i;
         }
     }
 
@@ -603,50 +666,5 @@ public class ForumManageModel extends BdBaseModel {
             }
             this.c.execute(str5);
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            P();
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumManageModel(BaseFragmentActivity baseFragmentActivity) {
-        super(baseFragmentActivity.getPageContext());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.e = false;
     }
 }

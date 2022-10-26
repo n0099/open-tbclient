@@ -48,20 +48,30 @@ public final class e extends Tracer {
     public void doTrace(int i, Thread thread, long j, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), thread, Long.valueOf(j), str, str2, th}) == null) {
-            if (i == 1) {
-                Log.v(str, str2, th);
-            } else if (i == 2) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 4) {
+                        if (i != 8) {
+                            if (i != 16) {
+                                if (i == 32) {
+                                    Log.e(str, str2, th);
+                                    return;
+                                }
+                                return;
+                            }
+                            Log.e(str, str2, th);
+                            return;
+                        }
+                        Log.w(str, str2, th);
+                        return;
+                    }
+                    Log.i(str, str2, th);
+                    return;
+                }
                 Log.d(str, str2, th);
-            } else if (i == 4) {
-                Log.i(str, str2, th);
-            } else if (i == 8) {
-                Log.w(str, str2, th);
-            } else if (i == 16) {
-                Log.e(str, str2, th);
-            } else if (i != 32) {
-            } else {
-                Log.e(str, str2, th);
+                return;
             }
+            Log.v(str, str2, th);
         }
     }
 }

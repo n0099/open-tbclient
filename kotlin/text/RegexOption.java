@@ -21,6 +21,10 @@ public enum RegexOption implements FlagEnum {
         this.mask = i2;
     }
 
+    /* synthetic */ RegexOption(int i, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i3 & 2) != 0 ? i : i2);
+    }
+
     @Override // kotlin.text.FlagEnum
     public int getMask() {
         return this.mask;
@@ -29,9 +33,5 @@ public enum RegexOption implements FlagEnum {
     @Override // kotlin.text.FlagEnum
     public int getValue() {
         return this.value;
-    }
-
-    /* synthetic */ RegexOption(int i, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i, (i3 & 2) != 0 ? i : i2);
     }
 }

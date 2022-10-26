@@ -46,7 +46,7 @@ public class bj {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class a extends FilterInputStream {
+    public final class a extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -88,13 +88,13 @@ public class bj {
     }
 
     /* loaded from: classes8.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f141a;
+        public Map f141a;
 
         public String toString() {
             InterceptResult invokeV;
@@ -143,7 +143,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static NetworkInfo m194a(Context context) {
+    public static NetworkInfo m193a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -162,7 +162,7 @@ public class bj {
 
     /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
-    public static bh a(Context context, String str, String str2, Map<String, String> map, String str3) {
+    public static bh a(Context context, String str, String str2, Map map, String str3) {
         InterceptResult invokeLLLLL;
         boolean z;
         BufferedReader bufferedReader;
@@ -172,27 +172,27 @@ public class bj {
             try {
                 try {
                     try {
-                        HttpURLConnection m196a = m196a(context, m197a(str));
-                        m196a.setConnectTimeout(10000);
-                        m196a.setReadTimeout(15000);
+                        HttpURLConnection m195a = m195a(context, m196a(str));
+                        m195a.setConnectTimeout(10000);
+                        m195a.setReadTimeout(15000);
                         String str4 = str2;
                         if (str2 == 0) {
                             str4 = "GET";
                         }
-                        m196a.setRequestMethod(str4);
+                        m195a.setRequestMethod(str4);
                         int i = 0;
                         if (map != null) {
-                            z = "gzip".equalsIgnoreCase(map.get("Content-Encoding"));
+                            z = "gzip".equalsIgnoreCase((String) map.get("Content-Encoding"));
                             for (String str5 : map.keySet()) {
-                                m196a.setRequestProperty(str5, map.get(str5));
+                                m195a.setRequestProperty(str5, (String) map.get(str5));
                             }
                         } else {
                             z = false;
                         }
                         if (!TextUtils.isEmpty(str3)) {
-                            m196a.setDoOutput(true);
+                            m195a.setDoOutput(true);
                             byte[] bytes = str3.getBytes();
-                            OutputStream gZIPOutputStream = z ? new GZIPOutputStream(m196a.getOutputStream()) : m196a.getOutputStream();
+                            OutputStream gZIPOutputStream = z ? new GZIPOutputStream(m195a.getOutputStream()) : m195a.getOutputStream();
                             try {
                                 gZIPOutputStream.write(bytes, 0, bytes.length);
                                 gZIPOutputStream.flush();
@@ -205,23 +205,23 @@ public class bj {
                                 throw new IOException(th.getMessage());
                             }
                         }
-                        bhVar.a = m196a.getResponseCode();
-                        com.xiaomi.channel.commonutils.logger.b.m90a("Http POST Response Code: " + bhVar.a);
+                        bhVar.a = m195a.getResponseCode();
+                        com.xiaomi.channel.commonutils.logger.b.m89a("Http POST Response Code: " + bhVar.a);
                         while (true) {
-                            String headerFieldKey = m196a.getHeaderFieldKey(i);
-                            String headerField = m196a.getHeaderField(i);
+                            String headerFieldKey = m195a.getHeaderFieldKey(i);
+                            String headerField = m195a.getHeaderField(i);
                             if (headerFieldKey == null && headerField == null) {
                                 try {
                                     break;
                                 } catch (IOException unused) {
-                                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m196a.getErrorStream())));
+                                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m195a.getErrorStream())));
                                 }
                             } else {
                                 bhVar.f140a.put(headerFieldKey, headerField);
                                 i = i + 1 + 1;
                             }
                         }
-                        bufferedReader = new BufferedReader(new InputStreamReader(new a(m196a.getInputStream())));
+                        bufferedReader = new BufferedReader(new InputStreamReader(new a(m195a.getInputStream())));
                     } catch (IOException e2) {
                         e = e2;
                     }
@@ -256,10 +256,10 @@ public class bj {
         return (bh) invokeLLLLL.objValue;
     }
 
-    public static bh a(Context context, String str, Map<String, String> map) {
+    public static bh a(Context context, String str, Map map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, map)) == null) ? a(context, str, "POST", (Map<String, String>) null, a(map)) : (bh) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, map)) == null) ? a(context, str, "POST", (Map) null, a(map)) : (bh) invokeLLL.objValue;
     }
 
     public static InputStream a(Context context, URL url, boolean z, String str, String str2) {
@@ -268,7 +268,7 @@ public class bj {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, url, Boolean.valueOf(z), str, str2})) == null) ? a(context, url, z, str, str2, null, null) : (InputStream) invokeCommon.objValue;
     }
 
-    public static InputStream a(Context context, URL url, boolean z, String str, String str2, Map<String, String> map, b bVar) {
+    public static InputStream a(Context context, URL url, boolean z, String str, String str2, Map map, b bVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, url, Boolean.valueOf(z), str, str2, map, bVar})) == null) {
@@ -277,29 +277,29 @@ public class bj {
                     URL url2 = !z ? new URL(a(url.toString())) : url;
                     try {
                         HttpURLConnection.setFollowRedirects(true);
-                        HttpURLConnection m196a = m196a(context, url2);
-                        m196a.setConnectTimeout(10000);
-                        m196a.setReadTimeout(15000);
+                        HttpURLConnection m195a = m195a(context, url2);
+                        m195a.setConnectTimeout(10000);
+                        m195a.setReadTimeout(15000);
                         if (!TextUtils.isEmpty(str)) {
-                            m196a.setRequestProperty("User-Agent", str);
+                            m195a.setRequestProperty("User-Agent", str);
                         }
                         if (str2 != null) {
-                            m196a.setRequestProperty("Cookie", str2);
+                            m195a.setRequestProperty("Cookie", str2);
                         }
                         if (map != null) {
                             for (String str3 : map.keySet()) {
-                                m196a.setRequestProperty(str3, map.get(str3));
+                                m195a.setRequestProperty(str3, (String) map.get(str3));
                             }
                         }
                         if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
-                            bVar.a = m196a.getResponseCode();
+                            bVar.a = m195a.getResponseCode();
                             if (bVar.f141a == null) {
                                 bVar.f141a = new HashMap();
                             }
                             int i = 0;
                             while (true) {
-                                String headerFieldKey = m196a.getHeaderFieldKey(i);
-                                String headerField = m196a.getHeaderField(i);
+                                String headerFieldKey = m195a.getHeaderFieldKey(i);
+                                String headerField = m195a.getHeaderField(i);
                                 if (headerFieldKey == null && headerField == null) {
                                     break;
                                 }
@@ -309,7 +309,7 @@ public class bj {
                                 i++;
                             }
                         }
-                        return new a(m196a.getInputStream());
+                        return new a(m195a.getInputStream());
                     } catch (IOException e) {
                         throw new IOException("IOException:" + e.getClass().getSimpleName());
                     } catch (Throwable th) {
@@ -324,7 +324,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m195a(Context context) {
+    public static String m194a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -401,7 +401,7 @@ public class bj {
 
     /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: java.io.File */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String a(String str, Map<String, String> map, File file, String str2) {
+    public static String a(String str, Map map, File file, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65547, null, str, map, file, str2)) != null) {
@@ -423,8 +423,8 @@ public class bj {
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=*****");
                 if (map != null) {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                    for (Map.Entry entry : map.entrySet()) {
+                        httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
                     }
                 }
                 httpURLConnection.setFixedLengthStreamingMode(name.length() + 77 + ((int) file.length()) + str2.length());
@@ -486,7 +486,7 @@ public class bj {
         }
     }
 
-    public static String a(Map<String, String> map) {
+    public static String a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, map)) == null) {
@@ -494,16 +494,16 @@ public class bj {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
+            for (Map.Entry entry : map.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) {
                     try {
-                        stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+                        stringBuffer.append(URLEncoder.encode((String) entry.getKey(), "UTF-8"));
                         stringBuffer.append("=");
-                        stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+                        stringBuffer.append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
                         stringBuffer.append("&");
                     } catch (UnsupportedEncodingException e) {
-                        com.xiaomi.channel.commonutils.logger.b.m90a("Failed to convert from params map to string: " + e);
-                        com.xiaomi.channel.commonutils.logger.b.m90a("map: " + map.toString());
+                        com.xiaomi.channel.commonutils.logger.b.m89a("Failed to convert from params map to string: " + e);
+                        com.xiaomi.channel.commonutils.logger.b.m89a("map: " + map.toString());
                         return null;
                     }
                 }
@@ -517,24 +517,24 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HttpURLConnection m196a(Context context, URL url) {
+    public static HttpURLConnection m195a(Context context, URL url) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, url)) == null) {
-            return (HttpURLConnection) (("http".equals(url.getProtocol()) && m198a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
+            return (HttpURLConnection) (("http".equals(url.getProtocol()) && m197a(context)) ? url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : url.openConnection());
         }
         return (HttpURLConnection) invokeLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static URL m197a(String str) {
+    public static URL m196a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? new URL(str) : (URL) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m198a(Context context) {
+    public static boolean m197a(Context context) {
         InterceptResult invokeL;
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
@@ -630,8 +630,8 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            NetworkInfo m194a = m194a(context);
-            return m194a != null && m194a.getType() == 0 && 20 == m194a.getSubtype();
+            NetworkInfo m193a = m193a(context);
+            return m193a != null && m193a.getType() == 0 && 20 == m193a.getSubtype();
         }
         return invokeL.booleanValue;
     }
@@ -640,8 +640,8 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
-            NetworkInfo m194a = m194a(context);
-            return m194a != null && m194a.getType() == 0 && 13 == m194a.getSubtype();
+            NetworkInfo m193a = m193a(context);
+            return m193a != null && m193a.getType() == 0 && 13 == m193a.getSubtype();
         }
         return invokeL.booleanValue;
     }
@@ -650,11 +650,11 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
-            NetworkInfo m194a = m194a(context);
-            if (m194a != null && m194a.getType() == 0) {
-                String subtypeName = m194a.getSubtypeName();
+            NetworkInfo m193a = m193a(context);
+            if (m193a != null && m193a.getType() == 0) {
+                String subtypeName = m193a.getSubtypeName();
                 if (!"TD-SCDMA".equalsIgnoreCase(subtypeName) && !"CDMA2000".equalsIgnoreCase(subtypeName) && !"WCDMA".equalsIgnoreCase(subtypeName)) {
-                    switch (m194a.getSubtype()) {
+                    switch (m193a.getSubtype()) {
                         case 3:
                         case 5:
                         case 6:
@@ -684,9 +684,9 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            NetworkInfo m194a = m194a(context);
-            if (m194a != null && m194a.getType() == 0) {
-                int subtype = m194a.getSubtype();
+            NetworkInfo m193a = m193a(context);
+            if (m193a != null && m193a.getType() == 0) {
+                int subtype = m193a.getSubtype();
                 return subtype == 1 || subtype == 2 || subtype == 4 || subtype == 7 || subtype == 11;
             }
             return false;

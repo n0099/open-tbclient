@@ -15,9 +15,22 @@ public final class GeneratorSequence$iterator$1 implements Iterator<T>, KMappedM
     public int nextState = -2;
     public final /* synthetic */ GeneratorSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public GeneratorSequence$iterator$1(GeneratorSequence generatorSequence) {
         this.this$0 = generatorSequence;
+    }
+
+    public final void setNextItem(T t) {
+        this.nextItem = t;
+    }
+
+    public final void setNextState(int i) {
+        this.nextState = i;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: T */
@@ -27,18 +40,24 @@ public final class GeneratorSequence$iterator$1 implements Iterator<T>, KMappedM
     private final void calcNext() {
         Function1 function1;
         T t;
+        int i;
         Function0 function0;
         if (this.nextState == -2) {
             function0 = this.this$0.getInitialValue;
             t = function0.invoke();
         } else {
             function1 = this.this$0.getNextValue;
-            T t2 = this.nextItem;
-            Intrinsics.checkNotNull(t2);
-            t = function1.invoke(t2);
+            Object obj = this.nextItem;
+            Intrinsics.checkNotNull(obj);
+            t = function1.invoke(obj);
         }
         this.nextItem = t;
-        this.nextState = t == 0 ? 0 : 1;
+        if (t == 0) {
+            i = 0;
+        } else {
+            i = 1;
+        }
+        this.nextState = i;
     }
 
     public final T getNextItem() {
@@ -54,7 +73,10 @@ public final class GeneratorSequence$iterator$1 implements Iterator<T>, KMappedM
         if (this.nextState < 0) {
             calcNext();
         }
-        return this.nextState == 1;
+        if (this.nextState == 1) {
+            return true;
+        }
+        return false;
     }
 
     @Override // java.util.Iterator
@@ -71,18 +93,5 @@ public final class GeneratorSequence$iterator$1 implements Iterator<T>, KMappedM
             throw new NullPointerException("null cannot be cast to non-null type T");
         }
         throw new NoSuchElementException();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setNextItem(T t) {
-        this.nextItem = t;
-    }
-
-    public final void setNextState(int i) {
-        this.nextState = i;
     }
 }

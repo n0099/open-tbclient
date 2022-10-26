@@ -97,7 +97,7 @@ public class LoadErrorCode {
     public volatile int mErrorCode;
 
     /* loaded from: classes6.dex */
-    public static class Statistics {
+    public class Statistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = true;
         public static final String KEY_ERROR_CNT = "error_cnt";
@@ -109,15 +109,15 @@ public class LoadErrorCode {
         public static final String RECORD_RELATIVE_PATH;
         public static final String TAG = "LoadErrorStatistics";
         public static volatile StringBuilder mInfo;
-        public static volatile List<ErrorItem> sBkupList;
-        public static volatile List<ErrorItem> sErrorList;
+        public static volatile List sBkupList;
+        public static volatile List sErrorList;
         public static volatile boolean sIsInited;
         public static volatile boolean sIsUploading;
         public static volatile File sRecordFile;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes6.dex */
-        public static class ErrorItem {
+        public class ErrorItem {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int mCount;
@@ -540,7 +540,7 @@ public class LoadErrorCode {
                 for (int i = 0; i < bytes.length; i++) {
                     byte b = bytes[i];
                     if (b == 34) {
-                        bytes[i] = Cea608Decoder.CTRL_END_OF_CAPTION;
+                        bytes[i] = 47;
                     } else if (b == 91) {
                         bytes[i] = 60;
                     } else if (b == 93) {

@@ -13,6 +13,16 @@ public class GuidelineReference extends WidgetRun {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
+    public boolean supportsWrapComputation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GuidelineReference(ConstraintWidget constraintWidget) {
         super(constraintWidget);
@@ -119,24 +129,15 @@ public class GuidelineReference extends WidgetRun {
         }
     }
 
-    @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
-    public boolean supportsWrapComputation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun, androidx.constraintlayout.solver.widgets.analyzer.Dependency
     public void update(Dependency dependency) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dependency) == null) {
             DependencyNode dependencyNode = this.start;
-            if (dependencyNode.readyToSolve && !dependencyNode.resolved) {
-                this.start.resolve((int) ((dependencyNode.targets.get(0).value * ((Guideline) this.widget).getRelativePercent()) + 0.5f));
+            if (!dependencyNode.readyToSolve || dependencyNode.resolved) {
+                return;
             }
+            this.start.resolve((int) ((dependencyNode.targets.get(0).value * ((Guideline) this.widget).getRelativePercent()) + 0.5f));
         }
     }
 }

@@ -49,27 +49,6 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onConnectFailed(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-            this.mDownloadStatus.setException(downloadException);
-            this.mDownloadStatus.setStatus(108);
-            this.mDelivery.post(this.mDownloadStatus);
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onConnected(long j, long j2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.mDownloadStatus.setTime(j);
-            this.mDownloadStatus.setAcceptRanges(z);
-            this.mDownloadStatus.setStatus(103);
-            this.mDelivery.post(this.mDownloadStatus);
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
     public void onConnecting() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -83,6 +62,34 @@ public class DownloadResponseImpl implements DownloadResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.mDownloadStatus.setStatus(107);
+            this.mDelivery.post(this.mDownloadStatus);
+        }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
+    public void onDownloadPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.mDownloadStatus.setStatus(106);
+            this.mDelivery.post(this.mDownloadStatus);
+        }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
+    public void onStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.mDownloadStatus.setStatus(101);
+            this.mDownloadStatus.getCallBack().onStarted();
+        }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
+    public void onConnectFailed(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            this.mDownloadStatus.setException(downloadException);
+            this.mDownloadStatus.setStatus(108);
             this.mDelivery.post(this.mDownloadStatus);
         }
     }
@@ -108,10 +115,12 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onDownloadPaused() {
+    public void onConnected(long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.mDownloadStatus.setStatus(106);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.mDownloadStatus.setTime(j);
+            this.mDownloadStatus.setAcceptRanges(z);
+            this.mDownloadStatus.setStatus(103);
             this.mDelivery.post(this.mDownloadStatus);
         }
     }
@@ -125,15 +134,6 @@ public class DownloadResponseImpl implements DownloadResponse {
             this.mDownloadStatus.setPercent(i);
             this.mDownloadStatus.setStatus(104);
             this.mDelivery.post(this.mDownloadStatus);
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.mDownloadStatus.setStatus(101);
-            this.mDownloadStatus.getCallBack().onStarted();
         }
     }
 }

@@ -10,17 +10,18 @@ import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface d extends IInterface {
+    void a(b bVar) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements d {
+    public abstract class a extends Binder implements d {
         public static String a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.b.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0656a implements d {
+        public class C0652a implements d {
             public IBinder a;
 
-            public C0656a(IBinder iBinder) {
+            public C0652a(IBinder iBinder) {
                 if (TextUtils.isEmpty(a.a)) {
                     JSONObject i = j.i();
                     String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("t"), i.optString("s"));
@@ -54,11 +55,28 @@ public interface d extends IInterface {
             }
         }
 
+        public static d a(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(a);
+            if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
+                return (d) queryLocalInterface;
+            }
+            return new C0652a(iBinder);
+        }
+
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            b bVar;
             if (i == 1) {
                 parcel.enforceInterface(a);
-                a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null);
+                if (parcel.readInt() != 0) {
+                    bVar = (b) b.CREATOR.createFromParcel(parcel);
+                } else {
+                    bVar = null;
+                }
+                a(bVar);
                 parcel2.writeNoException();
                 return true;
             } else if (i != 1598968902) {
@@ -68,18 +86,5 @@ public interface d extends IInterface {
                 return true;
             }
         }
-
-        public static d a(IBinder iBinder) {
-            if (iBinder == null) {
-                return null;
-            }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(a);
-            if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
-                return (d) queryLocalInterface;
-            }
-            return new C0656a(iBinder);
-        }
     }
-
-    void a(b bVar) throws RemoteException;
 }

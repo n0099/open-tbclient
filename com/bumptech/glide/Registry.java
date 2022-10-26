@@ -1,7 +1,5 @@
 package com.bumptech.glide;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +17,6 @@ import com.bumptech.glide.load.data.DataRewinderRegistry;
 import com.bumptech.glide.load.engine.DecodePath;
 import com.bumptech.glide.load.engine.LoadPath;
 import com.bumptech.glide.load.engine.Resource;
-import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.ModelLoaderRegistry;
 import com.bumptech.glide.load.resource.transcode.ResourceTranscoder;
@@ -34,6 +31,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class Registry {
@@ -52,16 +50,16 @@ public class Registry {
     public final ModelLoaderRegistry modelLoaderRegistry;
     public final ModelToResourceClassCache modelToResourceClassCache;
     public final ResourceEncoderRegistry resourceEncoderRegistry;
-    public final Pools.Pool<List<Throwable>> throwableListPool;
+    public final Pools.Pool throwableListPool;
     public final TranscoderRegistry transcoderRegistry;
 
     /* loaded from: classes7.dex */
-    public static class MissingComponentException extends RuntimeException {
+    public class MissingComponentException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MissingComponentException(@NonNull String str) {
+        public MissingComponentException(String str) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -82,7 +80,7 @@ public class Registry {
     }
 
     /* loaded from: classes7.dex */
-    public static final class NoImageHeaderParserException extends MissingComponentException {
+    public final class NoImageHeaderParserException extends MissingComponentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -106,13 +104,33 @@ public class Registry {
     }
 
     /* loaded from: classes7.dex */
-    public static class NoModelLoaderAvailableException extends MissingComponentException {
+    public class NoModelLoaderAvailableException extends MissingComponentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public NoModelLoaderAvailableException(@NonNull Object obj) {
-            super("Failed to find any ModelLoaders for model: " + obj);
+        public NoModelLoaderAvailableException(Class cls, Class cls2) {
+            super("Failed to find any ModelLoaders for model: " + cls + " and data: " + cls2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cls, cls2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public NoModelLoaderAvailableException(Object obj) {
+            super("Failed to find any ModelLoaders registered for model class: " + obj.getClass());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,20 +149,20 @@ public class Registry {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public NoModelLoaderAvailableException(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            super("Failed to find any ModelLoaders for model: " + cls + " and data: " + cls2);
+        public NoModelLoaderAvailableException(Object obj, List list) {
+            super("Found ModelLoaders for model class: " + list + ", but none that handle this specific model instance: " + obj);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cls, cls2};
-                interceptable.invokeUnInit(65536, newInitContext);
+                Object[] objArr = {obj, list};
+                interceptable.invokeUnInit(65538, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
@@ -152,12 +170,12 @@ public class Registry {
     }
 
     /* loaded from: classes7.dex */
-    public static class NoResultEncoderAvailableException extends MissingComponentException {
+    public class NoResultEncoderAvailableException extends MissingComponentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public NoResultEncoderAvailableException(@NonNull Class<?> cls) {
+        public NoResultEncoderAvailableException(Class cls) {
             super("Failed to find result encoder for resource class: " + cls + ", you may need to consider registering a new Encoder for the requested type or DiskCacheStrategy.DATA/DiskCacheStrategy.NONE if caching your transformed resource is unnecessary.");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -178,12 +196,12 @@ public class Registry {
     }
 
     /* loaded from: classes7.dex */
-    public static class NoSourceEncoderAvailableException extends MissingComponentException {
+    public class NoSourceEncoderAvailableException extends MissingComponentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public NoSourceEncoderAvailableException(@NonNull Class<?> cls) {
+        public NoSourceEncoderAvailableException(Class cls) {
             super("Failed to find source encoder for data class: " + cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -218,7 +236,7 @@ public class Registry {
         }
         this.modelToResourceClassCache = new ModelToResourceClassCache();
         this.loadPathCache = new LoadPathCache();
-        Pools.Pool<List<Throwable>> threadSafeList = FactoryPools.threadSafeList();
+        Pools.Pool threadSafeList = FactoryPools.threadSafeList();
         this.throwableListPool = threadSafeList;
         this.modelLoaderRegistry = new ModelLoaderRegistry(threadSafeList);
         this.encoderRegistry = new EncoderRegistry();
@@ -230,8 +248,7 @@ public class Registry {
         setResourceDecoderBucketPriorityList(Arrays.asList(BUCKET_GIF, BUCKET_BITMAP, BUCKET_BITMAP_DRAWABLE));
     }
 
-    @NonNull
-    private <Data, TResource, Transcode> List<DecodePath<Data, TResource, Transcode>> getDecodePaths(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
+    private List getDecodePaths(Class cls, Class cls2, Class cls3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, cls, cls2, cls3)) == null) {
@@ -246,8 +263,7 @@ public class Registry {
         return (List) invokeLLL.objValue;
     }
 
-    @NonNull
-    public <Data> Registry append(@NonNull Class<Data> cls, @NonNull Encoder<Data> encoder) {
+    public Registry append(Class cls, Encoder encoder) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, encoder)) == null) {
@@ -257,118 +273,7 @@ public class Registry {
         return (Registry) invokeLL.objValue;
     }
 
-    @NonNull
-    public List<ImageHeaderParser> getImageHeaderParsers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<ImageHeaderParser> parsers = this.imageHeaderParserRegistry.getParsers();
-            if (parsers.isEmpty()) {
-                throw new NoImageHeaderParserException();
-            }
-            return parsers;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Nullable
-    public <Data, TResource, Transcode> LoadPath<Data, TResource, Transcode> getLoadPath(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, cls, cls2, cls3)) == null) {
-            LoadPath<Data, TResource, Transcode> loadPath = this.loadPathCache.get(cls, cls2, cls3);
-            if (this.loadPathCache.isEmptyLoadPath(loadPath)) {
-                return null;
-            }
-            if (loadPath == null) {
-                List<DecodePath<Data, TResource, Transcode>> decodePaths = getDecodePaths(cls, cls2, cls3);
-                loadPath = decodePaths.isEmpty() ? null : new LoadPath<>(cls, cls2, cls3, decodePaths, this.throwableListPool);
-                this.loadPathCache.put(cls, cls2, cls3, loadPath);
-            }
-            return loadPath;
-        }
-        return (LoadPath) invokeLLL.objValue;
-    }
-
-    @NonNull
-    public <Model> List<ModelLoader<Model, ?>> getModelLoaders(@NonNull Model model) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, model)) == null) {
-            List<ModelLoader<Model, ?>> modelLoaders = this.modelLoaderRegistry.getModelLoaders(model);
-            if (modelLoaders.isEmpty()) {
-                throw new NoModelLoaderAvailableException(model);
-            }
-            return modelLoaders;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @NonNull
-    public <Model, TResource, Transcode> List<Class<?>> getRegisteredResourceClasses(@NonNull Class<Model> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, cls2, cls3)) == null) {
-            List<Class<?>> list = this.modelToResourceClassCache.get(cls, cls2);
-            if (list == null) {
-                list = new ArrayList<>();
-                for (Class<?> cls4 : this.modelLoaderRegistry.getDataClasses(cls)) {
-                    for (Class<?> cls5 : this.decoderRegistry.getResourceClasses(cls4, cls2)) {
-                        if (!this.transcoderRegistry.getTranscodeClasses(cls5, cls3).isEmpty() && !list.contains(cls5)) {
-                            list.add(cls5);
-                        }
-                    }
-                }
-                this.modelToResourceClassCache.put(cls, cls2, Collections.unmodifiableList(list));
-            }
-            return list;
-        }
-        return (List) invokeLLL.objValue;
-    }
-
-    @NonNull
-    public <X> ResourceEncoder<X> getResultEncoder(@NonNull Resource<X> resource) throws NoResultEncoderAvailableException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, resource)) == null) {
-            ResourceEncoder<X> resourceEncoder = this.resourceEncoderRegistry.get(resource.getResourceClass());
-            if (resourceEncoder != null) {
-                return resourceEncoder;
-            }
-            throw new NoResultEncoderAvailableException(resource.getResourceClass());
-        }
-        return (ResourceEncoder) invokeL.objValue;
-    }
-
-    @NonNull
-    public <X> DataRewinder<X> getRewinder(@NonNull X x) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, x)) == null) ? this.dataRewinderRegistry.build(x) : (DataRewinder) invokeL.objValue;
-    }
-
-    @NonNull
-    public <X> Encoder<X> getSourceEncoder(@NonNull X x) throws NoSourceEncoderAvailableException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, x)) == null) {
-            Encoder<X> encoder = this.encoderRegistry.getEncoder(x.getClass());
-            if (encoder != null) {
-                return encoder;
-            }
-            throw new NoSourceEncoderAvailableException(x.getClass());
-        }
-        return (Encoder) invokeL.objValue;
-    }
-
-    public boolean isResourceEncoderAvailable(@NonNull Resource<?> resource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, resource)) == null) ? this.resourceEncoderRegistry.get(resource.getResourceClass()) != null : invokeL.booleanValue;
-    }
-
-    @NonNull
-    public <Data> Registry prepend(@NonNull Class<Data> cls, @NonNull Encoder<Data> encoder) {
+    public Registry prepend(Class cls, Encoder encoder) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, cls, encoder)) == null) {
@@ -378,104 +283,17 @@ public class Registry {
         return (Registry) invokeLL.objValue;
     }
 
-    @NonNull
     @Deprecated
-    public <Data> Registry register(@NonNull Class<Data> cls, @NonNull Encoder<Data> encoder) {
+    public Registry register(Class cls, Encoder encoder) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, cls, encoder)) == null) ? append(cls, encoder) : (Registry) invokeLL.objValue;
-    }
-
-    @NonNull
-    public <Model, Data> Registry replace(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<? extends Model, ? extends Data> modelLoaderFactory) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048599, this, cls, cls2, modelLoaderFactory)) == null) {
-            this.modelLoaderRegistry.replace(cls, cls2, modelLoaderFactory);
-            return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, cls, encoder)) == null) {
+            return append(cls, encoder);
         }
-        return (Registry) invokeLLL.objValue;
+        return (Registry) invokeLL.objValue;
     }
 
-    @NonNull
-    public final Registry setResourceDecoderBucketPriorityList(@NonNull List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
-            ArrayList arrayList = new ArrayList(list);
-            arrayList.add(0, BUCKET_PREPEND_ALL);
-            arrayList.add(BUCKET_APPEND_ALL);
-            this.decoderRegistry.setBucketPriorityList(arrayList);
-            return this;
-        }
-        return (Registry) invokeL.objValue;
-    }
-
-    @NonNull
-    public <Data, TResource> Registry append(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull ResourceDecoder<Data, TResource> resourceDecoder) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, resourceDecoder)) == null) {
-            append(BUCKET_APPEND_ALL, cls, cls2, resourceDecoder);
-            return this;
-        }
-        return (Registry) invokeLLL.objValue;
-    }
-
-    @NonNull
-    public <Data, TResource> Registry prepend(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull ResourceDecoder<Data, TResource> resourceDecoder) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, cls, cls2, resourceDecoder)) == null) {
-            prepend(BUCKET_PREPEND_ALL, cls, cls2, resourceDecoder);
-            return this;
-        }
-        return (Registry) invokeLLL.objValue;
-    }
-
-    @NonNull
-    @Deprecated
-    public <TResource> Registry register(@NonNull Class<TResource> cls, @NonNull ResourceEncoder<TResource> resourceEncoder) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, cls, resourceEncoder)) == null) ? append((Class) cls, (ResourceEncoder) resourceEncoder) : (Registry) invokeLL.objValue;
-    }
-
-    @NonNull
-    public <Data, TResource> Registry append(@NonNull String str, @NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull ResourceDecoder<Data, TResource> resourceDecoder) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, cls, cls2, resourceDecoder)) == null) {
-            this.decoderRegistry.append(str, resourceDecoder, cls, cls2);
-            return this;
-        }
-        return (Registry) invokeLLLL.objValue;
-    }
-
-    @NonNull
-    public <Data, TResource> Registry prepend(@NonNull String str, @NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull ResourceDecoder<Data, TResource> resourceDecoder) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048593, this, str, cls, cls2, resourceDecoder)) == null) {
-            this.decoderRegistry.prepend(str, resourceDecoder, cls, cls2);
-            return this;
-        }
-        return (Registry) invokeLLLL.objValue;
-    }
-
-    @NonNull
-    public Registry register(@NonNull DataRewinder.Factory<?> factory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, factory)) == null) {
-            this.dataRewinderRegistry.register(factory);
-            return this;
-        }
-        return (Registry) invokeL.objValue;
-    }
-
-    @NonNull
-    public <TResource> Registry append(@NonNull Class<TResource> cls, @NonNull ResourceEncoder<TResource> resourceEncoder) {
+    public Registry append(Class cls, ResourceEncoder resourceEncoder) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, resourceEncoder)) == null) {
@@ -485,8 +303,7 @@ public class Registry {
         return (Registry) invokeLL.objValue;
     }
 
-    @NonNull
-    public <TResource> Registry prepend(@NonNull Class<TResource> cls, @NonNull ResourceEncoder<TResource> resourceEncoder) {
+    public Registry prepend(Class cls, ResourceEncoder resourceEncoder) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, cls, resourceEncoder)) == null) {
@@ -496,8 +313,37 @@ public class Registry {
         return (Registry) invokeLL.objValue;
     }
 
-    @NonNull
-    public <TResource, Transcode> Registry register(@NonNull Class<TResource> cls, @NonNull Class<Transcode> cls2, @NonNull ResourceTranscoder<TResource, Transcode> resourceTranscoder) {
+    @Deprecated
+    public Registry register(Class cls, ResourceEncoder resourceEncoder) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, cls, resourceEncoder)) == null) {
+            return append(cls, resourceEncoder);
+        }
+        return (Registry) invokeLL.objValue;
+    }
+
+    public Registry append(Class cls, Class cls2, ResourceDecoder resourceDecoder) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, resourceDecoder)) == null) {
+            append(BUCKET_APPEND_ALL, cls, cls2, resourceDecoder);
+            return this;
+        }
+        return (Registry) invokeLLL.objValue;
+    }
+
+    public Registry prepend(Class cls, Class cls2, ResourceDecoder resourceDecoder) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, cls, cls2, resourceDecoder)) == null) {
+            prepend(BUCKET_PREPEND_ALL, cls, cls2, resourceDecoder);
+            return this;
+        }
+        return (Registry) invokeLLL.objValue;
+    }
+
+    public Registry register(Class cls, Class cls2, ResourceTranscoder resourceTranscoder) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048598, this, cls, cls2, resourceTranscoder)) == null) {
@@ -507,8 +353,17 @@ public class Registry {
         return (Registry) invokeLLL.objValue;
     }
 
-    @NonNull
-    public <Model, Data> Registry append(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<Model, Data> modelLoaderFactory) {
+    public Registry replace(Class cls, Class cls2, ModelLoaderFactory modelLoaderFactory) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048599, this, cls, cls2, modelLoaderFactory)) == null) {
+            this.modelLoaderRegistry.replace(cls, cls2, modelLoaderFactory);
+            return this;
+        }
+        return (Registry) invokeLLL.objValue;
+    }
+
+    public Registry append(Class cls, Class cls2, ModelLoaderFactory modelLoaderFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, cls, cls2, modelLoaderFactory)) == null) {
@@ -518,8 +373,7 @@ public class Registry {
         return (Registry) invokeLLL.objValue;
     }
 
-    @NonNull
-    public <Model, Data> Registry prepend(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull ModelLoaderFactory<Model, Data> modelLoaderFactory) {
+    public Registry prepend(Class cls, Class cls2, ModelLoaderFactory modelLoaderFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, cls, cls2, modelLoaderFactory)) == null) {
@@ -529,12 +383,170 @@ public class Registry {
         return (Registry) invokeLLL.objValue;
     }
 
-    @NonNull
-    public Registry register(@NonNull ImageHeaderParser imageHeaderParser) {
+    public Registry append(String str, Class cls, Class cls2, ResourceDecoder resourceDecoder) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, cls, cls2, resourceDecoder)) == null) {
+            this.decoderRegistry.append(str, resourceDecoder, cls, cls2);
+            return this;
+        }
+        return (Registry) invokeLLLL.objValue;
+    }
+
+    public Registry prepend(String str, Class cls, Class cls2, ResourceDecoder resourceDecoder) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048593, this, str, cls, cls2, resourceDecoder)) == null) {
+            this.decoderRegistry.prepend(str, resourceDecoder, cls, cls2);
+            return this;
+        }
+        return (Registry) invokeLLLL.objValue;
+    }
+
+    public List getImageHeaderParsers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List parsers = this.imageHeaderParserRegistry.getParsers();
+            if (!parsers.isEmpty()) {
+                return parsers;
+            }
+            throw new NoImageHeaderParserException();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public LoadPath getLoadPath(Class cls, Class cls2, Class cls3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, cls, cls2, cls3)) == null) {
+            LoadPath loadPath = this.loadPathCache.get(cls, cls2, cls3);
+            if (this.loadPathCache.isEmptyLoadPath(loadPath)) {
+                return null;
+            }
+            if (loadPath == null) {
+                List decodePaths = getDecodePaths(cls, cls2, cls3);
+                if (decodePaths.isEmpty()) {
+                    loadPath = null;
+                } else {
+                    loadPath = new LoadPath(cls, cls2, cls3, decodePaths, this.throwableListPool);
+                }
+                this.loadPathCache.put(cls, cls2, cls3, loadPath);
+            }
+            return loadPath;
+        }
+        return (LoadPath) invokeLLL.objValue;
+    }
+
+    public List getModelLoaders(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+            return this.modelLoaderRegistry.getModelLoaders(obj);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public ResourceEncoder getResultEncoder(Resource resource) throws NoResultEncoderAvailableException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, resource)) == null) {
+            ResourceEncoder resourceEncoder = this.resourceEncoderRegistry.get(resource.getResourceClass());
+            if (resourceEncoder != null) {
+                return resourceEncoder;
+            }
+            throw new NoResultEncoderAvailableException(resource.getResourceClass());
+        }
+        return (ResourceEncoder) invokeL.objValue;
+    }
+
+    public DataRewinder getRewinder(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
+            return this.dataRewinderRegistry.build(obj);
+        }
+        return (DataRewinder) invokeL.objValue;
+    }
+
+    public Encoder getSourceEncoder(Object obj) throws NoSourceEncoderAvailableException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
+            Encoder encoder = this.encoderRegistry.getEncoder(obj.getClass());
+            if (encoder != null) {
+                return encoder;
+            }
+            throw new NoSourceEncoderAvailableException(obj.getClass());
+        }
+        return (Encoder) invokeL.objValue;
+    }
+
+    public boolean isResourceEncoderAvailable(Resource resource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, resource)) == null) {
+            if (this.resourceEncoderRegistry.get(resource.getResourceClass()) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Registry register(ImageHeaderParser imageHeaderParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, imageHeaderParser)) == null) {
             this.imageHeaderParserRegistry.add(imageHeaderParser);
+            return this;
+        }
+        return (Registry) invokeL.objValue;
+    }
+
+    public List getRegisteredResourceClasses(Class cls, Class cls2, Class cls3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, cls2, cls3)) == null) {
+            List list = this.modelToResourceClassCache.get(cls, cls2, cls3);
+            if (list == null) {
+                list = new ArrayList();
+                for (Class cls4 : this.modelLoaderRegistry.getDataClasses(cls)) {
+                    for (Class cls5 : this.decoderRegistry.getResourceClasses(cls4, cls2)) {
+                        if (!this.transcoderRegistry.getTranscodeClasses(cls5, cls3).isEmpty() && !list.contains(cls5)) {
+                            list.add(cls5);
+                        }
+                    }
+                }
+                this.modelToResourceClassCache.put(cls, cls2, cls3, Collections.unmodifiableList(list));
+            }
+            return list;
+        }
+        return (List) invokeLLL.objValue;
+    }
+
+    public Registry register(DataRewinder.Factory factory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, factory)) == null) {
+            this.dataRewinderRegistry.register(factory);
+            return this;
+        }
+        return (Registry) invokeL.objValue;
+    }
+
+    public final Registry setResourceDecoderBucketPriorityList(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
+            ArrayList arrayList = new ArrayList(list.size());
+            arrayList.add(BUCKET_PREPEND_ALL);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                arrayList.add((String) it.next());
+            }
+            arrayList.add(BUCKET_APPEND_ALL);
+            this.decoderRegistry.setBucketPriorityList(arrayList);
             return this;
         }
         return (Registry) invokeL.objValue;

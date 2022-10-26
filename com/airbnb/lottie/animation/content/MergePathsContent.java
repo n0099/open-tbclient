@@ -1,13 +1,11 @@
 package com.airbnb.lottie.animation.content;
 
-import android.annotation.TargetApi;
 import android.graphics.Path;
 import android.os.Build;
 import com.airbnb.lottie.model.content.MergePaths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-@TargetApi(19)
 /* loaded from: classes.dex */
 public class MergePathsContent implements PathContent, GreedyContent {
     public final MergePaths mergePaths;
@@ -15,11 +13,11 @@ public class MergePathsContent implements PathContent, GreedyContent {
     public final Path firstPath = new Path();
     public final Path remainderPath = new Path();
     public final Path path = new Path();
-    public final List<PathContent> pathContents = new ArrayList();
+    public final List pathContents = new ArrayList();
 
     /* renamed from: com.airbnb.lottie.animation.content.MergePathsContent$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$MergePaths$MergePathsMode;
 
         static {
@@ -59,21 +57,25 @@ public class MergePathsContent implements PathContent, GreedyContent {
 
     private void addPaths() {
         for (int i = 0; i < this.pathContents.size(); i++) {
-            this.path.addPath(this.pathContents.get(i).getPath());
+            this.path.addPath(((PathContent) this.pathContents.get(i)).getPath());
         }
     }
 
-    @TargetApi(19)
+    @Override // com.airbnb.lottie.animation.content.Content
+    public String getName() {
+        return this.name;
+    }
+
     private void opFirstPathWithRest(Path.Op op) {
         this.remainderPath.reset();
         this.firstPath.reset();
         for (int size = this.pathContents.size() - 1; size >= 1; size--) {
-            PathContent pathContent = this.pathContents.get(size);
+            PathContent pathContent = (PathContent) this.pathContents.get(size);
             if (pathContent instanceof ContentGroup) {
                 ContentGroup contentGroup = (ContentGroup) pathContent;
-                List<PathContent> pathList = contentGroup.getPathList();
+                List pathList = contentGroup.getPathList();
                 for (int size2 = pathList.size() - 1; size2 >= 0; size2--) {
-                    Path path = pathList.get(size2).getPath();
+                    Path path = ((PathContent) pathList.get(size2)).getPath();
                     path.transform(contentGroup.getTransformationMatrix());
                     this.remainderPath.addPath(path);
                 }
@@ -81,12 +83,12 @@ public class MergePathsContent implements PathContent, GreedyContent {
                 this.remainderPath.addPath(pathContent.getPath());
             }
         }
-        PathContent pathContent2 = this.pathContents.get(0);
+        PathContent pathContent2 = (PathContent) this.pathContents.get(0);
         if (pathContent2 instanceof ContentGroup) {
             ContentGroup contentGroup2 = (ContentGroup) pathContent2;
-            List<PathContent> pathList2 = contentGroup2.getPathList();
+            List pathList2 = contentGroup2.getPathList();
             for (int i = 0; i < pathList2.size(); i++) {
-                Path path2 = pathList2.get(i).getPath();
+                Path path2 = ((PathContent) pathList2.get(i)).getPath();
                 path2.transform(contentGroup2.getTransformationMatrix());
                 this.firstPath.addPath(path2);
             }
@@ -97,21 +99,16 @@ public class MergePathsContent implements PathContent, GreedyContent {
     }
 
     @Override // com.airbnb.lottie.animation.content.GreedyContent
-    public void absorbContent(ListIterator<Content> listIterator) {
+    public void absorbContent(ListIterator listIterator) {
         while (listIterator.hasPrevious() && listIterator.previous() != this) {
         }
         while (listIterator.hasPrevious()) {
-            Content previous = listIterator.previous();
-            if (previous instanceof PathContent) {
-                this.pathContents.add((PathContent) previous);
+            Content content = (Content) listIterator.previous();
+            if (content instanceof PathContent) {
+                this.pathContents.add((PathContent) content);
                 listIterator.remove();
             }
         }
-    }
-
-    @Override // com.airbnb.lottie.animation.content.Content
-    public String getName() {
-        return this.name;
     }
 
     @Override // com.airbnb.lottie.animation.content.PathContent
@@ -121,24 +118,32 @@ public class MergePathsContent implements PathContent, GreedyContent {
             return this.path;
         }
         int i = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$MergePaths$MergePathsMode[this.mergePaths.getMode().ordinal()];
-        if (i == 1) {
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i == 5) {
+                            opFirstPathWithRest(Path.Op.XOR);
+                        }
+                    } else {
+                        opFirstPathWithRest(Path.Op.INTERSECT);
+                    }
+                } else {
+                    opFirstPathWithRest(Path.Op.REVERSE_DIFFERENCE);
+                }
+            } else {
+                opFirstPathWithRest(Path.Op.UNION);
+            }
+        } else {
             addPaths();
-        } else if (i == 2) {
-            opFirstPathWithRest(Path.Op.UNION);
-        } else if (i == 3) {
-            opFirstPathWithRest(Path.Op.REVERSE_DIFFERENCE);
-        } else if (i == 4) {
-            opFirstPathWithRest(Path.Op.INTERSECT);
-        } else if (i == 5) {
-            opFirstPathWithRest(Path.Op.XOR);
         }
         return this.path;
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
-    public void setContents(List<Content> list, List<Content> list2) {
+    public void setContents(List list, List list2) {
         for (int i = 0; i < this.pathContents.size(); i++) {
-            this.pathContents.get(i).setContents(list, list2);
+            ((PathContent) this.pathContents.get(i)).setContents(list, list2);
         }
     }
 }

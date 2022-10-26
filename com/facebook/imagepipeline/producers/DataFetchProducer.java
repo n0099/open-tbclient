@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
@@ -24,6 +23,13 @@ public class DataFetchProducer extends LocalFetchProducer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "DataFetchProducer";
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
+    public String getProducerName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DataFetchProducer(PooledByteBufferFactory pooledByteBufferFactory) {
@@ -46,7 +52,6 @@ public class DataFetchProducer extends LocalFetchProducer {
         }
     }
 
-    @VisibleForTesting
     public static byte[] getData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -62,16 +67,15 @@ public class DataFetchProducer extends LocalFetchProducer {
         return (byte[]) invokeL.objValue;
     }
 
-    @VisibleForTesting
     public static boolean isBase64(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str.contains(ParamableElem.DIVIDE_PARAM)) {
-                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
-                return split[split.length - 1].equals("base64");
+            if (!str.contains(ParamableElem.DIVIDE_PARAM)) {
+                return false;
             }
-            return false;
+            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
+            return split[split.length - 1].equals("base64");
         }
         return invokeL.booleanValue;
     }
@@ -85,12 +89,5 @@ public class DataFetchProducer extends LocalFetchProducer {
             return getByteBufferBackedEncodedImage(new ByteArrayInputStream(data), data.length);
         }
         return (EncodedImage) invokeL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
-    public String getProducerName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
     }
 }

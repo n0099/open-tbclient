@@ -40,7 +40,50 @@ public class NetStatusInfo {
     public int getIsp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isp : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isp;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getNetType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.netType;
+        }
+        return invokeV.intValue;
+    }
+
+    public NetworkStatus getNetworkStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.networkStatus;
+        }
+        return (NetworkStatus) invokeV.objValue;
+    }
+
+    public String getSsid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.ssid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isKnowIsp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.netType;
+            if (i == 0 || i == 1 || i == 2 || this.isp == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public String getNetStatusID() {
@@ -62,41 +105,13 @@ public class NetStatusInfo {
         return (String) invokeV.objValue;
     }
 
-    public int getNetType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.netType : invokeV.intValue;
-    }
-
-    public NetworkStatus getNetworkStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.networkStatus : (NetworkStatus) invokeV.objValue;
-    }
-
-    public String getSsid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ssid : (String) invokeV.objValue;
-    }
-
-    public boolean isKnowIsp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = this.netType;
-            return (i == 0 || i == 1 || i == 2 || this.isp == 0) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void resetVal(NetStatusInfo netStatusInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, netStatusInfo) == null) {
             this.netType = netStatusInfo.netType;
             this.isp = netStatusInfo.isp;
             this.ssid = netStatusInfo.ssid;
-            this.networkStatus = netStatusInfo.networkStatus.m693clone();
+            this.networkStatus = netStatusInfo.networkStatus.m692clone();
         }
     }
 

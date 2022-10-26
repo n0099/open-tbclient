@@ -200,6 +200,14 @@ public class i0 extends AsyncTask {
     }
 
     @Override // android.os.AsyncTask
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d.b.add(this.b);
+        }
+    }
+
+    @Override // android.os.AsyncTask
     public void onPostExecute(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -211,14 +219,6 @@ public class i0 extends AsyncTask {
             }
             this.d.b.remove(this.b);
             System.gc();
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.b.add(this.b);
         }
     }
 

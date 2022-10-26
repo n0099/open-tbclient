@@ -14,12 +14,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BinderHolder implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<BinderHolder> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public IBinder a;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<BinderHolder> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,22 +47,24 @@ public class BinderHolder implements Parcelable {
             }
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.sofire.mutiprocess.BinderHolder, java.lang.Object] */
         @Override // android.os.Parcelable.Creator
-        public BinderHolder createFromParcel(Parcel parcel) {
+        public Object createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new BinderHolder(parcel) : invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new BinderHolder(parcel);
+            }
+            return invokeL.objValue;
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-        /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.sofire.mutiprocess.BinderHolder[], java.lang.Object[]] */
         @Override // android.os.Parcelable.Creator
-        public BinderHolder[] newArray(int i) {
+        public Object[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new BinderHolder[i] : (Object[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new BinderHolder[i];
+            }
+            return (Object[]) invokeI.objValue;
         }
     }
 
@@ -90,24 +102,6 @@ public class BinderHolder implements Parcelable {
         this.a = iBinder;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            parcel.writeStrongBinder(this.a);
-        }
-    }
-
     public BinderHolder(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,5 +118,13 @@ public class BinderHolder implements Parcelable {
             }
         }
         this.a = parcel.readStrongBinder();
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeStrongBinder(this.a);
+        }
     }
 }

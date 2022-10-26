@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,10 +14,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.mg5;
-import com.baidu.tieba.sp6;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.sg5;
+import com.baidu.tieba.zp6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +26,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.GameCodeList;
 /* loaded from: classes4.dex */
-public class GameCodeListView extends ConstraintLayout implements mg5 {
+public class GameCodeListView extends ConstraintLayout implements sg5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -58,13 +56,13 @@ public class GameCodeListView extends ConstraintLayout implements mg5 {
                 return;
             }
         }
-        f = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-        g = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
-        h = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        i = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        j = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        k = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        l = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        f = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+        g = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        h = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        i = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        j = fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        k = fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        l = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,132 +87,17 @@ public class GameCodeListView extends ConstraintLayout implements mg5 {
         a(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032b, this);
-            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c64);
-            this.a = eMTextView;
-            eMTextView.setTextSize(0, j);
-            EMTextView eMTextView2 = this.a;
-            int i2 = f;
-            eMTextView2.setPadding(i2, g, i2, h);
-            this.a.setGravity(1);
-            this.a.setText(R.string.obfuscated_res_0x7f0f0271);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c63);
-            this.b = recyclerView;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            GameCodeAdapter gameCodeAdapter = new GameCodeAdapter(context);
-            this.c = gameCodeAdapter;
-            this.b.setAdapter(gameCodeAdapter);
-            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c62);
-            this.d = eMTextView3;
-            eMTextView3.setTextSize(0, k);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0375);
-            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.d.getLayoutParams();
-            ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = l;
-            this.d.setLayoutParams(layoutParams);
-            EMTextView eMTextView4 = this.d;
-            int i3 = i;
-            eMTextView4.setPadding(0, i3, 0, i3);
-        }
-    }
-
-    public void b(sp6 sp6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sp6Var) == null) {
-            this.c.g(sp6Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.mg5
+    @Override // com.baidu.tieba.sg5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            hv4 d = hv4.d(this);
+            nv4 d = nv4.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.d, R.color.CAM_X0107);
             this.c.notifyDataSetChanged();
         }
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i3), this.e), Integer.MIN_VALUE));
-        }
-    }
-
-    public void setCancelClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.d.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setData(List<GameCodeList> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.c.f(list);
-            this.c.notifyDataSetChanged();
-        }
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout
-    public void setMaxHeight(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.e = i2;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameCodeListView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.e = 0;
-        a(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameCodeListView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.e = 0;
-        a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -238,5 +121,120 @@ public class GameCodeListView extends ConstraintLayout implements mg5 {
         this.e = 0;
         this.e = i2;
         a(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GameCodeListView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.e = 0;
+        a(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GameCodeListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.e = 0;
+        a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032a, this);
+            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c6e);
+            this.a = eMTextView;
+            eMTextView.setTextSize(0, j);
+            EMTextView eMTextView2 = this.a;
+            int i2 = f;
+            eMTextView2.setPadding(i2, g, i2, h);
+            this.a.setGravity(1);
+            this.a.setText(R.string.obfuscated_res_0x7f0f0271);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c6d);
+            this.b = recyclerView;
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            GameCodeAdapter gameCodeAdapter = new GameCodeAdapter(context);
+            this.c = gameCodeAdapter;
+            this.b.setAdapter(gameCodeAdapter);
+            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c6c);
+            this.d = eMTextView3;
+            eMTextView3.setTextSize(0, k);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0375);
+            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.d.getLayoutParams();
+            ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = l;
+            this.d.setLayoutParams(layoutParams);
+            EMTextView eMTextView4 = this.d;
+            int i3 = i;
+            eMTextView4.setPadding(0, i3, 0, i3);
+        }
+    }
+
+    public void b(zp6 zp6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zp6Var) == null) {
+            this.c.g(zp6Var);
+        }
+    }
+
+    public void setCancelClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setData(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.c.f(list);
+            this.c.notifyDataSetChanged();
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout
+    public void setMaxHeight(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.e = i2;
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.View
+    public void onMeasure(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i3), this.e), Integer.MIN_VALUE));
+        }
     }
 }

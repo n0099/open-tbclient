@@ -5,8 +5,6 @@ import android.hardware.display.DisplayManager;
 import android.os.Build;
 import android.view.Display;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -59,8 +57,7 @@ public final class DisplayManagerCompat {
         this.mContext = context;
     }
 
-    @NonNull
-    public static DisplayManagerCompat getInstance(@NonNull Context context) {
+    public static DisplayManagerCompat getInstance(Context context) {
         InterceptResult invokeL;
         DisplayManagerCompat displayManagerCompat;
         Interceptable interceptable = $ic;
@@ -77,7 +74,6 @@ public final class DisplayManagerCompat {
         return (DisplayManagerCompat) invokeL.objValue;
     }
 
-    @Nullable
     public Display getDisplay(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -94,15 +90,7 @@ public final class DisplayManagerCompat {
         return (Display) invokeI.objValue;
     }
 
-    @NonNull
-    public Display[] getDisplays() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.VERSION.SDK_INT >= 17 ? ((DisplayManager) this.mContext.getSystemService(CriusAttrConstants.DISPLAY)).getDisplays() : new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()} : (Display[]) invokeV.objValue;
-    }
-
-    @NonNull
-    public Display[] getDisplays(@Nullable String str) {
+    public Display[] getDisplays(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -112,5 +100,14 @@ public final class DisplayManagerCompat {
             return str == null ? new Display[0] : new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()};
         }
         return (Display[]) invokeL.objValue;
+    }
+
+    public Display[] getDisplays() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Build.VERSION.SDK_INT >= 17 ? ((DisplayManager) this.mContext.getSystemService(CriusAttrConstants.DISPLAY)).getDisplays() : new Display[]{((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay()};
+        }
+        return (Display[]) invokeV.objValue;
     }
 }

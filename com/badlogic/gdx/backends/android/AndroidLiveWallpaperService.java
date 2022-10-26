@@ -98,7 +98,11 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     synchronized (this.a.o.sync) {
-                        z = this.a.o.linkedEngine == this.a;
+                        if (this.a.o.linkedEngine == this.a) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
                     }
                     if (z) {
                         a aVar = this.a;
@@ -138,7 +142,11 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     synchronized (this.a.o.sync) {
-                        z = this.a.o.linkedEngine == this.a;
+                        if (this.a.o.linkedEngine == this.a) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
                     }
                     if (z) {
                         b3 b3Var = (b3) this.a.o.app.g;
@@ -182,14 +190,16 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     synchronized (this.b.o.sync) {
-                        z = (this.b.o.isPreviewNotified && this.b.o.notifiedPreviewState == this.a) ? false : true;
+                        z = true;
+                        if (this.b.o.isPreviewNotified && this.b.o.notifiedPreviewState == this.a) {
+                            z = false;
+                        }
                         this.b.o.notifiedPreviewState = this.a;
                         this.b.o.isPreviewNotified = true;
                     }
-                    if (!z || (u2Var = this.b.o.app) == null) {
-                        return;
+                    if (z && (u2Var = this.b.o.app) != null) {
+                        ((b3) u2Var.g).c(this.a);
                     }
-                    ((b3) u2Var.g).c(this.a);
                 }
             }
         }
@@ -227,11 +237,80 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
             }
         }
 
+        @Override // android.service.wallpaper.WallpaperService.Engine
+        public void onSurfaceDestroyed(SurfaceHolder surfaceHolder) {
+            SurfaceHolder.Callback callback;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048590, this, surfaceHolder) == null) {
+                boolean z = true;
+                this.o.engines--;
+                if (AndroidLiveWallpaperService.DEBUG) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(" > AndroidWallpaperEngine - onSurfaceDestroyed() ");
+                    sb.append(hashCode());
+                    sb.append(", running: ");
+                    sb.append(this.o.engines);
+                    sb.append(" ,linked: ");
+                    if (this.o.linkedEngine != this) {
+                        z = false;
+                    }
+                    sb.append(z);
+                    sb.append(", isVisible: ");
+                    sb.append(this.a);
+                    Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
+                }
+                Log.i(AndroidLiveWallpaperService.TAG, "engine surface destroyed");
+                AndroidLiveWallpaperService androidLiveWallpaperService = this.o;
+                if (androidLiveWallpaperService.engines == 0) {
+                    androidLiveWallpaperService.onDeepPauseApplication();
+                }
+                if (this.o.linkedEngine == this && (callback = this.o.f1029view) != null) {
+                    callback.surfaceDestroyed(surfaceHolder);
+                }
+                this.b = 0;
+                this.c = 0;
+                this.d = 0;
+                AndroidLiveWallpaperService androidLiveWallpaperService2 = this.o;
+                if (androidLiveWallpaperService2.engines == 0) {
+                    androidLiveWallpaperService2.linkedEngine = null;
+                }
+                super.onSurfaceDestroyed(surfaceHolder);
+            }
+        }
+
+        @Override // android.service.wallpaper.WallpaperService.Engine
+        public void onVisibilityChanged(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+                boolean isVisible = isVisible();
+                if (AndroidLiveWallpaperService.DEBUG) {
+                    Log.d(AndroidLiveWallpaperService.TAG, " > AndroidWallpaperEngine - onVisibilityChanged(paramVisible: " + z + " reportedVisible: " + isVisible + ") " + hashCode() + ", sufcace valid: " + getSurfaceHolder().getSurface().isValid());
+                }
+                super.onVisibilityChanged(z);
+                if (!isVisible && z) {
+                    if (AndroidLiveWallpaperService.DEBUG) {
+                        Log.d(AndroidLiveWallpaperService.TAG, " > fake visibilityChanged event! Android WallpaperService likes do that!");
+                        return;
+                    }
+                    return;
+                }
+                e(z);
+            }
+        }
+
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.o.linkedEngine == this && (this.o.app.g instanceof b3) && !this.e) {
                 this.e = true;
                 this.o.app.postRunnable(new RunnableC0006a(this));
+            }
+        }
+
+        @Override // android.service.wallpaper.WallpaperService.Engine
+        public void onDestroy() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                super.onDestroy();
             }
         }
 
@@ -281,6 +360,36 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
             }
         }
 
+        @Override // android.service.wallpaper.WallpaperService.Engine
+        public void onSurfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(1048588, this, surfaceHolder, i, i2, i3) == null) {
+                if (AndroidLiveWallpaperService.DEBUG) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(" > AndroidWallpaperEngine - onSurfaceChanged() isPreview: ");
+                    sb.append(isPreview());
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(hashCode());
+                    sb.append(", running: ");
+                    sb.append(this.o.engines);
+                    sb.append(", linked: ");
+                    if (this.o.linkedEngine == this) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    sb.append(", sufcace valid: ");
+                    sb.append(getSurfaceHolder().getSurface().isValid());
+                    Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
+                }
+                Log.i(AndroidLiveWallpaperService.TAG, "engine surface changed");
+                super.onSurfaceChanged(surfaceHolder, i, i2, i3);
+                d(i, i2, i3, true);
+            }
+        }
+
         public final void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -297,7 +406,16 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
             }
         }
 
+        @Override // android.service.wallpaper.WallpaperService.Engine
+        public void onTouchEvent(MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048591, this, motionEvent) == null) && this.o.linkedEngine == this) {
+                this.o.app.c.onTouch(null, motionEvent);
+            }
+        }
+
         public void f() {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 this.o.visibleEngines--;
@@ -308,7 +426,12 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     sb.append(", running: ");
                     sb.append(this.o.engines);
                     sb.append(", linked: ");
-                    sb.append(this.o.linkedEngine == this);
+                    if (this.o.linkedEngine == this) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
                     sb.append(", visible: ");
                     sb.append(this.o.visibleEngines);
                     Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
@@ -333,6 +456,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         }
 
         public void g() {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 this.o.visibleEngines++;
@@ -343,7 +467,12 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     sb.append(", running: ");
                     sb.append(this.o.engines);
                     sb.append(", linked: ");
-                    sb.append(this.o.linkedEngine == this);
+                    if (this.o.linkedEngine == this) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
                     sb.append(", visible: ");
                     sb.append(this.o.visibleEngines);
                     Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
@@ -364,10 +493,9 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     }
                     c();
                     b();
-                    if (f1.b.d()) {
-                        return;
+                    if (!f1.b.d()) {
+                        f1.b.c();
                     }
-                    f1.b.c();
                 }
             }
         }
@@ -375,6 +503,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         @Override // android.service.wallpaper.WallpaperService.Engine
         public Bundle onCommand(String str, int i, int i2, int i3, Bundle bundle, boolean z) {
             InterceptResult invokeCommon;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle, Boolean.valueOf(z)})) == null) {
                 if (AndroidLiveWallpaperService.DEBUG) {
@@ -392,7 +521,12 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     sb.append(" ");
                     sb.append(z);
                     sb.append("), linked: ");
-                    sb.append(this.o.linkedEngine == this);
+                    if (this.o.linkedEngine == this) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    sb.append(z2);
                     Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
                 }
                 if (str.equals("android.home.drop")) {
@@ -423,6 +557,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
 
         @Override // android.service.wallpaper.WallpaperService.Engine
         public void onCreate(SurfaceHolder surfaceHolder) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, surfaceHolder) == null) {
                 if (AndroidLiveWallpaperService.DEBUG) {
@@ -432,20 +567,17 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     sb.append(" running: ");
                     sb.append(this.o.engines);
                     sb.append(", linked: ");
-                    sb.append(this.o.linkedEngine == this);
+                    if (this.o.linkedEngine == this) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
                     sb.append(", thread: ");
                     sb.append(Thread.currentThread().toString());
                     Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
                 }
                 super.onCreate(surfaceHolder);
-            }
-        }
-
-        @Override // android.service.wallpaper.WallpaperService.Engine
-        public void onDestroy() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                super.onDestroy();
             }
         }
 
@@ -469,31 +601,8 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         }
 
         @Override // android.service.wallpaper.WallpaperService.Engine
-        public void onSurfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(1048588, this, surfaceHolder, i, i2, i3) == null) {
-                if (AndroidLiveWallpaperService.DEBUG) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(" > AndroidWallpaperEngine - onSurfaceChanged() isPreview: ");
-                    sb.append(isPreview());
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(hashCode());
-                    sb.append(", running: ");
-                    sb.append(this.o.engines);
-                    sb.append(", linked: ");
-                    sb.append(this.o.linkedEngine == this);
-                    sb.append(", sufcace valid: ");
-                    sb.append(getSurfaceHolder().getSurface().isValid());
-                    Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
-                }
-                Log.i(AndroidLiveWallpaperService.TAG, "engine surface changed");
-                super.onSurfaceChanged(surfaceHolder, i, i2, i3);
-                d(i, i2, i3, true);
-            }
-        }
-
-        @Override // android.service.wallpaper.WallpaperService.Engine
         public void onSurfaceCreated(SurfaceHolder surfaceHolder) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, surfaceHolder) == null) {
                 AndroidLiveWallpaperService androidLiveWallpaperService = this.o;
@@ -506,7 +615,12 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     sb.append(", running: ");
                     sb.append(this.o.engines);
                     sb.append(", linked: ");
-                    sb.append(this.o.linkedEngine == this);
+                    if (this.o.linkedEngine == this) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
                     Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
                 }
                 Log.i(AndroidLiveWallpaperService.TAG, "engine surface created");
@@ -543,75 +657,9 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 }
                 c();
                 b();
-                if (f1.b.d()) {
-                    return;
+                if (!f1.b.d()) {
+                    f1.b.c();
                 }
-                f1.b.c();
-            }
-        }
-
-        @Override // android.service.wallpaper.WallpaperService.Engine
-        public void onSurfaceDestroyed(SurfaceHolder surfaceHolder) {
-            SurfaceHolder.Callback callback;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, surfaceHolder) == null) {
-                this.o.engines--;
-                if (AndroidLiveWallpaperService.DEBUG) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(" > AndroidWallpaperEngine - onSurfaceDestroyed() ");
-                    sb.append(hashCode());
-                    sb.append(", running: ");
-                    sb.append(this.o.engines);
-                    sb.append(" ,linked: ");
-                    sb.append(this.o.linkedEngine == this);
-                    sb.append(", isVisible: ");
-                    sb.append(this.a);
-                    Log.d(AndroidLiveWallpaperService.TAG, sb.toString());
-                }
-                Log.i(AndroidLiveWallpaperService.TAG, "engine surface destroyed");
-                AndroidLiveWallpaperService androidLiveWallpaperService = this.o;
-                if (androidLiveWallpaperService.engines == 0) {
-                    androidLiveWallpaperService.onDeepPauseApplication();
-                }
-                if (this.o.linkedEngine == this && (callback = this.o.f1029view) != null) {
-                    callback.surfaceDestroyed(surfaceHolder);
-                }
-                this.b = 0;
-                this.c = 0;
-                this.d = 0;
-                AndroidLiveWallpaperService androidLiveWallpaperService2 = this.o;
-                if (androidLiveWallpaperService2.engines == 0) {
-                    androidLiveWallpaperService2.linkedEngine = null;
-                }
-                super.onSurfaceDestroyed(surfaceHolder);
-            }
-        }
-
-        @Override // android.service.wallpaper.WallpaperService.Engine
-        public void onTouchEvent(MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048591, this, motionEvent) == null) && this.o.linkedEngine == this) {
-                this.o.app.c.onTouch(null, motionEvent);
-            }
-        }
-
-        @Override // android.service.wallpaper.WallpaperService.Engine
-        public void onVisibilityChanged(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-                boolean isVisible = isVisible();
-                if (AndroidLiveWallpaperService.DEBUG) {
-                    Log.d(AndroidLiveWallpaperService.TAG, " > AndroidWallpaperEngine - onVisibilityChanged(paramVisible: " + z + " reportedVisible: " + isVisible + ") " + hashCode() + ", sufcace valid: " + getSurfaceHolder().getSurface().isValid());
-                }
-                super.onVisibilityChanged(z);
-                if (!isVisible && z) {
-                    if (AndroidLiveWallpaperService.DEBUG) {
-                        Log.d(AndroidLiveWallpaperService.TAG, " > fake visibilityChanged event! Android WallpaperService likes do that!");
-                        return;
-                    }
-                    return;
-                }
-                e(z);
             }
         }
     }
@@ -633,29 +681,6 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         DEBUG = false;
     }
 
-    public AndroidLiveWallpaperService() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.app = null;
-        this.f1029view = null;
-        this.engines = 0;
-        this.visibleEngines = 0;
-        this.linkedEngine = null;
-        this.isPreviewNotified = false;
-        this.notifiedPreviewState = false;
-        this.sync = new int[0];
-    }
-
     public void finalize() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -667,49 +692,19 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
     public u2 getLiveWallpaper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.app : (u2) invokeV.objValue;
-    }
-
-    public SurfaceHolder getSurfaceHolder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (DEBUG) {
-                Log.d(TAG, " > AndroidLiveWallpaperService - getSurfaceHolder()");
-            }
-            synchronized (this.sync) {
-                if (this.linkedEngine == null) {
-                    return null;
-                }
-                return this.linkedEngine.getSurfaceHolder();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.app;
         }
-        return (SurfaceHolder) invokeV.objValue;
+        return (u2) invokeV.objValue;
     }
 
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (WindowManager) getSystemService("window") : (WindowManager) invokeV.objValue;
-    }
-
-    public void initialize(c1 c1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c1Var) == null) {
-            initialize(c1Var, new i2());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (WindowManager) getSystemService("window");
         }
-    }
-
-    @Override // android.service.wallpaper.WallpaperService, android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (DEBUG) {
-                Log.d(TAG, " > AndroidLiveWallpaperService - onCreate() " + hashCode());
-            }
-            Log.i(TAG, "service created");
-            super.onCreate();
-        }
+        return (WindowManager) invokeV.objValue;
     }
 
     public void onCreateApplication() {
@@ -745,6 +740,58 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         }
     }
 
+    public AndroidLiveWallpaperService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.app = null;
+        this.f1029view = null;
+        this.engines = 0;
+        this.visibleEngines = 0;
+        this.linkedEngine = null;
+        this.isPreviewNotified = false;
+        this.notifiedPreviewState = false;
+        this.sync = new int[0];
+    }
+
+    public SurfaceHolder getSurfaceHolder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (DEBUG) {
+                Log.d(TAG, " > AndroidLiveWallpaperService - getSurfaceHolder()");
+            }
+            synchronized (this.sync) {
+                if (this.linkedEngine == null) {
+                    return null;
+                }
+                return this.linkedEngine.getSurfaceHolder();
+            }
+        }
+        return (SurfaceHolder) invokeV.objValue;
+    }
+
+    @Override // android.service.wallpaper.WallpaperService, android.app.Service
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (DEBUG) {
+                Log.d(TAG, " > AndroidLiveWallpaperService - onCreate() " + hashCode());
+            }
+            Log.i(TAG, "service created");
+            super.onCreate();
+        }
+    }
+
     @Override // android.service.wallpaper.WallpaperService, android.app.Service
     public void onDestroy() {
         Interceptable interceptable = $ic;
@@ -759,6 +806,13 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 this.app = null;
                 this.f1029view = null;
             }
+        }
+    }
+
+    public void initialize(c1 c1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c1Var) == null) {
+            initialize(c1Var, new i2());
         }
     }
 
@@ -778,10 +832,9 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 Log.d(TAG, " > AndroidLiveWallpaperService - initialize()");
             }
             this.app.g(c1Var, i2Var);
-            if (!i2Var.s || Integer.parseInt(Build.VERSION.SDK) < 7) {
-                return;
+            if (i2Var.s && Integer.parseInt(Build.VERSION.SDK) >= 7) {
+                this.linkedEngine.setTouchEventsEnabled(true);
             }
-            this.linkedEngine.setTouchEventsEnabled(true);
         }
     }
 }

@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
-import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.FullBox;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -42,6 +41,36 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
         LOG = Logger.getLogger(FullContainerBox.class.getName());
     }
 
+    @Override // com.coremedia.iso.boxes.FullBox
+    public int getFlags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.flags;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.coremedia.iso.boxes.FullBox
+    public int getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.version;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.googlecode.mp4parser.BasicContainer
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return String.valueOf(FullContainerBox.class.getSimpleName()) + "[childBoxes]";
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FullContainerBox(String str) {
         super(str);
@@ -63,17 +92,48 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer, com.coremedia.iso.boxes.Container
-    public <T extends Box> List<T> getBoxes(Class<T> cls) {
+    public List getBoxes(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? getBoxes(cls, false) : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            return getBoxes(cls, false);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final long parseVersionAndFlags(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, byteBuffer)) == null) {
+            this.version = IsoTypeReader.readUInt8(byteBuffer);
+            this.flags = IsoTypeReader.readUInt24(byteBuffer);
+            return 4L;
+        }
+        return invokeL.longValue;
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public int getFlags() {
-        InterceptResult invokeV;
+    public void setFlags(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.flags : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.flags = i;
+        }
+    }
+
+    @Override // com.coremedia.iso.boxes.FullBox
+    public void setVersion(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.version = i;
+        }
+    }
+
+    public final void writeVersionAndFlags(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, byteBuffer) == null) {
+            IsoTypeWriter.writeUInt8(byteBuffer, this.version);
+            IsoTypeWriter.writeUInt24(byteBuffer, this.flags);
+        }
     }
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox
@@ -110,13 +170,6 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
         return (ByteBuffer) invokeV.objValue;
     }
 
-    @Override // com.coremedia.iso.boxes.FullBox
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.version : invokeV.intValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
@@ -125,51 +178,6 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
             dataSource.read(allocate);
             parseVersionAndFlags((ByteBuffer) allocate.rewind());
             super.parse(dataSource, byteBuffer, j, boxParser);
-        }
-    }
-
-    public final long parseVersionAndFlags(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, byteBuffer)) == null) {
-            this.version = IsoTypeReader.readUInt8(byteBuffer);
-            this.flags = IsoTypeReader.readUInt24(byteBuffer);
-            return 4L;
-        }
-        return invokeL.longValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.FullBox
-    public void setFlags(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.flags = i;
-        }
-    }
-
-    @Override // com.coremedia.iso.boxes.FullBox
-    public void setVersion(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.version = i;
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.BasicContainer
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return String.valueOf(FullContainerBox.class.getSimpleName()) + "[childBoxes]";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void writeVersionAndFlags(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, byteBuffer) == null) {
-            IsoTypeWriter.writeUInt8(byteBuffer, this.version);
-            IsoTypeWriter.writeUInt24(byteBuffer, this.flags);
         }
     }
 }

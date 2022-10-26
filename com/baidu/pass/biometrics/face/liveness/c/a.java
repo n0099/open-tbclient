@@ -33,15 +33,23 @@ public class a {
         }
     }
 
-    public String a(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public static Bitmap a(Bitmap bitmap, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-            return Base64.encodeToString(byteArrayOutputStream.toByteArray(), 0);
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, bitmap, f)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+            Paint paint = new Paint();
+            Canvas canvas = new Canvas(createBitmap);
+            ColorMatrix colorMatrix = new ColorMatrix();
+            colorMatrix.setScale(f, f, f, 1.0f);
+            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+            canvas.drawBitmap(bitmap, new Matrix(), paint);
+            return createBitmap;
         }
-        return (String) invokeL.objValue;
+        return (Bitmap) invokeLF.objValue;
     }
 
     public static Bitmap a(String str) {
@@ -79,22 +87,14 @@ public class a {
         return (byte[]) invokeLI.objValue;
     }
 
-    public static Bitmap a(Bitmap bitmap, float f) {
-        InterceptResult invokeLF;
+    public String a(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, bitmap, f)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            Paint paint = new Paint();
-            Canvas canvas = new Canvas(createBitmap);
-            ColorMatrix colorMatrix = new ColorMatrix();
-            colorMatrix.setScale(f, f, f, 1.0f);
-            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-            canvas.drawBitmap(bitmap, new Matrix(), paint);
-            return createBitmap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            return Base64.encodeToString(byteArrayOutputStream.toByteArray(), 0);
         }
-        return (Bitmap) invokeLF.objValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -25,6 +25,85 @@ public class EditHeadsImageView extends DragImageView {
     public float z0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public EditHeadsImageView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.v0 = 0;
+        this.w0 = 0;
+        this.x0 = 0.42857143f;
+        this.y0 = 0;
+        this.z0 = 1.0f;
+        w0();
+    }
+
+    public Bitmap v0(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            Bitmap bitmap = null;
+            try {
+                Bitmap visableBitmap = getVisableBitmap();
+                if (visableBitmap != null) {
+                    Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.v0, getWidth(), (getHeight() - this.w0) - this.v0);
+                    if (z) {
+                        bitmap = Bitmap.createScaledBitmap(createBitmap, 960, 960, false);
+                    } else {
+                        bitmap = createBitmap;
+                    }
+                    if (bitmap != createBitmap) {
+                        createBitmap.recycle();
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeZ.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public EditHeadsImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.v0 = 0;
+        this.w0 = 0;
+        this.x0 = 0.42857143f;
+        this.y0 = 0;
+        this.z0 = 1.0f;
+        w0();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -62,6 +141,22 @@ public class EditHeadsImageView extends DragImageView {
         }
     }
 
+    public void setCutImageHeightScale(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.z0 = f;
+            invalidate();
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
+            super.setImageBitmap(bitmap);
+        }
+    }
+
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -81,44 +176,6 @@ public class EditHeadsImageView extends DragImageView {
         }
     }
 
-    public void setCutImageHeightScale(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            this.z0 = f;
-            invalidate();
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
-            super.setImageBitmap(bitmap);
-        }
-    }
-
-    public Bitmap v0(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            Bitmap bitmap = null;
-            try {
-                Bitmap visableBitmap = getVisableBitmap();
-                if (visableBitmap != null) {
-                    Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.v0, getWidth(), (getHeight() - this.w0) - this.v0);
-                    bitmap = z ? Bitmap.createScaledBitmap(createBitmap, 960, 960, false) : createBitmap;
-                    if (bitmap != createBitmap) {
-                        createBitmap.recycle();
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeZ.objValue;
-    }
-
     public final void w0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -127,58 +184,5 @@ public class EditHeadsImageView extends DragImageView {
             setImageMode(1);
             CompatibleUtile.getInstance().noneViewGpu(this);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadsImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.v0 = 0;
-        this.w0 = 0;
-        this.x0 = 0.42857143f;
-        this.y0 = 0;
-        this.z0 = 1.0f;
-        w0();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditHeadsImageView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.v0 = 0;
-        this.w0 = 0;
-        this.x0 = 0.42857143f;
-        this.y0 = 0;
-        this.z0 = 1.0f;
-        w0();
     }
 }

@@ -6,10 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.sm2;
+import com.baidu.tieba.tm2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,8 +22,17 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public static final String b;
     public static final Uri c;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public SQLiteDatabase a;
+
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +47,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 return;
             }
         }
-        b = sm2.c().getPackageName() + ".swan.subscribe_msg";
+        b = tm2.c().getPackageName() + ".swan.subscribe_msg";
         c = Uri.parse("content://" + b);
     }
 
@@ -62,23 +70,27 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
+                boolean z = false;
                 if (this.a != null) {
                     return false;
                 }
-                SQLiteOpenHelper h = SwanAppDbControl.f(sm2.c()).h();
-                if (h != null) {
-                    SQLiteDatabase writableDatabase = h.getWritableDatabase();
-                    this.a = writableDatabase;
-                    return writableDatabase == null;
+                SQLiteOpenHelper h = SwanAppDbControl.f(tm2.c()).h();
+                if (h == null) {
+                    return true;
                 }
-                return true;
+                SQLiteDatabase writableDatabase = h.getWritableDatabase();
+                this.a = writableDatabase;
+                if (writableDatabase == null) {
+                    z = true;
+                }
+                return z;
             }
         }
         return invokeV.booleanValue;
     }
 
     @Override // android.content.ContentProvider
-    public int delete(@Nullable Uri uri, @Nullable String str, @Nullable String[] strArr) {
+    public int delete(Uri uri, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
@@ -91,40 +103,30 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    @Nullable
-    public String getType(@Nullable Uri uri) {
+    public String getType(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) ? b : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+            return b;
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
-    @Nullable
-    public Uri insert(@Nullable Uri uri, @Nullable ContentValues contentValues) {
+    public Uri insert(Uri uri, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
-            if (!a() && this.a.insert("swanapp_subscribe_msg", null, contentValues) > 0) {
-                return uri;
+            if (a() || this.a.insert("swanapp_subscribe_msg", null, contentValues) <= 0) {
+                return null;
             }
-            return null;
+            return uri;
         }
         return (Uri) invokeLL.objValue;
     }
 
     @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.content.ContentProvider
-    @Nullable
-    public Cursor query(@Nullable Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
@@ -137,7 +139,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int update(@Nullable Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {

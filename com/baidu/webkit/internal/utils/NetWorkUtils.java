@@ -1,6 +1,5 @@
 package com.baidu.webkit.internal.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
@@ -116,7 +115,6 @@ public final class NetWorkUtils implements INoProGuard {
      */
     /* JADX WARN: Removed duplicated region for block: B:37:0x006a A[Catch: all -> 0x00b9, TRY_ENTER, TryCatch #1 {all -> 0x00b9, blocks: (B:37:0x006a, B:39:0x006d, B:41:0x0071, B:43:0x0077, B:47:0x0083, B:51:0x008c, B:53:0x0094, B:56:0x009d, B:58:0x00a5, B:59:0x00a8, B:61:0x00b0, B:62:0x00b3, B:63:0x00b6, B:49:0x0088), top: B:75:0x0068, inners: #0 }] */
     /* JADX WARN: Removed duplicated region for block: B:39:0x006d A[Catch: all -> 0x00b9, TryCatch #1 {all -> 0x00b9, blocks: (B:37:0x006a, B:39:0x006d, B:41:0x0071, B:43:0x0077, B:47:0x0083, B:51:0x008c, B:53:0x0094, B:56:0x009d, B:58:0x00a5, B:59:0x00a8, B:61:0x00b0, B:62:0x00b3, B:63:0x00b6, B:49:0x0088), top: B:75:0x0068, inners: #0 }] */
-    @SuppressLint({"HardwareIds"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

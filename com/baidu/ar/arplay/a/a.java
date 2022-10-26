@@ -33,24 +33,24 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
     public static a cL;
-    public static ConcurrentHashMap<String, C0048a> cO;
+    public static ConcurrentHashMap cO;
     public static HandlerThread cP;
     public static Handler cQ;
     public static b cR;
-    public static Map<String, Integer> cT;
+    public static Map cT;
     public static Timer cU;
     public static TimerTask cV;
     public static Runnable cW;
     public transient /* synthetic */ FieldHolder $fh;
     public int cM;
     public boolean cN;
-    public Map<String, Integer> cS;
+    public Map cS;
     public Handler.Callback cX;
     public Handler mHandler;
 
     /* renamed from: com.baidu.ar.arplay.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0048a {
+    public class C0048a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public MediaPlayer df;
@@ -320,11 +320,11 @@ public final class a {
         cT = new Hashtable();
     }
 
-    public static int a(Map<String, Integer> map, String str) {
+    public static int a(Map map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
-            Integer num = map.get(str);
+            Integer num = (Integer) map.get(str);
             if (num == null) {
                 return 0;
             }
@@ -445,7 +445,7 @@ public final class a {
                                     public void a(Exception exc) {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeL(1048576, this, exc) == null) {
-                                            this.dc.da.c(1010, (HashMap<String, Object>) null);
+                                            this.dc.da.c(1010, (HashMap) null);
                                         }
                                     }
 
@@ -680,7 +680,7 @@ public final class a {
         b(c0048a);
         a(c0048a.dg);
         com.baidu.ar.arplay.a.a.b bVar = c0048a.dg;
-        HashMap<String, Object> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         hashMap.put("id", Integer.valueOf((int) ARPMessageType.MSG_TYPE_AUDIO));
         HashMap hashMap2 = new HashMap();
         hashMap2.put("action_id", String.valueOf(bVar.dT));
@@ -745,7 +745,7 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeL(65547, null, bVar) == null) || bVar == null) {
             return;
         }
-        HashMap<String, Object> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         hashMap.put("id", String.valueOf(bVar.dT));
         hashMap.put("target", bVar.dU);
         HashMap hashMap2 = new HashMap();
@@ -902,19 +902,19 @@ public final class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            ConcurrentHashMap<String, C0048a> concurrentHashMap = cO;
+            ConcurrentHashMap concurrentHashMap = cO;
             if (concurrentHashMap == null || !concurrentHashMap.containsKey(str)) {
                 C0048a a = a(onCompletionListener, onErrorListener);
                 if (a == null) {
                     return null;
                 }
                 if (cO == null) {
-                    cO = new ConcurrentHashMap<>();
+                    cO = new ConcurrentHashMap();
                 }
                 cO.put(str, a);
                 return a;
             }
-            return cO.get(str);
+            return (C0048a) cO.get(str);
         }
         return (C0048a) invokeLLL.objValue;
     }
@@ -958,7 +958,7 @@ public final class a {
         }
     }
 
-    public void a(com.baidu.ar.arplay.a.a.a aVar, HashMap<String, Object> hashMap) {
+    public void a(com.baidu.ar.arplay.a.a.a aVar, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, aVar, hashMap) == null) {
             if (aVar.aN() > 1) {
@@ -1082,11 +1082,11 @@ public final class a {
                 cV.cancel();
                 cV = null;
             }
-            Map<String, Integer> map = cT;
+            Map map = cT;
             if (map != null) {
                 map.clear();
             }
-            ConcurrentHashMap<String, C0048a> concurrentHashMap = cO;
+            ConcurrentHashMap concurrentHashMap = cO;
             if (concurrentHashMap != null) {
                 try {
                     for (C0048a c0048a : concurrentHashMap.values()) {
@@ -1097,12 +1097,12 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                ConcurrentHashMap<String, C0048a> concurrentHashMap2 = cO;
+                ConcurrentHashMap concurrentHashMap2 = cO;
                 if (concurrentHashMap2 != null) {
                     concurrentHashMap2.clear();
                 }
             }
-            Map<String, Integer> map2 = this.cS;
+            Map map2 = this.cS;
             if (map2 != null) {
                 map2.clear();
             }
@@ -1150,7 +1150,7 @@ public final class a {
         }
     }
 
-    public void b(com.baidu.ar.arplay.a.a.a aVar, HashMap<String, Object> hashMap) {
+    public void b(com.baidu.ar.arplay.a.a.a aVar, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, aVar, hashMap) == null) {
             c(1004, hashMap);
@@ -1197,7 +1197,7 @@ public final class a {
         }
     }
 
-    public void c(int i, HashMap<String, Object> hashMap) {
+    public void c(int i, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048587, this, i, hashMap) == null) {
             ARPMessage.getInstance().sendMessage(i, hashMap);
@@ -1241,7 +1241,7 @@ public final class a {
         }
     }
 
-    public void c(com.baidu.ar.arplay.a.a.a aVar, HashMap<String, Object> hashMap) {
+    public void c(com.baidu.ar.arplay.a.a.a aVar, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, aVar, hashMap) == null) {
             c(1006, hashMap);
@@ -1367,7 +1367,7 @@ public final class a {
         }
     }
 
-    public void d(com.baidu.ar.arplay.a.a.a aVar, HashMap<String, Object> hashMap) {
+    public void d(com.baidu.ar.arplay.a.a.a aVar, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, aVar, hashMap) == null) {
             c(1008, hashMap);
@@ -1457,7 +1457,7 @@ public final class a {
         }
     }
 
-    public void e(com.baidu.ar.arplay.a.a.a aVar, HashMap<String, Object> hashMap) {
+    public void e(com.baidu.ar.arplay.a.a.a aVar, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, aVar, hashMap) == null) {
             c(1013, hashMap);
@@ -1510,7 +1510,7 @@ public final class a {
             b bVar = (b) ((Object[]) message.obj)[0];
             this.cN = false;
             this.cM = 0;
-            ConcurrentHashMap<String, C0048a> concurrentHashMap = cO;
+            ConcurrentHashMap concurrentHashMap = cO;
             if (concurrentHashMap != null) {
                 try {
                     for (C0048a c0048a : concurrentHashMap.values()) {
@@ -1536,7 +1536,7 @@ public final class a {
             if (cO == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return cO.get(str);
+            return (C0048a) cO.get(str);
         }
         return (C0048a) invokeL.objValue;
     }

@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public final class d extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Integer> bv;
+    public List bv;
     public final com.kwad.components.core.video.g mVideoPlayStateListener;
 
     public d() {
@@ -83,13 +83,13 @@ public final class d extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             int ceil = (int) Math.ceil(((float) j) / 1000.0f);
-            List<Integer> list = this.bv;
+            List list = this.bv;
             if (list == null || list.isEmpty()) {
                 return;
             }
-            Iterator<Integer> it = this.bv.iterator();
+            Iterator it = this.bv.iterator();
             while (it.hasNext()) {
-                if (ceil >= it.next().intValue()) {
+                if (ceil >= ((Integer) it.next()).intValue()) {
                     com.kwad.sdk.core.report.a.b(this.yF.mAdTemplate, ceil, (JSONObject) null);
                     it.remove();
                     return;

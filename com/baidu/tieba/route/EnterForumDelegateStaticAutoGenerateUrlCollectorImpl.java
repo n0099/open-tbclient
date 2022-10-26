@@ -30,7 +30,21 @@ public final class EnterForumDelegateStaticAutoGenerateUrlCollectorImpl implemen
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("ForumTestActivityConfig");
+            hashMap.put("com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -42,20 +56,6 @@ public final class EnterForumDelegateStaticAutoGenerateUrlCollectorImpl implemen
             hashMap.put("2001323", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic");
             hashMap.put("2016562", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic");
             hashMap.put("2016562", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("ForumTestActivityConfig");
-            hashMap.put("com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

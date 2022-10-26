@@ -11,7 +11,6 @@ import java.net.URI;
 import java.util.List;
 import java.util.Scanner;
 import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
 @Deprecated
 /* loaded from: classes8.dex */
 public class URLEncodedUtils {
@@ -35,13 +34,22 @@ public class URLEncodedUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static String format(List<? extends NameValuePair> list, String str) {
+    public static String format(List list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, str)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static List parse(URI uri, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (List) invokeLL.objValue;
     }
 
     public static boolean isEncoded(HttpEntity httpEntity) {
@@ -53,16 +61,7 @@ public class URLEncodedUtils {
         return invokeL.booleanValue;
     }
 
-    public static List<NameValuePair> parse(URI uri, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static List<NameValuePair> parse(HttpEntity httpEntity) throws IOException {
+    public static List parse(HttpEntity httpEntity) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpEntity)) == null) {
@@ -71,7 +70,7 @@ public class URLEncodedUtils {
         return (List) invokeL.objValue;
     }
 
-    public static void parse(List<NameValuePair> list, Scanner scanner, String str) {
+    public static void parse(List list, Scanner scanner, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, list, scanner, str) == null) {
             throw new RuntimeException("Stub!");

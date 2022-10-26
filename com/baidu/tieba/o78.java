@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o78 extends qn<y88, CardViewHolder<z98>> {
+public class o78 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public TbPageContext a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o78(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), y88.c);
+    public o78(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), z88.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,23 +42,26 @@ public class o78 extends qn<y88, CardViewHolder<z98>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.rn
     /* renamed from: s */
-    public CardViewHolder<z98> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new z98(this.a)) : (CardViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder(new ca8(this.a));
+        }
+        return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.rn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, y88 y88Var, CardViewHolder<z98> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z88 z88Var, CardViewHolder cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y88Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(y88Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z88Var, cardViewHolder})) == null) {
+            ((ca8) cardViewHolder.a()).m(this.a, TbadkCoreApplication.getInst().getSkinType());
+            ((ca8) cardViewHolder.a()).l(z88Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

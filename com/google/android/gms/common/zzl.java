@@ -5,8 +5,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.gms.common.util.VisibleForTesting;
-@VisibleForTesting
 /* loaded from: classes7.dex */
 public final class zzl {
     public static /* synthetic */ Interceptable $ic;

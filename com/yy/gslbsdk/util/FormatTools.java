@@ -1,6 +1,5 @@
 package com.yy.gslbsdk.util;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,9 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-@SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes8.dex */
 public class FormatTools {
     public static /* synthetic */ Interceptable $ic = null;
@@ -70,37 +67,18 @@ public class FormatTools {
         }
     }
 
-    public static boolean containInList(List<?> list, Object obj) {
+    public static boolean containInList(List list, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, obj)) == null) {
-            Iterator<?> it = list.iterator();
-            while (it.hasNext()) {
-                if (it.next().equals(obj)) {
+            for (Object obj2 : list) {
+                if (obj2.equals(obj)) {
                     return true;
                 }
             }
             return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static int daysOfTwo(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            try {
-                Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                calendar.setTime(simpleDateFormat.parse(str + " 00:00:00"));
-                int i = calendar.get(6);
-                calendar.setTime(simpleDateFormat.parse(str2 + " 00:00:00"));
-                return calendar.get(6) - i;
-            } catch (Exception unused) {
-                return 0;
-            }
-        }
-        return invokeLL.intValue;
     }
 
     public static String getDateStr(SimpleDateFormat simpleDateFormat, long j) {
@@ -132,6 +110,24 @@ public class FormatTools {
             }
         }
         return invokeLL.longValue;
+    }
+
+    public static int daysOfTwo(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            try {
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                calendar.setTime(simpleDateFormat.parse(str + " 00:00:00"));
+                int i = calendar.get(6);
+                calendar.setTime(simpleDateFormat.parse(str2 + " 00:00:00"));
+                return calendar.get(6) - i;
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeLL.intValue;
     }
 
     public static String getDayBeginFromOne(SimpleDateFormat simpleDateFormat, String str, int i) {

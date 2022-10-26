@@ -55,6 +55,20 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
         }
     }
 
+    @Override // com.baidu.searchbox.player.element.IElement
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ImageView imageView = this.playBtn;
+            if (imageView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("playBtn");
+            }
+            return imageView;
+        }
+        return (View) invokeV.objValue;
+    }
+
     private final void setPlayIcon(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, this, z) == null) {
@@ -74,6 +88,21 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
         }
     }
 
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            BDVideoPlayer videoPlayer = getVideoPlayer();
+            if (videoPlayer.isPlaying()) {
+                videoPlayer.pause(1);
+            } else if (videoPlayer.isPause()) {
+                videoPlayer.resume();
+            } else {
+                videoPlayer.start();
+            }
+        }
+    }
+
     public static /* synthetic */ void setPlayIcon$default(PlayButtonElement playButtonElement, boolean z, int i, Object obj) {
         if (obj == null) {
             if ((i & 1) != 0) {
@@ -83,20 +112,6 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
             return;
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: setPlayIcon");
-    }
-
-    @Override // com.baidu.searchbox.player.element.IElement
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ImageView imageView = this.playBtn;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("playBtn");
-            }
-            return imageView;
-        }
-        return (View) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement
@@ -111,21 +126,6 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
             int dp2px = BdPlayerUtils.dp2px(imageView, 42.0f);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(dp2px, dp2px));
             imageView.setOnClickListener(this);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            BDVideoPlayer videoPlayer = getVideoPlayer();
-            if (videoPlayer.isPlaying()) {
-                videoPlayer.pause(1);
-            } else if (videoPlayer.isPause()) {
-                videoPlayer.resume();
-            } else {
-                videoPlayer.start();
-            }
         }
     }
 
@@ -159,20 +159,20 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
                 case 1370689931:
                     if (action.equals(PlayerEvent.ACTION_ON_INFO)) {
                         int intExtra = event.getIntExtra(1);
-                        if (intExtra == 904 || intExtra == 956) {
-                            setPlayIcon(true);
-                            return;
-                        } else if (702 == intExtra) {
-                            BDVideoPlayer videoPlayer2 = getVideoPlayer();
-                            Intrinsics.checkNotNullExpressionValue(videoPlayer2, "videoPlayer");
-                            if (videoPlayer2.isPlaying()) {
-                                setPlayIcon(true);
+                        if (intExtra != 904 && intExtra != 956) {
+                            if (702 == intExtra) {
+                                BDVideoPlayer videoPlayer2 = getVideoPlayer();
+                                Intrinsics.checkNotNullExpressionValue(videoPlayer2, "videoPlayer");
+                                if (videoPlayer2.isPlaying()) {
+                                    setPlayIcon(true);
+                                    return;
+                                }
                                 return;
                             }
                             return;
-                        } else {
-                            return;
                         }
+                        setPlayIcon(true);
+                        return;
                     }
                     return;
                 default:

@@ -26,8 +26,18 @@ public class WorksInfoData implements Serializable, Parcelable {
     public boolean isWorks;
     public List<RecommendTopicData.RecommendTopicListData> topicListData;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes5.dex */
-    public static class a implements Parcelable.Creator<WorksInfoData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +61,10 @@ public class WorksInfoData implements Serializable, Parcelable {
         public WorksInfoData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new WorksInfoData(parcel) : (WorksInfoData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new WorksInfoData(parcel);
+            }
+            return (WorksInfoData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +73,10 @@ public class WorksInfoData implements Serializable, Parcelable {
         public WorksInfoData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new WorksInfoData[i] : (WorksInfoData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new WorksInfoData[i];
+            }
+            return (WorksInfoData[]) invokeI.objValue;
         }
     }
 
@@ -94,22 +110,43 @@ public class WorksInfoData implements Serializable, Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public WorksInfoData(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isWorks = z;
+        ArrayList arrayList = new ArrayList();
+        this.topicListData = arrayList;
+        parcel.readList(arrayList, RecommendTopicData.RecommendTopicListData.class.getClassLoader());
     }
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.isWorks = jSONObject.optInt("is_works") == 1;
+        boolean z = true;
+        if (jSONObject.optInt("is_works") != 1) {
+            z = false;
+        }
+        this.isWorks = z;
         JSONArray optJSONArray = jSONObject.optJSONArray("topic_list");
         if (optJSONArray != null) {
             this.topicListData = new ArrayList();
@@ -123,10 +160,14 @@ public class WorksInfoData implements Serializable, Parcelable {
 
     public void parseProto(WorksInfo worksInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, worksInfo) == null) || worksInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, worksInfo) != null) || worksInfo == null) {
             return;
         }
-        this.isWorks = worksInfo.is_works.intValue() == 1;
+        boolean z = true;
+        if (worksInfo.is_works.intValue() != 1) {
+            z = false;
+        }
+        this.isWorks = z;
         if (worksInfo.topic_list != null) {
             this.topicListData = new ArrayList();
             for (RecomTopicList recomTopicList : worksInfo.topic_list) {
@@ -144,26 +185,5 @@ public class WorksInfoData implements Serializable, Parcelable {
             parcel.writeByte(this.isWorks ? (byte) 1 : (byte) 0);
             parcel.writeList(this.topicListData);
         }
-    }
-
-    public WorksInfoData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.isWorks = parcel.readByte() != 0;
-        ArrayList arrayList = new ArrayList();
-        this.topicListData = arrayList;
-        parcel.readList(arrayList, RecommendTopicData.RecommendTopicListData.class.getClassLoader());
     }
 }

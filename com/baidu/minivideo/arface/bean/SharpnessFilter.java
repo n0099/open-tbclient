@@ -61,26 +61,38 @@ public final class SharpnessFilter implements FilterParam {
     public static SharpnessFilter valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SharpnessFilter) Enum.valueOf(SharpnessFilter.class, str) : (SharpnessFilter) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (SharpnessFilter) Enum.valueOf(SharpnessFilter.class, str);
+        }
+        return (SharpnessFilter) invokeL.objValue;
     }
 
     public static SharpnessFilter[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SharpnessFilter[]) $VALUES.clone() : (SharpnessFilter[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (SharpnessFilter[]) $VALUES.clone();
+        }
+        return (SharpnessFilter[]) invokeV.objValue;
     }
 
     @Override // com.baidu.ar.filter.FilterParam
     public FilterNode getFilterNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FilterNode.skinFilter : (FilterNode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return FilterNode.skinFilter;
+        }
+        return (FilterNode) invokeV.objValue;
     }
 
     @Override // com.baidu.ar.filter.FilterParam
     public String getParamName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mParamName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mParamName;
+        }
+        return (String) invokeV.objValue;
     }
 }

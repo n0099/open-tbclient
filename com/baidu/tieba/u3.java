@@ -14,28 +14,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
-public final class u3 implements Iterable<t3>, Comparable<u3> {
+public final class u3 implements Iterable, Comparable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final t3[] a;
     public final int b;
     public long c;
-    public a<t3> d;
+    public a d;
 
     /* loaded from: classes6.dex */
-    public static class a<T> implements Iterable<T> {
+    public class a implements Iterable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final T[] a;
+        public final Object[] a;
         public b b;
         public b c;
 
-        public a(T[] tArr) {
+        public a(Object[] objArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tArr};
+                Object[] objArr2 = {objArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,11 +45,11 @@ public final class u3 implements Iterable<t3>, Comparable<u3> {
                     return;
                 }
             }
-            this.a = tArr;
+            this.a = objArr;
         }
 
         @Override // java.lang.Iterable
-        public Iterator<T> iterator() {
+        public Iterator iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -78,19 +78,26 @@ public final class u3 implements Iterable<t3>, Comparable<u3> {
     }
 
     /* loaded from: classes6.dex */
-    public static class b<T> implements Iterator<T>, Iterable<T> {
+    public class b implements Iterator, Iterable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final T[] a;
+        public final Object[] a;
         public int b;
         public boolean c;
 
-        public b(T[] tArr) {
+        @Override // java.lang.Iterable
+        public Iterator iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (Iterator) invokeV.objValue;
+        }
+
+        public b(Object[] objArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tArr};
+                Object[] objArr2 = {objArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -101,7 +108,7 @@ public final class u3 implements Iterable<t3>, Comparable<u3> {
                 }
             }
             this.c = true;
-            this.a = tArr;
+            this.a = objArr;
         }
 
         @Override // java.util.Iterator
@@ -110,37 +117,14 @@ public final class u3 implements Iterable<t3>, Comparable<u3> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.c) {
-                    return this.b < this.a.length;
+                    if (this.b < this.a.length) {
+                        return true;
+                    }
+                    return false;
                 }
                 throw new GdxRuntimeException("#iterator() cannot be used nested.");
             }
             return invokeV.booleanValue;
-        }
-
-        @Override // java.lang.Iterable
-        public Iterator<T> iterator() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (Iterator) invokeV.objValue;
-        }
-
-        @Override // java.util.Iterator
-        public T next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.b;
-                T[] tArr = this.a;
-                if (i < tArr.length) {
-                    if (this.c) {
-                        this.b = i + 1;
-                        return tArr[i];
-                    }
-                    throw new GdxRuntimeException("#iterator() cannot be used nested.");
-                }
-                throw new NoSuchElementException(String.valueOf(this.b));
-            }
-            return (T) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
@@ -149,6 +133,25 @@ public final class u3 implements Iterable<t3>, Comparable<u3> {
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 throw new GdxRuntimeException("Remove not allowed.");
             }
+        }
+
+        @Override // java.util.Iterator
+        public Object next() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                int i = this.b;
+                Object[] objArr = this.a;
+                if (i < objArr.length) {
+                    if (this.c) {
+                        this.b = i + 1;
+                        return objArr[i];
+                    }
+                    throw new GdxRuntimeException("#iterator() cannot be used nested.");
+                }
+                throw new NoSuchElementException(String.valueOf(this.b));
+            }
+            return invokeV.objValue;
         }
     }
 
@@ -183,77 +186,23 @@ public final class u3 implements Iterable<t3>, Comparable<u3> {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = 0;
+            int i2 = 0;
+            while (true) {
+                t3[] t3VarArr = this.a;
+                if (i < t3VarArr.length) {
+                    t3 t3Var = t3VarArr[i];
+                    t3Var.e = i2;
+                    i2 += t3Var.k();
+                    i++;
+                } else {
+                    return i2;
+                }
+            }
+        } else {
             return invokeV.intValue;
         }
-        int i = 0;
-        int i2 = 0;
-        while (true) {
-            t3[] t3VarArr = this.a;
-            if (i >= t3VarArr.length) {
-                return i2;
-            }
-            t3 t3Var = t3VarArr[i];
-            t3Var.e = i2;
-            i2 += t3Var.k();
-            i++;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: b */
-    public int compareTo(u3 u3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u3Var)) == null) {
-            t3[] t3VarArr = this.a;
-            int length = t3VarArr.length;
-            t3[] t3VarArr2 = u3Var.a;
-            if (length != t3VarArr2.length) {
-                return t3VarArr.length - t3VarArr2.length;
-            }
-            int i = (d() > u3Var.d() ? 1 : (d() == u3Var.d() ? 0 : -1));
-            if (i != 0) {
-                return i < 0 ? -1 : 1;
-            }
-            for (int length2 = this.a.length - 1; length2 >= 0; length2--) {
-                t3 t3Var = this.a[length2];
-                t3 t3Var2 = u3Var.a[length2];
-                int i2 = t3Var.a;
-                int i3 = t3Var2.a;
-                if (i2 != i3) {
-                    return i2 - i3;
-                }
-                int i4 = t3Var.g;
-                int i5 = t3Var2.g;
-                if (i4 != i5) {
-                    return i4 - i5;
-                }
-                int i6 = t3Var.b;
-                int i7 = t3Var2.b;
-                if (i6 != i7) {
-                    return i6 - i7;
-                }
-                boolean z = t3Var.c;
-                if (z != t3Var2.c) {
-                    return z ? 1 : -1;
-                }
-                int i8 = t3Var.d;
-                int i9 = t3Var2.d;
-                if (i8 != i9) {
-                    return i8 - i9;
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public t3 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a[i] : (t3) invokeI.objValue;
     }
 
     public long d() {
@@ -278,60 +227,13 @@ public final class u3 implements Iterable<t3>, Comparable<u3> {
         return invokeV.longValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, obj)) != null) {
-            return invokeL.booleanValue;
-        }
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof u3)) {
-            return false;
-        }
-        u3 u3Var = (u3) obj;
-        if (this.a.length != u3Var.a.length) {
-            return false;
-        }
-        int i = 0;
-        while (true) {
-            t3[] t3VarArr = this.a;
-            if (i >= t3VarArr.length) {
-                return true;
-            }
-            if (!t3VarArr[i].i(u3Var.a[i])) {
-                return false;
-            }
-            i++;
-        }
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        t3[] t3VarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048582, this)) != null) {
-            return invokeV.intValue;
-        }
-        long length = this.a.length * 61;
-        int i = 0;
-        while (true) {
-            if (i >= this.a.length) {
-                return (int) (length ^ (length >> 32));
-            }
-            length = (length * 61) + t3VarArr[i].hashCode();
-            i++;
-        }
-    }
-
     @Override // java.lang.Iterable
-    public Iterator<t3> iterator() {
+    public Iterator iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.d == null) {
-                this.d = new a<>(this.a);
+                this.d = new a(this.a);
             }
             return this.d.iterator();
         }
@@ -341,7 +243,125 @@ public final class u3 implements Iterable<t3>, Comparable<u3> {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.length : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.length;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: b */
+    public int compareTo(u3 u3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u3Var)) == null) {
+            t3[] t3VarArr = this.a;
+            int length = t3VarArr.length;
+            t3[] t3VarArr2 = u3Var.a;
+            if (length != t3VarArr2.length) {
+                return t3VarArr.length - t3VarArr2.length;
+            }
+            int i = (d() > u3Var.d() ? 1 : (d() == u3Var.d() ? 0 : -1));
+            if (i != 0) {
+                if (i < 0) {
+                    return -1;
+                }
+                return 1;
+            }
+            for (int length2 = this.a.length - 1; length2 >= 0; length2--) {
+                t3 t3Var = this.a[length2];
+                t3 t3Var2 = u3Var.a[length2];
+                int i2 = t3Var.a;
+                int i3 = t3Var2.a;
+                if (i2 != i3) {
+                    return i2 - i3;
+                }
+                int i4 = t3Var.g;
+                int i5 = t3Var2.g;
+                if (i4 != i5) {
+                    return i4 - i5;
+                }
+                int i6 = t3Var.b;
+                int i7 = t3Var2.b;
+                if (i6 != i7) {
+                    return i6 - i7;
+                }
+                boolean z = t3Var.c;
+                if (z != t3Var2.c) {
+                    if (!z) {
+                        return -1;
+                    }
+                    return 1;
+                }
+                int i8 = t3Var.d;
+                int i9 = t3Var2.d;
+                if (i8 != i9) {
+                    return i8 - i9;
+                }
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public t3 c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.a[i];
+        }
+        return (t3) invokeI.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof u3)) {
+                return false;
+            }
+            u3 u3Var = (u3) obj;
+            if (this.a.length != u3Var.a.length) {
+                return false;
+            }
+            int i = 0;
+            while (true) {
+                t3[] t3VarArr = this.a;
+                if (i >= t3VarArr.length) {
+                    return true;
+                }
+                if (!t3VarArr[i].i(u3Var.a[i])) {
+                    return false;
+                }
+                i++;
+            }
+        } else {
+            return invokeL.booleanValue;
+        }
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        t3[] t3VarArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            long length = this.a.length * 61;
+            int i = 0;
+            while (true) {
+                if (i < this.a.length) {
+                    length = (length * 61) + t3VarArr[i].hashCode();
+                    i++;
+                } else {
+                    return (int) (length ^ (length >> 32));
+                }
+            }
+        } else {
+            return invokeV.intValue;
+        }
     }
 
     public String toString() {

@@ -36,72 +36,6 @@ public final class FpsFloatView extends LinearLayout {
     public TextView levelNormalsView;
     public TextView topPageView;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FpsFloatView(Context context) {
-        this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-    }
-
-    private final void initView(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            View.inflate(context, R.layout.obfuscated_res_0x7f0d02d2, this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0905ff);
-            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.chart)");
-            this.chartView = (LineChartView) findViewById;
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090ac9);
-            Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.fps_view)");
-            this.fpsView = (TextView) findViewById2;
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0912e4);
-            Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.level_frozen)");
-            this.levelFrozenView = (TextView) findViewById3;
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0912e6);
-            Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.level_high)");
-            this.levelHighView = (TextView) findViewById4;
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f0912e8);
-            Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.level_middle)");
-            this.levelMiddleView = (TextView) findViewById5;
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0912ed);
-            Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.level_normal)");
-            this.levelNormalView = (TextView) findViewById6;
-            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f0912e5);
-            Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.level_frozens)");
-            this.levelFrozensView = (TextView) findViewById7;
-            View findViewById8 = findViewById(R.id.obfuscated_res_0x7f0912e7);
-            Intrinsics.checkNotNullExpressionValue(findViewById8, "findViewById(R.id.level_highs)");
-            this.levelHighsView = (TextView) findViewById8;
-            View findViewById9 = findViewById(R.id.obfuscated_res_0x7f0912e9);
-            Intrinsics.checkNotNullExpressionValue(findViewById9, "findViewById(R.id.level_middles)");
-            this.levelMiddlesView = (TextView) findViewById9;
-            View findViewById10 = findViewById(R.id.obfuscated_res_0x7f0912ee);
-            Intrinsics.checkNotNullExpressionValue(findViewById10, "findViewById(R.id.level_normals)");
-            this.levelNormalsView = (TextView) findViewById10;
-            View findViewById11 = findViewById(R.id.obfuscated_res_0x7f09085e);
-            Intrinsics.checkNotNullExpressionValue(findViewById11, "findViewById(R.id.drop_expect)");
-            this.dropExpectView = (TextView) findViewById11;
-            View findViewById12 = findViewById(R.id.obfuscated_res_0x7f0922b0);
-            Intrinsics.checkNotNullExpressionValue(findViewById12, "findViewById(R.id.top_page)");
-            this.topPageView = (TextView) findViewById12;
-        }
-    }
-
     public void _$_clearFindViewByIdCache() {
         HashMap hashMap;
         Interceptable interceptable = $ic;
@@ -127,6 +61,117 @@ public final class FpsFloatView extends LinearLayout {
             return view2;
         }
         return (View) invokeI.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public FpsFloatView(Context context) {
+        this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public FpsFloatView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FpsFloatView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        initView(context);
+    }
+
+    private final void initView(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            View.inflate(context, R.layout.obfuscated_res_0x7f0d02d1, this);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090608);
+            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.chart)");
+            this.chartView = (LineChartView) findViewById;
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090ad3);
+            Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.fps_view)");
+            this.fpsView = (TextView) findViewById2;
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0912d8);
+            Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.level_frozen)");
+            this.levelFrozenView = (TextView) findViewById3;
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0912da);
+            Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.level_high)");
+            this.levelHighView = (TextView) findViewById4;
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f0912dc);
+            Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.level_middle)");
+            this.levelMiddleView = (TextView) findViewById5;
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0912e1);
+            Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.level_normal)");
+            this.levelNormalView = (TextView) findViewById6;
+            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f0912d9);
+            Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.level_frozens)");
+            this.levelFrozensView = (TextView) findViewById7;
+            View findViewById8 = findViewById(R.id.obfuscated_res_0x7f0912db);
+            Intrinsics.checkNotNullExpressionValue(findViewById8, "findViewById(R.id.level_highs)");
+            this.levelHighsView = (TextView) findViewById8;
+            View findViewById9 = findViewById(R.id.obfuscated_res_0x7f0912dd);
+            Intrinsics.checkNotNullExpressionValue(findViewById9, "findViewById(R.id.level_middles)");
+            this.levelMiddlesView = (TextView) findViewById9;
+            View findViewById10 = findViewById(R.id.obfuscated_res_0x7f0912e2);
+            Intrinsics.checkNotNullExpressionValue(findViewById10, "findViewById(R.id.level_normals)");
+            this.levelNormalsView = (TextView) findViewById10;
+            View findViewById11 = findViewById(R.id.obfuscated_res_0x7f090867);
+            Intrinsics.checkNotNullExpressionValue(findViewById11, "findViewById(R.id.drop_expect)");
+            this.dropExpectView = (TextView) findViewById11;
+            View findViewById12 = findViewById(R.id.obfuscated_res_0x7f09229a);
+            Intrinsics.checkNotNullExpressionValue(findViewById12, "findViewById(R.id.top_page)");
+            this.topPageView = (TextView) findViewById12;
+        }
     }
 
     public final LineChartView getChartView() {
@@ -379,50 +424,5 @@ public final class FpsFloatView extends LinearLayout {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
             this.topPageView = textView;
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FpsFloatView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FpsFloatView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        initView(context);
     }
 }

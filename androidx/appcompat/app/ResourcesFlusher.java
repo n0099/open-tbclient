@@ -4,8 +4,6 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.util.Log;
 import android.util.LongSparseArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,10 +39,10 @@ public class ResourcesFlusher {
         }
     }
 
-    public static void flush(@NonNull Resources resources) {
+    public static void flush(Resources resources) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, resources) == null) || (i = Build.VERSION.SDK_INT) >= 28) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, resources) != null) || (i = Build.VERSION.SDK_INT) >= 28) {
             return;
         }
         if (i >= 24) {
@@ -56,8 +54,7 @@ public class ResourcesFlusher {
         }
     }
 
-    @RequiresApi(21)
-    public static void flushLollipops(@NonNull Resources resources) {
+    public static void flushLollipops(Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, resources) == null) {
             if (!sDrawableCacheFieldFetched) {
@@ -85,8 +82,48 @@ public class ResourcesFlusher {
         }
     }
 
-    @RequiresApi(23)
-    public static void flushMarshmallows(@NonNull Resources resources) {
+    public static void flushThemedResourcesCache(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
+            if (!sThemedResourceCacheClazzFetched) {
+                try {
+                    sThemedResourceCacheClazz = Class.forName("android.content.res.ThemedResourceCache");
+                } catch (ClassNotFoundException e) {
+                    Log.e(TAG, "Could not find ThemedResourceCache class", e);
+                }
+                sThemedResourceCacheClazzFetched = true;
+            }
+            Class<?> cls = sThemedResourceCacheClazz;
+            if (cls == null) {
+                return;
+            }
+            if (!sThemedResourceCache_mUnthemedEntriesFieldFetched) {
+                try {
+                    Field declaredField = cls.getDeclaredField("mUnthemedEntries");
+                    sThemedResourceCache_mUnthemedEntriesField = declaredField;
+                    declaredField.setAccessible(true);
+                } catch (NoSuchFieldException e2) {
+                    Log.e(TAG, "Could not retrieve ThemedResourceCache#mUnthemedEntries field", e2);
+                }
+                sThemedResourceCache_mUnthemedEntriesFieldFetched = true;
+            }
+            Field field = sThemedResourceCache_mUnthemedEntriesField;
+            if (field == null) {
+                return;
+            }
+            LongSparseArray longSparseArray = null;
+            try {
+                longSparseArray = (LongSparseArray) field.get(obj);
+            } catch (IllegalAccessException e3) {
+                Log.e(TAG, "Could not retrieve value from ThemedResourceCache#mUnthemedEntries", e3);
+            }
+            if (longSparseArray != null) {
+                longSparseArray.clear();
+            }
+        }
+    }
+
+    public static void flushMarshmallows(Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, resources) == null) {
             if (!sDrawableCacheFieldFetched) {
@@ -115,8 +152,7 @@ public class ResourcesFlusher {
         }
     }
 
-    @RequiresApi(24)
-    public static void flushNougats(@NonNull Resources resources) {
+    public static void flushNougats(Resources resources) {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources) == null) {
@@ -164,48 +200,6 @@ public class ResourcesFlusher {
             }
             if (obj2 != null) {
                 flushThemedResourcesCache(obj2);
-            }
-        }
-    }
-
-    @RequiresApi(16)
-    public static void flushThemedResourcesCache(@NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
-            if (!sThemedResourceCacheClazzFetched) {
-                try {
-                    sThemedResourceCacheClazz = Class.forName("android.content.res.ThemedResourceCache");
-                } catch (ClassNotFoundException e) {
-                    Log.e(TAG, "Could not find ThemedResourceCache class", e);
-                }
-                sThemedResourceCacheClazzFetched = true;
-            }
-            Class<?> cls = sThemedResourceCacheClazz;
-            if (cls == null) {
-                return;
-            }
-            if (!sThemedResourceCache_mUnthemedEntriesFieldFetched) {
-                try {
-                    Field declaredField = cls.getDeclaredField("mUnthemedEntries");
-                    sThemedResourceCache_mUnthemedEntriesField = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e2) {
-                    Log.e(TAG, "Could not retrieve ThemedResourceCache#mUnthemedEntries field", e2);
-                }
-                sThemedResourceCache_mUnthemedEntriesFieldFetched = true;
-            }
-            Field field = sThemedResourceCache_mUnthemedEntriesField;
-            if (field == null) {
-                return;
-            }
-            LongSparseArray longSparseArray = null;
-            try {
-                longSparseArray = (LongSparseArray) field.get(obj);
-            } catch (IllegalAccessException e3) {
-                Log.e(TAG, "Could not retrieve value from ThemedResourceCache#mUnthemedEntries", e3);
-            }
-            if (longSparseArray != null) {
-                longSparseArray.clear();
             }
         }
     }

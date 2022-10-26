@@ -48,6 +48,51 @@ public interface FileSystem {
         }
 
         @Override // okhttp3.internal.io.FileSystem
+        public boolean exists(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, file)) == null) {
+                return file.exists();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // okhttp3.internal.io.FileSystem
+        public Sink sink(File file) throws FileNotFoundException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, file)) == null) {
+                try {
+                    return Okio.sink(file);
+                } catch (FileNotFoundException unused) {
+                    file.getParentFile().mkdirs();
+                    return Okio.sink(file);
+                }
+            }
+            return (Sink) invokeL.objValue;
+        }
+
+        @Override // okhttp3.internal.io.FileSystem
+        public long size(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, file)) == null) {
+                return file.length();
+            }
+            return invokeL.longValue;
+        }
+
+        @Override // okhttp3.internal.io.FileSystem
+        public Source source(File file) throws FileNotFoundException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
+                return Okio.source(file);
+            }
+            return (Source) invokeL.objValue;
+        }
+
+        @Override // okhttp3.internal.io.FileSystem
         public void delete(File file) throws IOException {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && !file.delete() && file.exists()) {
@@ -76,13 +121,6 @@ public interface FileSystem {
         }
 
         @Override // okhttp3.internal.io.FileSystem
-        public boolean exists(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, file)) == null) ? file.exists() : invokeL.booleanValue;
-        }
-
-        @Override // okhttp3.internal.io.FileSystem
         public void rename(File file, File file2) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, file, file2) == null) {
@@ -92,35 +130,6 @@ public interface FileSystem {
                 }
                 throw new IOException("failed to rename " + file + " to " + file2);
             }
-        }
-
-        @Override // okhttp3.internal.io.FileSystem
-        public Sink sink(File file) throws FileNotFoundException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, file)) == null) {
-                try {
-                    return Okio.sink(file);
-                } catch (FileNotFoundException unused) {
-                    file.getParentFile().mkdirs();
-                    return Okio.sink(file);
-                }
-            }
-            return (Sink) invokeL.objValue;
-        }
-
-        @Override // okhttp3.internal.io.FileSystem
-        public long size(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, file)) == null) ? file.length() : invokeL.longValue;
-        }
-
-        @Override // okhttp3.internal.io.FileSystem
-        public Source source(File file) throws FileNotFoundException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) ? Okio.source(file) : (Source) invokeL.objValue;
         }
     };
 

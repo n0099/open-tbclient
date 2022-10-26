@@ -3,7 +3,6 @@ package com.kwad.components.ad.interstitial.widget;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -11,8 +10,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -70,7 +67,7 @@ public class ViewPagerIndicator extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ViewPagerIndicator(Context context, @Nullable AttributeSet attributeSet) {
+    public ViewPagerIndicator(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,7 +88,7 @@ public class ViewPagerIndicator extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewPagerIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ViewPagerIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -115,7 +112,6 @@ public class ViewPagerIndicator extends View {
         eh();
     }
 
-    @SuppressLint({"CustomViewStyleable"})
     private void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65542, this, context, attributeSet, i) == null) {
@@ -299,7 +295,6 @@ public class ViewPagerIndicator extends View {
         }
     }
 
-    @RequiresApi(api = 19)
     public final void ej() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
@@ -309,7 +304,6 @@ public class ViewPagerIndicator extends View {
         valueAnimator.pause();
     }
 
-    @RequiresApi(api = 19)
     public final void ek() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;

@@ -51,26 +51,39 @@ public final class ExoPlaybackException extends Exception {
     public static ExoPlaybackException createForRenderer(Exception exc, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, exc, i)) == null) ? new ExoPlaybackException(1, null, exc, i) : (ExoPlaybackException) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, exc, i)) == null) {
+            return new ExoPlaybackException(1, null, exc, i);
+        }
+        return (ExoPlaybackException) invokeLI.objValue;
     }
 
     public static ExoPlaybackException createForSource(IOException iOException) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iOException)) == null) ? new ExoPlaybackException(0, null, iOException, -1) : (ExoPlaybackException) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iOException)) == null) {
+            return new ExoPlaybackException(0, null, iOException, -1);
+        }
+        return (ExoPlaybackException) invokeL.objValue;
     }
 
     public static ExoPlaybackException createForUnexpected(RuntimeException runtimeException) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, runtimeException)) == null) ? new ExoPlaybackException(2, null, runtimeException, -1) : (ExoPlaybackException) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, runtimeException)) == null) {
+            return new ExoPlaybackException(2, null, runtimeException, -1);
+        }
+        return (ExoPlaybackException) invokeL.objValue;
     }
 
     public Exception getRendererException() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Assertions.checkState(this.type == 1);
+            boolean z = true;
+            if (this.type != 1) {
+                z = false;
+            }
+            Assertions.checkState(z);
             return (Exception) getCause();
         }
         return (Exception) invokeV.objValue;
@@ -78,9 +91,15 @@ public final class ExoPlaybackException extends Exception {
 
     public IOException getSourceException() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Assertions.checkState(this.type == 0);
+            if (this.type == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             return (IOException) getCause();
         }
         return (IOException) invokeV.objValue;
@@ -88,9 +107,15 @@ public final class ExoPlaybackException extends Exception {
 
     public RuntimeException getUnexpectedException() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Assertions.checkState(this.type == 2);
+            if (this.type == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             return (RuntimeException) getCause();
         }
         return (RuntimeException) invokeV.objValue;

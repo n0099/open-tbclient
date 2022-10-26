@@ -18,10 +18,10 @@ public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl impl
     public transient /* synthetic */ FieldHolder $fh;
     public Type genericType;
     public String name;
-    public AjType<?> type;
+    public AjType type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeFieldDeclarationImpl(AjType<?> ajType, String str, int i, String str2, AjType<?> ajType2, Type type) {
+    public InterTypeFieldDeclarationImpl(AjType ajType, String str, int i, String str2, AjType ajType2, Type type) {
         super(ajType, str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,46 +44,8 @@ public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl impl
         this.genericType = type;
     }
 
-    @Override // org.aspectj.lang.reflect.InterTypeFieldDeclaration
-    public Type getGenericType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.genericType : (Type) invokeV.objValue;
-    }
-
-    @Override // org.aspectj.lang.reflect.InterTypeFieldDeclaration
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    @Override // org.aspectj.lang.reflect.InterTypeFieldDeclaration
-    public AjType<?> getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type : (AjType) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(Modifier.toString(getModifiers()));
-            stringBuffer.append(" ");
-            stringBuffer.append(getType().toString());
-            stringBuffer.append(" ");
-            stringBuffer.append(this.targetTypeName);
-            stringBuffer.append(".");
-            stringBuffer.append(getName());
-            return stringBuffer.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeFieldDeclarationImpl(AjType<?> ajType, AjType<?> ajType2, Field field) {
+    public InterTypeFieldDeclarationImpl(AjType ajType, AjType ajType2, Field field) {
         super(ajType, ajType2, field.getModifiers());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -109,5 +71,52 @@ public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl impl
         } else {
             this.genericType = genericType;
         }
+    }
+
+    @Override // org.aspectj.lang.reflect.InterTypeFieldDeclaration
+    public Type getGenericType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.genericType;
+        }
+        return (Type) invokeV.objValue;
+    }
+
+    @Override // org.aspectj.lang.reflect.InterTypeFieldDeclaration
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // org.aspectj.lang.reflect.InterTypeFieldDeclaration
+    public AjType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.type;
+        }
+        return (AjType) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(Modifier.toString(getModifiers()));
+            stringBuffer.append(" ");
+            stringBuffer.append(getType().toString());
+            stringBuffer.append(" ");
+            stringBuffer.append(this.targetTypeName);
+            stringBuffer.append(".");
+            stringBuffer.append(getName());
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

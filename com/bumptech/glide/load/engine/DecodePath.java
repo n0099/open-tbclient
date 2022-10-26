@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.engine;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,23 +17,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class DecodePath<DataType, ResourceType, Transcode> {
+public class DecodePath {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DecodePath";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<DataType> dataClass;
-    public final List<? extends ResourceDecoder<DataType, ResourceType>> decoders;
+    public final Class dataClass;
+    public final List decoders;
     public final String failureMessage;
-    public final Pools.Pool<List<Throwable>> listPool;
-    public final ResourceTranscoder<ResourceType, Transcode> transcoder;
+    public final Pools.Pool listPool;
+    public final ResourceTranscoder transcoder;
 
     /* loaded from: classes7.dex */
-    public interface DecodeCallback<ResourceType> {
-        @NonNull
-        Resource<ResourceType> onResourceDecoded(@NonNull Resource<ResourceType> resource);
+    public interface DecodeCallback {
+        Resource onResourceDecoded(Resource resource);
     }
 
-    public DecodePath(Class<DataType> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<? extends ResourceDecoder<DataType, ResourceType>> list, ResourceTranscoder<ResourceType, Transcode> resourceTranscoder, Pools.Pool<List<Throwable>> pool) {
+    public DecodePath(Class cls, Class cls2, Class cls3, List list, ResourceTranscoder resourceTranscoder, Pools.Pool pool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,12 +54,11 @@ public class DecodePath<DataType, ResourceType, Transcode> {
         this.failureMessage = "Failed DecodePath{" + cls.getSimpleName() + "->" + cls2.getSimpleName() + "->" + cls3.getSimpleName() + "}";
     }
 
-    @NonNull
-    private Resource<ResourceType> decodeResource(DataRewinder<DataType> dataRewinder, int i, int i2, @NonNull Options options) throws GlideException {
+    private Resource decodeResource(DataRewinder dataRewinder, int i, int i2, Options options) throws GlideException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{dataRewinder, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            List<Throwable> list = (List) Preconditions.checkNotNull(this.listPool.acquire());
+            List list = (List) Preconditions.checkNotNull(this.listPool.acquire());
             try {
                 return decodeResourceWithList(dataRewinder, i, i2, options, list);
             } finally {
@@ -71,15 +68,14 @@ public class DecodePath<DataType, ResourceType, Transcode> {
         return (Resource) invokeCommon.objValue;
     }
 
-    @NonNull
-    private Resource<ResourceType> decodeResourceWithList(DataRewinder<DataType> dataRewinder, int i, int i2, @NonNull Options options, List<Throwable> list) throws GlideException {
+    private Resource decodeResourceWithList(DataRewinder dataRewinder, int i, int i2, Options options, List list) throws GlideException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{dataRewinder, Integer.valueOf(i), Integer.valueOf(i2), options, list})) == null) {
             int size = this.decoders.size();
-            Resource<ResourceType> resource = null;
+            Resource resource = null;
             for (int i3 = 0; i3 < size; i3++) {
-                ResourceDecoder<DataType, ResourceType> resourceDecoder = this.decoders.get(i3);
+                ResourceDecoder resourceDecoder = (ResourceDecoder) this.decoders.get(i3);
                 try {
                     if (resourceDecoder.handles(dataRewinder.rewindAndGet(), options)) {
                         resource = resourceDecoder.decode(dataRewinder.rewindAndGet(), i, i2, options);
@@ -102,10 +98,13 @@ public class DecodePath<DataType, ResourceType, Transcode> {
         return (Resource) invokeCommon.objValue;
     }
 
-    public Resource<Transcode> decode(DataRewinder<DataType> dataRewinder, int i, int i2, @NonNull Options options, DecodeCallback<ResourceType> decodeCallback) throws GlideException {
+    public Resource decode(DataRewinder dataRewinder, int i, int i2, Options options, DecodeCallback decodeCallback) throws GlideException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{dataRewinder, Integer.valueOf(i), Integer.valueOf(i2), options, decodeCallback})) == null) ? this.transcoder.transcode(decodeCallback.onResourceDecoded(decodeResource(dataRewinder, i, i2, options)), options) : (Resource) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{dataRewinder, Integer.valueOf(i), Integer.valueOf(i2), options, decodeCallback})) == null) {
+            return this.transcoder.transcode(decodeCallback.onResourceDecoded(decodeResource(dataRewinder, i, i2, options)), options);
+        }
+        return (Resource) invokeCommon.objValue;
     }
 
     public String toString() {

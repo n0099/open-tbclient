@@ -13,20 +13,20 @@ import io.reactivex.observers.DefaultObserver;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
-public final class BlockingObservableMostRecent<T> implements Iterable<T> {
+public final class BlockingObservableMostRecent implements Iterable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T initialValue;
-    public final ObservableSource<T> source;
+    public final Object initialValue;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class MostRecentObserver<T> extends DefaultObserver<T> {
+    public final class MostRecentObserver extends DefaultObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile Object value;
 
         /* loaded from: classes8.dex */
-        public final class Iterator implements java.util.Iterator<T> {
+        public final class Iterator implements java.util.Iterator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Object buf;
@@ -63,7 +63,15 @@ public final class BlockingObservableMostRecent<T> implements Iterable<T> {
             }
 
             @Override // java.util.Iterator
-            public T next() {
+            public void remove() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    throw new UnsupportedOperationException("Read only iterator");
+                }
+            }
+
+            @Override // java.util.Iterator
+            public Object next() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -73,7 +81,7 @@ public final class BlockingObservableMostRecent<T> implements Iterable<T> {
                         }
                         if (!NotificationLite.isComplete(this.buf)) {
                             if (!NotificationLite.isError(this.buf)) {
-                                return (T) NotificationLite.getValue(this.buf);
+                                return NotificationLite.getValue(this.buf);
                             }
                             throw ExceptionHelper.wrapOrThrow(NotificationLite.getError(this.buf));
                         }
@@ -82,24 +90,16 @@ public final class BlockingObservableMostRecent<T> implements Iterable<T> {
                         this.buf = null;
                     }
                 }
-                return (T) invokeV.objValue;
-            }
-
-            @Override // java.util.Iterator
-            public void remove() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    throw new UnsupportedOperationException("Read only iterator");
-                }
+                return invokeV.objValue;
             }
         }
 
-        public MostRecentObserver(T t) {
+        public MostRecentObserver(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t};
+                Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -109,13 +109,16 @@ public final class BlockingObservableMostRecent<T> implements Iterable<T> {
                     return;
                 }
             }
-            this.value = NotificationLite.next(t);
+            this.value = NotificationLite.next(obj);
         }
 
-        public MostRecentObserver<T>.Iterator getIterable() {
+        public Iterator getIterable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Iterator(this) : (Iterator) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new Iterator(this);
+            }
+            return (Iterator) invokeV.objValue;
         }
 
         @Override // io.reactivex.Observer
@@ -135,20 +138,20 @@ public final class BlockingObservableMostRecent<T> implements Iterable<T> {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                this.value = NotificationLite.next(t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.value = NotificationLite.next(obj);
             }
         }
     }
 
-    public BlockingObservableMostRecent(ObservableSource<T> observableSource, T t) {
+    public BlockingObservableMostRecent(ObservableSource observableSource, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, t};
+            Object[] objArr = {observableSource, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -159,11 +162,11 @@ public final class BlockingObservableMostRecent<T> implements Iterable<T> {
             }
         }
         this.source = observableSource;
-        this.initialValue = t;
+        this.initialValue = obj;
     }
 
     @Override // java.lang.Iterable
-    public Iterator<T> iterator() {
+    public Iterator iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

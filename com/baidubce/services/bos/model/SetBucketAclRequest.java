@@ -12,7 +12,7 @@ import java.util.List;
 public class SetBucketAclRequest extends GenericBucketRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Grant> accessControlList;
+    public List accessControlList;
     public CannedAccessControlList cannedAcl;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -36,19 +36,46 @@ public class SetBucketAclRequest extends GenericBucketRequest {
         setCannedAcl(cannedAccessControlList);
     }
 
-    public List<Grant> getAccessControlList() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SetBucketAclRequest(String str, List list) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setAccessControlList(list);
+    }
+
+    public List getAccessControlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.accessControlList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.accessControlList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public CannedAccessControlList getCannedAcl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cannedAcl : (CannedAccessControlList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cannedAcl;
+        }
+        return (CannedAccessControlList) invokeV.objValue;
     }
 
-    public void setAccessControlList(List<Grant> list) {
+    public void setAccessControlList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.accessControlList = list;
@@ -62,7 +89,7 @@ public class SetBucketAclRequest extends GenericBucketRequest {
         }
     }
 
-    public SetBucketAclRequest withAccessControlList(List<Grant> list) {
+    public SetBucketAclRequest withAccessControlList(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
@@ -104,26 +131,5 @@ public class SetBucketAclRequest extends GenericBucketRequest {
             return this;
         }
         return (SetBucketAclRequest) invokeL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SetBucketAclRequest(String str, List<Grant> list) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, list};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        setAccessControlList(list);
     }
 }

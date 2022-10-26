@@ -6,7 +6,6 @@ import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.IConnectListener;
 import com.baidu.android.imsdk.account.ILoginListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.api.im.ConnectListener;
 import com.baidu.livesdk.api.im.FetchMsgByIdListener;
@@ -49,7 +48,10 @@ public class BDIMManager implements IMManager {
     public IMConversation build(Context context, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) ? new BDIMConversation(context, BIMManager.getConversation(this.mContext, str, z, BIMManager.CATEGORY.STUDIO, str2, 2)) : (IMConversation) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
+            return new BDIMConversation(context, BIMManager.getConversation(this.mContext, str, z, BIMManager.CATEGORY.STUDIO, str2, 2));
+        }
+        return (IMConversation) invokeCommon.objValue;
     }
 
     @Override // com.baidu.livesdk.api.im.IMManager
@@ -82,14 +84,13 @@ public class BDIMManager implements IMManager {
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-                public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j4, long j5, long j6, int i6, int i7, long j7, ArrayList<ChatMsg> arrayList) {
+                public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j4, long j5, long j6, int i6, int i7, long j7, ArrayList arrayList) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str, str2, Integer.valueOf(i5), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j7), arrayList}) == null) || this.val$listener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str, str2, Integer.valueOf(i5), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j7), arrayList}) == null) && this.val$listener != null) {
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.addAll(arrayList);
+                        this.val$listener.onFetchMsgByIdResult(i4, str, str2, i5, j4, j5, j6, i6, i7, j7, arrayList2);
                     }
-                    ArrayList<Object> arrayList2 = new ArrayList<>();
-                    arrayList2.addAll(arrayList);
-                    this.val$listener.onFetchMsgByIdResult(i4, str, str2, i5, j4, j5, j6, i6, i7, j7, arrayList2);
                 }
             });
         }
@@ -125,14 +126,13 @@ public class BDIMManager implements IMManager {
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-                public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j6, long j7, long j8, int i6, int i7, long j9, ArrayList<ChatMsg> arrayList) {
+                public void onFetchMsgByIdResult(int i4, String str, String str2, int i5, long j6, long j7, long j8, int i6, int i7, long j9, ArrayList arrayList) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str, str2, Integer.valueOf(i5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j9), arrayList}) == null) || this.val$listener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str, str2, Integer.valueOf(i5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j9), arrayList}) == null) && this.val$listener != null) {
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.addAll(arrayList);
+                        this.val$listener.onFetchMsgByIdResult(i4, str, str2, i5, j6, j7, j8, i6, i7, j9, arrayList2);
                     }
-                    ArrayList<Object> arrayList2 = new ArrayList<>();
-                    arrayList2.addAll(arrayList);
-                    this.val$listener.onFetchMsgByIdResult(i4, str, str2, i5, j6, j7, j8, i6, i7, j9, arrayList2);
                 }
             });
         }
@@ -154,6 +154,13 @@ public class BDIMManager implements IMManager {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BDIMManager this$0;
                 public final /* synthetic */ LoginListener val$listener;
+
+                @Override // com.baidu.android.imsdk.account.ILoginListener
+                public void onLogoutResult(int i2, String str5, int i3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str5, Integer.valueOf(i3)}) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -178,16 +185,8 @@ public class BDIMManager implements IMManager {
                 public void onLoginResult(int i2, String str5) {
                     LoginListener loginListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str5) == null) || (loginListener2 = this.val$listener) == null) {
-                        return;
-                    }
-                    loginListener2.onLoginResult(i2, str5);
-                }
-
-                @Override // com.baidu.android.imsdk.account.ILoginListener
-                public void onLogoutResult(int i2, String str5, int i3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str5, Integer.valueOf(i3)}) == null) {
+                    if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str5) == null) && (loginListener2 = this.val$listener) != null) {
+                        loginListener2.onLoginResult(i2, str5);
                     }
                 }
             });
@@ -203,6 +202,13 @@ public class BDIMManager implements IMManager {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BDIMManager this$0;
                 public final /* synthetic */ LogoutListener val$listener;
+
+                @Override // com.baidu.android.imsdk.account.ILoginListener
+                public void onLoginResult(int i, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -224,20 +230,12 @@ public class BDIMManager implements IMManager {
                 }
 
                 @Override // com.baidu.android.imsdk.account.ILoginListener
-                public void onLoginResult(int i, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
-                    }
-                }
-
-                @Override // com.baidu.android.imsdk.account.ILoginListener
                 public void onLogoutResult(int i, String str, int i2) {
                     LogoutListener logoutListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) || (logoutListener2 = this.val$listener) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && (logoutListener2 = this.val$listener) != null) {
+                        logoutListener2.onLogoutResult(i, str, i2);
                     }
-                    logoutListener2.onLogoutResult(i, str, i2);
                 }
             });
         }
@@ -284,10 +282,9 @@ public class BDIMManager implements IMManager {
                 public void onResult(int i) {
                     ConnectListener connectListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) || (connectListener2 = this.val$listener) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) && (connectListener2 = this.val$listener) != null) {
+                        connectListener2.onResult(i);
                     }
-                    connectListener2.onResult(i);
                 }
             });
         }

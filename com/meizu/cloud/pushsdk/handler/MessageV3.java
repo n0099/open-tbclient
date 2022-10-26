@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class MessageV3 implements Parcelable {
-    public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
@@ -45,7 +45,7 @@ public class MessageV3 implements Parcelable {
     public TimeDisplaySetting mTimeDisplaySetting;
     public String notificationMessage;
     public String packageName;
-    public Map<String, String> paramsMap;
+    public Map paramsMap;
     public String pushTimestamp;
     public String seqId;
     public String taskId;
@@ -83,7 +83,7 @@ public class MessageV3 implements Parcelable {
         this.mTimeDisplaySetting = (TimeDisplaySetting) parcel.readParcelable(TimeDisplaySetting.class.getClassLoader());
     }
 
-    public static Map<String, String> getParamsMap(JSONObject jSONObject) {
+    public static Map getParamsMap(JSONObject jSONObject) {
         HashMap hashMap = new HashMap();
         try {
             Iterator<String> keys = jSONObject.keys();
@@ -108,33 +108,33 @@ public class MessageV3 implements Parcelable {
         messageV3.setContent(mPushMessage.getContent());
         messageV3.setIsDiscard("true".equals(mPushMessage.getIsDiscard()));
         messageV3.setClickType(Integer.valueOf(mPushMessage.getClickType()).intValue());
-        for (Map.Entry<String, String> entry : mPushMessage.getExtra().entrySet()) {
-            String key = entry.getKey();
-            String value = entry.getValue();
-            if ("activity".equals(key)) {
-                messageV3.setActivity(value);
+        for (Map.Entry entry : mPushMessage.getExtra().entrySet()) {
+            String str4 = (String) entry.getKey();
+            String str5 = (String) entry.getValue();
+            if ("activity".equals(str4)) {
+                messageV3.setActivity(str5);
             }
-            if ("url".equals(key)) {
-                messageV3.setWebUrl(value);
+            if ("url".equals(str4)) {
+                messageV3.setWebUrl(str5);
             }
-            if (PushConstants.URI_PACKAGE_NAME.equals(key)) {
-                messageV3.setUriPackageName(value);
+            if (PushConstants.URI_PACKAGE_NAME.equals(str4)) {
+                messageV3.setUriPackageName(str5);
             }
-            if (NotificationStyle.NOTIFICATION_STYLE.equals(key)) {
-                messageV3.setmNotificationStyle(NotificationStyle.parse(value));
+            if (NotificationStyle.NOTIFICATION_STYLE.equals(str4)) {
+                messageV3.setmNotificationStyle(NotificationStyle.parse(str5));
             }
-            if ("as".equals(key)) {
-                messageV3.setmAdvanceSetting(AdvanceSetting.parse(value));
+            if ("as".equals(str4)) {
+                messageV3.setmAdvanceSetting(AdvanceSetting.parse(str5));
             }
-            if ("is".equals(key)) {
-                messageV3.setmAppIconSetting(AppIconSetting.parse(value));
+            if ("is".equals(str4)) {
+                messageV3.setmAppIconSetting(AppIconSetting.parse(str5));
             }
-            if ("ts".equals(key)) {
-                messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(value));
+            if ("ts".equals(str4)) {
+                messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(str5));
             }
         }
         messageV3.setParamsMap(mPushMessage.getParams());
-        String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
+        String jSONObject = e.a(mPushMessage.getExtra()).toString();
         DebugLogger.e(TAG, "MessageV2 extra json is " + jSONObject);
         if (!TextUtils.isEmpty(jSONObject)) {
             messageV3.setNotificationMessage(jSONObject);
@@ -242,7 +242,7 @@ public class MessageV3 implements Parcelable {
         return this.packageName;
     }
 
-    public Map<String, String> getParamsMap() {
+    public Map getParamsMap() {
         return this.paramsMap;
     }
 
@@ -326,7 +326,7 @@ public class MessageV3 implements Parcelable {
         this.packageName = str;
     }
 
-    public void setParamsMap(Map<String, String> map) {
+    public void setParamsMap(Map map) {
         this.paramsMap = map;
     }
 

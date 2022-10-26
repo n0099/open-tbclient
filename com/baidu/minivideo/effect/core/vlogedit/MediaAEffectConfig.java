@@ -18,8 +18,18 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
     public MediaAEffect mMediaAEffect;
     public ShaderConfig mShaderConfig;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaAEffectConfig> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +53,10 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
         public MediaAEffectConfig createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaAEffectConfig(parcel) : (MediaAEffectConfig) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaAEffectConfig(parcel);
+            }
+            return (MediaAEffectConfig) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +65,10 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
         public MediaAEffectConfig[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaAEffectConfig[i] : (MediaAEffectConfig[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaAEffectConfig[i];
+            }
+            return (MediaAEffectConfig[]) invokeI.objValue;
         }
     }
 
@@ -86,6 +102,62 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
         }
     }
 
+    public MediaAEffect getMediaAEffect() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMediaAEffect;
+        }
+        return (MediaAEffect) invokeV.objValue;
+    }
+
+    public ShaderConfig getShaderConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mShaderConfig;
+        }
+        return (ShaderConfig) invokeV.objValue;
+    }
+
+    public MediaAEffectConfig(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mMediaAEffect = (MediaAEffect) parcel.readParcelable(MediaAEffect.class.getClassLoader());
+        this.mShaderConfig = (ShaderConfig) parcel.readParcelable(ShaderConfig.class.getClassLoader());
+    }
+
+    public MediaAEffectConfig(MediaAEffect mediaAEffect, ShaderConfig shaderConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mediaAEffect, shaderConfig};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mMediaAEffect = mediaAEffect;
+        this.mShaderConfig = shaderConfig;
+    }
+
     public Object clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,28 +173,6 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
             }
         }
         return invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public MediaAEffect getMediaAEffect() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMediaAEffect : (MediaAEffect) invokeV.objValue;
-    }
-
-    public ShaderConfig getShaderConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mShaderConfig : (ShaderConfig) invokeV.objValue;
     }
 
     public void setMediaAEffect(MediaAEffect mediaAEffect) {
@@ -146,43 +196,5 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
             parcel.writeParcelable(this.mMediaAEffect, i);
             parcel.writeParcelable(this.mShaderConfig, i);
         }
-    }
-
-    public MediaAEffectConfig(MediaAEffect mediaAEffect, ShaderConfig shaderConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mediaAEffect, shaderConfig};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mMediaAEffect = mediaAEffect;
-        this.mShaderConfig = shaderConfig;
-    }
-
-    public MediaAEffectConfig(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mMediaAEffect = (MediaAEffect) parcel.readParcelable(MediaAEffect.class.getClassLoader());
-        this.mShaderConfig = (ShaderConfig) parcel.readParcelable(ShaderConfig.class.getClassLoader());
     }
 }

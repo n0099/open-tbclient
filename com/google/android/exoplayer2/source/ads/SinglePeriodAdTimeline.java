@@ -25,6 +25,7 @@ public final class SinglePeriodAdTimeline extends ForwardingTimeline {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SinglePeriodAdTimeline(Timeline timeline, long[] jArr, int[] iArr, int[] iArr2, int[] iArr3, long[][] jArr2, long j, long j2) {
         super(timeline);
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,7 +41,12 @@ public final class SinglePeriodAdTimeline extends ForwardingTimeline {
                 return;
             }
         }
-        Assertions.checkState(timeline.getPeriodCount() == 1);
+        if (timeline.getPeriodCount() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkState(z);
         Assertions.checkState(timeline.getWindowCount() == 1);
         this.adGroupTimesUs = jArr;
         this.adCounts = iArr;

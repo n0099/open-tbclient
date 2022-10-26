@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.data.GroupPermData;
@@ -36,8 +35,16 @@ public class ResponseUserPermissionMessage extends SocketResponsedMessage {
         }
     }
 
+    public GroupPermData getGroupPermData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.groupPermData;
+        }
+        return (GroupPermData) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -64,11 +71,5 @@ public class ResponseUserPermissionMessage extends SocketResponsedMessage {
             return queryUserPermissionResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public GroupPermData getGroupPermData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.groupPermData : (GroupPermData) invokeV.objValue;
     }
 }

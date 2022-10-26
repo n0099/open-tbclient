@@ -23,6 +23,18 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     public interface a {
     }
 
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void setOnDeleteClick(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HomePageYoungsterTopView(Context context) {
         this(context, null);
@@ -41,27 +53,6 @@ public class HomePageYoungsterTopView extends RelativeLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0107);
-            SkinManager.setImageResource(this.b, R.drawable.icon_home_card_delete);
-        }
-    }
-
-    public void setOnDeleteClick(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
         }
     }
 
@@ -106,5 +97,14 @@ public class HomePageYoungsterTopView extends RelativeLayout {
             }
         }
         a();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0107);
+            SkinManager.setImageResource(this.b, R.drawable.icon_home_card_delete);
+        }
     }
 }

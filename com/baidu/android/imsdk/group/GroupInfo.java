@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<GroupInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int brief;
     public int mActiveState;
@@ -44,6 +44,16 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
     public long mUk;
     public int state;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -57,7 +67,7 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<GroupInfo>() { // from class: com.baidu.android.imsdk.group.GroupInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.group.GroupInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,23 +86,279 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new GroupInfo(parcel) : (GroupInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new GroupInfo(parcel);
+                }
+                return (GroupInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GroupInfo[i] : (GroupInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new GroupInfo[i];
+                }
+                return (GroupInfo[]) invokeI.objValue;
             }
         };
+    }
+
+    public int getActiveState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mActiveState;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getBrief() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.brief;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getBuid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mBduid;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getCreateTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCreateTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mDescription;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDisturb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mDisturb;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getGroupCapacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mGroupCapacity;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getGroupId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mGroupId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getGroupName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mGroupName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getGroupNotice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mGroupNotice;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getGroupVerify() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mGroupVerify;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getHeadUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mHeadUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getInfoVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mInfoVersion;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLocalInfoVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mLocalInfoVersion;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLocalMembersVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mLocalMembersVersion;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getMarkTop() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mMarkTop;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getMarkTopTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mMarkTopTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getMembersVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mMembersVersion;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mNum;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.PinYinUtils.PinYinObject
+    public String getPy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (TextUtils.isEmpty(this.mPinYin)) {
+                this.mPinYin = PinYinUtils.getPy(this.mGroupName);
+            }
+            return this.mPinYin;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.state;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mType;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getUk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mUk;
+        }
+        return invokeV.longValue;
+    }
+
+    public GroupInfo(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mGroupName = "";
+        this.mDescription = "";
+        this.mType = 0;
+        this.mGroupId = parcel.readString();
+        this.mGroupName = parcel.readString();
+        this.mDescription = parcel.readString();
+        this.mDisturb = parcel.readInt();
+        this.state = parcel.readInt();
+        this.mType = parcel.readInt();
+        this.mNum = parcel.readInt();
+        this.mCreateTime = parcel.readLong();
+        this.mBduid = parcel.readLong();
+        this.mUk = parcel.readLong();
+        this.mActiveState = parcel.readInt();
+        this.mMembersVersion = parcel.readLong();
+        this.brief = parcel.readInt();
+        this.mMarkTop = parcel.readInt();
+        this.mMarkTopTime = parcel.readLong();
+        this.mGroupNotice = parcel.readString();
+        this.mGroupCapacity = parcel.readInt();
+        this.mGroupVerify = parcel.readInt();
+        this.mLocalMembersVersion = parcel.readLong();
+        this.mLocalInfoVersion = parcel.readLong();
+        this.mInfoVersion = parcel.readLong();
     }
 
     public GroupInfo(String str) {
@@ -114,161 +380,6 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         this.mDescription = "";
         this.mType = 0;
         this.mGroupId = str;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getActiveState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActiveState : invokeV.intValue;
-    }
-
-    public int getBrief() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.brief : invokeV.intValue;
-    }
-
-    public long getBuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBduid : invokeV.longValue;
-    }
-
-    public long getCreateTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCreateTime : invokeV.longValue;
-    }
-
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDescription : (String) invokeV.objValue;
-    }
-
-    public int getDisturb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mDisturb : invokeV.intValue;
-    }
-
-    public int getGroupCapacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mGroupCapacity : invokeV.intValue;
-    }
-
-    public String getGroupId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mGroupId : (String) invokeV.objValue;
-    }
-
-    public String getGroupName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mGroupName : (String) invokeV.objValue;
-    }
-
-    public String getGroupNotice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mGroupNotice : (String) invokeV.objValue;
-    }
-
-    public int getGroupVerify() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mGroupVerify : invokeV.intValue;
-    }
-
-    public String getHeadUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mHeadUrl : (String) invokeV.objValue;
-    }
-
-    public long getInfoVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mInfoVersion : invokeV.longValue;
-    }
-
-    public long getLocalInfoVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mLocalInfoVersion : invokeV.longValue;
-    }
-
-    public long getLocalMembersVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mLocalMembersVersion : invokeV.longValue;
-    }
-
-    public int getMarkTop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mMarkTop : invokeV.intValue;
-    }
-
-    public long getMarkTopTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mMarkTopTime : invokeV.longValue;
-    }
-
-    public long getMembersVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mMembersVersion : invokeV.longValue;
-    }
-
-    public int getNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mNum : invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.PinYinUtils.PinYinObject
-    public String getPy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (TextUtils.isEmpty(this.mPinYin)) {
-                this.mPinYin = PinYinUtils.getPy(this.mGroupName);
-            }
-            return this.mPinYin;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.state : invokeV.intValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mType : invokeV.intValue;
-    }
-
-    public long getUk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mUk : invokeV.longValue;
     }
 
     public void setActiveState(int i) {
@@ -453,46 +564,5 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
             parcel.writeLong(this.mLocalInfoVersion);
             parcel.writeLong(this.mInfoVersion);
         }
-    }
-
-    public GroupInfo(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mGroupName = "";
-        this.mDescription = "";
-        this.mType = 0;
-        this.mGroupId = parcel.readString();
-        this.mGroupName = parcel.readString();
-        this.mDescription = parcel.readString();
-        this.mDisturb = parcel.readInt();
-        this.state = parcel.readInt();
-        this.mType = parcel.readInt();
-        this.mNum = parcel.readInt();
-        this.mCreateTime = parcel.readLong();
-        this.mBduid = parcel.readLong();
-        this.mUk = parcel.readLong();
-        this.mActiveState = parcel.readInt();
-        this.mMembersVersion = parcel.readLong();
-        this.brief = parcel.readInt();
-        this.mMarkTop = parcel.readInt();
-        this.mMarkTopTime = parcel.readLong();
-        this.mGroupNotice = parcel.readString();
-        this.mGroupCapacity = parcel.readInt();
-        this.mGroupVerify = parcel.readInt();
-        this.mLocalMembersVersion = parcel.readLong();
-        this.mLocalInfoVersion = parcel.readLong();
-        this.mInfoVersion = parcel.readLong();
     }
 }

@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.report;
 
-import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.core.api.ILoggerReporter;
 import com.kwad.sdk.commercial.model.HybridLoadMsg;
 import com.kwad.sdk.commercial.model.WebViewCommercialMsg;
@@ -84,7 +83,7 @@ public final class k {
                 }
             }, new com.kwai.adclient.kscommerciallogger.kwai.b() { // from class: com.kwad.sdk.core.report.k.2
                 @Override // com.kwai.adclient.kscommerciallogger.kwai.b
-                public final void K(@NonNull String str, @NonNull String str2) {
+                public final void K(String str, String str2) {
                     try {
                         new JSONObject(str2).optString("event_id");
                     } catch (JSONException unused) {
@@ -122,7 +121,7 @@ public final class k {
         a(d, ILoggerReporter.Category.APM_LOG, z ? BusinessType.AD_REWARD : BusinessType.AD_FULLSCREEN, SubBusinessType.OTHER, com.kwai.adclient.kscommerciallogger.model.a.ary, z ? "ad_sdk_reward_page_show" : "ad_sdk_fullscreen_page_show", jSONObject);
     }
 
-    public static void b(@NonNull com.kwad.sdk.utils.a.a aVar) {
+    public static void b(com.kwad.sdk.utils.a.a aVar) {
         a((float) (1.0d / aVar.Yr), ILoggerReporter.Category.APM_LOG, BusinessType.OTHER, SubBusinessType.OTHER, com.kwai.adclient.kscommerciallogger.model.d.asl, "ad_union_kv_fail_rate", aVar.toJson());
     }
 
@@ -168,7 +167,7 @@ public final class k {
         a(d, ILoggerReporter.Category.APM_LOG, BusinessType.OTHER, SubBusinessType.OTHER, com.kwai.adclient.kscommerciallogger.model.a.arI, "ad_sdk_dynamic_update", jSONObject);
     }
 
-    public static JSONObject h(@NonNull JSONObject jSONObject) {
+    public static JSONObject h(JSONObject jSONObject) {
         double d;
         try {
             if (jSONObject.has("ratio")) {

@@ -3,7 +3,7 @@ package org.webrtc;
 import android.os.Handler;
 import android.os.HandlerThread;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.px9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -97,7 +97,7 @@ public class VideoFileRenderer implements VideoSink {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.eglBase = xw9.c(this.val$sharedContext, EglBase.CONFIG_PIXEL_BUFFER);
+                        this.this$0.eglBase = px9.c(this.val$sharedContext, EglBase.CONFIG_PIXEL_BUFFER);
                         this.this$0.eglBase.createDummyPbufferSurface();
                         this.this$0.eglBase.makeCurrent();
                         this.this$0.yuvConverter = new YuvConverter();
@@ -109,17 +109,56 @@ public class VideoFileRenderer implements VideoSink {
         throw new IllegalArgumentException("Does not support uneven width or height");
     }
 
+    public /* synthetic */ void b(CountDownLatch countDownLatch) {
+        this.yuvConverter.release();
+        this.eglBase.release();
+        this.renderThread.quit();
+        countDownLatch.countDown();
+    }
+
+    @Override // org.webrtc.VideoSink
+    public void onFrame(final VideoFrame videoFrame) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, videoFrame) == null) {
+            videoFrame.retain();
+            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.jx9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        VideoFileRenderer.this.a(videoFrame);
+                    }
+                }
+            });
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: renderFrameOnRenderThread */
     public void a(final VideoFrame videoFrame) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, videoFrame) == null) {
             VideoFrame.Buffer buffer = videoFrame.getBuffer();
-            int i = videoFrame.getRotation() % 180 == 0 ? this.outputFileWidth : this.outputFileHeight;
-            int i2 = videoFrame.getRotation() % 180 == 0 ? this.outputFileHeight : this.outputFileWidth;
+            if (videoFrame.getRotation() % 180 == 0) {
+                i = this.outputFileWidth;
+            } else {
+                i = this.outputFileHeight;
+            }
+            int i3 = i;
+            if (videoFrame.getRotation() % 180 == 0) {
+                i2 = this.outputFileHeight;
+            } else {
+                i2 = this.outputFileWidth;
+            }
+            int i4 = i2;
             float width = buffer.getWidth() / buffer.getHeight();
-            float f = i / i2;
+            float f = i3 / i4;
             int width2 = buffer.getWidth();
             int height = buffer.getHeight();
             if (f > width) {
@@ -127,11 +166,11 @@ public class VideoFileRenderer implements VideoSink {
             } else {
                 width2 = (int) (width2 * (f / width));
             }
-            VideoFrame.Buffer cropAndScale = buffer.cropAndScale((buffer.getWidth() - width2) / 2, (buffer.getHeight() - height) / 2, width2, height, i, i2);
+            VideoFrame.Buffer cropAndScale = buffer.cropAndScale((buffer.getWidth() - width2) / 2, (buffer.getHeight() - height) / 2, width2, height, i3, i4);
             videoFrame.release();
             final VideoFrame.I420Buffer i420 = cropAndScale.toI420();
             cropAndScale.release();
-            this.fileThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.sw9
+            this.fileThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.kx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -144,13 +183,6 @@ public class VideoFileRenderer implements VideoSink {
                 }
             });
         }
-    }
-
-    public /* synthetic */ void b(CountDownLatch countDownLatch) {
-        this.yuvConverter.release();
-        this.eglBase.release();
-        this.renderThread.quit();
-        countDownLatch.countDown();
     }
 
     public /* synthetic */ void c() {
@@ -175,31 +207,11 @@ public class VideoFileRenderer implements VideoSink {
         }
     }
 
-    @Override // org.webrtc.VideoSink
-    public void onFrame(final VideoFrame videoFrame) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, videoFrame) == null) {
-            videoFrame.retain();
-            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.rw9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        VideoFileRenderer.this.a(videoFrame);
-                    }
-                }
-            });
-        }
-    }
-
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             final CountDownLatch countDownLatch = new CountDownLatch(1);
-            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.qw9
+            this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.ix9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -212,7 +224,7 @@ public class VideoFileRenderer implements VideoSink {
                 }
             });
             ThreadUtils.awaitUninterruptibly(countDownLatch);
-            this.fileThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.pw9
+            this.fileThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.hx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -13,6 +13,22 @@ public final class zzaa extends com.google.android.gms.internal.common.zza imple
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.android.gms.common.internal.IGmsCallbacks
+    public final void zzb(int i, Bundle bundle) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
+            throw null;
+        }
+    }
+
+    @Override // com.google.android.gms.common.internal.IGmsCallbacks
+    public final void zzc(int i, IBinder iBinder, zzj zzjVar) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i, iBinder, zzjVar) == null) {
+            throw null;
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zzaa(IBinder iBinder) {
         super(iBinder, "com.google.android.gms.common.internal.IGmsCallbacks");
@@ -43,22 +59,6 @@ public final class zzaa extends com.google.android.gms.internal.common.zza imple
             zza.writeStrongBinder(iBinder);
             com.google.android.gms.internal.common.zzc.zzc(zza, bundle);
             zzC(1, zza);
-        }
-    }
-
-    @Override // com.google.android.gms.common.internal.IGmsCallbacks
-    public final void zzb(int i, Bundle bundle) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
-            throw null;
-        }
-    }
-
-    @Override // com.google.android.gms.common.internal.IGmsCallbacks
-    public final void zzc(int i, IBinder iBinder, zzj zzjVar) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i, iBinder, zzjVar) == null) {
-            throw null;
         }
     }
 }

@@ -36,44 +36,37 @@ public class Filter extends BaseBeautyItem {
     public int getDataType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDataType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDataType;
+        }
+        return invokeV.intValue;
     }
 
     public File getFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFile : (File) invokeV.objValue;
-    }
-
-    public String getInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("param:");
-            sb.append(this.mParam);
-            sb.append(", type:");
-            sb.append(this.mDataType);
-            sb.append(", level:");
-            sb.append(this.mLevel);
-            sb.append(", path:");
-            File file = this.mFile;
-            sb.append(file == null ? StringUtil.NULL_STRING : file.getAbsoluteFile());
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFile;
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
     public float getLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLevel : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mLevel;
+        }
+        return invokeV.floatValue;
     }
 
     public String getParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mParam : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mParam;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPath() {
@@ -85,6 +78,31 @@ public class Filter extends BaseBeautyItem {
                 return file.getAbsolutePath();
             }
             return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getInfo() {
+        InterceptResult invokeV;
+        Object absoluteFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("param:");
+            sb.append(this.mParam);
+            sb.append(", type:");
+            sb.append(this.mDataType);
+            sb.append(", level:");
+            sb.append(this.mLevel);
+            sb.append(", path:");
+            File file = this.mFile;
+            if (file == null) {
+                absoluteFile = StringUtil.NULL_STRING;
+            } else {
+                absoluteFile = file.getAbsoluteFile();
+            }
+            sb.append(absoluteFile);
+            return sb.toString();
         }
         return (String) invokeV.objValue;
     }

@@ -5,17 +5,15 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e97;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.ny4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.m97;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ty4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,8 +25,13 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public e97 d;
+    public m97 d;
     public b e;
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(m97 m97Var);
+    }
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -57,16 +60,10 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e == null || this.a.d == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e != null && this.a.d != null) {
+                this.a.e.a(this.a.d);
             }
-            this.a.e.a(this.a.d);
         }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(@NonNull e97 e97Var);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -90,90 +87,8 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         }
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new TBSpecificationBtn(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, ej.f(getContext(), R.dimen.M_W_X007), 0);
-            layoutParams.addRule(11);
-            layoutParams.addRule(15);
-            this.c.setLayoutParams(layoutParams);
-            ny4 ny4Var = new ny4();
-            ny4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.c.setConfig(ny4Var);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f07bb));
-            addView(this.c);
-            this.c.setOnClickListener(new a(this));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(9);
-            this.b.setLayoutParams(layoutParams);
-            this.b.setPadding(ej.f(getContext(), R.dimen.M_W_X008), ej.f(getContext(), R.dimen.tbds44), 0, ej.f(getContext(), R.dimen.tbds44));
-            addView(this.b);
-            hv4 d = hv4.d(this.b);
-            d.z(R.dimen.T_X13);
-            d.A(R.string.F_X01);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f();
-            d();
-            c();
-            g();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = new View(getContext());
-            TextView textView = new TextView(getContext());
-            this.b = textView;
-            textView.setId(ViewCompat.generateViewId());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(6, this.b.getId());
-            layoutParams.addRule(8, this.b.getId());
-            this.a.setLayoutParams(layoutParams);
-            addView(this.a);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hv4.d(this).f(R.color.CAM_X0204);
-            hv4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            hv4.d(this.b).v(R.color.CAM_X0105);
-            this.c.k();
-        }
-    }
-
-    public void h(e97 e97Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, e97Var) == null) {
-            this.d = e97Var;
-            this.b.setText(e97Var.c());
-        }
-    }
-
-    public void setOnTitleBtnClick(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GamePersonalChatTitleView(Context context, @Nullable AttributeSet attributeSet) {
+    public GamePersonalChatTitleView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -194,7 +109,7 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GamePersonalChatTitleView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public GamePersonalChatTitleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -213,5 +128,87 @@ public class GamePersonalChatTitleView extends RelativeLayout {
             }
         }
         e();
+    }
+
+    public void h(m97 m97Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, m97Var) == null) {
+            this.d = m97Var;
+            this.b.setText(m97Var.c());
+        }
+    }
+
+    public void setOnTitleBtnClick(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new TBSpecificationBtn(getContext());
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(0, 0, fj.f(getContext(), R.dimen.M_W_X007), 0);
+            layoutParams.addRule(11);
+            layoutParams.addRule(15);
+            this.c.setLayoutParams(layoutParams);
+            ty4 ty4Var = new ty4();
+            ty4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.c.setConfig(ty4Var);
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f07c7));
+            addView(this.c);
+            this.c.setOnClickListener(new a(this));
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(9);
+            this.b.setLayoutParams(layoutParams);
+            this.b.setPadding(fj.f(getContext(), R.dimen.M_W_X008), fj.f(getContext(), R.dimen.tbds44), 0, fj.f(getContext(), R.dimen.tbds44));
+            addView(this.b);
+            nv4 d = nv4.d(this.b);
+            d.z(R.dimen.T_X13);
+            d.A(R.string.F_X01);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a = new View(getContext());
+            TextView textView = new TextView(getContext());
+            this.b = textView;
+            textView.setId(ViewCompat.generateViewId());
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams.addRule(6, this.b.getId());
+            layoutParams.addRule(8, this.b.getId());
+            this.a.setLayoutParams(layoutParams);
+            addView(this.a);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f();
+            d();
+            c();
+            g();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            nv4.d(this).f(R.color.CAM_X0204);
+            nv4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            nv4.d(this.b).v(R.color.CAM_X0105);
+            this.c.k();
+        }
     }
 }

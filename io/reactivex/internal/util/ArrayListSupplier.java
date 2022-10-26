@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class ArrayListSupplier implements Callable<List<Object>>, Function<Object, List<Object>> {
+public final class ArrayListSupplier implements Callable, Function {
     public static final /* synthetic */ ArrayListSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final ArrayListSupplier INSTANCE;
@@ -39,6 +39,33 @@ public final class ArrayListSupplier implements Callable<List<Object>>, Function
         $VALUES = new ArrayListSupplier[]{arrayListSupplier};
     }
 
+    public static Callable asCallable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return INSTANCE;
+        }
+        return (Callable) invokeV.objValue;
+    }
+
+    public static Function asFunction() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return INSTANCE;
+        }
+        return (Function) invokeV.objValue;
+    }
+
+    public static ArrayListSupplier[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (ArrayListSupplier[]) $VALUES.clone();
+        }
+        return (ArrayListSupplier[]) invokeV.objValue;
+    }
+
     public ArrayListSupplier(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,43 +85,34 @@ public final class ArrayListSupplier implements Callable<List<Object>>, Function
         }
     }
 
-    public static <T> Callable<List<T>> asCallable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? INSTANCE : (Callable) invokeV.objValue;
-    }
-
-    public static <T, O> Function<O, List<T>> asFunction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? INSTANCE : (Function) invokeV.objValue;
-    }
-
     public static ArrayListSupplier valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ArrayListSupplier) Enum.valueOf(ArrayListSupplier.class, str) : (ArrayListSupplier) invokeL.objValue;
-    }
-
-    public static ArrayListSupplier[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ArrayListSupplier[]) $VALUES.clone() : (ArrayListSupplier[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (ArrayListSupplier) Enum.valueOf(ArrayListSupplier.class, str);
+        }
+        return (ArrayListSupplier) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.functions.Function
-    public List<Object> apply(Object obj) throws Exception {
+    public List apply(Object obj) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? new ArrayList() : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            return new ArrayList();
+        }
+        return (List) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Callable
-    public List<Object> call() throws Exception {
+    public List call() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ArrayList() : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new ArrayList();
+        }
+        return (List) invokeV.objValue;
     }
 }

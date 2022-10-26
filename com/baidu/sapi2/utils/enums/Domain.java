@@ -73,13 +73,10 @@ public final class Domain {
     public static Domain valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Domain) Enum.valueOf(Domain.class, str) : (Domain) invokeL.objValue;
-    }
-
-    public static Domain[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Domain[]) $VALUES.clone() : (Domain[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Domain) Enum.valueOf(Domain.class, str);
+        }
+        return (Domain) invokeL.objValue;
     }
 
     public Domain forceHttps(boolean z) {
@@ -92,44 +89,56 @@ public final class Domain {
         return (Domain) invokeZ.objValue;
     }
 
+    public static Domain[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Domain[]) $VALUES.clone();
+        }
+        return (Domain[]) invokeV.objValue;
+    }
+
     public String getConfigHttpsUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.configHttpsUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.configHttpsUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getDeviceUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.deviceUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.deviceUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPortraitUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.portraitUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.portraitUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getURL() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getURL(SapiUtils.getDefaultHttpsEnabled()) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return getURL(SapiUtils.getDefaultHttpsEnabled());
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUrlDomain() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "") : (String) invokeV.objValue;
-    }
-
-    public String getWap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if ((equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) || (!equals(DOMAIN_ONLINE) && this.forceHttps)) {
-                return this.wap.replace("http://", "https://");
-            }
-            return this.wap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
         }
         return (String) invokeV.objValue;
     }
@@ -137,7 +146,10 @@ public final class Domain {
     public String getWapDomain() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getURL(boolean z) {
@@ -150,5 +162,17 @@ public final class Domain {
             return this.url;
         }
         return (String) invokeZ.objValue;
+    }
+
+    public String getWap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if ((equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) || (!equals(DOMAIN_ONLINE) && this.forceHttps)) {
+                return this.wap.replace("http://", "https://");
+            }
+            return this.wap;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.ss.android.downloadlib.a.b;
 
-import android.annotation.SuppressLint;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
@@ -12,17 +11,18 @@ import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface c extends IInterface {
+    void a(b bVar, d dVar) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements c {
+    public abstract class a extends Binder implements c {
         public static String a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.b.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0655a implements c {
+        public class C0651a implements c {
             public IBinder a;
 
-            public C0655a(IBinder iBinder) {
+            public C0651a(IBinder iBinder) {
                 if (TextUtils.isEmpty(a.a)) {
                     JSONObject i = j.i();
                     String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("r"), i.optString("s"));
@@ -32,6 +32,7 @@ public interface c extends IInterface {
 
             @Override // com.ss.android.downloadlib.a.b.c
             public void a(b bVar, d dVar) throws RemoteException {
+                IBinder iBinder;
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -42,7 +43,12 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    obtain.writeStrongBinder(dVar != null ? dVar.asBinder() : null);
+                    if (dVar != null) {
+                        iBinder = dVar.asBinder();
+                    } else {
+                        iBinder = null;
+                    }
+                    obtain.writeStrongBinder(iBinder);
                     this.a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -57,22 +63,6 @@ public interface c extends IInterface {
             }
         }
 
-        @Override // android.os.Binder
-        @SuppressLint({"WrongConstant"})
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1598968902) {
-                parcel2.writeString(a);
-                return true;
-            }
-            if (i != 1) {
-                return super.onTransact(i, parcel, parcel2, i2);
-            }
-            parcel.enforceInterface(a);
-            a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null, d.a.a(parcel.readStrongBinder()));
-            parcel2.writeNoException();
-            return true;
-        }
-
         public static c a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -81,9 +71,26 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0655a(iBinder);
+            return new C0651a(iBinder);
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1598968902) {
+                b bVar = null;
+                if (i != 1) {
+                    return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel.enforceInterface(a);
+                if (parcel.readInt() != 0) {
+                    bVar = (b) b.CREATOR.createFromParcel(parcel);
+                }
+                a(bVar, d.a.a(parcel.readStrongBinder()));
+                parcel2.writeNoException();
+                return true;
+            }
+            parcel2.writeString(a);
+            return true;
         }
     }
-
-    void a(b bVar, d dVar) throws RemoteException;
 }

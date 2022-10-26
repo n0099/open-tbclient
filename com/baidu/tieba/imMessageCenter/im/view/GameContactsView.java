@@ -4,15 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e97;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.ma7;
+import com.baidu.tieba.m97;
+import com.baidu.tieba.ua7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,14 +26,14 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
     public static final int e;
     public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<Integer, GameContactsItemView> a;
+    public HashMap a;
     public a b;
     public boolean c;
     public int d;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(View view2, e97 e97Var, int i);
+        void a(View view2, m97 m97Var, int i);
     }
 
     static {
@@ -51,8 +49,8 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        e = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        f = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        e = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        f = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -76,50 +74,22 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public void a(@NonNull List<e97> list) {
-        ImMessageCenterPojo i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                e97 e97Var = list.get(i2);
-                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(e97Var.b()));
-                if (gameContactsItemView != null) {
-                    gameContactsItemView.setGameMatchUser(e97Var);
-                    gameContactsItemView.setVisibility(0);
-                    if (e97Var.b() != this.d && (i = ma7.o().i(e97Var.d(), 2)) != null && i.getUnread_count() > 0) {
-                        gameContactsItemView.g(i.getUnread_count());
-                    }
-                }
-            }
-            if (!this.c || this.b == null) {
-                return;
-            }
-            this.c = false;
-            GameContactsItemView gameContactsItemView2 = this.a.get(1);
-            if (gameContactsItemView2 != null) {
-                gameContactsItemView2.h();
-                gameContactsItemView2.b();
-                this.b.a(gameContactsItemView2, gameContactsItemView2.getGameMatchUser(), 1);
-            }
-        }
-    }
-
-    public boolean b(e97 e97Var) {
+    public boolean b(m97 m97Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e97Var)) == null) {
-            int b = e97Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m97Var)) == null) {
+            int b = m97Var.b();
             int i = this.d;
             if (b == i) {
                 return false;
             }
-            GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(i));
+            GameContactsItemView gameContactsItemView = (GameContactsItemView) this.a.get(Integer.valueOf(i));
             if (gameContactsItemView != null) {
                 gameContactsItemView.a();
             }
-            int b2 = e97Var.b();
+            int b2 = m97Var.b();
             this.d = b2;
-            GameContactsItemView gameContactsItemView2 = this.a.get(Integer.valueOf(b2));
+            GameContactsItemView gameContactsItemView2 = (GameContactsItemView) this.a.get(Integer.valueOf(b2));
             if (gameContactsItemView2 != null) {
                 gameContactsItemView2.h();
                 return true;
@@ -127,6 +97,79 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public GameContactsView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GameContactsView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.c = true;
+        this.d = 1;
+        this.a = new HashMap();
+        d();
+    }
+
+    public void a(List list) {
+        ImMessageCenterPojo i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                m97 m97Var = (m97) list.get(i2);
+                GameContactsItemView gameContactsItemView = (GameContactsItemView) this.a.get(Integer.valueOf(m97Var.b()));
+                if (gameContactsItemView != null) {
+                    gameContactsItemView.setGameMatchUser(m97Var);
+                    gameContactsItemView.setVisibility(0);
+                    if (m97Var.b() != this.d && (i = ua7.o().i(m97Var.d(), 2)) != null && i.getUnread_count() > 0) {
+                        gameContactsItemView.g(i.getUnread_count());
+                    }
+                }
+            }
+            if (this.c && this.b != null) {
+                this.c = false;
+                GameContactsItemView gameContactsItemView2 = (GameContactsItemView) this.a.get(1);
+                if (gameContactsItemView2 != null) {
+                    gameContactsItemView2.h();
+                    gameContactsItemView2.b();
+                    this.b.a(gameContactsItemView2, gameContactsItemView2.getGameMatchUser(), 1);
+                }
+            }
+        }
     }
 
     public void c() {
@@ -163,35 +206,46 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public void e(@Nullable ImMessageCenterPojo imMessageCenterPojo) {
+    public void e(ImMessageCenterPojo imMessageCenterPojo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, imMessageCenterPojo) == null) || imMessageCenterPojo == null) {
-            return;
-        }
-        String gid = imMessageCenterPojo.getGid();
-        for (Integer num : this.a.keySet()) {
-            GameContactsItemView gameContactsItemView = this.a.get(num);
-            if (gameContactsItemView != null && gameContactsItemView.getGameMatchUser() != null && gameContactsItemView.getGameMatchUser().d().equals(gid)) {
-                gameContactsItemView.g(imMessageCenterPojo.getUnread_count());
+        if ((interceptable == null || interceptable.invokeL(1048580, this, imMessageCenterPojo) == null) && imMessageCenterPojo != null) {
+            String gid = imMessageCenterPojo.getGid();
+            for (Integer num : this.a.keySet()) {
+                GameContactsItemView gameContactsItemView = (GameContactsItemView) this.a.get(num);
+                if (gameContactsItemView != null && gameContactsItemView.getGameMatchUser() != null && gameContactsItemView.getGameMatchUser().d().equals(gid)) {
+                    gameContactsItemView.g(imMessageCenterPojo.getUnread_count());
+                }
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (view2 instanceof GameContactsItemView)) {
             GameContactsItemView gameContactsItemView = (GameContactsItemView) view2;
-            GameContactsItemView gameContactsItemView2 = this.a.get(Integer.valueOf(this.d));
+            GameContactsItemView gameContactsItemView2 = (GameContactsItemView) this.a.get(Integer.valueOf(this.d));
             if (gameContactsItemView2 != null) {
                 gameContactsItemView2.a();
             }
             gameContactsItemView.h();
-            boolean z = this.d != gameContactsItemView.getGameMatchUser().b();
+            if (this.d != gameContactsItemView.getGameMatchUser().b()) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.d = gameContactsItemView.getGameMatchUser().b();
             a aVar = this.b;
             if (aVar != null) {
-                aVar.a(gameContactsItemView, gameContactsItemView.getGameMatchUser(), z ? 2 : 3);
+                m97 gameMatchUser = gameContactsItemView.getGameMatchUser();
+                if (z) {
+                    i = 2;
+                } else {
+                    i = 3;
+                }
+                aVar.a(gameContactsItemView, gameMatchUser, i);
             }
         }
     }
@@ -201,51 +255,5 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.b = aVar;
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GameContactsView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameContactsView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.c = true;
-        this.d = 1;
-        this.a = new HashMap<>();
-        d();
     }
 }

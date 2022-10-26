@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
@@ -16,9 +15,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.wx;
-import com.baidu.tieba.yq4;
+import com.baidu.tieba.ar4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class SmartAppBottomLayout extends LinearLayout implements wx<yq4> {
+public class SmartAppBottomLayout extends LinearLayout implements xx {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +48,7 @@ public class SmartAppBottomLayout extends LinearLayout implements wx<yq4> {
                 return;
             }
         }
-        e = (ej.k(TbadkCoreApplication.getInst()) - (ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+        e = (fj.k(TbadkCoreApplication.getInst()) - (fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds58);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -74,51 +73,8 @@ public class SmartAppBottomLayout extends LinearLayout implements wx<yq4> {
         b(context);
     }
 
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07d1, (ViewGroup) this, true);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09018c);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09018d);
-            this.b.setIsBigV(false);
-            this.b.setIsGod(false);
-            this.b.setShowV(false);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
-    /* renamed from: c */
-    public void a(yq4 yq4Var) {
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var) == null) || (threadData = yq4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
-            return;
-        }
-        if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {
-            this.b.K(threadData.getSmartApp().avatar, 10, false);
-        } else {
-            SkinManager.setImageResource(this.b, R.drawable.icon_avatar_smallapp_tie);
-        }
-        if (threadData.getSmartApp() != null && !TextUtils.isEmpty(threadData.getSmartApp().name)) {
-            ThreadCardUtils.cutAndSetTextByMaxLine(this.c, threadData.getSmartApp().name, R.string.obfuscated_res_0x7f0f00ee, R.dimen.tbds0, 1, e, false);
-        } else {
-            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00ee));
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.d == TbadkCoreApplication.getInst().getSkinType()) {
-            return;
-        }
-        this.d = TbadkCoreApplication.getInst().getSkinType();
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SmartAppBottomLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public SmartAppBottomLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,5 +94,46 @@ public class SmartAppBottomLayout extends LinearLayout implements wx<yq4> {
         }
         this.d = 3;
         b(context);
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07d2, (ViewGroup) this, true);
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.b = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09018c);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09018d);
+            this.b.setIsBigV(false);
+            this.b.setIsGod(false);
+            this.b.setShowV(false);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xx
+    /* renamed from: c */
+    public void a(ar4 ar4Var) {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ar4Var) == null) && (threadData = ar4Var.getThreadData()) != null && threadData.getSmartApp() != null) {
+            if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {
+                this.b.L(threadData.getSmartApp().avatar, 10, false);
+            } else {
+                SkinManager.setImageResource(this.b, R.drawable.icon_avatar_smallapp_tie);
+            }
+            if (threadData.getSmartApp() != null && !TextUtils.isEmpty(threadData.getSmartApp().name)) {
+                ThreadCardUtils.cutAndSetTextByMaxLine(this.c, threadData.getSmartApp().name, R.string.obfuscated_res_0x7f0f00ee, R.dimen.tbds0, 1, e, false);
+            } else {
+                this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00ee));
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.d != TbadkCoreApplication.getInst().getSkinType()) {
+            this.d = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+        }
     }
 }

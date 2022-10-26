@@ -3,7 +3,6 @@ package com.baidu.mapsdkplatform.comapi.a;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,7 +28,7 @@ public class d extends c {
     public Interpolator c;
     public Animation.AnimationListener d;
     public int e;
-    public ArrayList<Animation> f;
+    public ArrayList f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,10 +48,9 @@ public class d extends c {
         this.c = null;
         this.d = null;
         this.e = 0;
-        this.f = new ArrayList<>();
+        this.f = new ArrayList();
     }
 
-    @TargetApi(11)
     private ObjectAnimator b(Marker marker, Animation animation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -78,7 +76,6 @@ public class d extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a() {
         Animator animator;
         Interceptable interceptable = $ic;
@@ -107,7 +104,6 @@ public class d extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a(Animator animator) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || animator == null) {
@@ -141,17 +137,16 @@ public class d extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a(Marker marker, Animation animation) {
         ObjectAnimator b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
             this.a = new AnimatorSet();
-            ArrayList<Animation> arrayList = this.f;
+            ArrayList arrayList = this.f;
             ArrayList arrayList2 = new ArrayList();
             arrayList2.clear();
             for (int i = 0; i < arrayList.size(); i++) {
-                Animation animation2 = arrayList.get(i);
+                Animation animation2 = (Animation) arrayList.get(i);
                 if (animation2 != null && (b = b(marker, animation2)) != null) {
                     arrayList2.add(b);
                 }
@@ -177,7 +172,6 @@ public class d extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void b() {
         Animator animator;
         Interceptable interceptable = $ic;

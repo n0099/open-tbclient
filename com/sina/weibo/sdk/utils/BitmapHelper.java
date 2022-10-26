@@ -37,10 +37,10 @@ public final class BitmapHelper {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65537, null, i, i2, i3, i4)) == null) {
-            if (i2 == 0 || i == 0) {
-                return 1;
+            if (i2 != 0 && i != 0) {
+                return Math.min(Math.max(i3 / i, i4 / i2), Math.max(i4 / i, i3 / i2));
             }
-            return Math.min(Math.max(i3 / i, i4 / i2), Math.max(i4 / i, i3 / i2));
+            return 1;
         }
         return invokeIIII.intValue;
     }
@@ -61,13 +61,27 @@ public final class BitmapHelper {
     public static boolean makesureSizeNotTooLarge(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rect)) == null) ? (rect.width() * rect.height()) * 2 <= 5242880 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rect)) == null) {
+            if (rect.width() * rect.height() * 2 > 5242880) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static boolean verifyBitmap(byte[] bArr) {
+    public static boolean verifyBitmap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) ? verifyBitmap(new ByteArrayInputStream(bArr)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            try {
+                return verifyBitmap(new FileInputStream(str));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean verifyBitmap(InputStream inputStream) {
@@ -88,21 +102,19 @@ public final class BitmapHelper {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return options.outHeight > 0 && options.outWidth > 0;
+            if (options.outHeight <= 0 || options.outWidth <= 0) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean verifyBitmap(String str) {
+    public static boolean verifyBitmap(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                return verifyBitmap(new FileInputStream(str));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            return verifyBitmap(new ByteArrayInputStream(bArr));
         }
         return invokeL.booleanValue;
     }

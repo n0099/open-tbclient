@@ -1,7 +1,6 @@
 package com.baidu.searchbox.network.outback.request;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,35 +15,15 @@ public class GetRequest extends Request {
 
     /* renamed from: com.baidu.searchbox.network.outback.request.GetRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class GetRequestBuilder extends Request.Builder<GetRequestBuilder> {
+    public class GetRequestBuilder extends Request.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public GetRequestBuilder(Map<String, CallFactory> map) {
-            super(map);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Map) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public GetRequestBuilder(GetRequest getRequest) {
@@ -66,17 +45,36 @@ public class GetRequest extends Request {
             }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public GetRequestBuilder(Map map) {
+            super(map);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Map) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.network.outback.core.Request.Builder
         public GetRequest build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new GetRequest(get(), null) : (GetRequest) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new GetRequest((GetRequestBuilder) get(), null);
+            }
+            return (GetRequest) invokeV.objValue;
         }
-    }
-
-    public /* synthetic */ GetRequest(GetRequestBuilder getRequestBuilder, AnonymousClass1 anonymousClass1) {
-        this(getRequestBuilder);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,5 +95,9 @@ public class GetRequest extends Request {
                 return;
             }
         }
+    }
+
+    public /* synthetic */ GetRequest(GetRequestBuilder getRequestBuilder, AnonymousClass1 anonymousClass1) {
+        this(getRequestBuilder);
     }
 }

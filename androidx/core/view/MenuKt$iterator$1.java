@@ -42,18 +42,13 @@ public final class MenuKt$iterator$1 implements Iterator<MenuItem>, KMutableIter
     public boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.index < this.$this_iterator.size() : invokeV.booleanValue;
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Menu menu = this.$this_iterator;
-            int i = this.index - 1;
-            this.index = i;
-            menu.removeItem(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.index < this.$this_iterator.size()) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -73,5 +68,16 @@ public final class MenuKt$iterator$1 implements Iterator<MenuItem>, KMutableIter
             throw new IndexOutOfBoundsException();
         }
         return (MenuItem) invokeV.objValue;
+    }
+
+    @Override // java.util.Iterator
+    public void remove() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Menu menu = this.$this_iterator;
+            int i = this.index - 1;
+            this.index = i;
+            menu.removeItem(i);
+        }
     }
 }

@@ -11,6 +11,11 @@ public final class DropSequence$iterator$1 implements Iterator<T>, KMappedMarker
     public int left;
     public final /* synthetic */ DropSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public DropSequence$iterator$1(DropSequence dropSequence) {
         Sequence sequence;
@@ -19,6 +24,10 @@ public final class DropSequence$iterator$1 implements Iterator<T>, KMappedMarker
         sequence = dropSequence.sequence;
         this.iterator = sequence.iterator();
         i = dropSequence.count;
+        this.left = i;
+    }
+
+    public final void setLeft(int i) {
         this.left = i;
     }
 
@@ -48,14 +57,5 @@ public final class DropSequence$iterator$1 implements Iterator<T>, KMappedMarker
     public T next() {
         drop();
         return this.iterator.next();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setLeft(int i) {
-        this.left = i;
     }
 }

@@ -2,7 +2,6 @@ package com.kwad.components.ad.widget.tailframe.appbar;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +35,7 @@ public class TailFrameBarAppLandscape extends a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TailFrameBarAppLandscape(Context context, @Nullable AttributeSet attributeSet) {
+    public TailFrameBarAppLandscape(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,7 +56,7 @@ public class TailFrameBarAppLandscape extends a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TailFrameBarAppLandscape(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public TailFrameBarAppLandscape(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,6 +80,6 @@ public class TailFrameBarAppLandscape extends a {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d047c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0479 : invokeV.intValue;
     }
 }

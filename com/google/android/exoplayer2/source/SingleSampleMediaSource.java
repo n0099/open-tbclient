@@ -36,6 +36,20 @@ public final class SingleSampleMediaSource implements MediaSource {
         void onLoadError(int i, IOException iOException);
     }
 
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public void maybeThrowSourceInfoRefreshError() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public void releaseSource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SingleSampleMediaSource(Uri uri, DataSource.Factory factory, Format format, long j) {
         this(uri, factory, format, j, 3);
@@ -54,47 +68,6 @@ public final class SingleSampleMediaSource implements MediaSource {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public MediaPeriod createPeriod(MediaSource.MediaPeriodId mediaPeriodId, Allocator allocator) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaPeriodId, allocator)) == null) {
-            Assertions.checkArgument(mediaPeriodId.periodIndex == 0);
-            return new SingleSampleMediaPeriod(this.uri, this.dataSourceFactory, this.format, this.minLoadableRetryCount, this.eventHandler, this.eventListener, this.eventSourceId, this.treatLoadErrorsAsEndOfStream);
-        }
-        return (MediaPeriod) invokeLL.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void maybeThrowSourceInfoRefreshError() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void prepareSource(ExoPlayer exoPlayer, boolean z, MediaSource.Listener listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{exoPlayer, Boolean.valueOf(z), listener}) == null) {
-            listener.onSourceInfoRefreshed(this, this.timeline, null);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void releasePeriod(MediaPeriod mediaPeriod) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
-            ((SingleSampleMediaPeriod) mediaPeriod).release();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void releaseSource() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
@@ -143,5 +116,38 @@ public final class SingleSampleMediaSource implements MediaSource {
         this.eventSourceId = i2;
         this.treatLoadErrorsAsEndOfStream = z;
         this.timeline = new SinglePeriodTimeline(j, true);
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public MediaPeriod createPeriod(MediaSource.MediaPeriodId mediaPeriodId, Allocator allocator) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaPeriodId, allocator)) == null) {
+            if (mediaPeriodId.periodIndex == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
+            return new SingleSampleMediaPeriod(this.uri, this.dataSourceFactory, this.format, this.minLoadableRetryCount, this.eventHandler, this.eventListener, this.eventSourceId, this.treatLoadErrorsAsEndOfStream);
+        }
+        return (MediaPeriod) invokeLL.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public void prepareSource(ExoPlayer exoPlayer, boolean z, MediaSource.Listener listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{exoPlayer, Boolean.valueOf(z), listener}) == null) {
+            listener.onSourceInfoRefreshed(this, this.timeline, null);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public void releasePeriod(MediaPeriod mediaPeriod) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
+            ((SingleSampleMediaPeriod) mediaPeriod).release();
+        }
     }
 }

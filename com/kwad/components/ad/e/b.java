@@ -1,7 +1,6 @@
 package com.kwad.components.ad.e;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,13 +24,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void loadNativeAd(KsScene ksScene, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
+    public static void loadNativeAd(KsScene ksScene, KsLoadManager.NativeAdListener nativeAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, ksScene, nativeAdListener) == null) {
             boolean a = m.oF().a(ksScene, "loadNativeAd");
             ksScene.setAdStyle(10000);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0575a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(nativeAdListener) { // from class: com.kwad.components.ad.e.b.1
+            KsAdLoadManager.a(new a.C0571a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(nativeAdListener) { // from class: com.kwad.components.ad.e.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsLoadManager.NativeAdListener jw;
@@ -55,7 +54,7 @@ public final class b {
                 }
 
                 @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.g
-                public final void a(@NonNull AdResultData adResultData) {
+                public final void a(AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, adResultData) == null) {
                         ArrayList arrayList = new ArrayList();
@@ -147,7 +146,7 @@ public final class b {
         }
     }
 
-    public static void loadNativeAd(String str, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
+    public static void loadNativeAd(String str, KsLoadManager.NativeAdListener nativeAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, nativeAdListener) == null) {
             if (m.oF().a((KsScene) null, "loadNativeAdByJson") && m.oF().oG() == 1) {

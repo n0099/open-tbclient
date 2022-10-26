@@ -59,6 +59,32 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
         }
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getVersion() == 1) {
+                i = 12;
+            } else {
+                i = 8;
+            }
+            return i;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getFragmentDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.fragmentDuration;
+        }
+        return invokeV.longValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("MovieExtendsHeaderBox.java", MovieExtendsHeaderBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "", "", "", "long"), 65);
@@ -67,10 +93,16 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
+        long readUInt32;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
             parseVersionAndFlags(byteBuffer);
-            this.fragmentDuration = getVersion() == 1 ? IsoTypeReader.readUInt64(byteBuffer) : IsoTypeReader.readUInt32(byteBuffer);
+            if (getVersion() == 1) {
+                readUInt32 = IsoTypeReader.readUInt64(byteBuffer);
+            } else {
+                readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
+            }
+            this.fragmentDuration = readUInt32;
         }
     }
 
@@ -85,26 +117,6 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
                 IsoTypeWriter.writeUInt32(byteBuffer, this.fragmentDuration);
             }
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return getVersion() == 1 ? 12 : 8;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getFragmentDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.fragmentDuration;
-        }
-        return invokeV.longValue;
     }
 
     public void setFragmentDuration(long j) {

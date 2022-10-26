@@ -55,10 +55,10 @@ public class ge extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Thread.yield();
-            if (!this.f426a.m361c() || this.f426a.a(this.a)) {
+            if (!this.f426a.m360c() || this.f426a.a(this.a)) {
                 return;
             }
-            com.xiaomi.push.service.o.a(this.f426a.b).m667b();
+            com.xiaomi.push.service.o.a(this.f426a.b).m666b();
             this.f426a.b.a(22, (Exception) null);
         }
     }

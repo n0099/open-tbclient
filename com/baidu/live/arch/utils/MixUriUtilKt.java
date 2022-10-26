@@ -29,21 +29,21 @@ public final class MixUriUtilKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String addParam(String str, Map<String, String> map) {
+    public static final String addParam(String str, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
+            if (!TextUtils.isEmpty(str)) {
+                String mapToString = mapToString(map);
+                if (!TextUtils.isEmpty(mapToString)) {
+                    if (StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "?", false, 2, (Object) null)) {
+                        return str + '&' + mapToString;
+                    }
+                    return str + '?' + mapToString;
+                }
                 return str;
             }
-            String mapToString = mapToString(map);
-            if (TextUtils.isEmpty(mapToString)) {
-                return str;
-            }
-            if (StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "?", false, 2, (Object) null)) {
-                return str + '&' + mapToString;
-            }
-            return str + '?' + mapToString;
+            return str;
         }
         return (String) invokeLL.objValue;
     }
@@ -72,16 +72,16 @@ public final class MixUriUtilKt {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str, "?", 0, false, 6, (Object) null);
-            if (indexOf$default > 0) {
+            if (!TextUtils.isEmpty(str)) {
+                int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str, "?", 0, false, 6, (Object) null);
+                if (indexOf$default <= 0) {
+                    return null;
+                }
                 String substring = str.substring(indexOf$default + 1);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
                 return substring;
             }
-            return null;
+            return str;
         }
         return (String) invokeL.objValue;
     }
@@ -91,46 +91,61 @@ public final class MixUriUtilKt {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+            if (!TextUtils.isEmpty(str)) {
+                int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str, "?", 0, false, 6, (Object) null);
+                if (indexOf$default > 0) {
+                    str2 = str.substring(indexOf$default + 1);
+                    Intrinsics.checkNotNullExpressionValue(str2, "(this as java.lang.String).substring(startIndex)");
+                } else {
+                    str2 = null;
+                }
+                if (str2 == null) {
+                    return "";
+                }
+                return str2;
             }
-            int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str, "?", 0, false, 6, (Object) null);
-            if (indexOf$default > 0) {
-                str2 = str.substring(indexOf$default + 1);
-                Intrinsics.checkNotNullExpressionValue(str2, "(this as java.lang.String).substring(startIndex)");
-            } else {
-                str2 = null;
-            }
-            return str2 != null ? str2 : "";
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static final String mapToString(Map<String, String> map) {
+    public static final String mapToString(Map map) {
         InterceptResult invokeL;
+        boolean z;
         String encode;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
             if (map == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (String str : map.keySet()) {
+            for (String str2 : map.keySet()) {
                 if (sb.length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
                     sb.append("&");
                 }
-                String str2 = map.get(str);
-                if (str != null) {
+                String str3 = (String) map.get(str2);
+                if (str2 == null) {
+                    encode = "";
+                } else {
                     try {
-                        encode = URLEncoder.encode(str, "UTF-8");
+                        encode = URLEncoder.encode(str2, "UTF-8");
                     } catch (UnsupportedEncodingException unused) {
                     }
-                } else {
-                    encode = "";
                 }
                 sb.append(encode);
                 sb.append("=");
-                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
+                if (str3 == null) {
+                    str = "";
+                } else {
+                    str = URLEncoder.encode(str3, "UTF-8");
+                }
+                sb.append(str);
             }
             String sb2 = sb.toString();
             Intrinsics.checkExpressionValueIsNotNull(sb2, "stringBuilder.toString()");
@@ -139,8 +154,46 @@ public final class MixUriUtilKt {
         return (String) invokeL.objValue;
     }
 
-    public static final Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
+    public static final Map stringToMap(String str) {
         InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            if (!TextUtils.isEmpty(str)) {
+                Object[] array = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"&"}, false, 0, 6, (Object) null).toArray(new String[0]);
+                if (array != null) {
+                    for (String str3 : (String[]) array) {
+                        Object[] array2 = StringsKt__StringsKt.split$default((CharSequence) str3, new String[]{"="}, false, 0, 6, (Object) null).toArray(new String[0]);
+                        if (array2 != null) {
+                            String[] strArr = (String[]) array2;
+                            try {
+                                String decode = URLDecoder.decode(strArr[0], "UTF-8");
+                                Intrinsics.checkExpressionValueIsNotNull(decode, "URLDecoder.decode(nameValue[0], \"UTF-8\")");
+                                if (strArr.length > 1) {
+                                    str2 = URLDecoder.decode(strArr[1], "UTF-8");
+                                } else {
+                                    str2 = "";
+                                }
+                                linkedHashMap.put(decode, str2);
+                            } catch (UnsupportedEncodingException unused) {
+                            }
+                        } else {
+                            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+                        }
+                    }
+                } else {
+                    throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+                }
+            }
+            return linkedHashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static final Map paramsJsonToMap(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
             if (jSONObject == null) {
@@ -156,7 +209,12 @@ public final class MixUriUtilKt {
                     linkedHashMap.put(key, opt);
                 } else {
                     Intrinsics.checkExpressionValueIsNotNull(key, "key");
-                    linkedHashMap.put(key, opt != null ? opt.toString() : null);
+                    if (opt != null) {
+                        str = opt.toString();
+                    } else {
+                        str = null;
+                    }
+                    linkedHashMap.put(key, str);
                 }
             }
             return linkedHashMap;
@@ -170,112 +228,125 @@ public final class MixUriUtilKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final String setSchemeParam(String str, List<Pair<String, String>> list, boolean z) {
+    public static final String setSchemeParam(String str, List list, boolean z) {
         InterceptResult invokeLLZ;
+        boolean z2;
+        boolean z3;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, str, list, z)) == null) {
-            boolean z2 = false;
-            if (str == null || str.length() == 0) {
-                return str;
-            }
-            if (list == null || list.isEmpty()) {
-                return str;
-            }
-            try {
-                Uri uriParam = setUriParam(Uri.parse(str), list, z);
-                String uri = uriParam != null ? uriParam.toString() : null;
-                if (uri != null) {
-                }
+            boolean z4 = false;
+            if (str != null && str.length() != 0) {
+                z2 = false;
+            } else {
                 z2 = true;
-                return !z2 ? uri : str;
-            } catch (Exception e) {
-                e.printStackTrace();
+            }
+            if (!z2) {
+                if (list != null && !list.isEmpty()) {
+                    z3 = false;
+                } else {
+                    z3 = true;
+                }
+                if (!z3) {
+                    try {
+                        Uri uriParam = setUriParam(Uri.parse(str), list, z);
+                        if (uriParam != null) {
+                            str2 = uriParam.toString();
+                        } else {
+                            str2 = null;
+                        }
+                        if (str2 != null) {
+                        }
+                        z4 = true;
+                        if (!z4) {
+                            return str2;
+                        }
+                        return str;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return str;
+                    }
+                }
                 return str;
             }
+            return str;
         }
         return (String) invokeLLZ.objValue;
     }
 
-    public static final Uri setUriParam(Uri uri, List<Pair<String, String>> list, boolean z) {
+    public static final Uri setUriParam(Uri uri, List list, boolean z) {
         InterceptResult invokeLLZ;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, uri, list, z)) == null) {
             if (uri != null) {
-                if (list == null || list.isEmpty()) {
-                    return uri;
+                if (list != null && !list.isEmpty()) {
+                    z2 = false;
+                } else {
+                    z2 = true;
                 }
-                Set<String> srcPrama = uri.getQueryParameterNames();
-                Intrinsics.checkExpressionValueIsNotNull(srcPrama, "srcPrama");
-                Set<String> mutableSet = CollectionsKt___CollectionsKt.toMutableSet(srcPrama);
-                Uri.Builder clearQuery = uri.buildUpon().clearQuery();
-                Iterator<T> it = list.iterator();
-                while (it.hasNext()) {
-                    Pair pair = (Pair) it.next();
-                    if (!(((CharSequence) pair.getFirst()).length() == 0)) {
-                        boolean remove = mutableSet.remove(pair.getFirst());
-                        if (remove && !z) {
-                            try {
-                                clearQuery.appendQueryParameter((String) pair.getFirst(), uri.getQueryParameter((String) pair.getFirst()));
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                if (!z2) {
+                    Set<String> srcPrama = uri.getQueryParameterNames();
+                    Intrinsics.checkExpressionValueIsNotNull(srcPrama, "srcPrama");
+                    Set<String> mutableSet = CollectionsKt___CollectionsKt.toMutableSet(srcPrama);
+                    Uri.Builder clearQuery = uri.buildUpon().clearQuery();
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        Pair pair = (Pair) it.next();
+                        if (((CharSequence) pair.getFirst()).length() == 0) {
+                            z3 = true;
                         } else {
-                            CharSequence charSequence = (CharSequence) pair.getSecond();
-                            if (!(charSequence == null || charSequence.length() == 0) || remove) {
-                                CharSequence charSequence2 = (CharSequence) pair.getSecond();
-                                if (!(charSequence2 == null || charSequence2.length() == 0)) {
-                                    try {
-                                        clearQuery.appendQueryParameter((String) pair.getFirst(), (String) pair.getSecond());
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
+                            z3 = false;
+                        }
+                        if (!z3) {
+                            boolean remove = mutableSet.remove(pair.getFirst());
+                            if (remove && !z) {
+                                try {
+                                    clearQuery.appendQueryParameter((String) pair.getFirst(), uri.getQueryParameter((String) pair.getFirst()));
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                CharSequence charSequence = (CharSequence) pair.getSecond();
+                                if (charSequence != null && charSequence.length() != 0) {
+                                    z4 = false;
+                                } else {
+                                    z4 = true;
+                                }
+                                if (!z4 || remove) {
+                                    CharSequence charSequence2 = (CharSequence) pair.getSecond();
+                                    if (charSequence2 != null && charSequence2.length() != 0) {
+                                        z5 = false;
+                                    } else {
+                                        z5 = true;
+                                    }
+                                    if (!z5) {
+                                        try {
+                                            clearQuery.appendQueryParameter((String) pair.getFirst(), (String) pair.getSecond());
+                                        } catch (Exception e2) {
+                                            e2.printStackTrace();
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                }
-                for (String str : mutableSet) {
-                    try {
-                        clearQuery.appendQueryParameter(str, uri.getQueryParameter(str));
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                    for (String str : mutableSet) {
+                        try {
+                            clearQuery.appendQueryParameter(str, uri.getQueryParameter(str));
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
                     }
+                    return clearQuery.build();
                 }
-                return clearQuery.build();
+                return uri;
             }
             return uri;
         }
         return (Uri) invokeLLZ.objValue;
-    }
-
-    public static final Map<String, String> stringToMap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            if (!TextUtils.isEmpty(str)) {
-                Object[] array = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"&"}, false, 0, 6, (Object) null).toArray(new String[0]);
-                if (array != null) {
-                    for (String str2 : (String[]) array) {
-                        Object[] array2 = StringsKt__StringsKt.split$default((CharSequence) str2, new String[]{"="}, false, 0, 6, (Object) null).toArray(new String[0]);
-                        if (array2 != null) {
-                            String[] strArr = (String[]) array2;
-                            try {
-                                String decode = URLDecoder.decode(strArr[0], "UTF-8");
-                                Intrinsics.checkExpressionValueIsNotNull(decode, "URLDecoder.decode(nameValue[0], \"UTF-8\")");
-                                linkedHashMap.put(decode, strArr.length > 1 ? URLDecoder.decode(strArr[1], "UTF-8") : "");
-                            } catch (UnsupportedEncodingException unused) {
-                            }
-                        } else {
-                            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
-                        }
-                    }
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
-                }
-            }
-            return linkedHashMap;
-        }
-        return (Map) invokeL.objValue;
     }
 }

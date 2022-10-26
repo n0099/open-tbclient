@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e45 {
+public class e45 extends ob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ItemData b;
-    public String c;
-    public int d;
-    public int e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e45() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,9 +24,31 @@ public class e45 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.lb
+    public /* bridge */ /* synthetic */ ResponsedMessage a(ResponsedMessage responsedMessage) {
+        SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) responsedMessage;
+        c(socketResponsedMessage);
+        return socketResponsedMessage;
+    }
+
+    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage != null && socketResponsedMessage.getError() == 110004 && socketResponsedMessage.getCmd() != 1001) {
+                c95.b(0, 0, 0, 1, 11);
+                BdSocketLinkService.startService(true, "be server kicked off");
+            }
+            return socketResponsedMessage;
+        }
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

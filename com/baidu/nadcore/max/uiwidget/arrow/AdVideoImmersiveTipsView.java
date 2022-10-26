@@ -18,8 +18,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.uiwidget.ExpandIconView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l31;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.m31;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashMap;
 import kotlin.Metadata;
-import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
@@ -39,107 +38,144 @@ import kotlin.jvm.internal.StringCompanionObject;
 public final class AdVideoImmersiveTipsView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l31 a;
-    public l31 b;
+    public m31 a;
+    public m31 b;
     public ObjectAnimator c;
     public int d;
     public View.OnClickListener e;
     public int f;
     public HashMap g;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1962275478, "Lcom/baidu/nadcore/max/uiwidget/arrow/AdVideoImmersiveTipsView;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1962275478, "Lcom/baidu/nadcore/max/uiwidget/arrow/AdVideoImmersiveTipsView;");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AdVideoImmersiveTipsView(Context context) {
+        this(context, null, 0, 6, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AdVideoImmersiveTipsView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0, 4, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static /* synthetic */ void getGuideAnimType$annotations() {
+    }
+
+    public View a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.g == null) {
+                this.g = new HashMap();
+            }
+            View view2 = (View) this.g.get(Integer.valueOf(i));
+            if (view2 == null) {
+                View findViewById = findViewById(i);
+                this.g.put(Integer.valueOf(i), findViewById);
+                return findViewById;
+            }
+            return view2;
+        }
+        return (View) invokeI.objValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static final class a implements View.OnClickListener {
+    public final class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoImmersiveTipsView a;
 
-        public a(AdVideoImmersiveTipsView adVideoImmersiveTipsView) {
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {adVideoImmersiveTipsView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
             }
-            this.a = adVideoImmersiveTipsView;
         }
 
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            View.OnClickListener outClickListener;
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (outClickListener = this.a.getOutClickListener()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
             }
-            outClickListener.onClick((ExpandIconView) this.a.a(R.id.obfuscated_res_0x7f0902bc));
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public static final class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
-        public final /* synthetic */ AdVideoImmersiveTipsView b;
-
-        public b(ImageView imageView, AdVideoImmersiveTipsView adVideoImmersiveTipsView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {imageView, adVideoImmersiveTipsView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = imageView;
-            this.b = adVideoImmersiveTipsView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
-            View.OnClickListener outClickListener;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (outClickListener = this.b.getOutClickListener()) == null) {
-                return;
-            }
-            outClickListener.onClick(this.a);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static final class c implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdVideoImmersiveTipsView a;
 
         /* loaded from: classes2.dex */
-        public static final class a implements Runnable {
+        public final class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
 
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
             /* renamed from: com.baidu.nadcore.max.uiwidget.arrow.AdVideoImmersiveTipsView$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public static final class C0115a extends AnimatorListenerAdapter {
+            public final class C0116a extends AnimatorListenerAdapter {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                public C0115a(a aVar) {
+                public C0116a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,24 +204,6 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 }
             }
 
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable = $ic;
@@ -196,7 +214,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                         ObjectAnimator duration = ObjectAnimator.ofFloat((ImageView) this.a.a.a(R.id.obfuscated_res_0x7f0902bd), Key.ALPHA, 1.0f).setDuration(500L);
                         Intrinsics.checkNotNullExpressionValue(duration, "ObjectAnimator.ofFloat(a…on(DEFUALT_ANIM_DURATION)");
                         duration.setFloatValues(1.0f, 0.0f);
-                        duration.addListener(new C0115a(this));
+                        duration.addListener(new C0116a(this));
                         duration.start();
                     }
                     ExpandIconView arrowImage = (ExpandIconView) this.a.a.a(R.id.obfuscated_res_0x7f0902bc);
@@ -206,7 +224,6 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public c(AdVideoImmersiveTipsView adVideoImmersiveTipsView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -232,24 +249,80 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 this.a.postDelayed(new a(this), 2000L);
             }
         }
+    }
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
+    /* loaded from: classes2.dex */
+    public final class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdVideoImmersiveTipsView a;
+
+        public a(AdVideoImmersiveTipsView adVideoImmersiveTipsView) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {adVideoImmersiveTipsView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = adVideoImmersiveTipsView;
         }
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            View.OnClickListener outClickListener;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (outClickListener = this.a.getOutClickListener()) != null) {
+                outClickListener.onClick((ExpandIconView) this.a.a(R.id.obfuscated_res_0x7f0902bc));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class d extends l31.b {
+    public final class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageView a;
+        public final /* synthetic */ AdVideoImmersiveTipsView b;
+
+        public b(ImageView imageView, AdVideoImmersiveTipsView adVideoImmersiveTipsView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageView, adVideoImmersiveTipsView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageView;
+            this.b = adVideoImmersiveTipsView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            View.OnClickListener outClickListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (outClickListener = this.b.getOutClickListener()) != null) {
+                outClickListener.onClick(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public final class d extends m31.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoImmersiveTipsView a;
@@ -274,27 +347,27 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             this.b = i;
         }
 
-        @Override // com.baidu.tieba.l31.b
+        @Override // com.baidu.tieba.m31.b
         public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e(this.b);
-                l31 animTimer = this.a.getAnimTimer();
-                if (animTimer != null) {
-                    animTimer.a();
-                }
-                this.a.setAnimTimer(null);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.e(this.b);
+            m31 animTimer = this.a.getAnimTimer();
+            if (animTimer != null) {
+                animTimer.a();
+            }
+            this.a.setAnimTimer(null);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class e extends AnimatorListenerAdapter {
+    public final class e extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoImmersiveTipsView a;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public e(AdVideoImmersiveTipsView adVideoImmersiveTipsView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -317,7 +390,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                TextView guideText = (TextView) this.a.a(R.id.obfuscated_res_0x7f090d09);
+                TextView guideText = (TextView) this.a.a(R.id.obfuscated_res_0x7f090d16);
                 Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
                 guideText.setVisibility(8);
             }
@@ -325,12 +398,11 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public static final class f extends l31.b {
+    public final class f extends m31.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoImmersiveTipsView a;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public f(AdVideoImmersiveTipsView adVideoImmersiveTipsView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -349,7 +421,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             this.a = adVideoImmersiveTipsView;
         }
 
-        @Override // com.baidu.tieba.l31.b
+        @Override // com.baidu.tieba.m31.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -357,7 +429,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.l31.b
+        @Override // com.baidu.tieba.m31.b
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -365,16 +437,16 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.l31.b
+        @Override // com.baidu.tieba.m31.b
         public void f(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                TextView guideText = (TextView) this.a.a(R.id.obfuscated_res_0x7f090d09);
+                TextView guideText = (TextView) this.a.a(R.id.obfuscated_res_0x7f090d16);
                 Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
                 StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
                 Context context = this.a.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0bd9);
+                String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0be8);
                 Intrinsics.checkNotNullExpressionValue(string, "context.resources.getStr…_max_countdown_tips_text)");
                 String format = String.format(string, Arrays.copyOf(new Object[]{Long.valueOf(j / 1000)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
@@ -383,67 +455,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1962275478, "Lcom/baidu/nadcore/max/uiwidget/arrow/AdVideoImmersiveTipsView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1962275478, "Lcom/baidu/nadcore/max/uiwidget/arrow/AdVideoImmersiveTipsView;");
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public AdVideoImmersiveTipsView(Context context) {
-        this(context, null, 0, 6, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public AdVideoImmersiveTipsView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0, 4, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
     public AdVideoImmersiveTipsView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -468,47 +480,32 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902bc)).setState(1, true);
     }
 
-    public static /* synthetic */ void getGuideAnimType$annotations() {
-    }
-
-    public View a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.g == null) {
-                this.g = new HashMap();
-            }
-            View view2 = (View) this.g.get(Integer.valueOf(i));
-            if (view2 == null) {
-                View findViewById = findViewById(i);
-                this.g.put(Integer.valueOf(i), findViewById);
-                return findViewById;
-            }
-            return view2;
-        }
-        return (View) invokeI.objValue;
+    public /* synthetic */ AdVideoImmersiveTipsView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
     public final void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i == 0) {
-                ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902bc)).clearAnimation();
-            } else if (i != 1) {
-            } else {
-                ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902bc)).clearAnimation();
-                ((ImageView) a(R.id.obfuscated_res_0x7f0902bd)).clearAnimation();
+            if (i != 0) {
+                if (i == 1) {
+                    ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902bc)).clearAnimation();
+                    ((ImageView) a(R.id.obfuscated_res_0x7f0902bd)).clearAnimation();
+                    return;
+                }
+                return;
             }
+            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902bc)).clearAnimation();
         }
     }
 
     public final void d(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || Math.abs(f2) < 0.6f) {
+        if ((interceptable != null && interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) != null) || Math.abs(f2) < 0.6f) {
             return;
         }
         float abs = (Math.abs(f2) - 0.6f) / 0.39999998f;
-        int a2 = t21.c.a(getContext(), -4.0f);
+        int a2 = u21.c.a(getContext(), -4.0f);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (!(layoutParams instanceof FrameLayout.LayoutParams)) {
             layoutParams = null;
@@ -523,14 +520,74 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
     public final void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i == 0) {
-                f();
-            } else if (i != 1) {
-            } else {
-                ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f0902bd);
-                imageView.setOnClickListener(new b(imageView, this));
-                g();
+            if (i != 0) {
+                if (i == 1) {
+                    ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f0902bd);
+                    imageView.setOnClickListener(new b(imageView, this));
+                    g();
+                    return;
+                }
+                return;
             }
+            f();
+        }
+    }
+
+    public final void i(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
+            float max = Math.max(Math.min(f2, 1.0f), -1.0f);
+            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902bc)).setFraction(max, false);
+            d(max);
+        }
+    }
+
+    public final void l(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || this.a != null) {
+            return;
+        }
+        m31 m31Var = new m31(i * 1000, 1000L);
+        m31Var.d(new f(this));
+        this.a = m31Var;
+        if (m31Var != null) {
+            m31Var.e();
+        }
+    }
+
+    public final void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            m31 m31Var = this.a;
+            if (m31Var != null) {
+                m31Var.a();
+            }
+            TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090d16);
+            Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
+            if (guideText.getVisibility() == 0) {
+                setTipsVisible(false, z);
+            }
+        }
+    }
+
+    public final void setAnimTimer(m31 m31Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, m31Var) == null) {
+            this.b = m31Var;
+        }
+    }
+
+    public final void setCountDownTimer(m31 m31Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, m31Var) == null) {
+            this.a = m31Var;
+        }
+    }
+
+    public final void setOutClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
+            this.e = onClickListener;
         }
     }
 
@@ -580,25 +637,62 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         }
     }
 
-    public final l31 getAnimTimer() {
+    public final m31 getAnimTimer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (l31) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (m31) invokeV.objValue;
     }
 
-    public final l31 getCountDownTimer() {
+    public final m31 getCountDownTimer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (l31) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (m31) invokeV.objValue;
     }
 
     public final View.OnClickListener getOutClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : (View.OnClickListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            k();
+            m31 m31Var = this.b;
+            if (m31Var != null) {
+                m31Var.a();
+            }
+            this.b = null;
+            m31 m31Var2 = this.a;
+            if (m31Var2 != null) {
+                m31Var2.a();
+            }
+            this.a = null;
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (this.c != null) {
+                this.c = null;
+            }
+            c(this.d);
+        }
     }
 
     public final void h(int i, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             this.d = i2;
@@ -616,11 +710,11 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 if (this.b != null) {
                     return;
                 }
-                l31 l31Var = new l31(i * 1000, 1000L);
-                l31Var.d(new d(this, i2));
-                this.b = l31Var;
-                if (l31Var != null) {
-                    l31Var.e();
+                m31 m31Var = new m31(i * 1000, 1000L);
+                m31Var.d(new d(this, i2));
+                this.b = m31Var;
+                if (m31Var != null) {
+                    m31Var.e();
                 }
             }
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -628,124 +722,56 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 layoutParams = null;
             }
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            this.f = layoutParams2 != null ? layoutParams2.bottomMargin : 0;
-        }
-    }
-
-    public final void i(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            float max = Math.max(Math.min(f2, 1.0f), -1.0f);
-            ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902bc)).setFraction(max, false);
-            d(max);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            k();
-            l31 l31Var = this.b;
-            if (l31Var != null) {
-                l31Var.a();
+            if (layoutParams2 != null) {
+                i3 = layoutParams2.bottomMargin;
+            } else {
+                i3 = 0;
             }
-            this.b = null;
-            l31 l31Var2 = this.a;
-            if (l31Var2 != null) {
-                l31Var2.a();
-            }
-            this.a = null;
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.c != null) {
-                this.c = null;
-            }
-            c(this.d);
-        }
-    }
-
-    public final void l(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && this.a == null) {
-            l31 l31Var = new l31(i * 1000, 1000L);
-            l31Var.d(new f(this));
-            this.a = l31Var;
-            if (l31Var != null) {
-                l31Var.e();
-            }
-        }
-    }
-
-    public final void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            l31 l31Var = this.a;
-            if (l31Var != null) {
-                l31Var.a();
-            }
-            TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090d09);
-            Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
-            if (guideText.getVisibility() == 0) {
-                setTipsVisible(false, z);
-            }
-        }
-    }
-
-    public final void setAnimTimer(l31 l31Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, l31Var) == null) {
-            this.b = l31Var;
-        }
-    }
-
-    public final void setCountDownTimer(l31 l31Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, l31Var) == null) {
-            this.a = l31Var;
-        }
-    }
-
-    public final void setOutClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
-            this.e = onClickListener;
+            this.f = i3;
         }
     }
 
     public final void setTipsVisible(boolean z, boolean z2) {
+        int i;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            int i = z ? 0 : 8;
-            TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090d09);
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090d16);
             Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
             if (guideText.getVisibility() == i) {
                 return;
             }
             if (!z2) {
-                TextView guideText2 = (TextView) a(R.id.obfuscated_res_0x7f090d09);
+                TextView guideText2 = (TextView) a(R.id.obfuscated_res_0x7f090d16);
                 Intrinsics.checkNotNullExpressionValue(guideText2, "guideText");
                 guideText2.setVisibility(i);
                 return;
             }
             ObjectAnimator objectAnimator = this.c;
-            if (objectAnimator != null ? objectAnimator.isRunning() : false) {
+            if (objectAnimator != null) {
+                z3 = objectAnimator.isRunning();
+            } else {
+                z3 = false;
+            }
+            if (z3) {
                 ObjectAnimator objectAnimator2 = this.c;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
                 this.c = null;
             }
-            ObjectAnimator duration = ObjectAnimator.ofFloat((TextView) a(R.id.obfuscated_res_0x7f090d09), Key.ALPHA, 1.0f).setDuration(500L);
+            ObjectAnimator duration = ObjectAnimator.ofFloat((TextView) a(R.id.obfuscated_res_0x7f090d16), Key.ALPHA, 1.0f).setDuration(500L);
             this.c = duration;
             if (z) {
                 if (duration != null) {
                     duration.setFloatValues(0.0f, 1.0f);
                 }
-                TextView guideText3 = (TextView) a(R.id.obfuscated_res_0x7f090d09);
+                TextView guideText3 = (TextView) a(R.id.obfuscated_res_0x7f090d16);
                 Intrinsics.checkNotNullExpressionValue(guideText3, "guideText");
                 guideText3.setVisibility(0);
             } else {
@@ -762,9 +788,5 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
                 objectAnimator4.start();
             }
         }
-    }
-
-    public /* synthetic */ AdVideoImmersiveTipsView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 }

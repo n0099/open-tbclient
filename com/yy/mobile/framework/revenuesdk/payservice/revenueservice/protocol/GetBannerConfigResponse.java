@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class GetBannerConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BannerConfigItem> bannerConfigItemList;
+    public List bannerConfigItemList;
     public int cmd;
     public String expand;
     public String message;
@@ -51,10 +51,13 @@ public class GetBannerConfigResponse implements IBaseJsonResponse {
     public BannerConfigResult getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BannerConfigResult(this.bannerConfigItemList) : (BannerConfigResult) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new BannerConfigResult(this.bannerConfigItemList);
+        }
+        return (BannerConfigResult) invokeV.objValue;
     }
 
-    public List<BannerConfigItem> optBannerConfigItemList(JSONArray jSONArray) {
+    public List optBannerConfigItemList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
@@ -80,7 +83,7 @@ public class GetBannerConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List<BannerConfigItem.BannerInfo> optBannerInfoList(JSONArray jSONArray) {
+    public List optBannerInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {

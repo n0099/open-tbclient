@@ -2,19 +2,33 @@ package com.ss.android.downloadlib.addownload.compliance;
 
 import com.ss.android.socialbase.downloader.i.h;
 /* loaded from: classes8.dex */
-public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
+public class c extends h {
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static c a = new c();
+    }
+
+    public c() {
+        super(16, 16);
     }
 
     public static c a() {
         return a.a;
     }
 
-    public c() {
-        super(16, 16);
+    public com.ss.android.downloadlib.addownload.b.b a(long j) {
+        return (com.ss.android.downloadlib.addownload.b.b) get(Long.valueOf(j));
+    }
+
+    public com.ss.android.downloadlib.addownload.b.b a(long j, long j2) {
+        Long valueOf;
+        if (get(Long.valueOf(j)) != null) {
+            valueOf = Long.valueOf(j);
+        } else {
+            valueOf = Long.valueOf(j2);
+        }
+        return (com.ss.android.downloadlib.addownload.b.b) get(valueOf);
     }
 
     public void a(com.ss.android.downloadlib.addownload.b.b bVar) {
@@ -22,13 +36,5 @@ public class c extends h<Long, com.ss.android.downloadlib.addownload.b.b> {
             return;
         }
         put(Long.valueOf(bVar.a()), bVar);
-    }
-
-    public com.ss.android.downloadlib.addownload.b.b a(long j, long j2) {
-        return get(get(Long.valueOf(j)) != null ? Long.valueOf(j) : Long.valueOf(j2));
-    }
-
-    public com.ss.android.downloadlib.addownload.b.b a(long j) {
-        return get(Long.valueOf(j));
     }
 }

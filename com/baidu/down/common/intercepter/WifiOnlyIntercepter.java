@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class WifiOnlyIntercepter implements IIntercepter<Void> {
+public class WifiOnlyIntercepter implements IIntercepter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +45,10 @@ public class WifiOnlyIntercepter implements IIntercepter<Void> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             NetworkInfo activeNetworkInfoSafely = getActiveNetworkInfoSafely(context);
-            return activeNetworkInfoSafely != null && activeNetworkInfoSafely.isAvailable() && activeNetworkInfoSafely.getTypeName().toLowerCase().equalsIgnoreCase("wifi");
+            if (activeNetworkInfoSafely != null && activeNetworkInfoSafely.isAvailable() && activeNetworkInfoSafely.getTypeName().toLowerCase().equalsIgnoreCase("wifi")) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -56,10 +59,10 @@ public class WifiOnlyIntercepter implements IIntercepter<Void> {
         com.baidu.titan.sdk.runtime.InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j), r9})) == null) {
-            if (isWifiNetWork(context)) {
-                return null;
+            if (!isWifiNetWork(context)) {
+                return new InterceptResult(1);
             }
-            return new InterceptResult(1);
+            return null;
         }
         return (InterceptResult) invokeCommon.objValue;
     }

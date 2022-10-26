@@ -40,14 +40,13 @@ public class GameVideoHttpResMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         RecomVerticalResIdl recomVerticalResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (recomVerticalResIdl = (RecomVerticalResIdl) new Wire(new Class[0]).parseFrom(bArr, RecomVerticalResIdl.class)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (recomVerticalResIdl = (RecomVerticalResIdl) new Wire(new Class[0]).parseFrom(bArr, RecomVerticalResIdl.class)) != null) {
+            Error error = recomVerticalResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(recomVerticalResIdl.error.errmsg);
+            }
+            this.mResultData = recomVerticalResIdl.data;
         }
-        Error error = recomVerticalResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(recomVerticalResIdl.error.errmsg);
-        }
-        this.mResultData = recomVerticalResIdl.data;
     }
 }

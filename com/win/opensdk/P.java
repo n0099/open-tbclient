@@ -62,24 +62,6 @@ public class P {
         return (Message) invokeIL.objValue;
     }
 
-    public void a(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            int i = message.what;
-            if (i == 1) {
-                Q q = (Q) ((Object[]) message.obj)[0];
-                this.d.d.a();
-            } else if (i == 3) {
-                this.d.d.b();
-            } else if (i == 5) {
-                this.d.d.a(((Integer) ((Object[]) message.obj)[0]).intValue());
-            } else if (i != 7) {
-            } else {
-                this.d.d.c();
-            }
-        }
-    }
-
     public void b(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
@@ -89,6 +71,30 @@ public class P {
             } else {
                 a(message);
             }
+        }
+    }
+
+    public void a(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+            int i = message.what;
+            if (i != 1) {
+                if (i != 3) {
+                    if (i != 5) {
+                        if (i == 7) {
+                            this.d.d.c();
+                            return;
+                        }
+                        return;
+                    }
+                    this.d.d.a(((Integer) ((Object[]) message.obj)[0]).intValue());
+                    return;
+                }
+                this.d.d.b();
+                return;
+            }
+            Q q = (Q) ((Object[]) message.obj)[0];
+            this.d.d.a();
         }
     }
 
@@ -107,23 +113,25 @@ public class P {
                         while (true) {
                             int read = inputStream.read(bArr);
                             z = true;
-                            if (read == -1) {
-                                z = false;
-                                break;
-                            } else if (this.d.f) {
-                                fileOutputStream.write(bArr, 0, read);
-                                int i2 = this.b + read;
-                                this.b = i2;
-                                if (this.d.a + i2 < this.d.g + this.d.a) {
-                                    int parseFloat = (int) (Float.parseFloat(new DecimalFormat("0.00").format((this.d.a + i2) / ((float) (this.d.g + this.d.a)))) * 100.0f);
-                                    this.c = parseFloat;
-                                    if (i % 30 == 0 || parseFloat == 100) {
-                                        b(a(5, new Object[]{Integer.valueOf(this.c)}));
+                            if (read != -1) {
+                                if (this.d.f) {
+                                    fileOutputStream.write(bArr, 0, read);
+                                    int i2 = this.b + read;
+                                    this.b = i2;
+                                    if (this.d.a + i2 < this.d.g + this.d.a) {
+                                        int parseFloat = (int) (Float.parseFloat(new DecimalFormat("0.00").format((this.d.a + i2) / ((float) (this.d.g + this.d.a)))) * 100.0f);
+                                        this.c = parseFloat;
+                                        if (i % 30 == 0 || parseFloat == 100) {
+                                            b(a(5, new Object[]{Integer.valueOf(this.c)}));
+                                        }
                                     }
+                                    i++;
+                                } else {
+                                    b(a(7, null));
+                                    break;
                                 }
-                                i++;
                             } else {
-                                b(a(7, null));
+                                z = false;
                                 break;
                             }
                         }
@@ -138,10 +146,9 @@ public class P {
                         b(a(7, null));
                         this.d.f = false;
                         e.printStackTrace();
-                        if (inputStream == null) {
-                            return;
+                        if (inputStream != null) {
+                            inputStream.close();
                         }
-                        inputStream.close();
                     }
                 } catch (Throwable th) {
                     if (inputStream != null) {

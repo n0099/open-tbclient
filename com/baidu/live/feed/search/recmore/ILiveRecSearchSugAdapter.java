@@ -3,7 +3,6 @@ package com.baidu.live.feed.search.recmore;
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
@@ -25,16 +24,16 @@ public interface ILiveRecSearchSugAdapter {
 
         void onSuggestionSelect(String str, int i);
 
-        void onUbcResult(List<? extends LiveSearchResultInfo> list, int i, String str);
+        void onUbcResult(List list, int i, String str);
     }
 
-    RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context);
+    RecyclerView.Adapter createAdapter(Context context);
 
-    RecyclerView.Adapter<RecyclerView.ViewHolder> getAdapter();
+    RecyclerView.Adapter getAdapter();
 
     void setFollowStatus(int i);
 
     void setSuggestListener(OnSuggestionListener onSuggestionListener);
 
-    void setSuggestions(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2, String str);
+    void setSuggestions(List list, List list2, String str);
 }

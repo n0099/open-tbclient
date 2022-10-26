@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.model.stream;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,15 +14,33 @@ import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
 import java.net.URL;
 /* loaded from: classes7.dex */
-public class UrlLoader implements ModelLoader<URL, InputStream> {
+public class UrlLoader implements ModelLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModelLoader<GlideUrl, InputStream> glideUrlLoader;
+    public final ModelLoader glideUrlLoader;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.model.ModelLoader
+    public boolean handles(URL url) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, url)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
     /* loaded from: classes7.dex */
-    public static class StreamFactory implements ModelLoaderFactory<URL, InputStream> {
+    public class StreamFactory implements ModelLoaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        public void teardown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public StreamFactory() {
             Interceptable interceptable = $ic;
@@ -40,22 +57,17 @@ public class UrlLoader implements ModelLoader<URL, InputStream> {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        @NonNull
-        public ModelLoader<URL, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) ? new UrlLoader(multiModelLoaderFactory.build(GlideUrl.class, InputStream.class)) : (ModelLoader) invokeL.objValue;
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public void teardown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
+                return new UrlLoader(multiModelLoaderFactory.build(GlideUrl.class, InputStream.class));
             }
+            return (ModelLoader) invokeL.objValue;
         }
     }
 
-    public UrlLoader(ModelLoader<GlideUrl, InputStream> modelLoader) {
+    public UrlLoader(ModelLoader modelLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,20 +87,12 @@ public class UrlLoader implements ModelLoader<URL, InputStream> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(@NonNull URL url) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, url)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull URL url, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData buildLoadData(URL url, int i, int i2, Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{url, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? this.glideUrlLoader.buildLoadData(new GlideUrl(url), i, i2, options) : (ModelLoader.LoadData) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{url, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            return this.glideUrlLoader.buildLoadData(new GlideUrl(url), i, i2, options);
+        }
+        return (ModelLoader.LoadData) invokeCommon.objValue;
     }
 }

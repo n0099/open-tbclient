@@ -43,7 +43,63 @@ public class MessageUtils {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return i == 0 || i == 2 || i == 3;
+            if (i != 0 && i != 2 && i != 3) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean hasLink(LiveMessageBean.MessageBody messageBody) {
+        InterceptResult invokeL;
+        LiveMessageBean.Link link;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, messageBody)) == null) {
+            if (messageBody != null && (link = messageBody.link) != null && !TextUtils.isEmpty(link.url)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean hasPic(LiveMessageBean.MessageBody messageBody) {
+        InterceptResult invokeL;
+        LiveMessageBean.Pic pic;
+        LiveMessageBean.Pic.ImageInfo imageInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, messageBody)) == null) {
+            if (messageBody != null && (pic = messageBody.pic) != null && (imageInfo = pic.thumbnail) != null && !TextUtils.isEmpty(imageInfo.url)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean hasText(LiveMessageBean.MessageBody messageBody) {
+        InterceptResult invokeL;
+        LiveMessageBean.Txt txt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, messageBody)) == null) {
+            if (messageBody != null && (txt = messageBody.txt) != null && !TextUtils.isEmpty(txt.word)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean hasVoice(LiveMessageBean.MessageBody messageBody) {
+        InterceptResult invokeL;
+        LiveMessageBean.Voice voice;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, messageBody)) == null) {
+            if (messageBody != null && (voice = messageBody.voice) != null && !TextUtils.isEmpty(voice.url)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -67,9 +123,9 @@ public class MessageUtils {
                     if (i != 3) {
                         if (i != 4) {
                             if (i != 5) {
-                                return "" + context.getString(R.string.obfuscated_res_0x7f0f0a3f);
+                                return "" + context.getString(R.string.obfuscated_res_0x7f0f0a4c);
                             }
-                            return "" + context.getString(R.string.obfuscated_res_0x7f0f0a42);
+                            return "" + context.getString(R.string.obfuscated_res_0x7f0f0a4f);
                         }
                     }
                 }
@@ -77,7 +133,7 @@ public class MessageUtils {
                 if (messageBody != null && (txt2 = messageBody.txt) != null && !TextUtils.isEmpty(txt2.word)) {
                     str = liveMessageBean.message_body.txt.word;
                 }
-                return str + context.getString(R.string.obfuscated_res_0x7f0f0a40);
+                return str + context.getString(R.string.obfuscated_res_0x7f0f0a4d);
             }
             LiveMessageBean.MessageBody messageBody2 = liveMessageBean.message_body;
             if (messageBody2 == null || (txt = messageBody2.txt) == null || TextUtils.isEmpty(txt.word)) {
@@ -93,14 +149,14 @@ public class MessageUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, context, liveMessageBean, z)) == null) {
             String convertToText = convertToText(context, liveMessageBean);
-            if (!z || TextUtils.isEmpty(liveMessageBean.at_uid)) {
+            if (z && !TextUtils.isEmpty(liveMessageBean.at_uid)) {
+                String replyNamePre = getReplyNamePre(context, liveMessageBean);
+                if (!convertToText.startsWith(replyNamePre)) {
+                    return replyNamePre + convertToText;
+                }
                 return convertToText;
             }
-            String replyNamePre = getReplyNamePre(context, liveMessageBean);
-            if (convertToText.startsWith(replyNamePre)) {
-                return convertToText;
-            }
-            return replyNamePre + convertToText;
+            return convertToText;
         }
         return (String) invokeLLZ.objValue;
     }
@@ -109,15 +165,28 @@ public class MessageUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, liveMessageBean)) == null) {
-            if (liveMessageBean == null || TextUtils.isEmpty(liveMessageBean.at_uid)) {
-                return "";
+            if (liveMessageBean != null && !TextUtils.isEmpty(liveMessageBean.at_uid)) {
+                return context.getString(R.string.obfuscated_res_0x7f0f0a4e) + liveMessageBean.at_name + " ";
             }
-            return context.getString(R.string.obfuscated_res_0x7f0f0a41) + liveMessageBean.at_name + " ";
+            return "";
         }
         return (String) invokeLL.objValue;
     }
 
-    public static int halfSearch(List<LiveMessageBean> list, boolean z, long j) {
+    public static void trimReplayMessage(Context context, LiveMessageBean liveMessageBean) {
+        LiveMessageBean.MessageBody messageBody;
+        LiveMessageBean.Txt txt;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, context, liveMessageBean) == null) && liveMessageBean != null && (messageBody = liveMessageBean.at_message_body) != null && (txt = messageBody.txt) != null && !TextUtils.isEmpty(txt.word)) {
+            String replyNamePre = getReplyNamePre(context, liveMessageBean);
+            if (liveMessageBean.at_message_body.txt.word.startsWith(replyNamePre)) {
+                LiveMessageBean.Txt txt2 = liveMessageBean.at_message_body.txt;
+                txt2.word = txt2.word.replace(replyNamePre, "");
+            }
+        }
+    }
+
+    public static int halfSearch(List list, boolean z, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
@@ -125,67 +194,24 @@ public class MessageUtils {
             int i = 0;
             while (i <= size) {
                 int i2 = (i + size) / 2;
-                if (j < list.get(i2).msgId) {
+                if (j < ((LiveMessageBean) list.get(i2)).msgId) {
                     if (z) {
                         size = i2 - 1;
                     } else {
                         i = i2 + 1;
                     }
-                } else if (j <= list.get(i2).msgId) {
-                    return i2;
+                } else if (j > ((LiveMessageBean) list.get(i2)).msgId) {
+                    if (!z) {
+                        size = i2 - 1;
+                    } else {
+                        i = i2 + 1;
+                    }
                 } else {
-                    if (z) {
-                        i = i2 + 1;
-                    } else {
-                        size = i2 - 1;
-                    }
+                    return i2;
                 }
             }
             return -1;
         }
         return invokeCommon.intValue;
-    }
-
-    public static boolean hasLink(LiveMessageBean.MessageBody messageBody) {
-        InterceptResult invokeL;
-        LiveMessageBean.Link link;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, messageBody)) == null) ? (messageBody == null || (link = messageBody.link) == null || TextUtils.isEmpty(link.url)) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean hasPic(LiveMessageBean.MessageBody messageBody) {
-        InterceptResult invokeL;
-        LiveMessageBean.Pic pic;
-        LiveMessageBean.Pic.ImageInfo imageInfo;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, messageBody)) == null) ? (messageBody == null || (pic = messageBody.pic) == null || (imageInfo = pic.thumbnail) == null || TextUtils.isEmpty(imageInfo.url)) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean hasText(LiveMessageBean.MessageBody messageBody) {
-        InterceptResult invokeL;
-        LiveMessageBean.Txt txt;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, messageBody)) == null) ? (messageBody == null || (txt = messageBody.txt) == null || TextUtils.isEmpty(txt.word)) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean hasVoice(LiveMessageBean.MessageBody messageBody) {
-        InterceptResult invokeL;
-        LiveMessageBean.Voice voice;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, messageBody)) == null) ? (messageBody == null || (voice = messageBody.voice) == null || TextUtils.isEmpty(voice.url)) ? false : true : invokeL.booleanValue;
-    }
-
-    public static void trimReplayMessage(Context context, LiveMessageBean liveMessageBean) {
-        LiveMessageBean.MessageBody messageBody;
-        LiveMessageBean.Txt txt;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, context, liveMessageBean) == null) || liveMessageBean == null || (messageBody = liveMessageBean.at_message_body) == null || (txt = messageBody.txt) == null || TextUtils.isEmpty(txt.word)) {
-            return;
-        }
-        String replyNamePre = getReplyNamePre(context, liveMessageBean);
-        if (liveMessageBean.at_message_body.txt.word.startsWith(replyNamePre)) {
-            LiveMessageBean.Txt txt2 = liveMessageBean.at_message_body.txt;
-            txt2.word = txt2.word.replace(replyNamePre, "");
-        }
     }
 }

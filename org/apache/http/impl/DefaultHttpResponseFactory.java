@@ -20,6 +20,22 @@ public class DefaultHttpResponseFactory implements HttpResponseFactory {
     public transient /* synthetic */ FieldHolder $fh;
     public final ReasonPhraseCatalog reasonCatalog;
 
+    public DefaultHttpResponseFactory() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public DefaultHttpResponseFactory(ReasonPhraseCatalog reasonPhraseCatalog) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,22 +71,6 @@ public class DefaultHttpResponseFactory implements HttpResponseFactory {
             throw new RuntimeException("Stub!");
         }
         return (HttpResponse) invokeLIL.objValue;
-    }
-
-    public DefaultHttpResponseFactory() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpResponseFactory

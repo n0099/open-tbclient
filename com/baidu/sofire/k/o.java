@@ -33,21 +33,6 @@ public class o {
         a = new String[]{"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o=", "xbOAOB93VGI-kwCx1KZxzESB35X3hv9xe1VSXGErZbY=", "WtGvBTWjt2PyMX5rQclkgiNR3aDxFtoBNe1UnNpbL1I="};
     }
 
-    public static Bundle a(Context context, String str, Bundle bundle, String str2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, bundle, str2)) == null) {
-            try {
-                context.getApplicationContext().getContentResolver();
-                return a(context, str, bundle, Uri.parse("content://" + context.getPackageName() + "." + str2 + ".ac.provider"));
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return null;
-            }
-        }
-        return (Bundle) invokeLLLL.objValue;
-    }
-
     public static Bundle a(Context context, String str, Bundle bundle, Uri uri) {
         InterceptResult invokeLLLL;
         ContentProviderClient contentProviderClient;
@@ -85,6 +70,21 @@ public class o {
                 return contentResolver.call(uri, str, (String) null, bundle);
             } catch (Throwable unused3) {
                 int i3 = com.baidu.sofire.a.b.a;
+                return null;
+            }
+        }
+        return (Bundle) invokeLLLL.objValue;
+    }
+
+    public static Bundle a(Context context, String str, Bundle bundle, String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, bundle, str2)) == null) {
+            try {
+                context.getApplicationContext().getContentResolver();
+                return a(context, str, bundle, Uri.parse("content://" + context.getPackageName() + "." + str2 + ".ac.provider"));
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
                 return null;
             }
         }

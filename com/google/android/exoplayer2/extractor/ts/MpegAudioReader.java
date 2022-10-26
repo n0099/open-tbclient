@@ -33,6 +33,13 @@ public final class MpegAudioReader implements ElementaryStreamReader {
     public int state;
     public long timeUs;
 
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void packetFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MpegAudioReader() {
         this(null);
@@ -51,14 +58,57 @@ public final class MpegAudioReader implements ElementaryStreamReader {
         }
     }
 
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void seek() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.state = 0;
+            this.frameBytesRead = 0;
+            this.lastByteWasFF = false;
+        }
+    }
+
+    public MpegAudioReader(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.state = 0;
+        ParsableByteArray parsableByteArray = new ParsableByteArray(4);
+        this.headerScratch = parsableByteArray;
+        parsableByteArray.data[0] = -1;
+        this.header = new MpegAudioHeader();
+        this.language = str;
+    }
+
     private void findHeader(ParsableByteArray parsableByteArray) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, parsableByteArray) == null) {
             byte[] bArr = parsableByteArray.data;
             int limit = parsableByteArray.limit();
             for (int position = parsableByteArray.getPosition(); position < limit; position++) {
-                boolean z = (bArr[position] & 255) == 255;
-                boolean z2 = this.lastByteWasFF && (bArr[position] & 224) == 224;
+                if ((bArr[position] & 255) == 255) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (this.lastByteWasFF && (bArr[position] & 224) == 224) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
                 this.lastByteWasFF = z;
                 if (z2) {
                     parsableByteArray.setPosition(position + 1);
@@ -127,12 +177,16 @@ public final class MpegAudioReader implements ElementaryStreamReader {
         if (interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) {
             while (parsableByteArray.bytesLeft() > 0) {
                 int i = this.state;
-                if (i == 0) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            readFrameRemainder(parsableByteArray);
+                        }
+                    } else {
+                        readHeaderRemainder(parsableByteArray);
+                    }
+                } else {
                     findHeader(parsableByteArray);
-                } else if (i == 1) {
-                    readHeaderRemainder(parsableByteArray);
-                } else if (i == 2) {
-                    readFrameRemainder(parsableByteArray);
                 }
             }
         }
@@ -149,50 +203,10 @@ public final class MpegAudioReader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void packetStarted(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             this.timeUs = j;
         }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void seek() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.state = 0;
-            this.frameBytesRead = 0;
-            this.lastByteWasFF = false;
-        }
-    }
-
-    public MpegAudioReader(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.state = 0;
-        ParsableByteArray parsableByteArray = new ParsableByteArray(4);
-        this.headerScratch = parsableByteArray;
-        parsableByteArray.data[0] = -1;
-        this.header = new MpegAudioHeader();
-        this.language = str;
     }
 }

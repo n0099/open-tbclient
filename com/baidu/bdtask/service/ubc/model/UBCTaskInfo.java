@@ -5,7 +5,7 @@ import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
-import com.baidu.tieba.yu;
+import com.baidu.tieba.zu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public final class UBCTaskInfo implements ITaskModelData {
         this.behavior = taskInfo.getBehavior();
         this.activeTime = taskStatus.getCurActiveTime();
         this.nextActiveUntilTime = taskInfo.getResponse().getNextActive().getUntil();
-        this.status = yu.a.d(taskStatus);
+        this.status = zu.a.d(taskStatus);
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -67,7 +67,10 @@ public final class UBCTaskInfo implements ITaskModelData {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ITaskModelData.a.a(this) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ITaskModelData.a.a(this);
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData

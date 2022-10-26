@@ -19,7 +19,7 @@ public final class AndroidSchedulers {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class MainHolder {
+    public final class MainHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public final class AndroidSchedulers {
                 return;
             }
         }
-        MAIN_THREAD = RxAndroidPlugins.initMainThreadScheduler(new Callable<Scheduler>() { // from class: io.reactivex.android.schedulers.AndroidSchedulers.1
+        MAIN_THREAD = RxAndroidPlugins.initMainThreadScheduler(new Callable() { // from class: io.reactivex.android.schedulers.AndroidSchedulers.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,12 +87,14 @@ public final class AndroidSchedulers {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // java.util.concurrent.Callable
             public Scheduler call() throws Exception {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? MainHolder.DEFAULT : (Scheduler) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return MainHolder.DEFAULT;
+                }
+                return (Scheduler) invokeV.objValue;
             }
         });
     }
@@ -113,6 +115,15 @@ public final class AndroidSchedulers {
         throw new AssertionError("No instances.");
     }
 
+    public static Scheduler mainThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return RxAndroidPlugins.onMainThreadScheduler(MAIN_THREAD);
+        }
+        return (Scheduler) invokeV.objValue;
+    }
+
     public static Scheduler from(Looper looper) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -123,11 +134,5 @@ public final class AndroidSchedulers {
             throw new NullPointerException("looper == null");
         }
         return (Scheduler) invokeL.objValue;
-    }
-
-    public static Scheduler mainThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? RxAndroidPlugins.onMainThreadScheduler(MAIN_THREAD) : (Scheduler) invokeV.objValue;
     }
 }

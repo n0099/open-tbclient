@@ -8,10 +8,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoDecoderWrapper;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VideoDecoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native void nativeOnDecodedFrame(long j, VideoFrame videoFrame, Integer num, Integer num2);
 
     public VideoDecoderWrapper() {
         Interceptable interceptable = $ic;
@@ -27,23 +29,23 @@ public class VideoDecoderWrapper {
         }
     }
 
-    @CalledByNative
     public static VideoDecoder.Callback createDecoderCallback(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoDecoder.Callback() { // from class: com.baidu.tieba.nw9
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return new VideoDecoder.Callback() { // from class: com.baidu.tieba.fx9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // org.webrtc.VideoDecoder.Callback
-            public final void onDecodedFrame(VideoFrame videoFrame, Integer num, Integer num2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, videoFrame, num, num2) == null) {
-                    VideoDecoderWrapper.nativeOnDecodedFrame(j, videoFrame, num, num2);
+                @Override // org.webrtc.VideoDecoder.Callback
+                public final void onDecodedFrame(VideoFrame videoFrame, Integer num, Integer num2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, videoFrame, num, num2) == null) {
+                        VideoDecoderWrapper.nativeOnDecodedFrame(j, videoFrame, num, num2);
+                    }
                 }
-            }
-        } : (VideoDecoder.Callback) invokeJ.objValue;
+            };
+        }
+        return (VideoDecoder.Callback) invokeJ.objValue;
     }
-
-    public static native void nativeOnDecodedFrame(long j, VideoFrame videoFrame, Integer num, Integer num2);
 }

@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ft4;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.ht4;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-    public ft4 data;
+    public ht4 data;
     public int errCode;
     public String resultString;
 
@@ -42,7 +42,36 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = -1;
-        this.data = new ft4();
+        this.data = new ht4();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && isSuccess() && this.errCode == 0) {
+            HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
+            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                str = TbadkCoreApplication.getCurrentAccountObj().getID();
+            } else {
+                str = "";
+            }
+            if (httpMessage.getExtra() == null) {
+                try {
+                    String parseToString = parseToString(bArr);
+                    if (parseToString != null) {
+                        ou4.f();
+                        kf g = ou4.g("tb.my_pages");
+                        if (g != null) {
+                            g.e("personal_myfollow_" + str, parseToString, 604800000L);
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -51,31 +80,39 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error < 0 || jSONObject == null) {
-                return;
+            if (statusCode == 200 && error >= 0 && jSONObject != null) {
+                this.resultString = jSONObject.toString();
+                this.errCode = jSONObject.optInt("error_code");
+                this.data.b(jSONObject);
             }
-            this.resultString = jSONObject.toString();
-            this.errCode = jSONObject.optInt("error_code");
-            this.data.b(jSONObject);
         }
     }
 
     public int getErrCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.errCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.errCode;
+        }
+        return invokeV.intValue;
     }
 
-    public ft4 getPersonFriendData() {
+    public ht4 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.data : (ft4) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.data;
+        }
+        return (ht4) invokeV.objValue;
     }
 
     public String getResultString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.resultString : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.resultString;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setErrCode(int i) {
@@ -85,10 +122,10 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonFriendData(ft4 ft4Var) {
+    public void setPersonFriendData(ht4 ht4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ft4Var) == null) {
-            this.data = ft4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ht4Var) == null) {
+            this.data = ht4Var;
         }
     }
 
@@ -96,30 +133,6 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.resultString = str;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && isSuccess() && this.errCode == 0) {
-            HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
-            String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
-            if (httpMessage.getExtra() == null) {
-                try {
-                    String parseToString = parseToString(bArr);
-                    if (parseToString != null) {
-                        mu4.f();
-                        jf<String> g = mu4.g("tb.my_pages");
-                        if (g != null) {
-                            g.e("personal_myfollow_" + id, parseToString, 604800000L);
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

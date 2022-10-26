@@ -37,31 +37,46 @@ public class ProcessMediaRequest extends VodBceRequest {
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.description : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.description;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getMediaId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mediaId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mediaId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSourceExtension() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sourceExtension : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sourceExtension;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTranscodingPresetGroupName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.transcodingPresetGroupName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.transcodingPresetGroupName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setDescription(String str) {
@@ -97,35 +112,6 @@ public class ProcessMediaRequest extends VodBceRequest {
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.transcodingPresetGroupName = str;
         }
-    }
-
-    @Override // com.baidubce.services.vod.model.VodBceRequest
-    public String toJsonString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("mediaId", this.mediaId);
-                jSONObject.put("title", this.title);
-                jSONObject.put("description", this.description);
-                jSONObject.put("sourceExtension", this.sourceExtension);
-                jSONObject.put("transcodingPresetGroupName", this.transcodingPresetGroupName);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "ProcessMediaRequest { \n  mediaId = " + this.mediaId + "\n  title = " + this.title + "\n  description = " + this.description + "\n  sourceExtension = " + this.sourceExtension + "\n}\n";
-        }
-        return (String) invokeV.objValue;
     }
 
     public ProcessMediaRequest withDescription(String str) {
@@ -187,5 +173,34 @@ public class ProcessMediaRequest extends VodBceRequest {
             return this;
         }
         return (ProcessMediaRequest) invokeL.objValue;
+    }
+
+    @Override // com.baidubce.services.vod.model.VodBceRequest
+    public String toJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("mediaId", this.mediaId);
+                jSONObject.put("title", this.title);
+                jSONObject.put("description", this.description);
+                jSONObject.put("sourceExtension", this.sourceExtension);
+                jSONObject.put("transcodingPresetGroupName", this.transcodingPresetGroupName);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "ProcessMediaRequest { \n  mediaId = " + this.mediaId + "\n  title = " + this.title + "\n  description = " + this.description + "\n  sourceExtension = " + this.sourceExtension + "\n}\n";
+        }
+        return (String) invokeV.objValue;
     }
 }

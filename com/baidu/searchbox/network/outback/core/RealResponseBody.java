@@ -1,6 +1,5 @@
 package com.baidu.searchbox.network.outback.core;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,11 +12,10 @@ public final class RealResponseBody extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long contentLength;
-    @Nullable
     public final String contentTypeString;
     public final InputStream inputStream;
 
-    public RealResponseBody(@Nullable String str, long j, InputStream inputStream) {
+    public RealResponseBody(String str, long j, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +39,10 @@ public final class RealResponseBody extends ResponseBody {
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.contentLength : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.contentLength;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.core.ResponseBody
@@ -62,6 +63,9 @@ public final class RealResponseBody extends ResponseBody {
     public InputStream inputStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.inputStream : (InputStream) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.inputStream;
+        }
+        return (InputStream) invokeV.objValue;
     }
 }

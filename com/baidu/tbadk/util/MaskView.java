@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -30,6 +29,13 @@ public class MaskView extends View {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MaskView a;
 
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
         public a(MaskView maskView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -47,6 +53,12 @@ public class MaskView extends View {
             }
             this.a = maskView;
         }
+    }
+
+    /* loaded from: classes3.dex */
+    public final class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -54,12 +66,6 @@ public class MaskView extends View {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -74,17 +80,10 @@ public class MaskView extends View {
                 }
             }
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements View.OnClickListener {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -133,74 +132,8 @@ public class MaskView extends View {
         a();
     }
 
-    public static void b(ImageView imageView, boolean z) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65539, null, imageView, z) == null) || imageView == null || !z || (drawable = imageView.getDrawable()) == null) {
-            return;
-        }
-        drawable.setAlpha(84);
-    }
-
-    public static void c(ViewGroup viewGroup, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, z) == null) {
-            e(viewGroup, z, new c());
-        }
-    }
-
-    public static void d(TextView textView, boolean z) {
-        Drawable[] compoundDrawables;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65541, null, textView, z) == null) && textView != null && z) {
-            textView.setTextColor(textView.getTextColors().withAlpha(84));
-            textView.setClickable(false);
-            textView.setEnabled(false);
-            textView.setOnClickListener(new b());
-            for (Drawable drawable : textView.getCompoundDrawables()) {
-                if (drawable != null) {
-                    drawable.setAlpha(84);
-                }
-            }
-        }
-    }
-
-    public static void e(ViewGroup viewGroup, boolean z, View.OnClickListener onClickListener) {
-        int childCount;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{viewGroup, Boolean.valueOf(z), onClickListener}) == null) || viewGroup == null || !z || (childCount = viewGroup.getChildCount()) <= 0) {
-            return;
-        }
-        for (int i = 0; i < childCount; i++) {
-            View childAt = viewGroup.getChildAt(i);
-            if (childAt instanceof ImageView) {
-                b((ImageView) childAt, z);
-            } else if (childAt instanceof TextView) {
-                d((TextView) childAt, z);
-            }
-        }
-        viewGroup.setOnClickListener(onClickListener);
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOnClickListener(new a(this));
-            setVisibility(8);
-            f();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            setAlpha(0.67f);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaskView(Context context, @Nullable AttributeSet attributeSet) {
+    public MaskView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -221,8 +154,24 @@ public class MaskView extends View {
         a();
     }
 
+    public static void d(TextView textView, boolean z) {
+        Drawable[] compoundDrawables;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65541, null, textView, z) == null) && textView != null && z) {
+            textView.setTextColor(textView.getTextColors().withAlpha(84));
+            textView.setClickable(false);
+            textView.setEnabled(false);
+            textView.setOnClickListener(new b());
+            for (Drawable drawable : textView.getCompoundDrawables()) {
+                if (drawable != null) {
+                    drawable.setAlpha(84);
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaskView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public MaskView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -241,5 +190,54 @@ public class MaskView extends View {
             }
         }
         a();
+    }
+
+    public static void e(ViewGroup viewGroup, boolean z, View.OnClickListener onClickListener) {
+        int childCount;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{viewGroup, Boolean.valueOf(z), onClickListener}) != null) || viewGroup == null || !z || (childCount = viewGroup.getChildCount()) <= 0) {
+            return;
+        }
+        for (int i = 0; i < childCount; i++) {
+            View childAt = viewGroup.getChildAt(i);
+            if (childAt instanceof ImageView) {
+                b((ImageView) childAt, z);
+            } else if (childAt instanceof TextView) {
+                d((TextView) childAt, z);
+            }
+        }
+        viewGroup.setOnClickListener(onClickListener);
+    }
+
+    public static void b(ImageView imageView, boolean z) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65539, null, imageView, z) == null) && imageView != null && z && (drawable = imageView.getDrawable()) != null) {
+            drawable.setAlpha(84);
+        }
+    }
+
+    public static void c(ViewGroup viewGroup, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, z) == null) {
+            e(viewGroup, z, new c());
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOnClickListener(new a(this));
+            setVisibility(8);
+            f();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            setAlpha(0.67f);
+        }
     }
 }

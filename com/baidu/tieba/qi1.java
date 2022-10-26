@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(9)
 /* loaded from: classes5.dex */
-public abstract class qi1 implements oi1<qi1> {
+public class qi1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static qi1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qi1() {
-        this(5);
+        super("SSOHandlerThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,7 +24,8 @@ public abstract class qi1 implements oi1<qi1> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,40 +33,27 @@ public abstract class qi1 implements oi1<qi1> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(qi1 qi1Var) {
-        InterceptResult invokeL;
+    public static Handler a() {
+        InterceptResult invokeV;
+        Handler handler;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qi1Var)) == null) ? qi1Var.a - this.a : invokeL.intValue;
-    }
-
-    public abstract void b();
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b();
-        }
-    }
-
-    public qi1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (qi1.class) {
+                b();
+                handler = b;
             }
+            return handler;
         }
-        this.a = i;
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a == null) {
+            qi1 qi1Var = new qi1();
+            a = qi1Var;
+            qi1Var.start();
+            b = new Handler(a.getLooper());
+        }
     }
 }

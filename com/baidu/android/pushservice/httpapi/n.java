@@ -33,7 +33,7 @@ public class n extends d {
     }
 
     @Override // com.baidu.android.pushservice.httpapi.a
-    public void b(HashMap<String, String> hashMap) {
+    public void b(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
             super.b(hashMap);

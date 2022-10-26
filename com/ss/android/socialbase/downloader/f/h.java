@@ -1,6 +1,5 @@
 package com.ss.android.socialbase.downloader.f;
 
-import androidx.annotation.NonNull;
 import java.io.IOException;
 /* loaded from: classes8.dex */
 public class h implements e {
@@ -13,7 +12,7 @@ public class h implements e {
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
-    public void b(@NonNull a aVar) throws IOException {
+    public void b(a aVar) throws IOException {
         aVar.b = this.b;
         this.a.b(aVar);
     }

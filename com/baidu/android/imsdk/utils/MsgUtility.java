@@ -34,12 +34,15 @@ public class MsgUtility {
             if (2 == chatMsg.getCategory() || -1 == chatMsg.getMsgType()) {
                 return true;
             }
-            return (chatMsg.getMsgType() >= 1001 && chatMsg.getMsgType() <= 1014) || chatMsg.getMsgType() == 2001 || chatMsg.getMsgType() == 2010 || chatMsg.getMsgType() == 22 || chatMsg.getMsgType() == 36;
+            if ((chatMsg.getMsgType() >= 1001 && chatMsg.getMsgType() <= 1014) || chatMsg.getMsgType() == 2001 || chatMsg.getMsgType() == 2010 || chatMsg.getMsgType() == 22 || chatMsg.getMsgType() == 36) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static JSONArray listToJsonArray(List<Long> list) {
+    public static JSONArray listToJsonArray(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {

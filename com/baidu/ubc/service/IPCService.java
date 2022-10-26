@@ -8,9 +8,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.ma9;
-import com.baidu.tieba.ue1;
-import com.baidu.tieba.x99;
+import com.baidu.tieba.eb9;
+import com.baidu.tieba.pa9;
+import com.baidu.tieba.ve1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class IPCService implements ma9 {
+public class IPCService implements eb9 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class IPCService implements ma9 {
                 return;
             }
         }
-        a = x99.m();
+        a = pa9.m();
     }
 
     public IPCService() {
@@ -60,14 +60,7 @@ public class IPCService implements ma9 {
         }
     }
 
-    @Override // com.baidu.tieba.ma9
-    public IBinder a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? IPCServiceManager.f(str, true) : (IBinder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ma9
+    @Override // com.baidu.tieba.eb9
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -95,106 +88,11 @@ public class IPCService implements ma9 {
                 }
 
                 @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowAddEvent(Flow flow, String str, String str2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, flow, str, str2) == null) || flow == null) {
-                        return;
-                    }
-                    UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                    if (uBCManager != null) {
-                        uBCManager.flowAddEvent(flow, str, str2);
-                    }
-                    if (IPCService.a) {
-                        Log.d("UBCIPCService", " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle());
-                    }
-                }
-
-                @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException {
-                    UBCManager uBCManager;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) || flow == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
-                        return;
-                    }
-                    uBCManager.flowAddEventWithDate(flow, str, str2, j);
-                }
-
-                @Override // com.baidu.ubc.IRemoteUBCService
                 public void flowCancel(Flow flow) throws RemoteException {
                     UBCManager uBCManager;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, flow) == null) || flow == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
-                        return;
-                    }
-                    uBCManager.flowCancel(flow);
-                }
-
-                @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowEnd(Flow flow) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, flow) == null) || flow == null) {
-                        return;
-                    }
-                    UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                    if (uBCManager != null) {
-                        uBCManager.flowEnd(flow);
-                    }
-                    if (IPCService.a) {
-                        Log.d("UBCIPCService", " [end] flow id " + flow.getId() + " handler id " + flow.getHandle());
-                    }
-                }
-
-                @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowEndSlot(Flow flow, String str) throws RemoteException {
-                    UBCManager uBCManager;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048580, this, flow, str) == null) || flow == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
-                        return;
-                    }
-                    uBCManager.flowEndSlot(flow, str);
-                }
-
-                @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowSetValue(Flow flow, String str) throws RemoteException {
-                    UBCManager uBCManager;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048581, this, flow, str) == null) || flow == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
-                        return;
-                    }
-                    uBCManager.flowSetValue(flow, str);
-                }
-
-                @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
-                    UBCManager uBCManager;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048582, this, flow, str) == null) || flow == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
-                        return;
-                    }
-                    uBCManager.flowSetValueWithDuration(flow, str);
-                }
-
-                @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowStartSlot(Flow flow, String str, String str2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLLL(1048583, this, flow, str, str2) == null) || flow == null) {
-                        return;
-                    }
-                    if (TextUtils.isEmpty(str2)) {
-                        UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                        if (uBCManager != null) {
-                            uBCManager.flowStartSlot(flow, str, null);
-                            return;
-                        }
-                        return;
-                    }
-                    try {
-                        UBCManager uBCManager2 = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                        if (uBCManager2 != null) {
-                            uBCManager2.flowStartSlot(flow, str, new JSONObject(str2));
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, flow) == null) && flow != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+                        uBCManager.flowCancel(flow);
                     }
                 }
 
@@ -204,9 +102,26 @@ public class IPCService implements ma9 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
                         UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                        return uBCManager != null ? uBCManager.getUploadType(str) : "";
+                        if (uBCManager != null) {
+                            return uBCManager.getUploadType(str);
+                        }
+                        return "";
                     }
                     return (String) invokeL.objValue;
+                }
+
+                @Override // com.baidu.ubc.IRemoteUBCService
+                public void flowAddEvent(Flow flow, String str, String str2) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLLL(1048576, this, flow, str, str2) == null) && flow != null) {
+                        UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                        if (uBCManager != null) {
+                            uBCManager.flowAddEvent(flow, str, str2);
+                        }
+                        if (IPCService.a) {
+                            Log.d("UBCIPCService", " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle());
+                        }
+                    }
                 }
 
                 @Override // com.baidu.ubc.IRemoteUBCService
@@ -216,11 +131,84 @@ public class IPCService implements ma9 {
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
                         if (IPCService.a && beginFlow != null) {
-                            Log.d("UBCIPCService", " process name " + ue1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            Log.d("UBCIPCService", " process name " + ve1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;
                     }
                     return (Flow) invokeLLI.objValue;
+                }
+
+                @Override // com.baidu.ubc.IRemoteUBCService
+                public void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException {
+                    UBCManager uBCManager;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) && flow != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+                        uBCManager.flowAddEventWithDate(flow, str, str2, j);
+                    }
+                }
+
+                @Override // com.baidu.ubc.IRemoteUBCService
+                public void flowEnd(Flow flow) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048579, this, flow) == null) && flow != null) {
+                        UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                        if (uBCManager != null) {
+                            uBCManager.flowEnd(flow);
+                        }
+                        if (IPCService.a) {
+                            Log.d("UBCIPCService", " [end] flow id " + flow.getId() + " handler id " + flow.getHandle());
+                        }
+                    }
+                }
+
+                @Override // com.baidu.ubc.IRemoteUBCService
+                public void flowEndSlot(Flow flow, String str) throws RemoteException {
+                    UBCManager uBCManager;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048580, this, flow, str) == null) && flow != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+                        uBCManager.flowEndSlot(flow, str);
+                    }
+                }
+
+                @Override // com.baidu.ubc.IRemoteUBCService
+                public void flowSetValue(Flow flow, String str) throws RemoteException {
+                    UBCManager uBCManager;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048581, this, flow, str) == null) && flow != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+                        uBCManager.flowSetValue(flow, str);
+                    }
+                }
+
+                @Override // com.baidu.ubc.IRemoteUBCService
+                public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
+                    UBCManager uBCManager;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048582, this, flow, str) == null) && flow != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+                        uBCManager.flowSetValueWithDuration(flow, str);
+                    }
+                }
+
+                @Override // com.baidu.ubc.IRemoteUBCService
+                public void flowStartSlot(Flow flow, String str, String str2) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLLL(1048583, this, flow, str, str2) == null) && flow != null) {
+                        if (TextUtils.isEmpty(str2)) {
+                            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                            if (uBCManager != null) {
+                                uBCManager.flowStartSlot(flow, str, null);
+                                return;
+                            }
+                            return;
+                        }
+                        try {
+                            UBCManager uBCManager2 = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                            if (uBCManager2 != null) {
+                                uBCManager2.flowStartSlot(flow, str, new JSONObject(str2));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
 
                 @Override // com.baidu.ubc.IRemoteUBCService
@@ -230,7 +218,7 @@ public class IPCService implements ma9 {
                     if (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048586, this, str, str2, i, str3)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
                         if (IPCService.a && beginFlow != null) {
-                            Log.d("UBCIPCService", " process name " + ue1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            Log.d("UBCIPCService", " process name " + ve1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;
                     }
@@ -257,12 +245,21 @@ public class IPCService implements ma9 {
                 public void uploadLocalDatas() throws RemoteException {
                     UBCManager uBCManager;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048589, this) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048589, this) == null) && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+                        uBCManager.uploadLocalDatas();
                     }
-                    uBCManager.uploadLocalDatas();
                 }
             }, false);
         }
+    }
+
+    @Override // com.baidu.tieba.eb9
+    public IBinder a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return IPCServiceManager.f(str, true);
+        }
+        return (IBinder) invokeL.objValue;
     }
 }

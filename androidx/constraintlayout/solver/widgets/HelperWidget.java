@@ -18,6 +18,13 @@ public class HelperWidget extends ConstraintWidget implements Helper {
     public ConstraintWidget[] mWidgets;
     public int mWidgetsCount;
 
+    @Override // androidx.constraintlayout.solver.widgets.Helper
+    public void updateConstraints(ConstraintWidgetContainer constraintWidgetContainer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, constraintWidgetContainer) == null) {
+        }
+    }
+
     public HelperWidget() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,20 +43,48 @@ public class HelperWidget extends ConstraintWidget implements Helper {
     }
 
     @Override // androidx.constraintlayout.solver.widgets.Helper
+    public void removeAllIds() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mWidgetsCount = 0;
+            Arrays.fill(this.mWidgets, (Object) null);
+        }
+    }
+
+    @Override // androidx.constraintlayout.solver.widgets.Helper
     public void add(ConstraintWidget constraintWidget) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, constraintWidget) == null) || constraintWidget == this || constraintWidget == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, constraintWidget) == null) && constraintWidget != this && constraintWidget != null) {
+            int i = this.mWidgetsCount + 1;
+            ConstraintWidget[] constraintWidgetArr = this.mWidgets;
+            if (i > constraintWidgetArr.length) {
+                this.mWidgets = (ConstraintWidget[]) Arrays.copyOf(constraintWidgetArr, constraintWidgetArr.length * 2);
+            }
+            ConstraintWidget[] constraintWidgetArr2 = this.mWidgets;
+            int i2 = this.mWidgetsCount;
+            constraintWidgetArr2[i2] = constraintWidget;
+            this.mWidgetsCount = i2 + 1;
         }
-        int i = this.mWidgetsCount + 1;
-        ConstraintWidget[] constraintWidgetArr = this.mWidgets;
-        if (i > constraintWidgetArr.length) {
-            this.mWidgets = (ConstraintWidget[]) Arrays.copyOf(constraintWidgetArr, constraintWidgetArr.length * 2);
+    }
+
+    public int findGroupInDependents(int i) {
+        InterceptResult invokeI;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            for (int i4 = 0; i4 < this.mWidgetsCount; i4++) {
+                ConstraintWidget constraintWidget = this.mWidgets[i4];
+                if (i == 0 && (i3 = constraintWidget.horizontalGroup) != -1) {
+                    return i3;
+                }
+                if (i == 1 && (i2 = constraintWidget.verticalGroup) != -1) {
+                    return i2;
+                }
+            }
+            return -1;
         }
-        ConstraintWidget[] constraintWidgetArr2 = this.mWidgets;
-        int i2 = this.mWidgetsCount;
-        constraintWidgetArr2[i2] = constraintWidget;
-        this.mWidgetsCount = i2 + 1;
+        return invokeI.intValue;
     }
 
     public void addDependents(ArrayList<WidgetGroup> arrayList, int i, WidgetGroup widgetGroup) {
@@ -75,42 +110,6 @@ public class HelperWidget extends ConstraintWidget implements Helper {
             for (int i2 = 0; i2 < i; i2++) {
                 add(hashMap.get(helperWidget.mWidgets[i2]));
             }
-        }
-    }
-
-    public int findGroupInDependents(int i) {
-        InterceptResult invokeI;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            for (int i4 = 0; i4 < this.mWidgetsCount; i4++) {
-                ConstraintWidget constraintWidget = this.mWidgets[i4];
-                if (i == 0 && (i3 = constraintWidget.horizontalGroup) != -1) {
-                    return i3;
-                }
-                if (i == 1 && (i2 = constraintWidget.verticalGroup) != -1) {
-                    return i2;
-                }
-            }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // androidx.constraintlayout.solver.widgets.Helper
-    public void removeAllIds() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.mWidgetsCount = 0;
-            Arrays.fill(this.mWidgets, (Object) null);
-        }
-    }
-
-    @Override // androidx.constraintlayout.solver.widgets.Helper
-    public void updateConstraints(ConstraintWidgetContainer constraintWidgetContainer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, constraintWidgetContainer) == null) {
         }
     }
 }

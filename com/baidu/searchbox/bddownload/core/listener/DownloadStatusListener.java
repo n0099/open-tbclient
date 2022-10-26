@@ -1,7 +1,5 @@
 package com.baidu.searchbox.bddownload.core.listener;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
@@ -18,9 +16,19 @@ public abstract class DownloadStatusListener extends DownloadTaskProgressListene
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void canceled(DownloadTask downloadTask);
+
+    public abstract void completed(DownloadTask downloadTask);
+
+    public abstract void error(DownloadTask downloadTask, Exception exc);
+
+    public abstract void started(DownloadTask downloadTask);
+
+    public abstract void warn(DownloadTask downloadTask);
+
     /* renamed from: com.baidu.searchbox.bddownload.core.listener.DownloadStatusListener$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,16 +89,8 @@ public abstract class DownloadStatusListener extends DownloadTaskProgressListene
         }
     }
 
-    public abstract void canceled(@NonNull DownloadTask downloadTask);
-
-    public abstract void completed(@NonNull DownloadTask downloadTask);
-
-    public abstract void error(@NonNull DownloadTask downloadTask, @NonNull Exception exc);
-
-    public abstract void started(@NonNull DownloadTask downloadTask);
-
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-    public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull TaskProgressListenerAssist.Listener1Model listener1Model) {
+    public void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc, TaskProgressListenerAssist.Listener1Model listener1Model) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, downloadTask, endCause, exc, listener1Model) == null) {
             switch (AnonymousClass1.$SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause[endCause.ordinal()]) {
@@ -116,12 +116,10 @@ public abstract class DownloadStatusListener extends DownloadTaskProgressListene
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-    public final void taskStart(@NonNull DownloadTask downloadTask, @NonNull TaskProgressListenerAssist.Listener1Model listener1Model) {
+    public final void taskStart(DownloadTask downloadTask, TaskProgressListenerAssist.Listener1Model listener1Model) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, downloadTask, listener1Model) == null) {
             started(downloadTask);
         }
     }
-
-    public abstract void warn(@NonNull DownloadTask downloadTask);
 }

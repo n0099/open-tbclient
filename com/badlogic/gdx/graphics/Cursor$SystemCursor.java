@@ -65,12 +65,18 @@ public final class Cursor$SystemCursor {
     public static Cursor$SystemCursor valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Cursor$SystemCursor) Enum.valueOf(Cursor$SystemCursor.class, str) : (Cursor$SystemCursor) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Cursor$SystemCursor) Enum.valueOf(Cursor$SystemCursor.class, str);
+        }
+        return (Cursor$SystemCursor) invokeL.objValue;
     }
 
     public static Cursor$SystemCursor[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Cursor$SystemCursor[]) $VALUES.clone() : (Cursor$SystemCursor[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Cursor$SystemCursor[]) $VALUES.clone();
+        }
+        return (Cursor$SystemCursor[]) invokeV.objValue;
     }
 }

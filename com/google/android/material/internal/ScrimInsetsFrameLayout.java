@@ -8,9 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -21,20 +18,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ScrimInsetsFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean drawBottomInsetForeground;
     public boolean drawTopInsetForeground;
-    @Nullable
     public Drawable insetForeground;
     public Rect insets;
     public Rect tempRect;
 
+    public void onInsetsChanged(WindowInsetsCompat windowInsetsCompat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, windowInsetsCompat) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScrimInsetsFrameLayout(@NonNull Context context) {
+    public ScrimInsetsFrameLayout(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,95 +55,8 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
         }
     }
 
-    @Override // android.view.View
-    public void draw(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            super.draw(canvas);
-            int width = getWidth();
-            int height = getHeight();
-            if (this.insets == null || this.insetForeground == null) {
-                return;
-            }
-            int save = canvas.save();
-            canvas.translate(getScrollX(), getScrollY());
-            if (this.drawTopInsetForeground) {
-                this.tempRect.set(0, 0, width, this.insets.top);
-                this.insetForeground.setBounds(this.tempRect);
-                this.insetForeground.draw(canvas);
-            }
-            if (this.drawBottomInsetForeground) {
-                this.tempRect.set(0, height - this.insets.bottom, width, height);
-                this.insetForeground.setBounds(this.tempRect);
-                this.insetForeground.draw(canvas);
-            }
-            Rect rect = this.tempRect;
-            Rect rect2 = this.insets;
-            rect.set(0, rect2.top, rect2.left, height - rect2.bottom);
-            this.insetForeground.setBounds(this.tempRect);
-            this.insetForeground.draw(canvas);
-            Rect rect3 = this.tempRect;
-            Rect rect4 = this.insets;
-            rect3.set(width - rect4.right, rect4.top, width, height - rect4.bottom);
-            this.insetForeground.setBounds(this.tempRect);
-            this.insetForeground.draw(canvas);
-            canvas.restoreToCount(save);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onAttachedToWindow();
-            Drawable drawable = this.insetForeground;
-            if (drawable != null) {
-                drawable.setCallback(this);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDetachedFromWindow();
-            Drawable drawable = this.insetForeground;
-            if (drawable != null) {
-                drawable.setCallback(null);
-            }
-        }
-    }
-
-    public void onInsetsChanged(WindowInsetsCompat windowInsetsCompat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, windowInsetsCompat) == null) {
-        }
-    }
-
-    public void setDrawBottomInsetForeground(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.drawBottomInsetForeground = z;
-        }
-    }
-
-    public void setDrawTopInsetForeground(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.drawTopInsetForeground = z;
-        }
-    }
-
-    public void setScrimInsetForeground(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
-            this.insetForeground = drawable;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScrimInsetsFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public ScrimInsetsFrameLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -163,7 +77,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrimInsetsFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ScrimInsetsFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -212,8 +126,9 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
             }
 
             @Override // androidx.core.view.OnApplyWindowInsetsListener
-            public WindowInsetsCompat onApplyWindowInsets(View view2, @NonNull WindowInsetsCompat windowInsetsCompat) {
+            public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
                 InterceptResult invokeLL;
+                boolean z;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, windowInsetsCompat)) == null) {
                     ScrimInsetsFrameLayout scrimInsetsFrameLayout = this.this$0;
@@ -222,12 +137,98 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
                     }
                     this.this$0.insets.set(windowInsetsCompat.getSystemWindowInsetLeft(), windowInsetsCompat.getSystemWindowInsetTop(), windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom());
                     this.this$0.onInsetsChanged(windowInsetsCompat);
-                    this.this$0.setWillNotDraw(!windowInsetsCompat.hasSystemWindowInsets() || this.this$0.insetForeground == null);
+                    ScrimInsetsFrameLayout scrimInsetsFrameLayout2 = this.this$0;
+                    if (windowInsetsCompat.hasSystemWindowInsets() && this.this$0.insetForeground != null) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    scrimInsetsFrameLayout2.setWillNotDraw(z);
                     ViewCompat.postInvalidateOnAnimation(this.this$0);
                     return windowInsetsCompat.consumeSystemWindowInsets();
                 }
                 return (WindowInsetsCompat) invokeLL.objValue;
             }
         });
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            super.draw(canvas);
+            int width = getWidth();
+            int height = getHeight();
+            if (this.insets != null && this.insetForeground != null) {
+                int save = canvas.save();
+                canvas.translate(getScrollX(), getScrollY());
+                if (this.drawTopInsetForeground) {
+                    this.tempRect.set(0, 0, width, this.insets.top);
+                    this.insetForeground.setBounds(this.tempRect);
+                    this.insetForeground.draw(canvas);
+                }
+                if (this.drawBottomInsetForeground) {
+                    this.tempRect.set(0, height - this.insets.bottom, width, height);
+                    this.insetForeground.setBounds(this.tempRect);
+                    this.insetForeground.draw(canvas);
+                }
+                Rect rect = this.tempRect;
+                Rect rect2 = this.insets;
+                rect.set(0, rect2.top, rect2.left, height - rect2.bottom);
+                this.insetForeground.setBounds(this.tempRect);
+                this.insetForeground.draw(canvas);
+                Rect rect3 = this.tempRect;
+                Rect rect4 = this.insets;
+                rect3.set(width - rect4.right, rect4.top, width, height - rect4.bottom);
+                this.insetForeground.setBounds(this.tempRect);
+                this.insetForeground.draw(canvas);
+                canvas.restoreToCount(save);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onAttachedToWindow();
+            Drawable drawable = this.insetForeground;
+            if (drawable != null) {
+                drawable.setCallback(this);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDetachedFromWindow();
+            Drawable drawable = this.insetForeground;
+            if (drawable != null) {
+                drawable.setCallback(null);
+            }
+        }
+    }
+
+    public void setDrawBottomInsetForeground(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.drawBottomInsetForeground = z;
+        }
+    }
+
+    public void setDrawTopInsetForeground(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.drawTopInsetForeground = z;
+        }
+    }
+
+    public void setScrimInsetForeground(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
+            this.insetForeground = drawable;
+        }
     }
 }

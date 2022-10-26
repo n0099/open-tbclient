@@ -23,7 +23,7 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout a;
     public TextView b;
-    public TbPageContext<?> c;
+    public TbPageContext c;
     public Context d;
     public TextView e;
 
@@ -46,23 +46,6 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             }
         }
         a(context, null);
-    }
-
-    public final void a(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.d = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0396, this);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a19);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090a1a);
-            this.e = textView;
-            SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
-            this.e.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090a1c);
-            this.b = textView2;
-            SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
-            this.b.setVisibility(8);
-        }
     }
 
     @Override // android.view.View.OnClickListener
@@ -119,5 +102,22 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             }
         }
         a(context, null);
+    }
+
+    public final void a(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
+            this.d = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0393, this);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a23);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090a24);
+            this.e = textView;
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
+            this.e.setVisibility(8);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090a26);
+            this.b = textView2;
+            SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
+            this.b.setVisibility(8);
+        }
     }
 }

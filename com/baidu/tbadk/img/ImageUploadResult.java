@@ -1,6 +1,5 @@
 package com.baidu.tbadk.img;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,8 +29,22 @@ public class ImageUploadResult extends OrmObject implements Serializable {
     public String picId;
     public picInfo picInfo;
     public String resourceId;
-    @Nullable
     public String sharpText;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-502122735, "Lcom/baidu/tbadk/img/ImageUploadResult;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-502122735, "Lcom/baidu/tbadk/img/ImageUploadResult;");
+        }
+    }
 
     /* loaded from: classes3.dex */
     public static class PicDetailedInfo extends OrmObject implements Serializable {
@@ -58,7 +71,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
 
         public void parseJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.width = jSONObject.optInt("width");
@@ -108,7 +121,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
 
         public void parseJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             PicDetailedInfo picDetailedInfo = new PicDetailedInfo();
@@ -143,21 +156,6 @@ public class ImageUploadResult extends OrmObject implements Serializable {
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-502122735, "Lcom/baidu/tbadk/img/ImageUploadResult;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-502122735, "Lcom/baidu/tbadk/img/ImageUploadResult;");
         }
     }
 
@@ -199,7 +197,20 @@ public class ImageUploadResult extends OrmObject implements Serializable {
     public static boolean shouldReply(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == CHUNK_ERROR || i == CHUNK_NET_ERROR || i == CHUNK_FILE_ERROR : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != CHUNK_ERROR && i != CHUNK_NET_ERROR && i != CHUNK_FILE_ERROR) {
+                return false;
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void setSharpText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.sharpText = str;
+        }
     }
 
     public UploadedImageInfo getUploadedPicInfo() {
@@ -207,26 +218,19 @@ public class ImageUploadResult extends OrmObject implements Serializable {
         PicDetailedInfo picDetailedInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.picInfo == null || this.error_code != 0) {
-                return null;
+            if (this.picInfo != null && this.error_code == 0) {
+                UploadedImageInfo uploadedImageInfo = new UploadedImageInfo();
+                uploadedImageInfo.setPic_id(String.valueOf(this.picId));
+                uploadedImageInfo.setSharpText(this.sharpText);
+                picInfo picinfo = this.picInfo;
+                if (picinfo != null && (picDetailedInfo = picinfo.originPic) != null) {
+                    uploadedImageInfo.setHeight(picDetailedInfo.height);
+                    uploadedImageInfo.setWidth(this.picInfo.originPic.width);
+                }
+                return uploadedImageInfo;
             }
-            UploadedImageInfo uploadedImageInfo = new UploadedImageInfo();
-            uploadedImageInfo.setPic_id(String.valueOf(this.picId));
-            uploadedImageInfo.setSharpText(this.sharpText);
-            picInfo picinfo = this.picInfo;
-            if (picinfo != null && (picDetailedInfo = picinfo.originPic) != null) {
-                uploadedImageInfo.setHeight(picDetailedInfo.height);
-                uploadedImageInfo.setWidth(this.picInfo.originPic.width);
-            }
-            return uploadedImageInfo;
+            return null;
         }
         return (UploadedImageInfo) invokeV.objValue;
-    }
-
-    public void setSharpText(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.sharpText = str;
-        }
     }
 }

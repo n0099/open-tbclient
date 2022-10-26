@@ -39,24 +39,16 @@ public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.pn : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.pn;
+        }
+        return invokeV.intValue;
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.forumId = str;
-        }
-    }
-
-    public void setHttpParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            addParam("forum_id", this.forumId);
-            addParam("pn", this.pn);
-            addParam("ps", this.ps);
-            addParam("sort_type", this.sortType);
-            addParam("need_recommend", this.needRecommend);
         }
     }
 
@@ -85,6 +77,17 @@ public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.sortType = i;
+        }
+    }
+
+    public void setHttpParams() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            addParam("forum_id", this.forumId);
+            addParam("pn", this.pn);
+            addParam("ps", this.ps);
+            addParam("sort_type", this.sortType);
+            addParam("need_recommend", this.needRecommend);
         }
     }
 }

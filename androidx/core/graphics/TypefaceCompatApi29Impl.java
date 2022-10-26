@@ -9,10 +9,6 @@ import android.graphics.fonts.FontFamily;
 import android.graphics.fonts.FontStyle;
 import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,8 +19,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
-@RequiresApi(29)
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
     public static /* synthetic */ Interceptable $ic;
@@ -45,27 +39,28 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    @Nullable
     public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, fontFamilyFilesResourceEntry, resources, i)) == null) {
             FontResourcesParserCompat.FontFileResourceEntry[] entries = fontFamilyFilesResourceEntry.getEntries();
             int length = entries.length;
+            int i3 = 0;
             FontFamily.Builder builder = null;
-            int i2 = 0;
+            int i4 = 0;
             while (true) {
-                int i3 = 1;
-                if (i2 >= length) {
+                int i5 = 1;
+                if (i4 >= length) {
                     break;
                 }
-                FontResourcesParserCompat.FontFileResourceEntry fontFileResourceEntry = entries[i2];
+                FontResourcesParserCompat.FontFileResourceEntry fontFileResourceEntry = entries[i4];
                 try {
                     Font.Builder weight = new Font.Builder(resources, fontFileResourceEntry.getResourceId()).setWeight(fontFileResourceEntry.getWeight());
                     if (!fontFileResourceEntry.isItalic()) {
-                        i3 = 0;
+                        i5 = 0;
                     }
-                    Font build = weight.setSlant(i3).setTtcIndex(fontFileResourceEntry.getTtcIndex()).setFontVariationSettings(fontFileResourceEntry.getVariationSettings()).build();
+                    Font build = weight.setSlant(i5).setTtcIndex(fontFileResourceEntry.getTtcIndex()).setFontVariationSettings(fontFileResourceEntry.getVariationSettings()).build();
                     if (builder == null) {
                         builder = new FontFamily.Builder(build);
                     } else {
@@ -73,19 +68,26 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
                     }
                 } catch (IOException unused) {
                 }
-                i2++;
+                i4++;
             }
             if (builder == null) {
                 return null;
             }
-            return new Typeface.CustomFallbackBuilder(builder.build()).setStyle(new FontStyle((i & 1) != 0 ? 700 : 400, (i & 2) != 0 ? 1 : 0)).build();
+            if ((i & 1) != 0) {
+                i2 = 700;
+            } else {
+                i2 = 400;
+            }
+            if ((i & 2) != 0) {
+                i3 = 1;
+            }
+            return new Typeface.CustomFallbackBuilder(builder.build()).setStyle(new FontStyle(i2, i3)).build();
         }
         return (Typeface) invokeLLLI.objValue;
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    @Nullable
-    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         int i2;
         ParcelFileDescriptor openFileDescriptor;
@@ -93,39 +95,53 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i)) == null) {
             ContentResolver contentResolver = context.getContentResolver();
             int length = fontInfoArr.length;
+            int i3 = 0;
             FontFamily.Builder builder = null;
+            int i4 = 0;
             while (true) {
-                int i3 = 1;
-                if (i2 >= length) {
+                int i5 = 1;
+                if (i4 >= length) {
                     break;
                 }
-                FontsContractCompat.FontInfo fontInfo = fontInfoArr[i2];
+                FontsContractCompat.FontInfo fontInfo = fontInfoArr[i4];
                 try {
                     openFileDescriptor = contentResolver.openFileDescriptor(fontInfo.getUri(), "r", cancellationSignal);
                 } catch (IOException unused) {
                 }
                 if (openFileDescriptor == null) {
-                    i2 = openFileDescriptor == null ? i2 + 1 : 0;
+                    if (openFileDescriptor == null) {
+                        i4++;
+                    }
                 } else {
                     Font.Builder weight = new Font.Builder(openFileDescriptor).setWeight(fontInfo.getWeight());
                     if (!fontInfo.isItalic()) {
-                        i3 = 0;
+                        i5 = 0;
                     }
-                    Font build = weight.setSlant(i3).setTtcIndex(fontInfo.getTtcIndex()).build();
+                    Font build = weight.setSlant(i5).setTtcIndex(fontInfo.getTtcIndex()).build();
                     if (builder == null) {
                         builder = new FontFamily.Builder(build);
                     } else {
                         builder.addFont(build);
                     }
                     if (openFileDescriptor == null) {
+                        i4++;
                     }
                 }
                 openFileDescriptor.close();
+                i4++;
             }
             if (builder == null) {
                 return null;
             }
-            return new Typeface.CustomFallbackBuilder(builder.build()).setStyle(new FontStyle((i & 1) != 0 ? 700 : 400, (i & 2) != 0 ? 1 : 0)).build();
+            if ((i & 1) != 0) {
+                i2 = 700;
+            } else {
+                i2 = 400;
+            }
+            if ((i & 2) != 0) {
+                i3 = 1;
+            }
+            return new Typeface.CustomFallbackBuilder(builder.build()).setStyle(new FontStyle(i2, i3)).build();
         }
         return (Typeface) invokeLLLI.objValue;
     }
@@ -141,7 +157,16 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    @Nullable
+    public FontsContractCompat.FontInfo findBestInfo(FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, fontInfoArr, i)) == null) {
+            throw new RuntimeException("Do not use this function in API 29 or later.");
+        }
+        return (FontsContractCompat.FontInfo) invokeLI.objValue;
+    }
+
+    @Override // androidx.core.graphics.TypefaceCompatBaseImpl
     public Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -154,15 +179,5 @@ public class TypefaceCompatApi29Impl extends TypefaceCompatBaseImpl {
             }
         }
         return (Typeface) invokeCommon.objValue;
-    }
-
-    @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    public FontsContractCompat.FontInfo findBestInfo(FontsContractCompat.FontInfo[] fontInfoArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, fontInfoArr, i)) == null) {
-            throw new RuntimeException("Do not use this function in API 29 or later.");
-        }
-        return (FontsContractCompat.FontInfo) invokeLI.objValue;
     }
 }

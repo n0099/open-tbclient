@@ -33,39 +33,35 @@ public class s implements PBNativeListener {
     public void onClicked() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.a.c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pBNativeListener = this.a.c) != null) {
+            pBNativeListener.onClicked();
         }
-        pBNativeListener.onClicked();
     }
 
     @Override // com.win.opensdk.PBNativeListener
     public void onDisplayed() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.a.c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pBNativeListener = this.a.c) != null) {
+            pBNativeListener.onDisplayed();
         }
-        pBNativeListener.onDisplayed();
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        PBNativeListener pBNativeListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.c) == null) {
-            return;
-        }
-        pBNativeListener.onFail(pBError);
     }
 
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.a.c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pBNativeListener = this.a.c) != null) {
+            pBNativeListener.onLoaded();
         }
-        pBNativeListener.onLoaded();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        PBNativeListener pBNativeListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) && (pBNativeListener = this.a.c) != null) {
+            pBNativeListener.onFail(pBError);
+        }
     }
 }

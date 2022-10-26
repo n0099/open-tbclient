@@ -51,6 +51,24 @@ public class LiveShellUIUtil {
         }
     }
 
+    public static int getScreenHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sContext.getResources().getDisplayMetrics().heightPixels;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getScreenWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return sContext.getResources().getDisplayMetrics().widthPixels;
+        }
+        return invokeV.intValue;
+    }
+
     public static boolean fixOrientation(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -67,18 +85,6 @@ public class LiveShellUIUtil {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public static int getScreenHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sContext.getResources().getDisplayMetrics().heightPixels : invokeV.intValue;
-    }
-
-    public static int getScreenWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sContext.getResources().getDisplayMetrics().widthPixels : invokeV.intValue;
     }
 
     public static boolean isTranslucentOrFloating(Activity activity) {

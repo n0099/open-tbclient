@@ -29,7 +29,7 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.d.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -134,7 +134,7 @@ public class a {
         return (Headers) invokeLL.objValue;
     }
 
-    public static Headers a(HashMap<String, String> hashMap) {
+    public static Headers a(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hashMap)) == null) {
@@ -143,8 +143,8 @@ public class a {
             }
             try {
                 Headers.Builder builder = new Headers.Builder();
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    builder.add(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    builder.add((String) entry.getKey(), (String) entry.getValue());
                 }
                 return builder.build();
             } catch (Exception unused) {
@@ -167,7 +167,7 @@ public class a {
         return (Bitmap) invokeL.objValue;
     }
 
-    public b a(String str, String str2, String str3, HashMap<String, String> hashMap, String str4) {
+    public b a(String str, String str2, String str3, HashMap hashMap, String str4) {
         InterceptResult invokeLLLLL;
         Request.Builder headers;
         Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class a {
         return (b) invokeLLLLL.objValue;
     }
 
-    public b a(String str, String str2, HashMap<String, String> hashMap, String str3, String str4) {
+    public b a(String str, String str2, HashMap hashMap, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Request.Builder headers;
         Interceptable interceptable = $ic;

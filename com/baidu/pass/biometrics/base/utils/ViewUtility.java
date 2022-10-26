@@ -50,16 +50,16 @@ public class ViewUtility {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) {
             if (activity != null) {
-                if (dialog == null || activity.isFinishing() || !dialog.isShowing()) {
-                    return;
+                if (dialog != null && !activity.isFinishing() && dialog.isShowing()) {
+                    try {
+                        dialog.dismiss();
+                        return;
+                    } catch (Exception e) {
+                        Log.e(e);
+                        return;
+                    }
                 }
-                try {
-                    dialog.dismiss();
-                    return;
-                } catch (Exception e) {
-                    Log.e(e);
-                    return;
-                }
+                return;
             }
             throw new IllegalArgumentException("Activity must not be null");
         }

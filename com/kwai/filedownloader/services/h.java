@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<DownloadLaunchRunnable> awC;
+    public SparseArray awC;
     public ThreadPoolExecutor awD;
     public final String awE;
     public int awF;
@@ -36,7 +36,7 @@ public final class h {
                 return;
             }
         }
-        this.awC = new SparseArray<>();
+        this.awC = new SparseArray();
         this.awE = "Network";
         this.awG = 0;
         this.awD = com.kwai.filedownloader.e.b.l(i, "Network");
@@ -47,11 +47,11 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             synchronized (this) {
-                SparseArray<DownloadLaunchRunnable> sparseArray = new SparseArray<>();
+                SparseArray sparseArray = new SparseArray();
                 int size = this.awC.size();
                 for (int i = 0; i < size; i++) {
                     int keyAt = this.awC.keyAt(i);
-                    DownloadLaunchRunnable downloadLaunchRunnable = this.awC.get(keyAt);
+                    DownloadLaunchRunnable downloadLaunchRunnable = (DownloadLaunchRunnable) this.awC.get(keyAt);
                     if (downloadLaunchRunnable.isAlive()) {
                         sparseArray.put(keyAt, downloadLaunchRunnable);
                     }
@@ -75,7 +75,7 @@ public final class h {
         return invokeV.intValue;
     }
 
-    public final synchronized List<Integer> EH() {
+    public final synchronized List EH() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public final class h {
                 EF();
                 arrayList = new ArrayList();
                 for (int i = 0; i < this.awC.size(); i++) {
-                    arrayList.add(Integer.valueOf(this.awC.get(this.awC.keyAt(i)).getId()));
+                    arrayList.add(Integer.valueOf(((DownloadLaunchRunnable) this.awC.get(this.awC.keyAt(i))).getId()));
                 }
             }
             return arrayList;
@@ -116,7 +116,7 @@ public final class h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            DownloadLaunchRunnable downloadLaunchRunnable = this.awC.get(i);
+            DownloadLaunchRunnable downloadLaunchRunnable = (DownloadLaunchRunnable) this.awC.get(i);
             return downloadLaunchRunnable != null && downloadLaunchRunnable.isAlive();
         }
         return invokeI.booleanValue;
@@ -127,7 +127,7 @@ public final class h {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             EF();
             synchronized (this) {
-                DownloadLaunchRunnable downloadLaunchRunnable = this.awC.get(i);
+                DownloadLaunchRunnable downloadLaunchRunnable = (DownloadLaunchRunnable) this.awC.get(i);
                 if (downloadLaunchRunnable != null) {
                     downloadLaunchRunnable.pause();
                     boolean remove = this.awD.remove(downloadLaunchRunnable);
@@ -174,9 +174,9 @@ public final class h {
             }
             int size = this.awC.size();
             for (int i2 = 0; i2 < size; i2++) {
-                DownloadLaunchRunnable valueAt = this.awC.valueAt(i2);
-                if (valueAt != null && valueAt.isAlive() && valueAt.getId() != i && str.equals(valueAt.DE())) {
-                    return valueAt.getId();
+                DownloadLaunchRunnable downloadLaunchRunnable = (DownloadLaunchRunnable) this.awC.valueAt(i2);
+                if (downloadLaunchRunnable != null && downloadLaunchRunnable.isAlive() && downloadLaunchRunnable.getId() != i && str.equals(downloadLaunchRunnable.DE())) {
+                    return downloadLaunchRunnable.getId();
                 }
             }
             return 0;

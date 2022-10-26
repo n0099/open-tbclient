@@ -22,8 +22,8 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
-    public static Set<Integer> d;
-    public static List<JNIBaseMap> e;
+    public static Set d;
+    public static List e;
     public transient /* synthetic */ FieldHolder $fh;
     public long b;
     public JNIBaseMap c;
@@ -69,7 +69,7 @@ public class a {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? JNIBaseMap.MapProc(j, i, i2, i3) : invokeCommon.intValue;
     }
 
-    public static List<JNIBaseMap> b() {
+    public static List b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e : (List) invokeV.objValue;
@@ -158,7 +158,7 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            this.b = e.size() == 0 ? this.c.Create() : this.c.CreateDuplicate(e.get(0).a);
+            this.b = e.size() == 0 ? this.c.Create() : this.c.CreateDuplicate(((JNIBaseMap) e.get(0)).a);
             JNIBaseMap jNIBaseMap = this.c;
             jNIBaseMap.a = this.b;
             e.add(jNIBaseMap);

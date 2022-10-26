@@ -6,8 +6,6 @@ import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,23 +30,22 @@ public class BlendModeColorFilterCompat {
         }
     }
 
-    @Nullable
-    public static ColorFilter createBlendModeColorFilterCompat(int i, @NonNull BlendModeCompat blendModeCompat) {
+    public static ColorFilter createBlendModeColorFilterCompat(int i, BlendModeCompat blendModeCompat) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, blendModeCompat)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
                 BlendMode obtainBlendModeFromCompat = BlendModeUtils.obtainBlendModeFromCompat(blendModeCompat);
-                if (obtainBlendModeFromCompat != null) {
-                    return new BlendModeColorFilter(i, obtainBlendModeFromCompat);
+                if (obtainBlendModeFromCompat == null) {
+                    return null;
                 }
-                return null;
+                return new BlendModeColorFilter(i, obtainBlendModeFromCompat);
             }
             PorterDuff.Mode obtainPorterDuffFromCompat = BlendModeUtils.obtainPorterDuffFromCompat(blendModeCompat);
-            if (obtainPorterDuffFromCompat != null) {
-                return new PorterDuffColorFilter(i, obtainPorterDuffFromCompat);
+            if (obtainPorterDuffFromCompat == null) {
+                return null;
             }
-            return null;
+            return new PorterDuffColorFilter(i, obtainPorterDuffFromCompat);
         }
         return (ColorFilter) invokeIL.objValue;
     }

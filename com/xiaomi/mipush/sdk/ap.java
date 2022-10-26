@@ -45,7 +45,7 @@ public class ap extends Handler {
         ao aoVar;
         au auVar;
         Context context5;
-        HashMap<String, String> m151a;
+        HashMap m150a;
         Context context6;
         Context context7;
         Context context8;
@@ -63,7 +63,7 @@ public class ap extends Handler {
             int i = message.arg1;
             synchronized (af.class) {
                 context = this.a.f57a;
-                if (af.a(context).m112a(str)) {
+                if (af.a(context).m111a(str)) {
                     context2 = this.a.f57a;
                     if (af.a(context2).a(str) < 10) {
                         if (au.a.ordinal() == i) {
@@ -71,7 +71,7 @@ public class ap extends Handler {
                             if ("syncing".equals(af.a(context14).a(au.a))) {
                                 aoVar2 = this.a;
                                 auVar2 = au.a;
-                                aoVar2.a(str, auVar2, true, (HashMap<String, String>) null);
+                                aoVar2.a(str, auVar2, true, (HashMap) null);
                                 context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
@@ -81,7 +81,7 @@ public class ap extends Handler {
                             if ("syncing".equals(af.a(context12).a(au.b))) {
                                 aoVar2 = this.a;
                                 auVar2 = au.b;
-                                aoVar2.a(str, auVar2, true, (HashMap<String, String>) null);
+                                aoVar2.a(str, auVar2, true, (HashMap) null);
                                 context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
@@ -92,8 +92,8 @@ public class ap extends Handler {
                                 aoVar = this.a;
                                 auVar = au.c;
                                 context11 = this.a.f57a;
-                                m151a = i.m151a(context11, e.a);
-                                aoVar.a(str, auVar, false, m151a);
+                                m150a = i.m150a(context11, e.a);
+                                aoVar.a(str, auVar, false, m150a);
                                 context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
@@ -104,8 +104,8 @@ public class ap extends Handler {
                                 aoVar = this.a;
                                 auVar = au.d;
                                 context9 = this.a.f57a;
-                                m151a = i.m151a(context9, e.b);
-                                aoVar.a(str, auVar, false, m151a);
+                                m150a = i.m150a(context9, e.b);
+                                aoVar.a(str, auVar, false, m150a);
                                 context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
@@ -116,8 +116,8 @@ public class ap extends Handler {
                                 aoVar = this.a;
                                 auVar = au.e;
                                 context7 = this.a.f57a;
-                                m151a = i.m151a(context7, e.c);
-                                aoVar.a(str, auVar, false, m151a);
+                                m150a = i.m150a(context7, e.c);
+                                aoVar.a(str, auVar, false, m150a);
                                 context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
@@ -128,8 +128,8 @@ public class ap extends Handler {
                                 aoVar = this.a;
                                 auVar = au.f;
                                 context5 = this.a.f57a;
-                                m151a = i.m151a(context5, e.d);
-                                aoVar.a(str, auVar, false, m151a);
+                                m150a = i.m150a(context5, e.d);
+                                aoVar.a(str, auVar, false, m150a);
                             }
                         }
                         context13 = this.a.f57a;

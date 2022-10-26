@@ -3,8 +3,6 @@ package com.ss.android.downloadlib.addownload;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.ss.android.download.api.config.m;
 import com.ss.android.download.api.config.n;
 import com.ss.android.download.api.config.o;
@@ -44,22 +42,29 @@ public class j {
     public static p u;
     public static r v;
 
-    public static void a(Context context) {
-        if (context != null && context.getApplicationContext() != null) {
-            b = context.getApplicationContext();
-            return;
-        }
-        throw new IllegalArgumentException("Context is null");
+    public static String m() {
+        return "1.7.0";
     }
 
-    public static void b(Context context) {
-        if (b != null || context == null || context.getApplicationContext() == null) {
-            return;
-        }
-        b = context.getApplicationContext();
+    public static com.ss.android.download.api.config.f a() {
+        return c;
     }
 
-    @NonNull
+    public static com.ss.android.download.api.config.c b() {
+        if (d == null) {
+            d = new com.ss.android.download.api.config.c() { // from class: com.ss.android.downloadlib.addownload.j.1
+                @Override // com.ss.android.download.api.config.c
+                public void a(Context context, DownloadModel downloadModel, DownloadController downloadController, DownloadEventConfig downloadEventConfig) {
+                }
+
+                @Override // com.ss.android.download.api.config.c
+                public void a(Context context, DownloadModel downloadModel, DownloadController downloadController, DownloadEventConfig downloadEventConfig, String str, String str2) {
+                }
+            };
+        }
+        return d;
+    }
+
     public static com.ss.android.download.api.config.k c() {
         if (e == null) {
             e = new com.ss.android.download.api.a.a();
@@ -71,7 +76,6 @@ public class j {
         return f;
     }
 
-    @NonNull
     public static com.ss.android.download.api.config.h e() {
         if (g == null) {
             g = new com.ss.android.download.api.a.b();
@@ -102,7 +106,6 @@ public class j {
         throw new IllegalArgumentException("Context is null");
     }
 
-    @NonNull
     public static o h() {
         if (s == null) {
             s = new o() { // from class: com.ss.android.downloadlib.addownload.j.3
@@ -114,7 +117,6 @@ public class j {
         return s;
     }
 
-    @NonNull
     public static JSONObject i() {
         com.ss.android.download.api.config.i iVar = h;
         if (iVar != null && iVar.a() != null) {
@@ -127,18 +129,12 @@ public class j {
         return r;
     }
 
-    @Nullable
     public static com.ss.android.download.api.config.b k() {
         return j;
     }
 
-    @Nullable
     public static m l() {
         return q;
-    }
-
-    public static String m() {
-        return "1.7.0";
     }
 
     public static com.ss.android.download.api.config.d n() {
@@ -153,7 +149,6 @@ public class j {
         return o;
     }
 
-    @NonNull
     public static p q() {
         return u;
     }
@@ -162,7 +157,6 @@ public class j {
         return p;
     }
 
-    @NonNull
     public static com.ss.android.download.api.b.a s() {
         if (t == null) {
             t = new com.ss.android.download.api.b.a() { // from class: com.ss.android.downloadlib.addownload.j.4
@@ -174,16 +168,76 @@ public class j {
         return t;
     }
 
-    @NonNull
     public static r t() {
         if (v == null) {
             v = new r() { // from class: com.ss.android.downloadlib.addownload.j.5
                 @Override // com.ss.android.download.api.config.r
-                public void a(@Nullable Context context, @NonNull DownloadModel downloadModel, @Nullable DownloadController downloadController, @Nullable DownloadEventConfig downloadEventConfig, String str, int i2) {
+                public void a(Context context, DownloadModel downloadModel, DownloadController downloadController, DownloadEventConfig downloadEventConfig, String str, int i2) {
                 }
             };
         }
         return v;
+    }
+
+    public static boolean v() {
+        if (c != null && f != null && h != null && j != null && u != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void a(Context context) {
+        if (context != null && context.getApplicationContext() != null) {
+            b = context.getApplicationContext();
+            return;
+        }
+        throw new IllegalArgumentException("Context is null");
+    }
+
+    public static void b(Context context) {
+        if (b == null && context != null && context.getApplicationContext() != null) {
+            b = context.getApplicationContext();
+        }
+    }
+
+    public static void a(com.ss.android.download.api.b.a aVar) {
+        t = aVar;
+    }
+
+    public static void a(com.ss.android.download.api.config.b bVar) {
+        j = bVar;
+    }
+
+    public static void a(com.ss.android.download.api.config.f fVar) {
+        c = fVar;
+    }
+
+    public static void a(com.ss.android.download.api.config.g gVar) {
+        f = gVar;
+    }
+
+    public static void a(com.ss.android.download.api.config.h hVar) {
+        g = hVar;
+    }
+
+    public static void a(com.ss.android.download.api.config.i iVar) {
+        h = iVar;
+    }
+
+    public static void a(com.ss.android.download.api.config.k kVar) {
+        e = kVar;
+    }
+
+    public static void a(p pVar) {
+        u = pVar;
+    }
+
+    public static void a(com.ss.android.download.api.model.a aVar) {
+        i = aVar;
+    }
+
+    public static void a(String str) {
+        com.ss.android.socialbase.appdownloader.d.j().a(str);
     }
 
     public static String u() {
@@ -196,69 +250,5 @@ public class j {
         } catch (Throwable unused) {
             return null;
         }
-    }
-
-    public static boolean v() {
-        return (c == null || f == null || h == null || j == null || u == null) ? false : true;
-    }
-
-    @NonNull
-    public static com.ss.android.download.api.config.c b() {
-        if (d == null) {
-            d = new com.ss.android.download.api.config.c() { // from class: com.ss.android.downloadlib.addownload.j.1
-                @Override // com.ss.android.download.api.config.c
-                public void a(@Nullable Context context, @NonNull DownloadModel downloadModel, @Nullable DownloadController downloadController, @Nullable DownloadEventConfig downloadEventConfig) {
-                }
-
-                @Override // com.ss.android.download.api.config.c
-                public void a(@Nullable Context context, @NonNull DownloadModel downloadModel, @Nullable DownloadController downloadController, @Nullable DownloadEventConfig downloadEventConfig, String str, @NonNull String str2) {
-                }
-            };
-        }
-        return d;
-    }
-
-    public static void a(@NonNull com.ss.android.download.api.config.f fVar) {
-        c = fVar;
-    }
-
-    public static void a(@NonNull com.ss.android.download.api.config.k kVar) {
-        e = kVar;
-    }
-
-    public static void a(@NonNull com.ss.android.download.api.config.g gVar) {
-        f = gVar;
-    }
-
-    public static void a(@NonNull com.ss.android.download.api.config.h hVar) {
-        g = hVar;
-    }
-
-    public static void a(@NonNull com.ss.android.download.api.config.i iVar) {
-        h = iVar;
-    }
-
-    public static void a(@NonNull com.ss.android.download.api.model.a aVar) {
-        i = aVar;
-    }
-
-    public static void a(@NonNull com.ss.android.download.api.config.b bVar) {
-        j = bVar;
-    }
-
-    public static com.ss.android.download.api.config.f a() {
-        return c;
-    }
-
-    public static void a(String str) {
-        com.ss.android.socialbase.appdownloader.d.j().a(str);
-    }
-
-    public static void a(p pVar) {
-        u = pVar;
-    }
-
-    public static void a(com.ss.android.download.api.b.a aVar) {
-        t = aVar;
     }
 }

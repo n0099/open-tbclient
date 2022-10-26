@@ -39,7 +39,7 @@ import org.json.JSONObject;
 public class IMFetchMsgByIdMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgByIdMsg";
-    public static final Map<Long, Boolean> reliableListFirst;
+    public static final Map reliableListFirst;
     public transient /* synthetic */ FieldHolder $fh;
     public long mBeginId;
     public int mCategory;
@@ -85,19 +85,18 @@ public class IMFetchMsgByIdMsg extends Message {
         }
 
         /* JADX WARN: Removed duplicated region for block: B:20:0x0083  */
-        /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Long] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
-            ArrayList<ChatMsg> arrayList;
+            ArrayList arrayList;
             int i;
             int i2;
             boolean z;
-            ArrayList<ChatMsg> parserMessage;
-            ArrayList<ChatMsg> addMsgs;
-            ArrayList<ChatMsg> arrayList2;
+            ArrayList parserMessage;
+            ArrayList addMsgs;
+            ArrayList arrayList2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Type type = new Type();
@@ -118,7 +117,7 @@ public class IMFetchMsgByIdMsg extends Message {
                                 if (z) {
                                 }
                                 parserMessage = MessageParser.parserMessage(this.mContext, jSONArray, type, true, true);
-                                if (parserMessage != null) {
+                                if (parserMessage == null) {
                                 }
                                 i = i2;
                                 arrayList = parserMessage;
@@ -138,99 +137,97 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message set realMsgCount = " + this.this$0.mCount);
                     }
                     parserMessage = MessageParser.parserMessage(this.mContext, jSONArray, type, true, true);
-                    if (parserMessage != null || parserMessage.size() == 0) {
-                        i = i2;
-                        arrayList = parserMessage;
-                    } else {
-                        if (1 != this.this$0.mCategory) {
-                            if (4 == this.this$0.mCategory) {
-                                LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch cast message , size " + parserMessage.size());
-                                Long valueOf = Long.valueOf(((TextMsg) parserMessage.get(0)).getCastId());
-                                MessageExt.getInstance().setCastId(valueOf);
-                                ArrayList arrayList3 = new ArrayList();
-                                ArrayList arrayList4 = new ArrayList();
-                                Iterator<ChatMsg> it = parserMessage.iterator();
-                                while (it.hasNext()) {
-                                    ChatMsg next = it.next();
-                                    TextMsg textMsg = (TextMsg) next;
-                                    if (ConversationStudioManImpl.getInstance(this.mContext).isReliable(textMsg.getCastId())) {
-                                        arrayList3.add(textMsg);
-                                        arrayList4.add(Long.valueOf(next.getMsgId()));
-                                    }
-                                }
-                                LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch reliableMsgs cast message , size " + arrayList3.size() + ", ids :" + arrayList4.toString());
-                                if (arrayList3.size() > 0) {
-                                    ArrayList arrayList5 = new ArrayList();
-                                    arrayList2 = ChatMessageDBManager.getInstance(this.mContext).addCastReliableMsgs(arrayList3, arrayList5);
-                                    if (arrayList5.size() > 0) {
-                                        JSONObject jSONObject = new JSONObject();
-                                        try {
-                                            jSONObject.put(Constants.RELIABLE_MSGID, Collections.max(arrayList5));
-                                            jSONObject.put(Constants.RELIABLE_CASTID, ((TextMsg) arrayList2.get(0)).getCastId());
-                                            jSONObject.put(Constants.RELIABLE_UPDATTIME, System.currentTimeMillis());
-                                            Utility.setReliableMaxMsg(this.mContext, jSONObject);
-                                        } catch (JSONException e4) {
-                                            e4.printStackTrace();
-                                        }
-                                    }
-                                    long castId = ((TextMsg) arrayList2.get(0)).getCastId();
-                                    ConversationStudioManImpl.getInstance(this.mContext).deliverCastReliableMsg(castId, arrayList2);
-                                    if (!IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId))) {
-                                        IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), Boolean.FALSE);
-                                    }
-                                    if (IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId)) && !IMFetchMsgByIdMsg.reliableListFirst.get(Long.valueOf(castId)).booleanValue()) {
-                                        IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), Boolean.TRUE);
-                                        TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable(this, arrayList2) { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg.FetchTask.1
-                                            public static /* synthetic */ Interceptable $ic;
-                                            public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ FetchTask this$1;
-                                            public final /* synthetic */ ArrayList val$finalMsgs;
-
-                                            {
-                                                Interceptable interceptable2 = $ic;
-                                                if (interceptable2 != null) {
-                                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                                    newInitContext.initArgs = r2;
-                                                    Object[] objArr = {this, arrayList2};
-                                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                                    int i3 = newInitContext.flag;
-                                                    if ((i3 & 1) != 0) {
-                                                        int i4 = i3 & 2;
-                                                        newInitContext.thisArg = this;
-                                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                                        return;
-                                                    }
-                                                }
-                                                this.this$1 = this;
-                                                this.val$finalMsgs = arrayList2;
-                                            }
-
-                                            @Override // java.lang.Runnable
-                                            public void run() {
-                                                Interceptable interceptable2 = $ic;
-                                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                                    LogUtils.d(IMFetchMsgByIdMsg.TAG, "可靠消息第一次拉礼物消息，多回一次ack：" + this.val$finalMsgs.toString());
-                                                    MessageParser.handleAck(this.this$1.mContext, this.val$finalMsgs, false);
-                                                }
-                                            }
-                                        });
-                                    }
-                                } else {
-                                    arrayList2 = parserMessage;
-                                }
-                                MessageExt.getInstance().setdBLatestMsgId(Utility.getReliableMaxMsgId(this.mContext, valueOf.longValue()));
-                                MessageExt.getInstance().setLocalTimestamp(Long.valueOf(System.currentTimeMillis()));
-                                i = i2;
-                                arrayList = arrayList2;
-                            } else {
-                                addMsgs = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, this.this$0.mTriggerReason);
-                                PaManagerImpl.getInstance(this.mContext).syncAndQueryAllPaInfo();
-                            }
-                        } else {
+                    if (parserMessage == null && parserMessage.size() != 0) {
+                        if (1 == this.this$0.mCategory) {
                             addMsgs = GroupMessageManagerImpl.getInstance(this.mContext).addMsgs(parserMessage, true);
+                        } else if (4 == this.this$0.mCategory) {
+                            LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch cast message , size " + parserMessage.size());
+                            Long valueOf = Long.valueOf(((TextMsg) parserMessage.get(0)).getCastId());
+                            MessageExt.getInstance().setCastId(valueOf);
+                            ArrayList arrayList3 = new ArrayList();
+                            ArrayList arrayList4 = new ArrayList();
+                            Iterator it = parserMessage.iterator();
+                            while (it.hasNext()) {
+                                ChatMsg chatMsg = (ChatMsg) it.next();
+                                TextMsg textMsg = (TextMsg) chatMsg;
+                                if (ConversationStudioManImpl.getInstance(this.mContext).isReliable(textMsg.getCastId())) {
+                                    arrayList3.add(textMsg);
+                                    arrayList4.add(Long.valueOf(chatMsg.getMsgId()));
+                                }
+                            }
+                            LogUtils.d(IMFetchMsgByIdMsg.TAG, " fetch reliableMsgs cast message , size " + arrayList3.size() + ", ids :" + arrayList4.toString());
+                            if (arrayList3.size() > 0) {
+                                ArrayList arrayList5 = new ArrayList();
+                                arrayList2 = ChatMessageDBManager.getInstance(this.mContext).addCastReliableMsgs(arrayList3, arrayList5);
+                                if (arrayList5.size() > 0) {
+                                    JSONObject jSONObject = new JSONObject();
+                                    try {
+                                        jSONObject.put(Constants.RELIABLE_MSGID, Collections.max(arrayList5));
+                                        jSONObject.put(Constants.RELIABLE_CASTID, ((TextMsg) arrayList2.get(0)).getCastId());
+                                        jSONObject.put(Constants.RELIABLE_UPDATTIME, System.currentTimeMillis());
+                                        Utility.setReliableMaxMsg(this.mContext, jSONObject);
+                                    } catch (JSONException e4) {
+                                        e4.printStackTrace();
+                                    }
+                                }
+                                long castId = ((TextMsg) arrayList2.get(0)).getCastId();
+                                ConversationStudioManImpl.getInstance(this.mContext).deliverCastReliableMsg(castId, arrayList2);
+                                if (!IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId))) {
+                                    IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), Boolean.FALSE);
+                                }
+                                if (IMFetchMsgByIdMsg.reliableListFirst.containsKey(Long.valueOf(castId)) && !((Boolean) IMFetchMsgByIdMsg.reliableListFirst.get(Long.valueOf(castId))).booleanValue()) {
+                                    IMFetchMsgByIdMsg.reliableListFirst.put(Long.valueOf(castId), Boolean.TRUE);
+                                    TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable(this, arrayList2) { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg.FetchTask.1
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ FetchTask this$1;
+                                        public final /* synthetic */ ArrayList val$finalMsgs;
+
+                                        {
+                                            Interceptable interceptable2 = $ic;
+                                            if (interceptable2 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this, arrayList2};
+                                                interceptable2.invokeUnInit(65536, newInitContext);
+                                                int i3 = newInitContext.flag;
+                                                if ((i3 & 1) != 0) {
+                                                    int i4 = i3 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.this$1 = this;
+                                            this.val$finalMsgs = arrayList2;
+                                        }
+
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            Interceptable interceptable2 = $ic;
+                                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                                LogUtils.d(IMFetchMsgByIdMsg.TAG, "可靠消息第一次拉礼物消息，多回一次ack：" + this.val$finalMsgs.toString());
+                                                MessageParser.handleAck(this.this$1.mContext, this.val$finalMsgs, false);
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                                arrayList2 = parserMessage;
+                            }
+                            MessageExt.getInstance().setdBLatestMsgId(Utility.getReliableMaxMsgId(this.mContext, valueOf.longValue()));
+                            MessageExt.getInstance().setLocalTimestamp(Long.valueOf(System.currentTimeMillis()));
+                            i = i2;
+                            arrayList = arrayList2;
+                        } else {
+                            addMsgs = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, this.this$0.mTriggerReason);
+                            PaManagerImpl.getInstance(this.mContext).syncAndQueryAllPaInfo();
                         }
                         arrayList = addMsgs;
                         i = i2;
+                    } else {
+                        i = i2;
+                        arrayList = parserMessage;
                     }
                 } else {
                     arrayList = null;
@@ -255,6 +252,33 @@ public class IMFetchMsgByIdMsg extends Message {
             }
         }
         reliableListFirst = new ConcurrentHashMap();
+    }
+
+    public int getCategory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCategory;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getContacter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mContacter;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCount;
+        }
+        return invokeV.intValue;
     }
 
     public IMFetchMsgByIdMsg(Context context, long j, long j2, int i, int i2, long j3, int i3, int i4) {
@@ -288,6 +312,21 @@ public class IMFetchMsgByIdMsg extends Message {
         this.mMessageExt = new JSONObject();
     }
 
+    @Override // com.baidu.android.imsdk.request.Message
+    public void onMsgSending(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            setSendingState(context);
+        }
+    }
+
+    public void setJumpToNewMsg(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mJumpToRecent = i;
+        }
+    }
+
     public static IMFetchMsgByIdMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -301,12 +340,12 @@ public class IMFetchMsgByIdMsg extends Message {
                 int intExtra3 = intent.getIntExtra(Constants.EXTRA_TRIGGER_REASON, -1);
                 int intExtra4 = intent.getIntExtra(Constants.EXTRA_JUMP_MSG, -1);
                 int intExtra5 = intent.getIntExtra(Constants.EXTRA_RETRY_TIME, 0);
-                if (longExtra2 < 0 || longExtra3 < 0 || intExtra3 < 0) {
-                    return null;
+                if (longExtra2 >= 0 && longExtra3 >= 0 && intExtra3 >= 0) {
+                    IMFetchMsgByIdMsg iMFetchMsgByIdMsg = new IMFetchMsgByIdMsg(context, longExtra2, longExtra3, intExtra2, intExtra, longExtra, intExtra3, intExtra5);
+                    iMFetchMsgByIdMsg.setJumpToNewMsg(intExtra4);
+                    return iMFetchMsgByIdMsg;
                 }
-                IMFetchMsgByIdMsg iMFetchMsgByIdMsg = new IMFetchMsgByIdMsg(context, longExtra2, longExtra3, intExtra2, intExtra, longExtra, intExtra3, intExtra5);
-                iMFetchMsgByIdMsg.setJumpToNewMsg(intExtra4);
-                return iMFetchMsgByIdMsg;
+                return null;
             }
             return null;
         }
@@ -360,24 +399,6 @@ public class IMFetchMsgByIdMsg extends Message {
         }
     }
 
-    public int getCategory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCategory : invokeV.intValue;
-    }
-
-    public long getContacter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mContacter : invokeV.longValue;
-    }
-
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCount : invokeV.intValue;
-    }
-
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
@@ -385,21 +406,6 @@ public class IMFetchMsgByIdMsg extends Message {
             LogUtils.d(TAG, "fetch handleMessageResult err : " + i + ", msg :" + str);
             super.handleMessageResult(context, jSONObject, i, str);
             TaskManager.getInstance(this.mContext).submitForNetWork(new FetchTask(this, context, jSONObject, i, str));
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void onMsgSending(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            setSendingState(context);
-        }
-    }
-
-    public void setJumpToNewMsg(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.mJumpToRecent = i;
         }
     }
 }

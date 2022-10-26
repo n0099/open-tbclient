@@ -14,6 +14,13 @@ public class ConstructorSignatureImpl extends CodeSignatureImpl implements Const
     public transient /* synthetic */ FieldHolder $fh;
     public Constructor constructor;
 
+    @Override // org.aspectj.runtime.reflect.SignatureImpl, org.aspectj.lang.Signature
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "<init>" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConstructorSignatureImpl(int i, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         super(i, "<init>", cls, clsArr, strArr, clsArr2);
@@ -30,6 +37,26 @@ public class ConstructorSignatureImpl extends CodeSignatureImpl implements Const
                 super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2], (Class[]) objArr2[3], (String[]) objArr2[4], (Class[]) objArr2[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ConstructorSignatureImpl(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -64,32 +91,5 @@ public class ConstructorSignatureImpl extends CodeSignatureImpl implements Const
             return this.constructor;
         }
         return (Constructor) invokeV.objValue;
-    }
-
-    @Override // org.aspectj.runtime.reflect.SignatureImpl, org.aspectj.lang.Signature
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "<init>" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstructorSignatureImpl(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 }

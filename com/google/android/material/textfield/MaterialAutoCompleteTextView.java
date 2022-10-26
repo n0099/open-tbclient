@@ -11,10 +11,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.AdapterView;
-import android.widget.Filterable;
 import android.widget.ListAdapter;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.ListPopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,15 +29,12 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEMS_MEASURED = 15;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final AccessibilityManager accessibilityManager;
-    @NonNull
     public final ListPopupWindow modalListPopup;
-    @NonNull
     public final Rect tempRect;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialAutoCompleteTextView(@NonNull Context context) {
+    public MaterialAutoCompleteTextView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,139 +54,8 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         }
     }
 
-    @Nullable
-    private TextInputLayout findTextInputLayoutAncestor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            for (ViewParent parent = getParent(); parent != null; parent = parent.getParent()) {
-                if (parent instanceof TextInputLayout) {
-                    return (TextInputLayout) parent;
-                }
-            }
-            return null;
-        }
-        return (TextInputLayout) invokeV.objValue;
-    }
-
-    private int measureContentWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            ListAdapter adapter = getAdapter();
-            TextInputLayout findTextInputLayoutAncestor = findTextInputLayoutAncestor();
-            int i = 0;
-            if (adapter == null || findTextInputLayoutAncestor == null) {
-                return 0;
-            }
-            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 0);
-            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 0);
-            int min = Math.min(adapter.getCount(), Math.max(0, this.modalListPopup.getSelectedItemPosition()) + 15);
-            View view2 = null;
-            int i2 = 0;
-            for (int max = Math.max(0, min - 15); max < min; max++) {
-                int itemViewType = adapter.getItemViewType(max);
-                if (itemViewType != i) {
-                    view2 = null;
-                    i = itemViewType;
-                }
-                view2 = adapter.getView(max, view2, findTextInputLayoutAncestor);
-                if (view2.getLayoutParams() == null) {
-                    view2.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-                }
-                view2.measure(makeMeasureSpec, makeMeasureSpec2);
-                i2 = Math.max(i2, view2.getMeasuredWidth());
-            }
-            Drawable background = this.modalListPopup.getBackground();
-            if (background != null) {
-                background.getPadding(this.tempRect);
-                Rect rect = this.tempRect;
-                i2 += rect.left + rect.right;
-            }
-            return i2 + findTextInputLayoutAncestor.getEndIconView().getMeasuredWidth();
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.android.material.textfield.MaterialAutoCompleteTextView */
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Multi-variable type inference failed */
-    public <T extends ListAdapter & Filterable> void updateText(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, obj) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                setText(convertSelectionToString(obj), false);
-                return;
-            }
-            ListAdapter adapter = getAdapter();
-            setAdapter(null);
-            setText(convertSelectionToString(obj));
-            setAdapter(adapter);
-        }
-    }
-
-    @Override // android.widget.TextView
-    @Nullable
-    public CharSequence getHint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TextInputLayout findTextInputLayoutAncestor = findTextInputLayoutAncestor();
-            if (findTextInputLayoutAncestor != null && findTextInputLayoutAncestor.isProvidingHint()) {
-                return findTextInputLayoutAncestor.getHint();
-            }
-            return super.getHint();
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    @Override // android.widget.AutoCompleteTextView, android.widget.TextView, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onAttachedToWindow();
-            TextInputLayout findTextInputLayoutAncestor = findTextInputLayoutAncestor();
-            if (findTextInputLayoutAncestor != null && findTextInputLayoutAncestor.isProvidingHint() && super.getHint() == null && ManufacturerUtils.isMeizuDevice()) {
-                setHint("");
-            }
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            if (View.MeasureSpec.getMode(i) == Integer.MIN_VALUE) {
-                setMeasuredDimension(Math.min(Math.max(getMeasuredWidth(), measureContentWidth()), View.MeasureSpec.getSize(i)), getMeasuredHeight());
-            }
-        }
-    }
-
-    @Override // android.widget.AutoCompleteTextView
-    public <T extends ListAdapter & Filterable> void setAdapter(@Nullable T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            super.setAdapter(t);
-            this.modalListPopup.setAdapter(getAdapter());
-        }
-    }
-
-    @Override // android.widget.AutoCompleteTextView
-    public void showDropDown() {
-        AccessibilityManager accessibilityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (getInputType() == 0 && (accessibilityManager = this.accessibilityManager) != null && accessibilityManager.isTouchExplorationEnabled()) {
-                this.modalListPopup.show();
-            } else {
-                super.showDropDown();
-            }
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public MaterialAutoCompleteTextView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f0400a5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -213,7 +76,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public MaterialAutoCompleteTextView(Context context, AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, 0), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -268,10 +131,16 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view2, int i4, long j) {
+            public void onItemClick(AdapterView adapterView, View view2, int i4, long j) {
+                Object item;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
-                    this.this$0.updateText(i4 < 0 ? this.this$0.modalListPopup.getSelectedItem() : this.this$0.getAdapter().getItem(i4));
+                    if (i4 < 0) {
+                        item = this.this$0.modalListPopup.getSelectedItem();
+                    } else {
+                        item = this.this$0.getAdapter().getItem(i4);
+                    }
+                    this.this$0.updateText(item);
                     AdapterView.OnItemClickListener onItemClickListener = this.this$0.getOnItemClickListener();
                     if (onItemClickListener != null) {
                         if (view2 == null || i4 < 0) {
@@ -286,5 +155,132 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             }
         });
         obtainStyledAttributes.recycle();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateText(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, obj) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                setText(convertSelectionToString(obj), false);
+                return;
+            }
+            ListAdapter adapter = getAdapter();
+            setAdapter(null);
+            setText(convertSelectionToString(obj));
+            setAdapter(adapter);
+        }
+    }
+
+    @Override // android.widget.AutoCompleteTextView
+    public void setAdapter(ListAdapter listAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, listAdapter) == null) {
+            super.setAdapter(listAdapter);
+            this.modalListPopup.setAdapter(getAdapter());
+        }
+    }
+
+    private TextInputLayout findTextInputLayoutAncestor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            for (ViewParent parent = getParent(); parent != null; parent = parent.getParent()) {
+                if (parent instanceof TextInputLayout) {
+                    return (TextInputLayout) parent;
+                }
+            }
+            return null;
+        }
+        return (TextInputLayout) invokeV.objValue;
+    }
+
+    @Override // android.widget.TextView
+    public CharSequence getHint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            TextInputLayout findTextInputLayoutAncestor = findTextInputLayoutAncestor();
+            if (findTextInputLayoutAncestor != null && findTextInputLayoutAncestor.isProvidingHint()) {
+                return findTextInputLayoutAncestor.getHint();
+            }
+            return super.getHint();
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    @Override // android.widget.AutoCompleteTextView, android.widget.TextView, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onAttachedToWindow();
+            TextInputLayout findTextInputLayoutAncestor = findTextInputLayoutAncestor();
+            if (findTextInputLayoutAncestor != null && findTextInputLayoutAncestor.isProvidingHint() && super.getHint() == null && ManufacturerUtils.isMeizuDevice()) {
+                setHint("");
+            }
+        }
+    }
+
+    @Override // android.widget.AutoCompleteTextView
+    public void showDropDown() {
+        AccessibilityManager accessibilityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (getInputType() == 0 && (accessibilityManager = this.accessibilityManager) != null && accessibilityManager.isTouchExplorationEnabled()) {
+                this.modalListPopup.show();
+            } else {
+                super.showDropDown();
+            }
+        }
+    }
+
+    private int measureContentWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            ListAdapter adapter = getAdapter();
+            TextInputLayout findTextInputLayoutAncestor = findTextInputLayoutAncestor();
+            int i = 0;
+            if (adapter == null || findTextInputLayoutAncestor == null) {
+                return 0;
+            }
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 0);
+            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 0);
+            int min = Math.min(adapter.getCount(), Math.max(0, this.modalListPopup.getSelectedItemPosition()) + 15);
+            View view2 = null;
+            int i2 = 0;
+            for (int max = Math.max(0, min - 15); max < min; max++) {
+                int itemViewType = adapter.getItemViewType(max);
+                if (itemViewType != i) {
+                    view2 = null;
+                    i = itemViewType;
+                }
+                view2 = adapter.getView(max, view2, findTextInputLayoutAncestor);
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+                }
+                view2.measure(makeMeasureSpec, makeMeasureSpec2);
+                i2 = Math.max(i2, view2.getMeasuredWidth());
+            }
+            Drawable background = this.modalListPopup.getBackground();
+            if (background != null) {
+                background.getPadding(this.tempRect);
+                Rect rect = this.tempRect;
+                i2 += rect.left + rect.right;
+            }
+            return i2 + findTextInputLayoutAncestor.getEndIconView().getMeasuredWidth();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (View.MeasureSpec.getMode(i) == Integer.MIN_VALUE) {
+                setMeasuredDimension(Math.min(Math.max(getMeasuredWidth(), measureContentWidth()), View.MeasureSpec.getSize(i)), getMeasuredHeight());
+            }
+        }
     }
 }

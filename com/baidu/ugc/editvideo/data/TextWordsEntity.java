@@ -5,9 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.ci9;
 import com.baidu.tieba.kh9;
-import com.baidu.tieba.sg9;
-import com.baidu.tieba.zg9;
+import com.baidu.tieba.rh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,6 +74,27 @@ public class TextWordsEntity {
             }
             this.mSourceFile = null;
             this.mLocalParentFile = null;
+        }
+
+        public boolean isLoaded() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (getSourceFile() != null && getSourceFile().exists()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isNeedDown() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return ci9.a(this.mBackgroudImageUrl);
+            }
+            return invokeV.booleanValue;
         }
 
         public static StyleBackgroudInfoEntity parse(JSONObject jSONObject) {
@@ -175,13 +196,13 @@ public class TextWordsEntity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (kh9.a(this.mBackgroudImageUrl)) {
+                if (ci9.a(this.mBackgroudImageUrl)) {
                     return new File("");
                 }
                 if (this.mSourceFile == null) {
                     String str = this.mLocalParentFile;
                     StringBuilder sb = new StringBuilder();
-                    sb.append(zg9.b(this.mBackgroudImageUrl));
+                    sb.append(rh9.b(this.mBackgroudImageUrl));
                     String str2 = this.mBackgroudImageUrl;
                     sb.append(str2.substring(str2.lastIndexOf(".")));
                     this.mSourceFile = new File(str, sb.toString());
@@ -189,18 +210,6 @@ public class TextWordsEntity {
                 return this.mSourceFile;
             }
             return (File) invokeV.objValue;
-        }
-
-        public boolean isLoaded() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getSourceFile() != null && getSourceFile().exists() : invokeV.booleanValue;
-        }
-
-        public boolean isNeedDown() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? kh9.a(this.mBackgroudImageUrl) : invokeV.booleanValue;
         }
     }
 
@@ -442,7 +451,7 @@ public class TextWordsEntity {
                     textColorEntity.mColor = jSONObject.optString("color");
                     String optString = jSONObject.optString(Key.ALPHA);
                     textColorEntity.mAlpha = optString;
-                    textColorEntity.mColorInfo = sg9.b(textColorEntity.mColor, optString);
+                    textColorEntity.mColorInfo = kh9.b(textColorEntity.mColor, optString);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -501,6 +510,42 @@ public class TextWordsEntity {
             this.mSourceFile = null;
         }
 
+        public String getSuffix() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.mDownloadUrl.contains(".otf")) {
+                    return ".otf";
+                }
+                return ".ttf";
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public boolean isDefault() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.mIsDefault == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isLoaded() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (getSourceFile() != null && getSourceFile().exists()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         public static TextFontEntity parse(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -551,29 +596,11 @@ public class TextWordsEntity {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.mSourceFile == null) {
                     File file = this.mRootDir;
-                    this.mSourceFile = new File(file, zg9.b(this.mDownloadUrl) + getSuffix());
+                    this.mSourceFile = new File(file, rh9.b(this.mDownloadUrl) + getSuffix());
                 }
                 return this.mSourceFile;
             }
             return (File) invokeV.objValue;
-        }
-
-        public String getSuffix() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDownloadUrl.contains(".otf") ? ".otf" : ".ttf" : (String) invokeV.objValue;
-        }
-
-        public boolean isDefault() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsDefault == 1 : invokeV.booleanValue;
-        }
-
-        public boolean isLoaded() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getSourceFile() != null && getSourceFile().exists() : invokeV.booleanValue;
         }
 
         public void setFontRootDir(File file) {

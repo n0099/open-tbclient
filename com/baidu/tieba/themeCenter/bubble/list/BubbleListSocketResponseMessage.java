@@ -1,10 +1,9 @@
 package com.baidu.tieba.themeCenter.bubble.list;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.cu8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,8 +23,8 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public boolean isDefault;
-    public List<DressItemData> mDressItemList;
-    public st8 mRecommand;
+    public List mDressItemList;
+    public cu8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleListSocketResponseMessage() {
@@ -48,11 +47,12 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            boolean z2 = false;
             GetBubbleListResIdl getBubbleListResIdl = (GetBubbleListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBubbleListResIdl.class);
             if (getBubbleListResIdl == null) {
                 return null;
@@ -65,9 +65,9 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    st8 st8Var = new st8();
-                    this.mRecommand = st8Var;
-                    st8Var.d(getBubbleListResIdl.data.recommend);
+                    cu8 cu8Var = new cu8();
+                    this.mRecommand = cu8Var;
+                    cu8Var.d(getBubbleListResIdl.data.recommend);
                 }
                 if (getBubbleListResIdl.data.bubbles != null) {
                     this.mDressItemList = new ArrayList();
@@ -77,35 +77,55 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
                         }
                     }
                 }
-                this.hasMore = getBubbleListResIdl.data.hasmore.intValue() == 1;
-                this.isDefault = getBubbleListResIdl.data.is_default.intValue() == 1;
+                if (getBubbleListResIdl.data.hasmore.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.hasMore = z;
+                if (getBubbleListResIdl.data.is_default.intValue() == 1) {
+                    z2 = true;
+                }
+                this.isDefault = z2;
             }
             return getBubbleListResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public List<DressItemData> getBubbleList() {
+    public List getBubbleList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDressItemList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDressItemList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public st8 getRecommand() {
+    public cu8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mRecommand;
+        }
+        return (cu8) invokeV.objValue;
     }
 
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.hasMore : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.hasMore;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isDefault : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isDefault;
+        }
+        return invokeV.booleanValue;
     }
 }

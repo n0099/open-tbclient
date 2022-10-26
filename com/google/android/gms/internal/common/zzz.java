@@ -8,11 +8,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
-public abstract class zzz<E> extends zzak<E> {
+public abstract class zzz extends zzak {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int zza;
     public int zzb;
+
+    @Override // java.util.Iterator, java.util.ListIterator
+    public final boolean hasNext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zzb < this.zza : invokeV.booleanValue;
+    }
+
+    @Override // java.util.ListIterator
+    public final boolean hasPrevious() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb > 0 : invokeV.booleanValue;
+    }
+
+    @Override // java.util.ListIterator
+    public final int nextIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzb : invokeV.intValue;
+    }
+
+    @Override // java.util.ListIterator
+    public final int previousIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zzb - 1 : invokeV.intValue;
+    }
+
+    public abstract Object zza(int i);
 
     public zzz(int i, int i2) {
         Interceptable interceptable = $ic;
@@ -35,21 +65,7 @@ public abstract class zzz<E> extends zzak<E> {
     }
 
     @Override // java.util.Iterator, java.util.ListIterator
-    public final boolean hasNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zzb < this.zza : invokeV.booleanValue;
-    }
-
-    @Override // java.util.ListIterator
-    public final boolean hasPrevious() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb > 0 : invokeV.booleanValue;
-    }
-
-    @Override // java.util.Iterator, java.util.ListIterator
-    public final E next() {
+    public final Object next() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -60,18 +76,11 @@ public abstract class zzz<E> extends zzak<E> {
             }
             throw new NoSuchElementException();
         }
-        return (E) invokeV.objValue;
+        return invokeV.objValue;
     }
 
     @Override // java.util.ListIterator
-    public final int nextIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzb : invokeV.intValue;
-    }
-
-    @Override // java.util.ListIterator
-    public final E previous() {
+    public final Object previous() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -82,15 +91,6 @@ public abstract class zzz<E> extends zzak<E> {
             }
             throw new NoSuchElementException();
         }
-        return (E) invokeV.objValue;
+        return invokeV.objValue;
     }
-
-    @Override // java.util.ListIterator
-    public final int previousIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zzb - 1 : invokeV.intValue;
-    }
-
-    public abstract E zza(int i);
 }

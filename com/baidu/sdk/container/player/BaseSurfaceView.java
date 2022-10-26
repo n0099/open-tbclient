@@ -6,30 +6,43 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.og1;
 import com.baidu.tieba.pg1;
+import com.baidu.tieba.qg1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, pg1 {
+public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, qg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
-    public og1 d;
+    public pg1 d;
+
+    public void setEndSurface() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048582, this, surfaceHolder, i, i2, i3) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseSurfaceView(Context context, og1 og1Var) {
+    public BaseSurfaceView(Context context, pg1 pg1Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, og1Var};
+            Object[] objArr = {context, pg1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,7 +54,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
         this.a = 1;
-        this.d = og1Var;
+        this.d = pg1Var;
         getHolder().addCallback(this);
     }
 
@@ -56,7 +69,10 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     public int getDisplayMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.view.SurfaceView, android.view.View
@@ -71,33 +87,41 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                 int i5 = this.a;
                 if (i5 != 0) {
                     if (i5 != 1) {
-                        if (i5 == 3) {
+                        if (i5 != 3) {
+                            if (i5 != 4) {
+                                if (i5 != 5) {
+                                    if (i5 != 6) {
+                                        if (i5 == 7) {
+                                            if (i4 * defaultSize2 > defaultSize * i3) {
+                                                defaultSize = (i4 * defaultSize2) / i3;
+                                            } else if (i4 * defaultSize2 < defaultSize * i3) {
+                                                defaultSize2 = (i3 * defaultSize) / i4;
+                                            }
+                                        }
+                                    } else {
+                                        defaultSize = (i4 * defaultSize2) / i3;
+                                    }
+                                } else {
+                                    int i6 = defaultSize * 3;
+                                    int i7 = defaultSize2 * 4;
+                                    if (i6 < i7) {
+                                        defaultSize2 = i6 / 4;
+                                    } else if (i6 > i7) {
+                                        defaultSize = i7 / 3;
+                                    }
+                                }
+                            } else {
+                                int i8 = defaultSize * 9;
+                                int i9 = defaultSize2 * 16;
+                                if (i8 < i9) {
+                                    defaultSize2 = i8 / 16;
+                                } else if (i8 > i9) {
+                                    defaultSize = i9 / 9;
+                                }
+                            }
+                        } else {
                             defaultSize = i4;
                             defaultSize2 = i3;
-                        } else if (i5 == 4) {
-                            int i6 = defaultSize * 9;
-                            int i7 = defaultSize2 * 16;
-                            if (i6 < i7) {
-                                defaultSize2 = i6 / 16;
-                            } else if (i6 > i7) {
-                                defaultSize = i7 / 9;
-                            }
-                        } else if (i5 == 5) {
-                            int i8 = defaultSize * 3;
-                            int i9 = defaultSize2 * 4;
-                            if (i8 < i9) {
-                                defaultSize2 = i8 / 4;
-                            } else if (i8 > i9) {
-                                defaultSize = i9 / 3;
-                            }
-                        } else if (i5 == 6) {
-                            defaultSize = (i4 * defaultSize2) / i3;
-                        } else if (i5 == 7) {
-                            if (i4 * defaultSize2 > defaultSize * i3) {
-                                defaultSize = (i4 * defaultSize2) / i3;
-                            } else if (i4 * defaultSize2 < defaultSize * i3) {
-                                defaultSize2 = (i3 * defaultSize) / i4;
-                            }
                         }
                     } else if (i4 * defaultSize2 > defaultSize * i3) {
                         defaultSize2 = (i3 * defaultSize) / i4;
@@ -113,20 +137,19 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    @Override // com.baidu.tieba.pg1
+    @Override // com.baidu.tieba.qg1
     public void onVideoSizeChanged(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             this.b = i;
             this.c = i2;
-            if (i == 0 || i2 == 0) {
-                return;
+            if (i != 0 && i2 != 0) {
+                a();
             }
-            a();
         }
     }
 
-    @Override // com.baidu.tieba.pg1
+    @Override // com.baidu.tieba.qg1
     public void setDisplayMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -134,36 +157,21 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    public void setEndSurface() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048582, this, surfaceHolder, i, i2, i3) == null) {
-        }
-    }
-
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        og1 og1Var;
+        pg1 pg1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (og1Var = this.d) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) && (pg1Var = this.d) != null) {
+            pg1Var.surfaceCreated(surfaceHolder);
         }
-        og1Var.surfaceCreated(surfaceHolder);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        og1 og1Var;
+        pg1 pg1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) || (og1Var = this.d) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) && (pg1Var = this.d) != null) {
+            pg1Var.a();
         }
-        og1Var.a();
     }
 }

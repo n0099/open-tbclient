@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
+import com.baidu.tieba.eo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
-public class RelateForumItemData implements Serializable, Cdo {
+public class RelateForumItemData implements Serializable, eo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_FORUM_CARD;
     public static final long serialVersionUID = 1;
@@ -43,6 +43,16 @@ public class RelateForumItemData implements Serializable, Cdo {
         TYPE_FORUM_CARD = BdUniqueId.gen();
     }
 
+    @Override // com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TYPE_FORUM_CARD;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
     public RelateForumItemData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,16 +76,10 @@ public class RelateForumItemData implements Serializable, Cdo {
         this.isLiked = false;
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TYPE_FORUM_CARD : (BdUniqueId) invokeV.objValue;
-    }
-
     public void parserProtobuf(RelateForum relateForum) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, relateForum) == null) || relateForum == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, relateForum) != null) || relateForum == null) {
             return;
         }
         this.forumId = relateForum.forum_id.intValue();
@@ -85,7 +89,12 @@ public class RelateForumItemData implements Serializable, Cdo {
         this.threadNum = relateForum.thread_num.intValue();
         this.postNum = relateForum.post_num.intValue();
         this.followNum = relateForum.member_num.intValue();
-        this.isLiked = relateForum.is_liked.intValue() != 0;
+        if (relateForum.is_liked.intValue() == 0) {
+            z = false;
+        } else {
+            z = true;
+        }
+        this.isLiked = z;
     }
 
     public void setIsLiked(boolean z) {

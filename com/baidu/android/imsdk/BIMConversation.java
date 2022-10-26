@@ -47,9 +47,192 @@ public class BIMConversation implements NoProGuard {
     public Context mContext;
     public ChatSession session;
 
+    public void beginWithCompletion(IMcastSetListener iMcastSetListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iMcastSetListener) == null) {
+        }
+    }
+
+    public long clear() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean deleteChatMsg(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMsg)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int deleteDraftMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void endWithCompletion(IMcastSetListener iMcastSetListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iMcastSetListener) == null) {
+        }
+    }
+
+    public void fetchMessage(MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i), Boolean.valueOf(z), iFetchMessageListener}) == null) {
+        }
+    }
+
+    public int getChatType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public ChatMsg getDraftMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (ChatMsg) invokeV.objValue;
+    }
+
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public long getLastMsgTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public long getUnReadChatMsgCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean markMsgClicked(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, chatMsg)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void pauseCastMessage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        }
+    }
+
+    public void playCastMessage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        }
+    }
+
+    public void quitLiveShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        }
+    }
+
+    public int saveAsDraftMessage(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, chatMsg)) == null) {
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void seekCastMessage(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        }
+    }
+
+    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
+        }
+    }
+
+    public boolean setAllMessageReaded(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, chatMsg)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setDisturb(int i, BIMValueCallBack bIMValueCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048604, this, i, bIMValueCallBack) == null) {
+        }
+    }
+
+    public void setPullInterval(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+        }
+    }
+
+    public boolean setSingleMessageReaded(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, chatMsg)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void updateConversation(ChatSession chatSession) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, chatSession) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class MSGTYPE {
+    public final class MSGTYPE {
         public static final /* synthetic */ MSGTYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MSGTYPE ALL;
@@ -99,13 +282,19 @@ public class BIMConversation implements NoProGuard {
         public static MSGTYPE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MSGTYPE) Enum.valueOf(MSGTYPE.class, str) : (MSGTYPE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (MSGTYPE) Enum.valueOf(MSGTYPE.class, str);
+            }
+            return (MSGTYPE) invokeL.objValue;
         }
 
         public static MSGTYPE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MSGTYPE[]) $VALUES.clone() : (MSGTYPE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (MSGTYPE[]) $VALUES.clone();
+            }
+            return (MSGTYPE[]) invokeV.objValue;
         }
     }
 
@@ -121,6 +310,28 @@ public class BIMConversation implements NoProGuard {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isMulAppSync = false;
+        this.mCategory = BIMManager.CATEGORY.UNKOWN;
+        this.mContext = context.getApplicationContext();
+        this.session = chatSession;
+        this.mCategory = category;
+    }
+
+    public BIMConversation(Context context, BIMManager.CATEGORY category, String str, ChatSession chatSession, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, category, str, chatSession, str2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -221,6 +432,22 @@ public class BIMConversation implements NoProGuard {
         }
     }
 
+    public void registerLiveMsgReceiveListener(long j, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048596, this, j, iLiveMsgReceiveListener) == null) {
+            ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
+            chatMsgManagerImpl.registerLiveMsgReceiveListener(j + "", iLiveMsgReceiveListener);
+        }
+    }
+
+    public void unregisterLiveMsgReceiveListener(String str, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048608, this, str, iLiveMsgReceiveListener) == null) {
+            ChatMsgManagerImpl.getInstance(this.mContext).unregisterLiveMsgReceiveListener(str);
+            ChatMsgManagerImpl.getInstance(this.mContext).unregisterLiveMsgReceiveListener(iLiveMsgReceiveListener);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void senMessageInternal(ChatMsg chatMsg, ISendMessageStatusListener iSendMessageStatusListener, ISendMessageListener iSendMessageListener) {
         Interceptable interceptable = $ic;
@@ -234,161 +461,57 @@ public class BIMConversation implements NoProGuard {
             chatMsg.setMsgTime(System.currentTimeMillis() / 1000);
             chatMsg.setListenerKey(ListenerManager.getInstance().addListener(iSendMessageStatusListener));
             int msgType = chatMsg.getMsgType();
-            if (msgType == 1) {
-                ImageMsg imageMsg = (ImageMsg) chatMsg;
-                imageMsg.setContent(imageMsg.getLocalUrl(), imageMsg.getWidth(), imageMsg.getHeight());
-                handleRichMediaMsg(chatMsg, iSendMessageListener);
-            } else if (msgType != 2) {
-                ChatMsgManagerImpl.getInstance(this.mContext).sendMessage(chatMsg, iSendMessageListener);
-            } else {
+            if (msgType != 1) {
+                if (msgType != 2) {
+                    ChatMsgManagerImpl.getInstance(this.mContext).sendMessage(chatMsg, iSendMessageListener);
+                    return;
+                }
                 AudioMsg audioMsg = (AudioMsg) chatMsg;
                 audioMsg.setContent(audioMsg.getLocalUrl(), audioMsg.getFormat(), audioMsg.getDuration());
                 handleRichMediaMsg(chatMsg, iSendMessageListener);
+                return;
             }
-        }
-    }
-
-    public void beginWithCompletion(IMcastSetListener iMcastSetListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iMcastSetListener) == null) {
-        }
-    }
-
-    public long clear() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean deleteChatMsg(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMsg)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int deleteDraftMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void endWithCompletion(IMcastSetListener iMcastSetListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iMcastSetListener) == null) {
-        }
-    }
-
-    public void fetchMessage(MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i), Boolean.valueOf(z), iFetchMessageListener}) == null) {
+            ImageMsg imageMsg = (ImageMsg) chatMsg;
+            imageMsg.setContent(imageMsg.getLocalUrl(), imageMsg.getWidth(), imageMsg.getHeight());
+            handleRichMediaMsg(chatMsg, iSendMessageListener);
         }
     }
 
     public BIMManager.CATEGORY getCategory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? BIMManager.CATEGORY.ALL : (BIMManager.CATEGORY) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return BIMManager.CATEGORY.ALL;
+        }
+        return (BIMManager.CATEGORY) invokeV.objValue;
     }
 
     public ChatSession getChatSession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.session : (ChatSession) invokeV.objValue;
-    }
-
-    public int getChatType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.session;
         }
-        return invokeV.intValue;
-    }
-
-    public ChatMsg getDraftMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (ChatMsg) invokeV.objValue;
-    }
-
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "" : (String) invokeV.objValue;
+        return (ChatSession) invokeV.objValue;
     }
 
     public ChatMsg getLastChatmsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new TextMsg("") : (ChatMsg) invokeV.objValue;
-    }
-
-    public long getLastMsgTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return -1L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return new TextMsg("");
         }
-        return invokeV.longValue;
+        return (ChatMsg) invokeV.objValue;
     }
 
-    public String getName() {
-        InterceptResult invokeV;
+    public void registerLiveMsgReceiveListener(long j, boolean z, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public long getUnReadChatMsgCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean markMsgClicked(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, chatMsg)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void pauseCastMessage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-        }
-    }
-
-    public void playCastMessage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-        }
-    }
-
-    public void quitLiveShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), iLiveMsgReceiveListener}) == null) {
+            if (z) {
+                ConversationStudioManImpl.getInstance(this.mContext).addReliableCastId(j);
+            }
+            ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
+            chatMsgManagerImpl.registerLiveMsgReceiveListener(j + "", iLiveMsgReceiveListener);
         }
     }
 
@@ -399,18 +522,18 @@ public class BIMConversation implements NoProGuard {
         }
     }
 
-    public int saveAsDraftMessage(ChatMsg chatMsg) {
-        InterceptResult invokeL;
+    public void unregisterLiveMsgReceiveListener(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, chatMsg)) == null) {
-            return -1;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+            ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
+            chatMsgManagerImpl.unregisterLiveMsgReceiveListener(j + "");
         }
-        return invokeL.intValue;
     }
 
-    public void seekCastMessage(int i) {
+    public void unregisterMessageReceiveListener(IMessageReceiveListener iMessageReceiveListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeL(1048609, this, iMessageReceiveListener) == null) {
+            ChatMsgManagerImpl.getInstance(this.mContext).unregisterMessageReceiveListener(this.mContext, iMessageReceiveListener);
         }
     }
 
@@ -474,111 +597,5 @@ public class BIMConversation implements NoProGuard {
             return chatMsg;
         }
         return (ChatMsg) invokeLLL.objValue;
-    }
-
-    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
-        }
-    }
-
-    public boolean setAllMessageReaded(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, chatMsg)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setDisturb(int i, BIMValueCallBack<String> bIMValueCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048604, this, i, bIMValueCallBack) == null) {
-        }
-    }
-
-    public void setPullInterval(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-        }
-    }
-
-    public boolean setSingleMessageReaded(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, chatMsg)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void unregisterLiveMsgReceiveListener(String str, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048608, this, str, iLiveMsgReceiveListener) == null) {
-            ChatMsgManagerImpl.getInstance(this.mContext).unregisterLiveMsgReceiveListener(str);
-            ChatMsgManagerImpl.getInstance(this.mContext).unregisterLiveMsgReceiveListener(iLiveMsgReceiveListener);
-        }
-    }
-
-    public void unregisterMessageReceiveListener(IMessageReceiveListener iMessageReceiveListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, iMessageReceiveListener) == null) {
-            ChatMsgManagerImpl.getInstance(this.mContext).unregisterMessageReceiveListener(this.mContext, iMessageReceiveListener);
-        }
-    }
-
-    public void updateConversation(ChatSession chatSession) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, chatSession) == null) {
-        }
-    }
-
-    public void registerLiveMsgReceiveListener(long j, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048596, this, j, iLiveMsgReceiveListener) == null) {
-            ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
-            chatMsgManagerImpl.registerLiveMsgReceiveListener(j + "", iLiveMsgReceiveListener);
-        }
-    }
-
-    public void registerLiveMsgReceiveListener(long j, boolean z, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), iLiveMsgReceiveListener}) == null) {
-            if (z) {
-                ConversationStudioManImpl.getInstance(this.mContext).addReliableCastId(j);
-            }
-            ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
-            chatMsgManagerImpl.registerLiveMsgReceiveListener(j + "", iLiveMsgReceiveListener);
-        }
-    }
-
-    public void unregisterLiveMsgReceiveListener(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
-            ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
-            chatMsgManagerImpl.unregisterLiveMsgReceiveListener(j + "");
-        }
-    }
-
-    public BIMConversation(Context context, BIMManager.CATEGORY category, String str, ChatSession chatSession, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, category, str, chatSession, str2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.isMulAppSync = false;
-        this.mCategory = BIMManager.CATEGORY.UNKOWN;
-        this.mContext = context.getApplicationContext();
-        this.session = chatSession;
-        this.mCategory = category;
     }
 }

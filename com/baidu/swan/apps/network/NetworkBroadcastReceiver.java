@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
     public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
     public String mCallback;
-    public WeakReference<CallbackHandler> mCallbackHandlerWeakRef;
+    public WeakReference mCallbackHandlerWeakRef;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = vj1.a;
+        DEBUG = wj1.a;
     }
 
     public NetworkBroadcastReceiver(CallbackHandler callbackHandler, String str) {
@@ -55,26 +55,26 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.mCallbackHandlerWeakRef = new WeakReference<>(callbackHandler);
+        this.mCallbackHandlerWeakRef = new WeakReference(callbackHandler);
         this.mCallback = str;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || context == null || intent == null || "android.net.conn.CONNECTIVITY_CHANGE" != intent.getAction() || TextUtils.isEmpty(this.mCallback) || isInitialStickyBroadcast()) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || context == null || intent == null || "android.net.conn.CONNECTIVITY_CHANGE" != intent.getAction() || TextUtils.isEmpty(this.mCallback) || isInitialStickyBroadcast()) {
             return;
         }
         if (DEBUG) {
             Log.d("NetworkBroadcast", "——> onReceive: ");
         }
-        SwanAppNetworkUtils.k(context, this.mCallbackHandlerWeakRef.get(), this.mCallback);
+        SwanAppNetworkUtils.k(context, (CallbackHandler) this.mCallbackHandlerWeakRef.get(), this.mCallback);
     }
 
     public void updateCallback(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
-            this.mCallbackHandlerWeakRef = new WeakReference<>(callbackHandler);
+            this.mCallbackHandlerWeakRef = new WeakReference(callbackHandler);
             this.mCallback = str;
         }
     }

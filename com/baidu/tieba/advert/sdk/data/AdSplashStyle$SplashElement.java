@@ -63,12 +63,18 @@ public final class AdSplashStyle$SplashElement {
     public static AdSplashStyle$SplashElement valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AdSplashStyle$SplashElement) Enum.valueOf(AdSplashStyle$SplashElement.class, str) : (AdSplashStyle$SplashElement) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AdSplashStyle$SplashElement) Enum.valueOf(AdSplashStyle$SplashElement.class, str);
+        }
+        return (AdSplashStyle$SplashElement) invokeL.objValue;
     }
 
     public static AdSplashStyle$SplashElement[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AdSplashStyle$SplashElement[]) $VALUES.clone() : (AdSplashStyle$SplashElement[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AdSplashStyle$SplashElement[]) $VALUES.clone();
+        }
+        return (AdSplashStyle$SplashElement[]) invokeV.objValue;
     }
 }

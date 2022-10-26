@@ -19,13 +19,13 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public final class MassTransitRouteResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<MassTransitRouteResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public TransitResultNode a;
     public TransitResultNode b;
     public TaxiInfo c;
     public int d;
-    public List<MassTransitRouteLine> e;
+    public List e;
     public SuggestAddrInfo f;
 
     static {
@@ -105,7 +105,7 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (TransitResultNode) invokeV.objValue;
     }
 
-    public List<MassTransitRouteLine> getRouteLines() {
+    public List getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (List) invokeV.objValue;
@@ -143,7 +143,7 @@ public final class MassTransitRouteResult extends SearchResult implements Parcel
         }
     }
 
-    public void setRoutelines(List<MassTransitRouteLine> list) {
+    public void setRoutelines(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.e = list;

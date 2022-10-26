@@ -46,25 +46,43 @@ public class RtlSpacingHelper {
     public int getEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIsRtl ? this.mLeft : this.mRight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mIsRtl) {
+                return this.mLeft;
+            }
+            return this.mRight;
+        }
+        return invokeV.intValue;
     }
 
     public int getLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLeft : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLeft;
+        }
+        return invokeV.intValue;
     }
 
     public int getRight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mRight;
+        }
+        return invokeV.intValue;
     }
 
     public int getStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsRtl ? this.mRight : this.mLeft : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mIsRtl) {
+                return this.mRight;
+            }
+            return this.mLeft;
+        }
+        return invokeV.intValue;
     }
 
     public void setAbsolute(int i, int i2) {
@@ -79,40 +97,6 @@ public class RtlSpacingHelper {
                 this.mExplicitRight = i2;
                 this.mRight = i2;
             }
-        }
-    }
-
-    public void setDirection(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || z == this.mIsRtl) {
-            return;
-        }
-        this.mIsRtl = z;
-        if (!this.mIsRelative) {
-            this.mLeft = this.mExplicitLeft;
-            this.mRight = this.mExplicitRight;
-        } else if (z) {
-            int i = this.mEnd;
-            if (i == Integer.MIN_VALUE) {
-                i = this.mExplicitLeft;
-            }
-            this.mLeft = i;
-            int i2 = this.mStart;
-            if (i2 == Integer.MIN_VALUE) {
-                i2 = this.mExplicitRight;
-            }
-            this.mRight = i2;
-        } else {
-            int i3 = this.mStart;
-            if (i3 == Integer.MIN_VALUE) {
-                i3 = this.mExplicitLeft;
-            }
-            this.mLeft = i3;
-            int i4 = this.mEnd;
-            if (i4 == Integer.MIN_VALUE) {
-                i4 = this.mExplicitRight;
-            }
-            this.mRight = i4;
         }
     }
 
@@ -139,5 +123,41 @@ public class RtlSpacingHelper {
                 this.mRight = i2;
             }
         }
+    }
+
+    public void setDirection(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || z == this.mIsRtl) {
+            return;
+        }
+        this.mIsRtl = z;
+        if (this.mIsRelative) {
+            if (z) {
+                int i = this.mEnd;
+                if (i == Integer.MIN_VALUE) {
+                    i = this.mExplicitLeft;
+                }
+                this.mLeft = i;
+                int i2 = this.mStart;
+                if (i2 == Integer.MIN_VALUE) {
+                    i2 = this.mExplicitRight;
+                }
+                this.mRight = i2;
+                return;
+            }
+            int i3 = this.mStart;
+            if (i3 == Integer.MIN_VALUE) {
+                i3 = this.mExplicitLeft;
+            }
+            this.mLeft = i3;
+            int i4 = this.mEnd;
+            if (i4 == Integer.MIN_VALUE) {
+                i4 = this.mExplicitRight;
+            }
+            this.mRight = i4;
+            return;
+        }
+        this.mLeft = this.mExplicitLeft;
+        this.mRight = this.mExplicitRight;
     }
 }

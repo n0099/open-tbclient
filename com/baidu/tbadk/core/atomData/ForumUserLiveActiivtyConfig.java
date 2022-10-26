@@ -38,18 +38,16 @@ public class ForumUserLiveActiivtyConfig extends IntentConfig {
 
     public void setForumInfo(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && getIntent() != null) {
+            getIntent().putExtra("KEY_FORUM_ID", str);
+            getIntent().putExtra(KEY_FORUM_NAME, str2);
         }
-        getIntent().putExtra("KEY_FORUM_ID", str);
-        getIntent().putExtra(KEY_FORUM_NAME, str2);
     }
 
     public void setFrom(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("from", str);
         }
-        getIntent().putExtra("from", str);
     }
 }

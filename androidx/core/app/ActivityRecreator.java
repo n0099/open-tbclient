@@ -9,8 +9,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +21,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class ActivityRecreator {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,7 +45,35 @@ public final class ActivityRecreator {
         public boolean mStarted;
         public boolean mStopQueued;
 
-        public LifecycleCheckCallbacks(@NonNull Activity activity) {
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            }
+        }
+
+        public LifecycleCheckCallbacks(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,13 +96,6 @@ public final class ActivityRecreator {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && this.mActivity == activity) {
@@ -96,31 +114,10 @@ public final class ActivityRecreator {
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, activity) == null) && this.mActivity == activity) {
                 this.mStarted = true;
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
             }
         }
     }
@@ -189,6 +186,34 @@ public final class ActivityRecreator {
         return (Field) invokeV.objValue;
     }
 
+    public static Field getTokenField() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mToken");
+                declaredField.setAccessible(true);
+                return declaredField;
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (Field) invokeV.objValue;
+    }
+
+    public static boolean needsRelaunchCall() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i != 26 && i != 27) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static Method getPerformStopActivity2Params(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -240,31 +265,6 @@ public final class ActivityRecreator {
             return null;
         }
         return (Method) invokeL.objValue;
-    }
-
-    public static Field getTokenField() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            try {
-                Field declaredField = Activity.class.getDeclaredField("mToken");
-                declaredField.setAccessible(true);
-                return declaredField;
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (Field) invokeV.objValue;
-    }
-
-    public static boolean needsRelaunchCall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            return i == 26 || i == 27;
-        }
-        return invokeV.booleanValue;
     }
 
     public static boolean queueOnStopIfNecessary(Object obj, int i, Activity activity) {
@@ -330,7 +330,7 @@ public final class ActivityRecreator {
         return invokeLIL.booleanValue;
     }
 
-    public static boolean recreate(@NonNull Activity activity) {
+    public static boolean recreate(Activity activity) {
         InterceptResult invokeL;
         Object obj;
         Interceptable interceptable = $ic;

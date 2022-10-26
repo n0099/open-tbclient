@@ -114,9 +114,32 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
     public Boolean switchPreloadSplite;
     public final Lazy ubcManager$delegate;
 
+    private final AbConfigService getAbService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            Lazy lazy = this.abService$delegate;
+            KProperty kProperty = $$delegatedProperties[1];
+            return (AbConfigService) lazy.getValue();
+        }
+        return (AbConfigService) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final UBCManager getUbcManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            Lazy lazy = this.ubcManager$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (UBCManager) lazy.getValue();
+        }
+        return (UBCManager) invokeV.objValue;
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b)\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b6\u00107R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003R\u0016\u0010\f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\f\u0010\u0003R\u0016\u0010\r\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\r\u0010\u0003R\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000e\u0010\u0003R\u0016\u0010\u000f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000f\u0010\u0003R\u0016\u0010\u0010\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0003R\u0016\u0010\u0011\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0003R\u0016\u0010\u0012\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0003R\u0016\u0010\u0013\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0003R\u0016\u0010\u0014\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0014\u0010\u0003R\u0016\u0010\u0015\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0015\u0010\u0003R\u0016\u0010\u0016\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0016\u0010\u0003R\u0016\u0010\u0017\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0017\u0010\u0003R\u0016\u0010\u0018\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0018\u0010\u0003R\u0016\u0010\u0019\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0019\u0010\u0003R\u0016\u0010\u001a\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001a\u0010\u0003R\u0016\u0010\u001b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001b\u0010\u0003R\u0016\u0010\u001c\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001c\u0010\u0003R\u0016\u0010\u001d\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001d\u0010\u0003R\u0016\u0010\u001e\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001e\u0010\u0003R\u0016\u0010\u001f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u001f\u0010\u0003R\u0016\u0010 \u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b \u0010\u0003R\u0016\u0010!\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b!\u0010\u0003R\u0016\u0010\"\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\"\u0010\u0003R\u0016\u0010#\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b#\u0010\u0003R\u0016\u0010$\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b$\u0010\u0003R\u0016\u0010%\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b%\u0010\u0003R\u0016\u0010&\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b&\u0010\u0003R\u0016\u0010'\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b'\u0010\u0003R\u0016\u0010(\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b(\u0010\u0003R\u0016\u0010)\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b)\u0010\u0003R\u0016\u0010*\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b*\u0010\u0003R\u001d\u00100\u001a\u00020+8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b,\u0010-\u001a\u0004\b.\u0010/R\u0016\u00102\u001a\u0002018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00104\u001a\u0002018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00103R\u0016\u00105\u001a\u0002018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u00103¨\u00068"}, d2 = {"Lcom/baidu/searchbox/live/ubc/MediaLivePluginLogger$Companion;", "", "MEDIA_LIVE_PLUGIN_TAG", "Ljava/lang/String;", "PAGE_SELECT_SOURCE", "PAGE_SLOT_BIND_MEDIA_COMPONENT", "PAGE_SLOT_BIND_MIX_SHELL", "PAGE_SLOT_BIND_TO_NOTIFY_SELECT", "PAGE_SLOT_BIND_TO_NOTIFY_SELECT_MIX_SHELL", "PAGE_SLOT_CREATE_MEDIA_COMPONENT", "PAGE_SLOT_CREATE_MIX_SHELL", "PAGE_SLOT_DISPATCH_ENTER_ACTION", "PAGE_SLOT_GET_LIVE_TYPE_START", "PAGE_SLOT_GET_LIVE_TYPE_TIME", "PAGE_SLOT_GET_LIVE_TYPE_TIME_PARSE", "PAGE_SLOT_GET_SLIDE_LIST_TO_ADD_TIME", "PAGE_SLOT_GET_SLIDE_NET_TIME", "PAGE_SLOT_GET_SLIDE_PARSE_TIME", "PAGE_SLOT_LIST_CREATE_TO_LOAD_ROOM", "PAGE_SLOT_LOAD_ROOM", "PAGE_SLOT_LOAD_ROOM_GET_SLIDE_START", "PAGE_SLOT_LOAD_ROOM_TO_LIST_ADD_ITEM", "PAGE_SLOT_PAGE_AFTER_ENTER_LIVE_PAGE_DRAW", "PAGE_SLOT_PAGE_ATTACH_END_TO_PAGE_ON_CREATE_START", "PAGE_SLOT_PAGE_ATTACH_TIME", "PAGE_SLOT_PAGE_ATTACH_TO_FIRST_FRAME", "PAGE_SLOT_PAGE_ATTACH_TO_RESUME", "PAGE_SLOT_PAGE_CREATE_END_TO_LIST_ON_CREATE_START", "PAGE_SLOT_PAGE_CREATE_TIME", "PAGE_SLOT_PAGE_ENTER_LIVE_NOTIFY_BIND", "PAGE_SLOT_PAGE_ENTER_LIVE_REQ_PARSE", "PAGE_SLOT_PAGE_ENTER_LIVE_REQ_TIME", "PAGE_SLOT_PAGE_INIT", "PAGE_SLOT_PAGE_LAYOUT_MANAGER_BOTTOM", "PAGE_SLOT_PAGE_LAYOUT_MANAGER_IM", "PAGE_SLOT_PAGE_LAYOUT_MANAGER_LAYOUT", "PAGE_SLOT_PAGE_LAYOUT_MANAGER_TOP", "PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_PARSE", "PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_TIME", "PAGE_SLOT_PAGE_PRE_ENTER_LIVE_START", "PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_NO", "PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_PRE", "PAGE_SLOT_PAGE_SELECT_FETCH_START", "Lcom/baidu/searchbox/live/ubc/MediaLivePluginLogger;", "instance$delegate", "Lkotlin/Lazy;", "getInstance", "()Lcom/baidu/searchbox/live/ubc/MediaLivePluginLogger;", Transition.MATCH_INSTANCE_STR, "", "pageEnterNetDuration", "J", "pageEnterStartTime", "pageSelectStartTime", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ KProperty[] $$delegatedProperties;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,6 +160,18 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
             $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(Companion.class), Transition.MATCH_INSTANCE_STR, "getInstance()Lcom/baidu/searchbox/live/ubc/MediaLivePluginLogger;"))};
         }
 
+        public final MediaLivePluginLogger getInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Lazy lazy = MediaLivePluginLogger.instance$delegate;
+                Companion companion = MediaLivePluginLogger.Companion;
+                KProperty kProperty = $$delegatedProperties[0];
+                return (MediaLivePluginLogger) lazy.getValue();
+            }
+            return (MediaLivePluginLogger) invokeV.objValue;
+        }
+
         public Companion() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -149,18 +184,6 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-        }
-
-        public final MediaLivePluginLogger getInstance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Lazy lazy = MediaLivePluginLogger.instance$delegate;
-                Companion companion = MediaLivePluginLogger.Companion;
-                KProperty kProperty = $$delegatedProperties[0];
-                return (MediaLivePluginLogger) lazy.getValue();
-            }
-            return (MediaLivePluginLogger) invokeV.objValue;
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -186,7 +209,123 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         instance$delegate = LazyKt__LazyJVMKt.lazy(MediaLivePluginLogger$Companion$instance$2.INSTANCE);
     }
 
+    private final void logLiveRoomPageEndLayoutDrawBottomComponent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            logDebug("logLiveRoomPageEndLayoutDrawBottomComponent");
+            if (this.isDebug) {
+                long currentTimeMillis = System.currentTimeMillis();
+                logDebug("底部bar组件渲染完成了：" + (currentTimeMillis - pageSelectStartTime));
+            }
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_BOTTOM);
+            }
+        }
+    }
+
+    private final void logLiveRoomPageEndLayoutDrawIMComponent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            logDebug("logLiveRoomPageEndLayoutDrawIMComponent");
+            if (this.isDebug) {
+                long currentTimeMillis = System.currentTimeMillis();
+                logDebug("IM组件渲染完成了：" + (currentTimeMillis - pageSelectStartTime));
+            }
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_IM);
+            }
+        }
+    }
+
+    private final void logLiveRoomPageEndLayoutDrawTopComponent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            logDebug("logLiveRoomPageEndLayoutDrawTopComponent");
+            if (this.isDebug) {
+                long currentTimeMillis = System.currentTimeMillis();
+                logDebug("顶部bar组件渲染完成了：" + (currentTimeMillis - pageSelectStartTime));
+            }
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_TOP);
+            }
+        }
+    }
+
+    public final void logLiveRoomPageOnSelect() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            logDebug("logLiveRoomPageOnSelect");
+            if (this.isDebug) {
+                pageSelectStartTime = System.currentTimeMillis();
+            }
+            if (!this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_BIND_TO_NOTIFY_SELECT);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_DISPATCH_ENTER_ACTION, null);
+                this.hasLoggedSelect = true;
+            }
+        }
+    }
+
+    public final void logPageAfterSelectedEndFetchLiveBeanDispatchStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            logDebug("logPageAfterSelectedEndFetchLiveBeanDispatchStart");
+            if (this.isDebug) {
+                long currentTimeMillis = System.currentTimeMillis();
+                logDebug("选中到获取进场数据之间的耗时：" + (currentTimeMillis - pageSelectStartTime));
+            }
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_SELECT_FETCH_START);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_NOTIFY_BIND, null);
+            }
+        }
+    }
+
+    public final void logPageAfterSelectedStartFetchLiveBean() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            logDebug("logPageAfterSelectedStartFetchLiveBean");
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                if (this.isDebug) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    logDebug("选中到开始取获取进场数据：" + (currentTimeMillis - pageSelectStartTime));
+                }
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_DISPATCH_ENTER_ACTION);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_SELECT_FETCH_START, null);
+            }
+        }
+    }
+
+    public final void logPageAttachEndNextToPageOnCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+            logDebug("logPageAttachEndNextToPageOnCreate");
+            if (this.hasLoggedInit && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, "page_attach");
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_END_TO_PAGE_ON_CREATE_START, null);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_TO_RESUME, null);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_TO_FIRST_FRAME, null);
+            }
+        }
+    }
+
+    public final void logPageEnterLiveRoomReqNetEndAndParseStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+            logDebug("logPageEnterLiveRoomReqNetEndAndParseStart");
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null && this.hasSendEnterRequest) {
+                if (this.isDebug) {
+                    pageEnterNetDuration = System.currentTimeMillis() - pageEnterStartTime;
+                }
+                this.hasSendEnterRequest = false;
+                getUbcManager().flowEndSlot(this.launchFlow, "page_enter_live_req");
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_REQ_PARSE, null);
+            }
+        }
+    }
+
     public MediaLivePluginLogger() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -201,7 +340,12 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         }
         this.ubcManager$delegate = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) MediaLivePluginLogger$ubcManager$2.INSTANCE);
         AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.isDebug = appInfoService != null ? appInfoService.isDebug() : false;
+        if (appInfoService != null) {
+            z = appInfoService.isDebug();
+        } else {
+            z = false;
+        }
+        this.isDebug = z;
         this.abService$delegate = LazyKt__LazyJVMKt.lazy(MediaLivePluginLogger$abService$2.INSTANCE);
         AbConfigService abService = getAbService();
         this.preEnterSwitch = abService != null ? abService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false) : false;
@@ -209,126 +353,31 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         this.handler = new Handler(Looper.getMainLooper());
     }
 
-    private final AbConfigService getAbService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            Lazy lazy = this.abService$delegate;
-            KProperty kProperty = $$delegatedProperties[1];
-            return (AbConfigService) lazy.getValue();
-        }
-        return (AbConfigService) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final UBCManager getUbcManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            Lazy lazy = this.ubcManager$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (UBCManager) lazy.getValue();
-        }
-        return (UBCManager) invokeV.objValue;
-    }
-
-    private final void logLiveRoomDrawUIFinish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            logDebug("logLiveRoomDrawUIFinish");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_AFTER_ENTER_LIVE_PAGE_DRAW);
-            if (this.isDebug) {
-                JSONObject jSONObject = new JSONObject();
-                Flow flow = this.launchFlow;
-                if (flow == null) {
-                    Intrinsics.throwNpe();
-                }
-                for (Map.Entry entry : new HashMap(flow.getSlotMaps()).entrySet()) {
-                    Slot value = (Slot) entry.getValue();
-                    JSONObject jSONObject2 = new JSONObject();
-                    Intrinsics.checkExpressionValueIsNotNull(value, "value");
-                    jSONObject2.put("s", value.getStart());
-                    jSONObject2.put("e", value.getEnd());
-                    jSONObject.put((String) entry.getKey(), jSONObject2);
-                }
-                Log.d("LIVE_ARCH", jSONObject.toString());
-            }
-            UBCManager ubcManager = getUbcManager();
-            Flow flow2 = this.launchFlow;
-            JSONObject jSONObject3 = this.logStartPageValueJson;
-            ubcManager.flowSetValueWithDuration(flow2, jSONObject3 != null ? jSONObject3.toString() : null);
-            getUbcManager().flowEnd(this.launchFlow);
-            if (this.isDebug) {
-                printFlowEachSlotInfo();
-            }
-            this.launchFlow = null;
-        }
-    }
-
-    private final void logLiveRoomPageEndLayoutDrawBottomComponent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            logDebug("logLiveRoomPageEndLayoutDrawBottomComponent");
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("底部bar组件渲染完成了：" + (currentTimeMillis - pageSelectStartTime));
-            }
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_BOTTOM);
-        }
-    }
-
-    private final void logLiveRoomPageEndLayoutDrawIMComponent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            logDebug("logLiveRoomPageEndLayoutDrawIMComponent");
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("IM组件渲染完成了：" + (currentTimeMillis - pageSelectStartTime));
-            }
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_IM);
-        }
-    }
-
-    private final void logLiveRoomPageEndLayoutDrawTopComponent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            logDebug("logLiveRoomPageEndLayoutDrawTopComponent");
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("顶部bar组件渲染完成了：" + (currentTimeMillis - pageSelectStartTime));
-            }
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_TOP);
-        }
-    }
-
     private final void printFlowEachSlotInfo() {
+        HashMap hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             try {
                 Flow flow = this.launchFlow;
-                if ((flow != null ? flow.getSlotMaps() : null) != null) {
+                HashMap hashMap2 = null;
+                if (flow != null) {
+                    hashMap = flow.getSlotMaps();
+                } else {
+                    hashMap = null;
+                }
+                if (hashMap != null) {
                     Flow flow2 = this.launchFlow;
-                    HashMap<String, Slot> slotMaps = flow2 != null ? flow2.getSlotMaps() : null;
-                    if (slotMaps == null) {
+                    if (flow2 != null) {
+                        hashMap2 = flow2.getSlotMaps();
+                    }
+                    if (hashMap2 == null) {
                         Intrinsics.throwNpe();
                     }
-                    for (Map.Entry<String, Slot> entry : slotMaps.entrySet()) {
-                        Slot value = entry.getValue();
+                    for (Map.Entry entry : hashMap2.entrySet()) {
+                        Slot value = (Slot) entry.getValue();
                         StringBuilder sb = new StringBuilder();
                         sb.append("阶段耗时 ");
-                        sb.append(entry.getKey());
+                        sb.append((String) entry.getKey());
                         sb.append(" = ");
                         Intrinsics.checkExpressionValueIsNotNull(value, "value");
                         sb.append(value.getJSONObject());
@@ -341,190 +390,66 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         }
     }
 
-    public static /* synthetic */ void updateStartPageInfoIntentRoomInfo$default(MediaLivePluginLogger mediaLivePluginLogger, String str, String str2, boolean z, int i, Object obj) {
-        if ((i & 4) != 0) {
-            z = true;
-        }
-        mediaLivePluginLogger.updateStartPageInfoIntentRoomInfo(str, str2, z);
-    }
-
-    public final void createSelectLaunchInfo(boolean z, String str, String str2, boolean z2, boolean z3, String str3, String str4) {
+    public final void logLiveRoomPageEndBindStartLayout() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), Boolean.valueOf(z3), str3, str4}) == null) && z) {
-            logLiveRoomLeave("pageChange");
-            this.hasLoggedBeginPreEnterReqStart = false;
-            this.hasLoggedCreateMixShell = false;
-            this.hasLoggedBindMixShell = false;
-            this.hasLoggedSelectMixShell = false;
-            this.hasLoggedCreateMediaComponent = false;
-            this.hasLoggedBindMediaComponent = false;
-            this.hasLoggedSelect = false;
-            if (getUbcManager() == null || this.launchFlow != null) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            logDebug("logLiveRoomPageEndBindStartLayout");
+            if (this.isDebug) {
+                long currentTimeMillis = System.currentTimeMillis();
+                logDebug("开始向组件分发进场成功消息：" + (currentTimeMillis - pageSelectStartTime));
             }
-            Flow beginFlow = getUbcManager().beginFlow(this.UBC_ID_PLUGIN_PAGE_FLOW);
-            this.launchFlow = beginFlow;
-            this.pageLoadStartTime = beginFlow != null ? beginFlow.getStartTime() : 0L;
-            updateStartPageInfo(str, str2, z2, z3);
-            updateStartPageInfoIntentRoomInfo(str3, str4, !z);
-        }
-    }
-
-    public final void endSlot(final String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (!Intrinsics.areEqual(Looper.myLooper(), Looper.getMainLooper())) {
-                this.handler.post(new Runnable(this, str) { // from class: com.baidu.searchbox.live.ubc.MediaLivePluginLogger$endSlot$1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ String $slotName;
-                    public final /* synthetic */ MediaLivePluginLogger this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.$slotName = str;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        UBCManager ubcManager;
-                        Flow flow;
-                        UBCManager ubcManager2;
-                        Flow flow2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ubcManager = this.this$0.getUbcManager();
-                            if (ubcManager != null) {
-                                flow = this.this$0.launchFlow;
-                                if (flow != null) {
-                                    ubcManager2 = this.this$0.getUbcManager();
-                                    flow2 = this.this$0.launchFlow;
-                                    ubcManager2.flowEndSlot(flow2, this.$slotName);
-                                }
-                            }
-                        }
-                    }
-                });
-            } else if (getUbcManager() == null || this.launchFlow == null) {
-            } else {
-                getUbcManager().flowEndSlot(this.launchFlow, str);
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_NOTIFY_BIND);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_LAYOUT, null);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_IM, null);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_TOP, null);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_BOTTOM, null);
             }
         }
     }
 
-    public final Boolean getSwitchPreloadSplite() {
-        InterceptResult invokeV;
+    public final void logLiveRoomPageEndLayoutDrawComponent() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.switchPreloadSplite : (Boolean) invokeV.objValue;
-    }
-
-    public final void logBindMediaComponentDataEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            logDebug("logBindMediaComponentDataEnd");
-            if (!this.hasLoggedBindMediaComponent || getUbcManager() == null || this.launchFlow == null) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            logDebug("logLiveRoomPageEndLayoutDrawComponent");
+            if (this.isDebug) {
+                long currentTimeMillis = System.currentTimeMillis();
+                logDebug("完成向组件分发进场成功消息：" + (currentTimeMillis - pageSelectStartTime));
+                logDebug("从选中到完成进场处理，并减去网络的耗时：" + ((currentTimeMillis - pageSelectStartTime) - pageEnterNetDuration));
             }
-            getUbcManager().flowEndSlot(this.launchFlow, "bind_media_component");
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_BIND_TO_NOTIFY_SELECT, null);
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_LAYOUT);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_AFTER_ENTER_LIVE_PAGE_DRAW, null);
+            }
         }
     }
 
-    public final void logBindMediaComponentDataStart() {
+    @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
+    public void onCoreFinished() {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            logDebug("logBindMediaComponentDataStart");
-            if (this.hasLoggedBindMediaComponent || getUbcManager() == null || this.launchFlow == null) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+            if (this.isDebug) {
+                long currentTimeMillis = System.currentTimeMillis();
+                logDebug("选中到渲染完成耗时：" + (currentTimeMillis - pageSelectStartTime));
+                StringBuilder sb = new StringBuilder();
+                sb.append("完载startTime：");
+                Flow flow = this.launchFlow;
+                if (flow != null) {
+                    j = flow.getStartTime();
+                } else {
+                    j = 0;
+                }
+                sb.append(Long.valueOf(j));
+                logDebug(sb.toString());
+                logDebug("完载时间耗时：" + (currentTimeMillis - this.pageLoadStartTime));
             }
-            getUbcManager().flowStartSlot(this.launchFlow, "bind_media_component", null);
-            this.hasLoggedBindMediaComponent = true;
+            logLiveRoomDrawUIFinish();
         }
     }
 
-    public final void logBindMixShellDataEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            logDebug("logBindMixShellDataEnd");
-            if (!this.hasLoggedBindMixShell || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_BIND_MIX_SHELL);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_BIND_TO_NOTIFY_SELECT_MIX_SHELL, null);
-        }
-    }
-
-    public final void logBindMixShellDataStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            logDebug("logBindMixShellDataStart");
-            if (this.hasLoggedBindMixShell || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_BIND_MIX_SHELL, null);
-            this.hasLoggedBindMixShell = true;
-        }
-    }
-
-    public final void logCreateMediaComponentEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            logDebug("logCreateMediaComponentEnd");
-            if (!this.hasLoggedCreateMediaComponent || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, "create_media_component");
-        }
-    }
-
-    public final void logCreateMediaComponentStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            logDebug("logCreateMediaComponentStart");
-            if (this.hasLoggedCreateMediaComponent || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowStartSlot(this.launchFlow, "create_media_component", null);
-            this.hasLoggedCreateMediaComponent = true;
-        }
-    }
-
-    public final void logCreateMixShellEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            logDebug("logCreateMixShellEnd");
-            if (!this.hasLoggedCreateMixShell || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_CREATE_MIX_SHELL);
-        }
-    }
-
-    public final void logCreateMixShellStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            logDebug("logCreateMixShellStart");
-            if (this.hasLoggedCreateMixShell || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM_TO_LIST_ADD_ITEM);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_CREATE_MIX_SHELL, null);
-            this.hasLoggedCreateMixShell = true;
-        }
+    public /* synthetic */ MediaLivePluginLogger(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
     }
 
     public final void logDebug(String str) {
@@ -538,6 +463,75 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && this.isDebug) {
             Log.e("LIVE_ARCH", str);
+        }
+    }
+
+    public final void setSwitchPreloadSplite(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048628, this, bool) == null) && bool != null) {
+            this.switchPreloadSplite = Boolean.valueOf(bool.booleanValue());
+        }
+    }
+
+    public final Boolean getSwitchPreloadSplite() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.switchPreloadSplite;
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public final void logBindMediaComponentDataStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            logDebug("logBindMediaComponentDataStart");
+            if (!this.hasLoggedBindMediaComponent && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowStartSlot(this.launchFlow, "bind_media_component", null);
+                this.hasLoggedBindMediaComponent = true;
+            }
+        }
+    }
+
+    public final void logBindMixShellDataStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            logDebug("logBindMixShellDataStart");
+            if (!this.hasLoggedBindMixShell && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_BIND_MIX_SHELL, null);
+                this.hasLoggedBindMixShell = true;
+            }
+        }
+    }
+
+    public final void logCreateMediaComponentEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            logDebug("logCreateMediaComponentEnd");
+            if (this.hasLoggedCreateMediaComponent && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, "create_media_component");
+            }
+        }
+    }
+
+    public final void logCreateMediaComponentStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            logDebug("logCreateMediaComponentStart");
+            if (!this.hasLoggedCreateMediaComponent && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowStartSlot(this.launchFlow, "create_media_component", null);
+                this.hasLoggedCreateMediaComponent = true;
+            }
+        }
+    }
+
+    public final void logCreateMixShellEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            logDebug("logCreateMixShellEnd");
+            if (this.hasLoggedCreateMixShell && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_CREATE_MIX_SHELL);
+            }
         }
     }
 
@@ -578,32 +572,23 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.this$0.logDebug("logFirstJumpPreEnterParseEnd");
                         z = this.this$0.hasLoggedBeginPreEnterReqStart;
-                        if (z) {
-                            ubcManager = this.this$0.getUbcManager();
-                            if (ubcManager != null) {
-                                flow = this.this$0.launchFlow;
-                                if (flow != null) {
-                                    ubcManager2 = this.this$0.getUbcManager();
-                                    flow2 = this.this$0.launchFlow;
-                                    ubcManager2.flowEndSlot(flow2, MediaLivePluginLogger.PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_PARSE);
-                                }
-                            }
+                        if (!z) {
+                            return;
                         }
+                        ubcManager = this.this$0.getUbcManager();
+                        if (ubcManager == null) {
+                            return;
+                        }
+                        flow = this.this$0.launchFlow;
+                        if (flow == null) {
+                            return;
+                        }
+                        ubcManager2 = this.this$0.getUbcManager();
+                        flow2 = this.this$0.launchFlow;
+                        ubcManager2.flowEndSlot(flow2, MediaLivePluginLogger.PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_PARSE);
                     }
                 }
             });
-        }
-    }
-
-    public final void logFirstJumpPreEnterReqStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            logDebug("logFirstJumpPreEnterReqStart");
-            if (!this.hasLoggedBeginPreEnterReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_PRE_ENTER_LIVE_START);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_TIME, null);
         }
     }
 
@@ -611,11 +596,10 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             logDebug("logFirstJumpPreEnterStart");
-            if (this.hasLoggedBeginPreEnterReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (!this.hasLoggedBeginPreEnterReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_PRE_ENTER_LIVE_START, null);
+                this.hasLoggedBeginPreEnterReqStart = true;
             }
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_PRE_ENTER_LIVE_START, null);
-            this.hasLoggedBeginPreEnterReqStart = true;
         }
     }
 
@@ -658,20 +642,23 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.this$0.logDebug("logFirstJumpPreEnterStartParse");
                         z = this.this$0.hasLoggedBeginPreEnterReqStart;
-                        if (z) {
-                            ubcManager = this.this$0.getUbcManager();
-                            if (ubcManager != null) {
-                                flow = this.this$0.launchFlow;
-                                if (flow != null) {
-                                    ubcManager2 = this.this$0.getUbcManager();
-                                    flow2 = this.this$0.launchFlow;
-                                    ubcManager2.flowEndSlot(flow2, MediaLivePluginLogger.PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_TIME);
-                                    ubcManager3 = this.this$0.getUbcManager();
-                                    flow3 = this.this$0.launchFlow;
-                                    ubcManager3.flowStartSlot(flow3, MediaLivePluginLogger.PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_PARSE, null);
-                                }
-                            }
+                        if (!z) {
+                            return;
                         }
+                        ubcManager = this.this$0.getUbcManager();
+                        if (ubcManager == null) {
+                            return;
+                        }
+                        flow = this.this$0.launchFlow;
+                        if (flow == null) {
+                            return;
+                        }
+                        ubcManager2 = this.this$0.getUbcManager();
+                        flow2 = this.this$0.launchFlow;
+                        ubcManager2.flowEndSlot(flow2, MediaLivePluginLogger.PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_TIME);
+                        ubcManager3 = this.this$0.getUbcManager();
+                        flow3 = this.this$0.launchFlow;
+                        ubcManager3.flowStartSlot(flow3, MediaLivePluginLogger.PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_PARSE, null);
                     }
                 }
             });
@@ -682,22 +669,9 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             logDebug("logLiveRoomEndGetLiveTypeTimeAndEndParse");
-            if (!this.hasLoggedBeginGetLiveTypeReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (this.hasLoggedBeginGetLiveTypeReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_LIVE_TYPE_TIME_PARSE);
             }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_LIVE_TYPE_TIME_PARSE);
-        }
-    }
-
-    public final void logGetLiveTypeNetEndAndStartParse() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            logDebug("logLiveRoomEndGetLiveTypeTimeAndStartParse");
-            if (!this.hasLoggedBeginGetLiveTypeReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, "get_live_type_time");
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_LIVE_TYPE_TIME_PARSE, null);
         }
     }
 
@@ -705,11 +679,10 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             logDebug("logListBeginGetLiveTypeStart");
-            if (this.hasLoggedBeginGetLiveTypeReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (!this.hasLoggedBeginGetLiveTypeReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_LIVE_TYPE_START, null);
+                this.hasLoggedBeginGetLiveTypeReqStart = true;
             }
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_LIVE_TYPE_START, null);
-            this.hasLoggedBeginGetLiveTypeReqStart = true;
         }
     }
 
@@ -717,66 +690,10 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             logDebug("logListBeginSlideReqStart");
-            if (this.hasLoggedBeginSlideReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (!this.hasLoggedBeginSlideReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM_GET_SLIDE_START, null);
+                this.hasLoggedBeginSlideReqStart = true;
             }
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM_GET_SLIDE_START, null);
-            this.hasLoggedBeginSlideReqStart = true;
-        }
-    }
-
-    public final void logListGetLiveTypeStartToSendReqNet() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            logDebug("logListGetLiveTypeStartToSendReqNet");
-            if (!this.hasLoggedBeginGetLiveTypeReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_LIVE_TYPE_START);
-            getUbcManager().flowStartSlot(this.launchFlow, "get_live_type_time", null);
-        }
-    }
-
-    public final void logListLoadRoomAndNextListAddItem() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.hasLogAddItem || getUbcManager() == null || this.launchFlow == null) {
-            return;
-        }
-        logDebug("logListLoadRoomAndNextListAddItem");
-        getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM);
-        getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM_TO_LIST_ADD_ITEM, null);
-        this.hasLogAddItem = true;
-    }
-
-    public final void logListOnCreateEndAndNextToLoadRoom() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || !this.hasLoggedInit || getUbcManager() == null || this.launchFlow == null) {
-            return;
-        }
-        logDebug("logListOnCreateEndAndNextToLoadRoom");
-        getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_LIST_CREATE_TO_LOAD_ROOM);
-        getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM, null);
-    }
-
-    public final void logListOnCreateStart() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || !this.hasLoggedInit || getUbcManager() == null || this.launchFlow == null) {
-            return;
-        }
-        logDebug("logListOnCreateStart");
-        getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_CREATE_END_TO_LIST_ON_CREATE_START);
-        getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_LIST_CREATE_TO_LOAD_ROOM, null);
-    }
-
-    public final void logListParseEndAndNextToAddItem() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            logDebug("logListParseEndAndNextToAddItem");
-            if (!this.hasLoggedBeginSlideReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_PARSE_TIME);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_LIST_TO_ADD_TIME, null);
         }
     }
 
@@ -784,34 +701,9 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             logDebug("logListSlideEndAndAddItem");
-            if (!this.hasLoggedBeginSlideReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (this.hasLoggedBeginSlideReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_LIST_TO_ADD_TIME);
             }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_LIST_TO_ADD_TIME);
-        }
-    }
-
-    public final void logListSlideReqNetEndAndStartParse() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            logDebug("logListSlideReqNetEndAndStartParse");
-            if (!this.hasLoggedBeginSlideReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_NET_TIME);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_PARSE_TIME, null);
-        }
-    }
-
-    public final void logListSlideStartToSendReqNet() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            logDebug("logListSlideStartToSendReqNet");
-            if (!this.hasLoggedBeginSlideReqStart || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM_GET_SLIDE_START);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_NET_TIME, null);
         }
     }
 
@@ -819,96 +711,10 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             logDebug("logLiveRoomFirstFrame");
-            if (this.hasLoggedFirstFrame || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (!this.hasLoggedFirstFrame && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_TO_FIRST_FRAME);
+                this.hasLoggedFirstFrame = false;
             }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_TO_FIRST_FRAME);
-            this.hasLoggedFirstFrame = false;
-        }
-    }
-
-    public final void logLiveRoomLeave(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            logDebug("logLiveRoomLeave");
-            if (getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            JSONObject jSONObject = this.logStartPageValueJson;
-            JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("ext") : null;
-            if (optJSONObject != null) {
-                optJSONObject.put("leave_from", str);
-            }
-            UBCManager ubcManager = getUbcManager();
-            Flow flow = this.launchFlow;
-            JSONObject jSONObject2 = this.logStartPageValueJson;
-            ubcManager.flowSetValue(flow, jSONObject2 != null ? jSONObject2.toString() : null);
-            getUbcManager().flowEnd(this.launchFlow);
-            this.launchFlow = null;
-        }
-    }
-
-    public final void logLiveRoomPageEndAndPageAttachStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            logDebug("logLiveRoomPageEndAndPageAttachStart");
-            if (!this.hasLoggedInit || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, "page_init");
-            getUbcManager().flowStartSlot(this.launchFlow, "page_attach", null);
-        }
-    }
-
-    public final void logLiveRoomPageEndBindStartLayout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            logDebug("logLiveRoomPageEndBindStartLayout");
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("开始向组件分发进场成功消息：" + (currentTimeMillis - pageSelectStartTime));
-            }
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_NOTIFY_BIND);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_LAYOUT, null);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_IM, null);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_TOP, null);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_BOTTOM, null);
-        }
-    }
-
-    public final void logLiveRoomPageEndLayoutDrawComponent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            logDebug("logLiveRoomPageEndLayoutDrawComponent");
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("完成向组件分发进场成功消息：" + (currentTimeMillis - pageSelectStartTime));
-                logDebug("从选中到完成进场处理，并减去网络的耗时：" + ((currentTimeMillis - pageSelectStartTime) - pageEnterNetDuration));
-            }
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_LAYOUT_MANAGER_LAYOUT);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_AFTER_ENTER_LIVE_PAGE_DRAW, null);
-        }
-    }
-
-    public final void logLiveRoomPageOnSelect() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            logDebug("logLiveRoomPageOnSelect");
-            if (this.isDebug) {
-                pageSelectStartTime = System.currentTimeMillis();
-            }
-            if (this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_BIND_TO_NOTIFY_SELECT);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_DISPATCH_ENTER_ACTION, null);
-            this.hasLoggedSelect = true;
         }
     }
 
@@ -916,11 +722,10 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             logDebug("logLiveRoomPageResume");
-            if (this.hasLoggedResume || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (!this.hasLoggedResume && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_TO_RESUME);
+                this.hasLoggedResume = true;
             }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_TO_RESUME);
-            this.hasLoggedResume = true;
         }
     }
 
@@ -928,72 +733,10 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             logDebug("logLiveRoomStartPage");
-            if (this.hasLoggedInit || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (!this.hasLoggedInit && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowStartSlot(this.launchFlow, "page_init", null);
+                this.hasLoggedInit = true;
             }
-            getUbcManager().flowStartSlot(this.launchFlow, "page_init", null);
-            this.hasLoggedInit = true;
-        }
-    }
-
-    public final void logMixShellOnSelect() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            logDebug("logMixShellOnSelect");
-            if (this.isDebug) {
-                pageSelectStartTime = System.currentTimeMillis();
-            }
-            if (this.hasLoggedSelectMixShell || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_BIND_TO_NOTIFY_SELECT_MIX_SHELL);
-            this.hasLoggedSelectMixShell = true;
-        }
-    }
-
-    public final void logPageAfterSelectedEndFetchLiveBeanDispatchStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            logDebug("logPageAfterSelectedEndFetchLiveBeanDispatchStart");
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("选中到获取进场数据之间的耗时：" + (currentTimeMillis - pageSelectStartTime));
-            }
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_SELECT_FETCH_START);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_NOTIFY_BIND, null);
-        }
-    }
-
-    public final void logPageAfterSelectedStartFetchLiveBean() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            logDebug("logPageAfterSelectedStartFetchLiveBean");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("选中到开始取获取进场数据：" + (currentTimeMillis - pageSelectStartTime));
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_DISPATCH_ENTER_ACTION);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_SELECT_FETCH_START, null);
-        }
-    }
-
-    public final void logPageAttachEndNextToPageOnCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            logDebug("logPageAttachEndNextToPageOnCreate");
-            if (!this.hasLoggedInit || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowEndSlot(this.launchFlow, "page_attach");
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_END_TO_PAGE_ON_CREATE_START, null);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_TO_RESUME, null);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_TO_FIRST_FRAME, null);
         }
     }
 
@@ -1001,10 +744,9 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             logDebug("logPageEnterLiveParseEnd");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_REQ_PARSE);
             }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_REQ_PARSE);
         }
     }
 
@@ -1012,146 +754,144 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             logDebug("logPageEnterLiveParseStart");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_REQ_PARSE, null);
             }
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_REQ_PARSE, null);
         }
     }
 
-    public final void logPageEnterLiveRoomReqNetEnd() {
+    private final void logLiveRoomDrawUIFinish() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            logDebug("logPageEnterLiveRoomReqNetEnd");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null || !this.hasSendEnterRequest) {
-                return;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            logDebug("logLiveRoomDrawUIFinish");
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_AFTER_ENTER_LIVE_PAGE_DRAW);
+                if (this.isDebug) {
+                    JSONObject jSONObject = new JSONObject();
+                    Flow flow = this.launchFlow;
+                    if (flow == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    for (Map.Entry entry : new HashMap(flow.getSlotMaps()).entrySet()) {
+                        Slot value = (Slot) entry.getValue();
+                        JSONObject jSONObject2 = new JSONObject();
+                        Intrinsics.checkExpressionValueIsNotNull(value, "value");
+                        jSONObject2.put("s", value.getStart());
+                        jSONObject2.put("e", value.getEnd());
+                        jSONObject.put((String) entry.getKey(), jSONObject2);
+                    }
+                    Log.d("LIVE_ARCH", jSONObject.toString());
+                }
+                UBCManager ubcManager = getUbcManager();
+                Flow flow2 = this.launchFlow;
+                JSONObject jSONObject3 = this.logStartPageValueJson;
+                if (jSONObject3 != null) {
+                    str = jSONObject3.toString();
+                } else {
+                    str = null;
+                }
+                ubcManager.flowSetValueWithDuration(flow2, str);
+                getUbcManager().flowEnd(this.launchFlow);
+                if (this.isDebug) {
+                    printFlowEachSlotInfo();
+                }
+                this.launchFlow = null;
             }
-            if (this.isDebug) {
-                pageEnterNetDuration = System.currentTimeMillis() - pageEnterStartTime;
-            }
-            this.hasSendEnterRequest = false;
-            getUbcManager().flowEndSlot(this.launchFlow, "page_enter_live_req");
         }
     }
 
-    public final void logPageEnterLiveRoomReqNetEndAndParseStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            logDebug("logPageEnterLiveRoomReqNetEndAndParseStart");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null || !this.hasSendEnterRequest) {
-                return;
-            }
-            if (this.isDebug) {
-                pageEnterNetDuration = System.currentTimeMillis() - pageEnterStartTime;
-            }
-            this.hasSendEnterRequest = false;
-            getUbcManager().flowEndSlot(this.launchFlow, "page_enter_live_req");
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_ENTER_LIVE_REQ_PARSE, null);
+    public static /* synthetic */ void updateStartPageInfoIntentRoomInfo$default(MediaLivePluginLogger mediaLivePluginLogger, String str, String str2, boolean z, int i, Object obj) {
+        if ((i & 4) != 0) {
+            z = true;
         }
+        mediaLivePluginLogger.updateStartPageInfoIntentRoomInfo(str, str2, z);
     }
 
-    public final void logPageEnterLiveRoomReqNetStart() {
+    public final void createSelectLaunchInfo(boolean z, String str, String str2, boolean z2, boolean z3, String str3, String str4) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            logDebug("logPageEnterLiveRoomReqNetStart");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            if (this.isDebug) {
-                pageEnterStartTime = System.currentTimeMillis();
-            }
-            this.hasSendEnterRequest = true;
-            getUbcManager().flowStartSlot(this.launchFlow, "page_enter_live_req", null);
-        }
-    }
-
-    public final void logPageOnCreateEnd() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || !this.hasLoggedInit || getUbcManager() == null || this.launchFlow == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), Boolean.valueOf(z3), str3, str4}) != null) || !z) {
             return;
         }
-        logDebug("logPageOnCreateEnd");
-        getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_CREATE_TIME);
-        getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_CREATE_END_TO_LIST_ON_CREATE_START, null);
-    }
-
-    public final void logPageOnCreateStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            logDebug("logPageOnCreateStart");
-            if (!this.hasLoggedInit || getUbcManager() == null || this.launchFlow == null) {
-                return;
+        logLiveRoomLeave("pageChange");
+        this.hasLoggedBeginPreEnterReqStart = false;
+        this.hasLoggedCreateMixShell = false;
+        this.hasLoggedBindMixShell = false;
+        this.hasLoggedSelectMixShell = false;
+        this.hasLoggedCreateMediaComponent = false;
+        this.hasLoggedBindMediaComponent = false;
+        this.hasLoggedSelect = false;
+        if (getUbcManager() != null && this.launchFlow == null) {
+            Flow beginFlow = getUbcManager().beginFlow(this.UBC_ID_PLUGIN_PAGE_FLOW);
+            this.launchFlow = beginFlow;
+            if (beginFlow != null) {
+                j = beginFlow.getStartTime();
+            } else {
+                j = 0;
             }
-            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_END_TO_PAGE_ON_CREATE_START);
-            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_CREATE_TIME, null);
+            this.pageLoadStartTime = j;
+            updateStartPageInfo(str, str2, z2, z3);
+            updateStartPageInfoIntentRoomInfo(str3, str4, !z);
         }
     }
 
-    public final void logPageSelectedEnterFetchEnd() {
+    public final void endSlot(final String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            logDebug("logPageSelectedEnterFetchEnd");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            if (!Intrinsics.areEqual(Looper.myLooper(), Looper.getMainLooper())) {
+                this.handler.post(new Runnable(this, str) { // from class: com.baidu.searchbox.live.ubc.MediaLivePluginLogger$endSlot$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ String $slotName;
+                    public final /* synthetic */ MediaLivePluginLogger this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.$slotName = str;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        UBCManager ubcManager;
+                        Flow flow;
+                        UBCManager ubcManager2;
+                        Flow flow2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
+                        }
+                        ubcManager = this.this$0.getUbcManager();
+                        if (ubcManager == null) {
+                            return;
+                        }
+                        flow = this.this$0.launchFlow;
+                        if (flow == null) {
+                            return;
+                        }
+                        ubcManager2 = this.this$0.getUbcManager();
+                        flow2 = this.this$0.launchFlow;
+                        ubcManager2.flowEndSlot(flow2, this.$slotName);
+                    }
+                });
+            } else if (getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, str);
             }
-            getUbcManager().flowEndSlot(this.launchFlow, this.preEnterSwitch ? PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_PRE : PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_NO);
         }
-    }
-
-    public final void logPageSelectedEnterFetchStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
-            logDebug("logPageSelectedEnterFetchStart");
-            if (!this.hasLoggedSelect || getUbcManager() == null || this.launchFlow == null) {
-                return;
-            }
-            getUbcManager().flowStartSlot(this.launchFlow, this.preEnterSwitch ? PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_PRE : PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_NO, null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
-    public void onCoreFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            if (this.isDebug) {
-                long currentTimeMillis = System.currentTimeMillis();
-                logDebug("选中到渲染完成耗时：" + (currentTimeMillis - pageSelectStartTime));
-                StringBuilder sb = new StringBuilder();
-                sb.append("完载startTime：");
-                Flow flow = this.launchFlow;
-                sb.append(Long.valueOf(flow != null ? flow.getStartTime() : 0L));
-                logDebug(sb.toString());
-                logDebug("完载时间耗时：" + (currentTimeMillis - this.pageLoadStartTime));
-            }
-            logLiveRoomDrawUIFinish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
-    public void onFinished(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == -2138765360) {
-                if (str.equals(LiveComponentStatusHelper.IM_LIVE_COMPONENT)) {
-                    logLiveRoomPageEndLayoutDrawIMComponent();
-                }
-            } else if (hashCode != -1785848897) {
-                if (hashCode == -1205843543 && str.equals(LiveComponentStatusHelper.BOTTOM_LIVE_COMPONENT)) {
-                    logLiveRoomPageEndLayoutDrawBottomComponent();
-                }
-            } else if (str.equals(LiveComponentStatusHelper.TOPBAR_LIVE_COMPONENT)) {
-                logLiveRoomPageEndLayoutDrawTopComponent();
-            }
-        }
-    }
-
-    public final void setSwitchPreloadSplite(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048628, this, bool) == null) || bool == null) {
-            return;
-        }
-        this.switchPreloadSplite = Boolean.valueOf(bool.booleanValue());
     }
 
     public final void startSlot(final String str, String str2) {
@@ -1190,27 +930,317 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
                         UBCManager ubcManager2;
                         Flow flow2;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ubcManager = this.this$0.getUbcManager();
-                            if (ubcManager != null) {
-                                flow = this.this$0.launchFlow;
-                                if (flow != null) {
-                                    ubcManager2 = this.this$0.getUbcManager();
-                                    flow2 = this.this$0.launchFlow;
-                                    ubcManager2.flowStartSlot(flow2, this.$slotName, null);
-                                }
-                            }
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
                         }
+                        ubcManager = this.this$0.getUbcManager();
+                        if (ubcManager == null) {
+                            return;
+                        }
+                        flow = this.this$0.launchFlow;
+                        if (flow == null) {
+                            return;
+                        }
+                        ubcManager2 = this.this$0.getUbcManager();
+                        flow2 = this.this$0.launchFlow;
+                        ubcManager2.flowStartSlot(flow2, this.$slotName, null);
                     }
                 });
-            } else if (getUbcManager() == null || this.launchFlow == null) {
-            } else {
+            } else if (getUbcManager() != null && this.launchFlow != null) {
                 getUbcManager().flowStartSlot(this.launchFlow, str, null);
             }
         }
     }
 
+    public final void logBindMediaComponentDataEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            logDebug("logBindMediaComponentDataEnd");
+            if (this.hasLoggedBindMediaComponent && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, "bind_media_component");
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_BIND_TO_NOTIFY_SELECT, null);
+            }
+        }
+    }
+
+    public final void logBindMixShellDataEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            logDebug("logBindMixShellDataEnd");
+            if (this.hasLoggedBindMixShell && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_BIND_MIX_SHELL);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_BIND_TO_NOTIFY_SELECT_MIX_SHELL, null);
+            }
+        }
+    }
+
+    public final void logCreateMixShellStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            logDebug("logCreateMixShellStart");
+            if (!this.hasLoggedCreateMixShell && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM_TO_LIST_ADD_ITEM);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_CREATE_MIX_SHELL, null);
+                this.hasLoggedCreateMixShell = true;
+            }
+        }
+    }
+
+    public final void logFirstJumpPreEnterReqStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            logDebug("logFirstJumpPreEnterReqStart");
+            if (this.hasLoggedBeginPreEnterReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_PRE_ENTER_LIVE_START);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_PRE_ENTER_LIVE_REQ_TIME, null);
+            }
+        }
+    }
+
+    public final void logGetLiveTypeNetEndAndStartParse() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            logDebug("logLiveRoomEndGetLiveTypeTimeAndStartParse");
+            if (this.hasLoggedBeginGetLiveTypeReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, "get_live_type_time");
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_LIVE_TYPE_TIME_PARSE, null);
+            }
+        }
+    }
+
+    public final void logListGetLiveTypeStartToSendReqNet() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            logDebug("logListGetLiveTypeStartToSendReqNet");
+            if (this.hasLoggedBeginGetLiveTypeReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_LIVE_TYPE_START);
+                getUbcManager().flowStartSlot(this.launchFlow, "get_live_type_time", null);
+            }
+        }
+    }
+
+    public final void logListLoadRoomAndNextListAddItem() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && !this.hasLogAddItem && getUbcManager() != null && this.launchFlow != null) {
+            logDebug("logListLoadRoomAndNextListAddItem");
+            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM);
+            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM_TO_LIST_ADD_ITEM, null);
+            this.hasLogAddItem = true;
+        }
+    }
+
+    public final void logListOnCreateEndAndNextToLoadRoom() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && this.hasLoggedInit && getUbcManager() != null && this.launchFlow != null) {
+            logDebug("logListOnCreateEndAndNextToLoadRoom");
+            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_LIST_CREATE_TO_LOAD_ROOM);
+            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM, null);
+        }
+    }
+
+    public final void logListOnCreateStart() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.hasLoggedInit && getUbcManager() != null && this.launchFlow != null) {
+            logDebug("logListOnCreateStart");
+            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_CREATE_END_TO_LIST_ON_CREATE_START);
+            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_LIST_CREATE_TO_LOAD_ROOM, null);
+        }
+    }
+
+    public final void logListParseEndAndNextToAddItem() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            logDebug("logListParseEndAndNextToAddItem");
+            if (this.hasLoggedBeginSlideReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_PARSE_TIME);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_LIST_TO_ADD_TIME, null);
+            }
+        }
+    }
+
+    public final void logListSlideReqNetEndAndStartParse() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            logDebug("logListSlideReqNetEndAndStartParse");
+            if (this.hasLoggedBeginSlideReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_NET_TIME);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_PARSE_TIME, null);
+            }
+        }
+    }
+
+    public final void logListSlideStartToSendReqNet() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            logDebug("logListSlideStartToSendReqNet");
+            if (this.hasLoggedBeginSlideReqStart && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_LOAD_ROOM_GET_SLIDE_START);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_GET_SLIDE_NET_TIME, null);
+            }
+        }
+    }
+
+    public final void logLiveRoomPageEndAndPageAttachStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            logDebug("logLiveRoomPageEndAndPageAttachStart");
+            if (this.hasLoggedInit && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, "page_init");
+                getUbcManager().flowStartSlot(this.launchFlow, "page_attach", null);
+            }
+        }
+    }
+
+    public final void logMixShellOnSelect() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            logDebug("logMixShellOnSelect");
+            if (this.isDebug) {
+                pageSelectStartTime = System.currentTimeMillis();
+            }
+            if (!this.hasLoggedSelectMixShell && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_BIND_TO_NOTIFY_SELECT_MIX_SHELL);
+                this.hasLoggedSelectMixShell = true;
+            }
+        }
+    }
+
+    public final void logPageEnterLiveRoomReqNetEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+            logDebug("logPageEnterLiveRoomReqNetEnd");
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null && this.hasSendEnterRequest) {
+                if (this.isDebug) {
+                    pageEnterNetDuration = System.currentTimeMillis() - pageEnterStartTime;
+                }
+                this.hasSendEnterRequest = false;
+                getUbcManager().flowEndSlot(this.launchFlow, "page_enter_live_req");
+            }
+        }
+    }
+
+    public final void logPageEnterLiveRoomReqNetStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+            logDebug("logPageEnterLiveRoomReqNetStart");
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                if (this.isDebug) {
+                    pageEnterStartTime = System.currentTimeMillis();
+                }
+                this.hasSendEnterRequest = true;
+                getUbcManager().flowStartSlot(this.launchFlow, "page_enter_live_req", null);
+            }
+        }
+    }
+
+    public final void logPageOnCreateEnd() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048622, this) == null) && this.hasLoggedInit && getUbcManager() != null && this.launchFlow != null) {
+            logDebug("logPageOnCreateEnd");
+            getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_CREATE_TIME);
+            getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_CREATE_END_TO_LIST_ON_CREATE_START, null);
+        }
+    }
+
+    public final void logPageOnCreateStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+            logDebug("logPageOnCreateStart");
+            if (this.hasLoggedInit && getUbcManager() != null && this.launchFlow != null) {
+                getUbcManager().flowEndSlot(this.launchFlow, PAGE_SLOT_PAGE_ATTACH_END_TO_PAGE_ON_CREATE_START);
+                getUbcManager().flowStartSlot(this.launchFlow, PAGE_SLOT_PAGE_CREATE_TIME, null);
+            }
+        }
+    }
+
+    public final void logPageSelectedEnterFetchEnd() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+            logDebug("logPageSelectedEnterFetchEnd");
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                UBCManager ubcManager = getUbcManager();
+                Flow flow = this.launchFlow;
+                if (this.preEnterSwitch) {
+                    str = PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_PRE;
+                } else {
+                    str = PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_NO;
+                }
+                ubcManager.flowEndSlot(flow, str);
+            }
+        }
+    }
+
+    public final void logPageSelectedEnterFetchStart() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+            logDebug("logPageSelectedEnterFetchStart");
+            if (this.hasLoggedSelect && getUbcManager() != null && this.launchFlow != null) {
+                UBCManager ubcManager = getUbcManager();
+                Flow flow = this.launchFlow;
+                if (this.preEnterSwitch) {
+                    str = PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_PRE;
+                } else {
+                    str = PAGE_SLOT_PAGE_SELECTED_ENTER_FETCH_NO;
+                }
+                ubcManager.flowStartSlot(flow, str, null);
+            }
+        }
+    }
+
+    public final void logLiveRoomLeave(String str) {
+        JSONObject jSONObject;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+            logDebug("logLiveRoomLeave");
+            if (getUbcManager() != null && this.launchFlow != null) {
+                JSONObject jSONObject2 = this.logStartPageValueJson;
+                if (jSONObject2 != null) {
+                    jSONObject = jSONObject2.optJSONObject("ext");
+                } else {
+                    jSONObject = null;
+                }
+                if (jSONObject != null) {
+                    jSONObject.put("leave_from", str);
+                }
+                UBCManager ubcManager = getUbcManager();
+                Flow flow = this.launchFlow;
+                JSONObject jSONObject3 = this.logStartPageValueJson;
+                if (jSONObject3 != null) {
+                    str2 = jSONObject3.toString();
+                } else {
+                    str2 = null;
+                }
+                ubcManager.flowSetValue(flow, str2);
+                getUbcManager().flowEnd(this.launchFlow);
+                this.launchFlow = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.ubc.LiveComponentStatusHelper.ILiveComponentLoadFinish
+    public void onFinished(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -2138765360) {
+                if (hashCode != -1785848897) {
+                    if (hashCode == -1205843543 && str.equals(LiveComponentStatusHelper.BOTTOM_LIVE_COMPONENT)) {
+                        logLiveRoomPageEndLayoutDrawBottomComponent();
+                    }
+                } else if (str.equals(LiveComponentStatusHelper.TOPBAR_LIVE_COMPONENT)) {
+                    logLiveRoomPageEndLayoutDrawTopComponent();
+                }
+            } else if (str.equals(LiveComponentStatusHelper.IM_LIVE_COMPONENT)) {
+                logLiveRoomPageEndLayoutDrawIMComponent();
+            }
+        }
+    }
+
     public final void updateLaunchFlowObj(Object obj) {
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, obj) == null) {
             if (!(obj instanceof Flow)) {
@@ -1218,7 +1248,12 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
             }
             Flow flow = (Flow) obj;
             this.launchFlow = flow;
-            this.pageLoadStartTime = flow != null ? flow.getStartTime() : 0L;
+            if (flow != null) {
+                j = flow.getStartTime();
+            } else {
+                j = 0;
+            }
+            this.pageLoadStartTime = j;
             this.hasLoggedInit = false;
             this.hasLoggedCreateMixShell = false;
             this.hasLoggedBindMixShell = false;
@@ -1237,6 +1272,17 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
     }
 
     public final void updateStartPageInfo(String str, String str2, boolean z, boolean z2) {
+        int i;
+        int i2;
+        boolean z3;
+        Object obj;
+        boolean z4;
+        Object obj2;
+        Object obj3;
+        boolean z5;
+        Object obj4;
+        Boolean bool;
+        Object obj5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -1248,36 +1294,87 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("room_id", str);
-                    boolean z3 = true;
-                    jSONObject2.put("has_stream_info", z ? 1 : 0);
-                    jSONObject2.put("is_cold_launch", z2 ? 1 : 0);
+                    boolean z6 = true;
+                    if (z) {
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                    jSONObject2.put("has_stream_info", i);
+                    if (z2) {
+                        i2 = 1;
+                    } else {
+                        i2 = 0;
+                    }
+                    jSONObject2.put("is_cold_launch", i2);
                     jSONObject2.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
-                    Boolean bool = this.switchPreloadSplite;
+                    Boolean bool2 = this.switchPreloadSplite;
                     String str3 = "1";
-                    if (bool != null) {
-                        jSONObject2.put("prohibit_preload_splite", bool.booleanValue() ? "1" : "0");
+                    if (bool2 != null) {
+                        if (bool2.booleanValue()) {
+                            obj5 = "1";
+                        } else {
+                            obj5 = "0";
+                        }
+                        jSONObject2.put("prohibit_preload_splite", obj5);
                     }
                     AbConfigService abService = getAbService();
-                    boolean z4 = abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false);
-                    jSONObject2.put("prohibit_preload_media_business", z4 ? "1" : "0");
-                    AbConfigService abService2 = getAbService();
-                    boolean z5 = abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false);
-                    jSONObject2.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, z5 ? "1" : "0");
-                    AbConfigService abService3 = getAbService();
-                    if (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) {
+                    if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
+                        z3 = true;
+                    } else {
                         z3 = false;
                     }
-                    jSONObject2.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, z3 ? "1" : "0");
+                    if (z3) {
+                        obj = "1";
+                    } else {
+                        obj = "0";
+                    }
+                    jSONObject2.put("prohibit_preload_media_business", obj);
+                    AbConfigService abService2 = getAbService();
+                    if (abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
+                        z4 = true;
+                    } else {
+                        z4 = false;
+                    }
+                    if (z4) {
+                        obj2 = "1";
+                    } else {
+                        obj2 = "0";
+                    }
+                    jSONObject2.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
+                    AbConfigService abService3 = getAbService();
+                    if (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) {
+                        z6 = false;
+                    }
+                    if (z6) {
+                        obj3 = "1";
+                    } else {
+                        obj3 = "0";
+                    }
+                    jSONObject2.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, obj3);
                     AbConfigService abService4 = getAbService();
-                    boolean z6 = abService4 != null ? abService4.getSwitch("android_live_media_pre_inflate_queue", false) : false;
-                    jSONObject2.put("android_live_media_pre_inflate_queue", z6 ? "1" : "0");
+                    if (abService4 != null) {
+                        z5 = abService4.getSwitch("android_live_media_pre_inflate_queue", false);
+                    } else {
+                        z5 = false;
+                    }
+                    if (z5) {
+                        obj4 = "1";
+                    } else {
+                        obj4 = "0";
+                    }
+                    jSONObject2.put("android_live_media_pre_inflate_queue", obj4);
                     AbConfigService abService5 = getAbService();
-                    Boolean valueOf = abService5 != null ? Boolean.valueOf(abService5.getSwitch("android_live_first_disp_notify_sub_thread", false)) : null;
-                    if (!Intrinsics.areEqual(valueOf, Boolean.TRUE)) {
+                    if (abService5 != null) {
+                        bool = Boolean.valueOf(abService5.getSwitch("android_live_first_disp_notify_sub_thread", false));
+                    } else {
+                        bool = null;
+                    }
+                    if (!Intrinsics.areEqual(bool, Boolean.TRUE)) {
                         str3 = "0";
                     }
                     jSONObject2.put("sub_thread_notify_first_dip_switch", str3);
-                    logDebug("禁止预加载二级实验 " + z4 + "， 延时加载二级实验： " + z5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z3 + ", 二级预加载打散：" + z6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "播放器子首帧子线程通知：" + valueOf);
+                    logDebug("禁止预加载二级实验 " + z3 + "， 延时加载二级实验： " + z4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z6 + ", 二级预加载打散：" + z5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "播放器子首帧子线程通知：" + bool);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -1291,24 +1388,24 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
     }
 
     public final void updateStartPageInfoIntentRoomInfo(String str, String str2, boolean z) {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048632, this, str, str2, z) == null) || getUbcManager() == null || this.launchFlow == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLZ(1048632, this, str, str2, z) == null) && getUbcManager() != null && this.launchFlow != null) {
+            JSONObject jSONObject2 = this.logStartPageValueJson;
+            if (jSONObject2 != null) {
+                jSONObject = jSONObject2.optJSONObject("ext");
+            } else {
+                jSONObject = null;
+            }
+            if (jSONObject != null) {
+                jSONObject.put("room_type", str);
+            }
+            if (jSONObject != null) {
+                jSONObject.put("room_template", str2);
+            }
+            if (jSONObject != null) {
+                jSONObject.put("first_jump", z ? 1 : 0);
+            }
         }
-        JSONObject jSONObject = this.logStartPageValueJson;
-        JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("ext") : null;
-        if (optJSONObject != null) {
-            optJSONObject.put("room_type", str);
-        }
-        if (optJSONObject != null) {
-            optJSONObject.put("room_template", str2);
-        }
-        if (optJSONObject != null) {
-            optJSONObject.put("first_jump", z ? 1 : 0);
-        }
-    }
-
-    public /* synthetic */ MediaLivePluginLogger(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
     }
 }

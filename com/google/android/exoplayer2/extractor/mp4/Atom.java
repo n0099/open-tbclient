@@ -173,13 +173,25 @@ public abstract class Atom {
     public transient /* synthetic */ FieldHolder $fh;
     public final int type;
 
+    public static int parseFullAtomFlags(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i & 16777215 : invokeI.intValue;
+    }
+
+    public static int parseFullAtomVersion(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? (i >> 24) & 255 : invokeI.intValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static final class ContainerAtom extends Atom {
+    public final class ContainerAtom extends Atom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<ContainerAtom> containerChildren;
+        public final List containerChildren;
         public final long endPosition;
-        public final List<LeafAtom> leafChildren;
+        public final List leafChildren;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ContainerAtom(int i, long j) {
@@ -204,33 +216,11 @@ public abstract class Atom {
             this.containerChildren = new ArrayList();
         }
 
-        public void add(LeafAtom leafAtom) {
+        public void add(ContainerAtom containerAtom) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, leafAtom) == null) {
-                this.leafChildren.add(leafAtom);
+            if (interceptable == null || interceptable.invokeL(1048576, this, containerAtom) == null) {
+                this.containerChildren.add(containerAtom);
             }
-        }
-
-        public int getChildAtomOfTypeCount(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                int size = this.leafChildren.size();
-                int i2 = 0;
-                for (int i3 = 0; i3 < size; i3++) {
-                    if (this.leafChildren.get(i3).type == i) {
-                        i2++;
-                    }
-                }
-                int size2 = this.containerChildren.size();
-                for (int i4 = 0; i4 < size2; i4++) {
-                    if (this.containerChildren.get(i4).type == i) {
-                        i2++;
-                    }
-                }
-                return i2;
-            }
-            return invokeI.intValue;
         }
 
         public ContainerAtom getContainerAtomOfType(int i) {
@@ -239,7 +229,7 @@ public abstract class Atom {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
                 int size = this.containerChildren.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    ContainerAtom containerAtom = this.containerChildren.get(i2);
+                    ContainerAtom containerAtom = (ContainerAtom) this.containerChildren.get(i2);
                     if (containerAtom.type == i) {
                         return containerAtom;
                     }
@@ -255,7 +245,7 @@ public abstract class Atom {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
                 int size = this.leafChildren.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    LeafAtom leafAtom = this.leafChildren.get(i2);
+                    LeafAtom leafAtom = (LeafAtom) this.leafChildren.get(i2);
                     if (leafAtom.type == i) {
                         return leafAtom;
                     }
@@ -263,6 +253,35 @@ public abstract class Atom {
                 return null;
             }
             return (LeafAtom) invokeI.objValue;
+        }
+
+        public void add(LeafAtom leafAtom) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, leafAtom) == null) {
+                this.leafChildren.add(leafAtom);
+            }
+        }
+
+        public int getChildAtomOfTypeCount(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                int size = this.leafChildren.size();
+                int i2 = 0;
+                for (int i3 = 0; i3 < size; i3++) {
+                    if (((LeafAtom) this.leafChildren.get(i3)).type == i) {
+                        i2++;
+                    }
+                }
+                int size2 = this.containerChildren.size();
+                for (int i4 = 0; i4 < size2; i4++) {
+                    if (((ContainerAtom) this.containerChildren.get(i4)).type == i) {
+                        i2++;
+                    }
+                }
+                return i2;
+            }
+            return invokeI.intValue;
         }
 
         @Override // com.google.android.exoplayer2.extractor.mp4.Atom
@@ -274,17 +293,10 @@ public abstract class Atom {
             }
             return (String) invokeV.objValue;
         }
-
-        public void add(ContainerAtom containerAtom) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, containerAtom) == null) {
-                this.containerChildren.add(containerAtom);
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class LeafAtom extends Atom {
+    public final class LeafAtom extends Atom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ParsableByteArray data;
@@ -446,21 +458,12 @@ public abstract class Atom {
         return (String) invokeI.objValue;
     }
 
-    public static int parseFullAtomFlags(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i & 16777215 : invokeI.intValue;
-    }
-
-    public static int parseFullAtomVersion(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? (i >> 24) & 255 : invokeI.intValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getAtomTypeString(this.type) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getAtomTypeString(this.type);
+        }
+        return (String) invokeV.objValue;
     }
 }

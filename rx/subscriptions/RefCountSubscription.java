@@ -1,8 +1,8 @@
 package rx.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c2a;
-import com.baidu.tieba.mx9;
+import com.baidu.tieba.ey9;
+import com.baidu.tieba.u2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class RefCountSubscription implements mx9 {
+public final class RefCountSubscription implements ey9 {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mx9 a;
-    public final AtomicReference<a> b;
+    public final ey9 a;
+    public final AtomicReference b;
 
     /* loaded from: classes9.dex */
-    public static final class InnerSubscription extends AtomicInteger implements mx9 {
+    public final class InnerSubscription extends AtomicInteger implements ey9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7005765588239987643L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,14 +45,20 @@ public final class RefCountSubscription implements mx9 {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.mx9
+        @Override // com.baidu.tieba.ey9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() != 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (get() != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.mx9
+        @Override // com.baidu.tieba.ey9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(0, 1)) {
@@ -62,7 +68,7 @@ public final class RefCountSubscription implements mx9 {
     }
 
     /* loaded from: classes9.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
@@ -90,19 +96,28 @@ public final class RefCountSubscription implements mx9 {
         public a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.a, this.b + 1) : (a) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new a(this.a, this.b + 1);
+            }
+            return (a) invokeV.objValue;
         }
 
         public a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.a, this.b - 1) : (a) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new a(this.a, this.b - 1);
+            }
+            return (a) invokeV.objValue;
         }
 
         public a c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(true, this.b) : (a) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new a(true, this.b);
+            }
+            return (a) invokeV.objValue;
         }
     }
 
@@ -122,12 +137,54 @@ public final class RefCountSubscription implements mx9 {
         c = new a(false, 0);
     }
 
-    public RefCountSubscription(mx9 mx9Var) {
+    public void b() {
+        a aVar;
+        a b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            AtomicReference atomicReference = this.b;
+            do {
+                aVar = (a) atomicReference.get();
+                b = aVar.b();
+            } while (!atomicReference.compareAndSet(aVar, b));
+            c(b);
+        }
+    }
+
+    @Override // com.baidu.tieba.ey9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ((a) this.b.get()).a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ey9
+    public void unsubscribe() {
+        a aVar;
+        a c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            AtomicReference atomicReference = this.b;
+            do {
+                aVar = (a) atomicReference.get();
+                if (aVar.a) {
+                    return;
+                }
+                c2 = aVar.c();
+            } while (!atomicReference.compareAndSet(aVar, c2));
+            c(c2);
+        }
+    }
+
+    public RefCountSubscription(ey9 ey9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mx9Var};
+            Object[] objArr = {ey9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -137,74 +194,35 @@ public final class RefCountSubscription implements mx9 {
                 return;
             }
         }
-        this.b = new AtomicReference<>(c);
-        if (mx9Var != null) {
-            this.a = mx9Var;
+        this.b = new AtomicReference(c);
+        if (ey9Var != null) {
+            this.a = ey9Var;
             return;
         }
         throw new IllegalArgumentException("s");
     }
 
-    public mx9 a() {
+    public ey9 a() {
         InterceptResult invokeV;
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AtomicReference<a> atomicReference = this.b;
+            AtomicReference atomicReference = this.b;
             do {
-                aVar = atomicReference.get();
+                aVar = (a) atomicReference.get();
                 if (aVar.a) {
-                    return c2a.c();
+                    return u2a.c();
                 }
             } while (!atomicReference.compareAndSet(aVar, aVar.a()));
             return new InnerSubscription(this);
         }
-        return (mx9) invokeV.objValue;
-    }
-
-    public void b() {
-        a aVar;
-        a b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            AtomicReference<a> atomicReference = this.b;
-            do {
-                aVar = atomicReference.get();
-                b = aVar.b();
-            } while (!atomicReference.compareAndSet(aVar, b));
-            c(b);
-        }
+        return (ey9) invokeV.objValue;
     }
 
     public final void c(a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && aVar.a && aVar.b == 0) {
             this.a.unsubscribe();
-        }
-    }
-
-    @Override // com.baidu.tieba.mx9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.get().a : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mx9
-    public void unsubscribe() {
-        a aVar;
-        a c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            AtomicReference<a> atomicReference = this.b;
-            do {
-                aVar = atomicReference.get();
-                if (aVar.a) {
-                    return;
-                }
-                c2 = aVar.c();
-            } while (!atomicReference.compareAndSet(aVar, c2));
-            c(c2);
         }
     }
 }

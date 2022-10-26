@@ -3,8 +3,6 @@ package com.baidu.tieba.homepage.concern.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +18,7 @@ public class RecommendViewPager extends ViewPager {
     public float b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecommendViewPager(@NonNull Context context) {
+    public RecommendViewPager(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,12 +39,34 @@ public class RecommendViewPager extends ViewPager {
         this.b = 0.0f;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RecommendViewPager(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0.0f;
+        this.b = 0.0f;
+    }
+
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || getParent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(z);
         }
-        getParent().requestDisallowInterceptTouchEvent(z);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x002e, code lost:
@@ -58,10 +78,21 @@ public class RecommendViewPager extends ViewPager {
     */
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
+        int count;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int currentItem = getCurrentItem();
-            boolean z = (currentItem == 0 || currentItem == (getAdapter() == null ? 0 : getAdapter().getCount()) - 1) ? false : true;
+            if (getAdapter() == null) {
+                count = 0;
+            } else {
+                count = getAdapter().getCount();
+            }
+            if (currentItem != 0 && currentItem != count - 1) {
+                z = true;
+            } else {
+                z = false;
+            }
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action != 1) {
@@ -85,28 +116,5 @@ public class RecommendViewPager extends ViewPager {
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecommendViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0.0f;
-        this.b = 0.0f;
     }
 }

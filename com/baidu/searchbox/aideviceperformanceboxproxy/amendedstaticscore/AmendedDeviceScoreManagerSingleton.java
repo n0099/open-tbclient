@@ -53,6 +53,9 @@ public class AmendedDeviceScoreManagerSingleton extends AmendedDeviceScoreManage
     public static AmendedDeviceScoreManagerSingleton getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sInstance : (AmendedDeviceScoreManagerSingleton) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sInstance;
+        }
+        return (AmendedDeviceScoreManagerSingleton) invokeV.objValue;
     }
 }

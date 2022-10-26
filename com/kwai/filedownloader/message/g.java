@@ -15,13 +15,13 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final e.b avU;
-    public final List<a> avW;
+    public final List avW;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<Integer> avX;
+        public final List avX;
         public final Executor avY;
         public final /* synthetic */ g avZ;
 
@@ -125,31 +125,31 @@ public final class g {
             try {
                 synchronized (this.avW) {
                     int id = messageSnapshot.getId();
-                    Iterator<a> it = this.avW.iterator();
+                    Iterator it = this.avW.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
-                        a next = it.next();
-                        if (next.avX.contains(Integer.valueOf(id))) {
-                            aVar = next;
+                        a aVar2 = (a) it.next();
+                        if (aVar2.avX.contains(Integer.valueOf(id))) {
+                            aVar = aVar2;
                             break;
                         }
                     }
                     if (aVar == null) {
                         int i = 0;
-                        Iterator<a> it2 = this.avW.iterator();
+                        Iterator it2 = this.avW.iterator();
                         while (true) {
                             if (!it2.hasNext()) {
                                 break;
                             }
-                            a next2 = it2.next();
-                            if (next2.avX.size() <= 0) {
-                                aVar = next2;
+                            a aVar3 = (a) it2.next();
+                            if (aVar3.avX.size() <= 0) {
+                                aVar = aVar3;
                                 break;
-                            } else if (i == 0 || next2.avX.size() < i) {
-                                i = next2.avX.size();
-                                aVar = next2;
+                            } else if (i == 0 || aVar3.avX.size() < i) {
+                                i = aVar3.avX.size();
+                                aVar = aVar3;
                             }
                         }
                     }

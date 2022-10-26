@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -34,243 +33,20 @@ public final class ExecutorScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public static final Scheduler HELPER;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final Executor executor;
 
     /* loaded from: classes8.dex */
-    public final class DelayedDispose implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final DelayedRunnable dr;
-        public final /* synthetic */ ExecutorScheduler this$0;
-
-        public DelayedDispose(ExecutorScheduler executorScheduler, DelayedRunnable delayedRunnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {executorScheduler, delayedRunnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = executorScheduler;
-            this.dr = delayedRunnable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                DelayedRunnable delayedRunnable = this.dr;
-                delayedRunnable.direct.replace(this.this$0.scheduleDirect(delayedRunnable));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class DelayedRunnable extends AtomicReference<Runnable> implements Runnable, Disposable, SchedulerRunnableIntrospection {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final long serialVersionUID = -4101336210206799084L;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final SequentialDisposable direct;
-        public final SequentialDisposable timed;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DelayedRunnable(Runnable runnable) {
-            super(runnable);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.timed = new SequentialDisposable();
-            this.direct = new SequentialDisposable();
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getAndSet(null) == null) {
-                return;
-            }
-            this.timed.dispose();
-            this.direct.dispose();
-        }
-
-        @Override // io.reactivex.schedulers.SchedulerRunnableIntrospection
-        public Runnable getWrappedRunnable() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Runnable runnable = get();
-                return runnable != null ? runnable : Functions.EMPTY_RUNNABLE;
-            }
-            return (Runnable) invokeV.objValue;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() == null : invokeV.booleanValue;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Runnable runnable;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (runnable = get()) == null) {
-                return;
-            }
-            try {
-                runnable.run();
-            } finally {
-                lazySet(null);
-                this.timed.lazySet(DisposableHelper.DISPOSED);
-                this.direct.lazySet(DisposableHelper.DISPOSED);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1294171611, "Lio/reactivex/internal/schedulers/ExecutorScheduler;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1294171611, "Lio/reactivex/internal/schedulers/ExecutorScheduler;");
-                return;
-            }
-        }
-        HELPER = Schedulers.single();
-    }
-
-    public ExecutorScheduler(@NonNull Executor executor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.executor = executor;
-    }
-
-    @Override // io.reactivex.Scheduler
-    @NonNull
-    public Scheduler.Worker createWorker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ExecutorWorker(this.executor) : (Scheduler.Worker) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.Scheduler
-    @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
-            Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
-            try {
-                if (this.executor instanceof ExecutorService) {
-                    ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(onSchedule);
-                    scheduledDirectTask.setFuture(((ExecutorService) this.executor).submit(scheduledDirectTask));
-                    return scheduledDirectTask;
-                }
-                ExecutorWorker.BooleanRunnable booleanRunnable = new ExecutorWorker.BooleanRunnable(onSchedule);
-                this.executor.execute(booleanRunnable);
-                return booleanRunnable;
-            } catch (RejectedExecutionException e) {
-                RxJavaPlugins.onError(e);
-                return EmptyDisposable.INSTANCE;
-            }
-        }
-        return (Disposable) invokeL.objValue;
-    }
-
-    @Override // io.reactivex.Scheduler
-    @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
-            if (this.executor instanceof ScheduledExecutorService) {
-                try {
-                    ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(RxJavaPlugins.onSchedule(runnable));
-                    scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor).scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
-                    return scheduledDirectPeriodicTask;
-                } catch (RejectedExecutionException e) {
-                    RxJavaPlugins.onError(e);
-                    return EmptyDisposable.INSTANCE;
-                }
-            }
-            return super.schedulePeriodicallyDirect(runnable, j, j2, timeUnit);
-        }
-        return (Disposable) invokeCommon.objValue;
-    }
-
-    @Override // io.reactivex.Scheduler
-    @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
-            Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
-            if (this.executor instanceof ScheduledExecutorService) {
-                try {
-                    ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(onSchedule);
-                    scheduledDirectTask.setFuture(((ScheduledExecutorService) this.executor).schedule(scheduledDirectTask, j, timeUnit));
-                    return scheduledDirectTask;
-                } catch (RejectedExecutionException e) {
-                    RxJavaPlugins.onError(e);
-                    return EmptyDisposable.INSTANCE;
-                }
-            }
-            DelayedRunnable delayedRunnable = new DelayedRunnable(onSchedule);
-            delayedRunnable.timed.replace(HELPER.scheduleDirect(new DelayedDispose(this, delayedRunnable), j, timeUnit));
-            return delayedRunnable;
-        }
-        return (Disposable) invokeCommon.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class ExecutorWorker extends Scheduler.Worker implements Runnable {
+    public final class ExecutorWorker extends Scheduler.Worker implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean disposed;
         public final Executor executor;
-        public final MpscLinkedQueue<Runnable> queue;
+        public final MpscLinkedQueue queue;
         public final CompositeDisposable tasks;
         public final AtomicInteger wip;
 
         /* loaded from: classes8.dex */
-        public static final class BooleanRunnable extends AtomicBoolean implements Runnable, Disposable {
+        public final class BooleanRunnable extends AtomicBoolean implements Runnable, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2421395018820541164L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -306,13 +82,16 @@ public final class ExecutorScheduler extends Scheduler {
             public boolean isDisposed() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() : invokeV.booleanValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return get();
+                }
+                return invokeV.booleanValue;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || get()) {
+                if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || get()) {
                     return;
                 }
                 try {
@@ -378,19 +157,43 @@ public final class ExecutorScheduler extends Scheduler {
             this.wip = new AtomicInteger();
             this.tasks = new CompositeDisposable();
             this.executor = executor;
-            this.queue = new MpscLinkedQueue<>();
+            this.queue = new MpscLinkedQueue();
+        }
+
+        @Override // io.reactivex.Scheduler.Worker
+        public Disposable schedule(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, runnable)) == null) {
+                if (this.disposed) {
+                    return EmptyDisposable.INSTANCE;
+                }
+                BooleanRunnable booleanRunnable = new BooleanRunnable(RxJavaPlugins.onSchedule(runnable));
+                this.queue.offer(booleanRunnable);
+                if (this.wip.getAndIncrement() == 0) {
+                    try {
+                        this.executor.execute(this);
+                    } catch (RejectedExecutionException e) {
+                        this.disposed = true;
+                        this.queue.clear();
+                        RxJavaPlugins.onError(e);
+                        return EmptyDisposable.INSTANCE;
+                    }
+                }
+                return booleanRunnable;
+            }
+            return (Disposable) invokeL.objValue;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.disposed) {
-                return;
-            }
-            this.disposed = true;
-            this.tasks.dispose();
-            if (this.wip.getAndIncrement() == 0) {
-                this.queue.clear();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.disposed) {
+                this.disposed = true;
+                this.tasks.dispose();
+                if (this.wip.getAndIncrement() == 0) {
+                    this.queue.clear();
+                }
             }
         }
 
@@ -398,7 +201,10 @@ public final class ExecutorScheduler extends Scheduler {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.disposed : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.disposed;
+            }
+            return invokeV.booleanValue;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:12:0x0019, code lost:
@@ -426,15 +232,15 @@ public final class ExecutorScheduler extends Scheduler {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                MpscLinkedQueue<Runnable> mpscLinkedQueue = this.queue;
+                MpscLinkedQueue mpscLinkedQueue = this.queue;
                 int i = 1;
                 while (!this.disposed) {
                     while (true) {
-                        Runnable poll = mpscLinkedQueue.poll();
-                        if (poll == null) {
+                        Runnable runnable = (Runnable) mpscLinkedQueue.poll();
+                        if (runnable == null) {
                             break;
                         }
-                        poll.run();
+                        runnable.run();
                         if (this.disposed) {
                             mpscLinkedQueue.clear();
                             return;
@@ -446,34 +252,7 @@ public final class ExecutorScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        @NonNull
-        public Disposable schedule(@NonNull Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, runnable)) == null) {
-                if (this.disposed) {
-                    return EmptyDisposable.INSTANCE;
-                }
-                BooleanRunnable booleanRunnable = new BooleanRunnable(RxJavaPlugins.onSchedule(runnable));
-                this.queue.offer(booleanRunnable);
-                if (this.wip.getAndIncrement() == 0) {
-                    try {
-                        this.executor.execute(this);
-                    } catch (RejectedExecutionException e) {
-                        this.disposed = true;
-                        this.queue.clear();
-                        RxJavaPlugins.onError(e);
-                        return EmptyDisposable.INSTANCE;
-                    }
-                }
-                return booleanRunnable;
-            }
-            return (Disposable) invokeL.objValue;
-        }
-
-        @Override // io.reactivex.Scheduler.Worker
-        @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -504,5 +283,233 @@ public final class ExecutorScheduler extends Scheduler {
             }
             return (Disposable) invokeCommon.objValue;
         }
+    }
+
+    /* loaded from: classes8.dex */
+    public final class DelayedDispose implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final DelayedRunnable dr;
+        public final /* synthetic */ ExecutorScheduler this$0;
+
+        public DelayedDispose(ExecutorScheduler executorScheduler, DelayedRunnable delayedRunnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {executorScheduler, delayedRunnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = executorScheduler;
+            this.dr = delayedRunnable;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                DelayedRunnable delayedRunnable = this.dr;
+                delayedRunnable.direct.replace(this.this$0.scheduleDirect(delayedRunnable));
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public final class DelayedRunnable extends AtomicReference implements Runnable, Disposable, SchedulerRunnableIntrospection {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final long serialVersionUID = -4101336210206799084L;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final SequentialDisposable direct;
+        public final SequentialDisposable timed;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public DelayedRunnable(Runnable runnable) {
+            super(runnable);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.timed = new SequentialDisposable();
+            this.direct = new SequentialDisposable();
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getAndSet(null) != null) {
+                this.timed.dispose();
+                this.direct.dispose();
+            }
+        }
+
+        @Override // io.reactivex.schedulers.SchedulerRunnableIntrospection
+        public Runnable getWrappedRunnable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                Runnable runnable = (Runnable) get();
+                if (runnable == null) {
+                    return Functions.EMPTY_RUNNABLE;
+                }
+                return runnable;
+            }
+            return (Runnable) invokeV.objValue;
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (get() == null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Runnable runnable;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (runnable = (Runnable) get()) != null) {
+                try {
+                    runnable.run();
+                } finally {
+                    lazySet(null);
+                    this.timed.lazySet(DisposableHelper.DISPOSED);
+                    this.direct.lazySet(DisposableHelper.DISPOSED);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1294171611, "Lio/reactivex/internal/schedulers/ExecutorScheduler;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1294171611, "Lio/reactivex/internal/schedulers/ExecutorScheduler;");
+                return;
+            }
+        }
+        HELPER = Schedulers.single();
+    }
+
+    @Override // io.reactivex.Scheduler
+    public Scheduler.Worker createWorker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ExecutorWorker(this.executor);
+        }
+        return (Scheduler.Worker) invokeV.objValue;
+    }
+
+    public ExecutorScheduler(Executor executor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.executor = executor;
+    }
+
+    @Override // io.reactivex.Scheduler
+    public Disposable scheduleDirect(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
+            Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
+            try {
+                if (this.executor instanceof ExecutorService) {
+                    ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(onSchedule);
+                    scheduledDirectTask.setFuture(((ExecutorService) this.executor).submit(scheduledDirectTask));
+                    return scheduledDirectTask;
+                }
+                ExecutorWorker.BooleanRunnable booleanRunnable = new ExecutorWorker.BooleanRunnable(onSchedule);
+                this.executor.execute(booleanRunnable);
+                return booleanRunnable;
+            } catch (RejectedExecutionException e) {
+                RxJavaPlugins.onError(e);
+                return EmptyDisposable.INSTANCE;
+            }
+        }
+        return (Disposable) invokeL.objValue;
+    }
+
+    @Override // io.reactivex.Scheduler
+    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+            Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
+            if (this.executor instanceof ScheduledExecutorService) {
+                try {
+                    ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(onSchedule);
+                    scheduledDirectTask.setFuture(((ScheduledExecutorService) this.executor).schedule(scheduledDirectTask, j, timeUnit));
+                    return scheduledDirectTask;
+                } catch (RejectedExecutionException e) {
+                    RxJavaPlugins.onError(e);
+                    return EmptyDisposable.INSTANCE;
+                }
+            }
+            DelayedRunnable delayedRunnable = new DelayedRunnable(onSchedule);
+            delayedRunnable.timed.replace(HELPER.scheduleDirect(new DelayedDispose(this, delayedRunnable), j, timeUnit));
+            return delayedRunnable;
+        }
+        return (Disposable) invokeCommon.objValue;
+    }
+
+    @Override // io.reactivex.Scheduler
+    public Disposable schedulePeriodicallyDirect(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            if (this.executor instanceof ScheduledExecutorService) {
+                try {
+                    ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(RxJavaPlugins.onSchedule(runnable));
+                    scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor).scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
+                    return scheduledDirectPeriodicTask;
+                } catch (RejectedExecutionException e) {
+                    RxJavaPlugins.onError(e);
+                    return EmptyDisposable.INSTANCE;
+                }
+            }
+            return super.schedulePeriodicallyDirect(runnable, j, j2, timeUnit);
+        }
+        return (Disposable) invokeCommon.objValue;
     }
 }

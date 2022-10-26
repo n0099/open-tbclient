@@ -2,6 +2,7 @@ package com.qq.e.ads.nativ;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,6 +15,7 @@ import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.constants.LoadAdParams;
+import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.pi.NEADI;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.AdErrorConvertor;
@@ -23,7 +25,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class NativeExpressAD extends NativeAbstractAD<NEADI> {
+public class NativeExpressAD extends NativeAbstractAD {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_TYPE_AD_WILL_OPEN_OVERLAY = 20;
     public static final int EVENT_TYPE_ON_AD_CLICKED = 6;
@@ -50,14 +52,14 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     public transient /* synthetic */ FieldHolder $fh;
     public volatile int g;
     public volatile int h;
-    public List<Integer> i;
+    public List i;
     public VideoOption j;
     public ADSize k;
     public NativeExpressADListener l;
     public LoadAdParams m;
 
     /* loaded from: classes8.dex */
-    public static class ADListenerAdapter implements ADListener {
+    public class ADListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NativeExpressADListener a;
@@ -150,7 +152,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
 
         void onADLeftApplication(NativeExpressADView nativeExpressADView);
 
-        void onADLoaded(List<NativeExpressADView> list);
+        void onADLoaded(List list);
 
         @Deprecated
         void onADOpenOverlay(NativeExpressADView nativeExpressADView);
@@ -229,84 +231,6 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         c();
     }
 
-    public static void a(NativeExpressADListener nativeExpressADListener, ADEvent aDEvent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, nativeExpressADListener, aDEvent) == null) || nativeExpressADListener == null) {
-            return;
-        }
-        switch (aDEvent.getType()) {
-            case 1:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                    nativeExpressADListener.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
-                    return;
-                }
-                break;
-            case 2:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof List)) {
-                    nativeExpressADListener.onADLoaded((List) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 3:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressADListener.onRenderFail((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 4:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressADListener.onRenderSuccess((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 5:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressADListener.onADExposure((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 6:
-                if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    NativeExpressADView nativeExpressADView = (NativeExpressADView) aDEvent.getParas()[0];
-                    nativeExpressADListener.onADClicked(nativeExpressADView);
-                    if (aDEvent.getParas()[1] instanceof String) {
-                        nativeExpressADView.ext.put(Constants.KEYS.EXPOSED_CLICK_URL_KEY, (String) aDEvent.getParas()[1]);
-                        return;
-                    }
-                    return;
-                }
-                break;
-            case 7:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressADListener.onADClosed((NativeExpressADView) aDEvent.getParas()[0]);
-                    ((NativeExpressADView) aDEvent.getParas()[0]).negativeFeedback();
-                    return;
-                }
-                break;
-            case 8:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressADListener.onADLeftApplication((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 9:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressADListener.onADOpenOverlay((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 10:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressADListener.onADCloseOverlay((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            default:
-                return;
-        }
-        AbstractAD.a(NativeExpressAD.class, aDEvent);
-    }
-
     private boolean a(ADSize aDSize) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -326,8 +250,8 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     @Override // com.qq.e.ads.NativeAbstractAD, com.qq.e.ads.AbstractAD
     public void a(NEADI neadi) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, neadi) == null) {
-            super.a((NativeExpressAD) neadi);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, neadi) == null) {
+            super.a((ADI) neadi);
             neadi.setMinVideoDuration(this.g);
             neadi.setMaxVideoDuration(this.h);
             VideoOption videoOption = this.j;
@@ -335,13 +259,13 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                 setVideoOption(videoOption);
             }
             synchronized (this.i) {
-                Iterator<Integer> it = this.i.iterator();
+                Iterator it = this.i.iterator();
                 while (it.hasNext()) {
-                    if (this.a != 0) {
+                    if (this.a != null) {
                         if (this.m != null) {
-                            ((NEADI) this.a).loadAd(it.next().intValue(), this.m);
+                            ((NEADI) this.a).loadAd(((Integer) it.next()).intValue(), this.m);
                         } else {
-                            ((NEADI) this.a).loadAd(it.next().intValue());
+                            ((NEADI) this.a).loadAd(((Integer) it.next()).intValue());
                         }
                     }
                 }
@@ -363,9 +287,9 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((NEADI) t).getAdNetWorkName();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((NEADI) obj).getAdNetWorkName();
             }
             a("getAdNetWorkName");
             return null;
@@ -392,13 +316,13 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                 }
                 return;
             }
-            T t = this.a;
-            if (t == 0) {
+            Object obj = this.a;
+            if (obj == null) {
                 a("loadAD");
                 return;
             }
             LoadAdParams loadAdParams2 = this.m;
-            NEADI neadi = (NEADI) t;
+            NEADI neadi = (NEADI) obj;
             if (loadAdParams2 != null) {
                 neadi.loadAd(i, loadAdParams2);
             } else {
@@ -421,9 +345,9 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
             if (this.h > 0 && this.g > this.h) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
-            T t = this.a;
-            if (t != 0) {
-                ((NEADI) t).setMaxVideoDuration(this.h);
+            Object obj = this.a;
+            if (obj != null) {
+                ((NEADI) obj).setMaxVideoDuration(this.h);
             }
         }
     }
@@ -435,9 +359,9 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
             if (this.h > 0 && this.g > this.h) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
-            T t = this.a;
-            if (t != 0) {
-                ((NEADI) t).setMinVideoDuration(this.g);
+            Object obj = this.a;
+            if (obj != null) {
+                ((NEADI) obj).setMinVideoDuration(this.g);
             }
         }
     }
@@ -446,11 +370,11 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, videoOption) == null) {
             this.j = videoOption;
-            T t = this.a;
-            if (t == 0 || videoOption == null) {
+            Object obj = this.a;
+            if (obj == null || videoOption == null) {
                 return;
             }
-            ((NEADI) t).setVideoOption(videoOption);
+            ((NEADI) obj).setVideoOption(videoOption);
         }
     }
 
@@ -461,83 +385,162 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         }
     }
 
+    public static void a(NativeExpressADListener nativeExpressADListener, ADEvent aDEvent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, nativeExpressADListener, aDEvent) == null) && nativeExpressADListener != null) {
+            switch (aDEvent.getType()) {
+                case 1:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
+                        nativeExpressADListener.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                        return;
+                    }
+                    break;
+                case 2:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof List)) {
+                        nativeExpressADListener.onADLoaded((List) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 3:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressADListener.onRenderFail((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 4:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressADListener.onRenderSuccess((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 5:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressADListener.onADExposure((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 6:
+                    if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        NativeExpressADView nativeExpressADView = (NativeExpressADView) aDEvent.getParas()[0];
+                        nativeExpressADListener.onADClicked(nativeExpressADView);
+                        if (aDEvent.getParas()[1] instanceof String) {
+                            nativeExpressADView.ext.put(Constants.KEYS.EXPOSED_CLICK_URL_KEY, (String) aDEvent.getParas()[1]);
+                            return;
+                        }
+                        return;
+                    }
+                    break;
+                case 7:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressADListener.onADClosed((NativeExpressADView) aDEvent.getParas()[0]);
+                        ((NativeExpressADView) aDEvent.getParas()[0]).negativeFeedback();
+                        return;
+                    }
+                    break;
+                case 8:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressADListener.onADLeftApplication((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 9:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressADListener.onADOpenOverlay((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 10:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressADListener.onADCloseOverlay((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                default:
+                    return;
+            }
+            AbstractAD.a(NativeExpressAD.class, aDEvent);
+        }
+    }
+
     public static void a(NativeExpressMediaListener nativeExpressMediaListener, ADEvent aDEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, nativeExpressMediaListener, aDEvent) == null) || nativeExpressMediaListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, nativeExpressMediaListener, aDEvent) == null) && nativeExpressMediaListener != null) {
+            switch (aDEvent.getType()) {
+                case 11:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressMediaListener.onVideoInit((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 12:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressMediaListener.onVideoLoading((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 13:
+                    if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[0] instanceof NativeExpressADView) && (aDEvent.getParas()[1] instanceof Integer)) {
+                        nativeExpressMediaListener.onVideoReady((NativeExpressADView) aDEvent.getParas()[0], ((Integer) aDEvent.getParas()[1]).intValue());
+                        return;
+                    }
+                    break;
+                case 14:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressMediaListener.onVideoStart((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 15:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressMediaListener.onVideoPause((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 16:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressMediaListener.onVideoComplete((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 17:
+                    if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[0] instanceof NativeExpressADView) && (aDEvent.getParas()[1] instanceof Integer)) {
+                        nativeExpressMediaListener.onVideoError((NativeExpressADView) aDEvent.getParas()[0], AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[1]).intValue()));
+                        return;
+                    }
+                    break;
+                case 18:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressMediaListener.onVideoPageOpen((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 19:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressMediaListener.onVideoPageClose((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+                case 20:
+                default:
+                    return;
+                case 21:
+                    if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
+                        nativeExpressMediaListener.onVideoCached((NativeExpressADView) aDEvent.getParas()[0]);
+                        return;
+                    }
+                    break;
+            }
+            AbstractAD.a(NativeExpressAD.class, aDEvent);
         }
-        switch (aDEvent.getType()) {
-            case 11:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressMediaListener.onVideoInit((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 12:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressMediaListener.onVideoLoading((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 13:
-                if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[0] instanceof NativeExpressADView) && (aDEvent.getParas()[1] instanceof Integer)) {
-                    nativeExpressMediaListener.onVideoReady((NativeExpressADView) aDEvent.getParas()[0], ((Integer) aDEvent.getParas()[1]).intValue());
-                    return;
-                }
-                break;
-            case 14:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressMediaListener.onVideoStart((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 15:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressMediaListener.onVideoPause((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 16:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressMediaListener.onVideoComplete((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 17:
-                if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[0] instanceof NativeExpressADView) && (aDEvent.getParas()[1] instanceof Integer)) {
-                    nativeExpressMediaListener.onVideoError((NativeExpressADView) aDEvent.getParas()[0], AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[1]).intValue()));
-                    return;
-                }
-                break;
-            case 18:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressMediaListener.onVideoPageOpen((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 19:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressMediaListener.onVideoPageClose((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-            case 20:
-            default:
-                return;
-            case 21:
-                if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof NativeExpressADView)) {
-                    nativeExpressMediaListener.onVideoCached((NativeExpressADView) aDEvent.getParas()[0]);
-                    return;
-                }
-                break;
-        }
-        AbstractAD.a(NativeExpressAD.class, aDEvent);
     }
 
     @Override // com.qq.e.ads.AbstractAD
     public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeExpressADDelegate(context, this.k, str, str2, str3, new ADListenerAdapter(this.l)) : invokeLLLLL.objValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) {
+            return pOFactory.getNativeExpressADDelegate(context, this.k, str, str2, str3, new ADListenerAdapter(this.l));
+        }
+        return invokeLLLLL.objValue;
     }
 }

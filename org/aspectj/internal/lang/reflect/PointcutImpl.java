@@ -64,38 +64,50 @@ public class PointcutImpl implements Pointcut {
     public AjType getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.declaringType : (AjType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.declaringType;
+        }
+        return (AjType) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public int getModifiers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.baseMethod.getModifiers() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.baseMethod.getModifiers();
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
     public String[] getParameterNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.parameterNames : (String[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.parameterNames;
+        }
+        return (String[]) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
-    public AjType<?>[] getParameterTypes() {
+    public AjType[] getParameterTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Class<?>[] parameterTypes = this.baseMethod.getParameterTypes();
             int length = parameterTypes.length;
-            AjType<?>[] ajTypeArr = new AjType[length];
+            AjType[] ajTypeArr = new AjType[length];
             for (int i = 0; i < length; i++) {
                 ajTypeArr[i] = AjTypeSystem.getAjType(parameterTypes[i]);
             }
@@ -108,7 +120,10 @@ public class PointcutImpl implements Pointcut {
     public PointcutExpression getPointcutExpression() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pc : (PointcutExpression) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.pc;
+        }
+        return (PointcutExpression) invokeV.objValue;
     }
 
     public String toString() {
@@ -118,7 +133,7 @@ public class PointcutImpl implements Pointcut {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(getName());
             stringBuffer.append("(");
-            AjType<?>[] parameterTypes = getParameterTypes();
+            AjType[] parameterTypes = getParameterTypes();
             int i = 0;
             while (i < parameterTypes.length) {
                 stringBuffer.append(parameterTypes[i].getName());

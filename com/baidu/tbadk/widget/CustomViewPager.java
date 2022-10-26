@@ -51,10 +51,23 @@ public class CustomViewPager extends TbViewPager {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.i != null) {
+                this.a.i.onPageSelected(i);
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.g = i == 1;
+                CustomViewPager customViewPager = this.a;
+                boolean z = true;
+                if (i != 1) {
+                    z = false;
+                }
+                customViewPager.g = z;
                 if (i == 2) {
                     this.a.f = 0;
                 }
@@ -69,12 +82,16 @@ public class CustomViewPager extends TbViewPager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
                 if (this.a.g) {
-                    if (this.a.h > i2) {
+                    if (this.a.h <= i2) {
+                        if (this.a.h >= i2) {
+                            if (this.a.h == i2) {
+                                this.a.f = 0;
+                            }
+                        } else {
+                            this.a.f = 1;
+                        }
+                    } else {
                         this.a.f = -1;
-                    } else if (this.a.h < i2) {
-                        this.a.f = 1;
-                    } else if (this.a.h == i2) {
-                        this.a.f = 0;
                     }
                 }
                 this.a.h = i2;
@@ -82,15 +99,6 @@ public class CustomViewPager extends TbViewPager {
                     this.a.i.onPageScrolled(i, f, i2);
                 }
             }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.a.i == null) {
-                return;
-            }
-            this.a.i.onPageSelected(i);
         }
     }
 
@@ -120,41 +128,6 @@ public class CustomViewPager extends TbViewPager {
         b();
     }
 
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            k(4010);
-            super.setOnPageChangeListener(new a(this));
-            k(4011);
-        }
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager
-    public boolean canScroll(View view2, boolean z, int i, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (view2 instanceof NestedNoScrollViewPager) {
-                return false;
-            }
-            return super.canScroll(view2, z, i, i2, i3);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public int getDirection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.k == 1) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(i);
-        }
-    }
-
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
@@ -162,10 +135,10 @@ public class CustomViewPager extends TbViewPager {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             if (!this.e) {
                 GestureDetector gestureDetector = this.j;
-                if (gestureDetector != null) {
-                    return gestureDetector.onTouchEvent(motionEvent);
+                if (gestureDetector == null) {
+                    return false;
                 }
-                return false;
+                return gestureDetector.onTouchEvent(motionEvent);
             }
             if (getCurrentItem() != 0) {
                 getParent().requestDisallowInterceptTouchEvent(true);
@@ -177,69 +150,6 @@ public class CustomViewPager extends TbViewPager {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            k(5013);
-            super.onLayout(z, i, i2, i3, i4);
-            k(5014);
-        }
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            k(5005);
-            super.onMeasure(i, i2);
-            k(5006);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (this.e) {
-                return super.onTouchEvent(motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setForm(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager
-    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
-            this.i = onPageChangeListener;
-        }
-    }
-
-    public void setScrollable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void setScrollable(boolean z, GestureDetector gestureDetector) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048586, this, z, gestureDetector) == null) {
-            this.e = z;
-            this.j = gestureDetector;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -267,5 +177,106 @@ public class CustomViewPager extends TbViewPager {
         this.h = -1;
         this.k = 0;
         b();
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            k(4010);
+            super.setOnPageChangeListener(new a(this));
+            k(4011);
+        }
+    }
+
+    public int getDirection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.k == 1) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(i);
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            if (!this.e) {
+                return false;
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setForm(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.k = i;
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.i = onPageChangeListener;
+        }
+    }
+
+    public void setScrollable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            k(5005);
+            super.onMeasure(i, i2);
+            k(5006);
+        }
+    }
+
+    public void setScrollable(boolean z, GestureDetector gestureDetector) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048586, this, z, gestureDetector) == null) {
+            this.e = z;
+            this.j = gestureDetector;
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager
+    public boolean canScroll(View view2, boolean z, int i, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (view2 instanceof NestedNoScrollViewPager) {
+                return false;
+            }
+            return super.canScroll(view2, z, i, i2, i3);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            k(5013);
+            super.onLayout(z, i, i2, i3, i4);
+            k(5014);
+        }
     }
 }

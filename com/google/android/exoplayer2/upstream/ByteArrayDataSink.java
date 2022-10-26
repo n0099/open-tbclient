@@ -52,6 +52,7 @@ public final class ByteArrayDataSink implements DataSink {
 
     @Override // com.google.android.exoplayer2.upstream.DataSink
     public void open(DataSpec dataSpec) throws IOException {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSpec) == null) {
             long j = dataSpec.length;
@@ -59,7 +60,12 @@ public final class ByteArrayDataSink implements DataSink {
                 this.stream = new ByteArrayOutputStream();
                 return;
             }
-            Assertions.checkArgument(j <= 2147483647L);
+            if (j <= 2147483647L) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
             this.stream = new ByteArrayOutputStream((int) dataSpec.length);
         }
     }

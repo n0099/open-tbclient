@@ -3,7 +3,6 @@ package androidx.core.app;
 import android.app.Dialog;
 import android.os.Build;
 import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,8 +27,7 @@ public class DialogCompat {
         }
     }
 
-    @NonNull
-    public static View requireViewById(@NonNull Dialog dialog, int i) {
+    public static View requireViewById(Dialog dialog, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, dialog, i)) == null) {

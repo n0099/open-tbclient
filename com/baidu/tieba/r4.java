@@ -23,9 +23,9 @@ public class r4 {
     public final Vector3 f;
     public final Matrix4 g;
     public final Matrix4 h;
-    public b7<u4> i;
+    public b7 i;
     public r4 j;
-    public final b7<r4> k;
+    public final b7 k;
 
     public r4() {
         Interceptable interceptable = $ic;
@@ -46,25 +46,25 @@ public class r4 {
         this.f = new Vector3(1.0f, 1.0f, 1.0f);
         this.g = new Matrix4();
         this.h = new Matrix4();
-        this.i = new b7<>(2);
-        this.k = new b7<>(2);
+        this.i = new b7(2);
+        this.k = new b7(2);
     }
 
-    public static r4 f(b7<r4> b7Var, String str, boolean z, boolean z2) {
+    public static r4 f(b7 b7Var, String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{b7Var, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             int i = b7Var.b;
             if (z2) {
                 for (int i2 = 0; i2 < i; i2++) {
-                    r4 r4Var = b7Var.get(i2);
+                    r4 r4Var = (r4) b7Var.get(i2);
                     if (r4Var.a.equalsIgnoreCase(str)) {
                         return r4Var;
                     }
                 }
             } else {
                 for (int i3 = 0; i3 < i; i3++) {
-                    r4 r4Var2 = b7Var.get(i3);
+                    r4 r4Var2 = (r4) b7Var.get(i3);
                     if (r4Var2.a.equals(str)) {
                         return r4Var2;
                     }
@@ -72,7 +72,7 @@ public class r4 {
             }
             if (z) {
                 for (int i4 = 0; i4 < i; i4++) {
-                    r4 f = f(b7Var.get(i4).k, str, true, z2);
+                    r4 f = f(((r4) b7Var.get(i4)).k, str, true, z2);
                     if (f != null) {
                         return f;
                     }
@@ -84,10 +84,40 @@ public class r4 {
         return (r4) invokeCommon.objValue;
     }
 
-    public <T extends r4> int a(T t) {
+    public int a(r4 r4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? h(-1, t) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r4Var)) == null) {
+            return h(-1, r4Var);
+        }
+        return invokeL.intValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            c();
+            e();
+            if (z) {
+                b7.b it = this.k.iterator();
+                while (it.hasNext()) {
+                    ((r4) it.next()).d(true);
+                }
+            }
+        }
+    }
+
+    public boolean i(r4 r4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, r4Var)) == null) {
+            if (!this.k.j(r4Var, true)) {
+                return false;
+            }
+            r4Var.j = null;
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public void b(boolean z) {
@@ -95,20 +125,20 @@ public class r4 {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            b7.b<u4> it = this.i.iterator();
+            b7.b it = this.i.iterator();
             while (it.hasNext()) {
-                u4 next = it.next();
-                c7<r4, Matrix4> c7Var = next.a;
-                if (c7Var != null && (matrix4Arr = next.b) != null && (i = c7Var.c) == matrix4Arr.length) {
+                u4 u4Var = (u4) it.next();
+                c7 c7Var = u4Var.a;
+                if (c7Var != null && (matrix4Arr = u4Var.b) != null && (i = c7Var.c) == matrix4Arr.length) {
                     for (int i2 = 0; i2 < i; i2++) {
-                        next.b[i2].set(next.a.a[i2].h).mul(next.a.b[i2]);
+                        u4Var.b[i2].set(((r4[]) u4Var.a.a)[i2].h).mul(((Matrix4[]) u4Var.a.b)[i2]);
                     }
                 }
             }
             if (z) {
-                b7.b<r4> it2 = this.k.iterator();
+                b7.b it2 = this.k.iterator();
                 while (it2.hasNext()) {
-                    it2.next().b(true);
+                    ((r4) it2.next()).b(true);
                 }
             }
         }
@@ -126,18 +156,13 @@ public class r4 {
         return (Matrix4) invokeV.objValue;
     }
 
-    public void d(boolean z) {
+    public r4 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            c();
-            e();
-            if (z) {
-                b7.b<r4> it = this.k.iterator();
-                while (it.hasNext()) {
-                    it.next().d(true);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j;
         }
+        return (r4) invokeV.objValue;
     }
 
     public Matrix4 e() {
@@ -155,53 +180,34 @@ public class r4 {
         return (Matrix4) invokeV.objValue;
     }
 
-    public r4 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (r4) invokeV.objValue;
-    }
-
-    public <T extends r4> int h(int i, T t) {
+    public int h(int i, r4 r4Var) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, t)) == null) {
-            for (r4 r4Var = this; r4Var != null; r4Var = r4Var.g()) {
-                if (r4Var == t) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, r4Var)) == null) {
+            for (r4 r4Var2 = this; r4Var2 != null; r4Var2 = r4Var2.g()) {
+                if (r4Var2 == r4Var) {
                     throw new GdxRuntimeException("Cannot add a parent as a child");
                 }
             }
-            r4 g = t.g();
-            if (g == null || g.i(t)) {
-                if (i >= 0) {
-                    b7<r4> b7Var = this.k;
-                    if (i < b7Var.b) {
-                        b7Var.insert(i, t);
-                        t.j = this;
-                        return i;
-                    }
-                }
-                b7<r4> b7Var2 = this.k;
-                int i2 = b7Var2.b;
-                b7Var2.a(t);
-                i = i2;
-                t.j = this;
-                return i;
+            r4 g = r4Var.g();
+            if (g != null && !g.i(r4Var)) {
+                throw new GdxRuntimeException("Could not remove child from its current parent");
             }
-            throw new GdxRuntimeException("Could not remove child from its current parent");
+            if (i >= 0) {
+                b7 b7Var = this.k;
+                if (i < b7Var.b) {
+                    b7Var.insert(i, r4Var);
+                    r4Var.j = this;
+                    return i;
+                }
+            }
+            b7 b7Var2 = this.k;
+            int i2 = b7Var2.b;
+            b7Var2.a(r4Var);
+            i = i2;
+            r4Var.j = this;
+            return i;
         }
         return invokeIL.intValue;
-    }
-
-    public <T extends r4> boolean i(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
-            if (this.k.j(t, true)) {
-                t.j = null;
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.sapi2.stat.OneKeyLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tieba.ih1;
+import com.baidu.tieba.jh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,22 @@ public class OneKeyLoginSdkCall {
     public boolean checkSupOauth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? preLoginOptResult != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (preLoginOptResult != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public OneKeyLoginOptResult getPreLoginOptResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return preLoginOptResult;
+        }
+        return (OneKeyLoginOptResult) invokeV.objValue;
     }
 
     public JSONObject getEncryptPhone() {
@@ -108,12 +123,34 @@ public class OneKeyLoginSdkCall {
         return (JSONObject) invokeV.objValue;
     }
 
+    public String getOperatorType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            OneKeyLoginOptResult oneKeyLoginOptResult = preLoginOptResult;
+            if (oneKeyLoginOptResult != null) {
+                if ("1".equals(oneKeyLoginOptResult.getOperateType())) {
+                    return OPERATOR_TYPE_CMCC;
+                }
+                if ("2".equals(preLoginOptResult.getOperateType())) {
+                    return OPERATOR_TYPE_CUCC;
+                }
+                if ("3".equals(preLoginOptResult.getOperateType())) {
+                    return OPERATOR_TYPE_CTCC;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void getMobileOauthToken(SapiConfiguration sapiConfiguration, TokenListener tokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiConfiguration, tokenListener) == null) {
             try {
                 try {
-                    ih1.d().j(sapiConfiguration.context, 15000L, new ih1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                    jh1.d().j(sapiConfiguration.context, 15000L, new jh1.a(this, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -138,7 +175,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // com.baidu.tieba.ih1.a
+                        @Override // com.baidu.tieba.jh1.a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -218,43 +255,15 @@ public class OneKeyLoginSdkCall {
         }
     }
 
-    public String getOperatorType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            OneKeyLoginOptResult oneKeyLoginOptResult = preLoginOptResult;
-            if (oneKeyLoginOptResult != null) {
-                if ("1".equals(oneKeyLoginOptResult.getOperateType())) {
-                    return OPERATOR_TYPE_CMCC;
-                }
-                if ("2".equals(preLoginOptResult.getOperateType())) {
-                    return OPERATOR_TYPE_CUCC;
-                }
-                if ("3".equals(preLoginOptResult.getOperateType())) {
-                    return OPERATOR_TYPE_CTCC;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public OneKeyLoginOptResult getPreLoginOptResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? preLoginOptResult : (OneKeyLoginOptResult) invokeV.objValue;
-    }
-
     public void getToken(SapiConfiguration sapiConfiguration, TokenListener tokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, sapiConfiguration, tokenListener) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             OneKeyLoginStat.OauthToken.statExtMap.put("netType", SapiUtils.getNetworkClass(sapiConfiguration.context));
-            OneKeyLoginStat.OauthToken.statExtMap.put("operator", ih1.d().c(sapiConfiguration.context));
+            OneKeyLoginStat.OauthToken.statExtMap.put("operator", jh1.d().c(sapiConfiguration.context));
             try {
                 try {
-                    ih1.d().g(sapiConfiguration.context, 15000L, new ih1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+                    jh1.d().g(sapiConfiguration.context, 15000L, new jh1.a(this, currentTimeMillis, tokenListener) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -281,7 +290,7 @@ public class OneKeyLoginSdkCall {
                             this.val$listener = tokenListener;
                         }
 
-                        @Override // com.baidu.tieba.ih1.a
+                        @Override // com.baidu.tieba.jh1.a
                         public void onFinish(String str) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -376,9 +385,9 @@ public class OneKeyLoginSdkCall {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, sapiConfiguration) == null) {
             try {
-                ih1.d().e(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
-                ih1.d().b(sapiConfiguration.debug);
-                ih1.d().i(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+                jh1.d().e(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
+                jh1.d().b(sapiConfiguration.debug);
+                jh1.d().i(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
             } catch (NoClassDefFoundError unused) {
                 Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
             }
@@ -394,8 +403,10 @@ public class OneKeyLoginSdkCall {
                 str2 = SapiOptions.Gray.FUN_NAME_CHINA_MOBILE_OAUTH;
             } else if (TextUtils.equals(str, OPERATOR_CHINA_UNICOM)) {
                 str2 = SapiOptions.Gray.FUN_NAME_CHINA_UNICOM_OAUTH;
+            } else if (TextUtils.equals(str, OPERATOR_CHINA_TELECOM)) {
+                str2 = SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH;
             } else {
-                str2 = TextUtils.equals(str, OPERATOR_CHINA_TELECOM) ? SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : null;
+                str2 = null;
             }
             Log.d(TAG, "isMeetOneKeyLoginGray ? operator=" + str);
             if (TextUtils.isEmpty(str2)) {
@@ -408,46 +419,42 @@ public class OneKeyLoginSdkCall {
 
     public void loadOneKeyLoginFail(OneKeyLoginCallback oneKeyLoginCallback, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oneKeyLoginCallback, i, str) == null) || oneKeyLoginCallback == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oneKeyLoginCallback, i, str) == null) && oneKeyLoginCallback != null) {
+            OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
+            oneKeyLoginResult.setResultCode(i);
+            oneKeyLoginResult.setResultMsg(str);
+            oneKeyLoginCallback.onFail(oneKeyLoginResult);
         }
-        OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
-        oneKeyLoginResult.setResultCode(i);
-        oneKeyLoginResult.setResultMsg(str);
-        oneKeyLoginCallback.onFail(oneKeyLoginResult);
     }
 
-    public void preGetPhoneFail(OneKeyLoginCallback oneKeyLoginCallback, int i, int i2, String str) {
+    public void preGetPhoneFail(OneKeyLoginCallback oneKeyLoginCallback, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{oneKeyLoginCallback, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) || oneKeyLoginCallback == null) {
-            return;
-        }
-        OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
-        oneKeyLoginResult.setResultCode(i);
-        oneKeyLoginResult.setResultMsg("subCode=" + i2 + ", msg=" + str);
-        oneKeyLoginCallback.unAvailable(oneKeyLoginResult);
-    }
-
-    public void preGetPhoneInfo(SapiConfiguration sapiConfiguration, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, sapiConfiguration, str) == null) {
-            try {
-                preGetPhoneInfo(sapiConfiguration.context, str, 15000, false, null);
-            } catch (NoClassDefFoundError unused) {
-                Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
-            }
+        if ((interceptable == null || interceptable.invokeLIL(1048586, this, oneKeyLoginCallback, i, str) == null) && oneKeyLoginCallback != null) {
+            OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
+            oneKeyLoginResult.setResultCode(i);
+            oneKeyLoginResult.setResultMsg(str);
+            oneKeyLoginCallback.unAvailable(oneKeyLoginResult);
         }
     }
 
     public void transMobile(OneKeyLoginCallback oneKeyLoginCallback, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048589, this, oneKeyLoginCallback, i, str) == null) || oneKeyLoginCallback == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLIL(1048589, this, oneKeyLoginCallback, i, str) == null) && oneKeyLoginCallback != null) {
+            OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
+            oneKeyLoginResult.setResultCode(i);
+            oneKeyLoginResult.mobile = str;
+            oneKeyLoginCallback.onFail(oneKeyLoginResult);
         }
-        OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
-        oneKeyLoginResult.setResultCode(i);
-        oneKeyLoginResult.mobile = str;
-        oneKeyLoginCallback.onFail(oneKeyLoginResult);
+    }
+
+    public void preGetPhoneFail(OneKeyLoginCallback oneKeyLoginCallback, int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{oneKeyLoginCallback, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) && oneKeyLoginCallback != null) {
+            OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
+            oneKeyLoginResult.setResultCode(i);
+            oneKeyLoginResult.setResultMsg("subCode=" + i2 + ", msg=" + str);
+            oneKeyLoginCallback.unAvailable(oneKeyLoginResult);
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x0138  */
@@ -455,6 +462,7 @@ public class OneKeyLoginSdkCall {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void preGetPhoneInfo(Context context, String str, int i, boolean z, OneKeyLoginOptCallback oneKeyLoginOptCallback) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z), oneKeyLoginOptCallback}) == null) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -491,10 +499,15 @@ public class OneKeyLoginSdkCall {
             }
             String networkClass = SapiUtils.getNetworkClass(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("netType", networkClass);
-            String c = ih1.d().c(context);
+            String c = jh1.d().c(context);
             OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("operator", c);
+            if (!TextUtils.equals(c, OPERATOR_CHINA_MOBILE) && !TextUtils.equals(c, OPERATOR_CHINA_UNICOM) && !TextUtils.equals(c, OPERATOR_CHINA_TELECOM)) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
             try {
-                if (TextUtils.equals(c, OPERATOR_CHINA_MOBILE) || TextUtils.equals(c, OPERATOR_CHINA_UNICOM) || TextUtils.equals(c, OPERATOR_CHINA_TELECOM)) {
+                if (z2) {
                     if (!isMeetOneKeyLoginGray(c)) {
                         OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_GRAY, "0");
                         OneKeyLoginStat.PreGetPhoneStat.sValue = "0";
@@ -511,7 +524,7 @@ public class OneKeyLoginSdkCall {
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("is_login", "0");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_GRAY, "1");
                     OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_ABLE_SIM, "1");
-                    ih1.d().h(context, i, new ih1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                    jh1.d().h(context, i, new jh1.a(this, str, networkClass, currentTimeMillis, oneKeyLoginOptCallback) { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ OneKeyLoginSdkCall this$0;
@@ -542,7 +555,7 @@ public class OneKeyLoginSdkCall {
                             this.val$callback = oneKeyLoginOptCallback;
                         }
 
-                        @Override // com.baidu.tieba.ih1.a
+                        @Override // com.baidu.tieba.jh1.a
                         public void onFinish(String str2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {
@@ -617,14 +630,14 @@ public class OneKeyLoginSdkCall {
         }
     }
 
-    public void preGetPhoneFail(OneKeyLoginCallback oneKeyLoginCallback, int i, String str) {
+    public void preGetPhoneInfo(SapiConfiguration sapiConfiguration, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048586, this, oneKeyLoginCallback, i, str) == null) || oneKeyLoginCallback == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, sapiConfiguration, str) == null) {
+            try {
+                preGetPhoneInfo(sapiConfiguration.context, str, 15000, false, null);
+            } catch (NoClassDefFoundError unused) {
+                Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
+            }
         }
-        OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
-        oneKeyLoginResult.setResultCode(i);
-        oneKeyLoginResult.setResultMsg(str);
-        oneKeyLoginCallback.unAvailable(oneKeyLoginResult);
     }
 }

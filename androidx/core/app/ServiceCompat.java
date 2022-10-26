@@ -2,8 +2,6 @@ package androidx.core.app;
 
 import android.app.Service;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +17,6 @@ public final class ServiceCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface StopForegroundFlags {
     }
@@ -38,14 +35,18 @@ public final class ServiceCompat {
         }
     }
 
-    public static void stopForeground(@NonNull Service service, int i) {
+    public static void stopForeground(Service service, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, service, i) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 service.stopForeground(i);
-            } else {
-                service.stopForeground((i & 1) != 0);
+                return;
             }
+            boolean z = true;
+            if ((i & 1) == 0) {
+                z = false;
+            }
+            service.stopForeground(z);
         }
     }
 }

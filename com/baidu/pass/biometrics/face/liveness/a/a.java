@@ -14,7 +14,7 @@ public class a {
     public static a b = null;
     public static final String c = "request_data";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, PassBiometricDto> a;
+    public HashMap a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = new HashMap();
     }
 
     public static a b() {
@@ -44,13 +44,22 @@ public class a {
         return (a) invokeV.objValue;
     }
 
+    public void a() {
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (hashMap = this.a) != null) {
+            hashMap.clear();
+            this.a = null;
+        }
+    }
+
     public PassBiometricDto a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, PassBiometricDto> hashMap = this.a;
+            HashMap hashMap = this.a;
             if (hashMap != null) {
-                return hashMap.get(str);
+                return (PassBiometricDto) hashMap.get(str);
             }
             return null;
         }
@@ -61,19 +70,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, passBiometricDto) == null) {
             if (this.a == null) {
-                this.a = new HashMap<>();
+                this.a = new HashMap();
             }
             this.a.put(str, passBiometricDto);
         }
-    }
-
-    public void a() {
-        HashMap<String, PassBiometricDto> hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (hashMap = this.a) == null) {
-            return;
-        }
-        hashMap.clear();
-        this.a = null;
     }
 }

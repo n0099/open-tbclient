@@ -41,6 +41,20 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public int p;
 
     /* loaded from: classes2.dex */
+    public interface b {
+        void a();
+
+        void onFinish();
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void setPageAnim(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,13 +96,6 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface b {
-        void a();
-
-        void onFinish();
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -119,12 +126,40 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
+    private void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, bVar) == null) {
+            try {
+                IWXAPI createWXAPI = WXAPIFactory.createWXAPI(this.configuration.context, this.configuration.wxAppID);
+                if (!createWXAPI.isWXAppInstalled()) {
+                    bVar.a();
+                    return;
+                }
+                bVar.onFinish();
+                SendAuth.Req req = new SendAuth.Req();
+                req.scope = "snsapi_userinfo";
+                createWXAPI.sendReq(req);
+            } catch (Exception e) {
+                e.printStackTrace();
+                finish();
+            }
+        }
+    }
+
     private void b(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, this, i, intent) == null) || SocialLoginBase.getWXinvokeCallback() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(65539, this, i, intent) == null) && SocialLoginBase.getWXinvokeCallback() != null) {
+            SocialLoginBase.getWXinvokeCallback().onResult(i, intent);
         }
-        SocialLoginBase.getWXinvokeCallback().onResult(i, intent);
+    }
+
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity
+    public void a(int i, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, intent) == null) {
+            super.a(i, intent);
+            b(i, intent);
+        }
     }
 
     private void e() {
@@ -152,7 +187,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
                 hashMap.put("wxRespCode", this.o);
                 hashMap.put("wxRespState", this.n);
                 StatService.onEventAutoStat("third_login_wx_result", hashMap);
-                if (TextUtils.equals(ThirdPartyUtil.wxAuthCodeMap.get(this.o), this.n)) {
+                if (TextUtils.equals((String) ThirdPartyUtil.wxAuthCodeMap.get(this.o), this.n)) {
                     return;
                 }
                 ThirdPartyUtil.wxAuthCodeMap.put(this.o, this.n);
@@ -191,11 +226,12 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.b(i);
+            b(i, (Intent) null);
         }
     }
 
@@ -208,48 +244,11 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void setPageAnim(boolean z) {
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity
-    public void a(int i, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, intent) == null) {
-            super.a(i, intent);
-            b(i, intent);
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            super.b(i);
-            b(i, (Intent) null);
-        }
-    }
-
-    private void a(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, bVar) == null) {
-            try {
-                IWXAPI createWXAPI = WXAPIFactory.createWXAPI(this.configuration.context, this.configuration.wxAppID);
-                if (!createWXAPI.isWXAppInstalled()) {
-                    bVar.a();
-                    return;
-                }
-                bVar.onFinish();
-                SendAuth.Req req = new SendAuth.Req();
-                req.scope = "snsapi_userinfo";
-                createWXAPI.sendReq(req);
-            } catch (Exception e) {
-                e.printStackTrace();
-                finish();
-            }
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
         }
     }
 }

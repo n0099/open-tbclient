@@ -1,6 +1,5 @@
 package com.bytedance.pangle;
 
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,6 @@ import com.bytedance.pangle.log.IZeusReporter;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-@Keep
 /* loaded from: classes7.dex */
 public class GlobalParam {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +30,7 @@ public class GlobalParam {
     public int mInstallThreads;
     public IZeusLogger mLogger;
     public IZeusReporter mReporter;
-    public Map<String, String> mRequestHeader;
+    public Map mRequestHeader;
 
     public GlobalParam() {
         Interceptable interceptable = $ic;
@@ -57,9 +55,10 @@ public class GlobalParam {
 
     private void ensureInit() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.hasInit) {
-            throw new RuntimeException();
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || !this.hasInit) {
+            return;
         }
+        throw new RuntimeException();
     }
 
     public static GlobalParam getInstance() {
@@ -78,66 +77,85 @@ public class GlobalParam {
         return (GlobalParam) invokeV.objValue;
     }
 
-    public void addRequestHeader(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            ensureInit();
-            this.mRequestHeader.put(str, str2);
-        }
-    }
-
     public boolean checkMatchHostAbi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCheckMatchHostAbi : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCheckMatchHostAbi;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean checkPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCheckPermission : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCheckPermission;
+        }
+        return invokeV.booleanValue;
     }
 
     public File getDownloadDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDownloadDir : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDownloadDir;
+        }
+        return (File) invokeV.objValue;
     }
 
     public IDownloaderProvider getDownloaderProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDownloaderProvider : (IDownloaderProvider) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDownloaderProvider;
+        }
+        return (IDownloaderProvider) invokeV.objValue;
     }
 
     public String getHostUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mHostUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mHostUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getInstallThreads() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mInstallThreads : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mInstallThreads;
+        }
+        return invokeV.intValue;
     }
 
     public IZeusLogger getLogger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mLogger : (IZeusLogger) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mLogger;
+        }
+        return (IZeusLogger) invokeV.objValue;
     }
 
     public IZeusReporter getReporter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mReporter : (IZeusReporter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mReporter;
+        }
+        return (IZeusReporter) invokeV.objValue;
     }
 
-    public Map<String, String> getRequestHeader() {
+    public Map getRequestHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mRequestHeader : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mRequestHeader;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public void init() {
@@ -150,19 +168,36 @@ public class GlobalParam {
     public boolean isCloseDefaultReport() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mCloseDefaultReport : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mCloseDefaultReport;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mDebug : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mDebug;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isFastDex2oat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mFastDex2oat : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mFastDex2oat;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void addRequestHeader(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            ensureInit();
+            this.mRequestHeader.put(str, str2);
+        }
     }
 
     public void setCheckMatchHostAbi(boolean z) {

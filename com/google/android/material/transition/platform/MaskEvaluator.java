@@ -5,7 +5,6 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.os.Build;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +14,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.transition.platform.MaterialContainerTransform;
-@RequiresApi(21)
 /* loaded from: classes7.dex */
 public class MaskEvaluator {
     public static /* synthetic */ Interceptable $ic;
@@ -73,12 +71,18 @@ public class MaskEvaluator {
     public ShapeAppearanceModel getCurrentShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.currentShapeAppearanceModel : (ShapeAppearanceModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.currentShapeAppearanceModel;
+        }
+        return (ShapeAppearanceModel) invokeV.objValue;
     }
 
     public Path getPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.path : (Path) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.path;
+        }
+        return (Path) invokeV.objValue;
     }
 }

@@ -26,7 +26,7 @@ public final class SchemeTimeCostMoniter {
     public TimeCostMonitor mTimeCostMoniter;
 
     /* loaded from: classes2.dex */
-    public static class SchemeTimeCostMoniterHolder {
+    public class SchemeTimeCostMoniterHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final SchemeTimeCostMoniter sInstance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,23 +81,10 @@ public final class SchemeTimeCostMoniter {
     public static SchemeTimeCostMoniter getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? SchemeTimeCostMoniterHolder.sInstance : (SchemeTimeCostMoniter) invokeV.objValue;
-    }
-
-    public void schemeEnd(String str) {
-        TimeCostMonitor timeCostMonitor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && DEBUG && this.mOpenMoniter && (timeCostMonitor = this.mTimeCostMoniter) != null) {
-            timeCostMonitor.recordEnd(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return SchemeTimeCostMoniterHolder.sInstance;
         }
-    }
-
-    public void schemeStart(String str) {
-        TimeCostMonitor timeCostMonitor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && DEBUG && this.mOpenMoniter && (timeCostMonitor = this.mTimeCostMoniter) != null) {
-            timeCostMonitor.recordStart(str);
-        }
+        return (SchemeTimeCostMoniter) invokeV.objValue;
     }
 
     public SchemeTimeCostMoniter() {
@@ -148,5 +135,21 @@ public final class SchemeTimeCostMoniter {
                 }
             }
         }, j);
+    }
+
+    public void schemeEnd(String str) {
+        TimeCostMonitor timeCostMonitor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && DEBUG && this.mOpenMoniter && (timeCostMonitor = this.mTimeCostMoniter) != null) {
+            timeCostMonitor.recordEnd(str);
+        }
+    }
+
+    public void schemeStart(String str) {
+        TimeCostMonitor timeCostMonitor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && DEBUG && this.mOpenMoniter && (timeCostMonitor = this.mTimeCostMoniter) != null) {
+            timeCostMonitor.recordStart(str);
+        }
     }
 }

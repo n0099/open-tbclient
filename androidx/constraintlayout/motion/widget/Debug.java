@@ -38,6 +38,27 @@ public class Debug {
         }
     }
 
+    public static void dumpLayoutParams(ViewGroup.LayoutParams layoutParams, String str) {
+        Field[] fields;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, layoutParams, str) == null) {
+            StackTraceElement stackTraceElement = new Throwable().getStackTrace()[1];
+            String str2 = ".(" + stackTraceElement.getFileName() + ":" + stackTraceElement.getLineNumber() + ") " + str + GlideException.IndentedAppendable.INDENT;
+            System.out.println(" >>>>>>>>>>>>>>>>>>. dump " + str2 + GlideException.IndentedAppendable.INDENT + layoutParams.getClass().getName());
+            for (Field field : layoutParams.getClass().getFields()) {
+                try {
+                    Object obj = field.get(layoutParams);
+                    String name = field.getName();
+                    if (name.contains("To") && !obj.toString().equals("-1")) {
+                        System.out.println(str2 + "       " + name + " " + obj);
+                    }
+                } catch (IllegalAccessException unused) {
+                }
+            }
+            System.out.println(" <<<<<<<<<<<<<<<<< dump " + str2);
+        }
+    }
+
     public static void dumpLayoutParams(ViewGroup viewGroup, String str) {
         Field[] fields;
         Interceptable interceptable = $ic;
@@ -143,54 +164,6 @@ public class Debug {
         return (String) invokeV.objValue;
     }
 
-    public static String getName(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
-            try {
-                return view2.getContext().getResources().getResourceEntryName(view2.getId());
-            } catch (Exception unused) {
-                return RomUtils.UNKNOWN;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getState(MotionLayout motionLayout, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, motionLayout, i)) == null) ? i == -1 ? "UNDEFINED" : motionLayout.getContext().getResources().getResourceEntryName(i) : (String) invokeLI.objValue;
-    }
-
-    public static void logStack(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65549, null, str, str2, i) == null) {
-            StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-            int min = Math.min(i, stackTrace.length - 1);
-            String str3 = " ";
-            for (int i2 = 1; i2 <= min; i2++) {
-                StackTraceElement stackTraceElement = stackTrace[i2];
-                str3 = str3 + " ";
-                Log.v(str, str2 + str3 + (".(" + stackTrace[i2].getFileName() + ":" + stackTrace[i2].getLineNumber() + ") " + stackTrace[i2].getMethodName()) + str3);
-            }
-        }
-    }
-
-    public static void printStack(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, null, str, i) == null) {
-            StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-            int min = Math.min(i, stackTrace.length - 1);
-            String str2 = " ";
-            for (int i2 = 1; i2 <= min; i2++) {
-                StackTraceElement stackTraceElement = stackTrace[i2];
-                str2 = str2 + " ";
-                PrintStream printStream = System.out;
-                printStream.println(str + str2 + (".(" + stackTrace[i2].getFileName() + ":" + stackTrace[i2].getLineNumber() + ") ") + str2);
-            }
-        }
-    }
-
     public static String getName(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -209,26 +182,30 @@ public class Debug {
 
     public static String getName(Context context, int[] iArr) {
         String str;
+        String str2;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, iArr)) == null) {
             try {
-                String str2 = iArr.length + PreferencesUtil.LEFT_MOUNT;
-                int i = 0;
-                while (i < iArr.length) {
+                String str3 = iArr.length + PreferencesUtil.LEFT_MOUNT;
+                for (int i = 0; i < iArr.length; i++) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(str2);
-                    sb.append(i == 0 ? "" : " ");
+                    sb.append(str3);
+                    if (i != 0) {
+                        str = " ";
+                    } else {
+                        str = "";
+                    }
+                    sb.append(str);
                     String sb2 = sb.toString();
                     try {
-                        str = context.getResources().getResourceEntryName(iArr[i]);
+                        str2 = context.getResources().getResourceEntryName(iArr[i]);
                     } catch (Resources.NotFoundException unused) {
-                        str = "? " + iArr[i] + " ";
+                        str2 = "? " + iArr[i] + " ";
                     }
-                    str2 = sb2 + str;
-                    i++;
+                    str3 = sb2 + str2;
                 }
-                return str2 + PreferencesUtil.RIGHT_MOUNT;
+                return str3 + PreferencesUtil.RIGHT_MOUNT;
             } catch (Exception e) {
                 Log.v("DEBUG", e.toString());
                 return RomUtils.UNKNOWN;
@@ -237,24 +214,57 @@ public class Debug {
         return (String) invokeLL.objValue;
     }
 
-    public static void dumpLayoutParams(ViewGroup.LayoutParams layoutParams, String str) {
-        Field[] fields;
+    public static void printStack(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, layoutParams, str) == null) {
-            StackTraceElement stackTraceElement = new Throwable().getStackTrace()[1];
-            String str2 = ".(" + stackTraceElement.getFileName() + ":" + stackTraceElement.getLineNumber() + ") " + str + GlideException.IndentedAppendable.INDENT;
-            System.out.println(" >>>>>>>>>>>>>>>>>>. dump " + str2 + GlideException.IndentedAppendable.INDENT + layoutParams.getClass().getName());
-            for (Field field : layoutParams.getClass().getFields()) {
-                try {
-                    Object obj = field.get(layoutParams);
-                    String name = field.getName();
-                    if (name.contains("To") && !obj.toString().equals("-1")) {
-                        System.out.println(str2 + "       " + name + " " + obj);
-                    }
-                } catch (IllegalAccessException unused) {
-                }
+        if (interceptable == null || interceptable.invokeLI(65550, null, str, i) == null) {
+            StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+            int min = Math.min(i, stackTrace.length - 1);
+            String str2 = " ";
+            for (int i2 = 1; i2 <= min; i2++) {
+                StackTraceElement stackTraceElement = stackTrace[i2];
+                str2 = str2 + " ";
+                PrintStream printStream = System.out;
+                printStream.println(str + str2 + (".(" + stackTrace[i2].getFileName() + ":" + stackTrace[i2].getLineNumber() + ") ") + str2);
             }
-            System.out.println(" <<<<<<<<<<<<<<<<< dump " + str2);
+        }
+    }
+
+    public static String getName(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
+            try {
+                return view2.getContext().getResources().getResourceEntryName(view2.getId());
+            } catch (Exception unused) {
+                return RomUtils.UNKNOWN;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getState(MotionLayout motionLayout, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, motionLayout, i)) == null) {
+            if (i == -1) {
+                return "UNDEFINED";
+            }
+            return motionLayout.getContext().getResources().getResourceEntryName(i);
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static void logStack(String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65549, null, str, str2, i) == null) {
+            StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+            int min = Math.min(i, stackTrace.length - 1);
+            String str3 = " ";
+            for (int i2 = 1; i2 <= min; i2++) {
+                StackTraceElement stackTraceElement = stackTrace[i2];
+                str3 = str3 + " ";
+                Log.v(str, str2 + str3 + (".(" + stackTrace[i2].getFileName() + ":" + stackTrace[i2].getLineNumber() + ") " + stackTrace[i2].getMethodName()) + str3);
+            }
         }
     }
 }

@@ -1,8 +1,5 @@
 package com.baidu.ala.data;
 
-import alaim.LiveInfo;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,14 +16,6 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AlaLiveInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
-    public static final int LIVE_SCREEN_DIRECTION_PORTRAIT = 1;
-    public static final int LIVE_SESSION_DEFAULT_BACK = 2;
-    public static final int LIVE_SESSION_DEFAULT_MAIN = 1;
-    public static final int LIVE_STATUS_END = 2;
-    public static final int LIVE_STATUS_LIVING = 1;
-    public static final int LIVE_STATUS_PLAYBACK = 3;
-    public static final int LIVE_STATUS_PLAYBACK_DELETE = 4;
     public static final int LIVE_TYPE_CAMERA = 1;
     public static final int LIVE_TYPE_SCREEN_RECORD = 2;
     public static final long serialVersionUID = 5768965545624138312L;
@@ -64,7 +53,6 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
     public int live_status;
     public int live_type;
     public String location;
-    public int mCurrentSessionLine;
     public String media_pic;
     public long noticeBroadcastMsgId;
     public int openType;
@@ -95,7 +83,6 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
             }
         }
         this.session_default = 0;
-        this.mCurrentSessionLine = 0;
         this.broadGiftMsgId = 0L;
         this.noticeBroadcastMsgId = 0L;
         this.isPullMode = false;
@@ -104,48 +91,33 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
     public int getAudienceCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.audience_count : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.audience_count;
+        }
+        return invokeV.intValue;
     }
 
     public String getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.location : (String) invokeV.objValue;
-    }
-
-    public String getMedia_pic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.media_pic : (String) invokeV.objValue;
-    }
-
-    public String getNameShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.user_nickname)) {
-                return this.user_name;
-            }
-            return this.user_nickname;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.location;
         }
         return (String) invokeV.objValue;
-    }
-
-    public int getPlay_count() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.play_count : invokeV.intValue;
     }
 
     public String getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.user_name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.user_name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
@@ -154,59 +126,9 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         }
     }
 
-    public void parserProtoBuf(LiveInfo liveInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, liveInfo) == null) || liveInfo == null) {
-            return;
-        }
-        this.live_id = liveInfo.live_id.longValue();
-        this.user_id = liveInfo.user_id.longValue();
-        this.user_name = liveInfo.user_name;
-        this.user_nickname = liveInfo.user_nickname;
-        this.group_id = liveInfo.group_id.longValue();
-        this.last_msg_id = liveInfo.last_msg_id.longValue();
-        this.session_id = liveInfo.session_id;
-        this.description = liveInfo.description;
-        this.cover = liveInfo.cover;
-        this.join_count = liveInfo.join_count.intValue();
-        this.audience_count = liveInfo.audience_count.intValue();
-        this.zan_count = liveInfo.zan_count.intValue();
-        this.live_duration = liveInfo.live_duration.longValue();
-        this.charm_count = liveInfo.charm_count.intValue();
-        this.flower_count = liveInfo.flower_count.intValue();
-        this.start_time = liveInfo.start_time.intValue();
-        this.end_time = liveInfo.end_time.intValue();
-        this.location = liveInfo.location;
-        this.channel_id = liveInfo.channel_id.longValue();
-        this.channel_name = liveInfo.channel_name;
-        this.live_status = liveInfo.live_status.intValue();
-        this.close_type = liveInfo.close_type.intValue();
-        this.close_reason = liveInfo.close_reason;
-        this.backstage_type = liveInfo.backstage_type.intValue();
-        this.share_url = liveInfo.share_url;
-        this.forum_name = liveInfo.forum_name;
-        this.forum_id = liveInfo.forum_id.longValue();
-        this.screen_direction = liveInfo.screen_direction.intValue();
-        int intValue = liveInfo.live_type.intValue();
-        this.live_type = intValue;
-        if (intValue != 2) {
-            this.live_type = 1;
-        }
-        this.session_default = liveInfo.session_default.intValue();
-        this.appId = liveInfo.third_app_id;
-        this.openType = liveInfo.open_type.intValue();
-        this.isAudioOnPrivate = liveInfo.on_audio_private.intValue();
-        this.isOnPrivate = liveInfo.on_private.intValue();
-        this.pkId = liveInfo.pk_id.longValue();
-        this.challengeId = liveInfo.challenge_id.intValue();
-        this.broadGiftMsgId = liveInfo.gift_broad_msg_id.longValue();
-        this.isPullMode = liveInfo.im_pull_mode.intValue() == 1;
-        this.noticeBroadcastMsgId = liveInfo.notice_broad_msg_id.intValue();
-    }
-
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.live_id = jSONObject.optLong("live_id");
@@ -241,6 +163,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         this.thread_id = jSONObject.optLong("thread_id");
         this.comment_count = jSONObject.optInt("comment_count");
         this.screen_direction = jSONObject.optInt("screen_direction");
+        boolean z = true;
         int optInt = jSONObject.optInt("live_type", 1);
         this.live_type = optInt;
         if (optInt != 2) {
@@ -259,7 +182,10 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         this.pkId = jSONObject.optLong("pk_id", 0L);
         this.challengeId = jSONObject.optLong("challenge_id", 0L);
         this.broadGiftMsgId = jSONObject.optLong("gift_broad_msg_id", 0L);
-        this.isPullMode = jSONObject.optInt("im_pull_mode") == 1;
+        if (jSONObject.optInt("im_pull_mode") != 1) {
+            z = false;
+        }
+        this.isPullMode = z;
         this.noticeBroadcastMsgId = jSONObject.optLong("notice_broad_msg_id", 0L);
     }
 }

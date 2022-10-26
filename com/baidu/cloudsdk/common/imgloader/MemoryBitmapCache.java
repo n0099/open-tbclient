@@ -15,11 +15,21 @@ public class MemoryBitmapCache implements IBitmapCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IEvictPolicy mEvictPolicy;
-    public Map<String, CacheEntry> mMap;
+    public Map mMap;
     public int mMaxSize;
 
     /* loaded from: classes.dex */
-    public static class CacheEntry {
+    public interface IEvictPolicy {
+        public static final int LRU = 0;
+        public static final int OLDEST = 1;
+
+        String findItemToDelete(Map map);
+
+        void updateCacheItem(CacheEntry cacheEntry);
+    }
+
+    /* loaded from: classes.dex */
+    public class CacheEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mHits;
@@ -42,17 +52,7 @@ public class MemoryBitmapCache implements IBitmapCache {
     }
 
     /* loaded from: classes.dex */
-    public interface IEvictPolicy {
-        public static final int LRU = 0;
-        public static final int OLDEST = 1;
-
-        String findItemToDelete(Map<String, CacheEntry> map);
-
-        void updateCacheItem(CacheEntry cacheEntry);
-    }
-
-    /* loaded from: classes.dex */
-    public static class LRUPolicy implements IEvictPolicy {
+    public class LRUPolicy implements IEvictPolicy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mRecentTimeRange;
@@ -76,7 +76,7 @@ public class MemoryBitmapCache implements IBitmapCache {
         }
 
         @Override // com.baidu.cloudsdk.common.imgloader.MemoryBitmapCache.IEvictPolicy
-        public String findItemToDelete(Map<String, CacheEntry> map) {
+        public String findItemToDelete(Map map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
@@ -84,7 +84,7 @@ public class MemoryBitmapCache implements IBitmapCache {
                 CacheEntry cacheEntry = null;
                 boolean z = true;
                 for (String str2 : map.keySet()) {
-                    CacheEntry cacheEntry2 = map.get(str2);
+                    CacheEntry cacheEntry2 = (CacheEntry) map.get(str2);
                     long currentTimeMillis = System.currentTimeMillis();
                     long j = cacheEntry2.mTimeStamp;
                     if (currentTimeMillis - j < this.mRecentTimeRange) {
@@ -118,7 +118,7 @@ public class MemoryBitmapCache implements IBitmapCache {
     }
 
     /* loaded from: classes.dex */
-    public static class OldestPolicy implements IEvictPolicy {
+    public class OldestPolicy implements IEvictPolicy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -137,14 +137,14 @@ public class MemoryBitmapCache implements IBitmapCache {
         }
 
         @Override // com.baidu.cloudsdk.common.imgloader.MemoryBitmapCache.IEvictPolicy
-        public String findItemToDelete(Map<String, CacheEntry> map) {
+        public String findItemToDelete(Map map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
                 String str = null;
                 CacheEntry cacheEntry = null;
                 for (String str2 : map.keySet()) {
-                    CacheEntry cacheEntry2 = map.get(str2);
+                    CacheEntry cacheEntry2 = (CacheEntry) map.get(str2);
                     if (cacheEntry == null || cacheEntry2.mTimeStamp < cacheEntry.mTimeStamp) {
                         str = str2;
                         cacheEntry = cacheEntry2;
@@ -186,65 +186,27 @@ public class MemoryBitmapCache implements IBitmapCache {
         }
     }
 
-    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
-    public synchronized void clean() {
+    public MemoryBitmapCache(int i, IEvictPolicy iEvictPolicy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                Iterator<String> it = this.mMap.keySet().iterator();
-                while (it.hasNext()) {
-                    CacheEntry cacheEntry = this.mMap.get(it.next());
-                    if (cacheEntry != null && cacheEntry.mImage != null && !cacheEntry.mImage.isRecycled()) {
-                        cacheEntry.mImage.recycle();
-                    }
-                    it.remove();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), iEvictPolicy};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
-    public synchronized void delete(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this) {
-                CacheEntry remove = this.mMap.remove(str);
-                if (remove != null && remove.mImage != null && !remove.mImage.isRecycled()) {
-                    remove.mImage.recycle();
-                }
-            }
+        this.mMap = new HashMap();
+        this.mMaxSize = i;
+        this.mEvictPolicy = iEvictPolicy;
+        if (iEvictPolicy == null) {
+            this.mEvictPolicy = new OldestPolicy();
         }
-    }
-
-    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
-    public synchronized boolean exists(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                z = this.mMap.get(str) != null;
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
-    public synchronized Bitmap get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                CacheEntry cacheEntry = this.mMap.get(str);
-                if (cacheEntry != null) {
-                    this.mEvictPolicy.updateCacheItem(cacheEntry);
-                    return cacheEntry.mImage;
-                }
-                return null;
-            }
-        }
-        return (Bitmap) invokeL.objValue;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
@@ -267,6 +229,71 @@ public class MemoryBitmapCache implements IBitmapCache {
         }
     }
 
+    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
+    public synchronized void clean() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                Iterator it = this.mMap.keySet().iterator();
+                while (it.hasNext()) {
+                    CacheEntry cacheEntry = (CacheEntry) this.mMap.get((String) it.next());
+                    if (cacheEntry != null && cacheEntry.mImage != null && !cacheEntry.mImage.isRecycled()) {
+                        cacheEntry.mImage.recycle();
+                    }
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
+    public synchronized void delete(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this) {
+                CacheEntry cacheEntry = (CacheEntry) this.mMap.remove(str);
+                if (cacheEntry != null && cacheEntry.mImage != null && !cacheEntry.mImage.isRecycled()) {
+                    cacheEntry.mImage.recycle();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
+    public synchronized boolean exists(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                if (this.mMap.get(str) != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
+    public synchronized Bitmap get(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                CacheEntry cacheEntry = (CacheEntry) this.mMap.get(str);
+                if (cacheEntry != null) {
+                    this.mEvictPolicy.updateCacheItem(cacheEntry);
+                    return cacheEntry.mImage;
+                }
+                return null;
+            }
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
     public MemoryBitmapCache setEvictPolicy(IEvictPolicy iEvictPolicy) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -285,28 +312,5 @@ public class MemoryBitmapCache implements IBitmapCache {
             return this;
         }
         return (MemoryBitmapCache) invokeI.objValue;
-    }
-
-    public MemoryBitmapCache(int i, IEvictPolicy iEvictPolicy) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), iEvictPolicy};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mMap = new HashMap();
-        this.mMaxSize = i;
-        this.mEvictPolicy = iEvictPolicy;
-        if (iEvictPolicy == null) {
-            this.mEvictPolicy = new OldestPolicy();
-        }
     }
 }

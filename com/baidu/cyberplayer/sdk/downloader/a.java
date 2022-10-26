@@ -25,7 +25,7 @@ public class a implements b.a {
     public InterfaceC0090a b;
     public String c;
     public String d;
-    public ArrayList<String> e;
+    public ArrayList e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.downloader.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -36,7 +36,7 @@ public class a implements b.a {
 
         void a(String str, long j, long j2);
 
-        void a(String str, long j, ArrayList<String> arrayList);
+        void a(String str, long j, ArrayList arrayList);
     }
 
     static {
@@ -167,7 +167,7 @@ public class a implements b.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String a(String str, ArrayList<String> arrayList) {
+    public static String a(String str, ArrayList arrayList) {
         InterceptResult invokeLL;
         File file;
         Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class a implements b.a {
                         if (i >= arrayList.size()) {
                             break;
                         }
-                        String str3 = arrayList.get(i);
+                        String str3 = (String) arrayList.get(i);
                         if (!TextUtils.isEmpty(str3)) {
                             File file2 = new File(str, str3);
                             if (!file2.isDirectory()) {
@@ -218,7 +218,7 @@ public class a implements b.a {
                 if (this.e != null) {
                     CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
                     for (int i = 0; i < this.e.size(); i++) {
-                        String str2 = this.e.get(i);
+                        String str2 = (String) this.e.get(i);
                         if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_")) {
                             String substring = str2.substring(4, 36);
                             if (!o.a(substring, this.d + File.separator + str2)) {

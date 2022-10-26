@@ -24,9 +24,9 @@ public class v {
     public Context f1007a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<String> f1008a;
-    public final List<String> b;
-    public final List<String> c;
+    public List f1008a;
+    public final List b;
+    public final List c;
 
     static {
         InterceptResult invokeClinit;
@@ -112,7 +112,7 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m685a(String str) {
+    public boolean m684a(String str) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class v {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m686b(String str) {
+    public boolean m685b(String str) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
@@ -164,7 +164,7 @@ public class v {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m687c(String str) {
+    public boolean m686c(String str) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;

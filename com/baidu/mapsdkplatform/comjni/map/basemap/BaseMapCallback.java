@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BaseMapCallback {
     public static /* synthetic */ Interceptable $ic;
-    public static LongSparseArray<b> a;
+    public static LongSparseArray a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class BaseMapCallback {
                 return;
             }
         }
-        a = new LongSparseArray<>();
+        a = new LongSparseArray();
     }
 
     public BaseMapCallback() {
@@ -52,9 +52,9 @@ public class BaseMapCallback {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bundle, Long.valueOf(j), Integer.valueOf(i), bundle2})) == null) {
             int size = a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                b valueAt = a.valueAt(i2);
-                if (valueAt != null && valueAt.a(j)) {
-                    return valueAt.a(bundle, j, i, bundle2);
+                b bVar = (b) a.valueAt(i2);
+                if (bVar != null && bVar.a(j)) {
+                    return bVar.a(bundle, j, i, bundle2);
                 }
             }
             return 0;

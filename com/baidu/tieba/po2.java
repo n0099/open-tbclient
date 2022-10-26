@@ -1,5 +1,429 @@
 package com.baidu.tieba;
+
+import android.os.Bundle;
+import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.TypeCastException;
 /* loaded from: classes5.dex */
-public interface po2 {
-    public static final boolean a = vj1.a;
+public abstract class po2 implements ii3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
+
+    /* loaded from: classes5.dex */
+    public final class a extends po2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a E() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ii3
+        public /* bridge */ /* synthetic */ ii3 a() {
+            E();
+            return this;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Bundle bundle) {
+            super(bundle);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Bundle) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public po2() {
+        this(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Bundle) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public Bundle C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!q()) {
+                this.a = new Bundle();
+            }
+            return this.a;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public Bundle D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (q()) {
+                return new Bundle(C());
+            }
+            return new Bundle();
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public po2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (q()) {
+                this.a.clear();
+            }
+            return (po2) a();
+        }
+        return (po2) invokeV.objValue;
+    }
+
+    public final boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            synchronized (this) {
+                if (q()) {
+                    str = this.a.toString();
+                } else {
+                    str = SchemeCollecter.CLASSIFY_EMPTY;
+                }
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public po2(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bundle};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        new ph3();
+        this.a = bundle;
+    }
+
+    public static String r(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return str + "." + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public po2 A(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
+            no2.f.d(this, str, strArr);
+            return (po2) a();
+        }
+        return (po2) invokeLL.objValue;
+    }
+
+    public boolean e(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            return ((Boolean) no2.a.b(this, str, Boolean.valueOf(z))).booleanValue();
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public float h(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048586, this, str, f)) == null) {
+            return ((Float) no2.d.b(this, str, Float.valueOf(f))).floatValue();
+        }
+        return invokeLF.floatValue;
+    }
+
+    public int j(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
+            return ((Integer) no2.b.b(this, str, Integer.valueOf(i))).intValue();
+        }
+        return invokeLI.intValue;
+    }
+
+    public long l(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j)) == null) {
+            return ((Long) no2.c.b(this, str, Long.valueOf(j))).longValue();
+        }
+        return invokeLJ.longValue;
+    }
+
+    public String o(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) {
+            return (String) no2.e.b(this, str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public po2 t(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, str, z)) == null) {
+            no2.a.d(this, str, Boolean.valueOf(z));
+            return (po2) a();
+        }
+        return (po2) invokeLZ.objValue;
+    }
+
+    public po2 u(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, bundle)) == null) {
+            no2.g.d(this, str, bundle);
+            return (po2) a();
+        }
+        return (po2) invokeLL.objValue;
+    }
+
+    public po2 v(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048601, this, str, f)) == null) {
+            no2.d.d(this, str, Float.valueOf(f));
+            return (po2) a();
+        }
+        return (po2) invokeLF.objValue;
+    }
+
+    public po2 w(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048602, this, str, i)) == null) {
+            no2.b.d(this, str, Integer.valueOf(i));
+            return (po2) a();
+        }
+        return (po2) invokeLI.objValue;
+    }
+
+    public po2 x(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048603, this, str, j)) == null) {
+            no2.c.d(this, str, Long.valueOf(j));
+            return (po2) a();
+        }
+        return (po2) invokeLJ.objValue;
+    }
+
+    public po2 y(String str, Parcelable parcelable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, parcelable)) == null) {
+            no2.h.d(this, str, parcelable);
+            return (po2) a();
+        }
+        return (po2) invokeLL.objValue;
+    }
+
+    public po2 z(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, str, str2)) == null) {
+            no2.e.d(this, str, str2);
+            return (po2) a();
+        }
+        return (po2) invokeLL.objValue;
+    }
+
+    public po2 B(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (q()) {
+                this.a.remove(str);
+            }
+            return (po2) a();
+        }
+        return (po2) invokeL.objValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (q() && this.a.containsKey(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return ((Boolean) no2.a.a(this, str)).booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Bundle f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return (Bundle) no2.g.a(this, str);
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public float g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return ((Float) no2.d.a(this, str)).floatValue();
+        }
+        return invokeL.floatValue;
+    }
+
+    public int i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return ((Integer) no2.b.a(this, str)).intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public long k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            return ((Long) no2.c.a(this, str)).longValue();
+        }
+        return invokeL.longValue;
+    }
+
+    public Parcelable m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            try {
+                return (Parcelable) no2.h.a(this, str);
+            } catch (TypeCastException unused) {
+                return null;
+            }
+        }
+        return (Parcelable) invokeL.objValue;
+    }
+
+    public String n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            return (String) no2.e.a(this, str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String[] p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            return (String[]) no2.f.a(this, str);
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public po2 s(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, bundle)) == null) {
+            if (bundle != null && !bundle.isEmpty()) {
+                C().putAll(bundle);
+            }
+            return (po2) a();
+        }
+        return (po2) invokeL.objValue;
+    }
+
+    public po2 update(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, bundle)) == null) {
+            s(bundle);
+            return (po2) a();
+        }
+        return (po2) invokeL.objValue;
+    }
 }

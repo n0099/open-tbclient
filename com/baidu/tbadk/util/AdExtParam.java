@@ -1,8 +1,7 @@
 package com.baidu.tbadk.util;
 
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vg5;
+import com.baidu.tieba.bh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import java.util.HashMap;
-@Keep
 /* loaded from: classes3.dex */
 public class AdExtParam {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,7 +23,7 @@ public class AdExtParam {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HashMap a;
@@ -44,20 +42,6 @@ public class AdExtParam {
             }
         }
 
-        public static a b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                a aVar = new a();
-                HashMap hashMap = new HashMap();
-                aVar.a = hashMap;
-                hashMap.put(AdExtParam.KEY_IADEX, vg5.e());
-                aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.8.0.17");
-                return aVar;
-            }
-            return (a) invokeV.objValue;
-        }
-
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -69,6 +53,20 @@ public class AdExtParam {
                 }
             }
             return (String) invokeV.objValue;
+        }
+
+        public static a b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                a aVar = new a();
+                HashMap hashMap = new HashMap();
+                aVar.a = hashMap;
+                hashMap.put(AdExtParam.KEY_IADEX, bh5.e());
+                aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.8.0.17");
+                return aVar;
+            }
+            return (a) invokeV.objValue;
         }
 
         public a c(String str) {

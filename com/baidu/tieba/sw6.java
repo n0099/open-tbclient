@@ -1,117 +1,43 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.DiscoverHotForum;
-import tbclient.DiscoverTabCard;
-import tbclient.RecommendForumInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sw6 {
+public abstract class sw6 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FollowUserButton.a a;
 
-    public static void a(ThreadData threadData, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sw6(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, threadData, i) == null) {
-            TiebaStatic.log(i != 1 ? null : jl8.k("c13692", threadData, 3));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(View view2, yq4 yq4Var, int i) {
+    public void s(FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, view2, yq4Var, i) == null) || view2 == null || yq4Var == null || yq4Var.getThreadData() == null || StringUtils.isNull(yq4Var.getThreadData().getTid())) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
-        ThreadData threadData = yq4Var.getThreadData();
-        if (threadData.isLinkThread()) {
-            statisticItem.param("obj_type", 4);
-        } else if (threadData.isShareThread) {
-            statisticItem.param("obj_type", 5);
-        } else if (threadData.isBJHArticleThreadType()) {
-            statisticItem.param("obj_type", 6);
-        } else if (threadData.isBJHNormalThreadType()) {
-            statisticItem.param("obj_type", 7);
-        } else if (threadData.isBJHVideoThreadType()) {
-            statisticItem.param("obj_type", 8);
-        } else if (threadData.isBJHVideoDynamicThreadType()) {
-            statisticItem.param("obj_type", 9);
-        } else if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-            statisticItem.param("obj_type", 1);
-        } else if (threadData.isVideoThreadType()) {
-            statisticItem.param("obj_type", 2);
-        }
-        statisticItem.param("obj_locate", i);
-        if (i == 3 || (i == 6 && (view2 instanceof TbImageView))) {
-            statisticItem.param(TiebaStatic.Params.OBJ_TO, UbsABTestHelper.isImgClickToPb() ? 1 : 2);
-        }
-        statisticItem.param("tid", yq4Var.getThreadData().getTid());
-        statisticItem.param("fid", yq4Var.getThreadData().getFid());
-        statisticItem.param("fname", yq4Var.getThreadData().getForum_name());
-        statisticItem.param("obj_source", 1);
-        if (yq4Var instanceof p26) {
-            statisticItem.param("obj_param1", ((p26) yq4Var).E() ? 2 : 1);
-        }
-        if (yq4Var.getThreadData().getAuthor() != null) {
-            statisticItem.param("uid", yq4Var.getThreadData().getAuthor().getUserId());
-        }
-        if (threadData.getBaijiahaoData() != null) {
-            statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-        } else {
-            statisticItem.param("obj_id", threadData.getTid());
-        }
-        if (yq4Var.getThreadData().getThreadAlaInfo() != null) {
-            int calculateLiveType = YYLiveUtil.calculateLiveType(yq4Var.getThreadData().getThreadAlaInfo());
-            if (yq4Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                TiebaStaticHelper.addYYParam(statisticItem, yq4Var.getThreadData().getThreadAlaInfo().mYyExtData);
-            }
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
-        }
-        TiebaStatic.log(statisticItem);
-        a(threadData, i);
-    }
-
-    public static boolean c(DiscoverHotForum.Builder builder, long j, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{builder, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            if (j != 0 && builder != null) {
-                List<DiscoverTabCard> list = builder.tab_list;
-                if (ListUtils.isEmpty(list)) {
-                    return false;
-                }
-                for (int i = 0; i < list.size(); i++) {
-                    DiscoverTabCard.Builder builder2 = new DiscoverTabCard.Builder(list.get(i));
-                    List<RecommendForumInfo> list2 = builder2.forum_list;
-                    if (!ListUtils.isEmpty(list2)) {
-                        for (int i2 = 0; i2 < list2.size(); i2++) {
-                            RecommendForumInfo.Builder builder3 = new RecommendForumInfo.Builder(list2.get(i2));
-                            if (builder3.forum_id.longValue() == j && builder3.is_like.intValue() != z) {
-                                builder3.is_like = Integer.valueOf(z ? 1 : 0);
-                                list2.set(i2, builder3.build(true));
-                                list.set(i, builder2.build(true));
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
     }
 }

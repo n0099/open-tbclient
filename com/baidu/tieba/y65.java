@@ -1,24 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class y65 {
+public class y65 extends n55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public View b;
+    public final q65 a;
 
-    public y65(View view2) {
+    @Override // com.baidu.tieba.n55
+    public void c(p55 p55Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p55Var) == null) {
+        }
+    }
+
+    public y65(q65 q65Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {q65Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,28 +37,40 @@ public class y65 {
                 return;
             }
         }
-        this.a = view2;
+        this.a = q65Var;
     }
 
-    public void a(boolean z) {
+    @Override // com.baidu.tieba.n55
+    public p55 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (!z && this.a.getVisibility() == 4) {
-                this.a.setVisibility(8);
-            }
-            if (z || this.b == null) {
-                return;
-            }
-            b();
-            this.b = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setBarLauncherType(6);
+            editorTools.setBackgroundColorId(R.color.CAM_X0602);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
+            editorTools.D(false);
+            return new x65(editorTools);
         }
+        return (p55) invokeL.objValue;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.n55
+    public void d(p55 p55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setVisibility(4);
-            c75.j(this.b);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p55Var) == null) {
+            EditorTools b = p55Var.b();
+            b.setHideBigEmotion(true);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            b.d(new z65(b.getContext(), this.a));
+            w55 n = b.n(5);
+            n.d = 0;
+            n.e(false);
+            b.setClearEbPadding(true);
+            b.f();
         }
     }
 }

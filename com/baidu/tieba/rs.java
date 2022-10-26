@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface rs {
-    void a(Bitmap bitmap);
-
-    void onError();
+    Map a();
 }

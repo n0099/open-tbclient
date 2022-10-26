@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
@@ -126,52 +125,6 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, String str, String str2, boolean z, String str3) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, alaLiveInfoCoreData, str, str2, Boolean.valueOf(z), str3};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra("user_id", str2);
-        getIntent().putExtra(LIVE_IS_HOST, z);
-        getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
-        getIntent().putExtra(LIVE_FROM_TYPE, str);
-        getIntent().putExtra("live_forum_name", str3);
-        isAlreadyEnterLiveRoom = true;
-    }
-
-    public AlaLiveRoomActivityConfig setCommonBroadcastQueue(ArrayList<Parcelable> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            getIntent().putParcelableArrayListExtra(LIVE_COMMON_BROADCAST_QUEUE, arrayList);
-            return this;
-        }
-        return (AlaLiveRoomActivityConfig) invokeL.objValue;
-    }
-
-    public AlaLiveRoomActivityConfig setIsForbidVerticalChangeLiveRoom(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            getIntent().putExtra(LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM, z);
-            return this;
-        }
-        return (AlaLiveRoomActivityConfig) invokeZ.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, AlaLiveInfoListCoreData alaLiveInfoListCoreData, String str, String str2, boolean z, String str3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
@@ -227,6 +180,56 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, String str, String str2) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, alaLiveInfoCoreData, str, str2};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra(LIVE_FROM_TYPE, str);
+        getIntent().putExtra(LIVE_FROM_FORUM_ID, str2);
+        getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
+        isAlreadyEnterLiveRoom = true;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, String str, String str2, boolean z, String str3) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, alaLiveInfoCoreData, str, str2, Boolean.valueOf(z), str3};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("user_id", str2);
+        getIntent().putExtra(LIVE_IS_HOST, z);
+        getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
+        getIntent().putExtra(LIVE_FROM_TYPE, str);
+        getIntent().putExtra("live_forum_name", str3);
+        isAlreadyEnterLiveRoom = true;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaLiveRoomActivityConfig(Context context, String str, String str2, String str3) {
         super(context);
         Interceptable interceptable = $ic;
@@ -250,27 +253,23 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         isAlreadyEnterLiveRoom = true;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaLiveRoomActivityConfig(Context context, AlaLiveInfoCoreData alaLiveInfoCoreData, String str, String str2) {
-        super(context);
+    public AlaLiveRoomActivityConfig setCommonBroadcastQueue(ArrayList arrayList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, alaLiveInfoCoreData, str, str2};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            getIntent().putParcelableArrayListExtra(LIVE_COMMON_BROADCAST_QUEUE, arrayList);
+            return this;
         }
-        getIntent().putExtra(LIVE_FROM_TYPE, str);
-        getIntent().putExtra(LIVE_FROM_FORUM_ID, str2);
-        getIntent().putExtra("live_info_core", alaLiveInfoCoreData);
-        isAlreadyEnterLiveRoom = true;
+        return (AlaLiveRoomActivityConfig) invokeL.objValue;
+    }
+
+    public AlaLiveRoomActivityConfig setIsForbidVerticalChangeLiveRoom(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            getIntent().putExtra(LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM, z);
+            return this;
+        }
+        return (AlaLiveRoomActivityConfig) invokeZ.objValue;
     }
 }

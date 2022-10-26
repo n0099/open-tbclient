@@ -44,7 +44,10 @@ public class HiidoUtils {
                 RLog.error(TAG, "getHdid hdid null", new Object[0]);
             }
             RLog.debug(TAG, "getHdid cost time = " + (System.currentTimeMillis() - currentTimeMillis));
-            return hdidSync == null ? "" : hdidSync;
+            if (hdidSync == null) {
+                return "";
+            }
+            return hdidSync;
         }
         return (String) invokeL.objValue;
     }

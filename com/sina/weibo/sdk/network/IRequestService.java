@@ -5,9 +5,9 @@ import com.sina.weibo.sdk.network.exception.RequestException;
 import com.sina.weibo.sdk.network.target.Target;
 /* loaded from: classes8.dex */
 public interface IRequestService {
-    <T> RequestCancelable asyncRequest(IRequestParam iRequestParam, Target<T> target);
+    RequestCancelable asyncRequest(IRequestParam iRequestParam, Target target);
 
     RequestResult request(IRequestParam iRequestParam) throws RequestException;
 
-    <T> T request(IRequestParam iRequestParam, Class<T> cls) throws RequestException;
+    Object request(IRequestParam iRequestParam, Class cls) throws RequestException;
 }

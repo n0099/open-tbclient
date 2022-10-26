@@ -15,7 +15,8 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,8 +30,8 @@ public class ItemHotThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public HashMap<String, View> b;
-    public List<SimpleThreadInfo> c;
+    public HashMap b;
+    public List c;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -69,7 +70,7 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LinearLayout a;
@@ -115,105 +116,23 @@ public class ItemHotThreadView extends LinearLayout {
                 return;
             }
         }
-        this.b = new HashMap<>();
+        this.b = new HashMap();
         c(context);
     }
 
-    public final void b(SimpleThreadInfo simpleThreadInfo, boolean z) {
-        View view2;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, simpleThreadInfo, z) == null) || simpleThreadInfo == null) {
-            return;
-        }
-        if (!this.b.containsKey(String.valueOf(simpleThreadInfo.tid))) {
-            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02ab, (ViewGroup) this, false);
-            bVar = new b(null);
-            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09219f);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e13);
-            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e11);
-            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e12);
-            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e10);
-            view2.setTag(bVar);
-            this.b.put(String.valueOf(simpleThreadInfo.tid), view2);
-            addView(view2);
-        } else {
-            view2 = this.b.get(String.valueOf(simpleThreadInfo.tid));
-            bVar = (b) view2.getTag();
-        }
-        bVar.b.setText(simpleThreadInfo.title);
-        StringBuilder sb = new StringBuilder();
-        List<Abstract> list = simpleThreadInfo._abstract;
-        if (list != null && list.size() != 0) {
-            int size = simpleThreadInfo._abstract.size();
-            for (int i = 0; i < size; i++) {
-                if (simpleThreadInfo._abstract.get(i) != null && simpleThreadInfo._abstract.get(i).type.intValue() == 0) {
-                    sb.append(simpleThreadInfo._abstract.get(i).text);
-                }
-            }
-        }
-        if (!dj.isEmpty(sb.toString().trim())) {
-            bVar.c.setText(sb.toString());
-            bVar.c.setVisibility(0);
-        } else {
-            bVar.c.setVisibility(8);
-        }
-        bVar.d.setText(String.valueOf(simpleThreadInfo.reply_num));
-        SkinManager.setBackgroundResource(bVar.a, R.drawable.live_frs_list_item_bg);
-        SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(bVar.c, R.color.CAM_X0108, 1);
-        SkinManager.setViewTextColor(bVar.d, R.color.CAM_X0304, 1);
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_ba_comment);
-        bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-        bVar.d.setCompoundDrawables(bitmapDrawable, null, null, null);
-        SkinManager.setBackgroundResource(bVar.e, R.color.CAM_X0204);
-        if (z) {
-            bVar.e.setVisibility(0);
-        } else {
-            bVar.e.setVisibility(8);
-        }
-        view2.setOnClickListener(new a(this, String.valueOf(simpleThreadInfo.tid)));
-    }
-
-    public void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02aa, (ViewGroup) this, true);
-            setVisibility(8);
-        }
-    }
-
-    public void d(ForumDetailActivity forumDetailActivity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumDetailActivity, i) == null) {
-            forumDetailActivity.getLayoutMode().l(i == 1);
-            forumDetailActivity.getLayoutMode().k(this);
-            e();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setData(this.c);
-        }
-    }
-
-    public void setData(List<SimpleThreadInfo> list) {
+    public void setData(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.c = list;
-            if (list == null || list.size() == 0) {
-                return;
-            }
-            setVisibility(0);
-            for (int i = 0; i < list.size(); i++) {
-                boolean z = true;
-                if (i == list.size() - 1) {
-                    z = false;
+            if (list != null && list.size() != 0) {
+                setVisibility(0);
+                for (int i = 0; i < list.size(); i++) {
+                    boolean z = true;
+                    if (i == list.size() - 1) {
+                        z = false;
+                    }
+                    b((SimpleThreadInfo) list.get(i), z);
                 }
-                b(list.get(i), z);
             }
         }
     }
@@ -237,7 +156,93 @@ public class ItemHotThreadView extends LinearLayout {
                 return;
             }
         }
-        this.b = new HashMap<>();
+        this.b = new HashMap();
         c(context);
+    }
+
+    public void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.a = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a9, (ViewGroup) this, true);
+            setVisibility(8);
+        }
+    }
+
+    public final void b(SimpleThreadInfo simpleThreadInfo, boolean z) {
+        View view2;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048576, this, simpleThreadInfo, z) != null) || simpleThreadInfo == null) {
+            return;
+        }
+        if (!this.b.containsKey(String.valueOf(simpleThreadInfo.tid))) {
+            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02aa, (ViewGroup) this, false);
+            bVar = new b(null);
+            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09219b);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e07);
+            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e05);
+            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e06);
+            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e04);
+            view2.setTag(bVar);
+            this.b.put(String.valueOf(simpleThreadInfo.tid), view2);
+            addView(view2);
+        } else {
+            view2 = (View) this.b.get(String.valueOf(simpleThreadInfo.tid));
+            bVar = (b) view2.getTag();
+        }
+        bVar.b.setText(simpleThreadInfo.title);
+        StringBuilder sb = new StringBuilder();
+        List<Abstract> list = simpleThreadInfo._abstract;
+        if (list != null && list.size() != 0) {
+            int size = simpleThreadInfo._abstract.size();
+            for (int i = 0; i < size; i++) {
+                if (simpleThreadInfo._abstract.get(i) != null && simpleThreadInfo._abstract.get(i).type.intValue() == 0) {
+                    sb.append(simpleThreadInfo._abstract.get(i).text);
+                }
+            }
+        }
+        if (!ej.isEmpty(sb.toString().trim())) {
+            bVar.c.setText(sb.toString());
+            bVar.c.setVisibility(0);
+        } else {
+            bVar.c.setVisibility(8);
+        }
+        bVar.d.setText(String.valueOf(simpleThreadInfo.reply_num));
+        SkinManager.setBackgroundResource(bVar.a, R.drawable.live_frs_list_item_bg);
+        SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(bVar.c, R.color.CAM_X0108, 1);
+        SkinManager.setViewTextColor(bVar.d, R.color.CAM_X0304, 1);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_ba_comment);
+        bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+        bVar.d.setCompoundDrawables(bitmapDrawable, null, null, null);
+        SkinManager.setBackgroundResource(bVar.e, R.color.CAM_X0204);
+        if (z) {
+            bVar.e.setVisibility(0);
+        } else {
+            bVar.e.setVisibility(8);
+        }
+        view2.setOnClickListener(new a(this, String.valueOf(simpleThreadInfo.tid)));
+    }
+
+    public void d(ForumDetailActivity forumDetailActivity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumDetailActivity, i) == null) {
+            zp4 layoutMode = forumDetailActivity.getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            forumDetailActivity.getLayoutMode().k(this);
+            e();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setData(this.c);
+        }
     }
 }

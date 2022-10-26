@@ -1,10 +1,9 @@
 package com.baidu.pyramid.runtime.multiprocess.components;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cf1;
-import com.baidu.tieba.df1;
 import com.baidu.tieba.ef1;
-import com.baidu.tieba.ye1;
+import com.baidu.tieba.ff1;
+import com.baidu.tieba.ze1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +34,7 @@ public class ServerProvider extends DispatchableContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return ye1.a().getPackageName() + ".provider.ipc.server";
+            return ze1.a().getPackageName() + ".provider.ipc.server";
         }
         return (String) invokeV.objValue;
     }
@@ -44,19 +43,22 @@ public class ServerProvider extends DispatchableContentProvider {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    public List<cf1> c() {
+    public List c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<cf1> a = ef1.a(b());
+            List a = ff1.a(b());
             if (a == null) {
-                a = new ArrayList<>();
+                a = new ArrayList();
             }
-            a.add(0, new df1());
+            a.add(0, new ef1());
             return a;
         }
         return (List) invokeV.objValue;

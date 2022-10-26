@@ -22,6 +22,48 @@ public class MissonDetailsActivityConfig extends IntentConfig {
     public static final String THREAD_TITLE = "thread_title";
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public MissonDetailsActivityConfig(Context context, int i, int i2, String str, String str2, String str3) {
+        this(context, i, i2, str, str2, str3, null, null, null, 0L, 0, 0, null, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], (String) objArr2[6], (String) objArr2[7], (String) objArr2[8], ((Long) objArr2[9]).longValue(), ((Integer) objArr2[10]).intValue(), ((Integer) objArr2[11]).intValue(), (AntiData) objArr2[12], (String) objArr2[13]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public MissonDetailsActivityConfig(Context context, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6) {
+        this(context, i, i2, str, str2, str3, str4, str5, str6, 0L, 0, 0, null, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], (String) objArr2[6], (String) objArr2[7], (String) objArr2[8], ((Long) objArr2[9]).longValue(), ((Integer) objArr2[10]).intValue(), ((Integer) objArr2[11]).intValue(), (AntiData) objArr2[12], (String) objArr2[13]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MissonDetailsActivityConfig(Context context, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, long j, int i3, int i4, AntiData antiData, String str7) {
         super(context);
@@ -54,47 +96,5 @@ public class MissonDetailsActivityConfig extends IntentConfig {
         getIntent().putExtra(IS_MEMBER, i4);
         getIntent().putExtra("anti_data", antiData);
         getIntent().putExtra(FANS_NAME, str7);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MissonDetailsActivityConfig(Context context, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6) {
-        this(context, i, i2, str, str2, str3, str4, str5, str6, 0L, 0, 0, null, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], (String) objArr2[6], (String) objArr2[7], (String) objArr2[8], ((Long) objArr2[9]).longValue(), ((Integer) objArr2[10]).intValue(), ((Integer) objArr2[11]).intValue(), (AntiData) objArr2[12], (String) objArr2[13]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MissonDetailsActivityConfig(Context context, int i, int i2, String str, String str2, String str3) {
-        this(context, i, i2, str, str2, str3, null, null, null, 0L, 0, 0, null, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], (String) objArr2[6], (String) objArr2[7], (String) objArr2[8], ((Long) objArr2[9]).longValue(), ((Integer) objArr2[10]).intValue(), ((Integer) objArr2[11]).intValue(), (AntiData) objArr2[12], (String) objArr2[13]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 }

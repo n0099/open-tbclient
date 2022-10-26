@@ -31,14 +31,32 @@ public final class WireFormat {
 
     /* renamed from: com.google.protobuf.WireFormat$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public static int getTagFieldNumber(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >>> 3 : invokeI.intValue;
+    }
+
+    public static int getTagWireType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i & 7 : invokeI.intValue;
+    }
+
+    public static int makeTag(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? (i << 3) | i2 : invokeII.intValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static class FieldType {
+    public class FieldType {
         public static final /* synthetic */ FieldType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FieldType BOOL;
@@ -62,6 +80,15 @@ public final class WireFormat {
         public transient /* synthetic */ FieldHolder $fh;
         public final JavaType javaType;
         public final int wireType;
+
+        public boolean isPackable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -88,6 +115,16 @@ public final class WireFormat {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
+                @Override // com.google.protobuf.WireFormat.FieldType
+                public boolean isPackable() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return false;
+                    }
+                    return invokeV.booleanValue;
+                }
+
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(r12, r13, r14, r15, null);
@@ -107,22 +144,22 @@ public final class WireFormat {
                             return;
                         }
                     }
-                }
-
-                @Override // com.google.protobuf.WireFormat.FieldType
-                public boolean isPackable() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return false;
-                    }
-                    return invokeV.booleanValue;
                 }
             };
             GROUP = new FieldType("GROUP", 9, JavaType.MESSAGE, 3) { // from class: com.google.protobuf.WireFormat.FieldType.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
+                @Override // com.google.protobuf.WireFormat.FieldType
+                public boolean isPackable() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return false;
+                    }
+                    return invokeV.booleanValue;
+                }
+
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(r12, r13, r14, r15, null);
@@ -142,22 +179,22 @@ public final class WireFormat {
                             return;
                         }
                     }
-                }
-
-                @Override // com.google.protobuf.WireFormat.FieldType
-                public boolean isPackable() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return false;
-                    }
-                    return invokeV.booleanValue;
                 }
             };
             MESSAGE = new FieldType("MESSAGE", 10, JavaType.MESSAGE, 2) { // from class: com.google.protobuf.WireFormat.FieldType.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
+                @Override // com.google.protobuf.WireFormat.FieldType
+                public boolean isPackable() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return false;
+                    }
+                    return invokeV.booleanValue;
+                }
+
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(r12, r13, r14, r15, null);
@@ -177,22 +214,22 @@ public final class WireFormat {
                             return;
                         }
                     }
-                }
-
-                @Override // com.google.protobuf.WireFormat.FieldType
-                public boolean isPackable() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return false;
-                    }
-                    return invokeV.booleanValue;
                 }
             };
             BYTES = new FieldType("BYTES", 11, JavaType.BYTE_STRING, 2) { // from class: com.google.protobuf.WireFormat.FieldType.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
+                @Override // com.google.protobuf.WireFormat.FieldType
+                public boolean isPackable() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return false;
+                    }
+                    return invokeV.booleanValue;
+                }
+
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(r12, r13, r14, r15, null);
@@ -212,16 +249,6 @@ public final class WireFormat {
                             return;
                         }
                     }
-                }
-
-                @Override // com.google.protobuf.WireFormat.FieldType
-                public boolean isPackable() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return false;
-                    }
-                    return invokeV.booleanValue;
                 }
             };
             UINT32 = new FieldType("UINT32", 12, JavaType.INT, 0);
@@ -232,43 +259,6 @@ public final class WireFormat {
             FieldType fieldType = new FieldType("SINT64", 17, JavaType.LONG, 0);
             SINT64 = fieldType;
             $VALUES = new FieldType[]{DOUBLE, FLOAT, INT64, UINT64, INT32, FIXED64, FIXED32, BOOL, STRING, GROUP, MESSAGE, BYTES, UINT32, ENUM, SFIXED32, SFIXED64, SINT32, fieldType};
-        }
-
-        public /* synthetic */ FieldType(String str, int i, JavaType javaType, int i2, AnonymousClass1 anonymousClass1) {
-            this(str, i, javaType, i2);
-        }
-
-        public static FieldType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (FieldType) Enum.valueOf(FieldType.class, str) : (FieldType) invokeL.objValue;
-        }
-
-        public static FieldType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FieldType[]) $VALUES.clone() : (FieldType[]) invokeV.objValue;
-        }
-
-        public JavaType getJavaType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.javaType : (JavaType) invokeV.objValue;
-        }
-
-        public int getWireType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.wireType : invokeV.intValue;
-        }
-
-        public boolean isPackable() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
         }
 
         public FieldType(String str, int i, JavaType javaType, int i2) {
@@ -292,11 +282,51 @@ public final class WireFormat {
             this.javaType = javaType;
             this.wireType = i2;
         }
+
+        public /* synthetic */ FieldType(String str, int i, JavaType javaType, int i2, AnonymousClass1 anonymousClass1) {
+            this(str, i, javaType, i2);
+        }
+
+        public static FieldType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (FieldType) Enum.valueOf(FieldType.class, str);
+            }
+            return (FieldType) invokeL.objValue;
+        }
+
+        public static FieldType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (FieldType[]) $VALUES.clone();
+            }
+            return (FieldType[]) invokeV.objValue;
+        }
+
+        public JavaType getJavaType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.javaType;
+            }
+            return (JavaType) invokeV.objValue;
+        }
+
+        public int getWireType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.wireType;
+            }
+            return invokeV.intValue;
+        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class JavaType {
+    public final class JavaType {
         public static final /* synthetic */ JavaType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final JavaType BOOLEAN;
@@ -361,19 +391,28 @@ public final class WireFormat {
         public static JavaType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (JavaType) Enum.valueOf(JavaType.class, str) : (JavaType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (JavaType) Enum.valueOf(JavaType.class, str);
+            }
+            return (JavaType) invokeL.objValue;
         }
 
         public static JavaType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (JavaType[]) $VALUES.clone() : (JavaType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (JavaType[]) $VALUES.clone();
+            }
+            return (JavaType[]) invokeV.objValue;
         }
 
         public Object getDefaultDefault() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.defaultDefault : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.defaultDefault;
+            }
+            return invokeV.objValue;
         }
     }
 
@@ -408,23 +447,5 @@ public final class WireFormat {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static int getTagFieldNumber(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >>> 3 : invokeI.intValue;
-    }
-
-    public static int getTagWireType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i & 7 : invokeI.intValue;
-    }
-
-    public static int makeTag(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? (i << 3) | i2 : invokeII.intValue;
     }
 }

@@ -42,42 +42,63 @@ public class h {
     public static File b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new File(context.getDir(a, 0), "update_lc") : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return new File(context.getDir(a, 0), "update_lc");
+        }
+        return (File) invokeL.objValue;
     }
 
     public static File c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? new File(context.getDir(a, 0), "gdt_plugin.next") : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return new File(context.getDir(a, 0), "gdt_plugin.next");
+        }
+        return (File) invokeL.objValue;
     }
 
     public static File d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? new File(context.getDir(a, 0), "gdt_plugin.next.sig") : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return new File(context.getDir(a, 0), "gdt_plugin.next.sig");
+        }
+        return (File) invokeL.objValue;
     }
 
     public static File e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? new File(context.getDir(a, 0), "gdt_plugin.jar") : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return new File(context.getDir(a, 0), "gdt_plugin.jar");
+        }
+        return (File) invokeL.objValue;
     }
 
     public static File f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? new File(context.getDir(a, 0), "gdt_plugin.jar.sig") : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return new File(context.getDir(a, 0), "gdt_plugin.jar.sig");
+        }
+        return (File) invokeL.objValue;
     }
 
     public static File g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? new File(context.getDir(a, 0), "gdt_plugin.tmp") : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            return new File(context.getDir(a, 0), "gdt_plugin.tmp");
+        }
+        return (File) invokeL.objValue;
     }
 
     public static File h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? new File(context.getDir(a, 0), "gdt_plugin.tmp.sig") : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return new File(context.getDir(a, 0), "gdt_plugin.tmp.sig");
+        }
+        return (File) invokeL.objValue;
     }
 }

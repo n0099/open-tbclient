@@ -20,14 +20,14 @@ public class EntityManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public q0 a;
-    public b7<p0> b;
-    public y7<p0> c;
-    public z0<p0> d;
-    public b7<EntityOperation> e;
+    public b7 b;
+    public y7 c;
+    public z0 d;
+    public b7 e;
     public b f;
 
     /* loaded from: classes.dex */
-    public static class EntityOperation implements a8.a {
+    public class EntityOperation implements a8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
@@ -35,7 +35,7 @@ public class EntityManager {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes.dex */
-        public static final class Type {
+        public final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final Type Add;
@@ -85,13 +85,19 @@ public class EntityManager {
             public static Type valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (Type) Enum.valueOf(Type.class, str);
+                }
+                return (Type) invokeL.objValue;
             }
 
             public static Type[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (Type[]) $VALUES.clone();
+                }
+                return (Type[]) invokeV.objValue;
             }
         }
 
@@ -123,7 +129,7 @@ public class EntityManager {
     }
 
     /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +165,7 @@ public class EntityManager {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends a8<EntityOperation> {
+    public class b extends a8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +189,10 @@ public class EntityManager {
         public EntityOperation d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new EntityOperation(null) : (EntityOperation) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new EntityOperation(null);
+            }
+            return (EntityOperation) invokeV.objValue;
         }
 
         public /* synthetic */ b(a aVar) {
@@ -206,10 +215,10 @@ public class EntityManager {
                 return;
             }
         }
-        this.b = new b7<>(false, 16);
-        this.c = new y7<>();
-        this.d = new z0<>(this.b);
-        this.e = new b7<>(false, 16);
+        this.b = new b7(false, 16);
+        this.c = new y7();
+        this.d = new z0(this.b);
+        this.e = new b7(false, 16);
         this.f = new b(null);
         this.a = q0Var;
     }
@@ -218,13 +227,31 @@ public class EntityManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, p0Var, z) == null) {
             if (z) {
-                EntityOperation e = this.f.e();
-                e.b = p0Var;
-                e.a = EntityOperation.Type.Add;
-                this.e.a(e);
+                EntityOperation entityOperation = (EntityOperation) this.f.e();
+                entityOperation.b = p0Var;
+                entityOperation.a = EntityOperation.Type.Add;
+                this.e.a(entityOperation);
                 return;
             }
             b(p0Var);
+        }
+    }
+
+    public void e(p0 p0Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, p0Var, z) == null) {
+            if (z) {
+                if (p0Var.c) {
+                    return;
+                }
+                p0Var.c = true;
+                EntityOperation entityOperation = (EntityOperation) this.f.e();
+                entityOperation.b = p0Var;
+                entityOperation.a = EntityOperation.Type.Remove;
+                this.e.a(entityOperation);
+                return;
+            }
+            f(p0Var);
         }
     }
 
@@ -241,61 +268,48 @@ public class EntityManager {
         }
     }
 
-    public z0<p0> c() {
+    public z0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (z0) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (z0) invokeV.objValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            b7<EntityOperation> b7Var = this.e;
-            if (i < b7Var.b) {
-                EntityOperation entityOperation = b7Var.get(i);
-                int i2 = a.a[entityOperation.a.ordinal()];
-                if (i2 == 1) {
-                    b(entityOperation.b);
-                } else if (i2 == 2) {
-                    f(entityOperation.b);
-                } else if (i2 != 3) {
-                    throw new AssertionError("Unexpected EntityOperation type");
-                } else {
-                    while (true) {
-                        b7<p0> b7Var2 = this.b;
-                        if (b7Var2.b > 0) {
-                            f(b7Var2.f());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = 0;
+            while (true) {
+                b7 b7Var = this.e;
+                if (i < b7Var.b) {
+                    EntityOperation entityOperation = (EntityOperation) b7Var.get(i);
+                    int i2 = a.a[entityOperation.a.ordinal()];
+                    if (i2 != 1) {
+                        if (i2 != 2) {
+                            if (i2 != 3) {
+                                throw new AssertionError("Unexpected EntityOperation type");
+                            }
+                            while (true) {
+                                b7 b7Var2 = this.b;
+                                if (b7Var2.b > 0) {
+                                    f((p0) b7Var2.f());
+                                }
+                            }
+                        } else {
+                            f(entityOperation.b);
                         }
+                    } else {
+                        b(entityOperation.b);
                     }
-                }
-                this.f.c(entityOperation);
-                i++;
-            } else {
-                b7Var.clear();
-                return;
-            }
-        }
-    }
-
-    public void e(p0 p0Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, p0Var, z) == null) {
-            if (z) {
-                if (p0Var.c) {
+                    this.f.c(entityOperation);
+                    i++;
+                } else {
+                    b7Var.clear();
                     return;
                 }
-                p0Var.c = true;
-                EntityOperation e = this.f.e();
-                e.b = p0Var;
-                e.a = EntityOperation.Type.Remove;
-                this.e.a(e);
-                return;
             }
-            f(p0Var);
         }
     }
 

@@ -22,8 +22,36 @@ public class c implements DownloadEventConfig {
     public String p;
     public String q;
 
+    @Override // com.ss.android.download.api.download.DownloadEventConfig
+    public String getClickItemTag() {
+        return null;
+    }
+
+    @Override // com.ss.android.download.api.download.DownloadEventConfig
+    public int getDownloadScene() {
+        return 0;
+    }
+
+    @Override // com.ss.android.download.api.download.DownloadEventConfig
+    public JSONObject getExtraJson() {
+        return null;
+    }
+
+    @Override // com.ss.android.download.api.download.DownloadEventConfig
+    public JSONObject getParamsJson() {
+        return null;
+    }
+
+    @Override // com.ss.android.download.api.download.DownloadEventConfig
+    public void setDownloadScene(int i) {
+    }
+
+    @Override // com.ss.android.download.api.download.DownloadEventConfig
+    public void setRefer(String str) {
+    }
+
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public String a;
         public boolean b;
         public String c;
@@ -47,6 +75,9 @@ public class c implements DownloadEventConfig {
         }
     }
 
+    public c() {
+    }
+
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickButtonTag() {
         return this.a;
@@ -60,11 +91,6 @@ public class c implements DownloadEventConfig {
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickInstallLabel() {
         return this.g;
-    }
-
-    @Override // com.ss.android.download.api.download.DownloadEventConfig
-    public String getClickItemTag() {
-        return null;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -83,23 +109,8 @@ public class c implements DownloadEventConfig {
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
-    public int getDownloadScene() {
-        return 0;
-    }
-
-    @Override // com.ss.android.download.api.download.DownloadEventConfig
     public Object getExtraEventObject() {
         return this.l;
-    }
-
-    @Override // com.ss.android.download.api.download.DownloadEventConfig
-    public JSONObject getExtraJson() {
-        return null;
-    }
-
-    @Override // com.ss.android.download.api.download.DownloadEventConfig
-    public JSONObject getParamsJson() {
-        return null;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -120,17 +131,6 @@ public class c implements DownloadEventConfig {
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public boolean isEnableV3Event() {
         return this.m;
-    }
-
-    @Override // com.ss.android.download.api.download.DownloadEventConfig
-    public void setDownloadScene(int i) {
-    }
-
-    @Override // com.ss.android.download.api.download.DownloadEventConfig
-    public void setRefer(String str) {
-    }
-
-    public c() {
     }
 
     public c(a aVar) {

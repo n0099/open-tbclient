@@ -1,13 +1,12 @@
 package com.kwai.filedownloader.kwai;
 
 import java.io.InputStream;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public interface b {
-    Map<String, List<String>> U();
+    Map U();
 
-    Map<String, List<String>> V();
+    Map V();
 
     void W();
 

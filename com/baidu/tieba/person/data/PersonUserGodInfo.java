@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-import tbclient.Profile.ForumGodDetailInfo;
 import tbclient.Profile.GodDetailInfo;
 import tbclient.Profile.UserGodInfo;
 /* loaded from: classes5.dex */
@@ -18,7 +17,7 @@ public class PersonUserGodInfo implements Serializable {
     public static final int USER_GOD_TYPE_SINGLE = 2;
     public static final long serialVersionUID = -1538103146882985197L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ForumGodDetailInfo> forumGodList;
+    public List forumGodList;
     public GodDetailInfo godDetailInfo;
     public int godType;
     public int sex;
@@ -37,33 +36,45 @@ public class PersonUserGodInfo implements Serializable {
         }
     }
 
-    public List<ForumGodDetailInfo> getForumGodList() {
+    public List getForumGodList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.forumGodList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.forumGodList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getGodType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.godType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.godType;
+        }
+        return invokeV.intValue;
     }
 
     public int getSex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sex : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sex;
+        }
+        return invokeV.intValue;
     }
 
     public GodDetailInfo getgodDetailInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.godDetailInfo : (GodDetailInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.godDetailInfo;
+        }
+        return (GodDetailInfo) invokeV.objValue;
     }
 
     public void parserProtobuf(UserGodInfo userGodInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, userGodInfo) == null) || userGodInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, userGodInfo) != null) || userGodInfo == null) {
             return;
         }
         this.godType = userGodInfo.god_type.intValue();

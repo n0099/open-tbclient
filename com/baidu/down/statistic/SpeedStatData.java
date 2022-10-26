@@ -41,7 +41,30 @@ public class SpeedStatData {
     public static boolean acquireSpeedStatConfig(Context context, DownConfig downConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, downConfig)) == null) ? downConfig.mDownSpeedStatEnable && downConfig.mConfigSpeedStat.cfgEnable != 1 && Math.abs(System.currentTimeMillis() - DownPrefUtils.getLong(context, DownPrefUtils.PREF_SPEED_CONFIG_ACQUIRE_TIME_KEY, 0L)) > downConfig.mConfigSpeedStat.cfgMinInterval * 1000 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, downConfig)) == null) {
+            if (!downConfig.mDownSpeedStatEnable || downConfig.mConfigSpeedStat.cfgEnable == 1 || Math.abs(System.currentTimeMillis() - DownPrefUtils.getLong(context, DownPrefUtils.PREF_SPEED_CONFIG_ACQUIRE_TIME_KEY, 0L)) <= downConfig.mConfigSpeedStat.cfgMinInterval * 1000) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static ConfigSpeedStat parseSpeedConfig(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                ConfigSpeedStat innerParseSpeedConfig = innerParseSpeedConfig(str);
+                if (innerParseSpeedConfig != null) {
+                    DownPrefUtils.setString(context, DownPrefUtils.PREF_SPEED_CONFIG_KEY, str);
+                    return innerParseSpeedConfig;
+                }
+                return innerParseSpeedConfig(DownPrefUtils.getString(context, DownPrefUtils.PREF_SPEED_CONFIG_KEY, ""));
+            }
+            return innerParseSpeedConfig(DownPrefUtils.getString(context, DownPrefUtils.PREF_SPEED_CONFIG_KEY, ""));
+        }
+        return (ConfigSpeedStat) invokeLL.objValue;
     }
 
     public static String buildSpeedReqCfg(Context context, String str) {
@@ -83,7 +106,7 @@ public class SpeedStatData {
                     long currentTimeMillis = System.currentTimeMillis();
                     long j = 0;
                     for (int i2 = 0; i2 < taskSpeedStat.getSpeedStatThreadList().size(); i2++) {
-                        ThreadSpeedStat threadSpeedStat = taskSpeedStat.getSpeedStatThreadList().get(i2);
+                        ThreadSpeedStat threadSpeedStat = (ThreadSpeedStat) taskSpeedStat.getSpeedStatThreadList().get(i2);
                         j += (threadSpeedStat.dend + threadSpeedStat.dTempDownSize) - threadSpeedStat.dstart;
                     }
                     if (configSpeedStat != null && (Math.abs(currentTimeMillis - taskSpeedStat.startTimeMillis) < configSpeedStat.cfgMinTime * 1000 || j < configSpeedStat.cfgMinSize)) {
@@ -117,7 +140,7 @@ public class SpeedStatData {
                 jSONObject.put("endwritetime", taskSpeedStat.endWriteTimeMillis + "");
                 JSONArray jSONArray = new JSONArray();
                 for (int i3 = 0; i3 < taskSpeedStat.getSpeedStatThreadList().size(); i3++) {
-                    ThreadSpeedStat threadSpeedStat2 = taskSpeedStat.getSpeedStatThreadList().get(i3);
+                    ThreadSpeedStat threadSpeedStat2 = (ThreadSpeedStat) taskSpeedStat.getSpeedStatThreadList().get(i3);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put(ThreadSpeedStat.CLIENT_REQUEST_ID_HEADER_NAME, threadSpeedStat2.cqid);
                     jSONObject2.put("url", threadSpeedStat2.url);
@@ -180,22 +203,5 @@ public class SpeedStatData {
             }
         }
         return (ConfigSpeedStat) invokeL.objValue;
-    }
-
-    public static ConfigSpeedStat parseSpeedConfig(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                ConfigSpeedStat innerParseSpeedConfig = innerParseSpeedConfig(str);
-                if (innerParseSpeedConfig != null) {
-                    DownPrefUtils.setString(context, DownPrefUtils.PREF_SPEED_CONFIG_KEY, str);
-                    return innerParseSpeedConfig;
-                }
-                return innerParseSpeedConfig(DownPrefUtils.getString(context, DownPrefUtils.PREF_SPEED_CONFIG_KEY, ""));
-            }
-            return innerParseSpeedConfig(DownPrefUtils.getString(context, DownPrefUtils.PREF_SPEED_CONFIG_KEY, ""));
-        }
-        return (ConfigSpeedStat) invokeLL.objValue;
     }
 }

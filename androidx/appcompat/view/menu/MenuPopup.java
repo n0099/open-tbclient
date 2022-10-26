@@ -10,8 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.PopupWindow;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,6 +23,68 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
     public transient /* synthetic */ FieldHolder $fh;
     public Rect mEpicenterBounds;
 
+    public abstract void addMenu(MenuBuilder menuBuilder);
+
+    public boolean closeMenuOnSubMenuOpened() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter
+    public boolean collapseItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, menuBuilder, menuItemImpl)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter
+    public boolean expandItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, menuBuilder, menuItemImpl)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter
+    public int getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter
+    public void initForMenu(Context context, MenuBuilder menuBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, menuBuilder) == null) {
+        }
+    }
+
+    public abstract void setAnchorView(View view2);
+
+    public abstract void setForceShowIcon(boolean z);
+
+    public abstract void setGravity(int i);
+
+    public abstract void setHorizontalOffset(int i);
+
+    public abstract void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener);
+
+    public abstract void setShowTitle(boolean z);
+
+    public abstract void setVerticalOffset(int i);
+
     public MenuPopup() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,6 +97,15 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public Rect getEpicenterBounds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mEpicenterBounds;
+        }
+        return (Rect) invokeV.objValue;
     }
 
     public static int measureIndividualMenuWidth(ListAdapter listAdapter, ViewGroup viewGroup, Context context, int i) {
@@ -73,6 +142,23 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
         return invokeLLLI.intValue;
     }
 
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            ListAdapter listAdapter = (ListAdapter) adapterView.getAdapter();
+            MenuBuilder menuBuilder = toMenuAdapter(listAdapter).mAdapterMenu;
+            MenuItem menuItem = (MenuItem) listAdapter.getItem(i);
+            if (closeMenuOnSubMenuOpened()) {
+                i2 = 0;
+            } else {
+                i2 = 4;
+            }
+            menuBuilder.performItemAction(menuItem, this, i2);
+        }
+    }
+
     public static boolean shouldPreserveIconSpacing(MenuBuilder menuBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -101,53 +187,6 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
         return (MenuAdapter) invokeL.objValue;
     }
 
-    public abstract void addMenu(MenuBuilder menuBuilder);
-
-    public boolean closeMenuOnSubMenuOpened() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPresenter
-    public boolean collapseItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, menuBuilder, menuItemImpl)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPresenter
-    public boolean expandItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, menuBuilder, menuItemImpl)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public Rect getEpicenterBounds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mEpicenterBounds : (Rect) invokeV.objValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPresenter
-    public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -158,40 +197,10 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
         return (MenuView) invokeL.objValue;
     }
 
-    @Override // androidx.appcompat.view.menu.MenuPresenter
-    public void initForMenu(@NonNull Context context, @Nullable MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, menuBuilder) == null) {
-        }
-    }
-
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            ListAdapter listAdapter = (ListAdapter) adapterView.getAdapter();
-            toMenuAdapter(listAdapter).mAdapterMenu.performItemAction((MenuItem) listAdapter.getItem(i), this, closeMenuOnSubMenuOpened() ? 0 : 4);
-        }
-    }
-
-    public abstract void setAnchorView(View view2);
-
     public void setEpicenterBounds(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, rect) == null) {
             this.mEpicenterBounds = rect;
         }
     }
-
-    public abstract void setForceShowIcon(boolean z);
-
-    public abstract void setGravity(int i);
-
-    public abstract void setHorizontalOffset(int i);
-
-    public abstract void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener);
-
-    public abstract void setShowTitle(boolean z);
-
-    public abstract void setVerticalOffset(int i);
 }

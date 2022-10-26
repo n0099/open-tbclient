@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv8;
-import com.baidu.tieba.my4;
-import com.baidu.tieba.oy4;
-import com.baidu.tieba.yo4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.rv8;
+import com.baidu.tieba.sy4;
+import com.baidu.tieba.uy4;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,6 +35,18 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     public TBSpecificationBtn b;
     public View.OnClickListener c;
     public String d;
+
+    public int getLayoutR() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0694 : invokeV.intValue;
+    }
+
+    public void setVideoDuration(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OperableVideoNetworkStateTipView(Context context) {
@@ -57,119 +69,12 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         c();
     }
 
-    public void a(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-            if (z && !z2) {
-                setOrientation(1);
-                layoutParams.leftMargin = 0;
-                layoutParams.topMargin = (int) getResources().getDimension(R.dimen.tbds62);
-            } else {
-                setOrientation(0);
-                layoutParams.leftMargin = (int) getResources().getDimension(R.dimen.tbds52);
-                layoutParams.topMargin = 0;
-            }
-            this.b.setLayoutParams(layoutParams);
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbSingleton.getInstance().hasAgreeToPlay() : invokeV.booleanValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0919ea);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090ad5);
-            oy4 oy4Var = new oy4();
-            oy4Var.s();
-            oy4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            oy4Var.g(ej.f(getContext(), R.dimen.tbds32));
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1535));
-            this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(oy4Var);
-            my4 my4Var = new my4();
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1548));
-            this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(my4Var);
-            this.a.setOnClickListener(this);
-            this.b.setOnClickListener(this);
-            setOnClickListener(this);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (b() || hv8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int getLayoutR() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0694 : invokeV.intValue;
-    }
-
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
-            return;
-        }
-        if (view2.getId() == R.id.obfuscated_res_0x7f090ad5) {
-            yo4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919ea) {
-            setHasAgreeToPlay(true);
-            View.OnClickListener onClickListener = this.c;
-            if (onClickListener != null) {
-                onClickListener.onClick(view2);
-            }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.d));
-        }
-    }
-
-    public void setHasAgreeToPlay(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            TbSingleton.getInstance().setHasAgreeToPlay(z);
-        }
-    }
-
-    public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.c = onClickListener;
-        }
-    }
-
-    public void setTid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void setVideoDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
-
     public void setVideoLength(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048586, this, j) == null) || j <= 0) {
+        if ((interceptable != null && interceptable.invokeJ(1048586, this, j) != null) || j <= 0) {
             return;
         }
-        this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1532), StringHelper.getFormatSize(j)));
+        this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f154b), StringHelper.getFormatSize(j)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -214,5 +119,103 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             }
         }
         c();
+    }
+
+    public void a(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+            if (z && !z2) {
+                setOrientation(1);
+                layoutParams.leftMargin = 0;
+                layoutParams.topMargin = (int) getResources().getDimension(R.dimen.tbds62);
+            } else {
+                setOrientation(0);
+                layoutParams.leftMargin = (int) getResources().getDimension(R.dimen.tbds52);
+                layoutParams.topMargin = 0;
+            }
+            this.b.setLayoutParams(layoutParams);
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbSingleton.getInstance().hasAgreeToPlay();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LinearLayout.inflate(getContext(), getLayoutR(), this);
+            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0919e6);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090adf);
+            uy4 uy4Var = new uy4();
+            uy4Var.s();
+            uy4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            uy4Var.g(fj.f(getContext(), R.dimen.tbds32));
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f154e));
+            this.a.setTextSize(R.dimen.tbds36);
+            this.a.setConfig(uy4Var);
+            sy4 sy4Var = new sy4();
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1562));
+            this.b.setTextSize(R.dimen.tbds36);
+            this.b.setConfig(sy4Var);
+            this.a.setOnClickListener(this);
+            this.b.setOnClickListener(this);
+            setOnClickListener(this);
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (b() || rv8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2 == null) {
+            return;
+        }
+        if (view2.getId() == R.id.obfuscated_res_0x7f090adf) {
+            zo4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06ee), TbConfig.URL_BAIDU_SINGKIL);
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919e6) {
+            setHasAgreeToPlay(true);
+            View.OnClickListener onClickListener = this.c;
+            if (onClickListener != null) {
+                onClickListener.onClick(view2);
+            }
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_FLOW_PLAY_CLICK).param("obj_locate", 2).param("tid", this.d));
+        }
+    }
+
+    public void setHasAgreeToPlay(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            TbSingleton.getInstance().setHasAgreeToPlay(z);
+        }
+    }
+
+    public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.c = onClickListener;
+        }
+    }
+
+    public void setTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
+        }
     }
 }

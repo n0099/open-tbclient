@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.vo6;
+import com.baidu.tieba.cp6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<vo6, ItemPageResIdl> {
+public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,12 +35,14 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
-    public Class<ItemPageResIdl> getProtobufResponseIdlClass() {
+    public Class getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ItemPageResIdl.class : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ItemPageResIdl.class;
+        }
+        return (Class) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,9 +50,9 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            vo6 vo6Var = new vo6();
+            cp6 cp6Var = new cp6();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            vo6Var.a(itemPageResIdl.data);
+            cp6Var.a(itemPageResIdl.data);
             Error error = itemPageResIdl.error;
             if (error != null) {
                 Integer num = error.errorno;
@@ -59,7 +61,7 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(vo6Var);
+            setData(cp6Var);
         }
     }
 }

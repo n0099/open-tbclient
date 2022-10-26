@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk.system;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -53,7 +52,6 @@ public final class CookieManagerImpl extends CookieManager {
         }
     }
 
-    @TargetApi(18)
     private void postCookieThreadTask(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, runnable) == null) {
@@ -151,7 +149,7 @@ public final class CookieManagerImpl extends CookieManager {
     }
 
     @Override // com.baidu.webkit.sdk.CookieManager
-    public final void getCookieAsync(String str, ValueCallback<String> valueCallback) {
+    public final void getCookieAsync(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, str, valueCallback) == null) || valueCallback == null) {
             return;
@@ -209,7 +207,7 @@ public final class CookieManagerImpl extends CookieManager {
     }
 
     @Override // com.baidu.webkit.sdk.CookieManager
-    public final void removeAllCookies(ValueCallback<Boolean> valueCallback) {
+    public final void removeAllCookies(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, valueCallback) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -273,7 +271,7 @@ public final class CookieManagerImpl extends CookieManager {
     }
 
     @Override // com.baidu.webkit.sdk.CookieManager
-    public final void removeSessionCookies(ValueCallback<Boolean> valueCallback) {
+    public final void removeSessionCookies(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, valueCallback) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -355,7 +353,7 @@ public final class CookieManagerImpl extends CookieManager {
     }
 
     @Override // com.baidu.webkit.sdk.CookieManager
-    public final void setCookie(String str, String str2, ValueCallback<Boolean> valueCallback) {
+    public final void setCookie(String str, String str2, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, str, str2, valueCallback) == null) {
             if (Build.VERSION.SDK_INT >= 21) {

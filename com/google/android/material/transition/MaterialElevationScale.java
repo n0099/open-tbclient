@@ -3,7 +3,6 @@ package com.google.android.material.transition;
 import android.animation.Animator;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.Nullable;
 import androidx.transition.TransitionValues;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class MaterialElevationScale extends MaterialVisibility<ScaleProvider> {
+public final class MaterialElevationScale extends MaterialVisibility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_SCALE = 0.85f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,14 +51,21 @@ public final class MaterialElevationScale extends MaterialVisibility<ScaleProvid
         return (ScaleProvider) invokeZ.objValue;
     }
 
+    @Override // com.google.android.material.transition.MaterialVisibility
+    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(VisibilityAnimatorProvider visibilityAnimatorProvider) {
+        super.setSecondaryAnimatorProvider(visibilityAnimatorProvider);
+    }
+
     public static VisibilityAnimatorProvider createSecondaryAnimatorProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new FadeProvider() : (VisibilityAnimatorProvider) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new FadeProvider();
+        }
+        return (VisibilityAnimatorProvider) invokeV.objValue;
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
-    @Nullable
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getSecondaryAnimatorProvider() {
         return super.getSecondaryAnimatorProvider();
     }
@@ -67,7 +73,10 @@ public final class MaterialElevationScale extends MaterialVisibility<ScaleProvid
     public boolean isGrowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.growing : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.growing;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility, androidx.transition.Visibility
@@ -78,10 +87,5 @@ public final class MaterialElevationScale extends MaterialVisibility<ScaleProvid
     @Override // com.google.android.material.transition.MaterialVisibility, androidx.transition.Visibility
     public /* bridge */ /* synthetic */ Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         return super.onDisappear(viewGroup, view2, transitionValues, transitionValues2);
-    }
-
-    @Override // com.google.android.material.transition.MaterialVisibility
-    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(@Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {
-        super.setSecondaryAnimatorProvider(visibilityAnimatorProvider);
     }
 }

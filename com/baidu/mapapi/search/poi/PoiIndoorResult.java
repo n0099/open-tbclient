@@ -15,9 +15,9 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class PoiIndoorResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PoiIndoorResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PoiIndoorInfo> a;
+    public List a;
     public int pageNum;
     public int poiNum;
 
@@ -115,7 +115,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.poiNum : invokeV.intValue;
     }
 
-    public List<PoiIndoorInfo> getmArrayPoiInfo() {
+    public List getmArrayPoiInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -135,7 +135,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setmArrayPoiInfo(List<PoiIndoorInfo> list) {
+    public void setmArrayPoiInfo(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.a = list;

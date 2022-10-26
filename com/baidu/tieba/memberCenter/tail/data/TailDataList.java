@@ -13,9 +13,9 @@ public class TailDataList implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5535689487690791648L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<TailData> mTails;
+    public List mTails;
 
-    public TailDataList(List<TailData> list) {
+    public TailDataList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,9 +37,12 @@ public class TailDataList implements Serializable {
         }
     }
 
-    public List<TailData> getTails() {
+    public List getTails() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mTails : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mTails;
+        }
+        return (List) invokeV.objValue;
     }
 }

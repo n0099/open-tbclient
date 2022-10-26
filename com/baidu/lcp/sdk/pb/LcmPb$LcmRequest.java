@@ -3,7 +3,7 @@ package com.baidu.lcp.sdk.pb;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.tieba.x80;
+import com.baidu.tieba.y80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
     public static final int COMMON_FIELD_NUMBER = 3;
     public static final int CONN_TYPE_FIELD_NUMBER = 7;
     public static final int LOG_ID_FIELD_NUMBER = 1;
-    public static Parser<LcmPb$LcmRequest> PARSER = null;
+    public static Parser PARSER = null;
     public static final int START_TYPE_FIELD_NUMBER = 6;
     public static final int TIMESTAMP_FIELD_NUMBER = 4;
     public static final int TOKEN_FIELD_NUMBER = 2;
@@ -51,7 +51,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
     public Object token_;
 
     /* loaded from: classes2.dex */
-    public static class a extends AbstractParser<LcmPb$LcmRequest> {
+    public final class a extends AbstractParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,12 +75,15 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         public LcmPb$LcmRequest parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, codedInputStream, extensionRegistryLite)) == null) ? new LcmPb$LcmRequest(codedInputStream, extensionRegistryLite, null) : (LcmPb$LcmRequest) invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, codedInputStream, extensionRegistryLite)) == null) {
+                return new LcmPb$LcmRequest(codedInputStream, extensionRegistryLite, null);
+            }
+            return (LcmPb$LcmRequest) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmRequest, b> implements Object {
+    public final class b extends GeneratedMessageLite.Builder implements MessageLiteOrBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -91,6 +94,12 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         public int f;
         public int g;
         public int h;
+
+        public final void maybeForceBuilderInitialization() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            }
+        }
 
         public b() {
             Interceptable interceptable = $ic;
@@ -113,7 +122,83 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         public static b q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new b() : (b) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return new b();
+            }
+            return (b) invokeV.objValue;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder clear() {
+            o();
+            return this;
+        }
+
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public final boolean isInitialized() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                if (!s()) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        /* renamed from: m */
+        public LcmPb$LcmRequest build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                LcmPb$LcmRequest buildPartial = buildPartial();
+                if (buildPartial.isInitialized()) {
+                    return buildPartial;
+                }
+                throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
+            }
+            return (LcmPb$LcmRequest) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        /* renamed from: p */
+        public b clone() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                b q = q();
+                q.u(buildPartial());
+                return q;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+        /* renamed from: r */
+        public LcmPb$LcmRequest getDefaultInstanceForType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                return LcmPb$LcmRequest.getDefaultInstance();
+            }
+            return (LcmPb$LcmRequest) invokeV.objValue;
+        }
+
+        public boolean s() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                if ((this.a & 1) == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public b A(int i) {
@@ -152,43 +237,73 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             return (b) invokeL.objValue;
         }
 
+        @Override // com.google.protobuf.GeneratedMessageLite.Builder
+        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder mergeFrom(GeneratedMessageLite generatedMessageLite) {
+            u((LcmPb$LcmRequest) generatedMessageLite);
+            return this;
+        }
+
+        public b w(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+                this.a |= 16;
+                this.f = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b x(LcmPb$Common lcmPb$Common) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, lcmPb$Common)) == null) {
+                if (lcmPb$Common != null) {
+                    this.d = lcmPb$Common;
+                    this.a |= 4;
+                    return this;
+                }
+                throw null;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b y(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
+                this.a |= 64;
+                this.h = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b z(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048606, this, j)) == null) {
+                this.a |= 1;
+                this.b = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
+        }
+
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder clear() {
+        public /* bridge */ /* synthetic */ MessageLite.Builder clear() {
             o();
             return this;
         }
 
-        @Override // com.google.protobuf.MessageLiteOrBuilder
-        public final boolean isInitialized() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? s() : invokeV.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        /* renamed from: m */
-        public LcmPb$LcmRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                LcmPb$LcmRequest buildPartial = buildPartial();
-                if (buildPartial.isInitialized()) {
-                    return buildPartial;
-                }
-                throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
-            }
-            return (LcmPb$LcmRequest) invokeV.objValue;
-        }
-
-        public final void maybeForceBuilderInitialization() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            }
+        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+        public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            v(codedInputStream, extensionRegistryLite);
+            return this;
         }
 
         @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             v(codedInputStream, extensionRegistryLite);
             return this;
         }
@@ -200,9 +315,12 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-                LcmPb$LcmRequest lcmPb$LcmRequest = new LcmPb$LcmRequest(this, (x80) null);
+                LcmPb$LcmRequest lcmPb$LcmRequest = new LcmPb$LcmRequest(this, (y80) null);
                 int i = this.a;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = 1;
+                if ((i & 1) != 1) {
+                    i2 = 0;
+                }
                 lcmPb$LcmRequest.logId_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
@@ -261,35 +379,6 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                 return this;
             }
             return (b) invokeV.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        /* renamed from: p */
-        public b clone() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-                b q = q();
-                q.u(buildPartial());
-                return q;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-        /* renamed from: r */
-        public LcmPb$LcmRequest getDefaultInstanceForType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? LcmPb$LcmRequest.getDefaultInstance() : (LcmPb$LcmRequest) invokeV.objValue;
-        }
-
-        public boolean s() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.a & 1) == 1 : invokeV.booleanValue;
         }
 
         public b t(LcmPb$Common lcmPb$Common) {
@@ -354,18 +443,18 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                 LcmPb$LcmRequest lcmPb$LcmRequest = null;
                 try {
                     try {
-                        LcmPb$LcmRequest parsePartialFrom = LcmPb$LcmRequest.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                        if (parsePartialFrom != null) {
-                            u(parsePartialFrom);
+                        LcmPb$LcmRequest lcmPb$LcmRequest2 = (LcmPb$LcmRequest) LcmPb$LcmRequest.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (lcmPb$LcmRequest2 != null) {
+                            u(lcmPb$LcmRequest2);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
-                        LcmPb$LcmRequest lcmPb$LcmRequest2 = (LcmPb$LcmRequest) e.getUnfinishedMessage();
+                        LcmPb$LcmRequest lcmPb$LcmRequest3 = (LcmPb$LcmRequest) e.getUnfinishedMessage();
                         try {
                             throw e;
                         } catch (Throwable th) {
                             th = th;
-                            lcmPb$LcmRequest = lcmPb$LcmRequest2;
+                            lcmPb$LcmRequest = lcmPb$LcmRequest3;
                             if (lcmPb$LcmRequest != null) {
                             }
                             throw th;
@@ -380,73 +469,6 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
                 }
             }
             return (b) invokeLL.objValue;
-        }
-
-        public b w(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
-                this.a |= 16;
-                this.f = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b x(LcmPb$Common lcmPb$Common) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, lcmPb$Common)) == null) {
-                if (lcmPb$Common != null) {
-                    this.d = lcmPb$Common;
-                    this.a |= 4;
-                    return this;
-                }
-                throw null;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b y(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
-                this.a |= 64;
-                this.h = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b z(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048606, this, j)) == null) {
-                this.a |= 1;
-                this.b = j;
-                return this;
-            }
-            return (b) invokeJ.objValue;
-        }
-
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ MessageLite.Builder clear() {
-            o();
-            return this;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
-        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
-        @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public /* bridge */ /* synthetic */ b mergeFrom(LcmPb$LcmRequest lcmPb$LcmRequest) {
-            u(lcmPb$LcmRequest);
-            return this;
-        }
-
-        @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-        public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            v(codedInputStream, extensionRegistryLite);
-            return this;
         }
     }
 
@@ -469,14 +491,13 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         lcmPb$LcmRequest.initFields();
     }
 
-    public /* synthetic */ LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, x80 x80Var) throws InvalidProtocolBufferException {
-        this(codedInputStream, extensionRegistryLite);
-    }
-
     public static LcmPb$LcmRequest getDefaultInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? defaultInstance : (LcmPb$LcmRequest) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return defaultInstance;
+        }
+        return (LcmPb$LcmRequest) invokeV.objValue;
     }
 
     private void initFields() {
@@ -495,96 +516,85 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
     public static b newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? b.q() : (b) invokeV.objValue;
-    }
-
-    public static LcmPb$LcmRequest parseDelimitedFrom(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) ? PARSER.parseDelimitedFrom(inputStream) : (LcmPb$LcmRequest) invokeL.objValue;
-    }
-
-    public static LcmPb$LcmRequest parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, byteString)) == null) ? PARSER.parseFrom(byteString) : (LcmPb$LcmRequest) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return b.q();
+        }
+        return (b) invokeV.objValue;
     }
 
     public int getAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.action_ : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.action_;
+        }
+        return invokeV.intValue;
     }
 
     public LcmPb$Common getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.common_ : (LcmPb$Common) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.common_;
+        }
+        return (LcmPb$Common) invokeV.objValue;
     }
 
     public int getConnType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.connType_ : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.connType_;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.protobuf.MessageLiteOrBuilder
+    public LcmPb$LcmRequest getDefaultInstanceForType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return defaultInstance;
+        }
+        return (LcmPb$LcmRequest) invokeV.objValue;
     }
 
     public long getLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.logId_ : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.logId_;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-    public Parser<LcmPb$LcmRequest> getParserForType() {
+    public Parser getParserForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? PARSER : (Parser) invokeV.objValue;
-    }
-
-    @Override // com.google.protobuf.MessageLite
-    public int getSerializedSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
-            }
-            int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.logId_) : 0;
-            if ((this.bitField0_ & 2) == 2) {
-                computeInt64Size += CodedOutputStream.computeBytesSize(2, getTokenBytes());
-            }
-            if ((this.bitField0_ & 4) == 4) {
-                computeInt64Size += CodedOutputStream.computeMessageSize(3, this.common_);
-            }
-            if ((this.bitField0_ & 8) == 8) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(4, this.timestamp_);
-            }
-            if ((this.bitField0_ & 16) == 16) {
-                computeInt64Size += CodedOutputStream.computeInt32Size(5, this.action_);
-            }
-            if ((this.bitField0_ & 32) == 32) {
-                computeInt64Size += CodedOutputStream.computeInt32Size(6, this.startType_);
-            }
-            if ((this.bitField0_ & 64) == 64) {
-                computeInt64Size += CodedOutputStream.computeInt32Size(7, this.connType_);
-            }
-            this.memoizedSerializedSize = computeInt64Size;
-            return computeInt64Size;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return PARSER;
         }
-        return invokeV.intValue;
+        return (Parser) invokeV.objValue;
     }
 
     public int getStartType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.startType_ : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.startType_;
+        }
+        return invokeV.intValue;
     }
 
     public long getTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.timestamp_ : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.timestamp_;
+        }
+        return invokeV.longValue;
     }
 
     public String getToken() {
@@ -623,43 +633,85 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
     public boolean hasAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (this.bitField0_ & 16) == 16 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if ((this.bitField0_ & 16) == 16) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (this.bitField0_ & 4) == 4 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if ((this.bitField0_ & 4) == 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasConnType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.bitField0_ & 64) == 64 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if ((this.bitField0_ & 64) == 64) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (this.bitField0_ & 1) == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if ((this.bitField0_ & 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasStartType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? (this.bitField0_ & 32) == 32 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if ((this.bitField0_ & 32) == 32) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (this.bitField0_ & 8) == 8 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if ((this.bitField0_ & 8) == 8) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (this.bitField0_ & 2) == 2 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if ((this.bitField0_ & 2) == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -669,7 +721,10 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             byte b2 = this.memoizedIsInitialized;
             if (b2 != -1) {
-                return b2 == 1;
+                if (b2 != 1) {
+                    return false;
+                }
+                return true;
             } else if (!hasLogId()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -681,11 +736,303 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         return invokeV.booleanValue;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.protobuf.MessageLite
+    public b newBuilderForType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return newBuilder();
+        }
+        return (b) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.protobuf.MessageLite
+    public b toBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return newBuilder(this);
+        }
+        return (b) invokeV.objValue;
+    }
+
     @Override // com.google.protobuf.GeneratedMessageLite
     public Object writeReplace() throws ObjectStreamException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? super.writeReplace() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return super.writeReplace();
+        }
+        return invokeV.objValue;
+    }
+
+    public LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {codedInputStream, extensionRegistryLite};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.memoizedIsInitialized = (byte) -1;
+        this.memoizedSerializedSize = -1;
+        initFields();
+        boolean z = false;
+        while (!z) {
+            try {
+                try {
+                    int readTag = codedInputStream.readTag();
+                    if (readTag != 0) {
+                        if (readTag != 8) {
+                            if (readTag != 18) {
+                                if (readTag != 26) {
+                                    if (readTag != 32) {
+                                        if (readTag != 40) {
+                                            if (readTag != 48) {
+                                                if (readTag != 56) {
+                                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                                    }
+                                                } else {
+                                                    this.bitField0_ |= 64;
+                                                    this.connType_ = codedInputStream.readInt32();
+                                                }
+                                            } else {
+                                                this.bitField0_ |= 32;
+                                                this.startType_ = codedInputStream.readInt32();
+                                            }
+                                        } else {
+                                            this.bitField0_ |= 16;
+                                            this.action_ = codedInputStream.readInt32();
+                                        }
+                                    } else {
+                                        this.bitField0_ |= 8;
+                                        this.timestamp_ = codedInputStream.readInt64();
+                                    }
+                                } else {
+                                    LcmPb$Common.b builder = (this.bitField0_ & 4) == 4 ? this.common_.toBuilder() : null;
+                                    LcmPb$Common lcmPb$Common = (LcmPb$Common) codedInputStream.readMessage(LcmPb$Common.PARSER, extensionRegistryLite);
+                                    this.common_ = lcmPb$Common;
+                                    if (builder != null) {
+                                        builder.s(lcmPb$Common);
+                                        this.common_ = builder.buildPartial();
+                                    }
+                                    this.bitField0_ |= 4;
+                                }
+                            } else {
+                                this.bitField0_ |= 2;
+                                this.token_ = codedInputStream.readBytes();
+                            }
+                        } else {
+                            this.bitField0_ |= 1;
+                            this.logId_ = codedInputStream.readInt64();
+                        }
+                    }
+                    z = true;
+                } catch (InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(this);
+                } catch (IOException e2) {
+                    throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                }
+            } finally {
+                makeExtensionsImmutable();
+            }
+        }
+    }
+
+    public /* synthetic */ LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, y80 y80Var) throws InvalidProtocolBufferException {
+        this(codedInputStream, extensionRegistryLite);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LcmPb$LcmRequest(GeneratedMessageLite.Builder builder) {
+        super(builder);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.memoizedIsInitialized = (byte) -1;
+        this.memoizedSerializedSize = -1;
+    }
+
+    public /* synthetic */ LcmPb$LcmRequest(GeneratedMessageLite.Builder builder, y80 y80Var) {
+        this(builder);
+    }
+
+    public static LcmPb$LcmRequest parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+        return (LcmPb$LcmRequest) invokeLL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, byteString, extensionRegistryLite)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+        return (LcmPb$LcmRequest) invokeLL.objValue;
+    }
+
+    public LcmPb$LcmRequest(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        this.memoizedIsInitialized = (byte) -1;
+        this.memoizedSerializedSize = -1;
+    }
+
+    public static b newBuilder(LcmPb$LcmRequest lcmPb$LcmRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, lcmPb$LcmRequest)) == null) {
+            b newBuilder = newBuilder();
+            newBuilder.u(lcmPb$LcmRequest);
+            return newBuilder;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseDelimitedFrom(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseDelimitedFrom(inputStream);
+        }
+        return (LcmPb$LcmRequest) invokeL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, byteString)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseFrom(byteString);
+        }
+        return (LcmPb$LcmRequest) invokeL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseFrom(CodedInputStream codedInputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, codedInputStream)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseFrom(codedInputStream);
+        }
+        return (LcmPb$LcmRequest) invokeL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, codedInputStream, extensionRegistryLite)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+        }
+        return (LcmPb$LcmRequest) invokeLL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseFrom(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, inputStream)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseFrom(inputStream);
+        }
+        return (LcmPb$LcmRequest) invokeL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, inputStream, extensionRegistryLite)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+        return (LcmPb$LcmRequest) invokeLL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseFrom(bArr);
+        }
+        return (LcmPb$LcmRequest) invokeL.objValue;
+    }
+
+    public static LcmPb$LcmRequest parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, bArr, extensionRegistryLite)) == null) {
+            return (LcmPb$LcmRequest) PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+        return (LcmPb$LcmRequest) invokeLL.objValue;
+    }
+
+    @Override // com.google.protobuf.MessageLite
+    public int getSerializedSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.memoizedSerializedSize;
+            if (i != -1) {
+                return i;
+            }
+            int i2 = 0;
+            if ((this.bitField0_ & 1) == 1) {
+                i2 = 0 + CodedOutputStream.computeInt64Size(1, this.logId_);
+            }
+            if ((this.bitField0_ & 2) == 2) {
+                i2 += CodedOutputStream.computeBytesSize(2, getTokenBytes());
+            }
+            if ((this.bitField0_ & 4) == 4) {
+                i2 += CodedOutputStream.computeMessageSize(3, this.common_);
+            }
+            if ((this.bitField0_ & 8) == 8) {
+                i2 += CodedOutputStream.computeInt64Size(4, this.timestamp_);
+            }
+            if ((this.bitField0_ & 16) == 16) {
+                i2 += CodedOutputStream.computeInt32Size(5, this.action_);
+            }
+            if ((this.bitField0_ & 32) == 32) {
+                i2 += CodedOutputStream.computeInt32Size(6, this.startType_);
+            }
+            if ((this.bitField0_ & 64) == 64) {
+                i2 += CodedOutputStream.computeInt32Size(7, this.connType_);
+            }
+            this.memoizedSerializedSize = i2;
+            return i2;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.protobuf.MessageLite
@@ -713,202 +1060,6 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             }
             if ((this.bitField0_ & 64) == 64) {
                 codedOutputStream.writeInt32(7, this.connType_);
-            }
-        }
-    }
-
-    public /* synthetic */ LcmPb$LcmRequest(GeneratedMessageLite.Builder builder, x80 x80Var) {
-        this(builder);
-    }
-
-    public static b newBuilder(LcmPb$LcmRequest lcmPb$LcmRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, lcmPb$LcmRequest)) == null) {
-            b newBuilder = newBuilder();
-            newBuilder.u(lcmPb$LcmRequest);
-            return newBuilder;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public static LcmPb$LcmRequest parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) ? PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite) : (LcmPb$LcmRequest) invokeLL.objValue;
-    }
-
-    public static LcmPb$LcmRequest parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, byteString, extensionRegistryLite)) == null) ? PARSER.parseFrom(byteString, extensionRegistryLite) : (LcmPb$LcmRequest) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.MessageLiteOrBuilder
-    public LcmPb$LcmRequest getDefaultInstanceForType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? defaultInstance : (LcmPb$LcmRequest) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.MessageLite
-    public b newBuilderForType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? newBuilder() : (b) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.MessageLite
-    public b toBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? newBuilder(this) : (b) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LcmPb$LcmRequest(GeneratedMessageLite.Builder builder) {
-        super(builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.memoizedIsInitialized = (byte) -1;
-        this.memoizedSerializedSize = -1;
-    }
-
-    public static LcmPb$LcmRequest parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) ? PARSER.parseFrom(bArr) : (LcmPb$LcmRequest) invokeL.objValue;
-    }
-
-    public static LcmPb$LcmRequest parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, bArr, extensionRegistryLite)) == null) ? PARSER.parseFrom(bArr, extensionRegistryLite) : (LcmPb$LcmRequest) invokeLL.objValue;
-    }
-
-    public static LcmPb$LcmRequest parseFrom(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, inputStream)) == null) ? PARSER.parseFrom(inputStream) : (LcmPb$LcmRequest) invokeL.objValue;
-    }
-
-    public LcmPb$LcmRequest(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        this.memoizedIsInitialized = (byte) -1;
-        this.memoizedSerializedSize = -1;
-    }
-
-    public static LcmPb$LcmRequest parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, inputStream, extensionRegistryLite)) == null) ? PARSER.parseFrom(inputStream, extensionRegistryLite) : (LcmPb$LcmRequest) invokeLL.objValue;
-    }
-
-    public static LcmPb$LcmRequest parseFrom(CodedInputStream codedInputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, codedInputStream)) == null) ? PARSER.parseFrom(codedInputStream) : (LcmPb$LcmRequest) invokeL.objValue;
-    }
-
-    public static LcmPb$LcmRequest parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, codedInputStream, extensionRegistryLite)) == null) ? PARSER.parseFrom(codedInputStream, extensionRegistryLite) : (LcmPb$LcmRequest) invokeLL.objValue;
-    }
-
-    public LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {codedInputStream, extensionRegistryLite};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.memoizedIsInitialized = (byte) -1;
-        this.memoizedSerializedSize = -1;
-        initFields();
-        boolean z = false;
-        while (!z) {
-            try {
-                try {
-                    int readTag = codedInputStream.readTag();
-                    if (readTag != 0) {
-                        if (readTag == 8) {
-                            this.bitField0_ |= 1;
-                            this.logId_ = codedInputStream.readInt64();
-                        } else if (readTag == 18) {
-                            this.bitField0_ |= 2;
-                            this.token_ = codedInputStream.readBytes();
-                        } else if (readTag == 26) {
-                            LcmPb$Common.b builder = (this.bitField0_ & 4) == 4 ? this.common_.toBuilder() : null;
-                            LcmPb$Common lcmPb$Common = (LcmPb$Common) codedInputStream.readMessage(LcmPb$Common.PARSER, extensionRegistryLite);
-                            this.common_ = lcmPb$Common;
-                            if (builder != null) {
-                                builder.s(lcmPb$Common);
-                                this.common_ = builder.buildPartial();
-                            }
-                            this.bitField0_ |= 4;
-                        } else if (readTag == 32) {
-                            this.bitField0_ |= 8;
-                            this.timestamp_ = codedInputStream.readInt64();
-                        } else if (readTag == 40) {
-                            this.bitField0_ |= 16;
-                            this.action_ = codedInputStream.readInt32();
-                        } else if (readTag == 48) {
-                            this.bitField0_ |= 32;
-                            this.startType_ = codedInputStream.readInt32();
-                        } else if (readTag != 56) {
-                            if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                            }
-                        } else {
-                            this.bitField0_ |= 64;
-                            this.connType_ = codedInputStream.readInt32();
-                        }
-                    }
-                    z = true;
-                } catch (InvalidProtocolBufferException e) {
-                    throw e.setUnfinishedMessage(this);
-                } catch (IOException e2) {
-                    throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
-                }
-            } finally {
-                makeExtensionsImmutable();
             }
         }
     }

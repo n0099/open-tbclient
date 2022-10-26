@@ -32,6 +32,24 @@ public class VodError {
         this.message = null;
     }
 
+    public String getCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.code;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.message;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static VodError formatFromJson(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -42,18 +60,6 @@ public class VodError {
             return vodError;
         }
         return (VodError) invokeL.objValue;
-    }
-
-    public String getCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : (String) invokeV.objValue;
-    }
-
-    public String getMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.message : (String) invokeV.objValue;
     }
 
     public void setCode(String str) {

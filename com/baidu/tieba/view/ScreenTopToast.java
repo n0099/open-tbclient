@@ -11,15 +11,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.sy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,10 +39,39 @@ public class ScreenTopToast extends LinearLayout {
     public c i;
 
     /* loaded from: classes6.dex */
+    public interface c {
+        void a(ScreenTopToast screenTopToast);
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ScreenTopToast a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
 
         public a(ScreenTopToast screenTopToast) {
             Interceptable interceptable = $ic;
@@ -66,26 +94,13 @@ public class ScreenTopToast extends LinearLayout {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.i();
-                if (this.a.getParent() != null) {
-                    ((ViewGroup) this.a.getParent()).removeView(this.a);
-                    this.a.h = false;
-                }
+            if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
+                return;
             }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            this.a.i();
+            if (this.a.getParent() != null) {
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
+                this.a.h = false;
             }
         }
     }
@@ -117,15 +132,11 @@ public class ScreenTopToast extends LinearLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.d();
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(ScreenTopToast screenTopToast);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -149,69 +160,47 @@ public class ScreenTopToast extends LinearLayout {
         }
     }
 
-    public final void d() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ScreenTopToast(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            i();
-            startAnimation(this.f);
-            c cVar = this.i;
-            if (cVar != null) {
-                cVar.a(this);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public final void e() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ScreenTopToast(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOrientation(1);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078e, this);
-            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091dc4);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc3);
-            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091dc2);
-            this.d.setConfig(new my4());
-            f();
-            h();
         }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010092);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c0);
-            this.f = loadAnimation;
-            loadAnimation.setAnimationListener(new a(this));
-            this.g = new b(this);
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : invokeV.booleanValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
-            this.d.k();
-            this.a.b();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            gh.a().removeCallbacks(this.g);
-            clearAnimation();
-        }
+        e();
     }
 
     public ScreenTopToast j(View.OnClickListener onClickListener) {
@@ -254,9 +243,77 @@ public class ScreenTopToast extends LinearLayout {
         return (ScreenTopToast) invokeL.objValue;
     }
 
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            i();
+            startAnimation(this.f);
+            c cVar = this.i;
+            if (cVar != null) {
+                cVar.a(this);
+            }
+        }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
+            this.d.k();
+            this.a.b();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            hh.a().removeCallbacks(this.g);
+            clearAnimation();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setOrientation(1);
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
+            }
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078f, this);
+            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091dc0);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dbf);
+            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091dbe);
+            this.d.setConfig(new sy4());
+            f();
+            h();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010092);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c0);
+            this.f = loadAnimation;
+            loadAnimation.setAnimationListener(new a(this));
+            this.g = new b(this);
+        }
+    }
+
     public void n(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, viewGroup) == null) || viewGroup == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, viewGroup) != null) || viewGroup == null) {
             return;
         }
         if (getParent() != null) {
@@ -269,59 +326,6 @@ public class ScreenTopToast extends LinearLayout {
         viewGroup.addView(this, -1, -2);
         this.h = true;
         startAnimation(this.e);
-        gh.a().postDelayed(this.g, 5000L);
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScreenTopToast(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScreenTopToast(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        e();
+        hh.a().postDelayed(this.g, 5000L);
     }
 }

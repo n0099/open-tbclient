@@ -21,7 +21,7 @@ public class ParamableElem implements Serializable {
     public static final String DIVIDE_PARAM_TMP = "@@$$@@";
     public static final long serialVersionUID = 6761787877387462101L;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> mParams;
+    public ArrayList mParams;
 
     public ParamableElem() {
         Interceptable interceptable = $ic;
@@ -36,16 +36,35 @@ public class ParamableElem implements Serializable {
                 return;
             }
         }
-        this.mParams = new ArrayList<>();
+        this.mParams = new ArrayList();
+    }
+
+    public ParamableElem clearParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            this.mParams.clear();
+            return this;
+        }
+        return (ParamableElem) invokeV.objValue;
+    }
+
+    public ArrayList getParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new ArrayList(this.mParams);
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, objectInputStream) == null) {
-            ArrayList<String> arrayList = (ArrayList) objectInputStream.readObject();
+            ArrayList arrayList = (ArrayList) objectInputStream.readObject();
             this.mParams = arrayList;
             if (arrayList == null) {
-                this.mParams = new ArrayList<>();
+                this.mParams = new ArrayList();
             }
         }
     }
@@ -67,7 +86,7 @@ public class ParamableElem implements Serializable {
         return (ParamableElem) invokeL.objValue;
     }
 
-    public ParamableElem addParams(List<String> list) {
+    public ParamableElem addParams(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
@@ -77,36 +96,20 @@ public class ParamableElem implements Serializable {
         return (ParamableElem) invokeL.objValue;
     }
 
-    public ParamableElem clearParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.mParams.clear();
-            return this;
-        }
-        return (ParamableElem) invokeV.objValue;
-    }
-
     public String getConnectedParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<String> arrayList = this.mParams;
+            ArrayList arrayList = this.mParams;
             if (Util.empty(arrayList)) {
                 return null;
             }
             if (arrayList.size() == 1) {
-                return Util.replaceEncode(arrayList.get(0), DIVIDE_PARAM);
+                return Util.replaceEncode((String) arrayList.get(0), DIVIDE_PARAM);
             }
             return Util.replaceEncode(TextUtils.join(DIVIDE_PARAM_TMP, arrayList.toArray(new String[arrayList.size()])), DIVIDE_PARAM).replace(DIVIDE_PARAM_TMP, DIVIDE_PARAM);
         }
         return (String) invokeV.objValue;
-    }
-
-    public ArrayList<String> getParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new ArrayList<>(this.mParams) : (ArrayList) invokeV.objValue;
     }
 
     public boolean isSameParams(String... strArr) {
@@ -114,12 +117,15 @@ public class ParamableElem implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
             if (this.mParams.isEmpty()) {
-                return strArr.length == 0;
+                if (strArr.length == 0) {
+                    return true;
+                }
+                return false;
             } else if (this.mParams.size() != strArr.length) {
                 return false;
             } else {
                 for (int i = 0; i < strArr.length; i++) {
-                    if (!strArr[i].equals(this.mParams.get(i))) {
+                    if (!strArr[i].equals((String) this.mParams.get(i))) {
                         return false;
                     }
                 }

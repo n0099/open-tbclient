@@ -15,15 +15,19 @@ public class MergePathsParser {
         boolean z = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                mergePathsMode = MergePaths.MergePathsMode.forId(jsonReader.nextInt());
-            } else if (selectName != 2) {
-                jsonReader.skipName();
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        jsonReader.skipName();
+                        jsonReader.skipValue();
+                    } else {
+                        z = jsonReader.nextBoolean();
+                    }
+                } else {
+                    mergePathsMode = MergePaths.MergePathsMode.forId(jsonReader.nextInt());
+                }
             } else {
-                z = jsonReader.nextBoolean();
+                str = jsonReader.nextString();
             }
         }
         return new MergePaths(str, mergePathsMode, z);

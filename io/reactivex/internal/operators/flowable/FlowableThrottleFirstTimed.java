@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableThrottleFirstTimed extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
@@ -28,11 +28,11 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class DebounceTimedSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription, Runnable {
+    public final class DebounceTimedSubscriber extends AtomicLong implements FlowableSubscriber, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9102637559663639004L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public boolean done;
         public volatile boolean gate;
         public Subscription s;
@@ -41,7 +41,7 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
         public final TimeUnit unit;
         public final Scheduler.Worker worker;
 
-        public DebounceTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public DebounceTimedSubscriber(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,12 +75,20 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
                 return;
             }
             this.done = true;
             this.actual.onComplete();
             this.worker.dispose();
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.gate = false;
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -95,28 +103,6 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
                 this.actual.onError(th);
                 this.worker.dispose();
             }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done || this.gate) {
-                return;
-            }
-            this.gate = true;
-            if (get() != 0) {
-                this.actual.onNext(t);
-                BackpressureHelper.produced(this, 1L);
-                Disposable disposable = this.timer.get();
-                if (disposable != null) {
-                    disposable.dispose();
-                }
-                this.timer.replace(this.worker.schedule(this, this.timeout, this.unit));
-                return;
-            }
-            this.done = true;
-            cancel();
-            this.actual.onError(new MissingBackpressureException("Could not deliver value due to lack of requests"));
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -137,17 +123,30 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.gate = false;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.done && !this.gate) {
+                this.gate = true;
+                if (get() != 0) {
+                    this.actual.onNext(obj);
+                    BackpressureHelper.produced(this, 1L);
+                    Disposable disposable = (Disposable) this.timer.get();
+                    if (disposable != null) {
+                        disposable.dispose();
+                    }
+                    this.timer.replace(this.worker.schedule(this, this.timeout, this.unit));
+                    return;
+                }
+                this.done = true;
+                cancel();
+                this.actual.onError(new MissingBackpressureException("Could not deliver value due to lack of requests"));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableThrottleFirstTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public FlowableThrottleFirstTimed(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -170,7 +169,7 @@ public final class FlowableThrottleFirstTimed<T> extends AbstractFlowableWithUps
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new DebounceTimedSubscriber(new SerializedSubscriber(subscriber), this.timeout, this.unit, this.scheduler.createWorker()));

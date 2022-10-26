@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ie7;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.qe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import tbclient.Error;
 public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ie7> datas;
+    public ArrayList datas;
     public boolean hasMore;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,7 +39,7 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
                 return;
             }
         }
-        this.datas = new ArrayList<>();
+        this.datas = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            mu4.f();
-            mu4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+            ou4.f();
+            ou4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 
@@ -60,6 +60,7 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
+            boolean z = false;
             AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
             if (agreeMeResIdl == null) {
                 return;
@@ -73,12 +74,15 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
                 setErrorString(agreeMeResIdl.error.usermsg);
             }
             if (getError() == 0 && (dataRes = agreeMeResIdl.data) != null) {
-                this.hasMore = dataRes.has_more.intValue() == 1;
+                if (dataRes.has_more.intValue() == 1) {
+                    z = true;
+                }
+                this.hasMore = z;
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
-                        ie7 ie7Var = new ie7();
-                        ie7Var.I(agreeList);
-                        this.datas.add(ie7Var);
+                        qe7 qe7Var = new qe7();
+                        qe7Var.I(agreeList);
+                        this.datas.add(qe7Var);
                     }
                 }
             }

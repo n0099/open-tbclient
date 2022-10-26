@@ -24,17 +24,20 @@ public class t {
             if (i >= 23) {
                 return new w();
             }
-            return i >= 14 ? new r() : new v();
+            if (i >= 14) {
+                return new r();
+            }
+            return new v();
         }
         return (s) invokeV.objValue;
     }
 
-    public static Object b(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
+    public static Object b(Class cls, Class[] clsArr, Object[] objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, clsArr, objArr)) == null) {
             try {
-                Constructor<?> declaredConstructor = cls.getDeclaredConstructor(clsArr);
+                Constructor declaredConstructor = cls.getDeclaredConstructor(clsArr);
                 declaredConstructor.setAccessible(true);
                 return declaredConstructor.newInstance(objArr);
             } catch (Exception e) {
@@ -59,6 +62,19 @@ public class t {
         return invokeLLL.objValue;
     }
 
+    public static void e(Object obj, String str, Object obj2) {
+        Field d;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, obj2) == null) && (d = d(obj, str)) != null) {
+            d.setAccessible(true);
+            try {
+                d.set(obj, obj2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static Field d(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -72,41 +88,6 @@ public class t {
             return null;
         }
         return (Field) invokeLL.objValue;
-    }
-
-    public static void e(Object obj, String str, Object obj2) {
-        Field d;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, obj2) == null) || (d = d(obj, str)) == null) {
-            return;
-        }
-        d.setAccessible(true);
-        try {
-            d.set(obj, obj2);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static <T> boolean f(T[] tArr, T t) {
-        InterceptResult invokeLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, tArr, t)) == null) {
-            if (tArr != null) {
-                i = 0;
-                while (i < tArr.length) {
-                    T t2 = tArr[i];
-                    if (t2 == t || (t2 != null && t2.equals(t))) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            i = -1;
-            return i != -1;
-        }
-        return invokeLL.booleanValue;
     }
 
     public static Object g(Object obj, String str) {
@@ -126,5 +107,35 @@ public class t {
             return null;
         }
         return invokeLL.objValue;
+    }
+
+    public static boolean f(Object[] objArr, Object obj) {
+        InterceptResult invokeLL;
+        int i;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, objArr, obj)) == null) {
+            if (objArr != null) {
+                i = 0;
+                while (i < objArr.length) {
+                    Object obj2 = objArr[i];
+                    if (obj2 != obj && (obj2 == null || !obj2.equals(obj))) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (z) {
+                        break;
+                    }
+                    i++;
+                }
+            }
+            i = -1;
+            if (i != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

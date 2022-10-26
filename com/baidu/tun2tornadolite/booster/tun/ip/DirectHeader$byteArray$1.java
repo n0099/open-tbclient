@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.ranges.IntRange;
 @Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010 \n\u0002\u0010\u0005\n\u0000\n\u0002\u0010\b\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\n"}, d2 = {"<anonymous>", "", "", "index", ""}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class DirectHeader$byteArray$1 extends Lambda implements Function1<Integer, List<? extends Byte>> {
+public final class DirectHeader$byteArray$1 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int $length;
@@ -42,16 +42,17 @@ public final class DirectHeader$byteArray$1 extends Lambda implements Function1<
         this.$length = i;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ List<? extends Byte> invoke(Integer num) {
-        return invoke(num.intValue());
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        return invoke(((Number) obj).intValue());
     }
 
-    public final List<Byte> invoke(int i) {
+    public final List invoke(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? ArraysKt___ArraysKt.slice(this.this$0.getBuffer(), new IntRange(i, this.$length - 1)) : (List) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return ArraysKt___ArraysKt.slice(this.this$0.getBuffer(), new IntRange(i, this.$length - 1));
+        }
+        return (List) invokeI.objValue;
     }
 }

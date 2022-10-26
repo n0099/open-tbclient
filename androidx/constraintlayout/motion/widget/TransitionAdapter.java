@@ -11,20 +11,6 @@ public abstract class TransitionAdapter implements MotionLayout.TransitionListen
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public TransitionAdapter() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // androidx.constraintlayout.motion.widget.MotionLayout.TransitionListener
     public void onTransitionChange(MotionLayout motionLayout, int i, int i2, float f) {
         Interceptable interceptable = $ic;
@@ -50,6 +36,20 @@ public abstract class TransitionAdapter implements MotionLayout.TransitionListen
     public void onTransitionTrigger(MotionLayout motionLayout, int i, boolean z, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{motionLayout, Integer.valueOf(i), Boolean.valueOf(z), Float.valueOf(f)}) == null) {
+        }
+    }
+
+    public TransitionAdapter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

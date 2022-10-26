@@ -22,13 +22,18 @@ import java.util.List;
 import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes9.dex */
-public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
+public class PayAmountCampaignListAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<GiftBagItemInfo> a;
+    public List a;
     public PayUIKitConfig b;
     public Context c;
     public b d;
+
+    /* loaded from: classes9.dex */
+    public interface b {
+        void a(int i);
+    }
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -59,16 +64,10 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.d == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.d != null) {
+                this.b.d.a(this.a.getAdapterPosition());
             }
-            this.b.d.onClick(this.a.getAdapterPosition());
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public interface b {
-        void onClick(int i);
     }
 
     /* loaded from: classes9.dex */
@@ -98,10 +97,10 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923cf);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d6);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebc);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092420);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ba);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c1);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb0);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09240b);
         }
     }
 
@@ -129,11 +128,11 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<GiftBagItemInfo> list = this.a;
-            if (list == null || list.isEmpty() || i < 0 || i >= this.a.size()) {
-                return null;
+            List list = this.a;
+            if (list != null && !list.isEmpty() && i >= 0 && i < this.a.size()) {
+                return (GiftBagItemInfo) this.a.get(i);
             }
-            return this.a.get(i);
+            return null;
         }
         return (GiftBagItemInfo) invokeI.objValue;
     }
@@ -179,13 +178,19 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
     public c onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a5, viewGroup, false)) : (c) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+            return new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a5, viewGroup, false));
+        }
+        return (c) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
     }
 }

@@ -38,8 +38,8 @@ public class HeatMap {
     public static int r;
     public transient /* synthetic */ FieldHolder $fh;
     public BaiduMap a;
-    public o<WeightedLatLng> f;
-    public Collection<WeightedLatLng> g;
+    public o f;
+    public Collection g;
     public int h;
     public Gradient i;
     public double j;
@@ -47,15 +47,15 @@ public class HeatMap {
     public int[] l;
     public double[] m;
     public double[] n;
-    public HashMap<String, Tile> o;
+    public HashMap o;
     public ExecutorService p;
-    public HashSet<String> q;
+    public HashSet q;
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Collection<WeightedLatLng> a;
+        public Collection a;
         public int b;
         public Gradient c;
         public double d;
@@ -90,7 +90,7 @@ public class HeatMap {
             return (HeatMap) invokeV.objValue;
         }
 
-        public Builder data(Collection<LatLng> collection) {
+        public Builder data(Collection collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
@@ -144,7 +144,7 @@ public class HeatMap {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder weightedData(Collection<WeightedLatLng> collection) {
+        public Builder weightedData(Collection collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
@@ -155,7 +155,9 @@ public class HeatMap {
                     throw new IllegalArgumentException("BDMapSDKException: input points can not contain null.");
                 }
                 ArrayList arrayList = new ArrayList();
-                for (WeightedLatLng weightedLatLng : collection) {
+                Iterator it = collection.iterator();
+                while (it.hasNext()) {
+                    WeightedLatLng weightedLatLng = (WeightedLatLng) it.next();
                     LatLng latLng = weightedLatLng.latLng;
                     double d = latLng.latitude;
                     if (d >= 0.37532d && d <= 54.562495d) {
@@ -229,9 +231,9 @@ public class HeatMap {
                 return;
             }
         }
-        this.o = new HashMap<>();
+        this.o = new HashMap();
         this.p = Executors.newFixedThreadPool(1);
-        this.q = new HashSet<>();
+        this.q = new HashSet();
         this.g = builder.a;
         this.h = builder.b;
         this.i = builder.c;
@@ -246,7 +248,7 @@ public class HeatMap {
         this(builder);
     }
 
-    public static double a(Collection<WeightedLatLng> collection, h hVar, int i, int i2) {
+    public static double a(Collection collection, h hVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, collection, hVar, i, i2)) == null) {
@@ -260,8 +262,10 @@ public class HeatMap {
             }
             double d7 = ((int) ((i2 / (i * 2)) + 0.5d)) / d5;
             LongSparseArray longSparseArray = new LongSparseArray();
+            Iterator it = collection.iterator();
             double d8 = 0.0d;
-            for (WeightedLatLng weightedLatLng : collection) {
+            while (it.hasNext()) {
+                WeightedLatLng weightedLatLng = (WeightedLatLng) it.next();
                 int i3 = (int) ((weightedLatLng.a().y - d4) * d7);
                 long j = (int) ((weightedLatLng.a().x - d2) * d7);
                 LongSparseArray longSparseArray2 = (LongSparseArray) longSparseArray.get(j);
@@ -529,7 +533,7 @@ public class HeatMap {
         }
     }
 
-    private void b(Collection<WeightedLatLng> collection) {
+    private void b(Collection collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, collection) == null) {
             this.g = collection;
@@ -538,9 +542,9 @@ public class HeatMap {
             }
             h d2 = d(this.g);
             this.k = d2;
-            this.f = new o<>(d2);
+            this.f = new o(d2);
             for (WeightedLatLng weightedLatLng : this.g) {
-                this.f.a((o<WeightedLatLng>) weightedLatLng);
+                this.f.a(weightedLatLng);
             }
             this.n = a(this.h);
         }
@@ -552,7 +556,7 @@ public class HeatMap {
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, str)) == null) {
             synchronized (this) {
                 if (this.o.containsKey(str)) {
-                    Tile tile = this.o.get(str);
+                    Tile tile = (Tile) this.o.get(str);
                     this.o.remove(str);
                     return tile;
                 }
@@ -562,33 +566,34 @@ public class HeatMap {
         return (Tile) invokeL.objValue;
     }
 
-    public static Collection<WeightedLatLng> c(Collection<LatLng> collection) {
+    public static Collection c(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, collection)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (LatLng latLng : collection) {
-                arrayList.add(new WeightedLatLng(latLng));
+            Iterator it = collection.iterator();
+            while (it.hasNext()) {
+                arrayList.add(new WeightedLatLng((LatLng) it.next()));
             }
             return arrayList;
         }
         return (Collection) invokeL.objValue;
     }
 
-    public static h d(Collection<WeightedLatLng> collection) {
+    public static h d(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, collection)) == null) {
-            Iterator<WeightedLatLng> it = collection.iterator();
-            WeightedLatLng next = it.next();
-            double d2 = next.a().x;
-            double d3 = next.a().x;
-            double d4 = next.a().y;
-            double d5 = next.a().y;
+            Iterator it = collection.iterator();
+            WeightedLatLng weightedLatLng = (WeightedLatLng) it.next();
+            double d2 = weightedLatLng.a().x;
+            double d3 = weightedLatLng.a().x;
+            double d4 = weightedLatLng.a().y;
+            double d5 = weightedLatLng.a().y;
             while (it.hasNext()) {
-                WeightedLatLng next2 = it.next();
-                double d6 = next2.a().x;
-                double d7 = next2.a().y;
+                WeightedLatLng weightedLatLng2 = (WeightedLatLng) it.next();
+                double d6 = weightedLatLng2.a().x;
+                double d7 = weightedLatLng2.a().y;
                 if (d6 < d2) {
                     d2 = d6;
                 }

@@ -132,36 +132,6 @@ public final class DeviceManagerV2 {
         return (String) invokeL.objValue;
     }
 
-    private long getLong(JSONObject jSONObject, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{jSONObject, str, Long.valueOf(j)})) == null) {
-            if (jSONObject == null || !jSONObject.has(str)) {
-                return j;
-            }
-            try {
-                return jSONObject.getLong(str);
-            } catch (JSONException e) {
-                L.debug(this, e.getMessage(), new Object[0]);
-                return j;
-            }
-        }
-        return invokeCommon.longValue;
-    }
-
-    private String getSdpm(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) {
-            boolean checkPermissions = ArdUtil.checkPermissions(context, "android.permission.WRITE_SETTINGS");
-            StringBuilder sb = new StringBuilder();
-            sb.append(checkPermissions ? 4 : 0);
-            sb.append("");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
     private Device getSetting(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -183,6 +153,86 @@ public final class DeviceManagerV2 {
         return (Device) invokeL.objValue;
     }
 
+    private String key(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
+            try {
+                return Coder.encryptMD5(str + KEY_MAGIC1 + KEY_MAGIC2);
+            } catch (Throwable th) {
+                L.debug(this, th.getMessage(), new Object[0]);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public Device getDevice(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            Device device = this.mDi;
+            if (device != null) {
+                return device;
+            }
+            synchronized (LOCK) {
+                if (this.mDi != null) {
+                    return this.mDi;
+                }
+                Device initDevice = initDevice(context);
+                this.mDi = initDevice;
+                initDevice.sdPermission = getSdpm(context);
+                return this.mDi;
+            }
+        }
+        return (Device) invokeL.objValue;
+    }
+
+    private long getLong(JSONObject jSONObject, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{jSONObject, str, Long.valueOf(j)})) == null) {
+            if (jSONObject != null && jSONObject.has(str)) {
+                try {
+                    return jSONObject.getLong(str);
+                } catch (JSONException e) {
+                    L.debug(this, e.getMessage(), new Object[0]);
+                    return j;
+                }
+            }
+            return j;
+        }
+        return invokeCommon.longValue;
+    }
+
+    private String getSdpm(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) {
+            boolean checkPermissions = ArdUtil.checkPermissions(context, "android.permission.WRITE_SETTINGS");
+            StringBuilder sb = new StringBuilder();
+            if (checkPermissions) {
+                i = 4;
+            } else {
+                i = 0;
+            }
+            sb.append(i);
+            sb.append("");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static DeviceManagerV2 valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            return (DeviceManagerV2) Enum.valueOf(DeviceManagerV2.class, str);
+        }
+        return (DeviceManagerV2) invokeL.objValue;
+    }
+
     private String getString(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -197,6 +247,17 @@ public final class DeviceManagerV2 {
             return null;
         }
         return (String) invokeLL.objValue;
+    }
+
+    private void saveInner(Context context, Device device) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, this, context, device) == null) {
+            try {
+                FileUtil.saveFile(getInnerPath(context), Coder.encryptDES(d2s(device), "!qazxsw@v2#edcvfr$v2"));
+            } catch (Throwable th) {
+                L.debug(this, "saveInner exception = %s", th);
+            }
+        }
     }
 
     private Device initDevice(Context context) {
@@ -228,20 +289,6 @@ public final class DeviceManagerV2 {
             }
         }
         return (Device) invokeL.objValue;
-    }
-
-    private String key(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
-            try {
-                return Coder.encryptMD5(str + KEY_MAGIC1 + KEY_MAGIC2);
-            } catch (Throwable th) {
-                L.debug(this, th.getMessage(), new Object[0]);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
     }
 
     private boolean putLong(JSONObject jSONObject, String str, long j) {
@@ -310,17 +357,6 @@ public final class DeviceManagerV2 {
         return (Device) invokeL.objValue;
     }
 
-    private void saveInner(Context context, Device device) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, this, context, device) == null) {
-            try {
-                FileUtil.saveFile(getInnerPath(context), Coder.encryptDES(d2s(device), "!qazxsw@v2#edcvfr$v2"));
-            } catch (Throwable th) {
-                L.debug(this, "saveInner exception = %s", th);
-            }
-        }
-    }
-
     private void saveSetting(Context context, Device device) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65551, this, context, device) == null) && ArdUtil.checkPermissions(context, "android.permission.WRITE_SETTINGS")) {
@@ -335,36 +371,12 @@ public final class DeviceManagerV2 {
         }
     }
 
-    public static DeviceManagerV2 valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? (DeviceManagerV2) Enum.valueOf(DeviceManagerV2.class, str) : (DeviceManagerV2) invokeL.objValue;
-    }
-
     public static DeviceManagerV2[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? (DeviceManagerV2[]) $VALUES.clone() : (DeviceManagerV2[]) invokeV.objValue;
-    }
-
-    public Device getDevice(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            Device device = this.mDi;
-            if (device != null) {
-                return device;
-            }
-            synchronized (LOCK) {
-                if (this.mDi != null) {
-                    return this.mDi;
-                }
-                Device initDevice = initDevice(context);
-                this.mDi = initDevice;
-                initDevice.sdPermission = getSdpm(context);
-                return this.mDi;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return (DeviceManagerV2[]) $VALUES.clone();
         }
-        return (Device) invokeL.objValue;
+        return (DeviceManagerV2[]) invokeV.objValue;
     }
 }

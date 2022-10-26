@@ -89,7 +89,7 @@ public class HttpUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class HttpStatusException extends Exception {
+    public class HttpStatusException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "http status code error:";
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class HttpUtils {
     }
 
     /* loaded from: classes8.dex */
-    public static class NetworkUnavailableException extends Exception {
+    public class NetworkUnavailableException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "network unavailable";
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class HttpUtils {
     }
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -183,13 +183,30 @@ public class HttpUtils {
         }
     }
 
-    public static void a(Context context, QQToken qQToken, String str) {
+    public static int a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, context, qQToken, str) == null) {
-            if (str.indexOf("add_share") > -1 || str.indexOf("upload_pic") > -1 || str.indexOf("add_topic") > -1 || str.indexOf("set_user_face") > -1 || str.indexOf("add_t") > -1 || str.indexOf("add_pic_t") > -1 || str.indexOf("add_pic_url") > -1 || str.indexOf("add_video") > -1) {
-                com.tencent.connect.a.a.a(context, qQToken, "requireApi", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (Build.VERSION.SDK_INT < 11) {
+                if (context != null) {
+                    int port = Proxy.getPort(context);
+                    if (port < 0) {
+                        return Proxy.getDefaultPort();
+                    }
+                    return port;
+                }
+                return Proxy.getDefaultPort();
             }
+            String property = System.getProperty("http.proxyPort");
+            if (!TextUtils.isEmpty(property)) {
+                try {
+                    return Integer.parseInt(property);
+                } catch (NumberFormatException unused) {
+                }
+            }
+            return -1;
         }
+        return invokeL.intValue;
     }
 
     public static String b(Context context) {
@@ -199,13 +216,69 @@ public class HttpUtils {
             if (Build.VERSION.SDK_INT < 11) {
                 if (context != null) {
                     String host = Proxy.getHost(context);
-                    return TextUtils.isEmpty(host) ? Proxy.getDefaultHost() : host;
+                    if (TextUtils.isEmpty(host)) {
+                        return Proxy.getDefaultHost();
+                    }
+                    return host;
                 }
                 return Proxy.getDefaultHost();
             }
             return System.getProperty("http.proxyHost");
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String a(HttpResponse httpResponse) throws IllegalStateException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, httpResponse)) == null) {
+            InputStream content = httpResponse.getEntity().getContent();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            Header firstHeader = httpResponse.getFirstHeader("Content-Encoding");
+            if (firstHeader != null && firstHeader.getValue().toLowerCase().indexOf("gzip") > -1) {
+                content = new GZIPInputStream(content);
+            }
+            byte[] bArr = new byte[512];
+            while (true) {
+                int read = content.read(bArr);
+                if (read != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                } else {
+                    String str = new String(byteArrayOutputStream.toByteArray(), "UTF-8");
+                    content.close();
+                    return str;
+                }
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static a getProxy(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
+        NetworkInfo activeNetworkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.getType() == 0) {
+                String b = b(context);
+                int a2 = a(context);
+                if (!TextUtils.isEmpty(b) && a2 >= 0) {
+                    return new a(b, a2);
+                }
+            }
+            return null;
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public static void a(Context context, QQToken qQToken, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, context, qQToken, str) == null) {
+            if (str.indexOf("add_share") > -1 || str.indexOf("upload_pic") > -1 || str.indexOf("add_topic") > -1 || str.indexOf("set_user_face") > -1 || str.indexOf("add_t") > -1 || str.indexOf("add_pic_t") > -1 || str.indexOf("add_pic_url") > -1 || str.indexOf("add_video") > -1) {
+                com.tencent.connect.a.a.a(context, qQToken, "requireApi", str);
+            }
+        }
     }
 
     public static String encodePostBody(Bundle bundle, String str) {
@@ -392,7 +465,10 @@ public class HttpUtils {
             if (iOException instanceof UnsupportedEncodingException) {
                 return -53;
             }
-            return iOException instanceof ZipException ? -54 : -2;
+            if (iOException instanceof ZipException) {
+                return -54;
+            }
+            return -2;
         }
         return invokeL.intValue;
     }
@@ -416,11 +492,14 @@ public class HttpUtils {
                 schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
             }
             BasicHttpParams basicHttpParams = new BasicHttpParams();
-            g a2 = context != null ? g.a(context, str) : null;
+            g gVar = null;
+            if (context != null) {
+                gVar = g.a(context, str);
+            }
             int i2 = 0;
-            if (a2 != null) {
-                i2 = a2.a("Common_HttpConnectionTimeout");
-                i = a2.a("Common_SocketConnectionTimeout");
+            if (gVar != null) {
+                i2 = gVar.a("Common_HttpConnectionTimeout");
+                i = gVar.a("Common_SocketConnectionTimeout");
             } else {
                 i = 0;
             }
@@ -445,27 +524,10 @@ public class HttpUtils {
         return (HttpClient) invokeLLL.objValue;
     }
 
-    public static a getProxy(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.getType() == 0) {
-                String b = b(context);
-                int a2 = a(context);
-                if (!TextUtils.isEmpty(b) && a2 >= 0) {
-                    return new a(b, a2);
-                }
-            }
-            return null;
-        }
-        return (a) invokeL.objValue;
-    }
-
     public static l.a openUrl2(Context context, String str, String str2, Bundle bundle) throws MalformedURLException, IOException, NetworkUnavailableException, HttpStatusException {
         InterceptResult invokeLLLL;
         Bundle bundle2;
+        String str3;
         Bundle b;
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
@@ -489,7 +551,11 @@ public class HttpUtils {
                 String encodeUrl = encodeUrl(bundle2);
                 i = 0 + encodeUrl.length();
                 SLog.v("openSDK_LOG.HttpUtils", "-->openUrl2 before url =" + str);
-                String str3 = str.indexOf("?") == -1 ? str + "?" : str + "&";
+                if (str.indexOf("?") == -1) {
+                    str3 = str + "?";
+                } else {
+                    str3 = str + "&";
+                }
                 if (com.tencent.open.log.d.b(bundle2) != bundle2) {
                     SLog.i("openSDK_LOG.HttpUtils", "-->openUrl2 encodedParam =" + encodeUrl(b) + " -- url = " + str3);
                 } else {
@@ -896,53 +962,5 @@ public class HttpUtils {
                 }
             }.start();
         }
-    }
-
-    public static String a(HttpResponse httpResponse) throws IllegalStateException, IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, httpResponse)) != null) {
-            return (String) invokeL.objValue;
-        }
-        InputStream content = httpResponse.getEntity().getContent();
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        Header firstHeader = httpResponse.getFirstHeader("Content-Encoding");
-        if (firstHeader != null && firstHeader.getValue().toLowerCase().indexOf("gzip") > -1) {
-            content = new GZIPInputStream(content);
-        }
-        byte[] bArr = new byte[512];
-        while (true) {
-            int read = content.read(bArr);
-            if (read != -1) {
-                byteArrayOutputStream.write(bArr, 0, read);
-            } else {
-                String str = new String(byteArrayOutputStream.toByteArray(), "UTF-8");
-                content.close();
-                return str;
-            }
-        }
-    }
-
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (Build.VERSION.SDK_INT < 11) {
-                if (context != null) {
-                    int port = Proxy.getPort(context);
-                    return port < 0 ? Proxy.getDefaultPort() : port;
-                }
-                return Proxy.getDefaultPort();
-            }
-            String property = System.getProperty("http.proxyPort");
-            if (!TextUtils.isEmpty(property)) {
-                try {
-                    return Integer.parseInt(property);
-                } catch (NumberFormatException unused) {
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
     }
 }

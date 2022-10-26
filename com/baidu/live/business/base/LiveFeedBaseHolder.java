@@ -37,27 +37,24 @@ public class LiveFeedBaseHolder extends RecyclerView.ViewHolder {
     public void a() {
         LiveBaseItemView liveBaseItemView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (liveBaseItemView = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (liveBaseItemView = this.a) != null) {
+            liveBaseItemView.a();
         }
-        liveBaseItemView.a();
     }
 
     public void b() {
         LiveBaseItemView liveBaseItemView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (liveBaseItemView = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (liveBaseItemView = this.a) != null) {
+            liveBaseItemView.b();
         }
-        liveBaseItemView.b();
     }
 
     public void c() {
         LiveBaseItemView liveBaseItemView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (liveBaseItemView = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (liveBaseItemView = this.a) != null) {
+            liveBaseItemView.c();
         }
-        liveBaseItemView.c();
     }
 }

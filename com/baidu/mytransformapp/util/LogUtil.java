@@ -1,7 +1,6 @@
 package com.baidu.mytransformapp.util;
 
 import android.app.Activity;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -17,7 +16,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes2.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -63,37 +61,38 @@ public class LogUtil {
         }
     }
 
+    public static void logActivity(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, activity, str) != null) || !AndroidActivityLogSwitch.isOn() || !"onCreate".equals(str) || activity == null) {
+            return;
+        }
+        logUBC(activity.getComponentName().getClassName());
+    }
+
     public static void logUBC(String str) {
         UBCManager uBCManager;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - lastLogTime >= 50 || (str2 = lastPageName) == null || !str2.equals(str)) {
-            lastPageName = str;
-            lastLogTime = currentTimeMillis;
-            try {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("page", str);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("version", TbConfig.getVersion());
-                jSONObject.put("page", jSONObject2);
-                jSONObject.put("value", jSONObject3);
-                uBCManager.onEvent(LOG_ID, jSONObject);
-            } catch (JSONException e) {
-                BdLog.e(e.getMessage());
-            }
+        if (currentTimeMillis - lastLogTime < 50 && (str2 = lastPageName) != null && str2.equals(str)) {
+            return;
         }
-    }
-
-    @Keep
-    public static void logActivity(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, activity, str) == null) && AndroidActivityLogSwitch.isOn() && "onCreate".equals(str) && activity != null) {
-            logUBC(activity.getComponentName().getClassName());
+        lastPageName = str;
+        lastLogTime = currentTimeMillis;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("page", str);
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put("version", TbConfig.getVersion());
+            jSONObject.put("page", jSONObject2);
+            jSONObject.put("value", jSONObject3);
+            uBCManager.onEvent(LOG_ID, jSONObject);
+        } catch (JSONException e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

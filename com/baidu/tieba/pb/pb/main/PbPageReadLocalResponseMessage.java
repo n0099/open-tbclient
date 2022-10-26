@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jv7;
 import com.baidu.tieba.pb.PbPageRequestMessage;
+import com.baidu.tieba.uv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes5.dex */
-public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
+public class PbPageReadLocalResponseMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public jv7 pbData;
+    public uv7 pbData;
     public String postId;
     public int updateType;
 
@@ -37,47 +37,55 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
+    public uv7 getPbData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.pbData;
+        }
+        return (uv7) invokeV.objValue;
+    }
+
+    public int getUpdateType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.updateType;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isMarkCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.markCache;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) || bArr == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, bArr) != null) || bArr == null) {
             return;
         }
         PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            jv7 jv7Var = new jv7();
-            this.pbData = jv7Var;
-            jv7Var.B0(1);
+            uv7 uv7Var = new uv7();
+            this.pbData = uv7Var;
+            uv7Var.E0(1);
             try {
-                this.pbData.A0(pbPageResIdl.data);
-                if (!this.pbData.t0()) {
+                this.pbData.D0(pbPageResIdl.data);
+                if (!this.pbData.w0()) {
                     this.pbData = null;
-                } else if (!isMarkCache() || this.pbData.u() == null || this.pbData.u().equals(this.postId)) {
-                } else {
+                } else if (isMarkCache() && this.pbData.u() != null && !this.pbData.u().equals(this.postId)) {
                     this.pbData = null;
                 }
             } catch (Exception unused) {
             }
         }
-    }
-
-    public jv7 getPbData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (jv7) invokeV.objValue;
-    }
-
-    public int getUpdateType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.updateType : invokeV.intValue;
-    }
-
-    public boolean isMarkCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.markCache : invokeV.booleanValue;
     }
 
     public void setMarkCache(boolean z) {
@@ -87,10 +95,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setPbData(jv7 jv7Var) {
+    public void setPbData(uv7 uv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jv7Var) == null) {
-            this.pbData = jv7Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, uv7Var) == null) {
+            this.pbData = uv7Var;
         }
     }
 

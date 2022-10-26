@@ -3,9 +3,8 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.mb5;
-import com.baidu.tieba.ya6;
+import com.baidu.tieba.fb6;
+import com.baidu.tieba.rb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +15,10 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes3.dex */
-public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements mb5 {
+public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements rb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ya6 enterForumTabFeedData;
+    public fb6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -42,13 +41,19 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
     public Object getExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enterForumTabFeedData.c() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.enterForumTabFeedData.c();
+        }
+        return invokeV.objValue;
     }
 
-    public ArrayList<Cdo> getThreadList() {
+    public ArrayList getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.enterForumTabFeedData.e() : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.enterForumTabFeedData.e();
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,11 +72,12 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
             if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
-            if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                ya6 ya6Var = new ya6();
-                this.enterForumTabFeedData = ya6Var;
-                ya6Var.g(tabfeedlistResIdl.data);
+            if (getError() != 0 || tabfeedlistResIdl.data == null) {
+                return;
             }
+            fb6 fb6Var = new fb6();
+            this.enterForumTabFeedData = fb6Var;
+            fb6Var.g(tabfeedlistResIdl.data);
         }
     }
 }

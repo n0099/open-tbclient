@@ -81,12 +81,18 @@ public final class Condition$Operation {
     public static Condition$Operation valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Condition$Operation) Enum.valueOf(Condition$Operation.class, str) : (Condition$Operation) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Condition$Operation) Enum.valueOf(Condition$Operation.class, str);
+        }
+        return (Condition$Operation) invokeL.objValue;
     }
 
     public static Condition$Operation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Condition$Operation[]) $VALUES.clone() : (Condition$Operation[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Condition$Operation[]) $VALUES.clone();
+        }
+        return (Condition$Operation[]) invokeV.objValue;
     }
 }

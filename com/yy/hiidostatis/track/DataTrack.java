@@ -64,6 +64,76 @@ public final class DataTrack {
         $VALUES = new DataTrack[]{dataTrack};
     }
 
+    private boolean isReport() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            if (this.mIsEnable && this.mIsTrack) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void reportTotalForce() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65544, this) != null) || !isReport()) {
+            return;
+        }
+        ThreadPool.getPool().execute(new Runnable(this) { // from class: com.yy.hiidostatis.track.DataTrack.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DataTrack this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                    return;
+                }
+                this.this$0.reportTotal();
+            }
+        });
+    }
+
+    private void reportTotalInterval() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            if (this.reportTime == 0 || System.currentTimeMillis() - this.reportTime >= 600000) {
+                this.reportTime = System.currentTimeMillis();
+                reportTotalForce();
+            }
+        }
+    }
+
+    public static DataTrack[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return (DataTrack[]) $VALUES.clone();
+        }
+        return (DataTrack[]) invokeV.objValue;
+    }
+
     public DataTrack(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -89,10 +159,54 @@ public final class DataTrack {
         this.reportTime = 0L;
     }
 
-    private boolean isReport() {
-        InterceptResult invokeV;
+    public static DataTrack valueOf(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.mIsEnable && this.mIsTrack : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            return (DataTrack) Enum.valueOf(DataTrack.class, str);
+        }
+        return (DataTrack) invokeL.objValue;
+    }
+
+    public void triggerTrack(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || !this.mIsEnable) {
+            return;
+        }
+        ThreadPool.getPool().execute(new Runnable(this, z) { // from class: com.yy.hiidostatis.track.DataTrack.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DataTrack this$0;
+            public final /* synthetic */ boolean val$isForce;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Boolean.valueOf(z)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$isForce = z;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                    return;
+                }
+                this.this$0.trigger(this.val$isForce);
+            }
+        });
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
@@ -104,11 +218,13 @@ public final class DataTrack {
                 try {
                 } finally {
                 }
-                if (isReport()) {
-                    if (this.mStatisOption.getAppkey().equals(str)) {
-                        sendLogFail(str, str2, str3, str4, num, str5, str6, str7);
-                    }
+                if (!isReport()) {
+                    return;
                 }
+                if (!this.mStatisOption.getAppkey().equals(str)) {
+                    return;
+                }
+                sendLogFail(str, str2, str3, str4, num, str5, str6, str7);
             }
         }
     }
@@ -126,53 +242,6 @@ public final class DataTrack {
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
-            }
-        }
-    }
-
-    private void reportTotalForce() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && isReport()) {
-            ThreadPool.getPool().execute(new Runnable(this) { // from class: com.yy.hiidostatis.track.DataTrack.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DataTrack this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.reportTotal();
-                    }
-                }
-            });
-        }
-    }
-
-    private void reportTotalInterval() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            if (this.reportTime == 0 || System.currentTimeMillis() - this.reportTime >= 600000) {
-                this.reportTime = System.currentTimeMillis();
-                reportTotalForce();
             }
         }
     }
@@ -220,6 +289,7 @@ public final class DataTrack {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void trigger(boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, this, z) == null) {
             synchronized (this) {
@@ -227,7 +297,12 @@ public final class DataTrack {
                 if (this.mUid == -1 || this.mUid != currentUid) {
                     JSONObject config = this.mDataTrackListener.getConfig(this.mStatisOption.getAppkey(), currentUid, DeviceProxy.getHdid(this.mContext));
                     L.brief("json = %s", config);
-                    this.mIsTrack = config != null && 1 == config.getJSONObject("tzConfig").getInt("open");
+                    if (config != null && 1 == config.getJSONObject("tzConfig").getInt("open")) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    this.mIsTrack = z2;
                     this.mUid = currentUid;
                     L.brief("mUid = %d", Long.valueOf(this.mUid));
                     L.brief("mIsTrack = %b", Boolean.valueOf(this.mIsTrack));
@@ -264,9 +339,10 @@ public final class DataTrack {
                         @Override // com.yy.hiidostatis.inner.util.log.ActLog.ActLogListener
                         public void sendFail(String str, String str2, String str3, String str4, Integer num, String str5, String str6, String str7) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, num, str5, str6, str7}) == null) {
-                                this.this$0.reportFail(str, str2, str3, str4, num, str5, str6, str7);
+                            if (interceptable2 != null && interceptable2.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, num, str5, str6, str7}) != null) {
+                                return;
                             }
+                            this.this$0.reportFail(str, str2, str3, str4, num, str5, str6, str7);
                         }
                     });
                     this.mStatisAPI = HiidoSDK.instance().createNewStatisApi();
@@ -286,18 +362,6 @@ public final class DataTrack {
         }
     }
 
-    public static DataTrack valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? (DataTrack) Enum.valueOf(DataTrack.class, str) : (DataTrack) invokeL.objValue;
-    }
-
-    public static DataTrack[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? (DataTrack[]) $VALUES.clone() : (DataTrack[]) invokeV.objValue;
-    }
-
     public void init(Context context, StatisOption statisOption, IDataTrackListener iDataTrackListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, statisOption, iDataTrackListener) == null) {
@@ -308,45 +372,6 @@ public final class DataTrack {
             L.brief("mIsEnable = %s", metaDataParam);
             this.mIsEnable = Boolean.parseBoolean(metaDataParam);
             L.brief("mIsEnable = %b", Boolean.valueOf(this.mIsEnable));
-        }
-    }
-
-    public void triggerTrack(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.mIsEnable) {
-            ThreadPool.getPool().execute(new Runnable(this, z) { // from class: com.yy.hiidostatis.track.DataTrack.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DataTrack this$0;
-                public final /* synthetic */ boolean val$isForce;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$isForce = z;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.trigger(this.val$isForce);
-                    }
-                }
-            });
         }
     }
 }

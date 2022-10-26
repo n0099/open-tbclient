@@ -57,12 +57,18 @@ public final class Method {
     public static Method valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Method) Enum.valueOf(Method.class, str) : (Method) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Method) Enum.valueOf(Method.class, str);
+        }
+        return (Method) invokeL.objValue;
     }
 
     public static Method[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Method[]) a.clone() : (Method[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Method[]) a.clone();
+        }
+        return (Method[]) invokeV.objValue;
     }
 }

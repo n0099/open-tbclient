@@ -1,12 +1,11 @@
 package com.baidu.sapi2.callback;
 
-import com.baidu.sapi2.result.GetUserInfoResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class GetUserInfoCallback implements LoginStatusAware<GetUserInfoResult> {
+public abstract class GetUserInfoCallback implements LoginStatusAware {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

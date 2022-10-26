@@ -12,6 +12,8 @@ public abstract class JsonReaderInternalAccess {
     public static JsonReaderInternalAccess INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void promoteNameToValue(JsonReader jsonReader) throws IOException;
+
     public JsonReaderInternalAccess() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,6 +27,4 @@ public abstract class JsonReaderInternalAccess {
             }
         }
     }
-
-    public abstract void promoteNameToValue(JsonReader jsonReader) throws IOException;
 }

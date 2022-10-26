@@ -28,6 +28,13 @@ public final class MediaDataBox implements Box {
     public Container parent;
     public long size;
 
+    @Override // com.coremedia.iso.boxes.Box
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TYPE : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,6 +67,45 @@ public final class MediaDataBox implements Box {
         this.largeBox = false;
     }
 
+    @Override // com.coremedia.iso.boxes.Box
+    public long getOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.offset;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.coremedia.iso.boxes.Box
+    public Container getParent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.parent;
+        }
+        return (Container) invokeV.objValue;
+    }
+
+    @Override // com.coremedia.iso.boxes.Box
+    public long getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.size;
+        }
+        return invokeV.longValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "MediaDataBox{size=" + this.size + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static void transfer(DataSource dataSource, long j, long j2, WritableByteChannel writableByteChannel) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{dataSource, Long.valueOf(j), Long.valueOf(j2), writableByteChannel}) == null) {
@@ -68,42 +114,6 @@ public final class MediaDataBox implements Box {
                 j3 += dataSource.transferTo(j + j3, Math.min(67076096L, j2 - j3), writableByteChannel);
             }
         }
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, writableByteChannel) == null) {
-            transfer(this.dataSource, this.offset, this.size, writableByteChannel);
-        }
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public long getOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.offset : invokeV.longValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public Container getParent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.parent : (Container) invokeV.objValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.size : invokeV.longValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TYPE : (String) invokeV.objValue;
     }
 
     @Override // com.coremedia.iso.boxes.Box
@@ -118,19 +128,18 @@ public final class MediaDataBox implements Box {
     }
 
     @Override // com.coremedia.iso.boxes.Box
+    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, writableByteChannel) == null) {
+            transfer(this.dataSource, this.offset, this.size, writableByteChannel);
+        }
+    }
+
+    @Override // com.coremedia.iso.boxes.Box
     public void setParent(Container container) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, container) == null) {
             this.parent = container;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "MediaDataBox{size=" + this.size + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

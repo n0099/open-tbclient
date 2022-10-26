@@ -34,6 +34,15 @@ public final class EncryptAlgorithm {
         $VALUES = new EncryptAlgorithm[]{encryptAlgorithm};
     }
 
+    public static EncryptAlgorithm[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (EncryptAlgorithm[]) $VALUES.clone();
+        }
+        return (EncryptAlgorithm[]) invokeV.objValue;
+    }
+
     public EncryptAlgorithm(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,12 +65,9 @@ public final class EncryptAlgorithm {
     public static EncryptAlgorithm valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EncryptAlgorithm) Enum.valueOf(EncryptAlgorithm.class, str) : (EncryptAlgorithm) invokeL.objValue;
-    }
-
-    public static EncryptAlgorithm[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EncryptAlgorithm[]) $VALUES.clone() : (EncryptAlgorithm[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (EncryptAlgorithm) Enum.valueOf(EncryptAlgorithm.class, str);
+        }
+        return (EncryptAlgorithm) invokeL.objValue;
     }
 }

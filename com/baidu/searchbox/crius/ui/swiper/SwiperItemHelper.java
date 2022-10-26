@@ -16,7 +16,7 @@ public class SwiperItemHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SwiperItemHelper";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<CriusData> mBannerItems;
+    public List mBannerItems;
 
     public SwiperItemHelper() {
         Interceptable interceptable = $ic;
@@ -35,12 +35,20 @@ public class SwiperItemHelper {
     }
 
     private void clear() {
-        List<CriusData> list;
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (list = this.mBannerItems) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (list = this.mBannerItems) != null) {
+            list.clear();
         }
-        list.clear();
+    }
+
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBannerItems.size();
+        }
+        return invokeV.intValue;
     }
 
     public void appendChildAt(CriusData criusData, int i) {
@@ -56,20 +64,14 @@ public class SwiperItemHelper {
         }
     }
 
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBannerItems.size() : invokeV.intValue;
-    }
-
     public CriusData getNode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= this.mBannerItems.size() || i < 0) {
-                return null;
+            if (i < this.mBannerItems.size() && i >= 0) {
+                return (CriusData) this.mBannerItems.get(i);
             }
-            return this.mBannerItems.get(i);
+            return null;
         }
         return (CriusData) invokeI.objValue;
     }

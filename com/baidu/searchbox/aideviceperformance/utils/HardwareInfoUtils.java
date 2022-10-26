@@ -114,17 +114,9 @@ public class HardwareInfoUtils {
         return invokeV.floatValue;
     }
 
-    public static String getCpuInfoFilePath(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            return "/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq";
-        }
-        return (String) invokeI.objValue;
-    }
-
     public static int getNumCores() {
         InterceptResult invokeV;
+        int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             FileFilter fileFilter = new FileFilter() { // from class: com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils.1
@@ -149,13 +141,24 @@ public class HardwareInfoUtils {
                 public boolean accept(File file) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? Pattern.matches("cpu[0-9]", file.getName()) : invokeL.booleanValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
+                        if (Pattern.matches("cpu[0-9]", file.getName())) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeL.booleanValue;
                 }
             };
             if (sCoreNum <= 0) {
                 try {
                     File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(fileFilter);
-                    sCoreNum = listFiles == null ? -1 : listFiles.length;
+                    if (listFiles == null) {
+                        length = -1;
+                    } else {
+                        length = listFiles.length;
+                    }
+                    sCoreNum = length;
                 } catch (Exception e) {
                     if (DEBUG) {
                         Log.e(TAG, "getNumCores exception occurred, e= ", e);
@@ -168,10 +171,66 @@ public class HardwareInfoUtils {
         return invokeV.intValue;
     }
 
+    public static float getTotalSDCardSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                try {
+                    StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+                    return ((((float) (statFs.getBlockCountLong() * statFs.getBlockSizeLong())) / 1024.0f) / 1024.0f) / 1024.0f;
+                } catch (Error | Exception unused) {
+                }
+            }
+            return -1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public static String getCpuInfoFilePath(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            return "/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq";
+        }
+        return (String) invokeI.objValue;
+    }
+
     public static int getScreenDensity(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? context.getResources().getDisplayMetrics().densityDpi : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            return context.getResources().getDisplayMetrics().densityDpi;
+        }
+        return invokeL.intValue;
+    }
+
+    public static long getScreenResolution(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            return displayMetrics.widthPixels * displayMetrics.heightPixels;
+        }
+        return invokeL.longValue;
+    }
+
+    public static float getScreenXdpi(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            return context.getResources().getDisplayMetrics().xdpi;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static float getScreenYdpi(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            return context.getResources().getDisplayMetrics().ydpi;
+        }
+        return invokeL.floatValue;
     }
 
     public static String getScreenInfo(Context context) {
@@ -188,28 +247,6 @@ public class HardwareInfoUtils {
         return (String) invokeL.objValue;
     }
 
-    public static long getScreenResolution(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            return displayMetrics.widthPixels * displayMetrics.heightPixels;
-        }
-        return invokeL.longValue;
-    }
-
-    public static float getScreenXdpi(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? context.getResources().getDisplayMetrics().xdpi : invokeL.floatValue;
-    }
-
-    public static float getScreenYdpi(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context.getResources().getDisplayMetrics().ydpi : invokeL.floatValue;
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:49:0x0066 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:57:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -222,80 +259,81 @@ public class HardwareInfoUtils {
         BufferedReader bufferedReader;
         Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65548, null, str)) != null) {
-            return invokeL.floatValue;
-        }
-        try {
-            fileInputStream = new FileInputStream(new File(str));
-        } catch (Exception e2) {
-            fileInputStream = null;
-            e = e2;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            fileInputStream = null;
-            th = th2;
-            bufferedReader = null;
-        }
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             try {
+                fileInputStream = new FileInputStream(new File(str));
+            } catch (Exception e2) {
+                fileInputStream = null;
+                e = e2;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                fileInputStream = null;
+                th = th2;
+                bufferedReader = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
                 try {
-                    float parseLong = (((float) Long.parseLong(bufferedReader.readLine())) / 1000.0f) / 1000.0f;
                     try {
-                        fileInputStream.close();
-                    } catch (IOException unused) {
+                        float parseLong = (((float) Long.parseLong(bufferedReader.readLine())) / 1000.0f) / 1000.0f;
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused) {
+                        }
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused2) {
+                        }
+                        return parseLong;
+                    } catch (Exception e3) {
+                        e = e3;
+                        if (DEBUG) {
+                            Log.e(TAG, "getCpuFrequency Exception occurred, e=", e);
+                        }
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException unused3) {
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException unused4) {
+                            }
+                        }
+                        return -1.0f;
                     }
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException unused2) {
-                    }
-                    return parseLong;
-                } catch (Exception e3) {
-                    e = e3;
-                    if (DEBUG) {
-                        Log.e(TAG, "getCpuFrequency Exception occurred, e=", e);
-                    }
+                } catch (Throwable th3) {
+                    th = th3;
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (IOException unused3) {
+                        } catch (IOException unused5) {
                         }
                     }
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException unused4) {
+                        } catch (IOException unused6) {
                         }
                     }
-                    return -1.0f;
+                    throw th;
                 }
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Exception e4) {
+                e = e4;
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedReader = null;
                 if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException unused5) {
-                    }
                 }
                 if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException unused6) {
-                    }
                 }
                 throw th;
             }
-        } catch (Exception e4) {
-            e = e4;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            bufferedReader = null;
-            if (fileInputStream != null) {
-            }
-            if (bufferedReader != null) {
-            }
-            throw th;
+        } else {
+            return invokeL.floatValue;
         }
     }
 
@@ -315,106 +353,92 @@ public class HardwareInfoUtils {
         BufferedReader bufferedReader2;
         Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65549, null)) != null) {
-            return invokeV.floatValue;
-        }
-        float f = sTotalMemory;
-        FileReader fileReader = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
-        if (fileReader >= 0) {
-            return f;
-        }
-        try {
-            try {
-                fileReader = new FileReader(MEM_INFO_FILE);
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            try {
-                bufferedReader2 = new BufferedReader(fileReader, 8192);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            float f = sTotalMemory;
+            FileReader fileReader = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
+            if (fileReader < 0) {
                 try {
-                    String readLine = bufferedReader2.readLine();
-                    if (readLine != null) {
-                        String[] split = readLine.split("\\s+");
-                        if (split.length >= 2) {
-                            long parseLong = Long.parseLong(split[1]);
-                            if (parseLong > 0) {
-                                sTotalMemory = (((float) parseLong) / 1024.0f) / 1024.0f;
+                    try {
+                        fileReader = new FileReader(MEM_INFO_FILE);
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    try {
+                        bufferedReader2 = new BufferedReader(fileReader, 8192);
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine != null) {
+                                String[] split = readLine.split("\\s+");
+                                if (split.length >= 2) {
+                                    long parseLong = Long.parseLong(split[1]);
+                                    if (parseLong > 0) {
+                                        sTotalMemory = (((float) parseLong) / 1024.0f) / 1024.0f;
+                                    }
+                                }
+                            }
+                            float f2 = sTotalMemory;
+                            try {
+                                bufferedReader2.close();
+                            } catch (IOException unused) {
+                            }
+                            try {
+                                fileReader.close();
+                            } catch (IOException unused2) {
+                            }
+                            return f2;
+                        } catch (Exception e2) {
+                            e = e2;
+                            if (DEBUG) {
+                                Log.e(TAG, "getTotalMemory Exception occured,e=", e);
+                            }
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (IOException unused3) {
+                                }
+                            }
+                            if (fileReader != 0) {
+                                try {
+                                    fileReader.close();
+                                } catch (IOException unused4) {
+                                }
+                            }
+                            return -1.0f;
+                        }
+                    } catch (Exception e3) {
+                        bufferedReader2 = null;
+                        e = e3;
+                    } catch (Throwable th3) {
+                        bufferedReader = null;
+                        th = th3;
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException unused5) {
                             }
                         }
-                    }
-                    float f2 = sTotalMemory;
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException unused) {
-                    }
-                    try {
-                        fileReader.close();
-                    } catch (IOException unused2) {
-                    }
-                    return f2;
-                } catch (Exception e2) {
-                    e = e2;
-                    if (DEBUG) {
-                        Log.e(TAG, "getTotalMemory Exception occured,e=", e);
-                    }
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (IOException unused3) {
+                        if (fileReader != 0) {
+                            try {
+                                fileReader.close();
+                            } catch (IOException unused6) {
+                            }
                         }
+                        throw th;
                     }
-                    if (fileReader != 0) {
-                        try {
-                            fileReader.close();
-                        } catch (IOException unused4) {
-                        }
-                    }
-                    return -1.0f;
+                } catch (Exception e4) {
+                    bufferedReader2 = null;
+                    e = e4;
+                    fileReader = 0;
+                } catch (Throwable th4) {
+                    bufferedReader = null;
+                    th = th4;
+                    fileReader = 0;
                 }
-            } catch (Exception e3) {
-                bufferedReader2 = null;
-                e = e3;
-            } catch (Throwable th3) {
-                bufferedReader = null;
-                th = th3;
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException unused5) {
-                    }
-                }
-                if (fileReader != 0) {
-                    try {
-                        fileReader.close();
-                    } catch (IOException unused6) {
-                    }
-                }
-                throw th;
+            } else {
+                return f;
             }
-        } catch (Exception e4) {
-            bufferedReader2 = null;
-            e = e4;
-            fileReader = 0;
-        } catch (Throwable th4) {
-            bufferedReader = null;
-            th = th4;
-            fileReader = 0;
+        } else {
+            return invokeV.floatValue;
         }
-    }
-
-    public static float getTotalSDCardSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                try {
-                    StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                    return ((((float) (statFs.getBlockCountLong() * statFs.getBlockSizeLong())) / 1024.0f) / 1024.0f) / 1024.0f;
-                } catch (Error | Exception unused) {
-                }
-            }
-            return -1.0f;
-        }
-        return invokeV.floatValue;
     }
 }

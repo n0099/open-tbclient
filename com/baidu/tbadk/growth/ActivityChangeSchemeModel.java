@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.e85;
-import com.baidu.tieba.jx4;
+import com.baidu.tieba.i85;
 import com.baidu.tieba.n9;
+import com.baidu.tieba.px4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,6 +30,26 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpMessageListener a;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -73,23 +93,23 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                     return;
                 }
                 String simpleName = currentActivity.getClass().getSimpleName();
-                TbPageContext<?> pageContext = ((TbPageContextSupport) currentActivity).getPageContext();
+                TbPageContext pageContext = ((TbPageContextSupport) currentActivity).getPageContext();
                 if (pageContext == null) {
                     return;
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    e85.c(scheme);
+                    i85.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.B();
                 } else {
-                    int a = jx4.a();
-                    if (a != 2) {
-                        this.a.C(a);
+                    int a = px4.a();
+                    if (a == 2) {
+                        UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
+                        i85.c(scheme);
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    e85.c(scheme);
+                    this.a.C(a);
                 }
             }
         }
@@ -116,6 +136,26 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         registerListener(this.a);
     }
 
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String str = null;
+            try {
+                Object invoke = n9.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(n9.g().b(), new Object[0]);
+                if (invoke != null) {
+                    str = (String) invoke;
+                }
+                i85.b(str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchMethodException e2) {
+                e2.printStackTrace();
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+            }
+        }
+    }
+
     public static void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
@@ -127,55 +167,19 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                Object invoke = n9.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(n9.g().b(), new Object[0]);
-                e85.b(invoke != null ? (String) invoke : null);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e2) {
-                e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
-            }
-        }
-    }
-
     public final void C(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                e85.b("a025");
+                i85.b("a025");
             } else if (i == 22) {
-                e85.b("a088");
+                i85.b("a088");
             } else if (i == 3) {
-                e85.b("a079");
+                i85.b("a079");
             } else if (i == 8) {
-                e85.b("a011");
+                i85.b("a011");
             }
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public void request() {

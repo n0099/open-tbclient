@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a36;
-import com.baidu.tieba.b36;
+import com.baidu.tieba.h36;
+import com.baidu.tieba.i36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class RecommendTopicData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public List<RecommendTopicListData> b;
+    public List b;
 
     /* loaded from: classes3.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
@@ -45,8 +45,18 @@ public class RecommendTopicData {
         public String topicPic;
         public int type;
 
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
         /* loaded from: classes3.dex */
-        public static class a implements Parcelable.Creator<RecommendTopicListData> {
+        public final class a implements Parcelable.Creator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,7 +80,10 @@ public class RecommendTopicData {
             public RecommendTopicListData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new RecommendTopicListData(parcel) : (RecommendTopicListData) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                    return new RecommendTopicListData(parcel);
+                }
+                return (RecommendTopicListData) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +92,10 @@ public class RecommendTopicData {
             public RecommendTopicListData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new RecommendTopicListData[i] : (RecommendTopicListData[]) invokeI.objValue;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                    return new RecommendTopicListData[i];
+                }
+                return (RecommendTopicListData[]) invokeI.objValue;
             }
         }
 
@@ -113,81 +129,119 @@ public class RecommendTopicData {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public a36 getConvertedCardData() {
+        public h36 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                a36 a36Var = new a36();
-                a36Var.c = this.tag;
-                a36Var.a = this.topicId;
-                a36Var.b = this.topicName;
-                a36Var.b(this.isVideoTopicInt);
-                return a36Var;
+                h36 h36Var = new h36();
+                h36Var.c = this.tag;
+                h36Var.a = this.topicId;
+                h36Var.b = this.topicName;
+                h36Var.b(this.isVideoTopicInt);
+                return h36Var;
             }
-            return (a36) invokeV.objValue;
+            return (h36) invokeV.objValue;
         }
 
         public long getDiscussNum() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.discussNum : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.discussNum;
+            }
+            return invokeV.longValue;
         }
 
         public int getIsVideoTopicInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isVideoTopicInt : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.isVideoTopicInt;
+            }
+            return invokeV.intValue;
         }
 
         public int getTag() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tag : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.tag;
+            }
+            return invokeV.intValue;
         }
 
         public String getTopicDesc() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.topicDesc : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.topicDesc;
+            }
+            return (String) invokeV.objValue;
         }
 
         public long getTopicId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.topicId : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.topicId;
+            }
+            return invokeV.longValue;
         }
 
         public String getTopicName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.topicName : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.topicName;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getTopicPic() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.topicPic : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.topicPic;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.type : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.type;
+            }
+            return invokeV.intValue;
+        }
+
+        public RecommendTopicListData(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.topicId = parcel.readLong();
+            this.topicName = parcel.readString();
+            this.type = parcel.readInt();
+            this.discussNum = parcel.readLong();
+            this.tag = parcel.readInt();
+            this.topicDesc = parcel.readString();
+            this.topicPic = parcel.readString();
         }
 
         public void parseJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048586, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.topicId = jSONObject.optLong("topic_id");
@@ -202,7 +256,7 @@ public class RecommendTopicData {
 
         public void parserProtoBuf(RecomTopicList recomTopicList) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048587, this, recomTopicList) == null) || recomTopicList == null) {
+            if ((interceptable != null && interceptable.invokeL(1048587, this, recomTopicList) != null) || recomTopicList == null) {
                 return;
             }
             this.topicId = recomTopicList.topic_id.longValue();
@@ -235,30 +289,6 @@ public class RecommendTopicData {
                 parcel.writeString(this.topicPic);
             }
         }
-
-        public RecommendTopicListData(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.topicId = parcel.readLong();
-            this.topicName = parcel.readString();
-            this.type = parcel.readInt();
-            this.discussNum = parcel.readLong();
-            this.tag = parcel.readInt();
-            this.topicDesc = parcel.readString();
-            this.topicPic = parcel.readString();
-        }
     }
 
     public RecommendTopicData() {
@@ -277,13 +307,25 @@ public class RecommendTopicData {
         this.b = new ArrayList();
     }
 
-    public b36 a() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0898);
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public i36 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b36 b36Var = new b36();
-            b36Var.c = b();
+            i36 i36Var = new i36();
+            i36Var.c = b();
             if (this.b != null) {
                 arrayList = new ArrayList();
                 for (RecommendTopicListData recommendTopicListData : this.b) {
@@ -294,33 +336,27 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            b36Var.d = arrayList;
-            return b36Var;
+            i36Var.d = arrayList;
+            return i36Var;
         }
-        return (b36) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (StringUtils.isNull(this.a)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f088c);
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (i36) invokeV.objValue;
     }
 
     public final boolean c(RecommendTopicListData recommendTopicListData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendTopicListData)) == null) ? recommendTopicListData == null || StringUtils.isNull(recommendTopicListData.getTopicName()) || recommendTopicListData.getTopicId() <= 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendTopicListData)) == null) {
+            if (recommendTopicListData != null && !StringUtils.isNull(recommendTopicListData.getTopicName()) && recommendTopicListData.getTopicId() > 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public void d(RecomTopicInfo recomTopicInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, recomTopicInfo) == null) || recomTopicInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, recomTopicInfo) != null) || recomTopicInfo == null) {
             return;
         }
         this.a = recomTopicInfo.recom_title;

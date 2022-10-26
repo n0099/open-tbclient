@@ -1,6 +1,5 @@
 package androidx.room;
 
-import androidx.annotation.RestrictTo;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public abstract class EntityDeletionOrUpdateAdapter<T> extends SharedSQLiteStatement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void bind(SupportSQLiteStatement supportSQLiteStatement, T t);
+
+    @Override // androidx.room.SharedSQLiteStatement
+    public abstract String createQuery();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EntityDeletionOrUpdateAdapter(RoomDatabase roomDatabase) {
@@ -34,26 +37,6 @@ public abstract class EntityDeletionOrUpdateAdapter<T> extends SharedSQLiteState
         }
     }
 
-    public abstract void bind(SupportSQLiteStatement supportSQLiteStatement, T t);
-
-    @Override // androidx.room.SharedSQLiteStatement
-    public abstract String createQuery();
-
-    public final int handle(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            SupportSQLiteStatement acquire = acquire();
-            try {
-                bind(acquire, t);
-                return acquire.executeUpdateDelete();
-            } finally {
-                release(acquire);
-            }
-        }
-        return invokeL.intValue;
-    }
-
     public final int handleMultiple(Iterable<T> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -66,6 +49,21 @@ public abstract class EntityDeletionOrUpdateAdapter<T> extends SharedSQLiteState
                     i += acquire.executeUpdateDelete();
                 }
                 return i;
+            } finally {
+                release(acquire);
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public final int handle(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            SupportSQLiteStatement acquire = acquire();
+            try {
+                bind(acquire, t);
+                return acquire.executeUpdateDelete();
             } finally {
                 release(acquire);
             }

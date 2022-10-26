@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RatingBar;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +17,7 @@ public class AppCompatRatingBar extends RatingBar {
     public final AppCompatProgressBarHelper mAppCompatProgressBarHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatRatingBar(@NonNull Context context) {
+    public AppCompatRatingBar(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,22 +37,8 @@ public class AppCompatRatingBar extends RatingBar {
         }
     }
 
-    @Override // android.widget.RatingBar, android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
-    public synchronized void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            synchronized (this) {
-                super.onMeasure(i, i2);
-                Bitmap sampleTile = this.mAppCompatProgressBarHelper.getSampleTile();
-                if (sampleTile != null) {
-                    setMeasuredDimension(View.resolveSizeAndState(sampleTile.getWidth() * getNumStars(), i, 0), getMeasuredHeight());
-                }
-            }
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public AppCompatRatingBar(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a7);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -75,7 +59,7 @@ public class AppCompatRatingBar extends RatingBar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public AppCompatRatingBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -97,5 +81,19 @@ public class AppCompatRatingBar extends RatingBar {
         AppCompatProgressBarHelper appCompatProgressBarHelper = new AppCompatProgressBarHelper(this);
         this.mAppCompatProgressBarHelper = appCompatProgressBarHelper;
         appCompatProgressBarHelper.loadFromAttributes(attributeSet, i);
+    }
+
+    @Override // android.widget.RatingBar, android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
+    public synchronized void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            synchronized (this) {
+                super.onMeasure(i, i2);
+                Bitmap sampleTile = this.mAppCompatProgressBarHelper.getSampleTile();
+                if (sampleTile != null) {
+                    setMeasuredDimension(View.resolveSizeAndState(sampleTile.getWidth() * getNumStars(), i, 0), getMeasuredHeight());
+                }
+            }
+        }
     }
 }

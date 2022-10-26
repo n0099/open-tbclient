@@ -2,7 +2,6 @@ package com.kwad.components.ad.reward.model;
 
 import android.content.Intent;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,8 +45,7 @@ public final class c {
         this.rewardType = 1;
     }
 
-    @Nullable
-    public static c a(AdTemplate adTemplate, @Nullable AdTemplate adTemplate2, int i, KsVideoPlayConfig ksVideoPlayConfig) {
+    public static c a(AdTemplate adTemplate, AdTemplate adTemplate2, int i, KsVideoPlayConfig ksVideoPlayConfig) {
         InterceptResult invokeLLIL;
         File ad;
         Interceptable interceptable = $ic;
@@ -76,7 +74,6 @@ public final class c {
         return (c) invokeLLIL.objValue;
     }
 
-    @Nullable
     public static c c(Intent intent) {
         InterceptResult invokeL;
         AdTemplate adTemplate;

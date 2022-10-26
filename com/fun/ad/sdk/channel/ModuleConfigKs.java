@@ -19,7 +19,7 @@ public class ModuleConfigKs extends ModuleAdConfig {
     public final boolean ksVideoSoundEnable;
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean ksCanReadICCID;

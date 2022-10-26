@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,6 +44,12 @@ public class FunAdButton extends View {
     public Shader r;
     public int s;
 
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAdButton(Context context) {
         this(context, null, 0);
@@ -65,120 +71,6 @@ public class FunAdButton extends View {
         }
     }
 
-    public final void a(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (this.q == null) {
-                this.q = new RectF();
-            }
-            RectF rectF = this.q;
-            int i = this.s;
-            rectF.left = i;
-            rectF.top = i;
-            rectF.right = getMeasuredWidth() - this.s;
-            this.q.bottom = getMeasuredHeight() - this.s;
-            float f = this.g / (this.o + 0.0f);
-            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.m, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-            this.r = linearGradient;
-            this.j.setShader(linearGradient);
-            RectF rectF2 = this.q;
-            int i2 = this.p;
-            canvas.drawRoundRect(rectF2, i2, i2, this.j);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.s = getResources().getDimensionPixelSize(R.dimen.tbds1);
-            this.m = getResources().getColor(R.color.CAM_X0302);
-            this.h = getResources().getColor(R.color.CAM_X0101);
-            this.i = getResources().getColor(R.color.CAM_X0302);
-            this.o = 100;
-            this.g = 0;
-            this.n = getResources().getString(R.string.obfuscated_res_0x7f0f00ad);
-            this.l = getResources().getDimension(R.dimen.T_X08);
-            this.p = getResources().getDimensionPixelSize(R.dimen.tbds42);
-            this.q = new RectF();
-            c();
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Paint paint = new Paint();
-            this.j = paint;
-            paint.setAntiAlias(true);
-            this.j.setStyle(Paint.Style.FILL);
-            this.j.setColor(this.m);
-            d();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.k == null) {
-                TextPaint textPaint = new TextPaint();
-                this.k = textPaint;
-                textPaint.setAntiAlias(true);
-                this.k.setTextSize(this.l);
-            }
-            int i = this.g > 0 ? this.h : this.i;
-            if (i != this.k.getColor()) {
-                this.k.setColor(i);
-            }
-        }
-    }
-
-    public final int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            View.MeasureSpec.getMode(i);
-            return View.MeasureSpec.getSize(i);
-        }
-        return invokeI.intValue;
-    }
-
-    public final int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return View.MeasureSpec.getMode(i) == Integer.MIN_VALUE ? Math.max((this.e * 2) + ((int) this.k.measureText(this.n)), this.f) : View.MeasureSpec.getSize(i);
-        }
-        return invokeI.intValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            SkinManager.setBackgroundResource(this, this.d);
-            this.h = SkinManager.getColor(this.a);
-            this.i = SkinManager.getColor(this.b);
-            this.m = SkinManager.getColor(this.c);
-        }
-    }
-
-    public int getMax() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : invokeV.intValue;
-    }
-
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
@@ -194,80 +86,6 @@ public class FunAdButton extends View {
             Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
             float f = fontMetrics.descent;
             canvas.drawText(this.n, (getMeasuredWidth() - this.k.measureText(this.n)) / 2.0f, ((getHeight() / 2) - f) + ((f - fontMetrics.ascent) / 2.0f), this.k);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            setMeasuredDimension(f(i), e(i2));
-        }
-    }
-
-    public void setBackgroundSkin(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void setButtonTextColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.i = i;
-            this.h = i;
-            postInvalidate();
-        }
-    }
-
-    public void setButtonTextSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.l = ej.d(getContext(), i);
-            postInvalidate();
-        }
-    }
-
-    public void setForeground(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.m = i;
-            postInvalidate();
-        }
-    }
-
-    public void setMax(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.o = i;
-        }
-    }
-
-    public void setProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i) == null) || i > this.o) {
-            return;
-        }
-        this.g = i;
-        this.n = this.g + "%";
-        postInvalidate();
-    }
-
-    public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.n = str;
-            this.g = 0;
-            postInvalidate();
-        }
-    }
-
-    public void setTextColorInitSkin(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.b = i;
         }
     }
 
@@ -328,6 +146,179 @@ public class FunAdButton extends View {
         b();
     }
 
+    public final void a(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            if (this.q == null) {
+                this.q = new RectF();
+            }
+            RectF rectF = this.q;
+            int i = this.s;
+            rectF.left = i;
+            rectF.top = i;
+            rectF.right = getMeasuredWidth() - this.s;
+            this.q.bottom = getMeasuredHeight() - this.s;
+            float f = this.g / (this.o + 0.0f);
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.m, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+            this.r = linearGradient;
+            this.j.setShader(linearGradient);
+            RectF rectF2 = this.q;
+            int i2 = this.p;
+            canvas.drawRoundRect(rectF2, i2, i2, this.j);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.s = getResources().getDimensionPixelSize(R.dimen.tbds1);
+            this.m = getResources().getColor(R.color.CAM_X0302);
+            this.h = getResources().getColor(R.color.CAM_X0101);
+            this.i = getResources().getColor(R.color.CAM_X0302);
+            this.o = 100;
+            this.g = 0;
+            this.n = getResources().getString(R.string.obfuscated_res_0x7f0f00ad);
+            this.l = getResources().getDimension(R.dimen.T_X08);
+            this.p = getResources().getDimensionPixelSize(R.dimen.tbds42);
+            this.q = new RectF();
+            c();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Paint paint = new Paint();
+            this.j = paint;
+            paint.setAntiAlias(true);
+            this.j.setStyle(Paint.Style.FILL);
+            this.j.setColor(this.m);
+            d();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            SkinManager.setBackgroundResource(this, this.d);
+            this.h = SkinManager.getColor(this.a);
+            this.i = SkinManager.getColor(this.b);
+            this.m = SkinManager.getColor(this.c);
+        }
+    }
+
+    public int getMax() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.o;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void d() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.k == null) {
+                TextPaint textPaint = new TextPaint();
+                this.k = textPaint;
+                textPaint.setAntiAlias(true);
+                this.k.setTextSize(this.l);
+            }
+            if (this.g > 0) {
+                i = this.h;
+            } else {
+                i = this.i;
+            }
+            if (i != this.k.getColor()) {
+                this.k.setColor(i);
+            }
+        }
+    }
+
+    public final int e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            View.MeasureSpec.getMode(i);
+            return View.MeasureSpec.getSize(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public final int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            if (mode == Integer.MIN_VALUE) {
+                return Math.max((this.e * 2) + ((int) this.k.measureText(this.n)), this.f);
+            }
+            return size;
+        }
+        return invokeI.intValue;
+    }
+
+    public void setBackgroundSkin(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void setButtonTextColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.i = i;
+            this.h = i;
+            postInvalidate();
+        }
+    }
+
+    public void setButtonTextSize(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.l = fj.d(getContext(), i);
+            postInvalidate();
+        }
+    }
+
+    public void setForeground(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.m = i;
+            postInvalidate();
+        }
+    }
+
+    public void setMax(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.o = i;
+        }
+    }
+
+    public void setProgress(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048593, this, i) != null) || i > this.o) {
+            return;
+        }
+        this.g = i;
+        this.n = this.g + "%";
+        postInvalidate();
+    }
+
     public void setText(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
@@ -337,11 +328,36 @@ public class FunAdButton extends View {
         }
     }
 
+    public void setTextColorInitSkin(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            setMeasuredDimension(f(i), e(i2));
+        }
+    }
+
     public void setText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, str, i) == null) {
             this.n = str;
             this.g = i;
+            postInvalidate();
+        }
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.n = str;
+            this.g = 0;
             postInvalidate();
         }
     }

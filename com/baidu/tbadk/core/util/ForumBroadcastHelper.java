@@ -8,11 +8,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
-import com.baidu.tieba.di5;
-import com.baidu.tieba.hi5;
-import com.baidu.tieba.ih5;
+import com.baidu.tieba.ii5;
+import com.baidu.tieba.mi5;
+import com.baidu.tieba.oh5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class ForumBroadcastHelper {
     public static final String VALUE_PARMARS_BCAST_FROM_EDIT = "failed_broadcast";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public HashMap<String, Object> params;
+    public HashMap params;
 
     public ForumBroadcastHelper(Context context) {
         Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class ForumBroadcastHelper {
                 return;
             }
         }
-        this.params = new HashMap<>();
+        this.params = new HashMap();
         this.mContext = context;
     }
 
     public void clipCopy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ui.a(TbConfig.TIEBA_ADDRESS + "p/" + str + "?share=9105&fr=share");
+            vi.a(TbConfig.TIEBA_ADDRESS + "p/" + str + "?share=9105&fr=share");
         }
     }
 
@@ -69,6 +69,15 @@ public class ForumBroadcastHelper {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             this.params.put(KEY_PARMARS_FORUM_ID, str);
             this.params.put("forumName", str2);
+        }
+    }
+
+    public void jumpFlutterEditGenear(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
+            this.params.put(KEY_PARMARS_FORUM_ID, str);
+            this.params.put("forumName", str2);
+            this.params.put("obj_source", str3);
         }
     }
 
@@ -84,7 +93,7 @@ public class ForumBroadcastHelper {
             this.params.put("image", str7);
             this.params.put("from", str8);
             this.params.put("obj_source", str9);
-            HashMap<String, Object> hashMap = this.params;
+            HashMap hashMap = this.params;
             hashMap.put(KEY_PARMARS_BCAST_THREADLINK, TbConfig.TIEBA_ADDRESS + "p/" + str4 + "?share=9105&fr=share");
         }
     }
@@ -93,7 +102,7 @@ public class ForumBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                hi5.b(new di5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.1
+                mi5.b(new ii5(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ForumBroadcastHelper this$0;
@@ -117,13 +126,16 @@ public class ForumBroadcastHelper {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.di5
+                    @Override // com.baidu.tieba.ii5
                     public String doInBackground() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UtilHelper.getClipBoardContent() : (String) invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return UtilHelper.getClipBoardContent();
+                        }
+                        return (String) invokeV.objValue;
                     }
-                }, new ih5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.2
+                }, new oh5(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ForumBroadcastHelper this$0;
@@ -147,7 +159,7 @@ public class ForumBroadcastHelper {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.ih5
+                    @Override // com.baidu.tieba.oh5
                     public void onReturnDataInUI(String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -166,15 +178,6 @@ public class ForumBroadcastHelper {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.params.put("swipeback", Boolean.FALSE);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.mContext, "BarBroadcastEditPage", this.params)));
-        }
-    }
-
-    public void jumpFlutterEditGenear(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            this.params.put(KEY_PARMARS_FORUM_ID, str);
-            this.params.put("forumName", str2);
-            this.params.put("obj_source", str3);
         }
     }
 }

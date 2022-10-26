@@ -1,17 +1,45 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class kl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static yj1 a;
+    public static final yj1 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public final class a implements yj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.yj1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -26,25 +54,33 @@ public class kl3 {
                 return;
             }
         }
-        a = vj1.a;
+        b = new a();
     }
 
-    public static void a(String str, String str2, String str3, String str4, String str5) {
+    public static yj1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            oa3 oa3Var = new oa3();
-            oa3Var.a = "swan";
-            oa3Var.b = str;
-            oa3Var.g = str2;
-            if (TextUtils.equals(str, "click")) {
-                oa3Var.e = str3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            yj1 yj1Var = a;
+            if (yj1Var == null) {
+                return b;
             }
-            oa3Var.f = str5;
-            oa3Var.a("source", str4);
-            if (a) {
-                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + oa3Var.f());
-            }
-            ea3.x("1372", oa3Var);
+            return yj1Var;
+        }
+        return (yj1) invokeV.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = null;
+        }
+    }
+
+    public static void c(yj1 yj1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, yj1Var) == null) && a != yj1Var) {
+            a = yj1Var;
         }
     }
 }

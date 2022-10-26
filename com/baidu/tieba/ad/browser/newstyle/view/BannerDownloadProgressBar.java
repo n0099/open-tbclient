@@ -14,7 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho5;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,66 +70,13 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.l = new Paint();
         this.m = new RectF();
         this.n = new RectF();
-        g(context, attributeSet);
+        d(context, attributeSet);
     }
 
-    public final void d(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.h = getMeasuredHeight() / 2;
-            RectF rectF = this.n;
-            rectF.left = 0.0f;
-            rectF.top = 0.0f;
-            rectF.right = getMeasuredWidth();
-            this.n.bottom = getMeasuredHeight();
-            this.k.setStrokeWidth(this.i);
-            this.k.setColor(Color.parseColor("#E5E5E5"));
-            RectF rectF2 = this.n;
-            int i = this.h;
-            canvas.drawRoundRect(rectF2, i, i, this.k);
-        }
-    }
-
-    public final void e(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.h = getMeasuredHeight() / 2;
-            float f = this.a / (this.g + 0.0f);
-            RectF rectF = this.m;
-            int i = this.i;
-            rectF.left = i;
-            rectF.top = i;
-            rectF.bottom = getMeasuredHeight() - this.i;
-            this.m.right = getMeasuredWidth() * f;
-            RectF rectF2 = this.m;
-            float f2 = rectF2.right;
-            int i2 = this.h;
-            if (f2 < i2 * 2) {
-                rectF2.right = i2 * 2;
-            }
-            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.m.right, 0.0f, new int[]{this.d, this.e}, (float[]) null, Shader.TileMode.CLAMP);
-            this.o = linearGradient;
-            this.j.setShader(linearGradient);
-            RectF rectF3 = this.m;
-            int i3 = this.h;
-            canvas.drawRoundRect(rectF3, i3, i3, this.j);
-        }
-    }
-
-    public final void f(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            Paint.FontMetrics fontMetrics = this.l.getFontMetrics();
-            float f = fontMetrics.descent;
-            float measuredWidth = (getMeasuredWidth() - this.l.measureText(this.f)) / 2.0f;
-            canvas.drawText(this.f, measuredWidth, (float) (((getHeight() / 2) - f) + ((f - fontMetrics.ascent) / 2.0f) + 0.5d), this.l);
-        }
-    }
-
-    public final void g(Context context, AttributeSet attributeSet) {
+    public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.ad_progress);
             int parseColor = Color.parseColor("#666666");
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070609);
             int parseColor2 = Color.parseColor("#2BBCFF");
@@ -144,115 +91,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             this.c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070607));
             this.h = obtainStyledAttributes.getDimensionPixelSize(4, dimensionPixelSize);
             obtainStyledAttributes.recycle();
-            h();
-        }
-    }
-
-    public int getMaxProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.l.setAntiAlias(true);
-            this.l.setTextSize(this.c);
-            this.l.setColor(this.b);
-            this.j.setAntiAlias(true);
-            this.j.setStyle(Paint.Style.FILL);
-            this.k.setAntiAlias(true);
-            this.k.setStyle(Paint.Style.STROKE);
-            setGravity(17);
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (this.a > 0) {
-                e(canvas);
-            }
-            d(canvas);
-            if (TextUtils.isEmpty(this.f)) {
-                return;
-            }
-            f(canvas);
-        }
-    }
-
-    public void setForeground(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            if (i == this.d && i2 == this.e) {
-                return;
-            }
-            this.d = i;
-            this.e = i2;
-            h();
-            postInvalidate();
-        }
-    }
-
-    public void setMaxProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void setProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || i < 0 || i > this.g || i == this.a) {
-            return;
-        }
-        this.a = i;
-        this.f = getResources().getString(R.string.obfuscated_res_0x7f0f009c) + this.a + "%";
-        if (this.a == this.g) {
-            this.f = "";
-        }
-        postInvalidate();
-    }
-
-    public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || str == null || str.equals(this.f)) {
-            return;
-        }
-        this.f = str;
-        this.a = 0;
-        postInvalidate();
-    }
-
-    @Override // android.widget.TextView
-    public void setTextColor(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == this.b) {
-            return;
-        }
-        this.b = i;
-        h();
-        postInvalidate();
-    }
-
-    public void setTextSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            float f = i;
-            if (f == this.c) {
-                return;
-            }
-            this.c = f;
-            postInvalidate();
+            e();
         }
     }
 
@@ -286,6 +125,157 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.l = new Paint();
         this.m = new RectF();
         this.n = new RectF();
-        g(context, attributeSet);
+        d(context, attributeSet);
+    }
+
+    public final void a(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            this.h = getMeasuredHeight() / 2;
+            RectF rectF = this.n;
+            rectF.left = 0.0f;
+            rectF.top = 0.0f;
+            rectF.right = getMeasuredWidth();
+            this.n.bottom = getMeasuredHeight();
+            this.k.setStrokeWidth(this.i);
+            this.k.setColor(Color.parseColor("#E5E5E5"));
+            RectF rectF2 = this.n;
+            int i = this.h;
+            canvas.drawRoundRect(rectF2, i, i, this.k);
+        }
+    }
+
+    public void setProgress(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || i < 0 || i > this.g || i == this.a) {
+            return;
+        }
+        this.a = i;
+        this.f = getResources().getString(R.string.obfuscated_res_0x7f0f009c) + this.a + "%";
+        if (this.a == this.g) {
+            this.f = "";
+        }
+        postInvalidate();
+    }
+
+    public final void b(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            this.h = getMeasuredHeight() / 2;
+            float f = this.a / (this.g + 0.0f);
+            RectF rectF = this.m;
+            int i = this.i;
+            rectF.left = i;
+            rectF.top = i;
+            rectF.bottom = getMeasuredHeight() - this.i;
+            this.m.right = getMeasuredWidth() * f;
+            RectF rectF2 = this.m;
+            float f2 = rectF2.right;
+            int i2 = this.h;
+            if (f2 < i2 * 2) {
+                rectF2.right = i2 * 2;
+            }
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.m.right, 0.0f, new int[]{this.d, this.e}, (float[]) null, Shader.TileMode.CLAMP);
+            this.o = linearGradient;
+            this.j.setShader(linearGradient);
+            RectF rectF3 = this.m;
+            int i3 = this.h;
+            canvas.drawRoundRect(rectF3, i3, i3, this.j);
+        }
+    }
+
+    public final void c(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            Paint.FontMetrics fontMetrics = this.l.getFontMetrics();
+            float f = fontMetrics.descent;
+            float measuredWidth = (getMeasuredWidth() - this.l.measureText(this.f)) / 2.0f;
+            canvas.drawText(this.f, measuredWidth, (float) (((getHeight() / 2) - f) + ((f - fontMetrics.ascent) / 2.0f) + 0.5d), this.l);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.l.setAntiAlias(true);
+            this.l.setTextSize(this.c);
+            this.l.setColor(this.b);
+            this.j.setAntiAlias(true);
+            this.j.setStyle(Paint.Style.FILL);
+            this.k.setAntiAlias(true);
+            this.k.setStyle(Paint.Style.STROKE);
+            setGravity(17);
+        }
+    }
+
+    public int getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.a > 0) {
+                b(canvas);
+            }
+            a(canvas);
+            if (TextUtils.isEmpty(this.f)) {
+                return;
+            }
+            c(canvas);
+        }
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || str == null || str.equals(this.f)) {
+            return;
+        }
+        this.f = str;
+        this.a = 0;
+        postInvalidate();
+    }
+
+    @Override // android.widget.TextView
+    public void setTextColor(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048586, this, i) != null) || i == this.b) {
+            return;
+        }
+        this.b = i;
+        e();
+        postInvalidate();
+    }
+
+    public void setTextSize(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            float f = i;
+            if (f == this.c) {
+                return;
+            }
+            this.c = f;
+            postInvalidate();
+        }
+    }
+
+    public void setForeground(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            if (i == this.d && i2 == this.e) {
+                return;
+            }
+            this.d = i;
+            this.e = i2;
+            e();
+            postInvalidate();
+        }
     }
 }

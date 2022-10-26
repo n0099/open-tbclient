@@ -39,13 +39,12 @@ public class RealTimeHttpResponse extends HttpResponsedMessage {
         RealtimeResIdl realtimeResIdl;
         Error error;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (realtimeResIdl = (RealtimeResIdl) new Wire(new Class[0]).parseFrom(bArr, RealtimeResIdl.class)) == null || (error = realtimeResIdl.error) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (realtimeResIdl = (RealtimeResIdl) new Wire(new Class[0]).parseFrom(bArr, RealtimeResIdl.class)) != null && (error = realtimeResIdl.error) != null) {
+            Integer num = error.errorno;
+            if (num != null) {
+                setError(num.intValue());
+            }
+            setErrorString(realtimeResIdl.error.usermsg);
         }
-        Integer num = error.errorno;
-        if (num != null) {
-            setError(num.intValue());
-        }
-        setErrorString(realtimeResIdl.error.usermsg);
     }
 }

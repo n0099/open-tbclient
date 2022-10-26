@@ -81,12 +81,18 @@ public final class UrlPageType {
     public static UrlPageType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (UrlPageType) Enum.valueOf(UrlPageType.class, str) : (UrlPageType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (UrlPageType) Enum.valueOf(UrlPageType.class, str);
+        }
+        return (UrlPageType) invokeL.objValue;
     }
 
     public static UrlPageType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (UrlPageType[]) $VALUES.clone() : (UrlPageType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (UrlPageType[]) $VALUES.clone();
+        }
+        return (UrlPageType[]) invokeV.objValue;
     }
 }

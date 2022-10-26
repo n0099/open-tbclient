@@ -34,10 +34,9 @@ public class SPSwitchFSPanelLayoutHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             this.isSoftInputShowing = z;
-            if (z || this.mPanelLayout.getVisibility() != 4) {
-                return;
+            if (!z && this.mPanelLayout.getVisibility() == 4) {
+                this.mPanelLayout.setVisibility(8);
             }
-            this.mPanelLayout.setVisibility(8);
         }
     }
 }

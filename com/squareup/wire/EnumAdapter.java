@@ -57,7 +57,10 @@ public final class EnumAdapter<E extends ProtoEnum> {
             public int compare(ProtoEnum protoEnum, ProtoEnum protoEnum2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, protoEnum, protoEnum2)) == null) ? protoEnum.getValue() - protoEnum2.getValue() : invokeLL.intValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, protoEnum, protoEnum2)) == null) {
+                    return protoEnum.getValue() - protoEnum2.getValue();
+                }
+                return invokeLL.intValue;
             }
         };
     }
@@ -97,10 +100,16 @@ public final class EnumAdapter<E extends ProtoEnum> {
 
     public E fromInt(int i) {
         InterceptResult invokeI;
+        int binarySearch;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.isDense) {
+                binarySearch = i - 1;
+            } else {
+                binarySearch = Arrays.binarySearch(this.values, i);
+            }
             try {
-                return this.constants[this.isDense ? i - 1 : Arrays.binarySearch(this.values, i)];
+                return this.constants[binarySearch];
             } catch (IndexOutOfBoundsException unused) {
                 throw new IllegalArgumentException("Unknown enum tag " + i + " for " + this.type.getCanonicalName());
             }
@@ -111,6 +120,9 @@ public final class EnumAdapter<E extends ProtoEnum> {
     public int toInt(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) ? e.getValue() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
+            return e.getValue();
+        }
+        return invokeL.intValue;
     }
 }

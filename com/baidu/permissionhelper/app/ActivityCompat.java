@@ -47,42 +47,12 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, activity, str)) == null) {
-            if (ApiUtil.shouldCheckPermission()) {
-                return ActivityCompatApi23.shouldShowRequestPermissionRationale(activity, str);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean shouldShowRequestPermissionRationale(Activity activity, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
-            if (!ApiUtil.shouldCheckPermission() || strArr == null || strArr.length == 0) {
-                return false;
-            }
-            for (int length = strArr.length - 1; length >= 0; length--) {
-                if (!shouldShowRequestPermissionRationale(activity, strArr[length])) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
     public static void requestPermissions(Activity activity, String[] strArr, int i, OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, onRequestPermissionsResultCallback) == null) {
             if (ApiUtil.shouldCheckPermission()) {
                 ActivityCompatApi23.requestPermissions(activity, strArr, i);
-            } else if (activity.isFinishing() || onRequestPermissionsResultCallback == null) {
-            } else {
+            } else if (!activity.isFinishing() && onRequestPermissionsResultCallback != null) {
                 new Handler(Looper.getMainLooper()).post(new Runnable(strArr, activity, onRequestPermissionsResultCallback, i) { // from class: com.baidu.permissionhelper.app.ActivityCompat.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -129,5 +99,34 @@ public class ActivityCompat extends ContextCompat {
                 });
             }
         }
+    }
+
+    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, activity, str)) == null) {
+            if (ApiUtil.shouldCheckPermission()) {
+                return ActivityCompatApi23.shouldShowRequestPermissionRationale(activity, str);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean shouldShowRequestPermissionRationale(Activity activity, String... strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
+            if (!ApiUtil.shouldCheckPermission() || strArr == null || strArr.length == 0) {
+                return false;
+            }
+            for (int length = strArr.length - 1; length >= 0; length--) {
+                if (!shouldShowRequestPermissionRationale(activity, strArr[length])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -12,7 +12,6 @@ import org.json.JSONObject;
 public class AlaDynamicGiftZip implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int isLandScape;
     public int isNeedDownload;
     public String zipDownloadUrl;
     public String zipMD5;
@@ -32,27 +31,26 @@ public class AlaDynamicGiftZip implements Serializable {
         }
     }
 
-    public boolean isLandScape() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isLandScape == 1 : invokeV.booleanValue;
-    }
-
     public boolean isNeedDownload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isNeedDownload == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.isNeedDownload == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.zipMD5 = jSONObject.optString("zip_md5");
         this.zipDownloadUrl = jSONObject.optString("zip_url");
         this.zipName = jSONObject.optString("zip_name");
-        this.isLandScape = jSONObject.optInt("is_landscape");
         this.isNeedDownload = jSONObject.optInt("need_download");
     }
 }

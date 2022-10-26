@@ -34,7 +34,7 @@ public class DownloaderBuilder {
     public ExecutorService okHttpDispatcherExecutor;
     public u ttNetHandler;
     public int writeBufferSize;
-    public List<com.ss.android.socialbase.downloader.depend.m> downloadCompleteHandlers = new ArrayList();
+    public List downloadCompleteHandlers = new ArrayList();
     public boolean needAutoRefreshUnSuccessTask = true;
     public int downloadExpSwitch = 1056964607;
 
@@ -52,10 +52,6 @@ public class DownloaderBuilder {
             }
             return this;
         }
-    }
-
-    public Downloader build() {
-        return new Downloader(this);
     }
 
     public DownloaderBuilder chunkAdjustCalculator(g gVar) {
@@ -118,6 +114,80 @@ public class DownloaderBuilder {
         return this;
     }
 
+    public DownloaderBuilder headHttpService(com.ss.android.socialbase.downloader.network.h hVar) {
+        this.headHttpService = hVar;
+        return this;
+    }
+
+    public DownloaderBuilder httpService(IDownloadHttpService iDownloadHttpService) {
+        this.httpService = iDownloadHttpService;
+        return this;
+    }
+
+    public DownloaderBuilder idGenerator(k kVar) {
+        this.idGenerator = kVar;
+        return this;
+    }
+
+    public DownloaderBuilder ioThreadExecutor(ExecutorService executorService) {
+        this.ioThreadExecutor = executorService;
+        return this;
+    }
+
+    public DownloaderBuilder maxDownloadPoolSize(int i) {
+        this.maxDownloadPoolSize = i;
+        return this;
+    }
+
+    public DownloaderBuilder mixApkDownloadExecutor(ExecutorService executorService) {
+        this.mixApkDownloadExecutor = executorService;
+        return this;
+    }
+
+    public DownloaderBuilder mixDefaultDownloadExecutor(ExecutorService executorService) {
+        this.mixDefaultDownloadExecutor = executorService;
+        return this;
+    }
+
+    public DownloaderBuilder mixFrequentDownloadExecutor(ExecutorService executorService) {
+        this.mixFrequentDownloadExecutor = executorService;
+        return this;
+    }
+
+    public DownloaderBuilder monitorConfig(q qVar) {
+        this.monitorConfig = qVar;
+        return this;
+    }
+
+    public DownloaderBuilder needAutoRefreshUnSuccessTask(boolean z) {
+        this.needAutoRefreshUnSuccessTask = z;
+        return this;
+    }
+
+    public DownloaderBuilder notificationClickCallback(af afVar) {
+        this.notificationClickCallback = afVar;
+        return this;
+    }
+
+    public DownloaderBuilder okHttpDispatcherExecutor(ExecutorService executorService) {
+        this.okHttpDispatcherExecutor = executorService;
+        return this;
+    }
+
+    public DownloaderBuilder ttNetHandler(u uVar) {
+        this.ttNetHandler = uVar;
+        return this;
+    }
+
+    public DownloaderBuilder writeBufferSize(int i) {
+        this.writeBufferSize = i;
+        return this;
+    }
+
+    public Downloader build() {
+        return new Downloader(this);
+    }
+
     public ExecutorService getCPUThreadExecutor() {
         return this.cpuThreadExecutor;
     }
@@ -146,7 +216,7 @@ public class DownloaderBuilder {
         return this.downloadCache;
     }
 
-    public List<com.ss.android.socialbase.downloader.depend.m> getDownloadCompleteHandlers() {
+    public List getDownloadCompleteHandlers() {
         return this.downloadCompleteHandlers;
     }
 
@@ -222,78 +292,8 @@ public class DownloaderBuilder {
         return this.writeBufferSize;
     }
 
-    public DownloaderBuilder headHttpService(com.ss.android.socialbase.downloader.network.h hVar) {
-        this.headHttpService = hVar;
-        return this;
-    }
-
-    public DownloaderBuilder httpService(IDownloadHttpService iDownloadHttpService) {
-        this.httpService = iDownloadHttpService;
-        return this;
-    }
-
-    public DownloaderBuilder idGenerator(k kVar) {
-        this.idGenerator = kVar;
-        return this;
-    }
-
-    public DownloaderBuilder ioThreadExecutor(ExecutorService executorService) {
-        this.ioThreadExecutor = executorService;
-        return this;
-    }
-
     public boolean isDownloadInMultiProcess() {
         return this.downloadInMultiProcess;
-    }
-
-    public DownloaderBuilder maxDownloadPoolSize(int i) {
-        this.maxDownloadPoolSize = i;
-        return this;
-    }
-
-    public DownloaderBuilder mixApkDownloadExecutor(ExecutorService executorService) {
-        this.mixApkDownloadExecutor = executorService;
-        return this;
-    }
-
-    public DownloaderBuilder mixDefaultDownloadExecutor(ExecutorService executorService) {
-        this.mixDefaultDownloadExecutor = executorService;
-        return this;
-    }
-
-    public DownloaderBuilder mixFrequentDownloadExecutor(ExecutorService executorService) {
-        this.mixFrequentDownloadExecutor = executorService;
-        return this;
-    }
-
-    public DownloaderBuilder monitorConfig(q qVar) {
-        this.monitorConfig = qVar;
-        return this;
-    }
-
-    public DownloaderBuilder needAutoRefreshUnSuccessTask(boolean z) {
-        this.needAutoRefreshUnSuccessTask = z;
-        return this;
-    }
-
-    public DownloaderBuilder notificationClickCallback(af afVar) {
-        this.notificationClickCallback = afVar;
-        return this;
-    }
-
-    public DownloaderBuilder okHttpDispatcherExecutor(ExecutorService executorService) {
-        this.okHttpDispatcherExecutor = executorService;
-        return this;
-    }
-
-    public DownloaderBuilder ttNetHandler(u uVar) {
-        this.ttNetHandler = uVar;
-        return this;
-    }
-
-    public DownloaderBuilder writeBufferSize(int i) {
-        this.writeBufferSize = i;
-        return this;
     }
 
     public boolean needAutoRefreshUnSuccessTask() {

@@ -15,11 +15,11 @@ import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.stub.ModuleInit;
 import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
-import com.baidu.tieba.i91;
-import com.baidu.tieba.q91;
+import com.baidu.tieba.j91;
 import com.baidu.tieba.r91;
-import com.baidu.tieba.t91;
-import com.baidu.tieba.v81;
+import com.baidu.tieba.s91;
+import com.baidu.tieba.u91;
+import com.baidu.tieba.w81;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class Bundle {
     public transient /* synthetic */ FieldHolder $fh;
     public BundleInfo mBundleInfo;
     public IInvoker mInvoker;
-    public i91 mRuntime;
+    public j91 mRuntime;
 
     public Bundle(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
@@ -55,6 +55,24 @@ public class Bundle {
             }
         }
         this.mBundleInfo = bundleInfo;
+    }
+
+    public Resources getResources(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources)) == null) {
+            return this.mRuntime.getResources(resources);
+        }
+        return (Resources) invokeL.objValue;
+    }
+
+    public Class loadClass(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return loadClass(str, null);
+        }
+        return (Class) invokeL.objValue;
     }
 
     private boolean bindProviders(PackageInfo packageInfo) {
@@ -88,19 +106,22 @@ public class Bundle {
                 return false;
             }
             Application applicationContext = ContextHolder.getApplicationContext();
+            android.os.Bundle bundle = null;
             try {
-                android.os.Bundle bundle = packageInfo.applicationInfo != null ? packageInfo.applicationInfo.metaData : null;
+                if (packageInfo.applicationInfo != null) {
+                    bundle = packageInfo.applicationInfo.metaData;
+                }
                 if (bundle != null) {
                     String charSequence = bundle.getCharSequence(KEY_BUNDLE_INIT, "").toString();
-                    if (TextUtils.isEmpty(charSequence)) {
+                    if (!TextUtils.isEmpty(charSequence)) {
+                        ((ModuleInit) this.mRuntime.c().loadClass(charSequence).newInstance()).init(applicationContext);
                         return true;
                     }
-                    ((ModuleInit) this.mRuntime.c().loadClass(charSequence).newInstance()).init(applicationContext);
                     return true;
                 }
                 return true;
             } catch (Exception e) {
-                v81.a().b().recordException(3, e.toString(), packageInfo.packageName);
+                w81.a().b().recordException(3, e.toString(), packageInfo.packageName);
                 return true;
             }
         }
@@ -115,13 +136,13 @@ public class Bundle {
                 if (this.mRuntime != null) {
                     return true;
                 }
-                i91 b = i91.b(this.mBundleInfo);
+                j91 b = j91.b(this.mBundleInfo);
                 this.mRuntime = b;
                 if (b == null) {
                     return false;
                 }
                 Application applicationContext = ContextHolder.getApplicationContext();
-                PackageInfo a = t91.a(r91.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+                PackageInfo a = u91.a(s91.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
                 initBundle(a);
                 bindProviders(a);
                 return true;
@@ -155,22 +176,45 @@ public class Bundle {
         return invokeV.booleanValue;
     }
 
+    public void loadOnly() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (r91.a() && this.mBundleInfo != null) {
+                Log.d("Bundle", "loadOnly pkg=" + this.mBundleInfo.getPackageName());
+            }
+            initIfNeed();
+            if (this.mRuntime != null) {
+                return;
+            }
+            throw new InvokeException(19, "runtime is null");
+        }
+    }
+
     public BundleInfo getBundleInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBundleInfo : (BundleInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBundleInfo;
+        }
+        return (BundleInfo) invokeV.objValue;
     }
 
     public ClassLoader getClassloader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRuntime.c() : (ClassLoader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRuntime.c();
+        }
+        return (ClassLoader) invokeV.objValue;
     }
 
     public Resources getResources(Resources resources, Resources resources2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, resources, resources2)) == null) ? getResources(resources) : (Resources) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, resources, resources2)) == null) {
+            return getResources(resources);
+        }
+        return (Resources) invokeLL.objValue;
     }
 
     @Deprecated
@@ -188,43 +232,18 @@ public class Bundle {
         return invokeLL.objValue;
     }
 
-    public Class loadClass(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? loadClass(str, null) : (Class) invokeL.objValue;
-    }
-
-    public void loadOnly() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (q91.a() && this.mBundleInfo != null) {
-                Log.d("Bundle", "loadOnly pkg=" + this.mBundleInfo.getPackageName());
-            }
-            initIfNeed();
-            if (this.mRuntime == null) {
-                throw new InvokeException(19, "runtime is null");
-            }
-        }
-    }
-
-    public Resources getResources(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources)) == null) ? this.mRuntime.getResources(resources) : (Resources) invokeL.objValue;
-    }
-
     public Class loadClass(String str, Class cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, cls)) == null) {
             initIfNeed();
-            i91 i91Var = this.mRuntime;
-            if (i91Var != null) {
+            j91 j91Var = this.mRuntime;
+            if (j91Var != null) {
                 try {
                     if (cls == null) {
-                        return i91Var.c().loadClass(str);
+                        return j91Var.c().loadClass(str);
                     }
-                    return i91Var.c().loadClass(str).asSubclass(cls);
+                    return j91Var.c().loadClass(str).asSubclass(cls);
                 } catch (ClassNotFoundException e) {
                     throw new InvokeException(18, Log.getStackTraceString(e));
                 }

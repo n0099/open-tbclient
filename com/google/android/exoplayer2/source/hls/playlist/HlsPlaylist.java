@@ -11,9 +11,9 @@ public abstract class HlsPlaylist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String baseUri;
-    public final List<String> tags;
+    public final List tags;
 
-    public HlsPlaylist(String str, List<String> list) {
+    public HlsPlaylist(String str, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

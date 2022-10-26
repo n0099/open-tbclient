@@ -4,51 +4,47 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public abstract class vu9 extends xu9 {
+public final class vu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int[] b;
+    public int[] c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vu9(Framedata.Opcode opcode) {
-        super(opcode);
+    public vu9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.xu9
-    public void h() throws InvalidDataException {
+    public static void a(vu9 vu9Var, pu9 pu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f()) {
-                if (!b()) {
-                    if (!c()) {
-                        if (e()) {
-                            throw new InvalidFrameException("Control frame cant have rsv3==true set");
-                        }
-                        return;
-                    }
-                    throw new InvalidFrameException("Control frame cant have rsv2==true set");
-                }
-                throw new InvalidFrameException("Control frame cant have rsv1==true set");
+        if (interceptable == null || interceptable.invokeLL(65537, null, vu9Var, pu9Var) == null) {
+            int length = vu9Var.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                vu9Var.c[i2] = i;
+                su9.n(vu9Var.a, vu9Var.b, i, pu9Var);
+                i += 1080;
             }
-            throw new InvalidFrameException("Control frame cant have fin==false set");
+        }
+    }
+
+    public static void b(vu9 vu9Var, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, vu9Var, i, i2) == null) {
+            vu9Var.a = i;
+            vu9Var.b = new int[i2 * 1080];
+            vu9Var.c = new int[i2];
         }
     }
 }

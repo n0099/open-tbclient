@@ -20,7 +20,7 @@ public class AuthVideoIconABTest extends AbsGroupUbsABTest {
     public static final String VIDEO_AUTHOR_B = "12_11_tieba_videofeed_v_c";
     public static final String VIDEO_AUTHOR_C = "12_11_tieba_videofeed_v_d";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<String> mABTestList;
+    public final ArrayList mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -39,6 +39,36 @@ public class AuthVideoIconABTest extends AbsGroupUbsABTest {
         ABTEST_GROUP_KEY = BdUniqueId.gen();
     }
 
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public ArrayList getABTestKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mABTestList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public UsbAbTestSwitch getCurrentUsbAbTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCurrentUsbAbTest;
+        }
+        return (UsbAbTestSwitch) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public BdUniqueId getGroupKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ABTEST_GROUP_KEY;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
     public AuthVideoIconABTest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,33 +82,12 @@ public class AuthVideoIconABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList<String> arrayList = new ArrayList<>(4);
+        ArrayList arrayList = new ArrayList(4);
         this.mABTestList = arrayList;
         arrayList.add(VIDEO_AUTHOR);
         this.mABTestList.add(VIDEO_AUTHOR_A);
         this.mABTestList.add(VIDEO_AUTHOR_B);
         this.mABTestList.add(VIDEO_AUTHOR_C);
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList<String> getABTestKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mABTestList : (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public UsbAbTestSwitch getCurrentUsbAbTest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentUsbAbTest : (UsbAbTestSwitch) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public BdUniqueId getGroupKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ABTEST_GROUP_KEY : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest

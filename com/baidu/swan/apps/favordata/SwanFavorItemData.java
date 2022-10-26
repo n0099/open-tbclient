@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.tieba.jo2;
+import com.baidu.tieba.ko2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,31 +55,82 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
     public int getAppFrameType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppFrameType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAppFrameType;
+        }
+        return invokeV.intValue;
     }
 
     public String getAppKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAppKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAppKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAppName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAppName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getAppType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAppType;
+        }
+        return invokeV.intValue;
     }
 
     public long getCreateTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCreateTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCreateTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mIconUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mIndex;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getIsNewFavor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mIsNewFavor;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPayProtected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mAppPayProtected;
+        }
+        return invokeV.intValue;
     }
 
     public int getFrameTypeFromScheme(String str) {
@@ -88,57 +139,42 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             String authority = Uri.parse(str).getAuthority();
-            if (authority != null) {
-                int hashCode = authority.hashCode();
-                if (hashCode != -319738621) {
-                    if (hashCode == 3543441 && authority.equals("swan")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (authority.equals(SCHEME_AUTHORITY_SWAN_GAME)) {
-                        c = 1;
-                    }
-                    c = 65535;
+            if (authority == null) {
+                return -1;
+            }
+            int hashCode = authority.hashCode();
+            if (hashCode != -319738621) {
+                if (hashCode == 3543441 && authority.equals("swan")) {
+                    c = 0;
                 }
-                if (c != 0) {
-                    return c != 1 ? -1 : 1;
+                c = 65535;
+            } else {
+                if (authority.equals(SCHEME_AUTHORITY_SWAN_GAME)) {
+                    c = 1;
                 }
+                c = 65535;
+            }
+            if (c == 0) {
                 return 0;
             }
-            return -1;
+            if (c != 1) {
+                return -1;
+            }
+            return 1;
         }
         return invokeL.intValue;
-    }
-
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIconUrl : (String) invokeV.objValue;
-    }
-
-    public int getIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIndex : invokeV.intValue;
-    }
-
-    public int getIsNewFavor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mIsNewFavor : invokeV.intValue;
-    }
-
-    public int getPayProtected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mAppPayProtected : invokeV.intValue;
     }
 
     public String getSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : jo2.h1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return ko2.h1(getAppKey(), str, getAppFrameType());
+        }
+        return (String) invokeL.objValue;
     }
 
     public void setAppFrameType(int i) {

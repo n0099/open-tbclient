@@ -2,10 +2,9 @@ package com.baidu.swan.facade.provider.processor;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rp3;
-import com.baidu.tieba.sp3;
 import com.baidu.tieba.tp3;
 import com.baidu.tieba.up3;
+import com.baidu.tieba.vp3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ public final class ProcessorInfo {
     public static final ProcessorInfo HISTORY;
     public static final ProcessorInfo PARAMS;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class<? extends rp3> mClass;
+    public Class mClass;
     public int mMatcherCode;
     public String mPath;
 
@@ -39,9 +38,9 @@ public final class ProcessorInfo {
                 return;
             }
         }
-        PARAMS = new ProcessorInfo("PARAMS", 0, up3.class, "params");
-        FAVORITE = new ProcessorInfo("FAVORITE", 1, sp3.class, "favorite");
-        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, tp3.class, "history");
+        PARAMS = new ProcessorInfo("PARAMS", 0, vp3.class, "params");
+        FAVORITE = new ProcessorInfo("FAVORITE", 1, tp3.class, "favorite");
+        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, up3.class, "history");
         HISTORY = processorInfo;
         $VALUES = new ProcessorInfo[]{PARAMS, FAVORITE, processorInfo};
     }
@@ -69,7 +68,43 @@ public final class ProcessorInfo {
         this.mMatcherCode = ordinal();
     }
 
-    public static Class<? extends rp3> getProcessorClass(int i) {
+    private Class getProcessorClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return this.mClass;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public static ProcessorInfo[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (ProcessorInfo[]) $VALUES.clone();
+        }
+        return (ProcessorInfo[]) invokeV.objValue;
+    }
+
+    public int getMatcherCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mMatcherCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static Class getProcessorClass(int i) {
         InterceptResult invokeI;
         ProcessorInfo[] values;
         Interceptable interceptable = $ic;
@@ -87,30 +122,9 @@ public final class ProcessorInfo {
     public static ProcessorInfo valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ProcessorInfo) Enum.valueOf(ProcessorInfo.class, str) : (ProcessorInfo) invokeL.objValue;
-    }
-
-    public static ProcessorInfo[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ProcessorInfo[]) $VALUES.clone() : (ProcessorInfo[]) invokeV.objValue;
-    }
-
-    public int getMatcherCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMatcherCode : invokeV.intValue;
-    }
-
-    public String getPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPath : (String) invokeV.objValue;
-    }
-
-    private Class<? extends rp3> getProcessorClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.mClass : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (ProcessorInfo) Enum.valueOf(ProcessorInfo.class, str);
+        }
+        return (ProcessorInfo) invokeL.objValue;
     }
 }

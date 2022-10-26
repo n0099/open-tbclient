@@ -20,8 +20,31 @@ public class ArImage extends z {
     public final Session a;
     public long b;
 
+    private native void nativeClose(long j);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native ByteBuffer nativeGetBuffer(long j, long j2, int i);
+
+    private native int nativeGetFormat(long j, long j2);
+
+    private native int nativeGetHeight(long j, long j2);
+
+    private native int nativeGetNumberOfPlanes(long j, long j2);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native int nativeGetPixelStride(long j, long j2, int i);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native int nativeGetRowStride(long j, long j2, int i);
+
+    private native long nativeGetTimestamp(long j, long j2);
+
+    private native int nativeGetWidth(long j, long j2);
+
+    public static native void nativeLoadSymbols();
+
     /* loaded from: classes7.dex */
-    public class a extends a0 {
+    public final class a extends a0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long a;
@@ -90,29 +113,6 @@ public class ArImage extends z {
         }
     }
 
-    private native void nativeClose(long j);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native ByteBuffer nativeGetBuffer(long j, long j2, int i);
-
-    private native int nativeGetFormat(long j, long j2);
-
-    private native int nativeGetHeight(long j, long j2);
-
-    private native int nativeGetNumberOfPlanes(long j, long j2);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeGetPixelStride(long j, long j2, int i);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeGetRowStride(long j, long j2, int i);
-
-    private native long nativeGetTimestamp(long j, long j2);
-
-    private native int nativeGetWidth(long j, long j2);
-
-    public static native void nativeLoadSymbols();
-
     @Override // android.media.Image, java.lang.AutoCloseable
     public void close() {
         Interceptable interceptable = $ic;
@@ -161,24 +161,6 @@ public class ArImage extends z {
     }
 
     @Override // android.media.Image
-    public Image.Plane[] getPlanes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int nativeGetNumberOfPlanes = nativeGetNumberOfPlanes(this.a.a, this.b);
-            if (nativeGetNumberOfPlanes != -1) {
-                a[] aVarArr = new a[nativeGetNumberOfPlanes];
-                for (int i = 0; i < nativeGetNumberOfPlanes; i++) {
-                    aVarArr[i] = new a(this, this.b, i);
-                }
-                return aVarArr;
-            }
-            throw new FatalException("Unknown error in ArImage.getPlanes().");
-        }
-        return (Image.Plane[]) invokeV.objValue;
-    }
-
-    @Override // android.media.Image
     public long getTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -204,6 +186,24 @@ public class ArImage extends z {
             throw new FatalException("Unknown error in ArImage.getWidth().");
         }
         return invokeV.intValue;
+    }
+
+    @Override // android.media.Image
+    public Image.Plane[] getPlanes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int nativeGetNumberOfPlanes = nativeGetNumberOfPlanes(this.a.a, this.b);
+            if (nativeGetNumberOfPlanes != -1) {
+                a[] aVarArr = new a[nativeGetNumberOfPlanes];
+                for (int i = 0; i < nativeGetNumberOfPlanes; i++) {
+                    aVarArr[i] = new a(this, this.b, i);
+                }
+                return aVarArr;
+            }
+            throw new FatalException("Unknown error in ArImage.getPlanes().");
+        }
+        return (Image.Plane[]) invokeV.objValue;
     }
 
     @Override // android.media.Image

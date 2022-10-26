@@ -1,7 +1,5 @@
 package androidx.collection;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +14,6 @@ import java.util.Set;
 public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public MapCollections<K, V> mCollections;
 
     public ArrayMap() {
@@ -62,54 +59,23 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public void colClear() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.clear();
-                        }
-                    }
-
-                    @Override // androidx.collection.MapCollections
-                    public Object colGetEntry(int i, int i2) {
-                        InterceptResult invokeII;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? this.this$0.mArray[(i << 1) + i2] : invokeII.objValue;
-                    }
-
-                    @Override // androidx.collection.MapCollections
-                    public Map<K, V> colGetMap() {
-                        InterceptResult invokeV2;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0 : (Map) invokeV2.objValue;
-                    }
-
-                    @Override // androidx.collection.MapCollections
-                    public int colGetSize() {
-                        InterceptResult invokeV2;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) ? this.this$0.mSize : invokeV2.intValue;
-                    }
-
-                    @Override // androidx.collection.MapCollections
                     public int colIndexOfKey(Object obj) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, obj)) == null) ? this.this$0.indexOfKey(obj) : invokeL.intValue;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, obj)) == null) {
+                            return this.this$0.indexOfKey(obj);
+                        }
+                        return invokeL.intValue;
                     }
 
                     @Override // androidx.collection.MapCollections
                     public int colIndexOfValue(Object obj) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048581, this, obj)) == null) ? this.this$0.indexOfValue(obj) : invokeL.intValue;
-                    }
-
-                    @Override // androidx.collection.MapCollections
-                    public void colPut(K k, V v) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048582, this, k, v) == null) {
-                            this.this$0.put(k, v);
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048581, this, obj)) == null) {
+                            return this.this$0.indexOfValue(obj);
                         }
+                        return invokeL.intValue;
                     }
 
                     @Override // androidx.collection.MapCollections
@@ -121,10 +87,59 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                     }
 
                     @Override // androidx.collection.MapCollections
+                    public void colClear() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.clear();
+                        }
+                    }
+
+                    @Override // androidx.collection.MapCollections
+                    public Map<K, V> colGetMap() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                            return this.this$0;
+                        }
+                        return (Map) invokeV2.objValue;
+                    }
+
+                    @Override // androidx.collection.MapCollections
+                    public int colGetSize() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) {
+                            return this.this$0.mSize;
+                        }
+                        return invokeV2.intValue;
+                    }
+
+                    @Override // androidx.collection.MapCollections
+                    public Object colGetEntry(int i, int i2) {
+                        InterceptResult invokeII;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+                            return this.this$0.mArray[(i << 1) + i2];
+                        }
+                        return invokeII.objValue;
+                    }
+
+                    @Override // androidx.collection.MapCollections
+                    public void colPut(K k, V v) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048582, this, k, v) == null) {
+                            this.this$0.put(k, v);
+                        }
+                    }
+
+                    @Override // androidx.collection.MapCollections
                     public V colSetValue(int i, V v) {
                         InterceptResult invokeIL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeIL = interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) ? this.this$0.setValueAt(i, v) : (V) invokeIL.objValue;
+                        if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) {
+                            return this.this$0.setValueAt(i, v);
+                        }
+                        return (V) invokeIL.objValue;
                     }
                 };
             }
@@ -133,54 +148,34 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
         return (MapCollections) invokeV.objValue;
     }
 
-    public boolean containsAll(@NonNull Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) ? MapCollections.containsAllHelper(this, collection) : invokeL.booleanValue;
-    }
-
     @Override // java.util.Map
     public Set<Map.Entry<K, V>> entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getCollection().getEntrySet() : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getCollection().getEntrySet();
+        }
+        return (Set) invokeV.objValue;
     }
 
     @Override // java.util.Map
     public Set<K> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getCollection().getKeySet() : (Set) invokeV.objValue;
-    }
-
-    @Override // java.util.Map
-    public void putAll(Map<? extends K, ? extends V> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            ensureCapacity(this.mSize + map.size());
-            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-                put(entry.getKey(), entry.getValue());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getCollection().getKeySet();
         }
-    }
-
-    public boolean removeAll(@NonNull Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) ? MapCollections.removeAllHelper(this, collection) : invokeL.booleanValue;
-    }
-
-    public boolean retainAll(@NonNull Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) ? MapCollections.retainAllHelper(this, collection) : invokeL.booleanValue;
+        return (Set) invokeV.objValue;
     }
 
     @Override // java.util.Map
     public Collection<V> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getCollection().getValues() : (Collection) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return getCollection().getValues();
+        }
+        return (Collection) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -203,6 +198,17 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
         }
     }
 
+    @Override // java.util.Map
+    public void putAll(Map<? extends K, ? extends V> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            ensureCapacity(this.mSize + map.size());
+            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+                put(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ArrayMap(SimpleArrayMap simpleArrayMap) {
         super(simpleArrayMap);
@@ -221,5 +227,32 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                 return;
             }
         }
+    }
+
+    public boolean containsAll(Collection<?> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
+            return MapCollections.containsAllHelper(this, collection);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean removeAll(Collection<?> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
+            return MapCollections.removeAllHelper(this, collection);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean retainAll(Collection<?> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
+            return MapCollections.retainAllHelper(this, collection);
+        }
+        return invokeL.booleanValue;
     }
 }

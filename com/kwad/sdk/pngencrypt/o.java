@@ -12,7 +12,7 @@ public final class o implements Closeable {
     public final a alh;
     public final w ali;
     public int alj;
-    public i<? extends Object> alk;
+    public i alk;
 
     public o(InputStream inputStream, boolean z) {
         this.alj = -1;
@@ -56,7 +56,7 @@ public final class o implements Closeable {
         this.alg.Q(5024024L);
     }
 
-    private void a(i<? extends Object> iVar) {
+    private void a(i iVar) {
         this.alk = iVar;
     }
 

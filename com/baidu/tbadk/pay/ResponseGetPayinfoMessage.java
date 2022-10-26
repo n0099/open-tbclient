@@ -42,20 +42,22 @@ public class ResponseGetPayinfoMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (getStatusCode() != 200 || jSONObject == null) {
-                return;
+            if (getStatusCode() == 200 && jSONObject != null) {
+                this.mPayInfoResultData = (PayInfoResultData) OrmObject.objectWithJsonStr(jSONObject.toString(), PayInfoResultData.class);
+                this.logid = jSONObject.optString("logid");
+                BdToastData bdToastData = new BdToastData();
+                bdToastData.parserJson(jSONObject.toString());
+                this.mPayInfoResultData.setToast(bdToastData);
             }
-            this.mPayInfoResultData = (PayInfoResultData) OrmObject.objectWithJsonStr(jSONObject.toString(), PayInfoResultData.class);
-            this.logid = jSONObject.optString("logid");
-            BdToastData bdToastData = new BdToastData();
-            bdToastData.parserJson(jSONObject.toString());
-            this.mPayInfoResultData.setToast(bdToastData);
         }
     }
 
     public PayInfoResultData getPayInfoResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPayInfoResultData : (PayInfoResultData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPayInfoResultData;
+        }
+        return (PayInfoResultData) invokeV.objValue;
     }
 }

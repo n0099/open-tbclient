@@ -1,7 +1,5 @@
 package com.bumptech.glide.load.model;
-
-import androidx.annotation.Nullable;
 /* loaded from: classes7.dex */
 public interface Model {
-    boolean isEquivalentTo(@Nullable Object obj);
+    boolean isEquivalentTo(Object obj);
 }

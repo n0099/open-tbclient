@@ -3,7 +3,6 @@ package com.google.android.gms.common.api;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.IntentSender;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +15,7 @@ public class ResolvableApiException extends ApiException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResolvableApiException(@NonNull Status status) {
+    public ResolvableApiException(Status status) {
         super(status);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,14 +34,16 @@ public class ResolvableApiException extends ApiException {
         }
     }
 
-    @NonNull
     public PendingIntent getResolution() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getStatus().getResolution() : (PendingIntent) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getStatus().getResolution();
+        }
+        return (PendingIntent) invokeV.objValue;
     }
 
-    public void startResolutionForResult(@NonNull Activity activity, int i) throws IntentSender.SendIntentException {
+    public void startResolutionForResult(Activity activity, int i) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, i) == null) {
             getStatus().startResolutionForResult(activity, i);

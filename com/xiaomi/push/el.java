@@ -32,7 +32,7 @@ public class el extends com.xiaomi.clientreport.processor.a {
     }
 
     @Override // com.xiaomi.clientreport.processor.a
-    public void a(List<String> list) {
+    public void a(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             en.a(((com.xiaomi.clientreport.processor.a) this).a, list);

@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,10 +23,15 @@ public class ScrollRecyclerView extends RecyclerView {
     public final CompositeScrollListener compositeScrollListener;
 
     /* loaded from: classes2.dex */
-    public static class CompositeScrollListener extends RecyclerView.OnScrollListener {
+    public interface RecyclerViewItemClickListener {
+        void onItemClickListener(int i, Object obj);
+    }
+
+    /* loaded from: classes2.dex */
+    public class CompositeScrollListener extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<RecyclerView.OnScrollListener> scrollListenerList;
+        public final List scrollListenerList;
 
         public CompositeScrollListener() {
             Interceptable interceptable = $ic;
@@ -48,7 +51,7 @@ public class ScrollRecyclerView extends RecyclerView {
 
         public void addOnScrollListener(RecyclerView.OnScrollListener onScrollListener) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, onScrollListener) == null) || onScrollListener == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, onScrollListener) != null) || onScrollListener == null) {
                 return;
             }
             for (RecyclerView.OnScrollListener onScrollListener2 : this.scrollListenerList) {
@@ -59,8 +62,22 @@ public class ScrollRecyclerView extends RecyclerView {
             this.scrollListenerList.add(onScrollListener);
         }
 
+        public void removeOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, onScrollListener) != null) || onScrollListener == null) {
+                return;
+            }
+            Iterator it = this.scrollListenerList.iterator();
+            while (it.hasNext()) {
+                if (onScrollListener == ((RecyclerView.OnScrollListener) it.next())) {
+                    it.remove();
+                    return;
+                }
+            }
+        }
+
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i) == null) {
                 for (RecyclerView.OnScrollListener onScrollListener : new ArrayList(this.scrollListenerList)) {
@@ -70,7 +87,7 @@ public class ScrollRecyclerView extends RecyclerView {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
+        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, recyclerView, i, i2) == null) {
                 super.onScrolled(recyclerView, i, i2);
@@ -79,29 +96,10 @@ public class ScrollRecyclerView extends RecyclerView {
                 }
             }
         }
-
-        public void removeOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, onScrollListener) == null) || onScrollListener == null) {
-                return;
-            }
-            Iterator<RecyclerView.OnScrollListener> it = this.scrollListenerList.iterator();
-            while (it.hasNext()) {
-                if (onScrollListener == it.next()) {
-                    it.remove();
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface RecyclerViewItemClickListener<T> {
-        void onItemClickListener(int i, T t);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollRecyclerView(@NonNull Context context) {
+    public ScrollRecyclerView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -170,37 +168,8 @@ public class ScrollRecyclerView extends RecyclerView {
         });
     }
 
-    private void throwIfNotOnMainThread() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && Looper.myLooper() != Looper.getMainLooper()) {
-            throw new IllegalStateException("Must be invoked from the main thread.");
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.onAttachedToWindow();
-            for (ViewParent parent = getParent(); parent != null; parent = parent.getParent()) {
-                if (parent instanceof ScrollLayout) {
-                    ((ScrollLayout) parent).setAssociatedRecyclerView(this);
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onDetachedFromWindow();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public ScrollRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -271,7 +240,7 @@ public class ScrollRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ScrollRecyclerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -339,5 +308,35 @@ public class ScrollRecyclerView extends RecyclerView {
                 }
             }
         });
+    }
+
+    private void throwIfNotOnMainThread() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65539, this) != null) || Looper.myLooper() == Looper.getMainLooper()) {
+            return;
+        }
+        throw new IllegalStateException("Must be invoked from the main thread.");
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.onAttachedToWindow();
+            for (ViewParent parent = getParent(); parent != null; parent = parent.getParent()) {
+                if (parent instanceof ScrollLayout) {
+                    ((ScrollLayout) parent).setAssociatedRecyclerView(this);
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDetachedFromWindow();
+        }
     }
 }

@@ -33,19 +33,19 @@ public final class BookmarkDoCoMoResultParser extends AbstractDoCoMoResultParser
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result)) == null) {
             String text = result.getText();
-            if (text.startsWith("MEBKM:")) {
-                String matchSingleDoCoMoPrefixedField = AbstractDoCoMoResultParser.matchSingleDoCoMoPrefixedField("TITLE:", text, true);
-                String[] matchDoCoMoPrefixedField = AbstractDoCoMoResultParser.matchDoCoMoPrefixedField("URL:", text, true);
-                if (matchDoCoMoPrefixedField == null) {
-                    return null;
-                }
-                String str = matchDoCoMoPrefixedField[0];
-                if (URIResultParser.isBasicallyValidURI(str)) {
-                    return new URIParsedResult(str, matchSingleDoCoMoPrefixedField);
-                }
+            if (!text.startsWith("MEBKM:")) {
                 return null;
             }
-            return null;
+            String matchSingleDoCoMoPrefixedField = AbstractDoCoMoResultParser.matchSingleDoCoMoPrefixedField("TITLE:", text, true);
+            String[] matchDoCoMoPrefixedField = AbstractDoCoMoResultParser.matchDoCoMoPrefixedField("URL:", text, true);
+            if (matchDoCoMoPrefixedField == null) {
+                return null;
+            }
+            String str = matchDoCoMoPrefixedField[0];
+            if (!URIResultParser.isBasicallyValidURI(str)) {
+                return null;
+            }
+            return new URIParsedResult(str, matchSingleDoCoMoPrefixedField);
         }
         return (URIParsedResult) invokeL.objValue;
     }

@@ -1,18 +1,50 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class kf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile kf4 a;
+    public static kf4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public String b;
+    public String c;
+
+    /* loaded from: classes4.dex */
+    public class a extends wj4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_tipmsgs");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public kf4() {
         Interceptable interceptable = $ic;
@@ -24,45 +56,85 @@ public class kf4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a();
+        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f12a3);
+        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f12a4);
     }
 
-    public static kf4 a() {
+    public static kf4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
+            if (d == null) {
                 synchronized (kf4.class) {
-                    if (a == null) {
-                        a = new kf4();
+                    if (d == null) {
+                        d = new kf4();
                     }
                 }
             }
-            return a;
+            return d;
         }
         return (kf4) invokeV.objValue;
     }
 
-    public String b() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? wa4.b() == null ? "0" : wa4.b().i().getString("local_debug_version", "0") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getString("tips_config_version", "0");
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public String a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.b);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.c);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || wa4.b() == null) {
+        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
             return;
         }
-        wa4.b().i().putString("local_debug_version", optString);
-        wa4.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
-        wa4.b().i().putString("error_url", optJSONObject.optString("error_url"));
-        wa4.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
+        HashMap hashMap = new HashMap(optJSONArray.length());
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
+        }
+        f(hashMap, optString);
+    }
+
+    public void f(HashMap hashMap, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) && hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            edit.putString("tips_config_version", str);
+            for (Map.Entry entry : hashMap.entrySet()) {
+                edit.putString((String) entry.getKey(), (String) entry.getValue());
+            }
+            edit.apply();
+        }
     }
 }

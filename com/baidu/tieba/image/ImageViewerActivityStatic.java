@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ public class ImageViewerActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<ImageViewerConfig> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,19 +39,20 @@ public class ImageViewerActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ImageViewerConfig> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ImageViewerConfig data = customMessage.getData();
-                    Intent intent = data.getIntent();
+                    ImageViewerConfig imageViewerConfig = (ImageViewerConfig) customMessage.getData();
+                    Intent intent = imageViewerConfig.getIntent();
                     if (ImageViewerConfig.DATA_VALID.equals(intent.getStringExtra(ImageViewerConfig.IS_DATA_VALID))) {
+                        intent.putExtra(ImageViewerConfig.KEY_PROFILE_VIRTUAL_IMAGE_INFO, ProfileVirtualImageInfo.getInstance());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010000));
                         if (ImageViewerConfig.START_ACTIVITY_NORMAL.equals(intent.getStringExtra(ImageViewerConfig.START_ACTIVITY_TYPE))) {
-                            data.startActivityForRemote(ImageViewerActivity.class);
+                            imageViewerConfig.startActivityForRemote(ImageViewerActivity.class);
                         } else {
-                            data.startActivityForResultForRemote(14001, ImageViewerActivity.class);
+                            imageViewerConfig.startActivityForResultForRemote(14001, ImageViewerActivity.class);
                         }
                     }
                 }

@@ -21,7 +21,7 @@ public class Plane implements Serializable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class PlaneSide {
+    public final class PlaneSide {
         public static final /* synthetic */ PlaneSide[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PlaneSide Back;
@@ -71,13 +71,19 @@ public class Plane implements Serializable {
         public static PlaneSide valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PlaneSide) Enum.valueOf(PlaneSide.class, str) : (PlaneSide) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PlaneSide) Enum.valueOf(PlaneSide.class, str);
+            }
+            return (PlaneSide) invokeL.objValue;
         }
 
         public static PlaneSide[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PlaneSide[]) $VALUES.clone() : (PlaneSide[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PlaneSide[]) $VALUES.clone();
+            }
+            return (PlaneSide[]) invokeV.objValue;
         }
     }
 
@@ -98,52 +104,22 @@ public class Plane implements Serializable {
         this.d = 0.0f;
     }
 
-    public float distance(Vector3 vector3) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vector3)) == null) ? this.normal.dot(vector3) + this.d : invokeL.floatValue;
-    }
-
     public float getD() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
     }
 
     public Vector3 getNormal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.normal : (Vector3) invokeV.objValue;
-    }
-
-    public boolean isFrontFacing(Vector3 vector3) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vector3)) == null) ? this.normal.dot(vector3) <= 0.0f : invokeL.booleanValue;
-    }
-
-    public void set(Vector3 vector3, Vector3 vector32, Vector3 vector33) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vector3, vector32, vector33) == null) {
-            this.normal.set(vector3).sub(vector32).crs(vector32.x - vector33.x, vector32.y - vector33.y, vector32.z - vector33.z).m20nor();
-            this.d = -vector3.dot(this.normal);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.normal;
         }
-    }
-
-    public PlaneSide testPoint(Vector3 vector3) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, vector3)) == null) {
-            float dot = this.normal.dot(vector3) + this.d;
-            if (dot == 0.0f) {
-                return PlaneSide.OnPlane;
-            }
-            if (dot < 0.0f) {
-                return PlaneSide.Back;
-            }
-            return PlaneSide.Front;
-        }
-        return (PlaneSide) invokeL.objValue;
+        return (Vector3) invokeV.objValue;
     }
 
     public String toString() {
@@ -153,14 +129,6 @@ public class Plane implements Serializable {
             return this.normal.toString() + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.d;
         }
         return (String) invokeV.objValue;
-    }
-
-    public void set(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.normal.set(f, f2, f3);
-            this.d = f4;
-        }
     }
 
     public Plane(Vector3 vector3, float f) {
@@ -185,38 +153,6 @@ public class Plane implements Serializable {
         this.d = f;
     }
 
-    public void set(Vector3 vector3, Vector3 vector32) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, vector3, vector32) == null) {
-            this.normal.set(vector32);
-            this.d = -vector3.dot(vector32);
-        }
-    }
-
-    public PlaneSide testPoint(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            float dot = this.normal.dot(f, f2, f3) + this.d;
-            if (dot == 0.0f) {
-                return PlaneSide.OnPlane;
-            }
-            if (dot < 0.0f) {
-                return PlaneSide.Back;
-            }
-            return PlaneSide.Front;
-        }
-        return (PlaneSide) invokeCommon.objValue;
-    }
-
-    public void set(float f, float f2, float f3, float f4, float f5, float f6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
-            this.normal.set(f4, f5, f6);
-            this.d = -((f * f4) + (f2 * f5) + (f3 * f6));
-        }
-    }
-
     public Plane(Vector3 vector3, Vector3 vector32) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -239,14 +175,6 @@ public class Plane implements Serializable {
         this.d = -this.normal.dot(vector32);
     }
 
-    public void set(Plane plane) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, plane) == null) {
-            this.normal.set(plane.normal);
-            this.d = plane.d;
-        }
-    }
-
     public Plane(Vector3 vector3, Vector3 vector32, Vector3 vector33) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -265,5 +193,98 @@ public class Plane implements Serializable {
         this.normal = new Vector3();
         this.d = 0.0f;
         set(vector3, vector32, vector33);
+    }
+
+    public void set(Vector3 vector3, Vector3 vector32, Vector3 vector33) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vector3, vector32, vector33) == null) {
+            this.normal.set(vector3).sub(vector32).crs(vector32.x - vector33.x, vector32.y - vector33.y, vector32.z - vector33.z).m20nor();
+            this.d = -vector3.dot(this.normal);
+        }
+    }
+
+    public float distance(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vector3)) == null) {
+            return this.normal.dot(vector3) + this.d;
+        }
+        return invokeL.floatValue;
+    }
+
+    public boolean isFrontFacing(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vector3)) == null) {
+            if (this.normal.dot(vector3) <= 0.0f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void set(Plane plane) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, plane) == null) {
+            this.normal.set(plane.normal);
+            this.d = plane.d;
+        }
+    }
+
+    public PlaneSide testPoint(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, vector3)) == null) {
+            float dot = this.normal.dot(vector3) + this.d;
+            if (dot == 0.0f) {
+                return PlaneSide.OnPlane;
+            }
+            if (dot < 0.0f) {
+                return PlaneSide.Back;
+            }
+            return PlaneSide.Front;
+        }
+        return (PlaneSide) invokeL.objValue;
+    }
+
+    public void set(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.normal.set(f, f2, f3);
+            this.d = f4;
+        }
+    }
+
+    public void set(float f, float f2, float f3, float f4, float f5, float f6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
+            this.normal.set(f4, f5, f6);
+            this.d = -((f * f4) + (f2 * f5) + (f3 * f6));
+        }
+    }
+
+    public void set(Vector3 vector3, Vector3 vector32) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, vector3, vector32) == null) {
+            this.normal.set(vector32);
+            this.d = -vector3.dot(vector32);
+        }
+    }
+
+    public PlaneSide testPoint(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            float dot = this.normal.dot(f, f2, f3) + this.d;
+            if (dot == 0.0f) {
+                return PlaneSide.OnPlane;
+            }
+            if (dot < 0.0f) {
+                return PlaneSide.Back;
+            }
+            return PlaneSide.Front;
+        }
+        return (PlaneSide) invokeCommon.objValue;
     }
 }

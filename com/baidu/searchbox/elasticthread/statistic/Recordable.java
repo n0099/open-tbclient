@@ -9,10 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface Recordable {
+    void onRecordBegin();
+
+    void onRecordEnd();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class RecordStatus {
+    public final class RecordStatus {
         public static final /* synthetic */ RecordStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RecordStatus RECORDING;
@@ -62,17 +65,19 @@ public interface Recordable {
         public static RecordStatus valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RecordStatus) Enum.valueOf(RecordStatus.class, str) : (RecordStatus) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RecordStatus) Enum.valueOf(RecordStatus.class, str);
+            }
+            return (RecordStatus) invokeL.objValue;
         }
 
         public static RecordStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RecordStatus[]) $VALUES.clone() : (RecordStatus[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RecordStatus[]) $VALUES.clone();
+            }
+            return (RecordStatus[]) invokeV.objValue;
         }
     }
-
-    void onRecordBegin();
-
-    void onRecordEnd();
 }

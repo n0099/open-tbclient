@@ -1,6 +1,5 @@
 package com.facebook.imagepipeline.platform;
 
-import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ColorSpace;
@@ -12,9 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.memory.BitmapPool;
 import com.facebook.imageutils.BitmapUtil;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
-@TargetApi(26)
 /* loaded from: classes7.dex */
 public class OreoDecoder extends DefaultDecoder {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +42,10 @@ public class OreoDecoder extends DefaultDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, options)) == null) {
             ColorSpace colorSpace = options.outColorSpace;
-            return (colorSpace == null || !colorSpace.isWideGamut() || options.inPreferredConfig == Bitmap.Config.RGBA_F16) ? false : true;
+            if (colorSpace != null && colorSpace.isWideGamut() && options.inPreferredConfig != Bitmap.Config.RGBA_F16) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -55,6 +54,12 @@ public class OreoDecoder extends DefaultDecoder {
     public int getBitmapSize(int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, options)) == null) ? hasColorGamutMismatch(options) ? i * i2 * 8 : BitmapUtil.getSizeInByteForBitmap(i, i2, options.inPreferredConfig) : invokeIIL.intValue;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, options)) == null) {
+            if (hasColorGamutMismatch(options)) {
+                return i * i2 * 8;
+            }
+            return BitmapUtil.getSizeInByteForBitmap(i, i2, options.inPreferredConfig);
+        }
+        return invokeIIL.intValue;
     }
 }

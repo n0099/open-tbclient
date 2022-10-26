@@ -15,24 +15,24 @@ import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableMapNotification<T, R> extends AbstractFlowableWithUpstream<T, R> {
+public final class FlowableMapNotification extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<? extends R> onCompleteSupplier;
-    public final Function<? super Throwable, ? extends R> onErrorMapper;
-    public final Function<? super T, ? extends R> onNextMapper;
+    public final Callable onCompleteSupplier;
+    public final Function onErrorMapper;
+    public final Function onNextMapper;
 
     /* loaded from: classes8.dex */
-    public static final class MapNotificationSubscriber<T, R> extends SinglePostCompleteSubscriber<T, R> {
+    public final class MapNotificationSubscriber extends SinglePostCompleteSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2757120512858778108L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Callable<? extends R> onCompleteSupplier;
-        public final Function<? super Throwable, ? extends R> onErrorMapper;
-        public final Function<? super T, ? extends R> onNextMapper;
+        public final Callable onCompleteSupplier;
+        public final Function onErrorMapper;
+        public final Function onNextMapper;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MapNotificationSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends R> function, Function<? super Throwable, ? extends R> function2, Callable<? extends R> callable) {
+        public MapNotificationSubscriber(Subscriber subscriber, Function function, Function function2, Callable callable) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -54,8 +54,6 @@ public final class FlowableMapNotification<T, R> extends AbstractFlowableWithUps
             this.onCompleteSupplier = callable;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: io.reactivex.internal.operators.flowable.FlowableMapNotification$MapNotificationSubscriber<T, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
@@ -69,8 +67,6 @@ public final class FlowableMapNotification<T, R> extends AbstractFlowableWithUps
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: io.reactivex.internal.operators.flowable.FlowableMapNotification$MapNotificationSubscriber<T, R> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -85,11 +81,11 @@ public final class FlowableMapNotification<T, R> extends AbstractFlowableWithUps
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 try {
-                    Object requireNonNull = ObjectHelper.requireNonNull(this.onNextMapper.apply(t), "The onNext publisher returned is null");
+                    Object requireNonNull = ObjectHelper.requireNonNull(this.onNextMapper.apply(obj), "The onNext publisher returned is null");
                     this.produced++;
                     this.actual.onNext(requireNonNull);
                 } catch (Throwable th) {
@@ -101,7 +97,7 @@ public final class FlowableMapNotification<T, R> extends AbstractFlowableWithUps
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableMapNotification(Flowable<T> flowable, Function<? super T, ? extends R> function, Function<? super Throwable, ? extends R> function2, Callable<? extends R> callable) {
+    public FlowableMapNotification(Flowable flowable, Function function, Function function2, Callable callable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,7 +120,7 @@ public final class FlowableMapNotification<T, R> extends AbstractFlowableWithUps
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new MapNotificationSubscriber(subscriber, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));

@@ -1,7 +1,7 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.br;
+import com.baidu.tieba.cr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,23 +14,23 @@ import kotlin.jvm.internal.Lambda;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "", "invoke", "()Lkotlin/Unit;"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class BDPTask$INSTANCE$taskCompletedRequest$2 extends Lambda implements Function0<Unit> {
+public final class BDPTask$INSTANCE$taskCompletedRequest$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ int $behavior;
-    public final /* synthetic */ br $callback;
+    public final /* synthetic */ cr $callback;
     public final /* synthetic */ JSONObject $external;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $taskId;
     public final /* synthetic */ String $token;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$taskCompletedRequest$2(String str, String str2, int i, JSONObject jSONObject, br brVar) {
+    public BDPTask$INSTANCE$taskCompletedRequest$2(String str, String str2, int i, JSONObject jSONObject, cr crVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), jSONObject, brVar};
+            Object[] objArr = {str, str2, Integer.valueOf(i), jSONObject, crVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,7 +45,7 @@ public final class BDPTask$INSTANCE$taskCompletedRequest$2 extends Lambda implem
         this.$taskId = str2;
         this.$behavior = i;
         this.$external = jSONObject;
-        this.$callback = brVar;
+        this.$callback = crVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

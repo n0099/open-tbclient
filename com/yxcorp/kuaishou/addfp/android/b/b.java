@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -73,7 +74,7 @@ public class b {
                 bArr3[i5] = bArr3[i6];
                 bArr3[i6] = b2;
                 bArr4[i7] = (byte) (bArr3[((bArr3[i5] & 255) + (bArr3[i6] & 255)) & 255] ^ bArr[i7]);
-                bArr4[i7] = (byte) (bArr4[i7] ^ 42);
+                bArr4[i7] = (byte) (bArr4[i7] ^ ExifInterface.START_CODE);
             }
             return bArr4;
         }

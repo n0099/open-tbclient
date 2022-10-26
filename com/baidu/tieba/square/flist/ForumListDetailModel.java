@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.square.flist.ForumListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
+public class ForumListDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<ForumListActivity> a;
+    public TbPageContext a;
     public ForumListModel.RequestParams b;
     public b c;
     public c d;
@@ -29,7 +29,7 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
     public boolean f;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -39,8 +39,106 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
         void a(boolean z, int i, ForumListModel forumListModel, String str, boolean z2);
     }
 
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ForumListModel a;
+        public final /* synthetic */ ForumListDetailModel b;
+
+        public c(ForumListDetailModel forumListDetailModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumListDetailModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = forumListDetailModel;
+            this.a = new ForumListModel(this.b.a);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(Void... voidArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr) == null) {
+                super.onProgressUpdate(voidArr);
+                if (this.a == null) {
+                    return;
+                }
+                b bVar = this.b.c;
+                int errorCode = this.a.getErrorCode();
+                ForumListModel forumListModel = this.a;
+                bVar.a(true, errorCode, forumListModel, forumListModel.getErrorString(), this.b.f);
+            }
+        }
+
+        public /* synthetic */ c(ForumListDetailModel forumListDetailModel, a aVar) {
+            this(forumListDetailModel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ForumListModel doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                try {
+                    if (this.b.e) {
+                        ou4.f();
+                        kf g = ou4.g("tb.my_posts");
+                        if (g != null) {
+                            str = (String) g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
+                        } else {
+                            str = null;
+                        }
+                        if (str != null) {
+                            ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(str, ForumListModel.class);
+                            this.a = forumListModel;
+                            if (forumListModel != null) {
+                                publishProgress(new Void[0]);
+                            }
+                            this.b.f = true;
+                        }
+                    }
+                    this.b.e = false;
+                    return ForumListModel.new_fetch(this.b.b);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    return null;
+                }
+            }
+            return (ForumListModel) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForumListModel forumListModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumListModel) == null) {
+                if (forumListModel != null && forumListModel.isOk()) {
+                    this.b.c.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.b.f);
+                } else {
+                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c68), this.b.f);
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumListDetailModel(TbPageContext<ForumListActivity> tbPageContext, ForumListModel.RequestParams requestParams) {
+    public ForumListDetailModel(TbPageContext tbPageContext, ForumListModel.RequestParams requestParams) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,102 +201,5 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             return true;
         }
         return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<Void, Void, ForumListModel> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ForumListModel a;
-        public final /* synthetic */ ForumListDetailModel b;
-
-        public c(ForumListDetailModel forumListDetailModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {forumListDetailModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = forumListDetailModel;
-            this.a = new ForumListModel(this.b.a);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ForumListModel doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                try {
-                    if (this.b.e) {
-                        mu4.f();
-                        jf<String> g = mu4.g("tb.my_posts");
-                        if (g != null) {
-                            str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
-                        } else {
-                            str = null;
-                        }
-                        if (str != null) {
-                            ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(str, ForumListModel.class);
-                            this.a = forumListModel;
-                            if (forumListModel != null) {
-                                publishProgress(new Void[0]);
-                            }
-                            this.b.f = true;
-                        }
-                    }
-                    this.b.e = false;
-                    return ForumListModel.new_fetch(this.b.b);
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                    return null;
-                }
-            }
-            return (ForumListModel) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ForumListModel forumListModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumListModel) == null) {
-                if (forumListModel != null && forumListModel.isOk()) {
-                    this.b.c.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), this.b.f);
-                } else {
-                    this.b.c.a(false, 0, forumListModel, this.b.a.getString(R.string.obfuscated_res_0x7f0f0c59), this.b.f);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onProgressUpdate(Void... voidArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr) == null) {
-                super.onProgressUpdate(voidArr);
-                if (this.a != null) {
-                    b bVar = this.b.c;
-                    int errorCode = this.a.getErrorCode();
-                    ForumListModel forumListModel = this.a;
-                    bVar.a(true, errorCode, forumListModel, forumListModel.getErrorString(), this.b.f);
-                }
-            }
-        }
-
-        public /* synthetic */ c(ForumListDetailModel forumListDetailModel, a aVar) {
-            this(forumListDetailModel);
-        }
     }
 }

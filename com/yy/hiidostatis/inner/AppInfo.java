@@ -35,6 +35,15 @@ public final class AppInfo {
         $VALUES = new AppInfo[]{appInfo};
     }
 
+    public static AppInfo[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AppInfo[]) $VALUES.clone();
+        }
+        return (AppInfo[]) invokeV.objValue;
+    }
+
     public AppInfo(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,13 +66,10 @@ public final class AppInfo {
     public static AppInfo valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AppInfo) Enum.valueOf(AppInfo.class, str) : (AppInfo) invokeL.objValue;
-    }
-
-    public static AppInfo[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AppInfo[]) $VALUES.clone() : (AppInfo[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AppInfo) Enum.valueOf(AppInfo.class, str);
+        }
+        return (AppInfo) invokeL.objValue;
     }
 
     public void init(Context context) {

@@ -2,7 +2,6 @@ package com.baidu.tieba.im.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ public class MsgPageData extends OrmObject implements Serializable {
     public static final long serialVersionUID = -7666708726763728750L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNewAdd;
-    public List<ChatMessage> mChatMessages;
+    public List mChatMessages;
     public int newAddNum;
 
     public MsgPageData() {
@@ -39,30 +38,38 @@ public class MsgPageData extends OrmObject implements Serializable {
     }
 
     public void clear() {
-        List<ChatMessage> list;
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.mChatMessages) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.mChatMessages) != null) {
+            list.clear();
         }
-        list.clear();
     }
 
-    public List<ChatMessage> getChatMessages() {
+    public List getChatMessages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mChatMessages : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mChatMessages;
+        }
+        return (List) invokeV.objValue;
     }
 
     public boolean getIsNewAdd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isNewAdd : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isNewAdd;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getNewAddNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.newAddNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.newAddNum;
+        }
+        return invokeV.intValue;
     }
 
     public void reset() {
@@ -72,6 +79,19 @@ public class MsgPageData extends OrmObject implements Serializable {
             this.newAddNum = 0;
             clear();
         }
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            List list = this.mChatMessages;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public void setIsNewAdd(boolean z) {
@@ -86,18 +106,5 @@ public class MsgPageData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.newAddNum = i;
         }
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<ChatMessage> list = this.mChatMessages;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
     }
 }

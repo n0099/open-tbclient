@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
 /* loaded from: classes.dex */
-public class Pair<F, S> {
+public class Pair {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final F mFirst;
-    public final S mSecond;
+    public final Object mFirst;
+    public final Object mSecond;
 
-    public Pair(F f, S s) {
+    public Pair(Object obj, Object obj2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f, s};
+            Object[] objArr = {obj, obj2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,14 +29,17 @@ public class Pair<F, S> {
                 return;
             }
         }
-        this.mFirst = f;
-        this.mSecond = s;
+        this.mFirst = obj;
+        this.mSecond = obj2;
     }
 
-    public static <A, B> Pair<A, B> create(A a, B b) {
+    public static Pair create(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b)) == null) ? new Pair<>(a, b) : (Pair) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, obj2)) == null) {
+            return new Pair(obj, obj2);
+        }
+        return (Pair) invokeLL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -46,15 +49,18 @@ public class Pair<F, S> {
             if (obj == this) {
                 return true;
             }
-            if (obj instanceof Pair) {
-                try {
-                    Pair pair = (Pair) obj;
-                    return this.mFirst.equals(pair.mFirst) && this.mSecond.equals(pair.mSecond);
-                } catch (ClassCastException unused) {
-                    return false;
-                }
+            if (!(obj instanceof Pair)) {
+                return false;
             }
-            return false;
+            try {
+                Pair pair = (Pair) obj;
+                if (this.mFirst.equals(pair.mFirst) && this.mSecond.equals(pair.mSecond)) {
+                    return true;
+                }
+                return false;
+            } catch (ClassCastException unused) {
+                return false;
+            }
         }
         return invokeL.booleanValue;
     }
@@ -62,6 +68,9 @@ public class Pair<F, S> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.mFirst.hashCode() + 31) * 31) + this.mSecond.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((this.mFirst.hashCode() + 31) * 31) + this.mSecond.hashCode();
+        }
+        return invokeV.intValue;
     }
 }

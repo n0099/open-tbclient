@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.i06;
+import com.baidu.tieba.p06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import tbclient.Search.SearchResIdl;
 public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i06 candidateData;
+    public p06 candidateData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CandidateSearchHttpResMsg() {
@@ -42,22 +42,20 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             SearchResIdl searchResIdl = (SearchResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchResIdl.class);
-            if (searchResIdl == null || searchResIdl.data == null) {
-                return;
-            }
-            Error error = searchResIdl.error;
-            if (error != null) {
-                setError(error.errorno.intValue());
-                setErrorString(searchResIdl.error.errmsg);
-            }
-            if (searchResIdl.data.uid.longValue() != 0) {
-                i06 i06Var = new i06();
-                this.candidateData = i06Var;
-                i06Var.a(searchResIdl.data);
-                if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
-                    return;
+            if (searchResIdl != null && searchResIdl.data != null) {
+                Error error = searchResIdl.error;
+                if (error != null) {
+                    setError(error.errorno.intValue());
+                    setErrorString(searchResIdl.error.errmsg);
                 }
-                this.candidateData.a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+                if (searchResIdl.data.uid.longValue() != 0) {
+                    p06 p06Var = new p06();
+                    this.candidateData = p06Var;
+                    p06Var.a(searchResIdl.data);
+                    if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
+                        this.candidateData.a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+                    }
+                }
             }
         }
     }

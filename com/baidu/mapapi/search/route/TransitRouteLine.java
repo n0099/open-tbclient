@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.RouteStep;
@@ -20,16 +19,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes2.dex */
-public final class TransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
+public final class TransitRouteLine extends RouteLine implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<TransitRouteLine> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public TaxiInfo b;
 
     /* loaded from: classes2.dex */
-    public static class TransitStep extends RouteStep implements Parcelable {
+    public class TransitStep extends RouteStep implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<TransitStep> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public VehicleInfo d;
         public RouteNode e;
@@ -40,7 +39,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public static final class TransitRouteStepType {
+        public final class TransitRouteStepType {
             public static final /* synthetic */ TransitRouteStepType[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final TransitRouteStepType BUSLINE;
@@ -198,7 +197,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
-        public List<LatLng> getWayPoints() {
+        public List getWayPoints() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

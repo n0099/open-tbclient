@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.notification.c;
 import com.meizu.cloud.pushsdk.util.d;
 import java.io.File;
 /* loaded from: classes8.dex */
-public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
+public class a extends com.meizu.cloud.pushsdk.handler.a.a {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
     }
@@ -49,15 +49,15 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
         } else if (gVar.b() && !com.meizu.cloud.pushsdk.util.a.b(c())) {
             message = "current network not allowed upload log file";
         }
-        com.meizu.cloud.pushsdk.b.a.c<String> a = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
+        com.meizu.cloud.pushsdk.b.a.c a = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
         if (a == null || !a.b()) {
-            DebugLogger.i("AbstractMessageHandler", "upload error code " + a.c() + a.a());
+            DebugLogger.i("AbstractMessageHandler", "upload error code " + a.c() + ((String) a.a()));
             return;
         }
         if (file != null) {
             file.delete();
         }
-        DebugLogger.e("AbstractMessageHandler", "upload success " + a.a());
+        DebugLogger.e("AbstractMessageHandler", "upload success " + ((String) a.a()));
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c

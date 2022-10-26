@@ -33,23 +33,26 @@ public class InferenceException extends Exception {
         this.status = i;
     }
 
-    @Override // java.lang.Throwable
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public InferenceException(int i, String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String name = InferenceException.class.getName();
-            String localizedMessage = getLocalizedMessage();
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.status);
-            sb.append(":");
-            if (localizedMessage != null) {
-                name = name + ": " + localizedMessage;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            sb.append(name);
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
+        this.status = 1000;
+        this.status = i;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,25 +76,22 @@ public class InferenceException extends Exception {
         this.status = 1000;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InferenceException(int i, String str) {
-        super(str);
+    @Override // java.lang.Throwable
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String name = InferenceException.class.getName();
+            String localizedMessage = getLocalizedMessage();
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.status);
+            sb.append(":");
+            if (localizedMessage != null) {
+                name = name + ": " + localizedMessage;
             }
+            sb.append(name);
+            return sb.toString();
         }
-        this.status = 1000;
-        this.status = i;
+        return (String) invokeV.objValue;
     }
 }

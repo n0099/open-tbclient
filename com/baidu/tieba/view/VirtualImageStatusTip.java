@@ -5,17 +5,19 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.ol8;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,15 +25,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.Glide;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes6.dex */
 public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
-    public static final int g;
+    public static final int j;
+    public static final int k;
+    public static final int l;
+    public static final int m;
+    public static float n;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView d;
     public String e;
+    public String f;
+    public LinearLayout g;
+    public ImageView h;
+    public boolean i;
+
+    @Override // com.baidu.tieba.view.AbsTbHorizontalSpreadView
+    public int getAnimateDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 400;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,8 +66,11 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
                 return;
             }
         }
-        f = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-        g = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
+        j = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+        k = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
+        l = UtilHelper.getDimenPixelSize(R.dimen.tbds40);
+        m = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
+        n = 0.3f;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -72,14 +95,16 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     }
 
     private void setBackground(String str) {
-        Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b3d)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
+            n = 0.3f;
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b4c);
+            if (drawable != null) {
+                DrawableCompat.setTint(drawable, vl8.a(vl8.f(str), n));
+                this.g.setBackground(drawable);
+                this.g.setPadding(j, 0, k, 0);
+            }
         }
-        DrawableCompat.setTint(drawable, ol8.a(ol8.f(str), 0.3f));
-        this.d.setBackground(drawable);
-        this.d.setPadding(f, 0, g, 0);
     }
 
     public final String g(String str) {
@@ -97,99 +122,8 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.view.AbsTbHorizontalSpreadView
-    public int getAnimateDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 400;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.view.AbsTbHorizontalSpreadView
-    public View getChildView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            h();
-            i();
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.view.AbsTbHorizontalSpreadView
-    public int getChildWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = (String) this.d.getText();
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            return ((int) this.d.getPaint().measureText(str)) + f + g;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = new TextView(getContext());
-            this.d.setLayoutParams(new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds60)));
-            this.d.setSingleLine();
-            this.d.setGravity(17);
-            this.d.setPadding(f, 0, g, 0);
-            hv4.d(this.d).z(R.dimen.T_X08);
-        }
-    }
-
-    public void i() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (textView = this.d) == null) {
-            return;
-        }
-        hv4.d(textView).v(R.color.CAM_X0105);
-    }
-
-    public void setData(String str, String str2, String str3) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3) == null) {
-            this.e = g(str);
-            if (TextUtils.isEmpty(str2)) {
-                str4 = "";
-            } else {
-                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f157c), str2);
-                if (!TextUtils.isEmpty(this.e)) {
-                    str4 = " " + str4;
-                }
-            }
-            this.d.setText(this.e + str4);
-            setBackground(str3);
-            i();
-        }
-    }
-
-    public void setHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || getLayoutParams() == null) {
-            return;
-        }
-        getLayoutParams().height = UtilHelper.getDimenPixelSize(i);
-        setLayoutParams(getLayoutParams());
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public VirtualImageStatusTip(Context context, @Nullable AttributeSet attributeSet) {
+    public VirtualImageStatusTip(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -210,7 +144,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VirtualImageStatusTip(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public VirtualImageStatusTip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -228,16 +162,207 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
                 return;
             }
         }
+        this.i = false;
     }
 
-    public void setData(String str, String str2) {
+    @Override // com.baidu.tieba.view.AbsTbHorizontalSpreadView
+    public View getChildView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            this.e = g(str);
-            if (TextUtils.isEmpty(str2)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            h();
+            i();
+            return this.g;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public String getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.i) {
+            nv4.d(this.d).v(R.color.CAM_X0105);
+        }
+    }
+
+    @Override // com.baidu.tieba.view.AbsTbHorizontalSpreadView
+    public int getChildWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.g.getVisibility() == 0) {
+                int i = j + k;
+                if (this.h.getVisibility() == 0) {
+                    i += l;
+                }
+                String str = (String) this.d.getText();
+                if (!TextUtils.isEmpty(str)) {
+                    return i + ((int) this.d.getPaint().measureText(str));
+                }
+                return i;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.h.setVisibility(0);
+            this.d.setText(R.string.obfuscated_res_0x7f0f1150);
+            nv4.d(this.d).z(R.dimen.T_X07);
+            WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080a4d, R.color.CAM_X0605, WebPManager.ResourceStateType.NORMAL);
+            k("#FFFFFF", l, true);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.g = new LinearLayout(getContext());
+            this.g.setLayoutParams(new LinearLayout.LayoutParams(-2, m));
+            this.g.setOrientation(0);
+            this.g.setGravity(16);
+            this.g.setPadding(j, 0, k, 0);
+            this.h = new ImageView(getContext());
+            int i = l;
+            this.h.setLayoutParams(new LinearLayout.LayoutParams(i, i));
+            this.h.setVisibility(8);
+            this.g.addView(this.h);
+            this.d = new TextView(getContext());
+            this.d.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
+            this.d.setSingleLine();
+            this.d.setGravity(17);
+            this.g.addView(this.d);
+        }
+    }
+
+    public String j(VirtualImageCustomState virtualImageCustomState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, virtualImageCustomState)) == null) {
+            if (virtualImageCustomState == null) {
+                return "";
+            }
+            String icon = virtualImageCustomState.getIcon();
+            String content = virtualImageCustomState.getContent();
+            if (virtualImageCustomState.isEmojiState()) {
+                String g = g(icon);
+                if (!TextUtils.isEmpty(content)) {
+                    String format = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1596), content);
+                    return g + format;
+                }
+                return g;
+            } else if (!virtualImageCustomState.isCustomState()) {
+                return "";
+            } else {
+                if (!TextUtils.isEmpty(content)) {
+                    return icon + content;
+                }
+                return icon;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void k(String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
+            if (z) {
+                layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            }
+            this.h.setLayoutParams(layoutParams);
+            this.g.setLayoutParams(new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds99)));
+            n = 0.8f;
+            Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b4d);
+            if (drawable != null) {
+                DrawableCompat.setTint(drawable, vl8.a(vl8.f(str), n));
+                this.g.setBackground(drawable);
+                this.g.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X009), 0);
+            }
+            nv4.d(this.d).v(R.color.CAM_X0611);
+        }
+    }
+
+    public void setData(VirtualImageCustomState virtualImageCustomState, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048586, this, new Object[]{virtualImageCustomState, Boolean.valueOf(z), str}) != null) || virtualImageCustomState == null) {
+            return;
+        }
+        String icon = virtualImageCustomState.getIcon();
+        String content = virtualImageCustomState.getContent();
+        if (TextUtils.isEmpty(icon)) {
+            if (this.i) {
+                l();
+                return;
+            } else {
+                setVisibility(8);
                 return;
             }
-            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f157c), str2);
+        }
+        String str2 = "";
+        if (virtualImageCustomState.isEmojiState()) {
+            this.h.setVisibility(8);
+            String g = g(icon);
+            this.e = g;
+            this.f = g;
+            if (z && !TextUtils.isEmpty(content)) {
+                str2 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1596), content);
+                if (!TextUtils.isEmpty(this.e)) {
+                    str2 = " " + str2;
+                }
+            }
+            content = this.e + str2;
+        } else {
+            if (virtualImageCustomState.isCustomState()) {
+                if (TextUtils.isEmpty(icon)) {
+                    this.h.setVisibility(8);
+                } else {
+                    this.h.setVisibility(0);
+                }
+                this.f = icon;
+                Glide.with(getContext()).load(icon).into(this.h);
+                if (z && !TextUtils.isEmpty(content)) {
+                    if (!TextUtils.isEmpty(icon)) {
+                        content = " " + content;
+                    }
+                }
+            }
+            content = "";
+        }
+        this.d.setText(content);
+        if (this.i) {
+            nv4.d(this.d).z(R.dimen.T_X07);
+            k(str, UtilHelper.getDimenPixelSize(R.dimen.tbds60), false);
+        } else {
+            nv4.d(this.d).z(R.dimen.T_X08);
+            setBackground(str);
+        }
+        i();
+    }
+
+    public void setHeight(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && getLayoutParams() != null) {
+            getLayoutParams().height = UtilHelper.getDimenPixelSize(i);
+            setLayoutParams(getLayoutParams());
+        }
+    }
+
+    public void setIsPersonalLocate(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.i = z;
         }
     }
 }

@@ -8,8 +8,6 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
@@ -21,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ThemeEnforcement;
-@RequiresApi(21)
 /* loaded from: classes7.dex */
 public class ViewUtilsLollipop {
     public static /* synthetic */ Interceptable $ic;
@@ -58,14 +55,14 @@ public class ViewUtilsLollipop {
         }
     }
 
-    public static void setBoundsViewOutlineProvider(@NonNull View view2) {
+    public static void setBoundsViewOutlineProvider(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, view2) == null) {
             view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
         }
     }
 
-    public static void setDefaultAppBarLayoutStateListAnimator(@NonNull View view2, float f) {
+    public static void setDefaultAppBarLayoutStateListAnimator(View view2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(65539, null, view2, f) == null) {
             int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0005);
@@ -78,7 +75,7 @@ public class ViewUtilsLollipop {
         }
     }
 
-    public static void setStateListAnimatorFromAttrs(@NonNull View view2, AttributeSet attributeSet, int i, int i2) {
+    public static void setStateListAnimatorFromAttrs(View view2, AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, attributeSet, i, i2) == null) {
             Context context = view2.getContext();

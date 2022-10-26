@@ -49,10 +49,32 @@ public class WbShareToStoryActivity extends BaseActivity {
         this.progressId = -1;
     }
 
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onResume();
+        }
+    }
+
     private boolean checkInfo(StoryMessage storyMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, storyMessage)) == null) ? storyMessage.checkSource() && WbSdk.supportMultiImage(this) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, storyMessage)) == null) {
+            if (storyMessage.checkSource() && WbSdk.supportMultiImage(this)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     private void gotoSave(StoryMessage storyMessage) {
@@ -66,6 +88,13 @@ public class WbShareToStoryActivity extends BaseActivity {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WbShareToStoryActivity this$0;
+
+                @Override // com.sina.weibo.sdk.share.TransResourceCallback
+                public void onTransFinish(TransResourceResult transResourceResult) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transResourceResult) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -89,31 +118,51 @@ public class WbShareToStoryActivity extends BaseActivity {
                 public void onTransFinish(StoryObject storyObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, storyObject) == null) {
-                        if (storyObject != null) {
-                            try {
-                                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("sinaweibo://story/publish?forceedit=1&finish=true"));
-                                intent.setPackage(intent.getStringExtra(WBConstants.SHARE_START_PACKAGE));
-                                intent.putExtra("storyData", storyObject);
-                                this.this$0.startActivity(intent);
-                                return;
-                            } catch (Exception unused) {
-                                this.this$0.setCallbackActivity(2);
-                                return;
-                            }
+                        if (storyObject == null) {
+                            this.this$0.setCallbackActivity(2);
+                            return;
                         }
-                        this.this$0.setCallbackActivity(2);
-                    }
-                }
-
-                @Override // com.sina.weibo.sdk.share.TransResourceCallback
-                public void onTransFinish(TransResourceResult transResourceResult) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transResourceResult) == null) {
+                        try {
+                            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("sinaweibo://story/publish?forceedit=1&finish=true"));
+                            intent.setPackage(intent.getStringExtra(WBConstants.SHARE_START_PACKAGE));
+                            intent.putExtra("storyData", storyObject);
+                            this.this$0.startActivity(intent);
+                        } catch (Exception unused) {
+                            this.this$0.setCallbackActivity(2);
+                        }
                     }
                 }
             });
             this.saveFileTask = saveFileTask2;
             saveFileTask2.execute(storyMessage);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            super.onNewIntent(intent);
+            try {
+                i = intent.getIntExtra("backType", 0);
+            } catch (Exception unused) {
+                i = 0;
+            }
+            if (i == 0) {
+                setCallbackActivity(1);
+            } else {
+                setCallbackActivity(0);
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putString(WBConstants.SHARE_START_ACTIVITY, this.callbackActivity);
         }
     }
 
@@ -211,50 +260,6 @@ public class WbShareToStoryActivity extends BaseActivity {
                     setCallbackActivity(2);
                 }
             }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            super.onNewIntent(intent);
-            try {
-                i = intent.getIntExtra("backType", 0);
-            } catch (Exception unused) {
-                i = 0;
-            }
-            if (i == 0) {
-                setCallbackActivity(1);
-            } else {
-                setCallbackActivity(0);
-            }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onResume();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putString(WBConstants.SHARE_START_ACTIVITY, this.callbackActivity);
         }
     }
 }

@@ -12,8 +12,8 @@ import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.view.banner.BannerEntity;
 import com.baidu.live.business.view.banner.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.fc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.gc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,6 +27,20 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
     public BannerView i;
     public boolean j;
     public Context k;
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a(LiveBannerEntity liveBannerEntity);
+
+        void b(LiveBannerEntity liveBannerEntity);
+    }
+
+    @Override // com.baidu.live.business.base.LiveBaseItemView
+    public void setIsCurViewing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        }
+    }
 
     /* loaded from: classes2.dex */
     public class a implements BannerView.g {
@@ -55,10 +69,9 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         @Override // com.baidu.live.business.view.banner.BannerView.g
         public void a(LiveBannerEntity liveBannerEntity) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) || this.a.e == null || liveBannerEntity == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) && this.a.e != null && liveBannerEntity != null) {
+                this.a.e.b(liveBannerEntity);
             }
-            this.a.e.b(liveBannerEntity);
         }
     }
 
@@ -89,18 +102,10 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         @Override // com.baidu.live.business.view.banner.BannerView.i
         public void onBannerShow(LiveBannerEntity liveBannerEntity) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) || this.a.e == null || liveBannerEntity == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) && this.a.e != null && liveBannerEntity != null) {
+                this.a.e.a(liveBannerEntity);
             }
-            this.a.e.a(liveBannerEntity);
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface c {
-        void a(LiveBannerEntity liveBannerEntity);
-
-        void b(LiveBannerEntity liveBannerEntity);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,6 +128,40 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         }
         this.j = false;
         k(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Live4Ratio5BannerItemView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.j = false;
+        k(context);
+    }
+
+    public final void k(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            setNeedRatio(true);
+            setAspectRatio(1.25f);
+            this.k = context;
+            this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0530, this).findViewById(R.id.obfuscated_res_0x7f0913a7);
+            j();
+        }
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
@@ -155,10 +194,9 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
     public final void h() {
         BannerView bannerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bannerView = this.i) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bannerView = this.i) != null) {
+            bannerView.w();
         }
-        bannerView.w();
     }
 
     public final void i() {
@@ -176,10 +214,10 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
             this.i = bannerView;
             bannerView.setShowRoundPicture(true, 10);
             this.i.setIndicatorGravity(81);
-            this.i.setIndicatorMargin(0, 0, 0, (int) da0.c(this.k.getResources(), 7.0f));
-            this.i.setLargeIndicatorItemSize((int) da0.c(this.k.getResources(), 4.0f));
-            this.i.setSmallIndicatorItemSize((int) da0.c(this.k.getResources(), 4.0f));
-            this.i.setIndicatorInterval((int) da0.c(this.k.getResources(), 6.0f));
+            this.i.setIndicatorMargin(0, 0, 0, (int) ea0.c(this.k.getResources(), 7.0f));
+            this.i.setLargeIndicatorItemSize((int) ea0.c(this.k.getResources(), 4.0f));
+            this.i.setSmallIndicatorItemSize((int) ea0.c(this.k.getResources(), 4.0f));
+            this.i.setIndicatorInterval((int) ea0.c(this.k.getResources(), 6.0f));
             this.i.setAspectRatio(1.25f);
             this.i.setScene(this.c);
             this.i.setOnBannerClickListener(new a(this));
@@ -188,36 +226,29 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         }
     }
 
-    public final void k(Context context) {
+    public final void l(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            setNeedRatio(true);
-            setAspectRatio(1.25f);
-            this.k = context;
-            this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0531, this).findViewById(R.id.obfuscated_res_0x7f0913b6);
-            j();
-        }
-    }
-
-    public final void l(List<LiveBannerEntity> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || this.i == null || this.h == null) {
-            return;
-        }
-        if (!fc0.c(list)) {
-            if (this.i.r(list)) {
-                BannerEntity bannerEntity = new BannerEntity();
-                bannerEntity.mBannerList = list;
-                bannerEntity.mBroadcastInterval = 5000;
-                this.i.setBannerEntity(bannerEntity);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && this.i != null && this.h != null) {
+            int i = 8;
+            if (!gc0.c(list)) {
+                if (this.i.r(list)) {
+                    BannerEntity bannerEntity = new BannerEntity();
+                    bannerEntity.mBannerList = list;
+                    bannerEntity.mBroadcastInterval = 5000;
+                    this.i.setBannerEntity(bannerEntity);
+                }
+                this.i.setVisibility(0);
+                this.j = true;
+            } else {
+                this.j = false;
+                this.i.setVisibility(8);
             }
-            this.i.setVisibility(0);
-            this.j = true;
-        } else {
-            this.j = false;
-            this.i.setVisibility(8);
+            FrameLayout frameLayout = this.h;
+            if (this.i.getVisibility() == 0) {
+                i = 0;
+            }
+            frameLayout.setVisibility(i);
         }
-        this.h.setVisibility(this.i.getVisibility() == 0 ? 0 : 8);
     }
 
     @Override // com.baidu.live.business.base.LiveBaseItemView
@@ -226,35 +257,5 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, liveRoomEntity, i) == null) {
             l(liveRoomEntity.bannerList);
         }
-    }
-
-    @Override // com.baidu.live.business.base.LiveBaseItemView
-    public void setIsCurViewing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Live4Ratio5BannerItemView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.j = false;
-        k(context);
     }
 }

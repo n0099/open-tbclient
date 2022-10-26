@@ -25,6 +25,30 @@ public abstract class BasePostprocessor implements Postprocessor {
     public static Method sCopyBitmap;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.facebook.imagepipeline.request.Postprocessor
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Unknown postprocessor" : (String) invokeV.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.request.Postprocessor
+    @Nullable
+    public CacheKey getPostprocessorCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (CacheKey) invokeV.objValue;
+    }
+
+    public void process(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -80,25 +104,7 @@ public abstract class BasePostprocessor implements Postprocessor {
     }
 
     @Override // com.facebook.imagepipeline.request.Postprocessor
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Unknown postprocessor" : (String) invokeV.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.request.Postprocessor
-    @Nullable
-    public CacheKey getPostprocessorCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (CacheKey) invokeV.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.request.Postprocessor
-    public CloseableReference<Bitmap> process(Bitmap bitmap, PlatformBitmapFactory platformBitmapFactory) {
+    public CloseableReference process(Bitmap bitmap, PlatformBitmapFactory platformBitmapFactory) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, platformBitmapFactory)) == null) {
@@ -108,21 +114,15 @@ public abstract class BasePostprocessor implements Postprocessor {
             if (config == null) {
                 config = FALLBACK_BITMAP_CONFIGURATION;
             }
-            CloseableReference<Bitmap> createBitmapInternal = platformBitmapFactory.createBitmapInternal(width, height, config);
+            CloseableReference createBitmapInternal = platformBitmapFactory.createBitmapInternal(width, height, config);
             try {
-                process(createBitmapInternal.get(), bitmap);
+                process((Bitmap) createBitmapInternal.get(), bitmap);
                 return CloseableReference.cloneOrNull(createBitmapInternal);
             } finally {
                 CloseableReference.closeSafely(createBitmapInternal);
             }
         }
         return (CloseableReference) invokeLL.objValue;
-    }
-
-    public void process(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
-        }
     }
 
     public void process(Bitmap bitmap, Bitmap bitmap2) {

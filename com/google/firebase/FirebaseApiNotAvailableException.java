@@ -1,6 +1,5 @@
 package com.google.firebase;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,7 +10,7 @@ public class FirebaseApiNotAvailableException extends FirebaseException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FirebaseApiNotAvailableException(@NonNull String str) {
+    public FirebaseApiNotAvailableException(String str) {
         super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

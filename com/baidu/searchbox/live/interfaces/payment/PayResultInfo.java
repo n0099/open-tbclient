@@ -16,12 +16,12 @@ public final class PayResultInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long amount;
-    public Map<String, String> appClientExpand;
+    public Map appClientExpand;
     public int appid;
     public long currencyAmount;
     public int currencyType;
     public String expand;
-    public Map<String, ? extends Object> extraParams;
+    public Map extraParams;
     public String orderId;
     public boolean pollingTimeout;
     public int status;
@@ -45,73 +45,109 @@ public final class PayResultInfo {
     public final long getAmount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.amount : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.amount;
+        }
+        return invokeV.longValue;
     }
 
-    public final Map<String, String> getAppClientExpand() {
+    public final Map getAppClientExpand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.appClientExpand : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.appClientExpand;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public final int getAppid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.appid : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.appid;
+        }
+        return invokeV.intValue;
     }
 
     public final long getCurrencyAmount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.currencyAmount : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.currencyAmount;
+        }
+        return invokeV.longValue;
     }
 
     public final int getCurrencyType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.currencyType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.currencyType;
+        }
+        return invokeV.intValue;
     }
 
     public final String getExpand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.expand : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.expand;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public final Map<String, Object> getExtraParams() {
+    public final Map getExtraParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.extraParams : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.extraParams;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public final String getOrderId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.orderId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.orderId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final boolean getPollingTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.pollingTimeout : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.pollingTimeout;
+        }
+        return invokeV.booleanValue;
     }
 
     public final int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.status : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.status;
+        }
+        return invokeV.intValue;
     }
 
     public final long getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.uid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.uid;
+        }
+        return invokeV.longValue;
     }
 
     public final int getUsedChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.usedChannel : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.usedChannel;
+        }
+        return invokeV.intValue;
     }
 
     public final void setAmount(long j) {
@@ -121,7 +157,7 @@ public final class PayResultInfo {
         }
     }
 
-    public final void setAppClientExpand(Map<String, String> map) {
+    public final void setAppClientExpand(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, map) == null) {
             this.appClientExpand = map;
@@ -156,7 +192,7 @@ public final class PayResultInfo {
         }
     }
 
-    public final void setExtraParams(Map<String, ? extends Object> map) {
+    public final void setExtraParams(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, map) == null) {
             this.extraParams = map;

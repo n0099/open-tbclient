@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -18,9 +17,9 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.h85;
-import com.baidu.tieba.on;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.l85;
+import com.baidu.tieba.pn;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,7 +54,6 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         String str;
@@ -64,19 +62,19 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             AlaPushAlertResIdl alaPushAlertResIdl = (AlaPushAlertResIdl) new Wire(new Class[0]).parseFrom(bArr, AlaPushAlertResIdl.class);
             DataRes dataRes = alaPushAlertResIdl.data;
-            if (dataRes == null || dataRes.msgInfo == null || dataRes.ext == null) {
-                return alaPushAlertResIdl;
-            }
-            Intent intent = new Intent(TbadkCoreApplication.getInst(), DealIntentService.class);
-            intent.putExtra(DealIntentService.KEY_CLASS, 30);
-            JSONObject jSONObject = new JSONObject(alaPushAlertResIdl.data.ext);
-            String optString = jSONObject.optString("url");
-            long optLong = jSONObject.optLong("live_auth_user_id", 0L);
-            int optInt = jSONObject.optInt("ala_msg_type", 0);
-            if (TextUtils.isEmpty(optString)) {
-                return alaPushAlertResIdl;
-            }
-            if (optInt != 126 || optLong > 0) {
+            if (dataRes != null && dataRes.msgInfo != null && dataRes.ext != null) {
+                Intent intent = new Intent(TbadkCoreApplication.getInst(), DealIntentService.class);
+                intent.putExtra(DealIntentService.KEY_CLASS, 30);
+                JSONObject jSONObject = new JSONObject(alaPushAlertResIdl.data.ext);
+                String optString = jSONObject.optString("url");
+                long optLong = jSONObject.optLong("live_auth_user_id", 0L);
+                int optInt = jSONObject.optInt("ala_msg_type", 0);
+                if (TextUtils.isEmpty(optString)) {
+                    return alaPushAlertResIdl;
+                }
+                if (optInt == 126 && optLong <= 0) {
+                    return alaPushAlertResIdl;
+                }
                 if (optInt == 127) {
                     intent.putExtra(DealIntentService.KEY_CLASS, 1);
                     int optInt2 = jSONObject.optInt("video_channel_id", 0);
@@ -104,8 +102,8 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     if (StringUtils.isNull(str2)) {
                         return alaPushAlertResIdl;
                     }
-                    h85 k = h85.k();
-                    on m = k.m(optString4 + 10);
+                    l85 k = l85.k();
+                    pn m = k.m(optString4 + 10);
                     if (m != null && m.p() != null) {
                         NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, m.p(), false);
                     } else if (!StringUtils.isNull(optString4)) {
@@ -146,7 +144,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    zg.h().m(this.val$fImage, 10, new yg<on>(this) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                    ah.h().m(this.val$fImage, 10, new zg(this) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass1 this$1;
@@ -170,18 +168,18 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         }
 
                                         /* JADX DEBUG: Method merged with bridge method */
-                                        @Override // com.baidu.tieba.yg
-                                        public void onLoaded(on onVar, String str3, int i2) {
+                                        @Override // com.baidu.tieba.zg
+                                        public void onLoaded(pn pnVar, String str3, int i2) {
                                             Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, onVar, str3, i2) == null) {
-                                                super.onLoaded((C00071) onVar, str3, i2);
-                                                if (onVar != null && onVar.p() != null) {
+                                            if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, pnVar, str3, i2) == null) {
+                                                super.onLoaded((C00071) pnVar, str3, i2);
+                                                if (pnVar != null && pnVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();
                                                     AnonymousClass1 anonymousClass1 = this.this$1;
                                                     String str4 = anonymousClass1.val$fTitle;
                                                     String str5 = anonymousClass1.val$fContent;
-                                                    NotificationHelper.showLargeIconNotification(applicationContext, hashCode, str4, str5, str5, anonymousClass1.val$fContentIntent, onVar.p(), false);
+                                                    NotificationHelper.showLargeIconNotification(applicationContext, hashCode, str4, str5, str5, anonymousClass1.val$fContentIntent, pnVar.p(), false);
                                                     return;
                                                 }
                                                 Context applicationContext2 = TbadkCoreApplication.getInst().getApplicationContext();

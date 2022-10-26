@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<VideoTitleData> mAllVideoTitleList;
+    public List mAllVideoTitleList;
     public VideoTitleData mVideoTitleData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,6 +39,24 @@ public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public List getAllVideoTitleList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAllVideoTitleList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public VideoTitleData getVideoTitleData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mVideoTitleData;
+        }
+        return (VideoTitleData) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
@@ -51,31 +69,18 @@ public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
                     this.mVideoTitleData = (VideoTitleData) OrmObject.objectWithJson(optJSONObject2, VideoTitleData.class);
                 }
                 JSONArray optJSONArray = optJSONObject.optJSONArray("act_info_list");
-                if (optJSONArray == null || optJSONArray.length() <= 0) {
-                    return;
-                }
-                if (this.mAllVideoTitleList == null) {
-                    this.mAllVideoTitleList = new ArrayList();
-                }
-                this.mAllVideoTitleList.clear();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    if (optJSONArray.getJSONObject(i2) != null) {
-                        this.mAllVideoTitleList.add((VideoTitleData) OrmObject.objectWithJson(optJSONArray.getJSONObject(i2), VideoTitleData.class));
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    if (this.mAllVideoTitleList == null) {
+                        this.mAllVideoTitleList = new ArrayList();
+                    }
+                    this.mAllVideoTitleList.clear();
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        if (optJSONArray.getJSONObject(i2) != null) {
+                            this.mAllVideoTitleList.add((VideoTitleData) OrmObject.objectWithJson(optJSONArray.getJSONObject(i2), VideoTitleData.class));
+                        }
                     }
                 }
             }
         }
-    }
-
-    public List<VideoTitleData> getAllVideoTitleList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAllVideoTitleList : (List) invokeV.objValue;
-    }
-
-    public VideoTitleData getVideoTitleData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mVideoTitleData : (VideoTitleData) invokeV.objValue;
     }
 }

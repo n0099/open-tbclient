@@ -25,22 +25,6 @@ public final class Ascii {
         }
     }
 
-    public static byte[] convert(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null) {
-                try {
-                    return str.getBytes("us-ascii");
-                } catch (UnsupportedEncodingException e) {
-                    throw new Error(e);
-                }
-            }
-            return null;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
     public static String convert(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -55,5 +39,21 @@ public final class Ascii {
             return null;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static byte[] convert(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str != null) {
+                try {
+                    return str.getBytes("us-ascii");
+                } catch (UnsupportedEncodingException e) {
+                    throw new Error(e);
+                }
+            }
+            return null;
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

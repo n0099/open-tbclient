@@ -1,6 +1,5 @@
 package com.baidu.rtc;
 
-import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +12,7 @@ import java.util.List;
 public class RemoteAudioSamplesInterceptor implements RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @SuppressLint({"UseSparseArrays"})
-    public final List<RTCAudioSamples.RTCRemoteSamplesReadyCallback> callbacks;
+    public final List callbacks;
 
     public RemoteAudioSamplesInterceptor() {
         Interceptable interceptable = $ic;
@@ -32,17 +30,17 @@ public class RemoteAudioSamplesInterceptor implements RTCAudioSamples.RTCRemoteS
         this.callbacks = new ArrayList();
     }
 
-    public void attachCallback(RTCAudioSamples.RTCRemoteSamplesReadyCallback rTCRemoteSamplesReadyCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rTCRemoteSamplesReadyCallback) == null) {
-            this.callbacks.add(rTCRemoteSamplesReadyCallback);
-        }
-    }
-
     public void detachCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.callbacks.clear();
+        }
+    }
+
+    public void attachCallback(RTCAudioSamples.RTCRemoteSamplesReadyCallback rTCRemoteSamplesReadyCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rTCRemoteSamplesReadyCallback) == null) {
+            this.callbacks.add(rTCRemoteSamplesReadyCallback);
         }
     }
 

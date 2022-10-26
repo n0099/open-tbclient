@@ -9,7 +9,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.bm;
+import com.baidu.mobstat.bl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,8 +31,14 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
     public String b;
 
+    private boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) ? i == 100 || i == 200 || i == 130 : invokeI.booleanValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -70,7 +76,7 @@ public class f {
                     jSONObject.put("w", this.c);
                     return jSONObject;
                 } catch (JSONException e) {
-                    bb.c().b(e);
+                    ba.c().b(e);
                     return null;
                 }
             }
@@ -80,7 +86,10 @@ public class f {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -116,13 +125,98 @@ public class f {
         this.b = "";
     }
 
-    private boolean a(int i) {
-        InterceptResult invokeI;
+    private String a(Context context, String str) {
+        InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) ? i == 100 || i == 200 || i == 130 : invokeI.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, context, str)) == null) {
+            PackageManager packageManager = context.getPackageManager();
+            if (packageManager == null) {
+                return "";
+            }
+            try {
+                str2 = packageManager.getPackageInfo(str, 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                ba.c().b(e);
+                str2 = "";
+            }
+            if (str2 == null) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
     }
 
-    private ArrayList<a> b(Context context, int i) {
+    private ArrayList a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return c(context, i);
+            }
+            return b(context, i);
+        }
+        return (ArrayList) invokeLI.objValue;
+    }
+
+    private void a(Context context, ArrayList arrayList, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, context, arrayList, z) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(System.currentTimeMillis() + "|");
+            sb.append(z ? 1 : 0);
+            try {
+                JSONArray jSONArray = new JSONArray();
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    JSONObject a2 = ((a) it.next()).a();
+                    if (a2 != null) {
+                        jSONArray.put(a2);
+                    }
+                }
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("app_trace", jSONArray);
+                jSONObject.put("meta-data", sb.toString());
+                str = bl.a.a(jSONObject.toString().getBytes());
+            } catch (Exception e) {
+                ba.c().b(e);
+                str = "";
+            }
+            if (!TextUtils.isEmpty(str)) {
+                k.c.a(context, System.currentTimeMillis(), str);
+            }
+        }
+    }
+
+    private void a(Context context, boolean z, int i) {
+        ArrayList a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (a2 = a(context, i)) != null && a2.size() != 0) {
+            if (z) {
+                String b = ((a) a2.get(0)).b();
+                if (a(b, this.b)) {
+                    this.b = b;
+                }
+            }
+            a(context, a2, z);
+        }
+    }
+
+    private boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !str.equals(this.b)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    private ArrayList b(Context context, int i) {
         InterceptResult invokeLI;
         List<ActivityManager.RunningTaskInfo> list;
         Interceptable interceptable = $ic;
@@ -130,11 +224,11 @@ public class f {
             try {
                 list = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(50);
             } catch (Exception e) {
-                bb.c().b(e);
+                ba.c().b(e);
                 list = null;
             }
             if (list == null) {
-                return new ArrayList<>();
+                return new ArrayList();
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             for (ActivityManager.RunningTaskInfo runningTaskInfo : list) {
@@ -149,19 +243,19 @@ public class f {
                     }
                 }
             }
-            return new ArrayList<>(linkedHashMap.values());
+            return new ArrayList(linkedHashMap.values());
         }
         return (ArrayList) invokeLI.objValue;
     }
 
-    private ArrayList<a> c(Context context, int i) {
+    private ArrayList c(Context context, int i) {
         InterceptResult invokeLI;
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, this, context, i)) == null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses == null) {
-                return new ArrayList<>();
+                return new ArrayList();
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             for (int i2 = 0; i2 < runningAppProcesses.size() && linkedHashMap.size() <= i; i2++) {
@@ -173,102 +267,9 @@ public class f {
                     }
                 }
             }
-            return new ArrayList<>(linkedHashMap.values());
+            return new ArrayList(linkedHashMap.values());
         }
         return (ArrayList) invokeLI.objValue;
-    }
-
-    public synchronized void a(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
-            synchronized (this) {
-                a(context, z, z ? 1 : 20);
-            }
-        }
-    }
-
-    private void a(Context context, boolean z, int i) {
-        ArrayList<a> a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a2 = a(context, i)) == null || a2.size() == 0) {
-            return;
-        }
-        if (z) {
-            String b = a2.get(0).b();
-            if (a(b, this.b)) {
-                this.b = b;
-            }
-        }
-        a(context, a2, z);
-    }
-
-    private ArrayList<a> a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return c(context, i);
-            }
-            return b(context, i);
-        }
-        return (ArrayList) invokeLI.objValue;
-    }
-
-    private boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.b)) ? false : true : invokeLL.booleanValue;
-    }
-
-    private String a(Context context, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, context, str)) == null) {
-            PackageManager packageManager = context.getPackageManager();
-            if (packageManager == null) {
-                return "";
-            }
-            try {
-                str2 = packageManager.getPackageInfo(str, 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                bb.c().b(e);
-                str2 = "";
-            }
-            return str2 == null ? "" : str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    private void a(Context context, ArrayList<a> arrayList, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, context, arrayList, z) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(System.currentTimeMillis() + "|");
-            sb.append(z ? 1 : 0);
-            try {
-                JSONArray jSONArray = new JSONArray();
-                Iterator<a> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    JSONObject a2 = it.next().a();
-                    if (a2 != null) {
-                        jSONArray.put(a2);
-                    }
-                }
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("app_trace", jSONArray);
-                jSONObject.put("meta-data", sb.toString());
-                str = bm.a.a(jSONObject.toString().getBytes());
-            } catch (Exception e) {
-                bb.c().b(e);
-                str = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            k.c.a(System.currentTimeMillis(), str);
-        }
     }
 
     private boolean b(Context context, String str) {
@@ -284,12 +285,28 @@ public class f {
                 if (applicationInfo == null) {
                     return false;
                 }
-                return (applicationInfo.flags & 1) != 0;
+                if ((applicationInfo.flags & 1) == 0) {
+                    return false;
+                }
+                return true;
             } catch (PackageManager.NameNotFoundException e) {
-                bb.c().b(e);
+                ba.c().b(e);
                 return false;
             }
         }
         return invokeLL.booleanValue;
+    }
+
+    public synchronized void a(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            synchronized (this) {
+                int i = 1;
+                if (!z) {
+                    i = 20;
+                }
+                a(context, z, i);
+            }
+        }
     }
 }

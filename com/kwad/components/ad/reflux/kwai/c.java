@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +18,7 @@ public final class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(@NonNull Context context) {
+    public c(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,18 +38,18 @@ public final class c extends a {
     }
 
     @Override // com.kwad.components.ad.reflux.kwai.a
-    public final void M(@NonNull Context context) {
+    public final void M(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0450, this);
-            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f09114a);
-            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f091148);
-            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091149);
-            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f091143);
-            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f091144);
-            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f091141);
-            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09114b);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091142);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d044d, this);
+            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f09113e);
+            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f09113c);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09113d);
+            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f091137);
+            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f091138);
+            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f091135);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09113f);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091136);
         }
     }
 }

@@ -2,8 +2,6 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -49,26 +47,22 @@ public class HotTopicActivityConfig extends IntentConfig {
     public HotTopicActivityConfig createNormalConfig(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) ? createNormalConfig(str, str2, null, str3) : (HotTopicActivityConfig) invokeLLL.objValue;
-    }
-
-    public void setExtra(long j, String str, String str2, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)}) == null) {
-            getIntent().putExtra(IntentConfig.TOPIC_FID, j);
-            getIntent().putExtra(IntentConfig.TOPIC_FIRST_DIR, str);
-            getIntent().putExtra(IntentConfig.TOPIC_SECOND_DIR, str2);
-            getIntent().putExtra(IntentConfig.TOPIC_TID, j2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            return createNormalConfig(str, str2, null, str3);
         }
+        return (HotTopicActivityConfig) invokeLLL.objValue;
     }
 
-    public HotTopicActivityConfig createNormalConfig(String str, String str2, @Nullable String str3, String str4) {
+    public HotTopicActivityConfig createNormalConfig(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4)) == null) ? createNormalConfig(str, str2, str3, str4, HotTopicStat.Locate.UNDEFINED) : (HotTopicActivityConfig) invokeLLLL.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4)) == null) {
+            return createNormalConfig(str, str2, str3, str4, HotTopicStat.Locate.UNDEFINED);
+        }
+        return (HotTopicActivityConfig) invokeLLLL.objValue;
     }
 
-    public HotTopicActivityConfig createNormalConfig(String str, String str2, @Nullable String str3, String str4, @NonNull HotTopicStat.Locate locate) {
+    public HotTopicActivityConfig createNormalConfig(String str, String str2, String str3, String str4, HotTopicStat.Locate locate) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4, locate)) == null) {
@@ -84,5 +78,15 @@ public class HotTopicActivityConfig extends IntentConfig {
             return this;
         }
         return (HotTopicActivityConfig) invokeLLLLL.objValue;
+    }
+
+    public void setExtra(long j, String str, String str2, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)}) == null) {
+            getIntent().putExtra(IntentConfig.TOPIC_FID, j);
+            getIntent().putExtra(IntentConfig.TOPIC_FIRST_DIR, str);
+            getIntent().putExtra(IntentConfig.TOPIC_SECOND_DIR, str2);
+            getIntent().putExtra(IntentConfig.TOPIC_TID, j2);
+        }
     }
 }

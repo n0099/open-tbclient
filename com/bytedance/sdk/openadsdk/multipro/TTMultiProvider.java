@@ -8,11 +8,16 @@ import com.bytedance.sdk.openadsdk.ITTProvider;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 /* loaded from: classes7.dex */
 public class TTMultiProvider extends ContentProvider {
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        return true;
+    }
+
     private ITTProvider a() {
-        if (TTAdSdk.getAdManager() != null) {
-            return (ITTProvider) TTAdSdk.getAdManager().getExtra(ITTProvider.class, null);
+        if (TTAdSdk.getAdManager() == null) {
+            return null;
         }
-        return null;
+        return (ITTProvider) TTAdSdk.getAdManager().getExtra(ITTProvider.class, null);
     }
 
     @Override // android.content.ContentProvider
@@ -25,7 +30,10 @@ public class TTMultiProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        return a() != null ? a().getType(uri) : "";
+        if (a() != null) {
+            return a().getType(uri);
+        }
+        return "";
     }
 
     @Override // android.content.ContentProvider
@@ -34,11 +42,6 @@ public class TTMultiProvider extends ContentProvider {
             return a().insert(uri, contentValues);
         }
         return null;
-    }
-
-    @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        return true;
     }
 
     @Override // android.content.ContentProvider

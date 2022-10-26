@@ -1,6 +1,6 @@
 package rx.internal.util;
 
-import com.baidu.tieba.xx9;
+import com.baidu.tieba.py9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class AlwaysFalse implements xx9<Object, Boolean> {
+    public final class AlwaysFalse implements py9 {
         public static final /* synthetic */ AlwaysFalse[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlwaysFalse INSTANCE;
@@ -37,6 +37,15 @@ public final class UtilityFunctions {
             AlwaysFalse alwaysFalse = new AlwaysFalse("INSTANCE", 0);
             INSTANCE = alwaysFalse;
             $VALUES = new AlwaysFalse[]{alwaysFalse};
+        }
+
+        public static AlwaysFalse[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AlwaysFalse[]) $VALUES.clone();
+            }
+            return (AlwaysFalse[]) invokeV.objValue;
         }
 
         public AlwaysFalse(String str, int i) {
@@ -61,28 +70,27 @@ public final class UtilityFunctions {
         public static AlwaysFalse valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AlwaysFalse) Enum.valueOf(AlwaysFalse.class, str) : (AlwaysFalse) invokeL.objValue;
-        }
-
-        public static AlwaysFalse[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AlwaysFalse[]) $VALUES.clone() : (AlwaysFalse[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AlwaysFalse) Enum.valueOf(AlwaysFalse.class, str);
+            }
+            return (AlwaysFalse) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.xx9
+        @Override // com.baidu.tieba.py9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? Boolean.FALSE : (Boolean) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class AlwaysTrue implements xx9<Object, Boolean> {
+    public final class AlwaysTrue implements py9 {
         public static final /* synthetic */ AlwaysTrue[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlwaysTrue INSTANCE;
@@ -104,6 +112,15 @@ public final class UtilityFunctions {
             AlwaysTrue alwaysTrue = new AlwaysTrue("INSTANCE", 0);
             INSTANCE = alwaysTrue;
             $VALUES = new AlwaysTrue[]{alwaysTrue};
+        }
+
+        public static AlwaysTrue[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AlwaysTrue[]) $VALUES.clone();
+            }
+            return (AlwaysTrue[]) invokeV.objValue;
         }
 
         public AlwaysTrue(String str, int i) {
@@ -128,32 +145,38 @@ public final class UtilityFunctions {
         public static AlwaysTrue valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AlwaysTrue) Enum.valueOf(AlwaysTrue.class, str) : (AlwaysTrue) invokeL.objValue;
-        }
-
-        public static AlwaysTrue[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AlwaysTrue[]) $VALUES.clone() : (AlwaysTrue[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AlwaysTrue) Enum.valueOf(AlwaysTrue.class, str);
+            }
+            return (AlwaysTrue) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.xx9
+        @Override // com.baidu.tieba.py9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? Boolean.TRUE : (Boolean) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeL.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class Identity implements xx9<Object, Object> {
+    public final class Identity implements py9 {
         public static final /* synthetic */ Identity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Identity INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.py9
+        public Object call(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj : invokeL.objValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -171,6 +194,15 @@ public final class UtilityFunctions {
             Identity identity = new Identity("INSTANCE", 0);
             INSTANCE = identity;
             $VALUES = new Identity[]{identity};
+        }
+
+        public static Identity[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Identity[]) $VALUES.clone();
+            }
+            return (Identity[]) invokeV.objValue;
         }
 
         public Identity(String str, int i) {
@@ -195,32 +227,28 @@ public final class UtilityFunctions {
         public static Identity valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Identity) Enum.valueOf(Identity.class, str) : (Identity) invokeL.objValue;
-        }
-
-        public static Identity[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Identity[]) $VALUES.clone() : (Identity[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.xx9
-        public Object call(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj : invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Identity) Enum.valueOf(Identity.class, str);
+            }
+            return (Identity) invokeL.objValue;
         }
     }
 
-    public static <T> xx9<? super T, Boolean> a() {
+    public static py9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? AlwaysTrue.INSTANCE : (xx9) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return AlwaysTrue.INSTANCE;
+        }
+        return (py9) invokeV.objValue;
     }
 
-    public static <T> xx9<T, T> b() {
+    public static py9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Identity.INSTANCE : (xx9) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Identity.INSTANCE;
+        }
+        return (py9) invokeV.objValue;
     }
 }

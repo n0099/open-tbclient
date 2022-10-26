@@ -11,7 +11,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class ConcurrentStorage$contains$1 extends Lambda implements Function0<Boolean> {
+public final class ConcurrentStorage$contains$1 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $key;
@@ -39,20 +39,18 @@ public final class ConcurrentStorage$contains$1 extends Lambda implements Functi
         this.$key = str;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public /* synthetic */ Boolean invoke() {
-        return Boolean.valueOf(invoke2());
+    public /* synthetic */ Object invoke() {
+        return Boolean.valueOf(invoke());
     }
 
-    /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.Boolean, boolean] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, boolean] */
     @Override // kotlin.jvm.functions.Function0
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final Boolean invoke2() {
+    public final boolean invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.c().containsKey(this.$key) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.this$0.c().containsKey(this.$key);
+        }
+        return invokeV.booleanValue;
     }
 }

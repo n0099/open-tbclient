@@ -23,6 +23,7 @@ public class BreakpointInfoRow {
     public final String url;
 
     public BreakpointInfoRow(Cursor cursor) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +43,12 @@ public class BreakpointInfoRow {
         this.etag = cursor.getString(cursor.getColumnIndex("etag"));
         this.parentPath = cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.PARENT_PATH));
         this.filename = cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.FILENAME));
-        this.taskOnlyProvidedParentPath = cursor.getInt(cursor.getColumnIndex(BreakpointSQLiteKey.TASK_ONLY_PARENT_PATH)) == 1;
+        if (cursor.getInt(cursor.getColumnIndex(BreakpointSQLiteKey.TASK_ONLY_PARENT_PATH)) == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.taskOnlyProvidedParentPath = z;
         this.chunked = cursor.getInt(cursor.getColumnIndex("chunked")) == 1;
         this.mimeType = cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.MIME_TYPE));
     }
@@ -50,43 +56,64 @@ public class BreakpointInfoRow {
     public String getEtag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.etag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.etag;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getFilename() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.filename : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.filename;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.id : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.id;
+        }
+        return invokeV.intValue;
     }
 
     public String getParentPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.parentPath : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.parentPath;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isChunked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.chunked : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.chunked;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isTaskOnlyProvidedParentPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.taskOnlyProvidedParentPath : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.taskOnlyProvidedParentPath;
+        }
+        return invokeV.booleanValue;
     }
 
     public BreakpointInfo toInfo() {

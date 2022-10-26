@@ -21,12 +21,16 @@ public final class PraiseAttrsKt {
             Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
             PraiseAttrs praiseAttrs = new PraiseAttrs();
             praiseAttrs.setId(jsonObject.optString("id"));
+            boolean z = false;
             praiseAttrs.setIconType(Integer.valueOf(jsonObject.optInt("icon_type", 0)));
             praiseAttrs.setCountText(jsonObject.optString("text", ""));
             praiseAttrs.setPraiseStatus(Integer.valueOf(jsonObject.optInt("status", 0)));
             praiseAttrs.setTextLeftMargin(Integer.valueOf(jsonObject.optInt("text_left_margin")));
             praiseAttrs.setTextSize(Integer.valueOf(jsonObject.optInt("text_size", 16)));
-            praiseAttrs.setLongPressEnable(Boolean.valueOf(jsonObject.optInt("enable_long_press_anim", 0) == 1));
+            if (jsonObject.optInt("enable_long_press_anim", 0) == 1) {
+                z = true;
+            }
+            praiseAttrs.setLongPressEnable(Boolean.valueOf(z));
             if (jsonObject.has("text_color_normal")) {
                 praiseAttrs.setTextColorNormal(jsonObject.optString("text_color_normal"));
             }

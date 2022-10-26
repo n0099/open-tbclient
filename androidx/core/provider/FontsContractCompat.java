@@ -13,13 +13,6 @@ import android.os.Build;
 import android.os.CancellationSignal;
 import android.os.Handler;
 import android.provider.BaseColumns;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.VisibleForTesting;
 import androidx.collection.LruCache;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.content.res.FontResourcesParserCompat;
@@ -52,16 +45,12 @@ import java.util.concurrent.Callable;
 public class FontsContractCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKGROUND_THREAD_KEEP_ALIVE_DURATION_MS = 10000;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final String PARCEL_FONT_RESULTS = "font_results";
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final int RESULT_CODE_PROVIDER_NOT_FOUND = -1;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final int RESULT_CODE_WRONG_CERTIFICATES = -2;
     public static final SelfDestructiveThread sBackgroundThread;
     public static final Comparator<byte[]> sByteArrayComparator;
     public static final Object sLock;
-    @GuardedBy("sLock")
     public static final SimpleArrayMap<String, ArrayList<SelfDestructiveThread.ReplyCallback<TypefaceResult>>> sPendingReplies;
     public static final LruCache<String, Typeface> sTypefaceCache;
     public transient /* synthetic */ FieldHolder $fh;
@@ -106,8 +95,7 @@ public class FontsContractCompat {
         public final FontInfo[] mFonts;
         public final int mStatusCode;
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public FontFamilyResult(int i, @Nullable FontInfo[] fontInfoArr) {
+        public FontFamilyResult(int i, FontInfo[] fontInfoArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,13 +117,19 @@ public class FontsContractCompat {
         public FontInfo[] getFonts() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFonts : (FontInfo[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mFonts;
+            }
+            return (FontInfo[]) invokeV.objValue;
         }
 
         public int getStatusCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mStatusCode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mStatusCode;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -149,8 +143,7 @@ public class FontsContractCompat {
         public final Uri mUri;
         public final int mWeight;
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public FontInfo(@NonNull Uri uri, @IntRange(from = 0) int i, @IntRange(from = 1, to = 1000) int i2, boolean z, int i3) {
+        public FontInfo(Uri uri, int i, int i2, boolean z, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,34 +168,46 @@ public class FontsContractCompat {
         public int getResultCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mResultCode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mResultCode;
+            }
+            return invokeV.intValue;
         }
 
-        @IntRange(from = 0)
         public int getTtcIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTtcIndex : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mTtcIndex;
+            }
+            return invokeV.intValue;
         }
 
-        @NonNull
         public Uri getUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUri : (Uri) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mUri;
+            }
+            return (Uri) invokeV.objValue;
         }
 
-        @IntRange(from = 1, to = 1000)
         public int getWeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mWeight : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mWeight;
+            }
+            return invokeV.intValue;
         }
 
         public boolean isItalic() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mItalic : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mItalic;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -216,14 +221,24 @@ public class FontsContractCompat {
         public static final int FAIL_REASON_PROVIDER_NOT_FOUND = -1;
         public static final int FAIL_REASON_SECURITY_VIOLATION = -4;
         public static final int FAIL_REASON_WRONG_CERTIFICATES = -2;
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public static final int RESULT_OK = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         /* loaded from: classes.dex */
         public @interface FontRequestFailReason {
+        }
+
+        public void onTypefaceRequestFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public void onTypefaceRetrieved(Typeface typeface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface) == null) {
+            }
         }
 
         public FontRequestCallback() {
@@ -239,18 +254,6 @@ public class FontsContractCompat {
                 }
             }
         }
-
-        public void onTypefaceRequestFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public void onTypefaceRetrieved(Typeface typeface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface) == null) {
-            }
-        }
     }
 
     /* loaded from: classes.dex */
@@ -260,7 +263,7 @@ public class FontsContractCompat {
         public final int mResult;
         public final Typeface mTypeface;
 
-        public TypefaceResult(@Nullable Typeface typeface, int i) {
+        public TypefaceResult(Typeface typeface, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -359,11 +362,20 @@ public class FontsContractCompat {
         }
     }
 
-    @Nullable
-    public static Typeface buildTypeface(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontInfo[] fontInfoArr) {
+    public static void resetCache() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            sTypefaceCache.evictAll();
+        }
+    }
+
+    public static Typeface buildTypeface(Context context, CancellationSignal cancellationSignal, FontInfo[] fontInfoArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, cancellationSignal, fontInfoArr)) == null) ? TypefaceCompat.createFromFontInfo(context, cancellationSignal, fontInfoArr, 0) : (Typeface) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, cancellationSignal, fontInfoArr)) == null) {
+            return TypefaceCompat.createFromFontInfo(context, cancellationSignal, fontInfoArr, 0);
+        }
+        return (Typeface) invokeLLL.objValue;
     }
 
     public static List<byte[]> convertToByteArrayList(Signature[] signatureArr) {
@@ -396,8 +408,7 @@ public class FontsContractCompat {
         return invokeLL.booleanValue;
     }
 
-    @NonNull
-    public static FontFamilyResult fetchFonts(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontRequest fontRequest) throws PackageManager.NameNotFoundException {
+    public static FontFamilyResult fetchFonts(Context context, CancellationSignal cancellationSignal, FontRequest fontRequest) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, cancellationSignal, fontRequest)) == null) {
@@ -408,6 +419,24 @@ public class FontsContractCompat {
             return new FontFamilyResult(0, getFontFromProvider(context, fontRequest, provider.authority, cancellationSignal));
         }
         return (FontFamilyResult) invokeLLL.objValue;
+    }
+
+    public static Map<Uri, ByteBuffer> prepareFontData(Context context, FontInfo[] fontInfoArr, CancellationSignal cancellationSignal) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, fontInfoArr, cancellationSignal)) == null) {
+            HashMap hashMap = new HashMap();
+            for (FontInfo fontInfo : fontInfoArr) {
+                if (fontInfo.getResultCode() == 0) {
+                    Uri uri = fontInfo.getUri();
+                    if (!hashMap.containsKey(uri)) {
+                        hashMap.put(uri, TypefaceCompatUtil.mmap(context, cancellationSignal, uri));
+                    }
+                }
+            }
+            return Collections.unmodifiableMap(hashMap);
+        }
+        return (Map) invokeLLL.objValue;
     }
 
     public static List<List<byte[]>> getCertificates(FontRequest fontRequest, Resources resources) {
@@ -422,11 +451,13 @@ public class FontsContractCompat {
         return (List) invokeLL.objValue;
     }
 
-    @NonNull
-    @VisibleForTesting
     public static FontInfo[] getFontFromProvider(Context context, FontRequest fontRequest, String str, CancellationSignal cancellationSignal) {
         InterceptResult invokeLLLL;
+        int i;
+        int i2;
         Uri withAppendedId;
+        int i3;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, context, fontRequest, str, cancellationSignal)) == null) {
             ArrayList arrayList = new ArrayList();
@@ -448,14 +479,33 @@ public class FontsContractCompat {
                     int columnIndex5 = cursor.getColumnIndex(Columns.WEIGHT);
                     int columnIndex6 = cursor.getColumnIndex(Columns.ITALIC);
                     while (cursor.moveToNext()) {
-                        int i = columnIndex != -1 ? cursor.getInt(columnIndex) : 0;
-                        int i2 = columnIndex4 != -1 ? cursor.getInt(columnIndex4) : 0;
+                        if (columnIndex != -1) {
+                            i = cursor.getInt(columnIndex);
+                        } else {
+                            i = 0;
+                        }
+                        if (columnIndex4 != -1) {
+                            i2 = cursor.getInt(columnIndex4);
+                        } else {
+                            i2 = 0;
+                        }
                         if (columnIndex3 == -1) {
                             withAppendedId = ContentUris.withAppendedId(build, cursor.getLong(columnIndex2));
                         } else {
                             withAppendedId = ContentUris.withAppendedId(build2, cursor.getLong(columnIndex3));
                         }
-                        arrayList2.add(new FontInfo(withAppendedId, i2, columnIndex5 != -1 ? cursor.getInt(columnIndex5) : 400, columnIndex6 != -1 && cursor.getInt(columnIndex6) == 1, i));
+                        Uri uri = withAppendedId;
+                        if (columnIndex5 != -1) {
+                            i3 = cursor.getInt(columnIndex5);
+                        } else {
+                            i3 = 400;
+                        }
+                        if (columnIndex6 != -1 && cursor.getInt(columnIndex6) == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        arrayList2.add(new FontInfo(uri, i2, i3, z, i));
                     }
                     arrayList = arrayList2;
                 }
@@ -469,18 +519,24 @@ public class FontsContractCompat {
         return (FontInfo[]) invokeLLLL.objValue;
     }
 
-    @NonNull
     public static TypefaceResult getFontInternal(Context context, FontRequest fontRequest, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, context, fontRequest, i)) == null) {
             try {
                 FontFamilyResult fetchFonts = fetchFonts(context, null, fontRequest);
+                int i2 = -3;
                 if (fetchFonts.getStatusCode() == 0) {
                     Typeface createFromFontInfo = TypefaceCompat.createFromFontInfo(context, null, fetchFonts.getFonts(), i);
-                    return new TypefaceResult(createFromFontInfo, createFromFontInfo != null ? 0 : -3);
+                    if (createFromFontInfo != null) {
+                        i2 = 0;
+                    }
+                    return new TypefaceResult(createFromFontInfo, i2);
                 }
-                return new TypefaceResult(null, fetchFonts.getStatusCode() == 1 ? -2 : -3);
+                if (fetchFonts.getStatusCode() == 1) {
+                    i2 = -2;
+                }
+                return new TypefaceResult(null, i2);
             } catch (PackageManager.NameNotFoundException unused) {
                 return new TypefaceResult(null, -1);
             }
@@ -488,9 +544,9 @@ public class FontsContractCompat {
         return (TypefaceResult) invokeLLI.objValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Typeface getFontSync(Context context, FontRequest fontRequest, @Nullable ResourcesCompat.FontCallback fontCallback, @Nullable Handler handler, boolean z, int i, int i2) {
+    public static Typeface getFontSync(Context context, FontRequest fontRequest, ResourcesCompat.FontCallback fontCallback, Handler handler, boolean z, int i, int i2) {
         InterceptResult invokeCommon;
+        SelfDestructiveThread.ReplyCallback<TypefaceResult> replyCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, fontRequest, fontCallback, handler, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             String str = fontRequest.getIdentifier() + "-" + i2;
@@ -565,49 +621,53 @@ public class FontsContractCompat {
                         return null;
                     }
                 }
-                SelfDestructiveThread.ReplyCallback<TypefaceResult> replyCallback = fontCallback == null ? null : new SelfDestructiveThread.ReplyCallback<TypefaceResult>(fontCallback, handler) { // from class: androidx.core.provider.FontsContractCompat.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ResourcesCompat.FontCallback val$fontCallback;
-                    public final /* synthetic */ Handler val$handler;
+                if (fontCallback == null) {
+                    replyCallback = null;
+                } else {
+                    replyCallback = new SelfDestructiveThread.ReplyCallback<TypefaceResult>(fontCallback, handler) { // from class: androidx.core.provider.FontsContractCompat.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ ResourcesCompat.FontCallback val$fontCallback;
+                        public final /* synthetic */ Handler val$handler;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {fontCallback, handler};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {fontCallback, handler};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i4 = newInitContext.flag;
+                                if ((i4 & 1) != 0) {
+                                    int i5 = i4 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.val$fontCallback = fontCallback;
+                            this.val$handler = handler;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // androidx.core.provider.SelfDestructiveThread.ReplyCallback
+                        public void onReply(TypefaceResult typefaceResult) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, typefaceResult) == null) {
+                                if (typefaceResult == null) {
+                                    this.val$fontCallback.callbackFailAsync(1, this.val$handler);
+                                    return;
+                                }
+                                int i4 = typefaceResult.mResult;
+                                if (i4 == 0) {
+                                    this.val$fontCallback.callbackSuccessAsync(typefaceResult.mTypeface, this.val$handler);
+                                } else {
+                                    this.val$fontCallback.callbackFailAsync(i4, this.val$handler);
+                                }
                             }
                         }
-                        this.val$fontCallback = fontCallback;
-                        this.val$handler = handler;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // androidx.core.provider.SelfDestructiveThread.ReplyCallback
-                    public void onReply(TypefaceResult typefaceResult) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, typefaceResult) == null) {
-                            if (typefaceResult == null) {
-                                this.val$fontCallback.callbackFailAsync(1, this.val$handler);
-                                return;
-                            }
-                            int i4 = typefaceResult.mResult;
-                            if (i4 == 0) {
-                                this.val$fontCallback.callbackSuccessAsync(typefaceResult.mTypeface, this.val$handler);
-                            } else {
-                                this.val$fontCallback.callbackFailAsync(i4, this.val$handler);
-                            }
-                        }
-                    }
-                };
+                    };
+                }
                 synchronized (sLock) {
                     ArrayList<SelfDestructiveThread.ReplyCallback<TypefaceResult>> arrayList = sPendingReplies.get(str);
                     if (arrayList != null) {
@@ -669,10 +729,7 @@ public class FontsContractCompat {
         return (Typeface) invokeCommon.objValue;
     }
 
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    @VisibleForTesting
-    public static ProviderInfo getProvider(@NonNull PackageManager packageManager, @NonNull FontRequest fontRequest, @Nullable Resources resources) throws PackageManager.NameNotFoundException {
+    public static ProviderInfo getProvider(PackageManager packageManager, FontRequest fontRequest, Resources resources) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, packageManager, fontRequest, resources)) == null) {
@@ -699,34 +756,14 @@ public class FontsContractCompat {
         return (ProviderInfo) invokeLLL.objValue;
     }
 
-    @RequiresApi(19)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Map<Uri, ByteBuffer> prepareFontData(Context context, FontInfo[] fontInfoArr, CancellationSignal cancellationSignal) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, fontInfoArr, cancellationSignal)) == null) {
-            HashMap hashMap = new HashMap();
-            for (FontInfo fontInfo : fontInfoArr) {
-                if (fontInfo.getResultCode() == 0) {
-                    Uri uri = fontInfo.getUri();
-                    if (!hashMap.containsKey(uri)) {
-                        hashMap.put(uri, TypefaceCompatUtil.mmap(context, cancellationSignal, uri));
-                    }
-                }
-            }
-            return Collections.unmodifiableMap(hashMap);
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    public static void requestFont(@NonNull Context context, @NonNull FontRequest fontRequest, @NonNull FontRequestCallback fontRequestCallback, @NonNull Handler handler) {
+    public static void requestFont(Context context, FontRequest fontRequest, FontRequestCallback fontRequestCallback, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65548, null, context, fontRequest, fontRequestCallback, handler) == null) {
             requestFontInternal(context.getApplicationContext(), fontRequest, fontRequestCallback, handler);
         }
     }
 
-    public static void requestFontInternal(@NonNull Context context, @NonNull FontRequest fontRequest, @NonNull FontRequestCallback fontRequestCallback, @NonNull Handler handler) {
+    public static void requestFontInternal(Context context, FontRequest fontRequest, FontRequestCallback fontRequestCallback, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65549, null, context, fontRequest, fontRequestCallback, handler) == null) {
             handler.post(new Runnable(context, fontRequest, new Handler(), fontRequestCallback) { // from class: androidx.core.provider.FontsContractCompat.4
@@ -766,106 +803,107 @@ public class FontsContractCompat {
                             FontFamilyResult fetchFonts = FontsContractCompat.fetchFonts(this.val$appContext, null, this.val$request);
                             if (fetchFonts.getStatusCode() != 0) {
                                 int statusCode = fetchFonts.getStatusCode();
-                                if (statusCode == 1) {
-                                    this.val$callerThreadHandler.post(new Runnable(this) { // from class: androidx.core.provider.FontsContractCompat.4.2
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass4 this$0;
+                                if (statusCode != 1) {
+                                    if (statusCode != 2) {
+                                        this.val$callerThreadHandler.post(new Runnable(this) { // from class: androidx.core.provider.FontsContractCompat.4.4
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ AnonymousClass4 this$0;
 
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
+                                            {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this};
+                                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$0 = this;
+                                            }
+
+                                            @Override // java.lang.Runnable
+                                            public void run() {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                                    this.this$0.val$callback.onTypefaceRequestFailed(-3);
                                                 }
                                             }
-                                            this.this$0 = this;
-                                        }
+                                        });
+                                        return;
+                                    } else {
+                                        this.val$callerThreadHandler.post(new Runnable(this) { // from class: androidx.core.provider.FontsContractCompat.4.3
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ AnonymousClass4 this$0;
 
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                this.this$0.val$callback.onTypefaceRequestFailed(-2);
+                                            {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this};
+                                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$0 = this;
                                             }
-                                        }
-                                    });
-                                    return;
-                                } else if (statusCode != 2) {
-                                    this.val$callerThreadHandler.post(new Runnable(this) { // from class: androidx.core.provider.FontsContractCompat.4.4
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass4 this$0;
 
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
+                                            @Override // java.lang.Runnable
+                                            public void run() {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                                    this.this$0.val$callback.onTypefaceRequestFailed(-3);
                                                 }
                                             }
-                                            this.this$0 = this;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                this.this$0.val$callback.onTypefaceRequestFailed(-3);
-                                            }
-                                        }
-                                    });
-                                    return;
-                                } else {
-                                    this.val$callerThreadHandler.post(new Runnable(this) { // from class: androidx.core.provider.FontsContractCompat.4.3
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass4 this$0;
-
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.this$0 = this;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                this.this$0.val$callback.onTypefaceRequestFailed(-3);
-                                            }
-                                        }
-                                    });
-                                    return;
+                                        });
+                                        return;
+                                    }
                                 }
+                                this.val$callerThreadHandler.post(new Runnable(this) { // from class: androidx.core.provider.FontsContractCompat.4.2
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+                                    public final /* synthetic */ AnonymousClass4 this$0;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.this$0 = this;
+                                    }
+
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            this.this$0.val$callback.onTypefaceRequestFailed(-2);
+                                        }
+                                    }
+                                });
+                                return;
                             }
                             FontInfo[] fonts = fetchFonts.getFonts();
                             if (fonts != null && fonts.length != 0) {
@@ -1081,14 +1119,6 @@ public class FontsContractCompat {
                     }
                 }
             });
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static void resetCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            sTypefaceCache.evictAll();
         }
     }
 }

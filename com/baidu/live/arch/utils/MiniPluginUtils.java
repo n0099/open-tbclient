@@ -30,6 +30,23 @@ public final class MiniPluginUtils {
     public static final Lazy pluginService$delegate;
     public transient /* synthetic */ FieldHolder $fh;
 
+    private final YYPluginManageService getPluginService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            Lazy lazy = pluginService$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (YYPluginManageService) lazy.getValue();
+        }
+        return (YYPluginManageService) invokeV.objValue;
+    }
+
+    public final String getPluginVerPostParamKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MIX_PLUGIN_VER_PARAM_KEY : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -62,38 +79,6 @@ public final class MiniPluginUtils {
         }
     }
 
-    private final YYPluginManageService getPluginService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Lazy lazy = pluginService$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (YYPluginManageService) lazy.getValue();
-        }
-        return (YYPluginManageService) invokeV.objValue;
-    }
-
-    public final int getComponentInstalledVersion(String str) {
-        InterceptResult invokeL;
-        SparseArray<YYPluginBundleInfo> pluginBundleInfo;
-        YYPluginBundleInfo yYPluginBundleInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            YYPluginManageService pluginService = getPluginService();
-            if (pluginService == null || (pluginBundleInfo = pluginService.getPluginBundleInfo(str)) == null || (yYPluginBundleInfo = pluginBundleInfo.get(3)) == null) {
-                return 0;
-            }
-            return yYPluginBundleInfo.getVersionCode();
-        }
-        return invokeL.intValue;
-    }
-
-    public final String getPluginVerPostParamKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MIX_PLUGIN_VER_PARAM_KEY : (String) invokeV.objValue;
-    }
-
     public final String getPluginVerPostParamValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,5 +90,20 @@ public final class MiniPluginUtils {
             return jSONObject2;
         }
         return (String) invokeV.objValue;
+    }
+
+    public final int getComponentInstalledVersion(String str) {
+        InterceptResult invokeL;
+        SparseArray pluginBundleInfo;
+        YYPluginBundleInfo yYPluginBundleInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            YYPluginManageService pluginService = getPluginService();
+            if (pluginService != null && (pluginBundleInfo = pluginService.getPluginBundleInfo(str)) != null && (yYPluginBundleInfo = (YYPluginBundleInfo) pluginBundleInfo.get(3)) != null) {
+                return yYPluginBundleInfo.getVersionCode();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 }

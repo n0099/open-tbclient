@@ -5,8 +5,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -16,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.v96;
-import com.baidu.tieba.x96;
+import com.baidu.tieba.ca6;
+import com.baidu.tieba.ea6;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,9 +31,9 @@ public class HotUserRankFragment extends BaseFragment {
     public String c;
     public long d;
     public boolean e;
-    public x96 f;
+    public ea6 f;
     public BdListView.p g;
-    public x96.b h;
+    public ea6.b h;
 
     /* loaded from: classes3.dex */
     public class a implements BdListView.p {
@@ -64,15 +62,16 @@ public class HotUserRankFragment extends BaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f.j()) {
-                this.a.C1();
-                this.a.b.i();
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.f.j()) {
+                return;
             }
+            this.a.C1();
+            this.a.b.i();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements x96.b {
+    public class b implements ea6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankFragment a;
@@ -95,32 +94,32 @@ public class HotUserRankFragment extends BaseFragment {
             this.a = hotUserRankFragment;
         }
 
-        @Override // com.baidu.tieba.x96.b
-        public void a(v96 v96Var) {
+        @Override // com.baidu.tieba.ea6.b
+        public void a(ca6 ca6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, v96Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, ca6Var) == null) {
                 if (this.a.isLoadingViewAttached()) {
                     HotUserRankFragment hotUserRankFragment = this.a;
                     hotUserRankFragment.hideLoadingView(hotUserRankFragment.a);
                 }
-                if (v96Var != null) {
+                if (ca6Var != null) {
                     if (this.a.f.f() == 2) {
                         if (this.a.d <= 0 && !TextUtils.isEmpty(this.a.c)) {
-                            if (v96Var.a != null) {
+                            if (ca6Var.a != null) {
                                 if (this.a.e) {
-                                    v96Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f07f9), this.a.c);
+                                    ca6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0805), this.a.c);
                                 } else {
-                                    v96Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08b2), this.a.c);
+                                    ca6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08bf), this.a.c);
                                 }
                             }
                         } else {
-                            v96Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0693);
+                            ca6Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f069d);
                         }
-                        this.a.b.f(v96Var.a, !dj.isEmpty(this.a.c));
+                        this.a.b.f(ca6Var.a, !ej.isEmpty(this.a.c));
                         if (this.a.isResumed() || this.a.getBaseFragmentActivity() != null) {
                             CustomMessage customMessage = new CustomMessage(2921447);
                             customMessage.setTag(this.a.getBaseFragmentActivity().getUniqueId());
-                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921447, v96Var);
+                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921447, ca6Var);
                             customResponsedMessage.setOrginalMessage(customMessage);
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                         }
@@ -128,15 +127,14 @@ public class HotUserRankFragment extends BaseFragment {
                     if (this.a.f.g() != null) {
                         this.a.b.h(this.a.f.g().b);
                     }
-                    if (this.a.f.j()) {
-                        return;
+                    if (!this.a.f.j()) {
+                        this.a.b.j(this.a.c);
                     }
-                    this.a.b.j(this.a.c);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.x96.b
+        @Override // com.baidu.tieba.ea6.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -165,10 +163,13 @@ public class HotUserRankFragment extends BaseFragment {
         this.h = new b(this);
     }
 
-    public x96 B1() {
+    public ea6 B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (x96) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (ea6) invokeV.objValue;
     }
 
     public final void C1() {
@@ -182,6 +183,25 @@ public class HotUserRankFragment extends BaseFragment {
             if (j > 0) {
                 this.f.h(j);
             }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onDestroy();
+            this.f.k();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onNetRefreshButtonClicked() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            hideNetRefreshView(this.a);
+            C1();
+            showLoadingView(this.a);
         }
     }
 
@@ -220,22 +240,21 @@ public class HotUserRankFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            x96 x96Var = new x96(getUniqueId());
-            this.f = x96Var;
-            x96Var.n(this.h);
+            ea6 ea6Var = new ea6(getUniqueId());
+            this.f = ea6Var;
+            ea6Var.n(this.h);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    @Nullable
-    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02db, (ViewGroup) null);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02da, (ViewGroup) null);
                 this.a = inflate;
-                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.obfuscated_res_0x7f091b51), this.c, this.d);
+                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.obfuscated_res_0x7f091b4d), this.c, this.d);
                 this.b = rankListViewController;
                 rankListViewController.g(this.g);
             }
@@ -246,24 +265,5 @@ public class HotUserRankFragment extends BaseFragment {
             return this.a;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onDestroy();
-            this.f.k();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onNetRefreshButtonClicked() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            hideNetRefreshView(this.a);
-            C1();
-            showLoadingView(this.a);
-        }
     }
 }

@@ -9,9 +9,6 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutInfoCompatSaver;
@@ -28,10 +25,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ShortcutManagerCompat {
     public static /* synthetic */ Interceptable $ic = null;
-    @VisibleForTesting
     public static final String ACTION_INSTALL_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
     public static final String EXTRA_SHORTCUT_ID = "android.intent.extra.shortcut.ID";
-    @VisibleForTesting
     public static final String INSTALL_SHORTCUT_PERMISSION = "com.android.launcher.permission.INSTALL_SHORTCUT";
     public static volatile ShortcutInfoCompatSaver<?> sShortcutInfoCompatSaver;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +60,7 @@ public class ShortcutManagerCompat {
         }
     }
 
-    public static boolean addDynamicShortcuts(@NonNull Context context, @NonNull List<ShortcutInfoCompat> list) {
+    public static boolean addDynamicShortcuts(Context context, List<ShortcutInfoCompat> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, list)) == null) {
@@ -84,22 +79,44 @@ public class ShortcutManagerCompat {
         return invokeLL.booleanValue;
     }
 
-    @NonNull
-    public static Intent createShortcutResultIntent(@NonNull Context context, @NonNull ShortcutInfoCompat shortcutInfoCompat) {
+    public static boolean updateShortcuts(Context context, List<ShortcutInfoCompat> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, shortcutInfoCompat)) == null) {
-            Intent createShortcutResultIntent = Build.VERSION.SDK_INT >= 26 ? ((ShortcutManager) context.getSystemService(ShortcutManager.class)).createShortcutResultIntent(shortcutInfoCompat.toShortcutInfo()) : null;
-            if (createShortcutResultIntent == null) {
-                createShortcutResultIntent = new Intent();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, list)) == null) {
+            if (Build.VERSION.SDK_INT >= 25) {
+                ArrayList arrayList = new ArrayList();
+                for (ShortcutInfoCompat shortcutInfoCompat : list) {
+                    arrayList.add(shortcutInfoCompat.toShortcutInfo());
+                }
+                if (!((ShortcutManager) context.getSystemService(ShortcutManager.class)).updateShortcuts(arrayList)) {
+                    return false;
+                }
             }
-            return shortcutInfoCompat.addToIntent(createShortcutResultIntent);
+            getShortcutInfoSaverInstance(context).addShortcuts(list);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Intent createShortcutResultIntent(Context context, ShortcutInfoCompat shortcutInfoCompat) {
+        InterceptResult invokeLL;
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, shortcutInfoCompat)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                intent = ((ShortcutManager) context.getSystemService(ShortcutManager.class)).createShortcutResultIntent(shortcutInfoCompat.toShortcutInfo());
+            } else {
+                intent = null;
+            }
+            if (intent == null) {
+                intent = new Intent();
+            }
+            return shortcutInfoCompat.addToIntent(intent);
         }
         return (Intent) invokeLL.objValue;
     }
 
-    @NonNull
-    public static List<ShortcutInfoCompat> getDynamicShortcuts(@NonNull Context context) {
+    public static List<ShortcutInfoCompat> getDynamicShortcuts(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -118,18 +135,6 @@ public class ShortcutManagerCompat {
             }
         }
         return (List) invokeL.objValue;
-    }
-
-    public static int getMaxShortcutCountPerActivity(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 25) {
-                return ((ShortcutManager) context.getSystemService(ShortcutManager.class)).getMaxShortcutCountPerActivity();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
     }
 
     public static ShortcutInfoCompatSaver<?> getShortcutInfoSaverInstance(Context context) {
@@ -156,7 +161,7 @@ public class ShortcutManagerCompat {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean isRequestPinShortcutSupported(@NonNull Context context) {
+    public static boolean isRequestPinShortcutSupported(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -179,7 +184,19 @@ public class ShortcutManagerCompat {
         return invokeL.booleanValue;
     }
 
-    public static void removeAllDynamicShortcuts(@NonNull Context context) {
+    public static int getMaxShortcutCountPerActivity(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 25) {
+                return ((ShortcutManager) context.getSystemService(ShortcutManager.class)).getMaxShortcutCountPerActivity();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void removeAllDynamicShortcuts(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             if (Build.VERSION.SDK_INT >= 25) {
@@ -189,7 +206,7 @@ public class ShortcutManagerCompat {
         }
     }
 
-    public static void removeDynamicShortcuts(@NonNull Context context, @NonNull List<String> list) {
+    public static void removeDynamicShortcuts(Context context, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, list) == null) {
             if (Build.VERSION.SDK_INT >= 25) {
@@ -199,76 +216,57 @@ public class ShortcutManagerCompat {
         }
     }
 
-    public static boolean requestPinShortcut(@NonNull Context context, @NonNull ShortcutInfoCompat shortcutInfoCompat, @Nullable IntentSender intentSender) {
+    public static boolean requestPinShortcut(Context context, ShortcutInfoCompat shortcutInfoCompat, IntentSender intentSender) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, shortcutInfoCompat, intentSender)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 return ((ShortcutManager) context.getSystemService(ShortcutManager.class)).requestPinShortcut(shortcutInfoCompat.toShortcutInfo(), intentSender);
             }
-            if (isRequestPinShortcutSupported(context)) {
-                Intent addToIntent = shortcutInfoCompat.addToIntent(new Intent(ACTION_INSTALL_SHORTCUT));
-                if (intentSender == null) {
-                    context.sendBroadcast(addToIntent);
-                    return true;
-                }
-                context.sendOrderedBroadcast(addToIntent, null, new BroadcastReceiver(intentSender) { // from class: androidx.core.content.pm.ShortcutManagerCompat.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ IntentSender val$callback;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {intentSender};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.val$callback = intentSender;
-                    }
-
-                    @Override // android.content.BroadcastReceiver
-                    public void onReceive(Context context2, Intent intent) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) {
-                            try {
-                                this.val$callback.sendIntent(context2, 0, null, null, null);
-                            } catch (IntentSender.SendIntentException unused) {
-                            }
-                        }
-                    }
-                }, null, -1, null, null);
+            if (!isRequestPinShortcutSupported(context)) {
+                return false;
+            }
+            Intent addToIntent = shortcutInfoCompat.addToIntent(new Intent(ACTION_INSTALL_SHORTCUT));
+            if (intentSender == null) {
+                context.sendBroadcast(addToIntent);
                 return true;
             }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
+            context.sendOrderedBroadcast(addToIntent, null, new BroadcastReceiver(intentSender) { // from class: androidx.core.content.pm.ShortcutManagerCompat.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ IntentSender val$callback;
 
-    public static boolean updateShortcuts(@NonNull Context context, @NonNull List<ShortcutInfoCompat> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, list)) == null) {
-            if (Build.VERSION.SDK_INT >= 25) {
-                ArrayList arrayList = new ArrayList();
-                for (ShortcutInfoCompat shortcutInfoCompat : list) {
-                    arrayList.add(shortcutInfoCompat.toShortcutInfo());
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {intentSender};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$callback = intentSender;
                 }
-                if (!((ShortcutManager) context.getSystemService(ShortcutManager.class)).updateShortcuts(arrayList)) {
-                    return false;
+
+                @Override // android.content.BroadcastReceiver
+                public void onReceive(Context context2, Intent intent) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) {
+                        try {
+                            this.val$callback.sendIntent(context2, 0, null, null, null);
+                        } catch (IntentSender.SendIntentException unused) {
+                        }
+                    }
                 }
-            }
-            getShortcutInfoSaverInstance(context).addShortcuts(list);
+            }, null, -1, null, null);
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

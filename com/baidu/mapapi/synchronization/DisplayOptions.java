@@ -36,7 +36,7 @@ public final class DisplayOptions {
     public int O;
     public int P;
     public boolean Q;
-    public List<BitmapDescriptor> R;
+    public List R;
     public BitmapDescriptor b;
     public boolean c;
     public boolean d;
@@ -140,7 +140,7 @@ public final class DisplayOptions {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.Q : invokeV.booleanValue;
     }
 
-    public List<BitmapDescriptor> get3DCarMarkerIconList() {
+    public List get3DCarMarkerIconList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.R : (List) invokeV.objValue;
@@ -266,7 +266,7 @@ public final class DisplayOptions {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public List<BitmapDescriptor> getTrafficTextureList() {
+    public List getTrafficTextureList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
@@ -369,7 +369,7 @@ public final class DisplayOptions {
         return (DisplayOptions) invokeZ.objValue;
     }
 
-    public DisplayOptions set3DCarMarkerIconList(List<BitmapDescriptor> list) {
+    public DisplayOptions set3DCarMarkerIconList(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, list)) == null) {

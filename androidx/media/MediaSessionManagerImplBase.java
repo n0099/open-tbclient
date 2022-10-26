@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -65,11 +64,20 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
                 if (this == obj) {
                     return true;
                 }
-                if (obj instanceof RemoteUserInfoImplBase) {
-                    RemoteUserInfoImplBase remoteUserInfoImplBase = (RemoteUserInfoImplBase) obj;
-                    return (this.mPid < 0 || remoteUserInfoImplBase.mPid < 0) ? TextUtils.equals(this.mPackageName, remoteUserInfoImplBase.mPackageName) && this.mUid == remoteUserInfoImplBase.mUid : TextUtils.equals(this.mPackageName, remoteUserInfoImplBase.mPackageName) && this.mPid == remoteUserInfoImplBase.mPid && this.mUid == remoteUserInfoImplBase.mUid;
+                if (!(obj instanceof RemoteUserInfoImplBase)) {
+                    return false;
                 }
-                return false;
+                RemoteUserInfoImplBase remoteUserInfoImplBase = (RemoteUserInfoImplBase) obj;
+                if (this.mPid >= 0 && remoteUserInfoImplBase.mPid >= 0) {
+                    if (TextUtils.equals(this.mPackageName, remoteUserInfoImplBase.mPackageName) && this.mPid == remoteUserInfoImplBase.mPid && this.mUid == remoteUserInfoImplBase.mUid) {
+                        return true;
+                    }
+                    return false;
+                } else if (TextUtils.equals(this.mPackageName, remoteUserInfoImplBase.mPackageName) && this.mUid == remoteUserInfoImplBase.mUid) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
             return invokeL.booleanValue;
         }
@@ -78,27 +86,39 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
         public String getPackageName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mPackageName;
+            }
+            return (String) invokeV.objValue;
         }
 
         @Override // androidx.media.MediaSessionManager.RemoteUserInfoImpl
         public int getPid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPid : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mPid;
+            }
+            return invokeV.intValue;
         }
 
         @Override // androidx.media.MediaSessionManager.RemoteUserInfoImpl
         public int getUid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUid : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mUid;
+            }
+            return invokeV.intValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ObjectsCompat.hash(this.mPackageName, Integer.valueOf(this.mUid)) : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return ObjectsCompat.hash(this.mPackageName, Integer.valueOf(this.mUid));
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -116,6 +136,16 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
             }
         }
         DEBUG = MediaSessionManager.DEBUG;
+    }
+
+    @Override // androidx.media.MediaSessionManager.MediaSessionManagerImpl
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public MediaSessionManagerImplBase(Context context) {
@@ -137,20 +167,7 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
         this.mContentResolver = context.getContentResolver();
     }
 
-    private boolean isPermissionGranted(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, remoteUserInfoImpl, str)) == null) ? remoteUserInfoImpl.getPid() < 0 ? this.mContext.getPackageManager().checkPermission(str, remoteUserInfoImpl.getPackageName()) == 0 : this.mContext.checkPermission(str, remoteUserInfoImpl.getPid(), remoteUserInfoImpl.getUid()) == 0 : invokeLL.booleanValue;
-    }
-
-    @Override // androidx.media.MediaSessionManager.MediaSessionManagerImpl
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mContext : (Context) invokeV.objValue;
-    }
-
-    public boolean isEnabledNotificationListener(@NonNull MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
+    public boolean isEnabledNotificationListener(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteUserInfoImpl)) == null) {
@@ -168,8 +185,26 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
         return invokeL.booleanValue;
     }
 
+    private boolean isPermissionGranted(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, remoteUserInfoImpl, str)) == null) {
+            if (remoteUserInfoImpl.getPid() < 0) {
+                if (this.mContext.getPackageManager().checkPermission(str, remoteUserInfoImpl.getPackageName()) == 0) {
+                    return true;
+                }
+                return false;
+            } else if (this.mContext.checkPermission(str, remoteUserInfoImpl.getPid(), remoteUserInfoImpl.getUid()) == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
     @Override // androidx.media.MediaSessionManager.MediaSessionManagerImpl
-    public boolean isTrustedForMediaControl(@NonNull MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
+    public boolean isTrustedForMediaControl(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, remoteUserInfoImpl)) == null) {
@@ -177,7 +212,10 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
                 if (this.mContext.getPackageManager().getApplicationInfo(remoteUserInfoImpl.getPackageName(), 0) == null) {
                     return false;
                 }
-                return isPermissionGranted(remoteUserInfoImpl, PERMISSION_STATUS_BAR_SERVICE) || isPermissionGranted(remoteUserInfoImpl, PERMISSION_MEDIA_CONTENT_CONTROL) || remoteUserInfoImpl.getUid() == 1000 || isEnabledNotificationListener(remoteUserInfoImpl);
+                if (!isPermissionGranted(remoteUserInfoImpl, PERMISSION_STATUS_BAR_SERVICE) && !isPermissionGranted(remoteUserInfoImpl, PERMISSION_MEDIA_CONTENT_CONTROL) && remoteUserInfoImpl.getUid() != 1000 && !isEnabledNotificationListener(remoteUserInfoImpl)) {
+                    return false;
+                }
+                return true;
             } catch (PackageManager.NameNotFoundException unused) {
                 if (DEBUG) {
                     Log.d("MediaSessionManager", "Package " + remoteUserInfoImpl.getPackageName() + " doesn't exist");

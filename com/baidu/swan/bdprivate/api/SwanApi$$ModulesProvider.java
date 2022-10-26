@@ -2,16 +2,15 @@ package com.baidu.swan.bdprivate.api;
 
 import android.util.Pair;
 import android.webkit.JavascriptInterface;
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kv1;
 import com.baidu.tieba.lv1;
-import com.baidu.tieba.mr1;
 import com.baidu.tieba.mv1;
-import com.baidu.tieba.s52;
-import com.baidu.tieba.sk3;
+import com.baidu.tieba.nr1;
+import com.baidu.tieba.nv1;
+import com.baidu.tieba.t52;
 import com.baidu.tieba.tk3;
 import com.baidu.tieba.uk3;
+import com.baidu.tieba.vk3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-@Keep
 /* loaded from: classes3.dex */
 public class SwanApi$$ModulesProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -40,25 +38,25 @@ public class SwanApi$$ModulesProvider {
         }
     }
 
-    public static Map<String, Object> getV8ApiModules(final mr1 mr1Var) {
+    public static Map getV8ApiModules(final nr1 nr1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mr1Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, nr1Var)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("_naPrivateAccount", new Object(mr1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateAccountV8Module
+            hashMap.put("_naPrivateAccount", new Object(nr1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateAccountV8Module
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final boolean DEBUG = false;
                 public static final String TAG = "Api-Base";
                 public transient /* synthetic */ FieldHolder $fh;
-                public ConcurrentHashMap<String, Object> mApis;
-                public mr1 mSwanApiContext;
+                public ConcurrentHashMap mApis;
+                public nr1 mSwanApiContext;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {mr1Var};
+                        Object[] objArr = {nr1Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -68,50 +66,53 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    this.mApis = new ConcurrentHashMap<>();
-                    this.mSwanApiContext = mr1Var;
+                    this.mApis = new ConcurrentHashMap();
+                    this.mSwanApiContext = nr1Var;
                 }
 
                 @JavascriptInterface
                 public String getBDUSS(String str) {
-                    sk3 sk3Var;
+                    tk3 tk3Var;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         Object obj = this.mApis.get("446653951");
-                        if (obj != null && (obj instanceof sk3)) {
-                            sk3Var = (sk3) obj;
+                        if (obj != null && (obj instanceof tk3)) {
+                            tk3Var = (tk3) obj;
                         } else {
-                            sk3Var = new sk3(this.mSwanApiContext);
-                            this.mApis.put("446653951", sk3Var);
+                            tk3Var = new tk3(this.mSwanApiContext);
+                            this.mApis.put("446653951", tk3Var);
                         }
-                        Pair<Boolean, kv1> a = mv1.a(sk3Var, "swanAPI/getBDUSS");
+                        Pair a = nv1.a(tk3Var, "swanAPI/getBDUSS");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((kv1) a.second).a();
+                            return ((lv1) a.second).a();
                         }
-                        if (s52.a(this.mSwanApiContext.f(), "PrivateAccount.getBDUSS")) {
-                            return new lv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        if (t52.a(this.mSwanApiContext.f(), "PrivateAccount.getBDUSS")) {
+                            return new mv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        lv1 y = sk3Var.y(str);
-                        return y == null ? "" : y.a();
+                        mv1 y = tk3Var.y(str);
+                        if (y == null) {
+                            return "";
+                        }
+                        return y.a();
                     }
                     return (String) invokeL2.objValue;
                 }
             });
-            hashMap.put("_naPrivateBusiness", new Object(mr1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateBusinessV8Module
+            hashMap.put("_naPrivateBusiness", new Object(nr1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateBusinessV8Module
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final boolean DEBUG = false;
                 public static final String TAG = "Api-Base";
                 public transient /* synthetic */ FieldHolder $fh;
-                public ConcurrentHashMap<String, Object> mApis;
-                public mr1 mSwanApiContext;
+                public ConcurrentHashMap mApis;
+                public nr1 mSwanApiContext;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {mr1Var};
+                        Object[] objArr = {nr1Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -121,84 +122,93 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    this.mApis = new ConcurrentHashMap<>();
-                    this.mSwanApiContext = mr1Var;
+                    this.mApis = new ConcurrentHashMap();
+                    this.mSwanApiContext = nr1Var;
                 }
 
                 @JavascriptInterface
                 public String getOpenBDUSS(String str) {
-                    tk3 tk3Var;
+                    uk3 uk3Var;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         Object obj = this.mApis.get("-404108695");
-                        if (obj != null && (obj instanceof tk3)) {
-                            tk3Var = (tk3) obj;
+                        if (obj != null && (obj instanceof uk3)) {
+                            uk3Var = (uk3) obj;
                         } else {
-                            tk3Var = new tk3(this.mSwanApiContext);
-                            this.mApis.put("-404108695", tk3Var);
+                            uk3Var = new uk3(this.mSwanApiContext);
+                            this.mApis.put("-404108695", uk3Var);
                         }
-                        Pair<Boolean, kv1> a = mv1.a(tk3Var, "swanAPI/getOpenBDUSS");
+                        Pair a = nv1.a(uk3Var, "swanAPI/getOpenBDUSS");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((kv1) a.second).a();
+                            return ((lv1) a.second).a();
                         }
-                        if (s52.a(this.mSwanApiContext.f(), "PrivateBusiness.getOpenBDUSS")) {
-                            return new lv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        if (t52.a(this.mSwanApiContext.f(), "PrivateBusiness.getOpenBDUSS")) {
+                            return new mv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        lv1 y = tk3Var.y(str);
-                        return y == null ? "" : y.a();
+                        mv1 y = uk3Var.y(str);
+                        if (y == null) {
+                            return "";
+                        }
+                        return y.a();
                     }
                     return (String) invokeL2.objValue;
                 }
 
                 @JavascriptInterface
                 public String queryQuickLoginInfo(String str) {
-                    uk3 uk3Var;
+                    vk3 vk3Var;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                         Object obj = this.mApis.get("1495818240");
-                        if (obj != null && (obj instanceof uk3)) {
-                            uk3Var = (uk3) obj;
+                        if (obj != null && (obj instanceof vk3)) {
+                            vk3Var = (vk3) obj;
                         } else {
-                            uk3Var = new uk3(this.mSwanApiContext);
-                            this.mApis.put("1495818240", uk3Var);
+                            vk3Var = new vk3(this.mSwanApiContext);
+                            this.mApis.put("1495818240", vk3Var);
                         }
-                        Pair<Boolean, kv1> a = mv1.a(uk3Var, "swanAPI/queryQuickLoginInfo");
+                        Pair a = nv1.a(vk3Var, "swanAPI/queryQuickLoginInfo");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((kv1) a.second).a();
+                            return ((lv1) a.second).a();
                         }
-                        if (s52.a(this.mSwanApiContext.f(), "PrivateBusiness.queryQuickLoginInfo")) {
-                            return new lv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        if (t52.a(this.mSwanApiContext.f(), "PrivateBusiness.queryQuickLoginInfo")) {
+                            return new mv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        lv1 F = uk3Var.F(str);
-                        return F == null ? "" : F.a();
+                        mv1 F = vk3Var.F(str);
+                        if (F == null) {
+                            return "";
+                        }
+                        return F.a();
                     }
                     return (String) invokeL2.objValue;
                 }
 
                 @JavascriptInterface
                 public String quickLogin(String str) {
-                    uk3 uk3Var;
+                    vk3 vk3Var;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                         Object obj = this.mApis.get("1495818240");
-                        if (obj != null && (obj instanceof uk3)) {
-                            uk3Var = (uk3) obj;
+                        if (obj != null && (obj instanceof vk3)) {
+                            vk3Var = (vk3) obj;
                         } else {
-                            uk3Var = new uk3(this.mSwanApiContext);
-                            this.mApis.put("1495818240", uk3Var);
+                            vk3Var = new vk3(this.mSwanApiContext);
+                            this.mApis.put("1495818240", vk3Var);
                         }
-                        Pair<Boolean, kv1> a = mv1.a(uk3Var, "swanAPI/quickLogin");
+                        Pair a = nv1.a(vk3Var, "swanAPI/quickLogin");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((kv1) a.second).a();
+                            return ((lv1) a.second).a();
                         }
-                        if (s52.a(this.mSwanApiContext.f(), "PrivateBusiness.quickLogin")) {
-                            return new lv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        if (t52.a(this.mSwanApiContext.f(), "PrivateBusiness.quickLogin")) {
+                            return new mv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        lv1 G = uk3Var.G(str);
-                        return G == null ? "" : G.a();
+                        mv1 G = vk3Var.G(str);
+                        if (G == null) {
+                            return "";
+                        }
+                        return G.a();
                     }
                     return (String) invokeL2.objValue;
                 }
@@ -208,25 +218,25 @@ public class SwanApi$$ModulesProvider {
         return (Map) invokeL.objValue;
     }
 
-    public static Map<String, Object> getWebviewApiModules(final mr1 mr1Var) {
+    public static Map getWebviewApiModules(final nr1 nr1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mr1Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nr1Var)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("_naPrivateAccount", new Object(mr1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateAccountWebviewModule
+            hashMap.put("_naPrivateAccount", new Object(nr1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateAccountWebviewModule
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final boolean DEBUG = false;
                 public static final String TAG = "Api-Base";
                 public transient /* synthetic */ FieldHolder $fh;
-                public ConcurrentHashMap<String, Object> mApis;
-                public mr1 mSwanApiContext;
+                public ConcurrentHashMap mApis;
+                public nr1 mSwanApiContext;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {mr1Var};
+                        Object[] objArr = {nr1Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -236,50 +246,53 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    this.mApis = new ConcurrentHashMap<>();
-                    this.mSwanApiContext = mr1Var;
+                    this.mApis = new ConcurrentHashMap();
+                    this.mSwanApiContext = nr1Var;
                 }
 
                 @JavascriptInterface
                 public String getBDUSS(String str) {
-                    sk3 sk3Var;
+                    tk3 tk3Var;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         Object obj = this.mApis.get("446653951");
-                        if (obj != null && (obj instanceof sk3)) {
-                            sk3Var = (sk3) obj;
+                        if (obj != null && (obj instanceof tk3)) {
+                            tk3Var = (tk3) obj;
                         } else {
-                            sk3Var = new sk3(this.mSwanApiContext);
-                            this.mApis.put("446653951", sk3Var);
+                            tk3Var = new tk3(this.mSwanApiContext);
+                            this.mApis.put("446653951", tk3Var);
                         }
-                        Pair<Boolean, kv1> a = mv1.a(sk3Var, "swanAPI/getBDUSS");
+                        Pair a = nv1.a(tk3Var, "swanAPI/getBDUSS");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((kv1) a.second).a();
+                            return ((lv1) a.second).a();
                         }
-                        if (s52.a(this.mSwanApiContext.f(), "PrivateAccount.getBDUSS")) {
-                            return new lv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        if (t52.a(this.mSwanApiContext.f(), "PrivateAccount.getBDUSS")) {
+                            return new mv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        lv1 y = sk3Var.y(str);
-                        return y == null ? "" : y.a();
+                        mv1 y = tk3Var.y(str);
+                        if (y == null) {
+                            return "";
+                        }
+                        return y.a();
                     }
                     return (String) invokeL2.objValue;
                 }
             });
-            hashMap.put("_naPrivateBusiness", new Object(mr1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateBusinessWebviewModule
+            hashMap.put("_naPrivateBusiness", new Object(nr1Var) { // from class: com.baidu.swan.apps.api.SwanApi$$PrivateBusinessWebviewModule
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final boolean DEBUG = false;
                 public static final String TAG = "Api-Base";
                 public transient /* synthetic */ FieldHolder $fh;
-                public ConcurrentHashMap<String, Object> mApis;
-                public mr1 mSwanApiContext;
+                public ConcurrentHashMap mApis;
+                public nr1 mSwanApiContext;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {mr1Var};
+                        Object[] objArr = {nr1Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -289,84 +302,93 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    this.mApis = new ConcurrentHashMap<>();
-                    this.mSwanApiContext = mr1Var;
+                    this.mApis = new ConcurrentHashMap();
+                    this.mSwanApiContext = nr1Var;
                 }
 
                 @JavascriptInterface
                 public String getOpenBDUSS(String str) {
-                    tk3 tk3Var;
+                    uk3 uk3Var;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         Object obj = this.mApis.get("-404108695");
-                        if (obj != null && (obj instanceof tk3)) {
-                            tk3Var = (tk3) obj;
+                        if (obj != null && (obj instanceof uk3)) {
+                            uk3Var = (uk3) obj;
                         } else {
-                            tk3Var = new tk3(this.mSwanApiContext);
-                            this.mApis.put("-404108695", tk3Var);
+                            uk3Var = new uk3(this.mSwanApiContext);
+                            this.mApis.put("-404108695", uk3Var);
                         }
-                        Pair<Boolean, kv1> a = mv1.a(tk3Var, "swanAPI/getOpenBDUSS");
+                        Pair a = nv1.a(uk3Var, "swanAPI/getOpenBDUSS");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((kv1) a.second).a();
+                            return ((lv1) a.second).a();
                         }
-                        if (s52.a(this.mSwanApiContext.f(), "PrivateBusiness.getOpenBDUSS")) {
-                            return new lv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        if (t52.a(this.mSwanApiContext.f(), "PrivateBusiness.getOpenBDUSS")) {
+                            return new mv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        lv1 y = tk3Var.y(str);
-                        return y == null ? "" : y.a();
+                        mv1 y = uk3Var.y(str);
+                        if (y == null) {
+                            return "";
+                        }
+                        return y.a();
                     }
                     return (String) invokeL2.objValue;
                 }
 
                 @JavascriptInterface
                 public String queryQuickLoginInfo(String str) {
-                    uk3 uk3Var;
+                    vk3 vk3Var;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                         Object obj = this.mApis.get("1495818240");
-                        if (obj != null && (obj instanceof uk3)) {
-                            uk3Var = (uk3) obj;
+                        if (obj != null && (obj instanceof vk3)) {
+                            vk3Var = (vk3) obj;
                         } else {
-                            uk3Var = new uk3(this.mSwanApiContext);
-                            this.mApis.put("1495818240", uk3Var);
+                            vk3Var = new vk3(this.mSwanApiContext);
+                            this.mApis.put("1495818240", vk3Var);
                         }
-                        Pair<Boolean, kv1> a = mv1.a(uk3Var, "swanAPI/queryQuickLoginInfo");
+                        Pair a = nv1.a(vk3Var, "swanAPI/queryQuickLoginInfo");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((kv1) a.second).a();
+                            return ((lv1) a.second).a();
                         }
-                        if (s52.a(this.mSwanApiContext.f(), "PrivateBusiness.queryQuickLoginInfo")) {
-                            return new lv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        if (t52.a(this.mSwanApiContext.f(), "PrivateBusiness.queryQuickLoginInfo")) {
+                            return new mv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        lv1 F = uk3Var.F(str);
-                        return F == null ? "" : F.a();
+                        mv1 F = vk3Var.F(str);
+                        if (F == null) {
+                            return "";
+                        }
+                        return F.a();
                     }
                     return (String) invokeL2.objValue;
                 }
 
                 @JavascriptInterface
                 public String quickLogin(String str) {
-                    uk3 uk3Var;
+                    vk3 vk3Var;
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                         Object obj = this.mApis.get("1495818240");
-                        if (obj != null && (obj instanceof uk3)) {
-                            uk3Var = (uk3) obj;
+                        if (obj != null && (obj instanceof vk3)) {
+                            vk3Var = (vk3) obj;
                         } else {
-                            uk3Var = new uk3(this.mSwanApiContext);
-                            this.mApis.put("1495818240", uk3Var);
+                            vk3Var = new vk3(this.mSwanApiContext);
+                            this.mApis.put("1495818240", vk3Var);
                         }
-                        Pair<Boolean, kv1> a = mv1.a(uk3Var, "swanAPI/quickLogin");
+                        Pair a = nv1.a(vk3Var, "swanAPI/quickLogin");
                         if (((Boolean) a.first).booleanValue()) {
-                            return ((kv1) a.second).a();
+                            return ((lv1) a.second).a();
                         }
-                        if (s52.a(this.mSwanApiContext.f(), "PrivateBusiness.quickLogin")) {
-                            return new lv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                        if (t52.a(this.mSwanApiContext.f(), "PrivateBusiness.quickLogin")) {
+                            return new mv1(1001, "illegal swanApp, intercept for preload/prefetch").a();
                         }
-                        lv1 G = uk3Var.G(str);
-                        return G == null ? "" : G.a();
+                        mv1 G = vk3Var.G(str);
+                        if (G == null) {
+                            return "";
+                        }
+                        return G.a();
                     }
                     return (String) invokeL2.objValue;
                 }

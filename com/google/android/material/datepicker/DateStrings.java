@@ -1,7 +1,6 @@
 package com.google.android.material.datepicker;
 
 import android.os.Build;
-import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,43 +31,16 @@ public class DateStrings {
         }
     }
 
-    public static Pair<String, String> getDateRangeString(@Nullable Long l, @Nullable Long l2) {
+    public static Pair getDateRangeString(Long l, Long l2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, l, l2)) == null) ? getDateRangeString(l, l2, null) : (Pair) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, l, l2)) == null) {
+            return getDateRangeString(l, l2, null);
+        }
+        return (Pair) invokeLL.objValue;
     }
 
-    public static String getDateString(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? getDateString(j, null) : (String) invokeJ.objValue;
-    }
-
-    public static String getMonthDay(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) ? getMonthDay(j, Locale.getDefault()) : (String) invokeJ.objValue;
-    }
-
-    public static String getMonthDayOfWeekDay(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) ? getMonthDayOfWeekDay(j, Locale.getDefault()) : (String) invokeJ.objValue;
-    }
-
-    public static String getYearMonthDay(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) ? getYearMonthDay(j, Locale.getDefault()) : (String) invokeJ.objValue;
-    }
-
-    public static String getYearMonthDayOfWeekDay(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j)) == null) ? getYearMonthDayOfWeekDay(j, Locale.getDefault()) : (String) invokeJ.objValue;
-    }
-
-    public static Pair<String, String> getDateRangeString(@Nullable Long l, @Nullable Long l2, @Nullable SimpleDateFormat simpleDateFormat) {
+    public static Pair getDateRangeString(Long l, Long l2, SimpleDateFormat simpleDateFormat) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, l, l2, simpleDateFormat)) == null) {
@@ -100,7 +72,52 @@ public class DateStrings {
         return (Pair) invokeLLL.objValue;
     }
 
-    public static String getDateString(long j, @Nullable SimpleDateFormat simpleDateFormat) {
+    public static String getDateString(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            return getDateString(j, null);
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static String getMonthDay(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            return getMonthDay(j, Locale.getDefault());
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static String getMonthDayOfWeekDay(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
+            return getMonthDayOfWeekDay(j, Locale.getDefault());
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static String getYearMonthDay(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) {
+            return getYearMonthDay(j, Locale.getDefault());
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static String getYearMonthDayOfWeekDay(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j)) == null) {
+            return getYearMonthDayOfWeekDay(j, Locale.getDefault());
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static String getDateString(long j, SimpleDateFormat simpleDateFormat) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, simpleDateFormat)) == null) {

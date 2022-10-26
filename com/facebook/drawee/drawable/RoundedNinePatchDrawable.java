@@ -15,6 +15,13 @@ public class RoundedNinePatchDrawable extends RoundedDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.facebook.drawee.drawable.Rounded
+    public void setBorderColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorFilter) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundedNinePatchDrawable(NinePatchDrawable ninePatchDrawable) {
         super(ninePatchDrawable);
@@ -57,13 +64,6 @@ public class RoundedNinePatchDrawable extends RoundedDrawable {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.endSection();
             }
-        }
-    }
-
-    @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorderColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorFilter) == null) {
         }
     }
 }

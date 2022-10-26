@@ -40,39 +40,27 @@ public class PersonInfoActivityConfig extends IntentConfig {
         getIntent().putExtra("user_name", str2);
     }
 
-    public void setChangeAvatar(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PersonInfoActivityConfig(Context context, String str, String str2, int i) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            getIntent().putExtra(CHANGE_AVATAR, str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    public void setIsVideoThread(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            getIntent().putExtra(IntentConfig.IS_VIDEO_THREAD, z);
-        }
-    }
-
-    public void setShowProgress(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            getIntent().putExtra(IS_SHOW_PROGRESS, z);
-        }
-    }
-
-    public void setSourceTid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            getIntent().putExtra("thread_id", str);
-        }
-    }
-
-    public void setVideoPersonFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            getIntent().putExtra(IntentConfig.VIDEO_PERSON_FROM, str);
-        }
+        getIntent().putExtra("user_id", str);
+        getIntent().putExtra("user_name", str2);
+        getIntent().putExtra(FANS_NUM, i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -148,26 +136,38 @@ public class PersonInfoActivityConfig extends IntentConfig {
         getIntent().putExtra("nid", str6);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonInfoActivityConfig(Context context, String str, String str2, int i) {
-        super(context);
+    public void setChangeAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            getIntent().putExtra(CHANGE_AVATAR, str);
         }
-        getIntent().putExtra("user_id", str);
-        getIntent().putExtra("user_name", str2);
-        getIntent().putExtra(FANS_NUM, i);
+    }
+
+    public void setIsVideoThread(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            getIntent().putExtra(IntentConfig.IS_VIDEO_THREAD, z);
+        }
+    }
+
+    public void setShowProgress(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            getIntent().putExtra(IS_SHOW_PROGRESS, z);
+        }
+    }
+
+    public void setSourceTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            getIntent().putExtra("thread_id", str);
+        }
+    }
+
+    public void setVideoPersonFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            getIntent().putExtra(IntentConfig.VIDEO_PERSON_FROM, str);
+        }
     }
 }

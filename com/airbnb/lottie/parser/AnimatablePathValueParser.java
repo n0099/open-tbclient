@@ -1,6 +1,5 @@
 package com.airbnb.lottie.parser;
 
-import android.graphics.PointF;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatablePathValue;
@@ -30,7 +29,7 @@ public class AnimatablePathValueParser {
         return new AnimatablePathValue(arrayList);
     }
 
-    public static AnimatableValue<PointF, PointF> parseSplitPath(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
+    public static AnimatableValue parseSplitPath(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         jsonReader.beginObject();
         AnimatablePathValue animatablePathValue = null;
         AnimatableFloatValue animatableFloatValue = null;
@@ -38,29 +37,34 @@ public class AnimatablePathValueParser {
         boolean z = false;
         while (jsonReader.peek() != JsonReader.Token.END_OBJECT) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                animatablePathValue = parse(jsonReader, lottieComposition);
-            } else if (selectName != 1) {
-                if (selectName != 2) {
-                    jsonReader.skipName();
-                    jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        jsonReader.skipName();
+                        jsonReader.skipValue();
+                    } else if (jsonReader.peek() == JsonReader.Token.STRING) {
+                        jsonReader.skipValue();
+                        z = true;
+                    } else {
+                        animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
+                    }
                 } else if (jsonReader.peek() == JsonReader.Token.STRING) {
                     jsonReader.skipValue();
                     z = true;
                 } else {
-                    animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
+                    animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
                 }
-            } else if (jsonReader.peek() == JsonReader.Token.STRING) {
-                jsonReader.skipValue();
-                z = true;
             } else {
-                animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
+                animatablePathValue = parse(jsonReader, lottieComposition);
             }
         }
         jsonReader.endObject();
         if (z) {
             lottieComposition.addWarning("Lottie doesn't support expressions.");
         }
-        return animatablePathValue != null ? animatablePathValue : new AnimatableSplitDimensionPathValue(animatableFloatValue, animatableFloatValue2);
+        if (animatablePathValue != null) {
+            return animatablePathValue;
+        }
+        return new AnimatableSplitDimensionPathValue(animatableFloatValue, animatableFloatValue2);
     }
 }

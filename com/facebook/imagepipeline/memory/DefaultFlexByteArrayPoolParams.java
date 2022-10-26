@@ -46,6 +46,16 @@ public class DefaultFlexByteArrayPoolParams {
         }
     }
 
+    public static PoolParams get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int i = DEFAULT_MAX_NUM_THREADS;
+            return new PoolParams(4194304, i * 4194304, generateBuckets(131072, 4194304, i), 131072, 4194304, DEFAULT_MAX_NUM_THREADS);
+        }
+        return (PoolParams) invokeV.objValue;
+    }
+
     public static SparseIntArray generateBuckets(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
@@ -58,15 +68,5 @@ public class DefaultFlexByteArrayPoolParams {
             return sparseIntArray;
         }
         return (SparseIntArray) invokeIII.objValue;
-    }
-
-    public static PoolParams get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int i = DEFAULT_MAX_NUM_THREADS;
-            return new PoolParams(4194304, i * 4194304, generateBuckets(131072, 4194304, i), 131072, 4194304, DEFAULT_MAX_NUM_THREADS);
-        }
-        return (PoolParams) invokeV.objValue;
     }
 }

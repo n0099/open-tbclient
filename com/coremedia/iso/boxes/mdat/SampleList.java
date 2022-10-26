@@ -17,10 +17,10 @@ import com.googlecode.mp4parser.authoring.samples.FragmentedMp4SampleList;
 import java.util.AbstractList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class SampleList extends AbstractList<Sample> {
+public class SampleList extends AbstractList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Sample> samples;
+    public List samples;
 
     public SampleList(TrackBox trackBox, IsoFile... isoFileArr) {
         Interceptable interceptable = $ic;
@@ -48,18 +48,24 @@ public class SampleList extends AbstractList<Sample> {
         this.samples = new FragmentedMp4SampleList(trackBox.getTrackHeaderBox().getTrackId(), parent, isoFileArr);
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.samples.size() : invokeV.intValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
     public Sample get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.samples.get(i) : (Sample) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (Sample) this.samples.get(i);
+        }
+        return (Sample) invokeI.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.samples.size();
+        }
+        return invokeV.intValue;
     }
 }

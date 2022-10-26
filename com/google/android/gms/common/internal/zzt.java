@@ -3,7 +3,6 @@ package com.google.android.gms.common.internal;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +44,7 @@ public final class zzt {
         return (Intent) invokeV.objValue;
     }
 
-    public static Intent zzb(String str, @Nullable String str2) {
+    public static Intent zzb(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {

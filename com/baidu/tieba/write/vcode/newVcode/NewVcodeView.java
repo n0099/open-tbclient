@@ -1,6 +1,5 @@
 package com.baidu.tieba.write.vcode.newVcode;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -17,11 +16,11 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c39;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.sx4;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.i39;
+import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +32,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public c39 c;
+    public i39 c;
     public BaseWebView d;
     public View e;
-    public sx4 f;
+    public yx4 f;
     public TextView g;
-    public ux4 h;
+    public ay4 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -90,151 +89,25 @@ public class NewVcodeView {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.d == null) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.a.d != null) {
+                    this.a.showWebView(true);
                 }
-                this.a.showWebView(true);
             }
         };
         this.a = newVcodeActivity;
         this.b = i;
-        if (initUI(newVcodeActivity)) {
-            return;
+        if (!initUI(newVcodeActivity)) {
+            newVcodeActivity.finish();
         }
-        newVcodeActivity.finish();
-    }
-
-    @JavascriptInterface
-    @SuppressLint({"SetJavaScriptEnabled"})
-    private boolean initUI(NewVcodeActivity newVcodeActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, newVcodeActivity)) == null) {
-            newVcodeActivity.setActivityBgTransparent();
-            newVcodeActivity.setSwipeBackEnabled(false);
-            if (this.b == dh.e("6", 0)) {
-                newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0657);
-            } else {
-                newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0656);
-            }
-            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091a5a);
-            this.e = findViewById;
-            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f090755);
-            this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1134));
-            ux4 ux4Var = new ux4();
-            this.h = ux4Var;
-            ux4Var.a = 1000L;
-            if (this.d == null) {
-                try {
-                    this.d = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916aa);
-                    if (this.b != dh.e("6", 0)) {
-                        UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.d, 1.2631578f);
-                    }
-                    this.d.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
-                    this.d.setInitialScale(100);
-                    this.d.getSettings().setJavaScriptEnabled(true);
-                    this.d.removeJavascriptInterface("searchBoxJavaBridge_");
-                    this.d.setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ NewVcodeView a;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.a = this;
-                        }
-
-                        @Override // android.webkit.WebViewClient
-                        public void onPageFinished(WebView webView, String str) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                                super.onPageFinished(webView, str);
-                                this.a.i = true;
-                                if (this.a.c != null) {
-                                    this.a.c.onPageFinished(webView, str);
-                                }
-                            }
-                        }
-
-                        @Override // android.webkit.WebViewClient
-                        public void onReceivedError(WebView webView, int i, String str, String str2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
-                                super.onReceivedError(webView, i, str, str2);
-                                this.a.h(false);
-                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
-                                this.a.a.finish();
-                            }
-                        }
-
-                        @Override // android.webkit.WebViewClient
-                        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                            InterceptResult invokeLL;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-                                if (StringUtils.isNull(str)) {
-                                    return false;
-                                }
-                                if (!this.a.i) {
-                                    this.a.i = true;
-                                    gh.a().postDelayed(this.a.j, 500L);
-                                    if (this.a.c != null) {
-                                        this.a.c.onPageFinished(webView, str);
-                                    }
-                                }
-                                if (this.a.c == null) {
-                                    return false;
-                                }
-                                return this.a.c.b(webView, str);
-                            }
-                            return invokeLL.booleanValue;
-                        }
-                    });
-                    return true;
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public BaseActivity getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (BaseActivity) invokeV.objValue;
-    }
-
-    public WebView getWebView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (WebView) invokeV.objValue;
     }
 
     public final void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.f == null) {
-                sx4 sx4Var = new sx4(this.a.getPageContext());
-                this.f = sx4Var;
-                sx4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                yx4 yx4Var = new yx4(this.a.getPageContext());
+                this.f = yx4Var;
+                yx4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -270,25 +143,10 @@ public class NewVcodeView {
         }
     }
 
-    public void onDestory() {
+    public void setPresenter(i39 i39Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gh.a().removeCallbacks(this.j);
-        }
-    }
-
-    public void runJsMethod(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || this.d == null) {
-            return;
-        }
-        this.d.loadUrl("javascript:window." + str + "(" + str2 + SmallTailInfo.EMOTION_SUFFIX);
-    }
-
-    public void setPresenter(c39 c39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c39Var) == null) {
-            this.c = c39Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, i39Var) == null) {
+            this.c = i39Var;
             this.i = false;
         }
     }
@@ -303,13 +161,19 @@ public class NewVcodeView {
     public void showPostThreadLoadingView(boolean z) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (view2 = this.e) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (view2 = this.e) != null) {
+            if (z) {
+                view2.setVisibility(0);
+            } else {
+                view2.setVisibility(8);
+            }
         }
-        if (z) {
-            view2.setVisibility(0);
-        } else {
-            view2.setVisibility(8);
+    }
+
+    public void showWebViewDelay(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            hh.a().postDelayed(this.j, i);
         }
     }
 
@@ -324,6 +188,149 @@ public class NewVcodeView {
         }
     }
 
+    @JavascriptInterface
+    private boolean initUI(NewVcodeActivity newVcodeActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, newVcodeActivity)) == null) {
+            newVcodeActivity.setActivityBgTransparent();
+            newVcodeActivity.setSwipeBackEnabled(false);
+            if (this.b == eh.e("6", 0)) {
+                newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0657);
+            } else {
+                newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0656);
+            }
+            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091a56);
+            this.e = findViewById;
+            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09075e);
+            this.g = textView;
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1146));
+            ay4 ay4Var = new ay4();
+            this.h = ay4Var;
+            ay4Var.a = 1000L;
+            if (this.d != null) {
+                return true;
+            }
+            try {
+                this.d = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09169c);
+                if (this.b != eh.e("6", 0)) {
+                    UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.d, 1.2631578f);
+                }
+                this.d.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
+                this.d.setInitialScale(100);
+                this.d.getSettings().setJavaScriptEnabled(true);
+                this.d.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.d.setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ NewVcodeView a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.a = this;
+                    }
+
+                    @Override // android.webkit.WebViewClient
+                    public void onPageFinished(WebView webView, String str) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
+                            super.onPageFinished(webView, str);
+                            this.a.i = true;
+                            if (this.a.c != null) {
+                                this.a.c.onPageFinished(webView, str);
+                            }
+                        }
+                    }
+
+                    @Override // android.webkit.WebViewClient
+                    public void onReceivedError(WebView webView, int i, String str, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
+                            super.onReceivedError(webView, i, str, str2);
+                            this.a.h(false);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c68);
+                            this.a.a.finish();
+                        }
+                    }
+
+                    @Override // android.webkit.WebViewClient
+                    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+                        InterceptResult invokeLL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
+                            if (StringUtils.isNull(str)) {
+                                return false;
+                            }
+                            if (!this.a.i) {
+                                this.a.i = true;
+                                hh.a().postDelayed(this.a.j, 500L);
+                                if (this.a.c != null) {
+                                    this.a.c.onPageFinished(webView, str);
+                                }
+                            }
+                            if (this.a.c == null) {
+                                return false;
+                            }
+                            return this.a.c.b(webView, str);
+                        }
+                        return invokeLL.booleanValue;
+                    }
+                });
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public BaseActivity getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (BaseActivity) invokeV.objValue;
+    }
+
+    public WebView getWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (WebView) invokeV.objValue;
+    }
+
+    public void onDestory() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            hh.a().removeCallbacks(this.j);
+        }
+    }
+
+    public void runJsMethod(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.d != null) {
+            this.d.loadUrl("javascript:window." + str + "(" + str2 + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
     public void showWebView(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -331,7 +338,7 @@ public class NewVcodeView {
             BaseWebView baseWebView = this.d;
             if (baseWebView != null) {
                 if (z) {
-                    if (this.b != dh.e("6", 0)) {
+                    if (this.b != eh.e("6", 0)) {
                         UtilHelper.setSupportHeight(this.a.getPageContext().getPageActivity(), this.d, this.k);
                     }
                     this.d.setVisibility(0);
@@ -339,13 +346,6 @@ public class NewVcodeView {
                 }
                 baseWebView.setVisibility(8);
             }
-        }
-    }
-
-    public void showWebViewDelay(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            gh.a().postDelayed(this.j, i);
         }
     }
 }

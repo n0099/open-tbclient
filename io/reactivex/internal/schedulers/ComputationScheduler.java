@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -30,11 +29,97 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     public static final RxThreadFactory THREAD_FACTORY;
     public static final String THREAD_NAME_PREFIX = "RxComputationThreadPool";
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<FixedSchedulerPool> pool;
+    public final AtomicReference pool;
     public final ThreadFactory threadFactory;
 
+    public static int cap(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? (i2 <= 0 || i2 > i) ? i : i2 : invokeII.intValue;
+    }
+
     /* loaded from: classes8.dex */
-    public static final class FixedSchedulerPool implements SchedulerMultiWorkerSupport {
+    public final class EventLoopWorker extends Scheduler.Worker {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ListCompositeDisposable both;
+        public volatile boolean disposed;
+        public final PoolWorker poolWorker;
+        public final ListCompositeDisposable serial;
+        public final CompositeDisposable timed;
+
+        public EventLoopWorker(PoolWorker poolWorker) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {poolWorker};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.poolWorker = poolWorker;
+            this.serial = new ListCompositeDisposable();
+            this.timed = new CompositeDisposable();
+            ListCompositeDisposable listCompositeDisposable = new ListCompositeDisposable();
+            this.both = listCompositeDisposable;
+            listCompositeDisposable.add(this.serial);
+            this.both.add(this.timed);
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.disposed) {
+                this.disposed = true;
+                this.both.dispose();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.disposed;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Scheduler.Worker
+        public Disposable schedule(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable)) == null) {
+                if (this.disposed) {
+                    return EmptyDisposable.INSTANCE;
+                }
+                return this.poolWorker.scheduleActual(runnable, 0L, TimeUnit.MILLISECONDS, this.serial);
+            }
+            return (Disposable) invokeL.objValue;
+        }
+
+        @Override // io.reactivex.Scheduler.Worker
+        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+                if (this.disposed) {
+                    return EmptyDisposable.INSTANCE;
+                }
+                return this.poolWorker.scheduleActual(runnable, j, timeUnit, this.timed);
+            }
+            return (Disposable) invokeCommon.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public final class FixedSchedulerPool implements SchedulerMultiWorkerSupport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int cores;
@@ -113,7 +198,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     }
 
     /* loaded from: classes8.dex */
-    public static final class PoolWorker extends NewThreadWorker {
+    public final class PoolWorker extends NewThreadWorker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,43 +265,14 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         }
     }
 
-    public static int cap(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? (i2 <= 0 || i2 > i) ? i : i2 : invokeII.intValue;
-    }
-
     @Override // io.reactivex.Scheduler
-    @NonNull
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new EventLoopWorker(this.pool.get().getEventLoop()) : (Scheduler.Worker) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.internal.schedulers.SchedulerMultiWorkerSupport
-    public void createWorkers(int i, SchedulerMultiWorkerSupport.WorkerCallback workerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, workerCallback) == null) {
-            ObjectHelper.verifyPositive(i, "number > 0 required");
-            this.pool.get().createWorkers(i, workerCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new EventLoopWorker(((FixedSchedulerPool) this.pool.get()).getEventLoop());
         }
-    }
-
-    @Override // io.reactivex.Scheduler
-    @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) ? this.pool.get().getEventLoop().scheduleDirect(runnable, j, timeUnit) : (Disposable) invokeCommon.objValue;
-    }
-
-    @Override // io.reactivex.Scheduler
-    @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? this.pool.get().getEventLoop().schedulePeriodicallyDirect(runnable, j, j2, timeUnit) : (Disposable) invokeCommon.objValue;
+        return (Scheduler.Worker) invokeV.objValue;
     }
 
     @Override // io.reactivex.Scheduler
@@ -226,7 +282,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             do {
-                fixedSchedulerPool = this.pool.get();
+                fixedSchedulerPool = (FixedSchedulerPool) this.pool.get();
                 fixedSchedulerPool2 = NONE;
                 if (fixedSchedulerPool == fixedSchedulerPool2) {
                     return;
@@ -241,10 +297,9 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             FixedSchedulerPool fixedSchedulerPool = new FixedSchedulerPool(MAX_THREADS, this.threadFactory);
-            if (this.pool.compareAndSet(NONE, fixedSchedulerPool)) {
-                return;
+            if (!this.pool.compareAndSet(NONE, fixedSchedulerPool)) {
+                fixedSchedulerPool.shutdown();
             }
-            fixedSchedulerPool.shutdown();
         }
     }
 
@@ -264,87 +319,36 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
             }
         }
         this.threadFactory = threadFactory;
-        this.pool = new AtomicReference<>(NONE);
+        this.pool = new AtomicReference(NONE);
         start();
     }
 
-    /* loaded from: classes8.dex */
-    public static final class EventLoopWorker extends Scheduler.Worker {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ListCompositeDisposable both;
-        public volatile boolean disposed;
-        public final PoolWorker poolWorker;
-        public final ListCompositeDisposable serial;
-        public final CompositeDisposable timed;
-
-        public EventLoopWorker(PoolWorker poolWorker) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {poolWorker};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.poolWorker = poolWorker;
-            this.serial = new ListCompositeDisposable();
-            this.timed = new CompositeDisposable();
-            ListCompositeDisposable listCompositeDisposable = new ListCompositeDisposable();
-            this.both = listCompositeDisposable;
-            listCompositeDisposable.add(this.serial);
-            this.both.add(this.timed);
+    @Override // io.reactivex.internal.schedulers.SchedulerMultiWorkerSupport
+    public void createWorkers(int i, SchedulerMultiWorkerSupport.WorkerCallback workerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, workerCallback) == null) {
+            ObjectHelper.verifyPositive(i, "number > 0 required");
+            ((FixedSchedulerPool) this.pool.get()).createWorkers(i, workerCallback);
         }
+    }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.disposed) {
-                return;
-            }
-            this.disposed = true;
-            this.both.dispose();
+    @Override // io.reactivex.Scheduler
+    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+            return ((FixedSchedulerPool) this.pool.get()).getEventLoop().scheduleDirect(runnable, j, timeUnit);
         }
+        return (Disposable) invokeCommon.objValue;
+    }
 
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.disposed : invokeV.booleanValue;
+    @Override // io.reactivex.Scheduler
+    public Disposable schedulePeriodicallyDirect(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            return ((FixedSchedulerPool) this.pool.get()).getEventLoop().schedulePeriodicallyDirect(runnable, j, j2, timeUnit);
         }
-
-        @Override // io.reactivex.Scheduler.Worker
-        @NonNull
-        public Disposable schedule(@NonNull Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable)) == null) {
-                if (this.disposed) {
-                    return EmptyDisposable.INSTANCE;
-                }
-                return this.poolWorker.scheduleActual(runnable, 0L, TimeUnit.MILLISECONDS, this.serial);
-            }
-            return (Disposable) invokeL.objValue;
-        }
-
-        @Override // io.reactivex.Scheduler.Worker
-        @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
-                if (this.disposed) {
-                    return EmptyDisposable.INSTANCE;
-                }
-                return this.poolWorker.scheduleActual(runnable, j, timeUnit, this.timed);
-            }
-            return (Disposable) invokeCommon.objValue;
-        }
+        return (Disposable) invokeCommon.objValue;
     }
 }

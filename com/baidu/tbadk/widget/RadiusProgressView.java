@@ -11,12 +11,11 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ol8;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.vl8;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +64,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = ol8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = vl8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -81,17 +80,98 @@ public class RadiusProgressView extends View {
         a(context, null);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RadiusProgressView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new Paint(1);
+        this.b = 90;
+        this.c = 50;
+        this.d = 100;
+        this.e = Color.parseColor("#FFFFFFFF");
+        this.f = Color.parseColor("#FFFFFFFF");
+        this.g = vl8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.h = SkinManager.getColor(R.color.CAM_X0336);
+        this.i = new RectF();
+        this.j = new RectF();
+        this.k = new PointF();
+        this.l = new PointF();
+        this.m = new int[]{this.g, this.h};
+        this.n = new float[]{0.0f, 1.0f};
+        PointF pointF = this.k;
+        float f = pointF.x;
+        float f2 = pointF.y;
+        PointF pointF2 = this.l;
+        this.o = new LinearGradient(f, f2, pointF2.x, pointF2.y, this.m, this.n, Shader.TileMode.CLAMP);
+        a(context, attributeSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RadiusProgressView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new Paint(1);
+        this.b = 90;
+        this.c = 50;
+        this.d = 100;
+        this.e = Color.parseColor("#FFFFFFFF");
+        this.f = Color.parseColor("#FFFFFFFF");
+        this.g = vl8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.h = SkinManager.getColor(R.color.CAM_X0336);
+        this.i = new RectF();
+        this.j = new RectF();
+        this.k = new PointF();
+        this.l = new PointF();
+        this.m = new int[]{this.g, this.h};
+        this.n = new float[]{0.0f, 1.0f};
+        PointF pointF = this.k;
+        float f = pointF.x;
+        float f2 = pointF.y;
+        PointF pointF2 = this.l;
+        this.o = new LinearGradient(f, f2, pointF2.x, pointF2.y, this.m, this.n, Shader.TileMode.CLAMP);
+        a(context, attributeSet);
+    }
+
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) || attributeSet == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) && attributeSet != null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.RadiusProgressView);
+            this.b = obtainStyledAttributes.getDimensionPixelSize(2, this.b);
+            this.c = obtainStyledAttributes.getInt(1, this.c);
+            this.e = obtainStyledAttributes.getColor(4, this.e);
+            this.f = obtainStyledAttributes.getColor(3, this.f);
+            obtainStyledAttributes.recycle();
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.RadiusProgressView);
-        this.b = obtainStyledAttributes.getDimensionPixelSize(2, this.b);
-        this.c = obtainStyledAttributes.getInt(1, this.c);
-        this.e = obtainStyledAttributes.getColor(4, this.e);
-        this.f = obtainStyledAttributes.getColor(3, this.f);
-        obtainStyledAttributes.recycle();
     }
 
     @Override // android.view.View
@@ -107,7 +187,7 @@ public class RadiusProgressView extends View {
             int i = this.b;
             canvas.drawRoundRect(rectF, i, i, this.a);
             canvas.restore();
-            this.g = ol8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+            this.g = vl8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
             this.h = SkinManager.getColor(R.color.CAM_X0336);
             this.f = SkinManager.getColor(R.color.CAM_X0336);
             PointF pointF = this.k;
@@ -177,87 +257,5 @@ public class RadiusProgressView extends View {
             this.e = i;
             invalidate();
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RadiusProgressView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new Paint(1);
-        this.b = 90;
-        this.c = 50;
-        this.d = 100;
-        this.e = Color.parseColor("#FFFFFFFF");
-        this.f = Color.parseColor("#FFFFFFFF");
-        this.g = ol8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
-        this.h = SkinManager.getColor(R.color.CAM_X0336);
-        this.i = new RectF();
-        this.j = new RectF();
-        this.k = new PointF();
-        this.l = new PointF();
-        this.m = new int[]{this.g, this.h};
-        this.n = new float[]{0.0f, 1.0f};
-        PointF pointF = this.k;
-        float f = pointF.x;
-        float f2 = pointF.y;
-        PointF pointF2 = this.l;
-        this.o = new LinearGradient(f, f2, pointF2.x, pointF2.y, this.m, this.n, Shader.TileMode.CLAMP);
-        a(context, attributeSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RadiusProgressView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new Paint(1);
-        this.b = 90;
-        this.c = 50;
-        this.d = 100;
-        this.e = Color.parseColor("#FFFFFFFF");
-        this.f = Color.parseColor("#FFFFFFFF");
-        this.g = ol8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
-        this.h = SkinManager.getColor(R.color.CAM_X0336);
-        this.i = new RectF();
-        this.j = new RectF();
-        this.k = new PointF();
-        this.l = new PointF();
-        this.m = new int[]{this.g, this.h};
-        this.n = new float[]{0.0f, 1.0f};
-        PointF pointF = this.k;
-        float f = pointF.x;
-        float f2 = pointF.y;
-        PointF pointF2 = this.l;
-        this.o = new LinearGradient(f, f2, pointF2.x, pointF2.y, this.m, this.n, Shader.TileMode.CLAMP);
-        a(context, attributeSet);
     }
 }

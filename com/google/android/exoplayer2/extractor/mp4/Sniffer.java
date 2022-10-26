@@ -70,7 +70,19 @@ public final class Sniffer {
     public static boolean sniffFragmented(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, extractorInput)) == null) ? sniffInternal(extractorInput, true) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, extractorInput)) == null) {
+            return sniffInternal(extractorInput, true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean sniffUnfragmented(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, extractorInput)) == null) {
+            return sniffInternal(extractorInput, false);
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean sniffInternal(ExtractorInput extractorInput, boolean z) throws IOException, InterruptedException {
@@ -112,12 +124,10 @@ public final class Sniffer {
                 }
                 i2 += i3;
                 if (readInt != Atom.TYPE_moov) {
-                    if (readInt == Atom.TYPE_moof || readInt == Atom.TYPE_mvex) {
-                        z2 = true;
-                        break;
-                    } else if ((i2 + readUnsignedInt) - j2 >= i) {
-                        break;
-                    } else {
+                    if (readInt != Atom.TYPE_moof && readInt != Atom.TYPE_mvex) {
+                        if ((i2 + readUnsignedInt) - j2 >= i) {
+                            break;
+                        }
                         int i4 = (int) (readUnsignedInt - j2);
                         i2 += i4;
                         if (readInt == Atom.TYPE_ftyp) {
@@ -147,18 +157,18 @@ public final class Sniffer {
                             extractorInput.advancePeekPosition(i4);
                         }
                         j = -1;
+                    } else {
+                        z2 = true;
+                        break;
                     }
                 }
             }
             z2 = false;
-            return z3 && z == z2;
+            if (!z3 || z != z2) {
+                return false;
+            }
+            return true;
         }
         return invokeLZ.booleanValue;
-    }
-
-    public static boolean sniffUnfragmented(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, extractorInput)) == null) ? sniffInternal(extractorInput, false) : invokeL.booleanValue;
     }
 }

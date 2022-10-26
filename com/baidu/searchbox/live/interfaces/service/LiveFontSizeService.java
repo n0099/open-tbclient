@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mobstat.Config;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.crius.constants.NativeConstants;
@@ -22,9 +23,23 @@ import kotlin.Metadata;
 public interface LiveFontSizeService {
     public static final Companion Companion = Companion.$$INSTANCE;
 
+    int getFontSizeType();
+
+    Bitmap getScaledBitmap(Bitmap bitmap, int i, int i2);
+
+    Drawable getScaledDrawable(Drawable drawable, int i, int i2);
+
+    int getScaledSize(float f, int i, int i2);
+
+    void setScaledSize(View view2, float f, float f2, int i, int i2);
+
+    void setScaledSize(TextView textView, int i, float f, int i2, int i3);
+
+    void setScaledWidth(View view2, float f, int i, int i2);
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$Companion;", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE;
         public static /* synthetic */ Interceptable $ic;
         public static final ServiceReference SERVICE_REFERENCE;
@@ -64,111 +79,16 @@ public interface LiveFontSizeService {
         public final ServiceReference getSERVICE_REFERENCE() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SERVICE_REFERENCE : (ServiceReference) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return SERVICE_REFERENCE;
+            }
+            return (ServiceReference) invokeV.objValue;
         }
     }
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\b\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$FontSizeRoundPolicy;", "", "NUM_ROUND_POLICY_CEILING", "I", "NUM_ROUND_POLICY_DEFAULT", "NUM_ROUND_POLICY_FLOOR", "NUM_ROUND_POLICY_NEAREST", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public static final class FontSizeRoundPolicy {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final FontSizeRoundPolicy INSTANCE;
-        public static final int NUM_ROUND_POLICY_CEILING = 0;
-        public static final int NUM_ROUND_POLICY_DEFAULT = 2;
-        public static final int NUM_ROUND_POLICY_FLOOR = 1;
-        public static final int NUM_ROUND_POLICY_NEAREST = 2;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-467684004, "Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$FontSizeRoundPolicy;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-467684004, "Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$FontSizeRoundPolicy;");
-                    return;
-                }
-            }
-            INSTANCE = new FontSizeRoundPolicy();
-        }
-
-        public FontSizeRoundPolicy() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\b\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$SizeType;", "", "CONTENT", "I", "FRAMEWORK", "H", "T", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public static final class SizeType {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int CONTENT = 1;
-        public static final int FRAMEWORK = 0;
-        public static final int H = 2;
-        public static final SizeType INSTANCE;
-        public static final int T = 3;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2001485585, "Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$SizeType;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2001485585, "Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$SizeType;");
-                    return;
-                }
-            }
-            INSTANCE = new SizeType();
-        }
-
-        public SizeType() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    int getFontSizeType();
-
-    Bitmap getScaledBitmap(Bitmap bitmap, int i, int i2);
-
-    Drawable getScaledDrawable(Drawable drawable, int i, int i2);
-
-    int getScaledSize(float f, int i, int i2);
-
-    void setScaledSize(View view2, float f, float f2, int i, int i2);
-
-    void setScaledSize(TextView textView, int i, float f, int i2, int i3);
-
-    void setScaledWidth(View view2, float f, int i, int i2);
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class DefaultImpls {
+    public final class DefaultImpls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -211,9 +131,41 @@ public interface LiveFontSizeService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getScaledSize");
         }
 
-        public static /* synthetic */ void setScaledSize$default(LiveFontSizeService liveFontSizeService, TextView textView, int i, float f, int i2, int i3, int i4, Object obj) {
+        public static /* synthetic */ void setScaledSize$default(LiveFontSizeService liveFontSizeService, View view2, float f, float f2, int i, int i2, int i3, Object obj) {
+            int i4;
+            int i5;
             if (obj == null) {
-                liveFontSizeService.setScaledSize(textView, i, f, (i4 & 8) != 0 ? 0 : i2, (i4 & 16) != 0 ? 2 : i3);
+                if ((i3 & 8) != 0) {
+                    i4 = 0;
+                } else {
+                    i4 = i;
+                }
+                if ((i3 & 16) != 0) {
+                    i5 = 2;
+                } else {
+                    i5 = i2;
+                }
+                liveFontSizeService.setScaledSize(view2, f, f2, i4, i5);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: setScaledSize");
+        }
+
+        public static /* synthetic */ void setScaledSize$default(LiveFontSizeService liveFontSizeService, TextView textView, int i, float f, int i2, int i3, int i4, Object obj) {
+            int i5;
+            int i6;
+            if (obj == null) {
+                if ((i4 & 8) != 0) {
+                    i5 = 0;
+                } else {
+                    i5 = i2;
+                }
+                if ((i4 & 16) != 0) {
+                    i6 = 2;
+                } else {
+                    i6 = i3;
+                }
+                liveFontSizeService.setScaledSize(textView, i, f, i5, i6);
                 return;
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: setScaledSize");
@@ -232,13 +184,89 @@ public interface LiveFontSizeService {
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: setScaledWidth");
         }
+    }
 
-        public static /* synthetic */ void setScaledSize$default(LiveFontSizeService liveFontSizeService, View view2, float f, float f2, int i, int i2, int i3, Object obj) {
-            if (obj == null) {
-                liveFontSizeService.setScaledSize(view2, f, f2, (i3 & 8) != 0 ? 0 : i, (i3 & 16) != 0 ? 2 : i2);
-                return;
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\b\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$FontSizeRoundPolicy;", "", "NUM_ROUND_POLICY_CEILING", "I", "NUM_ROUND_POLICY_DEFAULT", "NUM_ROUND_POLICY_FLOOR", "NUM_ROUND_POLICY_NEAREST", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final class FontSizeRoundPolicy {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final FontSizeRoundPolicy INSTANCE;
+        public static final int NUM_ROUND_POLICY_CEILING = 0;
+        public static final int NUM_ROUND_POLICY_DEFAULT = 2;
+        public static final int NUM_ROUND_POLICY_FLOOR = 1;
+        public static final int NUM_ROUND_POLICY_NEAREST = 2;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-467684004, "Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$FontSizeRoundPolicy;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-467684004, "Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$FontSizeRoundPolicy;");
+                    return;
+                }
             }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: setScaledSize");
+            INSTANCE = new FontSizeRoundPolicy();
+        }
+
+        public FontSizeRoundPolicy() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\b\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$SizeType;", "", "CONTENT", "I", "FRAMEWORK", "H", ExifInterface.GPS_DIRECTION_TRUE, "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final class SizeType {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int CONTENT = 1;
+        public static final int FRAMEWORK = 0;
+        public static final int H = 2;
+        public static final SizeType INSTANCE;
+        public static final int T = 3;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2001485585, "Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$SizeType;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-2001485585, "Lcom/baidu/searchbox/live/interfaces/service/LiveFontSizeService$SizeType;");
+                    return;
+                }
+            }
+            INSTANCE = new SizeType();
+        }
+
+        public SizeType() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
         }
     }
 }

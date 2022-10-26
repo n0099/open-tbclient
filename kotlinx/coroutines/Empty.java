@@ -6,13 +6,13 @@ import kotlin.Metadata;
 public final class Empty implements Incomplete {
     public final boolean isActive;
 
-    public Empty(boolean z) {
-        this.isActive = z;
-    }
-
     @Override // kotlinx.coroutines.Incomplete
     public NodeList getList() {
         return null;
+    }
+
+    public Empty(boolean z) {
+        this.isActive = z;
     }
 
     @Override // kotlinx.coroutines.Incomplete
@@ -21,9 +21,15 @@ public final class Empty implements Incomplete {
     }
 
     public String toString() {
+        String str;
         StringBuilder sb = new StringBuilder();
         sb.append("Empty{");
-        sb.append(isActive() ? "Active" : "New");
+        if (isActive()) {
+            str = "Active";
+        } else {
+            str = "New";
+        }
+        sb.append(str);
         sb.append('}');
         return sb.toString();
     }

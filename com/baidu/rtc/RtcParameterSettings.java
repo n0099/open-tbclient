@@ -52,7 +52,7 @@ public class RtcParameterSettings {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class RtcAudioBitrateMode {
+    public final class RtcAudioBitrateMode {
         public static final /* synthetic */ RtcAudioBitrateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcAudioBitrateMode RTC_AUDIO_BITRATE_CBR;
@@ -100,19 +100,25 @@ public class RtcParameterSettings {
         public static RtcAudioBitrateMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcAudioBitrateMode) Enum.valueOf(RtcAudioBitrateMode.class, str) : (RtcAudioBitrateMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RtcAudioBitrateMode) Enum.valueOf(RtcAudioBitrateMode.class, str);
+            }
+            return (RtcAudioBitrateMode) invokeL.objValue;
         }
 
         public static RtcAudioBitrateMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcAudioBitrateMode[]) $VALUES.clone() : (RtcAudioBitrateMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RtcAudioBitrateMode[]) $VALUES.clone();
+            }
+            return (RtcAudioBitrateMode[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class RtcAudioChannel {
+    public final class RtcAudioChannel {
         public static final /* synthetic */ RtcAudioChannel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcAudioChannel RTC_AUDIO_MONNO;
@@ -160,19 +166,25 @@ public class RtcParameterSettings {
         public static RtcAudioChannel valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcAudioChannel) Enum.valueOf(RtcAudioChannel.class, str) : (RtcAudioChannel) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RtcAudioChannel) Enum.valueOf(RtcAudioChannel.class, str);
+            }
+            return (RtcAudioChannel) invokeL.objValue;
         }
 
         public static RtcAudioChannel[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcAudioChannel[]) $VALUES.clone() : (RtcAudioChannel[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RtcAudioChannel[]) $VALUES.clone();
+            }
+            return (RtcAudioChannel[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class RtcParamSettingType {
+    public final class RtcParamSettingType {
         public static final /* synthetic */ RtcParamSettingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcParamSettingType RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP;
@@ -248,19 +260,25 @@ public class RtcParameterSettings {
         public static RtcParamSettingType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcParamSettingType) Enum.valueOf(RtcParamSettingType.class, str) : (RtcParamSettingType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RtcParamSettingType) Enum.valueOf(RtcParamSettingType.class, str);
+            }
+            return (RtcParamSettingType) invokeL.objValue;
         }
 
         public static RtcParamSettingType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcParamSettingType[]) $VALUES.clone() : (RtcParamSettingType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RtcParamSettingType[]) $VALUES.clone();
+            }
+            return (RtcParamSettingType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class RtcVideoBitrateMode {
+    public final class RtcVideoBitrateMode {
         public static final /* synthetic */ RtcVideoBitrateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcVideoBitrateMode RTC_VIDEO_CONTROLRATECONSTANT;
@@ -310,19 +328,25 @@ public class RtcParameterSettings {
         public static RtcVideoBitrateMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcVideoBitrateMode) Enum.valueOf(RtcVideoBitrateMode.class, str) : (RtcVideoBitrateMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RtcVideoBitrateMode) Enum.valueOf(RtcVideoBitrateMode.class, str);
+            }
+            return (RtcVideoBitrateMode) invokeL.objValue;
         }
 
         public static RtcVideoBitrateMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcVideoBitrateMode[]) $VALUES.clone() : (RtcVideoBitrateMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RtcVideoBitrateMode[]) $VALUES.clone();
+            }
+            return (RtcVideoBitrateMode[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class RtcVideoRenderMode {
+    public final class RtcVideoRenderMode {
         public static final /* synthetic */ RtcVideoRenderMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcVideoRenderMode RTC_VIDEO_RENDER_MODE_EXTERNAL;
@@ -370,13 +394,19 @@ public class RtcParameterSettings {
         public static RtcVideoRenderMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RtcVideoRenderMode) Enum.valueOf(RtcVideoRenderMode.class, str) : (RtcVideoRenderMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RtcVideoRenderMode) Enum.valueOf(RtcVideoRenderMode.class, str);
+            }
+            return (RtcVideoRenderMode) invokeL.objValue;
         }
 
         public static RtcVideoRenderMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RtcVideoRenderMode[]) $VALUES.clone() : (RtcVideoRenderMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RtcVideoRenderMode[]) $VALUES.clone();
+            }
+            return (RtcVideoRenderMode[]) invokeV.objValue;
         }
     }
 
@@ -436,6 +466,9 @@ public class RtcParameterSettings {
     public static RtcParameterSettings getDefaultSettings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new RtcParameterSettings() : (RtcParameterSettings) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new RtcParameterSettings();
+        }
+        return (RtcParameterSettings) invokeV.objValue;
     }
 }

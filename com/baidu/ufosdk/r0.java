@@ -37,6 +37,8 @@ public class r0 implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         BitmapDrawable bitmapDrawable;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             FeedbackEditActivity feedbackEditActivity = this.b;
@@ -46,9 +48,19 @@ public class r0 implements View.OnClickListener {
             boolean z = feedbackEditActivity2.O;
             boolean z2 = feedbackEditActivity2.d;
             if (z) {
-                bitmapDrawable = new BitmapDrawable(p1.b(feedbackEditActivity2, z2 ? "ufo_checkbox_checked_night.png" : "ufo_checkbox_checked.png"));
+                if (z2) {
+                    str2 = "ufo_checkbox_checked_night.png";
+                } else {
+                    str2 = "ufo_checkbox_checked.png";
+                }
+                bitmapDrawable = new BitmapDrawable(p1.b(feedbackEditActivity2, str2));
             } else {
-                bitmapDrawable = new BitmapDrawable(p1.b(feedbackEditActivity2, z2 ? "ufo_checkbox_default_night.png" : "ufo_checkbox_default.png"));
+                if (z2) {
+                    str = "ufo_checkbox_default_night.png";
+                } else {
+                    str = "ufo_checkbox_default.png";
+                }
+                bitmapDrawable = new BitmapDrawable(p1.b(feedbackEditActivity2, str));
             }
             imageView.setBackgroundDrawable(bitmapDrawable);
         }

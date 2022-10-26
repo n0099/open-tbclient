@@ -10,6 +10,16 @@ public class AddMediaInfo extends MediaFileInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tbadk.album.MediaFileInfo
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
     public AddMediaInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,15 +32,5 @@ public class AddMediaInfo extends MediaFileInfo {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tbadk.album.MediaFileInfo
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
     }
 }

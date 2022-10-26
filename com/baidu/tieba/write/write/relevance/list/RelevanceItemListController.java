@@ -3,7 +3,6 @@ package com.baidu.tieba.write.write.relevance.list;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
@@ -19,11 +18,11 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.h69;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
 import com.baidu.tieba.write.write.relevance.list.ReleavanceItemListData;
+import com.baidu.tieba.z69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,21 +31,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdListView.p {
+public class RelevanceItemListController implements BdRecyclerView.i, z69.b, BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View a;
     public final RelevanceItemListFragment b;
-    public final h69 c;
+    public final z69 c;
     public BdRecyclerView d;
     public PbListView e;
-    public List<ReleavanceItemListData.ItemListBean> f;
+    public List f;
     public boolean g;
     public String h;
     public RecyclerView.Adapter i;
 
     /* loaded from: classes6.dex */
-    public static class ListViewHolder extends RecyclerView.ViewHolder {
+    public class ListViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final View a;
@@ -70,18 +69,18 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
                     return;
                 }
             }
-            ItemCardView itemCardView = (ItemCardView) view2.findViewById(R.id.obfuscated_res_0x7f090fc2);
+            ItemCardView itemCardView = (ItemCardView) view2.findViewById(R.id.obfuscated_res_0x7f090fb6);
             this.b = itemCardView;
             itemCardView.setBackGroundColor(R.color.transparent_1);
             this.b.setSizeStyle(1);
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0903e7);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0903ef);
             this.a = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0203);
         }
 
         public void a(ReleavanceItemListData.ItemListBean itemListBean, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, itemListBean, str) == null) || itemListBean == null) {
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, itemListBean, str) != null) || itemListBean == null) {
                 return;
             }
             TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
@@ -102,7 +101,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
     }
 
     /* loaded from: classes6.dex */
-    public class a extends RecyclerView.Adapter<ListViewHolder> {
+    public class a extends RecyclerView.Adapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RelevanceItemListController a;
@@ -138,17 +137,23 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: e */
-        public ListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        public ListViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new ListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0781, (ViewGroup) null)) : (ListViewHolder) invokeLI.objValue;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+                return new ListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0782, (ViewGroup) null));
+            }
+            return (ListViewHolder) invokeLI.objValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f.size() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.f.size();
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -172,15 +177,58 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
         this.i = new a(this);
         this.a = view2;
         this.b = relevanceItemListFragment;
-        this.c = new h69(bdUniqueId, str);
+        this.c = new z69(bdUniqueId, str);
         j();
     }
 
-    @Override // com.baidu.tieba.h69.b
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f.clear();
+            this.g = true;
+            this.h = str;
+            this.i.notifyDataSetChanged();
+            this.c.g(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.z69.b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.v1();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.h();
+        }
+    }
+
+    public BdRecyclerView i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (BdRecyclerView) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.c.j();
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView.p
+    public void onScrollToBottom() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.g) {
+            this.c.h();
+            l();
         }
     }
 
@@ -197,43 +245,42 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
         int i2;
         double parseDouble;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) || ListUtils.isEmpty(this.f)) {
-            return;
-        }
-        ReleavanceItemListData.ItemListBean itemListBean = this.f.get(i);
-        double d4 = 0.0d;
-        try {
-            parseDouble = Double.parseDouble(itemListBean.getScore());
-        } catch (NumberFormatException e) {
-            e = e;
-            d = 0.0d;
-        }
-        try {
-            d4 = Double.parseDouble(itemListBean.getIcon_size());
-            i2 = Integer.parseInt(itemListBean.getStar());
-            d3 = d4;
-            d2 = parseDouble;
-        } catch (NumberFormatException e2) {
-            e = e2;
-            double d5 = d4;
-            d4 = parseDouble;
-            d = d5;
-            e.printStackTrace();
-            d2 = d4;
-            d3 = d;
-            i2 = 0;
-            if (this.b.r1(dh.g(itemListBean.getItem_id(), 0L))) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && !ListUtils.isEmpty(this.f)) {
+            ReleavanceItemListData.ItemListBean itemListBean = (ReleavanceItemListData.ItemListBean) this.f.get(i);
+            double d4 = 0.0d;
+            try {
+                parseDouble = Double.parseDouble(itemListBean.getScore());
+            } catch (NumberFormatException e) {
+                e = e;
+                d = 0.0d;
             }
+            try {
+                d4 = Double.parseDouble(itemListBean.getIcon_size());
+                i2 = Integer.parseInt(itemListBean.getStar());
+                d3 = d4;
+                d2 = parseDouble;
+            } catch (NumberFormatException e2) {
+                e = e2;
+                double d5 = d4;
+                d4 = parseDouble;
+                d = d5;
+                e.printStackTrace();
+                d2 = d4;
+                d3 = d;
+                i2 = 0;
+                if (this.b.r1(eh.g(itemListBean.getItem_id(), 0L))) {
+                }
+            }
+            if (this.b.r1(eh.g(itemListBean.getItem_id(), 0L))) {
+                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d2, d3, i2, itemListBean.getTags()));
+                this.b.getActivity().finish();
+                return;
+            }
+            fj.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f160d);
         }
-        if (this.b.r1(dh.g(itemListBean.getItem_id(), 0L))) {
-            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d2, d3, i2, itemListBean.getTags()));
-            this.b.getActivity().finish();
-            return;
-        }
-        ej.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f15f3);
     }
 
-    @Override // com.baidu.tieba.h69.b
+    @Override // com.baidu.tieba.z69.b
     public void c(RelevanceItemSearchData relevanceItemSearchData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, relevanceItemSearchData) == null) {
@@ -248,46 +295,32 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
         }
     }
 
-    @Override // com.baidu.tieba.h69.b
+    @Override // com.baidu.tieba.z69.b
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.g = false;
             this.d.setNextPage(this.e);
-            this.e.D(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a01));
+            this.e.D(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a0e));
             this.e.f();
-            this.e.M(ej.f(this.d.getContext(), R.dimen.tbds44));
+            this.e.M(fj.f(this.d.getContext(), R.dimen.tbds44));
         }
     }
 
-    public void g(String str) {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f.clear();
-            this.g = true;
-            this.h = str;
-            this.i.notifyDataSetChanged();
-            this.c.g(str);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e.K();
+            this.e.R();
+            this.e.D(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f0a0d));
+            this.e.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.h();
-        }
-    }
-
-    public BdRecyclerView i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (BdRecyclerView) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090fb4);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090fa8);
             this.d = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new XLinearLayoutManager(this.a.getContext()));
             this.d.setAdapter(this.i);
@@ -306,24 +339,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
         }
     }
 
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c.j();
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.e.K();
-            this.e.R();
-            this.e.D(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f0a00));
-            this.e.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        }
-    }
-
-    @Override // com.baidu.tieba.h69.b
+    @Override // com.baidu.tieba.z69.b
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
@@ -331,15 +347,6 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
             this.i.notifyDataSetChanged();
             this.d.setVisibility(8);
             this.b.u1(str);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdListView.p
-    public void onScrollToBottom() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.g) {
-            this.c.h();
-            l();
         }
     }
 }

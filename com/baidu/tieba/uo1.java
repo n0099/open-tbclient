@@ -1,38 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public interface uo1 {
+    String a();
 
-    /* loaded from: classes6.dex */
-    public static class a implements uo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void b(String str, Set set, SubscribeHelper.i iVar);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void c(String str, gg2 gg2Var);
 
-        @Override // com.baidu.tieba.uo1
-        public void a(i43 i43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, i43Var) == null) {
-            }
-        }
-    }
+    void d(String str, List list, String str2, boolean z, gg2 gg2Var);
 
-    void a(i43 i43Var);
+    void e(String str, iw2 iw2Var);
 }

@@ -16,11 +16,11 @@ public class SchemeActionManager {
     public static /* synthetic */ Interceptable $ic;
     public static SchemeActionManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, SchemeActionHandler> mHandlers;
+    public final ConcurrentHashMap mHandlers;
 
     /* loaded from: classes3.dex */
     public interface SchemeActionHandler {
-        void deal(TbPageContext<?> tbPageContext, UriBuilder uriBuilder, Bundle bundle);
+        void deal(TbPageContext tbPageContext, UriBuilder uriBuilder, Bundle bundle);
     }
 
     public SchemeActionManager() {
@@ -36,7 +36,7 @@ public class SchemeActionManager {
                 return;
             }
         }
-        this.mHandlers = new ConcurrentHashMap<>();
+        this.mHandlers = new ConcurrentHashMap();
     }
 
     public static SchemeActionManager getInstance() {
@@ -55,29 +55,23 @@ public class SchemeActionManager {
         return (SchemeActionManager) invokeV.objValue;
     }
 
-    public boolean doSchemeAction(TbPageContext<?> tbPageContext, String str) {
+    public boolean doSchemeAction(TbPageContext tbPageContext, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, str)) == null) ? doSchemeAction(tbPageContext, str, null) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, str)) == null) {
+            return doSchemeAction(tbPageContext, str, null);
+        }
+        return invokeLL.booleanValue;
     }
 
     public void registerSchemeAction(String str, SchemeActionHandler schemeActionHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, schemeActionHandler) == null) || StringUtils.isNull(str) || schemeActionHandler == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, schemeActionHandler) == null) && !StringUtils.isNull(str) && schemeActionHandler != null) {
+            this.mHandlers.put(str, schemeActionHandler);
         }
-        this.mHandlers.put(str, schemeActionHandler);
     }
 
-    public void unRegisterSchemeAction(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        this.mHandlers.remove(str);
-    }
-
-    public boolean doSchemeAction(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
+    public boolean doSchemeAction(TbPageContext tbPageContext, String str, Bundle bundle) {
         InterceptResult invokeLLL;
         SchemeActionHandler schemeActionHandler;
         Interceptable interceptable = $ic;
@@ -85,7 +79,7 @@ public class SchemeActionManager {
             SchemeActionHelper.printLog("doSchemeAction -->" + str);
             if (str != null && str.length() != 0) {
                 String parserSchemeAction = SchemeActionHelper.parserSchemeAction(str);
-                if (!TextUtils.isEmpty(parserSchemeAction) && (schemeActionHandler = this.mHandlers.get(parserSchemeAction)) != null) {
+                if (!TextUtils.isEmpty(parserSchemeAction) && (schemeActionHandler = (SchemeActionHandler) this.mHandlers.get(parserSchemeAction)) != null) {
                     schemeActionHandler.deal(tbPageContext, new UriBuilder(str), bundle);
                     return true;
                 }
@@ -93,5 +87,13 @@ public class SchemeActionManager {
             return false;
         }
         return invokeLLL.booleanValue;
+    }
+
+    public void unRegisterSchemeAction(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        this.mHandlers.remove(str);
     }
 }

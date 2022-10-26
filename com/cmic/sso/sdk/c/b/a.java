@@ -37,6 +37,12 @@ public abstract class a extends g {
     public String v;
     public String w;
 
+    public final String t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    }
+
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +85,10 @@ public abstract class a extends g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void a_(String str) {
@@ -213,11 +222,5 @@ public abstract class a extends g {
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.w = str;
         }
-    }
-
-    public final String t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
     }
 }

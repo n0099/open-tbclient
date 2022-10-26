@@ -6,7 +6,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.InvokeSchemeInfo;
@@ -74,14 +73,119 @@ public final class UnitedSchemeUtility {
         }
     }
 
+    public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, callbackHandler, unitedSchemeEntity, i)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i);
+            if (unitedSchemeEntity == null) {
+                return wrapCallbackParams;
+            }
+            return callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
+        }
+        return (JSONObject) invokeLLI.objValue;
+    }
+
+    public static JSONObject wrapCallbackParams(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65562, null, jSONObject, i, str)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i, str);
+            if (jSONObject != null) {
+                try {
+                    wrapCallbackParams.put("data", jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return wrapCallbackParams;
+        }
+        return (JSONObject) invokeLIL.objValue;
+    }
+
+    public static JSONObject wrapCallbackParamsWithEncode(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65566, null, jSONObject, i, str)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i, str);
+            if (jSONObject != null) {
+                try {
+                    wrapCallbackParams.put("data", Uri.encode(jSONObject.toString(), "UTF-8"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return wrapCallbackParams;
+        }
+        return (JSONObject) invokeLIL.objValue;
+    }
+
+    public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, unitedSchemeEntity, jSONObject)) == null) {
+            if (callbackHandler != null && unitedSchemeEntity != null && jSONObject != null) {
+                if (jSONObject.optInt("status") > 0 && ((path = unitedSchemeEntity.getUri().getPath()) == null || path.toLowerCase(Locale.getDefault()).startsWith("/feed/iswebp"))) {
+                    return jSONObject;
+                }
+                String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
+                if (DEBUG) {
+                    Log.d(TAG, unitedSchemeEntity.getUri().toString() + " callCallback " + param + " " + jSONObject.toString());
+                }
+                if ((!TextUtils.isEmpty(param) || (callbackHandler instanceof NullableCallbackHandler)) && !unitedSchemeEntity.isCallbackInvoked()) {
+                    safeCallback(callbackHandler, unitedSchemeEntity, jSONObject.toString(), param);
+                    unitedSchemeEntity.markCallbackInvoked();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
     public static JSONObject callCallback(CallbackHandler callbackHandler, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, callbackHandler, str, i)) == null) {
             JSONObject wrapCallbackParams = wrapCallbackParams(i);
-            return TextUtils.isEmpty(str) ? wrapCallbackParams : callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), wrapCallbackParams);
+            if (TextUtils.isEmpty(str)) {
+                return wrapCallbackParams;
+            }
+            return callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), wrapCallbackParams);
         }
         return (JSONObject) invokeLLI.objValue;
+    }
+
+    public static JSONObject callCallback(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, callbackHandler, str, jSONObject)) == null) {
+            if (callbackHandler != null && !TextUtils.isEmpty(str) && jSONObject != null) {
+                return callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), jSONObject);
+            }
+            if (!DEBUG) {
+                return jSONObject;
+            }
+            throw new IllegalArgumentException("argument can not be null");
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static JSONObject wrapCallbackParamsWithBase64(String str, int i, String str2) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65564, null, str, i, str2)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i, str2);
+            if (str != null) {
+                try {
+                    wrapCallbackParams.put("data", Base64.encodeToString(str.getBytes("UTF-8"), 2));
+                } catch (UnsupportedEncodingException | JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return wrapCallbackParams;
+        }
+        return (JSONObject) invokeLIL.objValue;
     }
 
     public static String getAction(Uri uri) {
@@ -97,42 +201,6 @@ public final class UnitedSchemeUtility {
         return (String) invokeL.objValue;
     }
 
-    public static String getErrMessage(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 201) {
-                        if (i != 202) {
-                            if (i != 301) {
-                                if (i != 302) {
-                                    switch (i) {
-                                        case 401:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d2);
-                                        case 402:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14cf);
-                                        case 403:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d0);
-                                        default:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d7);
-                                    }
-                                }
-                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d1);
-                            }
-                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d3);
-                        }
-                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d6);
-                    }
-                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d7);
-                }
-                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d4);
-            }
-            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14d5);
-        }
-        return (String) invokeI.objValue;
-    }
-
     public static String[] getModules(Uri uri) {
         InterceptResult invokeL;
         List<String> pathSegments;
@@ -145,58 +213,14 @@ public final class UnitedSchemeUtility {
                 String[] strArr = (String[]) pathSegments.toArray(new String[0]);
                 return (String[]) Arrays.copyOfRange(strArr, 0, strArr.length - 1);
             } catch (Exception e) {
-                if (DEBUG) {
-                    e.printStackTrace();
+                if (!DEBUG) {
                     return null;
                 }
+                e.printStackTrace();
                 return null;
             }
         }
         return (String[]) invokeL.objValue;
-    }
-
-    public static HashMap<String, String> getParams(String str) {
-        InterceptResult invokeL;
-        String substring;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            updateCurrentLongestScheme(str);
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (TextUtils.isEmpty(str)) {
-                return hashMap;
-            }
-            int indexOf = str.indexOf("?");
-            int indexOf2 = str.indexOf("#");
-            if (indexOf < 0) {
-                return hashMap;
-            }
-            if (indexOf2 >= 0) {
-                int i = indexOf + 1;
-                if (indexOf2 > i) {
-                    substring = str.substring(i, indexOf2);
-                }
-                return hashMap;
-            }
-            substring = str.substring(indexOf + 1);
-            String[] split = substring.split("&");
-            if (split == null) {
-                return hashMap;
-            }
-            for (String str2 : split) {
-                int indexOf3 = str2.indexOf("=");
-                if (indexOf3 > 0) {
-                    try {
-                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
-                    } catch (Exception e) {
-                        if (DEBUG) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
     }
 
     public static String[] getPaths(Uri uri) {
@@ -232,34 +256,6 @@ public final class UnitedSchemeUtility {
         return (String) invokeL.objValue;
     }
 
-    public static int getVersion(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, uri)) == null) {
-            if (uri == null) {
-                return -1;
-            }
-            String host = uri.getHost();
-            if (TextUtils.isEmpty(host)) {
-                return -1;
-            }
-            String lowerCase = host.toLowerCase(Locale.getDefault());
-            if (lowerCase.startsWith("v")) {
-                try {
-                    return Integer.parseInt(lowerCase.substring(1));
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    if (UnitedSchemeConstants.DEBUG) {
-                        throw e;
-                    }
-                    return -1;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
     public static boolean hasVersion(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -268,7 +264,10 @@ public final class UnitedSchemeUtility {
                 return false;
             }
             String host = uri.getHost();
-            return !TextUtils.isEmpty(host) && host.startsWith("v") && isContainNumber(host);
+            if (TextUtils.isEmpty(host) || !host.startsWith("v") || !isContainNumber(host)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -279,7 +278,10 @@ public final class UnitedSchemeUtility {
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
             try {
                 Pattern compile = Pattern.compile("[0-9]");
-                return compile != null && compile.matcher(str).find();
+                if (compile == null || !compile.matcher(str).find()) {
+                    return false;
+                }
+                return true;
             } catch (PatternSyntaxException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -290,25 +292,6 @@ public final class UnitedSchemeUtility {
         return invokeL.booleanValue;
     }
 
-    public static boolean isInvokedFromSwanGame(CallbackHandler callbackHandler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, callbackHandler)) == null) ? (callbackHandler instanceof TypedCallbackHandler) && ((TypedCallbackHandler) callbackHandler).getInvokeSourceType() == 1 : invokeL.booleanValue;
-    }
-
-    public static boolean isUnitedScheme(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return isUnitedScheme(Uri.parse(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
     public static JSONObject optParamsAsJo(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -330,6 +313,180 @@ public final class UnitedSchemeUtility {
             }
         }
         return (JSONObject) invokeL.objValue;
+    }
+
+    public static void updateCurrentLongestScheme(String str) {
+        InvokeSchemeInfo invokeSchemeInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65558, null, str) == null) && str != null && (invokeSchemeInfo = currentLongestScheme) != null) {
+            if (invokeSchemeInfo.schemeUrl == null) {
+                invokeSchemeInfo.schemeUrl = "";
+            }
+            if (str.length() > currentLongestScheme.schemeUrl.length()) {
+                InvokeSchemeInfo invokeSchemeInfo2 = currentLongestScheme;
+                invokeSchemeInfo2.schemeUrl = str;
+                invokeSchemeInfo2.invokeTime = System.currentTimeMillis();
+            }
+        }
+    }
+
+    public static String getErrMessage(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 202) {
+                            if (i != 301) {
+                                if (i != 302) {
+                                    switch (i) {
+                                        case 401:
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14eb);
+                                        case 402:
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14e8);
+                                        case 403:
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14e9);
+                                        default:
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14f0);
+                                    }
+                                }
+                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ea);
+                            }
+                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ec);
+                        }
+                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ef);
+                    }
+                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14f0);
+                }
+                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ed);
+            }
+            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ee);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static HashMap getParams(String str) {
+        InterceptResult invokeL;
+        String substring;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            updateCurrentLongestScheme(str);
+            HashMap hashMap = new HashMap();
+            if (TextUtils.isEmpty(str)) {
+                return hashMap;
+            }
+            int indexOf = str.indexOf("?");
+            int indexOf2 = str.indexOf("#");
+            if (indexOf < 0) {
+                return hashMap;
+            }
+            if (indexOf2 < 0) {
+                substring = str.substring(indexOf + 1);
+            } else {
+                int i = indexOf + 1;
+                if (indexOf2 > i) {
+                    substring = str.substring(i, indexOf2);
+                }
+                return hashMap;
+            }
+            String[] split = substring.split("&");
+            if (split == null) {
+                return hashMap;
+            }
+            for (String str2 : split) {
+                int indexOf3 = str2.indexOf("=");
+                if (indexOf3 > 0) {
+                    try {
+                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
+                    } catch (Exception e) {
+                        if (DEBUG) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static int getVersion(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, uri)) == null) {
+            if (uri == null) {
+                return -1;
+            }
+            String host = uri.getHost();
+            if (TextUtils.isEmpty(host)) {
+                return -1;
+            }
+            String lowerCase = host.toLowerCase(Locale.getDefault());
+            if (!lowerCase.startsWith("v")) {
+                return -1;
+            }
+            try {
+                return Integer.parseInt(lowerCase.substring(1));
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                if (!UnitedSchemeConstants.DEBUG) {
+                    return -1;
+                }
+                throw e;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean isInvokedFromSwanGame(CallbackHandler callbackHandler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, callbackHandler)) == null) {
+            if (!(callbackHandler instanceof TypedCallbackHandler) || ((TypedCallbackHandler) callbackHandler).getInvokeSourceType() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isUnitedScheme(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            if (!TextUtils.equals(UnitedSchemeConstants.UNITED_SCHEME, scheme) || TextUtils.isEmpty(host)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static JSONObject wrapCallbackParams(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i)) == null) {
+            return wrapCallbackParams((JSONObject) null, i);
+        }
+        return (JSONObject) invokeI.objValue;
+    }
+
+    public static boolean isUnitedScheme(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return isUnitedScheme(Uri.parse(str));
+        }
+        return invokeL.booleanValue;
     }
 
     public static void safeCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2) {
@@ -388,131 +545,19 @@ public final class UnitedSchemeUtility {
             if (DEBUG) {
                 Log.i(TAG, "safeCallback callback:" + str2);
             }
-            if ((callbackHandler instanceof NullableCallbackHandler) || !(callbackHandler == null || TextUtils.isEmpty(str2))) {
-                if (unitedSchemeEntity != null) {
-                    if (!TextUtils.equals(getSameOriginUri(unitedSchemeEntity.getReferUrl()), getSameOriginUri(callbackHandler.getCurrentPageUrl()))) {
-                        return;
-                    }
-                }
-                if (DEBUG) {
-                    Log.i(TAG, "safeCallback check success");
-                }
-                callbackHandler.handleSchemeDispatchCallback(str2, str);
+            if (!(callbackHandler instanceof NullableCallbackHandler) && (callbackHandler == null || TextUtils.isEmpty(str2))) {
+                return;
             }
-        }
-    }
-
-    public static void updateCurrentLongestScheme(String str) {
-        InvokeSchemeInfo invokeSchemeInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65558, null, str) == null) || str == null || (invokeSchemeInfo = currentLongestScheme) == null) {
-            return;
-        }
-        if (invokeSchemeInfo.schemeUrl == null) {
-            invokeSchemeInfo.schemeUrl = "";
-        }
-        if (str.length() > currentLongestScheme.schemeUrl.length()) {
-            InvokeSchemeInfo invokeSchemeInfo2 = currentLongestScheme;
-            invokeSchemeInfo2.schemeUrl = str;
-            invokeSchemeInfo2.invokeTime = System.currentTimeMillis();
-        }
-    }
-
-    public static JSONObject wrapCallbackParams(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i)) == null) ? wrapCallbackParams((JSONObject) null, i) : (JSONObject) invokeI.objValue;
-    }
-
-    public static JSONObject wrapCallbackParamsWithBase64(String str, int i, String str2) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65564, null, str, i, str2)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i, str2);
-            if (str != null) {
-                try {
-                    wrapCallbackParams.put("data", Base64.encodeToString(str.getBytes("UTF-8"), 2));
-                } catch (UnsupportedEncodingException | JSONException e) {
-                    e.printStackTrace();
+            if (unitedSchemeEntity != null) {
+                if (!TextUtils.equals(getSameOriginUri(unitedSchemeEntity.getReferUrl()), getSameOriginUri(callbackHandler.getCurrentPageUrl()))) {
+                    return;
                 }
             }
-            return wrapCallbackParams;
-        }
-        return (JSONObject) invokeLIL.objValue;
-    }
-
-    public static JSONObject wrapCallbackParamsWithEncode(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65566, null, jSONObject, i, str)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i, str);
-            if (jSONObject != null) {
-                try {
-                    wrapCallbackParams.put("data", Uri.encode(jSONObject.toString(), "UTF-8"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            if (DEBUG) {
+                Log.i(TAG, "safeCallback check success");
             }
-            return wrapCallbackParams;
+            callbackHandler.handleSchemeDispatchCallback(str2, str);
         }
-        return (JSONObject) invokeLIL.objValue;
-    }
-
-    public static JSONObject wrapCallbackParams(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, jSONObject, i)) == null) ? wrapCallbackParams(jSONObject, i, getErrMessage(i)) : (JSONObject) invokeLI.objValue;
-    }
-
-    public static JSONObject wrapCallbackParams(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65562, null, jSONObject, i, str)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i, str);
-            if (jSONObject != null) {
-                try {
-                    wrapCallbackParams.put("data", jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return wrapCallbackParams;
-        }
-        return (JSONObject) invokeLIL.objValue;
-    }
-
-    public static boolean isUnitedScheme(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            return TextUtils.equals(UnitedSchemeConstants.UNITED_SCHEME, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static JSONObject wrapCallbackParamsWithEncode(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65565, null, jSONObject, i)) == null) ? wrapCallbackParamsWithEncode(jSONObject, i, getErrMessage(i)) : (JSONObject) invokeLI.objValue;
-    }
-
-    public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, callbackHandler, unitedSchemeEntity, i)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i);
-            return unitedSchemeEntity == null ? wrapCallbackParams : callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
-        }
-        return (JSONObject) invokeLLI.objValue;
-    }
-
-    public static JSONObject wrapCallbackParamsWithBase64(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, str, i)) == null) ? wrapCallbackParamsWithBase64(str, i, getErrMessage(i)) : (JSONObject) invokeLI.objValue;
     }
 
     public static JSONObject wrapCallbackParams(int i, String str) {
@@ -531,39 +576,30 @@ public final class UnitedSchemeUtility {
         return (JSONObject) invokeIL.objValue;
     }
 
-    public static JSONObject callCallback(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        InterceptResult invokeLLL;
+    public static JSONObject wrapCallbackParamsWithBase64(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, callbackHandler, str, jSONObject)) == null) {
-            if (callbackHandler != null && !TextUtils.isEmpty(str) && jSONObject != null) {
-                return callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), jSONObject);
-            }
-            if (DEBUG) {
-                throw new IllegalArgumentException("argument can not be null");
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, str, i)) == null) {
+            return wrapCallbackParamsWithBase64(str, i, getErrMessage(i));
         }
-        return (JSONObject) invokeLLL.objValue;
+        return (JSONObject) invokeLI.objValue;
     }
 
-    public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
-        InterceptResult invokeLLL;
-        String path;
+    public static JSONObject wrapCallbackParamsWithEncode(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, unitedSchemeEntity, jSONObject)) == null) {
-            if (callbackHandler == null || unitedSchemeEntity == null || jSONObject == null || (jSONObject.optInt("status") > 0 && ((path = unitedSchemeEntity.getUri().getPath()) == null || path.toLowerCase(Locale.getDefault()).startsWith("/feed/iswebp")))) {
-                return jSONObject;
-            }
-            String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
-            if (DEBUG) {
-                Log.d(TAG, unitedSchemeEntity.getUri().toString() + " callCallback " + param + " " + jSONObject.toString());
-            }
-            if ((!TextUtils.isEmpty(param) || (callbackHandler instanceof NullableCallbackHandler)) && !unitedSchemeEntity.isCallbackInvoked()) {
-                safeCallback(callbackHandler, unitedSchemeEntity, jSONObject.toString(), param);
-                unitedSchemeEntity.markCallbackInvoked();
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65565, null, jSONObject, i)) == null) {
+            return wrapCallbackParamsWithEncode(jSONObject, i, getErrMessage(i));
         }
-        return (JSONObject) invokeLLL.objValue;
+        return (JSONObject) invokeLI.objValue;
+    }
+
+    public static JSONObject wrapCallbackParams(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, jSONObject, i)) == null) {
+            return wrapCallbackParams(jSONObject, i, getErrMessage(i));
+        }
+        return (JSONObject) invokeLI.objValue;
     }
 }

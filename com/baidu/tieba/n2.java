@@ -22,6 +22,28 @@ public class n2 extends k3 {
     public final AssetManager c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n2(AssetManager assetManager, File file, Files.FileType fileType) {
+        super(file, fileType);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {assetManager, file, fileType};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((File) objArr2[0], (Files.FileType) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = assetManager;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n2(AssetManager assetManager, String str, Files.FileType fileType) {
         super(str.replace('\\', WebvttCueParser.CHAR_SLASH), fileType);
         Interceptable interceptable = $ic;
@@ -49,7 +71,10 @@ public class n2 extends k3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
-            return this.a.getPath().length() == 0 ? new n2(this.c, new File(replace), this.b) : new n2(this.c, new File(this.a, replace), this.b);
+            if (this.a.getPath().length() == 0) {
+                return new n2(this.c, new File(replace), this.b);
+            }
+            return new n2(this.c, new File(this.a, replace), this.b);
         }
         return (k3) invokeL.objValue;
     }
@@ -66,7 +91,10 @@ public class n2 extends k3 {
                     return true;
                 } catch (Exception unused) {
                     try {
-                        return this.c.list(path).length > 0;
+                        if (this.c.list(path).length > 0) {
+                            return true;
+                        }
+                        return false;
                     } catch (Exception unused2) {
                         return false;
                     }
@@ -75,13 +103,6 @@ public class n2 extends k3 {
             return super.c();
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.k3
-    public File e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b == Files.FileType.Local ? new File(f1.d.b(), this.a.getPath()) : super.e() : (File) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.k3
@@ -142,6 +163,32 @@ public class n2 extends k3 {
     }
 
     @Override // com.baidu.tieba.k3
+    public File e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == Files.FileType.Local) {
+                return new File(f1.d.b(), this.a.getPath());
+            }
+            return super.e();
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public AssetFileDescriptor u() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AssetManager assetManager = this.c;
+            if (assetManager != null) {
+                return assetManager.openFd(j());
+            }
+            return null;
+        }
+        return (AssetFileDescriptor) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.k3
     public InputStream m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -170,40 +217,5 @@ public class n2 extends k3 {
             throw new GdxRuntimeException("Cannot get the sibling of the root.");
         }
         return (k3) invokeL.objValue;
-    }
-
-    public AssetFileDescriptor u() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            AssetManager assetManager = this.c;
-            if (assetManager != null) {
-                return assetManager.openFd(j());
-            }
-            return null;
-        }
-        return (AssetFileDescriptor) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n2(AssetManager assetManager, File file, Files.FileType fileType) {
-        super(file, fileType);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {assetManager, file, fileType};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((File) objArr2[0], (Files.FileType) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = assetManager;
     }
 }

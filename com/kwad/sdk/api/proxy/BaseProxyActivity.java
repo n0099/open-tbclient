@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Loader;
@@ -34,7 +32,6 @@ public abstract class BaseProxyActivity extends Activity {
         return Wrapper.wrapContextIfNeed(super.createConfigurationContext(configuration));
     }
 
-    @NonNull
     public abstract IActivityProxy getDelegate(Context context);
 
     @Override // android.app.Activity
@@ -49,7 +46,6 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    @NonNull
     public LayoutInflater getLayoutInflater() {
         return Wrapper.wrapInflaterIfNeed(super.getLayoutInflater());
     }
@@ -85,13 +81,13 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(@NonNull Configuration configuration) {
+    public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         this.mDelegate.onConfigurationChanged(configuration);
     }
 
     @Override // android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         this.mDelegate.onPreCreate(bundle);
         try {
             super.onCreate(bundle);
@@ -139,7 +135,7 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onPostCreate(@Nullable Bundle bundle) {
+    public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
         this.mDelegate.onPostCreate(bundle);
     }
@@ -157,7 +153,7 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onRestoreInstanceState(@NonNull Bundle bundle) {
+    public void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         this.mDelegate.onRestoreInstanceState(bundle);
     }
@@ -170,7 +166,7 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onSaveInstanceState(@NonNull Bundle bundle) {
+    public void onSaveInstanceState(Bundle bundle) {
         this.mDelegate.onPreSaveInstanceState(bundle);
         super.onSaveInstanceState(bundle);
         this.mDelegate.onSaveInstanceState(bundle);

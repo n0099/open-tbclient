@@ -34,13 +34,25 @@ public class ContextCompat {
     public static boolean checkPermissionDenied(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) ? checkSelfPermission(context, str) == -1 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (checkSelfPermission(context, str) == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean checkPermissionGranted(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) ? checkSelfPermission(context, str) == 0 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (checkSelfPermission(context, str) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static int checkSelfPermission(Context context, String str) {

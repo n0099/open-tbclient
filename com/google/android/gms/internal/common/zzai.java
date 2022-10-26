@@ -9,12 +9,53 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class zzai<E> extends zzag<E> {
+public final class zzai extends zzag {
     public static /* synthetic */ Interceptable $ic;
-    public static final zzag<Object> zza;
+    public static final zzag zza;
     public transient /* synthetic */ FieldHolder $fh;
     public final transient Object[] zzb;
     public final transient int zzc;
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public final int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzc : invokeV.intValue;
+    }
+
+    @Override // com.google.android.gms.internal.common.zzac
+    public final int zzb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzc : invokeV.intValue;
+    }
+
+    @Override // com.google.android.gms.internal.common.zzac
+    public final int zzc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.gms.internal.common.zzac
+    public final boolean zzf() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.gms.internal.common.zzac
+    public final Object[] zzg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.zzb : (Object[]) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -52,23 +93,16 @@ public final class zzai<E> extends zzag<E> {
     }
 
     @Override // java.util.List
-    public final E get(int i) {
+    public final Object get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             zzs.zza(i, this.zzc, "index");
-            E e = (E) this.zzb[i];
-            e.getClass();
-            return e;
+            Object obj = this.zzb[i];
+            obj.getClass();
+            return obj;
         }
-        return (E) invokeI.objValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public final int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzc : invokeV.intValue;
+        return invokeI.objValue;
     }
 
     @Override // com.google.android.gms.internal.common.zzag, com.google.android.gms.internal.common.zzac
@@ -80,39 +114,5 @@ public final class zzai<E> extends zzag<E> {
             return this.zzc;
         }
         return invokeLI.intValue;
-    }
-
-    @Override // com.google.android.gms.internal.common.zzac
-    public final int zzb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzc : invokeV.intValue;
-    }
-
-    @Override // com.google.android.gms.internal.common.zzac
-    public final int zzc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.google.android.gms.internal.common.zzac
-    public final boolean zzf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.gms.internal.common.zzac
-    public final Object[] zzg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.zzb : (Object[]) invokeV.objValue;
     }
 }

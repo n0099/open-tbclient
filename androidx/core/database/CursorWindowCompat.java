@@ -2,8 +2,6 @@ package androidx.core.database;
 
 import android.database.CursorWindow;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,8 +26,7 @@ public final class CursorWindowCompat {
         }
     }
 
-    @NonNull
-    public static CursorWindow create(@Nullable String str, long j) {
+    public static CursorWindow create(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) {

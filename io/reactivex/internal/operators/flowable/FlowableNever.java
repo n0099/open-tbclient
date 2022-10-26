@@ -11,9 +11,9 @@ import io.reactivex.Flowable;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableNever extends Flowable<Object> {
+public final class FlowableNever extends Flowable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Flowable<Object> INSTANCE;
+    public static final Flowable INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public final class FlowableNever extends Flowable<Object> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super Object> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             subscriber.onSubscribe(EmptySubscription.INSTANCE);

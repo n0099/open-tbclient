@@ -58,6 +58,52 @@ public class SwiperIndicatorView extends View {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SwiperIndicatorView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SwiperIndicatorView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mCount = 0;
+        this.mRadius = 0.0f;
+        this.mCircleMargin = 0;
+        this.mCurrentIndex = 1;
+    }
+
     private int getIndicateSelectedColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,6 +140,19 @@ public class SwiperIndicatorView extends View {
         return invokeV.intValue;
     }
 
+    private boolean isSelectedDrawRectangle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            IndicatorAttrs indicatorAttrs = this.mIndicatorAttrs;
+            if (indicatorAttrs == null || indicatorAttrs.indicatorItemSelectedWidth <= indicatorAttrs.indicatorItemWidth) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
@@ -118,80 +177,69 @@ public class SwiperIndicatorView extends View {
         }
     }
 
-    private boolean isSelectedDrawRectangle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            IndicatorAttrs indicatorAttrs = this.mIndicatorAttrs;
-            return indicatorAttrs != null && indicatorAttrs.indicatorItemSelectedWidth > indicatorAttrs.indicatorItemWidth;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void attachViewPager(ViewPager viewPager) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewPager) == null) || viewPager == null) {
-            return;
-        }
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(this, viewPager) { // from class: com.baidu.searchbox.crius.ui.indicator.SwiperIndicatorView.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SwiperIndicatorView this$0;
-            public final /* synthetic */ ViewPager val$viewPager;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewPager) == null) && viewPager != null) {
+            viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(this, viewPager) { // from class: com.baidu.searchbox.crius.ui.indicator.SwiperIndicatorView.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SwiperIndicatorView this$0;
+                public final /* synthetic */ ViewPager val$viewPager;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, viewPager};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+                public void onPageScrollStateChanged(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                     }
                 }
-                this.this$0 = this;
-                this.val$viewPager = viewPager;
-            }
 
-            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrollStateChanged(int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                }
-            }
-
-            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int i, float f, int i2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-                }
-            }
-
-            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageSelected(int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                    PagerAdapter adapter = this.val$viewPager.getAdapter();
-                    if (i == 0) {
-                        i = adapter.getCount() - 2;
-                    } else if (i == adapter.getCount() - 1) {
-                        i = 1;
+                @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+                public void onPageScrolled(int i, float f, int i2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
                     }
-                    this.this$0.setCurrentIndex(i - 1);
                 }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, viewPager};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$viewPager = viewPager;
+                }
+
+                @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+                public void onPageSelected(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                        PagerAdapter adapter = this.val$viewPager.getAdapter();
+                        if (i == 0) {
+                            i = adapter.getCount() - 2;
+                        } else if (i == adapter.getCount() - 1) {
+                            i = 1;
+                        }
+                        this.this$0.setCurrentIndex(i - 1);
+                    }
+                }
+            });
+            PagerAdapter adapter = viewPager.getAdapter();
+            this.mCount = adapter.getCount() - 2;
+            if (CriusRuntime.DEBUG) {
+                Log.d(TAG, "#attachViewPager#, adapter count: " + adapter.getCount() + ", mCount: " + this.mCount);
             }
-        });
-        PagerAdapter adapter = viewPager.getAdapter();
-        this.mCount = adapter.getCount() - 2;
-        if (CriusRuntime.DEBUG) {
-            Log.d(TAG, "#attachViewPager#, adapter count: " + adapter.getCount() + ", mCount: " + this.mCount);
+            setCurrentIndex(0);
         }
-        setCurrentIndex(0);
     }
 
     @Override // android.view.View
@@ -285,51 +333,5 @@ public class SwiperIndicatorView extends View {
             this.mIndicatorAttrs = criusData.indicatorAttrs;
             init();
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwiperIndicatorView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwiperIndicatorView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mCount = 0;
-        this.mRadius = 0.0f;
-        this.mCircleMargin = 0;
-        this.mCurrentIndex = 1;
     }
 }

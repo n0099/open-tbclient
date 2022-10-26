@@ -1,126 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlinx.coroutines.DebugKt;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fw1 extends bz1 {
+public class fw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
-    public String k;
+
+    public static int b(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public final class a implements Camera.AutoFocusCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        public static String a(String str) {
-            InterceptResult invokeL;
-            char c;
+        public a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-                int hashCode = str.hashCode();
-                if (hashCode == 3551) {
-                    if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_ON)) {
-                        c = 2;
-                    }
-                    c = 65535;
-                } else if (hashCode != 109935) {
-                    if (hashCode == 3005871 && str.equals("auto")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals(DebugKt.DEBUG_PROPERTY_VALUE_OFF)) {
-                        c = 1;
-                    }
-                    c = 65535;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return (c == 0 || c == 1 || c == 2) ? str : "auto";
             }
-            return (String) invokeL.objValue;
+            this.a = str;
         }
-    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw1(String str) {
-        super("camera", "cameraId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // android.hardware.Camera.AutoFocusCallback
+        public void onAutoFocus(boolean z, Camera camera) {
+            Camera.Parameters parameters;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, camera) != null) || camera == null || (parameters = camera.getParameters()) == null) {
                 return;
             }
-        }
-        try {
-            a(new JSONObject(str));
-        } catch (JSONException e) {
-            l02.d("Camera", "parsing CameraAttrModel occurs exception", e);
+            parameters.setFocusMode(this.a);
+            camera.setParameters(parameters);
         }
     }
 
-    @Override // com.baidu.tieba.bz1, com.baidu.tieba.kt2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static Rect a(float f, float f2, float f3, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.a(jSONObject);
-            this.j = jSONObject.optString("devicePosition", "back");
-            this.k = jSONObject.optString("flash", "auto");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
+            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
+            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
+            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
+            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
         }
+        return (Rect) invokeCommon.objValue;
     }
 
-    public String h() {
-        InterceptResult invokeV;
+    public static String c(Camera.Parameters parameters) {
+        InterceptResult invokeL;
+        List<String> supportedFocusModes;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.a(this.k) : (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            rt2 rt2Var = this.h;
-            if (rt2Var == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
+            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
+                if (supportedFocusModes.contains("macro")) {
+                    return "macro";
+                }
+                if (supportedFocusModes.contains("continuous-picture")) {
+                    return "continuous-picture";
+                }
             }
-            return rt2Var.c();
+            return "auto";
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public int j() {
-        InterceptResult invokeV;
+    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            rt2 rt2Var = this.h;
-            if (rt2Var == null) {
-                return 0;
+        if ((interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) && motionEvent != null && camera != null) {
+            Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
+            camera.cancelAutoFocus();
+            Camera.Parameters parameters = camera.getParameters();
+            if (parameters == null) {
+                return;
             }
-            return rt2Var.f();
+            if (parameters.getMaxNumFocusAreas() > 0) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new Camera.Area(a2, 800));
+                parameters.setFocusAreas(arrayList);
+            }
+            String focusMode = parameters.getFocusMode();
+            parameters.setFocusMode(c(parameters));
+            camera.setParameters(parameters);
+            camera.autoFocus(new a(focusMode));
         }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.equals(this.j, "front") : invokeV.booleanValue;
     }
 }

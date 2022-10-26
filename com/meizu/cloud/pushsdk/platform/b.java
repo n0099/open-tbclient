@@ -25,7 +25,7 @@ public class b {
         }
     }
 
-    public static String a(Map<String, String> map, String str) {
+    public static String a(Map map, String str) {
         Set<Map.Entry> entrySet = new TreeMap(map).entrySet();
         StringBuilder sb = new StringBuilder();
         for (Map.Entry entry : entrySet) {

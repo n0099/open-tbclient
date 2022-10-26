@@ -24,6 +24,8 @@ public abstract class Chunk implements Loader.Loadable {
     public final int trackSelectionReason;
     public final int type;
 
+    public abstract long bytesLoaded();
+
     public Chunk(DataSource dataSource, DataSpec dataSpec, int i, Format format, int i2, Object obj, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,11 +51,12 @@ public abstract class Chunk implements Loader.Loadable {
         this.endTimeUs = j2;
     }
 
-    public abstract long bytesLoaded();
-
     public final long getDurationUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.endTimeUs - this.startTimeUs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.endTimeUs - this.startTimeUs;
+        }
+        return invokeV.longValue;
     }
 }

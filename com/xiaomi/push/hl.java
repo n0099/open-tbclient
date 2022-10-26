@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
 public final class hl {
@@ -62,7 +61,7 @@ public final class hl {
         b = new hl("AppInstallList", 1, 2);
         c = new hl("AppActiveList", 2, 3);
         d = new hl("Bluetooth", 3, 4);
-        e = new hl(Headers.LOCATION, 4, 5);
+        e = new hl("Location", 4, 5);
         f = new hl("Account", 5, 6);
         g = new hl("WIFI", 6, 7);
         h = new hl("Cellular", 7, 8);

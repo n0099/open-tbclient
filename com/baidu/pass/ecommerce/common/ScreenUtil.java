@@ -28,18 +28,27 @@ public class ScreenUtil {
     public static int dip2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
-    }
-
-    public static int getScreenHeight(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getResources().getDisplayMetrics().heightPixels : invokeL.intValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
+            return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
+        }
+        return invokeLF.intValue;
     }
 
     public static int px2dip(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) {
+            return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
+        }
+        return invokeLF.intValue;
+    }
+
+    public static int getScreenHeight(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return context.getResources().getDisplayMetrics().heightPixels;
+        }
+        return invokeL.intValue;
     }
 }

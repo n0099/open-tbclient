@@ -1,13 +1,9 @@
 package com.kwad.sdk.core.download;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidubce.http.Headers;
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.core.network.o;
 import com.kwad.sdk.core.network.q;
@@ -45,7 +41,6 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
 public final class a {
     public static AdDownloadProxy WK;
-    @SuppressLint({"StaticFieldLeak"})
     public static Context mContext;
     public static volatile boolean mHasInit;
     public static final String WL = as.cX(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext()) + "/downloadFileSync/.temp";
@@ -53,10 +48,10 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.core.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0604a implements c {
+    public final class C0600a implements c {
         public final OutputStream WM;
 
-        public C0604a(File file, boolean z) {
+        public C0600a(File file, boolean z) {
             this.WM = new FileOutputStream(file, z);
         }
 
@@ -80,15 +75,15 @@ public final class a {
         void write(byte[] bArr, int i, int i2);
     }
 
-    public static InputStream a(Map<String, List<String>> map, InputStream inputStream) {
-        List<String> value;
-        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-            if ("Content-Encoding".equalsIgnoreCase(entry.getKey()) && (value = entry.getValue()) != null && !value.isEmpty()) {
+    public static InputStream a(Map map, InputStream inputStream) {
+        List list;
+        for (Map.Entry entry : map.entrySet()) {
+            if ("Content-Encoding".equalsIgnoreCase((String) entry.getKey()) && (list = (List) entry.getValue()) != null && !list.isEmpty()) {
                 boolean z = false;
-                Iterator<String> it = value.iterator();
+                Iterator it = list.iterator();
                 while (true) {
                     if (it.hasNext()) {
-                        if ("gzip".equalsIgnoreCase(it.next())) {
+                        if ("gzip".equalsIgnoreCase((String) it.next())) {
                             z = true;
                             break;
                         }
@@ -129,7 +124,7 @@ public final class a {
         }
     }
 
-    public static synchronized void a(Context context, @NonNull File file, boolean z) {
+    public static synchronized void a(Context context, File file, boolean z) {
         synchronized (a.class) {
             if (context != null) {
                 if (!mHasInit) {
@@ -153,37 +148,37 @@ public final class a {
     }
 
     public static boolean a(String str, File file, b bVar, int i) {
-        C0604a c0604a;
-        C0604a c0604a2 = null;
+        C0600a c0600a;
+        C0600a c0600a2 = null;
         try {
-            c0604a = new C0604a(file, false);
+            c0600a = new C0600a(file, false);
         } catch (Throwable th) {
             th = th;
         }
         try {
-            boolean a = a(str, (String) null, c0604a, (b) null, 0);
-            com.kwad.sdk.crash.utils.b.closeQuietly(c0604a);
+            boolean a = a(str, (String) null, c0600a, (b) null, 0);
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0600a);
             return a;
         } catch (Throwable th2) {
             th = th2;
-            c0604a2 = c0604a;
-            com.kwad.sdk.crash.utils.b.closeQuietly(c0604a2);
+            c0600a2 = c0600a;
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0600a2);
             throw th;
         }
     }
 
     public static boolean a(String str, File file, b bVar, int i, boolean z) {
-        C0604a c0604a = null;
+        C0600a c0600a = null;
         try {
-            C0604a c0604a2 = new C0604a(file, true);
+            C0600a c0600a2 = new C0600a(file, true);
             try {
-                boolean a = a(str, (String) null, (c) c0604a2, (b) null, -1, file.length(), -1L, true);
-                com.kwad.sdk.crash.utils.b.closeQuietly(c0604a2);
+                boolean a = a(str, (String) null, (c) c0600a2, (b) null, -1, file.length(), -1L, true);
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0600a2);
                 return a;
             } catch (Throwable th) {
                 th = th;
-                c0604a = c0604a2;
-                com.kwad.sdk.crash.utils.b.closeQuietly(c0604a);
+                c0600a = c0600a2;
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0600a);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -269,7 +264,7 @@ public final class a {
             httpURLConnection.setRequestProperty("Host", str);
             httpURLConnection.setInstanceFollowRedirects(false);
             if (httpURLConnection.getResponseCode() == 302) {
-                boolean a = a(httpURLConnection.getHeaderField(Headers.LOCATION), (String) null, cVar, bVar, i);
+                boolean a = a(httpURLConnection.getHeaderField("Location"), (String) null, cVar, bVar, i);
                 com.kwad.sdk.crash.utils.b.closeQuietly(cVar);
                 com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) null);
                 if (httpURLConnection != null) {
@@ -358,7 +353,7 @@ public final class a {
         }
     }
 
-    public static void b(@NonNull AdInfo adInfo, boolean z) {
+    public static void b(AdInfo adInfo, boolean z) {
         Context context = mContext;
         if (context == null) {
             return;
@@ -398,13 +393,12 @@ public final class a {
         }
     }
 
-    @Nullable
     public static String w(AdInfo adInfo) {
         AdDownloadProxy adDownloadProxy;
         return (mContext == null || (adDownloadProxy = WK) == null) ? "" : adDownloadProxy.getDownloadFilePath(DownloadParams.transform(adInfo));
     }
 
-    public static void x(@NonNull AdInfo adInfo) {
+    public static void x(AdInfo adInfo) {
         b(adInfo, false);
     }
 }

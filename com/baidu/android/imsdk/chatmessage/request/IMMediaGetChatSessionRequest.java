@@ -31,6 +31,13 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     public String mKey;
     public int mNeedTop;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
     public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,11 +63,33 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         this.mKey = str;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
+    public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str, int i2, long j3, int i3, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Integer.valueOf(i2), Long.valueOf(j3), Integer.valueOf(i3), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
+        this.mNeedTop = -1;
+        this.mContext = context;
+        this.mContacter = j;
+        this.mCount = i2;
+        this.mEndTime = j3;
+        this.mKey = str2;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
+        this.mContactorThirdid = str;
+        this.mNeedTop = i3;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -84,6 +113,11 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public /* bridge */ /* synthetic */ String getMethod() {
         return super.getMethod();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public /* bridge */ /* synthetic */ boolean shouldAbort() {
+        return super.shouldAbort();
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -132,7 +166,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure error = " + transErrorCode.first + " errormsg = " + ((String) transErrorCode.second));
             ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(((Integer) transErrorCode.first).intValue(), false, 0, 0, null, null, null, this.mKey);
         }
@@ -504,39 +538,5 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
             return
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.imsdk.chatmessage.request.IMMediaGetChatSessionRequest.onSuccess(int, byte[]):void");
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public /* bridge */ /* synthetic */ boolean shouldAbort() {
-        return super.shouldAbort();
-    }
-
-    public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str, int i2, long j3, int i3, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Integer.valueOf(i2), Long.valueOf(j3), Integer.valueOf(i3), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mContactorType = -1;
-        this.mContactorPauid = -1L;
-        this.mNeedTop = -1;
-        this.mContext = context;
-        this.mContacter = j;
-        this.mCount = i2;
-        this.mEndTime = j3;
-        this.mKey = str2;
-        this.mContactorType = i;
-        this.mContactorPauid = j2;
-        this.mContactorThirdid = str;
-        this.mNeedTop = i3;
     }
 }

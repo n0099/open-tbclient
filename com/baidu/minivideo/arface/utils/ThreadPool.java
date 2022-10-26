@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -23,7 +24,13 @@ public class ThreadPool {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class LIFOLinkedBlockingDeque<T> extends LinkedBlockingDeque<T> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes2.dex */
+    public class LIFOLinkedBlockingDeque extends LinkedBlockingDeque {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4114786347960826192L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,28 +49,34 @@ public class ThreadPool {
             }
         }
 
-        @Override // java.util.concurrent.LinkedBlockingDeque, java.util.Queue, java.util.concurrent.BlockingDeque, java.util.concurrent.BlockingQueue, java.util.Deque
-        public boolean offer(T t) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? super.offerFirst(t) : invokeL.booleanValue;
-        }
-
         @Override // java.util.concurrent.LinkedBlockingDeque, java.util.AbstractQueue, java.util.Queue, java.util.concurrent.BlockingDeque, java.util.Deque
-        public T remove() {
+        public Object remove() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (T) super.removeFirst() : (T) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return super.removeFirst();
+            }
+            return invokeV.objValue;
         }
 
         public /* synthetic */ LIFOLinkedBlockingDeque(a aVar) {
             this();
         }
+
+        @Override // java.util.concurrent.LinkedBlockingDeque, java.util.Queue, java.util.concurrent.BlockingDeque, java.util.concurrent.BlockingQueue, java.util.Deque
+        public boolean offer(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return super.offerFirst(obj);
+            }
+            return invokeL.booleanValue;
+        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class QueueProcessingType {
+    public final class QueueProcessingType {
         public static final /* synthetic */ QueueProcessingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final QueueProcessingType FIFO;
@@ -111,24 +124,24 @@ public class ThreadPool {
         public static QueueProcessingType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (QueueProcessingType) Enum.valueOf(QueueProcessingType.class, str) : (QueueProcessingType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (QueueProcessingType) Enum.valueOf(QueueProcessingType.class, str);
+            }
+            return (QueueProcessingType) invokeL.objValue;
         }
 
         public static QueueProcessingType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (QueueProcessingType[]) $VALUES.clone() : (QueueProcessingType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (QueueProcessingType[]) $VALUES.clone();
+            }
+            return (QueueProcessingType[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class b implements ThreadFactory {
+    public class b implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicInteger e;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,6 +167,7 @@ public class ThreadPool {
         }
 
         public b(String str, int i) {
+            ThreadGroup threadGroup;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,7 +185,12 @@ public class ThreadPool {
             this.b = new AtomicInteger(1);
             this.d = i;
             SecurityManager securityManager = System.getSecurityManager();
-            this.a = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
+            if (securityManager == null) {
+                threadGroup = Thread.currentThread().getThreadGroup();
+            } else {
+                threadGroup = securityManager.getThreadGroup();
+            }
+            this.a = threadGroup;
             this.c = str + "-" + e.getAndIncrement() + "-thread-";
         }
 
@@ -193,7 +212,7 @@ public class ThreadPool {
     }
 
     /* loaded from: classes2.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public static final int f;
         public static final int g;
@@ -245,33 +264,6 @@ public class ThreadPool {
             }
         }
 
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ExecutorService executorService = this.a;
-                if (!(executorService instanceof ThreadPoolExecutor) || executorService == null || executorService.isShutdown()) {
-                    return;
-                }
-                ((ThreadPoolExecutor) this.a).allowsCoreThreadTimeOut();
-            }
-        }
-
-        public final ExecutorService d(String str, int i, int i2, QueueProcessingType queueProcessingType) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), queueProcessingType})) == null) {
-                return new ThreadPoolExecutor(i, i, 3L, TimeUnit.SECONDS, queueProcessingType == QueueProcessingType.FIFO ? new LinkedBlockingQueue() : new LIFOLinkedBlockingDeque(null), new b(str, i2));
-            }
-            return (ExecutorService) invokeCommon.objValue;
-        }
-
-        public void e(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-                this.a.execute(runnable);
-            }
-        }
-
         public c(String str, int i, int i2, QueueProcessingType queueProcessingType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -296,6 +288,44 @@ public class ThreadPool {
             this.e = queueProcessingType;
             if (this.a == null) {
                 this.a = d(str, i, i2, queueProcessingType);
+            }
+        }
+
+        public final ExecutorService d(String str, int i, int i2, QueueProcessingType queueProcessingType) {
+            InterceptResult invokeCommon;
+            boolean z;
+            BlockingQueue lIFOLinkedBlockingDeque;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), queueProcessingType})) == null) {
+                if (queueProcessingType == QueueProcessingType.FIFO) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    lIFOLinkedBlockingDeque = new LinkedBlockingQueue();
+                } else {
+                    lIFOLinkedBlockingDeque = new LIFOLinkedBlockingDeque(null);
+                }
+                return new ThreadPoolExecutor(i, i, 3L, TimeUnit.SECONDS, lIFOLinkedBlockingDeque, new b(str, i2));
+            }
+            return (ExecutorService) invokeCommon.objValue;
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ExecutorService executorService = this.a;
+                if ((executorService instanceof ThreadPoolExecutor) && executorService != null && !executorService.isShutdown()) {
+                    ((ThreadPoolExecutor) this.a).allowsCoreThreadTimeOut();
+                }
+            }
+        }
+
+        public void e(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+                this.a.execute(runnable);
             }
         }
     }

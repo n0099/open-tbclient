@@ -45,7 +45,10 @@ public final class ExpandedPair {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, obj2)) == null) {
             if (obj == null) {
-                return obj2 == null;
+                if (obj2 == null) {
+                    return true;
+                }
+                return false;
             }
             return obj.equals(obj2);
         }
@@ -68,11 +71,14 @@ public final class ExpandedPair {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof ExpandedPair) {
-                ExpandedPair expandedPair = (ExpandedPair) obj;
-                return equalsOrNull(this.leftChar, expandedPair.leftChar) && equalsOrNull(this.rightChar, expandedPair.rightChar) && equalsOrNull(this.finderPattern, expandedPair.finderPattern);
+            if (!(obj instanceof ExpandedPair)) {
+                return false;
             }
-            return false;
+            ExpandedPair expandedPair = (ExpandedPair) obj;
+            if (!equalsOrNull(this.leftChar, expandedPair.leftChar) || !equalsOrNull(this.rightChar, expandedPair.rightChar) || !equalsOrNull(this.finderPattern, expandedPair.finderPattern)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -80,41 +86,63 @@ public final class ExpandedPair {
     public FinderPattern getFinderPattern() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.finderPattern : (FinderPattern) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.finderPattern;
+        }
+        return (FinderPattern) invokeV.objValue;
     }
 
     public DataCharacter getLeftChar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.leftChar : (DataCharacter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.leftChar;
+        }
+        return (DataCharacter) invokeV.objValue;
     }
 
     public DataCharacter getRightChar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.rightChar : (DataCharacter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.rightChar;
+        }
+        return (DataCharacter) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (hashNotNull(this.leftChar) ^ hashNotNull(this.rightChar)) ^ hashNotNull(this.finderPattern) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (hashNotNull(this.leftChar) ^ hashNotNull(this.rightChar)) ^ hashNotNull(this.finderPattern);
+        }
+        return invokeV.intValue;
     }
 
     public boolean mayBeLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mayBeLast : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mayBeLast;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean mustBeLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.rightChar == null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.rightChar == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
+        Object valueOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             StringBuilder sb = new StringBuilder("[ ");
@@ -123,7 +151,12 @@ public final class ExpandedPair {
             sb.append(this.rightChar);
             sb.append(ZeusCrashHandler.NAME_SEPERATOR);
             FinderPattern finderPattern = this.finderPattern;
-            sb.append(finderPattern == null ? StringUtil.NULL_STRING : Integer.valueOf(finderPattern.getValue()));
+            if (finderPattern == null) {
+                valueOf = StringUtil.NULL_STRING;
+            } else {
+                valueOf = Integer.valueOf(finderPattern.getValue());
+            }
+            sb.append(valueOf);
             sb.append(" ]");
             return sb.toString();
         }

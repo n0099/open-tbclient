@@ -1,8 +1,6 @@
 package com.baidu.searchbox.bddownload.core.breakpoint;
 
 import android.util.SparseArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +13,8 @@ import java.util.HashMap;
 public class KeyToIdMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final SparseArray<String> idToKeyMap;
-    @NonNull
-    public final HashMap<String, Integer> keyToIdMap;
+    public final SparseArray idToKeyMap;
+    public final HashMap keyToIdMap;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KeyToIdMap() {
@@ -39,49 +35,7 @@ public class KeyToIdMap {
         }
     }
 
-    public void add(@NonNull DownloadTask downloadTask, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, downloadTask, i) == null) {
-            String generateKey = generateKey(downloadTask);
-            this.keyToIdMap.put(generateKey, Integer.valueOf(i));
-            this.idToKeyMap.put(i, generateKey);
-        }
-    }
-
-    public String generateKey(@NonNull DownloadTask downloadTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask)) == null) {
-            return downloadTask.getUrl() + downloadTask.getUri() + downloadTask.getFilename();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public Integer get(@NonNull DownloadTask downloadTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask)) == null) {
-            Integer num = this.keyToIdMap.get(generateKey(downloadTask));
-            if (num != null) {
-                return num;
-            }
-            return null;
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public void remove(int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (str = this.idToKeyMap.get(i)) == null) {
-            return;
-        }
-        this.keyToIdMap.remove(str);
-        this.idToKeyMap.remove(i);
-    }
-
-    public KeyToIdMap(@NonNull HashMap<String, Integer> hashMap, @NonNull SparseArray<String> sparseArray) {
+    public KeyToIdMap(HashMap hashMap, SparseArray sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,5 +52,45 @@ public class KeyToIdMap {
         }
         this.keyToIdMap = hashMap;
         this.idToKeyMap = sparseArray;
+    }
+
+    public void add(DownloadTask downloadTask, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, downloadTask, i) == null) {
+            String generateKey = generateKey(downloadTask);
+            this.keyToIdMap.put(generateKey, Integer.valueOf(i));
+            this.idToKeyMap.put(i, generateKey);
+        }
+    }
+
+    public String generateKey(DownloadTask downloadTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask)) == null) {
+            return downloadTask.getUrl() + downloadTask.getUri() + downloadTask.getFilename();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public Integer get(DownloadTask downloadTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask)) == null) {
+            Integer num = (Integer) this.keyToIdMap.get(generateKey(downloadTask));
+            if (num != null) {
+                return num;
+            }
+            return null;
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public void remove(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (str = (String) this.idToKeyMap.get(i)) != null) {
+            this.keyToIdMap.remove(str);
+            this.idToKeyMap.remove(i);
+        }
     }
 }

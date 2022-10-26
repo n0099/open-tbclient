@@ -40,6 +40,33 @@ public class SoftException extends RuntimeException {
         HAVE_JAVA_14 = z;
     }
 
+    @Override // java.lang.Throwable
+    public Throwable getCause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.inner;
+        }
+        return (Throwable) invokeV.objValue;
+    }
+
+    public Throwable getWrappedThrowable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.inner;
+        }
+        return (Throwable) invokeV.objValue;
+    }
+
+    @Override // java.lang.Throwable
+    public void printStackTrace() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            printStackTrace(System.err);
+        }
+    }
+
     public SoftException(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,37 +86,15 @@ public class SoftException extends RuntimeException {
     }
 
     @Override // java.lang.Throwable
-    public Throwable getCause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.inner : (Throwable) invokeV.objValue;
-    }
-
-    public Throwable getWrappedThrowable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.inner : (Throwable) invokeV.objValue;
-    }
-
-    @Override // java.lang.Throwable
-    public void printStackTrace() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            printStackTrace(System.err);
-        }
-    }
-
-    @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, printStream) == null) {
             super.printStackTrace(printStream);
             Throwable th = this.inner;
-            if (HAVE_JAVA_14 || th == null) {
-                return;
+            if (!HAVE_JAVA_14 && th != null) {
+                printStream.print("Caused by: ");
+                th.printStackTrace(printStream);
             }
-            printStream.print("Caused by: ");
-            th.printStackTrace(printStream);
         }
     }
 
@@ -99,11 +104,10 @@ public class SoftException extends RuntimeException {
         if (interceptable == null || interceptable.invokeL(1048580, this, printWriter) == null) {
             super.printStackTrace(printWriter);
             Throwable th = this.inner;
-            if (HAVE_JAVA_14 || th == null) {
-                return;
+            if (!HAVE_JAVA_14 && th != null) {
+                printWriter.print("Caused by: ");
+                th.printStackTrace(printWriter);
             }
-            printWriter.print("Caused by: ");
-            th.printStackTrace(printWriter);
         }
     }
 }

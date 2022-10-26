@@ -57,12 +57,18 @@ public final class LifeCycleState {
     public static LifeCycleState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LifeCycleState) Enum.valueOf(LifeCycleState.class, str) : (LifeCycleState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (LifeCycleState) Enum.valueOf(LifeCycleState.class, str);
+        }
+        return (LifeCycleState) invokeL.objValue;
     }
 
     public static LifeCycleState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LifeCycleState[]) $VALUES.clone() : (LifeCycleState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (LifeCycleState[]) $VALUES.clone();
+        }
+        return (LifeCycleState[]) invokeV.objValue;
     }
 }

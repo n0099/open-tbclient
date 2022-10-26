@@ -1,8 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class TiebaPlusConfigData {
     public static /* synthetic */ Interceptable $ic = null;
-    @NonNull
     public static final TiebaPlusConfigData DEFAULT;
     public static final String URL_PARAM_TID = "tid";
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,27 +55,6 @@ public class TiebaPlusConfigData {
         }
     }
 
-    public static void addClickStatsForFireLink(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            StatisticItem.make(TbadkCoreStatisticKey.KEY_THREAD_FIRE_CLICK).addParam("obj_locate", i).eventStat();
-        }
-    }
-
-    public static boolean dealFireLinkWithTid(TbPageContext<?> tbPageContext, String str) {
-        InterceptResult invokeLL;
-        String jumpUrlWithTid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, str)) == null) {
-            TiebaPlusConfigData tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
-            if (tiebaPlusConfigData == null || str == null || (jumpUrlWithTid = tiebaPlusConfigData.getJumpUrlWithTid(str)) == null) {
-                return false;
-            }
-            return UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{jumpUrlWithTid});
-        }
-        return invokeLL.booleanValue;
-    }
-
     public static boolean isHeatingSwitchOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -95,11 +71,32 @@ public class TiebaPlusConfigData {
     public String getJumpUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mJumpUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mJumpUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
-    public String getJumpUrlWithTid(@NonNull String str) {
+    public boolean isSwitchOpen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mIsSwitchOpen && !TextUtils.isEmpty(this.mJumpUrl)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void addClickStatsForFireLink(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            StatisticItem.make(TbadkCoreStatisticKey.KEY_THREAD_FIRE_CLICK).addParam("obj_locate", i).eventStat();
+        }
+    }
+
+    public String getJumpUrlWithTid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -109,12 +106,6 @@ public class TiebaPlusConfigData {
             return UrlUtils.appendParam(this.mJumpUrl, "tid", str);
         }
         return (String) invokeL.objValue;
-    }
-
-    public boolean isSwitchOpen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsSwitchOpen && !TextUtils.isEmpty(this.mJumpUrl) : invokeV.booleanValue;
     }
 
     public void setJumpUrl(String str) {
@@ -129,5 +120,19 @@ public class TiebaPlusConfigData {
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.mIsSwitchOpen = z;
         }
+    }
+
+    public static boolean dealFireLinkWithTid(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
+        String jumpUrlWithTid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, str)) == null) {
+            TiebaPlusConfigData tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
+            if (tiebaPlusConfigData == null || str == null || (jumpUrlWithTid = tiebaPlusConfigData.getJumpUrlWithTid(str)) == null) {
+                return false;
+            }
+            return UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{jumpUrlWithTid});
+        }
+        return invokeLL.booleanValue;
     }
 }

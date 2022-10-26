@@ -26,12 +26,12 @@ public class d {
     public volatile boolean c;
     public volatile boolean d;
     public Thread e;
-    public volatile BlockingQueue<b> f;
-    public volatile List<c> g;
+    public volatile BlockingQueue f;
+    public volatile List g;
     public volatile int h;
     public volatile float i;
     public volatile float j;
-    public j10 k;
+    public k10 k;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -117,6 +117,29 @@ public class d {
         this.j = 1.0f;
     }
 
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.d = false;
+            try {
+                if (this.e != null) {
+                    this.e.interrupt();
+                    this.e.join(1000L);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            AudioTrack audioTrack = this.a;
+            if (audioTrack != null) {
+                audioTrack.release();
+                this.a = null;
+            }
+            h();
+            this.f = null;
+            this.g = null;
+        }
+    }
+
     public final void a() {
         byte[] bArr;
         int i;
@@ -125,22 +148,22 @@ public class d {
             while (this.d) {
                 try {
                     try {
-                        b take = this.f.take();
+                        b bVar = (b) this.f.take();
                         byte[] bArr2 = null;
-                        if (take.b == null) {
+                        if (bVar.b == null) {
                             if (this.k != null) {
-                                this.k.onFilteredFrameUpdate(null, take.a);
+                                this.k.onFilteredFrameUpdate(null, bVar.a);
                                 return;
                             }
                             return;
                         }
-                        MediaCodec.BufferInfo bufferInfo = take.a;
+                        MediaCodec.BufferInfo bufferInfo = bVar.a;
                         int i2 = bufferInfo.size;
                         int i3 = Integer.MAX_VALUE;
                         for (int i4 = 0; i4 < this.h; i4++) {
-                            i3 = Math.min(this.g.get(i4).b, i3);
+                            i3 = Math.min(((c) this.g.get(i4)).b, i3);
                         }
-                        ByteBuffer byteBuffer = take.b;
+                        ByteBuffer byteBuffer = bVar.b;
                         byte[] bArr3 = new byte[bufferInfo.size];
                         byteBuffer.get(bArr3);
                         int min = Math.min(i2, i3);
@@ -149,7 +172,7 @@ public class d {
                             if (min > 0) {
                                 byte[][] bArr4 = (byte[][]) Array.newInstance(byte.class, this.h, min);
                                 for (int i5 = 0; i5 < this.h; i5++) {
-                                    this.g.get(i5).b(bArr4[i5], min);
+                                    ((c) this.g.get(i5)).b(bArr4[i5], min);
                                 }
                                 for (int i6 = 0; i6 < min - 1; i6 += 2) {
                                     for (int i7 = 0; i7 < this.h; i7++) {
@@ -186,7 +209,7 @@ public class d {
                         }
                         if (this.k != null) {
                             bufferInfo.offset = 0;
-                            this.k.onFilteredFrameUpdate(bArr3, take.a);
+                            this.k.onFilteredFrameUpdate(bArr3, bVar.a);
                         }
                     } catch (InterruptedException unused) {
                         Log.d("AudioFilter", "break from mixingLoop, because queue.take is interrupt");
@@ -227,7 +250,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             for (int i = 0; i < this.h; i++) {
-                this.g.get(i).a();
+                ((c) this.g.get(i)).a();
             }
             if (this.g != null) {
                 this.g.clear();
@@ -236,16 +259,25 @@ public class d {
         }
     }
 
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            c();
+            d();
+        }
+    }
+
     public void e(ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, byteBuffer, bufferInfo) == null) && this.d) {
-            try {
-                if (this.f != null) {
-                    this.f.put(new b(this, byteBuffer, bufferInfo));
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, byteBuffer, bufferInfo) != null) || !this.d) {
+            return;
+        }
+        try {
+            if (this.f != null) {
+                this.f.put(new b(this, byteBuffer, bufferInfo));
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -253,43 +285,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048581, this, byteBuffer, bufferInfo, i) == null) {
             int i2 = bufferInfo.size;
-            if (this.h == 0 || !this.d || i2 == 0) {
-                return;
+            if (this.h != 0 && this.d && i2 != 0) {
+                byte[] bArr = new byte[bufferInfo.size];
+                byteBuffer.get(bArr);
+                ((c) this.g.get(i)).c(bArr, i2);
             }
-            byte[] bArr = new byte[bufferInfo.size];
-            byteBuffer.get(bArr);
-            this.g.get(i).c(bArr, i2);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = false;
-            try {
-                if (this.e != null) {
-                    this.e.interrupt();
-                    this.e.join(1000L);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            AudioTrack audioTrack = this.a;
-            if (audioTrack != null) {
-                audioTrack.release();
-                this.a = null;
-            }
-            h();
-            this.f = null;
-            this.g = null;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c();
-            d();
         }
     }
 
@@ -307,10 +307,10 @@ public class d {
         }
     }
 
-    public void k(j10 j10Var) {
+    public void k(k10 k10Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, j10Var) == null) {
-            this.k = j10Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, k10Var) == null) {
+            this.k = k10Var;
         }
     }
 

@@ -48,8 +48,8 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     public com.baidu.ar.f.c hf;
     public com.baidu.ar.steploading.d hg;
     public com.baidu.ar.lua.a hh;
-    public ConcurrentHashMap<DuMixOutput, p> hi;
-    public List<FrameRenderListener> hj;
+    public ConcurrentHashMap hi;
+    public List hj;
     public h hk;
     public boolean hl;
     public k hm;
@@ -60,7 +60,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
 
     /* renamed from: com.baidu.ar.arrender.e$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    public /* synthetic */ class AnonymousClass2 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] hs;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         com.baidu.ar.steploading.d dVar = new com.baidu.ar.steploading.d(context);
         this.hg = dVar;
         dVar.b(this.f);
-        this.hi = new ConcurrentHashMap<>();
+        this.hi = new ConcurrentHashMap();
         boolean A = com.baidu.ar.h.p.A(this.mContext);
         this.hl = A;
         this.hd.setScreenOrientationLandscape(A);
@@ -296,7 +296,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     }
 
     public void addFrameRenderListener(FrameRenderListener frameRenderListener) {
-        List<FrameRenderListener> list;
+        List list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, frameRenderListener) == null) || frameRenderListener == null || (list = this.hj) == null) {
             return;
@@ -317,7 +317,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
             a(addOutputSurface, this.V, duMixOutput);
             p pVar = new p(duMixOutput);
             pVar.Q(addOutputSurface);
-            ConcurrentHashMap<DuMixOutput, p> concurrentHashMap = this.hi;
+            ConcurrentHashMap concurrentHashMap = this.hi;
             if (concurrentHashMap != null) {
                 concurrentHashMap.put(duMixOutput, pVar);
             }
@@ -566,12 +566,12 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
                 cVar.release();
                 this.hf = null;
             }
-            ConcurrentHashMap<DuMixOutput, p> concurrentHashMap = this.hi;
+            ConcurrentHashMap concurrentHashMap = this.hi;
             if (concurrentHashMap != null) {
                 concurrentHashMap.clear();
                 this.hi = null;
             }
-            List<FrameRenderListener> list = this.hj;
+            List list = this.hj;
             if (list != null) {
                 list.clear();
                 this.hj = null;
@@ -606,7 +606,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     }
 
     public void removeFrameRenderListener(FrameRenderListener frameRenderListener) {
-        List<FrameRenderListener> list;
+        List list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048594, this, frameRenderListener) == null) || frameRenderListener == null || (list = this.hj) == null) {
             return;
@@ -621,12 +621,12 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
                 com.baidu.ar.h.b.b("ARRendererBase", "removeOutputSurface duMixOutput is error!!!");
             } else if (this.hi != null) {
                 com.baidu.ar.h.b.c("ARRendererBase", "removeOutputSurface() surface = " + duMixOutput.getOutputSurface().hashCode());
-                p remove = this.hi.remove(duMixOutput);
+                p pVar = (p) this.hi.remove(duMixOutput);
                 ARPEngine aRPEngine = this.hx;
-                if (aRPEngine == null || aRPEngine.getARPRenderer() == null || remove == null || TextUtils.isEmpty(remove.ca())) {
+                if (aRPEngine == null || aRPEngine.getARPRenderer() == null || pVar == null || TextUtils.isEmpty(pVar.ca())) {
                     return;
                 }
-                this.hx.getARPRenderer().removeOutputTargetByAddr(remove.ca());
+                this.hx.getARPRenderer().removeOutputTargetByAddr(pVar.ca());
             }
         }
     }

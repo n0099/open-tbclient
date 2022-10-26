@@ -27,23 +27,26 @@ public class AudioChangeConfig implements Serializable {
         }
     }
 
+    public DelayConfig getDelayConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.delayConfig;
+        }
+        return (DelayConfig) invokeV.objValue;
+    }
+
     public boolean configEnabled(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DelayConfig delayConfig = this.delayConfig;
-            if (delayConfig == null || !delayConfig.available()) {
-                return z;
+            if (delayConfig != null && delayConfig.available()) {
+                return true;
             }
-            return true;
+            return z;
         }
         return invokeZ.booleanValue;
-    }
-
-    public DelayConfig getDelayConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delayConfig : (DelayConfig) invokeV.objValue;
     }
 
     public AudioChangeConfig setDelayConfig(DelayConfig delayConfig) {

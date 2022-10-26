@@ -60,7 +60,19 @@ public class LogUtils {
     public static String currentTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new SimpleDateFormat("yyyy-MM-dd    HH:mm:ss   ").format(new Date(System.currentTimeMillis())) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new SimpleDateFormat("yyyy-MM-dd    HH:mm:ss   ").format(new Date(System.currentTimeMillis()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String fileName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new SimpleDateFormat("yyyyMMddHH").format(new Date(System.currentTimeMillis()));
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void d(String str, String str2) {
@@ -87,24 +99,6 @@ public class LogUtils {
         }
     }
 
-    public static void enter() {
-        StackTraceElement[] stackTrace;
-        StackTraceElement stackTraceElement;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || !Constants.isDebugMode() || mLoglevel < LOG_LEVEL_D || (stackTrace = new Throwable().getStackTrace()) == null || 2 > stackTrace.length || (stackTraceElement = stackTrace[1]) == null) {
-            return;
-        }
-        String className = stackTraceElement.getClassName();
-        String methodName = stackTraceElement.getMethodName();
-        d(className, "====>" + methodName);
-    }
-
-    public static String fileName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new SimpleDateFormat("yyyyMMddHH").format(new Date(System.currentTimeMillis())) : (String) invokeV.objValue;
-    }
-
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_I) {
@@ -115,28 +109,6 @@ public class LogUtils {
             String str3 = TAG;
             Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
-    }
-
-    public static void init(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            mLoglevel = i;
-            mIsWriteToFile = z;
-            sContext = context;
-            LogFile.getInstance(context);
-        }
-    }
-
-    public static void leave() {
-        StackTraceElement[] stackTrace;
-        StackTraceElement stackTraceElement;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, null) == null) || !Constants.isDebugMode() || mLoglevel < LOG_LEVEL_D || (stackTrace = new Throwable().getStackTrace()) == null || 2 > stackTrace.length || (stackTraceElement = stackTrace[1]) == null) {
-            return;
-        }
-        String className = stackTraceElement.getClassName();
-        String methodName = stackTraceElement.getMethodName();
-        d(className, "<====" + methodName);
     }
 
     public static void w(String str, String str2) {
@@ -163,27 +135,57 @@ public class LogUtils {
         }
     }
 
+    public static void enter() {
+        StackTraceElement[] stackTrace;
+        StackTraceElement stackTraceElement;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65542, null) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_D && (stackTrace = new Throwable().getStackTrace()) != null && 2 <= stackTrace.length && (stackTraceElement = stackTrace[1]) != null) {
+            String className = stackTraceElement.getClassName();
+            String methodName = stackTraceElement.getMethodName();
+            d(className, "====>" + methodName);
+        }
+    }
+
+    public static void leave() {
+        StackTraceElement[] stackTrace;
+        StackTraceElement stackTraceElement;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65547, null) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_D && (stackTrace = new Throwable().getStackTrace()) != null && 2 <= stackTrace.length && (stackTraceElement = stackTrace[1]) != null) {
+            String className = stackTraceElement.getClassName();
+            String methodName = stackTraceElement.getMethodName();
+            d(className, "<====" + methodName);
+        }
+    }
+
     public static void enter(String str) {
         StackTraceElement[] stackTrace;
         StackTraceElement stackTraceElement;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || !Constants.isDebugMode() || mLoglevel < LOG_LEVEL_D || (stackTrace = new Throwable().getStackTrace()) == null || 2 > stackTrace.length || (stackTraceElement = stackTrace[1]) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65543, null, str) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_D && (stackTrace = new Throwable().getStackTrace()) != null && 2 <= stackTrace.length && (stackTraceElement = stackTrace[1]) != null) {
+            String className = stackTraceElement.getClassName();
+            String methodName = stackTraceElement.getMethodName();
+            d(className, str + "====>" + methodName);
         }
-        String className = stackTraceElement.getClassName();
-        String methodName = stackTraceElement.getMethodName();
-        d(className, str + "====>" + methodName);
     }
 
     public static void leave(String str) {
         StackTraceElement[] stackTrace;
         StackTraceElement stackTraceElement;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, null, str) == null) || !Constants.isDebugMode() || mLoglevel < LOG_LEVEL_D || (stackTrace = new Throwable().getStackTrace()) == null || 2 > stackTrace.length || (stackTraceElement = stackTrace[1]) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65548, null, str) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_D && (stackTrace = new Throwable().getStackTrace()) != null && 2 <= stackTrace.length && (stackTraceElement = stackTrace[1]) != null) {
+            String className = stackTraceElement.getClassName();
+            String methodName = stackTraceElement.getMethodName();
+            d(className, str + "<====" + methodName);
         }
-        String className = stackTraceElement.getClassName();
-        String methodName = stackTraceElement.getMethodName();
-        d(className, str + "<====" + methodName);
+    }
+
+    public static void init(Context context, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            mLoglevel = i;
+            mIsWriteToFile = z;
+            sContext = context;
+            LogFile.getInstance(context);
+        }
     }
 }

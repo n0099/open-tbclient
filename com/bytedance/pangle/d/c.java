@@ -25,11 +25,11 @@ public final class c implements Closeable {
     public final FileInputStream a;
     public a b;
     public b[] c;
-    public C0496c[] d;
-    public final Map<String, C0496c> e;
+    public C0492c[] d;
+    public final Map e;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] a;
@@ -47,20 +47,18 @@ public final class c implements Closeable {
         public final short m;
         public final short n;
 
-        public /* synthetic */ a(FileChannel fileChannel, byte b) {
-            this(fileChannel);
-        }
-
         public a(FileChannel fileChannel) {
+            int i;
+            ByteOrder byteOrder;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fileChannel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -75,25 +73,37 @@ public final class c implements Closeable {
                 c.a(b, 2, "bad elf class: " + ((int) this.a[4]));
                 byte b2 = this.a[5];
                 c.a(b2, 2, "bad elf data encoding: " + ((int) this.a[5]));
-                ByteBuffer allocate = ByteBuffer.allocate(this.a[4] == 1 ? 36 : 48);
-                allocate.order(this.a[5] == 1 ? ByteOrder.LITTLE_ENDIAN : ByteOrder.BIG_ENDIAN);
+                if (this.a[4] == 1) {
+                    i = 36;
+                } else {
+                    i = 48;
+                }
+                ByteBuffer allocate = ByteBuffer.allocate(i);
+                if (this.a[5] == 1) {
+                    byteOrder = ByteOrder.LITTLE_ENDIAN;
+                } else {
+                    byteOrder = ByteOrder.BIG_ENDIAN;
+                }
+                allocate.order(byteOrder);
                 c.b(fileChannel, allocate, "failed to read rest part of ehdr.");
                 this.b = allocate.getShort();
                 this.c = allocate.getShort();
-                int i3 = allocate.getInt();
-                this.d = i3;
-                c.a(i3, 1, "bad elf version: " + this.d);
+                int i4 = allocate.getInt();
+                this.d = i4;
+                c.a(i4, 1, "bad elf version: " + this.d);
                 byte b3 = this.a[4];
-                if (b3 == 1) {
+                if (b3 != 1) {
+                    if (b3 == 2) {
+                        this.e = allocate.getLong();
+                        this.f = allocate.getLong();
+                        this.g = allocate.getLong();
+                    } else {
+                        throw new IOException("Unexpected elf class: " + ((int) this.a[4]));
+                    }
+                } else {
                     this.e = allocate.getInt();
                     this.f = allocate.getInt();
                     this.g = allocate.getInt();
-                } else if (b3 == 2) {
-                    this.e = allocate.getLong();
-                    this.f = allocate.getLong();
-                    this.g = allocate.getLong();
-                } else {
-                    throw new IOException("Unexpected elf class: " + ((int) this.a[4]));
                 }
                 this.h = allocate.getInt();
                 this.i = allocate.getShort();
@@ -106,10 +116,14 @@ public final class c implements Closeable {
             }
             throw new IOException(String.format("bad elf magic: %x %x %x %x.", Byte.valueOf(this.a[0]), Byte.valueOf(this.a[1]), Byte.valueOf(this.a[2]), Byte.valueOf(this.a[3])));
         }
+
+        public /* synthetic */ a(FileChannel fileChannel, byte b) {
+            this(fileChannel);
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -120,10 +134,6 @@ public final class c implements Closeable {
         public final long f;
         public final long g;
         public final long h;
-
-        public /* synthetic */ b(ByteBuffer byteBuffer, int i, byte b) {
-            this(byteBuffer, i);
-        }
 
         public b(ByteBuffer byteBuffer, int i) {
             Interceptable interceptable = $ic;
@@ -140,33 +150,38 @@ public final class c implements Closeable {
                     return;
                 }
             }
-            if (i == 1) {
-                this.a = byteBuffer.getInt();
-                this.c = byteBuffer.getInt();
-                this.d = byteBuffer.getInt();
-                this.e = byteBuffer.getInt();
-                this.f = byteBuffer.getInt();
-                this.g = byteBuffer.getInt();
-                this.b = byteBuffer.getInt();
-                this.h = byteBuffer.getInt();
-            } else if (i == 2) {
-                this.a = byteBuffer.getInt();
-                this.b = byteBuffer.getInt();
-                this.c = byteBuffer.getLong();
-                this.d = byteBuffer.getLong();
-                this.e = byteBuffer.getLong();
-                this.f = byteBuffer.getLong();
-                this.g = byteBuffer.getLong();
-                this.h = byteBuffer.getLong();
-            } else {
+            if (i != 1) {
+                if (i == 2) {
+                    this.a = byteBuffer.getInt();
+                    this.b = byteBuffer.getInt();
+                    this.c = byteBuffer.getLong();
+                    this.d = byteBuffer.getLong();
+                    this.e = byteBuffer.getLong();
+                    this.f = byteBuffer.getLong();
+                    this.g = byteBuffer.getLong();
+                    this.h = byteBuffer.getLong();
+                    return;
+                }
                 throw new IOException("Unexpected elf class: ".concat(String.valueOf(i)));
             }
+            this.a = byteBuffer.getInt();
+            this.c = byteBuffer.getInt();
+            this.d = byteBuffer.getInt();
+            this.e = byteBuffer.getInt();
+            this.f = byteBuffer.getInt();
+            this.g = byteBuffer.getInt();
+            this.b = byteBuffer.getInt();
+            this.h = byteBuffer.getInt();
+        }
+
+        public /* synthetic */ b(ByteBuffer byteBuffer, int i, byte b) {
+            this(byteBuffer, i);
         }
     }
 
     /* renamed from: com.bytedance.pangle.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0496c {
+    public final class C0492c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -181,11 +196,7 @@ public final class c implements Closeable {
         public final long j;
         public String k;
 
-        public /* synthetic */ C0496c(ByteBuffer byteBuffer, int i, byte b) {
-            this(byteBuffer, i);
-        }
-
-        public C0496c(ByteBuffer byteBuffer, int i) {
+        public C0492c(ByteBuffer byteBuffer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -200,7 +211,22 @@ public final class c implements Closeable {
                     return;
                 }
             }
-            if (i == 1) {
+            if (i != 1) {
+                if (i == 2) {
+                    this.a = byteBuffer.getInt();
+                    this.b = byteBuffer.getInt();
+                    this.c = byteBuffer.getLong();
+                    this.d = byteBuffer.getLong();
+                    this.e = byteBuffer.getLong();
+                    this.f = byteBuffer.getLong();
+                    this.g = byteBuffer.getInt();
+                    this.h = byteBuffer.getInt();
+                    this.i = byteBuffer.getLong();
+                    this.j = byteBuffer.getLong();
+                } else {
+                    throw new IOException("Unexpected elf class: ".concat(String.valueOf(i)));
+                }
+            } else {
                 this.a = byteBuffer.getInt();
                 this.b = byteBuffer.getInt();
                 this.c = byteBuffer.getInt();
@@ -211,27 +237,19 @@ public final class c implements Closeable {
                 this.h = byteBuffer.getInt();
                 this.i = byteBuffer.getInt();
                 this.j = byteBuffer.getInt();
-            } else if (i == 2) {
-                this.a = byteBuffer.getInt();
-                this.b = byteBuffer.getInt();
-                this.c = byteBuffer.getLong();
-                this.d = byteBuffer.getLong();
-                this.e = byteBuffer.getLong();
-                this.f = byteBuffer.getLong();
-                this.g = byteBuffer.getInt();
-                this.h = byteBuffer.getInt();
-                this.i = byteBuffer.getLong();
-                this.j = byteBuffer.getLong();
-            } else {
-                throw new IOException("Unexpected elf class: ".concat(String.valueOf(i)));
             }
             this.k = null;
+        }
+
+        public /* synthetic */ C0492c(ByteBuffer byteBuffer, int i, byte b) {
+            this(byteBuffer, i);
         }
     }
 
     public c(File file) {
-        C0496c[] c0496cArr;
-        C0496c[] c0496cArr2;
+        ByteOrder byteOrder;
+        C0492c[] c0492cArr;
+        C0492c[] c0492cArr2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -256,7 +274,12 @@ public final class c implements Closeable {
         this.b = new a(channel, (byte) 0);
         ByteBuffer allocate = ByteBuffer.allocate(128);
         allocate.limit(this.b.j);
-        allocate.order(this.b.a[5] == 1 ? ByteOrder.LITTLE_ENDIAN : ByteOrder.BIG_ENDIAN);
+        if (this.b.a[5] == 1) {
+            byteOrder = ByteOrder.LITTLE_ENDIAN;
+        } else {
+            byteOrder = ByteOrder.BIG_ENDIAN;
+        }
+        allocate.order(byteOrder);
         channel.position(this.b.f);
         this.c = new b[this.b.k];
         for (int i3 = 0; i3 < this.c.length; i3++) {
@@ -265,30 +288,70 @@ public final class c implements Closeable {
         }
         channel.position(this.b.g);
         allocate.limit(this.b.l);
-        this.d = new C0496c[this.b.m];
+        this.d = new C0492c[this.b.m];
         int i4 = 0;
         while (true) {
-            c0496cArr = this.d;
-            if (i4 >= c0496cArr.length) {
+            c0492cArr = this.d;
+            if (i4 >= c0492cArr.length) {
                 break;
             }
             b(channel, allocate, "failed to read shdr.");
-            this.d[i4] = new C0496c(allocate, this.b.a[4], (byte) 0);
+            this.d[i4] = new C0492c(allocate, this.b.a[4], (byte) 0);
             i4++;
         }
         short s = this.b.n;
         if (s > 0) {
-            C0496c c0496c = c0496cArr[s];
-            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0496c.f);
-            this.a.getChannel().position(c0496c.e);
-            b(this.a.getChannel(), allocate2, "failed to read section: " + c0496c.k);
-            for (C0496c c0496c2 : this.d) {
-                allocate2.position(c0496c2.a);
+            C0492c c0492c = c0492cArr[s];
+            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0492c.f);
+            this.a.getChannel().position(c0492c.e);
+            b(this.a.getChannel(), allocate2, "failed to read section: " + c0492c.k);
+            for (C0492c c0492c2 : this.d) {
+                allocate2.position(c0492c2.a);
                 String a2 = a(allocate2);
-                c0496c2.k = a2;
-                this.e.put(a2, c0496c2);
+                c0492c2.k = a2;
+                this.e.put(a2, c0492c2);
             }
         }
+    }
+
+    public static String a(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
+            byte[] array = byteBuffer.array();
+            int position = byteBuffer.position();
+            while (byteBuffer.hasRemaining() && array[byteBuffer.position()] != 0) {
+                byteBuffer.position(byteBuffer.position() + 1);
+            }
+            byteBuffer.position(byteBuffer.position() + 1);
+            return new String(array, position, (byteBuffer.position() - position) - 1, Charset.forName(HTTP.ASCII));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static /* synthetic */ void a(int i, int i2, String str) {
+        if (i > 0 && i <= i2) {
+            return;
+        }
+        throw new IOException(str);
+    }
+
+    public static boolean a(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            try {
+                f.a(new c(file));
+                return true;
+            } catch (IOException unused) {
+                f.a((Closeable) null);
+                return false;
+            } catch (Throwable th) {
+                f.a((Closeable) null);
+                throw th;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
     public static void b(FileChannel fileChannel, ByteBuffer byteBuffer, String str) {
@@ -312,45 +375,6 @@ public final class c implements Closeable {
             this.e.clear();
             this.c = null;
             this.d = null;
-        }
-    }
-
-    public static boolean a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            try {
-                f.a(new c(file));
-                return true;
-            } catch (IOException unused) {
-                f.a((Closeable) null);
-                return false;
-            } catch (Throwable th) {
-                f.a((Closeable) null);
-                throw th;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String a(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
-            byte[] array = byteBuffer.array();
-            int position = byteBuffer.position();
-            while (byteBuffer.hasRemaining() && array[byteBuffer.position()] != 0) {
-                byteBuffer.position(byteBuffer.position() + 1);
-            }
-            byteBuffer.position(byteBuffer.position() + 1);
-            return new String(array, position, (byteBuffer.position() - position) - 1, Charset.forName(HTTP.ASCII));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static /* synthetic */ void a(int i, int i2, String str) {
-        if (i <= 0 || i > i2) {
-            throw new IOException(str);
         }
     }
 }

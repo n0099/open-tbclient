@@ -18,6 +18,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class hb {
@@ -40,11 +41,11 @@ public class hb {
     public static String f457a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<a> f458a;
+    public static List f458a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -162,7 +163,7 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m390a(Context context) {
+    public static com.xiaomi.push.providers.a m389a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -178,7 +179,7 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m391a(Context context) {
+    public static synchronized String m390a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -190,7 +191,7 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m393a(Context context) {
+    public static void m392a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             a = b(context);
@@ -206,7 +207,7 @@ public class hb {
         }
         synchronized (f456a) {
             isEmpty = f458a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m391a(context) : "", j));
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m390a(context) : "", j));
         }
         if (isEmpty) {
             f454a.a(new hc(context), 5000L);
@@ -234,11 +235,11 @@ public class hb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m394a(String str) {
+    public static synchronized void m393a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             synchronized (hb.class) {
-                if (!m.m567d() && !TextUtils.isEmpty(str)) {
+                if (!m.m566d() && !TextUtils.isEmpty(str)) {
                     f457a = str;
                 }
             }
@@ -266,14 +267,16 @@ public class hb {
         return invokeL.intValue;
     }
 
-    public static void b(Context context, List<a> list) {
+    public static void b(Context context, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
                 synchronized (com.xiaomi.push.providers.a.f824a) {
-                    SQLiteDatabase writableDatabase = m390a(context).getWritableDatabase();
+                    SQLiteDatabase writableDatabase = m389a(context).getWritableDatabase();
                     writableDatabase.beginTransaction();
-                    for (a aVar : list) {
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        a aVar = (a) it.next();
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("package_name", aVar.f460a);
                         contentValues.put("message_ts", Long.valueOf(aVar.f459a));

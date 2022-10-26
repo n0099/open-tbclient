@@ -14,7 +14,7 @@ public class ChatObjectCache {
     public static /* synthetic */ Interceptable $ic;
     public static ChatObjectCache mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<ChatObject, Object> mCache;
+    public LruCache mCache;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class ChatObjectCache {
             }
         }
         this.mCache = null;
-        this.mCache = new LruCache<>(100);
+        this.mCache = new LruCache(100);
     }
 
     public static ChatObjectCache getInstance() {
@@ -62,6 +62,13 @@ public class ChatObjectCache {
         return (ChatObjectCache) invokeV.objValue;
     }
 
+    public void removeAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mCache.evictAll();
+        }
+    }
+
     public Object get(ChatObject chatObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -70,6 +77,15 @@ public class ChatObjectCache {
                 return null;
             }
             return this.mCache.get(chatObject);
+        }
+        return invokeL.objValue;
+    }
+
+    public Object remove(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatObject)) == null) {
+            return this.mCache.remove(chatObject);
         }
         return invokeL.objValue;
     }
@@ -85,18 +101,5 @@ public class ChatObjectCache {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    public Object remove(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatObject)) == null) ? this.mCache.remove(chatObject) : invokeL.objValue;
-    }
-
-    public void removeAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mCache.evictAll();
-        }
     }
 }

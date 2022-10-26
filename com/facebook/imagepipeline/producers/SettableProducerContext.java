@@ -9,8 +9,6 @@ import com.facebook.imagepipeline.common.Priority;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
 public class SettableProducerContext extends BaseProducerContext {
     public static /* synthetic */ Interceptable $ic;
@@ -34,27 +32,6 @@ public class SettableProducerContext extends BaseProducerContext {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public void setIsIntermediateResultExpected(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            BaseProducerContext.callOnIsIntermediateResultExpectedChanged(setIsIntermediateResultExpectedNoCallbacks(z));
-        }
-    }
-
-    public void setIsPrefetch(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            BaseProducerContext.callOnIsPrefetchChanged(setIsPrefetchNoCallbacks(z));
-        }
-    }
-
-    public void setPriority(Priority priority) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, priority) == null) {
-            BaseProducerContext.callOnPriorityChanged(setPriorityNoCallbacks(priority));
         }
     }
 
@@ -118,6 +95,27 @@ public class SettableProducerContext extends BaseProducerContext {
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
+        }
+    }
+
+    public void setIsIntermediateResultExpected(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            BaseProducerContext.callOnIsIntermediateResultExpectedChanged(setIsIntermediateResultExpectedNoCallbacks(z));
+        }
+    }
+
+    public void setIsPrefetch(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            BaseProducerContext.callOnIsPrefetchChanged(setIsPrefetchNoCallbacks(z));
+        }
+    }
+
+    public void setPriority(Priority priority) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, priority) == null) {
+            BaseProducerContext.callOnPriorityChanged(setPriorityNoCallbacks(priority));
         }
     }
 }

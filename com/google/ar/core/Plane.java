@@ -14,9 +14,25 @@ public class Plane extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    private native long nativeAcquireSubsumedBy(long j, long j2);
+
+    private native Pose nativeGetCenterPose(long j, long j2);
+
+    private native float nativeGetExtentX(long j, long j2);
+
+    private native float nativeGetExtentZ(long j, long j2);
+
+    private native float[] nativeGetPolygon(long j, long j2);
+
+    private native int nativeGetType(long j, long j2);
+
+    private native boolean nativeIsPoseInExtents(long j, long j2, Pose pose);
+
+    private native boolean nativeIsPoseInPolygon(long j, long j2, Pose pose);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Type {
+    public final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type HORIZONTAL_DOWNWARD_FACING;
@@ -87,13 +103,38 @@ public class Plane extends TrackableBase {
         public static Type valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (Type) Enum.valueOf(Type.class, str);
+            }
+            return (Type) invokeL.objValue;
         }
 
         public static Type[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (Type[]) $VALUES.clone();
+            }
+            return (Type[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Plane() {
+        super(0L, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Long) objArr[0]).longValue(), (Session) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
@@ -118,44 +159,12 @@ public class Plane extends TrackableBase {
         }
     }
 
-    private native long nativeAcquireSubsumedBy(long j, long j2);
-
-    private native Pose nativeGetCenterPose(long j, long j2);
-
-    private native float nativeGetExtentX(long j, long j2);
-
-    private native float nativeGetExtentZ(long j, long j2);
-
-    private native float[] nativeGetPolygon(long j, long j2);
-
-    private native int nativeGetType(long j, long j2);
-
-    private native boolean nativeIsPoseInExtents(long j, long j2, Pose pose);
-
-    private native boolean nativeIsPoseInPolygon(long j, long j2, Pose pose);
-
     public Type getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Type.forNumber(nativeGetType(this.b.a, this.a)) : (Type) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Plane() {
-        super(0L, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Long) objArr[0]).longValue(), (Session) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Type.forNumber(nativeGetType(this.b.a, this.a));
         }
+        return (Type) invokeV.objValue;
     }
 }

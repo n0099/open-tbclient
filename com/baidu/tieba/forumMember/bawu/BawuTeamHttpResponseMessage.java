@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.bawu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.pe6;
+import com.baidu.tieba.we6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,52 +45,21 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
         this.isNeedUpdateCache = false;
     }
 
-    public BawuTeam getBawuTeamInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mBawuTeamInfo : (BawuTeam) invokeV.objValue;
-    }
-
-    public ManagerApplyInfo getManagerApplyInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mManagerApplyInfo : (ManagerApplyInfo) invokeV.objValue;
-    }
-
-    public int isPrivateForum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsPrivateForum : invokeV.intValue;
-    }
-
-    public void setBawuTeamInfo(BawuTeam bawuTeam) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bawuTeam) == null) {
-            this.mBawuTeamInfo = bawuTeam;
-        }
-    }
-
-    public void setManagerApplyInfo(ManagerApplyInfo managerApplyInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, managerApplyInfo) == null) {
-            this.mManagerApplyInfo = managerApplyInfo;
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && this.isNeedUpdateCache) {
-            BawuTeamRequestMessage bawuTeamRequestMessage = null;
-            if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
-                bawuTeamRequestMessage = (BawuTeamRequestMessage) getOrginalMessage().getExtra();
-            }
-            if (bawuTeamRequestMessage != null) {
-                this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
-            }
-            new pe6().c(this.cacheKey, bArr);
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || !this.isNeedUpdateCache) {
+            return;
         }
+        BawuTeamRequestMessage bawuTeamRequestMessage = null;
+        if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
+            bawuTeamRequestMessage = (BawuTeamRequestMessage) getOrginalMessage().getExtra();
+        }
+        if (bawuTeamRequestMessage != null) {
+            this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
+        }
+        new we6().c(this.cacheKey, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -108,6 +77,47 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mManagerApplyInfo = getBawuInfoResIdl.data.manager_apply_info;
                 this.isNeedUpdateCache = true;
             }
+        }
+    }
+
+    public BawuTeam getBawuTeamInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mBawuTeamInfo;
+        }
+        return (BawuTeam) invokeV.objValue;
+    }
+
+    public ManagerApplyInfo getManagerApplyInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mManagerApplyInfo;
+        }
+        return (ManagerApplyInfo) invokeV.objValue;
+    }
+
+    public int isPrivateForum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mIsPrivateForum;
+        }
+        return invokeV.intValue;
+    }
+
+    public void setBawuTeamInfo(BawuTeam bawuTeam) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bawuTeam) == null) {
+            this.mBawuTeamInfo = bawuTeam;
+        }
+    }
+
+    public void setManagerApplyInfo(ManagerApplyInfo managerApplyInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, managerApplyInfo) == null) {
+            this.mManagerApplyInfo = managerApplyInfo;
         }
     }
 }

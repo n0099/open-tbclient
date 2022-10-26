@@ -35,19 +35,28 @@ public final class LiveTypeData {
     public final String getLiveType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.liveType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.liveType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.roomId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.roomId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getTemplateId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.templateId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.templateId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void loadFromJson(String str) {
@@ -56,12 +65,23 @@ public final class LiveTypeData {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
                 JSONObject optJSONObject2 = new JSONObject(str).optJSONObject("data");
-                if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject("room_template_info")) == null) {
-                    return;
+                if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("room_template_info")) != null) {
+                    this.roomId = optJSONObject.optString("room_id");
+                    this.liveType = optJSONObject.optString("live_type");
+                    this.templateId = optJSONObject.optString("template_id");
                 }
-                this.roomId = optJSONObject.optString("room_id");
-                this.liveType = optJSONObject.optString("live_type");
-                this.templateId = optJSONObject.optString("template_id");
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public final void loadFromJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            try {
+                this.roomId = jSONObject.optString("room_id");
+                this.liveType = jSONObject.optString("live_type");
+                this.templateId = jSONObject.optString("template_id");
             } catch (Exception unused) {
             }
         }
@@ -85,18 +105,6 @@ public final class LiveTypeData {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.templateId = str;
-        }
-    }
-
-    public final void loadFromJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            try {
-                this.roomId = jSONObject.optString("room_id");
-                this.liveType = jSONObject.optString("live_type");
-                this.templateId = jSONObject.optString("template_id");
-            } catch (Exception unused) {
-            }
         }
     }
 }

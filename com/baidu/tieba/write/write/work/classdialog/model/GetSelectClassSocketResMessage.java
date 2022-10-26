@@ -1,6 +1,5 @@
 package com.baidu.tieba.write.write.work.classdialog.model;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VideoCategoryClassData;
@@ -21,9 +20,9 @@ import tbclient.GetWorksTags.Tag;
 public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> firstClass;
-    public List<List<String>> secondClass;
-    public List<VideoCategoryClassData> tags;
+    public List firstClass;
+    public List secondClass;
+    public List tags;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetSelectClassSocketResMessage() {
@@ -47,7 +46,6 @@ public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -92,21 +90,30 @@ public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<String> getFirstClass() {
+    public List getFirstClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.firstClass : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.firstClass;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<List<String>> getSecondClass() {
+    public List getSecondClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.secondClass : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.secondClass;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<VideoCategoryClassData> getTags() {
+    public List getTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tags : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.tags;
+        }
+        return (List) invokeV.objValue;
     }
 }

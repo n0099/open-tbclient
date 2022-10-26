@@ -45,7 +45,10 @@ public class NativeCodeSetup {
     public static boolean getUseNativeCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sUseNativeCode : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sUseNativeCode;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void setUseNativeCode(boolean z) {

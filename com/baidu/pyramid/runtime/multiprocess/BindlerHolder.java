@@ -14,12 +14,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BindlerHolder implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<BindlerHolder> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public IBinder mBinder;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<BindlerHolder> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +53,10 @@ public class BindlerHolder implements Parcelable {
         public BindlerHolder createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new BindlerHolder(parcel) : (BindlerHolder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new BindlerHolder(parcel);
+            }
+            return (BindlerHolder) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +65,10 @@ public class BindlerHolder implements Parcelable {
         public BindlerHolder[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new BindlerHolder[i] : (BindlerHolder[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new BindlerHolder[i];
+            }
+            return (BindlerHolder[]) invokeI.objValue;
         }
     }
 
@@ -70,6 +86,15 @@ public class BindlerHolder implements Parcelable {
             }
         }
         CREATOR = new a();
+    }
+
+    public IBinder getBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBinder;
+        }
+        return (IBinder) invokeV.objValue;
     }
 
     public BindlerHolder(IBinder iBinder) {
@@ -90,30 +115,6 @@ public class BindlerHolder implements Parcelable {
         this.mBinder = iBinder;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public IBinder getBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBinder : (IBinder) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeStrongBinder(this.mBinder);
-        }
-    }
-
     public BindlerHolder(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,5 +131,13 @@ public class BindlerHolder implements Parcelable {
             }
         }
         this.mBinder = parcel.readStrongBinder();
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeStrongBinder(this.mBinder);
+        }
     }
 }

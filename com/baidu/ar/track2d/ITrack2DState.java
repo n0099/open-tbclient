@@ -13,7 +13,7 @@ public interface ITrack2DState {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class DistanceState {
+    public final class DistanceState {
         public static final /* synthetic */ DistanceState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DistanceState NORMAL;

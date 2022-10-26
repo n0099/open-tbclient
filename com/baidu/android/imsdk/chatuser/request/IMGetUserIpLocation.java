@@ -28,10 +28,10 @@ public class IMGetUserIpLocation extends Message {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public int mReSendCount;
-    public ArrayList<Long> mUids;
+    public ArrayList mUids;
     public int msgtype;
 
-    public IMGetUserIpLocation(Context context, ArrayList<Long> arrayList) {
+    public IMGetUserIpLocation(Context context, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,28 +61,28 @@ public class IMGetUserIpLocation extends Message {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
             ArrayList arrayList = (ArrayList) intent.getExtras().getSerializable(Constants.EXTRA_UIDS);
             int intExtra = intent.getIntExtra(Constants.EXTRA_SAVE_TO_DB, 0);
-            if (arrayList == null || arrayList.size() <= 0) {
-                return null;
-            }
-            IMGetUserIpLocation iMGetUserIpLocation = new IMGetUserIpLocation(context, arrayList);
-            iMGetUserIpLocation.setMsgtype(intExtra);
-            JSONObject jSONObject = new JSONObject();
-            if (intExtra == 1) {
-                try {
-                    jSONObject.put("type", intExtra);
-                } catch (JSONException e) {
-                    LogUtils.e(TAG, "Exception ", e);
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+            if (arrayList != null && arrayList.size() > 0) {
+                IMGetUserIpLocation iMGetUserIpLocation = new IMGetUserIpLocation(context, arrayList);
+                iMGetUserIpLocation.setMsgtype(intExtra);
+                JSONObject jSONObject = new JSONObject();
+                if (intExtra == 1) {
+                    try {
+                        jSONObject.put("type", intExtra);
+                    } catch (JSONException e) {
+                        LogUtils.e(TAG, "Exception ", e);
+                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+                    }
+                    Message.saveCmdMessage(context, iMGetUserIpLocation, jSONObject.toString(), iMGetUserIpLocation.getPriority());
+                    return iMGetUserIpLocation;
                 }
-                Message.saveCmdMessage(context, iMGetUserIpLocation, jSONObject.toString(), iMGetUserIpLocation.getPriority());
                 return iMGetUserIpLocation;
             }
-            return iMGetUserIpLocation;
+            return null;
         }
         return (IMGetUserIpLocation) invokeLL.objValue;
     }
 
-    private void updateDB(Context context, ArrayList<IpInfo> arrayList) {
+    private void updateDB(Context context, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, arrayList) == null) {
             IMUserManager.getInstance(context).updateUserIpInfo(arrayList);
@@ -110,13 +110,19 @@ public class IMGetUserIpLocation extends Message {
     public int getMsgType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msgtype : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.msgtype;
+        }
+        return invokeV.intValue;
     }
 
-    public ArrayList<Long> getToUsers() {
+    public ArrayList getToUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUids : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mUids;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -139,11 +145,11 @@ public class IMGetUserIpLocation extends Message {
                     setNeedReSend(false);
                 }
             }
-            ArrayList<IpInfo> arrayList = null;
+            ArrayList arrayList = null;
             if (i == 0) {
                 try {
                     if (jSONObject.has("location")) {
-                        ArrayList<IpInfo> arrayList2 = new ArrayList<>();
+                        ArrayList arrayList2 = new ArrayList();
                         try {
                             JSONArray jSONArray = (JSONArray) jSONObject.opt("location");
                             for (int i3 = 0; i3 < jSONArray.length(); i3++) {

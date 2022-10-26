@@ -2,10 +2,6 @@ package androidx.media2.common;
 
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
@@ -22,13 +18,11 @@ public class FileMediaItem extends MediaItem {
     public static final long FD_LENGTH_UNKNOWN = 576460752303423487L;
     public static final String TAG = "FileMediaItem";
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("mLock")
     public boolean mClosed;
     public final long mFDLength;
     public final long mFDOffset;
     public final Object mLock;
     public final ParcelFileDescriptor mPFD;
-    @GuardedBy("mLock")
     public int mRefCount;
 
     /* loaded from: classes.dex */
@@ -39,7 +33,7 @@ public class FileMediaItem extends MediaItem {
         public long mFDOffset;
         public ParcelFileDescriptor mPFD;
 
-        public Builder(@NonNull ParcelFileDescriptor parcelFileDescriptor) {
+        public Builder(ParcelFileDescriptor parcelFileDescriptor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +56,28 @@ public class FileMediaItem extends MediaItem {
             this.mFDLength = 576460752303423487L;
         }
 
-        @NonNull
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.media2.common.MediaItem.Builder
+        public FileMediaItem build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new FileMediaItem(this);
+            }
+            return (FileMediaItem) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.media2.common.MediaItem.Builder
+        public Builder setEndPosition(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                return (Builder) super.setEndPosition(j);
+            }
+            return (Builder) invokeJ.objValue;
+        }
+
         public Builder setFileDescriptorLength(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -76,7 +91,6 @@ public class FileMediaItem extends MediaItem {
             return (Builder) invokeJ.objValue;
         }
 
-        @NonNull
         public Builder setFileDescriptorOffset(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -92,38 +106,24 @@ public class FileMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
-        public FileMediaItem build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new FileMediaItem(this) : (FileMediaItem) invokeV.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
-        public Builder setEndPosition(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? (Builder) super.setEndPosition(j) : (Builder) invokeJ.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
-        public Builder setMetadata(@Nullable MediaMetadata mediaMetadata) {
+        public Builder setMetadata(MediaMetadata mediaMetadata) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, mediaMetadata)) == null) ? (Builder) super.setMetadata(mediaMetadata) : (Builder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, mediaMetadata)) == null) {
+                return (Builder) super.setMetadata(mediaMetadata);
+            }
+            return (Builder) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
         public Builder setStartPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) ? (Builder) super.setStartPosition(j) : (Builder) invokeJ.objValue;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+                return (Builder) super.setStartPosition(j);
+            }
+            return (Builder) invokeJ.objValue;
         }
     }
 
@@ -151,7 +151,6 @@ public class FileMediaItem extends MediaItem {
         this.mFDLength = builder.mFDLength;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -164,7 +163,59 @@ public class FileMediaItem extends MediaItem {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public long getFileDescriptorLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFDLength;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getFileDescriptorOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFDOffset;
+        }
+        return invokeV.longValue;
+    }
+
+    public ParcelFileDescriptor getParcelFileDescriptor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mPFD;
+        }
+        return (ParcelFileDescriptor) invokeV.objValue;
+    }
+
+    public void increaseRefCount() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this.mLock) {
+                if (this.mClosed) {
+                    Log.w(TAG, "ParcelFileDescriptorClient is already closed.");
+                } else {
+                    this.mRefCount++;
+                }
+            }
+        }
+    }
+
+    public boolean isClosed() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this.mLock) {
+                z = this.mClosed;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void decreaseRefCount() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -187,52 +238,5 @@ public class FileMediaItem extends MediaItem {
                 }
             }
         }
-    }
-
-    public long getFileDescriptorLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFDLength : invokeV.longValue;
-    }
-
-    public long getFileDescriptorOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFDOffset : invokeV.longValue;
-    }
-
-    @NonNull
-    public ParcelFileDescriptor getParcelFileDescriptor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPFD : (ParcelFileDescriptor) invokeV.objValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void increaseRefCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this.mLock) {
-                if (this.mClosed) {
-                    Log.w(TAG, "ParcelFileDescriptorClient is already closed.");
-                } else {
-                    this.mRefCount++;
-                }
-            }
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public boolean isClosed() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this.mLock) {
-                z = this.mClosed;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
     }
 }

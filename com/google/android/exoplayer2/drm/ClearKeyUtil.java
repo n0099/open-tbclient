@@ -106,10 +106,12 @@ public final class ClearKeyUtil {
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, sb, i, i2) == null) {
             while (i < i2) {
                 char charAt = sb.charAt(i);
-                if (charAt == '+') {
+                if (charAt != '+') {
+                    if (charAt == '/') {
+                        sb.setCharAt(i, '_');
+                    }
+                } else {
                     sb.setCharAt(i, SignatureImpl.SEP);
-                } else if (charAt == '/') {
-                    sb.setCharAt(i, '_');
                 }
                 i++;
             }
@@ -119,6 +121,9 @@ public final class ClearKeyUtil {
     public static String base64UrlToBase64(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? str.replace(SignatureImpl.SEP, '+').replace('_', WebvttCueParser.CHAR_SLASH) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return str.replace(SignatureImpl.SEP, '+').replace('_', WebvttCueParser.CHAR_SLASH);
+        }
+        return (String) invokeL.objValue;
     }
 }

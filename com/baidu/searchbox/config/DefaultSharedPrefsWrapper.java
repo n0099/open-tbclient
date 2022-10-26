@@ -16,13 +16,13 @@ public final class DefaultSharedPrefsWrapper extends SharedPrefsWrapper {
 
     /* renamed from: com.baidu.searchbox.config.DefaultSharedPrefsWrapper$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Holder {
+    public class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final DefaultSharedPrefsWrapper INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,16 +58,6 @@ public final class DefaultSharedPrefsWrapper extends SharedPrefsWrapper {
         }
     }
 
-    public /* synthetic */ DefaultSharedPrefsWrapper(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    public static DefaultSharedPrefsWrapper getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.INSTANCE : (DefaultSharedPrefsWrapper) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DefaultSharedPrefsWrapper() {
         super("default");
@@ -84,5 +74,18 @@ public final class DefaultSharedPrefsWrapper extends SharedPrefsWrapper {
                 return;
             }
         }
+    }
+
+    public static DefaultSharedPrefsWrapper getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Holder.INSTANCE;
+        }
+        return (DefaultSharedPrefsWrapper) invokeV.objValue;
+    }
+
+    public /* synthetic */ DefaultSharedPrefsWrapper(AnonymousClass1 anonymousClass1) {
+        this();
     }
 }

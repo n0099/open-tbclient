@@ -42,28 +42,66 @@ public class GetTaskScoreHttpResponseMessage extends TbHttpResponsedMessage {
         this.isFinished = 0;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        AddTaskScoresResIdl addTaskScoresResIdl;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (addTaskScoresResIdl = (AddTaskScoresResIdl) new Wire(new Class[0]).parseFrom(bArr, AddTaskScoresResIdl.class)) == null) {
+            return;
+        }
+        Error error = addTaskScoresResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
+            setErrorString(addTaskScoresResIdl.error.usermsg);
+        }
+        DataRes dataRes = addTaskScoresResIdl.data;
+        if (dataRes == null) {
+            return;
+        }
+        this.scores = dataRes.scores.intValue();
+        this.isFinished = addTaskScoresResIdl.data.is_finish.intValue();
+        if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
+            GetTaskScoresRequestMessage getTaskScoresRequestMessage = (GetTaskScoresRequestMessage) getOrginalMessage().getExtra();
+            this.userId = getTaskScoresRequestMessage.getUserId();
+            this.taskId = getTaskScoresRequestMessage.getTaskId();
+        }
+    }
+
     public int getIsFinished() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isFinished : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isFinished;
+        }
+        return invokeV.intValue;
     }
 
     public int getScores() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.scores : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.scores;
+        }
+        return invokeV.intValue;
     }
 
     public int getTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.taskId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.taskId;
+        }
+        return invokeV.intValue;
     }
 
     public long getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.userId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.userId;
+        }
+        return invokeV.longValue;
     }
 
     public void setTaskId(int i) {
@@ -78,32 +116,5 @@ public class GetTaskScoreHttpResponseMessage extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
             this.userId = j;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        AddTaskScoresResIdl addTaskScoresResIdl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (addTaskScoresResIdl = (AddTaskScoresResIdl) new Wire(new Class[0]).parseFrom(bArr, AddTaskScoresResIdl.class)) == null) {
-            return;
-        }
-        Error error = addTaskScoresResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(addTaskScoresResIdl.error.usermsg);
-        }
-        DataRes dataRes = addTaskScoresResIdl.data;
-        if (dataRes == null) {
-            return;
-        }
-        this.scores = dataRes.scores.intValue();
-        this.isFinished = addTaskScoresResIdl.data.is_finish.intValue();
-        if (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) {
-            return;
-        }
-        GetTaskScoresRequestMessage getTaskScoresRequestMessage = (GetTaskScoresRequestMessage) getOrginalMessage().getExtra();
-        this.userId = getTaskScoresRequestMessage.getUserId();
-        this.taskId = getTaskScoresRequestMessage.getTaskId();
     }
 }

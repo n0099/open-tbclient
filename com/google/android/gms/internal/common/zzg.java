@@ -9,6 +9,9 @@ public final class zzg implements zze {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public /* synthetic */ zzg(zzf zzfVar) {
+    }
+
     public zzg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -21,8 +24,5 @@ public final class zzg implements zze {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public /* synthetic */ zzg(zzf zzfVar) {
     }
 }

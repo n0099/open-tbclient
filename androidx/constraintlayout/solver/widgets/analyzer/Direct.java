@@ -58,11 +58,18 @@ public class Direct {
 
     public static boolean canMeasure(ConstraintWidget constraintWidget) {
         InterceptResult invokeL;
+        ConstraintWidgetContainer constraintWidgetContainer;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, constraintWidget)) == null) {
             ConstraintWidget.DimensionBehaviour horizontalDimensionBehaviour = constraintWidget.getHorizontalDimensionBehaviour();
             ConstraintWidget.DimensionBehaviour verticalDimensionBehaviour = constraintWidget.getVerticalDimensionBehaviour();
-            ConstraintWidgetContainer constraintWidgetContainer = constraintWidget.getParent() != null ? (ConstraintWidgetContainer) constraintWidget.getParent() : null;
+            if (constraintWidget.getParent() != null) {
+                constraintWidgetContainer = (ConstraintWidgetContainer) constraintWidget.getParent();
+            } else {
+                constraintWidgetContainer = null;
+            }
             if (constraintWidgetContainer != null) {
                 constraintWidgetContainer.getHorizontalDimensionBehaviour();
                 ConstraintWidget.DimensionBehaviour dimensionBehaviour = ConstraintWidget.DimensionBehaviour.FIXED;
@@ -71,10 +78,21 @@ public class Direct {
                 constraintWidgetContainer.getVerticalDimensionBehaviour();
                 ConstraintWidget.DimensionBehaviour dimensionBehaviour2 = ConstraintWidget.DimensionBehaviour.FIXED;
             }
-            boolean z = horizontalDimensionBehaviour == ConstraintWidget.DimensionBehaviour.FIXED || horizontalDimensionBehaviour == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT || (horizontalDimensionBehaviour == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultWidth == 0 && constraintWidget.mDimensionRatio == 0.0f && constraintWidget.hasDanglingDimension(0)) || constraintWidget.isResolvedHorizontally();
-            boolean z2 = verticalDimensionBehaviour == ConstraintWidget.DimensionBehaviour.FIXED || verticalDimensionBehaviour == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT || (verticalDimensionBehaviour == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.mMatchConstraintDefaultHeight == 0 && constraintWidget.mDimensionRatio == 0.0f && constraintWidget.hasDanglingDimension(1)) || constraintWidget.isResolvedVertically();
-            if (constraintWidget.mDimensionRatio <= 0.0f || !(z || z2)) {
-                return z && z2;
+            if (horizontalDimensionBehaviour != ConstraintWidget.DimensionBehaviour.FIXED && horizontalDimensionBehaviour != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT && ((horizontalDimensionBehaviour != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT || constraintWidget.mMatchConstraintDefaultWidth != 0 || constraintWidget.mDimensionRatio != 0.0f || !constraintWidget.hasDanglingDimension(0)) && !constraintWidget.isResolvedHorizontally())) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (verticalDimensionBehaviour != ConstraintWidget.DimensionBehaviour.FIXED && verticalDimensionBehaviour != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT && ((verticalDimensionBehaviour != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT || constraintWidget.mMatchConstraintDefaultHeight != 0 || constraintWidget.mDimensionRatio != 0.0f || !constraintWidget.hasDanglingDimension(1)) && !constraintWidget.isResolvedVertically())) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (constraintWidget.mDimensionRatio > 0.0f && (z || z2)) {
+                return true;
+            }
+            if (!z || !z2) {
+                return false;
             }
             return true;
         }
@@ -82,9 +100,11 @@ public class Direct {
     }
 
     public static void horizontalSolvingPass(ConstraintWidget constraintWidget, BasicMeasure.Measurer measurer, boolean z) {
+        boolean z2;
         ConstraintAnchor constraintAnchor;
         ConstraintAnchor constraintAnchor2;
         ConstraintAnchor constraintAnchor3;
+        boolean z3;
         ConstraintAnchor constraintAnchor4;
         ConstraintAnchor constraintAnchor5;
         Interceptable interceptable = $ic;
@@ -108,7 +128,12 @@ public class Direct {
                     if (constraintWidget2.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && !canMeasure) {
                         if (constraintWidget2.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget2.mMatchConstraintMaxWidth >= 0 && constraintWidget2.mMatchConstraintMinWidth >= 0 && (constraintWidget2.getVisibility() == 8 || (constraintWidget2.mMatchConstraintDefaultWidth == 0 && constraintWidget2.getDimensionRatio() == 0.0f))) {
                             if (!constraintWidget2.isInHorizontalChain() && !constraintWidget2.isInVirtualLayout()) {
-                                if (((next == constraintWidget2.mLeft && (constraintAnchor5 = constraintWidget2.mRight.mTarget) != null && constraintAnchor5.hasFinalValue()) || (next == constraintWidget2.mRight && (constraintAnchor4 = constraintWidget2.mLeft.mTarget) != null && constraintAnchor4.hasFinalValue())) && !constraintWidget2.isInHorizontalChain()) {
+                                if ((next == constraintWidget2.mLeft && (constraintAnchor5 = constraintWidget2.mRight.mTarget) != null && constraintAnchor5.hasFinalValue()) || (next == constraintWidget2.mRight && (constraintAnchor4 = constraintWidget2.mLeft.mTarget) != null && constraintAnchor4.hasFinalValue())) {
+                                    z3 = true;
+                                } else {
+                                    z3 = false;
+                                }
+                                if (z3 && !constraintWidget2.isInHorizontalChain()) {
                                     solveHorizontalMatchConstraint(constraintWidget, measurer, constraintWidget2, z);
                                 }
                             }
@@ -132,38 +157,41 @@ public class Direct {
                     }
                 }
             }
-            if ((constraintWidget instanceof Guideline) || anchor2.getDependents() == null || !anchor2.hasFinalValue()) {
-                return;
-            }
-            Iterator<ConstraintAnchor> it2 = anchor2.getDependents().iterator();
-            while (it2.hasNext()) {
-                ConstraintAnchor next2 = it2.next();
-                ConstraintWidget constraintWidget3 = next2.mOwner;
-                boolean canMeasure2 = canMeasure(constraintWidget3);
-                if (constraintWidget3.isMeasureRequested() && canMeasure2) {
-                    ConstraintWidgetContainer.measure(constraintWidget3, measurer, new BasicMeasure.Measure(), BasicMeasure.Measure.SELF_DIMENSIONS);
-                }
-                boolean z2 = (next2 == constraintWidget3.mLeft && (constraintAnchor2 = constraintWidget3.mRight.mTarget) != null && constraintAnchor2.hasFinalValue()) || (next2 == constraintWidget3.mRight && (constraintAnchor = constraintWidget3.mLeft.mTarget) != null && constraintAnchor.hasFinalValue());
-                if (constraintWidget3.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && !canMeasure2) {
-                    if (constraintWidget3.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget3.mMatchConstraintMaxWidth >= 0 && constraintWidget3.mMatchConstraintMinWidth >= 0 && (constraintWidget3.getVisibility() == 8 || (constraintWidget3.mMatchConstraintDefaultWidth == 0 && constraintWidget3.getDimensionRatio() == 0.0f))) {
-                        if (!constraintWidget3.isInHorizontalChain() && !constraintWidget3.isInVirtualLayout() && z2 && !constraintWidget3.isInHorizontalChain()) {
-                            solveHorizontalMatchConstraint(constraintWidget, measurer, constraintWidget3, z);
-                        }
+            if (!(constraintWidget instanceof Guideline) && anchor2.getDependents() != null && anchor2.hasFinalValue()) {
+                Iterator<ConstraintAnchor> it2 = anchor2.getDependents().iterator();
+                while (it2.hasNext()) {
+                    ConstraintAnchor next2 = it2.next();
+                    ConstraintWidget constraintWidget3 = next2.mOwner;
+                    boolean canMeasure2 = canMeasure(constraintWidget3);
+                    if (constraintWidget3.isMeasureRequested() && canMeasure2) {
+                        ConstraintWidgetContainer.measure(constraintWidget3, measurer, new BasicMeasure.Measure(), BasicMeasure.Measure.SELF_DIMENSIONS);
                     }
-                } else if (!constraintWidget3.isMeasureRequested()) {
-                    ConstraintAnchor constraintAnchor8 = constraintWidget3.mLeft;
-                    if (next2 == constraintAnchor8 && constraintWidget3.mRight.mTarget == null) {
-                        int margin3 = constraintAnchor8.getMargin() + finalValue2;
-                        constraintWidget3.setFinalHorizontal(margin3, constraintWidget3.getWidth() + margin3);
-                        horizontalSolvingPass(constraintWidget3, measurer, z);
+                    if ((next2 == constraintWidget3.mLeft && (constraintAnchor2 = constraintWidget3.mRight.mTarget) != null && constraintAnchor2.hasFinalValue()) || (next2 == constraintWidget3.mRight && (constraintAnchor = constraintWidget3.mLeft.mTarget) != null && constraintAnchor.hasFinalValue())) {
+                        z2 = true;
                     } else {
-                        ConstraintAnchor constraintAnchor9 = constraintWidget3.mRight;
-                        if (next2 == constraintAnchor9 && constraintWidget3.mLeft.mTarget == null) {
-                            int margin4 = finalValue2 - constraintAnchor9.getMargin();
-                            constraintWidget3.setFinalHorizontal(margin4 - constraintWidget3.getWidth(), margin4);
+                        z2 = false;
+                    }
+                    if (constraintWidget3.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && !canMeasure2) {
+                        if (constraintWidget3.getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget3.mMatchConstraintMaxWidth >= 0 && constraintWidget3.mMatchConstraintMinWidth >= 0 && (constraintWidget3.getVisibility() == 8 || (constraintWidget3.mMatchConstraintDefaultWidth == 0 && constraintWidget3.getDimensionRatio() == 0.0f))) {
+                            if (!constraintWidget3.isInHorizontalChain() && !constraintWidget3.isInVirtualLayout() && z2 && !constraintWidget3.isInHorizontalChain()) {
+                                solveHorizontalMatchConstraint(constraintWidget, measurer, constraintWidget3, z);
+                            }
+                        }
+                    } else if (!constraintWidget3.isMeasureRequested()) {
+                        ConstraintAnchor constraintAnchor8 = constraintWidget3.mLeft;
+                        if (next2 == constraintAnchor8 && constraintWidget3.mRight.mTarget == null) {
+                            int margin3 = constraintAnchor8.getMargin() + finalValue2;
+                            constraintWidget3.setFinalHorizontal(margin3, constraintWidget3.getWidth() + margin3);
                             horizontalSolvingPass(constraintWidget3, measurer, z);
-                        } else if (z2 && !constraintWidget3.isInHorizontalChain()) {
-                            solveHorizontalCenterConstraints(measurer, constraintWidget3, z);
+                        } else {
+                            ConstraintAnchor constraintAnchor9 = constraintWidget3.mRight;
+                            if (next2 == constraintAnchor9 && constraintWidget3.mLeft.mTarget == null) {
+                                int margin4 = finalValue2 - constraintAnchor9.getMargin();
+                                constraintWidget3.setFinalHorizontal(margin4 - constraintWidget3.getWidth(), margin4);
+                                horizontalSolvingPass(constraintWidget3, measurer, z);
+                            } else if (z2 && !constraintWidget3.isInHorizontalChain()) {
+                                solveHorizontalCenterConstraints(measurer, constraintWidget3, z);
+                            }
                         }
                     }
                 }
@@ -201,166 +229,169 @@ public class Direct {
         float verticalBiasPercent;
         int height2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{constraintWidgetContainer, linearSystem, Integer.valueOf(i), Integer.valueOf(i2), chainHead, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        if (z3) {
-            return false;
-        }
-        if (i == 0) {
-            if (!constraintWidgetContainer.isResolvedHorizontally()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{constraintWidgetContainer, linearSystem, Integer.valueOf(i), Integer.valueOf(i2), chainHead, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (z3) {
                 return false;
             }
-        } else if (!constraintWidgetContainer.isResolvedVertically()) {
-            return false;
-        }
-        boolean isRtl = constraintWidgetContainer.isRtl();
-        ConstraintWidget first = chainHead.getFirst();
-        ConstraintWidget last = chainHead.getLast();
-        ConstraintWidget firstVisibleWidget = chainHead.getFirstVisibleWidget();
-        ConstraintWidget lastVisibleWidget = chainHead.getLastVisibleWidget();
-        ConstraintWidget head = chainHead.getHead();
-        ConstraintAnchor constraintAnchor = first.mListAnchors[i2];
-        int i4 = i2 + 1;
-        ConstraintAnchor constraintAnchor2 = last.mListAnchors[i4];
-        ConstraintAnchor constraintAnchor3 = constraintAnchor.mTarget;
-        if (constraintAnchor3 == null || constraintAnchor2.mTarget == null || !constraintAnchor3.hasFinalValue() || !constraintAnchor2.mTarget.hasFinalValue() || firstVisibleWidget == null || lastVisibleWidget == null || (finalValue3 = (finalValue2 = constraintAnchor2.mTarget.getFinalValue() - lastVisibleWidget.mListAnchors[i4].getMargin()) - (finalValue = constraintAnchor.mTarget.getFinalValue() + firstVisibleWidget.mListAnchors[i2].getMargin())) <= 0) {
-            return false;
-        }
-        BasicMeasure.Measure measure2 = new BasicMeasure.Measure();
-        ConstraintWidget constraintWidget2 = first;
-        boolean z4 = false;
-        int i5 = 0;
-        int i6 = 0;
-        int i7 = 0;
-        while (true) {
-            ConstraintWidget constraintWidget3 = null;
-            if (z4) {
-                ConstraintWidget constraintWidget4 = first;
-                if (i5 == 0 || i5 != i6 || finalValue3 < i7) {
+            if (i == 0) {
+                if (!constraintWidgetContainer.isResolvedHorizontally()) {
                     return false;
                 }
-                int i8 = finalValue3 - i7;
-                if (z) {
-                    i8 /= i5 + 1;
-                } else if (z2 && i5 > 2) {
-                    i3 = 1;
-                    i8 = (i8 / i5) - 1;
-                    if (i5 != i3) {
-                        if (i == 0) {
-                            verticalBiasPercent = head.getHorizontalBiasPercent();
-                        } else {
-                            verticalBiasPercent = head.getVerticalBiasPercent();
-                        }
-                        int i9 = (int) (finalValue + 0.5f + (i8 * verticalBiasPercent));
-                        if (i == 0) {
-                            firstVisibleWidget.setFinalHorizontal(i9, firstVisibleWidget.getWidth() + i9);
-                        } else {
-                            firstVisibleWidget.setFinalVertical(i9, firstVisibleWidget.getHeight() + i9);
-                        }
-                        horizontalSolvingPass(firstVisibleWidget, constraintWidgetContainer.getMeasurer(), isRtl);
-                        return true;
-                    }
-                    if (z) {
-                        int i10 = finalValue + i8;
-                        ConstraintWidget constraintWidget5 = constraintWidget4;
-                        boolean z5 = false;
-                        while (!z5) {
-                            ConstraintAnchor constraintAnchor4 = constraintWidget5.mListAnchors[i2];
-                            if (constraintWidget5.getVisibility() != 8) {
-                                int margin = i10 + constraintWidget5.mListAnchors[i2].getMargin();
-                                if (i == 0) {
-                                    constraintWidget5.setFinalHorizontal(margin, constraintWidget5.getWidth() + margin);
-                                    horizontalSolvingPass(constraintWidget5, constraintWidgetContainer.getMeasurer(), isRtl);
-                                    height = constraintWidget5.getWidth();
-                                } else {
-                                    constraintWidget5.setFinalVertical(margin, constraintWidget5.getHeight() + margin);
-                                    verticalSolvingPass(constraintWidget5, constraintWidgetContainer.getMeasurer());
-                                    height = constraintWidget5.getHeight();
-                                }
-                                i10 = margin + height + constraintWidget5.mListAnchors[i4].getMargin() + i8;
-                            } else if (i == 0) {
-                                constraintWidget5.setFinalHorizontal(i10, i10);
-                                horizontalSolvingPass(constraintWidget5, constraintWidgetContainer.getMeasurer(), isRtl);
-                            } else {
-                                constraintWidget5.setFinalVertical(i10, i10);
-                                verticalSolvingPass(constraintWidget5, constraintWidgetContainer.getMeasurer());
-                            }
-                            constraintWidget5.addToSolver(linearSystem, false);
-                            ConstraintAnchor constraintAnchor5 = constraintWidget5.mListAnchors[i4].mTarget;
-                            if (constraintAnchor5 != null) {
-                                constraintWidget = constraintAnchor5.mOwner;
-                                ConstraintAnchor[] constraintAnchorArr = constraintWidget.mListAnchors;
-                                if (constraintAnchorArr[i2].mTarget != null) {
-                                }
-                            }
-                            constraintWidget = null;
-                            if (constraintWidget != null) {
-                                constraintWidget5 = constraintWidget;
-                            } else {
-                                z5 = true;
-                            }
-                        }
-                    } else if (z2) {
-                        if (i5 == 2) {
-                            if (i == 0) {
-                                firstVisibleWidget.setFinalHorizontal(finalValue, firstVisibleWidget.getWidth() + finalValue);
-                                lastVisibleWidget.setFinalHorizontal(finalValue2 - lastVisibleWidget.getWidth(), finalValue2);
-                                horizontalSolvingPass(firstVisibleWidget, constraintWidgetContainer.getMeasurer(), isRtl);
-                                horizontalSolvingPass(lastVisibleWidget, constraintWidgetContainer.getMeasurer(), isRtl);
-                                return true;
-                            }
-                            firstVisibleWidget.setFinalVertical(finalValue, firstVisibleWidget.getHeight() + finalValue);
-                            lastVisibleWidget.setFinalVertical(finalValue2 - lastVisibleWidget.getHeight(), finalValue2);
-                            verticalSolvingPass(firstVisibleWidget, constraintWidgetContainer.getMeasurer());
-                            verticalSolvingPass(lastVisibleWidget, constraintWidgetContainer.getMeasurer());
-                            return true;
-                        }
+            } else if (!constraintWidgetContainer.isResolvedVertically()) {
+                return false;
+            }
+            boolean isRtl = constraintWidgetContainer.isRtl();
+            ConstraintWidget first = chainHead.getFirst();
+            ConstraintWidget last = chainHead.getLast();
+            ConstraintWidget firstVisibleWidget = chainHead.getFirstVisibleWidget();
+            ConstraintWidget lastVisibleWidget = chainHead.getLastVisibleWidget();
+            ConstraintWidget head = chainHead.getHead();
+            ConstraintAnchor constraintAnchor = first.mListAnchors[i2];
+            int i4 = i2 + 1;
+            ConstraintAnchor constraintAnchor2 = last.mListAnchors[i4];
+            ConstraintAnchor constraintAnchor3 = constraintAnchor.mTarget;
+            if (constraintAnchor3 == null || constraintAnchor2.mTarget == null || !constraintAnchor3.hasFinalValue() || !constraintAnchor2.mTarget.hasFinalValue() || firstVisibleWidget == null || lastVisibleWidget == null || (finalValue3 = (finalValue2 = constraintAnchor2.mTarget.getFinalValue() - lastVisibleWidget.mListAnchors[i4].getMargin()) - (finalValue = constraintAnchor.mTarget.getFinalValue() + firstVisibleWidget.mListAnchors[i2].getMargin())) <= 0) {
+                return false;
+            }
+            BasicMeasure.Measure measure2 = new BasicMeasure.Measure();
+            ConstraintWidget constraintWidget2 = first;
+            boolean z4 = false;
+            int i5 = 0;
+            int i6 = 0;
+            int i7 = 0;
+            while (true) {
+                ConstraintWidget constraintWidget3 = null;
+                if (!z4) {
+                    ConstraintAnchor constraintAnchor4 = constraintWidget2.mListAnchors[i2];
+                    if (!canMeasure(constraintWidget2)) {
                         return false;
                     }
-                    return true;
-                }
-                i3 = 1;
-                if (i5 != i3) {
-                }
-            } else {
-                ConstraintAnchor constraintAnchor6 = constraintWidget2.mListAnchors[i2];
-                if (!canMeasure(constraintWidget2)) {
-                    return false;
-                }
-                ConstraintWidget constraintWidget6 = first;
-                if (constraintWidget2.mListDimensionBehaviors[i] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
-                    return false;
-                }
-                if (constraintWidget2.isMeasureRequested()) {
-                    ConstraintWidgetContainer.measure(constraintWidget2, constraintWidgetContainer.getMeasurer(), measure2, BasicMeasure.Measure.SELF_DIMENSIONS);
-                }
-                int margin2 = i7 + constraintWidget2.mListAnchors[i2].getMargin();
-                if (i == 0) {
-                    height2 = constraintWidget2.getWidth();
+                    ConstraintWidget constraintWidget4 = first;
+                    if (constraintWidget2.mListDimensionBehaviors[i] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                        return false;
+                    }
+                    if (constraintWidget2.isMeasureRequested()) {
+                        ConstraintWidgetContainer.measure(constraintWidget2, constraintWidgetContainer.getMeasurer(), measure2, BasicMeasure.Measure.SELF_DIMENSIONS);
+                    }
+                    int margin = i7 + constraintWidget2.mListAnchors[i2].getMargin();
+                    if (i == 0) {
+                        height2 = constraintWidget2.getWidth();
+                    } else {
+                        height2 = constraintWidget2.getHeight();
+                    }
+                    i7 = margin + height2 + constraintWidget2.mListAnchors[i4].getMargin();
+                    i6++;
+                    if (constraintWidget2.getVisibility() != 8) {
+                        i5++;
+                    }
+                    ConstraintAnchor constraintAnchor5 = constraintWidget2.mListAnchors[i4].mTarget;
+                    if (constraintAnchor5 != null) {
+                        ConstraintWidget constraintWidget5 = constraintAnchor5.mOwner;
+                        ConstraintAnchor[] constraintAnchorArr = constraintWidget5.mListAnchors;
+                        if (constraintAnchorArr[i2].mTarget != null && constraintAnchorArr[i2].mTarget.mOwner == constraintWidget2) {
+                            constraintWidget3 = constraintWidget5;
+                        }
+                    }
+                    if (constraintWidget3 != null) {
+                        constraintWidget2 = constraintWidget3;
+                    } else {
+                        z4 = true;
+                    }
+                    first = constraintWidget4;
                 } else {
-                    height2 = constraintWidget2.getHeight();
-                }
-                i7 = margin2 + height2 + constraintWidget2.mListAnchors[i4].getMargin();
-                i6++;
-                if (constraintWidget2.getVisibility() != 8) {
-                    i5++;
-                }
-                ConstraintAnchor constraintAnchor7 = constraintWidget2.mListAnchors[i4].mTarget;
-                if (constraintAnchor7 != null) {
-                    ConstraintWidget constraintWidget7 = constraintAnchor7.mOwner;
-                    ConstraintAnchor[] constraintAnchorArr2 = constraintWidget7.mListAnchors;
-                    if (constraintAnchorArr2[i2].mTarget != null && constraintAnchorArr2[i2].mTarget.mOwner == constraintWidget2) {
-                        constraintWidget3 = constraintWidget7;
+                    ConstraintWidget constraintWidget6 = first;
+                    if (i5 == 0 || i5 != i6 || finalValue3 < i7) {
+                        return false;
+                    }
+                    int i8 = finalValue3 - i7;
+                    if (z) {
+                        i8 /= i5 + 1;
+                    } else if (z2 && i5 > 2) {
+                        i3 = 1;
+                        i8 = (i8 / i5) - 1;
+                        if (i5 != i3) {
+                            if (i == 0) {
+                                verticalBiasPercent = head.getHorizontalBiasPercent();
+                            } else {
+                                verticalBiasPercent = head.getVerticalBiasPercent();
+                            }
+                            int i9 = (int) (finalValue + 0.5f + (i8 * verticalBiasPercent));
+                            if (i == 0) {
+                                firstVisibleWidget.setFinalHorizontal(i9, firstVisibleWidget.getWidth() + i9);
+                            } else {
+                                firstVisibleWidget.setFinalVertical(i9, firstVisibleWidget.getHeight() + i9);
+                            }
+                            horizontalSolvingPass(firstVisibleWidget, constraintWidgetContainer.getMeasurer(), isRtl);
+                            return true;
+                        }
+                        if (z) {
+                            int i10 = finalValue + i8;
+                            ConstraintWidget constraintWidget7 = constraintWidget6;
+                            boolean z5 = false;
+                            while (!z5) {
+                                ConstraintAnchor constraintAnchor6 = constraintWidget7.mListAnchors[i2];
+                                if (constraintWidget7.getVisibility() == 8) {
+                                    if (i == 0) {
+                                        constraintWidget7.setFinalHorizontal(i10, i10);
+                                        horizontalSolvingPass(constraintWidget7, constraintWidgetContainer.getMeasurer(), isRtl);
+                                    } else {
+                                        constraintWidget7.setFinalVertical(i10, i10);
+                                        verticalSolvingPass(constraintWidget7, constraintWidgetContainer.getMeasurer());
+                                    }
+                                } else {
+                                    int margin2 = i10 + constraintWidget7.mListAnchors[i2].getMargin();
+                                    if (i == 0) {
+                                        constraintWidget7.setFinalHorizontal(margin2, constraintWidget7.getWidth() + margin2);
+                                        horizontalSolvingPass(constraintWidget7, constraintWidgetContainer.getMeasurer(), isRtl);
+                                        height = constraintWidget7.getWidth();
+                                    } else {
+                                        constraintWidget7.setFinalVertical(margin2, constraintWidget7.getHeight() + margin2);
+                                        verticalSolvingPass(constraintWidget7, constraintWidgetContainer.getMeasurer());
+                                        height = constraintWidget7.getHeight();
+                                    }
+                                    i10 = margin2 + height + constraintWidget7.mListAnchors[i4].getMargin() + i8;
+                                }
+                                constraintWidget7.addToSolver(linearSystem, false);
+                                ConstraintAnchor constraintAnchor7 = constraintWidget7.mListAnchors[i4].mTarget;
+                                if (constraintAnchor7 != null) {
+                                    constraintWidget = constraintAnchor7.mOwner;
+                                    ConstraintAnchor[] constraintAnchorArr2 = constraintWidget.mListAnchors;
+                                    if (constraintAnchorArr2[i2].mTarget != null) {
+                                    }
+                                }
+                                constraintWidget = null;
+                                if (constraintWidget != null) {
+                                    constraintWidget7 = constraintWidget;
+                                } else {
+                                    z5 = true;
+                                }
+                            }
+                        } else if (z2) {
+                            if (i5 == 2) {
+                                if (i == 0) {
+                                    firstVisibleWidget.setFinalHorizontal(finalValue, firstVisibleWidget.getWidth() + finalValue);
+                                    lastVisibleWidget.setFinalHorizontal(finalValue2 - lastVisibleWidget.getWidth(), finalValue2);
+                                    horizontalSolvingPass(firstVisibleWidget, constraintWidgetContainer.getMeasurer(), isRtl);
+                                    horizontalSolvingPass(lastVisibleWidget, constraintWidgetContainer.getMeasurer(), isRtl);
+                                    return true;
+                                }
+                                firstVisibleWidget.setFinalVertical(finalValue, firstVisibleWidget.getHeight() + finalValue);
+                                lastVisibleWidget.setFinalVertical(finalValue2 - lastVisibleWidget.getHeight(), finalValue2);
+                                verticalSolvingPass(firstVisibleWidget, constraintWidgetContainer.getMeasurer());
+                                verticalSolvingPass(lastVisibleWidget, constraintWidgetContainer.getMeasurer());
+                                return true;
+                            }
+                            return false;
+                        }
+                        return true;
+                    }
+                    i3 = 1;
+                    if (i5 != i3) {
                     }
                 }
-                if (constraintWidget3 != null) {
-                    constraintWidget2 = constraintWidget3;
-                } else {
-                    z4 = true;
-                }
-                first = constraintWidget6;
             }
+        } else {
+            return invokeCommon.booleanValue;
         }
     }
 
@@ -612,9 +643,11 @@ public class Direct {
     }
 
     public static void verticalSolvingPass(ConstraintWidget constraintWidget, BasicMeasure.Measurer measurer) {
+        boolean z;
         ConstraintAnchor constraintAnchor;
         ConstraintAnchor constraintAnchor2;
         ConstraintAnchor constraintAnchor3;
+        boolean z2;
         ConstraintAnchor constraintAnchor4;
         ConstraintAnchor constraintAnchor5;
         Interceptable interceptable = $ic;
@@ -638,7 +671,12 @@ public class Direct {
                     if (constraintWidget2.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && !canMeasure) {
                         if (constraintWidget2.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget2.mMatchConstraintMaxHeight >= 0 && constraintWidget2.mMatchConstraintMinHeight >= 0 && (constraintWidget2.getVisibility() == 8 || (constraintWidget2.mMatchConstraintDefaultHeight == 0 && constraintWidget2.getDimensionRatio() == 0.0f))) {
                             if (!constraintWidget2.isInVerticalChain() && !constraintWidget2.isInVirtualLayout()) {
-                                if (((next == constraintWidget2.mTop && (constraintAnchor5 = constraintWidget2.mBottom.mTarget) != null && constraintAnchor5.hasFinalValue()) || (next == constraintWidget2.mBottom && (constraintAnchor4 = constraintWidget2.mTop.mTarget) != null && constraintAnchor4.hasFinalValue())) && !constraintWidget2.isInVerticalChain()) {
+                                if ((next == constraintWidget2.mTop && (constraintAnchor5 = constraintWidget2.mBottom.mTarget) != null && constraintAnchor5.hasFinalValue()) || (next == constraintWidget2.mBottom && (constraintAnchor4 = constraintWidget2.mTop.mTarget) != null && constraintAnchor4.hasFinalValue())) {
+                                    z2 = true;
+                                } else {
+                                    z2 = false;
+                                }
+                                if (z2 && !constraintWidget2.isInVerticalChain()) {
                                     solveVerticalMatchConstraint(constraintWidget, measurer, constraintWidget2);
                                 }
                             }
@@ -674,7 +712,11 @@ public class Direct {
                     if (constraintWidget3.isMeasureRequested() && canMeasure2) {
                         ConstraintWidgetContainer.measure(constraintWidget3, measurer, new BasicMeasure.Measure(), BasicMeasure.Measure.SELF_DIMENSIONS);
                     }
-                    boolean z = (next2 == constraintWidget3.mTop && (constraintAnchor2 = constraintWidget3.mBottom.mTarget) != null && constraintAnchor2.hasFinalValue()) || (next2 == constraintWidget3.mBottom && (constraintAnchor = constraintWidget3.mTop.mTarget) != null && constraintAnchor.hasFinalValue());
+                    if ((next2 == constraintWidget3.mTop && (constraintAnchor2 = constraintWidget3.mBottom.mTarget) != null && constraintAnchor2.hasFinalValue()) || (next2 == constraintWidget3.mBottom && (constraintAnchor = constraintWidget3.mTop.mTarget) != null && constraintAnchor.hasFinalValue())) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     if (constraintWidget3.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && !canMeasure2) {
                         if (constraintWidget3.getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget3.mMatchConstraintMaxHeight >= 0 && constraintWidget3.mMatchConstraintMinHeight >= 0 && (constraintWidget3.getVisibility() == 8 || (constraintWidget3.mMatchConstraintDefaultHeight == 0 && constraintWidget3.getDimensionRatio() == 0.0f))) {
                             if (!constraintWidget3.isInVerticalChain() && !constraintWidget3.isInVirtualLayout() && z && !constraintWidget3.isInVerticalChain()) {
@@ -701,22 +743,21 @@ public class Direct {
                 }
             }
             ConstraintAnchor anchor3 = constraintWidget.getAnchor(ConstraintAnchor.Type.BASELINE);
-            if (anchor3.getDependents() == null || !anchor3.hasFinalValue()) {
-                return;
-            }
-            int finalValue3 = anchor3.getFinalValue();
-            Iterator<ConstraintAnchor> it3 = anchor3.getDependents().iterator();
-            while (it3.hasNext()) {
-                ConstraintAnchor next3 = it3.next();
-                ConstraintWidget constraintWidget4 = next3.mOwner;
-                boolean canMeasure3 = canMeasure(constraintWidget4);
-                if (constraintWidget4.isMeasureRequested() && canMeasure3) {
-                    ConstraintWidgetContainer.measure(constraintWidget4, measurer, new BasicMeasure.Measure(), BasicMeasure.Measure.SELF_DIMENSIONS);
-                }
-                if (constraintWidget4.getVerticalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT || canMeasure3) {
-                    if (!constraintWidget4.isMeasureRequested() && next3 == constraintWidget4.mBaseline) {
-                        constraintWidget4.setFinalBaseline(finalValue3);
-                        verticalSolvingPass(constraintWidget4, measurer);
+            if (anchor3.getDependents() != null && anchor3.hasFinalValue()) {
+                int finalValue3 = anchor3.getFinalValue();
+                Iterator<ConstraintAnchor> it3 = anchor3.getDependents().iterator();
+                while (it3.hasNext()) {
+                    ConstraintAnchor next3 = it3.next();
+                    ConstraintWidget constraintWidget4 = next3.mOwner;
+                    boolean canMeasure3 = canMeasure(constraintWidget4);
+                    if (constraintWidget4.isMeasureRequested() && canMeasure3) {
+                        ConstraintWidgetContainer.measure(constraintWidget4, measurer, new BasicMeasure.Measure(), BasicMeasure.Measure.SELF_DIMENSIONS);
+                    }
+                    if (constraintWidget4.getVerticalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT || canMeasure3) {
+                        if (!constraintWidget4.isMeasureRequested() && next3 == constraintWidget4.mBaseline) {
+                            constraintWidget4.setFinalBaseline(finalValue3);
+                            verticalSolvingPass(constraintWidget4, measurer);
+                        }
                     }
                 }
             }

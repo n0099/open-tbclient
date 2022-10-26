@@ -34,7 +34,7 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
     public MessageConfig config;
     public volatile AtomicInteger errorCount;
     public volatile int limitSize;
-    public List<MessageProcessor> messageProcessors;
+    public List messageProcessors;
     public int preRunTime;
     public volatile boolean running;
     public MessageSender sender;
@@ -44,7 +44,7 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
     public MessageSupplier supplier;
     public SharedTimerTask timerTask;
 
-    public SendMsgDispatcher(MessageSupplier messageSupplier, MessageSender messageSender, List<MessageProcessor> list) {
+    public SendMsgDispatcher(MessageSupplier messageSupplier, MessageSender messageSender, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,6 +72,66 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
             this.messageProcessors.addAll(list);
         }
         messageSender.setResultListener(this);
+    }
+
+    private void execute(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
+            synchronized (this) {
+                if (this.state != 2 || TimeUtil.currentTimeInSecond() - this.preRunTime > 30000) {
+                    this.state = 2;
+                    this.running = false;
+                    this.preRunTime = TimeUtil.currentTimeInSecond();
+                    ThreadPool.getPool().execute(this, j);
+                }
+            }
+        }
+    }
+
+    @Override // com.yy.hiidostatis.message.ISingleton
+    public void setMainConfig(MessageConfig messageConfig) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, messageConfig) != null) || this.config != null) {
+            return;
+        }
+        this.config = messageConfig;
+        this.timerTask = new SharedTimerTask(this) { // from class: com.yy.hiidostatis.message.sender.SendMsgDispatcher.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SendMsgDispatcher this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.this$0.execute();
+                }
+            }
+        };
+        long j = 30000;
+        if (messageConfig.getInterval() > 0) {
+            j = Math.max(messageConfig.getInterval(), 5) * 1000;
+        }
+        long j2 = j;
+        ThreadPool.getPool().getTimer().schedule(this.timerTask, j2, j2);
     }
 
     public void appendMessageProcessor(MessageProcessor messageProcessor) {
@@ -137,12 +197,11 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
             if (incrementAndGet2 > 3) {
                 execute(Math.min(incrementAndGet2 * 1000, 30000L));
             }
-            if (message.isSingle() || this.sfCount.decrementAndGet() >= -3) {
-                return;
+            if (!message.isSingle() && this.sfCount.decrementAndGet() < -3) {
+                this.sfCount.set(0);
+                this.limitSize = Math.max(this.limitSize - 10240, 0);
+                L.debug(this, "change limit size:%d reduce", Integer.valueOf(this.limitSize));
             }
-            this.sfCount.set(0);
-            this.limitSize = Math.max(this.limitSize - 10240, 0);
-            L.debug(this, "change limit size:%d reduce", Integer.valueOf(this.limitSize));
         }
     }
 
@@ -179,8 +238,8 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
                             if (this.limitSize > fetchMessage.getContent().length) {
                                 this.running = false;
                             }
-                            Iterator<MessageProcessor> it = this.messageProcessors.iterator();
-                            while (it.hasNext() && (fetchMessage = it.next().process(fetchMessage)) != null) {
+                            Iterator it = this.messageProcessors.iterator();
+                            while (it.hasNext() && (fetchMessage = ((MessageProcessor) it.next()).process(fetchMessage)) != null) {
                             }
                             if (fetchMessage != null) {
                                 i = this.sendingCount.incrementAndGet();
@@ -202,61 +261,6 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
                         this.state = 0;
                     }
                     this.running = false;
-                }
-            }
-        }
-    }
-
-    @Override // com.yy.hiidostatis.message.ISingleton
-    public void setMainConfig(MessageConfig messageConfig) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, messageConfig) == null) && this.config == null) {
-            this.config = messageConfig;
-            this.timerTask = new SharedTimerTask(this) { // from class: com.yy.hiidostatis.message.sender.SendMsgDispatcher.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SendMsgDispatcher this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.execute();
-                    }
-                }
-            };
-            long max = messageConfig.getInterval() > 0 ? Math.max(messageConfig.getInterval(), 5) * 1000 : 30000L;
-            ThreadPool.getPool().getTimer().schedule(this.timerTask, max, max);
-        }
-    }
-
-    private void execute(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
-            synchronized (this) {
-                if (this.state != 2 || TimeUtil.currentTimeInSecond() - this.preRunTime > 30000) {
-                    this.state = 2;
-                    this.running = false;
-                    this.preRunTime = TimeUtil.currentTimeInSecond();
-                    ThreadPool.getPool().execute(this, j);
                 }
             }
         }

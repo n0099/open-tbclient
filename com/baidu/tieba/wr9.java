@@ -1,246 +1,168 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
+import android.os.Process;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.FatalException;
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicReference;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
-public class wr9 {
+public class wr9 extends pr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Context b;
-    public volatile int c;
-    public com.google.a.b.a.a.a.a d;
-    public BroadcastReceiver e;
-    public Context f;
-    public final ServiceConnection g;
-    public final AtomicReference<nr9> h;
+    public StringBuffer d;
+    public int e;
+    public long f;
+    public long g;
 
-    public wr9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void b(Activity activity, Bundle bundle, xr9 xr9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, activity, bundle, xr9Var) == null) {
-            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("resolution.intent");
-            if (pendingIntent != null) {
-                try {
-                    activity.startIntentSenderForResult(pendingIntent.getIntentSender(), 1234, new Intent(activity, activity.getClass()), 0, 0, 0);
-                    return;
-                } catch (IntentSender.SendIntentException e) {
-                    xr9Var.b(new FatalException("Installation Intent failed", e));
-                    return;
-                }
-            }
-            Log.e("ARCore-InstallService", "Did not get pending intent.");
-            xr9Var.b(new FatalException("Installation intent failed to unparcel."));
-        }
-    }
-
-    public static Bundle l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putCharSequence("package.name", XRSessionAnchor.apkinfo);
-            return bundle;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public static void n(Activity activity, xr9 xr9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, activity, xr9Var) == null) {
-            try {
-                activity.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=com.google.ar.core")));
-            } catch (ActivityNotFoundException e) {
-                xr9Var.b(new FatalException("Failed to launch installer.", e));
-            }
-        }
-    }
-
-    public synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                p();
-                int i = this.c - 1;
-                if (i == 1 || i == 2) {
-                    this.b.unbindService(this.g);
-                    this.b = null;
-                    this.c = ds9.a;
-                }
-                if (this.e != null) {
-                    this.f.unregisterReceiver(this.e);
-                }
-            }
-        }
-    }
-
-    public void c(Activity activity, xr9 xr9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, xr9Var) == null) {
-            nr9 nr9Var = new nr9(activity, xr9Var);
-            nr9 andSet = this.h.getAndSet(nr9Var);
-            if (andSet != null) {
-                andSet.a();
-            }
-            nr9Var.start();
-            if (this.e == null) {
-                as9 as9Var = new as9(this, xr9Var);
-                this.e = as9Var;
-                this.f = activity;
-                activity.registerReceiver(as9Var, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
-            }
-            try {
-                k(new bs9(this, activity, xr9Var));
-            } catch (com.google.ar.core.ab unused) {
-                Log.w("ARCore-InstallService", "requestInstall bind failed, launching fullscreen.");
-                n(activity, xr9Var);
-            }
-        }
-    }
-
-    public synchronized void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            synchronized (this) {
-                this.b = context;
-                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
-                    this.c = ds9.b;
-                    return;
-                }
-                this.c = ds9.a;
-                this.b = null;
-                Log.w("ARCore-InstallService", "bindService returned false.");
-                context.unbindService(this.g);
-            }
-        }
-    }
-
-    public synchronized void e(Context context, ArCoreApk.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, aVar) == null) {
-            synchronized (this) {
-                try {
-                    k(new zr9(this, context, aVar));
-                } catch (com.google.ar.core.ab unused) {
-                    Log.e("ARCore-InstallService", "Play Store install service could not be bound.");
-                    aVar.a(ArCoreApk.Availability.UNKNOWN_ERROR);
-                }
-            }
-        }
-    }
-
-    public final synchronized void f(IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
-            synchronized (this) {
-                com.google.a.b.a.a.a.a a = com.google.a.b.a.a.a.b.a(iBinder);
-                Log.i("ARCore-InstallService", "Install service connected");
-                this.d = a;
-                this.c = ds9.c;
-                for (Runnable runnable : this.a) {
-                    runnable.run();
-                }
-            }
-        }
-    }
-
-    public final synchronized void k(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
-            synchronized (this) {
-                int i = this.c - 1;
-                if (i == 0) {
-                    throw new com.google.ar.core.ab();
-                }
-                if (i == 1) {
-                    this.a.offer(runnable);
-                    return;
-                }
-                if (i == 2) {
-                    runnable.run();
-                }
-            }
-        }
-    }
-
-    public final void p() {
-        nr9 andSet;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (andSet = this.h.getAndSet(null)) == null) {
-            return;
-        }
-        andSet.a();
-    }
-
-    public final synchronized void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                Log.i("ARCore-InstallService", "Install service disconnected");
-                this.c = ds9.a;
-                this.d = null;
-                p();
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public wr9(byte b) {
-        this();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wr9(long j) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this();
+                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayDeque();
-        this.c = ds9.a;
-        this.g = new yr9(this);
-        this.h = new AtomicReference<>();
+        this.d = new StringBuffer();
+        this.e = 0;
+        this.f = 0L;
+        this.g = 0L;
+    }
+
+    @Override // com.baidu.tieba.pr9
+    public void b() {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        String readLine;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.setLength(0);
+            BufferedReader bufferedReader3 = null;
+            try {
+                try {
+                    bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/stat")), 1000);
+                    try {
+                        readLine = bufferedReader2.readLine();
+                        str = "";
+                        if (readLine == null) {
+                            readLine = "";
+                        }
+                        if (this.e == 0) {
+                            this.e = Process.myPid();
+                        }
+                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.e + "/stat")), 1000);
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = null;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedReader = null;
+                }
+                try {
+                    String readLine2 = bufferedReader.readLine();
+                    if (readLine2 != null) {
+                        str = readLine2;
+                    }
+                    f(readLine, str);
+                    bufferedReader2.close();
+                    bufferedReader.close();
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedReader3 = bufferedReader2;
+                    try {
+                        Log.e("SampleCpuSampler", "doSample: ", th);
+                        if (bufferedReader3 != null) {
+                            bufferedReader3.close();
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                    } catch (Throwable th4) {
+                        if (bufferedReader3 != null) {
+                            try {
+                                bufferedReader3.close();
+                            } catch (IOException e) {
+                                Log.e("SampleCpuSampler", "doSample: ", e);
+                                throw th4;
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        throw th4;
+                    }
+                }
+            } catch (IOException e2) {
+                Log.e("SampleCpuSampler", "doSample: ", e2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pr9
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.c();
+            g();
+        }
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f = 0L;
+            this.g = 0L;
+        }
+    }
+
+    public final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            String[] split = str.split(" ");
+            if (split.length < 9) {
+                return;
+            }
+            long parseLong = Long.parseLong(split[2]);
+            long parseLong2 = Long.parseLong(split[3]);
+            long parseLong3 = Long.parseLong(split[4]);
+            long parseLong4 = Long.parseLong(split[5]);
+            long parseLong5 = parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
+            if (str2.split(" ").length < 17) {
+                return;
+            }
+            if (parseLong5 != 0) {
+                long j = parseLong5 - this.g;
+                this.d.append(((j - (parseLong4 - this.f)) * 100) / j);
+            }
+            this.f = parseLong4;
+            this.g = parseLong5;
+        }
     }
 }

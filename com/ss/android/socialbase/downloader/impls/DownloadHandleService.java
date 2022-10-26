@@ -8,6 +8,17 @@ import android.text.TextUtils;
 public class DownloadHandleService extends Service {
     public static final String a = DownloadHandleService.class.getSimpleName();
 
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        super.onCreate();
+        com.ss.android.socialbase.downloader.downloader.c.a(this);
+    }
+
     private void a(Intent intent) {
         final int intExtra;
         if (intent == null) {
@@ -33,17 +44,6 @@ public class DownloadHandleService extends Service {
         } else if (action.equals("com.ss.android.downloader.action.MULTI_PROCESS_NOTIFY")) {
             com.ss.android.socialbase.downloader.downloader.c.b();
         }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-        com.ss.android.socialbase.downloader.downloader.c.a(this);
     }
 
     @Override // android.app.Service

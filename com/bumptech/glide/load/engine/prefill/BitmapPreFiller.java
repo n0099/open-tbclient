@@ -1,9 +1,6 @@
 package com.bumptech.glide.load.engine.prefill;
 
 import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +20,6 @@ public final class BitmapPreFiller {
     public final BitmapPool bitmapPool;
     public BitmapPreFillRunner current;
     public final DecodeFormat defaultFormat;
-    public final Handler handler;
     public final MemoryCache memoryCache;
 
     public BitmapPreFiller(MemoryCache memoryCache, BitmapPool bitmapPool, DecodeFormat decodeFormat) {
@@ -41,7 +37,6 @@ public final class BitmapPreFiller {
                 return;
             }
         }
-        this.handler = new Handler(Looper.getMainLooper());
         this.memoryCache = memoryCache;
         this.bitmapPool = bitmapPool;
         this.defaultFormat = decodeFormat;
@@ -50,10 +45,12 @@ public final class BitmapPreFiller {
     public static int getSizeInBytes(PreFillType preFillType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, preFillType)) == null) ? Util.getBitmapByteSize(preFillType.getWidth(), preFillType.getHeight(), preFillType.getConfig()) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, preFillType)) == null) {
+            return Util.getBitmapByteSize(preFillType.getWidth(), preFillType.getHeight(), preFillType.getConfig());
+        }
+        return invokeL.intValue;
     }
 
-    @VisibleForTesting
     public PreFillQueue generateAllocationOrder(PreFillType... preFillTypeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -74,6 +71,7 @@ public final class BitmapPreFiller {
     }
 
     public void preFill(PreFillType.Builder... builderArr) {
+        Bitmap.Config config;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, builderArr) == null) {
             BitmapPreFillRunner bitmapPreFillRunner = this.current;
@@ -84,13 +82,18 @@ public final class BitmapPreFiller {
             for (int i = 0; i < builderArr.length; i++) {
                 PreFillType.Builder builder = builderArr[i];
                 if (builder.getConfig() == null) {
-                    builder.setConfig(this.defaultFormat == DecodeFormat.PREFER_ARGB_8888 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+                    if (this.defaultFormat == DecodeFormat.PREFER_ARGB_8888) {
+                        config = Bitmap.Config.ARGB_8888;
+                    } else {
+                        config = Bitmap.Config.RGB_565;
+                    }
+                    builder.setConfig(config);
                 }
                 preFillTypeArr[i] = builder.build();
             }
             BitmapPreFillRunner bitmapPreFillRunner2 = new BitmapPreFillRunner(this.bitmapPool, this.memoryCache, generateAllocationOrder(preFillTypeArr));
             this.current = bitmapPreFillRunner2;
-            this.handler.post(bitmapPreFillRunner2);
+            Util.postOnUiThread(bitmapPreFillRunner2);
         }
     }
 }

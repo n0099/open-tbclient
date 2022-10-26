@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,18 +35,6 @@ public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || getError() != 0 || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("yy_ext")) == null) {
-            return;
-        }
-        YyExtData yyExtData = new YyExtData();
-        this.mYyExtData = yyExtData;
-        yyExtData.parserJson(optJSONObject);
-    }
-
     public YyExtData getYyExtData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,8 +52,22 @@ public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || dj.isEmpty(yyExtData.mSid) || dj.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            if (yyExtData != null && !ej.isEmpty(yyExtData.mSid) && !ej.isEmpty(this.mYyExtData.mSsid)) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && getError() == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("yy_ext")) != null) {
+            YyExtData yyExtData = new YyExtData();
+            this.mYyExtData = yyExtData;
+            yyExtData.parserJson(optJSONObject);
+        }
     }
 }

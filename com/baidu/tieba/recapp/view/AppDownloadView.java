@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qe8;
+import com.baidu.tieba.af8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,82 +31,24 @@ public class AppDownloadView extends LinearLayout {
     public DownloadData e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppDownloadView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet);
+    public AppDownloadView(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         a(context);
-    }
-
-    public static int getStatus(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? qe8.p(downloadData) : invokeL.intValue;
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setOrientation(0);
-            setGravity(16);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0121, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902a5);
-            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090af4);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090af2);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090af3);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void b(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        int status = downloadData.getStatus();
-        if (status == 1) {
-            setVisibility(0);
-            SkinManager.setImageResource(this.c, R.drawable.icon_download_pause);
-        } else if (status == 3) {
-            setVisibility(8);
-        } else if (status == 5) {
-            setVisibility(0);
-        } else if (status == 6) {
-            setVisibility(8);
-        } else if (status == 7) {
-            setVisibility(0);
-            SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
-        }
-        int j = qe8.n().j(downloadData.getId(), downloadData.getName());
-        if (j >= 0) {
-            c(j);
-        } else {
-            c(0);
-        }
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int max = Math.max(0, i);
-            this.b.setProgress(max);
-            TextView textView = this.d;
-            textView.setText(max + "%");
-        }
     }
 
     public void onChangeSkinType(int i) {
@@ -116,38 +58,6 @@ public class AppDownloadView extends LinearLayout {
             this.b.setProgressDrawable(SkinManager.getDrawable(i, (int) R.drawable.progress_download_app_layerlist));
             SkinManager.setImageResource(this.c, R.drawable.icon_download_play, i);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1, i);
-        }
-    }
-
-    public void refreshControlIcon(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i == 1) {
-                SkinManager.setImageResource(this.c, R.drawable.icon_download_pause);
-            } else {
-                SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
-            }
-        }
-    }
-
-    public void setData(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        DownloadData downloadData2 = (DownloadData) downloadData.clone();
-        this.e = downloadData2;
-        if (downloadData2 == null) {
-            return;
-        }
-        setTag(downloadData2);
-        b(downloadData);
-    }
-
-    public void showTitleView(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a.setVisibility(i);
         }
     }
 
@@ -174,23 +84,124 @@ public class AppDownloadView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppDownloadView(Context context) {
-        super(context);
+    public AppDownloadView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         a(context);
+    }
+
+    public static int getStatus(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) {
+            return af8.p(downloadData);
+        }
+        return invokeL.intValue;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int max = Math.max(0, i);
+            this.b.setProgress(max);
+            TextView textView = this.d;
+            textView.setText(max + "%");
+        }
+    }
+
+    public void refreshControlIcon(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i == 1) {
+                SkinManager.setImageResource(this.c, R.drawable.icon_download_pause);
+            } else {
+                SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
+            }
+        }
+    }
+
+    public void setData(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        DownloadData downloadData2 = (DownloadData) downloadData.clone();
+        this.e = downloadData2;
+        if (downloadData2 == null) {
+            return;
+        }
+        setTag(downloadData2);
+        b(downloadData);
+    }
+
+    public void showTitleView(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a.setVisibility(i);
+        }
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setOrientation(0);
+            setGravity(16);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0121, (ViewGroup) this, true);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902a5);
+            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090afe);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090afc);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090afd);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void b(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        int status = downloadData.getStatus();
+        if (status != 1) {
+            if (status != 3) {
+                if (status != 5) {
+                    if (status != 6) {
+                        if (status == 7) {
+                            setVisibility(0);
+                            SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
+                        }
+                    } else {
+                        setVisibility(8);
+                    }
+                } else {
+                    setVisibility(0);
+                }
+            } else {
+                setVisibility(8);
+            }
+        } else {
+            setVisibility(0);
+            SkinManager.setImageResource(this.c, R.drawable.icon_download_pause);
+        }
+        int j = af8.n().j(downloadData.getId(), downloadData.getName());
+        if (j >= 0) {
+            c(j);
+        } else {
+            c(0);
+        }
     }
 }

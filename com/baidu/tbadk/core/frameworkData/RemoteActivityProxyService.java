@@ -25,13 +25,13 @@ public class RemoteActivityProxyService extends BdBaseService {
     public Messenger mMessenger;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public static class b extends Handler {
+    public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,6 +49,10 @@ public class RemoteActivityProxyService extends BdBaseService {
             }
         }
 
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
         /* JADX WARN: Removed duplicated region for block: B:16:0x0028  */
         /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
         @Override // android.os.Handler
@@ -59,39 +63,38 @@ public class RemoteActivityProxyService extends BdBaseService {
             boolean z;
             Bundle data;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message == null) {
-                return;
-            }
-            Messenger messenger = message.replyTo;
-            try {
-                data = message.getData();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            if (data != null) {
-                String string = data.getString(DealIntentService.KEY_CLASS);
-                if (!TextUtils.isEmpty(string)) {
-                    Class.forName(string);
-                    z = true;
-                    if (messenger == null) {
-                        try {
-                            messenger.send(Message.obtain(null, 0, z ? 1 : 2, 0));
-                            return;
-                        } catch (RemoteException e2) {
-                            e2.printStackTrace();
-                            return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null) {
+                Messenger messenger = message.replyTo;
+                int i = 1;
+                try {
+                    data = message.getData();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                if (data != null) {
+                    String string = data.getString(DealIntentService.KEY_CLASS);
+                    if (!TextUtils.isEmpty(string)) {
+                        Class.forName(string);
+                        z = true;
+                        if (messenger == null) {
+                            if (!z) {
+                                i = 2;
+                            }
+                            try {
+                                messenger.send(Message.obtain(null, 0, i, 0));
+                                return;
+                            } catch (RemoteException e2) {
+                                e2.printStackTrace();
+                                return;
+                            }
                         }
+                        return;
                     }
-                    return;
+                }
+                z = false;
+                if (messenger == null) {
                 }
             }
-            z = false;
-            if (messenger == null) {
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
         }
     }
 

@@ -25,10 +25,10 @@ public abstract class AbstractRequest implements Request {
     public int c;
     public int d;
     public String e;
-    public Map<String, String> f;
-    public Map<String, String> g;
-    public Map<String, String> h;
-    public Map<String, String> i;
+    public Map f;
+    public Map g;
+    public Map h;
+    public Map i;
     public Request.Method j;
     public byte[] k;
 
@@ -61,7 +61,7 @@ public abstract class AbstractRequest implements Request {
         }
     }
 
-    public AbstractRequest(String str, Map<String, String> map, Request.Method method) {
+    public AbstractRequest(String str, Map map, Request.Method method) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,9 +86,9 @@ public abstract class AbstractRequest implements Request {
         if (Request.Method.POST == method) {
             StringBuilder sb = new StringBuilder();
             try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    String encode = URLEncoder.encode(entry.getKey(), IMAudioTransRequest.CHARSET);
-                    String encode2 = URLEncoder.encode(entry.getValue(), IMAudioTransRequest.CHARSET);
+                for (Map.Entry entry : map.entrySet()) {
+                    String encode = URLEncoder.encode((String) entry.getKey(), IMAudioTransRequest.CHARSET);
+                    String encode2 = URLEncoder.encode((String) entry.getValue(), IMAudioTransRequest.CHARSET);
                     if (sb.length() > 0) {
                         sb.append("&");
                     }
@@ -131,7 +131,7 @@ public abstract class AbstractRequest implements Request {
     }
 
     @Override // com.qq.e.comm.net.rr.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (Map) invokeV.objValue;
@@ -159,7 +159,7 @@ public abstract class AbstractRequest implements Request {
     }
 
     @Override // com.qq.e.comm.net.rr.Request
-    public Map<String, String> getQuerys() {
+    public Map getQuerys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (Map) invokeV.objValue;
@@ -188,8 +188,8 @@ public abstract class AbstractRequest implements Request {
                 return getUrl();
             }
             Uri.Builder buildUpon = Uri.parse(getUrl()).buildUpon();
-            for (Map.Entry<String, String> entry : getQuerys().entrySet()) {
-                buildUpon.appendQueryParameter(entry.getKey(), entry.getValue());
+            for (Map.Entry entry : getQuerys().entrySet()) {
+                buildUpon.appendQueryParameter((String) entry.getKey(), (String) entry.getValue());
             }
             return buildUpon.build().toString();
         }

@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes.dex */
@@ -31,7 +30,7 @@ public final class Base64 {
                 return;
             }
         }
-        MAP = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
+        MAP = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
     }
 
     public Base64() {
@@ -51,62 +50,10 @@ public final class Base64 {
     public static byte[] decode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? decode(bArr, bArr.length) : (byte[]) invokeL.objValue;
-    }
-
-    public static String encode(byte[] bArr, String str) throws UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
-            int length = (bArr.length * 4) / 3;
-            byte[] bArr2 = new byte[length + (length / 76) + 3];
-            int length2 = bArr.length - (bArr.length % 3);
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < length2; i3 += 3) {
-                int i4 = i + 1;
-                byte[] bArr3 = MAP;
-                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
-                int i5 = i4 + 1;
-                int i6 = i3 + 1;
-                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
-                int i7 = i5 + 1;
-                int i8 = i3 + 2;
-                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
-                i = i7 + 1;
-                bArr2[i7] = bArr3[bArr[i8] & 63];
-                if ((i - i2) % 76 == 0 && i != 0) {
-                    bArr2[i] = 10;
-                    i2++;
-                    i++;
-                }
-            }
-            int length3 = bArr.length % 3;
-            if (length3 == 1) {
-                int i9 = i + 1;
-                byte[] bArr4 = MAP;
-                bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
-                int i10 = i9 + 1;
-                bArr2[i9] = bArr4[(bArr[length2] & 3) << 4];
-                int i11 = i10 + 1;
-                bArr2[i10] = BaseNCodec.PAD_DEFAULT;
-                i = i11 + 1;
-                bArr2[i11] = BaseNCodec.PAD_DEFAULT;
-            } else if (length3 == 2) {
-                int i12 = i + 1;
-                byte[] bArr5 = MAP;
-                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
-                int i13 = i12 + 1;
-                int i14 = length2 + 1;
-                bArr2[i12] = bArr5[((bArr[i14] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
-                int i15 = i13 + 1;
-                bArr2[i13] = bArr5[(bArr[i14] & 15) << 2];
-                i = i15 + 1;
-                bArr2[i15] = BaseNCodec.PAD_DEFAULT;
-            }
-            return new String(bArr2, 0, i, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            return decode(bArr, bArr.length);
         }
-        return (String) invokeLL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
     public static byte[] decode(byte[] bArr, int i) {
@@ -148,10 +95,10 @@ public final class Base64 {
                         i2 = b3 + 4;
                     } else if (b3 == 43) {
                         i2 = 62;
-                    } else if (b3 != 47) {
-                        return null;
-                    } else {
+                    } else if (b3 == 47) {
                         i2 = 63;
+                    } else {
+                        return null;
                     }
                     i7 = ((byte) i2) | (i7 << 6);
                     if (i9 % 4 == 3) {
@@ -183,5 +130,62 @@ public final class Base64 {
             return bArr3;
         }
         return (byte[]) invokeLI.objValue;
+    }
+
+    public static String encode(byte[] bArr, String str) throws UnsupportedEncodingException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
+            int length = (bArr.length * 4) / 3;
+            byte[] bArr2 = new byte[length + (length / 76) + 3];
+            int length2 = bArr.length - (bArr.length % 3);
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < length2; i3 += 3) {
+                int i4 = i + 1;
+                byte[] bArr3 = MAP;
+                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
+                int i5 = i4 + 1;
+                int i6 = i3 + 1;
+                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
+                int i7 = i5 + 1;
+                int i8 = i3 + 2;
+                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
+                i = i7 + 1;
+                bArr2[i7] = bArr3[bArr[i8] & 63];
+                if ((i - i2) % 76 == 0 && i != 0) {
+                    bArr2[i] = 10;
+                    i2++;
+                    i++;
+                }
+            }
+            int length3 = bArr.length % 3;
+            if (length3 != 1) {
+                if (length3 == 2) {
+                    int i9 = i + 1;
+                    byte[] bArr4 = MAP;
+                    bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
+                    int i10 = i9 + 1;
+                    int i11 = length2 + 1;
+                    bArr2[i9] = bArr4[((bArr[i11] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
+                    int i12 = i10 + 1;
+                    bArr2[i10] = bArr4[(bArr[i11] & 15) << 2];
+                    i = i12 + 1;
+                    bArr2[i12] = BaseNCodec.PAD_DEFAULT;
+                }
+            } else {
+                int i13 = i + 1;
+                byte[] bArr5 = MAP;
+                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
+                int i14 = i13 + 1;
+                bArr2[i13] = bArr5[(bArr[length2] & 3) << 4];
+                int i15 = i14 + 1;
+                bArr2[i14] = BaseNCodec.PAD_DEFAULT;
+                i = i15 + 1;
+                bArr2[i15] = BaseNCodec.PAD_DEFAULT;
+            }
+            return new String(bArr2, 0, i, str);
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -17,80 +17,6 @@ public final class WireOutput {
     public final int limit;
     public int position;
 
-    public WireOutput(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.buffer = bArr;
-        this.position = i;
-        this.limit = i + i2;
-    }
-
-    public static int int32Size(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i >= 0) {
-                return varint32Size(i);
-            }
-            return 10;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int int64Size(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            if (j >= 0) {
-                return varint64Size(j);
-            }
-            return 10;
-        }
-        return invokeJ.intValue;
-    }
-
-    public static int makeTag(int i, WireType wireType) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, wireType)) == null) ? (i << 3) | wireType.value() : invokeIL.intValue;
-    }
-
-    public static int messageHeaderSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2) : invokeII.intValue;
-    }
-
-    public static int messageSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) ? tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2) + i2 : invokeII.intValue;
-    }
-
-    public static WireOutput newInstance(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) ? newInstance(bArr, 0, bArr.length) : (WireOutput) invokeL.objValue;
-    }
-
-    public static int tagSize(int i, WireType wireType) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, wireType)) == null) ? int32Size(makeTag(i, wireType)) : invokeIL.intValue;
-    }
-
     public static int varint32Size(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -142,44 +68,6 @@ public final class WireOutput {
         return invokeJ.intValue;
     }
 
-    public static int varintTagSize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? varint32Size(makeTag(i, WireType.VARINT)) : invokeI.intValue;
-    }
-
-    public static int writeMessageHeader(int i, byte[] bArr, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            int writeTag = writeTag(i, WireType.LENGTH_DELIMITED, bArr, i2) + i2;
-            return (writeTag + writeVarint(i3, bArr, writeTag)) - i2;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int writeTag(int i, WireType wireType, byte[] bArr, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), wireType, bArr, Integer.valueOf(i2)})) == null) ? writeVarint(makeTag(i, wireType), bArr, i2) : invokeCommon.intValue;
-    }
-
-    public static int writeVarint(long j, byte[] bArr, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i)})) == null) {
-            int i2 = i;
-            while (((-128) & j) != 0) {
-                bArr[i2] = (byte) ((127 & j) | 128);
-                j >>>= 7;
-                i2++;
-            }
-            bArr[i2] = (byte) j;
-            return (i2 + 1) - i;
-        }
-        return invokeCommon.intValue;
-    }
-
     public static int zigZag32(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -192,6 +80,82 @@ public final class WireOutput {
         return (interceptable == null || (invokeJ = interceptable.invokeJ(65552, null, j)) == null) ? (j >> 63) ^ (j << 1) : invokeJ.longValue;
     }
 
+    public WireOutput(byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.buffer = bArr;
+        this.position = i;
+        this.limit = i + i2;
+    }
+
+    public void writeRawBytes(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+            int i3 = this.limit;
+            int i4 = this.position;
+            if (i3 - i4 >= i2) {
+                System.arraycopy(bArr, i, this.buffer, i4, i2);
+                this.position += i2;
+                return;
+            }
+            throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
+        }
+    }
+
+    public static int int32Size(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i >= 0) {
+                return varint32Size(i);
+            }
+            return 10;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int int64Size(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            if (j >= 0) {
+                return varint64Size(j);
+            }
+            return 10;
+        }
+        return invokeJ.intValue;
+    }
+
+    public static WireOutput newInstance(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            return newInstance(bArr, 0, bArr.length);
+        }
+        return (WireOutput) invokeL.objValue;
+    }
+
+    public static int varintTagSize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
+            return varint32Size(makeTag(i, WireType.VARINT));
+        }
+        return invokeI.intValue;
+    }
+
     public void writeFixed32(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -202,31 +166,10 @@ public final class WireOutput {
         }
     }
 
-    public void writeFixed64(long j) throws IOException {
+    public void writeRawByte(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            writeRawByte(((int) j) & 255);
-            writeRawByte(((int) (j >> 8)) & 255);
-            writeRawByte(((int) (j >> 16)) & 255);
-            writeRawByte(((int) (j >> 24)) & 255);
-            writeRawByte(((int) (j >> 32)) & 255);
-            writeRawByte(((int) (j >> 40)) & 255);
-            writeRawByte(((int) (j >> 48)) & 255);
-            writeRawByte(((int) (j >> 56)) & 255);
-        }
-    }
-
-    public void writeRawByte(byte b) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
-            int i = this.position;
-            if (i != this.limit) {
-                byte[] bArr = this.buffer;
-                this.position = i + 1;
-                bArr[i] = b;
-                return;
-            }
-            throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            writeRawByte((byte) i);
         }
     }
 
@@ -270,24 +213,40 @@ public final class WireOutput {
         }
     }
 
-    public static WireOutput newInstance(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public static int makeTag(int i, WireType wireType) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bArr, i, i2)) == null) ? new WireOutput(bArr, i, i2) : (WireOutput) invokeLII.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, wireType)) == null) {
+            return (i << 3) | wireType.value();
+        }
+        return invokeIL.intValue;
     }
 
-    public void writeRawBytes(byte[] bArr, int i, int i2) throws IOException {
+    public static int messageHeaderSize(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
-            int i3 = this.limit;
-            int i4 = this.position;
-            if (i3 - i4 >= i2) {
-                System.arraycopy(bArr, i, this.buffer, i4, i2);
-                this.position += i2;
-                return;
-            }
-            throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            return tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2);
         }
+        return invokeII.intValue;
+    }
+
+    public static int messageSize(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            return tagSize(i, WireType.LENGTH_DELIMITED) + int32Size(i2) + i2;
+        }
+        return invokeII.intValue;
+    }
+
+    public static int tagSize(int i, WireType wireType) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, wireType)) == null) {
+            return int32Size(makeTag(i, wireType));
+        }
+        return invokeIL.intValue;
     }
 
     public void writeTag(int i, WireType wireType) throws IOException {
@@ -297,10 +256,75 @@ public final class WireOutput {
         }
     }
 
-    public void writeRawByte(int i) throws IOException {
+    public static WireOutput newInstance(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            writeRawByte((byte) i);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bArr, i, i2)) == null) {
+            return new WireOutput(bArr, i, i2);
+        }
+        return (WireOutput) invokeLII.objValue;
+    }
+
+    public static int writeMessageHeader(int i, byte[] bArr, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            int writeTag = writeTag(i, WireType.LENGTH_DELIMITED, bArr, i2) + i2;
+            return (writeTag + writeVarint(i3, bArr, writeTag)) - i2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int writeTag(int i, WireType wireType, byte[] bArr, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), wireType, bArr, Integer.valueOf(i2)})) == null) {
+            return writeVarint(makeTag(i, wireType), bArr, i2);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int writeVarint(long j, byte[] bArr, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i)})) == null) {
+            int i2 = i;
+            while (((-128) & j) != 0) {
+                bArr[i2] = (byte) ((127 & j) | 128);
+                j >>>= 7;
+                i2++;
+            }
+            bArr[i2] = (byte) j;
+            return (i2 + 1) - i;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void writeFixed64(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            writeRawByte(((int) j) & 255);
+            writeRawByte(((int) (j >> 8)) & 255);
+            writeRawByte(((int) (j >> 16)) & 255);
+            writeRawByte(((int) (j >> 24)) & 255);
+            writeRawByte(((int) (j >> 32)) & 255);
+            writeRawByte(((int) (j >> 40)) & 255);
+            writeRawByte(((int) (j >> 48)) & 255);
+            writeRawByte(((int) (j >> 56)) & 255);
+        }
+    }
+
+    public void writeRawByte(byte b) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
+            int i = this.position;
+            if (i != this.limit) {
+                byte[] bArr = this.buffer;
+                this.position = i + 1;
+                bArr[i] = b;
+                return;
+            }
+            throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
         }
     }
 }

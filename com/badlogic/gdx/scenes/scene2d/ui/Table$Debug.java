@@ -63,12 +63,18 @@ public final class Table$Debug {
     public static Table$Debug valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Table$Debug) Enum.valueOf(Table$Debug.class, str) : (Table$Debug) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Table$Debug) Enum.valueOf(Table$Debug.class, str);
+        }
+        return (Table$Debug) invokeL.objValue;
     }
 
     public static Table$Debug[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Table$Debug[]) $VALUES.clone() : (Table$Debug[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Table$Debug[]) $VALUES.clone();
+        }
+        return (Table$Debug[]) invokeV.objValue;
     }
 }

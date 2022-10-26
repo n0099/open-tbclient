@@ -10,12 +10,13 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.BaseDataSubscriber;
 import com.facebook.datasource.DataSource;
 import com.facebook.imagepipeline.image.CloseableBitmap;
-import com.facebook.imagepipeline.image.CloseableImage;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public abstract class BaseBitmapDataSubscriber extends BaseDataSubscriber<CloseableReference<CloseableImage>> {
+public abstract class BaseBitmapDataSubscriber extends BaseDataSubscriber {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void onNewResultImpl(@Nullable Bitmap bitmap);
 
     public BaseBitmapDataSubscriber() {
         Interceptable interceptable = $ic;
@@ -31,22 +32,21 @@ public abstract class BaseBitmapDataSubscriber extends BaseDataSubscriber<Closea
         }
     }
 
-    public abstract void onNewResultImpl(@Nullable Bitmap bitmap);
-
     @Override // com.facebook.datasource.BaseDataSubscriber
-    public void onNewResultImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+    public void onNewResultImpl(DataSource dataSource) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) && dataSource.isFinished()) {
-            CloseableReference<CloseableImage> result = dataSource.getResult();
-            Bitmap bitmap = null;
-            if (result != null && (result.get() instanceof CloseableBitmap)) {
-                bitmap = ((CloseableBitmap) result.get()).getUnderlyingBitmap();
-            }
-            try {
-                onNewResultImpl(bitmap);
-            } finally {
-                CloseableReference.closeSafely(result);
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) != null) || !dataSource.isFinished()) {
+            return;
+        }
+        CloseableReference closeableReference = (CloseableReference) dataSource.getResult();
+        Bitmap bitmap = null;
+        if (closeableReference != null && (closeableReference.get() instanceof CloseableBitmap)) {
+            bitmap = ((CloseableBitmap) closeableReference.get()).getUnderlyingBitmap();
+        }
+        try {
+            onNewResultImpl(bitmap);
+        } finally {
+            CloseableReference.closeSafely(closeableReference);
         }
     }
 }

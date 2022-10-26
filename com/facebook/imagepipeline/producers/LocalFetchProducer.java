@@ -17,11 +17,15 @@ import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public abstract class LocalFetchProducer implements Producer<EncodedImage> {
+public abstract class LocalFetchProducer implements Producer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
+
+    public abstract EncodedImage getEncodedImage(ImageRequest imageRequest) throws IOException;
+
+    public abstract String getProducerName();
 
     public LocalFetchProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory) {
         Interceptable interceptable = $ic;
@@ -64,24 +68,14 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
         return (EncodedImage) invokeLI.objValue;
     }
 
-    public abstract EncodedImage getEncodedImage(ImageRequest imageRequest) throws IOException;
-
-    public EncodedImage getEncodedImage(InputStream inputStream, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inputStream, i)) == null) ? getByteBufferBackedEncodedImage(inputStream, i) : (EncodedImage) invokeLI.objValue;
-    }
-
-    public abstract String getProducerName();
-
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
             producerContext.putOriginExtra(ImagesContract.LOCAL, "fetch");
-            StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerListener, producerContext, getProducerName(), imageRequest, producerListener, producerContext) { // from class: com.facebook.imagepipeline.producers.LocalFetchProducer.1
+            StatefulProducerRunnable statefulProducerRunnable = new StatefulProducerRunnable(this, consumer, producerListener, producerContext, getProducerName(), imageRequest, producerListener, producerContext) { // from class: com.facebook.imagepipeline.producers.LocalFetchProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LocalFetchProducer this$0;
@@ -179,5 +173,14 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
             });
             this.mExecutor.execute(statefulProducerRunnable);
         }
+    }
+
+    public EncodedImage getEncodedImage(InputStream inputStream, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inputStream, i)) == null) {
+            return getByteBufferBackedEncodedImage(inputStream, i);
+        }
+        return (EncodedImage) invokeLI.objValue;
     }
 }

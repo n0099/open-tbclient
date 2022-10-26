@@ -3,6 +3,7 @@ package com.ss.android.socialbase.downloader.f;
 import android.util.Log;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONException;
@@ -30,6 +31,91 @@ public final class i {
         } else {
             this.f = -1L;
         }
+    }
+
+    public i(i iVar) {
+        AtomicLong atomicLong = new AtomicLong();
+        this.d = atomicLong;
+        this.b = 0;
+        this.c = iVar.c;
+        this.f = iVar.f;
+        atomicLong.set(iVar.d.get());
+        this.e = this.d.get();
+        this.g = iVar.g;
+    }
+
+    public void a(int i) {
+        this.g = i;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
+
+    public void c(long j) {
+        if (j >= this.c) {
+            this.f = j;
+            return;
+        }
+        Log.w("Segment", "setEndOffset: endOffset = " + j + ", segment = " + this);
+        if (j == -1) {
+            this.f = j;
+        }
+    }
+
+    public void d(long j) {
+        if (j >= this.d.get()) {
+            this.e = j;
+        }
+    }
+
+    public i(JSONObject jSONObject) {
+        this.d = new AtomicLong();
+        this.b = 0;
+        this.c = jSONObject.optLong("st");
+        c(jSONObject.optLong("en"));
+        a(jSONObject.optLong("cu"));
+        d(d());
+    }
+
+    public void a(long j) {
+        long j2 = this.c;
+        if (j < j2) {
+            j = j2;
+        }
+        long j3 = this.f;
+        if (j3 > 0) {
+            long j4 = j3 + 1;
+            if (j > j4) {
+                j = j4;
+            }
+        }
+        this.d.set(j);
+    }
+
+    public void b(long j) {
+        this.d.addAndGet(j);
+    }
+
+    public static String a(List list) {
+        if (list != null && !list.isEmpty()) {
+            Collections.sort(list, new Comparator() { // from class: com.ss.android.socialbase.downloader.f.i.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                /* renamed from: a */
+                public int compare(i iVar, i iVar2) {
+                    return (int) (iVar.c() - iVar2.c());
+                }
+            });
+            StringBuilder sb = new StringBuilder();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                sb.append((i) it.next());
+                sb.append("\r\n");
+            }
+            return sb.toString();
+        }
+        return null;
     }
 
     public long a() {
@@ -105,89 +191,5 @@ public final class i {
 
     public String toString() {
         return "Segment{startOffset=" + this.c + ",\t currentOffset=" + this.d + ",\t currentOffsetRead=" + e() + ",\t endOffset=" + this.f + '}';
-    }
-
-    public void a(long j) {
-        long j2 = this.c;
-        if (j < j2) {
-            j = j2;
-        }
-        long j3 = this.f;
-        if (j3 > 0) {
-            long j4 = j3 + 1;
-            if (j > j4) {
-                j = j4;
-            }
-        }
-        this.d.set(j);
-    }
-
-    public void c(long j) {
-        if (j >= this.c) {
-            this.f = j;
-            return;
-        }
-        Log.w("Segment", "setEndOffset: endOffset = " + j + ", segment = " + this);
-        if (j == -1) {
-            this.f = j;
-        }
-    }
-
-    public void b(long j) {
-        this.d.addAndGet(j);
-    }
-
-    public void d(long j) {
-        if (j >= this.d.get()) {
-            this.e = j;
-        }
-    }
-
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public void a(int i) {
-        this.g = i;
-    }
-
-    public static String a(List<i> list) {
-        if (list == null || list.isEmpty()) {
-            return null;
-        }
-        Collections.sort(list, new Comparator<i>() { // from class: com.ss.android.socialbase.downloader.f.i.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(i iVar, i iVar2) {
-                return (int) (iVar.c() - iVar2.c());
-            }
-        });
-        StringBuilder sb = new StringBuilder();
-        for (i iVar : list) {
-            sb.append(iVar);
-            sb.append("\r\n");
-        }
-        return sb.toString();
-    }
-
-    public i(i iVar) {
-        AtomicLong atomicLong = new AtomicLong();
-        this.d = atomicLong;
-        this.b = 0;
-        this.c = iVar.c;
-        this.f = iVar.f;
-        atomicLong.set(iVar.d.get());
-        this.e = this.d.get();
-        this.g = iVar.g;
-    }
-
-    public i(JSONObject jSONObject) {
-        this.d = new AtomicLong();
-        this.b = 0;
-        this.c = jSONObject.optLong("st");
-        c(jSONObject.optLong("en"));
-        a(jSONObject.optLong("cu"));
-        d(d());
     }
 }

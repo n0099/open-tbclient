@@ -28,9 +28,9 @@ import com.baidu.searchbox.live.interfaces.multiplugin.MultiPluginLoadCallback;
 import com.baidu.searchbox.live.interfaces.multiplugin.SubPluginBundleInfo;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService;
-import com.baidu.tieba.a91;
 import com.baidu.tieba.b91;
-import com.baidu.tieba.y81;
+import com.baidu.tieba.c91;
+import com.baidu.tieba.z81;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,31 +57,6 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
     public static final int INSTALL_ERR_BK_FILE_NOT_EXIST = -131;
     public transient /* synthetic */ FieldHolder $fh;
     public final AppInfoService appService;
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/MultiPluginManagerServiceImpl$Companion;", "", "INSTALL_ERR_BK_FILE_DOWNLOAD_FAIL", "I", "INSTALL_ERR_BK_FILE_MD5_FAILED", "INSTALL_ERR_BK_FILE_NOT_EXIST", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\bb\u0018\u00002\u00020\u0001J'\u0010\b\u001a\u00020\u00072\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0006\u001a\u00020\u0004H&¢\u0006\u0004\b\b\u0010\tJ'\u0010\r\u001a\u00020\u00072\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\u0002H&¢\u0006\u0004\b\r\u0010\u000e¨\u0006\u000f"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/MultiPluginManagerServiceImpl$PluginDownloadCallback;", "Lkotlin/Any;", "", "pkgName", "", "downloadSize", "totalSize", "", "onProgress", "(Ljava/lang/String;JJ)V", "", "isSuc", "msg", "onResult", "(Ljava/lang/String;ZLjava/lang/String;)V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -113,6 +88,31 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
         Companion = new Companion(null);
     }
 
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/defaultimpl/service/MultiPluginManagerServiceImpl$Companion;", "", "INSTALL_ERR_BK_FILE_DOWNLOAD_FAIL", "I", "INSTALL_ERR_BK_FILE_MD5_FAILED", "INSTALL_ERR_BK_FILE_NOT_EXIST", "<init>", "()V", "lib-live-interfaces-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final class Companion {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Companion() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
     public MultiPluginManagerServiceImpl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -129,6 +129,173 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
         this.appService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
     }
 
+    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
+    public void downloadUpdatePackage(String str, final MultiPluginDownloadCallback multiPluginDownloadCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, multiPluginDownloadCallback) == null) {
+            NPSPackageManager.getInstance().downloadUpdatePackage(str, new z81(multiPluginDownloadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ MultiPluginDownloadCallback $downloadCallback;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {multiPluginDownloadCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$downloadCallback = multiPluginDownloadCallback;
+                }
+
+                @Override // com.baidu.tieba.z81
+                public void onProgress(long j, long j2) {
+                    MultiPluginDownloadCallback multiPluginDownloadCallback2;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (multiPluginDownloadCallback2 = this.$downloadCallback) != null) {
+                        multiPluginDownloadCallback2.onProgress(j, j2);
+                    }
+                }
+
+                @Override // com.baidu.tieba.z81
+                public void onResult(int i, String str2) {
+                    MultiPluginDownloadCallback multiPluginDownloadCallback2;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) && (multiPluginDownloadCallback2 = this.$downloadCallback) != null) {
+                        multiPluginDownloadCallback2.onResult(i, str2);
+                    }
+                }
+            }, new b91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // com.baidu.tieba.b91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, c91 c91Var) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, c91Var) == null) && c91Var != null) {
+                        c91Var.onResult(1);
+                    }
+                }
+            }, 1, true);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
+    public void installMultiBundle(String str, MultiPluginInstallCallback multiPluginInstallCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, multiPluginInstallCallback) == null) {
+            NPSPackageManager.getInstance().installBundle(str, true, (IInstallCallback) new MultiPluginManagerServiceImpl$installMultiBundle$1(this, multiPluginInstallCallback, str));
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
+    public void loadMultiBundle(String str, final MultiPluginLoadCallback multiPluginLoadCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, multiPluginLoadCallback) == null) {
+            NPSManager.getInstance().loadBundleOnly(str, 0, new IInvokeCallback(multiPluginLoadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$loadMultiBundle$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MultiPluginLoadCallback $loadCallback;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {multiPluginLoadCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$loadCallback = multiPluginLoadCallback;
+                }
+
+                @Override // com.baidu.nps.main.invoke.IInvokeCallback
+                public void onResult(int i, String str2, Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
+                        if (i == 14) {
+                            MultiPluginLoadCallback multiPluginLoadCallback2 = this.$loadCallback;
+                            if (multiPluginLoadCallback2 != null) {
+                                multiPluginLoadCallback2.onResult(true, i, str2);
+                                return;
+                            }
+                            return;
+                        }
+                        MultiPluginLoadCallback multiPluginLoadCallback3 = this.$loadCallback;
+                        if (multiPluginLoadCallback3 != null) {
+                            multiPluginLoadCallback3.onResult(false, i, str2);
+                        }
+                    }
+                }
+            }, true, null);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
+    public int getBundleStatus(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return NPSPackageManager.getInstance().getBundleStatus(str, true);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
+    public SparseArray getPluginBundleInfo(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(str);
+            if (bundleGroup != null) {
+                return transBundleGroup(bundleGroup);
+            }
+            return null;
+        }
+        return (SparseArray) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
+    public boolean isAvailable(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (43 == NPSPackageManager.getInstance().getBundleStatus(str, true)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public final void downloadBundleFile(final String str, String str2, final String str3, final String str4, final PluginDownloadCallback pluginDownloadCallback) {
         Interceptable interceptable = $ic;
@@ -140,6 +307,27 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                 public final /* synthetic */ String $fileName;
                 public final /* synthetic */ String $packageName;
                 public final /* synthetic */ String $path;
+
+                @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
+                public void connected(DownloadTask downloadTask, int i, long j, long j2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                    }
+                }
+
+                @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
+                public void retry(DownloadTask downloadTask, ResumeFailedCause resumeFailedCause) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, resumeFailedCause) == null) {
+                    }
+                }
+
+                @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
+                public void taskStart(DownloadTask downloadTask, TaskProgressListenerAssist.Listener1Model listener1Model) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, downloadTask, listener1Model) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -163,30 +351,6 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                 }
 
                 @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-                public void connected(DownloadTask downloadTask, int i, long j, long j2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                    }
-                }
-
-                @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-                public void progress(DownloadTask downloadTask, long j, long j2) {
-                    MultiPluginManagerServiceImpl.PluginDownloadCallback pluginDownloadCallback2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j), Long.valueOf(j2)}) == null) || (pluginDownloadCallback2 = this.$callback) == null) {
-                        return;
-                    }
-                    pluginDownloadCallback2.onProgress(this.$packageName, j, j2);
-                }
-
-                @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-                public void retry(DownloadTask downloadTask, ResumeFailedCause resumeFailedCause) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, resumeFailedCause) == null) {
-                    }
-                }
-
-                @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
                 public void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc, TaskProgressListenerAssist.Listener1Model listener1Model) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLLL(1048579, this, downloadTask, endCause, exc, listener1Model) == null) {
@@ -207,9 +371,11 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                 }
 
                 @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-                public void taskStart(DownloadTask downloadTask, TaskProgressListenerAssist.Listener1Model listener1Model) {
+                public void progress(DownloadTask downloadTask, long j, long j2) {
+                    MultiPluginManagerServiceImpl.PluginDownloadCallback pluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, downloadTask, listener1Model) == null) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j), Long.valueOf(j2)}) == null) && (pluginDownloadCallback2 = this.$callback) != null) {
+                        pluginDownloadCallback2.onProgress(this.$packageName, j, j2);
                     }
                 }
             });
@@ -244,25 +410,57 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, str)) == null) {
             BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(str);
-            if (bundleGroup == null || bundleGroup.getBundleByType(1) != null || (bundleByType = bundleGroup.getBundleByType(4)) == null || !bundleByType.isSubBundle() || (bundleInfo = NPSPackageManager.getInstance().getBundleInfo(bundleByType.getMainBudble())) == null || !bundleInfo.isMainBundle()) {
-                return null;
-            }
-            for (SubBundleInfo sub : bundleInfo.getSubBundle()) {
-                Intrinsics.checkExpressionValueIsNotNull(sub, "sub");
-                if (Intrinsics.areEqual(str, sub.getPackageName()) && bundleByType.getVersionCode() >= sub.getMinVersion() && bundleByType.getVersionCode() <= sub.getMaxVersion()) {
-                    return bundleByType;
+            if (bundleGroup != null && bundleGroup.getBundleByType(1) == null && (bundleByType = bundleGroup.getBundleByType(4)) != null && bundleByType.isSubBundle() && (bundleInfo = NPSPackageManager.getInstance().getBundleInfo(bundleByType.getMainBudble())) != null && bundleInfo.isMainBundle()) {
+                for (SubBundleInfo sub : bundleInfo.getSubBundle()) {
+                    Intrinsics.checkExpressionValueIsNotNull(sub, "sub");
+                    if (Intrinsics.areEqual(str, sub.getPackageName()) && bundleByType.getVersionCode() >= sub.getMinVersion() && bundleByType.getVersionCode() <= sub.getMaxVersion()) {
+                        return bundleByType;
+                    }
                 }
+                return null;
             }
             return null;
         }
         return (BundleInfo) invokeL.objValue;
     }
 
-    private final String getVersionInfoByName(String str) {
+    private final MainPluginBundleInfo transBundleInfo(BundleInfo bundleInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, bundleInfo)) == null) {
+            if (bundleInfo == null) {
+                return null;
+            }
+            String str = "";
+            List<SubBundleInfo> subBundle = bundleInfo.getSubBundle();
+            if (subBundle != null) {
+                for (SubBundleInfo it : subBundle) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(str);
+                    Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                    sb.append(new SubPluginBundleInfo(it.getPackageName(), Integer.valueOf(it.getMinVersion()), Integer.valueOf(it.getMaxVersion())));
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    str = sb.toString();
+                }
+            }
+            return new MainPluginBundleInfo(bundleInfo.getPackageName(), Integer.valueOf(bundleInfo.getVersionCode()), Boolean.valueOf(bundleInfo.needForceUpdate()), Boolean.valueOf(bundleInfo.isMainBundle()), Boolean.valueOf(bundleInfo.isSubBundle()), bundleInfo.getMainBudble(), str, bundleInfo.getExt());
+        }
+        return (MainPluginBundleInfo) invokeL.objValue;
+    }
+
+    private final String getVersionInfoByName(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Integer num;
+        Integer num2;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) {
-            if (str == null || str.length() == 0) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 return "";
             }
             BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(str);
@@ -272,21 +470,35 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                 sb.append("=={\n");
                 sb.append("update version = ");
                 BundleInfo bundleByType = bundleGroup.getBundleByType(1);
-                sb.append(bundleByType != null ? Integer.valueOf(bundleByType.getVersionCode()) : null);
+                Integer num3 = null;
+                if (bundleByType != null) {
+                    num = Integer.valueOf(bundleByType.getVersionCode());
+                } else {
+                    num = null;
+                }
+                sb.append(num);
                 sb.append(", \n");
                 String sb2 = sb.toString();
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append(sb2);
                 sb3.append("downloaded version = ");
                 BundleInfo bundleByType2 = bundleGroup.getBundleByType(2);
-                sb3.append(bundleByType2 != null ? Integer.valueOf(bundleByType2.getVersionCode()) : null);
+                if (bundleByType2 != null) {
+                    num2 = Integer.valueOf(bundleByType2.getVersionCode());
+                } else {
+                    num2 = null;
+                }
+                sb3.append(num2);
                 sb3.append(", \n");
                 String sb4 = sb3.toString();
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append(sb4);
                 sb5.append("installed version = ");
                 BundleInfo bundleByType3 = bundleGroup.getBundleByType(3);
-                sb5.append(bundleByType3 != null ? Integer.valueOf(bundleByType3.getVersionCode()) : null);
+                if (bundleByType3 != null) {
+                    num3 = Integer.valueOf(bundleByType3.getVersionCode());
+                }
+                sb5.append(num3);
                 sb5.append(" \n");
                 str2 = sb5.toString();
             }
@@ -343,11 +555,12 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                         if (md5 != null) {
                             Locale locale = Locale.getDefault();
                             Intrinsics.checkExpressionValueIsNotNull(locale, "Locale.getDefault()");
-                            if (md5 == null) {
+                            if (md5 != null) {
+                                str = md5.toLowerCase(locale);
+                                Intrinsics.checkNotNullExpressionValue(str, "(this as java.lang.String).toLowerCase(locale)");
+                            } else {
                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                             }
-                            str = md5.toLowerCase(locale);
-                            Intrinsics.checkNotNullExpressionValue(str, "(this as java.lang.String).toLowerCase(locale)");
                         } else {
                             str = null;
                         }
@@ -355,11 +568,12 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                         if (md52 != null) {
                             Locale locale2 = Locale.getDefault();
                             Intrinsics.checkExpressionValueIsNotNull(locale2, "Locale.getDefault()");
-                            if (md52 == null) {
+                            if (md52 != null) {
+                                str2 = md52.toLowerCase(locale2);
+                                Intrinsics.checkNotNullExpressionValue(str2, "(this as java.lang.String).toLowerCase(locale)");
+                            } else {
                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                             }
-                            str2 = md52.toLowerCase(locale2);
-                            Intrinsics.checkNotNullExpressionValue(str2, "(this as java.lang.String).toLowerCase(locale)");
                         }
                         if (str != null && Intrinsics.areEqual(str, str2)) {
                             BundleInfo installBundle = BundleInfo.toBundleInfo(this.$bundle);
@@ -386,11 +600,11 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
         }
     }
 
-    private final SparseArray<MainPluginBundleInfo> transBundleGroup(BundleInfoGroup bundleInfoGroup) {
+    private final SparseArray transBundleGroup(BundleInfoGroup bundleInfoGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, bundleInfoGroup)) == null) {
-            SparseArray<MainPluginBundleInfo> sparseArray = new SparseArray<>();
+            SparseArray sparseArray = new SparseArray();
             try {
                 sparseArray.append(1, transBundleInfo(bundleInfoGroup.getBundleByType(1)));
             } catch (Exception e) {
@@ -416,209 +630,24 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
         return (SparseArray) invokeL.objValue;
     }
 
-    private final MainPluginBundleInfo transBundleInfo(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, bundleInfo)) == null) {
-            if (bundleInfo == null) {
-                return null;
-            }
-            String str = "";
-            List<SubBundleInfo> subBundle = bundleInfo.getSubBundle();
-            if (subBundle != null) {
-                for (SubBundleInfo it : subBundle) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(str);
-                    Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                    sb.append(new SubPluginBundleInfo(it.getPackageName(), Integer.valueOf(it.getMinVersion()), Integer.valueOf(it.getMaxVersion())));
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    str = sb.toString();
-                }
-            }
-            return new MainPluginBundleInfo(bundleInfo.getPackageName(), Integer.valueOf(bundleInfo.getVersionCode()), Boolean.valueOf(bundleInfo.needForceUpdate()), Boolean.valueOf(bundleInfo.isMainBundle()), Boolean.valueOf(bundleInfo.isSubBundle()), bundleInfo.getMainBudble(), str, bundleInfo.getExt());
-        }
-        return (MainPluginBundleInfo) invokeL.objValue;
-    }
-
     @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
-    public void downloadUpdatePackage(String str, final MultiPluginDownloadCallback multiPluginDownloadCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, multiPluginDownloadCallback) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(str, new y81(multiPluginDownloadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
-                public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ MultiPluginDownloadCallback $downloadCallback;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {multiPluginDownloadCallback};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.$downloadCallback = multiPluginDownloadCallback;
-                }
-
-                @Override // com.baidu.tieba.y81
-                public void onProgress(long j, long j2) {
-                    MultiPluginDownloadCallback multiPluginDownloadCallback2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (multiPluginDownloadCallback2 = this.$downloadCallback) == null) {
-                        return;
-                    }
-                    multiPluginDownloadCallback2.onProgress(j, j2);
-                }
-
-                @Override // com.baidu.tieba.y81
-                public void onResult(int i, String str2) {
-                    MultiPluginDownloadCallback multiPluginDownloadCallback2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) || (multiPluginDownloadCallback2 = this.$downloadCallback) == null) {
-                        return;
-                    }
-                    multiPluginDownloadCallback2.onResult(i, str2);
-                }
-            }, new a91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-
-                @Override // com.baidu.tieba.a91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, b91 b91Var) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, b91Var) == null) || b91Var == null) {
-                        return;
-                    }
-                    b91Var.onResult(1);
-                }
-            }, 1, true);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
-    public int getBundleStatus(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? NPSPackageManager.getInstance().getBundleStatus(str, true) : invokeL.intValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
-    public SparseArray<MainPluginBundleInfo> getPluginBundleInfo(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(str);
-            if (bundleGroup != null) {
-                return transBundleGroup(bundleGroup);
-            }
-            return null;
-        }
-        return (SparseArray) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
-    public List<SubPluginBundleInfo> getSubBundleInfo(String str, int i) {
+    public List getSubBundleInfo(String str, int i) {
         InterceptResult invokeLI;
         BundleInfo bundleByType;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
             BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(str);
-            if (bundleGroup == null || (bundleByType = bundleGroup.getBundleByType(i)) == null || !bundleByType.isMainBundle()) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (SubBundleInfo subBundleInfo : bundleByType.getSubBundle()) {
-                if (subBundleInfo != null) {
-                    arrayList.add(new SubPluginBundleInfo(subBundleInfo.getPackageName(), Integer.valueOf(subBundleInfo.getMinVersion()), Integer.valueOf(subBundleInfo.getMaxVersion())));
+            if (bundleGroup != null && (bundleByType = bundleGroup.getBundleByType(i)) != null && bundleByType.isMainBundle()) {
+                ArrayList arrayList = new ArrayList();
+                for (SubBundleInfo subBundleInfo : bundleByType.getSubBundle()) {
+                    if (subBundleInfo != null) {
+                        arrayList.add(new SubPluginBundleInfo(subBundleInfo.getPackageName(), Integer.valueOf(subBundleInfo.getMinVersion()), Integer.valueOf(subBundleInfo.getMaxVersion())));
+                    }
                 }
+                return arrayList;
             }
-            return arrayList;
+            return null;
         }
         return (List) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
-    public void installMultiBundle(String str, MultiPluginInstallCallback multiPluginInstallCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, multiPluginInstallCallback) == null) {
-            NPSPackageManager.getInstance().installBundle(str, true, (IInstallCallback) new MultiPluginManagerServiceImpl$installMultiBundle$1(this, multiPluginInstallCallback, str));
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
-    public boolean isAvailable(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? 43 == NPSPackageManager.getInstance().getBundleStatus(str, true) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
-    public void loadMultiBundle(String str, final MultiPluginLoadCallback multiPluginLoadCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, multiPluginLoadCallback) == null) {
-            NPSManager.getInstance().loadBundleOnly(str, 0, new IInvokeCallback(multiPluginLoadCallback) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$loadMultiBundle$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MultiPluginLoadCallback $loadCallback;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {multiPluginLoadCallback};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.$loadCallback = multiPluginLoadCallback;
-                }
-
-                @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                public void onResult(int i, String str2, Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
-                        if (i == 14) {
-                            MultiPluginLoadCallback multiPluginLoadCallback2 = this.$loadCallback;
-                            if (multiPluginLoadCallback2 != null) {
-                                multiPluginLoadCallback2.onResult(true, i, str2);
-                                return;
-                            }
-                            return;
-                        }
-                        MultiPluginLoadCallback multiPluginLoadCallback3 = this.$loadCallback;
-                        if (multiPluginLoadCallback3 != null) {
-                            multiPluginLoadCallback3.onResult(false, i, str2);
-                        }
-                    }
-                }
-            }, true, null);
-        }
     }
 }

@@ -19,7 +19,7 @@ public class PreserveAspectRatio {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Alignment {
+    public final class Alignment {
         public static final /* synthetic */ Alignment[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Alignment none;
@@ -83,19 +83,25 @@ public class PreserveAspectRatio {
         public static Alignment valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Alignment) Enum.valueOf(Alignment.class, str) : (Alignment) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Alignment) Enum.valueOf(Alignment.class, str);
+            }
+            return (Alignment) invokeL.objValue;
         }
 
         public static Alignment[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Alignment[]) $VALUES.clone() : (Alignment[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Alignment[]) $VALUES.clone();
+            }
+            return (Alignment[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Scale {
+    public final class Scale {
         public static final /* synthetic */ Scale[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Scale meet;
@@ -143,13 +149,19 @@ public class PreserveAspectRatio {
         public static Scale valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Scale) Enum.valueOf(Scale.class, str) : (Scale) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Scale) Enum.valueOf(Scale.class, str);
+            }
+            return (Scale) invokeL.objValue;
         }
 
         public static Scale[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Scale[]) $VALUES.clone() : (Scale[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Scale[]) $VALUES.clone();
+            }
+            return (Scale[]) invokeV.objValue;
         }
     }
 
@@ -204,29 +216,19 @@ public class PreserveAspectRatio {
     public Alignment a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Alignment) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Alignment) invokeV.objValue;
     }
 
     public Scale b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Scale) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && PreserveAspectRatio.class == obj.getClass()) {
-                PreserveAspectRatio preserveAspectRatio = (PreserveAspectRatio) obj;
-                return this.a == preserveAspectRatio.a && this.b == preserveAspectRatio.b;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (Scale) invokeV.objValue;
     }
 
     public String toString() {
@@ -236,5 +238,24 @@ public class PreserveAspectRatio {
             return this.a + " " + this.b;
         }
         return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || PreserveAspectRatio.class != obj.getClass()) {
+                return false;
+            }
+            PreserveAspectRatio preserveAspectRatio = (PreserveAspectRatio) obj;
+            if (this.a == preserveAspectRatio.a && this.b == preserveAspectRatio.b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

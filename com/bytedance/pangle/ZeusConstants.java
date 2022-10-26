@@ -1,6 +1,5 @@
 package com.bytedance.pangle;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ZeusConstants {
     public static /* synthetic */ Interceptable $ic = null;
-    @Keep
     public static String BASE_LIB_NAME = "pangle";
     public static String a = "_i";
     public static String b = "_d";

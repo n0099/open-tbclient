@@ -16,26 +16,26 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableConcatArray<T> extends Flowable<T> {
+public final class FlowableConcatArray extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayError;
-    public final Publisher<? extends T>[] sources;
+    public final Publisher[] sources;
 
     /* loaded from: classes8.dex */
-    public static final class ConcatArraySubscriber<T> extends SubscriptionArbiter implements FlowableSubscriber<T> {
+    public final class ConcatArraySubscriber extends SubscriptionArbiter implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8158322871608889516L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public final boolean delayError;
-        public List<Throwable> errors;
+        public List errors;
         public int index;
         public long produced;
-        public final Publisher<? extends T>[] sources;
+        public final Publisher[] sources;
         public final AtomicInteger wip;
 
-        public ConcatArraySubscriber(Publisher<? extends T>[] publisherArr, boolean z, Subscriber<? super T> subscriber) {
+        public ConcatArraySubscriber(Publisher[] publisherArr, boolean z, Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,11 +60,11 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
         public void onComplete() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
-                Publisher<? extends T>[] publisherArr = this.sources;
+                Publisher[] publisherArr = this.sources;
                 int length = publisherArr.length;
                 int i = this.index;
                 while (i != length) {
-                    Publisher<? extends T> publisher = publisherArr[i];
+                    Publisher publisher = publisherArr[i];
                     if (publisher == null) {
                         NullPointerException nullPointerException = new NullPointerException("A Publisher entry is null");
                         if (this.delayError) {
@@ -93,10 +93,10 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
                         }
                     }
                 }
-                List<Throwable> list2 = this.errors;
+                List list2 = this.errors;
                 if (list2 != null) {
                     if (list2.size() == 1) {
-                        this.actual.onError(list2.get(0));
+                        this.actual.onError((Throwable) list2.get(0));
                         return;
                     } else {
                         this.actual.onError(new CompositeException(list2));
@@ -126,11 +126,11 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 this.produced++;
-                this.actual.onNext(t);
+                this.actual.onNext(obj);
             }
         }
 
@@ -143,7 +143,7 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
         }
     }
 
-    public FlowableConcatArray(Publisher<? extends T>[] publisherArr, boolean z) {
+    public FlowableConcatArray(Publisher[] publisherArr, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             ConcatArraySubscriber concatArraySubscriber = new ConcatArraySubscriber(this.sources, this.delayError, subscriber);

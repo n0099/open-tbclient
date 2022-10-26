@@ -37,6 +37,16 @@ public class ShareActionProvider extends ActionProvider {
         boolean onShareTargetSelected(ShareActionProvider shareActionProvider, Intent intent);
     }
 
+    @Override // androidx.core.view.ActionProvider
+    public boolean hasSubMenu() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes.dex */
     public class ShareActivityChooserModelPolicy implements ActivityChooserModel.OnChooseActivityListener {
         public static /* synthetic */ Interceptable $ic;
@@ -147,25 +157,28 @@ public class ShareActionProvider extends ActionProvider {
         this.mContext = context;
     }
 
+    public void setShareIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
+            if (intent != null) {
+                String action = intent.getAction();
+                if ("android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action)) {
+                    updateIntent(intent);
+                }
+            }
+            ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setIntent(intent);
+        }
+    }
+
     private void setActivityChooserPolicyIfNeeded() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.mOnShareTargetSelectedListener == null) {
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.mOnShareTargetSelectedListener == null) {
             return;
         }
         if (this.mOnChooseActivityListener == null) {
             this.mOnChooseActivityListener = new ShareActivityChooserModelPolicy(this);
         }
         ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setOnChooseActivityListener(this.mOnChooseActivityListener);
-    }
-
-    @Override // androidx.core.view.ActionProvider
-    public boolean hasSubMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // androidx.core.view.ActionProvider
@@ -224,19 +237,6 @@ public class ShareActionProvider extends ActionProvider {
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.mShareHistoryFileName = str;
             setActivityChooserPolicyIfNeeded();
-        }
-    }
-
-    public void setShareIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
-            if (intent != null) {
-                String action = intent.getAction();
-                if ("android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action)) {
-                    updateIntent(intent);
-                }
-            }
-            ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setIntent(intent);
         }
     }
 

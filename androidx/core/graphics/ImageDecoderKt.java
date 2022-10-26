@@ -3,7 +3,6 @@ package androidx.core.graphics;
 import android.graphics.Bitmap;
 import android.graphics.ImageDecoder;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,6 @@ public final class ImageDecoderKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @RequiresApi(28)
     public static final Bitmap decodeBitmap(ImageDecoder.Source source, final Function3<? super ImageDecoder, ? super ImageDecoder.ImageInfo, ? super ImageDecoder.Source, Unit> function3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -61,7 +59,6 @@ public final class ImageDecoderKt {
         return (Bitmap) invokeLL.objValue;
     }
 
-    @RequiresApi(28)
     public static final Drawable decodeDrawable(ImageDecoder.Source source, final Function3<? super ImageDecoder, ? super ImageDecoder.ImageInfo, ? super ImageDecoder.Source, Unit> function3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

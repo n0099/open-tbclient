@@ -17,12 +17,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class RouteStep implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<RouteStep> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public String c;
-    public List<LatLng> mWayPoints;
+    public List mWayPoints;
 
     static {
         InterceptResult invokeClinit;
@@ -108,7 +108,7 @@ public class RouteStep implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public List<LatLng> getWayPoints() {
+    public List getWayPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mWayPoints : (List) invokeV.objValue;
@@ -135,7 +135,7 @@ public class RouteStep implements Parcelable {
         }
     }
 
-    public void setWayPoints(List<LatLng> list) {
+    public void setWayPoints(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.mWayPoints = list;

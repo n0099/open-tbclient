@@ -22,69 +22,20 @@ import io.reactivex.internal.fuseable.QueueDisposable;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implements Observer<T>, Disposable, MaybeObserver<T>, SingleObserver<T>, CompletableObserver {
+public class TestObserver extends BaseTestConsumer implements Observer, Disposable, MaybeObserver, SingleObserver, CompletableObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer<? super T> actual;
-    public QueueDisposable<T> qs;
-    public final AtomicReference<Disposable> subscription;
+    public final Observer actual;
+    public QueueDisposable qs;
+    public final AtomicReference subscription;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class EmptyObserver implements Observer<Object> {
+    public final class EmptyObserver implements Observer {
         public static final /* synthetic */ EmptyObserver[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final EmptyObserver INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(271914549, "Lio/reactivex/observers/TestObserver$EmptyObserver;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(271914549, "Lio/reactivex/observers/TestObserver$EmptyObserver;");
-                    return;
-                }
-            }
-            EmptyObserver emptyObserver = new EmptyObserver("INSTANCE", 0);
-            INSTANCE = emptyObserver;
-            $VALUES = new EmptyObserver[]{emptyObserver};
-        }
-
-        public EmptyObserver(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static EmptyObserver valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EmptyObserver) Enum.valueOf(EmptyObserver.class, str) : (EmptyObserver) invokeL.objValue;
-        }
-
-        public static EmptyObserver[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EmptyObserver[]) $VALUES.clone() : (EmptyObserver[]) invokeV.objValue;
-        }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
@@ -113,6 +64,61 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
             if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
             }
         }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(271914549, "Lio/reactivex/observers/TestObserver$EmptyObserver;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(271914549, "Lio/reactivex/observers/TestObserver$EmptyObserver;");
+                    return;
+                }
+            }
+            EmptyObserver emptyObserver = new EmptyObserver("INSTANCE", 0);
+            INSTANCE = emptyObserver;
+            $VALUES = new EmptyObserver[]{emptyObserver};
+        }
+
+        public static EmptyObserver[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (EmptyObserver[]) $VALUES.clone();
+            }
+            return (EmptyObserver[]) invokeV.objValue;
+        }
+
+        public EmptyObserver(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static EmptyObserver valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (EmptyObserver) Enum.valueOf(EmptyObserver.class, str);
+            }
+            return (EmptyObserver) invokeL.objValue;
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -133,31 +139,16 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
         }
     }
 
-    public static <T> TestObserver<T> create() {
+    public static TestObserver create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new TestObserver<>() : (TestObserver) invokeV.objValue;
-    }
-
-    public static String fusionModeToString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return "Unknown(" + i + SmallTailInfo.EMOTION_SUFFIX;
-                    }
-                    return "ASYNC";
-                }
-                return "SYNC";
-            }
-            return HlsPlaylistParser.METHOD_NONE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new TestObserver();
         }
-        return (String) invokeI.objValue;
+        return (TestObserver) invokeV.objValue;
     }
 
-    public final TestObserver<T> assertFuseable() {
+    public final TestObserver assertFuseable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -169,23 +160,7 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
         return (TestObserver) invokeV.objValue;
     }
 
-    public final TestObserver<T> assertFusionMode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = this.establishedFusionMode;
-            if (i2 != i) {
-                if (this.qs != null) {
-                    throw new AssertionError("Fusion mode different. Expected: " + fusionModeToString(i) + ", actual: " + fusionModeToString(i2));
-                }
-                throw fail("Upstream is not fuseable");
-            }
-            return this;
-        }
-        return (TestObserver) invokeI.objValue;
-    }
-
-    public final TestObserver<T> assertNotFuseable() {
+    public final TestObserver assertNotFuseable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -195,20 +170,6 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
             throw new AssertionError("Upstream is fuseable.");
         }
         return (TestObserver) invokeV.objValue;
-    }
-
-    public final TestObserver<T> assertOf(Consumer<? super TestObserver<T>> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, consumer)) == null) {
-            try {
-                consumer.accept(this);
-                return this;
-            } catch (Throwable th) {
-                throw ExceptionHelper.wrapOrThrow(th);
-            }
-        }
-        return (TestObserver) invokeL.objValue;
     }
 
     public final void cancel() {
@@ -229,40 +190,127 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
     public final boolean hasSubscription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.subscription.get() != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.subscription.get() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isCancelled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? isDisposed() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return isDisposed();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.disposables.Disposable
     public final boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? DisposableHelper.isDisposed(this.subscription.get()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return DisposableHelper.isDisposed((Disposable) this.subscription.get());
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // io.reactivex.Observer
-    public void onComplete() {
+    public TestObserver(Observer observer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (!this.checkSubscriptionOnce) {
-                this.checkSubscriptionOnce = true;
-                if (this.subscription.get() == null) {
-                    this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
-                }
-            }
-            try {
-                this.lastThread = Thread.currentThread();
-                this.completions++;
-                this.actual.onComplete();
-            } finally {
-                this.done.countDown();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {observer};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.subscription = new AtomicReference();
+        this.actual = observer;
+    }
+
+    public static String fusionModeToString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return "Unknown(" + i + SmallTailInfo.EMOTION_SUFFIX;
+                    }
+                    return "ASYNC";
+                }
+                return "SYNC";
+            }
+            return HlsPlaylistParser.METHOD_NONE;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static TestObserver create(Observer observer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, observer)) == null) {
+            return new TestObserver(observer);
+        }
+        return (TestObserver) invokeL.objValue;
+    }
+
+    public final TestObserver assertOf(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, consumer)) == null) {
+            try {
+                consumer.accept(this);
+                return this;
+            } catch (Throwable th) {
+                throw ExceptionHelper.wrapOrThrow(th);
+            }
+        }
+        return (TestObserver) invokeL.objValue;
+    }
+
+    @Override // io.reactivex.MaybeObserver
+    public void onSuccess(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, obj) == null) {
+            onNext(obj);
+            onComplete();
+        }
+    }
+
+    public final TestObserver setInitialFusionMode(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            this.initialFusionMode = i;
+            return this;
+        }
+        return (TestObserver) invokeI.objValue;
+    }
+
+    public final TestObserver assertFusionMode(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = this.establishedFusionMode;
+            if (i2 != i) {
+                if (this.qs != null) {
+                    throw new AssertionError("Fusion mode different. Expected: " + fusionModeToString(i) + ", actual: " + fusionModeToString(i2));
+                }
+                throw fail("Upstream is not fuseable");
+            }
+            return this;
+        }
+        return (TestObserver) invokeI.objValue;
     }
 
     @Override // io.reactivex.Observer
@@ -289,38 +337,89 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
         }
     }
 
-    @Override // io.reactivex.Observer
-    public void onNext(T t) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // io.reactivex.observers.BaseTestConsumer
+    public final TestObserver assertNotSubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048591, this, t) != null) {
-            return;
-        }
-        if (!this.checkSubscriptionOnce) {
-            this.checkSubscriptionOnce = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.subscription.get() == null) {
-                this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
+                if (this.errors.isEmpty()) {
+                    return this;
+                }
+                throw fail("Not subscribed but errors found");
             }
+            throw fail("Subscribed!");
         }
-        this.lastThread = Thread.currentThread();
-        if (this.establishedFusionMode != 2) {
-            this.values.add(t);
-            if (t == null) {
-                this.errors.add(new NullPointerException("onNext received a null value"));
+        return (TestObserver) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // io.reactivex.observers.BaseTestConsumer
+    public final TestObserver assertSubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.subscription.get() != null) {
+                return this;
             }
-            this.actual.onNext(t);
-            return;
+            throw fail("Not subscribed!");
         }
-        while (true) {
+        return (TestObserver) invokeV.objValue;
+    }
+
+    @Override // io.reactivex.Observer
+    public void onComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (!this.checkSubscriptionOnce) {
+                this.checkSubscriptionOnce = true;
+                if (this.subscription.get() == null) {
+                    this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
+                }
+            }
             try {
-                T poll = this.qs.poll();
-                if (poll == null) {
+                this.lastThread = Thread.currentThread();
+                this.completions++;
+                this.actual.onComplete();
+            } finally {
+                this.done.countDown();
+            }
+        }
+    }
+
+    @Override // io.reactivex.Observer
+    public void onNext(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, obj) == null) {
+            if (!this.checkSubscriptionOnce) {
+                this.checkSubscriptionOnce = true;
+                if (this.subscription.get() == null) {
+                    this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
+                }
+            }
+            this.lastThread = Thread.currentThread();
+            if (this.establishedFusionMode != 2) {
+                this.values.add(obj);
+                if (obj == null) {
+                    this.errors.add(new NullPointerException("onNext received a null value"));
+                }
+                this.actual.onNext(obj);
+                return;
+            }
+            while (true) {
+                try {
+                    Object poll = this.qs.poll();
+                    if (poll != null) {
+                        this.values.add(poll);
+                    } else {
+                        return;
+                    }
+                } catch (Throwable th) {
+                    this.errors.add(th);
+                    this.qs.dispose();
                     return;
                 }
-                this.values.add(poll);
-            } catch (Throwable th) {
-                this.errors.add(th);
-                this.qs.dispose();
-                return;
             }
         }
     }
@@ -340,7 +439,7 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
             } else {
                 int i = this.initialFusionMode;
                 if (i != 0 && (disposable instanceof QueueDisposable)) {
-                    QueueDisposable<T> queueDisposable = (QueueDisposable) disposable;
+                    QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     this.qs = queueDisposable;
                     int requestFusion = queueDisposable.requestFusion(i);
                     this.establishedFusionMode = requestFusion;
@@ -349,7 +448,7 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
                         this.lastThread = Thread.currentThread();
                         while (true) {
                             try {
-                                T poll = this.qs.poll();
+                                Object poll = this.qs.poll();
                                 if (poll != null) {
                                     this.values.add(poll);
                                 } else {
@@ -367,80 +466,5 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
                 this.actual.onSubscribe(disposable);
             }
         }
-    }
-
-    @Override // io.reactivex.MaybeObserver
-    public void onSuccess(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, t) == null) {
-            onNext(t);
-            onComplete();
-        }
-    }
-
-    public final TestObserver<T> setInitialFusionMode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            this.initialFusionMode = i;
-            return this;
-        }
-        return (TestObserver) invokeI.objValue;
-    }
-
-    public TestObserver(Observer<? super T> observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {observer};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.subscription = new AtomicReference<>();
-        this.actual = observer;
-    }
-
-    public static <T> TestObserver<T> create(Observer<? super T> observer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, observer)) == null) ? new TestObserver<>(observer) : (TestObserver) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.observers.BaseTestConsumer
-    public final TestObserver<T> assertNotSubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.subscription.get() == null) {
-                if (this.errors.isEmpty()) {
-                    return this;
-                }
-                throw fail("Not subscribed but errors found");
-            }
-            throw fail("Subscribed!");
-        }
-        return (TestObserver) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.observers.BaseTestConsumer
-    public final TestObserver<T> assertSubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.subscription.get() != null) {
-                return this;
-            }
-            throw fail("Not subscribed!");
-        }
-        return (TestObserver) invokeV.objValue;
     }
 }

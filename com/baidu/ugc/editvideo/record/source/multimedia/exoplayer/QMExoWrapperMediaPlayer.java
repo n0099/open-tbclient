@@ -6,8 +6,8 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tc9;
-import com.baidu.tieba.uc9;
+import com.baidu.tieba.ld9;
+import com.baidu.tieba.md9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
                 return;
             }
         }
-        uc9 d = tc9.c().d();
+        md9 d = ld9.c().d();
         if (d != null) {
             this.mInnerMediaPlayer = d.a();
         }
@@ -59,141 +59,179 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     public int getAudioSessionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInnerMediaPlayer.getAudioSessionId() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mInnerMediaPlayer.getAudioSessionId();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
     public long getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mInnerMediaPlayer.getCurrentPosition() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mInnerMediaPlayer.getCurrentPosition();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public String getDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInnerMediaPlayer.getDataSource() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mInnerMediaPlayer.getDataSource();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public Uri getDataSourceUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mInnerMediaPlayer.getDataSourceUri() : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mInnerMediaPlayer.getDataSourceUri();
+        }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mInnerMediaPlayer.getDuration() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mInnerMediaPlayer.getDuration();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public MediaInfo getMediaInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mInnerMediaPlayer.getMediaInfo() : (MediaInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mInnerMediaPlayer.getMediaInfo();
+        }
+        return (MediaInfo) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
     public float getPlaybackSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mInnerMediaPlayer.getPlaybackSpeed() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mInnerMediaPlayer.getPlaybackSpeed();
+        }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public int getPlaybackState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mInnerMediaPlayer.getPlaybackState() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mInnerMediaPlayer.getPlaybackState();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public String getUniqueID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mInnerMediaPlayer.getUniqueID() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mInnerMediaPlayer.getUniqueID();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public int getVideoSarDen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mInnerMediaPlayer.getVideoSarDen() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mInnerMediaPlayer.getVideoSarDen();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public int getVideoSarNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mInnerMediaPlayer.getVideoSarNum() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mInnerMediaPlayer.getVideoSarNum();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public float getVolume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mInnerMediaPlayer.getVolume() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mInnerMediaPlayer.getVolume();
+        }
+        return invokeV.floatValue;
     }
 
     @Override // com.baidu.ugc.editvideo.player.IPlayer
     public boolean isEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mInnerMediaPlayer.isEnd() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mInnerMediaPlayer.isEnd();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public boolean isLooping() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mInnerMediaPlayer.isLooping() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mInnerMediaPlayer.isLooping();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public boolean isPlayable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mInnerMediaPlayer.isPlayable() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mInnerMediaPlayer.isPlayable();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mInnerMediaPlayer.isPlaying() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mInnerMediaPlayer.isPlaying();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSeeking() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mIsSeeking : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mIsSeeking;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mInnerMediaPlayer.isValid() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
-    public void onSeekComplete(IMediaPlayer iMediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, iMediaPlayer) == null) {
-            this.mIsSeeking = false;
-            if (this.mNeedStartAfterSeek) {
-                this.mInnerMediaPlayer.start();
-            }
-            long j = this.mSeekToEndPosition;
-            if (j != 0) {
-                seekToForce(j);
-                this.mSeekToEndPosition = 0L;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mInnerMediaPlayer.isValid();
         }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
@@ -239,21 +277,6 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public void seekTo(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            if (j > getDuration()) {
-                j = getDuration();
-            }
-            this.mIsSeeking = true;
-            this.mInnerMediaPlayer.seekTo(j);
-        }
-    }
-
     @Override // com.baidu.ugc.editvideo.player.IPlayer
     public void seekToEnd() {
         Interceptable interceptable = $ic;
@@ -266,6 +289,59 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
                 currentPosition = (long) d;
             }
             seekToForce(currentPosition);
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+            if (this.mIsSeeking && this.mInnerMediaPlayer.getPlaybackState() != 3) {
+                this.mNeedStartAfterSeek = true;
+            } else {
+                this.mInnerMediaPlayer.start();
+            }
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void stop() throws IllegalStateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+            this.mIsSeeking = false;
+            this.mNeedStartAfterSeek = false;
+            this.mInnerMediaPlayer.stop();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
+    public void onSeekComplete(IMediaPlayer iMediaPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, iMediaPlayer) == null) {
+            this.mIsSeeking = false;
+            if (this.mNeedStartAfterSeek) {
+                this.mInnerMediaPlayer.start();
+            }
+            long j = this.mSeekToEndPosition;
+            if (j != 0) {
+                seekToForce(j);
+                this.mSeekToEndPosition = 0L;
+            }
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void seekTo(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            if (j > getDuration()) {
+                j = getDuration();
+            }
+            this.mIsSeeking = true;
+            this.mInnerMediaPlayer.seekTo(j);
         }
     }
 
@@ -300,11 +376,11 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public void setDataSource(String str) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
+    public void setDataSource(FileDescriptor fileDescriptor) throws IOException, IllegalArgumentException, IllegalStateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
-            setDataSource(null, Uri.parse(Uri.encode(str)), null);
+        if (interceptable == null || interceptable.invokeL(1048607, this, fileDescriptor) == null) {
+            this.mInnerMediaPlayer.setDataSource(fileDescriptor);
         }
     }
 
@@ -471,7 +547,10 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     public boolean setPlaybackSpeed(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048630, this, f)) == null) ? this.mInnerMediaPlayer.setPlaybackSpeed(f) : invokeF.booleanValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048630, this, f)) == null) {
+            return this.mInnerMediaPlayer.setPlaybackSpeed(f);
+        }
+        return invokeF.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
@@ -495,28 +574,6 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048633, this, f) == null) {
             this.mInnerMediaPlayer.setVolume(f);
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
-            if (this.mIsSeeking && this.mInnerMediaPlayer.getPlaybackState() != 3) {
-                this.mNeedStartAfterSeek = true;
-            } else {
-                this.mInnerMediaPlayer.start();
-            }
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public void stop() throws IllegalStateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
-            this.mIsSeeking = false;
-            this.mNeedStartAfterSeek = false;
-            this.mInnerMediaPlayer.stop();
         }
     }
 
@@ -544,11 +601,11 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
-    public void setDataSource(FileDescriptor fileDescriptor) throws IOException, IllegalArgumentException, IllegalStateException {
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
+    public void setDataSource(String str) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, fileDescriptor) == null) {
-            this.mInnerMediaPlayer.setDataSource(fileDescriptor);
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+            setDataSource(null, Uri.parse(Uri.encode(str)), null);
         }
     }
 

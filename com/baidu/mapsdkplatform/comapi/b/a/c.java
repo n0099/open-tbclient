@@ -41,7 +41,7 @@ public class c {
     public Context d;
 
     /* loaded from: classes2.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public transient /* synthetic */ FieldHolder $fh;

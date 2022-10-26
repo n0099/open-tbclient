@@ -1,63 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public final class bs9 implements Runnable {
+public class bs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ xr9 b;
-    public final /* synthetic */ wr9 c;
 
-    public bs9(wr9 wr9Var, Activity activity, xr9 xr9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655681, "Lcom/baidu/tieba/bs9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947655681, "Lcom/baidu/tieba/bs9;");
+                return;
+            }
+        }
+        bs9.class.getClassLoader();
+    }
+
+    public bs9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wr9Var, activity, xr9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = wr9Var;
-        this.a = activity;
-        this.b = xr9Var;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    public static Parcelable a(Parcel parcel, Parcelable.Creator creator) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                wr9 wr9Var = this.c;
-                l = wr9.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new cs9(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                wr9 wr9Var2 = this.c;
-                wr9.n(this.a, this.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
+            if (parcel.readInt() == 0) {
+                return null;
             }
+            return (Parcelable) creator.createFromParcel(parcel);
+        }
+        return (Parcelable) invokeLL.objValue;
+    }
+
+    public static void b(Parcel parcel, IInterface iInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, parcel, iInterface) == null) {
+            if (iInterface == null) {
+                parcel.writeStrongBinder(null);
+            } else {
+                parcel.writeStrongBinder(iInterface.asBinder());
+            }
+        }
+    }
+
+    public static void c(Parcel parcel, Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, parcelable) == null) {
+            if (parcelable == null) {
+                parcel.writeInt(0);
+                return;
+            }
+            parcel.writeInt(1);
+            parcelable.writeToParcel(parcel, 0);
         }
     }
 }

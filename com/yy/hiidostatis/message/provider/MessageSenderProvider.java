@@ -13,7 +13,7 @@ import com.yy.hiidostatis.provider.GlobalProvider;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 /* loaded from: classes8.dex */
-public class MessageSenderProvider implements Provider<MessageSender> {
+public class MessageSenderProvider implements Provider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageSender sender;
@@ -33,7 +33,6 @@ public class MessageSenderProvider implements Provider<MessageSender> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.yy.hiidostatis.provider.Provider
     public MessageSender generate(MessageConfig messageConfig) {
         InterceptResult invokeL;

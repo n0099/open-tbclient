@@ -28,25 +28,21 @@ public class FinderPatternFinder {
     public final int[] crossCheckStateCount;
     public boolean hasSkipped;
     public final BitMatrix image;
-    public final List<FinderPattern> possibleCenters;
+    public final List possibleCenters;
     public final ResultPointCallback resultPointCallback;
 
     /* renamed from: com.google.zxing.qrcode.detector.FinderPatternFinder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class CenterComparator implements Serializable, Comparator<FinderPattern> {
+    public final class CenterComparator implements Serializable, Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float average;
-
-        public /* synthetic */ CenterComparator(float f, AnonymousClass1 anonymousClass1) {
-            this(f);
-        }
 
         public CenterComparator(float f) {
             Interceptable interceptable = $ic;
@@ -66,6 +62,10 @@ public class FinderPatternFinder {
             this.average = f;
         }
 
+        public /* synthetic */ CenterComparator(float f, AnonymousClass1 anonymousClass1) {
+            this(f);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(FinderPattern finderPattern, FinderPattern finderPattern2) {
@@ -78,7 +78,10 @@ public class FinderPatternFinder {
                     if (abs < abs2) {
                         return 1;
                     }
-                    return abs == abs2 ? 0 : -1;
+                    if (abs == abs2) {
+                        return 0;
+                    }
+                    return -1;
                 }
                 return finderPattern2.getCount() - finderPattern.getCount();
             }
@@ -87,14 +90,10 @@ public class FinderPatternFinder {
     }
 
     /* loaded from: classes7.dex */
-    public static final class FurthestFromAverageComparator implements Serializable, Comparator<FinderPattern> {
+    public final class FurthestFromAverageComparator implements Serializable, Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float average;
-
-        public /* synthetic */ FurthestFromAverageComparator(float f, AnonymousClass1 anonymousClass1) {
-            this(f);
-        }
 
         public FurthestFromAverageComparator(float f) {
             Interceptable interceptable = $ic;
@@ -114,6 +113,10 @@ public class FinderPatternFinder {
             this.average = f;
         }
 
+        public /* synthetic */ FurthestFromAverageComparator(float f, AnonymousClass1 anonymousClass1) {
+            this(f);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(FinderPattern finderPattern, FinderPattern finderPattern2) {
@@ -125,7 +128,10 @@ public class FinderPatternFinder {
                 if (abs < abs2) {
                     return -1;
                 }
-                return abs == abs2 ? 0 : 1;
+                if (abs == abs2) {
+                    return 0;
+                }
+                return 1;
             }
             return invokeLL.intValue;
         }
@@ -152,10 +158,34 @@ public class FinderPatternFinder {
         }
     }
 
+    public FinderPatternFinder(BitMatrix bitMatrix, ResultPointCallback resultPointCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitMatrix, resultPointCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.image = bitMatrix;
+        this.possibleCenters = new ArrayList();
+        this.crossCheckStateCount = new int[5];
+        this.resultPointCallback = resultPointCallback;
+    }
+
     public static float centerFromEnd(int[] iArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, iArr, i)) == null) ? ((i - iArr[4]) - iArr[3]) - (iArr[2] / 2.0f) : invokeLI.floatValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, iArr, i)) == null) {
+            return ((i - iArr[4]) - iArr[3]) - (iArr[2] / 2.0f);
+        }
+        return invokeLI.floatValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x002e, code lost:
@@ -570,11 +600,12 @@ public class FinderPatternFinder {
             FinderPattern finderPattern = null;
             for (FinderPattern finderPattern2 : this.possibleCenters) {
                 if (finderPattern2.getCount() >= 2) {
-                    if (finderPattern != null) {
+                    if (finderPattern == null) {
+                        finderPattern = finderPattern2;
+                    } else {
                         this.hasSkipped = true;
                         return ((int) (Math.abs(finderPattern.getX() - finderPattern2.getX()) - Math.abs(finderPattern.getY() - finderPattern2.getY()))) / 2;
                     }
-                    finderPattern = finderPattern2;
                 }
             }
             return 0;
@@ -599,7 +630,10 @@ public class FinderPatternFinder {
             }
             float f = i / 7.0f;
             float f2 = f / 2.0f;
-            return Math.abs(f - ((float) iArr[0])) < f2 && Math.abs(f - ((float) iArr[1])) < f2 && Math.abs((f * 3.0f) - ((float) iArr[2])) < 3.0f * f2 && Math.abs(f - ((float) iArr[3])) < f2 && Math.abs(f - ((float) iArr[4])) < f2;
+            if (Math.abs(f - iArr[0]) >= f2 || Math.abs(f - iArr[1]) >= f2 || Math.abs((f * 3.0f) - iArr[2]) >= 3.0f * f2 || Math.abs(f - iArr[3]) >= f2 || Math.abs(f - iArr[4]) >= f2) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -617,6 +651,24 @@ public class FinderPatternFinder {
             return iArr;
         }
         return (int[]) invokeV.objValue;
+    }
+
+    public final BitMatrix getImage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.image;
+        }
+        return (BitMatrix) invokeV.objValue;
+    }
+
+    public final List getPossibleCenters() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.possibleCenters;
+        }
+        return (List) invokeV.objValue;
     }
 
     private boolean haveMultiplyConfirmedCenters() {
@@ -640,7 +692,10 @@ public class FinderPatternFinder {
             for (FinderPattern finderPattern2 : this.possibleCenters) {
                 f += Math.abs(finderPattern2.getEstimatedModuleSize() - f3);
             }
-            return f <= f2 * 0.05f;
+            if (f > f2 * 0.05f) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -667,7 +722,7 @@ public class FinderPatternFinder {
                     float max = Math.max(0.2f * f5, sqrt);
                     int i = 0;
                     while (i < this.possibleCenters.size() && this.possibleCenters.size() > 3) {
-                        if (Math.abs(this.possibleCenters.get(i).getEstimatedModuleSize() - f5) > max) {
+                        if (Math.abs(((FinderPattern) this.possibleCenters.get(i)).getEstimatedModuleSize() - f5) > max) {
                             this.possibleCenters.remove(i);
                             i--;
                         }
@@ -679,22 +734,32 @@ public class FinderPatternFinder {
                         f2 += finderPattern2.getEstimatedModuleSize();
                     }
                     Collections.sort(this.possibleCenters, new CenterComparator(f2 / this.possibleCenters.size(), null));
-                    List<FinderPattern> list = this.possibleCenters;
+                    List list = this.possibleCenters;
                     list.subList(3, list.size()).clear();
                 }
-                return new FinderPattern[]{this.possibleCenters.get(0), this.possibleCenters.get(1), this.possibleCenters.get(2)};
+                return new FinderPattern[]{(FinderPattern) this.possibleCenters.get(0), (FinderPattern) this.possibleCenters.get(1), (FinderPattern) this.possibleCenters.get(2)};
             }
             throw NotFoundException.getNotFoundInstance();
         }
         return (FinderPattern[]) invokeV.objValue;
     }
 
-    public final FinderPatternInfo find(Map<DecodeHintType, ?> map) throws NotFoundException {
+    public final FinderPatternInfo find(Map map) throws NotFoundException {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            boolean z = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
-            boolean z2 = map != null && map.containsKey(DecodeHintType.PURE_BARCODE);
+            if (map != null && map.containsKey(DecodeHintType.TRY_HARDER)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (map != null && map.containsKey(DecodeHintType.PURE_BARCODE)) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
             int height = this.image.getHeight();
             int width = this.image.getWidth();
             int i = ((height * 3) / 228 < 3 || z) ? 3 : 3;
@@ -715,27 +780,33 @@ public class FinderPatternFinder {
                             i4++;
                         }
                         iArr[i4] = iArr[i4] + 1;
-                    } else if ((i4 & 1) != 0) {
-                        iArr[i4] = iArr[i4] + 1;
-                    } else if (i4 == 4) {
-                        if (foundPatternCross(iArr)) {
-                            if (handlePossibleCenter(iArr, i2, i3, z2)) {
-                                if (this.hasSkipped) {
-                                    z3 = haveMultiplyConfirmedCenters();
-                                } else {
-                                    int findRowSkip = findRowSkip();
-                                    if (findRowSkip > iArr[2]) {
-                                        i2 += (findRowSkip - iArr[2]) - 2;
-                                        i3 = width - 1;
+                    } else if ((i4 & 1) == 0) {
+                        if (i4 == 4) {
+                            if (foundPatternCross(iArr)) {
+                                if (handlePossibleCenter(iArr, i2, i3, z2)) {
+                                    if (this.hasSkipped) {
+                                        z3 = haveMultiplyConfirmedCenters();
+                                    } else {
+                                        int findRowSkip = findRowSkip();
+                                        if (findRowSkip > iArr[2]) {
+                                            i2 += (findRowSkip - iArr[2]) - 2;
+                                            i3 = width - 1;
+                                        }
                                     }
+                                    iArr[0] = 0;
+                                    iArr[1] = 0;
+                                    iArr[2] = 0;
+                                    iArr[3] = 0;
+                                    iArr[4] = 0;
+                                    i = 2;
+                                    i4 = 0;
+                                } else {
+                                    iArr[0] = iArr[2];
+                                    iArr[1] = iArr[3];
+                                    iArr[2] = iArr[4];
+                                    iArr[3] = 1;
+                                    iArr[4] = 0;
                                 }
-                                iArr[0] = 0;
-                                iArr[1] = 0;
-                                iArr[2] = 0;
-                                iArr[3] = 0;
-                                iArr[4] = 0;
-                                i = 2;
-                                i4 = 0;
                             } else {
                                 iArr[0] = iArr[2];
                                 iArr[1] = iArr[3];
@@ -743,16 +814,12 @@ public class FinderPatternFinder {
                                 iArr[3] = 1;
                                 iArr[4] = 0;
                             }
+                            i4 = 3;
                         } else {
-                            iArr[0] = iArr[2];
-                            iArr[1] = iArr[3];
-                            iArr[2] = iArr[4];
-                            iArr[3] = 1;
-                            iArr[4] = 0;
+                            i4++;
+                            iArr[i4] = iArr[i4] + 1;
                         }
-                        i4 = 3;
                     } else {
-                        i4++;
                         iArr[i4] = iArr[i4] + 1;
                     }
                     i3++;
@@ -770,18 +837,6 @@ public class FinderPatternFinder {
             return new FinderPatternInfo(selectBestPatterns);
         }
         return (FinderPatternInfo) invokeL.objValue;
-    }
-
-    public final BitMatrix getImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.image : (BitMatrix) invokeV.objValue;
-    }
-
-    public final List<FinderPattern> getPossibleCenters() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.possibleCenters : (List) invokeV.objValue;
     }
 
     public final boolean handlePossibleCenter(int[] iArr, int i, int i2, boolean z) {
@@ -802,7 +857,7 @@ public class FinderPatternFinder {
                         if (i5 >= this.possibleCenters.size()) {
                             break;
                         }
-                        FinderPattern finderPattern = this.possibleCenters.get(i5);
+                        FinderPattern finderPattern = (FinderPattern) this.possibleCenters.get(i5);
                         if (finderPattern.aboutEquals(f, crossCheckVertical, crossCheckHorizontal)) {
                             this.possibleCenters.set(i5, finderPattern.combineEstimate(crossCheckVertical, crossCheckHorizontal, f));
                             z2 = true;
@@ -824,26 +879,5 @@ public class FinderPatternFinder {
             return false;
         }
         return invokeCommon.booleanValue;
-    }
-
-    public FinderPatternFinder(BitMatrix bitMatrix, ResultPointCallback resultPointCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitMatrix, resultPointCallback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.image = bitMatrix;
-        this.possibleCenters = new ArrayList();
-        this.crossCheckStateCount = new int[5];
-        this.resultPointCallback = resultPointCallback;
     }
 }

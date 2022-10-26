@@ -3,7 +3,6 @@ package com.google.android.material.appbar;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
+public class ViewOffsetBehavior extends CoordinatorLayout.Behavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int tempLeftRightOffset;
@@ -68,7 +67,10 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ViewOffsetHelper viewOffsetHelper = this.viewOffsetHelper;
-            return viewOffsetHelper != null && viewOffsetHelper.isHorizontalOffsetEnabled();
+            if (viewOffsetHelper != null && viewOffsetHelper.isHorizontalOffsetEnabled()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -78,26 +80,52 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ViewOffsetHelper viewOffsetHelper = this.viewOffsetHelper;
-            return viewOffsetHelper != null && viewOffsetHelper.isVerticalOffsetEnabled();
+            if (viewOffsetHelper != null && viewOffsetHelper.isVerticalOffsetEnabled()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void layoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ViewOffsetBehavior(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, coordinatorLayout, v, i) == null) {
-            coordinatorLayout.onLayoutChild(v, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.tempTopBottomOffset = 0;
+        this.tempLeftRightOffset = 0;
+    }
+
+    public void layoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, coordinatorLayout, view2, i) == null) {
+            coordinatorLayout.onLayoutChild(view2, i);
         }
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
+    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, coordinatorLayout, v, i)) == null) {
-            layoutChild(coordinatorLayout, v, i);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, coordinatorLayout, view2, i)) == null) {
+            layoutChild(coordinatorLayout, view2, i);
             if (this.viewOffsetHelper == null) {
-                this.viewOffsetHelper = new ViewOffsetHelper(v);
+                this.viewOffsetHelper = new ViewOffsetHelper(view2);
             }
             this.viewOffsetHelper.onViewLayout();
             this.viewOffsetHelper.applyOffsets();
@@ -120,10 +148,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     public void setHorizontalOffsetEnabled(boolean z) {
         ViewOffsetHelper viewOffsetHelper;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (viewOffsetHelper = this.viewOffsetHelper) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (viewOffsetHelper = this.viewOffsetHelper) != null) {
+            viewOffsetHelper.setHorizontalOffsetEnabled(z);
         }
-        viewOffsetHelper.setHorizontalOffsetEnabled(z);
     }
 
     public boolean setLeftAndRightOffset(int i) {
@@ -157,32 +184,8 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     public void setVerticalOffsetEnabled(boolean z) {
         ViewOffsetHelper viewOffsetHelper;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (viewOffsetHelper = this.viewOffsetHelper) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (viewOffsetHelper = this.viewOffsetHelper) != null) {
+            viewOffsetHelper.setVerticalOffsetEnabled(z);
         }
-        viewOffsetHelper.setVerticalOffsetEnabled(z);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewOffsetBehavior(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.tempTopBottomOffset = 0;
-        this.tempLeftRightOffset = 0;
     }
 }

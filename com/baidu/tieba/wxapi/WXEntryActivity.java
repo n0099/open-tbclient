@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nt7;
+import com.baidu.tieba.yt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +32,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes6.dex */
-public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
+public class WXEntryActivity extends BaseActivity implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IWXAPI a;
@@ -73,32 +73,6 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        IWXAPI iwxapi;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d050a);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091ccc);
-            this.c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a75));
-            try {
-                this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Intent intent = getIntent();
-            this.b = intent;
-            if (intent == null || (iwxapi = this.a) == null) {
-                return;
-            }
-            iwxapi.handleIntent(getIntent(), this);
-        }
-    }
-
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         IWXAPI iwxapi;
@@ -107,10 +81,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             super.onNewIntent(intent);
             setIntent(intent);
             this.b = intent;
-            if (intent == null || (iwxapi = this.a) == null) {
-                return;
+            if (intent != null && (iwxapi = this.a) != null) {
+                iwxapi.handleIntent(intent, this);
             }
-            iwxapi.handleIntent(intent, this);
         }
     }
 
@@ -118,53 +91,36 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     public void onReq(BaseReq baseReq) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, baseReq) == null) && baseReq.getType() == 4 && (baseReq instanceof ShowMessageFromWX.Req)) {
-            z1((ShowMessageFromWX.Req) baseReq);
+            y1((ShowMessageFromWX.Req) baseReq);
         }
     }
 
-    @Override // com.tencent.mm.opensdk.openapi.IWXAPIEventHandler
-    public void onResp(BaseResp baseResp) {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        IWXAPI iwxapi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, baseResp) == null) || baseResp == null) {
-            return;
-        }
-        int type = baseResp.getType();
-        if (1 != type && 19 != type) {
-            if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
-                SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;
-                int i = resp.errCode;
-                String str = resp.errStr;
-                if (str == null) {
-                    str = "";
-                }
-                Intent intent = new Intent(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
-                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra("weixin_result_errCode", i);
-                intent.putExtra("weixin_result_errMsg", str);
-                if (i == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016450, Boolean.TRUE));
-                    intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_SUCCESS);
-                } else if (i == -2) {
-                    intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_CANCLE);
-                } else if (i == 123456) {
-                    intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
-                } else {
-                    intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
-                }
-                BdBaseApplication.getInst().sendBroadcast(intent);
-                closeActivity();
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            MessageManager.getInstance().runTask(2921332, (Class) null);
+            setContentView(R.layout.obfuscated_res_0x7f0d0507);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091cc8);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a82));
+            try {
+                this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return;
+            Intent intent = getIntent();
+            this.b = intent;
+            if (intent != null && (iwxapi = this.a) != null) {
+                iwxapi.handleIntent(getIntent(), this);
+            }
         }
-        nt7 nt7Var = new nt7();
-        nt7Var.a = this;
-        nt7Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, nt7Var);
-        closeActivity();
     }
 
-    public final void z1(ShowMessageFromWX.Req req) {
+    public final void y1(ShowMessageFromWX.Req req) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, req) == null) {
             String str = req.message.messageExt;
@@ -198,5 +154,47 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                 closeActivity();
             }
         }
+    }
+
+    @Override // com.tencent.mm.opensdk.openapi.IWXAPIEventHandler
+    public void onResp(BaseResp baseResp) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, baseResp) != null) || baseResp == null) {
+            return;
+        }
+        int type = baseResp.getType();
+        if (1 != type && 19 != type) {
+            if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
+                SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;
+                int i = resp.errCode;
+                String str = resp.errStr;
+                if (str == null) {
+                    str = "";
+                }
+                Intent intent = new Intent(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
+                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+                intent.putExtra("weixin_result_errCode", i);
+                intent.putExtra("weixin_result_errMsg", str);
+                if (i == 0) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016450, Boolean.TRUE));
+                    intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_SUCCESS);
+                } else if (i == -2) {
+                    intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_CANCLE);
+                } else if (i == 123456) {
+                    intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
+                } else {
+                    intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
+                }
+                BdBaseApplication.getInst().sendBroadcast(intent);
+                closeActivity();
+                return;
+            }
+            return;
+        }
+        yt7 yt7Var = new yt7();
+        yt7Var.a = this;
+        yt7Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, yt7Var);
+        closeActivity();
     }
 }

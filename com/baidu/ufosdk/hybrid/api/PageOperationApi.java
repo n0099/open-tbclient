@@ -92,6 +92,18 @@ public class PageOperationApi implements IBridgeApi {
         }
     }
 
+    public static void postSuccess(Context context, p pVar, o oVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, pVar, oVar) == null) {
+            try {
+                finish(context, pVar, oVar);
+            } catch (Exception e) {
+                oVar.a("10102", "Unknow Exception!");
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void openWebLoader(Context context, p pVar, o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, pVar, oVar) == null) {
@@ -112,18 +124,6 @@ public class PageOperationApi implements IBridgeApi {
                 } else {
                     oVar.a("10101", "into: " + optInt);
                 }
-            } catch (Exception e) {
-                oVar.a("10102", "Unknow Exception!");
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void postSuccess(Context context, p pVar, o oVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, context, pVar, oVar) == null) {
-            try {
-                finish(context, pVar, oVar);
             } catch (Exception e) {
                 oVar.a("10102", "Unknow Exception!");
                 e.printStackTrace();

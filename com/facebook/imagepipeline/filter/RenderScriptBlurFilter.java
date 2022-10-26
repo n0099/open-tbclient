@@ -7,7 +7,6 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,14 +33,31 @@ public abstract class RenderScriptBlurFilter {
         }
     }
 
-    @RequiresApi(17)
+    public static boolean canUseRenderScript() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void blurBitmap(Bitmap bitmap, Bitmap bitmap2, Context context, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65537, null, bitmap, bitmap2, context, i) == null) {
             Preconditions.checkNotNull(bitmap);
             Preconditions.checkNotNull(bitmap2);
             Preconditions.checkNotNull(context);
-            Preconditions.checkArgument(i > 0 && i <= 25);
+            if (i > 0 && i <= 25) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
             RenderScript renderScript = null;
             try {
                 renderScript = RenderScript.create(context);
@@ -61,11 +77,5 @@ public abstract class RenderScriptBlurFilter {
                 }
             }
         }
-    }
-
-    public static boolean canUseRenderScript() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 17 : invokeV.booleanValue;
     }
 }

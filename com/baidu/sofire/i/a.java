@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,7 +33,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerC0165a a;
+    public HandlerC0166a a;
     public com.baidu.sofire.j.a b;
     public Context c;
     public com.baidu.sofire.h.a d;
@@ -41,13 +42,13 @@ public class a {
 
     /* renamed from: com.baidu.sofire.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC0165a extends Handler {
+    public class HandlerC0166a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0165a(a aVar, Looper looper) {
+        public HandlerC0166a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -151,33 +152,34 @@ public class a {
                         case 10:
                             long currentTimeMillis = System.currentTimeMillis();
                             a aVar2 = this.a;
-                            if (currentTimeMillis - aVar2.f < LiveFeedPageSdk.REFRESH_TIME) {
-                                return;
-                            }
-                            aVar2.f = System.currentTimeMillis();
-                            f = com.baidu.sofire.k.a.f(this.a.c);
-                            if (2 != f) {
-                                if (1 == f) {
+                            if (currentTimeMillis - aVar2.f >= LiveFeedPageSdk.REFRESH_TIME) {
+                                aVar2.f = System.currentTimeMillis();
+                                f = com.baidu.sofire.k.a.f(this.a.c);
+                                if (2 == f) {
+                                    com.baidu.sofire.f.a a3 = com.baidu.sofire.f.a.a(this.a.c);
+                                    a3.getClass();
+                                    try {
+                                        cursor = a3.b.query("r", null, null, null, null, null, null, null);
+                                        if (cursor != null) {
+                                            i = cursor.getCount();
+                                            break;
+                                        } else {
+                                            i = 0;
+                                            break;
+                                        }
+                                    } catch (Exception unused) {
+                                        int i2 = b.a;
+                                        i = 0;
+                                        break;
+                                    }
+                                } else if (1 == f) {
                                     a.a(this.a, 4, f);
                                     return;
-                                }
-                                return;
-                            }
-                            com.baidu.sofire.f.a a3 = com.baidu.sofire.f.a.a(this.a.c);
-                            a3.getClass();
-                            try {
-                                cursor = a3.b.query("r", null, null, null, null, null, null, null);
-                                if (cursor == null) {
-                                    i = 0;
-                                    break;
                                 } else {
-                                    i = cursor.getCount();
-                                    break;
+                                    return;
                                 }
-                            } catch (Exception unused) {
-                                int i2 = b.a;
-                                i = 0;
-                                break;
+                            } else {
+                                return;
                             }
                         case 11:
                             String valueOf2 = String.valueOf(message.obj);
@@ -191,10 +193,10 @@ public class a {
                             if (jSONObject2 != null && jSONObject2.has("12")) {
                                 jSONObject2.optString("12", "");
                             }
-                            if (aVar3.a(jSONArray)) {
+                            if (!aVar3.a(jSONArray)) {
+                                com.baidu.sofire.k.a.a(this.a.c, valueOf2, false);
                                 return;
                             }
-                            com.baidu.sofire.k.a.a(this.a.c, valueOf2, false);
                             return;
                     }
                 } catch (Throwable unused2) {
@@ -229,9 +231,27 @@ public class a {
         }
         this.f = 0L;
         this.c = context.getApplicationContext();
-        this.a = new HandlerC0165a(this, h.a());
+        this.a = new HandlerC0166a(this, h.a());
         this.b = com.baidu.sofire.j.a.a(this.c);
         this.d = new com.baidu.sofire.h.a(this.c);
+    }
+
+    public static void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
+            com.baidu.sofire.j.a a = com.baidu.sofire.j.a.a(aVar.c);
+            int l = a.l();
+            long currentTimeMillis = System.currentTimeMillis() - a.e.getLong("re_last_ofline_time", 0L);
+            long j = l * 3600000;
+            if (currentTimeMillis >= j) {
+                com.baidu.sofire.k.b.a(aVar.c).a();
+                com.baidu.sofire.k.a.a(aVar.c, j);
+                a.f.putLong("re_last_ofline_time", System.currentTimeMillis());
+                a.f.commit();
+                return;
+            }
+            com.baidu.sofire.k.a.a(aVar.c, j - currentTimeMillis);
+        }
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x00f0 */
@@ -251,7 +271,7 @@ public class a {
     */
     public static void a(a aVar, int i, int i2) {
         ?? a;
-        List<com.baidu.sofire.g.a> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65538, null, aVar, i, i2) == null) {
             aVar.getClass();
@@ -297,7 +317,7 @@ public class a {
                                                     int i5 = b.a;
                                                 }
                                             }
-                                            if (a.size() > 0) {
+                                            if (a.size() <= 0) {
                                             }
                                         }
                                     } catch (Throwable th) {
@@ -322,56 +342,58 @@ public class a {
                 } else {
                     a = i == 3 ? com.baidu.sofire.f.a.a(aVar.c).a(false, i2) : i == 4 ? com.baidu.sofire.f.a.a(aVar.c).a(true, i2) : com.baidu.sofire.f.a.a(aVar.c).a(i2);
                 }
-                if (a.size() > 0) {
-                    return;
-                }
-                long j = aVar.b.e.getLong("re_day_len", 0L);
-                long currentTimeMillis = System.currentTimeMillis();
-                long j2 = aVar.b.e.getLong("re_day_b_t", 0L);
-                int i7 = aVar.b.e.getInt("re_net_dy_lt", 50);
-                if (j2 == 0) {
-                    com.baidu.sofire.j.a aVar3 = aVar.b;
-                    aVar3.f.putLong("re_day_b_t", currentTimeMillis);
-                    aVar3.f.commit();
-                    j2 = currentTimeMillis;
-                }
-                if (currentTimeMillis - j2 < 86400000) {
-                    if (i == 3) {
-                        int i8 = aVar.b.e.getInt("g_r_d_d_n", 0);
-                        if (i8 >= 5) {
+                if (a.size() <= 0) {
+                    long j = aVar.b.e.getLong("re_day_len", 0L);
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long j2 = aVar.b.e.getLong("re_day_b_t", 0L);
+                    int i7 = aVar.b.e.getInt("re_net_dy_lt", 50);
+                    if (j2 == 0) {
+                        com.baidu.sofire.j.a aVar3 = aVar.b;
+                        aVar3.f.putLong("re_day_b_t", currentTimeMillis);
+                        aVar3.f.commit();
+                        j2 = currentTimeMillis;
+                    }
+                    if (currentTimeMillis - j2 < 86400000) {
+                        if (i == 3) {
+                            int i8 = aVar.b.e.getInt("g_r_d_d_n", 0);
+                            if (i8 < 5) {
+                                com.baidu.sofire.j.a aVar4 = aVar.b;
+                                aVar4.f.putInt("g_r_d_d_n", i8 + 1);
+                                aVar4.f.commit();
+                            } else {
+                                return;
+                            }
+                        }
+                        if (j <= i7 * 1048576) {
+                            list = a;
+                        } else {
                             return;
                         }
-                        com.baidu.sofire.j.a aVar4 = aVar.b;
-                        aVar4.f.putInt("g_r_d_d_n", i8 + 1);
-                        aVar4.f.commit();
-                    }
-                    if (j > i7 * 1048576) {
-                        return;
-                    }
-                    list = a;
-                } else {
-                    com.baidu.sofire.j.a aVar5 = aVar.b;
-                    list = a;
-                    aVar5.f.putLong("re_day_len", 0L);
-                    aVar5.f.commit();
-                    com.baidu.sofire.j.a aVar6 = aVar.b;
-                    aVar6.f.putLong("re_day_b_t", currentTimeMillis);
-                    aVar6.f.commit();
-                    if (i == 3) {
-                        com.baidu.sofire.j.a aVar7 = aVar.b;
-                        aVar7.f.putInt("g_r_d_d_n", 0);
-                        aVar7.f.commit();
-                    }
-                }
-                aVar.a(list, i2, j);
-                if (aVar.a() && i == 0 && i2 == 2 && list.size() >= 100) {
-                    List<com.baidu.sofire.g.a> a3 = aVar.a(i, i2);
-                    while (a3 != null && a3.size() != 0) {
-                        aVar.a(a3, i2, j);
-                        if (a3.size() < 100 || !aVar.a()) {
-                            return;
+                    } else {
+                        com.baidu.sofire.j.a aVar5 = aVar.b;
+                        list = a;
+                        aVar5.f.putLong("re_day_len", 0L);
+                        aVar5.f.commit();
+                        com.baidu.sofire.j.a aVar6 = aVar.b;
+                        aVar6.f.putLong("re_day_b_t", currentTimeMillis);
+                        aVar6.f.commit();
+                        if (i == 3) {
+                            com.baidu.sofire.j.a aVar7 = aVar.b;
+                            aVar7.f.putInt("g_r_d_d_n", 0);
+                            aVar7.f.commit();
                         }
-                        a3 = aVar.a(i, i2);
+                    }
+                    aVar.a(list, i2, j);
+                    if (aVar.a() && i == 0 && i2 == 2 && list.size() >= 100) {
+                        List a3 = aVar.a(i, i2);
+                        while (a3 != null && a3.size() != 0) {
+                            aVar.a(a3, i2, j);
+                            if (a3.size() >= 100 && aVar.a()) {
+                                a3 = aVar.a(i, i2);
+                            } else {
+                                return;
+                            }
+                        }
                     }
                 }
             }
@@ -381,63 +403,71 @@ public class a {
     public static void b(a aVar) {
         List<com.baidu.sofire.e.a> c;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, aVar) == null) || (c = aVar.b.c()) == null) {
-            return;
-        }
-        for (com.baidu.sofire.e.a aVar2 : c) {
-            if (aVar.a(aVar.b.e.getString("li_pk_s", ""), aVar2.b)) {
-                aVar.a(aVar2);
-            }
-        }
-    }
-
-    public static void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
-            com.baidu.sofire.j.a a = com.baidu.sofire.j.a.a(aVar.c);
-            int l = a.l();
-            long currentTimeMillis = System.currentTimeMillis() - a.e.getLong("re_last_ofline_time", 0L);
-            long j = l * 3600000;
-            if (currentTimeMillis >= j) {
-                com.baidu.sofire.k.b.a(aVar.c).a();
-                com.baidu.sofire.k.a.a(aVar.c, j);
-                a.f.putLong("re_last_ofline_time", System.currentTimeMillis());
-                a.f.commit();
-                return;
-            }
-            com.baidu.sofire.k.a.a(aVar.c, j - currentTimeMillis);
-        }
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (g > 0) {
-                if (System.currentTimeMillis() - g < 300000) {
-                    return false;
+        if ((interceptable == null || interceptable.invokeL(65539, null, aVar) == null) && (c = aVar.b.c()) != null) {
+            for (com.baidu.sofire.e.a aVar2 : c) {
+                if (aVar.a(aVar.b.e.getString("li_pk_s", ""), aVar2.b)) {
+                    aVar.a(aVar2);
                 }
-                g = 0L;
-                return true;
             }
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    public final List<com.baidu.sofire.g.a> a(int i, int i2) {
+    public final List a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            if (i == 0 && i2 == 2) {
-                return com.baidu.sofire.f.a.a(this.c).a(i2);
+            if (i != 0 || i2 != 2) {
+                return null;
             }
-            return null;
+            return com.baidu.sofire.f.a.a(this.c).a(i2);
         }
         return (List) invokeII.objValue;
     }
 
-    public final void a(List<com.baidu.sofire.g.a> list, int i, long j) {
+    public synchronized void a(com.baidu.sofire.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            synchronized (this) {
+                com.baidu.sofire.j.a aVar2 = this.b;
+                String str = aVar.d;
+                String string = aVar2.e.getString("re_net_ali2_" + str, "");
+                Calendar calendar = Calendar.getInstance();
+                String str2 = calendar.get(1) + "" + calendar.get(2) + "" + calendar.get(5);
+                if (string.equals(str2)) {
+                    return;
+                }
+                com.baidu.sofire.j.a aVar3 = this.b;
+                String str3 = aVar.d;
+                String string2 = aVar3.e.getString("al_da" + str3, "");
+                String str4 = aVar.d;
+                long currentTimeMillis = System.currentTimeMillis();
+                String jSONObject = com.baidu.sofire.k.a.a(this.c, aVar, string2, true).toString();
+                com.baidu.sofire.f.a a = com.baidu.sofire.f.a.a(this.c);
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("b", str4);
+                contentValues.put("c", (Integer) 2);
+                contentValues.put("d", Long.valueOf(currentTimeMillis));
+                contentValues.put("e", (Integer) 0);
+                contentValues.put("g", (Integer) 1);
+                contentValues.put("f", (Integer) 0);
+                contentValues.put("i", (Integer) 5);
+                contentValues.put("j", (String) null);
+                try {
+                    jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
+                } catch (Exception unused) {
+                    int i = b.a;
+                }
+                contentValues.put("h", jSONObject);
+                a.b.insert("r", null, contentValues);
+                com.baidu.sofire.j.a aVar4 = this.b;
+                String str5 = aVar.d;
+                aVar4.f.putString("re_net_ali2_" + str5, str2);
+                aVar4.f.commit();
+            }
+        }
+    }
+
+    public final void a(List list, int i, long j) {
         JSONObject jSONObject;
         int length;
         Interceptable interceptable = $ic;
@@ -445,8 +475,10 @@ public class a {
             int i2 = this.b.e.getInt("re_net_one_lt", 5);
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
+            Iterator it = list.iterator();
             int i3 = 0;
-            for (com.baidu.sofire.g.a aVar : list) {
+            while (it.hasNext()) {
+                com.baidu.sofire.g.a aVar = (com.baidu.sofire.g.a) it.next();
                 try {
                     String jSONObject2 = com.baidu.sofire.k.a.b(this.c, new JSONObject(aVar.d)).toString();
                     try {
@@ -534,6 +566,22 @@ public class a {
         }
     }
 
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (g > 0) {
+                if (System.currentTimeMillis() - g < 300000) {
+                    return false;
+                }
+                g = 0L;
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public final boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -560,48 +608,5 @@ public class a {
             }
         }
         return invokeLL.booleanValue;
-    }
-
-    public synchronized void a(com.baidu.sofire.e.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            synchronized (this) {
-                com.baidu.sofire.j.a aVar2 = this.b;
-                String str = aVar.d;
-                String string = aVar2.e.getString("re_net_ali2_" + str, "");
-                Calendar calendar = Calendar.getInstance();
-                String str2 = calendar.get(1) + "" + calendar.get(2) + "" + calendar.get(5);
-                if (string.equals(str2)) {
-                    return;
-                }
-                com.baidu.sofire.j.a aVar3 = this.b;
-                String str3 = aVar.d;
-                String string2 = aVar3.e.getString("al_da" + str3, "");
-                String str4 = aVar.d;
-                long currentTimeMillis = System.currentTimeMillis();
-                String jSONObject = com.baidu.sofire.k.a.a(this.c, aVar, string2, true).toString();
-                com.baidu.sofire.f.a a = com.baidu.sofire.f.a.a(this.c);
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("b", str4);
-                contentValues.put("c", (Integer) 2);
-                contentValues.put("d", Long.valueOf(currentTimeMillis));
-                contentValues.put("e", (Integer) 0);
-                contentValues.put("g", (Integer) 1);
-                contentValues.put("f", (Integer) 0);
-                contentValues.put("i", (Integer) 5);
-                contentValues.put("j", (String) null);
-                try {
-                    jSONObject = Base64.encodeToString(F.getInstance().ae(jSONObject.getBytes(), "xVOTuxgN3lkRN2v4".getBytes(IMAudioTransRequest.CHARSET)), 0);
-                } catch (Exception unused) {
-                    int i = b.a;
-                }
-                contentValues.put("h", jSONObject);
-                a.b.insert("r", null, contentValues);
-                com.baidu.sofire.j.a aVar4 = this.b;
-                String str5 = aVar.d;
-                aVar4.f.putString("re_net_ali2_" + str5, str2);
-                aVar4.f.commit();
-            }
-        }
     }
 }

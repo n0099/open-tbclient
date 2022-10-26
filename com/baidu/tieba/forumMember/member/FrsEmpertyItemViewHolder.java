@@ -37,7 +37,7 @@ public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
 
     public void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i == 0) {
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i == 0) {
             return;
         }
         SkinManager.setBackgroundResource(this.a, i);

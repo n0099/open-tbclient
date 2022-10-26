@@ -12,13 +12,12 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,11 +76,11 @@ public class EmotionButton extends View {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 0 || motionEvent.getAction() == 1) {
-                    int unused = EmotionButton.q = motionEvent.getAction();
-                    this.a.invalidate();
+                if (motionEvent.getAction() != 0 && motionEvent.getAction() != 1) {
                     return false;
                 }
+                int unused = EmotionButton.q = motionEvent.getAction();
+                this.a.invalidate();
                 return false;
             }
             return invokeLL.booleanValue;
@@ -101,7 +100,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        p = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        p = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
         q = 1;
     }
 
@@ -126,6 +125,78 @@ public class EmotionButton extends View {
         d(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public EmotionButton(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.EmotionButton);
+        this.n = obtainStyledAttributes.getString(1);
+        this.o = obtainStyledAttributes.getDimension(0, fj.f(context, R.dimen.tbds44));
+        obtainStyledAttributes.recycle();
+        d(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public EmotionButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.EmotionButton);
+        this.n = obtainStyledAttributes.getString(1);
+        this.o = obtainStyledAttributes.getDimension(0, fj.f(context, R.dimen.tbds44));
+        obtainStyledAttributes.recycle();
+        d(context);
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            if (q == 0) {
+                c(canvas);
+            } else {
+                b(canvas);
+            }
+        }
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.n = str;
+            invalidate();
+        }
+    }
+
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
@@ -140,11 +211,10 @@ public class EmotionButton extends View {
             rectF.right = this.j - 5;
             rectF.bottom = this.k - 10;
             canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.g);
-            if (TextUtils.isEmpty(this.n)) {
-                return;
+            if (!TextUtils.isEmpty(this.n)) {
+                Paint.FontMetrics fontMetrics = this.h.getFontMetrics();
+                canvas.drawText(this.n, this.i.centerX(), (int) ((this.i.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.h);
             }
-            Paint.FontMetrics fontMetrics = this.h.getFontMetrics();
-            canvas.drawText(this.n, this.i.centerX(), (int) ((this.i.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.h);
         }
     }
 
@@ -162,11 +232,10 @@ public class EmotionButton extends View {
             rectF.right = this.j - 5;
             rectF.bottom = this.k - 10;
             canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.g);
-            if (TextUtils.isEmpty(this.n)) {
-                return;
+            if (!TextUtils.isEmpty(this.n)) {
+                Paint.FontMetrics fontMetrics = this.h.getFontMetrics();
+                canvas.drawText(this.n, this.i.centerX(), (int) ((this.i.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.h);
             }
-            Paint.FontMetrics fontMetrics = this.h.getFontMetrics();
-            canvas.drawText(this.n, this.i.centerX(), (int) ((this.i.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.h);
         }
     }
 
@@ -189,18 +258,6 @@ public class EmotionButton extends View {
             this.h.setTextAlign(Paint.Align.CENTER);
             this.h.setColor(SkinManager.getColor(R.color.CAM_X0101));
             setOnTouchListener(new a(this));
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            if (q == 0) {
-                c(canvas);
-            } else {
-                b(canvas);
-            }
         }
     }
 
@@ -233,65 +290,5 @@ public class EmotionButton extends View {
             this.l = new LinearGradient(5.0f, 10.0f, this.j - 5, this.k - 10, this.c, this.b, Shader.TileMode.MIRROR);
             this.m = new LinearGradient(5.0f, 10.0f, this.j - 5, this.k - 10, this.f, this.e, Shader.TileMode.MIRROR);
         }
-    }
-
-    public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.n = str;
-            invalidate();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionButton(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.EmotionButton);
-        this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, ej.f(context, R.dimen.tbds44));
-        obtainStyledAttributes.recycle();
-        d(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionButton(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.EmotionButton);
-        this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, ej.f(context, R.dimen.tbds44));
-        obtainStyledAttributes.recycle();
-        d(context);
     }
 }

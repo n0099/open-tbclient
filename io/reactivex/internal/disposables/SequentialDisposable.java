@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SequentialDisposable extends AtomicReference<Disposable> implements Disposable {
+public final class SequentialDisposable extends AtomicReference implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -754898800686245608L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,19 +40,10 @@ public final class SequentialDisposable extends AtomicReference<Disposable> impl
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
-    }
-
-    public boolean replace(Disposable disposable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable)) == null) ? DisposableHelper.replace(this, disposable) : invokeL.booleanValue;
-    }
-
-    public boolean update(Disposable disposable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, disposable)) == null) ? DisposableHelper.set(this, disposable) : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return DisposableHelper.isDisposed((Disposable) get());
+        }
+        return invokeV.booleanValue;
     }
 
     public SequentialDisposable(Disposable disposable) {
@@ -71,5 +62,23 @@ public final class SequentialDisposable extends AtomicReference<Disposable> impl
             }
         }
         lazySet(disposable);
+    }
+
+    public boolean replace(Disposable disposable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable)) == null) {
+            return DisposableHelper.replace(this, disposable);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean update(Disposable disposable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, disposable)) == null) {
+            return DisposableHelper.set(this, disposable);
+        }
+        return invokeL.booleanValue;
     }
 }

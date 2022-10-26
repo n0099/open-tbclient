@@ -37,12 +37,18 @@ public final class DataRes extends Message {
     public final UserInfo userInfo;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<DataRes> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ConfigVersion configVersion;
-        public List<GroupInfo> groupInfo;
-        public List<Integer> heartbeatInterval;
+        public List groupInfo;
+        public List heartbeatInterval;
         public Long isUserAvailable;
         public MaskInfo maskInfo;
         public UserInfo userInfo;
@@ -95,14 +101,11 @@ public final class DataRes extends Message {
         public DataRes build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new DataRes(this, z, null) : (DataRes) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new DataRes(this, z, null);
+            }
+            return (DataRes) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -121,10 +124,6 @@ public final class DataRes extends Message {
         DEFAULT_GROUPINFO = Collections.emptyList();
         DEFAULT_HEARTBEATINTERVAL = Collections.emptyList();
         DEFAULT_ISUSERAVAILABLE = 0L;
-    }
-
-    public /* synthetic */ DataRes(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -146,7 +145,7 @@ public final class DataRes extends Message {
             }
         }
         if (z) {
-            List<GroupInfo> list = builder.groupInfo;
+            List list = builder.groupInfo;
             if (list == null) {
                 this.groupInfo = DEFAULT_GROUPINFO;
             } else {
@@ -154,7 +153,7 @@ public final class DataRes extends Message {
             }
             this.userInfo = builder.userInfo;
             this.maskInfo = builder.maskInfo;
-            List<Integer> list2 = builder.heartbeatInterval;
+            List list2 = builder.heartbeatInterval;
             if (list2 == null) {
                 this.heartbeatInterval = DEFAULT_HEARTBEATINTERVAL;
             } else {
@@ -176,5 +175,9 @@ public final class DataRes extends Message {
         this.heartbeatInterval = Message.immutableCopyOf(builder.heartbeatInterval);
         this.configVersion = builder.configVersion;
         this.isUserAvailable = builder.isUserAvailable;
+    }
+
+    public /* synthetic */ DataRes(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

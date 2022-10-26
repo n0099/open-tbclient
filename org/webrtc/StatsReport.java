@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class StatsReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,14 +16,13 @@ public class StatsReport {
     public final String type;
     public final Value[] values;
 
-    /* loaded from: classes9.dex */
-    public static class Value {
+    /* loaded from: classes8.dex */
+    public class Value {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String name;
         public final String value;
 
-        @CalledByNative("Value")
         public Value(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -53,7 +52,6 @@ public class StatsReport {
         }
     }
 
-    @CalledByNative
     public StatsReport(String str, String str2, double d, Value[] valueArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,27 +76,28 @@ public class StatsReport {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-            return (String) invokeV.objValue;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append("id: ");
-        sb.append(this.id);
-        sb.append(", type: ");
-        sb.append(this.type);
-        sb.append(", timestamp: ");
-        sb.append(this.timestamp);
-        sb.append(", values: ");
-        int i = 0;
-        while (true) {
-            Value[] valueArr = this.values;
-            if (i < valueArr.length) {
-                sb.append(valueArr[i].toString());
-                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                i++;
-            } else {
-                return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("id: ");
+            sb.append(this.id);
+            sb.append(", type: ");
+            sb.append(this.type);
+            sb.append(", timestamp: ");
+            sb.append(this.timestamp);
+            sb.append(", values: ");
+            int i = 0;
+            while (true) {
+                Value[] valueArr = this.values;
+                if (i < valueArr.length) {
+                    sb.append(valueArr[i].toString());
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    i++;
+                } else {
+                    return sb.toString();
+                }
             }
+        } else {
+            return (String) invokeV.objValue;
         }
     }
 }

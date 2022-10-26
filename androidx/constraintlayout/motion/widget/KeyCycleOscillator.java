@@ -1,6 +1,5 @@
 package androidx.constraintlayout.motion.widget;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +35,8 @@ public abstract class KeyCycleOscillator {
     public int mVariesBy;
     public ArrayList<WavePoint> mWavePoints;
     public int mWaveShape;
+
+    public abstract void setProperty(View view2, float f);
 
     /* loaded from: classes.dex */
     public static class AlphaSet extends KeyCycleOscillator {
@@ -150,10 +151,10 @@ public abstract class KeyCycleOscillator {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, attributeType)) == null) {
                 if (this.mCustomConstraints.containsKey(str)) {
                     ConstraintAttribute constraintAttribute = this.mCustomConstraints.get(str);
-                    if (constraintAttribute.getType() == attributeType) {
-                        return constraintAttribute;
+                    if (constraintAttribute.getType() != attributeType) {
+                        throw new IllegalArgumentException("ConstraintAttribute is already a " + constraintAttribute.getType().name());
                     }
-                    throw new IllegalArgumentException("ConstraintAttribute is already a " + constraintAttribute.getType().name());
+                    return constraintAttribute;
                 }
                 ConstraintAttribute constraintAttribute2 = new ConstraintAttribute(str, attributeType);
                 this.mCustomConstraints.put(str, constraintAttribute2);
@@ -273,10 +274,9 @@ public abstract class KeyCycleOscillator {
         @Override // androidx.constraintlayout.motion.widget.KeyCycleOscillator
         public void setProperty(View view2, float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) || Build.VERSION.SDK_INT < 21) {
-                return;
+            if ((interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) && Build.VERSION.SDK_INT >= 21) {
+                view2.setElevation(get(f));
             }
-            view2.setElevation(get(f));
         }
     }
 
@@ -318,6 +318,18 @@ public abstract class KeyCycleOscillator {
             return invokeLLII.intValue;
         }
 
+        public static void swap(int[] iArr, float[] fArr, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLII(65539, null, iArr, fArr, i, i2) == null) {
+                int i3 = iArr[i];
+                iArr[i] = iArr[i2];
+                iArr[i2] = i3;
+                float f = fArr[i];
+                fArr[i] = fArr[i2];
+                fArr[i2] = f;
+            }
+        }
+
         public static void sort(int[] iArr, float[] fArr, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLII(65538, null, iArr, fArr, i, i2) == null) {
@@ -342,18 +354,6 @@ public abstract class KeyCycleOscillator {
                         iArr2[i9] = partition + 1;
                     }
                 }
-            }
-        }
-
-        public static void swap(int[] iArr, float[] fArr, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(65539, null, iArr, fArr, i, i2) == null) {
-                int i3 = iArr[i];
-                iArr[i] = iArr[i2];
-                iArr[i2] = i3;
-                float f = fArr[i];
-                fArr[i] = fArr[i2];
-                fArr[i2] = f;
             }
         }
     }
@@ -444,6 +444,13 @@ public abstract class KeyCycleOscillator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // androidx.constraintlayout.motion.widget.KeyCycleOscillator
+        public void setProperty(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) == null) {
+            }
+        }
+
         public PathRotateSet() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -462,13 +469,6 @@ public abstract class KeyCycleOscillator {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Float.valueOf(f), Double.valueOf(d), Double.valueOf(d2)}) == null) {
                 view2.setRotation(get(f) + ((float) Math.toDegrees(Math.atan2(d2, d))));
-            }
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.KeyCycleOscillator
-        public void setProperty(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) == null) {
             }
         }
     }
@@ -741,10 +741,9 @@ public abstract class KeyCycleOscillator {
         @Override // androidx.constraintlayout.motion.widget.KeyCycleOscillator
         public void setProperty(View view2, float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) || Build.VERSION.SDK_INT < 21) {
-                return;
+            if ((interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) && Build.VERSION.SDK_INT >= 21) {
+                view2.setTranslationZ(get(f));
             }
-            view2.setTranslationZ(get(f));
         }
     }
 
@@ -795,6 +794,27 @@ public abstract class KeyCycleOscillator {
         this.mWaveShape = 0;
         this.mVariesBy = 0;
         this.mWavePoints = new ArrayList<>();
+    }
+
+    public CurveFit getCurveFit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCurveFit;
+        }
+        return (CurveFit) invokeV.objValue;
+    }
+
+    public boolean variesByPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.mVariesBy == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static KeyCycleOscillator makeSpline(String str) {
@@ -930,19 +950,37 @@ public abstract class KeyCycleOscillator {
     public float get(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? (float) this.mCycleOscillator.getValues(f) : invokeF.floatValue;
-    }
-
-    public CurveFit getCurveFit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurveFit : (CurveFit) invokeV.objValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return (float) this.mCycleOscillator.getValues(f);
+        }
+        return invokeF.floatValue;
     }
 
     public float getSlope(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) ? (float) this.mCycleOscillator.getSlope(f) : invokeF.floatValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
+            return (float) this.mCycleOscillator.getSlope(f);
+        }
+        return invokeF.floatValue;
+    }
+
+    public void setType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.mType = str;
+        }
+    }
+
+    public void setPoint(int i, int i2, int i3, float f, float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            this.mWavePoints.add(new WavePoint(i, f, f2, f3));
+            if (i3 != -1) {
+                this.mVariesBy = i3;
+            }
+            this.mWaveShape = i2;
+        }
     }
 
     public void setPoint(int i, int i2, int i3, float f, float f2, float f3, ConstraintAttribute constraintAttribute) {
@@ -957,20 +995,10 @@ public abstract class KeyCycleOscillator {
         }
     }
 
-    public abstract void setProperty(View view2, float f);
-
-    public void setType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.mType = str;
-        }
-    }
-
-    @TargetApi(19)
     public void setup(float f) {
         int size;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048583, this, f) == null) || (size = this.mWavePoints.size()) == 0) {
+        if ((interceptable != null && interceptable.invokeF(1048583, this, f) != null) || (size = this.mWavePoints.size()) == 0) {
             return;
         }
         Collections.sort(this.mWavePoints, new Comparator<WavePoint>(this) { // from class: androidx.constraintlayout.motion.widget.KeyCycleOscillator.1
@@ -1001,7 +1029,10 @@ public abstract class KeyCycleOscillator {
             public int compare(WavePoint wavePoint, WavePoint wavePoint2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, wavePoint, wavePoint2)) == null) ? Integer.compare(wavePoint.mPosition, wavePoint2.mPosition) : invokeLL.intValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, wavePoint, wavePoint2)) == null) {
+                    return Integer.compare(wavePoint.mPosition, wavePoint2.mPosition);
+                }
+                return invokeLL.intValue;
             }
         });
         double[] dArr = new double[size];
@@ -1040,22 +1071,5 @@ public abstract class KeyCycleOscillator {
             return str;
         }
         return (String) invokeV.objValue;
-    }
-
-    public boolean variesByPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mVariesBy == 1 : invokeV.booleanValue;
-    }
-
-    public void setPoint(int i, int i2, int i3, float f, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mWavePoints.add(new WavePoint(i, f, f2, f3));
-            if (i3 != -1) {
-                this.mVariesBy = i3;
-            }
-            this.mWaveShape = i2;
-        }
     }
 }

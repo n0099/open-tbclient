@@ -1,9 +1,8 @@
 package com.kwad.sdk.crash.report.request;
 
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.network.BaseResultData;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CrashReportResult extends BaseResultData implements com.kwad.sdk.core.b {
     public String getErrorMsg() {
         return this.errorMsg;
@@ -14,7 +13,7 @@ public class CrashReportResult extends BaseResultData implements com.kwad.sdk.co
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         super.parseJson(jSONObject);
     }
 

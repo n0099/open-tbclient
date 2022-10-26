@@ -2,14 +2,15 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,31 +40,52 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, ej.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, fj.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
     public void i() {
+        boolean z;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = false;
-            boolean z2 = TbadkCoreApplication.getInst().getSkinType() == 1;
+            boolean z2 = false;
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
             VersionData versionData = TbadkCoreApplication.getInst().getVersionData();
             if (versionData != null && versionData.hasNewVer()) {
-                z = true;
+                z2 = true;
             }
-            if (z) {
+            if (z2) {
                 this.e.setText("new");
-                this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003f4 : R.style.obfuscated_res_0x7f1003f3);
+                TextView textView = this.e;
+                Context context = this.a;
+                if (z) {
+                    i2 = R.style.obfuscated_res_0x7f1003f5;
+                } else {
+                    i2 = R.style.obfuscated_res_0x7f1003f4;
+                }
+                textView.setTextAppearance(context, i2);
                 SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_text_prompt);
                 return;
             }
             String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !dj.isEmpty(TbConfig.getSubVersion())) {
+            if (TbConfig.getVersionType() == 1 && !ej.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
             this.e.setText(version);
             this.e.setBackgroundDrawable(null);
-            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003f6 : R.style.obfuscated_res_0x7f1003f5);
+            TextView textView2 = this.e;
+            Context context2 = this.a;
+            if (z) {
+                i = R.style.obfuscated_res_0x7f1003f7;
+            } else {
+                i = R.style.obfuscated_res_0x7f1003f6;
+            }
+            textView2.setTextAppearance(context2, i);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.searchbox.afx.recode;
 
-import android.annotation.SuppressLint;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaExtractor;
@@ -65,11 +64,11 @@ public class VideoTrackTranscoder {
         this.mMuxer = queuedMuxer;
     }
 
-    @SuppressLint({"NewApi"})
     private int drainDecoder(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j)) == null) {
+            boolean z = false;
             if (this.mIsDecoderEOS) {
                 return 0;
             }
@@ -77,29 +76,30 @@ public class VideoTrackTranscoder {
             if (dequeueOutputBuffer == -3 || dequeueOutputBuffer == -2) {
                 return 1;
             }
-            if (dequeueOutputBuffer != -1) {
-                if ((this.mBufferInfo.flags & 4) != 0) {
-                    this.mEncoder.signalEndOfInputStream();
-                    this.mIsDecoderEOS = true;
-                    this.mBufferInfo.size = 0;
-                }
-                boolean z = this.mBufferInfo.size > 0;
-                this.mDecoder.releaseOutputBuffer(dequeueOutputBuffer, z);
-                if (z) {
-                    this.mDecoderOutputSurfaceWrapper.awaitNewImage();
-                    this.mDecoderOutputSurfaceWrapper.drawImage();
-                    this.mEncoderInputSurfaceWrapper.setPresentationTime(this.mBufferInfo.presentationTimeUs * 1000);
-                    this.mEncoderInputSurfaceWrapper.swapBuffers();
-                    return 2;
-                }
+            if (dequeueOutputBuffer == -1) {
+                return 0;
+            }
+            if ((this.mBufferInfo.flags & 4) != 0) {
+                this.mEncoder.signalEndOfInputStream();
+                this.mIsDecoderEOS = true;
+                this.mBufferInfo.size = 0;
+            }
+            if (this.mBufferInfo.size > 0) {
+                z = true;
+            }
+            this.mDecoder.releaseOutputBuffer(dequeueOutputBuffer, z);
+            if (z) {
+                this.mDecoderOutputSurfaceWrapper.awaitNewImage();
+                this.mDecoderOutputSurfaceWrapper.drawImage();
+                this.mEncoderInputSurfaceWrapper.setPresentationTime(this.mBufferInfo.presentationTimeUs * 1000);
+                this.mEncoderInputSurfaceWrapper.swapBuffers();
                 return 2;
             }
-            return 0;
+            return 2;
         }
         return invokeJ.intValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
     private int drainEncoder(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -108,39 +108,40 @@ public class VideoTrackTranscoder {
                 return 0;
             }
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, j);
-            if (dequeueOutputBuffer == -3) {
-                this.mEncoderOutputBuffers = this.mEncoder.getOutputBuffers();
-                return 1;
-            } else if (dequeueOutputBuffer == -2) {
-                if (this.mActualOutputFormat == null) {
+            if (dequeueOutputBuffer != -3) {
+                if (dequeueOutputBuffer != -2) {
+                    if (dequeueOutputBuffer == -1) {
+                        return 0;
+                    }
+                    if (this.mActualOutputFormat != null) {
+                        MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
+                        int i = bufferInfo.flags;
+                        if ((i & 4) != 0) {
+                            this.mIsEncoderEOS = true;
+                            bufferInfo.set(0, 0, 0L, i);
+                        }
+                        MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
+                        if ((bufferInfo2.flags & 2) != 0) {
+                            this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            return 1;
+                        }
+                        this.mMuxer.writeSampleData(QueuedMuxer.SampleType.VIDEO, this.mEncoderOutputBuffers[dequeueOutputBuffer], bufferInfo2);
+                        this.mWrittenPresentationTimeUs = this.mBufferInfo.presentationTimeUs;
+                        this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        return 2;
+                    }
+                    throw new RuntimeException("Could not determine actual output format.");
+                } else if (this.mActualOutputFormat == null) {
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     this.mActualOutputFormat = outputFormat;
                     this.mMuxer.setOutputFormat(QueuedMuxer.SampleType.VIDEO, outputFormat);
                     return 1;
+                } else {
+                    throw new RuntimeException("Video output format changed twice.");
                 }
-                throw new RuntimeException("Video output format changed twice.");
-            } else if (dequeueOutputBuffer != -1) {
-                if (this.mActualOutputFormat != null) {
-                    MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-                    int i = bufferInfo.flags;
-                    if ((i & 4) != 0) {
-                        this.mIsEncoderEOS = true;
-                        bufferInfo.set(0, 0, 0L, i);
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
-                    if ((bufferInfo2.flags & 2) != 0) {
-                        this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                        return 1;
-                    }
-                    this.mMuxer.writeSampleData(QueuedMuxer.SampleType.VIDEO, this.mEncoderOutputBuffers[dequeueOutputBuffer], bufferInfo2);
-                    this.mWrittenPresentationTimeUs = this.mBufferInfo.presentationTimeUs;
-                    this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    return 2;
-                }
-                throw new RuntimeException("Could not determine actual output format.");
-            } else {
-                return 0;
             }
+            this.mEncoderOutputBuffers = this.mEncoder.getOutputBuffers();
+            return 1;
         }
         return invokeJ.intValue;
     }
@@ -148,23 +149,30 @@ public class VideoTrackTranscoder {
     private int drainExtractor(long j) {
         InterceptResult invokeJ;
         int dequeueInputBuffer;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
             if (this.mIsExtractorEOS) {
                 return 0;
             }
             int sampleTrackIndex = this.mExtractor.getSampleTrackIndex();
-            if ((sampleTrackIndex < 0 || sampleTrackIndex == this.mTrackIndex) && (dequeueInputBuffer = this.mDecoder.dequeueInputBuffer(j)) >= 0) {
-                if (sampleTrackIndex < 0) {
-                    this.mIsExtractorEOS = true;
-                    this.mDecoder.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                    return 0;
-                }
-                this.mDecoder.queueInputBuffer(dequeueInputBuffer, 0, this.mExtractor.readSampleData(this.mDecoderInputBuffers[dequeueInputBuffer], 0), this.mExtractor.getSampleTime(), (this.mExtractor.getSampleFlags() & 1) != 0 ? 1 : 0);
-                this.mExtractor.advance();
-                return 2;
+            if ((sampleTrackIndex >= 0 && sampleTrackIndex != this.mTrackIndex) || (dequeueInputBuffer = this.mDecoder.dequeueInputBuffer(j)) < 0) {
+                return 0;
             }
-            return 0;
+            if (sampleTrackIndex < 0) {
+                this.mIsExtractorEOS = true;
+                this.mDecoder.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                return 0;
+            }
+            int readSampleData = this.mExtractor.readSampleData(this.mDecoderInputBuffers[dequeueInputBuffer], 0);
+            if ((this.mExtractor.getSampleFlags() & 1) != 0) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            this.mDecoder.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, this.mExtractor.getSampleTime(), i);
+            this.mExtractor.advance();
+            return 2;
         }
         return invokeJ.intValue;
     }
@@ -172,19 +180,52 @@ public class VideoTrackTranscoder {
     public MediaFormat getDeterminedFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mActualOutputFormat : (MediaFormat) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mActualOutputFormat;
+        }
+        return (MediaFormat) invokeV.objValue;
     }
 
     public long getWrittenPresentationTimeUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mWrittenPresentationTimeUs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mWrittenPresentationTimeUs;
+        }
+        return invokeV.longValue;
     }
 
     public boolean isFinished() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsEncoderEOS : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIsEncoderEOS;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean stepPipeline() {
+        InterceptResult invokeV;
+        int drainDecoder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            boolean z = false;
+            while (drainEncoder(0L) != 0) {
+                z = true;
+            }
+            do {
+                drainDecoder = drainDecoder(0L);
+                if (drainDecoder != 0) {
+                    z = true;
+                    continue;
+                }
+            } while (drainDecoder == 1);
+            while (drainExtractor(0L) != 0) {
+                z = true;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 
     public void release() {
@@ -219,7 +260,6 @@ public class VideoTrackTranscoder {
         }
     }
 
-    @SuppressLint({"InlinedApi"})
     public void setup(Mp4Info mp4Info) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mp4Info) == null) {
@@ -252,29 +292,5 @@ public class VideoTrackTranscoder {
             this.mDecoderStarted = true;
             this.mDecoderInputBuffers = this.mDecoder.getInputBuffers();
         }
-    }
-
-    public boolean stepPipeline() {
-        InterceptResult invokeV;
-        int drainDecoder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean z = false;
-            while (drainEncoder(0L) != 0) {
-                z = true;
-            }
-            do {
-                drainDecoder = drainDecoder(0L);
-                if (drainDecoder != 0) {
-                    z = true;
-                    continue;
-                }
-            } while (drainDecoder == 1);
-            while (drainExtractor(0L) != 0) {
-                z = true;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
     }
 }

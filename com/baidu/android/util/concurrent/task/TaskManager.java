@@ -25,22 +25,39 @@ public class TaskManager {
     public static final int MESSAGE_POST_EXECUTE = 1;
     public static final int MESSAGE_POST_PROGRESS = 2;
     public static final String TAG = "TaskManager";
-    public static HashMap<String, TaskManager> sTaskManagers;
+    public static HashMap sTaskManagers;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAutoQuit;
     public Task mCurTask;
     public IStateChangeListener mListener;
     public String mName;
     public State mState;
-    public LinkedList<Task> mTaskList;
+    public LinkedList mTaskList;
     public TaskOperation mTaskOperation;
     public Handler mThreadHandler;
     public ThreadWorker mThreadWorker;
     public Handler mUIHandler;
 
+    /* loaded from: classes.dex */
+    public interface IStateChangeListener {
+        void onStateChanged(TaskManager taskManager, State state, State state2);
+    }
+
+    private void printTaskManagerState(State state, State state2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65552, this, state, state2) == null) {
+        }
+    }
+
+    public void printExecuteTaskState(Task task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, task) == null) {
+        }
+    }
+
     /* renamed from: com.baidu.android.util.concurrent.task.TaskManager$5  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass5 {
+    public /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$concurrent$task$Task$RunningStatus;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,14 +88,9 @@ public class TaskManager {
         }
     }
 
-    /* loaded from: classes.dex */
-    public interface IStateChangeListener {
-        void onStateChanged(TaskManager taskManager, State state, State state2);
-    }
-
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State FINISHED;
@@ -132,19 +144,25 @@ public class TaskManager {
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class TaskManagerState {
+    public final class TaskManagerState {
         public static final /* synthetic */ TaskManagerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TaskManagerState CONTINUE;
@@ -192,13 +210,19 @@ public class TaskManager {
         public static TaskManagerState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TaskManagerState) Enum.valueOf(TaskManagerState.class, str) : (TaskManagerState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TaskManagerState) Enum.valueOf(TaskManagerState.class, str);
+            }
+            return (TaskManagerState) invokeL.objValue;
         }
 
         public static TaskManagerState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TaskManagerState[]) $VALUES.clone() : (TaskManagerState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TaskManagerState[]) $VALUES.clone();
+            }
+            return (TaskManagerState[]) invokeV.objValue;
         }
     }
 
@@ -215,7 +239,120 @@ public class TaskManager {
                 return;
             }
         }
-        sTaskManagers = new HashMap<>();
+        sTaskManagers = new HashMap();
+    }
+
+    public static HashMap getTaskManagers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return sTaskManagers;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void runNextTask() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && isRunNext()) {
+            execute();
+        }
+    }
+
+    public void cancelCurrentTask() {
+        Task task;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (task = this.mCurTask) != null) {
+            task.cancel();
+        }
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public State getState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mState;
+        }
+        return (State) invokeV.objValue;
+    }
+
+    public TaskOperation getTaskOperation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mTaskOperation;
+        }
+        return (TaskOperation) invokeV.objValue;
+    }
+
+    public boolean isFinished() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mState == State.FINISHED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void join() {
+        ThreadWorker threadWorker;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (threadWorker = this.mThreadWorker) != null) {
+            threadWorker.join();
+        }
+    }
+
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.mThreadWorker != null) {
+            setState(State.PAUSED);
+            this.mThreadWorker.pause();
+        }
+    }
+
+    public void quitLooper() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            ThreadWorker threadWorker = this.mThreadWorker;
+            if (threadWorker != null) {
+                threadWorker.quit();
+                this.mThreadWorker = null;
+            }
+            this.mThreadHandler = null;
+            setState(State.FINISHED);
+        }
+    }
+
+    public void removeTasks() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            synchronized (this.mTaskList) {
+                if (this.mTaskList.size() > 0) {
+                    this.mTaskList.clear();
+                    quitLooper();
+                }
+            }
+        }
+    }
+
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.mThreadWorker != null) {
+            setState(State.RUNNING);
+            this.mThreadWorker.restart();
+        }
     }
 
     public TaskManager() {
@@ -231,7 +368,7 @@ public class TaskManager {
                 return;
             }
         }
-        this.mTaskList = new LinkedList<>();
+        this.mTaskList = new LinkedList();
         this.mTaskOperation = new TaskOperation();
         this.mThreadWorker = null;
         this.mCurTask = null;
@@ -293,417 +430,36 @@ public class TaskManager {
             if (this.mTaskList.isEmpty()) {
                 return;
             }
-            Task task = this.mTaskList.get(0);
+            Task task = (Task) this.mTaskList.get(0);
             this.mCurTask = task;
             synchronized (this.mTaskList) {
                 this.mTaskList.remove(0);
             }
             int i = AnonymousClass5.$SwitchMap$com$baidu$android$util$concurrent$task$Task$RunningStatus[task.getRunningStatus().ordinal()];
-            if (i == 1) {
-                executeTask(task);
-                runNextTask();
-            } else if (i != 2) {
-            } else {
-                this.mUIHandler.obtainMessage(1, task).sendToTarget();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void executeTask(Task task) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, task) == null) || task == null) {
-            return;
-        }
-        task.setStatus(Task.Status.RUNNING);
-        printExecuteTaskState(task);
-        try {
-            this.mTaskOperation = task.onExecute(this.mTaskOperation);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        task.setStatus(Task.Status.FINISHED);
-    }
-
-    public static HashMap<String, TaskManager> getTaskManagers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? sTaskManagers : (HashMap) invokeV.objValue;
-    }
-
-    private boolean isRunNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            TaskOperation taskOperation = this.mTaskOperation;
-            boolean z = taskOperation == null || taskOperation.getTaskManagerStatus() == TaskManagerState.CONTINUE;
-            LinkedList<Task> linkedList = this.mTaskList;
-            boolean z2 = linkedList != null && linkedList.size() > 0;
-            if (!z2) {
-                if (this.mAutoQuit) {
-                    quitLooper();
-                } else {
-                    setState(State.READY);
-                }
-            }
-            return z && z2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void performStateChange(State state, State state2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, this, state, state2) == null) || this.mListener == null) {
-            return;
-        }
-        this.mUIHandler.post(new Runnable(this, state, state2) { // from class: com.baidu.android.util.concurrent.task.TaskManager.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ TaskManager this$0;
-            public final /* synthetic */ State val$newState;
-            public final /* synthetic */ State val$oldState;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, state, state2};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$oldState = state;
-                this.val$newState = state2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.mListener.onStateChanged(this.this$0, this.val$oldState, this.val$newState);
-                }
-            }
-        });
-    }
-
-    public static void popTaskManager(TaskManager taskManager) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, taskManager) == null) || taskManager == null) {
-            return;
-        }
-        sTaskManagers.remove(taskManager.getName());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void postProgress(Object obj) {
-        Task task;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, obj) == null) || (task = this.mCurTask) == null) {
-            return;
-        }
-        task.onProgressUpdate(obj);
-    }
-
-    private void printTaskManagerState(State state, State state2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65552, this, state, state2) == null) {
-        }
-    }
-
-    public static void pushTaskManager(TaskManager taskManager) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65553, null, taskManager) == null) || taskManager == null) {
-            return;
-        }
-        String name = taskManager.getName();
-        if (TextUtils.isEmpty(name)) {
-            return;
-        }
-        sTaskManagers.put(name, taskManager);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void runNextTask() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && isRunNext()) {
-            execute();
-        }
-    }
-
-    private void setState(State state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, this, state) == null) {
-            State state2 = this.mState;
-            this.mState = state;
-            if (state == State.FINISHED) {
-                popTaskManager(this);
-            } else {
-                pushTaskManager(this);
-            }
-            if (state2 != state) {
-                printTaskManagerState(state2, state);
-                performStateChange(state2, state);
-            }
-        }
-    }
-
-    private void startThread() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && this.mThreadWorker == null) {
-            String taskManager = TextUtils.isEmpty(this.mName) ? toString() : this.mName;
-            this.mThreadWorker = new ThreadWorker("TaskManager_Thread_" + taskManager);
-            this.mThreadHandler = new Handler(this.mThreadWorker.getLooper());
-            setState(State.READY);
-        }
-    }
-
-    public void cancelCurrentTask() {
-        Task task;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (task = this.mCurTask) == null) {
-            return;
-        }
-        task.cancel();
-    }
-
-    public void execute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.mTaskList.size() > 0) {
-                startThread();
-                setState(State.RUNNING);
-                this.mThreadHandler.post(new Runnable(this) { // from class: com.baidu.android.util.concurrent.task.TaskManager.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ TaskManager this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.doInBackground();
-                        }
-                    }
-                });
-            } else if (this.mAutoQuit) {
-                quitLooper();
-            } else {
-                setState(State.READY);
-            }
-        }
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mName : (String) invokeV.objValue;
-    }
-
-    public State getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mState : (State) invokeV.objValue;
-    }
-
-    public TaskOperation getTaskOperation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTaskOperation : (TaskOperation) invokeV.objValue;
-    }
-
-    public boolean isFinished() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mState == State.FINISHED : invokeV.booleanValue;
-    }
-
-    public final void join() {
-        ThreadWorker threadWorker;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (threadWorker = this.mThreadWorker) == null) {
-            return;
-        }
-        threadWorker.join();
-    }
-
-    public TaskManager next(Task task) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, task)) == null) {
-            if (task != null) {
-                synchronized (this.mTaskList) {
-                    task.setTaskId(this.mTaskList.size() + 1);
-                    this.mTaskList.add(task);
-                }
-                return this;
-            }
-            throw new NullPointerException("task is null");
-        }
-        return (TaskManager) invokeL.objValue;
-    }
-
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.mThreadWorker == null) {
-            return;
-        }
-        setState(State.PAUSED);
-        this.mThreadWorker.pause();
-    }
-
-    public void postExecute(Task task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, task) == null) {
-            if (task != null) {
-                if (Task.RunningStatus.UI_THREAD == task.getRunningStatus()) {
-                    this.mUIHandler.post(new Runnable(this, task) { // from class: com.baidu.android.util.concurrent.task.TaskManager.3
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ TaskManager this$0;
-                        public final /* synthetic */ Task val$runTask;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, task};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$runTask = task;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$0.executeTask(this.val$runTask);
-                            }
-                        }
-                    });
+            if (i != 1) {
+                if (i == 2) {
+                    this.mUIHandler.obtainMessage(1, task).sendToTarget();
                     return;
                 }
                 return;
             }
-            throw new NullPointerException("Task can NOT be null.");
+            executeTask(task);
+            runNextTask();
         }
     }
 
-    public void printExecuteTaskState(Task task) {
+    private void startThread() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, task) == null) {
-        }
-    }
-
-    public void publishProgress(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, obj) == null) {
-            this.mUIHandler.obtainMessage(2, obj).sendToTarget();
-        }
-    }
-
-    public void quitLooper() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            ThreadWorker threadWorker = this.mThreadWorker;
-            if (threadWorker != null) {
-                threadWorker.quit();
-                this.mThreadWorker = null;
+        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && this.mThreadWorker == null) {
+            if (TextUtils.isEmpty(this.mName)) {
+                str = toString();
+            } else {
+                str = this.mName;
             }
-            this.mThreadHandler = null;
-            setState(State.FINISHED);
-        }
-    }
-
-    public void removeTask(Task task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, task) == null) {
-            synchronized (this.mTaskList) {
-                this.mTaskList.remove(task);
-                if (this.mTaskList.isEmpty()) {
-                    quitLooper();
-                }
-            }
-        }
-    }
-
-    public void removeTasks() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            synchronized (this.mTaskList) {
-                if (this.mTaskList.size() > 0) {
-                    this.mTaskList.clear();
-                    quitLooper();
-                }
-            }
-        }
-    }
-
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.mThreadWorker == null) {
-            return;
-        }
-        setState(State.RUNNING);
-        this.mThreadWorker.restart();
-    }
-
-    public void setStateChangeListener(IStateChangeListener iStateChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, iStateChangeListener) == null) {
-            this.mListener = iStateChangeListener;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return "Name = " + this.mName + GlideException.IndentedAppendable.INDENT + "State = " + this.mState + GlideException.IndentedAppendable.INDENT + super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void execute(TaskOperation taskOperation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskOperation) == null) {
-            if (taskOperation != null) {
-                this.mTaskOperation = taskOperation;
-            }
-            execute();
+            this.mThreadWorker = new ThreadWorker("TaskManager_Thread_" + str);
+            this.mThreadHandler = new Handler(this.mThreadWorker.getLooper());
+            setState(State.READY);
         }
     }
 
@@ -728,6 +484,22 @@ public class TaskManager {
         }
     }
 
+    public TaskManager next(Task task) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, task)) == null) {
+            if (task != null) {
+                synchronized (this.mTaskList) {
+                    task.setTaskId(this.mTaskList.size() + 1);
+                    this.mTaskList.add(task);
+                }
+                return this;
+            }
+            throw new NullPointerException("task is null");
+        }
+        return (TaskManager) invokeL.objValue;
+    }
+
     public TaskManager(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -743,7 +515,7 @@ public class TaskManager {
                 return;
             }
         }
-        this.mTaskList = new LinkedList<>();
+        this.mTaskList = new LinkedList();
         this.mTaskOperation = new TaskOperation();
         this.mThreadWorker = null;
         this.mCurTask = null;
@@ -797,5 +569,275 @@ public class TaskManager {
         };
         this.mName = str;
         this.mAutoQuit = z;
+    }
+
+    private void performStateChange(State state, State state2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65549, this, state, state2) == null) && this.mListener != null) {
+            this.mUIHandler.post(new Runnable(this, state, state2) { // from class: com.baidu.android.util.concurrent.task.TaskManager.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TaskManager this$0;
+                public final /* synthetic */ State val$newState;
+                public final /* synthetic */ State val$oldState;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, state, state2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$oldState = state;
+                    this.val$newState = state2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.mListener.onStateChanged(this.this$0, this.val$oldState, this.val$newState);
+                    }
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void executeTask(Task task) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65546, this, task) == null) && task != null) {
+            task.setStatus(Task.Status.RUNNING);
+            printExecuteTaskState(task);
+            try {
+                this.mTaskOperation = task.onExecute(this.mTaskOperation);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            task.setStatus(Task.Status.FINISHED);
+        }
+    }
+
+    public static void popTaskManager(TaskManager taskManager) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65550, null, taskManager) == null) && taskManager != null) {
+            sTaskManagers.remove(taskManager.getName());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void postProgress(Object obj) {
+        Task task;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65551, this, obj) == null) && (task = this.mCurTask) != null) {
+            task.onProgressUpdate(obj);
+        }
+    }
+
+    public static void pushTaskManager(TaskManager taskManager) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65553, null, taskManager) == null) && taskManager != null) {
+            String name = taskManager.getName();
+            if (!TextUtils.isEmpty(name)) {
+                sTaskManagers.put(name, taskManager);
+            }
+        }
+    }
+
+    private void setState(State state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, this, state) == null) {
+            State state2 = this.mState;
+            this.mState = state;
+            if (state == State.FINISHED) {
+                popTaskManager(this);
+            } else {
+                pushTaskManager(this);
+            }
+            if (state2 != state) {
+                printTaskManagerState(state2, state);
+                performStateChange(state2, state);
+            }
+        }
+    }
+
+    public void execute(TaskOperation taskOperation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskOperation) == null) {
+            if (taskOperation != null) {
+                this.mTaskOperation = taskOperation;
+            }
+            execute();
+        }
+    }
+
+    public void postExecute(Task task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, task) == null) {
+            if (task != null) {
+                if (Task.RunningStatus.UI_THREAD == task.getRunningStatus()) {
+                    this.mUIHandler.post(new Runnable(this, task) { // from class: com.baidu.android.util.concurrent.task.TaskManager.3
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ TaskManager this$0;
+                        public final /* synthetic */ Task val$runTask;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, task};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$runTask = task;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                                return;
+                            }
+                            this.this$0.executeTask(this.val$runTask);
+                        }
+                    });
+                    return;
+                }
+                return;
+            }
+            throw new NullPointerException("Task can NOT be null.");
+        }
+    }
+
+    public void publishProgress(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, obj) == null) {
+            this.mUIHandler.obtainMessage(2, obj).sendToTarget();
+        }
+    }
+
+    public void removeTask(Task task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, task) == null) {
+            synchronized (this.mTaskList) {
+                this.mTaskList.remove(task);
+                if (this.mTaskList.isEmpty()) {
+                    quitLooper();
+                }
+            }
+        }
+    }
+
+    public void setStateChangeListener(IStateChangeListener iStateChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, iStateChangeListener) == null) {
+            this.mListener = iStateChangeListener;
+        }
+    }
+
+    private boolean isRunNext() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            TaskOperation taskOperation = this.mTaskOperation;
+            if (taskOperation != null && taskOperation.getTaskManagerStatus() != TaskManagerState.CONTINUE) {
+                z = false;
+            } else {
+                z = true;
+            }
+            LinkedList linkedList = this.mTaskList;
+            if (linkedList != null && linkedList.size() > 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z2) {
+                if (this.mAutoQuit) {
+                    quitLooper();
+                } else {
+                    setState(State.READY);
+                }
+            }
+            if (!z || !z2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void execute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.mTaskList.size() > 0) {
+                startThread();
+                setState(State.RUNNING);
+                this.mThreadHandler.post(new Runnable(this) { // from class: com.baidu.android.util.concurrent.task.TaskManager.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TaskManager this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
+                        }
+                        this.this$0.doInBackground();
+                    }
+                });
+            } else if (this.mAutoQuit) {
+                quitLooper();
+            } else {
+                setState(State.READY);
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return "Name = " + this.mName + GlideException.IndentedAppendable.INDENT + "State = " + this.mState + GlideException.IndentedAppendable.INDENT + super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

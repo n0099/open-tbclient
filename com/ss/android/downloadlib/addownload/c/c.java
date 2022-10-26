@@ -11,21 +11,20 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class c {
     public static void a() {
-        List<DownloadInfo> a = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext());
-        if (a == null || a.size() <= 0) {
-            return;
-        }
-        for (int i = 0; i < a.size(); i++) {
-            DownloadInfo downloadInfo = a.get(i);
-            File file = new File(downloadInfo.getTempPath(), downloadInfo.getTempName());
-            long lastModified = file.lastModified();
-            long a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_file_expire_hours", 0) * 3600000;
-            if (a2 <= 0) {
-                a2 = 604800000;
-            }
-            if (file.isFile() && file.exists() && System.currentTimeMillis() - lastModified >= a2) {
-                a(file);
-                Downloader.getInstance(j.getContext()).clearDownloadData(downloadInfo.getId());
+        List a = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext());
+        if (a != null && a.size() > 0) {
+            for (int i = 0; i < a.size(); i++) {
+                DownloadInfo downloadInfo = (DownloadInfo) a.get(i);
+                File file = new File(downloadInfo.getTempPath(), downloadInfo.getTempName());
+                long lastModified = file.lastModified();
+                long a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_file_expire_hours", 0) * 3600000;
+                if (a2 <= 0) {
+                    a2 = 604800000;
+                }
+                if (file.isFile() && file.exists() && System.currentTimeMillis() - lastModified >= a2) {
+                    a(file);
+                    Downloader.getInstance(j.getContext()).clearDownloadData(downloadInfo.getId());
+                }
             }
         }
     }
@@ -33,25 +32,24 @@ public class c {
     public static void b() {
         DownloadInfo downloadInfo;
         List successedDownloadInfosWithMimeType = Downloader.getInstance(j.getContext()).getSuccessedDownloadInfosWithMimeType("application/vnd.android.package-archive");
-        if (successedDownloadInfosWithMimeType == null || successedDownloadInfosWithMimeType.isEmpty()) {
-            return;
-        }
-        for (int i = 0; i < successedDownloadInfosWithMimeType.size(); i++) {
-            if (((DownloadInfo) successedDownloadInfosWithMimeType.get(i)) != null) {
-                String str = downloadInfo.getSavePath() + File.separator + downloadInfo.getName();
-                File file = new File(str);
-                if (file.exists()) {
-                    long currentTimeMillis = System.currentTimeMillis() - file.lastModified();
-                    long a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_complete_file_expire_hours", 0) * 3600000;
-                    if (a <= 0) {
-                        a = 604800000;
-                    }
-                    boolean z = true;
-                    if (currentTimeMillis < a && !l.e(j.getContext(), str)) {
-                        z = false;
-                    }
-                    if (z) {
-                        a(file);
+        if (successedDownloadInfosWithMimeType != null && !successedDownloadInfosWithMimeType.isEmpty()) {
+            for (int i = 0; i < successedDownloadInfosWithMimeType.size(); i++) {
+                if (((DownloadInfo) successedDownloadInfosWithMimeType.get(i)) != null) {
+                    String str = downloadInfo.getSavePath() + File.separator + downloadInfo.getName();
+                    File file = new File(str);
+                    if (file.exists()) {
+                        long currentTimeMillis = System.currentTimeMillis() - file.lastModified();
+                        long a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_complete_file_expire_hours", 0) * 3600000;
+                        if (a <= 0) {
+                            a = 604800000;
+                        }
+                        boolean z = true;
+                        if (currentTimeMillis < a && !l.e(j.getContext(), str)) {
+                            z = false;
+                        }
+                        if (z) {
+                            a(file);
+                        }
                     }
                 }
             }
@@ -60,13 +58,12 @@ public class c {
 
     public static void a(Context context) {
         File externalCacheDir;
-        if (context == null || (externalCacheDir = context.getExternalCacheDir()) == null) {
-            return;
-        }
-        try {
-            a(externalCacheDir.getPath());
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (context != null && (externalCacheDir = context.getExternalCacheDir()) != null) {
+            try {
+                a(externalCacheDir.getPath());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -121,29 +118,35 @@ public class c {
     }
 
     public static void a(String str) {
+        String str2;
         File file = new File(str);
-        if (file.exists()) {
-            if (file.isFile()) {
-                file.delete();
-                return;
-            }
-            String[] list = file.list();
-            if (list == null) {
-                return;
-            }
-            for (String str2 : list) {
-                if (str2 != null) {
-                    String str3 = str.endsWith(File.separator) ? str + str2 : str + File.separator + str2;
-                    File file2 = new File(str3);
-                    if (file2.isFile()) {
-                        file2.delete();
-                    }
-                    if (file2.isDirectory()) {
-                        a(str3);
-                    }
+        if (!file.exists()) {
+            return;
+        }
+        if (file.isFile()) {
+            file.delete();
+            return;
+        }
+        String[] list = file.list();
+        if (list == null) {
+            return;
+        }
+        for (String str3 : list) {
+            if (str3 != null) {
+                if (str.endsWith(File.separator)) {
+                    str2 = str + str3;
+                } else {
+                    str2 = str + File.separator + str3;
+                }
+                File file2 = new File(str2);
+                if (file2.isFile()) {
+                    file2.delete();
+                }
+                if (file2.isDirectory()) {
+                    a(str2);
                 }
             }
-            file.delete();
         }
+        file.delete();
     }
 }

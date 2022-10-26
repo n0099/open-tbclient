@@ -17,7 +17,7 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectMetadata objectMetadata;
-    public List<PartETag> partETags;
+    public List partETags;
 
     public CompleteMultipartUploadRequest() {
         Interceptable interceptable = $ic;
@@ -38,13 +38,64 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
     public ObjectMetadata getObjectMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.objectMetadata : (ObjectMetadata) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.objectMetadata;
+        }
+        return (ObjectMetadata) invokeV.objValue;
     }
 
-    public List<PartETag> getPartETags() {
+    public List getPartETags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.partETags : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.partETags;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CompleteMultipartUploadRequest(String str, String str2, String str3, List list) {
+        this(str, str2, str3, list, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (List) objArr2[3], (ObjectMetadata) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CompleteMultipartUploadRequest(String str, String str2, String str3, List list, ObjectMetadata objectMetadata) {
+        super(str, str2, str3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, list, objectMetadata};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.objectMetadata = new ObjectMetadata();
+        this.partETags = list;
+        this.objectMetadata = objectMetadata;
     }
 
     public void setObjectMetadata(ObjectMetadata objectMetadata) {
@@ -54,18 +105,81 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
         }
     }
 
-    public void setPartETags(List<PartETag> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.services.bos.model.GenericBucketRequest
+    public CompleteMultipartUploadRequest withBucketName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            setBucketName(str);
+            return this;
+        }
+        return (CompleteMultipartUploadRequest) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.services.bos.model.GenericObjectRequest
+    public CompleteMultipartUploadRequest withKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            setKey(str);
+            return this;
+        }
+        return (CompleteMultipartUploadRequest) invokeL.objValue;
+    }
+
+    public CompleteMultipartUploadRequest withObjectMetadata(ObjectMetadata objectMetadata) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, objectMetadata)) == null) {
+            setObjectMetadata(objectMetadata);
+            return this;
+        }
+        return (CompleteMultipartUploadRequest) invokeL.objValue;
+    }
+
+    public CompleteMultipartUploadRequest withPartETags(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
+            setPartETags(list);
+            return this;
+        }
+        return (CompleteMultipartUploadRequest) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.services.bos.model.GenericUploadRequest
+    public CompleteMultipartUploadRequest withUploadId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            setUploadId(str);
+            return this;
+        }
+        return (CompleteMultipartUploadRequest) invokeL.objValue;
+    }
+
+    public void setPartETags(List list) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             CheckUtils.isNotNull(list, "partETags should not be null.");
             for (int i = 0; i < list.size(); i++) {
-                PartETag partETag = list.get(i);
+                PartETag partETag = (PartETag) list.get(i);
                 CheckUtils.isNotNull(partETag, "partETags[%s] should not be null.", Integer.valueOf(i));
                 int partNumber = partETag.getPartNumber();
-                CheckUtils.checkArgument(partNumber > 0, "partNumber should be positive. partETags[%s].partNumber:%s", Integer.valueOf(i), Integer.valueOf(partNumber));
+                if (partNumber > 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                CheckUtils.checkArgument(z2, "partNumber should be positive. partETags[%s].partNumber:%s", Integer.valueOf(i), Integer.valueOf(partNumber));
                 CheckUtils.isNotNull(partETag.getETag(), "partETags[%s].eTag should not be null.", Integer.valueOf(i));
             }
-            Collections.sort(list, new Comparator<PartETag>(this) { // from class: com.baidubce.services.bos.model.CompleteMultipartUploadRequest.1
+            Collections.sort(list, new Comparator(this) { // from class: com.baidubce.services.bos.model.CompleteMultipartUploadRequest.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CompleteMultipartUploadRequest this$0;
@@ -93,63 +207,27 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
                 public int compare(PartETag partETag2, PartETag partETag3) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, partETag2, partETag3)) == null) ? partETag2.getPartNumber() - partETag3.getPartNumber() : invokeLL.intValue;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, partETag2, partETag3)) == null) {
+                        return partETag2.getPartNumber() - partETag3.getPartNumber();
+                    }
+                    return invokeLL.intValue;
                 }
             });
             int i2 = 0;
             int i3 = 0;
             while (i2 < list.size()) {
-                int partNumber2 = list.get(i2).getPartNumber();
-                CheckUtils.checkArgument(partNumber2 != i3, "Duplicated partNumber %s.", Integer.valueOf(partNumber2));
+                int partNumber2 = ((PartETag) list.get(i2)).getPartNumber();
+                if (partNumber2 != i3) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                CheckUtils.checkArgument(z, "Duplicated partNumber %s.", Integer.valueOf(partNumber2));
                 i2++;
                 i3 = partNumber2;
             }
             this.partETags = list;
         }
-    }
-
-    public CompleteMultipartUploadRequest withObjectMetadata(ObjectMetadata objectMetadata) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, objectMetadata)) == null) {
-            setObjectMetadata(objectMetadata);
-            return this;
-        }
-        return (CompleteMultipartUploadRequest) invokeL.objValue;
-    }
-
-    public CompleteMultipartUploadRequest withPartETags(List<PartETag> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
-            setPartETags(list);
-            return this;
-        }
-        return (CompleteMultipartUploadRequest) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.services.bos.model.GenericBucketRequest
-    public CompleteMultipartUploadRequest withBucketName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            setBucketName(str);
-            return this;
-        }
-        return (CompleteMultipartUploadRequest) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.services.bos.model.GenericObjectRequest
-    public CompleteMultipartUploadRequest withKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            setKey(str);
-            return this;
-        }
-        return (CompleteMultipartUploadRequest) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -162,62 +240,5 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
             return this;
         }
         return (CompleteMultipartUploadRequest) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.services.bos.model.GenericUploadRequest
-    public CompleteMultipartUploadRequest withUploadId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            setUploadId(str);
-            return this;
-        }
-        return (CompleteMultipartUploadRequest) invokeL.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CompleteMultipartUploadRequest(String str, String str2, String str3, List<PartETag> list) {
-        this(str, str2, str3, list, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, list};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (List) objArr2[3], (ObjectMetadata) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CompleteMultipartUploadRequest(String str, String str2, String str3, List<PartETag> list, ObjectMetadata objectMetadata) {
-        super(str, str2, str3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, list, objectMetadata};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.objectMetadata = new ObjectMetadata();
-        this.partETags = list;
-        this.objectMetadata = objectMetadata;
     }
 }

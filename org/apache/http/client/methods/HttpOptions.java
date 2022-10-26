@@ -32,15 +32,6 @@ public class HttpOptions extends HttpRequestBase {
         throw new RuntimeException("Stub!");
     }
 
-    public Set<String> getAllowedMethods(HttpResponse httpResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpResponse)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Set) invokeL.objValue;
-    }
-
     @Override // org.apache.http.client.methods.HttpRequestBase, org.apache.http.client.methods.HttpUriRequest
     public String getMethod() {
         InterceptResult invokeV;
@@ -49,6 +40,24 @@ public class HttpOptions extends HttpRequestBase {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeV.objValue;
+    }
+
+    public HttpOptions(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
     }
 
     public HttpOptions(URI uri) {
@@ -69,21 +78,12 @@ public class HttpOptions extends HttpRequestBase {
         throw new RuntimeException("Stub!");
     }
 
-    public HttpOptions(String str) {
+    public Set getAllowedMethods(HttpResponse httpResponse) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpResponse)) == null) {
+            throw new RuntimeException("Stub!");
         }
-        throw new RuntimeException("Stub!");
+        return (Set) invokeL.objValue;
     }
 }

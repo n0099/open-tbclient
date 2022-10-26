@@ -79,12 +79,18 @@ public final class ParsedResultType {
     public static ParsedResultType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ParsedResultType) Enum.valueOf(ParsedResultType.class, str) : (ParsedResultType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ParsedResultType) Enum.valueOf(ParsedResultType.class, str);
+        }
+        return (ParsedResultType) invokeL.objValue;
     }
 
     public static ParsedResultType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ParsedResultType[]) $VALUES.clone() : (ParsedResultType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ParsedResultType[]) $VALUES.clone();
+        }
+        return (ParsedResultType[]) invokeV.objValue;
     }
 }

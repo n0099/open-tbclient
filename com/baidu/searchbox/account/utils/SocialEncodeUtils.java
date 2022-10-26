@@ -61,17 +61,17 @@ public final class SocialEncodeUtils {
             try {
                 return new String(NativeBds.dae(str2, Base64.decode(str, 11)));
             } catch (Exception e) {
-                if (DEBUG) {
-                    Log.i(TAG, "getSocialDecrypt plainText:" + str + ", exception:" + e);
+                if (!DEBUG) {
                     return "";
                 }
+                Log.i(TAG, "getSocialDecrypt plainText:" + str + ", exception:" + e);
                 return "";
             } catch (UnsatisfiedLinkError e2) {
-                if (DEBUG) {
-                    Log.i(TAG, "Only Debug Mode Throw ：UnsatisfiedLinkError exception:" + e2);
-                    throw e2;
+                if (!DEBUG) {
+                    return "";
                 }
-                return "";
+                Log.i(TAG, "Only Debug Mode Throw ：UnsatisfiedLinkError exception:" + e2);
+                throw e2;
             }
         }
         return (String) invokeLL.objValue;

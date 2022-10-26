@@ -1,6 +1,5 @@
 package com.baidu.ar.face;
 
-import android.graphics.PointF;
 import android.os.Parcelable;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -15,23 +14,23 @@ public interface IFaceResultData extends Parcelable {
 
     int[] getFaceIds();
 
-    List<PointF> getFacePoints();
+    List getFacePoints();
 
     float[] getGenders();
 
-    List<float[]> getHeadPoses();
+    List getHeadPoses();
 
     float[] getNormalizedFaceBoxes();
 
-    List<PointF> getNormalizedFacePoints();
+    List getNormalizedFacePoints();
 
-    List<PointF> getSingleFacePoints(int i);
+    List getSingleFacePoints(int i);
 
-    List<PointF> getSingleNormalizedFacePoints(int i);
+    List getSingleNormalizedFacePoints(int i);
 
     long getTimestamp();
 
-    List<String[]> getTriggers();
+    List getTriggers();
 
     boolean isFrontCamera();
 

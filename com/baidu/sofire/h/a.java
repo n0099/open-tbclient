@@ -35,27 +35,6 @@ public class a {
         this.a = context;
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            try {
-                a = com.baidu.sofire.a.a.a(this.a, com.baidu.sofire.k.a.b() + "p/1/r", str, false, false);
-            } catch (Throwable unused) {
-                int i = b.a;
-            }
-            if (TextUtils.isEmpty(a)) {
-                return false;
-            }
-            return new JSONObject(a).getInt("response") == 1;
-        }
-        return invokeL.booleanValue;
-    }
-
     public static void a(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, jSONObject) == null) {
@@ -110,5 +89,29 @@ public class a {
                 int i = b.a;
             }
         }
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        String a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            try {
+                a = com.baidu.sofire.a.a.a(this.a, com.baidu.sofire.k.a.b() + "p/1/r", str, false, false);
+            } catch (Throwable unused) {
+                int i = b.a;
+            }
+            if (TextUtils.isEmpty(a)) {
+                return false;
+            }
+            if (new JSONObject(a).getInt("response") == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

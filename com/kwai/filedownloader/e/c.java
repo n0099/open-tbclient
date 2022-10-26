@@ -1,6 +1,5 @@
 package com.kwai.filedownloader.e;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,6 @@ import java.io.File;
 /* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
     public static Context awK;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +26,7 @@ public final class c {
 
     /* renamed from: com.kwai.filedownloader.e.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0627c {
+    public interface InterfaceC0623c {
         com.kwai.filedownloader.a.a EK();
     }
 

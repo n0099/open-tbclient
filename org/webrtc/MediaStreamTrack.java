@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MediaStreamTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_TRACK_KIND = "audio";
@@ -18,9 +18,19 @@ public class MediaStreamTrack {
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeTrack;
 
+    public static native boolean nativeGetEnabled(long j);
+
+    public static native String nativeGetId(long j);
+
+    public static native String nativeGetKind(long j);
+
+    public static native State nativeGetState(long j);
+
+    public static native boolean nativeSetEnabled(long j, boolean z);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class MediaType {
+    /* loaded from: classes8.dex */
+    public final class MediaType {
         public static final /* synthetic */ MediaType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MediaType MEDIA_TYPE_AUDIO;
@@ -68,7 +78,6 @@ public class MediaStreamTrack {
             this.nativeIndex = i2;
         }
 
-        @CalledByNative("MediaType")
         public static MediaType fromNativeIndex(int i) {
             InterceptResult invokeI;
             MediaType[] values;
@@ -87,26 +96,34 @@ public class MediaStreamTrack {
         public static MediaType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (MediaType) Enum.valueOf(MediaType.class, str) : (MediaType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (MediaType) Enum.valueOf(MediaType.class, str);
+            }
+            return (MediaType) invokeL.objValue;
         }
 
         public static MediaType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (MediaType[]) $VALUES.clone() : (MediaType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (MediaType[]) $VALUES.clone();
+            }
+            return (MediaType[]) invokeV.objValue;
         }
 
-        @CalledByNative("MediaType")
         public int getNative() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.nativeIndex : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.nativeIndex;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class State {
+    /* loaded from: classes8.dex */
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State ENDED;
@@ -151,23 +168,31 @@ public class MediaStreamTrack {
             }
         }
 
-        @CalledByNative("State")
         public static State fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (State) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                return values()[i];
+            }
+            return (State) invokeI.objValue;
         }
 
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
@@ -193,13 +218,6 @@ public class MediaStreamTrack {
         throw new IllegalArgumentException("nativeTrack may not be null");
     }
 
-    private void checkMediaStreamTrackExists() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeTrack == 0) {
-            throw new IllegalStateException("MediaStreamTrack has been disposed.");
-        }
-    }
-
     @Nullable
     public static MediaStreamTrack createMediaStreamTrack(long j) {
         InterceptResult invokeJ;
@@ -212,23 +230,21 @@ public class MediaStreamTrack {
             if (nativeGetKind.equals("audio")) {
                 return new AudioTrack(j);
             }
-            if (nativeGetKind.equals("video")) {
-                return new VideoTrack(j);
+            if (!nativeGetKind.equals("video")) {
+                return null;
             }
-            return null;
+            return new VideoTrack(j);
         }
         return (MediaStreamTrack) invokeJ.objValue;
     }
 
-    public static native boolean nativeGetEnabled(long j);
-
-    public static native String nativeGetId(long j);
-
-    public static native String nativeGetKind(long j);
-
-    public static native State nativeGetState(long j);
-
-    public static native boolean nativeSetEnabled(long j, boolean z);
+    private void checkMediaStreamTrackExists() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeTrack != 0) {
+            return;
+        }
+        throw new IllegalStateException("MediaStreamTrack has been disposed.");
+    }
 
     public void dispose() {
         Interceptable interceptable = $ic;
@@ -279,16 +295,6 @@ public class MediaStreamTrack {
         return (String) invokeV.objValue;
     }
 
-    public boolean setEnabled(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            checkMediaStreamTrackExists();
-            return nativeSetEnabled(this.nativeTrack, z);
-        }
-        return invokeZ.booleanValue;
-    }
-
     public State state() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -297,5 +303,15 @@ public class MediaStreamTrack {
             return nativeGetState(this.nativeTrack);
         }
         return (State) invokeV.objValue;
+    }
+
+    public boolean setEnabled(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            checkMediaStreamTrackExists();
+            return nativeSetEnabled(this.nativeTrack, z);
+        }
+        return invokeZ.booleanValue;
     }
 }

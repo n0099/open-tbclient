@@ -80,10 +80,37 @@ public final class GzipSink implements Sink {
         }
     }
 
+    public Deflater deflater() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.deflater;
+        }
+        return (Deflater) invokeV.objValue;
+    }
+
+    @Override // okio.Sink, java.io.Flushable
+    public void flush() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.deflaterSink.flush();
+        }
+    }
+
+    @Override // okio.Sink
+    public Timeout timeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.sink.timeout();
+        }
+        return (Timeout) invokeV.objValue;
+    }
+
     @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.closed) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.closed) {
             return;
         }
         Throwable th = null;
@@ -113,39 +140,20 @@ public final class GzipSink implements Sink {
         }
     }
 
-    public Deflater deflater() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.deflater : (Deflater) invokeV.objValue;
-    }
-
-    @Override // okio.Sink, java.io.Flushable
-    public void flush() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.deflaterSink.flush();
-        }
-    }
-
-    @Override // okio.Sink
-    public Timeout timeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sink.timeout() : (Timeout) invokeV.objValue;
-    }
-
     @Override // okio.Sink
     public void write(Buffer buffer, long j) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048580, this, buffer, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i < 0) {
-                throw new IllegalArgumentException("byteCount < 0: " + j);
-            } else if (i == 0) {
-            } else {
+            if (i >= 0) {
+                if (i == 0) {
+                    return;
+                }
                 updateCrc(buffer, j);
                 this.deflaterSink.write(buffer, j);
+                return;
             }
+            throw new IllegalArgumentException("byteCount < 0: " + j);
         }
     }
 }

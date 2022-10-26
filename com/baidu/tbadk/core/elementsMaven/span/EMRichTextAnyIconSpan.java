@@ -4,17 +4,13 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
-import androidx.annotation.DimenRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.Px;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.pv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,12 +30,11 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public int e;
     public int f;
     public int g;
-    @Px
     public int h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class IconType {
+    public final class IconType {
         public static final /* synthetic */ IconType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final IconType PIC;
@@ -89,13 +84,19 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         public static IconType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (IconType) Enum.valueOf(IconType.class, str) : (IconType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (IconType) Enum.valueOf(IconType.class, str);
+            }
+            return (IconType) invokeL.objValue;
         }
 
         public static IconType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (IconType[]) $VALUES.clone() : (IconType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (IconType[]) $VALUES.clone();
+            }
+            return (IconType[]) invokeV.objValue;
         }
     }
 
@@ -136,7 +137,7 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         c(i);
     }
 
-    public void a(@DimenRes int i2) {
+    public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             this.h = UtilHelper.getDimenPixelSize(i2);
@@ -165,8 +166,22 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         }
     }
 
+    public void e(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.g = i2;
+        }
+    }
+
+    public void f(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            this.d = i2;
+        }
+    }
+
     @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i2, int i3, float f, int i4, int i5, int i6, @NonNull Paint paint) {
+    public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f, int i4, int i5, int i6, Paint paint) {
         Drawable drawable;
         float dimenPixelSize;
         Interceptable interceptable = $ic;
@@ -188,8 +203,8 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
             float f2 = f + this.e;
             float f3 = this.g;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            if (jv4.b(charSequence)) {
-                jv4.a(fontMetricsInt, (int) paint.getTextSize());
+            if (pv4.b(charSequence)) {
+                pv4.a(fontMetricsInt, (int) paint.getTextSize());
                 dimenPixelSize = f3 - UtilHelper.getDimenPixelSize(R.dimen.tbds2);
             } else {
                 dimenPixelSize = f3 + UtilHelper.getDimenPixelSize(R.dimen.tbds3) + this.h;
@@ -200,22 +215,8 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         }
     }
 
-    public void e(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.g = i2;
-        }
-    }
-
-    public void f(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.d = i2;
-        }
-    }
-
     @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i2, int i3, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+    public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {

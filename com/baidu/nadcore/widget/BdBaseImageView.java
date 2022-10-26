@@ -6,9 +6,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g81;
+import com.baidu.tieba.h81;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,57 +42,8 @@ public class BdBaseImageView extends ImageView {
         this.b = 0;
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Color.alpha(g81.e(getContext())) != 0 : invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a || this.b != g81.e(getContext()) : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            try {
-                if (b()) {
-                    g81.c(getContext(), getDrawable());
-                    this.b = g81.e(getContext());
-                    this.a = false;
-                }
-                super.draw(canvas);
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (a()) {
-                g81.d(getContext(), getDrawable(), i);
-            } else {
-                super.setImageAlpha(i);
-            }
-        }
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageDrawable(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.a = true;
-            super.setImageDrawable(drawable);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet) {
+    public BdBaseImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,7 +66,7 @@ public class BdBaseImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public BdBaseImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,5 +86,66 @@ public class BdBaseImageView extends ImageView {
         }
         this.a = true;
         this.b = 0;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (Color.alpha(h81.e(getContext())) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!this.a && this.b == h81.e(getContext())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            try {
+                if (b()) {
+                    h81.c(getContext(), getDrawable());
+                    this.b = h81.e(getContext());
+                    this.a = false;
+                }
+                super.draw(canvas);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (a()) {
+                h81.d(getContext(), getDrawable(), i);
+            } else {
+                super.setImageAlpha(i);
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
+            this.a = true;
+            super.setImageDrawable(drawable);
+        }
     }
 }

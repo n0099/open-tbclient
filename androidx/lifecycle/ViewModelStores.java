@@ -1,7 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,21 +27,23 @@ public class ViewModelStores {
         }
     }
 
-    @NonNull
-    @MainThread
     @Deprecated
-    public static ViewModelStore of(@NonNull FragmentActivity fragmentActivity) {
+    public static ViewModelStore of(Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fragmentActivity)) == null) ? fragmentActivity.getViewModelStore() : (ViewModelStore) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            return fragment.getViewModelStore();
+        }
+        return (ViewModelStore) invokeL.objValue;
     }
 
-    @NonNull
-    @MainThread
     @Deprecated
-    public static ViewModelStore of(@NonNull Fragment fragment) {
+    public static ViewModelStore of(FragmentActivity fragmentActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) ? fragment.getViewModelStore() : (ViewModelStore) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fragmentActivity)) == null) {
+            return fragmentActivity.getViewModelStore();
+        }
+        return (ViewModelStore) invokeL.objValue;
     }
 }

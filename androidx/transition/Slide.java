@@ -2,7 +2,6 @@ package androidx.transition;
 
 import android.animation.Animator;
 import android.animation.TimeInterpolator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -49,6 +46,11 @@ public class Slide extends Visibility {
         float getGoneY(ViewGroup viewGroup, View view2);
     }
 
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface GravityFlag {
+    }
+
     /* loaded from: classes.dex */
     public static abstract class CalculateSlideHorizontal implements CalculateSlide {
         public static /* synthetic */ Interceptable $ic;
@@ -72,7 +74,10 @@ public class Slide extends Visibility {
         public float getGoneY(ViewGroup viewGroup, View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationY() : invokeLL.floatValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) {
+                return view2.getTranslationY();
+            }
+            return invokeLL.floatValue;
         }
     }
 
@@ -99,14 +104,11 @@ public class Slide extends Visibility {
         public float getGoneX(ViewGroup viewGroup, View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationX() : invokeLL.floatValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) {
+                return view2.getTranslationX();
+            }
+            return invokeLL.floatValue;
         }
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface GravityFlag {
     }
 
     static {
@@ -147,7 +149,10 @@ public class Slide extends Visibility {
             public float getGoneX(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationX() - viewGroup.getWidth() : invokeLL.floatValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) {
+                    return view2.getTranslationX() - viewGroup.getWidth();
+                }
+                return invokeLL.floatValue;
             }
         };
         sCalculateStart = new CalculateSlideHorizontal() { // from class: androidx.transition.Slide.2
@@ -174,7 +179,11 @@ public class Slide extends Visibility {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) {
-                    if (ViewCompat.getLayoutDirection(viewGroup) == 1) {
+                    boolean z = true;
+                    if (ViewCompat.getLayoutDirection(viewGroup) != 1) {
+                        z = false;
+                    }
+                    if (z) {
                         return view2.getTranslationX() + viewGroup.getWidth();
                     }
                     return view2.getTranslationX() - viewGroup.getWidth();
@@ -205,7 +214,10 @@ public class Slide extends Visibility {
             public float getGoneY(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationY() - viewGroup.getHeight() : invokeLL.floatValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) {
+                    return view2.getTranslationY() - viewGroup.getHeight();
+                }
+                return invokeLL.floatValue;
             }
         };
         sCalculateRight = new CalculateSlideHorizontal() { // from class: androidx.transition.Slide.4
@@ -231,7 +243,10 @@ public class Slide extends Visibility {
             public float getGoneX(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationX() + viewGroup.getWidth() : invokeLL.floatValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) {
+                    return view2.getTranslationX() + viewGroup.getWidth();
+                }
+                return invokeLL.floatValue;
             }
         };
         sCalculateEnd = new CalculateSlideHorizontal() { // from class: androidx.transition.Slide.5
@@ -258,7 +273,11 @@ public class Slide extends Visibility {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) {
-                    if (ViewCompat.getLayoutDirection(viewGroup) == 1) {
+                    boolean z = true;
+                    if (ViewCompat.getLayoutDirection(viewGroup) != 1) {
+                        z = false;
+                    }
+                    if (z) {
                         return view2.getTranslationX() - viewGroup.getWidth();
                     }
                     return view2.getTranslationX() + viewGroup.getWidth();
@@ -289,7 +308,10 @@ public class Slide extends Visibility {
             public float getGoneY(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationY() + viewGroup.getHeight() : invokeLL.floatValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) {
+                    return view2.getTranslationY() + viewGroup.getHeight();
+                }
+                return invokeLL.floatValue;
             }
         };
     }
@@ -312,6 +334,62 @@ public class Slide extends Visibility {
         setSlideEdge(80);
     }
 
+    public int getSlideEdge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSlideEdge;
+        }
+        return invokeV.intValue;
+    }
+
+    public Slide(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mSlideCalculator = sCalculateBottom;
+        this.mSlideEdge = 80;
+        setSlideEdge(i);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Slide(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mSlideCalculator = sCalculateBottom;
+        this.mSlideEdge = 80;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.SLIDE);
+        int namedInt = TypedArrayUtils.getNamedInt(obtainStyledAttributes, (XmlPullParser) attributeSet, "slideEdge", 0, 80);
+        obtainStyledAttributes.recycle();
+        setSlideEdge(namedInt);
+    }
+
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, transitionValues) == null) {
@@ -322,7 +400,7 @@ public class Slide extends Visibility {
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
-    public void captureEndValues(@NonNull TransitionValues transitionValues) {
+    public void captureEndValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             super.captureEndValues(transitionValues);
@@ -331,18 +409,12 @@ public class Slide extends Visibility {
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
+    public void captureStartValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             super.captureStartValues(transitionValues);
             captureValues(transitionValues);
         }
-    }
-
-    public int getSlideEdge() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSlideEdge : invokeV.intValue;
     }
 
     @Override // androidx.transition.Visibility
@@ -376,73 +448,35 @@ public class Slide extends Visibility {
     public void setSlideEdge(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            if (i == 3) {
-                this.mSlideCalculator = sCalculateLeft;
-            } else if (i == 5) {
-                this.mSlideCalculator = sCalculateRight;
-            } else if (i == 48) {
-                this.mSlideCalculator = sCalculateTop;
-            } else if (i == 80) {
-                this.mSlideCalculator = sCalculateBottom;
-            } else if (i == 8388611) {
-                this.mSlideCalculator = sCalculateStart;
-            } else if (i == 8388613) {
-                this.mSlideCalculator = sCalculateEnd;
+            if (i != 3) {
+                if (i != 5) {
+                    if (i != 48) {
+                        if (i != 80) {
+                            if (i != 8388611) {
+                                if (i == 8388613) {
+                                    this.mSlideCalculator = sCalculateEnd;
+                                } else {
+                                    throw new IllegalArgumentException("Invalid slide direction");
+                                }
+                            } else {
+                                this.mSlideCalculator = sCalculateStart;
+                            }
+                        } else {
+                            this.mSlideCalculator = sCalculateBottom;
+                        }
+                    } else {
+                        this.mSlideCalculator = sCalculateTop;
+                    }
+                } else {
+                    this.mSlideCalculator = sCalculateRight;
+                }
             } else {
-                throw new IllegalArgumentException("Invalid slide direction");
+                this.mSlideCalculator = sCalculateLeft;
             }
             this.mSlideEdge = i;
             SidePropagation sidePropagation = new SidePropagation();
             sidePropagation.setSide(i);
             setPropagation(sidePropagation);
         }
-    }
-
-    public Slide(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mSlideCalculator = sCalculateBottom;
-        this.mSlideEdge = 80;
-        setSlideEdge(i);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"RestrictedApi"})
-    public Slide(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mSlideCalculator = sCalculateBottom;
-        this.mSlideEdge = 80;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.SLIDE);
-        int namedInt = TypedArrayUtils.getNamedInt(obtainStyledAttributes, (XmlPullParser) attributeSet, "slideEdge", 0, 80);
-        obtainStyledAttributes.recycle();
-        setSlideEdge(namedInt);
     }
 }

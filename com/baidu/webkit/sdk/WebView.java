@@ -1,7 +1,5 @@
 package com.baidu.webkit.sdk;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -41,8 +39,6 @@ import android.webkit.DownloadListener;
 import android.webkit.URLUtil;
 import android.webkit.ValueCallback;
 import android.widget.AbsoluteLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -110,7 +106,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* renamed from: com.baidu.webkit.sdk.WebView$1  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -617,7 +613,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     /* loaded from: classes6.dex */
-    public static class HitTestResult {
+    public class HitTestResult {
         public static /* synthetic */ Interceptable $ic = null;
         @Deprecated
         public static final int ANCHOR_TYPE = 1;
@@ -872,7 +868,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public class JSInterfaceStatistics implements Statistics.Record {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public HashMap<String, String> mJSInfo;
+        public HashMap mJSInfo;
         public final /* synthetic */ WebView this$0;
 
         public JSInterfaceStatistics(WebView webView) {
@@ -891,7 +887,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
                 }
             }
             this.this$0 = webView;
-            this.mJSInfo = new HashMap<>();
+            this.mJSInfo = new HashMap();
         }
 
         public /* synthetic */ JSInterfaceStatistics(WebView webView, AnonymousClass1 anonymousClass1) {
@@ -924,7 +920,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("type", MonitorType.MONITOR_TYPE_ADD_JAVA_SCRIPT);
                     JSONArray jSONArray = new JSONArray();
-                    for (Map.Entry<String, String> entry : this.mJSInfo.entrySet()) {
+                    for (Map.Entry entry : this.mJSInfo.entrySet()) {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("name", entry.getKey());
                         jSONObject2.put("callstack", entry.getValue());
@@ -1044,7 +1040,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class PrerenderStatus {
+    public final class PrerenderStatus {
         public static final /* synthetic */ PrerenderStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PrerenderStatus FAILED;
@@ -1310,7 +1306,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class SaveAsType {
+    public final class SaveAsType {
         public static final /* synthetic */ SaveAsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SaveAsType SAVE_AS_HTML_FOLDER;
@@ -1371,7 +1367,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class VisualStateCallback {
+    public abstract class VisualStateCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1416,7 +1412,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             this.this$0 = webView;
         }
 
-        public ArrayList<PageInfo> getWebPageInfoList() {
+        public ArrayList getWebPageInfoList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -1428,7 +1424,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class WebViewState {
+    public final class WebViewState {
         public static final /* synthetic */ WebViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final WebViewState MULTIPLE_WEBVIEW_STATE;
@@ -1540,7 +1536,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class WebViewType {
+    public final class WebViewType {
         public static final /* synthetic */ WebViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final WebViewType BIGPLUGIN;
@@ -1662,7 +1658,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @TargetApi(21)
     public WebView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
@@ -1749,7 +1744,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public static void addToWebCache(String str, Map<String, String> map, boolean z) {
+    public static void addToWebCache(String str, Map map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65599, null, str, map, z) == null) {
             getFactory().getStatics().addToWebCache(str, false, true, map, z);
@@ -1763,7 +1758,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public static void addToWebCache(String str, boolean z, Map<String, String> map) {
+    public static void addToWebCache(String str, boolean z, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65601, null, new Object[]{str, Boolean.valueOf(z), map}) == null) {
             getFactory().getStatics().addToWebCache(str, z, true, map, false);
@@ -1777,7 +1772,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public static void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map) {
+    public static void addToWebCache(String str, boolean z, boolean z2, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65603, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), map}) == null) {
             getFactory().getStatics().addToWebCache(str, z, z2, map, false);
@@ -1868,7 +1863,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    @Nullable
     @Deprecated
     public static String findAddress(String str) {
         InterceptResult invokeL;
@@ -1876,13 +1870,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (interceptable == null || (invokeL = interceptable.invokeL(65615, null, str)) == null) ? getFactory().getStatics().findAddress(str) : (String) invokeL.objValue;
     }
 
-    public static HashMap<String, Long> getCurrentSystemInfraInfo() {
+    public static HashMap getCurrentSystemInfraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65616, null)) == null) ? getFactory().getStatics().getCurrentSystemInfraInfo() : (HashMap) invokeV.objValue;
     }
 
-    @Nullable
     public static PackageInfo getCurrentWebViewPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1944,7 +1937,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (JSInterfaceStatistics) invokeV.objValue;
     }
 
-    @NonNull
     public static ClassLoader getWebViewClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1966,7 +1958,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return invokeV.booleanValue;
     }
 
-    private void initWebView(Context context, Map<String, Object> map, boolean z) {
+    private void initWebView(Context context, Map map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65624, this, context, map, z) == null) {
             if (context == null) {
@@ -2102,14 +2094,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public static void prefetch(String str, Map<String, String> map, MainResourcePrefetchListener mainResourcePrefetchListener) {
+    public static void prefetch(String str, Map map, MainResourcePrefetchListener mainResourcePrefetchListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65634, null, str, map, mainResourcePrefetchListener) == null) {
             getFactory().getStatics().prefetch(str, map, mainResourcePrefetchListener);
         }
     }
 
-    public static void prefetchResource(String str, String[] strArr, Map<String, String> map) {
+    public static void prefetchResource(String str, String[] strArr, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65635, null, str, strArr, map) == null) {
             getFactory().getStatics().prefetchResource(str, strArr, map);
@@ -2517,7 +2509,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (Picture) invokeZ.objValue;
     }
 
-    public void capturePicture(ValueCallback<Picture> valueCallback) {
+    public void capturePicture(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, valueCallback) == null) {
             checkThread();
@@ -2728,7 +2720,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
             a secureProcessor = getSecureProcessor();
             if (secureProcessor.c.getContext().getPackageName().contains("com.baidu.searchbox")) {
-                HashMap<String, Object> hashMap = secureProcessor.b;
+                HashMap hashMap = secureProcessor.b;
                 if (hashMap != null) {
                     hashMap.clear();
                     secureProcessor.b = null;
@@ -2822,7 +2814,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public void evaluateJavaScriptOnPrerender(String str, ValueCallback<String> valueCallback) {
+    public void evaluateJavaScriptOnPrerender(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048638, this, str, valueCallback) == null) {
             checkThread();
@@ -2830,7 +2822,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
+    public void evaluateJavascript(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048639, this, str, valueCallback) == null) {
             checkThread();
@@ -2838,7 +2830,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public void evaluateJavascriptMethod(String str, String str2, String str3, ValueCallback<String> valueCallback) {
+    public void evaluateJavascriptMethod(String str, String str2, String str3, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048640, this, str, str2, str3, valueCallback) == null) {
             checkThread();
@@ -3371,7 +3363,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (WebViewClient) invokeV.objValue;
     }
 
-    @NonNull
     public Looper getWebViewLooper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -3684,7 +3675,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public void loadUrl(String str, Map<String, String> map) {
+    public void loadUrl(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLL(1048739, this, str, map) != null) {
             return;
@@ -3709,7 +3700,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public void loadUrl(String str, Map<String, String> map, boolean z) {
+    public void loadUrl(String str, Map map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLLZ(1048740, this, str, map, z) != null) {
             return;
@@ -3884,7 +3875,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    @SuppressLint({"WrongCall"})
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048756, this, canvas) == null) {
@@ -4032,7 +4022,6 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.widget.AbsoluteLayout, android.view.View
-    @SuppressLint({"WrongCall"})
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048770, this, i, i2) == null) {
@@ -4498,7 +4487,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback) {
+    public void saveWebArchive(String str, boolean z, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048822, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) {
             checkThread();

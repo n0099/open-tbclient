@@ -24,6 +24,18 @@ public final class Frs$From {
         return new Frs$From[]{ENTER_FORUM_PAGE, FRS};
     }
 
+    public static Frs$From valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Frs$From) Enum.valueOf(Frs$From.class, str) : (Frs$From) invokeL.objValue;
+    }
+
+    public static Frs$From[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Frs$From[]) $VALUES.clone() : (Frs$From[]) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -63,21 +75,12 @@ public final class Frs$From {
         this.callFrom = j;
     }
 
-    public static Frs$From valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Frs$From) Enum.valueOf(Frs$From.class, str) : (Frs$From) invokeL.objValue;
-    }
-
-    public static Frs$From[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Frs$From[]) $VALUES.clone() : (Frs$From[]) invokeV.objValue;
-    }
-
     public final long getCallFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.callFrom : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.callFrom;
+        }
+        return invokeV.longValue;
     }
 }

@@ -40,13 +40,12 @@ public class l0 implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String str = " --*^o^*-- return : " + this.a;
             byte[] a = FeedbackEditActivity.a(this.c, BitmapFactory.decodeFile(this.a));
-            if (a == null || a.length == 0) {
-                return;
+            if (a != null && a.length != 0) {
+                this.c.s.set(this.b, a);
+                this.c.t.put("" + this.b, this.a);
+                String str2 = "*^o^*-- picPathMap.size : " + this.c.t.size();
+                this.c.D.obtainMessage(17).sendToTarget();
             }
-            this.c.s.set(this.b, a);
-            this.c.t.put("" + this.b, this.a);
-            String str2 = "*^o^*-- picPathMap.size : " + this.c.t.size();
-            this.c.D.obtainMessage(17).sendToTarget();
         }
     }
 }

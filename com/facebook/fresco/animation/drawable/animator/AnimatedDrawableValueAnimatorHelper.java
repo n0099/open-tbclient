@@ -34,25 +34,12 @@ public class AnimatedDrawableValueAnimatorHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
-            if (Build.VERSION.SDK_INT >= 11 && (drawable instanceof AnimatedDrawable2)) {
-                return AnimatedDrawable2ValueAnimatorHelper.createAnimatorUpdateListener((AnimatedDrawable2) drawable);
+            if (Build.VERSION.SDK_INT < 11 || !(drawable instanceof AnimatedDrawable2)) {
+                return null;
             }
-            return null;
+            return AnimatedDrawable2ValueAnimatorHelper.createAnimatorUpdateListener((AnimatedDrawable2) drawable);
         }
         return (ValueAnimator.AnimatorUpdateListener) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ValueAnimator createValueAnimator(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, drawable, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 11 && (drawable instanceof AnimatedDrawable2)) {
-                return AnimatedDrawable2ValueAnimatorHelper.createValueAnimator((AnimatedDrawable2) drawable, i);
-            }
-            return null;
-        }
-        return (ValueAnimator) invokeLI.objValue;
     }
 
     @Nullable
@@ -60,11 +47,24 @@ public class AnimatedDrawableValueAnimatorHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, drawable)) == null) {
-            if (Build.VERSION.SDK_INT >= 11 && (drawable instanceof AnimatedDrawable2)) {
-                return AnimatedDrawable2ValueAnimatorHelper.createValueAnimator((AnimatedDrawable2) drawable);
+            if (Build.VERSION.SDK_INT < 11 || !(drawable instanceof AnimatedDrawable2)) {
+                return null;
             }
-            return null;
+            return AnimatedDrawable2ValueAnimatorHelper.createValueAnimator((AnimatedDrawable2) drawable);
         }
         return (ValueAnimator) invokeL.objValue;
+    }
+
+    @Nullable
+    public static ValueAnimator createValueAnimator(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, drawable, i)) == null) {
+            if (Build.VERSION.SDK_INT < 11 || !(drawable instanceof AnimatedDrawable2)) {
+                return null;
+            }
+            return AnimatedDrawable2ValueAnimatorHelper.createValueAnimator((AnimatedDrawable2) drawable, i);
+        }
+        return (ValueAnimator) invokeLI.objValue;
     }
 }

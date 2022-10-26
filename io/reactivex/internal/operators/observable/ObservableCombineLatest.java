@@ -22,24 +22,24 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableCombineLatest<T, R> extends Observable<R> {
+public final class ObservableCombineLatest extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
-    public final Function<? super Object[], ? extends R> combiner;
+    public final Function combiner;
     public final boolean delayError;
-    public final ObservableSource<? extends T>[] sources;
-    public final Iterable<? extends ObservableSource<? extends T>> sourcesIterable;
+    public final ObservableSource[] sources;
+    public final Iterable sourcesIterable;
 
     /* loaded from: classes8.dex */
-    public static final class CombinerObserver<T, R> extends AtomicReference<Disposable> implements Observer<T> {
+    public final class CombinerObserver extends AtomicReference implements Observer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4823716997131257941L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int index;
-        public final LatestCoordinator<T, R> parent;
+        public final LatestCoordinator parent;
 
-        public CombinerObserver(LatestCoordinator<T, R> latestCoordinator, int i) {
+        public CombinerObserver(LatestCoordinator latestCoordinator, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,10 +82,10 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                this.parent.innerNext(this.index, t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.parent.innerNext(this.index, obj);
             }
         }
 
@@ -99,23 +99,23 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class LatestCoordinator<T, R> extends AtomicInteger implements Disposable {
+    public final class LatestCoordinator extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8567835998786448817L;
         public transient /* synthetic */ FieldHolder $fh;
         public int active;
-        public final Observer<? super R> actual;
+        public final Observer actual;
         public volatile boolean cancelled;
-        public final Function<? super Object[], ? extends R> combiner;
+        public final Function combiner;
         public int complete;
         public final boolean delayError;
         public volatile boolean done;
         public final AtomicThrowable errors;
         public Object[] latest;
-        public final CombinerObserver<T, R>[] observers;
-        public final SpscLinkedArrayQueue<Object[]> queue;
+        public final CombinerObserver[] observers;
+        public final SpscLinkedArrayQueue queue;
 
-        public LatestCoordinator(Observer<? super R> observer, Function<? super Object[], ? extends R> function, int i, int i2, boolean z) {
+        public LatestCoordinator(Observer observer, Function function, int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,24 +135,46 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
             this.combiner = function;
             this.delayError = z;
             this.latest = new Object[i];
-            CombinerObserver<T, R>[] combinerObserverArr = new CombinerObserver[i];
+            CombinerObserver[] combinerObserverArr = new CombinerObserver[i];
             for (int i5 = 0; i5 < i; i5++) {
-                combinerObserverArr[i5] = new CombinerObserver<>(this, i5);
+                combinerObserverArr[i5] = new CombinerObserver(this, i5);
             }
             this.observers = combinerObserverArr;
-            this.queue = new SpscLinkedArrayQueue<>(i2);
+            this.queue = new SpscLinkedArrayQueue(i2);
         }
 
         public void cancelSources() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (CombinerObserver<T, R> combinerObserver : this.observers) {
+                for (CombinerObserver combinerObserver : this.observers) {
                     combinerObserver.dispose();
                 }
             }
         }
 
-        public void clear(SpscLinkedArrayQueue<?> spscLinkedArrayQueue) {
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                cancelSources();
+                if (getAndIncrement() == 0) {
+                    clear(this.queue);
+                }
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void clear(SpscLinkedArrayQueue spscLinkedArrayQueue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, spscLinkedArrayQueue) == null) {
                 synchronized (this) {
@@ -162,66 +184,71 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
             }
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
+        public void subscribe(ObservableSource[] observableSourceArr) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            cancelSources();
-            if (getAndIncrement() == 0) {
-                clear(this.queue);
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, observableSourceArr) == null) {
+                CombinerObserver[] combinerObserverArr = this.observers;
+                int length = combinerObserverArr.length;
+                this.actual.onSubscribe(this);
+                for (int i = 0; i < length && !this.done && !this.cancelled; i++) {
+                    observableSourceArr[i].subscribe(combinerObserverArr[i]);
+                }
             }
         }
 
         public void drain() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
-                SpscLinkedArrayQueue<Object[]> spscLinkedArrayQueue = this.queue;
-                Observer<? super R> observer = this.actual;
-                boolean z = this.delayError;
-                int i = 1;
-                while (!this.cancelled) {
-                    if (!z && this.errors.get() != null) {
+            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            Observer observer = this.actual;
+            boolean z2 = this.delayError;
+            int i = 1;
+            while (!this.cancelled) {
+                if (!z2 && this.errors.get() != null) {
+                    cancelSources();
+                    clear(spscLinkedArrayQueue);
+                    observer.onError(this.errors.terminate());
+                    return;
+                }
+                boolean z3 = this.done;
+                Object[] objArr = (Object[]) spscLinkedArrayQueue.poll();
+                if (objArr == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z3 && z) {
+                    clear(spscLinkedArrayQueue);
+                    Throwable terminate = this.errors.terminate();
+                    if (terminate == null) {
+                        observer.onComplete();
+                        return;
+                    } else {
+                        observer.onError(terminate);
+                        return;
+                    }
+                } else if (z) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
+                        return;
+                    }
+                } else {
+                    try {
+                        observer.onNext(ObjectHelper.requireNonNull(this.combiner.apply(objArr), "The combiner returned a null value"));
+                    } catch (Throwable th) {
+                        Exceptions.throwIfFatal(th);
+                        this.errors.addThrowable(th);
                         cancelSources();
                         clear(spscLinkedArrayQueue);
                         observer.onError(this.errors.terminate());
                         return;
                     }
-                    boolean z2 = this.done;
-                    Object[] poll = spscLinkedArrayQueue.poll();
-                    boolean z3 = poll == null;
-                    if (z2 && z3) {
-                        clear(spscLinkedArrayQueue);
-                        Throwable terminate = this.errors.terminate();
-                        if (terminate == null) {
-                            observer.onComplete();
-                            return;
-                        } else {
-                            observer.onError(terminate);
-                            return;
-                        }
-                    } else if (z3) {
-                        i = addAndGet(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    } else {
-                        try {
-                            observer.onNext((Object) ObjectHelper.requireNonNull(this.combiner.apply(poll), "The combiner returned a null value"));
-                        } catch (Throwable th) {
-                            Exceptions.throwIfFatal(th);
-                            this.errors.addThrowable(th);
-                            cancelSources();
-                            clear(spscLinkedArrayQueue);
-                            observer.onError(this.errors.terminate());
-                            return;
-                        }
-                    }
                 }
-                clear(spscLinkedArrayQueue);
             }
+            clear(spscLinkedArrayQueue);
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:15:0x001b, code lost:
@@ -231,6 +258,7 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void innerComplete(int i) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
                 synchronized (this) {
@@ -238,7 +266,11 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
                     if (objArr == null) {
                         return;
                     }
-                    boolean z = objArr[i] == null;
+                    if (objArr[i] == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     if (!z) {
                         int i2 = this.complete + 1;
                         this.complete = i2;
@@ -259,26 +291,31 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void innerError(int i, Throwable th) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048581, this, i, th) == null) {
                 if (this.errors.addThrowable(th)) {
-                    boolean z = true;
+                    boolean z2 = true;
                     if (this.delayError) {
                         synchronized (this) {
                             Object[] objArr = this.latest;
                             if (objArr == null) {
                                 return;
                             }
-                            boolean z2 = objArr[i] == null;
-                            if (!z2) {
+                            if (objArr[i] == null) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (!z) {
                                 int i2 = this.complete + 1;
                                 this.complete = i2;
                             }
                             this.done = true;
-                            z = z2;
+                            z2 = z;
                         }
                     }
-                    if (z) {
+                    if (z2) {
                         cancelSources();
                     }
                     drain();
@@ -288,24 +325,22 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r5v5, resolved type: io.reactivex.internal.queue.SpscLinkedArrayQueue<java.lang.Object[]> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public void innerNext(int i, T t) {
+        public void innerNext(int i, Object obj) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048582, this, i, t) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048582, this, i, obj) == null) {
                 synchronized (this) {
                     Object[] objArr = this.latest;
                     if (objArr == null) {
                         return;
                     }
-                    Object obj = objArr[i];
+                    Object obj2 = objArr[i];
                     int i2 = this.active;
-                    if (obj == null) {
+                    if (obj2 == null) {
                         i2++;
                         this.active = i2;
                     }
-                    objArr[i] = t;
+                    objArr[i] = obj;
                     if (i2 == objArr.length) {
                         this.queue.offer(objArr.clone());
                         z = true;
@@ -318,28 +353,9 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
                 }
             }
         }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
-        public void subscribe(ObservableSource<? extends T>[] observableSourceArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, observableSourceArr) == null) {
-                CombinerObserver<T, R>[] combinerObserverArr = this.observers;
-                int length = combinerObserverArr.length;
-                this.actual.onSubscribe(this);
-                for (int i = 0; i < length && !this.done && !this.cancelled; i++) {
-                    observableSourceArr[i].subscribe(combinerObserverArr[i]);
-                }
-            }
-        }
     }
 
-    public ObservableCombineLatest(ObservableSource<? extends T>[] observableSourceArr, Iterable<? extends ObservableSource<? extends T>> iterable, Function<? super Object[], ? extends R> function, int i, boolean z) {
+    public ObservableCombineLatest(ObservableSource[] observableSourceArr, Iterable iterable, Function function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -362,17 +378,17 @@ public final class ObservableCombineLatest<T, R> extends Observable<R> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super R> observer) {
+    public void subscribeActual(Observer observer) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            ObservableSource<? extends T>[] observableSourceArr = this.sources;
+            ObservableSource[] observableSourceArr = this.sources;
             if (observableSourceArr == null) {
                 observableSourceArr = new Observable[8];
                 length = 0;
-                for (ObservableSource<? extends T> observableSource : this.sourcesIterable) {
+                for (ObservableSource observableSource : this.sourcesIterable) {
                     if (length == observableSourceArr.length) {
-                        ObservableSource<? extends T>[] observableSourceArr2 = new ObservableSource[(length >> 2) + length];
+                        ObservableSource[] observableSourceArr2 = new ObservableSource[(length >> 2) + length];
                         System.arraycopy(observableSourceArr, 0, observableSourceArr2, 0, length);
                         observableSourceArr = observableSourceArr2;
                     }

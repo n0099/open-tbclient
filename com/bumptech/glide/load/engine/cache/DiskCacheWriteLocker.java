@@ -17,11 +17,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public final class DiskCacheWriteLocker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, WriteLock> locks;
+    public final Map locks;
     public final WriteLockPool writeLockPool;
 
     /* loaded from: classes7.dex */
-    public static class WriteLock {
+    public class WriteLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int interestedThreads;
@@ -45,11 +45,11 @@ public final class DiskCacheWriteLocker {
     }
 
     /* loaded from: classes7.dex */
-    public static class WriteLockPool {
+    public class WriteLockPool {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_POOL_SIZE = 10;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue<WriteLock> pool;
+        public final Queue pool;
 
         public WriteLockPool() {
             Interceptable interceptable = $ic;
@@ -69,13 +69,16 @@ public final class DiskCacheWriteLocker {
 
         public WriteLock obtain() {
             InterceptResult invokeV;
-            WriteLock poll;
+            WriteLock writeLock;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this.pool) {
-                    poll = this.pool.poll();
+                    writeLock = (WriteLock) this.pool.poll();
                 }
-                return poll == null ? new WriteLock() : poll;
+                if (writeLock == null) {
+                    return new WriteLock();
+                }
+                return writeLock;
             }
             return (WriteLock) invokeV.objValue;
         }
@@ -114,7 +117,7 @@ public final class DiskCacheWriteLocker {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             synchronized (this) {
-                writeLock = this.locks.get(str);
+                writeLock = (WriteLock) this.locks.get(str);
                 if (writeLock == null) {
                     writeLock = this.writeLockPool.obtain();
                     this.locks.put(str, writeLock);
@@ -135,11 +138,11 @@ public final class DiskCacheWriteLocker {
                     int i = writeLock.interestedThreads - 1;
                     writeLock.interestedThreads = i;
                     if (i == 0) {
-                        WriteLock remove = this.locks.remove(str);
-                        if (remove.equals(writeLock)) {
-                            this.writeLockPool.offer(remove);
+                        WriteLock writeLock2 = (WriteLock) this.locks.remove(str);
+                        if (writeLock2.equals(writeLock)) {
+                            this.writeLockPool.offer(writeLock2);
                         } else {
-                            throw new IllegalStateException("Removed the wrong lock, expected to remove: " + writeLock + ", but actually removed: " + remove + ", safeKey: " + str);
+                            throw new IllegalStateException("Removed the wrong lock, expected to remove: " + writeLock + ", but actually removed: " + writeLock2 + ", safeKey: " + str);
                         }
                     }
                 } else {

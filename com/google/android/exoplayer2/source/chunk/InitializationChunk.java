@@ -49,7 +49,10 @@ public final class InitializationChunk extends Chunk {
     public long bytesLoaded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bytesLoaded : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bytesLoaded;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
@@ -64,7 +67,10 @@ public final class InitializationChunk extends Chunk {
     public boolean isLoadCanceled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loadCanceled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.loadCanceled;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
@@ -78,11 +84,15 @@ public final class InitializationChunk extends Chunk {
                     this.extractorWrapper.init(null);
                 }
                 Extractor extractor = this.extractorWrapper.extractor;
+                boolean z = false;
                 int i = 0;
                 while (i == 0 && !this.loadCanceled) {
                     i = extractor.read(defaultExtractorInput, null);
                 }
-                Assertions.checkState(i != 1);
+                if (i != 1) {
+                    z = true;
+                }
+                Assertions.checkState(z);
                 this.bytesLoaded = (int) (defaultExtractorInput.getPosition() - this.dataSpec.absoluteStreamPosition);
             } finally {
                 Util.closeQuietly(this.dataSource);

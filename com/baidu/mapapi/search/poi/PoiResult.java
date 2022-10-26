@@ -18,16 +18,16 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class PoiResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PoiResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
     public int d;
-    public List<PoiInfo> e;
+    public List e;
     public boolean f;
-    public List<PoiAddrInfo> g;
-    public List<CityInfo> h;
+    public List g;
+    public List h;
 
     static {
         InterceptResult invokeClinit;
@@ -132,13 +132,13 @@ public class PoiResult extends SearchResult implements Parcelable {
         return invokeV.intValue;
     }
 
-    public List<PoiAddrInfo> getAllAddr() {
+    public List getAllAddr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (List) invokeV.objValue;
     }
 
-    public List<PoiInfo> getAllPoi() {
+    public List getAllPoi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (List) invokeV.objValue;
@@ -156,7 +156,7 @@ public class PoiResult extends SearchResult implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public List<CityInfo> getSuggestCityList() {
+    public List getSuggestCityList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : (List) invokeV.objValue;
@@ -180,7 +180,7 @@ public class PoiResult extends SearchResult implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    public void setAddrInfo(List<PoiAddrInfo> list) {
+    public void setAddrInfo(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.g = list;
@@ -208,14 +208,14 @@ public class PoiResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setPoiInfo(List<PoiInfo> list) {
+    public void setPoiInfo(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
             this.e = list;
         }
     }
 
-    public void setSuggestCityList(List<CityInfo> list) {
+    public void setSuggestCityList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.h = list;

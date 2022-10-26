@@ -1,7 +1,5 @@
 package com.google.android.exoplayer2.mediacodec;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.text.TextUtils;
@@ -28,8 +26,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-@SuppressLint({"InlinedApi"})
-@TargetApi(16)
 /* loaded from: classes7.dex */
 public final class MediaCodecUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,24 +36,73 @@ public final class MediaCodecUtil {
     public static final String CODEC_ID_HEV1 = "hev1";
     public static final String CODEC_ID_HVC1 = "hvc1";
     public static final String GOOGLE_RAW_DECODER_NAME = "OMX.google.raw.decoder";
-    public static final Map<String, Integer> HEVC_CODEC_STRING_TO_PROFILE_LEVEL;
+    public static final Map HEVC_CODEC_STRING_TO_PROFILE_LEVEL;
     public static final String MTK_RAW_DECODER_NAME = "OMX.MTK.AUDIO.DECODER.RAW";
     public static final MediaCodecInfo PASSTHROUGH_DECODER_INFO;
     public static final Pattern PROFILE_PATTERN;
     public static final String TAG = "MediaCodecUtil";
-    public static final HashMap<CodecKey, List<MediaCodecInfo>> decoderInfosCache;
+    public static final HashMap decoderInfosCache;
     public static int maxH264DecodableFrameSize;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.android.exoplayer2.mediacodec.MediaCodecUtil$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class CodecKey {
+    public interface MediaCodecListCompat {
+        int getCodecCount();
+
+        android.media.MediaCodecInfo getCodecInfoAt(int i);
+
+        boolean isSecurePlaybackSupported(String str, MediaCodecInfo.CodecCapabilities codecCapabilities);
+
+        boolean secureDecodersExplicit();
+    }
+
+    public static int avcLevelToMaxFrameSize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 1 || i == 2) {
+                return 25344;
+            }
+            switch (i) {
+                case 8:
+                case 16:
+                case 32:
+                    return 101376;
+                case 64:
+                    return 202752;
+                case 128:
+                case 256:
+                    return 414720;
+                case 512:
+                    return 921600;
+                case 1024:
+                    return 1310720;
+                case 2048:
+                case 4096:
+                    return 2097152;
+                case 8192:
+                    return 2228224;
+                case 16384:
+                    return 5652480;
+                case 32768:
+                case 65536:
+                    return 9437184;
+                default:
+                    return -1;
+            }
+        }
+        return invokeI.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public final class CodecKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String mimeType;
@@ -93,30 +138,42 @@ public final class MediaCodecUtil {
                     return false;
                 }
                 CodecKey codecKey = (CodecKey) obj;
-                return TextUtils.equals(this.mimeType, codecKey.mimeType) && this.secure == codecKey.secure;
+                if (TextUtils.equals(this.mimeType, codecKey.mimeType) && this.secure == codecKey.secure) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
+            int hashCode;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 String str = this.mimeType;
-                return (((str == null ? 0 : str.hashCode()) + 31) * 31) + (this.secure ? 1231 : 1237);
+                if (str == null) {
+                    hashCode = 0;
+                } else {
+                    hashCode = str.hashCode();
+                }
+                int i2 = (hashCode + 31) * 31;
+                if (this.secure) {
+                    i = 1231;
+                } else {
+                    i = 1237;
+                }
+                return i2 + i;
             }
             return invokeV.intValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class DecoderQueryException extends Exception {
+    public class DecoderQueryException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ DecoderQueryException(Throwable th, AnonymousClass1 anonymousClass1) {
-            this(th);
-        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public DecoderQueryException(Throwable th) {
@@ -138,23 +195,26 @@ public final class MediaCodecUtil {
                 }
             }
         }
+
+        public /* synthetic */ DecoderQueryException(Throwable th, AnonymousClass1 anonymousClass1) {
+            this(th);
+        }
     }
 
     /* loaded from: classes7.dex */
-    public interface MediaCodecListCompat {
-        int getCodecCount();
-
-        android.media.MediaCodecInfo getCodecInfoAt(int i);
-
-        boolean isSecurePlaybackSupported(String str, MediaCodecInfo.CodecCapabilities codecCapabilities);
-
-        boolean secureDecodersExplicit();
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class MediaCodecListCompatV16 implements MediaCodecListCompat {
+    public final class MediaCodecListCompatV16 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
+        public boolean secureDecodersExplicit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
         public MediaCodecListCompatV16() {
             Interceptable interceptable = $ic;
@@ -174,45 +234,53 @@ public final class MediaCodecUtil {
         public int getCodecCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? MediaCodecList.getCodecCount() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return MediaCodecList.getCodecCount();
+            }
+            return invokeV.intValue;
+        }
+
+        public /* synthetic */ MediaCodecListCompatV16(AnonymousClass1 anonymousClass1) {
+            this();
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
         public android.media.MediaCodecInfo getCodecInfoAt(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? MediaCodecList.getCodecInfoAt(i) : (android.media.MediaCodecInfo) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return MediaCodecList.getCodecInfoAt(i);
+            }
+            return (android.media.MediaCodecInfo) invokeI.objValue;
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
         public boolean isSecurePlaybackSupported(String str, MediaCodecInfo.CodecCapabilities codecCapabilities) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, codecCapabilities)) == null) ? "video/avc".equals(str) : invokeLL.booleanValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, codecCapabilities)) == null) {
+                return "video/avc".equals(str);
+            }
+            return invokeLL.booleanValue;
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public final class MediaCodecListCompatV21 implements MediaCodecListCompat {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int codecKind;
+        public android.media.MediaCodecInfo[] mediaCodecInfos;
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
         public boolean secureDecodersExplicit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return false;
+                return true;
             }
             return invokeV.booleanValue;
         }
-
-        public /* synthetic */ MediaCodecListCompatV16(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-    }
-
-    @TargetApi(21)
-    /* loaded from: classes7.dex */
-    public static final class MediaCodecListCompatV21 implements MediaCodecListCompat {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int codecKind;
-        public android.media.MediaCodecInfo[] mediaCodecInfos;
 
         public MediaCodecListCompatV21(boolean z) {
             Interceptable interceptable = $ic;
@@ -265,17 +333,10 @@ public final class MediaCodecUtil {
         public boolean isSecurePlaybackSupported(String str, MediaCodecInfo.CodecCapabilities codecCapabilities) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, codecCapabilities)) == null) ? codecCapabilities.isFeatureSupported("secure-playback") : invokeLL.booleanValue;
-        }
-
-        @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
-        public boolean secureDecodersExplicit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return true;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, codecCapabilities)) == null) {
+                return codecCapabilities.isFeatureSupported("secure-playback");
             }
-            return invokeV.booleanValue;
+            return invokeLL.booleanValue;
         }
     }
 
@@ -294,7 +355,7 @@ public final class MediaCodecUtil {
         }
         PASSTHROUGH_DECODER_INFO = MediaCodecInfo.newPassthroughInstance(GOOGLE_RAW_DECODER_NAME);
         PROFILE_PATTERN = Pattern.compile("^\\D?(\\d+)$");
-        decoderInfosCache = new HashMap<>();
+        decoderInfosCache = new HashMap();
         maxH264DecodableFrameSize = -1;
         SparseIntArray sparseIntArray = new SparseIntArray();
         AVC_PROFILE_NUMBER_TO_CONST = sparseIntArray;
@@ -364,69 +425,44 @@ public final class MediaCodecUtil {
         }
     }
 
-    public static void applyWorkarounds(List<MediaCodecInfo> list) {
+    public static MediaCodecInfo getPassthroughDecoderInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || Util.SDK_INT >= 26) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return PASSTHROUGH_DECODER_INFO;
         }
-        if (list.size() <= 1 || !MTK_RAW_DECODER_NAME.equals(list.get(0).name)) {
-            return;
-        }
-        for (int i = 1; i < list.size(); i++) {
-            MediaCodecInfo mediaCodecInfo = list.get(i);
-            if (GOOGLE_RAW_DECODER_NAME.equals(mediaCodecInfo.name)) {
-                list.remove(i);
-                list.add(0, mediaCodecInfo);
-                return;
-            }
-        }
+        return (MediaCodecInfo) invokeV.objValue;
     }
 
-    public static int avcLevelToMaxFrameSize(int i) {
-        InterceptResult invokeI;
+    public static void applyWorkarounds(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1 || i == 2) {
-                return 25344;
-            }
-            switch (i) {
-                case 8:
-                case 16:
-                case 32:
-                    return 101376;
-                case 64:
-                    return 202752;
-                case 128:
-                case 256:
-                    return 414720;
-                case 512:
-                    return 921600;
-                case 1024:
-                    return 1310720;
-                case 2048:
-                case 4096:
-                    return 2097152;
-                case 8192:
-                    return 2228224;
-                case 16384:
-                    return 5652480;
-                case 32768:
-                case 65536:
-                    return 9437184;
-                default:
-                    return -1;
+        if ((interceptable == null || interceptable.invokeL(65538, null, list) == null) && Util.SDK_INT < 26) {
+            if (list.size() > 1 && MTK_RAW_DECODER_NAME.equals(((MediaCodecInfo) list.get(0)).name)) {
+                for (int i = 1; i < list.size(); i++) {
+                    MediaCodecInfo mediaCodecInfo = (MediaCodecInfo) list.get(i);
+                    if (GOOGLE_RAW_DECODER_NAME.equals(mediaCodecInfo.name)) {
+                        list.remove(i);
+                        list.add(0, mediaCodecInfo);
+                        return;
+                    }
+                }
             }
         }
-        return invokeI.intValue;
     }
 
     public static boolean codecNeedsDisableAdaptationWorkaround(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? Util.SDK_INT <= 22 && (Util.MODEL.equals("ODROID-XU3") || Util.MODEL.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (Util.SDK_INT <= 22 && ((Util.MODEL.equals("ODROID-XU3") || Util.MODEL.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str)))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static Pair<Integer, Integer> getAvcProfileAndLevel(String str, String[] strArr) {
+    public static Pair getAvcProfileAndLevel(String str, String[] strArr) {
         InterceptResult invokeLL;
         Integer valueOf;
         Integer num;
@@ -458,7 +494,7 @@ public final class MediaCodecUtil {
                     Log.w(TAG, "Unknown AVC level: " + valueOf);
                     return null;
                 }
-                return new Pair<>(valueOf3, valueOf4);
+                return new Pair(valueOf3, valueOf4);
             } catch (NumberFormatException unused) {
                 Log.w(TAG, "Ignoring malformed AVC codec string: " + str);
                 return null;
@@ -467,102 +503,7 @@ public final class MediaCodecUtil {
         return (Pair) invokeLL.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x002d, code lost:
-        if (r3.equals(com.google.android.exoplayer2.mediacodec.MediaCodecUtil.CODEC_ID_HEV1) != false) goto L12;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Pair<Integer, Integer> getCodecProfileAndLevel(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            char c = 0;
-            String str2 = split[0];
-            switch (str2.hashCode()) {
-                case 3006243:
-                    if (str2.equals("avc1")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3006244:
-                    if (str2.equals(CODEC_ID_AVC2)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3199032:
-                    break;
-                case 3214780:
-                    if (str2.equals(CODEC_ID_HVC1)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c == 0 || c == 1) {
-                return getHevcProfileAndLevel(str, split);
-            }
-            if (c == 2 || c == 3) {
-                return getAvcProfileAndLevel(str, split);
-            }
-            return null;
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static MediaCodecInfo getDecoderInfo(String str, boolean z) throws DecoderQueryException {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
-            List<MediaCodecInfo> decoderInfos = getDecoderInfos(str, z);
-            if (decoderInfos.isEmpty()) {
-                return null;
-            }
-            return decoderInfos.get(0);
-        }
-        return (MediaCodecInfo) invokeLZ.objValue;
-    }
-
-    public static synchronized List<MediaCodecInfo> getDecoderInfos(String str, boolean z) throws DecoderQueryException {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, str, z)) == null) {
-            synchronized (MediaCodecUtil.class) {
-                CodecKey codecKey = new CodecKey(str, z);
-                List<MediaCodecInfo> list = decoderInfosCache.get(codecKey);
-                if (list != null) {
-                    return list;
-                }
-                List<MediaCodecInfo> decoderInfosInternal = getDecoderInfosInternal(codecKey, Util.SDK_INT >= 21 ? new MediaCodecListCompatV21(z) : new MediaCodecListCompatV16(null));
-                if (z && decoderInfosInternal.isEmpty() && 21 <= Util.SDK_INT && Util.SDK_INT <= 23) {
-                    decoderInfosInternal = getDecoderInfosInternal(codecKey, new MediaCodecListCompatV16(null));
-                    if (!decoderInfosInternal.isEmpty()) {
-                        Log.w(TAG, "MediaCodecList API didn't list secure decoder for: " + str + ". Assuming: " + decoderInfosInternal.get(0).name);
-                    }
-                }
-                applyWorkarounds(decoderInfosInternal);
-                List<MediaCodecInfo> unmodifiableList = Collections.unmodifiableList(decoderInfosInternal);
-                decoderInfosCache.put(codecKey, unmodifiableList);
-                return unmodifiableList;
-            }
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public static List<MediaCodecInfo> getDecoderInfosInternal(CodecKey codecKey, MediaCodecListCompat mediaCodecListCompat) throws DecoderQueryException {
+    public static List getDecoderInfosInternal(CodecKey codecKey, MediaCodecListCompat mediaCodecListCompat) throws DecoderQueryException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, codecKey, mediaCodecListCompat)) == null) {
@@ -623,7 +564,119 @@ public final class MediaCodecUtil {
         return (List) invokeLL.objValue;
     }
 
-    public static Pair<Integer, Integer> getHevcProfileAndLevel(String str, String[] strArr) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002d, code lost:
+        if (r3.equals(com.google.android.exoplayer2.mediacodec.MediaCodecUtil.CODEC_ID_HEV1) != false) goto L12;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Pair getCodecProfileAndLevel(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            char c = 0;
+            String str2 = split[0];
+            switch (str2.hashCode()) {
+                case 3006243:
+                    if (str2.equals("avc1")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3006244:
+                    if (str2.equals(CODEC_ID_AVC2)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3199032:
+                    break;
+                case 3214780:
+                    if (str2.equals(CODEC_ID_HVC1)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0 && c != 1) {
+                if (c != 2 && c != 3) {
+                    return null;
+                }
+                return getAvcProfileAndLevel(str, split);
+            }
+            return getHevcProfileAndLevel(str, split);
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static MediaCodecInfo getDecoderInfo(String str, boolean z) throws DecoderQueryException {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
+            List decoderInfos = getDecoderInfos(str, z);
+            if (decoderInfos.isEmpty()) {
+                return null;
+            }
+            return (MediaCodecInfo) decoderInfos.get(0);
+        }
+        return (MediaCodecInfo) invokeLZ.objValue;
+    }
+
+    public static void warmDecoderInfoCache(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65550, null, str, z) == null) {
+            try {
+                getDecoderInfos(str, z);
+            } catch (DecoderQueryException e) {
+                Log.e(TAG, "Codec warming failed", e);
+            }
+        }
+    }
+
+    public static synchronized List getDecoderInfos(String str, boolean z) throws DecoderQueryException {
+        InterceptResult invokeLZ;
+        MediaCodecListCompat mediaCodecListCompatV16;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, str, z)) == null) {
+            synchronized (MediaCodecUtil.class) {
+                CodecKey codecKey = new CodecKey(str, z);
+                List list = (List) decoderInfosCache.get(codecKey);
+                if (list != null) {
+                    return list;
+                }
+                if (Util.SDK_INT >= 21) {
+                    mediaCodecListCompatV16 = new MediaCodecListCompatV21(z);
+                } else {
+                    mediaCodecListCompatV16 = new MediaCodecListCompatV16(null);
+                }
+                List decoderInfosInternal = getDecoderInfosInternal(codecKey, mediaCodecListCompatV16);
+                if (z && decoderInfosInternal.isEmpty() && 21 <= Util.SDK_INT && Util.SDK_INT <= 23) {
+                    decoderInfosInternal = getDecoderInfosInternal(codecKey, new MediaCodecListCompatV16(null));
+                    if (!decoderInfosInternal.isEmpty()) {
+                        Log.w(TAG, "MediaCodecList API didn't list secure decoder for: " + str + ". Assuming: " + ((MediaCodecInfo) decoderInfosInternal.get(0)).name);
+                    }
+                }
+                applyWorkarounds(decoderInfosInternal);
+                List unmodifiableList = Collections.unmodifiableList(decoderInfosInternal);
+                decoderInfosCache.put(codecKey, unmodifiableList);
+                return unmodifiableList;
+            }
+        }
+        return (List) invokeLZ.objValue;
+    }
+
+    public static Pair getHevcProfileAndLevel(String str, String[] strArr) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
@@ -640,26 +693,20 @@ public final class MediaCodecUtil {
             String group = matcher.group(1);
             if ("1".equals(group)) {
                 i = 1;
-            } else if (!"2".equals(group)) {
+            } else if ("2".equals(group)) {
+                i = 2;
+            } else {
                 Log.w(TAG, "Unknown HEVC profile string: " + group);
                 return null;
-            } else {
-                i = 2;
             }
-            Integer num = HEVC_CODEC_STRING_TO_PROFILE_LEVEL.get(strArr[3]);
+            Integer num = (Integer) HEVC_CODEC_STRING_TO_PROFILE_LEVEL.get(strArr[3]);
             if (num == null) {
                 Log.w(TAG, "Unknown HEVC level string: " + matcher.group(1));
                 return null;
             }
-            return new Pair<>(Integer.valueOf(i), num);
+            return new Pair(Integer.valueOf(i), num);
         }
         return (Pair) invokeLL.objValue;
-    }
-
-    public static MediaCodecInfo getPassthroughDecoderInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? PASSTHROUGH_DECODER_INFO : (MediaCodecInfo) invokeV.objValue;
     }
 
     public static boolean isCodecUsableDecoder(android.media.MediaCodecInfo mediaCodecInfo, String str, boolean z) {
@@ -669,64 +716,62 @@ public final class MediaCodecUtil {
             if (mediaCodecInfo.isEncoder() || (!z && str.endsWith(".secure"))) {
                 return false;
             }
-            if (Util.SDK_INT >= 21 || !("CIPAACDecoder".equals(str) || "CIPMP3Decoder".equals(str) || "CIPVorbisDecoder".equals(str) || "CIPAMRNBDecoder".equals(str) || "AACDecoder".equals(str) || "MP3Decoder".equals(str))) {
-                if (Util.SDK_INT >= 18 || !"OMX.SEC.MP3.Decoder".equals(str)) {
-                    if (Util.SDK_INT < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str) && ("a70".equals(Util.DEVICE) || ("Xiaomi".equals(Util.MANUFACTURER) && Util.DEVICE.startsWith("HM")))) {
-                        return false;
-                    }
-                    if (Util.SDK_INT == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(Util.DEVICE) || "protou".equals(Util.DEVICE) || "ville".equals(Util.DEVICE) || "villeplus".equals(Util.DEVICE) || "villec2".equals(Util.DEVICE) || Util.DEVICE.startsWith("gee") || "C6602".equals(Util.DEVICE) || "C6603".equals(Util.DEVICE) || "C6606".equals(Util.DEVICE) || "C6616".equals(Util.DEVICE) || "L36h".equals(Util.DEVICE) || "SO-02E".equals(Util.DEVICE))) {
-                        return false;
-                    }
-                    if (Util.SDK_INT == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(Util.DEVICE) || "C1505".equals(Util.DEVICE) || "C1604".equals(Util.DEVICE) || "C1605".equals(Util.DEVICE))) {
-                        return false;
-                    }
-                    if (Util.SDK_INT >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && Util.MANUFACTURER.equals(ManufacturerUtils.SAMSUNG) && (Util.DEVICE.startsWith("zeroflte") || Util.DEVICE.startsWith("zerolte") || Util.DEVICE.startsWith("zenlte") || Util.DEVICE.equals("SC-05G") || Util.DEVICE.equals("marinelteatt") || Util.DEVICE.equals("404SC") || Util.DEVICE.equals("SC-04G") || Util.DEVICE.equals("SCV31")))) {
-                        if (Util.SDK_INT <= 19 && "OMX.SEC.vp8.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(Util.MANUFACTURER) && (Util.DEVICE.startsWith("d2") || Util.DEVICE.startsWith("serrano") || Util.DEVICE.startsWith("jflte") || Util.DEVICE.startsWith("santos") || Util.DEVICE.startsWith("t0"))) {
-                            return false;
-                        }
-                        return (Util.SDK_INT <= 19 && Util.DEVICE.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
-                    }
-                    return false;
-                }
+            if (Util.SDK_INT < 21 && ("CIPAACDecoder".equals(str) || "CIPMP3Decoder".equals(str) || "CIPVorbisDecoder".equals(str) || "CIPAMRNBDecoder".equals(str) || "AACDecoder".equals(str) || "MP3Decoder".equals(str))) {
                 return false;
             }
-            return false;
+            if (Util.SDK_INT < 18 && "OMX.SEC.MP3.Decoder".equals(str)) {
+                return false;
+            }
+            if (Util.SDK_INT < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str) && ("a70".equals(Util.DEVICE) || ("Xiaomi".equals(Util.MANUFACTURER) && Util.DEVICE.startsWith("HM")))) {
+                return false;
+            }
+            if (Util.SDK_INT == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(Util.DEVICE) || "protou".equals(Util.DEVICE) || "ville".equals(Util.DEVICE) || "villeplus".equals(Util.DEVICE) || "villec2".equals(Util.DEVICE) || Util.DEVICE.startsWith("gee") || "C6602".equals(Util.DEVICE) || "C6603".equals(Util.DEVICE) || "C6606".equals(Util.DEVICE) || "C6616".equals(Util.DEVICE) || "L36h".equals(Util.DEVICE) || "SO-02E".equals(Util.DEVICE))) {
+                return false;
+            }
+            if (Util.SDK_INT == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(Util.DEVICE) || "C1505".equals(Util.DEVICE) || "C1604".equals(Util.DEVICE) || "C1605".equals(Util.DEVICE))) {
+                return false;
+            }
+            if (Util.SDK_INT < 24 && (("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && Util.MANUFACTURER.equals(ManufacturerUtils.SAMSUNG) && (Util.DEVICE.startsWith("zeroflte") || Util.DEVICE.startsWith("zerolte") || Util.DEVICE.startsWith("zenlte") || Util.DEVICE.equals("SC-05G") || Util.DEVICE.equals("marinelteatt") || Util.DEVICE.equals("404SC") || Util.DEVICE.equals("SC-04G") || Util.DEVICE.equals("SCV31")))) {
+                return false;
+            }
+            if (Util.SDK_INT <= 19 && "OMX.SEC.vp8.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(Util.MANUFACTURER) && (Util.DEVICE.startsWith("d2") || Util.DEVICE.startsWith("serrano") || Util.DEVICE.startsWith("jflte") || Util.DEVICE.startsWith("santos") || Util.DEVICE.startsWith("t0"))) {
+                return false;
+            }
+            if (Util.SDK_INT <= 19 && Util.DEVICE.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) {
+                return false;
+            }
+            return true;
         }
         return invokeLLZ.booleanValue;
     }
 
     public static int maxH264DecodableFrameSize() throws DecoderQueryException {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             if (maxH264DecodableFrameSize == -1) {
-                int i = 0;
+                int i2 = 0;
                 MediaCodecInfo decoderInfo = getDecoderInfo("video/avc", false);
                 if (decoderInfo != null) {
                     MediaCodecInfo.CodecProfileLevel[] profileLevels = decoderInfo.getProfileLevels();
                     int length = profileLevels.length;
-                    int i2 = 0;
-                    while (i < length) {
-                        i2 = Math.max(avcLevelToMaxFrameSize(profileLevels[i].level), i2);
-                        i++;
+                    int i3 = 0;
+                    while (i2 < length) {
+                        i3 = Math.max(avcLevelToMaxFrameSize(profileLevels[i2].level), i3);
+                        i2++;
                     }
-                    i = Math.max(i2, Util.SDK_INT >= 21 ? 345600 : 172800);
+                    if (Util.SDK_INT >= 21) {
+                        i = 345600;
+                    } else {
+                        i = 172800;
+                    }
+                    i2 = Math.max(i3, i);
                 }
-                maxH264DecodableFrameSize = i;
+                maxH264DecodableFrameSize = i2;
             }
             return maxH264DecodableFrameSize;
         }
         return invokeV.intValue;
-    }
-
-    public static void warmDecoderInfoCache(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65550, null, str, z) == null) {
-            try {
-                getDecoderInfos(str, z);
-            } catch (DecoderQueryException e) {
-                Log.e(TAG, "Codec warming failed", e);
-            }
-        }
     }
 }

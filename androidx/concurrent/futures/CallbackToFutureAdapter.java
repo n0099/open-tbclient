@@ -1,7 +1,5 @@
 package androidx.concurrent.futures;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -20,6 +18,11 @@ import java.util.concurrent.TimeoutException;
 public final class CallbackToFutureAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes.dex */
+    public interface Resolver {
+        Object attachCompleter(Completer completer) throws Exception;
+    }
 
     /* loaded from: classes.dex */
     public static final class Completer<T> {
@@ -55,13 +58,37 @@ public final class CallbackToFutureAdapter {
             }
         }
 
-        public void addCancellationListener(@NonNull Runnable runnable, @NonNull Executor executor) {
+        public void fireCancellationListeners() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.tag = null;
+                this.future = null;
+                this.cancellationFuture.set(null);
+            }
+        }
+
+        public boolean setCancelled() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                boolean z = true;
+                this.attemptedSetting = true;
+                SafeFuture<T> safeFuture = this.future;
+                z = (safeFuture == null || !safeFuture.cancelWithoutNotifyingCompleter(true)) ? false : false;
+                if (z) {
+                    setCompletedNormally();
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void addCancellationListener(Runnable runnable, Executor executor) {
             ResolvableFuture<Void> resolvableFuture;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, runnable, executor) == null) || (resolvableFuture = this.cancellationFuture) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, runnable, executor) == null) && (resolvableFuture = this.cancellationFuture) != null) {
+                resolvableFuture.addListener(runnable, executor);
             }
-            resolvableFuture.addListener(runnable, executor);
         }
 
         public void finalize() {
@@ -72,19 +99,9 @@ public final class CallbackToFutureAdapter {
                 if (safeFuture != null && !safeFuture.isDone()) {
                     safeFuture.setException(new FutureGarbageCollectedException("The completer object was garbage collected - this future would otherwise never complete. The tag was: " + this.tag));
                 }
-                if (this.attemptedSetting || (resolvableFuture = this.cancellationFuture) == null) {
-                    return;
+                if (!this.attemptedSetting && (resolvableFuture = this.cancellationFuture) != null) {
+                    resolvableFuture.set(null);
                 }
-                resolvableFuture.set(null);
-            }
-        }
-
-        public void fireCancellationListeners() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.tag = null;
-                this.future = null;
-                this.cancellationFuture.set(null);
             }
         }
 
@@ -104,23 +121,7 @@ public final class CallbackToFutureAdapter {
             return invokeL.booleanValue;
         }
 
-        public boolean setCancelled() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                boolean z = true;
-                this.attemptedSetting = true;
-                SafeFuture<T> safeFuture = this.future;
-                z = (safeFuture == null || !safeFuture.cancelWithoutNotifyingCompleter(true)) ? false : false;
-                if (z) {
-                    setCompletedNormally();
-                }
-                return z;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean setException(@NonNull Throwable th) {
+        public boolean setException(Throwable th) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, th)) == null) {
@@ -173,12 +174,6 @@ public final class CallbackToFutureAdapter {
             }
             return (Throwable) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public interface Resolver<T> {
-        @Nullable
-        Object attachCompleter(@NonNull Completer<T> completer) throws Exception;
     }
 
     /* loaded from: classes.dex */
@@ -244,11 +239,21 @@ public final class CallbackToFutureAdapter {
         }
 
         @Override // com.google.common.util.concurrent.ListenableFuture
-        public void addListener(@NonNull Runnable runnable, @NonNull Executor executor) {
+        public void addListener(Runnable runnable, Executor executor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, executor) == null) {
                 this.delegate.addListener(runnable, executor);
             }
+        }
+
+        @Override // java.util.concurrent.Future
+        public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+            InterceptResult invokeJL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
+                return this.delegate.get(j, timeUnit);
+            }
+            return (T) invokeJL.objValue;
         }
 
         @Override // java.util.concurrent.Future
@@ -269,53 +274,67 @@ public final class CallbackToFutureAdapter {
         public boolean cancelWithoutNotifyingCompleter(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? this.delegate.cancel(z) : invokeZ.booleanValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                return this.delegate.cancel(z);
+            }
+            return invokeZ.booleanValue;
+        }
+
+        public boolean set(T t) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
+                return this.delegate.set(t);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public boolean setException(Throwable th) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th)) == null) {
+                return this.delegate.setException(th);
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.concurrent.Future
         public T get() throws InterruptedException, ExecutionException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.delegate.get() : (T) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.delegate.get();
+            }
+            return (T) invokeV.objValue;
         }
 
         @Override // java.util.concurrent.Future
         public boolean isCancelled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.delegate.isCancelled() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.delegate.isCancelled();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.util.concurrent.Future
         public boolean isDone() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.delegate.isDone() : invokeV.booleanValue;
-        }
-
-        public boolean set(T t) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) ? this.delegate.set(t) : invokeL.booleanValue;
-        }
-
-        public boolean setException(Throwable th) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th)) == null) ? this.delegate.setException(th) : invokeL.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.delegate.isDone();
+            }
+            return invokeV.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.delegate.toString() : (String) invokeV.objValue;
-        }
-
-        @Override // java.util.concurrent.Future
-        public T get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-            InterceptResult invokeJL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) ? this.delegate.get(j, timeUnit) : (T) invokeJL.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.delegate.toString();
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -333,12 +352,11 @@ public final class CallbackToFutureAdapter {
         }
     }
 
-    @NonNull
-    public static <T> ListenableFuture<T> getFuture(@NonNull Resolver<T> resolver) {
+    public static <T> ListenableFuture<T> getFuture(Resolver<T> resolver) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, resolver)) == null) {
-            Completer<T> completer = new Completer<>();
+            Completer completer = new Completer();
             SafeFuture<T> safeFuture = new SafeFuture<>(completer);
             completer.future = safeFuture;
             completer.tag = resolver.getClass();

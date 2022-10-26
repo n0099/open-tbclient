@@ -34,6 +34,16 @@ public class VideoPlayData implements Parcelable, Serializable {
     public String videoPath;
     public int width;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -71,7 +81,10 @@ public class VideoPlayData implements Parcelable, Serializable {
             public VideoPlayData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new VideoPlayData(parcel) : (VideoPlayData) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new VideoPlayData(parcel);
+                }
+                return (VideoPlayData) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +93,10 @@ public class VideoPlayData implements Parcelable, Serializable {
             public VideoPlayData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new VideoPlayData[i] : (VideoPlayData[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new VideoPlayData[i];
+                }
+                return (VideoPlayData[]) invokeI.objValue;
             }
         };
     }
@@ -99,34 +115,38 @@ public class VideoPlayData implements Parcelable, Serializable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public VideoPlayData(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == null || !(obj instanceof VideoPlayData)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            VideoPlayData videoPlayData = (VideoPlayData) obj;
-            if (TextUtils.isEmpty(this.videoPath)) {
-                if (!TextUtils.isEmpty(videoPlayData.videoPath)) {
-                    return false;
-                }
-            } else if (!this.videoPath.equals(videoPlayData.videoPath)) {
-                return false;
-            }
-            return this.start == videoPlayData.start && this.end == videoPlayData.end;
         }
-        return invokeL.booleanValue;
+        this.videoPath = parcel.readString();
+        this.offset = parcel.readInt();
+        this.start = parcel.readInt();
+        this.end = parcel.readInt();
+        this.next = (VideoPlayData) parcel.readParcelable(VideoPlayData.class.getClassLoader());
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isOriginal = z;
+        this.insertIndex = parcel.readInt();
+        this.rotation = parcel.readInt();
+        this.width = parcel.readInt();
+        this.height = parcel.readInt();
+        this.mMaterialId = parcel.readString();
     }
 
     public boolean parse(String str) {
@@ -158,6 +178,50 @@ public class VideoPlayData implements Parcelable, Serializable {
             } catch (JSONException unused) {
                 return false;
             }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public VideoPlayData(String str, int i, int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.videoPath = str;
+        this.start = i;
+        this.end = i2;
+        this.isOriginal = z;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == null || !(obj instanceof VideoPlayData)) {
+                return false;
+            }
+            VideoPlayData videoPlayData = (VideoPlayData) obj;
+            if (TextUtils.isEmpty(this.videoPath)) {
+                if (!TextUtils.isEmpty(videoPlayData.videoPath)) {
+                    return false;
+                }
+            } else if (!this.videoPath.equals(videoPlayData.videoPath)) {
+                return false;
+            }
+            if (this.start != videoPlayData.start || this.end != videoPlayData.end) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -217,54 +281,5 @@ public class VideoPlayData implements Parcelable, Serializable {
             parcel.writeInt(this.height);
             parcel.writeString(this.mMaterialId);
         }
-    }
-
-    public VideoPlayData(String str, int i, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.videoPath = str;
-        this.start = i;
-        this.end = i2;
-        this.isOriginal = z;
-    }
-
-    public VideoPlayData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.videoPath = parcel.readString();
-        this.offset = parcel.readInt();
-        this.start = parcel.readInt();
-        this.end = parcel.readInt();
-        this.next = (VideoPlayData) parcel.readParcelable(VideoPlayData.class.getClassLoader());
-        this.isOriginal = parcel.readByte() != 0;
-        this.insertIndex = parcel.readInt();
-        this.rotation = parcel.readInt();
-        this.width = parcel.readInt();
-        this.height = parcel.readInt();
-        this.mMaterialId = parcel.readString();
     }
 }

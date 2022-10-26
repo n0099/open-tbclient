@@ -47,16 +47,16 @@ public final class MultiPluginManagerServiceImpl$installMultiBundle$1 implements
     public void onProgress(long j, long j2) {
         MultiPluginInstallCallback multiPluginInstallCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (multiPluginInstallCallback = this.$installCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (multiPluginInstallCallback = this.$installCallback) != null) {
+            multiPluginInstallCallback.onProgress(this.$pkgName, j, j2);
         }
-        multiPluginInstallCallback.onProgress(this.$pkgName, j, j2);
     }
 
     @Override // com.baidu.nps.main.install.IInstallCallback
     public void onResult(int i, String str) {
         BundleInfo validBackupBundle;
         AppInfoService appInfoService;
+        File file;
         String genBundleCacheFileName;
         String genBundleFileName;
         Application application;
@@ -66,56 +66,60 @@ public final class MultiPluginManagerServiceImpl$installMultiBundle$1 implements
                 this.$installCallback.onResult(this.$pkgName, true, i, str);
             } else if (i == 3) {
                 validBackupBundle = this.this$0.getValidBackupBundle(this.$pkgName);
-                if (validBackupBundle != null) {
-                    appInfoService = this.this$0.appService;
-                    File file = new File((appInfoService == null || (application = appInfoService.getApplication()) == null) ? null : application.getCacheDir(), "multi_bundle_cache");
-                    genBundleCacheFileName = this.this$0.genBundleCacheFileName(validBackupBundle);
-                    genBundleFileName = this.this$0.genBundleFileName(validBackupBundle);
-                    if (new File(file.getAbsolutePath(), genBundleFileName).exists()) {
-                        this.this$0.installLocalMultiBundle(validBackupBundle, new File(file, genBundleFileName), new MultiPluginManagerServiceImpl.PluginInstallCallback(this) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$installMultiBundle$1$onResult$1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ MultiPluginManagerServiceImpl$installMultiBundle$1 this$0;
-
-                            /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                            }
-
-                            @Override // com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl.PluginInstallCallback
-                            public void onResult(String str2, int i2, String str3) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str2, i2, str3) == null) {
-                                    this.this$0.$installCallback.onResult(str2, false, i2, str3);
-                                }
-                            }
-                        });
-                        return;
-                    }
+                if (validBackupBundle == null) {
+                    this.$installCallback.onResult(this.$pkgName, false, i, str);
+                    return;
+                }
+                appInfoService = this.this$0.appService;
+                if (appInfoService != null && (application = appInfoService.getApplication()) != null) {
+                    file = application.getCacheDir();
+                } else {
+                    file = null;
+                }
+                File file2 = new File(file, "multi_bundle_cache");
+                genBundleCacheFileName = this.this$0.genBundleCacheFileName(validBackupBundle);
+                genBundleFileName = this.this$0.genBundleFileName(validBackupBundle);
+                if (!new File(file2.getAbsolutePath(), genBundleFileName).exists()) {
                     MultiPluginManagerServiceImpl multiPluginManagerServiceImpl = this.this$0;
                     String str2 = this.$pkgName;
                     String downloadUrl = validBackupBundle.getDownloadUrl();
                     Intrinsics.checkExpressionValueIsNotNull(downloadUrl, "bkBundle.downloadUrl");
-                    String absolutePath = file.getAbsolutePath();
+                    String absolutePath = file2.getAbsolutePath();
                     Intrinsics.checkExpressionValueIsNotNull(absolutePath, "cacheDir.absolutePath");
-                    multiPluginManagerServiceImpl.downloadBundleFile(str2, downloadUrl, absolutePath, genBundleCacheFileName, new MultiPluginManagerServiceImpl$installMultiBundle$1$onResult$2(this, file, genBundleCacheFileName, genBundleFileName, validBackupBundle));
+                    multiPluginManagerServiceImpl.downloadBundleFile(str2, downloadUrl, absolutePath, genBundleCacheFileName, new MultiPluginManagerServiceImpl$installMultiBundle$1$onResult$2(this, file2, genBundleCacheFileName, genBundleFileName, validBackupBundle));
                     return;
                 }
-                this.$installCallback.onResult(this.$pkgName, false, i, str);
+                this.this$0.installLocalMultiBundle(validBackupBundle, new File(file2, genBundleFileName), new MultiPluginManagerServiceImpl.PluginInstallCallback(this) { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$installMultiBundle$1$onResult$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ MultiPluginManagerServiceImpl$installMultiBundle$1 this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl.PluginInstallCallback
+                    public void onResult(String str3, int i2, String str4) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str3, i2, str4) == null) {
+                            this.this$0.$installCallback.onResult(str3, false, i2, str4);
+                        }
+                    }
+                });
             } else {
                 this.$installCallback.onResult(this.$pkgName, false, i, str);
             }

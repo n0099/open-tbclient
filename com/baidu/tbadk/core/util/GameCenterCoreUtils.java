@@ -69,13 +69,16 @@ public class GameCenterCoreUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+            if (!TextUtils.isEmpty(str)) {
+                if (str.startsWith(GAME_NATIVE_PREFIX)) {
+                    return 1;
+                }
+                if (str.startsWith("http")) {
+                    return 2;
+                }
                 return 0;
             }
-            if (str.startsWith(GAME_NATIVE_PREFIX)) {
-                return 1;
-            }
-            return str.startsWith("http") ? 2 : 0;
+            return 0;
         }
         return invokeL.intValue;
     }

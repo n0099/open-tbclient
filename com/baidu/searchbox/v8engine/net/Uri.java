@@ -1,7 +1,6 @@
 package com.baidu.searchbox.v8engine.net;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
-public abstract class Uri implements Comparable<Uri> {
+public abstract class Uri implements Comparable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ENCODING = "UTF-8";
     public static final char[] HEX_DIGITS;
@@ -24,13 +23,190 @@ public abstract class Uri implements Comparable<Uri> {
 
     /* renamed from: com.baidu.searchbox.v8engine.net.Uri$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public abstract String getEncodedAuthority();
+
+    public abstract String getScheme();
+
+    public abstract boolean isHierarchical();
+
+    public abstract boolean isRelative();
+
+    public abstract String toString();
+
     /* loaded from: classes2.dex */
-    public static abstract class AbstractHierarchicalUri extends Uri {
+    public class Part extends AbstractPart {
+        public static /* synthetic */ Interceptable $ic;
+        public static final Part EMPTY;
+        public static final Part NULL;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* loaded from: classes2.dex */
+        public class EmptyPart extends Part {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.searchbox.v8engine.net.Uri.Part
+            public boolean isEmpty() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return true;
+                }
+                return invokeV.booleanValue;
+            }
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public EmptyPart(String str) {
+                super(str, str, null);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], (String) objArr2[1], (AnonymousClass1) objArr2[2]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1835995347, "Lcom/baidu/searchbox/v8engine/net/Uri$Part;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1835995347, "Lcom/baidu/searchbox/v8engine/net/Uri$Part;");
+                    return;
+                }
+            }
+            NULL = new EmptyPart(null);
+            EMPTY = new EmptyPart("");
+        }
+
+        public String getEncoded() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.encoded != Uri.NOT_CACHED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return this.encoded;
+                }
+                String encode = Uri.encode(this.decoded);
+                this.encoded = encode;
+                return encode;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public Part(String str, String str2) {
+            super(str, str2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public static Part from(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+                if (str == null) {
+                    return NULL;
+                }
+                if (str.length() == 0) {
+                    return EMPTY;
+                }
+                if (str2 == null) {
+                    return NULL;
+                }
+                if (str2.length() == 0) {
+                    return EMPTY;
+                }
+                return new Part(str, str2);
+            }
+            return (Part) invokeLL.objValue;
+        }
+
+        public /* synthetic */ Part(String str, String str2, AnonymousClass1 anonymousClass1) {
+            this(str, str2);
+        }
+
+        public static Part fromDecoded(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return from(Uri.NOT_CACHED, str);
+            }
+            return (Part) invokeL.objValue;
+        }
+
+        public static Part fromEncoded(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+                return from(str, Uri.NOT_CACHED);
+            }
+            return (Part) invokeL.objValue;
+        }
+
+        public static Part nonNull(Part part) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, part)) == null) {
+                if (part == null) {
+                    return NULL;
+                }
+                return part;
+            }
+            return (Part) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public abstract class AbstractHierarchicalUri extends Uri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,10 +228,13 @@ public abstract class Uri implements Comparable<Uri> {
             }
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        public /* synthetic */ AbstractHierarchicalUri(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
         @Override // com.baidu.searchbox.v8engine.net.Uri, java.lang.Comparable
-        public /* bridge */ /* synthetic */ int compareTo(Uri uri) {
-            return super.compareTo(uri);
+        public /* bridge */ /* synthetic */ int compareTo(Object obj) {
+            return super.compareTo((Uri) obj);
         }
 
         public String parseAuthority() {
@@ -88,14 +267,10 @@ public abstract class Uri implements Comparable<Uri> {
             }
             return (String) invokeV.objValue;
         }
-
-        public /* synthetic */ AbstractHierarchicalUri(AnonymousClass1 anonymousClass1) {
-            this();
-        }
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class AbstractPart {
+    public abstract class AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile String decoded;
@@ -122,7 +297,7 @@ public abstract class Uri implements Comparable<Uri> {
     }
 
     /* loaded from: classes2.dex */
-    public static class AuthorityPart extends AbstractPart {
+    public class AuthorityPart extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final AuthorityPart EMPTY;
         public static final AuthorityPart NULL;
@@ -143,6 +318,26 @@ public abstract class Uri implements Comparable<Uri> {
             }
             NULL = new AuthorityPart(null, null);
             EMPTY = new AuthorityPart("", "");
+        }
+
+        public String getEncoded() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.encoded != Uri.NOT_CACHED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return this.encoded;
+                }
+                String encode = Uri.encode(this.decoded);
+                this.encoded = encode;
+                return encode;
+            }
+            return (String) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,26 +379,15 @@ public abstract class Uri implements Comparable<Uri> {
         public static AuthorityPart fromEncoded(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? from(str, Uri.NOT_CACHED) : (AuthorityPart) invokeL.objValue;
-        }
-
-        public String getEncoded() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.encoded != Uri.NOT_CACHED) {
-                    return this.encoded;
-                }
-                String encode = Uri.encode(this.decoded);
-                this.encoded = encode;
-                return encode;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return from(str, Uri.NOT_CACHED);
             }
-            return (String) invokeV.objValue;
+            return (AuthorityPart) invokeL.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Part fragment;
@@ -229,7 +413,22 @@ public abstract class Uri implements Comparable<Uri> {
         private boolean hasSchemeOrAuthority() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.scheme != null : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                if (this.scheme != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return build().toString();
+            }
+            return (String) invokeV.objValue;
         }
 
         public Builder appendQueryParameter(String str, String str2) {
@@ -319,33 +518,36 @@ public abstract class Uri implements Comparable<Uri> {
             return (Builder) invokeL.objValue;
         }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? build().toString() : (String) invokeV.objValue;
-        }
-
         public Builder fragment(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? fragment(Part.fromDecoded(str)) : (Builder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                return fragment(Part.fromDecoded(str));
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder path(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? path(PathPart.fromDecoded(str)) : (Builder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                return path(PathPart.fromDecoded(str));
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder query(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? query(Part.fromDecoded(str)) : (Builder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+                return query(Part.fromDecoded(str));
+            }
+            return (Builder) invokeL.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class HierarchicalUri extends AbstractHierarchicalUri {
+    public class HierarchicalUri extends AbstractHierarchicalUri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AuthorityPart authority;
@@ -355,64 +557,6 @@ public abstract class Uri implements Comparable<Uri> {
         public final String scheme;
         public volatile String uriString;
 
-        public /* synthetic */ HierarchicalUri(String str, PathPart pathPart, Part part, Part part2, AnonymousClass1 anonymousClass1) {
-            this(str, pathPart, part, part2);
-        }
-
-        private void appendSspTo(StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65538, this, sb) == null) {
-                String parseAuthority = parseAuthority();
-                if (parseAuthority != null) {
-                    sb.append("//");
-                    sb.append(parseAuthority);
-                }
-                String encoded = this.path.getEncoded();
-                if (encoded != null) {
-                    sb.append(encoded);
-                }
-                if (this.query.isEmpty()) {
-                    return;
-                }
-                sb.append('?');
-                sb.append(this.query.getEncoded());
-            }
-        }
-
-        private String makeUriString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                StringBuilder sb = new StringBuilder();
-                String str = this.scheme;
-                if (str != null) {
-                    sb.append(str);
-                    sb.append(':');
-                }
-                appendSspTo(sb);
-                if (!this.fragment.isEmpty()) {
-                    sb.append('#');
-                    sb.append(this.fragment.getEncoded());
-                }
-                return sb.toString();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public String getEncodedAuthority() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.authority.getEncoded() : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public String getScheme() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.scheme : (String) invokeV.objValue;
-        }
-
         @Override // com.baidu.searchbox.v8engine.net.Uri
         public boolean isHierarchical() {
             InterceptResult invokeV;
@@ -421,28 +565,6 @@ public abstract class Uri implements Comparable<Uri> {
                 return true;
             }
             return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public boolean isRelative() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.scheme == null : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.uriString != Uri.NOT_CACHED) {
-                    return this.uriString;
-                }
-                String makeUriString = makeUriString();
-                this.uriString = makeUriString;
-                return makeUriString;
-            }
-            return (String) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -470,26 +592,113 @@ public abstract class Uri implements Comparable<Uri> {
             this.query = Part.nonNull(part);
             this.fragment = Part.nonNull(part2);
         }
+
+        public /* synthetic */ HierarchicalUri(String str, PathPart pathPart, Part part, Part part2, AnonymousClass1 anonymousClass1) {
+            this(str, pathPart, part, part2);
+        }
+
+        private void appendSspTo(StringBuilder sb) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65538, this, sb) == null) {
+                String parseAuthority = parseAuthority();
+                if (parseAuthority != null) {
+                    sb.append("//");
+                    sb.append(parseAuthority);
+                }
+                String encoded = this.path.getEncoded();
+                if (encoded != null) {
+                    sb.append(encoded);
+                }
+                if (!this.query.isEmpty()) {
+                    sb.append('?');
+                    sb.append(this.query.getEncoded());
+                }
+            }
+        }
+
+        private String makeUriString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                StringBuilder sb = new StringBuilder();
+                String str = this.scheme;
+                if (str != null) {
+                    sb.append(str);
+                    sb.append(':');
+                }
+                appendSspTo(sb);
+                if (!this.fragment.isEmpty()) {
+                    sb.append('#');
+                    sb.append(this.fragment.getEncoded());
+                }
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public String getEncodedAuthority() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.authority.getEncoded();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public String getScheme() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.scheme;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public boolean isRelative() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.scheme == null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public String toString() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.uriString != Uri.NOT_CACHED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return this.uriString;
+                }
+                String makeUriString = makeUriString();
+                this.uriString = makeUriString;
+                return makeUriString;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes2.dex */
-    public static class OpaqueUri extends Uri {
+    public class OpaqueUri extends Uri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile String cachedString;
         public final Part fragment;
         public final String scheme;
         public final Part ssp;
-
-        public /* synthetic */ OpaqueUri(String str, Part part, Part part2, AnonymousClass1 anonymousClass1) {
-            this(str, part, part2);
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.searchbox.v8engine.net.Uri, java.lang.Comparable
-        public /* bridge */ /* synthetic */ int compareTo(Uri uri) {
-            return super.compareTo(uri);
-        }
 
         @Override // com.baidu.searchbox.v8engine.net.Uri
         public String getEncodedAuthority() {
@@ -499,12 +708,6 @@ public abstract class Uri implements Comparable<Uri> {
                 return null;
             }
             return (String) invokeV.objValue;
-        }
-
-        public String getEncodedSchemeSpecificPart() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ssp.getEncoded() : (String) invokeV.objValue;
         }
 
         public String getHost() {
@@ -535,13 +738,6 @@ public abstract class Uri implements Comparable<Uri> {
         }
 
         @Override // com.baidu.searchbox.v8engine.net.Uri
-        public String getScheme() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.scheme : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
         public boolean isHierarchical() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -549,36 +745,6 @@ public abstract class Uri implements Comparable<Uri> {
                 return false;
             }
             return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public boolean isRelative() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.scheme == null : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                if (this.cachedString != Uri.NOT_CACHED) {
-                    return this.cachedString;
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.scheme);
-                sb.append(':');
-                sb.append(getEncodedSchemeSpecificPart());
-                if (!this.fragment.isEmpty()) {
-                    sb.append('#');
-                    sb.append(this.fragment.getEncoded());
-                }
-                String sb2 = sb.toString();
-                this.cachedString = sb2;
-                return sb2;
-            }
-            return (String) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -604,159 +770,80 @@ public abstract class Uri implements Comparable<Uri> {
             this.ssp = part;
             this.fragment = part2 == null ? Part.NULL : part2;
         }
-    }
 
-    /* loaded from: classes2.dex */
-    public static class Part extends AbstractPart {
-        public static /* synthetic */ Interceptable $ic;
-        public static final Part EMPTY;
-        public static final Part NULL;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes2.dex */
-        public static class EmptyPart extends Part {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public EmptyPart(String str) {
-                super(str, str, null);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], (String) objArr2[1], (AnonymousClass1) objArr2[2]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            @Override // com.baidu.searchbox.v8engine.net.Uri.Part
-            public boolean isEmpty() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return true;
-                }
-                return invokeV.booleanValue;
-            }
+        public /* synthetic */ OpaqueUri(String str, Part part, Part part2, AnonymousClass1 anonymousClass1) {
+            this(str, part, part2);
         }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1835995347, "Lcom/baidu/searchbox/v8engine/net/Uri$Part;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1835995347, "Lcom/baidu/searchbox/v8engine/net/Uri$Part;");
-                    return;
-                }
-            }
-            NULL = new EmptyPart(null);
-            EMPTY = new EmptyPart("");
+        @Override // com.baidu.searchbox.v8engine.net.Uri, java.lang.Comparable
+        public /* bridge */ /* synthetic */ int compareTo(Object obj) {
+            return super.compareTo((Uri) obj);
         }
 
-        public /* synthetic */ Part(String str, String str2, AnonymousClass1 anonymousClass1) {
-            this(str, str2);
-        }
-
-        public static Part from(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-                if (str == null) {
-                    return NULL;
-                }
-                if (str.length() == 0) {
-                    return EMPTY;
-                }
-                if (str2 == null) {
-                    return NULL;
-                }
-                if (str2.length() == 0) {
-                    return EMPTY;
-                }
-                return new Part(str, str2);
-            }
-            return (Part) invokeLL.objValue;
-        }
-
-        public static Part fromDecoded(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? from(Uri.NOT_CACHED, str) : (Part) invokeL.objValue;
-        }
-
-        public static Part fromEncoded(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? from(str, Uri.NOT_CACHED) : (Part) invokeL.objValue;
-        }
-
-        public static Part nonNull(Part part) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, part)) == null) ? part == null ? NULL : part : (Part) invokeL.objValue;
-        }
-
-        public String getEncoded() {
+        public String getEncodedSchemeSpecificPart() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.encoded != Uri.NOT_CACHED) {
-                    return this.encoded;
-                }
-                String encode = Uri.encode(this.decoded);
-                this.encoded = encode;
-                return encode;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.ssp.getEncoded();
             }
             return (String) invokeV.objValue;
         }
 
-        public boolean isEmpty() {
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public String getScheme() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.scheme;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public boolean isRelative() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                if (this.scheme == null) {
+                    return true;
+                }
                 return false;
             }
             return invokeV.booleanValue;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Part(String str, String str2) {
-            super(str, str2);
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public String toString() {
+            InterceptResult invokeV;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                if (this.cachedString != Uri.NOT_CACHED) {
+                    z = true;
+                } else {
+                    z = false;
                 }
+                if (z) {
+                    return this.cachedString;
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.scheme);
+                sb.append(':');
+                sb.append(getEncodedSchemeSpecificPart());
+                if (!this.fragment.isEmpty()) {
+                    sb.append('#');
+                    sb.append(this.fragment.getEncoded());
+                }
+                String sb2 = sb.toString();
+                this.cachedString = sb2;
+                return sb2;
             }
+            return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class PathPart extends AbstractPart {
+    public class PathPart extends AbstractPart {
         public static /* synthetic */ Interceptable $ic;
         public static final PathPart EMPTY;
         public static final PathPart NULL;
@@ -777,6 +864,26 @@ public abstract class Uri implements Comparable<Uri> {
             }
             NULL = new PathPart(null, null);
             EMPTY = new PathPart("", "");
+        }
+
+        public String getEncoded() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.encoded != Uri.NOT_CACHED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return this.encoded;
+                }
+                String encode = Uri.encode(this.decoded, "/");
+                this.encoded = encode;
+                return encode;
+            }
+            return (String) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -818,58 +925,88 @@ public abstract class Uri implements Comparable<Uri> {
         public static PathPart fromDecoded(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? from(Uri.NOT_CACHED, str) : (PathPart) invokeL.objValue;
-        }
-
-        public static PathPart makeAbsolute(PathPart pathPart) {
-            InterceptResult invokeL;
-            String str;
-            String str2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pathPart)) == null) {
-                boolean z = pathPart.encoded != Uri.NOT_CACHED;
-                String str3 = z ? pathPart.encoded : pathPart.decoded;
-                if (str3 == null || str3.length() == 0 || str3.startsWith("/")) {
-                    return pathPart;
-                }
-                if (!z) {
-                    str = Uri.NOT_CACHED;
-                } else {
-                    str = "/" + pathPart.encoded;
-                }
-                if (!(pathPart.decoded != Uri.NOT_CACHED)) {
-                    str2 = Uri.NOT_CACHED;
-                } else {
-                    str2 = "/" + pathPart.decoded;
-                }
-                return new PathPart(str, str2);
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return from(Uri.NOT_CACHED, str);
             }
             return (PathPart) invokeL.objValue;
         }
 
-        public String getEncoded() {
-            InterceptResult invokeV;
+        public static PathPart makeAbsolute(PathPart pathPart) {
+            InterceptResult invokeL;
+            boolean z;
+            String str;
+            String str2;
+            String str3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.encoded != Uri.NOT_CACHED) {
-                    return this.encoded;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pathPart)) == null) {
+                boolean z2 = true;
+                if (pathPart.encoded != Uri.NOT_CACHED) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                String encode = Uri.encode(this.decoded, "/");
-                this.encoded = encode;
-                return encode;
+                if (z) {
+                    str = pathPart.encoded;
+                } else {
+                    str = pathPart.decoded;
+                }
+                if (str != null && str.length() != 0 && !str.startsWith("/")) {
+                    if (!z) {
+                        str2 = Uri.NOT_CACHED;
+                    } else {
+                        str2 = "/" + pathPart.encoded;
+                    }
+                    if (pathPart.decoded == Uri.NOT_CACHED) {
+                        z2 = false;
+                    }
+                    if (!z2) {
+                        str3 = Uri.NOT_CACHED;
+                    } else {
+                        str3 = "/" + pathPart.decoded;
+                    }
+                    return new PathPart(str2, str3);
+                }
+                return pathPart;
             }
-            return (String) invokeV.objValue;
+            return (PathPart) invokeL.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class StringUri extends AbstractHierarchicalUri {
+    public class StringUri extends AbstractHierarchicalUri {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AuthorityPart authority;
         public volatile int cachedSsi;
         public volatile String scheme;
         public final String uriString;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public StringUri(String str) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((AnonymousClass1) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.cachedSsi = -2;
+            this.scheme = Uri.NOT_CACHED;
+            if (str != null) {
+                this.uriString = str;
+                return;
+            }
+            throw new NullPointerException("uriString");
+        }
 
         public /* synthetic */ StringUri(String str, AnonymousClass1 anonymousClass1) {
             this(str);
@@ -934,6 +1071,91 @@ public abstract class Uri implements Comparable<Uri> {
             return (AuthorityPart) invokeV.objValue;
         }
 
+        private String parseScheme() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+                int findSchemeSeparator = findSchemeSeparator();
+                if (findSchemeSeparator == -1) {
+                    return null;
+                }
+                return this.uriString.substring(0, findSchemeSeparator);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public String getEncodedAuthority() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return getAuthorityPart().getEncoded();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public String getScheme() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.scheme != Uri.NOT_CACHED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return this.scheme;
+                }
+                String parseScheme = parseScheme();
+                this.scheme = parseScheme;
+                return parseScheme;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public boolean isHierarchical() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                int findSchemeSeparator = findSchemeSeparator();
+                if (findSchemeSeparator == -1) {
+                    return true;
+                }
+                int i = findSchemeSeparator + 1;
+                if (this.uriString.length() != i && this.uriString.charAt(i) == '/') {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public boolean isRelative() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (findSchemeSeparator() == -1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.Uri
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.uriString;
+            }
+            return (String) invokeV.objValue;
+        }
+
         public static String parseAuthority(String str, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
@@ -956,97 +1178,6 @@ public abstract class Uri implements Comparable<Uri> {
             }
             return (String) invokeLI.objValue;
         }
-
-        private String parseScheme() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-                int findSchemeSeparator = findSchemeSeparator();
-                if (findSchemeSeparator == -1) {
-                    return null;
-                }
-                return this.uriString.substring(0, findSchemeSeparator);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public String getEncodedAuthority() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getAuthorityPart().getEncoded() : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public String getScheme() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.scheme != Uri.NOT_CACHED) {
-                    return this.scheme;
-                }
-                String parseScheme = parseScheme();
-                this.scheme = parseScheme;
-                return parseScheme;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public boolean isHierarchical() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int findSchemeSeparator = findSchemeSeparator();
-                if (findSchemeSeparator == -1) {
-                    return true;
-                }
-                int i = findSchemeSeparator + 1;
-                return this.uriString.length() != i && this.uriString.charAt(i) == '/';
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public boolean isRelative() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? findSchemeSeparator() == -1 : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.Uri
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.uriString : (String) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public StringUri(String str) {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((AnonymousClass1) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.cachedSsi = -2;
-            this.scheme = Uri.NOT_CACHED;
-            if (str != null) {
-                this.uriString = str;
-                return;
-            }
-            throw new NullPointerException("uriString");
-        }
     }
 
     static {
@@ -1066,70 +1197,6 @@ public abstract class Uri implements Comparable<Uri> {
         HEX_DIGITS = "0123456789ABCDEF".toCharArray();
     }
 
-    public /* synthetic */ Uri(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    public static String encode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? encode(str, null) : (String) invokeL.objValue;
-    }
-
-    public static boolean isAllowed(char c, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c), str})) == null) ? (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || !((c < '0' || c > '9') && "_-.*".indexOf(c) == -1 && (str == null || str.indexOf(c) == -1)) : invokeCommon.booleanValue;
-    }
-
-    public static Uri parse(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new StringUri(str, null) : (Uri) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj instanceof Uri) {
-                return toString().equals(((Uri) obj).toString());
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public abstract String getEncodedAuthority();
-
-    @Nullable
-    public abstract String getScheme();
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? toString().hashCode() : invokeV.intValue;
-    }
-
-    public boolean isAbsolute() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !isRelative() : invokeV.booleanValue;
-    }
-
-    public abstract boolean isHierarchical();
-
-    public boolean isOpaque() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? !isHierarchical() : invokeV.booleanValue;
-    }
-
-    public abstract boolean isRelative();
-
-    public abstract String toString();
-
     public Uri() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1142,6 +1209,78 @@ public abstract class Uri implements Comparable<Uri> {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return toString().hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isAbsolute() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return !isRelative();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOpaque() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return !isHierarchical();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public /* synthetic */ Uri(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public static String encode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return encode(str, null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Uri parse(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return new StringUri(str, null);
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            return toString().compareTo(uri.toString());
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (!(obj instanceof Uri)) {
+                return false;
+            }
+            return toString().equals(((Uri) obj).toString());
+        }
+        return invokeL.booleanValue;
     }
 
     public static String encode(String str, String str2) {
@@ -1191,16 +1330,23 @@ public abstract class Uri implements Comparable<Uri> {
                     throw new AssertionError(e);
                 }
             }
-            return sb == null ? str : sb.toString();
+            if (sb != null) {
+                return sb.toString();
+            }
+            return str;
         }
         return (String) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(Uri uri) {
-        InterceptResult invokeL;
+    public static boolean isAllowed(char c, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) ? toString().compareTo(uri.toString()) : invokeL.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c), str})) == null) {
+            if ((c < 'A' || c > 'Z') && ((c < 'a' || c > 'z') && ((c < '0' || c > '9') && "_-.*".indexOf(c) == -1 && (str == null || str.indexOf(c) == -1)))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

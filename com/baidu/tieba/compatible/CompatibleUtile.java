@@ -41,8 +41,32 @@ public class CompatibleUtile {
     public static Object9 mObject9;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(228271961, "Lcom/baidu/tieba/compatible/CompatibleUtile;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(228271961, "Lcom/baidu/tieba/compatible/CompatibleUtile;");
+        }
+    }
+
+    public static int getActionMask() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 255;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class FullscreenableChromeClient extends WebChromeClient {
+    public class FullscreenableChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FrameLayout.LayoutParams COVER_SCREEN_PARAMS;
@@ -58,6 +82,16 @@ public class CompatibleUtile {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FullscreenableChromeClient this$1;
+
+            @Override // android.view.View
+            public boolean onTouchEvent(MotionEvent motionEvent) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                    return true;
+                }
+                return invokeL.booleanValue;
+            }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public FullscreenHolder(FullscreenableChromeClient fullscreenableChromeClient, Context context) {
@@ -79,16 +113,6 @@ public class CompatibleUtile {
                 }
                 this.this$1 = fullscreenableChromeClient;
                 setBackgroundColor(context.getResources().getColor(17170444));
-            }
-
-            @Override // android.view.View
-            public boolean onTouchEvent(MotionEvent motionEvent) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                    return true;
-                }
-                return invokeL.booleanValue;
             }
         }
 
@@ -142,7 +166,7 @@ public class CompatibleUtile {
         @Override // android.webkit.WebChromeClient
         public void onHideCustomView() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.mCustomView == null) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.mCustomView == null) {
                 return;
             }
             setFullscreen(false);
@@ -176,6 +200,105 @@ public class CompatibleUtile {
     }
 
     /* loaded from: classes3.dex */
+    public class Object11 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int[] STATUSBAR_ATTRS;
+        public final /* synthetic */ CompatibleUtile this$0;
+
+        public Object11(CompatibleUtile compatibleUtile) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {compatibleUtile};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = compatibleUtile;
+            this.STATUSBAR_ATTRS = new int[]{16842904};
+        }
+
+        public /* synthetic */ Object11(CompatibleUtile compatibleUtile, Object11 object11) {
+            this(compatibleUtile);
+        }
+
+        public void closeViewGpu(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.isHardwareAccelerated()) {
+                view2.setLayerType(1, null);
+            }
+        }
+
+        public int getStatusBarColor(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return context.obtainStyledAttributes(16973928, this.STATUSBAR_ATTRS).getColor(0, 0);
+            }
+            return invokeL.intValue;
+        }
+
+        public int getViewLayer(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+                if (view2 != null) {
+                    return view2.getLayerType();
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public boolean isUseHw(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+                if (view2 != null && view2.isHardwareAccelerated()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void noneViewGpu(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2 != null) {
+                view2.setLayerType(0, null);
+            }
+        }
+
+        public void openGpu(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+                activity.getWindow().setFlags(16777216, 16777216);
+            }
+        }
+
+        public void openViewGpu(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2 != null) {
+                view2.setLayerType(2, null);
+            }
+        }
+
+        public void removeJavascriptInterface(WebView webView) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, webView) == null) && webView != null) {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class Object14 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +325,10 @@ public class CompatibleUtile {
         public WebChromeClient getWebChromeClient(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) ? new FullscreenableChromeClient(activity) : (WebChromeClient) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                return new FullscreenableChromeClient(activity);
+            }
+            return (WebChromeClient) invokeL.objValue;
         }
 
         public /* synthetic */ Object14(CompatibleUtile compatibleUtile, Object14 object14) {
@@ -215,6 +341,24 @@ public class CompatibleUtile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CompatibleUtile this$0;
+
+        public int getActionPointerDown() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 5;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getActionPointerUp() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 6;
+            }
+            return invokeV.intValue;
+        }
 
         public Object5(CompatibleUtile compatibleUtile) {
             Interceptable interceptable = $ic;
@@ -236,34 +380,22 @@ public class CompatibleUtile {
 
         public void WebViewNoDataBase(WebSettings webSettings) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, webSettings) == null) || webSettings == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, webSettings) == null) && webSettings != null) {
+                webSettings.setDatabaseEnabled(false);
             }
-            webSettings.setDatabaseEnabled(false);
-        }
-
-        public int getActionPointerDown() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 5;
-            }
-            return invokeV.intValue;
-        }
-
-        public int getActionPointerUp() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 6;
-            }
-            return invokeV.intValue;
         }
 
         public int getMemoryClass(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? ((ActivityManager) context.getSystemService("activity")).getMemoryClass() : invokeL.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                return ((ActivityManager) context.getSystemService("activity")).getMemoryClass();
+            }
+            return invokeL.intValue;
+        }
+
+        public /* synthetic */ Object5(CompatibleUtile compatibleUtile, Object5 object5) {
+            this(compatibleUtile);
         }
 
         public float getSpacing(MotionEvent motionEvent) {
@@ -278,10 +410,6 @@ public class CompatibleUtile {
                 return (float) Math.sqrt((x * x) + (y * y));
             }
             return invokeL.floatValue;
-        }
-
-        public /* synthetic */ Object5(CompatibleUtile compatibleUtile, Object5 object5) {
-            this(compatibleUtile);
         }
     }
 
@@ -353,13 +481,19 @@ public class CompatibleUtile {
         public long getUidRxBytes(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TrafficStats.getUidRxBytes(i) : invokeI.longValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                return TrafficStats.getUidRxBytes(i);
+            }
+            return invokeI.longValue;
         }
 
         public long getUidTxBytes(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? TrafficStats.getUidTxBytes(i) : invokeI.longValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return TrafficStats.getUidTxBytes(i);
+            }
+            return invokeI.longValue;
         }
 
         public boolean isAutoBrightness(Context context) {
@@ -367,7 +501,10 @@ public class CompatibleUtile {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
                 try {
-                    return Settings.System.getInt(context.getContentResolver(), "screen_brightness_mode") == 1;
+                    if (Settings.System.getInt(context.getContentResolver(), "screen_brightness_mode") != 1) {
+                        return false;
+                    }
+                    return true;
                 } catch (Settings.SettingNotFoundException e) {
                     e.printStackTrace();
                     return false;
@@ -376,26 +513,25 @@ public class CompatibleUtile {
             return invokeL.booleanValue;
         }
 
+        public /* synthetic */ Object8(CompatibleUtile compatibleUtile, Object8 object8) {
+            this(compatibleUtile);
+        }
+
         public void loadUrl(WebView webView, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) || webView == null || TextUtils.isEmpty(str)) {
-                return;
+            if ((interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) && webView != null && !TextUtils.isEmpty(str)) {
+                HashMap hashMap = new HashMap();
+                hashMap.put(Config.LAUNCH_REFERER, "http://c.tieba.baidu.com/");
+                webView.loadUrl(str, hashMap);
             }
-            HashMap hashMap = new HashMap();
-            hashMap.put(Config.LAUNCH_REFERER, "http://c.tieba.baidu.com/");
-            webView.loadUrl(str, hashMap);
         }
 
         public void setCameraDisplayOrientation(Camera camera, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048580, this, camera, i) == null) || camera == null) {
+            if ((interceptable != null && interceptable.invokeLI(1048580, this, camera, i) != null) || camera == null) {
                 return;
             }
             camera.setDisplayOrientation(i);
-        }
-
-        public /* synthetic */ Object8(CompatibleUtile compatibleUtile, Object8 object8) {
-            this(compatibleUtile);
         }
     }
 
@@ -423,6 +559,10 @@ public class CompatibleUtile {
             this.this$0 = compatibleUtile;
         }
 
+        public /* synthetic */ Object9(CompatibleUtile compatibleUtile, Object9 object9) {
+            this(compatibleUtile);
+        }
+
         public Camera getBackCamera() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -447,25 +587,6 @@ public class CompatibleUtile {
             }
             return (Camera) invokeV.objValue;
         }
-
-        public /* synthetic */ Object9(CompatibleUtile compatibleUtile, Object9 object9) {
-            this(compatibleUtile);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(228271961, "Lcom/baidu/tieba/compatible/CompatibleUtile;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(228271961, "Lcom/baidu/tieba/compatible/CompatibleUtile;");
-        }
     }
 
     public CompatibleUtile() {
@@ -480,40 +601,6 @@ public class CompatibleUtile {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static void dealWebView(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
-            if (Build.VERSION.SDK_INT <= 11) {
-                try {
-                    Class<?> cls = Class.forName("android.webkit.WebView");
-                    Method method = cls.getMethod("disablePlatformNotifications", new Class[0]);
-                    Method method2 = cls.getMethod("enablePlatformNotifications", new Class[0]);
-                    method.invoke(null, new Object[0]);
-                    method2.invoke(null, new Object[0]);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (webSettings == null || Build.VERSION.SDK_INT > 18) {
-                return;
-            }
-            try {
-                webSettings.getClass().getMethod("setPluginsEnabled", Boolean.class).invoke(webSettings, Boolean.TRUE);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static int getActionMask() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 255;
-        }
-        return invokeV.intValue;
     }
 
     public static CompatibleUtile getInstance() {
@@ -600,49 +687,6 @@ public class CompatibleUtile {
         return (Object9) invokeV.objValue;
     }
 
-    public static void scrollListViewBy(ListView listView, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65547, null, listView, i, i2) == null) || Build.VERSION.SDK_INT < 8) {
-            return;
-        }
-        listView.smoothScrollBy(i, i2);
-    }
-
-    public static void scrollListViewTo(ListView listView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, null, listView, i) == null) {
-            if (Build.VERSION.SDK_INT >= 8) {
-                listView.smoothScrollToPosition(i);
-            } else {
-                listView.setSelection(i);
-            }
-        }
-    }
-
-    public static void setAnim(Activity activity, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65549, null, activity, i, i2) == null) || Build.VERSION.SDK_INT < 5) {
-            return;
-        }
-        activity.overridePendingTransition(i, i2);
-    }
-
-    public void WebViewNoDataBase(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, webSettings) == null) || getObject5() == null) {
-            return;
-        }
-        getObject5().WebViewNoDataBase(webSettings);
-    }
-
-    public void closeViewGpu(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || getObject11() == null) {
-            return;
-        }
-        getObject11().closeViewGpu(view2);
-    }
-
     public int getActionPointerDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -677,6 +721,87 @@ public class CompatibleUtile {
             return Camera.open();
         }
         return (Camera) invokeV.objValue;
+    }
+
+    public static void dealWebView(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
+            if (Build.VERSION.SDK_INT <= 11) {
+                try {
+                    Class<?> cls = Class.forName("android.webkit.WebView");
+                    Method method = cls.getMethod("disablePlatformNotifications", new Class[0]);
+                    Method method2 = cls.getMethod("enablePlatformNotifications", new Class[0]);
+                    method.invoke(null, new Object[0]);
+                    method2.invoke(null, new Object[0]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (webSettings != null && Build.VERSION.SDK_INT <= 18) {
+                try {
+                    webSettings.getClass().getMethod("setPluginsEnabled", Boolean.class).invoke(webSettings, Boolean.TRUE);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void scrollListViewBy(ListView listView, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65547, null, listView, i, i2) == null) && Build.VERSION.SDK_INT >= 8) {
+            listView.smoothScrollBy(i, i2);
+        }
+    }
+
+    public static void setAnim(Activity activity, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65549, null, activity, i, i2) == null) && Build.VERSION.SDK_INT >= 5) {
+            activity.overridePendingTransition(i, i2);
+        }
+    }
+
+    public static void scrollListViewTo(ListView listView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65548, null, listView, i) == null) {
+            if (Build.VERSION.SDK_INT >= 8) {
+                listView.smoothScrollToPosition(i);
+            } else {
+                listView.setSelection(i);
+            }
+        }
+    }
+
+    public void loadUrl(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, webView, str) == null) {
+            if (getObject8() != null) {
+                getObject8().loadUrl(webView, str);
+            } else {
+                webView.loadUrl(str);
+            }
+        }
+    }
+
+    public void setCameraDisplayOrientation(Camera camera, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048596, this, camera, i) == null) && getObject8() != null) {
+            getObject8().setCameraDisplayOrientation(camera, i);
+        }
+    }
+
+    public void WebViewNoDataBase(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, webSettings) == null) && getObject5() != null) {
+            getObject5().WebViewNoDataBase(webSettings);
+        }
+    }
+
+    public void closeViewGpu(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && getObject11() != null) {
+            getObject11().closeViewGpu(view2);
+        }
     }
 
     public int getBitmapMaxMemory(Context context) {
@@ -803,55 +928,32 @@ public class CompatibleUtile {
         return invokeL.booleanValue;
     }
 
-    public void loadUrl(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, webView, str) == null) {
-            if (getObject8() != null) {
-                getObject8().loadUrl(webView, str);
-            } else {
-                webView.loadUrl(str);
-            }
-        }
-    }
-
     public void noneViewGpu(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, view2) == null) || getObject11() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, view2) == null) && getObject11() != null) {
+            getObject11().noneViewGpu(view2);
         }
-        getObject11().noneViewGpu(view2);
     }
 
     public void openGpu(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, activity) == null) || getObject11() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, activity) == null) && getObject11() != null) {
+            getObject11().openGpu(activity);
         }
-        getObject11().openGpu(activity);
     }
 
     public void openViewGpu(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, view2) == null) || getObject11() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048594, this, view2) == null) && getObject11() != null) {
+            getObject11().openViewGpu(view2);
         }
-        getObject11().openViewGpu(view2);
     }
 
     public void removeJavascriptInterface(WebView webView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, webView) == null) || getObject11() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, webView) == null) && getObject11() != null) {
+            getObject11().removeJavascriptInterface(webView);
         }
-        getObject11().removeJavascriptInterface(webView);
-    }
-
-    public void setCameraDisplayOrientation(Camera camera, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048596, this, camera, i) == null) || getObject8() == null) {
-            return;
-        }
-        getObject8().setCameraDisplayOrientation(camera, i);
     }
 
     public boolean supportMultiTouch(Context context) {
@@ -864,98 +966,5 @@ public class CompatibleUtile {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class Object11 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int[] STATUSBAR_ATTRS;
-        public final /* synthetic */ CompatibleUtile this$0;
-
-        public Object11(CompatibleUtile compatibleUtile) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {compatibleUtile};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = compatibleUtile;
-            this.STATUSBAR_ATTRS = new int[]{16842904};
-        }
-
-        public void closeViewGpu(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.isHardwareAccelerated()) {
-                view2.setLayerType(1, null);
-            }
-        }
-
-        public int getStatusBarColor(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? context.obtainStyledAttributes(16973928, this.STATUSBAR_ATTRS).getColor(0, 0) : invokeL.intValue;
-        }
-
-        public int getViewLayer(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-                if (view2 != null) {
-                    return view2.getLayerType();
-                }
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public boolean isUseHw(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) ? view2 != null && view2.isHardwareAccelerated() : invokeL.booleanValue;
-        }
-
-        public void noneViewGpu(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || view2 == null) {
-                return;
-            }
-            view2.setLayerType(0, null);
-        }
-
-        public void openGpu(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                activity.getWindow().setFlags(16777216, 16777216);
-            }
-        }
-
-        public void openViewGpu(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2 == null) {
-                return;
-            }
-            view2.setLayerType(2, null);
-        }
-
-        public void removeJavascriptInterface(WebView webView) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048583, this, webView) == null) || webView == null) {
-                return;
-            }
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-        }
-
-        public /* synthetic */ Object11(CompatibleUtile compatibleUtile, Object11 object11) {
-            this(compatibleUtile);
-        }
     }
 }

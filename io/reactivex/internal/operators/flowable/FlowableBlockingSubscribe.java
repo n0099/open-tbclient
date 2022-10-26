@@ -38,7 +38,32 @@ public final class FlowableBlockingSubscribe {
         throw new IllegalStateException("No instances!");
     }
 
-    public static <T> void subscribe(Publisher<? extends T> publisher, Subscriber<? super T> subscriber) {
+    public static void subscribe(Publisher publisher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, publisher) == null) {
+            BlockingIgnoringReceiver blockingIgnoringReceiver = new BlockingIgnoringReceiver();
+            LambdaSubscriber lambdaSubscriber = new LambdaSubscriber(Functions.emptyConsumer(), blockingIgnoringReceiver, blockingIgnoringReceiver, Functions.REQUEST_MAX);
+            publisher.subscribe(lambdaSubscriber);
+            BlockingHelper.awaitForComplete(blockingIgnoringReceiver, lambdaSubscriber);
+            Throwable th = blockingIgnoringReceiver.error;
+            if (th == null) {
+                return;
+            }
+            throw ExceptionHelper.wrapOrThrow(th);
+        }
+    }
+
+    public static void subscribe(Publisher publisher, Consumer consumer, Consumer consumer2, Action action) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, publisher, consumer, consumer2, action) == null) {
+            ObjectHelper.requireNonNull(consumer, "onNext is null");
+            ObjectHelper.requireNonNull(consumer2, "onError is null");
+            ObjectHelper.requireNonNull(action, "onComplete is null");
+            subscribe(publisher, new LambdaSubscriber(consumer, consumer2, action, Functions.REQUEST_MAX));
+        }
+    }
+
+    public static void subscribe(Publisher publisher, Subscriber subscriber) {
         Object poll;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, publisher, subscriber) == null) {
@@ -47,18 +72,20 @@ public final class FlowableBlockingSubscribe {
             publisher.subscribe(blockingSubscriber);
             do {
                 try {
-                    if (blockingSubscriber.isCancelled()) {
-                        return;
-                    }
-                    poll = linkedBlockingQueue.poll();
-                    if (poll == null) {
-                        if (blockingSubscriber.isCancelled()) {
+                    if (!blockingSubscriber.isCancelled()) {
+                        poll = linkedBlockingQueue.poll();
+                        if (poll == null) {
+                            if (!blockingSubscriber.isCancelled()) {
+                                BlockingHelper.verifyNonBlocking();
+                                poll = linkedBlockingQueue.take();
+                            } else {
+                                return;
+                            }
+                        }
+                        if (blockingSubscriber.isCancelled() || publisher == BlockingSubscriber.TERMINATED) {
                             return;
                         }
-                        BlockingHelper.verifyNonBlocking();
-                        poll = linkedBlockingQueue.take();
-                    }
-                    if (blockingSubscriber.isCancelled() || publisher == BlockingSubscriber.TERMINATED) {
+                    } else {
                         return;
                     }
                 } catch (InterruptedException e) {
@@ -67,30 +94,6 @@ public final class FlowableBlockingSubscribe {
                     return;
                 }
             } while (!NotificationLite.acceptFull(poll, subscriber));
-        }
-    }
-
-    public static <T> void subscribe(Publisher<? extends T> publisher) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, publisher) == null) {
-            BlockingIgnoringReceiver blockingIgnoringReceiver = new BlockingIgnoringReceiver();
-            LambdaSubscriber lambdaSubscriber = new LambdaSubscriber(Functions.emptyConsumer(), blockingIgnoringReceiver, blockingIgnoringReceiver, Functions.REQUEST_MAX);
-            publisher.subscribe(lambdaSubscriber);
-            BlockingHelper.awaitForComplete(blockingIgnoringReceiver, lambdaSubscriber);
-            Throwable th = blockingIgnoringReceiver.error;
-            if (th != null) {
-                throw ExceptionHelper.wrapOrThrow(th);
-            }
-        }
-    }
-
-    public static <T> void subscribe(Publisher<? extends T> publisher, Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, publisher, consumer, consumer2, action) == null) {
-            ObjectHelper.requireNonNull(consumer, "onNext is null");
-            ObjectHelper.requireNonNull(consumer2, "onError is null");
-            ObjectHelper.requireNonNull(action, "onComplete is null");
-            subscribe(publisher, new LambdaSubscriber(consumer, consumer2, action, Functions.REQUEST_MAX));
         }
     }
 }

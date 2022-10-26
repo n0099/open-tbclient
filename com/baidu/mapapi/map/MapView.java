@@ -41,7 +41,7 @@ public final class MapView extends ViewGroup {
     public static String b;
     public static int c;
     public static int d;
-    public static final SparseArray<Integer> q;
+    public static final SparseArray q;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -83,7 +83,7 @@ public final class MapView extends ViewGroup {
         a = MapView.class.getSimpleName();
         c = 0;
         d = 0;
-        SparseArray<Integer> sparseArray = new SparseArray<>();
+        SparseArray sparseArray = new SparseArray();
         q = sparseArray;
         sparseArray.append(3, 2000000);
         q.append(4, 1000000);
@@ -445,7 +445,7 @@ public final class MapView extends ViewGroup {
     public final int getMapLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? q.get((int) this.e.a().E().a).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ((Integer) q.get((int) this.e.a().E().a)).intValue() : invokeV.intValue;
     }
 
     public int getScaleControlViewHeight() {

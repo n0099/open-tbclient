@@ -21,7 +21,7 @@ import org.webrtc.EglBase14;
 /* loaded from: classes8.dex */
 public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final List<String> H264_HW_EXCEPTION_MODELS;
+    public static final List H264_HW_EXCEPTION_MODELS;
     public static final int QCOM_VP8_KEY_FRAME_INTERVAL_ANDROID_L_MS = 15000;
     public static final int QCOM_VP8_KEY_FRAME_INTERVAL_ANDROID_M_MS = 20000;
     public static final int QCOM_VP8_KEY_FRAME_INTERVAL_ANDROID_N_MS = 15000;
@@ -34,7 +34,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
 
     /* renamed from: org.webrtc.HardwareVideoEncoderFactory$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,6 +110,28 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         this.enableH264HighProfile = z2;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Deprecated
+    public HardwareVideoEncoderFactory(boolean z, boolean z2) {
+        this(null, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((EglBase.Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
     private BitrateAdjuster createBitrateAdjuster(VideoCodecType videoCodecType, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -125,29 +147,74 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         return (BitrateAdjuster) invokeLL.objValue;
     }
 
+    private boolean isSupportedCodec(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, mediaCodecInfo, videoCodecType)) == null) {
+            if (!MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) || MediaCodecUtils.selectColorFormat(MediaCodecUtils.ENCODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) == null) {
+                return false;
+            }
+            return isHardwareSupportedInCurrentSdk(mediaCodecInfo, videoCodecType);
+        }
+        return invokeLL.booleanValue;
+    }
+
     @Nullable
     private MediaCodecInfo findCodecForType(VideoCodecType videoCodecType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, videoCodecType)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, videoCodecType)) == null) {
+            int i = 0;
+            while (true) {
+                MediaCodecInfo mediaCodecInfo = null;
+                if (i >= MediaCodecList.getCodecCount()) {
+                    return null;
+                }
+                try {
+                    mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
+                } catch (IllegalArgumentException e) {
+                    Logging.e(TAG, "Cannot retrieve encoder codec info", e);
+                }
+                if (mediaCodecInfo != null && mediaCodecInfo.isEncoder() && isSupportedCodec(mediaCodecInfo, videoCodecType)) {
+                    return mediaCodecInfo;
+                }
+                i++;
+            }
+        } else {
             return (MediaCodecInfo) invokeL.objValue;
         }
-        int i = 0;
-        while (true) {
-            MediaCodecInfo mediaCodecInfo = null;
-            if (i >= MediaCodecList.getCodecCount()) {
-                return null;
+    }
+
+    private int getKeyFrameIntervalSec(VideoCodecType videoCodecType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, videoCodecType)) == null) {
+            int i = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
+            if (i != 1 && i != 2) {
+                if (i == 3) {
+                    return 20;
+                }
+                throw new IllegalArgumentException("Unsupported VideoCodecType " + videoCodecType);
             }
-            try {
-                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
-            } catch (IllegalArgumentException e) {
-                Logging.e(TAG, "Cannot retrieve encoder codec info", e);
-            }
-            if (mediaCodecInfo != null && mediaCodecInfo.isEncoder() && isSupportedCodec(mediaCodecInfo, videoCodecType)) {
-                return mediaCodecInfo;
-            }
-            i++;
+            return 100;
         }
+        return invokeL.intValue;
+    }
+
+    private boolean isHardwareSupportedInCurrentSdkH264(MediaCodecInfo mediaCodecInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, mediaCodecInfo)) == null) {
+            if (H264_HW_EXCEPTION_MODELS.contains(Build.MODEL)) {
+                return false;
+            }
+            String name = mediaCodecInfo.getName();
+            if ((!name.startsWith("OMX.qcom.") || Build.VERSION.SDK_INT < 19) && (!name.startsWith("OMX.Exynos.") || Build.VERSION.SDK_INT < 21)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     private int getForcedKeyFrameIntervalMs(VideoCodecType videoCodecType, String str) {
@@ -171,28 +238,6 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         return invokeLL.intValue;
     }
 
-    private int getKeyFrameIntervalSec(VideoCodecType videoCodecType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, videoCodecType)) == null) {
-            int i = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
-            if (i == 1 || i == 2) {
-                return 100;
-            }
-            if (i == 3) {
-                return 20;
-            }
-            throw new IllegalArgumentException("Unsupported VideoCodecType " + videoCodecType);
-        }
-        return invokeL.intValue;
-    }
-
-    private boolean isH264HighProfileSupported(MediaCodecInfo mediaCodecInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, this, mediaCodecInfo)) == null) ? this.enableH264HighProfile && Build.VERSION.SDK_INT > 23 && mediaCodecInfo.getName().startsWith("OMX.Exynos.") : invokeL.booleanValue;
-    }
-
     private boolean isHardwareSupportedInCurrentSdk(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -212,25 +257,14 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         return invokeLL.booleanValue;
     }
 
-    private boolean isHardwareSupportedInCurrentSdkH264(MediaCodecInfo mediaCodecInfo) {
+    private boolean isH264HighProfileSupported(MediaCodecInfo mediaCodecInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, mediaCodecInfo)) == null) {
-            if (H264_HW_EXCEPTION_MODELS.contains(Build.MODEL)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, mediaCodecInfo)) == null) {
+            if (this.enableH264HighProfile && Build.VERSION.SDK_INT > 23 && mediaCodecInfo.getName().startsWith("OMX.Exynos.")) {
+                return true;
             }
-            String name = mediaCodecInfo.getName();
-            return (name.startsWith("OMX.qcom.") && Build.VERSION.SDK_INT >= 19) || (name.startsWith("OMX.Exynos.") && Build.VERSION.SDK_INT >= 21);
-        }
-        return invokeL.booleanValue;
-    }
-
-    private boolean isHardwareSupportedInCurrentSdkVp8(MediaCodecInfo mediaCodecInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, mediaCodecInfo)) == null) {
-            String name = mediaCodecInfo.getName();
-            return (name.startsWith("OMX.qcom.") && Build.VERSION.SDK_INT >= 19) || (name.startsWith("OMX.Exynos.") && Build.VERSION.SDK_INT >= 23) || (name.startsWith(MediaCodecUtils.INTEL_PREFIX) && Build.VERSION.SDK_INT >= 21 && this.enableIntelVp8Encoder);
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -240,21 +274,25 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, mediaCodecInfo)) == null) {
             String name = mediaCodecInfo.getName();
-            return (name.startsWith("OMX.qcom.") || name.startsWith("OMX.Exynos.")) && Build.VERSION.SDK_INT >= 24;
+            if ((name.startsWith("OMX.qcom.") || name.startsWith("OMX.Exynos.")) && Build.VERSION.SDK_INT >= 24) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    private boolean isSupportedCodec(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
-        InterceptResult invokeLL;
+    private boolean isHardwareSupportedInCurrentSdkVp8(MediaCodecInfo mediaCodecInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, mediaCodecInfo, videoCodecType)) == null) {
-            if (MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) && MediaCodecUtils.selectColorFormat(MediaCodecUtils.ENCODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) != null) {
-                return isHardwareSupportedInCurrentSdk(mediaCodecInfo, videoCodecType);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, mediaCodecInfo)) == null) {
+            String name = mediaCodecInfo.getName();
+            if ((name.startsWith("OMX.qcom.") && Build.VERSION.SDK_INT >= 19) || ((name.startsWith("OMX.Exynos.") && Build.VERSION.SDK_INT >= 23) || (name.startsWith(MediaCodecUtils.INTEL_PREFIX) && Build.VERSION.SDK_INT >= 21 && this.enableIntelVp8Encoder))) {
+                return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
     @Override // org.webrtc.VideoEncoderFactory
@@ -265,24 +303,24 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         MediaCodecInfo findCodecForType;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, videoCodecInfo)) == null) {
-            if (Build.VERSION.SDK_INT >= 19 && (findCodecForType = findCodecForType((valueOf = VideoCodecType.valueOf(videoCodecInfo.name)))) != null) {
-                String name = findCodecForType.getName();
-                String mimeType = valueOf.mimeType();
-                Integer selectColorFormat = MediaCodecUtils.selectColorFormat(MediaCodecUtils.TEXTURE_COLOR_FORMATS, findCodecForType.getCapabilitiesForType(mimeType));
-                Integer selectColorFormat2 = MediaCodecUtils.selectColorFormat(MediaCodecUtils.ENCODER_COLOR_FORMATS, findCodecForType.getCapabilitiesForType(mimeType));
-                if (valueOf == VideoCodecType.H264) {
-                    boolean isSameH264Profile = H264Utils.isSameH264Profile(videoCodecInfo.params, MediaCodecUtils.getCodecProperties(valueOf, true));
-                    boolean isSameH264Profile2 = H264Utils.isSameH264Profile(videoCodecInfo.params, MediaCodecUtils.getCodecProperties(valueOf, false));
-                    if (!isSameH264Profile && !isSameH264Profile2) {
-                        return null;
-                    }
-                    if (isSameH264Profile && !isH264HighProfileSupported(findCodecForType)) {
-                        return null;
-                    }
-                }
-                return new HardwareVideoEncoder(new MediaCodecWrapperFactoryImpl(), name, valueOf, selectColorFormat, selectColorFormat2, videoCodecInfo.params, getKeyFrameIntervalSec(valueOf), getForcedKeyFrameIntervalMs(valueOf, name), createBitrateAdjuster(valueOf, name), this.sharedContext);
+            if (Build.VERSION.SDK_INT < 19 || (findCodecForType = findCodecForType((valueOf = VideoCodecType.valueOf(videoCodecInfo.name)))) == null) {
+                return null;
             }
-            return null;
+            String name = findCodecForType.getName();
+            String mimeType = valueOf.mimeType();
+            Integer selectColorFormat = MediaCodecUtils.selectColorFormat(MediaCodecUtils.TEXTURE_COLOR_FORMATS, findCodecForType.getCapabilitiesForType(mimeType));
+            Integer selectColorFormat2 = MediaCodecUtils.selectColorFormat(MediaCodecUtils.ENCODER_COLOR_FORMATS, findCodecForType.getCapabilitiesForType(mimeType));
+            if (valueOf == VideoCodecType.H264) {
+                boolean isSameH264Profile = H264Utils.isSameH264Profile(videoCodecInfo.params, MediaCodecUtils.getCodecProperties(valueOf, true));
+                boolean isSameH264Profile2 = H264Utils.isSameH264Profile(videoCodecInfo.params, MediaCodecUtils.getCodecProperties(valueOf, false));
+                if (!isSameH264Profile && !isSameH264Profile2) {
+                    return null;
+                }
+                if (isSameH264Profile && !isH264HighProfileSupported(findCodecForType)) {
+                    return null;
+                }
+            }
+            return new HardwareVideoEncoder(new MediaCodecWrapperFactoryImpl(), name, valueOf, selectColorFormat, selectColorFormat2, videoCodecInfo.params, getKeyFrameIntervalSec(valueOf), getForcedKeyFrameIntervalMs(valueOf, name), createBitrateAdjuster(valueOf, name), this.sharedContext);
         }
         return (VideoEncoder) invokeL.objValue;
     }
@@ -311,27 +349,5 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
             return (VideoCodecInfo[]) arrayList.toArray(new VideoCodecInfo[arrayList.size()]);
         }
         return (VideoCodecInfo[]) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public HardwareVideoEncoderFactory(boolean z, boolean z2) {
-        this(null, z, z2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((EglBase.Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
     }
 }

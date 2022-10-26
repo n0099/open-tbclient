@@ -5,25 +5,25 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo7;
-import com.baidu.tieba.ho7;
-import com.baidu.tieba.io7;
+import com.baidu.tieba.po7;
+import com.baidu.tieba.so7;
+import com.baidu.tieba.to7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
+public class TailManagementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eo7 a;
-    public ho7 b;
-    public io7 c;
-    public eo7.f d;
+    public po7 a;
+    public so7 b;
+    public to7 c;
+    public po7.f d;
     public View.OnClickListener e;
 
     /* loaded from: classes5.dex */
-    public class a implements eo7.f {
+    public class a implements po7.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,17 +46,22 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.baidu.tieba.eo7.f
+        @Override // com.baidu.tieba.po7.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean g = this.a.b.g();
+                boolean z = true;
                 if (this.a.b.h().size() == 0 && g) {
                     g = !this.a.b.g();
                     this.a.b.l(g);
                 }
                 TailManagementActivity tailManagementActivity = this.a;
-                tailManagementActivity.c.e(g, tailManagementActivity.b.h().size() == 0);
+                to7 to7Var = tailManagementActivity.c;
+                if (tailManagementActivity.b.h().size() != 0) {
+                    z = false;
+                }
+                to7Var.e(g, z);
             }
         }
     }
@@ -92,10 +97,15 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                 if (view2 == this.a.c.a()) {
                     this.a.finish();
                 } else if (view2 == this.a.c.b()) {
-                    boolean z = !this.a.b.g();
-                    this.a.b.l(z);
+                    boolean z = true;
+                    boolean z2 = !this.a.b.g();
+                    this.a.b.l(z2);
                     TailManagementActivity tailManagementActivity = this.a;
-                    tailManagementActivity.c.e(z, tailManagementActivity.b.h().size() == 0);
+                    to7 to7Var = tailManagementActivity.c;
+                    if (tailManagementActivity.b.h().size() != 0) {
+                        z = false;
+                    }
+                    to7Var.e(z2, z);
                     this.a.a.j();
                 }
             }
@@ -131,16 +141,23 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d085b);
-            this.b = new ho7(getPageContext());
-            this.a = new eo7(getPageContext(), this.b, this.d);
-            io7 io7Var = new io7(this, this.e);
-            this.c = io7Var;
-            io7Var.d(this.a);
-            this.c.e(false, this.b.h().size() == 0);
+            setContentView(R.layout.obfuscated_res_0x7f0d085c);
+            this.b = new so7(getPageContext());
+            this.a = new po7(getPageContext(), this.b, this.d);
+            to7 to7Var = new to7(this, this.e);
+            this.c = to7Var;
+            to7Var.d(this.a);
+            to7 to7Var2 = this.c;
+            if (this.b.h().size() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            to7Var2.e(false, z);
             if (this.b.i(getIntent().getSerializableExtra("list"))) {
                 this.a.j();
             }

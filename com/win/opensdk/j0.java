@@ -42,6 +42,14 @@ public final class j0 extends AsyncTask {
         this.e = vVar;
     }
 
+    @Override // android.os.AsyncTask
+    public void onCancelled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.a();
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:39:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // android.os.AsyncTask
     /*
@@ -102,14 +110,6 @@ public final class j0 extends AsyncTask {
             return null;
         }
         return invokeL.objValue;
-    }
-
-    @Override // android.os.AsyncTask
-    public void onCancelled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.a();
-        }
     }
 
     @Override // android.os.AsyncTask

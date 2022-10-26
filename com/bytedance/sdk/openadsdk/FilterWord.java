@@ -11,7 +11,7 @@ public interface FilterWord {
 
     String getName();
 
-    List<FilterWord> getOptions();
+    List getOptions();
 
     boolean hasSecondOptions();
 

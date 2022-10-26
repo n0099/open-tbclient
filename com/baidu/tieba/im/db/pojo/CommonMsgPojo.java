@@ -6,17 +6,17 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.fb7;
+import com.baidu.tieba.ad7;
+import com.baidu.tieba.bd7;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.sc7;
-import com.baidu.tieba.tc7;
+import com.baidu.tieba.nb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,46 +104,11 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         }
     }
 
-    public String getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
-    }
-
-    public long getCreate_time() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.create_time : invokeV.longValue;
-    }
-
-    public int getCustomGroupType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.customGroupType : invokeV.intValue;
-    }
-
-    public String getExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ext : (String) invokeV.objValue;
-    }
-
-    public int getFollowStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.followStatus : invokeV.intValue;
-    }
-
-    public String getGid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.gid : (String) invokeV.objValue;
-    }
-
     public long getIllegalMsgId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = 0;
             if (this.illegalMsgId == 0) {
                 JSONObject jSONObject = null;
                 try {
@@ -154,98 +119,254 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                     return this.illegalMsgId;
                 }
                 jSONObject = new JSONObject(getContent());
-                this.illegalMsgId = sc7.a(jSONObject != null ? jSONObject.optLong("msg_id") : 0L);
+                if (jSONObject != null) {
+                    j = jSONObject.optLong("msg_id");
+                }
+                this.illegalMsgId = ad7.a(j);
             }
             return this.illegalMsgId;
         }
         return invokeV.longValue;
     }
 
+    public UserData getPrivateOtherUser_infoObj() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.user_info_data != null && this.to_user_info_data != null) {
+                if (eh.g(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
+                    return this.to_user_info_data;
+                }
+                return this.user_info_data;
+            }
+            return null;
+        }
+        return (UserData) invokeV.objValue;
+    }
+
+    public CommonMsgPojo(ChatMessage chatMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {chatMessage};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.gid = "";
+        this.uid = "";
+        this.toUid = "";
+        this.user_info = "";
+        this.to_user_info = "";
+        this.user_info_data = null;
+        this.to_user_info_data = null;
+        this.content = "";
+        this.ext = "";
+        this.isPrivate = false;
+        if (chatMessage != null) {
+            if (chatMessage instanceof CommonGroupChatMessage) {
+                this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
+            } else if (chatMessage instanceof PersonalChatMessage) {
+                this.gid = String.valueOf(nb7.j);
+            } else if (chatMessage instanceof OfficialChatMessage) {
+                this.gid = String.valueOf(nb7.k);
+            }
+            this.mid = chatMessage.getMsgId();
+            this.uid = String.valueOf(chatMessage.getUserId());
+            this.toUid = String.valueOf(chatMessage.getToUserId());
+            this.user_info_data = chatMessage.getUserInfo();
+            this.to_user_info_data = chatMessage.getToUserInfo();
+            try {
+                this.to_user_info = OrmObject.jsonStrWithObject(chatMessage.getToUserInfo());
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            this.create_time = chatMessage.getTime();
+            this.msg_type = chatMessage.getMsgType();
+            if (chatMessage.getLocalData() != null) {
+                this.msg_status = chatMessage.getLocalData().getStatus().shortValue();
+                if (!TextUtils.isEmpty(chatMessage.getLocalData().getErrorString()) && TextUtils.isEmpty(this.ext)) {
+                    this.ext = chatMessage.getLocalData().getErrorString();
+                }
+            }
+            this.content = chatMessage.getContent();
+            this.sid = chatMessage.getSid();
+            this.taskId = String.valueOf(chatMessage.getTaskId());
+            this.serviceId = String.valueOf(chatMessage.getServiceId());
+            this.is_delete = 0;
+            this.rid = chatMessage.getRecordId();
+            checkRidAndSelf();
+            this.isFriend = chatMessage.getIsFriend();
+            this.followStatus = chatMessage.getFollowStatus();
+        }
+    }
+
+    public String getContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getCreate_time() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.create_time;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getCustomGroupType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.customGroupType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.ext;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getFollowStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.followStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getGid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.gid;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public int getIsFriend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isFriend : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.isFriend;
+        }
+        return invokeV.intValue;
     }
 
     public int getIs_delete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.is_delete : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.is_delete;
+        }
+        return invokeV.intValue;
     }
 
     public long getMid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mid;
+        }
+        return invokeV.longValue;
     }
 
     public int getMsg_status() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.msg_status : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.msg_status;
+        }
+        return invokeV.intValue;
     }
 
     public int getMsg_type() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.msg_type : invokeV.intValue;
-    }
-
-    public UserData getPrivateOtherUser_infoObj() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.user_info_data == null || this.to_user_info_data == null) {
-                return null;
-            }
-            if (dh.g(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
-                return this.to_user_info_data;
-            }
-            return this.user_info_data;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.msg_type;
         }
-        return (UserData) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public String getPushIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.pushIds : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.pushIds;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getRead_flag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.read_flag : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.read_flag;
+        }
+        return invokeV.intValue;
     }
 
     public long getRid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.rid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.rid;
+        }
+        return invokeV.longValue;
     }
 
     public String getServiceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.serviceId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.serviceId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getSid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.sid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.sid;
+        }
+        return invokeV.longValue;
     }
 
     public String getTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.taskId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.taskId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getToUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.toUid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.toUid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getToUser_info() {
@@ -264,13 +385,19 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
     public UserData getToUser_infoObj() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.to_user_info_data : (UserData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.to_user_info_data;
+        }
+        return (UserData) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.uid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.uid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUser_info() {
@@ -289,13 +416,19 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
     public UserData getUser_infoObj() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.user_info_data : (UserData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.user_info_data;
+        }
+        return (UserData) invokeV.objValue;
     }
 
     public boolean isPrivate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.isPrivate : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.isPrivate;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSelf() {
@@ -497,7 +630,11 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
             long j5 = 0;
             try {
-                j2 = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
+                if (this.uid != null && this.uid.length() > 0) {
+                    j2 = Long.parseLong(this.uid);
+                } else {
+                    j2 = 0;
+                }
                 try {
                 } catch (Exception e) {
                     long j6 = j2;
@@ -530,7 +667,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                     toUserInfo = personalChatMessage.getToUserInfo();
                     if (toUserInfo != null) {
                     }
-                    tc7.q(personalChatMessage);
+                    bd7.q(personalChatMessage);
                     personalChatMessage.setIsFriend(this.isFriend);
                     personalChatMessage.setFollowStatus(this.followStatus);
                     return personalChatMessage;
@@ -565,7 +702,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                 personalChatMessage.setContent(this.content);
                 userInfo = personalChatMessage.getUserInfo();
                 if (userInfo != null) {
-                    if (dj.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
+                    if (ej.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
                         oldUserData2.setToUserData(userInfo);
                     }
                     try {
@@ -577,7 +714,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                 }
                 toUserInfo = personalChatMessage.getToUserInfo();
                 if (toUserInfo != null) {
-                    if (dj.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
+                    if (ej.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
                         oldUserData.setToUserData(toUserInfo);
                     }
                     try {
@@ -586,7 +723,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                     }
                     personalChatMessage.setToUserId(j5);
                 }
-                tc7.q(personalChatMessage);
+                bd7.q(personalChatMessage);
                 personalChatMessage.setIsFriend(this.isFriend);
                 personalChatMessage.setFollowStatus(this.followStatus);
                 return personalChatMessage;
@@ -616,74 +753,11 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
             }
-            tc7.q(personalChatMessage);
+            bd7.q(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             personalChatMessage.setFollowStatus(this.followStatus);
             return personalChatMessage;
         }
         return (ChatMessage) invokeV.objValue;
-    }
-
-    public CommonMsgPojo(ChatMessage chatMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {chatMessage};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.gid = "";
-        this.uid = "";
-        this.toUid = "";
-        this.user_info = "";
-        this.to_user_info = "";
-        this.user_info_data = null;
-        this.to_user_info_data = null;
-        this.content = "";
-        this.ext = "";
-        this.isPrivate = false;
-        if (chatMessage != null) {
-            if (chatMessage instanceof CommonGroupChatMessage) {
-                this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
-            } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(fb7.j);
-            } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(fb7.k);
-            }
-            this.mid = chatMessage.getMsgId();
-            this.uid = String.valueOf(chatMessage.getUserId());
-            this.toUid = String.valueOf(chatMessage.getToUserId());
-            this.user_info_data = chatMessage.getUserInfo();
-            this.to_user_info_data = chatMessage.getToUserInfo();
-            try {
-                this.to_user_info = OrmObject.jsonStrWithObject(chatMessage.getToUserInfo());
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            this.create_time = chatMessage.getTime();
-            this.msg_type = chatMessage.getMsgType();
-            if (chatMessage.getLocalData() != null) {
-                this.msg_status = chatMessage.getLocalData().getStatus().shortValue();
-                if (!TextUtils.isEmpty(chatMessage.getLocalData().getErrorString()) && TextUtils.isEmpty(this.ext)) {
-                    this.ext = chatMessage.getLocalData().getErrorString();
-                }
-            }
-            this.content = chatMessage.getContent();
-            this.sid = chatMessage.getSid();
-            this.taskId = String.valueOf(chatMessage.getTaskId());
-            this.serviceId = String.valueOf(chatMessage.getServiceId());
-            this.is_delete = 0;
-            this.rid = chatMessage.getRecordId();
-            checkRidAndSelf();
-            this.isFriend = chatMessage.getIsFriend();
-            this.followStatus = chatMessage.getFollowStatus();
-        }
     }
 }

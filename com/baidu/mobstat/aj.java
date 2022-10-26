@@ -1,7 +1,16 @@
 package com.baidu.mobstat;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.Window;
+import androidx.appcompat.widget.TooltipCompatHandler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.ak;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,84 +18,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.Socket;
-import java.net.URI;
-import java.nio.ByteBuffer;
-import java.nio.channels.NotYetConnectedException;
-import java.util.Map;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class aj {
-    public static /* synthetic */ Interceptable $ic;
-    public static final ByteBuffer c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public b b;
+    public a b;
+    public Activity c;
+    public Handler d;
 
     /* loaded from: classes2.dex */
     public interface a {
         void a();
-
-        void a(String str);
-
-        void a(boolean z);
-
-        void b();
-    }
-
-    /* loaded from: classes2.dex */
-    public class c extends IOException {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aj a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(aj ajVar, Throwable th) {
-            super(th.getMessage());
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ajVar, th};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ajVar;
-        }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581657129, "Lcom/baidu/mobstat/aj;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(581657129, "Lcom/baidu/mobstat/aj;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(581657129, "Lcom/baidu/mobstat/aj;")) == null) {
+            return;
         }
-        c = ByteBuffer.allocate(0);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(581657129, "Lcom/baidu/mobstat/aj;");
+        }
     }
 
-    public aj(URI uri, a aVar) throws c {
+    public aj(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, aVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -96,194 +62,164 @@ public class aj {
                 return;
             }
         }
-        this.a = aVar;
-        try {
-            b bVar = new b(this, uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.b = bVar;
-            bVar.c();
-        } catch (InterruptedException e) {
-            throw new c(this, e);
-        }
-    }
+        this.d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.aj.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ aj a;
 
-    private Socket c() {
-        InterceptResult invokeV;
-        SSLSocketFactory sSLSocketFactory;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            try {
-                SSLContext sSLContext = SSLContext.getInstance("TLS");
-                sSLContext.init(null, null, null);
-                sSLSocketFactory = sSLContext.getSocketFactory();
-            } catch (Exception unused) {
-                sSLSocketFactory = null;
-            }
-            if (sSLSocketFactory == null) {
-                return null;
-            }
-            try {
-                return sSLSocketFactory.createSocket();
-            } catch (Exception unused2) {
-                return null;
-            }
-        }
-        return (Socket) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.b.f() || this.b.g() || this.b.e()) ? false : true : invokeV.booleanValue;
-    }
-
-    public void a() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.d();
-    }
-
-    /* loaded from: classes2.dex */
-    public class b extends cc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aj a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(aj ajVar, URI uri, int i, Socket socket) throws InterruptedException {
-            super(uri, new cf(), null, i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ajVar, uri, Integer.valueOf(i), socket};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((URI) objArr2[0], (cd) objArr2[1], (Map) objArr2[2], ((Integer) objArr2[3]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ajVar;
-            a(socket);
-        }
-
-        @Override // com.baidu.mobstat.cc
-        public void a(cz czVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, czVar) == null) {
-                if (bd.c().b()) {
-                    bd.c().a("onOpen");
-                }
-                if (this.a.a != null) {
-                    this.a.a.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.mobstat.cc
-        public void a(String str) {
-            JSONObject jSONObject;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                if (bd.c().b()) {
-                    bd.c().a("onMessage: " + str);
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                String str2 = null;
-                try {
-                    jSONObject = new JSONObject(str);
-                } catch (Exception unused) {
-                    jSONObject = null;
-                }
-                if (jSONObject == null) {
-                    return;
-                }
-                try {
-                    str2 = jSONObject.getString("type");
-                } catch (Exception unused2) {
-                }
-                if (TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                if (str2.equals("deploy")) {
-                    try {
-                        this.a.a.a(((JSONObject) jSONObject.get("data")).toString());
-                        return;
-                    } catch (Exception unused3) {
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r8);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this, r8};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        super((Looper) newInitContext2.callArgs[0]);
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
                 }
-                int i = -1;
-                try {
-                    i = ((Integer) ((JSONObject) jSONObject.get("data")).get("status")).intValue();
-                } catch (Exception unused4) {
+                this.a = this;
+            }
+
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.a.b != null) {
+                    this.a.b.a();
                 }
-                switch (i) {
-                    case 801020:
-                        bc.c().a("autotrace: connect established");
-                        am.a().a(2);
+            }
+        };
+        this.b = aVar;
+    }
+
+    private Window.Callback a(Window.Callback callback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, callback)) == null) {
+            while (callback != null && (callback instanceof ak)) {
+                callback = ((ak) callback).a();
+            }
+            return callback;
+        }
+        return (Window.Callback) invokeL.objValue;
+    }
+
+    private void c(Activity activity) {
+        Window window;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65544, this, activity) != null) || activity == null || (window = activity.getWindow()) == null) {
+            return;
+        }
+        window.setCallback(a(window.getCallback()));
+    }
+
+    private void d(Activity activity) {
+        Window window;
+        Window.Callback callback;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65545, this, activity) != null) || (window = activity.getWindow()) == null || (callback = window.getCallback()) == null) {
+            return;
+        }
+        window.setCallback(new ak(callback, new ak.a(this) { // from class: com.baidu.mobstat.aj.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ aj a;
+
+            @Override // com.baidu.mobstat.ak.a
+            public void a(KeyEvent keyEvent) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, keyEvent) == null) {
+                }
+            }
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
                         return;
-                    case 801021:
-                        bc.c().a("autotrace: connect failed, connect has been established");
-                        am.a().a(5, "already connect");
-                        return;
-                    case 801022:
-                    case 801023:
-                    default:
-                        return;
-                    case 801024:
-                        bc.c().a("autotrace: connect confirm");
-                        am.a().a(3);
-                        if (this.a.a != null) {
-                            this.a.a.b();
+                    }
+                }
+                this.a = this;
+            }
+
+            @Override // com.baidu.mobstat.ak.a
+            public void a(MotionEvent motionEvent) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
+                    aj.a(true);
+                    int actionMasked = motionEvent.getActionMasked();
+                    if (actionMasked != 5) {
+                        if (actionMasked == 6 && motionEvent.getEventTime() - motionEvent.getDownTime() < TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
+                            this.a.d.removeMessages(100);
                             return;
                         }
                         return;
+                    }
+                    int pointerCount = motionEvent.getPointerCount();
+                    if (pointerCount == 3 && motionEvent.getEventTime() - motionEvent.getDownTime() <= 50) {
+                        this.a.d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                    } else if (pointerCount > 3) {
+                        this.a.d.removeMessages(100);
+                    }
                 }
             }
-        }
+        }));
+    }
 
-        @Override // com.baidu.mobstat.cc
-        public void a(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-                if (bd.c().b()) {
-                    bd c = bd.c();
-                    c.a("onClose,  reason:" + str + ", remote:" + z);
-                }
-                bc c2 = bc.c();
-                c2.a("autotrace: connect closed, server:" + z + " reason:" + str);
-                am a = am.a();
-                a.a(5, "remote:" + z + "|reason:" + str);
-                if (this.a.a != null) {
-                    this.a.a.a(z);
-                }
-            }
-        }
-
-        @Override // com.baidu.mobstat.cc
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && bd.c().b()) {
-                bd.c().a("onError");
-            }
+    private void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, activity) == null) {
+            d(activity);
         }
     }
 
-    public void a(JSONObject jSONObject) throws NotYetConnectedException {
+    public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+            if (z) {
+                am.a();
+            }
+            a = z;
         }
-        this.b.a(jSONObject.toString().getBytes());
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c(this.c);
+            this.c = null;
+        }
+    }
+
+    public void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null) {
+            this.c = activity;
+            b(activity);
+        }
     }
 }

@@ -66,9 +66,10 @@ public class VideoControllerView extends RelativeLayout {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && !this.a.e && this.a.f && this.a.b != null) {
-                sendMessageDelayed(obtainMessage(1), this.a.a - (this.a.o() % this.a.a));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, message) != null) || message.what != 1 || this.a.e || !this.a.f || this.a.b == null) {
+                return;
             }
+            sendMessageDelayed(obtainMessage(1), this.a.a - (this.a.o() % this.a.a));
         }
     }
 
@@ -97,23 +98,13 @@ public class VideoControllerView extends RelativeLayout {
         }
 
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                this.a.i = (int) ((this.a.b.getDuration() * i) / 10000);
-                if (this.a.c != null) {
-                    this.a.c.setText(StringHelper.stringForVideoTime(this.a.i));
-                }
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
         public void onStartTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                this.a.e = true;
-                this.a.j.removeMessages(1);
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) != null) {
+                return;
             }
+            this.a.e = true;
+            this.a.j.removeMessages(1);
         }
 
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
@@ -123,6 +114,18 @@ public class VideoControllerView extends RelativeLayout {
                 this.a.b.seekTo(this.a.i);
                 this.a.e = false;
                 this.a.j.sendEmptyMessageDelayed(1, 500L);
+            }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !z) {
+                return;
+            }
+            this.a.i = (int) ((this.a.b.getDuration() * i) / 10000);
+            if (this.a.c != null) {
+                this.a.c.setText(StringHelper.stringForVideoTime(this.a.i));
             }
         }
     }
@@ -154,105 +157,16 @@ public class VideoControllerView extends RelativeLayout {
         l(context);
     }
 
-    public View k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0071, (ViewGroup) null) : (View) invokeL.objValue;
-    }
-
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View k = k(context);
             addView(k, -1, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09214f);
-            this.d = (TextView) k.findViewById(R.id.obfuscated_res_0x7f092150);
-            SeekBar seekBar = (SeekBar) k.findViewById(R.id.obfuscated_res_0x7f091890);
+            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09214e);
+            this.d = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09214f);
+            SeekBar seekBar = (SeekBar) k.findViewById(R.id.obfuscated_res_0x7f091883);
             this.g = seekBar;
             seekBar.setOnSeekBarChangeListener(this.k);
-        }
-    }
-
-    public void m(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.h = i2;
-            this.f = false;
-            this.j.removeMessages(1);
-            this.g.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(StringHelper.stringForVideoTime(i));
-            }
-            TextView textView2 = this.d;
-            if (textView2 != null) {
-                textView2.setText(StringHelper.stringForVideoTime(this.h));
-            }
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = false;
-            this.j.removeMessages(1);
-            this.g.setProgress(0);
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(StringHelper.stringForVideoTime(0));
-            }
-        }
-    }
-
-    public final int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MediaController.MediaPlayerControl mediaPlayerControl = this.b;
-            if (mediaPlayerControl == null || this.e) {
-                return 0;
-            }
-            int currentPosition = mediaPlayerControl.getCurrentPosition();
-            int duration = this.b.getDuration();
-            if (currentPosition > duration) {
-                currentPosition = duration;
-            }
-            SeekBar seekBar = this.g;
-            if (seekBar != null && duration > 0) {
-                seekBar.setProgress((int) ((currentPosition * 10000) / duration));
-            }
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(StringHelper.stringForVideoTime(currentPosition));
-            }
-            return currentPosition;
-        }
-        return invokeV.intValue;
-    }
-
-    public void p() {
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (mediaPlayerControl = this.b) == null) {
-            return;
-        }
-        int duration = ((mediaPlayerControl.getDuration() / 200) / 50) * 50;
-        this.a = duration;
-        if (duration < 50) {
-            this.a = 50;
-        } else if (duration > 500) {
-            this.a = 500;
-        }
-        this.f = true;
-        this.j.removeMessages(1);
-        Handler handler = this.j;
-        handler.sendMessageDelayed(handler.obtainMessage(1), this.a - (this.b.getCurrentPosition() % this.a));
-    }
-
-    public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mediaPlayerControl) == null) {
-            this.b = mediaPlayerControl;
         }
     }
 
@@ -310,5 +224,97 @@ public class VideoControllerView extends RelativeLayout {
         this.j = new a(this, Looper.getMainLooper());
         this.k = new b(this);
         l(context);
+    }
+
+    public View k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0071, (ViewGroup) null);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mediaPlayerControl) == null) {
+            this.b = mediaPlayerControl;
+        }
+    }
+
+    public void m(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.h = i2;
+            this.f = false;
+            this.j.removeMessages(1);
+            this.g.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setText(StringHelper.stringForVideoTime(i));
+            }
+            TextView textView2 = this.d;
+            if (textView2 != null) {
+                textView2.setText(StringHelper.stringForVideoTime(this.h));
+            }
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = false;
+            this.j.removeMessages(1);
+            this.g.setProgress(0);
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setText(StringHelper.stringForVideoTime(0));
+            }
+        }
+    }
+
+    public final int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            MediaController.MediaPlayerControl mediaPlayerControl = this.b;
+            if (mediaPlayerControl != null && !this.e) {
+                int currentPosition = mediaPlayerControl.getCurrentPosition();
+                int duration = this.b.getDuration();
+                if (currentPosition > duration) {
+                    currentPosition = duration;
+                }
+                SeekBar seekBar = this.g;
+                if (seekBar != null && duration > 0) {
+                    seekBar.setProgress((int) ((currentPosition * 10000) / duration));
+                }
+                TextView textView = this.c;
+                if (textView != null) {
+                    textView.setText(StringHelper.stringForVideoTime(currentPosition));
+                }
+                return currentPosition;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void p() {
+        MediaController.MediaPlayerControl mediaPlayerControl;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (mediaPlayerControl = this.b) == null) {
+            return;
+        }
+        int duration = ((mediaPlayerControl.getDuration() / 200) / 50) * 50;
+        this.a = duration;
+        if (duration < 50) {
+            this.a = 50;
+        } else if (duration > 500) {
+            this.a = 500;
+        }
+        this.f = true;
+        this.j.removeMessages(1);
+        Handler handler = this.j;
+        handler.sendMessageDelayed(handler.obtainMessage(1), this.a - (this.b.getCurrentPosition() % this.a));
     }
 }

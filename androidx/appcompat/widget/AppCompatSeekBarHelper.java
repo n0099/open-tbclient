@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
-import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -54,46 +53,72 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         this.mView = seekBar;
     }
 
+    public void setTickMark(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
+            Drawable drawable2 = this.mTickMark;
+            if (drawable2 != null) {
+                drawable2.setCallback(null);
+            }
+            this.mTickMark = drawable;
+            if (drawable != null) {
+                drawable.setCallback(this.mView);
+                DrawableCompat.setLayoutDirection(drawable, ViewCompat.getLayoutDirection(this.mView));
+                if (drawable.isStateful()) {
+                    drawable.setState(this.mView.getDrawableState());
+                }
+                applyTickMarkTint();
+            }
+            this.mView.invalidate();
+        }
+    }
+
     private void applyTickMarkTint() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.mTickMark == null) {
-            return;
-        }
-        if (this.mHasTickMarkTint || this.mHasTickMarkTintMode) {
-            Drawable wrap = DrawableCompat.wrap(this.mTickMark.mutate());
-            this.mTickMark = wrap;
-            if (this.mHasTickMarkTint) {
-                DrawableCompat.setTintList(wrap, this.mTickMarkTintList);
-            }
-            if (this.mHasTickMarkTintMode) {
-                DrawableCompat.setTintMode(this.mTickMark, this.mTickMarkTintMode);
-            }
-            if (this.mTickMark.isStateful()) {
-                this.mTickMark.setState(this.mView.getDrawableState());
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.mTickMark != null) {
+            if (this.mHasTickMarkTint || this.mHasTickMarkTintMode) {
+                Drawable wrap = DrawableCompat.wrap(this.mTickMark.mutate());
+                this.mTickMark = wrap;
+                if (this.mHasTickMarkTint) {
+                    DrawableCompat.setTintList(wrap, this.mTickMarkTintList);
+                }
+                if (this.mHasTickMarkTintMode) {
+                    DrawableCompat.setTintMode(this.mTickMark, this.mTickMarkTintMode);
+                }
+                if (this.mTickMark.isStateful()) {
+                    this.mTickMark.setState(this.mView.getDrawableState());
+                }
             }
         }
     }
 
     public void drawTickMarks(Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.mTickMark == null) {
-            return;
-        }
-        int max = this.mView.getMax();
-        if (max > 1) {
-            int intrinsicWidth = this.mTickMark.getIntrinsicWidth();
-            int intrinsicHeight = this.mTickMark.getIntrinsicHeight();
-            int i = intrinsicWidth >= 0 ? intrinsicWidth / 2 : 1;
-            int i2 = intrinsicHeight >= 0 ? intrinsicHeight / 2 : 1;
-            this.mTickMark.setBounds(-i, -i2, i, i2);
-            float width = ((this.mView.getWidth() - this.mView.getPaddingLeft()) - this.mView.getPaddingRight()) / max;
-            int save = canvas.save();
-            canvas.translate(this.mView.getPaddingLeft(), this.mView.getHeight() / 2);
-            for (int i3 = 0; i3 <= max; i3++) {
-                this.mTickMark.draw(canvas);
-                canvas.translate(width, 0.0f);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && this.mTickMark != null) {
+            int max = this.mView.getMax();
+            int i2 = 1;
+            if (max > 1) {
+                int intrinsicWidth = this.mTickMark.getIntrinsicWidth();
+                int intrinsicHeight = this.mTickMark.getIntrinsicHeight();
+                if (intrinsicWidth >= 0) {
+                    i = intrinsicWidth / 2;
+                } else {
+                    i = 1;
+                }
+                if (intrinsicHeight >= 0) {
+                    i2 = intrinsicHeight / 2;
+                }
+                this.mTickMark.setBounds(-i, -i2, i, i2);
+                float width = ((this.mView.getWidth() - this.mView.getPaddingLeft()) - this.mView.getPaddingRight()) / max;
+                int save = canvas.save();
+                canvas.translate(this.mView.getPaddingLeft(), this.mView.getHeight() / 2);
+                for (int i3 = 0; i3 <= max; i3++) {
+                    this.mTickMark.draw(canvas);
+                    canvas.translate(width, 0.0f);
+                }
+                canvas.restoreToCount(save);
             }
-            canvas.restoreToCount(save);
         }
     }
 
@@ -105,34 +130,39 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         }
     }
 
-    @Nullable
     public Drawable getTickMark() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTickMark : (Drawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mTickMark;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
-    @Nullable
     public ColorStateList getTickMarkTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTickMarkTintList : (ColorStateList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTickMarkTintList;
+        }
+        return (ColorStateList) invokeV.objValue;
     }
 
-    @Nullable
     public PorterDuff.Mode getTickMarkTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTickMarkTintMode : (PorterDuff.Mode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mTickMarkTintMode;
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
     }
 
     public void jumpDrawablesToCurrentState() {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (drawable = this.mTickMark) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (drawable = this.mTickMark) != null) {
+            drawable.jumpToCurrentState();
         }
-        drawable.jumpToCurrentState();
     }
 
     @Override // androidx.appcompat.widget.AppCompatProgressBarHelper
@@ -161,27 +191,7 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         }
     }
 
-    public void setTickMark(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
-            Drawable drawable2 = this.mTickMark;
-            if (drawable2 != null) {
-                drawable2.setCallback(null);
-            }
-            this.mTickMark = drawable;
-            if (drawable != null) {
-                drawable.setCallback(this.mView);
-                DrawableCompat.setLayoutDirection(drawable, ViewCompat.getLayoutDirection(this.mView));
-                if (drawable.isStateful()) {
-                    drawable.setState(this.mView.getDrawableState());
-                }
-                applyTickMarkTint();
-            }
-            this.mView.invalidate();
-        }
-    }
-
-    public void setTickMarkTintList(@Nullable ColorStateList colorStateList) {
+    public void setTickMarkTintList(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorStateList) == null) {
             this.mTickMarkTintList = colorStateList;
@@ -190,7 +200,7 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         }
     }
 
-    public void setTickMarkTintMode(@Nullable PorterDuff.Mode mode) {
+    public void setTickMarkTintMode(PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, mode) == null) {
             this.mTickMarkTintMode = mode;

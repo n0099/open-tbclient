@@ -20,7 +20,7 @@ public class HttpSendController {
     public File cacheDir;
     public int delayStep;
     public IStatisHttpUtil httpUtil;
-    public TreeMap<Long, SendCell> waitForSend;
+    public TreeMap waitForSend;
     public int waitQueueCapacity;
 
     public HttpSendController(IStatisHttpUtil iStatisHttpUtil, File file, int i, int i2) {
@@ -38,7 +38,7 @@ public class HttpSendController {
                 return;
             }
         }
-        this.waitForSend = new TreeMap<>();
+        this.waitForSend = new TreeMap();
         this.waitQueueCapacity = 20;
         this.delayStep = 2;
         this.httpUtil = iStatisHttpUtil;
@@ -46,97 +46,6 @@ public class HttpSendController {
         this.waitQueueCapacity = i;
         this.delayStep = i2;
         loadSendCellFromFile();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void loadSendCellFromFile() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            ThreadPool.getPool().execute(new Runnable(this) { // from class: com.yy.hiidostatis.defs.controller.HttpSendController.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ HttpSendController this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            File[] listFiles = this.this$0.cacheDir.listFiles();
-                            long currentTimeMillis = System.currentTimeMillis();
-                            int size = this.this$0.waitForSend.size();
-                            for (File file : listFiles) {
-                                if (size >= this.this$0.waitQueueCapacity) {
-                                    return;
-                                }
-                                long parseId = SendCell.parseId(file.getName());
-                                if (parseId > 0) {
-                                    if (parseId / 10000 > currentTimeMillis) {
-                                        this.this$0.putTask(SendCell.loadFromFile(file));
-                                        size++;
-                                    } else {
-                                        file.delete();
-                                    }
-                                }
-                            }
-                            if (size > 0) {
-                                this.this$0.sendHttp(0L);
-                            }
-                        } catch (Throwable th) {
-                            L.debug(this, th.getMessage(), new Object[0]);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public SendCell pollTask() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            synchronized (this.waitForSend) {
-                Map.Entry<Long, SendCell> pollLastEntry = this.waitForSend.pollLastEntry();
-                if (pollLastEntry != null) {
-                    return pollLastEntry.getValue();
-                }
-                return null;
-            }
-        }
-        return (SendCell) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void putTask(SendCell sendCell) {
-        Map.Entry<Long, SendCell> pollFirstEntry;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, this, sendCell) == null) {
-            synchronized (this.waitForSend) {
-                this.waitForSend.put(Long.valueOf(sendCell.getId()), sendCell);
-                if (this.waitForSend.size() > this.waitQueueCapacity && (pollFirstEntry = this.waitForSend.pollFirstEntry()) != null && pollFirstEntry.getValue() != null) {
-                    save(pollFirstEntry.getValue());
-                }
-            }
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -250,6 +159,98 @@ public class HttpSendController {
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
             putTask(new SendCell(str, j));
             sendHttp(0L);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void loadSendCellFromFile() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            ThreadPool.getPool().execute(new Runnable(this) { // from class: com.yy.hiidostatis.defs.controller.HttpSendController.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ HttpSendController this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            File[] listFiles = this.this$0.cacheDir.listFiles();
+                            long currentTimeMillis = System.currentTimeMillis();
+                            int size = this.this$0.waitForSend.size();
+                            for (File file : listFiles) {
+                                if (size >= this.this$0.waitQueueCapacity) {
+                                    return;
+                                }
+                                long parseId = SendCell.parseId(file.getName());
+                                if (parseId > 0) {
+                                    if (parseId / 10000 <= currentTimeMillis) {
+                                        file.delete();
+                                    } else {
+                                        this.this$0.putTask(SendCell.loadFromFile(file));
+                                        size++;
+                                    }
+                                }
+                            }
+                            if (size <= 0) {
+                                return;
+                            }
+                            this.this$0.sendHttp(0L);
+                        } catch (Throwable th) {
+                            L.debug(this, th.getMessage(), new Object[0]);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public SendCell pollTask() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            synchronized (this.waitForSend) {
+                Map.Entry pollLastEntry = this.waitForSend.pollLastEntry();
+                if (pollLastEntry != null) {
+                    return (SendCell) pollLastEntry.getValue();
+                }
+                return null;
+            }
+        }
+        return (SendCell) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void putTask(SendCell sendCell) {
+        Map.Entry pollFirstEntry;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, this, sendCell) == null) {
+            synchronized (this.waitForSend) {
+                this.waitForSend.put(Long.valueOf(sendCell.getId()), sendCell);
+                if (this.waitForSend.size() > this.waitQueueCapacity && (pollFirstEntry = this.waitForSend.pollFirstEntry()) != null && pollFirstEntry.getValue() != null) {
+                    save((SendCell) pollFirstEntry.getValue());
+                }
+            }
         }
     }
 }

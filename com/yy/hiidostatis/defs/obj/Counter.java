@@ -53,6 +53,33 @@ public class Counter implements IJsonSerialize, Cloneable {
         return invokeV.objValue;
     }
 
+    public int getInvokeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.invokeCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return String.format("%d&%s&%s", Integer.valueOf(this.scode), this.uri, this.counterName);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.value;
+        }
+        return invokeV.longValue;
+    }
+
     public synchronized void count(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
@@ -61,24 +88,6 @@ public class Counter implements IJsonSerialize, Cloneable {
                 this.invokeCount += i;
             }
         }
-    }
-
-    public int getInvokeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.invokeCount : invokeV.intValue;
-    }
-
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? String.format("%d&%s&%s", Integer.valueOf(this.scode), this.uri, this.counterName) : (String) invokeV.objValue;
-    }
-
-    public long getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.value : invokeV.longValue;
     }
 
     @Override // com.yy.hiidostatis.defs.obj.IJsonSerialize

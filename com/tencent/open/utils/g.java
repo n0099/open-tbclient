@@ -29,7 +29,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, g> a;
+    public static Map a;
     public static String b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context c;
@@ -54,6 +54,30 @@ public class g {
         }
         a = Collections.synchronizedMap(new HashMap());
         b = null;
+    }
+
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            try {
+                this.e = new JSONObject(c("com.tencent.open.config.json"));
+            } catch (JSONException unused) {
+                this.e = new JSONObject();
+            }
+        }
+    }
+
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            int optInt = this.e.optInt("Common_frequency");
+            if (optInt == 0) {
+                optInt = 1;
+            }
+            if (SystemClock.elapsedRealtime() - this.f >= optInt * 3600000) {
+                b();
+            }
+        }
     }
 
     public g(Context context, String str) {
@@ -81,6 +105,70 @@ public class g {
         this.d = str;
         a();
         b();
+    }
+
+    public static g a(Context context, String str) {
+        InterceptResult invokeLL;
+        g gVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            synchronized (a) {
+                SLog.v("openSDK_LOG.OpenConfig", "getInstance begin");
+                if (str != null) {
+                    b = str;
+                }
+                if (str == null) {
+                    if (b != null) {
+                        str = b;
+                    } else {
+                        str = "0";
+                    }
+                }
+                gVar = (g) a.get(str);
+                if (gVar == null) {
+                    gVar = new g(context, str);
+                    a.put(str, gVar);
+                }
+                SLog.v("openSDK_LOG.OpenConfig", "getInstance end");
+            }
+            return gVar;
+        }
+        return (g) invokeLL.objValue;
+    }
+
+    private void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && this.h) {
+            SLog.v("openSDK_LOG.OpenConfig", str + "; appid: " + this.d);
+        }
+    }
+
+    private void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
+            try {
+                if (this.d != null) {
+                    str = str + "." + this.d;
+                }
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.c.openFileOutput(str, 0), Charset.forName("UTF-8"));
+                outputStreamWriter.write(str2);
+                outputStreamWriter.flush();
+                outputStreamWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) {
+            d("cgi back, do update");
+            this.e = jSONObject;
+            a("com.tencent.open.config.json", jSONObject.toString());
+            this.f = SystemClock.elapsedRealtime();
+        }
     }
 
     private void b() {
@@ -199,36 +287,15 @@ public class g {
         return (String) invokeL.objValue;
     }
 
-    private void d(String str) {
+    public int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && this.h) {
-            SLog.v("openSDK_LOG.OpenConfig", str + "; appid: " + this.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            d("get " + str);
+            c();
+            return this.e.optInt(str);
         }
-    }
-
-    public static g a(Context context, String str) {
-        InterceptResult invokeLL;
-        g gVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            synchronized (a) {
-                SLog.v("openSDK_LOG.OpenConfig", "getInstance begin");
-                if (str != null) {
-                    b = str;
-                }
-                if (str == null) {
-                    str = b != null ? b : "0";
-                }
-                gVar = a.get(str);
-                if (gVar == null) {
-                    gVar = new g(context, str);
-                    a.put(str, gVar);
-                }
-                SLog.v("openSDK_LOG.OpenConfig", "getInstance end");
-            }
-            return gVar;
-        }
-        return (g) invokeLL.objValue;
+        return invokeL.intValue;
     }
 
     public boolean b(String str) {
@@ -244,74 +311,11 @@ public class g {
             if (opt instanceof Integer) {
                 return !opt.equals(0);
             }
-            if (opt instanceof Boolean) {
-                return ((Boolean) opt).booleanValue();
+            if (!(opt instanceof Boolean)) {
+                return false;
             }
-            return false;
+            return ((Boolean) opt).booleanValue();
         }
         return invokeL.booleanValue;
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            try {
-                this.e = new JSONObject(c("com.tencent.open.config.json"));
-            } catch (JSONException unused) {
-                this.e = new JSONObject();
-            }
-        }
-    }
-
-    private void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
-            try {
-                if (this.d != null) {
-                    str = str + "." + this.d;
-                }
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.c.openFileOutput(str, 0), Charset.forName("UTF-8"));
-                outputStreamWriter.write(str2);
-                outputStreamWriter.flush();
-                outputStreamWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            int optInt = this.e.optInt("Common_frequency");
-            if (optInt == 0) {
-                optInt = 1;
-            }
-            if (SystemClock.elapsedRealtime() - this.f >= optInt * 3600000) {
-                b();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) {
-            d("cgi back, do update");
-            this.e = jSONObject;
-            a("com.tencent.open.config.json", jSONObject.toString());
-            this.f = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("get " + str);
-            c();
-            return this.e.optInt(str);
-        }
-        return invokeL.intValue;
     }
 }

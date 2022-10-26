@@ -29,15 +29,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.y15;
+import com.baidu.tieba.e25;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
+public class CreateBarActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -90,11 +91,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.e) {
+                if (view2 != this.a.e) {
+                    if (view2 != this.a.f) {
+                        return;
+                    }
                     this.a.P1();
-                } else if (view2 == this.a.f) {
-                    this.a.Q1();
+                    return;
                 }
+                this.a.O1();
             }
         }
     }
@@ -104,6 +108,20 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CreateBarActivity a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
 
         public b(CreateBarActivity createBarActivity) {
             Interceptable interceptable = $ic;
@@ -128,10 +146,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 int length = this.a.c.getText().toString().trim().length();
-                if (length <= 0 || length >= 32 || this.a.d.getText().toString().trim().length() <= 0) {
-                    this.a.e.setEnabled(false);
-                } else {
+                if (length > 0 && length < 32 && this.a.d.getText().toString().trim().length() > 0) {
                     this.a.e.setEnabled(true);
+                } else {
+                    this.a.e.setEnabled(false);
                 }
                 if (length >= 32) {
                     this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02f4));
@@ -140,20 +158,6 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 }
                 this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02f5));
                 this.a.o.setTextColor(-6250336);
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
     }
@@ -189,10 +193,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
                     if (this.a.c.hasFocus()) {
-                        ej.x(this.a.getPageContext().getPageActivity(), this.a.c);
+                        fj.x(this.a.getPageContext().getPageActivity(), this.a.c);
                     }
                     if (this.a.d.hasFocus()) {
-                        ej.x(this.a.getPageContext().getPageActivity(), this.a.d);
+                        fj.x(this.a.getPageContext().getPageActivity(), this.a.d);
                         return false;
                     }
                     return false;
@@ -204,7 +208,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class d extends BdAsyncTask<String, Integer, String> {
+    public class d extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -297,14 +301,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 }
                 this.d.showToast(this.c.getErrorString());
                 if (this.c.isNetSuccess()) {
-                    this.d.Q1();
+                    this.d.P1();
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e extends BdAsyncTask<String, Integer, Bitmap> {
+    public class e extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -331,6 +335,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             this.b = false;
         }
 
+        public /* synthetic */ e(CreateBarActivity createBarActivity, a aVar) {
+            this(createBarActivity);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
@@ -347,14 +355,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        y15 y15Var = new y15();
-                        y15Var.e(postNetData);
-                        if (y15Var.c() != null && y15Var.c().length() > 0) {
-                            this.c.n = y15Var.b();
+                        e25 e25Var = new e25();
+                        e25Var.e(postNetData);
+                        if (e25Var.c() != null && e25Var.c().length() > 0) {
+                            this.c.n = e25Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(y15Var.c());
+                            NetWork netWork2 = new NetWork(e25Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -406,10 +414,6 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 }
             }
         }
-
-        public /* synthetic */ e(CreateBarActivity createBarActivity, a aVar) {
-            this(createBarActivity);
-        }
     }
 
     public CreateBarActivity() {
@@ -446,7 +450,20 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         this.t = false;
     }
 
-    public final void N1() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d01ff);
+            initData();
+            N1();
+            M1();
+            adjustResizeForSoftInput();
+        }
+    }
+
+    public final void M1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.k == null) {
             e eVar = new e(this, null);
@@ -455,62 +472,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         }
     }
 
-    public final void O1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.l = new a(this);
-            this.m = new b(this);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
-            this.u = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.u.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f046e));
-            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0922b8)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090925);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f25);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090727);
-            this.e = relativeLayout;
-            relativeLayout.setOnClickListener(this.l);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f26);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090875);
-            this.c = editText;
-            editText.addTextChangedListener(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090884);
-            this.d = editText2;
-            editText2.addTextChangedListener(this.m);
-            if (this.t) {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca8));
-                this.c.setText(this.s);
-            } else {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02f3));
-            }
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090727);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e98);
-            this.f = frameLayout;
-            frameLayout.setOnClickListener(this.l);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e94);
-            this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abd);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ac4);
-            if (this.t) {
-                this.d.requestFocus();
-            }
-            findViewById(R.id.obfuscated_res_0x7f091ec9).setOnTouchListener(new c(this));
-        }
-    }
-
     public final void P1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.j == null) {
-            d dVar = new d(this, this.c.getText().toString().trim(), this.d.getText().toString().trim());
-            this.j = dVar;
-            dVar.setPriority(3);
-            this.j.execute(new String[0]);
-        }
-    }
-
-    public final void Q1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.k == null && this.j == null) {
             e eVar = new e(this, null);
@@ -532,38 +494,6 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.onChangeSkinType(i);
-            getLayoutMode().l(i == 1);
-            getLayoutMode().k(this.p);
-            SkinManager.setButtonTextColor(this.r, i);
-            SkinManager.setTextColor(this.b, i);
-            String str = this.s + getPageContext().getString(R.string.obfuscated_res_0x7f0f02f6);
-            SpannableString spannableString = new SpannableString(str);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), 0, this.s.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.common_color_10004)), this.s.length(), str.length(), 33);
-            SkinManager.setBackgroundResource(this.q, R.drawable.btn_general_start_selector);
-            this.a.setText(spannableString);
-            this.u.onChangeSkinType(getPageContext(), i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0200);
-            initData();
-            O1();
-            N1();
-            adjustResizeForSoftInput();
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
@@ -577,6 +507,85 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             if (eVar != null) {
                 eVar.cancel();
             }
+        }
+    }
+
+    public final void N1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.l = new a(this);
+            this.m = new b(this);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            this.u = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.u.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0475));
+            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906dc);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0922a2)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f09092f);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f19);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090730);
+            this.e = relativeLayout;
+            relativeLayout.setOnClickListener(this.l);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f1a);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09087e);
+            this.c = editText;
+            editText.addTextChangedListener(this.m);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f09088d);
+            this.d = editText2;
+            editText2.addTextChangedListener(this.m);
+            if (this.t) {
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cb9));
+                this.c.setText(this.s);
+            } else {
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02f3));
+            }
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090730);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e8c);
+            this.f = frameLayout;
+            frameLayout.setOnClickListener(this.l);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e88);
+            this.e.setEnabled(false);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ab9);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ac0);
+            if (this.t) {
+                this.d.requestFocus();
+            }
+            findViewById(R.id.obfuscated_res_0x7f091ec8).setOnTouchListener(new c(this));
+        }
+    }
+
+    public final void O1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.j == null) {
+            d dVar = new d(this, this.c.getText().toString().trim(), this.d.getText().toString().trim());
+            this.j = dVar;
+            dVar.setPriority(3);
+            this.j.execute(new String[0]);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.onChangeSkinType(i);
+            zp4 layoutMode = getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            getLayoutMode().k(this.p);
+            SkinManager.setButtonTextColor(this.r, i);
+            SkinManager.setTextColor(this.b, i);
+            String str = this.s + getPageContext().getString(R.string.obfuscated_res_0x7f0f02f6);
+            SpannableString spannableString = new SpannableString(str);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), 0, this.s.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.common_color_10004)), this.s.length(), str.length(), 33);
+            SkinManager.setBackgroundResource(this.q, R.drawable.btn_general_start_selector);
+            this.a.setText(spannableString);
+            this.u.onChangeSkinType(getPageContext(), i);
         }
     }
 }

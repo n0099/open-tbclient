@@ -137,7 +137,7 @@ public class CookieManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? !WebViewFactory.hasProvider() ? "" : WebViewFactory.getProvider().getCookieManager().getCookie(str) : (String) invokeL.objValue;
     }
 
-    public void getCookieAsync(String str, ValueCallback<String> valueCallback) {
+    public void getCookieAsync(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, valueCallback) == null) {
             if (WebViewFactory.hasProvider()) {
@@ -168,7 +168,7 @@ public class CookieManager {
         }
     }
 
-    public void removeAllCookies(ValueCallback<Boolean> valueCallback) {
+    public void removeAllCookies(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, valueCallback) == null) && WebViewFactory.hasProvider()) {
             WebViewFactory.getProvider().getCookieManager().removeAllCookies(valueCallback);
@@ -191,7 +191,7 @@ public class CookieManager {
         }
     }
 
-    public void removeSessionCookies(ValueCallback<Boolean> valueCallback) {
+    public void removeSessionCookies(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, valueCallback) == null) && WebViewFactory.hasProvider()) {
             WebViewFactory.getProvider().getCookieManager().removeSessionCookies(valueCallback);
@@ -226,14 +226,14 @@ public class CookieManager {
         }
     }
 
-    public void setCookie(String str, String str2, ValueCallback<Boolean> valueCallback) {
+    public void setCookie(String str, String str2, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048594, this, str, str2, valueCallback) == null) && WebViewFactory.hasProvider()) {
             WebViewFactory.getProvider().getCookieManager().setCookie(str, str2, valueCallback);
         }
     }
 
-    public void setCookieAsync(String str, String str2, ValueCallback<Boolean> valueCallback) {
+    public void setCookieAsync(String str, String str2, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048595, this, str, str2, valueCallback) == null) {
             setCookie(str, str2, valueCallback);

@@ -50,18 +50,10 @@ public class a implements IInterface {
     public IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (IBinder) invokeV.objValue;
-    }
-
-    public final void b(int i, Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, parcel) == null) {
-            try {
-                this.a.transact(i, parcel, null, 1);
-            } finally {
-                parcel.recycle();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (IBinder) invokeV.objValue;
     }
 
     public final Parcel a(int i, Parcel parcel) {
@@ -83,5 +75,16 @@ public class a implements IInterface {
             }
         }
         return (Parcel) invokeIL.objValue;
+    }
+
+    public final void b(int i, Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, parcel) == null) {
+            try {
+                this.a.transact(i, parcel, null, 1);
+            } finally {
+                parcel.recycle();
+            }
+        }
     }
 }

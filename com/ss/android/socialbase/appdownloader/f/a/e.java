@@ -5,7 +5,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.heytap.mcssdk.PushManager;
 import java.io.File;
@@ -18,6 +17,37 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class e {
+    public static String a(int i) {
+        return (i >>> 24) == 1 ? "android:" : "";
+    }
+
+    public static PackageInfo a(Context context, File file, int i) {
+        int i2;
+        if (com.ss.android.socialbase.downloader.i.a.a(LaunchTaskConstants.OTHER_PROCESS) && (i2 = Build.VERSION.SDK_INT) >= 21 && i2 < 26) {
+            try {
+                return a(file);
+            } catch (Throwable th) {
+                a("getPackageInfo::unzip_getpackagearchiveinfo", th.getMessage());
+                return b(context, file, i);
+            }
+        }
+        return b(context, file, i);
+    }
+
+    public static PackageInfo b(Context context, File file, int i) {
+        PackageManager packageManager = context.getPackageManager();
+        if (packageManager == null) {
+            a("unzip_getpackagearchiveinfo", "packageManager == null");
+            return null;
+        }
+        try {
+            return packageManager.getPackageArchiveInfo(file.getPath(), i);
+        } catch (Throwable th) {
+            a("unzip_getpackagearchiveinfo", "pm.getPackageArchiveInfo failed: " + th.getMessage());
+            return null;
+        }
+    }
+
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:116:0x0144 */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x006a, code lost:
         r13 = r1.getInputStream(r2);
@@ -37,7 +67,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static PackageInfo a(@NonNull File file) {
+    public static PackageInfo a(File file) {
         ZipInputStream zipInputStream;
         FileInputStream fileInputStream;
         ZipFile zipFile;
@@ -62,27 +92,29 @@ public class e {
                     ZipInputStream zipInputStream5 = new ZipInputStream(fileInputStream3);
                     while (true) {
                         ZipEntry nextEntry = zipInputStream5.getNextEntry();
-                        if (nextEntry == null) {
+                        if (nextEntry != null) {
+                            if (nextEntry.isDirectory()) {
+                                try {
+                                    zipInputStream5.closeEntry();
+                                } catch (Throwable unused) {
+                                }
+                            } else if (!"AndroidManifest.xml".equals(nextEntry.getName())) {
+                                zipInputStream5.closeEntry();
+                            } else {
+                                zipFile3 = null;
+                                zipEntry = nextEntry;
+                                fileInputStream = fileInputStream3;
+                                zipInputStream4 = zipInputStream5;
+                                zipInputStream3 = zipInputStream5;
+                                break;
+                            }
+                        } else {
                             zipFile3 = null;
                             zipEntry = nextEntry;
                             fileInputStream = fileInputStream3;
                             zipInputStream4 = zipInputStream5;
                             zipInputStream3 = null;
                             break;
-                        } else if (nextEntry.isDirectory()) {
-                            try {
-                                zipInputStream5.closeEntry();
-                            } catch (Throwable unused) {
-                            }
-                        } else if ("AndroidManifest.xml".equals(nextEntry.getName())) {
-                            zipFile3 = null;
-                            zipEntry = nextEntry;
-                            fileInputStream = fileInputStream3;
-                            zipInputStream4 = zipInputStream5;
-                            zipInputStream3 = zipInputStream5;
-                            break;
-                        } else {
-                            zipInputStream5.closeEntry();
                         }
                     }
                 } catch (Throwable th) {
@@ -126,15 +158,16 @@ public class e {
                     Enumeration<? extends ZipEntry> entries = zipFile4.entries();
                     ZipEntry zipEntry2 = null;
                     while (true) {
-                        if (!entries.hasMoreElements()) {
+                        if (entries.hasMoreElements()) {
+                            zipEntry2 = entries.nextElement();
+                            if (!zipEntry2.isDirectory() && "AndroidManifest.xml".equals(zipEntry2.getName())) {
+                                break;
+                            }
+                        } else {
                             zipInputStream2 = null;
                             zipFile2 = zipFile4;
                             zipEntry = zipEntry2;
                             fileInputStream2 = null;
-                            break;
-                        }
-                        zipEntry2 = entries.nextElement();
-                        if (!zipEntry2.isDirectory() && "AndroidManifest.xml".equals(zipEntry2.getName())) {
                             break;
                         }
                     }
@@ -238,38 +271,37 @@ public class e {
         }
     }
 
-    public static String a(int i) {
-        return (i >>> 24) == 1 ? "android:" : "";
-    }
-
-    public static PackageInfo b(@NonNull Context context, @NonNull File file, int i) {
-        PackageManager packageManager = context.getPackageManager();
-        if (packageManager == null) {
-            a("unzip_getpackagearchiveinfo", "packageManager == null");
-            return null;
-        }
-        try {
-            return packageManager.getPackageArchiveInfo(file.getPath(), i);
-        } catch (Throwable th) {
-            a("unzip_getpackagearchiveinfo", "pm.getPackageArchiveInfo failed: " + th.getMessage());
-            return null;
-        }
-    }
-
-    public static PackageInfo a(@NonNull Context context, @NonNull File file, int i) {
-        int i2;
-        if (com.ss.android.socialbase.downloader.i.a.a(LaunchTaskConstants.OTHER_PROCESS) && (i2 = Build.VERSION.SDK_INT) >= 21 && i2 < 26) {
+    public static String a(Context context, PackageInfo packageInfo, String str) {
+        ApplicationInfo applicationInfo;
+        if (packageInfo != null && (applicationInfo = packageInfo.applicationInfo) != null) {
+            applicationInfo.sourceDir = str;
+            applicationInfo.publicSourceDir = str;
             try {
-                return a(file);
-            } catch (Throwable th) {
-                a("getPackageInfo::unzip_getpackagearchiveinfo", th.getMessage());
-                return b(context, file, i);
+                return applicationInfo.loadLabel(context.getPackageManager()).toString();
+            } catch (OutOfMemoryError e) {
+                a("getPackageInfo::fail_load_label", e.getMessage());
+                return null;
             }
         }
-        return b(context, file, i);
+        return null;
     }
 
-    public static void a(@NonNull String str, @NonNull String str2) {
+    public static String a(a aVar, int i) {
+        int b = aVar.b(i);
+        int c = aVar.c(i);
+        if (b == 3) {
+            return aVar.d(i);
+        }
+        if (b == 2) {
+            return String.format("?%s%08X", a(c), Integer.valueOf(c));
+        }
+        if (b >= 16 && b <= 31) {
+            return String.valueOf(c);
+        }
+        return String.format("<0x%X, type 0x%02X>", Integer.valueOf(c), Integer.valueOf(b));
+    }
+
+    public static void a(String str, String str2) {
         com.ss.android.socialbase.downloader.d.b g = com.ss.android.socialbase.downloader.downloader.c.g();
         if (g == null) {
             return;
@@ -280,29 +312,5 @@ public class e {
         } catch (JSONException unused) {
         }
         g.a(str, jSONObject, null, null);
-    }
-
-    public static String a(a aVar, int i) {
-        int b = aVar.b(i);
-        int c = aVar.c(i);
-        if (b == 3) {
-            return aVar.d(i);
-        }
-        return b == 2 ? String.format("?%s%08X", a(c), Integer.valueOf(c)) : (b < 16 || b > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(c), Integer.valueOf(b)) : String.valueOf(c);
-    }
-
-    public static String a(Context context, PackageInfo packageInfo, String str) {
-        ApplicationInfo applicationInfo;
-        if (packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null) {
-            return null;
-        }
-        applicationInfo.sourceDir = str;
-        applicationInfo.publicSourceDir = str;
-        try {
-            return applicationInfo.loadLabel(context.getPackageManager()).toString();
-        } catch (OutOfMemoryError e) {
-            a("getPackageInfo::fail_load_label", e.getMessage());
-            return null;
-        }
     }
 }

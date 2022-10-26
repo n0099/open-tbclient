@@ -2,6 +2,7 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,18 +49,18 @@ public final class ai extends bx.a {
     public void a(bx bxVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bxVar) == null) {
-            String a = bxVar.a("GAID", "gaid");
+            String a = bxVar.a("GAID", Config.GAID);
             String a2 = com.xiaomi.push.j.a((Context) this.a);
             if (TextUtils.isEmpty(a2) || TextUtils.equals(a, a2)) {
                 return;
             }
-            bxVar.a("GAID", "gaid", a2);
+            bxVar.a("GAID", Config.GAID, a2);
             ii iiVar = new ii();
             iiVar.b(this.f888a.d);
             iiVar.c(ht.g.f506a);
             iiVar.a(bd.a());
             iiVar.a(new HashMap());
-            iiVar.m482a().put("gaid", a2);
+            iiVar.m481a().put(Config.GAID, a2);
             byte[] a3 = it.a(ah.a(this.a.getPackageName(), this.f888a.d, iiVar, hj.i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);

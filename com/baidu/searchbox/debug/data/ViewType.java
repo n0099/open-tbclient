@@ -44,6 +44,18 @@ public final class ViewType {
         $VALUES = new ViewType[]{viewType, viewType2, viewType3, viewType4};
     }
 
+    public static ViewType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ViewType) Enum.valueOf(ViewType.class, str) : (ViewType) invokeL.objValue;
+    }
+
+    public static ViewType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ViewType[]) $VALUES.clone() : (ViewType[]) invokeV.objValue;
+    }
+
     public ViewType(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,17 +73,5 @@ public final class ViewType {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static ViewType valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ViewType) Enum.valueOf(ViewType.class, str) : (ViewType) invokeL.objValue;
-    }
-
-    public static ViewType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ViewType[]) $VALUES.clone() : (ViewType[]) invokeV.objValue;
     }
 }

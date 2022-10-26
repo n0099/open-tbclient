@@ -52,6 +52,18 @@ public final class AztecWriter implements Writer {
         }
     }
 
+    public static BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Charset charset, int i3, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), charset, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            if (barcodeFormat == BarcodeFormat.AZTEC) {
+                return renderResult(Encoder.encode(str.getBytes(charset), i3, i4), i, i2);
+            }
+            throw new IllegalArgumentException("Can only encode AZTEC, but got " + barcodeFormat);
+        }
+        return (BitMatrix) invokeCommon.objValue;
+    }
+
     public static BitMatrix renderResult(AztecCode aztecCode, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -91,11 +103,14 @@ public final class AztecWriter implements Writer {
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) ? encode(str, barcodeFormat, i, i2, null) : (BitMatrix) invokeLLII.objValue;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) {
+            return encode(str, barcodeFormat, i, i2, null);
+        }
+        return (BitMatrix) invokeLLII.objValue;
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) {
         InterceptResult invokeCommon;
         Charset charset;
         int i3;
@@ -103,37 +118,28 @@ public final class AztecWriter implements Writer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             Charset charset2 = DEFAULT_CHARSET;
+            int i5 = 33;
             if (map != null) {
                 if (map.containsKey(EncodeHintType.CHARACTER_SET)) {
                     charset2 = Charset.forName(map.get(EncodeHintType.CHARACTER_SET).toString());
                 }
-                int parseInt = map.containsKey(EncodeHintType.ERROR_CORRECTION) ? Integer.parseInt(map.get(EncodeHintType.ERROR_CORRECTION).toString()) : 33;
+                if (map.containsKey(EncodeHintType.ERROR_CORRECTION)) {
+                    i5 = Integer.parseInt(map.get(EncodeHintType.ERROR_CORRECTION).toString());
+                }
                 if (map.containsKey(EncodeHintType.AZTEC_LAYERS)) {
                     charset = charset2;
-                    i3 = parseInt;
+                    i3 = i5;
                     i4 = Integer.parseInt(map.get(EncodeHintType.AZTEC_LAYERS).toString());
                     return encode(str, barcodeFormat, i, i2, charset, i3, i4);
                 }
                 charset = charset2;
-                i3 = parseInt;
+                i3 = i5;
             } else {
                 charset = charset2;
                 i3 = 33;
             }
             i4 = 0;
             return encode(str, barcodeFormat, i, i2, charset, i3, i4);
-        }
-        return (BitMatrix) invokeCommon.objValue;
-    }
-
-    public static BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Charset charset, int i3, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), charset, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (barcodeFormat == BarcodeFormat.AZTEC) {
-                return renderResult(Encoder.encode(str.getBytes(charset), i3, i4), i, i2);
-            }
-            throw new IllegalArgumentException("Can only encode AZTEC, but got " + barcodeFormat);
         }
         return (BitMatrix) invokeCommon.objValue;
     }

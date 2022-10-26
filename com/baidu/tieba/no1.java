@@ -1,19 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface no1 {
+    boolean a();
 
     /* loaded from: classes5.dex */
-    public static class a implements no1 {
+    public class a implements no1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.no1
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -28,23 +37,5 @@ public interface no1 {
                 }
             }
         }
-
-        @Override // com.baidu.tieba.no1
-        public void a(@NonNull SwanJSVersionUpdateEvent swanJSVersionUpdateEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, swanJSVersionUpdateEvent) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.no1
-        public void b(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            }
-        }
     }
-
-    void a(@NonNull SwanJSVersionUpdateEvent swanJSVersionUpdateEvent);
-
-    void b(String str, boolean z);
 }

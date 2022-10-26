@@ -1,36 +1,143 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.Message;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.constant.WBConstants;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class fw4 implements jw4 {
+public class fw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nw4 a;
-    public final HashMap<String, Method> b;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public String d;
+    public boolean e;
+    public Handler f;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.fw4 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public fw4(nw4 nw4Var) {
+    /* loaded from: classes4.dex */
+    public class a implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+
+        public a(fw4 fw4Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fw4Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (fw4.a().c == 1) {
+                    i = 8;
+                } else {
+                    i = -1;
+                }
+                if (fw4.a().c == 2) {
+                    i = 9;
+                }
+                if (!this.a.getClass().getSimpleName().equals("PbActivity")) {
+                    SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, i, fw4.a().d);
+                    return false;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MessageQueue.IdleHandler a;
+        public final /* synthetic */ fw4 b;
+
+        public b(fw4 fw4Var, MessageQueue.IdleHandler idleHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fw4Var, idleHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fw4Var;
+            this.a = idleHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final fw4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-790588857, "Lcom/baidu/tieba/fw4$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-790588857, "Lcom/baidu/tieba/fw4$c;");
+                    return;
+                }
+            }
+            a = new fw4();
+        }
+    }
+
+    public fw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,151 +147,81 @@ public abstract class fw4 implements jw4 {
                 return;
             }
         }
-        this.a = nw4Var;
-        this.b = new HashMap<>();
-        b(getClass());
-        if (this.b.isEmpty()) {
-            throw new IllegalStateException("No native methods found!");
-        }
+        this.c = 0;
+        this.e = false;
     }
 
-    @Override // com.baidu.tieba.jw4
-    public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
-        Object invoke;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
-            Method method = this.b.get(str);
-            if (method != null) {
-                qw4 qw4Var = (qw4) method.getAnnotation(qw4.class);
-                String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
-                try {
-                    Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (!qw4Var.isAsync()) {
-                        if (parameterTypes.length == 2) {
-                            invoke = method.invoke(this, optString, jSONObject);
-                        } else if (parameterTypes.length == 1) {
-                            invoke = method.invoke(this, jSONObject);
-                        } else if (parameterTypes.length == 0) {
-                            gw4.a("native method " + getClass().getSimpleName() + ":" + qw4Var.value() + " ignored all parameters.");
-                            invoke = method.invoke(this, new Object[0]);
-                        } else {
-                            e(str, jSONObject2, "500", "parameters too much!");
-                            return;
-                        }
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, (JSONObject) invoke);
-                        return;
-                    } else if (parameterTypes.length == 2) {
-                        method.invoke(this, optString, jSONObject);
-                        return;
-                    } else if (parameterTypes.length == 1) {
-                        method.invoke(this, jSONObject);
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, null);
-                        return;
-                    } else if (parameterTypes.length == 0) {
-                        gw4.a("native method " + getClass().getSimpleName() + ":" + qw4Var.value() + " ignored all parameters.");
-                        method.invoke(this, new Object[0]);
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, null);
-                        return;
-                    } else {
-                        e(str, jSONObject2, "500", "parameters too much!");
-                        return;
-                    }
-                } catch (IllegalAccessException e) {
-                    gw4.a("native method call error:" + e.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT, "IllegalAccessException:" + e.getMessage());
-                    return;
-                } catch (InvocationTargetException e2) {
-                    gw4.a("native method call error:" + e2.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC, "InvocationTargetException:" + e2.getMessage());
-                    return;
-                } catch (Exception e3) {
-                    gw4.a("native method call error:" + e3.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG, "Native call exception:" + e3.getMessage());
-                    return;
-                }
-            }
-            e(str, jSONObject2, "403", "method " + str + " not exists");
-        }
-    }
-
-    public final void b(Class<? extends fw4> cls) {
-        Method[] declaredMethods;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls) == null) {
-            for (Method method : cls.getDeclaredMethods()) {
-                qw4 qw4Var = (qw4) method.getAnnotation(qw4.class);
-                if (qw4Var != null) {
-                    String value = qw4Var.value();
-                    String str = TextUtils.isEmpty(value) ? null : value;
-                    if (qw4Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
-                        throw new IllegalArgumentException("Method with async flag should return void.");
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        str = method.getName();
-                    }
-                    method.setAccessible(true);
-                    this.b.put(str, method);
-                }
-            }
-            Class<? super Object> superclass = cls.getSuperclass();
-            if (superclass == null || superclass == cls) {
-                return;
-            }
-            b(superclass);
-        }
-    }
-
-    public void c(Message<?> message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            cw4.a(message);
-        }
-    }
-
-    public void d(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jSONObject) == null) {
-            if (TextUtils.isEmpty(str)) {
-                gw4.a("sendResponseToJS got empty callbackId.");
-                return;
-            }
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("errNo", "0");
-            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "success");
-            if (jSONObject != null) {
-                hashMap.put("data", jSONObject);
-            }
-            this.a.c(ow4.k(str, hashMap));
-        }
-    }
-
-    public final void e(String str, JSONObject jSONObject, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, jSONObject, str2, str3) == null) {
-            String optString = jSONObject.optString(WBConstants.SHARE_CALLBACK_ID);
-            if (TextUtils.isEmpty(optString)) {
-                gw4.a("method " + str + " not found!");
-                return;
-            }
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("errNo", str2);
-            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, str3);
-            this.a.c(ow4.k(optString, hashMap));
-        }
-    }
-
-    public Context getContext() {
+    public static fw4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c.a;
+        }
+        return (fw4) invokeV.objValue;
+    }
+
+    public final Handler b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f == null) {
+                this.f = new Handler(Looper.getMainLooper());
+            }
+            return this.f;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public void c(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            int i = 0;
+            if (TbadkCoreApplication.getInst().isMainProcess(false) && intent != null && intent.getComponent() != null) {
+                String dataString = intent.getDataString();
+                String className = intent.getComponent().getClassName();
+                if ("com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(className)) {
+                    this.c = !ej.isEmpty(dataString) ? 1 : 0;
+                    this.d = dataString;
+                } else if (SpeedStats.PUSH_ACTIVITY.equals(className)) {
+                    if (!ej.isEmpty(dataString)) {
+                        i = 2;
+                    }
+                    this.c = i;
+                    this.d = dataString;
+                } else {
+                    this.c = 0;
+                }
+            }
+        }
+    }
+
+    public void d(MessageQueue.IdleHandler idleHandler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, idleHandler) != null) || idleHandler == null || this.e) {
+            return;
+        }
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            b().post(new b(this, idleHandler));
+            return;
+        }
+        Looper.myQueue().addIdleHandler(idleHandler);
+        this.e = true;
+    }
+
+    public void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || activity == null) {
+            return;
+        }
+        if (a().c != 1 && a().c != 2) {
+            return;
+        }
+        String name = activity.getClass().getName();
+        if (gw4.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !SchemeActionHelper.isToMaintab(activity.getIntent())) {
+                return;
+            }
+            a().d(new a(this, activity));
+        }
     }
 }

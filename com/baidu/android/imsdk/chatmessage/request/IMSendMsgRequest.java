@@ -28,6 +28,30 @@ public class IMSendMsgRequest extends BaseHttpRequest {
     public String key;
     public ChatMsg msg;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMSendMsgRequest(Context context, ChatMsg chatMsg, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,15 +72,18 @@ public class IMSendMsgRequest extends BaseHttpRequest {
         this.key = str;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair transErrorCode = transErrorCode(i, bArr, th);
+            LogUtils.d(TAG, "onFailure errorCode: " + transErrorCode.first);
+            ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(((Integer) transErrorCode.first).intValue(), this.msg, -1L, this.key);
+        }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -73,34 +100,37 @@ public class IMSendMsgRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
-            String str = "https://pim.baidu.com/";
+            String str2 = "https://pim.baidu.com/";
             if (readIntData != 0) {
-                if (readIntData == 1) {
-                    str = "http://rd-im-server.bcc-szth.baidu.com:8111/";
-                } else if (readIntData == 2) {
-                    str = Constants.URL_HTTP_QA;
-                } else if (readIntData == 3) {
-                    str = Constants.URL_HTTP_BOX;
+                if (readIntData != 1) {
+                    if (readIntData != 2) {
+                        if (readIntData == 3) {
+                            str2 = Constants.URL_HTTP_BOX;
+                        }
+                    } else {
+                        str2 = Constants.URL_HTTP_QA;
+                    }
+                } else {
+                    str2 = "http://rd-im-server.bcc-szth.baidu.com:8111/";
                 }
             }
             boolean isStudioHostSendMsg = Utility.isStudioHostSendMsg(this.mContext);
             StringBuilder sb = new StringBuilder();
-            sb.append(str);
+            sb.append(str2);
             sb.append("imsapi/1.0/send_mcast_msg/");
-            sb.append(isStudioHostSendMsg ? "liveshowhost" : "liveshowuser");
+            if (isStudioHostSendMsg) {
+                str = "liveshowhost";
+            } else {
+                str = "liveshowuser";
+            }
+            sb.append(str);
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -143,16 +173,6 @@ public class IMSendMsgRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-            LogUtils.d(TAG, "onFailure errorCode: " + transErrorCode.first);
-            ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(((Integer) transErrorCode.first).intValue(), this.msg, -1L, this.key);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         int i2;
         Interceptable interceptable = $ic;
@@ -167,15 +187,5 @@ public class IMSendMsgRequest extends BaseHttpRequest {
             }
             ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, this.msg, System.currentTimeMillis(), this.key);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

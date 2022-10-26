@@ -51,6 +51,17 @@ public class VelocityMatrix {
         }
     }
 
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mDRotate = 0.0f;
+            this.mDTranslateY = 0.0f;
+            this.mDTranslateX = 0.0f;
+            this.mDScaleY = 0.0f;
+            this.mDScaleX = 0.0f;
+        }
+    }
+
     public void applyTransform(float f, float f2, int i, int i2, float[] fArr) {
         float f3;
         Interceptable interceptable = $ic;
@@ -70,56 +81,19 @@ public class VelocityMatrix {
         }
     }
 
-    public void clear() {
+    public void setRotationVelocity(KeyCycleOscillator keyCycleOscillator, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mDRotate = 0.0f;
-            this.mDTranslateY = 0.0f;
-            this.mDTranslateX = 0.0f;
-            this.mDScaleY = 0.0f;
-            this.mDScaleX = 0.0f;
+        if ((interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, keyCycleOscillator, f) == null) && keyCycleOscillator != null) {
+            this.mDRotate = keyCycleOscillator.getSlope(f);
         }
     }
 
     public void setRotationVelocity(SplineSet splineSet, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(1048579, this, splineSet, f) == null) || splineSet == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLF(1048579, this, splineSet, f) == null) && splineSet != null) {
+            this.mDRotate = splineSet.getSlope(f);
+            this.mRotate = splineSet.get(f);
         }
-        this.mDRotate = splineSet.getSlope(f);
-        this.mRotate = splineSet.get(f);
-    }
-
-    public void setScaleVelocity(SplineSet splineSet, SplineSet splineSet2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{splineSet, splineSet2, Float.valueOf(f)}) == null) {
-            if (splineSet != null) {
-                this.mDScaleX = splineSet.getSlope(f);
-            }
-            if (splineSet2 != null) {
-                this.mDScaleY = splineSet2.getSlope(f);
-            }
-        }
-    }
-
-    public void setTranslationVelocity(SplineSet splineSet, SplineSet splineSet2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{splineSet, splineSet2, Float.valueOf(f)}) == null) {
-            if (splineSet != null) {
-                this.mDTranslateX = splineSet.getSlope(f);
-            }
-            if (splineSet2 != null) {
-                this.mDTranslateY = splineSet2.getSlope(f);
-            }
-        }
-    }
-
-    public void setRotationVelocity(KeyCycleOscillator keyCycleOscillator, float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, keyCycleOscillator, f) == null) || keyCycleOscillator == null) {
-            return;
-        }
-        this.mDRotate = keyCycleOscillator.getSlope(f);
     }
 
     public void setScaleVelocity(KeyCycleOscillator keyCycleOscillator, KeyCycleOscillator keyCycleOscillator2, float f) {
@@ -145,6 +119,30 @@ public class VelocityMatrix {
             }
             if (keyCycleOscillator2 != null) {
                 this.mDTranslateY = keyCycleOscillator2.getSlope(f);
+            }
+        }
+    }
+
+    public void setScaleVelocity(SplineSet splineSet, SplineSet splineSet2, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{splineSet, splineSet2, Float.valueOf(f)}) == null) {
+            if (splineSet != null) {
+                this.mDScaleX = splineSet.getSlope(f);
+            }
+            if (splineSet2 != null) {
+                this.mDScaleY = splineSet2.getSlope(f);
+            }
+        }
+    }
+
+    public void setTranslationVelocity(SplineSet splineSet, SplineSet splineSet2, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{splineSet, splineSet2, Float.valueOf(f)}) == null) {
+            if (splineSet != null) {
+                this.mDTranslateX = splineSet.getSlope(f);
+            }
+            if (splineSet2 != null) {
+                this.mDTranslateY = splineSet2.getSlope(f);
             }
         }
     }

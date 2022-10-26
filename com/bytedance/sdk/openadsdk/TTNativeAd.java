@@ -52,13 +52,13 @@ public interface TTNativeAd extends TTClientBidding {
 
     TTImage getIcon();
 
-    List<TTImage> getImageList();
+    List getImageList();
 
     int getImageMode();
 
     int getInteractionType();
 
-    Map<String, Object> getMediaExtraInfo();
+    Map getMediaExtraInfo();
 
     String getSource();
 
@@ -68,13 +68,13 @@ public interface TTNativeAd extends TTClientBidding {
 
     void registerViewForInteraction(ViewGroup viewGroup, View view2, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, View view2, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List list, List list2, View view2, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List list, List list2, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, List<View> list3, View view2, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List list, List list2, List list3, View view2, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, List<View> list3, List<View> list4, View view2, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List list, List list2, List list3, List list4, View view2, AdInteractionListener adInteractionListener);
 
     void render();
 

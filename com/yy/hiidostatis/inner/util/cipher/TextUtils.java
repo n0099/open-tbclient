@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
 public class TextUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<MessageDigest> MD5_DIGEST;
+    public static final ThreadLocal MD5_DIGEST;
     public static final char[] hexDigits;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class TextUtils {
             }
         }
         hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        MD5_DIGEST = new ThreadLocal<MessageDigest>() { // from class: com.yy.hiidostatis.inner.util.cipher.TextUtils.1
+        MD5_DIGEST = new ThreadLocal() { // from class: com.yy.hiidostatis.inner.util.cipher.TextUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -100,71 +100,68 @@ public class TextUtils {
         return (String) invokeL.objValue;
     }
 
+    public static String format8length(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            StringBuffer stringBuffer = new StringBuffer(8);
+            int length = 8 - (i + "").length();
+            while (true) {
+                int i2 = length - 1;
+                if (length > 0) {
+                    stringBuffer.append(0);
+                    length = i2;
+                } else {
+                    stringBuffer.append(i);
+                    return stringBuffer.toString();
+                }
+            }
+        } else {
+            return (String) invokeI.objValue;
+        }
+    }
+
     public static byte[] decodeBase64(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? Base64Util.decode(str) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return Base64Util.decode(str);
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static String encodeBase64(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? Base64Util.encode(bArr) : (String) invokeL.objValue;
-    }
-
-    public static String format8length(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65541, null, i)) != null) {
-            return (String) invokeI.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            return Base64Util.encode(bArr);
         }
-        StringBuffer stringBuffer = new StringBuffer(8);
-        int length = 8 - (i + "").length();
-        while (true) {
-            int i2 = length - 1;
-            if (length > 0) {
-                stringBuffer.append(0);
-                length = i2;
-            } else {
-                stringBuffer.append(i);
-                return stringBuffer.toString();
-            }
-        }
-    }
-
-    public static int getDecimalCharLength(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str.length() < 8) {
-                throw new IllegalArgumentException("Wrong hex size : " + str.length() + ", at least 8 bytes");
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < 8; i2++) {
-                i = ((i * 10) + str.charAt(i2)) - 48;
-            }
-            return i;
-        }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
     public static byte[] hex2Bytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? hex2Bytes(str, 0) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return hex2Bytes(str, 0);
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static String length2DecimalChar(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? format8length(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            return format8length(i);
+        }
+        return (String) invokeI.objValue;
     }
 
     public static byte[] md5byte(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            MessageDigest messageDigest = MD5_DIGEST.get();
+            MessageDigest messageDigest = (MessageDigest) MD5_DIGEST.get();
             messageDigest.reset();
             messageDigest.update(bArr);
             return messageDigest.digest();
@@ -175,28 +172,53 @@ public class TextUtils {
     public static String removeLN(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? str.replace("\n", "") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            return str.replace("\n", "");
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static String wrapDecimalLength(String str, int i) {
-        InterceptResult invokeLI;
+    public static int getDecimalCharLength(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i)) == null) ? String.format("%s%s", format8length(i), str) : (String) invokeLI.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (str.length() >= 8) {
+                int i = 0;
+                for (int i2 = 0; i2 < 8; i2++) {
+                    i = ((i * 10) + str.charAt(i2)) - 48;
+                }
+                return i;
+            }
+            throw new IllegalArgumentException("Wrong hex size : " + str.length() + ", at least 8 bytes");
+        }
+        return invokeL.intValue;
     }
 
     public static byte[] hex2Bytes(String str, int i) {
         InterceptResult invokeLI;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
             if (str.length() % 2 == 0) {
                 if (str.length() > i) {
                     byte[] bArr = new byte[(str.length() - i) / 2];
-                    int i2 = 0;
+                    int i4 = 0;
                     while (i < str.length()) {
                         char charAt = str.charAt(i);
                         char charAt2 = str.charAt(i + 1);
-                        bArr[i2] = (byte) (((charAt < 'a' ? charAt - '0' : (charAt + '\n') - 97) << 4) | (charAt2 < 'a' ? charAt2 - '0' : (charAt2 + '\n') - 97));
-                        i2++;
+                        if (charAt < 'a') {
+                            i2 = charAt - '0';
+                        } else {
+                            i2 = (charAt + '\n') - 97;
+                        }
+                        if (charAt2 < 'a') {
+                            i3 = charAt2 - '0';
+                        } else {
+                            i3 = (charAt2 + '\n') - 97;
+                        }
+                        bArr[i4] = (byte) ((i2 << 4) | i3);
+                        i4++;
                         i += 2;
                     }
                     return bArr;
@@ -206,5 +228,14 @@ public class TextUtils {
             throw new IllegalArgumentException("Wrong hex size : " + str.length());
         }
         return (byte[]) invokeLI.objValue;
+    }
+
+    public static String wrapDecimalLength(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i)) == null) {
+            return String.format("%s%s", format8length(i), str);
+        }
+        return (String) invokeLI.objValue;
     }
 }

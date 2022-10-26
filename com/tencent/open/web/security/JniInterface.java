@@ -33,6 +33,18 @@ public class JniInterface {
         }
     }
 
+    public static native boolean BackSpaceChar(boolean z, int i);
+
+    public static native boolean clearAllPWD();
+
+    public static native String d1(String str);
+
+    public static native String d2(String str);
+
+    public static native String getPWDKeyToMD5(String str);
+
+    public static native boolean insetTextToArray(int i, String str, int i2);
+
     public JniInterface() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,21 +59,9 @@ public class JniInterface {
         }
     }
 
-    public static native boolean BackSpaceChar(boolean z, int i);
-
-    public static native boolean clearAllPWD();
-
-    public static native String d1(String str);
-
-    public static native String d2(String str);
-
-    public static native String getPWDKeyToMD5(String str);
-
-    public static native boolean insetTextToArray(int i, String str, int i2);
-
     public static void loadSo() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || isJniOk) {
+        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || isJniOk) {
             return;
         }
         try {

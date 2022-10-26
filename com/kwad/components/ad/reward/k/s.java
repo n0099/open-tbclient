@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +41,7 @@ public final class s extends d implements View.OnClickListener {
     public ViewGroup wj;
     public ImageView wk;
 
-    public s(DialogFragment dialogFragment, AdTemplate adTemplate, LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, l.a aVar) {
+    public s(DialogFragment dialogFragment, AdTemplate adTemplate, LayoutInflater layoutInflater, ViewGroup viewGroup, l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +61,7 @@ public final class s extends d implements View.OnClickListener {
         this.wj = viewGroup;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0466, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0463, viewGroup, false);
         this.pV = viewGroup2;
         this.mContext = viewGroup2.getContext();
         initView();
@@ -88,14 +87,14 @@ public final class s extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911cf);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911d1);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911cd);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911d0);
-            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ce);
-            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c1);
-            this.vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911cc);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0911cb);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c3);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c5);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c1);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c4);
+            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c2);
+            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b5);
+            this.vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911c0);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0911bf);
             this.vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.it.setOnClickListener(this);

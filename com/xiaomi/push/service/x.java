@@ -17,10 +17,10 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<Pair<String, byte[]>> a;
+    public static ArrayList a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<String, byte[]> f1011a;
+    public static final Map f1011a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class x {
             }
         }
         f1011a = new HashMap();
-        a = new ArrayList<>();
+        a = new ArrayList();
     }
 
     public static void a(Context context, int i, String str) {
@@ -45,8 +45,8 @@ public class x {
         if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
             synchronized (f1011a) {
                 for (String str2 : f1011a.keySet()) {
-                    com.xiaomi.channel.commonutils.logger.b.m90a("notify registration error. " + str2);
-                    a(context, str2, f1011a.get(str2), i, str);
+                    com.xiaomi.channel.commonutils.logger.b.m89a("notify registration error. " + str2);
+                    a(context, str2, (byte[]) f1011a.get(str2), i, str);
                 }
                 f1011a.clear();
             }
@@ -66,19 +66,19 @@ public class x {
     }
 
     public static void a(XMPushService xMPushService) {
-        ArrayList<Pair<String, byte[]>> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, xMPushService) == null) {
             try {
                 synchronized (a) {
                     arrayList = a;
-                    a = new ArrayList<>();
+                    a = new ArrayList();
                 }
                 boolean a2 = com.xiaomi.push.w.a();
-                Iterator<Pair<String, byte[]>> it = arrayList.iterator();
+                Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    Pair<String, byte[]> next = it.next();
-                    ah.a(xMPushService, (String) next.first, (byte[]) next.second);
+                    Pair pair = (Pair) it.next();
+                    ah.a(xMPushService, (String) pair.first, (byte[]) pair.second);
                     if (!a2) {
                         try {
                             Thread.sleep(100L);
@@ -99,8 +99,8 @@ public class x {
             try {
                 synchronized (f1011a) {
                     for (String str : f1011a.keySet()) {
-                        com.xiaomi.channel.commonutils.logger.b.m90a("processing pending registration request. " + str);
-                        ah.a(xMPushService, str, f1011a.get(str));
+                        com.xiaomi.channel.commonutils.logger.b.m89a("processing pending registration request. " + str);
+                        ah.a(xMPushService, str, (byte[]) f1011a.get(str));
                         if (z && !com.xiaomi.push.w.a()) {
                             try {
                                 Thread.sleep(200L);
@@ -121,7 +121,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, bArr) == null) {
             synchronized (f1011a) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("pending registration request. " + str);
+                com.xiaomi.channel.commonutils.logger.b.m89a("pending registration request. " + str);
                 f1011a.put(str, bArr);
             }
         }
@@ -131,7 +131,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, str, bArr) == null) {
             synchronized (a) {
-                a.add(new Pair<>(str, bArr));
+                a.add(new Pair(str, bArr));
                 if (a.size() > 50) {
                     a.remove(0);
                 }

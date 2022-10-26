@@ -1,6 +1,5 @@
 package com.kwad.sdk.contentalliance.kwai.kwai;
 
-import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -18,7 +17,7 @@ public final class a {
         this.clickTime = -1L;
     }
 
-    public a(@NonNull AdTemplate adTemplate, long j) {
+    public a(AdTemplate adTemplate, long j) {
         this.clickTime = -1L;
         this.photoId = d.bV(adTemplate);
         this.clickTime = j;
@@ -26,8 +25,7 @@ public final class a {
         this.contentType = d.bM(adTemplate);
     }
 
-    @NonNull
-    public static a al(@NonNull AdTemplate adTemplate) {
+    public static a al(AdTemplate adTemplate) {
         return new a(adTemplate, k.ck(adTemplate));
     }
 

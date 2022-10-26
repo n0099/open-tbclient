@@ -2,12 +2,11 @@ package com.baidu.swan.bdprivate.extensions.quicklogin;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.pl3;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.ql3;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<QuickLoginInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
     public String agreeText;
@@ -28,8 +27,18 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public String serviceAgreement;
     public boolean supportQuickLogin;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<QuickLoginInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +62,10 @@ public class QuickLoginInfo extends SwanAppIPCData {
         public QuickLoginInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new QuickLoginInfo(parcel, null) : (QuickLoginInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new QuickLoginInfo(parcel, null);
+            }
+            return (QuickLoginInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +74,10 @@ public class QuickLoginInfo extends SwanAppIPCData {
         public QuickLoginInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new QuickLoginInfo[i] : (QuickLoginInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new QuickLoginInfo[i];
+            }
+            return (QuickLoginInfo[]) invokeI.objValue;
         }
     }
 
@@ -79,64 +94,8 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = vj1.a;
+        DEBUG = wj1.a;
         CREATOR = new a();
-    }
-
-    public /* synthetic */ QuickLoginInfo(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
-    @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(pl3 pl3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pl3Var)) == null) {
-            if (pl3Var == null) {
-                return null;
-            }
-            QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-            quickLoginInfo.supportQuickLogin = pl3Var.f();
-            quickLoginInfo.encryptPhoneNum = pl3Var.c();
-            quickLoginInfo.serviceAgreement = pl3Var.b();
-            quickLoginInfo.hasHistory = pl3Var.d();
-            quickLoginInfo.loginMode = pl3Var.e();
-            quickLoginInfo.agreeText = pl3Var.a();
-            return quickLoginInfo;
-        }
-        return (QuickLoginInfo) invokeL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "QuickLoginInfo{supportQuickLogin=" + this.supportQuickLogin + ", encryptPhoneNum='" + this.encryptPhoneNum + "', serviceAgreement='" + this.serviceAgreement + "', hasHistory=" + this.hasHistory + ", loginMode=" + this.loginMode + ", agreeText=" + this.agreeText + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeByte(this.supportQuickLogin ? (byte) 1 : (byte) 0);
-            parcel.writeString(this.encryptPhoneNum);
-            parcel.writeString(this.serviceAgreement);
-            parcel.writeByte(this.hasHistory ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.loginMode);
-            parcel.writeString(this.agreeText);
-        }
     }
 
     public QuickLoginInfo() {
@@ -154,6 +113,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     public QuickLoginInfo(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,11 +128,61 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        this.supportQuickLogin = parcel.readByte() != 0;
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.supportQuickLogin = z;
         this.encryptPhoneNum = parcel.readString();
         this.serviceAgreement = parcel.readString();
         this.hasHistory = parcel.readByte() != 0;
         this.loginMode = parcel.readInt();
         this.agreeText = parcel.readString();
+    }
+
+    public /* synthetic */ QuickLoginInfo(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeByte(this.supportQuickLogin ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.encryptPhoneNum);
+            parcel.writeString(this.serviceAgreement);
+            parcel.writeByte(this.hasHistory ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.loginMode);
+            parcel.writeString(this.agreeText);
+        }
+    }
+
+    public static QuickLoginInfo parseQuickLoginInfo(ql3 ql3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ql3Var)) == null) {
+            if (ql3Var == null) {
+                return null;
+            }
+            QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
+            quickLoginInfo.supportQuickLogin = ql3Var.f();
+            quickLoginInfo.encryptPhoneNum = ql3Var.c();
+            quickLoginInfo.serviceAgreement = ql3Var.b();
+            quickLoginInfo.hasHistory = ql3Var.d();
+            quickLoginInfo.loginMode = ql3Var.e();
+            quickLoginInfo.agreeText = ql3Var.a();
+            return quickLoginInfo;
+        }
+        return (QuickLoginInfo) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "QuickLoginInfo{supportQuickLogin=" + this.supportQuickLogin + ", encryptPhoneNum='" + this.encryptPhoneNum + "', serviceAgreement='" + this.serviceAgreement + "', hasHistory=" + this.hasHistory + ", loginMode=" + this.loginMode + ", agreeText=" + this.agreeText + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -2,8 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,15 +13,16 @@ public class ds8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public pq8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ds8(MainTabActivity mainTabActivity, xp8 xp8Var) {
-        super(2016493);
+    public ds8(MainTabActivity mainTabActivity) {
+        super(2921736);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, xp8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,21 +34,34 @@ public class ds8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        s45 s45Var;
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        pq8 pq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof s45) || (s45Var = (s45) customResponsedMessage.getData()) == null || StringUtils.isNull(s45Var.a)) {
-            return;
-        }
-        hh5.h(s45Var);
-        if (StringUtils.isNull(s45Var.c)) {
-            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{s45Var.a});
-        } else {
-            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{s45Var.a, s45Var.c});
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
+            MainTabActivity mainTabActivity = this.a;
+            this.b = mainTabActivity.e;
+            mainTabActivity.i1(true);
+            if (MainTabActivity.W && (pq8Var = this.b) != null && pq8Var.h() != null) {
+                this.b.h().a();
+            }
+            pq8 pq8Var2 = this.b;
+            if (pq8Var2 != null && pq8Var2.c() != null) {
+                this.b.c().b();
+            }
+            if (gw4.a().f()) {
+                gw4.a().g(this.a.getClass().getName());
+                gw4.a().l(false);
+            }
+            if (gw4.a().e()) {
+                gw4.a().b();
+                gw4.a().h(this.a.getClass().getName());
+                gw4.a().k(false);
+            }
         }
     }
 }

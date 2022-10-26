@@ -34,16 +34,6 @@ public final class WeakHashtable extends Hashtable {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // java.util.Hashtable, java.util.Map
-    public boolean containsKey(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // java.util.Hashtable, java.util.Dictionary
     public Enumeration elements() {
         InterceptResult invokeV;
@@ -62,16 +52,6 @@ public final class WeakHashtable extends Hashtable {
             throw new RuntimeException("Stub!");
         }
         return (Set) invokeV.objValue;
-    }
-
-    @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
-    public Object get(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
     }
 
     @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
@@ -104,40 +84,12 @@ public final class WeakHashtable extends Hashtable {
         return (Enumeration) invokeV.objValue;
     }
 
-    @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
-    public Object put(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, obj, obj2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeLL.objValue;
-    }
-
-    @Override // java.util.Hashtable, java.util.Map
-    public void putAll(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     @Override // java.util.Hashtable
     public void rehash() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
-    public Object remove(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
     }
 
     @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
@@ -168,5 +120,53 @@ public final class WeakHashtable extends Hashtable {
             throw new RuntimeException("Stub!");
         }
         return (Collection) invokeV.objValue;
+    }
+
+    @Override // java.util.Hashtable, java.util.Map
+    public boolean containsKey(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
+    public Object get(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // java.util.Hashtable, java.util.Map
+    public void putAll(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
+    public Object remove(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // java.util.Hashtable, java.util.Dictionary, java.util.Map
+    public Object put(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, obj, obj2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLL.objValue;
     }
 }

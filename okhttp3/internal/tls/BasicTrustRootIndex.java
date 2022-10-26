@@ -52,7 +52,10 @@ public final class BasicTrustRootIndex implements TrustRootIndex {
             if (obj == this) {
                 return true;
             }
-            return (obj instanceof BasicTrustRootIndex) && ((BasicTrustRootIndex) obj).subjectToCaCerts.equals(this.subjectToCaCerts);
+            if ((obj instanceof BasicTrustRootIndex) && ((BasicTrustRootIndex) obj).subjectToCaCerts.equals(this.subjectToCaCerts)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -81,6 +84,9 @@ public final class BasicTrustRootIndex implements TrustRootIndex {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.subjectToCaCerts.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.subjectToCaCerts.hashCode();
+        }
+        return invokeV.intValue;
     }
 }

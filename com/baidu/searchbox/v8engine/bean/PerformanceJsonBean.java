@@ -1,7 +1,6 @@
 package com.baidu.searchbox.v8engine.bean;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,6 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@NotProguard
 /* loaded from: classes2.dex */
 public class PerformanceJsonBean {
     public static /* synthetic */ Interceptable $ic = null;
@@ -21,10 +19,10 @@ public class PerformanceJsonBean {
     public static final String KEY_TIMESTAMP = "timestamp";
     public static final String TAG = "PerformanceJsonBean";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PerformanceJsonObject> mPerformanceJsonObjectList;
+    public List mPerformanceJsonObjectList;
 
     /* loaded from: classes2.dex */
-    public static class PerformanceJsonObject {
+    public class PerformanceJsonObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String name;
@@ -66,6 +64,35 @@ public class PerformanceJsonBean {
         this.mPerformanceJsonObjectList = new ArrayList();
     }
 
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mPerformanceJsonObjectList.clear();
+        }
+    }
+
+    public List getPerformanceJsonObjectList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List list = this.mPerformanceJsonObjectList;
+            if (list == null) {
+                return new ArrayList();
+            }
+            return list;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return toJSONArray().toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     private long checkNull(Long l) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -76,13 +103,6 @@ public class PerformanceJsonBean {
             return l.longValue();
         }
         return invokeL.longValue;
-    }
-
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mPerformanceJsonObjectList.clear();
-        }
     }
 
     public PerformanceJsonObject get(String str) {
@@ -99,20 +119,24 @@ public class PerformanceJsonBean {
         return (PerformanceJsonObject) invokeL.objValue;
     }
 
-    public List<PerformanceJsonObject> getPerformanceJsonObjectList() {
-        InterceptResult invokeV;
+    public void put(PerformanceJsonBean performanceJsonBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<PerformanceJsonObject> list = this.mPerformanceJsonObjectList;
-            return list == null ? new ArrayList() : list;
+        if (interceptable == null || interceptable.invokeL(1048579, this, performanceJsonBean) == null) {
+            this.mPerformanceJsonObjectList.addAll(performanceJsonBean.getPerformanceJsonObjectList());
         }
-        return (List) invokeV.objValue;
     }
 
     public void put(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             put(str, System.currentTimeMillis());
+        }
+    }
+
+    public void put(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+            this.mPerformanceJsonObjectList.add(new PerformanceJsonObject(str, j));
         }
     }
 
@@ -135,25 +159,5 @@ public class PerformanceJsonBean {
             return jSONArray;
         }
         return (JSONArray) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? toJSONArray().toString() : (String) invokeV.objValue;
-    }
-
-    public void put(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
-            this.mPerformanceJsonObjectList.add(new PerformanceJsonObject(str, j));
-        }
-    }
-
-    public void put(PerformanceJsonBean performanceJsonBean) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, performanceJsonBean) == null) {
-            this.mPerformanceJsonObjectList.addAll(performanceJsonBean.getPerformanceJsonObjectList());
-        }
     }
 }

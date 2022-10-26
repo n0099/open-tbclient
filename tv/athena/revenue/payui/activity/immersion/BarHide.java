@@ -63,12 +63,18 @@ public final class BarHide {
     public static BarHide valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BarHide) Enum.valueOf(BarHide.class, str) : (BarHide) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BarHide) Enum.valueOf(BarHide.class, str);
+        }
+        return (BarHide) invokeL.objValue;
     }
 
     public static BarHide[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BarHide[]) $VALUES.clone() : (BarHide[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BarHide[]) $VALUES.clone();
+        }
+        return (BarHide[]) invokeV.objValue;
     }
 }

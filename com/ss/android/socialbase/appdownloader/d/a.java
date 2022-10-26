@@ -11,10 +11,10 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
 
     /* renamed from: com.ss.android.socialbase.appdownloader.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0668a implements k {
+    public class C0664a implements k {
         public AlertDialog a;
 
-        public C0668a(AlertDialog.Builder builder) {
+        public C0664a(AlertDialog.Builder builder) {
             if (builder != null) {
                 this.a = builder.show();
             }
@@ -52,21 +52,8 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
-    public l b(int i, DialogInterface.OnClickListener onClickListener) {
-        AlertDialog.Builder builder = this.a;
-        if (builder != null) {
-            builder.setNegativeButton(i, onClickListener);
-        }
-        return this;
-    }
-
-    @Override // com.ss.android.socialbase.appdownloader.c.l
-    public l a(String str) {
-        AlertDialog.Builder builder = this.a;
-        if (builder != null) {
-            builder.setMessage(str);
-        }
-        return this;
+    public k a() {
+        return new C0664a(this.a);
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
@@ -74,6 +61,15 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
         AlertDialog.Builder builder = this.a;
         if (builder != null) {
             builder.setPositiveButton(i, onClickListener);
+        }
+        return this;
+    }
+
+    @Override // com.ss.android.socialbase.appdownloader.c.l
+    public l b(int i, DialogInterface.OnClickListener onClickListener) {
+        AlertDialog.Builder builder = this.a;
+        if (builder != null) {
+            builder.setNegativeButton(i, onClickListener);
         }
         return this;
     }
@@ -88,7 +84,11 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
-    public k a() {
-        return new C0668a(this.a);
+    public l a(String str) {
+        AlertDialog.Builder builder = this.a;
+        if (builder != null) {
+            builder.setMessage(str);
+        }
+        return this;
     }
 }

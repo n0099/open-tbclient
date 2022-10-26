@@ -3,9 +3,9 @@ package com.google.ar.core;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bs9;
-import com.baidu.tieba.wr9;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.os9;
+import com.baidu.tieba.ps9;
+import com.baidu.tieba.ts9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,26 +17,7 @@ public final class x extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ bs9 b;
-
-    public x(bs9 bs9Var, AtomicBoolean atomicBoolean) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bs9Var, atomicBoolean};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = bs9Var;
-        this.a = atomicBoolean;
-    }
+    public final /* synthetic */ ts9 b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -46,9 +27,35 @@ public final class x extends com.google.a.b.a.a.a.e {
     }
 
     @Override // com.google.a.b.a.a.a.d
+    public final void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        }
+    }
+
+    public x(ts9 ts9Var, AtomicBoolean atomicBoolean) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ts9Var, atomicBoolean};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = ts9Var;
+        this.a = atomicBoolean;
+    }
+
+    @Override // com.google.a.b.a.a.a.d
     public final void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.a.getAndSet(true)) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) != null) || this.a.getAndSet(true)) {
             return;
         }
         int i = bundle.getInt("error.code", -100);
@@ -61,13 +68,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            bs9 bs9Var = this.b;
-            wr9 wr9Var = bs9Var.c;
-            wr9.n(bs9Var.a, bs9Var.b);
+            ts9 ts9Var = this.b;
+            os9 os9Var = ts9Var.c;
+            os9.n(ts9Var.a, ts9Var.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            bs9 bs9Var2 = this.b;
-            wr9 wr9Var2 = bs9Var2.c;
-            wr9.b(bs9Var2.a, bundle, bs9Var2.b);
+            ts9 ts9Var2 = this.b;
+            os9 os9Var2 = ts9Var2.c;
+            os9.b(ts9Var2.a, bundle, ts9Var2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -85,22 +92,15 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.b);
                     return;
                 default:
-                    xr9 xr9Var = this.b.b;
+                    ps9 ps9Var = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    xr9Var.b(new FatalException(sb2.toString()));
+                    ps9Var.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {
             this.b.b.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
-        }
-    }
-
-    @Override // com.google.a.b.a.a.a.d
-    public final void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
         }
     }
 }

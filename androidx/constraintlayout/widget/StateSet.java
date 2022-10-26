@@ -161,16 +161,19 @@ public class StateSet {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                if (Float.isNaN(this.mMinWidth) || f >= this.mMinWidth) {
-                    if (Float.isNaN(this.mMinHeight) || f2 >= this.mMinHeight) {
-                        if (Float.isNaN(this.mMaxWidth) || f <= this.mMaxWidth) {
-                            return Float.isNaN(this.mMaxHeight) || f2 <= this.mMaxHeight;
-                        }
-                        return false;
-                    }
+                if (!Float.isNaN(this.mMinWidth) && f < this.mMinWidth) {
                     return false;
                 }
-                return false;
+                if (!Float.isNaN(this.mMinHeight) && f2 < this.mMinHeight) {
+                    return false;
+                }
+                if (!Float.isNaN(this.mMaxWidth) && f > this.mMaxWidth) {
+                    return false;
+                }
+                if (!Float.isNaN(this.mMaxHeight) && f2 > this.mMaxHeight) {
+                    return false;
+                }
+                return true;
             }
             return invokeCommon.booleanValue;
         }
@@ -216,54 +219,60 @@ public class StateSet {
             try {
                 int eventType = xmlPullParser.getEventType();
                 while (eventType != 1) {
-                    if (eventType == 0) {
-                        xmlPullParser.getName();
-                    } else if (eventType == 2) {
-                        String name = xmlPullParser.getName();
-                        char c = 65535;
-                        switch (name.hashCode()) {
-                            case 80204913:
-                                if (name.equals("State")) {
-                                    c = 2;
+                    if (eventType != 0) {
+                        if (eventType != 2) {
+                            if (eventType != 3) {
+                                continue;
+                            } else if ("StateSet".equals(xmlPullParser.getName())) {
+                                return;
+                            }
+                        } else {
+                            String name = xmlPullParser.getName();
+                            char c = 65535;
+                            switch (name.hashCode()) {
+                                case 80204913:
+                                    if (name.equals("State")) {
+                                        c = 2;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 1301459538:
-                                if (name.equals("LayoutDescription")) {
-                                    c = 0;
+                                case 1301459538:
+                                    if (name.equals("LayoutDescription")) {
+                                        c = 0;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 1382829617:
-                                if (name.equals("StateSet")) {
-                                    c = 1;
+                                case 1382829617:
+                                    if (name.equals("StateSet")) {
+                                        c = 1;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                            case 1901439077:
-                                if (name.equals("Variant")) {
-                                    c = 3;
+                                case 1901439077:
+                                    if (name.equals("Variant")) {
+                                        c = 3;
+                                        break;
+                                    }
                                     break;
-                                }
-                                break;
-                        }
-                        if (c != 0 && c != 1) {
-                            if (c == 2) {
-                                state = new State(context, xmlPullParser);
-                                this.mStateList.put(state.mId, state);
-                            } else if (c != 3) {
-                                Log.v("ConstraintLayoutStates", "unknown tag " + name);
-                            } else {
-                                Variant variant = new Variant(context, xmlPullParser);
-                                if (state != null) {
-                                    state.add(variant);
+                            }
+                            if (c != 0 && c != 1) {
+                                if (c != 2) {
+                                    if (c != 3) {
+                                        Log.v("ConstraintLayoutStates", "unknown tag " + name);
+                                    } else {
+                                        Variant variant = new Variant(context, xmlPullParser);
+                                        if (state != null) {
+                                            state.add(variant);
+                                        }
+                                    }
+                                } else {
+                                    state = new State(context, xmlPullParser);
+                                    this.mStateList.put(state.mId, state);
                                 }
                             }
                         }
-                    } else if (eventType != 3) {
-                        continue;
-                    } else if ("StateSet".equals(xmlPullParser.getName())) {
-                        return;
+                    } else {
+                        xmlPullParser.getName();
                     }
                     eventType = xmlPullParser.next();
                 }
@@ -316,15 +325,24 @@ public class StateSet {
 
     public boolean needsToChange(int i, float f, float f2) {
         InterceptResult invokeCommon;
+        State state;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) {
             int i2 = this.mCurrentStateId;
             if (i2 != i) {
                 return true;
             }
-            State valueAt = i == -1 ? this.mStateList.valueAt(0) : this.mStateList.get(i2);
+            if (i == -1) {
+                state = this.mStateList.valueAt(0);
+            } else {
+                state = this.mStateList.get(i2);
+            }
+            State state2 = state;
             int i3 = this.mCurrentConstraintNumber;
-            return (i3 == -1 || !valueAt.mVariants.get(i3).match(f, f2)) && this.mCurrentConstraintNumber != valueAt.findMatch(f, f2);
+            if ((i3 == -1 || !state2.mVariants.get(i3).match(f, f2)) && this.mCurrentConstraintNumber != state2.findMatch(f, f2)) {
+                return true;
+            }
+            return false;
         }
         return invokeCommon.booleanValue;
     }
@@ -339,32 +357,47 @@ public class StateSet {
     public int stateGetConstraintID(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(1048579, this, i, i2, i3)) == null) ? updateConstraints(-1, i, i2, i3) : invokeIII.intValue;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048579, this, i, i2, i3)) == null) {
+            return updateConstraints(-1, i, i2, i3);
+        }
+        return invokeIII.intValue;
     }
 
     public int updateConstraints(int i, int i2, float f, float f2) {
         InterceptResult invokeCommon;
         State state;
-        int findMatch;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (i != i2) {
-                State state2 = this.mStateList.get(i2);
-                if (state2 == null) {
+            if (i == i2) {
+                if (i2 == -1) {
+                    state = this.mStateList.valueAt(0);
+                } else {
+                    state = this.mStateList.get(this.mCurrentStateId);
+                }
+                if (state == null) {
                     return -1;
                 }
-                int findMatch2 = state2.findMatch(f, f2);
-                return findMatch2 == -1 ? state2.mConstraintID : state2.mVariants.get(findMatch2).mConstraintID;
+                if (this.mCurrentConstraintNumber != -1 && state.mVariants.get(i).match(f, f2)) {
+                    return i;
+                }
+                int findMatch = state.findMatch(f, f2);
+                if (i == findMatch) {
+                    return i;
+                }
+                if (findMatch == -1) {
+                    return state.mConstraintID;
+                }
+                return state.mVariants.get(findMatch).mConstraintID;
             }
-            if (i2 == -1) {
-                state = this.mStateList.valueAt(0);
-            } else {
-                state = this.mStateList.get(this.mCurrentStateId);
-            }
-            if (state == null) {
+            State state2 = this.mStateList.get(i2);
+            if (state2 == null) {
                 return -1;
             }
-            return ((this.mCurrentConstraintNumber == -1 || !state.mVariants.get(i).match(f, f2)) && i != (findMatch = state.findMatch(f, f2))) ? findMatch == -1 ? state.mConstraintID : state.mVariants.get(findMatch).mConstraintID : i;
+            int findMatch2 = state2.findMatch(f, f2);
+            if (findMatch2 == -1) {
+                return state2.mConstraintID;
+            }
+            return state2.mVariants.get(findMatch2).mConstraintID;
         }
         return invokeCommon.intValue;
     }

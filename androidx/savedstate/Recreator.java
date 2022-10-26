@@ -1,8 +1,6 @@
 package androidx.savedstate;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.lifecycle.GenericLifecycleObserver;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -18,7 +16,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-@SuppressLint({"RestrictedApi"})
 /* loaded from: classes.dex */
 public final class Recreator implements GenericLifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -60,7 +57,6 @@ public final class Recreator implements GenericLifecycleObserver {
         }
 
         @Override // androidx.savedstate.SavedStateRegistry.SavedStateProvider
-        @NonNull
         public Bundle saveState() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

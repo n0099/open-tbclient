@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import android.text.TextUtils;
+import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public class ib5 implements ha5<SoLoaderEvent> {
+public class ib5 implements la5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,22 +28,17 @@ public class ib5 implements ha5<SoLoaderEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha5
+    @Override // com.baidu.tieba.la5
     /* renamed from: a */
-    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
+    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
-            if (soLoaderEvent == null || StringUtils.isNull(soLoaderEvent.name)) {
-                return false;
-            }
-            if (wm.a(BdBaseApplication.getInst().getContext(), um.a(soLoaderEvent.name))) {
-                ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                String str = soLoaderEvent.name;
-                resHashMap.put(str, um.a(str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
+            if (prePageKeyEvent != null && !TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
+                TbPageExtraHelper.setPrePageKey(prePageKeyEvent.prePageKey);
                 return true;
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

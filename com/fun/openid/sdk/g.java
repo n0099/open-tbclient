@@ -32,37 +32,6 @@ public class g implements f {
         this.a = false;
     }
 
-    @Override // com.fun.openid.sdk.f
-    public void a(Context context, final f.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) || this.a) {
-            return;
-        }
-        v vVar = new v();
-        v.a aVar2 = new v.a() { // from class: com.baidu.tieba.fq9
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.fun.openid.sdk.v.a
-            public final void a(Object obj, com.fun.openid.sdk.v vVar2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, obj, vVar2) == null) {
-                    com.fun.openid.sdk.g.this.a(aVar, (String) obj, vVar2);
-                }
-            }
-        };
-        vVar.a = context;
-        vVar.d = aVar2;
-        vVar.c = new u(vVar);
-        Intent intent = new Intent();
-        intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        char c = vVar.a.bindService(intent, vVar.c, 1) ? (char) 1 : (char) 65535;
-        this.a = true;
-        if (c != 1) {
-            aVar.a(true, null);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Can't wrap try/catch for region: R(11:3|4|5|(7:7|8|(2:10|(5:15|16|(2:18|19)|27|19)(2:12|13))(3:30|(1:32)|33)|20|21|22|23)|35|8|(0)(0)|20|21|22|23) */
     /* JADX WARN: Removed duplicated region for block: B:12:0x0015  */
@@ -116,6 +85,41 @@ public class g implements f {
             vVar.a.unbindService(vVar.c);
             vVar.b = null;
             this.a = false;
+        }
+    }
+
+    @Override // com.fun.openid.sdk.f
+    public void a(Context context, final f.a aVar) {
+        char c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) && !this.a) {
+            v vVar = new v();
+            v.a aVar2 = new v.a() { // from class: com.baidu.tieba.xq9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.fun.openid.sdk.v.a
+                public final void a(Object obj, com.fun.openid.sdk.v vVar2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, obj, vVar2) == null) {
+                        com.fun.openid.sdk.g.this.a(aVar, (String) obj, vVar2);
+                    }
+                }
+            };
+            vVar.a = context;
+            vVar.d = aVar2;
+            vVar.c = new u(vVar);
+            Intent intent = new Intent();
+            intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
+            if (vVar.a.bindService(intent, vVar.c, 1)) {
+                c = 1;
+            } else {
+                c = 65535;
+            }
+            this.a = true;
+            if (c != 1) {
+                aVar.a(true, null);
+            }
         }
     }
 }

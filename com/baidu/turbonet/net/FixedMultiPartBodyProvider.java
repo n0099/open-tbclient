@@ -16,7 +16,10 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getBytes().length : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getBytes().length;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider

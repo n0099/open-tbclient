@@ -75,20 +75,22 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
                     if (!arrayContains4) {
                         throw new IllegalArgumentException("Invalid start/end guards: " + str);
                     }
-                } else if (arrayContains2 || arrayContains4) {
-                    throw new IllegalArgumentException("Invalid start/end guards: " + str);
-                } else {
+                } else if (!arrayContains2 && !arrayContains4) {
                     str = DEFAULT_GUARD + str + DEFAULT_GUARD;
+                } else {
+                    throw new IllegalArgumentException("Invalid start/end guards: " + str);
                 }
             }
             int i2 = 20;
             for (int i3 = 1; i3 < str.length() - 1; i3++) {
-                if (Character.isDigit(str.charAt(i3)) || str.charAt(i3) == '-' || str.charAt(i3) == '$') {
-                    i2 += 9;
-                } else if (!CodaBarReader.arrayContains(CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED, str.charAt(i3))) {
-                    throw new IllegalArgumentException("Cannot encode : '" + str.charAt(i3) + '\'');
+                if (!Character.isDigit(str.charAt(i3)) && str.charAt(i3) != '-' && str.charAt(i3) != '$') {
+                    if (CodaBarReader.arrayContains(CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED, str.charAt(i3))) {
+                        i2 += 10;
+                    } else {
+                        throw new IllegalArgumentException("Cannot encode : '" + str.charAt(i3) + '\'');
+                    }
                 } else {
-                    i2 += 10;
+                    i2 += 9;
                 }
             }
             boolean[] zArr = new boolean[i2 + (str.length() - 1)];
@@ -96,27 +98,34 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
             for (int i5 = 0; i5 < str.length(); i5++) {
                 char upperCase3 = Character.toUpperCase(str.charAt(i5));
                 if (i5 == 0 || i5 == str.length() - 1) {
-                    if (upperCase3 == '*') {
+                    if (upperCase3 != '*') {
+                        if (upperCase3 != 'E') {
+                            if (upperCase3 != 'N') {
+                                if (upperCase3 == 'T') {
+                                    upperCase3 = 'A';
+                                }
+                            } else {
+                                upperCase3 = 'B';
+                            }
+                        } else {
+                            upperCase3 = 'D';
+                        }
+                    } else {
                         upperCase3 = 'C';
-                    } else if (upperCase3 == 'E') {
-                        upperCase3 = 'D';
-                    } else if (upperCase3 == 'N') {
-                        upperCase3 = 'B';
-                    } else if (upperCase3 == 'T') {
-                        upperCase3 = 'A';
                     }
                 }
                 int i6 = 0;
                 while (true) {
                     char[] cArr = CodaBarReader.ALPHABET;
-                    if (i6 >= cArr.length) {
+                    if (i6 < cArr.length) {
+                        if (upperCase3 == cArr[i6]) {
+                            i = CodaBarReader.CHARACTER_ENCODINGS[i6];
+                            break;
+                        }
+                        i6++;
+                    } else {
                         i = 0;
                         break;
-                    } else if (upperCase3 == cArr[i6]) {
-                        i = CodaBarReader.CHARACTER_ENCODINGS[i6];
-                        break;
-                    } else {
-                        i6++;
                     }
                 }
                 int i7 = 0;
@@ -126,11 +135,11 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
                     while (i7 < 7) {
                         zArr[i4] = z;
                         i4++;
-                        if (((i >> (6 - i7)) & 1) == 0 || i8 == 1) {
+                        if (((i >> (6 - i7)) & 1) != 0 && i8 != 1) {
+                            i8++;
+                        } else {
                             z = !z;
                             i7++;
-                        } else {
-                            i8++;
                         }
                     }
                     break;

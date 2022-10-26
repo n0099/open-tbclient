@@ -40,64 +40,87 @@ public class PhotoUrlData implements Serializable {
         }
     }
 
-    private void parsePicInfo(String str) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || StringUtils.isNull(str) || (split = str.replaceAll("#\\(|\\)", "").split(",")) == null || split.length != 4) {
-            return;
-        }
-        this.pic = split[0];
-        this.picId = split[1];
-        this.width = split[2];
-        this.height = split[3];
-    }
-
     public String getBigurl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bigurl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bigurl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.height : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.height;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getOriginPic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.originPic : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.originPic;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pic : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.pic;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPicId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.picId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.picId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSmallurl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.smallurl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.smallurl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getToServerPhotoInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.toServerPhotoInfo : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.toServerPhotoInfo;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.width : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.width;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private void parsePicInfo(String str) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !StringUtils.isNull(str) && (split = str.replaceAll("#\\(|\\)", "").split(",")) != null && split.length == 4) {
+            this.pic = split[0];
+            this.picId = split[1];
+            this.width = split[2];
+            this.height = split[3];
+        }
     }
 
     public void parseJson(JSONObject jSONObject) {

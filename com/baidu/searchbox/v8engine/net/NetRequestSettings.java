@@ -1,12 +1,10 @@
 package com.baidu.searchbox.v8engine.net;
 
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@NotProguard
 /* loaded from: classes2.dex */
 public class NetRequestSettings {
     public static /* synthetic */ Interceptable $ic;

@@ -1,28 +1,57 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface yw7 {
-    void c(boolean z);
+public abstract class yw7 implements dx7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public ViewGroup b;
 
-    void d(View.OnLongClickListener onLongClickListener);
+    public yw7(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        this.b = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(c(), (ViewGroup) null, false);
+        a();
+    }
 
-    void e(View.OnClickListener onClickListener);
+    public TbPageContext d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (TbPageContext) invokeV.objValue;
+    }
 
-    void f(boolean z);
-
-    void k(View.OnClickListener onClickListener);
-
-    void l(int i);
-
-    void n(TbRichTextView.y yVar);
-
-    void o(String str);
-
-    void q(boolean z);
-
-    void r(jv7 jv7Var);
-
-    void setFromCDN(boolean z);
+    @Override // com.baidu.tieba.dx7
+    public ViewGroup getViewGroup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
 }

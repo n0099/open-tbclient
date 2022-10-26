@@ -84,7 +84,10 @@ public class NotifyUtil {
                 } catch (Exception unused2) {
                 }
             }
-            return obj2 == null ? obj : obj2;
+            if (obj2 != null) {
+                return obj2;
+            }
+            return obj;
         }
         return invokeLL.objValue;
     }

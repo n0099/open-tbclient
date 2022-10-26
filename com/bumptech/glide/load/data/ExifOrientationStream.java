@@ -1,6 +1,6 @@
 package com.bumptech.glide.load.data;
 
-import androidx.annotation.NonNull;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,6 +23,16 @@ public final class ExifOrientationStream extends FilterInputStream {
     public final byte orientation;
     public int position;
 
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -36,11 +46,36 @@ public final class ExifOrientationStream extends FilterInputStream {
                 return;
             }
         }
-        byte[] bArr = {-1, -31, 0, 28, 69, 120, 105, 102, 0, 0, 77, 77, 0, 0, 0, 0, 0, 8, 0, 1, 1, 18, 0, 2, 0, 0, 0, 1, 0};
+        byte[] bArr = {-1, ExifInterface.MARKER_APP1, 0, 28, 69, 120, 105, 102, 0, 0, 77, 77, 0, 0, 0, 0, 0, 8, 0, 1, 1, 18, 0, 2, 0, 0, 0, 1, 0};
         EXIF_SEGMENT = bArr;
         int length = bArr.length;
         SEGMENT_LENGTH = length;
         ORIENTATION_POSITION = length + 2;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        int read;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i2 = this.position;
+            if (i2 >= 2 && i2 <= (i = ORIENTATION_POSITION)) {
+                if (i2 == i) {
+                    read = this.orientation;
+                } else {
+                    read = EXIF_SEGMENT[i2 - 2] & 255;
+                }
+            } else {
+                read = super.read();
+            }
+            if (read != -1) {
+                this.position++;
+            }
+            return read;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,47 +112,6 @@ public final class ExifOrientationStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        int read;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.position;
-            if (i2 < 2 || i2 > (i = ORIENTATION_POSITION)) {
-                read = super.read();
-            } else if (i2 == i) {
-                read = this.orientation;
-            } else {
-                read = EXIF_SEGMENT[i2 - 2] & 255;
-            }
-            if (read != -1) {
-                this.position++;
-            }
-            return read;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            throw new UnsupportedOperationException();
-        }
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
     public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -132,7 +126,7 @@ public final class ExifOrientationStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         int i3;
         Interceptable interceptable = $ic;
@@ -157,5 +151,13 @@ public final class ExifOrientationStream extends FilterInputStream {
             return i3;
         }
         return invokeLII.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 }

@@ -17,7 +17,7 @@ public class d {
     public static final double[] b;
     public static final double[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<b> d;
+    public LinkedList d;
 
     /* loaded from: classes2.dex */
     public class a {
@@ -133,7 +133,7 @@ public class d {
         }
         this.d = null;
         int length = b.length;
-        this.d = new LinkedList<>();
+        this.d = new LinkedList();
         int i3 = 0;
         while (i3 < length - 1) {
             i3++;
@@ -171,16 +171,16 @@ public class d {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
             try {
                 a aVar = new a(this, d * 100000.0d, d2 * 100000.0d);
-                Iterator<b> it = this.d.iterator();
+                Iterator it = this.d.iterator();
                 int i = 0;
                 while (it.hasNext()) {
-                    b next = it.next();
-                    if (next.b(aVar)) {
+                    b bVar = (b) it.next();
+                    if (bVar.b(aVar)) {
                         return true;
                     }
-                    int a2 = a(next.a(aVar));
-                    int a3 = a(next.a.b - aVar.b);
-                    int a4 = a(next.b.b - aVar.b);
+                    int a2 = a(bVar.a(aVar));
+                    int a3 = a(bVar.a.b - aVar.b);
+                    int a4 = a(bVar.b.b - aVar.b);
                     if (a2 > 0 && a3 <= 0 && a4 > 0) {
                         i++;
                     }

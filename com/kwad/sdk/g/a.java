@@ -3,30 +3,29 @@ package com.kwad.sdk.g;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.api.proxy.BaseProxyService;
 import com.kwad.sdk.api.proxy.IServiceProxy;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements IServiceProxy {
     @Override // com.kwad.sdk.api.proxy.IServiceProxy
-    public IBinder onBind(@NonNull Service service, Intent intent) {
+    public IBinder onBind(Service service, Intent intent) {
         return null;
     }
 
     @Override // com.kwad.sdk.api.proxy.IServiceProxy
-    public void onCreate(@NonNull Service service) {
+    public void onCreate(Service service) {
     }
 
     @Override // com.kwad.sdk.api.proxy.IServiceProxy
-    public void onDestroy(@NonNull Service service) {
+    public void onDestroy(Service service) {
     }
 
     @Override // com.kwad.sdk.api.proxy.IServiceProxy
-    public void onRebind(@NonNull Service service, Intent intent) {
+    public void onRebind(Service service, Intent intent) {
     }
 
     @Override // com.kwad.sdk.api.proxy.IServiceProxy
-    public int onStartCommand(@NonNull Service service, Intent intent, int i, int i2) {
+    public int onStartCommand(Service service, Intent intent, int i, int i2) {
         if (service instanceof BaseProxyService) {
             return ((BaseProxyService) service).superOnStartCommand(intent, i, i2);
         }

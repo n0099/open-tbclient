@@ -59,12 +59,18 @@ public final class SendStrategyEnum {
     public static SendStrategyEnum valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SendStrategyEnum) Enum.valueOf(SendStrategyEnum.class, str) : (SendStrategyEnum) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (SendStrategyEnum) Enum.valueOf(SendStrategyEnum.class, str);
+        }
+        return (SendStrategyEnum) invokeL.objValue;
     }
 
     public static SendStrategyEnum[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SendStrategyEnum[]) a.clone() : (SendStrategyEnum[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (SendStrategyEnum[]) a.clone();
+        }
+        return (SendStrategyEnum[]) invokeV.objValue;
     }
 }

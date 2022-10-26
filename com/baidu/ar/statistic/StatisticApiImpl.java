@@ -126,7 +126,7 @@ public final class StatisticApiImpl implements g, l.a {
     }
 
     @Override // com.baidu.ar.statistic.g
-    public void onEvent(String str, Map<String, String> map) {
+    public void onEvent(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) {
             a az = a.az(str);
@@ -147,7 +147,7 @@ public final class StatisticApiImpl implements g, l.a {
     }
 
     @Override // com.baidu.ar.statistic.g
-    public void onEventDebounce(String str, long j, Map<String, String> map) {
+    public void onEventDebounce(String str, long j, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), map}) == null) {
             a az = a.az(str);
@@ -185,7 +185,7 @@ public final class StatisticApiImpl implements g, l.a {
     }
 
     @Override // com.baidu.ar.statistic.g
-    public void onPerformance(String str, Map<String, String> map) {
+    public void onPerformance(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, map) == null) {
             synchronized (this.xa) {
@@ -213,7 +213,7 @@ public final class StatisticApiImpl implements g, l.a {
     }
 
     @Override // com.baidu.ar.statistic.l.a
-    public void onPerformanceRequestFinished(List<String> list) {
+    public void onPerformanceRequestFinished(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.wX.a(21, list);
@@ -253,7 +253,7 @@ public final class StatisticApiImpl implements g, l.a {
     }
 
     @Override // com.baidu.ar.statistic.g
-    public void setPubParams(Map<String, String> map) {
+    public void setPubParams(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, map) == null) {
             this.wX.setPubParams(map);

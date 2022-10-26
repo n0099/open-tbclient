@@ -13,7 +13,7 @@ public class k {
     public final k h;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public i a;
         public String c;
         public l e;

@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,18 +25,18 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.h85;
-import com.baidu.tieba.hq4;
-import com.baidu.tieba.i26;
-import com.baidu.tieba.li5;
-import com.baidu.tieba.mn;
-import com.baidu.tieba.on;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.ar4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.jq4;
+import com.baidu.tieba.kk5;
+import com.baidu.tieba.l85;
+import com.baidu.tieba.nn;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.qi5;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.wx;
-import com.baidu.tieba.yq4;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +47,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4> {
+public class MutiImgSingleVerticalLayout extends LinearLayout implements xx {
     public static /* synthetic */ Interceptable $ic;
     public static final int o;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,14 +57,20 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
     public TbImageView d;
     public String e;
     public boolean f;
-    public i26<yq4> g;
-    public yq4 h;
-    public dk5 i;
-    public LinkedList<MediaData> j;
+    public p26 g;
+    public ar4 h;
+    public kk5 i;
+    public LinkedList j;
     public boolean k;
     public boolean l;
     public Context m;
     public TbImageView.h n;
+
+    public void setPreloadSizeReadyCallback(nn nnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, nnVar) == null) {
+        }
+    }
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -93,18 +98,17 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            i26<yq4> subClickListener;
+            p26 subClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
+                view2.setTag("2");
+                subClickListener.a(view2, this.a.h);
             }
-            view2.setTag("2");
-            subClickListener.a(view2, this.a.h);
         }
     }
 
     /* loaded from: classes.dex */
-    public class b implements dk5 {
+    public class b implements kk5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgSingleVerticalLayout a;
@@ -127,11 +131,12 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
             this.a = mutiImgSingleVerticalLayout;
         }
 
-        @Override // com.baidu.tieba.dk5
+        @Override // com.baidu.tieba.kk5
         public void a(View view2, int i, boolean z) {
+            Context context;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                i26<yq4> subClickListener = this.a.getSubClickListener();
+                p26 subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.h.objType = 2;
@@ -150,8 +155,13 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
                         return;
                     }
                 }
-                if (li5.c()) {
-                    if (li5.b(view2.getContext() instanceof Activity ? view2.getContext() : this.a.m, this.a.e, this.a.h)) {
+                if (qi5.c()) {
+                    if (view2.getContext() instanceof Activity) {
+                        context = view2.getContext();
+                    } else {
+                        context = this.a.m;
+                    }
+                    if (qi5.b(context, this.a.e, this.a.h)) {
                         return;
                     }
                 }
@@ -165,6 +175,13 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgSingleVerticalLayout a;
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void a(TbImageView tbImageView, Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            }
+        }
 
         public c(MutiImgSingleVerticalLayout mutiImgSingleVerticalLayout) {
             Interceptable interceptable = $ic;
@@ -185,15 +202,9 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.h
-        public void a(TbImageView tbImageView, Canvas canvas) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
-            }
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.h
         public void b(TbImageView tbImageView, Canvas canvas) {
             int i;
+            int i2;
             float f;
             float f2;
             float f3;
@@ -203,90 +214,98 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
             float f7;
             float f8;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
-                return;
-            }
-            on m = h85.k().m(zg.h().g(tbImageView.getUrl(), this.a.f ? 13 : 14));
-            int i2 = 0;
-            if (m != null) {
-                i2 = m.r();
-                i = m.m();
-            } else {
-                i = 0;
-            }
-            if (i2 == 0 || i == 0) {
-                return;
-            }
-            int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
-            int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
-            Matrix imageMatrix = tbImageView.getImageMatrix();
-            float f9 = 0.0f;
-            if (tbImageView.z() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
-                float smartCropCenterPointWidthRatio = tbImageView.getSmartCropCenterPointWidthRatio();
-                float smartCropCenterPointHeightRatio = tbImageView.getSmartCropCenterPointHeightRatio();
-                if (i2 * height > width * i) {
-                    f6 = height / i;
-                    float f10 = i2;
-                    float f11 = smartCropCenterPointWidthRatio * f10 * f6;
-                    float f12 = width;
-                    float f13 = 0.5f * f12;
-                    if (f11 < f13) {
-                        f8 = 0.0f;
-                    } else {
-                        float f14 = f10 * f6;
-                        f8 = f14 - f11 < f13 ? f12 - f14 : f13 - f11;
-                    }
-                    f9 = f8;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null) {
+                if (this.a.f) {
+                    i = 13;
                 } else {
-                    float f15 = width / i2;
-                    float f16 = i;
-                    float f17 = smartCropCenterPointHeightRatio * f16 * f15;
-                    float f18 = height;
-                    float f19 = 0.5f * f18;
-                    if (f17 >= f19) {
-                        float f20 = f16 * f15;
-                        if (f20 - f17 < f19) {
-                            f7 = f18 - f20;
-                            f6 = f15;
+                    i = 14;
+                }
+                pn m = l85.k().m(ah.h().g(tbImageView.getUrl(), i));
+                int i3 = 0;
+                if (m != null) {
+                    i3 = m.r();
+                    i2 = m.m();
+                } else {
+                    i2 = 0;
+                }
+                if (i3 != 0 && i2 != 0) {
+                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+                    Matrix imageMatrix = tbImageView.getImageMatrix();
+                    float f9 = 0.0f;
+                    if (tbImageView.A() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                        float smartCropCenterPointWidthRatio = tbImageView.getSmartCropCenterPointWidthRatio();
+                        float smartCropCenterPointHeightRatio = tbImageView.getSmartCropCenterPointHeightRatio();
+                        if (i3 * height > width * i2) {
+                            f6 = height / i2;
+                            float f10 = i3;
+                            float f11 = smartCropCenterPointWidthRatio * f10 * f6;
+                            float f12 = width;
+                            float f13 = 0.5f * f12;
+                            if (f11 < f13) {
+                                f8 = 0.0f;
+                            } else {
+                                float f14 = f10 * f6;
+                                if (f14 - f11 < f13) {
+                                    f8 = f12 - f14;
+                                } else {
+                                    f8 = f13 - f11;
+                                }
+                            }
+                            f9 = f8;
                         } else {
-                            float f21 = f19 - f17;
-                            f6 = f15;
-                            f7 = f21;
+                            float f15 = width / i3;
+                            float f16 = i2;
+                            float f17 = smartCropCenterPointHeightRatio * f16 * f15;
+                            float f18 = height;
+                            float f19 = 0.5f * f18;
+                            if (f17 < f19) {
+                                f6 = f15;
+                            } else {
+                                float f20 = f16 * f15;
+                                if (f20 - f17 < f19) {
+                                    f7 = f18 - f20;
+                                    f6 = f15;
+                                } else {
+                                    float f21 = f19 - f17;
+                                    f6 = f15;
+                                    f7 = f21;
+                                }
+                                imageMatrix.setScale(f6, f6);
+                                imageMatrix.postTranslate(f9, f7);
+                            }
                         }
+                        f7 = 0.0f;
                         imageMatrix.setScale(f6, f6);
                         imageMatrix.postTranslate(f9, f7);
+                    } else if (tbImageView.y() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                        if (i3 * height > width * i2) {
+                            f4 = height;
+                            f5 = i2;
+                        } else {
+                            f4 = width;
+                            f5 = i3;
+                        }
+                        float f22 = f4 / f5;
+                        imageMatrix.setScale(f22, f22);
+                        imageMatrix.postTranslate(0.0f, 0.0f);
+                    } else if (tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                        if (i3 * height > width * i2) {
+                            f = height / i2;
+                            f3 = (width - (i3 * f)) * 0.5f;
+                            f2 = 0.0f;
+                        } else {
+                            f = width / i3;
+                            f2 = (height - (i2 * f)) * 0.5f;
+                            f3 = 0.0f;
+                        }
+                        imageMatrix.setScale(f, f);
+                        if (this.a.k && i2 > i3) {
+                            imageMatrix.postTranslate(f3, 0.0f);
+                        } else {
+                            imageMatrix.postTranslate(f3, f2);
+                        }
                     }
-                    f6 = f15;
-                }
-                f7 = 0.0f;
-                imageMatrix.setScale(f6, f6);
-                imageMatrix.postTranslate(f9, f7);
-            } else if (tbImageView.x() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
-                if (i2 * height > width * i) {
-                    f4 = height;
-                    f5 = i;
-                } else {
-                    f4 = width;
-                    f5 = i2;
-                }
-                float f22 = f4 / f5;
-                imageMatrix.setScale(f22, f22);
-                imageMatrix.postTranslate(0.0f, 0.0f);
-            } else if (tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
-                if (i2 * height > width * i) {
-                    f = height / i;
-                    f3 = (width - (i2 * f)) * 0.5f;
-                    f2 = 0.0f;
-                } else {
-                    f = width / i2;
-                    f2 = (height - (i * f)) * 0.5f;
-                    f3 = 0.0f;
-                }
-                imageMatrix.setScale(f, f);
-                if (this.a.k && i > i2) {
-                    imageMatrix.postTranslate(f3, 0.0f);
-                } else {
-                    imageMatrix.postTranslate(f3, f2);
                 }
             }
         }
@@ -331,11 +350,19 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.d.i == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.i == null) {
                 return;
             }
-            this.d.i.a(view2, this.a, this.b && this.c);
+            kk5 kk5Var = this.d.i;
+            int i = this.a;
+            if (this.b && this.c) {
+                z = true;
+            } else {
+                z = false;
+            }
+            kk5Var.a(view2, i, z);
         }
     }
 
@@ -352,7 +379,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
                 return;
             }
         }
-        o = ej.k(TbadkCoreApplication.getInst()) - ((ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        o = fj.k(TbadkCoreApplication.getInst()) - ((fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -376,58 +403,6 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
         }
     }
 
-    private void setImageData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, this, threadData) == null) {
-            ArrayList<MediaData> medias = threadData.getMedias();
-            if (hq4.c().g() && ListUtils.getCount(medias) != 0) {
-                LinkedList<MediaData> linkedList = new LinkedList<>();
-                for (int i = 0; i < medias.size(); i++) {
-                    MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
-                    if (mediaData != null && mediaData.getType() == 3) {
-                        linkedList.add(mediaData);
-                    }
-                }
-                this.j = linkedList;
-                this.d.setVisibility(8);
-                if (ListUtils.getCount(linkedList) == 1) {
-                    this.d.setVisibility(0);
-                    l((MediaData) ListUtils.getItem(medias, 0), this.d, true, false, true, 0);
-                    return;
-                }
-                this.d.setVisibility(8);
-                return;
-            }
-            this.d.setVisibility(8);
-        }
-    }
-
-    private void setVoiceData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, threadData) == null) {
-            ArrayList<VoiceData.VoiceModel> voice = threadData.getVoice();
-            if (ListUtils.isEmpty(voice)) {
-                this.c.setVisibility(8);
-                return;
-            }
-            this.c.setVisibility(0);
-            VoiceData.VoiceModel voiceModel = voice.get(0);
-            this.c.setVoiceModel(voiceModel);
-            this.c.setTag(voiceModel);
-            this.c.e();
-            if (voiceModel != null) {
-                this.c.m(voiceModel.voice_status.intValue());
-            }
-            this.c.o();
-        }
-    }
-
-    public i26<yq4> getSubClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (i26) invokeV.objValue;
-    }
-
     public final String h(MediaData mediaData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -442,164 +417,16 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
             if (TextUtils.isEmpty(picUrl)) {
                 picUrl = mediaData.getThumbnails_url();
             }
-            return TextUtils.isEmpty(picUrl) ? mediaData.getSrc_pic() : picUrl;
+            if (TextUtils.isEmpty(picUrl)) {
+                return mediaData.getSrc_pic();
+            }
+            return picUrl;
         }
         return (String) invokeL.objValue;
     }
 
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cc, (ViewGroup) this, true);
-            setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092174);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092183);
-            this.c = playVoiceBntNew;
-            playVoiceBntNew.setAfterClickListener(new a(this));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217f);
-            this.d = tbImageView;
-            tbImageView.setRadiusById(R.string.J_X05);
-            this.d.setConrers(15);
-            this.d.setDrawCorner(true);
-            this.d.setPlaceHolder(3);
-            this.d.setLongIconSupport(true);
-            this.d.setGifIconSupport(true);
-            this.i = new b(this);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
-    /* renamed from: j */
-    public void a(yq4 yq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yq4Var) == null) {
-            this.h = yq4Var;
-            ThreadData threadData = yq4Var.getThreadData();
-            ThreadCardUtils.setTitle(this.a, threadData, this.l);
-            ThreadCardUtils.setAbstract(this.b, this.a, threadData, o, this.l);
-            TextView textView = this.a;
-            boolean z = false;
-            boolean z2 = textView == null || textView.getVisibility() != 0;
-            TextView textView2 = this.b;
-            boolean z3 = textView2 == null || textView2.getVisibility() != 0;
-            TbImageView tbImageView = this.d;
-            if (z2 && z3) {
-                z = true;
-            }
-            ThreadCardUtils.dealMainViewTopMargin(tbImageView, z, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            setImageData(threadData);
-            setVoiceData(threadData);
-        }
-    }
-
-    public final void k(TbImageView tbImageView, int i, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{tbImageView, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (this.i != null && tbImageView != null) {
-                View.OnClickListener onClickListener = tbImageView.getOnClickListener();
-                if (onClickListener instanceof d) {
-                    ((d) onClickListener).a(i, z, z2);
-                } else {
-                    tbImageView.setOnClickListener(new d(this, i, z, z2));
-                }
-            } else if (this.i != null || tbImageView == null) {
-            } else {
-                tbImageView.setClickable(false);
-            }
-        }
-    }
-
-    public final void l(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i)}) == null) {
-            String h = h(mediaData);
-            int i2 = this.f ? 46 : 47;
-            if (!StringHelper.equals(h, tbImageView.getUrl())) {
-                tbImageView.F();
-            }
-            setCanCenterStart(true);
-            boolean isLongPic = mediaData.isLongPic();
-            boolean isSmartCrop = mediaData.isSmartCrop();
-            tbImageView.setIsLongPic(isLongPic);
-            tbImageView.setIsSmartCrop(isSmartCrop);
-            tbImageView.setSmartCropCenterPointWidthRatio((float) mediaData.getSmartCropCenterPointWidthRatio());
-            tbImageView.setSmartCropCenterPointHeightRatio((float) mediaData.getSmartCropCenterPointHeightRatio());
-            tbImageView.setForegroundColor(0);
-            tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.L_X01));
-            tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            tbImageView.setBorderSurroundContent(true);
-            tbImageView.setPlaceHolder(3);
-            tbImageView.setDrawBorder(true);
-            tbImageView.setOnDrawListener(this.n);
-            tbImageView.K(h, i2, false);
-            k(tbImageView, i, z2, z3);
-        }
-    }
-
-    public void setCanCenterStart(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void setMarginsTop(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048586, this, view2, i) == null) && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin != i) {
-                marginLayoutParams.topMargin = i;
-                view2.setLayoutParams(marginLayoutParams);
-            }
-        }
-    }
-
-    public void setNeedFrsTabName(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void setPreloadSizeReadyCallback(mn mnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, mnVar) == null) {
-        }
-    }
-
-    public void setRealContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
-            this.m = context;
-        }
-    }
-
-    public void setSubClickListener(i26<yq4> i26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, i26Var) == null) {
-            this.g = i26Var;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MutiImgSingleVerticalLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public MutiImgSingleVerticalLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -620,7 +447,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MutiImgSingleVerticalLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public MutiImgSingleVerticalLayout(Context context, AttributeSet attributeSet, int i) {
         this(context, attributeSet, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -665,5 +492,219 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements wx<yq4>
         this.l = false;
         this.n = new c(this);
         i();
+    }
+
+    public void setCanCenterStart(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void setNeedFrsTabName(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void setRealContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
+            this.m = context;
+        }
+    }
+
+    public void setSubClickListener(p26 p26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, p26Var) == null) {
+            this.g = p26Var;
+        }
+    }
+
+    private void setImageData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, this, threadData) == null) {
+            ArrayList<MediaData> medias = threadData.getMedias();
+            if (jq4.c().g() && ListUtils.getCount(medias) != 0) {
+                LinkedList linkedList = new LinkedList();
+                for (int i = 0; i < medias.size(); i++) {
+                    MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
+                    if (mediaData != null && mediaData.getType() == 3) {
+                        linkedList.add(mediaData);
+                    }
+                }
+                this.j = linkedList;
+                this.d.setVisibility(8);
+                if (ListUtils.getCount(linkedList) == 1) {
+                    this.d.setVisibility(0);
+                    l((MediaData) ListUtils.getItem(medias, 0), this.d, true, false, true, 0);
+                    return;
+                }
+                this.d.setVisibility(8);
+                return;
+            }
+            this.d.setVisibility(8);
+        }
+    }
+
+    private void setVoiceData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, this, threadData) == null) {
+            ArrayList<VoiceData.VoiceModel> voice = threadData.getVoice();
+            if (ListUtils.isEmpty(voice)) {
+                this.c.setVisibility(8);
+                return;
+            }
+            this.c.setVisibility(0);
+            VoiceData.VoiceModel voiceModel = voice.get(0);
+            this.c.setVoiceModel(voiceModel);
+            this.c.setTag(voiceModel);
+            this.c.e();
+            if (voiceModel != null) {
+                this.c.m(voiceModel.voice_status.intValue());
+            }
+            this.c.o();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xx
+    /* renamed from: j */
+    public void a(ar4 ar4Var) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ar4Var) == null) {
+            this.h = ar4Var;
+            ThreadData threadData = ar4Var.getThreadData();
+            ThreadCardUtils.setTitle(this.a, threadData, this.l);
+            ThreadCardUtils.setAbstract(this.b, this.a, threadData, o, this.l);
+            TextView textView = this.a;
+            boolean z3 = false;
+            if (textView != null && textView.getVisibility() == 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            TextView textView2 = this.b;
+            if (textView2 != null && textView2.getVisibility() == 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            TbImageView tbImageView = this.d;
+            if (z && z2) {
+                z3 = true;
+            }
+            ThreadCardUtils.dealMainViewTopMargin(tbImageView, z3, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            setImageData(threadData);
+            setVoiceData(threadData);
+        }
+    }
+
+    public p26 getSubClickListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (p26) invokeV.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cc, (ViewGroup) this, true);
+            setOrientation(1);
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092170);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09217e);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f09217f);
+            this.c = playVoiceBntNew;
+            playVoiceBntNew.setAfterClickListener(new a(this));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217b);
+            this.d = tbImageView;
+            tbImageView.setRadiusById(R.string.J_X05);
+            this.d.setConrers(15);
+            this.d.setDrawCorner(true);
+            this.d.setPlaceHolder(3);
+            this.d.setLongIconSupport(true);
+            this.d.setGifIconSupport(true);
+            this.i = new b(this);
+        }
+    }
+
+    public final void k(TbImageView tbImageView, int i, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{tbImageView, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (this.i != null && tbImageView != null) {
+                View.OnClickListener onClickListener = tbImageView.getOnClickListener();
+                if (onClickListener instanceof d) {
+                    ((d) onClickListener).a(i, z, z2);
+                } else {
+                    tbImageView.setOnClickListener(new d(this, i, z, z2));
+                }
+            } else if (this.i == null && tbImageView != null) {
+                tbImageView.setClickable(false);
+            }
+        }
+    }
+
+    public final void l(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i)}) == null) {
+            String h = h(mediaData);
+            if (this.f) {
+                i2 = 46;
+            } else {
+                i2 = 47;
+            }
+            if (!StringHelper.equals(h, tbImageView.getUrl())) {
+                tbImageView.G();
+            }
+            setCanCenterStart(true);
+            boolean isLongPic = mediaData.isLongPic();
+            boolean isSmartCrop = mediaData.isSmartCrop();
+            tbImageView.setIsLongPic(isLongPic);
+            tbImageView.setIsSmartCrop(isSmartCrop);
+            tbImageView.setSmartCropCenterPointWidthRatio((float) mediaData.getSmartCropCenterPointWidthRatio());
+            tbImageView.setSmartCropCenterPointHeightRatio((float) mediaData.getSmartCropCenterPointHeightRatio());
+            tbImageView.setForegroundColor(0);
+            tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.L_X01));
+            tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            tbImageView.setBorderSurroundContent(true);
+            tbImageView.setPlaceHolder(3);
+            tbImageView.setDrawBorder(true);
+            tbImageView.setOnDrawListener(this.n);
+            tbImageView.L(h, i2, false);
+            k(tbImageView, i, z2, z3);
+        }
+    }
+
+    public void setMarginsTop(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048586, this, view2, i) == null) && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin != i) {
+                marginLayoutParams.topMargin = i;
+                view2.setLayoutParams(marginLayoutParams);
+            }
+        }
     }
 }

@@ -4,19 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class kf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public lf2 a;
     public String b;
-    public List<String> c;
-    public rf2 d;
-    public long e;
-    public List<lf2> f;
-    public String g;
-    public byte[] h;
+    public Map c;
 
     public kf2() {
         Interceptable interceptable = $ic;

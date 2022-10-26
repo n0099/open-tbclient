@@ -1,6 +1,5 @@
 package com.badlogic.gdx.backends.android.surfaceview;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
@@ -37,6 +36,21 @@ public class GLSurfaceView20 extends GLSurfaceView {
     public final j3 a;
     public Input.OnscreenKeyboardType b;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(843055469, "Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(843055469, "Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;");
+        }
+    }
+
     /* loaded from: classes.dex */
     public class a extends BaseInputConnection {
         public static /* synthetic */ Interceptable $ic;
@@ -65,7 +79,6 @@ public class GLSurfaceView20 extends GLSurfaceView {
             this.a = gLSurfaceView20;
         }
 
-        @TargetApi(16)
         public final void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -91,7 +104,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
     }
 
     /* loaded from: classes.dex */
-    public static class b implements GLSurfaceView.EGLConfigChooser {
+    public class b implements GLSurfaceView.EGLConfigChooser {
         public static /* synthetic */ Interceptable $ic;
         public static int[] h;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +181,13 @@ public class GLSurfaceView20 extends GLSurfaceView {
         public final int b(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.g) ? this.g[0] : i2 : invokeCommon.intValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+                if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.g)) {
+                    return this.g[0];
+                }
+                return i2;
+            }
+            return invokeCommon.intValue;
         }
 
         @Override // android.opengl.GLSurfaceView.EGLConfigChooser
@@ -191,7 +210,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
     }
 
     /* loaded from: classes.dex */
-    public static class c implements GLSurfaceView.EGLContextFactory {
+    public class c implements GLSurfaceView.EGLContextFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 12440;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,18 +277,24 @@ public class GLSurfaceView20 extends GLSurfaceView {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(843055469, "Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public GLSurfaceView20(Context context, j3 j3Var) {
+        this(context, j3Var, 2);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(843055469, "Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, j3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (j3) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
@@ -300,28 +325,36 @@ public class GLSurfaceView20 extends GLSurfaceView {
     public static boolean a(String str, EGL10 egl10) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, str, egl10)) != null) {
-            return invokeLL.booleanValue;
-        }
-        boolean z = true;
-        while (true) {
-            int eglGetError = egl10.eglGetError();
-            if (eglGetError == 12288) {
-                return z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, egl10)) == null) {
+            boolean z = true;
+            while (true) {
+                int eglGetError = egl10.eglGetError();
+                if (eglGetError != 12288) {
+                    Log.e(c, String.format("%s: EGL error: 0x%x", str, Integer.valueOf(eglGetError)));
+                    z = false;
+                } else {
+                    return z;
+                }
             }
-            Log.e(c, String.format("%s: EGL error: 0x%x", str, Integer.valueOf(eglGetError)));
-            z = false;
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 
     public final void b(boolean z, int i, int i2) {
+        b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             if (z) {
                 getHolder().setFormat(-3);
             }
             setEGLContextFactory(new c());
-            setEGLConfigChooser(z ? new b(8, 8, 8, 8, i, i2) : new b(8, 8, 8, 0, i, i2));
+            if (z) {
+                bVar = new b(8, 8, 8, 8, i, i2);
+            } else {
+                bVar = new b(8, 8, 8, 0, i, i2);
+            }
+            setEGLConfigChooser(bVar);
         }
     }
 
@@ -353,27 +386,6 @@ public class GLSurfaceView20 extends GLSurfaceView {
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             j3.a a2 = this.a.a(i, i2);
             setMeasuredDimension(a2.a, a2.b);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GLSurfaceView20(Context context, j3 j3Var) {
-        this(context, j3Var, 2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, j3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (j3) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
         }
     }
 }

@@ -1,14 +1,23 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class kd5 extends jd5 {
+public class kd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
+    public BdUniqueId a;
+    public int b;
+    public String c;
+    public Activity d;
+    public Map e;
+    public Map f;
+    public boolean g;
 
     public kd5() {
         Interceptable interceptable = $ic;

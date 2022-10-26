@@ -52,13 +52,12 @@ public class GrowthCollectManager {
 
     public static void init() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || hasInit) {
-            return;
-        }
-        synchronized (GrowthCollectManager.class) {
-            if (!hasInit) {
-                BdBoxActivityManager.registerGlobalLifeCycle(new LifeCycleHelper());
-                hasInit = true;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !hasInit) {
+            synchronized (GrowthCollectManager.class) {
+                if (!hasInit) {
+                    BdBoxActivityManager.registerGlobalLifeCycle(new LifeCycleHelper());
+                    hasInit = true;
+                }
             }
         }
     }

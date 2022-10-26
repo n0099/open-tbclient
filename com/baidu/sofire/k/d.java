@@ -89,8 +89,12 @@ public class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (d.class) {
                 int i = a;
+                boolean z = false;
                 if (i != -1) {
-                    return i == 1;
+                    if (i == 1) {
+                        z = true;
+                    }
+                    return z;
                 }
                 String packageName = context.getPackageName();
                 if (TextUtils.isEmpty(packageName)) {

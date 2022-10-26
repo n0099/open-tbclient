@@ -15,7 +15,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\n \u0002*\u0004\u0018\u00010\u00010\u0001H\n¢\u0006\u0002\b\u0003"}, d2 = {"<anonymous>", "Ljava/util/concurrent/ExecutorService;", "kotlin.jvm.PlatformType", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class BdEventBusCore$DEFAULT_EXECUTOR_SERVICE$2 extends Lambda implements Function0<ExecutorService> {
+public final class BdEventBusCore$DEFAULT_EXECUTOR_SERVICE$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdEventBusCore$DEFAULT_EXECUTOR_SERVICE$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,6 +59,9 @@ public final class BdEventBusCore$DEFAULT_EXECUTOR_SERVICE$2 extends Lambda impl
     public final ExecutorService invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Executors.newCachedThreadPool() : (ExecutorService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Executors.newCachedThreadPool();
+        }
+        return (ExecutorService) invokeV.objValue;
     }
 }

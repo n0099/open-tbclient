@@ -44,9 +44,15 @@ public class BaseSsoHandler {
     public int ssoRequestCode;
     public int ssoRequestType;
 
+    public void fillExtraIntent(Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class AuthType {
+    public final class AuthType {
         public static final /* synthetic */ AuthType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AuthType ALL;
@@ -96,13 +102,19 @@ public class BaseSsoHandler {
         public static AuthType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AuthType) Enum.valueOf(AuthType.class, str) : (AuthType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AuthType) Enum.valueOf(AuthType.class, str);
+            }
+            return (AuthType) invokeL.objValue;
         }
 
         public static AuthType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AuthType[]) $VALUES.clone() : (AuthType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AuthType[]) $VALUES.clone();
+            }
+            return (AuthType[]) invokeV.objValue;
         }
     }
 
@@ -128,47 +140,62 @@ public class BaseSsoHandler {
         WeiboSsoManager.getInstance().init(activity, WbSdk.getAuthInfo().getAppKey());
     }
 
+    public BaseSsoHandler(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.SSO_TYPE_INVALID = 3;
+        this.ssoRequestCode = -1;
+        this.ssoRequestType = 3;
+        this.mAuthActivity = context;
+        WeiboSsoManager.getInstance().init(context, WbSdk.getAuthInfo().getAppKey());
+    }
+
+    private void authorize(int i, WbAuthListener wbAuthListener, AuthType authType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65538, this, i, wbAuthListener, authType) == null) {
+            resetIntentFillData();
+            if (wbAuthListener != null) {
+                this.authListener = wbAuthListener;
+                if (authType == AuthType.WebOnly) {
+                    startWebAuth();
+                    return;
+                }
+                boolean z = false;
+                if (authType == AuthType.SsoOnly) {
+                    z = true;
+                }
+                WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
+                if (isWbAppInstalled() && wbAppInfo != null) {
+                    startClientAuth(i);
+                    return;
+                } else if (z) {
+                    this.authListener.onFailure(new WbConnectErrorMessage());
+                    return;
+                } else {
+                    startWebAuth();
+                    return;
+                }
+            }
+            throw new RuntimeException("please set auth listener");
+        }
+    }
+
     public void authorize(WbAuthListener wbAuthListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, wbAuthListener) == null) {
             authorize(WbAuthConstants.REQUEST_CODE_SSO_AUTH, wbAuthListener, AuthType.ALL);
-        }
-    }
-
-    public void authorizeCallBack(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) && 32973 == i) {
-            if (i2 != -1) {
-                if (i2 == 0) {
-                    this.authListener.cancel();
-                    return;
-                }
-                return;
-            }
-            Context context = this.mAuthActivity;
-            if (!SecurityHelper.checkResponseAppLegal(context, WeiboAppManager.getInstance(context).getWbAppInfo(), intent)) {
-                this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
-                return;
-            }
-            String safeString = Utility.safeString(intent.getStringExtra("error"));
-            String safeString2 = Utility.safeString(intent.getStringExtra(PushMessageHelper.ERROR_TYPE));
-            String safeString3 = Utility.safeString(intent.getStringExtra("error_description"));
-            LogUtil.d(TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);
-            if (TextUtils.isEmpty(safeString) && TextUtils.isEmpty(safeString2) && TextUtils.isEmpty(safeString3)) {
-                Oauth2AccessToken parseAccessToken = Oauth2AccessToken.parseAccessToken(intent.getExtras());
-                if (parseAccessToken == null || !parseAccessToken.isSessionValid()) {
-                    return;
-                }
-                LogUtil.d(TAG, "Login Success! " + parseAccessToken.toString());
-                AccessTokenKeeper.writeAccessToken(this.mAuthActivity, parseAccessToken);
-                this.authListener.onSuccess(parseAccessToken);
-            } else if (!"access_denied".equals(safeString) && !"OAuthAccessDeniedException".equals(safeString)) {
-                LogUtil.d(TAG, "Login failed: " + safeString);
-                this.authListener.onFailure(new WbConnectErrorMessage(safeString2, safeString3));
-            } else {
-                LogUtil.d(TAG, "Login canceled by user.");
-                this.authListener.cancel();
-            }
         }
     }
 
@@ -186,9 +213,36 @@ public class BaseSsoHandler {
         }
     }
 
-    public void fillExtraIntent(Intent intent, int i) {
+    public void authorizeCallBack(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i) == null) {
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) && 32973 == i) {
+            if (i2 == -1) {
+                Context context = this.mAuthActivity;
+                if (!SecurityHelper.checkResponseAppLegal(context, WeiboAppManager.getInstance(context).getWbAppInfo(), intent)) {
+                    this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
+                    return;
+                }
+                String safeString = Utility.safeString(intent.getStringExtra("error"));
+                String safeString2 = Utility.safeString(intent.getStringExtra(PushMessageHelper.ERROR_TYPE));
+                String safeString3 = Utility.safeString(intent.getStringExtra("error_description"));
+                LogUtil.d(TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);
+                if (TextUtils.isEmpty(safeString) && TextUtils.isEmpty(safeString2) && TextUtils.isEmpty(safeString3)) {
+                    Oauth2AccessToken parseAccessToken = Oauth2AccessToken.parseAccessToken(intent.getExtras());
+                    if (parseAccessToken != null && parseAccessToken.isSessionValid()) {
+                        LogUtil.d(TAG, "Login Success! " + parseAccessToken.toString());
+                        AccessTokenKeeper.writeAccessToken(this.mAuthActivity, parseAccessToken);
+                        this.authListener.onSuccess(parseAccessToken);
+                    }
+                } else if (!"access_denied".equals(safeString) && !"OAuthAccessDeniedException".equals(safeString)) {
+                    LogUtil.d(TAG, "Login failed: " + safeString);
+                    this.authListener.onFailure(new WbConnectErrorMessage(safeString2, safeString3));
+                } else {
+                    LogUtil.d(TAG, "Login canceled by user.");
+                    this.authListener.cancel();
+                }
+            } else if (i2 == 0) {
+                this.authListener.cancel();
+            }
         }
     }
 
@@ -196,7 +250,10 @@ public class BaseSsoHandler {
     public boolean isWbAppInstalled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? WbSdk.isWbInstall(this.mAuthActivity) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return WbSdk.isWbInstall(this.mAuthActivity);
+        }
+        return invokeV.booleanValue;
     }
 
     public void resetIntentFillData() {
@@ -278,54 +335,5 @@ public class BaseSsoHandler {
             intent.putExtras(bundle);
             this.mAuthActivity.startActivity(intent);
         }
-    }
-
-    private void authorize(int i, WbAuthListener wbAuthListener, AuthType authType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65538, this, i, wbAuthListener, authType) == null) {
-            resetIntentFillData();
-            if (wbAuthListener != null) {
-                this.authListener = wbAuthListener;
-                if (authType == AuthType.WebOnly) {
-                    startWebAuth();
-                    return;
-                }
-                boolean z = authType == AuthType.SsoOnly;
-                WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
-                if (isWbAppInstalled() && wbAppInfo != null) {
-                    startClientAuth(i);
-                    return;
-                } else if (z) {
-                    this.authListener.onFailure(new WbConnectErrorMessage());
-                    return;
-                } else {
-                    startWebAuth();
-                    return;
-                }
-            }
-            throw new RuntimeException("please set auth listener");
-        }
-    }
-
-    public BaseSsoHandler(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.SSO_TYPE_INVALID = 3;
-        this.ssoRequestCode = -1;
-        this.ssoRequestType = 3;
-        this.mAuthActivity = context;
-        WeiboSsoManager.getInstance().init(context, WbSdk.getAuthInfo().getAppKey());
     }
 }

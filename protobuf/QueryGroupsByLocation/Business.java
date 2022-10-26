@@ -25,11 +25,17 @@ public final class Business extends Message {
     public final List<GroupInfo> groups;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<Business> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String business;
-        public List<GroupInfo> groups;
+        public List groups;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -75,14 +81,11 @@ public final class Business extends Message {
         public Business build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new Business(this, z, null) : (Business) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new Business(this, z, null);
+            }
+            return (Business) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -99,10 +102,6 @@ public final class Business extends Message {
             }
         }
         DEFAULT_GROUPS = Collections.emptyList();
-    }
-
-    public /* synthetic */ Business(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,7 +129,7 @@ public final class Business extends Message {
             } else {
                 this.business = str;
             }
-            List<GroupInfo> list = builder.groups;
+            List list = builder.groups;
             if (list == null) {
                 this.groups = DEFAULT_GROUPS;
                 return;
@@ -141,5 +140,9 @@ public final class Business extends Message {
         }
         this.business = builder.business;
         this.groups = Message.immutableCopyOf(builder.groups);
+    }
+
+    public /* synthetic */ Business(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

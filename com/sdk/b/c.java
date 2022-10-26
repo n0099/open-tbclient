@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class c<K, V> {
+public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<K, V> a;
+    public final LinkedHashMap a;
     public int b;
     public int c;
-    public b<K, Long> d;
+    public b d;
 
     public c(int i) {
         Interceptable interceptable = $ic;
@@ -36,18 +36,18 @@ public class c<K, V> {
             throw new IllegalArgumentException("maxSize <= 0");
         }
         this.c = i;
-        this.a = new LinkedHashMap<>(0, 0.75f, true);
-        this.d = new b<>(0, 0.75f);
+        this.a = new LinkedHashMap(0, 0.75f, true);
+        this.d = new b(0, 0.75f);
     }
 
-    public final int a(K k, V v) {
+    public final int a(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, v)) == null) {
-            int b = b(k, v);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+            int b = b(obj, obj2);
             if (b <= 0) {
                 this.b = 0;
-                for (Map.Entry<K, V> entry : this.a.entrySet()) {
+                for (Map.Entry entry : this.a.entrySet()) {
                     this.b = b(entry.getKey(), entry.getValue()) + this.b;
                 }
             }
@@ -56,48 +56,48 @@ public class c<K, V> {
         return invokeLL.intValue;
     }
 
-    public final V a(K k) {
+    public final Object a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
-            if (k != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj != null) {
                 synchronized (this) {
-                    if (!this.d.containsKey(k)) {
-                        b(k);
+                    if (!this.d.containsKey(obj)) {
+                        b(obj);
                         return null;
                     }
-                    V v = this.a.get(k);
-                    if (v != null) {
-                        return v;
+                    Object obj2 = this.a.get(obj);
+                    if (obj2 != null) {
+                        return obj2;
                     }
                     return null;
                 }
             }
             throw new NullPointerException("key == null");
         }
-        return (V) invokeL.objValue;
+        return invokeL.objValue;
     }
 
-    public final V a(K k, V v, long j) {
+    public final Object a(Object obj, Object obj2, long j) {
         InterceptResult invokeCommon;
-        V put;
+        Object put;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{k, v, Long.valueOf(j)})) == null) {
-            if (k == null || v == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, obj2, Long.valueOf(j)})) == null) {
+            if (obj == null || obj2 == null) {
                 throw new NullPointerException("key == null || value == null");
             }
             synchronized (this) {
-                this.b += a(k, v);
-                put = this.a.put(k, v);
-                this.d.put(k, Long.valueOf(j));
+                this.b += a(obj, obj2);
+                put = this.a.put(obj, obj2);
+                this.d.put(obj, Long.valueOf(j));
                 if (put != null) {
-                    this.b -= a(k, put);
+                    this.b -= a(obj, put);
                 }
             }
             a(this.c);
             return put;
         }
-        return (V) invokeCommon.objValue;
+        return invokeCommon.objValue;
     }
 
     public final void a(int i) {
@@ -108,43 +108,43 @@ public class c<K, V> {
                     if (this.b <= i || this.a.isEmpty()) {
                         break;
                     }
-                    Map.Entry<K, V> next = this.a.entrySet().iterator().next();
-                    K key = next.getKey();
-                    V value = next.getValue();
+                    Map.Entry entry = (Map.Entry) this.a.entrySet().iterator().next();
+                    Object key = entry.getKey();
+                    Object value = entry.getValue();
                     this.a.remove(key);
-                    this.d.remove((Object) key);
+                    this.d.remove(key);
                     this.b -= a(key, value);
                 }
             }
         }
     }
 
-    public int b(K k, V v) {
+    public int b(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, obj, obj2)) == null) {
             throw null;
         }
         return invokeLL.intValue;
     }
 
-    public final V b(K k) {
+    public final Object b(Object obj) {
         InterceptResult invokeL;
-        V remove;
+        Object remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
-            if (k != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (obj != null) {
                 synchronized (this) {
-                    remove = this.a.remove(k);
-                    this.d.remove((Object) k);
+                    remove = this.a.remove(obj);
+                    this.d.remove(obj);
                     if (remove != null) {
-                        this.b -= a(k, remove);
+                        this.b -= a(obj, remove);
                     }
                 }
                 return remove;
             }
             throw new NullPointerException("key == null");
         }
-        return (V) invokeL.objValue;
+        return invokeL.objValue;
     }
 }

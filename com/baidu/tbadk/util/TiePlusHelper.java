@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
@@ -52,17 +51,17 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextTiebaPlusInfo;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.k76;
-import com.baidu.tieba.lu8;
-import com.baidu.tieba.ni5;
-import com.baidu.tieba.ol5;
-import com.baidu.tieba.r45;
+import com.baidu.tieba.e55;
+import com.baidu.tieba.el5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.r76;
+import com.baidu.tieba.si5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.ScreenTopToast;
-import com.baidu.tieba.xk5;
-import com.baidu.tieba.yo4;
+import com.baidu.tieba.vl5;
+import com.baidu.tieba.vu8;
+import com.baidu.tieba.w45;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +82,7 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
 public class TiePlusHelper extends CustomMessageListener implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static List<r45> t;
+    public static List<w45> t;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final TbPageContext<?> b;
@@ -95,7 +94,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public String h;
     public ItemData i;
     public AlertDialog j;
-    public ol5 k;
+    public vl5 k;
     public final List<ProgressButton> l;
     public final PermissionJudgePolicy m;
     public final SharedPreferences n;
@@ -106,7 +105,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public String s;
 
     /* loaded from: classes3.dex */
-    public static class TiebaPlusAppointResponsedMsg extends JsonHttpResponsedMessage {
+    public class TiebaPlusAppointResponsedMsg extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,10 +155,9 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(this.a.h) || StringUtils.isNull(this.a.c) || StringUtils.isNull(this.a.d)) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !StringUtils.isNull(this.a.h) && !StringUtils.isNull(this.a.c) && !StringUtils.isNull(this.a.d)) {
+                e55.q().A(this.a.c, this.a.h, this.a.d, -1, -1, null, true, false, false);
             }
-            a55.q().A(this.a.c, this.a.h, this.a.d, -1, -1, null, true, false, false);
         }
     }
 
@@ -237,12 +235,12 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     if (this.a.r != null) {
                         this.a.r.a(parseLong);
                     }
-                } else if (statusCode != 200 || error != 210018) {
+                } else if (statusCode == 200 && error == 210018) {
                     if (this.a.r != null) {
-                        this.a.r.b();
+                        this.a.r.a(parseLong);
                     }
                 } else if (this.a.r != null) {
-                    this.a.r.a(parseLong);
+                    this.a.r.b();
                 }
             }
         }
@@ -275,10 +273,9 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null) {
+                this.a.j.dismiss();
             }
-            this.a.j.dismiss();
         }
     }
 
@@ -320,12 +317,12 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     this.d.j.dismiss();
                 }
                 TiePlusHelper tiePlusHelper = this.d;
-                if (tiePlusHelper.w(tiePlusHelper.a, "com.tencent.mm")) {
-                    ni5.d(this.a, this.d.a.getString(R.string.obfuscated_res_0x7f0f1401));
-                    TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_CLICK, this.b, TiePlusStat.WechatDialogType.DIRECT, this.c);
+                if (!tiePlusHelper.w(tiePlusHelper.a, "com.tencent.mm")) {
+                    BdToast.b(this.d.a.getApplicationContext(), this.d.a.getText(R.string.obfuscated_res_0x7f0f1416)).i();
                     return;
                 }
-                BdToast.b(this.d.a.getApplicationContext(), this.d.a.getText(R.string.obfuscated_res_0x7f0f1402)).i();
+                si5.d(this.a, this.d.a.getString(R.string.obfuscated_res_0x7f0f1415));
+                TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_CLICK, this.b, TiePlusStat.WechatDialogType.DIRECT, this.c);
             }
         }
     }
@@ -357,10 +354,9 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null) {
+                this.a.j.dismiss();
             }
-            this.a.j.dismiss();
         }
     }
 
@@ -400,12 +396,12 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     this.c.j.dismiss();
                 }
                 TiePlusHelper tiePlusHelper = this.c;
-                if (tiePlusHelper.w(tiePlusHelper.a, "com.tencent.mm")) {
-                    ni5.c(this.c.a);
-                    TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_CLICK, this.a, TiePlusStat.WechatDialogType.COPY, this.b);
+                if (!tiePlusHelper.w(tiePlusHelper.a, "com.tencent.mm")) {
+                    BdToast.b(this.c.a.getApplicationContext(), this.c.a.getText(R.string.obfuscated_res_0x7f0f1416)).i();
                     return;
                 }
-                BdToast.b(this.c.a.getApplicationContext(), this.c.a.getText(R.string.obfuscated_res_0x7f0f1402)).i();
+                si5.c(this.c.a);
+                TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_CLICK, this.a, TiePlusStat.WechatDialogType.COPY, this.b);
             }
         }
     }
@@ -426,8 +422,61 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         t = new ArrayList();
     }
 
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.k = null;
+            AlertDialog alertDialog = this.j;
+            if (alertDialog != null) {
+                alertDialog.dismiss();
+                this.j = null;
+            }
+            this.l.clear();
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            el5.c().a(this.c, this.f);
+        }
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final HttpMessageListener q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            HttpMessageListener httpMessageListener = this.q;
+            if (httpMessageListener != null) {
+                return httpMessageListener;
+            }
+            c cVar = new c(this, CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER);
+            this.q = cVar;
+            return cVar;
+        }
+        return (HttpMessageListener) invokeV.objValue;
+    }
+
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TiePlusHelper(@NonNull Context context) {
+    public TiePlusHelper(Context context) {
         super(2001118);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -456,18 +505,6 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         } else {
             this.b = null;
         }
-    }
-
-    public static boolean l(TbRichTextTiebaPlusInfo tbRichTextTiebaPlusInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbRichTextTiebaPlusInfo)) == null) {
-            if (tbRichTextTiebaPlusInfo != null) {
-                return m(tbRichTextTiebaPlusInfo.B());
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     public static boolean m(TiebaPlusInfo tiebaPlusInfo) {
@@ -502,95 +539,23 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return invokeL.booleanValue;
     }
 
-    public static PbContent r(List<PbContent> list) {
+    public static boolean l(TbRichTextTiebaPlusInfo tbRichTextTiebaPlusInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbRichTextTiebaPlusInfo)) == null) {
+            if (tbRichTextTiebaPlusInfo != null) {
+                return m(tbRichTextTiebaPlusInfo.B());
             }
-            for (PbContent pbContent : list) {
-                if (pbContent.type.intValue() == 35 || pbContent.type.intValue() == 36) {
-                    TiebaPlusInfo tiebaPlusInfo = pbContent.tiebaplus_info;
-                    if (tiebaPlusInfo != null && tiebaPlusInfo.jump_type.intValue() == 5) {
-                        return pbContent;
-                    }
-                }
-            }
-            return null;
+            return false;
         }
-        return (PbContent) invokeL.objValue;
-    }
-
-    public static List<PbContent> t(List<PbContent> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            for (PbContent pbContent : list) {
-                if (pbContent.type.intValue() == 35 || pbContent.type.intValue() == 36) {
-                    if (m(pbContent.tiebaplus_info)) {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add(pbContent);
-                        return arrayList;
-                    }
-                }
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void x(Activity activity, PluginUser pluginUser) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, null, activity, pluginUser) == null) || pluginUser == null || activity == null || !ViewHelper.checkUpIsLogin(activity)) {
-            return;
-        }
-        if (UtilHelper.isCurrentAccount(String.valueOf(pluginUser.user_id))) {
-            BdTopToast bdTopToast = new BdTopToast(activity, 2000);
-            bdTopToast.h(false);
-            bdTopToast.g(activity.getString(R.string.obfuscated_res_0x7f0f13fd));
-            bdTopToast.i((ViewGroup) activity.findViewById(16908290));
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(activity, pluginUser.user_id.longValue(), pluginUser.user_name_show, pluginUser.user_photo, pluginUser.user_type.intValue())));
+        return invokeL.booleanValue;
     }
 
     public void A(ProgressButton progressButton) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, progressButton) == null) || progressButton == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, progressButton) == null) && progressButton != null) {
+            this.l.remove(progressButton);
         }
-        this.l.remove(progressButton);
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = null;
-            AlertDialog alertDialog = this.j;
-            if (alertDialog != null) {
-                alertDialog.dismiss();
-                this.j = null;
-            }
-            this.l.clear();
-        }
-    }
-
-    public void C(long j, String str, ItemCardHelper.c cVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, cVar}) == null) || j == 0 || StringUtils.isNull(str)) {
-            return;
-        }
-        if (cVar != null) {
-            this.r = cVar;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER);
-        httpMessage.addParam("item_id", j);
-        httpMessage.addParam("item_name", str);
-        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public TiePlusHelper D(String str) {
@@ -627,10 +592,10 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public void H(ol5 ol5Var) {
+    public void H(vl5 vl5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ol5Var) == null) {
-            this.k = ol5Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, vl5Var) == null) {
+            this.k = vl5Var;
         }
     }
 
@@ -691,145 +656,43 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return (TiePlusHelper) invokeL.objValue;
     }
 
-    public final void P() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || StringUtils.isNull(this.d)) {
-            return;
-        }
-        for (ProgressButton progressButton : this.l) {
-            progressButton.setCurProgress(-1);
-            Y(this.c, this.d, this.a, progressButton);
-        }
-    }
-
     public final void Q(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
             if (v(activity)) {
-                a55.q().A(this.c, this.h, this.d, -1, -1, null, true, false, false);
+                e55.q().A(this.c, this.h, this.d, -1, -1, null, true, false, false);
             } else {
                 V(activity);
             }
         }
     }
 
-    public final void R() {
+    public void i(ProgressButton progressButton) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            SharedPreferences sharedPreferences = this.n;
-            int i = sharedPreferences.getInt(this.c + this.d, 0);
-            for (ProgressButton progressButton : this.l) {
-                progressButton.setTag((byte) 1);
-                progressButton.j(i);
-            }
-            DownloadData downloadData = new DownloadData(this.c);
-            downloadData.setExtra(Integer.valueOf(i));
-            downloadData.setName(this.d);
-            downloadData.setStatus(5);
-            a55.q().w(downloadData);
+        if ((interceptable == null || interceptable.invokeL(1048602, this, progressButton) == null) && progressButton != null && !this.l.contains(progressButton)) {
+            this.l.add(progressButton);
         }
     }
 
-    public final void S(Activity activity) {
+    public final boolean v(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, activity) == null) && activity != null && v(activity)) {
-            ol5 ol5Var = this.k;
-            if (ol5Var != null) {
-                ol5Var.dismiss();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, activity)) == null) {
+            if (activity == null) {
+                return true;
             }
-            ScreenTopToast screenTopToast = new ScreenTopToast(activity);
-            screenTopToast.m(activity.getResources().getString(R.string.obfuscated_res_0x7f0f13fc));
-            screenTopToast.k(activity.getResources().getString(R.string.obfuscated_res_0x7f0f04f2));
-            screenTopToast.j(new b(this, activity));
-            screenTopToast.n((ViewGroup) activity.findViewById(16908290));
+            if (this.m.checkPermissionGranted(activity, "android.permission.WRITE_EXTERNAL_STORAGE") && this.m.checkPermissionGranted(activity, h.i)) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void T(TiebaPlusInfo tiebaPlusInfo, TiePlusStat.RichTextType richTextType, String str) {
-        String string;
-        String string2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, tiebaPlusInfo, richTextType, str) == null) {
-            int intValue = tiebaPlusInfo.jump_type.intValue();
-            String str2 = tiebaPlusInfo.h5_jump_number;
-            UtilHelper.copyToClipBoard(str2);
-            if (intValue == 7) {
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f13f9);
-                string2 = this.a.getString(R.string.obfuscated_res_0x7f0f1400, str2);
-            } else {
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f13fa);
-                string2 = this.a.getString(R.string.obfuscated_res_0x7f0f13ff, str2);
-            }
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.b.getPageActivity());
-            tBAlertBuilder.u(string);
-            tBAlertBuilder.o(string2);
-            tBAlertBuilder.m(true);
-            tBAlertBuilder.h(false);
-            tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0f4f), TBAlertConfig.OperateBtnStyle.SECONDARY, new f(this)), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0e1a), TBAlertConfig.OperateBtnStyle.MAIN, new g(this, richTextType, str)));
-            this.j = tBAlertBuilder.w();
-            TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_EXPOSE, richTextType, TiePlusStat.WechatDialogType.COPY, str);
-        }
-    }
-
-    public void U(TiebaPlusInfo tiebaPlusInfo, TiePlusStat.RichTextType richTextType, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048595, this, tiebaPlusInfo, richTextType, str) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.a);
-            TbImageView tbImageView = new TbImageView(this.a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ej.f(this.a, R.dimen.tbds562), ej.f(this.a, R.dimen.tbds562));
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 1) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080fa8);
-            } else if (skinType == 4) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080fa6);
-            } else {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080fa9);
-            }
-            tbImageView.setLayoutParams(layoutParams);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            linearLayout.setPadding(ej.f(this.a, R.dimen.M_W_X017), 0, ej.f(this.a, R.dimen.M_W_X017), ej.f(this.a, R.dimen.M_W_X007));
-            linearLayout.setGravity(17);
-            linearLayout.addView(tbImageView);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.b.getPageActivity());
-            tBAlertBuilder.u(this.a.getString(R.string.obfuscated_res_0x7f0f13fb));
-            tBAlertBuilder.i(linearLayout);
-            tBAlertBuilder.h(false);
-            tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0f4f), TBAlertConfig.OperateBtnStyle.SECONDARY, new d(this)), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f13f8), TBAlertConfig.OperateBtnStyle.MAIN, new e(this, tiebaPlusInfo, richTextType, str)));
-            this.j = tBAlertBuilder.w();
-            TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_EXPOSE, richTextType, TiePlusStat.WechatDialogType.DIRECT, str);
-        }
-    }
-
-    public final void V(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, activity) == null) || activity == null) {
-            return;
-        }
-        this.m.clearRequestPermissionList();
-        this.m.appendRequestPermission(this.b.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        this.m.appendRequestPermission(this.b.getPageActivity(), h.i);
-        this.m.startRequestPermission(activity);
-    }
-
-    public void W() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            TbHttpMessageTask k = k();
-            if (k != null && MessageManager.getInstance().findTask(k.getCmd()) != null) {
-                MessageManager.getInstance().unRegisterTask(k.getCmd());
-            }
-            HttpMessageListener q = q();
-            if (q == null || !MessageManager.getInstance().hasListener(q.getCmd())) {
-                return;
-            }
-            MessageManager.getInstance().unRegisterListener(q());
-        }
-    }
-
-    public void X(@NonNull String str, @NonNull Context context, @NonNull TextView textView) {
+    public void X(String str, Context context, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048598, this, str, context, textView) == null) {
-            if (!w(context, str) && !a55.q().s(str)) {
+            if (!w(context, str) && !e55.q().s(str)) {
                 textView.setVisibility(0);
             } else {
                 textView.setVisibility(8);
@@ -837,48 +700,59 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public void Y(@NonNull String str, @NonNull String str2, @NonNull Context context, @NonNull ProgressButton progressButton) {
+    public static PbContent r(List<PbContent> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048599, this, str, str2, context, progressButton) == null) {
-            boolean h = progressButton.h();
-            if (w(context, str)) {
-                progressButton.setTag((byte) 4);
-                progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f08f7 : R.string.obfuscated_res_0x7f0f0e1a));
-            } else if (a55.q().s(str)) {
-                progressButton.setTag((byte) 2);
-                progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f08f6 : R.string.obfuscated_res_0x7f0f0915));
-            } else if (!a55.q().t(str) && !a55.q().r(str)) {
-                File m = a55.q().m(str, str2);
-                if (m != null && m.exists()) {
-                    SharedPreferences sharedPreferences = this.n;
-                    int i = sharedPreferences.getInt(str + str2, -1);
-                    progressButton.setTag((byte) 3);
-                    progressButton.setCurProgress(i);
-                    progressButton.setText(context.getString(h ? R.string.obfuscated_res_0x7f0f07e3 : R.string.obfuscated_res_0x7f0f07e2));
-                    if (this.o) {
-                        h();
-                        return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            for (PbContent pbContent : list) {
+                if (pbContent.type.intValue() == 35 || pbContent.type.intValue() == 36) {
+                    TiebaPlusInfo tiebaPlusInfo = pbContent.tiebaplus_info;
+                    if (tiebaPlusInfo != null && tiebaPlusInfo.jump_type.intValue() == 5) {
+                        return pbContent;
                     }
-                    return;
-                }
-                progressButton.setCurProgress(-1);
-                progressButton.setTag((byte) 0);
-                if (h) {
-                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0917));
-                } else if (!StringUtils.isNull(this.s)) {
-                    progressButton.setText(this.s);
-                } else {
-                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0509));
-                }
-            } else {
-                SharedPreferences sharedPreferences2 = this.n;
-                int i2 = sharedPreferences2.getInt(str + str2, -1);
-                progressButton.setTag((byte) 1);
-                progressButton.j(i2);
-                if (this.o) {
-                    h();
                 }
             }
+            return null;
+        }
+        return (PbContent) invokeL.objValue;
+    }
+
+    public static List<PbContent> t(List<PbContent> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            for (PbContent pbContent : list) {
+                if (pbContent.type.intValue() == 35 || pbContent.type.intValue() == 36) {
+                    if (m(pbContent.tiebaplus_info)) {
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(pbContent);
+                        return arrayList;
+                    }
+                }
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void S(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, activity) == null) && activity != null && v(activity)) {
+            vl5 vl5Var = this.k;
+            if (vl5Var != null) {
+                vl5Var.dismiss();
+            }
+            ScreenTopToast screenTopToast = new ScreenTopToast(activity);
+            screenTopToast.m(activity.getResources().getString(R.string.obfuscated_res_0x7f0f1410));
+            screenTopToast.k(activity.getResources().getString(R.string.obfuscated_res_0x7f0f04fa));
+            screenTopToast.j(new b(this, activity));
+            screenTopToast.n((ViewGroup) activity.findViewById(16908290));
         }
     }
 
@@ -894,248 +768,19 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public final void h() {
+    public static void x(Activity activity, PluginUser pluginUser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            xk5.c().a(this.c, this.f);
-        }
-    }
-
-    public void i(ProgressButton progressButton) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, progressButton) == null) || progressButton == null || this.l.contains(progressButton)) {
+        if ((interceptable != null && interceptable.invokeLL(65549, null, activity, pluginUser) != null) || pluginUser == null || activity == null || !ViewHelper.checkUpIsLogin(activity)) {
             return;
         }
-        this.l.add(progressButton);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:8:0x0012  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void j(r45 r45Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, r45Var) == null) || r45Var == null) {
+        if (UtilHelper.isCurrentAccount(String.valueOf(pluginUser.user_id))) {
+            BdTopToast bdTopToast = new BdTopToast(activity, 2000);
+            bdTopToast.h(false);
+            bdTopToast.g(activity.getString(R.string.obfuscated_res_0x7f0f1411));
+            bdTopToast.i((ViewGroup) activity.findViewById(16908290));
             return;
         }
-        for (r45 r45Var2 : t) {
-            if (TextUtils.isEmpty(r45Var.f) || r45Var.f.equals(r45Var2.f)) {
-                return;
-            }
-            while (r0.hasNext()) {
-            }
-        }
-        t.add(r45Var);
-    }
-
-    public final TbHttpMessageTask k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            TbHttpMessageTask tbHttpMessageTask = this.p;
-            if (tbHttpMessageTask != null) {
-                return tbHttpMessageTask;
-            }
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER, TbConfig.SERVER_ADDRESS + "c/c/item/subscribeitem");
-            this.p = tbHttpMessageTask2;
-            tbHttpMessageTask2.setResponsedClass(TiebaPlusAppointResponsedMsg.class);
-            return this.p;
-        }
-        return (TbHttpMessageTask) invokeV.objValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            SharedPreferences sharedPreferences = this.n;
-            if (sharedPreferences.getInt(this.c + this.d, -1) != -1) {
-                SharedPreferences.Editor edit = this.n.edit();
-                edit.remove(this.c + this.d);
-                edit.apply();
-            }
-        }
-    }
-
-    public void o(String str, int i, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) || StringUtils.isNull(str) || this.b == null) {
-            return;
-        }
-        if (i == 1) {
-            if (i2 == 0 || i2 == 1) {
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("need_scheme_blacklist", true);
-                lu8.b(this.b, str, bundle);
-            } else if (i2 != 2) {
-            } else {
-                yo4.m(this.a, str, false);
-            }
-        } else if (i != 4) {
-        } else {
-            if (!w(this.a, "com.tencent.mm")) {
-                BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.obfuscated_res_0x7f0f1402)).i();
-            } else if (TextUtils.isEmpty(str)) {
-            } else {
-                IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID);
-                WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
-                req.userName = str;
-                if (!TextUtils.isEmpty(str2)) {
-                    req.path = str2;
-                }
-                createWXAPI.sendReq(req);
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        File m;
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048607, this, view2) == null) && view2 != null && (view2.getTag() instanceof Byte)) {
-            if ((view2 instanceof ProgressButton) && (tbPageContext = this.b) != null) {
-                u((ProgressButton) view2, tbPageContext.getPageActivity());
-                return;
-            }
-            switch (((Byte) view2.getTag()).byteValue()) {
-                case 16:
-                    o(this.g, 1, "", 0);
-                    return;
-                case 17:
-                    o(this.e, 1, "", 0);
-                    return;
-                case 18:
-                    if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.h)) {
-                        a55.q().h(this.h, this.c, true);
-                        File j = a55.q().j(this.c);
-                        if (j != null && j.exists()) {
-                            j.delete();
-                        }
-                        if (!StringUtils.isNull(this.d) && (m = a55.q().m(this.c, this.d)) != null && m.exists()) {
-                            m.delete();
-                        }
-                        n();
-                        DownloadData downloadData = new DownloadData(this.c);
-                        downloadData.setStatus(4);
-                        a55.q().w(downloadData);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2921626, this.c));
-                    }
-                    xk5.c().h(this.c);
-                    ol5 ol5Var = this.k;
-                    if (ol5Var != null) {
-                        ol5Var.dismiss();
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public final HttpMessageListener q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            HttpMessageListener httpMessageListener = this.q;
-            if (httpMessageListener != null) {
-                return httpMessageListener;
-            }
-            c cVar = new c(this, CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER);
-            this.q = cVar;
-            return cVar;
-        }
-        return (HttpMessageListener) invokeV.objValue;
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public final void u(ProgressButton progressButton, @NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048613, this, progressButton, activity) == null) || progressButton == null || progressButton.getVisibility() != 0 || !(progressButton.getTag() instanceof Byte) || StringUtils.isNull(this.c) || StringUtils.isNull(this.d) || StringUtils.isNull(this.h)) {
-            return;
-        }
-        byte byteValue = ((Byte) progressButton.getTag()).byteValue();
-        if (byteValue == 0) {
-            if (this.i != null) {
-                k76 k76Var = new k76();
-                k76Var.a = this.i;
-                k76Var.b = 2;
-                Context context = this.a;
-                if ((context instanceof Activity) && !"DownloadManagerActivity".equals(((Activity) context).getClass().getSimpleName())) {
-                    k76Var.c = 1;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, k76Var));
-            }
-            R();
-            Q(activity);
-            if (this.o) {
-                h();
-                S(activity);
-            }
-        } else if (byteValue != 1) {
-            if (byteValue == 2) {
-                Q(activity);
-            } else if (byteValue == 3) {
-                R();
-                Q(activity);
-            } else if (byteValue != 4) {
-            } else {
-                y(this.a, this.c);
-            }
-        } else if (v(activity)) {
-            if (!a55.q().r(this.c) && !a55.q().t(this.c)) {
-                DownloadData downloadData = new DownloadData(this.c);
-                downloadData.setStatus(4);
-                a55.q().w(downloadData);
-                return;
-            }
-            a55.q().g(this.h, this.c);
-        } else {
-            V(activity);
-        }
-    }
-
-    public final boolean v(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, activity)) == null) {
-            if (activity == null) {
-                return true;
-            }
-            return this.m.checkPermissionGranted(activity, "android.permission.WRITE_EXTERNAL_STORAGE") && this.m.checkPermissionGranted(activity, h.i);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean w(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, context, str)) == null) {
-            if (context != null) {
-                try {
-                    if (context.getPackageManager() != null) {
-                        context.getPackageManager().getPackageInfo(str, 64);
-                        return true;
-                    }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(activity, pluginUser.user_id.longValue(), pluginUser.user_name_show, pluginUser.user_photo, pluginUser.user_type.intValue())));
     }
 
     public final boolean y(Context context, String str) {
@@ -1168,6 +813,45 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return invokeLL.booleanValue;
     }
 
+    public void C(long j, String str, ItemCardHelper.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, cVar}) == null) && j != 0 && !StringUtils.isNull(str)) {
+            if (cVar != null) {
+                this.r = cVar;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER);
+            httpMessage.addParam("item_id", j);
+            httpMessage.addParam("item_name", str);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public final void P() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !StringUtils.isNull(this.d)) {
+            for (ProgressButton progressButton : this.l) {
+                progressButton.setCurProgress(-1);
+                Y(this.c, this.d, this.a, progressButton);
+            }
+        }
+    }
+
+    public final TbHttpMessageTask k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            TbHttpMessageTask tbHttpMessageTask = this.p;
+            if (tbHttpMessageTask != null) {
+                return tbHttpMessageTask;
+            }
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER, TbConfig.SERVER_ADDRESS + "c/c/item/subscribeitem");
+            this.p = tbHttpMessageTask2;
+            tbHttpMessageTask2.setResponsedClass(TiebaPlusAppointResponsedMsg.class);
+            return this.p;
+        }
+        return (TbHttpMessageTask) invokeV.objValue;
+    }
+
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
@@ -1183,69 +867,412 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
+    public final void R() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            SharedPreferences sharedPreferences = this.n;
+            int i = sharedPreferences.getInt(this.c + this.d, 0);
+            for (ProgressButton progressButton : this.l) {
+                progressButton.setTag((byte) 1);
+                progressButton.j(i);
+            }
+            DownloadData downloadData = new DownloadData(this.c);
+            downloadData.setExtra(Integer.valueOf(i));
+            downloadData.setName(this.d);
+            downloadData.setStatus(5);
+            e55.q().w(downloadData);
+        }
+    }
+
+    public void T(TiebaPlusInfo tiebaPlusInfo, TiePlusStat.RichTextType richTextType, String str) {
+        String string;
+        String string2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048594, this, tiebaPlusInfo, richTextType, str) == null) {
+            int intValue = tiebaPlusInfo.jump_type.intValue();
+            String str2 = tiebaPlusInfo.h5_jump_number;
+            UtilHelper.copyToClipBoard(str2);
+            if (intValue == 7) {
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f140d);
+                string2 = this.a.getString(R.string.obfuscated_res_0x7f0f1414, str2);
+            } else {
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f140e);
+                string2 = this.a.getString(R.string.obfuscated_res_0x7f0f1413, str2);
+            }
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.b.getPageActivity());
+            tBAlertBuilder.u(string);
+            tBAlertBuilder.o(string2);
+            tBAlertBuilder.m(true);
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0f61), TBAlertConfig.OperateBtnStyle.SECONDARY, new f(this)), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0e2b), TBAlertConfig.OperateBtnStyle.MAIN, new g(this, richTextType, str)));
+            this.j = tBAlertBuilder.w();
+            TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_EXPOSE, richTextType, TiePlusStat.WechatDialogType.COPY, str);
+        }
+    }
+
+    public void U(TiebaPlusInfo tiebaPlusInfo, TiePlusStat.RichTextType richTextType, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048595, this, tiebaPlusInfo, richTextType, str) == null) {
+            LinearLayout linearLayout = new LinearLayout(this.a);
+            TbImageView tbImageView = new TbImageView(this.a);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(fj.f(this.a, R.dimen.tbds562), fj.f(this.a, R.dimen.tbds562));
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 1) {
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080fb9);
+            } else if (skinType == 4) {
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080fb7);
+            } else {
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080fba);
+            }
+            tbImageView.setLayoutParams(layoutParams);
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            linearLayout.setPadding(fj.f(this.a, R.dimen.M_W_X017), 0, fj.f(this.a, R.dimen.M_W_X017), fj.f(this.a, R.dimen.M_W_X007));
+            linearLayout.setGravity(17);
+            linearLayout.addView(tbImageView);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.b.getPageActivity());
+            tBAlertBuilder.u(this.a.getString(R.string.obfuscated_res_0x7f0f140f));
+            tBAlertBuilder.i(linearLayout);
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0f61), TBAlertConfig.OperateBtnStyle.SECONDARY, new d(this)), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f140c), TBAlertConfig.OperateBtnStyle.MAIN, new e(this, tiebaPlusInfo, richTextType, str)));
+            this.j = tBAlertBuilder.w();
+            TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_EXPOSE, richTextType, TiePlusStat.WechatDialogType.DIRECT, str);
+        }
+    }
+
+    public final void V(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048596, this, activity) != null) || activity == null) {
+            return;
+        }
+        this.m.clearRequestPermissionList();
+        this.m.appendRequestPermission(this.b.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        this.m.appendRequestPermission(this.b.getPageActivity(), h.i);
+        this.m.startRequestPermission(activity);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0012  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void j(w45 w45Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048603, this, w45Var) == null) && w45Var != null) {
+            for (w45 w45Var2 : t) {
+                if (TextUtils.isEmpty(w45Var.f) || w45Var.f.equals(w45Var2.f)) {
+                    return;
+                }
+                while (r0.hasNext()) {
+                }
+            }
+            t.add(w45Var);
+        }
+    }
+
+    public void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            TbHttpMessageTask k = k();
+            if (k != null && MessageManager.getInstance().findTask(k.getCmd()) != null) {
+                MessageManager.getInstance().unRegisterTask(k.getCmd());
+            }
+            HttpMessageListener q = q();
+            if (q != null && MessageManager.getInstance().hasListener(q.getCmd())) {
+                MessageManager.getInstance().unRegisterListener(q());
+            }
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            SharedPreferences sharedPreferences = this.n;
+            if (sharedPreferences.getInt(this.c + this.d, -1) != -1) {
+                SharedPreferences.Editor edit = this.n.edit();
+                edit.remove(this.c + this.d);
+                edit.apply();
+            }
+        }
+    }
+
+    public void Y(String str, String str2, Context context, ProgressButton progressButton) {
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048599, this, str, str2, context, progressButton) == null) {
+            boolean h = progressButton.h();
+            if (w(context, str)) {
+                progressButton.setTag((byte) 4);
+                if (h) {
+                    i3 = R.string.obfuscated_res_0x7f0f0904;
+                } else {
+                    i3 = R.string.obfuscated_res_0x7f0f0e2b;
+                }
+                progressButton.setText(context.getString(i3));
+            } else if (e55.q().s(str)) {
+                progressButton.setTag((byte) 2);
+                if (h) {
+                    i2 = R.string.obfuscated_res_0x7f0f0903;
+                } else {
+                    i2 = R.string.obfuscated_res_0x7f0f0922;
+                }
+                progressButton.setText(context.getString(i2));
+            } else if (!e55.q().t(str) && !e55.q().r(str)) {
+                File m = e55.q().m(str, str2);
+                if (m != null && m.exists()) {
+                    SharedPreferences sharedPreferences = this.n;
+                    int i4 = sharedPreferences.getInt(str + str2, -1);
+                    progressButton.setTag((byte) 3);
+                    progressButton.setCurProgress(i4);
+                    if (h) {
+                        i = R.string.obfuscated_res_0x7f0f07ef;
+                    } else {
+                        i = R.string.obfuscated_res_0x7f0f07ee;
+                    }
+                    progressButton.setText(context.getString(i));
+                    if (this.o) {
+                        h();
+                        return;
+                    }
+                    return;
+                }
+                progressButton.setCurProgress(-1);
+                progressButton.setTag((byte) 0);
+                if (h) {
+                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0924));
+                } else if (!StringUtils.isNull(this.s)) {
+                    progressButton.setText(this.s);
+                } else {
+                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0511));
+                }
+            } else {
+                SharedPreferences sharedPreferences2 = this.n;
+                int i5 = sharedPreferences2.getInt(str + str2, -1);
+                progressButton.setTag((byte) 1);
+                progressButton.j(i5);
+                if (this.o) {
+                    h();
+                }
+            }
+        }
+    }
+
+    public void o(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) && !StringUtils.isNull(str) && this.b != null) {
+            if (i != 1) {
+                if (i == 4) {
+                    if (!w(this.a, "com.tencent.mm")) {
+                        BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.obfuscated_res_0x7f0f1416)).i();
+                    } else if (!TextUtils.isEmpty(str)) {
+                        IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID);
+                        WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
+                        req.userName = str;
+                        if (!TextUtils.isEmpty(str2)) {
+                            req.path = str2;
+                        }
+                        createWXAPI.sendReq(req);
+                    }
+                }
+            } else if (i2 != 0 && i2 != 1) {
+                if (i2 == 2) {
+                    zo4.m(this.a, str, false);
+                }
+            } else {
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("need_scheme_blacklist", true);
+                vu8.b(this.b, str, bundle);
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        File m;
+        TbPageContext<?> tbPageContext;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048607, this, view2) == null) && view2 != null && (view2.getTag() instanceof Byte)) {
+            if ((view2 instanceof ProgressButton) && (tbPageContext = this.b) != null) {
+                u((ProgressButton) view2, tbPageContext.getPageActivity());
+                return;
+            }
+            switch (((Byte) view2.getTag()).byteValue()) {
+                case 16:
+                    o(this.g, 1, "", 0);
+                    return;
+                case 17:
+                    o(this.e, 1, "", 0);
+                    return;
+                case 18:
+                    if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.h)) {
+                        e55.q().h(this.h, this.c, true);
+                        File j = e55.q().j(this.c);
+                        if (j != null && j.exists()) {
+                            j.delete();
+                        }
+                        if (!StringUtils.isNull(this.d) && (m = e55.q().m(this.c, this.d)) != null && m.exists()) {
+                            m.delete();
+                        }
+                        n();
+                        DownloadData downloadData = new DownloadData(this.c);
+                        downloadData.setStatus(4);
+                        e55.q().w(downloadData);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2921626, this.c));
+                    }
+                    el5.c().h(this.c);
+                    vl5 vl5Var = this.k;
+                    if (vl5Var != null) {
+                        vl5Var.dismiss();
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048608, this, customResponsedMessage) == null) && (customResponsedMessage instanceof DownloadMessage)) {
-            DownloadMessage downloadMessage = (DownloadMessage) customResponsedMessage;
-            if (downloadMessage.getData() == null || downloadMessage.getData().size() <= 0 || StringUtils.isNull(this.c)) {
-                return;
-            }
-            for (DownloadData downloadData : downloadMessage.getData()) {
-                if (downloadData != null) {
-                    if (downloadData.getStatus() == 21 && !StringUtils.isNull(this.d)) {
-                        for (ProgressButton progressButton : this.l) {
-                            Y(this.c, this.d, this.a, progressButton);
-                        }
-                    } else if (this.c.equals(downloadData.getId())) {
-                        int status = downloadData.getStatus();
-                        if (status == 0) {
-                            if (!StringUtils.isNull(this.d)) {
-                                for (ProgressButton progressButton2 : this.l) {
-                                    progressButton2.setCurProgress(100);
+        if ((interceptable != null && interceptable.invokeL(1048608, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof DownloadMessage)) {
+            return;
+        }
+        DownloadMessage downloadMessage = (DownloadMessage) customResponsedMessage;
+        if (downloadMessage.getData() == null || ((List) downloadMessage.getData()).size() <= 0 || StringUtils.isNull(this.c)) {
+            return;
+        }
+        for (DownloadData downloadData : (List) downloadMessage.getData()) {
+            if (downloadData != null) {
+                if (downloadData.getStatus() == 21 && !StringUtils.isNull(this.d)) {
+                    for (ProgressButton progressButton : this.l) {
+                        Y(this.c, this.d, this.a, progressButton);
+                    }
+                } else if (this.c.equals(downloadData.getId())) {
+                    int status = downloadData.getStatus();
+                    if (status != 0) {
+                        if (status != 1) {
+                            if (status != 2) {
+                                if (status != 3) {
+                                    if (status != 4) {
+                                        if (status == 5) {
+                                            int i = 0;
+                                            if (downloadData.getExtra() != null && (downloadData.getExtra() instanceof Integer)) {
+                                                i = ((Integer) downloadData.getExtra()).intValue();
+                                                Z(i);
+                                            }
+                                            for (ProgressButton progressButton2 : this.l) {
+                                                progressButton2.setTag((byte) 1);
+                                                progressButton2.j(i);
+                                            }
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                    P();
+                                    return;
                                 }
+                                n();
+                                return;
                             }
-                            n();
-                            return;
-                        } else if (status == 1) {
-                            int k = (int) (a55.q().k(this.c) * 100.0f);
-                            Z(k);
-                            for (ProgressButton progressButton3 : this.l) {
-                                progressButton3.setTag((byte) 1);
-                                progressButton3.j(k);
-                            }
-                            return;
-                        } else if (status == 2) {
                             TbPageContext<?> tbPageContext = this.b;
                             if (tbPageContext != null) {
-                                tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f050e);
+                                tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0516);
                             }
                             P();
-                            return;
-                        } else if (status == 3) {
-                            n();
-                            return;
-                        } else if (status == 4) {
-                            P();
-                            return;
-                        } else if (status != 5) {
-                            return;
-                        } else {
-                            int i = 0;
-                            if (downloadData.getExtra() != null && (downloadData.getExtra() instanceof Integer)) {
-                                i = ((Integer) downloadData.getExtra()).intValue();
-                                Z(i);
-                            }
-                            for (ProgressButton progressButton4 : this.l) {
-                                progressButton4.setTag((byte) 1);
-                                progressButton4.j(i);
-                            }
                             return;
                         }
+                        int k = (int) (e55.q().k(this.c) * 100.0f);
+                        Z(k);
+                        for (ProgressButton progressButton3 : this.l) {
+                            progressButton3.setTag((byte) 1);
+                            progressButton3.j(k);
+                        }
+                        return;
                     }
+                    if (!StringUtils.isNull(this.d)) {
+                        for (ProgressButton progressButton4 : this.l) {
+                            progressButton4.setCurProgress(100);
+                        }
+                    }
+                    n();
+                    return;
                 }
             }
         }
+    }
+
+    public final void u(ProgressButton progressButton, Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048613, this, progressButton, activity) == null) && progressButton != null && progressButton.getVisibility() == 0 && (progressButton.getTag() instanceof Byte) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.d) && !StringUtils.isNull(this.h)) {
+            byte byteValue = ((Byte) progressButton.getTag()).byteValue();
+            if (byteValue != 0) {
+                if (byteValue != 1) {
+                    if (byteValue != 2) {
+                        if (byteValue != 3) {
+                            if (byteValue == 4) {
+                                y(this.a, this.c);
+                                return;
+                            }
+                            return;
+                        }
+                        R();
+                        Q(activity);
+                        return;
+                    }
+                    Q(activity);
+                    return;
+                } else if (v(activity)) {
+                    if (!e55.q().r(this.c) && !e55.q().t(this.c)) {
+                        DownloadData downloadData = new DownloadData(this.c);
+                        downloadData.setStatus(4);
+                        e55.q().w(downloadData);
+                        return;
+                    }
+                    e55.q().g(this.h, this.c);
+                    return;
+                } else {
+                    V(activity);
+                    return;
+                }
+            }
+            if (this.i != null) {
+                r76 r76Var = new r76();
+                r76Var.a = this.i;
+                r76Var.b = 2;
+                Context context = this.a;
+                if ((context instanceof Activity) && !"DownloadManagerActivity".equals(((Activity) context).getClass().getSimpleName())) {
+                    r76Var.c = 1;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, r76Var));
+            }
+            R();
+            Q(activity);
+            if (this.o) {
+                h();
+                S(activity);
+            }
+        }
+    }
+
+    public final boolean w(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, context, str)) == null) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                if (context.getPackageManager() == null) {
+                    return false;
+                }
+                context.getPackageManager().getPackageInfo(str, 64);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

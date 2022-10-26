@@ -1,16 +1,17 @@
 package com.baidu.searchbox.process.ipc.delegate.provider;
 
 import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.agent.provider.ProcessDelegateBaseProvider;
 import com.baidu.searchbox.process.ipc.delegate.Delegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class ProviderDelegation extends Delegation<ProcessDelegateBaseProvider> {
+public abstract class ProviderDelegation extends Delegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract Bundle execCall(Bundle bundle);
 
     public ProviderDelegation() {
         Interceptable interceptable = $ic;
@@ -25,6 +26,4 @@ public abstract class ProviderDelegation extends Delegation<ProcessDelegateBaseP
             }
         }
     }
-
-    public abstract Bundle execCall(Bundle bundle);
 }

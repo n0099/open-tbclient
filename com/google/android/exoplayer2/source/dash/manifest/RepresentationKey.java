@@ -2,7 +2,6 @@ package com.google.android.exoplayer2.source.dash.manifest;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,13 +11,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class RepresentationKey implements Parcelable, Comparable<RepresentationKey> {
+public final class RepresentationKey implements Parcelable, Comparable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<RepresentationKey> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final int adaptationSetIndex;
     public final int periodIndex;
     public final int representationIndex;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +42,7 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<RepresentationKey>() { // from class: com.google.android.exoplayer2.source.dash.manifest.RepresentationKey.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.source.dash.manifest.RepresentationKey.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,23 +61,36 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RepresentationKey createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new RepresentationKey(parcel.readInt(), parcel.readInt(), parcel.readInt()) : (RepresentationKey) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new RepresentationKey(parcel.readInt(), parcel.readInt(), parcel.readInt());
+                }
+                return (RepresentationKey) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RepresentationKey[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new RepresentationKey[i] : (RepresentationKey[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new RepresentationKey[i];
+                }
+                return (RepresentationKey[]) invokeI.objValue;
             }
         };
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (((this.periodIndex * 31) + this.adaptationSetIndex) * 31) + this.representationIndex;
+        }
+        return invokeV.intValue;
     }
 
     public RepresentationKey(int i, int i2, int i3) {
@@ -91,14 +113,23 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
         this.representationIndex = i3;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(RepresentationKey representationKey) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, representationKey)) == null) {
+            int i = this.periodIndex - representationKey.periodIndex;
+            if (i == 0) {
+                int i2 = this.adaptationSetIndex - representationKey.adaptationSetIndex;
+                if (i2 == 0) {
+                    return this.representationIndex - representationKey.representationIndex;
+                }
+                return i2;
+            }
+            return i;
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -112,15 +143,12 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
                 return false;
             }
             RepresentationKey representationKey = (RepresentationKey) obj;
-            return this.periodIndex == representationKey.periodIndex && this.adaptationSetIndex == representationKey.adaptationSetIndex && this.representationIndex == representationKey.representationIndex;
+            if (this.periodIndex == representationKey.periodIndex && this.adaptationSetIndex == representationKey.adaptationSetIndex && this.representationIndex == representationKey.representationIndex) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.periodIndex * 31) + this.adaptationSetIndex) * 31) + this.representationIndex : invokeV.intValue;
     }
 
     public String toString() {
@@ -140,21 +168,5 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
             parcel.writeInt(this.adaptationSetIndex);
             parcel.writeInt(this.representationIndex);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(@NonNull RepresentationKey representationKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, representationKey)) == null) {
-            int i = this.periodIndex - representationKey.periodIndex;
-            if (i == 0) {
-                int i2 = this.adaptationSetIndex - representationKey.adaptationSetIndex;
-                return i2 == 0 ? this.representationIndex - representationKey.representationIndex : i2;
-            }
-            return i;
-        }
-        return invokeL.intValue;
     }
 }

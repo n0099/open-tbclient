@@ -35,29 +35,26 @@ public class Y implements M0 {
     }
 
     @Override // com.win.opensdk.M0
-    public void a(boolean z) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
+            new Handler(Looper.getMainLooper()).postDelayed(new X(this), this.b.c.getSpet());
         }
-        this.b.f.a(z);
     }
 
     @Override // com.win.opensdk.M0
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
+            this.b.f.onDisplayed();
         }
-        this.b.f.onDisplayed();
     }
 
     @Override // com.win.opensdk.M0
-    public void a() {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.a != null) {
+            this.b.f.a(z);
         }
-        new Handler(Looper.getMainLooper()).postDelayed(new X(this), this.b.c.getSpet());
     }
 }

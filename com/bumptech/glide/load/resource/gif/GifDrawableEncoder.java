@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.resource.gif;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +15,7 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
+public class GifDrawableEncoder implements ResourceEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GifEncoder";
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,22 +34,14 @@ public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
         }
     }
 
-    @Override // com.bumptech.glide.load.ResourceEncoder
-    @NonNull
-    public EncodeStrategy getEncodeStrategy(@NonNull Options options) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, options)) == null) ? EncodeStrategy.SOURCE : (EncodeStrategy) invokeL.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
-    public boolean encode(@NonNull Resource<GifDrawable> resource, @NonNull File file, @NonNull Options options) {
+    public boolean encode(Resource resource, File file, Options options) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, resource, file, options)) == null) {
             try {
-                ByteBufferUtil.toFile(resource.get().getBuffer(), file);
+                ByteBufferUtil.toFile(((GifDrawable) resource.get()).getBuffer(), file);
                 return true;
             } catch (IOException e) {
                 if (Log.isLoggable(TAG, 5)) {
@@ -60,5 +51,15 @@ public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
             }
         }
         return invokeLLL.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.load.ResourceEncoder
+    public EncodeStrategy getEncodeStrategy(Options options) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, options)) == null) {
+            return EncodeStrategy.SOURCE;
+        }
+        return (EncodeStrategy) invokeL.objValue;
     }
 }

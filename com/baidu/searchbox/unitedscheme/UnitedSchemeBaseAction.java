@@ -1,7 +1,6 @@
 package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class UnitedSchemeBaseAction<DispatcherT extends UnitedSchemeAbsDispatcher> {
+public abstract class UnitedSchemeBaseAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UnitedSchemeBaseAction";
     public transient /* synthetic */ FieldHolder $fh;
-    public final DispatcherT dispatcher;
+    public final UnitedSchemeAbsDispatcher dispatcher;
 
     static {
         InterceptResult invokeClinit;
@@ -31,12 +30,16 @@ public abstract class UnitedSchemeBaseAction<DispatcherT extends UnitedSchemeAbs
         }
     }
 
-    public UnitedSchemeBaseAction(DispatcherT dispatchert) {
+    public abstract String getActionName();
+
+    public abstract boolean handle(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
+
+    public UnitedSchemeBaseAction(UnitedSchemeAbsDispatcher unitedSchemeAbsDispatcher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dispatchert};
+            Object[] objArr = {unitedSchemeAbsDispatcher};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,10 +49,6 @@ public abstract class UnitedSchemeBaseAction<DispatcherT extends UnitedSchemeAbs
                 return;
             }
         }
-        this.dispatcher = dispatchert;
+        this.dispatcher = unitedSchemeAbsDispatcher;
     }
-
-    public abstract String getActionName();
-
-    public abstract boolean handle(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 }

@@ -2,7 +2,6 @@ package com.baidu.searchbox.v8engine.net;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Observable;
-@NotProguard
 /* loaded from: classes2.dex */
 public class NetRequest extends Observable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "NetRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<V8Engine> mEngineWeakReference;
+    public WeakReference mEngineWeakReference;
     public NetRequestSettings mNetRequestSettings;
     public RedirectInterceptor mRedirectInterceptor;
     public RequestInterceptor mRequestInterceptor;
@@ -33,6 +31,9 @@ public class NetRequest extends Observable {
     public interface RequestInterceptor {
         boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam);
     }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void nativeExecute(long j, NetRequestParam netRequestParam);
 
     public NetRequest() {
         Interceptable interceptable = $ic;
@@ -48,8 +49,23 @@ public class NetRequest extends Observable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeExecute(long j, NetRequestParam netRequestParam);
+    public NetRequestSettings getNetRequestSettings() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mNetRequestSettings;
+        }
+        return (NetRequestSettings) invokeV.objValue;
+    }
+
+    public RequestInterceptor getRequestInterceptor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRequestInterceptor;
+        }
+        return (RequestInterceptor) invokeV.objValue;
+    }
 
     private synchronized void receiveRequestCallback(NetRequestParam netRequestParam, int i, String str, int i2, String[] strArr, int i3, String str2) {
         Interceptable interceptable = $ic;
@@ -58,10 +74,12 @@ public class NetRequest extends Observable {
                 if (netRequestParam != null && i != -1) {
                     NetRequestCallback netRequestCallback = netRequestParam.getNetRequestCallback();
                     if (netRequestCallback != null) {
-                        if (i == 0) {
+                        if (i != 0) {
+                            if (i == 1) {
+                                netRequestCallback.onFailed(i3, str2);
+                            }
+                        } else {
                             netRequestCallback.onSucceeded(str, i2, NetRequestParam.stringPairToMap(strArr));
-                        } else if (i == 1) {
-                            netRequestCallback.onFailed(i3, str2);
                         }
                     }
                 }
@@ -76,6 +94,38 @@ public class NetRequest extends Observable {
                 setChanged();
                 notifyObservers(netRequestResult);
             }
+        }
+    }
+
+    public void bindV8Engine(V8Engine v8Engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, v8Engine) == null) {
+            this.mEngineWeakReference = new WeakReference(v8Engine);
+        }
+    }
+
+    public void setNetRequestSettings(NetRequestSettings netRequestSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, netRequestSettings) == null) {
+            this.mNetRequestSettings = netRequestSettings;
+            WeakReference weakReference = this.mEngineWeakReference;
+            if (weakReference != null && weakReference.get() != null) {
+                ((V8Engine) this.mEngineWeakReference.get()).setNetRequest(this);
+            }
+        }
+    }
+
+    public void setRedirectInterceptor(RedirectInterceptor redirectInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, redirectInterceptor) == null) {
+            this.mRedirectInterceptor = redirectInterceptor;
+        }
+    }
+
+    public void setRequestInterceptor(RequestInterceptor requestInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, requestInterceptor) == null) {
+            this.mRequestInterceptor = requestInterceptor;
         }
     }
 
@@ -100,32 +150,25 @@ public class NetRequest extends Observable {
             if (requestInterceptor != null) {
                 return requestInterceptor.shouldInterceptRequest(netRequestResult, netRequestParam);
             }
-            if (netRequestParam == null || netRequestParam.getJsObject() == null) {
+            if (netRequestParam != null && netRequestParam.getJsObject() != null) {
+                netRequestParam.getJsObject().release();
                 return false;
             }
-            netRequestParam.getJsObject().release();
             return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public void bindV8Engine(V8Engine v8Engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v8Engine) == null) {
-            this.mEngineWeakReference = new WeakReference<>(v8Engine);
-        }
     }
 
     public boolean execute(NetRequestParam netRequestParam) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netRequestParam)) == null) {
-            WeakReference<V8Engine> weakReference = this.mEngineWeakReference;
+            WeakReference weakReference = this.mEngineWeakReference;
             if (weakReference == null) {
                 Log.w(TAG, "Execute net request failed. Must call setNetRequest method of V8Engine object firstly");
                 return false;
             }
-            V8Engine v8Engine = weakReference.get();
+            V8Engine v8Engine = (V8Engine) weakReference.get();
             if (v8Engine == null) {
                 Log.w(TAG, "Execute net request failed. The bound V8Engine object has been destroyed");
                 return false;
@@ -168,43 +211,5 @@ public class NetRequest extends Observable {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public NetRequestSettings getNetRequestSettings() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mNetRequestSettings : (NetRequestSettings) invokeV.objValue;
-    }
-
-    public RequestInterceptor getRequestInterceptor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRequestInterceptor : (RequestInterceptor) invokeV.objValue;
-    }
-
-    public void setNetRequestSettings(NetRequestSettings netRequestSettings) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, netRequestSettings) == null) {
-            this.mNetRequestSettings = netRequestSettings;
-            WeakReference<V8Engine> weakReference = this.mEngineWeakReference;
-            if (weakReference == null || weakReference.get() == null) {
-                return;
-            }
-            this.mEngineWeakReference.get().setNetRequest(this);
-        }
-    }
-
-    public void setRedirectInterceptor(RedirectInterceptor redirectInterceptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, redirectInterceptor) == null) {
-            this.mRedirectInterceptor = redirectInterceptor;
-        }
-    }
-
-    public void setRequestInterceptor(RequestInterceptor requestInterceptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, requestInterceptor) == null) {
-            this.mRequestInterceptor = requestInterceptor;
-        }
     }
 }

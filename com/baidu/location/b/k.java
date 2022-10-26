@@ -1,6 +1,5 @@
 package com.baidu.location.b;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
@@ -34,7 +33,7 @@ public class k {
     public WebView c;
     public LocationClient d;
     public a e;
-    public List<b> f;
+    public List f;
     public boolean g;
     public long h;
     public BDLocation i;
@@ -300,7 +299,7 @@ public class k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c {
+    public final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final k a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -518,7 +517,6 @@ public class k {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c.a : (k) invokeV.objValue;
     }
 
-    @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
     private void a(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, webView) == null) {

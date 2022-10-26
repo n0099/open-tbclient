@@ -20,29 +20,30 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSequenceEqualSingle<T> extends Single<Boolean> implements FuseToFlowable<Boolean> {
+public final class FlowableSequenceEqualSingle extends Single implements FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate<? super T, ? super T> comparer;
-    public final Publisher<? extends T> first;
+    public final BiPredicate comparer;
+    public final Publisher first;
     public final int prefetch;
-    public final Publisher<? extends T> second;
+    public final Publisher second;
 
     /* loaded from: classes8.dex */
-    public static final class EqualCoordinator<T> extends AtomicInteger implements Disposable, FlowableSequenceEqual.EqualCoordinatorHelper {
+    public final class EqualCoordinator extends AtomicInteger implements Disposable, FlowableSequenceEqual.EqualCoordinatorHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Boolean> actual;
-        public final BiPredicate<? super T, ? super T> comparer;
+        public final SingleObserver actual;
+        public final BiPredicate comparer;
         public final AtomicThrowable error;
-        public final FlowableSequenceEqual.EqualSubscriber<T> first;
-        public final FlowableSequenceEqual.EqualSubscriber<T> second;
-        public T v1;
-        public T v2;
+        public final FlowableSequenceEqual.EqualSubscriber first;
+        public final FlowableSequenceEqual.EqualSubscriber second;
+        public Object v1;
+        public Object v2;
 
-        public EqualCoordinator(SingleObserver<? super Boolean> singleObserver, int i, BiPredicate<? super T, ? super T> biPredicate) {
+        public EqualCoordinator(SingleObserver singleObserver, int i, BiPredicate biPredicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,8 +60,8 @@ public final class FlowableSequenceEqualSingle<T> extends Single<Boolean> implem
             }
             this.actual = singleObserver;
             this.comparer = biPredicate;
-            this.first = new FlowableSequenceEqual.EqualSubscriber<>(this, i);
-            this.second = new FlowableSequenceEqual.EqualSubscriber<>(this, i);
+            this.first = new FlowableSequenceEqual.EqualSubscriber(this, i);
+            this.second = new FlowableSequenceEqual.EqualSubscriber(this, i);
             this.error = new AtomicThrowable();
         }
 
@@ -87,93 +88,112 @@ public final class FlowableSequenceEqualSingle<T> extends Single<Boolean> implem
             }
         }
 
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return SubscriptionHelper.isCancelled((Subscription) this.first.get());
+            }
+            return invokeV.booleanValue;
+        }
+
         @Override // io.reactivex.internal.operators.flowable.FlowableSequenceEqual.EqualCoordinatorHelper
         public void drain() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                int i = 1;
-                do {
-                    SimpleQueue<T> simpleQueue = this.first.queue;
-                    SimpleQueue<T> simpleQueue2 = this.second.queue;
-                    if (simpleQueue != null && simpleQueue2 != null) {
-                        while (!isDisposed()) {
-                            if (this.error.get() != null) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            int i = 1;
+            do {
+                SimpleQueue simpleQueue = this.first.queue;
+                SimpleQueue simpleQueue2 = this.second.queue;
+                if (simpleQueue != null && simpleQueue2 != null) {
+                    while (!isDisposed()) {
+                        if (((Throwable) this.error.get()) != null) {
+                            cancelAndClear();
+                            this.actual.onError(this.error.terminate());
+                            return;
+                        }
+                        boolean z2 = this.first.done;
+                        Object obj = this.v1;
+                        if (obj == null) {
+                            try {
+                                obj = simpleQueue.poll();
+                                this.v1 = obj;
+                            } catch (Throwable th) {
+                                Exceptions.throwIfFatal(th);
                                 cancelAndClear();
+                                this.error.addThrowable(th);
                                 this.actual.onError(this.error.terminate());
                                 return;
                             }
-                            boolean z = this.first.done;
-                            T t = this.v1;
-                            if (t == null) {
-                                try {
-                                    t = simpleQueue.poll();
-                                    this.v1 = t;
-                                } catch (Throwable th) {
-                                    Exceptions.throwIfFatal(th);
-                                    cancelAndClear();
-                                    this.error.addThrowable(th);
-                                    this.actual.onError(this.error.terminate());
-                                    return;
-                                }
-                            }
-                            boolean z2 = t == null;
-                            boolean z3 = this.second.done;
-                            T t2 = this.v2;
-                            if (t2 == null) {
-                                try {
-                                    t2 = simpleQueue2.poll();
-                                    this.v2 = t2;
-                                } catch (Throwable th2) {
-                                    Exceptions.throwIfFatal(th2);
-                                    cancelAndClear();
-                                    this.error.addThrowable(th2);
-                                    this.actual.onError(this.error.terminate());
-                                    return;
-                                }
-                            }
-                            boolean z4 = t2 == null;
-                            if (z && z3 && z2 && z4) {
-                                this.actual.onSuccess(Boolean.TRUE);
-                                return;
-                            } else if (z && z3 && z2 != z4) {
+                        }
+                        boolean z3 = false;
+                        if (obj == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        boolean z4 = this.second.done;
+                        Object obj2 = this.v2;
+                        if (obj2 == null) {
+                            try {
+                                obj2 = simpleQueue2.poll();
+                                this.v2 = obj2;
+                            } catch (Throwable th2) {
+                                Exceptions.throwIfFatal(th2);
                                 cancelAndClear();
-                                this.actual.onSuccess(Boolean.FALSE);
+                                this.error.addThrowable(th2);
+                                this.actual.onError(this.error.terminate());
                                 return;
-                            } else if (!z2 && !z4) {
-                                try {
-                                    if (!this.comparer.test(t, t2)) {
-                                        cancelAndClear();
-                                        this.actual.onSuccess(Boolean.FALSE);
-                                        return;
-                                    }
-                                    this.v1 = null;
-                                    this.v2 = null;
-                                    this.first.request();
-                                    this.second.request();
-                                } catch (Throwable th3) {
-                                    Exceptions.throwIfFatal(th3);
-                                    cancelAndClear();
-                                    this.error.addThrowable(th3);
-                                    this.actual.onError(this.error.terminate());
-                                    return;
-                                }
                             }
                         }
-                        this.first.clear();
-                        this.second.clear();
-                        return;
-                    } else if (isDisposed()) {
-                        this.first.clear();
-                        this.second.clear();
-                        return;
-                    } else if (this.error.get() != null) {
-                        cancelAndClear();
-                        this.actual.onError(this.error.terminate());
-                        return;
+                        if (obj2 == null) {
+                            z3 = true;
+                        }
+                        if (z2 && z4 && z && z3) {
+                            this.actual.onSuccess(Boolean.TRUE);
+                            return;
+                        } else if (z2 && z4 && z != z3) {
+                            cancelAndClear();
+                            this.actual.onSuccess(Boolean.FALSE);
+                            return;
+                        } else if (!z && !z3) {
+                            try {
+                                if (!this.comparer.test(obj, obj2)) {
+                                    cancelAndClear();
+                                    this.actual.onSuccess(Boolean.FALSE);
+                                    return;
+                                }
+                                this.v1 = null;
+                                this.v2 = null;
+                                this.first.request();
+                                this.second.request();
+                            } catch (Throwable th3) {
+                                Exceptions.throwIfFatal(th3);
+                                cancelAndClear();
+                                this.error.addThrowable(th3);
+                                this.actual.onError(this.error.terminate());
+                                return;
+                            }
+                        }
                     }
-                    i = addAndGet(-i);
-                } while (i != 0);
-            }
+                    this.first.clear();
+                    this.second.clear();
+                    return;
+                } else if (isDisposed()) {
+                    this.first.clear();
+                    this.second.clear();
+                    return;
+                } else if (((Throwable) this.error.get()) != null) {
+                    cancelAndClear();
+                    this.actual.onError(this.error.terminate());
+                    return;
+                }
+                i = addAndGet(-i);
+            } while (i != 0);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableSequenceEqual.EqualCoordinatorHelper
@@ -188,14 +208,7 @@ public final class FlowableSequenceEqualSingle<T> extends Single<Boolean> implem
             }
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SubscriptionHelper.isCancelled(this.first.get()) : invokeV.booleanValue;
-        }
-
-        public void subscribe(Publisher<? extends T> publisher, Publisher<? extends T> publisher2) {
+        public void subscribe(Publisher publisher, Publisher publisher2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, publisher, publisher2) == null) {
                 publisher.subscribe(this.first);
@@ -204,7 +217,7 @@ public final class FlowableSequenceEqualSingle<T> extends Single<Boolean> implem
         }
     }
 
-    public FlowableSequenceEqualSingle(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, BiPredicate<? super T, ? super T> biPredicate, int i) {
+    public FlowableSequenceEqualSingle(Publisher publisher, Publisher publisher2, BiPredicate biPredicate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,14 +239,17 @@ public final class FlowableSequenceEqualSingle<T> extends Single<Boolean> implem
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<Boolean> fuseToFlowable() {
+    public Flowable fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableSequenceEqual(this.first, this.second, this.comparer, this.prefetch)) : (Flowable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableSequenceEqual(this.first, this.second, this.comparer, this.prefetch));
+        }
+        return (Flowable) invokeV.objValue;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             EqualCoordinator equalCoordinator = new EqualCoordinator(singleObserver, this.prefetch, this.comparer);

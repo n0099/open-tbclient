@@ -15,8 +15,11 @@ public abstract class ReflectionAccessor {
     public static final ReflectionAccessor instance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void makeAccessible(AccessibleObject accessibleObject);
+
     static {
         InterceptResult invokeClinit;
+        ReflectionAccessor unsafeReflectionAccessor;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1368621907, "Lcom/google/gson/internal/reflect/ReflectionAccessor;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -28,7 +31,12 @@ public abstract class ReflectionAccessor {
                 return;
             }
         }
-        instance = JavaVersion.getMajorJavaVersion() < 9 ? new PreJava9ReflectionAccessor() : new UnsafeReflectionAccessor();
+        if (JavaVersion.getMajorJavaVersion() < 9) {
+            unsafeReflectionAccessor = new PreJava9ReflectionAccessor();
+        } else {
+            unsafeReflectionAccessor = new UnsafeReflectionAccessor();
+        }
+        instance = unsafeReflectionAccessor;
     }
 
     public ReflectionAccessor() {
@@ -48,8 +56,9 @@ public abstract class ReflectionAccessor {
     public static ReflectionAccessor getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? instance : (ReflectionAccessor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return instance;
+        }
+        return (ReflectionAccessor) invokeV.objValue;
     }
-
-    public abstract void makeAccessible(AccessibleObject accessibleObject);
 }

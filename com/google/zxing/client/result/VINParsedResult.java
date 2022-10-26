@@ -54,7 +54,82 @@ public final class VINParsedResult extends ParsedResult {
     public String getCountryCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.countryCode : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.countryCode;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getModelYear() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.modelYear;
+        }
+        return invokeV.intValue;
+    }
+
+    public char getPlantCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.plantCode;
+        }
+        return invokeV.charValue;
+    }
+
+    public String getSequentialNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.sequentialNumber;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVIN() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.vin;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVehicleAttributes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.vehicleAttributes;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVehicleDescriptorSection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.vehicleDescriptorSection;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVehicleIdentifierSection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.vehicleIdentifierSection;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getWorldManufacturerID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.worldManufacturerID;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
@@ -83,53 +158,5 @@ public final class VINParsedResult extends ParsedResult {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public int getModelYear() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.modelYear : invokeV.intValue;
-    }
-
-    public char getPlantCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.plantCode : invokeV.charValue;
-    }
-
-    public String getSequentialNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.sequentialNumber : (String) invokeV.objValue;
-    }
-
-    public String getVIN() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.vin : (String) invokeV.objValue;
-    }
-
-    public String getVehicleAttributes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.vehicleAttributes : (String) invokeV.objValue;
-    }
-
-    public String getVehicleDescriptorSection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.vehicleDescriptorSection : (String) invokeV.objValue;
-    }
-
-    public String getVehicleIdentifierSection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.vehicleIdentifierSection : (String) invokeV.objValue;
-    }
-
-    public String getWorldManufacturerID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.worldManufacturerID : (String) invokeV.objValue;
     }
 }

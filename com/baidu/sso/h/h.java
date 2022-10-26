@@ -3,10 +3,10 @@ package com.baidu.sso.h;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tieba.ii1;
-import com.baidu.tieba.lh1;
-import com.baidu.tieba.vi1;
-import com.baidu.tieba.wh1;
+import com.baidu.tieba.ji1;
+import com.baidu.tieba.mh1;
+import com.baidu.tieba.wi1;
+import com.baidu.tieba.xh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,12 +48,12 @@ public class h extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     if ("sso_action_t_m".equals(this.a)) {
-                        vi1.l(this.b);
-                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.a) && vi1.j(this.b) != 0 && lh1.a(this.b).d()) {
-                        wh1.j().g(this.b.getApplicationContext(), false);
+                        wi1.l(this.b);
+                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.a) && wi1.j(this.b) != 0 && mh1.a(this.b).d()) {
+                        xh1.j().g(this.b.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
-                    vi1.d(th);
+                    wi1.d(th);
                 }
             }
         }
@@ -76,9 +76,9 @@ public class h extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
             return;
         }
-        ii1.a().post(new a(this, intent.getAction(), context));
+        ji1.a().post(new a(this, intent.getAction(), context));
     }
 }

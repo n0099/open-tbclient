@@ -9,14 +9,12 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.widget.RemoteViews;
-import androidx.annotation.Keep;
 @KsAdSdkDynamicApi
-@Keep
 /* loaded from: classes7.dex */
 public class RemoteViewBuilder {
 
     /* loaded from: classes7.dex */
-    public static class CompletedRemoteViewImpl implements ICompletedRemoteView {
+    public class CompletedRemoteViewImpl implements ICompletedRemoteView {
         public final Context mContext;
         public final Context mOriginContext;
         public final RemoteViews mRemoteViews;
@@ -64,7 +62,7 @@ public class RemoteViewBuilder {
     }
 
     /* loaded from: classes7.dex */
-    public static class ProgressRemoteViewImpl implements IProgressRemoteView {
+    public class ProgressRemoteViewImpl implements IProgressRemoteView {
         public static final String ACTION_CLICK_CONTROL_BTN = "com.ksad.action.ACTION_NOTIFICATION_CLICK_CONTROL_BTN";
         public static final String KEY_TASKID = "taskId";
         public int btnControlId;
@@ -156,20 +154,17 @@ public class RemoteViewBuilder {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public static ICompletedRemoteView createCompletedView(Context context) {
         return new CompletedRemoteViewImpl(context);
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     @Deprecated
     public static IProgressRemoteView createProgressView(Context context) {
         return new ProgressRemoteViewImpl(context, 0, false);
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public static IProgressRemoteView createProgressView(Context context, int i, boolean z) {
         return new ProgressRemoteViewImpl(context, i, z);
     }

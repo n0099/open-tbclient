@@ -2,7 +2,6 @@ package com.baidu.ugc.editvideo.record.source.multimedia.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
@@ -14,9 +13,9 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tieba.ce9;
-import com.baidu.tieba.mg0;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.ng0;
+import com.baidu.tieba.nh9;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +73,7 @@ public class InnerImportExportConfigUtil {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static MediaTrackConfig exportConfigJson(Map<String, ShaderConfig> map, List<MediaTrack> list, MultiMediaDataTrack multiMediaDataTrack, MediaTrackConfig mediaTrackConfig, String str) {
+    public static MediaTrackConfig exportConfigJson(Map map, List list, MultiMediaDataTrack multiMediaDataTrack, MediaTrackConfig mediaTrackConfig, String str) {
         InterceptResult invokeLLLLL;
         ArrayList arrayList;
         ArrayList arrayList2;
@@ -87,7 +86,7 @@ public class InnerImportExportConfigUtil {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, map, list, multiMediaDataTrack, mediaTrackConfig, str)) == null) {
-            List<MediaTrack> list2 = list;
+            List list2 = list;
             String str3 = str;
             MediaTrackConfig mediaTrackConfig3 = new MediaTrackConfig();
             if (mediaTrackConfig != null) {
@@ -96,9 +95,9 @@ public class InnerImportExportConfigUtil {
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = new HashMap();
             if (map != null) {
-                for (Map.Entry<String, ShaderConfig> entry : map.entrySet()) {
-                    if (!TextUtils.equals(entry.getKey(), mg0.b) && !TextUtils.equals(entry.getKey(), mg0.e) && (!TextUtils.equals(entry.getKey(), mg0.c) || !vg9.e(entry.getValue().textures))) {
-                        ShaderConfig shaderConfig = (ShaderConfig) entry.getValue().clone();
+                for (Map.Entry entry : map.entrySet()) {
+                    if (!TextUtils.equals((CharSequence) entry.getKey(), ng0.b) && !TextUtils.equals((CharSequence) entry.getKey(), ng0.e) && (!TextUtils.equals((CharSequence) entry.getKey(), ng0.c) || !nh9.e(((ShaderConfig) entry.getValue()).textures))) {
+                        ShaderConfig shaderConfig = (ShaderConfig) ((ShaderConfig) entry.getValue()).clone();
                         if (!TextUtils.isEmpty(shaderConfig.resourcePath)) {
                             File file = new File(shaderConfig.resourcePath);
                             if (file.exists() && file.isDirectory()) {
@@ -117,7 +116,7 @@ public class InnerImportExportConfigUtil {
                                     i++;
                                 }
                             }
-                            hashMap2.put(entry.getKey(), entry.getValue().resourcePath);
+                            hashMap2.put(entry.getKey(), ((ShaderConfig) entry.getValue()).resourcePath);
                         }
                         List<MediaTextureData> list3 = shaderConfig.textures;
                         if (list3 != null) {
@@ -144,14 +143,14 @@ public class InnerImportExportConfigUtil {
                 mediaTrackConfig3.mediaTracks = new ArrayList();
                 int i2 = 0;
                 while (i2 < list.size()) {
-                    MediaTrack mediaTrack2 = list2.get(i2);
-                    if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) || !mg0.m(mediaTrack2, "input_blank")) {
+                    MediaTrack mediaTrack2 = (MediaTrack) list2.get(i2);
+                    if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) || !ng0.m(mediaTrack2, "input_blank")) {
                         if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
-                            if (mg0.m(mediaTrack2, "edit_sticker")) {
+                            if (ng0.m(mediaTrack2, "edit_sticker")) {
                                 mediaTrack2.mediaSegments = null;
                                 mediaTrack2.mediaTransitions = null;
                             }
-                            if (!vg9.e(mediaTrack2.mediaAEffectKeyData)) {
+                            if (!nh9.e(mediaTrack2.mediaAEffectKeyData)) {
                                 for (MediaAEffectKeyData mediaAEffectKeyData : mediaTrack2.mediaAEffectKeyData) {
                                     mediaAEffectKeyData.calculateEffectKeys = null;
                                 }
@@ -417,7 +416,7 @@ public class InnerImportExportConfigUtil {
                 }
                 file2.createNewFile();
                 FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                fileOutputStream.write(new ce9().a(mediaAEffect).getBytes());
+                fileOutputStream.write(new ue9().a(mediaAEffect).getBytes());
                 fileOutputStream.flush();
                 fileOutputStream.close();
                 ShaderConfig shaderConfig2 = new ShaderConfig();
@@ -425,7 +424,7 @@ public class InnerImportExportConfigUtil {
                 String str2 = shaderConfig.fragmentShader;
                 String str3 = shaderConfig.vertexShader;
                 if (!TextUtils.isEmpty(str2) && !str2.contains("default")) {
-                    String f = mg0.f(context, parent, str2, "");
+                    String f = ng0.f(context, parent, str2, "");
                     if (!TextUtils.isEmpty(f)) {
                         if (!str2.endsWith(".glsl")) {
                             str2 = str2 + ".glsl";
@@ -440,7 +439,7 @@ public class InnerImportExportConfigUtil {
                     }
                 }
                 if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                    String j = mg0.j(context, parent, str3);
+                    String j = ng0.j(context, parent, str3);
                     if (!TextUtils.isEmpty(j)) {
                         if (!str3.endsWith(".glsl")) {
                             str3 = str3 + ".glsl";
@@ -464,7 +463,7 @@ public class InnerImportExportConfigUtil {
                     shaderConfig2.textures = mediaTextureDates;
                 }
                 FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file, "shader_config.json"));
-                fileOutputStream4.write(new ce9().a(shaderConfig2).getBytes());
+                fileOutputStream4.write(new ue9().a(shaderConfig2).getBytes());
                 fileOutputStream4.close();
                 File file5 = new File(file.getParent(), mediaAEffect.name + ".zip");
                 file5.createNewFile();
@@ -545,7 +544,7 @@ public class InnerImportExportConfigUtil {
             }
             mediaTrackConfig.shaderConfigMapDebug = null;
             List<String> transitionResourceList = getTransitionResourceList(file3, mediaTrackConfig, onExportListener);
-            if (vg9.e(transitionResourceList)) {
+            if (nh9.e(transitionResourceList)) {
                 file3.delete();
             } else {
                 mediaTrackConfig.transitionResourceList = transitionResourceList;
@@ -564,7 +563,7 @@ public class InnerImportExportConfigUtil {
                 if (!file6.exists()) {
                     file6.createNewFile();
                 }
-                String a = new ce9().a(templateInfo2);
+                String a = new ue9().a(templateInfo2);
                 FileOutputStream fileOutputStream = new FileOutputStream(file6);
                 fileOutputStream.write(a.getBytes());
                 fileOutputStream.close();
@@ -612,7 +611,7 @@ public class InnerImportExportConfigUtil {
                 }
                 file2.createNewFile();
                 FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                fileOutputStream.write(new ce9().a(mediaTransition).getBytes());
+                fileOutputStream.write(new ue9().a(mediaTransition).getBytes());
                 fileOutputStream.flush();
                 fileOutputStream.close();
                 ShaderConfig shaderConfig2 = new ShaderConfig();
@@ -620,7 +619,7 @@ public class InnerImportExportConfigUtil {
                 String str3 = shaderConfig.fragmentShader;
                 String str4 = shaderConfig.vertexShader;
                 if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                    String f = mg0.f(context, parent, str3, "");
+                    String f = ng0.f(context, parent, str3, "");
                     if (!TextUtils.isEmpty(f)) {
                         if (!str3.endsWith(".glsl")) {
                             str3 = str3 + ".glsl";
@@ -635,7 +634,7 @@ public class InnerImportExportConfigUtil {
                     }
                 }
                 if (!TextUtils.isEmpty(str4) && !str4.contains("default")) {
-                    String j = mg0.j(context, parent, str4);
+                    String j = ng0.j(context, parent, str4);
                     if (!TextUtils.isEmpty(j)) {
                         if (!str4.endsWith(".glsl")) {
                             str4 = str4 + ".glsl";
@@ -659,7 +658,7 @@ public class InnerImportExportConfigUtil {
                     shaderConfig2.textures = mediaTextureDates;
                 }
                 FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file, str2 + ".json"));
-                fileOutputStream4.write(new ce9().a(shaderConfig2).getBytes());
+                fileOutputStream4.write(new ue9().a(shaderConfig2).getBytes());
                 fileOutputStream4.close();
                 File file5 = new File(file.getParent(), mediaTransition.name + ".zip");
                 file5.createNewFile();
@@ -679,7 +678,7 @@ public class InnerImportExportConfigUtil {
         return (String) invokeLLLLL.objValue;
     }
 
-    public static Map<String, String> getEffectResourceMap(File file, MediaTrackConfig mediaTrackConfig, ImportExportConfigUtil.OnExportListener onExportListener) {
+    public static Map getEffectResourceMap(File file, MediaTrackConfig mediaTrackConfig, ImportExportConfigUtil.OnExportListener onExportListener) {
         InterceptResult invokeLLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
@@ -705,7 +704,7 @@ public class InnerImportExportConfigUtil {
                         th = th;
                     }
                     try {
-                        fileOutputStream.write(new ce9().a(entry.getValue()).getBytes());
+                        fileOutputStream.write(new ue9().a(entry.getValue()).getBytes());
                         fileOutputStream.flush();
                         hashMap.put(key, file.getName() + File.separator + file2.getName());
                         try {
@@ -744,11 +743,10 @@ public class InnerImportExportConfigUtil {
 
     /* JADX WARN: Removed duplicated region for block: B:39:0x00d9  */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00db A[SYNTHETIC] */
-    @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<MediaTextureData> getMediaTextureDates(Context context, ShaderConfig shaderConfig, File file, String str, ImportExportConfigUtil.OnExportListener onExportListener) throws IOException {
+    public static List getMediaTextureDates(Context context, ShaderConfig shaderConfig, File file, String str, ImportExportConfigUtil.OnExportListener onExportListener) throws IOException {
         InterceptResult invokeLLLLL;
         String name;
         Interceptable interceptable = $ic;
@@ -795,7 +793,7 @@ public class InnerImportExportConfigUtil {
                         if (!name.contains(".")) {
                             name = mediaTextureData.path + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
                         }
-                        FileUtils.saveBitmap2PNG(file.getPath(), name, mg0.g(context, mediaTextureData.path), 100);
+                        FileUtils.saveBitmap2PNG(file.getPath(), name, ng0.g(context, mediaTextureData.path), 100);
                     }
                     mediaTextureData.path = name;
                     if (mediaTextureData.textureId == 0) {
@@ -810,11 +808,10 @@ public class InnerImportExportConfigUtil {
 
     /* JADX WARN: Removed duplicated region for block: B:44:0x0100 A[Catch: IOException -> 0x0185, TryCatch #1 {IOException -> 0x0185, blocks: (B:29:0x00b1, B:31:0x00c3, B:33:0x00ce, B:34:0x00d1, B:38:0x00ea, B:40:0x00f0, B:42:0x00f6, B:44:0x0100, B:46:0x0106, B:47:0x0115, B:49:0x0120, B:50:0x0123, B:51:0x0132, B:53:0x015d, B:54:0x015f), top: B:73:0x00b1 }] */
     /* JADX WARN: Removed duplicated region for block: B:53:0x015d A[Catch: IOException -> 0x0185, TryCatch #1 {IOException -> 0x0185, blocks: (B:29:0x00b1, B:31:0x00c3, B:33:0x00ce, B:34:0x00d1, B:38:0x00ea, B:40:0x00f0, B:42:0x00f6, B:44:0x0100, B:46:0x0106, B:47:0x0115, B:49:0x0120, B:50:0x0123, B:51:0x0132, B:53:0x015d, B:54:0x015f), top: B:73:0x00b1 }] */
-    @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Map<String, String> getShaderResourceMap(Context context, String str, File file, MediaTrackConfig mediaTrackConfig, ImportExportConfigUtil.OnExportListener onExportListener) {
+    public static Map getShaderResourceMap(Context context, String str, File file, MediaTrackConfig mediaTrackConfig, ImportExportConfigUtil.OnExportListener onExportListener) {
         InterceptResult invokeLLLLL;
         Iterator<Map.Entry<String, ShaderConfig>> it;
         HashMap hashMap;
@@ -847,7 +844,7 @@ public class InnerImportExportConfigUtil {
                             if (!TextUtils.isEmpty(str2)) {
                                 try {
                                     if (!str2.contains("default")) {
-                                        String f = mg0.f(context, parent, str2, next.getKey());
+                                        String f = ng0.f(context, parent, str2, next.getKey());
                                         if (!TextUtils.isEmpty(f)) {
                                             if (str2.endsWith(".glsl")) {
                                                 hashMap = hashMap2;
@@ -874,7 +871,7 @@ public class InnerImportExportConfigUtil {
                                             fileOutputStream.close();
                                             str2 = str4;
                                             if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                                                j = mg0.j(context, parent, str3);
+                                                j = ng0.j(context, parent, str3);
                                                 if (!TextUtils.isEmpty(j)) {
                                                     if (!str3.endsWith(".glsl")) {
                                                         str3 = str3 + ".glsl";
@@ -898,7 +895,7 @@ public class InnerImportExportConfigUtil {
                                                 shaderConfig.textures = mediaTextureDates;
                                             }
                                             FileOutputStream fileOutputStream3 = new FileOutputStream(file3);
-                                            fileOutputStream3.write(new ce9().a(shaderConfig).getBytes());
+                                            fileOutputStream3.write(new ue9().a(shaderConfig).getBytes());
                                             fileOutputStream3.close();
                                             hashMap2 = hashMap;
                                             hashMap2.put(key, file3.getPath().replace(str, ""));
@@ -910,7 +907,7 @@ public class InnerImportExportConfigUtil {
                             }
                             hashMap = hashMap2;
                             if (!TextUtils.isEmpty(str3)) {
-                                j = mg0.j(context, parent, str3);
+                                j = ng0.j(context, parent, str3);
                                 if (!TextUtils.isEmpty(j)) {
                                 }
                             }
@@ -923,7 +920,7 @@ public class InnerImportExportConfigUtil {
                             if (mediaTextureDates.size() > 0) {
                             }
                             FileOutputStream fileOutputStream32 = new FileOutputStream(file3);
-                            fileOutputStream32.write(new ce9().a(shaderConfig).getBytes());
+                            fileOutputStream32.write(new ue9().a(shaderConfig).getBytes());
                             fileOutputStream32.close();
                             hashMap2 = hashMap;
                             hashMap2.put(key, file3.getPath().replace(str, ""));
@@ -940,7 +937,7 @@ public class InnerImportExportConfigUtil {
         return (Map) invokeLLLLL.objValue;
     }
 
-    public static List<String> getTransitionResourceList(File file, MediaTrackConfig mediaTrackConfig, ImportExportConfigUtil.OnExportListener onExportListener) {
+    public static List getTransitionResourceList(File file, MediaTrackConfig mediaTrackConfig, ImportExportConfigUtil.OnExportListener onExportListener) {
         InterceptResult invokeLLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
@@ -973,7 +970,7 @@ public class InnerImportExportConfigUtil {
                         th = th;
                     }
                     try {
-                        fileOutputStream.write(new ce9().a(mediaTransition).getBytes());
+                        fileOutputStream.write(new ue9().a(mediaTransition).getBytes());
                         fileOutputStream.flush();
                         arrayList.add(file.getName() + File.separator + file2.getName());
                         try {
@@ -1010,7 +1007,7 @@ public class InnerImportExportConfigUtil {
         return (List) invokeLLL.objValue;
     }
 
-    public static void setSuperpositionSegment(Map<String, MediaAEffect> map, MediaSegment mediaSegment, MediaSegment mediaSegment2, String str) {
+    public static void setSuperpositionSegment(Map map, MediaSegment mediaSegment, MediaSegment mediaSegment2, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(65545, null, map, mediaSegment, mediaSegment2, str) == null) || mediaSegment == null || mediaSegment2 == null) {
             return;
@@ -1025,7 +1022,7 @@ public class InnerImportExportConfigUtil {
         }
         if (!TextUtils.isEmpty(mediaSegment.effectConfigKey) && mediaSegment.mediaAEffect != null) {
             if (map == null) {
-                map = new LinkedHashMap<>();
+                map = new LinkedHashMap();
             }
             map.put(mediaSegment.effectConfigKey, mediaSegment.mediaAEffect);
         }

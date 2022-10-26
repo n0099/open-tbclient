@@ -1,14 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.OperatorPublish$InnerProducer;
+import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
-public final class oy9<T> extends lx9<T> implements mx9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void g();
-
-    public abstract void h(OperatorPublish$InnerProducer<T> operatorPublish$InnerProducer);
+public interface oy9 extends Callable {
+    @Override // java.util.concurrent.Callable
+    Object call();
 }

@@ -27,7 +27,7 @@ public final class b {
     public c.d auy;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final b auz;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,15 +157,15 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(a.InterfaceC0622a interfaceC0622a) {
+    public static void a(a.InterfaceC0618a interfaceC0618a) {
         long j;
         long j2;
         String targetFilePath;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, interfaceC0622a) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, interfaceC0618a) == null) {
             String str = "refreshed data count: %d , delete data count: %d, reset id count: %d. consume %d";
-            Iterator<com.kwai.filedownloader.c.c> it = interfaceC0622a.iterator();
+            Iterator it = interfaceC0618a.iterator();
             c.d Dq = Dp().Dq();
             long currentTimeMillis = System.currentTimeMillis();
             long j3 = 0;
@@ -173,34 +173,34 @@ public final class b {
             long j5 = 0;
             while (it.hasNext()) {
                 try {
-                    com.kwai.filedownloader.c.c next = it.next();
+                    com.kwai.filedownloader.c.c cVar = (com.kwai.filedownloader.c.c) it.next();
                     String str2 = str;
-                    if (next.Ca() != 3) {
+                    if (cVar.Ca() != 3) {
                         try {
-                            if (next.Ca() != 2) {
-                                if (next.Ca() != -1) {
-                                    if (next.Ca() == 1) {
+                            if (cVar.Ca() != 2) {
+                                if (cVar.Ca() != -1) {
+                                    if (cVar.Ca() == 1) {
                                     }
-                                    targetFilePath = next.getTargetFilePath();
+                                    targetFilePath = cVar.getTargetFilePath();
                                     if (targetFilePath != null) {
                                         j = currentTimeMillis;
                                         j2 = j3;
                                         z = true;
                                     } else {
                                         File file = new File(targetFilePath);
-                                        if (next.Ca() == -2) {
+                                        if (cVar.Ca() == -2) {
                                             j = currentTimeMillis;
                                             try {
-                                                if (com.kwai.filedownloader.e.f.a(next.getId(), next, next.getPath(), null)) {
-                                                    File file2 = new File(next.DE());
+                                                if (com.kwai.filedownloader.e.f.a(cVar.getId(), cVar, cVar.getPath(), null)) {
+                                                    File file2 = new File(cVar.DE());
                                                     if (!file2.exists() && file.exists()) {
                                                         boolean renameTo = file.renameTo(file2);
                                                         if (com.kwai.filedownloader.e.d.awL) {
                                                             j2 = j3;
                                                             com.kwai.filedownloader.e.d.e(com.kwai.filedownloader.a.a.class, "resume from the old no-temp-file architecture [%B], [%s]->[%s]", Boolean.valueOf(renameTo), file.getPath(), file2.getPath());
-                                                            if (next.Ca() != 1) {
+                                                            if (cVar.Ca() != 1) {
                                                             }
-                                                            if (com.kwai.filedownloader.e.f.b(next.getId(), next) && !file.exists()) {
+                                                            if (com.kwai.filedownloader.e.f.b(cVar.getId(), cVar) && !file.exists()) {
                                                                 z = false;
                                                             }
                                                             z = true;
@@ -212,7 +212,7 @@ public final class b {
                                                 j2 = j3;
                                                 str = str2;
                                                 com.kwai.filedownloader.e.f.dF(com.kwai.filedownloader.e.c.EJ());
-                                                interfaceC0622a.Di();
+                                                interfaceC0618a.Di();
                                                 if (com.kwai.filedownloader.e.d.awL) {
                                                     com.kwai.filedownloader.e.d.e(com.kwai.filedownloader.a.a.class, str, Long.valueOf(j2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(System.currentTimeMillis() - j));
                                                 }
@@ -222,25 +222,25 @@ public final class b {
                                             j = currentTimeMillis;
                                         }
                                         j2 = j3;
-                                        if (next.Ca() != 1) {
+                                        if (cVar.Ca() != 1) {
                                         }
-                                        if (com.kwai.filedownloader.e.f.b(next.getId(), next)) {
+                                        if (com.kwai.filedownloader.e.f.b(cVar.getId(), cVar)) {
                                             z = false;
                                         }
                                         z = true;
                                     }
                                     if (z) {
-                                        int id = next.getId();
-                                        int j6 = Dq.j(next.getUrl(), next.getPath(), next.BW());
+                                        int id = cVar.getId();
+                                        int j6 = Dq.j(cVar.getUrl(), cVar.getPath(), cVar.BW());
                                         if (j6 != id) {
                                             if (com.kwai.filedownloader.e.d.awL) {
                                                 com.kwai.filedownloader.e.d.e(com.kwai.filedownloader.a.a.class, "the id is changed on restoring from db: old[%d] -> new[%d]", Integer.valueOf(id), Integer.valueOf(j6));
                                             }
-                                            next.setId(j6);
-                                            interfaceC0622a.a(id, next);
+                                            cVar.setId(j6);
+                                            interfaceC0618a.a(id, cVar);
                                             j5++;
                                         }
-                                        interfaceC0622a.c(next);
+                                        interfaceC0618a.c(cVar);
                                         j3 = j2 + 1;
                                         str = str2;
                                         currentTimeMillis = j;
@@ -255,7 +255,7 @@ public final class b {
                                             th = th2;
                                             str = str2;
                                             com.kwai.filedownloader.e.f.dF(com.kwai.filedownloader.e.c.EJ());
-                                            interfaceC0622a.Di();
+                                            interfaceC0618a.Di();
                                             if (com.kwai.filedownloader.e.d.awL) {
                                             }
                                             throw th;
@@ -269,14 +269,14 @@ public final class b {
                             j2 = j3;
                             str = str2;
                             com.kwai.filedownloader.e.f.dF(com.kwai.filedownloader.e.c.EJ());
-                            interfaceC0622a.Di();
+                            interfaceC0618a.Di();
                             if (com.kwai.filedownloader.e.d.awL) {
                             }
                             throw th;
                         }
                     }
-                    next.e((byte) -2);
-                    targetFilePath = next.getTargetFilePath();
+                    cVar.e((byte) -2);
+                    targetFilePath = cVar.getTargetFilePath();
                     if (targetFilePath != null) {
                     }
                     if (z) {
@@ -291,7 +291,7 @@ public final class b {
             long j7 = currentTimeMillis;
             long j8 = j3;
             com.kwai.filedownloader.e.f.dF(com.kwai.filedownloader.e.c.EJ());
-            interfaceC0622a.Di();
+            interfaceC0618a.Di();
             if (com.kwai.filedownloader.e.d.awL) {
                 com.kwai.filedownloader.e.d.e(com.kwai.filedownloader.a.a.class, str3, Long.valueOf(j8), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(System.currentTimeMillis() - j7));
             }

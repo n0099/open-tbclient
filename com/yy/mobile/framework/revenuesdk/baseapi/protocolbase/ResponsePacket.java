@@ -10,6 +10,8 @@ public abstract class ResponsePacket extends Marshallable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void popPacketData();
+
     public ResponsePacket() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -21,17 +23,6 @@ public abstract class ResponsePacket extends Marshallable {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public abstract void popPacketData();
-
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PacketBase, com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
-    public void unmarshall(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            super.unmarshall(bArr);
-            popPacketData();
         }
     }
 
@@ -51,5 +42,14 @@ public abstract class ResponsePacket extends Marshallable {
             }
         }
         unmarshall(bArr);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PacketBase, com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
+    public void unmarshall(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
+            super.unmarshall(bArr);
+            popPacketData();
+        }
     }
 }

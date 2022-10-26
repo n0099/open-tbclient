@@ -22,7 +22,7 @@ public final class WebvttCue extends Cue {
 
     /* renamed from: com.google.android.exoplayer2.text.webvtt.WebvttCue$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$text$Layout$Alignment;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public final class WebvttCue extends Cue {
     }
 
     /* loaded from: classes7.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "WebvttCueBuilder";
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,6 +89,22 @@ public final class WebvttCue extends Cue {
             reset();
         }
 
+        public void reset() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.startTime = 0L;
+                this.endTime = 0L;
+                this.text = null;
+                this.textAlignment = null;
+                this.line = Float.MIN_VALUE;
+                this.lineType = Integer.MIN_VALUE;
+                this.lineAnchor = Integer.MIN_VALUE;
+                this.position = Float.MIN_VALUE;
+                this.positionAnchor = Integer.MIN_VALUE;
+                this.width = Float.MIN_VALUE;
+            }
+        }
+
         private Builder derivePositionAnchorFromAlignment() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -98,15 +114,19 @@ public final class WebvttCue extends Cue {
                     this.positionAnchor = Integer.MIN_VALUE;
                 } else {
                     int i = AnonymousClass1.$SwitchMap$android$text$Layout$Alignment[alignment.ordinal()];
-                    if (i == 1) {
-                        this.positionAnchor = 0;
-                    } else if (i == 2) {
-                        this.positionAnchor = 1;
-                    } else if (i != 3) {
-                        Log.w(TAG, "Unrecognized alignment: " + this.textAlignment);
-                        this.positionAnchor = 0;
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                Log.w(TAG, "Unrecognized alignment: " + this.textAlignment);
+                                this.positionAnchor = 0;
+                            } else {
+                                this.positionAnchor = 2;
+                            }
+                        } else {
+                            this.positionAnchor = 1;
+                        }
                     } else {
-                        this.positionAnchor = 2;
+                        this.positionAnchor = 0;
                     }
                 }
                 return this;
@@ -124,22 +144,6 @@ public final class WebvttCue extends Cue {
                 return new WebvttCue(this.startTime, this.endTime, this.text, this.textAlignment, this.line, this.lineType, this.lineAnchor, this.position, this.positionAnchor, this.width);
             }
             return (WebvttCue) invokeV.objValue;
-        }
-
-        public void reset() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.startTime = 0L;
-                this.endTime = 0L;
-                this.text = null;
-                this.textAlignment = null;
-                this.line = Float.MIN_VALUE;
-                this.lineType = Integer.MIN_VALUE;
-                this.lineAnchor = Integer.MIN_VALUE;
-                this.position = Float.MIN_VALUE;
-                this.positionAnchor = Integer.MIN_VALUE;
-                this.width = Float.MIN_VALUE;
-            }
         }
 
         public Builder setEndTime(long j) {
@@ -244,33 +248,6 @@ public final class WebvttCue extends Cue {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebvttCue(CharSequence charSequence) {
-        this(0L, 0L, charSequence);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r8;
-            Object[] objArr = {charSequence};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), (CharSequence) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public boolean isNormalCue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.line == Float.MIN_VALUE && this.position == Float.MIN_VALUE : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public WebvttCue(long j, long j2, CharSequence charSequence) {
         this(j, j2, charSequence, null, Float.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE);
         Interceptable interceptable = $ic;
@@ -312,5 +289,38 @@ public final class WebvttCue extends Cue {
         }
         this.startTime = j;
         this.endTime = j2;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public WebvttCue(CharSequence charSequence) {
+        this(0L, 0L, charSequence);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {charSequence};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), (CharSequence) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public boolean isNormalCue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.line == Float.MIN_VALUE && this.position == Float.MIN_VALUE) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

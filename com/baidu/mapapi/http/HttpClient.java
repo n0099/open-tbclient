@@ -40,7 +40,7 @@ public class HttpClient {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class HttpStateError {
+    public final class HttpStateError {
         public static final /* synthetic */ HttpStateError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HttpStateError INNER_ERROR;
@@ -105,7 +105,7 @@ public class HttpClient {
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class ProtoResultCallback {
+    public abstract class ProtoResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -47,6 +47,22 @@ public class f extends SQLiteOpenHelper {
         a = new String[]{"key"};
     }
 
+    public static synchronized f a() {
+        InterceptResult invokeV;
+        f fVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (f.class) {
+                if (b == null) {
+                    b = new f(com.tencent.open.utils.f.a());
+                }
+                fVar = b;
+            }
+            return fVar;
+        }
+        return (f) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context) {
         super(context, "sdk_report.db", (SQLiteDatabase.CursorFactory) null, 2);
@@ -68,22 +84,6 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    public static synchronized f a() {
-        InterceptResult invokeV;
-        f fVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f.class) {
-                if (b == null) {
-                    b = new f(com.tencent.open.utils.f.a());
-                }
-                fVar = b;
-            }
-            return fVar;
-        }
-        return (f) invokeV.objValue;
-    }
-
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0022, code lost:
         if (r0 != null) goto L17;
      */
@@ -101,39 +101,21 @@ public class f extends SQLiteOpenHelper {
     */
     public synchronized void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) {
-            return;
-        }
-        synchronized (this) {
-            if (TextUtils.isEmpty(str)) {
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                SQLiteDatabase writableDatabase = getWritableDatabase();
+                if (writableDatabase == null) {
+                    return;
+                }
+                try {
+                    writableDatabase.delete("via_cgi_report", "type = ?", new String[]{str});
+                } catch (Exception e) {
+                    SLog.e("openSDK_LOG.ReportDatabaseHelper", "clearReportItem has exception.", e);
+                }
             }
-            SQLiteDatabase writableDatabase = getWritableDatabase();
-            if (writableDatabase == null) {
-                return;
-            }
-            try {
-                writableDatabase.delete("via_cgi_report", "type = ?", new String[]{str});
-            } catch (Exception e) {
-                SLog.e("openSDK_LOG.ReportDatabaseHelper", "clearReportItem has exception.", e);
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS via_cgi_report( _id INTEGER PRIMARY KEY,key TEXT,type TEXT,blob BLOB);");
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, sQLiteDatabase, i, i2) == null) {
-            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS via_cgi_report");
-            onCreate(sQLiteDatabase);
         }
     }
 
@@ -154,118 +136,119 @@ public class f extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized List<Serializable> a(String str) {
+    public synchronized List a(String str) {
         InterceptResult invokeL;
         ObjectInputStream objectInputStream;
         Serializable serializable;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
-            return (List) invokeL.objValue;
-        }
-        synchronized (this) {
-            List<Serializable> synchronizedList = Collections.synchronizedList(new ArrayList());
-            if (TextUtils.isEmpty(str)) {
-                return synchronizedList;
-            }
-            SQLiteDatabase readableDatabase = getReadableDatabase();
-            if (readableDatabase == null) {
-                return synchronizedList;
-            }
-            Cursor cursor = null;
-            ObjectInputStream objectInputStream2 = null;
-            cursor = null;
-            try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this) {
+                List synchronizedList = Collections.synchronizedList(new ArrayList());
+                if (TextUtils.isEmpty(str)) {
+                    return synchronizedList;
+                }
+                SQLiteDatabase readableDatabase = getReadableDatabase();
+                if (readableDatabase == null) {
+                    return synchronizedList;
+                }
+                Cursor cursor = null;
+                ObjectInputStream objectInputStream2 = null;
+                cursor = null;
                 try {
-                    Cursor query = readableDatabase.query("via_cgi_report", null, "type = ?", new String[]{str}, null, null, null);
-                    if (query != null) {
-                        try {
-                            if (query.getCount() > 0) {
-                                query.moveToFirst();
-                                do {
-                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(query.getBlob(query.getColumnIndex("blob")));
-                                    try {
-                                        objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                    try {
+                        Cursor query = readableDatabase.query("via_cgi_report", null, "type = ?", new String[]{str}, null, null, null);
+                        if (query != null) {
+                            try {
+                                if (query.getCount() > 0) {
+                                    query.moveToFirst();
+                                    do {
+                                        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(query.getBlob(query.getColumnIndex("blob")));
                                         try {
-                                            serializable = (Serializable) objectInputStream.readObject();
+                                            objectInputStream = new ObjectInputStream(byteArrayInputStream);
                                             try {
-                                                objectInputStream.close();
-                                            } catch (IOException unused) {
-                                            }
-                                            try {
-                                                byteArrayInputStream.close();
-                                            } catch (IOException unused2) {
-                                            }
-                                        } catch (Exception unused3) {
-                                            if (objectInputStream != null) {
+                                                serializable = (Serializable) objectInputStream.readObject();
                                                 try {
                                                     objectInputStream.close();
-                                                } catch (IOException unused4) {
+                                                } catch (IOException unused) {
                                                 }
-                                            }
-                                            try {
-                                                byteArrayInputStream.close();
-                                            } catch (IOException unused5) {
-                                            }
-                                            serializable = null;
-                                            if (serializable != null) {
-                                            }
-                                            if (!query.moveToNext()) {
-                                                if (query != null) {
-                                                }
-                                            }
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            objectInputStream2 = objectInputStream;
-                                            if (objectInputStream2 != null) {
                                                 try {
-                                                    objectInputStream2.close();
-                                                } catch (IOException unused6) {
+                                                    byteArrayInputStream.close();
+                                                } catch (IOException unused2) {
                                                 }
+                                            } catch (Exception unused3) {
+                                                if (objectInputStream != null) {
+                                                    try {
+                                                        objectInputStream.close();
+                                                    } catch (IOException unused4) {
+                                                    }
+                                                }
+                                                try {
+                                                    byteArrayInputStream.close();
+                                                } catch (IOException unused5) {
+                                                }
+                                                serializable = null;
+                                                if (serializable != null) {
+                                                }
+                                                if (!query.moveToNext()) {
+                                                    if (query != null) {
+                                                    }
+                                                }
+                                            } catch (Throwable th) {
+                                                th = th;
+                                                objectInputStream2 = objectInputStream;
+                                                if (objectInputStream2 != null) {
+                                                    try {
+                                                        objectInputStream2.close();
+                                                    } catch (IOException unused6) {
+                                                    }
+                                                }
+                                                try {
+                                                    byteArrayInputStream.close();
+                                                } catch (IOException unused7) {
+                                                }
+                                                throw th;
                                             }
-                                            try {
-                                                byteArrayInputStream.close();
-                                            } catch (IOException unused7) {
-                                            }
-                                            throw th;
+                                        } catch (Exception unused8) {
+                                            objectInputStream = null;
+                                        } catch (Throwable th2) {
+                                            th = th2;
                                         }
-                                    } catch (Exception unused8) {
-                                        objectInputStream = null;
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                    }
-                                    if (serializable != null) {
-                                        synchronizedList.add(serializable);
-                                    }
-                                } while (!query.moveToNext());
+                                        if (serializable != null) {
+                                            synchronizedList.add(serializable);
+                                        }
+                                    } while (!query.moveToNext());
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                cursor = query;
+                                SLog.e("openSDK_LOG.ReportDatabaseHelper", "getReportItemFromDB has exception.", e);
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                cursor = query;
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                if (readableDatabase != null) {
+                                    readableDatabase.close();
+                                }
+                                throw th;
                             }
-                        } catch (Exception e) {
-                            e = e;
-                            cursor = query;
-                            SLog.e("openSDK_LOG.ReportDatabaseHelper", "getReportItemFromDB has exception.", e);
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            cursor = query;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            if (readableDatabase != null) {
-                                readableDatabase.close();
-                            }
-                            throw th;
                         }
+                        if (query != null) {
+                            query.close();
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
                     }
-                    if (query != null) {
-                        query.close();
-                    }
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Throwable th4) {
+                    th = th4;
                 }
-            } catch (Throwable th4) {
-                th = th4;
             }
+        } else {
+            return (List) invokeL.objValue;
         }
     }
 
@@ -284,85 +267,101 @@ public class f extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void a(String str, List<Serializable> list) {
+    public synchronized void a(String str, List list) {
         ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list) != null) {
-            return;
-        }
-        synchronized (this) {
-            int size = list.size();
-            if (size == 0) {
-                return;
-            }
-            if (size > 20) {
-                size = 20;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            b(str);
-            SQLiteDatabase writableDatabase = getWritableDatabase();
-            if (writableDatabase == null) {
-                return;
-            }
-            writableDatabase.beginTransaction();
-            try {
-                ContentValues contentValues = new ContentValues();
-                for (int i = 0; i < size; i++) {
-                    Serializable serializable = list.get(i);
-                    if (serializable != null) {
-                        contentValues.put("type", str);
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(512);
-                        ObjectOutputStream objectOutputStream2 = null;
-                        try {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list) == null) {
+            synchronized (this) {
+                int size = list.size();
+                if (size == 0) {
+                    return;
+                }
+                if (size > 20) {
+                    size = 20;
+                }
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                b(str);
+                SQLiteDatabase writableDatabase = getWritableDatabase();
+                if (writableDatabase == null) {
+                    return;
+                }
+                writableDatabase.beginTransaction();
+                try {
+                    ContentValues contentValues = new ContentValues();
+                    for (int i = 0; i < size; i++) {
+                        Serializable serializable = (Serializable) list.get(i);
+                        if (serializable != null) {
+                            contentValues.put("type", str);
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(512);
+                            ObjectOutputStream objectOutputStream2 = null;
                             try {
-                                objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                            } catch (IOException unused) {
-                            }
-                            try {
-                                objectOutputStream.writeObject(serializable);
-                                objectOutputStream.close();
-                            } catch (IOException unused2) {
-                                if (objectOutputStream != null) {
-                                    objectOutputStream.close();
-                                }
-                                byteArrayOutputStream.close();
-                            } catch (Throwable th) {
-                                th = th;
-                                objectOutputStream2 = objectOutputStream;
-                                if (objectOutputStream2 != null) {
-                                    try {
-                                        objectOutputStream2.close();
-                                    } catch (IOException unused3) {
-                                    }
+                                try {
+                                    objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                                } catch (IOException unused) {
                                 }
                                 try {
+                                    objectOutputStream.writeObject(serializable);
+                                    objectOutputStream.close();
+                                } catch (IOException unused2) {
+                                    if (objectOutputStream != null) {
+                                        objectOutputStream.close();
+                                    }
                                     byteArrayOutputStream.close();
-                                } catch (IOException unused4) {
+                                } catch (Throwable th) {
+                                    th = th;
+                                    objectOutputStream2 = objectOutputStream;
+                                    if (objectOutputStream2 != null) {
+                                        try {
+                                            objectOutputStream2.close();
+                                        } catch (IOException unused3) {
+                                        }
+                                    }
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (IOException unused4) {
+                                    }
+                                    throw th;
                                 }
-                                throw th;
+                            } catch (IOException unused5) {
+                                objectOutputStream = null;
+                            } catch (Throwable th2) {
+                                th = th2;
                             }
-                        } catch (IOException unused5) {
-                            objectOutputStream = null;
-                        } catch (Throwable th2) {
-                            th = th2;
+                            try {
+                                byteArrayOutputStream.close();
+                            } catch (IOException unused6) {
+                                contentValues.put("blob", byteArrayOutputStream.toByteArray());
+                                writableDatabase.insert("via_cgi_report", null, contentValues);
+                            }
                         }
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException unused6) {
-                            contentValues.put("blob", byteArrayOutputStream.toByteArray());
-                            writableDatabase.insert("via_cgi_report", null, contentValues);
-                        }
+                        contentValues.clear();
                     }
-                    contentValues.clear();
+                    writableDatabase.setTransactionSuccessful();
+                    writableDatabase.endTransaction();
+                } catch (Exception unused7) {
+                    SLog.e("openSDK_LOG.ReportDatabaseHelper", "saveReportItemToDB has exception.");
+                    writableDatabase.endTransaction();
                 }
-                writableDatabase.setTransactionSuccessful();
-                writableDatabase.endTransaction();
-            } catch (Exception unused7) {
-                SLog.e("openSDK_LOG.ReportDatabaseHelper", "saveReportItemToDB has exception.");
-                writableDatabase.endTransaction();
             }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS via_cgi_report( _id INTEGER PRIMARY KEY,key TEXT,type TEXT,blob BLOB);");
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048580, this, sQLiteDatabase, i, i2) == null) {
+            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS via_cgi_report");
+            onCreate(sQLiteDatabase);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.text;
 
-import android.annotation.TargetApi;
 import android.graphics.Typeface;
 import android.view.accessibility.CaptioningManager;
 import androidx.core.view.InputDeviceCompat;
@@ -76,7 +75,6 @@ public final class CaptionStyleCompat {
         this.typeface = typeface;
     }
 
-    @TargetApi(19)
     public static CaptionStyleCompat createFromCaptionStyle(CaptioningManager.CaptionStyle captionStyle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -89,19 +87,54 @@ public final class CaptionStyleCompat {
         return (CaptionStyleCompat) invokeL.objValue;
     }
 
-    @TargetApi(19)
     public static CaptionStyleCompat createFromCaptionStyleV19(CaptioningManager.CaptionStyle captionStyle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, captionStyle)) == null) ? new CaptionStyleCompat(captionStyle.foregroundColor, captionStyle.backgroundColor, 0, captionStyle.edgeType, captionStyle.edgeColor, captionStyle.getTypeface()) : (CaptionStyleCompat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, captionStyle)) == null) {
+            return new CaptionStyleCompat(captionStyle.foregroundColor, captionStyle.backgroundColor, 0, captionStyle.edgeType, captionStyle.edgeColor, captionStyle.getTypeface());
+        }
+        return (CaptionStyleCompat) invokeL.objValue;
     }
 
-    @TargetApi(21)
     public static CaptionStyleCompat createFromCaptionStyleV21(CaptioningManager.CaptionStyle captionStyle) {
         InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, captionStyle)) == null) {
-            return new CaptionStyleCompat(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : DEFAULT.foregroundColor, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : DEFAULT.backgroundColor, captionStyle.hasWindowColor() ? captionStyle.windowColor : DEFAULT.windowColor, captionStyle.hasEdgeType() ? captionStyle.edgeType : DEFAULT.edgeType, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : DEFAULT.edgeColor, captionStyle.getTypeface());
+            if (captionStyle.hasForegroundColor()) {
+                i = captionStyle.foregroundColor;
+            } else {
+                i = DEFAULT.foregroundColor;
+            }
+            int i6 = i;
+            if (captionStyle.hasBackgroundColor()) {
+                i2 = captionStyle.backgroundColor;
+            } else {
+                i2 = DEFAULT.backgroundColor;
+            }
+            int i7 = i2;
+            if (captionStyle.hasWindowColor()) {
+                i3 = captionStyle.windowColor;
+            } else {
+                i3 = DEFAULT.windowColor;
+            }
+            int i8 = i3;
+            if (captionStyle.hasEdgeType()) {
+                i4 = captionStyle.edgeType;
+            } else {
+                i4 = DEFAULT.edgeType;
+            }
+            int i9 = i4;
+            if (captionStyle.hasEdgeColor()) {
+                i5 = captionStyle.edgeColor;
+            } else {
+                i5 = DEFAULT.edgeColor;
+            }
+            return new CaptionStyleCompat(i6, i7, i8, i9, i5, captionStyle.getTypeface());
         }
         return (CaptionStyleCompat) invokeL.objValue;
     }

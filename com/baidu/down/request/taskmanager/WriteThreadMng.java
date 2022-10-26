@@ -18,7 +18,7 @@ public class WriteThreadMng {
     public static final String TAG = "WriteThreadMng";
     public transient /* synthetic */ FieldHolder $fh;
     public Object mLock;
-    public Map<String, WriteThread> mThreadMap;
+    public Map mThreadMap;
     public int mWritePoolSize;
     public WriteThread[] mWriteThread;
     public ExecutorService mWriteThreadPool;
@@ -54,18 +54,18 @@ public class WriteThreadMng {
     }
 
     public void closeDownloadFileStream(String str) {
-        WriteThread remove;
+        WriteThread writeThread;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             synchronized (this.mLock) {
-                remove = this.mThreadMap.remove(str);
+                writeThread = (WriteThread) this.mThreadMap.remove(str);
                 if (TaskFacade.getInstance(null) != null && TaskFacade.getInstance(null).getBinaryTaskMng() != null && TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str) != null && TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str).mTaskSpeedStat.endWriteTimeMillis == -1) {
                     TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str).mTaskSpeedStat.endWriteTimeMillis = SystemClock.elapsedRealtime();
                 }
             }
-            if (remove != null) {
+            if (writeThread != null) {
                 try {
-                    remove.closeOutputFile(str);
+                    writeThread.closeOutputFile(str);
                 } catch (Exception unused) {
                 }
             }
@@ -77,13 +77,13 @@ public class WriteThreadMng {
         WriteThread[] writeThreadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteArrayInfo) == null) {
-            WriteThread writeThread2 = this.mThreadMap.get(byteArrayInfo.mkey);
+            WriteThread writeThread2 = (WriteThread) this.mThreadMap.get(byteArrayInfo.mkey);
             if (writeThread2 != null) {
                 writeThread2.put(byteArrayInfo);
                 return;
             }
             synchronized (this.mLock) {
-                writeThread = this.mThreadMap.get(byteArrayInfo.mkey);
+                writeThread = (WriteThread) this.mThreadMap.get(byteArrayInfo.mkey);
                 if (writeThread == null) {
                     for (WriteThread writeThread3 : this.mWriteThread) {
                         if (writeThread == null || writeThread.getQueueSize() > writeThread3.getQueueSize()) {

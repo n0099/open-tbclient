@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.param.dye.DyeConfigManager;
@@ -32,7 +31,6 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes2.dex */
 public class UBCLooperRegister extends ILooperRegister {
     public static /* synthetic */ Interceptable $ic = null;
@@ -81,7 +79,10 @@ public class UBCLooperRegister extends ILooperRegister {
     public boolean checkEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? sEnable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return sEnable;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.looper.ioc.ILooperRegister
@@ -174,13 +175,13 @@ public class UBCLooperRegister extends ILooperRegister {
                 if (AppConfig.isDebug()) {
                     Log.d(TAG, "stack format after: " + sb);
                 }
-                LinkedList<TrackUI> trackUIs = looperBlock.getTrackUIs();
+                LinkedList trackUIs = looperBlock.getTrackUIs();
                 if (trackUIs != null && trackUIs.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
                     int i = 1;
                     int size = trackUIs.size() - 1;
                     while (true) {
-                        TrackUI trackUI = trackUIs.get(size);
+                        TrackUI trackUI = (TrackUI) trackUIs.get(size);
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("time", trackUI.getTimeStamp());
                         jSONObject2.put("page", RukaTrackUIUtil.trackUI2StringPage(trackUI));

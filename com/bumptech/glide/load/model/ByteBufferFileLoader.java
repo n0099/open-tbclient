@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.model;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,16 +18,41 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
+public class ByteBufferFileLoader implements ModelLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ByteBufferFileLoader";
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.model.ModelLoader
+    public boolean handles(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static final class ByteBufferFetcher implements DataFetcher<ByteBuffer> {
+    public final class ByteBufferFetcher implements DataFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final File file;
+
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        public void cleanup() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public ByteBufferFetcher(File file) {
             Interceptable interceptable = $ic;
@@ -49,37 +73,27 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        public void cleanup() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
-        public Class<ByteBuffer> getDataClass() {
+        public Class getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ByteBuffer.class : (Class) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return ByteBuffer.class;
+            }
+            return (Class) invokeV.objValue;
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? DataSource.LOCAL : (DataSource) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return DataSource.LOCAL;
+            }
+            return (DataSource) invokeV.objValue;
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super ByteBuffer> dataCallback) {
+        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
                 try {
@@ -95,9 +109,16 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
     }
 
     /* loaded from: classes7.dex */
-    public static class Factory implements ModelLoaderFactory<File, ByteBuffer> {
+    public class Factory implements ModelLoaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        public void teardown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public Factory() {
             Interceptable interceptable = $ic;
@@ -114,18 +135,13 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        @NonNull
-        public ModelLoader<File, ByteBuffer> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
+        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) ? new ByteBufferFileLoader() : (ModelLoader) invokeL.objValue;
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public void teardown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
+                return new ByteBufferFileLoader();
             }
+            return (ModelLoader) invokeL.objValue;
         }
     }
 
@@ -145,20 +161,12 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(@NonNull File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<ByteBuffer> buildLoadData(@NonNull File file, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData buildLoadData(File file, int i, int i2, Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(file), new ByteBufferFetcher(file)) : (ModelLoader.LoadData) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            return new ModelLoader.LoadData(new ObjectKey(file), new ByteBufferFetcher(file));
+        }
+        return (ModelLoader.LoadData) invokeCommon.objValue;
     }
 }

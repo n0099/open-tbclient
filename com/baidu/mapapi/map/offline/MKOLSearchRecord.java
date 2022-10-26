@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MKOLSearchRecord {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<MKOLSearchRecord> childCities;
+    public ArrayList childCities;
     public int cityID;
     public String cityName;
     public int cityType;

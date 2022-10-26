@@ -2,7 +2,6 @@ package com.baidu.searchbox.download.center.clearcache;
 
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
 import com.baidu.searchbox.retrieve.inter.IFetchJob;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes2.dex */
 public class DiskFetchLogJob extends IFetchJob {
     public static /* synthetic */ Interceptable $ic = null;
@@ -26,6 +24,13 @@ public class DiskFetchLogJob extends IFetchJob {
     public static String DISK_UNMARK_CMD = null;
     public static final String TAG = "DiskFetchLogJob";
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
+    public String getFetchJobType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "flow" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +69,7 @@ public class DiskFetchLogJob extends IFetchJob {
     public void dispatch(JSONObject jSONObject) {
         FetchLogBean parseJsonContent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || (parseJsonContent = FetchLog.parseJsonContent(jSONObject)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || (parseJsonContent = FetchLog.parseJsonContent(jSONObject)) == null) {
             return;
         }
         if (DEBUG) {
@@ -81,12 +86,5 @@ public class DiskFetchLogJob extends IFetchJob {
                 ClearCacheUbcController.reportBaiduFile(ClearCacheUbcController.REPORT_FILE_TYPE_FISHING_BACK);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
-    public String getFetchJobType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "flow" : (String) invokeV.objValue;
     }
 }

@@ -29,14 +29,17 @@ public final class WidevineUtil {
         }
     }
 
-    public static long getDurationRemainingSec(Map<String, String> map, String str) {
+    public static long getDurationRemainingSec(Map map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, str)) == null) {
             if (map != null) {
                 try {
-                    String str2 = map.get(str);
-                    return str2 != null ? Long.parseLong(str2) : C.TIME_UNSET;
+                    String str2 = (String) map.get(str);
+                    if (str2 != null) {
+                        return Long.parseLong(str2);
+                    }
+                    return C.TIME_UNSET;
                 } catch (NumberFormatException unused) {
                     return C.TIME_UNSET;
                 }
@@ -46,15 +49,15 @@ public final class WidevineUtil {
         return invokeLL.longValue;
     }
 
-    public static Pair<Long, Long> getLicenseDurationRemainingSec(DrmSession<?> drmSession) {
+    public static Pair getLicenseDurationRemainingSec(DrmSession drmSession) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, drmSession)) == null) {
-            Map<String, String> queryKeyStatus = drmSession.queryKeyStatus();
+            Map queryKeyStatus = drmSession.queryKeyStatus();
             if (queryKeyStatus == null) {
                 return null;
             }
-            return new Pair<>(Long.valueOf(getDurationRemainingSec(queryKeyStatus, PROPERTY_LICENSE_DURATION_REMAINING)), Long.valueOf(getDurationRemainingSec(queryKeyStatus, PROPERTY_PLAYBACK_DURATION_REMAINING)));
+            return new Pair(Long.valueOf(getDurationRemainingSec(queryKeyStatus, PROPERTY_LICENSE_DURATION_REMAINING)), Long.valueOf(getDurationRemainingSec(queryKeyStatus, PROPERTY_PLAYBACK_DURATION_REMAINING)));
         }
         return (Pair) invokeL.objValue;
     }

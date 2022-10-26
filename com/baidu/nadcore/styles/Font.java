@@ -1,6 +1,5 @@
 package com.baidu.nadcore.styles;
 
-import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +12,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class Font {
     public static final /* synthetic */ Font[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"InlinedApi"})
     public static final Font F_F_X01;
-    @SuppressLint({"InlinedApi"})
     public static final Font F_F_X02;
-    @SuppressLint({"InlinedApi"})
     public static final Font F_F_X03;
-    @SuppressLint({"InlinedApi"})
     public static final Font F_NORMAL;
     public transient /* synthetic */ FieldHolder $fh;
     public int mFontWeight;
@@ -69,18 +64,27 @@ public final class Font {
     public static Font valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Font) Enum.valueOf(Font.class, str) : (Font) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Font) Enum.valueOf(Font.class, str);
+        }
+        return (Font) invokeL.objValue;
     }
 
     public static Font[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Font[]) $VALUES.clone() : (Font[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Font[]) $VALUES.clone();
+        }
+        return (Font[]) invokeV.objValue;
     }
 
     public int getFontWeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFontWeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mFontWeight;
+        }
+        return invokeV.intValue;
     }
 }

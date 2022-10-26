@@ -15,9 +15,16 @@ import java.util.List;
 public class GiftPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<View> a;
+    public List a;
 
-    public GiftPagerAdapter(List<View> list) {
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(View view2, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+    }
+
+    public GiftPagerAdapter(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,10 +46,9 @@ public class GiftPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) || i < 0 || i >= getCount()) {
-            return;
+        if ((interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) && i >= 0 && i < getCount()) {
+            viewGroup.removeView((View) this.a.get(i));
         }
-        viewGroup.removeView(this.a.get(i));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -50,7 +56,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<View> list = this.a;
+            List list = this.a;
             if (list == null) {
                 return 0;
             }
@@ -64,20 +70,13 @@ public class GiftPagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            if (i < 0 || i >= getCount()) {
-                return null;
+            if (i >= 0 && i < getCount()) {
+                View view2 = (View) this.a.get(i);
+                viewGroup.addView(view2);
+                return view2;
             }
-            View view2 = this.a.get(i);
-            viewGroup.addView(view2);
-            return view2;
+            return null;
         }
         return invokeLI.objValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 }

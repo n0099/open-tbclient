@@ -1,14 +1,12 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p57;
-import com.baidu.tieba.r57;
+import com.baidu.tieba.x57;
+import com.baidu.tieba.z57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +22,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Cdo> mTopicDataList;
+    public List mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicListMessage() {
@@ -44,11 +42,18 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         }
     }
 
+    public List getTopicDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTopicDataList;
+        }
+        return (List) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
-        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             NewTopicListResIdl newTopicListResIdl = (NewTopicListResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicListResIdl.class);
@@ -57,33 +62,31 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
             }
             setError(newTopicListResIdl.error.errorno.intValue());
             setErrorString(newTopicListResIdl.error.usermsg);
-            if (getError() == 0 && (dataRes = newTopicListResIdl.data) != null && !ListUtils.isEmpty(dataRes.topic_list)) {
+            if (getError() != 0) {
+                return newTopicListResIdl;
+            }
+            DataRes dataRes = newTopicListResIdl.data;
+            if (dataRes != null && !ListUtils.isEmpty(dataRes.topic_list)) {
                 this.mTopicDataList = new ArrayList();
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                     if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                        p57 p57Var = new p57();
-                        p57Var.R = i2;
-                        p57Var.O(newTopicList);
-                        this.mTopicDataList.add(p57Var);
-                        r57 r57Var = new r57();
-                        r57Var.a = R.dimen.tbds1;
-                        r57Var.b = R.color.CAM_X0203;
-                        this.mTopicDataList.add(r57Var);
+                        x57 x57Var = new x57();
+                        x57Var.R = i2;
+                        x57Var.O(newTopicList);
+                        this.mTopicDataList.add(x57Var);
+                        z57 z57Var = new z57();
+                        z57Var.a = R.dimen.tbds1;
+                        z57Var.b = R.color.CAM_X0203;
+                        this.mTopicDataList.add(z57Var);
                         i2++;
                     }
                 }
-                List<Cdo> list = this.mTopicDataList;
-                ((r57) ListUtils.getItem(list, list.size() - 1)).a = 0;
+                List list = this.mTopicDataList;
+                ((z57) ListUtils.getItem(list, list.size() - 1)).a = 0;
             }
             return newTopicListResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public List<Cdo> getTopicDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTopicDataList : (List) invokeV.objValue;
     }
 }

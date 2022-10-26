@@ -25,6 +25,36 @@ public class StrictLineReader implements Closeable {
     public final InputStream in;
     public int pos;
 
+    public StrictLineReader(InputStream inputStream, int i, Charset charset) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i), charset};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (inputStream != null && charset != null) {
+            if (i >= 0) {
+                if (charset.equals(Util.US_ASCII)) {
+                    this.in = inputStream;
+                    this.charset = charset;
+                    this.buf = new byte[i];
+                    return;
+                }
+                throw new IllegalArgumentException("Unsupported encoding");
+            }
+            throw new IllegalArgumentException("capacity <= 0");
+        }
+        throw null;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public StrictLineReader(InputStream inputStream, Charset charset) {
         this(inputStream, 8192, charset);
@@ -77,7 +107,13 @@ public class StrictLineReader implements Closeable {
     public boolean hasUnterminatedLine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.end == -1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.end == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public String readLine() throws IOException {
@@ -136,11 +172,17 @@ public class StrictLineReader implements Closeable {
                         @Override // java.io.ByteArrayOutputStream
                         public String toString() {
                             InterceptResult invokeV2;
+                            int i4;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
-                                int i4 = ((ByteArrayOutputStream) this).count;
+                                int i5 = ((ByteArrayOutputStream) this).count;
+                                if (i5 > 0 && ((ByteArrayOutputStream) this).buf[i5 - 1] == 13) {
+                                    i4 = i5 - 1;
+                                } else {
+                                    i4 = ((ByteArrayOutputStream) this).count;
+                                }
                                 try {
-                                    return new String(((ByteArrayOutputStream) this).buf, 0, (i4 <= 0 || ((ByteArrayOutputStream) this).buf[i4 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i4 - 1, this.this$0.charset.name());
+                                    return new String(((ByteArrayOutputStream) this).buf, 0, i4, this.this$0.charset.name());
                                 } catch (UnsupportedEncodingException e) {
                                     throw new AssertionError(e);
                                 }
@@ -170,35 +212,5 @@ public class StrictLineReader implements Closeable {
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    public StrictLineReader(InputStream inputStream, int i, Charset charset) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i), charset};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (inputStream == null || charset == null) {
-            throw null;
-        }
-        if (i >= 0) {
-            if (charset.equals(Util.US_ASCII)) {
-                this.in = inputStream;
-                this.charset = charset;
-                this.buf = new byte[i];
-                return;
-            }
-            throw new IllegalArgumentException("Unsupported encoding");
-        }
-        throw new IllegalArgumentException("capacity <= 0");
     }
 }

@@ -4,7 +4,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.HttpCookie;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -13,8 +12,8 @@ public class PassHttpParamDTO implements com.baidu.pass.a {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean asyncCookie;
     public int connectTimeout;
-    public List<HttpCookie> cookie;
-    public HashMap<String, String> headers;
+    public List cookie;
+    public HashMap headers;
     public HttpHashMap paramsMap;
     public ReqPriority priority;
     public String url;
@@ -36,6 +35,6 @@ public class PassHttpParamDTO implements com.baidu.pass.a {
         this.paramsMap = new HttpHashMap();
         this.asyncCookie = false;
         this.priority = ReqPriority.NORMAL;
-        this.headers = new HashMap<>(1);
+        this.headers = new HashMap(1);
     }
 }

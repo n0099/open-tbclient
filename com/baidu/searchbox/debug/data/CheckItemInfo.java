@@ -45,19 +45,28 @@ public final class CheckItemInfo extends DebugItemInfo {
     public final CompoundButton.OnCheckedChangeListener getCheckedChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.checkedChangeListener : (CompoundButton.OnCheckedChangeListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.checkedChangeListener;
+        }
+        return (CompoundButton.OnCheckedChangeListener) invokeV.objValue;
     }
 
     public final String getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final Boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isChecked : (Boolean) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isChecked;
+        }
+        return (Boolean) invokeV.objValue;
     }
 
     public final void setCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {

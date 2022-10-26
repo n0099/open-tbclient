@@ -27,7 +27,7 @@ public class e extends j {
     public b yU;
 
     /* loaded from: classes.dex */
-    public static final class a extends Handler {
+    public final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -128,7 +128,7 @@ public class e extends j {
         if (!(interceptable == null || interceptable.invokeL(65542, this, framePixels) == null) || (bVar = this.yU) == null) {
             return;
         }
-        bVar.a(framePixels, new ICallbackWith<f>(this) { // from class: com.baidu.ar.vo.b.e.3
+        bVar.a(framePixels, new ICallbackWith(this) { // from class: com.baidu.ar.vo.b.e.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e yV;

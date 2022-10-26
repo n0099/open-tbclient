@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.videocache.kwai;
 
 import java.io.File;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -9,7 +10,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     public final ExecutorService aeY = com.kwad.sdk.core.threads.b.vh();
 
     /* loaded from: classes7.dex */
-    public class a implements Callable<Void> {
+    public final class a implements Callable {
         public final File file;
 
         public a(File file) {
@@ -26,10 +27,12 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
         }
     }
 
-    private void s(List<File> list) {
+    private void s(List list) {
         long t = t(list);
         list.size();
-        for (File file : list) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            File file = (File) it.next();
             if (!J(t)) {
                 long length = file.length();
                 if (file.delete()) {
@@ -41,10 +44,11 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
         }
     }
 
-    public static long t(List<File> list) {
+    public static long t(List list) {
+        Iterator it = list.iterator();
         long j = 0;
-        for (File file : list) {
-            j += file.length();
+        while (it.hasNext()) {
+            j += ((File) it.next()).length();
         }
         return j;
     }

@@ -6,9 +6,6 @@ import android.os.Build;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes7.dex */
 public class BadgeUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -28,6 +24,7 @@ public class BadgeUtils {
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1675188459, "Lcom/google/android/material/badge/BadgeUtils;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -39,7 +36,12 @@ public class BadgeUtils {
                 return;
             }
         }
-        USE_COMPAT_PARENT = Build.VERSION.SDK_INT < 18;
+        if (Build.VERSION.SDK_INT < 18) {
+            z = true;
+        } else {
+            z = false;
+        }
+        USE_COMPAT_PARENT = z;
     }
 
     public BadgeUtils() {
@@ -56,7 +58,7 @@ public class BadgeUtils {
         }
     }
 
-    public static void attachBadgeDrawable(@NonNull BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
+    public static void attachBadgeDrawable(BadgeDrawable badgeDrawable, View view2, FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, badgeDrawable, view2, frameLayout) == null) {
             setBadgeDrawableBounds(badgeDrawable, view2, frameLayout);
@@ -68,12 +70,39 @@ public class BadgeUtils {
         }
     }
 
-    @NonNull
-    public static SparseArray<BadgeDrawable> createBadgeDrawablesFromSavedStates(Context context, @NonNull ParcelableSparseArray parcelableSparseArray) {
+    public static void detachBadgeDrawable(BadgeDrawable badgeDrawable, View view2, FrameLayout frameLayout) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65541, null, badgeDrawable, view2, frameLayout) != null) || badgeDrawable == null) {
+            return;
+        }
+        if (USE_COMPAT_PARENT) {
+            frameLayout.setForeground(null);
+        } else {
+            view2.getOverlay().remove(badgeDrawable);
+        }
+    }
+
+    public static void setBadgeDrawableBounds(BadgeDrawable badgeDrawable, View view2, FrameLayout frameLayout) {
+        FrameLayout frameLayout2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, badgeDrawable, view2, frameLayout) == null) {
+            Rect rect = new Rect();
+            if (USE_COMPAT_PARENT) {
+                frameLayout2 = frameLayout;
+            } else {
+                frameLayout2 = view2;
+            }
+            frameLayout2.getDrawingRect(rect);
+            badgeDrawable.setBounds(rect);
+            badgeDrawable.updateBadgeCoordinates(view2, frameLayout);
+        }
+    }
+
+    public static SparseArray createBadgeDrawablesFromSavedStates(Context context, ParcelableSparseArray parcelableSparseArray) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, parcelableSparseArray)) == null) {
-            SparseArray<BadgeDrawable> sparseArray = new SparseArray<>(parcelableSparseArray.size());
+            SparseArray sparseArray = new SparseArray(parcelableSparseArray.size());
             for (int i = 0; i < parcelableSparseArray.size(); i++) {
                 int keyAt = parcelableSparseArray.keyAt(i);
                 BadgeDrawable.SavedState savedState = (BadgeDrawable.SavedState) parcelableSparseArray.valueAt(i);
@@ -88,17 +117,16 @@ public class BadgeUtils {
         return (SparseArray) invokeLL.objValue;
     }
 
-    @NonNull
-    public static ParcelableSparseArray createParcelableBadgeStates(@NonNull SparseArray<BadgeDrawable> sparseArray) {
+    public static ParcelableSparseArray createParcelableBadgeStates(SparseArray sparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseArray)) == null) {
             ParcelableSparseArray parcelableSparseArray = new ParcelableSparseArray();
             for (int i = 0; i < sparseArray.size(); i++) {
                 int keyAt = sparseArray.keyAt(i);
-                BadgeDrawable valueAt = sparseArray.valueAt(i);
-                if (valueAt != null) {
-                    parcelableSparseArray.put(keyAt, valueAt.getSavedState());
+                BadgeDrawable badgeDrawable = (BadgeDrawable) sparseArray.valueAt(i);
+                if (badgeDrawable != null) {
+                    parcelableSparseArray.put(keyAt, badgeDrawable.getSavedState());
                 } else {
                     throw new IllegalArgumentException("badgeDrawable cannot be null");
                 }
@@ -108,29 +136,7 @@ public class BadgeUtils {
         return (ParcelableSparseArray) invokeL.objValue;
     }
 
-    public static void detachBadgeDrawable(@Nullable BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65541, null, badgeDrawable, view2, frameLayout) == null) || badgeDrawable == null) {
-            return;
-        }
-        if (USE_COMPAT_PARENT) {
-            frameLayout.setForeground(null);
-        } else {
-            view2.getOverlay().remove(badgeDrawable);
-        }
-    }
-
-    public static void setBadgeDrawableBounds(@NonNull BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, badgeDrawable, view2, frameLayout) == null) {
-            Rect rect = new Rect();
-            (USE_COMPAT_PARENT ? frameLayout : view2).getDrawingRect(rect);
-            badgeDrawable.setBounds(rect);
-            badgeDrawable.updateBadgeCoordinates(view2, frameLayout);
-        }
-    }
-
-    public static void updateBadgeBounds(@NonNull Rect rect, float f, float f2, float f3, float f4) {
+    public static void updateBadgeBounds(Rect rect, float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{rect, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             rect.set((int) (f - f3), (int) (f2 - f4), (int) (f + f3), (int) (f2 + f4));

@@ -75,88 +75,20 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
         }
     }
 
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.a = getIntent().getBooleanExtra("is_dark_mode", false);
-            this.b = getIntent().getBooleanExtra("show_bottom_back", false);
-            this.c = getIntent().getStringExtra("external_title");
-            this.d = getIntent().getStringExtra("external_url");
-        }
-    }
-
-    private void c() {
-        ViewStub viewStub;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            if (this.a) {
-                setTheme(R.style.obfuscated_res_0x7f10017c);
-            }
-            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f09265a);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
-            ImageView imageView = (ImageView) findViewById(R.id.title_btn_left_iv);
-            this.mLeftBtnIv = imageView;
-            imageView.setOnClickListener(this);
-            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.title_left_btn_layout);
-            this.dividerLine = findViewById(R.id.title_divider_line);
-            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.sapi_title_bg_layout);
-            this.mTitle.setText(this.c);
-            if (this.b) {
-                if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.stub_bottom_back)) != null) {
-                    this.bottomBackView = viewStub.inflate();
-                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.sapi_bottom_back);
-                    this.mBottomBackTvText = (TextView) findViewById(R.id.sapi_textview_back);
-                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.sapi_layout_bottom_back);
-                    this.mBottomDividerLine = (ImageView) findViewById(R.id.sapi_sdk_bottom_divider_line);
-                    this.mBottomBackBtnIv.setOnClickListener(this);
-                    this.mBottomBackTvText.setOnClickListener(this);
-                    ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
-                    ViewUtility.setViewClickAlpha(this.mBottomBackTvText, 0.2f);
-                    this.mBottomBackTvText.setVisibility(this.configuration.isShowBottomBackText ? 0 : 8);
-                }
-                this.mLeftBtnIv.setVisibility(8);
-            }
-            SapiConfiguration sapiConfiguration = this.configuration;
-            if (sapiConfiguration != null) {
-                ViewUtility.enlargedViews(this.mLeftBtnIv, sapiConfiguration.getTextZoom());
-                ViewUtility.enlargedViews(this.mTitle, this.configuration.getTextZoom());
-                ViewUtility.enlargedViews(this.mBottomBackBtnIv, this.configuration.getTextZoom());
-                ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.getTextZoom());
-            }
-            if (this.a) {
-                this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f081030);
-                this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
-                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                ImageView imageView2 = this.mBottomBackBtnIv;
-                if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081030);
-                }
-                RelativeLayout relativeLayout = this.mBottomBgLayout;
-                if (relativeLayout != null) {
-                    relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                }
-                TextView textView = this.mBottomBackTvText;
-                if (textView != null) {
-                    textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
-                }
-                ImageView imageView3 = this.mBottomDividerLine;
-                if (imageView3 != null) {
-                    imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                }
-            }
-            a();
-            this.e.loadUrl(this.d);
-        }
-    }
-
     @Override // android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.finish();
             a(false);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
         }
     }
 
@@ -176,18 +108,10 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             if (this.configuration == null) {
                 this.configuration = SapiAccountManager.getInstance().getConfignation();
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0503);
+            setContentView(R.layout.obfuscated_res_0x7f0d0500);
             a(true);
             b();
             c();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroy();
         }
     }
 
@@ -304,15 +228,14 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, webView, str, bitmap) == null) {
                         super.onPageStarted(webView, str, bitmap);
-                        if (SapiUtils.hasActiveNetwork(this.a)) {
-                            return;
+                        if (!SapiUtils.hasActiveNetwork(this.a)) {
+                            CurrentProcessWebviewActivity currentProcessWebviewActivity = this.a;
+                            if (currentProcessWebviewActivity.noNetworkView == null) {
+                                currentProcessWebviewActivity.noNetworkView = b.a(currentProcessWebviewActivity, currentProcessWebviewActivity.e);
+                                this.a.e.addView(this.a.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
+                            }
+                            this.a.noNetworkView.setVisibility(0);
                         }
-                        CurrentProcessWebviewActivity currentProcessWebviewActivity = this.a;
-                        if (currentProcessWebviewActivity.noNetworkView == null) {
-                            currentProcessWebviewActivity.noNetworkView = b.a(currentProcessWebviewActivity, currentProcessWebviewActivity.e);
-                            this.a.e.addView(this.a.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
-                        }
-                        this.a.noNetworkView.setVisibility(0);
                     }
                 }
             });
@@ -327,6 +250,89 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             } else {
                 overridePendingTransition(R.anim.obfuscated_res_0x7f01011a, R.anim.obfuscated_res_0x7f01011d);
             }
+        }
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            this.a = getIntent().getBooleanExtra("is_dark_mode", false);
+            this.b = getIntent().getBooleanExtra("show_bottom_back", false);
+            this.c = getIntent().getStringExtra("external_title");
+            this.d = getIntent().getStringExtra("external_url");
+        }
+    }
+
+    private void c() {
+        ViewStub viewStub;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            if (this.a) {
+                setTheme(R.style.obfuscated_res_0x7f10017c);
+            }
+            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092642);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            ImageView imageView = (ImageView) findViewById(R.id.title_btn_left_iv);
+            this.mLeftBtnIv = imageView;
+            imageView.setOnClickListener(this);
+            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.title_left_btn_layout);
+            this.dividerLine = findViewById(R.id.title_divider_line);
+            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.sapi_title_bg_layout);
+            this.mTitle.setText(this.c);
+            if (this.b) {
+                if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.stub_bottom_back)) != null) {
+                    this.bottomBackView = viewStub.inflate();
+                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.sapi_bottom_back);
+                    this.mBottomBackTvText = (TextView) findViewById(R.id.sapi_textview_back);
+                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.sapi_layout_bottom_back);
+                    this.mBottomDividerLine = (ImageView) findViewById(R.id.sapi_sdk_bottom_divider_line);
+                    this.mBottomBackBtnIv.setOnClickListener(this);
+                    this.mBottomBackTvText.setOnClickListener(this);
+                    ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
+                    ViewUtility.setViewClickAlpha(this.mBottomBackTvText, 0.2f);
+                    TextView textView = this.mBottomBackTvText;
+                    if (this.configuration.isShowBottomBackText) {
+                        i = 0;
+                    } else {
+                        i = 8;
+                    }
+                    textView.setVisibility(i);
+                }
+                this.mLeftBtnIv.setVisibility(8);
+            }
+            SapiConfiguration sapiConfiguration = this.configuration;
+            if (sapiConfiguration != null) {
+                ViewUtility.enlargedViews(this.mLeftBtnIv, sapiConfiguration.getTextZoom());
+                ViewUtility.enlargedViews(this.mTitle, this.configuration.getTextZoom());
+                ViewUtility.enlargedViews(this.mBottomBackBtnIv, this.configuration.getTextZoom());
+                ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.getTextZoom());
+            }
+            if (this.a) {
+                this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f081041);
+                this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
+                this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                ImageView imageView2 = this.mBottomBackBtnIv;
+                if (imageView2 != null) {
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081041);
+                }
+                RelativeLayout relativeLayout = this.mBottomBgLayout;
+                if (relativeLayout != null) {
+                    relativeLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                }
+                TextView textView2 = this.mBottomBackTvText;
+                if (textView2 != null) {
+                    textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
+                }
+                ImageView imageView3 = this.mBottomDividerLine;
+                if (imageView3 != null) {
+                    imageView3.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
+                }
+            }
+            a();
+            this.e.loadUrl(this.d);
         }
     }
 }

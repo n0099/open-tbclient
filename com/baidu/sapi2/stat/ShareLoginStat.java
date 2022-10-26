@@ -24,8 +24,23 @@ public class ShareLoginStat implements NoProguard {
     public static final String UBC_ID = "4833";
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-271702348, "Lcom/baidu/sapi2/stat/ShareLoginStat;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-271702348, "Lcom/baidu/sapi2/stat/ShareLoginStat;");
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class GetShareListStat implements NoProguard {
+    public class GetShareListStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ACCOUNT_APPS = "account_apps";
         public static final String KEY_ACCOUNT_SIZE = "account_size";
@@ -59,7 +74,7 @@ public class ShareLoginStat implements NoProguard {
         public static final String VALUE_SENCE_OUT = "out";
         public static final String VALUE_UNABLE = "0";
         public static String sValueSence;
-        public static Map<String, Object> statExtMap;
+        public static Map statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -142,7 +157,7 @@ public class ShareLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public static class MakeShareLoginStat implements NoProguard {
+    public class MakeShareLoginStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ERRMSG = "errorMsg";
         public static final String KEY_ERRNO = "errorNo";
@@ -163,7 +178,7 @@ public class ShareLoginStat implements NoProguard {
         public static final String VALUE_SENCE_OUT = "out";
         public static final String VALUE_UNABLE = "0";
         public static String sValueSence;
-        public static Map<String, Object> statExtMap;
+        public static Map statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -240,21 +255,6 @@ public class ShareLoginStat implements NoProguard {
                 ubcUploadImplCallback.onEvent(ShareLoginStat.UBC_ID, jSONObject2);
                 resetData();
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-271702348, "Lcom/baidu/sapi2/stat/ShareLoginStat;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-271702348, "Lcom/baidu/sapi2/stat/ShareLoginStat;");
         }
     }
 

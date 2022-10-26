@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.mr;
+import com.baidu.tieba.nr;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,42 +23,12 @@ public final class TaskStatusRuntime implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic;
     public static final a Companion;
     public transient /* synthetic */ FieldHolder $fh;
-    public mr curAction;
+    public nr curAction;
     public String curDuplicateId;
     public boolean duplicated;
     public String extraUnRegisterMsg;
     public boolean hasFailed;
     public boolean responseDataIsCache;
-
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final TaskStatusRuntime a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new TaskStatusRuntime(false, false, false, null, null, null, 63, null) : (TaskStatusRuntime) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -87,7 +57,7 @@ public final class TaskStatusRuntime implements ITaskModelData {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Boolean) objArr[2]).booleanValue(), (String) objArr[3], (String) objArr[4], (mr) objArr[5], ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
+                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Boolean) objArr[2]).booleanValue(), (String) objArr[3], (String) objArr[4], (nr) objArr[5], ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -95,30 +65,7 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
     }
 
-    public TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, mr mrVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, mrVar};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.hasFailed = z;
-        this.duplicated = z2;
-        this.responseDataIsCache = z3;
-        this.curDuplicateId = str;
-        this.extraUnRegisterMsg = str2;
-        this.curAction = mrVar;
-    }
-
-    public static /* synthetic */ TaskStatusRuntime copy$default(TaskStatusRuntime taskStatusRuntime, boolean z, boolean z2, boolean z3, String str, String str2, mr mrVar, int i, Object obj) {
+    public static /* synthetic */ TaskStatusRuntime copy$default(TaskStatusRuntime taskStatusRuntime, boolean z, boolean z2, boolean z3, String str, String str2, nr nrVar, int i, Object obj) {
         if ((i & 1) != 0) {
             z = taskStatusRuntime.hasFailed;
         }
@@ -139,9 +86,9 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
         String str4 = str2;
         if ((i & 32) != 0) {
-            mrVar = taskStatusRuntime.curAction;
+            nrVar = taskStatusRuntime.curAction;
         }
-        return taskStatusRuntime.copy(z, z4, z5, str3, str4, mrVar);
+        return taskStatusRuntime.copy(z, z4, z5, str3, str4, nrVar);
     }
 
     public final boolean component1() {
@@ -174,16 +121,16 @@ public final class TaskStatusRuntime implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.extraUnRegisterMsg : (String) invokeV.objValue;
     }
 
-    public final mr component6() {
+    public final nr component6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.curAction : (mr) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.curAction : (nr) invokeV.objValue;
     }
 
-    public final TaskStatusRuntime copy(boolean z, boolean z2, boolean z3, String str, String str2, mr mrVar) {
+    public final TaskStatusRuntime copy(boolean z, boolean z2, boolean z3, String str, String str2, nr nrVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, mrVar})) == null) ? new TaskStatusRuntime(z, z2, z3, str, str2, mrVar) : (TaskStatusRuntime) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, nrVar})) == null) ? new TaskStatusRuntime(z, z2, z3, str, str2, nrVar) : (TaskStatusRuntime) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -205,42 +152,6 @@ public final class TaskStatusRuntime implements ITaskModelData {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public final mr getCurAction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.curAction : (mr) invokeV.objValue;
-    }
-
-    public final String getCurDuplicateId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.curDuplicateId : (String) invokeV.objValue;
-    }
-
-    public final boolean getDuplicated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.duplicated : invokeV.booleanValue;
-    }
-
-    public final String getExtraUnRegisterMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.extraUnRegisterMsg : (String) invokeV.objValue;
-    }
-
-    public final boolean getHasFailed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.hasFailed : invokeV.booleanValue;
-    }
-
-    public final boolean getResponseDataIsCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.responseDataIsCache : invokeV.booleanValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -270,17 +181,193 @@ public final class TaskStatusRuntime implements ITaskModelData {
             int hashCode = (i4 + (str != null ? str.hashCode() : 0)) * 31;
             String str2 = this.extraUnRegisterMsg;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            mr mrVar = this.curAction;
-            return hashCode2 + (mrVar != null ? mrVar.hashCode() : 0);
+            nr nrVar = this.curAction;
+            return hashCode2 + (nrVar != null ? nrVar.hashCode() : 0);
         }
         return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return "TaskStatusRuntime(hasFailed=" + this.hasFailed + ", duplicated=" + this.duplicated + ", responseDataIsCache=" + this.responseDataIsCache + ", curDuplicateId=" + this.curDuplicateId + ", extraUnRegisterMsg=" + this.extraUnRegisterMsg + ", curAction=" + this.curAction + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final TaskStatusRuntime a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new TaskStatusRuntime(false, false, false, null, null, null, 63, null);
+            }
+            return (TaskStatusRuntime) invokeV.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, nr nrVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, nrVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.hasFailed = z;
+        this.duplicated = z2;
+        this.responseDataIsCache = z3;
+        this.curDuplicateId = str;
+        this.extraUnRegisterMsg = str2;
+        this.curAction = nrVar;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, nr nrVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r12, r1, r0, r2, r3, (i & 32) != 0 ? null : nrVar);
+        boolean z4;
+        boolean z5;
+        String str3;
+        String str4;
+        if ((i & 1) != 0) {
+            z4 = false;
+        } else {
+            z4 = z;
+        }
+        if ((i & 2) != 0) {
+            z5 = false;
+        } else {
+            z5 = z2;
+        }
+        boolean z6 = (i & 4) == 0 ? z3 : false;
+        if ((i & 8) != 0) {
+            str3 = "";
+        } else {
+            str3 = str;
+        }
+        if ((i & 16) != 0) {
+            str4 = "";
+        } else {
+            str4 = str2;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskStatusRuntime deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new TaskStatusRuntime(this.hasFailed, this.duplicated, this.responseDataIsCache, this.curDuplicateId, this.extraUnRegisterMsg, this.curAction);
+        }
+        return (TaskStatusRuntime) invokeV.objValue;
+    }
+
+    public final nr getCurAction() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.curAction;
+        }
+        return (nr) invokeV.objValue;
+    }
+
+    public final String getCurDuplicateId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.curDuplicateId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean getDuplicated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.duplicated;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String getExtraUnRegisterMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.extraUnRegisterMsg;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean getHasFailed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.hasFailed;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean getResponseDataIsCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.responseDataIsCache;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? ITaskModelData.a.a(this) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return ITaskModelData.a.a(this);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return new JSONObject();
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public final void onStatusChanged(int i) {
@@ -290,10 +377,10 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
     }
 
-    public final void setCurAction(mr mrVar) {
+    public final void setCurAction(nr nrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, mrVar) == null) {
-            this.curAction = mrVar;
+        if (interceptable == null || interceptable.invokeL(1048595, this, nrVar) == null) {
+            this.curAction = nrVar;
         }
     }
 
@@ -330,33 +417,5 @@ public final class TaskStatusRuntime implements ITaskModelData {
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             this.responseDataIsCache = z;
         }
-    }
-
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? new JSONObject() : (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return "TaskStatusRuntime(hasFailed=" + this.hasFailed + ", duplicated=" + this.duplicated + ", responseDataIsCache=" + this.responseDataIsCache + ", curDuplicateId=" + this.curDuplicateId + ", extraUnRegisterMsg=" + this.extraUnRegisterMsg + ", curAction=" + this.curAction + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, mr mrVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? false : z, (i & 2) != 0 ? false : z2, (i & 4) == 0 ? z3 : false, (i & 8) != 0 ? "" : str, (i & 16) != 0 ? "" : str2, (i & 32) != 0 ? null : mrVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskStatusRuntime deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new TaskStatusRuntime(this.hasFailed, this.duplicated, this.responseDataIsCache, this.curDuplicateId, this.extraUnRegisterMsg, this.curAction) : (TaskStatusRuntime) invokeV.objValue;
     }
 }

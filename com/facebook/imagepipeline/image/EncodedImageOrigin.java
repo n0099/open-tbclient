@@ -64,19 +64,28 @@ public final class EncodedImageOrigin {
     public static EncodedImageOrigin valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EncodedImageOrigin) Enum.valueOf(EncodedImageOrigin.class, str) : (EncodedImageOrigin) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (EncodedImageOrigin) Enum.valueOf(EncodedImageOrigin.class, str);
+        }
+        return (EncodedImageOrigin) invokeL.objValue;
     }
 
     public static EncodedImageOrigin[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EncodedImageOrigin[]) $VALUES.clone() : (EncodedImageOrigin[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (EncodedImageOrigin[]) $VALUES.clone();
+        }
+        return (EncodedImageOrigin[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mOrigin : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mOrigin;
+        }
+        return (String) invokeV.objValue;
     }
 }

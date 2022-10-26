@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import android.view.Surface;
 /* loaded from: classes5.dex */
 public interface qg1 {
-    void a();
+    void onVideoSizeChanged(int i, int i2);
 
-    void b(Surface surface);
+    void setDisplayMode(int i);
 }

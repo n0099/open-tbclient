@@ -3,6 +3,7 @@ package androidx.transition;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +35,7 @@ public class SidePropagation extends VisibilityPropagation {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0017, code lost:
-        if ((androidx.core.view.ViewCompat.getLayoutDirection(r7) == 1) != false) goto L9;
+        if (r4 != false) goto L9;
      */
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0019, code lost:
         r0 = 5;
@@ -43,7 +44,7 @@ public class SidePropagation extends VisibilityPropagation {
         r0 = 3;
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x002a, code lost:
-        if ((androidx.core.view.ViewCompat.getLayoutDirection(r7) == 1) != false) goto L26;
+        if (r4 != false) goto L26;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -53,8 +54,14 @@ public class SidePropagation extends VisibilityPropagation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
             int i9 = this.mSide;
-            if (i9 != 8388611) {
-                if (i9 == 8388613) {
+            boolean z = true;
+            if (i9 == 8388611) {
+                if (ViewCompat.getLayoutDirection(view2) != 1) {
+                    z = false;
+                }
+            } else if (i9 == 8388613) {
+                if (ViewCompat.getLayoutDirection(view2) != 1) {
+                    z = false;
                 }
             }
             if (i9 != 3) {
@@ -87,6 +94,24 @@ public class SidePropagation extends VisibilityPropagation {
         return invokeL.intValue;
     }
 
+    public void setPropagationSpeed(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            if (f != 0.0f) {
+                this.mPropagationSpeed = f;
+                return;
+            }
+            throw new IllegalArgumentException("propagationSpeed may not be 0");
+        }
+    }
+
+    public void setSide(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mSide = i;
+        }
+    }
+
     @Override // androidx.transition.TransitionPropagation
     public long getStartDelay(ViewGroup viewGroup, Transition transition, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
@@ -100,11 +125,11 @@ public class SidePropagation extends VisibilityPropagation {
                 return 0L;
             }
             Rect epicenter = transition.getEpicenter();
-            if (transitionValues2 == null || getViewVisibility(transitionValues3) == 0) {
-                i = -1;
-            } else {
+            if (transitionValues2 != null && getViewVisibility(transitionValues3) != 0) {
                 transitionValues3 = transitionValues2;
                 i = 1;
+            } else {
+                i = -1;
             }
             int viewX = getViewX(transitionValues3);
             int viewY = getViewY(transitionValues3);
@@ -129,23 +154,5 @@ public class SidePropagation extends VisibilityPropagation {
             return Math.round((((float) (duration * i)) / this.mPropagationSpeed) * distance);
         }
         return invokeLLLL.longValue;
-    }
-
-    public void setPropagationSpeed(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-            if (f != 0.0f) {
-                this.mPropagationSpeed = f;
-                return;
-            }
-            throw new IllegalArgumentException("propagationSpeed may not be 0");
-        }
-    }
-
-    public void setSide(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mSide = i;
-        }
     }
 }

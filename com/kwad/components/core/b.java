@@ -1,7 +1,6 @@
 package com.kwad.components.core;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +33,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements com.kwad.sdk.core.download.d {
+    public final class a implements com.kwad.sdk.core.download.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,11 +66,11 @@ public final class b {
 
     /* renamed from: com.kwad.components.core.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0569b implements com.kwad.sdk.service.kwai.b {
+    public final class C0565b implements com.kwad.sdk.service.kwai.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0569b() {
+        public C0565b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +86,7 @@ public final class b {
     }
 
     /* loaded from: classes7.dex */
-    public static class c implements com.kwad.sdk.service.kwai.d {
+    public final class c implements com.kwad.sdk.service.kwai.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,7 +212,7 @@ public final class b {
     }
 
     /* loaded from: classes7.dex */
-    public static class d implements f {
+    public final class d implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -292,7 +291,7 @@ public final class b {
         }
 
         @Override // com.kwad.sdk.service.kwai.f
-        public final List<String> lD() {
+        public final List lD() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.sdk.core.config.d.lD() : (List) invokeV.objValue;
@@ -397,7 +396,6 @@ public final class b {
         }
     }
 
-    @NonNull
     public static AdHttpProxy le() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -446,7 +444,7 @@ public final class b {
                 }
 
                 @Override // com.kwad.sdk.service.kwai.e
-                public final Class<?> getProxyRealClass(Class<?> cls) {
+                public final Class getProxyRealClass(Class cls) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls)) == null) ? KsAdSDKImpl.getProxyRealClass(cls) : (Class) invokeL.objValue;
@@ -512,7 +510,7 @@ public final class b {
     public static void lj() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0569b());
+            ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0565b());
         }
     }
 

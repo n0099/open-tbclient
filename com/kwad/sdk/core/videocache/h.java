@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.videocache;
 
 import android.text.TextUtils;
-import com.baidubce.http.Headers;
 import com.kwad.sdk.core.network.o;
 import com.kwad.sdk.core.network.q;
 import com.kwad.sdk.utils.am;
@@ -39,8 +38,8 @@ public final class h implements l {
     }
 
     private void a(HttpURLConnection httpURLConnection, String str) {
-        for (Map.Entry<String, String> entry : this.ael.vZ().entrySet()) {
-            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+        for (Map.Entry entry : this.ael.vZ().entrySet()) {
+            httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
         }
     }
 
@@ -86,7 +85,7 @@ public final class h implements l {
             int responseCode = httpURLConnection.getResponseCode();
             z = responseCode == 301 || responseCode == 302 || responseCode == 303;
             if (z) {
-                str2 = httpURLConnection.getHeaderField(Headers.LOCATION);
+                str2 = httpURLConnection.getHeaderField("Location");
                 i2++;
                 httpURLConnection.disconnect();
             }

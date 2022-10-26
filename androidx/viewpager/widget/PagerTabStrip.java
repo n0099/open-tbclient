@@ -9,11 +9,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -52,7 +47,7 @@ public class PagerTabStrip extends PagerTitleStrip {
     public int mTouchSlop;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PagerTabStrip(@NonNull Context context) {
+    public PagerTabStrip(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,179 +67,8 @@ public class PagerTabStrip extends PagerTitleStrip {
         }
     }
 
-    public boolean getDrawFullUnderline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDrawFullUnderline : invokeV.booleanValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerTitleStrip
-    public int getMinHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Math.max(super.getMinHeight(), this.mMinStripHeight) : invokeV.intValue;
-    }
-
-    @ColorInt
-    public int getTabIndicatorColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIndicatorColor : invokeV.intValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            super.onDraw(canvas);
-            int height = getHeight();
-            int left = this.mCurrText.getLeft() - this.mTabPadding;
-            int right = this.mCurrText.getRight() + this.mTabPadding;
-            this.mTabPaint.setColor((this.mTabAlpha << 24) | (this.mIndicatorColor & 16777215));
-            float f = height;
-            canvas.drawRect(left, height - this.mIndicatorHeight, right, f, this.mTabPaint);
-            if (this.mDrawFullUnderline) {
-                this.mTabPaint.setColor((-16777216) | (this.mIndicatorColor & 16777215));
-                canvas.drawRect(getPaddingLeft(), height - this.mFullUnderlineHeight, getWidth() - getPaddingRight(), f, this.mTabPaint);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0 || !this.mIgnoreTap) {
-                float x = motionEvent.getX();
-                float y = motionEvent.getY();
-                if (action == 0) {
-                    this.mInitialMotionX = x;
-                    this.mInitialMotionY = y;
-                    this.mIgnoreTap = false;
-                } else if (action != 1) {
-                    if (action == 2 && (Math.abs(x - this.mInitialMotionX) > this.mTouchSlop || Math.abs(y - this.mInitialMotionY) > this.mTouchSlop)) {
-                        this.mIgnoreTap = true;
-                    }
-                } else if (x < this.mCurrText.getLeft() - this.mTabPadding) {
-                    ViewPager viewPager = this.mPager;
-                    viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-                } else if (x > this.mCurrText.getRight() + this.mTabPadding) {
-                    ViewPager viewPager2 = this.mPager;
-                    viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void setBackgroundColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.setBackgroundColor(i);
-            if (this.mDrawFullUnderlineSet) {
-                return;
-            }
-            this.mDrawFullUnderline = (i & (-16777216)) == 0;
-        }
-    }
-
-    @Override // android.view.View
-    public void setBackgroundDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
-            super.setBackgroundDrawable(drawable);
-            if (this.mDrawFullUnderlineSet) {
-                return;
-            }
-            this.mDrawFullUnderline = drawable == null;
-        }
-    }
-
-    @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            super.setBackgroundResource(i);
-            if (this.mDrawFullUnderlineSet) {
-                return;
-            }
-            this.mDrawFullUnderline = i == 0;
-        }
-    }
-
-    public void setDrawFullUnderline(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.mDrawFullUnderline = z;
-            this.mDrawFullUnderlineSet = true;
-            invalidate();
-        }
-    }
-
-    @Override // android.view.View
-    public void setPadding(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) {
-            int i5 = this.mMinPaddingBottom;
-            if (i4 < i5) {
-                i4 = i5;
-            }
-            super.setPadding(i, i2, i3, i4);
-        }
-    }
-
-    public void setTabIndicatorColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.mIndicatorColor = i;
-            this.mTabPaint.setColor(i);
-            invalidate();
-        }
-    }
-
-    public void setTabIndicatorColorResource(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            setTabIndicatorColor(ContextCompat.getColor(getContext(), i));
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerTitleStrip
-    public void setTextSpacing(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            int i2 = this.mMinTextSpacing;
-            if (i < i2) {
-                i = i2;
-            }
-            super.setTextSpacing(i);
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerTitleStrip
-    public void updateTextPositions(int i, float f, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Boolean.valueOf(z)}) == null) {
-            Rect rect = this.mTempRect;
-            int height = getHeight();
-            int left = this.mCurrText.getLeft() - this.mTabPadding;
-            int right = this.mCurrText.getRight() + this.mTabPadding;
-            int i2 = height - this.mIndicatorHeight;
-            rect.set(left, i2, right, height);
-            super.updateTextPositions(i, f, z);
-            this.mTabAlpha = (int) (Math.abs(f - 0.5f) * 2.0f * 255.0f);
-            rect.union(this.mCurrText.getLeft() - this.mTabPadding, i2, this.mCurrText.getRight() + this.mTabPadding, height);
-            invalidate(rect);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PagerTabStrip(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public PagerTabStrip(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -349,6 +173,202 @@ public class PagerTabStrip extends PagerTitleStrip {
         });
         if (getBackground() == null) {
             this.mDrawFullUnderline = true;
+        }
+    }
+
+    public boolean getDrawFullUnderline() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDrawFullUnderline;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerTitleStrip
+    public int getMinHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Math.max(super.getMinHeight(), this.mMinStripHeight);
+        }
+        return invokeV.intValue;
+    }
+
+    public int getTabIndicatorColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIndicatorColor;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            super.onDraw(canvas);
+            int height = getHeight();
+            int left = this.mCurrText.getLeft() - this.mTabPadding;
+            int right = this.mCurrText.getRight() + this.mTabPadding;
+            this.mTabPaint.setColor((this.mTabAlpha << 24) | (this.mIndicatorColor & 16777215));
+            float f = height;
+            canvas.drawRect(left, height - this.mIndicatorHeight, right, f, this.mTabPaint);
+            if (this.mDrawFullUnderline) {
+                this.mTabPaint.setColor((-16777216) | (this.mIndicatorColor & 16777215));
+                canvas.drawRect(getPaddingLeft(), height - this.mFullUnderlineHeight, getWidth() - getPaddingRight(), f, this.mTabPaint);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0 && this.mIgnoreTap) {
+                return false;
+            }
+            float x = motionEvent.getX();
+            float y = motionEvent.getY();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2 && (Math.abs(x - this.mInitialMotionX) > this.mTouchSlop || Math.abs(y - this.mInitialMotionY) > this.mTouchSlop)) {
+                        this.mIgnoreTap = true;
+                    }
+                } else if (x < this.mCurrText.getLeft() - this.mTabPadding) {
+                    ViewPager viewPager = this.mPager;
+                    viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+                } else if (x > this.mCurrText.getRight() + this.mTabPadding) {
+                    ViewPager viewPager2 = this.mPager;
+                    viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
+                }
+            } else {
+                this.mInitialMotionX = x;
+                this.mInitialMotionY = y;
+                this.mIgnoreTap = false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public void setBackgroundColor(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.setBackgroundColor(i);
+            if (!this.mDrawFullUnderlineSet) {
+                if ((i & (-16777216)) == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.mDrawFullUnderline = z;
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void setBackgroundDrawable(Drawable drawable) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
+            super.setBackgroundDrawable(drawable);
+            if (!this.mDrawFullUnderlineSet) {
+                if (drawable == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.mDrawFullUnderline = z;
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void setBackgroundResource(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.setBackgroundResource(i);
+            if (!this.mDrawFullUnderlineSet) {
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.mDrawFullUnderline = z;
+            }
+        }
+    }
+
+    public void setDrawFullUnderline(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.mDrawFullUnderline = z;
+            this.mDrawFullUnderlineSet = true;
+            invalidate();
+        }
+    }
+
+    public void setTabIndicatorColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mIndicatorColor = i;
+            this.mTabPaint.setColor(i);
+            invalidate();
+        }
+    }
+
+    public void setTabIndicatorColorResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            setTabIndicatorColor(ContextCompat.getColor(getContext(), i));
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerTitleStrip
+    public void setTextSpacing(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            int i2 = this.mMinTextSpacing;
+            if (i < i2) {
+                i = i2;
+            }
+            super.setTextSpacing(i);
+        }
+    }
+
+    @Override // android.view.View
+    public void setPadding(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) {
+            int i5 = this.mMinPaddingBottom;
+            if (i4 < i5) {
+                i4 = i5;
+            }
+            super.setPadding(i, i2, i3, i4);
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerTitleStrip
+    public void updateTextPositions(int i, float f, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Boolean.valueOf(z)}) == null) {
+            Rect rect = this.mTempRect;
+            int height = getHeight();
+            int left = this.mCurrText.getLeft() - this.mTabPadding;
+            int right = this.mCurrText.getRight() + this.mTabPadding;
+            int i2 = height - this.mIndicatorHeight;
+            rect.set(left, i2, right, height);
+            super.updateTextPositions(i, f, z);
+            this.mTabAlpha = (int) (Math.abs(f - 0.5f) * 2.0f * 255.0f);
+            rect.union(this.mCurrText.getLeft() - this.mTabPadding, i2, this.mCurrText.getRight() + this.mTabPadding, height);
+            invalidate(rect);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice.i;
 
-import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -68,7 +67,6 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
-@SuppressLint({"WorldReadableFiles"})
 /* loaded from: classes.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic = null;
@@ -1739,13 +1737,13 @@ public final class m {
                 if (TextUtils.isEmpty(e)) {
                     return null;
                 }
-                ArrayList<com.baidu.android.pushservice.a.e> c2 = com.baidu.android.pushservice.a.b.a(context).c(b(e));
+                ArrayList c2 = com.baidu.android.pushservice.a.b.a(context).c(b(e));
                 if (c2 != null) {
-                    Iterator<com.baidu.android.pushservice.a.e> it = c2.iterator();
+                    Iterator it = c2.iterator();
                     while (it.hasNext()) {
-                        com.baidu.android.pushservice.a.e next = it.next();
-                        if (next.b().equals(str)) {
-                            return next.a();
+                        com.baidu.android.pushservice.a.e eVar = (com.baidu.android.pushservice.a.e) it.next();
+                        if (eVar.b().equals(str)) {
+                            return eVar.a();
                         }
                     }
                     return null;
@@ -1825,13 +1823,13 @@ public final class m {
                 if (TextUtils.isEmpty(d)) {
                     return 0;
                 }
-                ArrayList<com.baidu.android.pushservice.a.e> c2 = com.baidu.android.pushservice.a.b.a(context).c(b(d));
+                ArrayList c2 = com.baidu.android.pushservice.a.b.a(context).c(b(d));
                 if (c2 != null) {
-                    Iterator<com.baidu.android.pushservice.a.e> it = c2.iterator();
+                    Iterator it = c2.iterator();
                     while (it.hasNext()) {
-                        com.baidu.android.pushservice.a.e next = it.next();
-                        if (TextUtils.equals(next.b(), str)) {
-                            return next.c();
+                        com.baidu.android.pushservice.a.e eVar = (com.baidu.android.pushservice.a.e) it.next();
+                        if (TextUtils.equals(eVar.b(), str)) {
+                            return eVar.c();
                         }
                     }
                     return 0;

@@ -216,13 +216,6 @@ public final class TypeAdapters {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.gson.internal.bind.TypeAdapters$EnumTypeAdapter<T extends java.lang.Enum<T>> */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.gson.TypeAdapter
-        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
-            write(jsonWriter, (JsonWriter) ((Enum) obj));
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         public T read(JsonReader jsonReader) throws IOException {
@@ -239,10 +232,23 @@ public final class TypeAdapters {
         }
 
         public void write(JsonWriter jsonWriter, T t) throws IOException {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jsonWriter, t) == null) {
-                jsonWriter.value(t == null ? null : this.constantToName.get(t));
+                if (t == null) {
+                    str = null;
+                } else {
+                    str = this.constantToName.get(t);
+                }
+                jsonWriter.value(str);
             }
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.gson.internal.bind.TypeAdapters$EnumTypeAdapter<T extends java.lang.Enum<T>> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // com.google.gson.TypeAdapter
+        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
+            write(jsonWriter, (JsonWriter) ((Enum) obj));
         }
     }
 
@@ -344,16 +350,18 @@ public final class TypeAdapters {
                         int i2 = AnonymousClass36.$SwitchMap$com$google$gson$stream$JsonToken[peek.ordinal()];
                         boolean z = true;
                         if (i2 != 1) {
-                            if (i2 == 2) {
-                                z = jsonReader.nextBoolean();
-                            } else if (i2 == 3) {
-                                String nextString = jsonReader.nextString();
-                                try {
-                                } catch (NumberFormatException unused) {
-                                    throw new JsonSyntaxException("Error: Expecting: bitset number value (1, 0), Found: " + nextString);
+                            if (i2 != 2) {
+                                if (i2 == 3) {
+                                    String nextString = jsonReader.nextString();
+                                    try {
+                                    } catch (NumberFormatException unused) {
+                                        throw new JsonSyntaxException("Error: Expecting: bitset number value (1, 0), Found: " + nextString);
+                                    }
+                                } else {
+                                    throw new JsonSyntaxException("Invalid bitset value type: " + peek);
                                 }
                             } else {
-                                throw new JsonSyntaxException("Invalid bitset value type: " + peek);
+                                z = jsonReader.nextBoolean();
                             }
                             if (z) {
                                 bitSet.set(i);
@@ -468,9 +476,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Boolean bool) throws IOException {
+                String bool2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jsonWriter, bool) == null) {
-                    jsonWriter.value(bool == null ? StringUtil.NULL_STRING : bool.toString());
+                    if (bool == null) {
+                        bool2 = StringUtil.NULL_STRING;
+                    } else {
+                        bool2 = bool.toString();
+                    }
+                    jsonWriter.value(bool2);
                 }
             }
         };
@@ -686,7 +700,10 @@ public final class TypeAdapters {
             public AtomicBoolean read(JsonReader jsonReader) throws IOException {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) ? new AtomicBoolean(jsonReader.nextBoolean()) : (AtomicBoolean) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
+                    return new AtomicBoolean(jsonReader.nextBoolean());
+                }
+                return (AtomicBoolean) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -920,14 +937,14 @@ public final class TypeAdapters {
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jsonReader)) == null) {
                     JsonToken peek = jsonReader.peek();
                     int i = AnonymousClass36.$SwitchMap$com$google$gson$stream$JsonToken[peek.ordinal()];
-                    if (i == 1 || i == 3) {
-                        return new LazilyParsedNumber(jsonReader.nextString());
+                    if (i != 1 && i != 3) {
+                        if (i == 4) {
+                            jsonReader.nextNull();
+                            return null;
+                        }
+                        throw new JsonSyntaxException("Expecting number, got: " + peek);
                     }
-                    if (i == 4) {
-                        jsonReader.nextNull();
-                        return null;
-                    }
-                    throw new JsonSyntaxException("Expecting number, got: " + peek);
+                    return new LazilyParsedNumber(jsonReader.nextString());
                 }
                 return (Number) invokeL.objValue;
             }
@@ -984,9 +1001,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Character ch) throws IOException {
+                String valueOf;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jsonWriter, ch) == null) {
-                    jsonWriter.value(ch == null ? null : String.valueOf(ch));
+                    if (ch == null) {
+                        valueOf = null;
+                    } else {
+                        valueOf = String.valueOf(ch);
+                    }
+                    jsonWriter.value(valueOf);
                 }
             }
         };
@@ -1166,9 +1189,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, StringBuilder sb) throws IOException {
+                String sb2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, sb) == null) {
-                    jsonWriter.value(sb == null ? null : sb.toString());
+                    if (sb == null) {
+                        sb2 = null;
+                    } else {
+                        sb2 = sb.toString();
+                    }
+                    jsonWriter.value(sb2);
                 }
             }
         };
@@ -1210,9 +1239,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, StringBuffer stringBuffer) throws IOException {
+                String stringBuffer2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, stringBuffer) == null) {
-                    jsonWriter.value(stringBuffer == null ? null : stringBuffer.toString());
+                    if (stringBuffer == null) {
+                        stringBuffer2 = null;
+                    } else {
+                        stringBuffer2 = stringBuffer.toString();
+                    }
+                    jsonWriter.value(stringBuffer2);
                 }
             }
         };
@@ -1258,9 +1293,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, URL url) throws IOException {
+                String externalForm;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, url) == null) {
-                    jsonWriter.value(url == null ? null : url.toExternalForm());
+                    if (url == null) {
+                        externalForm = null;
+                    } else {
+                        externalForm = url.toExternalForm();
+                    }
+                    jsonWriter.value(externalForm);
                 }
             }
         };
@@ -1310,9 +1351,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, URI uri) throws IOException {
+                String aSCIIString;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, uri) == null) {
-                    jsonWriter.value(uri == null ? null : uri.toASCIIString());
+                    if (uri == null) {
+                        aSCIIString = null;
+                    } else {
+                        aSCIIString = uri.toASCIIString();
+                    }
+                    jsonWriter.value(aSCIIString);
                 }
             }
         };
@@ -1354,9 +1401,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, InetAddress inetAddress) throws IOException {
+                String hostAddress;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, inetAddress) == null) {
-                    jsonWriter.value(inetAddress == null ? null : inetAddress.getHostAddress());
+                    if (inetAddress == null) {
+                        hostAddress = null;
+                    } else {
+                        hostAddress = inetAddress.getHostAddress();
+                    }
+                    jsonWriter.value(hostAddress);
                 }
             }
         };
@@ -1398,9 +1451,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, UUID uuid) throws IOException {
+                String uuid2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, uuid) == null) {
-                    jsonWriter.value(uuid == null ? null : uuid.toString());
+                    if (uuid == null) {
+                        uuid2 = null;
+                    } else {
+                        uuid2 = uuid.toString();
+                    }
+                    jsonWriter.value(uuid2);
                 }
             }
         };
@@ -1429,7 +1488,10 @@ public final class TypeAdapters {
             public Currency read(JsonReader jsonReader) throws IOException {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) ? Currency.getInstance(jsonReader.nextString()) : (Currency) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
+                    return Currency.getInstance(jsonReader.nextString());
+                }
+                return (Currency) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1636,23 +1698,36 @@ public final class TypeAdapters {
             @Override // com.google.gson.TypeAdapter
             public Locale read(JsonReader jsonReader) throws IOException {
                 InterceptResult invokeL;
+                String str;
+                String str2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
+                    String str3 = null;
                     if (jsonReader.peek() == JsonToken.NULL) {
                         jsonReader.nextNull();
                         return null;
                     }
                     StringTokenizer stringTokenizer = new StringTokenizer(jsonReader.nextString(), "_");
-                    String nextToken = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
-                    String nextToken2 = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
-                    String nextToken3 = stringTokenizer.hasMoreElements() ? stringTokenizer.nextToken() : null;
-                    if (nextToken2 == null && nextToken3 == null) {
-                        return new Locale(nextToken);
+                    if (stringTokenizer.hasMoreElements()) {
+                        str = stringTokenizer.nextToken();
+                    } else {
+                        str = null;
                     }
-                    if (nextToken3 == null) {
-                        return new Locale(nextToken, nextToken2);
+                    if (stringTokenizer.hasMoreElements()) {
+                        str2 = stringTokenizer.nextToken();
+                    } else {
+                        str2 = null;
                     }
-                    return new Locale(nextToken, nextToken2, nextToken3);
+                    if (stringTokenizer.hasMoreElements()) {
+                        str3 = stringTokenizer.nextToken();
+                    }
+                    if (str2 == null && str3 == null) {
+                        return new Locale(str);
+                    }
+                    if (str3 == null) {
+                        return new Locale(str, str2);
+                    }
+                    return new Locale(str, str2, str3);
                 }
                 return (Locale) invokeL.objValue;
             }
@@ -1660,9 +1735,15 @@ public final class TypeAdapters {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(JsonWriter jsonWriter, Locale locale) throws IOException {
+                String locale2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, locale) == null) {
-                    jsonWriter.value(locale == null ? null : locale.toString());
+                    if (locale == null) {
+                        locale2 = null;
+                    } else {
+                        locale2 = locale.toString();
+                    }
+                    jsonWriter.value(locale2);
                 }
             }
         };
@@ -1794,13 +1875,13 @@ public final class TypeAdapters {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
                     Class rawType = typeToken.getRawType();
-                    if (!Enum.class.isAssignableFrom(rawType) || rawType == Enum.class) {
-                        return null;
+                    if (Enum.class.isAssignableFrom(rawType) && rawType != Enum.class) {
+                        if (!rawType.isEnum()) {
+                            rawType = (Class<? super Object>) rawType.getSuperclass();
+                        }
+                        return new EnumTypeAdapter(rawType);
                     }
-                    if (!rawType.isEnum()) {
-                        rawType = (Class<? super Object>) rawType.getSuperclass();
-                    }
-                    return new EnumTypeAdapter(rawType);
+                    return null;
                 }
                 return (TypeAdapter) invokeLL.objValue;
             }
@@ -1826,136 +1907,87 @@ public final class TypeAdapters {
     public static <TT> TypeAdapterFactory newFactory(TypeToken<TT> typeToken, TypeAdapter<TT> typeAdapter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, typeToken, typeAdapter)) == null) ? new TypeAdapterFactory(typeToken, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.31
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ TypeToken val$type;
-            public final /* synthetic */ TypeAdapter val$typeAdapter;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, typeToken, typeAdapter)) == null) {
+            return new TypeAdapterFactory(typeToken, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.31
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TypeToken val$type;
+                public final /* synthetic */ TypeAdapter val$typeAdapter;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {typeToken, typeAdapter};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {typeToken, typeAdapter};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.val$type = typeToken;
+                    this.val$typeAdapter = typeAdapter;
                 }
-                this.val$type = typeToken;
-                this.val$typeAdapter = typeAdapter;
-            }
 
-            @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken2) {
-                InterceptResult invokeLL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, gson, typeToken2)) == null) {
-                    if (typeToken2.equals(this.val$type)) {
-                        return this.val$typeAdapter;
+                @Override // com.google.gson.TypeAdapterFactory
+                public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken2) {
+                    InterceptResult invokeLL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, gson, typeToken2)) == null) {
+                        if (typeToken2.equals(this.val$type)) {
+                            return this.val$typeAdapter;
+                        }
+                        return null;
                     }
-                    return null;
+                    return (TypeAdapter) invokeLL2.objValue;
                 }
-                return (TypeAdapter) invokeLL2.objValue;
-            }
-        } : (TypeAdapterFactory) invokeLL.objValue;
-    }
-
-    public static <TT> TypeAdapterFactory newFactoryForMultipleTypes(Class<TT> cls, Class<? extends TT> cls2, TypeAdapter<? super TT> typeAdapter) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, cls2, typeAdapter)) == null) ? new TypeAdapterFactory(cls, cls2, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.34
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Class val$base;
-            public final /* synthetic */ Class val$sub;
-            public final /* synthetic */ TypeAdapter val$typeAdapter;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cls, cls2, typeAdapter};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$base = cls;
-                this.val$sub = cls2;
-                this.val$typeAdapter = typeAdapter;
-            }
-
-            @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
-                    Class<? super T> rawType = typeToken.getRawType();
-                    if (rawType == this.val$base || rawType == this.val$sub) {
-                        return this.val$typeAdapter;
-                    }
-                    return null;
-                }
-                return (TypeAdapter) invokeLL.objValue;
-            }
-
-            public String toString() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return "Factory[type=" + this.val$base.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + this.val$sub.getName() + ",adapter=" + this.val$typeAdapter + PreferencesUtil.RIGHT_MOUNT;
-                }
-                return (String) invokeV.objValue;
-            }
-        } : (TypeAdapterFactory) invokeLLL.objValue;
+            };
+        }
+        return (TypeAdapterFactory) invokeLL.objValue;
     }
 
     public static <T1> TypeAdapterFactory newTypeHierarchyFactory(Class<T1> cls, TypeAdapter<T1> typeAdapter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, typeAdapter)) == null) ? new TypeAdapterFactory(cls, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.35
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Class val$clazz;
-            public final /* synthetic */ TypeAdapter val$typeAdapter;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, typeAdapter)) == null) {
+            return new TypeAdapterFactory(cls, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.35
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Class val$clazz;
+                public final /* synthetic */ TypeAdapter val$typeAdapter;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cls, typeAdapter};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {cls, typeAdapter};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.val$clazz = cls;
+                    this.val$typeAdapter = typeAdapter;
                 }
-                this.val$clazz = cls;
-                this.val$typeAdapter = typeAdapter;
-            }
 
-            @Override // com.google.gson.TypeAdapterFactory
-            public <T2> TypeAdapter<T2> create(Gson gson, TypeToken<T2> typeToken) {
-                InterceptResult invokeLL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
-                    Class<? super T2> rawType = typeToken.getRawType();
-                    if (this.val$clazz.isAssignableFrom(rawType)) {
+                @Override // com.google.gson.TypeAdapterFactory
+                public <T2> TypeAdapter<T2> create(Gson gson, TypeToken<T2> typeToken) {
+                    InterceptResult invokeLL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
+                        Class<? super T2> rawType = typeToken.getRawType();
+                        if (!this.val$clazz.isAssignableFrom(rawType)) {
+                            return null;
+                        }
                         return (TypeAdapter<T2>) new TypeAdapter<T1>(this, rawType) { // from class: com.google.gson.internal.bind.TypeAdapters.35.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -1991,10 +2023,10 @@ public final class TypeAdapters {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || (invokeL = interceptable3.invokeL(1048576, this, jsonReader)) == null) {
                                     ?? read = this.this$0.val$typeAdapter.read(jsonReader);
-                                    if (read == 0 || this.val$requestedType.isInstance(read)) {
-                                        return read;
+                                    if (read != 0 && !this.val$requestedType.isInstance(read)) {
+                                        throw new JsonSyntaxException("Expected a " + this.val$requestedType.getName() + " but was " + read.getClass().getName());
                                     }
-                                    throw new JsonSyntaxException("Expected a " + this.val$requestedType.getName() + " but was " + read.getClass().getName());
+                                    return read;
                                 }
                                 return invokeL.objValue;
                             }
@@ -2008,126 +2040,190 @@ public final class TypeAdapters {
                             }
                         };
                     }
-                    return null;
+                    return (TypeAdapter) invokeLL2.objValue;
                 }
-                return (TypeAdapter) invokeLL2.objValue;
-            }
 
-            public String toString() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return "Factory[typeHierarchy=" + this.val$clazz.getName() + ",adapter=" + this.val$typeAdapter + PreferencesUtil.RIGHT_MOUNT;
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return "Factory[typeHierarchy=" + this.val$clazz.getName() + ",adapter=" + this.val$typeAdapter + PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    return (String) invokeV.objValue;
                 }
-                return (String) invokeV.objValue;
-            }
-        } : (TypeAdapterFactory) invokeLL.objValue;
+            };
+        }
+        return (TypeAdapterFactory) invokeLL.objValue;
     }
 
     public static <TT> TypeAdapterFactory newFactory(Class<TT> cls, TypeAdapter<TT> typeAdapter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, typeAdapter)) == null) ? new TypeAdapterFactory(cls, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.32
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Class val$type;
-            public final /* synthetic */ TypeAdapter val$typeAdapter;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, typeAdapter)) == null) {
+            return new TypeAdapterFactory(cls, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.32
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Class val$type;
+                public final /* synthetic */ TypeAdapter val$typeAdapter;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cls, typeAdapter};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {cls, typeAdapter};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.val$type = cls;
+                    this.val$typeAdapter = typeAdapter;
                 }
-                this.val$type = cls;
-                this.val$typeAdapter = typeAdapter;
-            }
 
-            @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
-                InterceptResult invokeLL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
-                    if (typeToken.getRawType() == this.val$type) {
-                        return this.val$typeAdapter;
+                @Override // com.google.gson.TypeAdapterFactory
+                public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+                    InterceptResult invokeLL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
+                        if (typeToken.getRawType() == this.val$type) {
+                            return this.val$typeAdapter;
+                        }
+                        return null;
                     }
-                    return null;
+                    return (TypeAdapter) invokeLL2.objValue;
                 }
-                return (TypeAdapter) invokeLL2.objValue;
-            }
 
-            public String toString() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return "Factory[type=" + this.val$type.getName() + ",adapter=" + this.val$typeAdapter + PreferencesUtil.RIGHT_MOUNT;
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return "Factory[type=" + this.val$type.getName() + ",adapter=" + this.val$typeAdapter + PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    return (String) invokeV.objValue;
                 }
-                return (String) invokeV.objValue;
-            }
-        } : (TypeAdapterFactory) invokeLL.objValue;
+            };
+        }
+        return (TypeAdapterFactory) invokeLL.objValue;
     }
 
     public static <TT> TypeAdapterFactory newFactory(Class<TT> cls, Class<TT> cls2, TypeAdapter<? super TT> typeAdapter) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, cls2, typeAdapter)) == null) ? new TypeAdapterFactory(cls, cls2, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.33
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Class val$boxed;
-            public final /* synthetic */ TypeAdapter val$typeAdapter;
-            public final /* synthetic */ Class val$unboxed;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, cls2, typeAdapter)) == null) {
+            return new TypeAdapterFactory(cls, cls2, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.33
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Class val$boxed;
+                public final /* synthetic */ TypeAdapter val$typeAdapter;
+                public final /* synthetic */ Class val$unboxed;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cls, cls2, typeAdapter};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {cls, cls2, typeAdapter};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.val$unboxed = cls;
+                    this.val$boxed = cls2;
+                    this.val$typeAdapter = typeAdapter;
                 }
-                this.val$unboxed = cls;
-                this.val$boxed = cls2;
-                this.val$typeAdapter = typeAdapter;
-            }
 
-            @Override // com.google.gson.TypeAdapterFactory
-            public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
-                    Class<? super T> rawType = typeToken.getRawType();
-                    if (rawType == this.val$unboxed || rawType == this.val$boxed) {
+                @Override // com.google.gson.TypeAdapterFactory
+                public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
+                        Class<? super T> rawType = typeToken.getRawType();
+                        if (rawType != this.val$unboxed && rawType != this.val$boxed) {
+                            return null;
+                        }
                         return this.val$typeAdapter;
                     }
-                    return null;
+                    return (TypeAdapter) invokeLL.objValue;
                 }
-                return (TypeAdapter) invokeLL.objValue;
-            }
 
-            public String toString() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return "Factory[type=" + this.val$boxed.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + this.val$unboxed.getName() + ",adapter=" + this.val$typeAdapter + PreferencesUtil.RIGHT_MOUNT;
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return "Factory[type=" + this.val$boxed.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + this.val$unboxed.getName() + ",adapter=" + this.val$typeAdapter + PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    return (String) invokeV.objValue;
                 }
-                return (String) invokeV.objValue;
-            }
-        } : (TypeAdapterFactory) invokeLLL.objValue;
+            };
+        }
+        return (TypeAdapterFactory) invokeLLL.objValue;
+    }
+
+    public static <TT> TypeAdapterFactory newFactoryForMultipleTypes(Class<TT> cls, Class<? extends TT> cls2, TypeAdapter<? super TT> typeAdapter) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, cls2, typeAdapter)) == null) {
+            return new TypeAdapterFactory(cls, cls2, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.34
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Class val$base;
+                public final /* synthetic */ Class val$sub;
+                public final /* synthetic */ TypeAdapter val$typeAdapter;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {cls, cls2, typeAdapter};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$base = cls;
+                    this.val$sub = cls2;
+                    this.val$typeAdapter = typeAdapter;
+                }
+
+                @Override // com.google.gson.TypeAdapterFactory
+                public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
+                        Class<? super T> rawType = typeToken.getRawType();
+                        if (rawType != this.val$base && rawType != this.val$sub) {
+                            return null;
+                        }
+                        return this.val$typeAdapter;
+                    }
+                    return (TypeAdapter) invokeLL.objValue;
+                }
+
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return "Factory[type=" + this.val$base.getName() + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + this.val$sub.getName() + ",adapter=" + this.val$typeAdapter + PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    return (String) invokeV.objValue;
+                }
+            };
+        }
+        return (TypeAdapterFactory) invokeLLL.objValue;
     }
 }

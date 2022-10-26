@@ -1,96 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.yy.gslbsdk.db.DelayTB;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes6.dex */
-public class ze8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<a> b;
+public interface ze8 extends IAdBaseAsyncController {
 
     /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long b;
-        public long c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                this.a = jSONObject.optInt("style");
-                long optLong = jSONObject.optLong(DelayTB.DELAY);
-                this.b = optLong;
-                if (optLong < 0) {
-                    this.b = 0L;
-                }
-                this.c = jSONObject.optLong("duration");
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
+    public interface a {
+        void a(int i);
     }
 
-    public ze8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(TbPageContext tbPageContext);
 
-    public static ze8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ze8 ze8Var = new ze8();
-            ze8Var.a = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-            JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-            ze8Var.b = new ArrayList();
-            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                List<a> list = ze8Var.b;
-                a aVar = new a();
-                aVar.a(optJSONArray.optJSONObject(i));
-                list.add(aVar);
-            }
-            return ze8Var;
-        }
-        return (ze8) invokeL.objValue;
-    }
+    void c(AdvertAppInfo advertAppInfo, boolean z);
+
+    ae8 i(AdvertAppInfo advertAppInfo);
+
+    void loadAd();
+
+    void m(AdvertAppInfo advertAppInfo);
 }

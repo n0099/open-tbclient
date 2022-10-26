@@ -21,11 +21,11 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, TransResourceResult> {
+public class CopyResourceTask extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TransResourceCallback mCallback;
-    public WeakReference<Context> mReference;
+    public WeakReference mReference;
 
     public CopyResourceTask(Context context, TransResourceCallback transResourceCallback) {
         Interceptable interceptable = $ic;
@@ -42,16 +42,8 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
                 return;
             }
         }
-        this.mReference = new WeakReference<>(context);
+        this.mReference = new WeakReference(context);
         this.mCallback = transResourceCallback;
-    }
-
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPreExecute();
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +53,7 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
         Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, weiboMultiMessageArr)) == null) {
-            Context context = this.mReference.get();
+            Context context = (Context) this.mReference.get();
             if (context == null) {
                 return null;
             }
@@ -83,12 +75,12 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
                         weiboMultiMessage.videoSourceObject = null;
                     }
                     if (weiboMultiMessage.multiImageObject != null) {
-                        ArrayList<Uri> arrayList = new ArrayList<>();
-                        Iterator<Uri> it = weiboMultiMessage.multiImageObject.getImageList().iterator();
+                        ArrayList arrayList = new ArrayList();
+                        Iterator it = weiboMultiMessage.multiImageObject.getImageList().iterator();
                         while (it.hasNext()) {
-                            Uri next = it.next();
-                            if (next != null && FileUtils.isImageFile(context, next)) {
-                                String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, next, 1);
+                            Uri uri2 = (Uri) it.next();
+                            if (uri2 != null && FileUtils.isImageFile(context, uri2)) {
+                                String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, uri2, 1);
                                 if (!TextUtils.isEmpty(copyFileToWeiboTem)) {
                                     arrayList.add(Uri.fromFile(new File(copyFileToWeiboTem)));
                                 }
@@ -122,6 +114,14 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
             if (transResourceCallback != null) {
                 transResourceCallback.onTransFinish(transResourceResult);
             }
+        }
+    }
+
+    @Override // android.os.AsyncTask
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPreExecute();
         }
     }
 }

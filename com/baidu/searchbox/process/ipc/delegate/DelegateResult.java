@@ -2,12 +2,9 @@ package com.baidu.searchbox.process.ipc.delegate;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DelegateResult implements DelegateDef.ResultCode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<? extends Delegation> mDelegation;
+    public final Class mDelegation;
     public StringBuilder mDesc;
     public final Bundle mParams;
     public final Bundle mResult;
     public final int mResultCode;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DelegateResult(int i, Class<? extends ActivityDelegation> cls) {
+    public DelegateResult(int i, Class cls) {
         this(i, cls, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,63 +41,8 @@ public class DelegateResult implements DelegateDef.ResultCode {
         }
     }
 
-    private String getDesc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.mDesc.toString() : (String) invokeV.objValue;
-    }
-
-    public static void putAll(@Nullable Bundle bundle, @NonNull Bundle bundle2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, bundle2) == null) || bundle == null) {
-            return;
-        }
-        bundle2.putAll(bundle);
-    }
-
-    public DelegateResult addDesc(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                StringBuilder sb = this.mDesc;
-                sb.append("[desc]:: ");
-                sb.append(str);
-                sb.append("\n");
-            }
-            return this;
-        }
-        return (DelegateResult) invokeL.objValue;
-    }
-
-    public boolean isOk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mResultCode == 0 : invokeV.booleanValue;
-    }
-
-    public DelegateResult putParams(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            putAll(bundle, this.mParams);
-            return this;
-        }
-        return (DelegateResult) invokeL.objValue;
-    }
-
-    public DelegateResult putResult(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
-            putAll(bundle, this.mResult);
-            return this;
-        }
-        return (DelegateResult) invokeL.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DelegateResult(int i, Class<? extends Delegation> cls, @Nullable Bundle bundle) {
+    public DelegateResult(int i, Class cls, Bundle bundle) {
         this(i, cls, bundle, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -120,7 +62,7 @@ public class DelegateResult implements DelegateDef.ResultCode {
         }
     }
 
-    public DelegateResult(int i, Class<? extends Delegation> cls, @Nullable Bundle bundle, @Nullable Bundle bundle2) {
+    public DelegateResult(int i, Class cls, Bundle bundle, Bundle bundle2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,5 +84,68 @@ public class DelegateResult implements DelegateDef.ResultCode {
         this.mDelegation = cls;
         putParams(bundle);
         putResult(bundle2);
+    }
+
+    private String getDesc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return this.mDesc.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isOk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mResultCode == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void putAll(Bundle bundle, Bundle bundle2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, bundle2) == null) && bundle != null) {
+            bundle2.putAll(bundle);
+        }
+    }
+
+    public DelegateResult addDesc(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                StringBuilder sb = this.mDesc;
+                sb.append("[desc]:: ");
+                sb.append(str);
+                sb.append("\n");
+            }
+            return this;
+        }
+        return (DelegateResult) invokeL.objValue;
+    }
+
+    public DelegateResult putParams(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
+            putAll(bundle, this.mParams);
+            return this;
+        }
+        return (DelegateResult) invokeL.objValue;
+    }
+
+    public DelegateResult putResult(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
+            putAll(bundle, this.mResult);
+            return this;
+        }
+        return (DelegateResult) invokeL.objValue;
     }
 }

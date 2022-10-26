@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -17,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.sy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,11 +64,12 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                this.a.c();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304) {
+                return;
             }
+            this.a.c();
         }
     }
 
@@ -110,93 +110,8 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         }
     }
 
-    public final void c() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
-            return;
-        }
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
-        gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
-        setBackgroundDrawable(gradientDrawable);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
-        this.a = textView;
-        if (textView != null) {
-            hv4 d = hv4.d(textView);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X05);
-            d.A(R.string.F_X02);
-        }
-        TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907a3);
-        this.b = textView2;
-        if (textView2 != null) {
-            hv4 d2 = hv4.d(textView2);
-            d2.v(R.color.CAM_X0108);
-            d2.z(R.dimen.T_X07);
-            d2.A(R.string.F_X01);
-        }
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908ac);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b1c);
-        this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08090f));
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b1e);
-        this.e = tBSpecificationBtn;
-        if (tBSpecificationBtn != null) {
-            tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f73));
-            this.e.setConfig(new my4());
-        }
-        this.f = skinType;
-    }
-
-    public TextView getCancelButton() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (TextView) invokeV.objValue;
-    }
-
-    public TBSpecificationBtn getConfirmButton() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (TBSpecificationBtn) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.g);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.g);
-        }
-    }
-
-    public void setDescription(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.b == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.b.setText(str);
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.a == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a.setText(str);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PushPermissionDialogViewV2(Context context, @Nullable AttributeSet attributeSet) {
+    public PushPermissionDialogViewV2(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -217,7 +132,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PushPermissionDialogViewV2(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public PushPermissionDialogViewV2(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -238,5 +153,93 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         this.f = 3;
         this.g = new a(this, 2001304);
         b(context);
+    }
+
+    public void setDescription(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.b != null && !TextUtils.isEmpty(str)) {
+            this.b.setText(str);
+        }
+    }
+
+    public void setTitle(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.setText(str);
+        }
+    }
+
+    public final void c() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
+            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
+            setBackgroundDrawable(gradientDrawable);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            this.a = textView;
+            if (textView != null) {
+                nv4 d = nv4.d(textView);
+                d.v(R.color.CAM_X0105);
+                d.z(R.dimen.T_X05);
+                d.A(R.string.F_X02);
+            }
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ac);
+            this.b = textView2;
+            if (textView2 != null) {
+                nv4 d2 = nv4.d(textView2);
+                d2.v(R.color.CAM_X0108);
+                d2.z(R.dimen.T_X07);
+                d2.A(R.string.F_X01);
+            }
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908b5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b18);
+            this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08090e));
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b1a);
+            this.e = tBSpecificationBtn;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.setTextSize(R.dimen.T_X06);
+                this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f85));
+                this.e.setConfig(new sy4());
+            }
+            this.f = skinType;
+        }
+    }
+
+    public TextView getCancelButton() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public TBSpecificationBtn getConfirmButton() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (TBSpecificationBtn) invokeV.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onAttachedToWindow();
+            MessageManager.getInstance().registerListener(this.g);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDetachedFromWindow();
+            MessageManager.getInstance().unRegisterListener(this.g);
+        }
     }
 }

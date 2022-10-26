@@ -15,7 +15,7 @@ import java.util.Map;
 public class RevenueConfigCenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RevenueConfigCenter";
-    public static Map<String, RevenueConfig> configMap;
+    public static Map configMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,7 +63,7 @@ public class RevenueConfigCenter {
         if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
             String revenueConfigMapKey = getRevenueConfigMapKey(i, i2);
             RLog.debug(TAG, "getConfig mapKey:" + revenueConfigMapKey);
-            return configMap.get(revenueConfigMapKey);
+            return (RevenueConfig) configMap.get(revenueConfigMapKey);
         }
         return (RevenueConfig) invokeII.objValue;
     }

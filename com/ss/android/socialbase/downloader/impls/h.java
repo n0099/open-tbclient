@@ -9,17 +9,6 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     public static final String e = "h";
 
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.o
-    public void a(Intent intent, int i, int i2) {
-        if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(e, "onStartCommand");
-        }
-        if (!com.ss.android.socialbase.downloader.i.a.a(262144)) {
-            this.b = true;
-        }
-        e();
-    }
-
-    @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.o
     public void c() {
         if (com.ss.android.socialbase.downloader.i.a.a(262144)) {
             this.b = true;
@@ -28,6 +17,17 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
                 com.ss.android.socialbase.downloader.c.a.b(e, "onStartCommandOnMainThread");
             }
         }
+    }
+
+    @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.o
+    public void a(Intent intent, int i, int i2) {
+        if (com.ss.android.socialbase.downloader.c.a.a()) {
+            com.ss.android.socialbase.downloader.c.a.b(e, "onStartCommand");
+        }
+        if (!com.ss.android.socialbase.downloader.i.a.a(262144)) {
+            this.b = true;
+        }
+        e();
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.a

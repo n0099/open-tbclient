@@ -4,11 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Action;
 import io.reactivex.internal.util.ExceptionHelper;
 /* loaded from: classes8.dex */
-public final class ActionDisposable extends ReferenceDisposable<Action> {
+public final class ActionDisposable extends ReferenceDisposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8219729196779211169L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +34,7 @@ public final class ActionDisposable extends ReferenceDisposable<Action> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.disposables.ReferenceDisposable
-    public void onDisposed(@NonNull Action action) {
+    public void onDisposed(Action action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, action) == null) {
             try {

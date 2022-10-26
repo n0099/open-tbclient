@@ -35,7 +35,7 @@ public final class e {
     public volatile boolean hw;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String apC;

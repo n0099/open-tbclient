@@ -65,12 +65,18 @@ public final class Animation$PlayMode {
     public static Animation$PlayMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Animation$PlayMode) Enum.valueOf(Animation$PlayMode.class, str) : (Animation$PlayMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Animation$PlayMode) Enum.valueOf(Animation$PlayMode.class, str);
+        }
+        return (Animation$PlayMode) invokeL.objValue;
     }
 
     public static Animation$PlayMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Animation$PlayMode[]) $VALUES.clone() : (Animation$PlayMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Animation$PlayMode[]) $VALUES.clone();
+        }
+        return (Animation$PlayMode[]) invokeV.objValue;
     }
 }

@@ -46,14 +46,14 @@ public final class p extends r {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof p) {
-                try {
-                    return Arrays.equals(getEncoded(), ((p) obj).getEncoded());
-                } catch (CertificateEncodingException unused) {
-                    return false;
-                }
+            if (!(obj instanceof p)) {
+                return false;
             }
-            return false;
+            try {
+                return Arrays.equals(getEncoded(), ((p) obj).getEncoded());
+            } catch (CertificateEncodingException unused) {
+                return false;
+            }
         }
         return invokeL.booleanValue;
     }
@@ -62,7 +62,10 @@ public final class p extends r {
     public final byte[] getEncoded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // java.security.cert.Certificate

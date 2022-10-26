@@ -19,6 +19,32 @@ public class EmotionDetailActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public EmotionDetailActivityConfig(Context context, int i, long j, int i2, boolean z) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intent intent = getIntent();
+        setRequestCode(i2);
+        intent.putExtra("pck_id", i);
+        intent.putExtra(EMOTION_PIC_ID_KEY, j);
+        intent.putExtra(EMOTION_IS_GIF_KEY, z);
+        setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmotionDetailActivityConfig(Context context, int i, long j, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
@@ -50,31 +76,5 @@ public class EmotionDetailActivityConfig extends IntentConfig {
             return this;
         }
         return (EmotionDetailActivityConfig) invokeZ.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionDetailActivityConfig(Context context, int i, long j, int i2, boolean z) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intent intent = getIntent();
-        setRequestCode(i2);
-        intent.putExtra("pck_id", i);
-        intent.putExtra(EMOTION_PIC_ID_KEY, j);
-        intent.putExtra(EMOTION_IS_GIF_KEY, z);
-        setIntentAction(IntentAction.ActivityForResult);
     }
 }

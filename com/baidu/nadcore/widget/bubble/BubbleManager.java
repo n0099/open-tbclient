@@ -1,9 +1,9 @@
 package com.baidu.nadcore.widget.bubble;
 
 import android.view.View;
-import com.baidu.tieba.b71;
-import com.baidu.tieba.wj0;
-import com.baidu.tieba.y61;
+import com.baidu.tieba.a71;
+import com.baidu.tieba.c71;
+import com.baidu.tieba.xj0;
 import com.baidu.tieba.z61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,13 +13,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class BubbleManager extends b71 implements View.OnClickListener {
+public class BubbleManager extends c71 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes2.dex */
+    public interface a {
+        void a();
+    }
+
+    /* loaded from: classes2.dex */
+    public interface b {
+        void a();
+
+        void b();
+
+        void c();
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BubbleStyle {
+    public final class BubbleStyle {
         public static final /* synthetic */ BubbleStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BubbleStyle TextOnly;
@@ -67,44 +81,36 @@ public class BubbleManager extends b71 implements View.OnClickListener {
         public static BubbleStyle valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BubbleStyle) Enum.valueOf(BubbleStyle.class, str) : (BubbleStyle) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (BubbleStyle) Enum.valueOf(BubbleStyle.class, str);
+            }
+            return (BubbleStyle) invokeL.objValue;
         }
 
         public static BubbleStyle[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BubbleStyle[]) $VALUES.clone() : (BubbleStyle[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (BubbleStyle[]) $VALUES.clone();
+            }
+            return (BubbleStyle[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface a {
-        void a();
-    }
-
-    /* loaded from: classes2.dex */
-    public interface b {
-        void a();
-
-        void b();
-
-        void c();
-    }
-
-    public static <T> T t(Class<T> cls) {
+    public static Object t(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            if (cls == z61.class || cls == y61.class) {
-                try {
-                    return cls.newInstance();
-                } catch (Exception e) {
-                    wj0.b("BubbleManager", "", e);
-                    return null;
-                }
+            if (cls != a71.class && cls != z61.class) {
+                return null;
             }
-            return null;
+            try {
+                return cls.newInstance();
+            } catch (Exception e) {
+                xj0.b("BubbleManager", "", e);
+                return null;
+            }
         }
-        return (T) invokeL.objValue;
+        return invokeL.objValue;
     }
 }

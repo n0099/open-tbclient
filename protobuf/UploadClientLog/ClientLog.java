@@ -28,7 +28,13 @@ public final class ClientLog extends Message {
     public final Integer pushcnt;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<ClientLog> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String et;
@@ -82,14 +88,11 @@ public final class ClientLog extends Message {
         public ClientLog build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new ClientLog(this, z, null) : (ClientLog) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new ClientLog(this, z, null);
+            }
+            return (ClientLog) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -107,10 +110,6 @@ public final class ClientLog extends Message {
         }
         DEFAULT_PUSHCNT = 0;
         DEFAULT_PROCESS_TYPE = 0;
-    }
-
-    public /* synthetic */ ClientLog(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -163,5 +162,9 @@ public final class ClientLog extends Message {
         this.pushcnt = builder.pushcnt;
         this.net = builder.net;
         this.process_type = builder.process_type;
+    }
+
+    public /* synthetic */ ClientLog(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

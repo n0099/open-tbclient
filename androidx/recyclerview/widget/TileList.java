@@ -48,7 +48,10 @@ public class TileList<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 int i2 = this.mStartPosition;
-                return i2 <= i && i < i2 + this.mItemCount;
+                if (i2 <= i && i < i2 + this.mItemCount) {
+                    return true;
+                }
+                return false;
             }
             return invokeI.booleanValue;
         }
@@ -56,7 +59,10 @@ public class TileList<T> {
         public T getByPosition(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mItems[i - this.mStartPosition] : (T) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return this.mItems[i - this.mStartPosition];
+            }
+            return (T) invokeI.objValue;
         }
     }
 
@@ -98,19 +104,6 @@ public class TileList<T> {
         return (Tile) invokeL.objValue;
     }
 
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mTiles.clear();
-        }
-    }
-
-    public Tile<T> getAtIndex(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mTiles.valueAt(i) : (Tile) invokeI.objValue;
-    }
-
     public T getItemAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -128,6 +121,31 @@ public class TileList<T> {
         return (T) invokeI.objValue;
     }
 
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mTiles.clear();
+        }
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mTiles.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public Tile<T> getAtIndex(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.mTiles.valueAt(i);
+        }
+        return (Tile) invokeI.objValue;
+    }
+
     public Tile<T> removeAtPos(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -140,11 +158,5 @@ public class TileList<T> {
             return tile;
         }
         return (Tile) invokeI.objValue;
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTiles.size() : invokeV.intValue;
     }
 }

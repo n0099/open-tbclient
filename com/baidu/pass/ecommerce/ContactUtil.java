@@ -56,6 +56,23 @@ public class ContactUtil {
         return (ContactUtil) invokeV.objValue;
     }
 
+    public GetContactCallback getGetContactCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.getContactCallback;
+        }
+        return (GetContactCallback) invokeV.objValue;
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.getContactCallback = null;
+            instance = null;
+        }
+    }
+
     public static String hidePhoneNumber(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -81,21 +98,8 @@ public class ContactUtil {
         return (String) invokeL.objValue;
     }
 
-    public GetContactCallback getGetContactCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.getContactCallback : (GetContactCallback) invokeV.objValue;
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.getContactCallback = null;
-            instance = null;
-        }
-    }
-
     public void requestContact(Context context, GetContactCallback getContactCallback) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, getContactCallback) == null) {
             this.getContactCallback = new GetContactCallback(this, getContactCallback) { // from class: com.baidu.pass.ecommerce.ContactUtil.1
@@ -132,7 +136,11 @@ public class ContactUtil {
                     }
                 }
             };
-            boolean z = SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode;
+            if (!SapiAccountManager.getInstance().getConfignation().isNightMode && !SapiAccountManager.getInstance().getConfignation().isDarkMode) {
+                z = false;
+            } else {
+                z = true;
+            }
             PermissionsDTO permissionsDTO = new PermissionsDTO();
             permissionsDTO.isDarkMode = z;
             permissionsDTO.context = context.getApplicationContext();

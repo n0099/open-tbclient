@@ -17,8 +17,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -77,20 +75,57 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     public LoadingView h;
     public LoginPager i;
     public SmsPager j;
-    public List<Integer> k;
+    public List k;
     public com.baidu.sapi2.views.logindialog.a.a l;
     public int m;
     public IQuickLoginDialogCallback n;
 
+    @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
+    public void onDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
+    public void onPreShowDialog(ColorType colorType, LinearLayout linearLayout, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, colorType, linearLayout, textView) == null) {
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
+    public void onPreShowLoading(ColorType colorType, LoadingView loadingView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, colorType, loadingView) == null) {
+        }
+    }
+
+    @Override // android.app.Dialog
+    @Deprecated
+    public void setOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, onCancelListener) == null) {
+        }
+    }
+
+    @Override // android.app.Dialog
+    @Deprecated
+    public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, onDismissListener) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class Builder implements NoProguard {
+    public class Builder implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Activity a;
         public ColorType b;
         public QuickLoginDialogCallback c;
 
-        public Builder(@NonNull Activity activity) {
+        public Builder(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,12 +142,6 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
             }
             this.b = ColorType.LIGHT;
             this.a = activity;
-        }
-
-        public QuickLoginDialog build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new QuickLoginDialog(this) : (QuickLoginDialog) invokeV.objValue;
         }
 
         public Builder setColorType(ColorType colorType) {
@@ -133,6 +162,15 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
                 return this;
             }
             return (Builder) invokeL.objValue;
+        }
+
+        public QuickLoginDialog build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new QuickLoginDialog(this);
+            }
+            return (QuickLoginDialog) invokeV.objValue;
         }
     }
 
@@ -178,6 +216,20 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ QuickLoginDialog a;
 
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
+
         public b(QuickLoginDialog quickLoginDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -194,20 +246,6 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
                 }
             }
             this.a = quickLoginDialog;
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-            }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -273,6 +311,13 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ QuickLoginDialog a;
 
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
+
         public d(QuickLoginDialog quickLoginDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -289,13 +334,6 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
                 }
             }
             this.a = quickLoginDialog;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
         }
     }
 
@@ -400,7 +438,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class g {
+    public /* synthetic */ class g {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -435,8 +473,110 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public QuickLoginDialog(Context context, int i, Builder builder) {
+        super(context, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), builder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = new ArrayList();
+        this.a = context;
+        this.b = builder.b;
+        this.n = builder.c;
+        b();
+        super.setOnDismissListener(new a(this));
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public QuickLoginDialog(@NonNull Builder builder) {
+    public QuickLoginDialog(Context context, Builder builder) {
+        this(context, R.style.obfuscated_res_0x7f1003e2, builder);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (Builder) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.ISendSmsCallback
+    public void onSendSmsFailure(String str, GetDynamicPwdResult getDynamicPwdResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, getDynamicPwdResult) == null) {
+            int resultCode = getDynamicPwdResult.getResultCode();
+            if (resultCode != 4) {
+                if (resultCode != 5) {
+                    if (resultCode != 12) {
+                        ToastUtil.show("发送短信失败：" + getDynamicPwdResult.getResultMsg());
+                        openScreenLogin(null, str);
+                        return;
+                    }
+                    a(str);
+                    return;
+                }
+                openScreenLogin(null, str);
+                return;
+            }
+            int i = this.m;
+            if (i == 0) {
+                this.i.showSendMsgErrorTip(getDynamicPwdResult.getResultMsg());
+            } else if (i == 1) {
+                this.j.c(getDynamicPwdResult.getResultMsg());
+            }
+        }
+    }
+
+    public void openScreenLogin(QuickLoginType quickLoginType, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, quickLoginType, str) == null) {
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.config = null;
+            if (quickLoginType != null) {
+                int i = g.a[quickLoginType.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            webLoginDTO.excludeTypes = LoginTypes.ONE_KEY_LOGIN;
+                        }
+                    } else {
+                        webLoginDTO.excludeTypes = LoginTypes.SHARE;
+                    }
+                } else {
+                    webLoginDTO.excludeTypes = LoginTypes.HISTORY;
+                }
+            }
+            webLoginDTO.isAcceptBrowseModeAgreement = true;
+            if (!TextUtils.isEmpty(str)) {
+                webLoginDTO.preSetUname = str;
+            }
+            CoreViewRouter.getInstance().startLogin(new e(this), webLoginDTO);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public QuickLoginDialog(Builder builder) {
         this(builder.a, builder);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -453,6 +593,199 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    private void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
+            this.k.add(0, Integer.valueOf(ViewUtils.dp2px(this.a, i)));
+            this.k.add(1, Integer.valueOf(ViewUtils.dp2px(this.a, 181.0f)));
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091d1a) {
+                com.baidu.sapi2.views.logindialog.utils.a.a("close");
+                cancel();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d0b) {
+                com.baidu.sapi2.views.logindialog.utils.a.a("back");
+                onChange2LoginPage();
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.IPagerLoadCallback
+    public void onPageShow(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            int dp2px = ViewUtils.dp2px(this.a, i);
+            if (this.k.isEmpty()) {
+                a(i);
+            } else {
+                this.k.set(0, Integer.valueOf(dp2px));
+            }
+            ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
+            layoutParams.height = dp2px;
+            this.g.setLayoutParams(layoutParams);
+            this.h.setVisibility(8);
+        }
+    }
+
+    public void openRegister(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            WebRegDTO webRegDTO = new WebRegDTO();
+            webRegDTO.regType = WebRegDTO.EXTRA_REGISTER_MOBILE;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair("loginUserName", str));
+            webRegDTO.extraParams.addAll(arrayList);
+            CoreViewRouter.getInstance().startRegister(new f(this), webRegDTO);
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.IPagerLoadCallback
+    public void onChange2SmsPage(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            this.j.a(str, i);
+            this.j.c();
+            this.g.setCurrentItem(1);
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
+    public void onPreShowAgreement(TextView textView, SpannableStringBuilder spannableStringBuilder) {
+        IQuickLoginDialogCallback iQuickLoginDialogCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048586, this, textView, spannableStringBuilder) == null) && (iQuickLoginDialogCallback = this.n) != null) {
+            iQuickLoginDialogCallback.onPreShowAgreement(textView, spannableStringBuilder);
+        }
+    }
+
+    @Override // android.app.Dialog
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
+            if (a(getContext(), motionEvent) && motionEvent.getAction() == 1) {
+                com.baidu.sapi2.views.logindialog.utils.a.a("cancel");
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && ColorType.DARK == this.b) {
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ead));
+            this.e.setTextColor(Color.parseColor("#FFFFFF"));
+            this.h.a();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                Context context = this.a;
+                if ((context instanceof Activity) && ((Activity) context).isDestroyed()) {
+                    return;
+                }
+            }
+            try {
+                super.show();
+            } catch (Exception e2) {
+                Log.e(e2.getMessage(), new Object[0]);
+            }
+        }
+    }
+
+    private void a(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
+            CommonDialog.Builder message = new CommonDialog.Builder(this.a).setTitle("提示").setMessage("您的手机号还未注册，点击完成注册");
+            if (ColorType.DARK == this.b) {
+                z = true;
+            } else {
+                z = false;
+            }
+            message.setDarkMode(z).setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new d(this)).setPositiveBtn("去注册", new c(this, str)).build().show();
+        }
+    }
+
+    private boolean a(Context context, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, context, motionEvent)) == null) {
+            int x = (int) motionEvent.getX();
+            int y = (int) motionEvent.getY();
+            int scaledWindowTouchSlop = ViewConfiguration.get(context).getScaledWindowTouchSlop();
+            View decorView = getWindow().getDecorView();
+            int i = -scaledWindowTouchSlop;
+            if (x >= i && y >= i && x <= decorView.getWidth() + scaledWindowTouchSlop && y <= decorView.getHeight() + scaledWindowTouchSlop) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d04d1);
+            Window window = getWindow();
+            window.setGravity(83);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.x = 0;
+            attributes.y = 0;
+            attributes.width = -1;
+            attributes.height = -2;
+            window.setAttributes(attributes);
+            setCancelable(true);
+            setCanceledOnTouchOutside(true);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d4f);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d0b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9d);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d1a);
+            this.h = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091d5d);
+            this.g = (NoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091d62);
+            this.d.setOnClickListener(this);
+            this.f.setOnClickListener(this);
+            c();
+            if (this.k.isEmpty()) {
+                a(181);
+            }
+            a();
+            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.n;
+            if (iQuickLoginDialogCallback != null) {
+                iQuickLoginDialogCallback.onPreShowDialog(this.b, this.c, this.e);
+            }
+        }
+    }
+
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            this.g.setScanScroll(false);
+            ArrayList arrayList = new ArrayList();
+            LoginPager loginPager = new LoginPager(this.a, this.b, this, this, this);
+            this.i = loginPager;
+            arrayList.add(loginPager);
+            SmsPager smsPager = new SmsPager(this.a, this.b, this, this, this);
+            this.j = smsPager;
+            arrayList.add(smsPager);
+            com.baidu.sapi2.views.logindialog.a.a aVar = new com.baidu.sapi2.views.logindialog.a.a(arrayList);
+            this.l = aVar;
+            this.g.setAdapter(aVar);
+            this.g.addOnPageChangeListener(new b(this));
         }
     }
 
@@ -490,33 +823,14 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     @Override // com.baidu.sapi2.views.logindialog.interf.IPagerLoadCallback
-    public void onChange2SmsPage(String str, int i) {
+    public void onPageLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            this.j.a(str, i);
-            this.j.c();
-            this.g.setCurrentItem(1);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091d1e) {
-                com.baidu.sapi2.views.logindialog.utils.a.a("close");
-                cancel();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d0f) {
-                com.baidu.sapi2.views.logindialog.utils.a.a("back");
-                onChange2LoginPage();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.n;
+            if (iQuickLoginDialogCallback != null) {
+                iQuickLoginDialogCallback.onPreShowLoading(this.b, this.h);
             }
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
-    public void onDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.h.setVisibility(0);
         }
     }
 
@@ -558,66 +872,12 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
-    @Override // com.baidu.sapi2.views.logindialog.interf.IPagerLoadCallback
-    public void onPageLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.n;
-            if (iQuickLoginDialogCallback != null) {
-                iQuickLoginDialogCallback.onPreShowLoading(this.b, this.h);
-            }
-            this.h.setVisibility(0);
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.IPagerLoadCallback
-    public void onPageShow(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            int dp2px = ViewUtils.dp2px(this.a, i);
-            if (this.k.isEmpty()) {
-                a(i);
-            } else {
-                this.k.set(0, Integer.valueOf(dp2px));
-            }
-            ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
-            layoutParams.height = dp2px;
-            this.g.setLayoutParams(layoutParams);
-            this.h.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
-    public void onPreShowAgreement(TextView textView, SpannableStringBuilder spannableStringBuilder) {
-        IQuickLoginDialogCallback iQuickLoginDialogCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, textView, spannableStringBuilder) == null) || (iQuickLoginDialogCallback = this.n) == null) {
-            return;
-        }
-        iQuickLoginDialogCallback.onPreShowAgreement(textView, spannableStringBuilder);
-    }
-
     @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
     public void onPreShowAgreementWithOperator(TextView textView, String str, SpannableStringBuilder spannableStringBuilder) {
         IQuickLoginDialogCallback iQuickLoginDialogCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048587, this, textView, str, spannableStringBuilder) == null) || (iQuickLoginDialogCallback = this.n) == null) {
-            return;
-        }
-        iQuickLoginDialogCallback.onPreShowAgreementWithOperator(textView, str, spannableStringBuilder);
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
-    public void onPreShowDialog(ColorType colorType, LinearLayout linearLayout, TextView textView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, colorType, linearLayout, textView) == null) {
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
-    public void onPreShowLoading(ColorType colorType, LoadingView loadingView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, colorType, loadingView) == null) {
+        if ((interceptable == null || interceptable.invokeLLL(1048587, this, textView, str, spannableStringBuilder) == null) && (iQuickLoginDialogCallback = this.n) != null) {
+            iQuickLoginDialogCallback.onPreShowAgreementWithOperator(textView, str, spannableStringBuilder);
         }
     }
 
@@ -625,32 +885,8 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     public void onPreShowLogin(ColorType colorType, QuickLoginType quickLoginType, TextView textView) {
         IQuickLoginDialogCallback iQuickLoginDialogCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, colorType, quickLoginType, textView) == null) || (iQuickLoginDialogCallback = this.n) == null) {
-            return;
-        }
-        iQuickLoginDialogCallback.onPreShowLogin(colorType, quickLoginType, textView);
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.ISendSmsCallback
-    public void onSendSmsFailure(String str, GetDynamicPwdResult getDynamicPwdResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, getDynamicPwdResult) == null) {
-            int resultCode = getDynamicPwdResult.getResultCode();
-            if (resultCode == 4) {
-                int i = this.m;
-                if (i == 0) {
-                    this.i.showSendMsgErrorTip(getDynamicPwdResult.getResultMsg());
-                } else if (i == 1) {
-                    this.j.c(getDynamicPwdResult.getResultMsg());
-                }
-            } else if (resultCode == 5) {
-                openScreenLogin(null, str);
-            } else if (resultCode != 12) {
-                ToastUtil.show("发送短信失败：" + getDynamicPwdResult.getResultMsg());
-                openScreenLogin(null, str);
-            } else {
-                a(str);
-            }
+        if ((interceptable == null || interceptable.invokeLLL(1048590, this, colorType, quickLoginType, textView) == null) && (iQuickLoginDialogCallback = this.n) != null) {
+            iQuickLoginDialogCallback.onPreShowLogin(colorType, quickLoginType, textView);
         }
     }
 
@@ -666,225 +902,5 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
             }
             onChange2SmsPage(str, getDynamicPwdResult.smsCodeLength);
         }
-    }
-
-    @Override // android.app.Dialog
-    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
-            if (a(getContext(), motionEvent) && motionEvent.getAction() == 1) {
-                com.baidu.sapi2.views.logindialog.utils.a.a("cancel");
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void openRegister(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            WebRegDTO webRegDTO = new WebRegDTO();
-            webRegDTO.regType = WebRegDTO.EXTRA_REGISTER_MOBILE;
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair("loginUserName", str));
-            webRegDTO.extraParams.addAll(arrayList);
-            CoreViewRouter.getInstance().startRegister(new f(this), webRegDTO);
-        }
-    }
-
-    public void openScreenLogin(QuickLoginType quickLoginType, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, quickLoginType, str) == null) {
-            WebLoginDTO webLoginDTO = new WebLoginDTO();
-            webLoginDTO.config = null;
-            if (quickLoginType != null) {
-                int i = g.a[quickLoginType.ordinal()];
-                if (i == 1) {
-                    webLoginDTO.excludeTypes = LoginTypes.HISTORY;
-                } else if (i == 2) {
-                    webLoginDTO.excludeTypes = LoginTypes.SHARE;
-                } else if (i == 3) {
-                    webLoginDTO.excludeTypes = LoginTypes.ONE_KEY_LOGIN;
-                }
-            }
-            webLoginDTO.isAcceptBrowseModeAgreement = true;
-            if (!TextUtils.isEmpty(str)) {
-                webLoginDTO.preSetUname = str;
-            }
-            CoreViewRouter.getInstance().startLogin(new e(this), webLoginDTO);
-        }
-    }
-
-    @Override // android.app.Dialog
-    @Deprecated
-    public void setOnCancelListener(@Nullable DialogInterface.OnCancelListener onCancelListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, onCancelListener) == null) {
-        }
-    }
-
-    @Override // android.app.Dialog
-    @Deprecated
-    public void setOnDismissListener(@Nullable DialogInterface.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, onDismissListener) == null) {
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                Context context = this.a;
-                if ((context instanceof Activity) && ((Activity) context).isDestroyed()) {
-                    return;
-                }
-            }
-            try {
-                super.show();
-            } catch (Exception e2) {
-                Log.e(e2.getMessage(), new Object[0]);
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public QuickLoginDialog(@NonNull Context context, @NonNull Builder builder) {
-        this(context, R.style.obfuscated_res_0x7f1003e1, builder);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, builder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (Builder) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04d4);
-            Window window = getWindow();
-            window.setGravity(83);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.x = 0;
-            attributes.y = 0;
-            attributes.width = -1;
-            attributes.height = -2;
-            window.setAttributes(attributes);
-            setCancelable(true);
-            setCanceledOnTouchOutside(true);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d53);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d0f);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091da1);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d1e);
-            this.h = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091d61);
-            this.g = (NoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091d66);
-            this.d.setOnClickListener(this);
-            this.f.setOnClickListener(this);
-            c();
-            if (this.k.isEmpty()) {
-                a(181);
-            }
-            a();
-            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.n;
-            if (iQuickLoginDialogCallback != null) {
-                iQuickLoginDialogCallback.onPreShowDialog(this.b, this.c, this.e);
-            }
-        }
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.g.setScanScroll(false);
-            ArrayList arrayList = new ArrayList();
-            LoginPager loginPager = new LoginPager(this.a, this.b, this, this, this);
-            this.i = loginPager;
-            arrayList.add(loginPager);
-            SmsPager smsPager = new SmsPager(this.a, this.b, this, this, this);
-            this.j = smsPager;
-            arrayList.add(smsPager);
-            com.baidu.sapi2.views.logindialog.a.a aVar = new com.baidu.sapi2.views.logindialog.a.a(arrayList);
-            this.l = aVar;
-            this.g.setAdapter(aVar);
-            this.g.addOnPageChangeListener(new b(this));
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickLoginDialog(@NonNull Context context, int i, @NonNull Builder builder) {
-        super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), builder};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.k = new ArrayList();
-        this.a = context;
-        this.b = builder.b;
-        this.n = builder.c;
-        b();
-        super.setOnDismissListener(new a(this));
-    }
-
-    private void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
-            this.k.add(0, Integer.valueOf(ViewUtils.dp2px(this.a, i)));
-            this.k.add(1, Integer.valueOf(ViewUtils.dp2px(this.a, 181.0f)));
-        }
-    }
-
-    private void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
-            new CommonDialog.Builder(this.a).setTitle("提示").setMessage("您的手机号还未注册，点击完成注册").setDarkMode(ColorType.DARK == this.b).setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new d(this)).setPositiveBtn("去注册", new c(this, str)).build().show();
-        }
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && ColorType.DARK == this.b) {
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e9c));
-            this.e.setTextColor(Color.parseColor("#FFFFFF"));
-            this.h.a();
-        }
-    }
-
-    private boolean a(Context context, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, context, motionEvent)) == null) {
-            int x = (int) motionEvent.getX();
-            int y = (int) motionEvent.getY();
-            int scaledWindowTouchSlop = ViewConfiguration.get(context).getScaledWindowTouchSlop();
-            View decorView = getWindow().getDecorView();
-            int i = -scaledWindowTouchSlop;
-            return x < i || y < i || x > decorView.getWidth() + scaledWindowTouchSlop || y > decorView.getHeight() + scaledWindowTouchSlop;
-        }
-        return invokeLL.booleanValue;
     }
 }

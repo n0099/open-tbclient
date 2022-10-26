@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,17 +32,40 @@ public class ABTestExtraData implements Serializable {
         }
     }
 
-    private void saveABTestExtraToSharedPref(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) {
-            ox4.k().y("abtest_extra_info_json", jSONObject != null ? jSONObject.toString() : "");
-        }
-    }
-
     public String getABTestResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mABTestResult : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mABTestResult;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void parserABTestExtraFormSharedPref() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                String q = ux4.k().q("abtest_extra_info_json", null);
+                if (!TextUtils.isEmpty(q)) {
+                    parseJson(new JSONObject(q));
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    private void saveABTestExtraToSharedPref(JSONObject jSONObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                str = jSONObject.toString();
+            } else {
+                str = "";
+            }
+            ux4.k().y("abtest_extra_info_json", str);
+        }
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -56,21 +79,6 @@ public class ABTestExtraData implements Serializable {
             try {
                 this.mABTestResult = jSONObject.optString(TiebaStatic.Params.ABTEST_RESULT);
                 saveABTestExtraToSharedPref(jSONObject);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void parserABTestExtraFormSharedPref() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                String q = ox4.k().q("abtest_extra_info_json", null);
-                if (TextUtils.isEmpty(q)) {
-                    return;
-                }
-                parseJson(new JSONObject(q));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

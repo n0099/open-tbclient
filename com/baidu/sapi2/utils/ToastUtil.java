@@ -39,32 +39,6 @@ public class ToastUtil implements NoProguard {
         }
     }
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            Toast toast = new Toast(context.getApplicationContext());
-            b = toast;
-            toast.setGravity(80, 0, ViewUtils.dp2px(context, 100.0f));
-            b.setDuration(0);
-        }
-    }
-
-    public static void show(String str) {
-        SapiConfiguration confignation;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
-            return;
-        }
-        Toast toast = b;
-        if (toast != null) {
-            toast.cancel();
-        }
-        Context context = confignation.getContext();
-        a(context);
-        b.setView(a(context, -1, str));
-        b.show();
-    }
-
     public static View a(Context context, int i, String str) {
         InterceptResult invokeLIL;
         View inflate;
@@ -73,9 +47,9 @@ public class ToastUtil implements NoProguard {
             LayoutInflater from = LayoutInflater.from(context);
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04ee, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04eb, (ViewGroup) null);
             } else {
-                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04f0, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04ed, (ViewGroup) null);
             }
             ImageView imageView = (ImageView) inflate.findViewById(R.id.sapi_sdk_toast_msg_icon);
             TextView textView = (TextView) inflate.findViewById(R.id.sapi_sdk_toast_msg_tv);
@@ -91,10 +65,20 @@ public class ToastUtil implements NoProguard {
         return (View) invokeLIL.objValue;
     }
 
+    public static void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            Toast toast = new Toast(context.getApplicationContext());
+            b = toast;
+            toast.setGravity(80, 0, ViewUtils.dp2px(context, 100.0f));
+            b.setDuration(0);
+        }
+    }
+
     public static void show(int i, String str) {
         SapiConfiguration confignation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
+        if ((interceptable != null && interceptable.invokeIL(65539, null, i, str) != null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
             return;
         }
         Toast toast = b;
@@ -104,6 +88,22 @@ public class ToastUtil implements NoProguard {
         Context context = confignation.getContext();
         a(context);
         b.setView(a(context, i, str));
+        b.show();
+    }
+
+    public static void show(String str) {
+        SapiConfiguration confignation;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
+            return;
+        }
+        Toast toast = b;
+        if (toast != null) {
+            toast.cancel();
+        }
+        Context context = confignation.getContext();
+        a(context);
+        b.setView(a(context, -1, str));
         b.show();
     }
 }

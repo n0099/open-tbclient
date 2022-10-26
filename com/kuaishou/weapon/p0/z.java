@@ -46,7 +46,7 @@ public class z implements Serializable {
     public g z;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -136,7 +136,7 @@ public class z implements Serializable {
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -198,7 +198,7 @@ public class z implements Serializable {
     }
 
     /* loaded from: classes7.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -207,7 +207,7 @@ public class z implements Serializable {
         public a d;
 
         /* loaded from: classes7.dex */
-        public static class a {
+        public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -546,7 +546,7 @@ public class z implements Serializable {
     }
 
     /* loaded from: classes7.dex */
-    public static class d {
+    public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -556,7 +556,7 @@ public class z implements Serializable {
         public int e;
 
         /* loaded from: classes7.dex */
-        public static class a {
+        public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -768,7 +768,7 @@ public class z implements Serializable {
     }
 
     /* loaded from: classes7.dex */
-    public static class e {
+    public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -872,7 +872,7 @@ public class z implements Serializable {
     }
 
     /* loaded from: classes7.dex */
-    public static class f {
+    public class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -881,7 +881,7 @@ public class z implements Serializable {
         public int d;
 
         /* loaded from: classes7.dex */
-        public static class a {
+        public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -1038,7 +1038,7 @@ public class z implements Serializable {
     }
 
     /* loaded from: classes7.dex */
-    public static class g {
+    public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -1049,7 +1049,7 @@ public class z implements Serializable {
         public int f;
 
         /* loaded from: classes7.dex */
-        public static class a {
+        public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -1358,7 +1358,7 @@ public class z implements Serializable {
     }
 
     /* loaded from: classes7.dex */
-    public static class h {
+    public class h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

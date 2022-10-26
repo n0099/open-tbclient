@@ -48,12 +48,108 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             if (!isCanceled()) {
-                if (isPaused()) {
-                    throw new DownloadException(106, "Connection Paused!");
+                if (!isPaused()) {
+                    return;
                 }
-                return;
+                throw new DownloadException(106, "Connection Paused!");
             }
             throw new DownloadException(107, "Connection Canceled!");
+        }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mStatus = 107;
+        }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mStatus == 107) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
+    public boolean isConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mStatus == 103) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
+    public boolean isConnecting() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mStatus == 102) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
+    public boolean isFailed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mStatus == 108) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
+    public boolean isPaused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mStatus == 106) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.mStatus = 106;
+        }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Process.setThreadPriority(10);
+            this.mStatus = 102;
+            this.mOnConnectListener.onConnecting();
+            try {
+                executeConnection();
+            } catch (DownloadException e) {
+                handleDownloadException(e);
+            }
         }
     }
 
@@ -70,59 +166,58 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
         IOException e;
         ProtocolException e2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65538, this) != null) {
-            return;
-        }
-        this.mStartTime = System.currentTimeMillis();
-        try {
-            URL url = new URL(this.mUri);
-            ?? r2 = 0;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.mStartTime = System.currentTimeMillis();
             try {
+                URL url = new URL(this.mUri);
+                ?? r2 = 0;
                 try {
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     try {
-                        httpURLConnection.setConnectTimeout(4000);
-                        httpURLConnection.setReadTimeout(4000);
-                        httpURLConnection.setRequestMethod("GET");
-                        httpURLConnection.setRequestProperty("Range", "bytes=0-");
-                        int responseCode = httpURLConnection.getResponseCode();
-                        if (responseCode == 200) {
-                            parseResponse(httpURLConnection, false);
-                        } else if (responseCode == 206) {
-                            parseResponse(httpURLConnection, true);
-                        } else {
-                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            httpURLConnection.setRequestProperty("Range", "bytes=0-");
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == 200) {
+                                parseResponse(httpURLConnection, false);
+                            } else if (responseCode == 206) {
+                                parseResponse(httpURLConnection, true);
+                            } else {
+                                throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                            }
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
                         }
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
                         }
-                    } catch (ProtocolException e3) {
-                        e2 = e3;
-                        throw new DownloadException(108, "Protocol error", e2);
-                    } catch (IOException e4) {
-                        e = e4;
-                        throw new DownloadException(108, "IO error", e);
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    r2 = url;
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (r2 != 0) {
-                        r2.disconnect();
                     }
                     throw th;
                 }
-            } catch (ProtocolException e5) {
-                e2 = e5;
-            } catch (IOException e6) {
-                e = e6;
-            } catch (Throwable th2) {
-                th = th2;
-                if (r2 != 0) {
-                }
-                throw th;
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
             }
-        } catch (MalformedURLException e7) {
-            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -172,72 +267,6 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
                 return;
             }
             throw new DownloadException(108, "length <= 0");
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mStatus = 107;
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mStatus == 107 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
-    public boolean isConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mStatus == 103 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
-    public boolean isConnecting() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mStatus == 102 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
-    public boolean isFailed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStatus == 108 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
-    public boolean isPaused() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStatus == 106 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.mStatus = 106;
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Process.setThreadPriority(10);
-            this.mStatus = 102;
-            this.mOnConnectListener.onConnecting();
-            try {
-                executeConnection();
-            } catch (DownloadException e) {
-                handleDownloadException(e);
-            }
         }
     }
 }

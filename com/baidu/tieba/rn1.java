@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
 public interface rn1 {
-    void a(Context context, String str, String str2, bk1 bk1Var);
+    InputStream a(InputStream inputStream) throws IOException;
 }

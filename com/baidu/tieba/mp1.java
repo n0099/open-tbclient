@@ -1,25 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface mp1 {
-    up1 a(Context context);
+    void a(Object obj, String str, String str2);
 
-    qp1 b(Context context);
+    void b(Object obj);
 
-    up1 c(Context context);
+    Object beginFlow(String str);
 
-    g52 d();
+    void c(Object obj);
 
-    rp1 e(Context context, int i);
+    void d(String str, Map map);
 
-    up1 f(Context context);
+    boolean e();
 
-    up1 g(Context context);
+    void f(String str, JSONObject jSONObject);
 
-    h52 h(Context context, int i);
+    void g(Object obj, String str, String str2, long j);
 
-    up1 i(Context context);
+    void h(Object obj, String str);
 
-    boolean j(int i);
+    void i(String str, String str2);
 }

@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 import android.view.ViewGroup;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
@@ -16,8 +17,8 @@ import com.baidu.nps.main.manager.Bundle;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.xi0;
 import com.baidu.tieba.yi0;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,13 +28,13 @@ import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000x\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0016\u0018\u00002\u00020\u0001B\u0017\u0012\u0006\u00109\u001a\u000208\u0012\u0006\u0010>\u001a\u00020=¢\u0006\u0004\bE\u0010FJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\t\u0010\u0004J\u0017\u0010\t\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\t\u0010\fJ\u0015\u0010\u000f\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0011\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0011\u0010\fJ\u0015\u0010\u0014\u001a\u00020\u00022\u0006\u0010\u0013\u001a\u00020\u0012¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0016\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0016\u0010\u0004J\u0017\u0010\u0016\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0016\u0010\fJ\u0015\u0010\u0019\u001a\u00020\u00022\u0006\u0010\u0018\u001a\u00020\u0017¢\u0006\u0004\b\u0019\u0010\u001aJ\u001d\u0010\u001f\u001a\u00020\u001e2\u0006\u0010\u001c\u001a\u00020\u001b2\u0006\u0010\u0013\u001a\u00020\u001d¢\u0006\u0004\b\u001f\u0010 J\u000f\u0010!\u001a\u00020\u0002H\u0002¢\u0006\u0004\b!\u0010\u0004J\u0013\u0010#\u001a\b\u0012\u0004\u0012\u00020\n0\"¢\u0006\u0004\b#\u0010$J)\u0010)\u001a\u0004\u0018\u00018\u0000\"\b\b\u0000\u0010&*\u00020%2\f\u0010(\u001a\b\u0012\u0004\u0012\u00028\u00000'H\u0016¢\u0006\u0004\b)\u0010*J\u000f\u0010+\u001a\u00020\u0002H\u0016¢\u0006\u0004\b+\u0010\u0004J\u000f\u0010,\u001a\u00020\u0002H\u0017¢\u0006\u0004\b,\u0010\u0004J\u001f\u0010.\u001a\u00020\u00022\u0006\u0010-\u001a\u00020\n2\b\b\u0002\u0010\u0003\u001a\u00020\u001e¢\u0006\u0004\b.\u0010/J%\u00101\u001a\u00020\u00022\u000e\u0010(\u001a\n\u0012\u0006\b\u0001\u0012\u00020%0'2\u0006\u00100\u001a\u00020%¢\u0006\u0004\b1\u00102J\u001f\u00103\u001a\u0004\u0018\u00010%2\u000e\u0010(\u001a\n\u0012\u0006\b\u0001\u0012\u00020%0'¢\u0006\u0004\b3\u0010*J\u000f\u00104\u001a\u00020\u0002H\u0002¢\u0006\u0004\b4\u0010\u0004J\u0015\u00105\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b5\u0010\fR\u001c\u00106\u001a\b\u0012\u0004\u0012\u00020\n0\"8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b6\u00107R\u0019\u00109\u001a\u0002088\u0006@\u0006¢\u0006\f\n\u0004\b9\u0010:\u001a\u0004\b;\u0010<R\u0019\u0010>\u001a\u00020=8\u0006@\u0006¢\u0006\f\n\u0004\b>\u0010?\u001a\u0004\b@\u0010AR*\u0010C\u001a\u0016\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020%0'\u0012\u0004\u0012\u00020%0B8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bC\u0010D¨\u0006G"}, d2 = {"Lcom/baidu/nadcore/component/ComponentArchManager;", "Landroidx/lifecycle/LifecycleObserver;", "", "bindLifecycle", "()V", "Landroid/view/ViewGroup;", "parentView", "createView", "(Landroid/view/ViewGroup;)V", "dispatchAttachToManager", "Lcom/baidu/nadcore/component/api/IComponentPlugin;", "componentPlugin", "(Lcom/baidu/nadcore/component/api/IComponentPlugin;)V", "Landroid/content/res/Configuration;", "newConfig", "dispatchConfigurationChanged", "(Landroid/content/res/Configuration;)V", "dispatchDetachFromManager", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "event", "dispatchEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "dispatchInit", "Landroid/content/Intent;", IntentData.KEY, "dispatchIntent", "(Landroid/content/Intent;)V", "", "keyCode", "Landroid/view/KeyEvent;", "", "dispatchKeyDown", "(ILandroid/view/KeyEvent;)Z", "dispatchRelease", "Ljava/util/concurrent/CopyOnWriteArrayList;", "getComponents", "()Ljava/util/concurrent/CopyOnWriteArrayList;", "Lcom/baidu/nadcore/component/api/IComponentService;", "T", "Ljava/lang/Class;", Bundle.EXTRA_KEY_CLAZZ, "getService", "(Ljava/lang/Class;)Lcom/baidu/nadcore/component/api/IComponentService;", "initInternal", MissionEvent.MESSAGE_DESTROY, NativeConstants.COMPONENT, "registerComponent", "(Lcom/baidu/nadcore/component/api/IComponentPlugin;Z)V", "componentService", "registerServices", "(Ljava/lang/Class;Lcom/baidu/nadcore/component/api/IComponentService;)V", "unRegisterServices", "unbindLifecycle", "unregisterComponent", "components", "Ljava/util/concurrent/CopyOnWriteArrayList;", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "Landroidx/lifecycle/Lifecycle;", "lifecycle", "Landroidx/lifecycle/Lifecycle;", "getLifecycle", "()Landroidx/lifecycle/Lifecycle;", "Landroidx/collection/SimpleArrayMap;", "services", "Landroidx/collection/SimpleArrayMap;", "<init>", "(Landroid/content/Context;Landroidx/lifecycle/Lifecycle;)V", "nadcore-lib-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000x\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0016\u0018\u00002\u00020\u0001B\u0017\u0012\u0006\u00109\u001a\u000208\u0012\u0006\u0010>\u001a\u00020=¢\u0006\u0004\bE\u0010FJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\t\u0010\u0004J\u0017\u0010\t\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\t\u0010\fJ\u0015\u0010\u000f\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0011\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0011\u0010\fJ\u0015\u0010\u0014\u001a\u00020\u00022\u0006\u0010\u0013\u001a\u00020\u0012¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0016\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0016\u0010\u0004J\u0017\u0010\u0016\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0016\u0010\fJ\u0015\u0010\u0019\u001a\u00020\u00022\u0006\u0010\u0018\u001a\u00020\u0017¢\u0006\u0004\b\u0019\u0010\u001aJ\u001d\u0010\u001f\u001a\u00020\u001e2\u0006\u0010\u001c\u001a\u00020\u001b2\u0006\u0010\u0013\u001a\u00020\u001d¢\u0006\u0004\b\u001f\u0010 J\u000f\u0010!\u001a\u00020\u0002H\u0002¢\u0006\u0004\b!\u0010\u0004J\u0013\u0010#\u001a\b\u0012\u0004\u0012\u00020\n0\"¢\u0006\u0004\b#\u0010$J)\u0010)\u001a\u0004\u0018\u00018\u0000\"\b\b\u0000\u0010&*\u00020%2\f\u0010(\u001a\b\u0012\u0004\u0012\u00028\u00000'H\u0016¢\u0006\u0004\b)\u0010*J\u000f\u0010+\u001a\u00020\u0002H\u0016¢\u0006\u0004\b+\u0010\u0004J\u000f\u0010,\u001a\u00020\u0002H\u0017¢\u0006\u0004\b,\u0010\u0004J\u001f\u0010.\u001a\u00020\u00022\u0006\u0010-\u001a\u00020\n2\b\b\u0002\u0010\u0003\u001a\u00020\u001e¢\u0006\u0004\b.\u0010/J%\u00101\u001a\u00020\u00022\u000e\u0010(\u001a\n\u0012\u0006\b\u0001\u0012\u00020%0'2\u0006\u00100\u001a\u00020%¢\u0006\u0004\b1\u00102J\u001f\u00103\u001a\u0004\u0018\u00010%2\u000e\u0010(\u001a\n\u0012\u0006\b\u0001\u0012\u00020%0'¢\u0006\u0004\b3\u0010*J\u000f\u00104\u001a\u00020\u0002H\u0002¢\u0006\u0004\b4\u0010\u0004J\u0015\u00105\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b5\u0010\fR\u001c\u00106\u001a\b\u0012\u0004\u0012\u00020\n0\"8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b6\u00107R\u0019\u00109\u001a\u0002088\u0006@\u0006¢\u0006\f\n\u0004\b9\u0010:\u001a\u0004\b;\u0010<R\u0019\u0010>\u001a\u00020=8\u0006@\u0006¢\u0006\f\n\u0004\b>\u0010?\u001a\u0004\b@\u0010AR*\u0010C\u001a\u0016\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020%0'\u0012\u0004\u0012\u00020%0B8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bC\u0010D¨\u0006G"}, d2 = {"Lcom/baidu/nadcore/component/ComponentArchManager;", "Landroidx/lifecycle/LifecycleObserver;", "", "bindLifecycle", "()V", "Landroid/view/ViewGroup;", "parentView", "createView", "(Landroid/view/ViewGroup;)V", "dispatchAttachToManager", "Lcom/baidu/nadcore/component/api/IComponentPlugin;", "componentPlugin", "(Lcom/baidu/nadcore/component/api/IComponentPlugin;)V", "Landroid/content/res/Configuration;", "newConfig", "dispatchConfigurationChanged", "(Landroid/content/res/Configuration;)V", "dispatchDetachFromManager", "Lcom/baidu/nadcore/component/api/IComponentEvent;", "event", "dispatchEvent", "(Lcom/baidu/nadcore/component/api/IComponentEvent;)V", "dispatchInit", "Landroid/content/Intent;", IntentData.KEY, "dispatchIntent", "(Landroid/content/Intent;)V", "", "keyCode", "Landroid/view/KeyEvent;", "", "dispatchKeyDown", "(ILandroid/view/KeyEvent;)Z", "dispatchRelease", "Ljava/util/concurrent/CopyOnWriteArrayList;", "getComponents", "()Ljava/util/concurrent/CopyOnWriteArrayList;", "Lcom/baidu/nadcore/component/api/IComponentService;", ExifInterface.GPS_DIRECTION_TRUE, "Ljava/lang/Class;", Bundle.EXTRA_KEY_CLAZZ, "getService", "(Ljava/lang/Class;)Lcom/baidu/nadcore/component/api/IComponentService;", "initInternal", MissionEvent.MESSAGE_DESTROY, NativeConstants.COMPONENT, "registerComponent", "(Lcom/baidu/nadcore/component/api/IComponentPlugin;Z)V", "componentService", "registerServices", "(Ljava/lang/Class;Lcom/baidu/nadcore/component/api/IComponentService;)V", "unRegisterServices", "unbindLifecycle", "unregisterComponent", "components", "Ljava/util/concurrent/CopyOnWriteArrayList;", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "Landroidx/lifecycle/Lifecycle;", "lifecycle", "Landroidx/lifecycle/Lifecycle;", "getLifecycle", "()Landroidx/lifecycle/Lifecycle;", "Landroidx/collection/SimpleArrayMap;", "services", "Landroidx/collection/SimpleArrayMap;", "<init>", "(Landroid/content/Context;Landroidx/lifecycle/Lifecycle;)V", "nadcore-lib-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends yi0>, yi0> b;
+    public final CopyOnWriteArrayList a;
+    public final SimpleArrayMap b;
     public final Context c;
     public final Lifecycle d;
 
@@ -56,8 +57,8 @@ public class ComponentArchManager implements LifecycleObserver {
         Intrinsics.checkNotNullParameter(lifecycle, "lifecycle");
         this.c = context;
         this.d = lifecycle;
-        this.a = new CopyOnWriteArrayList<>();
-        this.b = new SimpleArrayMap<>();
+        this.a = new CopyOnWriteArrayList();
+        this.b = new SimpleArrayMap();
     }
 
     public static /* synthetic */ void r(ComponentArchManager componentArchManager, IComponentPlugin iComponentPlugin, boolean z, int i, Object obj) {
@@ -74,7 +75,40 @@ public class ComponentArchManager implements LifecycleObserver {
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            for (IComponentPlugin iComponentPlugin : this.a) {
+                iComponentPlugin.onRelease();
+            }
+        }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            o();
+            t();
+            this.b.clear();
+            this.a.clear();
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            Lifecycle lifecycle = this.d;
+            for (IComponentPlugin iComponentPlugin : this.a) {
+                lifecycle.removeObserver(iComponentPlugin);
+            }
+        }
     }
 
     public void h(ViewGroup parentView) {
@@ -111,7 +145,7 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public final void k(xi0 event) {
+    public final void k(yi0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -138,54 +172,43 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
+    public zi0 p(Class clazz) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, clazz)) == null) {
+            Intrinsics.checkNotNullParameter(clazz, "clazz");
+            Object obj = this.b.get(clazz);
+            if (!(obj instanceof zi0)) {
+                obj = null;
+            }
+            return (zi0) obj;
+        }
+        return (zi0) invokeL.objValue;
+    }
+
+    public final void u(IComponentPlugin componentPlugin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, componentPlugin) == null) {
+            Intrinsics.checkNotNullParameter(componentPlugin, "componentPlugin");
+            j(componentPlugin);
+            this.a.remove(componentPlugin);
+        }
+    }
+
     public final boolean n(int i, KeyEvent event) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            Iterator<IComponentPlugin> it = this.a.iterator();
+            Iterator it = this.a.iterator();
             while (it.hasNext()) {
-                if (it.next().onKeyDown(i, event)) {
+                if (((IComponentPlugin) it.next()).onKeyDown(i, event)) {
                     return true;
                 }
             }
             return false;
         }
         return invokeIL.booleanValue;
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            for (IComponentPlugin iComponentPlugin : this.a) {
-                iComponentPlugin.onRelease();
-            }
-        }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o();
-            t();
-            this.b.clear();
-            this.a.clear();
-        }
-    }
-
-    public <T extends yi0> T p(Class<T> clazz) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, clazz)) == null) {
-            Intrinsics.checkNotNullParameter(clazz, "clazz");
-            yi0 yi0Var = this.b.get(clazz);
-            if (!(yi0Var instanceof yi0)) {
-                yi0Var = null;
-            }
-            return (T) yi0Var;
-        }
-        return (T) invokeL.objValue;
     }
 
     public final void q(IComponentPlugin component, boolean z) {
@@ -201,31 +224,12 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public final void s(Class<? extends yi0> clazz, yi0 componentService) {
+    public final void s(Class clazz, zi0 componentService) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, clazz, componentService) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");
             Intrinsics.checkNotNullParameter(componentService, "componentService");
             this.b.put(clazz, componentService);
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Lifecycle lifecycle = this.d;
-            for (IComponentPlugin iComponentPlugin : this.a) {
-                lifecycle.removeObserver(iComponentPlugin);
-            }
-        }
-    }
-
-    public final void u(IComponentPlugin componentPlugin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, componentPlugin) == null) {
-            Intrinsics.checkNotNullParameter(componentPlugin, "componentPlugin");
-            j(componentPlugin);
-            this.a.remove(componentPlugin);
         }
     }
 }

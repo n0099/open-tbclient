@@ -52,7 +52,10 @@ public class DiskLruCacheWrapper implements DiskCache {
     public static DiskCache create(File file, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, file, j)) == null) ? new DiskLruCacheWrapper(file, j) : (DiskCache) invokeLJ.objValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, file, j)) == null) {
+            return new DiskLruCacheWrapper(file, j);
+        }
+        return (DiskCache) invokeLJ.objValue;
     }
 
     @Deprecated
@@ -129,6 +132,32 @@ public class DiskLruCacheWrapper implements DiskCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.DiskCache
+    public File get(Key key) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, key)) == null) {
+            String safeKey = this.safeKeyGenerator.getSafeKey(key);
+            if (Log.isLoggable(TAG, 2)) {
+                Log.v(TAG, "Get: Obtained: " + safeKey + " for for Key: " + key);
+            }
+            try {
+                DiskLruCache.Value value = getDiskCache().get(safeKey);
+                if (value == null) {
+                    return null;
+                }
+                return value.getFile(0);
+            } catch (IOException e) {
+                if (!Log.isLoggable(TAG, 5)) {
+                    return null;
+                }
+                Log.w(TAG, "Unable to get from disk cache", e);
+                return null;
+            }
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Override // com.bumptech.glide.load.engine.cache.DiskCache
     public void put(Key key, DiskCache.Writer writer) {
         DiskLruCache diskCache;
         Interceptable interceptable = $ic;
@@ -167,31 +196,5 @@ public class DiskLruCacheWrapper implements DiskCache {
                 this.writeLocker.release(safeKey);
             }
         }
-    }
-
-    @Override // com.bumptech.glide.load.engine.cache.DiskCache
-    public File get(Key key) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, key)) == null) {
-            String safeKey = this.safeKeyGenerator.getSafeKey(key);
-            if (Log.isLoggable(TAG, 2)) {
-                Log.v(TAG, "Get: Obtained: " + safeKey + " for for Key: " + key);
-            }
-            try {
-                DiskLruCache.Value value = getDiskCache().get(safeKey);
-                if (value != null) {
-                    return value.getFile(0);
-                }
-                return null;
-            } catch (IOException e) {
-                if (Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Unable to get from disk cache", e);
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (File) invokeL.objValue;
     }
 }

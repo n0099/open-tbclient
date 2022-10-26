@@ -14,12 +14,34 @@ public abstract class CurveFit {
     public static final int SPLINE = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract double getPos(double d, int i);
+
+    public abstract void getPos(double d, double[] dArr);
+
+    public abstract void getPos(double d, float[] fArr);
+
+    public abstract double getSlope(double d, int i);
+
+    public abstract void getSlope(double d, double[] dArr);
+
+    public abstract double[] getTimePoints();
+
     /* loaded from: classes.dex */
     public static class Constant extends CurveFit {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double mTime;
         public double[] mValue;
+
+        @Override // androidx.constraintlayout.motion.utils.CurveFit
+        public double getSlope(double d, int i) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
+                return 0.0d;
+            }
+            return invokeCommon.doubleValue;
+        }
 
         public Constant(double d, double[] dArr) {
             Interceptable interceptable = $ic;
@@ -41,20 +63,11 @@ public abstract class CurveFit {
         }
 
         @Override // androidx.constraintlayout.motion.utils.CurveFit
-        public void getPos(double d, double[] dArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), dArr}) == null) {
-                double[] dArr2 = this.mValue;
-                System.arraycopy(dArr2, 0, dArr, 0, dArr2.length);
-            }
-        }
-
-        @Override // androidx.constraintlayout.motion.utils.CurveFit
-        public double getSlope(double d, int i) {
+        public double getPos(double d, int i) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
-                return 0.0d;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
+                return this.mValue[i];
             }
             return invokeCommon.doubleValue;
         }
@@ -70,34 +83,36 @@ public abstract class CurveFit {
         }
 
         @Override // androidx.constraintlayout.motion.utils.CurveFit
-        public double[] getTimePoints() {
-            InterceptResult invokeV;
+        public void getPos(double d, double[] dArr) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new double[]{this.mTime} : (double[]) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), dArr}) == null) {
+                double[] dArr2 = this.mValue;
+                System.arraycopy(dArr2, 0, dArr, 0, dArr2.length);
+            }
         }
 
         @Override // androidx.constraintlayout.motion.utils.CurveFit
         public void getPos(double d, float[] fArr) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d), fArr}) != null) {
-                return;
-            }
-            int i = 0;
-            while (true) {
-                double[] dArr = this.mValue;
-                if (i >= dArr.length) {
-                    return;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d), fArr}) == null) {
+                int i = 0;
+                while (true) {
+                    double[] dArr = this.mValue;
+                    if (i < dArr.length) {
+                        fArr[i] = (float) dArr[i];
+                        i++;
+                    } else {
+                        return;
+                    }
                 }
-                fArr[i] = (float) dArr[i];
-                i++;
             }
         }
 
         @Override // androidx.constraintlayout.motion.utils.CurveFit
-        public double getPos(double d, int i) {
-            InterceptResult invokeCommon;
+        public double[] getTimePoints() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) ? this.mValue[i] : invokeCommon.doubleValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new double[]{this.mTime} : (double[]) invokeV.objValue;
         }
     }
 
@@ -136,18 +151,9 @@ public abstract class CurveFit {
     public static CurveFit getArc(int[] iArr, double[] dArr, double[][] dArr2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, iArr, dArr, dArr2)) == null) ? new ArcCurveFit(iArr, dArr, dArr2) : (CurveFit) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, iArr, dArr, dArr2)) == null) {
+            return new ArcCurveFit(iArr, dArr, dArr2);
+        }
+        return (CurveFit) invokeLLL.objValue;
     }
-
-    public abstract double getPos(double d, int i);
-
-    public abstract void getPos(double d, double[] dArr);
-
-    public abstract void getPos(double d, float[] fArr);
-
-    public abstract double getSlope(double d, int i);
-
-    public abstract void getSlope(double d, double[] dArr);
-
-    public abstract double[] getTimePoints();
 }

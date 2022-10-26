@@ -50,7 +50,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Toolbar;
-import androidx.annotation.Keep;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
@@ -67,7 +66,6 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
-@Keep
 /* loaded from: classes7.dex */
 public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity implements IPluginActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -92,31 +90,6 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         this.hasInit = true;
     }
 
-    @Override // com.bytedance.pangle.activity.IPluginActivity
-    public void _requestPermissions(String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, strArr, i) == null) {
-            this.mProxyActivity.requestPermissions(strArr, i);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, layoutParams) == null) {
-            this.mProxyActivity.zeusSuperAddContentView(view2, layoutParams);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
-    public void attachBaseContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            super.attachBaseContext(context);
-            com.bytedance.pangle.util.a.a(this, this.mProxyActivity);
-        }
-    }
-
     @Override // android.app.Activity
     public void closeContextMenu() {
         Interceptable interceptable = $ic;
@@ -133,69 +106,6 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         }
     }
 
-    public boolean convertToTranslucent(Activity.TranslucentConversionListener translucentConversionListener, ActivityOptions activityOptions) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, translucentConversionListener, activityOptions)) == null) ? this.mProxyActivity.zeusSuperConvertToTranslucent(translucentConversionListener, activityOptions) : invokeLL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public PendingIntent createPendingResult(int i, Intent intent, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? this.mProxyActivity.zeusSuperCreatePendingResult(i, intent, i2) : (PendingIntent) invokeCommon.objValue;
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) ? this.mProxyActivity.zeusSuperDispatchGenericMotionEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, androidx.core.app.ComponentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, keyEvent)) == null) ? this.mProxyActivity.zeusSuperDispatchKeyEvent(keyEvent) : invokeL.booleanValue;
-    }
-
-    @Override // androidx.core.app.ComponentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, keyEvent)) == null) ? this.mProxyActivity.zeusSuperDispatchKeyShortcutEvent(keyEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, accessibilityEvent)) == null) ? this.mProxyActivity.zeusSuperDispatchPopulateAccessibilityEvent(accessibilityEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) ? this.mProxyActivity.zeusSuperDispatchTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) ? this.mProxyActivity.zeusSuperDispatchTrackballEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048589, this, str, fileDescriptor, printWriter, strArr) == null) {
-            this.mProxyActivity.zeusSuperDump(str, fileDescriptor, printWriter, strArr);
-        }
-    }
-
     @Override // android.app.Activity
     public void enterPictureInPictureMode() {
         Interceptable interceptable = $ic;
@@ -204,34 +114,11 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         }
     }
 
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public View findViewById(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) ? this.mProxyActivity.zeusSuperFindViewById(i) : (View) invokeI.objValue;
-    }
-
     @Override // android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.mProxyActivity.zeusSuperFinish();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void finishActivity(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.mProxyActivity.zeusSuperFinishActivity(i);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void finishActivityFromChild(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, activity, i) == null) {
-            this.mProxyActivity.zeusSuperFinishActivityFromChild(activity, i);
         }
     }
 
@@ -260,95 +147,123 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public void finishFromChild(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, activity) == null) {
-            this.mProxyActivity.zeusSuperFinishFromChild(activity);
-        }
-    }
-
-    @Override // android.app.Activity
     public ActionBar getActionBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mProxyActivity.zeusSuperGetActionBar() : (ActionBar) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetActionBar();
+        }
+        return (ActionBar) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public ComponentName getCallingActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mProxyActivity.zeusSuperGetCallingActivity() : (ComponentName) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetCallingActivity();
+        }
+        return (ComponentName) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public String getCallingPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mProxyActivity.zeusSuperGetCallingPackage() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetCallingPackage();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public int getChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mProxyActivity.zeusSuperGetChangingConfigurations() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetChangingConfigurations();
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.app.Activity
     public ComponentName getComponentName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mProxyActivity.zeusSuperGetComponentName() : (ComponentName) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetComponentName();
+        }
+        return (ComponentName) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public Scene getContentScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mProxyActivity.zeusSuperGetContentScene() : (Scene) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetContentScene();
+        }
+        return (Scene) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public TransitionManager getContentTransitionManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mProxyActivity.zeusSuperGetContentTransitionManager() : (TransitionManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetContentTransitionManager();
+        }
+        return (TransitionManager) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public View getCurrentFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mProxyActivity.zeusSuperGetCurrentFocus() : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetCurrentFocus();
+        }
+        return (View) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public FragmentManager getFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mProxyActivity.zeusSuperGetFragmentManager() : (FragmentManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetFragmentManager();
+        }
+        return (FragmentManager) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mProxyActivity.zeusSuperGetIntent() : (Intent) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetIntent();
+        }
+        return (Intent) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public Object getLastNonConfigurationInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mProxyActivity.zeusSuperGetLastNonConfigurationInstance() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetLastNonConfigurationInstance();
+        }
+        return invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public LayoutInflater getLayoutInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mProxyActivity.zeusSuperGetLayoutInflater() : (LayoutInflater) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetLayoutInflater();
+        }
+        return (LayoutInflater) invokeV.objValue;
     }
 
     @Override // androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, androidx.lifecycle.LifecycleOwner
@@ -371,112 +286,140 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     public LoaderManager getLoaderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mProxyActivity.zeusSuperGetLoaderManager() : (LoaderManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetLoaderManager();
+        }
+        return (LoaderManager) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public String getLocalClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mProxyActivity.zeusSuperGetLocalClassName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetLocalClassName();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public int getMaxNumPictureInPictureActions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mProxyActivity.zeusSuperGetMaxNumPictureInPictureActions() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetMaxNumPictureInPictureActions();
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public MenuInflater getMenuInflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mProxyActivity.zeusSuperGetMenuInflater() : (MenuInflater) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetMenuInflater();
+        }
+        return (MenuInflater) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public Intent getParentActivityIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mProxyActivity.zeusSuperGetParentActivityIntent() : (Intent) invokeV.objValue;
-    }
-
-    @Override // android.app.Activity
-    public SharedPreferences getPreferences(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i)) == null) ? this.mProxyActivity.zeusSuperGetPreferences(i) : (SharedPreferences) invokeI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetParentActivityIntent();
+        }
+        return (Intent) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public Uri getReferrer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mProxyActivity.zeusSuperGetReferrer() : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetReferrer();
+        }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public int getRequestedOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mProxyActivity.zeusSuperGetRequestedOrientation() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetRequestedOrientation();
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity
     public androidx.appcompat.app.ActionBar getSupportActionBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mProxyActivity.zeusSuperGetSupportActionBar() : (androidx.appcompat.app.ActionBar) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetSupportActionBar();
+        }
+        return (androidx.appcompat.app.ActionBar) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.FragmentActivity
     public androidx.fragment.app.FragmentManager getSupportFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mProxyActivity.zeusSuperGetSupportFragmentManager() : (androidx.fragment.app.FragmentManager) invokeV.objValue;
-    }
-
-    @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Object getSystemService(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, str)) == null) ? this.mProxyActivity.zeusSuperGetSystemService(str) : invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetSupportFragmentManager();
+        }
+        return (androidx.fragment.app.FragmentManager) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public int getTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.mProxyActivity.zeusSuperGetTaskId() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetTaskId();
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.app.Activity
     public VoiceInteractor getVoiceInteractor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.mProxyActivity.zeusSuperGetVoiceInteractor() : (VoiceInteractor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetVoiceInteractor();
+        }
+        return (VoiceInteractor) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public Window getWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mProxyActivity.zeusSuperGetWindow() : (Window) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetWindow();
+        }
+        return (Window) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.mProxyActivity.zeusSuperGetWindowManager() : (WindowManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            return this.mProxyActivity.zeusSuperGetWindowManager();
+        }
+        return (WindowManager) invokeV.objValue;
     }
 
     @Override // android.app.Activity
     public boolean hasWindowFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.mProxyActivity.zeusSuperHasWindowFocus() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+            return this.mProxyActivity.zeusSuperHasWindowFocus();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
@@ -491,146 +434,110 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     public boolean isActivityTransitionRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.mProxyActivity.zeusSuperIsActivityTransitionRunning() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsActivityTransitionRunning();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isChangingConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.mProxyActivity.zeusSuperIsChangingConfigurations() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsChangingConfigurations();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isDestroyed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.mProxyActivity.zeusSuperIsDestroyed() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsDestroyed();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isFinishing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.mProxyActivity.zeusSuperIsFinishing() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsFinishing();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isImmersive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.mProxyActivity.zeusSuperIsImmersive() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsImmersive();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isInMultiWindowMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.mProxyActivity.zeusSuperIsInMultiWindowMode() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsInMultiWindowMode();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isInPictureInPictureMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.mProxyActivity.zeusSuperIsInPictureInPictureMode() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsInPictureInPictureMode();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isLocalVoiceInteractionSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.mProxyActivity.zeusSuperIsLocalVoiceInteractionSupported() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsLocalVoiceInteractionSupported();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isTaskRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.mProxyActivity.zeusSuperIsTaskRoot() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsTaskRoot();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isVoiceInteraction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.mProxyActivity.zeusSuperIsVoiceInteraction() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsVoiceInteraction();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean isVoiceInteractionRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.mProxyActivity.zeusSuperIsVoiceInteractionRoot() : invokeV.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public boolean moveTaskToBack(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048641, this, z)) == null) ? this.mProxyActivity.zeusSuperMoveTaskToBack(z) : invokeZ.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public boolean navigateUpTo(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, intent)) == null) ? this.mProxyActivity.zeusSuperNavigateUpTo(intent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public boolean navigateUpToFromChild(Activity activity, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, activity, intent)) == null) ? this.mProxyActivity.zeusSuperNavigateUpToFromChild(activity, intent) : invokeLL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onActionModeFinished(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, actionMode) == null) {
-            this.mProxyActivity.zeusSuperOnActionModeFinished(actionMode);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            return this.mProxyActivity.zeusSuperIsVoiceInteractionRoot();
         }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onActionModeStarted(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, actionMode) == null) {
-            this.mProxyActivity.zeusSuperOnActionModeStarted(actionMode);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onActivityReenter(int i, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048646, this, i, intent) == null) {
-            this.mProxyActivity.zeusSuperOnActivityReenter(i, intent);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048647, this, i, i2, intent) == null) {
-            this.mProxyActivity.zeusSuperOnActivityResult(i, i2, intent);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.ContextThemeWrapper
-    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.mProxyActivity.zeusSuperOnApplyThemeResource(theme, i, z);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onAttachFragment(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, fragment) == null) {
-            this.mProxyActivity.zeusSuperOnAttachFragment(fragment);
-        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -649,22 +556,6 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         }
     }
 
-    @Override // android.app.Activity
-    public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048652, this, activity, charSequence) == null) {
-            this.mProxyActivity.zeusSuperOnChildTitleChanged(activity, charSequence);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048653, this, configuration) == null) {
-            this.mProxyActivity.zeusSuperOnConfigurationChanged(configuration);
-        }
-    }
-
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.Window.Callback
     public void onContentChanged() {
         Interceptable interceptable = $ic;
@@ -674,92 +565,13 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public boolean onContextItemSelected(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, menuItem)) == null) ? this.mProxyActivity.zeusSuperOnContextItemSelected(menuItem) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onContextMenuClosed(Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048656, this, menu) == null) {
-            this.mProxyActivity.zeusSuperOnContextMenuClosed(menu);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, bundle) == null) {
-            this.mProxyActivity.zeusSuperOnCreate(bundle);
-            com.bytedance.pangle.res.b.a(getLayoutInflater());
-        }
-    }
-
-    @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048659, this, contextMenu, view2, contextMenuInfo) == null) {
-            this.mProxyActivity.zeusSuperOnCreateContextMenu(contextMenu, view2, contextMenuInfo);
-        }
-    }
-
-    @Override // android.app.Activity
     public CharSequence onCreateDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.mProxyActivity.zeusSuperOnCreateDescription() : (CharSequence) invokeV.objValue;
-    }
-
-    @Override // android.app.Activity
-    public Dialog onCreateDialog(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048661, this, i)) == null) ? this.mProxyActivity.zeusSuperOnCreateDialog(i) : (Dialog) invokeI.objValue;
-    }
-
-    @Override // android.app.Activity
-    public void onCreateNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048663, this, taskStackBuilder) == null) {
-            this.mProxyActivity.zeusSuperOnCreateNavigateUpTaskStack(taskStackBuilder);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreateDescription();
         }
-    }
-
-    @Override // android.app.Activity
-    public boolean onCreateOptionsMenu(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048664, this, menu)) == null) ? this.mProxyActivity.zeusSuperOnCreateOptionsMenu(menu) : invokeL.booleanValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i, Menu menu) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048665, this, i, menu)) == null) ? this.mProxyActivity.zeusSuperOnCreatePanelMenu(i, menu) : invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public View onCreatePanelView(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048666, this, i)) == null) ? this.mProxyActivity.zeusSuperOnCreatePanelView(i) : (View) invokeI.objValue;
-    }
-
-    @Override // android.app.Activity
-    public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048667, this, bitmap, canvas)) == null) ? this.mProxyActivity.zeusSuperOnCreateThumbnail(bitmap, canvas) : invokeLL.booleanValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048668, this, view2, str, context, attributeSet)) == null) ? this.mProxyActivity.zeusSuperOnCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (CharSequence) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -787,56 +599,6 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public boolean onGenericMotionEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048673, this, motionEvent)) == null) ? this.mProxyActivity.zeusSuperOnGenericMotionEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onGetDirectActions(CancellationSignal cancellationSignal, Consumer consumer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048674, this, cancellationSignal, consumer) == null) {
-            this.mProxyActivity.zeusSuperOnGetDirectActions(cancellationSignal, consumer);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048675, this, i, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyDown(i, keyEvent) : invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048676, this, i, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyLongPress(i, keyEvent) : invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048677, this, i, i2, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyMultiple(i, i2, keyEvent) : invokeIIL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048678, this, i, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyShortcut(i, keyEvent) : invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048679, this, i, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyUp(i, keyEvent) : invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity
     public void onLocalVoiceInteractionStarted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048680, this) == null) {
@@ -860,64 +622,14 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         }
     }
 
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.Window.Callback
-    public boolean onMenuOpened(int i, Menu menu) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048683, this, i, menu)) == null) ? this.mProxyActivity.zeusSuperOnMenuOpened(i, menu) : invokeIL.booleanValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onMultiWindowModeChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048684, this, z) == null) {
-            this.mProxyActivity.zeusSuperOnMultiWindowModeChanged(z);
-        }
-    }
-
     @Override // android.app.Activity
     public boolean onNavigateUp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) ? this.mProxyActivity.zeusSuperOnNavigateUp() : invokeV.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public boolean onNavigateUpFromChild(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, activity)) == null) ? this.mProxyActivity.zeusSuperOnNavigateUpFromChild(activity) : invokeL.booleanValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048688, this, intent) == null) {
-            this.mProxyActivity.zeusSuperOnNewIntent(intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
+            return this.mProxyActivity.zeusSuperOnNavigateUp();
         }
-    }
-
-    @Override // android.app.Activity
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, menuItem)) == null) ? this.mProxyActivity.zeusSuperOnOptionsItemSelected(menuItem) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onOptionsMenuClosed(Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048690, this, menu) == null) {
-            this.mProxyActivity.zeusSuperOnOptionsMenuClosed(menu);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i, Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048691, this, i, menu) == null) {
-            this.mProxyActivity.zeusSuperOnPanelClosed(i, menu);
-        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -929,34 +641,13 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public void onPerformDirectAction(String str, Bundle bundle, CancellationSignal cancellationSignal, Consumer consumer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048693, this, str, bundle, cancellationSignal, consumer) == null) {
-            this.mProxyActivity.zeusSuperOnPerformDirectAction(str, bundle, cancellationSignal, consumer);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPictureInPictureModeChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048694, this, z) == null) {
-            this.mProxyActivity.zeusSuperOnPictureInPictureModeChanged(z);
-        }
-    }
-
-    @Override // android.app.Activity
     public boolean onPictureInPictureRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) ? this.mProxyActivity.zeusSuperOnPictureInPictureRequested() : invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public void onPostCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048697, this, bundle) == null) {
-            this.mProxyActivity.zeusSuperOnPostCreate(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
+            return this.mProxyActivity.zeusSuperOnPictureInPictureRequested();
         }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -968,72 +659,13 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048700, this, i, dialog) == null) {
-            this.mProxyActivity.zeusSuperOnPrepareDialog(i, dialog);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onPrepareNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048702, this, taskStackBuilder) == null) {
-            this.mProxyActivity.zeusSuperOnPrepareNavigateUpTaskStack(taskStackBuilder);
-        }
-    }
-
-    @Override // android.app.Activity
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048703, this, menu)) == null) ? this.mProxyActivity.zeusSuperOnPrepareOptionsMenu(menu) : invokeL.booleanValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view2, Menu menu) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048704, this, i, view2, menu)) == null) ? this.mProxyActivity.zeusSuperOnPreparePanel(i, view2, menu) : invokeILL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onProvideAssistContent(AssistContent assistContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048705, this, assistContent) == null) {
-            this.mProxyActivity.zeusSuperOnProvideAssistContent(assistContent);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onProvideAssistData(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048706, this, bundle) == null) {
-            this.mProxyActivity.zeusSuperOnProvideAssistData(bundle);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onProvideKeyboardShortcuts(List list, Menu menu, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048707, this, list, menu, i) == null) {
-            this.mProxyActivity.zeusSuperOnProvideKeyboardShortcuts(list, menu, i);
-        }
-    }
-
-    @Override // android.app.Activity
     public Uri onProvideReferrer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) ? this.mProxyActivity.zeusSuperOnProvideReferrer() : (Uri) invokeV.objValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048709, this, i, strArr, iArr) == null) {
-            this.mProxyActivity.zeusSuperOnRequestPermissionsResult(i, strArr, iArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) {
+            return this.mProxyActivity.zeusSuperOnProvideReferrer();
         }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // android.app.Activity
@@ -1041,17 +673,6 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048710, this) == null) {
             this.mProxyActivity.zeusSuperOnRestart();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onRestoreInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048711, this, bundle) == null) {
-            try {
-                this.mProxyActivity.zeusSuperOnRestoreInstanceState(bundle);
-            } catch (Throwable unused) {
-            }
         }
     }
 
@@ -1063,19 +684,14 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         }
     }
 
-    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048714, this, bundle) == null) {
-            this.mProxyActivity.zeusSuperOnSaveInstanceState(bundle);
-        }
-    }
-
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onSearchRequested() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) ? this.mProxyActivity.zeusSuperOnSearchRequested() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) {
+            return this.mProxyActivity.zeusSuperOnSearchRequested();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -1099,44 +715,6 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048720, this) == null) {
             this.mProxyActivity.zeusSuperOnStop();
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public void onTitleChanged(CharSequence charSequence, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048721, this, charSequence, i) == null) {
-            this.mProxyActivity.zeusSuperOnTitleChanged(charSequence, i);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onTopResumedActivityChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048722, this, z) == null) {
-            this.mProxyActivity.zeusSuperOnTopResumedActivityChanged(z);
-        }
-    }
-
-    @Override // android.app.Activity
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048723, this, motionEvent)) == null) ? this.mProxyActivity.zeusSuperOnTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public boolean onTrackballEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048724, this, motionEvent)) == null) ? this.mProxyActivity.zeusSuperOnTrackballEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048725, this, i) == null) {
-            this.mProxyActivity.zeusSuperOnTrimMemory(i);
         }
     }
 
@@ -1164,50 +742,11 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         }
     }
 
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048729, this, layoutParams) == null) {
-            this.mProxyActivity.zeusSuperOnWindowAttributesChanged(layoutParams);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048730, this, z) == null) {
-            this.mProxyActivity.zeusSuperOnWindowFocusChanged(z);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048731, this, callback)) == null) ? this.mProxyActivity.zeusSuperOnWindowStartingActionMode(callback) : (ActionMode) invokeL.objValue;
-    }
-
-    @Override // android.app.Activity
-    public void openContextMenu(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048733, this, view2) == null) {
-            this.mProxyActivity.zeusSuperOpenContextMenu(view2);
-        }
-    }
-
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void openOptionsMenu() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048734, this) == null) {
             this.mProxyActivity.zeusSuperOpenOptionsMenu();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void overridePendingTransition(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048735, this, i, i2) == null) {
-            this.mProxyActivity.zeusSuperOverridePendingTransition(i, i2);
         }
     }
 
@@ -1228,6 +767,844 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
+    public boolean releaseInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048740, this)) == null) {
+            return this.mProxyActivity.zeusSuperReleaseInstance();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void reportFullyDrawn() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048741, this) == null) {
+            this.mProxyActivity.zeusSuperReportFullyDrawn();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void showLockTaskEscapeMessage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048773, this) == null) {
+            this.mProxyActivity.zeusSuperShowLockTaskEscapeMessage();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void startLockTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048795, this) == null) {
+            this.mProxyActivity.zeusSuperStartLockTask();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void startPostponedEnterTransition() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048799, this) == null) {
+            this.mProxyActivity.zeusSuperStartPostponedEnterTransition();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void stopLocalVoiceInteraction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048801, this) == null) {
+            this.mProxyActivity.zeusSuperStopLocalVoiceInteraction();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void stopLockTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048802, this) == null) {
+            this.mProxyActivity.zeusSuperStopLockTask();
+        }
+    }
+
+    @Override // com.bytedance.pangle.activity.IPluginActivity
+    public void _requestPermissions(String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, strArr, i) == null) {
+            this.mProxyActivity.requestPermissions(strArr, i);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, layoutParams) == null) {
+            this.mProxyActivity.zeusSuperAddContentView(view2, layoutParams);
+        }
+    }
+
+    public boolean convertToTranslucent(Activity.TranslucentConversionListener translucentConversionListener, ActivityOptions activityOptions) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, translucentConversionListener, activityOptions)) == null) {
+            return this.mProxyActivity.zeusSuperConvertToTranslucent(translucentConversionListener, activityOptions);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void finishActivityFromChild(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048595, this, activity, i) == null) {
+            this.mProxyActivity.zeusSuperFinishActivityFromChild(activity, i);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean navigateUpToFromChild(Activity activity, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, activity, intent)) == null) {
+            return this.mProxyActivity.zeusSuperNavigateUpToFromChild(activity, intent);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onActivityReenter(int i, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048646, this, i, intent) == null) {
+            this.mProxyActivity.zeusSuperOnActivityReenter(i, intent);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048652, this, activity, charSequence) == null) {
+            this.mProxyActivity.zeusSuperOnChildTitleChanged(activity, charSequence);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle, PersistableBundle persistableBundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048658, this, bundle, persistableBundle) == null) {
+            this.mProxyActivity.zeusSuperOnCreate(bundle, persistableBundle);
+        }
+    }
+
+    @Override // android.app.Activity
+    public Dialog onCreateDialog(int i, Bundle bundle) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048662, this, i, bundle)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreateDialog(i, bundle);
+        }
+        return (Dialog) invokeIL.objValue;
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
+    public boolean onCreatePanelMenu(int i, Menu menu) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048665, this, i, menu)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreatePanelMenu(i, menu);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048667, this, bitmap, canvas)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreateThumbnail(bitmap, canvas);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onGetDirectActions(CancellationSignal cancellationSignal, Consumer consumer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048674, this, cancellationSignal, consumer) == null) {
+            this.mProxyActivity.zeusSuperOnGetDirectActions(cancellationSignal, consumer);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048675, this, i, keyEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048676, this, i, keyEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnKeyLongPress(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048678, this, i, keyEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnKeyShortcut(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048679, this, i, keyEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnKeyUp(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.Window.Callback
+    public boolean onMenuOpened(int i, Menu menu) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048683, this, i, menu)) == null) {
+            return this.mProxyActivity.zeusSuperOnMenuOpened(i, menu);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onMultiWindowModeChanged(boolean z, Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048685, this, z, configuration) == null) {
+            this.mProxyActivity.zeusSuperOnMultiWindowModeChanged(z, configuration);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
+    public void onPanelClosed(int i, Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048691, this, i, menu) == null) {
+            this.mProxyActivity.zeusSuperOnPanelClosed(i, menu);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPictureInPictureModeChanged(boolean z, Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048695, this, z, configuration) == null) {
+            this.mProxyActivity.zeusSuperOnPictureInPictureModeChanged(z, configuration);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPostCreate(Bundle bundle, PersistableBundle persistableBundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048698, this, bundle, persistableBundle) == null) {
+            this.mProxyActivity.zeusSuperOnPostCreate(bundle, persistableBundle);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPrepareDialog(int i, Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048700, this, i, dialog) == null) {
+            this.mProxyActivity.zeusSuperOnPrepareDialog(i, dialog);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onRestoreInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048712, this, bundle, persistableBundle) == null) {
+            try {
+                this.mProxyActivity.zeusSuperOnRestoreInstanceState(bundle, persistableBundle);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048715, this, bundle, persistableBundle) == null) {
+            this.mProxyActivity.zeusSuperOnSaveInstanceState(bundle, persistableBundle);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
+    public void onTitleChanged(CharSequence charSequence, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048721, this, charSequence, i) == null) {
+            this.mProxyActivity.zeusSuperOnTitleChanged(charSequence, i);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048732, this, callback, i)) == null) {
+            return this.mProxyActivity.zeusSuperOnWindowStartingActionMode(callback, i);
+        }
+        return (ActionMode) invokeLI.objValue;
+    }
+
+    @Override // android.app.Activity
+    public void overridePendingTransition(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048735, this, i, i2) == null) {
+            this.mProxyActivity.zeusSuperOverridePendingTransition(i, i2);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048748, this, view2, layoutParams) == null) {
+            this.mProxyActivity.zeusSuperSetContentView(view2, layoutParams);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void setLocusContext(LocusId locusId, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048755, this, locusId, bundle) == null) {
+            this.mProxyActivity.zeusSuperSetLocusContext(locusId, bundle);
+        }
+    }
+
+    @Override // com.bytedance.pangle.activity.IPluginActivity
+    public void setPluginProxyActivity(b bVar, Plugin plugin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048757, this, bVar, plugin) == null) {
+            this.mProxyActivity = (GenerateProxyAppCompatActivity) bVar;
+            this.mPlugin = plugin;
+        }
+    }
+
+    @Override // android.app.Activity
+    public void setVrModeEnabled(boolean z, ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048769, this, z, componentName) == null) {
+            this.mProxyActivity.zeusSuperSetVrModeEnabled(z, componentName);
+        }
+    }
+
+    @Override // android.app.Activity
+    public ActionMode startActionMode(ActionMode.Callback callback, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048775, this, callback, i)) == null) {
+            return this.mProxyActivity.zeusSuperStartActionMode(callback, i);
+        }
+        return (ActionMode) invokeLI.objValue;
+    }
+
+    @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
+    public void startActivities(Intent[] intentArr, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048777, this, intentArr, bundle) == null) {
+            this.mProxyActivity.zeusSuperStartActivities(intentArr, bundle);
+        }
+    }
+
+    @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
+    public void startActivity(Intent intent, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048779, this, intent, bundle) == null) {
+            this.mProxyActivity.zeusSuperStartActivity(intent, bundle);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void startActivityForResult(Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048780, this, intent, i) == null) {
+            this.mProxyActivity.zeusSuperStartActivityForResult(intent, i);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean startActivityIfNeeded(Intent intent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048786, this, intent, i)) == null) {
+            return this.mProxyActivity.zeusSuperStartActivityIfNeeded(intent, i);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public boolean startNextMatchingActivity(Intent intent, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048798, this, intent, bundle)) == null) {
+            return this.mProxyActivity.zeusSuperStartNextMatchingActivity(intent, bundle);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void triggerSearch(String str, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048805, this, str, bundle) == null) {
+            this.mProxyActivity.zeusSuperTriggerSearch(str, bundle);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            super.attachBaseContext(context);
+            com.bytedance.pangle.util.a.a(this, this.mProxyActivity);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+            return this.mProxyActivity.zeusSuperDispatchGenericMotionEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, androidx.core.app.ComponentActivity, android.app.Activity, android.view.Window.Callback
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, keyEvent)) == null) {
+            return this.mProxyActivity.zeusSuperDispatchKeyEvent(keyEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.core.app.ComponentActivity, android.app.Activity, android.view.Window.Callback
+    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, keyEvent)) == null) {
+            return this.mProxyActivity.zeusSuperDispatchKeyShortcutEvent(keyEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, accessibilityEvent)) == null) {
+            return this.mProxyActivity.zeusSuperDispatchPopulateAccessibilityEvent(accessibilityEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
+            return this.mProxyActivity.zeusSuperDispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) {
+            return this.mProxyActivity.zeusSuperDispatchTrackballEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public boolean enterPictureInPictureMode(PictureInPictureParams pictureInPictureParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, pictureInPictureParams)) == null) {
+            return this.mProxyActivity.zeusSuperEnterPictureInPictureMode(pictureInPictureParams);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
+    public View findViewById(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            return this.mProxyActivity.zeusSuperFindViewById(i);
+        }
+        return (View) invokeI.objValue;
+    }
+
+    @Override // android.app.Activity
+    public void finishActivity(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mProxyActivity.zeusSuperFinishActivity(i);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void finishFromChild(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, activity) == null) {
+            this.mProxyActivity.zeusSuperFinishFromChild(activity);
+        }
+    }
+
+    @Override // android.app.Activity
+    public SharedPreferences getPreferences(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i)) == null) {
+            return this.mProxyActivity.zeusSuperGetPreferences(i);
+        }
+        return (SharedPreferences) invokeI.objValue;
+    }
+
+    @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public Object getSystemService(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, str)) == null) {
+            return this.mProxyActivity.zeusSuperGetSystemService(str);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // android.app.Activity
+    public boolean moveTaskToBack(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048641, this, z)) == null) {
+            return this.mProxyActivity.zeusSuperMoveTaskToBack(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public boolean navigateUpTo(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, intent)) == null) {
+            return this.mProxyActivity.zeusSuperNavigateUpTo(intent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onActionModeFinished(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048644, this, actionMode) == null) {
+            this.mProxyActivity.zeusSuperOnActionModeFinished(actionMode);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onActionModeStarted(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048645, this, actionMode) == null) {
+            this.mProxyActivity.zeusSuperOnActionModeStarted(actionMode);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onAttachFragment(Fragment fragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048649, this, fragment) == null) {
+            this.mProxyActivity.zeusSuperOnAttachFragment(fragment);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048653, this, configuration) == null) {
+            this.mProxyActivity.zeusSuperOnConfigurationChanged(configuration);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onContextItemSelected(MenuItem menuItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, menuItem)) == null) {
+            return this.mProxyActivity.zeusSuperOnContextItemSelected(menuItem);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onContextMenuClosed(Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048656, this, menu) == null) {
+            this.mProxyActivity.zeusSuperOnContextMenuClosed(menu);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048657, this, bundle) == null) {
+            this.mProxyActivity.zeusSuperOnCreate(bundle);
+            com.bytedance.pangle.res.b.a(getLayoutInflater());
+        }
+    }
+
+    @Override // android.app.Activity
+    public Dialog onCreateDialog(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048661, this, i)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreateDialog(i);
+        }
+        return (Dialog) invokeI.objValue;
+    }
+
+    @Override // android.app.Activity
+    public void onCreateNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048663, this, taskStackBuilder) == null) {
+            this.mProxyActivity.zeusSuperOnCreateNavigateUpTaskStack(taskStackBuilder);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onCreateOptionsMenu(Menu menu) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048664, this, menu)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreateOptionsMenu(menu);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public View onCreatePanelView(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048666, this, i)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreatePanelView(i);
+        }
+        return (View) invokeI.objValue;
+    }
+
+    @Override // android.app.Activity
+    public boolean onGenericMotionEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048673, this, motionEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnGenericMotionEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onMultiWindowModeChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048684, this, z) == null) {
+            this.mProxyActivity.zeusSuperOnMultiWindowModeChanged(z);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onNavigateUpFromChild(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, activity)) == null) {
+            return this.mProxyActivity.zeusSuperOnNavigateUpFromChild(activity);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048688, this, intent) == null) {
+            this.mProxyActivity.zeusSuperOnNewIntent(intent);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, menuItem)) == null) {
+            return this.mProxyActivity.zeusSuperOnOptionsItemSelected(menuItem);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onOptionsMenuClosed(Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048690, this, menu) == null) {
+            this.mProxyActivity.zeusSuperOnOptionsMenuClosed(menu);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPictureInPictureModeChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048694, this, z) == null) {
+            this.mProxyActivity.zeusSuperOnPictureInPictureModeChanged(z);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
+    public void onPostCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048697, this, bundle) == null) {
+            this.mProxyActivity.zeusSuperOnPostCreate(bundle);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPrepareNavigateUpTaskStack(TaskStackBuilder taskStackBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048702, this, taskStackBuilder) == null) {
+            this.mProxyActivity.zeusSuperOnPrepareNavigateUpTaskStack(taskStackBuilder);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048703, this, menu)) == null) {
+            return this.mProxyActivity.zeusSuperOnPrepareOptionsMenu(menu);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onProvideAssistContent(AssistContent assistContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048705, this, assistContent) == null) {
+            this.mProxyActivity.zeusSuperOnProvideAssistContent(assistContent);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onProvideAssistData(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048706, this, bundle) == null) {
+            this.mProxyActivity.zeusSuperOnProvideAssistData(bundle);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onRestoreInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048711, this, bundle) == null) {
+            try {
+                this.mProxyActivity.zeusSuperOnRestoreInstanceState(bundle);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048714, this, bundle) == null) {
+            this.mProxyActivity.zeusSuperOnSaveInstanceState(bundle);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onSearchRequested(SearchEvent searchEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048717, this, searchEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnSearchRequested(searchEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onTopResumedActivityChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048722, this, z) == null) {
+            this.mProxyActivity.zeusSuperOnTopResumedActivityChanged(z);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048723, this, motionEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public boolean onTrackballEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048724, this, motionEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnTrackballEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Activity, android.content.ComponentCallbacks2
+    public void onTrimMemory(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048725, this, i) == null) {
+            this.mProxyActivity.zeusSuperOnTrimMemory(i);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048729, this, layoutParams) == null) {
+            this.mProxyActivity.zeusSuperOnWindowAttributesChanged(layoutParams);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048730, this, z) == null) {
+            this.mProxyActivity.zeusSuperOnWindowFocusChanged(z);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048731, this, callback)) == null) {
+            return this.mProxyActivity.zeusSuperOnWindowStartingActionMode(callback);
+        }
+        return (ActionMode) invokeL.objValue;
+    }
+
+    @Override // android.app.Activity
+    public void openContextMenu(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048733, this, view2) == null) {
+            this.mProxyActivity.zeusSuperOpenContextMenu(view2);
+        }
+    }
+
+    @Override // android.app.Activity
     public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048738, this, activityLifecycleCallbacks) == null) {
@@ -1244,32 +1621,23 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public boolean releaseInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048740, this)) == null) ? this.mProxyActivity.zeusSuperReleaseInstance() : invokeV.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void reportFullyDrawn() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048741, this) == null) {
-            this.mProxyActivity.zeusSuperReportFullyDrawn();
-        }
-    }
-
-    @Override // android.app.Activity
     public DragAndDropPermissions requestDragAndDropPermissions(DragEvent dragEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048742, this, dragEvent)) == null) ? this.mProxyActivity.zeusSuperRequestDragAndDropPermissions(dragEvent) : (DragAndDropPermissions) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048742, this, dragEvent)) == null) {
+            return this.mProxyActivity.zeusSuperRequestDragAndDropPermissions(dragEvent);
+        }
+        return (DragAndDropPermissions) invokeL.objValue;
     }
 
     @Override // android.app.Activity
     public boolean requestVisibleBehind(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048743, this, z)) == null) ? this.mProxyActivity.zeusSuperRequestVisibleBehind(z) : invokeZ.booleanValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048743, this, z)) == null) {
+            return this.mProxyActivity.zeusSuperRequestVisibleBehind(z);
+        }
+        return invokeZ.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -1348,27 +1716,10 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public void setLocusContext(LocusId locusId, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048755, this, locusId, bundle) == null) {
-            this.mProxyActivity.zeusSuperSetLocusContext(locusId, bundle);
-        }
-    }
-
-    @Override // android.app.Activity
     public void setPictureInPictureParams(PictureInPictureParams pictureInPictureParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048756, this, pictureInPictureParams) == null) {
             this.mProxyActivity.zeusSuperSetPictureInPictureParams(pictureInPictureParams);
-        }
-    }
-
-    @Override // com.bytedance.pangle.activity.IPluginActivity
-    public void setPluginProxyActivity(b bVar, Plugin plugin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048757, this, bVar, plugin) == null) {
-            this.mProxyActivity = (GenerateProxyAppCompatActivity) bVar;
-            this.mPlugin = plugin;
         }
     }
 
@@ -1435,7 +1786,10 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     public boolean setTranslucent(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048766, this, z)) == null) ? this.mProxyActivity.zeusSuperSetTranslucent(z) : invokeZ.booleanValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048766, this, z)) == null) {
+            return this.mProxyActivity.zeusSuperSetTranslucent(z);
+        }
+        return invokeZ.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -1455,47 +1809,43 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public void setVrModeEnabled(boolean z, ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048769, this, z, componentName) == null) {
-            this.mProxyActivity.zeusSuperSetVrModeEnabled(z, componentName);
-        }
-    }
-
-    @Override // android.app.Activity
     public boolean shouldShowRequestPermissionRationale(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048770, this, str)) == null) ? this.mProxyActivity.zeusSuperShouldShowRequestPermissionRationale(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048770, this, str)) == null) {
+            return this.mProxyActivity.zeusSuperShouldShowRequestPermissionRationale(str);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean shouldUpRecreateTask(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048771, this, intent)) == null) ? this.mProxyActivity.zeusSuperShouldUpRecreateTask(intent) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048771, this, intent)) == null) {
+            return this.mProxyActivity.zeusSuperShouldUpRecreateTask(intent);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.app.Activity
     public boolean showAssist(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048772, this, bundle)) == null) ? this.mProxyActivity.zeusSuperShowAssist(bundle) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void showLockTaskEscapeMessage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048773, this) == null) {
-            this.mProxyActivity.zeusSuperShowLockTaskEscapeMessage();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048772, this, bundle)) == null) {
+            return this.mProxyActivity.zeusSuperShowAssist(bundle);
         }
+        return invokeL.booleanValue;
     }
 
     @Override // android.app.Activity
     public ActionMode startActionMode(ActionMode.Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048774, this, callback)) == null) ? this.mProxyActivity.zeusSuperStartActionMode(callback) : (ActionMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048774, this, callback)) == null) {
+            return this.mProxyActivity.zeusSuperStartActionMode(callback);
+        }
+        return (ActionMode) invokeL.objValue;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
@@ -1514,74 +1864,11 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void startActivityForResult(Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048780, this, intent, i) == null) {
-            this.mProxyActivity.zeusSuperStartActivityForResult(intent, i);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void startActivityFromChild(Activity activity, Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048782, this, activity, intent, i) == null) {
-            this.mProxyActivity.zeusSuperStartActivityFromChild(activity, intent, i);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048784, this, fragment, intent, i) == null) {
-            this.mProxyActivity.zeusSuperStartActivityFromFragment(fragment, intent, i);
-        }
-    }
-
-    @Override // android.app.Activity
-    public boolean startActivityIfNeeded(Intent intent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048786, this, intent, i)) == null) ? this.mProxyActivity.zeusSuperStartActivityIfNeeded(intent, i) : invokeLI.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSender(intentSender, intent, i, i2, i3);
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048792, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
-        }
-    }
-
     @Override // android.app.Activity
     public void startLocalVoiceInteraction(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048794, this, bundle) == null) {
             this.mProxyActivity.zeusSuperStartLocalVoiceInteraction(bundle);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void startLockTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048795, this) == null) {
-            this.mProxyActivity.zeusSuperStartLockTask();
         }
     }
 
@@ -1597,39 +1884,10 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     public boolean startNextMatchingActivity(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048797, this, intent)) == null) ? this.mProxyActivity.zeusSuperStartNextMatchingActivity(intent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void startPostponedEnterTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048799, this) == null) {
-            this.mProxyActivity.zeusSuperStartPostponedEnterTransition();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048797, this, intent)) == null) {
+            return this.mProxyActivity.zeusSuperStartNextMatchingActivity(intent);
         }
-    }
-
-    @Override // android.app.Activity
-    public void startSearch(String str, boolean z, Bundle bundle, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048800, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
-            this.mProxyActivity.zeusSuperStartSearch(str, z, bundle, z2);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void stopLocalVoiceInteraction() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048801, this) == null) {
-            this.mProxyActivity.zeusSuperStopLocalVoiceInteraction();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void stopLockTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048802, this) == null) {
-            this.mProxyActivity.zeusSuperStopLockTask();
-        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -1645,14 +1903,6 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048804, this, z) == null) {
             this.mProxyActivity.zeusSuperTakeKeyEvents(z);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void triggerSearch(String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048805, this, str, bundle) == null) {
-            this.mProxyActivity.zeusSuperTriggerSearch(str, bundle);
         }
     }
 
@@ -1673,48 +1923,57 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public boolean enterPictureInPictureMode(PictureInPictureParams pictureInPictureParams) {
-        InterceptResult invokeL;
+    public PendingIntent createPendingResult(int i, Intent intent, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, pictureInPictureParams)) == null) ? this.mProxyActivity.zeusSuperEnterPictureInPictureMode(pictureInPictureParams) : invokeL.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
+            return this.mProxyActivity.zeusSuperCreatePendingResult(i, intent, i2);
+        }
+        return (PendingIntent) invokeCommon.objValue;
     }
 
-    @Override // android.app.Activity
-    public Dialog onCreateDialog(int i, Bundle bundle) {
-        InterceptResult invokeIL;
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048662, this, i, bundle)) == null) ? this.mProxyActivity.zeusSuperOnCreateDialog(i, bundle) : (Dialog) invokeIL.objValue;
+        if (interceptable == null || interceptable.invokeIIL(1048647, this, i, i2, intent) == null) {
+            this.mProxyActivity.zeusSuperOnActivityResult(i, i2, intent);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.ContextThemeWrapper
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.mProxyActivity.zeusSuperOnApplyThemeResource(theme, i, z);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
+    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048659, this, contextMenu, view2, contextMenuInfo) == null) {
+            this.mProxyActivity.zeusSuperOnCreateContextMenu(contextMenu, view2, contextMenuInfo);
+        }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048669, this, str, context, attributeSet)) == null) ? this.mProxyActivity.zeusSuperOnCreateView(str, context, attributeSet) : (View) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048669, this, str, context, attributeSet)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreateView(str, context, attributeSet);
+        }
+        return (View) invokeLLL.objValue;
     }
 
-    @Override // android.app.Activity
-    public void onMultiWindowModeChanged(boolean z, Configuration configuration) {
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048685, this, z, configuration) == null) {
-            this.mProxyActivity.zeusSuperOnMultiWindowModeChanged(z, configuration);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048677, this, i, i2, keyEvent)) == null) {
+            return this.mProxyActivity.zeusSuperOnKeyMultiple(i, i2, keyEvent);
         }
-    }
-
-    @Override // android.app.Activity
-    public void onPictureInPictureModeChanged(boolean z, Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048695, this, z, configuration) == null) {
-            this.mProxyActivity.zeusSuperOnPictureInPictureModeChanged(z, configuration);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onPostCreate(Bundle bundle, PersistableBundle persistableBundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048698, this, bundle, persistableBundle) == null) {
-            this.mProxyActivity.zeusSuperOnPostCreate(bundle, persistableBundle);
-        }
+        return invokeIIL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -1725,67 +1984,29 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         }
     }
 
-    @Override // android.app.Activity
-    public void onRestoreInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048712, this, bundle, persistableBundle) == null) {
-            try {
-                this.mProxyActivity.zeusSuperOnRestoreInstanceState(bundle, persistableBundle);
-            } catch (Throwable unused) {
-            }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048704, this, i, view2, menu)) == null) {
+            return this.mProxyActivity.zeusSuperOnPreparePanel(i, view2, menu);
         }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle, PersistableBundle persistableBundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048715, this, bundle, persistableBundle) == null) {
-            this.mProxyActivity.zeusSuperOnSaveInstanceState(bundle, persistableBundle);
-        }
+        return invokeILL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onSearchRequested(SearchEvent searchEvent) {
-        InterceptResult invokeL;
+    public void onProvideKeyboardShortcuts(List list, Menu menu, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048717, this, searchEvent)) == null) ? this.mProxyActivity.zeusSuperOnSearchRequested(searchEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048732, this, callback, i)) == null) ? this.mProxyActivity.zeusSuperOnWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
-    }
-
-    @Override // android.app.Activity
-    public void setTitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048764, this, charSequence) == null) {
-            this.mProxyActivity.zeusSuperSetTitle(charSequence);
+        if (interceptable == null || interceptable.invokeLLI(1048707, this, list, menu, i) == null) {
+            this.mProxyActivity.zeusSuperOnProvideKeyboardShortcuts(list, menu, i);
         }
     }
 
-    @Override // android.app.Activity
-    public ActionMode startActionMode(ActionMode.Callback callback, int i) {
-        InterceptResult invokeLI;
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048775, this, callback, i)) == null) ? this.mProxyActivity.zeusSuperStartActionMode(callback, i) : (ActionMode) invokeLI.objValue;
-    }
-
-    @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startActivities(Intent[] intentArr, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048777, this, intentArr, bundle) == null) {
-            this.mProxyActivity.zeusSuperStartActivities(intentArr, bundle);
-        }
-    }
-
-    @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startActivity(Intent intent, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048779, this, intent, bundle) == null) {
-            this.mProxyActivity.zeusSuperStartActivity(intent, bundle);
+        if (interceptable == null || interceptable.invokeILL(1048709, this, i, strArr, iArr) == null) {
+            this.mProxyActivity.zeusSuperOnRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
@@ -1794,6 +2015,58 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048781, this, intent, i, bundle) == null) {
             this.mProxyActivity.zeusSuperStartActivityForResult(intent, i, bundle);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void startActivityFromChild(Activity activity, Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048782, this, activity, intent, i) == null) {
+            this.mProxyActivity.zeusSuperStartActivityFromChild(activity, intent, i);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048784, this, fragment, intent, i) == null) {
+            this.mProxyActivity.zeusSuperStartActivityFromFragment(fragment, intent, i);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean startActivityIfNeeded(Intent intent, int i, Bundle bundle) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048787, this, intent, i, bundle)) == null) {
+            return this.mProxyActivity.zeusSuperStartActivityIfNeeded(intent, i, bundle);
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048589, this, str, fileDescriptor, printWriter, strArr) == null) {
+            this.mProxyActivity.zeusSuperDump(str, fileDescriptor, printWriter, strArr);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory2
+    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048668, this, view2, str, context, attributeSet)) == null) {
+            return this.mProxyActivity.zeusSuperOnCreateView(view2, str, context, attributeSet);
+        }
+        return (View) invokeLLLL.objValue;
+    }
+
+    @Override // android.app.Activity
+    public void onPerformDirectAction(String str, Bundle bundle, CancellationSignal cancellationSignal, Consumer consumer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048693, this, str, bundle, cancellationSignal, consumer) == null) {
+            this.mProxyActivity.zeusSuperOnPerformDirectAction(str, bundle, cancellationSignal, consumer);
         }
     }
 
@@ -1814,10 +2087,35 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
-    public boolean startActivityIfNeeded(Intent intent, int i, Bundle bundle) {
-        InterceptResult invokeLIL;
+    public void startSearch(String str, boolean z, Bundle bundle, boolean z2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048787, this, intent, i, bundle)) == null) ? this.mProxyActivity.zeusSuperStartActivityIfNeeded(intent, i, bundle) : invokeLIL.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048800, this, new Object[]{str, Boolean.valueOf(z), bundle, Boolean.valueOf(z2)}) == null) {
+            this.mProxyActivity.zeusSuperStartSearch(str, z, bundle, z2);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
+    public void setContentView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048747, this, view2) == null) {
+            this.mProxyActivity.zeusSuperSetContentView(view2);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void setTitle(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048764, this, charSequence) == null) {
+            this.mProxyActivity.zeusSuperSetTitle(charSequence);
+        }
+    }
+
+    @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSender(intentSender, intent, i, i2, i3);
+        }
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
@@ -1825,6 +2123,14 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
             this.mProxyActivity.zeusSuperStartIntentSender(intentSender, intent, i, i2, i3, bundle);
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         }
     }
 
@@ -1837,41 +2143,18 @@ public abstract class GeneratePluginAppCompatActivity extends AppCompatActivity 
     }
 
     @Override // android.app.Activity
+    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048792, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
+        }
+    }
+
+    @Override // android.app.Activity
     public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048793, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             this.mProxyActivity.zeusSuperStartIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4, bundle);
-        }
-    }
-
-    @Override // android.app.Activity
-    public boolean startNextMatchingActivity(Intent intent, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048798, this, intent, bundle)) == null) ? this.mProxyActivity.zeusSuperStartNextMatchingActivity(intent, bundle) : invokeLL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle, PersistableBundle persistableBundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048658, this, bundle, persistableBundle) == null) {
-            this.mProxyActivity.zeusSuperOnCreate(bundle, persistableBundle);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public void setContentView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048747, this, view2) == null) {
-            this.mProxyActivity.zeusSuperSetContentView(view2);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
-    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048748, this, view2, layoutParams) == null) {
-            this.mProxyActivity.zeusSuperSetContentView(view2, layoutParams);
         }
     }
 }

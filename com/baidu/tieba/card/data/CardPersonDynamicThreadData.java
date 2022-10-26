@@ -1,7 +1,6 @@
 package com.baidu.tieba.card.data;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
@@ -19,10 +18,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.ar4;
+import com.baidu.tieba.eh;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.vs4;
-import com.baidu.tieba.yq4;
+import com.baidu.tieba.xs4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +38,6 @@ import tbclient.Abstract;
 import tbclient.Agree;
 import tbclient.HeadItem;
 import tbclient.Item;
-import tbclient.PbContent;
 import tbclient.PbGoodsInfo;
 import tbclient.PbLinkInfo;
 import tbclient.PostInfoList;
@@ -48,7 +46,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends yq4 {
+public class CardPersonDynamicThreadData extends ar4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,14 +79,38 @@ public class CardPersonDynamicThreadData extends yq4 {
     public String s;
     public String t;
     public Abs[] u;
-    public List<PbContent> v;
-    public List<PbContent> w;
+    public List v;
+    public List w;
     public MediaData[] x;
     public VideoInfo y;
     public VoiceData.VoiceModel[] z;
 
+    public static int c(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) {
+            for (int i4 = 0; i4 < i && i4 < 3; i4++) {
+                if (i4 != i2 && i4 != i3) {
+                    return i4;
+                }
+            }
+            return -1;
+        }
+        return invokeIII.intValue;
+    }
+
+    @Override // com.baidu.tieba.ar4
+    public xs4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (xs4) invokeV.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class Abs extends OrmObject implements Serializable {
+    public class Abs extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String link;
@@ -119,7 +141,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(Abstract r5) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || r5 == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, r5) != null) || r5 == null) {
                 return;
             }
             this.type = r5.type.intValue();
@@ -131,7 +153,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class AnchorInfo extends OrmObject implements Serializable {
+    public class AnchorInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long author_id;
@@ -178,7 +200,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(tbclient.AnchorInfo anchorInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, anchorInfo) == null) || anchorInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, anchorInfo) != null) || anchorInfo == null) {
                 return;
             }
             this.portrait = anchorInfo.portrait;
@@ -198,7 +220,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class LabelInfo extends OrmObject implements Serializable {
+    public class LabelInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String LabelId;
@@ -225,7 +247,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(tbclient.LabelInfo labelInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, labelInfo) == null) || labelInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, labelInfo) != null) || labelInfo == null) {
                 return;
             }
             this.labelHot = labelInfo.labelHot.intValue();
@@ -235,7 +257,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class LbsInfo implements Serializable {
+    public class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String lat;
@@ -262,7 +284,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(tbclient.LbsInfo lbsInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, lbsInfo) == null) || lbsInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, lbsInfo) != null) || lbsInfo == null) {
                 return;
             }
             this.lat = lbsInfo.lat;
@@ -272,7 +294,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class Media extends OrmObject implements Serializable {
+    public class Media extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String big_pic;
@@ -303,7 +325,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(tbclient.Media media) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, media) == null) || media == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, media) != null) || media == null) {
                 return;
             }
             this.type = media.type.intValue();
@@ -315,7 +337,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class MultipleForum extends OrmObject implements Serializable {
+    public class MultipleForum extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long forum_id;
@@ -340,7 +362,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(tbclient.MultipleForum multipleForum) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, multipleForum) == null) || multipleForum == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, multipleForum) != null) || multipleForum == null) {
                 return;
             }
             this.forum_id = multipleForum.forum_id.longValue();
@@ -349,7 +371,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class PostInfoContent extends OrmObject implements Serializable {
+    public class PostInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long create_time;
@@ -378,7 +400,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(tbclient.PostInfoContent postInfoContent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, postInfoContent) == null) || postInfoContent == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, postInfoContent) != null) || postInfoContent == null) {
                 return;
             }
             this.create_time = postInfoContent.create_time.longValue();
@@ -397,7 +419,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class Quote extends OrmObject implements Serializable {
+    public class Quote extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -428,7 +450,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(tbclient.Quote quote) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, quote) == null) || quote == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, quote) != null) || quote == null) {
                 return;
             }
             this.post_id = quote.post_id.longValue();
@@ -440,7 +462,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class UserInfo extends OrmObject implements Serializable {
+    public class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long id;
@@ -467,7 +489,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(User user) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, user) == null) || user == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, user) != null) || user == null) {
                 return;
             }
             this.portrait = user.portrait;
@@ -477,7 +499,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class Zan extends OrmObject implements Serializable {
+    public class Zan extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int num;
@@ -500,7 +522,7 @@ public class CardPersonDynamicThreadData extends yq4 {
 
         public void parseProtobuf(tbclient.Zan zan) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, zan) == null) || zan == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, zan) != null) || zan == null) {
                 return;
             }
             this.num = zan.num.intValue();
@@ -508,7 +530,7 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     /* loaded from: classes3.dex */
-    public static class ZhiBoInfoTW extends OrmObject implements Serializable {
+    public class ZhiBoInfoTW extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -521,7 +543,7 @@ public class CardPersonDynamicThreadData extends yq4 {
         public String livecover_src_bsize;
         public int post_num;
         public int reply_num;
-        public ArrayList<Integer> showExpressionViewIndex;
+        public ArrayList showExpressionViewIndex;
         public int showStyle;
         public long thread_id;
         public String title;
@@ -556,12 +578,12 @@ public class CardPersonDynamicThreadData extends yq4 {
             this.labelList = new LabelInfo[0];
             this.showStyle = -1;
             this.isHeadLive = false;
-            this.showExpressionViewIndex = new ArrayList<>();
+            this.showExpressionViewIndex = new ArrayList();
         }
 
         public void parseProtobuf(tbclient.ZhiBoInfoTW zhiBoInfoTW, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, zhiBoInfoTW, i) == null) || zhiBoInfoTW == null) {
+            if ((interceptable != null && interceptable.invokeLI(1048576, this, zhiBoInfoTW, i) != null) || zhiBoInfoTW == null) {
                 return;
             }
             this.post_num = zhiBoInfoTW.post_num.intValue();
@@ -576,7 +598,11 @@ public class CardPersonDynamicThreadData extends yq4 {
             this.reply_num = zhiBoInfoTW.reply_num.intValue();
             this.showStyle = i;
             this.zan.parseProtobuf(zhiBoInfoTW.zan);
-            this.isHeadLive = zhiBoInfoTW.is_headline.intValue() == 1;
+            boolean z = true;
+            if (zhiBoInfoTW.is_headline.intValue() != 1) {
+                z = false;
+            }
+            this.isHeadLive = z;
             this.userInfo.parseProtobuf(zhiBoInfoTW.user);
             List<tbclient.LabelInfo> list = zhiBoInfoTW.labelInfo;
             if (list != null) {
@@ -612,6 +638,26 @@ public class CardPersonDynamicThreadData extends yq4 {
         I = BdUniqueId.gen();
     }
 
+    @Override // com.baidu.tieba.ar4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.p;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return I;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
     public CardPersonDynamicThreadData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -638,33 +684,22 @@ public class CardPersonDynamicThreadData extends yq4 {
         this.F = true;
     }
 
-    public static int c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) {
-            for (int i4 = 0; i4 < i && i4 < 3; i4++) {
-                if (i4 != i2 && i4 != i3) {
-                    return i4;
-                }
-            }
-            return -1;
-        }
-        return invokeIII.intValue;
-    }
-
     public static int f(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
             int nextInt = new Random().nextInt(i);
-            return nextInt == i2 ? (nextInt + 1) % i : nextInt;
+            if (nextInt == i2) {
+                return (nextInt + 1) % i;
+            }
+            return nextInt;
         }
         return invokeII.intValue;
     }
 
-    public static void l(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
+    public static void l(LabelInfo[] labelInfoArr, ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, labelInfoArr, arrayList) == null) || labelInfoArr == null) {
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, labelInfoArr, arrayList) != null) || labelInfoArr == null) {
             return;
         }
         int length = labelInfoArr.length;
@@ -687,33 +722,11 @@ public class CardPersonDynamicThreadData extends yq4 {
         }
     }
 
-    @Override // com.baidu.tieba.yq4
-    public vs4 getNegFeedBackData() {
-        InterceptResult invokeV;
+    public void h(User user, MetaData metaData, PostInfoList postInfoList, int i) {
+        long j;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (vs4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yq4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? I : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(User user, @Nullable MetaData metaData, PostInfoList postInfoList, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, user, metaData, postInfoList, i) == null) || postInfoList == null) {
+        if ((interceptable != null && interceptable.invokeLLLI(1048579, this, user, metaData, postInfoList, i) != null) || postInfoList == null) {
             return;
         }
         this.a = String.valueOf(postInfoList.forum_id);
@@ -792,10 +805,10 @@ public class CardPersonDynamicThreadData extends yq4 {
                 multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
                 this.B[i5] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.h) && dh.g(this.a, -1L) != -1) {
+        } else if (!TextUtils.isEmpty(this.h) && eh.g(this.a, -1L) != -1) {
             this.B = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = dh.g(this.a, 0L);
+            multipleForum2.forum_id = eh.g(this.a, 0L);
             multipleForum2.forum_name = this.h;
             this.B[0] = multipleForum2;
         }
@@ -811,11 +824,19 @@ public class CardPersonDynamicThreadData extends yq4 {
         if (agree != null) {
             this.p.setAgreeType(agree.agree_type.intValue());
             this.p.setHasAgree(postInfoList.agree.has_agree.intValue());
-            long longValue = postInfoList.agree.agree_num.longValue() > 0 ? postInfoList.agree.agree_num.longValue() : 0L;
-            long longValue2 = postInfoList.agree.disagree_num.longValue() > 0 ? postInfoList.agree.disagree_num.longValue() : 0L;
-            this.p.setAgreeNum(longValue);
-            this.p.setDisAgreeNum(longValue2);
-            if (this.p.getHasAgree() == 1 && longValue == 0 && longValue2 == 0) {
+            if (postInfoList.agree.agree_num.longValue() > 0) {
+                j = postInfoList.agree.agree_num.longValue();
+            } else {
+                j = 0;
+            }
+            if (postInfoList.agree.disagree_num.longValue() > 0) {
+                j2 = postInfoList.agree.disagree_num.longValue();
+            } else {
+                j2 = 0;
+            }
+            this.p.setAgreeNum(j);
+            this.p.setDisAgreeNum(j2);
+            if (this.p.getHasAgree() == 1 && j == 0 && j2 == 0) {
                 this.p.setAgreeNum(1);
             }
             AgreeData agreeData = this.p.getAgreeData();
@@ -929,8 +950,10 @@ public class CardPersonDynamicThreadData extends yq4 {
     }
 
     public void j(User user, ThreadInfo threadInfo, int i, long j) {
+        long j2;
+        long j3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{user, threadInfo, Integer.valueOf(i), Long.valueOf(j)}) == null) || threadInfo == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{user, threadInfo, Integer.valueOf(i), Long.valueOf(j)}) != null) || threadInfo == null) {
             return;
         }
         this.a = String.valueOf(threadInfo.fid);
@@ -939,10 +962,10 @@ public class CardPersonDynamicThreadData extends yq4 {
         this.e = valueOf;
         this.f = valueOf;
         this.g = threadInfo.create_time.intValue();
-        long j2 = j * 1000;
-        this.r = StringHelper.getChineseYearBytime(j2);
-        this.s = StringHelper.getChineseMonthBytime(j2);
-        this.t = StringHelper.getDateBytime(j2);
+        long j4 = j * 1000;
+        this.r = StringHelper.getChineseYearBytime(j4);
+        this.s = StringHelper.getChineseMonthBytime(j4);
+        this.t = StringHelper.getDateBytime(j4);
         this.h = threadInfo.fname;
         this.y = threadInfo.video_info;
         this.i = threadInfo.title;
@@ -1014,11 +1037,19 @@ public class CardPersonDynamicThreadData extends yq4 {
         if (agree != null) {
             this.p.setAgreeType(agree.agree_type.intValue());
             this.p.setHasAgree(threadInfo.agree.has_agree.intValue());
-            long longValue = threadInfo.agree.agree_num.longValue() > 0 ? threadInfo.agree.agree_num.longValue() : 0L;
-            long longValue2 = threadInfo.agree.disagree_num.longValue() > 0 ? threadInfo.agree.disagree_num.longValue() : 0L;
-            this.p.setAgreeNum(longValue);
-            this.p.setDisAgreeNum(longValue2);
-            if (this.p.getHasAgree() == 1 && longValue == 0 && longValue2 == 0) {
+            if (threadInfo.agree.agree_num.longValue() > 0) {
+                j2 = threadInfo.agree.agree_num.longValue();
+            } else {
+                j2 = 0;
+            }
+            if (threadInfo.agree.disagree_num.longValue() > 0) {
+                j3 = threadInfo.agree.disagree_num.longValue();
+            } else {
+                j3 = 0;
+            }
+            this.p.setAgreeNum(j2);
+            this.p.setDisAgreeNum(j3);
+            if (this.p.getHasAgree() == 1 && j2 == 0 && j3 == 0) {
                 this.p.setAgreeNum(1);
             }
         }

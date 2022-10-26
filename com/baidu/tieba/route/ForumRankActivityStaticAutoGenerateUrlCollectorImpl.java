@@ -31,7 +31,23 @@ public final class ForumRankActivityStaticAutoGenerateUrlCollectorImpl implement
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("BarFolderFirstDirActivityConfig");
+            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_SQUARE);
+            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_LIST);
+            hashMap.put("com.baidu.tieba.square.flist.ForumRankActivityStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -44,22 +60,6 @@ public final class ForumRankActivityStaticAutoGenerateUrlCollectorImpl implement
             hashMap.put("2902023", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
             hashMap.put("2902026", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
             hashMap.put("2902029", "com.baidu.tieba.square.flist.ForumRankActivityStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("BarFolderFirstDirActivityConfig");
-            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_SQUARE);
-            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_LIST);
-            hashMap.put("com.baidu.tieba.square.flist.ForumRankActivityStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

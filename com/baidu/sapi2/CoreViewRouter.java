@@ -213,6 +213,20 @@ public class CoreViewRouter implements NoProguard {
         public final /* synthetic */ ExtendSysWebViewMethodCallback h;
         public final /* synthetic */ CoreViewRouter i;
 
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
         public b(CoreViewRouter coreViewRouter, Activity activity, String str, Map map, String str2, SapiAccount sapiAccount, PassFaceRecogCallback passFaceRecogCallback, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -257,21 +271,7 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getTplStokenResult) == null) {
-                BiometricsManager.getInstance().recogWithBduss(this.a, this.b, this.c, this.d, this.e.bduss, getTplStokenResult.tplStokenMap.get("pp"), this.f);
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                BiometricsManager.getInstance().recogWithBduss(this.a, this.b, this.c, this.d, this.e.bduss, (String) getTplStokenResult.tplStokenMap.get("pp"), this.f);
             }
         }
     }
@@ -420,10 +420,9 @@ public class CoreViewRouter implements NoProguard {
         public void onFailure(WebAuthResult webAuthResult) {
             QrLoginCallback qrLoginCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (qrLoginCallback = this.a) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) && (qrLoginCallback = this.a) != null) {
+                qrLoginCallback.onLocalLogin(webAuthResult);
             }
-            qrLoginCallback.onLocalLogin(webAuthResult);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -431,10 +430,9 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(WebAuthResult webAuthResult) {
             QrLoginCallback qrLoginCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) || (qrLoginCallback = this.a) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) && (qrLoginCallback = this.a) != null) {
+                qrLoginCallback.onLocalLogin(webAuthResult);
             }
-            qrLoginCallback.onLocalLogin(webAuthResult);
         }
     }
 
@@ -445,6 +443,13 @@ public class CoreViewRouter implements NoProguard {
         public final /* synthetic */ QrLoginCallback a;
         public final /* synthetic */ List b;
         public final /* synthetic */ CoreViewRouter c;
+
+        @Override // com.baidu.sapi2.callback.QrLoginCallback
+        public void onLocalLogin(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+            }
+        }
 
         public f(CoreViewRouter coreViewRouter, QrLoginCallback qrLoginCallback, List list) {
             Interceptable interceptable = $ic;
@@ -477,13 +482,6 @@ public class CoreViewRouter implements NoProguard {
                 }
             }
         }
-
-        @Override // com.baidu.sapi2.callback.QrLoginCallback
-        public void onLocalLogin(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-            }
-        }
     }
 
     /* loaded from: classes2.dex */
@@ -494,6 +492,14 @@ public class CoreViewRouter implements NoProguard {
         public final /* synthetic */ String b;
         public final /* synthetic */ boolean c;
         public final /* synthetic */ CoreViewRouter d;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+            }
+        }
 
         public g(CoreViewRouter coreViewRouter, List list, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -518,19 +524,14 @@ public class CoreViewRouter implements NoProguard {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
                 this.a.add(webAuthResult);
-                String str = this.b.indexOf("?") > 0 ? "&" : "?";
+                String str = "?";
+                if (this.b.indexOf("?") > 0) {
+                    str = "&";
+                }
                 this.d.a(this.b + str + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", this.c);
             }
         }
@@ -597,6 +598,20 @@ public class CoreViewRouter implements NoProguard {
         public final /* synthetic */ RealNameFaceIDResult d;
         public final /* synthetic */ CoreViewRouter e;
 
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
         public i(CoreViewRouter coreViewRouter, Activity activity, FaceIDVerifyDTO faceIDVerifyDTO, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -637,31 +652,17 @@ public class CoreViewRouter implements NoProguard {
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getTplStokenResult) == null) {
-                String str = getTplStokenResult.tplStokenMap.get("pp");
+                String str = (String) getTplStokenResult.tplStokenMap.get("pp");
                 if (!TextUtils.isEmpty(str)) {
                     CoreViewRouter coreViewRouter = this.e;
                     Activity activity = this.a;
                     FaceIDVerifyDTO faceIDVerifyDTO = this.b;
-                    coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map<String, String>) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.c, this.d, faceIDVerifyDTO.isCurrentProcessShowAgreement);
+                    coreViewRouter.a(activity, faceIDVerifyDTO.subpro, (Map) null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.c, this.d, faceIDVerifyDTO.isCurrentProcessShowAgreement);
                     return;
                 }
                 this.d.setResultCode(-402);
                 this.d.setResultMsg("服务异常，请稍后再试");
                 this.c.onFailure(this.d);
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             }
         }
     }
@@ -790,7 +791,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class l implements SapiCallback<SapiResult> {
+    public class l implements SapiCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -799,6 +800,20 @@ public class CoreViewRouter implements NoProguard {
         public final /* synthetic */ JSONObject d;
         public final /* synthetic */ ExtendSysWebViewMethodResult e;
         public final /* synthetic */ CoreViewRouter f;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
 
         public l(CoreViewRouter coreViewRouter, int i, Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
             Interceptable interceptable = $ic;
@@ -830,20 +845,6 @@ public class CoreViewRouter implements NoProguard {
                 this.e.setResultCode(sapiResult.getResultCode());
                 this.e.setResultMsg(sapiResult.getResultMsg());
                 this.c.onFinish(this.e);
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
@@ -885,7 +886,7 @@ public class CoreViewRouter implements NoProguard {
                         return;
                     default:
                         this.e.params.put("retCode", "-301");
-                        Map<String, Object> map = this.e.params;
+                        Map map = this.e.params;
                         map.put("retMsg", "action :" + this.a + " is not support");
                         this.c.onFinish(this.e);
                         return;
@@ -910,6 +911,17 @@ public class CoreViewRouter implements NoProguard {
         this.B = SapiAccountManager.getInstance().getSapiConfiguration().context;
     }
 
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            try {
+                Class.forName("com.baidu.sapi2.ThirdPartyService").getConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (Exception e2) {
+                Log.e(e2);
+            }
+        }
+    }
+
     public static synchronized CoreViewRouter getInstance() {
         InterceptResult invokeV;
         CoreViewRouter coreViewRouter;
@@ -926,156 +938,193 @@ public class CoreViewRouter implements NoProguard {
         return (CoreViewRouter) invokeV.objValue;
     }
 
-    public void extendSysWebViewMethod(Activity activity, String str, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, extendSysWebViewMethodCallback) == null) {
-            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("action");
-                JSONObject optJSONObject = jSONObject.optJSONObject("params");
-                String optString = optJSONObject.optString("open_appid");
-                String optString2 = optJSONObject.optString("open_apikey");
-                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                    SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new l(this, optInt, activity, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult), optString, optString2);
-                    return;
-                }
-                extendSysWebViewMethodResult.params.put("retCode", "-310");
-                extendSysWebViewMethodResult.params.put("retMsg", "因安全原因，操作失败");
-                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-            } catch (JSONException e2) {
-                Log.e(e2);
-                extendSysWebViewMethodResult.params.put("retCode", "-3");
-                extendSysWebViewMethodResult.params.put("retMsg", "params is not json");
-                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
-            }
-        }
-    }
-
     public AccountCenterCallback getAccountCenterCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (AccountCenterCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
+        }
+        return (AccountCenterCallback) invokeV.objValue;
     }
 
     public AccountCenterDTO getAccountCenterDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (AccountCenterDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (AccountCenterDTO) invokeV.objValue;
     }
 
     public AccountRealNameCallback getAccountRealNameCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : (AccountRealNameCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.n;
+        }
+        return (AccountRealNameCallback) invokeV.objValue;
     }
 
     public AccountToolsCallback getAccountToolsCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.x : (AccountToolsCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.x;
+        }
+        return (AccountToolsCallback) invokeV.objValue;
     }
 
     public ActivityResultCallback getActivityResultCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.q : (ActivityResultCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.q;
+        }
+        return (ActivityResultCallback) invokeV.objValue;
     }
 
     public AuthWidgetCallback getAuthWidgetCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.u : (AuthWidgetCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.u;
+        }
+        return (AuthWidgetCallback) invokeV.objValue;
     }
 
     public CertGuardianCallback getCertGuardianCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.z : (CertGuardianCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.z;
+        }
+        return (CertGuardianCallback) invokeV.objValue;
     }
 
     public CertGuardionDTO getCertGuardionDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.l : (CertGuardionDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.l;
+        }
+        return (CertGuardionDTO) invokeV.objValue;
     }
 
     public ExtendSysWebViewMethodCallback getExtendSysWebViewMethodCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.v : (ExtendSysWebViewMethodCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.v;
+        }
+        return (ExtendSysWebViewMethodCallback) invokeV.objValue;
     }
 
     public IdCardOcrDTO getIDCardOcrDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : (IdCardOcrDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.k;
+        }
+        return (IdCardOcrDTO) invokeV.objValue;
     }
 
     public IdCardOcrCallback getIdCardOcrCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.y : (IdCardOcrCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.y;
+        }
+        return (IdCardOcrCallback) invokeV.objValue;
     }
 
     public ImageCropCallback getImageCropCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.p : (ImageCropCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.p;
+        }
+        return (ImageCropCallback) invokeV.objValue;
     }
 
     public NormalizeGuestAccountCallback getNormalizeGuestAccountCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.t : (NormalizeGuestAccountCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.t;
+        }
+        return (NormalizeGuestAccountCallback) invokeV.objValue;
     }
 
     public NormalizeGuestAccountDTO getNormalizeGuestAccountDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.h : (NormalizeGuestAccountDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.h;
+        }
+        return (NormalizeGuestAccountDTO) invokeV.objValue;
     }
 
     public OneKeyLoginCallback getOneKeyLoginCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.w : (OneKeyLoginCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.w;
+        }
+        return (OneKeyLoginCallback) invokeV.objValue;
     }
 
     public QrLoginCallback getQrLoginCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.r : (QrLoginCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.r;
+        }
+        return (QrLoginCallback) invokeV.objValue;
     }
 
     public RealNameDTO getRealNameDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.i : (RealNameDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.i;
+        }
+        return (RealNameDTO) invokeV.objValue;
     }
 
     public String getSmsLoginStatExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.A : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.A;
+        }
+        return (String) invokeV.objValue;
     }
 
     public SmsViewLoginCallback getSmsViewLoginCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.s : (SmsViewLoginCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.s;
+        }
+        return (SmsViewLoginCallback) invokeV.objValue;
     }
 
     public WebSocialLoginDTO getSocialLoginDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f : (WebSocialLoginDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.f;
+        }
+        return (WebSocialLoginDTO) invokeV.objValue;
     }
 
     public SwitchAccountDTO getSwitchAccountDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.j : (SwitchAccountDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.j;
+        }
+        return (SwitchAccountDTO) invokeV.objValue;
     }
 
     public AbstractThirdPartyService getThirdPartyService() {
@@ -1093,110 +1142,144 @@ public class CoreViewRouter implements NoProguard {
     public WebAuthListener getWebAuthListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.b : (WebAuthListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.b;
+        }
+        return (WebAuthListener) invokeV.objValue;
     }
 
     public WebBindWidgetCallback getWebBindWidgetCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.o : (WebBindWidgetCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.o;
+        }
+        return (WebBindWidgetCallback) invokeV.objValue;
     }
 
     public WebBindWidgetDTO getWebBindWidgetDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.e : (WebBindWidgetDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.e;
+        }
+        return (WebBindWidgetDTO) invokeV.objValue;
     }
 
     public WebLoginDTO getWebLoginDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.c : (WebLoginDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.c;
+        }
+        return (WebLoginDTO) invokeV.objValue;
     }
 
     public WebRegDTO getWebRegDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.d : (WebRegDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.d;
+        }
+        return (WebRegDTO) invokeV.objValue;
     }
 
-    public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
+    public void releaseAccountRealNameCallback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048604, this, activity, str, str2, i2) == null) {
-            AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-            this.a = thirdPartyService;
-            if (thirdPartyService == null) {
-                return;
-            }
-            thirdPartyService.handleWXLoginResp(activity, str, str2, i2);
+        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
+            this.n = null;
         }
     }
 
-    public void invokeV2ShareLogin(Activity activity, ShareStorage.StorageModel storageModel, WebAuthListener webAuthListener, String str) {
+    public void releaseCertGuardianCallback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048605, this, activity, storageModel, webAuthListener, str) == null) {
-            if (activity == null) {
-                throw new IllegalArgumentException("method invokeV2ShareLogin() invokeActivity param cat't be null !");
-            }
-            if (storageModel == null) {
-                throw new IllegalArgumentException("method invokeV2ShareLogin() param shareModel cat't be null !");
-            }
-            if (webAuthListener != null) {
-                ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, storageModel.tpl);
-                ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_APP_NAME, storageModel.app);
-                if (!SapiUtils.isAppInstalled(activity, storageModel.pkg)) {
-                    WebAuthResult webAuthResult = new WebAuthResult();
-                    webAuthResult.setResultCode(ShareResult.ERROR_CODE_TARGET_APP_NOT_INSTALLED);
-                    webAuthResult.setResultMsg(ShareResult.ERROR_MSG_TARGET_APP_NOT_INSTALLED);
-                    webAuthListener.onFailure(webAuthResult);
-                    ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_IS_INSTALL, "0");
-                }
-                ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_IS_INSTALL, "1");
-                this.b = webAuthListener;
-                ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
-                if (!TextUtils.isEmpty(str)) {
-                    arrayList.add(new PassNameValuePair("extrajson", str));
-                }
-                Intent intent = new Intent(activity, ShareResultProxyActivity.class);
-                intent.putExtra(ShareResultProxyActivity.KEY_PKG, storageModel.pkg);
-                intent.putExtra("key_url", storageModel.url);
-                intent.putExtra(ShareResultProxyActivity.KEY_VERSION, ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
-                intent.putParcelableArrayListExtra(ShareResultProxyActivity.KEY_EXTRA_PARAMS, arrayList);
-                activity.startActivity(intent);
-                return;
-            }
-            throw new IllegalArgumentException("method invokeV2ShareLogin() param webAuthListener cat't be null !");
+        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+            this.z = null;
         }
     }
 
-    public void loadAccountCenter(AccountCenterCallback accountCenterCallback, AccountCenterDTO accountCenterDTO) {
-        SapiAccount currentAccount;
+    public void releaseOneKeyLoginCallback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048606, this, accountCenterCallback, accountCenterDTO) == null) {
-            if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-                accountCenterDTO.bduss = currentAccount.bduss;
-            }
-            this.m = accountCenterCallback;
-            this.g = accountCenterDTO;
-            Intent intent = new Intent(this.B, AccountCenterActivity.class);
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+            this.w = null;
+        }
+    }
+
+    public void releaseSmsViewLoginCallback() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+            this.s = null;
+        }
+    }
+
+    public void loadOneKeyLogin(Context context, OneKeyLoginCallback oneKeyLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048615, this, context, oneKeyLoginCallback) == null) {
+            loadOneKeyLogin(context, a(context, OneKeyLoginSdkCall.signFromAbilityApi), true, oneKeyLoginCallback);
+        }
+    }
+
+    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048619, this, qrLoginCallback, str) == null) {
+            loadQrLogin(qrLoginCallback, str, null, true);
+        }
+    }
+
+    public void loadQrLoginWithEncuid(QrLoginCallback qrLoginCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048622, this, qrLoginCallback, str) == null) {
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.encryptedId = (String) SapiUtils.urlParamsToMap(str).get(SapiUtils.KEY_QR_LOGIN_ENCUID);
+            webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
+            startLogin(new e(this, qrLoginCallback), webLoginDTO);
+        }
+    }
+
+    public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048626, this, webAuthListener, socialType) == null) {
+            WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
+            this.f = webSocialLoginDTO;
+            webSocialLoginDTO.socialType = socialType;
+            loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
+        }
+    }
+
+    public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048639, this, authWidgetCallback, str) == null) {
+            this.u = authWidgetCallback;
+            Intent intent = new Intent(this.B, AuthWidgetActivity.class);
+            intent.putExtra(AuthWidgetActivity.EXTRA_PARAM_AUTH_URL, str);
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             this.B.startActivity(intent);
         }
     }
 
-    public void loadAccountRealName(Context context, AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
+    public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048607, this, context, accountRealNameCallback, realNameDTO) == null) {
-            this.n = accountRealNameCallback;
-            this.i = realNameDTO;
-            Intent intent = new Intent(context, AccountRealNameActivity.class);
-            if (realNameDTO != null) {
-                intent.putExtra("EXTRA_BDUSS", realNameDTO.bduss);
-                intent.putExtra("EXTRA_SCENE", realNameDTO.scene);
-                intent.putExtra(AccountRealNameActivity.EXTRA_NEED_CB_KEY, realNameDTO.needCbKey);
-                intent.putExtra(AccountRealNameActivity.EXTRA_CUSTOM_LINK, realNameDTO.customRealNameUrl);
-                intent.putExtra(AccountRealNameActivity.EXTRA_REAL_NAME_LEVEL, realNameDTO.realNameLevel);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048642, this, webAuthListener, webLoginDTO) == null) {
+            startLogin(this.B, webAuthListener, webLoginDTO);
+        }
+    }
+
+    public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048646, this, webAuthListener, webRegDTO) == null) {
+            this.b = webAuthListener;
+            this.d = webRegDTO;
+            Intent intent = new Intent(this.B, RegisterActivity.class);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void startSchemeLoginForQA(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048647, this, context, str) == null) {
+            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
+            intent.putExtra("extra_external_url", str);
             if (context instanceof Activity) {
                 context.startActivity(intent);
                 return;
@@ -1206,21 +1289,50 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    public void loadAccountTools(AccountToolsDTO accountToolsDTO, AccountToolsCallback accountToolsCallback) {
+    @Deprecated
+    public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048608, this, accountToolsDTO, accountToolsCallback) == null) {
-            this.x = accountToolsCallback;
-            Intent intent = new Intent(accountToolsDTO.context, AccountToolsActivity.class);
-            intent.putExtra(AccountToolsActivity.EXTRA_ACCOUNT_TOOLS_TYPE, accountToolsDTO.toolsType);
-            intent.putExtra(AccountToolsActivity.EXTRA_SWEEP_LIGHT_LOADING, accountToolsDTO.sweepLightLoading);
-            Context context = accountToolsDTO.context;
-            if (context instanceof Activity) {
-                context.startActivity(intent);
-                return;
-            }
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            accountToolsDTO.context.startActivity(intent);
+        if (interceptable == null || interceptable.invokeLL(1048649, this, smsViewLoginCallback, str) == null) {
+            this.s = smsViewLoginCallback;
+            this.A = str;
+            SmsLoginView.notifyStartLogin();
         }
+    }
+
+    public void setActivityResultCallback(ActivityResultCallback activityResultCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, activityResultCallback) == null) {
+            this.q = activityResultCallback;
+        }
+    }
+
+    public void setImageCropCallback(ImageCropCallback imageCropCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, imageCropCallback) == null) {
+            this.p = imageCropCallback;
+        }
+    }
+
+    public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048638, this, abstractThirdPartyService) == null) {
+            this.a = abstractThirdPartyService;
+        }
+    }
+
+    private String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() > 7) {
+                String substring = str.substring(0, 8);
+                String substring2 = str.substring(8, str.length());
+                String upperCase = SapiUtils.getClientId(context).toUpperCase();
+                return substring + SecurityUtil.md5((substring2 + SecurityUtil.md5(upperCase.getBytes(), false)).getBytes(), false);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 
     public void loadBindInfo(Context context, BindInfoAction bindInfoAction) {
@@ -1271,481 +1383,137 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    public void loadCertGuardian(Context context, CertGuardianCallback certGuardianCallback, CertGuardionDTO certGuardionDTO) {
+    private void a(Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, BiometricsManager.e eVar, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, PassFaceRecogCallback passFaceRecogCallback, String str, Map map, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048611, this, context, certGuardianCallback, certGuardionDTO) == null) {
-            this.z = certGuardianCallback;
-            this.l = certGuardionDTO;
-            Intent intent = new Intent(context, CertGuardianActivity.class);
-            CertGuardionDTO certGuardionDTO2 = this.l;
-            if (certGuardionDTO2 != null) {
-                intent.putExtra("EXTRA_SCENE", certGuardionDTO2.scene);
-            }
-            if (context instanceof Activity) {
-                context.startActivity(intent);
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, passFaceRecogCallback, str, map, str2}) == null) {
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+            if (currentAccount == null) {
+                extendSysWebViewMethodResult.params.put("retCode", "-302");
+                extendSysWebViewMethodResult.params.put("retMsg", "please login first");
+                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
                 return;
             }
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void loadChildActivity(Context context, AccountRealNameCallback accountRealNameCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048612, this, context, accountRealNameCallback) == null) {
-            this.n = accountRealNameCallback;
-            Intent intent = new Intent(context, ChildVerifyActivity.class);
-            intent.putExtra("external_url", SapiAccountManager.getInstance().getAccountService().getChildVerifyUrl());
-            if (context instanceof Activity) {
-                context.startActivity(intent);
-                return;
-            }
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void loadCurrentProcessWebviewActivity(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048613, this, context, str, str2) == null) {
-            Intent intent = new Intent(context, CurrentProcessWebviewActivity.class);
-            intent.putExtra("external_title", str);
-            intent.putExtra("external_url", str2 + "&adapter=3");
-            intent.putExtra("is_dark_mode", SapiAccountManager.getInstance().getConfignation().isDarkMode);
-            if (context instanceof Activity) {
-                context.startActivity(intent);
-                return;
-            }
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void loadIdCardOcr(IdCardOcrDTO idCardOcrDTO, IdCardOcrCallback idCardOcrCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048614, this, idCardOcrDTO, idCardOcrCallback) == null) {
-            this.y = idCardOcrCallback;
-            Intent intent = new Intent(idCardOcrDTO.context, IdCardOcrCameraActivity.class);
-            intent.putExtra(IdCardOcrCameraActivity.PARAM_KEY_ID_CARD_TYPE, idCardOcrDTO.type);
-            Context context = idCardOcrDTO.context;
-            if (context instanceof Activity) {
-                context.startActivity(intent);
-                return;
-            }
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            idCardOcrDTO.context.startActivity(intent);
-        }
-    }
-
-    public void loadOneKeyLogin(Context context, OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048615, this, context, oneKeyLoginCallback) == null) {
-            loadOneKeyLogin(context, a(context, OneKeyLoginSdkCall.signFromAbilityApi), true, oneKeyLoginCallback);
-        }
-    }
-
-    public void loadOneKeyLoginWithToken(Context context, String str, String str2, OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048618, this, context, str, str2, oneKeyLoginCallback) == null) {
-            oneKeyLoginWithToken(context, str, a(context, str2), true, oneKeyLoginCallback);
-        }
-    }
-
-    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048619, this, qrLoginCallback, str) == null) {
-            loadQrLogin(qrLoginCallback, str, null, true);
-        }
-    }
-
-    public void loadQrLoginWithEncuid(QrLoginCallback qrLoginCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048622, this, qrLoginCallback, str) == null) {
-            WebLoginDTO webLoginDTO = new WebLoginDTO();
-            webLoginDTO.encryptedId = SapiUtils.urlParamsToMap(str).get(SapiUtils.KEY_QR_LOGIN_ENCUID);
-            webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
-            startLogin(new e(this, qrLoginCallback), webLoginDTO);
-        }
-    }
-
-    public void loadRemoteProcessWebViewActivity(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048623, this, context, str, str2) == null) {
-            Intent intent = new Intent(context, RemoteProcessWebviewActivity.class);
-            intent.putExtra("external_title", str);
-            intent.putExtra("external_url", str2 + "&adapter=3");
-            intent.putExtra("is_dark_mode", SapiAccountManager.getInstance().getConfignation().isDarkMode);
-            if (context instanceof Activity) {
-                context.startActivity(intent);
-                return;
-            }
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048624, this, switchAccountDTO, webAuthListener) == null) {
-            this.j = switchAccountDTO;
-            this.b = webAuthListener;
-            Intent intent = new Intent(this.B, SwitchAccountActivity.class);
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-            LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-            linkedHashMap.put("eventType", "switch_account_enter");
-            StatService.onEventAutoStatistic(linkedHashMap);
-        }
-    }
-
-    public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048626, this, webAuthListener, socialType) == null) {
-            WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-            this.f = webSocialLoginDTO;
-            webSocialLoginDTO.socialType = socialType;
-            loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
-        }
-    }
-
-    public void loadYYSSOLogin(Context context, String str, WebAuthListener webAuthListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048627, this, context, str, webAuthListener) == null) {
-            AbstractThirdPartyService thirdPartyService = getThirdPartyService();
-            this.a = thirdPartyService;
-            if (thirdPartyService == null) {
-                if (webAuthListener != null) {
-                    WebAuthResult webAuthResult = new WebAuthResult();
-                    webAuthResult.setResultCode(-100);
-                    webAuthResult.setResultMsg("thirdPartyService is null");
-                    webAuthListener.onFailure(webAuthResult);
-                    return;
-                }
-                return;
-            }
-            WebLoginDTO webLoginDTO = new WebLoginDTO();
-            webLoginDTO.finishActivityAfterSuc = true;
-            this.c = webLoginDTO;
-            WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-            webSocialLoginDTO.finishActivityAfterSuc = true;
-            this.f = webSocialLoginDTO;
-            this.b = webAuthListener;
-            this.a.loadYYSSOLogin(context, str);
-        }
-    }
-
-    public void onShareLoginActivityResult(int i2, int i3, Intent intent, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intent, str}) == null) {
+            eVar.j = currentAccount.bduss;
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(str)) {
-                arrayList.add(new PassNameValuePair("extrajson", str));
-            }
-            new ShareCallPacking().onLoginActivityActivityResult(new d(this), i2, i3, intent, arrayList, "product");
-        }
-    }
-
-    public void oneKeyLoginWithToken(Context context, String str, String str2, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{context, str, str2, Boolean.valueOf(z), oneKeyLoginCallback}) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                Log.d(Log.TAG, "oneKeyLogin sign is empty!");
-                new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -108, null);
-            } else if (!TextUtils.isEmpty(str)) {
-                SapiAccountManager.getInstance().getAccountService().loadOneKeyLogin(oneKeyLoginCallback, str, str2, new c(this, z, oneKeyLoginCallback, context));
-            } else {
-                new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -102, null);
-            }
-        }
-    }
-
-    public void registerUserFaceID(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048630, this, activity, registerUserFaceIDCallback, faceIDRegDTO) == null) {
-            if (TextUtils.isEmpty(faceIDRegDTO.authsid)) {
-                startAuth(new h(this, activity, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
-            } else {
-                b(activity, registerUserFaceIDCallback, "faceDetect", faceIDRegDTO.authsid, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence, faceIDRegDTO.isCurrentProcessShowAgreement);
-            }
-        }
-    }
-
-    public synchronized void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
-            synchronized (this) {
-                this.b = null;
-                this.c = null;
-                this.e = null;
-                this.f = null;
-                this.h = null;
-                this.o = null;
-                this.p = null;
-                this.q = null;
-                this.g = null;
-                this.r = null;
-                this.m = null;
-                this.t = null;
-                this.u = null;
-                this.v = null;
-                this.j = null;
-                this.z = null;
-                PassportViewManager.getInstance().release();
-                D = null;
-            }
-        }
-    }
-
-    public void releaseAccountRealNameCallback() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
-            this.n = null;
-        }
-    }
-
-    public void releaseCertGuardianCallback() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-            this.z = null;
-        }
-    }
-
-    public void releaseOneKeyLoginCallback() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
-            this.w = null;
-        }
-    }
-
-    public void releaseSmsViewLoginCallback() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
-            this.s = null;
-        }
-    }
-
-    public void setActivityResultCallback(ActivityResultCallback activityResultCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, activityResultCallback) == null) {
-            this.q = activityResultCallback;
-        }
-    }
-
-    public void setImageCropCallback(ImageCropCallback imageCropCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, imageCropCallback) == null) {
-            this.p = imageCropCallback;
-        }
-    }
-
-    public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, abstractThirdPartyService) == null) {
-            this.a = abstractThirdPartyService;
-        }
-    }
-
-    public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048639, this, authWidgetCallback, str) == null) {
-            this.u = authWidgetCallback;
-            Intent intent = new Intent(this.B, AuthWidgetActivity.class);
-            intent.putExtra(AuthWidgetActivity.EXTRA_PARAM_AUTH_URL, str);
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void startHorizontalScreenLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048640, this, context, webAuthListener, webLoginDTO) == null) {
-            webLoginDTO.screenType = 1;
-            a(context, HorizontalScreenLoginActivity.class, webAuthListener, webLoginDTO);
-        }
-    }
-
-    public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048642, this, webAuthListener, webLoginDTO) == null) {
-            startLogin(this.B, webAuthListener, webLoginDTO);
-        }
-    }
-
-    public void startLoginDeviceManager(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, context) == null) {
-            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
-            intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, "设备管理");
-            intent.putExtra("extra_external_url", C);
-            if (context instanceof Activity) {
-                context.startActivity(intent);
-                return;
-            }
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048644, this, context, normalizeGuestAccountCallback, normalizeGuestAccountDTO) == null) {
-            this.t = normalizeGuestAccountCallback;
-            this.h = normalizeGuestAccountDTO;
-            Intent intent = new Intent(context, NormalizeGuestAccountActivity.class);
-            intent.putExtra("EXTRA_BDUSS", normalizeGuestAccountDTO.bduss);
-            if (!(context instanceof Activity)) {
-                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            context.startActivity(intent);
-        }
-    }
-
-    @Deprecated
-    public void startOnlyPhoneAuth(AuthWidgetCallback authWidgetCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048645, this, authWidgetCallback, str, str2) == null) {
-            this.u = authWidgetCallback;
-            Intent intent = new Intent(this.B, AuthWidgetOnlyPhoneActivity.class);
-            intent.putExtra("EXTRA_PARAM_AUTH_ID", str);
-            intent.putExtra(AuthWidgetOnlyPhoneActivity.EXTRA_PARAM_SCENE, str2);
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048646, this, webAuthListener, webRegDTO) == null) {
-            this.b = webAuthListener;
-            this.d = webRegDTO;
-            Intent intent = new Intent(this.B, RegisterActivity.class);
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void startSchemeLoginForQA(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048647, this, context, str) == null) {
-            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
-            intent.putExtra("extra_external_url", str);
-            if (context instanceof Activity) {
-                context.startActivity(intent);
-                return;
-            }
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    @Deprecated
-    public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048649, this, smsViewLoginCallback, str) == null) {
-            this.s = smsViewLoginCallback;
-            this.A = str;
-            SmsLoginView.notifyStartLogin();
-        }
-    }
-
-    public void startSpeciallyAuthWidget(AuthWidgetCallback authWidgetCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048651, this, authWidgetCallback, str, str2) == null) {
-            this.u = authWidgetCallback;
-            Intent intent = new Intent(this.B, AuthWidgetOnlyPhoneActivity.class);
-            intent.putExtra("EXTRA_PARAM_AUTH_ID", str);
-            intent.putExtra(AuthWidgetOnlyPhoneActivity.EXTRA_PARAM_SCENE, str2);
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    public void verifyUserFaceIDWithCertInfo(Activity activity, PassFaceRecogCallback passFaceRecogCallback, FaceIDVerifyCertInfoDTO faceIDVerifyCertInfoDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048652, this, activity, passFaceRecogCallback, faceIDVerifyCertInfoDTO) == null) {
-            BiometricsManager.getInstance().recogWithCertInfo(activity, BiometricsManager.buildSubPro("", faceIDVerifyCertInfoDTO.subpro), faceIDVerifyCertInfoDTO.transParamsList, faceIDVerifyCertInfoDTO.imageFlag, faceIDVerifyCertInfoDTO.realName, faceIDVerifyCertInfoDTO.idCardNo, faceIDVerifyCertInfoDTO.needAuthorizeCertInfo, null, passFaceRecogCallback);
-        }
-    }
-
-    public void verifyUserFaceId(Activity activity, VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
-        SapiAccount currentAccount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048653, this, activity, verifyUserFaceIDCallback, faceIDVerifyDTO) == null) {
-            if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
-                faceIDVerifyDTO.bduss = currentAccount.bduss;
-                faceIDVerifyDTO.uid = currentAccount.uid;
-            }
-            if (TextUtils.isEmpty(faceIDVerifyDTO.livingUname)) {
-                RealNameFaceIDResult realNameFaceIDResult = new RealNameFaceIDResult();
-                ArrayList arrayList = new ArrayList();
-                arrayList.add("pp");
-                SapiAccountManager.getInstance().getAccountService().getTplStoken(new i(this, activity, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
-                return;
-            }
-            b(activity, verifyUserFaceIDCallback, "outer", "", faceIDVerifyDTO.livingUname, faceIDVerifyDTO.showGuidePage, faceIDVerifyDTO.subpro, faceIDVerifyDTO.businessSence, faceIDVerifyDTO.isCurrentProcessShowAgreement);
+            arrayList.add("pp");
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new b(this, activity, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), eVar.j, arrayList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(Activity activity, FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5, boolean z2) {
+    public void a(Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, int i2, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
+        String optString;
+        String str;
+        HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{activity, faceIDCallback, str, str2, str3, Boolean.valueOf(z), str4, str5, Boolean.valueOf(z2)}) == null) {
-            a(activity, faceIDCallback, str, str2, str3, z, str4, str5, z2);
-        }
-    }
-
-    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048620, this, qrLoginCallback, str, str2) == null) {
-            loadQrLogin(qrLoginCallback, str, str2, true);
-        }
-    }
-
-    public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        Class<?> cls;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048641, this, context, webAuthListener, webLoginDTO) == null) {
-            if (webLoginDTO != null && webLoginDTO.isWithYouthStyle) {
-                cls = YouthStyleLoginActivity.class;
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{activity, extendSysWebViewMethodCallback, jSONObject, Integer.valueOf(i2), extendSysWebViewMethodResult}) == null) {
+            BiometricsManager biometricsManager = BiometricsManager.getInstance();
+            a aVar = new a(this, extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
+            int optInt = jSONObject.optInt("imageFlag", 0);
+            if (TextUtils.isEmpty(jSONObject.optString("subpro"))) {
+                optString = "pp";
             } else {
-                cls = LoginActivity.class;
+                optString = jSONObject.optString("subpro");
             }
-            a(context, cls, webAuthListener, webLoginDTO);
-        }
-    }
-
-    public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048616, this, context, str, oneKeyLoginCallback) == null) {
-            loadOneKeyLogin(context, str, true, oneKeyLoginCallback);
-        }
-    }
-
-    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{qrLoginCallback, str, str2, Boolean.valueOf(z)}) == null) {
-            ArrayList arrayList = new ArrayList(1);
-            this.r = new f(this, qrLoginCallback, arrayList);
-            if (SapiAccountManager.getInstance().isLogin()) {
-                a(str, z);
-                return;
-            }
-            WebLoginDTO webLoginDTO = new WebLoginDTO();
-            webLoginDTO.finishActivityAfterSuc = false;
-            webLoginDTO.encryptedId = SapiUtils.parseQrLoginSchema(str).get("enuid");
-            try {
-                if (TextUtils.isEmpty(str2)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(URLDecoder.decode(str2));
+            String str2 = optString;
+            HashMap hashMap2 = new HashMap();
+            JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
+            if (optJSONObject != null) {
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    String optString2 = optJSONObject.optString(next);
+                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString2)) {
+                        hashMap2.put(next, optString2);
+                    }
                 }
-                jSONObject.put("scenario", "1");
-                webLoginDTO.statExtra = URLEncoder.encode(jSONObject.toString());
-            } catch (JSONException unused) {
             }
-            startLogin(new g(this, arrayList, str, z), webLoginDTO);
+            if (i2 != 1) {
+                str = "";
+            } else {
+                biometricsManager.getClass();
+                BiometricsManager.e eVar = new BiometricsManager.e(biometricsManager);
+                str = "";
+                a(activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, aVar, str2, hashMap2, optInt + "");
+            }
+            if (i2 == 2) {
+                hashMap = hashMap2;
+                biometricsManager.recogWithCertInfo(activity, str2, hashMap2, optInt + str, jSONObject.optString("realname"), jSONObject.optString("idcardnum"), false, jSONObject.optString("bankmobile"), aVar);
+            } else {
+                hashMap = hashMap2;
+            }
+            if (i2 == 3) {
+                biometricsManager.recogWithAuthToken(activity, str2, hashMap, optInt + str, jSONObject.optString("authtoken"), aVar);
+            }
+            if (i2 == 4) {
+                if (jSONObject.optInt("type") == 1) {
+                    biometricsManager.recogWithFaceDetect(activity, str2, hashMap, optInt + str, jSONObject.optString("uid"), "", aVar);
+                    return;
+                }
+                biometricsManager.recogWithFaceOuter(activity, str2, hashMap, optInt + str, jSONObject.optString("uid"), aVar);
+            }
         }
+    }
+
+    private void a(Activity activity, FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{activity, faceIDCallback, str, str2, str3, Boolean.valueOf(z), str4, str5, Boolean.valueOf(z2)}) == null) {
+            if (!TextUtils.isEmpty(str5)) {
+                BiometricsManager biometricsManager = BiometricsManager.getInstance();
+                String buildSubPro = BiometricsManager.buildSubPro(str4, str5);
+                HashMap hashMap = new HashMap();
+                k kVar = new k(this, new UnRealNameFaceIDResult(), str, faceIDCallback);
+                if (str.equals("faceDetect")) {
+                    biometricsManager.recogWithFaceDetect(activity, buildSubPro, hashMap, "0", str3, str2, z2, kVar);
+                    return;
+                } else if (str.equals("outer")) {
+                    biometricsManager.recogWithFaceOuter(activity, buildSubPro, hashMap, "0", str3, z2, kVar);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            throw new IllegalArgumentException("scene can't be empty");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Activity activity, String str, Map map, String str2, String str3, String str4, String str5, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{activity, str, map, str2, str3, str4, str5, verifyUserFaceIDCallback, realNameFaceIDResult, Boolean.valueOf(z)}) == null) {
+            BiometricsManager.getInstance().recogWithBduss(activity, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, z, new j(this, realNameFaceIDResult, verifyUserFaceIDCallback));
+        }
+    }
+
+    private void a(Context context, Class cls, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65546, this, context, cls, webAuthListener, webLoginDTO) != null) || context == null) {
+            return;
+        }
+        StatLoadLogin statLoadLogin = new StatLoadLogin();
+        SapiWebView.statLoadLogin = statLoadLogin;
+        statLoadLogin.tOpenLoginPage = System.currentTimeMillis();
+        this.b = webAuthListener;
+        this.c = webLoginDTO;
+        Intent intent = new Intent(context, cls);
+        intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, webLoginDTO.loginType);
+        intent.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, webLoginDTO.finishActivityAfterSuc);
+        if (!TextUtils.isEmpty(webLoginDTO.preSetUname)) {
+            intent.putExtra("username", webLoginDTO.preSetUname);
+        }
+        int i2 = webLoginDTO.businessType;
+        if (i2 != 0) {
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
+        }
+        if (!TextUtils.isEmpty(webLoginDTO.extraJson)) {
+            intent.putExtra("extraJson", webLoginDTO.extraJson);
+        }
+        if (context instanceof Activity) {
+            context.startActivity(intent);
+            return;
+        }
+        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+        this.B.startActivity(intent);
     }
 
     public void loadOneKeyLogin(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
@@ -1800,6 +1568,416 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
+    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{qrLoginCallback, str, str2, Boolean.valueOf(z)}) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            this.r = new f(this, qrLoginCallback, arrayList);
+            if (SapiAccountManager.getInstance().isLogin()) {
+                a(str, z);
+                return;
+            }
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.finishActivityAfterSuc = false;
+            webLoginDTO.encryptedId = (String) SapiUtils.parseQrLoginSchema(str).get("enuid");
+            try {
+                if (TextUtils.isEmpty(str2)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(URLDecoder.decode(str2));
+                }
+                jSONObject.put("scenario", "1");
+                webLoginDTO.statExtra = URLEncoder.encode(jSONObject.toString());
+            } catch (JSONException unused) {
+            }
+            startLogin(new g(this, arrayList, str, z), webLoginDTO);
+        }
+    }
+
+    public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048616, this, context, str, oneKeyLoginCallback) == null) {
+            loadOneKeyLogin(context, str, true, oneKeyLoginCallback);
+        }
+    }
+
+    public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048620, this, qrLoginCallback, str, str2) == null) {
+            loadQrLogin(qrLoginCallback, str, str2, true);
+        }
+    }
+
+    public void startHorizontalScreenLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048640, this, context, webAuthListener, webLoginDTO) == null) {
+            webLoginDTO.screenType = 1;
+            a(context, HorizontalScreenLoginActivity.class, webAuthListener, webLoginDTO);
+        }
+    }
+
+    public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+        Class cls;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048641, this, context, webAuthListener, webLoginDTO) == null) {
+            if (webLoginDTO != null && webLoginDTO.isWithYouthStyle) {
+                cls = YouthStyleLoginActivity.class;
+            } else {
+                cls = LoginActivity.class;
+            }
+            a(context, cls, webAuthListener, webLoginDTO);
+        }
+    }
+
+    public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048644, this, context, normalizeGuestAccountCallback, normalizeGuestAccountDTO) == null) {
+            this.t = normalizeGuestAccountCallback;
+            this.h = normalizeGuestAccountDTO;
+            Intent intent = new Intent(context, NormalizeGuestAccountActivity.class);
+            intent.putExtra("EXTRA_BDUSS", normalizeGuestAccountDTO.bduss);
+            if (!(context instanceof Activity)) {
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            context.startActivity(intent);
+        }
+    }
+
+    @Deprecated
+    public void startOnlyPhoneAuth(AuthWidgetCallback authWidgetCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048645, this, authWidgetCallback, str, str2) == null) {
+            this.u = authWidgetCallback;
+            Intent intent = new Intent(this.B, AuthWidgetOnlyPhoneActivity.class);
+            intent.putExtra("EXTRA_PARAM_AUTH_ID", str);
+            intent.putExtra(AuthWidgetOnlyPhoneActivity.EXTRA_PARAM_SCENE, str2);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void startSchemeLoginForQA(Context context, String str, WebAuthListener webAuthListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048648, this, context, str, webAuthListener) == null) {
+            this.b = webAuthListener;
+            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
+            intent.putExtra("extra_external_url", str);
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void startSmsViewLogin(SmsLoginView smsLoginView, SmsViewLoginCallback smsViewLoginCallback, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048650, this, smsLoginView, smsViewLoginCallback, str) == null) && smsLoginView != null && smsViewLoginCallback != null) {
+            smsLoginView.setSmsViewLoginCallback(smsViewLoginCallback);
+            smsLoginView.setSmsLoginStatExtra(str);
+            SmsLoginView.notifyStartLogin();
+        }
+    }
+
+    public void startSpeciallyAuthWidget(AuthWidgetCallback authWidgetCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048651, this, authWidgetCallback, str, str2) == null) {
+            this.u = authWidgetCallback;
+            Intent intent = new Intent(this.B, AuthWidgetOnlyPhoneActivity.class);
+            intent.putExtra("EXTRA_PARAM_AUTH_ID", str);
+            intent.putExtra(AuthWidgetOnlyPhoneActivity.EXTRA_PARAM_SCENE, str2);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void verifyUserFaceIDWithCertInfo(Activity activity, PassFaceRecogCallback passFaceRecogCallback, FaceIDVerifyCertInfoDTO faceIDVerifyCertInfoDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048652, this, activity, passFaceRecogCallback, faceIDVerifyCertInfoDTO) == null) {
+            BiometricsManager.getInstance().recogWithCertInfo(activity, BiometricsManager.buildSubPro("", faceIDVerifyCertInfoDTO.subpro), faceIDVerifyCertInfoDTO.transParamsList, faceIDVerifyCertInfoDTO.imageFlag, faceIDVerifyCertInfoDTO.realName, faceIDVerifyCertInfoDTO.idCardNo, faceIDVerifyCertInfoDTO.needAuthorizeCertInfo, null, passFaceRecogCallback);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65551, this, str, z) == null) {
+            Intent intent = new Intent(this.B, QrLoginActivity.class);
+            intent.putExtra(QrLoginActivity.EXTRA_STRING_QR_LOGIN_URL, str);
+            intent.putExtra(QrLoginActivity.EXTRA_BOOLEAN_FINISH_PAGE, z);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(Activity activity, FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{activity, faceIDCallback, str, str2, str3, Boolean.valueOf(z), str4, str5, Boolean.valueOf(z2)}) == null) {
+            a(activity, faceIDCallback, str, str2, str3, z, str4, str5, z2);
+        }
+    }
+
+    public void extendSysWebViewMethod(Activity activity, String str, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, extendSysWebViewMethodCallback) == null) {
+            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("action");
+                JSONObject optJSONObject = jSONObject.optJSONObject("params");
+                String optString = optJSONObject.optString("open_appid");
+                String optString2 = optJSONObject.optString("open_apikey");
+                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                    SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new l(this, optInt, activity, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult), optString, optString2);
+                    return;
+                }
+                extendSysWebViewMethodResult.params.put("retCode", "-310");
+                extendSysWebViewMethodResult.params.put("retMsg", "因安全原因，操作失败");
+                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
+            } catch (JSONException e2) {
+                Log.e(e2);
+                extendSysWebViewMethodResult.params.put("retCode", "-3");
+                extendSysWebViewMethodResult.params.put("retMsg", "params is not json");
+                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
+            }
+        }
+    }
+
+    public void verifyUserFaceId(Activity activity, VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
+        SapiAccount currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048653, this, activity, verifyUserFaceIDCallback, faceIDVerifyDTO) == null) {
+            if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
+                faceIDVerifyDTO.bduss = currentAccount.bduss;
+                faceIDVerifyDTO.uid = currentAccount.uid;
+            }
+            if (TextUtils.isEmpty(faceIDVerifyDTO.livingUname)) {
+                RealNameFaceIDResult realNameFaceIDResult = new RealNameFaceIDResult();
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("pp");
+                SapiAccountManager.getInstance().getAccountService().getTplStoken(new i(this, activity, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
+                return;
+            }
+            b(activity, verifyUserFaceIDCallback, "outer", "", faceIDVerifyDTO.livingUname, faceIDVerifyDTO.showGuidePage, faceIDVerifyDTO.subpro, faceIDVerifyDTO.businessSence, faceIDVerifyDTO.isCurrentProcessShowAgreement);
+        }
+    }
+
+    public void handleWXLoginResp(Activity activity, String str, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048604, this, activity, str, str2, i2) == null) {
+            AbstractThirdPartyService thirdPartyService = getThirdPartyService();
+            this.a = thirdPartyService;
+            if (thirdPartyService == null) {
+                return;
+            }
+            thirdPartyService.handleWXLoginResp(activity, str, str2, i2);
+        }
+    }
+
+    public void loadOneKeyLoginWithToken(Context context, String str, String str2, OneKeyLoginCallback oneKeyLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048618, this, context, str, str2, oneKeyLoginCallback) == null) {
+            oneKeyLoginWithToken(context, str, a(context, str2), true, oneKeyLoginCallback);
+        }
+    }
+
+    public void invokeV2ShareLogin(Activity activity, ShareStorage.StorageModel storageModel, WebAuthListener webAuthListener, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048605, this, activity, storageModel, webAuthListener, str) == null) {
+            if (activity != null) {
+                if (storageModel != null) {
+                    if (webAuthListener != null) {
+                        ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, storageModel.tpl);
+                        ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_APP_NAME, storageModel.app);
+                        if (!SapiUtils.isAppInstalled(activity, storageModel.pkg)) {
+                            WebAuthResult webAuthResult = new WebAuthResult();
+                            webAuthResult.setResultCode(ShareResult.ERROR_CODE_TARGET_APP_NOT_INSTALLED);
+                            webAuthResult.setResultMsg(ShareResult.ERROR_MSG_TARGET_APP_NOT_INSTALLED);
+                            webAuthListener.onFailure(webAuthResult);
+                            ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_IS_INSTALL, "0");
+                        }
+                        ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_IS_INSTALL, "1");
+                        this.b = webAuthListener;
+                        ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
+                        if (!TextUtils.isEmpty(str)) {
+                            arrayList.add(new PassNameValuePair("extrajson", str));
+                        }
+                        Intent intent = new Intent(activity, ShareResultProxyActivity.class);
+                        intent.putExtra(ShareResultProxyActivity.KEY_PKG, storageModel.pkg);
+                        intent.putExtra("key_url", storageModel.url);
+                        intent.putExtra(ShareResultProxyActivity.KEY_VERSION, ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
+                        intent.putParcelableArrayListExtra(ShareResultProxyActivity.KEY_EXTRA_PARAMS, arrayList);
+                        activity.startActivity(intent);
+                        return;
+                    }
+                    throw new IllegalArgumentException("method invokeV2ShareLogin() param webAuthListener cat't be null !");
+                }
+                throw new IllegalArgumentException("method invokeV2ShareLogin() param shareModel cat't be null !");
+            }
+            throw new IllegalArgumentException("method invokeV2ShareLogin() invokeActivity param cat't be null !");
+        }
+    }
+
+    public void loadAccountCenter(AccountCenterCallback accountCenterCallback, AccountCenterDTO accountCenterDTO) {
+        SapiAccount currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048606, this, accountCenterCallback, accountCenterDTO) == null) {
+            if (SapiContext.getInstance().getSapiOptions().getOpenBdussTpls().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
+                accountCenterDTO.bduss = currentAccount.bduss;
+            }
+            this.m = accountCenterCallback;
+            this.g = accountCenterDTO;
+            Intent intent = new Intent(this.B, AccountCenterActivity.class);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void loadAccountRealName(Context context, AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048607, this, context, accountRealNameCallback, realNameDTO) == null) {
+            this.n = accountRealNameCallback;
+            this.i = realNameDTO;
+            Intent intent = new Intent(context, AccountRealNameActivity.class);
+            if (realNameDTO != null) {
+                intent.putExtra("EXTRA_BDUSS", realNameDTO.bduss);
+                intent.putExtra("EXTRA_SCENE", realNameDTO.scene);
+                intent.putExtra(AccountRealNameActivity.EXTRA_NEED_CB_KEY, realNameDTO.needCbKey);
+                intent.putExtra(AccountRealNameActivity.EXTRA_CUSTOM_LINK, realNameDTO.customRealNameUrl);
+                intent.putExtra(AccountRealNameActivity.EXTRA_REAL_NAME_LEVEL, realNameDTO.realNameLevel);
+            }
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void loadCurrentProcessWebviewActivity(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048613, this, context, str, str2) == null) {
+            Intent intent = new Intent(context, CurrentProcessWebviewActivity.class);
+            intent.putExtra("external_title", str);
+            intent.putExtra("external_url", str2 + "&adapter=3");
+            intent.putExtra("is_dark_mode", SapiAccountManager.getInstance().getConfignation().isDarkMode);
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void loadRemoteProcessWebViewActivity(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048623, this, context, str, str2) == null) {
+            Intent intent = new Intent(context, RemoteProcessWebviewActivity.class);
+            intent.putExtra("external_title", str);
+            intent.putExtra("external_url", str2 + "&adapter=3");
+            intent.putExtra("is_dark_mode", SapiAccountManager.getInstance().getConfignation().isDarkMode);
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void loadYYSSOLogin(Context context, String str, WebAuthListener webAuthListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048627, this, context, str, webAuthListener) == null) {
+            AbstractThirdPartyService thirdPartyService = getThirdPartyService();
+            this.a = thirdPartyService;
+            if (thirdPartyService == null) {
+                if (webAuthListener != null) {
+                    WebAuthResult webAuthResult = new WebAuthResult();
+                    webAuthResult.setResultCode(-100);
+                    webAuthResult.setResultMsg("thirdPartyService is null");
+                    webAuthListener.onFailure(webAuthResult);
+                    return;
+                }
+                return;
+            }
+            WebLoginDTO webLoginDTO = new WebLoginDTO();
+            webLoginDTO.finishActivityAfterSuc = true;
+            this.c = webLoginDTO;
+            WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
+            webSocialLoginDTO.finishActivityAfterSuc = true;
+            this.f = webSocialLoginDTO;
+            this.b = webAuthListener;
+            this.a.loadYYSSOLogin(context, str);
+        }
+    }
+
+    public void loadAccountTools(AccountToolsDTO accountToolsDTO, AccountToolsCallback accountToolsCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048608, this, accountToolsDTO, accountToolsCallback) == null) {
+            this.x = accountToolsCallback;
+            Intent intent = new Intent(accountToolsDTO.context, AccountToolsActivity.class);
+            intent.putExtra(AccountToolsActivity.EXTRA_ACCOUNT_TOOLS_TYPE, accountToolsDTO.toolsType);
+            intent.putExtra(AccountToolsActivity.EXTRA_SWEEP_LIGHT_LOADING, accountToolsDTO.sweepLightLoading);
+            Context context = accountToolsDTO.context;
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            accountToolsDTO.context.startActivity(intent);
+        }
+    }
+
+    public void loadChildActivity(Context context, AccountRealNameCallback accountRealNameCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048612, this, context, accountRealNameCallback) == null) {
+            this.n = accountRealNameCallback;
+            Intent intent = new Intent(context, ChildVerifyActivity.class);
+            intent.putExtra("external_url", SapiAccountManager.getInstance().getAccountService().getChildVerifyUrl());
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+        }
+    }
+
+    public void loadIdCardOcr(IdCardOcrDTO idCardOcrDTO, IdCardOcrCallback idCardOcrCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048614, this, idCardOcrDTO, idCardOcrCallback) == null) {
+            this.y = idCardOcrCallback;
+            Intent intent = new Intent(idCardOcrDTO.context, IdCardOcrCameraActivity.class);
+            intent.putExtra(IdCardOcrCameraActivity.PARAM_KEY_ID_CARD_TYPE, idCardOcrDTO.type);
+            Context context = idCardOcrDTO.context;
+            if (context instanceof Activity) {
+                context.startActivity(intent);
+                return;
+            }
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            idCardOcrDTO.context.startActivity(intent);
+        }
+    }
+
+    public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048624, this, switchAccountDTO, webAuthListener) == null) {
+            this.j = switchAccountDTO;
+            this.b = webAuthListener;
+            Intent intent = new Intent(this.B, SwitchAccountActivity.class);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
+            LinkedHashMap linkedHashMap = new LinkedHashMap(1);
+            linkedHashMap.put("eventType", "switch_account_enter");
+            StatService.onEventAutoStatistic(linkedHashMap);
+        }
+    }
+
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, WebSocialLoginDTO webSocialLoginDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048625, this, webAuthListener, webSocialLoginDTO) == null) {
@@ -1828,22 +2006,16 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    public void startSmsViewLogin(SmsLoginView smsLoginView, SmsViewLoginCallback smsViewLoginCallback, String str) {
+    public void loadCertGuardian(Context context, CertGuardianCallback certGuardianCallback, CertGuardionDTO certGuardionDTO) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048650, this, smsLoginView, smsViewLoginCallback, str) == null) || smsLoginView == null || smsViewLoginCallback == null) {
-            return;
-        }
-        smsLoginView.setSmsViewLoginCallback(smsViewLoginCallback);
-        smsLoginView.setSmsLoginStatExtra(str);
-        SmsLoginView.notifyStartLogin();
-    }
-
-    public void startSchemeLoginForQA(Context context, String str, WebAuthListener webAuthListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048648, this, context, str, webAuthListener) == null) {
-            this.b = webAuthListener;
-            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
-            intent.putExtra("extra_external_url", str);
+        if (interceptable == null || interceptable.invokeLLL(1048611, this, context, certGuardianCallback, certGuardionDTO) == null) {
+            this.z = certGuardianCallback;
+            this.l = certGuardionDTO;
+            Intent intent = new Intent(context, CertGuardianActivity.class);
+            CertGuardionDTO certGuardionDTO2 = this.l;
+            if (certGuardionDTO2 != null) {
+                intent.putExtra("EXTRA_SCENE", certGuardionDTO2.scene);
+            }
             if (context instanceof Activity) {
                 context.startActivity(intent);
                 return;
@@ -1853,168 +2025,80 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    private void a(Context context, Class<?> cls, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+    public void registerUserFaceID(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65546, this, context, cls, webAuthListener, webLoginDTO) == null) || context == null) {
-            return;
-        }
-        StatLoadLogin statLoadLogin = new StatLoadLogin();
-        SapiWebView.statLoadLogin = statLoadLogin;
-        statLoadLogin.tOpenLoginPage = System.currentTimeMillis();
-        this.b = webAuthListener;
-        this.c = webLoginDTO;
-        Intent intent = new Intent(context, cls);
-        intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, webLoginDTO.loginType);
-        intent.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, webLoginDTO.finishActivityAfterSuc);
-        if (!TextUtils.isEmpty(webLoginDTO.preSetUname)) {
-            intent.putExtra("username", webLoginDTO.preSetUname);
-        }
-        int i2 = webLoginDTO.businessType;
-        if (i2 != 0) {
-            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i2);
-        }
-        if (!TextUtils.isEmpty(webLoginDTO.extraJson)) {
-            intent.putExtra("extraJson", webLoginDTO.extraJson);
-        }
-        if (context instanceof Activity) {
-            context.startActivity(intent);
-            return;
-        }
-        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-        this.B.startActivity(intent);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65551, this, str, z) == null) {
-            Intent intent = new Intent(this.B, QrLoginActivity.class);
-            intent.putExtra(QrLoginActivity.EXTRA_STRING_QR_LOGIN_URL, str);
-            intent.putExtra(QrLoginActivity.EXTRA_BOOLEAN_FINISH_PAGE, z);
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            this.B.startActivity(intent);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Activity activity, String str, Map<String, String> map, String str2, String str3, String str4, String str5, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{activity, str, map, str2, str3, str4, str5, verifyUserFaceIDCallback, realNameFaceIDResult, Boolean.valueOf(z)}) == null) {
-            BiometricsManager.getInstance().recogWithBduss(activity, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, z, new j(this, realNameFaceIDResult, verifyUserFaceIDCallback));
-        }
-    }
-
-    private void a(Activity activity, FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{activity, faceIDCallback, str, str2, str3, Boolean.valueOf(z), str4, str5, Boolean.valueOf(z2)}) == null) {
-            if (!TextUtils.isEmpty(str5)) {
-                BiometricsManager biometricsManager = BiometricsManager.getInstance();
-                String buildSubPro = BiometricsManager.buildSubPro(str4, str5);
-                HashMap hashMap = new HashMap();
-                k kVar = new k(this, new UnRealNameFaceIDResult(), str, faceIDCallback);
-                if (str.equals("faceDetect")) {
-                    biometricsManager.recogWithFaceDetect(activity, buildSubPro, hashMap, "0", str3, str2, z2, kVar);
-                    return;
-                } else if (str.equals("outer")) {
-                    biometricsManager.recogWithFaceOuter(activity, buildSubPro, hashMap, "0", str3, z2, kVar);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("scene can't be empty");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, int i2, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
-        String str;
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{activity, extendSysWebViewMethodCallback, jSONObject, Integer.valueOf(i2), extendSysWebViewMethodResult}) == null) {
-            BiometricsManager biometricsManager = BiometricsManager.getInstance();
-            a aVar = new a(this, extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
-            int optInt = jSONObject.optInt("imageFlag", 0);
-            String optString = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
-            HashMap hashMap2 = new HashMap();
-            JSONObject optJSONObject = jSONObject.optJSONObject("transParams");
-            if (optJSONObject != null) {
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    String optString2 = optJSONObject.optString(next);
-                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString2)) {
-                        hashMap2.put(next, optString2);
-                    }
-                }
-            }
-            if (i2 == 1) {
-                biometricsManager.getClass();
-                BiometricsManager.e eVar = new BiometricsManager.e(biometricsManager);
-                str = "";
-                a(activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, aVar, optString, hashMap2, optInt + "");
+        if (interceptable == null || interceptable.invokeLLL(1048630, this, activity, registerUserFaceIDCallback, faceIDRegDTO) == null) {
+            if (TextUtils.isEmpty(faceIDRegDTO.authsid)) {
+                startAuth(new h(this, activity, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
             } else {
-                str = "";
-            }
-            if (i2 == 2) {
-                hashMap = hashMap2;
-                biometricsManager.recogWithCertInfo(activity, optString, hashMap2, optInt + str, jSONObject.optString("realname"), jSONObject.optString("idcardnum"), false, jSONObject.optString("bankmobile"), aVar);
-            } else {
-                hashMap = hashMap2;
-            }
-            if (i2 == 3) {
-                biometricsManager.recogWithAuthToken(activity, optString, hashMap, optInt + str, jSONObject.optString("authtoken"), aVar);
-            }
-            if (i2 == 4) {
-                if (jSONObject.optInt("type") == 1) {
-                    biometricsManager.recogWithFaceDetect(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), "", aVar);
-                    return;
-                }
-                biometricsManager.recogWithFaceOuter(activity, optString, hashMap, optInt + str, jSONObject.optString("uid"), aVar);
+                b(activity, registerUserFaceIDCallback, "faceDetect", faceIDRegDTO.authsid, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence, faceIDRegDTO.isCurrentProcessShowAgreement);
             }
         }
     }
 
-    private void a(Activity activity, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, BiometricsManager.e eVar, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, PassFaceRecogCallback passFaceRecogCallback, String str, Map<String, String> map, String str2) {
+    public void onShareLoginActivityResult(int i2, int i3, Intent intent, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{activity, extendSysWebViewMethodCallback, eVar, extendSysWebViewMethodResult, passFaceRecogCallback, str, map, str2}) == null) {
-            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-            if (currentAccount == null) {
-                extendSysWebViewMethodResult.params.put("retCode", "-302");
-                extendSysWebViewMethodResult.params.put("retMsg", "please login first");
-                extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
+        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intent, str}) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!TextUtils.isEmpty(str)) {
+                arrayList.add(new PassNameValuePair("extrajson", str));
+            }
+            new ShareCallPacking().onLoginActivityActivityResult(new d(this), i2, i3, intent, arrayList, "product");
+        }
+    }
+
+    public void oneKeyLoginWithToken(Context context, String str, String str2, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{context, str, str2, Boolean.valueOf(z), oneKeyLoginCallback}) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                Log.d(Log.TAG, "oneKeyLogin sign is empty!");
+                new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -108, null);
+            } else if (!TextUtils.isEmpty(str)) {
+                SapiAccountManager.getInstance().getAccountService().loadOneKeyLogin(oneKeyLoginCallback, str, str2, new c(this, z, oneKeyLoginCallback, context));
+            } else {
+                new OneKeyLoginSdkCall().loadOneKeyLoginFail(oneKeyLoginCallback, -102, null);
+            }
+        }
+    }
+
+    public synchronized void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+            synchronized (this) {
+                this.b = null;
+                this.c = null;
+                this.e = null;
+                this.f = null;
+                this.h = null;
+                this.o = null;
+                this.p = null;
+                this.q = null;
+                this.g = null;
+                this.r = null;
+                this.m = null;
+                this.t = null;
+                this.u = null;
+                this.v = null;
+                this.j = null;
+                this.z = null;
+                PassportViewManager.getInstance().release();
+                D = null;
+            }
+        }
+    }
+
+    public void startLoginDeviceManager(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, context) == null) {
+            Intent intent = new Intent(context, LoadExternalWebViewActivity.class);
+            intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, "设备管理");
+            intent.putExtra("extra_external_url", C);
+            if (context instanceof Activity) {
+                context.startActivity(intent);
                 return;
             }
-            eVar.j = currentAccount.bduss;
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new b(this, activity, str, map, str2, currentAccount, passFaceRecogCallback, extendSysWebViewMethodResult, extendSysWebViewMethodCallback), eVar.j, arrayList);
-        }
-    }
-
-    private String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.length() <= 7) {
-                return null;
-            }
-            String substring = str.substring(0, 8);
-            String substring2 = str.substring(8, str.length());
-            String upperCase = SapiUtils.getClientId(context).toUpperCase();
-            return substring + SecurityUtil.md5((substring2 + SecurityUtil.md5(upperCase.getBytes(), false)).getBytes(), false);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            try {
-                Class.forName("com.baidu.sapi2.ThirdPartyService").getConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            this.B.startActivity(intent);
         }
     }
 }

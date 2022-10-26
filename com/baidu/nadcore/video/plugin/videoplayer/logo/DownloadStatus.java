@@ -63,12 +63,18 @@ public final class DownloadStatus {
     public static DownloadStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DownloadStatus) Enum.valueOf(DownloadStatus.class, str) : (DownloadStatus) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (DownloadStatus) Enum.valueOf(DownloadStatus.class, str);
+        }
+        return (DownloadStatus) invokeL.objValue;
     }
 
     public static DownloadStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownloadStatus[]) $VALUES.clone() : (DownloadStatus[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (DownloadStatus[]) $VALUES.clone();
+        }
+        return (DownloadStatus[]) invokeV.objValue;
     }
 }

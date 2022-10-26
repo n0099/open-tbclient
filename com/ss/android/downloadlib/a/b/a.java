@@ -26,28 +26,28 @@ public class a {
     public boolean h = true;
     public boolean i = false;
     public volatile boolean j = false;
-    public final List<Pair<b, d>> l = new ArrayList();
-    public final List<InterfaceC0654a> b = new ArrayList();
+    public final List l = new ArrayList();
+    public final List b = new ArrayList();
     public final ServiceConnection m = new ServiceConnection() { // from class: com.ss.android.downloadlib.a.b.a.1
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            synchronized (a.this.c) {
+                a.this.a(false);
+                a.this.a = null;
+                for (InterfaceC0650a interfaceC0650a : a.this.b) {
+                    interfaceC0650a.b();
+                }
+            }
+        }
+
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             synchronized (a.this.c) {
                 a.this.a(false);
                 a.this.a = c.a.a(iBinder);
                 a.this.c();
-                for (InterfaceC0654a interfaceC0654a : a.this.b) {
-                    interfaceC0654a.a();
-                }
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            synchronized (a.this.c) {
-                a.this.a(false);
-                a.this.a = null;
-                for (InterfaceC0654a interfaceC0654a : a.this.b) {
-                    interfaceC0654a.b();
+                for (InterfaceC0650a interfaceC0650a : a.this.b) {
+                    interfaceC0650a.a();
                 }
             }
         }
@@ -57,7 +57,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0654a {
+    public interface InterfaceC0650a {
         void a();
 
         void b();
@@ -84,7 +84,7 @@ public class a {
     }
 
     public void c() {
-        for (Pair<b, d> pair : this.l) {
+        for (Pair pair : this.l) {
             try {
                 this.a.a((b) pair.first, (d) pair.second);
             } catch (RemoteException e2) {
@@ -96,28 +96,6 @@ public class a {
 
     public boolean d() {
         return this.j;
-    }
-
-    public boolean a(Context context, boolean z) {
-        if (TextUtils.isEmpty(d)) {
-            JSONObject i = j.i();
-            String optString = i.optString("s");
-            d = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("q"), optString);
-            e = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("u"), optString);
-            f = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("w"), optString);
-        }
-        this.i = z;
-        if (context != null) {
-            this.k = context.getApplicationContext();
-            if (TextUtils.isEmpty(f)) {
-                f = this.k.getPackageName();
-            }
-            if (this.a != null || d()) {
-                return true;
-            }
-            return this.k.bindService(a(context), this.m, 33);
-        }
-        return true;
     }
 
     public Intent a(Context context) {
@@ -161,5 +139,27 @@ public class a {
 
     public void a(boolean z) {
         this.j = z;
+    }
+
+    public boolean a(Context context, boolean z) {
+        if (TextUtils.isEmpty(d)) {
+            JSONObject i = j.i();
+            String optString = i.optString("s");
+            d = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("q"), optString);
+            e = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("u"), optString);
+            f = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("w"), optString);
+        }
+        this.i = z;
+        if (context != null) {
+            this.k = context.getApplicationContext();
+            if (TextUtils.isEmpty(f)) {
+                f = this.k.getPackageName();
+            }
+            if (this.a == null && !d()) {
+                return this.k.bindService(a(context), this.m, 33);
+            }
+            return true;
+        }
+        return true;
     }
 }

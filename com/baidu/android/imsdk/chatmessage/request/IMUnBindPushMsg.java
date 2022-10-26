@@ -67,7 +67,10 @@ public class IMUnBindPushMsg extends Message {
     public static IMUnBindPushMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) ? new IMUnBindPushMsg(context) : (IMUnBindPushMsg) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
+            return new IMUnBindPushMsg(context);
+        }
+        return (IMUnBindPushMsg) invokeLL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message

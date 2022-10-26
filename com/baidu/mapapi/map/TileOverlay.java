@@ -23,8 +23,8 @@ public final class TileOverlay {
     public transient /* synthetic */ FieldHolder $fh;
     public BaiduMap a;
     public ExecutorService c;
-    public HashMap<String, Tile> d;
-    public HashSet<String> e;
+    public HashMap d;
+    public HashSet e;
     public TileProvider g;
 
     static {
@@ -59,8 +59,8 @@ public final class TileOverlay {
         }
         this.a = baiduMap;
         this.g = tileProvider;
-        this.d = new HashMap<>();
-        this.e = new HashSet<>();
+        this.d = new HashMap();
+        this.e = new HashSet();
         this.c = Executors.newFixedThreadPool(1);
     }
 
@@ -70,7 +70,7 @@ public final class TileOverlay {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             synchronized (this) {
                 if (this.d.containsKey(str)) {
-                    Tile tile = this.d.get(str);
+                    Tile tile = (Tile) this.d.get(str);
                     this.d.remove(str);
                     return tile;
                 }

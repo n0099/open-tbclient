@@ -14,6 +14,12 @@ public abstract class RFC1522Codec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract byte[] doDecoding(byte[] bArr) throws DecoderException;
+
+    public abstract byte[] doEncoding(byte[] bArr) throws EncoderException;
+
+    public abstract String getEncoding();
+
     public RFC1522Codec() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,10 +45,6 @@ public abstract class RFC1522Codec {
         return (String) invokeL.objValue;
     }
 
-    public abstract byte[] doDecoding(byte[] bArr) throws DecoderException;
-
-    public abstract byte[] doEncoding(byte[] bArr) throws EncoderException;
-
     public String encodeText(String str, String str2) throws EncoderException, UnsupportedEncodingException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -51,6 +53,4 @@ public abstract class RFC1522Codec {
         }
         return (String) invokeLL.objValue;
     }
-
-    public abstract String getEncoding();
 }

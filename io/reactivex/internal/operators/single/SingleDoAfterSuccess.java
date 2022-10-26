@@ -9,29 +9,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
-@Experimental
 /* loaded from: classes8.dex */
-public final class SingleDoAfterSuccess<T> extends Single<T> {
+public final class SingleDoAfterSuccess extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<? super T> onAfterSuccess;
-    public final SingleSource<T> source;
+    public final Consumer onAfterSuccess;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class DoAfterObserver<T> implements SingleObserver<T>, Disposable {
+    public final class DoAfterObserver implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
+        public final SingleObserver actual;
         public Disposable d;
-        public final Consumer<? super T> onAfterSuccess;
+        public final Consumer onAfterSuccess;
 
-        public DoAfterObserver(SingleObserver<? super T> singleObserver, Consumer<? super T> consumer) {
+        public DoAfterObserver(SingleObserver singleObserver, Consumer consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +60,10 @@ public final class SingleDoAfterSuccess<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -83,12 +84,12 @@ public final class SingleDoAfterSuccess<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.actual.onSuccess(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.actual.onSuccess(obj);
                 try {
-                    this.onAfterSuccess.accept(t);
+                    this.onAfterSuccess.accept(obj);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -97,7 +98,7 @@ public final class SingleDoAfterSuccess<T> extends Single<T> {
         }
     }
 
-    public SingleDoAfterSuccess(SingleSource<T> singleSource, Consumer<? super T> consumer) {
+    public SingleDoAfterSuccess(SingleSource singleSource, Consumer consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +118,7 @@ public final class SingleDoAfterSuccess<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DoAfterObserver(singleObserver, this.onAfterSuccess));

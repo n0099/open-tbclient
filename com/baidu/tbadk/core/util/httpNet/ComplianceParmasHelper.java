@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.switchs.ComplianceParmasSwitch;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,23 +55,53 @@ public class ComplianceParmasHelper {
     public static String getBase64Value(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !TextUtils.isEmpty(str) ? wi.j(str.getBytes()) : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return xi.j(str.getBytes());
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getRenameKey(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? HttpRequest.PHONE_IMEI.equals(str) ? HttpRequest.PHONE_IMEI_REVERSAL : HttpRequest.PHONE_NEWIMEI.equals(str) ? HttpRequest.PHONE_NEWIMEI_REVERSAL : "mac".equals(str) ? HttpRequest.MAC_REVERSAL : HttpRequest.ANDROID_ID.equals(str) ? HttpRequest.ANDROID_ID_REVERSAL : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (HttpRequest.PHONE_IMEI.equals(str)) {
+                return HttpRequest.PHONE_IMEI_REVERSAL;
+            }
+            if (HttpRequest.PHONE_NEWIMEI.equals(str)) {
+                return HttpRequest.PHONE_NEWIMEI_REVERSAL;
+            }
+            if ("mac".equals(str)) {
+                return HttpRequest.MAC_REVERSAL;
+            }
+            if (HttpRequest.ANDROID_ID.equals(str)) {
+                return HttpRequest.ANDROID_ID_REVERSAL;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static boolean isNeedChange(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || !ComplianceParmasSwitch.getIsOn()) {
-                return false;
+            if (!TextUtils.isEmpty(str) && ComplianceParmasSwitch.getIsOn()) {
+                if (str.contains(TbConfig.SERVER_ADDRESS)) {
+                    if (TIEBAHOST_CHANGE_LIST.contains(str.replace(TbConfig.SERVER_ADDRESS, ""))) {
+                        return true;
+                    }
+                    return false;
+                } else if (SERVER_ADDRESS_PEIWAN.equalsIgnoreCase(str)) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            return str.contains(TbConfig.SERVER_ADDRESS) ? TIEBAHOST_CHANGE_LIST.contains(str.replace(TbConfig.SERVER_ADDRESS, "")) : SERVER_ADDRESS_PEIWAN.equalsIgnoreCase(str);
+            return false;
         }
         return invokeL.booleanValue;
     }

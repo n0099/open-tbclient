@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.ih9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,6 +26,12 @@ public class GlUtil {
     public static final float[] VERT_FLIP_MATRIX;
     public static String mGLErrorMsg = "";
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static void checkLocation(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -67,6 +73,17 @@ public class GlUtil {
         }
     }
 
+    public static int createFrameBufferObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            int[] iArr = new int[1];
+            GLES20.glGenFramebuffers(1, iArr, 0);
+            return iArr[0];
+        }
+        return invokeV.intValue;
+    }
+
     public static void bindTextureToFBO(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65538, null, i, i2, i3) == null) {
@@ -77,18 +94,23 @@ public class GlUtil {
         }
     }
 
+    public static int createTextureObject(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65548, null, i, i2, i3)) == null) {
+            int createTextureObject = createTextureObject(i);
+            GLES20.glTexImage2D(i, 0, GeneratedTexture.FORMAT, i2, i3, 0, GeneratedTexture.FORMAT, 5121, null);
+            checkGlError("createTextureObject");
+            return createTextureObject;
+        }
+        return invokeIII.intValue;
+    }
+
     public static void checkGlError(String str) {
         int glGetError;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
-            return;
-        }
-        qg9.e("Grafika", str + ": glError 0x" + Integer.toHexString(glGetError));
-    }
-
-    public static void checkLocation(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str) == null) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && (glGetError = GLES20.glGetError()) != 0) {
+            ih9.e("Grafika", str + ": glError 0x" + Integer.toHexString(glGetError));
         }
     }
 
@@ -118,15 +140,31 @@ public class GlUtil {
         return (FloatBuffer) invokeL.objValue;
     }
 
-    public static int createFrameBufferObject() {
-        InterceptResult invokeV;
+    public static int createTextureObject(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenFramebuffers(1, iArr, 0);
-            return iArr[0];
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            return createTextureObject(i, 0);
         }
-        return invokeV.intValue;
+        return invokeI.intValue;
+    }
+
+    public static void destroyFramebufferObject(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(65550, null, i) != null) || i == -1) {
+            return;
+        }
+        GLES20.glDeleteFramebuffers(1, new int[]{i}, 0);
+        checkGlError("glDeleteFramebuffers");
+    }
+
+    public static void destroyTextureObject(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(65551, null, i) != null) || i == -1) {
+            return;
+        }
+        GLES20.glDeleteTextures(1, new int[]{i}, 0);
+        checkGlError("glDeleteTextures");
     }
 
     public static int createImageTexture(ByteBuffer byteBuffer, int i, int i2, int i3) {
@@ -160,7 +198,7 @@ public class GlUtil {
             int glCreateProgram = GLES20.glCreateProgram();
             checkGlError("glCreateProgram");
             if (glCreateProgram == 0) {
-                qg9.e("Grafika", "Could not create program");
+                ih9.e("Grafika", "Could not create program");
             }
             GLES20.glAttachShader(glCreateProgram, loadShader2);
             checkGlError("glAttachShader");
@@ -172,42 +210,13 @@ public class GlUtil {
             if (iArr[0] != 1) {
                 String str3 = "Could not link program: " + GLES20.glGetProgramInfoLog(glCreateProgram);
                 mGLErrorMsg = str3 + ",vertexShader:" + str + ",fragmentShader:" + str2;
-                qg9.e("Grafika", str3);
+                ih9.e("Grafika", str3);
                 GLES20.glDeleteProgram(glCreateProgram);
                 return 0;
             }
             return glCreateProgram;
         }
         return invokeLL.intValue;
-    }
-
-    public static int createTextureObject(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65549, null, i, i2, i3, i4)) == null) {
-            int createTextureObject = createTextureObject(i, i2);
-            GLES20.glTexImage2D(i, 0, GeneratedTexture.FORMAT, i3, i4, 0, GeneratedTexture.FORMAT, 5121, null);
-            return createTextureObject;
-        }
-        return invokeIIII.intValue;
-    }
-
-    public static void destroyFramebufferObject(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65550, null, i) == null) || i == -1) {
-            return;
-        }
-        GLES20.glDeleteFramebuffers(1, new int[]{i}, 0);
-        checkGlError("glDeleteFramebuffers");
-    }
-
-    public static void destroyTextureObject(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65551, null, i) == null) || i == -1) {
-            return;
-        }
-        GLES20.glDeleteTextures(1, new int[]{i}, 0);
-        checkGlError("glDeleteTextures");
     }
 
     public static int loadShader(int i, String str) {
@@ -223,7 +232,7 @@ public class GlUtil {
             if (iArr[0] == 0) {
                 String str2 = "Could not compile shader, type:" + i + ":" + GLES20.glGetShaderInfoLog(glCreateShader);
                 mGLErrorMsg = str2 + ",shader:" + str;
-                qg9.e("Grafika", str2);
+                ih9.e("Grafika", str2);
                 GLES20.glDeleteShader(glCreateShader);
                 return 0;
             }
@@ -232,20 +241,16 @@ public class GlUtil {
         return invokeIL.intValue;
     }
 
-    public static void logVersionInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            qg9.j("Grafika", "vendor  : " + GLES20.glGetString(7936));
-            qg9.j("Grafika", "renderer: " + GLES20.glGetString(7937));
-            qg9.j("Grafika", "version : " + GLES20.glGetString(7938));
-        }
-    }
-
     public static int createTextureObject(int i, int i2) {
         InterceptResult invokeII;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i, i2)) == null) {
-            int i3 = i2 == 0 ? 9729 : 9728;
+            if (i2 == 0) {
+                i3 = 9729;
+            } else {
+                i3 = 9728;
+            }
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
             checkGlError("glGenTextures");
@@ -263,21 +268,23 @@ public class GlUtil {
         return invokeII.intValue;
     }
 
-    public static int createTextureObject(int i) {
-        InterceptResult invokeI;
+    public static int createTextureObject(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? createTextureObject(i, 0) : invokeI.intValue;
-    }
-
-    public static int createTextureObject(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65548, null, i, i2, i3)) == null) {
-            int createTextureObject = createTextureObject(i);
-            GLES20.glTexImage2D(i, 0, GeneratedTexture.FORMAT, i2, i3, 0, GeneratedTexture.FORMAT, 5121, null);
-            checkGlError("createTextureObject");
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65549, null, i, i2, i3, i4)) == null) {
+            int createTextureObject = createTextureObject(i, i2);
+            GLES20.glTexImage2D(i, 0, GeneratedTexture.FORMAT, i3, i4, 0, GeneratedTexture.FORMAT, 5121, null);
             return createTextureObject;
         }
-        return invokeIII.intValue;
+        return invokeIIII.intValue;
+    }
+
+    public static void logVersionInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+            ih9.j("Grafika", "vendor  : " + GLES20.glGetString(7936));
+            ih9.j("Grafika", "renderer: " + GLES20.glGetString(7937));
+            ih9.j("Grafika", "version : " + GLES20.glGetString(7938));
+        }
     }
 }

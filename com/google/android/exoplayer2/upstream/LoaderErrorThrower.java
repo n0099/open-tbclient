@@ -8,25 +8,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public interface LoaderErrorThrower {
+    void maybeThrowError() throws IOException;
+
+    void maybeThrowError(int i) throws IOException;
 
     /* loaded from: classes7.dex */
-    public static final class Dummy implements LoaderErrorThrower {
+    public final class Dummy implements LoaderErrorThrower {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public Dummy() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.google.android.exoplayer2.upstream.LoaderErrorThrower
         public void maybeThrowError() throws IOException {
@@ -41,9 +30,19 @@ public interface LoaderErrorThrower {
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             }
         }
+
+        public Dummy() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
-
-    void maybeThrowError() throws IOException;
-
-    void maybeThrowError(int i) throws IOException;
 }

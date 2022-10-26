@@ -2,20 +2,19 @@ package com.baidu.tieba.pb.pb.main.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ny4;
-import com.baidu.tieba.qz4;
+import com.baidu.tieba.ty4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
+import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements qz4 {
+public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements vz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,31 +39,8 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements q
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (z) {
-                ny4 ny4Var = new ny4();
-                ny4Var.t(R.color.CAM_X0109);
-                setConfig(ny4Var);
-                setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
-            } else {
-                ny4 ny4Var2 = new ny4();
-                ny4Var2.r(R.color.CAM_X0302);
-                ny4Var2.i(R.drawable.obfuscated_res_0x7f08091d, 0, TBSpecificationButtonConfig.IconType.SVG);
-                ny4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                setConfig(ny4Var2);
-                setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
-            }
-            r(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PbImageAlaUserLikeButton(Context context, @Nullable AttributeSet attributeSet) {
+    public PbImageAlaUserLikeButton(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,7 +61,7 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements q
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbImageAlaUserLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public PbImageAlaUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -102,6 +78,29 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements q
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (z) {
+                ty4 ty4Var = new ty4();
+                ty4Var.t(R.color.CAM_X0109);
+                setConfig(ty4Var);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fef));
+            } else {
+                ty4 ty4Var2 = new ty4();
+                ty4Var2.r(R.color.CAM_X0302);
+                ty4Var2.i(R.drawable.obfuscated_res_0x7f08091c, 0, TBSpecificationButtonConfig.IconType.SVG);
+                ty4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                setConfig(ty4Var2);
+                setClickable(true);
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
+            }
+            r(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

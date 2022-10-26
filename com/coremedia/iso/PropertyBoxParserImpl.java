@@ -47,6 +47,26 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
         EMPTY_STRING_ARRAY = new String[0];
     }
 
+    public PropertyBoxParserImpl(Properties properties) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {properties};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.constuctorPattern = Pattern.compile("(.*)\\((.*?)\\)");
+        this.buildLookupStrings = new StringBuilder();
+        this.mapping = properties;
+    }
+
     public PropertyBoxParserImpl(String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -148,6 +168,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
 
     public void invoke(String str, byte[] bArr, String str2) {
         String property;
+        String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, str2) == null) {
             if (bArr != null) {
@@ -191,34 +212,18 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
                     if (matcher.group(2).length() == 0) {
                         this.param = EMPTY_STRING_ARRAY;
                         return;
-                    } else {
-                        this.param = matcher.group(2).length() > 0 ? matcher.group(2).split(",") : new String[0];
-                        return;
                     }
+                    if (matcher.group(2).length() > 0) {
+                        strArr = matcher.group(2).split(",");
+                    } else {
+                        strArr = new String[0];
+                    }
+                    this.param = strArr;
+                    return;
                 }
                 throw new RuntimeException("Cannot work with that constructor: " + property);
             }
             throw new RuntimeException("No box object found for " + str);
         }
-    }
-
-    public PropertyBoxParserImpl(Properties properties) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {properties};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.constuctorPattern = Pattern.compile("(.*)\\((.*?)\\)");
-        this.buildLookupStrings = new StringBuilder();
-        this.mapping = properties;
     }
 }

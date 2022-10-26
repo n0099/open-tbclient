@@ -2,26 +2,26 @@ package com.baidu.tieba.card.holder;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.i16;
+import com.baidu.tieba.p16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class CardViewHolder<T extends i16> extends TypeAdapter.ViewHolder {
+public class CardViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
+    public p16 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardViewHolder(T t) {
-        super(t.h());
+    public CardViewHolder(p16 p16Var) {
+        super(p16Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {p16Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,12 +32,15 @@ public class CardViewHolder<T extends i16> extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = t;
+        this.a = p16Var;
     }
 
-    public T a() {
+    public p16 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (p16) invokeV.objValue;
     }
 }

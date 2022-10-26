@@ -56,20 +56,6 @@ public class g4 extends f4 {
         sb.append(i3);
     }
 
-    @Override // com.baidu.tieba.f4, java.util.Comparator
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof g4) && (obj == this || (((g4) obj).d.equals(this.d) && super.equals(obj))) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.f4
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.hashCode() + (this.d.hashCode() * 3) : invokeV.intValue;
-    }
-
     public g4(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,5 +72,28 @@ public class g4 extends f4 {
             }
         }
         this.d = str;
+    }
+
+    @Override // com.baidu.tieba.f4, java.util.Comparator
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if ((obj instanceof g4) && (obj == this || (((g4) obj).d.equals(this.d) && super.equals(obj)))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.f4
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.hashCode() + (this.d.hashCode() * 3);
+        }
+        return invokeV.intValue;
     }
 }

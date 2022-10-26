@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Reader;
@@ -39,34 +38,28 @@ public final class ByQuadrantReader implements Reader {
         this.delegate = reader;
     }
 
-    public static void makeAbsolute(ResultPoint[] resultPointArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65537, null, resultPointArr, i, i2) == null) || resultPointArr == null) {
-            return;
-        }
-        for (int i3 = 0; i3 < resultPointArr.length; i3++) {
-            ResultPoint resultPoint = resultPointArr[i3];
-            resultPointArr[i3] = new ResultPoint(resultPoint.getX() + i, resultPoint.getY() + i2);
-        }
-    }
-
     @Override // com.google.zxing.Reader
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decode(binaryBitmap, null) : (Result) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) {
+            return decode(binaryBitmap, null);
+        }
+        return (Result) invokeL.objValue;
     }
 
-    @Override // com.google.zxing.Reader
-    public void reset() {
+    public static void makeAbsolute(ResultPoint[] resultPointArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.delegate.reset();
+        if ((interceptable == null || interceptable.invokeLII(65537, null, resultPointArr, i, i2) == null) && resultPointArr != null) {
+            for (int i3 = 0; i3 < resultPointArr.length; i3++) {
+                ResultPoint resultPoint = resultPointArr[i3];
+                resultPointArr[i3] = new ResultPoint(resultPoint.getX() + i, resultPoint.getY() + i2);
+            }
         }
     }
 
     @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
@@ -101,5 +94,13 @@ public final class ByQuadrantReader implements Reader {
             }
         }
         return (Result) invokeLL.objValue;
+    }
+
+    @Override // com.google.zxing.Reader
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.delegate.reset();
+        }
     }
 }

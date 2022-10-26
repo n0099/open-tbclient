@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ay9;
-import com.baidu.tieba.c1a;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.w0a;
-import com.baidu.tieba.wz9;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.o0a;
+import com.baidu.tieba.o1a;
+import com.baidu.tieba.sy9;
+import com.baidu.tieba.u1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,125 +13,118 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
+public final class OnSubscribeFromEmitter$BufferEmitter extends OnSubscribeFromEmitter$BaseEmitter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2427151001689639875L;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean done;
     public Throwable error;
-    public final Queue<Object> queue;
+    public final Queue queue;
     public final AtomicInteger wip;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$BufferEmitter(lx9<? super T> lx9Var, int i) {
-        super(lx9Var);
+    public OnSubscribeFromEmitter$BufferEmitter(dy9 dy9Var, int i) {
+        super(dy9Var);
+        Queue o0aVar;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lx9Var, Integer.valueOf(i)};
+            Object[] objArr = {dy9Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((lx9) newInitContext.callArgs[0]);
+                super((dy9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.queue = c1a.b() ? new w0a<>(i) : new wz9<>(i);
+        if (u1a.b()) {
+            o0aVar = new o1a(i);
+        } else {
+            o0aVar = new o0a(i);
+        }
+        this.queue = o0aVar;
         this.wip = new AtomicInteger();
     }
 
     public void drain() {
         int i;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
-            lx9<? super T> lx9Var = this.actual;
-            Queue<Object> queue = this.queue;
-            int i2 = 1;
-            do {
-                long j = get();
-                long j2 = 0;
-                while (true) {
-                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                    if (i == 0) {
-                        break;
-                    } else if (lx9Var.isUnsubscribed()) {
-                        queue.clear();
-                        return;
-                    } else {
-                        boolean z = this.done;
-                        Object poll = queue.poll();
-                        boolean z2 = poll == null;
-                        if (z && z2) {
-                            Throwable th = this.error;
-                            if (th != null) {
-                                super.onError(th);
-                                return;
-                            } else {
-                                super.onCompleted();
-                                return;
-                            }
-                        } else if (z2) {
-                            break;
-                        } else {
-                            lx9Var.onNext((Object) NotificationLite.e(poll));
-                            j2++;
-                        }
-                    }
-                }
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.wip.getAndIncrement() != 0) {
+            return;
+        }
+        dy9 dy9Var = this.actual;
+        Queue queue = this.queue;
+        int i2 = 1;
+        do {
+            long j = get();
+            long j2 = 0;
+            while (true) {
+                i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                 if (i == 0) {
-                    if (lx9Var.isUnsubscribed()) {
-                        queue.clear();
-                        return;
+                    break;
+                } else if (dy9Var.isUnsubscribed()) {
+                    queue.clear();
+                    return;
+                } else {
+                    boolean z2 = this.done;
+                    Object poll = queue.poll();
+                    if (poll == null) {
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                    boolean z3 = this.done;
-                    boolean isEmpty = queue.isEmpty();
-                    if (z3 && isEmpty) {
-                        Throwable th2 = this.error;
-                        if (th2 != null) {
-                            super.onError(th2);
+                    if (z2 && z) {
+                        Throwable th = this.error;
+                        if (th != null) {
+                            super.onError(th);
                             return;
                         } else {
                             super.onCompleted();
                             return;
                         }
+                    } else if (z) {
+                        break;
+                    } else {
+                        dy9Var.onNext(NotificationLite.e(poll));
+                        j2++;
                     }
                 }
-                if (j2 != 0) {
-                    ay9.g(this, j2);
+            }
+            if (i == 0) {
+                if (dy9Var.isUnsubscribed()) {
+                    queue.clear();
+                    return;
                 }
-                i2 = this.wip.addAndGet(-i2);
-            } while (i2 != 0);
-        }
+                boolean z3 = this.done;
+                boolean isEmpty = queue.isEmpty();
+                if (z3 && isEmpty) {
+                    Throwable th2 = this.error;
+                    if (th2 != null) {
+                        super.onError(th2);
+                        return;
+                    } else {
+                        super.onCompleted();
+                        return;
+                    }
+                }
+            }
+            if (j2 != 0) {
+                sy9.g(this, j2);
+            }
+            i2 = this.wip.addAndGet(-i2);
+        } while (i2 != 0);
     }
 
-    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
+    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter, com.baidu.tieba.yx9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.done = true;
-            drain();
-        }
-    }
-
-    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            this.error = th;
-            this.done = true;
-            drain();
-        }
-    }
-
-    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            this.queue.offer(NotificationLite.h(t));
             drain();
         }
     }
@@ -149,6 +142,25 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.wip.getAndIncrement() == 0) {
             this.queue.clear();
+        }
+    }
+
+    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter, com.baidu.tieba.yx9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            this.error = th;
+            this.done = true;
+            drain();
+        }
+    }
+
+    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter, com.baidu.tieba.yx9
+    public void onNext(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            this.queue.offer(NotificationLite.h(obj));
+            drain();
         }
     }
 }

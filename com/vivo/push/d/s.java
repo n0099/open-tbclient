@@ -100,11 +100,17 @@ public final class s implements Runnable {
                         com.vivo.push.util.p.a(context5, "mobile net unshow");
                         context6 = this.c.a;
                         NetworkInfo a = com.vivo.push.util.r.a(context6);
-                        if (a != null && a.getState() == NetworkInfo.State.CONNECTED) {
-                            int type = a.getType();
-                            c = type == 1 ? (char) 2 : type == 0 ? (char) 1 : (char) 3;
-                        } else {
+                        if (a == null || a.getState() != NetworkInfo.State.CONNECTED) {
                             c = 0;
+                        } else {
+                            int type = a.getType();
+                            if (type == 1) {
+                                c = 2;
+                            } else if (type == 0) {
+                                c = 1;
+                            } else {
+                                c = 3;
+                            }
                         }
                         if (c == 1) {
                             purePicUrl = null;

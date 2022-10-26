@@ -28,6 +28,9 @@ public class CurrentThreadTimeClock implements Clock {
     public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? android.os.SystemClock.currentThreadTimeMillis() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return android.os.SystemClock.currentThreadTimeMillis();
+        }
+        return invokeV.longValue;
     }
 }

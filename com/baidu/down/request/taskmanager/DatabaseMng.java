@@ -53,31 +53,46 @@ public class DatabaseMng {
     public int delete(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? this.mDownLoad.delete(this.mDb, str, strArr) : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
+            return this.mDownLoad.delete(this.mDb, str, strArr);
+        }
+        return invokeLL.intValue;
     }
 
     public DownloadDataConstants getDownLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDownLoad : (DownloadDataConstants) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDownLoad;
+        }
+        return (DownloadDataConstants) invokeV.objValue;
     }
 
     public SQLiteDatabase getSQLiteDatabase() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDb : (SQLiteDatabase) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDb;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 
     public long insert(ContentValues contentValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, contentValues)) == null) ? this.mDownLoad.insert(this.mDb, contentValues) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, contentValues)) == null) {
+            return this.mDownLoad.insert(this.mDb, contentValues);
+        }
+        return invokeL.longValue;
     }
 
     public int insertOrUpdate(ContentValues contentValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, contentValues)) == null) ? this.mDownLoad.insertOrUpdate(this.mDb, contentValues) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, contentValues)) == null) {
+            return this.mDownLoad.insertOrUpdate(this.mDb, contentValues);
+        }
+        return invokeL.intValue;
     }
 
     public long insertToDatabase(String str, String str2, String str3, int i) {
@@ -97,12 +112,18 @@ public class DatabaseMng {
     public Cursor query(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{strArr, str, strArr2, str2, str3, str4})) == null) ? this.mDownLoad.query(this.mDb, strArr, str, strArr2, str2, str3, str4) : (Cursor) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{strArr, str, strArr2, str2, str3, str4})) == null) {
+            return this.mDownLoad.query(this.mDb, strArr, str, strArr2, str2, str3, str4);
+        }
+        return (Cursor) invokeCommon.objValue;
     }
 
     public int update(ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, contentValues, str, strArr)) == null) ? this.mDownLoad.update(this.mDb, contentValues, str, strArr) : invokeLLL.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, contentValues, str, strArr)) == null) {
+            return this.mDownLoad.update(this.mDb, contentValues, str, strArr);
+        }
+        return invokeLLL.intValue;
     }
 }

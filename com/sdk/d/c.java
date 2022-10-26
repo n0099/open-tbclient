@@ -12,7 +12,7 @@ import com.sdk.d.e;
 import java.net.HttpURLConnection;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class c extends e.c<Params, Result> {
+public class c extends e.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e b;
@@ -38,14 +38,13 @@ public class c extends e.c<Params, Result> {
         this.b = eVar;
     }
 
-    /* JADX WARN: Type inference failed for: r0v6, types: [java.lang.Object, Result] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, Result] */
     @Override // java.util.concurrent.Callable
-    public Result call() {
+    public Object call() {
         InterceptResult invokeV;
         AtomicBoolean atomicBoolean;
-        ?? a;
+        Object a;
         Object[] objArr;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             atomicBoolean = this.b.f;
@@ -58,7 +57,12 @@ public class c extends e.c<Params, Result> {
                 if (objArr2.length == 4) {
                     String valueOf = String.valueOf(objArr2[1]);
                     eVar2.t = valueOf;
-                    eVar2.u = valueOf != null;
+                    if (valueOf != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    eVar2.u = z;
                     eVar2.v = (Boolean) objArr2[2];
                     eVar2.w = (Boolean) objArr2[3];
                 }
@@ -89,7 +93,7 @@ public class c extends e.c<Params, Result> {
                     eVar2.a(3, 302002, "网络访问异常");
                 }
             }
-            a = eVar.a((e) null);
+            a = eVar.a((Object) null);
             return a;
         }
         return invokeV.objValue;

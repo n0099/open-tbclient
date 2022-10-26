@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.AES;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.bdtls.BdtlsController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,188 +13,130 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class lm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lm3 a;
+    public static volatile lm3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public im3 a;
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class a implements BdtlsController.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.swan.bdtls.BdtlsController.a
+        public void loadLibrary(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                SoLoader.load(tm2.c(), str);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947947639, "Lcom/baidu/tieba/lm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947947639, "Lcom/baidu/tieba/lm3;");
+                return;
+            }
+        }
+        boolean z = im3.a;
+        BdtlsController.a(new a());
+    }
 
     public lm3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new im3();
     }
 
-    public static int a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr != null) {
-                int i = 0;
-                for (byte b : bArr) {
-                    i = (i << 8) | (b & 255);
-                }
-                return i;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: char */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);
-                sb.append(",");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static lm3 f() {
+    public static lm3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
                 synchronized (lm3.class) {
-                    if (a == null) {
-                        a = new lm3();
+                    if (b == null) {
+                        b = new lm3();
                     }
                 }
             }
-            return a;
+            return b;
         }
         return (lm3) invokeV.objValue;
     }
 
-    public static byte[] g(int i) {
-        InterceptResult invokeI;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
-    }
-
-    public byte[] b(wm3 wm3Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, wm3Var, str)) == null) {
-            if (wm3Var == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            im3 im3Var = this.a;
+            if (im3Var == null) {
+                return false;
             }
-            try {
-                um3 a2 = um3.j.a();
-                a2.r((byte) 23);
-                byte[] i = wm3Var.i();
-                if (i != null && i.length > 0 && i.length <= 32767) {
-                    a2.q((short) i.length);
-                    a2.o(i);
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    byte[] aesEncrypt = AES.aesEncrypt(str, wm3Var.c());
-                    a2.k(aesEncrypt.length);
-                    a2.j(aesEncrypt);
-                }
-                a2.l(ag4.e().d().longValue());
-                return ym3.b(a2);
-            } catch (Exception e) {
-                if (hm3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                    return null;
-                }
-                return null;
-            }
+            return im3Var.a();
         }
-        return (byte[]) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public vm3 c(wm3 wm3Var, byte[] bArr) {
-        InterceptResult invokeLL;
+    public void a(String str, cn3 cn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wm3Var, bArr)) == null) {
-            vm3 vm3Var = new vm3();
-            try {
-                um3 a2 = ym3.a(bArr);
-                byte i = a2.i();
-                if (i == 21) {
-                    Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
-                    if (parseFrom != null) {
-                        String str = new String(parseFrom.getDescription().toByteArray());
-                        if (hm3.a) {
-                            Log.d("BDTLS", "bdtls ubc application alert : " + str);
-                        }
-                        mm3.b(wm3Var, parseFrom);
-                        if (1 == parseFrom.getLevel()) {
-                            vm3Var.d(-2);
-                        } else if (TextUtils.equals(str, "down grade")) {
-                            vm3Var.d(2);
-                        } else {
-                            vm3Var.d(-1);
-                        }
-                        if (hm3.a) {
-                            if (parseFrom.getDescription() != null) {
-                                if (hm3.a) {
-                                    Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
-                                }
-                            } else if (hm3.a) {
-                                Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
-                            }
-                        }
-                    } else {
-                        vm3Var.d(-1);
-                    }
-                } else if (i == 23) {
-                    vm3Var.c(new String(AES.aesDecrypt(a2.a(), wm3Var.c())));
-                    vm3Var.d(1);
-                }
-            } catch (Exception e) {
-                if (hm3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                }
-                vm3Var.d(-1);
-            }
-            return vm3Var;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cn3Var) == null) {
+            om3.l().p(str, cn3Var);
         }
-        return (vm3) invokeLL.objValue;
     }
 
-    public byte[] e(wm3 wm3Var) {
+    public void c(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
+            BdtlsController.handleConfsk(bArr);
+        }
+    }
+
+    public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wm3Var)) == null) {
-            if (wm3Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            im3 im3Var = this.a;
+            if (im3Var != null && im3Var.b(str)) {
+                return true;
             }
-            try {
-                byte[] b = xm3.b(wm3Var, new tm3());
-                if (b == null) {
-                    return null;
-                }
-                um3 a2 = um3.j.a();
-                a2.r((byte) 22);
-                a2.q((short) b.length);
-                a2.l(ag4.e().d().longValue());
-                a2.o(b);
-                return ym3.b(a2);
-            } catch (Exception e) {
-                if (hm3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                }
-                return null;
-            }
+            return false;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

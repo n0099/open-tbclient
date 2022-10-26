@@ -3,76 +3,6 @@ package com.ss.android.socialbase.downloader.i;
 import kotlin.text.Typography;
 /* loaded from: classes8.dex */
 public class i {
-    public static StringBuilder a(StringBuilder sb, String str) {
-        sb.append(Typography.quote);
-        sb.append(str);
-        sb.append(Typography.quote);
-        return sb;
-    }
-
-    public static StringBuilder b(StringBuilder sb, String[] strArr) {
-        for (int i = 0; i < strArr.length; i++) {
-            a(sb, strArr[i]).append("=?");
-            if (i < strArr.length - 1) {
-                sb.append(',');
-            }
-        }
-        return sb;
-    }
-
-    public static StringBuilder a(StringBuilder sb, String str, String str2) {
-        sb.append(str);
-        sb.append(".\"");
-        sb.append(str2);
-        sb.append(Typography.quote);
-        return sb;
-    }
-
-    public static StringBuilder a(StringBuilder sb, String[] strArr) {
-        int length = strArr.length;
-        for (int i = 0; i < length; i++) {
-            sb.append(Typography.quote);
-            sb.append(strArr[i]);
-            sb.append(Typography.quote);
-            if (i < length - 1) {
-                sb.append(',');
-            }
-        }
-        return sb;
-    }
-
-    public static String b(String str, String[] strArr, String[] strArr2) {
-        StringBuilder sb = new StringBuilder("INSERT OR REPLACE INTO ");
-        sb.append(Typography.quote + str + Typography.quote);
-        sb.append(" (");
-        a(sb, strArr);
-        sb.append(") VALUES (");
-        a(sb, strArr.length);
-        sb.append(')');
-        return sb.toString();
-    }
-
-    public static StringBuilder a(StringBuilder sb, int i) {
-        for (int i2 = 0; i2 < i; i2++) {
-            if (i2 < i - 1) {
-                sb.append("?,");
-            } else {
-                sb.append('?');
-            }
-        }
-        return sb;
-    }
-
-    public static StringBuilder a(StringBuilder sb, String str, String[] strArr) {
-        for (int i = 0; i < strArr.length; i++) {
-            a(sb, str, strArr[i]).append("=?");
-            if (i < strArr.length - 1) {
-                sb.append(',');
-            }
-        }
-        return sb;
-    }
-
     public static String a(String str, String str2, String[] strArr) {
         StringBuilder sb = new StringBuilder(str);
         sb.append(Typography.quote);
@@ -97,6 +27,16 @@ public class i {
         return sb.toString();
     }
 
+    public static StringBuilder b(StringBuilder sb, String[] strArr) {
+        for (int i = 0; i < strArr.length; i++) {
+            a(sb, strArr[i]).append("=?");
+            if (i < strArr.length - 1) {
+                sb.append(',');
+            }
+        }
+        return sb;
+    }
+
     public static String a(String str, String[] strArr, String[] strArr2) {
         String str2 = Typography.quote + str + Typography.quote;
         StringBuilder sb = new StringBuilder("UPDATE ");
@@ -108,5 +48,65 @@ public class i {
             a(sb, str2, strArr2);
         }
         return sb.toString();
+    }
+
+    public static String b(String str, String[] strArr, String[] strArr2) {
+        StringBuilder sb = new StringBuilder("INSERT OR REPLACE INTO ");
+        sb.append(Typography.quote + str + Typography.quote);
+        sb.append(" (");
+        a(sb, strArr);
+        sb.append(") VALUES (");
+        a(sb, strArr.length);
+        sb.append(')');
+        return sb.toString();
+    }
+
+    public static StringBuilder a(StringBuilder sb, int i) {
+        for (int i2 = 0; i2 < i; i2++) {
+            if (i2 < i - 1) {
+                sb.append("?,");
+            } else {
+                sb.append('?');
+            }
+        }
+        return sb;
+    }
+
+    public static StringBuilder a(StringBuilder sb, String str) {
+        sb.append(Typography.quote);
+        sb.append(str);
+        sb.append(Typography.quote);
+        return sb;
+    }
+
+    public static StringBuilder a(StringBuilder sb, String str, String str2) {
+        sb.append(str);
+        sb.append(".\"");
+        sb.append(str2);
+        sb.append(Typography.quote);
+        return sb;
+    }
+
+    public static StringBuilder a(StringBuilder sb, String str, String[] strArr) {
+        for (int i = 0; i < strArr.length; i++) {
+            a(sb, str, strArr[i]).append("=?");
+            if (i < strArr.length - 1) {
+                sb.append(',');
+            }
+        }
+        return sb;
+    }
+
+    public static StringBuilder a(StringBuilder sb, String[] strArr) {
+        int length = strArr.length;
+        for (int i = 0; i < length; i++) {
+            sb.append(Typography.quote);
+            sb.append(strArr[i]);
+            sb.append(Typography.quote);
+            if (i < length - 1) {
+                sb.append(',');
+            }
+        }
+        return sb;
     }
 }

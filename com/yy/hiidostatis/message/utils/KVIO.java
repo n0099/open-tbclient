@@ -41,10 +41,31 @@ public class KVIO {
         this.editor = sharedPreferences.edit();
     }
 
+    private Set decodeStringSet(String str, Set set, Class cls) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, set, cls)) == null) {
+            return this.cache.getStringSet(str, set);
+        }
+        return (Set) invokeLLL.objValue;
+    }
+
     public static KVIO get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? kvio : (KVIO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return kvio;
+        }
+        return (KVIO) invokeV.objValue;
+    }
+
+    public boolean commit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.editor.commit();
+        }
+        return invokeV.booleanValue;
     }
 
     public static synchronized void initialize(Context context) {
@@ -59,74 +80,85 @@ public class KVIO {
         }
     }
 
-    public boolean commit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.editor.commit() : invokeV.booleanValue;
-    }
-
     public boolean decodeBool(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? decodeBool(str, false) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return decodeBool(str, false);
+        }
+        return invokeL.booleanValue;
     }
 
     public byte[] decodeBytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? decodeBytes(str, null) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return decodeBytes(str, null);
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public double decodeDouble(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? decodeDouble(str, 0.0d) : invokeL.doubleValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return decodeDouble(str, 0.0d);
+        }
+        return invokeL.doubleValue;
     }
 
     public float decodeFloat(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? decodeFloat(str, 0.0f) : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return decodeFloat(str, 0.0f);
+        }
+        return invokeL.floatValue;
     }
 
     public int decodeInt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? decodeInt(str, 0) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return decodeInt(str, 0);
+        }
+        return invokeL.intValue;
     }
 
     public long decodeLong(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? decodeLong(str, 0L) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return decodeLong(str, 0L);
+        }
+        return invokeL.longValue;
     }
 
     public String decodeString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? decodeString(str, null) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            return decodeString(str, null);
+        }
+        return (String) invokeL.objValue;
     }
 
-    public Set<String> decodeStringSet(String str) {
+    public Set decodeStringSet(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? decodeStringSet(str, null) : (Set) invokeL.objValue;
-    }
-
-    public boolean encode(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048599, this, str, z)) == null) {
-            this.editor.putBoolean(str, z).apply();
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            return decodeStringSet(str, null);
         }
-        return invokeLZ.booleanValue;
+        return (Set) invokeL.objValue;
     }
 
     public boolean decodeBool(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) ? this.cache.getBoolean(str, z) : invokeLZ.booleanValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
+            return this.cache.getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
     }
 
     public byte[] decodeBytes(String str, byte[] bArr) {
@@ -149,73 +181,55 @@ public class KVIO {
     public double decodeDouble(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Double.valueOf(d)})) == null) ? this.cache.getLong(str, (long) d) : invokeCommon.doubleValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Double.valueOf(d)})) == null) {
+            return this.cache.getLong(str, (long) d);
+        }
+        return invokeCommon.doubleValue;
     }
 
     public float decodeFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) ? this.cache.getFloat(str, f) : invokeLF.floatValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            return this.cache.getFloat(str, f);
+        }
+        return invokeLF.floatValue;
     }
 
     public int decodeInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) ? this.cache.getInt(str, i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
+            return this.cache.getInt(str, i);
+        }
+        return invokeLI.intValue;
     }
 
     public long decodeLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j)) == null) ? this.cache.getLong(str, j) : invokeLJ.longValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j)) == null) {
+            return this.cache.getLong(str, j);
+        }
+        return invokeLJ.longValue;
     }
 
     public String decodeString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) ? this.cache.getString(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
+            return this.cache.getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
-    public Set<String> decodeStringSet(String str, Set<String> set) {
+    public Set decodeStringSet(String str, Set set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, set)) == null) ? decodeStringSet(str, set, HashSet.class) : (Set) invokeLL.objValue;
-    }
-
-    public boolean encode(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, str, i)) == null) {
-            this.editor.putInt(str, i).apply();
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, set)) == null) {
+            return decodeStringSet(str, set, HashSet.class);
         }
-        return invokeLI.booleanValue;
-    }
-
-    private Set<String> decodeStringSet(String str, Set<String> set, Class<? extends Set> cls) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, set, cls)) == null) ? this.cache.getStringSet(str, set) : (Set) invokeLLL.objValue;
-    }
-
-    public boolean encode(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j)) == null) {
-            this.editor.putLong(str, j).apply();
-            return true;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public boolean encode(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048594, this, str, f)) == null) {
-            this.editor.putFloat(str, f).apply();
-            return true;
-        }
-        return invokeLF.booleanValue;
+        return (Set) invokeLL.objValue;
     }
 
     public boolean encode(String str, double d) {
@@ -228,6 +242,36 @@ public class KVIO {
         return invokeCommon.booleanValue;
     }
 
+    public boolean encode(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048594, this, str, f)) == null) {
+            this.editor.putFloat(str, f).apply();
+            return true;
+        }
+        return invokeLF.booleanValue;
+    }
+
+    public boolean encode(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, str, i)) == null) {
+            this.editor.putInt(str, i).apply();
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public boolean encode(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j)) == null) {
+            this.editor.putLong(str, j).apply();
+            return true;
+        }
+        return invokeLJ.booleanValue;
+    }
+
     public boolean encode(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -238,7 +282,7 @@ public class KVIO {
         return invokeLL.booleanValue;
     }
 
-    public boolean encode(String str, Set<String> set) {
+    public boolean encode(String str, Set set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, set)) == null) {
@@ -246,6 +290,16 @@ public class KVIO {
             return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    public boolean encode(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048599, this, str, z)) == null) {
+            this.editor.putBoolean(str, z).apply();
+            return true;
+        }
+        return invokeLZ.booleanValue;
     }
 
     public boolean encode(String str, byte[] bArr) {

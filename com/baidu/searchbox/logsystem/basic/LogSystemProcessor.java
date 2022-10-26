@@ -7,8 +7,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
@@ -28,7 +26,6 @@ import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingDeviceEventSceneHandler;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -59,13 +56,12 @@ public class LogSystemProcessor {
     public transient /* synthetic */ FieldHolder $fh;
     public ForwardingDeviceEventSceneHandler mForwardingEventSceneHandler;
     public Handler mHandler;
-    @NonNull
     public ThreadPoolExecutor mProcessExecutor;
-    public List<BaseUploaderStrategy> mUploaderStrategies;
+    public List mUploaderStrategies;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.LogSystemProcessor$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    public /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,163 +115,62 @@ public class LogSystemProcessor {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void deleteLogFiles(@NonNull LogObject logObject, @Nullable ArrayList<LogFile> arrayList, @Nullable Set<LogFile> set, @Nullable File file) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LogSystemProcessor(ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler) {
+        this(forwardingDeviceEventSceneHandler, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65546, this, logObject, arrayList, set, file) == null) {
-            if (logObject.getLogBasicDataFile() != null) {
-                logObject.getLogBasicDataFile().delete();
-                if (LLog.sDebug) {
-                    Log.d(TAG, "logBasicDataFile = " + logObject.getLogBasicDataFile());
-                }
-            }
-            if (logObject.getLogExtraPathNameKeeper() != null) {
-                logObject.getLogExtraPathNameKeeper().delete();
-                if (LLog.sDebug) {
-                    Log.d(TAG, "pathNameKeeper = " + logObject.getLogExtraPathNameKeeper());
-                }
-            }
-            if (arrayList != null && arrayList.size() > 0) {
-                Iterator<LogFile> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    LogFile next = it.next();
-                    if (next != null && next.mCanDelete) {
-                        next.mFile.delete();
-                        if (LLog.sDebug) {
-                            Log.d(TAG, "processLogFile = " + next.mFile.getAbsolutePath());
-                        }
-                    }
-                }
-            }
-            if (set != null && set.size() > 0) {
-                for (LogFile logFile : set) {
-                    if (logFile != null && logFile.mCanDelete) {
-                        logFile.mFile.delete();
-                        if (LLog.sDebug) {
-                            Log.d(TAG, "deviceLogFile = " + logFile.mFile.getAbsolutePath());
-                        }
-                    }
-                }
-            }
-            if (file == null || !file.exists()) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forwardingDeviceEventSceneHandler};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((ForwardingDeviceEventSceneHandler) objArr2[0], (List) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            FileUtils.deleteFile(file);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Set<LogFile> generateDeviceUploadFile(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
-        InterceptResult invokeLLL;
-        Set<LogFile> obtainDeviceSnapShots;
+    public LogSystemProcessor(ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler, List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, this, context, eventObject, file)) == null) {
-            if (this.mForwardingEventSceneHandler != null) {
-                HashSet hashSet = new HashSet(5);
-                Set<DeviceSnapshotType> requireGeneralSnapshots = this.mForwardingEventSceneHandler.requireGeneralSnapshots(context, eventObject);
-                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainDeviceSnapShots = SnapshotUtil.obtainDeviceSnapShots(context, requireGeneralSnapshots, file)) != null && obtainDeviceSnapShots.size() > 0) {
-                    hashSet.addAll(obtainDeviceSnapShots);
-                }
-                Set<LogFile> customizedSnapshots = this.mForwardingEventSceneHandler.getCustomizedSnapshots(context, file, eventObject);
-                if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
-                    hashSet.addAll(customizedSnapshots);
-                }
-                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(context, this.mForwardingEventSceneHandler, eventObject, file, SnapshotConstant.DeviceConstants.DEVICE_APP_SHARED_FRAGMENT_FILE);
-                if (obtainFragmentSnapShot == null || !obtainFragmentSnapShot.mFile.exists()) {
-                    return hashSet;
-                }
-                hashSet.add(obtainFragmentSnapShot);
-                return hashSet;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forwardingDeviceEventSceneHandler, list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return null;
         }
-        return (Set) invokeLLL.objValue;
+        if (forwardingDeviceEventSceneHandler == null) {
+            this.mForwardingEventSceneHandler = new ForwardingDeviceEventSceneHandler();
+        } else {
+            this.mForwardingEventSceneHandler = forwardingDeviceEventSceneHandler;
+        }
+        this.mForwardingEventSceneHandler.addEventHandleCallback(new DefaultDeviceEventSceneHandler());
+        this.mForwardingEventSceneHandler.addEventHandleCallback(new OOMDeviceEventSceneSceneHandler());
+        this.mForwardingEventSceneHandler.addEventHandleCallback(new SOEventSceneSceneHandler());
+        this.mForwardingEventSceneHandler.addEventHandleCallback(new SQLiteFullSceneHandler());
+        this.mProcessExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        if (list == null) {
+            list = new LinkedList();
+            list.add(new LogSystemUploaderStrategy());
+        }
+        this.mUploaderStrategies = list;
+        this.mHandler = new Handler(Looper.getMainLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<LogFile> getCrashpadFile(@NonNull File file) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, file)) == null) {
-            if (file == null || !file.exists() || (listFiles = file.listFiles()) == null || listFiles.length <= 0) {
-                return null;
-            }
-            LinkedList linkedList = new LinkedList();
-            for (File file2 : listFiles) {
-                LogFile logFile = new LogFile(file2, true, true);
-                if (LLog.sDebug) {
-                    Log.d(TAG, logFile.mFile.getAbsolutePath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mCanDelete + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mNecessary);
-                }
-                linkedList.add(logFile);
-            }
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @Nullable
-    public ArrayList<LogFile> obtainProcessLogFiles(@NonNull File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65549, this, file)) != null) {
-            return (ArrayList) invokeL.objValue;
-        }
-        BufferedReader bufferedReader = null;
-        if (file == null || !file.exists() || !file.isFile()) {
-            return null;
-        }
-        ArrayList<LogFile> arrayList = new ArrayList<>(5);
-        try {
-            try {
-                BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
-                while (true) {
-                    try {
-                        String readLine = bufferedReader2.readLine();
-                        if (readLine == null) {
-                            break;
-                        } else if (!TextUtils.isEmpty(readLine)) {
-                            if (LLog.sDebug) {
-                                Log.d(TAG, "pathNameKeep line = " + readLine);
-                            }
-                            String[] split = readLine.split("=");
-                            if (split != null && split.length == 3 && split[0] != null && split[1] != null && split[2] != null) {
-                                File file2 = new File(split[0].trim());
-                                if (file2.exists() && file2.isFile()) {
-                                    LogFile logFile = new LogFile(file2, Boolean.valueOf(split[1].trim()).booleanValue(), Boolean.valueOf(split[2].trim()).booleanValue());
-                                    arrayList.add(logFile);
-                                    if (LLog.sDebug) {
-                                        Log.d(TAG, "LogFile = " + logFile.toString());
-                                    }
-                                }
-                            }
-                        }
-                    } catch (IOException e) {
-                        e = e;
-                        bufferedReader = bufferedReader2;
-                        e.printStackTrace();
-                        Closeables.closeSafely(bufferedReader);
-                        return arrayList;
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedReader = bufferedReader2;
-                        Closeables.closeSafely(bufferedReader);
-                        throw th;
-                    }
-                }
-                Closeables.closeSafely(bufferedReader2);
-            } catch (IOException e2) {
-                e = e2;
-            }
-            return arrayList;
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void stopSelfIfNeed(@NonNull Service service, int i) {
+    public void stopSelfIfNeed(Service service, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65550, this, service, i) == null) {
             this.mHandler.postDelayed(new Runnable(this, service, i) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.3
@@ -311,15 +206,19 @@ public class LogSystemProcessor {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         boolean z = true;
                         for (int i2 = 0; i2 < this.this$0.mUploaderStrategies.size(); i2++) {
-                            z = z && ((BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i2)).canStopService();
+                            if (z && ((BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i2)).canStopService()) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
                             if (!z) {
                                 break;
                             }
                         }
-                        if (!z || this.this$0.mProcessExecutor.getQueue().size() != 0 || this.this$0.mProcessExecutor.getActiveCount() != 0) {
-                            this.this$0.stopSelfIfNeed(this.val$service, this.val$startID);
-                        } else {
+                        if (z && this.this$0.mProcessExecutor.getQueue().size() == 0 && this.this$0.mProcessExecutor.getActiveCount() == 0) {
                             this.val$service.stopSelf(this.val$startID);
+                        } else {
+                            this.this$0.stopSelfIfNeed(this.val$service, this.val$startID);
                         }
                     }
                 }
@@ -327,12 +226,210 @@ public class LogSystemProcessor {
         }
     }
 
-    public void process(@NonNull Service service, int i, @NonNull LogBaseObject logBaseObject) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void deleteLogFiles(LogObject logObject, ArrayList arrayList, Set set, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65546, this, logObject, arrayList, set, file) == null) {
+            if (logObject.getLogBasicDataFile() != null) {
+                logObject.getLogBasicDataFile().delete();
+                if (LLog.sDebug) {
+                    Log.d(TAG, "logBasicDataFile = " + logObject.getLogBasicDataFile());
+                }
+            }
+            if (logObject.getLogExtraPathNameKeeper() != null) {
+                logObject.getLogExtraPathNameKeeper().delete();
+                if (LLog.sDebug) {
+                    Log.d(TAG, "pathNameKeeper = " + logObject.getLogExtraPathNameKeeper());
+                }
+            }
+            if (arrayList != null && arrayList.size() > 0) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    LogFile logFile = (LogFile) it.next();
+                    if (logFile != null && logFile.mCanDelete) {
+                        logFile.mFile.delete();
+                        if (LLog.sDebug) {
+                            Log.d(TAG, "processLogFile = " + logFile.mFile.getAbsolutePath());
+                        }
+                    }
+                }
+            }
+            if (set != null && set.size() > 0) {
+                Iterator it2 = set.iterator();
+                while (it2.hasNext()) {
+                    LogFile logFile2 = (LogFile) it2.next();
+                    if (logFile2 != null && logFile2.mCanDelete) {
+                        logFile2.mFile.delete();
+                        if (LLog.sDebug) {
+                            Log.d(TAG, "deviceLogFile = " + logFile2.mFile.getAbsolutePath());
+                        }
+                    }
+                }
+            }
+            if (file != null && file.exists()) {
+                FileUtils.deleteFile(file);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Set generateDeviceUploadFile(Context context, EventObject eventObject, File file) {
+        InterceptResult invokeLLL;
+        Set obtainDeviceSnapShots;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, this, context, eventObject, file)) == null) {
+            if (this.mForwardingEventSceneHandler != null) {
+                HashSet hashSet = new HashSet(5);
+                Set requireGeneralSnapshots = this.mForwardingEventSceneHandler.requireGeneralSnapshots(context, eventObject);
+                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainDeviceSnapShots = SnapshotUtil.obtainDeviceSnapShots(context, requireGeneralSnapshots, file)) != null && obtainDeviceSnapShots.size() > 0) {
+                    hashSet.addAll(obtainDeviceSnapShots);
+                }
+                Set customizedSnapshots = this.mForwardingEventSceneHandler.getCustomizedSnapshots(context, file, eventObject);
+                if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
+                    hashSet.addAll(customizedSnapshots);
+                }
+                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(context, this.mForwardingEventSceneHandler, eventObject, file, SnapshotConstant.DeviceConstants.DEVICE_APP_SHARED_FRAGMENT_FILE);
+                if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
+                    hashSet.add(obtainFragmentSnapShot);
+                    return hashSet;
+                }
+                return hashSet;
+            }
+            return null;
+        }
+        return (Set) invokeLLL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public List getCrashpadFile(File file) {
+        InterceptResult invokeL;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, file)) == null) {
+            if (file != null && file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
+                LinkedList linkedList = new LinkedList();
+                for (File file2 : listFiles) {
+                    LogFile logFile = new LogFile(file2, true, true);
+                    if (LLog.sDebug) {
+                        Log.d(TAG, logFile.mFile.getAbsolutePath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mCanDelete + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mNecessary);
+                    }
+                    linkedList.add(logFile);
+                }
+                return linkedList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public ArrayList obtainProcessLogFiles(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, file)) == null) {
+            BufferedReader bufferedReader = null;
+            if (file == null || !file.exists() || !file.isFile()) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(5);
+            try {
+                try {
+                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            } else if (!TextUtils.isEmpty(readLine)) {
+                                if (LLog.sDebug) {
+                                    Log.d(TAG, "pathNameKeep line = " + readLine);
+                                }
+                                String[] split = readLine.split("=");
+                                if (split != null && split.length == 3 && split[0] != null && split[1] != null && split[2] != null) {
+                                    File file2 = new File(split[0].trim());
+                                    if (file2.exists() && file2.isFile()) {
+                                        LogFile logFile = new LogFile(file2, Boolean.valueOf(split[1].trim()).booleanValue(), Boolean.valueOf(split[2].trim()).booleanValue());
+                                        arrayList.add(logFile);
+                                        if (LLog.sDebug) {
+                                            Log.d(TAG, "LogFile = " + logFile.toString());
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (IOException e) {
+                            e = e;
+                            bufferedReader = bufferedReader2;
+                            e.printStackTrace();
+                            Closeables.closeSafely(bufferedReader);
+                            return arrayList;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            Closeables.closeSafely(bufferedReader);
+                            throw th;
+                        }
+                    }
+                    Closeables.closeSafely(bufferedReader2);
+                } catch (IOException e2) {
+                    e = e2;
+                }
+                return arrayList;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (ArrayList) invokeL.objValue;
+        }
+    }
+
+    public void process(Service service, int i, LogBaseObject logBaseObject) {
         Runnable runnable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, service, i, logBaseObject) == null) {
             int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType[logBaseObject.mLogType.ordinal()];
-            if (i2 == 1 || i2 == 2) {
+            if (i2 != 1 && i2 != 2) {
+                if (i2 == 3) {
+                    runnable = new Runnable(this, service, i) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ LogSystemProcessor this$0;
+                        public final /* synthetic */ Service val$service;
+                        public final /* synthetic */ int val$serviceStartID;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, service, Integer.valueOf(i)};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$service = service;
+                            this.val$serviceStartID = i;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                for (int i3 = 0; i3 < this.this$0.mUploaderStrategies.size(); i3++) {
+                                    ((BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i3)).upload(this.val$service.getApplicationContext());
+                                }
+                                this.this$0.stopSelfIfNeed(this.val$service, this.val$serviceStartID);
+                            }
+                        }
+                    };
+                }
+                runnable = null;
+            } else {
                 if (logBaseObject instanceof LogObject) {
                     LogObject logObject = (LogObject) logBaseObject;
                     if (TextUtils.isEmpty(logObject.getLogBasicData()) && logObject.getLogBasicDataFile() == null) {
@@ -379,8 +476,11 @@ public class LogSystemProcessor {
 
                             @Override // java.lang.Runnable
                             public void run() {
-                                List<LogFile> list;
+                                ArrayList arrayList;
+                                List list;
                                 File file;
+                                Integer num;
+                                Integer num2;
                                 Object obj;
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -390,7 +490,7 @@ public class LogSystemProcessor {
                                     }
                                     Context applicationContext = this.val$service.getApplicationContext();
                                     if (this.val$logObject.getLogBasicDataFile() != null) {
-                                        Pair<String, Boolean> readFile = Utility.readFile(this.val$logObject.getLogBasicDataFile(), LokiService.Constant.MAX_LENGTH_OF_STRING_TO_DIRECT_TRANS_WITH_BINDER);
+                                        Pair readFile = Utility.readFile(this.val$logObject.getLogBasicDataFile(), LokiService.Constant.MAX_LENGTH_OF_STRING_TO_DIRECT_TRANS_WITH_BINDER);
                                         if (readFile != null && (obj = readFile.first) != null) {
                                             this.val$logObject.setLogBasicData((String) obj);
                                             this.val$logObject.setLogBasicDataOverflow(((Boolean) readFile.second).booleanValue());
@@ -404,28 +504,46 @@ public class LogSystemProcessor {
                                             FileUtils.saveToFile(this.val$logObject.getLogBasicData(), this.val$logObject.getLogBasicDataFile(), true);
                                         }
                                     }
-                                    ArrayList obtainProcessLogFiles = this.val$logObject.getLogExtraPathNameKeeper() != null ? this.this$0.obtainProcessLogFiles(this.val$logObject.getLogExtraPathNameKeeper()) : null;
+                                    List list2 = null;
+                                    if (this.val$logObject.getLogExtraPathNameKeeper() == null) {
+                                        arrayList = null;
+                                    } else {
+                                        arrayList = this.this$0.obtainProcessLogFiles(this.val$logObject.getLogExtraPathNameKeeper());
+                                    }
                                     boolean z = LLog.sDebug;
                                     Object obj2 = StringUtil.NULL_STRING;
                                     if (z) {
                                         StringBuilder sb = new StringBuilder();
                                         sb.append("processFiles.size = ");
-                                        sb.append(obtainProcessLogFiles != null ? Integer.valueOf(obtainProcessLogFiles.size()) : StringUtil.NULL_STRING);
+                                        if (arrayList != null) {
+                                            num2 = Integer.valueOf(arrayList.size());
+                                        } else {
+                                            num2 = StringUtil.NULL_STRING;
+                                        }
+                                        sb.append(num2);
                                         Log.d(LogSystemProcessor.TAG, sb.toString());
                                     }
                                     LogSystemProcessor logSystemProcessor = this.this$0;
                                     LogObject logObject2 = this.val$logObject;
-                                    Set<LogFile> generateDeviceUploadFile = logSystemProcessor.generateDeviceUploadFile(applicationContext, new EventObject(logObject2.mLogType, logObject2.getLogBasicData()), obtainFileDirWithProcessName);
+                                    Set generateDeviceUploadFile = logSystemProcessor.generateDeviceUploadFile(applicationContext, new EventObject(logObject2.mLogType, logObject2.getLogBasicData()), obtainFileDirWithProcessName);
                                     if (LLog.sDebug) {
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append("devicesLogFiles.size = ");
-                                        sb2.append(generateDeviceUploadFile != null ? Integer.valueOf(generateDeviceUploadFile.size()) : StringUtil.NULL_STRING);
+                                        if (generateDeviceUploadFile != null) {
+                                            num = Integer.valueOf(generateDeviceUploadFile.size());
+                                        } else {
+                                            num = StringUtil.NULL_STRING;
+                                        }
+                                        sb2.append(num);
                                         Log.d(LogSystemProcessor.TAG, sb2.toString());
                                     }
                                     if (this.val$logObject.mLogType == LogType.NATIVE_CRASH) {
                                         File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir(this.val$logObject.getCrashTAG());
+                                        if (processCrashpadDir != null) {
+                                            list2 = this.this$0.getCrashpadFile(processCrashpadDir);
+                                        }
                                         file = processCrashpadDir;
-                                        list = processCrashpadDir != null ? this.this$0.getCrashpadFile(processCrashpadDir) : null;
+                                        list = list2;
                                     } else {
                                         list = null;
                                         file = null;
@@ -445,14 +563,14 @@ public class LogSystemProcessor {
                                             Log.d(LogSystemProcessor.TAG, "uploaderStrategy = " + baseUploaderStrategy.getClass().getName());
                                         }
                                         try {
-                                            baseUploaderStrategy.upload(applicationContext, this.val$logObject, obtainProcessLogFiles, generateDeviceUploadFile, list);
+                                            baseUploaderStrategy.upload(applicationContext, this.val$logObject, arrayList, generateDeviceUploadFile, list);
                                         } catch (Exception e) {
                                             if (LLog.sDebug) {
                                                 e.printStackTrace();
                                             }
                                         }
                                     }
-                                    this.this$0.deleteLogFiles(this.val$logObject, obtainProcessLogFiles, generateDeviceUploadFile, file);
+                                    this.this$0.deleteLogFiles(this.val$logObject, arrayList, generateDeviceUploadFile, file);
                                     this.this$0.stopSelfIfNeed(this.val$service, this.val$serviceStartID);
                                 }
                             }
@@ -460,106 +578,10 @@ public class LogSystemProcessor {
                     }
                 }
                 runnable = null;
-            } else {
-                if (i2 == 3) {
-                    runnable = new Runnable(this, service, i) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ LogSystemProcessor this$0;
-                        public final /* synthetic */ Service val$service;
-                        public final /* synthetic */ int val$serviceStartID;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, service, Integer.valueOf(i)};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$service = service;
-                            this.val$serviceStartID = i;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                for (int i3 = 0; i3 < this.this$0.mUploaderStrategies.size(); i3++) {
-                                    ((BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i3)).upload(this.val$service.getApplicationContext());
-                                }
-                                this.this$0.stopSelfIfNeed(this.val$service, this.val$serviceStartID);
-                            }
-                        }
-                    };
-                }
-                runnable = null;
             }
             if (runnable != null) {
                 this.mProcessExecutor.submit(runnable);
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LogSystemProcessor(@Nullable ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler) {
-        this(forwardingDeviceEventSceneHandler, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {forwardingDeviceEventSceneHandler};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((ForwardingDeviceEventSceneHandler) objArr2[0], (List) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public LogSystemProcessor(@Nullable ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler, @Nullable List<BaseUploaderStrategy> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {forwardingDeviceEventSceneHandler, list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        if (forwardingDeviceEventSceneHandler == null) {
-            this.mForwardingEventSceneHandler = new ForwardingDeviceEventSceneHandler();
-        } else {
-            this.mForwardingEventSceneHandler = forwardingDeviceEventSceneHandler;
-        }
-        this.mForwardingEventSceneHandler.addEventHandleCallback(new DefaultDeviceEventSceneHandler());
-        this.mForwardingEventSceneHandler.addEventHandleCallback(new OOMDeviceEventSceneSceneHandler());
-        this.mForwardingEventSceneHandler.addEventHandleCallback(new SOEventSceneSceneHandler());
-        this.mForwardingEventSceneHandler.addEventHandleCallback(new SQLiteFullSceneHandler());
-        this.mProcessExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        if (list == null) {
-            list = new LinkedList<>();
-            list.add(new LogSystemUploaderStrategy());
-        }
-        this.mUploaderStrategies = list;
-        this.mHandler = new Handler(Looper.getMainLooper());
     }
 }

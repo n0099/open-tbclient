@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes4.dex */
 public interface hr2 {
-    void a(boolean z, String str, Object obj);
+    void f(String str);
+
+    void g(List list);
 }

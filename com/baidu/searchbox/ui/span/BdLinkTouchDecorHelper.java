@@ -5,7 +5,6 @@ import android.text.Selection;
 import android.text.Spannable;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,6 +33,7 @@ public class BdLinkTouchDecorHelper {
 
     private ITouchableSpan getPressedSpan(TextView textView, Spannable spannable, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, textView, spannable, motionEvent)) == null) {
             int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
@@ -42,12 +42,16 @@ public class BdLinkTouchDecorHelper {
             Layout layout = textView.getLayout();
             int lineForVertical = layout.getLineForVertical(y + textView.getScrollY());
             float f = scrollX;
-            int offsetForHorizontal = (f < layout.getLineLeft(lineForVertical) || f > layout.getLineRight(lineForVertical)) ? -1 : layout.getOffsetForHorizontal(lineForVertical, f);
-            ITouchableSpan[] iTouchableSpanArr = (ITouchableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ITouchableSpan.class);
-            if (iTouchableSpanArr.length > 0) {
-                return iTouchableSpanArr[0];
+            if (f >= layout.getLineLeft(lineForVertical) && f <= layout.getLineRight(lineForVertical)) {
+                i = layout.getOffsetForHorizontal(lineForVertical, f);
+            } else {
+                i = -1;
             }
-            return null;
+            ITouchableSpan[] iTouchableSpanArr = (ITouchableSpan[]) spannable.getSpans(i, i, ITouchableSpan.class);
+            if (iTouchableSpanArr.length <= 0) {
+                return null;
+            }
+            return iTouchableSpanArr[0];
         }
         return (ITouchableSpan) invokeLLL.objValue;
     }
@@ -64,20 +68,21 @@ public class BdLinkTouchDecorHelper {
         }
     }
 
-    public void clearSpanState(@Nullable TextView textView) {
+    public void clearSpanState(TextView textView) {
         ITouchableSpan iTouchableSpan;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, textView) == null) || (iTouchableSpan = this.mTouchableSpan) == null || textView == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, textView) == null) && (iTouchableSpan = this.mTouchableSpan) != null && textView != null) {
+            updatePressStatus(iTouchableSpan, textView, false);
         }
-        updatePressStatus(iTouchableSpan, textView, false);
     }
 
     public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, spannable, motionEvent)) == null) {
-            boolean z = true;
+            boolean z3 = true;
             if (motionEvent.getAction() == 0) {
                 ITouchableSpan pressedSpan = getPressedSpan(textView, spannable, motionEvent);
                 this.mTouchableSpan = pressedSpan;
@@ -86,9 +91,18 @@ public class BdLinkTouchDecorHelper {
                     Selection.setSelection(spannable, spannable.getSpanStart(this.mTouchableSpan), spannable.getSpanEnd(this.mTouchableSpan));
                 }
                 if (textView instanceof ISpanTouchFix) {
-                    ((ISpanTouchFix) textView).setTouchSpanHit(this.mTouchableSpan != null);
+                    ISpanTouchFix iSpanTouchFix = (ISpanTouchFix) textView;
+                    if (this.mTouchableSpan != null) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    iSpanTouchFix.setTouchSpanHit(z2);
                 }
-                return this.mTouchableSpan != null;
+                if (this.mTouchableSpan != null) {
+                    return true;
+                }
+                return false;
             } else if (motionEvent.getAction() == 2) {
                 ITouchableSpan pressedSpan2 = getPressedSpan(textView, spannable, motionEvent);
                 ITouchableSpan iTouchableSpan = this.mTouchableSpan;
@@ -98,23 +112,32 @@ public class BdLinkTouchDecorHelper {
                     Selection.removeSelection(spannable);
                 }
                 if (textView instanceof ISpanTouchFix) {
-                    ((ISpanTouchFix) textView).setTouchSpanHit(this.mTouchableSpan != null);
+                    ISpanTouchFix iSpanTouchFix2 = (ISpanTouchFix) textView;
+                    if (this.mTouchableSpan != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    iSpanTouchFix2.setTouchSpanHit(z);
                 }
-                return this.mTouchableSpan != null;
+                if (this.mTouchableSpan != null) {
+                    return true;
+                }
+                return false;
             } else if (motionEvent.getAction() == 1) {
                 ITouchableSpan iTouchableSpan2 = this.mTouchableSpan;
                 if (iTouchableSpan2 != null) {
                     updatePressStatus(iTouchableSpan2, textView, false);
                     this.mTouchableSpan.onClick(textView);
                 } else {
-                    z = false;
+                    z3 = false;
                 }
                 this.mTouchableSpan = null;
                 Selection.removeSelection(spannable);
                 if (textView instanceof ISpanTouchFix) {
-                    ((ISpanTouchFix) textView).setTouchSpanHit(z);
+                    ((ISpanTouchFix) textView).setTouchSpanHit(z3);
                 }
-                return z;
+                return z3;
             } else {
                 ITouchableSpan iTouchableSpan3 = this.mTouchableSpan;
                 if (iTouchableSpan3 != null) {

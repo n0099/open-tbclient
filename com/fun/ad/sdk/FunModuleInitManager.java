@@ -14,7 +14,7 @@ public class FunModuleInitManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FunAdSdk.SdkInitializeCallback a;
-    public final List<String> b;
+    public final List b;
     public final AtomicBoolean c;
 
     public FunModuleInitManager() {

@@ -58,12 +58,18 @@ public final class TiledMapTile$BlendMode {
     public static TiledMapTile$BlendMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TiledMapTile$BlendMode) Enum.valueOf(TiledMapTile$BlendMode.class, str) : (TiledMapTile$BlendMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (TiledMapTile$BlendMode) Enum.valueOf(TiledMapTile$BlendMode.class, str);
+        }
+        return (TiledMapTile$BlendMode) invokeL.objValue;
     }
 
     public static TiledMapTile$BlendMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TiledMapTile$BlendMode[]) $VALUES.clone() : (TiledMapTile$BlendMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (TiledMapTile$BlendMode[]) $VALUES.clone();
+        }
+        return (TiledMapTile$BlendMode[]) invokeV.objValue;
     }
 }

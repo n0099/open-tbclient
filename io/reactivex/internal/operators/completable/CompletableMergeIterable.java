@@ -20,10 +20,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CompletableMergeIterable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable<? extends CompletableSource> sources;
+    public final Iterable sources;
 
     /* loaded from: classes8.dex */
-    public static final class MergeCompletableObserver extends AtomicBoolean implements CompletableObserver {
+    public final class MergeCompletableObserver extends AtomicBoolean implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7730517613164279224L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public final class CompletableMergeIterable extends Completable {
         }
     }
 
-    public CompletableMergeIterable(Iterable<? extends CompletableSource> iterable) {
+    public CompletableMergeIterable(Iterable iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

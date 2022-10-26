@@ -3,7 +3,6 @@ package com.kwad.components.ad.interstitial.widget;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,11 +16,10 @@ public final class g extends FrameLayout {
     public h fE;
     public boolean jb;
     public boolean jc;
-    @NonNull
     public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(@NonNull Context context) {
+    public g(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

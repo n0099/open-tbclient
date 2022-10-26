@@ -14,20 +14,6 @@ public final class EmptySampleStream implements SampleStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public EmptySampleStream() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.google.android.exoplayer2.source.SampleStream
     public boolean isReady() {
         InterceptResult invokeV;
@@ -46,6 +32,30 @@ public final class EmptySampleStream implements SampleStream {
     }
 
     @Override // com.google.android.exoplayer2.source.SampleStream
+    public int skipData(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            return 0;
+        }
+        return invokeJ.intValue;
+    }
+
+    public EmptySampleStream() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.SampleStream
     public int readData(FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
@@ -54,15 +64,5 @@ public final class EmptySampleStream implements SampleStream {
             return -4;
         }
         return invokeLLZ.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.SampleStream
-    public int skipData(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            return 0;
-        }
-        return invokeJ.intValue;
     }
 }

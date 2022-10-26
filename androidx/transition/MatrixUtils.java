@@ -56,6 +56,14 @@ public class MatrixUtils {
             }
 
             @Override // android.graphics.Matrix
+            public void reset() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048593, this) == null) {
+                    oops();
+                }
+            }
+
+            @Override // android.graphics.Matrix
             public boolean postConcat(Matrix matrix) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -64,6 +72,63 @@ public class MatrixUtils {
                     return false;
                 }
                 return invokeL.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean postRotate(float f) {
+                InterceptResult invokeF;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeF = interceptable2.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeF.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean preConcat(Matrix matrix) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048585, this, matrix)) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeL.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean preRotate(float f) {
+                InterceptResult invokeF;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeF = interceptable2.invokeF(1048586, this, f)) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeF.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public void set(Matrix matrix) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048594, this, matrix) == null) {
+                    oops();
+                }
+            }
+
+            @Override // android.graphics.Matrix
+            public void setRotate(float f) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeF(1048598, this, f) == null) {
+                    oops();
+                }
+            }
+
+            @Override // android.graphics.Matrix
+            public void setValues(float[] fArr) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048607, this, fArr) == null) {
+                    oops();
+                }
             }
 
             @Override // android.graphics.Matrix
@@ -78,10 +143,10 @@ public class MatrixUtils {
             }
 
             @Override // android.graphics.Matrix
-            public boolean postScale(float f, float f2, float f3, float f4) {
+            public boolean preRotate(float f, float f2, float f3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
                     oops();
                     return false;
                 }
@@ -89,10 +154,40 @@ public class MatrixUtils {
             }
 
             @Override // android.graphics.Matrix
-            public boolean postSkew(float f, float f2, float f3, float f4) {
+            public boolean setRectToRect(RectF rectF, RectF rectF2, Matrix.ScaleToFit scaleToFit) {
+                InterceptResult invokeLLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048597, this, rectF, rectF2, scaleToFit)) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeLLL.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public void setRotate(float f, float f2, float f3) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048599, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                    oops();
+                }
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean postScale(float f, float f2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeCommon.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean postSkew(float f, float f2) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
                     oops();
                     return false;
                 }
@@ -111,21 +206,97 @@ public class MatrixUtils {
             }
 
             @Override // android.graphics.Matrix
-            public boolean preConcat(Matrix matrix) {
-                InterceptResult invokeL;
+            public boolean preScale(float f, float f2) {
+                InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048585, this, matrix)) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
                     oops();
                     return false;
                 }
-                return invokeL.booleanValue;
+                return invokeCommon.booleanValue;
             }
 
             @Override // android.graphics.Matrix
-            public boolean preRotate(float f, float f2, float f3) {
+            public boolean preSkew(float f, float f2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeCommon.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean preTranslate(float f, float f2) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048592, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeCommon.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean setConcat(Matrix matrix, Matrix matrix2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048595, this, matrix, matrix2)) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeLL.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public void setScale(float f, float f2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                    oops();
+                }
+            }
+
+            @Override // android.graphics.Matrix
+            public void setSinCos(float f, float f2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                    oops();
+                }
+            }
+
+            @Override // android.graphics.Matrix
+            public void setSkew(float f, float f2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048604, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                    oops();
+                }
+            }
+
+            @Override // android.graphics.Matrix
+            public void setTranslate(float f, float f2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048606, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                    oops();
+                }
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean postScale(float f, float f2, float f3, float f4) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+                    oops();
+                    return false;
+                }
+                return invokeCommon.booleanValue;
+            }
+
+            @Override // android.graphics.Matrix
+            public boolean postSkew(float f, float f2, float f3, float f4) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
                     oops();
                     return false;
                 }
@@ -155,74 +326,6 @@ public class MatrixUtils {
             }
 
             @Override // android.graphics.Matrix
-            public boolean preTranslate(float f, float f2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048592, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeCommon.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public void reset() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048593, this) == null) {
-                    oops();
-                }
-            }
-
-            @Override // android.graphics.Matrix
-            public void set(Matrix matrix) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048594, this, matrix) == null) {
-                    oops();
-                }
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean setConcat(Matrix matrix, Matrix matrix2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048595, this, matrix, matrix2)) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeLL.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean setPolyToPoly(float[] fArr, int i, float[] fArr2, int i2, int i3) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048596, this, new Object[]{fArr, Integer.valueOf(i), fArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeCommon.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean setRectToRect(RectF rectF, RectF rectF2, Matrix.ScaleToFit scaleToFit) {
-                InterceptResult invokeLLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048597, this, rectF, rectF2, scaleToFit)) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeLLL.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public void setRotate(float f, float f2, float f3) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048599, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                    oops();
-                }
-            }
-
-            @Override // android.graphics.Matrix
             public void setScale(float f, float f2, float f3, float f4) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048601, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
@@ -247,117 +350,14 @@ public class MatrixUtils {
             }
 
             @Override // android.graphics.Matrix
-            public void setTranslate(float f, float f2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048606, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                    oops();
-                }
-            }
-
-            @Override // android.graphics.Matrix
-            public void setValues(float[] fArr) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048607, this, fArr) == null) {
-                    oops();
-                }
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean postRotate(float f) {
-                InterceptResult invokeF;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeF = interceptable2.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeF.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean postScale(float f, float f2) {
+            public boolean setPolyToPoly(float[] fArr, int i, float[] fArr2, int i2, int i3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048596, this, new Object[]{fArr, Integer.valueOf(i), fArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
                     oops();
                     return false;
                 }
                 return invokeCommon.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean postSkew(float f, float f2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeCommon.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean preRotate(float f) {
-                InterceptResult invokeF;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeF = interceptable2.invokeF(1048586, this, f)) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeF.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean preScale(float f, float f2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeCommon.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public boolean preSkew(float f, float f2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                    oops();
-                    return false;
-                }
-                return invokeCommon.booleanValue;
-            }
-
-            @Override // android.graphics.Matrix
-            public void setRotate(float f) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeF(1048598, this, f) == null) {
-                    oops();
-                }
-            }
-
-            @Override // android.graphics.Matrix
-            public void setScale(float f, float f2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                    oops();
-                }
-            }
-
-            @Override // android.graphics.Matrix
-            public void setSinCos(float f, float f2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                    oops();
-                }
-            }
-
-            @Override // android.graphics.Matrix
-            public void setSkew(float f, float f2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048604, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                    oops();
-                }
             }
         };
     }

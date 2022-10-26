@@ -8,7 +8,6 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
@@ -33,7 +32,7 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
     public c.e JR;
     public c.h JS;
     public c.b JT;
-    public c.InterfaceC0611c JU;
+    public c.InterfaceC0607c JU;
     public c.d JV;
     public c.a JW;
     public SurfaceTexture Kd;
@@ -47,7 +46,7 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
     public ImageView aed;
     public com.kwad.sdk.contentalliance.kwai.kwai.a bV;
     public Context mContext;
-    public Map<String, String> mHeaders;
+    public Map mHeaders;
     public String mUrl;
     public FrameLayout sr;
 
@@ -96,8 +95,8 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
                 }
             }
         };
-        this.JU = new c.InterfaceC0611c() { // from class: com.kwad.sdk.core.video.videoview.a.4
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0611c
+        this.JU = new c.InterfaceC0607c() { // from class: com.kwad.sdk.core.video.videoview.a.4
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0607c
             public final boolean j(int i, int i2) {
                 if (i != -38) {
                     a.this.JF = -1;
@@ -278,7 +277,7 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
         this.JF = 0;
     }
 
-    public final void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar, Map<String, String> map) {
+    public final void a(com.kwad.sdk.contentalliance.kwai.kwai.b bVar, Map map) {
         this.JK = bVar;
         this.mUrl = bVar.videoUrl;
         this.mHeaders = null;
@@ -460,7 +459,7 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
     }
 
     @Override // com.kwad.sdk.core.video.videoview.c
-    public final void setKsPlayLogParam(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.a aVar) {
+    public final void setKsPlayLogParam(com.kwad.sdk.contentalliance.kwai.kwai.a aVar) {
         this.bV = aVar;
     }
 

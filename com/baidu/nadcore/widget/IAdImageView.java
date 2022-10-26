@@ -15,7 +15,7 @@ public interface IAdImageView {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ImageScaleType {
+    public final class ImageScaleType {
         public static final /* synthetic */ ImageScaleType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ImageScaleType CENTER;
@@ -80,13 +80,19 @@ public interface IAdImageView {
         public static ImageScaleType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ImageScaleType) Enum.valueOf(ImageScaleType.class, str) : (ImageScaleType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ImageScaleType) Enum.valueOf(ImageScaleType.class, str);
+            }
+            return (ImageScaleType) invokeL.objValue;
         }
 
         public static ImageScaleType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ImageScaleType[]) $VALUES.clone() : (ImageScaleType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ImageScaleType[]) $VALUES.clone();
+            }
+            return (ImageScaleType[]) invokeV.objValue;
         }
     }
 }

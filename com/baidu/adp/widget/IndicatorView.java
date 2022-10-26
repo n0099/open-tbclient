@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.to;
+import com.baidu.tieba.uo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,16 +30,22 @@ public class IndicatorView extends View {
     public float d;
     public Drawable e;
     public Drawable f;
-    public final to g;
+    public final uo g;
 
     /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public void setAutoHide(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        }
+    }
+
     /* loaded from: classes.dex */
-    public class b implements to {
+    public class b implements uo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -49,6 +55,36 @@ public class IndicatorView extends View {
         public float e;
         public final a f;
         public final /* synthetic */ IndicatorView g;
+
+        @Override // com.baidu.tieba.uo
+        public boolean a(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.uo
+        public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.uo
+        public boolean e(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
 
         /* loaded from: classes.dex */
         public class a extends Handler {
@@ -77,9 +113,10 @@ public class IndicatorView extends View {
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1000) {
-                    this.a.g();
+                if ((interceptable != null && interceptable.invokeL(1048576, this, message) != null) || message.what != 1000) {
+                    return;
                 }
+                this.a.g();
             }
 
             public /* synthetic */ a(b bVar, a aVar) {
@@ -107,17 +144,27 @@ public class IndicatorView extends View {
             this.a = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
-        @Override // com.baidu.tieba.to
-        public boolean a(MotionEvent motionEvent) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.uo
+        public void c(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                return false;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                if (this.g.d > this.g.c) {
+                    this.d = this.a;
+                } else if (this.g.d < this.g.c) {
+                    this.d = -this.a;
+                } else {
+                    return;
+                }
+                this.e = this.g.c;
+                long uptimeMillis = SystemClock.uptimeMillis();
+                this.b = uptimeMillis;
+                this.c = uptimeMillis + 16;
+                this.f.removeMessages(1000);
+                this.f.sendEmptyMessageAtTime(1000, this.c);
             }
-            return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
@@ -131,38 +178,7 @@ public class IndicatorView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.to
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                if (this.g.d <= this.g.c) {
-                    if (this.g.d >= this.g.c) {
-                        return;
-                    }
-                    this.d = -this.a;
-                } else {
-                    this.d = this.a;
-                }
-                this.e = this.g.c;
-                long uptimeMillis = SystemClock.uptimeMillis();
-                this.b = uptimeMillis;
-                this.c = uptimeMillis + 16;
-                this.f.removeMessages(1000);
-                this.f.sendEmptyMessageAtTime(1000, this.c);
-            }
-        }
-
-        @Override // com.baidu.tieba.to
-        public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
@@ -182,21 +198,10 @@ public class IndicatorView extends View {
                 }
                 canvas.translate((this.g.f.getBounds().width() + this.g.a) * this.g.c, 0.0f);
                 this.g.f.draw(canvas);
-                if (save2 < 1 || save2 > canvas.getSaveCount()) {
-                    return;
+                if (save2 >= 1 && save2 <= canvas.getSaveCount()) {
+                    canvas.restoreToCount(save2);
                 }
-                canvas.restoreToCount(save2);
             }
-        }
-
-        @Override // com.baidu.tieba.to
-        public boolean e(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
         }
 
         public final void g() {
@@ -237,22 +242,23 @@ public class IndicatorView extends View {
                 int i2 = (-1073741824) & i;
                 int i3 = i & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
                 int max = Math.max(this.g.e.getIntrinsicHeight(), this.g.f.getIntrinsicHeight());
-                if (i2 == Integer.MIN_VALUE) {
-                    int min = Math.min(i3, max);
-                    this.g.e.setBounds(0, 0, this.g.e.getBounds().width(), min);
-                    this.g.f.setBounds(0, 0, this.g.f.getBounds().width(), min);
-                    return min;
-                } else if (i2 == 0) {
+                if (i2 != Integer.MIN_VALUE) {
+                    if (i2 != 0) {
+                        if (i2 != 1073741824) {
+                            return i3;
+                        }
+                        this.g.e.setBounds(0, 0, this.g.e.getBounds().width(), i3);
+                        this.g.f.setBounds(0, 0, this.g.f.getBounds().width(), i3);
+                        return i3;
+                    }
                     this.g.e.setBounds(0, 0, this.g.e.getBounds().width(), max);
                     this.g.f.setBounds(0, 0, this.g.f.getBounds().width(), max);
                     return max;
-                } else if (i2 != 1073741824) {
-                    return i3;
-                } else {
-                    this.g.e.setBounds(0, 0, this.g.e.getBounds().width(), i3);
-                    this.g.f.setBounds(0, 0, this.g.f.getBounds().width(), i3);
-                    return i3;
                 }
+                int min = Math.min(i3, max);
+                this.g.e.setBounds(0, 0, this.g.e.getBounds().width(), min);
+                this.g.f.setBounds(0, 0, this.g.f.getBounds().width(), min);
+                return min;
             }
             return invokeI.intValue;
         }
@@ -264,23 +270,24 @@ public class IndicatorView extends View {
                 int i2 = (-1073741824) & i;
                 int i3 = i & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
                 int max = (this.g.a * (this.g.b - 1)) + (Math.max(this.g.e.getIntrinsicWidth(), this.g.f.getIntrinsicWidth()) * this.g.b);
-                if (i2 == Integer.MIN_VALUE) {
-                    int min = Math.min(i3, max);
-                    this.g.e.setBounds(0, 0, this.g.e.getIntrinsicWidth(), this.g.e.getBounds().height());
-                    this.g.f.setBounds(0, 0, this.g.f.getIntrinsicWidth(), this.g.f.getBounds().height());
-                    return min;
-                } else if (i2 == 0) {
+                if (i2 != Integer.MIN_VALUE) {
+                    if (i2 != 0) {
+                        if (i2 != 1073741824) {
+                            return i3;
+                        }
+                        int i4 = (int) ((i3 - (this.g.a * (this.g.b - 1))) / this.g.b);
+                        this.g.f.setBounds(0, 0, i4, this.g.f.getBounds().height());
+                        this.g.e.setBounds(0, 0, i4, this.g.e.getBounds().height());
+                        return i3;
+                    }
                     this.g.e.setBounds(0, 0, this.g.e.getIntrinsicWidth(), 0);
                     this.g.f.setBounds(0, 0, this.g.f.getIntrinsicWidth(), 0);
                     return max;
-                } else if (i2 != 1073741824) {
-                    return i3;
-                } else {
-                    int i4 = (int) ((i3 - (this.g.a * (this.g.b - 1))) / this.g.b);
-                    this.g.f.setBounds(0, 0, i4, this.g.f.getBounds().height());
-                    this.g.e.setBounds(0, 0, i4, this.g.e.getBounds().height());
-                    return i3;
                 }
+                int min = Math.min(i3, max);
+                this.g.e.setBounds(0, 0, this.g.e.getIntrinsicWidth(), this.g.e.getBounds().height());
+                this.g.f.setBounds(0, 0, this.g.f.getIntrinsicWidth(), this.g.f.getBounds().height());
+                return min;
             }
             return invokeI.intValue;
         }
@@ -304,102 +311,6 @@ public class IndicatorView extends View {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public Drawable getDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (Drawable) invokeV.objValue;
-    }
-
-    public float getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.floatValue;
-    }
-
-    public Drawable getSelector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (Drawable) invokeV.objValue;
-    }
-
-    public int getSpacing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            this.g.draw(canvas);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-            this.g.b(i, i2);
-        }
-    }
-
-    public void setAutoHide(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-        }
-    }
-
-    public void setCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = i;
-            requestLayout();
-            invalidate();
-        }
-    }
-
-    public void setDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.e = drawable;
-            requestLayout();
-            invalidate();
-        }
-    }
-
-    public void setPosition(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            this.c = f;
-            invalidate();
-        }
-    }
-
-    public void setSelector(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
-            this.f = drawable;
-            requestLayout();
-            invalidate();
-        }
-    }
-
-    public void setSpacing(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.a = i;
-            requestLayout();
-            invalidate();
         }
     }
 
@@ -458,5 +369,110 @@ public class IndicatorView extends View {
             drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.f.getIntrinsicHeight());
         }
         obtainStyledAttributes.getBoolean(0, false);
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            this.g.draw(canvas);
+        }
+    }
+
+    public void setCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b = i;
+            requestLayout();
+            invalidate();
+        }
+    }
+
+    public void setDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
+            this.e = drawable;
+            requestLayout();
+            invalidate();
+        }
+    }
+
+    public void setPosition(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.c = f;
+            invalidate();
+        }
+    }
+
+    public void setSelector(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
+            this.f = drawable;
+            requestLayout();
+            invalidate();
+        }
+    }
+
+    public void setSpacing(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.a = i;
+            requestLayout();
+            invalidate();
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            this.g.b(i, i2);
+        }
+    }
+
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public Drawable getDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public float getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public Drawable getSelector() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public int getSpacing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

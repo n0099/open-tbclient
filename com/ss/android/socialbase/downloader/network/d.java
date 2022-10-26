@@ -7,8 +7,18 @@ public class d {
     public int d;
 
     public d(double d) {
+        int ceil;
         this.a = d;
-        this.b = d == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d);
+        if (d == 0.0d) {
+            ceil = Integer.MAX_VALUE;
+        } else {
+            ceil = (int) Math.ceil(1.0d / d);
+        }
+        this.b = ceil;
+    }
+
+    public double a() {
+        return this.c;
     }
 
     public void a(double d) {
@@ -23,9 +33,5 @@ public class d {
             this.c = d;
         }
         this.d++;
-    }
-
-    public double a() {
-        return this.c;
     }
 }

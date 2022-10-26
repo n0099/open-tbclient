@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice.c;
 
-import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -36,7 +35,7 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0017a {
+    public final class EnumC0017a {
         public static /* synthetic */ Interceptable $ic;
         public static final EnumC0017a a;
         public static final EnumC0017a b;
@@ -94,7 +93,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public static final b b;
@@ -156,7 +155,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class c {
+    public final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public static final c b;
@@ -229,7 +228,7 @@ public class a {
     }
 
     /* loaded from: classes.dex */
-    public static class d implements DatabaseErrorHandler {
+    public class d implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -247,7 +246,6 @@ public class a {
             }
         }
 
-        @TargetApi(16)
         private void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(65538, this, str) == null) && !str.equalsIgnoreCase(":memory:") && str.trim().length() != 0) {
@@ -294,7 +292,7 @@ public class a {
     }
 
     /* loaded from: classes.dex */
-    public static class e extends SQLiteOpenHelper {
+    public class e extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String a;
         public static final String b;
@@ -450,7 +448,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class f {
+    public final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
         public static final f b;
@@ -514,7 +512,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class g {
+    public final class g {
         public static /* synthetic */ Interceptable $ic;
         public static final g a;
         public static final g b;
@@ -564,7 +562,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class h {
+    public final class h {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
         public static final h b;
@@ -618,7 +616,7 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class i {
+    public final class i {
         public static /* synthetic */ Interceptable $ic;
         public static final i a;
         public static final i b;

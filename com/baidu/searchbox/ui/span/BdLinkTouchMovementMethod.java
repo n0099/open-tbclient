@@ -5,7 +5,6 @@ import android.text.method.LinkMovementMethod;
 import android.text.method.Touch;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,19 +50,24 @@ public class BdLinkTouchMovementMethod extends LinkMovementMethod {
         return (BdLinkTouchMovementMethod) invokeV.objValue;
     }
 
-    public void clearSpanUiStatus(@Nullable TextView textView) {
+    public void clearSpanUiStatus(TextView textView) {
         BdLinkTouchDecorHelper bdLinkTouchDecorHelper;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, textView) == null) || textView == null || (bdLinkTouchDecorHelper = this.mBdLinkTouchDecorHelper) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, textView) == null) && textView != null && (bdLinkTouchDecorHelper = this.mBdLinkTouchDecorHelper) != null) {
+            bdLinkTouchDecorHelper.clearSpanState(textView);
         }
-        bdLinkTouchDecorHelper.clearSpanState(textView);
     }
 
     @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
     public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, spannable, motionEvent)) == null) ? this.mBdLinkTouchDecorHelper.onTouchEvent(textView, spannable, motionEvent) || Touch.onTouchEvent(textView, spannable, motionEvent) : invokeLLL.booleanValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, spannable, motionEvent)) == null) {
+            if (!this.mBdLinkTouchDecorHelper.onTouchEvent(textView, spannable, motionEvent) && !Touch.onTouchEvent(textView, spannable, motionEvent)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

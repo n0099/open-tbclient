@@ -16,7 +16,7 @@ public class HandleScanResult {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class Req extends BaseReq {
+    public class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_URL_LENGHT = 10240;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class HandleScanResult {
     }
 
     /* loaded from: classes8.dex */
-    public static class Resp extends BaseResp {
+    public class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

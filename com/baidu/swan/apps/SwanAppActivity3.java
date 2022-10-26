@@ -29,6 +29,9 @@ public class SwanAppActivity3 extends SwanAppActivity {
     public SwanAppProcessInfo U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SwanAppProcessInfo.P3 : (SwanAppProcessInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SwanAppProcessInfo.P3;
+        }
+        return (SwanAppProcessInfo) invokeV.objValue;
     }
 }

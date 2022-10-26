@@ -28,9 +28,9 @@ public class GroupInfoSyncManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_FANSGROUPLIST_STATE = "get_all_fansgrouplist_state";
     public static final String TAG_GROUPLIST_STATE = "get_all_grouplist_state";
-    public static ArrayList<String> sUpdateAllMember;
-    public static ArrayList<String> sUpdateGroupInfo;
-    public static HashMap<String, ArrayList<String>> sUpdateGroupMembers;
+    public static ArrayList sUpdateAllMember;
+    public static ArrayList sUpdateGroupInfo;
+    public static HashMap sUpdateGroupMembers;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,9 +46,9 @@ public class GroupInfoSyncManagerImpl {
                 return;
             }
         }
-        sUpdateGroupMembers = new HashMap<>();
-        sUpdateGroupInfo = new ArrayList<>();
-        sUpdateAllMember = new ArrayList<>();
+        sUpdateGroupMembers = new HashMap();
+        sUpdateGroupInfo = new ArrayList();
+        sUpdateAllMember = new ArrayList();
     }
 
     public GroupInfoSyncManagerImpl() {
@@ -72,7 +72,7 @@ public class GroupInfoSyncManagerImpl {
             if (sUpdateGroupInfo.size() > 0 || sUpdateGroupMembers.size() > 0) {
                 synchronized (sUpdateGroupMembers) {
                     for (String str : sUpdateGroupMembers.keySet()) {
-                        handleGetGroupMember(context, str, sUpdateGroupMembers.remove(str));
+                        handleGetGroupMember(context, str, (ArrayList) sUpdateGroupMembers.remove(str));
                     }
                 }
                 synchronized (sUpdateGroupInfo) {
@@ -87,7 +87,7 @@ public class GroupInfoSyncManagerImpl {
     public static void activeSyncAllMembers(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             arrayList.add(str);
             if (i == 3) {
                 GroupManagerImpl.getInstance(context).getFansGroupMember(str, null, true, null);
@@ -101,14 +101,14 @@ public class GroupInfoSyncManagerImpl {
 
     public static void activeSyncGroup(Context context, String str) {
         boolean z;
-        ArrayList<String> arrayList;
+        ArrayList arrayList;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             synchronized (sUpdateGroupMembers) {
                 z = true;
                 if (sUpdateGroupMembers.containsKey(str)) {
-                    arrayList = sUpdateGroupMembers.remove(str);
+                    arrayList = (ArrayList) sUpdateGroupMembers.remove(str);
                     z2 = true;
                 } else {
                     arrayList = null;
@@ -133,28 +133,17 @@ public class GroupInfoSyncManagerImpl {
         }
     }
 
-    public static void addSyncGroupInfo(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            synchronized (sUpdateGroupInfo) {
-                if (!sUpdateGroupInfo.contains(str)) {
-                    sUpdateGroupInfo.add(str);
-                }
-            }
-        }
-    }
-
-    public static void addSyncGroupMemeber(String str, List<String> list) {
+    public static void addSyncGroupMemeber(String str, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, list) == null) {
             if (list != null) {
                 synchronized (sUpdateGroupMembers) {
                     if (sUpdateGroupMembers.containsKey(str)) {
-                        if (sUpdateGroupMembers.get(str) != null) {
-                            sUpdateGroupMembers.get(str).addAll(list);
+                        if (((ArrayList) sUpdateGroupMembers.get(str)) != null) {
+                            ((ArrayList) sUpdateGroupMembers.get(str)).addAll(list);
                         }
                     } else {
-                        ArrayList<String> arrayList = new ArrayList<>();
+                        ArrayList arrayList = new ArrayList();
                         arrayList.addAll(list);
                         sUpdateGroupMembers.put(str, arrayList);
                     }
@@ -167,228 +156,43 @@ public class GroupInfoSyncManagerImpl {
         }
     }
 
-    public static void deleteSyncGroupMemeber(String str, List<String> list) {
+    public static void deleteSyncGroupMemeber(String str, List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        synchronized (sUpdateGroupMembers) {
-            if (sUpdateGroupMembers.containsKey(str)) {
-                ArrayList<String> arrayList = sUpdateGroupMembers.get(str);
-                if (arrayList != null) {
-                    for (String str2 : list) {
-                        if (arrayList.contains(str2)) {
-                            arrayList.remove(str2);
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, list) == null) && list != null && list.size() != 0) {
+            synchronized (sUpdateGroupMembers) {
+                if (sUpdateGroupMembers.containsKey(str)) {
+                    List list2 = (List) sUpdateGroupMembers.get(str);
+                    if (list2 != null) {
+                        Iterator it = list.iterator();
+                        while (it.hasNext()) {
+                            String str2 = (String) it.next();
+                            if (list2.contains(str2)) {
+                                list2.remove(str2);
+                            }
                         }
                     }
+                } else {
+                    sUpdateGroupMembers.put(str, new ArrayList());
                 }
-            } else {
-                sUpdateGroupMembers.put(str, new ArrayList<>());
             }
         }
     }
 
-    public static void handleGetGroupMember(Context context, String str, ArrayList<String> arrayList) {
+    public static void addSyncGroupInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, arrayList) == null) {
-            if ((arrayList == null || arrayList.size() <= 0) && arrayList != null) {
-                return;
-            }
-            GroupManagerImpl.getInstance(context).getGroupMember(1, str, arrayList, new BIMValueCallBack<ArrayList<GroupMember>>(str, arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ String val$groupid;
-                public final /* synthetic */ ArrayList val$uids;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {str, arrayList};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$groupid = str;
-                    this.val$uids = arrayList;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i, String str2, ArrayList<GroupMember> arrayList2) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList2) == null) || i == 0) {
-                        return;
-                    }
-                    GroupInfoSyncManagerImpl.addSyncGroupMemeber(this.val$groupid, this.val$uids);
-                }
-            });
-        }
-    }
-
-    public static void handleGetGroupinfos(Context context, ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, context, arrayList) == null) || arrayList == null || arrayList.size() <= 0) {
-            return;
-        }
-        int size = arrayList.size() / 20;
-        for (int i = 0; i < size; i++) {
-            LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos times = " + i);
-            int i2 = i * 20;
-            GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList<>(arrayList.subList(i2, i2 + 20)), new BIMValueCallBack<ArrayList<GroupInfo>>(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ArrayList val$groupids;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {arrayList};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$groupids = arrayList;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i3, String str, ArrayList<GroupInfo> arrayList2) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, arrayList2) == null) || i3 == 0) {
-                        return;
-                    }
-                    Iterator it = this.val$groupids.iterator();
-                    while (it.hasNext()) {
-                        GroupInfoSyncManagerImpl.addSyncGroupInfo((String) it.next());
-                    }
-                }
-            });
-        }
-        if (arrayList.size() % 20 != 0) {
-            LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos rest");
-            GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList<>(arrayList.subList(size * 20, arrayList.size())), new BIMValueCallBack<ArrayList<GroupInfo>>(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ArrayList val$groupids;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {arrayList};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$groupids = arrayList;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i3, String str, ArrayList<GroupInfo> arrayList2) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, arrayList2) == null) || i3 == 0) {
-                        return;
-                    }
-                    Iterator it = this.val$groupids.iterator();
-                    while (it.hasNext()) {
-                        GroupInfoSyncManagerImpl.addSyncGroupInfo((String) it.next());
-                    }
-                }
-            });
-        }
-    }
-
-    public static void syncAllGroupList(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, context) == null) || AccountManagerImpl.getInstance(context).getLoginType() == 6) {
-            return;
-        }
-        if (Utility.readIntData(context, TAG_GROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
-            GroupManagerImpl.getInstance(context).getGroupList(null);
-        }
-        if (Utility.readIntData(context, TAG_FANSGROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
-            GroupManagerImpl.getInstance(context).getFansGroupList(true, null);
-        } else {
-            updateExpiredFansGroups(context);
-        }
-        ArrayList<String> starGroupList = GroupInfoDAOImpl.getStarGroupList(context);
-        if (starGroupList == null || starGroupList.size() <= 0) {
-            return;
-        }
-        new Timer(true).schedule(new TimerTask(starGroupList, context) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ArrayList val$gids;
-            public final /* synthetic */ Context val$lcontext;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {starGroupList, context};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$gids = starGroupList;
-                this.val$lcontext = context;
-            }
-
-            @Override // java.util.TimerTask, java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    LogUtils.d("", "SYNCGROUP star begin..." + this.val$gids.toString());
-                    GroupInfoSyncManagerImpl.handleGetGroupinfos(this.val$lcontext, this.val$gids);
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            synchronized (sUpdateGroupInfo) {
+                if (!sUpdateGroupInfo.contains(str)) {
+                    sUpdateGroupInfo.add(str);
                 }
             }
-        }, 30000L);
+        }
     }
 
     public static void syncAllGroupListDone(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
             Utility.writeIntData(context, TAG_GROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), 1);
-        }
-    }
-
-    public static void syncAllMembers(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            synchronized (sUpdateAllMember) {
-                if (!sUpdateAllMember.contains(str)) {
-                    LogUtils.d("", "HHHto do handleGetGroupMember " + str);
-                    handleGetGroupMember(context, str, null);
-                    sUpdateAllMember.add(str);
-                }
-            }
         }
     }
 
@@ -430,21 +234,211 @@ public class GroupInfoSyncManagerImpl {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis() - IMConstants.FANS_GROUP_INFO_EXPIRED_TIME;
-                        ArrayList<String> expiredFansGroupInfoList = GroupInfoDAOImpl.getExpiredFansGroupInfoList(this.val$context, currentTimeMillis);
+                        ArrayList expiredFansGroupInfoList = GroupInfoDAOImpl.getExpiredFansGroupInfoList(this.val$context, currentTimeMillis);
                         if (expiredFansGroupInfoList != null && expiredFansGroupInfoList.size() > 0) {
                             GroupManagerImpl.getInstance(this.val$context).getFansGroupInfo(expiredFansGroupInfoList, true, null);
                         }
-                        ArrayList<String> expiredFansGroupMemberList = GroupInfoDAOImpl.getExpiredFansGroupMemberList(this.val$context, currentTimeMillis);
-                        if (expiredFansGroupMemberList == null || expiredFansGroupMemberList.size() <= 0) {
-                            return;
-                        }
-                        Iterator<String> it = expiredFansGroupMemberList.iterator();
-                        while (it.hasNext()) {
-                            GroupManagerImpl.getInstance(this.val$context).getFansGroupMember(it.next(), null, true, null);
+                        ArrayList expiredFansGroupMemberList = GroupInfoDAOImpl.getExpiredFansGroupMemberList(this.val$context, currentTimeMillis);
+                        if (expiredFansGroupMemberList != null && expiredFansGroupMemberList.size() > 0) {
+                            Iterator it = expiredFansGroupMemberList.iterator();
+                            while (it.hasNext()) {
+                                GroupManagerImpl.getInstance(this.val$context).getFansGroupMember((String) it.next(), null, true, null);
+                            }
                         }
                     }
                 }
             });
+        }
+    }
+
+    public static void handleGetGroupMember(Context context, String str, ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, arrayList) == null) {
+            if ((arrayList != null && arrayList.size() > 0) || arrayList == null) {
+                GroupManagerImpl.getInstance(context).getGroupMember(1, str, arrayList, new BIMValueCallBack(str, arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ String val$groupid;
+                    public final /* synthetic */ ArrayList val$uids;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {str, arrayList};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.val$groupid = str;
+                        this.val$uids = arrayList;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                    public void onResult(int i, String str2, ArrayList arrayList2) {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList2) == null) && i != 0) {
+                            GroupInfoSyncManagerImpl.addSyncGroupMemeber(this.val$groupid, this.val$uids);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public static void handleGetGroupinfos(Context context, ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, context, arrayList) == null) && arrayList != null && arrayList.size() > 0) {
+            int size = arrayList.size() / 20;
+            for (int i = 0; i < size; i++) {
+                LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos times = " + i);
+                int i2 = i * 20;
+                GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList(arrayList.subList(i2, i2 + 20)), new BIMValueCallBack(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ArrayList val$groupids;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {arrayList};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.val$groupids = arrayList;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                    public void onResult(int i3, String str, ArrayList arrayList2) {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, arrayList2) == null) && i3 != 0) {
+                            Iterator it = this.val$groupids.iterator();
+                            while (it.hasNext()) {
+                                GroupInfoSyncManagerImpl.addSyncGroupInfo((String) it.next());
+                            }
+                        }
+                    }
+                });
+            }
+            if (arrayList.size() % 20 != 0) {
+                LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos rest");
+                GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList(arrayList.subList(size * 20, arrayList.size())), new BIMValueCallBack(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ArrayList val$groupids;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {arrayList};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.val$groupids = arrayList;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                    public void onResult(int i3, String str, ArrayList arrayList2) {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, arrayList2) == null) && i3 != 0) {
+                            Iterator it = this.val$groupids.iterator();
+                            while (it.hasNext()) {
+                                GroupInfoSyncManagerImpl.addSyncGroupInfo((String) it.next());
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public static void syncAllGroupList(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, context) != null) || AccountManagerImpl.getInstance(context).getLoginType() == 6) {
+            return;
+        }
+        if (Utility.readIntData(context, TAG_GROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
+            GroupManagerImpl.getInstance(context).getGroupList(null);
+        }
+        if (Utility.readIntData(context, TAG_FANSGROUPLIST_STATE + AccountManager.getAppid(context) + AccountManager.getUid(context), -1) < 0) {
+            GroupManagerImpl.getInstance(context).getFansGroupList(true, null);
+        } else {
+            updateExpiredFansGroups(context);
+        }
+        ArrayList starGroupList = GroupInfoDAOImpl.getStarGroupList(context);
+        if (starGroupList != null && starGroupList.size() > 0) {
+            new Timer(true).schedule(new TimerTask(starGroupList, context) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ArrayList val$gids;
+                public final /* synthetic */ Context val$lcontext;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {starGroupList, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$gids = starGroupList;
+                    this.val$lcontext = context;
+                }
+
+                @Override // java.util.TimerTask, java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        LogUtils.d("", "SYNCGROUP star begin..." + this.val$gids.toString());
+                        GroupInfoSyncManagerImpl.handleGetGroupinfos(this.val$lcontext, this.val$gids);
+                    }
+                }
+            }, 30000L);
+        }
+    }
+
+    public static void syncAllMembers(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
+            synchronized (sUpdateAllMember) {
+                if (!sUpdateAllMember.contains(str)) {
+                    LogUtils.d("", "HHHto do handleGetGroupMember " + str);
+                    handleGetGroupMember(context, str, null);
+                    sUpdateAllMember.add(str);
+                }
+            }
         }
     }
 }

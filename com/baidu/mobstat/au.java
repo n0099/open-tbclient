@@ -1,228 +1,193 @@
 package com.baidu.mobstat;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.ActivityLifeObserver;
+import com.baidu.mobstat.BaiduStatJSInterface;
+import com.baidu.mobstat.MtjConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
-    public static final au a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> b;
-    public HashMap<Character, Integer> c;
-    public HashMap<String, String> d;
-    public HashMap<Character, Integer> e;
-    public HashMap<String, String> f;
-    public HashMap<Character, Integer> g;
 
     /* loaded from: classes2.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = 0;
-        public static int b = 1;
-        public static int c = 2;
+    public class a implements ActivityLifeObserver.IActivityLifeCallback {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(627061153, "Lcom/baidu/mobstat/au$a;")) == null) {
-                return;
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
             }
-            Interceptable interceptable = invokeClinit.interceptor;
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            }
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            }
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(627061153, "Lcom/baidu/mobstat/au$a;");
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) != null) || !ad.a() || aw.a().b()) {
+                return;
             }
+            if (bg.c().b()) {
+                bg.c().a("onActivityPaused");
+            }
+            ay.a().b(activity);
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || !ad.a() || aw.a().b()) {
+                return;
+            }
+            if (bg.c().b()) {
+                bg.c().a("onActivityResumed");
+            }
+            ay.a().a(activity);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581657470, "Lcom/baidu/mobstat/au;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes2.dex */
+    public class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(581657470, "Lcom/baidu/mobstat/au;");
+        }
+
+        @Override // com.baidu.mobstat.BaiduStatJSInterface.IWebviewPageLoadCallback
+        public void onPageFinished(WebView webView, String str, bk bkVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLLL(1048576, this, webView, str, bkVar) != null) || !ad.a() || aw.a().b()) {
                 return;
             }
+            if (bg.c().b()) {
+                bg.c().a("WebView onPageFinished");
+            }
+            webView.addJavascriptInterface(bkVar, "WebViewInterface");
+            ay.a().a(webView, str, bkVar);
         }
-        a = new au();
-    }
 
-    public au() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        @Override // com.baidu.mobstat.BaiduStatJSInterface.IWebviewPageLoadCallback
+        public void onPageStarted(WebView webView, String str, bk bkVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bkVar) != null) || !ad.a() || aw.a().b()) {
                 return;
             }
-        }
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
-        this.e = new HashMap<>();
-        this.f = new HashMap<>();
-        this.g = new HashMap<>();
-    }
-
-    public static au a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (au) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i == a.a) {
-                this.c.clear();
-                this.b.clear();
-            } else if (i == a.c) {
-                this.g.clear();
-                this.f.clear();
-            } else {
-                this.e.clear();
-                this.d.clear();
+            if (bg.c().b()) {
+                bg.c().a("WebView onPageStarted");
             }
+            webView.addJavascriptInterface(bkVar, "WebViewInterface");
         }
     }
 
-    public String a(String str, int i) {
-        InterceptResult invokeLI;
+    public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (i == a.a) {
-                String str2 = this.b.get(str);
-                if (TextUtils.isEmpty(str2)) {
-                    a(str, this.c, this.b);
-                    return this.b.get(str);
-                }
-                return str2;
-            } else if (i == a.c) {
-                String str3 = this.f.get(str);
-                if (TextUtils.isEmpty(str3)) {
-                    a(str, this.g, this.f);
-                    return this.f.get(str);
-                }
-                return str3;
-            } else {
-                String str4 = this.d.get(str);
-                if (TextUtils.isEmpty(str4)) {
-                    a(str, this.e, this.d);
-                    return this.d.get(str);
-                }
-                return str4;
-            }
+        if ((interceptable != null && interceptable.invokeL(65536, null, context) != null) || !ad.a() || aw.a().b()) {
+            return;
         }
-        return (String) invokeLI.objValue;
+        av.a().a(context);
     }
 
-    public void b() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b(a.a);
-            b(a.c);
-            b(a.b);
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || !ad.a()) {
+            return;
         }
+        ay.a().a(str);
     }
 
-    private void a(String str, HashMap<Character, Integer> hashMap, HashMap<String, String> hashMap2) {
+    public static void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, this, str, hashMap, hashMap2) == null) {
-            char lowerCase = Character.toLowerCase(str.charAt(0));
-            Integer num = hashMap.get(Character.valueOf(lowerCase));
-            int intValue = num != null ? num.intValue() + 1 : 0;
-            hashMap.put(Character.valueOf(lowerCase), Integer.valueOf(intValue));
-            hashMap2.put(str, Character.toString(lowerCase) + intValue);
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, context, z) != null) || !ad.a() || aw.a().b()) {
+            return;
         }
+        av.a().a(context, z);
     }
 
-    public JSONObject a(int i) {
-        InterceptResult invokeI;
-        HashMap<String, String> hashMap;
+    public static void a(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i == a.a) {
-                hashMap = this.b;
-            } else if (i == a.c) {
-                hashMap = this.f;
-            } else {
-                hashMap = this.d;
-            }
-            JSONObject jSONObject = new JSONObject();
-            if (hashMap == null) {
-                return jSONObject;
-            }
-            ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-            try {
-                Collections.sort(arrayList, new Comparator<Map.Entry<String, String>>(this) { // from class: com.baidu.mobstat.au.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ au a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // java.util.Comparator
-                    /* renamed from: a */
-                    public int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
-                        InterceptResult invokeLL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, entry, entry2)) == null) ? entry.getValue().compareTo(entry2.getValue()) : invokeLL.intValue;
-                    }
-                });
-            } catch (Exception unused) {
-            }
-            for (Map.Entry entry : arrayList) {
-                try {
-                    jSONObject.put((String) entry.getValue(), (String) entry.getKey());
-                } catch (Exception unused2) {
-                }
-            }
-            return jSONObject;
+        if ((interceptable != null && interceptable.invokeL(65538, null, feedTrackStrategy) != null) || aw.a().b()) {
+            return;
         }
-        return (JSONObject) invokeI.objValue;
+        aq.a(feedTrackStrategy);
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || !ad.a() || aw.a().b()) {
+            return;
+        }
+        ay.a().b(str);
+    }
+
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || !ad.a() || aw.a().b()) {
+            return;
+        }
+        av.a().a(jSONObject);
     }
 }

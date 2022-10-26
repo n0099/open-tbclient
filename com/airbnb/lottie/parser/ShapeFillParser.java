@@ -15,7 +15,9 @@ public class ShapeFillParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "o", "fillEnabled", "r", "hd");
 
     public static ShapeFill parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
-        AnimatableIntegerValue animatableIntegerValue = null;
+        AnimatableIntegerValue animatableIntegerValue;
+        Path.FillType fillType;
+        AnimatableIntegerValue animatableIntegerValue2 = null;
         String str = null;
         AnimatableColorValue animatableColorValue = null;
         int i = 1;
@@ -23,23 +25,43 @@ public class ShapeFillParser {
         boolean z2 = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                animatableColorValue = AnimatableValueParser.parseColor(jsonReader, lottieComposition);
-            } else if (selectName == 2) {
-                animatableIntegerValue = AnimatableValueParser.parseInteger(jsonReader, lottieComposition);
-            } else if (selectName == 3) {
-                z = jsonReader.nextBoolean();
-            } else if (selectName == 4) {
-                i = jsonReader.nextInt();
-            } else if (selectName != 5) {
-                jsonReader.skipName();
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        if (selectName != 3) {
+                            if (selectName != 4) {
+                                if (selectName != 5) {
+                                    jsonReader.skipName();
+                                    jsonReader.skipValue();
+                                } else {
+                                    z2 = jsonReader.nextBoolean();
+                                }
+                            } else {
+                                i = jsonReader.nextInt();
+                            }
+                        } else {
+                            z = jsonReader.nextBoolean();
+                        }
+                    } else {
+                        animatableIntegerValue2 = AnimatableValueParser.parseInteger(jsonReader, lottieComposition);
+                    }
+                } else {
+                    animatableColorValue = AnimatableValueParser.parseColor(jsonReader, lottieComposition);
+                }
             } else {
-                z2 = jsonReader.nextBoolean();
+                str = jsonReader.nextString();
             }
         }
-        return new ShapeFill(str, z, i == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, animatableColorValue, animatableIntegerValue == null ? new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100))) : animatableIntegerValue, z2);
+        if (animatableIntegerValue2 == null) {
+            animatableIntegerValue = new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100)));
+        } else {
+            animatableIntegerValue = animatableIntegerValue2;
+        }
+        if (i == 1) {
+            fillType = Path.FillType.WINDING;
+        } else {
+            fillType = Path.FillType.EVEN_ODD;
+        }
+        return new ShapeFill(str, z, fillType, animatableColorValue, animatableIntegerValue, z2);
     }
 }

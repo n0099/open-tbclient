@@ -19,7 +19,7 @@ public final class LiveFeedFollowLivingData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int errno;
-    public List<String> livingList;
+    public List livingList;
     public String logId;
     public String msg;
 
@@ -40,48 +40,59 @@ public final class LiveFeedFollowLivingData {
     public final int getErrno() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errno : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.errno;
+        }
+        return invokeV.intValue;
     }
 
-    public final List<String> getLivingList() {
+    public final List getLivingList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.livingList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.livingList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public final String getLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.logId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.logId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.msg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.msg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void parserJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.errno = jSONObject.optInt("errno");
         this.msg = jSONObject.optString("msg");
         this.logId = jSONObject.optString("logid");
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
-        if (optJSONObject == null || (optJSONArray = optJSONObject.optJSONArray("room_list")) == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        this.livingList = new ArrayList();
-        int length = optJSONArray.length();
-        for (int i = 0; i < length; i++) {
-            String optString = optJSONArray.optString(i);
-            Intrinsics.checkExpressionValueIsNotNull(optString, "roomArray.optString(i)");
-            List<String> list = this.livingList;
-            if (list != null) {
-                list.add(optString);
+        if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("room_list")) != null && optJSONArray.length() > 0) {
+            this.livingList = new ArrayList();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                String optString = optJSONArray.optString(i);
+                Intrinsics.checkExpressionValueIsNotNull(optString, "roomArray.optString(i)");
+                List list = this.livingList;
+                if (list != null) {
+                    list.add(optString);
+                }
             }
         }
     }
@@ -93,7 +104,7 @@ public final class LiveFeedFollowLivingData {
         }
     }
 
-    public final void setLivingList(List<String> list) {
+    public final void setLivingList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.livingList = list;

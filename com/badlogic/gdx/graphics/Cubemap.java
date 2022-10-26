@@ -25,13 +25,13 @@ import java.util.Map;
 public class Cubemap extends p3 {
     public static /* synthetic */ Interceptable $ic;
     public static n1 j;
-    public static final Map<Application, b7<Cubemap>> k;
+    public static final Map k;
     public transient /* synthetic */ FieldHolder $fh;
     public m3 i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class CubemapSide {
+    public final class CubemapSide {
         public static final /* synthetic */ CubemapSide[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CubemapSide NegativeX;
@@ -96,36 +96,51 @@ public class Cubemap extends p3 {
         public static CubemapSide valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CubemapSide) Enum.valueOf(CubemapSide.class, str) : (CubemapSide) invokeL.objValue;
-        }
-
-        public static CubemapSide[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CubemapSide[]) $VALUES.clone() : (CubemapSide[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CubemapSide) Enum.valueOf(CubemapSide.class, str);
+            }
+            return (CubemapSide) invokeL.objValue;
         }
 
         public Vector3 getDirection(Vector3 vector3) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vector3)) == null) ? vector3.set(this.direction) : (Vector3) invokeL.objValue;
-        }
-
-        public int getGLEnum() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.glEnum : invokeV.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vector3)) == null) {
+                return vector3.set(this.direction);
+            }
+            return (Vector3) invokeL.objValue;
         }
 
         public Vector3 getUp(Vector3 vector3) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vector3)) == null) ? vector3.set(this.up) : (Vector3) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vector3)) == null) {
+                return vector3.set(this.up);
+            }
+            return (Vector3) invokeL.objValue;
+        }
+
+        public static CubemapSide[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CubemapSide[]) $VALUES.clone();
+            }
+            return (CubemapSide[]) invokeV.objValue;
+        }
+
+        public int getGLEnum() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.glEnum;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static class a implements l1.a {
+    public final class a implements l1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -173,6 +188,36 @@ public class Cubemap extends p3 {
         k = new HashMap();
     }
 
+    public m3 u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (m3) invokeV.objValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i.a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (x()) {
+                this.b = f1.e.a();
+                y(this.i);
+                return;
+            }
+            throw new GdxRuntimeException("Tried to reload an unmanaged Cubemap");
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Cubemap(m3 m3Var) {
         super(34067);
@@ -201,9 +246,9 @@ public class Cubemap extends p3 {
     public static void s(Application application, Cubemap cubemap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, cubemap) == null) {
-            b7<Cubemap> b7Var = k.get(application);
+            b7 b7Var = (b7) k.get(application);
             if (b7Var == null) {
-                b7Var = new b7<>();
+                b7Var = new b7();
             }
             b7Var.a(cubemap);
             k.put(application, b7Var);
@@ -224,7 +269,7 @@ public class Cubemap extends p3 {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed cubemap/app: { ");
             for (Application application : k.keySet()) {
-                sb.append(k.get(application).b);
+                sb.append(((b7) k.get(application)).b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -234,40 +279,40 @@ public class Cubemap extends p3 {
     }
 
     public static void w(Application application) {
-        b7<Cubemap> b7Var;
+        b7 b7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, application) == null) || (b7Var = k.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (b7Var = (b7) k.get(application)) == null) {
             return;
         }
         n1 n1Var = j;
         if (n1Var == null) {
             for (int i = 0; i < b7Var.b; i++) {
-                b7Var.get(i).z();
+                ((Cubemap) b7Var.get(i)).z();
             }
             return;
         }
         n1Var.h();
-        b7<? extends Cubemap> b7Var2 = new b7<>(b7Var);
-        b7.b<? extends Cubemap> it = b7Var2.iterator();
+        b7 b7Var2 = new b7(b7Var);
+        b7.b it = b7Var2.iterator();
         while (it.hasNext()) {
-            Cubemap next = it.next();
-            String m = j.m(next);
+            Cubemap cubemap = (Cubemap) it.next();
+            String m = j.m(cubemap);
             if (m == null) {
-                next.z();
+                cubemap.z();
             } else {
                 int q = j.q(m);
                 j.A(m, 0);
-                next.b = 0;
+                cubemap.b = 0;
                 r1.b bVar = new r1.b();
-                bVar.d = next.u();
-                bVar.e = next.h();
-                bVar.f = next.f();
-                bVar.g = next.j();
-                bVar.h = next.k();
-                bVar.c = next;
+                bVar.d = cubemap.u();
+                bVar.e = cubemap.h();
+                bVar.f = cubemap.f();
+                bVar.g = cubemap.j();
+                bVar.h = cubemap.k();
+                bVar.c = cubemap;
                 bVar.a = new a(q);
                 j.C(m);
-                next.b = f1.e.a();
+                cubemap.b = f1.e.a();
                 j.w(m, Cubemap.class, bVar);
             }
         }
@@ -278,26 +323,13 @@ public class Cubemap extends p3 {
     @Override // com.baidu.tieba.p3, com.baidu.tieba.i7
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b == 0) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b == 0) {
             return;
         }
         delete();
-        if (!this.i.a() || k.get(f1.a) == null) {
-            return;
+        if (this.i.a() && k.get(f1.a) != null) {
+            ((b7) k.get(f1.a)).j(this, true);
         }
-        k.get(f1.a).j(this, true);
-    }
-
-    public m3 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (m3) invokeV.objValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i.a() : invokeV.booleanValue;
     }
 
     public void y(m3 m3Var) {
@@ -312,18 +344,6 @@ public class Cubemap extends p3 {
             n(this.g, true);
             m3Var.e();
             f1.e.N(this.a, 0);
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (x()) {
-                this.b = f1.e.a();
-                y(this.i);
-                return;
-            }
-            throw new GdxRuntimeException("Tried to reload an unmanaged Cubemap");
         }
     }
 }

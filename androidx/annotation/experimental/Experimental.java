@@ -15,6 +15,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 /* loaded from: classes.dex */
 public @interface Experimental {
+    Level level() default Level.ERROR;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -66,15 +67,19 @@ public @interface Experimental {
         public static Level valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Level) Enum.valueOf(Level.class, str) : (Level) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Level) Enum.valueOf(Level.class, str);
+            }
+            return (Level) invokeL.objValue;
         }
 
         public static Level[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Level[]) $VALUES.clone() : (Level[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Level[]) $VALUES.clone();
+            }
+            return (Level[]) invokeV.objValue;
         }
     }
-
-    Level level() default Level.ERROR;
 }

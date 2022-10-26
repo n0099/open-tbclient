@@ -50,7 +50,10 @@ public class LayoutState {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, state)) == null) {
             int i = this.mCurrentPosition;
-            return i >= 0 && i < state.getItemCount();
+            if (i >= 0 && i < state.getItemCount()) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

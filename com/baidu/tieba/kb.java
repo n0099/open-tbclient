@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,9 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class kb<T extends ResponsedMessage<?>> extends lb<T> {
+public abstract class kb extends mb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract Message process(Message message, MessageTask messageTask);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kb(int i) {
@@ -32,11 +35,18 @@ public abstract class kb<T extends ResponsedMessage<?>> extends lb<T> {
         }
     }
 
-    public abstract T a(T t);
-
-    public T b(T t) {
-        InterceptResult invokeL;
+    public Message rule(Message message, MessageTask messageTask) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) ? t != null ? (getCmd() == 0 || getCmd() == t.getCmd()) ? a(t) : t : t : (T) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, messageTask)) == null) {
+            if (message != null) {
+                if (getCmd() == 0 || getCmd() == message.getCmd()) {
+                    return process(message, messageTask);
+                }
+                return message;
+            }
+            return message;
+        }
+        return (Message) invokeLL.objValue;
     }
 }

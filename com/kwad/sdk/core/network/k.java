@@ -1,7 +1,4 @@
 package com.kwad.sdk.core.network;
-
-import com.ksad.json.annotation.KsJson;
-@KsJson
 /* loaded from: classes7.dex */
 public class k extends j {
     public int YK;

@@ -29,6 +29,13 @@ public final class JsonTreeWriter extends JsonWriter {
     public JsonElement product;
     public final List<JsonElement> stack;
 
+    @Override // com.google.gson.stream.JsonWriter, java.io.Flushable
+    public void flush() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -87,26 +94,6 @@ public final class JsonTreeWriter extends JsonWriter {
         SENTINEL_CLOSED = new JsonPrimitive("closed");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JsonTreeWriter() {
-        super(UNWRITABLE_WRITER);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Writer) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.stack = new ArrayList();
-        this.product = JsonNull.INSTANCE;
-    }
-
     private JsonElement peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,27 +102,6 @@ public final class JsonTreeWriter extends JsonWriter {
             return list.get(list.size() - 1);
         }
         return (JsonElement) invokeV.objValue;
-    }
-
-    private void put(JsonElement jsonElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, jsonElement) == null) {
-            if (this.pendingName != null) {
-                if (!jsonElement.isJsonNull() || getSerializeNulls()) {
-                    ((JsonObject) peek()).add(this.pendingName, jsonElement);
-                }
-                this.pendingName = null;
-            } else if (this.stack.isEmpty()) {
-                this.product = jsonElement;
-            } else {
-                JsonElement peek = peek();
-                if (peek instanceof JsonArray) {
-                    ((JsonArray) peek).add(jsonElement);
-                    return;
-                }
-                throw new IllegalStateException();
-            }
-        }
     }
 
     @Override // com.google.gson.stream.JsonWriter
@@ -177,6 +143,37 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.google.gson.stream.JsonWriter
+    public JsonWriter nullValue() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            put(JsonNull.INSTANCE);
+            return this;
+        }
+        return (JsonWriter) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public JsonTreeWriter() {
+        super(UNWRITABLE_WRITER);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Writer) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.stack = new ArrayList();
+        this.product = JsonNull.INSTANCE;
+    }
+
+    @Override // com.google.gson.stream.JsonWriter
     public JsonWriter endArray() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -212,13 +209,6 @@ public final class JsonTreeWriter extends JsonWriter {
         return (JsonWriter) invokeV.objValue;
     }
 
-    @Override // com.google.gson.stream.JsonWriter, java.io.Flushable
-    public void flush() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
     public JsonElement get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -229,6 +219,41 @@ public final class JsonTreeWriter extends JsonWriter {
             throw new IllegalStateException("Expected one JSON element but was " + this.stack);
         }
         return (JsonElement) invokeV.objValue;
+    }
+
+    private void put(JsonElement jsonElement) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, jsonElement) == null) {
+            if (this.pendingName != null) {
+                if (!jsonElement.isJsonNull() || getSerializeNulls()) {
+                    ((JsonObject) peek()).add(this.pendingName, jsonElement);
+                }
+                this.pendingName = null;
+            } else if (this.stack.isEmpty()) {
+                this.product = jsonElement;
+            } else {
+                JsonElement peek = peek();
+                if (peek instanceof JsonArray) {
+                    ((JsonArray) peek).add(jsonElement);
+                    return;
+                }
+                throw new IllegalStateException();
+            }
+        }
+    }
+
+    @Override // com.google.gson.stream.JsonWriter
+    public JsonWriter value(double d) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)})) == null) {
+            if (!isLenient() && (Double.isNaN(d) || Double.isInfinite(d))) {
+                throw new IllegalArgumentException("JSON forbids NaN and infinities: " + d);
+            }
+            put(new JsonPrimitive((Number) Double.valueOf(d)));
+            return this;
+        }
+        return (JsonWriter) invokeCommon.objValue;
     }
 
     @Override // com.google.gson.stream.JsonWriter
@@ -249,14 +274,48 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.google.gson.stream.JsonWriter
-    public JsonWriter nullValue() throws IOException {
-        InterceptResult invokeV;
+    public JsonWriter value(long j) throws IOException {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            put(JsonNull.INSTANCE);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            put(new JsonPrimitive((Number) Long.valueOf(j)));
             return this;
         }
-        return (JsonWriter) invokeV.objValue;
+        return (JsonWriter) invokeJ.objValue;
+    }
+
+    @Override // com.google.gson.stream.JsonWriter
+    public JsonWriter value(Boolean bool) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bool)) == null) {
+            if (bool == null) {
+                return nullValue();
+            }
+            put(new JsonPrimitive(bool));
+            return this;
+        }
+        return (JsonWriter) invokeL.objValue;
+    }
+
+    @Override // com.google.gson.stream.JsonWriter
+    public JsonWriter value(Number number) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, number)) == null) {
+            if (number == null) {
+                return nullValue();
+            }
+            if (!isLenient()) {
+                double doubleValue = number.doubleValue();
+                if (Double.isNaN(doubleValue) || Double.isInfinite(doubleValue)) {
+                    throw new IllegalArgumentException("JSON forbids NaN and infinities: " + number);
+                }
+            }
+            put(new JsonPrimitive(number));
+            return this;
+        }
+        return (JsonWriter) invokeL.objValue;
     }
 
     @Override // com.google.gson.stream.JsonWriter
@@ -282,64 +341,5 @@ public final class JsonTreeWriter extends JsonWriter {
             return this;
         }
         return (JsonWriter) invokeZ.objValue;
-    }
-
-    @Override // com.google.gson.stream.JsonWriter
-    public JsonWriter value(Boolean bool) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bool)) == null) {
-            if (bool == null) {
-                return nullValue();
-            }
-            put(new JsonPrimitive(bool));
-            return this;
-        }
-        return (JsonWriter) invokeL.objValue;
-    }
-
-    @Override // com.google.gson.stream.JsonWriter
-    public JsonWriter value(double d) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)})) == null) {
-            if (!isLenient() && (Double.isNaN(d) || Double.isInfinite(d))) {
-                throw new IllegalArgumentException("JSON forbids NaN and infinities: " + d);
-            }
-            put(new JsonPrimitive((Number) Double.valueOf(d)));
-            return this;
-        }
-        return (JsonWriter) invokeCommon.objValue;
-    }
-
-    @Override // com.google.gson.stream.JsonWriter
-    public JsonWriter value(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-            put(new JsonPrimitive((Number) Long.valueOf(j)));
-            return this;
-        }
-        return (JsonWriter) invokeJ.objValue;
-    }
-
-    @Override // com.google.gson.stream.JsonWriter
-    public JsonWriter value(Number number) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, number)) == null) {
-            if (number == null) {
-                return nullValue();
-            }
-            if (!isLenient()) {
-                double doubleValue = number.doubleValue();
-                if (Double.isNaN(doubleValue) || Double.isInfinite(doubleValue)) {
-                    throw new IllegalArgumentException("JSON forbids NaN and infinities: " + number);
-                }
-            }
-            put(new JsonPrimitive(number));
-            return this;
-        }
-        return (JsonWriter) invokeL.objValue;
     }
 }

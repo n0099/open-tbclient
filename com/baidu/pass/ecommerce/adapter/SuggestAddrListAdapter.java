@@ -17,14 +17,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
+public class SuggestAddrListAdapter extends CommonAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
     public String queryContent;
 
+    @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
+    public int getItemLayoutId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.layout_sapi_sdk_suggest_addr_item : invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public class AddrListItemViewHolder extends ViewHolder<JSONObject> {
+    public class AddrListItemViewHolder extends ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View bottomLine;
@@ -104,14 +111,10 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
     public ViewHolder createViewHolder(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? new AddrListItemViewHolder(this, view2) : (ViewHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
-    public int getItemLayoutId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.layout_sapi_sdk_suggest_addr_item : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            return new AddrListItemViewHolder(this, view2);
+        }
+        return (ViewHolder) invokeL.objValue;
     }
 
     public void setQueryContent(String str) {

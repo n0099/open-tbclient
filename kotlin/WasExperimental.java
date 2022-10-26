@@ -1,6 +1,5 @@
 package kotlin;
 
-import java.lang.annotation.Annotation;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -14,5 +13,5 @@ import kotlin.annotation.AnnotationTarget;
 @kotlin.annotation.Retention(AnnotationRetention.BINARY)
 /* loaded from: classes8.dex */
 public @interface WasExperimental {
-    Class<? extends Annotation>[] markerClass();
+    Class[] markerClass();
 }

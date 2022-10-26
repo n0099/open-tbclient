@@ -1,6 +1,5 @@
 package com.bumptech.glide.gifdecoder;
 
-import androidx.annotation.ColorInt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +20,6 @@ public class GifFrame {
     public int iw;
     public int ix;
     public int iy;
-    @ColorInt
     public int[] lct;
     public int transIndex;
     public boolean transparency;

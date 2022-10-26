@@ -20,29 +20,29 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelPeek<T> extends ParallelFlowable<T> {
+public final class ParallelPeek extends ParallelFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<? super T> onAfterNext;
+    public final Consumer onAfterNext;
     public final Action onAfterTerminated;
     public final Action onCancel;
     public final Action onComplete;
-    public final Consumer<? super Throwable> onError;
-    public final Consumer<? super T> onNext;
+    public final Consumer onError;
+    public final Consumer onNext;
     public final LongConsumer onRequest;
-    public final Consumer<? super Subscription> onSubscribe;
-    public final ParallelFlowable<T> source;
+    public final Consumer onSubscribe;
+    public final ParallelFlowable source;
 
     /* loaded from: classes8.dex */
-    public static final class ParallelPeekSubscriber<T> implements FlowableSubscriber<T>, Subscription {
+    public final class ParallelPeekSubscriber implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public boolean done;
-        public final ParallelPeek<T> parent;
+        public final ParallelPeek parent;
         public Subscription s;
 
-        public ParallelPeekSubscriber(Subscriber<? super T> subscriber, ParallelPeek<T> parallelPeek) {
+        public ParallelPeekSubscriber(Subscriber subscriber, ParallelPeek parallelPeek) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,22 +78,21 @@ public final class ParallelPeek<T> extends ParallelFlowable<T> {
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            try {
-                this.parent.onComplete.run();
-                this.actual.onComplete();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.done) {
+                this.done = true;
                 try {
-                    this.parent.onAfterTerminated.run();
-                } catch (Throwable th) {
-                    Exceptions.throwIfFatal(th);
-                    RxJavaPlugins.onError(th);
+                    this.parent.onComplete.run();
+                    this.actual.onComplete();
+                    try {
+                        this.parent.onAfterTerminated.run();
+                    } catch (Throwable th) {
+                        Exceptions.throwIfFatal(th);
+                        RxJavaPlugins.onError(th);
+                    }
+                } catch (Throwable th2) {
+                    Exceptions.throwIfFatal(th2);
+                    this.actual.onError(th2);
                 }
-            } catch (Throwable th2) {
-                Exceptions.throwIfFatal(th2);
-                this.actual.onError(th2);
             }
         }
 
@@ -123,23 +122,22 @@ public final class ParallelPeek<T> extends ParallelFlowable<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
-                return;
-            }
-            try {
-                this.parent.onNext.accept(t);
-                this.actual.onNext(t);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.done) {
                 try {
-                    this.parent.onAfterNext.accept(t);
-                } catch (Throwable th) {
-                    Exceptions.throwIfFatal(th);
-                    onError(th);
+                    this.parent.onNext.accept(obj);
+                    this.actual.onNext(obj);
+                    try {
+                        this.parent.onAfterNext.accept(obj);
+                    } catch (Throwable th) {
+                        Exceptions.throwIfFatal(th);
+                        onError(th);
+                    }
+                } catch (Throwable th2) {
+                    Exceptions.throwIfFatal(th2);
+                    onError(th2);
                 }
-            } catch (Throwable th2) {
-                Exceptions.throwIfFatal(th2);
-                onError(th2);
             }
         }
 
@@ -175,7 +173,7 @@ public final class ParallelPeek<T> extends ParallelFlowable<T> {
         }
     }
 
-    public ParallelPeek(ParallelFlowable<T> parallelFlowable, Consumer<? super T> consumer, Consumer<? super T> consumer2, Consumer<? super Throwable> consumer3, Action action, Action action2, Consumer<? super Subscription> consumer4, LongConsumer longConsumer, Action action3) {
+    public ParallelPeek(ParallelFlowable parallelFlowable, Consumer consumer, Consumer consumer2, Consumer consumer3, Action action, Action action2, Consumer consumer4, LongConsumer longConsumer, Action action3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,19 +203,23 @@ public final class ParallelPeek<T> extends ParallelFlowable<T> {
     public int parallelism() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.source.parallelism() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.source.parallelism();
+        }
+        return invokeV.intValue;
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber<? super T>[] subscriberArr) {
+    public void subscribe(Subscriber[] subscriberArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
-            int length = subscriberArr.length;
-            Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
-            for (int i = 0; i < length; i++) {
-                subscriberArr2[i] = new ParallelPeekSubscriber(subscriberArr[i], this);
-            }
-            this.source.subscribe(subscriberArr2);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) != null) || !validate(subscriberArr)) {
+            return;
         }
+        int length = subscriberArr.length;
+        Subscriber[] subscriberArr2 = new Subscriber[length];
+        for (int i = 0; i < length; i++) {
+            subscriberArr2[i] = new ParallelPeekSubscriber(subscriberArr[i], this);
+        }
+        this.source.subscribe(subscriberArr2);
     }
 }

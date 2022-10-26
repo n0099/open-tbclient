@@ -18,7 +18,7 @@ public class HdStatisConfig extends AbstractConfig {
     public static final String META_DATA_KEY_CHANNEL = "HIIDO_CHANNEL";
     public static final String PREF_CPAGE = "PREF_CPAGE";
     public static final String SDK_TYPE = "11";
-    public static Hashtable<String, AbstractConfig> table;
+    public static Hashtable table;
     public transient /* synthetic */ FieldHolder $fh;
     public String mAppkey;
 
@@ -35,7 +35,17 @@ public class HdStatisConfig extends AbstractConfig {
                 return;
             }
         }
-        table = new Hashtable<>();
+        table = new Hashtable();
+    }
+
+    @Override // com.yy.hiidostatis.inner.AbstractConfig
+    public String getConfigKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAppkey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public HdStatisConfig(String str) {
@@ -71,24 +81,19 @@ public class HdStatisConfig extends AbstractConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || table.size() > 100) {
+            if (str != null && table.size() <= 100) {
+                if (str.length() > 8) {
+                    str = str.substring(0, 8);
+                }
+            } else {
                 str = "def_appkey";
-            } else if (str.length() > 8) {
-                str = str.substring(0, 8);
             }
             if (!table.containsKey(str)) {
                 table.put(str, new HdStatisConfig(str));
             }
-            return table.get(str);
+            return (AbstractConfig) table.get(str);
         }
         return (AbstractConfig) invokeL.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.AbstractConfig
-    public String getConfigKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppkey : (String) invokeV.objValue;
     }
 
     public void setTestServer(String str) {

@@ -6,7 +6,6 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -24,6 +23,21 @@ public class BarInformationModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpMessageListener a;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void C(BazhuInfoData bazhuInfoData);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -61,21 +75,15 @@ public class BarInformationModel extends BdBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof b)) {
                     bVar = (b) extra;
                 }
-                if (bVar == null || (bazhuInfoResponseMessage = (BazhuInfoResponseMessage) httpResponsedMessage) == null) {
-                    return;
+                if (bVar != null && (bazhuInfoResponseMessage = (BazhuInfoResponseMessage) httpResponsedMessage) != null) {
+                    bVar.C(bazhuInfoResponseMessage.data);
                 }
-                bVar.C(bazhuInfoResponseMessage.data);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void C(BazhuInfoData bazhuInfoData);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BarInformationModel(TbPageContext<BaseActivity> tbPageContext) {
+    public BarInformationModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,16 +114,6 @@ public class BarInformationModel extends BdBaseModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
             return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
         }
         return invokeV.booleanValue;
     }

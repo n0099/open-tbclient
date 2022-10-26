@@ -1,7 +1,7 @@
 package com.baidu.helios.channels.csc;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.s40;
+import com.baidu.tieba.t40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class a extends Exception {
+    public class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class d {
         }
     }
 
-    public static Class<?> a(Class<?> cls) {
+    public static Class a(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
@@ -114,7 +114,7 @@ public class d {
         return (Class) invokeL.objValue;
     }
 
-    public static Object b(Class<?> cls, Object[] objArr) {
+    public static Object b(Class cls, Object[] objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, objArr)) == null) ? (objArr == null || objArr.length <= 0) ? cls.newInstance() : e(cls, objArr) : invokeLL.objValue;
@@ -123,10 +123,10 @@ public class d {
     public static String c(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? new String(new s40().a(bArr), "UTF-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? new String(new t40().a(bArr), "UTF-8") : (String) invokeL.objValue;
     }
 
-    public static Method d(Class<?> cls, String str, Class<?>[] clsArr) {
+    public static Method d(Class cls, String str, Class[] clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
@@ -137,7 +137,7 @@ public class d {
         return (Method) invokeLLL.objValue;
     }
 
-    public static Object e(Class<?> cls, Object[] objArr) {
+    public static Object e(Class cls, Object[] objArr) {
         InterceptResult invokeLL;
         Constructor<?>[] constructors;
         Interceptable interceptable = $ic;

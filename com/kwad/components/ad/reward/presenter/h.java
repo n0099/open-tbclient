@@ -1,7 +1,6 @@
 package com.kwad.components.ad.reward.presenter;
 
 import android.view.View;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,11 +20,9 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.components.core.video.g mVideoPlayStateListener;
     public RewardActionBarControl ml;
-    @Nullable
     public com.kwad.components.ad.reward.k.g pK;
     public boolean pL;
     public KsLogoView pM;
-    @Nullable
     public com.kwad.components.ad.reward.k.k pN;
 
     public h() {
@@ -139,7 +136,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
                 if (this.pK == null) {
                     this.pK = new com.kwad.components.ad.reward.k.g(this.nM);
                 }
-                this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d6));
+                this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ca));
                 this.pK.b(u.D(adTemplate));
             }
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -160,7 +157,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091053);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091047);
         }
     }
 

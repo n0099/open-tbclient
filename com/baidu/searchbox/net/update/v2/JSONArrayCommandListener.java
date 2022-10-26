@@ -30,6 +30,9 @@ public abstract class JSONArrayCommandListener extends AbstractCommandListener<J
     public TypeAdapter<JSONArray> getTypeAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new JSONArrayAdapter() : (TypeAdapter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new JSONArrayAdapter();
+        }
+        return (TypeAdapter) invokeV.objValue;
     }
 }

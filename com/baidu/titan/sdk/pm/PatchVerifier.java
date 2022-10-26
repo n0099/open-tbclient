@@ -26,7 +26,10 @@ public class PatchVerifier {
 
     private boolean verifyApkId(PatchMetaInfo patchMetaInfo) {
         String str = patchMetaInfo.targetId;
-        return str != null && TextUtils.equals(str, this.mCurId);
+        if (str != null && TextUtils.equals(str, this.mCurId)) {
+            return true;
+        }
+        return false;
     }
 
     public int verify() {
@@ -60,6 +63,9 @@ public class PatchVerifier {
                 e3.printStackTrace();
             }
         }
-        return !verifyApkId(createFromPatch) ? -4 : 0;
+        if (!verifyApkId(createFromPatch)) {
+            return -4;
+        }
+        return 0;
     }
 }

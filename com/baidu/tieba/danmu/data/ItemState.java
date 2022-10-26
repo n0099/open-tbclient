@@ -28,6 +28,18 @@ public final class ItemState {
         return new ItemState[]{Uninitialized, Measuring, Measured, Rendering, Rendered, Error};
     }
 
+    public static ItemState valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ItemState) Enum.valueOf(ItemState.class, str) : (ItemState) invokeL.objValue;
+    }
+
+    public static ItemState[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ItemState[]) $VALUES.clone() : (ItemState[]) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -67,17 +79,5 @@ public final class ItemState {
                 interceptable.invokeInitBody(65538, newInitContext);
             }
         }
-    }
-
-    public static ItemState valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ItemState) Enum.valueOf(ItemState.class, str) : (ItemState) invokeL.objValue;
-    }
-
-    public static ItemState[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ItemState[]) $VALUES.clone() : (ItemState[]) invokeV.objValue;
     }
 }

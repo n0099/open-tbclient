@@ -21,7 +21,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.video.editvideo.scale.ScalableType;
 import com.baidu.tieba.video.editvideo.scale.ScalableVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,6 +48,15 @@ public class CoverSeekBar extends FrameLayout {
     public Handler l;
 
     /* loaded from: classes6.dex */
+    public interface d {
+        void a();
+
+        void b();
+
+        void onProgress(int i);
+    }
+
+    /* loaded from: classes6.dex */
     public class a implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,12 +64,12 @@ public class CoverSeekBar extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.video.editvideo.view.CoverSeekBar$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0446a implements MediaPlayer.OnInfoListener {
+        public class C0432a implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0446a(a aVar) {
+            public C0432a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +127,7 @@ public class CoverSeekBar extends FrameLayout {
                 mediaPlayer.setVolume(0.0f, 0.0f);
                 if (Build.VERSION.SDK_INT >= 17) {
                     this.a.c.i();
-                    mediaPlayer.setOnInfoListener(new C0446a(this));
+                    mediaPlayer.setOnInfoListener(new C0432a(this));
                     return;
                 }
                 this.a.c.h(0);
@@ -210,15 +219,6 @@ public class CoverSeekBar extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface d {
-        void a();
-
-        void b();
-
-        void onProgress(int i);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CoverSeekBar(Context context) {
         this(context, null);
@@ -240,6 +240,99 @@ public class CoverSeekBar extends FrameLayout {
         }
     }
 
+    public final boolean i(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            float abs = Math.abs(motionEvent.getX() - this.j);
+            float abs2 = Math.abs(motionEvent.getY() - this.k);
+            float f = this.i;
+            if (abs < f && abs2 < f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setData(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            this.c.setDataSource(str);
+            this.c.setScalableType(ScalableType.CENTER_CROP);
+            this.c.d(new a(this));
+            h(str);
+            f(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CoverSeekBar(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public void setProgressImage(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+            this.c.h(i2);
+            int width = (int) (((i / 1000.0f) * getWidth()) - this.d);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
+            if (width <= 0) {
+                width = 0;
+            } else if (width >= getWidth() - this.d) {
+                width = getWidth() - this.d;
+            }
+            layoutParams.setMargins(width, 0, 0, 0);
+            this.c.setLayoutParams(layoutParams);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CoverSeekBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 10;
+        this.l = new b(this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0494, this);
+        g();
+    }
+
     public final void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -249,15 +342,29 @@ public class CoverSeekBar extends FrameLayout {
         }
     }
 
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c.h(i);
+        }
+    }
+
+    public void setOnProgressChanged(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
+            this.f = dVar;
+        }
+    }
+
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.i = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-            this.d = ej.k(getContext()) / 10;
-            this.e = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070237);
+            this.d = fj.k(getContext()) / 10;
+            this.e = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070237);
             this.g = new LinearLayout.LayoutParams(this.d, this.e);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090eb3);
-            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f09071f);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ea7);
+            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f090728);
             this.c.setLayoutParams(new FrameLayout.LayoutParams(this.d, this.e));
         }
     }
@@ -275,13 +382,32 @@ public class CoverSeekBar extends FrameLayout {
         return invokeV.intValue;
     }
 
-    public void h(String str) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ScalableVideoView scalableVideoView = this.c;
+            if (scalableVideoView != null) {
+                scalableVideoView.e();
+            }
+            Thread thread = this.h;
+            if (thread != null) {
+                thread.interrupt();
+            }
+        }
+    }
+
+    public void h(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            boolean z = this.b.getChildCount() > 0;
+            if (this.b.getChildCount() > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             mediaMetadataRetriever.setDataSource(str);
             Bitmap extractThumbnail = ThumbnailUtils.extractThumbnail(mediaMetadataRetriever.getFrameAtTime(), this.d, this.e, 2);
@@ -307,39 +433,6 @@ public class CoverSeekBar extends FrameLayout {
         }
     }
 
-    public final boolean i(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            float abs = Math.abs(motionEvent.getX() - this.j);
-            float abs2 = Math.abs(motionEvent.getY() - this.k);
-            float f = this.i;
-            return abs < f && abs2 < f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ScalableVideoView scalableVideoView = this.c;
-            if (scalableVideoView != null) {
-                scalableVideoView.e();
-            }
-            Thread thread = this.h;
-            if (thread != null) {
-                thread.interrupt();
-            }
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c.h(i);
-        }
-    }
-
     public final void l(MotionEvent motionEvent) {
         float paddingLeft;
         Interceptable interceptable = $ic;
@@ -347,17 +440,25 @@ public class CoverSeekBar extends FrameLayout {
             int width = getWidth();
             int paddingLeft2 = ((width - getPaddingLeft()) - getPaddingRight()) - this.d;
             int x = (int) motionEvent.getX();
+            float f = 0.0f;
             if (x < getPaddingLeft() - (this.d / 2)) {
                 paddingLeft = 0.0f;
+            } else if (x > (width - getPaddingRight()) - (this.d / 2)) {
+                paddingLeft = 1.0f;
             } else {
-                paddingLeft = x > (width - getPaddingRight()) - (this.d / 2) ? 1.0f : ((x - getPaddingLeft()) - (this.d / 2)) / paddingLeft2;
+                paddingLeft = ((x - getPaddingLeft()) - (this.d / 2)) / paddingLeft2;
             }
-            float f = (paddingLeft * 1000.0f) + 0.0f;
-            float f2 = f >= 0.0f ? f : 0.0f;
-            float f3 = f2 <= 1000.0f ? f2 : 1000.0f;
+            float f2 = 1000.0f;
+            float f3 = (paddingLeft * 1000.0f) + 0.0f;
+            if (f3 >= 0.0f) {
+                f = f3;
+            }
+            if (f <= 1000.0f) {
+                f2 = f;
+            }
             d dVar = this.f;
             if (dVar != null) {
-                dVar.onProgress((int) f3);
+                dVar.onProgress((int) f2);
             }
         }
     }
@@ -368,7 +469,16 @@ public class CoverSeekBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
-            if (action == 0) {
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2 && !i(motionEvent)) {
+                        l(motionEvent);
+                    }
+                } else if (this.f != null) {
+                    l(motionEvent);
+                    this.f.a();
+                }
+            } else {
                 this.j = motionEvent.getX();
                 this.k = motionEvent.getY();
                 d dVar = this.f;
@@ -376,111 +486,26 @@ public class CoverSeekBar extends FrameLayout {
                     dVar.b();
                     l(motionEvent);
                 }
-            } else if (action != 1) {
-                if (action == 2 && !i(motionEvent)) {
-                    l(motionEvent);
-                }
-            } else if (this.f != null) {
-                l(motionEvent);
-                this.f.a();
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void setData(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            this.c.setDataSource(str);
-            this.c.setScalableType(ScalableType.CENTER_CROP);
-            this.c.d(new a(this));
-            h(str);
-            f(str);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void setImage(int i, Bitmap bitmap) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i, bitmap) == null) || bitmap == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048586, this, i, bitmap) != null) || bitmap == null) {
             return;
         }
         if (this.b.getChildCount() > 0) {
-            ((ImageView) this.b.getChildAt(i)).setBackgroundDrawable(new BitmapDrawable(bitmap));
+            z = true;
+        } else {
+            z = false;
         }
-    }
-
-    public void setOnProgressChanged(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.f = dVar;
+        if (!z) {
+            return;
         }
-    }
-
-    public void setProgressImage(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
-            this.c.h(i2);
-            int width = (int) (((i / 1000.0f) * getWidth()) - this.d);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
-            if (width <= 0) {
-                width = 0;
-            } else if (width >= getWidth() - this.d) {
-                width = getWidth() - this.d;
-            }
-            layoutParams.setMargins(width, 0, 0, 0);
-            this.c.setLayoutParams(layoutParams);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CoverSeekBar(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CoverSeekBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 10;
-        this.l = new b(this);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0497, this);
-        g();
+        ((ImageView) this.b.getChildAt(i)).setBackgroundDrawable(new BitmapDrawable(bitmap));
     }
 }

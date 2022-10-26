@@ -34,61 +34,70 @@ public class LoginHistoryLoginModel {
         }
     }
 
-    public static void delBdussLoginHistoryInfo(String str) {
-        List<AccountLoginAction> loadHistoryAccounts;
+    public static void updateLoginHistoryInfo() {
+        SapiAccount currentAccount;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str) || (loadHistoryAccounts = loadHistoryAccounts()) == null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
+            updateLoginHistoryInfo(currentAccount);
+        }
+    }
+
+    public static void delBdussLoginHistoryInfo(String str) {
+        List loadHistoryAccounts;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str) || (loadHistoryAccounts = loadHistoryAccounts()) == null) {
             return;
         }
-        Iterator<AccountLoginAction> it = loadHistoryAccounts.iterator();
+        Iterator it = loadHistoryAccounts.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(str, SecurityUtil.md5(it.next().sapiAccount.bduss.getBytes(), false))) {
+            if (TextUtils.equals(str, SecurityUtil.md5(((AccountLoginAction) it.next()).sapiAccount.bduss.getBytes(), false))) {
                 it.remove();
             }
         }
         SapiContext.getInstance().setLoginHistoryUserInfo(AccountLoginAction.convertActionList2Json(loadHistoryAccounts));
     }
 
-    public static List<LoginHistoryItem> getAvailableLoginHistoryItems() {
+    public static List getAvailableLoginHistoryItems() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            List<AccountLoginAction> loadHistoryAccounts = loadHistoryAccounts();
-            if (loadHistoryAccounts == null || loadHistoryAccounts.size() == 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            int size = loadHistoryAccounts.size();
-            for (int i = 0; i < size; i++) {
-                AccountLoginAction accountLoginAction = loadHistoryAccounts.get(i);
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= arrayList.size()) {
-                        z = false;
-                        break;
+            List loadHistoryAccounts = loadHistoryAccounts();
+            if (loadHistoryAccounts != null && loadHistoryAccounts.size() != 0) {
+                ArrayList arrayList = new ArrayList();
+                int size = loadHistoryAccounts.size();
+                for (int i = 0; i < size; i++) {
+                    AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i);
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 < arrayList.size()) {
+                            LoginHistoryItem loginHistoryItem = (LoginHistoryItem) arrayList.get(i2);
+                            if (TextUtils.equals(loginHistoryItem.bduss, accountLoginAction.sapiAccount.bduss)) {
+                                loginHistoryItem.actionTimes.add(String.valueOf(accountLoginAction.loginTimeSecond));
+                                z = true;
+                                break;
+                            }
+                            i2++;
+                        } else {
+                            z = false;
+                            break;
+                        }
                     }
-                    LoginHistoryItem loginHistoryItem = (LoginHistoryItem) arrayList.get(i2);
-                    if (TextUtils.equals(loginHistoryItem.bduss, accountLoginAction.sapiAccount.bduss)) {
-                        loginHistoryItem.actionTimes.add(String.valueOf(accountLoginAction.loginTimeSecond));
-                        z = true;
-                        break;
+                    if (!z) {
+                        LoginHistoryItem loginHistoryItem2 = new LoginHistoryItem();
+                        loginHistoryItem2.bduss = accountLoginAction.sapiAccount.bduss;
+                        loginHistoryItem2.actionTimes.add(String.valueOf(accountLoginAction.loginTimeSecond));
+                        arrayList.add(loginHistoryItem2);
                     }
-                    i2++;
                 }
-                if (!z) {
-                    LoginHistoryItem loginHistoryItem2 = new LoginHistoryItem();
-                    loginHistoryItem2.bduss = accountLoginAction.sapiAccount.bduss;
-                    loginHistoryItem2.actionTimes.add(String.valueOf(accountLoginAction.loginTimeSecond));
-                    arrayList.add(loginHistoryItem2);
-                }
+                return arrayList;
             }
-            return arrayList;
+            return null;
         }
         return (List) invokeV.objValue;
     }
 
-    public static List<AccountLoginAction> loadHistoryAccounts() {
+    public static List loadHistoryAccounts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
@@ -105,15 +114,6 @@ public class LoginHistoryLoginModel {
             return AccountLoginAction.convertJson2ActionList(jSONArray);
         }
         return (List) invokeV.objValue;
-    }
-
-    public static void updateLoginHistoryInfo() {
-        SapiAccount currentAccount;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || (currentAccount = SapiContext.getInstance().getCurrentAccount()) == null) {
-            return;
-        }
-        updateLoginHistoryInfo(currentAccount);
     }
 
     public static void updateLoginHistoryInfo(SapiAccount sapiAccount) {
@@ -134,17 +134,16 @@ public class LoginHistoryLoginModel {
                 }
                 AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i2);
                 long j2 = accountLoginAction.loginTimeSecond;
-                if (currentTimeMillis - j2 > 5) {
-                    long j3 = j2 / 86400;
-                    if (TextUtils.equals(sapiAccount.bduss, accountLoginAction.sapiAccount.bduss) && j == j3) {
-                        i = i2;
-                        break;
-                    }
-                    i2++;
-                } else {
+                if (currentTimeMillis - j2 <= 5) {
                     z = true;
                     break;
                 }
+                long j3 = j2 / 86400;
+                if (TextUtils.equals(sapiAccount.bduss, accountLoginAction.sapiAccount.bduss) && j == j3) {
+                    i = i2;
+                    break;
+                }
+                i2++;
             }
             z = false;
             if (z) {

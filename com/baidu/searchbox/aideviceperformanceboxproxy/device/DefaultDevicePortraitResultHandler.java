@@ -30,17 +30,39 @@ public class DefaultDevicePortraitResultHandler implements IDevicePortraitResult
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
+    public void removeStaticPredictScore() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            DeviceInfoSharedPreferenceWrapper.getInstance().remove(SP_KEY_STATIC_SCORE);
+        }
+    }
+
+    @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
+    public void removeStaticScorePercent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            DeviceInfoSharedPreferenceWrapper.getInstance().remove(SP_KEY_STATIC_SCORE_PERCENTAGE);
+        }
+    }
+
+    @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
     public float getStaticPredictScore(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_STATIC_SCORE, -1.0f) : invokeF.floatValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_STATIC_SCORE, -1.0f);
+        }
+        return invokeF.floatValue;
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
     public float getStaticScorePercent(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_STATIC_SCORE_PERCENTAGE, -1.0f) : invokeF.floatValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            return DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_STATIC_SCORE_PERCENTAGE, -1.0f);
+        }
+        return invokeF.floatValue;
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
@@ -56,22 +78,6 @@ public class DefaultDevicePortraitResultHandler implements IDevicePortraitResult
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
             DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(SP_KEY_STATIC_SCORE_PERCENTAGE, f);
-        }
-    }
-
-    @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
-    public void removeStaticPredictScore() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            DeviceInfoSharedPreferenceWrapper.getInstance().remove(SP_KEY_STATIC_SCORE);
-        }
-    }
-
-    @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
-    public void removeStaticScorePercent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            DeviceInfoSharedPreferenceWrapper.getInstance().remove(SP_KEY_STATIC_SCORE_PERCENTAGE);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.themeCenter.background;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -37,8 +36,16 @@ public class BackgroundGetSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    public DressItemData getBgItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBgItem;
+        }
+        return (DressItemData) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -69,11 +76,5 @@ public class BackgroundGetSocketResponseMessage extends SocketResponsedMessage {
             return getBackgroundResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public DressItemData getBgItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBgItem : (DressItemData) invokeV.objValue;
     }
 }

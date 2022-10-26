@@ -6,7 +6,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.util.Log;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -50,6 +49,32 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
     public volatile Status mStatus;
     public final AtomicBoolean mTaskInvoked;
     public final WorkerRunnable<Params, Result> mWorker;
+
+    public abstract Result doInBackground(Params... paramsArr);
+
+    public void onCancelled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    public void onPostExecute(Result result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, result) == null) {
+        }
+    }
+
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    public void onProgressUpdate(Progress... progressArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, progressArr) == null) {
+        }
+    }
 
     /* renamed from: androidx.loader.content.ModernAsyncTask$4  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -142,12 +167,14 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 AsyncTaskResult asyncTaskResult = (AsyncTaskResult) message.obj;
                 int i = message.what;
-                if (i == 1) {
-                    asyncTaskResult.mTask.finish(asyncTaskResult.mData[0]);
-                } else if (i != 2) {
-                } else {
-                    asyncTaskResult.mTask.onProgressUpdate(asyncTaskResult.mData);
+                if (i != 1) {
+                    if (i == 2) {
+                        asyncTaskResult.mTask.onProgressUpdate(asyncTaskResult.mData);
+                        return;
+                    }
+                    return;
                 }
+                asyncTaskResult.mTask.finish(asyncTaskResult.mData[0]);
             }
         }
     }
@@ -204,13 +231,19 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         public static Status valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Status) Enum.valueOf(Status.class, str) : (Status) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Status) Enum.valueOf(Status.class, str);
+            }
+            return (Status) invokeL.objValue;
         }
 
         public static Status[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Status[]) $VALUES.clone() : (Status[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Status[]) $VALUES.clone();
+            }
+            return (Status[]) invokeV.objValue;
         }
     }
 
@@ -329,17 +362,18 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
             public Result call() throws Exception {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    this.this$0.mTaskInvoked.set(true);
+                    Result result = null;
+                    try {
+                        Process.setThreadPriority(10);
+                        result = (Result) this.this$0.doInBackground(this.mParams);
+                        Binder.flushPendingCommands();
+                        return result;
+                    } finally {
+                    }
+                } else {
                     return (Result) invokeV.objValue;
-                }
-                this.this$0.mTaskInvoked.set(true);
-                Result result = null;
-                try {
-                    Process.setThreadPriority(10);
-                    result = (Result) this.this$0.doInBackground(this.mParams);
-                    Binder.flushPendingCommands();
-                    return result;
-                } finally {
                 }
             }
         };
@@ -389,23 +423,13 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         };
     }
 
-    public static Handler getHandler() {
-        InterceptResult invokeV;
-        InternalHandler internalHandler;
+    public static void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (ModernAsyncTask.class) {
-                if (sHandler == null) {
-                    sHandler = new InternalHandler();
-                }
-                internalHandler = sHandler;
-            }
-            return internalHandler;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            sDefaultExecutor.execute(runnable);
         }
-        return (Handler) invokeV.objValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static void setDefaultExecutor(Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executor) == null) {
@@ -423,12 +447,99 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         return invokeZ.booleanValue;
     }
 
-    public abstract Result doInBackground(Params... paramsArr);
+    public void finish(Result result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, result) == null) {
+            if (isCancelled()) {
+                onCancelled(result);
+            } else {
+                onPostExecute(result);
+            }
+            this.mStatus = Status.FINISHED;
+        }
+    }
+
+    public void onCancelled(Result result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, result) == null) {
+            onCancelled();
+        }
+    }
+
+    public Result postResult(Result result) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, result)) == null) {
+            getHandler().obtainMessage(1, new AsyncTaskResult(this, result)).sendToTarget();
+            return result;
+        }
+        return (Result) invokeL.objValue;
+    }
+
+    public void postResultIfNotInvoked(Result result) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, result) == null) && !this.mTaskInvoked.get()) {
+            postResult(result);
+        }
+    }
+
+    public final void publishProgress(Progress... progressArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, progressArr) == null) && !isCancelled()) {
+            getHandler().obtainMessage(2, new AsyncTaskResult(this, progressArr)).sendToTarget();
+        }
+    }
+
+    public static Handler getHandler() {
+        InterceptResult invokeV;
+        InternalHandler internalHandler;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (ModernAsyncTask.class) {
+                if (sHandler == null) {
+                    sHandler = new InternalHandler();
+                }
+                internalHandler = sHandler;
+            }
+            return internalHandler;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public final Result get() throws InterruptedException, ExecutionException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mFuture.get();
+        }
+        return (Result) invokeV.objValue;
+    }
+
+    public final Status getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mStatus;
+        }
+        return (Status) invokeV.objValue;
+    }
+
+    public final boolean isCancelled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mCancelled.get();
+        }
+        return invokeV.booleanValue;
+    }
 
     public final ModernAsyncTask<Params, Progress, Result> execute(Params... paramsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paramsArr)) == null) ? executeOnExecutor(sDefaultExecutor, paramsArr) : (ModernAsyncTask) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paramsArr)) == null) {
+            return executeOnExecutor(sDefaultExecutor, paramsArr);
+        }
+        return (ModernAsyncTask) invokeL.objValue;
     }
 
     public final ModernAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
@@ -454,103 +565,12 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         return (ModernAsyncTask) invokeLL.objValue;
     }
 
-    public void finish(Result result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, result) == null) {
-            if (isCancelled()) {
-                onCancelled(result);
-            } else {
-                onPostExecute(result);
-            }
-            this.mStatus = Status.FINISHED;
-        }
-    }
-
-    public final Result get() throws InterruptedException, ExecutionException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFuture.get() : (Result) invokeV.objValue;
-    }
-
-    public final Status getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mStatus : (Status) invokeV.objValue;
-    }
-
-    public final boolean isCancelled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mCancelled.get() : invokeV.booleanValue;
-    }
-
-    public void onCancelled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    public void onCancelled(Result result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, result) == null) {
-            onCancelled();
-        }
-    }
-
-    public void onPostExecute(Result result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, result) == null) {
-        }
-    }
-
-    public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    public void onProgressUpdate(Progress... progressArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, progressArr) == null) {
-        }
-    }
-
-    public Result postResult(Result result) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, result)) == null) {
-            getHandler().obtainMessage(1, new AsyncTaskResult(this, result)).sendToTarget();
-            return result;
-        }
-        return (Result) invokeL.objValue;
-    }
-
-    public void postResultIfNotInvoked(Result result) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, result) == null) || this.mTaskInvoked.get()) {
-            return;
-        }
-        postResult(result);
-    }
-
-    public final void publishProgress(Progress... progressArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, progressArr) == null) || isCancelled()) {
-            return;
-        }
-        getHandler().obtainMessage(2, new AsyncTaskResult(this, progressArr)).sendToTarget();
-    }
-
-    public static void execute(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            sDefaultExecutor.execute(runnable);
-        }
-    }
-
     public final Result get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j, timeUnit)) == null) ? this.mFuture.get(j, timeUnit) : (Result) invokeJL.objValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j, timeUnit)) == null) {
+            return this.mFuture.get(j, timeUnit);
+        }
+        return (Result) invokeJL.objValue;
     }
 }

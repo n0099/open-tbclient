@@ -46,6 +46,166 @@ public class b4 extends d4 {
         t(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public b4(Texture texture) {
+        this(texture, 0, 0, texture.x(), texture.u());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {texture};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Texture) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public void r(b4 b4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, b4Var) == null) {
+            if (b4Var != null) {
+                System.arraycopy(b4Var.h, 0, this.h, 0, 20);
+                this.a = b4Var.a;
+                this.b = b4Var.b;
+                this.c = b4Var.c;
+                this.d = b4Var.d;
+                this.e = b4Var.e;
+                this.j = b4Var.j;
+                this.k = b4Var.k;
+                this.l = b4Var.l;
+                this.m = b4Var.m;
+                this.f = b4Var.f;
+                this.g = b4Var.g;
+                this.n = b4Var.n;
+                this.o = b4Var.o;
+                this.p = b4Var.p;
+                this.q = b4Var.q;
+                this.r = b4Var.r;
+                this.i.e(b4Var.i);
+                this.s = b4Var.s;
+                return;
+            }
+            throw new IllegalArgumentException("sprite cannot be null.");
+        }
+    }
+
+    public b4(Texture texture, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {texture, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.h = new float[20];
+        this.i = new l3(1.0f, 1.0f, 1.0f, 1.0f);
+        this.q = 1.0f;
+        this.r = 1.0f;
+        this.s = true;
+        if (texture != null) {
+            this.a = texture;
+            h(i, i2, i3, i4);
+            t(1.0f, 1.0f, 1.0f, 1.0f);
+            z(Math.abs(i3), Math.abs(i4));
+            v(this.l / 2.0f, this.m / 2.0f);
+            return;
+        }
+        throw new IllegalArgumentException("texture cannot be null.");
+    }
+
+    public b4(b4 b4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b4Var};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.h = new float[20];
+        this.i = new l3(1.0f, 1.0f, 1.0f, 1.0f);
+        this.q = 1.0f;
+        this.r = 1.0f;
+        this.s = true;
+        r(b4Var);
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            float[] fArr = this.h;
+            if (z) {
+                float f = fArr[4];
+                fArr[4] = fArr[19];
+                fArr[19] = fArr[14];
+                fArr[14] = fArr[9];
+                fArr[9] = f;
+                float f2 = fArr[3];
+                fArr[3] = fArr[18];
+                fArr[18] = fArr[13];
+                fArr[13] = fArr[8];
+                fArr[8] = f2;
+                return;
+            }
+            float f3 = fArr[4];
+            fArr[4] = fArr[9];
+            fArr[9] = fArr[14];
+            fArr[14] = fArr[19];
+            fArr[19] = f3;
+            float f4 = fArr[3];
+            fArr[3] = fArr[8];
+            fArr[8] = fArr[13];
+            fArr[13] = fArr[18];
+            fArr[18] = f4;
+        }
+    }
+
+    public b4(d4 d4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d4Var};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.h = new float[20];
+        this.i = new l3(1.0f, 1.0f, 1.0f, 1.0f);
+        this.q = 1.0f;
+        this.r = 1.0f;
+        this.s = true;
+        i(d4Var);
+        t(1.0f, 1.0f, 1.0f, 1.0f);
+        z(d4Var.c(), d4Var.b());
+        v(this.l / 2.0f, this.m / 2.0f);
+    }
+
     public void A(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
@@ -64,6 +224,34 @@ public class b4 extends d4 {
                 fArr[11] = fArr[11] + f2;
                 fArr[15] = fArr[15] + f;
                 fArr[16] = fArr[16] + f2;
+                return;
+            }
+            this.s = true;
+        }
+    }
+
+    public void z(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.l = f;
+            this.m = f2;
+            if (this.s) {
+                return;
+            }
+            if (this.p == 0.0f && this.q == 1.0f && this.r == 1.0f) {
+                float f3 = this.j;
+                float f4 = f + f3;
+                float f5 = this.k;
+                float f6 = f2 + f5;
+                float[] fArr = this.h;
+                fArr[0] = f3;
+                fArr[1] = f5;
+                fArr[5] = f3;
+                fArr[6] = f6;
+                fArr[10] = f4;
+                fArr[11] = f6;
+                fArr[15] = f4;
+                fArr[16] = f5;
                 return;
             }
             this.s = true;
@@ -112,99 +300,71 @@ public class b4 extends d4 {
         }
     }
 
+    public void t(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.i.d(f, f2, f3, f4);
+            float f5 = this.i.f();
+            float[] fArr = this.h;
+            fArr[2] = f5;
+            fArr[7] = f5;
+            fArr[12] = f5;
+            fArr[17] = f5;
+        }
+    }
+
     public float k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.m;
+        }
+        return invokeV.floatValue;
     }
 
     public float l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.n;
+        }
+        return invokeV.floatValue;
     }
 
     public float m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.o : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.o;
+        }
+        return invokeV.floatValue;
     }
 
     public float n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.l : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.l;
+        }
+        return invokeV.floatValue;
     }
 
     public float o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.j;
+        }
+        return invokeV.floatValue;
     }
 
     public float p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.floatValue;
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            float[] fArr = this.h;
-            if (z) {
-                float f = fArr[4];
-                fArr[4] = fArr[19];
-                fArr[19] = fArr[14];
-                fArr[14] = fArr[9];
-                fArr[9] = f;
-                float f2 = fArr[3];
-                fArr[3] = fArr[18];
-                fArr[18] = fArr[13];
-                fArr[13] = fArr[8];
-                fArr[8] = f2;
-                return;
-            }
-            float f3 = fArr[4];
-            fArr[4] = fArr[9];
-            fArr[9] = fArr[14];
-            fArr[14] = fArr[19];
-            fArr[19] = f3;
-            float f4 = fArr[3];
-            fArr[3] = fArr[8];
-            fArr[8] = fArr[13];
-            fArr[13] = fArr[18];
-            fArr[18] = f4;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.k;
         }
-    }
-
-    public void r(b4 b4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, b4Var) == null) {
-            if (b4Var != null) {
-                System.arraycopy(b4Var.h, 0, this.h, 0, 20);
-                this.a = b4Var.a;
-                this.b = b4Var.b;
-                this.c = b4Var.c;
-                this.d = b4Var.d;
-                this.e = b4Var.e;
-                this.j = b4Var.j;
-                this.k = b4Var.k;
-                this.l = b4Var.l;
-                this.m = b4Var.m;
-                this.f = b4Var.f;
-                this.g = b4Var.g;
-                this.n = b4Var.n;
-                this.o = b4Var.o;
-                this.p = b4Var.p;
-                this.q = b4Var.q;
-                this.r = b4Var.r;
-                this.i.e(b4Var.i);
-                this.s = b4Var.s;
-                return;
-            }
-            throw new IllegalArgumentException("sprite cannot be null.");
-        }
+        return invokeV.floatValue;
     }
 
     public void s(float f, float f2, float f3, float f4) {
@@ -235,19 +395,6 @@ public class b4 extends d4 {
         }
     }
 
-    public void t(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.i.d(f, f2, f3, f4);
-            float f5 = this.i.f();
-            float[] fArr = this.h;
-            fArr[2] = f5;
-            fArr[7] = f5;
-            fArr[12] = f5;
-            fArr[17] = f5;
-        }
-    }
-
     public void u(l3 l3Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, l3Var) == null) {
@@ -258,15 +405,6 @@ public class b4 extends d4 {
             fArr[7] = f;
             fArr[12] = f;
             fArr[17] = f;
-        }
-    }
-
-    public void v(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.n = f;
-            this.o = f2;
-            this.s = true;
         }
     }
 
@@ -287,6 +425,15 @@ public class b4 extends d4 {
         }
     }
 
+    public void v(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.n = f;
+            this.o = f2;
+            this.s = true;
+        }
+    }
+
     public void y(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
@@ -294,134 +441,5 @@ public class b4 extends d4 {
             this.r = f2;
             this.s = true;
         }
-    }
-
-    public void z(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.l = f;
-            this.m = f2;
-            if (this.s) {
-                return;
-            }
-            if (this.p == 0.0f && this.q == 1.0f && this.r == 1.0f) {
-                float f3 = this.j;
-                float f4 = f + f3;
-                float f5 = this.k;
-                float f6 = f2 + f5;
-                float[] fArr = this.h;
-                fArr[0] = f3;
-                fArr[1] = f5;
-                fArr[5] = f3;
-                fArr[6] = f6;
-                fArr[10] = f4;
-                fArr[11] = f6;
-                fArr[15] = f4;
-                fArr[16] = f5;
-                return;
-            }
-            this.s = true;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b4(Texture texture) {
-        this(texture, 0, 0, texture.x(), texture.u());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {texture};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Texture) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public b4(Texture texture, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {texture, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.h = new float[20];
-        this.i = new l3(1.0f, 1.0f, 1.0f, 1.0f);
-        this.q = 1.0f;
-        this.r = 1.0f;
-        this.s = true;
-        if (texture != null) {
-            this.a = texture;
-            h(i, i2, i3, i4);
-            t(1.0f, 1.0f, 1.0f, 1.0f);
-            z(Math.abs(i3), Math.abs(i4));
-            v(this.l / 2.0f, this.m / 2.0f);
-            return;
-        }
-        throw new IllegalArgumentException("texture cannot be null.");
-    }
-
-    public b4(d4 d4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d4Var};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.h = new float[20];
-        this.i = new l3(1.0f, 1.0f, 1.0f, 1.0f);
-        this.q = 1.0f;
-        this.r = 1.0f;
-        this.s = true;
-        i(d4Var);
-        t(1.0f, 1.0f, 1.0f, 1.0f);
-        z(d4Var.c(), d4Var.b());
-        v(this.l / 2.0f, this.m / 2.0f);
-    }
-
-    public b4(b4 b4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b4Var};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.h = new float[20];
-        this.i = new l3(1.0f, 1.0f, 1.0f, 1.0f);
-        this.q = 1.0f;
-        this.r = 1.0f;
-        this.s = true;
-        r(b4Var);
     }
 }

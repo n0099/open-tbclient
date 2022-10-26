@@ -14,23 +14,23 @@ import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableTimeInterval<T> extends AbstractFlowableWithUpstream<T, Timed<T>> {
+public final class FlowableTimeInterval extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class TimeIntervalSubscriber<T> implements FlowableSubscriber<T>, Subscription {
+    public final class TimeIntervalSubscriber implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super Timed<T>> actual;
+        public final Subscriber actual;
         public long lastTime;
         public Subscription s;
         public final Scheduler scheduler;
         public final TimeUnit unit;
 
-        public TimeIntervalSubscriber(Subscriber<? super Timed<T>> subscriber, TimeUnit timeUnit, Scheduler scheduler) {
+        public TimeIntervalSubscriber(Subscriber subscriber, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,13 +75,13 @@ public final class FlowableTimeInterval<T> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
                 long now = this.scheduler.now(this.unit);
                 long j = this.lastTime;
                 this.lastTime = now;
-                this.actual.onNext(new Timed(t, now - j, this.unit));
+                this.actual.onNext(new Timed(obj, now - j, this.unit));
             }
         }
 
@@ -105,7 +105,7 @@ public final class FlowableTimeInterval<T> extends AbstractFlowableWithUpstream<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTimeInterval(Flowable<T> flowable, TimeUnit timeUnit, Scheduler scheduler) {
+    public FlowableTimeInterval(Flowable flowable, TimeUnit timeUnit, Scheduler scheduler) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +127,7 @@ public final class FlowableTimeInterval<T> extends AbstractFlowableWithUpstream<
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super Timed<T>> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new TimeIntervalSubscriber(subscriber, this.unit, this.scheduler));

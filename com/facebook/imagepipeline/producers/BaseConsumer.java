@@ -9,40 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
-public abstract class BaseConsumer<T> implements Consumer<T> {
+public abstract class BaseConsumer implements Consumer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsFinished;
-
-    public BaseConsumer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mIsFinished = false;
-    }
 
     public static boolean isLast(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i & 1) == 1 : invokeI.booleanValue;
-    }
-
-    public static boolean isNotLast(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? !isLast(i) : invokeI.booleanValue;
     }
 
     public static int simpleStatusForIsLast(boolean z) {
@@ -75,6 +51,34 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
         return (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i, i2)) == null) ? i | i2 : invokeII.intValue;
     }
 
+    public abstract void onCancellationImpl();
+
+    public abstract void onFailureImpl(Throwable th);
+
+    public abstract void onNewResultImpl(Object obj, int i);
+
+    public void onProgressUpdateImpl(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+        }
+    }
+
+    public BaseConsumer() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mIsFinished = false;
+    }
+
     @Override // com.facebook.imagepipeline.producers.Consumer
     public synchronized void onCancellation() {
         Interceptable interceptable = $ic;
@@ -93,7 +97,14 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
         }
     }
 
-    public abstract void onCancellationImpl();
+    public static boolean isNotLast(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return !isLast(i);
+        }
+        return invokeI.booleanValue;
+    }
 
     @Override // com.facebook.imagepipeline.producers.Consumer
     public synchronized void onFailure(Throwable th) {
@@ -113,28 +124,6 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
         }
     }
 
-    public abstract void onFailureImpl(Throwable th);
-
-    @Override // com.facebook.imagepipeline.producers.Consumer
-    public synchronized void onNewResult(@Nullable T t, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, t, i) == null) {
-            synchronized (this) {
-                if (this.mIsFinished) {
-                    return;
-                }
-                this.mIsFinished = isLast(i);
-                try {
-                    onNewResultImpl(t, i);
-                } catch (Exception e) {
-                    onUnhandledException(e);
-                }
-            }
-        }
-    }
-
-    public abstract void onNewResultImpl(T t, int i);
-
     @Override // com.facebook.imagepipeline.producers.Consumer
     public synchronized void onProgressUpdate(float f) {
         Interceptable interceptable = $ic;
@@ -152,16 +141,28 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
         }
     }
 
-    public void onProgressUpdateImpl(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-        }
-    }
-
     public void onUnhandledException(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, exc) == null) {
             FLog.wtf(getClass(), "unhandled exception", exc);
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.Consumer
+    public synchronized void onNewResult(@Nullable Object obj, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, obj, i) == null) {
+            synchronized (this) {
+                if (this.mIsFinished) {
+                    return;
+                }
+                this.mIsFinished = isLast(i);
+                try {
+                    onNewResultImpl(obj, i);
+                } catch (Exception e) {
+                    onUnhandledException(e);
+                }
+            }
         }
     }
 }

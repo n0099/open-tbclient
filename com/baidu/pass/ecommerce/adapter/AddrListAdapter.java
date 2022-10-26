@@ -30,21 +30,33 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddrListAdapter extends CommonAdapter<JSONObject> {
+public class AddrListAdapter extends CommonAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LIMIT_TIME = 500;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
     public long lastClickTime;
     public EditAddressListener listener;
-    public HashMap<PassAddrColorLocation, String> mAddrListColorMap;
-    public HashMap<PassAddrColorLocation, Boolean> mAddrListTextStyle;
+    public HashMap mAddrListColorMap;
+    public HashMap mAddrListTextStyle;
     public Context mContext;
     public Drawable mEditIcon;
-    public List<String> nuomiAddressIds;
+    public List nuomiAddressIds;
 
     /* loaded from: classes2.dex */
-    public class AddrListItemViewHolder extends ViewHolder<JSONObject> implements View.OnClickListener {
+    public interface EditAddressListener {
+        void edit(MapObject mapObject, AddressSelectedBean addressSelectedBean);
+    }
+
+    @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
+    public int getItemLayoutId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.layout_sapi_sdk_address_list_item : invokeV.intValue;
+    }
+
+    /* loaded from: classes2.dex */
+    public class AddrListItemViewHolder extends ViewHolder implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject addrJsonObj;
@@ -62,6 +74,8 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AddrListItemViewHolder(AddrListAdapter addrListAdapter, View view2) {
             super(view2);
+            Typeface defaultFromStyle;
+            Typeface defaultFromStyle2;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,8 +111,20 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
             if (addrListAdapter.mAddrListTextStyle != null) {
                 Boolean bool = (Boolean) addrListAdapter.mAddrListTextStyle.get(PassAddrColorLocation.ADDRESS_ITEM_TEXT_NAME_BOLD);
                 Boolean bool2 = (Boolean) addrListAdapter.mAddrListTextStyle.get(PassAddrColorLocation.ADDRESS_ITEM_TEXT_PHONE_BOLD);
-                this.tvName.setTypeface((bool == null || !bool.booleanValue()) ? Typeface.defaultFromStyle(0) : Typeface.defaultFromStyle(1));
-                this.tvPhone.setTypeface((bool2 == null || !bool2.booleanValue()) ? Typeface.defaultFromStyle(0) : Typeface.defaultFromStyle(1));
+                TextView textView = this.tvName;
+                if (bool != null && bool.booleanValue()) {
+                    defaultFromStyle = Typeface.defaultFromStyle(1);
+                } else {
+                    defaultFromStyle = Typeface.defaultFromStyle(0);
+                }
+                textView.setTypeface(defaultFromStyle);
+                TextView textView2 = this.tvPhone;
+                if (bool2 != null && bool2.booleanValue()) {
+                    defaultFromStyle2 = Typeface.defaultFromStyle(1);
+                } else {
+                    defaultFromStyle2 = Typeface.defaultFromStyle(0);
+                }
+                textView2.setTypeface(defaultFromStyle2);
             }
             if (addrListAdapter.mEditIcon != null) {
                 this.ivEdit.setImageDrawable(addrListAdapter.mEditIcon);
@@ -120,13 +146,12 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
         private void cleanNuoMiStatus() {
             TextView textView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (textView = this.tvNuoMiTag) == null) {
-                return;
-            }
-            textView.setVisibility(8);
-            String str = (String) this.tvNuoMiTag.getTag();
-            if (this.this$0.nuomiAddressIds != null) {
-                this.this$0.nuomiAddressIds.remove(str);
+            if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (textView = this.tvNuoMiTag) != null) {
+                textView.setVisibility(8);
+                String str = (String) this.tvNuoMiTag.getTag();
+                if (this.this$0.nuomiAddressIds != null) {
+                    this.this$0.nuomiAddressIds.remove(str);
+                }
             }
         }
 
@@ -180,33 +205,31 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
             }
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.this$0.lastClickTime < 500) {
-                    return;
-                }
-                cleanNuoMiStatus();
-                this.this$0.lastClickTime = currentTimeMillis;
-                if (this.this$0.listener != null) {
-                    MapObject convertJsonObj2MapObject = convertJsonObj2MapObject();
-                    this.this$0.listener.edit(convertJsonObj2MapObject, generateAddrRegion(convertJsonObj2MapObject));
-                }
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.ecommerce.common.adapter.ViewHolder
         public void bindView(JSONObject jSONObject) {
+            boolean z;
+            int i;
+            int i2;
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
                 this.addrJsonObj = jSONObject;
                 String trim = jSONObject.optString("name").trim();
                 this.tvName.setText(trim);
                 this.tvPhone.setText(jSONObject.optString("mobile").trim());
-                this.tvDefaultTag.setVisibility(jSONObject.optInt(AddressField.KEY_IS_DEFAULT, 0) == 1 ? 0 : 8);
+                if (jSONObject.optInt(AddressField.KEY_IS_DEFAULT, 0) == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                TextView textView = this.tvDefaultTag;
+                if (z) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                textView.setVisibility(i);
                 String optString = jSONObject.optString("tag");
                 if (TextUtils.isEmpty(optString)) {
                     this.tvTag.setVisibility(8);
@@ -215,7 +238,13 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                     this.tvTag.setText(optString);
                 }
                 this.tvTagIcon.setText("");
-                this.darkShapeView.setVisibility(this.this$0.isDarkMode ? 0 : 8);
+                View view2 = this.darkShapeView;
+                if (this.this$0.isDarkMode) {
+                    i2 = 0;
+                } else {
+                    i2 = 8;
+                }
+                view2.setVisibility(i2);
                 char c = 65535;
                 int hashCode = optString.hashCode();
                 if (hashCode != 23478) {
@@ -229,24 +258,33 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                 } else if (optString.equals(AddressField.VALUE_HOME_TAG)) {
                     c = 0;
                 }
-                if (c == 0) {
-                    this.tvTagIcon.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_home);
-                } else if (c == 1) {
-                    this.tvTagIcon.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_school);
-                } else if (c != 2) {
-                    this.darkShapeView.setVisibility(8);
-                    this.tvTagIcon.setText(!TextUtils.isEmpty(trim) ? trim.substring(0, 1) : "");
-                    this.tvTagIcon.setBackgroundResource(R.drawable.sapi_sdk_add_address_tag_icon_bg);
-                    if (this.this$0.mAddrListColorMap != null) {
-                        String str = (String) this.this$0.mAddrListColorMap.get(PassAddrColorLocation.ADDRESS_ITEM_IC_BG_COLOR);
-                        if (!TextUtils.isEmpty(str)) {
-                            GradientDrawable gradientDrawable = (GradientDrawable) this.tvTagIcon.getBackground();
-                            gradientDrawable.setColor(Color.parseColor(str));
-                            this.tvTagIcon.setBackgroundDrawable(gradientDrawable);
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            this.darkShapeView.setVisibility(8);
+                            if (TextUtils.isEmpty(trim)) {
+                                str = "";
+                            } else {
+                                str = trim.substring(0, 1);
+                            }
+                            this.tvTagIcon.setText(str);
+                            this.tvTagIcon.setBackgroundResource(R.drawable.sapi_sdk_add_address_tag_icon_bg);
+                            if (this.this$0.mAddrListColorMap != null) {
+                                String str2 = (String) this.this$0.mAddrListColorMap.get(PassAddrColorLocation.ADDRESS_ITEM_IC_BG_COLOR);
+                                if (!TextUtils.isEmpty(str2)) {
+                                    GradientDrawable gradientDrawable = (GradientDrawable) this.tvTagIcon.getBackground();
+                                    gradientDrawable.setColor(Color.parseColor(str2));
+                                    this.tvTagIcon.setBackgroundDrawable(gradientDrawable);
+                                }
+                            }
+                        } else {
+                            this.tvTagIcon.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_company);
                         }
+                    } else {
+                        this.tvTagIcon.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_school);
                     }
                 } else {
-                    this.tvTagIcon.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_company);
+                    this.tvTagIcon.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_home);
                 }
                 this.tvNuoMiTag.setVisibility(8);
                 String trim2 = jSONObject.optString(AddressField.KEY_ADDR_ID).trim();
@@ -265,11 +303,23 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
                 this.ivEdit.setOnClickListener(this);
             }
         }
-    }
 
-    /* loaded from: classes2.dex */
-    public interface EditAddressListener {
-        void edit(MapObject mapObject, AddressSelectedBean addressSelectedBean);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.this$0.lastClickTime < 500) {
+                    return;
+                }
+                cleanNuoMiStatus();
+                this.this$0.lastClickTime = currentTimeMillis;
+                if (this.this$0.listener != null) {
+                    MapObject convertJsonObj2MapObject = convertJsonObj2MapObject();
+                    this.this$0.listener.edit(convertJsonObj2MapObject, generateAddrRegion(convertJsonObj2MapObject));
+                }
+            }
+        }
     }
 
     public AddrListAdapter(Context context, boolean z) {
@@ -296,28 +346,16 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public ViewHolder createViewHolder(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? new AddrListItemViewHolder(this, view2) : (ViewHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
-    public int getItemLayoutId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.layout_sapi_sdk_address_list_item : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            return new AddrListItemViewHolder(this, view2);
+        }
+        return (ViewHolder) invokeL.objValue;
     }
 
     public void setEditIcon(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
             this.mEditIcon = drawable;
-        }
-    }
-
-    public void setItemStyle(HashMap<PassAddrColorLocation, String> hashMap, HashMap<PassAddrColorLocation, Boolean> hashMap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, hashMap, hashMap2) == null) {
-            this.mAddrListColorMap = hashMap;
-            this.mAddrListTextStyle = hashMap2;
         }
     }
 
@@ -328,10 +366,18 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
         }
     }
 
-    public void setNuoMiAddressIds(List<String> list) {
+    public void setNuoMiAddressIds(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.nuomiAddressIds = list;
+        }
+    }
+
+    public void setItemStyle(HashMap hashMap, HashMap hashMap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, hashMap, hashMap2) == null) {
+            this.mAddrListColorMap = hashMap;
+            this.mAddrListTextStyle = hashMap2;
         }
     }
 }

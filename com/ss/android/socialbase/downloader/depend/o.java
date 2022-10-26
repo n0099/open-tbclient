@@ -7,17 +7,22 @@ import android.os.Parcel;
 import android.os.RemoteException;
 /* loaded from: classes8.dex */
 public interface o extends IInterface {
+    void a() throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements o {
+    public abstract class a extends Binder implements o {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.o$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0684a implements o {
+        public class C0680a implements o {
             public static o a;
             public IBinder b;
 
-            public C0684a(IBinder iBinder) {
+            public C0680a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -48,6 +53,10 @@ public interface o extends IInterface {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlCallback");
         }
 
+        public static o b() {
+            return C0680a.a;
+        }
+
         public static o a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -56,16 +65,7 @@ public interface o extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof o)) {
                 return (o) queryLocalInterface;
             }
-            return new C0684a(iBinder);
-        }
-
-        public static o b() {
-            return C0684a.a;
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
+            return new C0680a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -83,6 +83,4 @@ public interface o extends IInterface {
             return true;
         }
     }
-
-    void a() throws RemoteException;
 }

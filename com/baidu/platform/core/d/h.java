@@ -190,7 +190,7 @@ public class h extends com.baidu.platform.base.d {
         return (MassTransitRouteLine.TransitStep) invokeL.objValue;
     }
 
-    private List<List<MassTransitRouteLine.TransitStep>> a(JSONArray jSONArray) {
+    private List a(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, jSONArray)) == null) {
@@ -257,7 +257,7 @@ public class h extends com.baidu.platform.base.d {
         return (SuggestAddrInfo) invokeL.objValue;
     }
 
-    private List<MassTransitRouteLine.TransitStep.TrafficCondition> b(JSONArray jSONArray) {
+    private List b(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, jSONArray)) == null) {
@@ -279,7 +279,7 @@ public class h extends com.baidu.platform.base.d {
         return (List) invokeL.objValue;
     }
 
-    private List<PriceInfo> c(JSONArray jSONArray) {
+    private List c(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, jSONArray)) == null) {
@@ -301,7 +301,7 @@ public class h extends com.baidu.platform.base.d {
         return (List) invokeL.objValue;
     }
 
-    private List<PoiInfo> d(JSONArray jSONArray) {
+    private List d(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, jSONArray)) == null) {

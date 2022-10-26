@@ -50,6 +50,12 @@ public class BaseUrlManager {
     public static String getBaseUploadUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? DEBUG ? "http://10.104.73.35:8098/fetchlog/getbostoken" : "https://mbd.baidu.com/fetchlog/getbostoken" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (DEBUG) {
+                return "http://10.104.73.35:8098/fetchlog/getbostoken";
+            }
+            return "https://mbd.baidu.com/fetchlog/getbostoken";
+        }
+        return (String) invokeV.objValue;
     }
 }

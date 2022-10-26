@@ -1,6 +1,5 @@
 package com.baidu.turbonet.base;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
 /* loaded from: classes6.dex */
@@ -17,6 +15,12 @@ public class JavaHandlerThread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HandlerThread a;
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void nativeInitializeThread(long j, long j2);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void nativeStopThread(long j, long j2);
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -90,10 +94,9 @@ public class JavaHandlerThread {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.d.nativeStopThread(this.a, this.b);
-                if (this.c) {
-                    return;
+                if (!this.c) {
+                    this.d.a.quit();
                 }
-                this.d.a.quit();
             }
         }
     }
@@ -116,20 +119,15 @@ public class JavaHandlerThread {
         this.a = new HandlerThread(str);
     }
 
-    @CalledByNative
     public static JavaHandlerThread create(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new JavaHandlerThread(str) : (JavaHandlerThread) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return new JavaHandlerThread(str);
+        }
+        return (JavaHandlerThread) invokeL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeInitializeThread(long j, long j2);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeStopThread(long j, long j2);
-
-    @CalledByNative
     private void start(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -138,12 +136,15 @@ public class JavaHandlerThread {
         }
     }
 
-    @CalledByNative
-    @TargetApi(18)
     private void stop(long j, long j2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            boolean z = Build.VERSION.SDK_INT >= 18;
+            if (Build.VERSION.SDK_INT >= 18) {
+                z = true;
+            } else {
+                z = false;
+            }
             new Handler(this.a.getLooper()).post(new b(this, j, j2, z));
             if (z) {
                 this.a.quitSafely();

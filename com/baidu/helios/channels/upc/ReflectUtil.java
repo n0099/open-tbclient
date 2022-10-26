@@ -1,6 +1,6 @@
 package com.baidu.helios.channels.upc;
 
-import com.baidu.tieba.s40;
+import com.baidu.tieba.t40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ public class ReflectUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class MethodInvokeException extends Exception {
+    public class MethodInvokeException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,7 +79,7 @@ public class ReflectUtil {
         }
     }
 
-    public static Method a(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException {
+    public static Method a(Class cls, String str, Class[] clsArr) throws NoSuchMethodException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, cls, str, clsArr)) == null) {
@@ -93,6 +93,9 @@ public class ReflectUtil {
     public static String b(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? new String(new s40().a(bArr)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            return new String(new t40().a(bArr));
+        }
+        return (String) invokeL.objValue;
     }
 }

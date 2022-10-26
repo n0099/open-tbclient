@@ -19,45 +19,60 @@ public class m {
     public static int a(Context context, boolean z) {
         InterceptResult invokeLZ;
         ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
+        NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, context, z)) == null) {
             try {
                 connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-                activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+                networkInfo = null;
+                if (connectivityManager != null) {
+                    networkInfo = connectivityManager.getActiveNetworkInfo();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                int type = activeNetworkInfo.getType();
-                if (type != 1) {
-                    if (type == 0) {
-                        c.b("TelephonyUtils", "流量");
-                        return 1;
+            if (networkInfo != null && networkInfo.isAvailable()) {
+                int type = networkInfo.getType();
+                if (type == 1) {
+                    c.b("TelephonyUtils", "WIFI");
+                    boolean a = g.a(context, "android.permission.CHANGE_NETWORK_STATE");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("CHANGE_NETWORK_STATE=");
+                    sb.append(a);
+                    c.a("TelephonyUtils", sb.toString());
+                    if (a && z && a(connectivityManager, context)) {
+                        c.b("TelephonyUtils", "流量数据 WIFI 同开");
+                        return 3;
                     }
-                    return 0;
+                    return 2;
                 }
-                c.b("TelephonyUtils", "WIFI");
-                boolean a = g.a(context, "android.permission.CHANGE_NETWORK_STATE");
-                StringBuilder sb = new StringBuilder();
-                sb.append("CHANGE_NETWORK_STATE=");
-                sb.append(a);
-                c.a("TelephonyUtils", sb.toString());
-                if (a && z && a(connectivityManager, context)) {
-                    c.b("TelephonyUtils", "流量数据 WIFI 同开");
-                    return 3;
+                if (type == 0) {
+                    c.b("TelephonyUtils", "流量");
+                    return 1;
                 }
-                return 2;
+                return 0;
             }
             return 0;
         }
         return invokeLZ.intValue;
     }
 
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Build.BRAND;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.MODEL : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Build.MODEL;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String c() {
@@ -72,7 +87,13 @@ public class m {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT <= 28 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT <= 28) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean e() {
@@ -84,6 +105,19 @@ public class m {
             return "HUAWEI".equalsIgnoreCase(str);
         }
         return invokeV.booleanValue;
+    }
+
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            if (telephonyManager == null || 1 != telephonyManager.getSimState()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean a(ConnectivityManager connectivityManager, Context context) {
@@ -109,21 +143,5 @@ public class m {
             }
         }
         return invokeLL.booleanValue;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.BRAND : (String) invokeV.objValue;
-    }
-
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            return telephonyManager == null || 1 != telephonyManager.getSimState();
-        }
-        return invokeL.booleanValue;
     }
 }

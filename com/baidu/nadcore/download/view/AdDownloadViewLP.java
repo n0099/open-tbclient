@@ -13,15 +13,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.el0;
-import com.baidu.tieba.lk0;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.fl0;
+import com.baidu.tieba.mk0;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
+public class AdDownloadViewLP extends View implements fl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint a;
@@ -49,9 +47,17 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
     public State n;
     public float o;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fl0
+    public AdDownloadViewLP getRealView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (AdDownloadViewLP) invokeV.objValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State DOWNLOADING;
@@ -101,13 +107,19 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
@@ -146,7 +158,7 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class b {
+    public /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,18 +219,92 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
         i();
     }
 
-    @Override // com.baidu.tieba.el0
-    public void b(@NonNull ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.fl0
+    public void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.width = (int) (t21.c.e(getContext()) * t21.c.h(R.dimen.obfuscated_res_0x7f07051e));
-            layoutParams.height = (int) (t21.c.c(getContext()) * t21.c.h(R.dimen.obfuscated_res_0x7f07051c));
-            layoutParams.addRule(13, -1);
-            viewGroup.addView(this, layoutParams);
-            viewGroup.setVisibility(0);
-            viewGroup.bringToFront();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || !(viewGroup instanceof RelativeLayout)) {
+            return;
         }
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+        layoutParams.width = (int) (u21.c.e(getContext()) * u21.c.h(R.dimen.obfuscated_res_0x7f07051e));
+        layoutParams.height = (int) (u21.c.c(getContext()) * u21.c.h(R.dimen.obfuscated_res_0x7f07051c));
+        layoutParams.addRule(13, -1);
+        viewGroup.addView(this, layoutParams);
+        viewGroup.setVisibility(0);
+        viewGroup.bringToFront();
+    }
+
+    public final void f(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            this.i.setTextSize(this.k);
+            float height = (canvas.getHeight() / 2.0f) - ((this.i.descent() / 2.0f) + (this.i.ascent() / 2.0f));
+            float measureText = this.i.measureText(this.l);
+            this.i.setColor(this.j);
+            canvas.drawText(this.l, (getMeasuredWidth() - measureText) / 2.0f, height, this.i);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AdDownloadViewLP(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new Paint();
+        this.b = -2210218;
+        this.c = -1;
+        this.e = 1073741824;
+        this.i = new Paint();
+        this.j = -1;
+        this.m = 100;
+        this.n = State.PREPARE;
+        this.o = -1.0f;
+        i();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AdDownloadViewLP(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new Paint();
+        this.b = -2210218;
+        this.c = -1;
+        this.e = 1073741824;
+        this.i = new Paint();
+        this.j = -1;
+        this.m = 100;
+        this.n = State.PREPARE;
+        this.o = -1.0f;
+        i();
     }
 
     public final void d(Canvas canvas, RectF rectF) {
@@ -228,9 +314,26 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
             this.a.setStyle(Paint.Style.FILL);
             float f = this.o;
             if (f <= 0.0f) {
-                f = this.f ? rectF.height() / 2.0f : 0.0f;
+                if (this.f) {
+                    f = rectF.height() / 2.0f;
+                } else {
+                    f = 0.0f;
+                }
             }
             canvas.drawRoundRect(rectF, f, f, this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.fl0
+    public void update(String str, mk0 mk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, str, mk0Var) == null) {
+            this.l = str;
+            if (mk0Var.c == AdDownloadStatus.DOWNLOADING) {
+                this.l = "已下载 : " + this.l;
+            }
+            setProgress((int) mk0Var.i);
+            postInvalidate();
         }
     }
 
@@ -239,16 +342,15 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.draw(canvas);
-            if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.l)) {
-                return;
-            }
-            if (this.c != -1) {
-                j();
-            }
-            if (!this.h) {
-                h(canvas);
-            } else {
-                g(canvas);
+            if (getWidth() != 0 && getHeight() != 0 && !TextUtils.isEmpty(this.l)) {
+                if (this.c != -1) {
+                    j();
+                }
+                if (!this.h) {
+                    h(canvas);
+                } else {
+                    g(canvas);
+                }
             }
         }
     }
@@ -259,18 +361,18 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
             int i = b.a[this.n.ordinal()];
             float f = 0.0f;
             if (i != 1) {
-                if (i != 2) {
+                if (i == 2) {
+                    this.a.setColor(this.e);
+                    this.a.setStyle(Paint.Style.FILL);
+                    float f2 = this.o;
+                    if (f2 > 0.0f) {
+                        f = f2;
+                    } else if (this.f) {
+                        f = rectF.height() / 2.0f;
+                    }
+                    canvas.drawRoundRect(rectF, f, f, this.a);
                     return;
                 }
-                this.a.setColor(this.e);
-                this.a.setStyle(Paint.Style.FILL);
-                float f2 = this.o;
-                if (f2 > 0.0f) {
-                    f = f2;
-                } else if (this.f) {
-                    f = rectF.height() / 2.0f;
-                }
-                canvas.drawRoundRect(rectF, f, f, this.a);
                 return;
             }
             Paint paint = new Paint();
@@ -287,17 +389,6 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
         }
     }
 
-    public final void f(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            this.i.setTextSize(this.k);
-            float height = (canvas.getHeight() / 2.0f) - ((this.i.descent() / 2.0f) + (this.i.ascent() / 2.0f));
-            float measureText = this.i.measureText(this.l);
-            this.i.setColor(this.j);
-            canvas.drawText(this.l, (getMeasuredWidth() - measureText) / 2.0f, height, this.i);
-        }
-    }
-
     public final void g(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
@@ -305,57 +396,6 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
             d(canvas, rectF);
             e(canvas, rectF);
             f(canvas);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.el0
-    @NonNull
-    public AdDownloadViewLP getRealView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (AdDownloadViewLP) invokeV.objValue;
-    }
-
-    public final void h(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
-            float f = 0;
-            RectF rectF = new RectF(f, f, getWidth() + 0, getHeight() + 0);
-            this.a.setColor(this.b);
-            this.a.setStyle(Paint.Style.FILL);
-            float f2 = this.o;
-            if (f2 <= 0.0f) {
-                f2 = this.f ? rectF.height() / 2.0f : 0.0f;
-            }
-            canvas.drawRoundRect(rectF, f2, f2, this.a);
-            this.i.setColor(this.j);
-            this.i.setTextSize(this.k);
-            Paint.FontMetrics fontMetrics = this.i.getFontMetrics();
-            float f3 = fontMetrics.descent;
-            canvas.drawText(this.l, (getMeasuredWidth() - this.i.measureText(this.l)) / 2.0f, ((getHeight() / 2.0f) - f3) + ((f3 - fontMetrics.ascent) / 2.0f), this.i);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070553));
-            m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083b));
-            n(-1);
-            l(true);
-            k(true);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.d == null) {
-            ValueAnimator ofObject = ValueAnimator.ofObject(new ArgbEvaluator(), Integer.valueOf(this.b), Integer.valueOf(this.c));
-            this.d = ofObject;
-            ofObject.setDuration(500L);
-            this.d.addUpdateListener(new a(this));
-            this.d.start();
         }
     }
 
@@ -437,78 +477,50 @@ public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
         }
     }
 
-    @Override // com.baidu.tieba.el0
-    public void update(String str, @NonNull lk0 lk0Var) {
+    public final void h(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, str, lk0Var) == null) {
-            this.l = str;
-            if (lk0Var.c == AdDownloadStatus.DOWNLOADING) {
-                this.l = "已下载 : " + this.l;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
+            float f = 0;
+            RectF rectF = new RectF(f, f, getWidth() + 0, getHeight() + 0);
+            this.a.setColor(this.b);
+            this.a.setStyle(Paint.Style.FILL);
+            float f2 = this.o;
+            if (f2 <= 0.0f) {
+                if (this.f) {
+                    f2 = rectF.height() / 2.0f;
+                } else {
+                    f2 = 0.0f;
+                }
             }
-            setProgress((int) lk0Var.i);
-            postInvalidate();
+            canvas.drawRoundRect(rectF, f2, f2, this.a);
+            this.i.setColor(this.j);
+            this.i.setTextSize(this.k);
+            Paint.FontMetrics fontMetrics = this.i.getFontMetrics();
+            float f3 = fontMetrics.descent;
+            canvas.drawText(this.l, (getMeasuredWidth() - this.i.measureText(this.l)) / 2.0f, ((getHeight() / 2.0f) - f3) + ((f3 - fontMetrics.ascent) / 2.0f), this.i);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdDownloadViewLP(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            o(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070553));
+            m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083b));
+            n(-1);
+            l(true);
+            k(true);
         }
-        this.a = new Paint();
-        this.b = -2210218;
-        this.c = -1;
-        this.e = 1073741824;
-        this.i = new Paint();
-        this.j = -1;
-        this.m = 100;
-        this.n = State.PREPARE;
-        this.o = -1.0f;
-        i();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdDownloadViewLP(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.d != null) {
+            return;
         }
-        this.a = new Paint();
-        this.b = -2210218;
-        this.c = -1;
-        this.e = 1073741824;
-        this.i = new Paint();
-        this.j = -1;
-        this.m = 100;
-        this.n = State.PREPARE;
-        this.o = -1.0f;
-        i();
+        ValueAnimator ofObject = ValueAnimator.ofObject(new ArgbEvaluator(), Integer.valueOf(this.b), Integer.valueOf(this.c));
+        this.d = ofObject;
+        ofObject.setDuration(500L);
+        this.d.addUpdateListener(new a(this));
+        this.d.start();
     }
 }

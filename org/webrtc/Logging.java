@@ -24,9 +24,24 @@ public class Logging {
     public static volatile boolean loggingEnabled;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Deprecated
+    public static void enableTracing(String str, EnumSet enumSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, enumSet) == null) {
+        }
+    }
+
+    public static native void nativeEnableLogThreads();
+
+    public static native void nativeEnableLogTimeStamps();
+
+    public static native void nativeEnableLogToDebugOutput(int i);
+
+    public static native void nativeLog(int i, String str, String str2);
+
     /* renamed from: org.webrtc.Logging$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$Logging$Severity;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +78,7 @@ public class Logging {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Severity {
+    public final class Severity {
         public static final /* synthetic */ Severity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Severity LS_ERROR;
@@ -119,20 +134,26 @@ public class Logging {
         public static Severity valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Severity) Enum.valueOf(Severity.class, str) : (Severity) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Severity) Enum.valueOf(Severity.class, str);
+            }
+            return (Severity) invokeL.objValue;
         }
 
         public static Severity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Severity[]) $VALUES.clone() : (Severity[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Severity[]) $VALUES.clone();
+            }
+            return (Severity[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
     /* loaded from: classes8.dex */
-    public static final class TraceLevel {
+    public final class TraceLevel {
         public static final /* synthetic */ TraceLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TraceLevel TRACE_ALL;
@@ -209,13 +230,19 @@ public class Logging {
         public static TraceLevel valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TraceLevel) Enum.valueOf(TraceLevel.class, str) : (TraceLevel) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TraceLevel) Enum.valueOf(TraceLevel.class, str);
+            }
+            return (TraceLevel) invokeL.objValue;
         }
 
         public static TraceLevel[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TraceLevel[]) $VALUES.clone() : (TraceLevel[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TraceLevel[]) $VALUES.clone();
+            }
+            return (TraceLevel[]) invokeV.objValue;
         }
     }
 
@@ -260,24 +287,10 @@ public class Logging {
         return (Logger) invokeV.objValue;
     }
 
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            log(Severity.LS_INFO, str, str2);
-        }
-    }
-
     public static void deleteInjectedLoggable() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             loggable = null;
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            log(Severity.LS_ERROR, str, str2);
         }
     }
 
@@ -295,91 +308,27 @@ public class Logging {
         }
     }
 
-    public static synchronized void enableLogToDebugOutput(Severity severity) {
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, severity) == null) {
-            synchronized (Logging.class) {
-                if (loggable == null) {
-                    nativeEnableLogToDebugOutput(severity.ordinal());
-                    loggingEnabled = true;
-                } else {
-                    throw new IllegalStateException("Logging to native debug output not supported while Loggable is injected. Delete the Loggable before calling this method.");
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            log(Severity.LS_INFO, str, str2);
         }
     }
 
-    @Deprecated
-    public static void enableTracing(String str, EnumSet<TraceLevel> enumSet) {
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, enumSet) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            log(Severity.LS_ERROR, str, str2);
         }
-    }
-
-    public static String getStackTraceString(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, th)) == null) {
-            if (th == null) {
-                return "";
-            }
-            StringWriter stringWriter = new StringWriter();
-            th.printStackTrace(new PrintWriter(stringWriter));
-            return stringWriter.toString();
-        }
-        return (String) invokeL.objValue;
     }
 
     public static void injectLoggable(Loggable loggable2, Severity severity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, loggable2, severity) == null) || loggable2 == null) {
-            return;
-        }
-        loggable = loggable2;
-        loggableSeverity = severity;
-    }
-
-    public static void log(Severity severity, String str, String str2) {
-        Level level;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, severity, str, str2) == null) {
-            if (str != null && str2 != null) {
-                if (loggable != null) {
-                    if (severity.ordinal() < loggableSeverity.ordinal()) {
-                        return;
-                    }
-                    loggable.onLogMessage(str2, severity, str);
-                    return;
-                } else if (loggingEnabled) {
-                    nativeLog(severity.ordinal(), str, str2);
-                    return;
-                } else {
-                    int i = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
-                    if (i == 1) {
-                        level = Level.SEVERE;
-                    } else if (i == 2) {
-                        level = Level.WARNING;
-                    } else if (i != 3) {
-                        level = Level.FINE;
-                    } else {
-                        level = Level.INFO;
-                    }
-                    Logger logger = fallbackLogger;
-                    logger.log(level, str + ": " + str2);
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("Logging tag or message may not be null.");
+        if ((interceptable == null || interceptable.invokeLL(65548, null, loggable2, severity) == null) && loggable2 != null) {
+            loggable = loggable2;
+            loggableSeverity = severity;
         }
     }
-
-    public static native void nativeEnableLogThreads();
-
-    public static native void nativeEnableLogTimeStamps();
-
-    public static native void nativeEnableLogToDebugOutput(int i);
-
-    public static native void nativeLog(int i, String str, String str2);
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -410,6 +359,72 @@ public class Logging {
             log(Severity.LS_WARNING, str, str2);
             log(Severity.LS_WARNING, str, th.toString());
             log(Severity.LS_WARNING, str, getStackTraceString(th));
+        }
+    }
+
+    public static synchronized void enableLogToDebugOutput(Severity severity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, severity) == null) {
+            synchronized (Logging.class) {
+                if (loggable == null) {
+                    nativeEnableLogToDebugOutput(severity.ordinal());
+                    loggingEnabled = true;
+                } else {
+                    throw new IllegalStateException("Logging to native debug output not supported while Loggable is injected. Delete the Loggable before calling this method.");
+                }
+            }
+        }
+    }
+
+    public static String getStackTraceString(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, th)) == null) {
+            if (th == null) {
+                return "";
+            }
+            StringWriter stringWriter = new StringWriter();
+            th.printStackTrace(new PrintWriter(stringWriter));
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void log(Severity severity, String str, String str2) {
+        Level level;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, severity, str, str2) == null) {
+            if (str != null && str2 != null) {
+                if (loggable != null) {
+                    if (severity.ordinal() < loggableSeverity.ordinal()) {
+                        return;
+                    }
+                    loggable.onLogMessage(str2, severity, str);
+                    return;
+                } else if (loggingEnabled) {
+                    nativeLog(severity.ordinal(), str, str2);
+                    return;
+                } else {
+                    int i = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                level = Level.FINE;
+                            } else {
+                                level = Level.INFO;
+                            }
+                        } else {
+                            level = Level.WARNING;
+                        }
+                    } else {
+                        level = Level.SEVERE;
+                    }
+                    Logger logger = fallbackLogger;
+                    logger.log(level, str + ": " + str2);
+                    return;
+                }
+            }
+            throw new IllegalArgumentException("Logging tag or message may not be null.");
         }
     }
 }

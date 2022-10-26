@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,21 +49,20 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
         }
     }
 
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.b != null) {
+            TiebaStatic.log(new StatisticItem("c13399").param("tid", this.b.getTid()).param("fid", this.b.getFid()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("nid", this.b.getNid()));
+        }
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.d();
-            SkinManager.setBackgroundShapeDrawable(this.a, ej.f(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
+            SkinManager.setBackgroundShapeDrawable(this.a, fj.f(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
         }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.b == null) {
-            return;
-        }
-        TiebaStatic.log(new StatisticItem("c13399").param("tid", this.b.getTid()).param("fid", this.b.getFid()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("nid", this.b.getNid()));
     }
 
     public void setData(ThreadData threadData) {

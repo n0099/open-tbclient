@@ -1,8 +1,9 @@
 package com.baidu.bdtask.service.cache.storage;
 
+import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tu;
+import com.baidu.tieba.uu;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,19 +17,21 @@ import java.util.concurrent.locks.ReentrantLock;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\"\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010%\n\u0002\b\u0007\b&\u0018\u0000 .2\u00020\u0001:\u0001.B\u0007¢\u0006\u0004\b-\u0010\u0004J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\b\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\b\u0010\tJ\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\r\u001a\u00020\u0002H$¢\u0006\u0004\b\r\u0010\u0004J\u0017\u0010\u000e\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ*\u0010\u0012\u001a\u00020\u0002\"\b\b\u0000\u0010\u0010*\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0011\u001a\u00028\u0000H\u0096\u0002¢\u0006\u0004\b\u0012\u0010\u0013J)\u0010\u0014\u001a\u00020\u0002\"\b\b\u0000\u0010\u0010*\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0011\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\u0014\u0010\u0013J3\u0010\u0018\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\u00102\n\b\u0002\u0010\u0015\u001a\u0004\u0018\u00018\u00002\u000e\u0010\u0017\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u0016H\u0002¢\u0006\u0004\b\u0018\u0010\u0019R\u0016\u0010\u001a\u001a\u00020\u00078V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u001a\u0010\u001bR\"\u0010\u001c\u001a\u00020\u00078\u0004@\u0004X\u0084\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001c\u0010\u001b\"\u0004\b\u001e\u0010\u001fR\u001c\u0010#\u001a\b\u0012\u0004\u0012\u00020\u00050 8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\"R\u0016\u0010'\u001a\u00020$8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b%\u0010&R(\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\n0(8\u0004@\u0004X\u0084\u0004¢\u0006\f\n\u0004\b)\u0010*\u001a\u0004\b+\u0010,¨\u0006/"}, d2 = {"Lcom/baidu/bdtask/service/cache/storage/ConcurrentStorage;", "Lcom/baidu/tieba/tu;", "", "clear", "()V", "", "key", "", "contains", "(Ljava/lang/String;)Z", "", "getAny", "(Ljava/lang/String;)Ljava/lang/Object;", "onStorageChanged", "remove", "(Ljava/lang/String;)V", "T", "value", "set", "(Ljava/lang/String;Ljava/lang/Object;)V", "setIfAbsent", "defaultValue", "Lkotlin/Function0;", "action", "withCheck", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "isEmpty", "()Z", "isReady", "Z", "setReady", "(Z)V", "", "getKeys", "()Ljava/util/Set;", SavedStateHandle.KEYS, "", "getSize", "()I", "size", "", "storage", "Ljava/util/Map;", "getStorage", "()Ljava/util/Map;", "<init>", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\"\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010%\n\u0002\b\u0007\b&\u0018\u0000 .2\u00020\u0001:\u0001.B\u0007¢\u0006\u0004\b-\u0010\u0004J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\b\u001a\u00020\u00072\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\b\u0010\tJ\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\r\u001a\u00020\u0002H$¢\u0006\u0004\b\r\u0010\u0004J\u0017\u0010\u000e\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ*\u0010\u0012\u001a\u00020\u0002\"\b\b\u0000\u0010\u0010*\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0011\u001a\u00028\u0000H\u0096\u0002¢\u0006\u0004\b\u0012\u0010\u0013J)\u0010\u0014\u001a\u00020\u0002\"\b\b\u0000\u0010\u0010*\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0011\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\u0014\u0010\u0013J3\u0010\u0018\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\u00102\n\b\u0002\u0010\u0015\u001a\u0004\u0018\u00018\u00002\u000e\u0010\u0017\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u0016H\u0002¢\u0006\u0004\b\u0018\u0010\u0019R\u0016\u0010\u001a\u001a\u00020\u00078V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u001a\u0010\u001bR\"\u0010\u001c\u001a\u00020\u00078\u0004@\u0004X\u0084\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001c\u0010\u001b\"\u0004\b\u001e\u0010\u001fR\u001c\u0010#\u001a\b\u0012\u0004\u0012\u00020\u00050 8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\"R\u0016\u0010'\u001a\u00020$8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b%\u0010&R(\u0010)\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\n0(8\u0004@\u0004X\u0084\u0004¢\u0006\f\n\u0004\b)\u0010*\u001a\u0004\b+\u0010,¨\u0006/"}, d2 = {"Lcom/baidu/bdtask/service/cache/storage/ConcurrentStorage;", "Lcom/baidu/tieba/uu;", "", "clear", "()V", "", "key", "", "contains", "(Ljava/lang/String;)Z", "", "getAny", "(Ljava/lang/String;)Ljava/lang/Object;", "onStorageChanged", "remove", "(Ljava/lang/String;)V", ExifInterface.GPS_DIRECTION_TRUE, "value", "set", "(Ljava/lang/String;Ljava/lang/Object;)V", "setIfAbsent", "defaultValue", "Lkotlin/Function0;", "action", "withCheck", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "isEmpty", "()Z", "isReady", "Z", "setReady", "(Z)V", "", "getKeys", "()Ljava/util/Set;", SavedStateHandle.KEYS, "", "getSize", "()I", "size", "", "storage", "Ljava/util/Map;", "getStorage", "()Ljava/util/Map;", "<init>", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public abstract class a implements tu {
+public abstract class a implements uu {
     public static /* synthetic */ Interceptable $ic;
     public static final ReentrantLock c;
     public static final C0076a d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public final Map<String, Object> b;
+    public final Map b;
+
+    public abstract void g();
 
     /* renamed from: com.baidu.bdtask.service.cache.storage.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0076a {
+    public final class C0076a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,7 +52,10 @@ public abstract class a implements tu {
         public final ReentrantLock a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.c : (ReentrantLock) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return a.c;
+            }
+            return (ReentrantLock) invokeV.objValue;
         }
 
         public /* synthetic */ C0076a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -90,6 +96,15 @@ public abstract class a implements tu {
         this.b = new ConcurrentHashMap();
     }
 
+    public final Map c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (Map) invokeV.objValue;
+    }
+
     public static /* synthetic */ Object a(a aVar, Object obj, Function0 function0, int i, Object obj2) {
         if (obj2 == null) {
             if ((i & 1) != 0) {
@@ -100,25 +115,40 @@ public abstract class a implements tu {
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: withCheck");
     }
 
-    @Override // com.baidu.tieba.tu
+    public final Object b(Object obj, Function0 function0) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, function0)) == null) {
+            ReentrantLock a = d.a();
+            a.lock();
+            try {
+                if (this.a) {
+                    return function0.invoke();
+                }
+                return obj;
+            } finally {
+                a.unlock();
+            }
+        }
+        return invokeLL.objValue;
+    }
+
+    public void d(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
+            this.b.put(str, obj);
+            a(this, null, new ConcurrentStorage$set$1(this), 1, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.uu
     public Object b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.get(str) : invokeL.objValue;
-    }
-
-    public final Map<String, Object> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Map) invokeV.objValue;
-    }
-
-    public <T> void d(String str, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, t) == null) {
-            this.b.put(str, t);
-            a(this, null, new ConcurrentStorage$set$1(this), 1, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.get(str);
         }
+        return invokeL.objValue;
     }
 
     public final void e(boolean z) {
@@ -139,22 +169,5 @@ public abstract class a implements tu {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public abstract void g();
-
-    public final <T> T b(T t, Function0<? extends T> function0) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, t, function0)) == null) {
-            ReentrantLock a = d.a();
-            a.lock();
-            try {
-                return this.a ? function0.invoke() : t;
-            } finally {
-                a.unlock();
-            }
-        }
-        return (T) invokeLL.objValue;
     }
 }

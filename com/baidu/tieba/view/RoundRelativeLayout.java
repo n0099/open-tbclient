@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,91 +46,6 @@ public class RoundRelativeLayout extends RelativeLayout {
         this.d = true;
         this.e = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setWillNotDraw(false);
-            this.b = new Path();
-            this.c = new RectF();
-        }
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getWidth() > ej.k(TbadkCoreApplication.getInst()) : invokeV.booleanValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.addRoundRect(this.c, this.e, Path.Direction.CW);
-        }
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || b()) {
-            return;
-        }
-        if (this.d) {
-            canvas.clipPath(this.b);
-        }
-        super.draw(canvas);
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || b()) {
-            return;
-        }
-        super.onLayout(z, i, i2, i3, i4);
-        this.c.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-        c();
-    }
-
-    public void setAllCornerRound(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeF(1048581, this, f) != null) {
-            return;
-        }
-        int i = 0;
-        if (f == 0.0f) {
-            this.d = false;
-            invalidate();
-            return;
-        }
-        this.d = true;
-        this.e = new float[8];
-        while (true) {
-            float[] fArr = this.e;
-            if (i < fArr.length) {
-                fArr[i] = f;
-                i++;
-            } else {
-                c();
-                invalidate();
-                return;
-            }
-        }
-    }
-
-    public void setRoundLayoutRadius(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) || fArr == null || fArr.length <= 0) {
-            return;
-        }
-        this.e = new float[fArr.length];
-        for (int i = 0; i < fArr.length; i++) {
-            this.e[i] = fArr[i];
-        }
-        this.d = true;
-        c();
-        invalidate();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -181,5 +96,94 @@ public class RoundRelativeLayout extends RelativeLayout {
         this.d = true;
         this.e = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setWillNotDraw(false);
+            this.b = new Path();
+            this.c = new RectF();
+        }
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (getWidth() > fj.k(TbadkCoreApplication.getInst())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.addRoundRect(this.c, this.e, Path.Direction.CW);
+        }
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, canvas) != null) || b()) {
+            return;
+        }
+        if (this.d) {
+            canvas.clipPath(this.b);
+        }
+        super.draw(canvas);
+    }
+
+    public void setRoundLayoutRadius(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) && fArr != null && fArr.length > 0) {
+            this.e = new float[fArr.length];
+            for (int i = 0; i < fArr.length; i++) {
+                this.e[i] = fArr[i];
+            }
+            this.d = true;
+            c();
+            invalidate();
+        }
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || b()) {
+            return;
+        }
+        super.onLayout(z, i, i2, i3, i4);
+        this.c.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        c();
+    }
+
+    public void setAllCornerRound(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            int i = 0;
+            if (f == 0.0f) {
+                this.d = false;
+                invalidate();
+                return;
+            }
+            this.d = true;
+            this.e = new float[8];
+            while (true) {
+                float[] fArr = this.e;
+                if (i < fArr.length) {
+                    fArr[i] = f;
+                    i++;
+                } else {
+                    c();
+                    invalidate();
+                    return;
+                }
+            }
+        }
     }
 }

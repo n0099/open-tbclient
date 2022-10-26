@@ -15,9 +15,19 @@ public class CameraConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
+    public static native void nativeDestroyCameraConfig(long j);
+
+    private native String nativeGetCameraId(long j, long j2);
+
+    private native int nativeGetFacingDirection(long j, long j2);
+
+    private native void nativeGetImageDimensions(long j, long j2, int[] iArr);
+
+    private native void nativeGetTextureDimensions(long j, long j2, int[] iArr);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class FacingDirection {
+    public final class FacingDirection {
         public static final /* synthetic */ FacingDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FacingDirection BACK;
@@ -86,13 +96,19 @@ public class CameraConfig {
         public static FacingDirection valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (FacingDirection) Enum.valueOf(FacingDirection.class, str) : (FacingDirection) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (FacingDirection) Enum.valueOf(FacingDirection.class, str);
+            }
+            return (FacingDirection) invokeL.objValue;
         }
 
         public static FacingDirection[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FacingDirection[]) $VALUES.clone() : (FacingDirection[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (FacingDirection[]) $VALUES.clone();
+            }
+            return (FacingDirection[]) invokeV.objValue;
         }
     }
 
@@ -111,16 +127,6 @@ public class CameraConfig {
         }
         this.a = 0L;
     }
-
-    public static native void nativeDestroyCameraConfig(long j);
-
-    private native String nativeGetCameraId(long j, long j2);
-
-    private native int nativeGetFacingDirection(long j, long j2);
-
-    private native void nativeGetImageDimensions(long j, long j2, int[] iArr);
-
-    private native void nativeGetTextureDimensions(long j, long j2, int[] iArr);
 
     public void finalize() {
         Interceptable interceptable = $ic;

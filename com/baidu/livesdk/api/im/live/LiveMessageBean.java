@@ -49,7 +49,104 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public static class Data {
+    public interface MessageType {
+        public static final int PIC = 1;
+        public static final int PIC_LINK = 4;
+        public static final int PIC_TXT = 2;
+        public static final int TXT = 0;
+        public static final int TXT_LINK = 3;
+        public static final int VOICE = 5;
+    }
+
+    /* loaded from: classes2.dex */
+    public interface ServiceType {
+        public static final int QUIZ_CONTINUE_INFO = 6;
+        public static final int QUIZ_CONTINUE_RESULT = 7;
+        public static final int QUIZ_LIVE_START = 2;
+        public static final int QUIZ_QUESTION_ANSWER = 3;
+        public static final int QUIZ_QUESTION_INFO = 1;
+        public static final int QUIZ_QUESTION_START = 5;
+        public static final int QUIZ_WINNER_RESULT = 4;
+    }
+
+    /* loaded from: classes2.dex */
+    public interface StickOperation {
+        public static final int CANCEL_STICK = 2;
+        public static final int STICK = 1;
+    }
+
+    /* loaded from: classes2.dex */
+    public interface Type {
+        public static final int AT = 3;
+        public static final int ENTER_LIVE = 1001;
+        public static final int HINT = 1;
+        public static final int LIVE_CLOSE = 102;
+        public static final int LIVE_DELETE_MSG = 106;
+        public static final int LIVE_ROOM_NOTICE = 103;
+        public static final int LIVE_RTMP_CHANGE = 104;
+        public static final int LIVE_SERVER = 107;
+        public static final int LIVE_SERVER1 = 108;
+        public static final int LIVE_STATE_INFO = 101;
+        public static final int LIVE_STICK_MSG = 105;
+        public static final int NORMAL = 0;
+        public static final int NOTICE = 2;
+        public static final int SYSTEM_TXT = 100;
+    }
+
+    /* loaded from: classes2.dex */
+    public interface Vip {
+        public static final int NOMALUSER = 0;
+        public static final int VIP = 1;
+    }
+
+    /* loaded from: classes2.dex */
+    public class Pic {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageInfo origin;
+        public ImageInfo thumbnail;
+
+        /* loaded from: classes2.dex */
+        public class ImageInfo {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String format;
+            public int height;
+            public String url;
+            public int width;
+
+            public ImageInfo() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+        }
+
+        public Pic() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class Data {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String closeExt;
@@ -95,7 +192,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public static class Link {
+    public class Link {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String title;
@@ -117,7 +214,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public static class MessageBody {
+    public class MessageBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Link link;
@@ -141,80 +238,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public interface MessageType {
-        public static final int PIC = 1;
-        public static final int PIC_LINK = 4;
-        public static final int PIC_TXT = 2;
-        public static final int TXT = 0;
-        public static final int TXT_LINK = 3;
-        public static final int VOICE = 5;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class Pic {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ImageInfo origin;
-        public ImageInfo thumbnail;
-
-        /* loaded from: classes2.dex */
-        public static class ImageInfo {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public String format;
-            public int height;
-            public String url;
-            public int width;
-
-            public ImageInfo() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public Pic() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface ServiceType {
-        public static final int QUIZ_CONTINUE_INFO = 6;
-        public static final int QUIZ_CONTINUE_RESULT = 7;
-        public static final int QUIZ_LIVE_START = 2;
-        public static final int QUIZ_QUESTION_ANSWER = 3;
-        public static final int QUIZ_QUESTION_INFO = 1;
-        public static final int QUIZ_QUESTION_START = 5;
-        public static final int QUIZ_WINNER_RESULT = 4;
-    }
-
-    /* loaded from: classes2.dex */
-    public interface StickOperation {
-        public static final int CANCEL_STICK = 2;
-        public static final int STICK = 1;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class Txt {
+    public class Txt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String word;
@@ -235,31 +259,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public interface Type {
-        public static final int AT = 3;
-        public static final int ENTER_LIVE = 1001;
-        public static final int HINT = 1;
-        public static final int LIVE_CLOSE = 102;
-        public static final int LIVE_DELETE_MSG = 106;
-        public static final int LIVE_ROOM_NOTICE = 103;
-        public static final int LIVE_RTMP_CHANGE = 104;
-        public static final int LIVE_SERVER = 107;
-        public static final int LIVE_SERVER1 = 108;
-        public static final int LIVE_STATE_INFO = 101;
-        public static final int LIVE_STICK_MSG = 105;
-        public static final int NORMAL = 0;
-        public static final int NOTICE = 2;
-        public static final int SYSTEM_TXT = 100;
-    }
-
-    /* loaded from: classes2.dex */
-    public interface Vip {
-        public static final int NOMALUSER = 0;
-        public static final int VIP = 1;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class Voice {
+    public class Voice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String duration;

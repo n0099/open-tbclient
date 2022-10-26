@@ -61,7 +61,7 @@ public final class d {
     public String q;
     public int r;
     public Thread s;
-    public List<String> t;
+    public List t;
     public boolean u;
     public Socket w;
     public InputStream x;
@@ -167,7 +167,7 @@ public final class d {
                                 this.a.l.a().wait();
                             }
                             if (this.a.l.a().size() > 0) {
-                                eVar = this.a.l.a().removeFirst();
+                                eVar = (com.baidu.android.pushservice.message.e) this.a.l.a().removeFirst();
                             }
                         } catch (Exception e) {
                             new b.c(this.a.k).a(Log.getStackTraceString(e)).a();
@@ -388,7 +388,7 @@ public final class d {
                         }
 
                         @Override // com.baidu.android.pushservice.c.a
-                        public void a(int i5, List<String> list) {
+                        public void a(int i5, List list) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i5, list) == null) {
                                 this.b.q = null;
@@ -433,7 +433,7 @@ public final class d {
                                 }
 
                                 @Override // com.baidu.android.pushservice.c.a
-                                public void a(int i5, List<String> list) {
+                                public void a(int i5, List list) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i5, list) == null) {
                                         this.b.q = null;
@@ -495,7 +495,7 @@ public final class d {
                                 }
 
                                 @Override // com.baidu.android.pushservice.c.a
-                                public void a(int i2, List<String> list) {
+                                public void a(int i2, List list) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
                                         this.b.c = false;
@@ -537,7 +537,7 @@ public final class d {
                                 }
 
                                 @Override // com.baidu.android.pushservice.c.a
-                                public void a(int i2, List<String> list) {
+                                public void a(int i2, List list) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
                                         this.b.c = false;
@@ -655,7 +655,7 @@ public final class d {
                         return;
                     }
                     if (this.t.size() > 0) {
-                        this.p = this.t.remove(0);
+                        this.p = (String) this.t.remove(0);
                     }
                     b = Boolean.TRUE;
                     Runnable runnable = new Runnable(this, i) { // from class: com.baidu.android.pushservice.d.3

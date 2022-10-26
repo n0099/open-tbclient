@@ -7,10 +7,6 @@ import android.os.HandlerThread;
 import android.util.SparseIntArray;
 import android.view.FrameMetrics;
 import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -50,7 +46,11 @@ public class FrameMetricsAggregator {
     public transient /* synthetic */ FieldHolder $fh;
     public FrameMetricsBaseImpl mInstance;
 
-    @RequiresApi(24)
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface MetricType {
+    }
+
     /* loaded from: classes.dex */
     public static class FrameMetricsApi24Impl extends FrameMetricsBaseImpl {
         public static /* synthetic */ Interceptable $ic = null;
@@ -188,12 +188,11 @@ public class FrameMetricsAggregator {
 
         public void addDurationItem(SparseIntArray sparseIntArray, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseIntArray, j) == null) || sparseIntArray == null) {
-                return;
-            }
-            int i = (int) ((500000 + j) / 1000000);
-            if (j >= 0) {
-                sparseIntArray.put(i, sparseIntArray.get(i) + 1);
+            if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseIntArray, j) == null) && sparseIntArray != null) {
+                int i = (int) ((500000 + j) / 1000000);
+                if (j >= 0) {
+                    sparseIntArray.put(i, sparseIntArray.get(i) + 1);
+                }
             }
         }
 
@@ -201,7 +200,22 @@ public class FrameMetricsAggregator {
         public SparseIntArray[] getMetrics() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMetrics : (SparseIntArray[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mMetrics;
+            }
+            return (SparseIntArray[]) invokeV.objValue;
+        }
+
+        @Override // androidx.core.app.FrameMetricsAggregator.FrameMetricsBaseImpl
+        public SparseIntArray[] reset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                SparseIntArray[] sparseIntArrayArr = this.mMetrics;
+                this.mMetrics = new SparseIntArray[9];
+                return sparseIntArrayArr;
+            }
+            return (SparseIntArray[]) invokeV.objValue;
         }
 
         @Override // androidx.core.app.FrameMetricsAggregator.FrameMetricsBaseImpl
@@ -227,18 +241,6 @@ public class FrameMetricsAggregator {
         }
 
         @Override // androidx.core.app.FrameMetricsAggregator.FrameMetricsBaseImpl
-        public SparseIntArray[] reset() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                SparseIntArray[] sparseIntArrayArr = this.mMetrics;
-                this.mMetrics = new SparseIntArray[9];
-                return sparseIntArrayArr;
-            }
-            return (SparseIntArray[]) invokeV.objValue;
-        }
-
-        @Override // androidx.core.app.FrameMetricsAggregator.FrameMetricsBaseImpl
         public SparseIntArray[] stop() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -261,20 +263,6 @@ public class FrameMetricsAggregator {
     public static class FrameMetricsBaseImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public FrameMetricsBaseImpl() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         public void add(Activity activity) {
             Interceptable interceptable = $ic;
@@ -317,12 +305,20 @@ public class FrameMetricsAggregator {
             }
             return (SparseIntArray[]) invokeV.objValue;
         }
-    }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface MetricType {
+        public FrameMetricsBaseImpl() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -343,39 +339,31 @@ public class FrameMetricsAggregator {
         }
     }
 
-    public void add(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.mInstance.add(activity);
-        }
-    }
-
-    @Nullable
     public SparseIntArray[] getMetrics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mInstance.getMetrics() : (SparseIntArray[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mInstance.getMetrics();
+        }
+        return (SparseIntArray[]) invokeV.objValue;
     }
 
-    @Nullable
-    public SparseIntArray[] remove(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) ? this.mInstance.remove(activity) : (SparseIntArray[]) invokeL.objValue;
-    }
-
-    @Nullable
     public SparseIntArray[] reset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mInstance.reset() : (SparseIntArray[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mInstance.reset();
+        }
+        return (SparseIntArray[]) invokeV.objValue;
     }
 
-    @Nullable
     public SparseIntArray[] stop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mInstance.stop() : (SparseIntArray[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mInstance.stop();
+        }
+        return (SparseIntArray[]) invokeV.objValue;
     }
 
     public FrameMetricsAggregator(int i) {
@@ -398,5 +386,21 @@ public class FrameMetricsAggregator {
         } else {
             this.mInstance = new FrameMetricsBaseImpl();
         }
+    }
+
+    public void add(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.mInstance.add(activity);
+        }
+    }
+
+    public SparseIntArray[] remove(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            return this.mInstance.remove(activity);
+        }
+        return (SparseIntArray[]) invokeL.objValue;
     }
 }

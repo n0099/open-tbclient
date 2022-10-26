@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
@@ -38,13 +37,13 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
 
     /* renamed from: com.google.zxing.multi.qrcode.QRCodeMultiReader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class SAComparator implements Serializable, Comparator<Result> {
+    public final class SAComparator implements Serializable, Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,7 +76,10 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
                 if (intValue < intValue2) {
                     return -1;
                 }
-                return intValue > intValue2 ? 1 : 0;
+                if (intValue > intValue2) {
+                    return 1;
+                }
+                return 0;
             }
             return invokeLL.intValue;
         }
@@ -114,15 +116,15 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
         }
     }
 
-    public static List<Result> processStructuredAppend(List<Result> list) {
+    public static List processStructuredAppend(List list) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            Iterator<Result> it = list.iterator();
+            Iterator it = list.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    if (it.next().getResultMetadata().containsKey(ResultMetadataType.STRUCTURED_APPEND_SEQUENCE)) {
+                    if (((Result) it.next()).getResultMetadata().containsKey(ResultMetadataType.STRUCTURED_APPEND_SEQUENCE)) {
                         z = true;
                         break;
                     }
@@ -131,52 +133,54 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
                     break;
                 }
             }
-            if (z) {
-                ArrayList arrayList = new ArrayList();
-                ArrayList<Result> arrayList2 = new ArrayList();
-                for (Result result : list) {
-                    arrayList.add(result);
-                    if (result.getResultMetadata().containsKey(ResultMetadataType.STRUCTURED_APPEND_SEQUENCE)) {
-                        arrayList2.add(result);
-                    }
-                }
-                Collections.sort(arrayList2, new SAComparator(null));
-                StringBuilder sb = new StringBuilder();
-                int i = 0;
-                int i2 = 0;
-                for (Result result2 : arrayList2) {
-                    sb.append(result2.getText());
-                    i += result2.getRawBytes().length;
-                    if (result2.getResultMetadata().containsKey(ResultMetadataType.BYTE_SEGMENTS)) {
-                        for (byte[] bArr : (Iterable) result2.getResultMetadata().get(ResultMetadataType.BYTE_SEGMENTS)) {
-                            i2 += bArr.length;
-                        }
-                    }
-                }
-                byte[] bArr2 = new byte[i];
-                byte[] bArr3 = new byte[i2];
-                int i3 = 0;
-                int i4 = 0;
-                for (Result result3 : arrayList2) {
-                    System.arraycopy(result3.getRawBytes(), 0, bArr2, i3, result3.getRawBytes().length);
-                    i3 += result3.getRawBytes().length;
-                    if (result3.getResultMetadata().containsKey(ResultMetadataType.BYTE_SEGMENTS)) {
-                        for (byte[] bArr4 : (Iterable) result3.getResultMetadata().get(ResultMetadataType.BYTE_SEGMENTS)) {
-                            System.arraycopy(bArr4, 0, bArr3, i4, bArr4.length);
-                            i4 += bArr4.length;
-                        }
-                    }
-                }
-                Result result4 = new Result(sb.toString(), bArr2, NO_POINTS, BarcodeFormat.QR_CODE);
-                if (i2 > 0) {
-                    ArrayList arrayList3 = new ArrayList();
-                    arrayList3.add(bArr3);
-                    result4.putMetadata(ResultMetadataType.BYTE_SEGMENTS, arrayList3);
-                }
-                arrayList.add(result4);
-                return arrayList;
+            if (!z) {
+                return list;
             }
-            return list;
+            ArrayList arrayList = new ArrayList();
+            ArrayList<Result> arrayList2 = new ArrayList();
+            Iterator it2 = list.iterator();
+            while (it2.hasNext()) {
+                Result result = (Result) it2.next();
+                arrayList.add(result);
+                if (result.getResultMetadata().containsKey(ResultMetadataType.STRUCTURED_APPEND_SEQUENCE)) {
+                    arrayList2.add(result);
+                }
+            }
+            Collections.sort(arrayList2, new SAComparator(null));
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            int i2 = 0;
+            for (Result result2 : arrayList2) {
+                sb.append(result2.getText());
+                i += result2.getRawBytes().length;
+                if (result2.getResultMetadata().containsKey(ResultMetadataType.BYTE_SEGMENTS)) {
+                    for (byte[] bArr : (Iterable) result2.getResultMetadata().get(ResultMetadataType.BYTE_SEGMENTS)) {
+                        i2 += bArr.length;
+                    }
+                }
+            }
+            byte[] bArr2 = new byte[i];
+            byte[] bArr3 = new byte[i2];
+            int i3 = 0;
+            int i4 = 0;
+            for (Result result3 : arrayList2) {
+                System.arraycopy(result3.getRawBytes(), 0, bArr2, i3, result3.getRawBytes().length);
+                i3 += result3.getRawBytes().length;
+                if (result3.getResultMetadata().containsKey(ResultMetadataType.BYTE_SEGMENTS)) {
+                    for (byte[] bArr4 : (Iterable) result3.getResultMetadata().get(ResultMetadataType.BYTE_SEGMENTS)) {
+                        System.arraycopy(bArr4, 0, bArr3, i4, bArr4.length);
+                        i4 += bArr4.length;
+                    }
+                }
+            }
+            Result result4 = new Result(sb.toString(), bArr2, NO_POINTS, BarcodeFormat.QR_CODE);
+            if (i2 > 0) {
+                ArrayList arrayList3 = new ArrayList();
+                arrayList3.add(bArr3);
+                result4.putMetadata(ResultMetadataType.BYTE_SEGMENTS, arrayList3);
+            }
+            arrayList.add(result4);
+            return arrayList;
         }
         return (List) invokeL.objValue;
     }
@@ -185,11 +189,14 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
     public Result[] decodeMultiple(BinaryBitmap binaryBitmap) throws NotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decodeMultiple(binaryBitmap, null) : (Result[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) {
+            return decodeMultiple(binaryBitmap, null);
+        }
+        return (Result[]) invokeL.objValue;
     }
 
     @Override // com.google.zxing.multi.MultipleBarcodeReader
-    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
         InterceptResult invokeLL;
         DetectorResult[] detectMulti;
         Interceptable interceptable = $ic;
@@ -203,7 +210,7 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
                         ((QRCodeDecoderMetaData) decode.getOther()).applyMirroredCorrection(points);
                     }
                     Result result = new Result(decode.getText(), decode.getRawBytes(), points, BarcodeFormat.QR_CODE);
-                    List<byte[]> byteSegments = decode.getByteSegments();
+                    List byteSegments = decode.getByteSegments();
                     if (byteSegments != null) {
                         result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);
                     }
@@ -222,7 +229,7 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
             if (arrayList.isEmpty()) {
                 return EMPTY_RESULT_ARRAY;
             }
-            List<Result> processStructuredAppend = processStructuredAppend(arrayList);
+            List processStructuredAppend = processStructuredAppend(arrayList);
             return (Result[]) processStructuredAppend.toArray(new Result[processStructuredAppend.size()]);
         }
         return (Result[]) invokeLL.objValue;

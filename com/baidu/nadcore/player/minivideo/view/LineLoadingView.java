@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,12 +34,11 @@ public final class LineLoadingView extends View {
     public final a j;
 
     /* loaded from: classes2.dex */
-    public static final class a implements Runnable {
+    public final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LineLoadingView a;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(LineLoadingView lineLoadingView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -61,11 +60,10 @@ public final class LineLoadingView extends View {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.i) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.i) {
+                this.a.invalidate();
+                this.a.post(this);
             }
-            this.a.invalidate();
-            this.a.post(this);
         }
     }
 
@@ -93,28 +91,27 @@ public final class LineLoadingView extends View {
         this.h = new Paint();
         this.i = true;
         this.j = new a(this);
-        this.a = t21.c.e(context);
-        this.b = t21.c.a(context, 1.5f);
-        int a2 = t21.c.a(context, 100.0f);
+        this.a = u21.c.e(context);
+        this.b = u21.c.a(context, 1.5f);
+        int a2 = u21.c.a(context, 100.0f);
         this.f = a2;
         this.e = a2;
         this.h.setStyle(Paint.Style.FILL_AND_STROKE);
         this.h.setAntiAlias(true);
     }
 
-    public static /* synthetic */ int d(LineLoadingView lineLoadingView, int i, boolean z, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            z = true;
-        }
-        return lineLoadingView.c(i, z);
-    }
-
     public final int b(String str) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             int parseColor = Color.parseColor(this.g);
-            if (str == null || str.length() == 0) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 return parseColor;
             }
             try {
@@ -126,24 +123,52 @@ public final class LineLoadingView extends View {
         return invokeL.intValue;
     }
 
+    public final float e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return i / 2;
+        }
+        return invokeI.floatValue;
+    }
+
+    public static /* synthetic */ int d(LineLoadingView lineLoadingView, int i, boolean z, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            z = true;
+        }
+        return lineLoadingView.c(i, z);
+    }
+
     public final int c(int i, boolean z) {
         InterceptResult invokeCommon;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             int mode = View.MeasureSpec.getMode(i);
             int size = View.MeasureSpec.getSize(i);
             if (mode != Integer.MIN_VALUE) {
-                return mode != 0 ? mode != 1073741824 ? z ? this.a : this.b : size : z ? this.a : this.b;
+                if (mode != 0) {
+                    if (mode != 1073741824) {
+                        if (z) {
+                            return this.a;
+                        }
+                        return this.b;
+                    }
+                    return size;
+                } else if (z) {
+                    return this.a;
+                } else {
+                    return this.b;
+                }
             }
-            return Math.min(z ? this.a : this.b, size);
+            if (z) {
+                i2 = this.a;
+            } else {
+                i2 = this.b;
+            }
+            return Math.min(i2, size);
         }
         return invokeCommon.intValue;
-    }
-
-    public final float e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i / 2 : invokeI.floatValue;
     }
 
     public final void f() {
@@ -170,14 +195,21 @@ public final class LineLoadingView extends View {
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
             int i = this.e;
+            int i2 = 30;
             if (i < this.c) {
                 this.e = i + 30;
             } else {
                 this.e = this.f;
             }
-            int i2 = 255 - ((this.e * 255) / this.c);
-            int i3 = i2 <= 255 ? i2 : 255;
-            String hexString = Integer.toHexString(i3 >= 30 ? i3 : 30);
+            int i3 = 255;
+            int i4 = 255 - ((this.e * 255) / this.c);
+            if (i4 <= 255) {
+                i3 = i4;
+            }
+            if (i3 >= 30) {
+                i2 = i3;
+            }
+            String hexString = Integer.toHexString(i2);
             Intrinsics.checkNotNullExpressionValue(hexString, "Integer.toHexString(currentColorValue)");
             String str = this.g;
             int length = str.length();

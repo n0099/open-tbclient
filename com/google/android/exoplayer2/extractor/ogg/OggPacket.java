@@ -66,21 +66,56 @@ public final class OggPacket {
     public OggPageHeader getPageHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.pageHeader : (OggPageHeader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.pageHeader;
+        }
+        return (OggPageHeader) invokeV.objValue;
     }
 
     public ParsableByteArray getPayload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.packetArray : (ParsableByteArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.packetArray;
+        }
+        return (ParsableByteArray) invokeV.objValue;
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.pageHeader.reset();
+            this.packetArray.reset();
+            this.currentSegmentIndex = -1;
+            this.populated = false;
+        }
+    }
+
+    public void trimPayload() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ParsableByteArray parsableByteArray = this.packetArray;
+            byte[] bArr = parsableByteArray.data;
+            if (bArr.length == 65025) {
+                return;
+            }
+            parsableByteArray.data = Arrays.copyOf(bArr, Math.max(65025, parsableByteArray.limit()));
+        }
     }
 
     public boolean populate(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, extractorInput)) == null) {
-            Assertions.checkState(extractorInput != null);
+            if (extractorInput != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             if (this.populated) {
                 this.populated = false;
                 this.packetArray.reset();
@@ -112,7 +147,12 @@ public final class OggPacket {
                     extractorInput.readFully(parsableByteArray2.data, parsableByteArray2.limit(), calculatePacketSize);
                     ParsableByteArray parsableByteArray3 = this.packetArray;
                     parsableByteArray3.setLimit(parsableByteArray3.limit() + calculatePacketSize);
-                    this.populated = this.pageHeader.laces[i3 + (-1)] != 255;
+                    if (this.pageHeader.laces[i3 - 1] != 255) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    this.populated = z2;
                 }
                 if (i3 == this.pageHeader.pageSegmentCount) {
                     i3 = -1;
@@ -122,27 +162,5 @@ public final class OggPacket {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.pageHeader.reset();
-            this.packetArray.reset();
-            this.currentSegmentIndex = -1;
-            this.populated = false;
-        }
-    }
-
-    public void trimPayload() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ParsableByteArray parsableByteArray = this.packetArray;
-            byte[] bArr = parsableByteArray.data;
-            if (bArr.length == 65025) {
-                return;
-            }
-            parsableByteArray.data = Arrays.copyOf(bArr, Math.max(65025, parsableByteArray.limit()));
-        }
     }
 }

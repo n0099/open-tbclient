@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
+import com.baidu.tieba.eo;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class TransmitForumData implements Cdo, Parcelable {
+public class TransmitForumData implements eo, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<TransmitForumData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final BdUniqueId ID_TRANSMIT_SELECT_DATA;
     public static final int TYPE_RECOMMEND = 1;
     public static final int TYPE_SELF_SELECT = 0;
@@ -27,11 +27,21 @@ public class TransmitForumData implements Cdo, Parcelable {
     public long forumId;
     public String forumName;
     public boolean isCurForum;
-    public ArrayList<FrsTabItemData> tabItemDatas;
+    public ArrayList tabItemDatas;
     public int type;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<TransmitForumData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +65,10 @@ public class TransmitForumData implements Cdo, Parcelable {
         public TransmitForumData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new TransmitForumData(parcel) : (TransmitForumData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new TransmitForumData(parcel);
+            }
+            return (TransmitForumData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +77,10 @@ public class TransmitForumData implements Cdo, Parcelable {
         public TransmitForumData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new TransmitForumData[i] : (TransmitForumData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new TransmitForumData[i];
+            }
+            return (TransmitForumData[]) invokeI.objValue;
         }
     }
 
@@ -85,6 +101,16 @@ public class TransmitForumData implements Cdo, Parcelable {
         CREATOR = new a();
     }
 
+    @Override // com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ID_TRANSMIT_SELECT_DATA;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TransmitForumData(long j, String str, boolean z, int i) {
         this(j, str, z, i, "");
@@ -103,37 +129,6 @@ public class TransmitForumData implements Cdo, Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ID_TRANSMIT_SELECT_DATA : (BdUniqueId) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.forumName);
-            parcel.writeLong(this.forumId);
-            parcel.writeByte(this.checked ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.type);
-            parcel.writeString(this.avatar);
-            parcel.writeByte(this.isCurForum ? (byte) 1 : (byte) 0);
-            parcel.writeArray(this.tabItemDatas.toArray());
         }
     }
 
@@ -161,6 +156,7 @@ public class TransmitForumData implements Cdo, Parcelable {
     }
 
     public TransmitForumData(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,10 +174,29 @@ public class TransmitForumData implements Cdo, Parcelable {
         this.isCurForum = false;
         this.forumName = parcel.readString();
         this.forumId = parcel.readLong();
-        this.checked = parcel.readByte() != 0;
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.checked = z;
         this.type = parcel.readInt();
         this.avatar = parcel.readString();
         this.isCurForum = parcel.readByte() != 0;
         this.tabItemDatas = parcel.readArrayList(FrsTabItemData.class.getClassLoader());
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeString(this.forumName);
+            parcel.writeLong(this.forumId);
+            parcel.writeByte(this.checked ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.type);
+            parcel.writeString(this.avatar);
+            parcel.writeByte(this.isCurForum ? (byte) 1 : (byte) 0);
+            parcel.writeArray(this.tabItemDatas.toArray());
+        }
     }
 }

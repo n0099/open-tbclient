@@ -16,29 +16,6 @@ public class FilesKt__FilePathComponentsKt {
         return new File(getRootName(root));
     }
 
-    public static final int getRootLength$FilesKt__FilePathComponentsKt(String str) {
-        int indexOf$default;
-        int indexOf$default2 = StringsKt__StringsKt.indexOf$default((CharSequence) str, File.separatorChar, 0, false, 4, (Object) null);
-        if (indexOf$default2 == 0) {
-            if (str.length() > 1) {
-                char charAt = str.charAt(1);
-                char c = File.separatorChar;
-                if (charAt == c && (indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str, c, 2, false, 4, (Object) null)) >= 0) {
-                    int indexOf$default3 = StringsKt__StringsKt.indexOf$default((CharSequence) str, File.separatorChar, indexOf$default + 1, false, 4, (Object) null);
-                    return indexOf$default3 >= 0 ? indexOf$default3 + 1 : str.length();
-                }
-            }
-            return 1;
-        } else if (indexOf$default2 <= 0 || str.charAt(indexOf$default2 - 1) != ':') {
-            if (indexOf$default2 == -1 && StringsKt__StringsKt.endsWith$default((CharSequence) str, ':', false, 2, (Object) null)) {
-                return str.length();
-            }
-            return 0;
-        } else {
-            return indexOf$default2 + 1;
-        }
-    }
-
     public static final String getRootName(File rootName) {
         Intrinsics.checkNotNullParameter(rootName, "$this$rootName");
         String path = rootName.getPath();
@@ -58,7 +35,36 @@ public class FilesKt__FilePathComponentsKt {
         Intrinsics.checkNotNullParameter(isRooted, "$this$isRooted");
         String path = isRooted.getPath();
         Intrinsics.checkNotNullExpressionValue(path, "path");
-        return getRootLength$FilesKt__FilePathComponentsKt(path) > 0;
+        if (getRootLength$FilesKt__FilePathComponentsKt(path) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public static final int getRootLength$FilesKt__FilePathComponentsKt(String str) {
+        int indexOf$default;
+        int indexOf$default2 = StringsKt__StringsKt.indexOf$default((CharSequence) str, File.separatorChar, 0, false, 4, (Object) null);
+        if (indexOf$default2 == 0) {
+            if (str.length() > 1) {
+                char charAt = str.charAt(1);
+                char c = File.separatorChar;
+                if (charAt == c && (indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str, c, 2, false, 4, (Object) null)) >= 0) {
+                    int indexOf$default3 = StringsKt__StringsKt.indexOf$default((CharSequence) str, File.separatorChar, indexOf$default + 1, false, 4, (Object) null);
+                    if (indexOf$default3 >= 0) {
+                        return indexOf$default3 + 1;
+                    }
+                    return str.length();
+                }
+            }
+            return 1;
+        } else if (indexOf$default2 > 0 && str.charAt(indexOf$default2 - 1) == ':') {
+            return indexOf$default2 + 1;
+        } else {
+            if (indexOf$default2 != -1 || !StringsKt__StringsKt.endsWith$default((CharSequence) str, ':', false, 2, (Object) null)) {
+                return 0;
+            }
+            return str.length();
+        }
     }
 
     public static final File subPath(File subPath, int i, int i2) {
@@ -67,6 +73,7 @@ public class FilesKt__FilePathComponentsKt {
     }
 
     public static final FilePathComponents toComponents(File toComponents) {
+        boolean z;
         List list;
         Intrinsics.checkNotNullParameter(toComponents, "$this$toComponents");
         String path = toComponents.getPath();
@@ -77,6 +84,11 @@ public class FilesKt__FilePathComponentsKt {
         String substring2 = path.substring(rootLength$FilesKt__FilePathComponentsKt);
         Intrinsics.checkNotNullExpressionValue(substring2, "(this as java.lang.String).substring(startIndex)");
         if (substring2.length() == 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
             list = CollectionsKt__CollectionsKt.emptyList();
         } else {
             List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) substring2, new char[]{File.separatorChar}, false, 0, 6, (Object) null);

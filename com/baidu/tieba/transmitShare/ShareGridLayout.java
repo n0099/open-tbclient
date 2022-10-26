@@ -4,12 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ut8;
+import com.baidu.tieba.eu8;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ShareGridLayout extends ViewGroup implements ut8 {
+public class ShareGridLayout extends ViewGroup implements eu8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,6 +26,20 @@ public class ShareGridLayout extends ViewGroup implements ut8 {
     public int c;
     public int d;
     public int e;
+
+    @Override // com.baidu.tieba.eu8
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.eu8
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +54,7 @@ public class ShareGridLayout extends ViewGroup implements ut8 {
                 return;
             }
         }
-        f = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        f = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,18 +78,65 @@ public class ShareGridLayout extends ViewGroup implements ut8 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.ut8
-    public void a(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareGridLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        c(context);
     }
 
-    @Override // com.baidu.tieba.ut8
-    public void b(int i, @NonNull View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareGridLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        c(context);
+    }
+
+    @Override // com.baidu.tieba.eu8
+    public void b(int i, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
             addView(view2);
+        }
+    }
+
+    @Override // com.baidu.tieba.eu8
+    public void setItemParams(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            this.b = i;
+            this.c = i2;
+            requestLayout();
         }
     }
 
@@ -84,7 +144,7 @@ public class ShareGridLayout extends ViewGroup implements ut8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.a = context;
-            d(0, ej.k(context) - (f * 2));
+            d(0, fj.k(context) - (f * 2));
         }
     }
 
@@ -92,7 +152,7 @@ public class ShareGridLayout extends ViewGroup implements ut8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             int i3 = i2 - i;
-            if (ej.k(TbadkCoreApplication.getInst()) > 800 && this.b * 5 <= i3) {
+            if (fj.k(TbadkCoreApplication.getInst()) > 800 && this.b * 5 <= i3) {
                 this.d = 5;
             } else {
                 this.d = 4;
@@ -100,22 +160,17 @@ public class ShareGridLayout extends ViewGroup implements ut8 {
             int i4 = this.b;
             int i5 = this.d;
             double d = i3 - (i4 * i5);
-            if (d <= 0.0d) {
-                this.e = 0;
-            } else if (i5 == 5) {
-                this.e = (int) Math.floor(d / 10.0d);
-            } else {
-                this.e = (int) Math.floor(d / 8.0d);
+            if (d > 0.0d) {
+                if (i5 == 5) {
+                    this.e = (int) Math.floor(d / 10.0d);
+                    return;
+                } else {
+                    this.e = (int) Math.floor(d / 8.0d);
+                    return;
+                }
             }
+            this.e = 0;
         }
-    }
-
-    @Override // com.baidu.tieba.ut8
-    @NonNull
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -167,59 +222,5 @@ public class ShareGridLayout extends ViewGroup implements ut8 {
             int i7 = this.d;
             setMeasuredDimension(ViewGroup.resolveSize((i6 * i7) + (this.e * 2 * i7), i), ViewGroup.resolveSize(this.c * i5, i2));
         }
-    }
-
-    @Override // com.baidu.tieba.ut8
-    public void setItemParams(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            this.b = i;
-            this.c = i2;
-            requestLayout();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareGridLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        c(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareGridLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        c(context);
     }
 }

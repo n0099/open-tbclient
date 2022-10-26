@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 import java.util.zip.CRC32;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.Charsets;
@@ -20,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class DeviceInfoUtilKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final SparseArray<String> SyncJsonKeyMap;
+    public static final SparseArray SyncJsonKeyMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +35,7 @@ public final class DeviceInfoUtilKt {
                 return;
             }
         }
-        SparseArray<String> sparseArray = new SparseArray<>();
+        SparseArray sparseArray = new SparseArray();
         sparseArray.put(1, "g");
         sparseArray.put(2, "h");
         sparseArray.put(4, "c");
@@ -58,6 +57,31 @@ public final class DeviceInfoUtilKt {
         }
     }
 
+    public static final boolean isDeviceInfoSyncMapping(CacheDeviceInfo cacheDeviceInfo, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, cacheDeviceInfo, i, str)) == null) {
+            if (cacheDeviceInfo != null && !TextUtils.isEmpty(str)) {
+                return cacheDeviceInfo.isDeviceInfoSyncMapping(i, str);
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static final JSONObject toJson(DeviceIdBagMap infoMap, int i, List validInfoList) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, infoMap, i, validInfoList)) == null) {
+            Intrinsics.checkNotNullParameter(infoMap, "infoMap");
+            Intrinsics.checkNotNullParameter(validInfoList, "validInfoList");
+            JSONObject jSONObject = new JSONObject();
+            forEachDevice(new DeviceInfoUtilKt$toJson$1(i, infoMap, validInfoList, jSONObject));
+            return jSONObject;
+        }
+        return (JSONObject) invokeLIL.objValue;
+    }
+
     public static final String crcSign(String source) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -72,7 +96,7 @@ public final class DeviceInfoUtilKt {
         return (String) invokeL.objValue;
     }
 
-    public static final void forEachDevice(Function1<? super Integer, Unit> iteratorFun) {
+    public static final void forEachDevice(Function1 iteratorFun) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, iteratorFun) == null) {
             Intrinsics.checkNotNullParameter(iteratorFun, "iteratorFun");
@@ -82,34 +106,12 @@ public final class DeviceInfoUtilKt {
         }
     }
 
-    public static final SparseArray<String> getSyncJsonKeyMap() {
+    public static final SparseArray getSyncJsonKeyMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? SyncJsonKeyMap : (SparseArray) invokeV.objValue;
-    }
-
-    public static final boolean isDeviceInfoSyncMapping(CacheDeviceInfo cacheDeviceInfo, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, cacheDeviceInfo, i, str)) == null) {
-            if (cacheDeviceInfo == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return cacheDeviceInfo.isDeviceInfoSyncMapping(i, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return SyncJsonKeyMap;
         }
-        return invokeLIL.booleanValue;
-    }
-
-    public static final JSONObject toJson(DeviceIdBagMap infoMap, int i, List<Integer> validInfoList) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, infoMap, i, validInfoList)) == null) {
-            Intrinsics.checkNotNullParameter(infoMap, "infoMap");
-            Intrinsics.checkNotNullParameter(validInfoList, "validInfoList");
-            JSONObject jSONObject = new JSONObject();
-            forEachDevice(new DeviceInfoUtilKt$toJson$1(i, infoMap, validInfoList, jSONObject));
-            return jSONObject;
-        }
-        return (JSONObject) invokeLIL.objValue;
+        return (SparseArray) invokeV.objValue;
     }
 }

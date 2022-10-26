@@ -13,12 +13,12 @@ import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableFromCallable<T> extends Flowable<T> implements Callable<T> {
+public final class FlowableFromCallable extends Flowable implements Callable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<? extends T> callable;
+    public final Callable callable;
 
-    public FlowableFromCallable(Callable<? extends T> callable) {
+    public FlowableFromCallable(Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,17 +36,8 @@ public final class FlowableFromCallable<T> extends Flowable<T> implements Callab
         this.callable = callable;
     }
 
-    @Override // java.util.concurrent.Callable
-    public T call() throws Exception {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (T) ObjectHelper.requireNonNull(this.callable.call(), "The callable returned a null value") : (T) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: io.reactivex.internal.subscriptions.DeferredScalarSubscription */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber) == null) {
             DeferredScalarSubscription deferredScalarSubscription = new DeferredScalarSubscription(subscriber);
@@ -58,5 +49,15 @@ public final class FlowableFromCallable<T> extends Flowable<T> implements Callab
                 subscriber.onError(th);
             }
         }
+    }
+
+    @Override // java.util.concurrent.Callable
+    public Object call() throws Exception {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ObjectHelper.requireNonNull(this.callable.call(), "The callable returned a null value");
+        }
+        return invokeV.objValue;
     }
 }

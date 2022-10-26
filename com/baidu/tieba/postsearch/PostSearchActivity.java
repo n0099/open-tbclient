@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.cc8;
-import com.baidu.tieba.ec8;
-import com.baidu.tieba.hc8;
+import com.baidu.tieba.mc8;
+import com.baidu.tieba.oc8;
+import com.baidu.tieba.rc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PostSearchActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hc8 a;
-    public ec8 b;
+    public rc8 a;
+    public oc8 b;
     public String c;
     public String d;
     public String e;
@@ -33,6 +33,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PostSearchActivity a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
 
         public a(PostSearchActivity postSearchActivity) {
             Interceptable interceptable = $ic;
@@ -53,25 +67,12 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                this.a.a1(i);
+            if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
+                return;
             }
+            this.a.Z0(i);
         }
     }
 
@@ -91,26 +92,32 @@ public class PostSearchActivity extends BaseFragmentActivity {
         this.f = new a(this);
     }
 
-    public ec8 N0() {
+    public oc8 M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ec8) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (oc8) invokeV.objValue;
     }
 
-    public hc8 O0() {
+    public rc8 N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (hc8) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (rc8) invokeV.objValue;
     }
 
-    public void R0() {
+    public void O0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.d();
         }
     }
 
-    public final void S0() {
+    public final void R0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Intent intent = getIntent();
@@ -122,64 +129,62 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
     }
 
-    public boolean T0() {
+    public boolean S0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.f() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.f();
+        }
+        return invokeV.booleanValue;
     }
 
-    public void U0() {
+    public void T0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a.i(this.b.j);
         }
     }
 
-    public void V0(int i, cc8 cc8Var, boolean z) {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), cc8Var, Boolean.valueOf(z)}) == null) {
-            if (i == 1 && (cc8Var == null || !cc8Var.a())) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            rc8 rc8Var = this.a;
+            if (rc8Var != null) {
+                rc8Var.h();
+            }
+            super.onDestroy();
+        }
+    }
+
+    public void U0(int i, mc8 mc8Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), mc8Var, Boolean.valueOf(z)}) == null) {
+            if (i == 1 && (mc8Var == null || !mc8Var.a())) {
                 this.a.c();
                 this.a.n();
                 return;
             }
             this.a.c();
             this.a.b();
-            this.a.j(i, cc8Var, z);
+            this.a.j(i, mc8Var, z);
         }
     }
 
-    public void W0(String str) {
+    public void V0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.a.k(str);
         }
     }
 
-    public void Z0(String str) {
+    public void Y0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.c = str;
             this.a.o(1);
             this.b.q();
             this.a.m();
-        }
-    }
-
-    public final void a1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            int i2 = 2;
-            if (i == 0) {
-                i2 = 1;
-            } else if (i != 1) {
-                i2 = i != 2 ? 0 : 3;
-            }
-            StatisticItem param = new StatisticItem("c12404").param("fid", this.e).param("fname", this.d).param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (i2 != 0) {
-                param.param("tab_id", i2);
-            }
-            TiebaStatic.log(param);
         }
     }
 
@@ -196,25 +201,36 @@ public class PostSearchActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
-            hc8 hc8Var = new hc8(this);
-            this.a = hc8Var;
-            hc8Var.e();
+            rc8 rc8Var = new rc8(this);
+            this.a = rc8Var;
+            rc8Var.e();
             this.a.l(this.f);
             addGlobalLayoutListener();
-            this.b = new ec8(this);
-            S0();
+            this.b = new oc8(this);
+            R0();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    public final void Z0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            hc8 hc8Var = this.a;
-            if (hc8Var != null) {
-                hc8Var.h();
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            int i2 = 2;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        i2 = 0;
+                    } else {
+                        i2 = 3;
+                    }
+                }
+            } else {
+                i2 = 1;
             }
-            super.onDestroy();
+            StatisticItem param = new StatisticItem("c12404").param("fid", this.e).param("fname", this.d).param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (i2 != 0) {
+                param.param(TiebaStatic.Params.TAB_ID, i2);
+            }
+            TiebaStatic.log(param);
         }
     }
 }

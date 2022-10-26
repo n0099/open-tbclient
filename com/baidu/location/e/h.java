@@ -125,8 +125,8 @@ public class h extends Thread {
                         if (k.ax != null) {
                             httpsURLConnection.setRequestProperty("bd-loc-android", k.ax);
                         }
-                        for (Map.Entry<String, Object> entry : this.b.k.entrySet()) {
-                            stringBuffer.append(entry.getKey());
+                        for (Map.Entry entry : this.b.k.entrySet()) {
+                            stringBuffer.append((String) entry.getKey());
                             stringBuffer.append("=");
                             stringBuffer.append(entry.getValue());
                             stringBuffer.append("&");

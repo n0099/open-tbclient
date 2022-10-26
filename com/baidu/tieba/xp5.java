@@ -1,171 +1,144 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.addresslist.relationship.ContactComparator;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.IBinder;
+import android.view.View;
+import android.view.Window;
+import com.baidu.tieba.ad.download.rectify.DownloadRectifyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class xp5 {
     public static /* synthetic */ Interceptable $ic;
-    public static xp5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public List<v25> b;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void p(List<v25> list);
-    }
+    public final class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ Activity b;
 
-    public xp5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-    }
-
-    public static synchronized xp5 d() {
-        InterceptResult invokeV;
-        xp5 xp5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (xp5.class) {
-                if (c == null) {
-                    c = new xp5();
-                }
-                xp5Var = c;
-            }
-            return xp5Var;
-        }
-        return (xp5) invokeV.objValue;
-    }
-
-    public void a(v25 v25Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, v25Var) == null) || this.b == null || v25Var == null) {
-            return;
-        }
-        String a2 = v25Var.a();
-        if (TextUtils.isEmpty(a2)) {
-            a2 = "#";
-            v25Var.j("#");
-        }
-        String e = v25Var.e();
-        if (e == null) {
-            e = "";
-        }
-        boolean z = false;
-        boolean z2 = false;
-        for (v25 v25Var2 : this.b) {
-            if (e.equals(v25Var2.e())) {
-                z = true;
-            }
-            if (a2.equals(v25Var2.a())) {
-                z2 = true;
-            }
-        }
-        if (z) {
-            return;
-        }
-        if (!z2) {
-            v25 v25Var3 = new v25();
-            v25Var3.j(a2);
-            this.b.add(v25Var3);
-        }
-        this.b.add(v25Var);
-        Collections.sort(this.b, new ContactComparator());
-        e();
-    }
-
-    public void b(long j) {
-        List<v25> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (list = this.b) == null) {
-            return;
-        }
-        String str = null;
-        Iterator<v25> it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            v25 next = it.next();
-            if (next.d() == j) {
-                str = next.a();
-                this.b.remove(next);
-                break;
-            }
-        }
-        if (str != null) {
-            ArrayList arrayList = new ArrayList();
-            for (v25 v25Var : this.b) {
-                if (str.equals(v25Var.a())) {
-                    arrayList.add(v25Var);
+        public a(AlertDialog alertDialog, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alertDialog, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            if (arrayList.size() <= 1) {
-                this.b.removeAll(arrayList);
-            }
+            this.a = alertDialog;
+            this.b = activity;
         }
-        e();
-    }
 
-    public List<v25> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (a aVar : this.a) {
-                aVar.p(this.b);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                xp5.a(this.a, this.b);
             }
         }
     }
 
-    public void f(a aVar) {
+    public static final boolean a(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || this.a.contains(aVar)) {
-            return;
-        }
-        this.a.add(aVar);
-    }
-
-    public void g(List<v25> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                Collections.sort(list, new ContactComparator());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+                return false;
             }
-            e();
+            dialog.dismiss();
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void h(a aVar) {
+    public static final boolean b(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+                try {
+                    if (windowToken.isBinderAlive()) {
+                        if (windowToken.pingBinder()) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
         }
-        this.a.remove(aVar);
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean c(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Dialog d(wp5 wp5Var, View view2, Activity activity, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnShowListener onShowListener) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, wp5Var, view2, activity, onDismissListener, onShowListener)) == null) {
+            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100107).create();
+            create.setCanceledOnTouchOutside(true);
+            create.setOnDismissListener(onDismissListener);
+            create.setOnShowListener(onShowListener);
+            DownloadRectifyView downloadRectifyView = new DownloadRectifyView(activity);
+            downloadRectifyView.a(wp5Var);
+            downloadRectifyView.setDownloadView(view2);
+            downloadRectifyView.setOnCloseClickListener(new a(create, activity));
+            c(create, activity);
+            Window window = create.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(downloadRectifyView);
+            }
+            return create;
+        }
+        return (Dialog) invokeLLLLL.objValue;
     }
 }

@@ -34,6 +34,15 @@ public class DevicePortraitManagerSingleton extends DevicePortraitManager {
         sInstance = new DevicePortraitManagerSingleton();
     }
 
+    public static DevicePortraitManagerSingleton getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sInstance;
+        }
+        return (DevicePortraitManagerSingleton) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DevicePortraitManagerSingleton() {
         super(DevicePortraitRuntime.getDefaultResultHandler(), DevicePortraitRuntime.getDefaultThresholdsConfig(), ModelProviderRuntime.deviceInfoModelProvider());
@@ -51,11 +60,5 @@ public class DevicePortraitManagerSingleton extends DevicePortraitManager {
                 return;
             }
         }
-    }
-
-    public static DevicePortraitManagerSingleton getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sInstance : (DevicePortraitManagerSingleton) invokeV.objValue;
     }
 }

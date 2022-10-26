@@ -15,7 +15,7 @@ import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class UserItemData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<UserItemData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String agree_num;
     public String auth;
@@ -33,8 +33,18 @@ public class UserItemData implements Serializable, Parcelable {
     public String user_name;
     public String video_num;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class a implements Parcelable.Creator<UserItemData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +68,10 @@ public class UserItemData implements Serializable, Parcelable {
         public UserItemData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new UserItemData(parcel) : (UserItemData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new UserItemData(parcel);
+            }
+            return (UserItemData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +80,10 @@ public class UserItemData implements Serializable, Parcelable {
         public UserItemData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new UserItemData[i] : (UserItemData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new UserItemData[i];
+            }
+            return (UserItemData[]) invokeI.objValue;
         }
     }
 
@@ -101,16 +117,6 @@ public class UserItemData implements Serializable, Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public String getUserShowName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -121,28 +127,6 @@ public class UserItemData implements Serializable, Parcelable {
             return this.user_name;
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.user_id);
-            parcel.writeString(this.user_name);
-            parcel.writeString(this.name_show);
-            parcel.writeString(this.portrait);
-            parcel.writeString(this.gender);
-            parcel.writeString(this.follow_num);
-            parcel.writeString(this.fans_num);
-            parcel.writeString(this.video_num);
-            parcel.writeString(this.agree_num);
-            parcel.writeString(this.intro);
-            parcel.writeString(this.favor_num);
-            parcel.writeString(this.is_fans);
-            parcel.writeString(this.is_follow);
-            parcel.writeString(this.bjhAvatar);
-            parcel.writeString(this.auth);
-        }
     }
 
     public UserItemData(Parcel parcel) {
@@ -175,5 +159,27 @@ public class UserItemData implements Serializable, Parcelable {
         this.is_follow = parcel.readString();
         this.bjhAvatar = parcel.readString();
         this.auth = parcel.readString();
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeString(this.user_id);
+            parcel.writeString(this.user_name);
+            parcel.writeString(this.name_show);
+            parcel.writeString(this.portrait);
+            parcel.writeString(this.gender);
+            parcel.writeString(this.follow_num);
+            parcel.writeString(this.fans_num);
+            parcel.writeString(this.video_num);
+            parcel.writeString(this.agree_num);
+            parcel.writeString(this.intro);
+            parcel.writeString(this.favor_num);
+            parcel.writeString(this.is_fans);
+            parcel.writeString(this.is_follow);
+            parcel.writeString(this.bjhAvatar);
+            parcel.writeString(this.auth);
+        }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class zzad<E> extends zzaa<E> {
+public final class zzad extends zzaa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,28 +30,6 @@ public final class zzad<E> extends zzaa<E> {
         }
     }
 
-    public final zzad<E> zzb(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            super.zza(e);
-            return this;
-        }
-        return (zzad) invokeL.objValue;
-    }
-
-    public final zzad<E> zzc(Iterator<? extends E> it) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it)) == null) {
-            while (it.hasNext()) {
-                super.zza(it.next());
-            }
-            return this;
-        }
-        return (zzad) invokeL.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zzad(int i) {
         super(4);
@@ -70,5 +48,27 @@ public final class zzad<E> extends zzaa<E> {
                 return;
             }
         }
+    }
+
+    public final zzad zzb(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            super.zza(obj);
+            return this;
+        }
+        return (zzad) invokeL.objValue;
+    }
+
+    public final zzad zzc(Iterator it) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it)) == null) {
+            while (it.hasNext()) {
+                super.zza(it.next());
+            }
+            return this;
+        }
+        return (zzad) invokeL.objValue;
     }
 }

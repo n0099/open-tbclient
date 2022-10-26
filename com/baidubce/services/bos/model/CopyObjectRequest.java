@@ -49,49 +49,73 @@ public class CopyObjectRequest extends GenericObjectRequest {
     public String getETag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.eTag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.eTag;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getModifiedSinceConstraint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.modifiedSinceConstraint : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.modifiedSinceConstraint;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ObjectMetadata getNewObjectMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.newObjectMetadata : (ObjectMetadata) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.newObjectMetadata;
+        }
+        return (ObjectMetadata) invokeV.objValue;
     }
 
     public String getNoneMatchETagConstraint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.noneMatchETagConstraint : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.noneMatchETagConstraint;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSourceBucketName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.sourceBucketName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.sourceBucketName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSourceKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sourceKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sourceKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getStorageClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.storageClass : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.storageClass;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUnmodifiedSinceConstraint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.unmodifiedSinceConstraint : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.unmodifiedSinceConstraint;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setETag(String str) {
@@ -152,11 +176,35 @@ public class CopyObjectRequest extends GenericObjectRequest {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.services.bos.model.GenericBucketRequest
+    public CopyObjectRequest withBucketName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            setBucketName(str);
+            return this;
+        }
+        return (CopyObjectRequest) invokeL.objValue;
+    }
+
     public CopyObjectRequest withETag(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
             setETag(str);
+            return this;
+        }
+        return (CopyObjectRequest) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.services.bos.model.GenericObjectRequest
+    public CopyObjectRequest withKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            setKey(str);
             return this;
         }
         return (CopyObjectRequest) invokeL.objValue;
@@ -227,30 +275,6 @@ public class CopyObjectRequest extends GenericObjectRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
             setUnmodifiedSinceConstraint(str);
-            return this;
-        }
-        return (CopyObjectRequest) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.services.bos.model.GenericBucketRequest
-    public CopyObjectRequest withBucketName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            setBucketName(str);
-            return this;
-        }
-        return (CopyObjectRequest) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.services.bos.model.GenericObjectRequest
-    public CopyObjectRequest withKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            setKey(str);
             return this;
         }
         return (CopyObjectRequest) invokeL.objValue;

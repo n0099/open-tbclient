@@ -75,7 +75,7 @@ public class c extends com.baidu.platform.base.d {
         return (LatLng) invokeL.objValue;
     }
 
-    private List<PoiChildrenInfo> a(JSONArray jSONArray) {
+    private List a(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, jSONArray)) == null) {
@@ -131,7 +131,7 @@ public class c extends com.baidu.platform.base.d {
                 suggestionResult.error = SearchResult.ERRORNO.NO_ERROR;
                 JSONArray optJSONArray = jSONObject.optJSONArray(TiebaStatic.LogFields.RESULT);
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    ArrayList<SuggestionResult.SuggestionInfo> arrayList = new ArrayList<>();
+                    ArrayList arrayList = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                         if (jSONObject2 != null && jSONObject2.length() != 0) {

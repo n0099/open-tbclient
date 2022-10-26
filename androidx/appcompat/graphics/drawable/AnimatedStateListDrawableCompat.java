@@ -2,7 +2,6 @@ package androidx.appcompat.graphics.drawable;
 
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -21,10 +20,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.StateSet;
 import android.util.Xml;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.graphics.drawable.DrawableContainer;
 import androidx.appcompat.graphics.drawable.StateListDrawable;
 import androidx.appcompat.resources.R;
@@ -47,7 +42,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@SuppressLint({"RestrictedAPI"})
 /* loaded from: classes.dex */
 public class AnimatedStateListDrawableCompat extends StateListDrawable implements TintAwareDrawable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,9 +60,19 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
 
     /* renamed from: androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public boolean isStateful() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes.dex */
@@ -124,8 +128,14 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         public SparseArrayCompat<Integer> mStateIds;
         public LongSparseArray<Long> mTransitions;
 
+        public static long generateTransitionKey(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) ? i2 | (i << 32) : invokeII.longValue;
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AnimatedStateListState(@Nullable AnimatedStateListState animatedStateListState, @NonNull AnimatedStateListDrawableCompat animatedStateListDrawableCompat, @Nullable Resources resources) {
+        public AnimatedStateListState(AnimatedStateListState animatedStateListState, AnimatedStateListDrawableCompat animatedStateListDrawableCompat, Resources resources) {
             super(animatedStateListState, animatedStateListDrawableCompat, resources);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -152,13 +162,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             this.mStateIds = new SparseArrayCompat<>();
         }
 
-        public static long generateTransitionKey(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) ? i2 | (i << 32) : invokeII.longValue;
-        }
-
-        public int addStateSet(@NonNull int[] iArr, @NonNull Drawable drawable, int i) {
+        public int addStateSet(int[] iArr, Drawable drawable, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, iArr, drawable, i)) == null) {
@@ -169,13 +173,18 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             return invokeLLI.intValue;
         }
 
-        public int addTransition(int i, int i2, @NonNull Drawable drawable, boolean z) {
+        public int addTransition(int i, int i2, Drawable drawable, boolean z) {
             InterceptResult invokeCommon;
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), drawable, Boolean.valueOf(z)})) == null) {
                 int addChild = super.addChild(drawable);
                 long generateTransitionKey = generateTransitionKey(i, i2);
-                long j = z ? 8589934592L : 0L;
+                if (z) {
+                    j = 8589934592L;
+                } else {
+                    j = 0;
+                }
                 long j2 = addChild;
                 this.mTransitions.append(generateTransitionKey, Long.valueOf(j2 | j));
                 if (z) {
@@ -198,26 +207,60 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             return invokeI.intValue;
         }
 
-        public int indexOfKeyframe(@NonNull int[] iArr) {
+        public int indexOfKeyframe(int[] iArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iArr)) == null) {
                 int indexOfStateSet = super.indexOfStateSet(iArr);
-                return indexOfStateSet >= 0 ? indexOfStateSet : super.indexOfStateSet(StateSet.WILD_CARD);
+                if (indexOfStateSet >= 0) {
+                    return indexOfStateSet;
+                }
+                return super.indexOfStateSet(StateSet.WILD_CARD);
             }
             return invokeL.intValue;
+        }
+
+        @Override // androidx.appcompat.graphics.drawable.StateListDrawable.StateListState, android.graphics.drawable.Drawable.ConstantState
+        public Drawable newDrawable(Resources resources) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, resources)) == null) {
+                return new AnimatedStateListDrawableCompat(this, resources);
+            }
+            return (Drawable) invokeL.objValue;
         }
 
         public int indexOfTransition(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) ? (int) this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue() : invokeII.intValue;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+                return (int) this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue();
+            }
+            return invokeII.intValue;
         }
 
         public boolean isTransitionReversed(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) ? (this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue() & 4294967296L) != 0 : invokeII.booleanValue;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
+                if ((this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue() & 4294967296L) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeII.booleanValue;
+        }
+
+        public boolean transitionHasReversibleFlag(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
+                if ((this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue() & 8589934592L) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeII.booleanValue;
         }
 
         @Override // androidx.appcompat.graphics.drawable.StateListDrawable.StateListState, androidx.appcompat.graphics.drawable.DrawableContainer.DrawableContainerState
@@ -230,25 +273,13 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         }
 
         @Override // androidx.appcompat.graphics.drawable.StateListDrawable.StateListState, android.graphics.drawable.Drawable.ConstantState
-        @NonNull
         public Drawable newDrawable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new AnimatedStateListDrawableCompat(this, null) : (Drawable) invokeV.objValue;
-        }
-
-        public boolean transitionHasReversibleFlag(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) ? (this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue() & 8589934592L) != 0 : invokeII.booleanValue;
-        }
-
-        @Override // androidx.appcompat.graphics.drawable.StateListDrawable.StateListState, android.graphics.drawable.Drawable.ConstantState
-        @NonNull
-        public Drawable newDrawable(Resources resources) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, resources)) == null) ? new AnimatedStateListDrawableCompat(this, resources) : (Drawable) invokeL.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return new AnimatedStateListDrawableCompat(this, null);
+            }
+            return (Drawable) invokeV.objValue;
         }
     }
 
@@ -306,15 +337,17 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AnimationDrawableTransition(AnimationDrawable animationDrawable, boolean z, boolean z2) {
             super(null);
+            int i;
+            int i2;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animationDrawable, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -322,10 +355,18 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                 }
             }
             int numberOfFrames = animationDrawable.getNumberOfFrames();
-            int i3 = z ? numberOfFrames - 1 : 0;
-            int i4 = z ? 0 : numberOfFrames - 1;
+            if (z) {
+                i = numberOfFrames - 1;
+            } else {
+                i = 0;
+            }
+            if (z) {
+                i2 = 0;
+            } else {
+                i2 = numberOfFrames - 1;
+            }
             FrameInterpolator frameInterpolator = new FrameInterpolator(animationDrawable, z);
-            ObjectAnimator ofInt = ObjectAnimator.ofInt(animationDrawable, "currentIndex", i3, i4);
+            ObjectAnimator ofInt = ObjectAnimator.ofInt(animationDrawable, "currentIndex", i, i2);
             if (Build.VERSION.SDK_INT >= 18) {
                 ofInt.setAutoCancel(true);
             }
@@ -339,7 +380,10 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         public boolean canReverse() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHasReversibleFlag : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mHasReversibleFlag;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat.Transition
@@ -393,30 +437,6 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             updateFrames(animationDrawable, z);
         }
 
-        @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-                int i = (int) ((f * this.mTotalDuration) + 0.5f);
-                int i2 = this.mFrames;
-                int[] iArr = this.mFrameTimes;
-                int i3 = 0;
-                while (i3 < i2 && i >= iArr[i3]) {
-                    i -= iArr[i3];
-                    i3++;
-                }
-                return (i3 / i2) + (i3 < i2 ? i / this.mTotalDuration : 0.0f);
-            }
-            return invokeF.floatValue;
-        }
-
-        public int getTotalDuration() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTotalDuration : invokeV.intValue;
-        }
-
         public int updateFrames(AnimationDrawable animationDrawable, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
@@ -439,26 +459,45 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             }
             return invokeLZ.intValue;
         }
+
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f) {
+            InterceptResult invokeF;
+            float f2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                int i = (int) ((f * this.mTotalDuration) + 0.5f);
+                int i2 = this.mFrames;
+                int[] iArr = this.mFrameTimes;
+                int i3 = 0;
+                while (i3 < i2 && i >= iArr[i3]) {
+                    i -= iArr[i3];
+                    i3++;
+                }
+                if (i3 < i2) {
+                    f2 = i / this.mTotalDuration;
+                } else {
+                    f2 = 0.0f;
+                }
+                return (i3 / i2) + f2;
+            }
+            return invokeF.floatValue;
+        }
+
+        public int getTotalDuration() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mTotalDuration;
+            }
+            return invokeV.intValue;
+        }
     }
 
     /* loaded from: classes.dex */
     public static abstract class Transition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public Transition() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         public boolean canReverse() {
             InterceptResult invokeV;
@@ -478,6 +517,20 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         public abstract void start();
 
         public abstract void stop();
+
+        public Transition() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
         public /* synthetic */ Transition(AnonymousClass1 anonymousClass1) {
             this();
@@ -519,8 +572,139 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         }
     }
 
-    @Nullable
-    public static AnimatedStateListDrawableCompat create(@NonNull Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            onStateChange(getState());
+        }
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ boolean canApplyTheme() {
+        return super.canApplyTheme();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer
+    public void clearMutated() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.clearMutated();
+            this.mMutated = false;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer
+    public AnimatedStateListState cloneConstantState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new AnimatedStateListState(this.mState, this, null);
+        }
+        return (AnimatedStateListState) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ int getAlpha() {
+        return super.getAlpha();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ int getChangingConfigurations() {
+        return super.getChangingConfigurations();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ Drawable getCurrent() {
+        return super.getCurrent();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ int getIntrinsicHeight() {
+        return super.getIntrinsicHeight();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ int getIntrinsicWidth() {
+        return super.getIntrinsicWidth();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ int getMinimumHeight() {
+        return super.getMinimumHeight();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ int getMinimumWidth() {
+        return super.getMinimumWidth();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ int getOpacity() {
+        return super.getOpacity();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ boolean isAutoMirrored() {
+        return super.isAutoMirrored();
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public void jumpToCurrentState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            super.jumpToCurrentState();
+            Transition transition = this.mTransition;
+            if (transition != null) {
+                transition.stop();
+                this.mTransition = null;
+                selectDrawable(this.mTransitionToIndex);
+                this.mTransitionToIndex = -1;
+                this.mTransitionFromIndex = -1;
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public Drawable mutate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (!this.mMutated && super.mutate() == this) {
+                this.mState.mutate();
+                this.mMutated = true;
+            }
+            return this;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AnimatedStateListDrawableCompat(AnimatedStateListState animatedStateListState, Resources resources) {
+        super(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {animatedStateListState, resources};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((StateListDrawable.StateListState) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mTransitionToIndex = -1;
+        this.mTransitionFromIndex = -1;
+        setConstantState(new AnimatedStateListState(animatedStateListState, this, resources));
+        onStateChange(getState());
+        jumpToCurrentState();
+    }
+
+    public static AnimatedStateListDrawableCompat create(Context context, int i, Resources.Theme theme) {
         InterceptResult invokeLIL;
         int next;
         Interceptable interceptable = $ic;
@@ -550,7 +734,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         return (AnimatedStateListDrawableCompat) invokeLIL.objValue;
     }
 
-    public static AnimatedStateListDrawableCompat createFromXmlInner(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws IOException, XmlPullParserException {
+    public static AnimatedStateListDrawableCompat createFromXmlInner(Context context, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws IOException, XmlPullParserException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, resources, xmlPullParser, attributeSet, theme)) == null) {
@@ -565,47 +749,46 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         return (AnimatedStateListDrawableCompat) invokeLLLLL.objValue;
     }
 
-    private void inflateChildElements(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
+    private void inflateChildElements(Context context, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLLLL(65541, this, context, resources, xmlPullParser, attributeSet, theme) != null) {
-            return;
-        }
-        int depth = xmlPullParser.getDepth() + 1;
-        while (true) {
-            int next = xmlPullParser.next();
-            if (next == 1) {
-                return;
-            }
-            int depth2 = xmlPullParser.getDepth();
-            if (depth2 < depth && next == 3) {
-                return;
-            }
-            if (next == 2 && depth2 <= depth) {
-                if (xmlPullParser.getName().equals("item")) {
-                    parseItem(context, resources, xmlPullParser, attributeSet, theme);
-                } else if (xmlPullParser.getName().equals(ELEMENT_TRANSITION)) {
-                    parseTransition(context, resources, xmlPullParser, attributeSet, theme);
+        if (interceptable == null || interceptable.invokeLLLLL(65541, this, context, resources, xmlPullParser, attributeSet, theme) == null) {
+            int depth = xmlPullParser.getDepth() + 1;
+            while (true) {
+                int next = xmlPullParser.next();
+                if (next != 1) {
+                    int depth2 = xmlPullParser.getDepth();
+                    if (depth2 >= depth || next != 3) {
+                        if (next == 2 && depth2 <= depth) {
+                            if (xmlPullParser.getName().equals("item")) {
+                                parseItem(context, resources, xmlPullParser, attributeSet, theme);
+                            } else if (xmlPullParser.getName().equals(ELEMENT_TRANSITION)) {
+                                parseTransition(context, resources, xmlPullParser, attributeSet, theme);
+                            }
+                        }
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
                 }
             }
         }
     }
 
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            onStateChange(getState());
-        }
-    }
-
-    private int parseItem(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
+    private int parseItem(Context context, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLLL;
+        Drawable drawable;
         int next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, this, context, resources, xmlPullParser, attributeSet, theme)) == null) {
             TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.AnimatedStateListDrawableItem);
             int resourceId = obtainAttributes.getResourceId(0, 0);
             int resourceId2 = obtainAttributes.getResourceId(1, -1);
-            Drawable drawable = resourceId2 > 0 ? ResourceManagerInternal.get().getDrawable(context, resourceId2) : null;
+            if (resourceId2 > 0) {
+                drawable = ResourceManagerInternal.get().getDrawable(context, resourceId2);
+            } else {
+                drawable = null;
+            }
             obtainAttributes.recycle();
             int[] extractStateSet = extractStateSet(attributeSet);
             if (drawable == null) {
@@ -632,8 +815,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         return invokeLLLLL.intValue;
     }
 
-    private int parseTransition(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
+    private int parseTransition(Context context, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLLL;
+        Drawable drawable;
         int next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, this, context, resources, xmlPullParser, attributeSet, theme)) == null) {
@@ -641,7 +825,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             int resourceId = obtainAttributes.getResourceId(2, -1);
             int resourceId2 = obtainAttributes.getResourceId(1, -1);
             int resourceId3 = obtainAttributes.getResourceId(0, -1);
-            Drawable drawable = resourceId3 > 0 ? ResourceManagerInternal.get().getDrawable(context, resourceId3) : null;
+            if (resourceId3 > 0) {
+                drawable = ResourceManagerInternal.get().getDrawable(context, resourceId3);
+            } else {
+                drawable = null;
+            }
             boolean z = obtainAttributes.getBoolean(3, false);
             obtainAttributes.recycle();
             if (drawable == null) {
@@ -660,13 +848,13 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                     throw new XmlPullParserException(xmlPullParser.getPositionDescription() + TRANSITION_MISSING_DRAWABLE_ERROR);
                 }
             }
-            if (drawable == null) {
-                throw new XmlPullParserException(xmlPullParser.getPositionDescription() + TRANSITION_MISSING_DRAWABLE_ERROR);
-            } else if (resourceId != -1 && resourceId2 != -1) {
-                return this.mState.addTransition(resourceId, resourceId2, drawable, z);
-            } else {
+            if (drawable != null) {
+                if (resourceId != -1 && resourceId2 != -1) {
+                    return this.mState.addTransition(resourceId, resourceId2, drawable, z);
+                }
                 throw new XmlPullParserException(xmlPullParser.getPositionDescription() + TRANSITION_MISSING_FROM_TO_ID);
             }
+            throw new XmlPullParserException(xmlPullParser.getPositionDescription() + TRANSITION_MISSING_DRAWABLE_ERROR);
         }
         return invokeLLLLL.intValue;
     }
@@ -745,7 +933,34 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         super.addState(iArr, drawable);
     }
 
-    public <T extends Drawable & Animatable> void addTransition(int i, int i2, @NonNull T t, boolean z) {
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ void setHotspot(float f, float f2) {
+        super.setHotspot(f, f2);
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable.Callback
+    public /* bridge */ /* synthetic */ void unscheduleDrawable(Drawable drawable, Runnable runnable) {
+        super.unscheduleDrawable(drawable, runnable);
+    }
+
+    public void addState(int[] iArr, Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, drawable, i) == null) {
+            if (drawable != null) {
+                this.mState.addStateSet(iArr, drawable, i);
+                onStateChange(getState());
+                return;
+            }
+            throw new IllegalArgumentException("Drawable must not be null");
+        }
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable.Callback
+    public /* bridge */ /* synthetic */ void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+        super.scheduleDrawable(drawable, runnable, j);
+    }
+
+    public <T extends Drawable & Animatable> void addTransition(int i, int i2, T t, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), t, Boolean.valueOf(z)}) == null) {
             if (t != null) {
@@ -757,173 +972,38 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    @RequiresApi(21)
-    public /* bridge */ /* synthetic */ void applyTheme(@NonNull Resources.Theme theme) {
+    public /* bridge */ /* synthetic */ void applyTheme(Resources.Theme theme) {
         super.applyTheme(theme);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    @RequiresApi(21)
-    public /* bridge */ /* synthetic */ boolean canApplyTheme() {
-        return super.canApplyTheme();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer
-    public void clearMutated() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.clearMutated();
-            this.mMutated = false;
-        }
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void draw(@NonNull Canvas canvas) {
+    public /* bridge */ /* synthetic */ void draw(Canvas canvas) {
         super.draw(canvas);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ int getAlpha() {
-        return super.getAlpha();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ int getChangingConfigurations() {
-        return super.getChangingConfigurations();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    @NonNull
-    public /* bridge */ /* synthetic */ Drawable getCurrent() {
-        return super.getCurrent();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void getHotspotBounds(@NonNull Rect rect) {
+    public /* bridge */ /* synthetic */ void getHotspotBounds(Rect rect) {
         super.getHotspotBounds(rect);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ int getIntrinsicHeight() {
-        return super.getIntrinsicHeight();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ int getIntrinsicWidth() {
-        return super.getIntrinsicWidth();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ int getMinimumHeight() {
-        return super.getMinimumHeight();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ int getMinimumWidth() {
-        return super.getMinimumWidth();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ int getOpacity() {
-        return super.getOpacity();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    @RequiresApi(21)
-    public /* bridge */ /* synthetic */ void getOutline(@NonNull Outline outline) {
+    public /* bridge */ /* synthetic */ void getOutline(Outline outline) {
         super.getOutline(outline);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ boolean getPadding(@NonNull Rect rect) {
+    public /* bridge */ /* synthetic */ boolean getPadding(Rect rect) {
         return super.getPadding(rect);
     }
 
-    @Override // androidx.appcompat.graphics.drawable.StateListDrawable
-    public void inflate(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048597, this, context, resources, xmlPullParser, attributeSet, theme) == null) {
-            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.AnimatedStateListDrawableCompat);
-            setVisible(obtainAttributes.getBoolean(1, true), true);
-            updateStateFromTypedArray(obtainAttributes);
-            updateDensity(resources);
-            obtainAttributes.recycle();
-            inflateChildElements(context, resources, xmlPullParser, attributeSet, theme);
-            init();
-        }
-    }
-
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable.Callback
-    public /* bridge */ /* synthetic */ void invalidateDrawable(@NonNull Drawable drawable) {
+    public /* bridge */ /* synthetic */ void invalidateDrawable(Drawable drawable) {
         super.invalidateDrawable(drawable);
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ boolean isAutoMirrored() {
-        return super.isAutoMirrored();
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public boolean isStateful() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public void jumpToCurrentState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            super.jumpToCurrentState();
-            Transition transition = this.mTransition;
-            if (transition != null) {
-                transition.stop();
-                this.mTransition = null;
-                selectDrawable(this.mTransitionToIndex);
-                this.mTransitionToIndex = -1;
-                this.mTransitionFromIndex = -1;
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public Drawable mutate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (!this.mMutated && super.mutate() == this) {
-                this.mState.mutate();
-                this.mMutated = true;
-            }
-            return this;
-        }
-        return (Drawable) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
     public /* bridge */ /* synthetic */ boolean onLayoutDirectionChanged(int i) {
         return super.onLayoutDirectionChanged(i);
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public boolean onStateChange(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, iArr)) == null) {
-            int indexOfKeyframe = this.mState.indexOfKeyframe(iArr);
-            boolean z = indexOfKeyframe != getCurrentIndex() && (selectTransition(indexOfKeyframe) || selectDrawable(indexOfKeyframe));
-            Drawable current = getCurrent();
-            return current != null ? z | current.setState(iArr) : z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable.Callback
-    public /* bridge */ /* synthetic */ void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
-        super.scheduleDrawable(drawable, runnable, j);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
@@ -942,7 +1022,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer
-    public void setConstantState(@NonNull DrawableContainer.DrawableContainerState drawableContainerState) {
+    public void setConstantState(DrawableContainer.DrawableContainerState drawableContainerState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, drawableContainerState) == null) {
             super.setConstantState(drawableContainerState);
@@ -967,24 +1047,54 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         super.setExitFadeDuration(i);
     }
 
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspot(float f, float f2) {
-        super.setHotspot(f, f2);
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspotBounds(int i, int i2, int i3, int i4) {
-        super.setHotspotBounds(i, i2, i3, i4);
-    }
-
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
     public /* bridge */ /* synthetic */ void setTintList(ColorStateList colorStateList) {
         super.setTintList(colorStateList);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public /* bridge */ /* synthetic */ void setTintMode(@NonNull PorterDuff.Mode mode) {
+    public /* bridge */ /* synthetic */ void setTintMode(PorterDuff.Mode mode) {
         super.setTintMode(mode);
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.StateListDrawable
+    public void inflate(Context context, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048597, this, context, resources, xmlPullParser, attributeSet, theme) == null) {
+            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R.styleable.AnimatedStateListDrawableCompat);
+            setVisible(obtainAttributes.getBoolean(1, true), true);
+            updateStateFromTypedArray(obtainAttributes);
+            updateDensity(resources);
+            obtainAttributes.recycle();
+            inflateChildElements(context, resources, xmlPullParser, attributeSet, theme);
+            init();
+        }
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public boolean onStateChange(int[] iArr) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, iArr)) == null) {
+            int indexOfKeyframe = this.mState.indexOfKeyframe(iArr);
+            if (indexOfKeyframe != getCurrentIndex() && (selectTransition(indexOfKeyframe) || selectDrawable(indexOfKeyframe))) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Drawable current = getCurrent();
+            if (current != null) {
+                return z | current.setState(iArr);
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    public /* bridge */ /* synthetic */ void setHotspotBounds(int i, int i2, int i3, int i4) {
+        super.setHotspotBounds(i, i2, i3, i4);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
@@ -1003,55 +1113,5 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             return visible;
         }
         return invokeCommon.booleanValue;
-    }
-
-    @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable.Callback
-    public /* bridge */ /* synthetic */ void unscheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable) {
-        super.unscheduleDrawable(drawable, runnable);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AnimatedStateListDrawableCompat(@Nullable AnimatedStateListState animatedStateListState, @Nullable Resources resources) {
-        super(null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {animatedStateListState, resources};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((StateListDrawable.StateListState) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mTransitionToIndex = -1;
-        this.mTransitionFromIndex = -1;
-        setConstantState(new AnimatedStateListState(animatedStateListState, this, resources));
-        onStateChange(getState());
-        jumpToCurrentState();
-    }
-
-    public void addState(@NonNull int[] iArr, @NonNull Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, drawable, i) == null) {
-            if (drawable != null) {
-                this.mState.addStateSet(iArr, drawable, i);
-                onStateChange(getState());
-                return;
-            }
-            throw new IllegalArgumentException("Drawable must not be null");
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer
-    public AnimatedStateListState cloneConstantState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new AnimatedStateListState(this.mState, this, null) : (AnimatedStateListState) invokeV.objValue;
     }
 }

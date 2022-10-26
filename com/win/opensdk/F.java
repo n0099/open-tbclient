@@ -32,6 +32,14 @@ public class F implements E2 {
     }
 
     @Override // com.win.opensdk.E2
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.g = str;
+        }
+    }
+
+    @Override // com.win.opensdk.E2
     public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -49,13 +57,5 @@ public class F implements E2 {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    @Override // com.win.opensdk.E2
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.g = str;
-        }
     }
 }

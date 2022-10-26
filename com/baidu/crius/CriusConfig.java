@@ -1,17 +1,23 @@
 package com.baidu.crius;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.crius.annotations.DoNotStrip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@DoNotStrip
 /* loaded from: classes.dex */
 public class CriusConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mNativePointer;
+
+    private native void jni_CSConfigFree(long j);
+
+    private native long jni_CSConfigNew();
+
+    private native void jni_CSConfigSetLoggerEnabled(long j, boolean z);
+
+    private native void jni_CSConfigSetPointScaleFactor(long j, float f);
 
     public CriusConfig() {
         Interceptable interceptable = $ic;
@@ -32,14 +38,6 @@ public class CriusConfig {
             throw new IllegalStateException("Failed to allocate native memory");
         }
     }
-
-    private native void jni_CSConfigFree(long j);
-
-    private native long jni_CSConfigNew();
-
-    private native void jni_CSConfigSetLoggerEnabled(long j, boolean z);
-
-    private native void jni_CSConfigSetPointScaleFactor(long j, float f);
 
     public void finalize() throws Throwable {
         Interceptable interceptable = $ic;

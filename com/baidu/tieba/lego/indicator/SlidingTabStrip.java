@@ -17,6 +17,12 @@ public class SlidingTabStrip extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SlidingTabStrip(Context context) {
         this(context, null);
@@ -36,37 +42,6 @@ public class SlidingTabStrip extends LinearLayout {
                 return;
             }
         }
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) || i == i2) {
-            return;
-        }
-        int childCount = getChildCount();
-        if (i >= 0 && i < childCount) {
-            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
-            View childAt = getChildAt(i);
-            if (childAt instanceof TextView) {
-                ((TextView) childAt).setTextSize(0, dimension);
-            }
-            SkinManager.setViewTextColor(childAt, R.color.CAM_X0308, 1);
-        }
-        if (i2 < 0 || i2 >= childCount) {
-            return;
-        }
-        float dimension2 = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);
-        View childAt2 = getChildAt(i2);
-        if (childAt2 instanceof TextView) {
-            ((TextView) childAt2).setTextSize(0, dimension2);
-        }
-        SkinManager.setViewTextColor(childAt2, R.color.CAM_X0105, 1);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,5 +64,29 @@ public class SlidingTabStrip extends LinearLayout {
             }
         }
         setWillNotDraw(false);
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) != null) || i == i2) {
+            return;
+        }
+        int childCount = getChildCount();
+        if (i >= 0 && i < childCount) {
+            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
+            View childAt = getChildAt(i);
+            if (childAt instanceof TextView) {
+                ((TextView) childAt).setTextSize(0, dimension);
+            }
+            SkinManager.setViewTextColor(childAt, R.color.CAM_X0308, 1);
+        }
+        if (i2 >= 0 && i2 < childCount) {
+            float dimension2 = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);
+            View childAt2 = getChildAt(i2);
+            if (childAt2 instanceof TextView) {
+                ((TextView) childAt2).setTextSize(0, dimension2);
+            }
+            SkinManager.setViewTextColor(childAt2, R.color.CAM_X0105, 1);
+        }
     }
 }

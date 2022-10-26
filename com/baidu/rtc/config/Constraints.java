@@ -12,6 +12,18 @@ public class Constraints {
     public static final String RTC_VERSION = "1.3.3";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String sdkVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "BRTC.Android.SDK V1.3.3" : (String) invokeV.objValue;
+    }
+
+    public static String version() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? RTC_VERSION : (String) invokeV.objValue;
+    }
+
     public Constraints() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,17 +36,5 @@ public class Constraints {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static String sdkVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "BRTC.Android.SDK V1.3.3" : (String) invokeV.objValue;
-    }
-
-    public static String version() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? RTC_VERSION : (String) invokeV.objValue;
     }
 }

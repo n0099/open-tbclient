@@ -32,30 +32,6 @@ public class ConstraintProperties {
     public ConstraintLayout.LayoutParams mParams;
     public View mView;
 
-    public ConstraintProperties(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        if (layoutParams instanceof ConstraintLayout.LayoutParams) {
-            this.mParams = (ConstraintLayout.LayoutParams) layoutParams;
-            this.mView = view2;
-            return;
-        }
-        throw new RuntimeException("Only children of ConstraintLayout.LayoutParams supported");
-    }
-
     private String sideToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -82,12 +58,60 @@ public class ConstraintProperties {
         return (String) invokeI.objValue;
     }
 
+    public void apply() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public ConstraintProperties scaleY(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048611, this, f)) == null) ? this : (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (layoutParams instanceof ConstraintLayout.LayoutParams) {
+            this.mParams = (ConstraintLayout.LayoutParams) layoutParams;
+            this.mView = view2;
+            return;
+        }
+        throw new RuntimeException("Only children of ConstraintLayout.LayoutParams supported");
+    }
+
     public ConstraintProperties addToHorizontalChain(int i, int i2) {
         InterceptResult invokeII;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            connect(1, i, i == 0 ? 1 : 2, 0);
-            connect(2, i2, i2 == 0 ? 2 : 1, 0);
+            if (i == 0) {
+                i3 = 1;
+            } else {
+                i3 = 2;
+            }
+            connect(1, i, i3, 0);
+            if (i2 == 0) {
+                i4 = 2;
+            } else {
+                i4 = 1;
+            }
+            connect(2, i2, i4, 0);
             if (i != 0) {
                 new ConstraintProperties(((ViewGroup) this.mView.getParent()).findViewById(i)).connect(2, this.mView.getId(), 1, 0);
             }
@@ -101,10 +125,22 @@ public class ConstraintProperties {
 
     public ConstraintProperties addToHorizontalChainRTL(int i, int i2) {
         InterceptResult invokeII;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            connect(6, i, i == 0 ? 6 : 7, 0);
-            connect(7, i2, i2 == 0 ? 7 : 6, 0);
+            if (i == 0) {
+                i3 = 6;
+            } else {
+                i3 = 7;
+            }
+            connect(6, i, i3, 0);
+            if (i2 == 0) {
+                i4 = 7;
+            } else {
+                i4 = 6;
+            }
+            connect(7, i2, i4, 0);
             if (i != 0) {
                 new ConstraintProperties(((ViewGroup) this.mView.getParent()).findViewById(i)).connect(7, this.mView.getId(), 6, 0);
             }
@@ -118,15 +154,93 @@ public class ConstraintProperties {
 
     public ConstraintProperties addToVerticalChain(int i, int i2) {
         InterceptResult invokeII;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            connect(3, i, i == 0 ? 3 : 4, 0);
-            connect(4, i2, i2 == 0 ? 4 : 3, 0);
+            if (i == 0) {
+                i3 = 3;
+            } else {
+                i3 = 4;
+            }
+            connect(3, i, i3, 0);
+            if (i2 == 0) {
+                i4 = 4;
+            } else {
+                i4 = 3;
+            }
+            connect(4, i2, i4, 0);
             if (i != 0) {
                 new ConstraintProperties(((ViewGroup) this.mView.getParent()).findViewById(i)).connect(4, this.mView.getId(), 3, 0);
             }
             if (i2 != 0) {
                 new ConstraintProperties(((ViewGroup) this.mView.getParent()).findViewById(i2)).connect(3, this.mView.getId(), 4, 0);
+            }
+            return this;
+        }
+        return (ConstraintProperties) invokeII.objValue;
+    }
+
+    public ConstraintProperties goneMargin(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048599, this, i, i2)) == null) {
+            switch (i) {
+                case 1:
+                    this.mParams.goneLeftMargin = i2;
+                    break;
+                case 2:
+                    this.mParams.goneRightMargin = i2;
+                    break;
+                case 3:
+                    this.mParams.goneTopMargin = i2;
+                    break;
+                case 4:
+                    this.mParams.goneBottomMargin = i2;
+                    break;
+                case 5:
+                    throw new IllegalArgumentException("baseline does not support margins");
+                case 6:
+                    this.mParams.goneStartMargin = i2;
+                    break;
+                case 7:
+                    this.mParams.goneEndMargin = i2;
+                    break;
+                default:
+                    throw new IllegalArgumentException("unknown constraint");
+            }
+            return this;
+        }
+        return (ConstraintProperties) invokeII.objValue;
+    }
+
+    public ConstraintProperties margin(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048603, this, i, i2)) == null) {
+            switch (i) {
+                case 1:
+                    ((ViewGroup.MarginLayoutParams) this.mParams).leftMargin = i2;
+                    break;
+                case 2:
+                    ((ViewGroup.MarginLayoutParams) this.mParams).rightMargin = i2;
+                    break;
+                case 3:
+                    ((ViewGroup.MarginLayoutParams) this.mParams).topMargin = i2;
+                    break;
+                case 4:
+                    ((ViewGroup.MarginLayoutParams) this.mParams).bottomMargin = i2;
+                    break;
+                case 5:
+                    throw new IllegalArgumentException("baseline does not support margins");
+                case 6:
+                    this.mParams.setMarginStart(i2);
+                    break;
+                case 7:
+                    this.mParams.setMarginEnd(i2);
+                    break;
+                default:
+                    throw new IllegalArgumentException("unknown constraint");
             }
             return this;
         }
@@ -143,10 +257,310 @@ public class ConstraintProperties {
         return (ConstraintProperties) invokeF.objValue;
     }
 
-    public void apply() {
+    public ConstraintProperties centerHorizontally(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i == 0) {
+                center(0, 1, 0, 0, 2, 0, 0.5f);
+            } else {
+                center(i, 2, 0, i, 1, 0, 0.5f);
+            }
+            return this;
         }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties centerHorizontallyRtl(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (i == 0) {
+                center(0, 6, 0, 0, 7, 0, 0.5f);
+            } else {
+                center(i, 7, 0, i, 6, 0, 0.5f);
+            }
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties centerVertically(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (i == 0) {
+                center(0, 3, 0, 0, 4, 0, 0.5f);
+            } else {
+                center(i, 4, 0, i, 3, 0, 0.5f);
+            }
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties constrainDefaultHeight(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.mParams.matchConstraintDefaultHeight = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties constrainDefaultWidth(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            this.mParams.matchConstraintDefaultWidth = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties constrainHeight(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            ((ViewGroup.MarginLayoutParams) this.mParams).height = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties constrainMaxHeight(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            this.mParams.matchConstraintMaxHeight = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties constrainMaxWidth(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            this.mParams.matchConstraintMaxWidth = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties constrainMinHeight(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            this.mParams.matchConstraintMinHeight = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties constrainMinWidth(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.mParams.matchConstraintMinWidth = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties constrainWidth(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            ((ViewGroup.MarginLayoutParams) this.mParams).width = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties dimensionRatio(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            this.mParams.dimensionRatio = str;
+            return this;
+        }
+        return (ConstraintProperties) invokeL.objValue;
+    }
+
+    public ConstraintProperties elevation(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048598, this, f)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                this.mView.setElevation(f);
+            }
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties horizontalBias(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048600, this, f)) == null) {
+            this.mParams.horizontalBias = f;
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties horizontalChainStyle(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
+            this.mParams.horizontalChainStyle = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties horizontalWeight(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048602, this, f)) == null) {
+            this.mParams.horizontalWeight = f;
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties rotation(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048607, this, f)) == null) {
+            this.mView.setRotation(f);
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties rotationX(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048608, this, f)) == null) {
+            this.mView.setRotationX(f);
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties rotationY(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048609, this, f)) == null) {
+            this.mView.setRotationY(f);
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties scaleX(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048610, this, f)) == null) {
+            this.mView.setScaleY(f);
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties transformPivotX(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048613, this, f)) == null) {
+            this.mView.setPivotX(f);
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties transformPivotY(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048614, this, f)) == null) {
+            this.mView.setPivotY(f);
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties translationX(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048616, this, f)) == null) {
+            this.mView.setTranslationX(f);
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties translationY(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048617, this, f)) == null) {
+            this.mView.setTranslationY(f);
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties translationZ(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048618, this, f)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                this.mView.setTranslationZ(f);
+            }
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties verticalBias(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048619, this, f)) == null) {
+            this.mParams.verticalBias = f;
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties verticalChainStyle(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i)) == null) {
+            this.mParams.verticalChainStyle = i;
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
+    }
+
+    public ConstraintProperties verticalWeight(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048621, this, f)) == null) {
+            this.mParams.verticalWeight = f;
+            return this;
+        }
+        return (ConstraintProperties) invokeF.objValue;
+    }
+
+    public ConstraintProperties visibility(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i)) == null) {
+            this.mView.setVisibility(i);
+            return this;
+        }
+        return (ConstraintProperties) invokeI.objValue;
     }
 
     public ConstraintProperties center(int i, int i2, int i3, int i4, int i5, int i6, float f) {
@@ -155,23 +569,25 @@ public class ConstraintProperties {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Float.valueOf(f)})) == null) {
             if (i3 >= 0) {
                 if (i6 >= 0) {
-                    if (f <= 0.0f || f > 1.0f) {
-                        throw new IllegalArgumentException("bias must be between 0 and 1 inclusive");
+                    if (f > 0.0f && f <= 1.0f) {
+                        if (i2 != 1 && i2 != 2) {
+                            if (i2 != 6 && i2 != 7) {
+                                connect(3, i, i2, i3);
+                                connect(4, i4, i5, i6);
+                                this.mParams.verticalBias = f;
+                            } else {
+                                connect(6, i, i2, i3);
+                                connect(7, i4, i5, i6);
+                                this.mParams.horizontalBias = f;
+                            }
+                        } else {
+                            connect(1, i, i2, i3);
+                            connect(2, i4, i5, i6);
+                            this.mParams.horizontalBias = f;
+                        }
+                        return this;
                     }
-                    if (i2 == 1 || i2 == 2) {
-                        connect(1, i, i2, i3);
-                        connect(2, i4, i5, i6);
-                        this.mParams.horizontalBias = f;
-                    } else if (i2 != 6 && i2 != 7) {
-                        connect(3, i, i2, i3);
-                        connect(4, i4, i5, i6);
-                        this.mParams.verticalBias = f;
-                    } else {
-                        connect(6, i, i2, i3);
-                        connect(7, i4, i5, i6);
-                        this.mParams.horizontalBias = f;
-                    }
-                    return this;
+                    throw new IllegalArgumentException("bias must be between 0 and 1 inclusive");
                 }
                 throw new IllegalArgumentException("margin must be > 0");
             }
@@ -335,204 +751,6 @@ public class ConstraintProperties {
         return (ConstraintProperties) invokeIIII.objValue;
     }
 
-    public ConstraintProperties constrainDefaultHeight(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.mParams.matchConstraintDefaultHeight = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties constrainDefaultWidth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            this.mParams.matchConstraintDefaultWidth = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties constrainHeight(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            ((ViewGroup.MarginLayoutParams) this.mParams).height = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties constrainMaxHeight(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            this.mParams.matchConstraintMaxHeight = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties constrainMaxWidth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            this.mParams.matchConstraintMaxWidth = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties constrainMinHeight(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            this.mParams.matchConstraintMinHeight = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties constrainMinWidth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            this.mParams.matchConstraintMinWidth = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties constrainWidth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            ((ViewGroup.MarginLayoutParams) this.mParams).width = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties dimensionRatio(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            this.mParams.dimensionRatio = str;
-            return this;
-        }
-        return (ConstraintProperties) invokeL.objValue;
-    }
-
-    public ConstraintProperties elevation(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048598, this, f)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.mView.setElevation(f);
-            }
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties goneMargin(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048599, this, i, i2)) == null) {
-            switch (i) {
-                case 1:
-                    this.mParams.goneLeftMargin = i2;
-                    break;
-                case 2:
-                    this.mParams.goneRightMargin = i2;
-                    break;
-                case 3:
-                    this.mParams.goneTopMargin = i2;
-                    break;
-                case 4:
-                    this.mParams.goneBottomMargin = i2;
-                    break;
-                case 5:
-                    throw new IllegalArgumentException("baseline does not support margins");
-                case 6:
-                    this.mParams.goneStartMargin = i2;
-                    break;
-                case 7:
-                    this.mParams.goneEndMargin = i2;
-                    break;
-                default:
-                    throw new IllegalArgumentException("unknown constraint");
-            }
-            return this;
-        }
-        return (ConstraintProperties) invokeII.objValue;
-    }
-
-    public ConstraintProperties horizontalBias(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048600, this, f)) == null) {
-            this.mParams.horizontalBias = f;
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties horizontalChainStyle(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
-            this.mParams.horizontalChainStyle = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties horizontalWeight(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048602, this, f)) == null) {
-            this.mParams.horizontalWeight = f;
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties margin(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048603, this, i, i2)) == null) {
-            switch (i) {
-                case 1:
-                    ((ViewGroup.MarginLayoutParams) this.mParams).leftMargin = i2;
-                    break;
-                case 2:
-                    ((ViewGroup.MarginLayoutParams) this.mParams).rightMargin = i2;
-                    break;
-                case 3:
-                    ((ViewGroup.MarginLayoutParams) this.mParams).topMargin = i2;
-                    break;
-                case 4:
-                    ((ViewGroup.MarginLayoutParams) this.mParams).bottomMargin = i2;
-                    break;
-                case 5:
-                    throw new IllegalArgumentException("baseline does not support margins");
-                case 6:
-                    this.mParams.setMarginStart(i2);
-                    break;
-                case 7:
-                    this.mParams.setMarginEnd(i2);
-                    break;
-                default:
-                    throw new IllegalArgumentException("unknown constraint");
-            }
-            return this;
-        }
-        return (ConstraintProperties) invokeII.objValue;
-    }
-
     public ConstraintProperties removeConstraints(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -681,52 +899,6 @@ public class ConstraintProperties {
         return (ConstraintProperties) invokeV.objValue;
     }
 
-    public ConstraintProperties rotation(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048607, this, f)) == null) {
-            this.mView.setRotation(f);
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties rotationX(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048608, this, f)) == null) {
-            this.mView.setRotationX(f);
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties rotationY(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048609, this, f)) == null) {
-            this.mView.setRotationY(f);
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties scaleX(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048610, this, f)) == null) {
-            this.mView.setScaleY(f);
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties scaleY(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048611, this, f)) == null) ? this : (ConstraintProperties) invokeF.objValue;
-    }
-
     public ConstraintProperties transformPivot(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -738,26 +910,6 @@ public class ConstraintProperties {
         return (ConstraintProperties) invokeCommon.objValue;
     }
 
-    public ConstraintProperties transformPivotX(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048613, this, f)) == null) {
-            this.mView.setPivotX(f);
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties transformPivotY(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048614, this, f)) == null) {
-            this.mView.setPivotY(f);
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
     public ConstraintProperties translation(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -767,119 +919,5 @@ public class ConstraintProperties {
             return this;
         }
         return (ConstraintProperties) invokeCommon.objValue;
-    }
-
-    public ConstraintProperties translationX(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048616, this, f)) == null) {
-            this.mView.setTranslationX(f);
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties translationY(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048617, this, f)) == null) {
-            this.mView.setTranslationY(f);
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties translationZ(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048618, this, f)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.mView.setTranslationZ(f);
-            }
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties verticalBias(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048619, this, f)) == null) {
-            this.mParams.verticalBias = f;
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties verticalChainStyle(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i)) == null) {
-            this.mParams.verticalChainStyle = i;
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties verticalWeight(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048621, this, f)) == null) {
-            this.mParams.verticalWeight = f;
-            return this;
-        }
-        return (ConstraintProperties) invokeF.objValue;
-    }
-
-    public ConstraintProperties visibility(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i)) == null) {
-            this.mView.setVisibility(i);
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties centerHorizontally(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i == 0) {
-                center(0, 1, 0, 0, 2, 0, 0.5f);
-            } else {
-                center(i, 2, 0, i, 1, 0, 0.5f);
-            }
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties centerHorizontallyRtl(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (i == 0) {
-                center(0, 6, 0, 0, 7, 0, 0.5f);
-            } else {
-                center(i, 7, 0, i, 6, 0, 0.5f);
-            }
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
-    }
-
-    public ConstraintProperties centerVertically(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (i == 0) {
-                center(0, 3, 0, 0, 4, 0, 0.5f);
-            } else {
-                center(i, 4, 0, i, 3, 0, 0.5f);
-            }
-            return this;
-        }
-        return (ConstraintProperties) invokeI.objValue;
     }
 }

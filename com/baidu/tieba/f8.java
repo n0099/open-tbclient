@@ -30,12 +30,14 @@ public class f8 {
     public static boolean f;
     public static boolean g;
     public static boolean h;
-    public static final HashSet<String> i;
+    public static final HashSet i;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
+        boolean z2;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448302939, "Lcom/baidu/tieba/f8;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -52,8 +54,18 @@ public class f8 {
         d = System.getProperty("os.name").contains("Mac");
         e = false;
         f = false;
-        g = System.getProperty("os.arch").startsWith("arm") || System.getProperty("os.arch").startsWith("aarch64");
-        h = System.getProperty("os.arch").contains(WebKitFactory.OS_64) || System.getProperty("os.arch").startsWith("armv8");
+        if (!System.getProperty("os.arch").startsWith("arm") && !System.getProperty("os.arch").startsWith("aarch64")) {
+            z = false;
+        } else {
+            z = true;
+        }
+        g = z;
+        if (!System.getProperty("os.arch").contains(WebKitFactory.OS_64) && !System.getProperty("os.arch").startsWith("armv8")) {
+            z2 = false;
+        } else {
+            z2 = true;
+        }
+        h = z2;
         String property = System.getProperty("java.runtime.name");
         if (property != null && property.contains("Android Runtime")) {
             f = true;
@@ -70,7 +82,7 @@ public class f8 {
             d = false;
             h = false;
         }
-        i = new HashSet<>();
+        i = new HashSet();
     }
 
     public f8() {
@@ -166,78 +178,79 @@ public class f8 {
         byte[] bArr;
         int read;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, file)) != null) {
-            return (File) invokeLLL.objValue;
-        }
-        InputStream inputStream2 = null;
-        try {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, file)) == null) {
+            InputStream inputStream2 = null;
             try {
                 try {
-                    if (file.exists()) {
-                        try {
-                            a = a(new FileInputStream(file));
-                        } catch (FileNotFoundException unused) {
-                        }
-                        if (a != null || !a.equals(str2)) {
-                            inputStream = h(str);
-                            file.getParentFile().mkdirs();
-                            fileOutputStream = new FileOutputStream(file);
-                            bArr = new byte[4096];
-                            while (true) {
-                                read = inputStream.read(bArr);
-                                if (read != -1) {
-                                    break;
-                                }
-                                fileOutputStream.write(bArr, 0, read);
+                    try {
+                        if (file.exists()) {
+                            try {
+                                a = a(new FileInputStream(file));
+                            } catch (FileNotFoundException unused) {
                             }
-                            j8.a(inputStream);
-                            j8.a(fileOutputStream);
+                            if (a != null || !a.equals(str2)) {
+                                inputStream = h(str);
+                                file.getParentFile().mkdirs();
+                                fileOutputStream = new FileOutputStream(file);
+                                bArr = new byte[4096];
+                                while (true) {
+                                    read = inputStream.read(bArr);
+                                    if (read != -1) {
+                                        break;
+                                    }
+                                    fileOutputStream.write(bArr, 0, read);
+                                }
+                                j8.a(inputStream);
+                                j8.a(fileOutputStream);
+                            }
+                            return file;
                         }
+                        bArr = new byte[4096];
+                        while (true) {
+                            read = inputStream.read(bArr);
+                            if (read != -1) {
+                            }
+                            fileOutputStream.write(bArr, 0, read);
+                        }
+                        j8.a(inputStream);
+                        j8.a(fileOutputStream);
                         return file;
+                    } catch (IOException e3) {
+                        e2 = e3;
+                        throw new GdxRuntimeException("Error extracting file: " + str + "\nTo: " + file.getAbsolutePath(), e2);
                     }
-                    bArr = new byte[4096];
-                    while (true) {
-                        read = inputStream.read(bArr);
-                        if (read != -1) {
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    j8.a(inputStream);
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    j8.a(inputStream2);
                     j8.a(fileOutputStream);
-                    return file;
-                } catch (IOException e3) {
-                    e2 = e3;
-                    throw new GdxRuntimeException("Error extracting file: " + str + "\nTo: " + file.getAbsolutePath(), e2);
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
+                file.getParentFile().mkdirs();
+                fileOutputStream = new FileOutputStream(file);
+            } catch (IOException e4) {
+                e2 = e4;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
                 inputStream2 = inputStream;
                 j8.a(inputStream2);
                 j8.a(fileOutputStream);
                 throw th;
             }
-            file.getParentFile().mkdirs();
-            fileOutputStream = new FileOutputStream(file);
-        } catch (IOException e4) {
-            e2 = e4;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
-            inputStream2 = inputStream;
-            j8.a(inputStream2);
-            j8.a(fileOutputStream);
-            throw th;
+            a = null;
+            if (a != null) {
+            }
+            inputStream = h(str);
+        } else {
+            return (File) invokeLLL.objValue;
         }
-        a = null;
-        if (a != null) {
-        }
-        inputStream = h(str);
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || e) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || e) {
             return;
         }
         synchronized (f8.class) {
@@ -252,6 +265,59 @@ public class f8 {
             }
             i(str);
         }
+    }
+
+    public String g(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (b) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str);
+                if (h) {
+                    str5 = "64.dll";
+                } else {
+                    str5 = ".dll";
+                }
+                sb.append(str5);
+                return sb.toString();
+            } else if (c) {
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("lib");
+                sb2.append(str);
+                if (g) {
+                    str3 = "arm";
+                } else {
+                    str3 = "";
+                }
+                sb2.append(str3);
+                if (h) {
+                    str4 = "64.so";
+                } else {
+                    str4 = ".so";
+                }
+                sb2.append(str4);
+                return sb2.toString();
+            } else if (d) {
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append("lib");
+                sb3.append(str);
+                if (h) {
+                    str2 = "64.dylib";
+                } else {
+                    str2 = ".dylib";
+                }
+                sb3.append(str2);
+                return sb3.toString();
+            } else {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public final Throwable e(String str, String str2, File file) {
@@ -300,35 +366,6 @@ public class f8 {
             }
             throw new GdxRuntimeException(e2);
         }
-    }
-
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (b) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str);
-                sb.append(h ? "64.dll" : ".dll");
-                return sb.toString();
-            } else if (c) {
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("lib");
-                sb2.append(str);
-                sb2.append(g ? "arm" : "");
-                sb2.append(h ? "64.so" : ".so");
-                return sb2.toString();
-            } else if (d) {
-                StringBuilder sb3 = new StringBuilder();
-                sb3.append("lib");
-                sb3.append(str);
-                sb3.append(h ? "64.dylib" : ".dylib");
-                return sb3.toString();
-            } else {
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
     }
 
     public final InputStream h(String str) {

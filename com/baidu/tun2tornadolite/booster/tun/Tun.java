@@ -41,7 +41,7 @@ public final class Tun {
     public static /* synthetic */ Interceptable $ic;
     public static final Tun INSTANCE;
     public static ParcelFileDescriptor descriptor;
-    public static Deferred<Unit> handleLoop;
+    public static Deferred handleLoop;
     public static ByteBuffer headerBuf;
     public static boolean inited;
     public static FileInputStream input;
@@ -49,6 +49,24 @@ public final class Tun {
     public static FileOutputStream output;
     public static int tunfd;
     public transient /* synthetic */ FieldHolder $fh;
+
+    private final void processICMP(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, this, byteBuffer, directIPHeader) == null) {
+        }
+    }
+
+    private final void processICMPv6(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, this, byteBuffer, directIPHeader) == null) {
+        }
+    }
+
+    private final void processOther(ByteBuffer byteBuffer, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65547, this, byteBuffer, i) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -83,32 +101,72 @@ public final class Tun {
         }
     }
 
+    public final Deferred getHandleLoop() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Deferred deferred = handleLoop;
+            if (deferred != null) {
+                return deferred;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("handleLoop");
+            return null;
+        }
+        return (Deferred) invokeV.objValue;
+    }
+
+    public final void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            looping = false;
+        }
+    }
+
+    private final void processUdp(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, this, byteBuffer, directIPHeader) == null) {
+            SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m792constructorimpl(directIPHeader.getPacketLength()), null);
+            sClientPacket.encodeHeader2Buffer(headerBuf);
+            sClientPacket.writeBodyBuffer(byteBuffer);
+            SClient.INSTANCE.write(sClientPacket);
+        }
+    }
+
+    public final void write(ByteBuffer buffer, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, buffer, i) == null) {
+            Intrinsics.checkNotNullParameter(buffer, "buffer");
+            if (!inited) {
+                return;
+            }
+            FileOutputStream fileOutputStream = output;
+            if (fileOutputStream == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("output");
+                fileOutputStream = null;
+            }
+            fileOutputStream.write(buffer.array(), 0, i);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public final Object loop(Continuation<? super Unit> continuation) {
+    public final Object loop(Continuation continuation) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, continuation)) == null) {
             Object withContext = BuildersKt.withContext(Dispatchers.getIO(), new Tun$loop$2(null), continuation);
-            return withContext == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? withContext : Unit.INSTANCE;
+            if (withContext == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                return withContext;
+            }
+            return Unit.INSTANCE;
         }
         return invokeL.objValue;
     }
 
-    private final void processICMP(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
+    public final void setHandleLoop(Deferred deferred) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, this, byteBuffer, directIPHeader) == null) {
-        }
-    }
-
-    private final void processICMPv6(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, this, byteBuffer, directIPHeader) == null) {
-        }
-    }
-
-    private final void processOther(ByteBuffer byteBuffer, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, this, byteBuffer, i) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, deferred) == null) {
+            Intrinsics.checkNotNullParameter(deferred, "<set-?>");
+            handleLoop = deferred;
         }
     }
 
@@ -117,26 +175,32 @@ public final class Tun {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j), byteBuffer, Integer.valueOf(i)}) == null) {
             try {
-                int m717constructorimpl = (UByte.m717constructorimpl(byteBuffer.get(0)) & 255) >>> 4;
-                if (m717constructorimpl != 4) {
+                int m716constructorimpl = (UByte.m716constructorimpl(byteBuffer.get(0)) & 255) >>> 4;
+                if (m716constructorimpl != 4) {
                     return;
                 }
                 DirectIPv4Header.Companion.getHeader().setPacketLength(i);
                 DirectIPv4Header header = DirectIPv4Header.Companion.getHeader();
                 int protocol = header.getProtocol();
-                if (protocol == 1) {
-                    processICMP(byteBuffer, header);
-                } else if (protocol == 6) {
-                    processTcp(byteBuffer, header);
-                } else if (protocol == 17) {
-                    processUdp(byteBuffer, header);
-                } else if (protocol != 58) {
-                    processOther(byteBuffer, i);
+                if (protocol != 1) {
+                    if (protocol != 6) {
+                        if (protocol != 17) {
+                            if (protocol != 58) {
+                                processOther(byteBuffer, i);
+                            } else {
+                                processICMPv6(byteBuffer, header);
+                            }
+                        } else {
+                            processUdp(byteBuffer, header);
+                        }
+                    } else {
+                        processTcp(byteBuffer, header);
+                    }
                 } else {
-                    processICMPv6(byteBuffer, header);
+                    processICMP(byteBuffer, header);
                 }
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[TUN " + j + "] read data len:" + i + " ipVersion: " + m717constructorimpl + " protocol: " + protocol);
+                logTo.d("*****", "[TUN " + j + "] read data len:" + i + " ipVersion: " + m716constructorimpl + " protocol: " + protocol);
             } catch (ErrnoException e) {
                 looping = false;
                 e.printStackTrace();
@@ -157,7 +221,7 @@ public final class Tun {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, this, byteBuffer, directIPHeader) == null) {
             if (directIPHeader instanceof DirectIPv4Header) {
-                SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m793constructorimpl(directIPHeader.getPacketLength()), null);
+                SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m792constructorimpl(directIPHeader.getPacketLength()), null);
                 sClientPacket.encodeHeader2Buffer(headerBuf);
                 sClientPacket.writeBodyBuffer(byteBuffer);
                 SClient.INSTANCE.write(sClientPacket);
@@ -167,33 +231,9 @@ public final class Tun {
         }
     }
 
-    private final void processUdp(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, this, byteBuffer, directIPHeader) == null) {
-            SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m793constructorimpl(directIPHeader.getPacketLength()), null);
-            sClientPacket.encodeHeader2Buffer(headerBuf);
-            sClientPacket.writeBodyBuffer(byteBuffer);
-            SClient.INSTANCE.write(sClientPacket);
-        }
-    }
-
-    public final Deferred<Unit> getHandleLoop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Deferred<Unit> deferred = handleLoop;
-            if (deferred != null) {
-                return deferred;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("handleLoop");
-            return null;
-        }
-        return (Deferred) invokeV.objValue;
-    }
-
     public final void init(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || inited) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || inited) {
             return;
         }
         tunfd = i;
@@ -217,47 +257,20 @@ public final class Tun {
         inited = true;
     }
 
-    public final void setHandleLoop(Deferred<Unit> deferred) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, deferred) == null) {
-            Intrinsics.checkNotNullParameter(deferred, "<set-?>");
-            handleLoop = deferred;
-        }
-    }
-
-    public final Object start(Continuation<? super Unit> continuation) {
+    public final Object start(Continuation continuation) {
         InterceptResult invokeL;
         Job launch$default;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, continuation)) == null) {
             if (inited) {
                 launch$default = BuildersKt__Builders_commonKt.launch$default(CoroutineScopeKt.CoroutineScope(Dispatchers.getUnconfined()), null, null, new Tun$start$2(null), 3, null);
-                return launch$default == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? launch$default : Unit.INSTANCE;
+                if (launch$default == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                    return launch$default;
+                }
+                return Unit.INSTANCE;
             }
             return Unit.INSTANCE;
         }
         return invokeL.objValue;
-    }
-
-    public final void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            looping = false;
-        }
-    }
-
-    public final void write(ByteBuffer buffer, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, buffer, i) == null) {
-            Intrinsics.checkNotNullParameter(buffer, "buffer");
-            if (inited) {
-                FileOutputStream fileOutputStream = output;
-                if (fileOutputStream == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("output");
-                    fileOutputStream = null;
-                }
-                fileOutputStream.write(buffer.array(), 0, i);
-            }
-        }
     }
 }

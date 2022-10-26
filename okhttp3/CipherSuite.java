@@ -182,13 +182,19 @@ public final class CipherSuite {
                         char charAt = str.charAt(i);
                         char charAt2 = str2.charAt(i);
                         if (charAt != charAt2) {
-                            return charAt < charAt2 ? -1 : 1;
+                            if (charAt < charAt2) {
+                                return -1;
+                            }
+                            return 1;
                         }
                     }
                     int length = str.length();
                     int length2 = str2.length();
                     if (length != length2) {
-                        return length < length2 ? -1 : 1;
+                        if (length < length2) {
+                            return -1;
+                        }
+                        return 1;
                     }
                     return 0;
                 }
@@ -366,18 +372,27 @@ public final class CipherSuite {
     public static CipherSuite of(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) ? forJavaName(str) : (CipherSuite) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
+            return forJavaName(str);
+        }
+        return (CipherSuite) invokeLI.objValue;
     }
 
     public String javaName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.javaName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.javaName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.javaName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.javaName;
+        }
+        return (String) invokeV.objValue;
     }
 }

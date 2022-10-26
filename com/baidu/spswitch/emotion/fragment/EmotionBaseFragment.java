@@ -1,7 +1,6 @@
 package com.baidu.spswitch.emotion.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,27 +27,27 @@ public class EmotionBaseFragment extends Fragment {
         }
     }
 
-    public static <T extends Fragment> T newInstance(Class cls, Bundle bundle) {
-        T t;
+    public static Fragment newInstance(Class cls, Bundle bundle) {
+        Fragment fragment;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, bundle)) == null) {
             try {
-                t = (T) cls.newInstance();
+                fragment = (Fragment) cls.newInstance();
             } catch (Exception e) {
                 e.printStackTrace();
-                t = null;
+                fragment = null;
             }
-            if (t != null) {
-                t.setArguments(bundle);
+            if (fragment != null) {
+                fragment.setArguments(bundle);
             }
-            return t;
+            return fragment;
         }
-        return (T) invokeLL.objValue;
+        return (Fragment) invokeLL.objValue;
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);

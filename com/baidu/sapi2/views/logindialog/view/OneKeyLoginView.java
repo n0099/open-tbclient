@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.callback.OneKeyLoginCallback;
@@ -42,13 +41,13 @@ public class OneKeyLoginView extends LinearLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.OneKeyLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0136a extends OneKeyLoginCallback {
+        public class C0137a extends OneKeyLoginCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0136a(a aVar, long j) {
+            public C0137a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,20 +71,20 @@ public class OneKeyLoginView extends LinearLayout {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
                     super.onFail(oneKeyLoginResult);
-                    if (this.b.a.d != null) {
-                        if (TextUtils.isEmpty(this.b.a.e)) {
-                            com.baidu.sapi2.views.logindialog.utils.a.a("onekey_login", System.currentTimeMillis() - this.a, oneKeyLoginResult.getResultCode(), oneKeyLoginResult.getResultMsg());
-                        } else {
-                            com.baidu.sapi2.views.logindialog.utils.a.a("onekey_login_" + this.b.a.e.toLowerCase(), System.currentTimeMillis() - this.a, oneKeyLoginResult.getResultCode(), oneKeyLoginResult.getResultMsg());
-                        }
-                        QuickLoginResult quickLoginResult = new QuickLoginResult();
-                        quickLoginResult.setResultCode(oneKeyLoginResult.getResultCode());
-                        quickLoginResult.setResultMsg(oneKeyLoginResult.getResultMsg());
-                        quickLoginResult.mLoginType = QuickLoginType.ONEKEY;
-                        this.b.a.d.onFailure(quickLoginResult);
+                    if (this.b.a.d == null) {
+                        Log.e(QuickLoginDialog.STAG, "onekey login onFail mConfirmCallback is null");
                         return;
                     }
-                    Log.e(QuickLoginDialog.STAG, "onekey login onFail mConfirmCallback is null");
+                    if (TextUtils.isEmpty(this.b.a.e)) {
+                        com.baidu.sapi2.views.logindialog.utils.a.a("onekey_login", System.currentTimeMillis() - this.a, oneKeyLoginResult.getResultCode(), oneKeyLoginResult.getResultMsg());
+                    } else {
+                        com.baidu.sapi2.views.logindialog.utils.a.a("onekey_login_" + this.b.a.e.toLowerCase(), System.currentTimeMillis() - this.a, oneKeyLoginResult.getResultCode(), oneKeyLoginResult.getResultMsg());
+                    }
+                    QuickLoginResult quickLoginResult = new QuickLoginResult();
+                    quickLoginResult.setResultCode(oneKeyLoginResult.getResultCode());
+                    quickLoginResult.setResultMsg(oneKeyLoginResult.getResultMsg());
+                    quickLoginResult.mLoginType = QuickLoginType.ONEKEY;
+                    this.b.a.d.onFailure(quickLoginResult);
                 }
             }
 
@@ -141,7 +140,7 @@ public class OneKeyLoginView extends LinearLayout {
                         Log.e(QuickLoginDialog.STAG, "onekey login privacy is not agree");
                         return;
                     }
-                    CoreViewRouter.getInstance().loadOneKeyLogin(this.a.a, new C0136a(this, System.currentTimeMillis()));
+                    CoreViewRouter.getInstance().loadOneKeyLogin(this.a.a, new C0137a(this, System.currentTimeMillis()));
                     return;
                 }
                 Log.e(QuickLoginDialog.STAG, "onekey login mContext || mConfirmCallback is null");
@@ -170,14 +169,8 @@ public class OneKeyLoginView extends LinearLayout {
         }
     }
 
-    public TextView getTvButton() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (TextView) invokeV.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public OneKeyLoginView(Context context, @Nullable AttributeSet attributeSet) {
+    public OneKeyLoginView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -197,29 +190,8 @@ public class OneKeyLoginView extends LinearLayout {
         }
     }
 
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d8, this);
-            setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9e);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9d);
-            this.c = textView;
-            textView.setOnClickListener(new a(this));
-        }
-    }
-
-    public void a(String str, String str2, ILoginConfirmCallback iLoginConfirmCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, iLoginConfirmCallback) == null) {
-            this.b.setText(str);
-            this.d = iLoginConfirmCallback;
-            this.e = str2;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OneKeyLoginView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public OneKeyLoginView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -241,10 +213,40 @@ public class OneKeyLoginView extends LinearLayout {
         b();
     }
 
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d5, this);
+            setOrientation(1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9a);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d99);
+            this.c = textView;
+            textView.setOnClickListener(new a(this));
+        }
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.setTextColor(Color.parseColor("#CCFFFFFF"));
+        }
+    }
+
+    public TextView getTvButton() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, ILoginConfirmCallback iLoginConfirmCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, iLoginConfirmCallback) == null) {
+            this.b.setText(str);
+            this.d = iLoginConfirmCallback;
+            this.e = str2;
         }
     }
 }

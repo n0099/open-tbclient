@@ -27,10 +27,10 @@ public final class CompletableMerge extends Completable {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final int maxConcurrency;
-    public final Publisher<? extends CompletableSource> source;
+    public final Publisher source;
 
     /* loaded from: classes8.dex */
-    public static final class CompletableMergeSubscriber extends AtomicInteger implements FlowableSubscriber<CompletableSource>, Disposable {
+    public final class CompletableMergeSubscriber extends AtomicInteger implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2108443387387077490L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class CompletableMerge extends Completable {
         public final CompositeDisposable set;
 
         /* loaded from: classes8.dex */
-        public final class MergeInnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
+        public final class MergeInnerObserver extends AtomicReference implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 251330541679988317L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -66,29 +66,6 @@ public final class CompletableMerge extends Completable {
                 this.this$0 = completableMergeSubscriber;
             }
 
-            @Override // io.reactivex.disposables.Disposable
-            public void dispose() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DisposableHelper.dispose(this);
-                }
-            }
-
-            @Override // io.reactivex.disposables.Disposable
-            public boolean isDisposed() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
-            }
-
-            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.this$0.innerComplete(this);
-                }
-            }
-
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
@@ -102,6 +79,32 @@ public final class CompletableMerge extends Completable {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) {
                     DisposableHelper.setOnce(this, disposable);
+                }
+            }
+
+            @Override // io.reactivex.disposables.Disposable
+            public void dispose() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    DisposableHelper.dispose(this);
+                }
+            }
+
+            @Override // io.reactivex.disposables.Disposable
+            public boolean isDisposed() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return DisposableHelper.isDisposed((Disposable) get());
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    this.this$0.innerComplete(this);
                 }
             }
         }
@@ -138,12 +141,34 @@ public final class CompletableMerge extends Completable {
             }
         }
 
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.set.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && decrementAndGet() == 0) {
+                if (((Throwable) this.error.get()) != null) {
+                    this.actual.onError(this.error.terminate());
+                } else {
+                    this.actual.onComplete();
+                }
+            }
+        }
+
         public void innerComplete(MergeInnerObserver mergeInnerObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mergeInnerObserver) == null) {
                 this.set.delete(mergeInnerObserver);
                 if (decrementAndGet() == 0) {
-                    Throwable th = this.error.get();
+                    Throwable th = (Throwable) this.error.get();
                     if (th != null) {
                         this.actual.onError(th);
                     } else {
@@ -151,6 +176,21 @@ public final class CompletableMerge extends Completable {
                     }
                 } else if (this.maxConcurrency != Integer.MAX_VALUE) {
                     this.s.request(1L);
+                }
+            }
+        }
+
+        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+        public void onSubscribe(Subscription subscription) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
+                this.s = subscription;
+                this.actual.onSubscribe(this);
+                int i = this.maxConcurrency;
+                if (i == Integer.MAX_VALUE) {
+                    subscription.request(Long.MAX_VALUE);
+                } else {
+                    subscription.request(i);
                 }
             }
         }
@@ -182,25 +222,6 @@ public final class CompletableMerge extends Completable {
             }
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.set.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && decrementAndGet() == 0) {
-                if (this.error.get() != null) {
-                    this.actual.onError(this.error.terminate());
-                } else {
-                    this.actual.onComplete();
-                }
-            }
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -225,21 +246,6 @@ public final class CompletableMerge extends Completable {
             }
         }
 
-        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
-        public void onSubscribe(Subscription subscription) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
-                this.s = subscription;
-                this.actual.onSubscribe(this);
-                int i = this.maxConcurrency;
-                if (i == Integer.MAX_VALUE) {
-                    subscription.request(Long.MAX_VALUE);
-                } else {
-                    subscription.request(i);
-                }
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // org.reactivestreams.Subscriber
         public void onNext(CompletableSource completableSource) {
@@ -253,7 +259,7 @@ public final class CompletableMerge extends Completable {
         }
     }
 
-    public CompletableMerge(Publisher<? extends CompletableSource> publisher, int i, boolean z) {
+    public CompletableMerge(Publisher publisher, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

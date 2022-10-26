@@ -72,108 +72,166 @@ public class MediaData extends OrmObject implements Serializable {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.during_time : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.during_time;
+        }
+        return invokeV.intValue;
     }
 
     public long getOriginalSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.original_size : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.original_size;
+        }
+        return invokeV.longValue;
     }
 
     public String getOriginalUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.original_url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.original_url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pic_url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.pic_url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getPostId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.postId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.postId;
+        }
+        return invokeV.longValue;
     }
 
     public String getSmallPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.small_pic_url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.small_pic_url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSmallUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pic_url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.pic_url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public double getSmartCropCenterPointHeightRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.smartCropCenterPointHeightRatio : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.smartCropCenterPointHeightRatio;
+        }
+        return invokeV.doubleValue;
     }
 
     public double getSmartCropCenterPointWidthRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.smartCropCenterPointWidthRatio : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.smartCropCenterPointWidthRatio;
+        }
+        return invokeV.doubleValue;
     }
 
     public String getSrc_pic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.src_pic : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.src_pic;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getThumbnails_url() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.thumbnails_url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.thumbnails_url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.video_url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.video_url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isLongPic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.isLongPic : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.isLongPic;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isShowOriginBtn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.showOriginBtn : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.showOriginBtn;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSmartCrop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.smartCropCenterPointWidthRatio > 0.0d && this.smartCropCenterPointHeightRatio > 0.0d : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.smartCropCenterPointWidthRatio > 0.0d && this.smartCropCenterPointHeightRatio > 0.0d) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isXiaoying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.type == 5 && this.e_type == 12 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (this.type == 5 && this.e_type == 12) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048593, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -190,12 +248,17 @@ public class MediaData extends OrmObject implements Serializable {
             this.original_size = jSONObject.optLong("original_size");
             this.postId = jSONObject.optLong("post_id");
             this.during_time = jSONObject.optInt("during_time");
-            boolean z = true;
-            this.isLongPic = jSONObject.optInt("is_long_pic", 0) == 1;
-            if (jSONObject.optInt("show_original_btn", 1) != 1) {
+            boolean z2 = true;
+            if (jSONObject.optInt("is_long_pic", 0) == 1) {
+                z = true;
+            } else {
                 z = false;
             }
-            this.showOriginBtn = z;
+            this.isLongPic = z;
+            if (jSONObject.optInt("show_original_btn", 1) != 1) {
+                z2 = false;
+            }
+            this.showOriginBtn = z2;
             this.small_pic_url = jSONObject.optString("small_pic");
             this.origin_pic = jSONObject.optString("origin_pic");
             this.smartCropCenterPointWidthRatio = jSONObject.optDouble("wth_mid_loc");
@@ -205,8 +268,7 @@ public class MediaData extends OrmObject implements Serializable {
             if (TextUtils.isEmpty(this.src_pic)) {
                 if (!TextUtils.isEmpty(this.original_url)) {
                     this.src_pic = this.original_url;
-                } else if (TextUtils.isEmpty(this.pic_url)) {
-                } else {
+                } else if (!TextUtils.isEmpty(this.pic_url)) {
                     this.src_pic = this.pic_url;
                     this.original_url = this.pic_url;
                 }
@@ -217,8 +279,9 @@ public class MediaData extends OrmObject implements Serializable {
     }
 
     public void parserProtobuf(Media media) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, media) == null) || media == null) {
+        if ((interceptable != null && interceptable.invokeL(1048594, this, media) != null) || media == null) {
             return;
         }
         int intValue = media.type.intValue();
@@ -236,8 +299,17 @@ public class MediaData extends OrmObject implements Serializable {
         this.original_url = media.origin_pic;
         this.original_size = media.origin_size.intValue();
         this.postId = media.post_id.longValue();
-        this.isLongPic = media.is_long_pic.intValue() == 1;
-        this.showOriginBtn = media.show_original_btn.intValue() == 1;
+        boolean z2 = false;
+        if (media.is_long_pic.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isLongPic = z;
+        if (media.show_original_btn.intValue() == 1) {
+            z2 = true;
+        }
+        this.showOriginBtn = z2;
         this.small_pic_url = media.small_pic;
         this.origin_pic = media.origin_pic;
         this.smartCropCenterPointWidthRatio = media.wth_mid_loc.doubleValue();
@@ -247,8 +319,7 @@ public class MediaData extends OrmObject implements Serializable {
         if (TextUtils.isEmpty(this.src_pic)) {
             if (!TextUtils.isEmpty(this.original_url)) {
                 this.src_pic = this.original_url;
-            } else if (TextUtils.isEmpty(this.pic_url)) {
-            } else {
+            } else if (!TextUtils.isEmpty(this.pic_url)) {
                 String str = this.pic_url;
                 this.src_pic = str;
                 this.original_url = str;

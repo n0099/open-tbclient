@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface a52 {
-    void a(up1 up1Var);
+    void a(int i);
 
-    void b(up1 up1Var);
+    boolean b(String str);
+
+    void c(int i, String str, String str2);
+
+    void d(String str);
+
+    void e(String str);
+
+    void goBack();
 }

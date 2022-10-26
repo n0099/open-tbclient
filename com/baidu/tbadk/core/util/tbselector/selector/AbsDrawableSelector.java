@@ -24,6 +24,16 @@ public abstract class AbsDrawableSelector {
     public Drawable mSelectedDrawable;
     public int mType;
 
+    public abstract Drawable onItemDefaultDrawable();
+
+    public abstract Drawable onItemDisabledDrawable();
+
+    public abstract Drawable onItemFocusedDrawable();
+
+    public abstract Drawable onItemPressedDrawable();
+
+    public abstract Drawable onItemSelectedDrawable();
+
     public AbsDrawableSelector() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,16 +54,6 @@ public abstract class AbsDrawableSelector {
         this.hasSetFocusedDrawable = false;
         this.hasSetAlpha = false;
     }
-
-    public abstract Drawable onItemDefaultDrawable();
-
-    public abstract Drawable onItemDisabledDrawable();
-
-    public abstract Drawable onItemFocusedDrawable();
-
-    public abstract Drawable onItemPressedDrawable();
-
-    public abstract Drawable onItemSelectedDrawable();
 
     public void updateDrawableAlpha(Drawable drawable) {
         Interceptable interceptable = $ic;

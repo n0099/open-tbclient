@@ -6,13 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.la0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.ma0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +25,7 @@ public class MinorView extends LinearLayout {
     public AppCompatTextView b;
     public AppCompatTextView c;
     public AppCompatTextView d;
-    public la0 e;
+    public ma0 e;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -56,14 +55,11 @@ public class MinorView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (da0.f(this.a.getContext())) {
-                    if (this.a.e != null) {
-                        this.a.e.a(view2);
-                        return;
-                    }
-                    return;
+                if (!ea0.f(this.a.getContext())) {
+                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a18, 1).show();
+                } else if (this.a.e != null) {
+                    this.a.e.a(view2);
                 }
-                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a0b, 1).show();
             }
         }
     }
@@ -89,51 +85,8 @@ public class MinorView extends LinearLayout {
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.setOnClickListener(new a(this));
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = da0.b(getContext(), EmotionStrategy.getInstance().minorWidth);
-            layoutParams.height = da0.b(getContext(), EmotionStrategy.getInstance().minorHeight);
-            this.a.setLayoutParams(layoutParams);
-            setImageResource(uc0.f().i(str));
-            this.b.setTextColor(uc0.f().a(getContext(), str, "color_8585853"));
-            this.c.setTextColor(uc0.f().a(getContext(), str, "color_B8B8B8"));
-            this.d.setTextColor(uc0.f().a(getContext(), str, "color_4367B4"));
-        }
-    }
-
-    public void setActionCallback(la0 la0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, la0Var) == null) {
-            this.e = la0Var;
-        }
-    }
-
-    public void setImageResource(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i == -1) {
-            return;
-        }
-        this.a.setActualImageResource(i);
-    }
-
-    public void setText(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            this.b.setText(charSequence);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MinorView(Context context, @Nullable AttributeSet attributeSet) {
+    public MinorView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -153,15 +106,8 @@ public class MinorView extends LinearLayout {
         }
     }
 
-    public void setText(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b.setText(i);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MinorView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public MinorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -179,13 +125,62 @@ public class MinorView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0543, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0542, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09153e);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091540);
-        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f09153d);
-        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0909b5);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091530);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091532);
+        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f09152f);
+        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0909bf);
         b();
+    }
+
+    public void setActionCallback(ma0 ma0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ma0Var) == null) {
+            this.e = ma0Var;
+        }
+    }
+
+    public void setImageResource(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && i != -1) {
+            this.a.setActualImageResource(i);
+        }
+    }
+
+    public void setText(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b.setText(i);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.setOnClickListener(new a(this));
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
+            layoutParams.width = ea0.b(getContext(), EmotionStrategy.getInstance().minorWidth);
+            layoutParams.height = ea0.b(getContext(), EmotionStrategy.getInstance().minorHeight);
+            this.a.setLayoutParams(layoutParams);
+            setImageResource(vc0.f().i(str));
+            this.b.setTextColor(vc0.f().a(getContext(), str, "color_8585853"));
+            this.c.setTextColor(vc0.f().a(getContext(), str, "color_B8B8B8"));
+            this.d.setTextColor(vc0.f().a(getContext(), str, "color_4367B4"));
+        }
+    }
+
+    public void setText(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
+            this.b.setText(charSequence);
+        }
     }
 }

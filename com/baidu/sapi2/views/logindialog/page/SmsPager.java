@@ -59,6 +59,124 @@ public class SmsPager extends LinearLayout implements a.c {
     public CountDownTimer p;
 
     /* loaded from: classes2.dex */
+    public class d extends DynamicPwdLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ SmsPager b;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        /* loaded from: classes2.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.n != null) {
+                    this.a.b.n.c();
+                }
+            }
+        }
+
+        public d(SmsPager smsPager, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {smsPager, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = smsPager;
+            this.a = j;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: a */
+        public void onFailure(DynamicPwdLoginResult dynamicPwdLoginResult) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, dynamicPwdLoginResult) != null) || dynamicPwdLoginResult == null) {
+                return;
+            }
+            com.baidu.sapi2.views.logindialog.utils.a.a("sms_login", System.currentTimeMillis() - this.a, dynamicPwdLoginResult.getResultCode(), dynamicPwdLoginResult.getResultMsg());
+            if (dynamicPwdLoginResult.getResultCode() == 12) {
+                this.b.g.setVisibility(0);
+                this.b.g.setText("验证码有误，请重新输入");
+                this.b.n.a();
+                VibrateUtils.presetVibrate(this.b.a);
+                SmsPager smsPager = this.b;
+                smsPager.startAnimation(smsPager.o);
+                this.b.postDelayed(new a(this), 600L);
+            } else if (this.b.j != null) {
+                QuickLoginResult quickLoginResult = new QuickLoginResult();
+                quickLoginResult.setResultCode(dynamicPwdLoginResult.getResultCode());
+                quickLoginResult.setResultMsg(dynamicPwdLoginResult.getResultMsg());
+                quickLoginResult.mLoginType = QuickLoginType.SMS;
+                this.b.j.onLoginFailure(quickLoginResult);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        /* renamed from: b */
+        public void onSuccess(DynamicPwdLoginResult dynamicPwdLoginResult) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dynamicPwdLoginResult) != null) || dynamicPwdLoginResult == null) {
+                return;
+            }
+            com.baidu.sapi2.views.logindialog.utils.a.a("sms_login", System.currentTimeMillis() - this.a, dynamicPwdLoginResult.getResultCode(), dynamicPwdLoginResult.getResultMsg());
+            if (this.b.j != null) {
+                QuickLoginResult quickLoginResult = new QuickLoginResult();
+                quickLoginResult.setResultCode(dynamicPwdLoginResult.getResultCode());
+                quickLoginResult.setResultMsg(dynamicPwdLoginResult.getResultMsg());
+                quickLoginResult.mLoginType = QuickLoginType.SMS;
+                this.b.j.onLoginSuccess(quickLoginResult);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,125 +303,6 @@ public class SmsPager extends LinearLayout implements a.c {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class d extends DynamicPwdLoginCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ SmsPager b;
-
-        /* loaded from: classes2.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b.n == null) {
-                    return;
-                }
-                this.a.b.n.c();
-            }
-        }
-
-        public d(SmsPager smsPager, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {smsPager, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = smsPager;
-            this.a = j;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(DynamicPwdLoginResult dynamicPwdLoginResult) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dynamicPwdLoginResult) == null) || dynamicPwdLoginResult == null) {
-                return;
-            }
-            com.baidu.sapi2.views.logindialog.utils.a.a("sms_login", System.currentTimeMillis() - this.a, dynamicPwdLoginResult.getResultCode(), dynamicPwdLoginResult.getResultMsg());
-            if (dynamicPwdLoginResult.getResultCode() == 12) {
-                this.b.g.setVisibility(0);
-                this.b.g.setText("验证码有误，请重新输入");
-                this.b.n.a();
-                VibrateUtils.presetVibrate(this.b.a);
-                SmsPager smsPager = this.b;
-                smsPager.startAnimation(smsPager.o);
-                this.b.postDelayed(new a(this), 600L);
-            } else if (this.b.j != null) {
-                QuickLoginResult quickLoginResult = new QuickLoginResult();
-                quickLoginResult.setResultCode(dynamicPwdLoginResult.getResultCode());
-                quickLoginResult.setResultMsg(dynamicPwdLoginResult.getResultMsg());
-                quickLoginResult.mLoginType = QuickLoginType.SMS;
-                this.b.j.onLoginFailure(quickLoginResult);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(DynamicPwdLoginResult dynamicPwdLoginResult) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dynamicPwdLoginResult) == null) || dynamicPwdLoginResult == null) {
-                return;
-            }
-            com.baidu.sapi2.views.logindialog.utils.a.a("sms_login", System.currentTimeMillis() - this.a, dynamicPwdLoginResult.getResultCode(), dynamicPwdLoginResult.getResultMsg());
-            if (this.b.j != null) {
-                QuickLoginResult quickLoginResult = new QuickLoginResult();
-                quickLoginResult.setResultCode(dynamicPwdLoginResult.getResultCode());
-                quickLoginResult.setResultMsg(dynamicPwdLoginResult.getResultMsg());
-                quickLoginResult.mLoginType = QuickLoginType.SMS;
-                this.b.j.onLoginSuccess(quickLoginResult);
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmsPager(Context context, ColorType colorType, IQuickLoginDialogCallback iQuickLoginDialogCallback, IPagerLoadCallback iPagerLoadCallback, ISendSmsCallback iSendSmsCallback) {
         super(context, null);
@@ -332,6 +331,15 @@ public class SmsPager extends LinearLayout implements a.c {
         e();
     }
 
+    private void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && ColorType.DARK == this.c) {
+            this.e.setTextColor(Color.parseColor("#80FFFFFF"));
+            this.h.setTextColor(Color.parseColor("#CCFFFFFF"));
+            this.i.setTextColor(Color.parseColor("#80FFFFFF"));
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void d(String str) {
         Interceptable interceptable = $ic;
@@ -345,6 +353,18 @@ public class SmsPager extends LinearLayout implements a.c {
                 public final /* synthetic */ long a;
                 public final /* synthetic */ String b;
                 public final /* synthetic */ SmsPager c;
+
+                public void onFinish() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
+                    }
+                }
+
+                public void onStart() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -364,18 +384,6 @@ public class SmsPager extends LinearLayout implements a.c {
                     this.c = this;
                     this.a = r7;
                     this.b = str;
-                }
-
-                public void onFinish() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    }
-                }
-
-                public void onStart() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
-                    }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -420,18 +428,47 @@ public class SmsPager extends LinearLayout implements a.c {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04dd, this);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d99);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d36);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d97);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d95);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9f);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04da, this);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d95);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d32);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d93);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d91);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9b);
             this.h.setOnClickListener(new b(this));
             this.i.setOnClickListener(new c(this));
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010119);
             this.o = loadAnimation;
             loadAnimation.setRepeatCount(5);
             d();
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.p.cancel();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g.setVisibility(8);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.p.start();
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.view.a.c
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            b(str);
         }
     }
 
@@ -444,10 +481,11 @@ public class SmsPager extends LinearLayout implements a.c {
         }
     }
 
-    public void c() {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.p.start();
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.g.setVisibility(0);
+            this.g.setText(str);
         }
     }
 
@@ -463,56 +501,17 @@ public class SmsPager extends LinearLayout implements a.c {
             aVar.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             this.n.setBox(i);
             if (ColorType.DARK == this.c) {
-                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a4));
-                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a2));
+                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b5));
+                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b3));
                 this.n.setTextColor(Color.parseColor("#CCFFFFFF"));
             } else {
-                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a3));
-                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a1));
+                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b4));
+                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b2));
                 this.n.setTextColor(Color.parseColor("#1F1F1F"));
             }
             this.n.b();
             this.n.setListener(this);
             this.f.addView(this.n);
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.g.setVisibility(0);
-            this.g.setText(str);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g.setVisibility(8);
-        }
-    }
-
-    private void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && ColorType.DARK == this.c) {
-            this.e.setTextColor(Color.parseColor("#80FFFFFF"));
-            this.h.setTextColor(Color.parseColor("#CCFFFFFF"));
-            this.i.setTextColor(Color.parseColor("#80FFFFFF"));
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.view.a.c
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            b(str);
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.p.cancel();
         }
     }
 }

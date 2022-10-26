@@ -17,20 +17,6 @@ public abstract class QuickLoginDialogCallback implements IQuickLoginDialogCallb
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public QuickLoginDialogCallback() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
     public void onDismiss() {
         Interceptable interceptable = $ic;
@@ -70,6 +56,20 @@ public abstract class QuickLoginDialogCallback implements IQuickLoginDialogCallb
     public void onPreShowLogin(ColorType colorType, QuickLoginType quickLoginType, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, colorType, quickLoginType, textView) == null) {
+        }
+    }
+
+    public QuickLoginDialogCallback() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

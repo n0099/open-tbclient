@@ -24,20 +24,6 @@ public class StatisAPINull implements IStatisApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public StatisAPINull() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.yy.hiidostatis.defs.IStatisApi
     public void addActAdditionListener(ActListener actListener) {
         Interceptable interceptable = $ic;
@@ -287,7 +273,7 @@ public class StatisAPINull implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportDoShort(long j, Map<String, String> map) {
+    public void reportDoShort(long j, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048608, this, j, map) == null) {
         }
@@ -402,21 +388,21 @@ public class StatisAPINull implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportReg(String str, String str2, String str3, Map<String, String> map) {
+    public void reportReg(String str, String str2, String str3, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048624, this, str, str2, str3, map) == null) {
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
+    public void reportReturnCode(int i, String str, long j, String str2, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map) {
+    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) == null) {
         }
@@ -444,14 +430,14 @@ public class StatisAPINull implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
+    public void reportSrcData(int i, String str, String str2, long j, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
         }
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map) {
+    public void reportSrcData(String str, int i, String str2, String str3, long j, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
         }
@@ -559,6 +545,20 @@ public class StatisAPINull implements IStatisApi {
     public void setTestServer(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
+        }
+    }
+
+    public StatisAPINull() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

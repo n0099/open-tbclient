@@ -13,6 +13,10 @@ public abstract class RequestPacket extends Marshallable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract int getPacketSize();
+
+    public abstract void pushPacketData();
+
     public RequestPacket() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -26,8 +30,6 @@ public abstract class RequestPacket extends Marshallable {
             }
         }
     }
-
-    public abstract int getPacketSize();
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PacketBase, com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IPacket
     public byte[] marshall() {
@@ -43,6 +45,4 @@ public abstract class RequestPacket extends Marshallable {
         }
         return (byte[]) invokeV.objValue;
     }
-
-    public abstract void pushPacketData();
 }

@@ -23,10 +23,10 @@ public class b {
     public Context a;
     public String b;
     public volatile SharedPreferences c;
-    public HashMap<String, String> d;
-    public HashMap<String, Long> e;
-    public HashMap<String, Integer> f;
-    public HashMap<String, Boolean> g;
+    public HashMap d;
+    public HashMap e;
+    public HashMap f;
+    public HashMap g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -41,13 +41,69 @@ public class b {
                 return;
             }
         }
-        this.d = new HashMap<>();
-        this.e = new HashMap<>();
-        this.f = new HashMap<>();
-        this.g = new HashMap<>();
+        this.d = new HashMap();
+        this.e = new HashMap();
+        this.f = new HashMap();
+        this.g = new HashMap();
     }
 
-    private List<String> c(String str) {
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.clear();
+            this.f.clear();
+            this.g.clear();
+            this.d.clear();
+            b();
+            if (this.c != null) {
+                SharedPreferences.Editor edit = this.c.edit();
+                edit.clear();
+                a(edit);
+            }
+        }
+    }
+
+    public static void a(SharedPreferences.Editor editor) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, editor) != null) || editor == null) {
+            return;
+        }
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            editor.apply();
+        } else {
+            editor.commit();
+        }
+    }
+
+    private void a(Map map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, this, map) == null) && map.size() > 0) {
+            b();
+            if (this.c != null) {
+                SharedPreferences.Editor edit = this.c.edit();
+                for (String str : map.keySet()) {
+                    String str2 = (String) map.get(str);
+                    this.d.put(str, str2);
+                    edit.putString(str, str2);
+                }
+                a(edit);
+            }
+        }
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.c == null) {
+            Context context = this.a;
+            if (context != null) {
+                this.c = context.getSharedPreferences(this.b, 0);
+                return;
+            }
+            throw new RuntimeException("SharedPreferences is not init", new Throwable());
+        }
+    }
+
+    private List c(String str) {
         InterceptResult invokeL;
         Object a;
         String[] split;
@@ -81,81 +137,24 @@ public class b {
         return (List) invokeL.objValue;
     }
 
-    public final void a(Context context, String str) {
+    public final int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.b = str;
-                this.c = context.getSharedPreferences(str, 0);
-                this.a = context;
-                List<String> c = c("local_iv");
-                if (c != null && c.size() >= 4) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("com.vivo.push.secure_sub_iv", c.get(1));
-                    hashMap.put("com.vivo.push.secure_sub_key", c.get(2));
-                    hashMap.put("com.vivo.push.secure_cache_iv", c.get(3));
-                    hashMap.put("com.vivo.push.secure_cache_key", c.get(0));
-                    a(hashMap);
-                    return;
-                }
-                p.a("BaseSharePreference", " initSecureCode error list is null ");
-                return;
-            }
-            throw new RuntimeException("sharedFileName can't be null");
-        }
-    }
-
-    public final String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            String str3 = this.d.get(str);
-            if (str3 != null) {
-                return str3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            Integer num = (Integer) this.f.get(str);
+            if (num != null) {
+                return num.intValue();
             }
             b();
             if (this.c != null) {
-                str3 = this.c.getString(str, str2);
-                if (!TextUtils.isEmpty(str3) && !str3.equals(str2)) {
-                    this.d.put(str, str3);
+                num = Integer.valueOf(this.c.getInt(str, 0));
+                if (!num.equals(0)) {
+                    this.f.put(str, num);
                 }
             }
-            return str3;
+            return num.intValue();
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public final long b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
-            Long l = this.e.get(str);
-            if (l != null) {
-                return l.longValue();
-            }
-            b();
-            if (this.c != null) {
-                l = Long.valueOf(this.c.getLong(str, j));
-                if (!l.equals(Long.valueOf(j))) {
-                    this.e.put(str, l);
-                }
-            }
-            return l.longValue();
-        }
-        return invokeLJ.longValue;
-    }
-
-    public final void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            this.d.put(str, str2);
-            b();
-            if (this.c != null) {
-                SharedPreferences.Editor edit = this.c.edit();
-                edit.putString(str, str2);
-                a(edit);
-            }
-        }
+        return invokeL.intValue;
     }
 
     public final void b(String str) {
@@ -176,32 +175,27 @@ public class b {
         }
     }
 
-    private void a(Map<String, String> map) {
+    public final void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, map) == null) || map.size() <= 0) {
-            return;
-        }
-        b();
-        if (this.c != null) {
-            SharedPreferences.Editor edit = this.c.edit();
-            for (String str : map.keySet()) {
-                String str2 = map.get(str);
-                this.d.put(str, str2);
-                edit.putString(str, str2);
-            }
-            a(edit);
-        }
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.c == null) {
-            Context context = this.a;
-            if (context != null) {
-                this.c = context.getSharedPreferences(this.b, 0);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.b = str;
+                this.c = context.getSharedPreferences(str, 0);
+                this.a = context;
+                List c = c("local_iv");
+                if (c != null && c.size() >= 4) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("com.vivo.push.secure_sub_iv", c.get(1));
+                    hashMap.put("com.vivo.push.secure_sub_key", c.get(2));
+                    hashMap.put("com.vivo.push.secure_cache_iv", c.get(3));
+                    hashMap.put("com.vivo.push.secure_cache_key", c.get(0));
+                    a(hashMap);
+                    return;
+                }
+                p.a("BaseSharePreference", " initSecureCode error list is null ");
                 return;
             }
-            throw new RuntimeException("SharedPreferences is not init", new Throwable());
+            throw new RuntimeException("sharedFileName can't be null");
         }
     }
 
@@ -231,51 +225,56 @@ public class b {
         }
     }
 
-    public final int a(String str) {
-        InterceptResult invokeL;
+    public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Integer num = this.f.get(str);
-            if (num != null) {
-                return num.intValue();
-            }
-            b();
-            if (this.c != null) {
-                num = Integer.valueOf(this.c.getInt(str, 0));
-                if (!num.equals(0)) {
-                    this.f.put(str, num);
-                }
-            }
-            return num.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public static void a(SharedPreferences.Editor editor) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, editor) == null) || editor == null) {
-            return;
-        }
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            editor.apply();
-        } else {
-            editor.commit();
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.clear();
-            this.f.clear();
-            this.g.clear();
-            this.d.clear();
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            this.d.put(str, str2);
             b();
             if (this.c != null) {
                 SharedPreferences.Editor edit = this.c.edit();
-                edit.clear();
+                edit.putString(str, str2);
                 a(edit);
             }
         }
+    }
+
+    public final long b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+            Long l = (Long) this.e.get(str);
+            if (l != null) {
+                return l.longValue();
+            }
+            b();
+            if (this.c != null) {
+                l = Long.valueOf(this.c.getLong(str, j));
+                if (!l.equals(Long.valueOf(j))) {
+                    this.e.put(str, l);
+                }
+            }
+            return l.longValue();
+        }
+        return invokeLJ.longValue;
+    }
+
+    public final String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            String str3 = (String) this.d.get(str);
+            if (str3 != null) {
+                return str3;
+            }
+            b();
+            if (this.c != null) {
+                str3 = this.c.getString(str, str2);
+                if (!TextUtils.isEmpty(str3) && !str3.equals(str2)) {
+                    this.d.put(str, str3);
+                }
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
     }
 }

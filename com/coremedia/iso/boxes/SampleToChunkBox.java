@@ -33,10 +33,10 @@ public class SampleToChunkBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_3 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Entry> entries;
+    public List entries;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long firstChunk;
@@ -74,7 +74,10 @@ public class SampleToChunkBox extends AbstractFullBox {
                     return false;
                 }
                 Entry entry = (Entry) obj;
-                return this.firstChunk == entry.firstChunk && this.sampleDescriptionIndex == entry.sampleDescriptionIndex && this.samplesPerChunk == entry.samplesPerChunk;
+                if (this.firstChunk == entry.firstChunk && this.sampleDescriptionIndex == entry.sampleDescriptionIndex && this.samplesPerChunk == entry.samplesPerChunk) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
@@ -82,19 +85,28 @@ public class SampleToChunkBox extends AbstractFullBox {
         public long getFirstChunk() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.firstChunk : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.firstChunk;
+            }
+            return invokeV.longValue;
         }
 
         public long getSampleDescriptionIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sampleDescriptionIndex : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.sampleDescriptionIndex;
+            }
+            return invokeV.longValue;
         }
 
         public long getSamplesPerChunk() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.samplesPerChunk : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.samplesPerChunk;
+            }
+            return invokeV.longValue;
         }
 
         public int hashCode() {
@@ -156,6 +168,26 @@ public class SampleToChunkBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (this.entries.size() * 12) + 8;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SampleToChunkBox() {
         super(TYPE);
@@ -175,6 +207,16 @@ public class SampleToChunkBox extends AbstractFullBox {
         this.entries = Collections.emptyList();
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return "SampleToChunkBox[entryCount=" + this.entries.size() + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("SampleToChunkBox.java", SampleToChunkBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntries", "com.coremedia.iso.boxes.SampleToChunkBox", "", "", "", "java.util.List"), 47);
@@ -192,6 +234,20 @@ public class SampleToChunkBox extends AbstractFullBox {
             this.entries = new ArrayList(l2i);
             for (int i = 0; i < l2i; i++) {
                 this.entries.add(new Entry(IsoTypeReader.readUInt32(byteBuffer), IsoTypeReader.readUInt32(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
+            }
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.entries.size());
+            for (Entry entry : this.entries) {
+                IsoTypeWriter.writeUInt32(byteBuffer, entry.getFirstChunk());
+                IsoTypeWriter.writeUInt32(byteBuffer, entry.getSamplesPerChunk());
+                IsoTypeWriter.writeUInt32(byteBuffer, entry.getSampleDescriptionIndex());
             }
         }
     }
@@ -219,52 +275,11 @@ public class SampleToChunkBox extends AbstractFullBox {
         return (long[]) invokeI.objValue;
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.entries.size());
-            for (Entry entry : this.entries) {
-                IsoTypeWriter.writeUInt32(byteBuffer, entry.getFirstChunk());
-                IsoTypeWriter.writeUInt32(byteBuffer, entry.getSamplesPerChunk());
-                IsoTypeWriter.writeUInt32(byteBuffer, entry.getSampleDescriptionIndex());
-            }
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.entries.size() * 12) + 8 : invokeV.longValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));
             this.entries = list;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "SampleToChunkBox[entryCount=" + this.entries.size() + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
     }
 }

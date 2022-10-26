@@ -29,12 +29,18 @@ public class ProtocolConverter {
     public static Protocol fromOks(okhttp3.Protocol protocol) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, protocol)) == null) ? Protocol.get(protocol.toString()) : (Protocol) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, protocol)) == null) {
+            return Protocol.get(protocol.toString());
+        }
+        return (Protocol) invokeL.objValue;
     }
 
     public static okhttp3.Protocol toOks(Protocol protocol) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, protocol)) == null) ? okhttp3.Protocol.get(protocol.toString()) : (okhttp3.Protocol) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, protocol)) == null) {
+            return okhttp3.Protocol.get(protocol.toString());
+        }
+        return (okhttp3.Protocol) invokeL.objValue;
     }
 }

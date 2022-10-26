@@ -16,6 +16,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
@@ -27,10 +28,26 @@ public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Entry> entries;
+    public List entries;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-542662589, "Lcom/coremedia/iso/boxes/CompositionTimeToSample;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-542662589, "Lcom/coremedia/iso/boxes/CompositionTimeToSample;");
+                return;
+            }
+        }
+        ajc$preClinit();
+    }
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int count;
@@ -58,13 +75,19 @@ public class CompositionTimeToSample extends AbstractFullBox {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.count : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.count;
+            }
+            return invokeV.intValue;
         }
 
         public int getOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.offset : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.offset;
+            }
+            return invokeV.intValue;
         }
 
         public void setCount(int i) {
@@ -89,22 +112,6 @@ public class CompositionTimeToSample extends AbstractFullBox {
             }
             return (String) invokeV.objValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-542662589, "Lcom/coremedia/iso/boxes/CompositionTimeToSample;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-542662589, "Lcom/coremedia/iso/boxes/CompositionTimeToSample;");
-                return;
-            }
-        }
-        ajc$preClinit();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,20 +139,23 @@ public class CompositionTimeToSample extends AbstractFullBox {
         ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEntries", "com.coremedia.iso.boxes.CompositionTimeToSample", "java.util.List", "entries", "", "void"), 61);
     }
 
-    public static int[] blowupCompositionTimes(List<Entry> list) {
+    public static int[] blowupCompositionTimes(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
+            Iterator it = list.iterator();
             long j = 0;
-            for (Entry entry : list) {
-                j += entry.getCount();
+            while (it.hasNext()) {
+                j += ((Entry) it.next()).getCount();
             }
             int[] iArr = new int[(int) j];
+            Iterator it2 = list.iterator();
             int i = 0;
-            for (Entry entry2 : list) {
+            while (it2.hasNext()) {
+                Entry entry = (Entry) it2.next();
                 int i2 = 0;
-                while (i2 < entry2.getCount()) {
-                    iArr[i] = entry2.getOffset();
+                while (i2 < entry.getCount()) {
+                    iArr[i] = entry.getOffset();
                     i2++;
                     i++;
                 }
@@ -185,10 +195,13 @@ public class CompositionTimeToSample extends AbstractFullBox {
     public long getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.entries.size() * 8) + 8 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (this.entries.size() * 8) + 8;
+        }
+        return invokeV.longValue;
     }
 
-    public List<Entry> getEntries() {
+    public List getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -198,7 +211,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
         return (List) invokeV.objValue;
     }
 
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));

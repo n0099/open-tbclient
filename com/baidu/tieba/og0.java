@@ -26,7 +26,7 @@ public class og0 {
             }
         }
         try {
-            z = op8.a;
+            z = pg0.a;
         } catch (Throwable unused) {
             z = false;
         }

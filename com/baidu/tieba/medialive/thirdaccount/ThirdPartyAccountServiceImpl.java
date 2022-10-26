@@ -28,11 +28,32 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
     public static final ILoginListener b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService
+    public void bindPhone(Context context, ThirdPartAccountService.BindPhoneCallback bindPhoneCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bindPhoneCallback) == null) {
+        }
+    }
+
     /* loaded from: classes5.dex */
-    public class a implements SapiCallback<OAuthResult> {
+    public class a implements SapiCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThirdPartAccountService.OpenAccessTokenCallback a;
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
 
         public a(ThirdPartyAccountServiceImpl thirdPartyAccountServiceImpl, ThirdPartAccountService.OpenAccessTokenCallback openAccessTokenCallback) {
             Interceptable interceptable = $ic;
@@ -67,27 +88,12 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
         /* renamed from: b */
         public void onSuccess(OAuthResult oAuthResult) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oAuthResult) == null) || oAuthResult == null) {
-                return;
-            }
-            try {
-                this.a.onResult(oAuthResult.accessToken);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oAuthResult) == null) && oAuthResult != null) {
+                try {
+                    this.a.onResult(oAuthResult.accessToken);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -160,13 +166,6 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService
-    public void bindPhone(Context context, ThirdPartAccountService.BindPhoneCallback bindPhoneCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bindPhoneCallback) == null) {
         }
     }
 

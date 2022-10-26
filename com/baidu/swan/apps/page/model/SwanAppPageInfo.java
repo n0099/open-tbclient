@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SwanAppPageInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<SwanAppPageInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String appDesc;
     public String appName;
@@ -28,8 +28,18 @@ public class SwanAppPageInfo implements Parcelable {
     public String type;
     public String url;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<SwanAppPageInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +63,10 @@ public class SwanAppPageInfo implements Parcelable {
         public SwanAppPageInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SwanAppPageInfo(parcel) : (SwanAppPageInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new SwanAppPageInfo(parcel);
+            }
+            return (SwanAppPageInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +75,10 @@ public class SwanAppPageInfo implements Parcelable {
         public SwanAppPageInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SwanAppPageInfo[i] : (SwanAppPageInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new SwanAppPageInfo[i];
+            }
+            return (SwanAppPageInfo[]) invokeI.objValue;
         }
     }
 
@@ -82,76 +98,30 @@ public class SwanAppPageInfo implements Parcelable {
         CREATOR = new a();
     }
 
-    public SwanAppPageInfo(JSONObject jSONObject) {
+    public SwanAppPageInfo(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65539, newInitContext);
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        parsePageInfo(jSONObject);
-    }
-
-    private void parsePageInfo(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.type = jSONObject.optString("type");
-        JSONObject optJSONObject = jSONObject.optJSONObject("pageInfo");
-        if (optJSONObject != null) {
-            this.title = optJSONObject.optString("title");
-            this.imageUrl = optJSONObject.optString("img");
-        }
-        this.url = jSONObject.optString("url");
-        this.appName = jSONObject.optString("appName");
-        this.iconUrl = jSONObject.optString("iconUrl");
-        this.appDesc = jSONObject.optString("appDesc");
-        this.scheme = jSONObject.optString("scheme");
-        this.fragmentId = jSONObject.optString("pageId");
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanAppPageInfo{appName='" + this.appName + "', iconUrl='" + this.iconUrl + "', appDesc='" + this.appDesc + "', title='" + this.title + "', imageUrl='" + this.imageUrl + "', type='" + this.type + "', url='" + this.url + "', scheme='" + this.scheme + "', fragmentId='" + this.fragmentId + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.appName);
-            parcel.writeString(this.iconUrl);
-            parcel.writeString(this.appDesc);
-            parcel.writeString(this.title);
-            parcel.writeString(this.imageUrl);
-            parcel.writeString(this.type);
-            parcel.writeString(this.url);
-            parcel.writeString(this.scheme);
-            parcel.writeString(this.fragmentId);
-        }
+        this.appName = parcel.readString();
+        this.iconUrl = parcel.readString();
+        this.appDesc = parcel.readString();
+        this.title = parcel.readString();
+        this.imageUrl = parcel.readString();
+        this.type = parcel.readString();
+        this.url = parcel.readString();
+        this.scheme = parcel.readString();
+        this.fragmentId = parcel.readString();
     }
 
     public SwanAppPageInfo(String str) {
@@ -179,29 +149,65 @@ public class SwanAppPageInfo implements Parcelable {
         parsePageInfo(jSONObject);
     }
 
-    public SwanAppPageInfo(Parcel parcel) {
+    public SwanAppPageInfo(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        this.appName = parcel.readString();
-        this.iconUrl = parcel.readString();
-        this.appDesc = parcel.readString();
-        this.title = parcel.readString();
-        this.imageUrl = parcel.readString();
-        this.type = parcel.readString();
-        this.url = parcel.readString();
-        this.scheme = parcel.readString();
-        this.fragmentId = parcel.readString();
+        parsePageInfo(jSONObject);
+    }
+
+    private void parsePageInfo(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.type = jSONObject.optString("type");
+        JSONObject optJSONObject = jSONObject.optJSONObject("pageInfo");
+        if (optJSONObject != null) {
+            this.title = optJSONObject.optString("title");
+            this.imageUrl = optJSONObject.optString("img");
+        }
+        this.url = jSONObject.optString("url");
+        this.appName = jSONObject.optString("appName");
+        this.iconUrl = jSONObject.optString("iconUrl");
+        this.appDesc = jSONObject.optString("appDesc");
+        this.scheme = jSONObject.optString("scheme");
+        this.fragmentId = jSONObject.optString("pageId");
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SwanAppPageInfo{appName='" + this.appName + "', iconUrl='" + this.iconUrl + "', appDesc='" + this.appDesc + "', title='" + this.title + "', imageUrl='" + this.imageUrl + "', type='" + this.type + "', url='" + this.url + "', scheme='" + this.scheme + "', fragmentId='" + this.fragmentId + "'}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeString(this.appName);
+            parcel.writeString(this.iconUrl);
+            parcel.writeString(this.appDesc);
+            parcel.writeString(this.title);
+            parcel.writeString(this.imageUrl);
+            parcel.writeString(this.type);
+            parcel.writeString(this.url);
+            parcel.writeString(this.scheme);
+            parcel.writeString(this.fragmentId);
+        }
     }
 }

@@ -26,17 +26,17 @@ public final class BitArrayBuilder {
         }
     }
 
-    public static BitArray buildBitArray(List<ExpandedPair> list) {
+    public static BitArray buildBitArray(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
             int size = (list.size() << 1) - 1;
-            if (list.get(list.size() - 1).getRightChar() == null) {
+            if (((ExpandedPair) list.get(list.size() - 1)).getRightChar() == null) {
                 size--;
             }
             BitArray bitArray = new BitArray(size * 12);
             int i = 0;
-            int value = list.get(0).getRightChar().getValue();
+            int value = ((ExpandedPair) list.get(0)).getRightChar().getValue();
             for (int i2 = 11; i2 >= 0; i2--) {
                 if (((1 << i2) & value) != 0) {
                     bitArray.set(i);
@@ -44,7 +44,7 @@ public final class BitArrayBuilder {
                 i++;
             }
             for (int i3 = 1; i3 < list.size(); i3++) {
-                ExpandedPair expandedPair = list.get(i3);
+                ExpandedPair expandedPair = (ExpandedPair) list.get(i3);
                 int value2 = expandedPair.getLeftChar().getValue();
                 for (int i4 = 11; i4 >= 0; i4--) {
                     if (((1 << i4) & value2) != 0) {

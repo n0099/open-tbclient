@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
 import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.t32;
+import com.baidu.tieba.u32;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,31 +13,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 /* loaded from: classes4.dex */
 public class l42 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t32 a;
-    public final c42 b;
-    public final q32 c;
-    public SceneType d;
+    public final u32 a;
+    public final d42 b;
+    public final r32 c;
+    public String d;
 
     /* loaded from: classes4.dex */
-    public class a implements t32.b {
+    public class a implements u32.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e42 a;
-        public final /* synthetic */ s32 b;
-        public final /* synthetic */ l42 c;
+        public final /* synthetic */ SceneType a;
+        public final /* synthetic */ f42 b;
+        public final /* synthetic */ t32 c;
+        public final /* synthetic */ l42 d;
 
-        public a(l42 l42Var, e42 e42Var, s32 s32Var) {
+        public a(l42 l42Var, SceneType sceneType, f42 f42Var, t32 t32Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l42Var, e42Var, s32Var};
+                Object[] objArr = {l42Var, sceneType, f42Var, t32Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,33 +47,64 @@ public class l42 {
                     return;
                 }
             }
-            this.c = l42Var;
-            this.a = e42Var;
-            this.b = s32Var;
+            this.d = l42Var;
+            this.a = sceneType;
+            this.b = f42Var;
+            this.c = t32Var;
         }
 
-        @Override // com.baidu.tieba.t32.b
+        @Override // com.baidu.tieba.u32.b
         public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                m32.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                boolean m0 = fa2.U().m0();
-                long n = sm2.g0().n();
-                if (n >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION || m0) {
-                    this.c.f(networkStatus, this.b, this.a);
-                }
+                l32.b(this.d.d);
+                o32.i(1);
+                n32.e(this.a.getType(), networkStatus.getStatus(), this.b.e().getStatus(), this.b.g(), this.b.b(), this.b.f(), this.b.a());
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.c.d.getScene());
-                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
-                sb.append(m0 ? "框架预加载：已完成；" : "框架预加载：未完成；");
-                sb.append(this.b.a());
-                sb.append(this.a.d());
+                sb.append(this.a.getScene());
+                sb.append(this.c.a());
+                sb.append(this.b.d());
                 sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
+                sb.append(this.b.c());
+                o32.g(sb.toString());
                 if (l42.e) {
-                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
+                    Log.d("SceneSkeletonTips", ">> " + sb.toString());
                 }
-                n32.g(sb.toString());
+                this.d.h(networkStatus, this.c, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements u32.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(l42 l42Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l42Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.u32.b
+        public void a(NetworkStatus networkStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                d42.d().j();
+                r32.d().j();
+                l32.c();
+                o32.i(0);
+                n32.c("exit_skeleton", networkStatus.getStatus());
             }
         }
     }
@@ -93,7 +122,24 @@ public class l42 {
                 return;
             }
         }
-        e = vj1.a;
+        e = wj1.a;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e) {
+                Log.d("SceneSkeletonTips", ">> trigger skeleton error event.");
+            }
+            this.a.a(new b(this));
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f(SceneType.SCENE_SKELETON_TIMEOUT);
+        }
     }
 
     public l42() {
@@ -109,61 +155,52 @@ public class l42 {
                 return;
             }
         }
-        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
-        this.c = q32.d();
-        this.a = new t32();
-        this.b = c42.d();
+        this.c = r32.d();
+        this.a = new u32();
+        this.b = d42.d();
     }
 
-    public void d(String str) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (a42.b().c()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void f(SceneType sceneType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
+            if (gh3.I(this.d) && gh3.H()) {
                 if (e) {
-                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
+                    Log.d("SceneSkeletonTips", ">> trigger skeleton remove event.");
                 }
-                a42.b().h(y32.b(str, 3000L));
-                a42.b().f();
-                return;
+                d42.d().j();
+                r32.d().j();
+                t32 f = this.c.f();
+                this.a.a(new a(this, sceneType, this.b.f(), f));
+            } else if (e) {
+                Log.d("SceneSkeletonTips", "path is not first page: " + this.d);
             }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
-            }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
-            }
-            c42.d().j();
-            q32.d().j();
-            a42.b().j(true);
-            s32 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
         }
     }
 
-    public void e(SceneType sceneType) {
+    public final void h(NetworkStatus networkStatus, t32 t32Var, f42 f42Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
-            this.d = sceneType;
-        }
-    }
-
-    public final void f(@NonNull NetworkStatus networkStatus, @NonNull s32 s32Var, @NonNull e42 e42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, s32Var, e42Var) == null) {
-            boolean b = s32Var.b();
-            int i = R.string.obfuscated_res_0x7f0f132e;
-            if (b) {
-                i = R.string.obfuscated_res_0x7f0f1333;
-            } else if (e42Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f1331;
-            } else if (e42Var.e() != RequestStatus.STATUS_FAILED) {
-                if (e42Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f1332 : R.string.obfuscated_res_0x7f0f132f;
-                } else if (e42Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f1330;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, networkStatus, t32Var, f42Var) == null) {
+            boolean b2 = t32Var.b();
+            int i = R.string.obfuscated_res_0x7f0f1342;
+            if (b2) {
+                i = R.string.obfuscated_res_0x7f0f1347;
+            } else if (f42Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
+                i = R.string.obfuscated_res_0x7f0f1345;
+            } else if (f42Var.e() != RequestStatus.STATUS_FAILED) {
+                if (f42Var.e() == RequestStatus.STATUS_SLOW) {
+                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f1346 : R.string.obfuscated_res_0x7f0f1343;
+                } else if (f42Var.e() != RequestStatus.STATUS_CORE_FAILED) {
+                    i = R.string.obfuscated_res_0x7f0f1344;
                 }
             }
-            l32.f(i);
+            m32.f(i);
         }
     }
 }

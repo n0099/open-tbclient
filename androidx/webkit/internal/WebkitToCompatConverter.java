@@ -6,7 +6,6 @@ import android.webkit.WebMessagePort;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,67 +42,93 @@ public class WebkitToCompatConverter {
         this.mImpl = webkitToCompatConverterBoundaryInterface;
     }
 
-    public InvocationHandler convertSafeBrowsingResponse(SafeBrowsingResponse safeBrowsingResponse) {
+    public SafeBrowsingResponse convertSafeBrowsingResponse(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, safeBrowsingResponse)) == null) ? this.mImpl.convertSafeBrowsingResponse(safeBrowsingResponse) : (InvocationHandler) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invocationHandler)) == null) {
+            return (SafeBrowsingResponse) this.mImpl.convertSafeBrowsingResponse(invocationHandler);
+        }
+        return (SafeBrowsingResponse) invokeL.objValue;
     }
 
-    public InvocationHandler convertServiceWorkerSettings(ServiceWorkerWebSettings serviceWorkerWebSettings) {
+    public ServiceWorkerWebSettings convertServiceWorkerSettings(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, serviceWorkerWebSettings)) == null) ? this.mImpl.convertServiceWorkerSettings(serviceWorkerWebSettings) : (InvocationHandler) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, invocationHandler)) == null) {
+            return (ServiceWorkerWebSettings) this.mImpl.convertServiceWorkerSettings(invocationHandler);
+        }
+        return (ServiceWorkerWebSettings) invokeL.objValue;
     }
 
     public WebSettingsAdapter convertSettings(WebSettings webSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webSettings)) == null) ? new WebSettingsAdapter((WebSettingsBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebSettingsBoundaryInterface.class, this.mImpl.convertSettings(webSettings))) : (WebSettingsAdapter) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webSettings)) == null) {
+            return new WebSettingsAdapter((WebSettingsBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebSettingsBoundaryInterface.class, this.mImpl.convertSettings(webSettings)));
+        }
+        return (WebSettingsAdapter) invokeL.objValue;
     }
 
-    public InvocationHandler convertWebMessagePort(WebMessagePort webMessagePort) {
+    public WebMessagePort convertWebMessagePort(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webMessagePort)) == null) ? this.mImpl.convertWebMessagePort(webMessagePort) : (InvocationHandler) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, invocationHandler)) == null) {
+            return (WebMessagePort) this.mImpl.convertWebMessagePort(invocationHandler);
+        }
+        return (WebMessagePort) invokeL.objValue;
     }
 
-    public InvocationHandler convertWebResourceError(WebResourceError webResourceError) {
+    public WebResourceError convertWebResourceError(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webResourceError)) == null) ? this.mImpl.convertWebResourceError(webResourceError) : (InvocationHandler) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, invocationHandler)) == null) {
+            return (WebResourceError) this.mImpl.convertWebResourceError(invocationHandler);
+        }
+        return (WebResourceError) invokeL.objValue;
     }
 
     public WebResourceRequestAdapter convertWebResourceRequest(WebResourceRequest webResourceRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, webResourceRequest)) == null) ? new WebResourceRequestAdapter((WebResourceRequestBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceRequestBoundaryInterface.class, this.mImpl.convertWebResourceRequest(webResourceRequest))) : (WebResourceRequestAdapter) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, webResourceRequest)) == null) {
+            return new WebResourceRequestAdapter((WebResourceRequestBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceRequestBoundaryInterface.class, this.mImpl.convertWebResourceRequest(webResourceRequest)));
+        }
+        return (WebResourceRequestAdapter) invokeL.objValue;
     }
 
-    @RequiresApi(27)
-    public SafeBrowsingResponse convertSafeBrowsingResponse(InvocationHandler invocationHandler) {
+    public InvocationHandler convertSafeBrowsingResponse(SafeBrowsingResponse safeBrowsingResponse) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invocationHandler)) == null) ? (SafeBrowsingResponse) this.mImpl.convertSafeBrowsingResponse(invocationHandler) : (SafeBrowsingResponse) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, safeBrowsingResponse)) == null) {
+            return this.mImpl.convertSafeBrowsingResponse(safeBrowsingResponse);
+        }
+        return (InvocationHandler) invokeL.objValue;
     }
 
-    @RequiresApi(24)
-    public ServiceWorkerWebSettings convertServiceWorkerSettings(InvocationHandler invocationHandler) {
+    public InvocationHandler convertServiceWorkerSettings(ServiceWorkerWebSettings serviceWorkerWebSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, invocationHandler)) == null) ? (ServiceWorkerWebSettings) this.mImpl.convertServiceWorkerSettings(invocationHandler) : (ServiceWorkerWebSettings) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, serviceWorkerWebSettings)) == null) {
+            return this.mImpl.convertServiceWorkerSettings(serviceWorkerWebSettings);
+        }
+        return (InvocationHandler) invokeL.objValue;
     }
 
-    @RequiresApi(23)
-    public WebMessagePort convertWebMessagePort(InvocationHandler invocationHandler) {
+    public InvocationHandler convertWebMessagePort(WebMessagePort webMessagePort) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, invocationHandler)) == null) ? (WebMessagePort) this.mImpl.convertWebMessagePort(invocationHandler) : (WebMessagePort) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webMessagePort)) == null) {
+            return this.mImpl.convertWebMessagePort(webMessagePort);
+        }
+        return (InvocationHandler) invokeL.objValue;
     }
 
-    @RequiresApi(23)
-    public WebResourceError convertWebResourceError(InvocationHandler invocationHandler) {
+    public InvocationHandler convertWebResourceError(WebResourceError webResourceError) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, invocationHandler)) == null) ? (WebResourceError) this.mImpl.convertWebResourceError(invocationHandler) : (WebResourceError) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webResourceError)) == null) {
+            return this.mImpl.convertWebResourceError(webResourceError);
+        }
+        return (InvocationHandler) invokeL.objValue;
     }
 }

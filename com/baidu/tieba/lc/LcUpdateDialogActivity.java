@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity> implements View.OnClickListener {
+public class LcUpdateDialogActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -81,36 +81,32 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.this$0.l = (Download) intent.getSerializableExtra("download");
-                if (this.this$0.l == null || this.this$0.l.mSourceKey == null || !this.this$0.l.mSourceKey.contains(this.this$0.getApplicationContext().getPackageName())) {
-                    return;
-                }
+            if (interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) {
+                return;
+            }
+            this.this$0.l = (Download) intent.getSerializableExtra("download");
+            if (this.this$0.l != null && this.this$0.l.mSourceKey != null && this.this$0.l.mSourceKey.contains(this.this$0.getApplicationContext().getPackageName())) {
                 LcUpdateDialogActivity lcUpdateDialogActivity = this.this$0;
                 lcUpdateDialogActivity.m = lcUpdateDialogActivity.l.mId;
                 if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
                     int intExtra = intent.getIntExtra("progress", 0);
                     this.this$0.j.setVisibility(0);
-                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09e8), String.valueOf(intExtra)));
+                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09f5), String.valueOf(intExtra)));
                 } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
                     LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
                     TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.m));
                     TbadkCoreApplication.setClientId(String.valueOf(this.this$0.m));
-                    if (DownloadState.FINISH != this.this$0.l.getState()) {
-                        if (DownloadState.DOWNLOADING == this.this$0.l.getState() || DownloadState.PAUSE == this.this$0.l.getState() || DownloadState.CANCEL != this.this$0.l.getState()) {
-                            return;
-                        }
+                    if (DownloadState.FINISH == this.this$0.l.getState()) {
+                        String str = this.this$0.l.mSavedPath + "/" + this.this$0.l.mFileName;
+                        this.this$0.finish();
+                    } else if (DownloadState.DOWNLOADING != this.this$0.l.getState() && DownloadState.PAUSE != this.this$0.l.getState() && DownloadState.CANCEL == this.this$0.l.getState()) {
                         Toast.makeText(this.this$0.getApplicationContext(), this.this$0.l.mFileName + ": 已删除", 1).show();
-                        return;
                     }
-                    String str = this.this$0.l.mSavedPath + "/" + this.this$0.l.mFileName;
-                    this.this$0.finish();
                 } else if (DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS.equals(intent.getAction())) {
-                    if (DownloadState.MEAGESTART == this.this$0.l.getState()) {
-                        return;
+                    if (DownloadState.MEAGESTART != this.this$0.l.getState()) {
+                        DownloadState downloadState = DownloadState.MEAGEEND;
+                        this.this$0.l.getState();
                     }
-                    DownloadState downloadState = DownloadState.MEAGEEND;
-                    this.this$0.l.getState();
                 } else if ("com.baidu.clientupdate.RSA.STATUS_FAIL".equals(intent.getAction())) {
                     Toast.makeText(this.this$0.getApplicationContext(), "安装包存在被劫持风险，已删除", 1).show();
                 }
@@ -138,7 +134,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
 
     private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE);
             intentFilter.addAction(DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE);
@@ -148,10 +144,79 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.m);
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelAutoCheckUpdate();
+            unregisterReceiver(this.p);
+            super.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            super.onClick(view2);
+            if (view2 == this.g) {
+                finish();
+            } else if (view2 == this.i && update()) {
+                showToast(R.string.obfuscated_res_0x7f0f0513);
+                finish();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            setSwipeBackEnabled(false);
+            setContentView(R.layout.obfuscated_res_0x7f0d0040);
+            D1(bundle);
+            E1();
+            registerReceiver();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            ClientUpdateInfo clientUpdateInfo = this.k;
+            if (clientUpdateInfo != null) {
+                bundle.putSerializable(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA, clientUpdateInfo);
+            }
+            if (!TextUtils.isEmpty(this.n)) {
+                bundle.putString(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_APKMD5RSA, this.n);
+            }
+        }
+    }
+
     private boolean update() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (!FileHelper.checkSD()) {
                 showToast(FileHelper.getSdErrorString());
                 return false;
@@ -174,7 +239,29 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         return invokeV.booleanValue;
     }
 
-    public final void E1(Bundle bundle) {
+    public final void E1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912b0);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912a8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912af);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ad);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0912ac);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0912aa);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0912a9);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ab);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ae);
+            this.b.setBackgroundColor(Color.parseColor("#A8000000"));
+            ClientUpdateInfo clientUpdateInfo = this.k;
+            if (clientUpdateInfo != null) {
+                this.e.setText(clientUpdateInfo.mChangelog);
+            }
+            this.g.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+        }
+    }
+
+    public final void D1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {
@@ -190,48 +277,10 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    public final void F1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912bc);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912b4);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912bb);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b9);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0912b8);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b6);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0912b5);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b7);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ba);
-            this.b.setBackgroundColor(Color.parseColor("#A8000000"));
-            ClientUpdateInfo clientUpdateInfo = this.k;
-            if (clientUpdateInfo != null) {
-                this.e.setText(clientUpdateInfo.mChangelog);
-            }
-            this.g.setOnClickListener(this);
-            this.i.setOnClickListener(this);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void closeAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void enterExitAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i == this.a) {
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || i == this.a) {
             return;
         }
         this.a = i;
@@ -247,59 +296,5 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         SkinManager.setBackgroundResource(this.i, R.drawable.dialog_right_button_selector);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0211);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            super.onClick(view2);
-            if (view2 == this.g) {
-                finish();
-            } else if (view2 == this.i && update()) {
-                showToast(R.string.obfuscated_res_0x7f0f050b);
-                finish();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onCreate(bundle);
-            setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0040);
-            E1(bundle);
-            F1();
-            registerReceiver();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.m);
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelAutoCheckUpdate();
-            unregisterReceiver(this.p);
-            super.onDestroy();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            ClientUpdateInfo clientUpdateInfo = this.k;
-            if (clientUpdateInfo != null) {
-                bundle.putSerializable(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA, clientUpdateInfo);
-            }
-            if (TextUtils.isEmpty(this.n)) {
-                return;
-            }
-            bundle.putString(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_APKMD5RSA, this.n);
-        }
     }
 }

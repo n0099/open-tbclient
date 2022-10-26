@@ -257,9 +257,10 @@ public class ImageActivity extends Activity {
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                this.a.a.c();
+                            if (interceptable3 != null && interceptable3.invokeV(1048576, this) != null) {
+                                return;
                             }
+                            this.a.a.c();
                         }
                     }).start();
                     if (this.a.l) {
@@ -311,6 +312,13 @@ public class ImageActivity extends Activity {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImageActivity a;
 
+            @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+            public void onCancel() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                }
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -327,13 +335,6 @@ public class ImageActivity extends Activity {
                     }
                 }
                 this.a = this;
-            }
-
-            @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-            public void onCancel() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                }
             }
 
             @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -394,6 +395,13 @@ public class ImageActivity extends Activity {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImageActivity a;
 
+            @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+            public void onCancel() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                }
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -414,16 +422,17 @@ public class ImageActivity extends Activity {
 
             private void a(int i3) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeI(65537, this, i3) == null) || this.a.k >= 2) {
+                if ((interceptable2 != null && interceptable2.invokeI(65537, this, i3) != null) || this.a.k >= 2) {
                     return;
                 }
                 this.a.e();
             }
 
             @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-            public void onCancel() {
+            public void onError(UiError uiError) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
+                    a(0);
                 }
             }
 
@@ -464,9 +473,10 @@ public class ImageActivity extends Activity {
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.b.a.c(this.a);
+                                    if (interceptable3 != null && interceptable3.invokeV(1048576, this) != null) {
+                                        return;
                                     }
+                                    this.b.a.c(this.a);
                                 }
                             });
                             this.a.a("10659", 0L);
@@ -481,190 +491,7 @@ public class ImageActivity extends Activity {
                     }
                 }
             }
-
-            @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-            public void onError(UiError uiError) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
-                    a(0);
-                }
-            }
         };
-    }
-
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setResult(0);
-            d();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            requestWindowFeature(1);
-            super.onCreate(bundle);
-            setRequestedOrientation(1);
-            setContentView(a());
-            this.d = new Handler();
-            Bundle bundleExtra = getIntent().getBundleExtra(com.tencent.connect.common.Constants.KEY_PARAMS);
-            this.r = bundleExtra.getString("picture");
-            this.c = bundleExtra.getString("return_activity");
-            String string = bundleExtra.getString("appid");
-            String string2 = bundleExtra.getString("access_token");
-            long j = bundleExtra.getLong("expires_in");
-            String string3 = bundleExtra.getString("openid");
-            this.n = bundleExtra.getInt("exitAnim");
-            QQToken qQToken = new QQToken(string);
-            this.b = qQToken;
-            qQToken.setAccessToken(string2, ((j - System.currentTimeMillis()) / 1000) + "");
-            this.b.setOpenId(string3);
-            b();
-            e();
-            this.m = System.currentTimeMillis();
-            a("10653", 0L);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroy();
-            this.e.setImageBitmap(null);
-            Bitmap bitmap = this.s;
-            if (bitmap == null || bitmap.isRecycled()) {
-                return;
-            }
-            this.s.recycle();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            Matrix imageMatrix = this.e.getImageMatrix();
-            float[] fArr = new float[9];
-            imageMatrix.getValues(fArr);
-            float f = fArr[2];
-            float f2 = fArr[5];
-            float f3 = fArr[0];
-            float width = 640.0f / this.q.width();
-            int i = (int) ((this.q.left - f) / f3);
-            int i2 = i < 0 ? 0 : i;
-            int i3 = (int) ((this.q.top - f2) / f3);
-            int i4 = i3 < 0 ? 0 : i3;
-            Matrix matrix = new Matrix();
-            matrix.set(imageMatrix);
-            matrix.postScale(width, width);
-            int i5 = (int) (650.0f / f3);
-            try {
-                Bitmap createBitmap = Bitmap.createBitmap(this.s, i2, i4, Math.min(this.s.getWidth() - i2, i5), Math.min(this.s.getHeight() - i4, i5), matrix, true);
-                Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap, 0, 0, 640, 640);
-                createBitmap.recycle();
-                a(createBitmap2);
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-                a(com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, 1);
-                a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e.getMessage());
-                d();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            finish();
-            int i = this.n;
-            if (i != 0) {
-                overridePendingTransition(0, i);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
-            this.k++;
-            new UserInfo(this, this.b).getUserInfo(this.w);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Drawable b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) ? l.a(str, this) : (Drawable) invokeL.objValue;
-    }
-
-    private void b() {
-        Bitmap a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            try {
-                a2 = a(this.r);
-                this.s = a2;
-            } catch (IOException e) {
-                e.printStackTrace();
-                a(com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, 1);
-                a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e.getMessage());
-                d();
-            }
-            if (a2 != null) {
-                this.e.setImageBitmap(a2);
-                this.f.setOnClickListener(this.t);
-                this.g.setOnClickListener(this.u);
-                this.a.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.tencent.connect.avatar.ImageActivity.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ImageActivity a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
-                    }
-
-                    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-                    public void onGlobalLayout() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                            ImageActivity imageActivity = this.a;
-                            imageActivity.q = imageActivity.h.a();
-                            this.a.e.a(this.a.q);
-                        }
-                    }
-                });
-                return;
-            }
-            throw new IOException("cannot read picture: '" + this.r + "'!");
-        }
-    }
-
-    private String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, this, str)) == null) ? str.replaceAll("&gt;", ">").replaceAll("&lt;", "<").replaceAll("&quot;", "\"").replaceAll("&#39;", "'").replaceAll("&amp;", "&") : (String) invokeL.objValue;
     }
 
     private Bitmap a(String str) throws IOException {
@@ -702,29 +529,6 @@ public class ImageActivity extends Activity {
             }
         }
         return (Bitmap) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65553, this, str, i) == null) {
-            Toast makeText = Toast.makeText(this, str, 1);
-            LinearLayout linearLayout = (LinearLayout) makeText.getView();
-            ((TextView) linearLayout.getChildAt(0)).setPadding(8, 0, 0, 0);
-            ImageView imageView = new ImageView(this);
-            imageView.setLayoutParams(new LinearLayout.LayoutParams(com.tencent.connect.avatar.a.a(this, 16.0f), com.tencent.connect.avatar.a.a(this, 16.0f)));
-            if (i == 0) {
-                imageView.setImageDrawable(b("com.tencent.plus.ic_success.png"));
-            } else {
-                imageView.setImageDrawable(b("com.tencent.plus.ic_error.png"));
-            }
-            linearLayout.addView(imageView, 0);
-            linearLayout.setOrientation(0);
-            linearLayout.setGravity(17);
-            makeText.setView(linearLayout);
-            makeText.setGravity(17, 0, 0);
-            makeText.show();
-        }
     }
 
     private View a() {
@@ -825,15 +629,15 @@ public class ImageActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(String str) {
+    public void a(int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, this, str) == null) {
-            String d = d(str);
-            if ("".equals(d)) {
-                return;
-            }
-            this.i.setText(d);
-            this.i.setVisibility(0);
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            Intent intent = new Intent();
+            intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_CODE, i);
+            intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_MSG, str2);
+            intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_DETAIL, str3);
+            intent.putExtra(com.tencent.connect.common.Constants.KEY_RESPONSE, str);
+            setResult(-1, intent);
         }
     }
 
@@ -841,6 +645,28 @@ public class ImageActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, bitmap) == null) {
             new QQAvatarImp(this, this.b).setAvator(bitmap, this.v);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Drawable b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
+            return l.a(str, this);
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, this, str) == null) {
+            String d = d(str);
+            if (!"".equals(d)) {
+                this.i.setText(d);
+                this.i.setVisibility(0);
+            }
         }
     }
 
@@ -878,24 +704,187 @@ public class ImageActivity extends Activity {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.c.b(this.a, this.b);
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    this.c.b(this.a, this.b);
                 }
             });
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str, String str2, String str3) {
+    private void b() {
+        Bitmap a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            Intent intent = new Intent();
-            intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_CODE, i);
-            intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_MSG, str2);
-            intent.putExtra(com.tencent.connect.common.Constants.KEY_ERROR_DETAIL, str3);
-            intent.putExtra(com.tencent.connect.common.Constants.KEY_RESPONSE, str);
-            setResult(-1, intent);
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            try {
+                a2 = a(this.r);
+                this.s = a2;
+            } catch (IOException e) {
+                e.printStackTrace();
+                a(com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, 1);
+                a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e.getMessage());
+                d();
+            }
+            if (a2 != null) {
+                this.e.setImageBitmap(a2);
+                this.f.setOnClickListener(this.t);
+                this.g.setOnClickListener(this.u);
+                this.a.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.tencent.connect.avatar.ImageActivity.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ImageActivity a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.a = this;
+                    }
+
+                    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+                    public void onGlobalLayout() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.a.a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                            ImageActivity imageActivity = this.a;
+                            imageActivity.q = imageActivity.h.a();
+                            this.a.e.a(this.a.q);
+                        }
+                    }
+                });
+                return;
+            }
+            throw new IOException("cannot read picture: '" + this.r + "'!");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65553, this, str, i) == null) {
+            Toast makeText = Toast.makeText(this, str, 1);
+            LinearLayout linearLayout = (LinearLayout) makeText.getView();
+            ((TextView) linearLayout.getChildAt(0)).setPadding(8, 0, 0, 0);
+            ImageView imageView = new ImageView(this);
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(com.tencent.connect.avatar.a.a(this, 16.0f), com.tencent.connect.avatar.a.a(this, 16.0f)));
+            if (i == 0) {
+                imageView.setImageDrawable(b("com.tencent.plus.ic_success.png"));
+            } else {
+                imageView.setImageDrawable(b("com.tencent.plus.ic_error.png"));
+            }
+            linearLayout.addView(imageView, 0);
+            linearLayout.setOrientation(0);
+            linearLayout.setGravity(17);
+            makeText.setView(linearLayout);
+            makeText.setGravity(17, 0, 0);
+            makeText.show();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+            Matrix imageMatrix = this.e.getImageMatrix();
+            float[] fArr = new float[9];
+            imageMatrix.getValues(fArr);
+            float f = fArr[2];
+            float f2 = fArr[5];
+            float f3 = fArr[0];
+            float width = 640.0f / this.q.width();
+            int i3 = (int) ((this.q.left - f) / f3);
+            if (i3 < 0) {
+                i = 0;
+            } else {
+                i = i3;
+            }
+            int i4 = (int) ((this.q.top - f2) / f3);
+            if (i4 < 0) {
+                i2 = 0;
+            } else {
+                i2 = i4;
+            }
+            Matrix matrix = new Matrix();
+            matrix.set(imageMatrix);
+            matrix.postScale(width, width);
+            int i5 = (int) (650.0f / f3);
+            try {
+                Bitmap createBitmap = Bitmap.createBitmap(this.s, i, i2, Math.min(this.s.getWidth() - i, i5), Math.min(this.s.getHeight() - i2, i5), matrix, true);
+                Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap, 0, 0, 640, 640);
+                createBitmap.recycle();
+                a(createBitmap2);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                a(com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, 1);
+                a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e.getMessage());
+                d();
+            }
+        }
+    }
+
+    private String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, str)) == null) {
+            return str.replaceAll("&gt;", ">").replaceAll("&lt;", "<").replaceAll("&quot;", "\"").replaceAll("&#39;", "'").replaceAll("&amp;", "&");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+            finish();
+            int i = this.n;
+            if (i != 0) {
+                overridePendingTransition(0, i);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+            this.k++;
+            new UserInfo(this, this.b).getUserInfo(this.w);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setResult(0);
+            d();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDestroy();
+            this.e.setImageBitmap(null);
+            Bitmap bitmap = this.s;
+            if (bitmap != null && !bitmap.isRecycled()) {
+                this.s.recycle();
+            }
         }
     }
 
@@ -903,6 +892,34 @@ public class ImageActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
             l.a(this, str, j, this.b.getAppId());
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            requestWindowFeature(1);
+            super.onCreate(bundle);
+            setRequestedOrientation(1);
+            setContentView(a());
+            this.d = new Handler();
+            Bundle bundleExtra = getIntent().getBundleExtra(com.tencent.connect.common.Constants.KEY_PARAMS);
+            this.r = bundleExtra.getString("picture");
+            this.c = bundleExtra.getString("return_activity");
+            String string = bundleExtra.getString("appid");
+            String string2 = bundleExtra.getString("access_token");
+            long j = bundleExtra.getLong("expires_in");
+            String string3 = bundleExtra.getString("openid");
+            this.n = bundleExtra.getInt("exitAnim");
+            QQToken qQToken = new QQToken(string);
+            this.b = qQToken;
+            qQToken.setAccessToken(string2, ((j - System.currentTimeMillis()) / 1000) + "");
+            this.b.setOpenId(string3);
+            b();
+            e();
+            this.m = System.currentTimeMillis();
+            a("10653", 0L);
         }
     }
 }

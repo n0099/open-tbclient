@@ -21,7 +21,7 @@ public class gk implements go {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gk> f431a;
+    public List f431a;
 
     /* renamed from: a  reason: collision with other field name */
     public String[] f432a;
@@ -55,7 +55,7 @@ public class gk implements go {
         this.f433b = strArr2;
     }
 
-    public gk(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gk> list) {
+    public gk(String str, String str2, String[] strArr, String[] strArr2, String str3, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class gk implements go {
         return (gk) invokeL.objValue;
     }
 
-    public static Parcelable[] a(List<gk> list) {
+    public static Parcelable[] a(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) ? a((gk[]) list.toArray(new gk[list.size()])) : (Parcelable[]) invokeL.objValue;
@@ -129,7 +129,7 @@ public class gk implements go {
             }
             Parcelable[] parcelableArr = new Parcelable[gkVarArr.length];
             for (int i = 0; i < gkVarArr.length; i++) {
-                parcelableArr[i] = gkVarArr[i].m367a();
+                parcelableArr[i] = gkVarArr[i].m366a();
             }
             return parcelableArr;
         }
@@ -158,7 +158,7 @@ public class gk implements go {
                 }
             }
             bundle.putBundle("attributes", bundle2);
-            List<gk> list = this.f431a;
+            List list = this.f431a;
             if (list != null && list.size() > 0) {
                 bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f431a));
             }
@@ -168,14 +168,14 @@ public class gk implements go {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m367a() {
+    public Parcelable m366a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a() : (Parcelable) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m368a() {
+    public String m367a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
@@ -220,7 +220,7 @@ public class gk implements go {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m369a(String str) {
+    public void m368a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -270,7 +270,7 @@ public class gk implements go {
                 }
             }
             if (TextUtils.isEmpty(this.c)) {
-                List<gk> list = this.f431a;
+                List list = this.f431a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
                     return sb.toString();

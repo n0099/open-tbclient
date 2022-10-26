@@ -23,10 +23,10 @@ public class b {
     public static String i = "zeus_error";
     public static volatile b j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<com.bytedance.pangle.b.a> a;
+    public final List a;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 11000;
         public static int b = 12000;

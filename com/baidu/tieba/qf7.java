@@ -1,41 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class qf7 implements View.OnClickListener {
+public class qf7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public TextView b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public ImageView f;
-    public TextView g;
-    public int h;
-    public int i;
+    public final String a;
+    public final String b;
+    public List c;
+    public ye8 d;
+    public List e;
+    public boolean f;
+    public rd8 g;
+    public boolean h;
+    public long i;
     public int j;
+    public boolean k;
+    public Map l;
+    public TbPageContext m;
 
-    public qf7(Context context) {
+    public qf7(List list, String str, String str2, boolean z, boolean z2, TbPageContext tbPageContext, DragImageView.h hVar, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), tbPageContext, hVar, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,72 +52,268 @@ public class qf7 implements View.OnClickListener {
                 return;
             }
         }
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0489, (ViewGroup) null);
-        this.a = viewGroup;
-        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09061e);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ba5);
-        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091497);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091498);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b6);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b7);
-        this.d.setOnClickListener(this);
-        this.f.setOnClickListener(this);
-        c();
+        this.k = false;
+        this.c = list;
+        this.a = str;
+        this.b = str2;
+        this.f = z2;
+        this.m = tbPageContext;
+        try {
+            ye8 ye8Var = (ye8) le8.l().h(IAdBaseAsyncController.Type.PIC_PAGE, this);
+            this.d = ye8Var;
+            ye8Var.h(tbPageContext, hVar, z);
+        } catch (ClassCastException e) {
+            if (bq4.e()) {
+                throw new RuntimeException(e);
+            }
+        }
+        this.l = map;
     }
 
-    public ViewGroup a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
+    public View a(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ViewGroup) invokeV.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i >= this.c.size()) {
+                return null;
+            }
+            String str = (String) lh7.d(this.c, i);
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            boolean z = true;
+            if (i != this.c.size() - 1) {
+                z = false;
+            }
+            this.k = z;
+            View b = this.d.b(str, z);
+            if (b == null) {
+                return null;
+            }
+            if (b.getParent() != null && (b.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) b.getParent()).removeView(b);
+            }
+            viewGroup.addView(b);
+            AdvertAppInfo d = this.d.d(str);
+            if (d != null && (this.m.getPageActivity() instanceof ei0)) {
+                d.r = gi0.b(d.r, (ei0) this.m.getPageActivity(), b);
+            }
+            return b;
+        }
+        return (View) invokeLI.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
+    public void b(List list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.d, R.drawable.img_lable_boy_n);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f, R.drawable.img_lable_girl_n);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.e = list;
+            if (!this.h) {
+                return;
+            }
+            f(list);
         }
     }
 
-    public void d(List<nf7> list) {
+    public void g(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
-            this.h = list.get(0).a;
-            this.i = list.get(1).a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
+            e(advertAppInfo, lh7.i(this.c), true);
+            rd8 rd8Var = this.g;
+            if (rd8Var != null) {
+                rd8Var.a(null);
+            }
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public boolean h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            boolean z = false;
-            if (view2 == this.d) {
-                z = true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            String str = (String) lh7.d(this.c, i);
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return this.d.f(str);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            String str = (String) lh7.d(this.c, i);
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            this.d.j(str);
+        }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
+    public void c(ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i) != null) || i >= this.c.size()) {
+            return;
+        }
+        String str = (String) lh7.d(this.c, i);
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.d.o(str);
+    }
+
+    public void o(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.i = j - 1;
+            this.j = i;
+        }
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d.getAdCount();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.d.onDestroy();
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.h = true;
+            f(this.e);
+        }
+    }
+
+    public final void e(AdvertAppInfo advertAppInfo, int i, boolean z) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{advertAppInfo, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !this.f) {
+            return;
+        }
+        if (i < 0) {
+            this.d.k(advertAppInfo);
+            return;
+        }
+        boolean z2 = false;
+        int i3 = lh7.i(this.c);
+        String f = pd8.f(advertAppInfo);
+        if (i >= i3) {
+            if (!pd8.j((String) lh7.d(this.c, i3 - 1)) && (z || !this.d.n())) {
+                this.k = true;
+                i = i3;
+                z2 = true;
             } else {
-                ImageView imageView = this.f;
+                this.d.k(advertAppInfo);
+                return;
             }
-            this.j = z ? this.h : this.i;
-            SkinManager.setImageResource(this.d, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-            TextView textView = this.e;
-            int i = R.color.CAM_X0109;
-            SkinManager.setViewTextColor(textView, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
-            TextView textView2 = this.g;
-            if (!z) {
-                i = R.color.CAM_X0301;
-            }
-            SkinManager.setViewTextColor(textView2, i);
         }
+        if (z2) {
+            i2 = this.j + d();
+        } else {
+            i2 = (int) (i + this.i);
+        }
+        advertAppInfo.position = i2;
+        if (pd8.l(advertAppInfo)) {
+            if (i >= i3) {
+                this.d.k(advertAppInfo);
+            }
+            String str = (String) lh7.d(this.c, i);
+            if (!TextUtils.isEmpty(str)) {
+                this.d.e(str, advertAppInfo);
+                return;
+            }
+            return;
+        }
+        lh7.b(this.c, f, i);
+        String str2 = (String) lh7.d(this.c, i);
+        if (!TextUtils.isEmpty(str2)) {
+            this.d.e(str2, advertAppInfo);
+        }
+    }
+
+    public final void f(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && !lh7.e(list) && !lh7.e(this.c)) {
+            Iterator it = list.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                AdvertAppInfo advertAppInfo = (AdvertAppInfo) it.next();
+                if (advertAppInfo != null) {
+                    if (d() == an5.a().c() - 1 && an5.a().g()) {
+                        if (!i()) {
+                            break;
+                        } else if (eh.e(advertAppInfo.f, -1) - 1 <= lh7.i(this.c)) {
+                            g(advertAppInfo);
+                            break;
+                        }
+                    }
+                    e(advertAppInfo, eh.e(advertAppInfo.f, -1) - 1, false);
+                    it.remove();
+                }
+            }
+            rd8 rd8Var = this.g;
+            if (rd8Var != null) {
+                rd8Var.a(null);
+            }
+        }
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        ImageUrlData imageUrlData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            List list = this.c;
+            String str = (String) lh7.d(list, list.size() - 1);
+            Map map = this.l;
+            if (map != null && str != null) {
+                imageUrlData = (ImageUrlData) map.get(str);
+            } else {
+                imageUrlData = null;
+            }
+            if (imageUrlData != null && imageUrlData.overAllIndex == this.j) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void n(rd8 rd8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, rd8Var) != null) || !this.f) {
+            return;
+        }
+        AdvertAppInfo.v.set(true);
+        this.h = false;
+        this.g = rd8Var;
+        this.d.l();
+        ah5 ah5Var = new ah5();
+        ah5Var.c = this.a;
+        ah5Var.d = this.b;
+        this.d.g(ah5Var);
     }
 }

@@ -11,10 +11,10 @@ public class a {
     public static com.meizu.cloud.pushsdk.c.a.c a(Context context) {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
         c c = c(context);
-        Map<String, String> a2 = c.a();
-        Map<String, String> b = c.b();
-        Map<String, Object> c2 = c.c();
-        Map<String, Object> d = c.d();
+        Map a2 = c.a();
+        Map b = c.b();
+        Map c2 = c.c();
+        Map d = c.d();
         if (a2.size() > 0) {
             cVar.a(b.a, a2);
         }

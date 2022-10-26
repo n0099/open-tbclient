@@ -38,10 +38,7 @@ public class PlatformDecoderFactory {
             if (i >= 26) {
                 int flexByteArrayPoolMaxNumThreads = poolFactory.getFlexByteArrayPoolMaxNumThreads();
                 return new OreoDecoder(poolFactory.getBitmapPool(), flexByteArrayPoolMaxNumThreads, new Pools.SynchronizedPool(flexByteArrayPoolMaxNumThreads));
-            } else if (i >= 21 || !NativeCodeSetup.getUseNativeCode()) {
-                int flexByteArrayPoolMaxNumThreads2 = poolFactory.getFlexByteArrayPoolMaxNumThreads();
-                return new ArtDecoder(poolFactory.getBitmapPool(), flexByteArrayPoolMaxNumThreads2, new Pools.SynchronizedPool(flexByteArrayPoolMaxNumThreads2));
-            } else {
+            } else if (i < 21 && NativeCodeSetup.getUseNativeCode()) {
                 if (z) {
                     try {
                         if (Build.VERSION.SDK_INT < 19) {
@@ -60,6 +57,9 @@ public class PlatformDecoderFactory {
                     }
                 }
                 return (PlatformDecoder) Class.forName("com.facebook.imagepipeline.platform.KitKatPurgeableDecoder").getConstructor(FlexByteArrayPool.class).newInstance(poolFactory.getFlexByteArrayPool());
+            } else {
+                int flexByteArrayPoolMaxNumThreads2 = poolFactory.getFlexByteArrayPoolMaxNumThreads();
+                return new ArtDecoder(poolFactory.getBitmapPool(), flexByteArrayPoolMaxNumThreads2, new Pools.SynchronizedPool(flexByteArrayPoolMaxNumThreads2));
             }
         }
         return (PlatformDecoder) invokeLZ.objValue;

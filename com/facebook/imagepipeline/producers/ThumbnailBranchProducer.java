@@ -10,13 +10,13 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 /* loaded from: classes7.dex */
-public class ThumbnailBranchProducer implements Producer<EncodedImage> {
+public class ThumbnailBranchProducer implements Producer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThumbnailProducer<EncodedImage>[] mThumbnailProducers;
+    public final ThumbnailProducer[] mThumbnailProducers;
 
     /* loaded from: classes7.dex */
-    public class ThumbnailConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
+    public class ThumbnailConsumer extends DelegatingConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ProducerContext mProducerContext;
@@ -25,7 +25,7 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
         public final /* synthetic */ ThumbnailBranchProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ThumbnailConsumer(ThumbnailBranchProducer thumbnailBranchProducer, Consumer<EncodedImage> consumer, ProducerContext producerContext, int i) {
+        public ThumbnailConsumer(ThumbnailBranchProducer thumbnailBranchProducer, Consumer consumer, ProducerContext producerContext, int i) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -51,10 +51,9 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
         @Override // com.facebook.imagepipeline.producers.DelegatingConsumer, com.facebook.imagepipeline.producers.BaseConsumer
         public void onFailureImpl(Throwable th) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || this.this$0.produceResultsFromThumbnailProducer(this.mProducerIndex + 1, getConsumer(), this.mProducerContext)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && !this.this$0.produceResultsFromThumbnailProducer(this.mProducerIndex + 1, getConsumer(), this.mProducerContext)) {
+                getConsumer().onFailure(th);
             }
-            getConsumer().onFailure(th);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,16 +65,15 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
                     getConsumer().onNewResult(encodedImage, i);
                 } else if (BaseConsumer.isLast(i)) {
                     EncodedImage.closeSafely(encodedImage);
-                    if (this.this$0.produceResultsFromThumbnailProducer(this.mProducerIndex + 1, getConsumer(), this.mProducerContext)) {
-                        return;
+                    if (!this.this$0.produceResultsFromThumbnailProducer(this.mProducerIndex + 1, getConsumer(), this.mProducerContext)) {
+                        getConsumer().onNewResult(null, 1);
                     }
-                    getConsumer().onNewResult(null, 1);
                 }
             }
         }
     }
 
-    public ThumbnailBranchProducer(ThumbnailProducer<EncodedImage>... thumbnailProducerArr) {
+    public ThumbnailBranchProducer(ThumbnailProducer... thumbnailProducerArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +88,7 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
                 return;
             }
         }
-        ThumbnailProducer<EncodedImage>[] thumbnailProducerArr2 = (ThumbnailProducer[]) Preconditions.checkNotNull(thumbnailProducerArr);
+        ThumbnailProducer[] thumbnailProducerArr2 = (ThumbnailProducer[]) Preconditions.checkNotNull(thumbnailProducerArr);
         this.mThumbnailProducers = thumbnailProducerArr2;
         Preconditions.checkElementIndex(0, thumbnailProducerArr2.length);
     }
@@ -102,19 +100,32 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
             return invokeIL.intValue;
         }
         while (true) {
-            ThumbnailProducer<EncodedImage>[] thumbnailProducerArr = this.mThumbnailProducers;
-            if (i >= thumbnailProducerArr.length) {
+            ThumbnailProducer[] thumbnailProducerArr = this.mThumbnailProducers;
+            if (i < thumbnailProducerArr.length) {
+                if (thumbnailProducerArr[i].canProvideImageForSize(resizeOptions)) {
+                    return i;
+                }
+                i++;
+            } else {
                 return -1;
             }
-            if (thumbnailProducerArr[i].canProvideImageForSize(resizeOptions)) {
-                return i;
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.Producer
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
+            if (producerContext.getImageRequest().getResizeOptions() == null) {
+                consumer.onNewResult(null, 1);
+            } else if (!produceResultsFromThumbnailProducer(0, consumer, producerContext)) {
+                consumer.onNewResult(null, 1);
             }
-            i++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean produceResultsFromThumbnailProducer(int i, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public boolean produceResultsFromThumbnailProducer(int i, Consumer consumer, ProducerContext producerContext) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65539, this, i, consumer, producerContext)) == null) {
@@ -126,18 +137,5 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
             return true;
         }
         return invokeILL.booleanValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
-            if (producerContext.getImageRequest().getResizeOptions() == null) {
-                consumer.onNewResult(null, 1);
-            } else if (produceResultsFromThumbnailProducer(0, consumer, producerContext)) {
-            } else {
-                consumer.onNewResult(null, 1);
-            }
-        }
     }
 }

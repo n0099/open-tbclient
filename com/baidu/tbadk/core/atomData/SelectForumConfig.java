@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +64,7 @@ public class SelectForumConfig extends IntentConfig {
         }
     }
 
-    public void setSelectedInterestedForums(ArrayList<SelectForumData> arrayList) {
+    public void setSelectedInterestedForums(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
             getIntent().putParcelableArrayListExtra(KEY_SELECTED_INTEREST_FORUMS, arrayList);

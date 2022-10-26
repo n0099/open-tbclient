@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.transition;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ce9;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,28 +59,133 @@ public class VideoFollowData implements Serializable {
         this.mNeedSmallWindowWhiteEdge = true;
     }
 
+    public int getAudioType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAudioType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getFollowMusicId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFollowMusicId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFollowRecordAudioPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFollowRecordAudioPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFollowRecordVideoPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFollowRecordVideoPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFollowType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mFollowType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFollowVid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mFollowVid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getOritation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mOritation;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPreviewScaleType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mPreviewScaleType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getRecordVideoPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mRecordVideoPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isNeedSmallWindowWhiteEdge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mNeedSmallWindowWhiteEdge;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean isBigSmallFollowType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.equals("1", str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return TextUtils.equals("1", str);
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isFollowType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? isBigSmallFollowType(str) || isLeftRightFollowType(str) || isSameStyleFollowType(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!isBigSmallFollowType(str) && !isLeftRightFollowType(str) && !isSameStyleFollowType(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isLeftRightFollowType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.equals("0", str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return TextUtils.equals("0", str);
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isSameStyleFollowType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? TextUtils.equals("2", str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return TextUtils.equals("2", str);
+        }
+        return invokeL.booleanValue;
     }
 
     public static VideoFollowData parse(String str) {
@@ -91,7 +196,7 @@ public class VideoFollowData implements Serializable {
                 return null;
             }
             try {
-                return (VideoFollowData) new ce9().b(str, VideoFollowData.class);
+                return (VideoFollowData) new ue9().b(str, VideoFollowData.class);
             } catch (Exception unused) {
                 return null;
             }
@@ -107,72 +212,12 @@ public class VideoFollowData implements Serializable {
                 return null;
             }
             try {
-                return new ce9().a(videoFollowData);
+                return new ue9().a(videoFollowData);
             } catch (Exception unused) {
                 return null;
             }
         }
         return (String) invokeL.objValue;
-    }
-
-    public int getAudioType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAudioType : invokeV.intValue;
-    }
-
-    public String getFollowMusicId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFollowMusicId : (String) invokeV.objValue;
-    }
-
-    public String getFollowRecordAudioPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFollowRecordAudioPath : (String) invokeV.objValue;
-    }
-
-    public String getFollowRecordVideoPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFollowRecordVideoPath : (String) invokeV.objValue;
-    }
-
-    public String getFollowType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFollowType : (String) invokeV.objValue;
-    }
-
-    public String getFollowVid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFollowVid : (String) invokeV.objValue;
-    }
-
-    public int getOritation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mOritation : invokeV.intValue;
-    }
-
-    public int getPreviewScaleType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPreviewScaleType : invokeV.intValue;
-    }
-
-    public String getRecordVideoPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mRecordVideoPath : (String) invokeV.objValue;
-    }
-
-    public boolean isNeedSmallWindowWhiteEdge() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mNeedSmallWindowWhiteEdge : invokeV.booleanValue;
     }
 
     public void setAudioType(int i) {

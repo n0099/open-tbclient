@@ -27,14 +27,14 @@ import org.apache.http.protocol.HTTP;
 public final class f {
     public final Object aet;
     public final ExecutorService aeu;
-    public final Map<String, g> aev;
+    public final Map aev;
     public final ServerSocket aew;
     public final Thread aex;
     public final com.kwad.sdk.core.videocache.c aey;
     public final int port;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public final class a {
         public File aeh;
         public com.kwad.sdk.core.videocache.c.b aek;
         public com.kwad.sdk.core.videocache.kwai.a aej = new com.kwad.sdk.core.videocache.kwai.g(536870912);
@@ -217,7 +217,7 @@ public final class f {
     private g cG(String str) {
         g gVar;
         synchronized (this.aet) {
-            gVar = this.aev.get(str);
+            gVar = (g) this.aev.get(str);
             if (gVar == null) {
                 gVar = new g(str, this.aey);
                 this.aev.put(str, gVar);
@@ -286,7 +286,7 @@ public final class f {
         return i;
     }
 
-    public final boolean a(String str, int i, a.C0612a c0612a) {
+    public final boolean a(String str, int i, a.C0608a c0608a) {
         HttpURLConnection httpURLConnection;
         com.kwad.sdk.core.e.b.d("HttpProxyCacheServer", "preloadSync preloadUrl " + str);
         if (cB(str)) {
@@ -325,7 +325,7 @@ public final class f {
                     th = th;
                     bufferedInputStream = bufferedInputStream2;
                     try {
-                        c0612a.Qd = Log.getStackTraceString(th);
+                        c0608a.Qd = Log.getStackTraceString(th);
                         com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                         com.kwad.sdk.core.e.b.e("HttpProxyCacheServer", "downloadUrlToStream file crash", th);
                         com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);
@@ -356,7 +356,7 @@ public final class f {
     }
 
     public final boolean cD(String str) {
-        g gVar = this.aev.get(str);
+        g gVar = (g) this.aev.get(str);
         if (gVar != null) {
             gVar.shutdown();
             this.aev.remove(str);

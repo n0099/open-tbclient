@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 public class b extends com.baidu.ar.d implements ICapture {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<ICapture> la;
+    public WeakReference la;
     public ICaptureAbilityListener lb;
 
     public b() {
@@ -34,29 +34,29 @@ public class b extends com.baidu.ar.d implements ICapture {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (cVar == null) {
-                WeakReference<ICapture> weakReference = this.la;
+                WeakReference weakReference = this.la;
                 if (weakReference != null) {
                     weakReference.clear();
                     this.la = null;
                 }
             } else if (cVar instanceof ICapture) {
-                WeakReference<ICapture> weakReference2 = new WeakReference<>((ICapture) cVar);
+                WeakReference weakReference2 = new WeakReference((ICapture) cVar);
                 this.la = weakReference2;
                 if (this.lb != null) {
-                    weakReference2.get().setAbilityListener(this.lb);
+                    ((ICapture) weakReference2.get()).setAbilityListener(this.lb);
                 }
             }
         }
     }
 
     @Override // com.baidu.ar.capture.ICapture
-    public void capture(ICallbackWith<ICaptureResult> iCallbackWith) {
-        WeakReference<ICapture> weakReference;
+    public void capture(ICallbackWith iCallbackWith) {
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iCallbackWith) == null) || (weakReference = this.la) == null || weakReference.get() == null || iCallbackWith == null) {
             return;
         }
-        this.la.get().capture(iCallbackWith);
+        ((ICapture) this.la.get()).capture(iCallbackWith);
     }
 
     @Override // com.baidu.ar.d
@@ -64,7 +64,7 @@ public class b extends com.baidu.ar.d implements ICapture {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.lb = null;
-            WeakReference<ICapture> weakReference = this.la;
+            WeakReference weakReference = this.la;
             if (weakReference != null) {
                 weakReference.clear();
                 this.la = null;
@@ -74,44 +74,44 @@ public class b extends com.baidu.ar.d implements ICapture {
 
     @Override // com.baidu.ar.capture.ICapture
     public void sendBase64ImageToLua(String... strArr) {
-        WeakReference<ICapture> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, strArr) == null) || (weakReference = this.la) == null || weakReference.get() == null || strArr == null || strArr.length <= 0) {
             return;
         }
-        this.la.get().sendBase64ImageToLua(strArr);
+        ((ICapture) this.la.get()).sendBase64ImageToLua(strArr);
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void sendImageToLua(Bitmap... bitmapArr) {
-        WeakReference<ICapture> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bitmapArr) == null) || (weakReference = this.la) == null || weakReference.get() == null || bitmapArr == null || bitmapArr.length <= 0) {
             return;
         }
-        this.la.get().sendImageToLua(bitmapArr);
+        ((ICapture) this.la.get()).sendImageToLua(bitmapArr);
     }
 
     @Override // com.baidu.ar.capture.ICapture
     public void setAbilityListener(ICaptureAbilityListener iCaptureAbilityListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, iCaptureAbilityListener) == null) {
-            WeakReference<ICapture> weakReference = this.la;
+            WeakReference weakReference = this.la;
             if (weakReference == null || weakReference.get() == null) {
                 this.lb = iCaptureAbilityListener;
             } else {
-                this.la.get().setAbilityListener(iCaptureAbilityListener);
+                ((ICapture) this.la.get()).setAbilityListener(iCaptureAbilityListener);
             }
         }
     }
 
     @Override // com.baidu.ar.capture.ICapture
-    public void setCaptureCallback(ICallbackWith<ICaptureResult> iCallbackWith) {
-        WeakReference<ICapture> weakReference;
+    public void setCaptureCallback(ICallbackWith iCallbackWith) {
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, iCallbackWith) == null) || (weakReference = this.la) == null || weakReference.get() == null || iCallbackWith == null) {
             return;
         }
-        this.la.get().setCaptureCallback(iCallbackWith);
+        ((ICapture) this.la.get()).setCaptureCallback(iCallbackWith);
     }
 }

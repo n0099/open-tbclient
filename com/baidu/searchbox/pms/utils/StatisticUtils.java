@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,29 +35,32 @@ public class StatisticUtils {
         }
     }
 
-    public static void sendBulkDownload(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3, int i) {
+    public static void sendBulkDownload(List list, List list2, List list3, int i) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65537, null, list, list2, list3, i) == null) {
             String format = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_BULK_DOWNLOADED, Integer.valueOf(list.size()), Integer.valueOf(list2.size()), Integer.valueOf(list3.size()));
             if (list.size() > 0) {
-                str = list.get(0).channelId;
+                str = ((PackageInfo) list.get(0)).channelId;
             } else if (list2.size() > 0) {
-                str = list2.get(0).channelId;
+                str = ((PackageInfo) list2.get(0)).channelId;
+            } else if (list3.size() > 0) {
+                str = ((PackageInfo) list3.get(0)).channelId;
             } else {
-                str = list3.size() > 0 ? list3.get(0).channelId : "";
+                str = "";
             }
             PackageFileStatisticManager.getInstance().addDownloadStatistic2(ErrorConstant.Code.DOWNLOAD_BULK_DOWNLOADED, format, str, null, 0L, "", "", 0, i);
         }
     }
 
-    public static void sendCloudCtrl(String str, List<RequestParams.Channel> list) {
+    public static void sendCloudCtrl(String str, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
             StringBuilder sb = new StringBuilder();
             if (list != null) {
-                for (RequestParams.Channel channel : list) {
-                    sb.append(channel);
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    sb.append((RequestParams.Channel) it.next());
                     sb.append(",");
                 }
             }
@@ -64,25 +68,27 @@ public class StatisticUtils {
         }
     }
 
-    public static void sendDegradeData(List<DegradeData> list) {
+    public static void sendDegradeData(List list) {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, list) == null) || list == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, list) != null) || list == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            for (DegradeData degradeData : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                DegradeData degradeData = (DegradeData) it.next();
                 if (degradeData != null) {
                     if (degradeData.isAllDegrade) {
                         jSONArray = new JSONArray();
-                    } else if (CommonUtils.isEmpty(degradeData.packageNames)) {
-                        jSONArray = null;
-                    } else {
+                    } else if (!CommonUtils.isEmpty(degradeData.packageNames)) {
                         jSONArray = new JSONArray();
                         for (String str : degradeData.packageNames) {
                             jSONArray.put(str);
                         }
+                    } else {
+                        jSONArray = null;
                     }
                     if (jSONArray != null) {
                         jSONObject.put(degradeData.channelId, jSONArray);

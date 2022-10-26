@@ -11,13 +11,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q1 extends p1<v3, a> {
+public class q1 extends p1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public v3.a b;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p1
+    /* renamed from: g */
+    public void c(n1 n1Var, String str, k3 k3Var, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, n1Var, str, k3Var, aVar) == null) {
+        }
+    }
+
     /* loaded from: classes5.dex */
-    public static class a extends l1<v3> {
+    public class a extends l1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean b;
@@ -73,18 +82,24 @@ public class q1 extends p1<v3, a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.o1
     /* renamed from: f */
-    public b7<j1> a(String str, k3 k3Var, a aVar) {
+    public b7 a(String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLL;
+        boolean z;
         String str2;
         v3.a aVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
-            b7<j1> b7Var = new b7<>();
+            b7 b7Var = new b7();
             if (aVar != null && (aVar2 = aVar.f) != null) {
                 this.b = aVar2;
                 return b7Var;
             }
-            this.b = new v3.a(k3Var, aVar != null && aVar.b);
+            if (aVar != null && aVar.b) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.b = new v3.a(k3Var, z);
             if (aVar != null && (str2 = aVar.g) != null) {
                 b7Var.a(new j1(str2, c4.class));
             } else {
@@ -102,15 +117,6 @@ public class q1 extends p1<v3, a> {
             return b7Var;
         }
         return (b7) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p1
-    /* renamed from: g */
-    public void c(n1 n1Var, String str, k3 k3Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, n1Var, str, k3Var, aVar) == null) {
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -134,7 +140,7 @@ public class q1 extends p1<v3, a> {
             for (int i = 0; i < length; i++) {
                 b7Var.a(new d4((Texture) n1Var.j(this.b.c(i), Texture.class)));
             }
-            return new v3(this.b, (b7<d4>) b7Var, true);
+            return new v3(this.b, b7Var, true);
         }
         return (v3) invokeLLLL.objValue;
     }

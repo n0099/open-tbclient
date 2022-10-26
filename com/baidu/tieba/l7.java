@@ -23,7 +23,7 @@ public class l7 {
     public transient /* synthetic */ FieldHolder $fh;
     public l7 a;
     public Locale b;
-    public x7<String, String> c;
+    public x7 c;
 
     static {
         InterceptResult invokeClinit;
@@ -56,6 +56,15 @@ public class l7 {
         }
     }
 
+    public Locale g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (Locale) invokeV.objValue;
+    }
+
     public static boolean a(k3 k3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -70,16 +79,52 @@ public class l7 {
         return invokeL.booleanValue;
     }
 
+    public static Locale f(Locale locale) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, locale)) == null) {
+            Locale locale2 = Locale.getDefault();
+            if (locale.equals(locale2)) {
+                return null;
+            }
+            return locale2;
+        }
+        return (Locale) invokeL.objValue;
+    }
+
+    public void h(Reader reader) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reader) == null) {
+            x7 x7Var = new x7();
+            this.c = x7Var;
+            c8.a(x7Var, reader);
+        }
+    }
+
+    public final void k(Locale locale) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locale) == null) {
+            this.b = locale;
+            new l8(locale, !e);
+        }
+    }
+
     public static l7 b(k3 k3Var, Locale locale) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, k3Var, locale)) == null) ? d(k3Var, locale, "UTF-8") : (l7) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, k3Var, locale)) == null) {
+            return d(k3Var, locale, "UTF-8");
+        }
+        return (l7) invokeLL.objValue;
     }
 
     public static l7 c(k3 k3Var, Locale locale, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k3Var, locale, str)) == null) ? d(k3Var, locale, str) : (l7) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k3Var, locale, str)) == null) {
+            return d(k3Var, locale, str);
+        }
+        return (l7) invokeLLL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:27:0x0049, code lost:
@@ -100,31 +145,32 @@ public class l7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, k3Var, locale, str)) == null) {
             l7 l7Var = null;
-            if (k3Var == null || locale == null || str == null) {
-                throw null;
-            }
-            Locale locale2 = locale;
-            do {
-                List<Locale> e2 = e(locale2);
-                j = j(k3Var, str, e2, 0, l7Var);
-                if (j != null) {
-                    Locale g = j.g();
-                    boolean equals = g.equals(d);
-                    if (!equals || g.equals(locale) || (e2.size() == 1 && g.equals(e2.get(0)))) {
-                        break;
-                    } else if (equals && l7Var == null) {
-                        l7Var = j;
+            if (k3Var != null && locale != null && str != null) {
+                Locale locale2 = locale;
+                do {
+                    List e2 = e(locale2);
+                    j = j(k3Var, str, e2, 0, l7Var);
+                    if (j != null) {
+                        Locale g = j.g();
+                        boolean equals = g.equals(d);
+                        if (!equals || g.equals(locale) || (e2.size() == 1 && g.equals(e2.get(0)))) {
+                            break;
+                        } else if (equals && l7Var == null) {
+                            l7Var = j;
+                        }
                     }
-                }
-                locale2 = f(locale2);
-            } while (locale2 != null);
-            return j;
+                    locale2 = f(locale2);
+                } while (locale2 != null);
+                return j;
+            }
+            throw null;
         }
         return (l7) invokeLLL.objValue;
     }
 
-    public static List<Locale> e(Locale locale) {
+    public static List e(Locale locale) {
         InterceptResult invokeL;
+        Locale locale2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, locale)) == null) {
             String language = locale.getLanguage();
@@ -135,7 +181,12 @@ public class l7 {
                 arrayList.add(locale);
             }
             if (country.length() > 0) {
-                arrayList.add(arrayList.isEmpty() ? locale : new Locale(language, country));
+                if (arrayList.isEmpty()) {
+                    locale2 = locale;
+                } else {
+                    locale2 = new Locale(language, country);
+                }
+                arrayList.add(locale2);
             }
             if (language.length() > 0) {
                 if (!arrayList.isEmpty()) {
@@ -147,19 +198,6 @@ public class l7 {
             return arrayList;
         }
         return (List) invokeL.objValue;
-    }
-
-    public static Locale f(Locale locale) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, locale)) == null) {
-            Locale locale2 = Locale.getDefault();
-            if (locale.equals(locale2)) {
-                return null;
-            }
-            return locale2;
-        }
-        return (Locale) invokeL.objValue;
     }
 
     public static l7 i(k3 k3Var, String str, Locale locale) {
@@ -192,12 +230,12 @@ public class l7 {
         return (l7) invokeLLL.objValue;
     }
 
-    public static l7 j(k3 k3Var, String str, List<Locale> list, int i, l7 l7Var) {
+    public static l7 j(k3 k3Var, String str, List list, int i, l7 l7Var) {
         InterceptResult invokeCommon;
         l7 l7Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{k3Var, str, list, Integer.valueOf(i), l7Var})) == null) {
-            Locale locale = list.get(i);
+            Locale locale = (Locale) list.get(i);
             if (i != list.size() - 1) {
                 l7Var2 = j(k3Var, str, list, i + 1, l7Var);
             } else if (l7Var != null && locale.equals(d)) {
@@ -248,28 +286,5 @@ public class l7 {
             return k3Var.s(k8Var.toString());
         }
         return (k3) invokeLL.objValue;
-    }
-
-    public Locale g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Locale) invokeV.objValue;
-    }
-
-    public void h(Reader reader) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reader) == null) {
-            x7<String, String> x7Var = new x7<>();
-            this.c = x7Var;
-            c8.a(x7Var, reader);
-        }
-    }
-
-    public final void k(Locale locale) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locale) == null) {
-            this.b = locale;
-            new l8(locale, !e);
-        }
     }
 }

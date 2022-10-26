@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes3.dex */
 public interface bn1 {
-    boolean a();
+    void a(Context context, int i);
+
+    int b(Context context);
 }

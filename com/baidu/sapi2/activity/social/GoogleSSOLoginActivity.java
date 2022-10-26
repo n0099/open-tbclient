@@ -42,7 +42,31 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    private void a(Task<GoogleSignInAccount> task) {
+    private GoogleSignInOptions e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(this.configuration.googleClientId).build();
+        }
+        return (GoogleSignInOptions) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void setupViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.setupViews();
+            setTitleText(R.string.obfuscated_res_0x7f0f10a9);
+            try {
+                d();
+            } catch (Exception e) {
+                e.printStackTrace();
+                finish();
+            }
+        }
+    }
+
+    private void a(Task task) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, task) == null) {
             try {
@@ -64,27 +88,26 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("supportGuestAccount", "1");
             hashMap.put("id_token", str);
-            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.obfuscated_res_0x7f0f1083));
+            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.obfuscated_res_0x7f0f1095));
         }
     }
 
     private void d() {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             GoogleSignInAccount lastSignedInAccount = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-            String idToken = lastSignedInAccount != null ? lastSignedInAccount.getIdToken() : null;
-            if (!TextUtils.isEmpty(idToken)) {
-                b(idToken);
+            if (lastSignedInAccount != null) {
+                str = lastSignedInAccount.getIdToken();
+            } else {
+                str = null;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                b(str);
             } else {
                 startActivityForResult(GoogleSignIn.getClient(this, e()).getSignInIntent(), 1000);
             }
         }
-    }
-
-    private GoogleSignInOptions e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(this.configuration.googleClientId).build() : (GoogleSignInOptions) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
@@ -104,21 +127,6 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setupViews();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void setupViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1097);
-            try {
-                d();
-            } catch (Exception e) {
-                e.printStackTrace();
-                finish();
-            }
         }
     }
 }

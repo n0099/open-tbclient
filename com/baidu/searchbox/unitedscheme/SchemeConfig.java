@@ -21,6 +21,7 @@ public class SchemeConfig {
 
     static {
         InterceptResult invokeClinit;
+        String schemeHead;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1454518041, "Lcom/baidu/searchbox/unitedscheme/SchemeConfig;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -35,7 +36,12 @@ public class SchemeConfig {
         DEBUG = AppConfig.isDebug();
         sAppContext = AppRuntime.getAppContext();
         ISchemeHeadIoc schemeHeadIoc = SchemeRuntime.getSchemeHeadIoc();
-        SCHEME_HEAD = schemeHeadIoc == null ? "" : schemeHeadIoc.getSchemeHead();
+        if (schemeHeadIoc == null) {
+            schemeHead = "";
+        } else {
+            schemeHead = schemeHeadIoc.getSchemeHead();
+        }
+        SCHEME_HEAD = schemeHead;
     }
 
     public SchemeConfig() {
@@ -55,12 +61,18 @@ public class SchemeConfig {
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sAppContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sAppContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static String getSchemeHead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? SCHEME_HEAD : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return SCHEME_HEAD;
+        }
+        return (String) invokeV.objValue;
     }
 }

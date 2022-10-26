@@ -52,24 +52,24 @@ public final class MiniJsonUtils {
         }
     }
 
-    public final String bundleToJsonStr(Map<String, String> map) {
+    public final String bundleToJsonStr(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            if (map == null || map.isEmpty()) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            for (String str : map.keySet()) {
-                try {
-                    jSONObject.put(str, map.get(str));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            if (map != null && !map.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                for (String str : map.keySet()) {
+                    try {
+                        jSONObject.put(str, map.get(str));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
+                String jSONObject2 = jSONObject.toString();
+                Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "paramsJson.toString()");
+                return jSONObject2;
             }
-            String jSONObject2 = jSONObject.toString();
-            Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "paramsJson.toString()");
-            return jSONObject2;
+            return "";
         }
         return (String) invokeL.objValue;
     }

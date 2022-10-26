@@ -51,21 +51,21 @@ public final class i extends d implements View.OnClickListener {
         this.vf = dialogFragment;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d045a, viewGroup, false);
+        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0457, viewGroup, false);
         initView();
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091175);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091177);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091173);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091176);
-            this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f091174);
-            this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f091170);
-            this.vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091172);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091171);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091169);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09116b);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091167);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09116a);
+            this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f091168);
+            this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f091164);
+            this.vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091166);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091165);
             this.kP.setOnClickListener(this);
             this.vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);

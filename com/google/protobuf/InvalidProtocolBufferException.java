@@ -40,55 +40,82 @@ public class InvalidProtocolBufferException extends IOException {
     public static InvalidProtocolBufferException invalidEndTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new InvalidProtocolBufferException(WireInput.PROTOCOL_MESSAGE_END_GROUP_TAG_DID_NOT_MATCH_EXPECTED_TAG) : (InvalidProtocolBufferException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new InvalidProtocolBufferException(WireInput.PROTOCOL_MESSAGE_END_GROUP_TAG_DID_NOT_MATCH_EXPECTED_TAG);
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException invalidTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new InvalidProtocolBufferException(WireInput.PROTOCOL_MESSAGE_CONTAINED_AN_INVALID_TAG_ZERO) : (InvalidProtocolBufferException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new InvalidProtocolBufferException(WireInput.PROTOCOL_MESSAGE_CONTAINED_AN_INVALID_TAG_ZERO);
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException invalidWireType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new InvalidProtocolBufferException("Protocol message tag had invalid wire type.") : (InvalidProtocolBufferException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new InvalidProtocolBufferException("Protocol message tag had invalid wire type.");
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException malformedVarint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new InvalidProtocolBufferException("CodedInputStream encountered a malformed varint.") : (InvalidProtocolBufferException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new InvalidProtocolBufferException("CodedInputStream encountered a malformed varint.");
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException negativeSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new InvalidProtocolBufferException("CodedInputStream encountered an embedded string or message which claimed to have negative size.") : (InvalidProtocolBufferException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return new InvalidProtocolBufferException("CodedInputStream encountered an embedded string or message which claimed to have negative size.");
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException recursionLimitExceeded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new InvalidProtocolBufferException("Protocol message had too many levels of nesting.  May be malicious.  Use CodedInputStream.setRecursionLimit() to increase the depth limit.") : (InvalidProtocolBufferException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new InvalidProtocolBufferException("Protocol message had too many levels of nesting.  May be malicious.  Use CodedInputStream.setRecursionLimit() to increase the depth limit.");
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException sizeLimitExceeded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new InvalidProtocolBufferException("Protocol message was too large.  May be malicious.  Use CodedInputStream.setSizeLimit() to increase the size limit.") : (InvalidProtocolBufferException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new InvalidProtocolBufferException("Protocol message was too large.  May be malicious.  Use CodedInputStream.setSizeLimit() to increase the size limit.");
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException truncatedMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new InvalidProtocolBufferException("While parsing a protocol message, the input ended unexpectedly in the middle of a field.  This could mean either than the input has been truncated or that an embedded message misreported its own length.") : (InvalidProtocolBufferException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new InvalidProtocolBufferException("While parsing a protocol message, the input ended unexpectedly in the middle of a field.  This could mean either than the input has been truncated or that an embedded message misreported its own length.");
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public MessageLite getUnfinishedMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.unfinishedMessage : (MessageLite) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.unfinishedMessage;
+        }
+        return (MessageLite) invokeV.objValue;
     }
 
     public InvalidProtocolBufferException setUnfinishedMessage(MessageLite messageLite) {

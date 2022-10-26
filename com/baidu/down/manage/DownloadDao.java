@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class DownloadDao {
@@ -45,6 +46,26 @@ public final class DownloadDao {
         DEBUG = DownloadConstants.mDebug;
     }
 
+    public static void releaseSingleInstance() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            DownloadDBHelper downloadDBHelper = mInstance.db;
+            if (downloadDBHelper != null) {
+                downloadDBHelper.close();
+            }
+            mInstance = null;
+        }
+    }
+
+    public List loadAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return queryList("select * from downloads", null);
+        }
+        return (List) invokeV.objValue;
+    }
+
     public DownloadDao(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,6 +84,47 @@ public final class DownloadDao {
         this.mContext = null;
         this.mContext = context.getApplicationContext();
         this.db = DownloadDBHelper.getInstance(context);
+    }
+
+    public boolean deleteByKey(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            try {
+                SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
+                writableDatabase.delete("downloads", "_id =? ", new String[]{j + ""});
+                return true;
+            } catch (Exception e) {
+                if (!DEBUG) {
+                    return false;
+                }
+                e.printStackTrace();
+                throw e;
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public long insert(Download download) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, download)) == null) {
+            long j = -1;
+            try {
+                try {
+                    j = this.db.getWritableDatabase().insert("downloads", null, createContentValues(download, true));
+                } catch (Exception e) {
+                    if (DEBUG) {
+                        e.printStackTrace();
+                        throw e;
+                    }
+                }
+                return j;
+            } finally {
+                download.setId(-1L);
+            }
+        }
+        return invokeL.longValue;
     }
 
     private ContentValues createContentValues(Download download, boolean z) {
@@ -113,85 +175,52 @@ public final class DownloadDao {
         return (DownloadDao) invokeL.objValue;
     }
 
-    public static void releaseSingleInstance() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            DownloadDBHelper downloadDBHelper = mInstance.db;
-            if (downloadDBHelper != null) {
-                downloadDBHelper.close();
-            }
-            mInstance = null;
-        }
-    }
-
-    public boolean deleteByKey(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            try {
-                SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
-                writableDatabase.delete("downloads", "_id =? ", new String[]{j + ""});
-                return true;
-            } catch (Exception e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                    throw e;
-                }
-                return false;
-            }
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public long insert(Download download) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, download)) == null) {
-            long j = -1;
-            try {
-                try {
-                    j = this.db.getWritableDatabase().insert("downloads", null, createContentValues(download, true));
-                } catch (Exception e) {
-                    if (DEBUG) {
-                        e.printStackTrace();
-                        throw e;
-                    }
-                }
-                return j;
-            } finally {
-                download.setId(-1L);
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public void insertInTx(List<Download> list) {
+    public void insertInTx(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             try {
                 SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
                 writableDatabase.beginTransaction();
-                for (Download download : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    Download download = (Download) it.next();
                     download.setId(Long.valueOf(writableDatabase.insert("downloads", null, createContentValues(download, true))));
                 }
                 writableDatabase.endTransaction();
                 writableDatabase.setTransactionSuccessful();
             } catch (Exception e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                    throw e;
+                if (!DEBUG) {
+                    return;
                 }
+                e.printStackTrace();
+                throw e;
             }
         }
     }
 
-    public List<Download> loadAll() {
-        InterceptResult invokeV;
+    public boolean update(Download download) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? queryList("select * from downloads", null) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, download)) == null) {
+            try {
+                SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
+                ContentValues createContentValues = createContentValues(download, false);
+                if (writableDatabase.update("downloads", createContentValues, "_id = ?", new String[]{download.getId() + ""}) <= 0) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                if (!DEBUG) {
+                    return false;
+                }
+                e.printStackTrace();
+                throw e;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
-    public List<Download> queryFinshDownload() {
+    public List queryFinshDownload() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -205,7 +234,7 @@ public final class DownloadDao {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List<Download> queryList(String str, String[] strArr) {
+    public List queryList(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, strArr)) == null) {
@@ -215,27 +244,29 @@ public final class DownloadDao {
                 try {
                     cursor = this.db.getReadableDatabase().rawQuery(str, strArr);
                 } catch (Exception e) {
-                    if (DEBUG) {
+                    if (!DEBUG) {
+                        if (cursor != null) {
+                            try {
+                                cursor.close();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                    } else {
                         e.printStackTrace();
                         throw e;
-                    } else if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
                     }
                 }
-                if (cursor == null || !cursor.moveToFirst()) {
+                if (cursor != null && cursor.moveToFirst()) {
+                    do {
+                        arrayList.add(readEntity(cursor));
+                    } while (cursor.moveToNext());
                     if (cursor != null) {
-                        cursor.close();
                     }
                     return arrayList;
                 }
-                do {
-                    arrayList.add(readEntity(cursor));
-                } while (cursor.moveToNext());
                 if (cursor != null) {
+                    cursor.close();
                 }
                 return arrayList;
             } catch (Throwable th) {
@@ -254,57 +285,143 @@ public final class DownloadDao {
 
     public Download readEntity(Cursor cursor) {
         InterceptResult invokeL;
+        Long valueOf;
+        String string;
+        String string2;
+        String string3;
+        String string4;
+        String string5;
+        int i;
+        long j;
+        String string6;
+        String string7;
+        String string8;
+        long j2;
+        int i2;
+        String string9;
+        String string10;
+        String string11;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cursor)) == null) {
             Download download = new Download();
             boolean z = false;
-            download.setId(cursor.isNull(0) ? null : Long.valueOf(cursor.getLong(0)));
-            download.setUrl(cursor.isNull(1) ? "" : cursor.getString(1));
-            download.setFileName(cursor.isNull(2) ? "" : cursor.getString(2));
-            download.setSavedPathForUser(cursor.isNull(3) ? "" : cursor.getString(3));
-            download.setMimetype(cursor.isNull(4) ? "" : cursor.getString(4));
-            download.setEtag(cursor.isNull(5) ? "" : cursor.getString(5));
-            download.setStatus(Integer.valueOf(cursor.isNull(6) ? Download.DownloadState.WAITING.ordinal() : cursor.getInt(6)));
-            download.setTotalbytes(Long.valueOf(cursor.isNull(7) ? 0L : cursor.getLong(7)));
-            download.setCurrentbytes(Long.valueOf(cursor.isNull(8) ? 0L : cursor.getLong(8)));
+            if (cursor.isNull(0)) {
+                valueOf = null;
+            } else {
+                valueOf = Long.valueOf(cursor.getLong(0));
+            }
+            download.setId(valueOf);
+            String str = "";
+            if (cursor.isNull(1)) {
+                string = "";
+            } else {
+                string = cursor.getString(1);
+            }
+            download.setUrl(string);
+            if (cursor.isNull(2)) {
+                string2 = "";
+            } else {
+                string2 = cursor.getString(2);
+            }
+            download.setFileName(string2);
+            int i3 = 3;
+            if (cursor.isNull(3)) {
+                string3 = "";
+            } else {
+                string3 = cursor.getString(3);
+            }
+            download.setSavedPathForUser(string3);
+            if (cursor.isNull(4)) {
+                string4 = "";
+            } else {
+                string4 = cursor.getString(4);
+            }
+            download.setMimetype(string4);
+            if (cursor.isNull(5)) {
+                string5 = "";
+            } else {
+                string5 = cursor.getString(5);
+            }
+            download.setEtag(string5);
+            if (cursor.isNull(6)) {
+                i = Download.DownloadState.WAITING.ordinal();
+            } else {
+                i = cursor.getInt(6);
+            }
+            download.setStatus(Integer.valueOf(i));
+            long j3 = 0;
+            if (cursor.isNull(7)) {
+                j = 0;
+            } else {
+                j = cursor.getLong(7);
+            }
+            download.setTotalbytes(Long.valueOf(j));
+            if (!cursor.isNull(8)) {
+                j3 = cursor.getLong(8);
+            }
+            download.setCurrentbytes(Long.valueOf(j3));
             if (!cursor.isNull(9) && cursor.getInt(9) > 0) {
                 z = true;
             }
             download.setNotificationNeeded(z);
-            download.setFailedReason(cursor.isNull(10) ? "" : cursor.getString(10));
-            download.setProgressmap(cursor.isNull(11) ? "" : cursor.getString(11));
-            download.setUrihost(cursor.isNull(12) ? "" : cursor.getString(12));
-            download.setControlFlag(Long.valueOf(cursor.isNull(13) ? 9L : cursor.getLong(13)));
-            download.setFailedType(Integer.valueOf(cursor.isNull(14) ? -1 : cursor.getInt(14)));
-            download.setPriority(cursor.isNull(15) ? 3 : cursor.getInt(15));
-            download.setKeyByUser(cursor.isNull(16) ? "" : cursor.getString(16));
-            download.setDownDir(cursor.isNull(17) ? "" : cursor.getString(17));
-            download.setFromParam(cursor.isNull(18) ? "" : cursor.getString(18));
-            download.setRealUrl(cursor.isNull(19) ? "" : cursor.getString(19));
+            if (cursor.isNull(10)) {
+                string6 = "";
+            } else {
+                string6 = cursor.getString(10);
+            }
+            download.setFailedReason(string6);
+            if (cursor.isNull(11)) {
+                string7 = "";
+            } else {
+                string7 = cursor.getString(11);
+            }
+            download.setProgressmap(string7);
+            if (cursor.isNull(12)) {
+                string8 = "";
+            } else {
+                string8 = cursor.getString(12);
+            }
+            download.setUrihost(string8);
+            if (cursor.isNull(13)) {
+                j2 = 9;
+            } else {
+                j2 = cursor.getLong(13);
+            }
+            download.setControlFlag(Long.valueOf(j2));
+            if (cursor.isNull(14)) {
+                i2 = -1;
+            } else {
+                i2 = cursor.getInt(14);
+            }
+            download.setFailedType(Integer.valueOf(i2));
+            if (!cursor.isNull(15)) {
+                i3 = cursor.getInt(15);
+            }
+            download.setPriority(i3);
+            if (cursor.isNull(16)) {
+                string9 = "";
+            } else {
+                string9 = cursor.getString(16);
+            }
+            download.setKeyByUser(string9);
+            if (cursor.isNull(17)) {
+                string10 = "";
+            } else {
+                string10 = cursor.getString(17);
+            }
+            download.setDownDir(string10);
+            if (cursor.isNull(18)) {
+                string11 = "";
+            } else {
+                string11 = cursor.getString(18);
+            }
+            download.setFromParam(string11);
+            if (!cursor.isNull(19)) {
+                str = cursor.getString(19);
+            }
+            download.setRealUrl(str);
             return download;
         }
         return (Download) invokeL.objValue;
-    }
-
-    public boolean update(Download download) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, download)) == null) {
-            try {
-                SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
-                ContentValues createContentValues = createContentValues(download, false);
-                StringBuilder sb = new StringBuilder();
-                sb.append(download.getId());
-                sb.append("");
-                return writableDatabase.update("downloads", createContentValues, "_id = ?", new String[]{sb.toString()}) > 0;
-            } catch (Exception e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                    throw e;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

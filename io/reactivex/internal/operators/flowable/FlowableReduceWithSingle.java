@@ -14,14 +14,14 @@ import io.reactivex.internal.operators.flowable.FlowableReduceSeedSingle;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Publisher;
 /* loaded from: classes8.dex */
-public final class FlowableReduceWithSingle<T, R> extends Single<R> {
+public final class FlowableReduceWithSingle extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction<R, ? super T, R> reducer;
-    public final Callable<R> seedSupplier;
-    public final Publisher<T> source;
+    public final BiFunction reducer;
+    public final Callable seedSupplier;
+    public final Publisher source;
 
-    public FlowableReduceWithSingle(Publisher<T> publisher, Callable<R> callable, BiFunction<R, ? super T, R> biFunction) {
+    public FlowableReduceWithSingle(Publisher publisher, Callable callable, BiFunction biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public final class FlowableReduceWithSingle<T, R> extends Single<R> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super R> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             try {

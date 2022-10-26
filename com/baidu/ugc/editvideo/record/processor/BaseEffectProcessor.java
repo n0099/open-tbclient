@@ -20,6 +20,31 @@ public abstract class BaseEffectProcessor implements IEffectProcessor {
     public int mPreviewWidth;
     public float mRed;
 
+    @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onResumeInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
+    public void onSurfaceCreate(FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, fullFrameRect, fullFrameRect2) == null) {
+        }
+    }
+
+    public abstract void release();
+
+    public abstract void releaseInGlThread();
+
     public BaseEffectProcessor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,7 +69,10 @@ public abstract class BaseEffectProcessor implements IEffectProcessor {
     public int getOutputTextureMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mOutputTextureMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mOutputTextureMode;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
@@ -78,31 +106,6 @@ public abstract class BaseEffectProcessor implements IEffectProcessor {
             releaseInGlThread();
         }
     }
-
-    @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onResumeInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public void onSurfaceCreate(FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, fullFrameRect, fullFrameRect2) == null) {
-        }
-    }
-
-    public abstract void release();
-
-    public abstract void releaseInGlThread();
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
     public void setGlClearColor(float f, float f2, float f3, float f4) {

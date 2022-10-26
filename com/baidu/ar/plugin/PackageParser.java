@@ -1,7 +1,6 @@
 package com.baidu.ar.plugin;
 
 import android.content.Context;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.InstrumentationInfo;
@@ -38,6 +37,50 @@ public abstract class PackageParser {
     public Context mContext;
     public Object mPackageParser;
 
+    public abstract void collectCertificates(int i);
+
+    public abstract ActivityInfo generateActivityInfo(Object obj, int i);
+
+    public abstract ApplicationInfo generateApplicationInfo(int i);
+
+    public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i);
+
+    public abstract PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet hashSet);
+
+    public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i);
+
+    public abstract PermissionInfo generatePermissionInfo(Object obj, int i);
+
+    public abstract ProviderInfo generateProviderInfo(Object obj, int i);
+
+    public abstract ServiceInfo generateServiceInfo(Object obj, int i);
+
+    public abstract List getActivities();
+
+    public abstract List getInstrumentations();
+
+    public abstract String getPackageName();
+
+    public abstract List getPermissionGroups();
+
+    public abstract List getPermissions();
+
+    public abstract List getProviders();
+
+    public abstract List getReceivers();
+
+    public abstract List getRequestedPermissions();
+
+    public abstract List getServices();
+
+    public abstract void parsePackage(File file, int i);
+
+    public abstract List readIntentFilterFromComponent(Object obj);
+
+    public abstract String readNameFromComponent(Object obj);
+
+    public abstract void writeSignature(Signature[] signatureArr);
+
     public PackageParser(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,53 +111,12 @@ public abstract class PackageParser {
         return (PackageParser) invokeL.objValue;
     }
 
-    public abstract void collectCertificates(int i);
-
-    public abstract ActivityInfo generateActivityInfo(Object obj, int i);
-
-    public abstract ApplicationInfo generateApplicationInfo(int i);
-
-    public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i);
-
-    public abstract PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet<String> hashSet);
-
-    public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i);
-
-    public abstract PermissionInfo generatePermissionInfo(Object obj, int i);
-
-    public abstract ProviderInfo generateProviderInfo(Object obj, int i);
-
     public ActivityInfo generateReceiverInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i)) == null) ? generateActivityInfo(obj, i) : (ActivityInfo) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i)) == null) {
+            return generateActivityInfo(obj, i);
+        }
+        return (ActivityInfo) invokeLI.objValue;
     }
-
-    public abstract ServiceInfo generateServiceInfo(Object obj, int i);
-
-    public abstract List getActivities();
-
-    public abstract List getInstrumentations();
-
-    public abstract String getPackageName();
-
-    public abstract List getPermissionGroups();
-
-    public abstract List getPermissions();
-
-    public abstract List getProviders();
-
-    public abstract List getReceivers();
-
-    public abstract List getRequestedPermissions();
-
-    public abstract List getServices();
-
-    public abstract void parsePackage(File file, int i);
-
-    public abstract List<IntentFilter> readIntentFilterFromComponent(Object obj);
-
-    public abstract String readNameFromComponent(Object obj);
-
-    public abstract void writeSignature(Signature[] signatureArr);
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.db.pojo;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aa7;
+import com.baidu.tieba.ia7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class PbContentPojo extends OrmObject {
     public Integer isLongPic;
     public Integer isNativeApp;
     public Integer isSub;
-    public aa7 item;
+    public ia7 item;
     public String itemForumName;
     public Long itemId;
     public String link;
@@ -71,9 +71,18 @@ public class PbContentPojo extends OrmObject {
         }
     }
 
+    public Integer getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.type;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
     public void A(PbContent pbContent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbContent) == null) || pbContent == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, pbContent) != null) || pbContent == null) {
             return;
         }
         this.type = pbContent.type;
@@ -115,19 +124,13 @@ public class PbContentPojo extends OrmObject {
         this.itemId = pbContent.item_id;
         this.itemForumName = pbContent.item_forum_name;
         this.tiebaplusInfo = TiebaPlusInfoPojo.A(pbContent.tiebaplus_info);
-        this.item = aa7.b(pbContent.item);
+        this.item = ia7.b(pbContent.item);
         this.picId = pbContent.pic_id;
-    }
-
-    public Integer getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.type : (Integer) invokeV.objValue;
     }
 
     public void z(protobuf.PbContent pbContent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbContent) == null) || pbContent == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbContent) != null) || pbContent == null) {
             return;
         }
         this.type = pbContent.type;
@@ -169,7 +172,7 @@ public class PbContentPojo extends OrmObject {
         this.itemId = pbContent.itemId;
         this.itemForumName = pbContent.itemForumName;
         this.tiebaplusInfo = TiebaPlusInfoPojo.z(pbContent.tiebaplusInfo);
-        this.item = aa7.a(pbContent.item);
+        this.item = ia7.a(pbContent.item);
         this.picId = pbContent.picId;
     }
 }

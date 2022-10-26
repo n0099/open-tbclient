@@ -4,7 +4,6 @@ import android.app.PendingIntent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.SystemClock;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
 import androidx.media2.common.ParcelImplListSlice;
@@ -70,136 +69,201 @@ public class ConnectionResult extends CustomVersionedParcelable {
     public SessionCommandGroup getAllowedCommands() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAllowedCommands : (SessionCommandGroup) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAllowedCommands;
+        }
+        return (SessionCommandGroup) invokeV.objValue;
     }
 
     public long getBufferedPositionMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBufferedPositionMs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBufferedPositionMs;
+        }
+        return invokeV.longValue;
     }
 
     public MediaItem getCurrentMediaItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCurrentMediaItem : (MediaItem) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCurrentMediaItem;
+        }
+        return (MediaItem) invokeV.objValue;
     }
 
     public int getCurrentMediaItemIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCurrentMediaItemIndex : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCurrentMediaItemIndex;
+        }
+        return invokeV.intValue;
     }
 
     public int getNextMediaItemIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mNextMediaItemIndex : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mNextMediaItemIndex;
+        }
+        return invokeV.intValue;
     }
 
     public MediaController.PlaybackInfo getPlaybackInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPlaybackInfo : (MediaController.PlaybackInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mPlaybackInfo;
+        }
+        return (MediaController.PlaybackInfo) invokeV.objValue;
     }
 
     public float getPlaybackSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPlaybackSpeed : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mPlaybackSpeed;
+        }
+        return invokeV.floatValue;
     }
 
     public int getPlayerState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPlayerState : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mPlayerState;
+        }
+        return invokeV.intValue;
     }
 
     public ParcelImplListSlice getPlaylistSlice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPlaylistSlice : (ParcelImplListSlice) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mPlaylistSlice;
+        }
+        return (ParcelImplListSlice) invokeV.objValue;
     }
 
     public long getPositionEventTimeMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPositionEventTimeMs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mPositionEventTimeMs;
+        }
+        return invokeV.longValue;
     }
 
     public long getPositionMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mPositionMs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mPositionMs;
+        }
+        return invokeV.longValue;
     }
 
     public int getPreviousMediaItemIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mPreviousMediaItemIndex : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mPreviousMediaItemIndex;
+        }
+        return invokeV.intValue;
     }
 
     public int getRepeatMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRepeatMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mRepeatMode;
+        }
+        return invokeV.intValue;
     }
 
     public SessionPlayer.TrackInfo getSelectedAudioTrack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mSelectedAudioTrack : (SessionPlayer.TrackInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mSelectedAudioTrack;
+        }
+        return (SessionPlayer.TrackInfo) invokeV.objValue;
     }
 
     public SessionPlayer.TrackInfo getSelectedMetadataTrack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mSelectedMetadataTrack : (SessionPlayer.TrackInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mSelectedMetadataTrack;
+        }
+        return (SessionPlayer.TrackInfo) invokeV.objValue;
     }
 
     public SessionPlayer.TrackInfo getSelectedSubtitleTrack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mSelectedSubtitleTrack : (SessionPlayer.TrackInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mSelectedSubtitleTrack;
+        }
+        return (SessionPlayer.TrackInfo) invokeV.objValue;
     }
 
     public SessionPlayer.TrackInfo getSelectedVideoTrack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mSelectedVideoTrack : (SessionPlayer.TrackInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mSelectedVideoTrack;
+        }
+        return (SessionPlayer.TrackInfo) invokeV.objValue;
     }
 
     public PendingIntent getSessionActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mSessionActivity : (PendingIntent) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mSessionActivity;
+        }
+        return (PendingIntent) invokeV.objValue;
     }
 
     public IMediaSession getSessionStub() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mSessionStub : (IMediaSession) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mSessionStub;
+        }
+        return (IMediaSession) invokeV.objValue;
     }
 
     public int getShuffleMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mShuffleMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mShuffleMode;
+        }
+        return invokeV.intValue;
     }
 
     public Bundle getTokenExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mTokenExtras : (Bundle) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mTokenExtras;
+        }
+        return (Bundle) invokeV.objValue;
     }
 
-    @NonNull
     public List<SessionPlayer.TrackInfo> getTracks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             List<SessionPlayer.TrackInfo> list = this.mTracks;
-            return list == null ? Collections.emptyList() : list;
+            if (list == null) {
+                return Collections.emptyList();
+            }
+            return list;
         }
         return (List) invokeV.objValue;
     }
@@ -207,13 +271,19 @@ public class ConnectionResult extends CustomVersionedParcelable {
     public int getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mVersion : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mVersion;
+        }
+        return invokeV.intValue;
     }
 
     public VideoSize getVideoSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mVideoSize : (VideoSize) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mVideoSize;
+        }
+        return (VideoSize) invokeV.objValue;
     }
 
     @Override // androidx.versionedparcelable.CustomVersionedParcelable
@@ -222,19 +292,6 @@ public class ConnectionResult extends CustomVersionedParcelable {
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.mSessionStub = IMediaSession.Stub.asInterface(this.mSessionBinder);
             this.mCurrentMediaItem = this.mParcelableCurrentMediaItem;
-        }
-    }
-
-    @Override // androidx.versionedparcelable.CustomVersionedParcelable
-    public void onPreParceling(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            synchronized (this.mSessionStub) {
-                if (this.mSessionBinder == null) {
-                    this.mSessionBinder = (IBinder) this.mSessionStub;
-                    this.mParcelableCurrentMediaItem = MediaUtils.upcastForPreparceling(this.mCurrentMediaItem);
-                }
-            }
         }
     }
 
@@ -281,5 +338,18 @@ public class ConnectionResult extends CustomVersionedParcelable {
         }
         this.mAllowedCommands = sessionCommandGroup;
         this.mVersion = 0;
+    }
+
+    @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    public void onPreParceling(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            synchronized (this.mSessionStub) {
+                if (this.mSessionBinder == null) {
+                    this.mSessionBinder = (IBinder) this.mSessionStub;
+                    this.mParcelableCurrentMediaItem = MediaUtils.upcastForPreparceling(this.mCurrentMediaItem);
+                }
+            }
+        }
     }
 }

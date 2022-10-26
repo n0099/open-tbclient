@@ -65,29 +65,35 @@ public class RSA {
     public static byte[] encrypt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? encrypt(str, b) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return encrypt(str, b);
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     public static PublicKey getPublicKey(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? X509Certificate.getInstance(new ByteArrayInputStream(SecurityUtil.base64Decode(str.getBytes()))).getPublicKey() : (PublicKey) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return X509Certificate.getInstance(new ByteArrayInputStream(SecurityUtil.base64Decode(str.getBytes()))).getPublicKey();
+        }
+        return (PublicKey) invokeL.objValue;
     }
 
     public static byte[] encrypt(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            if (str == null || TextUtils.isEmpty(str2)) {
-                return new byte[0];
+            if (str != null && !TextUtils.isEmpty(str2)) {
+                try {
+                    Cipher cipher = Cipher.getInstance("RSA/NONE/PKCS1Padding");
+                    cipher.init(1, X509Certificate.getInstance(new ByteArrayInputStream(str2.getBytes())).getPublicKey());
+                    return cipher.doFinal(str.getBytes("UTF-8"));
+                } catch (Throwable unused) {
+                    return new byte[0];
+                }
             }
-            try {
-                Cipher cipher = Cipher.getInstance("RSA/NONE/PKCS1Padding");
-                cipher.init(1, X509Certificate.getInstance(new ByteArrayInputStream(str2.getBytes())).getPublicKey());
-                return cipher.doFinal(str.getBytes("UTF-8"));
-            } catch (Throwable unused) {
-                return new byte[0];
-            }
+            return new byte[0];
         }
         return (byte[]) invokeLL.objValue;
     }

@@ -20,8 +20,18 @@ public class CreateTagResponseData implements Parcelable {
     @SerializedName("tag_info")
     public QuestionTagListData.QuestionTag tagInfo;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class a implements Parcelable.Creator<CreateTagResponseData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +55,10 @@ public class CreateTagResponseData implements Parcelable {
         public CreateTagResponseData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new CreateTagResponseData(parcel) : (CreateTagResponseData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new CreateTagResponseData(parcel);
+            }
+            return (CreateTagResponseData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +67,10 @@ public class CreateTagResponseData implements Parcelable {
         public CreateTagResponseData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new CreateTagResponseData[i] : (CreateTagResponseData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new CreateTagResponseData[i];
+            }
+            return (CreateTagResponseData[]) invokeI.objValue;
         }
     }
 
@@ -88,31 +104,6 @@ public class CreateTagResponseData implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void readFromParcel(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel) == null) {
-            this.tagInfo = (QuestionTagListData.QuestionTag) parcel.readParcelable(QuestionTagListData.QuestionTag.class.getClassLoader());
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeParcelable(this.tagInfo, i);
-        }
-    }
-
     public CreateTagResponseData(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -129,5 +120,20 @@ public class CreateTagResponseData implements Parcelable {
             }
         }
         this.tagInfo = (QuestionTagListData.QuestionTag) parcel.readParcelable(QuestionTagListData.QuestionTag.class.getClassLoader());
+    }
+
+    public void readFromParcel(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel) == null) {
+            this.tagInfo = (QuestionTagListData.QuestionTag) parcel.readParcelable(QuestionTagListData.QuestionTag.class.getClassLoader());
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeParcelable(this.tagInfo, i);
+        }
     }
 }

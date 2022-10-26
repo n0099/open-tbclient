@@ -8,12 +8,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface SeekMap {
+    long getDurationUs();
+
+    long getPosition(long j);
+
+    boolean isSeekable();
 
     /* loaded from: classes7.dex */
-    public static final class Unseekable implements SeekMap {
+    public final class Unseekable implements SeekMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long durationUs;
+
+        @Override // com.google.android.exoplayer2.extractor.SeekMap
+        public long getPosition(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                return 0L;
+            }
+            return invokeJ.longValue;
+        }
+
+        @Override // com.google.android.exoplayer2.extractor.SeekMap
+        public boolean isSeekable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
         public Unseekable(long j) {
             Interceptable interceptable = $ic;
@@ -37,33 +62,10 @@ public interface SeekMap {
         public long getDurationUs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.durationUs : invokeV.longValue;
-        }
-
-        @Override // com.google.android.exoplayer2.extractor.SeekMap
-        public long getPosition(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                return 0L;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.durationUs;
             }
-            return invokeJ.longValue;
-        }
-
-        @Override // com.google.android.exoplayer2.extractor.SeekMap
-        public boolean isSeekable() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
+            return invokeV.longValue;
         }
     }
-
-    long getDurationUs();
-
-    long getPosition(long j);
-
-    boolean isSeekable();
 }

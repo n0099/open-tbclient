@@ -10,11 +10,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.aq7;
-import com.baidu.tieba.cq7;
-import com.baidu.tieba.dx4;
-import com.baidu.tieba.qo4;
+import com.baidu.tieba.jx4;
+import com.baidu.tieba.lq7;
+import com.baidu.tieba.nq7;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.ro4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,16 +27,33 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public qo4.a d;
+    public ro4.a d;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public cq7 c;
+        public nq7 c;
         public final /* synthetic */ MarkModel d;
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
 
         public a(MarkModel markModel, boolean z) {
             Interceptable interceptable = $ic;
@@ -58,7 +75,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new cq7();
+            this.c = new nq7();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,11 +85,12 @@ public class MarkModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
+                boolean z = false;
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    aq7 aq7Var = new aq7();
-                    aq7Var.j(this.d.b);
-                    this.a.addPostData("data", aq7Var.E(0, 1));
+                    lq7 lq7Var = new lq7();
+                    lq7Var.j(this.d.b);
+                    this.a.addPostData("data", lq7Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
@@ -81,13 +99,50 @@ public class MarkModel extends BdBaseModel {
                     this.a.addPostData("fid", this.d.b.getForumId());
                 }
                 this.c.c(this.a.postNetData());
-                boolean z = this.c.a() == 0;
+                if (this.c.a() == 0) {
+                    z = true;
+                }
                 if (this.a.getNetContext().getResponse().isRequestSuccess() && z) {
                     return Boolean.TRUE;
                 }
                 return Boolean.FALSE;
             }
             return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                try {
+                    if (this.c != null) {
+                        jx4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
+                    }
+                    if (bool.booleanValue()) {
+                        if (this.d.d != null) {
+                            this.d.d.a(true, this.b, null);
+                        }
+                    } else if (this.d.d != null) {
+                        if (this.a != null && !this.a.getNetContext().getResponse().isRequestSuccess()) {
+                            this.d.d.a(false, this.b, this.a.getErrorString());
+                        } else {
+                            ro4.a aVar = this.d.d;
+                            boolean z = this.b;
+                            if (this.c != null) {
+                                str = this.c.b();
+                            } else {
+                                str = "";
+                            }
+                            aVar.a(false, z, str);
+                        }
+                    }
+                    this.d.c = null;
+                } catch (Throwable th) {
+                    BdLog.e(th.toString());
+                }
+            }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -100,40 +155,6 @@ public class MarkModel extends BdBaseModel {
                     netWork.cancelNetConnect();
                 }
                 this.d.c = null;
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                try {
-                    if (this.c != null) {
-                        dx4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
-                    }
-                    if (bool.booleanValue()) {
-                        if (this.d.d != null) {
-                            this.d.d.a(true, this.b, null);
-                        }
-                    } else if (this.d.d != null) {
-                        if (this.a != null && !this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            this.d.d.a(false, this.b, this.a.getErrorString());
-                        } else {
-                            this.d.d.a(false, this.b, this.c != null ? this.c.b() : "");
-                        }
-                    }
-                    this.d.c = null;
-                } catch (Throwable th) {
-                    BdLog.e(th.toString());
-                }
             }
         }
     }
@@ -161,6 +182,52 @@ public class MarkModel extends BdBaseModel {
         this.c = null;
         this.d = null;
         this.b = new MarkData();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MarkModel(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity.getPageContext());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.b = new MarkData();
+    }
+
+    public void H(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void I(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
+            this.b = markData;
+        }
+    }
+
+    public void J(ro4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.d = aVar;
+        }
     }
 
     public void C() {
@@ -194,13 +261,19 @@ public class MarkModel extends BdBaseModel {
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 
     public MarkData F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (MarkData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (MarkData) invokeV.objValue;
     }
 
     public String G() {
@@ -216,27 +289,6 @@ public class MarkModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void H(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void I(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
-            this.b = markData;
-        }
-    }
-
-    public void J(qo4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
@@ -250,40 +302,5 @@ public class MarkModel extends BdBaseModel {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MarkModel(BaseFragmentActivity baseFragmentActivity) {
-        super(baseFragmentActivity.getPageContext());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.b = new MarkData();
     }
 }

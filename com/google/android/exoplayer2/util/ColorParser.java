@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public final class ColorParser {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Map<String, Integer> COLOR_MAP;
+    public static final Map COLOR_MAP;
     public static final String RGB = "rgb";
     public static final String RGBA = "rgba";
     public static final Pattern RGBA_PATTERN_FLOAT_ALPHA;
@@ -196,6 +196,12 @@ public final class ColorParser {
         COLOR_MAP.put("yellowgreen", -6632142);
     }
 
+    public static int argb(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) ? (i << 24) | (i2 << 16) | (i3 << 8) | i4 : invokeIIII.intValue;
+    }
+
     public ColorParser() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -210,14 +216,9 @@ public final class ColorParser {
         }
     }
 
-    public static int argb(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) ? (i << 24) | (i2 << 16) | (i3 << 8) | i4 : invokeIIII.intValue;
-    }
-
     public static int parseColorInternal(String str, boolean z) {
         InterceptResult invokeLZ;
+        Pattern pattern;
         int parseInt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, str, z)) == null) {
@@ -234,7 +235,12 @@ public final class ColorParser {
                 throw new IllegalArgumentException();
             }
             if (replace.startsWith(RGBA)) {
-                Matcher matcher = (z ? RGBA_PATTERN_FLOAT_ALPHA : RGBA_PATTERN_INT_ALPHA).matcher(replace);
+                if (z) {
+                    pattern = RGBA_PATTERN_FLOAT_ALPHA;
+                } else {
+                    pattern = RGBA_PATTERN_INT_ALPHA;
+                }
+                Matcher matcher = pattern.matcher(replace);
                 if (matcher.matches()) {
                     if (z) {
                         parseInt = (int) (Float.parseFloat(matcher.group(4)) * 255.0f);
@@ -249,7 +255,7 @@ public final class ColorParser {
                     return rgb(Integer.parseInt(matcher2.group(1), 10), Integer.parseInt(matcher2.group(2), 10), Integer.parseInt(matcher2.group(3), 10));
                 }
             } else {
-                Integer num = COLOR_MAP.get(Util.toLowerInvariant(replace));
+                Integer num = (Integer) COLOR_MAP.get(Util.toLowerInvariant(replace));
                 if (num != null) {
                     return num.intValue();
                 }
@@ -262,18 +268,27 @@ public final class ColorParser {
     public static int parseCssColor(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? parseColorInternal(str, true) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return parseColorInternal(str, true);
+        }
+        return invokeL.intValue;
     }
 
     public static int parseTtmlColor(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? parseColorInternal(str, false) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return parseColorInternal(str, false);
+        }
+        return invokeL.intValue;
     }
 
     public static int rgb(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) ? argb(255, i, i2, i3) : invokeIII.intValue;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) {
+            return argb(255, i, i2, i3);
+        }
+        return invokeIII.intValue;
     }
 }

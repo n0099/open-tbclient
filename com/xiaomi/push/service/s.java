@@ -67,23 +67,23 @@ public class s extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a = this.a.a(this.f1003a);
-            ArrayList<ii> a2 = bz.a(this.f1004a, this.f1003a, a, 32768);
+            ArrayList a2 = bz.a(this.f1004a, this.f1003a, a, 32768);
             if (a2 == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
                 return;
             }
-            Iterator<ii> it = a2.iterator();
+            Iterator it = a2.iterator();
             while (it.hasNext()) {
-                ii next = it.next();
-                next.a("uploadWay", "longXMPushService");
-                Cif a3 = ah.a(this.f1003a, a, next, hj.i);
+                ii iiVar = (ii) it.next();
+                iiVar.a("uploadWay", "longXMPushService");
+                Cif a3 = ah.a(this.f1003a, a, iiVar, hj.i);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f1003a, this.b)) {
-                    if (a3.m466a() == null) {
+                    if (a3.m465a() == null) {
                         hw hwVar = new hw();
                         hwVar.a("-1");
                         a3.a(hwVar);
                     }
-                    a3.m466a().b("ext_traffic_source_pkg", this.b);
+                    a3.m465a().b("ext_traffic_source_pkg", this.b);
                 }
                 byte[] a4 = it.a(a3);
                 xMPushService = this.a.a;

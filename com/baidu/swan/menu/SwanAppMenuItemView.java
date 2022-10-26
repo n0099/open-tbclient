@@ -1,6 +1,5 @@
 package com.baidu.swan.menu;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -15,7 +14,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t94;
+import com.baidu.tieba.u94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +28,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
     public TextView b;
     public TextView c;
     public ImageView d;
-    public t94 e;
+    public u94 e;
     public int f;
     public int g;
     public boolean h;
@@ -61,13 +60,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            t94 t94Var;
+            u94 u94Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (t94Var = this.a.e) == null || t94Var.d() == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (u94Var = this.a.e) != null && u94Var.d() != null) {
+                SwanAppMenuItemView swanAppMenuItemView = this.a;
+                swanAppMenuItemView.h = swanAppMenuItemView.e.d().a(this.a.e);
             }
-            SwanAppMenuItemView swanAppMenuItemView = this.a;
-            swanAppMenuItemView.h = swanAppMenuItemView.e.d().a(this.a.e);
         }
     }
 
@@ -94,160 +92,18 @@ public class SwanAppMenuItemView extends RelativeLayout {
         d();
     }
 
-    private void setAllPressed(boolean z) {
+    public final void g(u94 u94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
-            this.a.setPressed(z);
-            this.b.setPressed(z);
-            setPressed(z);
-        }
-    }
-
-    public final String a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j <= 99 ? String.valueOf(j) : "99+" : (String) invokeJ.objValue;
-    }
-
-    public final Drawable b(t94 t94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t94Var)) == null) ? t94Var.a(getContext()) : (Drawable) invokeL.objValue;
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            Resources resources = getResources();
-            return (int) (((i * 0.5d) + (resources.getDimension(R.dimen.obfuscated_res_0x7f0700e2) * 0.5d)) - resources.getDimension(R.dimen.obfuscated_res_0x7f0700e3));
-        }
-        return invokeI.intValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setGravity(49);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d008d, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090190);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090193);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090192);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090191);
-            setBackgroundResource(0);
-        }
-    }
-
-    public final void e(t94 t94Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, t94Var, i) == null) {
-            this.b.setEllipsize(TextUtils.TruncateAt.END);
-            this.b.setAlpha(t94Var.i() ? 1.0f : 0.3f);
-            this.a.setEnabled(t94Var.i());
-            this.a.setScaleType(ImageView.ScaleType.CENTER);
-            this.a.setVisibility(0);
-            g(t94Var);
-            f(t94Var, i);
-        }
-    }
-
-    public final void f(t94 t94Var, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, t94Var, i) == null) || t94Var == null) {
-            return;
-        }
-        int f = t94Var.f();
-        if (f == 0) {
-            this.c.setVisibility(8);
-            this.c.setVisibility(8);
-        } else if (f != 1) {
-            if (f != 2) {
-                this.c.setVisibility(8);
-                this.d.setVisibility(8);
-                return;
-            }
-            this.c.setVisibility(8);
-            this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08115c));
-            this.d.setVisibility(0);
-        } else if (i <= 0) {
-        } else {
-            this.d.setVisibility(8);
-            this.c.setText(a(t94Var.e()));
-            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a6d));
-            this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08115b));
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
-            marginLayoutParams.leftMargin = c(i);
-            this.c.setLayoutParams(marginLayoutParams);
-            this.c.setVisibility(0);
-        }
-    }
-
-    public final void g(t94 t94Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, t94Var) == null) || t94Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, u94Var) != null) || u94Var == null) {
             return;
         }
         setAlpha(1.0f);
-        this.b.setText(t94Var.h(getContext()));
-        Drawable b = b(t94Var);
+        this.b.setText(u94Var.h(getContext()));
+        Drawable b = b(u94Var);
         if (b != null) {
             this.a.setImageDrawable(b);
-            this.a.setImageLevel(t94Var.b());
+            this.a.setImageLevel(u94Var.b());
         }
-    }
-
-    public void h(t94 t94Var, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, t94Var, i) == null) || t94Var == null) {
-            return;
-        }
-        e(t94Var, i);
-        this.e = t94Var;
-    }
-
-    @Override // android.view.View
-    @SuppressLint({"ClickableViewAccessibility"})
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            int x = (int) motionEvent.getX();
-            int y = (int) motionEvent.getY();
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                t94 t94Var = this.e;
-                if (t94Var != null && t94Var.d() != null) {
-                    removeCallbacks(this.i);
-                    this.h = false;
-                    this.f = x;
-                    this.g = y;
-                    postDelayed(this.i, 3000L);
-                    setAllPressed(true);
-                } else {
-                    return super.onTouchEvent(motionEvent);
-                }
-            } else if (action == 1) {
-                removeCallbacks(this.i);
-                if (!this.h && this.e.g() != null) {
-                    this.e.g().b(this, this.e);
-                }
-                this.h = false;
-                setAllPressed(false);
-                return super.onTouchEvent(motionEvent);
-            } else if (action != 2) {
-                if (action == 3) {
-                    removeCallbacks(this.i);
-                    this.h = false;
-                    setAllPressed(false);
-                    return super.onTouchEvent(motionEvent);
-                }
-            } else if (Math.abs(this.f - x) > 10 || Math.abs(this.g - y) > 10) {
-                removeCallbacks(this.i);
-                this.h = false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -296,5 +152,169 @@ public class SwanAppMenuItemView extends RelativeLayout {
         this.h = false;
         this.i = new a(this);
         d();
+    }
+
+    private void setAllPressed(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
+            this.a.setPressed(z);
+            this.b.setPressed(z);
+            setPressed(z);
+        }
+    }
+
+    public final String a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j <= 99) {
+                return String.valueOf(j);
+            }
+            return "99+";
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public final Drawable b(u94 u94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u94Var)) == null) {
+            return u94Var.a(getContext());
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    public final int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            Resources resources = getResources();
+            return (int) (((i * 0.5d) + (resources.getDimension(R.dimen.obfuscated_res_0x7f0700e2) * 0.5d)) - resources.getDimension(R.dimen.obfuscated_res_0x7f0700e3));
+        }
+        return invokeI.intValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setGravity(49);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d008d, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090190);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090193);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090192);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090191);
+            setBackgroundResource(0);
+        }
+    }
+
+    public final void e(u94 u94Var, int i) {
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, u94Var, i) == null) {
+            this.b.setEllipsize(TextUtils.TruncateAt.END);
+            if (u94Var.i()) {
+                f = 1.0f;
+            } else {
+                f = 0.3f;
+            }
+            this.b.setAlpha(f);
+            this.a.setEnabled(u94Var.i());
+            this.a.setScaleType(ImageView.ScaleType.CENTER);
+            this.a.setVisibility(0);
+            g(u94Var);
+            f(u94Var, i);
+        }
+    }
+
+    public final void f(u94 u94Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048581, this, u94Var, i) != null) || u94Var == null) {
+            return;
+        }
+        int f = u94Var.f();
+        if (f != 0) {
+            if (f != 1) {
+                if (f != 2) {
+                    this.c.setVisibility(8);
+                    this.d.setVisibility(8);
+                    return;
+                }
+                this.c.setVisibility(8);
+                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116d));
+                this.d.setVisibility(0);
+                return;
+            } else if (i <= 0) {
+                return;
+            } else {
+                this.d.setVisibility(8);
+                this.c.setText(a(u94Var.e()));
+                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a6d));
+                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116c));
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
+                marginLayoutParams.leftMargin = c(i);
+                this.c.setLayoutParams(marginLayoutParams);
+                this.c.setVisibility(0);
+                return;
+            }
+        }
+        this.c.setVisibility(8);
+        this.c.setVisibility(8);
+    }
+
+    public void h(u94 u94Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048583, this, u94Var, i) != null) || u94Var == null) {
+            return;
+        }
+        e(u94Var, i);
+        this.e = u94Var;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
+            int x = (int) motionEvent.getX();
+            int y = (int) motionEvent.getY();
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action == 3) {
+                            removeCallbacks(this.i);
+                            this.h = false;
+                            setAllPressed(false);
+                            return super.onTouchEvent(motionEvent);
+                        }
+                    } else if (Math.abs(this.f - x) > 10 || Math.abs(this.g - y) > 10) {
+                        removeCallbacks(this.i);
+                        this.h = false;
+                    }
+                } else {
+                    removeCallbacks(this.i);
+                    if (!this.h && this.e.g() != null) {
+                        this.e.g().b(this, this.e);
+                    }
+                    this.h = false;
+                    setAllPressed(false);
+                    return super.onTouchEvent(motionEvent);
+                }
+            } else {
+                u94 u94Var = this.e;
+                if (u94Var != null && u94Var.d() != null) {
+                    removeCallbacks(this.i);
+                    this.h = false;
+                    this.f = x;
+                    this.g = y;
+                    postDelayed(this.i, 3000L);
+                    setAllPressed(true);
+                } else {
+                    return super.onTouchEvent(motionEvent);
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,6 +1,5 @@
 package androidx.transition;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Path;
@@ -45,6 +44,33 @@ public class ArcMotion extends PathMotion {
         DEFAULT_MAX_TANGENT = (float) Math.tan(Math.toRadians(35.0d));
     }
 
+    public float getMaximumAngle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mMaximumAngle;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getMinimumHorizontalAngle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMinimumHorizontalAngle;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getMinimumVerticalAngle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMinimumVerticalAngle;
+        }
+        return invokeV.floatValue;
+    }
+
     public ArcMotion() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,6 +92,39 @@ public class ArcMotion extends PathMotion {
         this.mMaximumTangent = DEFAULT_MAX_TANGENT;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ArcMotion(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mMinimumHorizontalAngle = 0.0f;
+        this.mMinimumVerticalAngle = 0.0f;
+        this.mMaximumAngle = 70.0f;
+        this.mMinimumHorizontalTangent = 0.0f;
+        this.mMinimumVerticalTangent = 0.0f;
+        this.mMaximumTangent = DEFAULT_MAX_TANGENT;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.ARC_MOTION);
+        XmlPullParser xmlPullParser = (XmlPullParser) attributeSet;
+        setMinimumVerticalAngle(TypedArrayUtils.getNamedFloat(obtainStyledAttributes, xmlPullParser, "minimumVerticalAngle", 1, 0.0f));
+        setMinimumHorizontalAngle(TypedArrayUtils.getNamedFloat(obtainStyledAttributes, xmlPullParser, "minimumHorizontalAngle", 0, 0.0f));
+        setMaximumAngle(TypedArrayUtils.getNamedFloat(obtainStyledAttributes, xmlPullParser, "maximumAngle", 2, 70.0f));
+        obtainStyledAttributes.recycle();
+    }
+
     public static float toTangent(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
@@ -78,27 +137,10 @@ public class ArcMotion extends PathMotion {
         return invokeF.floatValue;
     }
 
-    public float getMaximumAngle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMaximumAngle : invokeV.floatValue;
-    }
-
-    public float getMinimumHorizontalAngle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMinimumHorizontalAngle : invokeV.floatValue;
-    }
-
-    public float getMinimumVerticalAngle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMinimumVerticalAngle : invokeV.floatValue;
-    }
-
     @Override // androidx.transition.PathMotion
     public Path getPath(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
+        boolean z;
         float f5;
         float f6;
         float f7;
@@ -112,7 +154,11 @@ public class ArcMotion extends PathMotion {
             float f11 = (f + f3) / 2.0f;
             float f12 = (f2 + f4) / 2.0f;
             float f13 = 0.25f * f10;
-            boolean z = f2 > f4;
+            if (f2 > f4) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (Math.abs(f8) < Math.abs(f9)) {
                 float abs = Math.abs(f10 / (f9 * 2.0f));
                 if (z) {
@@ -141,7 +187,11 @@ public class ArcMotion extends PathMotion {
             float f19 = this.mMaximumTangent;
             float f20 = f13 * f19 * f19;
             if (f18 >= f15) {
-                f15 = f18 > f20 ? f20 : 0.0f;
+                if (f18 > f20) {
+                    f15 = f20;
+                } else {
+                    f15 = 0.0f;
+                }
             }
             if (f15 != 0.0f) {
                 float sqrt = (float) Math.sqrt(f15 / f18);
@@ -176,39 +226,5 @@ public class ArcMotion extends PathMotion {
             this.mMinimumVerticalAngle = f;
             this.mMinimumVerticalTangent = toTangent(f);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"RestrictedApi"})
-    public ArcMotion(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mMinimumHorizontalAngle = 0.0f;
-        this.mMinimumVerticalAngle = 0.0f;
-        this.mMaximumAngle = 70.0f;
-        this.mMinimumHorizontalTangent = 0.0f;
-        this.mMinimumVerticalTangent = 0.0f;
-        this.mMaximumTangent = DEFAULT_MAX_TANGENT;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.ARC_MOTION);
-        XmlPullParser xmlPullParser = (XmlPullParser) attributeSet;
-        setMinimumVerticalAngle(TypedArrayUtils.getNamedFloat(obtainStyledAttributes, xmlPullParser, "minimumVerticalAngle", 1, 0.0f));
-        setMinimumHorizontalAngle(TypedArrayUtils.getNamedFloat(obtainStyledAttributes, xmlPullParser, "minimumHorizontalAngle", 0, 0.0f));
-        setMaximumAngle(TypedArrayUtils.getNamedFloat(obtainStyledAttributes, xmlPullParser, "maximumAngle", 2, 70.0f));
-        obtainStyledAttributes.recycle();
     }
 }

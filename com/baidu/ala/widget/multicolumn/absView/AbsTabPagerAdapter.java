@@ -11,6 +11,10 @@ public abstract class AbsTabPagerAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract int getPageType(int i);
+
+    public abstract String getTabTitle(int i);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AbsTabPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -30,8 +34,4 @@ public abstract class AbsTabPagerAdapter extends FragmentPagerAdapter {
             }
         }
     }
-
-    public abstract int getPageType(int i);
-
-    public abstract String getTabTitle(int i);
 }

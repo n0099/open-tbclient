@@ -8,22 +8,22 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
+public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends MsgCommonItemAdapter.MsgViewHolder<TextView> {
+    public class a extends MsgCommonItemAdapter.MsgViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgStrangerTipItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext) {
+    public MsgStrangerTipItemAdapter(TbPageContext tbPageContext) {
         super(tbPageContext, ChatMessage.TYPE_MSG_STRANGER_TIP);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,16 +71,16 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.rn
     /* renamed from: E */
-    public MsgCommonItemAdapter.MsgViewHolder<TextView> onCreateViewHolder(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            frameLayout.setPadding(ej.f(viewGroup.getContext(), R.dimen.M_W_X022), ej.f(viewGroup.getContext(), R.dimen.M_H_X005), ej.f(viewGroup.getContext(), R.dimen.M_W_X022), ej.f(viewGroup.getContext(), R.dimen.M_H_X008));
+            frameLayout.setPadding(fj.f(viewGroup.getContext(), R.dimen.M_W_X022), fj.f(viewGroup.getContext(), R.dimen.M_H_X005), fj.f(viewGroup.getContext(), R.dimen.M_W_X022), fj.f(viewGroup.getContext(), R.dimen.M_H_X008));
             TextView textView = new TextView(viewGroup.getContext());
-            textView.setPadding(ej.f(viewGroup.getContext(), R.dimen.M_W_X006), ej.f(viewGroup.getContext(), R.dimen.M_H_X002), ej.f(viewGroup.getContext(), R.dimen.M_W_X006), ej.f(viewGroup.getContext(), R.dimen.M_H_X002));
+            textView.setPadding(fj.f(viewGroup.getContext(), R.dimen.M_W_X006), fj.f(viewGroup.getContext(), R.dimen.M_H_X002), fj.f(viewGroup.getContext(), R.dimen.M_W_X006), fj.f(viewGroup.getContext(), R.dimen.M_H_X002));
             textView.setGravity(17);
             frameLayout.addView(textView, new ViewGroup.LayoutParams(-1, -2));
             return new a(frameLayout, textView);
@@ -88,27 +88,26 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.rn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, (ChatMessage) obj, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<TextView> msgViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
-            TextView a2 = msgViewHolder.a();
-            hv4 d = hv4.d(a2);
+            TextView textView = (TextView) msgViewHolder.a();
+            nv4 d = nv4.d(textView);
             d.z(R.dimen.T_X09);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0101);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0603);
-            a2.setText(R.string.obfuscated_res_0x7f0f0e94);
+            textView.setText(R.string.obfuscated_res_0x7f0f0ea6);
             return view2;
         }
         return (View) invokeCommon.objValue;

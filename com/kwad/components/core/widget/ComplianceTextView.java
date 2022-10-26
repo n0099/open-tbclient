@@ -1,6 +1,5 @@
 package com.kwad.components.core.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -15,8 +14,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.views.logindialog.view.AgreementView;
@@ -32,7 +29,6 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
-@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes7.dex */
 public class ComplianceTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -44,7 +40,6 @@ public class ComplianceTextView extends TextView {
     public String OG;
     public int OH;
     public String OI;
-    @ColorInt
     public int OJ;
     public boolean OK;
     public AdTemplate mAdTemplate;
@@ -175,7 +170,6 @@ public class ComplianceTextView extends TextView {
         return invokeLLI.booleanValue;
     }
 
-    @SuppressLint({"CustomViewStyleable"})
     private void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, context, attributeSet) == null) {
@@ -184,7 +178,7 @@ public class ComplianceTextView extends TextView {
             this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060777));
             this.OK = obtainStyledAttributes.getBoolean(1, true);
             if (getBackground() == null) {
-                setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c04));
+                setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c14));
             }
             obtainStyledAttributes.recycle();
         }
@@ -224,15 +218,15 @@ public class ComplianceTextView extends TextView {
                     }
 
                     @Override // android.text.style.ClickableSpan
-                    public final void onClick(@NonNull View view2) {
+                    public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0577a().ao(this.OM).ap(this.OL.OF).N(this.OL.mAdTemplate).nx());
+                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0573a().ao(this.OM).ap(this.OL.OF).N(this.OL.mAdTemplate).nx());
                         }
                     }
 
                     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-                    public final void updateDrawState(@NonNull TextPaint textPaint) {
+                    public final void updateDrawState(TextPaint textPaint) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                             super.updateDrawState(textPaint);
@@ -274,15 +268,15 @@ public class ComplianceTextView extends TextView {
                     }
 
                     @Override // android.text.style.ClickableSpan
-                    public final void onClick(@NonNull View view2) {
+                    public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0577a().ao(this.ON).ap(this.OL.OG).N(this.OL.mAdTemplate).nx());
+                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0573a().ao(this.ON).ap(this.OL.OG).N(this.OL.mAdTemplate).nx());
                         }
                     }
 
                     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-                    public final void updateDrawState(@NonNull TextPaint textPaint) {
+                    public final void updateDrawState(TextPaint textPaint) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                             super.updateDrawState(textPaint);

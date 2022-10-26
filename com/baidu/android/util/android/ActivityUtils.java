@@ -70,7 +70,10 @@ public final class ActivityUtils {
             if (activity == null || activity.isFinishing()) {
                 return true;
             }
-            return Build.VERSION.SDK_INT >= 17 && activity.isDestroyed();
+            if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -79,7 +82,20 @@ public final class ActivityUtils {
     public static boolean isIntentAvailable(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) ? intent != null && context.getPackageManager().queryIntentActivities(intent, 65536).size() > 0 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
+            if (intent == null || context.getPackageManager().queryIntentActivities(intent, 65536).size() <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void startActivitySafely(Activity activity, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, activity, intent) == null) {
+            startActivitySafely((Context) activity, intent, true);
+        }
     }
 
     @Deprecated
@@ -130,17 +146,16 @@ public final class ActivityUtils {
         }
     }
 
-    public static boolean startActivityForResultSafely(Context context, Intent intent, int i) {
-        InterceptResult invokeLLI;
+    public static boolean startActivitySafely(Context context, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, context, intent, i)) == null) ? startActivityForResultSafely((Activity) context, intent, i, false, false) : invokeLLI.booleanValue;
-    }
-
-    public static void startActivitySafely(Activity activity, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, activity, intent) == null) {
-            startActivitySafely((Context) activity, intent, true);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return startActivitySafely(context, new ComponentName(str, str2), z);
+            }
+            return false;
         }
+        return invokeCommon.booleanValue;
     }
 
     public static boolean startActivityForResultSafely(Activity activity, Intent intent, int i, boolean z, boolean z2) {
@@ -154,95 +169,32 @@ public final class ActivityUtils {
                 activity.startActivityForResult(intent, i);
                 return true;
             } catch (ActivityNotFoundException unused) {
-                if (z2) {
-                    Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
+                if (!z2) {
                     return false;
                 }
+                Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
                 return false;
             } catch (SecurityException e) {
                 if (z2) {
                     Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
                 }
-                if (DEBUG) {
-                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
+                if (!DEBUG) {
                     return false;
                 }
+                Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
                 return false;
             }
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean startActivitySafely(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
+    public static boolean startActivityForResultSafely(Context context, Intent intent, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65548, null, context, intent, z)) == null) ? startActivitySafely(context, intent, z, true) : invokeLLZ.booleanValue;
-    }
-
-    public static boolean startActivitySafely(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (z2) {
-                    Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
-                    return false;
-                }
-                return false;
-            } catch (SecurityException e) {
-                if (z2) {
-                    Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
-                }
-                if (DEBUG) {
-                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
-                    return false;
-                }
-                return false;
-            } catch (Exception e2) {
-                if (DEBUG) {
-                    Log.d(TAG, e2.getMessage());
-                    return false;
-                }
-                return false;
-            }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, context, intent, i)) == null) {
+            return startActivityForResultSafely((Activity) context, intent, i, false, false);
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean startActivitySafely(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, intent)) == null) ? startActivitySafely(context, intent, false) : invokeLL.booleanValue;
-    }
-
-    public static boolean startActivitySafely(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, context, str, str2)) == null) ? startActivitySafely(context, str, str2, true) : invokeLLL.booleanValue;
-    }
-
-    public static boolean startActivitySafely(Context context, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            return startActivitySafely(context, new ComponentName(str, str2), z);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean startActivitySafely(Context context, ComponentName componentName) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, componentName)) == null) ? startActivitySafely(context, componentName, true) : invokeLL.booleanValue;
+        return invokeLLI.booleanValue;
     }
 
     public static boolean startActivitySafely(Context context, ComponentName componentName, boolean z) {
@@ -257,5 +209,77 @@ public final class ActivityUtils {
             return false;
         }
         return invokeLLZ.booleanValue;
+    }
+
+    public static boolean startActivitySafely(Context context, ComponentName componentName) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, componentName)) == null) {
+            return startActivitySafely(context, componentName, true);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean startActivitySafely(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, intent)) == null) {
+            return startActivitySafely(context, intent, false);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean startActivitySafely(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65548, null, context, intent, z)) == null) {
+            return startActivitySafely(context, intent, z, true);
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean startActivitySafely(Context context, Intent intent, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            try {
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (!z2) {
+                    return false;
+                }
+                Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
+                return false;
+            } catch (SecurityException e) {
+                if (z2) {
+                    Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008d, 0).show();
+                }
+                if (!DEBUG) {
+                    return false;
+                }
+                Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
+                return false;
+            } catch (Exception e2) {
+                if (!DEBUG) {
+                    return false;
+                }
+                Log.d(TAG, e2.getMessage());
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean startActivitySafely(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, context, str, str2)) == null) {
+            return startActivitySafely(context, str, str2, true);
+        }
+        return invokeLLL.booleanValue;
     }
 }

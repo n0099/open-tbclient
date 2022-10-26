@@ -1,6 +1,5 @@
 package androidx.appcompat.app;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.UiModeManager;
@@ -30,7 +29,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.ActionMode;
-import android.view.ContextThemeWrapper;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.KeyboardShortcutGroup;
@@ -48,17 +46,10 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import androidx.annotation.CallSuper;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StyleRes;
-import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.appcompat.view.StandaloneActionMode;
 import androidx.appcompat.view.SupportActionModeWrapper;
 import androidx.appcompat.view.SupportMenuInflater;
@@ -107,7 +98,6 @@ import com.sina.weibo.sdk.utils.ResourceManager;
 import java.lang.Thread;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuilder.Callback, LayoutInflater.Factory2 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -169,6 +159,324 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     public Window mWindow;
     public boolean mWindowNoTitle;
 
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, bundle) == null) {
+        }
+    }
+
+    public void onSubDecorInstalled(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, viewGroup) == null) {
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static final class PanelFeatureState {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int background;
+        public View createdPanelView;
+        public ViewGroup decorView;
+        public int featureId;
+        public Bundle frozenActionViewState;
+        public Bundle frozenMenuState;
+        public int gravity;
+        public boolean isHandled;
+        public boolean isOpen;
+        public boolean isPrepared;
+        public ListMenuPresenter listMenuPresenter;
+        public Context listPresenterContext;
+        public MenuBuilder menu;
+        public boolean qwertyMode;
+        public boolean refreshDecorView;
+        public boolean refreshMenuContent;
+        public View shownPanelView;
+        public boolean wasLastOpen;
+        public int windowAnimations;
+        public int x;
+        public int y;
+
+        /* loaded from: classes.dex */
+        public static class SavedState implements Parcelable {
+            public static /* synthetic */ Interceptable $ic;
+            public static final Parcelable.Creator<SavedState> CREATOR;
+            public transient /* synthetic */ FieldHolder $fh;
+            public int featureId;
+            public boolean isOpen;
+            public Bundle menuState;
+
+            @Override // android.os.Parcelable
+            public int describeContents() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return 0;
+                }
+                return invokeV.intValue;
+            }
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-284527140, "Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-284527140, "Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;");
+                        return;
+                    }
+                }
+                CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.appcompat.app.AppCompatDelegateImpl.PanelFeatureState.SavedState.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // android.os.Parcelable.Creator
+                    public SavedState createFromParcel(Parcel parcel) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                            return SavedState.readFromParcel(parcel, null);
+                        }
+                        return (SavedState) invokeL.objValue;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // android.os.Parcelable.Creator
+                    public SavedState[] newArray(int i) {
+                        InterceptResult invokeI;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) {
+                            return new SavedState[i];
+                        }
+                        return (SavedState[]) invokeI.objValue;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
+                    @Override // android.os.Parcelable.ClassLoaderCreator
+                    public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                        InterceptResult invokeLL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
+                            return SavedState.readFromParcel(parcel, classLoader);
+                        }
+                        return (SavedState) invokeLL.objValue;
+                    }
+                };
+            }
+
+            public SavedState() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65537, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65537, newInitContext);
+                    }
+                }
+            }
+
+            public static SavedState readFromParcel(Parcel parcel, ClassLoader classLoader) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, classLoader)) == null) {
+                    SavedState savedState = new SavedState();
+                    savedState.featureId = parcel.readInt();
+                    boolean z = true;
+                    if (parcel.readInt() != 1) {
+                        z = false;
+                    }
+                    savedState.isOpen = z;
+                    if (z) {
+                        savedState.menuState = parcel.readBundle(classLoader);
+                    }
+                    return savedState;
+                }
+                return (SavedState) invokeLL.objValue;
+            }
+
+            @Override // android.os.Parcelable
+            public void writeToParcel(Parcel parcel, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+                    parcel.writeInt(this.featureId);
+                    parcel.writeInt(this.isOpen ? 1 : 0);
+                    if (this.isOpen) {
+                        parcel.writeBundle(this.menuState);
+                    }
+                }
+            }
+        }
+
+        public PanelFeatureState(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.featureId = i;
+            this.refreshDecorView = false;
+        }
+
+        public MenuView getListMenuView(MenuPresenter.Callback callback) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback)) == null) {
+                if (this.menu == null) {
+                    return null;
+                }
+                if (this.listMenuPresenter == null) {
+                    ListMenuPresenter listMenuPresenter = new ListMenuPresenter(this.listPresenterContext, (int) R.layout.obfuscated_res_0x7f0d0010);
+                    this.listMenuPresenter = listMenuPresenter;
+                    listMenuPresenter.setCallback(callback);
+                    this.menu.addMenuPresenter(this.listMenuPresenter);
+                }
+                return this.listMenuPresenter.getMenuView(this.decorView);
+            }
+            return (MenuView) invokeL.objValue;
+        }
+
+        public void applyFrozenState() {
+            MenuBuilder menuBuilder;
+            Bundle bundle;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (menuBuilder = this.menu) != null && (bundle = this.frozenMenuState) != null) {
+                menuBuilder.restorePresenterStates(bundle);
+                this.frozenMenuState = null;
+            }
+        }
+
+        public void clearMenuPresenters() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                MenuBuilder menuBuilder = this.menu;
+                if (menuBuilder != null) {
+                    menuBuilder.removeMenuPresenter(this.listMenuPresenter);
+                }
+                this.listMenuPresenter = null;
+            }
+        }
+
+        public boolean hasPanelItems() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.shownPanelView == null) {
+                    return false;
+                }
+                if (this.createdPanelView == null && this.listMenuPresenter.getAdapter().getCount() <= 0) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public Parcelable onSaveInstanceState() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                SavedState savedState = new SavedState();
+                savedState.featureId = this.featureId;
+                savedState.isOpen = this.isOpen;
+                if (this.menu != null) {
+                    Bundle bundle = new Bundle();
+                    savedState.menuState = bundle;
+                    this.menu.savePresenterStates(bundle);
+                }
+                return savedState;
+            }
+            return (Parcelable) invokeV.objValue;
+        }
+
+        public void onRestoreInstanceState(Parcelable parcelable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, parcelable) == null) {
+                SavedState savedState = (SavedState) parcelable;
+                this.featureId = savedState.featureId;
+                this.wasLastOpen = savedState.isOpen;
+                this.frozenMenuState = savedState.menuState;
+                this.shownPanelView = null;
+                this.decorView = null;
+            }
+        }
+
+        public void setMenu(MenuBuilder menuBuilder) {
+            MenuBuilder menuBuilder2;
+            ListMenuPresenter listMenuPresenter;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048582, this, menuBuilder) != null) || menuBuilder == (menuBuilder2 = this.menu)) {
+                return;
+            }
+            if (menuBuilder2 != null) {
+                menuBuilder2.removeMenuPresenter(this.listMenuPresenter);
+            }
+            this.menu = menuBuilder;
+            if (menuBuilder != null && (listMenuPresenter = this.listMenuPresenter) != null) {
+                menuBuilder.addMenuPresenter(listMenuPresenter);
+            }
+        }
+
+        public void setStyle(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+                TypedValue typedValue = new TypedValue();
+                Resources.Theme newTheme = context.getResources().newTheme();
+                newTheme.setTo(context.getTheme());
+                newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f04004c, typedValue, true);
+                int i = typedValue.resourceId;
+                if (i != 0) {
+                    newTheme.applyStyle(i, true);
+                }
+                newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f040524, typedValue, true);
+                int i2 = typedValue.resourceId;
+                if (i2 != 0) {
+                    newTheme.applyStyle(i2, true);
+                } else {
+                    newTheme.applyStyle(R.style.obfuscated_res_0x7f10021b, true);
+                }
+                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
+                contextThemeWrapper.getTheme().setTo(newTheme);
+                this.listPresenterContext = contextThemeWrapper;
+                TypedArray obtainStyledAttributes = contextThemeWrapper.obtainStyledAttributes(androidx.appcompat.R.styleable.AppCompatTheme);
+                this.background = obtainStyledAttributes.getResourceId(84, 0);
+                this.windowAnimations = obtainStyledAttributes.getResourceId(1, 0);
+                obtainStyledAttributes.recycle();
+            }
+        }
+    }
+
     /* loaded from: classes.dex */
     public class ActionBarDrawableToggleImpl implements ActionBarDrawerToggle.Delegate {
         public static /* synthetic */ Interceptable $ic;
@@ -194,10 +502,22 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
+        public void setActionBarDescription(int i) {
+            ActionBar supportActionBar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (supportActionBar = this.this$0.getSupportActionBar()) != null) {
+                supportActionBar.setHomeActionContentDescription(i);
+            }
+        }
+
+        @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
         public Context getActionBarThemedContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.getActionBarThemedContext() : (Context) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.this$0.getActionBarThemedContext();
+            }
+            return (Context) invokeV.objValue;
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
@@ -219,30 +539,22 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 ActionBar supportActionBar = this.this$0.getSupportActionBar();
-                return (supportActionBar == null || (supportActionBar.getDisplayOptions() & 4) == 0) ? false : true;
+                if (supportActionBar != null && (supportActionBar.getDisplayOptions() & 4) != 0) {
+                    return true;
+                }
+                return false;
             }
             return invokeV.booleanValue;
-        }
-
-        @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarDescription(int i) {
-            ActionBar supportActionBar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (supportActionBar = this.this$0.getSupportActionBar()) == null) {
-                return;
-            }
-            supportActionBar.setHomeActionContentDescription(i);
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
         public void setActionBarUpIndicator(Drawable drawable, int i) {
             ActionBar supportActionBar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048580, this, drawable, i) == null) || (supportActionBar = this.this$0.getSupportActionBar()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeLI(1048580, this, drawable, i) == null) && (supportActionBar = this.this$0.getSupportActionBar()) != null) {
+                supportActionBar.setHomeAsUpIndicator(drawable);
+                supportActionBar.setHomeActionContentDescription(i);
             }
-            supportActionBar.setHomeAsUpIndicator(drawable);
-            supportActionBar.setHomeActionContentDescription(i);
         }
     }
 
@@ -271,15 +583,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
-                this.this$0.checkCloseActionMenu(menuBuilder);
-            }
-        }
-
-        @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
+        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
@@ -291,6 +595,14 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 return true;
             }
             return invokeL.booleanValue;
+        }
+
+        @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
+        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
+                this.this$0.checkCloseActionMenu(menuBuilder);
+            }
         }
     }
 
@@ -324,14 +636,31 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, actionMode, menuItem)) == null) ? this.mWrapped.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, actionMode, menuItem)) == null) {
+                return this.mWrapped.onActionItemClicked(actionMode, menuItem);
+            }
+            return invokeLL.booleanValue;
         }
 
         @Override // androidx.appcompat.view.ActionMode.Callback
         public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, actionMode, menu)) == null) ? this.mWrapped.onCreateActionMode(actionMode, menu) : invokeLL.booleanValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, actionMode, menu)) == null) {
+                return this.mWrapped.onCreateActionMode(actionMode, menu);
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // androidx.appcompat.view.ActionMode.Callback
+        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menu)) == null) {
+                ViewCompat.requestApplyInsets(this.this$0.mSubDecor);
+                return this.mWrapped.onPrepareActionMode(actionMode, menu);
+            }
+            return invokeLL.booleanValue;
         }
 
         @Override // androidx.appcompat.view.ActionMode.Callback
@@ -402,16 +731,183 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 ViewCompat.requestApplyInsets(appCompatDelegateImpl5.mSubDecor);
             }
         }
+    }
 
-        @Override // androidx.appcompat.view.ActionMode.Callback
-        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-            InterceptResult invokeLL;
+    /* loaded from: classes.dex */
+    public class AppCompatWindowCallback extends WindowCallbackWrapper {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AppCompatDelegateImpl this$0;
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public void onContentChanged() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menu)) == null) {
-                ViewCompat.requestApplyInsets(this.this$0.mSubDecor);
-                return this.mWrapped.onPrepareActionMode(actionMode, menu);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
-            return invokeLL.booleanValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public AppCompatWindowCallback(AppCompatDelegateImpl appCompatDelegateImpl, Window.Callback callback) {
+            super(callback);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {appCompatDelegateImpl, callback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Window.Callback) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = appCompatDelegateImpl;
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keyEvent)) == null) {
+                if (!this.this$0.dispatchKeyEvent(keyEvent) && !super.dispatchKeyEvent(keyEvent)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
+                if (!super.dispatchKeyShortcutEvent(keyEvent) && !this.this$0.onKeyShortcut(keyEvent.getKeyCode(), keyEvent)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, callback)) == null) {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    return null;
+                }
+                if (this.this$0.isHandleNativeActionModesEnabled()) {
+                    return startAsSupportActionMode(callback);
+                }
+                return super.onWindowStartingActionMode(callback);
+            }
+            return (android.view.ActionMode) invokeL.objValue;
+        }
+
+        public final android.view.ActionMode startAsSupportActionMode(ActionMode.Callback callback) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, callback)) == null) {
+                SupportActionModeWrapper.CallbackWrapper callbackWrapper = new SupportActionModeWrapper.CallbackWrapper(this.this$0.mContext, callback);
+                androidx.appcompat.view.ActionMode startSupportActionMode = this.this$0.startSupportActionMode(callbackWrapper);
+                if (startSupportActionMode != null) {
+                    return callbackWrapper.getActionModeWrapper(startSupportActionMode);
+                }
+                return null;
+            }
+            return (android.view.ActionMode) invokeL.objValue;
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public boolean onCreatePanelMenu(int i, Menu menu) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, menu)) == null) {
+                if (i == 0 && !(menu instanceof MenuBuilder)) {
+                    return false;
+                }
+                return super.onCreatePanelMenu(i, menu);
+            }
+            return invokeIL.booleanValue;
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public boolean onMenuOpened(int i, Menu menu) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, menu)) == null) {
+                super.onMenuOpened(i, menu);
+                this.this$0.onMenuOpened(i);
+                return true;
+            }
+            return invokeIL.booleanValue;
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public void onPanelClosed(int i, Menu menu) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048581, this, i, menu) == null) {
+                super.onPanelClosed(i, menu);
+                this.this$0.onPanelClosed(i);
+            }
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, callback, i)) == null) {
+                if (this.this$0.isHandleNativeActionModesEnabled() && i == 0) {
+                    return startAsSupportActionMode(callback);
+                }
+                return super.onWindowStartingActionMode(callback, i);
+            }
+            return (android.view.ActionMode) invokeLI.objValue;
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public boolean onPreparePanel(int i, View view2, Menu menu) {
+            InterceptResult invokeILL;
+            MenuBuilder menuBuilder;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, menu)) == null) {
+                if (menu instanceof MenuBuilder) {
+                    menuBuilder = (MenuBuilder) menu;
+                } else {
+                    menuBuilder = null;
+                }
+                if (i == 0 && menuBuilder == null) {
+                    return false;
+                }
+                if (menuBuilder != null) {
+                    menuBuilder.setOverrideVisibleItems(true);
+                }
+                boolean onPreparePanel = super.onPreparePanel(i, view2, menu);
+                if (menuBuilder != null) {
+                    menuBuilder.setOverrideVisibleItems(false);
+                }
+                return onPreparePanel;
+            }
+            return invokeILL.booleanValue;
+        }
+
+        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
+        public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
+            MenuBuilder menuBuilder;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048583, this, list, menu, i) == null) {
+                PanelFeatureState panelState = this.this$0.getPanelState(0, true);
+                if (panelState != null && (menuBuilder = panelState.menu) != null) {
+                    super.onProvideKeyboardShortcuts(list, menuBuilder, i);
+                } else {
+                    super.onProvideKeyboardShortcuts(list, menu, i);
+                }
+            }
         }
     }
 
@@ -423,7 +919,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public final /* synthetic */ AppCompatDelegateImpl this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AutoBatteryNightModeManager(@NonNull AppCompatDelegateImpl appCompatDelegateImpl, Context context) {
+        public AutoBatteryNightModeManager(AppCompatDelegateImpl appCompatDelegateImpl, Context context) {
             super(appCompatDelegateImpl);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -463,7 +959,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public int getApplyableNightMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (Build.VERSION.SDK_INT < 21 || !this.mPowerManager.isPowerSaveMode()) ? 1 : 2 : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (Build.VERSION.SDK_INT < 21 || !this.mPowerManager.isPowerSaveMode()) {
+                    return 1;
+                }
+                return 2;
+            }
+            return invokeV.intValue;
         }
 
         @Override // androidx.appcompat.app.AppCompatDelegateImpl.AutoNightModeManager
@@ -475,14 +977,18 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    @VisibleForTesting
     /* loaded from: classes.dex */
     public abstract class AutoNightModeManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BroadcastReceiver mReceiver;
         public final /* synthetic */ AppCompatDelegateImpl this$0;
+
+        public abstract IntentFilter createIntentFilterForBroadcastReceiver();
+
+        public abstract int getApplyableNightMode();
+
+        public abstract void onChange();
 
         public AutoNightModeManager(AppCompatDelegateImpl appCompatDelegateImpl) {
             Interceptable interceptable = $ic;
@@ -505,71 +1011,68 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public void cleanup() {
             BroadcastReceiver broadcastReceiver;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (broadcastReceiver = this.mReceiver) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (broadcastReceiver = this.mReceiver) != null) {
+                try {
+                    this.this$0.mContext.unregisterReceiver(broadcastReceiver);
+                } catch (IllegalArgumentException unused) {
+                }
+                this.mReceiver = null;
             }
-            try {
-                this.this$0.mContext.unregisterReceiver(broadcastReceiver);
-            } catch (IllegalArgumentException unused) {
-            }
-            this.mReceiver = null;
         }
-
-        @Nullable
-        public abstract IntentFilter createIntentFilterForBroadcastReceiver();
-
-        public abstract int getApplyableNightMode();
 
         public boolean isListening() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mReceiver != null : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.mReceiver != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
-
-        public abstract void onChange();
 
         public void setup() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 cleanup();
                 IntentFilter createIntentFilterForBroadcastReceiver = createIntentFilterForBroadcastReceiver();
-                if (createIntentFilterForBroadcastReceiver == null || createIntentFilterForBroadcastReceiver.countActions() == 0) {
-                    return;
-                }
-                if (this.mReceiver == null) {
-                    this.mReceiver = new BroadcastReceiver(this) { // from class: androidx.appcompat.app.AppCompatDelegateImpl.AutoNightModeManager.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ AutoNightModeManager this$1;
+                if (createIntentFilterForBroadcastReceiver != null && createIntentFilterForBroadcastReceiver.countActions() != 0) {
+                    if (this.mReceiver == null) {
+                        this.mReceiver = new BroadcastReceiver(this) { // from class: androidx.appcompat.app.AppCompatDelegateImpl.AutoNightModeManager.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AutoNightModeManager this$1;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$1 = this;
+                            }
+
+                            @Override // android.content.BroadcastReceiver
+                            public void onReceive(Context context, Intent intent) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, intent) == null) {
+                                    this.this$1.onChange();
                                 }
                             }
-                            this.this$1 = this;
-                        }
-
-                        @Override // android.content.BroadcastReceiver
-                        public void onReceive(Context context, Intent intent) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, intent) == null) {
-                                this.this$1.onChange();
-                            }
-                        }
-                    };
+                        };
+                    }
+                    this.this$0.mContext.registerReceiver(this.mReceiver, createIntentFilterForBroadcastReceiver);
                 }
-                this.this$0.mContext.registerReceiver(this.mReceiver, createIntentFilterForBroadcastReceiver);
             }
         }
     }
@@ -582,7 +1085,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public final /* synthetic */ AppCompatDelegateImpl this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AutoTimeNightModeManager(@NonNull AppCompatDelegateImpl appCompatDelegateImpl, TwilightManager twilightManager) {
+        public AutoTimeNightModeManager(AppCompatDelegateImpl appCompatDelegateImpl, TwilightManager twilightManager) {
             super(appCompatDelegateImpl);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -621,7 +1124,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public int getApplyableNightMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTwilightManager.isNight() ? 2 : 1 : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.mTwilightManager.isNight()) {
+                    return 2;
+                }
+                return 1;
+            }
+            return invokeV.intValue;
         }
 
         @Override // androidx.appcompat.app.AppCompatDelegateImpl.AutoNightModeManager
@@ -633,7 +1142,6 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    @RequiresApi(17)
     /* loaded from: classes.dex */
     public static class ConfigurationImplApi17 {
         public static /* synthetic */ Interceptable $ic;
@@ -653,7 +1161,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
 
-        public static void generateConfigDelta_densityDpi(@NonNull Configuration configuration, @NonNull Configuration configuration2, @NonNull Configuration configuration3) {
+        public static void generateConfigDelta_densityDpi(Configuration configuration, Configuration configuration2, Configuration configuration3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, configuration, configuration2, configuration3) == null) {
                 int i = configuration.densityDpi;
@@ -665,7 +1173,6 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    @RequiresApi(24)
     /* loaded from: classes.dex */
     public static class ConfigurationImplApi24 {
         public static /* synthetic */ Interceptable $ic;
@@ -685,21 +1192,19 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
 
-        public static void generateConfigDelta_locale(@NonNull Configuration configuration, @NonNull Configuration configuration2, @NonNull Configuration configuration3) {
+        public static void generateConfigDelta_locale(Configuration configuration, Configuration configuration2, Configuration configuration3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, configuration, configuration2, configuration3) == null) {
                 LocaleList locales = configuration.getLocales();
                 LocaleList locales2 = configuration2.getLocales();
-                if (locales.equals(locales2)) {
-                    return;
+                if (!locales.equals(locales2)) {
+                    configuration3.setLocales(locales2);
+                    configuration3.locale = configuration2.locale;
                 }
-                configuration3.setLocales(locales2);
-                configuration3.locale = configuration2.locale;
             }
         }
     }
 
-    @RequiresApi(26)
     /* loaded from: classes.dex */
     public static class ConfigurationImplApi26 {
         public static /* synthetic */ Interceptable $ic;
@@ -719,7 +1224,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
 
-        public static void generateConfigDelta_colorMode(@NonNull Configuration configuration, @NonNull Configuration configuration2, @NonNull Configuration configuration3) {
+        public static void generateConfigDelta_colorMode(Configuration configuration, Configuration configuration2, Configuration configuration3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, configuration, configuration2, configuration3) == null) {
                 int i = configuration.colorMode & 3;
@@ -736,7 +1241,6 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    @RequiresApi(17)
     /* loaded from: classes.dex */
     public static class ContextThemeWrapperCompatApi17Impl {
         public static /* synthetic */ Interceptable $ic;
@@ -756,7 +1260,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
 
-        public static void applyOverrideConfiguration(ContextThemeWrapper contextThemeWrapper, Configuration configuration) {
+        public static void applyOverrideConfiguration(android.view.ContextThemeWrapper contextThemeWrapper, Configuration configuration) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, contextThemeWrapper, configuration) == null) {
                 contextThemeWrapper.applyOverrideConfiguration(configuration);
@@ -794,14 +1298,34 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         private boolean isOutOfBounds(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) ? i < -5 || i2 < -5 || i > getWidth() + 5 || i2 > getHeight() + 5 : invokeII.booleanValue;
+            if (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) {
+                if (i >= -5 && i2 >= -5 && i <= getWidth() + 5 && i2 <= getHeight() + 5) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeII.booleanValue;
         }
 
         @Override // android.view.ViewGroup, android.view.View
         public boolean dispatchKeyEvent(KeyEvent keyEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keyEvent)) == null) ? this.this$0.dispatchKeyEvent(keyEvent) || super.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keyEvent)) == null) {
+                if (!this.this$0.dispatchKeyEvent(keyEvent) && !super.dispatchKeyEvent(keyEvent)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // android.view.View
+        public void setBackgroundResource(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                setBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i));
+            }
         }
 
         @Override // android.view.ViewGroup
@@ -816,307 +1340,6 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return invokeL.booleanValue;
-        }
-
-        @Override // android.view.View
-        public void setBackgroundResource(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                setBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i));
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static final class PanelFeatureState {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int background;
-        public View createdPanelView;
-        public ViewGroup decorView;
-        public int featureId;
-        public Bundle frozenActionViewState;
-        public Bundle frozenMenuState;
-        public int gravity;
-        public boolean isHandled;
-        public boolean isOpen;
-        public boolean isPrepared;
-        public ListMenuPresenter listMenuPresenter;
-        public Context listPresenterContext;
-        public MenuBuilder menu;
-        public boolean qwertyMode;
-        public boolean refreshDecorView;
-        public boolean refreshMenuContent;
-        public View shownPanelView;
-        public boolean wasLastOpen;
-        public int windowAnimations;
-        public int x;
-        public int y;
-
-        @SuppressLint({"BanParcelableUsage"})
-        /* loaded from: classes.dex */
-        public static class SavedState implements Parcelable {
-            public static /* synthetic */ Interceptable $ic;
-            public static final Parcelable.Creator<SavedState> CREATOR;
-            public transient /* synthetic */ FieldHolder $fh;
-            public int featureId;
-            public boolean isOpen;
-            public Bundle menuState;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-284527140, "Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(-284527140, "Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;");
-                        return;
-                    }
-                }
-                CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.appcompat.app.AppCompatDelegateImpl.PanelFeatureState.SavedState.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // android.os.Parcelable.Creator
-                    public SavedState[] newArray(int i) {
-                        InterceptResult invokeI;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX WARN: Can't rename method to resolve collision */
-                    @Override // android.os.Parcelable.ClassLoaderCreator
-                    public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
-                        InterceptResult invokeLL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? SavedState.readFromParcel(parcel, classLoader) : (SavedState) invokeLL.objValue;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // android.os.Parcelable.Creator
-                    public SavedState createFromParcel(Parcel parcel) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? SavedState.readFromParcel(parcel, null) : (SavedState) invokeL.objValue;
-                    }
-                };
-            }
-
-            public SavedState() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65537, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65537, newInitContext);
-                    }
-                }
-            }
-
-            public static SavedState readFromParcel(Parcel parcel, ClassLoader classLoader) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, classLoader)) == null) {
-                    SavedState savedState = new SavedState();
-                    savedState.featureId = parcel.readInt();
-                    boolean z = parcel.readInt() == 1;
-                    savedState.isOpen = z;
-                    if (z) {
-                        savedState.menuState = parcel.readBundle(classLoader);
-                    }
-                    return savedState;
-                }
-                return (SavedState) invokeLL.objValue;
-            }
-
-            @Override // android.os.Parcelable
-            public int describeContents() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return 0;
-                }
-                return invokeV.intValue;
-            }
-
-            @Override // android.os.Parcelable
-            public void writeToParcel(Parcel parcel, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-                    parcel.writeInt(this.featureId);
-                    parcel.writeInt(this.isOpen ? 1 : 0);
-                    if (this.isOpen) {
-                        parcel.writeBundle(this.menuState);
-                    }
-                }
-            }
-        }
-
-        public PanelFeatureState(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.featureId = i;
-            this.refreshDecorView = false;
-        }
-
-        public void applyFrozenState() {
-            MenuBuilder menuBuilder;
-            Bundle bundle;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (menuBuilder = this.menu) == null || (bundle = this.frozenMenuState) == null) {
-                return;
-            }
-            menuBuilder.restorePresenterStates(bundle);
-            this.frozenMenuState = null;
-        }
-
-        public void clearMenuPresenters() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                MenuBuilder menuBuilder = this.menu;
-                if (menuBuilder != null) {
-                    menuBuilder.removeMenuPresenter(this.listMenuPresenter);
-                }
-                this.listMenuPresenter = null;
-            }
-        }
-
-        public MenuView getListMenuView(MenuPresenter.Callback callback) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback)) == null) {
-                if (this.menu == null) {
-                    return null;
-                }
-                if (this.listMenuPresenter == null) {
-                    ListMenuPresenter listMenuPresenter = new ListMenuPresenter(this.listPresenterContext, (int) R.layout.obfuscated_res_0x7f0d0010);
-                    this.listMenuPresenter = listMenuPresenter;
-                    listMenuPresenter.setCallback(callback);
-                    this.menu.addMenuPresenter(this.listMenuPresenter);
-                }
-                return this.listMenuPresenter.getMenuView(this.decorView);
-            }
-            return (MenuView) invokeL.objValue;
-        }
-
-        public boolean hasPanelItems() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.shownPanelView == null) {
-                    return false;
-                }
-                return this.createdPanelView != null || this.listMenuPresenter.getAdapter().getCount() > 0;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void onRestoreInstanceState(Parcelable parcelable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, parcelable) == null) {
-                SavedState savedState = (SavedState) parcelable;
-                this.featureId = savedState.featureId;
-                this.wasLastOpen = savedState.isOpen;
-                this.frozenMenuState = savedState.menuState;
-                this.shownPanelView = null;
-                this.decorView = null;
-            }
-        }
-
-        public Parcelable onSaveInstanceState() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                SavedState savedState = new SavedState();
-                savedState.featureId = this.featureId;
-                savedState.isOpen = this.isOpen;
-                if (this.menu != null) {
-                    Bundle bundle = new Bundle();
-                    savedState.menuState = bundle;
-                    this.menu.savePresenterStates(bundle);
-                }
-                return savedState;
-            }
-            return (Parcelable) invokeV.objValue;
-        }
-
-        public void setMenu(MenuBuilder menuBuilder) {
-            MenuBuilder menuBuilder2;
-            ListMenuPresenter listMenuPresenter;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, menuBuilder) == null) || menuBuilder == (menuBuilder2 = this.menu)) {
-                return;
-            }
-            if (menuBuilder2 != null) {
-                menuBuilder2.removeMenuPresenter(this.listMenuPresenter);
-            }
-            this.menu = menuBuilder;
-            if (menuBuilder == null || (listMenuPresenter = this.listMenuPresenter) == null) {
-                return;
-            }
-            menuBuilder.addMenuPresenter(listMenuPresenter);
-        }
-
-        public void setStyle(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-                TypedValue typedValue = new TypedValue();
-                Resources.Theme newTheme = context.getResources().newTheme();
-                newTheme.setTo(context.getTheme());
-                newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f04004c, typedValue, true);
-                int i = typedValue.resourceId;
-                if (i != 0) {
-                    newTheme.applyStyle(i, true);
-                }
-                newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f040524, typedValue, true);
-                int i2 = typedValue.resourceId;
-                if (i2 != 0) {
-                    newTheme.applyStyle(i2, true);
-                } else {
-                    newTheme.applyStyle(R.style.obfuscated_res_0x7f10021b, true);
-                }
-                androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, 0);
-                contextThemeWrapper.getTheme().setTo(newTheme);
-                this.listPresenterContext = contextThemeWrapper;
-                TypedArray obtainStyledAttributes = contextThemeWrapper.obtainStyledAttributes(androidx.appcompat.R.styleable.AppCompatTheme);
-                this.background = obtainStyledAttributes.getResourceId(84, 0);
-                this.windowAnimations = obtainStyledAttributes.getResourceId(1, 0);
-                obtainStyledAttributes.recycle();
-            }
         }
     }
 
@@ -1145,11 +1368,35 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
+        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+            InterceptResult invokeL;
+            Window.Callback windowCallback;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
+                if (menuBuilder == menuBuilder.getRootMenu()) {
+                    AppCompatDelegateImpl appCompatDelegateImpl = this.this$0;
+                    if (appCompatDelegateImpl.mHasActionBar && (windowCallback = appCompatDelegateImpl.getWindowCallback()) != null && !this.this$0.mIsDestroyed) {
+                        windowCallback.onMenuOpened(108, menuBuilder);
+                        return true;
+                    }
+                    return true;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
+        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
                 MenuBuilder rootMenu = menuBuilder.getRootMenu();
-                boolean z2 = rootMenu != menuBuilder;
+                if (rootMenu != menuBuilder) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
                 AppCompatDelegateImpl appCompatDelegateImpl = this.this$0;
                 if (z2) {
                     menuBuilder = rootMenu;
@@ -1165,29 +1412,11 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 }
             }
         }
-
-        @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
-            InterceptResult invokeL;
-            Window.Callback windowCallback;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
-                if (menuBuilder == menuBuilder.getRootMenu()) {
-                    AppCompatDelegateImpl appCompatDelegateImpl = this.this$0;
-                    if (!appCompatDelegateImpl.mHasActionBar || (windowCallback = appCompatDelegateImpl.getWindowCallback()) == null || this.this$0.mIsDestroyed) {
-                        return true;
-                    }
-                    windowCallback.onMenuOpened(108, menuBuilder);
-                    return true;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
     }
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-629526169, "Landroidx/appcompat/app/AppCompatDelegateImpl;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -1200,85 +1429,75 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
         sLocalNightModes = new SimpleArrayMap<>();
-        IS_PRE_LOLLIPOP = Build.VERSION.SDK_INT < 21;
+        boolean z2 = false;
+        if (Build.VERSION.SDK_INT < 21) {
+            z = true;
+        } else {
+            z = false;
+        }
+        IS_PRE_LOLLIPOP = z;
         sWindowBackgroundStyleable = new int[]{16842836};
         sCanReturnDifferentContext = !"robolectric".equals(Build.FINGERPRINT);
-        sCanApplyOverrideConfiguration = Build.VERSION.SDK_INT >= 17;
-        if (!IS_PRE_LOLLIPOP || sInstalledExceptionHandler) {
-            return;
+        if (Build.VERSION.SDK_INT >= 17) {
+            z2 = true;
         }
-        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler(Thread.getDefaultUncaughtExceptionHandler()) { // from class: androidx.appcompat.app.AppCompatDelegateImpl.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Thread.UncaughtExceptionHandler val$defHandler;
+        sCanApplyOverrideConfiguration = z2;
+        if (IS_PRE_LOLLIPOP && !sInstalledExceptionHandler) {
+            Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler(Thread.getDefaultUncaughtExceptionHandler()) { // from class: androidx.appcompat.app.AppCompatDelegateImpl.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Thread.UncaughtExceptionHandler val$defHandler;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r6};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r6};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$defHandler = r6;
+                }
+
+                private boolean shouldWrapException(Throwable th) {
+                    InterceptResult invokeL;
+                    String message;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, th)) == null) {
+                        if (!(th instanceof Resources.NotFoundException) || (message = th.getMessage()) == null) {
+                            return false;
+                        }
+                        if (!message.contains(ResourceManager.DRAWABLE) && !message.contains("Drawable")) {
+                            return false;
+                        }
+                        return true;
+                    }
+                    return invokeL.booleanValue;
+                }
+
+                @Override // java.lang.Thread.UncaughtExceptionHandler
+                public void uncaughtException(Thread thread, Throwable th) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
+                        if (shouldWrapException(th)) {
+                            Resources.NotFoundException notFoundException = new Resources.NotFoundException(th.getMessage() + AppCompatDelegateImpl.EXCEPTION_HANDLER_MESSAGE_SUFFIX);
+                            notFoundException.initCause(th.getCause());
+                            notFoundException.setStackTrace(th.getStackTrace());
+                            this.val$defHandler.uncaughtException(thread, notFoundException);
+                            return;
+                        }
+                        this.val$defHandler.uncaughtException(thread, th);
                     }
                 }
-                this.val$defHandler = r6;
-            }
-
-            private boolean shouldWrapException(Throwable th) {
-                InterceptResult invokeL;
-                String message;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, th)) == null) {
-                    if (!(th instanceof Resources.NotFoundException) || (message = th.getMessage()) == null) {
-                        return false;
-                    }
-                    return message.contains(ResourceManager.DRAWABLE) || message.contains("Drawable");
-                }
-                return invokeL.booleanValue;
-            }
-
-            @Override // java.lang.Thread.UncaughtExceptionHandler
-            public void uncaughtException(@NonNull Thread thread, @NonNull Throwable th) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
-                    if (shouldWrapException(th)) {
-                        Resources.NotFoundException notFoundException = new Resources.NotFoundException(th.getMessage() + AppCompatDelegateImpl.EXCEPTION_HANDLER_MESSAGE_SUFFIX);
-                        notFoundException.initCause(th.getCause());
-                        notFoundException.setStackTrace(th.getStackTrace());
-                        this.val$defHandler.uncaughtException(thread, notFoundException);
-                        return;
-                    }
-                    this.val$defHandler.uncaughtException(thread, th);
-                }
-            }
-        });
-        sInstalledExceptionHandler = true;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatDelegateImpl(Activity activity, AppCompatCallback appCompatCallback) {
-        this(activity, null, appCompatCallback, activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, appCompatCallback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            });
+            sInstalledExceptionHandler = true;
         }
     }
 
@@ -1308,7 +1527,415 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    private void attachToWindow(@NonNull Window window) {
+    private boolean isActivityManifestHandlingUiMode() {
+        InterceptResult invokeV;
+        int i;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
+            if (!this.mActivityHandlesUiModeChecked && (this.mHost instanceof Activity)) {
+                PackageManager packageManager = this.mContext.getPackageManager();
+                if (packageManager == null) {
+                    return false;
+                }
+                try {
+                    if (Build.VERSION.SDK_INT >= 29) {
+                        i = 269221888;
+                    } else if (Build.VERSION.SDK_INT >= 24) {
+                        i = 786432;
+                    } else {
+                        i = 0;
+                    }
+                    ActivityInfo activityInfo = packageManager.getActivityInfo(new ComponentName(this.mContext, this.mHost.getClass()), i);
+                    if (activityInfo != null && (activityInfo.configChanges & 512) != 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.mActivityHandlesUiMode = z;
+                } catch (PackageManager.NameNotFoundException e) {
+                    Log.d(AppCompatDelegate.TAG, "Exception while getting ActivityInfo", e);
+                    this.mActivityHandlesUiMode = false;
+                }
+            }
+            this.mActivityHandlesUiModeChecked = true;
+            return this.mActivityHandlesUiMode;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:20:0x005f  */
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onDestroy() {
+        ActionBar actionBar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            if (this.mHost instanceof Activity) {
+                AppCompatDelegate.removeActivityDelegate(this);
+            }
+            if (this.mInvalidatePanelMenuPosted) {
+                this.mWindow.getDecorView().removeCallbacks(this.mInvalidatePanelMenuRunnable);
+            }
+            this.mStarted = false;
+            this.mIsDestroyed = true;
+            if (this.mLocalNightMode != -100) {
+                Object obj = this.mHost;
+                if ((obj instanceof Activity) && ((Activity) obj).isChangingConfigurations()) {
+                    sLocalNightModes.put(this.mHost.getClass().getName(), Integer.valueOf(this.mLocalNightMode));
+                    actionBar = this.mActionBar;
+                    if (actionBar != null) {
+                        actionBar.onDestroy();
+                    }
+                    cleanupAutoManagers();
+                }
+            }
+            sLocalNightModes.remove(this.mHost.getClass().getName());
+            actionBar = this.mActionBar;
+            if (actionBar != null) {
+            }
+            cleanupAutoManagers();
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AppCompatDelegateImpl(Activity activity, AppCompatCallback appCompatCallback) {
+        this(activity, null, appCompatCallback, activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, appCompatCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public void closePanel(PanelFeatureState panelFeatureState, boolean z) {
+        ViewGroup viewGroup;
+        DecorContentParent decorContentParent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, panelFeatureState, z) == null) {
+            if (z && panelFeatureState.featureId == 0 && (decorContentParent = this.mDecorContentParent) != null && decorContentParent.isOverflowMenuShowing()) {
+                checkCloseActionMenu(panelFeatureState.menu);
+                return;
+            }
+            WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
+            if (windowManager != null && panelFeatureState.isOpen && (viewGroup = panelFeatureState.decorView) != null) {
+                windowManager.removeView(viewGroup);
+                if (z) {
+                    callOnPanelClosed(panelFeatureState.featureId, panelFeatureState, null);
+                }
+            }
+            panelFeatureState.isPrepared = false;
+            panelFeatureState.isHandled = false;
+            panelFeatureState.isOpen = false;
+            panelFeatureState.shownPanelView = null;
+            panelFeatureState.refreshDecorView = true;
+            if (this.mPreparedPanel == panelFeatureState) {
+                this.mPreparedPanel = null;
+            }
+        }
+    }
+
+    public PanelFeatureState getPanelState(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            PanelFeatureState[] panelFeatureStateArr = this.mPanels;
+            if (panelFeatureStateArr == null || panelFeatureStateArr.length <= i) {
+                PanelFeatureState[] panelFeatureStateArr2 = new PanelFeatureState[i + 1];
+                if (panelFeatureStateArr != null) {
+                    System.arraycopy(panelFeatureStateArr, 0, panelFeatureStateArr2, 0, panelFeatureStateArr.length);
+                }
+                this.mPanels = panelFeatureStateArr2;
+                panelFeatureStateArr = panelFeatureStateArr2;
+            }
+            PanelFeatureState panelFeatureState = panelFeatureStateArr[i];
+            if (panelFeatureState == null) {
+                PanelFeatureState panelFeatureState2 = new PanelFeatureState(i);
+                panelFeatureStateArr[i] = panelFeatureState2;
+                return panelFeatureState2;
+            }
+            return panelFeatureState;
+        }
+        return (PanelFeatureState) invokeCommon.objValue;
+    }
+
+    public int mapNightMode(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, context, i)) == null) {
+            if (i == -100) {
+                return -1;
+            }
+            if (i != -1) {
+                if (i != 0) {
+                    if (i != 1 && i != 2) {
+                        if (i == 3) {
+                            return getAutoBatteryNightModeManager(context).getApplyableNightMode();
+                        }
+                        throw new IllegalStateException("Unknown value set for night mode. Please use one of the MODE_NIGHT values from AppCompatDelegate.");
+                    }
+                } else if (Build.VERSION.SDK_INT >= 23 && ((UiModeManager) context.getApplicationContext().getSystemService(UiModeManager.class)).getNightMode() == 0) {
+                    return -1;
+                } else {
+                    return getAutoTimeNightModeManager(context).getApplyableNightMode();
+                }
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048612, this, i, keyEvent)) == null) {
+            ActionBar supportActionBar = getSupportActionBar();
+            if (supportActionBar != null && supportActionBar.onKeyShortcut(i, keyEvent)) {
+                return true;
+            }
+            PanelFeatureState panelFeatureState = this.mPreparedPanel;
+            if (panelFeatureState != null && performPanelShortcut(panelFeatureState, keyEvent.getKeyCode(), keyEvent, 1)) {
+                PanelFeatureState panelFeatureState2 = this.mPreparedPanel;
+                if (panelFeatureState2 != null) {
+                    panelFeatureState2.isHandled = true;
+                }
+                return true;
+            }
+            if (this.mPreparedPanel == null) {
+                PanelFeatureState panelState = getPanelState(0, true);
+                preparePanel(panelState, keyEvent);
+                boolean performPanelShortcut = performPanelShortcut(panelState, keyEvent.getKeyCode(), keyEvent, 1);
+                panelState.isPrepared = false;
+                if (performPanelShortcut) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AppCompatDelegateImpl(Dialog dialog, AppCompatCallback appCompatCallback) {
+        this(dialog.getContext(), dialog.getWindow(), appCompatCallback, dialog);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dialog, appCompatCallback};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AppCompatDelegateImpl(Context context, Activity activity, AppCompatCallback appCompatCallback) {
+        this(context, null, appCompatCallback, activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, activity, appCompatCallback};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AppCompatDelegateImpl(Context context, Window window, AppCompatCallback appCompatCallback) {
+        this(context, window, appCompatCallback, context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, window, appCompatCallback};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public AppCompatDelegateImpl(Context context, Window window, AppCompatCallback appCompatCallback, Object obj) {
+        Integer num;
+        AppCompatActivity tryUnwrapContext;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, window, appCompatCallback, obj};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        this.mFadeAnim = null;
+        this.mHandleNativeActionModes = true;
+        this.mLocalNightMode = -100;
+        this.mInvalidatePanelMenuRunnable = new Runnable(this) { // from class: androidx.appcompat.app.AppCompatDelegateImpl.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ AppCompatDelegateImpl this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    AppCompatDelegateImpl appCompatDelegateImpl = this.this$0;
+                    if ((appCompatDelegateImpl.mInvalidatePanelMenuFeatures & 1) != 0) {
+                        appCompatDelegateImpl.doInvalidatePanelMenu(0);
+                    }
+                    AppCompatDelegateImpl appCompatDelegateImpl2 = this.this$0;
+                    if ((appCompatDelegateImpl2.mInvalidatePanelMenuFeatures & 4096) != 0) {
+                        appCompatDelegateImpl2.doInvalidatePanelMenu(108);
+                    }
+                    AppCompatDelegateImpl appCompatDelegateImpl3 = this.this$0;
+                    appCompatDelegateImpl3.mInvalidatePanelMenuPosted = false;
+                    appCompatDelegateImpl3.mInvalidatePanelMenuFeatures = 0;
+                }
+            }
+        };
+        this.mContext = context;
+        this.mAppCompatCallback = appCompatCallback;
+        this.mHost = obj;
+        if (this.mLocalNightMode == -100 && (obj instanceof Dialog) && (tryUnwrapContext = tryUnwrapContext()) != null) {
+            this.mLocalNightMode = tryUnwrapContext.getDelegate().getLocalNightMode();
+        }
+        if (this.mLocalNightMode == -100 && (num = sLocalNightModes.get(this.mHost.getClass().getName())) != null) {
+            this.mLocalNightMode = num.intValue();
+            sLocalNightModes.remove(this.mHost.getClass().getName());
+        }
+        if (window != null) {
+            attachToWindow(window);
+        }
+        AppCompatDrawableManager.preload();
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public View createView(View view2, String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, view2, str, context, attributeSet)) == null) {
+            boolean z2 = false;
+            if (this.mAppCompatViewInflater == null) {
+                String string = this.mContext.obtainStyledAttributes(androidx.appcompat.R.styleable.AppCompatTheme).getString(114);
+                if (string == null) {
+                    this.mAppCompatViewInflater = new AppCompatViewInflater();
+                } else {
+                    try {
+                        this.mAppCompatViewInflater = (AppCompatViewInflater) Class.forName(string).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+                    } catch (Throwable th) {
+                        Log.i(AppCompatDelegate.TAG, "Failed to instantiate custom view inflater " + string + ". Falling back to default.", th);
+                        this.mAppCompatViewInflater = new AppCompatViewInflater();
+                    }
+                }
+            }
+            if (IS_PRE_LOLLIPOP) {
+                if (attributeSet instanceof XmlPullParser) {
+                    if (((XmlPullParser) attributeSet).getDepth() > 1) {
+                        z2 = true;
+                    }
+                } else {
+                    z2 = shouldInheritContext((ViewParent) view2);
+                }
+                z = z2;
+            } else {
+                z = false;
+            }
+            return this.mAppCompatViewInflater.createView(view2, str, context, attributeSet, z, IS_PRE_LOLLIPOP, true, VectorEnabledTintResources.shouldBeUsed());
+        }
+        return (View) invokeLLLL.objValue;
+    }
+
+    private boolean applyDayNight(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, this, z)) == null) {
+            if (this.mIsDestroyed) {
+                return false;
+            }
+            int calculateNightMode = calculateNightMode();
+            boolean updateForNightMode = updateForNightMode(mapNightMode(this.mContext, calculateNightMode), z);
+            if (calculateNightMode == 0) {
+                getAutoTimeNightModeManager(this.mContext).setup();
+            } else {
+                AutoNightModeManager autoNightModeManager = this.mAutoTimeNightModeManager;
+                if (autoNightModeManager != null) {
+                    autoNightModeManager.cleanup();
+                }
+            }
+            if (calculateNightMode == 3) {
+                getAutoBatteryNightModeManager(this.mContext).setup();
+            } else {
+                AutoNightModeManager autoNightModeManager2 = this.mAutoBatteryNightModeManager;
+                if (autoNightModeManager2 != null) {
+                    autoNightModeManager2.cleanup();
+                }
+            }
+            return updateForNightMode;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    private void attachToWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, window) == null) {
             if (this.mWindow == null) {
@@ -1332,12 +1959,159 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        View decorView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, keyEvent)) == null) {
+            Object obj = this.mHost;
+            boolean z = true;
+            if (((obj instanceof KeyEventDispatcher.Component) || (obj instanceof AppCompatDialog)) && (decorView = this.mWindow.getDecorView()) != null && KeyEventDispatcher.dispatchBeforeHierarchy(decorView, keyEvent)) {
+                return true;
+            }
+            if (keyEvent.getKeyCode() == 82 && this.mAppCompatWindowCallback.getWrapped().dispatchKeyEvent(keyEvent)) {
+                return true;
+            }
+            int keyCode = keyEvent.getKeyCode();
+            if (keyEvent.getAction() != 0) {
+                z = false;
+            }
+            if (z) {
+                return onKeyDown(keyCode, keyEvent);
+            }
+            return onKeyUp(keyCode, keyEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void doInvalidatePanelMenu(int i) {
+        PanelFeatureState panelState;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            PanelFeatureState panelState2 = getPanelState(i, true);
+            if (panelState2.menu != null) {
+                Bundle bundle = new Bundle();
+                panelState2.menu.saveActionViewStates(bundle);
+                if (bundle.size() > 0) {
+                    panelState2.frozenActionViewState = bundle;
+                }
+                panelState2.menu.stopDispatchingItemsChanged();
+                panelState2.menu.clear();
+            }
+            panelState2.refreshMenuContent = true;
+            panelState2.refreshDecorView = true;
+            if ((i == 108 || i == 0) && this.mDecorContentParent != null && (panelState = getPanelState(0, false)) != null) {
+                panelState.isPrepared = false;
+                preparePanel(panelState, null);
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public boolean hasWindowFeature(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i);
+            if (sanitizeWindowFeatureId != 1) {
+                if (sanitizeWindowFeatureId != 2) {
+                    if (sanitizeWindowFeatureId != 5) {
+                        if (sanitizeWindowFeatureId != 10) {
+                            if (sanitizeWindowFeatureId != 108) {
+                                if (sanitizeWindowFeatureId != 109) {
+                                    z = false;
+                                } else {
+                                    z = this.mOverlayActionBar;
+                                }
+                            } else {
+                                z = this.mHasActionBar;
+                            }
+                        } else {
+                            z = this.mOverlayActionMode;
+                        }
+                    } else {
+                        z = this.mFeatureIndeterminateProgress;
+                    }
+                } else {
+                    z = this.mFeatureProgress;
+                }
+            } else {
+                z = this.mWindowNoTitle;
+            }
+            if (z || this.mWindow.hasFeature(i)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void setSupportActionBar(Toolbar toolbar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048631, this, toolbar) != null) || !(this.mHost instanceof Activity)) {
+            return;
+        }
+        ActionBar supportActionBar = getSupportActionBar();
+        if (!(supportActionBar instanceof WindowDecorActionBar)) {
+            this.mMenuInflater = null;
+            if (supportActionBar != null) {
+                supportActionBar.onDestroy();
+            }
+            if (toolbar != null) {
+                ToolbarActionBar toolbarActionBar = new ToolbarActionBar(toolbar, getTitle(), this.mAppCompatWindowCallback);
+                this.mActionBar = toolbarActionBar;
+                this.mWindow.setCallback(toolbarActionBar.getWrappedWindowCallback());
+            } else {
+                this.mActionBar = null;
+                this.mWindow.setCallback(this.mAppCompatWindowCallback);
+            }
+            invalidateOptionsMenu();
+            return;
+        }
+        throw new IllegalStateException("This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.");
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public androidx.appcompat.view.ActionMode startSupportActionMode(ActionMode.Callback callback) {
+        InterceptResult invokeL;
+        AppCompatCallback appCompatCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, callback)) == null) {
+            if (callback != null) {
+                androidx.appcompat.view.ActionMode actionMode = this.mActionMode;
+                if (actionMode != null) {
+                    actionMode.finish();
+                }
+                ActionModeCallbackWrapperV9 actionModeCallbackWrapperV9 = new ActionModeCallbackWrapperV9(this, callback);
+                ActionBar supportActionBar = getSupportActionBar();
+                if (supportActionBar != null) {
+                    androidx.appcompat.view.ActionMode startActionMode = supportActionBar.startActionMode(actionModeCallbackWrapperV9);
+                    this.mActionMode = startActionMode;
+                    if (startActionMode != null && (appCompatCallback = this.mAppCompatCallback) != null) {
+                        appCompatCallback.onSupportActionModeStarted(startActionMode);
+                    }
+                }
+                if (this.mActionMode == null) {
+                    this.mActionMode = startSupportActionModeFromWindow(actionModeCallbackWrapperV9);
+                }
+                return this.mActionMode;
+            }
+            throw new IllegalArgumentException("ActionMode callback can not be null.");
+        }
+        return (androidx.appcompat.view.ActionMode) invokeL.objValue;
+    }
+
     private int calculateNightMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             int i = this.mLocalNightMode;
-            return i != -100 ? i : AppCompatDelegate.getDefaultNightMode();
+            if (i == -100) {
+                return AppCompatDelegate.getDefaultNightMode();
+            }
+            return i;
         }
         return invokeV.intValue;
     }
@@ -1356,14 +2130,292 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    @NonNull
-    private Configuration createOverrideConfigurationForDayNight(@NonNull Context context, int i, @Nullable Configuration configuration) {
+    private void ensureWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            if (this.mWindow == null) {
+                Object obj = this.mHost;
+                if (obj instanceof Activity) {
+                    attachToWindow(((Activity) obj).getWindow());
+                }
+            }
+            if (this.mWindow != null) {
+                return;
+            }
+            throw new IllegalStateException("We have not been given a Window");
+        }
+    }
+
+    private void throwFeatureRequestIfSubDecorInstalled() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65568, this) != null) || !this.mSubDecorInstalled) {
+            return;
+        }
+        throw new AndroidRuntimeException("Window feature must be requested before adding content");
+    }
+
+    private AppCompatActivity tryUnwrapContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) {
+            for (Context context = this.mContext; context != null; context = ((ContextWrapper) context).getBaseContext()) {
+                if (context instanceof AppCompatActivity) {
+                    return (AppCompatActivity) context;
+                }
+                if (!(context instanceof ContextWrapper)) {
+                    break;
+                }
+            }
+            return null;
+        }
+        return (AppCompatActivity) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public boolean applyDayNight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return applyDayNight(true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void endOnGoingFadeAnimation() {
+        ViewPropertyAnimatorCompat viewPropertyAnimatorCompat;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (viewPropertyAnimatorCompat = this.mFadeAnim) != null) {
+            viewPropertyAnimatorCompat.cancel();
+        }
+    }
+
+    public final Context getActionBarThemedContext() {
+        InterceptResult invokeV;
+        Context context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ActionBar supportActionBar = getSupportActionBar();
+            if (supportActionBar != null) {
+                context = supportActionBar.getThemedContext();
+            } else {
+                context = null;
+            }
+            if (context == null) {
+                return this.mContext;
+            }
+            return context;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final AutoNightModeManager getAutoTimeNightModeManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return getAutoTimeNightModeManager(this.mContext);
+        }
+        return (AutoNightModeManager) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public final ActionBarDrawerToggle.Delegate getDrawerToggleDelegate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return new ActionBarDrawableToggleImpl(this);
+        }
+        return (ActionBarDrawerToggle.Delegate) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public int getLocalNightMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mLocalNightMode;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public MenuInflater getMenuInflater() {
+        InterceptResult invokeV;
+        Context context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (this.mMenuInflater == null) {
+                initWindowDecorActionBar();
+                ActionBar actionBar = this.mActionBar;
+                if (actionBar != null) {
+                    context = actionBar.getThemedContext();
+                } else {
+                    context = this.mContext;
+                }
+                this.mMenuInflater = new SupportMenuInflater(context);
+            }
+            return this.mMenuInflater;
+        }
+        return (MenuInflater) invokeV.objValue;
+    }
+
+    public ViewGroup getSubDecor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mSubDecor;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public ActionBar getSupportActionBar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            initWindowDecorActionBar();
+            return this.mActionBar;
+        }
+        return (ActionBar) invokeV.objValue;
+    }
+
+    public final CharSequence getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            Object obj = this.mHost;
+            if (obj instanceof Activity) {
+                return ((Activity) obj).getTitle();
+            }
+            return this.mTitle;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public final Window.Callback getWindowCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mWindow.getCallback();
+        }
+        return (Window.Callback) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void installViewFactory() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            LayoutInflater from = LayoutInflater.from(this.mContext);
+            if (from.getFactory() == null) {
+                LayoutInflaterCompat.setFactory2(from, this);
+            } else if (!(from.getFactory2() instanceof AppCompatDelegateImpl)) {
+                Log.i(AppCompatDelegate.TAG, "The Activity's LayoutInflater already has a Factory installed so we can not install AppCompat's");
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void invalidateOptionsMenu() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            ActionBar supportActionBar = getSupportActionBar();
+            if (supportActionBar != null && supportActionBar.invalidateOptionsMenu()) {
+                return;
+            }
+            invalidatePanelMenu(0);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public boolean isHandleNativeActionModesEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mHandleNativeActionModes;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean onBackPressed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            androidx.appcompat.view.ActionMode actionMode = this.mActionMode;
+            if (actionMode != null) {
+                actionMode.finish();
+                return true;
+            }
+            ActionBar supportActionBar = getSupportActionBar();
+            if (supportActionBar != null && supportActionBar.collapseActionView()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void onPostResume() {
+        ActionBar supportActionBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && (supportActionBar = getSupportActionBar()) != null) {
+            supportActionBar.setShowHideAnimationEnabled(true);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+            this.mStarted = true;
+            applyDayNight();
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
+            this.mStarted = false;
+            ActionBar supportActionBar = getSupportActionBar();
+            if (supportActionBar != null) {
+                supportActionBar.setShowHideAnimationEnabled(false);
+            }
+        }
+    }
+
+    public final ActionBar peekSupportActionBar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            return this.mActionBar;
+        }
+        return (ActionBar) invokeV.objValue;
+    }
+
+    public final boolean shouldAnimateActionModeView() {
+        InterceptResult invokeV;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+            if (this.mSubDecorInstalled && (viewGroup = this.mSubDecor) != null && ViewCompat.isLaidOut(viewGroup)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private Configuration createOverrideConfigurationForDayNight(Context context, int i, Configuration configuration) {
         InterceptResult invokeLIL;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, this, context, i, configuration)) == null) {
             if (i != 1) {
-                i2 = i != 2 ? context.getApplicationContext().getResources().getConfiguration().uiMode & 48 : 32;
+                if (i != 2) {
+                    i2 = context.getApplicationContext().getResources().getConfiguration().uiMode & 48;
+                } else {
+                    i2 = 32;
+                }
             } else {
                 i2 = 16;
             }
@@ -1376,6 +2428,26 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             return configuration2;
         }
         return (Configuration) invokeLIL.objValue;
+    }
+
+    public void callOnPanelClosed(int i, PanelFeatureState panelFeatureState, Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, panelFeatureState, menu) == null) {
+            if (menu == null) {
+                if (panelFeatureState == null && i >= 0) {
+                    PanelFeatureState[] panelFeatureStateArr = this.mPanels;
+                    if (i < panelFeatureStateArr.length) {
+                        panelFeatureState = panelFeatureStateArr[i];
+                    }
+                }
+                if (panelFeatureState != null) {
+                    menu = panelFeatureState.menu;
+                }
+            }
+            if ((panelFeatureState == null || panelFeatureState.isOpen) && !this.mIsDestroyed) {
+                this.mAppCompatWindowCallback.getWrapped().onPanelClosed(i, menu);
+            }
+        }
     }
 
     private ViewGroup createSubDecor() {
@@ -1411,12 +2483,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         TypedValue typedValue = new TypedValue();
                         this.mContext.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040053, typedValue, true);
                         if (typedValue.resourceId != 0) {
-                            context = new androidx.appcompat.view.ContextThemeWrapper(this.mContext, typedValue.resourceId);
+                            context = new ContextThemeWrapper(this.mContext, typedValue.resourceId);
                         } else {
                             context = this.mContext;
                         }
                         viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                        DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f09077a);
+                        DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090783);
                         this.mDecorContentParent = decorContentParent;
                         decorContentParent.setWindowCallback(getWindowCallback());
                         if (this.mOverlayActionBar) {
@@ -1508,7 +2580,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         });
                     }
                     if (this.mDecorContentParent == null) {
-                        this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092219);
+                        this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092203);
                     }
                     ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                     ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09005c);
@@ -1531,6 +2603,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AppCompatDelegateImpl this$0;
 
+                        @Override // androidx.appcompat.widget.ContentFrameLayout.OnAttachListener
+                        public void onAttachedFromWindow() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            }
+                        }
+
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
@@ -1547,13 +2626,6 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                 }
                             }
                             this.this$0 = this;
-                        }
-
-                        @Override // androidx.appcompat.widget.ContentFrameLayout.OnAttachListener
-                        public void onAttachedFromWindow() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            }
                         }
 
                         @Override // androidx.appcompat.widget.ContentFrameLayout.OnAttachListener
@@ -1576,53 +2648,80 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
     private void ensureSubDecor() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || this.mSubDecorInstalled) {
-            return;
-        }
-        this.mSubDecor = createSubDecor();
-        CharSequence title = getTitle();
-        if (!TextUtils.isEmpty(title)) {
-            DecorContentParent decorContentParent = this.mDecorContentParent;
-            if (decorContentParent != null) {
-                decorContentParent.setWindowTitle(title);
-            } else if (peekSupportActionBar() != null) {
-                peekSupportActionBar().setWindowTitle(title);
-            } else {
-                TextView textView = this.mTitleView;
-                if (textView != null) {
-                    textView.setText(title);
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && !this.mSubDecorInstalled) {
+            this.mSubDecor = createSubDecor();
+            CharSequence title = getTitle();
+            if (!TextUtils.isEmpty(title)) {
+                DecorContentParent decorContentParent = this.mDecorContentParent;
+                if (decorContentParent != null) {
+                    decorContentParent.setWindowTitle(title);
+                } else if (peekSupportActionBar() != null) {
+                    peekSupportActionBar().setWindowTitle(title);
+                } else {
+                    TextView textView = this.mTitleView;
+                    if (textView != null) {
+                        textView.setText(title);
+                    }
+                }
+            }
+            applyFixedSizeWindow();
+            onSubDecorInstalled(this.mSubDecor);
+            this.mSubDecorInstalled = true;
+            PanelFeatureState panelState = getPanelState(0, false);
+            if (!this.mIsDestroyed) {
+                if (panelState == null || panelState.menu == null) {
+                    invalidatePanelMenu(108);
                 }
             }
         }
-        applyFixedSizeWindow();
-        onSubDecorInstalled(this.mSubDecor);
-        this.mSubDecorInstalled = true;
-        PanelFeatureState panelState = getPanelState(0, false);
-        if (this.mIsDestroyed) {
-            return;
-        }
-        if (panelState == null || panelState.menu == null) {
-            invalidatePanelMenu(108);
-        }
     }
 
-    private void ensureWindow() {
+    private void initWindowDecorActionBar() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            if (this.mWindow == null) {
+        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+            ensureSubDecor();
+            if (this.mHasActionBar && this.mActionBar == null) {
                 Object obj = this.mHost;
                 if (obj instanceof Activity) {
-                    attachToWindow(((Activity) obj).getWindow());
+                    this.mActionBar = new WindowDecorActionBar((Activity) this.mHost, this.mOverlayActionBar);
+                } else if (obj instanceof Dialog) {
+                    this.mActionBar = new WindowDecorActionBar((Dialog) this.mHost);
                 }
-            }
-            if (this.mWindow == null) {
-                throw new IllegalStateException("We have not been given a Window");
+                ActionBar actionBar = this.mActionBar;
+                if (actionBar != null) {
+                    actionBar.setDefaultDisplayHomeAsUpEnabled(this.mEnableDefaultActionBarUp);
+                }
             }
         }
     }
 
-    @NonNull
-    public static Configuration generateConfigDelta(@NonNull Configuration configuration, @Nullable Configuration configuration2) {
+    public void dismissPopups() {
+        MenuBuilder menuBuilder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            DecorContentParent decorContentParent = this.mDecorContentParent;
+            if (decorContentParent != null) {
+                decorContentParent.dismissPopups();
+            }
+            if (this.mActionModePopup != null) {
+                this.mWindow.getDecorView().removeCallbacks(this.mShowActionModePopup);
+                if (this.mActionModePopup.isShowing()) {
+                    try {
+                        this.mActionModePopup.dismiss();
+                    } catch (IllegalArgumentException unused) {
+                    }
+                }
+                this.mActionModePopup = null;
+            }
+            endOnGoingFadeAnimation();
+            PanelFeatureState panelState = getPanelState(0, false);
+            if (panelState != null && (menuBuilder = panelState.menu) != null) {
+                menuBuilder.close();
+            }
+        }
+    }
+
+    public static Configuration generateConfigDelta(Configuration configuration, Configuration configuration2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, configuration, configuration2)) == null) {
@@ -1736,7 +2835,170 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (Configuration) invokeLL.objValue;
     }
 
-    private AutoNightModeManager getAutoBatteryNightModeManager(@NonNull Context context) {
+    private void openPanel(PanelFeatureState panelFeatureState, KeyEvent keyEvent) {
+        int i;
+        ViewGroup.LayoutParams layoutParams;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65562, this, panelFeatureState, keyEvent) == null) && !panelFeatureState.isOpen && !this.mIsDestroyed) {
+            if (panelFeatureState.featureId == 0) {
+                if ((this.mContext.getResources().getConfiguration().screenLayout & 15) == 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return;
+                }
+            }
+            Window.Callback windowCallback = getWindowCallback();
+            if (windowCallback != null && !windowCallback.onMenuOpened(panelFeatureState.featureId, panelFeatureState.menu)) {
+                closePanel(panelFeatureState, true);
+                return;
+            }
+            WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
+            if (windowManager == null || !preparePanel(panelFeatureState, keyEvent)) {
+                return;
+            }
+            if (panelFeatureState.decorView != null && !panelFeatureState.refreshDecorView) {
+                View view2 = panelFeatureState.createdPanelView;
+                if (view2 != null && (layoutParams = view2.getLayoutParams()) != null && layoutParams.width == -1) {
+                    i = -1;
+                    panelFeatureState.isHandled = false;
+                    WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams(i, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
+                    layoutParams2.gravity = panelFeatureState.gravity;
+                    layoutParams2.windowAnimations = panelFeatureState.windowAnimations;
+                    windowManager.addView(panelFeatureState.decorView, layoutParams2);
+                    panelFeatureState.isOpen = true;
+                }
+            } else {
+                ViewGroup viewGroup = panelFeatureState.decorView;
+                if (viewGroup == null) {
+                    if (!initializePanelDecor(panelFeatureState) || panelFeatureState.decorView == null) {
+                        return;
+                    }
+                } else if (panelFeatureState.refreshDecorView && viewGroup.getChildCount() > 0) {
+                    panelFeatureState.decorView.removeAllViews();
+                }
+                if (initializePanelContent(panelFeatureState) && panelFeatureState.hasPanelItems()) {
+                    ViewGroup.LayoutParams layoutParams3 = panelFeatureState.shownPanelView.getLayoutParams();
+                    if (layoutParams3 == null) {
+                        layoutParams3 = new ViewGroup.LayoutParams(-2, -2);
+                    }
+                    panelFeatureState.decorView.setBackgroundResource(panelFeatureState.background);
+                    ViewParent parent = panelFeatureState.shownPanelView.getParent();
+                    if (parent instanceof ViewGroup) {
+                        ((ViewGroup) parent).removeView(panelFeatureState.shownPanelView);
+                    }
+                    panelFeatureState.decorView.addView(panelFeatureState.shownPanelView, layoutParams3);
+                    if (!panelFeatureState.shownPanelView.hasFocus()) {
+                        panelFeatureState.shownPanelView.requestFocus();
+                    }
+                } else {
+                    panelFeatureState.refreshDecorView = true;
+                    return;
+                }
+            }
+            i = -2;
+            panelFeatureState.isHandled = false;
+            WindowManager.LayoutParams layoutParams22 = new WindowManager.LayoutParams(i, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
+            layoutParams22.gravity = panelFeatureState.gravity;
+            layoutParams22.windowAnimations = panelFeatureState.windowAnimations;
+            windowManager.addView(panelFeatureState.decorView, layoutParams22);
+            panelFeatureState.isOpen = true;
+        }
+    }
+
+    private boolean preparePanel(PanelFeatureState panelFeatureState, KeyEvent keyEvent) {
+        InterceptResult invokeLL;
+        boolean z;
+        DecorContentParent decorContentParent;
+        int i;
+        boolean z2;
+        DecorContentParent decorContentParent2;
+        DecorContentParent decorContentParent3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, this, panelFeatureState, keyEvent)) == null) {
+            if (this.mIsDestroyed) {
+                return false;
+            }
+            if (panelFeatureState.isPrepared) {
+                return true;
+            }
+            PanelFeatureState panelFeatureState2 = this.mPreparedPanel;
+            if (panelFeatureState2 != null && panelFeatureState2 != panelFeatureState) {
+                closePanel(panelFeatureState2, false);
+            }
+            Window.Callback windowCallback = getWindowCallback();
+            if (windowCallback != null) {
+                panelFeatureState.createdPanelView = windowCallback.onCreatePanelView(panelFeatureState.featureId);
+            }
+            int i2 = panelFeatureState.featureId;
+            if (i2 != 0 && i2 != 108) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z && (decorContentParent3 = this.mDecorContentParent) != null) {
+                decorContentParent3.setMenuPrepared();
+            }
+            if (panelFeatureState.createdPanelView == null && (!z || !(peekSupportActionBar() instanceof ToolbarActionBar))) {
+                if (panelFeatureState.menu == null || panelFeatureState.refreshMenuContent) {
+                    if (panelFeatureState.menu == null && (!initializePanelMenu(panelFeatureState) || panelFeatureState.menu == null)) {
+                        return false;
+                    }
+                    if (z && this.mDecorContentParent != null) {
+                        if (this.mActionMenuPresenterCallback == null) {
+                            this.mActionMenuPresenterCallback = new ActionMenuPresenterCallback(this);
+                        }
+                        this.mDecorContentParent.setMenu(panelFeatureState.menu, this.mActionMenuPresenterCallback);
+                    }
+                    panelFeatureState.menu.stopDispatchingItemsChanged();
+                    if (!windowCallback.onCreatePanelMenu(panelFeatureState.featureId, panelFeatureState.menu)) {
+                        panelFeatureState.setMenu(null);
+                        if (z && (decorContentParent = this.mDecorContentParent) != null) {
+                            decorContentParent.setMenu(null, this.mActionMenuPresenterCallback);
+                        }
+                        return false;
+                    }
+                    panelFeatureState.refreshMenuContent = false;
+                }
+                panelFeatureState.menu.stopDispatchingItemsChanged();
+                Bundle bundle = panelFeatureState.frozenActionViewState;
+                if (bundle != null) {
+                    panelFeatureState.menu.restoreActionViewStates(bundle);
+                    panelFeatureState.frozenActionViewState = null;
+                }
+                if (!windowCallback.onPreparePanel(0, panelFeatureState.createdPanelView, panelFeatureState.menu)) {
+                    if (z && (decorContentParent2 = this.mDecorContentParent) != null) {
+                        decorContentParent2.setMenu(null, this.mActionMenuPresenterCallback);
+                    }
+                    panelFeatureState.menu.startDispatchingItemsChanged();
+                    return false;
+                }
+                if (keyEvent != null) {
+                    i = keyEvent.getDeviceId();
+                } else {
+                    i = -1;
+                }
+                if (KeyCharacterMap.load(i).getKeyboardType() != 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                panelFeatureState.qwertyMode = z2;
+                panelFeatureState.menu.setQwertyMode(z2);
+                panelFeatureState.menu.startDispatchingItemsChanged();
+            }
+            panelFeatureState.isPrepared = true;
+            panelFeatureState.isHandled = false;
+            this.mPreparedPanel = panelFeatureState;
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    private AutoNightModeManager getAutoBatteryNightModeManager(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, context)) == null) {
@@ -1748,20 +3010,219 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (AutoNightModeManager) invokeL.objValue;
     }
 
-    private void initWindowDecorActionBar() {
+    private AutoNightModeManager getAutoTimeNightModeManager(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            ensureSubDecor();
-            if (this.mHasActionBar && this.mActionBar == null) {
-                Object obj = this.mHost;
-                if (obj instanceof Activity) {
-                    this.mActionBar = new WindowDecorActionBar((Activity) this.mHost, this.mOverlayActionBar);
-                } else if (obj instanceof Dialog) {
-                    this.mActionBar = new WindowDecorActionBar((Dialog) this.mHost);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, context)) == null) {
+            if (this.mAutoTimeNightModeManager == null) {
+                this.mAutoTimeNightModeManager = new AutoTimeNightModeManager(this, TwilightManager.getInstance(context));
+            }
+            return this.mAutoTimeNightModeManager;
+        }
+        return (AutoNightModeManager) invokeL.objValue;
+    }
+
+    private boolean initializePanelDecor(PanelFeatureState panelFeatureState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, panelFeatureState)) == null) {
+            panelFeatureState.setStyle(getActionBarThemedContext());
+            panelFeatureState.decorView = new ListMenuDecorView(this, panelFeatureState.listPresenterContext);
+            panelFeatureState.gravity = 81;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void invalidatePanelMenu(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65558, this, i) == null) {
+            this.mInvalidatePanelMenuFeatures = (1 << i) | this.mInvalidatePanelMenuFeatures;
+            if (!this.mInvalidatePanelMenuPosted) {
+                ViewCompat.postOnAnimation(this.mWindow.getDecorView(), this.mInvalidatePanelMenuRunnable);
+                this.mInvalidatePanelMenuPosted = true;
+            }
+        }
+    }
+
+    private int sanitizeWindowFeatureId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65566, this, i)) == null) {
+            if (i == 8) {
+                Log.i(AppCompatDelegate.TAG, "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR id when requesting this feature.");
+                return 108;
+            } else if (i == 9) {
+                Log.i(AppCompatDelegate.TAG, "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR_OVERLAY id when requesting this feature.");
+                return 109;
+            } else {
+                return i;
+            }
+        }
+        return invokeI.intValue;
+    }
+
+    public void checkCloseActionMenu(MenuBuilder menuBuilder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, menuBuilder) != null) || this.mClosingActionMenu) {
+            return;
+        }
+        this.mClosingActionMenu = true;
+        this.mDecorContentParent.dismissPopups();
+        Window.Callback windowCallback = getWindowCallback();
+        if (windowCallback != null && !this.mIsDestroyed) {
+            windowCallback.onPanelClosed(108, menuBuilder);
+        }
+        this.mClosingActionMenu = false;
+    }
+
+    public void closePanel(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            closePanel(getPanelState(i, true), true);
+        }
+    }
+
+    public PanelFeatureState findMenuPanel(Menu menu) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, menu)) == null) {
+            PanelFeatureState[] panelFeatureStateArr = this.mPanels;
+            if (panelFeatureStateArr != null) {
+                i = panelFeatureStateArr.length;
+            } else {
+                i = 0;
+            }
+            for (int i2 = 0; i2 < i; i2++) {
+                PanelFeatureState panelFeatureState = panelFeatureStateArr[i2];
+                if (panelFeatureState != null && panelFeatureState.menu == menu) {
+                    return panelFeatureState;
                 }
-                ActionBar actionBar = this.mActionBar;
-                if (actionBar != null) {
-                    actionBar.setDefaultDisplayHomeAsUpEnabled(this.mEnableDefaultActionBarUp);
+            }
+            return null;
+        }
+        return (PanelFeatureState) invokeL.objValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public <T extends View> T findViewById(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            ensureSubDecor();
+            return (T) this.mWindow.findViewById(i);
+        }
+        return (T) invokeI.objValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void onConfigurationChanged(Configuration configuration) {
+        ActionBar supportActionBar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, configuration) == null) {
+            if (this.mHasActionBar && this.mSubDecorInstalled && (supportActionBar = getSupportActionBar()) != null) {
+                supportActionBar.onConfigurationChanged(configuration);
+            }
+            AppCompatDrawableManager.get().onConfigurationChanged(this.mContext);
+            applyDayNight(false);
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
+    public void onMenuModeChange(MenuBuilder menuBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, menuBuilder) == null) {
+            reopenMenu(true);
+        }
+    }
+
+    public void onMenuOpened(int i) {
+        ActionBar supportActionBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048616, this, i) == null) && i == 108 && (supportActionBar = getSupportActionBar()) != null) {
+            supportActionBar.dispatchMenuVisibilityChanged(true);
+        }
+    }
+
+    public void onPanelClosed(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            if (i == 108) {
+                ActionBar supportActionBar = getSupportActionBar();
+                if (supportActionBar != null) {
+                    supportActionBar.dispatchMenuVisibilityChanged(false);
+                }
+            } else if (i == 0) {
+                PanelFeatureState panelState = getPanelState(i, true);
+                if (panelState.isOpen) {
+                    closePanel(panelState, false);
+                }
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void onPostCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, bundle) == null) {
+            ensureSubDecor();
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void setContentView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, view2) == null) {
+            ensureSubDecor();
+            ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
+            viewGroup.removeAllViews();
+            viewGroup.addView(view2);
+            this.mAppCompatWindowCallback.getWrapped().onContentChanged();
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void setHandleNativeActionModesEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
+            this.mHandleNativeActionModes = z;
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void setLocalNightMode(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048630, this, i) == null) && this.mLocalNightMode != i) {
+            this.mLocalNightMode = i;
+            if (this.mBaseContextAttached) {
+                applyDayNight();
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void setTheme(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
+            this.mThemeResId = i;
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public final void setTitle(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, charSequence) == null) {
+            this.mTitle = charSequence;
+            DecorContentParent decorContentParent = this.mDecorContentParent;
+            if (decorContentParent != null) {
+                decorContentParent.setWindowTitle(charSequence);
+            } else if (peekSupportActionBar() != null) {
+                peekSupportActionBar().setWindowTitle(charSequence);
+            } else {
+                TextView textView = this.mTitleView;
+                if (textView != null) {
+                    textView.setText(charSequence);
                 }
             }
         }
@@ -1783,22 +3244,91 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 }
                 View view3 = (View) panelFeatureState.getListMenuView(this.mPanelMenuPresenterCallback);
                 panelFeatureState.shownPanelView = view3;
-                return view3 != null;
+                if (view3 != null) {
+                    return true;
+                }
+                return false;
             }
         }
         return invokeL.booleanValue;
     }
 
-    private boolean initializePanelDecor(PanelFeatureState panelFeatureState) {
+    private boolean shouldInheritContext(ViewParent viewParent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, panelFeatureState)) == null) {
-            panelFeatureState.setStyle(getActionBarThemedContext());
-            panelFeatureState.decorView = new ListMenuDecorView(this, panelFeatureState.listPresenterContext);
-            panelFeatureState.gravity = 81;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, this, viewParent)) == null) {
+            if (viewParent == null) {
+                return false;
+            }
+            View decorView = this.mWindow.getDecorView();
+            while (viewParent != null) {
+                if (viewParent == decorView || !(viewParent instanceof View) || ViewCompat.isAttachedToWindow((View) viewParent)) {
+                    return false;
+                }
+                viewParent = viewParent.getParent();
+            }
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    private void updateStatusGuardColor(View view2) {
+        boolean z;
+        int color;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65572, this, view2) == null) {
+            if ((ViewCompat.getWindowSystemUiVisibility(view2) & 8192) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f060369);
+            } else {
+                color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f060368);
+            }
+            view2.setBackgroundColor(color);
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, bundle) == null) {
+            this.mBaseContextAttached = true;
+            applyDayNight(false);
+            ensureWindow();
+            Object obj = this.mHost;
+            if (obj instanceof Activity) {
+                String str = null;
+                try {
+                    str = NavUtils.getParentActivityName((Activity) obj);
+                } catch (IllegalArgumentException unused) {
+                }
+                if (str != null) {
+                    ActionBar peekSupportActionBar = peekSupportActionBar();
+                    if (peekSupportActionBar == null) {
+                        this.mEnableDefaultActionBarUp = true;
+                    } else {
+                        peekSupportActionBar.setDefaultDisplayHomeAsUpEnabled(true);
+                    }
+                }
+                AppCompatDelegate.addActiveDelegate(this);
+            }
+            this.mCreated = true;
+        }
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void setContentView(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            ensureSubDecor();
+            ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
+            viewGroup.removeAllViews();
+            LayoutInflater.from(this.mContext).inflate(i, viewGroup);
+            this.mAppCompatWindowCallback.getWrapped().onContentChanged();
+        }
     }
 
     private boolean initializePanelMenu(PanelFeatureState panelFeatureState) {
@@ -1828,7 +3358,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     theme2.applyStyle(typedValue.resourceId, true);
                 }
                 if (theme2 != null) {
-                    androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, 0);
+                    ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
                     contextThemeWrapper.getTheme().setTo(theme2);
                     context = contextThemeWrapper;
                 }
@@ -1841,45 +3371,51 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeL.booleanValue;
     }
 
-    private void invalidatePanelMenu(int i) {
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public boolean requestWindowFeature(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65558, this, i) == null) {
-            this.mInvalidatePanelMenuFeatures = (1 << i) | this.mInvalidatePanelMenuFeatures;
-            if (this.mInvalidatePanelMenuPosted) {
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
+            int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i);
+            if (this.mWindowNoTitle && sanitizeWindowFeatureId == 108) {
+                return false;
             }
-            ViewCompat.postOnAnimation(this.mWindow.getDecorView(), this.mInvalidatePanelMenuRunnable);
-            this.mInvalidatePanelMenuPosted = true;
-        }
-    }
-
-    private boolean isActivityManifestHandlingUiMode() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
-            if (!this.mActivityHandlesUiModeChecked && (this.mHost instanceof Activity)) {
-                PackageManager packageManager = this.mContext.getPackageManager();
-                if (packageManager == null) {
-                    return false;
-                }
-                try {
-                    if (Build.VERSION.SDK_INT >= 29) {
-                        i = 269221888;
-                    } else {
-                        i = Build.VERSION.SDK_INT >= 24 ? 786432 : 0;
+            if (this.mHasActionBar && sanitizeWindowFeatureId == 1) {
+                this.mHasActionBar = false;
+            }
+            if (sanitizeWindowFeatureId != 1) {
+                if (sanitizeWindowFeatureId != 2) {
+                    if (sanitizeWindowFeatureId != 5) {
+                        if (sanitizeWindowFeatureId != 10) {
+                            if (sanitizeWindowFeatureId != 108) {
+                                if (sanitizeWindowFeatureId != 109) {
+                                    return this.mWindow.requestFeature(sanitizeWindowFeatureId);
+                                }
+                                throwFeatureRequestIfSubDecorInstalled();
+                                this.mOverlayActionBar = true;
+                                return true;
+                            }
+                            throwFeatureRequestIfSubDecorInstalled();
+                            this.mHasActionBar = true;
+                            return true;
+                        }
+                        throwFeatureRequestIfSubDecorInstalled();
+                        this.mOverlayActionMode = true;
+                        return true;
                     }
-                    ActivityInfo activityInfo = packageManager.getActivityInfo(new ComponentName(this.mContext, this.mHost.getClass()), i);
-                    this.mActivityHandlesUiMode = (activityInfo == null || (activityInfo.configChanges & 512) == 0) ? false : true;
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.d(AppCompatDelegate.TAG, "Exception while getting ActivityInfo", e);
-                    this.mActivityHandlesUiMode = false;
+                    throwFeatureRequestIfSubDecorInstalled();
+                    this.mFeatureIndeterminateProgress = true;
+                    return true;
                 }
+                throwFeatureRequestIfSubDecorInstalled();
+                this.mFeatureProgress = true;
+                return true;
             }
-            this.mActivityHandlesUiModeChecked = true;
-            return this.mActivityHandlesUiMode;
+            throwFeatureRequestIfSubDecorInstalled();
+            this.mWindowNoTitle = true;
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeI.booleanValue;
     }
 
     private boolean onKeyDownPanel(int i, KeyEvent keyEvent) {
@@ -1888,14 +3424,72 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65560, this, i, keyEvent)) == null) {
             if (keyEvent.getRepeatCount() == 0) {
                 PanelFeatureState panelState = getPanelState(i, true);
-                if (panelState.isOpen) {
-                    return false;
+                if (!panelState.isOpen) {
+                    return preparePanel(panelState, keyEvent);
                 }
-                return preparePanel(panelState, keyEvent);
+                return false;
             }
             return false;
         }
         return invokeIL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
+            ensureSubDecor();
+            ((ViewGroup) this.mSubDecor.findViewById(16908290)).addView(view2, layoutParams);
+            this.mAppCompatWindowCallback.getWrapped().onContentChanged();
+        }
+    }
+
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048611, this, i, keyEvent)) == null) {
+            boolean z = true;
+            if (i != 4) {
+                if (i == 82) {
+                    onKeyDownPanel(0, keyEvent);
+                    return true;
+                }
+            } else {
+                if ((keyEvent.getFlags() & 128) == 0) {
+                    z = false;
+                }
+                this.mLongPressBackDown = z;
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
+    public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+        InterceptResult invokeLL;
+        PanelFeatureState findMenuPanel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, menuBuilder, menuItem)) == null) {
+            Window.Callback windowCallback = getWindowCallback();
+            if (windowCallback != null && !this.mIsDestroyed && (findMenuPanel = findMenuPanel(menuBuilder.getRootMenu())) != null) {
+                return windowCallback.onMenuItemSelected(findMenuPanel.featureId, menuItem);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048628, this, view2, layoutParams) == null) {
+            ensureSubDecor();
+            ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
+            viewGroup.removeAllViews();
+            viewGroup.addView(view2, layoutParams);
+            this.mAppCompatWindowCallback.getWrapped().onContentChanged();
+        }
     }
 
     private boolean onKeyUpPanel(int i, KeyEvent keyEvent) {
@@ -1949,74 +3543,6 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeIL.booleanValue;
     }
 
-    private void openPanel(PanelFeatureState panelFeatureState, KeyEvent keyEvent) {
-        int i;
-        ViewGroup.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65562, this, panelFeatureState, keyEvent) == null) || panelFeatureState.isOpen || this.mIsDestroyed) {
-            return;
-        }
-        if (panelFeatureState.featureId == 0) {
-            if ((this.mContext.getResources().getConfiguration().screenLayout & 15) == 4) {
-                return;
-            }
-        }
-        Window.Callback windowCallback = getWindowCallback();
-        if (windowCallback != null && !windowCallback.onMenuOpened(panelFeatureState.featureId, panelFeatureState.menu)) {
-            closePanel(panelFeatureState, true);
-            return;
-        }
-        WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
-        if (windowManager != null && preparePanel(panelFeatureState, keyEvent)) {
-            if (panelFeatureState.decorView != null && !panelFeatureState.refreshDecorView) {
-                View view2 = panelFeatureState.createdPanelView;
-                if (view2 != null && (layoutParams = view2.getLayoutParams()) != null && layoutParams.width == -1) {
-                    i = -1;
-                    panelFeatureState.isHandled = false;
-                    WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams(i, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
-                    layoutParams2.gravity = panelFeatureState.gravity;
-                    layoutParams2.windowAnimations = panelFeatureState.windowAnimations;
-                    windowManager.addView(panelFeatureState.decorView, layoutParams2);
-                    panelFeatureState.isOpen = true;
-                }
-            } else {
-                ViewGroup viewGroup = panelFeatureState.decorView;
-                if (viewGroup == null) {
-                    if (!initializePanelDecor(panelFeatureState) || panelFeatureState.decorView == null) {
-                        return;
-                    }
-                } else if (panelFeatureState.refreshDecorView && viewGroup.getChildCount() > 0) {
-                    panelFeatureState.decorView.removeAllViews();
-                }
-                if (initializePanelContent(panelFeatureState) && panelFeatureState.hasPanelItems()) {
-                    ViewGroup.LayoutParams layoutParams3 = panelFeatureState.shownPanelView.getLayoutParams();
-                    if (layoutParams3 == null) {
-                        layoutParams3 = new ViewGroup.LayoutParams(-2, -2);
-                    }
-                    panelFeatureState.decorView.setBackgroundResource(panelFeatureState.background);
-                    ViewParent parent = panelFeatureState.shownPanelView.getParent();
-                    if (parent instanceof ViewGroup) {
-                        ((ViewGroup) parent).removeView(panelFeatureState.shownPanelView);
-                    }
-                    panelFeatureState.decorView.addView(panelFeatureState.shownPanelView, layoutParams3);
-                    if (!panelFeatureState.shownPanelView.hasFocus()) {
-                        panelFeatureState.shownPanelView.requestFocus();
-                    }
-                } else {
-                    panelFeatureState.refreshDecorView = true;
-                    return;
-                }
-            }
-            i = -2;
-            panelFeatureState.isHandled = false;
-            WindowManager.LayoutParams layoutParams22 = new WindowManager.LayoutParams(i, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
-            layoutParams22.gravity = panelFeatureState.gravity;
-            layoutParams22.windowAnimations = panelFeatureState.windowAnimations;
-            windowManager.addView(panelFeatureState.decorView, layoutParams22);
-            panelFeatureState.isOpen = true;
-        }
-    }
-
     private boolean performPanelShortcut(PanelFeatureState panelFeatureState, int i, KeyEvent keyEvent, int i2) {
         InterceptResult invokeCommon;
         MenuBuilder menuBuilder;
@@ -2037,79 +3563,6 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeCommon.booleanValue;
     }
 
-    private boolean preparePanel(PanelFeatureState panelFeatureState, KeyEvent keyEvent) {
-        InterceptResult invokeLL;
-        DecorContentParent decorContentParent;
-        DecorContentParent decorContentParent2;
-        DecorContentParent decorContentParent3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, this, panelFeatureState, keyEvent)) == null) {
-            if (this.mIsDestroyed) {
-                return false;
-            }
-            if (panelFeatureState.isPrepared) {
-                return true;
-            }
-            PanelFeatureState panelFeatureState2 = this.mPreparedPanel;
-            if (panelFeatureState2 != null && panelFeatureState2 != panelFeatureState) {
-                closePanel(panelFeatureState2, false);
-            }
-            Window.Callback windowCallback = getWindowCallback();
-            if (windowCallback != null) {
-                panelFeatureState.createdPanelView = windowCallback.onCreatePanelView(panelFeatureState.featureId);
-            }
-            int i = panelFeatureState.featureId;
-            boolean z = i == 0 || i == 108;
-            if (z && (decorContentParent3 = this.mDecorContentParent) != null) {
-                decorContentParent3.setMenuPrepared();
-            }
-            if (panelFeatureState.createdPanelView == null && (!z || !(peekSupportActionBar() instanceof ToolbarActionBar))) {
-                if (panelFeatureState.menu == null || panelFeatureState.refreshMenuContent) {
-                    if (panelFeatureState.menu == null && (!initializePanelMenu(panelFeatureState) || panelFeatureState.menu == null)) {
-                        return false;
-                    }
-                    if (z && this.mDecorContentParent != null) {
-                        if (this.mActionMenuPresenterCallback == null) {
-                            this.mActionMenuPresenterCallback = new ActionMenuPresenterCallback(this);
-                        }
-                        this.mDecorContentParent.setMenu(panelFeatureState.menu, this.mActionMenuPresenterCallback);
-                    }
-                    panelFeatureState.menu.stopDispatchingItemsChanged();
-                    if (!windowCallback.onCreatePanelMenu(panelFeatureState.featureId, panelFeatureState.menu)) {
-                        panelFeatureState.setMenu(null);
-                        if (z && (decorContentParent = this.mDecorContentParent) != null) {
-                            decorContentParent.setMenu(null, this.mActionMenuPresenterCallback);
-                        }
-                        return false;
-                    }
-                    panelFeatureState.refreshMenuContent = false;
-                }
-                panelFeatureState.menu.stopDispatchingItemsChanged();
-                Bundle bundle = panelFeatureState.frozenActionViewState;
-                if (bundle != null) {
-                    panelFeatureState.menu.restoreActionViewStates(bundle);
-                    panelFeatureState.frozenActionViewState = null;
-                }
-                if (!windowCallback.onPreparePanel(0, panelFeatureState.createdPanelView, panelFeatureState.menu)) {
-                    if (z && (decorContentParent2 = this.mDecorContentParent) != null) {
-                        decorContentParent2.setMenu(null, this.mActionMenuPresenterCallback);
-                    }
-                    panelFeatureState.menu.startDispatchingItemsChanged();
-                    return false;
-                }
-                boolean z2 = KeyCharacterMap.load(keyEvent != null ? keyEvent.getDeviceId() : -1).getKeyboardType() != 1;
-                panelFeatureState.qwertyMode = z2;
-                panelFeatureState.menu.setQwertyMode(z2);
-                panelFeatureState.menu.startDispatchingItemsChanged();
-            }
-            panelFeatureState.isPrepared = true;
-            panelFeatureState.isHandled = false;
-            this.mPreparedPanel = panelFeatureState;
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
     private void reopenMenu(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65565, this, z) == null) {
@@ -2118,25 +3571,25 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 Window.Callback windowCallback = getWindowCallback();
                 if (this.mDecorContentParent.isOverflowMenuShowing() && z) {
                     this.mDecorContentParent.hideOverflowMenu();
-                    if (this.mIsDestroyed) {
+                    if (!this.mIsDestroyed) {
+                        windowCallback.onPanelClosed(108, getPanelState(0, true).menu);
                         return;
                     }
-                    windowCallback.onPanelClosed(108, getPanelState(0, true).menu);
                     return;
-                } else if (windowCallback == null || this.mIsDestroyed) {
-                    return;
-                } else {
+                } else if (windowCallback != null && !this.mIsDestroyed) {
                     if (this.mInvalidatePanelMenuPosted && (this.mInvalidatePanelMenuFeatures & 1) != 0) {
                         this.mWindow.getDecorView().removeCallbacks(this.mInvalidatePanelMenuRunnable);
                         this.mInvalidatePanelMenuRunnable.run();
                     }
                     PanelFeatureState panelState = getPanelState(0, true);
                     MenuBuilder menuBuilder = panelState.menu;
-                    if (menuBuilder == null || panelState.refreshMenuContent || !windowCallback.onPreparePanel(0, panelState.createdPanelView, menuBuilder)) {
+                    if (menuBuilder != null && !panelState.refreshMenuContent && windowCallback.onPreparePanel(0, panelState.createdPanelView, menuBuilder)) {
+                        windowCallback.onMenuOpened(108, panelState.menu);
+                        this.mDecorContentParent.showOverflowMenu();
                         return;
                     }
-                    windowCallback.onMenuOpened(108, panelState.menu);
-                    this.mDecorContentParent.showOverflowMenu();
+                    return;
+                } else {
                     return;
                 }
             }
@@ -2147,65 +3600,58 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    private int sanitizeWindowFeatureId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65566, this, i)) == null) {
-            if (i == 8) {
-                Log.i(AppCompatDelegate.TAG, "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR id when requesting this feature.");
-                return 108;
-            } else if (i == 9) {
-                Log.i(AppCompatDelegate.TAG, "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR_OVERLAY id when requesting this feature.");
-                return 109;
-            } else {
-                return i;
-            }
-        }
-        return invokeI.intValue;
-    }
-
-    private boolean shouldInheritContext(ViewParent viewParent) {
+    @Override // androidx.appcompat.app.AppCompatDelegate
+    public Context attachBaseContext2(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, this, viewParent)) == null) {
-            if (viewParent == null) {
-                return false;
-            }
-            View decorView = this.mWindow.getDecorView();
-            while (viewParent != null) {
-                if (viewParent == decorView || !(viewParent instanceof View) || ViewCompat.isAttachedToWindow((View) viewParent)) {
-                    return false;
-                }
-                viewParent = viewParent.getParent();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    private void throwFeatureRequestIfSubDecorInstalled() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65568, this) == null) && this.mSubDecorInstalled) {
-            throw new AndroidRuntimeException("Window feature must be requested before adding content");
-        }
-    }
-
-    @Nullable
-    private AppCompatActivity tryUnwrapContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) {
-            for (Context context = this.mContext; context != null; context = ((ContextWrapper) context).getBaseContext()) {
-                if (context instanceof AppCompatActivity) {
-                    return (AppCompatActivity) context;
-                }
-                if (!(context instanceof ContextWrapper)) {
-                    break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            boolean z = true;
+            this.mBaseContextAttached = true;
+            int mapNightMode = mapNightMode(context, calculateNightMode());
+            Configuration configuration = null;
+            if (sCanApplyOverrideConfiguration && (context instanceof android.view.ContextThemeWrapper)) {
+                try {
+                    ContextThemeWrapperCompatApi17Impl.applyOverrideConfiguration((android.view.ContextThemeWrapper) context, createOverrideConfigurationForDayNight(context, mapNightMode, null));
+                    return context;
+                } catch (IllegalStateException unused) {
                 }
             }
-            return null;
+            if (context instanceof ContextThemeWrapper) {
+                try {
+                    ((ContextThemeWrapper) context).applyOverrideConfiguration(createOverrideConfigurationForDayNight(context, mapNightMode, null));
+                    return context;
+                } catch (IllegalStateException unused2) {
+                }
+            }
+            if (!sCanReturnDifferentContext) {
+                return super.attachBaseContext2(context);
+            }
+            try {
+                Configuration configuration2 = context.getPackageManager().getResourcesForApplication(context.getApplicationInfo()).getConfiguration();
+                Configuration configuration3 = context.getResources().getConfiguration();
+                if (!configuration2.equals(configuration3)) {
+                    configuration = generateConfigDelta(configuration2, configuration3);
+                }
+                Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(context, mapNightMode, configuration);
+                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f100227);
+                contextThemeWrapper.applyOverrideConfiguration(createOverrideConfigurationForDayNight);
+                boolean z2 = false;
+                try {
+                    if (context.getTheme() == null) {
+                        z = false;
+                    }
+                    z2 = z;
+                } catch (NullPointerException unused3) {
+                }
+                if (z2) {
+                    ResourcesCompat.ThemeCompat.rebase(contextThemeWrapper.getTheme());
+                }
+                return super.attachBaseContext2(contextThemeWrapper);
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new RuntimeException("Application failed to obtain resources from itself", e);
+            }
         }
-        return (AppCompatActivity) invokeV.objValue;
+        return (Context) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
@@ -2227,10 +3673,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if ((obj instanceof Activity) && !((Activity) obj).isChild()) {
                     ActivityCompat.recreate((Activity) this.mHost);
                     z2 = true;
-                    if (!z2 || i2 == i3) {
-                        z3 = z2;
-                    } else {
+                    if (z2 && i2 != i3) {
                         updateResourcesConfigurationForNightMode(i3, isActivityManifestHandlingUiMode, null);
+                    } else {
+                        z3 = z2;
                     }
                     if (z3) {
                         Object obj2 = this.mHost;
@@ -2252,7 +3698,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeCommon.booleanValue;
     }
 
-    private void updateResourcesConfigurationForNightMode(int i, boolean z, @Nullable Configuration configuration) {
+    private void updateResourcesConfigurationForNightMode(int i, boolean z, Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), configuration}) == null) {
             Resources resources = this.mContext.getResources();
@@ -2288,609 +3734,36 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    private void updateStatusGuardColor(View view2) {
-        int color;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65572, this, view2) == null) {
-            if ((ViewCompat.getWindowSystemUiVisibility(view2) & 8192) != 0) {
-                color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f060369);
-            } else {
-                color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f060368);
-            }
-            view2.setBackgroundColor(color);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
-            ensureSubDecor();
-            ((ViewGroup) this.mSubDecor.findViewById(16908290)).addView(view2, layoutParams);
-            this.mAppCompatWindowCallback.getWrapped().onContentChanged();
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public boolean applyDayNight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? applyDayNight(true) : invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    @NonNull
-    @CallSuper
-    public Context attachBaseContext2(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            this.mBaseContextAttached = true;
-            int mapNightMode = mapNightMode(context, calculateNightMode());
-            if (sCanApplyOverrideConfiguration && (context instanceof ContextThemeWrapper)) {
-                try {
-                    ContextThemeWrapperCompatApi17Impl.applyOverrideConfiguration((ContextThemeWrapper) context, createOverrideConfigurationForDayNight(context, mapNightMode, null));
-                    return context;
-                } catch (IllegalStateException unused) {
-                }
-            }
-            if (context instanceof androidx.appcompat.view.ContextThemeWrapper) {
-                try {
-                    ((androidx.appcompat.view.ContextThemeWrapper) context).applyOverrideConfiguration(createOverrideConfigurationForDayNight(context, mapNightMode, null));
-                    return context;
-                } catch (IllegalStateException unused2) {
-                }
-            }
-            if (!sCanReturnDifferentContext) {
-                return super.attachBaseContext2(context);
-            }
-            try {
-                Configuration configuration = context.getPackageManager().getResourcesForApplication(context.getApplicationInfo()).getConfiguration();
-                Configuration configuration2 = context.getResources().getConfiguration();
-                Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(context, mapNightMode, configuration.equals(configuration2) ? null : generateConfigDelta(configuration, configuration2));
-                androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, (int) R.style.obfuscated_res_0x7f100227);
-                contextThemeWrapper.applyOverrideConfiguration(createOverrideConfigurationForDayNight);
-                boolean z = false;
-                try {
-                    z = context.getTheme() != null;
-                } catch (NullPointerException unused3) {
-                }
-                if (z) {
-                    ResourcesCompat.ThemeCompat.rebase(contextThemeWrapper.getTheme());
-                }
-                return super.attachBaseContext2(contextThemeWrapper);
-            } catch (PackageManager.NameNotFoundException e) {
-                throw new RuntimeException("Application failed to obtain resources from itself", e);
-            }
-        }
-        return (Context) invokeL.objValue;
-    }
-
-    public void callOnPanelClosed(int i, PanelFeatureState panelFeatureState, Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, panelFeatureState, menu) == null) {
-            if (menu == null) {
-                if (panelFeatureState == null && i >= 0) {
-                    PanelFeatureState[] panelFeatureStateArr = this.mPanels;
-                    if (i < panelFeatureStateArr.length) {
-                        panelFeatureState = panelFeatureStateArr[i];
-                    }
-                }
-                if (panelFeatureState != null) {
-                    menu = panelFeatureState.menu;
-                }
-            }
-            if ((panelFeatureState == null || panelFeatureState.isOpen) && !this.mIsDestroyed) {
-                this.mAppCompatWindowCallback.getWrapped().onPanelClosed(i, menu);
-            }
-        }
-    }
-
-    public void checkCloseActionMenu(@NonNull MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, menuBuilder) == null) || this.mClosingActionMenu) {
-            return;
-        }
-        this.mClosingActionMenu = true;
-        this.mDecorContentParent.dismissPopups();
-        Window.Callback windowCallback = getWindowCallback();
-        if (windowCallback != null && !this.mIsDestroyed) {
-            windowCallback.onPanelClosed(108, menuBuilder);
-        }
-        this.mClosingActionMenu = false;
-    }
-
-    public void closePanel(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            closePanel(getPanelState(i, true), true);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public View createView(View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, view2, str, context, attributeSet)) == null) {
-            boolean z2 = false;
-            if (this.mAppCompatViewInflater == null) {
-                String string = this.mContext.obtainStyledAttributes(androidx.appcompat.R.styleable.AppCompatTheme).getString(114);
-                if (string == null) {
-                    this.mAppCompatViewInflater = new AppCompatViewInflater();
-                } else {
-                    try {
-                        this.mAppCompatViewInflater = (AppCompatViewInflater) Class.forName(string).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-                    } catch (Throwable th) {
-                        Log.i(AppCompatDelegate.TAG, "Failed to instantiate custom view inflater " + string + ". Falling back to default.", th);
-                        this.mAppCompatViewInflater = new AppCompatViewInflater();
-                    }
-                }
-            }
-            if (IS_PRE_LOLLIPOP) {
-                if (attributeSet instanceof XmlPullParser) {
-                    if (((XmlPullParser) attributeSet).getDepth() > 1) {
-                        z2 = true;
-                    }
-                } else {
-                    z2 = shouldInheritContext((ViewParent) view2);
-                }
-                z = z2;
-            } else {
-                z = false;
-            }
-            return this.mAppCompatViewInflater.createView(view2, str, context, attributeSet, z, IS_PRE_LOLLIPOP, true, VectorEnabledTintResources.shouldBeUsed());
-        }
-        return (View) invokeLLLL.objValue;
-    }
-
-    public void dismissPopups() {
-        MenuBuilder menuBuilder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            DecorContentParent decorContentParent = this.mDecorContentParent;
-            if (decorContentParent != null) {
-                decorContentParent.dismissPopups();
-            }
-            if (this.mActionModePopup != null) {
-                this.mWindow.getDecorView().removeCallbacks(this.mShowActionModePopup);
-                if (this.mActionModePopup.isShowing()) {
-                    try {
-                        this.mActionModePopup.dismiss();
-                    } catch (IllegalArgumentException unused) {
-                    }
-                }
-                this.mActionModePopup = null;
-            }
-            endOnGoingFadeAnimation();
-            PanelFeatureState panelState = getPanelState(0, false);
-            if (panelState == null || (menuBuilder = panelState.menu) == null) {
-                return;
-            }
-            menuBuilder.close();
-        }
-    }
-
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        View decorView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, keyEvent)) == null) {
-            Object obj = this.mHost;
-            if (((obj instanceof KeyEventDispatcher.Component) || (obj instanceof AppCompatDialog)) && (decorView = this.mWindow.getDecorView()) != null && KeyEventDispatcher.dispatchBeforeHierarchy(decorView, keyEvent)) {
-                return true;
-            }
-            if (keyEvent.getKeyCode() == 82 && this.mAppCompatWindowCallback.getWrapped().dispatchKeyEvent(keyEvent)) {
-                return true;
-            }
-            int keyCode = keyEvent.getKeyCode();
-            return keyEvent.getAction() == 0 ? onKeyDown(keyCode, keyEvent) : onKeyUp(keyCode, keyEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void doInvalidatePanelMenu(int i) {
-        PanelFeatureState panelState;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            PanelFeatureState panelState2 = getPanelState(i, true);
-            if (panelState2.menu != null) {
-                Bundle bundle = new Bundle();
-                panelState2.menu.saveActionViewStates(bundle);
-                if (bundle.size() > 0) {
-                    panelState2.frozenActionViewState = bundle;
-                }
-                panelState2.menu.stopDispatchingItemsChanged();
-                panelState2.menu.clear();
-            }
-            panelState2.refreshMenuContent = true;
-            panelState2.refreshDecorView = true;
-            if ((i != 108 && i != 0) || this.mDecorContentParent == null || (panelState = getPanelState(0, false)) == null) {
-                return;
-            }
-            panelState.isPrepared = false;
-            preparePanel(panelState, null);
-        }
-    }
-
-    public void endOnGoingFadeAnimation() {
-        ViewPropertyAnimatorCompat viewPropertyAnimatorCompat;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (viewPropertyAnimatorCompat = this.mFadeAnim) == null) {
-            return;
-        }
-        viewPropertyAnimatorCompat.cancel();
-    }
-
-    public PanelFeatureState findMenuPanel(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, menu)) == null) {
-            PanelFeatureState[] panelFeatureStateArr = this.mPanels;
-            int length = panelFeatureStateArr != null ? panelFeatureStateArr.length : 0;
-            for (int i = 0; i < length; i++) {
-                PanelFeatureState panelFeatureState = panelFeatureStateArr[i];
-                if (panelFeatureState != null && panelFeatureState.menu == menu) {
-                    return panelFeatureState;
-                }
-            }
-            return null;
-        }
-        return (PanelFeatureState) invokeL.objValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    @Nullable
-    public <T extends View> T findViewById(@IdRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            ensureSubDecor();
-            return (T) this.mWindow.findViewById(i);
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public final Context getActionBarThemedContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ActionBar supportActionBar = getSupportActionBar();
-            Context themedContext = supportActionBar != null ? supportActionBar.getThemedContext() : null;
-            return themedContext == null ? this.mContext : themedContext;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @NonNull
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    @VisibleForTesting
-    public final AutoNightModeManager getAutoTimeNightModeManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getAutoTimeNightModeManager(this.mContext) : (AutoNightModeManager) invokeV.objValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public final ActionBarDrawerToggle.Delegate getDrawerToggleDelegate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new ActionBarDrawableToggleImpl(this) : (ActionBarDrawerToggle.Delegate) invokeV.objValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public int getLocalNightMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mLocalNightMode : invokeV.intValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public MenuInflater getMenuInflater() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.mMenuInflater == null) {
-                initWindowDecorActionBar();
-                ActionBar actionBar = this.mActionBar;
-                this.mMenuInflater = new SupportMenuInflater(actionBar != null ? actionBar.getThemedContext() : this.mContext);
-            }
-            return this.mMenuInflater;
-        }
-        return (MenuInflater) invokeV.objValue;
-    }
-
-    public PanelFeatureState getPanelState(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            PanelFeatureState[] panelFeatureStateArr = this.mPanels;
-            if (panelFeatureStateArr == null || panelFeatureStateArr.length <= i) {
-                PanelFeatureState[] panelFeatureStateArr2 = new PanelFeatureState[i + 1];
-                if (panelFeatureStateArr != null) {
-                    System.arraycopy(panelFeatureStateArr, 0, panelFeatureStateArr2, 0, panelFeatureStateArr.length);
-                }
-                this.mPanels = panelFeatureStateArr2;
-                panelFeatureStateArr = panelFeatureStateArr2;
-            }
-            PanelFeatureState panelFeatureState = panelFeatureStateArr[i];
-            if (panelFeatureState == null) {
-                PanelFeatureState panelFeatureState2 = new PanelFeatureState(i);
-                panelFeatureStateArr[i] = panelFeatureState2;
-                return panelFeatureState2;
-            }
-            return panelFeatureState;
-        }
-        return (PanelFeatureState) invokeCommon.objValue;
-    }
-
-    public ViewGroup getSubDecor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mSubDecor : (ViewGroup) invokeV.objValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public ActionBar getSupportActionBar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            initWindowDecorActionBar();
-            return this.mActionBar;
-        }
-        return (ActionBar) invokeV.objValue;
-    }
-
-    public final CharSequence getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            Object obj = this.mHost;
-            if (obj instanceof Activity) {
-                return ((Activity) obj).getTitle();
-            }
-            return this.mTitle;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public final Window.Callback getWindowCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mWindow.getCallback() : (Window.Callback) invokeV.objValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public boolean hasWindowFeature(int i) {
-        InterceptResult invokeI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
-            int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i);
-            if (sanitizeWindowFeatureId == 1) {
-                z = this.mWindowNoTitle;
-            } else if (sanitizeWindowFeatureId == 2) {
-                z = this.mFeatureProgress;
-            } else if (sanitizeWindowFeatureId == 5) {
-                z = this.mFeatureIndeterminateProgress;
-            } else if (sanitizeWindowFeatureId == 10) {
-                z = this.mOverlayActionMode;
-            } else if (sanitizeWindowFeatureId != 108) {
-                z = sanitizeWindowFeatureId != 109 ? false : this.mOverlayActionBar;
-            } else {
-                z = this.mHasActionBar;
-            }
-            return z || this.mWindow.hasFeature(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void installViewFactory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            LayoutInflater from = LayoutInflater.from(this.mContext);
-            if (from.getFactory() == null) {
-                LayoutInflaterCompat.setFactory2(from, this);
-            } else if (from.getFactory2() instanceof AppCompatDelegateImpl) {
-            } else {
-                Log.i(AppCompatDelegate.TAG, "The Activity's LayoutInflater already has a Factory installed so we can not install AppCompat's");
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void invalidateOptionsMenu() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            ActionBar supportActionBar = getSupportActionBar();
-            if (supportActionBar == null || !supportActionBar.invalidateOptionsMenu()) {
-                invalidatePanelMenu(0);
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public boolean isHandleNativeActionModesEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mHandleNativeActionModes : invokeV.booleanValue;
-    }
-
-    public int mapNightMode(@NonNull Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, context, i)) == null) {
-            if (i != -100) {
-                if (i != -1) {
-                    if (i == 0) {
-                        if (Build.VERSION.SDK_INT < 23 || ((UiModeManager) context.getApplicationContext().getSystemService(UiModeManager.class)).getNightMode() != 0) {
-                            return getAutoTimeNightModeManager(context).getApplyableNightMode();
-                        }
-                        return -1;
-                    } else if (i != 1 && i != 2) {
-                        if (i == 3) {
-                            return getAutoBatteryNightModeManager(context).getApplyableNightMode();
-                        }
-                        throw new IllegalStateException("Unknown value set for night mode. Please use one of the MODE_NIGHT values from AppCompatDelegate.");
-                    }
-                }
-                return i;
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public boolean onBackPressed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            ActionMode actionMode = this.mActionMode;
-            if (actionMode != null) {
-                actionMode.finish();
-                return true;
-            }
-            ActionBar supportActionBar = getSupportActionBar();
-            return supportActionBar != null && supportActionBar.collapseActionView();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void onConfigurationChanged(Configuration configuration) {
-        ActionBar supportActionBar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, configuration) == null) {
-            if (this.mHasActionBar && this.mSubDecorInstalled && (supportActionBar = getSupportActionBar()) != null) {
-                supportActionBar.onConfigurationChanged(configuration);
-            }
-            AppCompatDrawableManager.get().onConfigurationChanged(this.mContext);
-            applyDayNight(false);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, bundle) == null) {
-            this.mBaseContextAttached = true;
-            applyDayNight(false);
-            ensureWindow();
-            Object obj = this.mHost;
-            if (obj instanceof Activity) {
-                String str = null;
-                try {
-                    str = NavUtils.getParentActivityName((Activity) obj);
-                } catch (IllegalArgumentException unused) {
-                }
-                if (str != null) {
-                    ActionBar peekSupportActionBar = peekSupportActionBar();
-                    if (peekSupportActionBar == null) {
-                        this.mEnableDefaultActionBarUp = true;
-                    } else {
-                        peekSupportActionBar.setDefaultDisplayHomeAsUpEnabled(true);
-                    }
-                }
-                AppCompatDelegate.addActiveDelegate(this);
-            }
-            this.mCreated = true;
-        }
-    }
-
     @Override // android.view.LayoutInflater.Factory2
     public final View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048608, this, view2, str, context, attributeSet)) == null) ? createView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048608, this, view2, str, context, attributeSet)) == null) {
+            return createView(view2, str, context, attributeSet);
+        }
+        return (View) invokeLLLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x005f  */
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onDestroy() {
-        ActionBar actionBar;
+    @Override // android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            if (this.mHost instanceof Activity) {
-                AppCompatDelegate.removeActivityDelegate(this);
-            }
-            if (this.mInvalidatePanelMenuPosted) {
-                this.mWindow.getDecorView().removeCallbacks(this.mInvalidatePanelMenuRunnable);
-            }
-            this.mStarted = false;
-            this.mIsDestroyed = true;
-            if (this.mLocalNightMode != -100) {
-                Object obj = this.mHost;
-                if ((obj instanceof Activity) && ((Activity) obj).isChangingConfigurations()) {
-                    sLocalNightModes.put(this.mHost.getClass().getName(), Integer.valueOf(this.mLocalNightMode));
-                    actionBar = this.mActionBar;
-                    if (actionBar != null) {
-                        actionBar.onDestroy();
-                    }
-                    cleanupAutoManagers();
-                }
-            }
-            sLocalNightModes.remove(this.mHost.getClass().getName());
-            actionBar = this.mActionBar;
-            if (actionBar != null) {
-            }
-            cleanupAutoManagers();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048609, this, str, context, attributeSet)) == null) {
+            return onCreateView(null, str, context, attributeSet);
         }
-    }
-
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048611, this, i, keyEvent)) == null) {
-            if (i == 4) {
-                this.mLongPressBackDown = (keyEvent.getFlags() & 128) != 0;
-            } else if (i == 82) {
-                onKeyDownPanel(0, keyEvent);
-                return true;
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048612, this, i, keyEvent)) == null) {
-            ActionBar supportActionBar = getSupportActionBar();
-            if (supportActionBar == null || !supportActionBar.onKeyShortcut(i, keyEvent)) {
-                PanelFeatureState panelFeatureState = this.mPreparedPanel;
-                if (panelFeatureState != null && performPanelShortcut(panelFeatureState, keyEvent.getKeyCode(), keyEvent, 1)) {
-                    PanelFeatureState panelFeatureState2 = this.mPreparedPanel;
-                    if (panelFeatureState2 != null) {
-                        panelFeatureState2.isHandled = true;
-                    }
-                    return true;
-                }
-                if (this.mPreparedPanel == null) {
-                    PanelFeatureState panelState = getPanelState(0, true);
-                    preparePanel(panelState, keyEvent);
-                    boolean performPanelShortcut = performPanelShortcut(panelState, keyEvent.getKeyCode(), keyEvent, 1);
-                    panelState.isPrepared = false;
-                    if (performPanelShortcut) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeIL.booleanValue;
+        return (View) invokeLLL.objValue;
     }
 
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i, keyEvent)) == null) {
-            if (i == 4) {
+            if (i != 4) {
+                if (i == 82) {
+                    onKeyUpPanel(0, keyEvent);
+                    return true;
+                }
+            } else {
                 boolean z = this.mLongPressBackDown;
                 this.mLongPressBackDown = false;
                 PanelFeatureState panelState = getPanelState(0, false);
@@ -2902,284 +3775,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 } else if (onBackPressed()) {
                     return true;
                 }
-            } else if (i == 82) {
-                onKeyUpPanel(0, keyEvent);
-                return true;
             }
             return false;
         }
         return invokeIL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-    public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
-        InterceptResult invokeLL;
-        PanelFeatureState findMenuPanel;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, menuBuilder, menuItem)) == null) {
-            Window.Callback windowCallback = getWindowCallback();
-            if (windowCallback == null || this.mIsDestroyed || (findMenuPanel = findMenuPanel(menuBuilder.getRootMenu())) == null) {
-                return false;
-            }
-            return windowCallback.onMenuItemSelected(findMenuPanel.featureId, menuItem);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-    public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, menuBuilder) == null) {
-            reopenMenu(true);
-        }
-    }
-
-    public void onMenuOpened(int i) {
-        ActionBar supportActionBar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048616, this, i) == null) && i == 108 && (supportActionBar = getSupportActionBar()) != null) {
-            supportActionBar.dispatchMenuVisibilityChanged(true);
-        }
-    }
-
-    public void onPanelClosed(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
-            if (i == 108) {
-                ActionBar supportActionBar = getSupportActionBar();
-                if (supportActionBar != null) {
-                    supportActionBar.dispatchMenuVisibilityChanged(false);
-                }
-            } else if (i == 0) {
-                PanelFeatureState panelState = getPanelState(i, true);
-                if (panelState.isOpen) {
-                    closePanel(panelState, false);
-                }
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void onPostCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, bundle) == null) {
-            ensureSubDecor();
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void onPostResume() {
-        ActionBar supportActionBar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048619, this) == null) || (supportActionBar = getSupportActionBar()) == null) {
-            return;
-        }
-        supportActionBar.setShowHideAnimationEnabled(true);
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, bundle) == null) {
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            this.mStarted = true;
-            applyDayNight();
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            this.mStarted = false;
-            ActionBar supportActionBar = getSupportActionBar();
-            if (supportActionBar != null) {
-                supportActionBar.setShowHideAnimationEnabled(false);
-            }
-        }
-    }
-
-    public void onSubDecorInstalled(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, viewGroup) == null) {
-        }
-    }
-
-    public final ActionBar peekSupportActionBar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.mActionBar : (ActionBar) invokeV.objValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public boolean requestWindowFeature(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
-            int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i);
-            if (this.mWindowNoTitle && sanitizeWindowFeatureId == 108) {
-                return false;
-            }
-            if (this.mHasActionBar && sanitizeWindowFeatureId == 1) {
-                this.mHasActionBar = false;
-            }
-            if (sanitizeWindowFeatureId == 1) {
-                throwFeatureRequestIfSubDecorInstalled();
-                this.mWindowNoTitle = true;
-                return true;
-            } else if (sanitizeWindowFeatureId == 2) {
-                throwFeatureRequestIfSubDecorInstalled();
-                this.mFeatureProgress = true;
-                return true;
-            } else if (sanitizeWindowFeatureId == 5) {
-                throwFeatureRequestIfSubDecorInstalled();
-                this.mFeatureIndeterminateProgress = true;
-                return true;
-            } else if (sanitizeWindowFeatureId == 10) {
-                throwFeatureRequestIfSubDecorInstalled();
-                this.mOverlayActionMode = true;
-                return true;
-            } else if (sanitizeWindowFeatureId == 108) {
-                throwFeatureRequestIfSubDecorInstalled();
-                this.mHasActionBar = true;
-                return true;
-            } else if (sanitizeWindowFeatureId != 109) {
-                return this.mWindow.requestFeature(sanitizeWindowFeatureId);
-            } else {
-                throwFeatureRequestIfSubDecorInstalled();
-                this.mOverlayActionBar = true;
-                return true;
-            }
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setContentView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, view2) == null) {
-            ensureSubDecor();
-            ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
-            viewGroup.removeAllViews();
-            viewGroup.addView(view2);
-            this.mAppCompatWindowCallback.getWrapped().onContentChanged();
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setHandleNativeActionModesEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
-            this.mHandleNativeActionModes = z;
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    @RequiresApi(17)
-    public void setLocalNightMode(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048630, this, i) == null) || this.mLocalNightMode == i) {
-            return;
-        }
-        this.mLocalNightMode = i;
-        if (this.mBaseContextAttached) {
-            applyDayNight();
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setSupportActionBar(Toolbar toolbar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048631, this, toolbar) == null) && (this.mHost instanceof Activity)) {
-            ActionBar supportActionBar = getSupportActionBar();
-            if (!(supportActionBar instanceof WindowDecorActionBar)) {
-                this.mMenuInflater = null;
-                if (supportActionBar != null) {
-                    supportActionBar.onDestroy();
-                }
-                if (toolbar != null) {
-                    ToolbarActionBar toolbarActionBar = new ToolbarActionBar(toolbar, getTitle(), this.mAppCompatWindowCallback);
-                    this.mActionBar = toolbarActionBar;
-                    this.mWindow.setCallback(toolbarActionBar.getWrappedWindowCallback());
-                } else {
-                    this.mActionBar = null;
-                    this.mWindow.setCallback(this.mAppCompatWindowCallback);
-                }
-                invalidateOptionsMenu();
-                return;
-            }
-            throw new IllegalStateException("This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_SUPPORT_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.");
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setTheme(@StyleRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
-            this.mThemeResId = i;
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public final void setTitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, charSequence) == null) {
-            this.mTitle = charSequence;
-            DecorContentParent decorContentParent = this.mDecorContentParent;
-            if (decorContentParent != null) {
-                decorContentParent.setWindowTitle(charSequence);
-            } else if (peekSupportActionBar() != null) {
-                peekSupportActionBar().setWindowTitle(charSequence);
-            } else {
-                TextView textView = this.mTitleView;
-                if (textView != null) {
-                    textView.setText(charSequence);
-                }
-            }
-        }
-    }
-
-    public final boolean shouldAnimateActionModeView() {
-        InterceptResult invokeV;
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.mSubDecorInstalled && (viewGroup = this.mSubDecor) != null && ViewCompat.isLaidOut(viewGroup) : invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public ActionMode startSupportActionMode(@NonNull ActionMode.Callback callback) {
-        InterceptResult invokeL;
-        AppCompatCallback appCompatCallback;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, callback)) == null) {
-            if (callback != null) {
-                ActionMode actionMode = this.mActionMode;
-                if (actionMode != null) {
-                    actionMode.finish();
-                }
-                ActionModeCallbackWrapperV9 actionModeCallbackWrapperV9 = new ActionModeCallbackWrapperV9(this, callback);
-                ActionBar supportActionBar = getSupportActionBar();
-                if (supportActionBar != null) {
-                    ActionMode startActionMode = supportActionBar.startActionMode(actionModeCallbackWrapperV9);
-                    this.mActionMode = startActionMode;
-                    if (startActionMode != null && (appCompatCallback = this.mAppCompatCallback) != null) {
-                        appCompatCallback.onSupportActionModeStarted(startActionMode);
-                    }
-                }
-                if (this.mActionMode == null) {
-                    this.mActionMode = startSupportActionModeFromWindow(actionModeCallbackWrapperV9);
-                }
-                return this.mActionMode;
-            }
-            throw new IllegalArgumentException("ActionMode callback can not be null.");
-        }
-        return (ActionMode) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x0029  */
@@ -3187,16 +3786,16 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ActionMode startSupportActionModeFromWindow(@NonNull ActionMode.Callback callback) {
+    public androidx.appcompat.view.ActionMode startSupportActionModeFromWindow(ActionMode.Callback callback) {
         InterceptResult invokeL;
-        ActionMode actionMode;
+        androidx.appcompat.view.ActionMode actionMode;
         Context context;
-        ActionMode actionMode2;
+        androidx.appcompat.view.ActionMode actionMode2;
         AppCompatCallback appCompatCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, callback)) == null) {
             endOnGoingFadeAnimation();
-            ActionMode actionMode3 = this.mActionMode;
+            androidx.appcompat.view.ActionMode actionMode3 = this.mActionMode;
             if (actionMode3 != null) {
                 actionMode3.finish();
             }
@@ -3212,6 +3811,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (actionMode == null) {
                     this.mActionMode = actionMode;
                 } else {
+                    boolean z = true;
                     if (this.mActionModeView == null) {
                         if (this.mIsFloating) {
                             TypedValue typedValue = new TypedValue();
@@ -3221,7 +3821,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                 Resources.Theme newTheme = this.mContext.getResources().newTheme();
                                 newTheme.setTo(theme);
                                 newTheme.applyStyle(typedValue.resourceId, true);
-                                context = new androidx.appcompat.view.ContextThemeWrapper(this.mContext, 0);
+                                context = new ContextThemeWrapper(this.mContext, 0);
                                 context.getTheme().setTo(newTheme);
                             } else {
                                 context = this.mContext;
@@ -3328,7 +3928,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     if (this.mActionModeView != null) {
                         endOnGoingFadeAnimation();
                         this.mActionModeView.killMode();
-                        StandaloneActionMode standaloneActionMode = new StandaloneActionMode(this.mActionModeView.getContext(), this.mActionModeView, callback, this.mActionModePopup == null);
+                        Context context2 = this.mActionModeView.getContext();
+                        ActionBarContextView actionBarContextView = this.mActionModeView;
+                        if (this.mActionModePopup != null) {
+                            z = false;
+                        }
+                        StandaloneActionMode standaloneActionMode = new StandaloneActionMode(context2, actionBarContextView, callback, z);
                         if (callback.onCreateActionMode(standaloneActionMode, standaloneActionMode.getMenu())) {
                             standaloneActionMode.invalidate();
                             this.mActionModeView.initForMode(standaloneActionMode);
@@ -3413,26 +4018,30 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
             return this.mActionMode;
         }
-        return (ActionMode) invokeL.objValue;
+        return (androidx.appcompat.view.ActionMode) invokeL.objValue;
     }
 
-    public final int updateStatusGuard(@Nullable WindowInsetsCompat windowInsetsCompat, @Nullable Rect rect) {
+    public final int updateStatusGuard(WindowInsetsCompat windowInsetsCompat, Rect rect) {
         InterceptResult invokeLL;
         int i;
         boolean z;
+        int systemWindowInsetLeft;
+        int systemWindowInsetRight;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048637, this, windowInsetsCompat, rect)) == null) {
+            int i2 = 0;
             if (windowInsetsCompat != null) {
                 i = windowInsetsCompat.getSystemWindowInsetTop();
+            } else if (rect != null) {
+                i = rect.top;
             } else {
-                i = rect != null ? rect.top : 0;
+                i = 0;
             }
             ActionBarContextView actionBarContextView = this.mActionModeView;
-            if (actionBarContextView == null || !(actionBarContextView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-                z = false;
-            } else {
+            if (actionBarContextView != null && (actionBarContextView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mActionModeView.getLayoutParams();
+                boolean z3 = true;
                 if (this.mActionModeView.isShown()) {
                     if (this.mTempRect1 == null) {
                         this.mTempRect1 = new Rect();
@@ -3446,21 +4055,29 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         rect2.set(windowInsetsCompat.getSystemWindowInsetLeft(), windowInsetsCompat.getSystemWindowInsetTop(), windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom());
                     }
                     ViewUtils.computeFitSystemWindows(this.mSubDecor, rect2, rect3);
-                    int i2 = rect2.top;
-                    int i3 = rect2.left;
-                    int i4 = rect2.right;
+                    int i3 = rect2.top;
+                    int i4 = rect2.left;
+                    int i5 = rect2.right;
                     WindowInsetsCompat rootWindowInsets = ViewCompat.getRootWindowInsets(this.mSubDecor);
-                    int systemWindowInsetLeft = rootWindowInsets == null ? 0 : rootWindowInsets.getSystemWindowInsetLeft();
-                    int systemWindowInsetRight = rootWindowInsets == null ? 0 : rootWindowInsets.getSystemWindowInsetRight();
-                    if (marginLayoutParams.topMargin == i2 && marginLayoutParams.leftMargin == i3 && marginLayoutParams.rightMargin == i4) {
+                    if (rootWindowInsets == null) {
+                        systemWindowInsetLeft = 0;
+                    } else {
+                        systemWindowInsetLeft = rootWindowInsets.getSystemWindowInsetLeft();
+                    }
+                    if (rootWindowInsets == null) {
+                        systemWindowInsetRight = 0;
+                    } else {
+                        systemWindowInsetRight = rootWindowInsets.getSystemWindowInsetRight();
+                    }
+                    if (marginLayoutParams.topMargin == i3 && marginLayoutParams.leftMargin == i4 && marginLayoutParams.rightMargin == i5) {
                         z2 = false;
                     } else {
-                        marginLayoutParams.topMargin = i2;
-                        marginLayoutParams.leftMargin = i3;
-                        marginLayoutParams.rightMargin = i4;
+                        marginLayoutParams.topMargin = i3;
+                        marginLayoutParams.leftMargin = i4;
+                        marginLayoutParams.rightMargin = i5;
                         z2 = true;
                     }
-                    if (i2 > 0 && this.mStatusGuard == null) {
+                    if (i3 > 0 && this.mStatusGuard == null) {
                         View view2 = new View(this.mContext);
                         this.mStatusGuard = view2;
                         view2.setVisibility(8);
@@ -3480,435 +4097,39 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                             }
                         }
                     }
-                    r5 = this.mStatusGuard != null;
-                    if (r5 && this.mStatusGuard.getVisibility() != 0) {
+                    if (this.mStatusGuard == null) {
+                        z3 = false;
+                    }
+                    if (z3 && this.mStatusGuard.getVisibility() != 0) {
                         updateStatusGuardColor(this.mStatusGuard);
                     }
-                    if (!this.mOverlayActionMode && r5) {
+                    if (!this.mOverlayActionMode && z3) {
                         i = 0;
                     }
-                    z = r5;
-                    r5 = z2;
+                    z = z3;
+                    z3 = z2;
                 } else if (marginLayoutParams.topMargin != 0) {
                     marginLayoutParams.topMargin = 0;
                     z = false;
                 } else {
                     z = false;
-                    r5 = false;
+                    z3 = false;
                 }
-                if (r5) {
+                if (z3) {
                     this.mActionModeView.setLayoutParams(marginLayoutParams);
                 }
+            } else {
+                z = false;
             }
             View view4 = this.mStatusGuard;
             if (view4 != null) {
-                view4.setVisibility(z ? 0 : 8);
+                if (!z) {
+                    i2 = 8;
+                }
+                view4.setVisibility(i2);
             }
             return i;
         }
         return invokeLL.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatDelegateImpl(Dialog dialog, AppCompatCallback appCompatCallback) {
-        this(dialog.getContext(), dialog.getWindow(), appCompatCallback, dialog);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dialog, appCompatCallback};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private boolean applyDayNight(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, this, z)) == null) {
-            if (this.mIsDestroyed) {
-                return false;
-            }
-            int calculateNightMode = calculateNightMode();
-            boolean updateForNightMode = updateForNightMode(mapNightMode(this.mContext, calculateNightMode), z);
-            if (calculateNightMode == 0) {
-                getAutoTimeNightModeManager(this.mContext).setup();
-            } else {
-                AutoNightModeManager autoNightModeManager = this.mAutoTimeNightModeManager;
-                if (autoNightModeManager != null) {
-                    autoNightModeManager.cleanup();
-                }
-            }
-            if (calculateNightMode == 3) {
-                getAutoBatteryNightModeManager(this.mContext).setup();
-            } else {
-                AutoNightModeManager autoNightModeManager2 = this.mAutoBatteryNightModeManager;
-                if (autoNightModeManager2 != null) {
-                    autoNightModeManager2.cleanup();
-                }
-            }
-            return updateForNightMode;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    private AutoNightModeManager getAutoTimeNightModeManager(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, context)) == null) {
-            if (this.mAutoTimeNightModeManager == null) {
-                this.mAutoTimeNightModeManager = new AutoTimeNightModeManager(this, TwilightManager.getInstance(context));
-            }
-            return this.mAutoTimeNightModeManager;
-        }
-        return (AutoNightModeManager) invokeL.objValue;
-    }
-
-    public void closePanel(PanelFeatureState panelFeatureState, boolean z) {
-        ViewGroup viewGroup;
-        DecorContentParent decorContentParent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, panelFeatureState, z) == null) {
-            if (z && panelFeatureState.featureId == 0 && (decorContentParent = this.mDecorContentParent) != null && decorContentParent.isOverflowMenuShowing()) {
-                checkCloseActionMenu(panelFeatureState.menu);
-                return;
-            }
-            WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
-            if (windowManager != null && panelFeatureState.isOpen && (viewGroup = panelFeatureState.decorView) != null) {
-                windowManager.removeView(viewGroup);
-                if (z) {
-                    callOnPanelClosed(panelFeatureState.featureId, panelFeatureState, null);
-                }
-            }
-            panelFeatureState.isPrepared = false;
-            panelFeatureState.isHandled = false;
-            panelFeatureState.isOpen = false;
-            panelFeatureState.shownPanelView = null;
-            panelFeatureState.refreshDecorView = true;
-            if (this.mPreparedPanel == panelFeatureState) {
-                this.mPreparedPanel = null;
-            }
-        }
-    }
-
-    @Override // android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048609, this, str, context, attributeSet)) == null) ? onCreateView(null, str, context, attributeSet) : (View) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatDelegateImpl(Context context, Window window, AppCompatCallback appCompatCallback) {
-        this(context, window, appCompatCallback, context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, window, appCompatCallback};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class AppCompatWindowCallback extends WindowCallbackWrapper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AppCompatDelegateImpl this$0;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AppCompatWindowCallback(AppCompatDelegateImpl appCompatDelegateImpl, Window.Callback callback) {
-            super(callback);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {appCompatDelegateImpl, callback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Window.Callback) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = appCompatDelegateImpl;
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keyEvent)) == null) ? this.this$0.dispatchKeyEvent(keyEvent) || super.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) ? super.dispatchKeyShortcutEvent(keyEvent) || this.this$0.onKeyShortcut(keyEvent.getKeyCode(), keyEvent) : invokeL.booleanValue;
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public void onContentChanged() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onCreatePanelMenu(int i, Menu menu) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, menu)) == null) {
-                if (i != 0 || (menu instanceof MenuBuilder)) {
-                    return super.onCreatePanelMenu(i, menu);
-                }
-                return false;
-            }
-            return invokeIL.booleanValue;
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onMenuOpened(int i, Menu menu) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, menu)) == null) {
-                super.onMenuOpened(i, menu);
-                this.this$0.onMenuOpened(i);
-                return true;
-            }
-            return invokeIL.booleanValue;
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public void onPanelClosed(int i, Menu menu) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048581, this, i, menu) == null) {
-                super.onPanelClosed(i, menu);
-                this.this$0.onPanelClosed(i);
-            }
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onPreparePanel(int i, View view2, Menu menu) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, menu)) == null) {
-                MenuBuilder menuBuilder = menu instanceof MenuBuilder ? (MenuBuilder) menu : null;
-                if (i == 0 && menuBuilder == null) {
-                    return false;
-                }
-                if (menuBuilder != null) {
-                    menuBuilder.setOverrideVisibleItems(true);
-                }
-                boolean onPreparePanel = super.onPreparePanel(i, view2, menu);
-                if (menuBuilder != null) {
-                    menuBuilder.setOverrideVisibleItems(false);
-                }
-                return onPreparePanel;
-            }
-            return invokeILL.booleanValue;
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        @RequiresApi(24)
-        public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
-            MenuBuilder menuBuilder;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048583, this, list, menu, i) == null) {
-                PanelFeatureState panelState = this.this$0.getPanelState(0, true);
-                if (panelState != null && (menuBuilder = panelState.menu) != null) {
-                    super.onProvideKeyboardShortcuts(list, menuBuilder, i);
-                } else {
-                    super.onProvideKeyboardShortcuts(list, menu, i);
-                }
-            }
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, callback)) == null) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    return null;
-                }
-                if (this.this$0.isHandleNativeActionModesEnabled()) {
-                    return startAsSupportActionMode(callback);
-                }
-                return super.onWindowStartingActionMode(callback);
-            }
-            return (android.view.ActionMode) invokeL.objValue;
-        }
-
-        public final android.view.ActionMode startAsSupportActionMode(ActionMode.Callback callback) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, callback)) == null) {
-                SupportActionModeWrapper.CallbackWrapper callbackWrapper = new SupportActionModeWrapper.CallbackWrapper(this.this$0.mContext, callback);
-                androidx.appcompat.view.ActionMode startSupportActionMode = this.this$0.startSupportActionMode(callbackWrapper);
-                if (startSupportActionMode != null) {
-                    return callbackWrapper.getActionModeWrapper(startSupportActionMode);
-                }
-                return null;
-            }
-            return (android.view.ActionMode) invokeL.objValue;
-        }
-
-        @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        @RequiresApi(23)
-        public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, callback, i)) == null) {
-                if (this.this$0.isHandleNativeActionModesEnabled() && i == 0) {
-                    return startAsSupportActionMode(callback);
-                }
-                return super.onWindowStartingActionMode(callback, i);
-            }
-            return (android.view.ActionMode) invokeLI.objValue;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatDelegateImpl(Context context, Activity activity, AppCompatCallback appCompatCallback) {
-        this(context, null, appCompatCallback, activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, activity, appCompatCallback};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public AppCompatDelegateImpl(Context context, Window window, AppCompatCallback appCompatCallback, Object obj) {
-        Integer num;
-        AppCompatActivity tryUnwrapContext;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, window, appCompatCallback, obj};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        this.mFadeAnim = null;
-        this.mHandleNativeActionModes = true;
-        this.mLocalNightMode = -100;
-        this.mInvalidatePanelMenuRunnable = new Runnable(this) { // from class: androidx.appcompat.app.AppCompatDelegateImpl.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AppCompatDelegateImpl this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    AppCompatDelegateImpl appCompatDelegateImpl = this.this$0;
-                    if ((appCompatDelegateImpl.mInvalidatePanelMenuFeatures & 1) != 0) {
-                        appCompatDelegateImpl.doInvalidatePanelMenu(0);
-                    }
-                    AppCompatDelegateImpl appCompatDelegateImpl2 = this.this$0;
-                    if ((appCompatDelegateImpl2.mInvalidatePanelMenuFeatures & 4096) != 0) {
-                        appCompatDelegateImpl2.doInvalidatePanelMenu(108);
-                    }
-                    AppCompatDelegateImpl appCompatDelegateImpl3 = this.this$0;
-                    appCompatDelegateImpl3.mInvalidatePanelMenuPosted = false;
-                    appCompatDelegateImpl3.mInvalidatePanelMenuFeatures = 0;
-                }
-            }
-        };
-        this.mContext = context;
-        this.mAppCompatCallback = appCompatCallback;
-        this.mHost = obj;
-        if (this.mLocalNightMode == -100 && (obj instanceof Dialog) && (tryUnwrapContext = tryUnwrapContext()) != null) {
-            this.mLocalNightMode = tryUnwrapContext.getDelegate().getLocalNightMode();
-        }
-        if (this.mLocalNightMode == -100 && (num = sLocalNightModes.get(this.mHost.getClass().getName())) != null) {
-            this.mLocalNightMode = num.intValue();
-            sLocalNightModes.remove(this.mHost.getClass().getName());
-        }
-        if (window != null) {
-            attachToWindow(window);
-        }
-        AppCompatDrawableManager.preload();
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setContentView(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
-            ensureSubDecor();
-            ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
-            viewGroup.removeAllViews();
-            LayoutInflater.from(this.mContext).inflate(i, viewGroup);
-            this.mAppCompatWindowCallback.getWrapped().onContentChanged();
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048628, this, view2, layoutParams) == null) {
-            ensureSubDecor();
-            ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
-            viewGroup.removeAllViews();
-            viewGroup.addView(view2, layoutParams);
-            this.mAppCompatWindowCallback.getWrapped().onContentChanged();
-        }
     }
 }

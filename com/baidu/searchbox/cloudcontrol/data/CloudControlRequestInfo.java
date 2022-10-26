@@ -18,10 +18,10 @@ public class CloudControlRequestInfo {
     public Object mFilter;
     public boolean mIsForceDispatch;
     public Object mPostData;
-    public HashMap<String, String> mQueryData;
+    public HashMap mQueryData;
     public String mServiceName;
 
-    public CloudControlRequestInfo(String str, Object obj, HashMap<String, String> hashMap, Object obj2) {
+    public CloudControlRequestInfo(String str, Object obj, HashMap hashMap, Object obj2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,69 +42,7 @@ public class CloudControlRequestInfo {
         this.mCheckInfo = obj2;
     }
 
-    public Object getCheckInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCheckInfo : invokeV.objValue;
-    }
-
-    public IProcessorDataInterceptor getDataInterceptor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDataInterceptor : (IProcessorDataInterceptor) invokeV.objValue;
-    }
-
-    public Object getFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFilter : invokeV.objValue;
-    }
-
-    public Object getPostData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPostData : invokeV.objValue;
-    }
-
-    public HashMap<String, String> getQueryData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mQueryData == null) {
-                this.mQueryData = new HashMap<>();
-            }
-            return this.mQueryData;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public String getServiceName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mServiceName : (String) invokeV.objValue;
-    }
-
-    public boolean isForceDispatch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsForceDispatch : invokeV.booleanValue;
-    }
-
-    public void setDataInterceptor(IProcessorDataInterceptor iProcessorDataInterceptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, iProcessorDataInterceptor) == null) {
-            this.mDataInterceptor = iProcessorDataInterceptor;
-        }
-    }
-
-    public void setPostData(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
-            this.mPostData = obj;
-        }
-    }
-
-    public CloudControlRequestInfo(String str, Object obj, HashMap<String, String> hashMap, Object obj2, Object obj3) {
+    public CloudControlRequestInfo(String str, Object obj, HashMap hashMap, Object obj2, Object obj3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +64,7 @@ public class CloudControlRequestInfo {
         this.mFilter = obj3;
     }
 
-    public CloudControlRequestInfo(String str, Object obj, HashMap<String, String> hashMap, Object obj2, Object obj3, boolean z) {
+    public CloudControlRequestInfo(String str, Object obj, HashMap hashMap, Object obj2, Object obj3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,5 +85,85 @@ public class CloudControlRequestInfo {
         this.mCheckInfo = obj2;
         this.mFilter = obj3;
         this.mIsForceDispatch = z;
+    }
+
+    public Object getCheckInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCheckInfo;
+        }
+        return invokeV.objValue;
+    }
+
+    public IProcessorDataInterceptor getDataInterceptor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDataInterceptor;
+        }
+        return (IProcessorDataInterceptor) invokeV.objValue;
+    }
+
+    public Object getFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFilter;
+        }
+        return invokeV.objValue;
+    }
+
+    public Object getPostData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPostData;
+        }
+        return invokeV.objValue;
+    }
+
+    public HashMap getQueryData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mQueryData == null) {
+                this.mQueryData = new HashMap();
+            }
+            return this.mQueryData;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public String getServiceName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mServiceName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isForceDispatch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mIsForceDispatch;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setDataInterceptor(IProcessorDataInterceptor iProcessorDataInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, iProcessorDataInterceptor) == null) {
+            this.mDataInterceptor = iProcessorDataInterceptor;
+        }
+    }
+
+    public void setPostData(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+            this.mPostData = obj;
+        }
     }
 }

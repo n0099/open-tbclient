@@ -28,6 +28,31 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
     public HttpMessageListener d;
 
     /* loaded from: classes3.dex */
+    public interface b {
+        void onResult(boolean z, String str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,19 +83,15 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaUpdateMarkStatusResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && this.a.a == httpResponsedMessage.getOrginalMessage().getTag() && this.a.c != null) {
-                if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
-                    this.a.c.onResult(false, httpResponsedMessage.getErrorString());
-                } else {
-                    this.a.c.onResult(true, httpResponsedMessage.getErrorString());
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof AlaUpdateMarkStatusResponsedMessage) || httpResponsedMessage.getOrginalMessage() == null || this.a.a != httpResponsedMessage.getOrginalMessage().getTag() || this.a.c == null) {
+                return;
+            }
+            if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError()) {
+                this.a.c.onResult(true, httpResponsedMessage.getErrorString());
+            } else {
+                this.a.c.onResult(false, httpResponsedMessage.getErrorString());
             }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void onResult(boolean z, String str);
     }
 
     public AlaUpdateMarkStatusModel(Context context) {
@@ -95,10 +116,25 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
         this.a = BdUniqueId.gen();
     }
 
+    public void D(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager.getInstance().registerListener(this.d);
+        }
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
+            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 
@@ -112,49 +148,20 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
         }
     }
 
-    public void D(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
     public void E(boolean z, int i) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
-            httpMessage.addParam("action", z ? 1 : 2);
+            if (z) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            httpMessage.addParam("action", i2);
             httpMessage.addParam("mark_id", i);
             httpMessage.setTag(this.a);
             MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
-            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 }

@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -62,16 +61,45 @@ public class Explode extends Visibility {
         setPropagation(new CircularPropagation());
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Explode(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mTempLoc = new int[2];
+        setPropagation(new CircularPropagation());
+    }
+
     public static float calculateDistance(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? (float) Math.sqrt((f * f) + (f2 * f2)) : invokeCommon.floatValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return (float) Math.sqrt((f * f) + (f2 * f2));
+        }
+        return invokeCommon.floatValue;
     }
 
     public static float calculateMaxDistance(View view2, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, i, i2)) == null) ? calculateDistance(Math.max(i, view2.getWidth() - i), Math.max(i2, view2.getHeight() - i2)) : invokeLII.floatValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, i, i2)) == null) {
+            return calculateDistance(Math.max(i, view2.getWidth() - i), Math.max(i2, view2.getHeight() - i2));
+        }
+        return invokeLII.floatValue;
     }
 
     private void calculateOut(View view2, Rect rect, int[] iArr) {
@@ -118,7 +146,7 @@ public class Explode extends Visibility {
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
-    public void captureEndValues(@NonNull TransitionValues transitionValues) {
+    public void captureEndValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             super.captureEndValues(transitionValues);
@@ -127,7 +155,7 @@ public class Explode extends Visibility {
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
+    public void captureStartValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             super.captureStartValues(transitionValues);
@@ -168,7 +196,7 @@ public class Explode extends Visibility {
             int i2 = rect.top;
             float translationX = view2.getTranslationX();
             float translationY = view2.getTranslationY();
-            int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232c);
+            int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092317);
             if (iArr != null) {
                 f = (iArr[0] - rect.left) + translationX;
                 f2 = (iArr[1] - rect.top) + translationY;
@@ -182,28 +210,5 @@ public class Explode extends Visibility {
             return TranslationAnimationCreator.createAnimation(view2, transitionValues, i, i2, translationX, translationY, f + iArr2[0], f2 + iArr2[1], sAccelerate, this);
         }
         return (Animator) invokeLLLL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Explode(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mTempLoc = new int[2];
-        setPropagation(new CircularPropagation());
     }
 }

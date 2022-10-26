@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
@@ -35,7 +34,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     public static final int HEADER_TYPE = 0;
     public static final String TAG = "MapLocAddrAdapter";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<JSONObject> addrJsonObjs;
+    public List addrJsonObjs;
     public int footerCount;
     public boolean hasNextPage;
     public int headerCount;
@@ -45,7 +44,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     public String queryContent;
 
     /* loaded from: classes2.dex */
-    public class AddrPoiInfoViewHolder extends BaseRecyclerViewHolder<JSONObject> implements View.OnClickListener {
+    public class AddrPoiInfoViewHolder extends BaseRecyclerViewHolder implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView addressTv;
@@ -57,7 +56,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
         public final /* synthetic */ MapLocAddrAdapter this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AddrPoiInfoViewHolder(@NonNull MapLocAddrAdapter mapLocAddrAdapter, View view2) {
+        public AddrPoiInfoViewHolder(MapLocAddrAdapter mapLocAddrAdapter, View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -96,25 +95,20 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
             view2.setBackgroundResource(R.drawable.sapi_sdk_map_addr_item_bg);
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-                if (this.this$0.itemClickListener != null) {
-                    this.this$0.itemClickListener.onItemClickListener(this.position, this.t);
-                }
-                this.this$0.notifyDataSetChanged();
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewHolder
         public void bindData2View(int i, JSONObject jSONObject) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, jSONObject) == null) {
-                super.bindData2View(i, (int) jSONObject);
+                super.bindData2View(i, (Object) jSONObject);
                 String selectedAddrId = this.this$0.presenter.getSelectedAddrId();
-                if (!TextUtils.isEmpty(selectedAddrId) ? TextUtils.equals(jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRID), selectedAddrId) : false) {
+                if (!TextUtils.isEmpty(selectedAddrId)) {
+                    z = TextUtils.equals(jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRID), selectedAddrId);
+                } else {
+                    z = false;
+                }
+                if (z) {
                     this.checkedIc.setVisibility(0);
                     if (this.this$0.isDarkMode) {
                         this.itemIc.setImageResource(R.drawable.sapi_sdk_addr_map_location_addr_checked_dark_ic);
@@ -160,6 +154,17 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
                 this.itemView.setOnClickListener(this);
             }
         }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+                if (this.this$0.itemClickListener != null) {
+                    this.this$0.itemClickListener.onItemClickListener(this.position, this.t);
+                }
+                this.this$0.notifyDataSetChanged();
+            }
+        }
     }
 
     /* loaded from: classes2.dex */
@@ -169,7 +174,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
         public final /* synthetic */ MapLocAddrAdapter this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HeaderViewHolder(@NonNull MapLocAddrAdapter mapLocAddrAdapter, View view2) {
+        public HeaderViewHolder(MapLocAddrAdapter mapLocAddrAdapter, View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -213,11 +218,42 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
         this.isDarkMode = z;
     }
 
+    @Override // com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = this.headerCount;
+            if (i < i2) {
+                return 0;
+            }
+            if (i >= i2 && i < getDataCount() + this.headerCount) {
+                return 1;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public void setItemClickListener(ScrollRecyclerView.RecyclerViewItemClickListener recyclerViewItemClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recyclerViewItemClickListener) == null) {
+            this.itemClickListener = recyclerViewItemClickListener;
+        }
+    }
+
+    public void setQueryContent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.queryContent = str;
+        }
+    }
+
     private int getDataCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            List<JSONObject> list = this.addrJsonObjs;
+            List list = this.addrJsonObjs;
             if (list == null) {
                 return 0;
             }
@@ -229,7 +265,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     public void cleanData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            List<JSONObject> list = this.addrJsonObjs;
+            List list = this.addrJsonObjs;
             if (list == null) {
                 this.addrJsonObjs = new ArrayList();
             } else {
@@ -252,25 +288,11 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = this.headerCount;
-            if (i < i2) {
-                return 0;
-            }
-            return (i < i2 || i >= getDataCount() + this.headerCount) ? 2 : 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void setDatas(List<JSONObject> list, boolean z) {
+    public void setDatas(List list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, list, z) == null) {
             this.hasNextPage = z;
-            List<JSONObject> list2 = this.addrJsonObjs;
+            List list2 = this.addrJsonObjs;
             if (list2 == null) {
                 this.addrJsonObjs = new ArrayList();
             } else {
@@ -281,23 +303,9 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
         }
     }
 
-    public void setItemClickListener(ScrollRecyclerView.RecyclerViewItemClickListener recyclerViewItemClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, recyclerViewItemClickListener) == null) {
-            this.itemClickListener = recyclerViewItemClickListener;
-        }
-    }
-
-    public void setQueryContent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.queryContent = str;
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull BaseRecyclerViewHolder baseRecyclerViewHolder, int i) {
+    public void onBindViewHolder(BaseRecyclerViewHolder baseRecyclerViewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, baseRecyclerViewHolder, i) == null) {
             int itemViewType = getItemViewType(i);
@@ -312,8 +320,7 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @NonNull
-    public BaseRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public BaseRecyclerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {

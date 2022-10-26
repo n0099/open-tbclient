@@ -1,200 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Gallery;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public final class v5a extends t5a<BannerConfigItem.BannerInfo> {
+public class v5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageLoaderSupplier c;
 
     /* loaded from: classes6.dex */
-    public final class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public final /* synthetic */ v5a b;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(v5a v5aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v5aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-392134294, "Lcom/baidu/tieba/v5a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-392134294, "Lcom/baidu/tieba/v5a$a;");
                     return;
                 }
             }
-            this.b = v5aVar;
-        }
-
-        public final ImageView a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ImageView) invokeV.objValue;
-        }
-
-        public final void b(BannerConfigItem.BannerInfo bannerInfo, int i, Context context) {
-            ImageView imageView;
-            ImageLoaderSupplier e;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i, context) == null) || (imageView = this.a) == null || (e = this.b.e()) == null) {
-                return;
+            int[] iArr = new int[PayDialogType.values().length];
+            a = iArr;
+            try {
+                iArr[PayDialogType.PAY_AMOUNT_DIALOG.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            ImageLoaderSupplier.ImageParam imageParam = new ImageLoaderSupplier.ImageParam(bannerInfo != null ? bannerInfo.imageUrl : null, -1, -1);
-            if (context instanceof ContextThemeWrapper) {
-                ContextThemeWrapper contextThemeWrapper = (ContextThemeWrapper) context;
-                if (m5a.a.a(contextThemeWrapper.getBaseContext())) {
-                    RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context.baseContext:" + contextThemeWrapper.getBaseContext());
-                    Context baseContext = contextThemeWrapper.getBaseContext();
-                    Intrinsics.checkExpressionValueIsNotNull(baseContext, "context.baseContext");
-                    e.onLoad(baseContext, imageView, imageParam);
-                    return;
+            try {
+                a[PayDialogType.PAY_INPUT_DIALOG.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PayDialogType.PAY_WAY_DIALOG.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public static PayFinishInfo a(PayDialogType payDialogType, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, payDialogType, i, str)) == null) {
+            return b(payDialogType, i, str, false);
+        }
+        return (PayFinishInfo) invokeLIL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00a1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static PayFinishInfo b(PayDialogType payDialogType, int i, String str, boolean z) {
+        InterceptResult invokeCommon;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{payDialogType, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            int i2 = a.a[payDialogType.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3) {
+                        if (z) {
+                            payFinishInfo.step = o3a.g;
+                            if (TextUtils.isEmpty(str)) {
+                                str2 = "支付渠道选择面板(快捷)";
+                            } else {
+                                str2 = "支付渠道选择面板(快捷)," + str;
+                            }
+                        } else {
+                            payFinishInfo.step = o3a.c;
+                            if (TextUtils.isEmpty(str)) {
+                                str2 = "支付渠道选择面板";
+                            } else {
+                                str2 = "支付渠道选择面板," + str;
+                            }
+                        }
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        str = "";
+                    }
+                    payFinishInfo.message = str;
+                    payFinishInfo.code = i;
+                    return payFinishInfo;
                 }
-                RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context.baseContext null", new Object[0]);
-            } else if (m5a.a.a(context)) {
-                RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context:" + context);
-                e.onLoad(context, imageView, imageParam);
+                payFinishInfo.step = o3a.b;
+                if (TextUtils.isEmpty(str)) {
+                    str2 = "支付金额输入面板";
+                } else {
+                    str2 = "支付金额输入面板," + str;
+                }
             } else {
-                RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context null", new Object[0]);
-            }
-        }
-
-        public final void c(ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
-                this.a = imageView;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948193159, "Lcom/baidu/tieba/v5a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948193159, "Lcom/baidu/tieba/v5a;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v5a(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        RLog.debug("PluginCenterBannerAdapter", "constructor");
-    }
-
-    @NonNull
-    public final a d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            a aVar = new a(this);
-            aVar.c((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092290));
-            ImageView a2 = aVar.a();
-            if (a2 == null) {
-                Intrinsics.throwNpe();
-            }
-            a2.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            view2.setTag(aVar);
-            return aVar;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public final ImageLoaderSupplier e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ImageLoaderSupplier) invokeV.objValue;
-    }
-
-    public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i) == null) || bannerInfo == null) {
-            return;
-        }
-        Context mContext = this.b;
-        Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
-        aVar.b(bannerInfo, i, mContext);
-    }
-
-    public final void g(ImageLoaderSupplier imageLoaderSupplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
-            this.c = imageLoaderSupplier;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d06b2, (ViewGroup) null);
-                if (view2 == null) {
-                    Intrinsics.throwNpe();
+                payFinishInfo.step = o3a.a;
+                if (TextUtils.isEmpty(str)) {
+                    str2 = "支付金额选择面板";
+                } else {
+                    str2 = "支付金额选择面板," + str;
                 }
-                view2.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-                aVar = d(view2);
-            } else {
-                Object tag = view2 != null ? view2.getTag() : null;
-                if (tag == null) {
-                    throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerAdapter.ViewHolder");
-                }
-                aVar = (a) tag;
             }
-            BannerConfigItem.BannerInfo item = getItem(i);
-            Intrinsics.checkExpressionValueIsNotNull(item, "getItem(position)");
-            f(item, aVar, i);
-            return view2;
+            str = str2;
+            if (TextUtils.isEmpty(str)) {
+            }
+            payFinishInfo.message = str;
+            payFinishInfo.code = i;
+            return payFinishInfo;
         }
-        return (View) invokeILL.objValue;
+        return (PayFinishInfo) invokeCommon.objValue;
+    }
+
+    public static PayFinishInfo c(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = o3a.e;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
+        }
+        return (PayFinishInfo) invokeIL.objValue;
+    }
+
+    public static PayFinishInfo d(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = o3a.d;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
+        }
+        return (PayFinishInfo) invokeIL.objValue;
+    }
+
+    public static PayFinishInfo e(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = o3a.f;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
+        }
+        return (PayFinishInfo) invokeIL.objValue;
     }
 }

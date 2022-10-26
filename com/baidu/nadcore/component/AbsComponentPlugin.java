@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.xi0;
+import com.baidu.tieba.yi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,20 +29,6 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     public ComponentArchManager b;
     public Activity c;
 
-    public AbsComponentPlugin() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.baidu.nadcore.component.api.IComponentPlugin
     public void a() {
         Interceptable interceptable = $ic;
@@ -51,7 +37,7 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void b(xi0 event) {
+    public void b(yi0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -59,27 +45,9 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            this.c = activity;
-        }
-    }
-
-    @Override // com.baidu.nadcore.component.api.IComponentPlugin
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void e(ComponentArchManager manager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, manager) == null) {
-            Intrinsics.checkNotNullParameter(manager, "manager");
-            this.b = manager;
         }
     }
 
@@ -96,54 +64,6 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
         if (interceptable == null || interceptable.invokeL(1048582, this, parent) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
         }
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Context context = this.a;
-            if (context == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("context");
-            }
-            return context;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final Activity h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Activity activity = this.c;
-            if (activity == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("hostActivity");
-            }
-            return activity;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nadcore.component.api.IComponentPlugin
-    public void injectContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            this.a = context;
-        }
-    }
-
-    public final ComponentArchManager j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ComponentArchManager componentArchManager = this.b;
-            if (componentArchManager == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("manager");
-            }
-            return componentArchManager;
-        }
-        return (ComponentArchManager) invokeV.objValue;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
@@ -218,6 +138,86 @@ public abstract class AbsComponentPlugin implements IComponentPlugin {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        }
+    }
+
+    public AbsComponentPlugin() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Context context = this.a;
+            if (context == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("context");
+            }
+            return context;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final Activity h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Activity activity = this.c;
+            if (activity == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("hostActivity");
+            }
+            return activity;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final ComponentArchManager j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ComponentArchManager componentArchManager = this.b;
+            if (componentArchManager == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("manager");
+            }
+            return componentArchManager;
+        }
+        return (ComponentArchManager) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.component.api.IComponentPlugin
+    public void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            this.c = activity;
+        }
+    }
+
+    @Override // com.baidu.nadcore.component.api.IComponentPlugin
+    public void e(ComponentArchManager manager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, manager) == null) {
+            Intrinsics.checkNotNullParameter(manager, "manager");
+            this.b = manager;
+        }
+    }
+
+    @Override // com.baidu.nadcore.component.api.IComponentPlugin
+    public void injectContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            this.a = context;
         }
     }
 }

@@ -63,7 +63,10 @@ public final class Engine {
     public final AndroidOperationInterface getAi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ai : (AndroidOperationInterface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ai;
+        }
+        return (AndroidOperationInterface) invokeV.objValue;
     }
 
     public final void init() {
@@ -73,7 +76,16 @@ public final class Engine {
         }
     }
 
-    public final boolean prepare(List<String> sClientList) {
+    public final void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            TornadoLiteRuntime.INSTANCE.setStartTime$tun2tornadolite_release(0L);
+            SClient.INSTANCE.stop();
+            Tun.INSTANCE.stop();
+        }
+    }
+
+    public final boolean prepare(List sClientList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sClientList)) == null) {
@@ -97,15 +109,6 @@ public final class Engine {
             Intrinsics.checkNotNullParameter(gameID, "gameID");
             Intrinsics.checkNotNullParameter(gamePackageName, "gamePackageName");
             BuildersKt.runBlocking$default(null, new Engine$start$1(this, i, region, gameID, gamePackageName, null), 1, null);
-        }
-    }
-
-    public final void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TornadoLiteRuntime.INSTANCE.setStartTime$tun2tornadolite_release(0L);
-            SClient.INSTANCE.stop();
-            Tun.INSTANCE.stop();
         }
     }
 }

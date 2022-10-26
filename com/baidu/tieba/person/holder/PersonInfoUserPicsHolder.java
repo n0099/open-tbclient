@@ -8,13 +8,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d48;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
-import com.baidu.tieba.m48;
-import com.baidu.tieba.n48;
+import com.baidu.tieba.o48;
+import com.baidu.tieba.w48;
+import com.baidu.tieba.x48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +29,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public View b;
     public TextView c;
     public HTypeListView d;
-    public m48 e;
+    public w48 e;
     public int f;
     public TbPageContext g;
 
@@ -55,34 +54,33 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.f = 3;
         this.a = view2;
         this.g = tbPageContext;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090822);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092143);
-        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09133e);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f09082b);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092142);
+        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09132f);
         this.d = hTypeListView;
-        this.e = new m48(this.g, hTypeListView);
+        this.e = new w48(this.g, hTypeListView);
     }
 
-    public void a(n48 n48Var) {
+    public void a(x48 x48Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, n48Var) == null) || n48Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, x48Var) != null) || x48Var == null) {
             return;
         }
-        this.e.c(c(n48Var.a()));
+        this.e.c(c(x48Var.a()));
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f == TbadkCoreApplication.getInst().getSkinType()) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != TbadkCoreApplication.getInst().getSkinType()) {
+            this.f = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0109, 1);
+            this.e.b();
         }
-        this.f = TbadkCoreApplication.getInst().getSkinType();
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.c, R.color.CAM_X0109, 1);
-        this.e.b();
     }
 
-    public final List<Cdo> c(List<Cdo> list) {
+    public final List c(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
@@ -90,9 +88,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            d48 d48Var = new d48(ej.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), ej.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c));
-            ListUtils.add(arrayList, 0, d48Var);
-            ListUtils.add(arrayList, d48Var);
+            o48 o48Var = new o48(fj.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), fj.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c));
+            ListUtils.add(arrayList, 0, o48Var);
+            ListUtils.add(arrayList, o48Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

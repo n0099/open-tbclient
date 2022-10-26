@@ -60,12 +60,18 @@ public final class AsyncTask$Status {
     public static AsyncTask$Status valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AsyncTask$Status) Enum.valueOf(AsyncTask$Status.class, str) : (AsyncTask$Status) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AsyncTask$Status) Enum.valueOf(AsyncTask$Status.class, str);
+        }
+        return (AsyncTask$Status) invokeL.objValue;
     }
 
     public static AsyncTask$Status[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AsyncTask$Status[]) $VALUES.clone() : (AsyncTask$Status[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AsyncTask$Status[]) $VALUES.clone();
+        }
+        return (AsyncTask$Status[]) invokeV.objValue;
     }
 }

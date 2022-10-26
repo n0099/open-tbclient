@@ -32,6 +32,169 @@ public final class ConnectionSpec {
     @Nullable
     public final String[] tlsVersions;
 
+    /* loaded from: classes8.dex */
+    public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public String[] cipherSuites;
+        public boolean supportsTlsExtensions;
+        public boolean tls;
+        @Nullable
+        public String[] tlsVersions;
+
+        public Builder(ConnectionSpec connectionSpec) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {connectionSpec};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.tls = connectionSpec.tls;
+            this.cipherSuites = connectionSpec.cipherSuites;
+            this.tlsVersions = connectionSpec.tlsVersions;
+            this.supportsTlsExtensions = connectionSpec.supportsTlsExtensions;
+        }
+
+        public Builder cipherSuites(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, strArr)) == null) {
+                if (this.tls) {
+                    if (strArr.length != 0) {
+                        this.cipherSuites = (String[]) strArr.clone();
+                        return this;
+                    }
+                    throw new IllegalArgumentException("At least one cipher suite is required");
+                }
+                throw new IllegalStateException("no cipher suites for cleartext connections");
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder tlsVersions(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, strArr)) == null) {
+                if (this.tls) {
+                    if (strArr.length != 0) {
+                        this.tlsVersions = (String[]) strArr.clone();
+                        return this;
+                    }
+                    throw new IllegalArgumentException("At least one TLS version is required");
+                }
+                throw new IllegalStateException("no TLS versions for cleartext connections");
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.tls = z;
+        }
+
+        public Builder cipherSuites(CipherSuite... cipherSuiteArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cipherSuiteArr)) == null) {
+                if (this.tls) {
+                    String[] strArr = new String[cipherSuiteArr.length];
+                    for (int i = 0; i < cipherSuiteArr.length; i++) {
+                        strArr[i] = cipherSuiteArr[i].javaName;
+                    }
+                    return cipherSuites(strArr);
+                }
+                throw new IllegalStateException("no cipher suites for cleartext connections");
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder tlsVersions(TlsVersion... tlsVersionArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tlsVersionArr)) == null) {
+                if (this.tls) {
+                    String[] strArr = new String[tlsVersionArr.length];
+                    for (int i = 0; i < tlsVersionArr.length; i++) {
+                        strArr[i] = tlsVersionArr[i].javaName;
+                    }
+                    return tlsVersions(strArr);
+                }
+                throw new IllegalStateException("no TLS versions for cleartext connections");
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder allEnabledCipherSuites() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.tls) {
+                    this.cipherSuites = null;
+                    return this;
+                }
+                throw new IllegalStateException("no cipher suites for cleartext connections");
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        public Builder allEnabledTlsVersions() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.tls) {
+                    this.tlsVersions = null;
+                    return this;
+                }
+                throw new IllegalStateException("no TLS versions for cleartext connections");
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        public ConnectionSpec build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new ConnectionSpec(this);
+            }
+            return (ConnectionSpec) invokeV.objValue;
+        }
+
+        public Builder supportsTlsExtensions(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                if (this.tls) {
+                    this.supportsTlsExtensions = z;
+                    return this;
+                }
+                throw new IllegalStateException("no TLS extensions for cleartext connections");
+            }
+            return (Builder) invokeZ.objValue;
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -73,6 +236,49 @@ public final class ConnectionSpec {
         this.cipherSuites = builder.cipherSuites;
         this.tlsVersions = builder.tlsVersions;
         this.supportsTlsExtensions = builder.supportsTlsExtensions;
+    }
+
+    public boolean equals(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (!(obj instanceof ConnectionSpec)) {
+                return false;
+            }
+            if (obj == this) {
+                return true;
+            }
+            ConnectionSpec connectionSpec = (ConnectionSpec) obj;
+            boolean z = this.tls;
+            if (z != connectionSpec.tls) {
+                return false;
+            }
+            if (z && (!Arrays.equals(this.cipherSuites, connectionSpec.cipherSuites) || !Arrays.equals(this.tlsVersions, connectionSpec.tlsVersions) || this.supportsTlsExtensions != connectionSpec.supportsTlsExtensions)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean isCompatible(SSLSocket sSLSocket) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sSLSocket)) == null) {
+            if (!this.tls) {
+                return false;
+            }
+            String[] strArr = this.tlsVersions;
+            if (strArr != null && !Util.nonEmptyIntersection(Util.NATURAL_ORDER, strArr, sSLSocket.getEnabledProtocols())) {
+                return false;
+            }
+            String[] strArr2 = this.cipherSuites;
+            if (strArr2 != null && !Util.nonEmptyIntersection(CipherSuite.ORDER_BY_NAME, strArr2, sSLSocket.getEnabledCipherSuites())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     private ConnectionSpec supportedSpec(SSLSocket sSLSocket, boolean z) {
@@ -130,26 +336,6 @@ public final class ConnectionSpec {
         return (List) invokeV.objValue;
     }
 
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj instanceof ConnectionSpec) {
-                if (obj == this) {
-                    return true;
-                }
-                ConnectionSpec connectionSpec = (ConnectionSpec) obj;
-                boolean z = this.tls;
-                if (z != connectionSpec.tls) {
-                    return false;
-                }
-                return !z || (Arrays.equals(this.cipherSuites, connectionSpec.cipherSuites) && Arrays.equals(this.tlsVersions, connectionSpec.tlsVersions) && this.supportsTlsExtensions == connectionSpec.supportsTlsExtensions);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -162,33 +348,22 @@ public final class ConnectionSpec {
         return invokeV.intValue;
     }
 
-    public boolean isCompatible(SSLSocket sSLSocket) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sSLSocket)) == null) {
-            if (this.tls) {
-                String[] strArr = this.tlsVersions;
-                if (strArr == null || Util.nonEmptyIntersection(Util.NATURAL_ORDER, strArr, sSLSocket.getEnabledProtocols())) {
-                    String[] strArr2 = this.cipherSuites;
-                    return strArr2 == null || Util.nonEmptyIntersection(CipherSuite.ORDER_BY_NAME, strArr2, sSLSocket.getEnabledCipherSuites());
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public boolean isTls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tls : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.tls;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean supportsTlsExtensions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.supportsTlsExtensions : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.supportsTlsExtensions;
+        }
+        return invokeV.booleanValue;
     }
 
     @Nullable
@@ -207,175 +382,23 @@ public final class ConnectionSpec {
 
     public String toString() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.tls) {
-                String obj = this.cipherSuites != null ? cipherSuites().toString() : "[all enabled]";
-                String obj2 = this.tlsVersions != null ? tlsVersions().toString() : "[all enabled]";
-                return "ConnectionSpec(cipherSuites=" + obj + ", tlsVersions=" + obj2 + ", supportsTlsExtensions=" + this.supportsTlsExtensions + SmallTailInfo.EMOTION_SUFFIX;
+            if (!this.tls) {
+                return "ConnectionSpec()";
             }
-            return "ConnectionSpec()";
+            String str2 = "[all enabled]";
+            if (this.cipherSuites == null) {
+                str = "[all enabled]";
+            } else {
+                str = cipherSuites().toString();
+            }
+            if (this.tlsVersions != null) {
+                str2 = tlsVersions().toString();
+            }
+            return "ConnectionSpec(cipherSuites=" + str + ", tlsVersions=" + str2 + ", supportsTlsExtensions=" + this.supportsTlsExtensions + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public String[] cipherSuites;
-        public boolean supportsTlsExtensions;
-        public boolean tls;
-        @Nullable
-        public String[] tlsVersions;
-
-        public Builder(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.tls = z;
-        }
-
-        public Builder allEnabledCipherSuites() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.tls) {
-                    this.cipherSuites = null;
-                    return this;
-                }
-                throw new IllegalStateException("no cipher suites for cleartext connections");
-            }
-            return (Builder) invokeV.objValue;
-        }
-
-        public Builder allEnabledTlsVersions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.tls) {
-                    this.tlsVersions = null;
-                    return this;
-                }
-                throw new IllegalStateException("no TLS versions for cleartext connections");
-            }
-            return (Builder) invokeV.objValue;
-        }
-
-        public ConnectionSpec build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ConnectionSpec(this) : (ConnectionSpec) invokeV.objValue;
-        }
-
-        public Builder cipherSuites(CipherSuite... cipherSuiteArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cipherSuiteArr)) == null) {
-                if (this.tls) {
-                    String[] strArr = new String[cipherSuiteArr.length];
-                    for (int i = 0; i < cipherSuiteArr.length; i++) {
-                        strArr[i] = cipherSuiteArr[i].javaName;
-                    }
-                    return cipherSuites(strArr);
-                }
-                throw new IllegalStateException("no cipher suites for cleartext connections");
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder supportsTlsExtensions(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                if (this.tls) {
-                    this.supportsTlsExtensions = z;
-                    return this;
-                }
-                throw new IllegalStateException("no TLS extensions for cleartext connections");
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder tlsVersions(TlsVersion... tlsVersionArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tlsVersionArr)) == null) {
-                if (this.tls) {
-                    String[] strArr = new String[tlsVersionArr.length];
-                    for (int i = 0; i < tlsVersionArr.length; i++) {
-                        strArr[i] = tlsVersionArr[i].javaName;
-                    }
-                    return tlsVersions(strArr);
-                }
-                throw new IllegalStateException("no TLS versions for cleartext connections");
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder(ConnectionSpec connectionSpec) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {connectionSpec};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.tls = connectionSpec.tls;
-            this.cipherSuites = connectionSpec.cipherSuites;
-            this.tlsVersions = connectionSpec.tlsVersions;
-            this.supportsTlsExtensions = connectionSpec.supportsTlsExtensions;
-        }
-
-        public Builder cipherSuites(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, strArr)) == null) {
-                if (this.tls) {
-                    if (strArr.length != 0) {
-                        this.cipherSuites = (String[]) strArr.clone();
-                        return this;
-                    }
-                    throw new IllegalArgumentException("At least one cipher suite is required");
-                }
-                throw new IllegalStateException("no cipher suites for cleartext connections");
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder tlsVersions(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, strArr)) == null) {
-                if (this.tls) {
-                    if (strArr.length != 0) {
-                        this.tlsVersions = (String[]) strArr.clone();
-                        return this;
-                    }
-                    throw new IllegalArgumentException("At least one TLS version is required");
-                }
-                throw new IllegalStateException("no TLS versions for cleartext connections");
-            }
-            return (Builder) invokeL.objValue;
-        }
     }
 }

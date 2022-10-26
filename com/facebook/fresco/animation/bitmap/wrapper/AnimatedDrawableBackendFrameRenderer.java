@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public AnimatedDrawableBackend mAnimatedDrawableBackend;
     public AnimatedImageCompositor mAnimatedImageCompositor;
@@ -43,6 +43,26 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
         TAG = AnimatedDrawableBackendFrameRenderer.class;
     }
 
+    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameRenderer
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAnimatedDrawableBackend.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameRenderer
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAnimatedDrawableBackend.getWidth();
+        }
+        return invokeV.intValue;
+    }
+
     public AnimatedDrawableBackendFrameRenderer(BitmapFrameCache bitmapFrameCache, AnimatedDrawableBackend animatedDrawableBackend) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,6 +82,13 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AnimatedDrawableBackendFrameRenderer this$0;
+
+            @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
+            public void onIntermediateResult(int i3, Bitmap bitmap) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, bitmap) == null) {
+                }
+            }
 
             {
                 Interceptable interceptable2 = $ic;
@@ -83,17 +110,13 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
             @Nullable
-            public CloseableReference<Bitmap> getCachedBitmap(int i3) {
+            public CloseableReference getCachedBitmap(int i3) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i3)) == null) ? this.this$0.mBitmapFrameCache.getCachedFrame(i3) : (CloseableReference) invokeI.objValue;
-            }
-
-            @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
-            public void onIntermediateResult(int i3, Bitmap bitmap) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, bitmap) == null) {
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i3)) == null) {
+                    return this.this$0.mBitmapFrameCache.getCachedFrame(i3);
                 }
+                return (CloseableReference) invokeI.objValue;
             }
         };
         this.mCallback = callback;
@@ -103,17 +126,13 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameRenderer
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
+    public void setBounds(@Nullable Rect rect) {
+        AnimatedDrawableBackend forNewBounds;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAnimatedDrawableBackend.getHeight() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameRenderer
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAnimatedDrawableBackend.getWidth() : invokeV.intValue;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, rect) == null) && (forNewBounds = this.mAnimatedDrawableBackend.forNewBounds(rect)) != this.mAnimatedDrawableBackend) {
+            this.mAnimatedDrawableBackend = forNewBounds;
+            this.mAnimatedImageCompositor = new AnimatedImageCompositor(forNewBounds, this.mCallback);
+        }
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameRenderer
@@ -130,16 +149,5 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
             }
         }
         return invokeIL.booleanValue;
-    }
-
-    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameRenderer
-    public void setBounds(@Nullable Rect rect) {
-        AnimatedDrawableBackend forNewBounds;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, rect) == null) || (forNewBounds = this.mAnimatedDrawableBackend.forNewBounds(rect)) == this.mAnimatedDrawableBackend) {
-            return;
-        }
-        this.mAnimatedDrawableBackend = forNewBounds;
-        this.mAnimatedImageCompositor = new AnimatedImageCompositor(forNewBounds, this.mCallback);
     }
 }

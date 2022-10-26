@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.entity;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ce9;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,16 +84,41 @@ public class EffectInfo implements Serializable {
         this.fixNum = 0;
     }
 
+    public boolean isResourceLoaded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            File file = this.unzipFile;
+            if (file != null && file.exists()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean isCardTheme(EffectInfo effectInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, effectInfo)) == null) ? effectInfo != null && effectInfo.type == 1 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, effectInfo)) == null) {
+            if (effectInfo == null || effectInfo.type != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isNormalTheme(EffectInfo effectInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, effectInfo)) == null) ? effectInfo != null && effectInfo.type == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, effectInfo)) == null) {
+            if (effectInfo == null || effectInfo.type != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static EffectInfo parse(String str) {
@@ -104,13 +129,30 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return (EffectInfo) new ce9().b(str, EffectInfo.class);
+                return (EffectInfo) new ue9().b(str, EffectInfo.class);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         }
         return (EffectInfo) invokeL.objValue;
+    }
+
+    public static String toJSON(EffectInfo effectInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, effectInfo)) == null) {
+            if (effectInfo == null) {
+                return null;
+            }
+            try {
+                return new ue9().a(effectInfo);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public static EffectMusicData parseFrom(MusicData musicData) {
@@ -131,23 +173,6 @@ public class EffectInfo implements Serializable {
         return (EffectMusicData) invokeL.objValue;
     }
 
-    public static String toJSON(EffectInfo effectInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, effectInfo)) == null) {
-            if (effectInfo == null) {
-                return null;
-            }
-            try {
-                return new ce9().a(effectInfo);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -158,39 +183,36 @@ public class EffectInfo implements Serializable {
             if (obj == this) {
                 return true;
             }
-            if (obj instanceof EffectInfo) {
-                EffectInfo effectInfo = (EffectInfo) obj;
-                String str = effectInfo.name;
-                if (str == null) {
-                    str = "";
-                }
-                effectInfo.name = str;
-                String str2 = effectInfo.themeType;
-                if (str2 == null) {
-                    str2 = "";
-                }
-                effectInfo.themeType = str2;
-                String str3 = this.name;
-                if (str3 == null) {
-                    str3 = "";
-                }
-                this.name = str3;
-                String str4 = this.themeType;
-                this.themeType = str4 != null ? str4 : "";
-                return this.name.equals(effectInfo.name) && this.themeType.equals(effectInfo.themeType);
+            if (!(obj instanceof EffectInfo)) {
+                return false;
             }
-            return false;
+            EffectInfo effectInfo = (EffectInfo) obj;
+            String str = effectInfo.name;
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            effectInfo.name = str;
+            String str3 = effectInfo.themeType;
+            if (str3 == null) {
+                str3 = "";
+            }
+            effectInfo.themeType = str3;
+            String str4 = this.name;
+            if (str4 == null) {
+                str4 = "";
+            }
+            this.name = str4;
+            String str5 = this.themeType;
+            if (str5 != null) {
+                str2 = str5;
+            }
+            this.themeType = str2;
+            if (!this.name.equals(effectInfo.name) || !this.themeType.equals(effectInfo.themeType)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public boolean isResourceLoaded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            File file = this.unzipFile;
-            return file != null && file.exists();
-        }
-        return invokeV.booleanValue;
     }
 }

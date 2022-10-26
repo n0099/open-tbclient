@@ -1,8 +1,6 @@
 package com.bumptech.glide.load.resource.drawable;
 
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,9 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.Resource;
 /* loaded from: classes7.dex */
-public final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
+public final class NonOwnedDrawableResource extends DrawableResource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.bumptech.glide.load.engine.Resource
+    public void recycle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NonOwnedDrawableResource(Drawable drawable) {
@@ -35,8 +40,7 @@ public final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
         }
     }
 
-    @Nullable
-    public static Resource<Drawable> newInstance(@Nullable Drawable drawable) {
+    public static Resource newInstance(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
@@ -48,26 +52,23 @@ public final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
         return (Resource) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<android.graphics.drawable.Drawable> */
     @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
-    public Class<Drawable> getResourceClass() {
+    public Class getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.drawable.getClass() : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.drawable.getClass();
+        }
+        return (Class) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
     public int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Math.max(1, this.drawable.getIntrinsicWidth() * this.drawable.getIntrinsicHeight() * 4) : invokeV.intValue;
-    }
-
-    @Override // com.bumptech.glide.load.engine.Resource
-    public void recycle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Math.max(1, this.drawable.getIntrinsicWidth() * this.drawable.getIntrinsicHeight() * 4);
         }
+        return invokeV.intValue;
     }
 }

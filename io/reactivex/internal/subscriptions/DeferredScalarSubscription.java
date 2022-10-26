@@ -7,10 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.Nullable;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> {
+public class DeferredScalarSubscription extends BasicIntQueueSubscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCELLED = 4;
     public static final int FUSED_CONSUMED = 32;
@@ -22,10 +21,10 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2151279923272604993L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber<? super T> actual;
-    public T value;
+    public final Subscriber actual;
+    public Object value;
 
-    public DeferredScalarSubscription(Subscriber<? super T> subscriber) {
+    public DeferredScalarSubscription(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,6 +40,20 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
             }
         }
         this.actual = subscriber;
+    }
+
+    @Override // io.reactivex.internal.fuseable.QueueFuseable
+    public final int requestFusion(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if ((i & 2) != 0) {
+                lazySet(8);
+                return 2;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
     }
 
     public void cancel() {
@@ -60,9 +73,62 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
         }
     }
 
-    public final void complete(T t) {
+    public final boolean isCancelled() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (get() == 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public final boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (get() != 16) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public final Object poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (get() != 16) {
+                return null;
+            }
+            lazySet(32);
+            Object obj = this.value;
+            this.value = null;
+            return obj;
+        }
+        return invokeV.objValue;
+    }
+
+    public final boolean tryCancel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (getAndSet(4) != 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void complete(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             int i = get();
             while (i != 8) {
                 if ((i & (-3)) != 0) {
@@ -70,15 +136,15 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
                 }
                 if (i == 2) {
                     lazySet(3);
-                    Subscriber<? super T> subscriber = this.actual;
-                    subscriber.onNext(t);
+                    Subscriber subscriber = this.actual;
+                    subscriber.onNext(obj);
                     if (get() != 4) {
                         subscriber.onComplete();
                         return;
                     }
                     return;
                 }
-                this.value = t;
+                this.value = obj;
                 if (compareAndSet(0, 1)) {
                     return;
                 }
@@ -88,49 +154,19 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
                     return;
                 }
             }
-            this.value = t;
+            this.value = obj;
             lazySet(16);
-            Subscriber<? super T> subscriber2 = this.actual;
-            subscriber2.onNext(t);
+            Subscriber subscriber2 = this.actual;
+            subscriber2.onNext(obj);
             if (get() != 4) {
                 subscriber2.onComplete();
             }
         }
     }
 
-    public final boolean isCancelled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? get() == 4 : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? get() != 16 : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    @Nullable
-    public final T poll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (get() == 16) {
-                lazySet(32);
-                T t = this.value;
-                this.value = null;
-                return t;
-            }
-            return null;
-        }
-        return (T) invokeV.objValue;
-    }
-
     @Override // org.reactivestreams.Subscription
     public final void request(long j) {
-        T t;
+        Object obj;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
             do {
@@ -139,39 +175,19 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
                     return;
                 }
                 if (i == 1) {
-                    if (!compareAndSet(1, 3) || (t = this.value) == null) {
-                        return;
-                    }
-                    this.value = null;
-                    Subscriber<? super T> subscriber = this.actual;
-                    subscriber.onNext(t);
-                    if (get() != 4) {
-                        subscriber.onComplete();
+                    if (compareAndSet(1, 3) && (obj = this.value) != null) {
+                        this.value = null;
+                        Subscriber subscriber = this.actual;
+                        subscriber.onNext(obj);
+                        if (get() != 4) {
+                            subscriber.onComplete();
+                            return;
+                        }
                         return;
                     }
                     return;
                 }
             } while (!compareAndSet(0, 2));
         }
-    }
-
-    @Override // io.reactivex.internal.fuseable.QueueFuseable
-    public final int requestFusion(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if ((i & 2) != 0) {
-                lazySet(8);
-                return 2;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public final boolean tryCancel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getAndSet(4) != 4 : invokeV.booleanValue;
     }
 }

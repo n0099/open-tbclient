@@ -25,7 +25,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class Builder implements com.baidu.pass.a {
+    public class Builder implements com.baidu.pass.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -58,20 +58,76 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             this.a = context;
         }
 
+        public Builder setCancelable(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.e = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder setDarkMode(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.d = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder setMessage(CharSequence charSequence) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
+                this.b = charSequence;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setMessageGravity(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.j = i;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
+        public Builder setTitle(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
         public CommonDialog build() {
             InterceptResult invokeV;
+            CharSequence charSequence;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.pass_sdk_base_ui_common_dialog, (ViewGroup) null);
-                CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003d0);
+                CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003d1);
                 TextView textView = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_title);
                 TextView textView2 = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_content);
                 View findViewById = inflate.findViewById(R.id.pass_base_ui_dialog_horizontal_split_line);
-                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091672);
-                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a38);
+                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091664);
+                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a34);
                 View findViewById2 = inflate.findViewById(R.id.pass_base_ui_dialog_vertical_split_line);
                 textView.setText(this.c);
-                textView2.setText(TextUtils.isEmpty(this.b) ? "" : this.b);
+                if (TextUtils.isEmpty(this.b)) {
+                    charSequence = "";
+                } else {
+                    charSequence = this.b;
+                }
+                textView2.setText(charSequence);
                 textView2.setMovementMethod(LinkMovementMethod.getInstance());
                 textView2.setHighlightColor(0);
                 int i = this.j;
@@ -115,46 +171,6 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             return (CommonDialog) invokeV.objValue;
         }
 
-        public Builder setCancelable(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.e = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setDarkMode(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.d = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder setMessage(CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
-                this.b = charSequence;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder setMessageGravity(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.j = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
         public Builder setNegativeButton(String str, View.OnClickListener onClickListener) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -175,16 +191,6 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
                 return this;
             }
             return (Builder) invokeLL.objValue;
-        }
-
-        public Builder setTitle(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
         }
     }
 

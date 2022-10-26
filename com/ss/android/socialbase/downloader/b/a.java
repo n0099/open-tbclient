@@ -48,10 +48,9 @@ public class a extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onConfigure(SQLiteDatabase sQLiteDatabase) {
         super.onConfigure(sQLiteDatabase);
-        if (com.ss.android.socialbase.downloader.g.a.c().b("disable_sqlite_wal") <= 0 || Build.VERSION.SDK_INT != 28) {
-            return;
+        if (com.ss.android.socialbase.downloader.g.a.c().b("disable_sqlite_wal") > 0 && Build.VERSION.SDK_INT == 28) {
+            sQLiteDatabase.disableWriteAheadLogging();
         }
-        sQLiteDatabase.disableWriteAheadLogging();
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

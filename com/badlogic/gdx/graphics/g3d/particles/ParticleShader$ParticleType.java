@@ -57,12 +57,18 @@ public final class ParticleShader$ParticleType {
     public static ParticleShader$ParticleType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ParticleShader$ParticleType) Enum.valueOf(ParticleShader$ParticleType.class, str) : (ParticleShader$ParticleType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ParticleShader$ParticleType) Enum.valueOf(ParticleShader$ParticleType.class, str);
+        }
+        return (ParticleShader$ParticleType) invokeL.objValue;
     }
 
     public static ParticleShader$ParticleType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ParticleShader$ParticleType[]) $VALUES.clone() : (ParticleShader$ParticleType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ParticleShader$ParticleType[]) $VALUES.clone();
+        }
+        return (ParticleShader$ParticleType[]) invokeV.objValue;
     }
 }

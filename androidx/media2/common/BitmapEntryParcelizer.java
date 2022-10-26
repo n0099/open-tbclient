@@ -1,7 +1,6 @@
 package androidx.media2.common;
 
 import android.graphics.Bitmap;
-import androidx.annotation.RestrictTo;
 import androidx.media2.common.MediaMetadata;
 import androidx.versionedparcelable.VersionedParcel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class BitmapEntryParcelizer {
     public static /* synthetic */ Interceptable $ic;

@@ -1,8 +1,6 @@
 package com.bumptech.glide.load.model;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -21,18 +20,18 @@ import java.util.Map;
 public final class LazyHeaders implements Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile Map<String, String> combinedHeaders;
-    public final Map<String, List<LazyHeaderFactory>> headers;
+    public volatile Map combinedHeaders;
+    public final Map headers;
 
     /* loaded from: classes7.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final Map<String, List<LazyHeaderFactory>> DEFAULT_HEADERS;
+        public static final Map DEFAULT_HEADERS;
         public static final String DEFAULT_USER_AGENT;
         public static final String USER_AGENT_HEADER = "User-Agent";
         public transient /* synthetic */ FieldHolder $fh;
         public boolean copyOnModify;
-        public Map<String, List<LazyHeaderFactory>> headers;
+        public Map headers;
         public boolean isUserAgentDefault;
 
         static {
@@ -56,61 +55,19 @@ public final class LazyHeaders implements Headers {
             DEFAULT_HEADERS = Collections.unmodifiableMap(hashMap);
         }
 
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.copyOnModify = true;
-            this.headers = DEFAULT_HEADERS;
-            this.isUserAgentDefault = true;
-        }
-
-        private Map<String, List<LazyHeaderFactory>> copyHeaders() {
+        private Map copyHeaders() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
                 HashMap hashMap = new HashMap(this.headers.size());
-                for (Map.Entry<String, List<LazyHeaderFactory>> entry : this.headers.entrySet()) {
-                    hashMap.put(entry.getKey(), new ArrayList(entry.getValue()));
+                for (Map.Entry entry : this.headers.entrySet()) {
+                    hashMap.put(entry.getKey(), new ArrayList((Collection) entry.getValue()));
                 }
                 return hashMap;
             }
             return (Map) invokeV.objValue;
         }
 
-        private void copyIfNecessary() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.copyOnModify) {
-                this.copyOnModify = false;
-                this.headers = copyHeaders();
-            }
-        }
-
-        private List<LazyHeaderFactory> getFactories(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-                List<LazyHeaderFactory> list = this.headers.get(str);
-                if (list == null) {
-                    ArrayList arrayList = new ArrayList();
-                    this.headers.put(str, arrayList);
-                    return arrayList;
-                }
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        @VisibleForTesting
         public static String getSanitizedUserAgent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -134,10 +91,30 @@ public final class LazyHeaders implements Headers {
             return (String) invokeV.objValue;
         }
 
-        public Builder addHeader(String str, String str2) {
-            InterceptResult invokeLL;
+        public Builder() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? addHeader(str, new StringHeaderFactory(str2)) : (Builder) invokeLL.objValue;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.copyOnModify = true;
+            this.headers = DEFAULT_HEADERS;
+            this.isUserAgentDefault = true;
+        }
+
+        private void copyIfNecessary() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.copyOnModify) {
+                this.copyOnModify = false;
+                this.headers = copyHeaders();
+            }
         }
 
         public LazyHeaders build() {
@@ -150,13 +127,19 @@ public final class LazyHeaders implements Headers {
             return (LazyHeaders) invokeV.objValue;
         }
 
-        public Builder setHeader(String str, String str2) {
-            InterceptResult invokeLL;
+        private List getFactories(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                return setHeader(str, str2 == null ? null : new StringHeaderFactory(str2));
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+                List list = (List) this.headers.get(str);
+                if (list == null) {
+                    ArrayList arrayList = new ArrayList();
+                    this.headers.put(str, arrayList);
+                    return arrayList;
+                }
+                return list;
             }
-            return (Builder) invokeLL.objValue;
+            return (List) invokeL.objValue;
         }
 
         public Builder addHeader(String str, LazyHeaderFactory lazyHeaderFactory) {
@@ -173,6 +156,30 @@ public final class LazyHeaders implements Headers {
             return (Builder) invokeLL.objValue;
         }
 
+        public Builder setHeader(String str, String str2) {
+            InterceptResult invokeLL;
+            StringHeaderFactory stringHeaderFactory;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                if (str2 == null) {
+                    stringHeaderFactory = null;
+                } else {
+                    stringHeaderFactory = new StringHeaderFactory(str2);
+                }
+                return setHeader(str, stringHeaderFactory);
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder addHeader(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                return addHeader(str, new StringHeaderFactory(str2));
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
         public Builder setHeader(String str, LazyHeaderFactory lazyHeaderFactory) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -181,7 +188,7 @@ public final class LazyHeaders implements Headers {
                 if (lazyHeaderFactory == null) {
                     this.headers.remove(str);
                 } else {
-                    List<LazyHeaderFactory> factories = getFactories(str);
+                    List factories = getFactories(str);
                     factories.clear();
                     factories.add(lazyHeaderFactory);
                 }
@@ -195,7 +202,7 @@ public final class LazyHeaders implements Headers {
     }
 
     /* loaded from: classes7.dex */
-    public static final class StringHeaderFactory implements LazyHeaderFactory {
+    public final class StringHeaderFactory implements LazyHeaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String value;
@@ -218,13 +225,6 @@ public final class LazyHeaders implements Headers {
             this.value = str;
         }
 
-        @Override // com.bumptech.glide.load.model.LazyHeaderFactory
-        public String buildHeader() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
-        }
-
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -237,10 +237,23 @@ public final class LazyHeaders implements Headers {
             return invokeL.booleanValue;
         }
 
+        @Override // com.bumptech.glide.load.model.LazyHeaderFactory
+        public String buildHeader() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.value;
+            }
+            return (String) invokeV.objValue;
+        }
+
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.value.hashCode() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.value.hashCode();
+            }
+            return invokeV.intValue;
         }
 
         public String toString() {
@@ -253,7 +266,7 @@ public final class LazyHeaders implements Headers {
         }
     }
 
-    public LazyHeaders(Map<String, List<LazyHeaderFactory>> map) {
+    public LazyHeaders(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -271,15 +284,14 @@ public final class LazyHeaders implements Headers {
         this.headers = Collections.unmodifiableMap(map);
     }
 
-    @NonNull
-    private String buildHeaderValue(@NonNull List<LazyHeaderFactory> list) {
+    private String buildHeaderValue(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, list)) == null) {
             StringBuilder sb = new StringBuilder();
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                String buildHeader = list.get(i).buildHeader();
+                String buildHeader = ((LazyHeaderFactory) list.get(i)).buildHeader();
                 if (!TextUtils.isEmpty(buildHeader)) {
                     sb.append(buildHeader);
                     if (i != list.size() - 1) {
@@ -292,13 +304,13 @@ public final class LazyHeaders implements Headers {
         return (String) invokeL.objValue;
     }
 
-    private Map<String, String> generateHeaders() {
+    private Map generateHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             HashMap hashMap = new HashMap();
-            for (Map.Entry<String, List<LazyHeaderFactory>> entry : this.headers.entrySet()) {
-                String buildHeaderValue = buildHeaderValue(entry.getValue());
+            for (Map.Entry entry : this.headers.entrySet()) {
+                String buildHeaderValue = buildHeaderValue((List) entry.getValue());
                 if (!TextUtils.isEmpty(buildHeaderValue)) {
                     hashMap.put(entry.getKey(), buildHeaderValue);
                 }
@@ -321,7 +333,7 @@ public final class LazyHeaders implements Headers {
     }
 
     @Override // com.bumptech.glide.load.model.Headers
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -340,7 +352,10 @@ public final class LazyHeaders implements Headers {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.headers.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.headers.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {

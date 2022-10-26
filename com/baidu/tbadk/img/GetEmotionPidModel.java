@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dp4;
-import com.baidu.tieba.l85;
+import com.baidu.tieba.ep4;
+import com.baidu.tieba.p85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,6 +24,23 @@ public class GetEmotionPidModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(p85 p85Var);
+
+        void onFail(int i, String str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -56,22 +73,16 @@ public class GetEmotionPidModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && this.a.a != null) {
-                GetEmotionPidResponseMessage getEmotionPidResponseMessage = (GetEmotionPidResponseMessage) httpResponsedMessage;
-                if (getEmotionPidResponseMessage.getImageInfo() != null) {
-                    this.a.a.a(getEmotionPidResponseMessage.getImageInfo());
-                } else {
-                    this.a.a.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003331 || !(httpResponsedMessage instanceof GetEmotionPidResponseMessage) || this.a.a == null) {
+                return;
+            }
+            GetEmotionPidResponseMessage getEmotionPidResponseMessage = (GetEmotionPidResponseMessage) httpResponsedMessage;
+            if (getEmotionPidResponseMessage.getImageInfo() != null) {
+                this.a.a.a(getEmotionPidResponseMessage.getImageInfo());
+            } else {
+                this.a.a.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
             }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(l85 l85Var);
-
-        void onFail(int i, String str);
     }
 
     public GetEmotionPidModel() {
@@ -107,7 +118,7 @@ public class GetEmotionPidModel extends BdBaseModel {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
-            httpMessage.addParam("pic_url", dp4.t(str));
+            httpMessage.addParam("pic_url", ep4.t(str));
             sendMessage(httpMessage);
         }
     }
@@ -120,16 +131,6 @@ public class GetEmotionPidModel extends BdBaseModel {
             MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
             return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
         }
         return invokeV.booleanValue;
     }

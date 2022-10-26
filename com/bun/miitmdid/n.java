@@ -1,26 +1,18 @@
 package com.bun.miitmdid;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public abstract class n extends o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public g f;
-    @Keep
     public String g;
-    @Keep
     public String h;
-    @Keep
     public String i;
-    @Keep
     public boolean j;
-    @Keep
     public boolean k;
 
     public n() {
@@ -47,34 +39,26 @@ public abstract class n extends o {
     public abstract g d();
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void doStart();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native String getAAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native String getOAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native String getVAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native boolean isLimited();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    @Keep
     public native boolean isSupported();
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native boolean isSync();
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void shutDown();
 }

@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.engine.cache;
 
-import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,11 +18,11 @@ import java.security.NoSuchAlgorithmException;
 public class SafeKeyGenerator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Pools.Pool<PoolableDigestContainer> digestPool;
-    public final LruCache<Key, String> loadIdToSafeHash;
+    public final Pools.Pool digestPool;
+    public final LruCache loadIdToSafeHash;
 
     /* loaded from: classes7.dex */
-    public static final class PoolableDigestContainer implements FactoryPools.Poolable {
+    public final class PoolableDigestContainer implements FactoryPools.Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MessageDigest messageDigest;
@@ -49,11 +48,13 @@ public class SafeKeyGenerator {
         }
 
         @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
-        @NonNull
         public StateVerifier getVerifier() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.stateVerifier : (StateVerifier) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.stateVerifier;
+            }
+            return (StateVerifier) invokeV.objValue;
         }
     }
 
@@ -70,8 +71,8 @@ public class SafeKeyGenerator {
                 return;
             }
         }
-        this.loadIdToSafeHash = new LruCache<>(1000L);
-        this.digestPool = FactoryPools.threadSafe(10, new FactoryPools.Factory<PoolableDigestContainer>(this) { // from class: com.bumptech.glide.load.engine.cache.SafeKeyGenerator.1
+        this.loadIdToSafeHash = new LruCache(1000L);
+        this.digestPool = FactoryPools.threadSafe(10, new FactoryPools.Factory(this) { // from class: com.bumptech.glide.load.engine.cache.SafeKeyGenerator.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SafeKeyGenerator this$0;
@@ -95,7 +96,6 @@ public class SafeKeyGenerator {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
             public PoolableDigestContainer create() {
                 InterceptResult invokeV;
@@ -133,7 +133,7 @@ public class SafeKeyGenerator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
             synchronized (this.loadIdToSafeHash) {
-                str = this.loadIdToSafeHash.get(key);
+                str = (String) this.loadIdToSafeHash.get(key);
             }
             if (str == null) {
                 str = calculateHexStringDigest(key);

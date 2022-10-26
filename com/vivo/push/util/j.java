@@ -44,37 +44,6 @@ public final class j {
         g = null;
     }
 
-    public static String a(String str, String str2) {
-        String str3;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            try {
-                str3 = (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                str3 = str2;
-            }
-            return (str3 == null || str3.length() == 0) ? str2 : str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            String b2 = z.b("ro.vivo.rom", "");
-            String b3 = z.b("ro.vivo.rom.version", "");
-            p.d("Device", "ro.vivo.rom = " + b2 + " ; ro.vivo.rom.version = " + b3);
-            if (b2 == null || !b2.contains(str)) {
-                return b3 != null && b3.contains(str);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
     public static synchronized String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,17 +62,79 @@ public final class j {
                 }
                 p.d("Device", "sRomProperty1 : " + f + " ; sRomProperty2 : " + g);
                 String a2 = a(f);
-                if (TextUtils.isEmpty(a2)) {
-                    String a3 = a(g);
-                    if (TextUtils.isEmpty(a3)) {
-                        return null;
-                    }
-                    return a3;
+                if (!TextUtils.isEmpty(a2)) {
+                    return a2;
                 }
-                return a2;
+                String a3 = a(g);
+                if (TextUtils.isEmpty(a3)) {
+                    return null;
+                }
+                return a3;
             }
         }
         return (String) invokeV.objValue;
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String substring;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Matcher matcher = Pattern.compile("rom_([\\d]*).?([\\d]*)", 2).matcher(str);
+            if (!matcher.find()) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(matcher.group(1));
+            if (TextUtils.isEmpty(matcher.group(2))) {
+                substring = "0";
+            } else {
+                substring = matcher.group(2).substring(0, 1);
+            }
+            sb.append(substring);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            String b2 = z.b("ro.vivo.rom", "");
+            String b3 = z.b("ro.vivo.rom.version", "");
+            p.d("Device", "ro.vivo.rom = " + b2 + " ; ro.vivo.rom.version = " + b3);
+            if (b2 == null || !b2.contains(str)) {
+                if (b3 != null && b3.contains(str)) {
+                    return true;
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String a(String str, String str2) {
+        String str3;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            try {
+                str3 = (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, str);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                str3 = str2;
+            }
+            if (str3 != null && str3.length() != 0) {
+                return str3;
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static boolean b() {
@@ -115,27 +146,11 @@ public final class j {
                 return false;
             }
             p.d("Device", "Build.MANUFACTURER is " + Build.MANUFACTURER);
-            return Build.MANUFACTURER.toLowerCase().contains("bbk") || Build.MANUFACTURER.toLowerCase().startsWith("vivo");
+            if (!Build.MANUFACTURER.toLowerCase().contains("bbk") && !Build.MANUFACTURER.toLowerCase().startsWith("vivo")) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Matcher matcher = Pattern.compile("rom_([\\d]*).?([\\d]*)", 2).matcher(str);
-            if (matcher.find()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(matcher.group(1));
-                sb.append(TextUtils.isEmpty(matcher.group(2)) ? "0" : matcher.group(2).substring(0, 1));
-                return sb.toString();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 }

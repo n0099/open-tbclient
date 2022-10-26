@@ -18,6 +18,13 @@ public class LocalFileFetchProducer extends LocalFetchProducer {
     public static final String PRODUCER_NAME = "LocalFileFetchProducer";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
+    public String getProducerName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalFileFetchProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory) {
         super(executor, pooledByteBufferFactory);
@@ -43,13 +50,9 @@ public class LocalFileFetchProducer extends LocalFetchProducer {
     public EncodedImage getEncodedImage(ImageRequest imageRequest) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageRequest)) == null) ? getEncodedImage(new FileInputStream(imageRequest.getSourceFile().toString()), (int) imageRequest.getSourceFile().length()) : (EncodedImage) invokeL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
-    public String getProducerName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageRequest)) == null) {
+            return getEncodedImage(new FileInputStream(imageRequest.getSourceFile().toString()), (int) imageRequest.getSourceFile().length());
+        }
+        return (EncodedImage) invokeL.objValue;
     }
 }

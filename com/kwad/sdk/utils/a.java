@@ -1,16 +1,12 @@
 package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 /* loaded from: classes8.dex */
 public final class a {
-    @Nullable
-    @WorkerThread
     public static byte[] dw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -18,8 +14,6 @@ public final class a {
         return getFileMD5Digest(new File(str));
     }
 
-    @Nullable
-    @WorkerThread
     public static String getFileMD5(File file) {
         try {
             byte[] fileMD5Digest = getFileMD5Digest(file);
@@ -33,8 +27,6 @@ public final class a {
         }
     }
 
-    @Nullable
-    @WorkerThread
     public static byte[] getFileMD5Digest(File file) {
         if (file == null) {
             return null;

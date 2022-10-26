@@ -50,7 +50,10 @@ public final class LruCacheKt$lruCache$4 extends LruCache<K, V> {
     public V create(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.$create.invoke(k) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            return this.$create.invoke(k);
+        }
+        return invokeL.objValue;
     }
 
     @Override // androidx.collection.LruCache
@@ -65,6 +68,9 @@ public final class LruCacheKt$lruCache$4 extends LruCache<K, V> {
     public int sizeOf(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) ? ((Number) this.$sizeOf.invoke(k, v)).intValue() : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
+            return ((Number) this.$sizeOf.invoke(k, v)).intValue();
+        }
+        return invokeLL.intValue;
     }
 }

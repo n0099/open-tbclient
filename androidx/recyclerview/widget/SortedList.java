@@ -1,7 +1,5 @@
 package androidx.recyclerview.widget;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,36 +61,40 @@ public class SortedList<T> {
         public boolean areContentsTheSame(T2 t2, T2 t22) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, t2, t22)) == null) ? this.mWrappedCallback.areContentsTheSame(t2, t22) : invokeLL.booleanValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, t2, t22)) == null) {
+                return this.mWrappedCallback.areContentsTheSame(t2, t22);
+            }
+            return invokeLL.booleanValue;
         }
 
         @Override // androidx.recyclerview.widget.SortedList.Callback
         public boolean areItemsTheSame(T2 t2, T2 t22) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t2, t22)) == null) ? this.mWrappedCallback.areItemsTheSame(t2, t22) : invokeLL.booleanValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t2, t22)) == null) {
+                return this.mWrappedCallback.areItemsTheSame(t2, t22);
+            }
+            return invokeLL.booleanValue;
         }
 
         @Override // androidx.recyclerview.widget.SortedList.Callback, java.util.Comparator
         public int compare(T2 t2, T2 t22) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t2, t22)) == null) ? this.mWrappedCallback.compare(t2, t22) : invokeLL.intValue;
-        }
-
-        public void dispatchLastEvent() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.mBatchingListUpdateCallback.dispatchLastEvent();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t2, t22)) == null) {
+                return this.mWrappedCallback.compare(t2, t22);
             }
+            return invokeLL.intValue;
         }
 
         @Override // androidx.recyclerview.widget.SortedList.Callback
-        @Nullable
         public Object getChangePayload(T2 t2, T2 t22) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, t2, t22)) == null) ? this.mWrappedCallback.getChangePayload(t2, t22) : invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, t2, t22)) == null) {
+                return this.mWrappedCallback.getChangePayload(t2, t22);
+            }
+            return invokeLL.objValue;
         }
 
         @Override // androidx.recyclerview.widget.SortedList.Callback
@@ -127,6 +129,13 @@ public class SortedList<T> {
             }
         }
 
+        public void dispatchLastEvent() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.mBatchingListUpdateCallback.dispatchLastEvent();
+            }
+        }
+
         @Override // androidx.recyclerview.widget.SortedList.Callback, androidx.recyclerview.widget.ListUpdateCallback
         public void onChanged(int i, int i2, Object obj) {
             Interceptable interceptable = $ic;
@@ -140,6 +149,24 @@ public class SortedList<T> {
     public static abstract class Callback<T2> implements Comparator<T2>, ListUpdateCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract boolean areContentsTheSame(T2 t2, T2 t22);
+
+        public abstract boolean areItemsTheSame(T2 t2, T2 t22);
+
+        @Override // java.util.Comparator
+        public abstract int compare(T2 t2, T2 t22);
+
+        public Object getChangePayload(T2 t2, T2 t22) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, t2, t22)) == null) {
+                return null;
+            }
+            return invokeLL.objValue;
+        }
+
+        public abstract void onChanged(int i, int i2);
 
         public Callback() {
             Interceptable interceptable = $ic;
@@ -155,25 +182,6 @@ public class SortedList<T> {
             }
         }
 
-        public abstract boolean areContentsTheSame(T2 t2, T2 t22);
-
-        public abstract boolean areItemsTheSame(T2 t2, T2 t22);
-
-        @Override // java.util.Comparator
-        public abstract int compare(T2 t2, T2 t22);
-
-        @Nullable
-        public Object getChangePayload(T2 t2, T2 t22) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, t2, t22)) == null) {
-                return null;
-            }
-            return invokeLL.objValue;
-        }
-
-        public abstract void onChanged(int i, int i2);
-
         public void onChanged(int i, int i2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, obj) == null) {
@@ -183,7 +191,7 @@ public class SortedList<T> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SortedList(@NonNull Class<T> cls, @NonNull Callback<T> callback) {
+    public SortedList(Class<T> cls, Callback<T> callback) {
         this(cls, callback, 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -203,9 +211,91 @@ public class SortedList<T> {
         }
     }
 
+    private int add(T t, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, this, t, z)) == null) {
+            int findIndexOf = findIndexOf(t, this.mData, 0, this.mSize, 1);
+            if (findIndexOf == -1) {
+                findIndexOf = 0;
+            } else if (findIndexOf < this.mSize) {
+                T t2 = this.mData[findIndexOf];
+                if (this.mCallback.areItemsTheSame(t2, t)) {
+                    if (this.mCallback.areContentsTheSame(t2, t)) {
+                        this.mData[findIndexOf] = t;
+                        return findIndexOf;
+                    }
+                    this.mData[findIndexOf] = t;
+                    Callback callback = this.mCallback;
+                    callback.onChanged(findIndexOf, 1, callback.getChangePayload(t2, t));
+                    return findIndexOf;
+                }
+            }
+            addToData(findIndexOf, t);
+            if (z) {
+                this.mCallback.onInserted(findIndexOf, 1);
+            }
+            return findIndexOf;
+        }
+        return invokeLZ.intValue;
+    }
+
+    public void updateItemAt(int i, T t) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048592, this, i, t) == null) {
+            throwIfInMutationOperation();
+            T t2 = get(i);
+            if (t2 != t && this.mCallback.areContentsTheSame(t2, t)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (t2 != t && this.mCallback.compare(t2, t) == 0) {
+                this.mData[i] = t;
+                if (z) {
+                    Callback callback = this.mCallback;
+                    callback.onChanged(i, 1, callback.getChangePayload(t2, t));
+                    return;
+                }
+                return;
+            }
+            if (z) {
+                Callback callback2 = this.mCallback;
+                callback2.onChanged(i, 1, callback2.getChangePayload(t2, t));
+            }
+            removeItemAtIndex(i, false);
+            int add = add(t, false);
+            if (i != add) {
+                this.mCallback.onMoved(i, add);
+            }
+        }
+    }
+
+    public SortedList(Class<T> cls, Callback<T> callback, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, callback, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mTClass = cls;
+        this.mData = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, i));
+        this.mCallback = callback;
+        this.mSize = 0;
+    }
+
     private void addAllInternal(T[] tArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, tArr) == null) || tArr.length < 1) {
+        if ((interceptable != null && interceptable.invokeL(65539, this, tArr) != null) || tArr.length < 1) {
             return;
         }
         int sortAndDedup = sortAndDedup(tArr);
@@ -216,6 +306,93 @@ public class SortedList<T> {
             return;
         }
         merge(tArr, sortAndDedup);
+    }
+
+    private T[] copyArray(T[] tArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, tArr)) == null) {
+            T[] tArr2 = (T[]) ((Object[]) Array.newInstance((Class<?>) this.mTClass, tArr.length));
+            System.arraycopy(tArr, 0, tArr2, 0, tArr.length);
+            return tArr2;
+        }
+        return (T[]) ((Object[]) invokeL.objValue);
+    }
+
+    private void replaceAllInsert(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, this, t) == null) {
+            T[] tArr = this.mData;
+            int i = this.mNewDataStart;
+            tArr[i] = t;
+            int i2 = i + 1;
+            this.mNewDataStart = i2;
+            this.mSize++;
+            this.mCallback.onInserted(i2 - 1, 1);
+        }
+    }
+
+    public int add(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            throwIfInMutationOperation();
+            return add(t, true);
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: androidx.recyclerview.widget.SortedList<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void addAll(Collection<T> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) {
+            addAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.mTClass, collection.size())), true);
+        }
+    }
+
+    public void recalculatePositionOfItemAt(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            throwIfInMutationOperation();
+            T t = get(i);
+            removeItemAtIndex(i, false);
+            int add = add(t, false);
+            if (i != add) {
+                this.mCallback.onMoved(i, add);
+            }
+        }
+    }
+
+    public boolean remove(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, t)) == null) {
+            throwIfInMutationOperation();
+            return remove(t, true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public T removeItemAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            throwIfInMutationOperation();
+            T t = get(i);
+            removeItemAtIndex(i, true);
+            return t;
+        }
+        return (T) invokeI.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: androidx.recyclerview.widget.SortedList<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void replaceAll(Collection<T> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, collection) == null) {
+            replaceAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.mTClass, collection.size())), true);
+        }
     }
 
     private void addToData(int i, T t) {
@@ -241,17 +418,6 @@ public class SortedList<T> {
         }
     }
 
-    private T[] copyArray(T[] tArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, tArr)) == null) {
-            T[] tArr2 = (T[]) ((Object[]) Array.newInstance((Class<?>) this.mTClass, tArr.length));
-            System.arraycopy(tArr, 0, tArr2, 0, tArr.length);
-            return tArr2;
-        }
-        return (T[]) ((Object[]) invokeL.objValue);
-    }
-
     private int findIndexOf(T t, T[] tArr, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -267,15 +433,21 @@ public class SortedList<T> {
                         return i4;
                     }
                     int linearEqualitySearch = linearEqualitySearch(t, i4, i, i2);
-                    return (i3 == 1 && linearEqualitySearch == -1) ? i4 : linearEqualitySearch;
+                    if (i3 == 1) {
+                        if (linearEqualitySearch != -1) {
+                            return linearEqualitySearch;
+                        }
+                        return i4;
+                    }
+                    return linearEqualitySearch;
                 } else {
                     i2 = i4;
                 }
             }
-            if (i3 == 1) {
-                return i;
+            if (i3 != 1) {
+                return -1;
             }
-            return -1;
+            return i;
         }
         return invokeCommon.intValue;
     }
@@ -310,11 +482,12 @@ public class SortedList<T> {
             }
             do {
                 i++;
-                if (i >= i3) {
-                    return -1;
-                }
-                t2 = this.mData[i];
-                if (this.mCallback.compare(t2, t) != 0) {
+                if (i < i3) {
+                    t2 = this.mData[i];
+                    if (this.mCallback.compare(t2, t) != 0) {
+                        return -1;
+                    }
+                } else {
                     return -1;
                 }
             } while (!this.mCallback.areItemsTheSame(t2, t));
@@ -396,6 +569,47 @@ public class SortedList<T> {
         }
     }
 
+    private boolean remove(T t, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, this, t, z)) == null) {
+            int findIndexOf = findIndexOf(t, this.mData, 0, this.mSize, 2);
+            if (findIndexOf == -1) {
+                return false;
+            }
+            removeItemAtIndex(findIndexOf, z);
+            return true;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public void addAll(T[] tArr, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, tArr, z) == null) {
+            throwIfInMutationOperation();
+            if (tArr.length == 0) {
+                return;
+            }
+            if (z) {
+                addAllInternal(tArr);
+            } else {
+                addAllInternal(copyArray(tArr));
+            }
+        }
+    }
+
+    public void replaceAll(T[] tArr, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048590, this, tArr, z) == null) {
+            throwIfInMutationOperation();
+            if (z) {
+                replaceAllInternal(tArr);
+            } else {
+                replaceAllInternal(copyArray(tArr));
+            }
+        }
+    }
+
     private void removeItemAtIndex(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -410,20 +624,7 @@ public class SortedList<T> {
         }
     }
 
-    private void replaceAllInsert(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, t) == null) {
-            T[] tArr = this.mData;
-            int i = this.mNewDataStart;
-            tArr[i] = t;
-            int i2 = i + 1;
-            this.mNewDataStart = i2;
-            this.mSize++;
-            this.mCallback.onInserted(i2 - 1, 1);
-        }
-    }
-
-    private void replaceAllInternal(@NonNull T[] tArr) {
+    private void replaceAllInternal(T[] tArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, tArr) == null) {
             boolean z = !(this.mCallback instanceof BatchedCallback);
@@ -496,71 +697,12 @@ public class SortedList<T> {
         }
     }
 
-    private int sortAndDedup(@NonNull T[] tArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, tArr)) == null) {
-            if (tArr.length == 0) {
-                return 0;
-            }
-            Arrays.sort(tArr, this.mCallback);
-            int i = 1;
-            int i2 = 0;
-            for (int i3 = 1; i3 < tArr.length; i3++) {
-                T t = tArr[i3];
-                if (this.mCallback.compare(tArr[i2], t) == 0) {
-                    int findSameItem = findSameItem(t, tArr, i2, i);
-                    if (findSameItem != -1) {
-                        tArr[findSameItem] = t;
-                    } else {
-                        if (i != i3) {
-                            tArr[i] = t;
-                        }
-                        i++;
-                    }
-                } else {
-                    if (i != i3) {
-                        tArr[i] = t;
-                    }
-                    i2 = i;
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
     private void throwIfInMutationOperation() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65552, this) == null) && this.mOldData != null) {
-            throw new IllegalStateException("Data cannot be mutated in the middle of a batch update operation such as addAll or replaceAll.");
+        if ((interceptable != null && interceptable.invokeV(65552, this) != null) || this.mOldData == null) {
+            return;
         }
-    }
-
-    public int add(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            throwIfInMutationOperation();
-            return add(t, true);
-        }
-        return invokeL.intValue;
-    }
-
-    public void addAll(@NonNull T[] tArr, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, tArr, z) == null) {
-            throwIfInMutationOperation();
-            if (tArr.length == 0) {
-                return;
-            }
-            if (z) {
-                addAllInternal(tArr);
-            } else {
-                addAllInternal(copyArray(tArr));
-            }
-        }
+        throw new IllegalStateException("Data cannot be mutated in the middle of a batch update operation such as addAll or replaceAll.");
     }
 
     public void beginBatchedUpdates() {
@@ -608,6 +750,50 @@ public class SortedList<T> {
         }
     }
 
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mSize;
+        }
+        return invokeV.intValue;
+    }
+
+    private int sortAndDedup(T[] tArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, tArr)) == null) {
+            if (tArr.length == 0) {
+                return 0;
+            }
+            Arrays.sort(tArr, this.mCallback);
+            int i = 1;
+            int i2 = 0;
+            for (int i3 = 1; i3 < tArr.length; i3++) {
+                T t = tArr[i3];
+                if (this.mCallback.compare(tArr[i2], t) == 0) {
+                    int findSameItem = findSameItem(t, tArr, i2, i);
+                    if (findSameItem != -1) {
+                        tArr[findSameItem] = t;
+                    } else {
+                        if (i != i3) {
+                            tArr[i] = t;
+                        }
+                        i++;
+                    }
+                } else {
+                    if (i != i3) {
+                        tArr[i] = t;
+                    }
+                    i2 = i;
+                    i++;
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
     public T get(int i) throws IndexOutOfBoundsException {
         InterceptResult invokeI;
         int i2;
@@ -635,189 +821,27 @@ public class SortedList<T> {
                     return findIndexOf;
                 }
                 int findIndexOf2 = findIndexOf(t, this.mOldData, this.mOldDataStart, this.mOldDataSize, 4);
-                if (findIndexOf2 != -1) {
-                    return (findIndexOf2 - this.mOldDataStart) + this.mNewDataStart;
+                if (findIndexOf2 == -1) {
+                    return -1;
                 }
-                return -1;
+                return (findIndexOf2 - this.mOldDataStart) + this.mNewDataStart;
             }
             return findIndexOf(t, this.mData, 0, this.mSize, 4);
         }
         return invokeL.intValue;
     }
 
-    public void recalculatePositionOfItemAt(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            throwIfInMutationOperation();
-            T t = get(i);
-            removeItemAtIndex(i, false);
-            int add = add(t, false);
-            if (i != add) {
-                this.mCallback.onMoved(i, add);
-            }
-        }
-    }
-
-    public boolean remove(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, t)) == null) {
-            throwIfInMutationOperation();
-            return remove(t, true);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public T removeItemAt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            throwIfInMutationOperation();
-            T t = get(i);
-            removeItemAtIndex(i, true);
-            return t;
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public void replaceAll(@NonNull T[] tArr, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048590, this, tArr, z) == null) {
-            throwIfInMutationOperation();
-            if (z) {
-                replaceAllInternal(tArr);
-            } else {
-                replaceAllInternal(copyArray(tArr));
-            }
-        }
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mSize : invokeV.intValue;
-    }
-
-    public void updateItemAt(int i, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048592, this, i, t) == null) {
-            throwIfInMutationOperation();
-            T t2 = get(i);
-            boolean z = t2 == t || !this.mCallback.areContentsTheSame(t2, t);
-            if (t2 != t && this.mCallback.compare(t2, t) == 0) {
-                this.mData[i] = t;
-                if (z) {
-                    Callback callback = this.mCallback;
-                    callback.onChanged(i, 1, callback.getChangePayload(t2, t));
-                    return;
-                }
-                return;
-            }
-            if (z) {
-                Callback callback2 = this.mCallback;
-                callback2.onChanged(i, 1, callback2.getChangePayload(t2, t));
-            }
-            removeItemAtIndex(i, false);
-            int add = add(t, false);
-            if (i != add) {
-                this.mCallback.onMoved(i, add);
-            }
-        }
-    }
-
-    public SortedList(@NonNull Class<T> cls, @NonNull Callback<T> callback, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls, callback, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mTClass = cls;
-        this.mData = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, i));
-        this.mCallback = callback;
-        this.mSize = 0;
-    }
-
-    private int add(T t, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, this, t, z)) == null) {
-            int findIndexOf = findIndexOf(t, this.mData, 0, this.mSize, 1);
-            if (findIndexOf == -1) {
-                findIndexOf = 0;
-            } else if (findIndexOf < this.mSize) {
-                T t2 = this.mData[findIndexOf];
-                if (this.mCallback.areItemsTheSame(t2, t)) {
-                    if (this.mCallback.areContentsTheSame(t2, t)) {
-                        this.mData[findIndexOf] = t;
-                        return findIndexOf;
-                    }
-                    this.mData[findIndexOf] = t;
-                    Callback callback = this.mCallback;
-                    callback.onChanged(findIndexOf, 1, callback.getChangePayload(t2, t));
-                    return findIndexOf;
-                }
-            }
-            addToData(findIndexOf, t);
-            if (z) {
-                this.mCallback.onInserted(findIndexOf, 1);
-            }
-            return findIndexOf;
-        }
-        return invokeLZ.intValue;
-    }
-
-    private boolean remove(T t, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, this, t, z)) == null) {
-            int findIndexOf = findIndexOf(t, this.mData, 0, this.mSize, 2);
-            if (findIndexOf == -1) {
-                return false;
-            }
-            removeItemAtIndex(findIndexOf, z);
-            return true;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void replaceAll(@NonNull T... tArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, tArr) == null) {
-            replaceAll(tArr, false);
-        }
-    }
-
-    public void addAll(@NonNull T... tArr) {
+    public void addAll(T... tArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tArr) == null) {
             addAll(tArr, false);
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: androidx.recyclerview.widget.SortedList<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void replaceAll(@NonNull Collection<T> collection) {
+    public void replaceAll(T... tArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, collection) == null) {
-            replaceAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.mTClass, collection.size())), true);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: androidx.recyclerview.widget.SortedList<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void addAll(@NonNull Collection<T> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) {
-            addAll(collection.toArray((Object[]) Array.newInstance((Class<?>) this.mTClass, collection.size())), true);
+        if (interceptable == null || interceptable.invokeL(1048589, this, tArr) == null) {
+            replaceAll(tArr, false);
         }
     }
 }

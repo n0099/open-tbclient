@@ -1,7 +1,6 @@
 package com.baidu.live.feed.search.holder;
 
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +12,7 @@ public class LiveSearchHotRankBottomViewHolder extends RecyclerView.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveSearchHotRankBottomViewHolder(@NonNull View view2) {
+    public LiveSearchHotRankBottomViewHolder(View view2) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

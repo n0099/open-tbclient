@@ -15,11 +15,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class Header implements Iterable<MinimalField> {
+public class Header implements Iterable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, List<MinimalField>> fieldMap;
-    public final List<MinimalField> fields;
+    public final Map fieldMap;
+    public final List fields;
 
     public Header() {
         Interceptable interceptable = $ic;
@@ -38,15 +38,43 @@ public class Header implements Iterable<MinimalField> {
         this.fieldMap = new HashMap();
     }
 
+    public List getFields() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new ArrayList(this.fields);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // java.lang.Iterable
+    public Iterator iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Collections.unmodifiableList(this.fields).iterator();
+        }
+        return (Iterator) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.fields.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void addField(MinimalField minimalField) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, minimalField) == null) || minimalField == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, minimalField) != null) || minimalField == null) {
             return;
         }
         String lowerCase = minimalField.getName().toLowerCase(Locale.US);
-        List<MinimalField> list = this.fieldMap.get(lowerCase);
+        List list = (List) this.fieldMap.get(lowerCase);
         if (list == null) {
-            list = new LinkedList<>();
+            list = new LinkedList();
             this.fieldMap.put(lowerCase, list);
         }
         list.add(minimalField);
@@ -60,26 +88,29 @@ public class Header implements Iterable<MinimalField> {
             if (str == null) {
                 return null;
             }
-            List<MinimalField> list = this.fieldMap.get(str.toLowerCase(Locale.US));
+            List list = (List) this.fieldMap.get(str.toLowerCase(Locale.US));
             if (list == null || list.isEmpty()) {
                 return null;
             }
-            return list.get(0);
+            return (MinimalField) list.get(0);
         }
         return (MinimalField) invokeL.objValue;
     }
 
-    public List<MinimalField> getFields() {
-        InterceptResult invokeV;
+    public List getFields(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ArrayList(this.fields) : (List) invokeV.objValue;
-    }
-
-    @Override // java.lang.Iterable
-    public Iterator<MinimalField> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Collections.unmodifiableList(this.fields).iterator() : (Iterator) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            List list = (List) this.fieldMap.get(str.toLowerCase(Locale.US));
+            if (list != null && !list.isEmpty()) {
+                return new ArrayList(list);
+            }
+            return Collections.emptyList();
+        }
+        return (List) invokeL.objValue;
     }
 
     public int removeFields(String str) {
@@ -89,30 +120,30 @@ public class Header implements Iterable<MinimalField> {
             if (str == null) {
                 return 0;
             }
-            List<MinimalField> remove = this.fieldMap.remove(str.toLowerCase(Locale.US));
-            if (remove == null || remove.isEmpty()) {
+            List list = (List) this.fieldMap.remove(str.toLowerCase(Locale.US));
+            if (list == null || list.isEmpty()) {
                 return 0;
             }
-            this.fields.removeAll(remove);
-            return remove.size();
+            this.fields.removeAll(list);
+            return list.size();
         }
         return invokeL.intValue;
     }
 
     public void setField(MinimalField minimalField) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, minimalField) == null) || minimalField == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, minimalField) != null) || minimalField == null) {
             return;
         }
-        List<MinimalField> list = this.fieldMap.get(minimalField.getName().toLowerCase(Locale.US));
+        List list = (List) this.fieldMap.get(minimalField.getName().toLowerCase(Locale.US));
         if (list != null && !list.isEmpty()) {
             list.clear();
             list.add(minimalField);
             int i = 0;
-            Iterator<MinimalField> it = this.fields.iterator();
+            Iterator it = this.fields.iterator();
             int i2 = -1;
             while (it.hasNext()) {
-                if (it.next().getName().equalsIgnoreCase(minimalField.getName())) {
+                if (((MinimalField) it.next()).getName().equalsIgnoreCase(minimalField.getName())) {
                     it.remove();
                     if (i2 == -1) {
                         i2 = i;
@@ -124,27 +155,5 @@ public class Header implements Iterable<MinimalField> {
             return;
         }
         addField(minimalField);
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.fields.toString() : (String) invokeV.objValue;
-    }
-
-    public List<MinimalField> getFields(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            List<MinimalField> list = this.fieldMap.get(str.toLowerCase(Locale.US));
-            if (list != null && !list.isEmpty()) {
-                return new ArrayList(list);
-            }
-            return Collections.emptyList();
-        }
-        return (List) invokeL.objValue;
     }
 }

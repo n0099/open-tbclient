@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -49,7 +50,7 @@ public final class a implements Closeable {
     public long maxSize;
     public long size = 0;
     public int Wh = 0;
-    public final LinkedHashMap<String, b> Wj = new LinkedHashMap<>(0, 0.75f, true);
+    public final LinkedHashMap Wj = new LinkedHashMap(0, 0.75f, true);
     public long Wl = 0;
     public final ThreadPoolExecutor Wm = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.kwad.sdk.core.diskcache.kwai.a.1
         public final AtomicInteger poolNumber = new AtomicInteger(1);
@@ -59,7 +60,7 @@ public final class a implements Closeable {
             return new Thread(runnable, "ksad-DiskLruCache-" + this.poolNumber.getAndIncrement());
         }
     });
-    public final Callable<Void> Wn = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.kwai.a.2
+    public final Callable Wn = new Callable() { // from class: com.kwad.sdk.core.diskcache.kwai.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: private */
         @Override // java.util.concurrent.Callable
@@ -82,7 +83,7 @@ public final class a implements Closeable {
 
     /* renamed from: com.kwad.sdk.core.diskcache.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0602a {
+    public final class C0598a {
         public final b Wq;
         public final boolean[] Wr;
         public boolean Ws;
@@ -90,12 +91,12 @@ public final class a implements Closeable {
 
         /* renamed from: com.kwad.sdk.core.diskcache.kwai.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0603a extends FilterOutputStream {
-            public C0603a(OutputStream outputStream) {
+        public final class C0599a extends FilterOutputStream {
+            public C0599a(OutputStream outputStream) {
                 super(outputStream);
             }
 
-            public /* synthetic */ C0603a(C0602a c0602a, OutputStream outputStream, byte b) {
+            public /* synthetic */ C0599a(C0598a c0598a, OutputStream outputStream, byte b) {
                 this(outputStream);
             }
 
@@ -104,7 +105,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.close();
                 } catch (IOException unused) {
-                    C0602a.this.Ws = true;
+                    C0598a.this.Ws = true;
                 }
             }
 
@@ -113,7 +114,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.flush();
                 } catch (IOException unused) {
-                    C0602a.this.Ws = true;
+                    C0598a.this.Ws = true;
                 }
             }
 
@@ -122,7 +123,7 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.write(i);
                 } catch (IOException unused) {
-                    C0602a.this.Ws = true;
+                    C0598a.this.Ws = true;
                 }
             }
 
@@ -131,17 +132,17 @@ public final class a implements Closeable {
                 try {
                     ((FilterOutputStream) this).out.write(bArr, i, i2);
                 } catch (IOException unused) {
-                    C0602a.this.Ws = true;
+                    C0598a.this.Ws = true;
                 }
             }
         }
 
-        public C0602a(b bVar) {
+        public C0598a(b bVar) {
             this.Wq = bVar;
             this.Wr = bVar.Ww ? null : new boolean[a.this.Wg];
         }
 
-        public /* synthetic */ C0602a(a aVar, b bVar, byte b) {
+        public /* synthetic */ C0598a(a aVar, b bVar, byte b) {
             this(bVar);
         }
 
@@ -151,7 +152,7 @@ public final class a implements Closeable {
 
         public final OutputStream au(int i) {
             FileOutputStream fileOutputStream;
-            C0603a c0603a;
+            C0599a c0599a;
             synchronized (a.this) {
                 if (this.Wq.Wx != this) {
                     throw new IllegalStateException();
@@ -170,9 +171,9 @@ public final class a implements Closeable {
                         return a.Wo;
                     }
                 }
-                c0603a = new C0603a(this, fileOutputStream, (byte) 0);
+                c0599a = new C0599a(this, fileOutputStream, (byte) 0);
             }
-            return c0603a;
+            return c0599a;
         }
 
         public final void commit() {
@@ -190,7 +191,7 @@ public final class a implements Closeable {
     public final class b {
         public final long[] Wv;
         public boolean Ww;
-        public C0602a Wx;
+        public C0598a Wx;
         public long Wy;
         public final String key;
 
@@ -328,18 +329,18 @@ public final class a implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(C0602a c0602a, boolean z) {
-        b bVar = c0602a.Wq;
-        if (bVar.Wx != c0602a) {
+    public synchronized void a(C0598a c0598a, boolean z) {
+        b bVar = c0598a.Wq;
+        if (bVar.Wx != c0598a) {
             throw new IllegalStateException();
         }
         if (z && !bVar.Ww) {
             for (int i = 0; i < this.Wg; i++) {
-                if (!c0602a.Wr[i]) {
-                    c0602a.abort();
+                if (!c0598a.Wr[i]) {
+                    c0598a.abort();
                     throw new IllegalStateException("Newly created entry didn't create value for index " + i);
                 } else if (!bVar.aw(i).exists()) {
-                    c0602a.abort();
+                    c0598a.abort();
                     return;
                 }
             }
@@ -404,7 +405,7 @@ public final class a implements Closeable {
         } else {
             substring = str.substring(i, indexOf2);
         }
-        b bVar = this.Wj.get(substring);
+        b bVar = (b) this.Wj.get(substring);
         if (bVar == null) {
             bVar = new b(this, substring, (byte) 0);
             this.Wj.put(substring, bVar);
@@ -415,7 +416,7 @@ public final class a implements Closeable {
             bVar.Wx = null;
             bVar.b(split);
         } else if (indexOf2 == -1 && indexOf == 5 && str.startsWith("DIRTY")) {
-            bVar.Wx = new C0602a(this, bVar, (byte) 0);
+            bVar.Wx = new C0598a(this, bVar, (byte) 0);
         } else if (indexOf2 == -1 && indexOf == 4 && str.startsWith("READ")) {
         } else {
             throw new IOException("unexpected journal line: " + str);
@@ -429,22 +430,22 @@ public final class a implements Closeable {
         throw new IllegalArgumentException("keys must match regex [a-z0-9_-]{1,64}: \"" + str + "\"");
     }
 
-    private synchronized C0602a c(String str, long j) {
+    private synchronized C0598a c(String str, long j) {
         checkNotClosed();
         bz(str);
-        b bVar = this.Wj.get(str);
+        b bVar = (b) this.Wj.get(str);
         if (bVar == null) {
             bVar = new b(this, str, (byte) 0);
             this.Wj.put(str, bVar);
         } else if (bVar.Wx != null) {
             return null;
         }
-        C0602a c0602a = new C0602a(this, bVar, (byte) 0);
-        bVar.Wx = c0602a;
+        C0598a c0598a = new C0598a(this, bVar, (byte) 0);
+        bVar.Wx = c0598a;
         Writer writer = this.Wi;
         writer.write("DIRTY " + str + '\n');
         this.Wi.flush();
-        return c0602a;
+        return c0598a;
     }
 
     private void checkNotClosed() {
@@ -489,21 +490,21 @@ public final class a implements Closeable {
 
     private void sK() {
         l(this.Wc);
-        Iterator<b> it = this.Wj.values().iterator();
+        Iterator it = this.Wj.values().iterator();
         while (it.hasNext()) {
-            b next = it.next();
+            b bVar = (b) it.next();
             int i = 0;
-            if (next.Wx == null) {
+            if (bVar.Wx == null) {
                 while (i < this.Wg) {
-                    this.size += next.Wv[i];
+                    this.size += bVar.Wv[i];
                     this.Wh++;
                     i++;
                 }
             } else {
-                next.Wx = null;
+                bVar.Wx = null;
                 while (i < this.Wg) {
-                    l(next.av(i));
-                    l(next.aw(i));
+                    l(bVar.av(i));
+                    l(bVar.aw(i));
                     i++;
                 }
                 it.remove();
@@ -547,21 +548,21 @@ public final class a implements Closeable {
     /* JADX INFO: Access modifiers changed from: private */
     public void sO() {
         while (this.Wh > this.Wf) {
-            remove(this.Wj.entrySet().iterator().next().getKey());
+            remove((String) ((Map.Entry) this.Wj.entrySet().iterator().next()).getKey());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void trimToSize() {
         while (this.size > this.maxSize) {
-            remove(this.Wj.entrySet().iterator().next().getKey());
+            remove((String) ((Map.Entry) this.Wj.entrySet().iterator().next()).getKey());
         }
     }
 
     public final synchronized c bx(String str) {
         checkNotClosed();
         bz(str);
-        b bVar = this.Wj.get(str);
+        b bVar = (b) this.Wj.get(str);
         if (bVar == null) {
             return null;
         }
@@ -590,7 +591,7 @@ public final class a implements Closeable {
         return null;
     }
 
-    public final C0602a by(String str) {
+    public final C0598a by(String str) {
         return c(str, -1L);
     }
 
@@ -635,7 +636,7 @@ public final class a implements Closeable {
     public final synchronized boolean remove(String str) {
         checkNotClosed();
         bz(str);
-        b bVar = this.Wj.get(str);
+        b bVar = (b) this.Wj.get(str);
         if (bVar != null && bVar.Wx == null) {
             for (int i = 0; i < this.Wg; i++) {
                 File av = bVar.av(i);

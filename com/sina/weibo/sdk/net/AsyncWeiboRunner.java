@@ -17,7 +17,69 @@ public class AsyncWeiboRunner {
     public Context mContext;
 
     /* loaded from: classes8.dex */
-    public static class RequestRunner extends AsyncTask<Void, Void, AsyncTaskResult<String>> {
+    public class AsyncTaskResult {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeiboException error;
+        public Object result;
+
+        public AsyncTaskResult(WeiboException weiboException) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {weiboException};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.error = weiboException;
+        }
+
+        public AsyncTaskResult(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {obj};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.result = obj;
+        }
+
+        public WeiboException getError() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.error;
+            }
+            return (WeiboException) invokeV.objValue;
+        }
+
+        public Object getResult() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.result;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class RequestRunner extends AsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context mContext;
@@ -25,6 +87,13 @@ public class AsyncWeiboRunner {
         public final RequestListener mListener;
         public final WeiboParameters mParams;
         public final String mUrl;
+
+        @Override // android.os.AsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
 
         public RequestRunner(Context context, String str, WeiboParameters weiboParameters, String str2, RequestListener requestListener) {
             Interceptable interceptable = $ic;
@@ -48,24 +117,17 @@ public class AsyncWeiboRunner {
             this.mListener = requestListener;
         }
 
-        @Override // android.os.AsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
-        public AsyncTaskResult<String> doInBackground(Void... voidArr) {
+        public AsyncTaskResult doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
-                    return new AsyncTaskResult<>(HttpManager.openUrl(this.mContext, this.mUrl, this.mHttpMethod, this.mParams));
+                    return new AsyncTaskResult(HttpManager.openUrl(this.mContext, this.mUrl, this.mHttpMethod, this.mParams));
                 } catch (WeiboException e) {
                     LogUtil.e("ContentValues", e.getMessage());
-                    return new AsyncTaskResult<>(e);
+                    return new AsyncTaskResult(e);
                 }
             }
             return (AsyncTaskResult) invokeL.objValue;
@@ -73,14 +135,14 @@ public class AsyncWeiboRunner {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
-        public void onPostExecute(AsyncTaskResult<String> asyncTaskResult) {
+        public void onPostExecute(AsyncTaskResult asyncTaskResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, asyncTaskResult) == null) {
                 WeiboException error = asyncTaskResult.getError();
                 if (error != null) {
                     this.mListener.onWeiboException(error);
                 } else {
-                    this.mListener.onComplete(asyncTaskResult.getResult());
+                    this.mListener.onComplete((String) asyncTaskResult.getResult());
                 }
             }
         }
@@ -122,6 +184,20 @@ public class AsyncWeiboRunner {
             return HttpManager.openUrl(this.mContext, str, str2, weiboParameters);
         }
         return (String) invokeLLL.objValue;
+    }
+
+    public String request(String str, boolean z, String str2, String str3, WeiboParameters weiboParameters, String str4) throws WeiboException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), str2, str3, weiboParameters, str4})) == null) {
+            if (z) {
+                weiboParameters.put("source", str);
+                weiboParameters.setAnonymousCookie(str2);
+                return request(str3, weiboParameters, str4);
+            }
+            return request(str3, weiboParameters, str4);
+        }
+        return (String) invokeCommon.objValue;
     }
 
     public void request4RdirectURL(String str, WeiboParameters weiboParameters, String str2, RequestListener requestListener) {
@@ -239,76 +315,6 @@ public class AsyncWeiboRunner {
                 }
             }.start();
         }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class AsyncTaskResult<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeiboException error;
-        public T result;
-
-        public AsyncTaskResult(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.result = t;
-        }
-
-        public WeiboException getError() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.error : (WeiboException) invokeV.objValue;
-        }
-
-        public T getResult() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.result : (T) invokeV.objValue;
-        }
-
-        public AsyncTaskResult(WeiboException weiboException) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {weiboException};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.error = weiboException;
-        }
-    }
-
-    public String request(String str, boolean z, String str2, String str3, WeiboParameters weiboParameters, String str4) throws WeiboException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), str2, str3, weiboParameters, str4})) == null) {
-            if (z) {
-                weiboParameters.put("source", str);
-                weiboParameters.setAnonymousCookie(str2);
-                return request(str3, weiboParameters, str4);
-            }
-            return request(str3, weiboParameters, str4);
-        }
-        return (String) invokeCommon.objValue;
     }
 
     public void requestAsync(String str, boolean z, String str2, String str3, WeiboParameters weiboParameters, String str4, RequestListener requestListener) {

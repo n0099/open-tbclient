@@ -18,7 +18,7 @@ public abstract class NativeLibrary {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mLibrariesLoaded;
     @Nullable
-    public List<String> mLibraryNames;
+    public List mLibraryNames;
     @Nullable
     public volatile UnsatisfiedLinkError mLinkError;
     public Boolean mLoadLibraries;
@@ -39,7 +39,13 @@ public abstract class NativeLibrary {
         }
     }
 
-    public NativeLibrary(List<String> list) {
+    public void initialNativeCheck() throws UnsatisfiedLinkError {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public NativeLibrary(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,22 +69,20 @@ public abstract class NativeLibrary {
 
     public void ensureLoaded() throws UnsatisfiedLinkError {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !loadLibraries()) {
-            throw this.mLinkError;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || loadLibraries()) {
+            return;
         }
+        throw this.mLinkError;
     }
 
     @Nullable
     public UnsatisfiedLinkError getError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLinkError : (UnsatisfiedLinkError) invokeV.objValue;
-    }
-
-    public void initialNativeCheck() throws UnsatisfiedLinkError {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLinkError;
         }
+        return (UnsatisfiedLinkError) invokeV.objValue;
     }
 
     @Nullable

@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.vi6;
+import com.baidu.tieba.cj6;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,68 +53,6 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         this.e = R.drawable.icon_frs_reload;
         this.f = false;
         a(context, null);
-    }
-
-    private Animation getClickRotateAnimation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (this.d == null) {
-                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010108);
-                this.d.setInterpolator(new LinearInterpolator());
-                this.d.setFillAfter(true);
-            }
-            return this.d;
-        }
-        return (Animation) invokeV.objValue;
-    }
-
-    public void a(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) || context == null) {
-            return;
-        }
-        if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vi6.EntelechyPullUpRefreshView);
-            this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
-            this.f = obtainStyledAttributes.getBoolean(0, false);
-            obtainStyledAttributes.recycle();
-        }
-        setOrientation(1);
-        setGravity(1);
-        SkinManager.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
-        if (this.f) {
-            this.a = new View(context);
-            this.a.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198)));
-            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0204);
-            addView(this.a);
-        }
-        this.b = new TbImageView(context);
-        int f = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f, f);
-        layoutParams.topMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.b.setLayoutParams(layoutParams);
-        SkinManager.setImageResource(this.b, this.e);
-        addView(this.b);
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.c == i) {
-            return;
-        }
-        SkinManager.setBackgroundResource(this.a, R.color.CAM_X0204);
-        SkinManager.setImageResource(this.b, this.e);
-        SkinManager.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
-        this.c = i;
-    }
-
-    public void setIconResource(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.e = i;
-            SkinManager.setImageResource(this.b, i);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -167,5 +105,66 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         this.e = R.drawable.icon_frs_reload;
         this.f = false;
         a(context, attributeSet);
+    }
+
+    private Animation getClickRotateAnimation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (this.d == null) {
+                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010108);
+                this.d.setInterpolator(new LinearInterpolator());
+                this.d.setFillAfter(true);
+            }
+            return this.d;
+        }
+        return (Animation) invokeV.objValue;
+    }
+
+    public void a(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, attributeSet) != null) || context == null) {
+            return;
+        }
+        if (attributeSet != null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cj6.EntelechyPullUpRefreshView);
+            this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
+            this.f = obtainStyledAttributes.getBoolean(0, false);
+            obtainStyledAttributes.recycle();
+        }
+        setOrientation(1);
+        setGravity(1);
+        SkinManager.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
+        if (this.f) {
+            this.a = new View(context);
+            this.a.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198)));
+            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0204);
+            addView(this.a);
+        }
+        this.b = new TbImageView(context);
+        int f = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f, f);
+        layoutParams.topMargin = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.b.setLayoutParams(layoutParams);
+        SkinManager.setImageResource(this.b, this.e);
+        addView(this.b);
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.c != i) {
+            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0204);
+            SkinManager.setImageResource(this.b, this.e);
+            SkinManager.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
+            this.c = i;
+        }
+    }
+
+    public void setIconResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e = i;
+            SkinManager.setImageResource(this.b, i);
+        }
     }
 }

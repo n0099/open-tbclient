@@ -67,64 +67,6 @@ public class CardGroupDividerView extends LinearLayout {
         a();
     }
 
-    private void setDividerColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
-            this.d = i;
-            SkinManager.setBackgroundColor(this.c, i);
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0181, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f090501);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090502);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0903ee);
-            b();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundColor(this.c, this.d);
-        }
-    }
-
-    public View getBotttomLine() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public void setTitleClickListener(View.OnClickListener onClickListener) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (textView = this.b) == null) {
-            return;
-        }
-        textView.setOnClickListener(onClickListener);
-    }
-
-    public void setTitleText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b.setText(str);
-        }
-    }
-
-    public void setTitleTextSize(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            this.b.setTextSize(i, f);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -169,5 +111,65 @@ public class CardGroupDividerView extends LinearLayout {
         }
         this.d = CAM_X0204;
         a();
+    }
+
+    private void setDividerColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            this.d = i;
+            SkinManager.setBackgroundColor(this.c, i);
+        }
+    }
+
+    public void setTitleClickListener(View.OnClickListener onClickListener) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && (textView = this.b) != null) {
+            textView.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setTitleText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b.setText(str);
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0180, (ViewGroup) this, true);
+            this.a = findViewById(R.id.obfuscated_res_0x7f09050a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09050b);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0903f7);
+            b();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundColor(this.c, this.d);
+        }
+    }
+
+    public View getBotttomLine() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void setTitleTextSize(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.b.setTextSize(i, f);
+        }
     }
 }

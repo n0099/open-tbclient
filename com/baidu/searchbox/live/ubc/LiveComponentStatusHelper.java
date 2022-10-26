@@ -37,14 +37,39 @@ public final class LiveComponentStatusHelper {
     public static final String TOPBAR_LIVE_COMPONENT = "top_component_finish";
     public static final Lazy instance$delegate;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ILiveComponentLoadFinish> callbacks;
+    public List callbacks;
     public boolean hasCoreFinished;
-    public Set<String> mCoreComponents;
+    public Set mCoreComponents;
     public final Lazy sMainHandler$delegate;
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H&¢\u0006\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish;", "Lkotlin/Any;", "", "onCoreFinished", "()V", "", "componentName", "onFinished", "(Ljava/lang/String;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public interface ILiveComponentLoadFinish {
+        void onCoreFinished();
+
+        void onFinished(String str);
+    }
+
+    private final Handler getSMainHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            Lazy lazy = this.sMainHandler$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (Handler) lazy.getValue();
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public final void attach() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000f\u0010\u0010R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00058\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\u0016\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u001d\u0010\u000e\u001a\u00020\t8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\r¨\u0006\u0011"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper$Companion;", "", "BOTTOM_LIVE_COMPONENT", "Ljava/lang/String;", "IM_LIVE_COMPONENT", "", "MATCH_MAIN_COMPONENT", "I", "TOPBAR_LIVE_COMPONENT", "Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper;", "instance$delegate", "Lkotlin/Lazy;", "getInstance", "()Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper;", Transition.MATCH_INSTANCE_STR, "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ KProperty[] $$delegatedProperties;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,6 +90,18 @@ public final class LiveComponentStatusHelper {
             $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(Companion.class), Transition.MATCH_INSTANCE_STR, "getInstance()Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper;"))};
         }
 
+        public final LiveComponentStatusHelper getInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Lazy lazy = LiveComponentStatusHelper.instance$delegate;
+                Companion companion = LiveComponentStatusHelper.Companion;
+                KProperty kProperty = $$delegatedProperties[0];
+                return (LiveComponentStatusHelper) lazy.getValue();
+            }
+            return (LiveComponentStatusHelper) invokeV.objValue;
+        }
+
         public Companion() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -79,29 +116,9 @@ public final class LiveComponentStatusHelper {
             }
         }
 
-        public final LiveComponentStatusHelper getInstance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Lazy lazy = LiveComponentStatusHelper.instance$delegate;
-                Companion companion = LiveComponentStatusHelper.Companion;
-                KProperty kProperty = $$delegatedProperties[0];
-                return (LiveComponentStatusHelper) lazy.getValue();
-            }
-            return (LiveComponentStatusHelper) invokeV.objValue;
-        }
-
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
-    }
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H&¢\u0006\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish;", "Lkotlin/Any;", "", "onCoreFinished", "()V", "", "componentName", "onFinished", "(Ljava/lang/String;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public interface ILiveComponentLoadFinish {
-        void onCoreFinished();
-
-        void onFinished(String str);
     }
 
     static {
@@ -141,19 +158,6 @@ public final class LiveComponentStatusHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void addComponentFinished(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, str) == null) || this.mCoreComponents.contains(str)) {
-            return;
-        }
-        this.mCoreComponents.add(str);
-        dispatchSingleFinished(str);
-        if (this.mCoreComponents.size() == 3) {
-            dispatchCoresFinished();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public final void dispatchCoresFinished() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
@@ -168,28 +172,70 @@ public final class LiveComponentStatusHelper {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void dispatchSingleFinished(String str) {
+    public final void addComponentLoadedEvent(View view2, final String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
-            List<ILiveComponentLoadFinish> list = this.callbacks;
-            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            for (ILiveComponentLoadFinish iLiveComponentLoadFinish : list) {
-                iLiveComponentLoadFinish.onFinished(str);
-                arrayList.add(Unit.INSTANCE);
-            }
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str) == null) && view2 != null) {
+            view2.post(new Runnable(this, str) { // from class: com.baidu.searchbox.live.ubc.LiveComponentStatusHelper$addComponentLoadedEvent$1
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ String $componentName;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ LiveComponentStatusHelper this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.$componentName = str;
+                }
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Set set;
+                    Set set2;
+                    Set set3;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    set = this.this$0.mCoreComponents;
+                    if (set.contains(this.$componentName)) {
+                        return;
+                    }
+                    set2 = this.this$0.mCoreComponents;
+                    set2.add(this.$componentName);
+                    this.this$0.dispatchSingleFinished(this.$componentName);
+                    set3 = this.this$0.mCoreComponents;
+                    if (set3.size() != 3) {
+                        return;
+                    }
+                    this.this$0.dispatchCoresFinished();
+                }
+            });
         }
     }
 
-    private final Handler getSMainHandler() {
-        InterceptResult invokeV;
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void addComponentFinished(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            Lazy lazy = this.sMainHandler$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (Handler) lazy.getValue();
+        if ((interceptable == null || interceptable.invokeL(65544, this, str) == null) && !this.mCoreComponents.contains(str)) {
+            this.mCoreComponents.add(str);
+            dispatchSingleFinished(str);
+            if (this.mCoreComponents.size() == 3) {
+                dispatchCoresFinished();
+            }
         }
-        return (Handler) invokeV.objValue;
     }
 
     public final void addComponentFinishCallback(ILiveComponentLoadFinish iLiveComponentLoadFinish) {
@@ -199,62 +245,10 @@ public final class LiveComponentStatusHelper {
         }
     }
 
-    public final void addComponentLoadedEvent(View view2, final String str) {
+    public final void removeComponentFinishCallback(ILiveComponentLoadFinish iLiveComponentLoadFinish) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str) == null) || view2 == null) {
-            return;
-        }
-        view2.post(new Runnable(this, str) { // from class: com.baidu.searchbox.live.ubc.LiveComponentStatusHelper$addComponentLoadedEvent$1
-            public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ String $componentName;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ LiveComponentStatusHelper this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, str};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.$componentName = str;
-            }
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Set set;
-                Set set2;
-                Set set3;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    set = this.this$0.mCoreComponents;
-                    if (set.contains(this.$componentName)) {
-                        return;
-                    }
-                    set2 = this.this$0.mCoreComponents;
-                    set2.add(this.$componentName);
-                    this.this$0.dispatchSingleFinished(this.$componentName);
-                    set3 = this.this$0.mCoreComponents;
-                    if (set3.size() == 3) {
-                        this.this$0.dispatchCoresFinished();
-                    }
-                }
-            }
-        });
-    }
-
-    public final void attach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, iLiveComponentLoadFinish) == null) {
+            this.callbacks.remove(iLiveComponentLoadFinish);
         }
     }
 
@@ -269,7 +263,10 @@ public final class LiveComponentStatusHelper {
     public final boolean hasCoreFinished() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.hasCoreFinished : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.hasCoreFinished;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void release() {
@@ -280,10 +277,16 @@ public final class LiveComponentStatusHelper {
         }
     }
 
-    public final void removeComponentFinishCallback(ILiveComponentLoadFinish iLiveComponentLoadFinish) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void dispatchSingleFinished(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, iLiveComponentLoadFinish) == null) {
-            this.callbacks.remove(iLiveComponentLoadFinish);
+        if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
+            List<ILiveComponentLoadFinish> list = this.callbacks;
+            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+            for (ILiveComponentLoadFinish iLiveComponentLoadFinish : list) {
+                iLiveComponentLoadFinish.onFinished(str);
+                arrayList.add(Unit.INSTANCE);
+            }
         }
     }
 
@@ -319,9 +322,10 @@ public final class LiveComponentStatusHelper {
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.addComponentFinished(this.$componentName);
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
                         }
+                        this.this$0.addComponentFinished(this.$componentName);
                     }
                 });
             } else {

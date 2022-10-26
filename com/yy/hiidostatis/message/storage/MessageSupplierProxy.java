@@ -21,6 +21,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -30,8 +31,8 @@ public class MessageSupplierProxy implements MessageSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK_LIST_CAPACITY = 200;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> blackList;
-    public Set<String> blackListIndex;
+    public List blackList;
+    public Set blackListIndex;
     public final TaskDataSqLiteCacheManager cacheManager;
     public final MessageConfig config;
     public final Context context;
@@ -68,7 +69,7 @@ public class MessageSupplierProxy implements MessageSupplier {
                     return;
                 }
                 if (this.blackList.size() >= 200) {
-                    this.blackListIndex.remove(this.blackList.remove(0));
+                    this.blackListIndex.remove((String) this.blackList.remove(0));
                 }
                 this.blackList.add(str);
                 this.blackListIndex.add(str);
@@ -76,50 +77,15 @@ public class MessageSupplierProxy implements MessageSupplier {
         }
     }
 
-    private synchronized boolean isInBlackList(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            synchronized (this) {
-                if (str == null) {
-                    return false;
-                }
-                return this.blackListIndex.contains(str);
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    private Message trans(TaskData taskData) {
-        InterceptResult invokeL;
-        String format;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, taskData)) == null) {
-            String format2 = String.format(Locale.CHINA, "act=mbsdkdata&EC=%d&appkey=%s&item=%s", Integer.valueOf(taskData.getTryTimes()), taskData.getAppkey(), taskData.getAct());
-            try {
-                if (taskData.getCrepid() == this.monitor.getProcessId()) {
-                    format = String.format(Locale.CHINA, "%s&%s=%d&%s=%d&hd_stime=%d", taskData.getContent(), BaseStatisContent.PACKID, Integer.valueOf(taskData.getPackId()), BaseStatisContent.REMAIN, Integer.valueOf(taskData.getRemain()), Long.valueOf(Util.wallTimeMillis()));
-                } else {
-                    format = String.format(Locale.CHINA, "%s&%s=%d&%s=%d&%s=%d&hd_stime=%d", taskData.getContent(), BaseStatisContent.PACKID, Integer.valueOf(taskData.getPackId()), BaseStatisContent.CURPID, Integer.valueOf(this.monitor.getProcessId()), BaseStatisContent.REMAIN, Integer.valueOf(taskData.getRemain()), Long.valueOf(Util.wallTimeMillis()));
-                }
-                return new Message(taskData.getAct() + "_" + taskData.getDataId(), 1, format2, format.getBytes("UTF-8"), format.length());
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (Message) invokeL.objValue;
-    }
-
     @Override // com.yy.hiidostatis.message.MessageSupplier
     public Message fetchMessage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<TaskData> andMoveToSendingList = this.cacheManager.getAndMoveToSendingList(this.context, i);
+            List andMoveToSendingList = this.cacheManager.getAndMoveToSendingList(this.context, i);
             if (andMoveToSendingList != null && !andMoveToSendingList.isEmpty()) {
                 if (andMoveToSendingList.size() == 1) {
-                    return trans(andMoveToSendingList.get(0));
+                    return trans((TaskData) andMoveToSendingList.get(0));
                 }
                 return trans(andMoveToSendingList);
             }
@@ -167,7 +133,42 @@ public class MessageSupplierProxy implements MessageSupplier {
         }
     }
 
-    private Message trans(List<TaskData> list) {
+    private synchronized boolean isInBlackList(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            synchronized (this) {
+                if (str == null) {
+                    return false;
+                }
+                return this.blackListIndex.contains(str);
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    private Message trans(TaskData taskData) {
+        InterceptResult invokeL;
+        String format;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, taskData)) == null) {
+            String format2 = String.format(Locale.CHINA, "act=mbsdkdata&EC=%d&appkey=%s&item=%s", Integer.valueOf(taskData.getTryTimes()), taskData.getAppkey(), taskData.getAct());
+            try {
+                if (taskData.getCrepid() == this.monitor.getProcessId()) {
+                    format = String.format(Locale.CHINA, "%s&%s=%d&%s=%d&hd_stime=%d", taskData.getContent(), BaseStatisContent.PACKID, Integer.valueOf(taskData.getPackId()), BaseStatisContent.REMAIN, Integer.valueOf(taskData.getRemain()), Long.valueOf(Util.wallTimeMillis()));
+                } else {
+                    format = String.format(Locale.CHINA, "%s&%s=%d&%s=%d&%s=%d&hd_stime=%d", taskData.getContent(), BaseStatisContent.PACKID, Integer.valueOf(taskData.getPackId()), BaseStatisContent.CURPID, Integer.valueOf(this.monitor.getProcessId()), BaseStatisContent.REMAIN, Integer.valueOf(taskData.getRemain()), Long.valueOf(Util.wallTimeMillis()));
+                }
+                return new Message(taskData.getAct() + "_" + taskData.getDataId(), 1, format2, format.getBytes("UTF-8"), format.length());
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Message) invokeL.objValue;
+    }
+
+    private Message trans(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list)) == null) {
@@ -176,7 +177,9 @@ public class MessageSupplierProxy implements MessageSupplier {
                 StringBuilder sb = new StringBuilder();
                 sb.append(PreferencesUtil.LEFT_MOUNT);
                 StringBuilder sb2 = new StringBuilder();
-                for (TaskData taskData : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    TaskData taskData = (TaskData) it.next();
                     sb.append("\"");
                     sb.append(taskData.getContent());
                     sb.append("&");

@@ -14,9 +14,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class a implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<a> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final IBinder a;
+
+    @Override // android.os.Parcelable
+    public final int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +41,7 @@ public final class a implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<a>() { // from class: com.bytedance.pangle.servermanager.a.1
+        CREATOR = new Parcelable.Creator() { // from class: com.bytedance.pangle.servermanager.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,18 +59,34 @@ public final class a implements Parcelable {
                 }
             }
 
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ a createFromParcel(Parcel parcel) {
+            public final /* synthetic */ Object createFromParcel(Parcel parcel) {
                 return new a(parcel);
             }
 
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* bridge */ /* synthetic */ a[] newArray(int i) {
+            public final /* bridge */ /* synthetic */ Object[] newArray(int i) {
                 return new a[i];
             }
         };
+    }
+
+    public a(IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iBinder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = iBinder;
     }
 
     public a(Parcel parcel) {
@@ -82,38 +108,10 @@ public final class a implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public final int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             parcel.writeStrongBinder(this.a);
         }
-    }
-
-    public a(IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iBinder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = iBinder;
     }
 }

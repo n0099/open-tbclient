@@ -5,8 +5,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.debugtool.annotation.UbsTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-@ModifyClass
 /* loaded from: classes3.dex */
 public class ThreadCardGroupUbsABTest extends AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,7 +24,7 @@ public class ThreadCardGroupUbsABTest extends AbsGroupUbsABTest {
     public static final String SID_E = "70_6";
     public static final String SID_F = "71_2";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<String> mABTestList;
+    public final ArrayList mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -46,6 +43,45 @@ public class ThreadCardGroupUbsABTest extends AbsGroupUbsABTest {
         ABTEST_GROUP_KEY = BdUniqueId.gen();
     }
 
+    public static UsbAbTestSwitch getCurrentCardInfoUbsABTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return UbsABTestHelper.getUbsABTestByGroupKey(ABTEST_GROUP_KEY);
+        }
+        return (UsbAbTestSwitch) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public ArrayList getABTestKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mABTestList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public UsbAbTestSwitch getCurrentUsbAbTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCurrentUsbAbTest;
+        }
+        return (UsbAbTestSwitch) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public BdUniqueId getGroupKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ABTEST_GROUP_KEY;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
     public ThreadCardGroupUbsABTest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +95,7 @@ public class ThreadCardGroupUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList arrayList = new ArrayList();
         this.mABTestList = arrayList;
         arrayList.add(SID_A);
         this.mABTestList.add(SID_B);
@@ -69,38 +105,22 @@ public class ThreadCardGroupUbsABTest extends AbsGroupUbsABTest {
         this.mABTestList.add(SID_F);
     }
 
-    public static UsbAbTestSwitch getCurrentCardInfoUbsABTest() {
-        InterceptResult invokeV;
+    public static boolean isCardInfoUbsABTest(UsbAbTestSwitch usbAbTestSwitch, String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UbsABTestHelper.getUbsABTestByGroupKey(ABTEST_GROUP_KEY) : (UsbAbTestSwitch) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, usbAbTestSwitch, strArr)) == null) {
+            return UbsABTestHelper.isABTestByKeys(usbAbTestSwitch, strArr);
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean isCardInfoUbsABTest(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) ? isCardInfoUbsABTest(getCurrentCardInfoUbsABTest(), strArr) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList<String> getABTestKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mABTestList : (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    @UbsTest(description = "10.5版本卡片相关的abtest分组")
-    public UsbAbTestSwitch getCurrentUsbAbTest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentUsbAbTest : (UsbAbTestSwitch) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public BdUniqueId getGroupKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ABTEST_GROUP_KEY : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
+            return isCardInfoUbsABTest(getCurrentCardInfoUbsABTest(), strArr);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
@@ -109,11 +129,5 @@ public class ThreadCardGroupUbsABTest extends AbsGroupUbsABTest {
         if (interceptable == null || interceptable.invokeL(1048579, this, usbAbTestSwitch) == null) {
             this.mCurrentUsbAbTest = usbAbTestSwitch;
         }
-    }
-
-    public static boolean isCardInfoUbsABTest(UsbAbTestSwitch usbAbTestSwitch, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, usbAbTestSwitch, strArr)) == null) ? UbsABTestHelper.isABTestByKeys(usbAbTestSwitch, strArr) : invokeLL.booleanValue;
     }
 }

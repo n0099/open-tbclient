@@ -1,15 +1,12 @@
 package com.kwad.sdk.core.response.model;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import java.util.List;
-@KsJson
 /* loaded from: classes7.dex */
 public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -7038691521398433079L;
-    public List<CouponInfo> couponList;
+    public List couponList;
     public String icon;
     public String name;
     public String originPrice;
@@ -18,25 +15,23 @@ public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements 
     public SpikeInfo seckillInfo;
     public String volume;
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static class SpikeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public class SpikeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -4379476990559885495L;
         public long endTime;
         public int originalStock;
         public int soldStock;
     }
 
-    public List<CouponInfo> getCouponList() {
+    public List getCouponList() {
         return this.couponList;
     }
 
-    @Nullable
     public CouponInfo getFirstCouponList() {
         if (isCouponListEmpty()) {
             return null;
         }
-        return this.couponList.get(0);
+        return (CouponInfo) this.couponList.get(0);
     }
 
     public String getIcon() {
@@ -77,7 +72,7 @@ public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements 
     }
 
     public boolean isCouponListEmpty() {
-        List<CouponInfo> list = this.couponList;
+        List list = this.couponList;
         return list == null || list.size() == 0;
     }
 }

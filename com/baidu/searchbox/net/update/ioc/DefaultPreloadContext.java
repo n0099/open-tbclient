@@ -11,6 +11,16 @@ public class DefaultPreloadContext implements IPreloadContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.net.update.ioc.IPreloadContext
+    public List getCustomPreloadBlackList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
     public DefaultPreloadContext() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,15 +33,5 @@ public class DefaultPreloadContext implements IPreloadContext {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.net.update.ioc.IPreloadContext
-    public List<String> getCustomPreloadBlackList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
     }
 }

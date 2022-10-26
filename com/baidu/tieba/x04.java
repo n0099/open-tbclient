@@ -1,43 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface x04 {
-    String a();
+    boolean a(String str, String str2, String str3, boolean z, rg2 rg2Var);
 
-    String b();
+    void b(String str, String str2, String str3, String str4, String str5);
 
-    String c();
+    void c(String str);
 
-    String d();
+    void d(String str, String str2);
 
-    String e();
+    void e(String str);
 
-    String f();
-
-    String g();
-
-    String h();
-
-    String i();
-
-    String j();
-
-    String k();
-
-    String l();
-
-    String m();
-
-    String n();
-
-    String o();
-
-    String p();
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
+    void f(String str);
 }

@@ -13,13 +13,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -48,47 +47,6 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         }
         this.a = 3;
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ff, (ViewGroup) this, true);
-            setOrientation(1);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090afc);
-            RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
-            this.c = relationBarAdapter;
-            this.b.setAdapter(relationBarAdapter);
-            this.b.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.b.setItemAnimator(new DefaultItemAnimator());
-            int f = ej.f(context, R.dimen.tbds44);
-            this.b.addItemDecoration(new RelationSpaceItemDecoration(f, ej.f(context, R.dimen.tbds26), f));
-            b();
-        }
-    }
-
-    public void b() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        this.c.notifyDataSetChanged();
-    }
-
-    public void setData(List<OriForumInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            if (ListUtils.isEmpty(list)) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            this.c.setData(list);
-            this.c.notifyDataSetChanged();
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -135,5 +93,46 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         }
         this.a = 3;
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fe, (ViewGroup) this, true);
+            setOrientation(1);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090b06);
+            RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
+            this.c = relationBarAdapter;
+            this.b.setAdapter(relationBarAdapter);
+            this.b.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.b.setItemAnimator(new DefaultItemAnimator());
+            int f = fj.f(context, R.dimen.tbds44);
+            this.b.addItemDecoration(new RelationSpaceItemDecoration(f, fj.f(context, R.dimen.tbds26), f));
+            b();
+        }
+    }
+
+    public void b() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
+        this.c.notifyDataSetChanged();
+    }
+
+    public void setData(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            if (ListUtils.isEmpty(list)) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            this.c.setData(list);
+            this.c.notifyDataSetChanged();
+        }
     }
 }

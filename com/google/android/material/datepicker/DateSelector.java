@@ -6,40 +6,26 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StringRes;
-import androidx.annotation.StyleRes;
-import androidx.core.util.Pair;
 import java.util.Collection;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
-public interface DateSelector<S> extends Parcelable {
-    @StyleRes
+public interface DateSelector extends Parcelable {
     int getDefaultThemeResId(Context context);
 
-    @StringRes
     int getDefaultTitleResId();
 
-    @NonNull
-    Collection<Long> getSelectedDays();
+    Collection getSelectedDays();
 
-    @NonNull
-    Collection<Pair<Long, Long>> getSelectedRanges();
+    Collection getSelectedRanges();
 
-    @Nullable
-    S getSelection();
+    Object getSelection();
 
-    @NonNull
     String getSelectionDisplayString(Context context);
 
     boolean isSelectionComplete();
 
-    @NonNull
-    View onCreateTextInputView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle, @NonNull CalendarConstraints calendarConstraints, @NonNull OnSelectionChangedListener<S> onSelectionChangedListener);
+    View onCreateTextInputView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle, CalendarConstraints calendarConstraints, OnSelectionChangedListener onSelectionChangedListener);
 
     void select(long j);
 
-    void setSelection(@NonNull S s);
+    void setSelection(Object obj);
 }

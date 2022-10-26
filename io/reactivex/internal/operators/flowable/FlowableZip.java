@@ -26,30 +26,30 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableZip<T, R> extends Flowable<R> {
+public final class FlowableZip extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
     public final boolean delayError;
-    public final Publisher<? extends T>[] sources;
-    public final Iterable<? extends Publisher<? extends T>> sourcesIterable;
-    public final Function<? super Object[], ? extends R> zipper;
+    public final Publisher[] sources;
+    public final Iterable sourcesIterable;
+    public final Function zipper;
 
     /* loaded from: classes8.dex */
-    public static final class ZipCoordinator<T, R> extends AtomicInteger implements Subscription {
+    public final class ZipCoordinator extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2434867452883857743L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super R> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public final Object[] current;
         public final boolean delayErrors;
         public final AtomicThrowable errors;
         public final AtomicLong requested;
-        public final ZipSubscriber<T, R>[] subscribers;
-        public final Function<? super Object[], ? extends R> zipper;
+        public final ZipSubscriber[] subscribers;
+        public final Function zipper;
 
-        public ZipCoordinator(Subscriber<? super R> subscriber, Function<? super Object[], ? extends R> function, int i, int i2, boolean z) {
+        public ZipCoordinator(Subscriber subscriber, Function function, int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,9 +67,9 @@ public final class FlowableZip<T, R> extends Flowable<R> {
             this.actual = subscriber;
             this.zipper = function;
             this.delayErrors = z;
-            ZipSubscriber<T, R>[] zipSubscriberArr = new ZipSubscriber[i];
+            ZipSubscriber[] zipSubscriberArr = new ZipSubscriber[i];
             for (int i5 = 0; i5 < i; i5++) {
-                zipSubscriberArr[i5] = new ZipSubscriber<>(this, i2);
+                zipSubscriberArr[i5] = new ZipSubscriber(this, i2);
             }
             this.current = new Object[i];
             this.subscribers = zipSubscriberArr;
@@ -80,17 +80,16 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                cancelAll();
             }
-            this.cancelled = true;
-            cancelAll();
         }
 
         public void cancelAll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (ZipSubscriber<T, R> zipSubscriber : this.subscribers) {
+                for (ZipSubscriber zipSubscriber : this.subscribers) {
                     zipSubscriber.cancel();
                 }
             }
@@ -168,7 +167,7 @@ public final class FlowableZip<T, R> extends Flowable<R> {
             cancelAll();
          */
         /* JADX WARN: Code restructure failed: missing block: B:79:0x011a, code lost:
-            if (r18.errors.get() == null) goto L91;
+            if (((java.lang.Throwable) r18.errors.get()) == null) goto L91;
          */
         /* JADX WARN: Code restructure failed: missing block: B:80:0x011c, code lost:
             r2.onError(r18.errors.terminate());
@@ -230,85 +229,94 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         */
         public void drain() {
             boolean z;
-            T poll;
+            Object obj;
             boolean z2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                Subscriber<? super R> subscriber = this.actual;
-                ZipSubscriber<T, R>[] zipSubscriberArr = this.subscribers;
-                int length = zipSubscriberArr.length;
-                Object[] objArr = this.current;
-                int i = 1;
-                do {
-                    long j = this.requested.get();
-                    long j2 = 0;
-                    while (true) {
-                        int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-                        if (i2 == 0) {
-                            break;
-                        } else if (this.cancelled) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            Subscriber subscriber = this.actual;
+            ZipSubscriber[] zipSubscriberArr = this.subscribers;
+            int length = zipSubscriberArr.length;
+            Object[] objArr = this.current;
+            int i = 1;
+            do {
+                long j = this.requested.get();
+                long j2 = 0;
+                while (true) {
+                    int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                    if (i2 == 0) {
+                        break;
+                    } else if (this.cancelled) {
+                        return;
+                    } else {
+                        if (!this.delayErrors && this.errors.get() != null) {
+                            cancelAll();
+                            subscriber.onError(this.errors.terminate());
                             return;
-                        } else {
-                            if (!this.delayErrors && this.errors.get() != null) {
-                                cancelAll();
-                                subscriber.onError(this.errors.terminate());
-                                return;
-                            }
-                            boolean z3 = false;
-                            for (int i3 = 0; i3 < length; i3++) {
-                                ZipSubscriber<T, R> zipSubscriber = zipSubscriberArr[i3];
-                                if (objArr[i3] == null) {
-                                    try {
-                                        z = zipSubscriber.done;
-                                        SimpleQueue<T> simpleQueue = zipSubscriber.queue;
-                                        poll = simpleQueue != null ? simpleQueue.poll() : null;
-                                        z2 = poll == null;
-                                    } catch (Throwable th) {
-                                        Exceptions.throwIfFatal(th);
-                                        this.errors.addThrowable(th);
-                                        if (!this.delayErrors) {
-                                            cancelAll();
-                                            subscriber.onError(this.errors.terminate());
-                                            return;
-                                        }
+                        }
+                        boolean z3 = false;
+                        for (int i3 = 0; i3 < length; i3++) {
+                            ZipSubscriber zipSubscriber = zipSubscriberArr[i3];
+                            if (objArr[i3] == null) {
+                                try {
+                                    z = zipSubscriber.done;
+                                    SimpleQueue simpleQueue = zipSubscriber.queue;
+                                    if (simpleQueue != null) {
+                                        obj = simpleQueue.poll();
+                                    } else {
+                                        obj = null;
                                     }
-                                    if (z && z2) {
+                                    if (obj == null) {
+                                        z2 = true;
+                                    } else {
+                                        z2 = false;
+                                    }
+                                } catch (Throwable th) {
+                                    Exceptions.throwIfFatal(th);
+                                    this.errors.addThrowable(th);
+                                    if (!this.delayErrors) {
                                         cancelAll();
-                                        if (this.errors.get() != null) {
-                                            subscriber.onError(this.errors.terminate());
-                                            return;
-                                        } else {
-                                            subscriber.onComplete();
-                                            return;
-                                        }
+                                        subscriber.onError(this.errors.terminate());
+                                        return;
                                     }
-                                    if (!z2) {
-                                        objArr[i3] = poll;
-                                    }
-                                    z3 = true;
                                 }
-                            }
-                            if (z3) {
-                                break;
-                            }
-                            try {
-                                subscriber.onNext((Object) ObjectHelper.requireNonNull(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
-                                j2++;
-                                Arrays.fill(objArr, (Object) null);
-                            } catch (Throwable th2) {
-                                Exceptions.throwIfFatal(th2);
-                                cancelAll();
-                                this.errors.addThrowable(th2);
-                                subscriber.onError(this.errors.terminate());
-                                return;
+                                if (z && z2) {
+                                    cancelAll();
+                                    if (((Throwable) this.errors.get()) != null) {
+                                        subscriber.onError(this.errors.terminate());
+                                        return;
+                                    } else {
+                                        subscriber.onComplete();
+                                        return;
+                                    }
+                                }
+                                if (!z2) {
+                                    objArr[i3] = obj;
+                                }
+                                z3 = true;
                             }
                         }
+                        if (z3) {
+                            break;
+                        }
+                        try {
+                            subscriber.onNext(ObjectHelper.requireNonNull(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
+                            j2++;
+                            Arrays.fill(objArr, (Object) null);
+                        } catch (Throwable th2) {
+                            Exceptions.throwIfFatal(th2);
+                            cancelAll();
+                            this.errors.addThrowable(th2);
+                            subscriber.onError(this.errors.terminate());
+                            return;
+                        }
                     }
-                } while (i != 0);
-            }
+                }
+            } while (i != 0);
         }
 
-        public void error(ZipSubscriber<T, R> zipSubscriber, Throwable th) {
+        public void error(ZipSubscriber zipSubscriber, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, zipSubscriber, th) == null) {
                 if (this.errors.addThrowable(th)) {
@@ -320,6 +328,20 @@ public final class FlowableZip<T, R> extends Flowable<R> {
             }
         }
 
+        public void subscribe(Publisher[] publisherArr, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048581, this, publisherArr, i) == null) {
+                ZipSubscriber[] zipSubscriberArr = this.subscribers;
+                for (int i2 = 0; i2 < i && !this.cancelled; i2++) {
+                    if (this.delayErrors || this.errors.get() == null) {
+                        publisherArr[i2].subscribe(zipSubscriberArr[i2]);
+                    } else {
+                        return;
+                    }
+                }
+            }
+        }
+
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
             Interceptable interceptable = $ic;
@@ -328,35 +350,22 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                 drain();
             }
         }
-
-        public void subscribe(Publisher<? extends T>[] publisherArr, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, publisherArr, i) == null) {
-                ZipSubscriber<T, R>[] zipSubscriberArr = this.subscribers;
-                for (int i2 = 0; i2 < i && !this.cancelled; i2++) {
-                    if (!this.delayErrors && this.errors.get() != null) {
-                        return;
-                    }
-                    publisherArr[i2].subscribe(zipSubscriberArr[i2]);
-                }
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ZipSubscriber<T, R> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
+    public final class ZipSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4627193790118206028L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public final int limit;
-        public final ZipCoordinator<T, R> parent;
+        public final ZipCoordinator parent;
         public final int prefetch;
         public long produced;
-        public SimpleQueue<T> queue;
+        public SimpleQueue queue;
         public int sourceMode;
 
-        public ZipSubscriber(ZipCoordinator<T, R> zipCoordinator, int i) {
+        public ZipSubscriber(ZipCoordinator zipCoordinator, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -402,13 +411,27 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
                 if (this.sourceMode != 2) {
-                    this.queue.offer(t);
+                    this.queue.offer(obj);
                 }
                 this.parent.drain();
+            }
+        }
+
+        @Override // org.reactivestreams.Subscription
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && this.sourceMode != 1) {
+                long j2 = this.produced + j;
+                if (j2 >= this.limit) {
+                    this.produced = 0L;
+                    ((Subscription) get()).request(j2);
+                    return;
+                }
+                this.produced = j2;
             }
         }
 
@@ -436,24 +459,9 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                 subscription.request(this.prefetch);
             }
         }
-
-        @Override // org.reactivestreams.Subscription
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || this.sourceMode == 1) {
-                return;
-            }
-            long j2 = this.produced + j;
-            if (j2 >= this.limit) {
-                this.produced = 0L;
-                get().request(j2);
-                return;
-            }
-            this.produced = j2;
-        }
     }
 
-    public FlowableZip(Publisher<? extends T>[] publisherArr, Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function, int i, boolean z) {
+    public FlowableZip(Publisher[] publisherArr, Iterable iterable, Function function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -476,17 +484,17 @@ public final class FlowableZip<T, R> extends Flowable<R> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            Publisher<? extends T>[] publisherArr = this.sources;
+            Publisher[] publisherArr = this.sources;
             if (publisherArr == null) {
                 publisherArr = new Publisher[8];
                 length = 0;
-                for (Publisher<? extends T> publisher : this.sourcesIterable) {
+                for (Publisher publisher : this.sourcesIterable) {
                     if (length == publisherArr.length) {
-                        Publisher<? extends T>[] publisherArr2 = new Publisher[(length >> 2) + length];
+                        Publisher[] publisherArr2 = new Publisher[(length >> 2) + length];
                         System.arraycopy(publisherArr, 0, publisherArr2, 0, length);
                         publisherArr = publisherArr2;
                     }

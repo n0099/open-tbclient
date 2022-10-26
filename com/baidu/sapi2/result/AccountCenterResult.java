@@ -17,6 +17,12 @@ public class AccountCenterResult extends SapiResult {
     public boolean isAccountFreeze;
     public String preSetUserName;
 
+    public void loginSuc() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     public AccountCenterResult() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,11 +40,5 @@ public class AccountCenterResult extends SapiResult {
         this.isAccountFreeze = false;
         this.msgMap.put(-10001, "请登录");
         this.msgMap.put(-10002, ERROR_MSG_LOGIN_SUCCESS);
-    }
-
-    public void loginSuc() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
     }
 }

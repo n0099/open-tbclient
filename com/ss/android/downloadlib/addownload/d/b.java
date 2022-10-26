@@ -14,9 +14,21 @@ public class b implements d {
         return a;
     }
 
+    private int a(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("pause_optimise_download_percent", 50);
+    }
+
+    private boolean a(com.ss.android.downloadad.api.a.a aVar) {
+        if (com.ss.android.downloadlib.g.e.a(aVar).a("pause_optimise_download_percent_switch", 0) != 1 || !aVar.q()) {
+            return false;
+        }
+        return true;
+    }
+
     @Override // com.ss.android.downloadlib.addownload.d.d
     public boolean a(final com.ss.android.downloadad.api.a.b bVar, int i, final c cVar) {
         DownloadInfo a2;
+        boolean z;
         if (bVar == null || bVar.ad() || !a(bVar) || (a2 = com.ss.android.downloadlib.g.a((Context) null).a(bVar.a())) == null) {
             return false;
         }
@@ -25,6 +37,11 @@ public class b implements d {
         if (curBytes > 0 && totalBytes > 0) {
             int a3 = i.a(a2.getId(), (int) ((curBytes * 100) / totalBytes));
             if (a3 > a(bVar.s())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 a = new com.ss.android.downloadlib.addownload.a.c() { // from class: com.ss.android.downloadlib.addownload.d.b.1
                     @Override // com.ss.android.downloadlib.addownload.a.c
                     public void a() {
@@ -59,13 +76,5 @@ public class b implements d {
             }
         }
         return false;
-    }
-
-    private int a(int i) {
-        return com.ss.android.socialbase.downloader.g.a.a(i).a("pause_optimise_download_percent", 50);
-    }
-
-    private boolean a(com.ss.android.downloadad.api.a.a aVar) {
-        return com.ss.android.downloadlib.g.e.a(aVar).a("pause_optimise_download_percent_switch", 0) == 1 && aVar.q();
     }
 }

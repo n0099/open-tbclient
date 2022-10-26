@@ -49,10 +49,37 @@ public class LocalConfigOptions {
         this.b = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
     }
 
+    public void setBioOptions(SdkConfigOptions sdkConfigOptions) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, sdkConfigOptions) == null) && sdkConfigOptions != null) {
+            Log.e("actions-setBioOptions", sdkConfigOptions);
+            a(d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.c)));
+        }
+    }
+
+    private String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                try {
+                    this.a = SecurityUtil.md5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                } catch (UnsupportedEncodingException e2) {
+                    Log.e(e2);
+                }
+            }
+            return this.a;
+        }
+        return (String) invokeL.objValue;
+    }
+
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? this.b.getString(str, "") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            return this.b.getString(str, "");
+        }
+        return (String) invokeL.objValue;
     }
 
     public static LocalConfigOptions getInstance(Context context) {
@@ -65,6 +92,36 @@ public class LocalConfigOptions {
             return f;
         }
         return (LocalConfigOptions) invokeL.objValue;
+    }
+
+    public void setIllumValueGray(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            put(e, i);
+        }
+    }
+
+    private void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
+            this.b.edit().putString(str, str2).apply();
+        }
+    }
+
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            return this.b.getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void put(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            this.b.edit().putInt(str, i).apply();
+        }
     }
 
     public SdkConfigOptions getBioOptions() {
@@ -90,58 +147,9 @@ public class LocalConfigOptions {
     public int getIllumVlaueGray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getInt(e, -1) : invokeV.intValue;
-    }
-
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? this.b.getInt(str, i) : invokeLI.intValue;
-    }
-
-    public void put(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            this.b.edit().putInt(str, i).apply();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getInt(e, -1);
         }
-    }
-
-    public void setBioOptions(SdkConfigOptions sdkConfigOptions) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, sdkConfigOptions) == null) || sdkConfigOptions == null) {
-            return;
-        }
-        Log.e("actions-setBioOptions", sdkConfigOptions);
-        a(d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.c)));
-    }
-
-    public void setIllumValueGray(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            put(e, i);
-        }
-    }
-
-    private void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
-            this.b.edit().putString(str, str2).apply();
-        }
-    }
-
-    private String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                try {
-                    this.a = SecurityUtil.md5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
-                } catch (UnsupportedEncodingException e2) {
-                    Log.e(e2);
-                }
-            }
-            return this.a;
-        }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 }

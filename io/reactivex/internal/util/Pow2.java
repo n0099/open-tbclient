@@ -10,6 +10,12 @@ public final class Pow2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isPowerOfTwo(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i & (i + (-1))) == 0 : invokeI.booleanValue;
+    }
+
     public Pow2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -26,15 +32,12 @@ public final class Pow2 {
         throw new IllegalStateException("No instances!");
     }
 
-    public static boolean isPowerOfTwo(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i & (i + (-1))) == 0 : invokeI.booleanValue;
-    }
-
     public static int roundToPowerOfTwo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? 1 << (32 - Integer.numberOfLeadingZeros(i - 1)) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return 1 << (32 - Integer.numberOfLeadingZeros(i - 1));
+        }
+        return invokeI.intValue;
     }
 }

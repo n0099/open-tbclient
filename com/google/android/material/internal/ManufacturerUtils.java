@@ -1,7 +1,6 @@
 package com.google.android.material.internal;
 
 import android.os.Build;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ManufacturerUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,24 +33,39 @@ public class ManufacturerUtils {
     public static boolean isDateInputKeyboardMissingSeparatorCharacters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? isLGEDevice() || isSamsungDevice() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!isLGEDevice() && !isSamsungDevice()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isLGEDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(LGE) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(LGE);
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isMeizuDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("meizu") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals("meizu");
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isSamsungDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(SAMSUNG) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(SAMSUNG);
+        }
+        return invokeV.booleanValue;
     }
 }

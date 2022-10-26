@@ -31,15 +31,15 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCreate<T> extends Flowable<T> {
+public final class FlowableCreate extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BackpressureStrategy backpressure;
-    public final FlowableOnSubscribe<T> source;
+    public final FlowableOnSubscribe source;
 
     /* renamed from: io.reactivex.internal.operators.flowable.FlowableCreate$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureStrategy;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,14 +79,26 @@ public final class FlowableCreate<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static abstract class BaseEmitter<T> extends AtomicLong implements FlowableEmitter<T>, Subscription {
+    public abstract class BaseEmitter extends AtomicLong implements FlowableEmitter, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7326289992464377023L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public final SequentialDisposable serial;
 
-        public BaseEmitter(Subscriber<? super T> subscriber) {
+        public void onRequested() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            }
+        }
+
+        public void onUnsubscribed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            }
+        }
+
+        public BaseEmitter(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,27 +115,6 @@ public final class FlowableCreate<T> extends Flowable<T> {
             }
             this.actual = subscriber;
             this.serial = new SequentialDisposable();
-        }
-
-        @Override // org.reactivestreams.Subscription
-        public final void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.serial.dispose();
-                onUnsubscribed();
-            }
-        }
-
-        public void complete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || isCancelled()) {
-                return;
-            }
-            try {
-                this.actual.onComplete();
-            } finally {
-                this.serial.dispose();
-            }
         }
 
         public boolean error(Throwable th) {
@@ -148,11 +139,35 @@ public final class FlowableCreate<T> extends Flowable<T> {
             return invokeL.booleanValue;
         }
 
+        @Override // org.reactivestreams.Subscription
+        public final void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.serial.dispose();
+                onUnsubscribed();
+            }
+        }
+
+        public void complete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || isCancelled()) {
+                return;
+            }
+            try {
+                this.actual.onComplete();
+            } finally {
+                this.serial.dispose();
+            }
+        }
+
         @Override // io.reactivex.FlowableEmitter
         public final boolean isCancelled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.serial.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.serial.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Emitter
@@ -163,24 +178,31 @@ public final class FlowableCreate<T> extends Flowable<T> {
             }
         }
 
+        @Override // io.reactivex.FlowableEmitter
+        public final long requested() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return get();
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // io.reactivex.FlowableEmitter
+        public final FlowableEmitter serialize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return new SerializedEmitter(this);
+            }
+            return (FlowableEmitter) invokeV.objValue;
+        }
+
         @Override // io.reactivex.Emitter
         public final void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, th) == null) || tryOnError(th)) {
-                return;
-            }
-            RxJavaPlugins.onError(th);
-        }
-
-        public void onRequested() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            }
-        }
-
-        public void onUnsubscribed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if ((interceptable == null || interceptable.invokeL(1048581, this, th) == null) && !tryOnError(th)) {
+                RxJavaPlugins.onError(th);
             }
         }
 
@@ -191,20 +213,6 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 BackpressureHelper.add(this, j);
                 onRequested();
             }
-        }
-
-        @Override // io.reactivex.FlowableEmitter
-        public final long requested() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? get() : invokeV.longValue;
-        }
-
-        @Override // io.reactivex.FlowableEmitter
-        public final FlowableEmitter<T> serialize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new SerializedEmitter(this) : (FlowableEmitter) invokeV.objValue;
         }
 
         @Override // io.reactivex.FlowableEmitter
@@ -227,22 +235,25 @@ public final class FlowableCreate<T> extends Flowable<T> {
         public boolean tryOnError(Throwable th) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, th)) == null) ? error(th) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, th)) == null) {
+                return error(th);
+            }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class BufferAsyncEmitter<T> extends BaseEmitter<T> {
+    public final class BufferAsyncEmitter extends BaseEmitter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2427151001689639875L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public Throwable error;
-        public final SpscLinkedArrayQueue<T> queue;
+        public final SpscLinkedArrayQueue queue;
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferAsyncEmitter(Subscriber<? super T> subscriber, int i) {
+        public BufferAsyncEmitter(Subscriber subscriber, int i) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -259,72 +270,78 @@ public final class FlowableCreate<T> extends Flowable<T> {
                     return;
                 }
             }
-            this.queue = new SpscLinkedArrayQueue<>(i);
+            this.queue = new SpscLinkedArrayQueue(i);
             this.wip = new AtomicInteger();
         }
 
         public void drain() {
             int i;
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
-                Subscriber<? super T> subscriber = this.actual;
-                SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
-                int i2 = 1;
-                do {
-                    long j = get();
-                    long j2 = 0;
-                    while (true) {
-                        i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                        if (i == 0) {
-                            break;
-                        } else if (isCancelled()) {
-                            spscLinkedArrayQueue.clear();
-                            return;
-                        } else {
-                            boolean z = this.done;
-                            Object obj = (T) spscLinkedArrayQueue.poll();
-                            boolean z2 = obj == null;
-                            if (z && z2) {
-                                Throwable th = this.error;
-                                if (th != null) {
-                                    error(th);
-                                    return;
-                                } else {
-                                    complete();
-                                    return;
-                                }
-                            } else if (z2) {
-                                break;
-                            } else {
-                                subscriber.onNext(obj);
-                                j2++;
-                            }
-                        }
-                    }
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.wip.getAndIncrement() != 0) {
+                return;
+            }
+            Subscriber subscriber = this.actual;
+            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            int i2 = 1;
+            do {
+                long j = get();
+                long j2 = 0;
+                while (true) {
+                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                     if (i == 0) {
-                        if (isCancelled()) {
-                            spscLinkedArrayQueue.clear();
-                            return;
+                        break;
+                    } else if (isCancelled()) {
+                        spscLinkedArrayQueue.clear();
+                        return;
+                    } else {
+                        boolean z2 = this.done;
+                        Object poll = spscLinkedArrayQueue.poll();
+                        if (poll == null) {
+                            z = true;
+                        } else {
+                            z = false;
                         }
-                        boolean z3 = this.done;
-                        boolean isEmpty = spscLinkedArrayQueue.isEmpty();
-                        if (z3 && isEmpty) {
-                            Throwable th2 = this.error;
-                            if (th2 != null) {
-                                error(th2);
+                        if (z2 && z) {
+                            Throwable th = this.error;
+                            if (th != null) {
+                                error(th);
                                 return;
                             } else {
                                 complete();
                                 return;
                             }
+                        } else if (z) {
+                            break;
+                        } else {
+                            subscriber.onNext(poll);
+                            j2++;
                         }
                     }
-                    if (j2 != 0) {
-                        BackpressureHelper.produced(this, j2);
+                }
+                if (i == 0) {
+                    if (isCancelled()) {
+                        spscLinkedArrayQueue.clear();
+                        return;
                     }
-                    i2 = this.wip.addAndGet(-i2);
-                } while (i2 != 0);
-            }
+                    boolean z3 = this.done;
+                    boolean isEmpty = spscLinkedArrayQueue.isEmpty();
+                    if (z3 && isEmpty) {
+                        Throwable th2 = this.error;
+                        if (th2 != null) {
+                            error(th2);
+                            return;
+                        } else {
+                            complete();
+                            return;
+                        }
+                    }
+                }
+                if (j2 != 0) {
+                    BackpressureHelper.produced(this, j2);
+                }
+                i2 = this.wip.addAndGet(-i2);
+            } while (i2 != 0);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableCreate.BaseEmitter, io.reactivex.Emitter
@@ -334,20 +351,6 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 this.done = true;
                 drain();
             }
-        }
-
-        @Override // io.reactivex.Emitter
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.done || isCancelled()) {
-                return;
-            }
-            if (t == null) {
-                onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
-                return;
-            }
-            this.queue.offer(t);
-            drain();
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableCreate.BaseEmitter
@@ -366,34 +369,54 @@ public final class FlowableCreate<T> extends Flowable<T> {
             }
         }
 
+        @Override // io.reactivex.Emitter
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && !this.done && !isCancelled()) {
+                if (obj == null) {
+                    onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
+                    return;
+                }
+                this.queue.offer(obj);
+                drain();
+            }
+        }
+
         @Override // io.reactivex.internal.operators.flowable.FlowableCreate.BaseEmitter, io.reactivex.FlowableEmitter
         public boolean tryOnError(Throwable th) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, th)) == null) {
-                if (this.done || isCancelled()) {
-                    return false;
+                if (!this.done && !isCancelled()) {
+                    if (th == null) {
+                        th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+                    }
+                    this.error = th;
+                    this.done = true;
+                    drain();
+                    return true;
                 }
-                if (th == null) {
-                    th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-                }
-                this.error = th;
-                this.done = true;
-                drain();
-                return true;
+                return false;
             }
             return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class DropAsyncEmitter<T> extends NoOverflowBaseAsyncEmitter<T> {
+    public final class DropAsyncEmitter extends NoOverflowBaseAsyncEmitter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8360058422307496563L;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // io.reactivex.internal.operators.flowable.FlowableCreate.NoOverflowBaseAsyncEmitter
+        public void onOverflow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DropAsyncEmitter(Subscriber<? super T> subscriber) {
+        public DropAsyncEmitter(Subscriber subscriber) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -411,23 +434,16 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 }
             }
         }
-
-        @Override // io.reactivex.internal.operators.flowable.FlowableCreate.NoOverflowBaseAsyncEmitter
-        public void onOverflow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ErrorAsyncEmitter<T> extends NoOverflowBaseAsyncEmitter<T> {
+    public final class ErrorAsyncEmitter extends NoOverflowBaseAsyncEmitter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 338953216916120960L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ErrorAsyncEmitter(Subscriber<? super T> subscriber) {
+        public ErrorAsyncEmitter(Subscriber subscriber) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -456,17 +472,17 @@ public final class FlowableCreate<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class LatestAsyncEmitter<T> extends BaseEmitter<T> {
+    public final class LatestAsyncEmitter extends BaseEmitter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4023437720691792495L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
         public Throwable error;
-        public final AtomicReference<T> queue;
+        public final AtomicReference queue;
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LatestAsyncEmitter(Subscriber<? super T> subscriber) {
+        public LatestAsyncEmitter(Subscriber subscriber) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -483,8 +499,27 @@ public final class FlowableCreate<T> extends Flowable<T> {
                     return;
                 }
             }
-            this.queue = new AtomicReference<>();
+            this.queue = new AtomicReference();
             this.wip = new AtomicInteger();
+        }
+
+        @Override // io.reactivex.internal.operators.flowable.FlowableCreate.BaseEmitter, io.reactivex.FlowableEmitter
+        public boolean tryOnError(Throwable th) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, th)) == null) {
+                if (!this.done && !isCancelled()) {
+                    if (th == null) {
+                        onError(new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources."));
+                    }
+                    this.error = th;
+                    this.done = true;
+                    drain();
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:29:0x0053, code lost:
@@ -545,45 +580,51 @@ public final class FlowableCreate<T> extends Flowable<T> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drain() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
-                Subscriber<? super T> subscriber = this.actual;
-                AtomicReference<T> atomicReference = this.queue;
-                int i = 1;
-                do {
-                    long j = get();
-                    long j2 = 0;
-                    while (true) {
-                        boolean z = false;
-                        int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                        if (i2 == 0) {
-                            break;
-                        } else if (isCancelled()) {
-                            atomicReference.lazySet(null);
-                            return;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.wip.getAndIncrement() != 0) {
+                return;
+            }
+            Subscriber subscriber = this.actual;
+            AtomicReference atomicReference = this.queue;
+            int i = 1;
+            do {
+                long j = get();
+                long j2 = 0;
+                while (true) {
+                    boolean z2 = false;
+                    int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i2 == 0) {
+                        break;
+                    } else if (isCancelled()) {
+                        atomicReference.lazySet(null);
+                        return;
+                    } else {
+                        boolean z3 = this.done;
+                        Object andSet = atomicReference.getAndSet(null);
+                        if (andSet == null) {
+                            z = true;
                         } else {
-                            boolean z2 = this.done;
-                            Object obj = (T) atomicReference.getAndSet(null);
-                            boolean z3 = obj == null;
-                            if (z2 && z3) {
-                                Throwable th = this.error;
-                                if (th != null) {
-                                    error(th);
-                                    return;
-                                } else {
-                                    complete();
-                                    return;
-                                }
-                            } else if (z3) {
-                                break;
+                            z = false;
+                        }
+                        if (z3 && z) {
+                            Throwable th = this.error;
+                            if (th != null) {
+                                error(th);
+                                return;
                             } else {
-                                subscriber.onNext(obj);
-                                j2++;
+                                complete();
+                                return;
                             }
+                        } else if (z) {
+                            break;
+                        } else {
+                            subscriber.onNext(andSet);
+                            j2++;
                         }
                     }
-                } while (i != 0);
-            }
+                }
+            } while (i != 0);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableCreate.BaseEmitter, io.reactivex.Emitter
@@ -593,20 +634,6 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 this.done = true;
                 drain();
             }
-        }
-
-        @Override // io.reactivex.Emitter
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.done || isCancelled()) {
-                return;
-            }
-            if (t == null) {
-                onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
-                return;
-            }
-            this.queue.set(t);
-            drain();
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableCreate.BaseEmitter
@@ -625,34 +652,28 @@ public final class FlowableCreate<T> extends Flowable<T> {
             }
         }
 
-        @Override // io.reactivex.internal.operators.flowable.FlowableCreate.BaseEmitter, io.reactivex.FlowableEmitter
-        public boolean tryOnError(Throwable th) {
-            InterceptResult invokeL;
+        @Override // io.reactivex.Emitter
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, th)) == null) {
-                if (this.done || isCancelled()) {
-                    return false;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && !this.done && !isCancelled()) {
+                if (obj == null) {
+                    onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
+                    return;
                 }
-                if (th == null) {
-                    onError(new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources."));
-                }
-                this.error = th;
-                this.done = true;
+                this.queue.set(obj);
                 drain();
-                return true;
             }
-            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class MissingEmitter<T> extends BaseEmitter<T> {
+    public final class MissingEmitter extends BaseEmitter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3776720187248809713L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MissingEmitter(Subscriber<? super T> subscriber) {
+        public MissingEmitter(Subscriber subscriber) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -672,14 +693,14 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.Emitter
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             long j;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || isCancelled()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || isCancelled()) {
                 return;
             }
-            if (t != null) {
-                this.actual.onNext(t);
+            if (obj != null) {
+                this.actual.onNext(obj);
                 do {
                     j = get();
                     if (j == 0) {
@@ -693,13 +714,15 @@ public final class FlowableCreate<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static abstract class NoOverflowBaseAsyncEmitter<T> extends BaseEmitter<T> {
+    public abstract class NoOverflowBaseAsyncEmitter extends BaseEmitter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4127754106204442833L;
         public transient /* synthetic */ FieldHolder $fh;
 
+        public abstract void onOverflow();
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public NoOverflowBaseAsyncEmitter(Subscriber<? super T> subscriber) {
+        public NoOverflowBaseAsyncEmitter(Subscriber subscriber) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -719,35 +742,40 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.Emitter
-        public final void onNext(T t) {
+        public final void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || isCancelled()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || isCancelled()) {
                 return;
             }
-            if (t == null) {
+            if (obj == null) {
                 onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
             } else if (get() != 0) {
-                this.actual.onNext(t);
+                this.actual.onNext(obj);
                 BackpressureHelper.produced(this, 1L);
             } else {
                 onOverflow();
             }
         }
-
-        public abstract void onOverflow();
     }
 
     /* loaded from: classes8.dex */
-    public static final class SerializedEmitter<T> extends AtomicInteger implements FlowableEmitter<T> {
+    public final class SerializedEmitter extends AtomicInteger implements FlowableEmitter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4883307006032401862L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
-        public final BaseEmitter<T> emitter;
+        public final BaseEmitter emitter;
         public final AtomicThrowable error;
-        public final SimplePlainQueue<T> queue;
+        public final SimplePlainQueue queue;
 
-        public SerializedEmitter(BaseEmitter<T> baseEmitter) {
+        @Override // io.reactivex.FlowableEmitter
+        public FlowableEmitter serialize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (FlowableEmitter) invokeV.objValue;
+        }
+
+        public SerializedEmitter(BaseEmitter baseEmitter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -765,128 +793,6 @@ public final class FlowableCreate<T> extends Flowable<T> {
             this.emitter = baseEmitter;
             this.error = new AtomicThrowable();
             this.queue = new SpscLinkedArrayQueue(16);
-        }
-
-        public void drain() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getAndIncrement() == 0) {
-                drainLoop();
-            }
-        }
-
-        public void drainLoop() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                BaseEmitter<T> baseEmitter = this.emitter;
-                SimplePlainQueue<T> simplePlainQueue = this.queue;
-                AtomicThrowable atomicThrowable = this.error;
-                int i = 1;
-                while (!baseEmitter.isCancelled()) {
-                    if (atomicThrowable.get() != null) {
-                        simplePlainQueue.clear();
-                        baseEmitter.onError(atomicThrowable.terminate());
-                        return;
-                    }
-                    boolean z = this.done;
-                    T poll = simplePlainQueue.poll();
-                    boolean z2 = poll == null;
-                    if (z && z2) {
-                        baseEmitter.onComplete();
-                        return;
-                    } else if (z2) {
-                        i = addAndGet(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    } else {
-                        baseEmitter.onNext(poll);
-                    }
-                }
-                simplePlainQueue.clear();
-            }
-        }
-
-        @Override // io.reactivex.FlowableEmitter
-        public boolean isCancelled() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.emitter.isCancelled() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Emitter
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.emitter.isCancelled() || this.done) {
-                return;
-            }
-            this.done = true;
-            drain();
-        }
-
-        @Override // io.reactivex.Emitter
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, th) == null) || tryOnError(th)) {
-                return;
-            }
-            RxJavaPlugins.onError(th);
-        }
-
-        @Override // io.reactivex.Emitter
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.emitter.isCancelled() || this.done) {
-                return;
-            }
-            if (t == null) {
-                onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
-                return;
-            }
-            if (get() == 0 && compareAndSet(0, 1)) {
-                this.emitter.onNext(t);
-                if (decrementAndGet() == 0) {
-                    return;
-                }
-            } else {
-                SimplePlainQueue<T> simplePlainQueue = this.queue;
-                synchronized (simplePlainQueue) {
-                    simplePlainQueue.offer(t);
-                }
-                if (getAndIncrement() != 0) {
-                    return;
-                }
-            }
-            drainLoop();
-        }
-
-        @Override // io.reactivex.FlowableEmitter
-        public long requested() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.emitter.requested() : invokeV.longValue;
-        }
-
-        @Override // io.reactivex.FlowableEmitter
-        public FlowableEmitter<T> serialize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (FlowableEmitter) invokeV.objValue;
-        }
-
-        @Override // io.reactivex.FlowableEmitter
-        public void setCancellable(Cancellable cancellable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cancellable) == null) {
-                this.emitter.setCancellable(cancellable);
-            }
-        }
-
-        @Override // io.reactivex.FlowableEmitter
-        public void setDisposable(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) {
-                this.emitter.setDisposable(disposable);
-            }
         }
 
         @Override // io.reactivex.FlowableEmitter
@@ -908,9 +814,132 @@ public final class FlowableCreate<T> extends Flowable<T> {
             }
             return invokeL.booleanValue;
         }
+
+        public void drain() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getAndIncrement() == 0) {
+                drainLoop();
+            }
+        }
+
+        @Override // io.reactivex.FlowableEmitter
+        public boolean isCancelled() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.emitter.isCancelled();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Emitter
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.emitter.isCancelled() && !this.done) {
+                this.done = true;
+                drain();
+            }
+        }
+
+        @Override // io.reactivex.FlowableEmitter
+        public long requested() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.emitter.requested();
+            }
+            return invokeV.longValue;
+        }
+
+        public void drainLoop() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                BaseEmitter baseEmitter = this.emitter;
+                SimplePlainQueue simplePlainQueue = this.queue;
+                AtomicThrowable atomicThrowable = this.error;
+                int i = 1;
+                while (!baseEmitter.isCancelled()) {
+                    if (atomicThrowable.get() != null) {
+                        simplePlainQueue.clear();
+                        baseEmitter.onError(atomicThrowable.terminate());
+                        return;
+                    }
+                    boolean z2 = this.done;
+                    Object poll = simplePlainQueue.poll();
+                    if (poll == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z2 && z) {
+                        baseEmitter.onComplete();
+                        return;
+                    } else if (z) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
+                            return;
+                        }
+                    } else {
+                        baseEmitter.onNext(poll);
+                    }
+                }
+                simplePlainQueue.clear();
+            }
+        }
+
+        @Override // io.reactivex.Emitter
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, th) == null) && !tryOnError(th)) {
+                RxJavaPlugins.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.FlowableEmitter
+        public void setCancellable(Cancellable cancellable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cancellable) == null) {
+                this.emitter.setCancellable(cancellable);
+            }
+        }
+
+        @Override // io.reactivex.FlowableEmitter
+        public void setDisposable(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) {
+                this.emitter.setDisposable(disposable);
+            }
+        }
+
+        @Override // io.reactivex.Emitter
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && !this.emitter.isCancelled() && !this.done) {
+                if (obj == null) {
+                    onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
+                    return;
+                }
+                if (get() == 0 && compareAndSet(0, 1)) {
+                    this.emitter.onNext(obj);
+                    if (decrementAndGet() == 0) {
+                        return;
+                    }
+                } else {
+                    SimplePlainQueue simplePlainQueue = this.queue;
+                    synchronized (simplePlainQueue) {
+                        simplePlainQueue.offer(obj);
+                    }
+                    if (getAndIncrement() != 0) {
+                        return;
+                    }
+                }
+                drainLoop();
+            }
+        }
     }
 
-    public FlowableCreate(FlowableOnSubscribe<T> flowableOnSubscribe, BackpressureStrategy backpressureStrategy) {
+    public FlowableCreate(FlowableOnSubscribe flowableOnSubscribe, BackpressureStrategy backpressureStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -930,21 +959,27 @@ public final class FlowableCreate<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         BaseEmitter missingEmitter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             int i = AnonymousClass1.$SwitchMap$io$reactivex$BackpressureStrategy[this.backpressure.ordinal()];
-            if (i == 1) {
-                missingEmitter = new MissingEmitter(subscriber);
-            } else if (i == 2) {
-                missingEmitter = new ErrorAsyncEmitter(subscriber);
-            } else if (i == 3) {
-                missingEmitter = new DropAsyncEmitter(subscriber);
-            } else if (i != 4) {
-                missingEmitter = new BufferAsyncEmitter(subscriber, Flowable.bufferSize());
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            missingEmitter = new BufferAsyncEmitter(subscriber, Flowable.bufferSize());
+                        } else {
+                            missingEmitter = new LatestAsyncEmitter(subscriber);
+                        }
+                    } else {
+                        missingEmitter = new DropAsyncEmitter(subscriber);
+                    }
+                } else {
+                    missingEmitter = new ErrorAsyncEmitter(subscriber);
+                }
             } else {
-                missingEmitter = new LatestAsyncEmitter(subscriber);
+                missingEmitter = new MissingEmitter(subscriber);
             }
             subscriber.onSubscribe(missingEmitter);
             try {

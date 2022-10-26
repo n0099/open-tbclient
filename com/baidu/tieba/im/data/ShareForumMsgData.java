@@ -1,12 +1,10 @@
 package com.baidu.tieba.im.data;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +43,88 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
         this.hasRead = 0;
     }
 
-    public static ShareForumMsgData ofForumData(@NonNull ForumData forumData) {
+    public String getAvatar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.avatar;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getForum_id() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.forum_id;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getForum_name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.forum_name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getMember_count() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.member_count;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getSlogan() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.slogan;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getThread_count() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.thread_count;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean hasRead() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.hasRead == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toEncodeContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("fid", getForum_id());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static ShareForumMsgData ofForumData(ForumData forumData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, forumData)) == null) {
@@ -53,7 +132,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
                 return null;
             }
             ShareForumMsgData shareForumMsgData = new ShareForumMsgData();
-            shareForumMsgData.forum_id = dh.g(forumData.getId(), 0L);
+            shareForumMsgData.forum_id = eh.g(forumData.getId(), 0L);
             shareForumMsgData.forum_name = forumData.getName();
             shareForumMsgData.avatar = forumData.getImage_url();
             shareForumMsgData.thread_count = forumData.getThread_num();
@@ -64,7 +143,6 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
         return (ShareForumMsgData) invokeL.objValue;
     }
 
-    @Nullable
     public static ShareForumMsgData ofImForumInfo(ForumInfo forumInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -76,54 +154,12 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
             shareForumMsgData.forum_id = forumInfo.forumId.longValue();
             shareForumMsgData.forum_name = forumInfo.forumName;
             shareForumMsgData.avatar = forumInfo.avatar;
-            shareForumMsgData.thread_count = dh.e(forumInfo.threadNum, 0);
+            shareForumMsgData.thread_count = eh.e(forumInfo.threadNum, 0);
             shareForumMsgData.member_count = forumInfo.memberCount.intValue();
             shareForumMsgData.slogan = forumInfo.slogan;
             return shareForumMsgData;
         }
         return (ShareForumMsgData) invokeL.objValue;
-    }
-
-    public String getAvatar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.avatar : (String) invokeV.objValue;
-    }
-
-    public long getForum_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forum_id : invokeV.longValue;
-    }
-
-    public String getForum_name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forum_name : (String) invokeV.objValue;
-    }
-
-    public int getMember_count() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.member_count : invokeV.intValue;
-    }
-
-    public String getSlogan() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.slogan : (String) invokeV.objValue;
-    }
-
-    public int getThread_count() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.thread_count : invokeV.intValue;
-    }
-
-    public boolean hasRead() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.hasRead == 1 : invokeV.booleanValue;
     }
 
     public void setAvatar(String str) {
@@ -173,20 +209,5 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.thread_count = i;
         }
-    }
-
-    public String toEncodeContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("fid", getForum_id());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

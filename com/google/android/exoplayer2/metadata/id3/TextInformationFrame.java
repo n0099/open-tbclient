@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Util;
 /* loaded from: classes7.dex */
 public final class TextInformationFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<TextInformationFrame> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final String description;
     public final String value;
@@ -32,7 +32,7 @@ public final class TextInformationFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<TextInformationFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.TextInformationFrame.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.TextInformationFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,23 +51,68 @@ public final class TextInformationFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TextInformationFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new TextInformationFrame(parcel) : (TextInformationFrame) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new TextInformationFrame(parcel);
+                }
+                return (TextInformationFrame) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TextInformationFrame[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new TextInformationFrame[i] : (TextInformationFrame[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new TextInformationFrame[i];
+                }
+                return (TextInformationFrame[]) invokeI.objValue;
             }
         };
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TextInformationFrame(Parcel parcel) {
+        super(parcel.readString());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.description = parcel.readString();
+        this.value = parcel.readString();
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || TextInformationFrame.class != obj.getClass()) {
+                return false;
+            }
+            TextInformationFrame textInformationFrame = (TextInformationFrame) obj;
+            if (this.id.equals(textInformationFrame.id) && Util.areEqual(this.description, textInformationFrame.description) && Util.areEqual(this.value, textInformationFrame.value)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,31 +137,25 @@ public final class TextInformationFrame extends Id3Frame {
         this.value = str3;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || TextInformationFrame.class != obj.getClass()) {
-                return false;
-            }
-            TextInformationFrame textInformationFrame = (TextInformationFrame) obj;
-            return this.id.equals(textInformationFrame.id) && Util.areEqual(this.description, textInformationFrame.description) && Util.areEqual(this.value, textInformationFrame.value);
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int hashCode = (527 + this.id.hashCode()) * 31;
             String str = this.description;
-            int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 31;
+            int i2 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i3 = (hashCode + i) * 31;
             String str2 = this.value;
-            return hashCode2 + (str2 != null ? str2.hashCode() : 0);
+            if (str2 != null) {
+                i2 = str2.hashCode();
+            }
+            return i3 + i2;
         }
         return invokeV.intValue;
     }
@@ -129,27 +168,5 @@ public final class TextInformationFrame extends Id3Frame {
             parcel.writeString(this.description);
             parcel.writeString(this.value);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TextInformationFrame(Parcel parcel) {
-        super(parcel.readString());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.description = parcel.readString();
-        this.value = parcel.readString();
     }
 }

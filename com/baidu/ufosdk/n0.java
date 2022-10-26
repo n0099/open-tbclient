@@ -50,31 +50,30 @@ public class n0 implements View.OnClickListener {
             }
             this.a.a.commit();
             FeedbackEditActivity feedbackEditActivity2 = this.a;
-            if (feedbackEditActivity2.x) {
-                return;
-            }
-            if (feedbackEditActivity2.m.getText().toString().trim().length() > 30) {
-                Toast.makeText(feedbackEditActivity2, t1.a("32"), 0).show();
-            } else if (!feedbackEditActivity2.O) {
-                Toast.makeText(feedbackEditActivity2, "请勾选投诉须知", 0).show();
-            } else if (feedbackEditActivity2.l.getText().toString().trim().length() < 8) {
-                Toast.makeText(feedbackEditActivity2, t1.a(PayConfig.PAYMENT_POS_KEY_MANGA), 0).show();
-            } else if (feedbackEditActivity2.l.getText().toString().trim().length() > 200) {
-                Toast.makeText(feedbackEditActivity2, t1.a("16"), 0).show();
-            } else if (!p1.e(feedbackEditActivity2)) {
-                Toast.makeText(feedbackEditActivity2, t1.a("19"), 1).show();
-            } else if (TextUtils.isEmpty(feedbackEditActivity2.K.b)) {
-                Toast.makeText(feedbackEditActivity2, t1.a("18"), 1).show();
-                feedbackEditActivity2.K.a(false);
-            } else {
-                if (feedbackEditActivity2.getCurrentFocus() != null && feedbackEditActivity2.getCurrentFocus().getWindowToken() != null) {
-                    ((InputMethodManager) feedbackEditActivity2.getSystemService("input_method")).hideSoftInputFromWindow(feedbackEditActivity2.getCurrentFocus().getWindowToken(), 2);
+            if (!feedbackEditActivity2.x) {
+                if (feedbackEditActivity2.m.getText().toString().trim().length() > 30) {
+                    Toast.makeText(feedbackEditActivity2, t1.a("32"), 0).show();
+                } else if (!feedbackEditActivity2.O) {
+                    Toast.makeText(feedbackEditActivity2, "请勾选投诉须知", 0).show();
+                } else if (feedbackEditActivity2.l.getText().toString().trim().length() < 8) {
+                    Toast.makeText(feedbackEditActivity2, t1.a(PayConfig.PAYMENT_POS_KEY_MANGA), 0).show();
+                } else if (feedbackEditActivity2.l.getText().toString().trim().length() > 200) {
+                    Toast.makeText(feedbackEditActivity2, t1.a("16"), 0).show();
+                } else if (!p1.e(feedbackEditActivity2)) {
+                    Toast.makeText(feedbackEditActivity2, t1.a("19"), 1).show();
+                } else if (TextUtils.isEmpty(feedbackEditActivity2.K.b)) {
+                    Toast.makeText(feedbackEditActivity2, t1.a("18"), 1).show();
+                    feedbackEditActivity2.K.a(false);
+                } else {
+                    if (feedbackEditActivity2.getCurrentFocus() != null && feedbackEditActivity2.getCurrentFocus().getWindowToken() != null) {
+                        ((InputMethodManager) feedbackEditActivity2.getSystemService("input_method")).hideSoftInputFromWindow(feedbackEditActivity2.getCurrentFocus().getWindowToken(), 2);
+                    }
+                    feedbackEditActivity2.w.setVisibility(0);
+                    feedbackEditActivity2.w.bringToFront();
+                    feedbackEditActivity2.x = true;
+                    feedbackEditActivity2.i.setTextColor(-6710887);
+                    new Thread(new s0(feedbackEditActivity2)).start();
                 }
-                feedbackEditActivity2.w.setVisibility(0);
-                feedbackEditActivity2.w.bringToFront();
-                feedbackEditActivity2.x = true;
-                feedbackEditActivity2.i.setTextColor(-6710887);
-                new Thread(new s0(feedbackEditActivity2)).start();
             }
         }
     }

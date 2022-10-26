@@ -20,6 +20,20 @@ public class h7 {
     public final int[] f;
     public final int[] g;
 
+    public static int l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            int i2 = 0;
+            while (i >= 32) {
+                i2 |= i & 1;
+                i >>= 1;
+            }
+            return i + i2;
+        }
+        return invokeI.intValue;
+    }
+
     public h7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,6 +52,38 @@ public class h7 {
         this.c = new Object[256];
         this.f = new int[40];
         this.g = new int[40];
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
+        }
+        while (true) {
+            int i = this.e;
+            if (i > 1) {
+                int i2 = i - 2;
+                if (i2 > 0) {
+                    int[] iArr = this.g;
+                    int i3 = i2 - 1;
+                    int i4 = i2 + 1;
+                    if (iArr[i3] <= iArr[i2] + iArr[i4]) {
+                        if (iArr[i3] < iArr[i4]) {
+                            i2--;
+                        }
+                        g(i2);
+                    }
+                }
+                int[] iArr2 = this.g;
+                if (iArr2[i2] <= iArr2[i2 + 1]) {
+                    g(i2);
+                } else {
+                    return;
+                }
+            } else {
+                return;
+            }
+        }
     }
 
     /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:21:0x003f -> B:5:0x0006 */
@@ -100,7 +146,66 @@ public class h7 {
         return invokeLII.intValue;
     }
 
-    public static int e(Comparable<Object> comparable, Object[] objArr, int i, int i2, int i3) {
+    public static void n(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(65542, null, i, i2, i3) == null) {
+            if (i2 <= i3) {
+                if (i2 >= 0) {
+                    if (i3 <= i) {
+                        return;
+                    }
+                    throw new ArrayIndexOutOfBoundsException(i3);
+                }
+                throw new ArrayIndexOutOfBoundsException(i2);
+            }
+            throw new IllegalArgumentException("fromIndex(" + i2 + ") > toIndex(" + i3 + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    public void c(Object[] objArr, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048576, this, objArr, i, i2) == null) {
+            this.e = 0;
+            n(objArr.length, i, i2);
+            int i4 = i2 - i;
+            if (i4 < 2) {
+                return;
+            }
+            if (i4 < 32) {
+                a(objArr, i, i2, b(objArr, i, i2) + i);
+                return;
+            }
+            this.a = objArr;
+            this.d = 0;
+            int l = l(i4);
+            do {
+                int b = b(objArr, i, i2);
+                if (b < l) {
+                    if (i4 <= l) {
+                        i3 = i4;
+                    } else {
+                        i3 = l;
+                    }
+                    a(objArr, i, i + i3, b + i);
+                    b = i3;
+                }
+                m(i, b);
+                h();
+                i += b;
+                i4 -= b;
+            } while (i4 != 0);
+            i();
+            this.a = null;
+            Object[] objArr2 = this.c;
+            int i5 = this.d;
+            for (int i6 = 0; i6 < i5; i6++) {
+                objArr2[i6] = null;
+            }
+        }
+    }
+
+    public static int e(Comparable comparable, Object[] objArr, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         int i4;
         int i5;
@@ -164,7 +269,7 @@ public class h7 {
         return invokeCommon.intValue;
     }
 
-    public static int f(Comparable<Object> comparable, Object[] objArr, int i, int i2, int i3) {
+    public static int f(Comparable comparable, Object[] objArr, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         int i4;
         int i5;
@@ -227,36 +332,6 @@ public class h7 {
         return invokeCommon.intValue;
     }
 
-    public static int l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            int i2 = 0;
-            while (i >= 32) {
-                i2 |= i & 1;
-                i >>= 1;
-            }
-            return i + i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static void n(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65542, null, i, i2, i3) == null) {
-            if (i2 <= i3) {
-                if (i2 < 0) {
-                    throw new ArrayIndexOutOfBoundsException(i2);
-                }
-                if (i3 > i) {
-                    throw new ArrayIndexOutOfBoundsException(i3);
-                }
-                return;
-            }
-            throw new IllegalArgumentException("fromIndex(" + i2 + ") > toIndex(" + i3 + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
     public static void o(Object[] objArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65543, null, objArr, i, i2) == null) {
@@ -267,44 +342,6 @@ public class h7 {
                 objArr[i3] = obj;
                 i3--;
                 i++;
-            }
-        }
-    }
-
-    public void c(Object[] objArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048576, this, objArr, i, i2) == null) {
-            this.e = 0;
-            n(objArr.length, i, i2);
-            int i3 = i2 - i;
-            if (i3 < 2) {
-                return;
-            }
-            if (i3 < 32) {
-                a(objArr, i, i2, b(objArr, i, i2) + i);
-                return;
-            }
-            this.a = objArr;
-            this.d = 0;
-            int l = l(i3);
-            do {
-                int b = b(objArr, i, i2);
-                if (b < l) {
-                    int i4 = i3 <= l ? i3 : l;
-                    a(objArr, i, i + i4, b + i);
-                    b = i4;
-                }
-                m(i, b);
-                h();
-                i += b;
-                i3 -= b;
-            } while (i3 != 0);
-            i();
-            this.a = null;
-            Object[] objArr2 = this.c;
-            int i5 = this.d;
-            for (int i6 = 0; i6 < i5; i6++) {
-                objArr2[i6] = null;
             }
         }
     }
@@ -367,36 +404,6 @@ public class h7 {
         }
     }
 
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            int i = this.e;
-            if (i <= 1) {
-                return;
-            }
-            int i2 = i - 2;
-            if (i2 > 0) {
-                int[] iArr = this.g;
-                int i3 = i2 - 1;
-                int i4 = i2 + 1;
-                if (iArr[i3] <= iArr[i2] + iArr[i4]) {
-                    if (iArr[i3] < iArr[i4]) {
-                        i2--;
-                    }
-                    g(i2);
-                }
-            }
-            int[] iArr2 = this.g;
-            if (iArr2[i2] > iArr2[i2 + 1]) {
-                return;
-            }
-            g(i2);
-        }
-    }
-
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(1048580, this) != null) {
@@ -404,17 +411,18 @@ public class h7 {
         }
         while (true) {
             int i = this.e;
-            if (i <= 1) {
+            if (i > 1) {
+                int i2 = i - 2;
+                if (i2 > 0) {
+                    int[] iArr = this.g;
+                    if (iArr[i2 - 1] < iArr[i2 + 1]) {
+                        i2--;
+                    }
+                }
+                g(i2);
+            } else {
                 return;
             }
-            int i2 = i - 2;
-            if (i2 > 0) {
-                int[] iArr = this.g;
-                if (iArr[i2 - 1] < iArr[i2 + 1]) {
-                    i2--;
-                }
-            }
-            g(i2);
         }
     }
 

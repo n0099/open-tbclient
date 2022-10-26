@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j5;
-import com.baidu.tieba.m5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class n5<D extends m5, T extends j5<D>> extends f5 {
+public abstract class n5 extends f5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
-    public D b;
+    public j5 a;
+    public m5 b;
+
+    public abstract boolean g(j5 j5Var);
 
     public n5() {
         Interceptable interceptable = $ic;
@@ -29,11 +29,15 @@ public abstract class n5<D extends m5, T extends j5<D>> extends f5 {
         }
     }
 
-    public abstract boolean g(j5<?> j5Var);
+    @Override // com.baidu.tieba.f5
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.a(this.b);
+        }
+    }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.j5<?> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean h(j5<?> j5Var) {
+    public boolean h(j5 j5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j5Var)) == null) {
@@ -44,13 +48,5 @@ public abstract class n5<D extends m5, T extends j5<D>> extends f5 {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.f5
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.a(this.b);
-        }
     }
 }

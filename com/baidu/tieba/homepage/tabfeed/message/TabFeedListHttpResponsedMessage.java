@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.tabfeed.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.n47;
+import com.baidu.tieba.v47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import tbclient.Error;
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n47 tabFeedData;
+    public v47 tabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -51,11 +51,12 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
             if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
                 setErrorString(activityPageResIdl.error.usermsg);
             }
-            if (getError() == 0 && activityPageResIdl.data != null) {
-                n47 n47Var = new n47();
-                this.tabFeedData = n47Var;
-                n47Var.j(activityPageResIdl.data);
+            if (getError() != 0 || activityPageResIdl.data == null) {
+                return;
             }
+            v47 v47Var = new v47();
+            this.tabFeedData = v47Var;
+            v47Var.j(activityPageResIdl.data);
         }
     }
 }

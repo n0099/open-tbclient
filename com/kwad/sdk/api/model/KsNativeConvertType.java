@@ -1,11 +1,9 @@
 package com.kwad.sdk.api.model;
 
-import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @KsAdSdkApi
-@Keep
 @Retention(RetentionPolicy.SOURCE)
 /* loaded from: classes7.dex */
 public @interface KsNativeConvertType {

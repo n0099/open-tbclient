@@ -22,7 +22,6 @@ public class UsbAbTestConst {
     public static final String KEY_FUN_AD_SDK_PICPAGE_BEAR = "12_2_picpage_bear_a";
     public static final String KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR = "12_11_picpage_ahead_bear_a";
     public static final String KEY_HOMEPAGE_RECOMMEND_LIVE_SECOND_FLOOR = "12_28_homepage_recommend_live_a";
-    public static final String KEY_HOME_TAB_MODIFY_TEST_A = "12_26_index_tab_show_a";
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
     public static final String KEY_HOT_SPLASH_FIX = "12_25_splash_req_ad_rule";
     public static final String KEY_IMG_CLICK_TO_PB = "12_24_tupiandianji_b";
@@ -50,7 +49,6 @@ public class UsbAbTestConst {
     public static final String KEY_SHARE_H5_CARD_OPTIMIZE = "12_16_sharecard_a";
     public static final String KEY_VIDEOTAB_AUTO_PLAY = "12_5_zp_1";
     public static final String KEY_VIDEO_AUTO_PLAY_NEXT_VIDEO = "12_15_autoplay_a";
-    public static final String KEY_VIDEO_CARD_LAZY = "12_22_video_card_lazy_a";
     public static final String KEY_VIDEO_SET_URL_AGAIN = "12_20_repeatset_a";
     public static final String KEY_WRITE_PROTO = "12_26_thread_proto_android_a";
     public static final String VIDEO_PLAY_DANMU_SHOW = "12_14_danmu_1";

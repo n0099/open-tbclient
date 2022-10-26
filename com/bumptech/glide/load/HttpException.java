@@ -1,6 +1,5 @@
 package com.bumptech.glide.load;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ public final class HttpException extends IOException {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HttpException(int i) {
-        this("Http request failed with status code: " + i, i);
+        this("Http request failed", i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,13 +35,8 @@ public final class HttpException extends IOException {
         }
     }
 
-    public int getStatusCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.statusCode : invokeV.intValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Deprecated
     public HttpException(String str) {
         this(str, -1);
         Interceptable interceptable = $ic;
@@ -85,8 +79,8 @@ public final class HttpException extends IOException {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HttpException(String str, int i, @Nullable Throwable th) {
-        super(str, th);
+    public HttpException(String str, int i, Throwable th) {
+        super(str + ", status code: " + i, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,5 +98,14 @@ public final class HttpException extends IOException {
             }
         }
         this.statusCode = i;
+    }
+
+    public int getStatusCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.statusCode;
+        }
+        return invokeV.intValue;
     }
 }

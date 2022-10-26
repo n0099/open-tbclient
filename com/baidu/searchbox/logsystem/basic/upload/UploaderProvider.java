@@ -1,8 +1,6 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.logsystem.uploadfile.BOSAttachFileUploader_Factory;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class UploaderProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -50,29 +47,39 @@ public class UploaderProvider {
         }
     }
 
-    @Inject(force = false)
     public static BaseAttachFileUploader getAttachUploader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? BOSAttachFileUploader_Factory.get() : (BaseAttachFileUploader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return BOSAttachFileUploader_Factory.get();
+        }
+        return (BaseAttachFileUploader) invokeV.objValue;
     }
 
-    @Inject(force = false)
     public static BaseContentUploader getContentUploader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? DEFAULT_CONTENT_UPLOADER : (BaseContentUploader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return DEFAULT_CONTENT_UPLOADER;
+        }
+        return (BaseContentUploader) invokeV.objValue;
     }
 
     public static BaseAttachFileUploader getDefaultAttachUploader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? DEFAULT_FILE_UPLOADER : (BaseAttachFileUploader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return DEFAULT_FILE_UPLOADER;
+        }
+        return (BaseAttachFileUploader) invokeV.objValue;
     }
 
     public static BaseContentUploader getDefaultContentUploader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? DEFAULT_CONTENT_UPLOADER : (BaseContentUploader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return DEFAULT_CONTENT_UPLOADER;
+        }
+        return (BaseContentUploader) invokeV.objValue;
     }
 }

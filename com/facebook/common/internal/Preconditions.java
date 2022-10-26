@@ -61,59 +61,151 @@ public final class Preconditions {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            if (i < 0 || i > i3) {
-                return badPositionIndex(i, i3, "start index");
+            if (i >= 0 && i <= i3) {
+                if (i2 >= 0 && i2 <= i3) {
+                    return format("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
+                }
+                return badPositionIndex(i2, i3, "end index");
             }
-            return (i2 < 0 || i2 > i3) ? badPositionIndex(i2, i3, "end index") : format("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
+            return badPositionIndex(i, i3, "start index");
         }
         return (String) invokeIII.objValue;
     }
 
     public static void checkArgument(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) && !z) {
-            throw new IllegalArgumentException();
+        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) != null) || z) {
+            return;
         }
+        throw new IllegalArgumentException();
+    }
+
+    public static Object checkNotNull(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
+            if (obj != null) {
+                return obj;
+            }
+            throw null;
+        }
+        return invokeL.objValue;
+    }
+
+    public static void checkState(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65551, null, z) != null) || z) {
+            return;
+        }
+        throw new IllegalStateException();
+    }
+
+    public static void checkArgument(boolean z, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZL(65541, null, z, obj) != null) || z) {
+            return;
+        }
+        throw new IllegalArgumentException(String.valueOf(obj));
     }
 
     public static int checkElementIndex(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i, i2)) == null) ? checkElementIndex(i, i2, "index") : invokeII.intValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i, i2)) == null) {
+            return checkElementIndex(i, i2, "index");
+        }
+        return invokeII.intValue;
     }
 
-    public static <T> T checkNotNull(T t) {
-        InterceptResult invokeL;
+    public static Object checkNotNull(Object obj, @Nullable Object obj2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, t)) == null) {
-            if (t != null) {
-                return t;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, obj, obj2)) == null) {
+            if (obj != null) {
+                return obj;
             }
-            throw null;
+            throw new NullPointerException(String.valueOf(obj2));
         }
-        return (T) invokeL.objValue;
+        return invokeLL.objValue;
     }
 
     public static int checkPositionIndex(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i, i2)) == null) ? checkPositionIndex(i, i2, "index") : invokeII.intValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i, i2)) == null) {
+            return checkPositionIndex(i, i2, "index");
+        }
+        return invokeII.intValue;
+    }
+
+    public static void checkState(boolean z, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZL(65552, null, z, obj) != null) || z) {
+            return;
+        }
+        throw new IllegalStateException(String.valueOf(obj));
+    }
+
+    public static void checkArgument(boolean z, @Nullable String str, @Nullable Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
+            return;
+        }
+        throw new IllegalArgumentException(format(str, objArr));
+    }
+
+    public static int checkElementIndex(int i, int i2, @Nullable String str) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65544, null, i, i2, str)) == null) {
+            if (i >= 0 && i < i2) {
+                return i;
+            }
+            throw new IndexOutOfBoundsException(badElementIndex(i, i2, str));
+        }
+        return invokeIIL.intValue;
+    }
+
+    public static Object checkNotNull(Object obj, @Nullable String str, @Nullable Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, objArr)) == null) {
+            if (obj != null) {
+                return obj;
+            }
+            throw new NullPointerException(format(str, objArr));
+        }
+        return invokeLLL.objValue;
+    }
+
+    public static int checkPositionIndex(int i, int i2, @Nullable String str) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65549, null, i, i2, str)) == null) {
+            if (i >= 0 && i <= i2) {
+                return i;
+            }
+            throw new IndexOutOfBoundsException(badPositionIndex(i, i2, str));
+        }
+        return invokeIIL.intValue;
     }
 
     public static void checkPositionIndexes(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65550, null, i, i2, i3) == null) {
-            if (i < 0 || i2 < i || i2 > i3) {
-                throw new IndexOutOfBoundsException(badPositionIndexes(i, i2, i3));
+            if (i >= 0 && i2 >= i && i2 <= i3) {
+                return;
             }
+            throw new IndexOutOfBoundsException(badPositionIndexes(i, i2, i3));
         }
     }
 
-    public static void checkState(boolean z) {
+    public static void checkState(boolean z, @Nullable String str, @Nullable Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65551, null, z) == null) && !z) {
-            throw new IllegalStateException();
+        if ((interceptable != null && interceptable.invokeCommon(65553, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
+            return;
         }
+        throw new IllegalStateException(format(str, objArr));
     }
 
     public static String format(@Nullable String str, @Nullable Object... objArr) {
@@ -144,81 +236,5 @@ public final class Preconditions {
             return sb.toString();
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static void checkArgument(boolean z, @Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65541, null, z, obj) == null) && !z) {
-            throw new IllegalArgumentException(String.valueOf(obj));
-        }
-    }
-
-    public static int checkElementIndex(int i, int i2, @Nullable String str) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65544, null, i, i2, str)) == null) {
-            if (i < 0 || i >= i2) {
-                throw new IndexOutOfBoundsException(badElementIndex(i, i2, str));
-            }
-            return i;
-        }
-        return invokeIIL.intValue;
-    }
-
-    public static <T> T checkNotNull(T t, @Nullable Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, t, obj)) == null) {
-            if (t != null) {
-                return t;
-            }
-            throw new NullPointerException(String.valueOf(obj));
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static int checkPositionIndex(int i, int i2, @Nullable String str) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65549, null, i, i2, str)) == null) {
-            if (i < 0 || i > i2) {
-                throw new IndexOutOfBoundsException(badPositionIndex(i, i2, str));
-            }
-            return i;
-        }
-        return invokeIIL.intValue;
-    }
-
-    public static void checkState(boolean z, @Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65552, null, z, obj) == null) && !z) {
-            throw new IllegalStateException(String.valueOf(obj));
-        }
-    }
-
-    public static void checkArgument(boolean z, @Nullable String str, @Nullable Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
-            throw new IllegalArgumentException(format(str, objArr));
-        }
-    }
-
-    public static <T> T checkNotNull(T t, @Nullable String str, @Nullable Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, t, str, objArr)) == null) {
-            if (t != null) {
-                return t;
-            }
-            throw new NullPointerException(format(str, objArr));
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static void checkState(boolean z, @Nullable String str, @Nullable Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
-            throw new IllegalStateException(format(str, objArr));
-        }
     }
 }

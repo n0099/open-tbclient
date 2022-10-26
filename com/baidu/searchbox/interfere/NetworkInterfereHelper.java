@@ -45,7 +45,10 @@ public class NetworkInterfereHelper {
     public static boolean isPeakTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void setPeakTime(boolean z) {

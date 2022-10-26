@@ -61,12 +61,11 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null || StringUtils.isNull(this.a.c.getForum_name())) {
-                return;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.d).createNormalCfg(this.a.c.getForum_name(), this.a.e)));
-            if (this.a.f != null) {
-                this.a.f.onClick(view2);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null && !StringUtils.isNull(this.a.c.getForum_name())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.d).createNormalCfg(this.a.c.getForum_name(), this.a.e)));
+                if (this.a.f != null) {
+                    this.a.f.onClick(view2);
+                }
             }
         }
     }
@@ -94,94 +93,14 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
 
     public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || context == null) {
             return;
         }
         this.d = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0883, (ViewGroup) this, true);
-        this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925b9);
-        this.b = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0912a9);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0884, (ViewGroup) this, true);
+        this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925a1);
+        this.b = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09129d);
         this.a.setOnClickListener(new a(this));
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.g) {
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.a, R.drawable.bg_forum_source_gray);
-            }
-            if (this.b.getVisibility() == 0) {
-                this.b.onChangeSkinType();
-            }
-        }
-    }
-
-    public boolean g(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
-            if (threadData == null) {
-                setVisibility(8);
-                return false;
-            }
-            this.c = threadData;
-            if (!StringUtils.isNull(threadData.getForum_name()) && !this.g) {
-                TextView textView = this.a;
-                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f066e));
-                this.a.setVisibility(0);
-            } else {
-                this.a.setVisibility(8);
-            }
-            this.b.setData(this.c);
-            setVisibility(0);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.b.setForumAfterClickListener(onClickListener);
-            this.f = onClickListener;
-        }
-    }
-
-    public void setFrom(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b.setFrom(i);
-        }
-    }
-
-    public void setHideBarName(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void setShareReportFrom(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b.setShareReportFrom(i);
-        }
-    }
-
-    public void setSourceFromForPb(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b.Q = i;
-        }
-    }
-
-    public void setStType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.e = str;
-            this.b.setStType(str);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -226,5 +145,85 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             }
         }
         e(context);
+    }
+
+    public void setForumAfterClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.b.setForumAfterClickListener(onClickListener);
+            this.f = onClickListener;
+        }
+    }
+
+    public void setFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b.setFrom(i);
+        }
+    }
+
+    public void setHideBarName(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void setShareReportFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b.setShareReportFrom(i);
+        }
+    }
+
+    public void setSourceFromForPb(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b.S = i;
+        }
+    }
+
+    public void setStType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.e = str;
+            this.b.setStType(str);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.g) {
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.a, R.drawable.bg_forum_source_gray);
+            }
+            if (this.b.getVisibility() == 0) {
+                this.b.onChangeSkinType();
+            }
+        }
+    }
+
+    public boolean g(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
+            if (threadData == null) {
+                setVisibility(8);
+                return false;
+            }
+            this.c = threadData;
+            if (!StringUtils.isNull(threadData.getForum_name()) && !this.g) {
+                TextView textView = this.a;
+                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f0677));
+                this.a.setVisibility(0);
+            } else {
+                this.a.setVisibility(8);
+            }
+            this.b.setData(this.c);
+            setVisibility(0);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

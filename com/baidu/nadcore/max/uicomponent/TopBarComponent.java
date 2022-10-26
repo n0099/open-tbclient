@@ -10,10 +10,10 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.account.AccountRestoreActivity;
-import com.baidu.tieba.do0;
 import com.baidu.tieba.eo0;
 import com.baidu.tieba.fo0;
-import com.baidu.tieba.wh0;
+import com.baidu.tieba.go0;
+import com.baidu.tieba.xh0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,8 +28,14 @@ public final class TopBarComponent extends AbsComponentPlugin {
     public FrameLayout d;
     public AdImageView e;
 
+    public final void o(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static final class a implements View.OnClickListener {
+    public final class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopBarComponent a;
@@ -56,11 +62,11 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                fo0 fo0Var = (fo0) this.a.j().p(fo0.class);
-                if (fo0Var != null) {
+                go0 go0Var = (go0) this.a.j().p(go0.class);
+                if (go0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    fo0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
+                    go0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
                 }
                 this.a.h().finish();
             }
@@ -68,7 +74,7 @@ public final class TopBarComponent extends AbsComponentPlugin {
     }
 
     /* loaded from: classes2.dex */
-    public static final class b implements Runnable {
+    public final class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopBarComponent a;
@@ -96,10 +102,11 @@ public final class TopBarComponent extends AbsComponentPlugin {
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.p(this.b);
-                this.a.o(this.b);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.p(this.b);
+            this.a.o(this.b);
         }
     }
 
@@ -118,6 +125,18 @@ public final class TopBarComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
+    public void onRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onRelease();
+            xh0.e(this.d);
+            this.d = null;
+            xh0.e(this.e);
+            this.e = null;
+        }
+    }
+
+    @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
     public void g(ViewGroup parent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parent) == null) {
@@ -126,38 +145,30 @@ public final class TopBarComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void o(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-        }
-    }
-
-    @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onRelease();
-            wh0.e(this.d);
-            this.d = null;
-            wh0.e(this.e);
-            this.e = null;
-        }
-    }
-
     public final void p(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) && this.d == null) {
-            do0 a2 = eo0.a();
-            Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
-            a2.b();
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0600, viewGroup, true);
-            Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…e(layoutId, parent, true)");
-            this.d = inflate != null ? (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914d1) : null;
-            AdImageView adImageView = inflate != null ? (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d2) : null;
-            this.e = adImageView;
-            if (adImageView != null) {
-                adImageView.setOnClickListener(new a(this));
-            }
+        if ((interceptable != null && interceptable.invokeL(1048579, this, viewGroup) != null) || this.d != null) {
+            return;
+        }
+        eo0 a2 = fo0.a();
+        Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
+        a2.b();
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0600, viewGroup, true);
+        Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…e(layoutId, parent, true)");
+        AdImageView adImageView = null;
+        if (inflate != null) {
+            frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914c3);
+        } else {
+            frameLayout = null;
+        }
+        this.d = frameLayout;
+        if (inflate != null) {
+            adImageView = (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914c4);
+        }
+        this.e = adImageView;
+        if (adImageView != null) {
+            adImageView.setOnClickListener(new a(this));
         }
     }
 }

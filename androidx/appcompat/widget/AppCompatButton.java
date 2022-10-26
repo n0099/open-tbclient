@@ -1,6 +1,5 @@
 package androidx.appcompat.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
@@ -10,10 +9,6 @@ import android.view.ActionMode;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.AutoSizeableTextView;
@@ -34,7 +29,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     public final AppCompatTextHelper mTextHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatButton(@NonNull Context context) {
+    public AppCompatButton(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,6 +49,56 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AppCompatButton(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04012a);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AppCompatButton(Context context, AttributeSet attributeSet, int i) {
+        super(TintContextWrapper.wrap(context), attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        ThemeUtils.checkAppCompatTheme(this, getContext());
+        AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
+        this.mBackgroundTintHelper = appCompatBackgroundHelper;
+        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
+        AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
+        this.mTextHelper = appCompatTextHelper;
+        appCompatTextHelper.loadFromAttributes(attributeSet, i);
+        this.mTextHelper.applyCompoundDrawablesTints();
+    }
+
     @Override // android.widget.TextView, android.view.View
     public void drawableStateChanged() {
         Interceptable interceptable = $ic;
@@ -71,7 +116,6 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeMaxTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +133,6 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeMinTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,7 +150,6 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeStepGranularity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,7 +167,6 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int[] getAutoSizeTextAvailableSizes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,33 +175,35 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
                 return super.getAutoSizeTextAvailableSizes();
             }
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            return appCompatTextHelper != null ? appCompatTextHelper.getAutoSizeTextAvailableSizes() : new int[0];
+            if (appCompatTextHelper != null) {
+                return appCompatTextHelper.getAutoSizeTextAvailableSizes();
+            }
+            return new int[0];
         }
         return (int[]) invokeV.objValue;
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @SuppressLint({"WrongConstant"})
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int getAutoSizeTextType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-                return super.getAutoSizeTextType() == 1 ? 1 : 0;
+                if (super.getAutoSizeTextType() != 1) {
+                    return 0;
+                }
+                return 1;
             }
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                return appCompatTextHelper.getAutoSizeTextType();
+            if (appCompatTextHelper == null) {
+                return 0;
             }
-            return 0;
+            return appCompatTextHelper.getAutoSizeTextType();
         }
         return invokeV.intValue;
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,8 +218,6 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -191,21 +232,23 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportCompoundDrawablesTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTextHelper.getCompoundDrawableTintList() : (ColorStateList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mTextHelper.getCompoundDrawableTintList();
+        }
+        return (ColorStateList) invokeV.objValue;
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportCompoundDrawablesTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTextHelper.getCompoundDrawableTintMode() : (PorterDuff.Mode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mTextHelper.getCompoundDrawableTintMode();
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -226,65 +269,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
         }
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                appCompatTextHelper.onLayout(z, i, i2, i3, i4);
-            }
-        }
-    }
-
-    @Override // android.widget.TextView
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048589, this, charSequence, i, i2, i3) == null) {
-            super.onTextChanged(charSequence, i, i2, i3);
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper == null || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || !appCompatTextHelper.isAutoSizeEnabled()) {
-                return;
-            }
-            this.mTextHelper.autoSizeText();
-        }
-    }
-
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
-            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-                super.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
-                return;
-            }
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                appCompatTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
-            }
-        }
-    }
-
-    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048591, this, iArr, i) == null) {
-            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-                super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
-                return;
-            }
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                appCompatTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
-            }
-        }
-    }
-
-    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setAutoSizeTextTypeWithDefaults(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -312,7 +297,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
+    public void setBackgroundResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             super.setBackgroundResource(i);
@@ -334,37 +319,31 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     public void setSupportAllCaps(boolean z) {
         AppCompatTextHelper appCompatTextHelper;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || (appCompatTextHelper = this.mTextHelper) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048596, this, z) == null) && (appCompatTextHelper = this.mTextHelper) != null) {
+            appCompatTextHelper.setAllCaps(z);
         }
-        appCompatTextHelper.setAllCaps(z);
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
+    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, colorStateList) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
         }
-        appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
+    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, mode) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048598, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
         }
-        appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportCompoundDrawablesTintList(@Nullable ColorStateList colorStateList) {
+    public void setSupportCompoundDrawablesTintList(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, colorStateList) == null) {
             this.mTextHelper.setCompoundDrawableTintList(colorStateList);
@@ -373,12 +352,65 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     @Override // androidx.core.widget.TintableCompoundDrawablesView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportCompoundDrawablesTintMode(@Nullable PorterDuff.Mode mode) {
+    public void setSupportCompoundDrawablesTintMode(PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, mode) == null) {
             this.mTextHelper.setCompoundDrawableTintMode(mode);
             this.mTextHelper.applyCompoundDrawablesTints();
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.onLayout(z, i, i2, i3, i4);
+            }
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048589, this, charSequence, i, i2, i3) == null) {
+            super.onTextChanged(charSequence, i, i2, i3);
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null && !AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE && appCompatTextHelper.isAutoSizeEnabled()) {
+                this.mTextHelper.autoSizeText();
+            }
+        }
+    }
+
+    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                super.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
+                return;
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
+            }
+        }
+    }
+
+    @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
+    public void setAutoSizeTextTypeUniformWithPresetSizes(int[] iArr, int i) throws IllegalArgumentException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048591, this, iArr, i) == null) {
+            if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+                super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
+                return;
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
+            }
         }
     }
 
@@ -407,55 +439,5 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
                 appCompatTextHelper.setTextSize(i, f);
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04012a);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(TintContextWrapper.wrap(context), attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        ThemeUtils.checkAppCompatTheme(this, getContext());
-        AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
-        this.mBackgroundTintHelper = appCompatBackgroundHelper;
-        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
-        AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
-        this.mTextHelper = appCompatTextHelper;
-        appCompatTextHelper.loadFromAttributes(attributeSet, i);
-        this.mTextHelper.applyCompoundDrawablesTints();
     }
 }

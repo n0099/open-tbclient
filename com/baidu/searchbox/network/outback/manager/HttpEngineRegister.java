@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class HttpEngineRegister {
@@ -33,12 +34,14 @@ public final class HttpEngineRegister {
         }
     }
 
-    public static void register(Context context, String str, String str2, List<CallFactory.CallFactoryProducer> list, IOutbackClientIPProvider iOutbackClientIPProvider, IAdditionalRecord iAdditionalRecord) {
+    public static void register(Context context, String str, String str2, List list, IOutbackClientIPProvider iOutbackClientIPProvider, IAdditionalRecord iAdditionalRecord) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, list, iOutbackClientIPProvider, iAdditionalRecord}) == null) {
             HashMap hashMap = new HashMap();
             if (!list.isEmpty()) {
-                for (CallFactory.CallFactoryProducer callFactoryProducer : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    CallFactory.CallFactoryProducer callFactoryProducer = (CallFactory.CallFactoryProducer) it.next();
                     hashMap.put(callFactoryProducer.getEngineName(), callFactoryProducer);
                 }
                 OutbackComponent.getInstance().setOutbackContext(new IOutbackContext(context, hashMap, str, iOutbackClientIPProvider, iAdditionalRecord, str2) { // from class: com.baidu.searchbox.network.outback.manager.HttpEngineRegister.1
@@ -91,14 +94,20 @@ public final class HttpEngineRegister {
                     public IOutbackClientIPProvider getClientIPProvider() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.val$clientIPProvider : (IOutbackClientIPProvider) invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return this.val$clientIPProvider;
+                        }
+                        return (IOutbackClientIPProvider) invokeV.objValue;
                     }
 
                     @Override // com.baidu.searchbox.network.outback.IOutbackContext
                     public Context getContext() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.val$context : (Context) invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                            return this.val$context;
+                        }
+                        return (Context) invokeV.objValue;
                     }
 
                     @Override // com.baidu.searchbox.network.outback.IOutbackContext
@@ -118,14 +127,20 @@ public final class HttpEngineRegister {
                     public IAdditionalRecord getIAdditionalRecord() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? this.val$additionalRecord : (IAdditionalRecord) invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
+                            return this.val$additionalRecord;
+                        }
+                        return (IAdditionalRecord) invokeV.objValue;
                     }
 
                     @Override // com.baidu.searchbox.network.outback.IOutbackContext
-                    public HashMap<String, CallFactory.CallFactoryProducer> getOutbackEngines() {
+                    public HashMap getOutbackEngines() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) ? this.val$outbackEngines : (HashMap) invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {
+                            return this.val$outbackEngines;
+                        }
+                        return (HashMap) invokeV.objValue;
                     }
                 });
                 return;

@@ -27,17 +27,17 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh;
 import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.tieba.ji5;
-import com.baidu.tieba.m08;
-import com.baidu.tieba.n08;
-import com.baidu.tieba.o08;
-import com.baidu.tieba.oc6;
+import com.baidu.tieba.oi5;
+import com.baidu.tieba.vc6;
+import com.baidu.tieba.x08;
+import com.baidu.tieba.y08;
+import com.baidu.tieba.z08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public SearchEmotionModel.b B;
     public RelativeLayout a;
     public HListView b;
-    public n08 c;
+    public y08 c;
     public float d;
     public float e;
     public float f;
@@ -65,7 +65,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public int m;
     public int n;
     public j o;
-    public m08 p;
+    public x08 p;
     public RelativeLayout q;
     public EditText r;
     public ImageView s;
@@ -75,7 +75,40 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public int w;
     public boolean x;
     public boolean y;
-    public o08 z;
+    public z08 z;
+
+    /* loaded from: classes5.dex */
+    public interface i {
+        void a(String str, List list, List list2);
+
+        void b(EmotionImageData emotionImageData, boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface j {
+        void onMove(float f);
+    }
+
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent
+    public void requestDisallowInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -142,21 +175,21 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                 int i5 = i4 - i3;
                 int length = 30 - (spanned.length() - i5);
                 String obj = spanned.toString();
-                int b = ji5.b(obj);
+                int b = oi5.b(obj);
                 if (i5 > 0) {
                     for (int i6 = i3; i6 < i5 + i3 && obj.length() < i6; i6++) {
-                        b -= ji5.a(obj.charAt(i6));
+                        b -= oi5.a(obj.charAt(i6));
                     }
                 } else {
-                    b += ji5.b(charSequence.toString());
+                    b += oi5.b(charSequence.toString());
                 }
-                if (b <= 30 && length > 0) {
-                    if (length >= i2 - i) {
-                        return null;
-                    }
-                    return charSequence.subSequence(i, length + i);
+                if (b > 30 || length <= 0) {
+                    return "";
                 }
-                return "";
+                if (length >= i2 - i) {
+                    return null;
+                }
+                return charSequence.subSequence(i, length + i);
             }
             return (CharSequence) invokeCommon.objValue;
         }
@@ -167,6 +200,20 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbEmotionBar a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
 
         public c(PbEmotionBar pbEmotionBar) {
             Interceptable interceptable = $ic;
@@ -189,37 +236,23 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || editable == null) {
                 return;
             }
             String trim = editable.toString().trim();
             if (TextUtils.isEmpty(trim)) {
-                if (this.a.p == null || ListUtils.isEmpty(this.a.p.a())) {
+                if (this.a.p != null && !ListUtils.isEmpty(this.a.p.a())) {
+                    this.a.c.e(this.a.p.a());
+                    this.a.c.notifyDataSetChanged();
                     return;
                 }
-                this.a.c.e(this.a.p.a());
-                this.a.c.notifyDataSetChanged();
                 return;
             }
             if (this.a.z == null) {
-                this.a.z = new o08();
+                this.a.z = new z08();
                 this.a.z.g(this.a.B);
             }
             this.a.z.f(trim);
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
         }
     }
 
@@ -228,6 +261,13 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbEmotionBar a;
+
+        @Override // com.baidu.tieba.face.SearchEmotionModel.b
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            }
+        }
 
         public d(PbEmotionBar pbEmotionBar) {
             Interceptable interceptable = $ic;
@@ -248,20 +288,13 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void a(String str, oc6 oc6Var) {
+        public void a(String str, vc6 vc6Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, oc6Var) == null) || oc6Var == null || ListUtils.isEmpty(oc6Var.a()) || !this.a.r.getText().toString().trim().equals(str)) {
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, str, vc6Var) != null) || vc6Var == null || ListUtils.isEmpty(vc6Var.a()) || !this.a.r.getText().toString().trim().equals(str)) {
                 return;
             }
-            this.a.c.e(oc6Var.a());
+            this.a.c.e(vc6Var.a());
             this.a.c.notifyDataSetChanged();
-        }
-
-        @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void onFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            }
         }
     }
 
@@ -335,9 +368,10 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                if (((RelativeLayout.LayoutParams) this.a.getLayoutParams()).leftMargin <= 0) {
-                    this.a.setCanShowEmotionPreview(true);
+                if (((RelativeLayout.LayoutParams) this.a.getLayoutParams()).leftMargin > 0) {
+                    return;
                 }
+                this.a.setCanShowEmotionPreview(true);
             }
         }
     }
@@ -371,7 +405,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.r.requestFocus();
-                ej.L(this.a.getContext(), this.a.r);
+                fj.L(this.a.getContext(), this.a.r);
             }
         }
     }
@@ -403,13 +437,12 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         }
 
         @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.i
-        public void a(String str, List<String> list, List<String> list2) {
+        public void a(String str, List list, List list2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, list, list2) == null) || this.b.p == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, list, list2) == null) && this.b.p != null) {
+                this.a.a(this.b.r.getText().toString(), this.b.p.b(), list2);
+                TiebaStatic.log("c12177");
             }
-            this.a.a(this.b.r.getText().toString(), this.b.p.b(), list2);
-            TiebaStatic.log("c12177");
         }
 
         @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.i
@@ -419,18 +452,6 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                 this.a.b(emotionImageData, z);
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface i {
-        void a(String str, List<String> list, List<String> list2);
-
-        void b(EmotionImageData emotionImageData, boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface j {
-        void onMove(float f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -457,22 +478,6 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         t();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setCanShowEmotionPreview(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, this, z) == null) {
-            this.x = z;
-        }
-    }
-
-    public final void A(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.b.getLayoutParams().height = (this.m * 2) + i2;
-            this.c.h(i2);
-        }
-    }
-
     public final void B(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
@@ -481,313 +486,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             this.q.setAlpha(f2);
             this.s.setScaleX(f2);
             this.s.setScaleY(f2);
-            this.r.setTextSize(0, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702b7) * f2);
-        }
-    }
-
-    @Override // com.baidu.tieba.face.view.EmotionView.c
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.face.view.EmotionView.c
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin <= 0 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.face.view.EmotionView.c
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x003b, code lost:
-        if (r1 != 2) goto L15;
-     */
-    @Override // android.view.ViewGroup, android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        boolean dispatchTouchEvent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            this.a.requestDisallowInterceptTouchEvent(true);
-            if (!onInterceptTouchEvent(motionEvent)) {
-                if (this.y && motionEvent.getAction() == 2) {
-                    MotionEvent obtain = MotionEvent.obtain(motionEvent);
-                    obtain.setAction(0);
-                    dispatchTouchEvent = super.dispatchTouchEvent(obtain);
-                } else {
-                    dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-                }
-                this.y = false;
-            } else {
-                this.y = true;
-                dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-            }
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
-                    setCanShowEmotionPreview(false);
-                }
-                this.d = motionEvent.getRawX();
-                this.e = motionEvent.getRawY();
-                this.f = motionEvent.getRawX();
-            }
-            this.f = motionEvent.getRawX();
-            return dispatchTouchEvent;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.face.view.EmotionView.c
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.x : invokeV.booleanValue;
-    }
-
-    public int getMaxLeftMargin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action != 2) {
-                        return super.onInterceptTouchEvent(motionEvent);
-                    }
-                } else if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin == this.i && u(motionEvent)) {
-                    p(true);
-                }
-                return y(motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0025, code lost:
-        if (r1 != 3) goto L12;
-     */
-    @Override // android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            if (this.t == null) {
-                this.t = VelocityTracker.obtain();
-            }
-            this.t.addMovement(motionEvent);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            int action = motionEvent.getAction();
-            int i2 = 0;
-            if (action != 1) {
-                if (action == 2) {
-                    setCanShowEmotionPreview(false);
-                    int rawX = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.f));
-                    if (rawX >= 0 && rawX <= (i2 = this.i)) {
-                        i2 = rawX;
-                    }
-                    if (layoutParams.leftMargin != i2) {
-                        layoutParams.leftMargin = i2;
-                        int r = r(i2);
-                        if (r <= this.l && r >= this.k) {
-                            B(i2);
-                            A(r);
-                            v(layoutParams.leftMargin);
-                        }
-                        setLayoutParams(layoutParams);
-                    }
-                }
-                return true;
-            }
-            this.t.computeCurrentVelocity(1000, this.v);
-            float xVelocity = this.t.getXVelocity();
-            int rawX2 = (int) (motionEvent.getRawX() - this.d);
-            if (Math.abs(xVelocity) <= this.u || Math.abs(rawX2) <= this.w) {
-                if (layoutParams.leftMargin > this.h * 0.4d) {
-                    p(false);
-                } else {
-                    p(true);
-                }
-            } else if (rawX2 > 0) {
-                p(false);
-            } else {
-                p(true);
-            }
-            this.t.clear();
-            this.t.recycle();
-            this.t = null;
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            int i2 = ((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin;
-            if (i2 <= 0) {
-                setCanShowEmotionPreview(true);
-                return;
-            }
-            int i3 = this.i;
-            if (z) {
-                i3 = 0;
-                TiebaStatic.log("c12175");
-            }
-            if (!z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921306));
-            }
-            z(i2, i3);
-        }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            p(true);
-            if (z) {
-                gh.a().postDelayed(new g(this), 300L);
-            }
-        }
-    }
-
-    public final int r(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? (int) ((this.g * i2) + this.l) : invokeI.intValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-        }
-    }
-
-    public void s() {
-        o08 o08Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (o08Var = this.z) == null) {
-            return;
-        }
-        o08Var.e();
-    }
-
-    public void setOnEmotionClickListener(i iVar) {
-        n08 n08Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, iVar) == null) || iVar == null || (n08Var = this.c) == null) {
-            return;
-        }
-        n08Var.g(new h(this, iVar));
-    }
-
-    public void setOnMoveListener(j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, jVar) == null) {
-            this.o = jVar;
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            setId(R.id.obfuscated_res_0x7f0917fd);
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04bd, this);
-            setOrientation(1);
-            setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
-            this.b = (HListView) findViewById(R.id.obfuscated_res_0x7f09146c);
-            n08 n08Var = new n08();
-            this.c = n08Var;
-            n08Var.f(this);
-            this.b.setAdapter((ListAdapter) this.c);
-            this.b.setDividerWidth(ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702f6));
-            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0912a8);
-            this.r = (EditText) findViewById(R.id.obfuscated_res_0x7f090881);
-            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102a);
-            this.r.addTextChangedListener(this.A);
-            this.r.setOnClickListener(new a(this));
-            this.r.setFilters(new InputFilter[]{new b(this)});
-            this.h = ej.k(getContext());
-            this.j = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-            this.v = ViewConfiguration.getMaximumFlingVelocity();
-            this.u = ViewConfiguration.getMinimumFlingVelocity();
-            this.w = ej.f(getContext(), R.dimen.obfuscated_res_0x7f07024d);
-            this.k = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702e3);
-            this.l = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070238);
-            this.m = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070230);
-            int f2 = this.h - ej.f(getContext(), R.dimen.tbds196);
-            this.i = f2;
-            this.g = (this.k - this.l) * (1.0d / f2);
-            this.n = ej.f(getContext(), R.dimen.obfuscated_res_0x7f07019a);
-            w();
-        }
-    }
-
-    public final boolean u(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) {
-            float abs = Math.abs(motionEvent.getRawX() - this.d);
-            float abs2 = Math.abs(motionEvent.getRawY() - this.e);
-            float f2 = this.j;
-            return abs < f2 && abs2 < f2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void v(int i2) {
-        j jVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (jVar = this.o) == null) {
-            return;
-        }
-        int i3 = this.i;
-        jVar.onMove((i3 - i2) * (1.0f / i3));
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0105);
-            this.r.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            n08 n08Var = this.c;
-            if (n08Var != null) {
-                n08Var.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            n08 n08Var = this.c;
-            if (n08Var != null) {
-                n08Var.d();
-            }
-            s();
+            this.r.setTextSize(0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702b7) * f2);
         }
     }
 
@@ -802,24 +501,13 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
                 return true;
             }
-            if (this.b.getChildCount() <= 0 || this.b.getFirstVisiblePosition() != 0 || (childAt = this.b.getChildAt(0)) == null || childAt.getLeft() < 0 || motionEvent.getRawX() <= this.f) {
-                setCanShowEmotionPreview(true);
-                return false;
+            if (this.b.getChildCount() > 0 && this.b.getFirstVisiblePosition() == 0 && (childAt = this.b.getChildAt(0)) != null && childAt.getLeft() >= 0 && motionEvent.getRawX() > this.f) {
+                return true;
             }
-            return true;
+            setCanShowEmotionPreview(true);
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public final void z(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) || i2 == i3) {
-            return;
-        }
-        ValueAnimator ofInt = ValueAnimator.ofInt(i2, i3);
-        ofInt.addUpdateListener(new e(this, (RelativeLayout.LayoutParams) getLayoutParams()));
-        ofInt.addListener(new f(this));
-        ofInt.setDuration(300L).start();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -870,5 +558,332 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         this.A = new c(this);
         this.B = new d(this);
         t();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setCanShowEmotionPreview(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65550, this, z) == null) {
+            this.x = z;
+        }
+    }
+
+    public final void A(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.b.getLayoutParams().height = (this.m * 2) + i2;
+            this.c.h(i2);
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            p(true);
+            if (z) {
+                hh.a().postDelayed(new g(this), 300L);
+            }
+        }
+    }
+
+    public final int r(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+            return (int) ((this.g * i2) + this.l);
+        }
+        return invokeI.intValue;
+    }
+
+    public void setOnEmotionClickListener(i iVar) {
+        y08 y08Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, iVar) == null) && iVar != null && (y08Var = this.c) != null) {
+            y08Var.g(new h(this, iVar));
+        }
+    }
+
+    public void setOnMoveListener(j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, jVar) == null) {
+            this.o = jVar;
+        }
+    }
+
+    public final void v(int i2) {
+        j jVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048595, this, i2) == null) && (jVar = this.o) != null) {
+            int i3 = this.i;
+            jVar.onMove((i3 - i2) * (1.0f / i3));
+        }
+    }
+
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin <= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.x;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getMaxLeftMargin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public void s() {
+        z08 z08Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (z08Var = this.z) != null) {
+            z08Var.e();
+        }
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0105);
+            this.r.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            y08 y08Var = this.c;
+            if (y08Var != null) {
+                y08Var.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            y08 y08Var = this.c;
+            if (y08Var != null) {
+                y08Var.d();
+            }
+            s();
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x003b, code lost:
+        if (r1 != 2) goto L15;
+     */
+    @Override // android.view.ViewGroup, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean dispatchTouchEvent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            this.a.requestDisallowInterceptTouchEvent(true);
+            if (!onInterceptTouchEvent(motionEvent)) {
+                if (this.y && motionEvent.getAction() == 2) {
+                    MotionEvent obtain = MotionEvent.obtain(motionEvent);
+                    obtain.setAction(0);
+                    dispatchTouchEvent = super.dispatchTouchEvent(obtain);
+                } else {
+                    dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+                }
+                this.y = false;
+            } else {
+                this.y = true;
+                dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+            }
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
+                    setCanShowEmotionPreview(false);
+                }
+                this.d = motionEvent.getRawX();
+                this.e = motionEvent.getRawY();
+                this.f = motionEvent.getRawX();
+            }
+            this.f = motionEvent.getRawX();
+            return dispatchTouchEvent;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        return super.onInterceptTouchEvent(motionEvent);
+                    }
+                } else if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin == this.i && u(motionEvent)) {
+                    p(true);
+                }
+                return y(motionEvent);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            int i2 = ((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin;
+            if (i2 <= 0) {
+                setCanShowEmotionPreview(true);
+                return;
+            }
+            int i3 = this.i;
+            if (z) {
+                i3 = 0;
+                TiebaStatic.log("c12175");
+            }
+            if (!z) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921306));
+            }
+            z(i2, i3);
+        }
+    }
+
+    public final boolean u(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) {
+            float abs = Math.abs(motionEvent.getRawX() - this.d);
+            float abs2 = Math.abs(motionEvent.getRawY() - this.e);
+            float f2 = this.j;
+            if (abs < f2 && abs2 < f2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0025, code lost:
+        if (r1 != 3) goto L12;
+     */
+    @Override // android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            if (this.t == null) {
+                this.t = VelocityTracker.obtain();
+            }
+            this.t.addMovement(motionEvent);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
+            int action = motionEvent.getAction();
+            int i2 = 0;
+            if (action != 1) {
+                if (action == 2) {
+                    setCanShowEmotionPreview(false);
+                    int rawX = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.f));
+                    if (rawX >= 0 && rawX <= (i2 = this.i)) {
+                        i2 = rawX;
+                    }
+                    if (layoutParams.leftMargin != i2) {
+                        layoutParams.leftMargin = i2;
+                        int r = r(i2);
+                        if (r <= this.l && r >= this.k) {
+                            B(i2);
+                            A(r);
+                            v(layoutParams.leftMargin);
+                        }
+                        setLayoutParams(layoutParams);
+                    }
+                }
+                return true;
+            }
+            this.t.computeCurrentVelocity(1000, this.v);
+            float xVelocity = this.t.getXVelocity();
+            int rawX2 = (int) (motionEvent.getRawX() - this.d);
+            if (Math.abs(xVelocity) > this.u && Math.abs(rawX2) > this.w) {
+                if (rawX2 > 0) {
+                    p(false);
+                } else {
+                    p(true);
+                }
+            } else if (layoutParams.leftMargin > this.h * 0.4d) {
+                p(false);
+            } else {
+                p(true);
+            }
+            this.t.clear();
+            this.t.recycle();
+            this.t = null;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            setId(R.id.obfuscated_res_0x7f0917ef);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04ba, this);
+            setOrientation(1);
+            setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
+            this.b = (HListView) findViewById(R.id.obfuscated_res_0x7f09145e);
+            y08 y08Var = new y08();
+            this.c = y08Var;
+            y08Var.f(this);
+            this.b.setAdapter((ListAdapter) this.c);
+            this.b.setDividerWidth(fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702f6));
+            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081252));
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09129c);
+            this.r = (EditText) findViewById(R.id.obfuscated_res_0x7f09088a);
+            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101e);
+            this.r.addTextChangedListener(this.A);
+            this.r.setOnClickListener(new a(this));
+            this.r.setFilters(new InputFilter[]{new b(this)});
+            this.h = fj.k(getContext());
+            this.j = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+            this.v = ViewConfiguration.getMaximumFlingVelocity();
+            this.u = ViewConfiguration.getMinimumFlingVelocity();
+            this.w = fj.f(getContext(), R.dimen.obfuscated_res_0x7f07024d);
+            this.k = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702e3);
+            this.l = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070238);
+            this.m = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070230);
+            int f2 = this.h - fj.f(getContext(), R.dimen.tbds196);
+            this.i = f2;
+            this.g = (this.k - this.l) * (1.0d / f2);
+            this.n = fj.f(getContext(), R.dimen.obfuscated_res_0x7f07019a);
+            w();
+        }
+    }
+
+    public final void z(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(1048599, this, i2, i3) != null) || i2 == i3) {
+            return;
+        }
+        ValueAnimator ofInt = ValueAnimator.ofInt(i2, i3);
+        ofInt.addUpdateListener(new e(this, (RelativeLayout.LayoutParams) getLayoutParams()));
+        ofInt.addListener(new f(this));
+        ofInt.setDuration(300L).start();
     }
 }

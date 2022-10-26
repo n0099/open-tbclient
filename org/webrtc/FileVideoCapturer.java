@@ -37,8 +37,25 @@ public class FileVideoCapturer implements VideoCapturer {
         VideoFrame getNextFrame();
     }
 
+    @Override // org.webrtc.VideoCapturer
+    public void changeCaptureFormat(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public boolean isScreencast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes8.dex */
-    public static class VideoReaderY4M implements VideoReader {
+    public class VideoReaderY4M implements VideoReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FRAME_DELIMETER_LENGTH = 6;
         public static final String TAG = "VideoReaderY4M";
@@ -87,36 +104,41 @@ public class FileVideoCapturer implements VideoCapturer {
             StringBuilder sb = new StringBuilder();
             while (true) {
                 int read = this.mediaFile.read();
-                if (read == -1) {
-                    throw new RuntimeException("Found end of file before end of header for file: " + str);
-                } else if (read == 10) {
-                    this.videoStart = this.mediaFileChannel.position();
-                    String str2 = "";
-                    int i3 = 0;
-                    int i4 = 0;
-                    for (String str3 : sb.toString().split("[ ]")) {
-                        char charAt = str3.charAt(0);
-                        if (charAt == 'C') {
-                            str2 = str3.substring(1);
-                        } else if (charAt == 'H') {
-                            i4 = Integer.parseInt(str3.substring(1));
-                        } else if (charAt == 'W') {
-                            i3 = Integer.parseInt(str3.substring(1));
+                if (read != -1) {
+                    if (read == 10) {
+                        this.videoStart = this.mediaFileChannel.position();
+                        String str2 = "";
+                        int i3 = 0;
+                        int i4 = 0;
+                        for (String str3 : sb.toString().split("[ ]")) {
+                            char charAt = str3.charAt(0);
+                            if (charAt != 'C') {
+                                if (charAt != 'H') {
+                                    if (charAt == 'W') {
+                                        i3 = Integer.parseInt(str3.substring(1));
+                                    }
+                                } else {
+                                    i4 = Integer.parseInt(str3.substring(1));
+                                }
+                            } else {
+                                str2 = str3.substring(1);
+                            }
                         }
+                        Logging.d(TAG, "Color space: " + str2);
+                        if (!str2.equals("420") && !str2.equals("420mpeg2")) {
+                            throw new IllegalArgumentException("Does not support any other color space than I420 or I420mpeg2");
+                        }
+                        if (i3 % 2 != 1 && i4 % 2 != 1) {
+                            this.frameWidth = i3;
+                            this.frameHeight = i4;
+                            Logging.d(TAG, "frame dim: (" + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
+                            return;
+                        }
+                        throw new IllegalArgumentException("Does not support odd width or height");
                     }
-                    Logging.d(TAG, "Color space: " + str2);
-                    if (!str2.equals("420") && !str2.equals("420mpeg2")) {
-                        throw new IllegalArgumentException("Does not support any other color space than I420 or I420mpeg2");
-                    }
-                    if (i3 % 2 != 1 && i4 % 2 != 1) {
-                        this.frameWidth = i3;
-                        this.frameHeight = i4;
-                        Logging.d(TAG, "frame dim: (" + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
-                        return;
-                    }
-                    throw new IllegalArgumentException("Does not support odd width or height");
-                } else {
                     sb.append((char) read);
+                } else {
+                    throw new RuntimeException("Found end of file before end of header for file: " + str);
                 }
             }
         }
@@ -227,43 +249,10 @@ public class FileVideoCapturer implements VideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // org.webrtc.VideoCapturer
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.videoReader.close();
-        }
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public void initialize(SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, surfaceTextureHelper, context, capturerObserver) == null) {
-            this.capturerObserver = capturerObserver;
-        }
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public boolean isScreencast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public void startCapture(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
-            this.timer.schedule(this.tickTask, 0L, 1000 / i3);
         }
     }
 
@@ -281,6 +270,22 @@ public class FileVideoCapturer implements VideoCapturer {
             VideoFrame nextFrame = this.videoReader.getNextFrame();
             this.capturerObserver.onFrameCaptured(nextFrame);
             nextFrame.release();
+        }
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public void initialize(SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, surfaceTextureHelper, context, capturerObserver) == null) {
+            this.capturerObserver = capturerObserver;
+        }
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public void startCapture(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
+            this.timer.schedule(this.tickTask, 0L, 1000 / i3);
         }
     }
 }

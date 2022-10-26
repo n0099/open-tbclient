@@ -11,6 +11,8 @@ public abstract class AddressManageCallback implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onFinish(AddressManageResult addressManageResult);
+
     public AddressManageCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,6 +26,4 @@ public abstract class AddressManageCallback implements NoProguard {
             }
         }
     }
-
-    public abstract void onFinish(AddressManageResult addressManageResult);
 }

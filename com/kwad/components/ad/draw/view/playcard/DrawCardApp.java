@@ -10,8 +10,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +78,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawCardApp(Context context, @Nullable AttributeSet attributeSet) {
+    public DrawCardApp(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -102,7 +100,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawCardApp(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public DrawCardApp(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,16 +124,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d041a, this);
-            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091074);
-            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f091079);
-            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f09107a);
-            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09107c);
-            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09107b);
-            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f091078);
-            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f091076);
-            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091080);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091077);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0417, this);
+            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091068);
+            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f09106d);
+            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f09106e);
+            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091070);
+            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09106f);
+            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f09106c);
+            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f09106a);
+            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091074);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09106b);
             this.cl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
             this.mHeight = com.kwad.sdk.b.kwai.a.a(context, 156.0f);
@@ -257,7 +255,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
         return (KsAppDownloadListener) invokeV.objValue;
     }
 
-    public final void a(@NonNull AdTemplate adTemplate, a aVar) {
+    public final void a(AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
             this.mAdTemplate = adTemplate;
@@ -303,7 +301,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 != this.cd) {
-                com.kwad.components.core.c.a.a.a(new a.C0570a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
+                com.kwad.components.core.c.a.a.a(new a.C0566a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

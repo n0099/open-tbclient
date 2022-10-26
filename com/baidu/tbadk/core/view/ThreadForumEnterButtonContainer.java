@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,67 +40,6 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.b;
-            if (threadForumEnterButton != null) {
-                threadForumEnterButton.e();
-            }
-            ThreadForumEnterButton threadForumEnterButton2 = this.c;
-            if (threadForumEnterButton2 != null) {
-                threadForumEnterButton2.e();
-            }
-            ThreadForumEnterButton threadForumEnterButton3 = this.d;
-            if (threadForumEnterButton3 != null) {
-                threadForumEnterButton3.e();
-            }
-        }
-    }
-
-    public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.b;
-            if (threadForumEnterButton != null) {
-                threadForumEnterButton.setAfterClickListener(onClickListener);
-            }
-            ThreadForumEnterButton threadForumEnterButton2 = this.c;
-            if (threadForumEnterButton2 != null) {
-                threadForumEnterButton2.setAfterClickListener(onClickListener);
-            }
-            ThreadForumEnterButton threadForumEnterButton3 = this.d;
-            if (threadForumEnterButton3 != null) {
-                threadForumEnterButton3.setAfterClickListener(onClickListener);
-            }
-        }
-    }
-
-    public void setBottomPlaceHolderVisibility(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.e.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public void setFrom(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.b;
-            if (threadForumEnterButton != null) {
-                threadForumEnterButton.setFrom(i);
-            }
-            ThreadForumEnterButton threadForumEnterButton2 = this.c;
-            if (threadForumEnterButton2 != null) {
-                threadForumEnterButton2.setFrom(i);
-            }
-            ThreadForumEnterButton threadForumEnterButton3 = this.d;
-            if (threadForumEnterButton3 != null) {
-                threadForumEnterButton3.setFrom(i);
             }
         }
     }
@@ -145,13 +84,81 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 return;
             }
         }
-        this.a = ej.f(TbadkApplication.getInst(), R.dimen.tbds22);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0884, this);
-        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a68);
-        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a6a);
-        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a69);
-        this.e = findViewById(R.id.obfuscated_res_0x7f0903f5);
-        int k = (((ej.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
-        int k2 = (((ej.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
+        this.a = fj.f(TbadkApplication.getInst(), R.dimen.tbds22);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0885, this);
+        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a72);
+        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a74);
+        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a73);
+        this.e = findViewById(R.id.obfuscated_res_0x7f0903fe);
+        int k = (((fj.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
+        int k2 = (((fj.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ThreadForumEnterButton threadForumEnterButton = this.b;
+            if (threadForumEnterButton != null) {
+                threadForumEnterButton.e();
+            }
+            ThreadForumEnterButton threadForumEnterButton2 = this.c;
+            if (threadForumEnterButton2 != null) {
+                threadForumEnterButton2.e();
+            }
+            ThreadForumEnterButton threadForumEnterButton3 = this.d;
+            if (threadForumEnterButton3 != null) {
+                threadForumEnterButton3.e();
+            }
+        }
+    }
+
+    public void setAfterItemClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            ThreadForumEnterButton threadForumEnterButton = this.b;
+            if (threadForumEnterButton != null) {
+                threadForumEnterButton.setAfterClickListener(onClickListener);
+            }
+            ThreadForumEnterButton threadForumEnterButton2 = this.c;
+            if (threadForumEnterButton2 != null) {
+                threadForumEnterButton2.setAfterClickListener(onClickListener);
+            }
+            ThreadForumEnterButton threadForumEnterButton3 = this.d;
+            if (threadForumEnterButton3 != null) {
+                threadForumEnterButton3.setAfterClickListener(onClickListener);
+            }
+        }
+    }
+
+    public void setBottomPlaceHolderVisibility(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            View view2 = this.e;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            view2.setVisibility(i);
+        }
+    }
+
+    public void setFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            ThreadForumEnterButton threadForumEnterButton = this.b;
+            if (threadForumEnterButton != null) {
+                threadForumEnterButton.setFrom(i);
+            }
+            ThreadForumEnterButton threadForumEnterButton2 = this.c;
+            if (threadForumEnterButton2 != null) {
+                threadForumEnterButton2.setFrom(i);
+            }
+            ThreadForumEnterButton threadForumEnterButton3 = this.d;
+            if (threadForumEnterButton3 != null) {
+                threadForumEnterButton3.setFrom(i);
+            }
+        }
     }
 }

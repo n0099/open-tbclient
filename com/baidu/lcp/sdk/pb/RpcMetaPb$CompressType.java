@@ -18,7 +18,7 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
     public static final int COMPRESS_GZIP_VALUE = 1;
     public static final RpcMetaPb$CompressType COMPRESS_NONE;
     public static final int COMPRESS_NONE_VALUE = 0;
-    public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalValueMap;
+    public static Internal.EnumLiteMap internalValueMap;
     public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
@@ -39,7 +39,7 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
         RpcMetaPb$CompressType rpcMetaPb$CompressType = new RpcMetaPb$CompressType("COMPRESS_GZIP", 1, 1, 1);
         COMPRESS_GZIP = rpcMetaPb$CompressType;
         $VALUES = new RpcMetaPb$CompressType[]{COMPRESS_NONE, rpcMetaPb$CompressType};
-        internalValueMap = new Internal.EnumLiteMap<RpcMetaPb$CompressType>() { // from class: com.baidu.lcp.sdk.pb.RpcMetaPb$CompressType.a
+        internalValueMap = new Internal.EnumLiteMap() { // from class: com.baidu.lcp.sdk.pb.RpcMetaPb$CompressType.a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +63,10 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
             public RpcMetaPb$CompressType findValueByNumber(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) ? RpcMetaPb$CompressType.valueOf(i) : (RpcMetaPb$CompressType) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) {
+                    return RpcMetaPb$CompressType.valueOf(i);
+                }
+                return (RpcMetaPb$CompressType) invokeI.objValue;
             }
         };
     }
@@ -89,29 +92,32 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
         this.value = i3;
     }
 
-    public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalGetValueMap() {
+    public static Internal.EnumLiteMap internalGetValueMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? internalValueMap : (Internal.EnumLiteMap) invokeV.objValue;
-    }
-
-    public static RpcMetaPb$CompressType valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (RpcMetaPb$CompressType) Enum.valueOf(RpcMetaPb$CompressType.class, str) : (RpcMetaPb$CompressType) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return internalValueMap;
+        }
+        return (Internal.EnumLiteMap) invokeV.objValue;
     }
 
     public static RpcMetaPb$CompressType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (RpcMetaPb$CompressType[]) $VALUES.clone() : (RpcMetaPb$CompressType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (RpcMetaPb$CompressType[]) $VALUES.clone();
+        }
+        return (RpcMetaPb$CompressType[]) invokeV.objValue;
     }
 
     @Override // com.google.protobuf.Internal.EnumLite
     public final int getNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
     }
 
     public static RpcMetaPb$CompressType valueOf(int i) {
@@ -127,5 +133,14 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
             return COMPRESS_NONE;
         }
         return (RpcMetaPb$CompressType) invokeI.objValue;
+    }
+
+    public static RpcMetaPb$CompressType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (RpcMetaPb$CompressType) Enum.valueOf(RpcMetaPb$CompressType.class, str);
+        }
+        return (RpcMetaPb$CompressType) invokeL.objValue;
     }
 }

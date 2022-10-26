@@ -31,6 +31,23 @@ public final class WavExtractor implements Extractor, SeekMap {
     public TrackOutput trackOutput;
     public WavHeader wavHeader;
 
+    @Override // com.google.android.exoplayer2.extractor.SeekMap
+    public boolean isSeekable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -89,14 +106,20 @@ public final class WavExtractor implements Extractor, SeekMap {
     public long getDurationUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.wavHeader.getDurationUs() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.wavHeader.getDurationUs();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
     public long getPosition(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.wavHeader.getPosition(j) : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return this.wavHeader.getPosition(j);
+        }
+        return invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
@@ -110,14 +133,17 @@ public final class WavExtractor implements Extractor, SeekMap {
         }
     }
 
-    @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public boolean isSeekable() {
-        InterceptResult invokeV;
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, extractorInput)) == null) {
+            if (WavHeaderReader.peek(extractorInput) != null) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
@@ -151,16 +177,12 @@ public final class WavExtractor implements Extractor, SeekMap {
                 this.pendingBytes = i3;
                 this.trackOutput.sampleMetadata(timeUs, 1, i2, i3, null);
             }
-            return sampleData == -1 ? -1 : 0;
+            if (sampleData == -1) {
+                return -1;
+            }
+            return 0;
         }
         return invokeLL.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
@@ -169,12 +191,5 @@ public final class WavExtractor implements Extractor, SeekMap {
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.pendingBytes = 0;
         }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, extractorInput)) == null) ? WavHeaderReader.peek(extractorInput) != null : invokeL.booleanValue;
     }
 }

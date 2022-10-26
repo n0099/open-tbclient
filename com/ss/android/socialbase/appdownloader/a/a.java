@@ -24,6 +24,9 @@ public abstract class a implements e {
                 Log.e("AbsDevicePlan", "check is valid failed!", th);
             }
         }
-        return b().resolveActivity(this.a.getPackageManager()) != null;
+        if (b().resolveActivity(this.a.getPackageManager()) == null) {
+            return false;
+        }
+        return true;
     }
 }

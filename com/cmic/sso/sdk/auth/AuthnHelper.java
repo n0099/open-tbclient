@@ -1,6 +1,5 @@
 package com.cmic.sso.sdk.auth;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -17,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.e.e;
 import com.cmic.sso.sdk.e.g;
-import com.cmic.sso.sdk.e.h;
 import com.cmic.sso.sdk.e.j;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.m;
@@ -25,13 +23,13 @@ import com.cmic.sso.sdk.e.n;
 import com.cmic.sso.sdk.e.o;
 import com.cmic.sso.sdk.e.q;
 import com.cmic.sso.sdk.e.r;
+import com.kuaishou.weapon.p0.h;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class AuthnHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_VERSION = "quick_login_android_9.5.2";
-    @SuppressLint({"StaticFieldLeak"})
     public static AuthnHelper c;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.cmic.sso.sdk.auth.a a;
@@ -40,6 +38,21 @@ public class AuthnHelper {
     public final Handler e;
     public String f;
     public final Object g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1693393544, "Lcom/cmic/sso/sdk/auth/AuthnHelper;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1693393544, "Lcom/cmic/sso/sdk/auth/AuthnHelper;");
+        }
+    }
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -79,21 +92,6 @@ public class AuthnHelper {
                 }
                 this.a.callBackResult(a.optString("resultCode", "200023"), a.optString("resultString", "登录超时"), this.b, a);
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1693393544, "Lcom/cmic/sso/sdk/auth/AuthnHelper;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1693393544, "Lcom/cmic/sso/sdk/auth/AuthnHelper;");
         }
     }
 
@@ -162,117 +160,6 @@ public class AuthnHelper {
         });
     }
 
-    public static AuthnHelper getInstance(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            if (c == null) {
-                synchronized (AuthnHelper.class) {
-                    if (c == null) {
-                        c = new AuthnHelper(context);
-                    }
-                }
-            }
-            return c;
-        }
-        return (AuthnHelper) invokeL.objValue;
-    }
-
-    public static void setDebugMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
-            com.cmic.sso.sdk.e.c.a(z);
-        }
-    }
-
-    public void callBackResult(String str, String str2, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
-        JSONObject a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, aVar, jSONObject) == null) {
-            try {
-                String b = aVar.b("traceId");
-                if (e.a(b)) {
-                    return;
-                }
-                synchronized (this) {
-                    TokenListener c2 = e.c(b);
-                    e.b(b);
-                    if (c2 == null) {
-                        return;
-                    }
-                    aVar.a("systemEndTime", SystemClock.elapsedRealtime());
-                    aVar.a("endtime", o.a());
-                    int c3 = aVar.c("logintype");
-                    if (jSONObject == null) {
-                        jSONObject = c.a(str, str2);
-                    }
-                    if (c3 == 3) {
-                        a2 = c.a(str, aVar, jSONObject);
-                    } else {
-                        a2 = c.a(str, str2, aVar, jSONObject);
-                    }
-                    a2.put("scripExpiresIn", String.valueOf(h.a()));
-                    this.e.post(new Runnable(this, c2, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.6
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ TokenListener a;
-                        public final /* synthetic */ JSONObject b;
-                        public final /* synthetic */ AuthnHelper c;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, c2, a2};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.c = this;
-                            this.a = c2;
-                            this.b = a2;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.a.onGetTokenComplete(this.b);
-                            }
-                        }
-                    });
-                    com.cmic.sso.sdk.a.c.a(this.b).a(aVar);
-                    if (!aVar.b().j() && !q.a(aVar.b())) {
-                        a(this.b, str, aVar);
-                    }
-                    if (e.a()) {
-                        r.a(this.b).b();
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void delScrip() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                h.a(true, true);
-                com.cmic.sso.sdk.e.c.b("AuthnHelper", "删除scrip");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     public JSONObject getNetworkType(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -280,7 +167,7 @@ public class AuthnHelper {
             JSONObject jSONObject = new JSONObject();
             try {
                 boolean a2 = m.a(this.b);
-                com.cmic.sso.sdk.b.a.a().a(context, g.a(context, com.kuaishou.weapon.p0.h.c), a2);
+                com.cmic.sso.sdk.b.a.a().a(context, g.a(context, h.c), a2);
                 String a3 = j.a().a((String) null);
                 int a4 = m.a(context, a2);
                 jSONObject.put("operatortype", a3);
@@ -307,6 +194,100 @@ public class AuthnHelper {
             }
         }
         return (JSONObject) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AuthnHelper(Context context, String str) {
+        this(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f = str;
+    }
+
+    private com.cmic.sso.sdk.a a(TokenListener tokenListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, tokenListener)) == null) {
+            com.cmic.sso.sdk.a aVar = new com.cmic.sso.sdk.a(64);
+            String c2 = q.c();
+            aVar.a(new com.cmic.sso.sdk.d.a());
+            aVar.a("traceId", c2);
+            com.cmic.sso.sdk.e.c.a("traceId", c2);
+            if (tokenListener != null) {
+                e.a(c2, tokenListener);
+            }
+            return aVar;
+        }
+        return (com.cmic.sso.sdk.a) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            String str = "%" + q.b();
+            com.cmic.sso.sdk.e.c.b("AuthnHelper", "generate aid = " + str);
+            k.a("AID", str);
+        }
+    }
+
+    private void a(Context context, String str, com.cmic.sso.sdk.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, this, context, str, aVar) == null) {
+            n.a(new n.a(this, str, context, aVar) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String a;
+                public final /* synthetic */ Context b;
+                public final /* synthetic */ com.cmic.sso.sdk.a c;
+                public final /* synthetic */ AuthnHelper d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, context, aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.d = this;
+                    this.a = str;
+                    this.b = context;
+                    this.c = aVar;
+                }
+
+                @Override // com.cmic.sso.sdk.e.n.a
+                public void a() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        if ("200023".equals(this.a)) {
+                            SystemClock.sleep(8000L);
+                        }
+                        new com.cmic.sso.sdk.d.b().a(this.b, this.a, this.c);
+                    }
+                }
+            });
+        }
     }
 
     public void getPhoneInfo(String str, String str2, TokenListener tokenListener) {
@@ -351,9 +332,10 @@ public class AuthnHelper {
                 @Override // com.cmic.sso.sdk.e.n.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.e.a(this.a, this.b, this.c, "preGetMobile", 3, this.d)) {
-                        this.e.a(this.a);
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || !this.e.a(this.a, this.b, this.c, "preGetMobile", 3, this.d)) {
+                        return;
                     }
+                    this.e.a(this.a);
                 }
             });
         }
@@ -401,9 +383,10 @@ public class AuthnHelper {
                 @Override // com.cmic.sso.sdk.e.n.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.e.a(this.a, this.b, this.c, "loginAuth", 1, this.d)) {
-                        this.e.a(this.a);
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || !this.e.a(this.a, this.b, this.c, "loginAuth", 1, this.d)) {
+                        return;
                     }
+                    this.e.a(this.a);
                 }
             });
         }
@@ -451,83 +434,13 @@ public class AuthnHelper {
                 @Override // com.cmic.sso.sdk.e.n.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.e.a(this.a, this.b, this.c, "mobileAuth", 0, this.d)) {
-                        this.e.a(this.a);
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || !this.e.a(this.a, this.b, this.c, "mobileAuth", 0, this.d)) {
+                        return;
                     }
+                    this.e.a(this.a);
                 }
             });
         }
-    }
-
-    public void setOverTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            String str = "%" + q.b();
-            com.cmic.sso.sdk.e.c.b("AuthnHelper", "generate aid = " + str);
-            k.a("AID", str);
-        }
-    }
-
-    private com.cmic.sso.sdk.a a(TokenListener tokenListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, tokenListener)) == null) {
-            com.cmic.sso.sdk.a aVar = new com.cmic.sso.sdk.a(64);
-            String c2 = q.c();
-            aVar.a(new com.cmic.sso.sdk.d.a());
-            aVar.a("traceId", c2);
-            com.cmic.sso.sdk.e.c.a("traceId", c2);
-            if (tokenListener != null) {
-                e.a(c2, tokenListener);
-            }
-            return aVar;
-        }
-        return (com.cmic.sso.sdk.a) invokeL.objValue;
-    }
-
-    public static AuthnHelper getInstance(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) {
-            if (c == null) {
-                synchronized (AuthnHelper.class) {
-                    if (c == null) {
-                        c = new AuthnHelper(context, str);
-                    }
-                }
-            }
-            return c;
-        }
-        return (AuthnHelper) invokeLL.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AuthnHelper(Context context, String str) {
-        this(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.f = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -573,9 +486,57 @@ public class AuthnHelper {
         }
     }
 
+    public static AuthnHelper getInstance(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            if (c == null) {
+                synchronized (AuthnHelper.class) {
+                    if (c == null) {
+                        c = new AuthnHelper(context);
+                    }
+                }
+            }
+            return c;
+        }
+        return (AuthnHelper) invokeL.objValue;
+    }
+
+    public static void setDebugMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
+            com.cmic.sso.sdk.e.c.a(z);
+        }
+    }
+
+    public void setOverTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public static AuthnHelper getInstance(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) {
+            if (c == null) {
+                synchronized (AuthnHelper.class) {
+                    if (c == null) {
+                        c = new AuthnHelper(context, str);
+                    }
+                }
+            }
+            return c;
+        }
+        return (AuthnHelper) invokeLL.objValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i, TokenListener tokenListener) {
         InterceptResult invokeCommon;
+        String trim;
+        String trim2;
         boolean a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{aVar, str, str2, str3, Integer.valueOf(i), tokenListener})) == null) {
@@ -589,7 +550,7 @@ public class AuthnHelper {
             aVar.a("appkey", str2);
             aVar.a("appid", str);
             aVar.a("timeOut", String.valueOf(this.d));
-            boolean a4 = g.a(this.b, com.kuaishou.weapon.p0.h.c);
+            boolean a4 = g.a(this.b, h.c);
             com.cmic.sso.sdk.e.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + a4);
             aVar.a("hsaReadPhoneStatePermission", a4);
             boolean a5 = m.a(this.b);
@@ -624,11 +585,21 @@ public class AuthnHelper {
                 callBackResult("200082", "服务器繁忙，请稍后重试", aVar, null);
                 return false;
             } else {
-                if (TextUtils.isEmpty(str == null ? "" : str.trim())) {
+                if (str == null) {
+                    trim = "";
+                } else {
+                    trim = str.trim();
+                }
+                if (TextUtils.isEmpty(trim)) {
                     callBackResult("102203", "appId 不能为空", aVar, null);
                     return false;
                 }
-                if (TextUtils.isEmpty(str2 == null ? "" : str2.trim())) {
+                if (str2 == null) {
+                    trim2 = "";
+                } else {
+                    trim2 = str2.trim();
+                }
+                if (TextUtils.isEmpty(trim2)) {
                     callBackResult("102203", "appkey不能为空", aVar, null);
                     return false;
                 } else if (a7 == 0) {
@@ -642,21 +613,21 @@ public class AuthnHelper {
                     return false;
                 } else {
                     synchronized (this.g) {
-                        a2 = h.a(aVar);
+                        a2 = com.cmic.sso.sdk.e.h.a(aVar);
                         if (a2) {
                             aVar.a("securityphone", k.b("securityphone", ""));
                             if (3 != i) {
-                                String a8 = h.a(this.b);
+                                String a8 = com.cmic.sso.sdk.e.h.a(this.b);
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("解密phoneScript ");
                                 sb.append(!TextUtils.isEmpty(a8));
                                 com.cmic.sso.sdk.e.c.b("AuthnHelper", sb.toString());
-                                if (TextUtils.isEmpty(a8)) {
-                                    a2 = false;
-                                } else {
+                                if (!TextUtils.isEmpty(a8)) {
                                     aVar.a("phonescrip", a8);
+                                } else {
+                                    a2 = false;
                                 }
-                                h.a(true, false);
+                                com.cmic.sso.sdk.e.h.a(true, false);
                             }
                         }
                         aVar.a("isCacheScrip", a2);
@@ -676,49 +647,90 @@ public class AuthnHelper {
         return invokeCommon.booleanValue;
     }
 
-    private void a(Context context, String str, com.cmic.sso.sdk.a aVar) {
+    public void callBackResult(String str, String str2, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
+        JSONObject a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, this, context, str, aVar) == null) {
-            n.a(new n.a(this, str, context, aVar) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ String a;
-                public final /* synthetic */ Context b;
-                public final /* synthetic */ com.cmic.sso.sdk.a c;
-                public final /* synthetic */ AuthnHelper d;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, context, aVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, aVar, jSONObject) == null) {
+            try {
+                String b = aVar.b("traceId");
+                if (!e.a(b)) {
+                    synchronized (this) {
+                        TokenListener c2 = e.c(b);
+                        e.b(b);
+                        if (c2 == null) {
                             return;
                         }
-                    }
-                    this.d = this;
-                    this.a = str;
-                    this.b = context;
-                    this.c = aVar;
-                }
-
-                @Override // com.cmic.sso.sdk.e.n.a
-                public void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if ("200023".equals(this.a)) {
-                            SystemClock.sleep(8000L);
+                        aVar.a("systemEndTime", SystemClock.elapsedRealtime());
+                        aVar.a("endtime", o.a());
+                        int c3 = aVar.c("logintype");
+                        if (jSONObject == null) {
+                            jSONObject = c.a(str, str2);
                         }
-                        new com.cmic.sso.sdk.d.b().a(this.b, this.a, this.c);
+                        if (c3 == 3) {
+                            a2 = c.a(str, aVar, jSONObject);
+                        } else {
+                            a2 = c.a(str, str2, aVar, jSONObject);
+                        }
+                        a2.put("scripExpiresIn", String.valueOf(com.cmic.sso.sdk.e.h.a()));
+                        this.e.post(new Runnable(this, c2, a2) { // from class: com.cmic.sso.sdk.auth.AuthnHelper.6
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ TokenListener a;
+                            public final /* synthetic */ JSONObject b;
+                            public final /* synthetic */ AuthnHelper c;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, c2, a2};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.c = this;
+                                this.a = c2;
+                                this.b = a2;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    this.a.onGetTokenComplete(this.b);
+                                }
+                            }
+                        });
+                        com.cmic.sso.sdk.a.c.a(this.b).a(aVar);
+                        if (!aVar.b().j() && !q.a(aVar.b())) {
+                            a(this.b, str, aVar);
+                        }
+                        if (e.a()) {
+                            r.a(this.b).b();
+                        }
                     }
                 }
-            });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void delScrip() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                com.cmic.sso.sdk.e.h.a(true, true);
+                com.cmic.sso.sdk.e.c.b("AuthnHelper", "删除scrip");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

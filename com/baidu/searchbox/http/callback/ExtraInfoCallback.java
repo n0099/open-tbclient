@@ -9,6 +9,8 @@ public abstract class ExtraInfoCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onReceiveClientIP(String str);
+
     public ExtraInfoCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,6 +24,4 @@ public abstract class ExtraInfoCallback {
             }
         }
     }
-
-    public abstract void onReceiveClientIP(String str);
 }

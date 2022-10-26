@@ -1,6 +1,5 @@
 package com.baidu.webkit.logsdk.a;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -28,9 +27,8 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
     public static b d;
-    public static final List<Message> m;
+    public static final List m;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
     public Handler b;
@@ -43,7 +41,7 @@ public class b implements Handler.Callback {
     public com.baidu.webkit.logsdk.upload.b j;
     public a k;
     public com.baidu.webkit.logsdk.c.c l;
-    public ConcurrentHashMap<String, String> n;
+    public ConcurrentHashMap n;
 
     static {
         InterceptResult invokeClinit;
@@ -74,7 +72,7 @@ public class b implements Handler.Callback {
                 return;
             }
         }
-        this.n = new ConcurrentHashMap<>();
+        this.n = new ConcurrentHashMap();
         HandlerThread handlerThread = new HandlerThread("BdLogSDK");
         this.h = handlerThread;
         handlerThread.start();
@@ -159,7 +157,7 @@ public class b implements Handler.Callback {
             Message message = null;
             synchronized (m) {
                 if (m.size() > 0) {
-                    message = m.get(0);
+                    message = (Message) m.get(0);
                     m.remove(0);
                 }
             }
@@ -329,7 +327,7 @@ public class b implements Handler.Callback {
                                     com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "checkAppPause");
                                     if (!h.b.isEmpty()) {
                                         for (String str5 : h.b.keySet()) {
-                                            com.baidu.webkit.logsdk.c.a aVar = h.b.get(str5);
+                                            com.baidu.webkit.logsdk.c.a aVar = (com.baidu.webkit.logsdk.c.a) h.b.get(str5);
                                             if (!aVar.b.isEmpty()) {
                                                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "BdLogDataProcessor destroy type = ".concat(String.valueOf(str5)));
                                                 com.baidu.webkit.logsdk.b.a a3 = b.a().e().a(str5);
@@ -752,7 +750,7 @@ public class b implements Handler.Callback {
                                 com.baidu.webkit.logsdk.c.b b = this.a.h().b();
                                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleUploadLongTimeLog");
                                 for (String str : b.a.keySet()) {
-                                    if (b.a.get(str).booleanValue()) {
+                                    if (((Boolean) b.a.get(str)).booleanValue()) {
                                         com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createUploadTask: ".concat(String.valueOf(str)));
                                         try {
                                             String c = com.baidu.webkit.logsdk.d.c.c(str, StatConstants.VALUE_TYPE_UPLOAD);

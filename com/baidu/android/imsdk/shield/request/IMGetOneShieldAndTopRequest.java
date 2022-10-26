@@ -38,6 +38,62 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public int mShield;
     public long mShieldTime;
 
+    private int getContacterType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            if (i != 0) {
+                return (i == 3 || i == 57) ? 2 : 1;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
+    public String getHostUrlParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "read_single_contacter_setting" : (String) invokeV.objValue;
+    }
+
+    public IMGetOneShieldAndTopRequest(Context context, long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mMarkTop = 0;
+        this.mMarkTopTime = 0L;
+        this.mShield = 0;
+        this.mShieldTime = 0L;
+        this.mDisturb = 0;
+        this.mDisturbTime = 0L;
+        this.mGraphicStatus = 1;
+        this.mCommodityStatus = 1;
+        this.mContext = context;
+        this.mContacter = j;
+        this.mKey = str;
+        this.mChatType = i;
+        this.mContacterType = getContacterType(i);
+    }
+
     @Deprecated
     public IMGetOneShieldAndTopRequest(Context context, long j, String str) {
         Interceptable interceptable = $ic;
@@ -68,32 +124,6 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         int i3 = (j & Constants.PAFLAG) != 0 ? 1 : 0;
         this.mChatType = i3;
         this.mContacterType = getContacterType(i3);
-    }
-
-    private int getContacterType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
-            if (i != 0) {
-                return (i == 3 || i == 57) ? 2 : 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
-    public String getHostUrlParam() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "read_single_contacter_setting" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -132,7 +162,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
             getShieldAndTopResult.setErrorCode(((Integer) transErrorCode.first).intValue());
             getShieldAndTopResult.setErrorMsg((String) transErrorCode.second);
@@ -193,35 +223,5 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
             getShieldAndTopResult.setChatType(this.mChatType);
             ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult, this.mKey);
         }
-    }
-
-    public IMGetOneShieldAndTopRequest(Context context, long j, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mMarkTop = 0;
-        this.mMarkTopTime = 0L;
-        this.mShield = 0;
-        this.mShieldTime = 0L;
-        this.mDisturb = 0;
-        this.mDisturbTime = 0L;
-        this.mGraphicStatus = 1;
-        this.mCommodityStatus = 1;
-        this.mContext = context;
-        this.mContacter = j;
-        this.mKey = str;
-        this.mChatType = i;
-        this.mContacterType = getContacterType(i);
     }
 }

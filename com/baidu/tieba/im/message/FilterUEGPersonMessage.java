@@ -1,19 +1,18 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FilterUEGPersonMessage extends CustomMessage<List<CommonMsgPojo>> {
+public class FilterUEGPersonMessage extends CustomMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FilterUEGPersonMessage(List<CommonMsgPojo> list) {
+    public FilterUEGPersonMessage(List list) {
         super(2921692, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -1,7 +1,6 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
 import android.util.SparseArray;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodProfileData;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,23 +27,23 @@ public class VmTraceData {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mDataFileOverflow;
     public final long mElapsedTimeUs;
-    public final Map<Long, MethodInfo> mMethods;
+    public final Map mMethods;
     public final long mStartTimeUs;
-    public final Map<String, ThreadInfo> mThreadInfo;
-    public final Map<String, String> mTraceProperties;
+    public final Map mThreadInfo;
+    public final Map mTraceProperties;
     public final int mVersion;
     public final String mVm;
     public final VmClockType mVmClockType;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceData$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public static class Builder implements VmTraceHandler {
+    public class Builder implements VmTraceHandler {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = false;
@@ -55,12 +54,12 @@ public class VmTraceData {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mDataFileOverflow;
         public long mElapsedTimeUs;
-        public final Map<Long, MethodInfo> mMethods;
-        public final Map<String, String> mProperties;
-        public final SparseArray<CallStackReconstructor> mStackReconstructors;
+        public final Map mMethods;
+        public final Map mProperties;
+        public final SparseArray mStackReconstructors;
         public long mStartTimeUs;
-        public final SparseArray<String> mThreads;
-        public final SparseArray<Call> mTopLevelCalls;
+        public final SparseArray mThreads;
+        public final SparseArray mTopLevelCalls;
         public int mVersion;
         public String mVm;
         public VmClockType mVmClockType;
@@ -96,10 +95,26 @@ public class VmTraceData {
             this.mVmClockType = VmClockType.THREAD_CPU;
             this.mVm = "";
             this.mProperties = new HashMap(10);
-            this.mThreads = new SparseArray<>(10);
+            this.mThreads = new SparseArray(10);
             this.mMethods = new HashMap(100);
-            this.mStackReconstructors = new SparseArray<>(10);
-            this.mTopLevelCalls = new SparseArray<>(10);
+            this.mStackReconstructors = new SparseArray(10);
+            this.mTopLevelCalls = new SparseArray(10);
+        }
+
+        @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
+        public void setStartTimeUs(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.mStartTimeUs = j;
+            }
+        }
+
+        @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
+        public void setVersion(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.mVersion = i;
+            }
         }
 
         private void computeTimingStatistics(VmTraceData vmTraceData) {
@@ -123,7 +138,7 @@ public class VmTraceData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
                 long j = Long.MAX_VALUE - i;
-                this.mMethods.put(Long.valueOf(j), new MethodInfo(j, this.mThreads.get(i), "", "", "", 0));
+                this.mMethods.put(Long.valueOf(j), new MethodInfo(j, (String) this.mThreads.get(i), "", "", "", 0));
                 return j;
             }
             return invokeI.longValue;
@@ -138,6 +153,14 @@ public class VmTraceData {
         }
 
         @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
+        public void addThread(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                this.mThreads.put(i, str);
+            }
+        }
+
+        @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
         public void addMethodAction(int i, long j, TraceAction traceAction, int i2, int i3) {
             CallStackReconstructor callStackReconstructor;
             Interceptable interceptable = $ic;
@@ -148,7 +171,7 @@ public class VmTraceData {
                 if (this.mMethods.get(Long.valueOf(j)) == null) {
                     this.mMethods.put(Long.valueOf(j), new MethodInfo(j, "unknown", "unknown", "unknown", "unknown", -1));
                 }
-                CallStackReconstructor callStackReconstructor2 = this.mStackReconstructors.get(i);
+                CallStackReconstructor callStackReconstructor2 = (CallStackReconstructor) this.mStackReconstructors.get(i);
                 if (callStackReconstructor2 == null) {
                     CallStackReconstructor callStackReconstructor3 = new CallStackReconstructor(createUniqueMethodIdForThread(i));
                     this.mStackReconstructors.put(i, callStackReconstructor3);
@@ -160,20 +183,12 @@ public class VmTraceData {
             }
         }
 
-        @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
-        public void addThread(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-                this.mThreads.put(i, str);
-            }
-        }
-
         public VmTraceData build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 for (int i = 0; i < this.mStackReconstructors.size(); i++) {
-                    this.mTopLevelCalls.put(this.mStackReconstructors.keyAt(i), this.mStackReconstructors.valueAt(i).getTopLevel());
+                    this.mTopLevelCalls.put(this.mStackReconstructors.keyAt(i), ((CallStackReconstructor) this.mStackReconstructors.valueAt(i)).getTopLevel());
                 }
                 VmTraceData vmTraceData = new VmTraceData(this, null);
                 computeTimingStatistics(vmTraceData);
@@ -205,139 +220,13 @@ public class VmTraceData {
                 }
             }
         }
-
-        @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
-        public void setStartTimeUs(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.mStartTimeUs = j;
-            }
-        }
-
-        @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
-        public void setVersion(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-                this.mVersion = i;
-            }
-        }
-    }
-
-    public /* synthetic */ VmTraceData(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    public static TimeUnit getDefaultTimeUnits() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? TimeUnit.MICROSECONDS : (TimeUnit) invokeV.objValue;
-    }
-
-    public double getDurationPercentage(Call call, ThreadInfo threadInfo, ClockType clockType, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{call, threadInfo, clockType, Boolean.valueOf(z)})) == null) ? getDurationPercentage(TimeSelector.create(clockType, z).get(getMethod(call.getMethodId()), threadInfo, TimeUnit.NANOSECONDS), threadInfo, clockType) : invokeCommon.doubleValue;
-    }
-
-    public long getElapsedTimeUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mElapsedTimeUs : invokeV.longValue;
-    }
-
-    public MethodInfo getMethod(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.mMethods.get(Long.valueOf(j)) : (MethodInfo) invokeJ.objValue;
-    }
-
-    public Map<Long, MethodInfo> getMethods() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mMethods : (Map) invokeV.objValue;
-    }
-
-    public long getStartTimeUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStartTimeUs : invokeV.longValue;
-    }
-
-    public ThreadInfo getThread(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.mThreadInfo.get(str) : (ThreadInfo) invokeL.objValue;
-    }
-
-    public Collection<ThreadInfo> getThreads() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mThreadInfo.values() : (Collection) invokeV.objValue;
-    }
-
-    public Map<String, String> getTraceProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTraceProperties : (Map) invokeV.objValue;
-    }
-
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mVersion : invokeV.intValue;
-    }
-
-    public String getVm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mVm : (String) invokeV.objValue;
-    }
-
-    public VmClockType getVmClockType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mVmClockType : (VmClockType) invokeV.objValue;
-    }
-
-    public boolean isDataFileOverflow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mDataFileOverflow : invokeV.booleanValue;
-    }
-
-    public SearchResult searchFor(String str, ThreadInfo threadInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, threadInfo)) == null) {
-            String lowerCase = str.toLowerCase(Locale.US);
-            HashSet hashSet = new HashSet();
-            HashSet hashSet2 = new HashSet();
-            Call topLevelCall = getThread(threadInfo.getName()).getTopLevelCall();
-            if (topLevelCall == null) {
-                return new SearchResult(hashSet, hashSet2);
-            }
-            for (MethodInfo methodInfo : getMethods().values()) {
-                if (methodInfo.getFullName().toLowerCase(Locale.US).contains(lowerCase) && methodInfo.getProfileData().getInclusiveTime(threadInfo, ClockType.GLOBAL, TimeUnit.NANOSECONDS) > 0) {
-                    hashSet.add(methodInfo);
-                }
-            }
-            Iterator<Call> callHierarchyIterator = topLevelCall.getCallHierarchyIterator();
-            while (callHierarchyIterator.hasNext()) {
-                Call next = callHierarchyIterator.next();
-                if (hashSet.contains(getMethod(next.getMethodId()))) {
-                    hashSet2.add(next);
-                }
-            }
-            return new SearchResult(hashSet, hashSet2);
-        }
-        return (SearchResult) invokeLL.objValue;
     }
 
     /* loaded from: classes.dex */
-    public static class ProfileDataBuilder {
+    public class ProfileDataBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Long, MethodProfileData.Builder> mBuilderMap;
+        public final Map mBuilderMap;
 
         public ProfileDataBuilder() {
             Interceptable interceptable = $ic;
@@ -355,12 +244,24 @@ public class VmTraceData {
             this.mBuilderMap = new HashMap();
         }
 
-        @NonNull
+        public Set getMethodsWithProfileData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mBuilderMap.keySet();
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        public /* synthetic */ ProfileDataBuilder(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
         private MethodProfileData.Builder getProfileDataBuilder(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
-                MethodProfileData.Builder builder = this.mBuilderMap.get(Long.valueOf(j));
+                MethodProfileData.Builder builder = (MethodProfileData.Builder) this.mBuilderMap.get(Long.valueOf(j));
                 if (builder == null) {
                     MethodProfileData.Builder builder2 = new MethodProfileData.Builder();
                     this.mBuilderMap.put(Long.valueOf(j), builder2);
@@ -369,6 +270,15 @@ public class VmTraceData {
                 return builder;
             }
             return (MethodProfileData.Builder) invokeJ.objValue;
+        }
+
+        public MethodProfileData getProfileData(Long l) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
+                return ((MethodProfileData.Builder) this.mBuilderMap.get(l)).build();
+            }
+            return (MethodProfileData) invokeL.objValue;
         }
 
         public void computeCallStats(Call call, Call call2, ThreadInfo threadInfo) {
@@ -384,22 +294,6 @@ public class VmTraceData {
                     computeCallStats(call3, call, threadInfo);
                 }
             }
-        }
-
-        public Set<Long> getMethodsWithProfileData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBuilderMap.keySet() : (Set) invokeV.objValue;
-        }
-
-        public MethodProfileData getProfileData(Long l) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) ? this.mBuilderMap.get(l).build() : (MethodProfileData) invokeL.objValue;
-        }
-
-        public /* synthetic */ ProfileDataBuilder(AnonymousClass1 anonymousClass1) {
-            this();
         }
     }
 
@@ -430,14 +324,148 @@ public class VmTraceData {
         for (int i3 = 0; i3 < builder.mThreads.size(); i3++) {
             int keyAt = builder.mThreads.keyAt(i3);
             String str = (String) builder.mThreads.valueAt(i3);
-            if (this.mThreadInfo.get(str) != null) {
+            if (((ThreadInfo) this.mThreadInfo.get(str)) != null) {
                 str = String.format("%1$s-%2$d", str, Integer.valueOf(keyAt));
             }
             this.mThreadInfo.put(str, new ThreadInfo(keyAt, str, (Call) builder.mTopLevelCalls.get(keyAt)));
         }
     }
 
-    public List<ThreadInfo> getThreads(boolean z) {
+    public /* synthetic */ VmTraceData(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    public static TimeUnit getDefaultTimeUnits() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return TimeUnit.MICROSECONDS;
+        }
+        return (TimeUnit) invokeV.objValue;
+    }
+
+    public long getElapsedTimeUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mElapsedTimeUs;
+        }
+        return invokeV.longValue;
+    }
+
+    public Map getMethods() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mMethods;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public long getStartTimeUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mStartTimeUs;
+        }
+        return invokeV.longValue;
+    }
+
+    public Collection getThreads() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mThreadInfo.values();
+        }
+        return (Collection) invokeV.objValue;
+    }
+
+    public Map getTraceProperties() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mTraceProperties;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public int getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mVersion;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getVm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mVm;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public VmClockType getVmClockType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mVmClockType;
+        }
+        return (VmClockType) invokeV.objValue;
+    }
+
+    public boolean isDataFileOverflow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mDataFileOverflow;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public double getDurationPercentage(long j, ThreadInfo threadInfo, ClockType clockType) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), threadInfo, clockType})) == null) {
+            Call topLevelCall = getThread(threadInfo.getName()).getTopLevelCall();
+            if (topLevelCall == null) {
+                return 100.0d;
+            }
+            return (j / TimeSelector.create(clockType, true).get(getMethod(topLevelCall.getMethodId()), threadInfo, TimeUnit.NANOSECONDS)) * 100.0d;
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    public double getDurationPercentage(Call call, ThreadInfo threadInfo, ClockType clockType, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{call, threadInfo, clockType, Boolean.valueOf(z)})) == null) {
+            return getDurationPercentage(TimeSelector.create(clockType, z).get(getMethod(call.getMethodId()), threadInfo, TimeUnit.NANOSECONDS), threadInfo, clockType);
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    public MethodInfo getMethod(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            return (MethodInfo) this.mMethods.get(Long.valueOf(j));
+        }
+        return (MethodInfo) invokeJ.objValue;
+    }
+
+    public ThreadInfo getThread(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return (ThreadInfo) this.mThreadInfo.get(str);
+        }
+        return (ThreadInfo) invokeL.objValue;
+    }
+
+    public List getThreads(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
@@ -456,16 +484,31 @@ public class VmTraceData {
         return (List) invokeZ.objValue;
     }
 
-    public double getDurationPercentage(long j, ThreadInfo threadInfo, ClockType clockType) {
-        InterceptResult invokeCommon;
+    public SearchResult searchFor(String str, ThreadInfo threadInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), threadInfo, clockType})) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, threadInfo)) == null) {
+            String lowerCase = str.toLowerCase(Locale.US);
+            HashSet hashSet = new HashSet();
+            HashSet hashSet2 = new HashSet();
             Call topLevelCall = getThread(threadInfo.getName()).getTopLevelCall();
             if (topLevelCall == null) {
-                return 100.0d;
+                return new SearchResult(hashSet, hashSet2);
             }
-            return (j / TimeSelector.create(clockType, true).get(getMethod(topLevelCall.getMethodId()), threadInfo, TimeUnit.NANOSECONDS)) * 100.0d;
+            for (MethodInfo methodInfo : getMethods().values()) {
+                if (methodInfo.getFullName().toLowerCase(Locale.US).contains(lowerCase) && methodInfo.getProfileData().getInclusiveTime(threadInfo, ClockType.GLOBAL, TimeUnit.NANOSECONDS) > 0) {
+                    hashSet.add(methodInfo);
+                }
+            }
+            Iterator callHierarchyIterator = topLevelCall.getCallHierarchyIterator();
+            while (callHierarchyIterator.hasNext()) {
+                Call call = (Call) callHierarchyIterator.next();
+                if (hashSet.contains(getMethod(call.getMethodId()))) {
+                    hashSet2.add(call);
+                }
+            }
+            return new SearchResult(hashSet, hashSet2);
         }
-        return invokeCommon.doubleValue;
+        return (SearchResult) invokeLL.objValue;
     }
 }

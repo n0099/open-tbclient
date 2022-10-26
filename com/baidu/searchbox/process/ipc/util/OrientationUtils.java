@@ -36,19 +36,18 @@ public class OrientationUtils {
 
     public static void fixedOrientation(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, null, activity, i) == null) || i == -1 || Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !isTranslucentOrFloating(activity) || isFixedOrientation(activity)) {
-            return;
-        }
-        try {
-            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-            declaredField.setAccessible(true);
-            Object obj = declaredField.get(activity);
-            Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
-            declaredField2.setAccessible(true);
-            if (declaredField2.getInt(obj) == -1) {
-                declaredField2.setInt(obj, i);
+        if ((interceptable == null || interceptable.invokeLI(65537, null, activity, i) == null) && i != -1 && Build.VERSION.SDK_INT == 26 && activity.getApplicationInfo().targetSdkVersion > 26 && isTranslucentOrFloating(activity) && !isFixedOrientation(activity)) {
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+                declaredField2.setAccessible(true);
+                if (declaredField2.getInt(obj) == -1) {
+                    declaredField2.setInt(obj, i);
+                }
+            } catch (IllegalAccessException | NoSuchFieldException unused) {
             }
-        } catch (IllegalAccessException | NoSuchFieldException unused) {
         }
     }
 
@@ -72,6 +71,7 @@ public class OrientationUtils {
 
     public static boolean isTranslucentOrFloating(Activity activity) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
             try {
@@ -85,7 +85,16 @@ public class OrientationUtils {
                 declaredField3.setAccessible(true);
                 Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
                 declaredField4.setAccessible(true);
-                return obtainStyledAttributes.getBoolean(((Integer) declaredField4.get(null)).intValue(), false) || obtainStyledAttributes.getBoolean(((Integer) declaredField2.get(null)).intValue(), false) || (!obtainStyledAttributes.hasValue(((Integer) declaredField2.get(null)).intValue()) && obtainStyledAttributes.getBoolean(((Integer) declaredField3.get(null)).intValue(), false));
+                boolean z2 = obtainStyledAttributes.getBoolean(((Integer) declaredField2.get(null)).intValue(), false);
+                if (!obtainStyledAttributes.hasValue(((Integer) declaredField2.get(null)).intValue()) && obtainStyledAttributes.getBoolean(((Integer) declaredField3.get(null)).intValue(), false)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!obtainStyledAttributes.getBoolean(((Integer) declaredField4.get(null)).intValue(), false) && !z2 && !z) {
+                    return false;
+                }
+                return true;
             } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException unused) {
                 return false;
             }
@@ -97,26 +106,26 @@ public class OrientationUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT == 26 && activity.getApplicationInfo().targetSdkVersion > 26 && isTranslucentOrFloating(activity) && isFixedOrientation(activity)) {
-                try {
-                    Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                    declaredField.setAccessible(true);
-                    Object obj = declaredField.get(activity);
-                    Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
-                    declaredField2.setAccessible(true);
-                    int i = declaredField2.getInt(obj);
-                    if (i != -1) {
-                        try {
-                            declaredField2.setInt(obj, -1);
-                        } catch (IllegalAccessException | NoSuchFieldException unused) {
-                        }
-                    }
-                    return i;
-                } catch (IllegalAccessException | NoSuchFieldException unused2) {
-                    return -1;
-                }
+            if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !isTranslucentOrFloating(activity) || !isFixedOrientation(activity)) {
+                return -1;
             }
-            return -1;
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+                declaredField2.setAccessible(true);
+                int i = declaredField2.getInt(obj);
+                if (i != -1) {
+                    try {
+                        declaredField2.setInt(obj, -1);
+                    } catch (IllegalAccessException | NoSuchFieldException unused) {
+                    }
+                }
+                return i;
+            } catch (IllegalAccessException | NoSuchFieldException unused2) {
+                return -1;
+            }
         }
         return invokeL.intValue;
     }

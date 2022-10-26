@@ -35,6 +35,24 @@ public class WebPicUploadResult {
         this.code = -2;
     }
 
+    public int getCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.code;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getPicId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.picId;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static WebPicUploadResult parse(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -52,17 +70,5 @@ public class WebPicUploadResult {
             return webPicUploadResult;
         }
         return (WebPicUploadResult) invokeL.objValue;
-    }
-
-    public int getCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
-    }
-
-    public String getPicId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.picId : (String) invokeV.objValue;
     }
 }

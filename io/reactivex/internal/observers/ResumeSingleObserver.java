@@ -10,13 +10,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ResumeSingleObserver<T> implements SingleObserver<T> {
+public final class ResumeSingleObserver implements SingleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleObserver<? super T> actual;
-    public final AtomicReference<Disposable> parent;
+    public final SingleObserver actual;
+    public final AtomicReference parent;
 
-    public ResumeSingleObserver(AtomicReference<Disposable> atomicReference, SingleObserver<? super T> singleObserver) {
+    public ResumeSingleObserver(AtomicReference atomicReference, SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,10 +52,10 @@ public final class ResumeSingleObserver<T> implements SingleObserver<T> {
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(T t) {
+    public void onSuccess(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.actual.onSuccess(t);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            this.actual.onSuccess(obj);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.gj;
+import com.baidu.tieba.hj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,6 +47,66 @@ public class RomTypeUtil {
         }
     }
 
+    public static String getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (sVersion == null) {
+                check("");
+            }
+            return sVersion;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean isEmui() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return isUseForHuawei();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isFlyme() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return check("FLYME");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isOPPO() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return check("OPPO");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isOnePlus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return check(ROM_ONEPLUS);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isUseForHuawei() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (check("EMUI") && Build.VERSION.SDK_INT >= 24) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean check(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -86,7 +146,7 @@ public class RomTypeUtil {
                                     sName = "FLYME";
                                 } else {
                                     sVersion = "unknown";
-                                    sName = gj.f().toUpperCase();
+                                    sName = hj.f().toUpperCase();
                                 }
                             }
                         }
@@ -143,47 +203,5 @@ public class RomTypeUtil {
             }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (sVersion == null) {
-                check("");
-            }
-            return sVersion;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean isEmui() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? isUseForHuawei() : invokeV.booleanValue;
-    }
-
-    public static boolean isFlyme() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? check("FLYME") : invokeV.booleanValue;
-    }
-
-    public static boolean isOPPO() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? check("OPPO") : invokeV.booleanValue;
-    }
-
-    public static boolean isOnePlus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? check(ROM_ONEPLUS) : invokeV.booleanValue;
-    }
-
-    public static boolean isUseForHuawei() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? check("EMUI") && Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
     }
 }

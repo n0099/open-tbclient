@@ -5,7 +5,7 @@ import java.lang.reflect.Type;
 public interface Advice {
     AjType getDeclaringType();
 
-    AjType<?>[] getExceptionTypes();
+    AjType[] getExceptionTypes();
 
     Type[] getGenericParameterTypes();
 
@@ -13,7 +13,7 @@ public interface Advice {
 
     String getName();
 
-    AjType<?>[] getParameterTypes();
+    AjType[] getParameterTypes();
 
     PointcutExpression getPointcutExpression();
 }

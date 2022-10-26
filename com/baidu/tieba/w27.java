@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import tbclient.UnreadTip.DataRes;
 /* loaded from: classes6.dex */
 public class w27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Cdo> a;
-    public int b;
-    public int c;
+    public int a;
+    public List b;
+    public long c;
+    public String d;
+    public int e;
 
     public w27() {
         Interceptable interceptable = $ic;
@@ -23,10 +28,30 @@ public class w27 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 0;
-        this.c = 0;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) && dataRes != null) {
+            this.a = dataRes.user_count.intValue();
+            this.b = dataRes.portrait_list;
+            this.c = dataRes.hide_unix.longValue() * 1000;
+            this.d = dataRes.show_tip;
+            this.e = dataRes.thread_count.intValue();
+        }
     }
 }

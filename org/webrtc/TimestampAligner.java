@@ -6,11 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TimestampAligner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile long nativeTimestampAligner;
+
+    public static native long nativeCreateTimestampAligner();
+
+    public static native void nativeReleaseTimestampAligner(long j);
+
+    public static native long nativeRtcTimeNanos();
+
+    public static native long nativeTranslateTimestamp(long j, long j2);
 
     public TimestampAligner() {
         Interceptable interceptable = $ic;
@@ -30,24 +38,20 @@ public class TimestampAligner {
 
     private void checkNativeAlignerExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeTimestampAligner == 0) {
-            throw new IllegalStateException("TimestampAligner has been disposed.");
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeTimestampAligner != 0) {
+            return;
         }
+        throw new IllegalStateException("TimestampAligner has been disposed.");
     }
 
     public static long getRtcTimeNanos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? nativeRtcTimeNanos() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return nativeRtcTimeNanos();
+        }
+        return invokeV.longValue;
     }
-
-    public static native long nativeCreateTimestampAligner();
-
-    public static native void nativeReleaseTimestampAligner(long j);
-
-    public static native long nativeRtcTimeNanos();
-
-    public static native long nativeTranslateTimestamp(long j, long j2);
 
     public void dispose() {
         Interceptable interceptable = $ic;

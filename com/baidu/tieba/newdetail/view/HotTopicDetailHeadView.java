@@ -11,8 +11,6 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -25,13 +23,13 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.a77;
+import com.baidu.tieba.f77;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.s67;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.x67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +40,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public TbPageContext<HotTopicDetailActivity> b;
+    public TbPageContext b;
     public TbImageView c;
     public View d;
     public View e;
@@ -57,8 +55,14 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public View n;
     public TBLottieAnimationView o;
     public TextView p;
-    public s67 q;
+    public a77 q;
     public ValueAnimator r;
+
+    public final int e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 1 ? R.string.obfuscated_res_0x7f0f0897 : i == 2 ? R.string.obfuscated_res_0x7f0f0896 : R.string.obfuscated_res_0x7f0f0895 : invokeI.intValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -88,7 +92,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ((HotTopicDetailActivity) this.a.b.getOrignalPage()).E1();
+                ((HotTopicDetailActivity) this.a.b.getOrignalPage()).D1();
             }
         }
     }
@@ -120,11 +124,11 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.q == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.q == null) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c13819").param("obj_type", this.a.q.e).param("topic_id", ((HotTopicDetailActivity) this.a.b.getOrignalPage()).B1()));
-            ((HotTopicDetailActivity) this.a.b.getOrignalPage()).J1(this.a.q);
+            TiebaStatic.log(new StatisticItem("c13819").param("obj_type", this.a.q.e).param("topic_id", ((HotTopicDetailActivity) this.a.b.getOrignalPage()).A1()));
+            ((HotTopicDetailActivity) this.a.b.getOrignalPage()).I1(this.a.q);
         }
     }
 
@@ -185,24 +189,70 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         g();
     }
 
-    public void d(long j, long j2) {
-        s67 s67Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HotTopicDetailHeadView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (s67Var = this.q) == null || s67Var.b == 1) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        this.o.playAnimation();
-        i();
-        s67 s67Var2 = this.q;
-        s67Var2.b = 1;
-        s67Var2.d = j2;
+        this.a = 3;
+        g();
     }
 
-    @StringRes
-    public final int e(int i) {
-        InterceptResult invokeI;
+    public void d(long j, long j2) {
+        a77 a77Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 1 ? R.string.obfuscated_res_0x7f0f088b : i == 2 ? R.string.obfuscated_res_0x7f0f088a : R.string.obfuscated_res_0x7f0f0889 : invokeI.intValue;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (a77Var = this.q) != null && a77Var.b != 1) {
+            this.o.playAnimation();
+            i();
+            a77 a77Var2 = this.q;
+            a77Var2.b = 1;
+            a77Var2.d = j2;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HotTopicDetailHeadView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        g();
+    }
+
+    public void setBgCoverViewColor(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (view2 = this.d) != null) {
+            view2.setBackgroundColor(i);
+        }
     }
 
     public final void f(int i) {
@@ -210,86 +260,85 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (tBLottieAnimationView = this.o) != null && tBLottieAnimationView.getVisibility() == 0) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 0 || skinType == 3) {
+            if (skinType != 0 && skinType != 3) {
                 if (i == 1) {
-                    this.o.setImageAssetsFolder("lottie_watch/");
-                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110066);
+                    this.o.setImageAssetsFolder("lottie_watch_1/");
+                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f11006a);
                 } else if (i == 2) {
-                    this.o.setImageAssetsFolder("lottie_candle/");
-                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110028);
+                    this.o.setImageAssetsFolder("lottie_candle_1/");
+                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110029);
                 } else {
-                    this.o.setImageAssetsFolder("lottie_bless/");
-                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110025);
+                    this.o.setImageAssetsFolder("lottie_bless_1/");
+                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110026);
                 }
             } else if (i == 1) {
-                this.o.setImageAssetsFolder("lottie_watch_1/");
-                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110067);
+                this.o.setImageAssetsFolder("lottie_watch/");
+                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110069);
             } else if (i == 2) {
-                this.o.setImageAssetsFolder("lottie_candle_1/");
-                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110029);
+                this.o.setImageAssetsFolder("lottie_candle/");
+                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110028);
             } else {
-                this.o.setImageAssetsFolder("lottie_bless_1/");
-                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110026);
+                this.o.setImageAssetsFolder("lottie_bless/");
+                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110025);
             }
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.a != i) {
+            nv4 d = nv4.d(this.f);
+            d.m(1);
+            d.n(R.string.J_X14);
+            d.f(R.color.CAM_X0201);
+            this.e.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
+            a77 a77Var = this.q;
+            if (a77Var != null) {
+                f(a77Var.e);
+            }
+            this.a = i;
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            r9<?> a2 = w9.a(getContext());
+            r9 a2 = w9.a(getContext());
             if (a2 instanceof TbPageContext) {
                 this.b = (TbPageContext) a2;
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a4, (ViewGroup) this, true);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090381);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09037f);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090384);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090d51);
-            this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090e23);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09221f);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09221d);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09221c);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092034);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09079a);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f09079b);
-            this.n = findViewById(R.id.obfuscated_res_0x7f090799);
-            this.o = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0903ae);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0903af);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a1, (ViewGroup) this, true);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090380);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09037e);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090383);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090d5e);
+            this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090e17);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092209);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092207);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092206);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092033);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0907a3);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0907a4);
+            this.n = findViewById(R.id.obfuscated_res_0x7f0907a2);
+            this.o = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0903b7);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0903b8);
             this.p = textView;
             textView.setAlpha(0.66f);
             this.e.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
             this.g.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.g.setStrokeWith(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+            this.g.setStrokeWith(fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds4));
             this.g.setPlaceHolder(1);
             this.k.setAlpha(0.66f);
             this.n.setOnClickListener(new a(this));
             this.o.setOnClickListener(new b(this));
         }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || this.a == i) {
-            return;
-        }
-        hv4 d = hv4.d(this.f);
-        d.m(1);
-        d.n(R.string.J_X14);
-        d.f(R.color.CAM_X0201);
-        this.e.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
-        SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-        s67 s67Var = this.q;
-        if (s67Var != null) {
-            f(s67Var.e);
-        }
-        this.a = i;
     }
 
     public final void i() {
@@ -314,43 +363,34 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setBgCoverViewColor(int i) {
-        View view2;
+    public void setBlessInfo(a77 a77Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (view2 = this.d) == null) {
-            return;
-        }
-        view2.setBackgroundColor(i);
-    }
-
-    public void setBlessInfo(s67 s67Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, s67Var) == null) {
-            this.q = s67Var;
-            if (s67Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, a77Var) == null) {
+            this.q = a77Var;
+            if (a77Var == null) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
-                layoutParams.rightMargin = ej.f(this.h.getContext(), R.dimen.tbds84);
+                layoutParams.rightMargin = fj.f(this.h.getContext(), R.dimen.tbds84);
                 this.h.setLayoutParams(layoutParams);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
                 layoutParams2.leftMargin = -layoutParams.rightMargin;
                 this.j.setLayoutParams(layoutParams2);
                 return;
             }
-            this.p.setText(getContext().getResources().getString(e(s67Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(s67Var.a)));
-            if (s67Var.b == 1) {
+            this.p.setText(getContext().getResources().getString(e(a77Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(a77Var.a)));
+            if (a77Var.b == 1) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(0);
                 this.p.setTranslationX(0.0f);
             } else {
                 this.o.setVisibility(0);
                 this.p.setVisibility(4);
-                f(s67Var.e);
+                f(a77Var.e);
                 this.o.cancelAnimation();
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
-            layoutParams3.rightMargin = ej.f(this.h.getContext(), R.dimen.tbds280);
+            layoutParams3.rightMargin = fj.f(this.h.getContext(), R.dimen.tbds280);
             this.h.setLayoutParams(layoutParams3);
             RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
             layoutParams4.leftMargin = -layoutParams3.rightMargin;
@@ -358,69 +398,30 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setTopicInfo(x67 x67Var) {
+    public void setTopicInfo(f77 f77Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, x67Var) == null) || x67Var == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f77Var) != null) || f77Var == null) {
             return;
         }
-        this.e.setVisibility(TextUtils.isEmpty(x67Var.f) ? 0 : 8);
-        this.g.K(x67Var.e, 10, false);
-        this.c.K(x67Var.f, 39, false);
-        this.h.setText(x67Var.b);
-        if (x67Var.i > 0) {
+        View view2 = this.e;
+        if (TextUtils.isEmpty(f77Var.f)) {
+            i = 0;
+        } else {
+            i = 8;
+        }
+        view2.setVisibility(i);
+        this.g.L(f77Var.e, 10, false);
+        this.c.L(f77Var.f, 39, false);
+        this.h.setText(f77Var.b);
+        if (f77Var.i > 0) {
             TextView textView = this.l;
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f08a4);
-            textView.setText(String.format(string, "" + x67Var.i));
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f08b0);
+            textView.setText(String.format(string, "" + f77Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f08a2), StringHelper.numberUniformFormatExtraWithRoundInt(x67Var.d)));
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailHeadView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        g();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailHeadView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        g();
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f08ae), StringHelper.numberUniformFormatExtraWithRoundInt(f77Var.d)));
     }
 }

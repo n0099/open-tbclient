@@ -2,196 +2,370 @@ package com.baidu.tieba;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteStatement;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.data.ValidateItemData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.model.ModelHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class x97 extends m97 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static m97 d = null;
-    public static String e = "tb_oficial_msg_";
+public class x97 {
+    public static /* synthetic */ Interceptable $ic;
+    public static x97 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948255283, "Lcom/baidu/tieba/x97;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948255283, "Lcom/baidu/tieba/x97;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x97() {
-        super("tb_oficial_msg_", OfficialChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static synchronized x97 w() {
+    public static x97 c() {
         InterceptResult invokeV;
-        x97 x97Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (x97.class) {
-                if (d == null) {
-                    d = new x97();
-                }
-                x97Var = (x97) d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = new x97();
             }
-            return x97Var;
+            return a;
         }
         return (x97) invokeV.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b5: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:29:0x00b5 */
-    public static List<ba7> x() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Exception e2;
-        Cursor cursor;
-        Cursor cursor2;
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65539, null)) != null) {
-            return (List) invokeV.objValue;
-        }
-        Cursor cursor3 = null;
-        ArrayList arrayList2 = null;
-        try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                cursor = t97.d().e("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
-                if (cursor != null) {
-                    try {
-                        arrayList = new ArrayList(cursor.getCount());
-                        while (cursor.moveToNext()) {
-                            try {
-                                ba7 ba7Var = new ba7();
-                                ba7Var.h(cursor.getString(cursor.getColumnIndex("gid")));
-                                ba7Var.j(cursor.getInt(cursor.getColumnIndex("unread_count")));
-                                ba7Var.i(cursor.getString(cursor.getColumnIndex("group_head")));
-                                ba7Var.g(cursor.getString(cursor.getColumnIndex("group_name")));
-                                ba7Var.k(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                int columnIndex = cursor.getColumnIndex("visit_time");
-                                if (columnIndex >= 0) {
-                                    ba7Var.l(cursor.getLong(columnIndex));
-                                }
-                                arrayList.add(ba7Var);
-                            } catch (Exception e3) {
-                                e2 = e3;
-                                e2.printStackTrace();
-                                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
-                                fj.a(cursor);
-                                return arrayList;
-                            }
-                        }
-                        arrayList2 = arrayList;
-                    } catch (Exception e4) {
-                        arrayList = null;
-                        e2 = e4;
-                    }
-                }
-                fj.a(cursor);
-                return arrayList2;
-            } catch (Throwable th) {
-                th = th;
-                cursor3 = cursor2;
-                fj.a(cursor3);
-                throw th;
+                ba7.d().delete("tb_group_news", "notice_id = ?", new String[]{str});
+                bool = Boolean.TRUE;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
+                e.printStackTrace();
+                bool = Boolean.FALSE;
             }
-        } catch (Exception e5) {
-            arrayList = null;
-            e2 = e5;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fj.a(cursor3);
-            throw th;
+            return bool.booleanValue();
         }
+        return invokeL.booleanValue;
     }
 
-    public static List<String> y() {
-        InterceptResult invokeV;
+    public LinkedList b(long j, int i, int i2, String str) {
+        InterceptResult invokeCommon;
+        Cursor e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ArrayList arrayList = new ArrayList();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
+            if (i2 < 0) {
+                i2 = 0;
+            }
+            LinkedList linkedList = new LinkedList();
+            if (i <= 0) {
+                i = 20;
+            }
             Cursor cursor = null;
             try {
                 try {
-                    t97 d2 = t97.d();
-                    cursor = d2.e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    if (j <= 0) {
+                        if (TextUtils.isEmpty(str)) {
+                            e = ba7.d().e("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
+                        } else {
+                            e = ba7.d().e(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
+                        }
+                    } else if (TextUtils.isEmpty(str)) {
+                        e = ba7.d().e("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
+                    } else {
+                        e = ba7.d().e("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
+                    }
+                    cursor = e;
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
-                            arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
+                            GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
+                            groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
+                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
+                            groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                            groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                            groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
+                            groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
+                            linkedList.add(groupNewsPojo);
                         }
                     }
                 } catch (Exception e2) {
+                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getAllByCmd", new Object[0]);
                     e2.printStackTrace();
-                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
                 }
-                return arrayList;
+                gj.a(cursor);
+                return h(linkedList);
+            } catch (Throwable th) {
+                gj.a(cursor);
+                throw th;
+            }
+        }
+        return (LinkedList) invokeCommon.objValue;
+    }
+
+    public int d(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            Cursor cursor = null;
+            int i2 = 0;
+            try {
+                try {
+                    try {
+                        cursor = ba7.d().e(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i), null);
+                        i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
+                        e.printStackTrace();
+                    }
+                } catch (SQLiteException e2) {
+                    TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
+                    e2.printStackTrace();
+                }
+                return i2;
             } finally {
-                fj.a(cursor);
+                gj.a(cursor);
             }
         }
-        return (List) invokeV.objValue;
+        return invokeLI.intValue;
     }
 
-    public void A(long j, long j2, int i) {
+    public boolean g(String str, int i) {
+        InterceptResult invokeLI;
+        Cursor e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            Cursor cursor = null;
+            String str2 = null;
+            cursor = null;
+            if (i < 1000) {
+                i = 1000;
+            }
             try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("read_count", Integer.valueOf(i));
-                t97 d2 = t97.d();
-                int update = d2.update(e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
-                BdLog.d("updateReadCount result = " + update);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                try {
+                    ba7 d = ba7.d();
+                    e = d.e("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                if (e.moveToNext()) {
+                    str2 = e.getString(e.getColumnIndex("notice_id"));
+                }
+                gj.a(e);
+                if (str2 != null) {
+                    ba7.d().delete("tb_group_news", "notice_id<?", new String[]{str2});
+                }
+                gj.a(e);
+                return true;
+            } catch (Exception e3) {
+                e = e3;
+                cursor = e;
+                e.printStackTrace();
+                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
+                gj.a(cursor);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = e;
+                gj.a(cursor);
+                throw th;
             }
         }
+        return invokeLI.booleanValue;
     }
 
-    public void z(long j, long j2) {
+    public int e(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
             try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("visit_time", Long.valueOf(j2));
-                contentValues.put("unread_count", (Integer) 0);
-                int update = t97.d().update("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)});
-                BdLog.d("updateReadCount result = " + update);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                if (!TextUtils.isEmpty(str)) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("content_status", (Integer) 3);
+                    return ba7.d().update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
+                }
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
+                e.printStackTrace();
+            }
+            return 0;
+        }
+        return invokeLI.intValue;
+    }
+
+    public final long f(GroupNewsPojo groupNewsPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, groupNewsPojo)) == null) {
+            try {
+                try {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append("INSERT INTO ");
+                    stringBuffer.append("tb_group_news");
+                    stringBuffer.append("(");
+                    stringBuffer.append("cmd");
+                    stringBuffer.append(",");
+                    stringBuffer.append("content");
+                    stringBuffer.append(",");
+                    stringBuffer.append("content_status");
+                    stringBuffer.append(",");
+                    stringBuffer.append("ext");
+                    stringBuffer.append(",");
+                    stringBuffer.append(TbEnum.ParamKey.GID);
+                    stringBuffer.append(",");
+                    stringBuffer.append("notice_id");
+                    stringBuffer.append(",");
+                    stringBuffer.append("time");
+                    stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
+                    SQLiteStatement a2 = ba7.d().a(stringBuffer.toString());
+                    if (a2 == null) {
+                        gj.c(a2);
+                        return -1L;
+                    }
+                    a2.clearBindings();
+                    z97.b(a2, 1, groupNewsPojo.getCmd());
+                    z97.b(a2, 2, groupNewsPojo.getContent());
+                    a2.bindLong(3, groupNewsPojo.getContent_status());
+                    z97.b(a2, 4, groupNewsPojo.getExt());
+                    z97.b(a2, 5, groupNewsPojo.getGid());
+                    z97.b(a2, 6, groupNewsPojo.getNotice_id());
+                    a2.bindLong(7, groupNewsPojo.getTime());
+                    long executeInsert = a2.executeInsert();
+                    gj.c(a2);
+                    return executeInsert;
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.insertByStatement", new Object[0]);
+                    gj.c(null);
+                    return -1L;
+                }
+            } catch (Throwable th) {
+                gj.c(null);
+                throw th;
             }
         }
+        return invokeL.longValue;
+    }
+
+    public final LinkedList h(LinkedList linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, linkedList)) == null) {
+            LinkedList linkedList2 = new LinkedList();
+            ArrayList arrayList = new ArrayList();
+            int size = linkedList.size();
+            for (int i = 0; i < size; i++) {
+                GroupNewsPojo groupNewsPojo = (GroupNewsPojo) linkedList.get(i);
+                boolean z = false;
+                for (int i2 = 0; i2 < linkedList2.size(); i2++) {
+                    if (((GroupNewsPojo) linkedList2.get(i2)).getContent().equals(groupNewsPojo.getContent())) {
+                        z = true;
+                    }
+                }
+                if (z) {
+                    arrayList.add(groupNewsPojo.getNotice_id());
+                } else {
+                    linkedList2.add(groupNewsPojo);
+                }
+                int size2 = arrayList.size();
+                for (int i3 = 0; i3 < size2; i3++) {
+                    e((String) arrayList.get(i3), 3);
+                }
+            }
+            return linkedList2;
+        }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public Boolean i(LinkedList linkedList) {
+        InterceptResult invokeL;
+        ValidateItemData validateItemData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, linkedList)) == null) {
+            Boolean bool = Boolean.FALSE;
+            if (linkedList != null && linkedList.size() != 0) {
+                try {
+                    try {
+                        ba7.d().f();
+                        Iterator it = linkedList.iterator();
+                        LinkedList linkedList2 = null;
+                        List<ValidateItemData> list = null;
+                        while (it.hasNext()) {
+                            GroupNewsPojo groupNewsPojo = (GroupNewsPojo) it.next();
+                            if (groupNewsPojo.getCmd().equals("apply_join_group")) {
+                                if (linkedList2 == null) {
+                                    linkedList2 = b(0L, Integer.MAX_VALUE, 0, "apply_join_group");
+                                    if (ModelHelper.getInstance().getValidateModel() != null) {
+                                        list = ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList2);
+                                    }
+                                    if (list == null) {
+                                        list = new LinkedList();
+                                    }
+                                }
+                                if (list != null) {
+                                    if (ModelHelper.getInstance().getValidateModel() != null) {
+                                        validateItemData = ModelHelper.getInstance().getValidateModel().convertToValidateItemData(groupNewsPojo);
+                                    } else {
+                                        validateItemData = null;
+                                    }
+                                    if (validateItemData != null) {
+                                        for (ValidateItemData validateItemData2 : list) {
+                                            if (validateItemData.getUserId() != null && validateItemData.getUserId().equals(validateItemData2.getUserId()) && validateItemData.getGroupId() != null && validateItemData.getGroupId().equals(validateItemData2.getGroupId())) {
+                                                a(validateItemData2.getNotice_id());
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("cmd", groupNewsPojo.getCmd());
+                            contentValues.put("content", groupNewsPojo.getContent());
+                            contentValues.put("content_status", Integer.valueOf(groupNewsPojo.getContent_status()));
+                            contentValues.put("ext", groupNewsPojo.getExt());
+                            contentValues.put(TbEnum.ParamKey.GID, groupNewsPojo.getGid());
+                            contentValues.put("notice_id", groupNewsPojo.getNotice_id());
+                            contentValues.put("time", Long.valueOf(groupNewsPojo.getTime()));
+                            if (ba7.d().update("tb_group_news", contentValues, "notice_id=?", new String[]{groupNewsPojo.getNotice_id()}) == 0) {
+                                f(groupNewsPojo);
+                            }
+                            bool = Boolean.valueOf(bool.booleanValue() & true);
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
+                        e.printStackTrace();
+                        bool = Boolean.FALSE;
+                    }
+                    return bool;
+                } finally {
+                    ba7.d().b();
+                }
+            }
+            return Boolean.FALSE;
+        }
+        return (Boolean) invokeL.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import android.util.Log;
+import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
 /* loaded from: classes6.dex */
-public class tz3 {
+public class tz3 implements DebugConsole {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tz3 a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +29,7 @@ public class tz3 {
                 return;
             }
         }
-        boolean z = vj1.a;
+        b = wj1.a;
     }
 
     public tz3() {
@@ -42,31 +42,28 @@ public class tz3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
+    public void onReceiveInfo(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, str) != null) || !b || j44.d()) {
+            return;
+        }
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
+                    return;
+                }
                 return;
             }
+            this.a = System.currentTimeMillis();
+            Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
+            return;
         }
-        new ArrayDeque();
-    }
-
-    public static tz3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (tz3.class) {
-                    if (a == null) {
-                        a = new tz3();
-                    }
-                }
-            }
-            return a;
-        }
-        return (tz3) invokeV.objValue;
-    }
-
-    public DuMixGameSurfaceView a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new DuMixGameSurfaceView(context) : (DuMixGameSurfaceView) invokeL.objValue;
+        Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
     }
 }

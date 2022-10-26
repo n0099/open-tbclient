@@ -46,9 +46,16 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
     public final HlsPlaylistTracker playlistTracker;
     public HlsSampleStreamWrapper[] sampleStreamWrappers;
     public CompositeSequenceableLoader sequenceableLoader;
-    public final IdentityHashMap<SampleStream, Integer> streamWrapperIndices;
+    public final IdentityHashMap streamWrapperIndices;
     public final TimestampAdjusterProvider timestampAdjusterProvider;
     public TrackGroupArray trackGroups;
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public long readDiscontinuity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? C.TIME_UNSET : invokeV.longValue;
+    }
 
     public HlsMediaPeriod(HlsExtractorFactory hlsExtractorFactory, HlsPlaylistTracker hlsPlaylistTracker, HlsDataSourceFactory hlsDataSourceFactory, int i, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher, Allocator allocator) {
         Interceptable interceptable = $ic;
@@ -71,7 +78,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
         this.minLoadableRetryCount = i;
         this.eventDispatcher = eventDispatcher;
         this.allocator = allocator;
-        this.streamWrapperIndices = new IdentityHashMap<>();
+        this.streamWrapperIndices = new IdentityHashMap();
         this.timestampAdjusterProvider = new TimestampAdjusterProvider();
         this.continueLoadingHandler = new Handler();
         this.sampleStreamWrappers = new HlsSampleStreamWrapper[0];
@@ -100,8 +107,8 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             } else if (arrayList3.size() < arrayList.size()) {
                 arrayList.removeAll(arrayList3);
             }
-            List<HlsMasterPlaylist.HlsUrl> list = masterPlaylist.audios;
-            List<HlsMasterPlaylist.HlsUrl> list2 = masterPlaylist.subtitles;
+            List list = masterPlaylist.audios;
+            List list2 = masterPlaylist.subtitles;
             HlsSampleStreamWrapper[] hlsSampleStreamWrapperArr = new HlsSampleStreamWrapper[list.size() + 1 + list2.size()];
             this.sampleStreamWrappers = hlsSampleStreamWrapperArr;
             this.pendingPrepareCount = hlsSampleStreamWrapperArr.length;
@@ -115,7 +122,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             int i2 = 0;
             int i3 = 1;
             while (i2 < list.size()) {
-                HlsSampleStreamWrapper buildSampleStreamWrapper2 = buildSampleStreamWrapper(1, new HlsMasterPlaylist.HlsUrl[]{list.get(i2)}, null, Collections.emptyList(), j);
+                HlsSampleStreamWrapper buildSampleStreamWrapper2 = buildSampleStreamWrapper(1, new HlsMasterPlaylist.HlsUrl[]{(HlsMasterPlaylist.HlsUrl) list.get(i2)}, null, Collections.emptyList(), j);
                 this.sampleStreamWrappers[i3] = buildSampleStreamWrapper2;
                 buildSampleStreamWrapper2.continuePreparing();
                 i2++;
@@ -123,7 +130,7 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             }
             int i4 = 0;
             while (i4 < list2.size()) {
-                HlsMasterPlaylist.HlsUrl hlsUrl2 = list2.get(i4);
+                HlsMasterPlaylist.HlsUrl hlsUrl2 = (HlsMasterPlaylist.HlsUrl) list2.get(i4);
                 HlsSampleStreamWrapper buildSampleStreamWrapper3 = buildSampleStreamWrapper(3, new HlsMasterPlaylist.HlsUrl[]{hlsUrl2}, null, Collections.emptyList(), j);
                 buildSampleStreamWrapper3.prepareSingleTrack(hlsUrl2.format);
                 this.sampleStreamWrappers[i3] = buildSampleStreamWrapper3;
@@ -134,10 +141,13 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
         }
     }
 
-    private HlsSampleStreamWrapper buildSampleStreamWrapper(int i, HlsMasterPlaylist.HlsUrl[] hlsUrlArr, Format format, List<Format> list, long j) {
+    private HlsSampleStreamWrapper buildSampleStreamWrapper(int i, HlsMasterPlaylist.HlsUrl[] hlsUrlArr, Format format, List list, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), hlsUrlArr, format, list, Long.valueOf(j)})) == null) ? new HlsSampleStreamWrapper(i, this, new HlsChunkSource(this.extractorFactory, this.playlistTracker, hlsUrlArr, this.dataSourceFactory, this.timestampAdjusterProvider, list), this.allocator, j, format, this.minLoadableRetryCount, this.eventDispatcher) : (HlsSampleStreamWrapper) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), hlsUrlArr, format, list, Long.valueOf(j)})) == null) {
+            return new HlsSampleStreamWrapper(i, this, new HlsChunkSource(this.extractorFactory, this.playlistTracker, hlsUrlArr, this.dataSourceFactory, this.timestampAdjusterProvider, list), this.allocator, j, format, this.minLoadableRetryCount, this.eventDispatcher);
+        }
+        return (HlsSampleStreamWrapper) invokeCommon.objValue;
     }
 
     private void continuePreparingOrLoading() {
@@ -149,6 +159,65 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             }
             for (HlsSampleStreamWrapper hlsSampleStreamWrapper : this.sampleStreamWrappers) {
                 hlsSampleStreamWrapper.continuePreparing();
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public long getBufferedPositionUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sequenceableLoader.getBufferedPositionUs();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public long getNextLoadPositionUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.sequenceableLoader.getNextLoadPositionUs();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public TrackGroupArray getTrackGroups() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.trackGroups;
+        }
+        return (TrackGroupArray) invokeV.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public void maybeThrowPrepareError() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            for (HlsSampleStreamWrapper hlsSampleStreamWrapper : this.sampleStreamWrappers) {
+                hlsSampleStreamWrapper.maybeThrowPrepareError();
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.PlaylistEventListener
+    public void onPlaylistChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            continuePreparingOrLoading();
+        }
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.playlistTracker.removeListener(this);
+            this.continueLoadingHandler.removeCallbacksAndMessages(null);
+            for (HlsSampleStreamWrapper hlsSampleStreamWrapper : this.sampleStreamWrappers) {
+                hlsSampleStreamWrapper.release();
             }
         }
     }
@@ -175,7 +244,10 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
     public boolean continueLoading(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.sequenceableLoader.continueLoading(j) : invokeJ.booleanValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.sequenceableLoader.continueLoading(j);
+        }
+        return invokeJ.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
@@ -188,35 +260,22 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
         }
     }
 
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public long getBufferedPositionUs() {
-        InterceptResult invokeV;
+    @Override // com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper.Callback
+    public void onPlaylistRefreshRequired(HlsMasterPlaylist.HlsUrl hlsUrl) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sequenceableLoader.getBufferedPositionUs() : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public long getNextLoadPositionUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sequenceableLoader.getNextLoadPositionUs() : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public TrackGroupArray getTrackGroups() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.trackGroups : (TrackGroupArray) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void maybeThrowPrepareError() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            for (HlsSampleStreamWrapper hlsSampleStreamWrapper : this.sampleStreamWrappers) {
-                hlsSampleStreamWrapper.maybeThrowPrepareError();
-            }
+        if (interceptable == null || interceptable.invokeL(1048586, this, hlsUrl) == null) {
+            this.playlistTracker.refreshPlaylist(hlsUrl);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
+    public void onContinueLoadingRequested(HlsSampleStreamWrapper hlsSampleStreamWrapper) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, hlsSampleStreamWrapper) != null) || this.trackGroups == null) {
+            return;
+        }
+        this.callback.onContinueLoadingRequested(this);
     }
 
     @Override // com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.PlaylistEventListener
@@ -230,19 +289,13 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
         }
     }
 
-    @Override // com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.PlaylistEventListener
-    public void onPlaylistChanged() {
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public void prepare(MediaPeriod.Callback callback, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            continuePreparingOrLoading();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.hls.HlsSampleStreamWrapper.Callback
-    public void onPlaylistRefreshRequired(HlsMasterPlaylist.HlsUrl hlsUrl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, hlsUrl) == null) {
-            this.playlistTracker.refreshPlaylist(hlsUrl);
+        if (interceptable == null || interceptable.invokeLJ(1048588, this, callback, j) == null) {
+            this.callback = callback;
+            this.playlistTracker.addListener(this);
+            buildAndPrepareSampleStreamWrappers(j);
         }
     }
 
@@ -277,34 +330,6 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void prepare(MediaPeriod.Callback callback, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048588, this, callback, j) == null) {
-            this.callback = callback;
-            this.playlistTracker.addListener(this);
-            buildAndPrepareSampleStreamWrappers(j);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long readDiscontinuity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? C.TIME_UNSET : invokeV.longValue;
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.playlistTracker.removeListener(this);
-            this.continueLoadingHandler.removeCallbacksAndMessages(null);
-            for (HlsSampleStreamWrapper hlsSampleStreamWrapper : this.sampleStreamWrappers) {
-                hlsSampleStreamWrapper.release();
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
     public long seekToUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -333,13 +358,21 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
     @Override // com.google.android.exoplayer2.source.MediaPeriod
     public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j) {
         InterceptResult invokeCommon;
+        boolean z;
+        SampleStream sampleStream;
+        int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j)})) == null) {
             SampleStream[] sampleStreamArr2 = sampleStreamArr;
             int[] iArr = new int[trackSelectionArr.length];
             int[] iArr2 = new int[trackSelectionArr.length];
             for (int i = 0; i < trackSelectionArr.length; i++) {
-                iArr[i] = sampleStreamArr2[i] == null ? -1 : this.streamWrapperIndices.get(sampleStreamArr2[i]).intValue();
+                if (sampleStreamArr2[i] == null) {
+                    intValue = -1;
+                } else {
+                    intValue = ((Integer) this.streamWrapperIndices.get(sampleStreamArr2[i])).intValue();
+                }
+                iArr[i] = intValue;
                 iArr2[i] = -1;
                 if (trackSelectionArr[i] != null) {
                     TrackGroup trackGroup = trackSelectionArr[i].getTrackGroup();
@@ -365,11 +398,16 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             HlsSampleStreamWrapper[] hlsSampleStreamWrapperArr2 = new HlsSampleStreamWrapper[this.sampleStreamWrappers.length];
             int i3 = 0;
             int i4 = 0;
-            boolean z = false;
+            boolean z2 = false;
             while (i4 < this.sampleStreamWrappers.length) {
                 for (int i5 = 0; i5 < trackSelectionArr.length; i5++) {
                     TrackSelection trackSelection = null;
-                    sampleStreamArr4[i5] = iArr[i5] == i4 ? sampleStreamArr2[i5] : null;
+                    if (iArr[i5] == i4) {
+                        sampleStream = sampleStreamArr2[i5];
+                    } else {
+                        sampleStream = null;
+                    }
+                    sampleStreamArr4[i5] = sampleStream;
                     if (iArr2[i5] == i4) {
                         trackSelection = trackSelectionArr[i5];
                     }
@@ -381,24 +419,33 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
                 int i8 = i4;
                 TrackSelection[] trackSelectionArr3 = trackSelectionArr2;
                 HlsSampleStreamWrapper[] hlsSampleStreamWrapperArr3 = hlsSampleStreamWrapperArr2;
-                boolean selectTracks = hlsSampleStreamWrapper.selectTracks(trackSelectionArr2, zArr, sampleStreamArr4, zArr2, j, z);
+                boolean selectTracks = hlsSampleStreamWrapper.selectTracks(trackSelectionArr2, zArr, sampleStreamArr4, zArr2, j, z2);
                 int i9 = 0;
-                boolean z2 = false;
+                boolean z3 = false;
                 while (true) {
+                    boolean z4 = true;
                     if (i9 >= trackSelectionArr.length) {
                         break;
                     }
                     if (iArr2[i9] == i8) {
-                        Assertions.checkState(sampleStreamArr4[i9] != null);
+                        if (sampleStreamArr4[i9] != null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        Assertions.checkState(z);
                         sampleStreamArr3[i9] = sampleStreamArr4[i9];
                         this.streamWrapperIndices.put(sampleStreamArr4[i9], Integer.valueOf(i8));
-                        z2 = true;
+                        z3 = true;
                     } else if (iArr[i9] == i8) {
-                        Assertions.checkState(sampleStreamArr4[i9] == null);
+                        if (sampleStreamArr4[i9] != null) {
+                            z4 = false;
+                        }
+                        Assertions.checkState(z4);
                     }
                     i9++;
                 }
-                if (z2) {
+                if (z3) {
                     hlsSampleStreamWrapperArr3[i6] = hlsSampleStreamWrapper;
                     i3 = i6 + 1;
                     if (i6 == 0) {
@@ -409,11 +456,11 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
                                 if (hlsSampleStreamWrapper == hlsSampleStreamWrapperArr4[0]) {
                                 }
                                 this.timestampAdjusterProvider.reset();
-                                z = true;
+                                z2 = true;
                             }
                         }
                         this.timestampAdjusterProvider.reset();
-                        z = true;
+                        z2 = true;
                     } else {
                         hlsSampleStreamWrapper.setIsTimestampMaster(false);
                     }
@@ -433,15 +480,5 @@ public final class HlsMediaPeriod implements MediaPeriod, HlsSampleStreamWrapper
             return j;
         }
         return invokeCommon.longValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
-    public void onContinueLoadingRequested(HlsSampleStreamWrapper hlsSampleStreamWrapper) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, hlsSampleStreamWrapper) == null) || this.trackGroups == null) {
-            return;
-        }
-        this.callback.onContinueLoadingRequested(this);
     }
 }

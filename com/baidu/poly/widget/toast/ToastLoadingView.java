@@ -49,52 +49,11 @@ public class ToastLoadingView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f8, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092279);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09227c);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f9, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092263);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092266);
             this.c = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010098);
             setClickable(true);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            if (layoutParams == null) {
-                setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                return;
-            }
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-        }
-    }
-
-    public boolean getIsLoading() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void setLoading(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            b();
-            this.d = z;
-            if (z) {
-                setVisibility(0);
-                this.a.startAnimation(this.c);
-                return;
-            }
-            this.a.clearAnimation();
-            setVisibility(8);
-        }
-    }
-
-    public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b.setText(str);
         }
     }
 
@@ -139,5 +98,49 @@ public class ToastLoadingView extends FrameLayout {
             }
         }
         a(context);
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+            if (layoutParams == null) {
+                setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                return;
+            }
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+        }
+    }
+
+    public boolean getIsLoading() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setLoading(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            b();
+            this.d = z;
+            if (z) {
+                setVisibility(0);
+                this.a.startAnimation(this.c);
+                return;
+            }
+            this.a.clearAnimation();
+            setVisibility(8);
+        }
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b.setText(str);
+        }
     }
 }

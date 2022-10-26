@@ -33,11 +33,10 @@ public class b {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what != 1) {
-                return;
+            if (message.what == 1) {
+                b.this.f();
+                sendEmptyMessageDelayed(1, 1000L);
             }
-            b.this.f();
-            sendEmptyMessageDelayed(1, 1000L);
         }
     }
 
@@ -84,6 +83,11 @@ public class b {
         }
     }
 
+    public void g() {
+        f();
+        g = -1L;
+    }
+
     public void f() {
         long mobileRxBytes;
         try {
@@ -105,10 +109,5 @@ public class b {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void g() {
-        f();
-        g = -1L;
     }
 }

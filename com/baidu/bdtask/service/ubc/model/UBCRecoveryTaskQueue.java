@@ -18,7 +18,7 @@ public final class UBCRecoveryTaskQueue implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public UBCRecoveryTaskInfo active;
-    public List<UBCRecoveryTaskInfo> passive;
+    public List passive;
 
     public UBCRecoveryTaskQueue() {
         Interceptable interceptable = $ic;
@@ -50,20 +50,29 @@ public final class UBCRecoveryTaskQueue implements ITaskModelData {
     public final UBCRecoveryTaskInfo getActive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.active : (UBCRecoveryTaskInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.active;
+        }
+        return (UBCRecoveryTaskInfo) invokeV.objValue;
     }
 
-    public final List<UBCRecoveryTaskInfo> getPassive() {
+    public final List getPassive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.passive : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.passive;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ITaskModelData.a.a(this) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ITaskModelData.a.a(this);
+        }
+        return invokeV.booleanValue;
     }
 
     public final void setActive(UBCRecoveryTaskInfo uBCRecoveryTaskInfo) {
@@ -73,7 +82,7 @@ public final class UBCRecoveryTaskQueue implements ITaskModelData {
         }
     }
 
-    public final void setPassive(List<UBCRecoveryTaskInfo> list) {
+    public final void setPassive(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.passive = list;

@@ -1,6 +1,5 @@
 package org.webrtc;
 
-import android.annotation.TargetApi;
 import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;
@@ -21,7 +20,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-@TargetApi(18)
 /* loaded from: classes8.dex */
 public class EglBase14 implements EglBase {
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,7 +34,7 @@ public class EglBase14 implements EglBase {
     public EGLSurface eglSurface;
 
     /* loaded from: classes8.dex */
-    public static class Context implements EglBase.Context {
+    public class Context implements EglBase.Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final EGLContext egl14Context;
@@ -60,11 +58,16 @@ public class EglBase14 implements EglBase {
         }
 
         @Override // org.webrtc.EglBase.Context
-        @TargetApi(21)
         public long getNativeEglContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? EglBase14.CURRENT_SDK_VERSION >= 21 ? this.egl14Context.getNativeHandle() : this.egl14Context.getHandle() : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (EglBase14.CURRENT_SDK_VERSION >= 21) {
+                    return this.egl14Context.getNativeHandle();
+                }
+                return this.egl14Context.getHandle();
+            }
+            return invokeV.longValue;
         }
     }
 
@@ -82,6 +85,86 @@ public class EglBase14 implements EglBase {
             }
         }
         CURRENT_SDK_VERSION = Build.VERSION.SDK_INT;
+    }
+
+    private void checkIsNotReleased() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            if (this.eglDisplay != EGL14.EGL_NO_DISPLAY && this.eglContext != EGL14.EGL_NO_CONTEXT && this.eglConfig != null) {
+                return;
+            }
+            throw new RuntimeException("This object has been released");
+        }
+    }
+
+    @Override // org.webrtc.EglBase
+    public void createDummyPbufferSurface() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            createPbufferSurface(1, 1);
+        }
+    }
+
+    @Override // org.webrtc.EglBase
+    public boolean hasSurface() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.webrtc.EglBase
+    public void releaseSurface() {
+        EGLSurface eGLSurface;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (eGLSurface = this.eglSurface) != EGL14.EGL_NO_SURFACE) {
+            EGL14.eglDestroySurface(this.eglDisplay, eGLSurface);
+            this.eglSurface = EGL14.EGL_NO_SURFACE;
+        }
+    }
+
+    @Override // org.webrtc.EglBase
+    public int surfaceHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            int[] iArr = new int[1];
+            EGL14.eglQuerySurface(this.eglDisplay, this.eglSurface, 12374, iArr, 0);
+            return iArr[0];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // org.webrtc.EglBase
+    public int surfaceWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int[] iArr = new int[1];
+            EGL14.eglQuerySurface(this.eglDisplay, this.eglSurface, 12375, iArr, 0);
+            return iArr[0];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // org.webrtc.EglBase
+    public void swapBuffers() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            checkIsNotReleased();
+            if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
+                synchronized (EglBase.lock) {
+                    EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
+                }
+                return;
+            }
+            throw new RuntimeException("No EGLSurface - can't swap buffers");
+        }
     }
 
     public EglBase14(Context context, int[] iArr) {
@@ -107,13 +190,25 @@ public class EglBase14 implements EglBase {
         this.eglContext = createEglContext(context, this.eglDisplay, eglConfig);
     }
 
-    private void checkIsNotReleased() {
+    public static EGLConfig getEglConfig(EGLDisplay eGLDisplay, int[] iArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (this.eglDisplay == EGL14.EGL_NO_DISPLAY || this.eglContext == EGL14.EGL_NO_CONTEXT || this.eglConfig == null) {
-                throw new RuntimeException("This object has been released");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, eGLDisplay, iArr)) == null) {
+            EGLConfig[] eGLConfigArr = new EGLConfig[1];
+            int[] iArr2 = new int[1];
+            if (EGL14.eglChooseConfig(eGLDisplay, iArr, 0, eGLConfigArr, 0, 1, iArr2, 0)) {
+                if (iArr2[0] > 0) {
+                    EGLConfig eGLConfig = eGLConfigArr[0];
+                    if (eGLConfig != null) {
+                        return eGLConfig;
+                    }
+                    throw new RuntimeException("eglChooseConfig returned null");
+                }
+                throw new RuntimeException("Unable to find any matching EGL config");
             }
+            throw new RuntimeException("eglChooseConfig failed: 0x" + Integer.toHexString(EGL14.eglGetError()));
         }
+        return (EGLConfig) invokeLL.objValue;
     }
 
     public static EGLContext createEglContext(@Nullable Context context, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
@@ -161,27 +256,6 @@ public class EglBase14 implements EglBase {
         }
     }
 
-    public static EGLConfig getEglConfig(EGLDisplay eGLDisplay, int[] iArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, eGLDisplay, iArr)) == null) {
-            EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            int[] iArr2 = new int[1];
-            if (EGL14.eglChooseConfig(eGLDisplay, iArr, 0, eGLConfigArr, 0, 1, iArr2, 0)) {
-                if (iArr2[0] > 0) {
-                    EGLConfig eGLConfig = eGLConfigArr[0];
-                    if (eGLConfig != null) {
-                        return eGLConfig;
-                    }
-                    throw new RuntimeException("eglChooseConfig returned null");
-                }
-                throw new RuntimeException("Unable to find any matching EGL config");
-            }
-            throw new RuntimeException("eglChooseConfig failed: 0x" + Integer.toHexString(EGL14.eglGetError()));
-        }
-        return (EGLConfig) invokeLL.objValue;
-    }
-
     public static EGLDisplay getEglDisplay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,24 +275,53 @@ public class EglBase14 implements EglBase {
 
     public static boolean isEGL14Supported() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("SDK version: ");
             sb.append(CURRENT_SDK_VERSION);
             sb.append(". isEGL14Supported: ");
-            sb.append(CURRENT_SDK_VERSION >= 18);
+            if (CURRENT_SDK_VERSION >= 18) {
+                z = true;
+            } else {
+                z = false;
+            }
+            sb.append(z);
             Logging.d(TAG, sb.toString());
-            return CURRENT_SDK_VERSION >= 18;
+            if (CURRENT_SDK_VERSION >= 18) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     @Override // org.webrtc.EglBase
-    public void createDummyPbufferSurface() {
+    public void detachCurrent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            createPbufferSurface(1, 1);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (EglBase.lock) {
+                if (!EGL14.eglMakeCurrent(this.eglDisplay, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT)) {
+                    throw new RuntimeException("eglDetachCurrent failed: 0x" + Integer.toHexString(EGL14.eglGetError()));
+                }
+            }
+        }
+    }
+
+    @Override // org.webrtc.EglBase
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            checkIsNotReleased();
+            releaseSurface();
+            detachCurrent();
+            EGL14.eglDestroyContext(this.eglDisplay, this.eglContext);
+            EGL14.eglReleaseThread();
+            EGL14.eglTerminate(this.eglDisplay);
+            this.eglContext = EGL14.EGL_NO_CONTEXT;
+            this.eglDisplay = EGL14.EGL_NO_DISPLAY;
+            this.eglConfig = null;
         }
     }
 
@@ -240,6 +343,14 @@ public class EglBase14 implements EglBase {
     }
 
     @Override // org.webrtc.EglBase
+    public void createSurface(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
+            createSurfaceInternal(surfaceTexture);
+        }
+    }
+
+    @Override // org.webrtc.EglBase
     public void createSurface(Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, surface) == null) {
@@ -247,23 +358,15 @@ public class EglBase14 implements EglBase {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // org.webrtc.EglBase
-    public void detachCurrent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (EglBase.lock) {
-                if (!EGL14.eglMakeCurrent(this.eglDisplay, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT)) {
-                    throw new RuntimeException("eglDetachCurrent failed: 0x" + Integer.toHexString(EGL14.eglGetError()));
-                }
-            }
-        }
-    }
-
-    @Override // org.webrtc.EglBase
-    public boolean hasSurface() {
+    public Context getEglBaseContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.eglSurface != EGL14.EGL_NO_SURFACE : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new Context(this.eglContext);
+        }
+        return (Context) invokeV.objValue;
     }
 
     @Override // org.webrtc.EglBase
@@ -281,88 +384,6 @@ public class EglBase14 implements EglBase {
             }
             throw new RuntimeException("No EGLSurface - can't make current");
         }
-    }
-
-    @Override // org.webrtc.EglBase
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            checkIsNotReleased();
-            releaseSurface();
-            detachCurrent();
-            EGL14.eglDestroyContext(this.eglDisplay, this.eglContext);
-            EGL14.eglReleaseThread();
-            EGL14.eglTerminate(this.eglDisplay);
-            this.eglContext = EGL14.EGL_NO_CONTEXT;
-            this.eglDisplay = EGL14.EGL_NO_DISPLAY;
-            this.eglConfig = null;
-        }
-    }
-
-    @Override // org.webrtc.EglBase
-    public void releaseSurface() {
-        EGLSurface eGLSurface;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (eGLSurface = this.eglSurface) == EGL14.EGL_NO_SURFACE) {
-            return;
-        }
-        EGL14.eglDestroySurface(this.eglDisplay, eGLSurface);
-        this.eglSurface = EGL14.EGL_NO_SURFACE;
-    }
-
-    @Override // org.webrtc.EglBase
-    public int surfaceHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int[] iArr = new int[1];
-            EGL14.eglQuerySurface(this.eglDisplay, this.eglSurface, 12374, iArr, 0);
-            return iArr[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // org.webrtc.EglBase
-    public int surfaceWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int[] iArr = new int[1];
-            EGL14.eglQuerySurface(this.eglDisplay, this.eglSurface, 12375, iArr, 0);
-            return iArr[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // org.webrtc.EglBase
-    public void swapBuffers() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            checkIsNotReleased();
-            if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
-                synchronized (EglBase.lock) {
-                    EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
-                }
-                return;
-            }
-            throw new RuntimeException("No EGLSurface - can't swap buffers");
-        }
-    }
-
-    @Override // org.webrtc.EglBase
-    public void createSurface(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
-            createSurfaceInternal(surfaceTexture);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // org.webrtc.EglBase
-    public Context getEglBaseContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Context(this.eglContext) : (Context) invokeV.objValue;
     }
 
     @Override // org.webrtc.EglBase

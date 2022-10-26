@@ -1,69 +1,163 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tieba.jo2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sa3 {
+public final class sa3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
 
-    public sa3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public final class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oa3 a;
+
+        public a(oa3 oa3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oa3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oa3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                t93.k("4165", this.a.f());
             }
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.c = j;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948144644, "Lcom/baidu/tieba/sa3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948144644, "Lcom/baidu/tieba/sa3;");
+                return;
+            }
         }
+        a = wj1.a;
     }
 
-    public void e(String str) {
+    public static String a(Response response) {
+        InterceptResult invokeL;
+        ResponseBody body;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, response)) == null) {
+            if (response == null || (body = response.body()) == null) {
+                return "";
+            }
+            JSONObject jSONObject = null;
+            try {
+                str = body.string();
+            } catch (IOException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                str = null;
+            }
+            if (str == null) {
+                return "";
+            }
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+            if (jSONObject == null) {
+                return "";
+            }
+            return jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "");
         }
+        return (String) invokeL.objValue;
     }
 
-    public void f(long j) {
+    public static void b(String str, int i, String str2, int i2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.b = j;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) != null) || TextUtils.equals(str, "getLocation")) {
+            return;
+        }
+        c(str, i, str2, i2, str3, null);
+    }
+
+    public static void c(String str, int i, String str2, int i2, String str3, Response response) {
+        u22 H;
+        sp1 o3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, response}) == null) {
+            oa3 oa3Var = new oa3();
+            m33 b0 = m33.b0();
+            if (b0 == null || (H = zo2.U().H()) == null || (o3 = H.o3()) == null) {
+                return;
+            }
+            String m = o3.m();
+            jo2.a W = b0.W();
+            String Z = b0.Z();
+            String appId = b0.getAppId();
+            String W2 = W.W();
+            String v1 = W.v1();
+            String i3 = rc3.i(zo2.U().M(), W.G());
+            String a2 = a(response);
+            String d = NetworkUtils.d();
+            oa3Var.a = fa3.n(W.G());
+            oa3Var.c = b0.W().T();
+            oa3Var.d = b0.W().V();
+            oa3Var.f = appId;
+            oa3Var.a("name", Z);
+            oa3Var.a("apiName", str);
+            oa3Var.a("errorCode", String.valueOf(i));
+            oa3Var.a("errorMsg", str2);
+            oa3Var.a("pagePath", m);
+            if (i2 != -1) {
+                oa3Var.a("oldErrorCode", String.valueOf(i2));
+            }
+            oa3Var.a("oldErrorMsg", str3);
+            oa3Var.a("scheme", W2);
+            oa3Var.a("appVersion", v1);
+            oa3Var.a("swan", i3);
+            oa3Var.a(BaseJsonData.TAG_REQUESTID, a2);
+            oa3Var.a("net", d);
+            if (xa4.b() != null) {
+                oa3Var.a("SDKVersion", xa4.b().b());
+                oa3Var.a("hostName", xa4.b().c());
+            }
+            gg3.j(new a(oa3Var), "monitor");
         }
     }
 }

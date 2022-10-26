@@ -33,6 +33,15 @@ public final class PlaybackParameters {
         DEFAULT = new PlaybackParameters(1.0f, 1.0f);
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((527 + Float.floatToRawIntBits(this.speed)) * 31) + Float.floatToRawIntBits(this.pitch);
+        }
+        return invokeV.intValue;
+    }
+
     public PlaybackParameters(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,7 +73,10 @@ public final class PlaybackParameters {
                 return false;
             }
             PlaybackParameters playbackParameters = (PlaybackParameters) obj;
-            return this.speed == playbackParameters.speed && this.pitch == playbackParameters.pitch;
+            if (this.speed == playbackParameters.speed && this.pitch == playbackParameters.pitch) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -72,12 +84,9 @@ public final class PlaybackParameters {
     public long getSpeedAdjustedDurationUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? j * this.scaledUsPerMs : invokeJ.longValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((527 + Float.floatToRawIntBits(this.speed)) * 31) + Float.floatToRawIntBits(this.pitch) : invokeV.intValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return j * this.scaledUsPerMs;
+        }
+        return invokeJ.longValue;
     }
 }

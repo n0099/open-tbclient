@@ -15,7 +15,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class GeobFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<GeobFrame> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String ID = "GEOB";
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] data;
@@ -36,7 +36,7 @@ public final class GeobFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<GeobFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.GeobFrame.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.GeobFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,23 +55,70 @@ public final class GeobFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GeobFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new GeobFrame(parcel) : (GeobFrame) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new GeobFrame(parcel);
+                }
+                return (GeobFrame) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GeobFrame[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GeobFrame[i] : (GeobFrame[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new GeobFrame[i];
+                }
+                return (GeobFrame[]) invokeI.objValue;
             }
         };
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GeobFrame(Parcel parcel) {
+        super(ID);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mimeType = parcel.readString();
+        this.filename = parcel.readString();
+        this.description = parcel.readString();
+        this.data = parcel.createByteArray();
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || GeobFrame.class != obj.getClass()) {
+                return false;
+            }
+            GeobFrame geobFrame = (GeobFrame) obj;
+            if (Util.areEqual(this.mimeType, geobFrame.mimeType) && Util.areEqual(this.filename, geobFrame.filename) && Util.areEqual(this.description, geobFrame.description) && Arrays.equals(this.data, geobFrame.data)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,32 +145,32 @@ public final class GeobFrame extends Id3Frame {
         this.data = bArr;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || GeobFrame.class != obj.getClass()) {
-                return false;
-            }
-            GeobFrame geobFrame = (GeobFrame) obj;
-            return Util.areEqual(this.mimeType, geobFrame.mimeType) && Util.areEqual(this.filename, geobFrame.filename) && Util.areEqual(this.description, geobFrame.description) && Arrays.equals(this.data, geobFrame.data);
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.mimeType;
-            int hashCode = (527 + (str != null ? str.hashCode() : 0)) * 31;
+            int i3 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i4 = (527 + i) * 31;
             String str2 = this.filename;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            if (str2 != null) {
+                i2 = str2.hashCode();
+            } else {
+                i2 = 0;
+            }
+            int i5 = (i4 + i2) * 31;
             String str3 = this.description;
-            return ((hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31) + Arrays.hashCode(this.data);
+            if (str3 != null) {
+                i3 = str3.hashCode();
+            }
+            return ((i5 + i3) * 31) + Arrays.hashCode(this.data);
         }
         return invokeV.intValue;
     }
@@ -137,29 +184,5 @@ public final class GeobFrame extends Id3Frame {
             parcel.writeString(this.description);
             parcel.writeByteArray(this.data);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GeobFrame(Parcel parcel) {
-        super(ID);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mimeType = parcel.readString();
-        this.filename = parcel.readString();
-        this.description = parcel.readString();
-        this.data = parcel.createByteArray();
     }
 }

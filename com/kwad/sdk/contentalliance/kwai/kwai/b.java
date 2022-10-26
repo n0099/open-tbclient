@@ -1,6 +1,5 @@
 package com.kwad.sdk.contentalliance.kwai.kwai;
 
-import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
 /* loaded from: classes7.dex */
@@ -13,7 +12,7 @@ public final class b {
     public String videoUrl;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public com.kwad.sdk.contentalliance.kwai.kwai.a Te;
         public AdTemplate adTemplate;
         public boolean isNoCache = false;
@@ -39,7 +38,7 @@ public final class b {
             return this;
         }
 
-        public final a b(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.a aVar) {
+        public final a b(com.kwad.sdk.contentalliance.kwai.kwai.a aVar) {
             this.Te = aVar;
             return this;
         }

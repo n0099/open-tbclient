@@ -30,6 +30,12 @@ public final class GenericGF {
     public final int size;
     public final GenericGFPoly zero;
 
+    public static int addOrSubtract(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? i ^ i2 : invokeII.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -89,12 +95,6 @@ public final class GenericGF {
         this.one = new GenericGFPoly(this, new int[]{1});
     }
 
-    public static int addOrSubtract(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? i ^ i2 : invokeII.intValue;
-    }
-
     public GenericGFPoly buildMonomial(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -112,34 +112,27 @@ public final class GenericGF {
         return (GenericGFPoly) invokeII.objValue;
     }
 
+    public int multiply(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
+            if (i != 0 && i2 != 0) {
+                int[] iArr = this.expTable;
+                int[] iArr2 = this.logTable;
+                return iArr[(iArr2[i] + iArr2[i2]) % (this.size - 1)];
+            }
+            return 0;
+        }
+        return invokeII.intValue;
+    }
+
     public int exp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.expTable[i] : invokeI.intValue;
-    }
-
-    public int getGeneratorBase() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.generatorBase : invokeV.intValue;
-    }
-
-    public GenericGFPoly getOne() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.one : (GenericGFPoly) invokeV.objValue;
-    }
-
-    public int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.size : invokeV.intValue;
-    }
-
-    public GenericGFPoly getZero() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zero : (GenericGFPoly) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.expTable[i];
+        }
+        return invokeI.intValue;
     }
 
     public int inverse(int i) {
@@ -166,18 +159,40 @@ public final class GenericGF {
         return invokeI.intValue;
     }
 
-    public int multiply(int i, int i2) {
-        InterceptResult invokeII;
+    public int getGeneratorBase() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
-            if (i == 0 || i2 == 0) {
-                return 0;
-            }
-            int[] iArr = this.expTable;
-            int[] iArr2 = this.logTable;
-            return iArr[(iArr2[i] + iArr2[i2]) % (this.size - 1)];
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.generatorBase;
         }
-        return invokeII.intValue;
+        return invokeV.intValue;
+    }
+
+    public GenericGFPoly getOne() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.one;
+        }
+        return (GenericGFPoly) invokeV.objValue;
+    }
+
+    public int getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.size;
+        }
+        return invokeV.intValue;
+    }
+
+    public GenericGFPoly getZero() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.zero;
+        }
+        return (GenericGFPoly) invokeV.objValue;
     }
 
     public String toString() {

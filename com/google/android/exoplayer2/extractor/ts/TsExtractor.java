@@ -70,15 +70,22 @@ public final class TsExtractor implements Extractor {
     public ExtractorOutput output;
     public final TsPayloadReader.Factory payloadReaderFactory;
     public int remainingPmts;
-    public final List<TimestampAdjuster> timestampAdjusters;
+    public final List timestampAdjusters;
     public final SparseBooleanArray trackIds;
     public boolean tracksEnded;
     public final ParsableByteArray tsPacketBuffer;
-    public final SparseArray<TsPayloadReader> tsPayloadReaders;
+    public final SparseArray tsPayloadReaders;
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
     public @interface Mode {
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
     }
 
     /* loaded from: classes7.dex */
@@ -87,6 +94,13 @@ public final class TsExtractor implements Extractor {
         public transient /* synthetic */ FieldHolder $fh;
         public final ParsableBitArray patScratch;
         public final /* synthetic */ TsExtractor this$0;
+
+        @Override // com.google.android.exoplayer2.extractor.ts.SectionPayloadReader
+        public void init(TimestampAdjuster timestampAdjuster, ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timestampAdjuster, extractorOutput, trackIdGenerator) == null) {
+            }
+        }
 
         public PatReader(TsExtractor tsExtractor) {
             Interceptable interceptable = $ic;
@@ -110,31 +124,25 @@ public final class TsExtractor implements Extractor {
         @Override // com.google.android.exoplayer2.extractor.ts.SectionPayloadReader
         public void consume(ParsableByteArray parsableByteArray) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) && parsableByteArray.readUnsignedByte() == 0) {
-                parsableByteArray.skipBytes(7);
-                int bytesLeft = parsableByteArray.bytesLeft() / 4;
-                for (int i = 0; i < bytesLeft; i++) {
-                    parsableByteArray.readBytes(this.patScratch, 4);
-                    int readBits = this.patScratch.readBits(16);
-                    this.patScratch.skipBits(3);
-                    if (readBits == 0) {
-                        this.patScratch.skipBits(13);
-                    } else {
-                        int readBits2 = this.patScratch.readBits(13);
-                        this.this$0.tsPayloadReaders.put(readBits2, new SectionReader(new PmtReader(this.this$0, readBits2)));
-                        TsExtractor.access$108(this.this$0);
-                    }
-                }
-                if (this.this$0.mode != 2) {
-                    this.this$0.tsPayloadReaders.remove(0);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, parsableByteArray) != null) || parsableByteArray.readUnsignedByte() != 0) {
+                return;
+            }
+            parsableByteArray.skipBytes(7);
+            int bytesLeft = parsableByteArray.bytesLeft() / 4;
+            for (int i = 0; i < bytesLeft; i++) {
+                parsableByteArray.readBytes(this.patScratch, 4);
+                int readBits = this.patScratch.readBits(16);
+                this.patScratch.skipBits(3);
+                if (readBits == 0) {
+                    this.patScratch.skipBits(13);
+                } else {
+                    int readBits2 = this.patScratch.readBits(13);
+                    this.this$0.tsPayloadReaders.put(readBits2, new SectionReader(new PmtReader(this.this$0, readBits2)));
+                    TsExtractor.access$108(this.this$0);
                 }
             }
-        }
-
-        @Override // com.google.android.exoplayer2.extractor.ts.SectionPayloadReader
-        public void init(TimestampAdjuster timestampAdjuster, ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timestampAdjuster, extractorOutput, trackIdGenerator) == null) {
+            if (this.this$0.mode != 2) {
+                this.this$0.tsPayloadReaders.remove(0);
             }
         }
     }
@@ -153,7 +161,14 @@ public final class TsExtractor implements Extractor {
         public final ParsableBitArray pmtScratch;
         public final /* synthetic */ TsExtractor this$0;
         public final SparseIntArray trackIdToPidScratch;
-        public final SparseArray<TsPayloadReader> trackIdToReaderScratch;
+        public final SparseArray trackIdToReaderScratch;
+
+        @Override // com.google.android.exoplayer2.extractor.ts.SectionPayloadReader
+        public void init(TimestampAdjuster timestampAdjuster, ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timestampAdjuster, extractorOutput, trackIdGenerator) == null) {
+            }
+        }
 
         public PmtReader(TsExtractor tsExtractor, int i) {
             Interceptable interceptable = $ic;
@@ -172,7 +187,7 @@ public final class TsExtractor implements Extractor {
             }
             this.this$0 = tsExtractor;
             this.pmtScratch = new ParsableBitArray(new byte[5]);
-            this.trackIdToReaderScratch = new SparseArray<>();
+            this.trackIdToReaderScratch = new SparseArray();
             this.trackIdToPidScratch = new SparseIntArray();
             this.pid = i;
         }
@@ -234,89 +249,93 @@ public final class TsExtractor implements Extractor {
         @Override // com.google.android.exoplayer2.extractor.ts.SectionPayloadReader
         public void consume(ParsableByteArray parsableByteArray) {
             TimestampAdjuster timestampAdjuster;
+            int i;
+            TsPayloadReader createPayloadReader;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) && parsableByteArray.readUnsignedByte() == 2) {
-                if (this.this$0.mode == 1 || this.this$0.mode == 2 || this.this$0.remainingPmts == 1) {
-                    timestampAdjuster = (TimestampAdjuster) this.this$0.timestampAdjusters.get(0);
-                } else {
-                    timestampAdjuster = new TimestampAdjuster(((TimestampAdjuster) this.this$0.timestampAdjusters.get(0)).getFirstSampleTimestampUs());
-                    this.this$0.timestampAdjusters.add(timestampAdjuster);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, parsableByteArray) != null) || parsableByteArray.readUnsignedByte() != 2) {
+                return;
+            }
+            if (this.this$0.mode != 1 && this.this$0.mode != 2 && this.this$0.remainingPmts != 1) {
+                timestampAdjuster = new TimestampAdjuster(((TimestampAdjuster) this.this$0.timestampAdjusters.get(0)).getFirstSampleTimestampUs());
+                this.this$0.timestampAdjusters.add(timestampAdjuster);
+            } else {
+                timestampAdjuster = (TimestampAdjuster) this.this$0.timestampAdjusters.get(0);
+            }
+            parsableByteArray.skipBytes(2);
+            int readUnsignedShort = parsableByteArray.readUnsignedShort();
+            int i2 = 5;
+            parsableByteArray.skipBytes(5);
+            parsableByteArray.readBytes(this.pmtScratch, 2);
+            int i3 = 4;
+            this.pmtScratch.skipBits(4);
+            parsableByteArray.skipBytes(this.pmtScratch.readBits(12));
+            if (this.this$0.mode == 2 && this.this$0.id3Reader == null) {
+                TsPayloadReader.EsInfo esInfo = new TsPayloadReader.EsInfo(21, null, null, new byte[0]);
+                TsExtractor tsExtractor = this.this$0;
+                tsExtractor.id3Reader = tsExtractor.payloadReaderFactory.createPayloadReader(21, esInfo);
+                this.this$0.id3Reader.init(timestampAdjuster, this.this$0.output, new TsPayloadReader.TrackIdGenerator(readUnsignedShort, 21, 8192));
+            }
+            this.trackIdToReaderScratch.clear();
+            this.trackIdToPidScratch.clear();
+            int bytesLeft = parsableByteArray.bytesLeft();
+            while (bytesLeft > 0) {
+                parsableByteArray.readBytes(this.pmtScratch, i2);
+                int readBits = this.pmtScratch.readBits(8);
+                this.pmtScratch.skipBits(3);
+                int readBits2 = this.pmtScratch.readBits(13);
+                this.pmtScratch.skipBits(i3);
+                int readBits3 = this.pmtScratch.readBits(12);
+                TsPayloadReader.EsInfo readEsInfo = readEsInfo(parsableByteArray, readBits3);
+                if (readBits == 6) {
+                    readBits = readEsInfo.streamType;
                 }
-                parsableByteArray.skipBytes(2);
-                int readUnsignedShort = parsableByteArray.readUnsignedShort();
-                int i = 5;
-                parsableByteArray.skipBytes(5);
-                parsableByteArray.readBytes(this.pmtScratch, 2);
-                int i2 = 4;
-                this.pmtScratch.skipBits(4);
-                parsableByteArray.skipBytes(this.pmtScratch.readBits(12));
-                if (this.this$0.mode == 2 && this.this$0.id3Reader == null) {
-                    TsPayloadReader.EsInfo esInfo = new TsPayloadReader.EsInfo(21, null, null, new byte[0]);
-                    TsExtractor tsExtractor = this.this$0;
-                    tsExtractor.id3Reader = tsExtractor.payloadReaderFactory.createPayloadReader(21, esInfo);
-                    this.this$0.id3Reader.init(timestampAdjuster, this.this$0.output, new TsPayloadReader.TrackIdGenerator(readUnsignedShort, 21, 8192));
-                }
-                this.trackIdToReaderScratch.clear();
-                this.trackIdToPidScratch.clear();
-                int bytesLeft = parsableByteArray.bytesLeft();
-                while (bytesLeft > 0) {
-                    parsableByteArray.readBytes(this.pmtScratch, i);
-                    int readBits = this.pmtScratch.readBits(8);
-                    this.pmtScratch.skipBits(3);
-                    int readBits2 = this.pmtScratch.readBits(13);
-                    this.pmtScratch.skipBits(i2);
-                    int readBits3 = this.pmtScratch.readBits(12);
-                    TsPayloadReader.EsInfo readEsInfo = readEsInfo(parsableByteArray, readBits3);
-                    if (readBits == 6) {
-                        readBits = readEsInfo.streamType;
-                    }
-                    bytesLeft -= readBits3 + 5;
-                    int i3 = this.this$0.mode == 2 ? readBits : readBits2;
-                    if (!this.this$0.trackIds.get(i3)) {
-                        TsPayloadReader createPayloadReader = (this.this$0.mode == 2 && readBits == 21) ? this.this$0.id3Reader : this.this$0.payloadReaderFactory.createPayloadReader(readBits, readEsInfo);
-                        if (this.this$0.mode != 2 || readBits2 < this.trackIdToPidScratch.get(i3, 8192)) {
-                            this.trackIdToPidScratch.put(i3, readBits2);
-                            this.trackIdToReaderScratch.put(i3, createPayloadReader);
-                        }
-                    }
-                    i = 5;
-                    i2 = 4;
-                }
-                int size = this.trackIdToPidScratch.size();
-                for (int i4 = 0; i4 < size; i4++) {
-                    int keyAt = this.trackIdToPidScratch.keyAt(i4);
-                    this.this$0.trackIds.put(keyAt, true);
-                    TsPayloadReader valueAt = this.trackIdToReaderScratch.valueAt(i4);
-                    if (valueAt != null) {
-                        if (valueAt != this.this$0.id3Reader) {
-                            valueAt.init(timestampAdjuster, this.this$0.output, new TsPayloadReader.TrackIdGenerator(readUnsignedShort, keyAt, 8192));
-                        }
-                        this.this$0.tsPayloadReaders.put(this.trackIdToPidScratch.valueAt(i4), valueAt);
-                    }
-                }
+                bytesLeft -= readBits3 + 5;
                 if (this.this$0.mode == 2) {
-                    if (this.this$0.tracksEnded) {
-                        return;
+                    i = readBits;
+                } else {
+                    i = readBits2;
+                }
+                if (!this.this$0.trackIds.get(i)) {
+                    if (this.this$0.mode != 2 || readBits != 21) {
+                        createPayloadReader = this.this$0.payloadReaderFactory.createPayloadReader(readBits, readEsInfo);
+                    } else {
+                        createPayloadReader = this.this$0.id3Reader;
                     }
+                    if (this.this$0.mode != 2 || readBits2 < this.trackIdToPidScratch.get(i, 8192)) {
+                        this.trackIdToPidScratch.put(i, readBits2);
+                        this.trackIdToReaderScratch.put(i, createPayloadReader);
+                    }
+                }
+                i2 = 5;
+                i3 = 4;
+            }
+            int size = this.trackIdToPidScratch.size();
+            for (int i4 = 0; i4 < size; i4++) {
+                int keyAt = this.trackIdToPidScratch.keyAt(i4);
+                this.this$0.trackIds.put(keyAt, true);
+                TsPayloadReader tsPayloadReader = (TsPayloadReader) this.trackIdToReaderScratch.valueAt(i4);
+                if (tsPayloadReader != null) {
+                    if (tsPayloadReader != this.this$0.id3Reader) {
+                        tsPayloadReader.init(timestampAdjuster, this.this$0.output, new TsPayloadReader.TrackIdGenerator(readUnsignedShort, keyAt, 8192));
+                    }
+                    this.this$0.tsPayloadReaders.put(this.trackIdToPidScratch.valueAt(i4), tsPayloadReader);
+                }
+            }
+            if (this.this$0.mode == 2) {
+                if (!this.this$0.tracksEnded) {
                     this.this$0.output.endTracks();
                     this.this$0.remainingPmts = 0;
                     this.this$0.tracksEnded = true;
                     return;
                 }
-                this.this$0.tsPayloadReaders.remove(this.pid);
-                TsExtractor tsExtractor2 = this.this$0;
-                tsExtractor2.remainingPmts = tsExtractor2.mode != 1 ? this.this$0.remainingPmts - 1 : 0;
-                if (this.this$0.remainingPmts == 0) {
-                    this.this$0.output.endTracks();
-                    this.this$0.tracksEnded = true;
-                }
+                return;
             }
-        }
-
-        @Override // com.google.android.exoplayer2.extractor.ts.SectionPayloadReader
-        public void init(TimestampAdjuster timestampAdjuster, ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timestampAdjuster, extractorOutput, trackIdGenerator) == null) {
+            this.this$0.tsPayloadReaders.remove(this.pid);
+            TsExtractor tsExtractor2 = this.this$0;
+            tsExtractor2.remainingPmts = tsExtractor2.mode != 1 ? this.this$0.remainingPmts - 1 : 0;
+            if (this.this$0.remainingPmts == 0) {
+                this.this$0.output.endTracks();
+                this.this$0.tracksEnded = true;
             }
         }
     }
@@ -382,153 +401,6 @@ public final class TsExtractor implements Extractor {
         }
     }
 
-    public static /* synthetic */ int access$108(TsExtractor tsExtractor) {
-        int i = tsExtractor.remainingPmts;
-        tsExtractor.remainingPmts = i + 1;
-        return i;
-    }
-
-    private void resetPayloadReaders() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            this.trackIds.clear();
-            this.tsPayloadReaders.clear();
-            SparseArray<TsPayloadReader> createInitialPayloadReaders = this.payloadReaderFactory.createInitialPayloadReaders();
-            int size = createInitialPayloadReaders.size();
-            for (int i = 0; i < size; i++) {
-                this.tsPayloadReaders.put(createInitialPayloadReaders.keyAt(i), createInitialPayloadReaders.valueAt(i));
-            }
-            this.tsPayloadReaders.put(0, new SectionReader(new PatReader(this)));
-            this.id3Reader = null;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void init(ExtractorOutput extractorOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, extractorOutput) == null) {
-            this.output = extractorOutput;
-            extractorOutput.seekMap(new SeekMap.Unseekable(C.TIME_UNSET));
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorInput, positionHolder)) == null) {
-            ParsableByteArray parsableByteArray = this.tsPacketBuffer;
-            byte[] bArr = parsableByteArray.data;
-            if (9400 - parsableByteArray.getPosition() < 188) {
-                int bytesLeft = this.tsPacketBuffer.bytesLeft();
-                if (bytesLeft > 0) {
-                    System.arraycopy(bArr, this.tsPacketBuffer.getPosition(), bArr, 0, bytesLeft);
-                }
-                this.tsPacketBuffer.reset(bArr, bytesLeft);
-            }
-            while (this.tsPacketBuffer.bytesLeft() < 188) {
-                int limit = this.tsPacketBuffer.limit();
-                int read = extractorInput.read(bArr, limit, 9400 - limit);
-                if (read == -1) {
-                    return -1;
-                }
-                this.tsPacketBuffer.setLimit(limit + read);
-            }
-            int limit2 = this.tsPacketBuffer.limit();
-            int position = this.tsPacketBuffer.getPosition();
-            while (position < limit2 && bArr[position] != 71) {
-                position++;
-            }
-            this.tsPacketBuffer.setPosition(position);
-            int i = position + TS_PACKET_SIZE;
-            if (i > limit2) {
-                return 0;
-            }
-            int readInt = this.tsPacketBuffer.readInt();
-            if ((8388608 & readInt) != 0) {
-                this.tsPacketBuffer.setPosition(i);
-                return 0;
-            }
-            boolean z = (4194304 & readInt) != 0;
-            int i2 = (2096896 & readInt) >> 8;
-            boolean z2 = (readInt & 32) != 0;
-            TsPayloadReader tsPayloadReader = (readInt & 16) != 0 ? this.tsPayloadReaders.get(i2) : null;
-            if (tsPayloadReader == null) {
-                this.tsPacketBuffer.setPosition(i);
-                return 0;
-            }
-            if (this.mode != 2) {
-                int i3 = readInt & 15;
-                int i4 = this.continuityCounters.get(i2, i3 - 1);
-                this.continuityCounters.put(i2, i3);
-                if (i4 == i3) {
-                    this.tsPacketBuffer.setPosition(i);
-                    return 0;
-                } else if (i3 != ((i4 + 1) & 15)) {
-                    tsPayloadReader.seek();
-                }
-            }
-            if (z2) {
-                this.tsPacketBuffer.skipBytes(this.tsPacketBuffer.readUnsignedByte());
-            }
-            this.tsPacketBuffer.setLimit(i);
-            tsPayloadReader.consume(this.tsPacketBuffer, z);
-            this.tsPacketBuffer.setLimit(limit2);
-            this.tsPacketBuffer.setPosition(i);
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            int size = this.timestampAdjusters.size();
-            for (int i = 0; i < size; i++) {
-                this.timestampAdjusters.get(i).reset();
-            }
-            this.tsPacketBuffer.reset();
-            this.continuityCounters.clear();
-            resetPayloadReaders();
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0025, code lost:
-        r2 = r2 + 1;
-     */
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
-            byte[] bArr = this.tsPacketBuffer.data;
-            extractorInput.peekFully(bArr, 0, CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE);
-            int i = 0;
-            while (i < 188) {
-                for (int i2 = 0; i2 != 5; i2++) {
-                    if (bArr[(i2 * TS_PACKET_SIZE) + i] != 71) {
-                        break;
-                    }
-                }
-                extractorInput.skipFully(i);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TsExtractor(int i) {
         this(1, i);
@@ -571,6 +443,20 @@ public final class TsExtractor implements Extractor {
         }
     }
 
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void seek(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            int size = this.timestampAdjusters.size();
+            for (int i = 0; i < size; i++) {
+                ((TimestampAdjuster) this.timestampAdjusters.get(i)).reset();
+            }
+            this.tsPacketBuffer.reset();
+            this.continuityCounters.clear();
+            resetPayloadReaders();
+        }
+    }
+
     public TsExtractor(int i, TimestampAdjuster timestampAdjuster, TsPayloadReader.Factory factory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -597,8 +483,155 @@ public final class TsExtractor implements Extractor {
         }
         this.tsPacketBuffer = new ParsableByteArray((int) BUFFER_SIZE);
         this.trackIds = new SparseBooleanArray();
-        this.tsPayloadReaders = new SparseArray<>();
+        this.tsPayloadReaders = new SparseArray();
         this.continuityCounters = new SparseIntArray();
         resetPayloadReaders();
+    }
+
+    public static /* synthetic */ int access$108(TsExtractor tsExtractor) {
+        int i = tsExtractor.remainingPmts;
+        tsExtractor.remainingPmts = i + 1;
+        return i;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void init(ExtractorOutput extractorOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, extractorOutput) == null) {
+            this.output = extractorOutput;
+            extractorOutput.seekMap(new SeekMap.Unseekable(C.TIME_UNSET));
+        }
+    }
+
+    private void resetPayloadReaders() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            this.trackIds.clear();
+            this.tsPayloadReaders.clear();
+            SparseArray createInitialPayloadReaders = this.payloadReaderFactory.createInitialPayloadReaders();
+            int size = createInitialPayloadReaders.size();
+            for (int i = 0; i < size; i++) {
+                this.tsPayloadReaders.put(createInitialPayloadReaders.keyAt(i), createInitialPayloadReaders.valueAt(i));
+            }
+            this.tsPayloadReaders.put(0, new SectionReader(new PatReader(this)));
+            this.id3Reader = null;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
+        InterceptResult invokeLL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        TsPayloadReader tsPayloadReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorInput, positionHolder)) == null) {
+            ParsableByteArray parsableByteArray = this.tsPacketBuffer;
+            byte[] bArr = parsableByteArray.data;
+            if (9400 - parsableByteArray.getPosition() < 188) {
+                int bytesLeft = this.tsPacketBuffer.bytesLeft();
+                if (bytesLeft > 0) {
+                    System.arraycopy(bArr, this.tsPacketBuffer.getPosition(), bArr, 0, bytesLeft);
+                }
+                this.tsPacketBuffer.reset(bArr, bytesLeft);
+            }
+            while (this.tsPacketBuffer.bytesLeft() < 188) {
+                int limit = this.tsPacketBuffer.limit();
+                int read = extractorInput.read(bArr, limit, 9400 - limit);
+                if (read == -1) {
+                    return -1;
+                }
+                this.tsPacketBuffer.setLimit(limit + read);
+            }
+            int limit2 = this.tsPacketBuffer.limit();
+            int position = this.tsPacketBuffer.getPosition();
+            while (position < limit2 && bArr[position] != 71) {
+                position++;
+            }
+            this.tsPacketBuffer.setPosition(position);
+            int i = position + TS_PACKET_SIZE;
+            if (i > limit2) {
+                return 0;
+            }
+            int readInt = this.tsPacketBuffer.readInt();
+            if ((8388608 & readInt) != 0) {
+                this.tsPacketBuffer.setPosition(i);
+                return 0;
+            }
+            if ((4194304 & readInt) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int i2 = (2096896 & readInt) >> 8;
+            if ((readInt & 32) != 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if ((readInt & 16) != 0) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if (z3) {
+                tsPayloadReader = (TsPayloadReader) this.tsPayloadReaders.get(i2);
+            } else {
+                tsPayloadReader = null;
+            }
+            if (tsPayloadReader == null) {
+                this.tsPacketBuffer.setPosition(i);
+                return 0;
+            }
+            if (this.mode != 2) {
+                int i3 = readInt & 15;
+                int i4 = this.continuityCounters.get(i2, i3 - 1);
+                this.continuityCounters.put(i2, i3);
+                if (i4 == i3) {
+                    this.tsPacketBuffer.setPosition(i);
+                    return 0;
+                } else if (i3 != ((i4 + 1) & 15)) {
+                    tsPayloadReader.seek();
+                }
+            }
+            if (z2) {
+                this.tsPacketBuffer.skipBytes(this.tsPacketBuffer.readUnsignedByte());
+            }
+            this.tsPacketBuffer.setLimit(i);
+            tsPayloadReader.consume(this.tsPacketBuffer, z);
+            this.tsPacketBuffer.setLimit(limit2);
+            this.tsPacketBuffer.setPosition(i);
+            return 0;
+        }
+        return invokeLL.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0025, code lost:
+        r2 = r2 + 1;
+     */
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
+            byte[] bArr = this.tsPacketBuffer.data;
+            extractorInput.peekFully(bArr, 0, CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE);
+            int i = 0;
+            while (i < 188) {
+                for (int i2 = 0; i2 != 5; i2++) {
+                    if (bArr[(i2 * TS_PACKET_SIZE) + i] != 71) {
+                        break;
+                    }
+                }
+                extractorInput.skipFully(i);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

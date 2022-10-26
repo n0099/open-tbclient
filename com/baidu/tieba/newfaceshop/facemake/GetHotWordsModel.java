@@ -24,6 +24,23 @@ public class GetHotWordsModel extends FaceBaseModel {
     public final HttpMessageListener b;
 
     /* loaded from: classes5.dex */
+    public interface b {
+        void onFail(int i, String str);
+
+        void onSuccess(List list);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,22 +71,16 @@ public class GetHotWordsModel extends FaceBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003352 && (httpResponsedMessage instanceof GetHotWordsMessage) && this.a.a != null) {
-                GetHotWordsMessage getHotWordsMessage = (GetHotWordsMessage) httpResponsedMessage;
-                if (getHotWordsMessage.getData() != null) {
-                    this.a.a.onSuccess(getHotWordsMessage.getData());
-                } else {
-                    this.a.a.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003352 || !(httpResponsedMessage instanceof GetHotWordsMessage) || this.a.a == null) {
+                return;
+            }
+            GetHotWordsMessage getHotWordsMessage = (GetHotWordsMessage) httpResponsedMessage;
+            if (getHotWordsMessage.getData() != null) {
+                this.a.a.onSuccess(getHotWordsMessage.getData());
+            } else {
+                this.a.a.onFail(getHotWordsMessage.getError(), getHotWordsMessage.getErrorString());
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onFail(int i, String str);
-
-        void onSuccess(List<String> list);
     }
 
     public GetHotWordsModel() {
@@ -109,16 +120,6 @@ public class GetHotWordsModel extends FaceBaseModel {
             MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
             return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
         }
         return invokeV.booleanValue;
     }

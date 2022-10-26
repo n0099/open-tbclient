@@ -2,8 +2,6 @@ package com.google.android.gms.common.api;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,23 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.ReflectedParcelable;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-@KeepForSdk
-@SafeParcelable.Class(creator = "ScopeCreator")
 /* loaded from: classes7.dex */
 public final class Scope extends AbstractSafeParcelable implements ReflectedParcelable {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
-    public static final Parcelable.Creator<Scope> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    @SafeParcelable.VersionField(id = 1)
     public final int zza;
-    @SafeParcelable.Field(getter = "getScopeUri", id = 2)
     public final String zzb;
 
     static {
@@ -47,8 +38,19 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
         CREATOR = new zza();
     }
 
-    @SafeParcelable.Constructor
-    public Scope(@SafeParcelable.Param(id = 1) int i, @SafeParcelable.Param(id = 2) String str) {
+    public String getScopeUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb : (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzb : (String) invokeV.objValue;
+    }
+
+    public Scope(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,55 +70,8 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
         this.zzb = str;
     }
 
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof Scope) {
-                return this.zzb.equals(((Scope) obj).zzb);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
-    @KeepForSdk
-    public String getScopeUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb : (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzb.hashCode() : invokeV.intValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzb : (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
-            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
-            SafeParcelWriter.writeInt(parcel, 1, this.zza);
-            SafeParcelWriter.writeString(parcel, 2, getScopeUri(), false);
-            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Scope(@NonNull String str) {
+    public Scope(String str) {
         this(1, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,6 +88,41 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof Scope)) {
+                return false;
+            }
+            return this.zzb.equals(((Scope) obj).zzb);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.zzb.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
+            int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
+            SafeParcelWriter.writeInt(parcel, 1, this.zza);
+            SafeParcelWriter.writeString(parcel, 2, getScopeUri(), false);
+            SafeParcelWriter.finishObjectHeader(parcel, beginObjectHeader);
         }
     }
 }

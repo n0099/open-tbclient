@@ -28,7 +28,7 @@ public class HostInfo implements HostManager {
     public static final String TEST_HOST = "datatest.bigda.com";
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicInteger errorCount;
-    public volatile List<InetAddress> ips;
+    public volatile List ips;
     public AtomicLong preChangeTime;
     public volatile String testServer;
     public volatile boolean useIp;
@@ -56,10 +56,13 @@ public class HostInfo implements HostManager {
     private boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? HiidoSDK.isDebugMode : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return HiidoSDK.isDebugMode;
+        }
+        return invokeV.booleanValue;
     }
 
-    private List<InetAddress> trans(String[] strArr) {
+    private List trans(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, strArr)) == null) {
@@ -81,11 +84,25 @@ public class HostInfo implements HostManager {
     public String getHost(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? isDebug() ? this.testServer : HiidoSDK.getHiidoHost() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            if (isDebug()) {
+                return this.testServer;
+            }
+            return HiidoSDK.getHiidoHost();
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.yy.hiidostatis.message.HostManager
-    public List<InetAddress> lookup(String str) throws UnknownHostException {
+    public void onSuccess(Call call) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, call) == null) && this.errorCount.decrementAndGet() < 0) {
+            this.errorCount.set(0);
+        }
+    }
+
+    @Override // com.yy.hiidostatis.message.HostManager
+    public List lookup(String str) throws UnknownHostException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -118,14 +135,5 @@ public class HostInfo implements HostManager {
                 }
             }
         }
-    }
-
-    @Override // com.yy.hiidostatis.message.HostManager
-    public void onSuccess(Call call) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, call) == null) || this.errorCount.decrementAndGet() >= 0) {
-            return;
-        }
-        this.errorCount.set(0);
     }
 }

@@ -27,8 +27,18 @@ public class ShaderConfig implements Parcelable, Cloneable {
     public List<ShaderParams> vParams;
     public String vertexShader;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<ShaderConfig> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +62,10 @@ public class ShaderConfig implements Parcelable, Cloneable {
         public ShaderConfig createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ShaderConfig(parcel) : (ShaderConfig) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new ShaderConfig(parcel);
+            }
+            return (ShaderConfig) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +74,10 @@ public class ShaderConfig implements Parcelable, Cloneable {
         public ShaderConfig[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ShaderConfig[i] : (ShaderConfig[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ShaderConfig[i];
+            }
+            return (ShaderConfig[]) invokeI.objValue;
         }
     }
 
@@ -121,6 +137,54 @@ public class ShaderConfig implements Parcelable, Cloneable {
         return (ShaderConfig) invokeV.objValue;
     }
 
+    public static ShaderConfig getLutShaderConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            ShaderConfig shaderConfig = new ShaderConfig();
+            shaderConfig.resourcePath = "";
+            shaderConfig.fragmentShader = "defaultLut";
+            return shaderConfig;
+        }
+        return (ShaderConfig) invokeV.objValue;
+    }
+
+    public static ShaderConfig getStickerShaderConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            ShaderConfig shaderConfig = new ShaderConfig();
+            shaderConfig.resourcePath = "";
+            shaderConfig.fragmentShader = "defaultSticker";
+            return shaderConfig;
+        }
+        return (ShaderConfig) invokeV.objValue;
+    }
+
+    public ShaderConfig(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.resourcePath = "";
+        this.resourcePath = parcel.readString();
+        this.fragmentShader = parcel.readString();
+        this.vertexShader = parcel.readString();
+        this.fParams = parcel.createTypedArrayList(ShaderParams.CREATOR);
+        this.vParams = parcel.createTypedArrayList(ShaderParams.CREATOR);
+        this.textures = parcel.createTypedArrayList(MediaTextureData.CREATOR);
+    }
+
     public static ShaderConfig getGaussianBlurHShaderConfig(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
@@ -155,30 +219,6 @@ public class ShaderConfig implements Parcelable, Cloneable {
             return shaderConfig;
         }
         return (ShaderConfig) invokeF.objValue;
-    }
-
-    public static ShaderConfig getLutShaderConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            ShaderConfig shaderConfig = new ShaderConfig();
-            shaderConfig.resourcePath = "";
-            shaderConfig.fragmentShader = "defaultLut";
-            return shaderConfig;
-        }
-        return (ShaderConfig) invokeV.objValue;
-    }
-
-    public static ShaderConfig getStickerShaderConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            ShaderConfig shaderConfig = new ShaderConfig();
-            shaderConfig.resourcePath = "";
-            shaderConfig.fragmentShader = "defaultSticker";
-            return shaderConfig;
-        }
-        return (ShaderConfig) invokeV.objValue;
     }
 
     public Object clone() {
@@ -217,26 +257,15 @@ public class ShaderConfig implements Parcelable, Cloneable {
         return invokeV.objValue;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public void destroy() {
         List<MediaTextureData> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (list = this.textures) == null) {
-            return;
-        }
-        for (MediaTextureData mediaTextureData : list) {
-            if (mediaTextureData.textureId != 0 && !TextUtils.equals(MediaTextureData.TEXTURE_INPUT, mediaTextureData.type) && !TextUtils.equals(MediaTextureData.TEXTURE_SUBTITLE, mediaTextureData.type)) {
-                GLES20.glDeleteTextures(1, new int[]{mediaTextureData.textureId}, 0);
-                mediaTextureData.textureId = 0;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.textures) != null) {
+            for (MediaTextureData mediaTextureData : list) {
+                if (mediaTextureData.textureId != 0 && !TextUtils.equals(MediaTextureData.TEXTURE_INPUT, mediaTextureData.type) && !TextUtils.equals(MediaTextureData.TEXTURE_SUBTITLE, mediaTextureData.type)) {
+                    GLES20.glDeleteTextures(1, new int[]{mediaTextureData.textureId}, 0);
+                    mediaTextureData.textureId = 0;
+                }
             }
         }
     }
@@ -252,29 +281,5 @@ public class ShaderConfig implements Parcelable, Cloneable {
             parcel.writeTypedList(this.vParams);
             parcel.writeTypedList(this.textures);
         }
-    }
-
-    public ShaderConfig(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.resourcePath = "";
-        this.resourcePath = parcel.readString();
-        this.fragmentShader = parcel.readString();
-        this.vertexShader = parcel.readString();
-        this.fParams = parcel.createTypedArrayList(ShaderParams.CREATOR);
-        this.vParams = parcel.createTypedArrayList(ShaderParams.CREATOR);
-        this.textures = parcel.createTypedArrayList(MediaTextureData.CREATOR);
     }
 }

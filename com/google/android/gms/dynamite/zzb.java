@@ -2,8 +2,6 @@ package com.google.android.gms.dynamite;
 
 import android.os.Looper;
 import android.util.Log;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,11 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public final class zzb {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    @GuardedBy("DynamiteLoaderV2ClassLoader.class")
     public static volatile ClassLoader zza;
-    @Nullable
-    @GuardedBy("DynamiteLoaderV2ClassLoader.class")
     public static volatile Thread zzb;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +29,6 @@ public final class zzb {
         }
     }
 
-    @Nullable
     public static synchronized ClassLoader zza() {
         InterceptResult invokeV;
         ClassLoader classLoader;
@@ -52,9 +45,9 @@ public final class zzb {
         return (ClassLoader) invokeV.objValue;
     }
 
-    @Nullable
     public static synchronized ClassLoader zzb() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (zzb.class) {
@@ -70,7 +63,12 @@ public final class zzb {
                         classLoader = zzb.getContextClassLoader();
                     } catch (SecurityException e) {
                         String valueOf = String.valueOf(e.getMessage());
-                        Log.w("DynamiteLoaderV2CL", valueOf.length() != 0 ? "Failed to get thread context classloader ".concat(valueOf) : new String("Failed to get thread context classloader "));
+                        if (valueOf.length() != 0) {
+                            str = "Failed to get thread context classloader ".concat(valueOf);
+                        } else {
+                            str = new String("Failed to get thread context classloader ");
+                        }
+                        Log.w("DynamiteLoaderV2CL", str);
                     }
                 }
                 return classLoader;
@@ -79,11 +77,11 @@ public final class zzb {
         return (ClassLoader) invokeV.objValue;
     }
 
-    @Nullable
     public static synchronized Thread zzc() {
         InterceptResult invokeV;
         SecurityException e;
         zza zzaVar;
+        String str;
         zza zzaVar2;
         ThreadGroup threadGroup;
         Interceptable interceptable = $ic;
@@ -101,15 +99,16 @@ public final class zzb {
                         int i = 0;
                         int i2 = 0;
                         while (true) {
-                            if (i2 >= activeGroupCount) {
+                            if (i2 < activeGroupCount) {
+                                threadGroup = threadGroupArr[i2];
+                                if ("dynamiteLoader".equals(threadGroup.getName())) {
+                                    break;
+                                }
+                                i2++;
+                            } else {
                                 threadGroup = null;
                                 break;
                             }
-                            threadGroup = threadGroupArr[i2];
-                            if ("dynamiteLoader".equals(threadGroup.getName())) {
-                                break;
-                            }
-                            i2++;
                         }
                         if (threadGroup == null) {
                             threadGroup = new ThreadGroup(threadGroup2, "dynamiteLoader");
@@ -118,15 +117,16 @@ public final class zzb {
                         Thread[] threadArr = new Thread[activeCount];
                         threadGroup.enumerate(threadArr);
                         while (true) {
-                            if (i >= activeCount) {
+                            if (i < activeCount) {
+                                zzaVar2 = threadArr[i];
+                                if ("GmsDynamite".equals(zzaVar2.getName())) {
+                                    break;
+                                }
+                                i++;
+                            } else {
                                 zzaVar2 = null;
                                 break;
                             }
-                            zzaVar2 = threadArr[i];
-                            if ("GmsDynamite".equals(zzaVar2.getName())) {
-                                break;
-                            }
-                            i++;
                         }
                     } catch (SecurityException e2) {
                         e = e2;
@@ -145,7 +145,12 @@ public final class zzb {
                         } catch (SecurityException e4) {
                             e = e4;
                             String valueOf = String.valueOf(e.getMessage());
-                            Log.w("DynamiteLoaderV2CL", valueOf.length() != 0 ? "Failed to enumerate thread/threadgroup ".concat(valueOf) : new String("Failed to enumerate thread/threadgroup "));
+                            if (valueOf.length() != 0) {
+                                str = "Failed to enumerate thread/threadgroup ".concat(valueOf);
+                            } else {
+                                str = new String("Failed to enumerate thread/threadgroup ");
+                            }
+                            Log.w("DynamiteLoaderV2CL", str);
                             zzaVar2 = zzaVar;
                             return zzaVar2;
                         }

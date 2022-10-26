@@ -26,13 +26,13 @@ public final class bx implements ar {
     public SharedPreferences f958a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ConcurrentHashMap<String, a> f959a;
+    public ConcurrentHashMap f959a;
 
     /* renamed from: a  reason: collision with other field name */
     public volatile boolean f960a;
 
     /* loaded from: classes8.dex */
-    public static abstract class a implements Runnable {
+    public abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -96,7 +96,7 @@ public final class bx implements ar {
             }
         }
         this.f960a = false;
-        this.f959a = new ConcurrentHashMap<>();
+        this.f959a = new ConcurrentHashMap();
         this.f957a = context.getApplicationContext();
         this.f958a = context.getSharedPreferences(NativeConstants.COMPONENT_SYNC_TEXT_VIEW, 0);
     }
@@ -129,7 +129,7 @@ public final class bx implements ar {
 
     @Override // com.xiaomi.push.service.ar
     /* renamed from: a  reason: collision with other method in class */
-    public void mo656a() {
+    public void mo655a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f960a) {
             return;

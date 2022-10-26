@@ -10,19 +10,25 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
+        boolean z;
         com.bytedance.pangle.flipped.c aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             int i = Build.VERSION.SDK_INT;
-            boolean z = false;
-            if (i >= 30 || (i == 29 && Build.VERSION.PREVIEW_SDK_INT > 0)) {
+            boolean z2 = false;
+            if (i < 30 && (i != 29 || Build.VERSION.PREVIEW_SDK_INT <= 0)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
                 aVar = new FlippedV2Impl();
             } else {
                 int i2 = Build.VERSION.SDK_INT;
                 if (i2 >= 28 || (i2 == 27 && Build.VERSION.PREVIEW_SDK_INT > 0)) {
-                    z = true;
+                    z2 = true;
                 }
-                if (z) {
+                if (z2) {
                     aVar = new com.bytedance.pangle.flipped.b();
                 } else {
                     aVar = new com.bytedance.pangle.flipped.a();

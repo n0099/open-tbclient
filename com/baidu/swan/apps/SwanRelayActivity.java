@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +32,7 @@ public class SwanRelayActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         ActivityManager activityManager;
         List<ActivityManager.AppTask> appTasks;
         Interceptable interceptable = $ic;

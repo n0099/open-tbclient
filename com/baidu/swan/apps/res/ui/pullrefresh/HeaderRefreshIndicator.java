@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.sm2;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.tm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,55 +39,6 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         }
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.n) {
-            return;
-        }
-        this.n = true;
-        this.o = sm2.M().a();
-        j();
-        setTextSize(1, 11.0f);
-        setCompoundDrawablePadding(ch3.f(getContext(), 5.0f));
-        b(0);
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9));
-            setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603ea));
-            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ba), 0, ch3.f(getContext(), 11.0f), ch3.f(getContext(), 11.0f));
-        }
-    }
-
-    public void k() {
-        boolean a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = sm2.M().a())) {
-            return;
-        }
-        j();
-        this.o = a;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onAttachedToWindow();
-            k();
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -109,5 +60,53 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         }
         this.n = false;
         this.o = false;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.n) {
+            return;
+        }
+        this.n = true;
+        this.o = tm2.M().a();
+        j();
+        setTextSize(1, 11.0f);
+        setCompoundDrawablePadding(dh3.f(getContext(), 5.0f));
+        b(0);
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9));
+            setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603ea));
+            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ba), 0, dh3.f(getContext(), 11.0f), dh3.f(getContext(), 11.0f));
+        }
+    }
+
+    public void k() {
+        boolean a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.o != (a = tm2.M().a())) {
+            j();
+            this.o = a;
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onAttachedToWindow();
+            k();
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+        }
     }
 }

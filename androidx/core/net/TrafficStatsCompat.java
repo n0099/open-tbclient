@@ -3,7 +3,6 @@ package androidx.core.net;
 import android.net.TrafficStats;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +43,10 @@ public final class TrafficStatsCompat {
     public static int getThreadStatsTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? TrafficStats.getThreadStatsTag() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return TrafficStats.getThreadStatsTag();
+        }
+        return invokeV.intValue;
     }
 
     @Deprecated
@@ -63,7 +65,7 @@ public final class TrafficStatsCompat {
         }
     }
 
-    public static void tagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
+    public static void tagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, datagramSocket) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
@@ -84,7 +86,7 @@ public final class TrafficStatsCompat {
         }
     }
 
-    public static void untagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
+    public static void untagDatagramSocket(DatagramSocket datagramSocket) throws SocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, datagramSocket) == null) {
             if (Build.VERSION.SDK_INT >= 24) {

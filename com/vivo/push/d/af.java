@@ -42,7 +42,7 @@ public final class af extends z {
             if (com.vivo.push.e.a().g() && !a(com.vivo.push.util.z.c(this.a), uVar.e(), uVar.i())) {
                 com.vivo.push.util.p.d("OnUndoMsgTask", " vertify msg is error ");
                 com.vivo.push.b.x xVar = new com.vivo.push.b.x(1021L);
-                HashMap<String, String> hashMap = new HashMap<>();
+                HashMap hashMap = new HashMap();
                 hashMap.put("messageID", String.valueOf(uVar.f()));
                 Context context = this.a;
                 String b = com.vivo.push.util.z.b(context, context.getPackageName());

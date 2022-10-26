@@ -1,7 +1,6 @@
 package com.kwad.components.ad.reward.model;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,10 +22,9 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
     public String kY;
     public String liveStartTime;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
     public String np;
-    public List<String> oW;
+    public List oW;
     public String oX;
     public String oY;
     public String oZ;
@@ -35,8 +33,7 @@ public final class a {
     public String pb;
     public String pc;
     public String pd;
-    public List<String> pe;
-    @Nullable
+    public List pe;
     public AdTemplate pf;
     public int playableStyle;
     public String price;
@@ -73,7 +70,6 @@ public final class a {
         }
     }
 
-    @Nullable
     public static a a(u uVar, boolean z) {
         InterceptResult invokeLZ;
         AdTemplate adTemplate;
@@ -97,7 +93,6 @@ public final class a {
         return (a) invokeLZ.objValue;
     }
 
-    @Nullable
     public static a v(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -123,7 +118,6 @@ public final class a {
         return (a) invokeL.objValue;
     }
 
-    @Nullable
     public static a w(AdTemplate adTemplate) {
         InterceptResult invokeL;
         CouponInfo firstCouponList;
@@ -153,7 +147,6 @@ public final class a {
         return (a) invokeL.objValue;
     }
 
-    @Nullable
     public static a x(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -187,14 +180,13 @@ public final class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.np : (String) invokeV.objValue;
     }
 
-    @Nullable
     public final AdTemplate gA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pf : (AdTemplate) invokeV.objValue;
     }
 
-    public final List<String> gB() {
+    public final List gB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.oW : (List) invokeV.objValue;
@@ -204,7 +196,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<String> list = this.oW;
+            List list = this.oW;
             return list == null || list.size() == 0;
         }
         return invokeV.booleanValue;
@@ -240,7 +232,7 @@ public final class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.pa : invokeV.booleanValue;
     }
 
-    public final List<String> gI() {
+    public final List gI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.pe : (List) invokeV.objValue;
@@ -252,7 +244,6 @@ public final class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.liveStartTime : (String) invokeV.objValue;
     }
 
-    @Nullable
     public final com.kwad.components.core.c.a.c getApkDownloadHelper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

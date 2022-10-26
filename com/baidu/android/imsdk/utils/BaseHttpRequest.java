@@ -24,34 +24,6 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     public int mType;
     public String mUUId;
 
-    public BaseHttpRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mUUId = UUID.randomUUID().toString();
-        this.mIsNeedSaveToDb = false;
-        this.mPriority = 15;
-    }
-
-    public static String getHostUrl(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int readIntData = Utility.readIntData(context, Constants.KEY_ENV, 0);
-            return readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? "https://pim.baidu.com/" : Constants.URL_HTTP_BOX : Constants.URL_HTTP_QA : "http://rd-im-server.bcc-szth.baidu.com:8080/";
-        }
-        return (String) invokeL.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getConnectTimeout() {
         InterceptResult invokeV;
@@ -63,21 +35,10 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public abstract Map<String, String> getHeaders();
+    public abstract Map getHeaders();
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public abstract String getHost();
-
-    public String getMd5(String str) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(str.getBytes());
-            return Utility.byte2Hex(messageDigest.digest());
-        }
-        return (String) invokeL.objValue;
-    }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getMethod() {
@@ -103,18 +64,6 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new byte[0] : (byte[]) invokeV.objValue;
     }
 
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mType : invokeV.intValue;
-    }
-
-    public String getUUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUUId : (String) invokeV.objValue;
-    }
-
     public abstract void onFailure(int i, byte[] bArr, Throwable th);
 
     public void onSuccess(int i, byte[] bArr) {
@@ -129,25 +78,22 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         }
     }
 
-    public void setUUid(String str) {
+    public BaseHttpRequest() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.mUUId = str;
-        }
-    }
-
-    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048589, this, i, bArr, th)) == null) {
-            String str = bArr != null ? new String(bArr) : "";
-            if (th == null && i != 1005) {
-                str = "http response is error! response code:" + i;
-                i = 1011;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new Pair<>(Integer.valueOf(i), str);
         }
-        return (Pair) invokeILL.objValue;
+        this.mUUId = UUID.randomUUID().toString();
+        this.mIsNeedSaveToDb = false;
+        this.mPriority = 15;
     }
 
     public BaseHttpRequest(boolean z) {
@@ -169,5 +115,79 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         this.mIsNeedSaveToDb = false;
         this.mPriority = 15;
         this.mIsNeedSaveToDb = z;
+    }
+
+    public static String getHostUrl(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int readIntData = Utility.readIntData(context, Constants.KEY_ENV, 0);
+            if (readIntData != 1) {
+                if (readIntData != 2) {
+                    if (readIntData != 3) {
+                        return "https://pim.baidu.com/";
+                    }
+                    return Constants.URL_HTTP_BOX;
+                }
+                return Constants.URL_HTTP_QA;
+            }
+            return "http://rd-im-server.bcc-szth.baidu.com:8080/";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String getMd5(String str) throws NoSuchAlgorithmException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(str.getBytes());
+            return Utility.byte2Hex(messageDigest.digest());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void setUUid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.mUUId = str;
+        }
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getUUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mUUId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Pair transErrorCode(int i, byte[] bArr, Throwable th) {
+        InterceptResult invokeILL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048589, this, i, bArr, th)) == null) {
+            if (bArr != null) {
+                str = new String(bArr);
+            } else {
+                str = "";
+            }
+            if (th == null && i != 1005) {
+                str = "http response is error! response code:" + i;
+                i = 1011;
+            }
+            return new Pair(Integer.valueOf(i), str);
+        }
+        return (Pair) invokeILL.objValue;
     }
 }

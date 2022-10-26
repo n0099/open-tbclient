@@ -13,6 +13,13 @@ public class DefaultAmendedDeviceScoreModelProvider implements IAmendedDeviceSco
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.aideviceperformance.model.IDevicePerformanceModelInfoProvider
+    public DevicePerformanceModelInfo getDevicePerformanceModelInfo(ModelInfoDataProvider.DevicePerformanceModelInfoType devicePerformanceModelInfoType, DevicePerformanceModelInfo devicePerformanceModelInfo) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, devicePerformanceModelInfoType, devicePerformanceModelInfo)) == null) ? devicePerformanceModelInfo : (DevicePerformanceModelInfo) invokeLL.objValue;
+    }
+
     public DefaultAmendedDeviceScoreModelProvider() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,12 +32,5 @@ public class DefaultAmendedDeviceScoreModelProvider implements IAmendedDeviceSco
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.aideviceperformance.model.IDevicePerformanceModelInfoProvider
-    public DevicePerformanceModelInfo getDevicePerformanceModelInfo(ModelInfoDataProvider.DevicePerformanceModelInfoType devicePerformanceModelInfoType, DevicePerformanceModelInfo devicePerformanceModelInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, devicePerformanceModelInfoType, devicePerformanceModelInfo)) == null) ? devicePerformanceModelInfo : (DevicePerformanceModelInfo) invokeLL.objValue;
     }
 }

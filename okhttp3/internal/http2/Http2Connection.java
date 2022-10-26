@@ -65,11 +65,120 @@ public final class Http2Connection implements Closeable {
     public final Http2Writer writer;
     public final ScheduledExecutorService writerExecutor;
 
+    public boolean pushedStream(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? i != 0 && (i & 1) == 0 : invokeI.booleanValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean client;
+        public String hostname;
+        public Listener listener;
+        public int pingIntervalMillis;
+        public PushObserver pushObserver;
+        public BufferedSink sink;
+        public Socket socket;
+        public BufferedSource source;
+
+        public Builder(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.listener = Listener.REFUSE_INCOMING_STREAMS;
+            this.pushObserver = PushObserver.CANCEL;
+            this.client = z;
+        }
+
+        public Http2Connection build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new Http2Connection(this);
+            }
+            return (Http2Connection) invokeV.objValue;
+        }
+
+        public Builder listener(Listener listener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener)) == null) {
+                this.listener = listener;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder pingIntervalMillis(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.pingIntervalMillis = i;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
+        public Builder pushObserver(PushObserver pushObserver) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pushObserver)) == null) {
+                this.pushObserver = pushObserver;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder socket(Socket socket) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, socket)) == null) {
+                return socket(socket, ((InetSocketAddress) socket.getRemoteSocketAddress()).getHostName(), Okio.buffer(Okio.source(socket)), Okio.buffer(Okio.sink(socket)));
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder socket(Socket socket, String str, BufferedSource bufferedSource, BufferedSink bufferedSink) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, socket, str, bufferedSource, bufferedSink)) == null) {
+                this.socket = socket;
+                this.hostname = str;
+                this.source = bufferedSource;
+                this.sink = bufferedSink;
+                return this;
+            }
+            return (Builder) invokeLLLL.objValue;
+        }
+    }
+
     /* loaded from: classes8.dex */
     public static abstract class Listener {
         public static /* synthetic */ Interceptable $ic;
         public static final Listener REFUSE_INCOMING_STREAMS;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public void onSettings(Http2Connection http2Connection) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, http2Connection) == null) {
+            }
+        }
+
+        public abstract void onStream(Http2Stream http2Stream) throws IOException;
 
         static {
             InterceptResult invokeClinit;
@@ -125,14 +234,6 @@ public final class Http2Connection implements Closeable {
                 }
             }
         }
-
-        public void onSettings(Http2Connection http2Connection) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, http2Connection) == null) {
-            }
-        }
-
-        public abstract void onStream(Http2Stream http2Stream) throws IOException;
     }
 
     /* loaded from: classes8.dex */
@@ -185,6 +286,27 @@ public final class Http2Connection implements Closeable {
         public final Http2Reader reader;
         public final /* synthetic */ Http2Connection this$0;
 
+        @Override // okhttp3.internal.http2.Http2Reader.Handler
+        public void ackSettings() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // okhttp3.internal.http2.Http2Reader.Handler
+        public void alternateService(int i, String str, ByteString byteString, String str2, int i2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, byteString, str2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        @Override // okhttp3.internal.http2.Http2Reader.Handler
+        public void priority(int i, int i2, int i3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+            }
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ReaderRunnable(Http2Connection http2Connection, Http2Reader http2Reader) {
             super("OkHttp %s", http2Connection.hostname);
@@ -206,6 +328,26 @@ public final class Http2Connection implements Closeable {
             }
             this.this$0 = http2Connection;
             this.reader = http2Reader;
+        }
+
+        @Override // okhttp3.internal.http2.Http2Reader.Handler
+        public void windowUpdate(int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (i == 0) {
+                    synchronized (this.this$0) {
+                        this.this$0.bytesLeftInWriteWindow += j;
+                        this.this$0.notifyAll();
+                    }
+                    return;
+                }
+                Http2Stream stream = this.this$0.getStream(i);
+                if (stream != null) {
+                    synchronized (stream) {
+                        stream.addBytesToWriteWindow(j);
+                    }
+                }
+            }
         }
 
         private void applyAndAckSettings(Settings settings) {
@@ -255,20 +397,6 @@ public final class Http2Connection implements Closeable {
                     });
                 } catch (RejectedExecutionException unused) {
                 }
-            }
-        }
-
-        @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void ackSettings() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void alternateService(int i, String str, ByteString byteString, String str2, int i2, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, byteString, str2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             }
         }
 
@@ -364,6 +492,24 @@ public final class Http2Connection implements Closeable {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
+        public void ping(boolean z, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+                if (z) {
+                    synchronized (this.this$0) {
+                        this.this$0.awaitingPong = false;
+                        this.this$0.notifyAll();
+                    }
+                    return;
+                }
+                try {
+                    this.this$0.writerExecutor.execute(new PingRunnable(this.this$0, true, i, i2));
+                } catch (RejectedExecutionException unused) {
+                }
+            }
+        }
+
+        @Override // okhttp3.internal.http2.Http2Reader.Handler
         public void headers(boolean z, int i, int i2, List<Header> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), list}) == null) {
@@ -443,31 +589,6 @@ public final class Http2Connection implements Closeable {
         }
 
         @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void ping(boolean z, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-                if (z) {
-                    synchronized (this.this$0) {
-                        this.this$0.awaitingPong = false;
-                        this.this$0.notifyAll();
-                    }
-                    return;
-                }
-                try {
-                    this.this$0.writerExecutor.execute(new PingRunnable(this.this$0, true, i, i2));
-                } catch (RejectedExecutionException unused) {
-                }
-            }
-        }
-
-        @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void priority(int i, int i2, int i3, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            }
-        }
-
-        @Override // okhttp3.internal.http2.Http2Reader.Handler
         public void pushPromise(int i, int i2, List<Header> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, list) == null) {
@@ -506,9 +627,7 @@ public final class Http2Connection implements Closeable {
                     applyAndAckSettings(settings);
                     int initialWindowSize2 = this.this$0.peerSettings.getInitialWindowSize();
                     http2StreamArr = null;
-                    if (initialWindowSize2 == -1 || initialWindowSize2 == initialWindowSize) {
-                        j = 0;
-                    } else {
+                    if (initialWindowSize2 != -1 && initialWindowSize2 != initialWindowSize) {
                         j = initialWindowSize2 - initialWindowSize;
                         if (!this.this$0.receivedInitialPeerSettings) {
                             this.this$0.receivedInitialPeerSettings = true;
@@ -516,6 +635,8 @@ public final class Http2Connection implements Closeable {
                         if (!this.this$0.streams.isEmpty()) {
                             http2StreamArr = (Http2Stream[]) this.this$0.streams.values().toArray(new Http2Stream[this.this$0.streams.size()]);
                         }
+                    } else {
+                        j = 0;
                     }
                     Http2Connection.listenerExecutor.execute(new NamedRunnable(this, "OkHttp %s settings", this.this$0.hostname) { // from class: okhttp3.internal.http2.Http2Connection.ReaderRunnable.2
                         public static /* synthetic */ Interceptable $ic;
@@ -554,32 +675,11 @@ public final class Http2Connection implements Closeable {
                         }
                     });
                 }
-                if (http2StreamArr == null || j == 0) {
-                    return;
-                }
-                for (Http2Stream http2Stream : http2StreamArr) {
-                    synchronized (http2Stream) {
-                        http2Stream.addBytesToWriteWindow(j);
-                    }
-                }
-            }
-        }
-
-        @Override // okhttp3.internal.http2.Http2Reader.Handler
-        public void windowUpdate(int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (i == 0) {
-                    synchronized (this.this$0) {
-                        this.this$0.bytesLeftInWriteWindow += j;
-                        this.this$0.notifyAll();
-                    }
-                    return;
-                }
-                Http2Stream stream = this.this$0.getStream(i);
-                if (stream != null) {
-                    synchronized (stream) {
-                        stream.addBytesToWriteWindow(j);
+                if (http2StreamArr != null && j != 0) {
+                    for (Http2Stream http2Stream : http2StreamArr) {
+                        synchronized (http2Stream) {
+                            http2Stream.addBytesToWriteWindow(j);
+                        }
                     }
                 }
             }
@@ -603,15 +703,16 @@ public final class Http2Connection implements Closeable {
     }
 
     public Http2Connection(Builder builder) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -627,10 +728,14 @@ public final class Http2Connection implements Closeable {
         boolean z = builder.client;
         this.client = z;
         this.listener = builder.listener;
-        int i3 = z ? 1 : 2;
-        this.nextStreamId = i3;
+        if (z) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        this.nextStreamId = i;
         if (builder.client) {
-            this.nextStreamId = i3 + 2;
+            this.nextStreamId = i + 2;
         }
         if (builder.client) {
             this.okHttpSettings.set(7, 16777216);
@@ -652,17 +757,6 @@ public final class Http2Connection implements Closeable {
         this.readerRunnable = new ReaderRunnable(this, new Http2Reader(builder.source, this.client));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void failConnection() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            try {
-                close(ErrorCode.PROTOCOL_ERROR, ErrorCode.PROTOCOL_ERROR);
-            } catch (IOException unused) {
-            }
-        }
-    }
-
     private synchronized void pushExecutorExecute(NamedRunnable namedRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, namedRunnable) == null) {
@@ -670,6 +764,89 @@ public final class Http2Connection implements Closeable {
                 if (!isShutdown()) {
                     this.pushExecutor.execute(namedRunnable);
                 }
+            }
+        }
+    }
+
+    public synchronized Http2Stream getStream(int i) {
+        InterceptResult invokeI;
+        Http2Stream http2Stream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            synchronized (this) {
+                http2Stream = this.streams.get(Integer.valueOf(i));
+            }
+            return http2Stream;
+        }
+        return (Http2Stream) invokeI.objValue;
+    }
+
+    public synchronized Http2Stream removeStream(int i) {
+        InterceptResult invokeI;
+        Http2Stream remove;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            synchronized (this) {
+                remove = this.streams.remove(Integer.valueOf(i));
+                notifyAll();
+            }
+            return remove;
+        }
+        return (Http2Stream) invokeI.objValue;
+    }
+
+    public void setSettings(Settings settings) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, settings) == null) {
+            synchronized (this.writer) {
+                synchronized (this) {
+                    if (!this.shutdown) {
+                        this.okHttpSettings.merge(settings);
+                    } else {
+                        throw new ConnectionShutdownException();
+                    }
+                }
+                this.writer.settings(settings);
+            }
+        }
+    }
+
+    public void shutdown(ErrorCode errorCode) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, errorCode) == null) {
+            synchronized (this.writer) {
+                synchronized (this) {
+                    if (this.shutdown) {
+                        return;
+                    }
+                    this.shutdown = true;
+                    this.writer.goAway(this.lastGoodStreamId, errorCode, Util.EMPTY_BYTE_ARRAY);
+                }
+            }
+        }
+    }
+
+    public synchronized void updateConnectionFlowControl(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            synchronized (this) {
+                long j2 = this.unacknowledgedBytesRead + j;
+                this.unacknowledgedBytesRead = j2;
+                if (j2 >= this.okHttpSettings.getInitialWindowSize() / 2) {
+                    writeWindowUpdateLater(0, this.unacknowledgedBytesRead);
+                    this.unacknowledgedBytesRead = 0L;
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void failConnection() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            try {
+                close(ErrorCode.PROTOCOL_ERROR, ErrorCode.PROTOCOL_ERROR);
+            } catch (IOException unused) {
             }
         }
     }
@@ -703,20 +880,10 @@ public final class Http2Connection implements Closeable {
     public Protocol getProtocol() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Protocol.HTTP_2 : (Protocol) invokeV.objValue;
-    }
-
-    public synchronized Http2Stream getStream(int i) {
-        InterceptResult invokeI;
-        Http2Stream http2Stream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            synchronized (this) {
-                http2Stream = this.streams.get(Integer.valueOf(i));
-            }
-            return http2Stream;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Protocol.HTTP_2;
         }
-        return (Http2Stream) invokeI.objValue;
+        return (Protocol) invokeV.objValue;
     }
 
     public synchronized boolean isShutdown() {
@@ -745,12 +912,6 @@ public final class Http2Connection implements Closeable {
         return invokeV.intValue;
     }
 
-    public Http2Stream newStream(List<Header> list, boolean z) throws IOException {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, z)) == null) ? newStream(0, list, z) : (Http2Stream) invokeLZ.objValue;
-    }
-
     public synchronized int openStreamCount() {
         InterceptResult invokeV;
         int size;
@@ -762,6 +923,235 @@ public final class Http2Connection implements Closeable {
             return size;
         }
         return invokeV.intValue;
+    }
+
+    public void start() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            start(true);
+        }
+    }
+
+    public void writePingAndAwaitPong() throws InterruptedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            writePing(false, 1330343787, -257978967);
+            awaitPong();
+        }
+    }
+
+    public Http2Stream newStream(List<Header> list, boolean z) throws IOException {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, z)) == null) {
+            return newStream(0, list, z);
+        }
+        return (Http2Stream) invokeLZ.objValue;
+    }
+
+    public void pushResetLater(int i, ErrorCode errorCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, errorCode) == null) {
+            pushExecutorExecute(new NamedRunnable(this, "OkHttp %s Push Reset[%s]", new Object[]{this.hostname, Integer.valueOf(i)}, i, errorCode) { // from class: okhttp3.internal.http2.Http2Connection.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Http2Connection this$0;
+                public final /* synthetic */ ErrorCode val$errorCode;
+                public final /* synthetic */ int val$streamId;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r9, r10);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, r9, r10, Integer.valueOf(i), errorCode};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], (Object[]) objArr2[1]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$streamId = i;
+                    this.val$errorCode = errorCode;
+                }
+
+                @Override // okhttp3.internal.NamedRunnable
+                public void execute() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.pushObserver.onReset(this.val$streamId, this.val$errorCode);
+                        synchronized (this.this$0) {
+                            this.this$0.currentPushRequests.remove(Integer.valueOf(this.val$streamId));
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public void writeSynReset(int i, ErrorCode errorCode) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048602, this, i, errorCode) == null) {
+            this.writer.rstStream(i, errorCode);
+        }
+    }
+
+    public void writeSynResetLater(int i, ErrorCode errorCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048603, this, i, errorCode) == null) {
+            try {
+                this.writerExecutor.execute(new NamedRunnable(this, "OkHttp %s stream %d", new Object[]{this.hostname, Integer.valueOf(i)}, i, errorCode) { // from class: okhttp3.internal.http2.Http2Connection.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Http2Connection this$0;
+                    public final /* synthetic */ ErrorCode val$errorCode;
+                    public final /* synthetic */ int val$streamId;
+
+                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                    {
+                        super(r9, r10);
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, r9, r10, Integer.valueOf(i), errorCode};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                Object[] objArr2 = newInitContext.callArgs;
+                                super((String) objArr2[0], (Object[]) objArr2[1]);
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$streamId = i;
+                        this.val$errorCode = errorCode;
+                    }
+
+                    @Override // okhttp3.internal.NamedRunnable
+                    public void execute() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                this.this$0.writeSynReset(this.val$streamId, this.val$errorCode);
+                            } catch (IOException unused) {
+                                this.this$0.failConnection();
+                            }
+                        }
+                    }
+                });
+            } catch (RejectedExecutionException unused) {
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0047 A[Catch: all -> 0x0079, TryCatch #1 {, blocks: (B:6:0x000a, B:26:0x0053, B:30:0x0062, B:27:0x0059, B:29:0x005d, B:34:0x006b, B:35:0x0072, B:7:0x000b, B:9:0x0012, B:10:0x0017, B:12:0x001b, B:14:0x002f, B:16:0x0037, B:21:0x0041, B:23:0x0047, B:24:0x0050, B:36:0x0073, B:37:0x0078), top: B:48:0x000a }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private Http2Stream newStream(int i, List<Header> list, boolean z) throws IOException {
+        InterceptResult invokeCommon;
+        int i2;
+        Http2Stream http2Stream;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), list, Boolean.valueOf(z)})) == null) {
+            boolean z3 = !z;
+            synchronized (this.writer) {
+                synchronized (this) {
+                    if (this.nextStreamId > 1073741823) {
+                        shutdown(ErrorCode.REFUSED_STREAM);
+                    }
+                    if (!this.shutdown) {
+                        i2 = this.nextStreamId;
+                        this.nextStreamId += 2;
+                        http2Stream = new Http2Stream(i2, this, z3, false, list);
+                        if (z && this.bytesLeftInWriteWindow != 0 && http2Stream.bytesLeftInWriteWindow != 0) {
+                            z2 = false;
+                            if (http2Stream.isOpen()) {
+                                this.streams.put(Integer.valueOf(i2), http2Stream);
+                            }
+                        }
+                        z2 = true;
+                        if (http2Stream.isOpen()) {
+                        }
+                    } else {
+                        throw new ConnectionShutdownException();
+                    }
+                }
+                if (i == 0) {
+                    this.writer.synStream(z3, i2, i, list);
+                } else if (!this.client) {
+                    this.writer.pushPromise(i, i2, list);
+                } else {
+                    throw new IllegalArgumentException("client streams shouldn't have associated stream IDs");
+                }
+            }
+            if (z2) {
+                this.writer.flush();
+            }
+            return http2Stream;
+        }
+        return (Http2Stream) invokeCommon.objValue;
+    }
+
+    public void close(ErrorCode errorCode, ErrorCode errorCode2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, errorCode, errorCode2) == null) {
+            Http2Stream[] http2StreamArr = null;
+            try {
+                shutdown(errorCode);
+                e = null;
+            } catch (IOException e) {
+                e = e;
+            }
+            synchronized (this) {
+                if (!this.streams.isEmpty()) {
+                    http2StreamArr = (Http2Stream[]) this.streams.values().toArray(new Http2Stream[this.streams.size()]);
+                    this.streams.clear();
+                }
+            }
+            if (http2StreamArr != null) {
+                for (Http2Stream http2Stream : http2StreamArr) {
+                    try {
+                        http2Stream.close(errorCode2);
+                    } catch (IOException e2) {
+                        if (e != null) {
+                            e = e2;
+                        }
+                    }
+                }
+            }
+            try {
+                this.writer.close();
+            } catch (IOException e3) {
+                if (e == null) {
+                    e = e3;
+                }
+            }
+            try {
+                this.socket.close();
+            } catch (IOException e4) {
+                e = e4;
+            }
+            this.writerExecutor.shutdown();
+            this.pushExecutor.shutdown();
+            if (e == null) {
+                return;
+            }
+            throw e;
+        }
     }
 
     public void pushDataLater(int i, BufferedSource bufferedSource, int i2, boolean z) throws IOException {
@@ -894,6 +1284,18 @@ public final class Http2Connection implements Closeable {
         }
     }
 
+    public Http2Stream pushStream(int i, List<Header> list, boolean z) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), list, Boolean.valueOf(z)})) == null) {
+            if (!this.client) {
+                return newStream(i, list, z);
+            }
+            throw new IllegalStateException("Client cannot push requests.");
+        }
+        return (Http2Stream) invokeCommon.objValue;
+    }
+
     public void pushRequestLater(int i, List<Header> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, list) == null) {
@@ -955,141 +1357,25 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public void pushResetLater(int i, ErrorCode errorCode) {
+    public void start(boolean z) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i, errorCode) == null) {
-            pushExecutorExecute(new NamedRunnable(this, "OkHttp %s Push Reset[%s]", new Object[]{this.hostname, Integer.valueOf(i)}, i, errorCode) { // from class: okhttp3.internal.http2.Http2Connection.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Http2Connection this$0;
-                public final /* synthetic */ ErrorCode val$errorCode;
-                public final /* synthetic */ int val$streamId;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(r9, r10);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r9, r10, Integer.valueOf(i), errorCode};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            Object[] objArr2 = newInitContext.callArgs;
-                            super((String) objArr2[0], (Object[]) objArr2[1]);
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$streamId = i;
-                    this.val$errorCode = errorCode;
-                }
-
-                @Override // okhttp3.internal.NamedRunnable
-                public void execute() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.pushObserver.onReset(this.val$streamId, this.val$errorCode);
-                        synchronized (this.this$0) {
-                            this.this$0.currentPushRequests.remove(Integer.valueOf(this.val$streamId));
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public Http2Stream pushStream(int i, List<Header> list, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), list, Boolean.valueOf(z)})) == null) {
-            if (!this.client) {
-                return newStream(i, list, z);
-            }
-            throw new IllegalStateException("Client cannot push requests.");
-        }
-        return (Http2Stream) invokeCommon.objValue;
-    }
-
-    public boolean pushedStream(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? i != 0 && (i & 1) == 0 : invokeI.booleanValue;
-    }
-
-    public synchronized Http2Stream removeStream(int i) {
-        InterceptResult invokeI;
-        Http2Stream remove;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            synchronized (this) {
-                remove = this.streams.remove(Integer.valueOf(i));
-                notifyAll();
-            }
-            return remove;
-        }
-        return (Http2Stream) invokeI.objValue;
-    }
-
-    public void setSettings(Settings settings) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, settings) == null) {
-            synchronized (this.writer) {
-                synchronized (this) {
-                    if (!this.shutdown) {
-                        this.okHttpSettings.merge(settings);
-                    } else {
-                        throw new ConnectionShutdownException();
-                    }
-                }
-                this.writer.settings(settings);
-            }
-        }
-    }
-
-    public void shutdown(ErrorCode errorCode) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, errorCode) == null) {
-            synchronized (this.writer) {
-                synchronized (this) {
-                    if (this.shutdown) {
-                        return;
-                    }
-                    this.shutdown = true;
-                    this.writer.goAway(this.lastGoodStreamId, errorCode, Util.EMPTY_BYTE_ARRAY);
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            if (z) {
+                this.writer.connectionPreface();
+                this.writer.settings(this.okHttpSettings);
+                int initialWindowSize = this.okHttpSettings.getInitialWindowSize();
+                if (initialWindowSize != 65535) {
+                    this.writer.windowUpdate(0, initialWindowSize - 65535);
                 }
             }
-        }
-    }
-
-    public void start() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            start(true);
-        }
-    }
-
-    public synchronized void updateConnectionFlowControl(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            synchronized (this) {
-                long j2 = this.unacknowledgedBytesRead + j;
-                this.unacknowledgedBytesRead = j2;
-                if (j2 >= this.okHttpSettings.getInitialWindowSize() / 2) {
-                    writeWindowUpdateLater(0, this.unacknowledgedBytesRead);
-                    this.unacknowledgedBytesRead = 0L;
-                }
-            }
+            new Thread(this.readerRunnable).start();
         }
     }
 
     public void writeData(int i, boolean z, Buffer buffer, long j) throws IOException {
         int min;
         long j2;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), buffer, Long.valueOf(j)}) == null) {
             if (j == 0) {
@@ -1115,7 +1401,13 @@ public final class Http2Connection implements Closeable {
                     this.bytesLeftInWriteWindow -= j2;
                 }
                 j -= j2;
-                this.writer.data(z && j == 0, i, buffer, min);
+                Http2Writer http2Writer = this.writer;
+                if (z && j == 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                http2Writer.data(z2, i, buffer, min);
             }
         }
     }
@@ -1142,77 +1434,10 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    public void writePingAndAwaitPong() throws InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            writePing(false, 1330343787, -257978967);
-            awaitPong();
-        }
-    }
-
     public void writeSynReply(int i, boolean z, List<Header> list) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
             this.writer.synReply(z, i, list);
-        }
-    }
-
-    public void writeSynReset(int i, ErrorCode errorCode) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048602, this, i, errorCode) == null) {
-            this.writer.rstStream(i, errorCode);
-        }
-    }
-
-    public void writeSynResetLater(int i, ErrorCode errorCode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048603, this, i, errorCode) == null) {
-            try {
-                this.writerExecutor.execute(new NamedRunnable(this, "OkHttp %s stream %d", new Object[]{this.hostname, Integer.valueOf(i)}, i, errorCode) { // from class: okhttp3.internal.http2.Http2Connection.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Http2Connection this$0;
-                    public final /* synthetic */ ErrorCode val$errorCode;
-                    public final /* synthetic */ int val$streamId;
-
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(r9, r10);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, r9, r10, Integer.valueOf(i), errorCode};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                Object[] objArr2 = newInitContext.callArgs;
-                                super((String) objArr2[0], (Object[]) objArr2[1]);
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$streamId = i;
-                        this.val$errorCode = errorCode;
-                    }
-
-                    @Override // okhttp3.internal.NamedRunnable
-                    public void execute() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            try {
-                                this.this$0.writeSynReset(this.val$streamId, this.val$errorCode);
-                            } catch (IOException unused) {
-                                this.this$0.failConnection();
-                            }
-                        }
-                    }
-                });
-            } catch (RejectedExecutionException unused) {
-            }
         }
     }
 
@@ -1265,207 +1490,6 @@ public final class Http2Connection implements Closeable {
                 });
             } catch (RejectedExecutionException unused) {
             }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0047 A[Catch: all -> 0x0079, TryCatch #1 {, blocks: (B:6:0x000a, B:26:0x0053, B:30:0x0062, B:27:0x0059, B:29:0x005d, B:34:0x006b, B:35:0x0072, B:7:0x000b, B:9:0x0012, B:10:0x0017, B:12:0x001b, B:14:0x002f, B:16:0x0037, B:21:0x0041, B:23:0x0047, B:24:0x0050, B:36:0x0073, B:37:0x0078), top: B:48:0x000a }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private Http2Stream newStream(int i, List<Header> list, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        int i2;
-        Http2Stream http2Stream;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), list, Boolean.valueOf(z)})) == null) {
-            boolean z3 = !z;
-            synchronized (this.writer) {
-                synchronized (this) {
-                    if (this.nextStreamId > 1073741823) {
-                        shutdown(ErrorCode.REFUSED_STREAM);
-                    }
-                    if (!this.shutdown) {
-                        i2 = this.nextStreamId;
-                        this.nextStreamId += 2;
-                        http2Stream = new Http2Stream(i2, this, z3, false, list);
-                        if (z && this.bytesLeftInWriteWindow != 0 && http2Stream.bytesLeftInWriteWindow != 0) {
-                            z2 = false;
-                            if (http2Stream.isOpen()) {
-                                this.streams.put(Integer.valueOf(i2), http2Stream);
-                            }
-                        }
-                        z2 = true;
-                        if (http2Stream.isOpen()) {
-                        }
-                    } else {
-                        throw new ConnectionShutdownException();
-                    }
-                }
-                if (i == 0) {
-                    this.writer.synStream(z3, i2, i, list);
-                } else if (!this.client) {
-                    this.writer.pushPromise(i, i2, list);
-                } else {
-                    throw new IllegalArgumentException("client streams shouldn't have associated stream IDs");
-                }
-            }
-            if (z2) {
-                this.writer.flush();
-            }
-            return http2Stream;
-        }
-        return (Http2Stream) invokeCommon.objValue;
-    }
-
-    public void close(ErrorCode errorCode, ErrorCode errorCode2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, errorCode, errorCode2) == null) {
-            Http2Stream[] http2StreamArr = null;
-            try {
-                shutdown(errorCode);
-                e = null;
-            } catch (IOException e) {
-                e = e;
-            }
-            synchronized (this) {
-                if (!this.streams.isEmpty()) {
-                    http2StreamArr = (Http2Stream[]) this.streams.values().toArray(new Http2Stream[this.streams.size()]);
-                    this.streams.clear();
-                }
-            }
-            if (http2StreamArr != null) {
-                for (Http2Stream http2Stream : http2StreamArr) {
-                    try {
-                        http2Stream.close(errorCode2);
-                    } catch (IOException e2) {
-                        if (e != null) {
-                            e = e2;
-                        }
-                    }
-                }
-            }
-            try {
-                this.writer.close();
-            } catch (IOException e3) {
-                if (e == null) {
-                    e = e3;
-                }
-            }
-            try {
-                this.socket.close();
-            } catch (IOException e4) {
-                e = e4;
-            }
-            this.writerExecutor.shutdown();
-            this.pushExecutor.shutdown();
-            if (e != null) {
-                throw e;
-            }
-        }
-    }
-
-    public void start(boolean z) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            if (z) {
-                this.writer.connectionPreface();
-                this.writer.settings(this.okHttpSettings);
-                int initialWindowSize = this.okHttpSettings.getInitialWindowSize();
-                if (initialWindowSize != 65535) {
-                    this.writer.windowUpdate(0, initialWindowSize - 65535);
-                }
-            }
-            new Thread(this.readerRunnable).start();
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean client;
-        public String hostname;
-        public Listener listener;
-        public int pingIntervalMillis;
-        public PushObserver pushObserver;
-        public BufferedSink sink;
-        public Socket socket;
-        public BufferedSource source;
-
-        public Builder(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.listener = Listener.REFUSE_INCOMING_STREAMS;
-            this.pushObserver = PushObserver.CANCEL;
-            this.client = z;
-        }
-
-        public Http2Connection build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Http2Connection(this) : (Http2Connection) invokeV.objValue;
-        }
-
-        public Builder listener(Listener listener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener)) == null) {
-                this.listener = listener;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder pingIntervalMillis(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.pingIntervalMillis = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder pushObserver(PushObserver pushObserver) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pushObserver)) == null) {
-                this.pushObserver = pushObserver;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder socket(Socket socket) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, socket)) == null) ? socket(socket, ((InetSocketAddress) socket.getRemoteSocketAddress()).getHostName(), Okio.buffer(Okio.source(socket)), Okio.buffer(Okio.sink(socket))) : (Builder) invokeL.objValue;
-        }
-
-        public Builder socket(Socket socket, String str, BufferedSource bufferedSource, BufferedSink bufferedSink) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, socket, str, bufferedSource, bufferedSink)) == null) {
-                this.socket = socket;
-                this.hostname = str;
-                this.source = bufferedSource;
-                this.sink = bufferedSink;
-                return this;
-            }
-            return (Builder) invokeLLLL.objValue;
         }
     }
 }

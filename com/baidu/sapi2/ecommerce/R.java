@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class anim {
+    public final class anim {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_fade_in = 0x7f010000;
         public static final int abc_fade_out = 0x7f010001;
@@ -64,7 +64,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr {
+    public final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SapiSdkActionText = 0x7f040017;
         public static final int SapiSdkAllowHorizontalScroll = 0x7f040018;
@@ -422,7 +422,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool {
+    public final class bool {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
         public static final int abc_allow_stacked_button_bar = 0x7f050001;
@@ -445,7 +445,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color {
+    public final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_background_cache_hint_selector_material_dark = 0x7f060363;
         public static final int abc_background_cache_hint_selector_material_light = 0x7f060364;
@@ -737,7 +737,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen {
+    public final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_content_inset_material = 0x7f07008b;
         public static final int abc_action_bar_content_inset_with_nav = 0x7f07008c;
@@ -891,7 +891,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable {
+    public final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f08005f;
         public static final int abc_action_bar_item_background_material = 0x7f080060;
@@ -987,136 +987,136 @@ public final class R {
         public static final int btn_radio_off_to_on_mtrl_animation = 0x7f0803e2;
         public static final int btn_radio_on_mtrl = 0x7f0803e3;
         public static final int btn_radio_on_to_off_mtrl_animation = 0x7f0803e4;
-        public static final int notification_action_background = 0x7f080e6d;
-        public static final int notification_bg = 0x7f080e6e;
-        public static final int notification_bg_low = 0x7f080e6f;
-        public static final int notification_bg_low_normal = 0x7f080e70;
-        public static final int notification_bg_low_pressed = 0x7f080e71;
-        public static final int notification_bg_normal = 0x7f080e72;
-        public static final int notification_bg_normal_pressed = 0x7f080e73;
-        public static final int notification_icon_background = 0x7f080e74;
-        public static final int notification_template_icon_bg = 0x7f080e75;
-        public static final int notification_template_icon_low_bg = 0x7f080e76;
-        public static final int notification_tile_bg = 0x7f080e77;
-        public static final int notify_panel_notification_icon_bg = 0x7f080e79;
-        public static final int sapi_sdk_add_addr_list_header_bg = 0x7f080ff7;
-        public static final int sapi_sdk_add_addr_list_header_dark_bg = 0x7f080ff8;
-        public static final int sapi_sdk_add_addr_list_item_bg = 0x7f080ff9;
-        public static final int sapi_sdk_add_addr_list_item_dark_bg = 0x7f080ffa;
-        public static final int sapi_sdk_add_addr_wrap_bg = 0x7f080ffb;
-        public static final int sapi_sdk_add_addr_wrap_dark_bg = 0x7f080ffc;
-        public static final int sapi_sdk_add_address_btn_bg = 0x7f080ffd;
-        public static final int sapi_sdk_add_address_btn_dark_bg = 0x7f080ffe;
-        public static final int sapi_sdk_add_address_default_tag_bg = 0x7f080fff;
-        public static final int sapi_sdk_add_address_default_tag_dark_bg = 0x7f081000;
-        public static final int sapi_sdk_add_address_tag_bg = 0x7f081001;
-        public static final int sapi_sdk_add_address_tag_dark_bg = 0x7f081002;
-        public static final int sapi_sdk_add_address_tag_icon_bg = 0x7f081003;
-        public static final int sapi_sdk_add_address_tag_icon_dark_shape_bg = 0x7f081004;
-        public static final int sapi_sdk_addr_add_tag = 0x7f081005;
-        public static final int sapi_sdk_addr_add_tag_dark_ic = 0x7f081006;
-        public static final int sapi_sdk_addr_confirm_tag_bg = 0x7f081007;
-        public static final int sapi_sdk_addr_confirm_tag_dark_bg = 0x7f081008;
-        public static final int sapi_sdk_addr_copy_bg = 0x7f081009;
-        public static final int sapi_sdk_addr_copy_dark_bg = 0x7f08100a;
-        public static final int sapi_sdk_addr_default_btn_bg = 0x7f08100b;
-        public static final int sapi_sdk_addr_default_btn_dark_bg = 0x7f08100c;
-        public static final int sapi_sdk_addr_edit = 0x7f08100d;
-        public static final int sapi_sdk_addr_edit_checked_default_bg = 0x7f08100e;
-        public static final int sapi_sdk_addr_edit_checked_default_dark_bg = 0x7f08100f;
-        public static final int sapi_sdk_addr_edit_dark = 0x7f081010;
-        public static final int sapi_sdk_addr_edit_layout_bottom_round_bg = 0x7f081011;
-        public static final int sapi_sdk_addr_edit_layout_bottom_round_dark_bg = 0x7f081012;
-        public static final int sapi_sdk_addr_edit_layout_top_round_bg = 0x7f081013;
-        public static final int sapi_sdk_addr_edit_layout_top_round_dark_bg = 0x7f081014;
-        public static final int sapi_sdk_addr_img_ocr = 0x7f081015;
-        public static final int sapi_sdk_addr_input_user_icon = 0x7f081016;
-        public static final int sapi_sdk_addr_map_addr_checked_dark_ic = 0x7f081017;
-        public static final int sapi_sdk_addr_map_addr_checked_ic = 0x7f081018;
-        public static final int sapi_sdk_addr_map_location_addr_checked_dark_ic = 0x7f081019;
-        public static final int sapi_sdk_addr_map_location_addr_checked_ic = 0x7f08101a;
-        public static final int sapi_sdk_addr_map_location_addr_no_check_dark_ic = 0x7f08101b;
-        public static final int sapi_sdk_addr_map_location_addr_no_check_ic = 0x7f08101c;
-        public static final int sapi_sdk_addr_map_scroll_layout_bg = 0x7f08101d;
-        public static final int sapi_sdk_addr_map_scroll_layout_dark_bg = 0x7f08101e;
-        public static final int sapi_sdk_addr_map_scroll_top_line = 0x7f08101f;
-        public static final int sapi_sdk_addr_map_scroll_top_line_dark = 0x7f081020;
-        public static final int sapi_sdk_addr_map_search_box_bg = 0x7f081021;
-        public static final int sapi_sdk_addr_map_search_box_bg_dark = 0x7f081022;
-        public static final int sapi_sdk_addr_selector_item_bg = 0x7f081023;
-        public static final int sapi_sdk_addr_selector_item_bg_dark = 0x7f081024;
-        public static final int sapi_sdk_addr_tag_bg = 0x7f081025;
-        public static final int sapi_sdk_addr_tag_company = 0x7f081026;
-        public static final int sapi_sdk_addr_tag_dark_bg = 0x7f081027;
-        public static final int sapi_sdk_addr_tag_home = 0x7f081028;
-        public static final int sapi_sdk_addr_tag_school = 0x7f081029;
-        public static final int sapi_sdk_addr_voice_ocr = 0x7f08102a;
-        public static final int sapi_sdk_black_down_arrow = 0x7f08102b;
-        public static final int sapi_sdk_black_up_arrow = 0x7f08102c;
-        public static final int sapi_sdk_bottom_back_icon = 0x7f08102e;
-        public static final int sapi_sdk_clean_addr_txt_btn_bg = 0x7f081034;
-        public static final int sapi_sdk_clean_addr_txt_btn_dark_bg = 0x7f081035;
-        public static final int sapi_sdk_clear_et_icon_normal = 0x7f081036;
-        public static final int sapi_sdk_clear_et_icon_pressed = 0x7f081037;
-        public static final int sapi_sdk_common_error_ic = 0x7f081038;
-        public static final int sapi_sdk_common_et_clean_bg_dark = 0x7f081039;
-        public static final int sapi_sdk_common_et_clear_bg = 0x7f08103a;
-        public static final int sapi_sdk_common_grey_bg = 0x7f08103b;
-        public static final int sapi_sdk_common_grey_dark_bg = 0x7f08103c;
-        public static final int sapi_sdk_common_light_toast_bg = 0x7f08103d;
-        public static final int sapi_sdk_common_loading = 0x7f08103e;
-        public static final int sapi_sdk_common_loading_icon = 0x7f08103f;
-        public static final int sapi_sdk_common_night_toast_bg = 0x7f081040;
-        public static final int sapi_sdk_common_reload_btn_bg = 0x7f081041;
-        public static final int sapi_sdk_common_reload_btn_dark_bg = 0x7f081042;
-        public static final int sapi_sdk_common_success_ic = 0x7f081043;
-        public static final int sapi_sdk_common_white_bg = 0x7f081044;
-        public static final int sapi_sdk_common_white_circle = 0x7f081045;
-        public static final int sapi_sdk_common_white_circle_dark = 0x7f081046;
-        public static final int sapi_sdk_common_white_dark_bg = 0x7f081047;
-        public static final int sapi_sdk_dialog_address_icon_check = 0x7f081048;
-        public static final int sapi_sdk_dialog_address_icon_loading = 0x7f081049;
-        public static final int sapi_sdk_dialog_address_indicator_checked_dark = 0x7f08104a;
-        public static final int sapi_sdk_dialog_address_loading = 0x7f08104b;
-        public static final int sapi_sdk_dialog_address_nearby_city_bg = 0x7f08104c;
-        public static final int sapi_sdk_dialog_address_nearby_city_bg_selected = 0x7f08104d;
-        public static final int sapi_sdk_dialog_address_nearby_city_bg_selected_dark = 0x7f08104e;
-        public static final int sapi_sdk_dialog_address_nearby_city_dark_bg = 0x7f08104f;
-        public static final int sapi_sdk_dialog_address_selector_bg = 0x7f081050;
-        public static final int sapi_sdk_dialog_address_selector_close = 0x7f081051;
-        public static final int sapi_sdk_dialog_address_selector_dark_bg = 0x7f081052;
-        public static final int sapi_sdk_ecommerce_bottom_back = 0x7f081056;
-        public static final int sapi_sdk_ecommerce_btn_back = 0x7f081057;
-        public static final int sapi_sdk_ecommerce_icon_connection_failed = 0x7f081058;
-        public static final int sapi_sdk_ecommerce_title_close = 0x7f081059;
-        public static final int sapi_sdk_edit_custom_tag_btn_bg = 0x7f08105a;
-        public static final int sapi_sdk_edit_custom_tag_btn_dark_bg = 0x7f08105b;
-        public static final int sapi_sdk_empty_address_icon = 0x7f08105c;
-        public static final int sapi_sdk_input_clean_btn_dark_shape_bg = 0x7f081078;
-        public static final int sapi_sdk_load_more_loading_ic = 0x7f08107b;
-        public static final int sapi_sdk_map_addr_item_bg = 0x7f08107d;
-        public static final int sapi_sdk_map_addr_item_bg_dark = 0x7f08107e;
-        public static final int sapi_sdk_map_addr_search_box = 0x7f08107f;
-        public static final int sapi_sdk_map_addr_search_box_dark = 0x7f081081;
-        public static final int sapi_sdk_map_loc_btn_ic = 0x7f081082;
-        public static final int sapi_sdk_map_location_marker = 0x7f081083;
-        public static final int sapi_sdk_map_logo_icon = 0x7f081084;
-        public static final int sapi_sdk_map_option_btn_bg = 0x7f081085;
-        public static final int sapi_sdk_map_zoom_in_btn_icon = 0x7f081086;
-        public static final int sapi_sdk_map_zoom_out_btn_icon = 0x7f081087;
-        public static final int sapi_sdk_nuomi_address_tag_bg = 0x7f081088;
-        public static final int sapi_sdk_option_common_bg_selector = 0x7f081090;
-        public static final int sapi_sdk_option_common_bg_selector_dark = 0x7f081091;
-        public static final int sapi_sdk_option_top_round_bg_selector = 0x7f081092;
-        public static final int sapi_sdk_option_top_round_bg_selector_dark = 0x7f081093;
-        public static final int sapi_sdk_region_location_icon = 0x7f081094;
-        public static final int sapi_sdk_region_select_ic = 0x7f081095;
-        public static final int sapi_sdk_tag_edit_icon = 0x7f08109a;
-        public static final int sapi_sdk_text_cursor_bg = 0x7f08109b;
-        public static final int sapi_sdk_title_bar_bg = 0x7f08109d;
-        public static final int sapi_sdk_title_bar_dark_bg = 0x7f08109e;
-        public static final int tooltip_frame_dark = 0x7f08121d;
-        public static final int tooltip_frame_light = 0x7f08121e;
+        public static final int notification_action_background = 0x7f080e7e;
+        public static final int notification_bg = 0x7f080e7f;
+        public static final int notification_bg_low = 0x7f080e80;
+        public static final int notification_bg_low_normal = 0x7f080e81;
+        public static final int notification_bg_low_pressed = 0x7f080e82;
+        public static final int notification_bg_normal = 0x7f080e83;
+        public static final int notification_bg_normal_pressed = 0x7f080e84;
+        public static final int notification_icon_background = 0x7f080e85;
+        public static final int notification_template_icon_bg = 0x7f080e86;
+        public static final int notification_template_icon_low_bg = 0x7f080e87;
+        public static final int notification_tile_bg = 0x7f080e88;
+        public static final int notify_panel_notification_icon_bg = 0x7f080e8a;
+        public static final int sapi_sdk_add_addr_list_header_bg = 0x7f081008;
+        public static final int sapi_sdk_add_addr_list_header_dark_bg = 0x7f081009;
+        public static final int sapi_sdk_add_addr_list_item_bg = 0x7f08100a;
+        public static final int sapi_sdk_add_addr_list_item_dark_bg = 0x7f08100b;
+        public static final int sapi_sdk_add_addr_wrap_bg = 0x7f08100c;
+        public static final int sapi_sdk_add_addr_wrap_dark_bg = 0x7f08100d;
+        public static final int sapi_sdk_add_address_btn_bg = 0x7f08100e;
+        public static final int sapi_sdk_add_address_btn_dark_bg = 0x7f08100f;
+        public static final int sapi_sdk_add_address_default_tag_bg = 0x7f081010;
+        public static final int sapi_sdk_add_address_default_tag_dark_bg = 0x7f081011;
+        public static final int sapi_sdk_add_address_tag_bg = 0x7f081012;
+        public static final int sapi_sdk_add_address_tag_dark_bg = 0x7f081013;
+        public static final int sapi_sdk_add_address_tag_icon_bg = 0x7f081014;
+        public static final int sapi_sdk_add_address_tag_icon_dark_shape_bg = 0x7f081015;
+        public static final int sapi_sdk_addr_add_tag = 0x7f081016;
+        public static final int sapi_sdk_addr_add_tag_dark_ic = 0x7f081017;
+        public static final int sapi_sdk_addr_confirm_tag_bg = 0x7f081018;
+        public static final int sapi_sdk_addr_confirm_tag_dark_bg = 0x7f081019;
+        public static final int sapi_sdk_addr_copy_bg = 0x7f08101a;
+        public static final int sapi_sdk_addr_copy_dark_bg = 0x7f08101b;
+        public static final int sapi_sdk_addr_default_btn_bg = 0x7f08101c;
+        public static final int sapi_sdk_addr_default_btn_dark_bg = 0x7f08101d;
+        public static final int sapi_sdk_addr_edit = 0x7f08101e;
+        public static final int sapi_sdk_addr_edit_checked_default_bg = 0x7f08101f;
+        public static final int sapi_sdk_addr_edit_checked_default_dark_bg = 0x7f081020;
+        public static final int sapi_sdk_addr_edit_dark = 0x7f081021;
+        public static final int sapi_sdk_addr_edit_layout_bottom_round_bg = 0x7f081022;
+        public static final int sapi_sdk_addr_edit_layout_bottom_round_dark_bg = 0x7f081023;
+        public static final int sapi_sdk_addr_edit_layout_top_round_bg = 0x7f081024;
+        public static final int sapi_sdk_addr_edit_layout_top_round_dark_bg = 0x7f081025;
+        public static final int sapi_sdk_addr_img_ocr = 0x7f081026;
+        public static final int sapi_sdk_addr_input_user_icon = 0x7f081027;
+        public static final int sapi_sdk_addr_map_addr_checked_dark_ic = 0x7f081028;
+        public static final int sapi_sdk_addr_map_addr_checked_ic = 0x7f081029;
+        public static final int sapi_sdk_addr_map_location_addr_checked_dark_ic = 0x7f08102a;
+        public static final int sapi_sdk_addr_map_location_addr_checked_ic = 0x7f08102b;
+        public static final int sapi_sdk_addr_map_location_addr_no_check_dark_ic = 0x7f08102c;
+        public static final int sapi_sdk_addr_map_location_addr_no_check_ic = 0x7f08102d;
+        public static final int sapi_sdk_addr_map_scroll_layout_bg = 0x7f08102e;
+        public static final int sapi_sdk_addr_map_scroll_layout_dark_bg = 0x7f08102f;
+        public static final int sapi_sdk_addr_map_scroll_top_line = 0x7f081030;
+        public static final int sapi_sdk_addr_map_scroll_top_line_dark = 0x7f081031;
+        public static final int sapi_sdk_addr_map_search_box_bg = 0x7f081032;
+        public static final int sapi_sdk_addr_map_search_box_bg_dark = 0x7f081033;
+        public static final int sapi_sdk_addr_selector_item_bg = 0x7f081034;
+        public static final int sapi_sdk_addr_selector_item_bg_dark = 0x7f081035;
+        public static final int sapi_sdk_addr_tag_bg = 0x7f081036;
+        public static final int sapi_sdk_addr_tag_company = 0x7f081037;
+        public static final int sapi_sdk_addr_tag_dark_bg = 0x7f081038;
+        public static final int sapi_sdk_addr_tag_home = 0x7f081039;
+        public static final int sapi_sdk_addr_tag_school = 0x7f08103a;
+        public static final int sapi_sdk_addr_voice_ocr = 0x7f08103b;
+        public static final int sapi_sdk_black_down_arrow = 0x7f08103c;
+        public static final int sapi_sdk_black_up_arrow = 0x7f08103d;
+        public static final int sapi_sdk_bottom_back_icon = 0x7f08103f;
+        public static final int sapi_sdk_clean_addr_txt_btn_bg = 0x7f081045;
+        public static final int sapi_sdk_clean_addr_txt_btn_dark_bg = 0x7f081046;
+        public static final int sapi_sdk_clear_et_icon_normal = 0x7f081047;
+        public static final int sapi_sdk_clear_et_icon_pressed = 0x7f081048;
+        public static final int sapi_sdk_common_error_ic = 0x7f081049;
+        public static final int sapi_sdk_common_et_clean_bg_dark = 0x7f08104a;
+        public static final int sapi_sdk_common_et_clear_bg = 0x7f08104b;
+        public static final int sapi_sdk_common_grey_bg = 0x7f08104c;
+        public static final int sapi_sdk_common_grey_dark_bg = 0x7f08104d;
+        public static final int sapi_sdk_common_light_toast_bg = 0x7f08104e;
+        public static final int sapi_sdk_common_loading = 0x7f08104f;
+        public static final int sapi_sdk_common_loading_icon = 0x7f081050;
+        public static final int sapi_sdk_common_night_toast_bg = 0x7f081051;
+        public static final int sapi_sdk_common_reload_btn_bg = 0x7f081052;
+        public static final int sapi_sdk_common_reload_btn_dark_bg = 0x7f081053;
+        public static final int sapi_sdk_common_success_ic = 0x7f081054;
+        public static final int sapi_sdk_common_white_bg = 0x7f081055;
+        public static final int sapi_sdk_common_white_circle = 0x7f081056;
+        public static final int sapi_sdk_common_white_circle_dark = 0x7f081057;
+        public static final int sapi_sdk_common_white_dark_bg = 0x7f081058;
+        public static final int sapi_sdk_dialog_address_icon_check = 0x7f081059;
+        public static final int sapi_sdk_dialog_address_icon_loading = 0x7f08105a;
+        public static final int sapi_sdk_dialog_address_indicator_checked_dark = 0x7f08105b;
+        public static final int sapi_sdk_dialog_address_loading = 0x7f08105c;
+        public static final int sapi_sdk_dialog_address_nearby_city_bg = 0x7f08105d;
+        public static final int sapi_sdk_dialog_address_nearby_city_bg_selected = 0x7f08105e;
+        public static final int sapi_sdk_dialog_address_nearby_city_bg_selected_dark = 0x7f08105f;
+        public static final int sapi_sdk_dialog_address_nearby_city_dark_bg = 0x7f081060;
+        public static final int sapi_sdk_dialog_address_selector_bg = 0x7f081061;
+        public static final int sapi_sdk_dialog_address_selector_close = 0x7f081062;
+        public static final int sapi_sdk_dialog_address_selector_dark_bg = 0x7f081063;
+        public static final int sapi_sdk_ecommerce_bottom_back = 0x7f081067;
+        public static final int sapi_sdk_ecommerce_btn_back = 0x7f081068;
+        public static final int sapi_sdk_ecommerce_icon_connection_failed = 0x7f081069;
+        public static final int sapi_sdk_ecommerce_title_close = 0x7f08106a;
+        public static final int sapi_sdk_edit_custom_tag_btn_bg = 0x7f08106b;
+        public static final int sapi_sdk_edit_custom_tag_btn_dark_bg = 0x7f08106c;
+        public static final int sapi_sdk_empty_address_icon = 0x7f08106d;
+        public static final int sapi_sdk_input_clean_btn_dark_shape_bg = 0x7f08108a;
+        public static final int sapi_sdk_load_more_loading_ic = 0x7f08108d;
+        public static final int sapi_sdk_map_addr_item_bg = 0x7f08108f;
+        public static final int sapi_sdk_map_addr_item_bg_dark = 0x7f081090;
+        public static final int sapi_sdk_map_addr_search_box = 0x7f081091;
+        public static final int sapi_sdk_map_addr_search_box_dark = 0x7f081092;
+        public static final int sapi_sdk_map_loc_btn_ic = 0x7f081093;
+        public static final int sapi_sdk_map_location_marker = 0x7f081094;
+        public static final int sapi_sdk_map_logo_icon = 0x7f081095;
+        public static final int sapi_sdk_map_option_btn_bg = 0x7f081096;
+        public static final int sapi_sdk_map_zoom_in_btn_icon = 0x7f081097;
+        public static final int sapi_sdk_map_zoom_out_btn_icon = 0x7f081098;
+        public static final int sapi_sdk_nuomi_address_tag_bg = 0x7f081099;
+        public static final int sapi_sdk_option_common_bg_selector = 0x7f0810a1;
+        public static final int sapi_sdk_option_common_bg_selector_dark = 0x7f0810a2;
+        public static final int sapi_sdk_option_top_round_bg_selector = 0x7f0810a3;
+        public static final int sapi_sdk_option_top_round_bg_selector_dark = 0x7f0810a4;
+        public static final int sapi_sdk_region_location_icon = 0x7f0810a5;
+        public static final int sapi_sdk_region_select_ic = 0x7f0810a6;
+        public static final int sapi_sdk_tag_edit_icon = 0x7f0810ab;
+        public static final int sapi_sdk_text_cursor_bg = 0x7f0810ac;
+        public static final int sapi_sdk_title_bar_bg = 0x7f0810ae;
+        public static final int sapi_sdk_title_bar_dark_bg = 0x7f0810af;
+        public static final int tooltip_frame_dark = 0x7f08122e;
+        public static final int tooltip_frame_light = 0x7f08122f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -1135,7 +1135,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id {
+    public final class id {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: BLOCK */
@@ -1216,268 +1216,268 @@ public final class R {
         public static final int add = 0x7f090109;
         public static final int alertTitle = 0x7f090266;
         public static final int async = 0x7f0902ca;
-        public static final int blocking = 0x7f0903b0;
-        public static final int buttonPanel = 0x7f090481;
-        public static final int checkbox = 0x7f090611;
-        public static final int checked = 0x7f090616;
-        public static final int chronometer = 0x7f09063e;
-        public static final int content = 0x7f0906e3;
-        public static final int contentPanel = 0x7f0906e6;
-        public static final int custom = 0x7f09074e;
-        public static final int customPanel = 0x7f09074f;
-        public static final int decor_content_parent = 0x7f09077a;
-        public static final int default_activity_button = 0x7f09077d;
-        public static final int dialog_button = 0x7f0907b7;
-        public static final int edit_query = 0x7f090880;
-        public static final int expand_activities_button = 0x7f090953;
-        public static final int expanded_menu = 0x7f09095f;
-        public static final int forever = 0x7f090a42;
-        public static final int group_divider = 0x7f090cfa;
-        public static final int home = 0x7f090d77;
-        public static final int ic_sapi_sdk_addr_edit = 0x7f090e1e;
-        public static final int icon = 0x7f090e20;
-        public static final int icon_group = 0x7f090e28;
-        public static final int image = 0x7f090e94;
-        public static final int info = 0x7f090f25;
-        public static final int italic = 0x7f090f8d;
-        public static final int item_touch_helper_previous_elevation = 0x7f090fe2;
-        public static final int line1 = 0x7f091308;
-        public static final int line3 = 0x7f09130a;
-        public static final int listMode = 0x7f091329;
-        public static final int list_item = 0x7f09132d;
-        public static final int message = 0x7f091515;
-        public static final int multiply = 0x7f0915b3;
-        public static final int none = 0x7f0916ea;
-        public static final int normal = 0x7f0916f0;
-        public static final int notification_background = 0x7f091704;
-        public static final int notification_main_column = 0x7f091706;
-        public static final int notification_main_column_container = 0x7f091707;
-        public static final int off = 0x7f09171c;
-        public static final int on = 0x7f091732;
-        public static final int parentPanel = 0x7f091793;
-        public static final int progress_circular = 0x7f091ac1;
-        public static final int progress_horizontal = 0x7f091ac3;
-        public static final int radio = 0x7f091b46;
-        public static final int right_icon = 0x7f091c3c;
-        public static final int right_side = 0x7f091c42;
-        public static final int root_view = 0x7f091c84;
-        public static final int sapi_bottom_back = 0x7f091cc6;
-        public static final int sapi_layout_bottom_back = 0x7f091cc8;
-        public static final int sapi_loc_map_controller_view = 0x7f091cc9;
-        public static final int sapi_loc_map_marker_view = 0x7f091cca;
-        public static final int sapi_loc_map_shape_mask = 0x7f091ccb;
-        public static final int sapi_sdk_add_addr_btn = 0x7f091ccd;
-        public static final int sapi_sdk_add_addr_btn_at_empty = 0x7f091cce;
-        public static final int sapi_sdk_add_addr_btn_wrap = 0x7f091ccf;
-        public static final int sapi_sdk_add_addr_btn_wrap_layout = 0x7f091cd0;
-        public static final int sapi_sdk_add_addr_region = 0x7f091cd1;
-        public static final int sapi_sdk_add_tag_btn = 0x7f091cd2;
-        public static final int sapi_sdk_addr_check_valid_tips = 0x7f091cd3;
-        public static final int sapi_sdk_addr_content_sv = 0x7f091cd4;
-        public static final int sapi_sdk_addr_copy = 0x7f091cd5;
-        public static final int sapi_sdk_addr_copy_bottom_line = 0x7f091cd6;
-        public static final int sapi_sdk_addr_copy_layout = 0x7f091cd7;
-        public static final int sapi_sdk_addr_copy_text_form = 0x7f091cd8;
-        public static final int sapi_sdk_addr_copy_toggle = 0x7f091cd9;
-        public static final int sapi_sdk_addr_default_tag = 0x7f091cda;
-        public static final int sapi_sdk_addr_default_tag_close = 0x7f091cdb;
-        public static final int sapi_sdk_addr_default_tag_dark_view_stub = 0x7f091cdc;
-        public static final int sapi_sdk_addr_default_tag_open = 0x7f091cdd;
-        public static final int sapi_sdk_addr_default_tag_view_stub = 0x7f091cde;
-        public static final int sapi_sdk_addr_default_toggle = 0x7f091cdf;
-        public static final int sapi_sdk_addr_del = 0x7f091ce0;
-        public static final int sapi_sdk_addr_del_addr_btn = 0x7f091ce1;
-        public static final int sapi_sdk_addr_del_bottom_line = 0x7f091ce2;
-        public static final int sapi_sdk_addr_detail = 0x7f091ce3;
-        public static final int sapi_sdk_addr_detail_input = 0x7f091ce4;
-        public static final int sapi_sdk_addr_edit_bottom_line = 0x7f091ce5;
-        public static final int sapi_sdk_addr_edit_layout = 0x7f091ce6;
-        public static final int sapi_sdk_addr_edit_tag_layout = 0x7f091ce7;
-        public static final int sapi_sdk_addr_empty_bottom_tv = 0x7f091ce8;
-        public static final int sapi_sdk_addr_list_bg = 0x7f091ce9;
-        public static final int sapi_sdk_addr_list_bottom_back = 0x7f091cea;
-        public static final int sapi_sdk_addr_list_count = 0x7f091ceb;
-        public static final int sapi_sdk_addr_list_item_layout = 0x7f091cec;
-        public static final int sapi_sdk_addr_list_layout = 0x7f091ced;
-        public static final int sapi_sdk_addr_loading_view = 0x7f091cee;
-        public static final int sapi_sdk_addr_map_item_address = 0x7f091cef;
-        public static final int sapi_sdk_addr_map_item_checked_ic = 0x7f091cf0;
-        public static final int sapi_sdk_addr_map_item_distance = 0x7f091cf1;
-        public static final int sapi_sdk_addr_map_item_ic = 0x7f091cf2;
-        public static final int sapi_sdk_addr_map_item_line = 0x7f091cf3;
-        public static final int sapi_sdk_addr_map_item_name = 0x7f091cf4;
-        public static final int sapi_sdk_addr_mobile_input = 0x7f091cf5;
-        public static final int sapi_sdk_addr_name_input = 0x7f091cf6;
-        public static final int sapi_sdk_addr_name_tv = 0x7f091cf7;
-        public static final int sapi_sdk_addr_ocr_edit_layout = 0x7f091cf8;
-        public static final int sapi_sdk_addr_ocr_text = 0x7f091cf9;
-        public static final int sapi_sdk_addr_option_cancel = 0x7f091cfa;
-        public static final int sapi_sdk_addr_phone_tv = 0x7f091cfb;
-        public static final int sapi_sdk_addr_query_panel = 0x7f091cfc;
-        public static final int sapi_sdk_addr_region_layout = 0x7f091cfd;
-        public static final int sapi_sdk_addr_select_layout = 0x7f091cfe;
-        public static final int sapi_sdk_addr_select_tab_layout = 0x7f091cff;
-        public static final int sapi_sdk_addr_select_title = 0x7f091d00;
-        public static final int sapi_sdk_addr_select_title_bottom_line = 0x7f091d01;
-        public static final int sapi_sdk_addr_set_default = 0x7f091d02;
-        public static final int sapi_sdk_addr_set_default_bottom_line = 0x7f091d03;
-        public static final int sapi_sdk_addr_tag = 0x7f091d04;
-        public static final int sapi_sdk_addr_tag_company_rb = 0x7f091d05;
-        public static final int sapi_sdk_addr_tag_group = 0x7f091d06;
-        public static final int sapi_sdk_addr_tag_home_rb = 0x7f091d07;
-        public static final int sapi_sdk_addr_tag_icon = 0x7f091d08;
-        public static final int sapi_sdk_addr_tag_icon_dark_shape = 0x7f091d09;
-        public static final int sapi_sdk_addr_tag_icon_layout = 0x7f091d0a;
-        public static final int sapi_sdk_addr_tag_school_rb = 0x7f091d0b;
-        public static final int sapi_sdk_addres_list_title = 0x7f091d0c;
-        public static final int sapi_sdk_address_add_tips = 0x7f091d0d;
-        public static final int sapi_sdk_address_list = 0x7f091d0e;
-        public static final int sapi_sdk_bottom_back_layout = 0x7f091d10;
-        public static final int sapi_sdk_bottom_back_line = 0x7f091d11;
-        public static final int sapi_sdk_bottom_divider_line = 0x7f091d12;
-        public static final int sapi_sdk_cancel_query_map_addr = 0x7f091d13;
-        public static final int sapi_sdk_choose_img = 0x7f091d14;
-        public static final int sapi_sdk_choose_img_bottom_line = 0x7f091d15;
-        public static final int sapi_sdk_clean_copy_text = 0x7f091d1c;
-        public static final int sapi_sdk_clean_map_addr_search_text = 0x7f091d1d;
-        public static final int sapi_sdk_common_bottom_line = 0x7f091d1f;
-        public static final int sapi_sdk_common_dialog_content = 0x7f091d20;
-        public static final int sapi_sdk_common_dialog_negative_btn = 0x7f091d21;
-        public static final int sapi_sdk_common_dialog_positive_btn = 0x7f091d22;
-        public static final int sapi_sdk_common_dialog_title = 0x7f091d23;
-        public static final int sapi_sdk_common_title_tv = 0x7f091d24;
-        public static final int sapi_sdk_copy_addr_layout = 0x7f091d25;
-        public static final int sapi_sdk_custom_tag_layout = 0x7f091d26;
-        public static final int sapi_sdk_custom_tag_line = 0x7f091d27;
-        public static final int sapi_sdk_custom_tag_tv = 0x7f091d28;
-        public static final int sapi_sdk_custom_tag_update_btn = 0x7f091d29;
-        public static final int sapi_sdk_custom_tag_wrap_layout = 0x7f091d2a;
-        public static final int sapi_sdk_edit_addres_title = 0x7f091d2b;
-        public static final int sapi_sdk_edit_tag_layout = 0x7f091d2c;
-        public static final int sapi_sdk_empty_address_image = 0x7f091d2d;
-        public static final int sapi_sdk_empty_address_tips = 0x7f091d2e;
-        public static final int sapi_sdk_img_ocr_icon = 0x7f091d3a;
-        public static final int sapi_sdk_img_ocr_tv = 0x7f091d3b;
-        public static final int sapi_sdk_img_ocr_view = 0x7f091d3c;
-        public static final int sapi_sdk_input_clean_icon = 0x7f091d3d;
-        public static final int sapi_sdk_input_clean_icon_dark_shape = 0x7f091d3e;
-        public static final int sapi_sdk_input_et = 0x7f091d3f;
-        public static final int sapi_sdk_input_form_input_option_layout = 0x7f091d40;
-        public static final int sapi_sdk_input_icon = 0x7f091d41;
-        public static final int sapi_sdk_input_line = 0x7f091d42;
-        public static final int sapi_sdk_iv_address_dialog_close = 0x7f091d43;
-        public static final int sapi_sdk_list_empty = 0x7f091d51;
-        public static final int sapi_sdk_ll_address_hot_group = 0x7f091d52;
-        public static final int sapi_sdk_load_more_ic = 0x7f091d55;
-        public static final int sapi_sdk_load_more_tip = 0x7f091d56;
-        public static final int sapi_sdk_load_time = 0x7f091d57;
-        public static final int sapi_sdk_load_timeout_retry_btn = 0x7f091d58;
-        public static final int sapi_sdk_loading_timeout_bg_layout = 0x7f091d5a;
-        public static final int sapi_sdk_loading_view = 0x7f091d5d;
-        public static final int sapi_sdk_location_poi_map_view = 0x7f091d5e;
-        public static final int sapi_sdk_map_addr_empty_notice = 0x7f091d67;
-        public static final int sapi_sdk_map_addr_list_loading = 0x7f091d68;
-        public static final int sapi_sdk_map_addr_loading_tips = 0x7f091d69;
-        public static final int sapi_sdk_map_addr_search_et = 0x7f091d6a;
-        public static final int sapi_sdk_map_loc_btn = 0x7f091d6b;
-        public static final int sapi_sdk_map_location_poi_title = 0x7f091d6c;
-        public static final int sapi_sdk_map_zoom_in_btn = 0x7f091d6d;
-        public static final int sapi_sdk_map_zoom_out_btn = 0x7f091d6e;
-        public static final int sapi_sdk_notice_net_error = 0x7f091d6f;
-        public static final int sapi_sdk_nuomi_addr_tag = 0x7f091d70;
-        public static final int sapi_sdk_option_cancel = 0x7f091d72;
-        public static final int sapi_sdk_panel_handler_view = 0x7f091d73;
-        public static final int sapi_sdk_recycler_view = 0x7f091d74;
-        public static final int sapi_sdk_rl_address_item = 0x7f091d75;
-        public static final int sapi_sdk_rlv_address_list = 0x7f091d76;
-        public static final int sapi_sdk_scroll_layout = 0x7f091d77;
-        public static final int sapi_sdk_search_box = 0x7f091d78;
-        public static final int sapi_sdk_search_box_ic = 0x7f091d79;
-        public static final int sapi_sdk_search_box_layout = 0x7f091d7a;
-        public static final int sapi_sdk_search_box_line = 0x7f091d7b;
-        public static final int sapi_sdk_select_region_iv = 0x7f091d7c;
-        public static final int sapi_sdk_set_default_layout = 0x7f091d7d;
-        public static final int sapi_sdk_suggest_addr_bottom_line = 0x7f091d7e;
-        public static final int sapi_sdk_suggest_addr_layout = 0x7f091d7f;
-        public static final int sapi_sdk_suggest_addr_list = 0x7f091d80;
-        public static final int sapi_sdk_suggest_map_address = 0x7f091d81;
-        public static final int sapi_sdk_suggest_map_name = 0x7f091d82;
-        public static final int sapi_sdk_tag_edit_confirm_btn = 0x7f091d86;
-        public static final int sapi_sdk_tag_edit_et = 0x7f091d87;
-        public static final int sapi_sdk_take_photo = 0x7f091d88;
-        public static final int sapi_sdk_take_photo_bottom_line = 0x7f091d89;
-        public static final int sapi_sdk_titlebar_left_back_btn = 0x7f091d8a;
-        public static final int sapi_sdk_titlebar_left_btn = 0x7f091d8b;
-        public static final int sapi_sdk_titlebar_right_btn = 0x7f091d8c;
-        public static final int sapi_sdk_titlebar_title_tv = 0x7f091d8d;
-        public static final int sapi_sdk_toast_msg_icon = 0x7f091d8e;
-        public static final int sapi_sdk_toast_msg_tv = 0x7f091d8f;
-        public static final int sapi_sdk_tv_address_category = 0x7f091d90;
-        public static final int sapi_sdk_tv_address_check = 0x7f091d91;
-        public static final int sapi_sdk_tv_address_hot = 0x7f091d92;
-        public static final int sapi_sdk_tv_address_name = 0x7f091d93;
-        public static final int sapi_sdk_tv_address_py = 0x7f091d94;
-        public static final int sapi_sdk_tv_empty_view = 0x7f091d96;
-        public static final int sapi_sdk_use_copy_text = 0x7f091da3;
-        public static final int sapi_sdk_voice_ocr_btn = 0x7f091da6;
-        public static final int sapi_sdk_vp_address_list = 0x7f091da7;
-        public static final int sapi_textview_back = 0x7f091da8;
-        public static final int sapi_title_bg_layout = 0x7f091da9;
-        public static final int sapi_title_layout = 0x7f091daa;
-        public static final int sapi_webview = 0x7f091dac;
-        public static final int screen = 0x7f091dc1;
-        public static final int scrollIndicatorDown = 0x7f091dcb;
-        public static final int scrollIndicatorUp = 0x7f091dcc;
-        public static final int scrollView = 0x7f091dcd;
-        public static final int search_badge = 0x7f091ddf;
-        public static final int search_bar = 0x7f091de0;
-        public static final int search_button = 0x7f091de6;
-        public static final int search_close_btn = 0x7f091de7;
-        public static final int search_edit_frame = 0x7f091dea;
-        public static final int search_go_btn = 0x7f091df5;
-        public static final int search_mag_icon = 0x7f091e05;
-        public static final int search_plate = 0x7f091e07;
-        public static final int search_src_text = 0x7f091e10;
-        public static final int search_voice_btn = 0x7f091e1a;
-        public static final int select_dialog_listview = 0x7f091e3e;
-        public static final int shortcut = 0x7f091ebf;
-        public static final int spacer = 0x7f091f23;
-        public static final int split_action_bar = 0x7f091f3a;
-        public static final int src_atop = 0x7f091f60;
-        public static final int src_in = 0x7f091f61;
-        public static final int src_over = 0x7f091f62;
-        public static final int stub_bottom_back = 0x7f091f92;
-        public static final int submenuarrow = 0x7f091fa6;
-        public static final int submit_area = 0x7f091fa7;
-        public static final int tabMode = 0x7f09200c;
-        public static final int tag_accessibility_actions = 0x7f092035;
-        public static final int tag_accessibility_clickable_spans = 0x7f092036;
-        public static final int tag_accessibility_heading = 0x7f092037;
-        public static final int tag_accessibility_pane_title = 0x7f092038;
-        public static final int tag_screen_reader_focusable = 0x7f092080;
-        public static final int tag_transition_group = 0x7f09208e;
-        public static final int tag_unhandled_key_event_manager = 0x7f092090;
-        public static final int tag_unhandled_key_listeners = 0x7f092091;
-        public static final int text = 0x7f092100;
-        public static final int text2 = 0x7f092101;
-        public static final int textSpacerNoButtons = 0x7f092105;
-        public static final int textSpacerNoTitle = 0x7f092106;
-        public static final int time = 0x7f0921e8;
-        public static final int title = 0x7f092219;
-        public static final int titleDividerNoCustom = 0x7f09221b;
-        public static final int title_btn_left_iv = 0x7f092224;
-        public static final int title_btn_left_tv = 0x7f092225;
-        public static final int title_btn_right = 0x7f092226;
-        public static final int title_divider_line = 0x7f09222b;
-        public static final int title_left_btn_layout = 0x7f092233;
-        public static final int title_right_close = 0x7f092240;
-        public static final int title_template = 0x7f092243;
-        public static final int topPanel = 0x7f09228a;
-        public static final int tv_tab_title = 0x7f092410;
-        public static final int unchecked = 0x7f092468;
-        public static final int uniform = 0x7f09246d;
-        public static final int up = 0x7f092475;
-        public static final int wrap_content = 0x7f0926ab;
+        public static final int blocking = 0x7f0903b9;
+        public static final int buttonPanel = 0x7f09048a;
+        public static final int checkbox = 0x7f09061a;
+        public static final int checked = 0x7f09061f;
+        public static final int chronometer = 0x7f090647;
+        public static final int content = 0x7f0906ec;
+        public static final int contentPanel = 0x7f0906ef;
+        public static final int custom = 0x7f090757;
+        public static final int customPanel = 0x7f090758;
+        public static final int decor_content_parent = 0x7f090783;
+        public static final int default_activity_button = 0x7f090786;
+        public static final int dialog_button = 0x7f0907c0;
+        public static final int edit_query = 0x7f090889;
+        public static final int expand_activities_button = 0x7f09095d;
+        public static final int expanded_menu = 0x7f090969;
+        public static final int forever = 0x7f090a4c;
+        public static final int group_divider = 0x7f090d07;
+        public static final int home = 0x7f090d84;
+        public static final int ic_sapi_sdk_addr_edit = 0x7f090e12;
+        public static final int icon = 0x7f090e14;
+        public static final int icon_group = 0x7f090e1c;
+        public static final int image = 0x7f090e88;
+        public static final int info = 0x7f090f19;
+        public static final int italic = 0x7f090f81;
+        public static final int item_touch_helper_previous_elevation = 0x7f090fd6;
+        public static final int line1 = 0x7f0912fe;
+        public static final int line3 = 0x7f091300;
+        public static final int listMode = 0x7f091319;
+        public static final int list_item = 0x7f09131d;
+        public static final int message = 0x7f091507;
+        public static final int multiply = 0x7f0915a5;
+        public static final int none = 0x7f0916dc;
+        public static final int normal = 0x7f0916e2;
+        public static final int notification_background = 0x7f0916f6;
+        public static final int notification_main_column = 0x7f0916f8;
+        public static final int notification_main_column_container = 0x7f0916f9;
+        public static final int off = 0x7f09170e;
+        public static final int on = 0x7f091724;
+        public static final int parentPanel = 0x7f091785;
+        public static final int progress_circular = 0x7f091abd;
+        public static final int progress_horizontal = 0x7f091abf;
+        public static final int radio = 0x7f091b42;
+        public static final int right_icon = 0x7f091c38;
+        public static final int right_side = 0x7f091c3e;
+        public static final int root_view = 0x7f091c80;
+        public static final int sapi_bottom_back = 0x7f091cc2;
+        public static final int sapi_layout_bottom_back = 0x7f091cc4;
+        public static final int sapi_loc_map_controller_view = 0x7f091cc5;
+        public static final int sapi_loc_map_marker_view = 0x7f091cc6;
+        public static final int sapi_loc_map_shape_mask = 0x7f091cc7;
+        public static final int sapi_sdk_add_addr_btn = 0x7f091cc9;
+        public static final int sapi_sdk_add_addr_btn_at_empty = 0x7f091cca;
+        public static final int sapi_sdk_add_addr_btn_wrap = 0x7f091ccb;
+        public static final int sapi_sdk_add_addr_btn_wrap_layout = 0x7f091ccc;
+        public static final int sapi_sdk_add_addr_region = 0x7f091ccd;
+        public static final int sapi_sdk_add_tag_btn = 0x7f091cce;
+        public static final int sapi_sdk_addr_check_valid_tips = 0x7f091ccf;
+        public static final int sapi_sdk_addr_content_sv = 0x7f091cd0;
+        public static final int sapi_sdk_addr_copy = 0x7f091cd1;
+        public static final int sapi_sdk_addr_copy_bottom_line = 0x7f091cd2;
+        public static final int sapi_sdk_addr_copy_layout = 0x7f091cd3;
+        public static final int sapi_sdk_addr_copy_text_form = 0x7f091cd4;
+        public static final int sapi_sdk_addr_copy_toggle = 0x7f091cd5;
+        public static final int sapi_sdk_addr_default_tag = 0x7f091cd6;
+        public static final int sapi_sdk_addr_default_tag_close = 0x7f091cd7;
+        public static final int sapi_sdk_addr_default_tag_dark_view_stub = 0x7f091cd8;
+        public static final int sapi_sdk_addr_default_tag_open = 0x7f091cd9;
+        public static final int sapi_sdk_addr_default_tag_view_stub = 0x7f091cda;
+        public static final int sapi_sdk_addr_default_toggle = 0x7f091cdb;
+        public static final int sapi_sdk_addr_del = 0x7f091cdc;
+        public static final int sapi_sdk_addr_del_addr_btn = 0x7f091cdd;
+        public static final int sapi_sdk_addr_del_bottom_line = 0x7f091cde;
+        public static final int sapi_sdk_addr_detail = 0x7f091cdf;
+        public static final int sapi_sdk_addr_detail_input = 0x7f091ce0;
+        public static final int sapi_sdk_addr_edit_bottom_line = 0x7f091ce1;
+        public static final int sapi_sdk_addr_edit_layout = 0x7f091ce2;
+        public static final int sapi_sdk_addr_edit_tag_layout = 0x7f091ce3;
+        public static final int sapi_sdk_addr_empty_bottom_tv = 0x7f091ce4;
+        public static final int sapi_sdk_addr_list_bg = 0x7f091ce5;
+        public static final int sapi_sdk_addr_list_bottom_back = 0x7f091ce6;
+        public static final int sapi_sdk_addr_list_count = 0x7f091ce7;
+        public static final int sapi_sdk_addr_list_item_layout = 0x7f091ce8;
+        public static final int sapi_sdk_addr_list_layout = 0x7f091ce9;
+        public static final int sapi_sdk_addr_loading_view = 0x7f091cea;
+        public static final int sapi_sdk_addr_map_item_address = 0x7f091ceb;
+        public static final int sapi_sdk_addr_map_item_checked_ic = 0x7f091cec;
+        public static final int sapi_sdk_addr_map_item_distance = 0x7f091ced;
+        public static final int sapi_sdk_addr_map_item_ic = 0x7f091cee;
+        public static final int sapi_sdk_addr_map_item_line = 0x7f091cef;
+        public static final int sapi_sdk_addr_map_item_name = 0x7f091cf0;
+        public static final int sapi_sdk_addr_mobile_input = 0x7f091cf1;
+        public static final int sapi_sdk_addr_name_input = 0x7f091cf2;
+        public static final int sapi_sdk_addr_name_tv = 0x7f091cf3;
+        public static final int sapi_sdk_addr_ocr_edit_layout = 0x7f091cf4;
+        public static final int sapi_sdk_addr_ocr_text = 0x7f091cf5;
+        public static final int sapi_sdk_addr_option_cancel = 0x7f091cf6;
+        public static final int sapi_sdk_addr_phone_tv = 0x7f091cf7;
+        public static final int sapi_sdk_addr_query_panel = 0x7f091cf8;
+        public static final int sapi_sdk_addr_region_layout = 0x7f091cf9;
+        public static final int sapi_sdk_addr_select_layout = 0x7f091cfa;
+        public static final int sapi_sdk_addr_select_tab_layout = 0x7f091cfb;
+        public static final int sapi_sdk_addr_select_title = 0x7f091cfc;
+        public static final int sapi_sdk_addr_select_title_bottom_line = 0x7f091cfd;
+        public static final int sapi_sdk_addr_set_default = 0x7f091cfe;
+        public static final int sapi_sdk_addr_set_default_bottom_line = 0x7f091cff;
+        public static final int sapi_sdk_addr_tag = 0x7f091d00;
+        public static final int sapi_sdk_addr_tag_company_rb = 0x7f091d01;
+        public static final int sapi_sdk_addr_tag_group = 0x7f091d02;
+        public static final int sapi_sdk_addr_tag_home_rb = 0x7f091d03;
+        public static final int sapi_sdk_addr_tag_icon = 0x7f091d04;
+        public static final int sapi_sdk_addr_tag_icon_dark_shape = 0x7f091d05;
+        public static final int sapi_sdk_addr_tag_icon_layout = 0x7f091d06;
+        public static final int sapi_sdk_addr_tag_school_rb = 0x7f091d07;
+        public static final int sapi_sdk_addres_list_title = 0x7f091d08;
+        public static final int sapi_sdk_address_add_tips = 0x7f091d09;
+        public static final int sapi_sdk_address_list = 0x7f091d0a;
+        public static final int sapi_sdk_bottom_back_layout = 0x7f091d0c;
+        public static final int sapi_sdk_bottom_back_line = 0x7f091d0d;
+        public static final int sapi_sdk_bottom_divider_line = 0x7f091d0e;
+        public static final int sapi_sdk_cancel_query_map_addr = 0x7f091d0f;
+        public static final int sapi_sdk_choose_img = 0x7f091d10;
+        public static final int sapi_sdk_choose_img_bottom_line = 0x7f091d11;
+        public static final int sapi_sdk_clean_copy_text = 0x7f091d18;
+        public static final int sapi_sdk_clean_map_addr_search_text = 0x7f091d19;
+        public static final int sapi_sdk_common_bottom_line = 0x7f091d1b;
+        public static final int sapi_sdk_common_dialog_content = 0x7f091d1c;
+        public static final int sapi_sdk_common_dialog_negative_btn = 0x7f091d1d;
+        public static final int sapi_sdk_common_dialog_positive_btn = 0x7f091d1e;
+        public static final int sapi_sdk_common_dialog_title = 0x7f091d1f;
+        public static final int sapi_sdk_common_title_tv = 0x7f091d20;
+        public static final int sapi_sdk_copy_addr_layout = 0x7f091d21;
+        public static final int sapi_sdk_custom_tag_layout = 0x7f091d22;
+        public static final int sapi_sdk_custom_tag_line = 0x7f091d23;
+        public static final int sapi_sdk_custom_tag_tv = 0x7f091d24;
+        public static final int sapi_sdk_custom_tag_update_btn = 0x7f091d25;
+        public static final int sapi_sdk_custom_tag_wrap_layout = 0x7f091d26;
+        public static final int sapi_sdk_edit_addres_title = 0x7f091d27;
+        public static final int sapi_sdk_edit_tag_layout = 0x7f091d28;
+        public static final int sapi_sdk_empty_address_image = 0x7f091d29;
+        public static final int sapi_sdk_empty_address_tips = 0x7f091d2a;
+        public static final int sapi_sdk_img_ocr_icon = 0x7f091d36;
+        public static final int sapi_sdk_img_ocr_tv = 0x7f091d37;
+        public static final int sapi_sdk_img_ocr_view = 0x7f091d38;
+        public static final int sapi_sdk_input_clean_icon = 0x7f091d39;
+        public static final int sapi_sdk_input_clean_icon_dark_shape = 0x7f091d3a;
+        public static final int sapi_sdk_input_et = 0x7f091d3b;
+        public static final int sapi_sdk_input_form_input_option_layout = 0x7f091d3c;
+        public static final int sapi_sdk_input_icon = 0x7f091d3d;
+        public static final int sapi_sdk_input_line = 0x7f091d3e;
+        public static final int sapi_sdk_iv_address_dialog_close = 0x7f091d3f;
+        public static final int sapi_sdk_list_empty = 0x7f091d4d;
+        public static final int sapi_sdk_ll_address_hot_group = 0x7f091d4e;
+        public static final int sapi_sdk_load_more_ic = 0x7f091d51;
+        public static final int sapi_sdk_load_more_tip = 0x7f091d52;
+        public static final int sapi_sdk_load_time = 0x7f091d53;
+        public static final int sapi_sdk_load_timeout_retry_btn = 0x7f091d54;
+        public static final int sapi_sdk_loading_timeout_bg_layout = 0x7f091d56;
+        public static final int sapi_sdk_loading_view = 0x7f091d59;
+        public static final int sapi_sdk_location_poi_map_view = 0x7f091d5a;
+        public static final int sapi_sdk_map_addr_empty_notice = 0x7f091d63;
+        public static final int sapi_sdk_map_addr_list_loading = 0x7f091d64;
+        public static final int sapi_sdk_map_addr_loading_tips = 0x7f091d65;
+        public static final int sapi_sdk_map_addr_search_et = 0x7f091d66;
+        public static final int sapi_sdk_map_loc_btn = 0x7f091d67;
+        public static final int sapi_sdk_map_location_poi_title = 0x7f091d68;
+        public static final int sapi_sdk_map_zoom_in_btn = 0x7f091d69;
+        public static final int sapi_sdk_map_zoom_out_btn = 0x7f091d6a;
+        public static final int sapi_sdk_notice_net_error = 0x7f091d6b;
+        public static final int sapi_sdk_nuomi_addr_tag = 0x7f091d6c;
+        public static final int sapi_sdk_option_cancel = 0x7f091d6e;
+        public static final int sapi_sdk_panel_handler_view = 0x7f091d6f;
+        public static final int sapi_sdk_recycler_view = 0x7f091d70;
+        public static final int sapi_sdk_rl_address_item = 0x7f091d71;
+        public static final int sapi_sdk_rlv_address_list = 0x7f091d72;
+        public static final int sapi_sdk_scroll_layout = 0x7f091d73;
+        public static final int sapi_sdk_search_box = 0x7f091d74;
+        public static final int sapi_sdk_search_box_ic = 0x7f091d75;
+        public static final int sapi_sdk_search_box_layout = 0x7f091d76;
+        public static final int sapi_sdk_search_box_line = 0x7f091d77;
+        public static final int sapi_sdk_select_region_iv = 0x7f091d78;
+        public static final int sapi_sdk_set_default_layout = 0x7f091d79;
+        public static final int sapi_sdk_suggest_addr_bottom_line = 0x7f091d7a;
+        public static final int sapi_sdk_suggest_addr_layout = 0x7f091d7b;
+        public static final int sapi_sdk_suggest_addr_list = 0x7f091d7c;
+        public static final int sapi_sdk_suggest_map_address = 0x7f091d7d;
+        public static final int sapi_sdk_suggest_map_name = 0x7f091d7e;
+        public static final int sapi_sdk_tag_edit_confirm_btn = 0x7f091d82;
+        public static final int sapi_sdk_tag_edit_et = 0x7f091d83;
+        public static final int sapi_sdk_take_photo = 0x7f091d84;
+        public static final int sapi_sdk_take_photo_bottom_line = 0x7f091d85;
+        public static final int sapi_sdk_titlebar_left_back_btn = 0x7f091d86;
+        public static final int sapi_sdk_titlebar_left_btn = 0x7f091d87;
+        public static final int sapi_sdk_titlebar_right_btn = 0x7f091d88;
+        public static final int sapi_sdk_titlebar_title_tv = 0x7f091d89;
+        public static final int sapi_sdk_toast_msg_icon = 0x7f091d8a;
+        public static final int sapi_sdk_toast_msg_tv = 0x7f091d8b;
+        public static final int sapi_sdk_tv_address_category = 0x7f091d8c;
+        public static final int sapi_sdk_tv_address_check = 0x7f091d8d;
+        public static final int sapi_sdk_tv_address_hot = 0x7f091d8e;
+        public static final int sapi_sdk_tv_address_name = 0x7f091d8f;
+        public static final int sapi_sdk_tv_address_py = 0x7f091d90;
+        public static final int sapi_sdk_tv_empty_view = 0x7f091d92;
+        public static final int sapi_sdk_use_copy_text = 0x7f091d9f;
+        public static final int sapi_sdk_voice_ocr_btn = 0x7f091da2;
+        public static final int sapi_sdk_vp_address_list = 0x7f091da3;
+        public static final int sapi_textview_back = 0x7f091da4;
+        public static final int sapi_title_bg_layout = 0x7f091da5;
+        public static final int sapi_title_layout = 0x7f091da6;
+        public static final int sapi_webview = 0x7f091da8;
+        public static final int screen = 0x7f091dbd;
+        public static final int scrollIndicatorDown = 0x7f091dc7;
+        public static final int scrollIndicatorUp = 0x7f091dc8;
+        public static final int scrollView = 0x7f091dc9;
+        public static final int search_badge = 0x7f091ddb;
+        public static final int search_bar = 0x7f091ddc;
+        public static final int search_button = 0x7f091de2;
+        public static final int search_close_btn = 0x7f091de3;
+        public static final int search_edit_frame = 0x7f091de6;
+        public static final int search_go_btn = 0x7f091df1;
+        public static final int search_mag_icon = 0x7f091e01;
+        public static final int search_plate = 0x7f091e03;
+        public static final int search_src_text = 0x7f091e0c;
+        public static final int search_voice_btn = 0x7f091e16;
+        public static final int select_dialog_listview = 0x7f091e3a;
+        public static final int shortcut = 0x7f091ebe;
+        public static final int spacer = 0x7f091f22;
+        public static final int split_action_bar = 0x7f091f39;
+        public static final int src_atop = 0x7f091f5f;
+        public static final int src_in = 0x7f091f60;
+        public static final int src_over = 0x7f091f61;
+        public static final int stub_bottom_back = 0x7f091f91;
+        public static final int submenuarrow = 0x7f091fa5;
+        public static final int submit_area = 0x7f091fa6;
+        public static final int tabMode = 0x7f09200b;
+        public static final int tag_accessibility_actions = 0x7f092034;
+        public static final int tag_accessibility_clickable_spans = 0x7f092035;
+        public static final int tag_accessibility_heading = 0x7f092036;
+        public static final int tag_accessibility_pane_title = 0x7f092037;
+        public static final int tag_screen_reader_focusable = 0x7f09207f;
+        public static final int tag_transition_group = 0x7f09208d;
+        public static final int tag_unhandled_key_event_manager = 0x7f09208f;
+        public static final int tag_unhandled_key_listeners = 0x7f092090;
+        public static final int text = 0x7f0920ff;
+        public static final int text2 = 0x7f092100;
+        public static final int textSpacerNoButtons = 0x7f092104;
+        public static final int textSpacerNoTitle = 0x7f092105;
+        public static final int time = 0x7f0921d2;
+        public static final int title = 0x7f092203;
+        public static final int titleDividerNoCustom = 0x7f092205;
+        public static final int title_btn_left_iv = 0x7f09220e;
+        public static final int title_btn_left_tv = 0x7f09220f;
+        public static final int title_btn_right = 0x7f092210;
+        public static final int title_divider_line = 0x7f092215;
+        public static final int title_left_btn_layout = 0x7f09221d;
+        public static final int title_right_close = 0x7f09222a;
+        public static final int title_template = 0x7f09222d;
+        public static final int topPanel = 0x7f092274;
+        public static final int tv_tab_title = 0x7f0923fb;
+        public static final int unchecked = 0x7f092452;
+        public static final int uniform = 0x7f092457;
+        public static final int up = 0x7f09245f;
+        public static final int wrap_content = 0x7f092693;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -1496,7 +1496,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer {
+    public final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;
         public static final int abc_config_activityShortDur = 0x7f0a0001;
@@ -1521,7 +1521,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator {
+    public final class interpolator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int btn_checkbox_checked_mtrl_animation_interpolator_0 = 0x7f0c0000;
         public static final int btn_checkbox_checked_mtrl_animation_interpolator_1 = 0x7f0c0001;
@@ -1548,7 +1548,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout {
+    public final class layout {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_title_item = 0x7f0d0000;
         public static final int abc_action_bar_up_container = 0x7f0d0001;
@@ -1578,46 +1578,46 @@ public final class R {
         public static final int abc_search_view = 0x7f0d0019;
         public static final int abc_select_dialog_material = 0x7f0d001a;
         public static final int abc_tooltip = 0x7f0d001b;
-        public static final int custom_dialog = 0x7f0d0208;
-        public static final int layout_sapi_address_title_bar = 0x7f0d04d1;
-        public static final int layout_sapi_ecommerce_bottom_back_bar = 0x7f0d04de;
-        public static final int layout_sapi_sdk_addr_default_tag_group = 0x7f0d04e1;
-        public static final int layout_sapi_sdk_addr_default_tag_group_dark = 0x7f0d04e2;
-        public static final int layout_sapi_sdk_addr_map_searchbox = 0x7f0d04e3;
-        public static final int layout_sapi_sdk_address_edit_activity = 0x7f0d04e4;
-        public static final int layout_sapi_sdk_address_list_activity = 0x7f0d04e5;
-        public static final int layout_sapi_sdk_address_list_empty = 0x7f0d04e6;
-        public static final int layout_sapi_sdk_address_list_footer = 0x7f0d04e7;
-        public static final int layout_sapi_sdk_address_list_header = 0x7f0d04e8;
-        public static final int layout_sapi_sdk_address_list_item = 0x7f0d04e9;
-        public static final int layout_sapi_sdk_address_option_dialog = 0x7f0d04ea;
-        public static final int layout_sapi_sdk_common_input_form = 0x7f0d04eb;
-        public static final int layout_sapi_sdk_common_loading = 0x7f0d04ec;
-        public static final int layout_sapi_sdk_common_night_loading = 0x7f0d04ed;
-        public static final int layout_sapi_sdk_common_text_form = 0x7f0d04ef;
-        public static final int layout_sapi_sdk_dialog_addr_list_page_view = 0x7f0d04f1;
-        public static final int layout_sapi_sdk_dialog_address_selector = 0x7f0d04f2;
-        public static final int layout_sapi_sdk_dialog_address_selector_tab = 0x7f0d04f3;
-        public static final int layout_sapi_sdk_dialog_alert = 0x7f0d04f4;
-        public static final int layout_sapi_sdk_ecommerce_title_bar = 0x7f0d04f5;
-        public static final int layout_sapi_sdk_ecommerce_webview_with_title_bar = 0x7f0d04f6;
-        public static final int layout_sapi_sdk_img_ocr_option_dialog = 0x7f0d04fa;
-        public static final int layout_sapi_sdk_item_address_map = 0x7f0d04fb;
-        public static final int layout_sapi_sdk_item_address_map_load_more = 0x7f0d04fc;
-        public static final int layout_sapi_sdk_item_address_selector = 0x7f0d04fd;
-        public static final int layout_sapi_sdk_load_timeout = 0x7f0d04fe;
-        public static final int layout_sapi_sdk_map_location_poi_activity = 0x7f0d0501;
-        public static final int layout_sapi_sdk_suggest_addr_item = 0x7f0d0505;
+        public static final int custom_dialog = 0x7f0d0207;
+        public static final int layout_sapi_address_title_bar = 0x7f0d04ce;
+        public static final int layout_sapi_ecommerce_bottom_back_bar = 0x7f0d04db;
+        public static final int layout_sapi_sdk_addr_default_tag_group = 0x7f0d04de;
+        public static final int layout_sapi_sdk_addr_default_tag_group_dark = 0x7f0d04df;
+        public static final int layout_sapi_sdk_addr_map_searchbox = 0x7f0d04e0;
+        public static final int layout_sapi_sdk_address_edit_activity = 0x7f0d04e1;
+        public static final int layout_sapi_sdk_address_list_activity = 0x7f0d04e2;
+        public static final int layout_sapi_sdk_address_list_empty = 0x7f0d04e3;
+        public static final int layout_sapi_sdk_address_list_footer = 0x7f0d04e4;
+        public static final int layout_sapi_sdk_address_list_header = 0x7f0d04e5;
+        public static final int layout_sapi_sdk_address_list_item = 0x7f0d04e6;
+        public static final int layout_sapi_sdk_address_option_dialog = 0x7f0d04e7;
+        public static final int layout_sapi_sdk_common_input_form = 0x7f0d04e8;
+        public static final int layout_sapi_sdk_common_loading = 0x7f0d04e9;
+        public static final int layout_sapi_sdk_common_night_loading = 0x7f0d04ea;
+        public static final int layout_sapi_sdk_common_text_form = 0x7f0d04ec;
+        public static final int layout_sapi_sdk_dialog_addr_list_page_view = 0x7f0d04ee;
+        public static final int layout_sapi_sdk_dialog_address_selector = 0x7f0d04ef;
+        public static final int layout_sapi_sdk_dialog_address_selector_tab = 0x7f0d04f0;
+        public static final int layout_sapi_sdk_dialog_alert = 0x7f0d04f1;
+        public static final int layout_sapi_sdk_ecommerce_title_bar = 0x7f0d04f2;
+        public static final int layout_sapi_sdk_ecommerce_webview_with_title_bar = 0x7f0d04f3;
+        public static final int layout_sapi_sdk_img_ocr_option_dialog = 0x7f0d04f7;
+        public static final int layout_sapi_sdk_item_address_map = 0x7f0d04f8;
+        public static final int layout_sapi_sdk_item_address_map_load_more = 0x7f0d04f9;
+        public static final int layout_sapi_sdk_item_address_selector = 0x7f0d04fa;
+        public static final int layout_sapi_sdk_load_timeout = 0x7f0d04fb;
+        public static final int layout_sapi_sdk_map_location_poi_activity = 0x7f0d04fe;
+        public static final int layout_sapi_sdk_suggest_addr_item = 0x7f0d0502;
         public static final int notification_action = 0x7f0d0669;
         public static final int notification_action_tombstone = 0x7f0d066a;
         public static final int notification_template_custom_big = 0x7f0d0671;
         public static final int notification_template_icon_group = 0x7f0d0672;
         public static final int notification_template_part_chronometer = 0x7f0d0676;
         public static final int notification_template_part_time = 0x7f0d0677;
-        public static final int select_dialog_item_material = 0x7f0d07a8;
-        public static final int select_dialog_multichoice_material = 0x7f0d07a9;
-        public static final int select_dialog_singlechoice_material = 0x7f0d07aa;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0d0808;
+        public static final int select_dialog_item_material = 0x7f0d07a9;
+        public static final int select_dialog_multichoice_material = 0x7f0d07aa;
+        public static final int select_dialog_singlechoice_material = 0x7f0d07ab;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0d0809;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -1636,7 +1636,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string {
+    public final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_home_description = 0x7f0f0038;
         public static final int abc_action_bar_up_description = 0x7f0f0039;
@@ -1665,17 +1665,17 @@ public final class R {
         public static final int abc_shareactionprovider_share_with = 0x7f0f0050;
         public static final int abc_shareactionprovider_share_with_application = 0x7f0f0051;
         public static final int abc_toolbar_collapse_description = 0x7f0f0052;
-        public static final int sapi_sdk_address_add_action = 0x7f0f106f;
-        public static final int sapi_sdk_address_add_tips = 0x7f0f1070;
-        public static final int sapi_sdk_address_empty_tips = 0x7f0f1071;
-        public static final int sapi_sdk_address_selector_title = 0x7f0f1072;
-        public static final int sapi_sdk_address_service_content = 0x7f0f1073;
-        public static final int sapi_sdk_dialog_address_hot_item_type_message = 0x7f0f1078;
-        public static final int sapi_sdk_dialog_address_item_type_message = 0x7f0f1079;
-        public static final int sapi_sdk_ecommerce_loading_timeout = 0x7f0f107a;
-        public static final int sapi_sdk_ecommerce_retry_btn_text = 0x7f0f107b;
-        public static final int search_menu_title = 0x7f0f10e5;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1212;
+        public static final int sapi_sdk_address_add_action = 0x7f0f1081;
+        public static final int sapi_sdk_address_add_tips = 0x7f0f1082;
+        public static final int sapi_sdk_address_empty_tips = 0x7f0f1083;
+        public static final int sapi_sdk_address_selector_title = 0x7f0f1084;
+        public static final int sapi_sdk_address_service_content = 0x7f0f1085;
+        public static final int sapi_sdk_dialog_address_hot_item_type_message = 0x7f0f108a;
+        public static final int sapi_sdk_dialog_address_item_type_message = 0x7f0f108b;
+        public static final int sapi_sdk_ecommerce_loading_timeout = 0x7f0f108c;
+        public static final int sapi_sdk_ecommerce_retry_btn_text = 0x7f0f108d;
+        public static final int search_menu_title = 0x7f0f10f7;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1226;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -1694,7 +1694,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style {
+    public final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AlertDialog_AppCompat = 0x7f100003;
         public static final int AlertDialog_AppCompat_Light = 0x7f100004;
@@ -2056,25 +2056,25 @@ public final class R {
         public static final int Widget_Compat_NotificationActionText = 0x7f10032b;
 
         /* renamed from: sapi_sdk_address_selector_dialog */
-        public static final int obfuscated_res_0x7f1003de = 0x7f1003de;
+        public static final int obfuscated_res_0x7f1003df = 0x7f1003df;
 
         /* renamed from: sapi_sdk_anim_push_bottom */
-        public static final int obfuscated_res_0x7f1003e0 = 0x7f1003e0;
+        public static final int obfuscated_res_0x7f1003e1 = 0x7f1003e1;
 
         /* renamed from: sapi_sdk_default_tag_btn_common */
-        public static final int obfuscated_res_0x7f1003e2 = 0x7f1003e2;
-
-        /* renamed from: sapi_sdk_default_tag_btn_dark */
         public static final int obfuscated_res_0x7f1003e3 = 0x7f1003e3;
 
-        /* renamed from: sapi_sdk_default_tag_btn_light */
+        /* renamed from: sapi_sdk_default_tag_btn_dark */
         public static final int obfuscated_res_0x7f1003e4 = 0x7f1003e4;
 
-        /* renamed from: sapi_sdk_default_tag_view_stub */
+        /* renamed from: sapi_sdk_default_tag_btn_light */
         public static final int obfuscated_res_0x7f1003e5 = 0x7f1003e5;
 
-        /* renamed from: sapi_sdk_dialog_fragment_anim */
+        /* renamed from: sapi_sdk_default_tag_view_stub */
         public static final int obfuscated_res_0x7f1003e6 = 0x7f1003e6;
+
+        /* renamed from: sapi_sdk_dialog_fragment_anim */
+        public static final int obfuscated_res_0x7f1003e7 = 0x7f1003e7;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {
@@ -2093,7 +2093,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable {
+    public final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] ActionBar;
         public static final int[] ActionBarLayout;

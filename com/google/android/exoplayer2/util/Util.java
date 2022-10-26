@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.util;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -11,7 +10,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
 import androidx.core.view.DisplayCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -61,8 +59,105 @@ public final class Util {
     public static final Pattern XS_DURATION_PATTERN;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int getAudioContentTypeForStreamType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) {
+            if (i != 0) {
+                return (i == 1 || i == 2 || i == 4 || i == 5 || i == 8) ? 4 : 2;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int getAudioUsageForStreamType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        int i2 = 4;
+                        if (i != 4) {
+                            i2 = 5;
+                            if (i != 5) {
+                                return i != 8 ? 1 : 3;
+                            }
+                        }
+                        return i2;
+                    }
+                    return 6;
+                }
+                return 13;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int getPcmEncoding(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65567, null, i)) == null) {
+            if (i != 8) {
+                if (i != 16) {
+                    if (i != 24) {
+                        return i != 32 ? 0 : 1073741824;
+                    }
+                    return Integer.MIN_VALUE;
+                }
+                return 2;
+            }
+            return 3;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int getStreamTypeForAudioUsage(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65571, null, i)) == null) {
+            if (i != 13) {
+                switch (i) {
+                    case 2:
+                        return 0;
+                    case 3:
+                        return 8;
+                    case 4:
+                        return 4;
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 9:
+                    case 10:
+                        return 5;
+                    case 6:
+                        return 2;
+                    default:
+                        return 3;
+                }
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public static boolean isLinebreak(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65577, null, i)) == null) ? i == 10 || i == 13 : invokeI.booleanValue;
+    }
+
+    public static boolean shouldEscapeCharacter(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65588, null, new Object[]{Character.valueOf(c)})) == null) ? c == '\"' || c == '%' || c == '*' || c == '/' || c == ':' || c == '<' || c == '\\' || c == '|' || c == '>' || c == '?' : invokeCommon.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
+        int i;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1682801238, "Lcom/google/android/exoplayer2/util/Util;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -74,7 +169,12 @@ public final class Util {
                 return;
             }
         }
-        SDK_INT = (Build.VERSION.SDK_INT == 25 && Build.VERSION.CODENAME.charAt(0) == 'O') ? 26 : Build.VERSION.SDK_INT;
+        if (Build.VERSION.SDK_INT == 25 && Build.VERSION.CODENAME.charAt(0) == 'O') {
+            i = 26;
+        } else {
+            i = Build.VERSION.SDK_INT;
+        }
+        SDK_INT = i;
         DEVICE = Build.DEVICE;
         MANUFACTURER = Build.MANUFACTURER;
         MODEL = Build.MODEL;
@@ -104,11 +204,169 @@ public final class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
             if (obj == null) {
-                return obj2 == null;
+                if (obj2 == null) {
+                    return true;
+                }
+                return false;
             }
             return obj.equals(obj2);
         }
         return invokeLL.booleanValue;
+    }
+
+    public static int ceilDivide(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) {
+            return ((i + i2) - 1) / i2;
+        }
+        return invokeII.intValue;
+    }
+
+    public static boolean contains(Object[] objArr, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, objArr, obj)) == null) {
+            for (Object obj2 : objArr) {
+                if (areEqual(obj2, obj)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static File createTempDirectory(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, context, str)) == null) {
+            File createTempFile = createTempFile(context, str);
+            createTempFile.delete();
+            createTempFile.mkdir();
+            return createTempFile;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static File createTempFile(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, str)) == null) {
+            return File.createTempFile(str, null, context.getCacheDir());
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static void getDisplaySizeV16(Display display, Point point) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65562, null, display, point) == null) {
+            display.getSize(point);
+        }
+    }
+
+    public static void getDisplaySizeV17(Display display, Point point) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65563, null, display, point) == null) {
+            display.getRealSize(point);
+        }
+    }
+
+    public static void getDisplaySizeV23(Display display, Point point) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65564, null, display, point) == null) {
+            Display.Mode mode = display.getMode();
+            point.x = mode.getPhysicalWidth();
+            point.y = mode.getPhysicalHeight();
+        }
+    }
+
+    public static void getDisplaySizeV9(Display display, Point point) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65565, null, display, point) == null) {
+            point.x = display.getWidth();
+            point.y = display.getHeight();
+        }
+    }
+
+    public static int getPcmFrameSize(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65568, null, i, i2)) == null) {
+            if (i != Integer.MIN_VALUE) {
+                if (i != 1073741824) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return i2;
+                        }
+                        throw new IllegalArgumentException();
+                    }
+                    return i2 * 2;
+                }
+                return i2 * 4;
+            }
+            return i2 * 3;
+        }
+        return invokeII.intValue;
+    }
+
+    public static int binarySearchCeil(List list, Object obj, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, obj, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int binarySearch = Collections.binarySearch(list, obj);
+            if (binarySearch < 0) {
+                i = ~binarySearch;
+            } else {
+                int size = list.size();
+                do {
+                    binarySearch++;
+                    if (binarySearch >= size) {
+                        break;
+                    }
+                } while (((Comparable) list.get(binarySearch)).compareTo(obj) == 0);
+                if (z) {
+                    i = binarySearch - 1;
+                } else {
+                    i = binarySearch;
+                }
+            }
+            if (z2) {
+                return Math.min(list.size() - 1, i);
+            }
+            return i;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int binarySearchFloor(List list, Object obj, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, obj, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int binarySearch = Collections.binarySearch(list, obj);
+            if (binarySearch < 0) {
+                i = -(binarySearch + 2);
+            } else {
+                do {
+                    binarySearch--;
+                    if (binarySearch < 0) {
+                        break;
+                    }
+                } while (((Comparable) list.get(binarySearch)).compareTo(obj) == 0);
+                if (z) {
+                    i = binarySearch + 1;
+                } else {
+                    i = binarySearch;
+                }
+            }
+            if (z2) {
+                return Math.max(0, i);
+            }
+            return i;
+        }
+        return invokeCommon.intValue;
     }
 
     public static int binarySearchCeil(long[] jArr, long j, boolean z, boolean z2) {
@@ -126,9 +384,16 @@ public final class Util {
                         break;
                     }
                 } while (jArr[binarySearch] == j);
-                i = z ? binarySearch - 1 : binarySearch;
+                if (z) {
+                    i = binarySearch - 1;
+                } else {
+                    i = binarySearch;
+                }
             }
-            return z2 ? Math.min(jArr.length - 1, i) : i;
+            if (z2) {
+                return Math.min(jArr.length - 1, i);
+            }
+            return i;
         }
         return invokeCommon.intValue;
     }
@@ -148,48 +413,304 @@ public final class Util {
                         break;
                     }
                 } while (iArr[binarySearch] == i);
-                i2 = z ? binarySearch + 1 : binarySearch;
+                if (z) {
+                    i2 = binarySearch + 1;
+                } else {
+                    i2 = binarySearch;
+                }
             }
-            return z2 ? Math.max(0, i2) : i2;
+            if (z2) {
+                return Math.max(0, i2);
+            }
+            return i2;
         }
         return invokeCommon.intValue;
     }
 
-    public static int ceilDivide(int i, int i2) {
-        InterceptResult invokeII;
+    public static int binarySearchFloor(long[] jArr, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) ? ((i + i2) - 1) / i2 : invokeII.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{jArr, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int binarySearch = Arrays.binarySearch(jArr, j);
+            if (binarySearch < 0) {
+                i = -(binarySearch + 2);
+            } else {
+                do {
+                    binarySearch--;
+                    if (binarySearch < 0) {
+                        break;
+                    }
+                } while (jArr[binarySearch] == j);
+                if (z) {
+                    i = binarySearch + 1;
+                } else {
+                    i = binarySearch;
+                }
+            }
+            if (z2) {
+                return Math.max(0, i);
+            }
+            return i;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static long ceilDivide(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return ((j + j2) - 1) / j2;
+        }
+        return invokeCommon.longValue;
     }
 
     public static void closeQuietly(DataSource dataSource) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, dataSource) == null) || dataSource == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65546, null, dataSource) == null) && dataSource != null) {
+            try {
+                dataSource.close();
+            } catch (IOException unused) {
+            }
         }
-        try {
-            dataSource.close();
-        } catch (IOException unused) {
+    }
+
+    public static String fromUtf8Bytes(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, bArr)) == null) {
+            return new String(bArr, Charset.forName("UTF-8"));
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static int getIntegerCodeForString(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
+            int length = str.length();
+            if (length <= 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                i = (i << 8) | str.charAt(i2);
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Point getPhysicalDisplaySize(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
+            return getPhysicalDisplaySize(context, ((WindowManager) context.getSystemService("window")).getDefaultDisplay());
+        }
+        return (Point) invokeL.objValue;
+    }
+
+    public static byte[] getUtf8Bytes(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) {
+            return str.getBytes(Charset.forName("UTF-8"));
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static int inferContentType(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, uri)) == null) {
+            String path = uri.getPath();
+            if (path == null) {
+                return 3;
+            }
+            return inferContentType(path);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean isLocalFileUri(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, uri)) == null) {
+            String scheme = uri.getScheme();
+            if (!TextUtils.isEmpty(scheme) && !scheme.equals("file")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static ExecutorService newSingleThreadExecutor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) {
+            return Executors.newSingleThreadExecutor(new ThreadFactory(str) { // from class: com.google.android.exoplayer2.util.Util.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String val$threadName;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$threadName = str;
+                }
+
+                @Override // java.util.concurrent.ThreadFactory
+                public Thread newThread(Runnable runnable) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, runnable)) == null) {
+                        return new Thread(runnable, this.val$threadName);
+                    }
+                    return (Thread) invokeL2.objValue;
+                }
+            });
+        }
+        return (ExecutorService) invokeL.objValue;
+    }
+
+    public static String normalizeLanguageCode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return new Locale(str).getLanguage();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void recursiveDelete(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65584, null, file) == null) {
+            if (file.isDirectory()) {
+                for (File file2 : file.listFiles()) {
+                    recursiveDelete(file2);
+                }
+            }
+            file.delete();
+        }
+    }
+
+    public static void sneakyThrow(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65589, null, th) == null) {
+            sneakyThrowInternal(th);
+        }
+    }
+
+    public static void sneakyThrowInternal(Throwable th) throws Throwable {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65590, null, th) == null) {
+            throw th;
+        }
+    }
+
+    public static int[] toArray(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            int size = list.size();
+            int[] iArr = new int[size];
+            for (int i = 0; i < size; i++) {
+                iArr[i] = ((Integer) list.get(i)).intValue();
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static byte[] toByteArray(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, inputStream)) == null) {
+            byte[] bArr = new byte[4096];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                } else {
+                    return byteArrayOutputStream.toByteArray();
+                }
+            }
+        } else {
+            return (byte[]) invokeL.objValue;
+        }
+    }
+
+    public static String toLowerInvariant(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return str.toLowerCase(Locale.US);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void closeQuietly(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+            }
+        }
+    }
+
+    public static float constrainValue(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            return Math.max(f2, Math.min(f, f3));
+        }
+        return invokeCommon.floatValue;
     }
 
     public static int constrainValue(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65549, null, i, i2, i3)) == null) ? Math.max(i2, Math.min(i, i3)) : invokeIII.intValue;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65549, null, i, i2, i3)) == null) {
+            return Math.max(i2, Math.min(i, i3));
+        }
+        return invokeIII.intValue;
     }
 
-    public static boolean contains(Object[] objArr, Object obj) {
-        InterceptResult invokeLL;
+    public static long constrainValue(long j, long j2, long j3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, objArr, obj)) == null) {
-            for (Object obj2 : objArr) {
-                if (areEqual(obj2, obj)) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            return Math.max(j2, Math.min(j, j3));
         }
-        return invokeLL.booleanValue;
+        return invokeCommon.longValue;
     }
 
     public static int crc(byte[] bArr, int i, int i2, int i3) {
@@ -203,24 +724,6 @@ public final class Util {
             return i3;
         }
         return invokeLIII.intValue;
-    }
-
-    public static File createTempDirectory(Context context, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, context, str)) == null) {
-            File createTempFile = createTempFile(context, str);
-            createTempFile.delete();
-            createTempFile.mkdir();
-            return createTempFile;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static File createTempFile(Context context, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, str)) == null) ? File.createTempFile(str, null, context.getCacheDir()) : (File) invokeLL.objValue;
     }
 
     public static String escapeFileName(String str) {
@@ -257,49 +760,6 @@ public final class Util {
             return sb.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String fromUtf8Bytes(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, bArr)) == null) ? new String(bArr, Charset.forName("UTF-8")) : (String) invokeL.objValue;
-    }
-
-    public static int getAudioContentTypeForStreamType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) {
-            if (i != 0) {
-                return (i == 1 || i == 2 || i == 4 || i == 5 || i == 8) ? 4 : 2;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int getAudioUsageForStreamType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        int i2 = 4;
-                        if (i != 4) {
-                            i2 = 5;
-                            if (i != 5) {
-                                return i != 8 ? 1 : 3;
-                            }
-                        }
-                        return i2;
-                    }
-                    return 6;
-                }
-                return 13;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
     }
 
     public static byte[] getBytesFromHexString(String str) {
@@ -354,534 +814,23 @@ public final class Util {
         return invokeI.intValue;
     }
 
-    @TargetApi(16)
-    public static void getDisplaySizeV16(Display display, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65562, null, display, point) == null) {
-            display.getSize(point);
-        }
-    }
-
-    @TargetApi(17)
-    public static void getDisplaySizeV17(Display display, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65563, null, display, point) == null) {
-            display.getRealSize(point);
-        }
-    }
-
-    @TargetApi(23)
-    public static void getDisplaySizeV23(Display display, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65564, null, display, point) == null) {
-            Display.Mode mode = display.getMode();
-            point.x = mode.getPhysicalWidth();
-            point.y = mode.getPhysicalHeight();
-        }
-    }
-
-    public static void getDisplaySizeV9(Display display, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65565, null, display, point) == null) {
-            point.x = display.getWidth();
-            point.y = display.getHeight();
-        }
-    }
-
-    public static int getIntegerCodeForString(String str) {
+    public static int inferContentType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
-            int length = str.length();
-            Assertions.checkArgument(length <= 4);
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                i = (i << 8) | str.charAt(i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) {
+            String lowerInvariant = toLowerInvariant(str);
+            if (lowerInvariant.endsWith(".mpd")) {
+                return 0;
             }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int getPcmEncoding(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65567, null, i)) == null) {
-            if (i != 8) {
-                if (i != 16) {
-                    if (i != 24) {
-                        return i != 32 ? 0 : 1073741824;
-                    }
-                    return Integer.MIN_VALUE;
-                }
+            if (lowerInvariant.endsWith(".m3u8")) {
                 return 2;
+            }
+            if (lowerInvariant.matches(".*\\.ism(l)?(/manifest(\\(.+\\))?)?")) {
+                return 1;
             }
             return 3;
         }
-        return invokeI.intValue;
-    }
-
-    public static int getPcmFrameSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65568, null, i, i2)) == null) {
-            if (i != Integer.MIN_VALUE) {
-                if (i != 1073741824) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            return i2;
-                        }
-                        throw new IllegalArgumentException();
-                    }
-                    return i2 * 2;
-                }
-                return i2 * 4;
-            }
-            return i2 * 3;
-        }
-        return invokeII.intValue;
-    }
-
-    public static Point getPhysicalDisplaySize(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) ? getPhysicalDisplaySize(context, ((WindowManager) context.getSystemService("window")).getDefaultDisplay()) : (Point) invokeL.objValue;
-    }
-
-    public static int getStreamTypeForAudioUsage(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65571, null, i)) == null) {
-            if (i != 13) {
-                switch (i) {
-                    case 2:
-                        return 0;
-                    case 3:
-                        return 8;
-                    case 4:
-                        return 4;
-                    case 5:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                        return 5;
-                    case 6:
-                        return 2;
-                    default:
-                        return 3;
-                }
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public static String getStringForTime(StringBuilder sb, Formatter formatter, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{sb, formatter, Long.valueOf(j)})) == null) {
-            if (j == C.TIME_UNSET) {
-                j = 0;
-            }
-            long j2 = (j + 500) / 1000;
-            long j3 = j2 % 60;
-            long j4 = (j2 / 60) % 60;
-            long j5 = j2 / 3600;
-            sb.setLength(0);
-            return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String getUserAgent(Context context, String str) {
-        String str2;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, context, str)) == null) {
-            try {
-                str2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException unused) {
-                str2 = "?";
-            }
-            return str + "/" + str2 + " (Linux;Android " + Build.VERSION.RELEASE + ") " + ExoPlayerLibraryInfo.VERSION_SLASHY;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] getUtf8Bytes(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) ? str.getBytes(Charset.forName("UTF-8")) : (byte[]) invokeL.objValue;
-    }
-
-    public static int inferContentType(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, uri)) == null) {
-            String path = uri.getPath();
-            if (path == null) {
-                return 3;
-            }
-            return inferContentType(path);
-        }
         return invokeL.intValue;
-    }
-
-    public static boolean isLinebreak(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65577, null, i)) == null) ? i == 10 || i == 13 : invokeI.booleanValue;
-    }
-
-    public static boolean isLocalFileUri(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, uri)) == null) {
-            String scheme = uri.getScheme();
-            return TextUtils.isEmpty(scheme) || scheme.equals("file");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @TargetApi(23)
-    public static boolean maybeRequestReadExternalStoragePermission(Activity activity, Uri... uriArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, activity, uriArr)) == null) {
-            if (SDK_INT < 23) {
-                return false;
-            }
-            int length = uriArr.length;
-            int i = 0;
-            while (true) {
-                if (i >= length) {
-                    break;
-                } else if (!isLocalFileUri(uriArr[i])) {
-                    i++;
-                } else if (activity.checkSelfPermission(h.i) != 0) {
-                    activity.requestPermissions(new String[]{h.i}, 0);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static ExecutorService newSingleThreadExecutor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) ? Executors.newSingleThreadExecutor(new ThreadFactory(str) { // from class: com.google.android.exoplayer2.util.Util.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String val$threadName;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {str};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$threadName = str;
-            }
-
-            @Override // java.util.concurrent.ThreadFactory
-            public Thread newThread(@NonNull Runnable runnable) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, runnable)) == null) ? new Thread(runnable, this.val$threadName) : (Thread) invokeL2.objValue;
-            }
-        }) : (ExecutorService) invokeL.objValue;
-    }
-
-    public static String normalizeLanguageCode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return new Locale(str).getLanguage();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static long parseXsDateTime(String str) throws ParserException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, str)) == null) {
-            Matcher matcher = XS_DATE_TIME_PATTERN.matcher(str);
-            if (matcher.matches()) {
-                int i = 0;
-                if (matcher.group(9) != null && !matcher.group(9).equalsIgnoreCase("Z")) {
-                    i = (Integer.parseInt(matcher.group(12)) * 60) + Integer.parseInt(matcher.group(13));
-                    if (matcher.group(11).equals("-")) {
-                        i *= -1;
-                    }
-                }
-                GregorianCalendar gregorianCalendar = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
-                gregorianCalendar.clear();
-                gregorianCalendar.set(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2)) - 1, Integer.parseInt(matcher.group(3)), Integer.parseInt(matcher.group(4)), Integer.parseInt(matcher.group(5)), Integer.parseInt(matcher.group(6)));
-                if (!TextUtils.isEmpty(matcher.group(8))) {
-                    gregorianCalendar.set(14, new BigDecimal("0." + matcher.group(8)).movePointRight(3).intValue());
-                }
-                long timeInMillis = gregorianCalendar.getTimeInMillis();
-                return i != 0 ? timeInMillis - (i * 60000) : timeInMillis;
-            }
-            throw new ParserException("Invalid date/time format: " + str);
-        }
-        return invokeL.longValue;
-    }
-
-    public static long parseXsDuration(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, str)) == null) {
-            Matcher matcher = XS_DURATION_PATTERN.matcher(str);
-            if (matcher.matches()) {
-                boolean isEmpty = true ^ TextUtils.isEmpty(matcher.group(1));
-                String group = matcher.group(3);
-                double parseDouble = group != null ? Double.parseDouble(group) * 3.1556908E7d : 0.0d;
-                String group2 = matcher.group(5);
-                double parseDouble2 = parseDouble + (group2 != null ? Double.parseDouble(group2) * 2629739.0d : 0.0d);
-                String group3 = matcher.group(7);
-                double parseDouble3 = parseDouble2 + (group3 != null ? Double.parseDouble(group3) * 86400.0d : 0.0d);
-                String group4 = matcher.group(10);
-                double parseDouble4 = parseDouble3 + (group4 != null ? Double.parseDouble(group4) * 3600.0d : 0.0d);
-                String group5 = matcher.group(12);
-                double parseDouble5 = parseDouble4 + (group5 != null ? Double.parseDouble(group5) * 60.0d : 0.0d);
-                String group6 = matcher.group(14);
-                long parseDouble6 = (long) ((parseDouble5 + (group6 != null ? Double.parseDouble(group6) : 0.0d)) * 1000.0d);
-                return isEmpty ? -parseDouble6 : parseDouble6;
-            }
-            return (long) (Double.parseDouble(str) * 3600.0d * 1000.0d);
-        }
-        return invokeL.longValue;
-    }
-
-    public static void recursiveDelete(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65584, null, file) == null) {
-            if (file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    recursiveDelete(file2);
-                }
-            }
-            file.delete();
-        }
-    }
-
-    public static long scaleLargeTimestamp(long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            int i = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-            if (i < 0 || j3 % j2 != 0) {
-                return (i >= 0 || j2 % j3 != 0) ? (long) (j * (j2 / j3)) : j * (j2 / j3);
-            }
-            return j / (j3 / j2);
-        }
-        return invokeCommon.longValue;
-    }
-
-    public static long[] scaleLargeTimestamps(List<Long> list, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int size = list.size();
-            long[] jArr = new long[size];
-            int i = 0;
-            int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-            if (i2 >= 0 && j2 % j == 0) {
-                long j3 = j2 / j;
-                while (i < size) {
-                    jArr[i] = list.get(i).longValue() / j3;
-                    i++;
-                }
-            } else if (i2 >= 0 || j % j2 != 0) {
-                double d = j / j2;
-                while (i < size) {
-                    jArr[i] = (long) (list.get(i).longValue() * d);
-                    i++;
-                }
-            } else {
-                long j4 = j / j2;
-                while (i < size) {
-                    jArr[i] = list.get(i).longValue() * j4;
-                    i++;
-                }
-            }
-            return jArr;
-        }
-        return (long[]) invokeCommon.objValue;
-    }
-
-    public static void scaleLargeTimestampsInPlace(long[] jArr, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65587, null, new Object[]{jArr, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            int i = 0;
-            int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-            if (i2 >= 0 && j2 % j == 0) {
-                long j3 = j2 / j;
-                while (i < jArr.length) {
-                    jArr[i] = jArr[i] / j3;
-                    i++;
-                }
-            } else if (i2 < 0 && j % j2 == 0) {
-                long j4 = j / j2;
-                while (i < jArr.length) {
-                    jArr[i] = jArr[i] * j4;
-                    i++;
-                }
-            } else {
-                double d = j / j2;
-                while (i < jArr.length) {
-                    jArr[i] = (long) (jArr[i] * d);
-                    i++;
-                }
-            }
-        }
-    }
-
-    public static boolean shouldEscapeCharacter(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65588, null, new Object[]{Character.valueOf(c)})) == null) ? c == '\"' || c == '%' || c == '*' || c == '/' || c == ':' || c == '<' || c == '\\' || c == '|' || c == '>' || c == '?' : invokeCommon.booleanValue;
-    }
-
-    public static void sneakyThrow(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65589, null, th) == null) {
-            sneakyThrowInternal(th);
-        }
-    }
-
-    public static <T extends Throwable> void sneakyThrowInternal(Throwable th) throws Throwable {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65590, null, th) == null) {
-            throw th;
-        }
-    }
-
-    public static int[] toArray(List<Integer> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            int size = list.size();
-            int[] iArr = new int[size];
-            for (int i = 0; i < size; i++) {
-                iArr[i] = list.get(i).intValue();
-            }
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public static byte[] toByteArray(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65592, null, inputStream)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        byte[] bArr = new byte[4096];
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        while (true) {
-            int read = inputStream.read(bArr);
-            if (read != -1) {
-                byteArrayOutputStream.write(bArr, 0, read);
-            } else {
-                return byteArrayOutputStream.toByteArray();
-            }
-        }
-    }
-
-    public static String toLowerInvariant(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return str.toLowerCase(Locale.US);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String unescapeFileName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
-            int length = str.length();
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                if (str.charAt(i3) == '%') {
-                    i2++;
-                }
-            }
-            if (i2 == 0) {
-                return str;
-            }
-            int i4 = length - (i2 * 2);
-            StringBuilder sb = new StringBuilder(i4);
-            Matcher matcher = ESCAPED_CHARACTER_PATTERN.matcher(str);
-            while (i2 > 0 && matcher.find()) {
-                sb.append((CharSequence) str, i, matcher.start());
-                sb.append((char) Integer.parseInt(matcher.group(1), 16));
-                i = matcher.end();
-                i2--;
-            }
-            if (i < length) {
-                sb.append((CharSequence) str, i, length);
-            }
-            if (sb.length() != i4) {
-                return null;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static long ceilDivide(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? ((j + j2) - 1) / j2 : invokeCommon.longValue;
-    }
-
-    public static void closeQuietly(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
-        }
-    }
-
-    public static long constrainValue(long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? Math.max(j2, Math.min(j, j3)) : invokeCommon.longValue;
-    }
-
-    public static float constrainValue(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Math.max(f2, Math.min(f, f3)) : invokeCommon.floatValue;
     }
 
     public static Point getPhysicalDisplaySize(Context context, Display display) {
@@ -932,86 +881,266 @@ public final class Util {
         return (Point) invokeLL.objValue;
     }
 
-    public static int inferContentType(String str) {
+    public static String getStringForTime(StringBuilder sb, Formatter formatter, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{sb, formatter, Long.valueOf(j)})) == null) {
+            if (j == C.TIME_UNSET) {
+                j = 0;
+            }
+            long j2 = (j + 500) / 1000;
+            long j3 = j2 % 60;
+            long j4 = (j2 / 60) % 60;
+            long j5 = j2 / 3600;
+            sb.setLength(0);
+            if (j5 > 0) {
+                return formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString();
+            }
+            return formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static long[] scaleLargeTimestamps(List list, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int size = list.size();
+            long[] jArr = new long[size];
+            int i = 0;
+            int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+            if (i2 >= 0 && j2 % j == 0) {
+                long j3 = j2 / j;
+                while (i < size) {
+                    jArr[i] = ((Long) list.get(i)).longValue() / j3;
+                    i++;
+                }
+            } else if (i2 < 0 && j % j2 == 0) {
+                long j4 = j / j2;
+                while (i < size) {
+                    jArr[i] = ((Long) list.get(i)).longValue() * j4;
+                    i++;
+                }
+            } else {
+                double d = j / j2;
+                while (i < size) {
+                    jArr[i] = (long) (((Long) list.get(i)).longValue() * d);
+                    i++;
+                }
+            }
+            return jArr;
+        }
+        return (long[]) invokeCommon.objValue;
+    }
+
+    public static void scaleLargeTimestampsInPlace(long[] jArr, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65587, null, new Object[]{jArr, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            int i = 0;
+            int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+            if (i2 >= 0 && j2 % j == 0) {
+                long j3 = j2 / j;
+                while (i < jArr.length) {
+                    jArr[i] = jArr[i] / j3;
+                    i++;
+                }
+            } else if (i2 < 0 && j % j2 == 0) {
+                long j4 = j / j2;
+                while (i < jArr.length) {
+                    jArr[i] = jArr[i] * j4;
+                    i++;
+                }
+            } else {
+                double d = j / j2;
+                while (i < jArr.length) {
+                    jArr[i] = (long) (jArr[i] * d);
+                    i++;
+                }
+            }
+        }
+    }
+
+    public static String getUserAgent(Context context, String str) {
+        String str2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, context, str)) == null) {
+            try {
+                str2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException unused) {
+                str2 = "?";
+            }
+            return str + "/" + str2 + " (Linux;Android " + Build.VERSION.RELEASE + ") " + ExoPlayerLibraryInfo.VERSION_SLASHY;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean maybeRequestReadExternalStoragePermission(Activity activity, Uri... uriArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, activity, uriArr)) == null) {
+            if (SDK_INT < 23) {
+                return false;
+            }
+            int length = uriArr.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    break;
+                } else if (isLocalFileUri(uriArr[i])) {
+                    if (activity.checkSelfPermission(h.i) != 0) {
+                        activity.requestPermissions(new String[]{h.i}, 0);
+                        return true;
+                    }
+                } else {
+                    i++;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static long parseXsDateTime(String str) throws ParserException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) {
-            String lowerInvariant = toLowerInvariant(str);
-            if (lowerInvariant.endsWith(".mpd")) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, str)) == null) {
+            Matcher matcher = XS_DATE_TIME_PATTERN.matcher(str);
+            if (matcher.matches()) {
+                int i = 0;
+                if (matcher.group(9) != null && !matcher.group(9).equalsIgnoreCase("Z")) {
+                    i = (Integer.parseInt(matcher.group(12)) * 60) + Integer.parseInt(matcher.group(13));
+                    if (matcher.group(11).equals("-")) {
+                        i *= -1;
+                    }
+                }
+                GregorianCalendar gregorianCalendar = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+                gregorianCalendar.clear();
+                gregorianCalendar.set(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2)) - 1, Integer.parseInt(matcher.group(3)), Integer.parseInt(matcher.group(4)), Integer.parseInt(matcher.group(5)), Integer.parseInt(matcher.group(6)));
+                if (!TextUtils.isEmpty(matcher.group(8))) {
+                    gregorianCalendar.set(14, new BigDecimal("0." + matcher.group(8)).movePointRight(3).intValue());
+                }
+                long timeInMillis = gregorianCalendar.getTimeInMillis();
+                if (i != 0) {
+                    return timeInMillis - (i * 60000);
+                }
+                return timeInMillis;
             }
-            if (lowerInvariant.endsWith(".m3u8")) {
-                return 2;
-            }
-            return lowerInvariant.matches(".*\\.ism(l)?(/manifest(\\(.+\\))?)?") ? 1 : 3;
+            throw new ParserException("Invalid date/time format: " + str);
         }
-        return invokeL.intValue;
+        return invokeL.longValue;
     }
 
-    public static <T> int binarySearchCeil(List<? extends Comparable<? super T>> list, T t, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        int i;
+    public static long parseXsDuration(String str) {
+        InterceptResult invokeL;
+        double d;
+        double d2;
+        double d3;
+        double d4;
+        double d5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, t, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int binarySearch = Collections.binarySearch(list, t);
-            if (binarySearch < 0) {
-                i = ~binarySearch;
-            } else {
-                int size = list.size();
-                do {
-                    binarySearch++;
-                    if (binarySearch >= size) {
-                        break;
-                    }
-                } while (list.get(binarySearch).compareTo(t) == 0);
-                i = z ? binarySearch - 1 : binarySearch;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, str)) == null) {
+            Matcher matcher = XS_DURATION_PATTERN.matcher(str);
+            if (matcher.matches()) {
+                boolean isEmpty = true ^ TextUtils.isEmpty(matcher.group(1));
+                String group = matcher.group(3);
+                double d6 = 0.0d;
+                if (group != null) {
+                    d = Double.parseDouble(group) * 3.1556908E7d;
+                } else {
+                    d = 0.0d;
+                }
+                String group2 = matcher.group(5);
+                if (group2 != null) {
+                    d2 = Double.parseDouble(group2) * 2629739.0d;
+                } else {
+                    d2 = 0.0d;
+                }
+                double d7 = d + d2;
+                String group3 = matcher.group(7);
+                if (group3 != null) {
+                    d3 = Double.parseDouble(group3) * 86400.0d;
+                } else {
+                    d3 = 0.0d;
+                }
+                double d8 = d7 + d3;
+                String group4 = matcher.group(10);
+                if (group4 != null) {
+                    d4 = Double.parseDouble(group4) * 3600.0d;
+                } else {
+                    d4 = 0.0d;
+                }
+                double d9 = d8 + d4;
+                String group5 = matcher.group(12);
+                if (group5 != null) {
+                    d5 = Double.parseDouble(group5) * 60.0d;
+                } else {
+                    d5 = 0.0d;
+                }
+                double d10 = d9 + d5;
+                String group6 = matcher.group(14);
+                if (group6 != null) {
+                    d6 = Double.parseDouble(group6);
+                }
+                long j = (long) ((d10 + d6) * 1000.0d);
+                if (isEmpty) {
+                    return -j;
+                }
+                return j;
             }
-            return z2 ? Math.min(list.size() - 1, i) : i;
+            return (long) (Double.parseDouble(str) * 3600.0d * 1000.0d);
         }
-        return invokeCommon.intValue;
+        return invokeL.longValue;
     }
 
-    public static int binarySearchFloor(long[] jArr, long j, boolean z, boolean z2) {
+    public static long scaleLargeTimestamp(long j, long j2, long j3) {
         InterceptResult invokeCommon;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{jArr, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int binarySearch = Arrays.binarySearch(jArr, j);
-            if (binarySearch < 0) {
-                i = -(binarySearch + 2);
-            } else {
-                do {
-                    binarySearch--;
-                    if (binarySearch < 0) {
-                        break;
-                    }
-                } while (jArr[binarySearch] == j);
-                i = z ? binarySearch + 1 : binarySearch;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            int i = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
+            if (i >= 0 && j3 % j2 == 0) {
+                return j / (j3 / j2);
             }
-            return z2 ? Math.max(0, i) : i;
+            if (i < 0 && j2 % j3 == 0) {
+                return j * (j2 / j3);
+            }
+            return (long) (j * (j2 / j3));
         }
-        return invokeCommon.intValue;
+        return invokeCommon.longValue;
     }
 
-    public static <T> int binarySearchFloor(List<? extends Comparable<? super T>> list, T t, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        int i;
+    public static String unescapeFileName(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, t, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int binarySearch = Collections.binarySearch(list, t);
-            if (binarySearch < 0) {
-                i = -(binarySearch + 2);
-            } else {
-                do {
-                    binarySearch--;
-                    if (binarySearch < 0) {
-                        break;
-                    }
-                } while (list.get(binarySearch).compareTo(t) == 0);
-                i = z ? binarySearch + 1 : binarySearch;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
+            int length = str.length();
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < length; i3++) {
+                if (str.charAt(i3) == '%') {
+                    i2++;
+                }
             }
-            return z2 ? Math.max(0, i) : i;
+            if (i2 == 0) {
+                return str;
+            }
+            int i4 = length - (i2 * 2);
+            StringBuilder sb = new StringBuilder(i4);
+            Matcher matcher = ESCAPED_CHARACTER_PATTERN.matcher(str);
+            while (i2 > 0 && matcher.find()) {
+                sb.append((CharSequence) str, i, matcher.start());
+                sb.append((char) Integer.parseInt(matcher.group(1), 16));
+                i = matcher.end();
+                i2--;
+            }
+            if (i < length) {
+                sb.append((CharSequence) str, i, length);
+            }
+            if (sb.length() != i4) {
+                return null;
+            }
+            return sb.toString();
         }
-        return invokeCommon.intValue;
+        return (String) invokeL.objValue;
     }
 }

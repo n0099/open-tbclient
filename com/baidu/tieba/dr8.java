@@ -2,7 +2,10 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +16,15 @@ public class dr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final xp8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
-        super(2010045);
+    public dr8(MainTabActivity mainTabActivity) {
+        super(2921734);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, xp8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,20 +36,19 @@ public class dr8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = xp8Var;
-        setTag(mainTabActivity.getUniqueId());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || this.b == null || TbadkCoreApplication.getInst().getCurrentActivity() != this.a) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            String str = (String) customResponsedMessage.getData();
+            if (StringUtils.isNull(str)) {
+                new AlaTabFeedActivityConfig(this.a).start();
+            } else {
+                UrlManager.getInstance().dealOneLink((TbPageContext) this.a.getPageContext(), new String[]{str}, true);
+            }
         }
-        boolean z = false;
-        this.b.v = dh.b(customResponsedMessage.getData().toString(), false);
-        xp8 xp8Var = this.b;
-        this.b.H((xp8Var.v || xp8Var.w) ? true : true);
     }
 }

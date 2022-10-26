@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,64 +49,6 @@ public class WritePrefixItemLayout extends LinearLayout {
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074f, this);
-            setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6d);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a67);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091a6b);
-            this.b.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-            hv4.d(this.c).v(R.color.CAM_X0109);
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                this.d.setVisibility(0);
-            } else {
-                this.d.setVisibility(8);
-            }
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public void setDividerStyle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || z) {
-            return;
-        }
-        ((LinearLayout.LayoutParams) this.e.getLayoutParams()).setMargins(ej.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0, ej.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0);
-    }
-
-    public void setPrefixText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b.setText(str);
-        }
-    }
-
-    public void setPrefixTextColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b.setTextColor(i);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WritePrefixItemLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -128,5 +70,69 @@ public class WritePrefixItemLayout extends LinearLayout {
         }
         this.a = context;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074f, this);
+            setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            setOrientation(1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091a69);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a63);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091a67);
+            this.b.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+            nv4.d(this.c).v(R.color.CAM_X0109);
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.d.setVisibility(0);
+            } else {
+                this.d.setVisibility(8);
+            }
+        }
+    }
+
+    public void c(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            TextView textView = this.c;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            textView.setVisibility(i);
+        }
+    }
+
+    public void setDividerStyle(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && !z) {
+            ((LinearLayout.LayoutParams) this.e.getLayoutParams()).setMargins(fj.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0, fj.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0);
+        }
+    }
+
+    public void setPrefixText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b.setText(str);
+        }
+    }
+
+    public void setPrefixTextColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b.setTextColor(i);
+        }
     }
 }

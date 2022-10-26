@@ -1,9 +1,7 @@
 package com.kwad.components.ad.reward.presenter;
 
-import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -45,8 +43,8 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     public aa dP;
     public com.kwad.sdk.core.webview.b mJsBridgeContext;
     public com.kwad.components.core.webview.a mJsInterface;
-    public List<com.kwad.components.core.c.a.c> me;
-    public List<com.kwad.components.ad.reward.c.b> qW;
+    public List me;
+    public List qW;
     public KsRefluxView qX;
     public Runnable qZ;
     public com.kwad.components.ad.reward.c.c ra;
@@ -256,7 +254,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
             aVar.a(new com.kwad.components.core.webview.jshandler.o(this.mJsBridgeContext));
             aVar.a(new com.kwad.components.core.webview.jshandler.k(this.mJsBridgeContext));
             aVar.a(new x(this.bM, getUrl()));
-            List<AdTemplate> f = com.kwad.components.ad.reward.c.b.f(this.qW);
+            List f = com.kwad.components.ad.reward.c.b.f(this.qW);
             aVar.a(new u(f, this.me));
             aVar.a(new com.kwad.components.core.webview.jshandler.q(null));
             aVar.a(new s(this.mJsBridgeContext));
@@ -305,7 +303,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                         }
                     }
                     if (adTemplate != null) {
-                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0577a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                        AdWebViewActivityProxy.launch(this.rc.getContext(), new AdWebViewActivityProxy.a.C0573a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                     }
                 }
             }));
@@ -330,7 +328,6 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         }
     }
 
-    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void aF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
@@ -352,7 +349,6 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         this.mJsInterface = null;
     }
 
-    @Nullable
     public static String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -367,9 +363,9 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
-            SceneImpl m85clone = sceneImpl != null ? sceneImpl.m85clone() : null;
-            if (m85clone != null) {
-                com.kwad.components.ad.reward.e.a(m85clone, this);
+            SceneImpl m84clone = sceneImpl != null ? sceneImpl.m84clone() : null;
+            if (m84clone != null) {
+                com.kwad.components.ad.reward.e.a(m84clone, this);
             }
         }
     }
@@ -407,7 +403,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     }
 
     @Override // com.kwad.sdk.core.webview.a.kwai.a
-    public final void a(@Nullable com.kwad.sdk.core.webview.a.a.a aVar) {
+    public final void a(com.kwad.sdk.core.webview.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
@@ -444,9 +440,9 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     public final void dh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            List<com.kwad.components.ad.reward.c.b> list = this.qW;
+            List list = this.qW;
             if (list != null && list.size() > 0) {
-                com.kwad.sdk.core.report.a.b(this.qW.get(0).getAdTemplate(), new com.kwad.sdk.core.report.f().aJ(1).aP(this.qX.eC() ? 8 : 9), (JSONObject) null);
+                com.kwad.sdk.core.report.a.b(((com.kwad.components.ad.reward.c.b) this.qW.get(0)).getAdTemplate(), new com.kwad.sdk.core.report.f().aJ(1).aP(this.qX.eC() ? 8 : 9), (JSONObject) null);
             }
             this.nM.mAdOpenInteractionListener.j(false);
             gR();
@@ -454,7 +450,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     }
 
     @Override // com.kwad.components.ad.reward.e.a
-    public final void e(@Nullable List<com.kwad.components.ad.reward.c.b> list) {
+    public final void e(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             com.kwad.sdk.core.e.b.d("RewardRefluxPresenter", "onRefluxAdLoad :" + list.size());
@@ -494,7 +490,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            List<com.kwad.components.ad.reward.c.b> list = this.qW;
+            List list = this.qW;
             if (list == null || list.size() <= 0) {
                 return false;
             }
@@ -530,7 +526,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onCreate();
-            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0911c0);
+            KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0911b4);
             this.qX = ksRefluxView;
             this.bF = ksRefluxView.getWebView();
             this.qX.setViewListener(this);

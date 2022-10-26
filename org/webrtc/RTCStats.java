@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.text.Typography;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RTCStats {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String id;
-    public final Map<String, Object> members;
+    public final Map members;
     public final long timestampUs;
     public final String type;
 
-    public RTCStats(long j, String str, String str2, Map<String, Object> map) {
+    public RTCStats(long j, String str, String str2, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,6 +37,15 @@ public class RTCStats {
         this.type = str;
         this.id = str2;
         this.members = map;
+    }
+
+    public static RTCStats create(long j, String str, String str2, Map map) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), str, str2, map})) == null) {
+            return new RTCStats(j, str, str2, map);
+        }
+        return (RTCStats) invokeCommon.objValue;
     }
 
     public static void appendValue(StringBuilder sb, Object obj) {
@@ -62,35 +71,40 @@ public class RTCStats {
         }
     }
 
-    @CalledByNative
-    public static RTCStats create(long j, String str, String str2, Map map) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), str, str2, map})) == null) ? new RTCStats(j, str, str2, map) : (RTCStats) invokeCommon.objValue;
-    }
-
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public Map<String, Object> getMembers() {
+    public Map getMembers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.members : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.members;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public double getTimestampUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timestampUs : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.timestampUs;
+        }
+        return invokeV.doubleValue;
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.type : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.type;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -104,9 +118,9 @@ public class RTCStats {
             sb.append(this.type);
             sb.append(", id: ");
             sb.append(this.id);
-            for (Map.Entry<String, Object> entry : this.members.entrySet()) {
+            for (Map.Entry entry : this.members.entrySet()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(entry.getKey());
+                sb.append((String) entry.getKey());
                 sb.append(": ");
                 appendValue(sb, entry.getValue());
             }

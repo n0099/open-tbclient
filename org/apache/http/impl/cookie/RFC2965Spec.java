@@ -34,14 +34,6 @@ public class RFC2965Spec extends RFC2109Spec {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.impl.cookie.RFC2109Spec
-    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, charArrayBuffer, cookie, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.cookie.CookieSpec
     public int getVersion() {
         InterceptResult invokeV;
@@ -62,34 +54,6 @@ public class RFC2965Spec extends RFC2109Spec {
         return (Header) invokeV.objValue;
     }
 
-    @Override // org.apache.http.impl.cookie.CookieSpecBase, org.apache.http.cookie.CookieSpec
-    public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cookie, cookieOrigin)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.cookie.CookieSpec
-    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, header, cookieOrigin)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.impl.cookie.CookieSpecBase, org.apache.http.cookie.CookieSpec
-    public void validate(Cookie cookie, CookieOrigin cookieOrigin) throws MalformedCookieException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, cookie, cookieOrigin) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public RFC2965Spec(String[] strArr, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,5 +70,41 @@ public class RFC2965Spec extends RFC2109Spec {
             }
         }
         throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.cookie.RFC2109Spec
+    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, charArrayBuffer, cookie, i) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.impl.cookie.CookieSpecBase, org.apache.http.cookie.CookieSpec
+    public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cookie, cookieOrigin)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.cookie.CookieSpec
+    public List parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, header, cookieOrigin)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.impl.cookie.CookieSpecBase, org.apache.http.cookie.CookieSpec
+    public void validate(Cookie cookie, CookieOrigin cookieOrigin) throws MalformedCookieException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, cookie, cookieOrigin) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 }

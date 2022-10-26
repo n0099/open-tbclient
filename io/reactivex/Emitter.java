@@ -1,11 +1,9 @@
 package io.reactivex;
-
-import io.reactivex.annotations.NonNull;
 /* loaded from: classes8.dex */
-public interface Emitter<T> {
+public interface Emitter {
     void onComplete();
 
-    void onError(@NonNull Throwable th);
+    void onError(Throwable th);
 
-    void onNext(@NonNull T t);
+    void onNext(Object obj);
 }

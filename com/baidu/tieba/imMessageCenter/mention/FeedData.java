@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.mb5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.rb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes4.dex */
-public class FeedData implements Serializable, mb5 {
+public class FeedData implements Serializable, rb5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -49,9 +49,9 @@ public class FeedData implements Serializable, mb5 {
     public boolean mIsStory;
     public OriginalThreadInfo mOriginalThreadInfo;
     public String mPraiseItemType;
-    public List<LikeData> mPraiseList;
+    public List mPraiseList;
     public int mPraiseNum;
-    public List<NewFloorInfo> newReplayInfo;
+    public List newReplayInfo;
     public String postFrom;
     public String post_id;
     public String quote_content;
@@ -90,193 +90,298 @@ public class FeedData implements Serializable, mb5 {
     public BaijiahaoData getBaijiahaoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBaijiahao : (BaijiahaoData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBaijiahao;
+        }
+        return (BaijiahaoData) invokeV.objValue;
     }
 
     public String getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getFname() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.fname : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.fname;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getFromForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.fromForumId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.fromForumId;
+        }
+        return invokeV.longValue;
     }
 
     public boolean getHasAgree() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.hasAgree : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.hasAgree;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getIsFirstPost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isFirstPost : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.isFirstPost;
+        }
+        return invokeV.intValue;
     }
 
     public boolean getIsFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isFloor == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.isFloor == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public List<NewFloorInfo> getNewReplayInfo() {
+    public List getNewReplayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.newReplayInfo : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.newReplayInfo;
+        }
+        return (List) invokeV.objValue;
     }
 
     public OriginalThreadInfo getOriginalThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mOriginalThreadInfo : (OriginalThreadInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mOriginalThreadInfo;
+        }
+        return (OriginalThreadInfo) invokeV.objValue;
     }
 
     public String getPostFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.postFrom : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.postFrom;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPost_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.post_id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.post_id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPraiseItemType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mPraiseItemType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mPraiseItemType;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public List<LikeData> getPraiseList() {
+    public List getPraiseList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mPraiseList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mPraiseList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getPraiseNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mPraiseNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mPraiseNum;
+        }
+        return invokeV.intValue;
     }
 
     public String getQuote_content() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.quote_content : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.quote_content;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getQuote_pid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.quote_pid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.quote_pid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public MetaData getQuote_user() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.quote_user : (MetaData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.quote_user;
+        }
+        return (MetaData) invokeV.objValue;
     }
 
     public MetaData getReplyer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.replyer : (MetaData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.replyer;
+        }
+        return (MetaData) invokeV.objValue;
     }
 
     public MetaData getThreadAuthor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.threadAuthor : (MetaData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.threadAuthor;
+        }
+        return (MetaData) invokeV.objValue;
     }
 
     public String getThreadImgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.threadImgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.threadImgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getThread_Type() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.thread_type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.thread_type;
+        }
+        return invokeV.intValue;
     }
 
     public String getThread_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.thread_id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.thread_id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.time : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.time;
+        }
+        return invokeV.longValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isAuthor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.isAuthor : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.isAuthor;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isBjh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.isBjh : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.isBjh;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isHideForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.hideForumName == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (this.hideForumName == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isNew() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.isNew : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.isNew;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isShareThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mIsShareThread : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.mIsShareThread;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isStory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mIsStory : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.mIsStory;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
         JSONObject optJSONObject;
+        boolean z6;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048607, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048607, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -288,25 +393,44 @@ public class FeedData implements Serializable, mb5 {
             this.quote_content = jSONObject.optString("quote_content");
             this.thread_id = jSONObject.optString("thread_id");
             this.post_id = jSONObject.optString("post_id");
-            this.hasAgree = jSONObject.optInt("has_agree") == 1;
+            if (jSONObject.optInt("has_agree") == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.hasAgree = z;
             this.isFloor = jSONObject.optInt("is_floor");
             this.isFirstPost = jSONObject.optInt("is_first_post");
             this.quote_pid = jSONObject.optString("quote_pid");
             this.mPraiseItemType = jSONObject.optString("item_type");
             this.fromForumId = jSONObject.optLong("v_forum_id");
             this.hideForumName = jSONObject.optInt("hide_fname");
-            this.mIsStory = jSONObject.optInt("is_story") == 1;
+            if (jSONObject.optInt("is_story") == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.mIsStory = z2;
             this.postFrom = jSONObject.optString("post_from");
-            boolean z = jSONObject.optInt(VideoPlayActivityConfig.IS_SHARE_THREAD) == 1;
-            this.mIsShareThread = z;
-            if (z) {
+            if (jSONObject.optInt(VideoPlayActivityConfig.IS_SHARE_THREAD) == 1) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            this.mIsShareThread = z3;
+            if (z3) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                 this.mOriginalThreadInfo = originalThreadInfo;
                 originalThreadInfo.r(jSONObject.optJSONObject("origin_thread_info"));
             }
-            if (((!dj.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+            if (((!ej.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                 this.mPraiseNum = optJSONObject.optInt("num");
-                this.isAuthor = optJSONObject.optInt("consent_type") == 2;
+                if (optJSONObject.optInt("consent_type") == 2) {
+                    z6 = true;
+                } else {
+                    z6 = false;
+                }
+                this.isAuthor = z6;
                 JSONArray optJSONArray = optJSONObject.optJSONArray("liker_list");
                 if (optJSONArray != null) {
                     this.mPraiseList = new ArrayList();
@@ -322,7 +446,12 @@ public class FeedData implements Serializable, mb5 {
             this.quote_user.parserJson(jSONObject.optJSONObject("quote_user"));
             this.thread_type = jSONObject.optInt("thread_type");
             this.threadImgUrl = jSONObject.optString("thread_img_url");
-            this.isNew = jSONObject.optInt("unread") == 1;
+            if (jSONObject.optInt("unread") == 1) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            this.isNew = z4;
             this.newReplayInfo = new ArrayList();
             JSONArray optJSONArray2 = jSONObject.optJSONArray("new_floor_info");
             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
@@ -341,7 +470,12 @@ public class FeedData implements Serializable, mb5 {
                 builder.is_floor = Integer.valueOf(jSONObject2.getInt("is_floor"));
                 this.newReplayInfo.add(builder.build(true));
             }
-            this.isBjh = jSONObject.optInt(ImageViewerConfig.IS_BJH) == 1;
+            if (jSONObject.optInt(ImageViewerConfig.IS_BJH) == 1) {
+                z5 = true;
+            } else {
+                z5 = false;
+            }
+            this.isBjh = z5;
             if (jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME) != null) {
                 BaijiahaoData baijiahaoData = new BaijiahaoData();
                 this.mBaijiahao = baijiahaoData;
@@ -353,9 +487,14 @@ public class FeedData implements Serializable, mb5 {
     }
 
     public void parserProtoBuf(ReplyList replyList) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
         Zan zan;
+        boolean z5;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, replyList) == null) || replyList == null) {
+        if ((interceptable != null && interceptable.invokeL(1048608, this, replyList) != null) || replyList == null) {
             return;
         }
         this.type = replyList.type.intValue();
@@ -366,15 +505,26 @@ public class FeedData implements Serializable, mb5 {
         this.quote_content = replyList.quote_content;
         this.thread_id = String.valueOf(replyList.thread_id);
         this.post_id = String.valueOf(replyList.post_id);
-        this.hasAgree = replyList.has_agree.intValue() == 1;
+        boolean z6 = false;
+        if (replyList.has_agree.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.hasAgree = z;
         this.isFloor = replyList.is_floor.intValue();
         this.quote_pid = String.valueOf(replyList.quote_pid);
         this.mPraiseItemType = replyList.item_type;
         this.hideForumName = replyList.hide_fname.intValue();
         this.fromForumId = replyList.v_forum_id.longValue();
-        if (((!dj.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+        if (((!ej.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
             this.mPraiseNum = zan.num.intValue();
-            this.isAuthor = zan.consent_type.intValue() == 2;
+            if (zan.consent_type.intValue() == 2) {
+                z5 = true;
+            } else {
+                z5 = false;
+            }
+            this.isAuthor = z5;
             List<User> list = zan.liker_list;
             if (list != null) {
                 this.mPraiseList = new ArrayList();
@@ -389,18 +539,35 @@ public class FeedData implements Serializable, mb5 {
         this.threadAuthor.parserProtobuf(replyList.thread_author_user);
         this.quote_user.parserProtobuf(replyList.quote_user);
         this.thread_type = replyList.thread_type.intValue();
-        this.mIsStory = replyList.is_story.intValue() == 1;
-        boolean z = replyList.is_share_thread.intValue() == 1;
-        this.mIsShareThread = z;
-        if (z) {
+        if (replyList.is_story.intValue() == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.mIsStory = z2;
+        if (replyList.is_share_thread.intValue() == 1) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        this.mIsShareThread = z3;
+        if (z3) {
             OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
             this.mOriginalThreadInfo = originalThreadInfo;
             originalThreadInfo.o(replyList.origin_thread_info);
         }
         this.postFrom = replyList.post_from;
         this.threadImgUrl = replyList.thread_img_url;
-        this.isNew = replyList.unread.intValue() == 1;
-        this.isBjh = replyList.is_bjh.intValue() == 1;
+        if (replyList.unread.intValue() == 1) {
+            z4 = true;
+        } else {
+            z4 = false;
+        }
+        this.isNew = z4;
+        if (replyList.is_bjh.intValue() == 1) {
+            z6 = true;
+        }
+        this.isBjh = z6;
         if (replyList.baijiahao != null) {
             BaijiahaoData baijiahaoData = new BaijiahaoData();
             this.mBaijiahao = baijiahaoData;
@@ -418,6 +585,7 @@ public class FeedData implements Serializable, mb5 {
 
     public String toJson() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             JSONArray jSONArray = new JSONArray();
@@ -437,8 +605,13 @@ public class FeedData implements Serializable, mb5 {
                 jSONObject.put("thread_type", this.thread_type);
                 jSONObject.put("v_forum_id", this.fromForumId);
                 jSONObject.put("hide_fname", this.hideForumName);
-                int i = 1;
-                jSONObject.put("is_story", this.mIsStory ? 1 : 0);
+                int i2 = 1;
+                if (this.mIsStory) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("is_story", i);
                 jSONObject.put("post_from", this.postFrom);
                 jSONObject.put("is_first_post", this.isFirstPost);
                 jSONObject.put("new_floor_info", this.newReplayInfo);
@@ -461,9 +634,9 @@ public class FeedData implements Serializable, mb5 {
                 jSONObject4.put("gender", this.quote_user.getGender());
                 jSONObject.put("quote_user", jSONObject4);
                 if (!this.mIsShareThread) {
-                    i = 0;
+                    i2 = 0;
                 }
-                jSONObject.put(VideoPlayActivityConfig.IS_SHARE_THREAD, i);
+                jSONObject.put(VideoPlayActivityConfig.IS_SHARE_THREAD, i2);
                 if (this.mOriginalThreadInfo != null) {
                     JSONObject jSONObject5 = new JSONObject();
                     jSONObject5.put("title", this.mOriginalThreadInfo.g);

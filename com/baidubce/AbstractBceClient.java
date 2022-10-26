@@ -13,7 +13,6 @@ import com.baidubce.callback.BceProgressCallback;
 import com.baidubce.http.BceHttpClient;
 import com.baidubce.http.handler.HttpResponseHandler;
 import com.baidubce.internal.InternalRequest;
-import com.baidubce.model.AbstractBceRequest;
 import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.DateUtils;
 import java.net.URI;
@@ -30,6 +29,15 @@ public abstract class AbstractBceClient {
     public URI endpoint;
     public HttpResponseHandler[] responseHandlers;
     public String serviceId;
+
+    public boolean isRegionSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public AbstractBceClient(BceClientConfiguration bceClientConfiguration, HttpResponseHandler[] httpResponseHandlerArr) {
         Interceptable interceptable = $ic;
@@ -60,7 +68,11 @@ public abstract class AbstractBceClient {
             String endpoint = this.config.getEndpoint();
             if (endpoint == null) {
                 try {
-                    endpoint = isRegionSupported() ? String.format("%s://%s.%s.%s", this.config.getProtocol(), this.serviceId, this.config.getRegion(), DEFAULT_SERVICE_DOMAIN) : String.format("%s://%s.%s", this.config.getProtocol(), this.serviceId, DEFAULT_SERVICE_DOMAIN);
+                    if (isRegionSupported()) {
+                        endpoint = String.format("%s://%s.%s.%s", this.config.getProtocol(), this.serviceId, this.config.getRegion(), DEFAULT_SERVICE_DOMAIN);
+                    } else {
+                        endpoint = String.format("%s://%s.%s", this.config.getProtocol(), this.serviceId, DEFAULT_SERVICE_DOMAIN);
+                    }
                 } catch (URISyntaxException e) {
                     throw new IllegalArgumentException("Invalid endpoint." + endpoint, e);
                 }
@@ -96,44 +108,40 @@ public abstract class AbstractBceClient {
     public BceHttpClient getClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.client : (BceHttpClient) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.client;
+        }
+        return (BceHttpClient) invokeV.objValue;
     }
 
     public URI getEndpoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.endpoint : (URI) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.endpoint;
+        }
+        return (URI) invokeV.objValue;
     }
 
     public String getServiceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.serviceId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.serviceId;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public <T extends AbstractBceResponse, M extends AbstractBceRequest> T invokeHttpClient(InternalRequest<M> internalRequest, Class<T> cls) {
+    public AbstractBceResponse invokeHttpClient(InternalRequest internalRequest, Class cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, internalRequest, cls)) == null) ? (T) invokeHttpClient(internalRequest, cls, null) : (T) invokeLL.objValue;
-    }
-
-    public boolean isRegionSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, internalRequest, cls)) == null) {
+            return invokeHttpClient(internalRequest, cls, null);
         }
-        return invokeV.booleanValue;
+        return (AbstractBceResponse) invokeLL.objValue;
     }
 
-    public void setClient(BceHttpClient bceHttpClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bceHttpClient) == null) {
-            this.client = bceHttpClient;
-        }
-    }
-
-    public <T extends AbstractBceResponse, M extends AbstractBceRequest> T invokeHttpClient(InternalRequest<M> internalRequest, Class<T> cls, BceProgressCallback<M> bceProgressCallback) {
+    public AbstractBceResponse invokeHttpClient(InternalRequest internalRequest, Class cls, BceProgressCallback bceProgressCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, internalRequest, cls, bceProgressCallback)) == null) {
@@ -143,8 +151,15 @@ public abstract class AbstractBceClient {
             if (!internalRequest.getHeaders().containsKey("Date")) {
                 internalRequest.addHeader("Date", DateUtils.rfc822DateFormat());
             }
-            return (T) this.client.execute(internalRequest, cls, this.responseHandlers, bceProgressCallback);
+            return this.client.execute(internalRequest, cls, this.responseHandlers, bceProgressCallback);
         }
-        return (T) invokeLLL.objValue;
+        return (AbstractBceResponse) invokeLLL.objValue;
+    }
+
+    public void setClient(BceHttpClient bceHttpClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bceHttpClient) == null) {
+            this.client = bceHttpClient;
+        }
     }
 }

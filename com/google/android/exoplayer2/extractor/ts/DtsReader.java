@@ -35,6 +35,13 @@ public final class DtsReader implements ElementaryStreamReader {
     public int syncBytes;
     public long timeUs;
 
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void packetFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     public DtsReader(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,7 +76,10 @@ public final class DtsReader implements ElementaryStreamReader {
             parsableByteArray.readBytes(bArr, this.bytesRead, min);
             int i2 = this.bytesRead + min;
             this.bytesRead = i2;
-            return i2 == i;
+            if (i2 == i) {
+                return true;
+            }
+            return false;
         }
         return invokeLLI.booleanValue;
     }
@@ -148,13 +158,6 @@ public final class DtsReader implements ElementaryStreamReader {
             trackIdGenerator.generateNewId();
             this.formatId = trackIdGenerator.getFormatId();
             this.output = extractorOutput.track(trackIdGenerator.getTrackId(), 1);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 

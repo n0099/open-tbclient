@@ -17,25 +17,25 @@ import io.reactivex.internal.functions.ObjectHelper;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableToList<T, U extends Collection<? super T>> extends AbstractObservableWithUpstream<T, U> {
+public final class ObservableToList extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<U> collectionSupplier;
+    public final Callable collectionSupplier;
 
     /* loaded from: classes8.dex */
-    public static final class ToListObserver<T, U extends Collection<? super T>> implements Observer<T>, Disposable {
+    public final class ToListObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super U> actual;
-        public U collection;
+        public final Observer actual;
+        public Collection collection;
         public Disposable s;
 
-        public ToListObserver(Observer<? super U> observer, U u) {
+        public ToListObserver(Observer observer, Collection collection) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, u};
+                Object[] objArr = {observer, collection};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public final class ObservableToList<T, U extends Collection<? super T>> extends 
                 }
             }
             this.actual = observer;
-            this.collection = u;
+            this.collection = collection;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -61,16 +61,19 @@ public final class ObservableToList<T, U extends Collection<? super T>> extends 
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                U u = this.collection;
+                Collection collection = this.collection;
                 this.collection = null;
-                this.actual.onNext(u);
+                this.actual.onNext(collection);
                 this.actual.onComplete();
             }
         }
@@ -85,10 +88,10 @@ public final class ObservableToList<T, U extends Collection<? super T>> extends 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.collection.add(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.collection.add(obj);
             }
         }
 
@@ -103,7 +106,7 @@ public final class ObservableToList<T, U extends Collection<? super T>> extends 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableToList(ObservableSource<T> observableSource, int i) {
+    public ObservableToList(ObservableSource observableSource, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -123,21 +126,8 @@ public final class ObservableToList<T, U extends Collection<? super T>> extends 
         this.collectionSupplier = Functions.createArrayList(i);
     }
 
-    @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super U> observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            try {
-                this.source.subscribe(new ToListObserver(observer, (Collection) ObjectHelper.requireNonNull(this.collectionSupplier.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                EmptyDisposable.error(th, observer);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableToList(ObservableSource<T> observableSource, Callable<U> callable) {
+    public ObservableToList(ObservableSource observableSource, Callable callable) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -155,5 +145,18 @@ public final class ObservableToList<T, U extends Collection<? super T>> extends 
             }
         }
         this.collectionSupplier = callable;
+    }
+
+    @Override // io.reactivex.Observable
+    public void subscribeActual(Observer observer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
+            try {
+                this.source.subscribe(new ToListObserver(observer, (Collection) ObjectHelper.requireNonNull(this.collectionSupplier.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                EmptyDisposable.error(th, observer);
+            }
+        }
     }
 }

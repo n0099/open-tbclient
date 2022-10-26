@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class MetricsValue implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> extra;
+    public Map extra;
     public int scode;
     public String topic;
     public String uri;
@@ -36,37 +36,74 @@ public class MetricsValue implements IJsonSerialize {
         }
     }
 
-    public Map<String, String> getExtra() {
+    public Map getExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.extra : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.extra;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public int getScode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.scode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.scode;
+        }
+        return invokeV.intValue;
     }
 
     public String getTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.topic : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.topic;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.uri : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.uri;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getVal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.val : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.val;
+        }
+        return invokeV.longValue;
     }
 
-    public void setExtra(Map<String, String> map) {
+    public MetricsValue(int i, String str, String str2, long j, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j), map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.scode = i;
+        this.uri = str;
+        this.topic = str2;
+        this.val = j;
+        this.extra = map;
+    }
+
+    public void setExtra(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
             this.extra = map;
@@ -114,8 +151,8 @@ public class MetricsValue implements IJsonSerialize {
                 jSONObject.put("val", this.val);
                 if (this.extra != null && !this.extra.isEmpty()) {
                     JSONObject jSONObject2 = new JSONObject();
-                    for (Map.Entry<String, String> entry : this.extra.entrySet()) {
-                        jSONObject2.put(URLEncoder.encode(entry.getKey(), IMAudioTransRequest.CHARSET), URLEncoder.encode(entry.getValue(), IMAudioTransRequest.CHARSET));
+                    for (Map.Entry entry : this.extra.entrySet()) {
+                        jSONObject2.put(URLEncoder.encode((String) entry.getKey(), IMAudioTransRequest.CHARSET), URLEncoder.encode((String) entry.getValue(), IMAudioTransRequest.CHARSET));
                     }
                     jSONObject.put("extra", jSONObject2);
                 } else {
@@ -128,27 +165,5 @@ public class MetricsValue implements IJsonSerialize {
             }
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public MetricsValue(int i, String str, String str2, long j, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j), map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.scode = i;
-        this.uri = str;
-        this.topic = str2;
-        this.val = j;
-        this.extra = map;
     }
 }

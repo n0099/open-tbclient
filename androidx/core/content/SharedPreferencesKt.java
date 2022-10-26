@@ -1,6 +1,5 @@
 package androidx.core.content;
 
-import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +13,6 @@ public final class SharedPreferencesKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"ApplySharedPref"})
     public static final void edit(SharedPreferences sharedPreferences, boolean z, Function1<? super SharedPreferences.Editor, Unit> function1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sharedPreferences, Boolean.valueOf(z), function1}) == null) {

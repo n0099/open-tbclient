@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.t32;
+import com.baidu.tieba.u32;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,24 +17,22 @@ public class h42 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t32 a;
-    public final c42 b;
-    public final q32 c;
+    public long a;
+    public boolean b;
+    public final u32 c;
 
     /* loaded from: classes4.dex */
-    public class a implements t32.b {
+    public class a implements u32.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e42 a;
-        public final /* synthetic */ s32 b;
-        public final /* synthetic */ h42 c;
+        public final /* synthetic */ h42 a;
 
-        public a(h42 h42Var, e42 e42Var, s32 s32Var) {
+        public a(h42 h42Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h42Var, e42Var, s32Var};
+                Object[] objArr = {h42Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,33 +42,25 @@ public class h42 {
                     return;
                 }
             }
-            this.c = h42Var;
-            this.a = e42Var;
-            this.b = s32Var;
+            this.a = h42Var;
         }
 
-        @Override // com.baidu.tieba.t32.b
+        @Override // com.baidu.tieba.u32.b
         public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                m32.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
+                o32.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+                n32.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
+                this.a.e(networkStatus);
                 if (h42.d) {
-                    Log.d("SceneInitDataTips", ">> " + sb.toString());
+                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
                 }
-                n32.g(sb.toString());
-                this.c.d(networkStatus);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class b {
+    public /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +104,7 @@ public class h42 {
                 return;
             }
         }
-        d = vj1.a;
+        d = wj1.a;
     }
 
     public h42() {
@@ -130,32 +120,69 @@ public class h42 {
                 return;
             }
         }
-        this.c = q32.d();
-        this.a = new t32();
-        this.b = c42.d();
+        this.c = new u32();
     }
 
-    public void c() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (d) {
-                Log.d("SceneInitDataTips", ">> trigger init data error event.");
-            }
-            c42.d().j();
-            q32.d().j();
-            s32 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
+            this.c.a(new a(this));
         }
     }
 
-    public final void d(NetworkStatus networkStatus) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            boolean z = true;
+            if (l33.K().k() == 1) {
+                z = false;
+            }
+            this.b = z;
+            this.a = 0L;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
+            return;
+        }
+        if (this.a == 0) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
+            }
+            this.a = System.currentTimeMillis();
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.a > 2000) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
+            }
+            c();
+            g();
+        }
+        this.a = currentTimeMillis;
+    }
+
+    public final void e(NetworkStatus networkStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
             int i = b.a[networkStatus.ordinal()];
             if (i != 1 && i != 2) {
-                l32.f(R.string.obfuscated_res_0x7f0f1335);
+                m32.f(R.string.obfuscated_res_0x7f0f1349);
             } else {
-                l32.f(R.string.obfuscated_res_0x7f0f132b);
+                m32.f(R.string.obfuscated_res_0x7f0f133f);
             }
         }
     }

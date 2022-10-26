@@ -1,7 +1,6 @@
 package com.kwad.sdk.crash.report;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.model.message.AnrExceptionMessage;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.utils.o;
@@ -11,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b extends d {
     /* JADX WARN: Removed duplicated region for block: B:38:0x00b6  */
     /* JADX WARN: Removed duplicated region for block: B:41:0x00c9  */
@@ -127,7 +126,7 @@ public final class b extends d {
         return str2;
     }
 
-    public static boolean da(@NonNull String str) {
+    public static boolean da(String str) {
         String[] wA;
         for (String str2 : com.kwad.sdk.crash.d.wz().wA()) {
             if (str.contains(str2)) {
@@ -159,7 +158,7 @@ public final class b extends d {
     }
 
     @Override // com.kwad.sdk.crash.report.d
-    public final ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
+    public final ExceptionMessage a(File file, File file2, File file3, String str) {
         com.kwad.sdk.core.e.b.d("AnrReporter", "AnrReporter parseExceptionInfo basePath=" + str);
         AnrExceptionMessage y = y(file2);
         try {

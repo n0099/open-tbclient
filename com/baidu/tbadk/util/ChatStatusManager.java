@@ -19,10 +19,10 @@ public class ChatStatusManager {
     public static final int VALIDATE = 7;
     public static ChatStatusManager instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> mStatus;
+    public SparseArray mStatus;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -56,7 +56,7 @@ public class ChatStatusManager {
                 return;
             }
         }
-        this.mStatus = new SparseArray<>();
+        this.mStatus = new SparseArray();
     }
 
     public static synchronized ChatStatusManager getInst() {
@@ -79,8 +79,11 @@ public class ChatStatusManager {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            a aVar = this.mStatus.get(i);
-            return aVar != null ? aVar.b : "";
+            a aVar = (a) this.mStatus.get(i);
+            if (aVar != null) {
+                return aVar.b;
+            }
+            return "";
         }
         return (String) invokeI.objValue;
     }
@@ -89,7 +92,7 @@ public class ChatStatusManager {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            a aVar = this.mStatus.get(i);
+            a aVar = (a) this.mStatus.get(i);
             if (aVar != null) {
                 return aVar.a;
             }
@@ -108,7 +111,7 @@ public class ChatStatusManager {
     public void setCurId(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            a aVar = this.mStatus.get(i);
+            a aVar = (a) this.mStatus.get(i);
             if (aVar != null) {
                 aVar.b = str;
                 return;
@@ -122,7 +125,7 @@ public class ChatStatusManager {
     public void setIsOpen(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            a aVar = this.mStatus.get(i);
+            a aVar = (a) this.mStatus.get(i);
             if (aVar != null) {
                 aVar.a = z;
                 return;

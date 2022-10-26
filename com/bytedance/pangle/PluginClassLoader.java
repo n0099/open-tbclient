@@ -1,7 +1,6 @@
 package com.bytedance.pangle;
 
 import android.os.Build;
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,18 +10,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import dalvik.system.DexClassLoader;
 import java.util.HashSet;
 import java.util.List;
-@Keep
 /* loaded from: classes7.dex */
 public class PluginClassLoader extends DexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginClassLoader";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashSet<String> allPluginClasses;
+    public HashSet allPluginClasses;
     public final ClassLoader hostClassLoader;
-    public final List<ClassLoader> otherPluginClassLoader;
+    public final List otherPluginClassLoader;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PluginClassLoader(String str, String str2, String str3, List<ClassLoader> list) {
+    public PluginClassLoader(String str, String str2, String str3, List list) {
         super(str, str2, str3, DexClassLoader.getSystemClassLoader().getParent());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,22 +61,22 @@ public class PluginClassLoader extends DexClassLoader {
     }
 
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Class<?> findClass(String str) {
+    public Class findClass(String str) {
         InterceptResult invokeL;
         List<ClassLoader> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashSet<String> hashSet = this.allPluginClasses;
+            HashSet hashSet = this.allPluginClasses;
             Class<?> cls = null;
-            if (hashSet == null || hashSet.contains(str)) {
+            if (hashSet != null && !hashSet.contains(str)) {
+                e = null;
+            } else {
                 try {
                     cls = super.findClass(str);
                     e = null;
                 } catch (ClassNotFoundException e) {
                     e = e;
                 }
-            } else {
-                e = null;
             }
             StringBuilder sb = new StringBuilder("loadClass from :\n");
             if (cls == null && (list = this.otherPluginClassLoader) != null) {
@@ -108,7 +106,7 @@ public class PluginClassLoader extends DexClassLoader {
         return (Class) invokeL.objValue;
     }
 
-    public void setAllPluginClasses(HashSet<String> hashSet) {
+    public void setAllPluginClasses(HashSet hashSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashSet) == null) {
             this.allPluginClasses = hashSet;

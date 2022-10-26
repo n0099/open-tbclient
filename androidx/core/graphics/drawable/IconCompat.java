@@ -25,14 +25,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.util.Preconditions;
@@ -85,27 +77,43 @@ public class IconCompat extends CustomVersionedParcelable {
     public static final int TYPE_URI = 4;
     public static final int TYPE_URI_ADAPTIVE_BITMAP = 6;
     public transient /* synthetic */ FieldHolder $fh;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public byte[] mData;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mInt1;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int mInt2;
     public Object mObj1;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Parcelable mParcelable;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public ColorStateList mTintList;
     public PorterDuff.Mode mTintMode;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public String mTintModeStr;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public int mType;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface IconType {
+    }
+
+    public static String typeToString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "BITMAP";
+                case 2:
+                    return "RESOURCE";
+                case 3:
+                    return "DATA";
+                case 4:
+                    return DownloadConstants.DownloadColumns.COLUMN_URI;
+                case 5:
+                    return "BITMAP_MASKABLE";
+                case 6:
+                    return "URI_MASKABLE";
+                default:
+                    return RomUtils.UNKNOWN;
+            }
+        }
+        return (String) invokeI.objValue;
     }
 
     static {
@@ -124,7 +132,28 @@ public class IconCompat extends CustomVersionedParcelable {
         DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
+                return getType((Icon) this.mObj1);
+            }
+            return this.mType;
+        }
+        return invokeV.intValue;
+    }
+
+    @Deprecated
+    public Icon toIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return toIcon(null);
+        }
+        return (Icon) invokeV.objValue;
+    }
+
     public IconCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -148,8 +177,139 @@ public class IconCompat extends CustomVersionedParcelable {
         this.mTintModeStr = null;
     }
 
-    @Nullable
-    public static IconCompat createFromBundle(@NonNull Bundle bundle) {
+    public int getResId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
+                return getResId((Icon) this.mObj1);
+            }
+            if (this.mType == 2) {
+                return this.mInt1;
+            }
+            throw new IllegalStateException("called getResId() on " + this);
+        }
+        return invokeV.intValue;
+    }
+
+    public IconCompat(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mType = -1;
+        this.mData = null;
+        this.mParcelable = null;
+        this.mInt1 = 0;
+        this.mInt2 = 0;
+        this.mTintList = null;
+        this.mTintMode = DEFAULT_TINT_MODE;
+        this.mTintModeStr = null;
+        this.mType = i;
+    }
+
+    public static IconCompat createFromIcon(Icon icon) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, icon)) == null) {
+            Preconditions.checkNotNull(icon);
+            int type = getType(icon);
+            if (type != 2) {
+                if (type != 4) {
+                    if (type != 6) {
+                        IconCompat iconCompat = new IconCompat(-1);
+                        iconCompat.mObj1 = icon;
+                        return iconCompat;
+                    }
+                    return createWithAdaptiveBitmapContentUri(getUri(icon));
+                }
+                return createWithContentUri(getUri(icon));
+            }
+            return createWithResource(null, getResPackage(icon), getResId(icon));
+        }
+        return (IconCompat) invokeL.objValue;
+    }
+
+    public static int getResId(Icon icon) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, icon)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return icon.getResId();
+            }
+            try {
+                return ((Integer) icon.getClass().getMethod("getResId", new Class[0]).invoke(icon, new Object[0])).intValue();
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Unable to get icon resource", e);
+                return 0;
+            } catch (NoSuchMethodException e2) {
+                Log.e(TAG, "Unable to get icon resource", e2);
+                return 0;
+            } catch (InvocationTargetException e3) {
+                Log.e(TAG, "Unable to get icon resource", e3);
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String getResPackage(Icon icon) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, icon)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return icon.getResPackage();
+            }
+            try {
+                return (String) icon.getClass().getMethod("getResPackage", new Class[0]).invoke(icon, new Object[0]);
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Unable to get icon package", e);
+                return null;
+            } catch (NoSuchMethodException e2) {
+                Log.e(TAG, "Unable to get icon package", e2);
+                return null;
+            } catch (InvocationTargetException e3) {
+                Log.e(TAG, "Unable to get icon package", e3);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Uri getUri(Icon icon) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, icon)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return icon.getUri();
+            }
+            try {
+                return (Uri) icon.getClass().getMethod("getUri", new Class[0]).invoke(icon, new Object[0]);
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Unable to get icon uri", e);
+                return null;
+            } catch (NoSuchMethodException e2) {
+                Log.e(TAG, "Unable to get icon uri", e2);
+                return null;
+            } catch (InvocationTargetException e3) {
+                Log.e(TAG, "Unable to get icon uri", e3);
+                return null;
+            }
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static IconCompat createFromBundle(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
@@ -187,39 +347,56 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeL.objValue;
     }
 
-    @Nullable
-    @RequiresApi(23)
-    public static IconCompat createFromIcon(@NonNull Context context, @NonNull Icon icon) {
+    public static IconCompat createFromIcon(Context context, Icon icon) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, icon)) == null) {
             Preconditions.checkNotNull(icon);
             int type = getType(icon);
-            if (type == 2) {
-                String resPackage = getResPackage(icon);
-                try {
-                    return createWithResource(getResources(context, resPackage), resPackage, getResId(icon));
-                } catch (Resources.NotFoundException unused) {
-                    throw new IllegalArgumentException("Icon resource cannot be found");
+            if (type != 2) {
+                if (type != 4) {
+                    if (type != 6) {
+                        IconCompat iconCompat = new IconCompat(-1);
+                        iconCompat.mObj1 = icon;
+                        return iconCompat;
+                    }
+                    return createWithAdaptiveBitmapContentUri(getUri(icon));
                 }
-            } else if (type != 4) {
-                if (type != 6) {
-                    IconCompat iconCompat = new IconCompat(-1);
-                    iconCompat.mObj1 = icon;
-                    return iconCompat;
-                }
-                return createWithAdaptiveBitmapContentUri(getUri(icon));
-            } else {
                 return createWithContentUri(getUri(icon));
+            }
+            String resPackage = getResPackage(icon);
+            try {
+                return createWithResource(getResources(context, resPackage), resPackage, getResId(icon));
+            } catch (Resources.NotFoundException unused) {
+                throw new IllegalArgumentException("Icon resource cannot be found");
             }
         }
         return (IconCompat) invokeLL.objValue;
     }
 
-    @Nullable
-    @RequiresApi(23)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static IconCompat createFromIconOrNullIfZeroResId(@NonNull Icon icon) {
+    public static Resources getResources(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, context, str)) == null) {
+            if ("android".equals(str)) {
+                return Resources.getSystem();
+            }
+            PackageManager packageManager = context.getPackageManager();
+            try {
+                ApplicationInfo applicationInfo = packageManager.getApplicationInfo(str, 8192);
+                if (applicationInfo == null) {
+                    return null;
+                }
+                return packageManager.getResourcesForApplication(applicationInfo);
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e(TAG, String.format("Unable to find pkg=%s for icon", str), e);
+                return null;
+            }
+        }
+        return (Resources) invokeLL.objValue;
+    }
+
+    public static IconCompat createFromIconOrNullIfZeroResId(Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, icon)) == null) {
@@ -231,7 +408,87 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeL.objValue;
     }
 
-    @VisibleForTesting
+    public static IconCompat createWithAdaptiveBitmap(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bitmap)) == null) {
+            if (bitmap != null) {
+                IconCompat iconCompat = new IconCompat(5);
+                iconCompat.mObj1 = bitmap;
+                return iconCompat;
+            }
+            throw new IllegalArgumentException("Bitmap must not be null.");
+        }
+        return (IconCompat) invokeL.objValue;
+    }
+
+    public static IconCompat createWithAdaptiveBitmapContentUri(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
+            if (uri != null) {
+                return createWithAdaptiveBitmapContentUri(uri.toString());
+            }
+            throw new IllegalArgumentException("Uri must not be null.");
+        }
+        return (IconCompat) invokeL.objValue;
+    }
+
+    public static IconCompat createWithBitmap(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bitmap)) == null) {
+            if (bitmap != null) {
+                IconCompat iconCompat = new IconCompat(1);
+                iconCompat.mObj1 = bitmap;
+                return iconCompat;
+            }
+            throw new IllegalArgumentException("Bitmap must not be null.");
+        }
+        return (IconCompat) invokeL.objValue;
+    }
+
+    public static IconCompat createWithContentUri(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, uri)) == null) {
+            if (uri != null) {
+                return createWithContentUri(uri.toString());
+            }
+            throw new IllegalArgumentException("Uri must not be null.");
+        }
+        return (IconCompat) invokeL.objValue;
+    }
+
+    public IconCompat setTint(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return setTintList(ColorStateList.valueOf(i));
+        }
+        return (IconCompat) invokeI.objValue;
+    }
+
+    public IconCompat setTintList(ColorStateList colorStateList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, colorStateList)) == null) {
+            this.mTintList = colorStateList;
+            return this;
+        }
+        return (IconCompat) invokeL.objValue;
+    }
+
+    public IconCompat setTintMode(PorterDuff.Mode mode) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, mode)) == null) {
+            this.mTintMode = mode;
+            return this;
+        }
+        return (IconCompat) invokeL.objValue;
+    }
+
     public static Bitmap createLegacyIconFromAdaptiveIcon(Bitmap bitmap, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -266,22 +523,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Bitmap) invokeLZ.objValue;
     }
 
-    public static IconCompat createWithAdaptiveBitmap(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bitmap)) == null) {
-            if (bitmap != null) {
-                IconCompat iconCompat = new IconCompat(5);
-                iconCompat.mObj1 = bitmap;
-                return iconCompat;
-            }
-            throw new IllegalArgumentException("Bitmap must not be null.");
-        }
-        return (IconCompat) invokeL.objValue;
-    }
-
-    @NonNull
-    public static IconCompat createWithAdaptiveBitmapContentUri(@NonNull String str) {
+    public static IconCompat createWithAdaptiveBitmapContentUri(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
@@ -291,20 +533,6 @@ public class IconCompat extends CustomVersionedParcelable {
                 return iconCompat;
             }
             throw new IllegalArgumentException("Uri must not be null.");
-        }
-        return (IconCompat) invokeL.objValue;
-    }
-
-    public static IconCompat createWithBitmap(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bitmap)) == null) {
-            if (bitmap != null) {
-                IconCompat iconCompat = new IconCompat(1);
-                iconCompat.mObj1 = bitmap;
-                return iconCompat;
-            }
-            throw new IllegalArgumentException("Bitmap must not be null.");
         }
         return (IconCompat) invokeL.objValue;
     }
@@ -339,7 +567,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeLII.objValue;
     }
 
-    public static IconCompat createWithResource(Context context, @DrawableRes int i) {
+    public static IconCompat createWithResource(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, context, i)) == null) {
@@ -351,26 +579,53 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeLI.objValue;
     }
 
-    public static Resources getResources(Context context, String str) {
-        InterceptResult invokeLL;
+    public static IconCompat createWithResource(Resources resources, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, context, str)) == null) {
-            if ("android".equals(str)) {
-                return Resources.getSystem();
-            }
-            PackageManager packageManager = context.getPackageManager();
-            try {
-                ApplicationInfo applicationInfo = packageManager.getApplicationInfo(str, 8192);
-                if (applicationInfo != null) {
-                    return packageManager.getResourcesForApplication(applicationInfo);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65552, null, resources, str, i)) == null) {
+            if (str != null) {
+                if (i != 0) {
+                    IconCompat iconCompat = new IconCompat(2);
+                    iconCompat.mInt1 = i;
+                    if (resources != null) {
+                        try {
+                            iconCompat.mObj1 = resources.getResourceName(i);
+                        } catch (Resources.NotFoundException unused) {
+                            throw new IllegalArgumentException("Icon resource cannot be found");
+                        }
+                    } else {
+                        iconCompat.mObj1 = str;
+                    }
+                    return iconCompat;
                 }
-                return null;
-            } catch (PackageManager.NameNotFoundException e) {
-                Log.e(TAG, String.format("Unable to find pkg=%s for icon", str), e);
-                return null;
+                throw new IllegalArgumentException("Drawable resource ID must not be 0");
+            }
+            throw new IllegalArgumentException("Package must not be null.");
+        }
+        return (IconCompat) invokeLLI.objValue;
+    }
+
+    public static int getType(Icon icon) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, icon)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return icon.getType();
+            }
+            try {
+                return ((Integer) icon.getClass().getMethod("getType", new Class[0]).invoke(icon, new Object[0])).intValue();
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Unable to get icon type " + icon, e);
+                return -1;
+            } catch (NoSuchMethodException e2) {
+                Log.e(TAG, "Unable to get icon type " + icon, e2);
+                return -1;
+            } catch (InvocationTargetException e3) {
+                Log.e(TAG, "Unable to get icon type " + icon, e3);
+                return -1;
             }
         }
-        return (Resources) invokeLL.objValue;
+        return invokeL.intValue;
     }
 
     private InputStream getUriInputStream(Context context) {
@@ -395,6 +650,64 @@ public class IconCompat extends CustomVersionedParcelable {
             }
         }
         return (InputStream) invokeL.objValue;
+    }
+
+    public void checkResource(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.mType == 2) {
+            String str = (String) this.mObj1;
+            if (!str.contains(":")) {
+                return;
+            }
+            String str2 = str.split(":", -1)[1];
+            String str3 = str2.split("/", -1)[0];
+            String str4 = str2.split("/", -1)[1];
+            String str5 = str.split(":", -1)[0];
+            int identifier = getResources(context, str5).getIdentifier(str4, str3, str5);
+            if (this.mInt1 != identifier) {
+                Log.i(TAG, "Id has changed for " + str5 + "/" + str4);
+                this.mInt1 = identifier;
+            }
+        }
+    }
+
+    @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    public void onPreParceling(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.mTintModeStr = this.mTintMode.name();
+            switch (this.mType) {
+                case -1:
+                    if (!z) {
+                        this.mParcelable = (Parcelable) this.mObj1;
+                        return;
+                    }
+                    throw new IllegalArgumentException("Can't serialize Icon created with IconCompat#createFromIcon");
+                case 0:
+                default:
+                    return;
+                case 1:
+                case 5:
+                    if (z) {
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        ((Bitmap) this.mObj1).compress(Bitmap.CompressFormat.PNG, 90, byteArrayOutputStream);
+                        this.mData = byteArrayOutputStream.toByteArray();
+                        return;
+                    }
+                    this.mParcelable = (Parcelable) this.mObj1;
+                    return;
+                case 2:
+                    this.mData = ((String) this.mObj1).getBytes(Charset.forName("UTF-16"));
+                    return;
+                case 3:
+                    this.mData = (byte[]) this.mObj1;
+                    return;
+                case 4:
+                case 6:
+                    this.mData = this.mObj1.toString().getBytes(Charset.forName("UTF-16"));
+                    return;
+            }
+        }
     }
 
     private Drawable loadDrawableInner(Context context) {
@@ -440,414 +753,7 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Drawable) invokeL.objValue;
     }
 
-    public static String typeToString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "BITMAP";
-                case 2:
-                    return "RESOURCE";
-                case 3:
-                    return "DATA";
-                case 4:
-                    return DownloadConstants.DownloadColumns.COLUMN_URI;
-                case 5:
-                    return "BITMAP_MASKABLE";
-                case 6:
-                    return "URI_MASKABLE";
-                default:
-                    return RomUtils.UNKNOWN;
-            }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void addToShortcutIntent(@NonNull Intent intent, @Nullable Drawable drawable, @NonNull Context context) {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, intent, drawable, context) == null) {
-            checkResource(context);
-            int i = this.mType;
-            if (i == 1) {
-                bitmap = (Bitmap) this.mObj1;
-                if (drawable != null) {
-                    bitmap = bitmap.copy(bitmap.getConfig(), true);
-                }
-            } else if (i == 2) {
-                try {
-                    Context createPackageContext = context.createPackageContext(getResPackage(), 0);
-                    if (drawable == null) {
-                        intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(createPackageContext, this.mInt1));
-                        return;
-                    }
-                    Drawable drawable2 = ContextCompat.getDrawable(createPackageContext, this.mInt1);
-                    if (drawable2.getIntrinsicWidth() > 0 && drawable2.getIntrinsicHeight() > 0) {
-                        bitmap = Bitmap.createBitmap(drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-                        drawable2.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                        drawable2.draw(new Canvas(bitmap));
-                    }
-                    int launcherLargeIconSize = ((ActivityManager) createPackageContext.getSystemService("activity")).getLauncherLargeIconSize();
-                    bitmap = Bitmap.createBitmap(launcherLargeIconSize, launcherLargeIconSize, Bitmap.Config.ARGB_8888);
-                    drawable2.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                    drawable2.draw(new Canvas(bitmap));
-                } catch (PackageManager.NameNotFoundException e) {
-                    throw new IllegalArgumentException("Can't find package " + this.mObj1, e);
-                }
-            } else if (i == 5) {
-                bitmap = createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, true);
-            } else {
-                throw new IllegalArgumentException("Icon type not supported for intent shortcuts");
-            }
-            if (drawable != null) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                drawable.setBounds(width / 2, height / 2, width, height);
-                drawable.draw(new Canvas(bitmap));
-            }
-            intent.putExtra("android.intent.extra.shortcut.ICON", bitmap);
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void checkResource(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.mType == 2) {
-            String str = (String) this.mObj1;
-            if (str.contains(":")) {
-                String str2 = str.split(":", -1)[1];
-                String str3 = str2.split("/", -1)[0];
-                String str4 = str2.split("/", -1)[1];
-                String str5 = str.split(":", -1)[0];
-                int identifier = getResources(context, str5).getIdentifier(str4, str3, str5);
-                if (this.mInt1 != identifier) {
-                    Log.i(TAG, "Id has changed for " + str5 + "/" + str4);
-                    this.mInt1 = identifier;
-                }
-            }
-        }
-    }
-
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public Bitmap getBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
-                Object obj = this.mObj1;
-                if (obj instanceof Bitmap) {
-                    return (Bitmap) obj;
-                }
-                return null;
-            }
-            int i = this.mType;
-            if (i == 1) {
-                return (Bitmap) this.mObj1;
-            }
-            if (i == 5) {
-                return createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, true);
-            }
-            throw new IllegalStateException("called getBitmap() on " + this);
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    @IdRes
-    public int getResId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
-                return getResId((Icon) this.mObj1);
-            }
-            if (this.mType == 2) {
-                return this.mInt1;
-            }
-            throw new IllegalStateException("called getResId() on " + this);
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public String getResPackage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
-                return getResPackage((Icon) this.mObj1);
-            }
-            if (this.mType == 2) {
-                return ((String) this.mObj1).split(":", -1)[0];
-            }
-            throw new IllegalStateException("called getResPackage() on " + this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
-                return getType((Icon) this.mObj1);
-            }
-            return this.mType;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public Uri getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
-                return getUri((Icon) this.mObj1);
-            }
-            int i = this.mType;
-            if (i != 4 && i != 6) {
-                throw new IllegalStateException("called getUri() on " + this);
-            }
-            return Uri.parse((String) this.mObj1);
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    @Nullable
-    public Drawable loadDrawable(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            checkResource(context);
-            if (Build.VERSION.SDK_INT >= 23) {
-                return toIcon(context).loadDrawable(context);
-            }
-            Drawable loadDrawableInner = loadDrawableInner(context);
-            if (loadDrawableInner != null && (this.mTintList != null || this.mTintMode != DEFAULT_TINT_MODE)) {
-                loadDrawableInner.mutate();
-                DrawableCompat.setTintList(loadDrawableInner, this.mTintList);
-                DrawableCompat.setTintMode(loadDrawableInner, this.mTintMode);
-            }
-            return loadDrawableInner;
-        }
-        return (Drawable) invokeL.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.CustomVersionedParcelable
-    public void onPostParceling() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mTintMode = PorterDuff.Mode.valueOf(this.mTintModeStr);
-            switch (this.mType) {
-                case -1:
-                    Parcelable parcelable = this.mParcelable;
-                    if (parcelable != null) {
-                        this.mObj1 = parcelable;
-                        return;
-                    }
-                    throw new IllegalArgumentException("Invalid icon");
-                case 0:
-                default:
-                    return;
-                case 1:
-                case 5:
-                    Parcelable parcelable2 = this.mParcelable;
-                    if (parcelable2 != null) {
-                        this.mObj1 = parcelable2;
-                        return;
-                    }
-                    byte[] bArr = this.mData;
-                    this.mObj1 = bArr;
-                    this.mType = 3;
-                    this.mInt1 = 0;
-                    this.mInt2 = bArr.length;
-                    return;
-                case 2:
-                case 4:
-                case 6:
-                    this.mObj1 = new String(this.mData, Charset.forName("UTF-16"));
-                    return;
-                case 3:
-                    this.mObj1 = this.mData;
-                    return;
-            }
-        }
-    }
-
-    @Override // androidx.versionedparcelable.CustomVersionedParcelable
-    public void onPreParceling(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.mTintModeStr = this.mTintMode.name();
-            switch (this.mType) {
-                case -1:
-                    if (!z) {
-                        this.mParcelable = (Parcelable) this.mObj1;
-                        return;
-                    }
-                    throw new IllegalArgumentException("Can't serialize Icon created with IconCompat#createFromIcon");
-                case 0:
-                default:
-                    return;
-                case 1:
-                case 5:
-                    if (z) {
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        ((Bitmap) this.mObj1).compress(Bitmap.CompressFormat.PNG, 90, byteArrayOutputStream);
-                        this.mData = byteArrayOutputStream.toByteArray();
-                        return;
-                    }
-                    this.mParcelable = (Parcelable) this.mObj1;
-                    return;
-                case 2:
-                    this.mData = ((String) this.mObj1).getBytes(Charset.forName("UTF-16"));
-                    return;
-                case 3:
-                    this.mData = (byte[]) this.mObj1;
-                    return;
-                case 4:
-                case 6:
-                    this.mData = this.mObj1.toString().getBytes(Charset.forName("UTF-16"));
-                    return;
-            }
-        }
-    }
-
-    public IconCompat setTint(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? setTintList(ColorStateList.valueOf(i)) : (IconCompat) invokeI.objValue;
-    }
-
-    public IconCompat setTintList(ColorStateList colorStateList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, colorStateList)) == null) {
-            this.mTintList = colorStateList;
-            return this;
-        }
-        return (IconCompat) invokeL.objValue;
-    }
-
-    public IconCompat setTintMode(PorterDuff.Mode mode) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, mode)) == null) {
-            this.mTintMode = mode;
-            return this;
-        }
-        return (IconCompat) invokeL.objValue;
-    }
-
-    public Bundle toBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Bundle bundle = new Bundle();
-            switch (this.mType) {
-                case -1:
-                    bundle.putParcelable("obj", (Parcelable) this.mObj1);
-                    break;
-                case 0:
-                default:
-                    throw new IllegalArgumentException("Invalid icon");
-                case 1:
-                case 5:
-                    bundle.putParcelable("obj", (Bitmap) this.mObj1);
-                    break;
-                case 2:
-                case 4:
-                case 6:
-                    bundle.putString("obj", (String) this.mObj1);
-                    break;
-                case 3:
-                    bundle.putByteArray("obj", (byte[]) this.mObj1);
-                    break;
-            }
-            bundle.putInt("type", this.mType);
-            bundle.putInt(EXTRA_INT1, this.mInt1);
-            bundle.putInt(EXTRA_INT2, this.mInt2);
-            ColorStateList colorStateList = this.mTintList;
-            if (colorStateList != null) {
-                bundle.putParcelable(EXTRA_TINT_LIST, colorStateList);
-            }
-            PorterDuff.Mode mode = this.mTintMode;
-            if (mode != DEFAULT_TINT_MODE) {
-                bundle.putString(EXTRA_TINT_MODE, mode.name());
-            }
-            return bundle;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    @NonNull
-    @RequiresApi(23)
-    @Deprecated
-    public Icon toIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? toIcon(null) : (Icon) invokeV.objValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.mType == -1) {
-                return String.valueOf(this.mObj1);
-            }
-            StringBuilder sb = new StringBuilder("Icon(typ=");
-            sb.append(typeToString(this.mType));
-            switch (this.mType) {
-                case 1:
-                case 5:
-                    sb.append(" size=");
-                    sb.append(((Bitmap) this.mObj1).getWidth());
-                    sb.append("x");
-                    sb.append(((Bitmap) this.mObj1).getHeight());
-                    break;
-                case 2:
-                    sb.append(" pkg=");
-                    sb.append(getResPackage());
-                    sb.append(" id=");
-                    sb.append(String.format("0x%08x", Integer.valueOf(getResId())));
-                    break;
-                case 3:
-                    sb.append(" len=");
-                    sb.append(this.mInt1);
-                    if (this.mInt2 != 0) {
-                        sb.append(" off=");
-                        sb.append(this.mInt2);
-                        break;
-                    }
-                    break;
-                case 4:
-                case 6:
-                    sb.append(" uri=");
-                    sb.append(this.mObj1);
-                    break;
-            }
-            if (this.mTintList != null) {
-                sb.append(" tint=");
-                sb.append(this.mTintList);
-            }
-            if (this.mTintMode != DEFAULT_TINT_MODE) {
-                sb.append(" mode=");
-                sb.append(this.mTintMode);
-            }
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    @RequiresApi(23)
-    public Icon toIcon(@Nullable Context context) {
+    public Icon toIcon(Context context) {
         InterceptResult invokeL;
         Icon createWithBitmap;
         Interceptable interceptable = $ic;
@@ -909,206 +815,260 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Icon) invokeL.objValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static IconCompat createWithResource(Resources resources, String str, @DrawableRes int i) {
-        InterceptResult invokeLLI;
+    public void addToShortcutIntent(Intent intent, Drawable drawable, Context context) {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65552, null, resources, str, i)) == null) {
-            if (str != null) {
-                if (i != 0) {
-                    IconCompat iconCompat = new IconCompat(2);
-                    iconCompat.mInt1 = i;
-                    if (resources != null) {
-                        try {
-                            iconCompat.mObj1 = resources.getResourceName(i);
-                        } catch (Resources.NotFoundException unused) {
-                            throw new IllegalArgumentException("Icon resource cannot be found");
-                        }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, intent, drawable, context) == null) {
+            checkResource(context);
+            int i = this.mType;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 5) {
+                        bitmap = createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, true);
                     } else {
-                        iconCompat.mObj1 = str;
+                        throw new IllegalArgumentException("Icon type not supported for intent shortcuts");
                     }
-                    return iconCompat;
-                }
-                throw new IllegalArgumentException("Drawable resource ID must not be 0");
-            }
-            throw new IllegalArgumentException("Package must not be null.");
-        }
-        return (IconCompat) invokeLLI.objValue;
-    }
-
-    @NonNull
-    public static IconCompat createWithAdaptiveBitmapContentUri(@NonNull Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
-            if (uri != null) {
-                return createWithAdaptiveBitmapContentUri(uri.toString());
-            }
-            throw new IllegalArgumentException("Uri must not be null.");
-        }
-        return (IconCompat) invokeL.objValue;
-    }
-
-    public static IconCompat createWithContentUri(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, uri)) == null) {
-            if (uri != null) {
-                return createWithContentUri(uri.toString());
-            }
-            throw new IllegalArgumentException("Uri must not be null.");
-        }
-        return (IconCompat) invokeL.objValue;
-    }
-
-    @RequiresApi(23)
-    public static int getType(@NonNull Icon icon) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, icon)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return icon.getType();
-            }
-            try {
-                return ((Integer) icon.getClass().getMethod("getType", new Class[0]).invoke(icon, new Object[0])).intValue();
-            } catch (IllegalAccessException e) {
-                Log.e(TAG, "Unable to get icon type " + icon, e);
-                return -1;
-            } catch (NoSuchMethodException e2) {
-                Log.e(TAG, "Unable to get icon type " + icon, e2);
-                return -1;
-            } catch (InvocationTargetException e3) {
-                Log.e(TAG, "Unable to get icon type " + icon, e3);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @DrawableRes
-    @IdRes
-    @RequiresApi(23)
-    public static int getResId(@NonNull Icon icon) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, icon)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return icon.getResId();
-            }
-            try {
-                return ((Integer) icon.getClass().getMethod("getResId", new Class[0]).invoke(icon, new Object[0])).intValue();
-            } catch (IllegalAccessException e) {
-                Log.e(TAG, "Unable to get icon resource", e);
-                return 0;
-            } catch (NoSuchMethodException e2) {
-                Log.e(TAG, "Unable to get icon resource", e2);
-                return 0;
-            } catch (InvocationTargetException e3) {
-                Log.e(TAG, "Unable to get icon resource", e3);
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @Nullable
-    @RequiresApi(23)
-    public static String getResPackage(@NonNull Icon icon) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, icon)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return icon.getResPackage();
-            }
-            try {
-                return (String) icon.getClass().getMethod("getResPackage", new Class[0]).invoke(icon, new Object[0]);
-            } catch (IllegalAccessException e) {
-                Log.e(TAG, "Unable to get icon package", e);
-                return null;
-            } catch (NoSuchMethodException e2) {
-                Log.e(TAG, "Unable to get icon package", e2);
-                return null;
-            } catch (InvocationTargetException e3) {
-                Log.e(TAG, "Unable to get icon package", e3);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    @RequiresApi(23)
-    public static Uri getUri(@NonNull Icon icon) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, icon)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return icon.getUri();
-            }
-            try {
-                return (Uri) icon.getClass().getMethod("getUri", new Class[0]).invoke(icon, new Object[0]);
-            } catch (IllegalAccessException e) {
-                Log.e(TAG, "Unable to get icon uri", e);
-                return null;
-            } catch (NoSuchMethodException e2) {
-                Log.e(TAG, "Unable to get icon uri", e2);
-                return null;
-            } catch (InvocationTargetException e3) {
-                Log.e(TAG, "Unable to get icon uri", e3);
-                return null;
-            }
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    public IconCompat(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mType = -1;
-        this.mData = null;
-        this.mParcelable = null;
-        this.mInt1 = 0;
-        this.mInt2 = 0;
-        this.mTintList = null;
-        this.mTintMode = DEFAULT_TINT_MODE;
-        this.mTintModeStr = null;
-        this.mType = i;
-    }
-
-    @Nullable
-    @RequiresApi(23)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static IconCompat createFromIcon(@NonNull Icon icon) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, icon)) == null) {
-            Preconditions.checkNotNull(icon);
-            int type = getType(icon);
-            if (type != 2) {
-                if (type != 4) {
-                    if (type != 6) {
-                        IconCompat iconCompat = new IconCompat(-1);
-                        iconCompat.mObj1 = icon;
-                        return iconCompat;
+                } else {
+                    try {
+                        Context createPackageContext = context.createPackageContext(getResPackage(), 0);
+                        if (drawable == null) {
+                            intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(createPackageContext, this.mInt1));
+                            return;
+                        }
+                        Drawable drawable2 = ContextCompat.getDrawable(createPackageContext, this.mInt1);
+                        if (drawable2.getIntrinsicWidth() > 0 && drawable2.getIntrinsicHeight() > 0) {
+                            bitmap = Bitmap.createBitmap(drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                            drawable2.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                            drawable2.draw(new Canvas(bitmap));
+                        }
+                        int launcherLargeIconSize = ((ActivityManager) createPackageContext.getSystemService("activity")).getLauncherLargeIconSize();
+                        bitmap = Bitmap.createBitmap(launcherLargeIconSize, launcherLargeIconSize, Bitmap.Config.ARGB_8888);
+                        drawable2.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                        drawable2.draw(new Canvas(bitmap));
+                    } catch (PackageManager.NameNotFoundException e) {
+                        throw new IllegalArgumentException("Can't find package " + this.mObj1, e);
                     }
-                    return createWithAdaptiveBitmapContentUri(getUri(icon));
                 }
-                return createWithContentUri(getUri(icon));
+            } else {
+                bitmap = (Bitmap) this.mObj1;
+                if (drawable != null) {
+                    bitmap = bitmap.copy(bitmap.getConfig(), true);
+                }
             }
-            return createWithResource(null, getResPackage(icon), getResId(icon));
+            if (drawable != null) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                drawable.setBounds(width / 2, height / 2, width, height);
+                drawable.draw(new Canvas(bitmap));
+            }
+            intent.putExtra("android.intent.extra.shortcut.ICON", bitmap);
         }
-        return (IconCompat) invokeL.objValue;
+    }
+
+    public Bitmap getBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
+                Object obj = this.mObj1;
+                if (obj instanceof Bitmap) {
+                    return (Bitmap) obj;
+                }
+                return null;
+            }
+            int i = this.mType;
+            if (i == 1) {
+                return (Bitmap) this.mObj1;
+            }
+            if (i == 5) {
+                return createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, true);
+            }
+            throw new IllegalStateException("called getBitmap() on " + this);
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public String getResPackage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
+                return getResPackage((Icon) this.mObj1);
+            }
+            if (this.mType == 2) {
+                return ((String) this.mObj1).split(":", -1)[0];
+            }
+            throw new IllegalStateException("called getResPackage() on " + this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Uri getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
+                return getUri((Icon) this.mObj1);
+            }
+            int i = this.mType;
+            if (i != 4 && i != 6) {
+                throw new IllegalStateException("called getUri() on " + this);
+            }
+            return Uri.parse((String) this.mObj1);
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public Drawable loadDrawable(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            checkResource(context);
+            if (Build.VERSION.SDK_INT >= 23) {
+                return toIcon(context).loadDrawable(context);
+            }
+            Drawable loadDrawableInner = loadDrawableInner(context);
+            if (loadDrawableInner != null && (this.mTintList != null || this.mTintMode != DEFAULT_TINT_MODE)) {
+                loadDrawableInner.mutate();
+                DrawableCompat.setTintList(loadDrawableInner, this.mTintList);
+                DrawableCompat.setTintMode(loadDrawableInner, this.mTintMode);
+            }
+            return loadDrawableInner;
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    public void onPostParceling() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mTintMode = PorterDuff.Mode.valueOf(this.mTintModeStr);
+            switch (this.mType) {
+                case -1:
+                    Parcelable parcelable = this.mParcelable;
+                    if (parcelable != null) {
+                        this.mObj1 = parcelable;
+                        return;
+                    }
+                    throw new IllegalArgumentException("Invalid icon");
+                case 0:
+                default:
+                    return;
+                case 1:
+                case 5:
+                    Parcelable parcelable2 = this.mParcelable;
+                    if (parcelable2 != null) {
+                        this.mObj1 = parcelable2;
+                        return;
+                    }
+                    byte[] bArr = this.mData;
+                    this.mObj1 = bArr;
+                    this.mType = 3;
+                    this.mInt1 = 0;
+                    this.mInt2 = bArr.length;
+                    return;
+                case 2:
+                case 4:
+                case 6:
+                    this.mObj1 = new String(this.mData, Charset.forName("UTF-16"));
+                    return;
+                case 3:
+                    this.mObj1 = this.mData;
+                    return;
+            }
+        }
+    }
+
+    public Bundle toBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            Bundle bundle = new Bundle();
+            switch (this.mType) {
+                case -1:
+                    bundle.putParcelable("obj", (Parcelable) this.mObj1);
+                    break;
+                case 0:
+                default:
+                    throw new IllegalArgumentException("Invalid icon");
+                case 1:
+                case 5:
+                    bundle.putParcelable("obj", (Bitmap) this.mObj1);
+                    break;
+                case 2:
+                case 4:
+                case 6:
+                    bundle.putString("obj", (String) this.mObj1);
+                    break;
+                case 3:
+                    bundle.putByteArray("obj", (byte[]) this.mObj1);
+                    break;
+            }
+            bundle.putInt("type", this.mType);
+            bundle.putInt(EXTRA_INT1, this.mInt1);
+            bundle.putInt(EXTRA_INT2, this.mInt2);
+            ColorStateList colorStateList = this.mTintList;
+            if (colorStateList != null) {
+                bundle.putParcelable(EXTRA_TINT_LIST, colorStateList);
+            }
+            PorterDuff.Mode mode = this.mTintMode;
+            if (mode != DEFAULT_TINT_MODE) {
+                bundle.putString(EXTRA_TINT_MODE, mode.name());
+            }
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (this.mType == -1) {
+                return String.valueOf(this.mObj1);
+            }
+            StringBuilder sb = new StringBuilder("Icon(typ=");
+            sb.append(typeToString(this.mType));
+            switch (this.mType) {
+                case 1:
+                case 5:
+                    sb.append(" size=");
+                    sb.append(((Bitmap) this.mObj1).getWidth());
+                    sb.append("x");
+                    sb.append(((Bitmap) this.mObj1).getHeight());
+                    break;
+                case 2:
+                    sb.append(" pkg=");
+                    sb.append(getResPackage());
+                    sb.append(" id=");
+                    sb.append(String.format("0x%08x", Integer.valueOf(getResId())));
+                    break;
+                case 3:
+                    sb.append(" len=");
+                    sb.append(this.mInt1);
+                    if (this.mInt2 != 0) {
+                        sb.append(" off=");
+                        sb.append(this.mInt2);
+                        break;
+                    }
+                    break;
+                case 4:
+                case 6:
+                    sb.append(" uri=");
+                    sb.append(this.mObj1);
+                    break;
+            }
+            if (this.mTintList != null) {
+                sb.append(" tint=");
+                sb.append(this.mTintList);
+            }
+            if (this.mTintMode != DEFAULT_TINT_MODE) {
+                sb.append(" mode=");
+                sb.append(this.mTintMode);
+            }
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

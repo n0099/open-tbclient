@@ -1,7 +1,5 @@
 package com.baidu.searchbox.bddownload.core.download;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -42,24 +40,20 @@ public class DownloadChain implements Runnable {
     public static final String TAG = "DownloadChain";
     public transient /* synthetic */ FieldHolder $fh;
     public final int blockIndex;
-    @NonNull
     public final DownloadCache cache;
     public final CallbackDispatcher callbackDispatcher;
     public int connectIndex;
-    public final List<Interceptor.Connect> connectInterceptorList;
+    public final List connectInterceptorList;
     public volatile DownloadConnection connection;
     public volatile Thread currentThread;
     public int fetchIndex;
-    public final List<Interceptor.Fetch> fetchInterceptorList;
+    public final List fetchInterceptorList;
     public final AtomicBoolean finished;
-    @NonNull
     public final BreakpointInfo info;
     public long noCallbackIncreaseBytes;
     public final Runnable releaseConnectionRunnable;
     public long responseContentLength;
-    @NonNull
     public final DownloadStore store;
-    @NonNull
     public final DownloadTask task;
 
     static {
@@ -78,7 +72,29 @@ public class DownloadChain implements Runnable {
         EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload Cancel Block", false));
     }
 
-    public DownloadChain(int i, @NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            if (!isFinished()) {
+                this.currentThread = Thread.currentThread();
+                try {
+                    start();
+                } catch (IOException unused) {
+                } catch (Throwable th) {
+                    this.finished.set(true);
+                    releaseConnectionAsync();
+                    throw th;
+                }
+                this.finished.set(true);
+                releaseConnectionAsync();
+                return;
+            }
+            throw new IllegalAccessError("The chain has been finished!");
+        }
+    }
+
+    public DownloadChain(int i, DownloadTask downloadTask, BreakpointInfo breakpointInfo, DownloadCache downloadCache, DownloadStore downloadStore) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,23 +153,25 @@ public class DownloadChain implements Runnable {
         this.callbackDispatcher = BdDownload.with().callbackDispatcher();
     }
 
-    public static DownloadChain createChain(int i, DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
+    public static DownloadChain createChain(int i, DownloadTask downloadTask, BreakpointInfo breakpointInfo, DownloadCache downloadCache, DownloadStore downloadStore) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), downloadTask, breakpointInfo, downloadCache, downloadStore})) == null) ? new DownloadChain(i, downloadTask, breakpointInfo, downloadCache, downloadStore) : (DownloadChain) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), downloadTask, breakpointInfo, downloadCache, downloadStore})) == null) {
+            return new DownloadChain(i, downloadTask, breakpointInfo, downloadCache, downloadStore);
+        }
+        return (DownloadChain) invokeCommon.objValue;
     }
 
     public void cancel() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.finished.get() || this.currentThread == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.finished.get() && this.currentThread != null) {
+            this.currentThread.interrupt();
         }
-        this.currentThread.interrupt();
     }
 
     public void flushNoCallbackIncreaseBytes() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.noCallbackIncreaseBytes == 0) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.noCallbackIncreaseBytes == 0) {
             return;
         }
         this.callbackDispatcher.dispatch().fetchProgress(this.task, this.blockIndex, this.noCallbackIncreaseBytes);
@@ -163,17 +181,21 @@ public class DownloadChain implements Runnable {
     public int getBlockIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.blockIndex : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.blockIndex;
+        }
+        return invokeV.intValue;
     }
 
-    @NonNull
     public DownloadCache getCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cache : (DownloadCache) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.cache;
+        }
+        return (DownloadCache) invokeV.objValue;
     }
 
-    @Nullable
     public synchronized DownloadConnection getConnection() {
         InterceptResult invokeV;
         DownloadConnection downloadConnection;
@@ -187,7 +209,117 @@ public class DownloadChain implements Runnable {
         return (DownloadConnection) invokeV.objValue;
     }
 
-    @NonNull
+    public DownloadStore getDownloadStore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.store;
+        }
+        return (DownloadStore) invokeV.objValue;
+    }
+
+    public BreakpointInfo getInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.info;
+        }
+        return (BreakpointInfo) invokeV.objValue;
+    }
+
+    public MultiPointOutputStream getOutputStream() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.cache.getOutputStream();
+        }
+        return (MultiPointOutputStream) invokeV.objValue;
+    }
+
+    public long getResponseContentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.responseContentLength;
+        }
+        return invokeV.longValue;
+    }
+
+    public DownloadTask getTask() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.task;
+        }
+        return (DownloadTask) invokeV.objValue;
+    }
+
+    public boolean isFinished() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.finished.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long loopFetch() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.fetchIndex == this.fetchInterceptorList.size()) {
+                this.fetchIndex--;
+            }
+            return processFetch();
+        }
+        return invokeV.longValue;
+    }
+
+    public DownloadConnection.Connected processConnect() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (!this.cache.isInterrupt()) {
+                List list = this.connectInterceptorList;
+                int i = this.connectIndex;
+                this.connectIndex = i + 1;
+                return ((Interceptor.Connect) list.get(i)).interceptConnect(this);
+            }
+            throw InterruptException.SIGNAL;
+        }
+        return (DownloadConnection.Connected) invokeV.objValue;
+    }
+
+    public long processFetch() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (!this.cache.isInterrupt()) {
+                List list = this.fetchInterceptorList;
+                int i = this.fetchIndex;
+                this.fetchIndex = i + 1;
+                return ((Interceptor.Fetch) list.get(i)).interceptFetch(this);
+            }
+            throw InterruptException.SIGNAL;
+        }
+        return invokeV.longValue;
+    }
+
+    public void releaseConnectionAsync() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            EXECUTOR.execute(this.releaseConnectionRunnable);
+        }
+    }
+
+    public void resetConnectForRetry() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.connectIndex = 1;
+            releaseConnection();
+        }
+    }
+
     public synchronized DownloadConnection getConnectionOrCreate() throws IOException {
         InterceptResult invokeV;
         DownloadConnection downloadConnection;
@@ -213,94 +345,6 @@ public class DownloadChain implements Runnable {
         return (DownloadConnection) invokeV.objValue;
     }
 
-    @NonNull
-    public DownloadStore getDownloadStore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.store : (DownloadStore) invokeV.objValue;
-    }
-
-    @NonNull
-    public BreakpointInfo getInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.info : (BreakpointInfo) invokeV.objValue;
-    }
-
-    public MultiPointOutputStream getOutputStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.cache.getOutputStream() : (MultiPointOutputStream) invokeV.objValue;
-    }
-
-    public long getResponseContentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.responseContentLength : invokeV.longValue;
-    }
-
-    @NonNull
-    public DownloadTask getTask() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.task : (DownloadTask) invokeV.objValue;
-    }
-
-    public void increaseCallbackBytes(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.noCallbackIncreaseBytes += j;
-        }
-    }
-
-    public boolean isFinished() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.finished.get() : invokeV.booleanValue;
-    }
-
-    public long loopFetch() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.fetchIndex == this.fetchInterceptorList.size()) {
-                this.fetchIndex--;
-            }
-            return processFetch();
-        }
-        return invokeV.longValue;
-    }
-
-    public DownloadConnection.Connected processConnect() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (!this.cache.isInterrupt()) {
-                List<Interceptor.Connect> list = this.connectInterceptorList;
-                int i = this.connectIndex;
-                this.connectIndex = i + 1;
-                return list.get(i).interceptConnect(this);
-            }
-            throw InterruptException.SIGNAL;
-        }
-        return (DownloadConnection.Connected) invokeV.objValue;
-    }
-
-    public long processFetch() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (!this.cache.isInterrupt()) {
-                List<Interceptor.Fetch> list = this.fetchInterceptorList;
-                int i = this.fetchIndex;
-                this.fetchIndex = i + 1;
-                return list.get(i).interceptFetch(this);
-            }
-            throw InterruptException.SIGNAL;
-        }
-        return invokeV.longValue;
-    }
-
     public synchronized void releaseConnection() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -314,44 +358,14 @@ public class DownloadChain implements Runnable {
         }
     }
 
-    public void releaseConnectionAsync() {
+    public void increaseCallbackBytes(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            EXECUTOR.execute(this.releaseConnectionRunnable);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.noCallbackIncreaseBytes += j;
         }
     }
 
-    public void resetConnectForRetry() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.connectIndex = 1;
-            releaseConnection();
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (!isFinished()) {
-                this.currentThread = Thread.currentThread();
-                try {
-                    start();
-                } catch (IOException unused) {
-                } catch (Throwable th) {
-                    this.finished.set(true);
-                    releaseConnectionAsync();
-                    throw th;
-                }
-                this.finished.set(true);
-                releaseConnectionAsync();
-                return;
-            }
-            throw new IllegalAccessError("The chain has been finished!");
-        }
-    }
-
-    public synchronized void setConnection(@NonNull DownloadConnection downloadConnection) {
+    public synchronized void setConnection(DownloadConnection downloadConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, downloadConnection) == null) {
             synchronized (this) {

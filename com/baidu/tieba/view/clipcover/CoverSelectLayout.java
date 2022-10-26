@@ -21,9 +21,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh5;
-import com.baidu.tieba.gi5;
-import com.baidu.tieba.ho5;
+import com.baidu.tieba.hh5;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,257 +110,6 @@ public class CoverSelectLayout extends RelativeLayout {
         }
     }
 
-    public final void b() {
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RectF d = d(this.h);
-            int width = this.a.getWidth();
-            int height = this.a.getHeight();
-            float f2 = width;
-            float f3 = this.f;
-            if (d.width() + 0.01d >= f2 - (f3 * 2.0f)) {
-                float f4 = d.left;
-                f = f4 > f3 ? (-f4) + f3 : 0.0f;
-                float f5 = d.right;
-                float f6 = this.f;
-                if (f5 < f2 - f6) {
-                    f = (f2 - f6) - f5;
-                }
-            } else {
-                f = 0.0f;
-            }
-            float f7 = height;
-            float f8 = this.e;
-            if (d.height() + 0.01d >= f7 - (2.0f * f8)) {
-                float f9 = d.top;
-                r11 = f9 > f8 ? (-f9) + f8 : 0.0f;
-                float f10 = d.bottom;
-                float f11 = this.e;
-                if (f10 < f7 - f11) {
-                    r11 = (f7 - f11) - f10;
-                }
-            }
-            this.h.postTranslate(f, r11);
-        }
-    }
-
-    public Bitmap c() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.a.setDrawingCacheEnabled(true);
-            this.a.buildDrawingCache();
-            RectF clipCoverRect = this.b.getClipCoverRect();
-            try {
-                bitmap = Bitmap.createBitmap(this.a.getDrawingCache(), (int) clipCoverRect.left, (int) clipCoverRect.top, (int) clipCoverRect.width(), (int) clipCoverRect.height());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                bitmap = null;
-            }
-            this.a.destroyDrawingCache();
-            return bitmap;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public final RectF d(Matrix matrix) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, matrix)) == null) {
-            RectF rectF = new RectF();
-            Drawable drawable = this.a.getDrawable();
-            if (drawable != null) {
-                rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                matrix.mapRect(rectF);
-            }
-            return rectF;
-        }
-        return (RectF) invokeL.objValue;
-    }
-
-    public void e(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.CoverSelectLayout);
-            this.c = obtainStyledAttributes.getDimensionPixelSize(1, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
-            this.d = obtainStyledAttributes.getDimensionPixelSize(2, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
-            this.g = obtainStyledAttributes.getDimensionPixelSize(0, (int) TypedValue.applyDimension(1, 1.0f, getResources().getDisplayMetrics()));
-            obtainStyledAttributes.recycle();
-            ClipCoverView clipCoverView = new ClipCoverView(context);
-            this.b = clipCoverView;
-            clipCoverView.setClipBorderWidth(this.g);
-            this.b.setmHorizontal(this.c);
-            this.b.setmVerticalPadding(this.d);
-            this.a = new ImageView(context);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            addView(this.a, layoutParams);
-            addView(this.b, layoutParams);
-            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            this.q = displayMetrics.widthPixels;
-            this.r = displayMetrics.heightPixels;
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x007f, code lost:
-        if (r0 < r1) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x009d, code lost:
-        if (r0 < r1) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x009f, code lost:
-        r0 = r1;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void f(String str) {
-        float height;
-        float height2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        int[] e = bh5.e(str);
-        int i = e[0];
-        int i2 = e[1];
-        int i3 = this.q;
-        if (i > i3) {
-            i = i3;
-        }
-        int i4 = this.r;
-        if (i2 > i4) {
-            i2 = i4;
-        }
-        Bitmap b = bh5.b(str, i, i2);
-        if (b == null) {
-            return;
-        }
-        int readPictureDegree = BitmapHelper.readPictureDegree(str);
-        Matrix matrix = new Matrix();
-        matrix.setRotate(readPictureDegree);
-        Bitmap createBitmap = Bitmap.createBitmap(b, 0, 0, b.getWidth(), b.getHeight(), matrix, true);
-        float width = (createBitmap.getWidth() * 1.0f) / createBitmap.getHeight();
-        RectF clipCoverRect = this.b.getClipCoverRect();
-        if (width <= clipCoverRect.width() / clipCoverRect.height()) {
-            height = this.a.getWidth() / createBitmap.getWidth();
-            height2 = clipCoverRect.width() / createBitmap.getWidth();
-            this.o = height2;
-        } else {
-            height = this.a.getHeight() / createBitmap.getHeight();
-            height2 = clipCoverRect.height() / createBitmap.getHeight();
-            this.o = height2;
-        }
-        this.h.postScale(height, height);
-        this.h.postTranslate((this.a.getWidth() * 0.5f) - ((int) ((createBitmap.getWidth() * height) * 0.5f)), (this.a.getHeight() * 0.5f) - ((int) ((createBitmap.getHeight() * height) * 0.5f)));
-        this.a.setScaleType(ImageView.ScaleType.MATRIX);
-        this.a.setImageMatrix(this.h);
-        this.a.setImageBitmap(createBitmap);
-    }
-
-    public final float getScale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.h.getValues(this.n);
-            return this.n[0];
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            int action = motionEvent.getAction() & 255;
-            if (action == 0) {
-                this.i.set(this.h);
-                this.k.set(motionEvent.getX(), motionEvent.getY());
-                this.j = 1;
-            } else if (action == 2) {
-                int i = this.j;
-                if (i == 1) {
-                    this.h.set(this.i);
-                    float x = motionEvent.getX() - this.k.x;
-                    float y = motionEvent.getY() - this.k.y;
-                    this.e = this.b.getClipCoverRect().top;
-                    this.f = this.b.getClipCoverRect().left;
-                    this.h.postTranslate(x, y);
-                    b();
-                } else if (i == 2) {
-                    float d = gi5.d(motionEvent);
-                    if (d > 10.0f) {
-                        float f = d / this.m;
-                        if (f < 1.0f) {
-                            if (getScale() > this.o) {
-                                this.h.set(this.i);
-                                this.e = this.b.getClipCoverRect().top;
-                                this.f = this.b.getClipCoverRect().left;
-                                Matrix matrix = this.h;
-                                PointF pointF = this.l;
-                                matrix.postScale(f, f, pointF.x, pointF.y);
-                                while (getScale() < this.o) {
-                                    Matrix matrix2 = this.h;
-                                    PointF pointF2 = this.l;
-                                    matrix2.postScale(1.01f, 1.01f, pointF2.x, pointF2.y);
-                                }
-                            }
-                            b();
-                        } else if (getScale() <= this.p) {
-                            this.h.set(this.i);
-                            this.e = this.b.getClipCoverRect().top;
-                            this.f = this.b.getClipCoverRect().left;
-                            Matrix matrix3 = this.h;
-                            PointF pointF3 = this.l;
-                            matrix3.postScale(f, f, pointF3.x, pointF3.y);
-                        }
-                    }
-                }
-                this.a.setImageMatrix(this.h);
-            } else if (action == 5) {
-                float d2 = gi5.d(motionEvent);
-                this.m = d2;
-                if (d2 > 10.0f) {
-                    this.i.set(this.h);
-                    this.l = gi5.b(motionEvent);
-                    this.j = 2;
-                }
-            } else if (action == 6) {
-                this.j = 0;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setClipType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.s = i;
-            if (i == 1) {
-                this.c = UtilHelper.getDimenPixelSize(R.dimen.tbds920);
-                this.d = UtilHelper.getDimenPixelSize(R.dimen.tbds520);
-            } else if (i == 2) {
-                this.c = UtilHelper.getDimenPixelSize(R.dimen.tbds920);
-                this.d = UtilHelper.getDimenPixelSize(R.dimen.tbds1227);
-            }
-            float dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.L_X04);
-            this.g = dimenPixelSize;
-            this.b.setClipBorderWidth(dimenPixelSize);
-            this.b.setmHorizontal(this.c);
-            this.b.setmVerticalPadding(this.d);
-        }
-    }
-
-    public void setImagSrc(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.a.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CoverSelectLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -410,5 +159,269 @@ public class CoverSelectLayout extends RelativeLayout {
         this.n = new float[9];
         this.p = 4.0f;
         e(context, attributeSet);
+    }
+
+    public final RectF d(Matrix matrix) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, matrix)) == null) {
+            RectF rectF = new RectF();
+            Drawable drawable = this.a.getDrawable();
+            if (drawable != null) {
+                rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                matrix.mapRect(rectF);
+            }
+            return rectF;
+        }
+        return (RectF) invokeL.objValue;
+    }
+
+    public void setImagSrc(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.a.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
+        }
+    }
+
+    public final void b() {
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RectF d = d(this.h);
+            int width = this.a.getWidth();
+            int height = this.a.getHeight();
+            float f2 = width;
+            float f3 = this.f;
+            float f4 = 0.0f;
+            if (d.width() + 0.01d >= f2 - (f3 * 2.0f)) {
+                float f5 = d.left;
+                if (f5 > f3) {
+                    f = (-f5) + f3;
+                } else {
+                    f = 0.0f;
+                }
+                float f6 = d.right;
+                float f7 = this.f;
+                if (f6 < f2 - f7) {
+                    f = (f2 - f7) - f6;
+                }
+            } else {
+                f = 0.0f;
+            }
+            float f8 = height;
+            float f9 = this.e;
+            if (d.height() + 0.01d >= f8 - (2.0f * f9)) {
+                float f10 = d.top;
+                if (f10 > f9) {
+                    f4 = (-f10) + f9;
+                }
+                float f11 = d.bottom;
+                float f12 = this.e;
+                if (f11 < f8 - f12) {
+                    f4 = (f8 - f12) - f11;
+                }
+            }
+            this.h.postTranslate(f, f4);
+        }
+    }
+
+    public Bitmap c() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.a.setDrawingCacheEnabled(true);
+            this.a.buildDrawingCache();
+            RectF clipCoverRect = this.b.getClipCoverRect();
+            try {
+                bitmap = Bitmap.createBitmap(this.a.getDrawingCache(), (int) clipCoverRect.left, (int) clipCoverRect.top, (int) clipCoverRect.width(), (int) clipCoverRect.height());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                bitmap = null;
+            }
+            this.a.destroyDrawingCache();
+            return bitmap;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public void e(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.CoverSelectLayout);
+            this.c = obtainStyledAttributes.getDimensionPixelSize(1, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
+            this.d = obtainStyledAttributes.getDimensionPixelSize(2, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
+            this.g = obtainStyledAttributes.getDimensionPixelSize(0, (int) TypedValue.applyDimension(1, 1.0f, getResources().getDisplayMetrics()));
+            obtainStyledAttributes.recycle();
+            ClipCoverView clipCoverView = new ClipCoverView(context);
+            this.b = clipCoverView;
+            clipCoverView.setClipBorderWidth(this.g);
+            this.b.setmHorizontal(this.c);
+            this.b.setmVerticalPadding(this.d);
+            this.a = new ImageView(context);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+            addView(this.a, layoutParams);
+            addView(this.b, layoutParams);
+            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+            this.q = displayMetrics.widthPixels;
+            this.r = displayMetrics.heightPixels;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x007f, code lost:
+        if (r0 < r1) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x009d, code lost:
+        if (r0 < r1) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x009f, code lost:
+        r0 = r1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void f(String str) {
+        float height;
+        float height2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        int[] e = hh5.e(str);
+        int i = e[0];
+        int i2 = e[1];
+        int i3 = this.q;
+        if (i > i3) {
+            i = i3;
+        }
+        int i4 = this.r;
+        if (i2 > i4) {
+            i2 = i4;
+        }
+        Bitmap b = hh5.b(str, i, i2);
+        if (b == null) {
+            return;
+        }
+        int readPictureDegree = BitmapHelper.readPictureDegree(str);
+        Matrix matrix = new Matrix();
+        matrix.setRotate(readPictureDegree);
+        Bitmap createBitmap = Bitmap.createBitmap(b, 0, 0, b.getWidth(), b.getHeight(), matrix, true);
+        float width = (createBitmap.getWidth() * 1.0f) / createBitmap.getHeight();
+        RectF clipCoverRect = this.b.getClipCoverRect();
+        if (width <= clipCoverRect.width() / clipCoverRect.height()) {
+            height = this.a.getWidth() / createBitmap.getWidth();
+            height2 = clipCoverRect.width() / createBitmap.getWidth();
+            this.o = height2;
+        } else {
+            height = this.a.getHeight() / createBitmap.getHeight();
+            height2 = clipCoverRect.height() / createBitmap.getHeight();
+            this.o = height2;
+        }
+        this.h.postScale(height, height);
+        this.h.postTranslate((this.a.getWidth() * 0.5f) - ((int) ((createBitmap.getWidth() * height) * 0.5f)), (this.a.getHeight() * 0.5f) - ((int) ((createBitmap.getHeight() * height) * 0.5f)));
+        this.a.setScaleType(ImageView.ScaleType.MATRIX);
+        this.a.setImageMatrix(this.h);
+        this.a.setImageBitmap(createBitmap);
+    }
+
+    public final float getScale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            this.h.getValues(this.n);
+            return this.n[0];
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            int action = motionEvent.getAction() & 255;
+            if (action != 0) {
+                if (action != 2) {
+                    if (action != 5) {
+                        if (action == 6) {
+                            this.j = 0;
+                        }
+                    } else {
+                        float d = li5.d(motionEvent);
+                        this.m = d;
+                        if (d > 10.0f) {
+                            this.i.set(this.h);
+                            this.l = li5.b(motionEvent);
+                            this.j = 2;
+                        }
+                    }
+                } else {
+                    int i = this.j;
+                    if (i == 1) {
+                        this.h.set(this.i);
+                        float x = motionEvent.getX() - this.k.x;
+                        float y = motionEvent.getY() - this.k.y;
+                        this.e = this.b.getClipCoverRect().top;
+                        this.f = this.b.getClipCoverRect().left;
+                        this.h.postTranslate(x, y);
+                        b();
+                    } else if (i == 2) {
+                        float d2 = li5.d(motionEvent);
+                        if (d2 > 10.0f) {
+                            float f = d2 / this.m;
+                            if (f < 1.0f) {
+                                if (getScale() > this.o) {
+                                    this.h.set(this.i);
+                                    this.e = this.b.getClipCoverRect().top;
+                                    this.f = this.b.getClipCoverRect().left;
+                                    Matrix matrix = this.h;
+                                    PointF pointF = this.l;
+                                    matrix.postScale(f, f, pointF.x, pointF.y);
+                                    while (getScale() < this.o) {
+                                        Matrix matrix2 = this.h;
+                                        PointF pointF2 = this.l;
+                                        matrix2.postScale(1.01f, 1.01f, pointF2.x, pointF2.y);
+                                    }
+                                }
+                                b();
+                            } else if (getScale() <= this.p) {
+                                this.h.set(this.i);
+                                this.e = this.b.getClipCoverRect().top;
+                                this.f = this.b.getClipCoverRect().left;
+                                Matrix matrix3 = this.h;
+                                PointF pointF3 = this.l;
+                                matrix3.postScale(f, f, pointF3.x, pointF3.y);
+                            }
+                        }
+                    }
+                    this.a.setImageMatrix(this.h);
+                }
+            } else {
+                this.i.set(this.h);
+                this.k.set(motionEvent.getX(), motionEvent.getY());
+                this.j = 1;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setClipType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.s = i;
+            if (i == 1) {
+                this.c = UtilHelper.getDimenPixelSize(R.dimen.tbds920);
+                this.d = UtilHelper.getDimenPixelSize(R.dimen.tbds520);
+            } else if (i == 2) {
+                this.c = UtilHelper.getDimenPixelSize(R.dimen.tbds920);
+                this.d = UtilHelper.getDimenPixelSize(R.dimen.tbds1227);
+            }
+            float dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.L_X04);
+            this.g = dimenPixelSize;
+            this.b.setClipBorderWidth(dimenPixelSize);
+            this.b.setmHorizontal(this.c);
+            this.b.setmVerticalPadding(this.d);
+        }
     }
 }

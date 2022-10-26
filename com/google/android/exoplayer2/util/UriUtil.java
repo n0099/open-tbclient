@@ -35,6 +35,7 @@ public final class UriUtil {
 
     public static int[] getUriIndices(String str) {
         InterceptResult invokeL;
+        boolean z;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -62,6 +63,11 @@ public final class UriUtil {
             }
             int i2 = indexOf4 + 2;
             if (i2 < indexOf2 && str.charAt(indexOf4 + 1) == '/' && str.charAt(i2) == '/') {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 i = str.indexOf(47, indexOf4 + 3);
                 if (i == -1 || i > indexOf2) {
                     i = indexOf2;
@@ -82,6 +88,7 @@ public final class UriUtil {
         InterceptResult invokeLII;
         int i3;
         int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, sb, i, i2)) == null) {
             if (i >= i2) {
@@ -90,32 +97,36 @@ public final class UriUtil {
             if (sb.charAt(i) == '/') {
                 i++;
             }
-            int i5 = i;
-            int i6 = i5;
-            while (i5 <= i2) {
-                if (i5 == i2) {
-                    i3 = i5;
-                } else if (sb.charAt(i5) == '/') {
-                    i3 = i5 + 1;
+            int i6 = i;
+            int i7 = i6;
+            while (i6 <= i2) {
+                if (i6 == i2) {
+                    i3 = i6;
+                } else if (sb.charAt(i6) == '/') {
+                    i3 = i6 + 1;
                 } else {
-                    i5++;
+                    i6++;
                 }
-                int i7 = i6 + 1;
-                if (i5 == i7 && sb.charAt(i6) == '.') {
-                    sb.delete(i6, i3);
-                    i2 -= i3 - i6;
+                int i8 = i7 + 1;
+                if (i6 == i8 && sb.charAt(i7) == '.') {
+                    sb.delete(i7, i3);
+                    i2 -= i3 - i7;
                 } else {
-                    if (i5 == i6 + 2 && sb.charAt(i6) == '.' && sb.charAt(i7) == '.') {
-                        i4 = sb.lastIndexOf("/", i6 - 2) + 1;
-                        int i8 = i4 > i ? i4 : i;
-                        sb.delete(i8, i3);
-                        i2 -= i3 - i8;
+                    if (i6 == i7 + 2 && sb.charAt(i7) == '.' && sb.charAt(i8) == '.') {
+                        i4 = sb.lastIndexOf("/", i7 - 2) + 1;
+                        if (i4 > i) {
+                            i5 = i4;
+                        } else {
+                            i5 = i;
+                        }
+                        sb.delete(i5, i3);
+                        i2 -= i3 - i5;
                     } else {
-                        i4 = i5 + 1;
+                        i4 = i6 + 1;
                     }
-                    i6 = i4;
+                    i7 = i4;
                 }
-                i5 = i6;
+                i6 = i7;
             }
             return sb.toString();
         }
@@ -124,6 +135,7 @@ public final class UriUtil {
 
     public static String resolve(String str, String str2) {
         InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -149,10 +161,10 @@ public final class UriUtil {
                 sb.append(str2);
                 return sb.toString();
             } else if (uriIndices[1] != 0) {
-                int i = uriIndices2[0] + 1;
-                sb.append((CharSequence) str, 0, i);
+                int i2 = uriIndices2[0] + 1;
+                sb.append((CharSequence) str, 0, i2);
                 sb.append(str2);
-                return removeDotSegments(sb, uriIndices[1] + i, i + uriIndices[2]);
+                return removeDotSegments(sb, uriIndices[1] + i2, i2 + uriIndices[2]);
             } else if (str2.charAt(uriIndices[1]) == '/') {
                 sb.append((CharSequence) str, 0, uriIndices2[1]);
                 sb.append(str2);
@@ -164,10 +176,14 @@ public final class UriUtil {
                 return removeDotSegments(sb, uriIndices2[1], uriIndices2[1] + uriIndices[2] + 1);
             } else {
                 int lastIndexOf = str.lastIndexOf(47, uriIndices2[2] - 1);
-                int i2 = lastIndexOf == -1 ? uriIndices2[1] : lastIndexOf + 1;
-                sb.append((CharSequence) str, 0, i2);
+                if (lastIndexOf == -1) {
+                    i = uriIndices2[1];
+                } else {
+                    i = lastIndexOf + 1;
+                }
+                sb.append((CharSequence) str, 0, i);
                 sb.append(str2);
-                return removeDotSegments(sb, uriIndices2[1], i2 + uriIndices[2]);
+                return removeDotSegments(sb, uriIndices2[1], i + uriIndices[2]);
             }
         }
         return (String) invokeLL.objValue;
@@ -176,6 +192,9 @@ public final class UriUtil {
     public static Uri resolveToUri(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? Uri.parse(resolve(str, str2)) : (Uri) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return Uri.parse(resolve(str, str2));
+        }
+        return (Uri) invokeLL.objValue;
     }
 }

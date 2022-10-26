@@ -34,10 +34,31 @@ public class SearchEditView extends RelativeLayout {
     public d e;
 
     /* loaded from: classes4.dex */
+    public interface d {
+        void X(String str);
+
+        void p1(String str);
+    }
+
+    /* loaded from: classes4.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchEditView a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
 
         public a(SearchEditView searchEditView) {
             Interceptable interceptable = $ic;
@@ -69,20 +90,6 @@ public class SearchEditView extends RelativeLayout {
                 } else {
                     this.a.d.setVisibility(0);
                 }
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
     }
@@ -118,10 +125,10 @@ public class SearchEditView extends RelativeLayout {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
                 if (i == 3) {
                     String trim = this.a.a.getText().toString().trim();
-                    if (TextUtils.isEmpty(trim) || this.a.e == null) {
+                    if (!TextUtils.isEmpty(trim) && this.a.e != null) {
+                        this.a.e.p1(trim);
                         return true;
                     }
-                    this.a.e.p1(trim);
                     return true;
                 }
                 return false;
@@ -163,13 +170,6 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public interface d {
-        void X(String str);
-
-        void p1(String str);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchEditView(Context context) {
         super(context);
@@ -191,24 +191,6 @@ public class SearchEditView extends RelativeLayout {
         d();
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0262, (ViewGroup) this, true);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090881);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102a);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fff);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091000);
-            SkinManager.setImageResource(this.b, R.drawable.icon_emotion_search);
-            SkinManager.setImageResource(this.c, R.drawable.del_search_btn);
-            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-            this.a.addTextChangedListener(new a(this));
-            this.a.setOnEditorActionListener(new b(this));
-            this.d.setOnClickListener(new c(this));
-            e(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
     public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -218,30 +200,6 @@ public class SearchEditView extends RelativeLayout {
                 this.a.setHintTextColor(getResources().getColor(R.color.CAM_X0109_1));
             }
         }
-    }
-
-    public void setCallback(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.e = dVar;
-        }
-    }
-
-    public void setSelection(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i > this.a.getText().length()) {
-            return;
-        }
-        this.a.setSelection(i);
-    }
-
-    public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
-            return;
-        }
-        this.a.setText(str);
-        this.a.setSelection(str.length());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -286,5 +244,45 @@ public class SearchEditView extends RelativeLayout {
             }
         }
         d();
+    }
+
+    public void setCallback(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+            this.e = dVar;
+        }
+    }
+
+    public void setSelection(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && i <= this.a.getText().length()) {
+            this.a.setSelection(i);
+        }
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && str != null) {
+            this.a.setText(str);
+            this.a.setSelection(str.length());
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0261, (ViewGroup) this, true);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09088a);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101e);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff3);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ff4);
+            SkinManager.setImageResource(this.b, R.drawable.icon_emotion_search);
+            SkinManager.setImageResource(this.c, R.drawable.del_search_btn);
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+            this.a.addTextChangedListener(new a(this));
+            this.a.setOnEditorActionListener(new b(this));
+            this.d.setOnClickListener(new c(this));
+            e(TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

@@ -44,6 +44,51 @@ public class ProbeTB implements Serializable {
         this.url = null;
     }
 
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.host;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.id;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.method;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getProtocol() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.protocol;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -52,39 +97,12 @@ public class ProbeTB implements Serializable {
                 return false;
             }
             ProbeTB probeTB = (ProbeTB) obj;
-            return probeTB.host.equals(this.host) && probeTB.protocol == this.protocol && probeTB.method == this.method && probeTB.url.equals(this.url);
+            if (!probeTB.host.equals(this.host) || probeTB.protocol != this.protocol || probeTB.method != this.method || !probeTB.url.equals(this.url)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.host : (String) invokeV.objValue;
-    }
-
-    public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.id : invokeV.intValue;
-    }
-
-    public int getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.method : invokeV.intValue;
-    }
-
-    public int getProtocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.protocol : invokeV.intValue;
-    }
-
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
     public void setHost(String str) {

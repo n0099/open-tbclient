@@ -6,5 +6,5 @@ import java.util.List;
 public interface e {
     void a(Context context, a aVar);
 
-    void a(Context context, List<a> list);
+    void a(Context context, List list);
 }

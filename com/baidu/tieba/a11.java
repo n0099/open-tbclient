@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,6 +11,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class a11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final s01[][] a;
+
+    public abstract Column[] c();
+
+    public abstract s01[] d();
+
+    public abstract s01[] f();
+
+    public abstract String g();
 
     public a11() {
         Interceptable interceptable = $ic;
@@ -23,37 +31,36 @@ public abstract class a11 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new s01[0];
     }
 
-    public ContentValues a() {
+    public s01[][] e() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? x01.b(b().c()) : (ContentValues) invokeV.objValue;
-    }
-
-    public abstract z01 b();
-
-    public String toString() {
-        InterceptResult invokeV;
-        Column[] c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(getClass().getName());
-            sb.append("\n");
-            for (Column column : b().c()) {
-                sb.append("|");
-                sb.append(column.field.e);
-                sb.append("| ");
-                sb.append(column.isAssignedValue ? 1 : 0);
-                sb.append(" | ");
-                sb.append(column.stringValue());
-                sb.append("\n");
-            }
-            return sb.toString();
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (s01[][]) invokeV.objValue;
+    }
+
+    public static s01 a(int i, String str, String str2, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
+            return b(i, str, str2, i2, 0);
+        }
+        return (s01) invokeCommon.objValue;
+    }
+
+    public static s01 b(int i, String str, String str2, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            return new s01(i, str, str2, i2, i3);
+        }
+        return (s01) invokeCommon.objValue;
     }
 }

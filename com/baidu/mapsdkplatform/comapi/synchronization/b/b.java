@@ -35,7 +35,7 @@ public class b {
     public volatile boolean j;
 
     /* loaded from: classes2.dex */
-    public static class a extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

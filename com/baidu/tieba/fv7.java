@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.SendCardInfo;
+import com.squareup.wire.Wire;
+import tbclient.ExcPbPage.DataRes;
+import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes4.dex */
-public class fv7 {
+public class fv7 implements CustomMessageTask.CustomRunnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
 
     public fv7() {
         Interceptable interceptable = $ic;
@@ -33,40 +31,31 @@ public class fv7 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage run(CustomMessage customMessage) {
+        InterceptResult invokeL;
+        ExcPbPageResIdl excPbPageResIdl;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e == 3 : invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e == 1 : invokeV.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            ev7 ev7Var = null;
+            if (customMessage == null || customMessage.getCmd() != 2001314) {
+                return null;
+            }
+            ou4.f();
+            byte[] bArr = (byte[]) ou4.d("tb.pb_normal").get("chosen_pb_page_cache");
+            if (bArr != null) {
+                try {
+                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
+                } catch (Exception unused) {
+                    excPbPageResIdl = null;
+                }
+                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
+                    ev7Var = new ev7(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
+                }
+            }
+            return new ReadChosenPbCacheResponse(ev7Var);
         }
-        this.b = jSONObject.optString("card_logo");
-        this.c = jSONObject.optString("card_name");
-        this.d = jSONObject.optString("card_pro");
-        this.e = jSONObject.optInt("card_get_status");
-        this.a = jSONObject.optLong("packet_id");
-        this.f = jSONObject.optString("card_num");
-    }
-
-    public void d(SendCardInfo sendCardInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) || sendCardInfo == null) {
-            return;
-        }
-        this.b = sendCardInfo.card_logo;
-        this.c = sendCardInfo.card_name;
-        this.d = sendCardInfo.card_pro;
-        this.e = sendCardInfo.card_get_status.intValue();
-        this.a = sendCardInfo.packet_id.longValue();
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -6,8 +6,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -38,7 +36,6 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
     public ImageView f9do;
     public KSFrameLayout hn;
     public String iD;
-    @Nullable
     public View iE;
     public ImageView iF;
     public TextProgressBar iG;
@@ -60,7 +57,7 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
     public AdTemplate mAdTemplate;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean iX;
@@ -129,7 +126,7 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(@NonNull Context context, a aVar) {
+    public f(Context context, a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -149,7 +146,7 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
         this.iD = "%s秒后进入试玩页";
         this.iV = false;
         this.iU = aVar;
-        FrameLayout.inflate(context, aVar.ef() ? R.layout.obfuscated_res_0x7f0d0438 : R.layout.obfuscated_res_0x7f0d0437, this);
+        FrameLayout.inflate(context, aVar.ef() ? R.layout.obfuscated_res_0x7f0d0435 : R.layout.obfuscated_res_0x7f0d0434, this);
         s(this.iU.iX);
     }
 
@@ -232,7 +229,7 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
             } else if (view2.equals(this.cw)) {
                 i iVar11 = this.iT;
                 if (iVar11 != null) {
-                    iVar11.mo82do();
+                    iVar11.mo81do();
                 }
             } else if (view2.equals(this.iO)) {
                 i iVar12 = this.iT;
@@ -277,31 +274,31 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65544, this, z) == null) {
             setClickable(true);
-            this.hn = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910db);
-            this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910dc);
-            this.iE = findViewById(R.id.obfuscated_res_0x7f0910d0);
-            this.iF = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910e0);
-            this.f9do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091225);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091052);
-            this.iH = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910df);
-            this.iI = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910dd);
-            this.iG = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910cc);
-            this.iK = findViewById(R.id.obfuscated_res_0x7f0910c9);
+            this.hn = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910cc);
+            this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910d0);
+            this.iE = findViewById(R.id.obfuscated_res_0x7f0910c1);
+            this.iF = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d4);
+            this.f9do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091219);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091046);
+            this.iH = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910d3);
+            this.iI = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910d1);
+            this.iG = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910c0);
+            this.iK = findViewById(R.id.obfuscated_res_0x7f0910bd);
             TextProgressBar textProgressBar = this.iG;
             if (textProgressBar != null) {
                 textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 10.0f));
                 this.iG.setTextColor(-1);
             }
-            this.iJ = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d8);
-            this.iM = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ca);
-            this.iN = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d7);
-            this.iP = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d9);
-            this.iQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0910cb);
-            this.iR = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091060);
-            this.iL = findViewById(R.id.obfuscated_res_0x7f09104b);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091062);
-            this.iO = (TextView) findViewById(R.id.obfuscated_res_0x7f091066);
-            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f09105e);
+            this.iJ = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910c9);
+            this.iM = (TextView) findViewById(R.id.obfuscated_res_0x7f0910be);
+            this.iN = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910c8);
+            this.iP = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ca);
+            this.iQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0910bf);
+            this.iR = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091054);
+            this.iL = findViewById(R.id.obfuscated_res_0x7f09103f);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091056);
+            this.iO = (TextView) findViewById(R.id.obfuscated_res_0x7f09105a);
+            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f091052);
             new com.kwad.sdk.widget.f(this, this);
             new com.kwad.sdk.widget.f(this.f9do, this);
             new com.kwad.sdk.widget.f(this.iG, this);
@@ -350,7 +347,7 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
                     }
                 }
             });
-            this.iS = (TextView) findViewById(R.id.obfuscated_res_0x7f0910de);
+            this.iS = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d2);
             a(this.dN, z);
             if (ag.zL()) {
                 return;
@@ -395,9 +392,9 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
         String al;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adTemplate, adInfo) == null) {
-            this.iN.setImageResource(R.drawable.obfuscated_res_0x7f080c08);
+            this.iN.setImageResource(R.drawable.obfuscated_res_0x7f080c18);
             if (com.kwad.sdk.core.response.a.a.bD(adInfo)) {
-                KSImageLoader.loadCircleIcon(this.iN, com.kwad.sdk.core.response.a.a.bI(adInfo), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c08));
+                KSImageLoader.loadCircleIcon(this.iN, com.kwad.sdk.core.response.a.a.bI(adInfo), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c18));
                 this.iP.setText(com.kwad.sdk.core.response.a.a.bm(adInfo));
                 this.iQ.setText(com.kwad.sdk.core.response.a.a.ad(adInfo));
                 if (com.kwad.sdk.core.response.a.a.bE(adInfo)) {
@@ -550,7 +547,6 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
         }
     }
 
-    @Nullable
     public final View getBlurBgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

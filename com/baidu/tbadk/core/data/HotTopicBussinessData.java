@@ -24,6 +24,60 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
     public long mThreadNum;
     public String mTopicName;
 
+    public HotTopicBussinessData() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mForumId = 0L;
+        this.mForumName = null;
+        this.mForumAvatar = null;
+        this.mForumAbstract = null;
+        this.mThreadNum = 0L;
+        this.mPostNum = 0L;
+        this.mFollowNum = 0L;
+        this.mIsLiked = false;
+        this.mIsGlobalBlock = 0;
+    }
+
+    public HotTopicBussinessData(long j, String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mForumId = 0L;
+        this.mForumName = null;
+        this.mForumAvatar = null;
+        this.mForumAbstract = null;
+        this.mThreadNum = 0L;
+        this.mPostNum = 0L;
+        this.mFollowNum = 0L;
+        this.mIsLiked = false;
+        this.mIsGlobalBlock = 0;
+        this.mForumId = j;
+        this.mForumName = str;
+        this.mTopicName = str2;
+        this.mIsGlobalBlock = i;
+    }
+
     public HotTopicBussinessData(long j, String str, String str2, String str3, long j2, long j3, long j4, boolean z, String str4, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,19 +117,28 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
     public String getForumAvatar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mForumAvatar : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mForumAvatar;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mForumId;
+        }
+        return invokeV.longValue;
     }
 
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mForumName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setForumAvatar(String str) {
@@ -97,59 +160,5 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.mForumName = str;
         }
-    }
-
-    public HotTopicBussinessData(long j, String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mForumId = 0L;
-        this.mForumName = null;
-        this.mForumAvatar = null;
-        this.mForumAbstract = null;
-        this.mThreadNum = 0L;
-        this.mPostNum = 0L;
-        this.mFollowNum = 0L;
-        this.mIsLiked = false;
-        this.mIsGlobalBlock = 0;
-        this.mForumId = j;
-        this.mForumName = str;
-        this.mTopicName = str2;
-        this.mIsGlobalBlock = i;
-    }
-
-    public HotTopicBussinessData() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mForumId = 0L;
-        this.mForumName = null;
-        this.mForumAvatar = null;
-        this.mForumAbstract = null;
-        this.mThreadNum = 0L;
-        this.mPostNum = 0L;
-        this.mFollowNum = 0L;
-        this.mIsLiked = false;
-        this.mIsGlobalBlock = 0;
     }
 }

@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.agent.provider.ProcessDelegateBaseProvider;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wj3 extends ActivityDelegation implements xj1 {
+public class wj3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,28 +28,15 @@ public class wj3 extends ActivityDelegation implements xj1 {
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.mParams.getBoolean("key_login_force", false) && mj3.E(getAgent())) {
-                this.mResult.putInt("result_code", 0);
-                finish();
-                return true;
-            }
-            mj3.L(getAgent(), this.mParams.getBundle("key_login_params"), this);
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putBoolean(TiebaStatic.LogFields.RESULT, nj3.E(((ProcessDelegateBaseProvider) getAgent()).getContext()));
+            return bundle2;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xj1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            finish();
-        }
+        return (Bundle) invokeL.objValue;
     }
 }

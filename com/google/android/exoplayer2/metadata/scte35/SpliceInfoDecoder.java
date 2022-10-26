@@ -66,18 +66,29 @@ public final class SpliceInfoDecoder implements MetadataDecoder {
             int readBits3 = this.sectionHeader.readBits(8);
             Metadata.Entry entry = null;
             this.sectionData.skipBytes(14);
-            if (readBits3 == 0) {
+            if (readBits3 != 0) {
+                if (readBits3 != 255) {
+                    if (readBits3 != 4) {
+                        if (readBits3 != 5) {
+                            if (readBits3 == 6) {
+                                entry = TimeSignalCommand.parseFromSection(this.sectionData, readBits, this.timestampAdjuster);
+                            }
+                        } else {
+                            entry = SpliceInsertCommand.parseFromSection(this.sectionData, readBits, this.timestampAdjuster);
+                        }
+                    } else {
+                        entry = SpliceScheduleCommand.parseFromSection(this.sectionData);
+                    }
+                } else {
+                    entry = PrivateCommand.parseFromSection(this.sectionData, readBits2, readBits);
+                }
+            } else {
                 entry = new SpliceNullCommand();
-            } else if (readBits3 == 255) {
-                entry = PrivateCommand.parseFromSection(this.sectionData, readBits2, readBits);
-            } else if (readBits3 == 4) {
-                entry = SpliceScheduleCommand.parseFromSection(this.sectionData);
-            } else if (readBits3 == 5) {
-                entry = SpliceInsertCommand.parseFromSection(this.sectionData, readBits, this.timestampAdjuster);
-            } else if (readBits3 == 6) {
-                entry = TimeSignalCommand.parseFromSection(this.sectionData, readBits, this.timestampAdjuster);
             }
-            return entry == null ? new Metadata(new Metadata.Entry[0]) : new Metadata(entry);
+            if (entry == null) {
+                return new Metadata(new Metadata.Entry[0]);
+            }
+            return new Metadata(entry);
         }
         return (Metadata) invokeL.objValue;
     }

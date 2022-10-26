@@ -16,22 +16,29 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnBackpressureDrop<T> extends AbstractFlowableWithUpstream<T, T> implements Consumer<T> {
+public final class FlowableOnBackpressureDrop extends AbstractFlowableWithUpstream implements Consumer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<? super T> onDrop;
+    public final Consumer onDrop;
+
+    @Override // io.reactivex.functions.Consumer
+    public void accept(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        }
+    }
 
     /* loaded from: classes8.dex */
-    public static final class BackpressureDropSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
+    public final class BackpressureDropSubscriber extends AtomicLong implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6246093802440953054L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public boolean done;
-        public final Consumer<? super T> onDrop;
+        public final Consumer onDrop;
         public Subscription s;
 
-        public BackpressureDropSubscriber(Subscriber<? super T> subscriber, Consumer<? super T> consumer) {
+        public BackpressureDropSubscriber(Subscriber subscriber, Consumer consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +68,7 @@ public final class FlowableOnBackpressureDrop<T> extends AbstractFlowableWithUps
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -78,26 +85,6 @@ public final class FlowableOnBackpressureDrop<T> extends AbstractFlowableWithUps
                 }
                 this.done = true;
                 this.actual.onError(th);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
-                return;
-            }
-            if (get() != 0) {
-                this.actual.onNext(t);
-                BackpressureHelper.produced(this, 1L);
-                return;
-            }
-            try {
-                this.onDrop.accept(t);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                cancel();
-                onError(th);
             }
         }
 
@@ -118,10 +105,30 @@ public final class FlowableOnBackpressureDrop<T> extends AbstractFlowableWithUps
                 BackpressureHelper.add(this, j);
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+                return;
+            }
+            if (get() != 0) {
+                this.actual.onNext(obj);
+                BackpressureHelper.produced(this, 1L);
+                return;
+            }
+            try {
+                this.onDrop.accept(obj);
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                cancel();
+                onError(th);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureDrop(Flowable<T> flowable) {
+    public FlowableOnBackpressureDrop(Flowable flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -141,23 +148,8 @@ public final class FlowableOnBackpressureDrop<T> extends AbstractFlowableWithUps
         this.onDrop = this;
     }
 
-    @Override // io.reactivex.functions.Consumer
-    public void accept(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-        }
-    }
-
-    @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber) == null) {
-            this.source.subscribe((FlowableSubscriber) new BackpressureDropSubscriber(subscriber, this.onDrop));
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureDrop(Flowable<T> flowable, Consumer<? super T> consumer) {
+    public FlowableOnBackpressureDrop(Flowable flowable, Consumer consumer) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -175,5 +167,13 @@ public final class FlowableOnBackpressureDrop<T> extends AbstractFlowableWithUps
             }
         }
         this.onDrop = consumer;
+    }
+
+    @Override // io.reactivex.Flowable
+    public void subscribeActual(Subscriber subscriber) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber) == null) {
+            this.source.subscribe((FlowableSubscriber) new BackpressureDropSubscriber(subscriber, this.onDrop));
+        }
     }
 }

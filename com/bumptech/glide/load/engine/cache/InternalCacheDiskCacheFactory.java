@@ -91,7 +91,10 @@ public final class InternalCacheDiskCacheFactory extends DiskLruCacheFactory {
                     if (cacheDir == null) {
                         return null;
                     }
-                    return this.val$diskCacheName != null ? new File(cacheDir, this.val$diskCacheName) : cacheDir;
+                    if (this.val$diskCacheName != null) {
+                        return new File(cacheDir, this.val$diskCacheName);
+                    }
+                    return cacheDir;
                 }
                 return (File) invokeV.objValue;
             }

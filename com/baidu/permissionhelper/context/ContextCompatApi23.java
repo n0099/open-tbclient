@@ -29,12 +29,18 @@ public class ContextCompatApi23 {
     public static int getColor(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? context.getColor(i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return context.getColor(i);
+        }
+        return invokeLI.intValue;
     }
 
     public static ColorStateList getColorStateList(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) ? context.getColorStateList(i) : (ColorStateList) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            return context.getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
     }
 }

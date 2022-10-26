@@ -16,13 +16,13 @@ public class ReportInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public int ct;
     public int fc;
-    public LinkedList<HijackInfo> hijack;
+    public LinkedList hijack;
     public String host;
     public int lc;
     public NetStatusInfo netInfo;
     public StatsInfo stats0;
-    public HashMap<String, StatsInfo> stats1;
-    public HashMap<String, StatsInfo> stats15;
+    public HashMap stats1;
+    public HashMap stats15;
     public int tt;
 
     /* renamed from: view  reason: collision with root package name */
@@ -52,75 +52,108 @@ public class ReportInfo {
         this.fc = -1;
         this.lc = -1;
         this.hijack = null;
-        this.stats1 = new HashMap<>();
-        this.stats15 = new HashMap<>();
-        this.hijack = new LinkedList<>();
+        this.stats1 = new HashMap();
+        this.stats15 = new HashMap();
+        this.hijack = new LinkedList();
     }
 
     public int getCt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.ct : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.ct;
+        }
+        return invokeV.intValue;
     }
 
     public int getFc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fc : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.fc;
+        }
+        return invokeV.intValue;
     }
 
-    public LinkedList<HijackInfo> getHijack() {
+    public LinkedList getHijack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hijack : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.hijack;
+        }
+        return (LinkedList) invokeV.objValue;
     }
 
     public String getHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.host : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.host;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getLc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.lc : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.lc;
+        }
+        return invokeV.intValue;
     }
 
     public NetStatusInfo getNetInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.netInfo : (NetStatusInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.netInfo;
+        }
+        return (NetStatusInfo) invokeV.objValue;
     }
 
     public StatsInfo getStats0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.stats0 : (StatsInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.stats0;
+        }
+        return (StatsInfo) invokeV.objValue;
     }
 
-    public HashMap<String, StatsInfo> getStats1() {
+    public HashMap getStats1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.stats1 : (HashMap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.stats1;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
-    public HashMap<String, StatsInfo> getStats15() {
+    public HashMap getStats15() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.stats15 : (HashMap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.stats15;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     public int getTt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.tt : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.tt;
+        }
+        return invokeV.intValue;
     }
 
     public String getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f1088view : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f1088view;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setCt(int i) {
@@ -137,7 +170,7 @@ public class ReportInfo {
         }
     }
 
-    public void setHijack(LinkedList<HijackInfo> linkedList) {
+    public void setHijack(LinkedList linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, linkedList) == null) {
             this.hijack = linkedList;
@@ -172,14 +205,14 @@ public class ReportInfo {
         }
     }
 
-    public void setStats1(HashMap<String, StatsInfo> hashMap) {
+    public void setStats1(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, hashMap) == null) {
             this.stats1 = hashMap;
         }
     }
 
-    public void setStats15(HashMap<String, StatsInfo> hashMap) {
+    public void setStats15(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, hashMap) == null) {
             this.stats15 = hashMap;

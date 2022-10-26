@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,10 +38,26 @@ public class IMReceiver extends BroadcastReceiver {
     private void startService(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            Intent intent = new Intent(context, b80.class);
+            Intent intent = new Intent(context, c80.class);
             intent.setAction(Constants.ACTION_START);
             try {
-                b80.g(context).f(context, intent);
+                c80.g(context).f(context, intent);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+            }
+        }
+    }
+
+    private void startService(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, context, intent) == null) {
+            if (intent == null) {
+                startService(context);
+                return;
+            }
+            intent.setClass(context, c80.class);
+            try {
+                c80.g(context).f(context, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -64,33 +80,16 @@ public class IMReceiver extends BroadcastReceiver {
                 }
             }
             LogUtils.i(TAG, " start IMSerevice for action:" + action);
-            if (!IMConfigInternal.getInstance().getIMConfig(context).getRootComplete() || Utility.isInitiativeDisconnect(context.getApplicationContext())) {
-                return;
-            }
-            if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action)) {
-                if (intent.getBooleanExtra("noConnectivity", false)) {
+            if (IMConfigInternal.getInstance().getIMConfig(context).getRootComplete() && !Utility.isInitiativeDisconnect(context.getApplicationContext())) {
+                if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action)) {
+                    if (!intent.getBooleanExtra("noConnectivity", false)) {
+                        startService(context, new Intent(Constants.ACTION_START));
+                        BindStateManager.activeUnBind(context);
+                        return;
+                    }
                     return;
                 }
                 startService(context, new Intent(Constants.ACTION_START));
-                BindStateManager.activeUnBind(context);
-                return;
-            }
-            startService(context, new Intent(Constants.ACTION_START));
-        }
-    }
-
-    private void startService(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, context, intent) == null) {
-            if (intent == null) {
-                startService(context);
-                return;
-            }
-            intent.setClass(context, b80.class);
-            try {
-                b80.g(context).f(context, intent);
-            } catch (Exception e) {
-                LogUtils.e(TAG, "Exception ", e);
             }
         }
     }

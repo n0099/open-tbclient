@@ -61,31 +61,22 @@ public class FullFrameRect {
         }
     }
 
-    public void changeProgram(Texture2dProgram texture2dProgram) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, texture2dProgram) == null) {
-            this.mProgram.release();
-            this.mProgram = texture2dProgram;
-        }
-    }
-
     public int createTexture2DObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mProgram.createTexture2DObject() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mProgram.createTexture2DObject();
+        }
+        return invokeV.intValue;
     }
 
     public int createTextureObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProgram.createTextureObject() : invokeV.intValue;
-    }
-
-    public void drawFrame(int i, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, fArr) == null) {
-            drawFrame(i, fArr, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mProgram.createTextureObject();
         }
+        return invokeV.intValue;
     }
 
     public float[] getModelViewMatrix() {
@@ -101,25 +92,42 @@ public class FullFrameRect {
     public Texture2dProgram getProgram() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mProgram : (Texture2dProgram) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mProgram;
+        }
+        return (Texture2dProgram) invokeV.objValue;
+    }
+
+    public void changeProgram(Texture2dProgram texture2dProgram) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, texture2dProgram) == null) {
+            this.mProgram.release();
+            this.mProgram = texture2dProgram;
+        }
+    }
+
+    public void drawFrame(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
+            this.mProgram.draw(fArr, this.mRectLine.getVertexArray());
+        }
     }
 
     public void release(boolean z) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (texture2dProgram = this.mProgram) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (texture2dProgram = this.mProgram) != null) {
+            if (z) {
+                texture2dProgram.release();
+            }
+            this.mProgram = null;
         }
-        if (z) {
-            texture2dProgram.release();
-        }
-        this.mProgram = null;
     }
 
     public void setAlpha(float f) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048587, this, f) == null) || (texture2dProgram = this.mProgram) == null) {
+        if ((interceptable != null && interceptable.invokeF(1048587, this, f) != null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
         texture2dProgram.setAlpha(f);
@@ -135,55 +143,29 @@ public class FullFrameRect {
     public void setDistance(float f) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || (texture2dProgram = this.mProgram) == null) {
+        if ((interceptable != null && interceptable.invokeF(1048589, this, f) != null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
         texture2dProgram.setDistance(f);
     }
 
-    public void setDxDy(float f, float f2) {
-        Texture2dProgram texture2dProgram;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (texture2dProgram = this.mProgram) == null) {
-            return;
-        }
-        texture2dProgram.setDxDy(f, f2);
-    }
-
-    public void setHumanSegMaskParams(int i, String str, float f) {
-        Texture2dProgram texture2dProgram;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) == null) || (texture2dProgram = this.mProgram) == null) {
-            return;
-        }
-        texture2dProgram.setHumanSegMaskParams(i, str, f);
-    }
-
     public void setMirror(boolean z) {
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.mScaleX = z ? this.mScaleX * (-1.0f) : this.mScaleX;
-        }
-    }
-
-    public void setScale(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.mRectDrawable.setScale(f, f2);
-        }
-    }
-
-    public void setScaleAndTranslate(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.mRectDrawable.setScaleAndTranslate(f, f2, f3, f4);
+            if (z) {
+                f = this.mScaleX * (-1.0f);
+            } else {
+                f = this.mScaleX;
+            }
+            this.mScaleX = f;
         }
     }
 
     public void setShaderBgColor(String str) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (texture2dProgram = this.mProgram) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, str) != null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
         texture2dProgram.setShaderBgColor(str);
@@ -196,20 +178,27 @@ public class FullFrameRect {
         }
     }
 
-    public void drawFrame(int i, float[] fArr, boolean z) {
+    public void drawFrame(int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), fArr, Boolean.valueOf(z)}) == null) || this.mProgram == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, fArr) == null) {
+            drawFrame(i, fArr, false);
+        }
+    }
+
+    public void setDxDy(float f, float f2) {
+        Texture2dProgram texture2dProgram;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
-        float[] fArr2 = this.mMvpMtx;
-        if (z) {
-            Matrix.multiplyMM(this.mScratchMatrix, 0, fArr2, 0, getModelViewMatrix(), 0);
-        } else if (this.mAngle != 0.0f) {
-            Matrix.multiplyMM(this.mScratchMatrix, 0, fArr2, 0, getModelViewMatrix(), 0);
-        } else {
-            this.mScratchMatrix = fArr2;
+        texture2dProgram.setDxDy(f, f2);
+    }
+
+    public void setScale(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mRectDrawable.setScale(f, f2);
         }
-        this.mProgram.draw(this.mScratchMatrix, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i, this.mRectDrawable.getTexCoordStride());
     }
 
     public void drawFrame(int i, float[] fArr, int i2, float[] fArr2) {
@@ -219,9 +208,16 @@ public class FullFrameRect {
         }
     }
 
+    public void setScaleAndTranslate(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.mRectDrawable.setScaleAndTranslate(f, f2, f3, f4);
+        }
+    }
+
     public void drawFrame(int i, float[] fArr, int i2, float[] fArr2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), fArr2, Boolean.valueOf(z)}) == null) || this.mProgram == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), fArr2, Boolean.valueOf(z)}) != null) || this.mProgram == null) {
             return;
         }
         float[] fArr3 = GlUtil.IDENTITY_MATRIX;
@@ -237,10 +233,28 @@ public class FullFrameRect {
         this.mProgram.draw(this.mScratchMatrix, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i, this.mRectDrawable.getTexCoordStride(), i2, fArr2, this.mRectDrawable.getTexCoordArray2());
     }
 
-    public void drawFrame(float[] fArr) {
+    public void drawFrame(int i, float[] fArr, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
-            this.mProgram.draw(fArr, this.mRectLine.getVertexArray());
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), fArr, Boolean.valueOf(z)}) != null) || this.mProgram == null) {
+            return;
         }
+        float[] fArr2 = this.mMvpMtx;
+        if (z) {
+            Matrix.multiplyMM(this.mScratchMatrix, 0, fArr2, 0, getModelViewMatrix(), 0);
+        } else if (this.mAngle != 0.0f) {
+            Matrix.multiplyMM(this.mScratchMatrix, 0, fArr2, 0, getModelViewMatrix(), 0);
+        } else {
+            this.mScratchMatrix = fArr2;
+        }
+        this.mProgram.draw(this.mScratchMatrix, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i, this.mRectDrawable.getTexCoordStride());
+    }
+
+    public void setHumanSegMaskParams(int i, String str, float f) {
+        Texture2dProgram texture2dProgram;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) != null) || (texture2dProgram = this.mProgram) == null) {
+            return;
+        }
+        texture2dProgram.setHumanSegMaskParams(i, str, f);
     }
 }

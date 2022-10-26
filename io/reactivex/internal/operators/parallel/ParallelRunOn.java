@@ -21,15 +21,15 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelRunOn<T> extends ParallelFlowable<T> {
+public final class ParallelRunOn extends ParallelFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int prefetch;
     public final Scheduler scheduler;
-    public final ParallelFlowable<? extends T> source;
+    public final ParallelFlowable source;
 
     /* loaded from: classes8.dex */
-    public static abstract class BaseRunOnSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, Runnable {
+    public abstract class BaseRunOnSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9222303586456402150L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,12 +39,12 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         public Throwable error;
         public final int limit;
         public final int prefetch;
-        public final SpscArrayQueue<T> queue;
+        public final SpscArrayQueue queue;
         public final AtomicLong requested;
         public Subscription s;
         public final Scheduler.Worker worker;
 
-        public BaseRunOnSubscriber(int i, SpscArrayQueue<T> spscArrayQueue, Scheduler.Worker worker) {
+        public BaseRunOnSubscriber(int i, SpscArrayQueue spscArrayQueue, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,25 +69,31 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         @Override // org.reactivestreams.Subscription
         public final void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            this.s.cancel();
-            this.worker.dispose();
-            if (getAndIncrement() == 0) {
-                this.queue.clear();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.s.cancel();
+                this.worker.dispose();
+                if (getAndIncrement() == 0) {
+                    this.queue.clear();
+                }
             }
         }
 
         @Override // org.reactivestreams.Subscriber
         public final void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
                 return;
             }
             this.done = true;
             schedule();
+        }
+
+        public final void schedule() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && getAndIncrement() == 0) {
+                this.worker.schedule(this);
+            }
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -105,12 +111,12 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public final void onNext(T t) {
+        public final void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
                 return;
             }
-            if (!this.queue.offer(t)) {
+            if (!this.queue.offer(obj)) {
                 this.s.cancel();
                 onError(new MissingBackpressureException("Queue is full?!"));
                 return;
@@ -126,24 +132,17 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
                 schedule();
             }
         }
-
-        public final void schedule() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && getAndIncrement() == 0) {
-                this.worker.schedule(this);
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
     public final class MultiWorkerCallback implements SchedulerMultiWorkerSupport.WorkerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<T>[] parents;
-        public final Subscriber<? super T>[] subscribers;
+        public final Subscriber[] parents;
+        public final Subscriber[] subscribers;
         public final /* synthetic */ ParallelRunOn this$0;
 
-        public MultiWorkerCallback(ParallelRunOn parallelRunOn, Subscriber<? super T>[] subscriberArr, Subscriber<T>[] subscriberArr2) {
+        public MultiWorkerCallback(ParallelRunOn parallelRunOn, Subscriber[] subscriberArr, Subscriber[] subscriberArr2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,14 +172,14 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class RunOnConditionalSubscriber<T> extends BaseRunOnSubscriber<T> {
+    public final class RunOnConditionalSubscriber extends BaseRunOnSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1075119423897941642L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber<? super T> actual;
+        public final ConditionalSubscriber actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RunOnConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, int i, SpscArrayQueue<T> spscArrayQueue, Scheduler.Worker worker) {
+        public RunOnConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, int i, SpscArrayQueue spscArrayQueue, Scheduler.Worker worker) {
             super(i, spscArrayQueue, worker);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -283,50 +282,54 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
+            boolean z;
             Throwable th;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            int i = this.consumed;
-            SpscArrayQueue<T> spscArrayQueue = this.queue;
-            ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
-            int i2 = this.limit;
-            int i3 = 1;
-            while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                int i = this.consumed;
+                SpscArrayQueue spscArrayQueue = this.queue;
+                ConditionalSubscriber conditionalSubscriber = this.actual;
+                int i2 = this.limit;
+                int i3 = 1;
                 while (true) {
-                    int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                    if (i4 == 0) {
-                        break;
-                    } else if (this.cancelled) {
-                        spscArrayQueue.clear();
-                        return;
-                    } else {
-                        boolean z = this.done;
-                        if (z && (th = this.error) != null) {
-                            spscArrayQueue.clear();
-                            conditionalSubscriber.onError(th);
-                            this.worker.dispose();
-                            return;
-                        }
-                        T poll = spscArrayQueue.poll();
-                        boolean z2 = poll == null;
-                        if (z && z2) {
-                            conditionalSubscriber.onComplete();
-                            this.worker.dispose();
-                            return;
-                        } else if (z2) {
+                    long j = this.requested.get();
+                    long j2 = 0;
+                    while (true) {
+                        int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i4 == 0) {
                             break;
+                        } else if (this.cancelled) {
+                            spscArrayQueue.clear();
+                            return;
                         } else {
-                            if (conditionalSubscriber.tryOnNext(poll)) {
-                                j2++;
+                            boolean z2 = this.done;
+                            if (z2 && (th = this.error) != null) {
+                                spscArrayQueue.clear();
+                                conditionalSubscriber.onError(th);
+                                this.worker.dispose();
+                                return;
                             }
-                            i++;
-                            if (i == i2) {
-                                this.s.request(i);
-                                i = 0;
+                            Object poll = spscArrayQueue.poll();
+                            if (poll == null) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (z2 && z) {
+                                conditionalSubscriber.onComplete();
+                                this.worker.dispose();
+                                return;
+                            } else if (z) {
+                                break;
+                            } else {
+                                if (conditionalSubscriber.tryOnNext(poll)) {
+                                    j2++;
+                                }
+                                i++;
+                                if (i == i2) {
+                                    this.s.request(i);
+                                    i = 0;
+                                }
                             }
                         }
                     }
@@ -336,14 +339,14 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class RunOnSubscriber<T> extends BaseRunOnSubscriber<T> {
+    public final class RunOnSubscriber extends BaseRunOnSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1075119423897941642L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RunOnSubscriber(Subscriber<? super T> subscriber, int i, SpscArrayQueue<T> spscArrayQueue, Scheduler.Worker worker) {
+        public RunOnSubscriber(Subscriber subscriber, int i, SpscArrayQueue spscArrayQueue, Scheduler.Worker worker) {
             super(i, spscArrayQueue, worker);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -446,49 +449,53 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
+            boolean z;
             Throwable th;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            int i = this.consumed;
-            SpscArrayQueue<T> spscArrayQueue = this.queue;
-            Subscriber<? super T> subscriber = this.actual;
-            int i2 = this.limit;
-            int i3 = 1;
-            while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                int i = this.consumed;
+                SpscArrayQueue spscArrayQueue = this.queue;
+                Subscriber subscriber = this.actual;
+                int i2 = this.limit;
+                int i3 = 1;
                 while (true) {
-                    int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                    if (i4 == 0) {
-                        break;
-                    } else if (this.cancelled) {
-                        spscArrayQueue.clear();
-                        return;
-                    } else {
-                        boolean z = this.done;
-                        if (z && (th = this.error) != null) {
-                            spscArrayQueue.clear();
-                            subscriber.onError(th);
-                            this.worker.dispose();
-                            return;
-                        }
-                        T poll = spscArrayQueue.poll();
-                        boolean z2 = poll == null;
-                        if (z && z2) {
-                            subscriber.onComplete();
-                            this.worker.dispose();
-                            return;
-                        } else if (z2) {
+                    long j = this.requested.get();
+                    long j2 = 0;
+                    while (true) {
+                        int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i4 == 0) {
                             break;
+                        } else if (this.cancelled) {
+                            spscArrayQueue.clear();
+                            return;
                         } else {
-                            subscriber.onNext(poll);
-                            j2++;
-                            i++;
-                            if (i == i2) {
-                                this.s.request(i);
-                                i = 0;
+                            boolean z2 = this.done;
+                            if (z2 && (th = this.error) != null) {
+                                spscArrayQueue.clear();
+                                subscriber.onError(th);
+                                this.worker.dispose();
+                                return;
+                            }
+                            Object poll = spscArrayQueue.poll();
+                            if (poll == null) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (z2 && z) {
+                                subscriber.onComplete();
+                                this.worker.dispose();
+                                return;
+                            } else if (z) {
+                                break;
+                            } else {
+                                subscriber.onNext(poll);
+                                j2++;
+                                i++;
+                                if (i == i2) {
+                                    this.s.request(i);
+                                    i = 0;
+                                }
                             }
                         }
                     }
@@ -497,7 +504,7 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         }
     }
 
-    public ParallelRunOn(ParallelFlowable<? extends T> parallelFlowable, Scheduler scheduler, int i) {
+    public ParallelRunOn(ParallelFlowable parallelFlowable, Scheduler scheduler, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -517,10 +524,10 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         this.prefetch = i;
     }
 
-    public void createSubscriber(int i, Subscriber<? super T>[] subscriberArr, Subscriber<T>[] subscriberArr2, Scheduler.Worker worker) {
+    public void createSubscriber(int i, Subscriber[] subscriberArr, Subscriber[] subscriberArr2, Scheduler.Worker worker) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), subscriberArr, subscriberArr2, worker}) == null) {
-            Subscriber<? super T> subscriber = subscriberArr[i];
+            Subscriber subscriber = subscriberArr[i];
             SpscArrayQueue spscArrayQueue = new SpscArrayQueue(this.prefetch);
             if (subscriber instanceof ConditionalSubscriber) {
                 subscriberArr2[i] = new RunOnConditionalSubscriber((ConditionalSubscriber) subscriber, this.prefetch, spscArrayQueue, worker);
@@ -534,24 +541,28 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
     public int parallelism() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source.parallelism() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.source.parallelism();
+        }
+        return invokeV.intValue;
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber<? super T>[] subscriberArr) {
+    public void subscribe(Subscriber[] subscriberArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subscriberArr) == null) && validate(subscriberArr)) {
-            int length = subscriberArr.length;
-            Subscriber<T>[] subscriberArr2 = new Subscriber[length];
-            Scheduler scheduler = this.scheduler;
-            if (scheduler instanceof SchedulerMultiWorkerSupport) {
-                ((SchedulerMultiWorkerSupport) scheduler).createWorkers(length, new MultiWorkerCallback(this, subscriberArr, subscriberArr2));
-            } else {
-                for (int i = 0; i < length; i++) {
-                    createSubscriber(i, subscriberArr, subscriberArr2, this.scheduler.createWorker());
-                }
-            }
-            this.source.subscribe(subscriberArr2);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subscriberArr) != null) || !validate(subscriberArr)) {
+            return;
         }
+        int length = subscriberArr.length;
+        Subscriber[] subscriberArr2 = new Subscriber[length];
+        Scheduler scheduler = this.scheduler;
+        if (scheduler instanceof SchedulerMultiWorkerSupport) {
+            ((SchedulerMultiWorkerSupport) scheduler).createWorkers(length, new MultiWorkerCallback(this, subscriberArr, subscriberArr2));
+        } else {
+            for (int i = 0; i < length; i++) {
+                createSubscriber(i, subscriberArr, subscriberArr2, this.scheduler.createWorker());
+            }
+        }
+        this.source.subscribe(subscriberArr2);
     }
 }

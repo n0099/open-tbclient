@@ -29,63 +29,9 @@ public class ZipUtil {
         }
     }
 
-    public static void zipFiles(String[] strArr, String str) throws Exception {
-        ZipOutputStream zipOutputStream;
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, strArr, str) == null) {
-            ZipOutputStream zipOutputStream2 = null;
-            try {
-                zipOutputStream = new ZipOutputStream(new FileOutputStream(str));
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                for (String str2 : strArr) {
-                    zipFiles(file.getParent() + File.separator, new File(str2).getName(), zipOutputStream);
-                }
-                zipOutputStream.finish();
-                zipOutputStream.close();
-            } catch (Throwable th2) {
-                th = th2;
-                zipOutputStream2 = zipOutputStream;
-                if (zipOutputStream2 != null) {
-                    zipOutputStream2.close();
-                }
-                throw th;
-            }
-        }
-    }
-
-    public static void zipFolder(String str, String str2) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65539, null, str, str2) != null) {
-            return;
-        }
-        ZipOutputStream zipOutputStream = null;
-        try {
-            ZipOutputStream zipOutputStream2 = new ZipOutputStream(new FileOutputStream(str2));
-            try {
-                File file = new File(str);
-                zipFiles(file.getParent() + File.separator, file.getName(), zipOutputStream2);
-                zipOutputStream2.finish();
-                zipOutputStream2.close();
-            } catch (Throwable th) {
-                th = th;
-                zipOutputStream = zipOutputStream2;
-                if (zipOutputStream != null) {
-                    zipOutputStream.close();
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
     public static void zipFiles(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, str, str2, zipOutputStream) == null) || zipOutputStream == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65537, null, str, str2, zipOutputStream) != null) || zipOutputStream == null) {
             return;
         }
         File file = new File(str + str2);
@@ -137,6 +83,59 @@ public class ZipUtil {
             }
         } catch (Throwable th4) {
             th = th4;
+        }
+    }
+
+    public static void zipFiles(String[] strArr, String str) throws Exception {
+        ZipOutputStream zipOutputStream;
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, strArr, str) == null) {
+            ZipOutputStream zipOutputStream2 = null;
+            try {
+                zipOutputStream = new ZipOutputStream(new FileOutputStream(str));
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                for (String str2 : strArr) {
+                    zipFiles(file.getParent() + File.separator, new File(str2).getName(), zipOutputStream);
+                }
+                zipOutputStream.finish();
+                zipOutputStream.close();
+            } catch (Throwable th2) {
+                th = th2;
+                zipOutputStream2 = zipOutputStream;
+                if (zipOutputStream2 != null) {
+                    zipOutputStream2.close();
+                }
+                throw th;
+            }
+        }
+    }
+
+    public static void zipFolder(String str, String str2) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            ZipOutputStream zipOutputStream = null;
+            try {
+                ZipOutputStream zipOutputStream2 = new ZipOutputStream(new FileOutputStream(str2));
+                try {
+                    File file = new File(str);
+                    zipFiles(file.getParent() + File.separator, file.getName(), zipOutputStream2);
+                    zipOutputStream2.finish();
+                    zipOutputStream2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    zipOutputStream = zipOutputStream2;
+                    if (zipOutputStream != null) {
+                        zipOutputStream.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
         }
     }
 }

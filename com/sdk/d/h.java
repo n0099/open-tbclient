@@ -5,18 +5,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class h<E> {
+public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
-    public final E b;
+    public final Object b;
 
-    public h(b bVar, E e) {
+    public h(b bVar, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, e};
+            Object[] objArr = {bVar, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,6 +27,6 @@ public class h<E> {
             }
         }
         this.a = bVar == null ? b.d : bVar;
-        this.b = e;
+        this.b = obj;
     }
 }

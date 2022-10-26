@@ -39,19 +39,34 @@ public final class BasicCertificateChainCleaner extends CertificateChainCleaner 
         this.trustRootIndex = trustRootIndex;
     }
 
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if ((obj instanceof BasicCertificateChainCleaner) && ((BasicCertificateChainCleaner) obj).trustRootIndex.equals(this.trustRootIndex)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     private boolean verifySignature(X509Certificate x509Certificate, X509Certificate x509Certificate2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, x509Certificate, x509Certificate2)) == null) {
-            if (x509Certificate.getIssuerDN().equals(x509Certificate2.getSubjectDN())) {
-                try {
-                    x509Certificate.verify(x509Certificate2.getPublicKey());
-                    return true;
-                } catch (GeneralSecurityException unused) {
-                    return false;
-                }
+            if (!x509Certificate.getIssuerDN().equals(x509Certificate2.getSubjectDN())) {
+                return false;
             }
-            return false;
+            try {
+                x509Certificate.verify(x509Certificate2.getPublicKey());
+                return true;
+            } catch (GeneralSecurityException unused) {
+                return false;
+            }
         }
         return invokeLL.booleanValue;
     }
@@ -96,21 +111,12 @@ public final class BasicCertificateChainCleaner extends CertificateChainCleaner 
         return (List) invokeLL.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            return (obj instanceof BasicCertificateChainCleaner) && ((BasicCertificateChainCleaner) obj).trustRootIndex.equals(this.trustRootIndex);
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.trustRootIndex.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.trustRootIndex.hashCode();
+        }
+        return invokeV.intValue;
     }
 }

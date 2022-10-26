@@ -42,6 +42,16 @@ public class RetrieveFileJob extends IRetrieveJob {
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicInteger mRetryCount;
 
+    @Override // com.baidu.android.imsdk.retrieve.IRetrieveJob
+    public String getRetrieveJobType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* renamed from: com.baidu.android.imsdk.retrieve.RetrieveFileJob$2  reason: invalid class name */
     /* loaded from: classes.dex */
     public class AnonymousClass2 implements IGenBosObjectUrlListener {
@@ -78,30 +88,37 @@ public class RetrieveFileJob extends IRetrieveJob {
         }
 
         @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-        public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
+        public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map map) {
             String str4;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
                 if (i == 0) {
                     if (map != null) {
-                        str4 = map.get(AsyncChatTask.PUT_URL);
-                        map.get(AsyncChatTask.GET_URL);
+                        str4 = (String) map.get(AsyncChatTask.PUT_URL);
+                        String str5 = (String) map.get(AsyncChatTask.GET_URL);
                     } else {
                         str4 = "";
                     }
-                    String str5 = str4;
-                    IFileUploadListener iFileUploadListener = new IFileUploadListener(this, str5) { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.2.1
+                    String str6 = str4;
+                    IFileUploadListener iFileUploadListener = new IFileUploadListener(this, str6) { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass2 this$1;
                         public final /* synthetic */ String val$remotUrl;
+
+                        @Override // com.baidu.android.imsdk.upload.IFileUploadListener
+                        public void onProgress(int i2) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+                            }
+                        }
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, str5};
+                                Object[] objArr = {this, str6};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -112,14 +129,14 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 }
                             }
                             this.this$1 = this;
-                            this.val$remotUrl = str5;
+                            this.val$remotUrl = str6;
                         }
 
                         @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                        public void onFailed(int i2, String str6) {
+                        public void onFailed(int i2, String str7) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str6) == null) {
-                                LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFailed errorcode:" + i2 + ", failedMsg:" + str6);
+                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str7) == null) {
+                                LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFailed errorcode:" + i2 + ", failedMsg:" + str7);
                                 if (i2 != 1005) {
                                     this.this$1.this$0.mRetryCount.incrementAndGet();
                                     AnonymousClass2 anonymousClass2 = this.this$1;
@@ -186,16 +203,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 }
                             }
                         }
-
-                        @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                        public void onProgress(int i2) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                            }
-                        }
                     };
                     if (this.this$0.isUpload(this.val$context, this.val$filePath, this.val$fileBean)) {
-                        ChatMsgManager.uploadFile(this.val$context, str5, this.val$filePath, "application/octet-stream", str2, str3, iFileUploadListener);
+                        ChatMsgManager.uploadFile(this.val$context, str6, this.val$filePath, "application/octet-stream", str2, str3, iFileUploadListener);
                         return;
                     }
                     RetrieveReportImpl retrieveReportImpl = RetrieveReportImpl.getInstance(this.val$context);
@@ -226,13 +236,97 @@ public class RetrieveFileJob extends IRetrieveJob {
         this.mRetryCount = new AtomicInteger(0);
     }
 
-    private void deleteZip(Context context, List<String> list) {
+    private void deleteZip(Context context, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, list) == null) {
             File file = new File(context.getFilesDir(), FETCH_FILE_ZIP);
             if (file.exists()) {
                 FileUtils.deleteFile(file);
             }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.retrieve.IRetrieveJob
+    public void dispatch(JSONObject jSONObject, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) {
+            TaskManager.getInstance(context).submitForNetWork(new Runnable(this, jSONObject, context) { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ RetrieveFileJob this$0;
+                public final /* synthetic */ Context val$context;
+                public final /* synthetic */ JSONObject val$data;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, jSONObject, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$data = jSONObject;
+                    this.val$context = context;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    RetrieveFileData.RetrieveFileBean parseJsonContent;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (parseJsonContent = RetrieveFileData.parseJsonContent(this.val$data, this.val$context)) != null) {
+                        RetrieveReportImpl.getInstance(this.val$context).reportDispatch(parseJsonContent.mType, parseJsonContent.mJobId, parseJsonContent.mVersion, this.val$data, "3", new IReportListener(this, parseJsonContent) { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.1.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass1 this$1;
+                            public final /* synthetic */ RetrieveFileData.RetrieveFileBean val$retrieveFileBean;
+
+                            @Override // com.baidu.android.imsdk.retrieve.IReportListener
+                            public void onFailure() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                }
+                            }
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, parseJsonContent};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$1 = this;
+                                this.val$retrieveFileBean = parseJsonContent;
+                            }
+
+                            @Override // com.baidu.android.imsdk.retrieve.IReportListener
+                            public void onSuccess(ReportResult reportResult) {
+                                Interceptable interceptable3 = $ic;
+                                if ((interceptable3 == null || interceptable3.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reportResult) == null) && reportResult != null && TextUtils.equals("1", reportResult.getValid())) {
+                                    LogUtils.d(RetrieveFileJob.TAG, "retrieve--> 文件任务真正开始上报");
+                                    AnonymousClass1 anonymousClass1 = this.this$1;
+                                    anonymousClass1.this$0.startRetrieveFile(this.val$retrieveFileBean, anonymousClass1.val$context);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
         }
     }
 
@@ -259,9 +353,9 @@ public class RetrieveFileJob extends IRetrieveJob {
         }
     }
 
-    private File getZipFile(List<String> list, JSONObject jSONObject, RetrieveFileData.RetrieveFileBean retrieveFileBean, Context context) {
+    private File getZipFile(List list, JSONObject jSONObject, RetrieveFileData.RetrieveFileBean retrieveFileBean, Context context) {
         InterceptResult invokeLLLL;
-        Iterator<String> it;
+        Iterator it;
         String str;
         String str2;
         String replace;
@@ -277,31 +371,31 @@ public class RetrieveFileJob extends IRetrieveJob {
                 ArrayList arrayList = new ArrayList(list.size());
                 long j2 = 0;
                 long j3 = retrieveFileBean.mMaxFileSize * 1000;
-                Iterator<String> it2 = list.iterator();
+                Iterator it2 = list.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
                     }
-                    String next = it2.next();
-                    if (TextUtils.isEmpty(next)) {
+                    String str6 = (String) it2.next();
+                    if (TextUtils.isEmpty(str6)) {
                         str = str3;
                         str2 = str4;
                         it = it2;
                     } else {
-                        if (next.startsWith(str4)) {
+                        if (str6.startsWith(str4)) {
                             StringBuilder sb = new StringBuilder();
                             it = it2;
                             sb.append(context.getExternalFilesDir(str5).getParent());
                             sb.append(File.separatorChar);
-                            replace = next.replace(str4, sb.toString());
+                            replace = str6.replace(str4, sb.toString());
                         } else {
                             it = it2;
-                            if (next.startsWith(str3)) {
-                                replace = next.replace(str3, context.getFilesDir().getParent() + File.separatorChar);
+                            if (str6.startsWith(str3)) {
+                                replace = str6.replace(str3, context.getFilesDir().getParent() + File.separatorChar);
                             } else {
                                 str = str3;
                                 str2 = str4;
-                                generateMetaInfo(next, "4", next + " error", null, null, true, jSONObject);
+                                generateMetaInfo(str6, "4", str6 + " error", null, null, true, jSONObject);
                             }
                         }
                         LogUtils.d(TAG, "retrieve--> 回捞路径：" + replace);
@@ -422,130 +516,39 @@ public class RetrieveFileJob extends IRetrieveJob {
                 return false;
             }
             File file = new File(str);
-            if (file.exists()) {
-                return file.length() <= 1048576 || RequsetNetworkUtils.isWifiConnected(context);
+            if (!file.exists()) {
+                return false;
             }
-            return false;
+            long length = file.length();
+            boolean isWifiConnected = RequsetNetworkUtils.isWifiConnected(context);
+            if (length > 1048576 && !isWifiConnected) {
+                return false;
+            }
+            return true;
         }
         return invokeLLL.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startRetrieveFile(RetrieveFileData.RetrieveFileBean retrieveFileBean, Context context) {
-        List<String> list;
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, this, retrieveFileBean, context) == null) || (list = retrieveFileBean.mPathList) == null || list.size() == 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65545, this, retrieveFileBean, context) == null) && (list = retrieveFileBean.mPathList) != null && list.size() != 0) {
+            deleteZip(context, list);
+            if (this.mRetryCount.get() > 1) {
+                LogUtils.d(TAG, "文件一直上报失败，不再重试上报");
+                RetrieveReportImpl.getInstance(context).reportTaskDone(retrieveFileBean.mType, retrieveFileBean.mJobId, retrieveFileBean.mVersion, "2", "", "", null, "");
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            File zipFile = getZipFile(list, jSONObject, retrieveFileBean, context);
+            String jSONObject2 = jSONObject.toString();
+            if (zipFile != null && zipFile.exists()) {
+                String absolutePath = zipFile.getAbsolutePath();
+                genBosObjectUrl(context, absolutePath, "application/octet-stream", StatConstants.VALUE_TYPE_ZIP, 0, 0, 0, new AnonymousClass2(this, context, retrieveFileBean, jSONObject2, zipFile, absolutePath));
+                return;
+            }
+            RetrieveReportImpl.getInstance(context).reportTaskDone(retrieveFileBean.mType, retrieveFileBean.mJobId, retrieveFileBean.mVersion, "1", "", jSONObject2, null, "");
         }
-        deleteZip(context, list);
-        if (this.mRetryCount.get() > 1) {
-            LogUtils.d(TAG, "文件一直上报失败，不再重试上报");
-            RetrieveReportImpl.getInstance(context).reportTaskDone(retrieveFileBean.mType, retrieveFileBean.mJobId, retrieveFileBean.mVersion, "2", "", "", null, "");
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        File zipFile = getZipFile(list, jSONObject, retrieveFileBean, context);
-        String jSONObject2 = jSONObject.toString();
-        if (zipFile != null && zipFile.exists()) {
-            String absolutePath = zipFile.getAbsolutePath();
-            genBosObjectUrl(context, absolutePath, "application/octet-stream", StatConstants.VALUE_TYPE_ZIP, 0, 0, 0, new AnonymousClass2(this, context, retrieveFileBean, jSONObject2, zipFile, absolutePath));
-            return;
-        }
-        RetrieveReportImpl.getInstance(context).reportTaskDone(retrieveFileBean.mType, retrieveFileBean.mJobId, retrieveFileBean.mVersion, "1", "", jSONObject2, null, "");
-    }
-
-    @Override // com.baidu.android.imsdk.retrieve.IRetrieveJob
-    public void dispatch(JSONObject jSONObject, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) {
-            TaskManager.getInstance(context).submitForNetWork(new Runnable(this, jSONObject, context) { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RetrieveFileJob this$0;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ JSONObject val$data;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, jSONObject, context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$data = jSONObject;
-                    this.val$context = context;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    RetrieveFileData.RetrieveFileBean parseJsonContent;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (parseJsonContent = RetrieveFileData.parseJsonContent(this.val$data, this.val$context)) == null) {
-                        return;
-                    }
-                    RetrieveReportImpl.getInstance(this.val$context).reportDispatch(parseJsonContent.mType, parseJsonContent.mJobId, parseJsonContent.mVersion, this.val$data, "3", new IReportListener(this, parseJsonContent) { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.1.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ AnonymousClass1 this$1;
-                        public final /* synthetic */ RetrieveFileData.RetrieveFileBean val$retrieveFileBean;
-
-                        {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, parseJsonContent};
-                                interceptable3.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                            this.val$retrieveFileBean = parseJsonContent;
-                        }
-
-                        @Override // com.baidu.android.imsdk.retrieve.IReportListener
-                        public void onFailure() {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                            }
-                        }
-
-                        @Override // com.baidu.android.imsdk.retrieve.IReportListener
-                        public void onSuccess(ReportResult reportResult) {
-                            Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reportResult) == null) && reportResult != null && TextUtils.equals("1", reportResult.getValid())) {
-                                LogUtils.d(RetrieveFileJob.TAG, "retrieve--> 文件任务真正开始上报");
-                                AnonymousClass1 anonymousClass1 = this.this$1;
-                                anonymousClass1.this$0.startRetrieveFile(this.val$retrieveFileBean, anonymousClass1.val$context);
-                            }
-                        }
-                    });
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.retrieve.IRetrieveJob
-    public String getRetrieveJobType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -9,8 +9,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.util.VisibleForTesting;
-@VisibleForTesting
 /* loaded from: classes7.dex */
 public final class zze implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;

@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.lego.card.model.LPBigImgCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
+public class LPBigImgCardView extends BaseCardView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout m;
@@ -28,6 +28,15 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public TextView p;
     public int q;
     public final int r;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    /* renamed from: D */
+    public void t(LPBigImgCard lPBigImgCard, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, i) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -117,22 +126,16 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                 return;
             }
         }
-        this.r = ej.k(getContext());
+        this.r = fj.k(getContext());
     }
 
     public final int C(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? ej.d(this.i.getPageActivity(), (int) (i / 2.0d)) : invokeI.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: D */
-    public void t(LPBigImgCard lPBigImgCard, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, i) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return fj.d(this.i.getPageActivity(), (int) (i / 2.0d));
         }
+        return invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -140,61 +143,59 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     /* renamed from: E */
     public void u(LPBigImgCard lPBigImgCard) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lPBigImgCard) == null) || lPBigImgCard.getPicWidth() <= 0 || lPBigImgCard.getPicHeight() <= 0) {
-            return;
-        }
-        int picHeight = (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * this.r);
-        this.q = picHeight;
-        F(this.n, picHeight);
-        if (!TextUtils.isEmpty(lPBigImgCard.getPicUrl())) {
-            this.n.G(lPBigImgCard.getPicUrl(), 17, this.r, this.q, false);
-        } else {
-            x(this.n, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
-        }
-        int i = this.q;
-        if (!TextUtils.isEmpty(lPBigImgCard.getBtnImgUrl()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
-            int btnHeight = lPBigImgCard.getBtnHeight();
-            G(this.o, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-            this.o.K(lPBigImgCard.getBtnImgUrl(), 17, false);
-            int btnPosRatio = (int) ((i * lPBigImgCard.getBtnPosRatio()) - (btnHeight * 0.5d));
-            if (btnPosRatio < 0) {
-                btnPosRatio = 0;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lPBigImgCard) == null) && lPBigImgCard.getPicWidth() > 0 && lPBigImgCard.getPicHeight() > 0) {
+            int picHeight = (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * this.r);
+            this.q = picHeight;
+            F(this.n, picHeight);
+            if (!TextUtils.isEmpty(lPBigImgCard.getPicUrl())) {
+                this.n.H(lPBigImgCard.getPicUrl(), 17, this.r, this.q, false);
             } else {
-                int i2 = i - btnHeight;
-                if (btnPosRatio > i2) {
-                    btnPosRatio = i2;
-                }
+                x(this.n, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
             }
-            ((RelativeLayout.LayoutParams) this.o.getLayoutParams()).topMargin = btnPosRatio;
-            this.o.setOnClickListener(new a(this, lPBigImgCard));
-            this.o.setVisibility(0);
-            this.p.setVisibility(8);
-        } else if (!TextUtils.isEmpty(lPBigImgCard.getBtnText()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
-            int btnHeight2 = lPBigImgCard.getBtnHeight();
-            this.p.setText(lPBigImgCard.getBtnText());
-            G(this.p, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-            y(this.p, lPBigImgCard.getBtnColor(), lPBigImgCard.getBtnColorNight(), R.color.black_alpha100);
-            int btnPosRatio2 = (int) ((i * lPBigImgCard.getBtnPosRatio()) - (btnHeight2 * 0.5d));
-            if (btnPosRatio2 < 0) {
-                btnPosRatio2 = 0;
+            int i = this.q;
+            if (!TextUtils.isEmpty(lPBigImgCard.getBtnImgUrl()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
+                int btnHeight = lPBigImgCard.getBtnHeight();
+                G(this.o, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
+                this.o.L(lPBigImgCard.getBtnImgUrl(), 17, false);
+                int btnPosRatio = (int) ((i * lPBigImgCard.getBtnPosRatio()) - (btnHeight * 0.5d));
+                if (btnPosRatio < 0) {
+                    btnPosRatio = 0;
+                } else {
+                    int i2 = i - btnHeight;
+                    if (btnPosRatio > i2) {
+                        btnPosRatio = i2;
+                    }
+                }
+                ((RelativeLayout.LayoutParams) this.o.getLayoutParams()).topMargin = btnPosRatio;
+                this.o.setOnClickListener(new a(this, lPBigImgCard));
+                this.o.setVisibility(0);
+                this.p.setVisibility(8);
+            } else if (!TextUtils.isEmpty(lPBigImgCard.getBtnText()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
+                int btnHeight2 = lPBigImgCard.getBtnHeight();
+                this.p.setText(lPBigImgCard.getBtnText());
+                G(this.p, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
+                y(this.p, lPBigImgCard.getBtnColor(), lPBigImgCard.getBtnColorNight(), R.color.black_alpha100);
+                int btnPosRatio2 = (int) ((i * lPBigImgCard.getBtnPosRatio()) - (btnHeight2 * 0.5d));
+                if (btnPosRatio2 < 0) {
+                    btnPosRatio2 = 0;
+                } else {
+                    int i3 = i - btnHeight2;
+                    if (btnPosRatio2 > i3) {
+                        btnPosRatio2 = i3;
+                    }
+                }
+                ((RelativeLayout.LayoutParams) this.p.getLayoutParams()).topMargin = btnPosRatio2;
+                this.p.setOnClickListener(new b(this, lPBigImgCard));
+                this.p.setVisibility(0);
+                this.o.setVisibility(8);
             } else {
-                int i3 = i - btnHeight2;
-                if (btnPosRatio2 > i3) {
-                    btnPosRatio2 = i3;
-                }
+                this.p.setVisibility(8);
+                this.o.setVisibility(8);
             }
-            ((RelativeLayout.LayoutParams) this.p.getLayoutParams()).topMargin = btnPosRatio2;
-            this.p.setOnClickListener(new b(this, lPBigImgCard));
-            this.p.setVisibility(0);
-            this.o.setVisibility(8);
-        } else {
-            this.p.setVisibility(8);
-            this.o.setVisibility(8);
+            if (!lPBigImgCard.mHasShown) {
+                lPBigImgCard.mHasShown = true;
+            }
         }
-        if (lPBigImgCard.mHasShown) {
-            return;
-        }
-        lPBigImgCard.mHasShown = true;
     }
 
     public final void F(View view2, int i) {
@@ -222,11 +223,11 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d017a, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0179, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f0920da);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0920db);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092375);
+            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f0920d9);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0920da);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092360);
             return this.m;
         }
         return (View) invokeV.objValue;

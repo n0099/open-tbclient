@@ -55,12 +55,6 @@ public final class TaskFacade {
         this.mBinaryTaskMng = new BinaryTaskMng(this.mContext, taskManagerConfiguration);
     }
 
-    public static TaskFacade getInstance(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? getInstanceByConfig(context, null) : (TaskFacade) invokeL.objValue;
-    }
-
     public static TaskFacade getInstanceByConfig(Context context, TaskManagerConfiguration taskManagerConfiguration) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -80,6 +74,38 @@ public final class TaskFacade {
         return (TaskFacade) invokeLL.objValue;
     }
 
+    public static TaskFacade getInstance(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return getInstanceByConfig(context, null);
+        }
+        return (TaskFacade) invokeL.objValue;
+    }
+
+    public void setMaxTask(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mBinaryTaskMng.setMaxDownloadThread(i);
+        }
+    }
+
+    public long startDownload(FileMsg fileMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, fileMsg)) == null) {
+            return this.mBinaryTaskMng.startDownload(fileMsg);
+        }
+        return invokeL.longValue;
+    }
+
+    public void stopAllTask(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.mBinaryTaskMng.stopAllTask(z);
+        }
+    }
+
     public static synchronized void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
@@ -92,84 +118,46 @@ public final class TaskFacade {
         }
     }
 
-    public long findTaskCurrentLength(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) ? this.mBinaryTaskMng.findTaskCurrentLength(str, j) : invokeLJ.longValue;
-    }
-
-    public String findTaskFilename(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) ? this.mBinaryTaskMng.findTaskFilename(str, j) : (String) invokeLJ.objValue;
-    }
-
-    public String findTaskFilepath(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this.mBinaryTaskMng.findTaskFilepath(str, j) : (String) invokeLJ.objValue;
-    }
-
-    public String findTaskMimetype(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) ? this.mBinaryTaskMng.findTaskMimetype(str, j) : (String) invokeLJ.objValue;
-    }
-
-    public int findTaskStatus(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) ? this.mBinaryTaskMng.findTaskStatus(str, j) : invokeLJ.intValue;
-    }
-
-    public long findTaskTotalLength(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) ? this.mBinaryTaskMng.findTaskTotalLength(str, j) : invokeLJ.longValue;
-    }
-
     public BinaryTaskMng getBinaryTaskMng() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mBinaryTaskMng : (BinaryTaskMng) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mBinaryTaskMng;
+        }
+        return (BinaryTaskMng) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public int getCurrentTaskVacant() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mBinaryTaskMng.getCurrentVacant() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mBinaryTaskMng.getCurrentVacant();
+        }
+        return invokeV.intValue;
     }
 
     public int getMaxTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mBinaryTaskMng.getMaxDownloadThread() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mBinaryTaskMng.getMaxDownloadThread();
+        }
+        return invokeV.intValue;
     }
 
     public void pauseAllTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.mBinaryTaskMng.pauseAllTask();
-        }
-    }
-
-    public void pauseDownload(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j) == null) {
-            this.mBinaryTaskMng.pauseDownload(str, j);
-        }
-    }
-
-    public void setMaxTask(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.mBinaryTaskMng.setMaxDownloadThread(i);
         }
     }
 
@@ -180,16 +168,64 @@ public final class TaskFacade {
         }
     }
 
-    public long startDownload(FileMsg fileMsg) {
-        InterceptResult invokeL;
+    public long findTaskCurrentLength(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, fileMsg)) == null) ? this.mBinaryTaskMng.startDownload(fileMsg) : invokeL.longValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            return this.mBinaryTaskMng.findTaskCurrentLength(str, j);
+        }
+        return invokeLJ.longValue;
     }
 
-    public void stopAllTask(boolean z) {
+    public String findTaskFilename(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.mBinaryTaskMng.stopAllTask(z);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return this.mBinaryTaskMng.findTaskFilename(str, j);
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public String findTaskFilepath(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            return this.mBinaryTaskMng.findTaskFilepath(str, j);
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public String findTaskMimetype(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+            return this.mBinaryTaskMng.findTaskMimetype(str, j);
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public int findTaskStatus(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) {
+            return this.mBinaryTaskMng.findTaskStatus(str, j);
+        }
+        return invokeLJ.intValue;
+    }
+
+    public long findTaskTotalLength(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) {
+            return this.mBinaryTaskMng.findTaskTotalLength(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    public void pauseDownload(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j) == null) {
+            this.mBinaryTaskMng.pauseDownload(str, j);
         }
     }
 

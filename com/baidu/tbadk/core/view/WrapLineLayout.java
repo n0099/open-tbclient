@@ -16,8 +16,8 @@ import java.util.List;
 public class WrapLineLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<List<View>> a;
-    public List<Integer> b;
+    public List a;
+    public List b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WrapLineLayout(Context context) {
@@ -41,18 +41,57 @@ public class WrapLineLayout extends ViewGroup {
         this.b = new ArrayList();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public WrapLineLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+    }
+
     @Override // android.view.ViewGroup
     public ViewGroup.LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ViewGroup.MarginLayoutParams(-1, -1) : (ViewGroup.LayoutParams) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ViewGroup.MarginLayoutParams(-1, -1);
+        }
+        return (ViewGroup.LayoutParams) invokeV.objValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet)) == null) {
+            return new ViewGroup.MarginLayoutParams(getContext(), attributeSet);
+        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
     @Override // android.view.ViewGroup
     public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) ? new ViewGroup.MarginLayoutParams(layoutParams) : (ViewGroup.LayoutParams) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) {
+            return new ViewGroup.MarginLayoutParams(layoutParams);
+        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -87,10 +126,10 @@ public class WrapLineLayout extends ViewGroup {
             int paddingTop = getPaddingTop();
             int size = this.a.size();
             for (int i8 = 0; i8 < size; i8++) {
-                List<View> list = this.a.get(i8);
-                int intValue = this.b.get(i8).intValue();
+                List list = (List) this.a.get(i8);
+                int intValue = ((Integer) this.b.get(i8)).intValue();
                 for (int i9 = 0; i9 < list.size(); i9++) {
-                    View view2 = list.get(i9);
+                    View view2 = (View) list.get(i9);
                     if (view2.getVisibility() != 8) {
                         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
                         int i10 = marginLayoutParams2.leftMargin + paddingLeft;
@@ -107,6 +146,7 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             super.onMeasure(i, i2);
@@ -116,74 +156,49 @@ public class WrapLineLayout extends ViewGroup {
             int mode = View.MeasureSpec.getMode(i);
             int mode2 = View.MeasureSpec.getMode(i2);
             int childCount = getChildCount();
-            int i3 = 0;
             int i4 = 0;
             int i5 = 0;
             int i6 = 0;
             int i7 = 0;
-            while (i3 < childCount) {
-                View childAt = getChildAt(i3);
+            int i8 = 0;
+            while (i4 < childCount) {
+                View childAt = getChildAt(i4);
                 measureChild(childAt, i, i2);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
-                int i8 = size;
+                int i9 = size;
                 int measuredWidth = childAt.getMeasuredWidth() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin;
-                int i9 = size2;
+                int i10 = size2;
                 int measuredHeight = childAt.getMeasuredHeight() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin;
-                int i10 = i4 + measuredWidth;
-                if (i10 > paddingLeft) {
-                    i5 = Math.max(i4, measuredWidth);
-                    i7 += i6;
-                    i4 = measuredWidth;
-                    i6 = measuredHeight;
+                int i11 = i5 + measuredWidth;
+                if (i11 > paddingLeft) {
+                    i6 = Math.max(i5, measuredWidth);
+                    i8 += i7;
+                    i5 = measuredWidth;
+                    i7 = measuredHeight;
                 } else {
-                    i6 = Math.max(i6, measuredHeight);
-                    i4 = i10;
+                    i7 = Math.max(i7, measuredHeight);
+                    i5 = i11;
                 }
-                if (i3 == childCount - 1) {
-                    i7 += i6;
-                    i5 = Math.max(i5, i4);
+                if (i4 == childCount - 1) {
+                    i8 += i7;
+                    i6 = Math.max(i6, i5);
                 }
-                i7 = i7 + getPaddingTop() + getPaddingBottom();
-                i3++;
-                size2 = i9;
-                size = i8;
+                i8 = i8 + getPaddingTop() + getPaddingBottom();
+                i4++;
+                size2 = i10;
+                size = i9;
             }
-            int i11 = size;
-            int i12 = size2;
+            int i12 = size;
+            int i13 = size2;
             if (mode == 1073741824) {
-                i5 = i11;
+                i6 = i12;
             }
-            setMeasuredDimension(i5, mode2 == 1073741824 ? i12 : i7);
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet)) == null) ? new ViewGroup.MarginLayoutParams(getContext(), attributeSet) : (ViewGroup.LayoutParams) invokeL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WrapLineLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (mode2 == 1073741824) {
+                i3 = i13;
+            } else {
+                i3 = i8;
             }
+            setMeasuredDimension(i6, i3);
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
     }
 }

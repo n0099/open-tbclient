@@ -35,7 +35,7 @@ public final class m extends i {
     }
 
     @Override // com.baidu.ar.statistic.i
-    public List<List<a>> gn() {
+    public List gn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -44,7 +44,7 @@ public final class m extends i {
                 return null;
             }
             this.wQ = currentTimeMillis;
-            List<List<a>> gn = super.gn();
+            List gn = super.gn();
             return gn.size() > 1 ? gn.subList(0, 1) : gn;
         }
         return (List) invokeV.objValue;

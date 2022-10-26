@@ -1,69 +1,47 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import tv.athena.revenue.RevenueManager;
 /* loaded from: classes4.dex */
-public final class m5a {
+public class m5a {
     public static /* synthetic */ Interceptable $ic;
-    public static final m5a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925040, "Lcom/baidu/tieba/m5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static IPayServiceStatistics a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error("MonitorReporter", "getMonitorReporter error revenue null", new Object[0]);
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947925040, "Lcom/baidu/tieba/m5a;");
+            return revenue.getPayServiceStatistics();
+        }
+        return (IPayServiceStatistics) invokeII.objValue;
+    }
+
+    public static void b(int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            IPayServiceStatistics a = a(i, i2);
+            if (a == null) {
+                RLog.error("MonitorReporter", "onShowPayFailResult error payReporter null", new Object[0]);
                 return;
             }
+            HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
+            cReportResponse.mEventId = "6";
+            cReportResponse.mEventaliae = EventAlias.PayEventAlias.SHOW_PAY_RESULT;
+            cReportResponse.mErrCode = i3 + "";
+            cReportResponse.mErrMsg = str;
+            a.onShowPayResult(cReportResponse);
         }
-        a = new m5a();
-    }
-
-    public m5a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @TargetApi(17)
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (!activity.isFinishing()) {
-                    return Build.VERSION.SDK_INT < 17 || !activity.isDestroyed();
-                }
-                RLog.warn("ViewUtils", "activity is finishing");
-                return false;
-            }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -58,24 +58,24 @@ public class AbortMultipartUploadRequest extends GenericUploadRequest {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.model.AbstractBceRequest
-    public AbortMultipartUploadRequest withRequestCredentials(BceCredentials bceCredentials) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bceCredentials)) == null) {
-            setRequestCredentials(bceCredentials);
-            return this;
-        }
-        return (AbortMultipartUploadRequest) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.services.bos.model.GenericUploadRequest
     public AbortMultipartUploadRequest withUploadId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             setUploadId(str);
+            return this;
+        }
+        return (AbortMultipartUploadRequest) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.model.AbstractBceRequest
+    public AbortMultipartUploadRequest withRequestCredentials(BceCredentials bceCredentials) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bceCredentials)) == null) {
+            setRequestCredentials(bceCredentials);
             return this;
         }
         return (AbortMultipartUploadRequest) invokeL.objValue;

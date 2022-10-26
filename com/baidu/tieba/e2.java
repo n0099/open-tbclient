@@ -28,6 +28,9 @@ public class e2 implements s1 {
     public k3 resolve(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f1.d.a(str) : (k3) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return f1.d.a(str);
+        }
+        return (k3) invokeL.objValue;
     }
 }

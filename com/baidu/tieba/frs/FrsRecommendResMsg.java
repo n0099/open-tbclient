@@ -39,7 +39,7 @@ public class FrsRecommendResMsg extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
         this.mPushStatus = optJSONObject.optInt("is_push_success");
@@ -49,12 +49,18 @@ public class FrsRecommendResMsg extends JsonHttpResponsedMessage {
     public String getPushMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPushMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPushMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPushStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPushStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mPushStatus;
+        }
+        return invokeV.intValue;
     }
 }

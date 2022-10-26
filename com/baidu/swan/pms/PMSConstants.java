@@ -1,6 +1,6 @@
 package com.baidu.swan.pms;
 
-import com.baidu.tieba.ua4;
+import com.baidu.tieba.va4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +13,24 @@ public class PMSConstants {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes3.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class CloudSwitch {
+    public final class CloudSwitch {
         public static final /* synthetic */ CloudSwitch[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CloudSwitch DISPLAY;
@@ -66,19 +81,25 @@ public class PMSConstants {
         public static CloudSwitch valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CloudSwitch) Enum.valueOf(CloudSwitch.class, str) : (CloudSwitch) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CloudSwitch) Enum.valueOf(CloudSwitch.class, str);
+            }
+            return (CloudSwitch) invokeL.objValue;
         }
 
         public static CloudSwitch[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CloudSwitch[]) $VALUES.clone() : (CloudSwitch[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CloudSwitch[]) $VALUES.clone();
+            }
+            return (CloudSwitch[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class CustomerService {
+    public final class CustomerService {
         public static final /* synthetic */ CustomerService[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CustomerService CUSTOMER_SERVICE;
@@ -129,19 +150,25 @@ public class PMSConstants {
         public static CustomerService valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CustomerService) Enum.valueOf(CustomerService.class, str) : (CustomerService) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CustomerService) Enum.valueOf(CustomerService.class, str);
+            }
+            return (CustomerService) invokeL.objValue;
         }
 
         public static CustomerService[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CustomerService[]) $VALUES.clone() : (CustomerService[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CustomerService[]) $VALUES.clone();
+            }
+            return (CustomerService[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class PayProtected {
+    public final class PayProtected {
         public static final /* synthetic */ PayProtected[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PayProtected NO_PAY_PROTECTED;
@@ -192,34 +219,31 @@ public class PMSConstants {
         public static PayProtected valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PayProtected) Enum.valueOf(PayProtected.class, str) : (PayProtected) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PayProtected) Enum.valueOf(PayProtected.class, str);
+            }
+            return (PayProtected) invokeL.objValue;
         }
 
         public static PayProtected[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PayProtected[]) $VALUES.clone() : (PayProtected[]) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return 1;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PayProtected[]) $VALUES.clone();
             }
-            return invokeV.intValue;
+            return (PayProtected[]) invokeV.objValue;
         }
     }
 
-    public static boolean a(ua4 ua4Var) {
+    public static boolean a(va4 va4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ua4Var)) == null) ? ua4Var != null && ua4Var.x() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, va4Var)) == null) {
+            if (va4Var != null && va4Var.x()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -21,10 +21,25 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public PagerAdapter mAdapter;
     public boolean mBoundaryCaching;
-    public SparseArray<ToDestroy> mToDestroy;
+    public SparseArray mToDestroy;
+
+    private int getRealFirstPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public int toInnerPosition(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) ? i + 1 : invokeI.intValue;
+    }
 
     /* loaded from: classes2.dex */
-    public static class ToDestroy {
+    public class ToDestroy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ViewGroup container;
@@ -67,37 +82,88 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
                 return;
             }
         }
-        this.mToDestroy = new SparseArray<>();
+        this.mToDestroy = new SparseArray();
         this.mAdapter = pagerAdapter;
-    }
-
-    private int getRealFirstPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
     }
 
     private int getRealLastPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (getRealFirstPosition() + getRealCount()) - 1 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return (getRealFirstPosition() + getRealCount()) - 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAdapter.getCount() + 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public PagerAdapter getRealAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAdapter;
+        }
+        return (PagerAdapter) invokeV.objValue;
+    }
+
+    public int getRealCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mAdapter.getCount();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void notifyDataSetChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            SparseArray sparseArray = this.mToDestroy;
+            if (sparseArray != null) {
+                sparseArray.clear();
+            }
+            this.mToDestroy = new SparseArray();
+            super.notifyDataSetChanged();
+            this.mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public Parcelable saveState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mAdapter.saveState();
+        }
+        return (Parcelable) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
             int realFirstPosition = getRealFirstPosition();
             int realLastPosition = getRealLastPosition();
             PagerAdapter pagerAdapter = this.mAdapter;
-            int realPosition = ((pagerAdapter instanceof FragmentPagerAdapter) || (pagerAdapter instanceof FragmentStatePagerAdapter)) ? i : toRealPosition(i);
-            if (this.mBoundaryCaching && (i == realFirstPosition || i == realLastPosition)) {
-                this.mToDestroy.put(i, new ToDestroy(viewGroup, realPosition, obj));
+            if (!(pagerAdapter instanceof FragmentPagerAdapter) && !(pagerAdapter instanceof FragmentStatePagerAdapter)) {
+                i2 = toRealPosition(i);
             } else {
-                this.mAdapter.destroyItem(viewGroup, realPosition, obj);
+                i2 = i;
+            }
+            if (this.mBoundaryCaching && (i == realFirstPosition || i == realLastPosition)) {
+                this.mToDestroy.put(i, new ToDestroy(viewGroup, i2, obj));
+            } else {
+                this.mAdapter.destroyItem(viewGroup, i2, obj);
             }
         }
     }
@@ -111,63 +177,6 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAdapter.getCount() + 2 : invokeV.intValue;
-    }
-
-    public PagerAdapter getRealAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAdapter : (PagerAdapter) invokeV.objValue;
-    }
-
-    public int getRealCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAdapter.getCount() : invokeV.intValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        ToDestroy toDestroy;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            PagerAdapter pagerAdapter = this.mAdapter;
-            int realPosition = ((pagerAdapter instanceof FragmentPagerAdapter) || (pagerAdapter instanceof FragmentStatePagerAdapter)) ? i : toRealPosition(i);
-            if (this.mBoundaryCaching && (toDestroy = this.mToDestroy.get(i)) != null) {
-                this.mToDestroy.remove(i);
-                return toDestroy.object;
-            }
-            return this.mAdapter.instantiateItem(viewGroup, realPosition);
-        }
-        return invokeLI.objValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, obj)) == null) ? this.mAdapter.isViewFromObject(view2, obj) : invokeLL.booleanValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void notifyDataSetChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SparseArray<ToDestroy> sparseArray = this.mToDestroy;
-            if (sparseArray != null) {
-                sparseArray.clear();
-            }
-            this.mToDestroy = new SparseArray<>();
-            super.notifyDataSetChanged();
-            this.mAdapter.notifyDataSetChanged();
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataSetObserver) == null) {
@@ -176,33 +185,10 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         }
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, parcelable, classLoader) == null) {
-            this.mAdapter.restoreState(parcelable, classLoader);
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public Parcelable saveState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mAdapter.saveState() : (Parcelable) invokeV.objValue;
-    }
-
     public void setBoundaryCaching(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.mBoundaryCaching = z;
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048588, this, viewGroup, i, obj) == null) {
-            this.mAdapter.setPrimaryItem(viewGroup, i, obj);
         }
     }
 
@@ -214,12 +200,6 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         }
     }
 
-    public int toInnerPosition(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) ? i + 1 : invokeI.intValue;
-    }
-
     public int toRealPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -229,7 +209,10 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
                 return 0;
             }
             int i2 = (i - 1) % realCount;
-            return i2 < 0 ? i2 + realCount : i2;
+            if (i2 < 0) {
+                return i2 + realCount;
+            }
+            return i2;
         }
         return invokeI.intValue;
     }
@@ -240,6 +223,54 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         if (interceptable == null || interceptable.invokeL(1048592, this, dataSetObserver) == null) {
             super.unregisterDataSetObserver(dataSetObserver);
             this.mAdapter.unregisterDataSetObserver(dataSetObserver);
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        ToDestroy toDestroy;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
+            PagerAdapter pagerAdapter = this.mAdapter;
+            if (!(pagerAdapter instanceof FragmentPagerAdapter) && !(pagerAdapter instanceof FragmentStatePagerAdapter)) {
+                i2 = toRealPosition(i);
+            } else {
+                i2 = i;
+            }
+            if (this.mBoundaryCaching && (toDestroy = (ToDestroy) this.mToDestroy.get(i)) != null) {
+                this.mToDestroy.remove(i);
+                return toDestroy.object;
+            }
+            return this.mAdapter.instantiateItem(viewGroup, i2);
+        }
+        return invokeLI.objValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(View view2, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, obj)) == null) {
+            return this.mAdapter.isViewFromObject(view2, obj);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, parcelable, classLoader) == null) {
+            this.mAdapter.restoreState(parcelable, classLoader);
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048588, this, viewGroup, i, obj) == null) {
+            this.mAdapter.setPrimaryItem(viewGroup, i, obj);
         }
     }
 }

@@ -7,20 +7,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 import java.io.InputStream;
-import javax.annotation.concurrent.NotThreadSafe;
-@NotThreadSafe
 /* loaded from: classes7.dex */
 public class PooledByteBufferInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @VisibleForTesting
     public int mMark;
-    @VisibleForTesting
     public int mOffset;
-    @VisibleForTesting
     public final PooledByteBuffer mPooledByteBuffer;
+
+    @Override // java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public PooledByteBufferInputStream(PooledByteBuffer pooledByteBuffer) {
         Interceptable interceptable = $ic;
@@ -47,25 +51,10 @@ public class PooledByteBufferInputStream extends InputStream {
     public int available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPooledByteBuffer.size() - this.mOffset : invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public void mark(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mMark = this.mOffset;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mPooledByteBuffer.size() - this.mOffset;
         }
-    }
-
-    @Override // java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
     @Override // java.io.InputStream
@@ -93,23 +82,40 @@ public class PooledByteBufferInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public long skip(long j) {
-        InterceptResult invokeJ;
+    public void mark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            Preconditions.checkArgument(j >= 0);
-            int min = Math.min((int) j, available());
-            this.mOffset += min;
-            return min;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mMark = this.mOffset;
         }
-        return invokeJ.longValue;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) ? read(bArr, 0, bArr.length) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
+            return read(bArr, 0, bArr.length);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public long skip(long j) {
+        InterceptResult invokeJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            if (j >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            int min = Math.min((int) j, available());
+            this.mOffset += min;
+            return min;
+        }
+        return invokeJ.longValue;
     }
 
     @Override // java.io.InputStream

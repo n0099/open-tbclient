@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fb1;
+import com.baidu.tieba.gb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,56 +45,14 @@ public class TipView extends LinearLayout {
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setVisibility(8);
-            this.a.clearAnimation();
-        }
-    }
-
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f7, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09220d);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092212);
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            setVisibility(0);
-            if (this.c == null) {
-                this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010098);
-            }
-            this.b.setText(str);
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c4);
-                layoutParams.width = dimensionPixelOffset;
-                layoutParams.height = dimensionPixelOffset;
-            }
-            this.a.startAnimation(this.c);
-        }
-    }
-
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            setVisibility(0);
-            this.a.clearAnimation();
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f0);
-                layoutParams.width = dimensionPixelOffset;
-                layoutParams.height = dimensionPixelOffset;
-            }
-            fb1.b().a(this.a, str);
-            this.b.setText(str2);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f8, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921f7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fc);
         }
     }
 
@@ -139,5 +97,47 @@ public class TipView extends LinearLayout {
             }
         }
         b(context);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setVisibility(8);
+            this.a.clearAnimation();
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            setVisibility(0);
+            if (this.c == null) {
+                this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010098);
+            }
+            this.b.setText(str);
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+            if (layoutParams != null) {
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c4);
+                layoutParams.width = dimensionPixelOffset;
+                layoutParams.height = dimensionPixelOffset;
+            }
+            this.a.startAnimation(this.c);
+        }
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            setVisibility(0);
+            this.a.clearAnimation();
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+            if (layoutParams != null) {
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f0);
+                layoutParams.width = dimensionPixelOffset;
+                layoutParams.height = dimensionPixelOffset;
+            }
+            gb1.b().a(this.a, str);
+            this.b.setText(str2);
+        }
     }
 }

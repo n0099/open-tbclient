@@ -5,8 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Nullsafe;
-@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
 public class Ints {
     public static /* synthetic */ Interceptable $ic;
@@ -28,9 +26,15 @@ public class Ints {
 
     public static int max(int... iArr) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iArr)) == null) {
-            Preconditions.checkArgument(iArr.length > 0);
+            if (iArr.length > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
             int i = iArr[0];
             for (int i2 = 1; i2 < iArr.length; i2++) {
                 if (iArr[i2] > i) {

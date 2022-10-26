@@ -34,30 +34,6 @@ public class ParentDisallowInterceptHListView extends HListView {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (r0 != 5) goto L10;
-     */
-    @Override // com.baidu.tieba.horizonalList.widget.HListView, com.baidu.tieba.horizonalList.widget.AbsHListView, android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            int action = motionEvent.getAction() & 255;
-            if (action != 0) {
-                if (action == 1 || action == 3) {
-                    requestDisallowInterceptTouchEvent(false);
-                }
-                return super.onTouchEvent(motionEvent);
-            }
-            requestDisallowInterceptTouchEvent(true);
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ParentDisallowInterceptHListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -98,5 +74,29 @@ public class ParentDisallowInterceptHListView extends HListView {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
+        if (r0 != 5) goto L10;
+     */
+    @Override // com.baidu.tieba.horizonalList.widget.HListView, com.baidu.tieba.horizonalList.widget.AbsHListView, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            int action = motionEvent.getAction() & 255;
+            if (action != 0) {
+                if (action == 1 || action == 3) {
+                    requestDisallowInterceptTouchEvent(false);
+                }
+                return super.onTouchEvent(motionEvent);
+            }
+            requestDisallowInterceptTouchEvent(true);
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

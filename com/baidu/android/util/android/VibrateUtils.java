@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import androidx.annotation.RequiresPermission;
 import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,13 +22,13 @@ public class VibrateUtils {
 
     /* renamed from: com.baidu.android.util.android.VibrateUtils$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int[] amplitudes;
@@ -70,75 +69,10 @@ public class VibrateUtils {
         public VibrateUtils build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new VibrateUtils(this, null) : (VibrateUtils) invokeV.objValue;
-        }
-    }
-
-    public /* synthetic */ VibrateUtils(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    private boolean checkVibratePermission() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Context context = this.mContext;
-            return context != null && ContextCompat.checkSelfPermission(context, "android.permission.VIBRATE") == 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @RequiresPermission("android.permission.VIBRATE")
-    public void cancelVibrator() {
-        Vibrator vibrator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (vibrator = this.mVibrator) != null && vibrator.hasVibrator() && checkVibratePermission()) {
-            this.mVibrator.cancel();
-        }
-    }
-
-    @RequiresPermission("android.permission.VIBRATE")
-    public void vibrateStart() {
-        Vibrator vibrator;
-        long[] jArr;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || !checkVibratePermission() || (vibrator = this.mVibrator) == null || (jArr = this.timings) == null || jArr.length <= 0 || !vibrator.hasVibrator()) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT >= 26) {
-            int[] iArr = this.amplitudes;
-            if (iArr != null && iArr.length > 0) {
-                long[] jArr2 = this.timings;
-                if (jArr2.length == iArr.length) {
-                    if (jArr2.length == 1) {
-                        this.mVibrator.vibrate(VibrationEffect.createOneShot(jArr2[0], iArr[0]));
-                        return;
-                    } else {
-                        this.mVibrator.vibrate(VibrationEffect.createWaveform(jArr2, iArr, -1));
-                        return;
-                    }
-                } else if (jArr2.length == 1) {
-                    this.mVibrator.vibrate(VibrationEffect.createOneShot(jArr2[0], iArr[0]));
-                    return;
-                } else {
-                    this.mVibrator.vibrate(VibrationEffect.createWaveform(jArr2, -1));
-                    return;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new VibrateUtils(this, null);
             }
-            long[] jArr3 = this.timings;
-            if (jArr3.length == 1) {
-                this.mVibrator.vibrate(VibrationEffect.createOneShot(jArr3[0], -1));
-                return;
-            } else {
-                this.mVibrator.vibrate(VibrationEffect.createWaveform(jArr3, -1));
-                return;
-            }
-        }
-        long[] jArr4 = this.timings;
-        if (jArr4.length == 1) {
-            this.mVibrator.vibrate(jArr4[0]);
-        } else {
-            this.mVibrator.vibrate(jArr4, -1);
+            return (VibrateUtils) invokeV.objValue;
         }
     }
 
@@ -161,5 +95,73 @@ public class VibrateUtils {
         this.timings = builder.timings;
         this.amplitudes = builder.amplitudes;
         this.mContext = builder.mContext;
+    }
+
+    public /* synthetic */ VibrateUtils(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    private boolean checkVibratePermission() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            Context context = this.mContext;
+            if (context == null || ContextCompat.checkSelfPermission(context, "android.permission.VIBRATE") != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void cancelVibrator() {
+        Vibrator vibrator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (vibrator = this.mVibrator) != null && vibrator.hasVibrator() && checkVibratePermission()) {
+            this.mVibrator.cancel();
+        }
+    }
+
+    public void vibrateStart() {
+        Vibrator vibrator;
+        long[] jArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && checkVibratePermission() && (vibrator = this.mVibrator) != null && (jArr = this.timings) != null && jArr.length > 0 && vibrator.hasVibrator()) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                int[] iArr = this.amplitudes;
+                if (iArr != null && iArr.length > 0) {
+                    long[] jArr2 = this.timings;
+                    if (jArr2.length == iArr.length) {
+                        if (jArr2.length == 1) {
+                            this.mVibrator.vibrate(VibrationEffect.createOneShot(jArr2[0], iArr[0]));
+                            return;
+                        } else {
+                            this.mVibrator.vibrate(VibrationEffect.createWaveform(jArr2, iArr, -1));
+                            return;
+                        }
+                    } else if (jArr2.length == 1) {
+                        this.mVibrator.vibrate(VibrationEffect.createOneShot(jArr2[0], iArr[0]));
+                        return;
+                    } else {
+                        this.mVibrator.vibrate(VibrationEffect.createWaveform(jArr2, -1));
+                        return;
+                    }
+                }
+                long[] jArr3 = this.timings;
+                if (jArr3.length == 1) {
+                    this.mVibrator.vibrate(VibrationEffect.createOneShot(jArr3[0], -1));
+                    return;
+                } else {
+                    this.mVibrator.vibrate(VibrationEffect.createWaveform(jArr3, -1));
+                    return;
+                }
+            }
+            long[] jArr4 = this.timings;
+            if (jArr4.length == 1) {
+                this.mVibrator.vibrate(jArr4[0]);
+            } else {
+                this.mVibrator.vibrate(jArr4, -1);
+            }
+        }
     }
 }

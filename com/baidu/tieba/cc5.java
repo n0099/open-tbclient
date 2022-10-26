@@ -1,101 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tieba.ob5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class cc5<T extends ob5> extends zb5<T> {
+public abstract class cc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List eventDelegates;
+    public boolean isDispatchMvcEventing;
+    public BdUniqueId uniqueId;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc5(int i, String str, Class<T> cls) {
-        super(i, str, cls);
+    public void onBeforeDispatchMvcEvent(bc5 bc5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bc5Var) == null) {
+        }
+    }
+
+    public cc5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.isDispatchMvcEventing = false;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
-        InterceptResult invokeL;
-        String k;
+    public void addEventDelegate(ac5 ac5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof WriteCacheMessage)) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ac5Var) == null) {
+            if (this.eventDelegates == null) {
+                this.eventDelegates = new ArrayList();
             }
-            WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
-            WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
+            if (this.eventDelegates.contains(ac5Var)) {
+                return;
             }
-            ob5 ob5Var = (ob5) a();
-            if (ob5Var != null) {
-                if (ob5Var instanceof nb5) {
-                    mu4.f();
-                    jf<byte[]> e = mu4.e(this.b, currentAccount);
-                    if (writeCacheMessage.isClear()) {
-                        ob5 ob5Var2 = (ob5) writeCacheMessage.getData();
-                        if (ob5Var2 == null) {
-                            BdCacheService.k().j(e);
-                        } else {
-                            e.remove(ob5Var2.getCacheKey());
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+            }
+            this.eventDelegates.add(ac5Var);
+        }
+    }
+
+    public void removeEventDelegate(ac5 ac5Var) {
+        List list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, ac5Var) != null) || (list = this.eventDelegates) == null || !list.contains(ac5Var)) {
+            return;
+        }
+        if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+            throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+        }
+        this.eventDelegates.remove(ac5Var);
+    }
+
+    public boolean dispatchMvcEvent(bc5 bc5Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bc5Var)) == null) {
+            if (bc5Var == null) {
+                return false;
+            }
+            if (bc5Var.e() == null) {
+                bc5Var.i(this.uniqueId);
+            }
+            if (this.eventDelegates == null) {
+                return false;
+            }
+            try {
+                this.isDispatchMvcEventing = true;
+                onBeforeDispatchMvcEvent(bc5Var);
+                int size = this.eventDelegates.size();
+                z = false;
+                for (int i = 0; i < size; i++) {
+                    try {
+                        ac5 ac5Var = (ac5) this.eventDelegates.get(i);
+                        if (ac5Var != null && ((!ac5Var.R0() || (ac5Var.R0() && bc5Var.e() == ac5Var.getUniqueId())) && (z = ac5Var.r0(bc5Var)) && bc5Var.f())) {
+                            return true;
                         }
-                        writeCacheRespMsg.setSuccess(true);
-                    } else {
-                        ob5 ob5Var3 = (ob5) writeCacheMessage.getData();
-                        if (ob5Var3 == null) {
-                            return writeCacheRespMsg;
-                        }
-                        e.g(ob5Var3.getCacheKey(), ((nb5) ob5Var3).toCacheByteArray());
-                        writeCacheRespMsg.setSuccess(true);
-                    }
-                } else if (ob5Var instanceof qb5) {
-                    mu4.f();
-                    jf<String> h = mu4.h(this.b, currentAccount);
-                    if (writeCacheMessage.isClear()) {
-                        ob5 ob5Var4 = (ob5) writeCacheMessage.getData();
-                        if (ob5Var4 == null) {
-                            BdCacheService.k().j(h);
-                        } else {
-                            h.remove(ob5Var4.getCacheKey());
-                        }
-                        writeCacheRespMsg.setSuccess(true);
-                    } else {
-                        ob5 ob5Var5 = (ob5) writeCacheMessage.getData();
-                        if (ob5Var5 != null && (k = ((qb5) ob5Var5).k()) != null) {
-                            h.g(ob5Var5.getCacheKey(), k);
-                            writeCacheRespMsg.setSuccess(true);
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            BdLog.e(th);
+                            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                                throw new RuntimeException(th);
+                            }
+                            this.isDispatchMvcEventing = false;
+                            return z;
+                        } finally {
+                            this.isDispatchMvcEventing = false;
                         }
                     }
                 }
+            } catch (Throwable th2) {
+                th = th2;
+                z = false;
             }
-            return writeCacheRespMsg;
+            this.isDispatchMvcEventing = false;
+            return z;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

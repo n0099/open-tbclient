@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LiveBaseLottieView extends LottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LottieTask<LottieComposition> a;
+    public LottieTask a;
     public String b;
     public Drawable c;
     public boolean d;
@@ -28,7 +28,7 @@ public class LiveBaseLottieView extends LottieAnimationView {
     public LottieListener g;
 
     /* loaded from: classes2.dex */
-    public class a implements LottieListener<LottieComposition> {
+    public class a implements LottieListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveBaseLottieView a;
@@ -56,21 +56,22 @@ public class LiveBaseLottieView extends LottieAnimationView {
         /* renamed from: a */
         public void onResult(LottieComposition lottieComposition) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                this.a.d = true;
-                this.a.setComposition(lottieComposition);
-                if (this.a.c != null) {
-                    this.a.setBackgroundColor(0);
-                }
-                if (this.a.e != null) {
-                    this.a.e.onResult(lottieComposition);
-                }
+            if (interceptable != null && interceptable.invokeL(1048576, this, lottieComposition) != null) {
+                return;
+            }
+            this.a.d = true;
+            this.a.setComposition(lottieComposition);
+            if (this.a.c != null) {
+                this.a.setBackgroundColor(0);
+            }
+            if (this.a.e != null) {
+                this.a.e.onResult(lottieComposition);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements LottieListener<Throwable> {
+    public class b implements LottieListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveBaseLottieView a;
@@ -98,10 +99,11 @@ public class LiveBaseLottieView extends LottieAnimationView {
         /* renamed from: a */
         public void onResult(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.a.d = false;
-                th.printStackTrace();
+            if (interceptable != null && interceptable.invokeL(1048576, this, th) != null) {
+                return;
             }
+            this.a.d = false;
+            th.printStackTrace();
         }
     }
 
@@ -126,82 +128,6 @@ public class LiveBaseLottieView extends LottieAnimationView {
         this.b = "";
         this.f = new a(this);
         this.g = new b(this);
-    }
-
-    public String getLottieUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public final void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
-            LottieTask<LottieComposition> lottieTask = this.a;
-            if (lottieTask != null) {
-                lottieTask.removeListener(this.f);
-                this.a.removeFailureListener(this.g);
-            }
-            LottieTask<LottieComposition> fromUrl = LottieCompositionFactory.fromUrl(getContext(), str);
-            this.a = fromUrl;
-            fromUrl.addListener(this.f).addFailureListener(this.g);
-        }
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDetachedFromWindow();
-            LottieTask<LottieComposition> lottieTask = this.a;
-            if (lottieTask != null) {
-                lottieTask.removeListener(this.f);
-                this.a.removeFailureListener(this.g);
-                this.a = null;
-            }
-        }
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView
-    public void playAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                super.playAnimation();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView
-    public void setAnimationFromUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            m(str);
-        }
-    }
-
-    public void setDefaultBackground(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
-            this.c = drawable;
-            if (drawable != null) {
-                setBackground(drawable);
-            }
-        }
-    }
-
-    public void setSuccessListener(LottieListener lottieListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lottieListener) == null) {
-            this.e = lottieListener;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -250,5 +176,83 @@ public class LiveBaseLottieView extends LottieAnimationView {
         this.b = "";
         this.f = new a(this);
         this.g = new b(this);
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView
+    public void setAnimationFromUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+            if (!TextUtils.isEmpty(str)) {
+                m(str);
+            }
+        }
+    }
+
+    public void setDefaultBackground(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
+            this.c = drawable;
+            if (drawable != null) {
+                setBackground(drawable);
+            }
+        }
+    }
+
+    public void setSuccessListener(LottieListener lottieListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, lottieListener) == null) {
+            this.e = lottieListener;
+        }
+    }
+
+    public String getLottieUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDetachedFromWindow();
+            LottieTask lottieTask = this.a;
+            if (lottieTask != null) {
+                lottieTask.removeListener(this.f);
+                this.a.removeFailureListener(this.g);
+                this.a = null;
+            }
+        }
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView
+    public void playAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                super.playAnimation();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.b = str;
+            LottieTask lottieTask = this.a;
+            if (lottieTask != null) {
+                lottieTask.removeListener(this.f);
+                this.a.removeFailureListener(this.g);
+            }
+            LottieTask fromUrl = LottieCompositionFactory.fromUrl(getContext(), str);
+            this.a = fromUrl;
+            fromUrl.addListener(this.f).addFailureListener(this.g);
+        }
     }
 }

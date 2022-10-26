@@ -19,38 +19,13 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\b\u0000\u0018\u0000 \u00172\u00020\u0001:\u0001\u0017B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0018\u0010\u0006\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\t\u001a\u00020\u0007H\u0016J\u0010\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\u0007H\u0016J\b\u0010\f\u001a\u00020\u000bH\u0016J\u0018\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u0010\u001a\u00020\u000bH\u0016J\u0010\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J\u0010\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0015H\u0016J\u0010\u0010\u0011\u001a\u00020\u00122\u0006\u0010\t\u001a\u00020\u0016H\u0016R\u000e\u0010\u0005\u001a\u00020\u0003X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0018"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/T2TOperationInterface;", "Lcom/baidu/tun2tornadolite/AndroidOperationInterface;", "svc", "Lcom/baidu/yunjiasu/tornadosdk/TrdVpnService;", "(Lcom/baidu/yunjiasu/tornadosdk/TrdVpnService;)V", "vpn", "bindNetwork", "", "networkType", "fd", "getNetwork", "", "getPing", "onEvent", "", "msgType", "msgText", "protect", "", "socket", "Ljava/net/DatagramSocket;", "Ljava/net/Socket;", "", "Companion", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class T2TOperationInterface implements AndroidOperationInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final String TAG = "T2T_OP_INTERFACE";
     public transient /* synthetic */ FieldHolder $fh;
     public TrdVpnService vpn;
-
-    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0005"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/T2TOperationInterface$Companion;", "", "()V", "TAG", "", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes7.dex */
-    public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -66,6 +41,31 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
             }
         }
         Companion = new Companion(null);
+    }
+
+    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0005"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/T2TOperationInterface$Companion;", "", "()V", "TAG", "", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    /* loaded from: classes6.dex */
+    public static final class Companion {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public Companion() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public T2TOperationInterface(TrdVpnService svc) {
@@ -103,24 +103,6 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
-    public String getNetwork(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? TrdVpnNetwork.INSTANCE.getNetworkForT2T(j) : (String) invokeJ.objValue;
-    }
-
-    @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
-    public String getPing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            PingStatistics pingStatistics = Pinger.INSTANCE.get();
-            return pingStatistics == null ? "" : pingStatistics.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
     public void onEvent(long j, String msgText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048579, this, j, msgText) == null) {
@@ -136,21 +118,37 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
-    public boolean protect(int i) {
-        InterceptResult invokeI;
+    public String getNetwork(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.vpn.protect(i) : invokeI.booleanValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return TrdVpnNetwork.INSTANCE.getNetworkForT2T(j);
+        }
+        return (String) invokeJ.objValue;
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
-    public boolean protect(Socket socket) {
-        InterceptResult invokeL;
+    public boolean protect(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, socket)) == null) {
-            Intrinsics.checkNotNullParameter(socket, "socket");
-            return this.vpn.protect(socket);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.vpn.protect(i);
         }
-        return invokeL.booleanValue;
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
+    public String getPing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            PingStatistics pingStatistics = Pinger.INSTANCE.get();
+            if (pingStatistics == null) {
+                return "";
+            }
+            return pingStatistics.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
@@ -158,6 +156,17 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, socket)) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            return this.vpn.protect(socket);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
+    public boolean protect(Socket socket) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, socket)) == null) {
             Intrinsics.checkNotNullParameter(socket, "socket");
             return this.vpn.protect(socket);
         }

@@ -1,6 +1,5 @@
 package com.sina.deviceidjnisdk;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -33,7 +32,6 @@ public class DeviceInfo {
         }
     }
 
-    @SuppressLint({"MissingPermission"})
     public static String getDeviceId(Context context) {
         InterceptResult invokeL;
         TelephonyManager telephonyManager;
@@ -59,33 +57,32 @@ public class DeviceInfo {
                 }
                 str = "";
             }
-            return str == null ? "" : str;
+            if (str == null) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static String getImei(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? getDeviceId(context) : (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"MissingPermission"})
     public static String getImsi(Context context) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (isPermissionGranted(context, h.c)) {
+            if (!isPermissionGranted(context, h.c)) {
+                str = "";
+            } else {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
                     return null;
                 }
                 str = ApiReplaceUtil.getSubscriberId(telephonyManager);
-            } else {
-                str = "";
             }
-            return str == null ? "" : str;
+            if (str == null) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }
@@ -107,7 +104,19 @@ public class DeviceInfo {
                     str = "";
                 }
             }
-            return str == null ? "" : str;
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getImei(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return getDeviceId(context);
         }
         return (String) invokeL.objValue;
     }
@@ -115,6 +124,12 @@ public class DeviceInfo {
     public static boolean isPermissionGranted(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) ? context.getPackageManager().checkPermission(str, context.getPackageName()) == 0 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            if (context.getPackageManager().checkPermission(str, context.getPackageName()) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

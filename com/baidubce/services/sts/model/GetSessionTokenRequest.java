@@ -34,13 +34,19 @@ public class GetSessionTokenRequest extends AbstractBceRequest {
     public String getAcl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.acl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.acl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Integer getDurationSeconds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.durationSeconds : (Integer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.durationSeconds;
+        }
+        return (Integer) invokeV.objValue;
     }
 
     public void setAcl(String str) {

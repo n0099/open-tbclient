@@ -39,18 +39,45 @@ public class DefaultRetryPolicy implements RetryPolicy {
         }
     }
 
+    public DefaultRetryPolicy(int i, long j) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (i >= 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        CheckUtils.checkArgument(z, "maxErrorRetry should be a non-negative.");
+        CheckUtils.checkArgument(j >= 0, "maxDelayInMillis should be a non-negative.");
+        this.maxErrorRetry = i;
+        this.maxDelayInMillis = j;
+    }
+
     @Override // com.baidubce.http.RetryPolicy
     public long getDelayBeforeNextRetryInMillis(BceClientException bceClientException, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bceClientException, i)) == null) {
-            if (shouldRetry(bceClientException, i)) {
-                if (i < 0) {
-                    return 0L;
-                }
-                return (1 << (i + 1)) * 300;
+            if (!shouldRetry(bceClientException, i)) {
+                return -1L;
             }
-            return -1L;
+            if (i < 0) {
+                return 0L;
+            }
+            return (1 << (i + 1)) * 300;
         }
         return invokeLI.longValue;
     }
@@ -59,14 +86,20 @@ public class DefaultRetryPolicy implements RetryPolicy {
     public long getMaxDelayInMillis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.maxDelayInMillis : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.maxDelayInMillis;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidubce.http.RetryPolicy
     public int getMaxErrorRetry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.maxErrorRetry : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.maxErrorRetry;
+        }
+        return invokeV.intValue;
     }
 
     public boolean shouldRetry(BceClientException bceClientException, int i) {
@@ -104,26 +137,5 @@ public class DefaultRetryPolicy implements RetryPolicy {
             }
         }
         return invokeLI.booleanValue;
-    }
-
-    public DefaultRetryPolicy(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        CheckUtils.checkArgument(i >= 0, "maxErrorRetry should be a non-negative.");
-        CheckUtils.checkArgument(j >= 0, "maxDelayInMillis should be a non-negative.");
-        this.maxErrorRetry = i;
-        this.maxDelayInMillis = j;
     }
 }

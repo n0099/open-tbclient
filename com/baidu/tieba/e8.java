@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e8<T> extends a8<T> {
+public class e8 extends a8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final v8 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e8(Class<T> cls, int i, int i2) {
+    public e8(Class cls, int i, int i2) {
         super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,20 +42,20 @@ public class e8<T> extends a8<T> {
     }
 
     @Override // com.baidu.tieba.a8
-    public T d() {
+    public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return (T) this.d.b(null);
+                return this.d.b(null);
             } catch (Exception e) {
                 throw new GdxRuntimeException("Unable to create new instance: " + this.d.a().getName(), e);
             }
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public final v8 g(Class<T> cls) {
+    public final v8 g(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {

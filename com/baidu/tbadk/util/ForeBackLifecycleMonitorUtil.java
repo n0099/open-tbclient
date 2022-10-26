@@ -1,6 +1,5 @@
 package com.baidu.tbadk.util;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import com.baidu.adp.framework.MessageManager;
@@ -19,6 +18,26 @@ public final class ForeBackLifecycleMonitorUtil implements DefaultLifecycleObser
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
+    public /* synthetic */ void onCreate(LifecycleOwner lifecycleOwner) {
+        b0.$default$onCreate(this, lifecycleOwner);
+    }
+
+    @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
+    public /* synthetic */ void onDestroy(LifecycleOwner lifecycleOwner) {
+        b0.$default$onDestroy(this, lifecycleOwner);
+    }
+
+    @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
+    public /* synthetic */ void onPause(LifecycleOwner lifecycleOwner) {
+        b0.$default$onPause(this, lifecycleOwner);
+    }
+
+    @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
+    public /* synthetic */ void onResume(LifecycleOwner lifecycleOwner) {
+        b0.$default$onResume(this, lifecycleOwner);
+    }
+
     public ForeBackLifecycleMonitorUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,26 +50,6 @@ public final class ForeBackLifecycleMonitorUtil implements DefaultLifecycleObser
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
-    public /* synthetic */ void onCreate(@NonNull LifecycleOwner lifecycleOwner) {
-        b0.$default$onCreate(this, lifecycleOwner);
-    }
-
-    @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
-    public /* synthetic */ void onDestroy(@NonNull LifecycleOwner lifecycleOwner) {
-        b0.$default$onDestroy(this, lifecycleOwner);
-    }
-
-    @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
-    public /* synthetic */ void onPause(@NonNull LifecycleOwner lifecycleOwner) {
-        b0.$default$onPause(this, lifecycleOwner);
-    }
-
-    @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
-    public /* synthetic */ void onResume(@NonNull LifecycleOwner lifecycleOwner) {
-        b0.$default$onResume(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver

@@ -9,15 +9,13 @@ import com.facebook.datasource.DataSource;
 import com.facebook.imagepipeline.listener.RequestListener2;
 import com.facebook.imagepipeline.producers.Producer;
 import com.facebook.imagepipeline.producers.SettableProducerContext;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
-public class ProducerToDataSourceAdapter<T> extends AbstractProducerToDataSourceAdapter<T> {
+public class ProducerToDataSourceAdapter extends AbstractProducerToDataSourceAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ProducerToDataSourceAdapter(Producer<T> producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
+    public ProducerToDataSourceAdapter(Producer producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
         super(producer, settableProducerContext, requestListener2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,9 +35,12 @@ public class ProducerToDataSourceAdapter<T> extends AbstractProducerToDataSource
         }
     }
 
-    public static <T> DataSource<T> create(Producer<T> producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
+    public static DataSource create(Producer producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, producer, settableProducerContext, requestListener2)) == null) ? new ProducerToDataSourceAdapter(producer, settableProducerContext, requestListener2) : (DataSource) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, producer, settableProducerContext, requestListener2)) == null) {
+            return new ProducerToDataSourceAdapter(producer, settableProducerContext, requestListener2);
+        }
+        return (DataSource) invokeLLL.objValue;
     }
 }

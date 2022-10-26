@@ -9,26 +9,26 @@ import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public abstract class BaseMemoryCache implements MemoryCache {
-    public final Map<String, Reference<DecodedResult>> softMap = Collections.synchronizedMap(new HashMap());
+    public final Map softMap = Collections.synchronizedMap(new HashMap());
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public void clear() {
         this.softMap.clear();
     }
 
-    public abstract Reference<DecodedResult> createReference(DecodedResult decodedResult);
+    public abstract Reference createReference(DecodedResult decodedResult);
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public DecodedResult get(String str) {
-        Reference<DecodedResult> reference = this.softMap.get(str);
+        Reference reference = (Reference) this.softMap.get(str);
         if (reference != null) {
-            return reference.get();
+            return (DecodedResult) reference.get();
         }
         return null;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
-    public Collection<String> keys() {
+    public Collection keys() {
         HashSet hashSet;
         synchronized (this.softMap) {
             hashSet = new HashSet(this.softMap.keySet());
@@ -44,10 +44,10 @@ public abstract class BaseMemoryCache implements MemoryCache {
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public DecodedResult remove(String str) {
-        Reference<DecodedResult> remove = this.softMap.remove(str);
-        if (remove == null) {
+        Reference reference = (Reference) this.softMap.remove(str);
+        if (reference == null) {
             return null;
         }
-        return remove.get();
+        return (DecodedResult) reference.get();
     }
 }

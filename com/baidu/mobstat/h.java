@@ -3,6 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,21 +23,25 @@ public class h {
             try {
                 jSONObject.put("s", Build.VERSION.SDK_INT);
                 jSONObject.put("sv", Build.VERSION.RELEASE);
-                jSONObject.put(Config.CUID_SEC, bw.a(2, context));
+                String c = bu.a().c();
+                if (TextUtils.isEmpty(c)) {
+                    c = bw.a(2, context);
+                }
+                jSONObject.put(Config.CUID_SEC, c);
                 jSONObject.put("w", bw.c(context));
                 jSONObject.put("h", bw.d(context));
-                jSONObject.put("ly", ab.c);
-                jSONObject.put("pv", "24");
+                jSONObject.put("ly", z.c);
+                jSONObject.put("pv", "35");
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                    jSONObject.put("pn", bw.h(2, context));
+                    jSONObject.put("pn", bw.n(2, context));
                     jSONObject.put("a", packageInfo.versionCode);
                     jSONObject.put("n", packageInfo.versionName);
                 } catch (Exception e) {
-                    bb.c().a(e);
+                    ba.c().a(e);
                 }
-                jSONObject.put(Config.DEVICE_MAC_ID, bw.b(2, context));
-                jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, bw.f(2, context));
+                jSONObject.put(Config.DEVICE_MAC_ID, bw.h(2, context));
+                jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, bw.l(2, context));
                 jSONObject.put("m", android.os.Build.MODEL);
                 jSONObject.put(Config.DEVICE_NAME, bw.a(context, 2));
                 JSONObject jSONObject2 = new JSONObject();
@@ -48,10 +53,44 @@ public class h {
                 }
                 jSONObject2.put(Config.ROM, b);
                 jSONObject.put(Config.TRACE_PART, jSONObject2);
+                jSONObject.put("im", bw.w(context));
+                jSONObject.put(Config.OAID, bw.b(2, context));
+                jSONObject.put(Config.OUT_OAID, bw.c(2, context));
+                jSONObject.put("from", "0");
+                jSONObject.put(Config.GAID, bw.e(2, context));
+                jSONObject.put("iid", bw.d(2, context));
+                jSONObject.put(Config.CUID3, bw.f(2, context));
+                jSONObject.put(Config.SSAID, bw.g(2, context));
             } catch (JSONException e2) {
-                bb.c().b(e2);
+                ba.c().b(e2);
             }
             return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject jSONObject2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = (JSONArray) jSONObject.get("payload");
+                if (jSONArray != null && jSONArray.length() > 0) {
+                    jSONObject2 = (JSONObject) jSONArray.get(0);
+                } else {
+                    jSONObject2 = null;
+                }
+                if (jSONObject2 == null) {
+                    return null;
+                }
+                return jSONObject2.getJSONObject(Config.HEADER_PART);
+            } catch (Exception unused) {
+                return null;
+            }
         }
         return (JSONObject) invokeL.objValue;
     }
@@ -76,26 +115,5 @@ public class h {
             } catch (Exception unused) {
             }
         }
-    }
-
-    public static JSONObject a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = (JSONArray) jSONObject.get("payload");
-                JSONObject jSONObject2 = (jSONArray == null || jSONArray.length() <= 0) ? null : (JSONObject) jSONArray.get(0);
-                if (jSONObject2 != null) {
-                    return jSONObject2.getJSONObject(Config.HEADER_PART);
-                }
-                return null;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
     }
 }

@@ -31,36 +31,6 @@ public class NoOpCacheEventListener implements CacheEventListener {
         }
     }
 
-    public NoOpCacheEventListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static synchronized NoOpCacheEventListener getInstance() {
-        InterceptResult invokeV;
-        NoOpCacheEventListener noOpCacheEventListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (NoOpCacheEventListener.class) {
-                if (sInstance == null) {
-                    sInstance = new NoOpCacheEventListener();
-                }
-                noOpCacheEventListener = sInstance;
-            }
-            return noOpCacheEventListener;
-        }
-        return (NoOpCacheEventListener) invokeV.objValue;
-    }
-
     @Override // com.facebook.cache.common.CacheEventListener
     public void onCleared() {
         Interceptable interceptable = $ic;
@@ -115,5 +85,35 @@ public class NoOpCacheEventListener implements CacheEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cacheEvent) == null) {
         }
+    }
+
+    public NoOpCacheEventListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static synchronized NoOpCacheEventListener getInstance() {
+        InterceptResult invokeV;
+        NoOpCacheEventListener noOpCacheEventListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (NoOpCacheEventListener.class) {
+                if (sInstance == null) {
+                    sInstance = new NoOpCacheEventListener();
+                }
+                noOpCacheEventListener = sInstance;
+            }
+            return noOpCacheEventListener;
+        }
+        return (NoOpCacheEventListener) invokeV.objValue;
     }
 }

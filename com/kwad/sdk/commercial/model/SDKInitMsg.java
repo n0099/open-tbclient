@@ -2,11 +2,9 @@ package com.kwad.sdk.commercial.model;
 
 import android.content.Context;
 import android.os.Looper;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.response.kwai.a;
 import com.kwad.sdk.utils.an;
 import java.io.Serializable;
-@KsJson
 /* loaded from: classes7.dex */
 public class SDKInitMsg extends a implements Serializable {
     public static final int CHILD_PROCESS = 2;

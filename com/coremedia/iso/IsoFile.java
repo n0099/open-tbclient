@@ -45,70 +45,11 @@ public class IsoFile extends BasicContainer implements Closeable {
         LOG = Logger.getLogger(IsoFile.class);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public IsoFile(String str) throws IOException {
-        this(new FileDataSourceImpl(new File(str)));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((DataSource) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static String bytesToFourCC(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            byte[] bArr2 = new byte[4];
-            if (bArr != null) {
-                System.arraycopy(bArr, 0, bArr2, 0, Math.min(bArr.length, 4));
-            }
-            try {
-                return new String(bArr2, "ISO-8859-1");
-            } catch (UnsupportedEncodingException e) {
-                throw new Error("Required character encoding is missing", e);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] fourCCtoBytes(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            byte[] bArr = new byte[4];
-            if (str != null) {
-                for (int i = 0; i < Math.min(4, str.length()); i++) {
-                    bArr[i] = (byte) str.charAt(i);
-                }
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.dataSource.close();
-        }
-    }
-
-    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writableByteChannel) == null) {
-            writeContainer(writableByteChannel);
         }
     }
 
@@ -129,7 +70,10 @@ public class IsoFile extends BasicContainer implements Closeable {
     public long getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getContainerSize() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getContainerSize();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer
@@ -160,6 +104,23 @@ public class IsoFile extends BasicContainer implements Closeable {
         parseContainer(dataSource, dataSource.size(), new PropertyBoxParserImpl(new String[0]));
     }
 
+    public static String bytesToFourCC(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            byte[] bArr2 = new byte[4];
+            if (bArr != null) {
+                System.arraycopy(bArr, 0, bArr2, 0, Math.min(bArr.length, 4));
+            }
+            try {
+                return new String(bArr2, "ISO-8859-1");
+            } catch (UnsupportedEncodingException e) {
+                throw new Error("Required character encoding is missing", e);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     public IsoFile(DataSource dataSource, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -177,5 +138,47 @@ public class IsoFile extends BasicContainer implements Closeable {
         }
         this.dataSource = dataSource;
         this.boxParser = boxParser;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public IsoFile(String str) throws IOException {
+        this(new FileDataSourceImpl(new File(str)));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((DataSource) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static byte[] fourCCtoBytes(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            byte[] bArr = new byte[4];
+            if (str != null) {
+                for (int i = 0; i < Math.min(4, str.length()); i++) {
+                    bArr[i] = (byte) str.charAt(i);
+                }
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writableByteChannel) == null) {
+            writeContainer(writableByteChannel);
+        }
     }
 }

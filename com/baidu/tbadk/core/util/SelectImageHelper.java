@@ -96,7 +96,10 @@ public class SelectImageHelper {
             try {
                 int readPictureDegree = readPictureDegree(FileHelper.getFileDireciory(TMP_IMAGE_NAME));
                 Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i);
-                return (readPictureDegree == 0 || subSampleBitmap == null) ? subSampleBitmap : BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
+                if (readPictureDegree != 0 && subSampleBitmap != null) {
+                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
+                }
+                return subSampleBitmap;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;
@@ -110,10 +113,13 @@ public class SelectImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
-                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
+                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
                 if (attributeInt != 3) {
                     if (attributeInt != 6) {
-                        return attributeInt != 8 ? 0 : 270;
+                        if (attributeInt != 8) {
+                            return 0;
+                        }
+                        return 270;
                     }
                     return 90;
                 }
@@ -126,7 +132,7 @@ public class SelectImageHelper {
         return invokeL.intValue;
     }
 
-    public static void takePhoto(TbPageContext<?> tbPageContext) {
+    public static void takePhoto(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, tbPageContext) == null) {
             try {
@@ -147,9 +153,9 @@ public class SelectImageHelper {
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05bb));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c3));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05bb));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c3));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -157,7 +163,7 @@ public class SelectImageHelper {
         }
     }
 
-    public static void takePhoto(TbPageContext<?> tbPageContext, String str) {
+    public static void takePhoto(TbPageContext tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, str) == null) {
             try {
@@ -176,20 +182,23 @@ public class SelectImageHelper {
                 boolean z = false;
                 if (FileHelper.CheckTempDir(str2)) {
                     File file = new File(str2 + "/" + str);
-                    z = !file.exists() ? file.createNewFile() : true;
+                    if (!file.exists()) {
+                        z = file.createNewFile();
+                    } else {
+                        z = true;
+                    }
                     if (z) {
                         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                         intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
                         tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                     }
                 }
-                if (z) {
-                    return;
-                }
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05bb));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05bb));
+                if (!z) {
+                    if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                        ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c3));
+                    } else if (tbPageContext instanceof BaseFragmentActivity) {
+                        ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c3));
+                    }
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

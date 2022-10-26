@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleTimer extends Single<Long> {
+public final class SingleTimer extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -22,13 +22,13 @@ public final class SingleTimer extends Single<Long> {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class TimerDisposable extends AtomicReference<Disposable> implements Disposable, Runnable {
+    public final class TimerDisposable extends AtomicReference implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8465401857522493082L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Long> actual;
+        public final SingleObserver actual;
 
-        public TimerDisposable(SingleObserver<? super Long> singleObserver) {
+        public TimerDisposable(SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,6 +46,13 @@ public final class SingleTimer extends Single<Long> {
             this.actual = singleObserver;
         }
 
+        public void setFuture(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+                DisposableHelper.replace(this, disposable);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -58,7 +65,10 @@ public final class SingleTimer extends Single<Long> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
@@ -66,13 +76,6 @@ public final class SingleTimer extends Single<Long> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.actual.onSuccess(0L);
-            }
-        }
-
-        public void setFuture(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
-                DisposableHelper.replace(this, disposable);
             }
         }
     }
@@ -98,7 +101,7 @@ public final class SingleTimer extends Single<Long> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Long> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             TimerDisposable timerDisposable = new TimerDisposable(singleObserver);

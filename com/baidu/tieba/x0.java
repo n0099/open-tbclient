@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x0<T> {
+public class x0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h8<w0<T>> a;
+    public h8 a;
 
     public x0() {
         Interceptable interceptable = $ic;
@@ -24,39 +24,39 @@ public class x0<T> {
                 return;
             }
         }
-        this.a = new h8<>();
-    }
-
-    public void a(w0<T> w0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, w0Var) == null) {
-            this.a.a(w0Var);
-        }
-    }
-
-    public void b(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            w0<T>[] p = this.a.p();
-            int i = this.a.b;
-            for (int i2 = 0; i2 < i; i2++) {
-                p[i2].a(this, t);
-            }
-            this.a.q();
-        }
-    }
-
-    public void c(w0<T> w0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w0Var) == null) {
-            this.a.j(w0Var, true);
-        }
+        this.a = new h8();
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.clear();
+        }
+    }
+
+    public void a(w0 w0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, w0Var) == null) {
+            this.a.a(w0Var);
+        }
+    }
+
+    public void b(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Object[] p = this.a.p();
+            int i = this.a.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                ((w0) p[i2]).a(this, obj);
+            }
+            this.a.q();
+        }
+    }
+
+    public void c(w0 w0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w0Var) == null) {
+            this.a.j(w0Var, true);
         }
     }
 }

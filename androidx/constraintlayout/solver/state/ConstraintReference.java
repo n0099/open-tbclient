@@ -54,6 +54,11 @@ public class ConstraintReference implements Reference {
     public Dimension mVerticalDimension;
     public Object mView;
 
+    /* loaded from: classes.dex */
+    public interface ConstraintReferenceFactory {
+        ConstraintReference create(State state);
+    }
+
     /* renamed from: androidx.constraintlayout.solver.state.ConstraintReference$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
@@ -140,11 +145,6 @@ public class ConstraintReference implements Reference {
     }
 
     /* loaded from: classes.dex */
-    public interface ConstraintReferenceFactory {
-        ConstraintReference create(State state);
-    }
-
-    /* loaded from: classes.dex */
     public class IncorrectConstraintException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,10 @@ public class ConstraintReference implements Reference {
         public ArrayList<String> getErrors() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mErrors : (ArrayList) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mErrors;
+            }
+            return (ArrayList) invokeV.objValue;
         }
 
         @Override // java.lang.Throwable
@@ -240,7 +243,7 @@ public class ConstraintReference implements Reference {
     private void applyConnection(ConstraintWidget constraintWidget, Object obj, State.Constraint constraint) {
         ConstraintWidget target;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, this, constraintWidget, obj, constraint) == null) || (target = getTarget(obj)) == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65537, this, constraintWidget, obj, constraint) != null) || (target = getTarget(obj)) == null) {
             return;
         }
         int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$state$State$Constraint[constraint.ordinal()];
@@ -309,6 +312,32 @@ public class ConstraintReference implements Reference {
         }
     }
 
+    public void validate() throws IncorrectConstraintException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (this.mLeftToLeft != null && this.mLeftToRight != null) {
+                arrayList.add("LeftToLeft and LeftToRight both defined");
+            }
+            if (this.mRightToLeft != null && this.mRightToRight != null) {
+                arrayList.add("RightToLeft and RightToRight both defined");
+            }
+            if (this.mStartToStart != null && this.mStartToEnd != null) {
+                arrayList.add("StartToStart and StartToEnd both defined");
+            }
+            if (this.mEndToStart != null && this.mEndToEnd != null) {
+                arrayList.add("EndToStart and EndToEnd both defined");
+            }
+            if ((this.mLeftToLeft != null || this.mLeftToRight != null || this.mRightToLeft != null || this.mRightToRight != null) && (this.mStartToStart != null || this.mStartToEnd != null || this.mEndToStart != null || this.mEndToEnd != null)) {
+                arrayList.add("Both left/right and start/end constraints defined");
+            }
+            if (arrayList.size() <= 0) {
+                return;
+            }
+            throw new IncorrectConstraintException(this, arrayList);
+        }
+    }
+
     private Object get(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -316,7 +345,10 @@ public class ConstraintReference implements Reference {
             if (obj == null) {
                 return null;
             }
-            return !(obj instanceof ConstraintReference) ? this.mState.reference(obj) : obj;
+            if (!(obj instanceof ConstraintReference)) {
+                return this.mState.reference(obj);
+            }
+            return obj;
         }
         return invokeL.objValue;
     }
@@ -333,51 +365,6 @@ public class ConstraintReference implements Reference {
         return (ConstraintWidget) invokeL.objValue;
     }
 
-    @Override // androidx.constraintlayout.solver.state.Reference
-    public void apply() {
-        ConstraintWidget constraintWidget;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (constraintWidget = this.mConstraintWidget) == null) {
-            return;
-        }
-        this.mHorizontalDimension.apply(this.mState, constraintWidget, 0);
-        this.mVerticalDimension.apply(this.mState, this.mConstraintWidget, 1);
-        dereference();
-        applyConnection(this.mConstraintWidget, this.mLeftToLeft, State.Constraint.LEFT_TO_LEFT);
-        applyConnection(this.mConstraintWidget, this.mLeftToRight, State.Constraint.LEFT_TO_RIGHT);
-        applyConnection(this.mConstraintWidget, this.mRightToLeft, State.Constraint.RIGHT_TO_LEFT);
-        applyConnection(this.mConstraintWidget, this.mRightToRight, State.Constraint.RIGHT_TO_RIGHT);
-        applyConnection(this.mConstraintWidget, this.mStartToStart, State.Constraint.START_TO_START);
-        applyConnection(this.mConstraintWidget, this.mStartToEnd, State.Constraint.START_TO_END);
-        applyConnection(this.mConstraintWidget, this.mEndToStart, State.Constraint.END_TO_START);
-        applyConnection(this.mConstraintWidget, this.mEndToEnd, State.Constraint.END_TO_END);
-        applyConnection(this.mConstraintWidget, this.mTopToTop, State.Constraint.TOP_TO_TOP);
-        applyConnection(this.mConstraintWidget, this.mTopToBottom, State.Constraint.TOP_TO_BOTTOM);
-        applyConnection(this.mConstraintWidget, this.mBottomToTop, State.Constraint.BOTTOM_TO_TOP);
-        applyConnection(this.mConstraintWidget, this.mBottomToBottom, State.Constraint.BOTTOM_TO_BOTTOM);
-        applyConnection(this.mConstraintWidget, this.mBaselineToBaseline, State.Constraint.BASELINE_TO_BASELINE);
-        int i = this.mHorizontalChainStyle;
-        if (i != 0) {
-            this.mConstraintWidget.setHorizontalChainStyle(i);
-        }
-        int i2 = this.mVerticalChainStyle;
-        if (i2 != 0) {
-            this.mConstraintWidget.setVerticalChainStyle(i2);
-        }
-        this.mConstraintWidget.setHorizontalBiasPercent(this.mHorizontalBias);
-        this.mConstraintWidget.setVerticalBiasPercent(this.mVerticalBias);
-    }
-
-    public ConstraintReference baseline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.mLast = State.Constraint.BASELINE_TO_BASELINE;
-            return this;
-        }
-        return (ConstraintReference) invokeV.objValue;
-    }
-
     public ConstraintReference baselineToBaseline(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -387,53 +374,6 @@ public class ConstraintReference implements Reference {
             return this;
         }
         return (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference bias(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            State.Constraint constraint = this.mLast;
-            if (constraint == null) {
-                return this;
-            }
-            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$state$State$Constraint[constraint.ordinal()]) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 14:
-                    this.mHorizontalBias = f;
-                    break;
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 15:
-                    this.mVerticalBias = f;
-                    break;
-            }
-            return this;
-        }
-        return (ConstraintReference) invokeF.objValue;
-    }
-
-    public ConstraintReference bottom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mBottomToTop != null) {
-                this.mLast = State.Constraint.BOTTOM_TO_TOP;
-            } else {
-                this.mLast = State.Constraint.BOTTOM_TO_BOTTOM;
-            }
-            return this;
-        }
-        return (ConstraintReference) invokeV.objValue;
     }
 
     public ConstraintReference bottomToBottom(Object obj) {
@@ -484,6 +424,270 @@ public class ConstraintReference implements Reference {
             return this;
         }
         return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference endToEnd(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            this.mLast = State.Constraint.END_TO_END;
+            this.mEndToEnd = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference endToStart(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, obj)) == null) {
+            this.mLast = State.Constraint.END_TO_START;
+            this.mEndToStart = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public int getVerticalChainStyle(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            return this.mVerticalChainStyle;
+        }
+        return invokeI.intValue;
+    }
+
+    public ConstraintReference height(Dimension dimension) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, dimension)) == null) {
+            return setHeight(dimension);
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference horizontalBias(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048600, this, f)) == null) {
+            this.mHorizontalBias = f;
+            return this;
+        }
+        return (ConstraintReference) invokeF.objValue;
+    }
+
+    public ConstraintReference leftToLeft(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, obj)) == null) {
+            this.mLast = State.Constraint.LEFT_TO_LEFT;
+            this.mLeftToLeft = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference leftToRight(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, obj)) == null) {
+            this.mLast = State.Constraint.LEFT_TO_RIGHT;
+            this.mLeftToRight = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference margin(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, obj)) == null) {
+            return margin(this.mState.convertDimension(obj));
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference rightToLeft(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, obj)) == null) {
+            this.mLast = State.Constraint.RIGHT_TO_LEFT;
+            this.mRightToLeft = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference rightToRight(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, obj)) == null) {
+            this.mLast = State.Constraint.RIGHT_TO_RIGHT;
+            this.mRightToRight = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.state.Reference
+    public void setConstraintWidget(ConstraintWidget constraintWidget) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048610, this, constraintWidget) != null) || constraintWidget == null) {
+            return;
+        }
+        this.mConstraintWidget = constraintWidget;
+        constraintWidget.setCompanionWidget(this.mView);
+    }
+
+    public ConstraintReference setHeight(Dimension dimension) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, dimension)) == null) {
+            this.mVerticalDimension = dimension;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public void setHorizontalChainStyle(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.mHorizontalChainStyle = i;
+        }
+    }
+
+    @Override // androidx.constraintlayout.solver.state.Reference
+    public void setKey(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, obj) == null) {
+            this.key = obj;
+        }
+    }
+
+    public void setVerticalChainStyle(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mVerticalChainStyle = i;
+        }
+    }
+
+    public void setView(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, obj) == null) {
+            this.mView = obj;
+            ConstraintWidget constraintWidget = this.mConstraintWidget;
+            if (constraintWidget != null) {
+                constraintWidget.setCompanionWidget(obj);
+            }
+        }
+    }
+
+    public ConstraintReference setWidth(Dimension dimension) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, dimension)) == null) {
+            this.mHorizontalDimension = dimension;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference startToEnd(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, obj)) == null) {
+            this.mLast = State.Constraint.START_TO_END;
+            this.mStartToEnd = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference startToStart(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, obj)) == null) {
+            this.mLast = State.Constraint.START_TO_START;
+            this.mStartToStart = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference topToBottom(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, obj)) == null) {
+            this.mLast = State.Constraint.TOP_TO_BOTTOM;
+            this.mTopToBottom = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference topToTop(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, obj)) == null) {
+            this.mLast = State.Constraint.TOP_TO_TOP;
+            this.mTopToTop = obj;
+            return this;
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    public ConstraintReference verticalBias(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048624, this, f)) == null) {
+            this.mVerticalBias = f;
+            return this;
+        }
+        return (ConstraintReference) invokeF.objValue;
+    }
+
+    public ConstraintReference width(Dimension dimension) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, dimension)) == null) {
+            return setWidth(dimension);
+        }
+        return (ConstraintReference) invokeL.objValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.state.Reference
+    public void apply() {
+        ConstraintWidget constraintWidget;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (constraintWidget = this.mConstraintWidget) == null) {
+            return;
+        }
+        this.mHorizontalDimension.apply(this.mState, constraintWidget, 0);
+        this.mVerticalDimension.apply(this.mState, this.mConstraintWidget, 1);
+        dereference();
+        applyConnection(this.mConstraintWidget, this.mLeftToLeft, State.Constraint.LEFT_TO_LEFT);
+        applyConnection(this.mConstraintWidget, this.mLeftToRight, State.Constraint.LEFT_TO_RIGHT);
+        applyConnection(this.mConstraintWidget, this.mRightToLeft, State.Constraint.RIGHT_TO_LEFT);
+        applyConnection(this.mConstraintWidget, this.mRightToRight, State.Constraint.RIGHT_TO_RIGHT);
+        applyConnection(this.mConstraintWidget, this.mStartToStart, State.Constraint.START_TO_START);
+        applyConnection(this.mConstraintWidget, this.mStartToEnd, State.Constraint.START_TO_END);
+        applyConnection(this.mConstraintWidget, this.mEndToStart, State.Constraint.END_TO_START);
+        applyConnection(this.mConstraintWidget, this.mEndToEnd, State.Constraint.END_TO_END);
+        applyConnection(this.mConstraintWidget, this.mTopToTop, State.Constraint.TOP_TO_TOP);
+        applyConnection(this.mConstraintWidget, this.mTopToBottom, State.Constraint.TOP_TO_BOTTOM);
+        applyConnection(this.mConstraintWidget, this.mBottomToTop, State.Constraint.BOTTOM_TO_TOP);
+        applyConnection(this.mConstraintWidget, this.mBottomToBottom, State.Constraint.BOTTOM_TO_BOTTOM);
+        applyConnection(this.mConstraintWidget, this.mBaselineToBaseline, State.Constraint.BASELINE_TO_BASELINE);
+        int i = this.mHorizontalChainStyle;
+        if (i != 0) {
+            this.mConstraintWidget.setHorizontalChainStyle(i);
+        }
+        int i2 = this.mVerticalChainStyle;
+        if (i2 != 0) {
+            this.mConstraintWidget.setVerticalChainStyle(i2);
+        }
+        this.mConstraintWidget.setHorizontalBiasPercent(this.mHorizontalBias);
+        this.mConstraintWidget.setVerticalBiasPercent(this.mVerticalBias);
     }
 
     public ConstraintReference clear() {
@@ -573,6 +777,30 @@ public class ConstraintReference implements Reference {
         return (ConstraintReference) invokeV.objValue;
     }
 
+    public ConstraintReference baseline() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.mLast = State.Constraint.BASELINE_TO_BASELINE;
+            return this;
+        }
+        return (ConstraintReference) invokeV.objValue;
+    }
+
+    public ConstraintReference bottom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mBottomToTop != null) {
+                this.mLast = State.Constraint.BOTTOM_TO_TOP;
+            } else {
+                this.mLast = State.Constraint.BOTTOM_TO_BOTTOM;
+            }
+            return this;
+        }
+        return (ConstraintReference) invokeV.objValue;
+    }
+
     public ConstraintReference clearHorizontal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -601,7 +829,10 @@ public class ConstraintReference implements Reference {
     public ConstraintWidget createConstraintWidget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new ConstraintWidget(getWidth().getValue(), getHeight().getValue()) : (ConstraintWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return new ConstraintWidget(getWidth().getValue(), getHeight().getValue());
+        }
+        return (ConstraintWidget) invokeV.objValue;
     }
 
     public ConstraintReference end() {
@@ -616,28 +847,6 @@ public class ConstraintReference implements Reference {
             return this;
         }
         return (ConstraintReference) invokeV.objValue;
-    }
-
-    public ConstraintReference endToEnd(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            this.mLast = State.Constraint.END_TO_END;
-            this.mEndToEnd = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference endToStart(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, obj)) == null) {
-            this.mLast = State.Constraint.END_TO_START;
-            this.mEndToStart = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
     }
 
     @Override // androidx.constraintlayout.solver.state.Reference
@@ -658,54 +867,47 @@ public class ConstraintReference implements Reference {
     public Dimension getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mVerticalDimension : (Dimension) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mVerticalDimension;
+        }
+        return (Dimension) invokeV.objValue;
     }
 
     public int getHorizontalChainStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mHorizontalChainStyle : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mHorizontalChainStyle;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.constraintlayout.solver.state.Reference
     public Object getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.key : invokeV.objValue;
-    }
-
-    public int getVerticalChainStyle(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) ? this.mVerticalChainStyle : invokeI.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.key;
+        }
+        return invokeV.objValue;
     }
 
     public Object getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mView : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mView;
+        }
+        return invokeV.objValue;
     }
 
     public Dimension getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mHorizontalDimension : (Dimension) invokeV.objValue;
-    }
-
-    public ConstraintReference height(Dimension dimension) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, dimension)) == null) ? setHeight(dimension) : (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference horizontalBias(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048600, this, f)) == null) {
-            this.mHorizontalBias = f;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mHorizontalDimension;
         }
-        return (ConstraintReference) invokeF.objValue;
+        return (Dimension) invokeV.objValue;
     }
 
     public ConstraintReference left() {
@@ -722,79 +924,6 @@ public class ConstraintReference implements Reference {
         return (ConstraintReference) invokeV.objValue;
     }
 
-    public ConstraintReference leftToLeft(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, obj)) == null) {
-            this.mLast = State.Constraint.LEFT_TO_LEFT;
-            this.mLeftToLeft = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference leftToRight(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, obj)) == null) {
-            this.mLast = State.Constraint.LEFT_TO_RIGHT;
-            this.mLeftToRight = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference margin(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, obj)) == null) ? margin(this.mState.convertDimension(obj)) : (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference marginGone(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
-            State.Constraint constraint = this.mLast;
-            if (constraint != null) {
-                switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$state$State$Constraint[constraint.ordinal()]) {
-                    case 1:
-                    case 2:
-                        this.mMarginLeftGone = i;
-                        break;
-                    case 3:
-                    case 4:
-                        this.mMarginRightGone = i;
-                        break;
-                    case 5:
-                    case 6:
-                        this.mMarginStartGone = i;
-                        break;
-                    case 7:
-                    case 8:
-                        this.mMarginEndGone = i;
-                        break;
-                    case 9:
-                    case 10:
-                        this.mMarginTopGone = i;
-                        break;
-                    case 11:
-                    case 12:
-                        this.mMarginBottomGone = i;
-                        break;
-                }
-            } else {
-                this.mMarginLeftGone = i;
-                this.mMarginRightGone = i;
-                this.mMarginStartGone = i;
-                this.mMarginEndGone = i;
-                this.mMarginTopGone = i;
-                this.mMarginBottomGone = i;
-            }
-            return this;
-        }
-        return (ConstraintReference) invokeI.objValue;
-    }
-
     public ConstraintReference right() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -807,91 +936,6 @@ public class ConstraintReference implements Reference {
             return this;
         }
         return (ConstraintReference) invokeV.objValue;
-    }
-
-    public ConstraintReference rightToLeft(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, obj)) == null) {
-            this.mLast = State.Constraint.RIGHT_TO_LEFT;
-            this.mRightToLeft = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference rightToRight(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, obj)) == null) {
-            this.mLast = State.Constraint.RIGHT_TO_RIGHT;
-            this.mRightToRight = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    @Override // androidx.constraintlayout.solver.state.Reference
-    public void setConstraintWidget(ConstraintWidget constraintWidget) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048610, this, constraintWidget) == null) || constraintWidget == null) {
-            return;
-        }
-        this.mConstraintWidget = constraintWidget;
-        constraintWidget.setCompanionWidget(this.mView);
-    }
-
-    public ConstraintReference setHeight(Dimension dimension) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, dimension)) == null) {
-            this.mVerticalDimension = dimension;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    public void setHorizontalChainStyle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
-            this.mHorizontalChainStyle = i;
-        }
-    }
-
-    @Override // androidx.constraintlayout.solver.state.Reference
-    public void setKey(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, obj) == null) {
-            this.key = obj;
-        }
-    }
-
-    public void setVerticalChainStyle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
-            this.mVerticalChainStyle = i;
-        }
-    }
-
-    public void setView(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, obj) == null) {
-            this.mView = obj;
-            ConstraintWidget constraintWidget = this.mConstraintWidget;
-            if (constraintWidget != null) {
-                constraintWidget.setCompanionWidget(obj);
-            }
-        }
-    }
-
-    public ConstraintReference setWidth(Dimension dimension) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, dimension)) == null) {
-            this.mHorizontalDimension = dimension;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
     }
 
     public ConstraintReference start() {
@@ -908,28 +952,6 @@ public class ConstraintReference implements Reference {
         return (ConstraintReference) invokeV.objValue;
     }
 
-    public ConstraintReference startToEnd(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, obj)) == null) {
-            this.mLast = State.Constraint.START_TO_END;
-            this.mStartToEnd = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference startToStart(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, obj)) == null) {
-            this.mLast = State.Constraint.START_TO_START;
-            this.mStartToStart = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
     public ConstraintReference top() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -944,67 +966,37 @@ public class ConstraintReference implements Reference {
         return (ConstraintReference) invokeV.objValue;
     }
 
-    public ConstraintReference topToBottom(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, obj)) == null) {
-            this.mLast = State.Constraint.TOP_TO_BOTTOM;
-            this.mTopToBottom = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    public ConstraintReference topToTop(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, obj)) == null) {
-            this.mLast = State.Constraint.TOP_TO_TOP;
-            this.mTopToTop = obj;
-            return this;
-        }
-        return (ConstraintReference) invokeL.objValue;
-    }
-
-    public void validate() throws IncorrectConstraintException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (this.mLeftToLeft != null && this.mLeftToRight != null) {
-                arrayList.add("LeftToLeft and LeftToRight both defined");
-            }
-            if (this.mRightToLeft != null && this.mRightToRight != null) {
-                arrayList.add("RightToLeft and RightToRight both defined");
-            }
-            if (this.mStartToStart != null && this.mStartToEnd != null) {
-                arrayList.add("StartToStart and StartToEnd both defined");
-            }
-            if (this.mEndToStart != null && this.mEndToEnd != null) {
-                arrayList.add("EndToStart and EndToEnd both defined");
-            }
-            if ((this.mLeftToLeft != null || this.mLeftToRight != null || this.mRightToLeft != null || this.mRightToRight != null) && (this.mStartToStart != null || this.mStartToEnd != null || this.mEndToStart != null || this.mEndToEnd != null)) {
-                arrayList.add("Both left/right and start/end constraints defined");
-            }
-            if (arrayList.size() > 0) {
-                throw new IncorrectConstraintException(this, arrayList);
-            }
-        }
-    }
-
-    public ConstraintReference verticalBias(float f) {
+    public ConstraintReference bias(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048624, this, f)) == null) {
-            this.mVerticalBias = f;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+            State.Constraint constraint = this.mLast;
+            if (constraint == null) {
+                return this;
+            }
+            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$state$State$Constraint[constraint.ordinal()]) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 14:
+                    this.mHorizontalBias = f;
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 15:
+                    this.mVerticalBias = f;
+                    break;
+            }
             return this;
         }
         return (ConstraintReference) invokeF.objValue;
-    }
-
-    public ConstraintReference width(Dimension dimension) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, dimension)) == null) ? setWidth(dimension) : (ConstraintReference) invokeL.objValue;
     }
 
     public ConstraintReference margin(int i) {
@@ -1046,6 +1038,51 @@ public class ConstraintReference implements Reference {
                 this.mMarginEnd = i;
                 this.mMarginTop = i;
                 this.mMarginBottom = i;
+            }
+            return this;
+        }
+        return (ConstraintReference) invokeI.objValue;
+    }
+
+    public ConstraintReference marginGone(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
+            State.Constraint constraint = this.mLast;
+            if (constraint != null) {
+                switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$state$State$Constraint[constraint.ordinal()]) {
+                    case 1:
+                    case 2:
+                        this.mMarginLeftGone = i;
+                        break;
+                    case 3:
+                    case 4:
+                        this.mMarginRightGone = i;
+                        break;
+                    case 5:
+                    case 6:
+                        this.mMarginStartGone = i;
+                        break;
+                    case 7:
+                    case 8:
+                        this.mMarginEndGone = i;
+                        break;
+                    case 9:
+                    case 10:
+                        this.mMarginTopGone = i;
+                        break;
+                    case 11:
+                    case 12:
+                        this.mMarginBottomGone = i;
+                        break;
+                }
+            } else {
+                this.mMarginLeftGone = i;
+                this.mMarginRightGone = i;
+                this.mMarginStartGone = i;
+                this.mMarginEndGone = i;
+                this.mMarginTopGone = i;
+                this.mMarginBottomGone = i;
             }
             return this;
         }

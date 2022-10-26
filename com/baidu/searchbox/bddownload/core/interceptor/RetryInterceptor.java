@@ -1,6 +1,5 @@
 package com.baidu.searchbox.bddownload.core.interceptor;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
 import com.baidu.searchbox.bddownload.core.download.DownloadCache;
@@ -34,29 +33,29 @@ public class RetryInterceptor implements Interceptor.Connect, Interceptor.Fetch 
     }
 
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Connect
-    @NonNull
     public DownloadConnection.Connected interceptConnect(DownloadChain downloadChain) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, downloadChain)) != null) {
-            return (DownloadConnection.Connected) invokeL.objValue;
-        }
-        DownloadCache cache = downloadChain.getCache();
-        while (true) {
-            try {
-                if (!cache.isInterrupt()) {
-                    return downloadChain.processConnect();
-                }
-                throw InterruptException.SIGNAL;
-            } catch (IOException e) {
-                if (e instanceof RetryException) {
-                    downloadChain.resetConnectForRetry();
-                } else {
-                    downloadChain.getCache().catchException(e);
-                    downloadChain.getOutputStream().catchBlockConnectException(downloadChain.getBlockIndex());
-                    throw e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadChain)) == null) {
+            DownloadCache cache = downloadChain.getCache();
+            while (true) {
+                try {
+                    if (!cache.isInterrupt()) {
+                        return downloadChain.processConnect();
+                    }
+                    throw InterruptException.SIGNAL;
+                } catch (IOException e) {
+                    if (e instanceof RetryException) {
+                        downloadChain.resetConnectForRetry();
+                    } else {
+                        downloadChain.getCache().catchException(e);
+                        downloadChain.getOutputStream().catchBlockConnectException(downloadChain.getBlockIndex());
+                        throw e;
+                    }
                 }
             }
+        } else {
+            return (DownloadConnection.Connected) invokeL.objValue;
         }
     }
 

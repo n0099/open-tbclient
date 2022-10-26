@@ -1,12 +1,8 @@
 package androidx.media2.session;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.util.ObjectsCompat;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -66,7 +62,6 @@ public final class SessionCommand implements VersionedParcelable {
     public static final int COMMAND_CODE_VOLUME_SET_VOLUME = 30000;
     public static final int COMMAND_VERSION_1 = 1;
     public static final int COMMAND_VERSION_2 = 2;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final int COMMAND_VERSION_CURRENT = 2;
     public static final SparseArray<List<Integer>> VERSION_LIBRARY_COMMANDS_MAP;
     public static final SparseArray<List<Integer>> VERSION_PLAYER_BASIC_COMMANDS_MAP;
@@ -79,14 +74,11 @@ public final class SessionCommand implements VersionedParcelable {
     public Bundle mCustomExtras;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface CommandCode {
     }
 
-    @SuppressLint({"UniqueConstants"})
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface CommandVersion {
     }
@@ -135,43 +127,40 @@ public final class SessionCommand implements VersionedParcelable {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof SessionCommand) {
-                SessionCommand sessionCommand = (SessionCommand) obj;
-                return this.mCommandCode == sessionCommand.mCommandCode && TextUtils.equals(this.mCustomAction, sessionCommand.mCustomAction);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public int getCommandCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCommandCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCommandCode;
+        }
+        return invokeV.intValue;
     }
 
-    @Nullable
     public String getCustomAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCustomAction : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCustomAction;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
     public Bundle getCustomExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCustomExtras : (Bundle) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCustomExtras;
+        }
+        return (Bundle) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ObjectsCompat.hash(this.mCustomAction, Integer.valueOf(this.mCommandCode)) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ObjectsCompat.hash(this.mCustomAction, Integer.valueOf(this.mCommandCode));
+        }
+        return invokeV.intValue;
     }
 
     public SessionCommand(int i) {
@@ -198,7 +187,7 @@ public final class SessionCommand implements VersionedParcelable {
         throw new IllegalArgumentException("commandCode shouldn't be COMMAND_CODE_CUSTOM");
     }
 
-    public SessionCommand(@NonNull String str, @Nullable Bundle bundle) {
+    public SessionCommand(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,5 +209,21 @@ public final class SessionCommand implements VersionedParcelable {
             return;
         }
         throw new NullPointerException("action shouldn't be null");
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof SessionCommand)) {
+                return false;
+            }
+            SessionCommand sessionCommand = (SessionCommand) obj;
+            if (this.mCommandCode != sessionCommand.mCommandCode || !TextUtils.equals(this.mCustomAction, sessionCommand.mCustomAction)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

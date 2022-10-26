@@ -1,177 +1,211 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.io2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oa3 extends na3 {
+public class oa3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanCoreVersion k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public JSONObject h;
+    public JSONObject i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948025480, "Lcom/baidu/tieba/oa3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948025480, "Lcom/baidu/tieba/oa3;");
+                return;
+            }
+        }
+        j = wj1.a;
+    }
 
     public oa3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = "";
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = "";
-        this.q = "";
-        this.r = "";
-        this.s = "";
-        this.t = "";
-        da3.i(this);
-        da3.h(this);
-        da3.f(this);
-        da3.g(this);
+        this.a = "swan";
     }
 
-    @Override // com.baidu.tieba.na3
-    public JSONObject f() {
+    public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.h == null) {
+                return null;
+            }
             try {
-                l33 D = yo2.U().D();
-                String i = qc3.i(this.k, TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
-                if (D != null && D.Y() != null) {
-                    io2.a Y = D.Y();
-                    if (TextUtils.isEmpty(this.l)) {
-                        this.l = D.k0();
-                    }
-                    if (TextUtils.isEmpty(this.m)) {
-                        this.m = Y.w1();
-                    }
-                    Bundle P = Y.P();
-                    if (P != null) {
-                        this.o = P.getString("aiapp_extra_need_download", "");
-                    }
-                    if (TextUtils.isEmpty(this.p)) {
-                        this.p = Y.W();
-                    }
-                    this.p = da3.b(this.p);
-                    if (TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(Y.e0())) {
-                        this.s = Y.e0();
-                    }
-                    String b = da3.b(this.s);
-                    this.s = b;
-                    if (b == null) {
-                        this.s = "";
-                    }
-                    if (TextUtils.isEmpty(this.u)) {
-                        this.u = Y.V();
-                    }
-                }
-                this.n = SwanAppNetworkUtils.f().type;
-                if (this.h == null) {
-                    this.h = new JSONObject();
-                }
-                this.h.put("swan", i);
-                this.h.put("appversion", this.l);
-                this.h.put("thirdversion", this.m);
-                this.h.put("net", this.n);
-                this.h.put("needdown", this.o);
-                this.h.put("scheme", this.p);
-                this.h.put("page", this.s);
-                this.h.put("launchid", this.u);
-                if (!TextUtils.isEmpty(this.t)) {
-                    this.h.put("error_code", this.t);
-                }
-                if (!TextUtils.isEmpty(this.q)) {
-                    this.h.put("canceltime", this.q);
-                }
-                if (!TextUtils.isEmpty(this.r)) {
-                    this.h.put("successtime", this.r);
-                }
-                if (na3.j) {
-                    Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
-                }
+                return new JSONObject(this.h.toString());
             } catch (JSONException e) {
-                if (na3.j) {
+                if (j) {
                     e.printStackTrace();
                 }
+                return null;
             }
-            return super.f();
         }
         return (JSONObject) invokeV.objValue;
     }
 
-    public String g() {
+    public void a(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put(str, obj);
+            } catch (JSONException e) {
+                if (j) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        if (this.h == null) {
+            this.h = new JSONObject();
+        }
+        JSONObject optJSONObject = this.h.optJSONObject("extlog");
+        this.i = optJSONObject;
+        if (optJSONObject == null) {
+            this.i = new JSONObject();
+        }
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            try {
+                this.i.put(next, jSONObject.opt(next));
+            } catch (JSONException e) {
+                if (j) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        try {
+            this.h.put("extlog", this.i);
+        } catch (JSONException e2) {
+            if (j) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            e(new JSONObject(str));
+        } catch (JSONException e) {
+            if (j) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        if (this.h == null) {
+            this.h = new JSONObject();
+        }
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            try {
+                this.h.put(next, jSONObject.opt(next));
+            } catch (JSONException e) {
+                if (j) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.u : (String) invokeV.objValue;
-    }
-
-    public void h(lo2 lo2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lo2Var) == null) {
-            if (lo2Var == null) {
-                if (na3.j) {
-                    Log.w("SwanAppUBCEvent", "launchinfo is null");
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(this.a)) {
+                    jSONObject.put("from", this.a);
                 }
-                return;
+                if (!TextUtils.isEmpty(this.b)) {
+                    jSONObject.put("type", this.b);
+                }
+                if (!TextUtils.isEmpty(this.e)) {
+                    jSONObject.put("value", this.e);
+                }
+                if (TextUtils.isEmpty(this.c)) {
+                    this.c = "NA";
+                }
+                jSONObject.put("source", this.c);
+                if (!TextUtils.isEmpty(this.g)) {
+                    String b = ea3.b(this.g);
+                    this.g = b;
+                    jSONObject.put("page", b);
+                }
+                if (this.h == null) {
+                    this.h = new JSONObject();
+                }
+                if (!TextUtils.isEmpty(this.f)) {
+                    this.h.put("appid", this.f);
+                }
+                if (!TextUtils.isEmpty(this.d)) {
+                    this.h.put("launchid", this.d);
+                }
+                ea3.a(this.h);
+                jSONObject.put("ext", this.h);
+                return jSONObject;
+            } catch (JSONException e) {
+                if (j) {
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
             }
-            this.f = lo2Var.H();
-            this.c = lo2Var.T();
-            this.o = lo2Var.s0().getString("aiapp_extra_need_download", "");
-            this.p = lo2Var.W();
-            this.s = lo2Var.e0();
-            this.u = lo2Var.V();
         }
-    }
-
-    public void i(lo2 lo2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lo2Var) == null) {
-            h(lo2Var);
-        }
-    }
-
-    public void j(lo2 lo2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lo2Var) == null) {
-            h(lo2Var);
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.u = str;
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

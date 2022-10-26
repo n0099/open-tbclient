@@ -17,25 +17,25 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
+public final class MaybePeek extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onAfterTerminate;
     public final Action onCompleteCall;
     public final Action onDisposeCall;
-    public final Consumer<? super Throwable> onErrorCall;
-    public final Consumer<? super Disposable> onSubscribeCall;
-    public final Consumer<? super T> onSuccessCall;
+    public final Consumer onErrorCall;
+    public final Consumer onSubscribeCall;
+    public final Consumer onSuccessCall;
 
     /* loaded from: classes8.dex */
-    public static final class MaybePeekObserver<T> implements MaybeObserver<T>, Disposable {
+    public final class MaybePeekObserver implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable d;
-        public final MaybePeek<T> parent;
+        public final MaybePeek parent;
 
-        public MaybePeekObserver(MaybeObserver<? super T> maybeObserver, MaybePeek<T> maybePeek) {
+        public MaybePeekObserver(MaybeObserver maybeObserver, MaybePeek maybePeek) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,10 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         public void onAfterTerminate() {
@@ -91,7 +94,7 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.d == DisposableHelper.DISPOSED) {
+            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
@@ -114,6 +117,23 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
                 } else {
                     onErrorInner(th);
                 }
+            }
+        }
+
+        @Override // io.reactivex.MaybeObserver
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048583, this, obj) != null) || this.d == DisposableHelper.DISPOSED) {
+                return;
+            }
+            try {
+                this.parent.onSuccessCall.accept(obj);
+                this.d = DisposableHelper.DISPOSED;
+                this.actual.onSuccess(obj);
+                onAfterTerminate();
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                onErrorInner(th);
             }
         }
 
@@ -148,27 +168,10 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
                 }
             }
         }
-
-        @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || this.d == DisposableHelper.DISPOSED) {
-                return;
-            }
-            try {
-                this.parent.onSuccessCall.accept(t);
-                this.d = DisposableHelper.DISPOSED;
-                this.actual.onSuccess(t);
-                onAfterTerminate();
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                onErrorInner(th);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybePeek(MaybeSource<T> maybeSource, Consumer<? super Disposable> consumer, Consumer<? super T> consumer2, Consumer<? super Throwable> consumer3, Action action, Action action2, Action action3) {
+    public MaybePeek(MaybeSource maybeSource, Consumer consumer, Consumer consumer2, Consumer consumer3, Action action, Action action2, Action action3) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -194,7 +197,7 @@ public final class MaybePeek<T> extends AbstractMaybeWithUpstream<T, T> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new MaybePeekObserver(maybeObserver, this));

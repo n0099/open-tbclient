@@ -10,6 +10,8 @@ public abstract class ExtendSysWebViewMethodCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onFinish(ExtendSysWebViewMethodResult extendSysWebViewMethodResult);
+
     public ExtendSysWebViewMethodCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,6 +25,4 @@ public abstract class ExtendSysWebViewMethodCallback {
             }
         }
     }
-
-    public abstract void onFinish(ExtendSysWebViewMethodResult extendSysWebViewMethodResult);
 }

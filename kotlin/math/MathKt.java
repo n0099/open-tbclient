@@ -1,18 +1,15 @@
 package kotlin.math;
 
 import kotlin.Metadata;
-import kotlin.SinceKotlin;
 @Metadata(d1 = {"kotlin/math/MathKt__MathHKt", "kotlin/math/MathKt__MathJVMKt"}, k = 4, mv = {1, 5, 1}, xi = 1)
 /* loaded from: classes8.dex */
 public final class MathKt extends MathKt__MathJVMKt {
     public static final double E = 2.718281828459045d;
     public static final double PI = 3.141592653589793d;
 
-    @SinceKotlin(version = "1.2")
     public static /* synthetic */ void getE$annotations() {
     }
 
-    @SinceKotlin(version = "1.2")
     public static /* synthetic */ void getPI$annotations() {
     }
 }

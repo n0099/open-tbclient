@@ -12,6 +12,10 @@ public abstract class DebugDataGroupProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract List getChildItemList();
+
+    public abstract String getGroupName();
+
     public DebugDataGroupProvider() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,8 +29,4 @@ public abstract class DebugDataGroupProvider {
             }
         }
     }
-
-    public abstract List<DebugItemInfo> getChildItemList();
-
-    public abstract String getGroupName();
 }

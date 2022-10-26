@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.Matcher;
@@ -49,6 +48,18 @@ public class SysUtils {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static boolean isLowEndDevice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (a == null) {
+                a = Boolean.valueOf(b());
+            }
+            return a.booleanValue();
+        }
+        return invokeV.booleanValue;
     }
 
     public static int a() {
@@ -104,20 +115,10 @@ public class SysUtils {
             if (CommandLine.a().b("enable-low-end-device-mode")) {
                 return true;
             }
-            return !CommandLine.a().b("disable-low-end-device-mode") && (a2 = a()) > 0 && a2 / 1024 <= 512;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @CalledByNative
-    public static boolean isLowEndDevice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (a == null) {
-                a = Boolean.valueOf(b());
+            if (!CommandLine.a().b("disable-low-end-device-mode") && (a2 = a()) > 0 && a2 / 1024 <= 512) {
+                return true;
             }
-            return a.booleanValue();
+            return false;
         }
         return invokeV.booleanValue;
     }

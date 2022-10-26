@@ -27,9 +27,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.addresslist.model.QuickSearchModel;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.v25;
-import com.baidu.tieba.yp4;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
+public class QuickSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public QuickSearchModel a;
@@ -80,7 +80,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    ej.x(this.a.getPageContext().getPageActivity(), this.a.d);
+                    fj.x(this.a.getPageContext().getPageActivity(), this.a.d);
                     return false;
                 }
                 return false;
@@ -119,7 +119,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    ej.x(this.a.getPageContext().getPageActivity(), this.a.d);
+                    fj.x(this.a.getPageContext().getPageActivity(), this.a.d);
                     return false;
                 }
                 return false;
@@ -157,7 +157,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.d.hasFocus()) {
-                    ej.x(this.a.getPageContext().getPageActivity(), this.a.d);
+                    fj.x(this.a.getPageContext().getPageActivity(), this.a.d);
                 }
                 this.a.closeActivity();
             }
@@ -191,10 +191,9 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.view.View.OnFocusChangeListener
         public void onFocusChange(View view2, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) || z) {
-                return;
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) && !z) {
+                fj.x(this.a.getPageContext().getPageActivity(), view2);
             }
-            ej.x(this.a.getPageContext().getPageActivity(), view2);
         }
     }
 
@@ -239,6 +238,13 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ QuickSearchActivity a;
 
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
         public f(QuickSearchActivity quickSearchActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -257,6 +263,10 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             this.a = quickSearchActivity;
         }
 
+        public /* synthetic */ f(QuickSearchActivity quickSearchActivity, a aVar) {
+            this(quickSearchActivity);
+        }
+
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
@@ -270,27 +280,122 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
                 if (charSequence.toString().trim().length() != 0) {
-                    this.a.G1(charSequence.toString());
+                    this.a.F1(charSequence.toString());
                     return;
                 }
                 this.a.f.setVisibility(8);
                 this.a.g.setVisibility(8);
             }
         }
+    }
 
-        public /* synthetic */ f(QuickSearchActivity quickSearchActivity, a aVar) {
+    /* loaded from: classes3.dex */
+    public class g extends BaseAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List a;
+        public final /* synthetic */ QuickSearchActivity b;
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+        }
+
+        public g(QuickSearchActivity quickSearchActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {quickSearchActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = quickSearchActivity;
+            this.a = new ArrayList();
+        }
+
+        public /* synthetic */ g(QuickSearchActivity quickSearchActivity, a aVar) {
             this(quickSearchActivity);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.widget.Adapter
+        /* renamed from: a */
+        public b35 getItem(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (this.a != null && i >= 0 && i < getCount()) {
+                    return (b35) this.a.get(i);
+                }
+                return null;
+            }
+            return (b35) invokeI.objValue;
+        }
+
+        public void b(List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                this.a = list;
+            }
+        }
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                List list = this.a;
+                if (list != null) {
+                    return list.size();
+                }
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.widget.Adapter
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            h hVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+                zp4 layoutMode = this.b.getLayoutMode();
+                TbadkCoreApplication.getInst().getSkinType();
+                b35 item = getItem(i);
+                if (item == null) {
+                    return null;
+                }
+                if (view2 == null) {
+                    view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0763, (ViewGroup) null);
+                    hVar = new h(this.b, null);
+                    hVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b3b);
+                    hVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b3c);
+                    view2.setTag(hVar);
+                } else {
+                    hVar = (h) view2.getTag();
+                }
+                layoutMode.k(view2);
+                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+                if (item.e() != null) {
+                    hVar.b.setText(item.e());
+                }
+                hVar.a.L(item.g(), 12, false);
+                return view2;
+            }
+            return (View) invokeILL.objValue;
         }
     }
 
@@ -339,64 +444,33 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         }
     }
 
-    public final void F1() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
-            this.c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0764, (View.OnClickListener) null);
-            EditText editText = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b3e);
-            this.d = editText;
-            editText.addTextChangedListener(new f(this, null));
-            this.d.setOnFocusChangeListener(new d(this));
-            this.d.requestFocus();
-            this.e = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b3c);
-            ej.b(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
-            this.e.setOnClickListener(new e(this));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDestroy();
+            fj.x(getPageContext().getPageActivity(), this.d);
+            this.a = null;
         }
     }
 
-    public final void G1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            List<v25> z = this.a.z(str);
-            if (z.size() > 0) {
-                H1(true);
-                this.h.b(z);
-                this.h.notifyDataSetChanged();
-                this.g.setSelection(0);
-                return;
-            }
-            H1(false);
-        }
-    }
-
-    public final void H1(boolean z) {
+    public final void G1(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.g.setVisibility(z ? 0 : 8);
-            this.f.setVisibility(z ? 8 : 0);
-        }
-    }
-
-    public final void initViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091b41);
-            adjustResizeForSoftInput();
-            F1();
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091b42);
-            TextView textView = new TextView(getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-            this.g.addHeaderView(textView);
-            this.g.setOnTouchListener(new a(this));
-            g gVar = new g(this, null);
-            this.h = gVar;
-            this.g.setAdapter((ListAdapter) gVar);
-            this.g.setOnItemClickListener(this);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b3d);
-            this.b.setOnTouchListener(new b(this));
+            ListView listView = this.g;
+            int i2 = 0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            listView.setVisibility(i);
+            TextView textView = this.f;
+            if (z) {
+                i2 = 8;
+            }
+            textView.setVisibility(i2);
         }
     }
 
@@ -425,139 +499,75 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
+    public final void E1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDestroy();
-            ej.x(getPageContext().getPageActivity(), this.d);
-            this.a = null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
+            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0764, (View.OnClickListener) null);
+            EditText editText = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b3a);
+            this.d = editText;
+            editText.addTextChangedListener(new f(this, null));
+            this.d.setOnFocusChangeListener(new d(this));
+            this.d.requestFocus();
+            this.e = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b38);
+            fj.b(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
+            this.e.setOnClickListener(new e(this));
+        }
+    }
+
+    public final void initViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = findViewById(R.id.obfuscated_res_0x7f091b3d);
+            adjustResizeForSoftInput();
+            E1();
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091b3e);
+            TextView textView = new TextView(getActivity());
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
+            this.g.addHeaderView(textView);
+            this.g.setOnTouchListener(new a(this));
+            g gVar = new g(this, null);
+            this.h = gVar;
+            this.g.setAdapter((ListAdapter) gVar);
+            this.g.setOnItemClickListener(this);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b39);
+            this.b.setOnTouchListener(new b(this));
+        }
+    }
+
+    public final void F1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            List z = this.a.z(str);
+            if (z.size() > 0) {
+                G1(true);
+                this.h.b(z);
+                this.h.notifyDataSetChanged();
+                this.g.setSelection(0);
+                return;
+            }
+            G1(false);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             int headerViewsCount = this.g.getHeaderViewsCount();
             if (headerViewsCount > 0) {
                 i -= headerViewsCount;
             }
-            v25 item = this.h.getItem(i);
-            if (item == null || item.d() <= 0) {
-                return;
-            }
-            if (item.h() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.d(), item.e(), item.g(), 0, 4)));
-            } else {
-                sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(item.d()), item.e())));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g extends BaseAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<v25> a;
-        public final /* synthetic */ QuickSearchActivity b;
-
-        public g(QuickSearchActivity quickSearchActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {quickSearchActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = quickSearchActivity;
-            this.a = new ArrayList();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: a */
-        public v25 getItem(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (this.a == null || i < 0 || i >= getCount()) {
-                    return null;
-                }
-                return this.a.get(i);
-            }
-            return (v25) invokeI.objValue;
-        }
-
-        public void b(List<v25> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.a = list;
-            }
-        }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                List<v25> list = this.a;
-                if (list != null) {
-                    return list.size();
-                }
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-        }
-
-        @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            h hVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-                yp4 layoutMode = this.b.getLayoutMode();
-                TbadkCoreApplication.getInst().getSkinType();
-                v25 item = getItem(i);
-                if (item == null) {
-                    return null;
-                }
-                if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0763, (ViewGroup) null);
-                    hVar = new h(this.b, null);
-                    hVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b3f);
-                    hVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b40);
-                    view2.setTag(hVar);
+            b35 item = this.h.getItem(i);
+            if (item != null && item.d() > 0) {
+                if (item.h() == 1) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.d(), item.e(), item.g(), 0, 4)));
                 } else {
-                    hVar = (h) view2.getTag();
+                    sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(item.d()), item.e())));
                 }
-                layoutMode.k(view2);
-                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-                if (item.e() != null) {
-                    hVar.b.setText(item.e());
-                }
-                hVar.a.K(item.g(), 12, false);
-                return view2;
             }
-            return (View) invokeILL.objValue;
-        }
-
-        public /* synthetic */ g(QuickSearchActivity quickSearchActivity, a aVar) {
-            this(quickSearchActivity);
         }
     }
 }

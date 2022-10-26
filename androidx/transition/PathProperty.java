@@ -48,28 +48,23 @@ public class PathProperty<T> extends Property<T, Float> {
         this.mPathLength = pathMeasure.getLength();
     }
 
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // android.util.Property
+    public Float get(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            return Float.valueOf(this.mCurrentFraction);
+        }
+        return (Float) invokeL.objValue;
+    }
+
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.util.Property
     public /* bridge */ /* synthetic */ Float get(Object obj) {
         return get((PathProperty<T>) obj);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.util.Property
-    public /* bridge */ /* synthetic */ void set(Object obj, Float f) {
-        set2((PathProperty<T>) obj, f);
-    }
-
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // android.util.Property
-    public Float get(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? Float.valueOf(this.mCurrentFraction) : (Float) invokeL.objValue;
     }
 
     /* renamed from: set  reason: avoid collision after fix types in other method */
@@ -84,5 +79,13 @@ public class PathProperty<T> extends Property<T, Float> {
             pointF.y = fArr[1];
             this.mProperty.set(t, pointF);
         }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.util.Property
+    public /* bridge */ /* synthetic */ void set(Object obj, Float f) {
+        set2((PathProperty<T>) obj, f);
     }
 }

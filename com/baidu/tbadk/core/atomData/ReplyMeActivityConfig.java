@@ -41,36 +41,32 @@ public class ReplyMeActivityConfig extends IntentConfig {
     public void setFrom(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("from", i);
         }
-        intent.putExtra("from", i);
     }
 
     public void setHighLightPostId(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("high_light_post_id", str);
         }
-        intent.putExtra("high_light_post_id", str);
     }
 
     public void setLastUniqueId(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("last_page_unique_id", i);
         }
-        intent.putExtra("last_page_unique_id", i);
     }
 
     public void setReplyNumber(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_REPLY_NUMBER, i);
         }
-        intent.putExtra(KEY_REPLY_NUMBER, i);
     }
 }

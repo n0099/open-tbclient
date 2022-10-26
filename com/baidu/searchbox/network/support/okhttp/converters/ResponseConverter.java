@@ -1,8 +1,8 @@
 package com.baidu.searchbox.network.support.okhttp.converters;
 
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class ResponseConverter {
         }
     }
 
-    public static Response fromOks(@NonNull Request request, @NonNull okhttp3.Response response) {
+    public static Response fromOks(Request request, okhttp3.Response response) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, request, response)) == null) {
@@ -66,11 +66,18 @@ public class ResponseConverter {
     }
 
     public static void updateResponseToNetworkRecord(Response response, okhttp3.Response response2) {
+        String protocol;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, response, response2) == null) {
             response.getStatRecord().statusCode = response2.code();
-            Protocol protocol = response2.protocol();
-            response.getStatRecord().protocol = protocol == null ? "unknown" : protocol.toString();
+            Protocol protocol2 = response2.protocol();
+            NetworkStatRecord statRecord = response.getStatRecord();
+            if (protocol2 == null) {
+                protocol = "unknown";
+            } else {
+                protocol = protocol2.toString();
+            }
+            statRecord.protocol = protocol;
         }
     }
 }

@@ -19,7 +19,7 @@ import java.util.Map;
 public class RevenueSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RevenueSdk";
-    public static Map<String, IRevenue> iRevenueMap;
+    public static Map iRevenueMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -80,14 +80,14 @@ public class RevenueSdk {
                 } else {
                     RevenueConfigCenter.addConfig(i, i2, revenueConfig);
                 }
-                iRevenue = iRevenueMap.get(revenueMapKey);
+                iRevenue = (IRevenue) iRevenueMap.get(revenueMapKey);
             }
             return iRevenue;
         }
         return (IRevenue) invokeIIL.objValue;
     }
 
-    public static synchronized List<IRevenue> getAllRevenue() {
+    public static synchronized List getAllRevenue() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class RevenueSdk {
         if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
             synchronized (RevenueSdk.class) {
                 String revenueMapKey = getRevenueMapKey(i, i2);
-                iRevenue = iRevenueMap.get(revenueMapKey);
+                iRevenue = (IRevenue) iRevenueMap.get(revenueMapKey);
                 if (iRevenue == null) {
                     RLog.error(TAG, "getRevenue == null,mapKey = %d", revenueMapKey);
                 }

@@ -9,5 +9,5 @@ public interface NetRequestCallback {
 
     void onFailed(int i, String str);
 
-    void onSucceeded(String str, int i, Map<String, String> map);
+    void onSucceeded(String str, int i, Map map);
 }

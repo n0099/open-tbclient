@@ -62,18 +62,27 @@ public final class ShapeRenderer$ShapeType {
     public static ShapeRenderer$ShapeType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ShapeRenderer$ShapeType) Enum.valueOf(ShapeRenderer$ShapeType.class, str) : (ShapeRenderer$ShapeType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ShapeRenderer$ShapeType) Enum.valueOf(ShapeRenderer$ShapeType.class, str);
+        }
+        return (ShapeRenderer$ShapeType) invokeL.objValue;
     }
 
     public static ShapeRenderer$ShapeType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ShapeRenderer$ShapeType[]) $VALUES.clone() : (ShapeRenderer$ShapeType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ShapeRenderer$ShapeType[]) $VALUES.clone();
+        }
+        return (ShapeRenderer$ShapeType[]) invokeV.objValue;
     }
 
     public int getGlType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.glType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.glType;
+        }
+        return invokeV.intValue;
     }
 }

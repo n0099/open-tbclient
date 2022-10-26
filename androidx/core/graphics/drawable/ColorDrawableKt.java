@@ -2,8 +2,6 @@ package androidx.core.graphics.drawable;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,16 +12,21 @@ public final class ColorDrawableKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final ColorDrawable toDrawable(@ColorInt int i) {
+    public static final ColorDrawable toDrawable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? new ColorDrawable(i) : (ColorDrawable) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            return new ColorDrawable(i);
+        }
+        return (ColorDrawable) invokeI.objValue;
     }
 
-    @RequiresApi(26)
     public static final ColorDrawable toDrawable(Color color) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, color)) == null) ? new ColorDrawable(color.toArgb()) : (ColorDrawable) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, color)) == null) {
+            return new ColorDrawable(color.toArgb());
+        }
+        return (ColorDrawable) invokeL.objValue;
     }
 }

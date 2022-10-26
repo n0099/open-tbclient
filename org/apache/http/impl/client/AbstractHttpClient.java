@@ -41,6 +41,40 @@ public abstract class AbstractHttpClient implements HttpClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract AuthSchemeRegistry createAuthSchemeRegistry();
+
+    public abstract ClientConnectionManager createClientConnectionManager();
+
+    public abstract ConnectionKeepAliveStrategy createConnectionKeepAliveStrategy();
+
+    public abstract ConnectionReuseStrategy createConnectionReuseStrategy();
+
+    public abstract CookieSpecRegistry createCookieSpecRegistry();
+
+    public abstract CookieStore createCookieStore();
+
+    public abstract CredentialsProvider createCredentialsProvider();
+
+    public abstract HttpContext createHttpContext();
+
+    public abstract HttpParams createHttpParams();
+
+    public abstract BasicHttpProcessor createHttpProcessor();
+
+    public abstract HttpRequestRetryHandler createHttpRequestRetryHandler();
+
+    public abstract HttpRoutePlanner createHttpRoutePlanner();
+
+    public abstract AuthenticationHandler createProxyAuthenticationHandler();
+
+    public abstract RedirectHandler createRedirectHandler();
+
+    public abstract HttpRequestExecutor createRequestExecutor();
+
+    public abstract AuthenticationHandler createTargetAuthenticationHandler();
+
+    public abstract UserTokenHandler createUserTokenHandler();
+
     public AbstractHttpClient(ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,67 +111,6 @@ public abstract class AbstractHttpClient implements HttpClient {
         }
     }
 
-    public synchronized void clearRequestInterceptors() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void clearResponseInterceptors() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public abstract AuthSchemeRegistry createAuthSchemeRegistry();
-
-    public abstract ClientConnectionManager createClientConnectionManager();
-
-    public RequestDirector createClientRequestDirector(HttpRequestExecutor httpRequestExecutor, ClientConnectionManager clientConnectionManager, ConnectionReuseStrategy connectionReuseStrategy, ConnectionKeepAliveStrategy connectionKeepAliveStrategy, HttpRoutePlanner httpRoutePlanner, HttpProcessor httpProcessor, HttpRequestRetryHandler httpRequestRetryHandler, RedirectHandler redirectHandler, AuthenticationHandler authenticationHandler, AuthenticationHandler authenticationHandler2, UserTokenHandler userTokenHandler, HttpParams httpParams) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{httpRequestExecutor, clientConnectionManager, connectionReuseStrategy, connectionKeepAliveStrategy, httpRoutePlanner, httpProcessor, httpRequestRetryHandler, redirectHandler, authenticationHandler, authenticationHandler2, userTokenHandler, httpParams})) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (RequestDirector) invokeCommon.objValue;
-    }
-
-    public abstract ConnectionKeepAliveStrategy createConnectionKeepAliveStrategy();
-
-    public abstract ConnectionReuseStrategy createConnectionReuseStrategy();
-
-    public abstract CookieSpecRegistry createCookieSpecRegistry();
-
-    public abstract CookieStore createCookieStore();
-
-    public abstract CredentialsProvider createCredentialsProvider();
-
-    public abstract HttpContext createHttpContext();
-
-    public abstract HttpParams createHttpParams();
-
-    public abstract BasicHttpProcessor createHttpProcessor();
-
-    public abstract HttpRequestRetryHandler createHttpRequestRetryHandler();
-
-    public abstract HttpRoutePlanner createHttpRoutePlanner();
-
-    public abstract AuthenticationHandler createProxyAuthenticationHandler();
-
-    public abstract RedirectHandler createRedirectHandler();
-
-    public abstract HttpRequestExecutor createRequestExecutor();
-
-    public abstract AuthenticationHandler createTargetAuthenticationHandler();
-
-    public abstract UserTokenHandler createUserTokenHandler();
-
     public HttpParams determineParams(HttpRequest httpRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -155,6 +128,205 @@ public abstract class AbstractHttpClient implements HttpClient {
             throw new RuntimeException("Stub!");
         }
         return (HttpResponse) invokeL.objValue;
+    }
+
+    public synchronized HttpRequestInterceptor getRequestInterceptor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i)) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+        return (HttpRequestInterceptor) invokeI.objValue;
+    }
+
+    public synchronized HttpResponseInterceptor getResponseInterceptor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i)) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+        return (HttpResponseInterceptor) invokeI.objValue;
+    }
+
+    public void removeRequestInterceptorByClass(Class cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, cls) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void removeResponseInterceptorByClass(Class cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, cls) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public synchronized void setAuthSchemes(AuthSchemeRegistry authSchemeRegistry) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, authSchemeRegistry) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setCookieSpecs(CookieSpecRegistry cookieSpecRegistry) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, cookieSpecRegistry) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setCookieStore(CookieStore cookieStore) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, cookieStore) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setCredentialsProvider(CredentialsProvider credentialsProvider) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048634, this, credentialsProvider) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setHttpRequestRetryHandler(HttpRequestRetryHandler httpRequestRetryHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, httpRequestRetryHandler) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setKeepAliveStrategy(ConnectionKeepAliveStrategy connectionKeepAliveStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, connectionKeepAliveStrategy) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setParams(HttpParams httpParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, httpParams) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setProxyAuthenticationHandler(AuthenticationHandler authenticationHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048638, this, authenticationHandler) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setRedirectHandler(RedirectHandler redirectHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048639, this, redirectHandler) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setReuseStrategy(ConnectionReuseStrategy connectionReuseStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048640, this, connectionReuseStrategy) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setRoutePlanner(HttpRoutePlanner httpRoutePlanner) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, httpRoutePlanner) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setTargetAuthenticationHandler(AuthenticationHandler authenticationHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, authenticationHandler) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void setUserTokenHandler(UserTokenHandler userTokenHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, userTokenHandler) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpRequestInterceptor, i) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, httpResponseInterceptor, i) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler) throws IOException, ClientProtocolException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, httpUriRequest, responseHandler)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLL.objValue;
+    }
+
+    public synchronized void clearRequestInterceptors() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    public synchronized void clearResponseInterceptors() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
     }
 
     public final synchronized AuthSchemeRegistry getAuthSchemes() {
@@ -302,17 +474,6 @@ public abstract class AbstractHttpClient implements HttpClient {
         return (HttpRequestExecutor) invokeV.objValue;
     }
 
-    public synchronized HttpRequestInterceptor getRequestInterceptor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i)) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-        return (HttpRequestInterceptor) invokeI.objValue;
-    }
-
     public synchronized int getRequestInterceptorCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -322,17 +483,6 @@ public abstract class AbstractHttpClient implements HttpClient {
             }
         }
         return invokeV.intValue;
-    }
-
-    public synchronized HttpResponseInterceptor getResponseInterceptor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i)) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-        return (HttpResponseInterceptor) invokeI.objValue;
     }
 
     public synchronized int getResponseInterceptorCount() {
@@ -379,163 +529,43 @@ public abstract class AbstractHttpClient implements HttpClient {
         return (UserTokenHandler) invokeV.objValue;
     }
 
-    public void removeRequestInterceptorByClass(Class<? extends HttpRequestInterceptor> cls) {
+    public RequestDirector createClientRequestDirector(HttpRequestExecutor httpRequestExecutor, ClientConnectionManager clientConnectionManager, ConnectionReuseStrategy connectionReuseStrategy, ConnectionKeepAliveStrategy connectionKeepAliveStrategy, HttpRoutePlanner httpRoutePlanner, HttpProcessor httpProcessor, HttpRequestRetryHandler httpRequestRetryHandler, RedirectHandler redirectHandler, AuthenticationHandler authenticationHandler, AuthenticationHandler authenticationHandler2, UserTokenHandler userTokenHandler, HttpParams httpParams) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, cls) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{httpRequestExecutor, clientConnectionManager, connectionReuseStrategy, connectionKeepAliveStrategy, httpRoutePlanner, httpProcessor, httpRequestRetryHandler, redirectHandler, authenticationHandler, authenticationHandler2, userTokenHandler, httpParams})) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public void removeResponseInterceptorByClass(Class<? extends HttpResponseInterceptor> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, cls) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public synchronized void setAuthSchemes(AuthSchemeRegistry authSchemeRegistry) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, authSchemeRegistry) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setCookieSpecs(CookieSpecRegistry cookieSpecRegistry) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, cookieSpecRegistry) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setCookieStore(CookieStore cookieStore) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, cookieStore) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setCredentialsProvider(CredentialsProvider credentialsProvider) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, credentialsProvider) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setHttpRequestRetryHandler(HttpRequestRetryHandler httpRequestRetryHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, httpRequestRetryHandler) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setKeepAliveStrategy(ConnectionKeepAliveStrategy connectionKeepAliveStrategy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, connectionKeepAliveStrategy) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setParams(HttpParams httpParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, httpParams) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setProxyAuthenticationHandler(AuthenticationHandler authenticationHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, authenticationHandler) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setRedirectHandler(RedirectHandler redirectHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, redirectHandler) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setReuseStrategy(ConnectionReuseStrategy connectionReuseStrategy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, connectionReuseStrategy) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setRoutePlanner(HttpRoutePlanner httpRoutePlanner) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, httpRoutePlanner) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setTargetAuthenticationHandler(AuthenticationHandler authenticationHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, authenticationHandler) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void setUserTokenHandler(UserTokenHandler userTokenHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, userTokenHandler) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpRequestInterceptor, i) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, httpResponseInterceptor, i) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
+        return (RequestDirector) invokeCommon.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
-    public final HttpResponse execute(HttpUriRequest httpUriRequest, HttpContext httpContext) throws IOException, ClientProtocolException {
-        InterceptResult invokeLL;
+    public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler) throws IOException, ClientProtocolException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, httpUriRequest, httpContext)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, httpHost, httpRequest, responseHandler)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (HttpResponse) invokeLL.objValue;
+        return invokeLLL.objValue;
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048602, this, httpHost, httpRequest, responseHandler, httpContext)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLLLL.objValue;
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, httpUriRequest, responseHandler, httpContext)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLLL.objValue;
     }
 
     @Override // org.apache.http.client.HttpClient
@@ -559,42 +589,12 @@ public abstract class AbstractHttpClient implements HttpClient {
     }
 
     @Override // org.apache.http.client.HttpClient
-    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler) throws IOException, ClientProtocolException {
+    public final HttpResponse execute(HttpUriRequest httpUriRequest, HttpContext httpContext) throws IOException, ClientProtocolException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, httpUriRequest, responseHandler)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, httpUriRequest, httpContext)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // org.apache.http.client.HttpClient
-    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, httpUriRequest, responseHandler, httpContext)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    @Override // org.apache.http.client.HttpClient
-    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler) throws IOException, ClientProtocolException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, httpHost, httpRequest, responseHandler)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    @Override // org.apache.http.client.HttpClient
-    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) throws IOException, ClientProtocolException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048602, this, httpHost, httpRequest, responseHandler, httpContext)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (T) invokeLLLL.objValue;
+        return (HttpResponse) invokeLL.objValue;
     }
 }

@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.model;
 
 import android.util.Base64;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,31 +17,38 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data> {
+public final class DataUrlLoader implements ModelLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BASE64_TAG = ";base64";
     public static final String DATA_SCHEME_IMAGE = "data:image";
     public transient /* synthetic */ FieldHolder $fh;
-    public final DataDecoder<Data> dataDecoder;
+    public final DataDecoder dataDecoder;
 
     /* loaded from: classes7.dex */
-    public interface DataDecoder<Data> {
-        void close(Data data) throws IOException;
+    public interface DataDecoder {
+        void close(Object obj) throws IOException;
 
-        Data decode(String str) throws IllegalArgumentException;
+        Object decode(String str) throws IllegalArgumentException;
 
-        Class<Data> getDataClass();
+        Class getDataClass();
     }
 
     /* loaded from: classes7.dex */
-    public static final class DataUriFetcher<Data> implements DataFetcher<Data> {
+    public final class DataUriFetcher implements DataFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Data data;
+        public Object data;
         public final String dataUri;
-        public final DataDecoder<Data> reader;
+        public final DataDecoder reader;
 
-        public DataUriFetcher(String str, DataDecoder<Data> dataDecoder) {
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public DataUriFetcher(String str, DataDecoder dataDecoder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,13 +68,6 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.bumptech.glide.load.data.DataFetcher
         public void cleanup() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -80,28 +79,31 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
-        public Class<Data> getDataClass() {
+        public Class getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.reader.getDataClass() : (Class) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.reader.getDataClass();
+            }
+            return (Class) invokeV.objValue;
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? DataSource.LOCAL : (DataSource) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return DataSource.LOCAL;
+            }
+            return (DataSource) invokeV.objValue;
         }
 
-        /* JADX WARN: Type inference failed for: r5v3, types: [java.lang.Object, Data] */
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super Data> dataCallback) {
+        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
                 try {
-                    Data decode = this.reader.decode(this.dataUri);
+                    Object decode = this.reader.decode(this.dataUri);
                     this.data = decode;
                     dataCallback.onDataReady(decode);
                 } catch (IllegalArgumentException e) {
@@ -112,10 +114,17 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
     }
 
     /* loaded from: classes7.dex */
-    public static final class StreamFactory<Model> implements ModelLoaderFactory<Model, InputStream> {
+    public final class StreamFactory implements ModelLoaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final DataDecoder<InputStream> opener;
+        public final DataDecoder opener;
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        public void teardown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public StreamFactory() {
             Interceptable interceptable = $ic;
@@ -130,7 +139,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
                     return;
                 }
             }
-            this.opener = new DataDecoder<InputStream>(this) { // from class: com.bumptech.glide.load.model.DataUrlLoader.StreamFactory.1
+            this.opener = new DataDecoder(this) { // from class: com.bumptech.glide.load.model.DataUrlLoader.StreamFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ StreamFactory this$0;
@@ -153,13 +162,6 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
                     this.this$0 = this;
                 }
 
-                @Override // com.bumptech.glide.load.model.DataUrlLoader.DataDecoder
-                public Class<InputStream> getDataClass() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? InputStream.class : (Class) invokeV.objValue;
-                }
-
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.load.model.DataUrlLoader.DataDecoder
                 public void close(InputStream inputStream) throws IOException {
@@ -170,7 +172,6 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.DataUrlLoader.DataDecoder
                 public InputStream decode(String str) {
                     InterceptResult invokeL;
@@ -190,26 +191,31 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
                     }
                     return (InputStream) invokeL.objValue;
                 }
+
+                @Override // com.bumptech.glide.load.model.DataUrlLoader.DataDecoder
+                public Class getDataClass() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
+                        return InputStream.class;
+                    }
+                    return (Class) invokeV.objValue;
+                }
             };
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        @NonNull
-        public ModelLoader<Model, InputStream> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
+        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) ? new DataUrlLoader(this.opener) : (ModelLoader) invokeL.objValue;
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public void teardown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
+                return new DataUrlLoader(this.opener);
             }
+            return (ModelLoader) invokeL.objValue;
         }
     }
 
-    public DataUrlLoader(DataDecoder<Data> dataDecoder) {
+    public DataUrlLoader(DataDecoder dataDecoder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -228,16 +234,22 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options) {
-        InterceptResult invokeCommon;
+    public boolean handles(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(model), new DataUriFetcher(model.toString(), this.dataDecoder)) : (ModelLoader.LoadData) invokeCommon.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            return obj.toString().startsWith(DATA_SCHEME_IMAGE);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(@NonNull Model model) {
-        InterceptResult invokeL;
+    public ModelLoader.LoadData buildLoadData(Object obj, int i, int i2, Options options) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, model)) == null) ? model.toString().startsWith(DATA_SCHEME_IMAGE) : invokeL.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            return new ModelLoader.LoadData(new ObjectKey(obj), new DataUriFetcher(obj.toString(), this.dataDecoder));
+        }
+        return (ModelLoader.LoadData) invokeCommon.objValue;
     }
 }

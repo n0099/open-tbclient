@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
-public class FaceData implements Comparable<FaceData>, Serializable {
+public class FaceData implements Comparable, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_ADD_ICON = 4;
     public static final int TYPE_ALBUM = 3;
@@ -64,7 +64,10 @@ public class FaceData implements Comparable<FaceData>, Serializable {
             if (this == faceData) {
                 return 0;
             }
-            return (faceData == null || this.index <= faceData.index) ? -1 : 1;
+            if (faceData == null || this.index <= faceData.index) {
+                return -1;
+            }
+            return 1;
         }
         return invokeL.intValue;
     }

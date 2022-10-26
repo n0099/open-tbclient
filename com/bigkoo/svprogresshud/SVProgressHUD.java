@@ -29,7 +29,7 @@ public class SVProgressHUD {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DISMISSDELAYED = 1000;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Context> contextWeak;
+    public WeakReference contextWeak;
     public ViewGroup decorView;
     public int gravity;
     public Animation inAnim;
@@ -47,7 +47,7 @@ public class SVProgressHUD {
 
     /* renamed from: com.bigkoo.svprogresshud.SVProgressHUD$4  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    public /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$bigkoo$svprogresshud$SVProgressHUD$SVProgressHUDMaskType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class SVProgressHUD {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class SVProgressHUDMaskType {
+    public final class SVProgressHUDMaskType {
         public static final /* synthetic */ SVProgressHUDMaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SVProgressHUDMaskType Black;
@@ -158,13 +158,19 @@ public class SVProgressHUD {
         public static SVProgressHUDMaskType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SVProgressHUDMaskType) Enum.valueOf(SVProgressHUDMaskType.class, str) : (SVProgressHUDMaskType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SVProgressHUDMaskType) Enum.valueOf(SVProgressHUDMaskType.class, str);
+            }
+            return (SVProgressHUDMaskType) invokeL.objValue;
         }
 
         public static SVProgressHUDMaskType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SVProgressHUDMaskType[]) $VALUES.clone() : (SVProgressHUDMaskType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SVProgressHUDMaskType[]) $VALUES.clone();
+            }
+            return (SVProgressHUDMaskType[]) invokeV.objValue;
         }
     }
 
@@ -259,6 +265,20 @@ public class SVProgressHUD {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SVProgressHUD this$0;
 
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationRepeat(Animation animation) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                }
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationStart(Animation animation) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+                }
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -284,68 +304,12 @@ public class SVProgressHUD {
                     this.this$0.dismissImmediately();
                 }
             }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-                }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                }
-            }
         };
-        this.contextWeak = new WeakReference<>(context);
+        this.contextWeak = new WeakReference(context);
         this.gravity = 17;
         initViews();
         initDefaultView();
         initAnimation();
-    }
-
-    private void configMaskType(int i, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.rootView.setBackgroundResource(i);
-            this.rootView.setClickable(z);
-            setCancelable(z2);
-        }
-    }
-
-    private void onAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.isShowing = true;
-            this.decorView.addView(this.rootView);
-            if (this.mSharedView.getParent() != null) {
-                ((ViewGroup) this.mSharedView.getParent()).removeView(this.mSharedView);
-            }
-            this.rootView.addView(this.mSharedView);
-        }
-    }
-
-    private void scheduleDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.mHandler.removeCallbacksAndMessages(null);
-            this.mHandler.sendEmptyMessageDelayed(0, 1000L);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setCancelable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(com.baidu.tieba.R.id.sv_outmost_container);
-            if (z) {
-                findViewById.setOnTouchListener(this.onCancelableTouchListener);
-            } else {
-                findViewById.setOnTouchListener(null);
-            }
-        }
     }
 
     private void setMaskType(SVProgressHUDMaskType sVProgressHUDMaskType) {
@@ -380,6 +344,88 @@ public class SVProgressHUD {
         }
     }
 
+    public void showErrorWithStatus(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048590, this, str, sVProgressHUDMaskType) != null) || isShowing()) {
+            return;
+        }
+        setMaskType(sVProgressHUDMaskType);
+        this.mSharedView.showErrorWithStatus(str);
+        svShow();
+        scheduleDismiss();
+    }
+
+    public void showInfoWithStatus(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048592, this, str, sVProgressHUDMaskType) != null) || isShowing()) {
+            return;
+        }
+        setMaskType(sVProgressHUDMaskType);
+        this.mSharedView.showInfoWithStatus(str);
+        svShow();
+        scheduleDismiss();
+    }
+
+    public void showSuccessWithStatus(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048594, this, str, sVProgressHUDMaskType) != null) || isShowing()) {
+            return;
+        }
+        setMaskType(sVProgressHUDMaskType);
+        this.mSharedView.showSuccessWithStatus(str);
+        svShow();
+        scheduleDismiss();
+    }
+
+    public void showWithProgress(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048596, this, str, sVProgressHUDMaskType) != null) || isShowing()) {
+            return;
+        }
+        setMaskType(sVProgressHUDMaskType);
+        this.mSharedView.showWithProgress(str);
+        svShow();
+    }
+
+    public void showWithStatus(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048598, this, str, sVProgressHUDMaskType) != null) || isShowing()) {
+            return;
+        }
+        setMaskType(sVProgressHUDMaskType);
+        this.mSharedView.showWithStatus(str);
+        svShow();
+    }
+
+    private void configMaskType(int i, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.rootView.setBackgroundResource(i);
+            this.rootView.setClickable(z);
+            setCancelable(z2);
+        }
+    }
+
+    private void onAttached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.isShowing = true;
+            this.decorView.addView(this.rootView);
+            if (this.mSharedView.getParent() != null) {
+                ((ViewGroup) this.mSharedView.getParent()).removeView(this.mSharedView);
+            }
+            this.rootView.addView(this.mSharedView);
+        }
+    }
+
+    private void scheduleDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            this.mHandler.removeCallbacksAndMessages(null);
+            this.mHandler.sendEmptyMessageDelayed(0, 1000L);
+        }
+    }
+
     private void svShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
@@ -391,7 +437,7 @@ public class SVProgressHUD {
 
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.isDismissing) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.isDismissing) {
             return;
         }
         this.isDismissing = true;
@@ -419,7 +465,7 @@ public class SVProgressHUD {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context context = this.contextWeak.get();
+            Context context = (Context) this.contextWeak.get();
             if (context == null) {
                 return null;
             }
@@ -431,14 +477,17 @@ public class SVProgressHUD {
     public OnDismissListener getOnDismissListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.onDismissListener : (OnDismissListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.onDismissListener;
+        }
+        return (OnDismissListener) invokeV.objValue;
     }
 
     public Animation getOutAnimation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Context context = this.contextWeak.get();
+            Context context = (Context) this.contextWeak.get();
             if (context == null) {
                 return null;
             }
@@ -450,7 +499,10 @@ public class SVProgressHUD {
     public SVCircleProgressBar getProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSharedView.getCircleProgressBar() : (SVCircleProgressBar) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mSharedView.getCircleProgressBar();
+        }
+        return (SVCircleProgressBar) invokeV.objValue;
     }
 
     public void initAnimation() {
@@ -468,7 +520,7 @@ public class SVProgressHUD {
     public void initDefaultView() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (context = this.contextWeak.get()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (context = (Context) this.contextWeak.get()) == null) {
             return;
         }
         SVProgressDefaultView sVProgressDefaultView = new SVProgressDefaultView(context);
@@ -478,23 +530,39 @@ public class SVProgressHUD {
         sVProgressDefaultView.setLayoutParams(layoutParams);
     }
 
-    public void initViews() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (context = this.contextWeak.get()) == null) {
-            return;
-        }
-        LayoutInflater from = LayoutInflater.from(context);
-        this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
-        ViewGroup viewGroup = (ViewGroup) from.inflate(com.baidu.tieba.R.layout.layout_svprogresshud, (ViewGroup) null, false);
-        this.rootView = viewGroup;
-        viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-    }
-
     public boolean isShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.rootView.getParent() != null || this.isShowing : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.rootView.getParent() == null && !this.isShowing) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void show() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || isShowing()) {
+            return;
+        }
+        setMaskType(SVProgressHUDMaskType.Black);
+        this.mSharedView.show();
+        svShow();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setCancelable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
+            View findViewById = this.rootView.findViewById(com.baidu.tieba.R.id.sv_outmost_container);
+            if (z) {
+                findViewById.setOnTouchListener(this.onCancelableTouchListener);
+            } else {
+                findViewById.setOnTouchListener(null);
+            }
+        }
     }
 
     public void setOnDismissListener(OnDismissListener onDismissListener) {
@@ -511,19 +579,9 @@ public class SVProgressHUD {
         }
     }
 
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || isShowing()) {
-            return;
-        }
-        setMaskType(SVProgressHUDMaskType.Black);
-        this.mSharedView.show();
-        svShow();
-    }
-
     public void showErrorWithStatus(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || isShowing()) {
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || isShowing()) {
             return;
         }
         setMaskType(SVProgressHUDMaskType.Black);
@@ -534,7 +592,7 @@ public class SVProgressHUD {
 
     public void showInfoWithStatus(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || isShowing()) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || isShowing()) {
             return;
         }
         setMaskType(SVProgressHUDMaskType.Black);
@@ -545,7 +603,7 @@ public class SVProgressHUD {
 
     public void showSuccessWithStatus(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || isShowing()) {
+        if ((interceptable != null && interceptable.invokeL(1048593, this, str) != null) || isShowing()) {
             return;
         }
         setMaskType(SVProgressHUDMaskType.Black);
@@ -556,7 +614,7 @@ public class SVProgressHUD {
 
     public void showWithMaskType(SVProgressHUDMaskType sVProgressHUDMaskType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, sVProgressHUDMaskType) == null) || isShowing()) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, sVProgressHUDMaskType) != null) || isShowing()) {
             return;
         }
         setMaskType(sVProgressHUDMaskType);
@@ -564,19 +622,9 @@ public class SVProgressHUD {
         svShow();
     }
 
-    public void showWithProgress(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048596, this, str, sVProgressHUDMaskType) == null) || isShowing()) {
-            return;
-        }
-        setMaskType(sVProgressHUDMaskType);
-        this.mSharedView.showWithProgress(str);
-        svShow();
-    }
-
     public void showWithStatus(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || isShowing()) {
+        if ((interceptable != null && interceptable.invokeL(1048597, this, str) != null) || isShowing()) {
             return;
         }
         setMaskType(SVProgressHUDMaskType.Black);
@@ -584,46 +632,16 @@ public class SVProgressHUD {
         svShow();
     }
 
-    public void showWithStatus(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
+    public void initViews() {
+        Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048598, this, str, sVProgressHUDMaskType) == null) || isShowing()) {
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (context = (Context) this.contextWeak.get()) == null) {
             return;
         }
-        setMaskType(sVProgressHUDMaskType);
-        this.mSharedView.showWithStatus(str);
-        svShow();
-    }
-
-    public void showErrorWithStatus(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048590, this, str, sVProgressHUDMaskType) == null) || isShowing()) {
-            return;
-        }
-        setMaskType(sVProgressHUDMaskType);
-        this.mSharedView.showErrorWithStatus(str);
-        svShow();
-        scheduleDismiss();
-    }
-
-    public void showInfoWithStatus(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048592, this, str, sVProgressHUDMaskType) == null) || isShowing()) {
-            return;
-        }
-        setMaskType(sVProgressHUDMaskType);
-        this.mSharedView.showInfoWithStatus(str);
-        svShow();
-        scheduleDismiss();
-    }
-
-    public void showSuccessWithStatus(String str, SVProgressHUDMaskType sVProgressHUDMaskType) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048594, this, str, sVProgressHUDMaskType) == null) || isShowing()) {
-            return;
-        }
-        setMaskType(sVProgressHUDMaskType);
-        this.mSharedView.showSuccessWithStatus(str);
-        svShow();
-        scheduleDismiss();
+        LayoutInflater from = LayoutInflater.from(context);
+        this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
+        ViewGroup viewGroup = (ViewGroup) from.inflate(com.baidu.tieba.R.layout.layout_svprogresshud, (ViewGroup) null, false);
+        this.rootView = viewGroup;
+        viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 }

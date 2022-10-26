@@ -8,14 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebStorage;
-import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebStorageImpl extends WebStorage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class QuotaUpdater implements WebStorage.QuotaUpdater {
+    /* loaded from: classes6.dex */
+    public class QuotaUpdater implements WebStorage.QuotaUpdater {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WebStorage.QuotaUpdater mImpl;
@@ -85,7 +84,7 @@ public final class WebStorageImpl extends WebStorage {
     }
 
     @Override // com.baidu.webkit.sdk.WebStorage
-    public final void getOrigins(ValueCallback<Map> valueCallback) {
+    public final void getOrigins(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, valueCallback) == null) {
             android.webkit.WebStorage.getInstance().getOrigins(valueCallback);
@@ -93,7 +92,7 @@ public final class WebStorageImpl extends WebStorage {
     }
 
     @Override // com.baidu.webkit.sdk.WebStorage
-    public final void getQuotaForOrigin(String str, ValueCallback<Long> valueCallback) {
+    public final void getQuotaForOrigin(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, valueCallback) == null) {
             android.webkit.WebStorage.getInstance().getQuotaForOrigin(str, valueCallback);
@@ -101,7 +100,7 @@ public final class WebStorageImpl extends WebStorage {
     }
 
     @Override // com.baidu.webkit.sdk.WebStorage
-    public final void getUsageForOrigin(String str, ValueCallback<Long> valueCallback) {
+    public final void getUsageForOrigin(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, valueCallback) == null) {
             android.webkit.WebStorage.getInstance().getUsageForOrigin(str, valueCallback);

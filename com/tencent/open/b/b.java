@@ -39,13 +39,12 @@ public class b extends WebView {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 11) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && Build.VERSION.SDK_INT >= 11) {
+            removeJavascriptInterface("searchBoxJavaBridge_");
+            removeJavascriptInterface("accessibility");
+            removeJavascriptInterface("accessibilityTraversal");
+            SLog.i("openSDK_LOG.OpenWebView", "removeJSInterface");
         }
-        removeJavascriptInterface("searchBoxJavaBridge_");
-        removeJavascriptInterface("accessibility");
-        removeJavascriptInterface("accessibilityTraversal");
-        SLog.i("openSDK_LOG.OpenWebView", "removeJSInterface");
     }
 
     @Override // android.webkit.WebView

@@ -35,28 +35,63 @@ public final class ExtensionMap<T extends ExtendableMessage<?>> {
         this.map = new TreeMap();
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof ExtensionMap) && this.map.equals(((ExtensionMap) obj).map) : invokeL.booleanValue;
-    }
-
-    public <E> E get(Extension<T, E> extension) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extension)) == null) ? (E) this.map.get(extension) : (E) invokeL.objValue;
-    }
-
     public List<Extension<T, ?>> getExtensions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(new ArrayList(this.map.keySet())) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Collections.unmodifiableList(new ArrayList(this.map.keySet()));
+        }
+        return (List) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.map.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.map.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public ExtensionMap(ExtensionMap<T> extensionMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {extensionMap};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        TreeMap treeMap = new TreeMap();
+        this.map = treeMap;
+        treeMap.putAll(extensionMap.map);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if ((obj instanceof ExtensionMap) && this.map.equals(((ExtensionMap) obj).map)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public <E> E get(Extension<T, E> extension) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extension)) == null) {
+            return (E) this.map.get(extension);
+        }
+        return (E) invokeL.objValue;
     }
 
     public <E> void put(Extension<T, E> extension, E e) {
@@ -84,25 +119,5 @@ public final class ExtensionMap<T extends ExtendableMessage<?>> {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public ExtensionMap(ExtensionMap<T> extensionMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {extensionMap};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        TreeMap treeMap = new TreeMap();
-        this.map = treeMap;
-        treeMap.putAll(extensionMap.map);
     }
 }

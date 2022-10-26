@@ -12,8 +12,6 @@ public class bx3 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public int c;
-    public long d;
 
     public bx3() {
         Interceptable interceptable = $ic;
@@ -36,8 +34,6 @@ public class bx3 {
             bx3 bx3Var = new bx3();
             bx3Var.a = jSONObject.optInt("state");
             bx3Var.b = jSONObject.optString("msg");
-            bx3Var.c = jSONObject.optInt("switch_open");
-            bx3Var.d = jSONObject.optLong("heartbeat_time");
             return bx3Var;
         }
         return (bx3) invokeL.objValue;
@@ -47,7 +43,7 @@ public class bx3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
         }
         return (String) invokeV.objValue;
     }

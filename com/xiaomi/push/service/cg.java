@@ -23,7 +23,7 @@ public class cg implements XMPushService.n {
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<Integer, Map<String, List<String>>> f970a;
+    public static final Map f970a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final boolean f971a;
@@ -135,7 +135,7 @@ public class cg implements XMPushService.n {
 
     @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a */
-    public void mo395a() {
+    public void mo394a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f970a.size() <= 0) {
             return;

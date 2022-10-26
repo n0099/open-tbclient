@@ -2,12 +2,12 @@ package com.bytedance.sdk.openadsdk.downloadnew;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
@@ -16,13 +16,13 @@ import org.apache.http.protocol.HTTP;
 public class c {
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a {
         public InputStream a;
-        public Map<String, String> b;
+        public Map b;
         public int c;
         public HttpURLConnection d;
 
-        public a(InputStream inputStream, Map<String, String> map, int i, HttpURLConnection httpURLConnection) {
+        public a(InputStream inputStream, Map map, int i, HttpURLConnection httpURLConnection) {
             this.a = inputStream;
             this.b = map;
             this.c = i;
@@ -30,7 +30,30 @@ public class c {
         }
     }
 
-    public static HttpURLConnection a(String str, Map<String, String> map) {
+    public static a a(String str, List list) throws IOException {
+        int responseCode;
+        HashMap hashMap = new HashMap();
+        if (list != null && !list.isEmpty()) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                com.ss.android.socialbase.downloader.model.c cVar = (com.ss.android.socialbase.downloader.model.c) it.next();
+                hashMap.put(cVar.a(), cVar.b());
+            }
+        }
+        HttpURLConnection a2 = a(str, hashMap);
+        if (a2 == null || (responseCode = a2.getResponseCode()) < 200 || responseCode >= 300) {
+            return null;
+        }
+        Map a3 = a(a2);
+        InputStream inputStream = a2.getInputStream();
+        String contentEncoding = a2.getContentEncoding();
+        if (!TextUtils.isEmpty(contentEncoding) && contentEncoding.contains("gzip")) {
+            inputStream = new GZIPInputStream(inputStream);
+        }
+        return new a(inputStream, a3, responseCode, a2);
+    }
+
+    public static HttpURLConnection a(String str, Map map) {
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2;
         HttpURLConnection httpURLConnection3 = null;
@@ -46,46 +69,31 @@ public class c {
             httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
             httpURLConnection.setRequestProperty("connection", HTTP.CONN_KEEP_ALIVE);
             if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : map.entrySet()) {
+                    httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
                 }
             }
             httpURLConnection.connect();
             int responseCode = httpURLConnection.getResponseCode();
-            return ((responseCode < 200 || responseCode >= 300) && responseCode >= 300 && responseCode < 400) ? a(httpURLConnection.getHeaderField(Headers.LOCATION), map) : httpURLConnection;
+            if (responseCode >= 200 && responseCode < 300) {
+                return httpURLConnection;
+            }
+            if (responseCode >= 300 && responseCode < 400) {
+                return a(httpURLConnection.getHeaderField("Location"), map);
+            }
+            return httpURLConnection;
         } catch (Exception unused2) {
             httpURLConnection3 = httpURLConnection2;
             return httpURLConnection3;
         }
     }
 
-    public static Map<String, String> a(HttpURLConnection httpURLConnection) {
+    public static Map a(HttpURLConnection httpURLConnection) {
         HashMap hashMap = new HashMap();
         int size = httpURLConnection.getHeaderFields().size();
         for (int i = 0; i < size; i++) {
             hashMap.put(httpURLConnection.getHeaderFieldKey(i), httpURLConnection.getHeaderField(i));
         }
         return hashMap;
-    }
-
-    public static a a(String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
-        int responseCode;
-        HashMap hashMap = new HashMap();
-        if (list != null && !list.isEmpty()) {
-            for (com.ss.android.socialbase.downloader.model.c cVar : list) {
-                hashMap.put(cVar.a(), cVar.b());
-            }
-        }
-        HttpURLConnection a2 = a(str, hashMap);
-        if (a2 != null && (responseCode = a2.getResponseCode()) >= 200 && responseCode < 300) {
-            Map<String, String> a3 = a(a2);
-            InputStream inputStream = a2.getInputStream();
-            String contentEncoding = a2.getContentEncoding();
-            if (!TextUtils.isEmpty(contentEncoding) && contentEncoding.contains("gzip")) {
-                inputStream = new GZIPInputStream(inputStream);
-            }
-            return new a(inputStream, a3, responseCode, a2);
-        }
-        return null;
     }
 }

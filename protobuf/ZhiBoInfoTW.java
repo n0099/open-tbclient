@@ -81,7 +81,13 @@ public final class ZhiBoInfoTW extends Message {
     public final Zan zan;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<ZhiBoInfoTW> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -94,7 +100,7 @@ public final class ZhiBoInfoTW extends Message {
         public Integer isHeadline;
         public Integer isHeadlineAvailable;
         public Integer isNewHeadline;
-        public List<LabelInfoForLivePost> labels;
+        public List labels;
         public Long lastModifiedTime;
         public String livecoverSrc;
         public String livecoverSrcBsize;
@@ -171,14 +177,11 @@ public final class ZhiBoInfoTW extends Message {
         public ZhiBoInfoTW build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new ZhiBoInfoTW(this, z, null) : (ZhiBoInfoTW) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new ZhiBoInfoTW(this, z, null);
+            }
+            return (ZhiBoInfoTW) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -207,10 +210,6 @@ public final class ZhiBoInfoTW extends Message {
         DEFAULT_FREQNUM = 0;
         DEFAULT_COPYTHREADREMIND = 0;
         DEFAULT_ISCOPYTWZHIBO = 0;
-    }
-
-    public /* synthetic */ ZhiBoInfoTW(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -294,7 +293,7 @@ public final class ZhiBoInfoTW extends Message {
                 this.content = str5;
             }
             this.userInfo = builder.userInfo;
-            List<LabelInfoForLivePost> list = builder.labels;
+            List list = builder.labels;
             if (list == null) {
                 this.labels = DEFAULT_LABELS;
             } else {
@@ -374,5 +373,9 @@ public final class ZhiBoInfoTW extends Message {
         this.copythreadRemind = builder.copythreadRemind;
         this.isCopytwzhibo = builder.isCopytwzhibo;
         this.fieldEx = builder.fieldEx;
+    }
+
+    public /* synthetic */ ZhiBoInfoTW(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

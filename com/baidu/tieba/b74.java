@@ -1,88 +1,48 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class b74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecommendItemModel a;
+    public List b;
 
-    @NonNull
-    public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public b74() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            RecommendItemModel recommendItemModel = new RecommendItemModel();
-            recommendItemModel.appName = jSONObject.optString("app_name");
-            recommendItemModel.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
-            recommendItemModel.scheme = jSONObject.optString("scheme");
-            recommendItemModel.desc = jSONObject.optString("desc");
-            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
-            if (optJSONObject != null) {
-                recommendItemModel.buttonText = optJSONObject.optString("text");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return recommendItemModel;
         }
-        return (RecommendItemModel) invokeL.objValue;
     }
 
-    @NonNull
-    public static a74 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public b74(RecommendItemModel recommendItemModel, List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            a74 a74Var = new a74();
-            if (jSONObject == null) {
-                return a74Var;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
-            if (optJSONObject != null) {
-                a74Var.a = a(optJSONObject);
-            }
-            a74Var.b = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    a74Var.b.add(a(optJSONArray.optJSONObject(i)));
-                }
-            }
-            return a74Var;
-        }
-        return (a74) invokeL.objValue;
-    }
-
-    @NonNull
-    public static c74 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            c74 c74Var = new c74();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                c74Var.a = jSONObject.getInt("errno");
-                c74Var.b = jSONObject.optString("errmsg");
-                c74Var.c = jSONObject.optJSONObject("data");
-                return c74Var;
-            } catch (JSONException e) {
-                c74Var.a = -1;
-                c74Var.b = "network error: response parse failed.";
-                if (vj1.a) {
-                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
-                }
-                return c74Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recommendItemModel, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (c74) invokeL.objValue;
+        this.a = recommendItemModel;
+        this.b = list;
     }
 }

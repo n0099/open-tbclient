@@ -67,12 +67,18 @@ public final class IVideoPlayer$PlayerType {
     public static IVideoPlayer$PlayerType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (IVideoPlayer$PlayerType) Enum.valueOf(IVideoPlayer$PlayerType.class, str) : (IVideoPlayer$PlayerType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (IVideoPlayer$PlayerType) Enum.valueOf(IVideoPlayer$PlayerType.class, str);
+        }
+        return (IVideoPlayer$PlayerType) invokeL.objValue;
     }
 
     public static IVideoPlayer$PlayerType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (IVideoPlayer$PlayerType[]) $VALUES.clone() : (IVideoPlayer$PlayerType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (IVideoPlayer$PlayerType[]) $VALUES.clone();
+        }
+        return (IVideoPlayer$PlayerType[]) invokeV.objValue;
     }
 }

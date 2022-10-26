@@ -32,6 +32,22 @@ public final class LibraryLoader {
         this.nativeLibraries = strArr;
     }
 
+    public synchronized void setLibraries(String... strArr) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr) == null) {
+            synchronized (this) {
+                if (!this.loadAttempted) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Assertions.checkState(z, "Cannot set libraries after loading");
+                this.nativeLibraries = strArr;
+            }
+        }
+    }
+
     public synchronized boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,15 +68,5 @@ public final class LibraryLoader {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public synchronized void setLibraries(String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr) == null) {
-            synchronized (this) {
-                Assertions.checkState(!this.loadAttempted, "Cannot set libraries after loading");
-                this.nativeLibraries = strArr;
-            }
-        }
     }
 }

@@ -2,14 +2,12 @@ package com.baidu.searchbox.perfframe.impl;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameCallBack;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.te1;
+import com.baidu.tieba.ue1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class PerfFrameContext {
     public static /* synthetic */ Interceptable $ic;
@@ -62,17 +59,16 @@ public class PerfFrameContext {
                     if (AppConfig.isDebug()) {
                         Log.d("PerfFrame", "onPerfFrameCallBack");
                     }
-                    te1<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
-                    if (perfFrameRegister == null || perfFrameRegister.getList() == null || perfExpInfo == null) {
-                        return;
-                    }
-                    if (AppConfig.isDebug()) {
-                        Log.i("PerfFrame", "perfExpInfo = " + perfExpInfo.toString());
-                    }
-                    perfExpInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
-                    perfExpInfo.setLogId(CommonUtils.getLogId());
-                    for (IPerfFrameRegister iPerfFrameRegister : perfFrameRegister.getList()) {
-                        iPerfFrameRegister.onEvent(context, perfExpInfo);
+                    ue1 perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
+                    if (perfFrameRegister != null && perfFrameRegister.getList() != null && perfExpInfo != null) {
+                        if (AppConfig.isDebug()) {
+                            Log.i("PerfFrame", "perfExpInfo = " + perfExpInfo.toString());
+                        }
+                        perfExpInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
+                        perfExpInfo.setLogId(CommonUtils.getLogId());
+                        for (IPerfFrameRegister iPerfFrameRegister : perfFrameRegister.getList()) {
+                            iPerfFrameRegister.onEvent(context, perfExpInfo);
+                        }
                     }
                 }
             }
@@ -93,10 +89,12 @@ public class PerfFrameContext {
         }
     }
 
-    @Inject(force = false)
     public static IPerfFrameCallBack getPerfFrameContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? PERFFRAME_CONTEXT_DEFAULT : (IPerfFrameCallBack) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return PERFFRAME_CONTEXT_DEFAULT;
+        }
+        return (IPerfFrameCallBack) invokeV.objValue;
     }
 }

@@ -51,12 +51,12 @@ public class dh extends ao.b {
 
     @Override // com.xiaomi.push.ao.b
     /* renamed from: c */
-    public void mo266c() {
+    public void mo265c() {
         ao.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.a) == null) {
             return;
         }
-        bVar.mo266c();
+        bVar.mo265c();
     }
 }

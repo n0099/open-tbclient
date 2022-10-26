@@ -43,6 +43,9 @@ public class AlaEnterEffectEditHttpReqMessage extends HttpMessage {
     public boolean isSelected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIsSelected : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mIsSelected;
+        }
+        return invokeV.booleanValue;
     }
 }

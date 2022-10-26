@@ -19,6 +19,13 @@ public class InternalProducerListener implements ProducerListener2 {
     @Nullable
     public final ProducerListener2 mProducerListener2;
 
+    @Override // com.facebook.imagepipeline.producers.ProducerListener2
+    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, encodedImage, th, map) == null) {
+        }
+    }
+
     public InternalProducerListener(ProducerListener producerListener, @Nullable ProducerListener2 producerListener2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,21 +48,20 @@ public class InternalProducerListener implements ProducerListener2 {
     public ProducerListener getProducerListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mProducerListener : (ProducerListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mProducerListener;
+        }
+        return (ProducerListener) invokeV.objValue;
     }
 
     @Nullable
     public ProducerListener2 getProducerListener2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mProducerListener2 : (ProducerListener2) invokeV.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, encodedImage, th, map) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mProducerListener2;
         }
+        return (ProducerListener2) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
@@ -74,7 +80,7 @@ public class InternalProducerListener implements ProducerListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithCancellation(ProducerContext producerContext, String str, @Nullable Map<String, String> map) {
+    public void onProducerFinishWithCancellation(ProducerContext producerContext, String str, @Nullable Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, producerContext, str, map) == null) {
             ProducerListener producerListener = this.mProducerListener;
@@ -89,22 +95,7 @@ public class InternalProducerListener implements ProducerListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithFailure(ProducerContext producerContext, String str, Throwable th, @Nullable Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, producerContext, str, th, map) == null) {
-            ProducerListener producerListener = this.mProducerListener;
-            if (producerListener != null) {
-                producerListener.onProducerFinishWithFailure(producerContext.getId(), str, th, map);
-            }
-            ProducerListener2 producerListener2 = this.mProducerListener2;
-            if (producerListener2 != null) {
-                producerListener2.onProducerFinishWithFailure(producerContext, str, th, map);
-            }
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithSuccess(ProducerContext producerContext, String str, @Nullable Map<String, String> map) {
+    public void onProducerFinishWithSuccess(ProducerContext producerContext, String str, @Nullable Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, producerContext, str, map) == null) {
             ProducerListener producerListener = this.mProducerListener;
@@ -114,21 +105,6 @@ public class InternalProducerListener implements ProducerListener2 {
             ProducerListener2 producerListener2 = this.mProducerListener2;
             if (producerListener2 != null) {
                 producerListener2.onProducerFinishWithSuccess(producerContext, str, map);
-            }
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerStart(ProducerContext producerContext, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, producerContext, str) == null) {
-            ProducerListener producerListener = this.mProducerListener;
-            if (producerListener != null) {
-                producerListener.onProducerStart(producerContext.getId(), str);
-            }
-            ProducerListener2 producerListener2 = this.mProducerListener2;
-            if (producerListener2 != null) {
-                producerListener2.onProducerStart(producerContext, str);
             }
         }
     }
@@ -149,14 +125,52 @@ public class InternalProducerListener implements ProducerListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
+    public void onProducerFinishWithFailure(ProducerContext producerContext, String str, Throwable th, @Nullable Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, producerContext, str, th, map) == null) {
+            ProducerListener producerListener = this.mProducerListener;
+            if (producerListener != null) {
+                producerListener.onProducerFinishWithFailure(producerContext.getId(), str, th, map);
+            }
+            ProducerListener2 producerListener2 = this.mProducerListener2;
+            if (producerListener2 != null) {
+                producerListener2.onProducerFinishWithFailure(producerContext, str, th, map);
+            }
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener2
+    public void onProducerStart(ProducerContext producerContext, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, producerContext, str) == null) {
+            ProducerListener producerListener = this.mProducerListener;
+            if (producerListener != null) {
+                producerListener.onProducerStart(producerContext.getId(), str);
+            }
+            ProducerListener2 producerListener2 = this.mProducerListener2;
+            if (producerListener2 != null) {
+                producerListener2.onProducerStart(producerContext, str);
+            }
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener2
     public boolean requiresExtraMap(ProducerContext producerContext, String str) {
         InterceptResult invokeLL;
+        boolean z;
         ProducerListener2 producerListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, producerContext, str)) == null) {
             ProducerListener producerListener = this.mProducerListener;
-            boolean requiresExtraMap = producerListener != null ? producerListener.requiresExtraMap(producerContext.getId()) : false;
-            return (requiresExtraMap || (producerListener2 = this.mProducerListener2) == null) ? requiresExtraMap : producerListener2.requiresExtraMap(producerContext, str);
+            if (producerListener != null) {
+                z = producerListener.requiresExtraMap(producerContext.getId());
+            } else {
+                z = false;
+            }
+            if (!z && (producerListener2 = this.mProducerListener2) != null) {
+                return producerListener2.requiresExtraMap(producerContext, str);
+            }
+            return z;
         }
         return invokeLL.booleanValue;
     }

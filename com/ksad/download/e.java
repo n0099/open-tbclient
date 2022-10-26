@@ -15,7 +15,7 @@ public final class e {
     public f aj;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final e ak;
         public transient /* synthetic */ FieldHolder $fh;

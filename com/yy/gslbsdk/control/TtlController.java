@@ -22,7 +22,7 @@ public class TtlController {
     public static final int[] TTL_INTERVAL;
     public static TtlController sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Boolean> mList;
+    public List mList;
     public int mTtlFailedCount;
     public int mTtlIntervalCount;
 
@@ -40,6 +40,23 @@ public class TtlController {
             }
         }
         TTL_INTERVAL = new int[]{1, 6, 10, 16, 32, 64, 80, 92, 104, 114, 120};
+    }
+
+    private void calcFailedCount() {
+        List<Boolean> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            synchronized (this.mList) {
+                list = (List) ((ArrayList) this.mList).clone();
+            }
+            int i = 0;
+            for (Boolean bool : list) {
+                if (bool != null && !bool.booleanValue()) {
+                    i++;
+                }
+            }
+            this.mTtlFailedCount = Math.min(i, 15);
+        }
     }
 
     public TtlController() {
@@ -60,23 +77,6 @@ public class TtlController {
         this.mList = new ArrayList();
     }
 
-    private void calcFailedCount() {
-        List<Boolean> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            synchronized (this.mList) {
-                list = (List) ((ArrayList) this.mList).clone();
-            }
-            int i = 0;
-            for (Boolean bool : list) {
-                if (bool != null && !bool.booleanValue()) {
-                    i++;
-                }
-            }
-            this.mTtlFailedCount = Math.min(i, 15);
-        }
-    }
-
     public static synchronized TtlController getInstance() {
         InterceptResult invokeV;
         TtlController ttlController;
@@ -91,6 +91,92 @@ public class TtlController {
             return ttlController;
         }
         return (TtlController) invokeV.objValue;
+    }
+
+    public boolean addTtlIntervalCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.mTtlIntervalCount + 1;
+            this.mTtlIntervalCount = i;
+            if (i < getTtlIntervalValue()) {
+                return false;
+            }
+            resetTtlIntervalCount();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean enableExpired() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getFailedCount() > 7) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getFailedCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTtlFailedCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getTtlIntervalCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mTtlIntervalCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getTtlIntervalLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int failedCount = getFailedCount();
+            if (failedCount <= 5) {
+                return 0;
+            }
+            return failedCount - 5;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getTtlIntervalValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return TTL_INTERVAL[getTtlIntervalLevel()];
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isActive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (getFailedCount() > 5) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void resetTtlIntervalCount() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mTtlIntervalCount = 0;
+        }
     }
 
     public boolean addStatus(boolean z) {
@@ -112,74 +198,10 @@ public class TtlController {
         return invokeZ.booleanValue;
     }
 
-    public boolean addTtlIntervalCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.mTtlIntervalCount + 1;
-            this.mTtlIntervalCount = i;
-            if (i < getTtlIntervalValue()) {
-                return false;
-            }
-            resetTtlIntervalCount();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean enableExpired() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getFailedCount() > 7 : invokeV.booleanValue;
-    }
-
-    public int getFailedCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTtlFailedCount : invokeV.intValue;
-    }
-
-    public int getTtlIntervalCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTtlIntervalCount : invokeV.intValue;
-    }
-
-    public int getTtlIntervalLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int failedCount = getFailedCount();
-            if (failedCount <= 5) {
-                return 0;
-            }
-            return failedCount - 5;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getTtlIntervalValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? TTL_INTERVAL[getTtlIntervalLevel()] : invokeV.intValue;
-    }
-
-    public boolean isActive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getFailedCount() > 5 : invokeV.booleanValue;
-    }
-
-    public void resetTtlIntervalCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mTtlIntervalCount = 0;
-        }
-    }
-
     public String toString() {
         InterceptResult invokeV;
         List list;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this.mList) {
@@ -190,7 +212,12 @@ public class TtlController {
             for (int i = 0; i < list.size(); i++) {
                 stringBuffer.append(i);
                 stringBuffer.append("-");
-                stringBuffer.append(((Boolean) list.get(i)).booleanValue() ? "t" : "f");
+                if (((Boolean) list.get(i)).booleanValue()) {
+                    str = "t";
+                } else {
+                    str = "f";
+                }
+                stringBuffer.append(str);
                 stringBuffer.append(" ");
             }
             stringBuffer.append(SmallTailInfo.EMOTION_SUFFIX);

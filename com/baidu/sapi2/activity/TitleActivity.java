@@ -1,6 +1,5 @@
 package com.baidu.sapi2.activity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -63,6 +62,33 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     public boolean useTitle;
     public PassportViewManager viewManager;
 
+    public SapiWebDTO getWebDTO() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (SapiWebDTO) invokeV.objValue;
+    }
+
+    public void onBottomBackBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void onClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
     public TitleActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -115,7 +141,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             } else {
                 setBtnVisibility(4, 0, 4);
                 setTitleDrawable(null, null, null, null);
-                setLeftBtnDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08102f), null, null, null);
+                setLeftBtnDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081040), null, null, null);
             }
             b();
             if (this.configuration.showBottomBack) {
@@ -130,7 +156,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (sapiConfiguration = this.configuration) != null && sapiConfiguration.isDarkMode) {
             if (this.useTitle) {
                 setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                setLeftBtnImage(R.drawable.obfuscated_res_0x7f081030);
+                setLeftBtnImage(R.drawable.obfuscated_res_0x7f081041);
                 setLeftBtnTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
                 setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
                 setRightBtnColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
@@ -140,7 +166,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 }
                 ImageView imageView = this.mRightBtnClose;
                 if (imageView != null) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f0810a0);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f0810b1);
                 }
                 View view2 = this.dividerLine;
                 if (view2 != null) {
@@ -149,7 +175,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             }
             ImageView imageView2 = this.mBottomBackBtnIv;
             if (imageView2 != null) {
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081030);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081041);
             }
             RelativeLayout relativeLayout = this.mBottomBgLayout;
             if (relativeLayout != null) {
@@ -187,15 +213,6 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public SapiWebDTO getWebDTO() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (SapiWebDTO) invokeV.objValue;
-    }
-
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -203,9 +220,18 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public void onBottomBackBtnClick() {
+    public void onRightBtnClick() {
+        TitleBtnCallback titleBtnCallback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (titleBtnCallback = this.titleBtnCallback) != null) {
+            titleBtnCallback.onRightClick();
+        }
+    }
+
+    public void onTitleRightBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            onClose();
         }
     }
 
@@ -229,12 +255,6 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 }
             }
             onLeftBtnClick();
-        }
-    }
-
-    public void onClose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
@@ -262,45 +282,30 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public void onLeftBtnClick() {
+    public void setTitleText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048608, this, str) == null) && this.useTitle && this.mTitle != null) {
+            PassportViewManager.TitleViewModule titleViewModule = this.viewManager.getTitleViewModule();
+            if (titleViewModule != null) {
+                if (titleViewModule.useWebviewTitle) {
+                    if (!TextUtils.isEmpty(str)) {
+                        this.mTitle.setText(str);
+                        return;
+                    }
+                    return;
+                }
+                this.mTitle.setText(titleViewModule.titleText);
+            } else if (!TextUtils.isEmpty(str)) {
+                this.mTitle.setText(str);
+            }
         }
     }
 
     @Override // android.app.Activity
-    @TargetApi(23)
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048585, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-        }
-    }
-
-    public void onRightBtnClick() {
-        TitleBtnCallback titleBtnCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (titleBtnCallback = this.titleBtnCallback) == null) {
-            return;
-        }
-        titleBtnCallback.onRightClick();
-    }
-
-    public void onTitleRightBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            onClose();
-        }
-    }
-
-    public void reportWebviewError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, th) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("error", Log.getStackTraceString(th));
-            hashMap.put(Config.DEVICE_PART, "android");
-            hashMap.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
-            StatService.onEvent("webview_init_error", hashMap);
         }
     }
 
@@ -316,28 +321,29 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             if (this.useTitle && (imageView = this.mLeftBtnIv) != null) {
                 imageView.setVisibility(i2);
             }
-            if (!this.useTitle || (button = this.mRightBtn) == null) {
-                return;
+            if (this.useTitle && (button = this.mRightBtn) != null) {
+                button.setVisibility(i3);
             }
-            button.setVisibility(i3);
         }
     }
 
-    public void setLeftBtnDrawable(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
-        TextView textView;
+    public void reportWebviewError(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048590, this, drawable, drawable2, drawable3, drawable4) == null) && this.useTitle && (textView = this.mLeftBtnTv) != null) {
-            textView.setCompoundDrawablesWithIntrinsicBounds(drawable, drawable2, drawable3, drawable4);
+        if (interceptable == null || interceptable.invokeL(1048588, this, th) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("error", Log.getStackTraceString(th));
+            hashMap.put(Config.DEVICE_PART, "android");
+            hashMap.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
+            StatService.onEvent("webview_init_error", hashMap);
         }
     }
 
     public void setLeftBtnImage(int i) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || !this.useTitle || (imageView = this.mLeftBtnIv) == null || i == Integer.MAX_VALUE) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && this.useTitle && (imageView = this.mLeftBtnIv) != null && i != Integer.MAX_VALUE) {
+            imageView.setImageResource(i);
         }
-        imageView.setImageResource(i);
     }
 
     public void setLeftBtnImgVisible(int i) {
@@ -388,46 +394,6 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public void setPageAnim(boolean z) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            SapiConfiguration sapiConfiguration = this.configuration;
-            int i5 = sapiConfiguration == null ? 0 : sapiConfiguration.activityOpenAnimId;
-            SapiConfiguration sapiConfiguration2 = this.configuration;
-            int i6 = sapiConfiguration2 != null ? sapiConfiguration2.activityExitAnimId : 0;
-            SapiWebDTO webDTO = getWebDTO();
-            if (webDTO != null && (i4 = webDTO.openEnterAnimId) != 0) {
-                i5 = i4;
-            }
-            if (webDTO != null && (i3 = webDTO.closeExitAnimId) != 0) {
-                i6 = i3;
-            }
-            if (i5 == 0) {
-                i5 = R.anim.obfuscated_res_0x7f01011c;
-            }
-            if (i6 == 0) {
-                i6 = R.anim.obfuscated_res_0x7f01011d;
-            }
-            if (z) {
-                int i7 = R.anim.obfuscated_res_0x7f01011b;
-                if (webDTO != null && (i2 = webDTO.openExitAnimId) != 0) {
-                    i7 = i2;
-                }
-                overridePendingTransition(i5, i7);
-                return;
-            }
-            int i8 = R.anim.obfuscated_res_0x7f01011a;
-            if (webDTO != null && (i = webDTO.closeEnterAnimId) != 0) {
-                i8 = i;
-            }
-            overridePendingTransition(i8, i6);
-        }
-    }
-
     public void setRightBtnColor(int i) {
         Button button;
         Interceptable interceptable = $ic;
@@ -460,32 +426,22 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public void setTitleDrawable(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048603, this, drawable, drawable2, drawable3, drawable4) == null) && this.useTitle && (textView = this.mTitle) != null) {
-            textView.setCompoundDrawables(drawable, drawable2, drawable3, drawable4);
-        }
-    }
-
     public void setTitleLayoutBg(int i) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048604, this, i) == null) || !this.useTitle || (relativeLayout = this.mTitleBgLayout) == null || i == Integer.MAX_VALUE || relativeLayout == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048604, this, i) == null) && this.useTitle && (relativeLayout = this.mTitleBgLayout) != null && i != Integer.MAX_VALUE && relativeLayout != null) {
+            relativeLayout.setBackgroundColor(i);
         }
-        relativeLayout.setBackgroundColor(i);
     }
 
     public void setTitleLayoutHeight(int i) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048605, this, i) == null) || !this.useTitle || (relativeLayout = this.mTitleLayout) == null || i == Integer.MAX_VALUE) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048605, this, i) == null) && this.useTitle && (relativeLayout = this.mTitleLayout) != null && i != Integer.MAX_VALUE) {
+            ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
+            layoutParams.height = i;
+            this.mTitleLayout.setLayoutParams(layoutParams);
         }
-        ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
-        layoutParams.height = i;
-        this.mTitleLayout.setLayoutParams(layoutParams);
     }
 
     public void setTitleLayoutVisible(int i) {
@@ -496,31 +452,25 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public void setTitleText(String str) {
+    public void setTitleText(int i) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048608, this, str) == null) && this.useTitle && this.mTitle != null) {
-            PassportViewManager.TitleViewModule titleViewModule = this.viewManager.getTitleViewModule();
-            if (titleViewModule != null) {
-                if (titleViewModule.useWebviewTitle) {
-                    if (TextUtils.isEmpty(str)) {
-                        return;
-                    }
-                    this.mTitle.setText(str);
-                    return;
-                }
-                this.mTitle.setText(titleViewModule.titleText);
-            } else if (TextUtils.isEmpty(str)) {
-            } else {
-                this.mTitle.setText(str);
-            }
+        if ((interceptable == null || interceptable.invokeI(1048607, this, i) == null) && this.useTitle && (textView = this.mTitle) != null) {
+            textView.setText(getResources().getText(i));
         }
     }
 
     public void setTitleTextBold(boolean z) {
         TextView textView;
+        Typeface typeface;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048609, this, z) == null) && this.useTitle && (textView = this.mTitle) != null) {
-            textView.setTypeface(z ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            if (z) {
+                typeface = Typeface.DEFAULT_BOLD;
+            } else {
+                typeface = Typeface.DEFAULT;
+            }
+            textView.setTypeface(typeface);
         }
     }
 
@@ -548,109 +498,67 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public void setupViews() {
-        ViewStub viewStub;
-        View childAt;
+    public void setLeftBtnDrawable(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            ViewUtility.enableStatusBarTint(this, -1);
-            if (Build.VERSION.SDK_INT >= 14 && (childAt = ((ViewGroup) findViewById(16908290)).getChildAt(0)) != null) {
-                childAt.setFitsSystemWindows(true);
+        if ((interceptable == null || interceptable.invokeLLLL(1048590, this, drawable, drawable2, drawable3, drawable4) == null) && this.useTitle && (textView = this.mLeftBtnTv) != null) {
+            textView.setCompoundDrawablesWithIntrinsicBounds(drawable, drawable2, drawable3, drawable4);
+        }
+    }
+
+    public void setTitleDrawable(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048603, this, drawable, drawable2, drawable3, drawable4) == null) && this.useTitle && (textView = this.mTitle) != null) {
+            textView.setCompoundDrawables(drawable, drawable2, drawable3, drawable4);
+        }
+    }
+
+    public void setPageAnim(boolean z) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            SapiConfiguration sapiConfiguration = this.configuration;
+            int i6 = 0;
+            if (sapiConfiguration == null) {
+                i = 0;
+            } else {
+                i = sapiConfiguration.activityOpenAnimId;
             }
-            if (this.useTitle) {
-                this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
-                this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.title_left_btn_layout);
-                this.mLeftBtnTv = (TextView) findViewById(R.id.title_btn_left_tv);
-                this.mLeftBtnIv = (ImageView) findViewById(R.id.title_btn_left_iv);
-                this.mRightBtn = (Button) findViewById(R.id.title_btn_right);
-                this.mTitleLayout = (RelativeLayout) findViewById(R.id.sapi_title_layout);
-                this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.sapi_title_bg_layout);
-                this.dividerLine = findViewById(R.id.title_divider_line);
-                this.mRightBtnClose = (ImageView) findViewById(R.id.title_right_close);
-                SapiConfiguration sapiConfiguration = this.configuration;
-                if (sapiConfiguration != null && sapiConfiguration.showBottomBack && this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.stub_bottom_back)) != null) {
-                    this.bottomBackView = viewStub.inflate();
-                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.sapi_bottom_back);
-                    this.mBottomBackTvText = (TextView) findViewById(R.id.sapi_textview_back);
-                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.sapi_layout_bottom_back);
-                    this.mBottomDividerLine = (ImageView) findViewById(R.id.sapi_sdk_bottom_divider_line);
-                    ViewUtility.setOnClickListener(this.mBottomBackBtnIv, this);
-                    ViewUtility.setOnClickListener(this.mBottomBackTvText, this);
-                    ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
-                    this.mBottomBackTvText.setVisibility(this.configuration.isShowBottomBackText ? 0 : 8);
+            SapiConfiguration sapiConfiguration2 = this.configuration;
+            if (sapiConfiguration2 != null) {
+                i6 = sapiConfiguration2.activityExitAnimId;
+            }
+            SapiWebDTO webDTO = getWebDTO();
+            if (webDTO != null && (i5 = webDTO.openEnterAnimId) != 0) {
+                i = i5;
+            }
+            if (webDTO != null && (i4 = webDTO.closeExitAnimId) != 0) {
+                i6 = i4;
+            }
+            if (i == 0) {
+                i = R.anim.obfuscated_res_0x7f01011c;
+            }
+            if (i6 == 0) {
+                i6 = R.anim.obfuscated_res_0x7f01011d;
+            }
+            if (z) {
+                int i7 = R.anim.obfuscated_res_0x7f01011b;
+                if (webDTO != null && (i3 = webDTO.openExitAnimId) != 0) {
+                    i7 = i3;
                 }
-                ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
-                ViewUtility.setViewClickAlpha(this.mLeftBtnIv, 0.2f);
-                ViewUtility.setViewClickAlpha(this.mLeftBtnTv, 0.2f);
-                ViewUtility.setViewClickAlpha(this.mRightBtn, 0.2f);
-                ViewUtility.setOnClickListener(this.mRightBtnClose, this);
-                ViewUtility.setOnClickListener(this.mLeftBtnIv, this);
-                ViewUtility.setOnClickListener(this.mLeftBtnTv, this);
-                ViewUtility.setOnClickListener(this.mRightBtn, this);
-                SapiConfiguration sapiConfiguration2 = this.configuration;
-                if (sapiConfiguration2 != null) {
-                    ViewUtility.enlargedViews(this.mLeftBtnIv, sapiConfiguration2.getTextZoom());
-                    ViewUtility.enlargedViews(this.mLeftBtnTv, this.configuration.getTextZoom());
-                    ViewUtility.enlargedViews(this.mTitle, this.configuration.getTextZoom());
-                    ViewUtility.enlargedViews(this.mRightBtn, this.configuration.getTextZoom());
-                    ViewUtility.enlargedViews(this.mRightBtnClose, this.configuration.getTextZoom());
-                    ViewUtility.enlargedViews(this.mBottomBackBtnIv, this.configuration.getTextZoom());
-                    ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.getTextZoom());
-                }
+                overridePendingTransition(i, i7);
+                return;
             }
-            SapiConfiguration sapiConfiguration3 = this.configuration;
-            if (sapiConfiguration3 != null && !sapiConfiguration3.isDarkMode && sapiConfiguration3.isNightMode) {
-                ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d0502, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
+            int i8 = R.anim.obfuscated_res_0x7f01011a;
+            if (webDTO != null && (i2 = webDTO.closeEnterAnimId) != 0) {
+                i8 = i2;
             }
-            if (this.bottomBackView != null) {
-                SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener(this) { // from class: com.baidu.sapi2.activity.TitleActivity.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ TitleActivity a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
-                    }
-
-                    @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                    public void keyBoardHide(int i) {
-                        View view2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                            TitleActivity titleActivity = this.a;
-                            if (!titleActivity.realShowBottomBack || (view2 = titleActivity.bottomBackView) == null) {
-                                return;
-                            }
-                            view2.setVisibility(0);
-                        }
-                    }
-
-                    @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                    public void keyBoardShow(int i) {
-                        View view2;
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (view2 = this.a.bottomBackView) == null) {
-                            return;
-                        }
-                        view2.setVisibility(8);
-                    }
-                });
-            }
-            configTitle();
+            overridePendingTransition(i8, i6);
         }
     }
 
@@ -680,11 +588,114 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    public void setTitleText(int i) {
-        TextView textView;
+    public void setupViews() {
+        ViewStub viewStub;
+        int i;
+        View childAt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048607, this, i) == null) && this.useTitle && (textView = this.mTitle) != null) {
-            textView.setText(getResources().getText(i));
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            ViewUtility.enableStatusBarTint(this, -1);
+            if (Build.VERSION.SDK_INT >= 14 && (childAt = ((ViewGroup) findViewById(16908290)).getChildAt(0)) != null) {
+                childAt.setFitsSystemWindows(true);
+            }
+            if (this.useTitle) {
+                this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+                this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.title_left_btn_layout);
+                this.mLeftBtnTv = (TextView) findViewById(R.id.title_btn_left_tv);
+                this.mLeftBtnIv = (ImageView) findViewById(R.id.title_btn_left_iv);
+                this.mRightBtn = (Button) findViewById(R.id.title_btn_right);
+                this.mTitleLayout = (RelativeLayout) findViewById(R.id.sapi_title_layout);
+                this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.sapi_title_bg_layout);
+                this.dividerLine = findViewById(R.id.title_divider_line);
+                this.mRightBtnClose = (ImageView) findViewById(R.id.title_right_close);
+                SapiConfiguration sapiConfiguration = this.configuration;
+                if (sapiConfiguration != null && sapiConfiguration.showBottomBack && this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.stub_bottom_back)) != null) {
+                    this.bottomBackView = viewStub.inflate();
+                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.sapi_bottom_back);
+                    this.mBottomBackTvText = (TextView) findViewById(R.id.sapi_textview_back);
+                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.sapi_layout_bottom_back);
+                    this.mBottomDividerLine = (ImageView) findViewById(R.id.sapi_sdk_bottom_divider_line);
+                    ViewUtility.setOnClickListener(this.mBottomBackBtnIv, this);
+                    ViewUtility.setOnClickListener(this.mBottomBackTvText, this);
+                    ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
+                    TextView textView = this.mBottomBackTvText;
+                    if (this.configuration.isShowBottomBackText) {
+                        i = 0;
+                    } else {
+                        i = 8;
+                    }
+                    textView.setVisibility(i);
+                }
+                ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
+                ViewUtility.setViewClickAlpha(this.mLeftBtnIv, 0.2f);
+                ViewUtility.setViewClickAlpha(this.mLeftBtnTv, 0.2f);
+                ViewUtility.setViewClickAlpha(this.mRightBtn, 0.2f);
+                ViewUtility.setOnClickListener(this.mRightBtnClose, this);
+                ViewUtility.setOnClickListener(this.mLeftBtnIv, this);
+                ViewUtility.setOnClickListener(this.mLeftBtnTv, this);
+                ViewUtility.setOnClickListener(this.mRightBtn, this);
+                SapiConfiguration sapiConfiguration2 = this.configuration;
+                if (sapiConfiguration2 != null) {
+                    ViewUtility.enlargedViews(this.mLeftBtnIv, sapiConfiguration2.getTextZoom());
+                    ViewUtility.enlargedViews(this.mLeftBtnTv, this.configuration.getTextZoom());
+                    ViewUtility.enlargedViews(this.mTitle, this.configuration.getTextZoom());
+                    ViewUtility.enlargedViews(this.mRightBtn, this.configuration.getTextZoom());
+                    ViewUtility.enlargedViews(this.mRightBtnClose, this.configuration.getTextZoom());
+                    ViewUtility.enlargedViews(this.mBottomBackBtnIv, this.configuration.getTextZoom());
+                    ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.getTextZoom());
+                }
+            }
+            SapiConfiguration sapiConfiguration3 = this.configuration;
+            if (sapiConfiguration3 != null && !sapiConfiguration3.isDarkMode && sapiConfiguration3.isNightMode) {
+                ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04ff, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
+            }
+            if (this.bottomBackView != null) {
+                SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener(this) { // from class: com.baidu.sapi2.activity.TitleActivity.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ TitleActivity a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.a = this;
+                    }
+
+                    @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
+                    public void keyBoardHide(int i2) {
+                        View view2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                            TitleActivity titleActivity = this.a;
+                            if (titleActivity.realShowBottomBack && (view2 = titleActivity.bottomBackView) != null) {
+                                view2.setVisibility(0);
+                            }
+                        }
+                    }
+
+                    @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
+                    public void keyBoardShow(int i2) {
+                        View view2;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (view2 = this.a.bottomBackView) != null) {
+                            view2.setVisibility(8);
+                        }
+                    }
+                });
+            }
+            configTitle();
         }
     }
 }

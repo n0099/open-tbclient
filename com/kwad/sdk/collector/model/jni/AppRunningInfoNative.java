@@ -1,7 +1,5 @@
 package com.kwad.sdk.collector.model.jni;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.b;
 import com.kwad.sdk.collector.model.c;
@@ -10,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class AppRunningInfoNative extends NativeObject implements b<AppRunningInfoNative> {
+public class AppRunningInfoNative extends NativeObject implements b {
     public static SimpleDateFormat SR = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
 
     public AppRunningInfoNative(long j) {
@@ -38,7 +36,6 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
     /* renamed from: rw */
     public AppRunningInfoNative clone() {
         AppRunningInfoNative appRunningInfoNative = new AppRunningInfoNative(AppStatusNative.appRunningInfoGetGranularity(this), AppStatusNative.appRunningInfoGetName(this), AppStatusNative.appRunningInfoGetPackageName(this));
@@ -93,7 +90,7 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
     }
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
     }
 
     @Override // com.kwad.sdk.core.b

@@ -19,6 +19,42 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public BasicHttpResponse(ProtocolVersion protocolVersion, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {protocolVersion, Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
+    public BasicHttpResponse(StatusLine statusLine) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {statusLine};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public BasicHttpResponse(StatusLine statusLine, ReasonPhraseCatalog reasonPhraseCatalog, Locale locale) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,15 +103,6 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
         return (ProtocolVersion) invokeV.objValue;
     }
 
-    public String getReason(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeI.objValue;
-    }
-
     @Override // org.apache.http.HttpResponse
     public StatusLine getStatusLine() {
         InterceptResult invokeV;
@@ -84,6 +111,15 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
             throw new RuntimeException("Stub!");
         }
         return (StatusLine) invokeV.objValue;
+    }
+
+    public String getReason(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeI.objValue;
     }
 
     @Override // org.apache.http.HttpResponse
@@ -126,48 +162,12 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
         }
     }
 
-    public BasicHttpResponse(StatusLine statusLine) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {statusLine};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
     @Override // org.apache.http.HttpResponse
     public void setStatusLine(ProtocolVersion protocolVersion, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, protocolVersion, i) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public BasicHttpResponse(ProtocolVersion protocolVersion, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {protocolVersion, Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpResponse

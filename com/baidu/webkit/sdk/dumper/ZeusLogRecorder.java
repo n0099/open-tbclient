@@ -34,10 +34,10 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     public static String TAG = "ZeusLogRecorder";
     public static ZeusLogRecorder instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> fileNameList;
+    public List fileNameList;
     public boolean isFilterLogRecord;
     public boolean isUploading;
-    public List<LogRecordBean> list;
+    public List list;
     public OnFinishedUploadLogListener listener;
     public Lock lock;
     public File logDir;
@@ -105,7 +105,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
 
     /* loaded from: classes6.dex */
     public interface OnFinishedUploadLogListener {
-        void onFinishedUploadLog(List<LogRecordBean> list, String str);
+        void onFinishedUploadLog(List list, String str);
     }
 
     /* loaded from: classes6.dex */
@@ -114,7 +114,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean over;
         public Process p;
-        public ArrayList<String> stream;
+        public ArrayList stream;
         public final /* synthetic */ ZeusLogRecorder this$0;
         public final Writer writer;
 
@@ -137,10 +137,10 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
             this.p = process;
             this.over = false;
             this.writer = writer;
-            this.stream = new ArrayList<>();
+            this.stream = new ArrayList();
         }
 
-        public ArrayList<String> getStream() {
+        public ArrayList getStream() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.stream : (ArrayList) invokeV.objValue;

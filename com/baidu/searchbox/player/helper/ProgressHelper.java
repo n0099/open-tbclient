@@ -1,8 +1,6 @@
 package com.baidu.searchbox.player.helper;
 
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +11,7 @@ public class ProgressHelper extends AbsHandlerTask {
     public transient /* synthetic */ FieldHolder $fh;
     public final BDVideoPlayer mPlayer;
 
-    public ProgressHelper(@NonNull BDVideoPlayer bDVideoPlayer) {
+    public ProgressHelper(BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,14 +31,12 @@ public class ProgressHelper extends AbsHandlerTask {
 
     private void callPlayerBack(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(65537, this, i, i2, i3) == null) || i2 <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeIII(65537, this, i, i2, i3) == null) && i2 > 0) {
+            this.mPlayer.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
         }
-        this.mPlayer.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
-    @PublicMethod
     public void doTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

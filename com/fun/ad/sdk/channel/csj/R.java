@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class anim {
+    public final class anim {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_fade_in = 0x7f010000;
         public static final int abc_fade_out = 0x7f010001;
@@ -45,7 +45,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class attr {
+    public final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int actionBarDivider = 0x7f04004a;
         public static final int actionBarItemBackground = 0x7f04004b;
@@ -337,7 +337,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class bool {
+    public final class bool {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
         public static final int abc_allow_stacked_button_bar = 0x7f050001;
@@ -360,7 +360,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class color {
+    public final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_background_cache_hint_selector_material_dark = 0x7f060363;
         public static final int abc_background_cache_hint_selector_material_light = 0x7f060364;
@@ -474,7 +474,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class dimen {
+    public final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_content_inset_material = 0x7f07008b;
         public static final int abc_action_bar_content_inset_with_nav = 0x7f07008c;
@@ -608,7 +608,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class drawable {
+    public final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_ab_share_pack_mtrl_alpha = 0x7f08005f;
         public static final int abc_action_bar_item_background_material = 0x7f080060;
@@ -694,39 +694,39 @@ public final class R {
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f0800b2;
         public static final int abc_textfield_search_material = 0x7f0800b3;
         public static final int abc_vector_test = 0x7f0800b4;
-        public static final int fun_btn_bg_creative = 0x7f0805a8;
-        public static final int notification_action_background = 0x7f080e6d;
-        public static final int notification_bg = 0x7f080e6e;
-        public static final int notification_bg_low = 0x7f080e6f;
-        public static final int notification_bg_low_normal = 0x7f080e70;
-        public static final int notification_bg_low_pressed = 0x7f080e71;
-        public static final int notification_bg_normal = 0x7f080e72;
-        public static final int notification_bg_normal_pressed = 0x7f080e73;
-        public static final int notification_icon_background = 0x7f080e74;
-        public static final int notification_template_icon_bg = 0x7f080e75;
-        public static final int notification_template_icon_low_bg = 0x7f080e76;
-        public static final int notification_tile_bg = 0x7f080e77;
-        public static final int notify_panel_notification_icon_bg = 0x7f080e79;
-        public static final int tooltip_frame_dark = 0x7f08121d;
-        public static final int tooltip_frame_light = 0x7f08121e;
-        public static final int tt_appdownloader_action_bg = 0x7f081242;
-        public static final int tt_appdownloader_action_new_bg = 0x7f081243;
-        public static final int tt_appdownloader_ad_detail_download_progress = 0x7f081244;
-        public static final int tt_appdownloader_detail_download_success_bg = 0x7f081245;
-        public static final int tt_appdownloader_download_progress_bar_horizontal = 0x7f081246;
-        public static final int tt_appdownloader_download_progress_bar_horizontal_new = 0x7f081247;
-        public static final int tt_appdownloader_download_progress_bar_horizontal_night = 0x7f081248;
-        public static final int ttdownloader_bg_appinfo_btn = 0x7f081249;
-        public static final int ttdownloader_bg_appinfo_dialog = 0x7f08124a;
-        public static final int ttdownloader_bg_button_blue_corner = 0x7f08124b;
-        public static final int ttdownloader_bg_kllk_btn1 = 0x7f08124c;
-        public static final int ttdownloader_bg_kllk_btn2 = 0x7f08124d;
-        public static final int ttdownloader_bg_transparent = 0x7f08124e;
-        public static final int ttdownloader_bg_white_corner = 0x7f08124f;
-        public static final int ttdownloader_dash_line = 0x7f081250;
-        public static final int ttdownloader_icon_back_arrow = 0x7f081251;
-        public static final int ttdownloader_icon_download = 0x7f081252;
-        public static final int ttdownloader_icon_yes = 0x7f081253;
+        public static final int fun_btn_bg_creative = 0x7f0805a9;
+        public static final int notification_action_background = 0x7f080e7e;
+        public static final int notification_bg = 0x7f080e7f;
+        public static final int notification_bg_low = 0x7f080e80;
+        public static final int notification_bg_low_normal = 0x7f080e81;
+        public static final int notification_bg_low_pressed = 0x7f080e82;
+        public static final int notification_bg_normal = 0x7f080e83;
+        public static final int notification_bg_normal_pressed = 0x7f080e84;
+        public static final int notification_icon_background = 0x7f080e85;
+        public static final int notification_template_icon_bg = 0x7f080e86;
+        public static final int notification_template_icon_low_bg = 0x7f080e87;
+        public static final int notification_tile_bg = 0x7f080e88;
+        public static final int notify_panel_notification_icon_bg = 0x7f080e8a;
+        public static final int tooltip_frame_dark = 0x7f08122e;
+        public static final int tooltip_frame_light = 0x7f08122f;
+        public static final int tt_appdownloader_action_bg = 0x7f081253;
+        public static final int tt_appdownloader_action_new_bg = 0x7f081254;
+        public static final int tt_appdownloader_ad_detail_download_progress = 0x7f081255;
+        public static final int tt_appdownloader_detail_download_success_bg = 0x7f081256;
+        public static final int tt_appdownloader_download_progress_bar_horizontal = 0x7f081257;
+        public static final int tt_appdownloader_download_progress_bar_horizontal_new = 0x7f081258;
+        public static final int tt_appdownloader_download_progress_bar_horizontal_night = 0x7f081259;
+        public static final int ttdownloader_bg_appinfo_btn = 0x7f08125a;
+        public static final int ttdownloader_bg_appinfo_dialog = 0x7f08125b;
+        public static final int ttdownloader_bg_button_blue_corner = 0x7f08125c;
+        public static final int ttdownloader_bg_kllk_btn1 = 0x7f08125d;
+        public static final int ttdownloader_bg_kllk_btn2 = 0x7f08125e;
+        public static final int ttdownloader_bg_transparent = 0x7f08125f;
+        public static final int ttdownloader_bg_white_corner = 0x7f081260;
+        public static final int ttdownloader_dash_line = 0x7f081261;
+        public static final int ttdownloader_icon_back_arrow = 0x7f081262;
+        public static final int ttdownloader_icon_download = 0x7f081263;
+        public static final int ttdownloader_icon_yes = 0x7f081264;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -745,7 +745,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class id {
+    public final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int accessibility_action_clickable_span = 0x7f090030;
         public static final int accessibility_custom_action_0 = 0x7f090031;
@@ -814,134 +814,134 @@ public final class R {
         public static final int add = 0x7f090109;
         public static final int alertTitle = 0x7f090266;
         public static final int async = 0x7f0902ca;
-        public static final int blocking = 0x7f0903b0;
-        public static final int bottom = 0x7f0903d6;
-        public static final int buttonPanel = 0x7f090481;
-        public static final int cancel_action = 0x7f090498;
-        public static final int cancel_tv = 0x7f0904a3;
-        public static final int checkbox = 0x7f090611;
-        public static final int chronometer = 0x7f09063e;
-        public static final int confirm_tv = 0x7f0906cc;
-        public static final int content = 0x7f0906e3;
-        public static final int contentPanel = 0x7f0906e6;
-        public static final int custom = 0x7f09074e;
-        public static final int customPanel = 0x7f09074f;
-        public static final int dash_line = 0x7f09076b;
-        public static final int decor_content_parent = 0x7f09077a;
-        public static final int default_activity_button = 0x7f09077d;
-        public static final int dialog_button = 0x7f0907b7;
-        public static final int edit_query = 0x7f090880;
-        public static final int end = 0x7f0908f5;
-        public static final int end_padder = 0x7f0908f7;
-        public static final int expand_activities_button = 0x7f090953;
-        public static final int expanded_menu = 0x7f09095f;
-        public static final int forever = 0x7f090a42;
-        public static final int glide_custom_view_target_tag = 0x7f090cc9;
-        public static final int group_divider = 0x7f090cfa;
-        public static final int home = 0x7f090d77;
-        public static final int icon = 0x7f090e20;
-        public static final int icon_group = 0x7f090e28;
-        public static final int image = 0x7f090e94;
-        public static final int info = 0x7f090f25;
-        public static final int italic = 0x7f090f8d;
-        public static final int iv_app_icon = 0x7f090ff4;
-        public static final int iv_detail_back = 0x7f091004;
-        public static final int iv_privacy_back = 0x7f091025;
-        public static final int left = 0x7f0912bd;
-        public static final int line = 0x7f091306;
-        public static final int line1 = 0x7f091308;
-        public static final int line3 = 0x7f09130a;
-        public static final int listMode = 0x7f091329;
-        public static final int list_item = 0x7f09132d;
-        public static final int ll_download = 0x7f0913f7;
-        public static final int media_actions = 0x7f0914d4;
-        public static final int message = 0x7f091515;
-        public static final int message_tv = 0x7f09152c;
-        public static final int multiply = 0x7f0915b3;
-        public static final int none = 0x7f0916ea;
-        public static final int normal = 0x7f0916f0;
-        public static final int notification_background = 0x7f091704;
-        public static final int notification_main_column = 0x7f091706;
-        public static final int notification_main_column_container = 0x7f091707;
-        public static final int parentPanel = 0x7f091793;
-        public static final int permission_list = 0x7f0918d2;
-        public static final int privacy_webview = 0x7f091a87;
-        public static final int progress_circular = 0x7f091ac1;
-        public static final int progress_horizontal = 0x7f091ac3;
-        public static final int radio = 0x7f091b46;
-        public static final int right = 0x7f091c24;
-        public static final int right_icon = 0x7f091c3c;
-        public static final int right_side = 0x7f091c42;
-        public static final int screen = 0x7f091dc1;
-        public static final int scrollIndicatorDown = 0x7f091dcb;
-        public static final int scrollIndicatorUp = 0x7f091dcc;
-        public static final int scrollView = 0x7f091dcd;
-        public static final int search_badge = 0x7f091ddf;
-        public static final int search_bar = 0x7f091de0;
-        public static final int search_button = 0x7f091de6;
-        public static final int search_close_btn = 0x7f091de7;
-        public static final int search_edit_frame = 0x7f091dea;
-        public static final int search_go_btn = 0x7f091df5;
-        public static final int search_mag_icon = 0x7f091e05;
-        public static final int search_plate = 0x7f091e07;
-        public static final int search_src_text = 0x7f091e10;
-        public static final int search_voice_btn = 0x7f091e1a;
-        public static final int select_dialog_listview = 0x7f091e3e;
-        public static final int shortcut = 0x7f091ebf;
-        public static final int spacer = 0x7f091f23;
-        public static final int split_action_bar = 0x7f091f3a;
-        public static final int src_atop = 0x7f091f60;
-        public static final int src_in = 0x7f091f61;
-        public static final int src_over = 0x7f091f62;
-        public static final int start = 0x7f091f73;
-        public static final int status_bar_latest_event_content = 0x7f091f87;
-        public static final int submenuarrow = 0x7f091fa6;
-        public static final int submit_area = 0x7f091fa7;
-        public static final int tabMode = 0x7f09200c;
-        public static final int tag_accessibility_actions = 0x7f092035;
-        public static final int tag_accessibility_clickable_spans = 0x7f092036;
-        public static final int tag_accessibility_heading = 0x7f092037;
-        public static final int tag_accessibility_pane_title = 0x7f092038;
-        public static final int tag_screen_reader_focusable = 0x7f092080;
-        public static final int tag_transition_group = 0x7f09208e;
-        public static final int tag_unhandled_key_event_manager = 0x7f092090;
-        public static final int tag_unhandled_key_listeners = 0x7f092091;
-        public static final int text = 0x7f092100;
-        public static final int text2 = 0x7f092101;
-        public static final int textSpacerNoButtons = 0x7f092105;
-        public static final int textSpacerNoTitle = 0x7f092106;
-        public static final int text_tip = 0x7f092136;
-        public static final int time = 0x7f0921e8;
-        public static final int title = 0x7f092219;
-        public static final int titleDividerNoCustom = 0x7f09221b;
-        public static final int title_bar = 0x7f092222;
-        public static final int title_template = 0x7f092243;
-        public static final int top = 0x7f092287;
-        public static final int topPanel = 0x7f09228a;
-        public static final int tt_appdownloader_action = 0x7f09233f;
-        public static final int tt_appdownloader_desc = 0x7f092340;
-        public static final int tt_appdownloader_download_progress = 0x7f092341;
-        public static final int tt_appdownloader_download_progress_new = 0x7f092342;
-        public static final int tt_appdownloader_download_size = 0x7f092343;
-        public static final int tt_appdownloader_download_status = 0x7f092344;
-        public static final int tt_appdownloader_download_success = 0x7f092345;
-        public static final int tt_appdownloader_download_success_size = 0x7f092346;
-        public static final int tt_appdownloader_download_success_status = 0x7f092347;
-        public static final int tt_appdownloader_download_text = 0x7f092348;
-        public static final int tt_appdownloader_icon = 0x7f092349;
-        public static final int tt_appdownloader_root = 0x7f09234a;
-        public static final int tv_app_detail = 0x7f09236a;
-        public static final int tv_app_developer = 0x7f09236b;
-        public static final int tv_app_name = 0x7f09236c;
-        public static final int tv_app_privacy = 0x7f09236d;
-        public static final int tv_app_version = 0x7f09236f;
-        public static final int tv_empty = 0x7f092393;
-        public static final int tv_give_up = 0x7f0923a8;
-        public static final int tv_permission_description = 0x7f0923e4;
-        public static final int tv_permission_title = 0x7f0923e9;
-        public static final int uniform = 0x7f09246d;
-        public static final int up = 0x7f092475;
-        public static final int wrap_content = 0x7f0926ab;
+        public static final int blocking = 0x7f0903b9;
+        public static final int bottom = 0x7f0903df;
+        public static final int buttonPanel = 0x7f09048a;
+        public static final int cancel_action = 0x7f0904a1;
+        public static final int cancel_tv = 0x7f0904ac;
+        public static final int checkbox = 0x7f09061a;
+        public static final int chronometer = 0x7f090647;
+        public static final int confirm_tv = 0x7f0906d5;
+        public static final int content = 0x7f0906ec;
+        public static final int contentPanel = 0x7f0906ef;
+        public static final int custom = 0x7f090757;
+        public static final int customPanel = 0x7f090758;
+        public static final int dash_line = 0x7f090774;
+        public static final int decor_content_parent = 0x7f090783;
+        public static final int default_activity_button = 0x7f090786;
+        public static final int dialog_button = 0x7f0907c0;
+        public static final int edit_query = 0x7f090889;
+        public static final int end = 0x7f0908ff;
+        public static final int end_padder = 0x7f090901;
+        public static final int expand_activities_button = 0x7f09095d;
+        public static final int expanded_menu = 0x7f090969;
+        public static final int forever = 0x7f090a4c;
+        public static final int glide_custom_view_target_tag = 0x7f090cd3;
+        public static final int group_divider = 0x7f090d07;
+        public static final int home = 0x7f090d84;
+        public static final int icon = 0x7f090e14;
+        public static final int icon_group = 0x7f090e1c;
+        public static final int image = 0x7f090e88;
+        public static final int info = 0x7f090f19;
+        public static final int italic = 0x7f090f81;
+        public static final int iv_app_icon = 0x7f090fe8;
+        public static final int iv_detail_back = 0x7f090ff8;
+        public static final int iv_privacy_back = 0x7f091019;
+        public static final int left = 0x7f0912b1;
+        public static final int line = 0x7f0912fc;
+        public static final int line1 = 0x7f0912fe;
+        public static final int line3 = 0x7f091300;
+        public static final int listMode = 0x7f091319;
+        public static final int list_item = 0x7f09131d;
+        public static final int ll_download = 0x7f0913e8;
+        public static final int media_actions = 0x7f0914c6;
+        public static final int message = 0x7f091507;
+        public static final int message_tv = 0x7f09151e;
+        public static final int multiply = 0x7f0915a5;
+        public static final int none = 0x7f0916dc;
+        public static final int normal = 0x7f0916e2;
+        public static final int notification_background = 0x7f0916f6;
+        public static final int notification_main_column = 0x7f0916f8;
+        public static final int notification_main_column_container = 0x7f0916f9;
+        public static final int parentPanel = 0x7f091785;
+        public static final int permission_list = 0x7f0918c5;
+        public static final int privacy_webview = 0x7f091a83;
+        public static final int progress_circular = 0x7f091abd;
+        public static final int progress_horizontal = 0x7f091abf;
+        public static final int radio = 0x7f091b42;
+        public static final int right = 0x7f091c20;
+        public static final int right_icon = 0x7f091c38;
+        public static final int right_side = 0x7f091c3e;
+        public static final int screen = 0x7f091dbd;
+        public static final int scrollIndicatorDown = 0x7f091dc7;
+        public static final int scrollIndicatorUp = 0x7f091dc8;
+        public static final int scrollView = 0x7f091dc9;
+        public static final int search_badge = 0x7f091ddb;
+        public static final int search_bar = 0x7f091ddc;
+        public static final int search_button = 0x7f091de2;
+        public static final int search_close_btn = 0x7f091de3;
+        public static final int search_edit_frame = 0x7f091de6;
+        public static final int search_go_btn = 0x7f091df1;
+        public static final int search_mag_icon = 0x7f091e01;
+        public static final int search_plate = 0x7f091e03;
+        public static final int search_src_text = 0x7f091e0c;
+        public static final int search_voice_btn = 0x7f091e16;
+        public static final int select_dialog_listview = 0x7f091e3a;
+        public static final int shortcut = 0x7f091ebe;
+        public static final int spacer = 0x7f091f22;
+        public static final int split_action_bar = 0x7f091f39;
+        public static final int src_atop = 0x7f091f5f;
+        public static final int src_in = 0x7f091f60;
+        public static final int src_over = 0x7f091f61;
+        public static final int start = 0x7f091f72;
+        public static final int status_bar_latest_event_content = 0x7f091f86;
+        public static final int submenuarrow = 0x7f091fa5;
+        public static final int submit_area = 0x7f091fa6;
+        public static final int tabMode = 0x7f09200b;
+        public static final int tag_accessibility_actions = 0x7f092034;
+        public static final int tag_accessibility_clickable_spans = 0x7f092035;
+        public static final int tag_accessibility_heading = 0x7f092036;
+        public static final int tag_accessibility_pane_title = 0x7f092037;
+        public static final int tag_screen_reader_focusable = 0x7f09207f;
+        public static final int tag_transition_group = 0x7f09208d;
+        public static final int tag_unhandled_key_event_manager = 0x7f09208f;
+        public static final int tag_unhandled_key_listeners = 0x7f092090;
+        public static final int text = 0x7f0920ff;
+        public static final int text2 = 0x7f092100;
+        public static final int textSpacerNoButtons = 0x7f092104;
+        public static final int textSpacerNoTitle = 0x7f092105;
+        public static final int text_tip = 0x7f092135;
+        public static final int time = 0x7f0921d2;
+        public static final int title = 0x7f092203;
+        public static final int titleDividerNoCustom = 0x7f092205;
+        public static final int title_bar = 0x7f09220c;
+        public static final int title_template = 0x7f09222d;
+        public static final int top = 0x7f092271;
+        public static final int topPanel = 0x7f092274;
+        public static final int tt_appdownloader_action = 0x7f09232a;
+        public static final int tt_appdownloader_desc = 0x7f09232b;
+        public static final int tt_appdownloader_download_progress = 0x7f09232c;
+        public static final int tt_appdownloader_download_progress_new = 0x7f09232d;
+        public static final int tt_appdownloader_download_size = 0x7f09232e;
+        public static final int tt_appdownloader_download_status = 0x7f09232f;
+        public static final int tt_appdownloader_download_success = 0x7f092330;
+        public static final int tt_appdownloader_download_success_size = 0x7f092331;
+        public static final int tt_appdownloader_download_success_status = 0x7f092332;
+        public static final int tt_appdownloader_download_text = 0x7f092333;
+        public static final int tt_appdownloader_icon = 0x7f092334;
+        public static final int tt_appdownloader_root = 0x7f092335;
+        public static final int tv_app_detail = 0x7f092355;
+        public static final int tv_app_developer = 0x7f092356;
+        public static final int tv_app_name = 0x7f092357;
+        public static final int tv_app_privacy = 0x7f092358;
+        public static final int tv_app_version = 0x7f09235a;
+        public static final int tv_empty = 0x7f09237e;
+        public static final int tv_give_up = 0x7f092393;
+        public static final int tv_permission_description = 0x7f0923cf;
+        public static final int tv_permission_title = 0x7f0923d4;
+        public static final int uniform = 0x7f092457;
+        public static final int up = 0x7f09245f;
+        public static final int wrap_content = 0x7f092693;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -960,7 +960,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class integer {
+    public final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;
         public static final int abc_config_activityShortDur = 0x7f0a0001;
@@ -986,7 +986,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class layout {
+    public final class layout {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_title_item = 0x7f0d0000;
         public static final int abc_action_bar_up_container = 0x7f0d0001;
@@ -1016,14 +1016,14 @@ public final class R {
         public static final int abc_search_view = 0x7f0d0019;
         public static final int abc_select_dialog_material = 0x7f0d001a;
         public static final int abc_tooltip = 0x7f0d001b;
-        public static final int custom_dialog = 0x7f0d0208;
-        public static final int fun_csj_ad_draw_video_native = 0x7f0d0361;
-        public static final int fun_csj_ad_native_group_img_view = 0x7f0d0362;
-        public static final int fun_csj_ad_native_large_img_view = 0x7f0d0363;
-        public static final int fun_csj_ad_native_large_video_view = 0x7f0d0364;
-        public static final int fun_csj_ad_native_small_img_view = 0x7f0d0365;
-        public static final int fun_csj_ad_native_vertical_img_view = 0x7f0d0366;
-        public static final int fun_csj_ad_native_vertical_video_view = 0x7f0d0367;
+        public static final int custom_dialog = 0x7f0d0207;
+        public static final int fun_csj_ad_draw_video_native = 0x7f0d0360;
+        public static final int fun_csj_ad_native_group_img_view = 0x7f0d0361;
+        public static final int fun_csj_ad_native_large_img_view = 0x7f0d0362;
+        public static final int fun_csj_ad_native_large_video_view = 0x7f0d0363;
+        public static final int fun_csj_ad_native_small_img_view = 0x7f0d0364;
+        public static final int fun_csj_ad_native_vertical_img_view = 0x7f0d0365;
+        public static final int fun_csj_ad_native_vertical_video_view = 0x7f0d0366;
         public static final int notification_action = 0x7f0d0669;
         public static final int notification_action_tombstone = 0x7f0d066a;
         public static final int notification_media_action = 0x7f0d066b;
@@ -1039,16 +1039,16 @@ public final class R {
         public static final int notification_template_media_custom = 0x7f0d0675;
         public static final int notification_template_part_chronometer = 0x7f0d0676;
         public static final int notification_template_part_time = 0x7f0d0677;
-        public static final int select_dialog_item_material = 0x7f0d07a8;
-        public static final int select_dialog_multichoice_material = 0x7f0d07a9;
-        public static final int select_dialog_singlechoice_material = 0x7f0d07aa;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0d0808;
-        public static final int tt_appdownloader_notification_layout = 0x7f0d08a0;
-        public static final int ttdownloader_activity_app_detail_info = 0x7f0d08a1;
-        public static final int ttdownloader_activity_app_privacy_policy = 0x7f0d08a2;
-        public static final int ttdownloader_dialog_appinfo = 0x7f0d08a3;
-        public static final int ttdownloader_dialog_select_operation = 0x7f0d08a4;
-        public static final int ttdownloader_item_permission = 0x7f0d08a5;
+        public static final int select_dialog_item_material = 0x7f0d07a9;
+        public static final int select_dialog_multichoice_material = 0x7f0d07aa;
+        public static final int select_dialog_singlechoice_material = 0x7f0d07ab;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0d0809;
+        public static final int tt_appdownloader_notification_layout = 0x7f0d08a1;
+        public static final int ttdownloader_activity_app_detail_info = 0x7f0d08a2;
+        public static final int ttdownloader_activity_app_privacy_policy = 0x7f0d08a3;
+        public static final int ttdownloader_dialog_appinfo = 0x7f0d08a4;
+        public static final int ttdownloader_dialog_select_operation = 0x7f0d08a5;
+        public static final int ttdownloader_item_permission = 0x7f0d08a6;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -1067,7 +1067,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class string {
+    public final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_home_description = 0x7f0f0038;
         public static final int abc_action_bar_up_description = 0x7f0f0039;
@@ -1097,74 +1097,74 @@ public final class R {
         public static final int abc_shareactionprovider_share_with_application = 0x7f0f0051;
         public static final int abc_toolbar_collapse_description = 0x7f0f0052;
         public static final int app_name = 0x7f0f029e;
-        public static final int common_google_play_services_unknown_issue = 0x7f0f041b;
-        public static final int fun_ad_interaction_type_browser = 0x7f0f078a;
-        public static final int fun_ad_interaction_type_dial = 0x7f0f078b;
-        public static final int fun_ad_interaction_type_download = 0x7f0f078c;
-        public static final int fun_ad_interaction_type_downloading = 0x7f0f078d;
-        public static final int fun_ad_interaction_type_downloading_without_progress = 0x7f0f078e;
-        public static final int fun_ad_interaction_type_install = 0x7f0f078f;
-        public static final int fun_ad_interaction_type_open = 0x7f0f0790;
-        public static final int fun_ad_interaction_type_redownload = 0x7f0f0791;
-        public static final int fun_ad_interaction_type_resume_download = 0x7f0f0792;
-        public static final int fun_ad_interaction_type_start = 0x7f0f0793;
-        public static final int fun_ad_interaction_type_tap_download = 0x7f0f0794;
-        public static final int fun_ad_interaction_type_tap_install = 0x7f0f0795;
-        public static final int fun_ad_interaction_type_tap_open = 0x7f0f0796;
-        public static final int fun_ad_interaction_type_update = 0x7f0f0797;
-        public static final int fun_ad_interaction_type_view = 0x7f0f0798;
-        public static final int fun_ad_title_favourite = 0x7f0f079f;
-        public static final int search_menu_title = 0x7f0f10e5;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1212;
-        public static final int tt_appdownloader_button_cancel_download = 0x7f0f1483;
-        public static final int tt_appdownloader_button_queue_for_wifi = 0x7f0f1484;
-        public static final int tt_appdownloader_button_start_now = 0x7f0f1485;
-        public static final int tt_appdownloader_download_percent = 0x7f0f1486;
-        public static final int tt_appdownloader_download_remaining = 0x7f0f1487;
-        public static final int tt_appdownloader_download_unknown_title = 0x7f0f1488;
-        public static final int tt_appdownloader_duration_hours = 0x7f0f1489;
-        public static final int tt_appdownloader_duration_minutes = 0x7f0f148a;
-        public static final int tt_appdownloader_duration_seconds = 0x7f0f148b;
-        public static final int tt_appdownloader_jump_unknown_source = 0x7f0f148c;
-        public static final int tt_appdownloader_label_cancel = 0x7f0f148d;
-        public static final int tt_appdownloader_label_cancel_directly = 0x7f0f148e;
-        public static final int tt_appdownloader_label_ok = 0x7f0f148f;
-        public static final int tt_appdownloader_label_reserve_wifi = 0x7f0f1490;
-        public static final int tt_appdownloader_notification_download = 0x7f0f1491;
-        public static final int tt_appdownloader_notification_download_complete_open = 0x7f0f1492;
-        public static final int tt_appdownloader_notification_download_complete_with_install = 0x7f0f1493;
-        public static final int tt_appdownloader_notification_download_complete_without_install = 0x7f0f1494;
-        public static final int tt_appdownloader_notification_download_continue = 0x7f0f1495;
-        public static final int tt_appdownloader_notification_download_delete = 0x7f0f1496;
-        public static final int tt_appdownloader_notification_download_failed = 0x7f0f1497;
-        public static final int tt_appdownloader_notification_download_install = 0x7f0f1498;
-        public static final int tt_appdownloader_notification_download_open = 0x7f0f1499;
-        public static final int tt_appdownloader_notification_download_pause = 0x7f0f149a;
-        public static final int tt_appdownloader_notification_download_restart = 0x7f0f149b;
-        public static final int tt_appdownloader_notification_download_resume = 0x7f0f149c;
-        public static final int tt_appdownloader_notification_download_space_failed = 0x7f0f149d;
-        public static final int tt_appdownloader_notification_download_waiting_net = 0x7f0f149e;
-        public static final int tt_appdownloader_notification_download_waiting_wifi = 0x7f0f149f;
-        public static final int tt_appdownloader_notification_downloading = 0x7f0f14a0;
-        public static final int tt_appdownloader_notification_install_finished_open = 0x7f0f14a1;
-        public static final int tt_appdownloader_notification_insufficient_space_error = 0x7f0f14a2;
-        public static final int tt_appdownloader_notification_need_wifi_for_size = 0x7f0f14a3;
-        public static final int tt_appdownloader_notification_no_internet_error = 0x7f0f14a4;
-        public static final int tt_appdownloader_notification_no_wifi_and_in_net = 0x7f0f14a5;
-        public static final int tt_appdownloader_notification_paused_in_background = 0x7f0f14a6;
-        public static final int tt_appdownloader_notification_pausing = 0x7f0f14a7;
-        public static final int tt_appdownloader_notification_prepare = 0x7f0f14a8;
-        public static final int tt_appdownloader_notification_request_btn_no = 0x7f0f14a9;
-        public static final int tt_appdownloader_notification_request_btn_yes = 0x7f0f14aa;
-        public static final int tt_appdownloader_notification_request_message = 0x7f0f14ab;
-        public static final int tt_appdownloader_notification_request_title = 0x7f0f14ac;
-        public static final int tt_appdownloader_notification_waiting_download_complete_handler = 0x7f0f14ad;
-        public static final int tt_appdownloader_resume_in_wifi = 0x7f0f14ae;
-        public static final int tt_appdownloader_tip = 0x7f0f14af;
-        public static final int tt_appdownloader_wifi_recommended_body = 0x7f0f14b0;
-        public static final int tt_appdownloader_wifi_recommended_title = 0x7f0f14b1;
-        public static final int tt_appdownloader_wifi_required_body = 0x7f0f14b2;
-        public static final int tt_appdownloader_wifi_required_title = 0x7f0f14b3;
+        public static final int common_google_play_services_unknown_issue = 0x7f0f0422;
+        public static final int fun_ad_interaction_type_browser = 0x7f0f0796;
+        public static final int fun_ad_interaction_type_dial = 0x7f0f0797;
+        public static final int fun_ad_interaction_type_download = 0x7f0f0798;
+        public static final int fun_ad_interaction_type_downloading = 0x7f0f0799;
+        public static final int fun_ad_interaction_type_downloading_without_progress = 0x7f0f079a;
+        public static final int fun_ad_interaction_type_install = 0x7f0f079b;
+        public static final int fun_ad_interaction_type_open = 0x7f0f079c;
+        public static final int fun_ad_interaction_type_redownload = 0x7f0f079d;
+        public static final int fun_ad_interaction_type_resume_download = 0x7f0f079e;
+        public static final int fun_ad_interaction_type_start = 0x7f0f079f;
+        public static final int fun_ad_interaction_type_tap_download = 0x7f0f07a0;
+        public static final int fun_ad_interaction_type_tap_install = 0x7f0f07a1;
+        public static final int fun_ad_interaction_type_tap_open = 0x7f0f07a2;
+        public static final int fun_ad_interaction_type_update = 0x7f0f07a3;
+        public static final int fun_ad_interaction_type_view = 0x7f0f07a4;
+        public static final int fun_ad_title_favourite = 0x7f0f07ab;
+        public static final int search_menu_title = 0x7f0f10f7;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1226;
+        public static final int tt_appdownloader_button_cancel_download = 0x7f0f149c;
+        public static final int tt_appdownloader_button_queue_for_wifi = 0x7f0f149d;
+        public static final int tt_appdownloader_button_start_now = 0x7f0f149e;
+        public static final int tt_appdownloader_download_percent = 0x7f0f149f;
+        public static final int tt_appdownloader_download_remaining = 0x7f0f14a0;
+        public static final int tt_appdownloader_download_unknown_title = 0x7f0f14a1;
+        public static final int tt_appdownloader_duration_hours = 0x7f0f14a2;
+        public static final int tt_appdownloader_duration_minutes = 0x7f0f14a3;
+        public static final int tt_appdownloader_duration_seconds = 0x7f0f14a4;
+        public static final int tt_appdownloader_jump_unknown_source = 0x7f0f14a5;
+        public static final int tt_appdownloader_label_cancel = 0x7f0f14a6;
+        public static final int tt_appdownloader_label_cancel_directly = 0x7f0f14a7;
+        public static final int tt_appdownloader_label_ok = 0x7f0f14a8;
+        public static final int tt_appdownloader_label_reserve_wifi = 0x7f0f14a9;
+        public static final int tt_appdownloader_notification_download = 0x7f0f14aa;
+        public static final int tt_appdownloader_notification_download_complete_open = 0x7f0f14ab;
+        public static final int tt_appdownloader_notification_download_complete_with_install = 0x7f0f14ac;
+        public static final int tt_appdownloader_notification_download_complete_without_install = 0x7f0f14ad;
+        public static final int tt_appdownloader_notification_download_continue = 0x7f0f14ae;
+        public static final int tt_appdownloader_notification_download_delete = 0x7f0f14af;
+        public static final int tt_appdownloader_notification_download_failed = 0x7f0f14b0;
+        public static final int tt_appdownloader_notification_download_install = 0x7f0f14b1;
+        public static final int tt_appdownloader_notification_download_open = 0x7f0f14b2;
+        public static final int tt_appdownloader_notification_download_pause = 0x7f0f14b3;
+        public static final int tt_appdownloader_notification_download_restart = 0x7f0f14b4;
+        public static final int tt_appdownloader_notification_download_resume = 0x7f0f14b5;
+        public static final int tt_appdownloader_notification_download_space_failed = 0x7f0f14b6;
+        public static final int tt_appdownloader_notification_download_waiting_net = 0x7f0f14b7;
+        public static final int tt_appdownloader_notification_download_waiting_wifi = 0x7f0f14b8;
+        public static final int tt_appdownloader_notification_downloading = 0x7f0f14b9;
+        public static final int tt_appdownloader_notification_install_finished_open = 0x7f0f14ba;
+        public static final int tt_appdownloader_notification_insufficient_space_error = 0x7f0f14bb;
+        public static final int tt_appdownloader_notification_need_wifi_for_size = 0x7f0f14bc;
+        public static final int tt_appdownloader_notification_no_internet_error = 0x7f0f14bd;
+        public static final int tt_appdownloader_notification_no_wifi_and_in_net = 0x7f0f14be;
+        public static final int tt_appdownloader_notification_paused_in_background = 0x7f0f14bf;
+        public static final int tt_appdownloader_notification_pausing = 0x7f0f14c0;
+        public static final int tt_appdownloader_notification_prepare = 0x7f0f14c1;
+        public static final int tt_appdownloader_notification_request_btn_no = 0x7f0f14c2;
+        public static final int tt_appdownloader_notification_request_btn_yes = 0x7f0f14c3;
+        public static final int tt_appdownloader_notification_request_message = 0x7f0f14c4;
+        public static final int tt_appdownloader_notification_request_title = 0x7f0f14c5;
+        public static final int tt_appdownloader_notification_waiting_download_complete_handler = 0x7f0f14c6;
+        public static final int tt_appdownloader_resume_in_wifi = 0x7f0f14c7;
+        public static final int tt_appdownloader_tip = 0x7f0f14c8;
+        public static final int tt_appdownloader_wifi_recommended_body = 0x7f0f14c9;
+        public static final int tt_appdownloader_wifi_recommended_title = 0x7f0f14ca;
+        public static final int tt_appdownloader_wifi_required_body = 0x7f0f14cb;
+        public static final int tt_appdownloader_wifi_required_title = 0x7f0f14cc;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -1183,7 +1183,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class style {
+    public final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AlertDialog_AppCompat = 0x7f100003;
         public static final int AlertDialog_AppCompat_Light = 0x7f100004;
@@ -1536,12 +1536,12 @@ public final class R {
         public static final int Widget_Compat_NotificationActionContainer = 0x7f10032a;
         public static final int Widget_Compat_NotificationActionText = 0x7f10032b;
         public static final int Widget_Support_CoordinatorLayout = 0x7f10039b;
-        public static final int tt_appdownloader_style_detail_download_progress_bar = 0x7f100419;
-        public static final int tt_appdownloader_style_notification_text = 0x7f10041a;
-        public static final int tt_appdownloader_style_notification_title = 0x7f10041b;
-        public static final int tt_appdownloader_style_progress_bar = 0x7f10041c;
-        public static final int tt_appdownloader_style_progress_bar_new = 0x7f10041d;
-        public static final int ttdownloader_translucent_dialog = 0x7f10041e;
+        public static final int tt_appdownloader_style_detail_download_progress_bar = 0x7f10041a;
+        public static final int tt_appdownloader_style_notification_text = 0x7f10041b;
+        public static final int tt_appdownloader_style_notification_title = 0x7f10041c;
+        public static final int tt_appdownloader_style_progress_bar = 0x7f10041d;
+        public static final int tt_appdownloader_style_progress_bar_new = 0x7f10041e;
+        public static final int ttdownloader_translucent_dialog = 0x7f10041f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {
@@ -1560,7 +1560,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class styleable {
+    public final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] ActionBar;
         public static final int[] ActionBarLayout;
@@ -2184,7 +2184,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class xml {
+    public final class xml {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int tt_file_paths = 0x7f130010;
         public transient /* synthetic */ FieldHolder $fh;

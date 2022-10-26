@@ -13,23 +13,23 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableTake<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableTake extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long limit;
 
     /* loaded from: classes8.dex */
-    public static final class TakeSubscriber<T> extends AtomicBoolean implements FlowableSubscriber<T>, Subscription {
+    public final class TakeSubscriber extends AtomicBoolean implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5636543848937116287L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public boolean done;
         public final long limit;
         public long remaining;
         public Subscription subscription;
 
-        public TakeSubscriber(Subscriber<? super T> subscriber, long j) {
+        public TakeSubscriber(Subscriber subscriber, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,39 +60,41 @@ public final class FlowableTake<T> extends AbstractFlowableWithUpstream<T, T> {
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.done) {
+                this.done = true;
+                this.actual.onComplete();
             }
-            this.done = true;
-            this.actual.onComplete();
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) || this.done) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && !this.done) {
+                this.done = true;
+                this.subscription.cancel();
+                this.actual.onError(th);
             }
-            this.done = true;
-            this.subscription.cancel();
-            this.actual.onError(th);
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
-                return;
-            }
-            long j = this.remaining;
-            long j2 = j - 1;
-            this.remaining = j2;
-            if (j > 0) {
-                boolean z = j2 == 0;
-                this.actual.onNext(t);
-                if (z) {
-                    this.subscription.cancel();
-                    onComplete();
+            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.done) {
+                long j = this.remaining;
+                long j2 = j - 1;
+                this.remaining = j2;
+                if (j > 0) {
+                    if (j2 == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.actual.onNext(obj);
+                    if (z) {
+                        this.subscription.cancel();
+                        onComplete();
+                    }
                 }
             }
         }
@@ -115,18 +117,19 @@ public final class FlowableTake<T> extends AbstractFlowableWithUpstream<T, T> {
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
-                if (!get() && compareAndSet(false, true) && j >= this.limit) {
-                    this.subscription.request(Long.MAX_VALUE);
-                } else {
-                    this.subscription.request(j);
-                }
+            if ((interceptable != null && interceptable.invokeJ(1048581, this, j) != null) || !SubscriptionHelper.validate(j)) {
+                return;
+            }
+            if (!get() && compareAndSet(false, true) && j >= this.limit) {
+                this.subscription.request(Long.MAX_VALUE);
+            } else {
+                this.subscription.request(j);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTake(Flowable<T> flowable, long j) {
+    public FlowableTake(Flowable flowable, long j) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -147,7 +150,7 @@ public final class FlowableTake<T> extends AbstractFlowableWithUpstream<T, T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new TakeSubscriber(subscriber, this.limit));

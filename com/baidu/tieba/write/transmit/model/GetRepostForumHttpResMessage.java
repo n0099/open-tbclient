@@ -13,12 +13,11 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetRepostRecommendForum.DataRes;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumResIdl;
-import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
 public class GetRepostForumHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<SimpleForum> forumList;
+    public List forumList;
     public int privateThread;
     public String recommendExt;
 
@@ -40,22 +39,31 @@ public class GetRepostForumHttpResMessage extends HttpResponsedMessage {
         }
     }
 
-    public List<SimpleForum> getForumList() {
+    public List getForumList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forumList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.forumList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getPrivateThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.privateThread : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.privateThread;
+        }
+        return invokeV.intValue;
     }
 
     public String getRecommendExtension() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.recommendExt : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.recommendExt;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,22 +71,21 @@ public class GetRepostForumHttpResMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetRepostRecommendForumResIdl getRepostRecommendForumResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getRepostRecommendForumResIdl = (GetRepostRecommendForumResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRepostRecommendForumResIdl.class)) == null) {
-            return;
-        }
-        Error error = getRepostRecommendForumResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getRepostRecommendForumResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (getRepostRecommendForumResIdl = (GetRepostRecommendForumResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRepostRecommendForumResIdl.class)) != null) {
+            Error error = getRepostRecommendForumResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getRepostRecommendForumResIdl.error.usermsg);
+                if (getError() != 0) {
+                    return;
+                }
             }
-        }
-        DataRes dataRes = getRepostRecommendForumResIdl.data;
-        if (dataRes != null) {
-            this.forumList = dataRes.recommend_forum_list;
-            this.recommendExt = dataRes.recommend_ext;
-            this.privateThread = dataRes.priv_thread.intValue();
+            DataRes dataRes = getRepostRecommendForumResIdl.data;
+            if (dataRes != null) {
+                this.forumList = dataRes.recommend_forum_list;
+                this.recommendExt = dataRes.recommend_ext;
+                this.privateThread = dataRes.priv_thread.intValue();
+            }
         }
     }
 }

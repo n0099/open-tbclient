@@ -9,7 +9,7 @@ public class d {
     public String d;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public String a;
         public String b;
         public String c;

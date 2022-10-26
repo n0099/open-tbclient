@@ -24,6 +24,16 @@ public class PersonPolymericActivityConfig extends IntentConfig {
     public static final String VIDEO_PERSON_FROM_VIDEO_MIDDLE = "video_middle";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public boolean asynStart() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPolymericActivityConfig(Context context) {
         super(context);
@@ -44,16 +54,6 @@ public class PersonPolymericActivityConfig extends IntentConfig {
         }
     }
 
-    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
-    public boolean asynStart() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public PersonPolymericActivityConfig createNormalConfig(long j, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -62,6 +62,21 @@ public class PersonPolymericActivityConfig extends IntentConfig {
             intent.putExtra("user_id", j);
             intent.putExtra(IS_USER_SELF, z);
             intent.putExtra(IS_BIGV, z2);
+            return this;
+        }
+        return (PersonPolymericActivityConfig) invokeCommon.objValue;
+    }
+
+    public PersonPolymericActivityConfig createNormalConfig(long j, boolean z, boolean z2, boolean z3, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str})) == null) {
+            Intent intent = getIntent();
+            intent.putExtra("user_id", j);
+            intent.putExtra(IS_USER_SELF, z);
+            intent.putExtra(IS_BIGV, z2);
+            intent.putExtra(IntentConfig.IS_VIDEO_THREAD, z3);
+            intent.putExtra(IntentConfig.VIDEO_PERSON_FROM, str);
             return this;
         }
         return (PersonPolymericActivityConfig) invokeCommon.objValue;
@@ -91,24 +106,8 @@ public class PersonPolymericActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
         }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
-    public PersonPolymericActivityConfig createNormalConfig(long j, boolean z, boolean z2, boolean z3, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str})) == null) {
-            Intent intent = getIntent();
-            intent.putExtra("user_id", j);
-            intent.putExtra(IS_USER_SELF, z);
-            intent.putExtra(IS_BIGV, z2);
-            intent.putExtra(IntentConfig.IS_VIDEO_THREAD, z3);
-            intent.putExtra(IntentConfig.VIDEO_PERSON_FROM, str);
-            return this;
-        }
-        return (PersonPolymericActivityConfig) invokeCommon.objValue;
     }
 }

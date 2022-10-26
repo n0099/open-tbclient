@@ -55,55 +55,11 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketImpl
-        public int available() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                throw new UnsupportedOperationException();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // java.net.SocketImpl
-        public void bind(InetAddress inetAddress, int i) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inetAddress, i) == null) {
-                throw new UnsupportedOperationException();
-            }
-        }
-
-        @Override // java.net.SocketImpl
-        public void close() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                throw new UnsupportedOperationException();
-            }
-        }
-
-        @Override // java.net.SocketImpl
-        public void connect(String str, int i) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, str, i) == null) {
-                throw new UnsupportedOperationException();
-            }
-        }
-
-        @Override // java.net.SocketImpl
         public void create(boolean z) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
                 throw new UnsupportedOperationException();
             }
-        }
-
-        @Override // java.net.SocketImpl
-        public InputStream getInputStream() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                throw new UnsupportedOperationException();
-            }
-            return (InputStream) invokeV.objValue;
         }
 
         @Override // java.net.SocketOptions
@@ -114,16 +70,6 @@ public class DatagramSocketWrapper extends Socket {
                 throw new UnsupportedOperationException();
             }
             return invokeI.objValue;
-        }
-
-        @Override // java.net.SocketImpl
-        public OutputStream getOutputStream() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                throw new UnsupportedOperationException();
-            }
-            return (OutputStream) invokeV.objValue;
         }
 
         @Override // java.net.SocketImpl
@@ -138,6 +84,60 @@ public class DatagramSocketWrapper extends Socket {
         public void sendUrgentData(int i) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+                throw new UnsupportedOperationException();
+            }
+        }
+
+        @Override // java.net.SocketImpl
+        public int available() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.net.SocketImpl
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                throw new UnsupportedOperationException();
+            }
+        }
+
+        @Override // java.net.SocketImpl
+        public InputStream getInputStream() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (InputStream) invokeV.objValue;
+        }
+
+        @Override // java.net.SocketImpl
+        public OutputStream getOutputStream() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (OutputStream) invokeV.objValue;
+        }
+
+        @Override // java.net.SocketImpl
+        public void bind(InetAddress inetAddress, int i) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inetAddress, i) == null) {
+                throw new UnsupportedOperationException();
+            }
+        }
+
+        @Override // java.net.SocketImpl
+        public void connect(String str, int i) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048580, this, str, i) == null) {
                 throw new UnsupportedOperationException();
             }
         }

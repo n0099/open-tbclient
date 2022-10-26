@@ -74,16 +74,16 @@ public class PreJava9DateFormatProvider {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 0 || i == 1) {
-                return "h:mm:ss a z";
-            }
-            if (i != 2) {
-                if (i == 3) {
-                    return "h:mm a";
+            if (i != 0 && i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        return "h:mm a";
+                    }
+                    throw new IllegalArgumentException("Unknown DateFormat style: " + i);
                 }
-                throw new IllegalArgumentException("Unknown DateFormat style: " + i);
+                return "h:mm:ss a";
             }
-            return "h:mm:ss a";
+            return "h:mm:ss a z";
         }
         return (String) invokeI.objValue;
     }
@@ -91,7 +91,10 @@ public class PreJava9DateFormatProvider {
     public static DateFormat getUSDateFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new SimpleDateFormat(getDateFormatPattern(i), Locale.US) : (DateFormat) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return new SimpleDateFormat(getDateFormatPattern(i), Locale.US);
+        }
+        return (DateFormat) invokeI.objValue;
     }
 
     public static DateFormat getUSDateTimeFormat(int i, int i2) {

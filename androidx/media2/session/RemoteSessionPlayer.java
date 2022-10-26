@@ -1,7 +1,5 @@
 package androidx.media2.session;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.media2.common.SessionPlayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,10 +16,31 @@ public abstract class RemoteSessionPlayer extends SessionPlayer {
     public static final int VOLUME_CONTROL_RELATIVE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface VolumeControlType {
+    }
+
+    public abstract Future<SessionPlayer.PlayerResult> adjustVolume(int i);
+
+    public abstract int getMaxVolume();
+
+    public abstract int getVolume();
+
+    public abstract int getVolumeControlType();
+
+    public abstract Future<SessionPlayer.PlayerResult> setVolume(int i);
+
     /* loaded from: classes.dex */
     public static class Callback extends SessionPlayer.PlayerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public void onVolumeChanged(RemoteSessionPlayer remoteSessionPlayer, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, remoteSessionPlayer, i) == null) {
+            }
+        }
 
         public Callback() {
             Interceptable interceptable = $ic;
@@ -36,18 +55,6 @@ public abstract class RemoteSessionPlayer extends SessionPlayer {
                 }
             }
         }
-
-        public void onVolumeChanged(@NonNull RemoteSessionPlayer remoteSessionPlayer, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, remoteSessionPlayer, i) == null) {
-            }
-        }
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes.dex */
-    public @interface VolumeControlType {
     }
 
     public RemoteSessionPlayer() {
@@ -63,16 +70,4 @@ public abstract class RemoteSessionPlayer extends SessionPlayer {
             }
         }
     }
-
-    @NonNull
-    public abstract Future<SessionPlayer.PlayerResult> adjustVolume(int i);
-
-    public abstract int getMaxVolume();
-
-    public abstract int getVolume();
-
-    public abstract int getVolumeControlType();
-
-    @NonNull
-    public abstract Future<SessionPlayer.PlayerResult> setVolume(int i);
 }

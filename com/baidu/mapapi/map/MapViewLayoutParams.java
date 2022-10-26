@@ -29,7 +29,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public int f;
 
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -154,7 +154,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ELayoutMode {
+    public final class ELayoutMode {
         public static final /* synthetic */ ELayoutMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ELayoutMode absoluteMode;

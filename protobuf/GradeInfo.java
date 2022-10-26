@@ -28,7 +28,13 @@ public final class GradeInfo extends Message {
     public final Integer thresholdDay;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<GradeInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer grade;
@@ -82,14 +88,11 @@ public final class GradeInfo extends Message {
         public GradeInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new GradeInfo(this, z, null) : (GradeInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new GradeInfo(this, z, null);
+            }
+            return (GradeInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -108,10 +111,6 @@ public final class GradeInfo extends Message {
         DEFAULT_GRADE = 0;
         DEFAULT_THRESHOLDDAY = 0;
         DEFAULT_MAXMEMBERNUM = 0;
-    }
-
-    public /* synthetic */ GradeInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -164,5 +163,9 @@ public final class GradeInfo extends Message {
         this.intro = builder.intro;
         this.thresholdDay = builder.thresholdDay;
         this.maxMemberNum = builder.maxMemberNum;
+    }
+
+    public /* synthetic */ GradeInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

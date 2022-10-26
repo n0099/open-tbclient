@@ -8,12 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.time.MonotonicClock;
 import com.facebook.common.time.RealtimeSinceBootClock;
 import com.facebook.common.util.UriUtil;
-import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.NetworkFetcher;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +23,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlConnectionNetworkFetchState> {
+public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FETCH_TIME = "fetch_time";
     public static final int HTTP_DEFAULT_TIMEOUT = 30000;
@@ -42,100 +39,9 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlC
     public int mHttpConnectionTimeout;
     public final MonotonicClock mMonotonicClock;
     @Nullable
-    public final Map<String, String> mRequestHeaders;
+    public final Map mRequestHeaders;
     @Nullable
     public String mUserAgent;
-
-    /* loaded from: classes7.dex */
-    public static class HttpUrlConnectionNetworkFetchState extends FetchState {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long fetchCompleteTime;
-        public long responseTime;
-        public long submitTime;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HttpUrlConnectionNetworkFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
-            super(consumer, producerContext);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {consumer, producerContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Consumer) objArr2[0], (ProducerContext) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpUrlConnectionNetworkFetcher() {
-        this((String) null, (Map<String, String>) null, RealtimeSinceBootClock.get());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (Map) objArr[1], (MonotonicClock) objArr[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private HttpURLConnection downloadFrom(Uri uri, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, uri, i)) == null) {
-            HttpURLConnection openConnectionTo = openConnectionTo(uri);
-            String str = this.mUserAgent;
-            if (str != null) {
-                openConnectionTo.setRequestProperty("User-Agent", str);
-            }
-            Map<String, String> map = this.mRequestHeaders;
-            if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    openConnectionTo.setRequestProperty(entry.getKey(), entry.getValue());
-                }
-            }
-            openConnectionTo.setConnectTimeout(this.mHttpConnectionTimeout);
-            int responseCode = openConnectionTo.getResponseCode();
-            if (isHttpSuccess(responseCode)) {
-                return openConnectionTo;
-            }
-            if (isHttpRedirect(responseCode)) {
-                String headerField = openConnectionTo.getHeaderField(Headers.LOCATION);
-                openConnectionTo.disconnect();
-                Uri parse = headerField == null ? null : Uri.parse(headerField);
-                String scheme = uri.getScheme();
-                if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
-                    return downloadFrom(parse, i - 1);
-                }
-                throw new IOException(i == 0 ? error("URL %s follows too many redirects", uri.toString()) : error("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
-            }
-            openConnectionTo.disconnect();
-            throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
-        }
-        return (HttpURLConnection) invokeLI.objValue;
-    }
-
-    public static String error(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) ? String.format(Locale.getDefault(), str, objArr) : (String) invokeLL.objValue;
-    }
 
     public static boolean isHttpRedirect(int i) {
         InterceptResult invokeI;
@@ -163,16 +69,97 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlC
         return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i >= 200 && i < 300 : invokeI.booleanValue;
     }
 
-    @VisibleForTesting
-    public static HttpURLConnection openConnectionTo(Uri uri) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) ? (HttpURLConnection) UriUtil.uriToUrl(uri).openConnection() : (HttpURLConnection) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public class HttpUrlConnectionNetworkFetchState extends FetchState {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long fetchCompleteTime;
+        public long responseTime;
+        public long submitTime;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public HttpUrlConnectionNetworkFetchState(Consumer consumer, ProducerContext producerContext) {
+            super(consumer, producerContext);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {consumer, producerContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Consumer) objArr2[0], (ProducerContext) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
     }
 
-    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public /* bridge */ /* synthetic */ FetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
-        return createFetchState((Consumer<EncodedImage>) consumer, producerContext);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public HttpUrlConnectionNetworkFetcher() {
+        this((String) null, (Map) null, RealtimeSinceBootClock.get());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], (Map) objArr[1], (MonotonicClock) objArr[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public HttpUrlConnectionNetworkFetcher(int i) {
+        this((String) null, (Map) null, RealtimeSinceBootClock.get());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Map) objArr2[1], (MonotonicClock) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mHttpConnectionTimeout = i;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public HttpUrlConnectionNetworkFetcher(String str, int i) {
+        this(str, (Map) null, RealtimeSinceBootClock.get());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Map) objArr2[1], (MonotonicClock) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mHttpConnectionTimeout = i;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x002b */
@@ -186,7 +173,6 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlC
     /* JADX WARN: Type inference failed for: r0v6, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.Object, com.facebook.imagepipeline.producers.NetworkFetcher$Callback] */
-    @VisibleForTesting
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -258,33 +244,139 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlC
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
+    public Map getExtraMap(HttpUrlConnectionNetworkFetchState httpUrlConnectionNetworkFetchState, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, httpUrlConnectionNetworkFetchState, i)) == null) {
+            HashMap hashMap = new HashMap(4);
+            hashMap.put("queue_time", Long.toString(httpUrlConnectionNetworkFetchState.responseTime - httpUrlConnectionNetworkFetchState.submitTime));
+            hashMap.put("fetch_time", Long.toString(httpUrlConnectionNetworkFetchState.fetchCompleteTime - httpUrlConnectionNetworkFetchState.responseTime));
+            hashMap.put("total_time", Long.toString(httpUrlConnectionNetworkFetchState.fetchCompleteTime - httpUrlConnectionNetworkFetchState.submitTime));
+            hashMap.put("image_size", Integer.toString(i));
+            return hashMap;
+        }
+        return (Map) invokeLI.objValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpUrlConnectionNetworkFetcher(int i) {
-        this((String) null, (Map<String, String>) null, RealtimeSinceBootClock.get());
+    public HttpUrlConnectionNetworkFetcher(String str, @Nullable Map map, int i) {
+        this(str, map, RealtimeSinceBootClock.get());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, map, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (Map) objArr2[1], (MonotonicClock) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
         this.mHttpConnectionTimeout = i;
     }
 
-    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public HttpUrlConnectionNetworkFetchState createFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public HttpUrlConnectionNetworkFetcher(@Nullable String str, @Nullable Map map, MonotonicClock monotonicClock) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, map, monotonicClock};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.mExecutorService = Executors.newFixedThreadPool(3);
+        this.mMonotonicClock = monotonicClock;
+        this.mRequestHeaders = map;
+        this.mUserAgent = str;
+    }
+
+    private HttpURLConnection downloadFrom(Uri uri, int i) throws IOException {
+        InterceptResult invokeLI;
+        Uri parse;
+        String error;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, uri, i)) == null) {
+            HttpURLConnection openConnectionTo = openConnectionTo(uri);
+            String str = this.mUserAgent;
+            if (str != null) {
+                openConnectionTo.setRequestProperty("User-Agent", str);
+            }
+            Map map = this.mRequestHeaders;
+            if (map != null) {
+                for (Map.Entry entry : map.entrySet()) {
+                    openConnectionTo.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                }
+            }
+            openConnectionTo.setConnectTimeout(this.mHttpConnectionTimeout);
+            int responseCode = openConnectionTo.getResponseCode();
+            if (isHttpSuccess(responseCode)) {
+                return openConnectionTo;
+            }
+            if (isHttpRedirect(responseCode)) {
+                String headerField = openConnectionTo.getHeaderField("Location");
+                openConnectionTo.disconnect();
+                if (headerField == null) {
+                    parse = null;
+                } else {
+                    parse = Uri.parse(headerField);
+                }
+                String scheme = uri.getScheme();
+                if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
+                    return downloadFrom(parse, i - 1);
+                }
+                if (i == 0) {
+                    error = error("URL %s follows too many redirects", uri.toString());
+                } else {
+                    error = error("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode));
+                }
+                throw new IOException(error);
+            }
+            openConnectionTo.disconnect();
+            throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
+        }
+        return (HttpURLConnection) invokeLI.objValue;
+    }
+
+    public static String error(String str, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext)) == null) ? new HttpUrlConnectionNetworkFetchState(consumer, producerContext) : (HttpUrlConnectionNetworkFetchState) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) {
+            return String.format(Locale.getDefault(), str, objArr);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static HttpURLConnection openConnectionTo(Uri uri) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
+            return (HttpURLConnection) UriUtil.uriToUrl(uri).openConnection();
+        }
+        return (HttpURLConnection) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
+    public HttpUrlConnectionNetworkFetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext)) == null) {
+            return new HttpUrlConnectionNetworkFetchState(consumer, producerContext);
+        }
+        return (HttpUrlConnectionNetworkFetchState) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -367,92 +459,10 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlC
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public Map<String, String> getExtraMap(HttpUrlConnectionNetworkFetchState httpUrlConnectionNetworkFetchState, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, httpUrlConnectionNetworkFetchState, i)) == null) {
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("queue_time", Long.toString(httpUrlConnectionNetworkFetchState.responseTime - httpUrlConnectionNetworkFetchState.submitTime));
-            hashMap.put("fetch_time", Long.toString(httpUrlConnectionNetworkFetchState.fetchCompleteTime - httpUrlConnectionNetworkFetchState.responseTime));
-            hashMap.put("total_time", Long.toString(httpUrlConnectionNetworkFetchState.fetchCompleteTime - httpUrlConnectionNetworkFetchState.submitTime));
-            hashMap.put("image_size", Integer.toString(i));
-            return hashMap;
-        }
-        return (Map) invokeLI.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
     public void onFetchCompletion(HttpUrlConnectionNetworkFetchState httpUrlConnectionNetworkFetchState, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpUrlConnectionNetworkFetchState, i) == null) {
             httpUrlConnectionNetworkFetchState.fetchCompleteTime = this.mMonotonicClock.now();
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpUrlConnectionNetworkFetcher(String str, int i) {
-        this(str, (Map<String, String>) null, RealtimeSinceBootClock.get());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Map) objArr2[1], (MonotonicClock) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mHttpConnectionTimeout = i;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpUrlConnectionNetworkFetcher(String str, @Nullable Map<String, String> map, int i) {
-        this(str, map, RealtimeSinceBootClock.get());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, map, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Map) objArr2[1], (MonotonicClock) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mHttpConnectionTimeout = i;
-    }
-
-    @VisibleForTesting
-    public HttpUrlConnectionNetworkFetcher(@Nullable String str, @Nullable Map<String, String> map, MonotonicClock monotonicClock) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, map, monotonicClock};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.mExecutorService = Executors.newFixedThreadPool(3);
-        this.mMonotonicClock = monotonicClock;
-        this.mRequestHeaders = map;
-        this.mUserAgent = str;
     }
 }

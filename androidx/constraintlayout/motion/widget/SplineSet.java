@@ -29,6 +29,8 @@ public abstract class SplineSet {
     public String mType;
     public float[] mValues;
 
+    public abstract void setProperty(View view2, float f);
+
     /* loaded from: classes.dex */
     public static class AlphaSet extends SplineSet {
         public static /* synthetic */ Interceptable $ic;
@@ -101,6 +103,13 @@ public abstract class SplineSet {
             }
         }
 
+        public void setPoint(int i, ConstraintAttribute constraintAttribute) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, constraintAttribute) == null) {
+                this.mConstraintAttributeList.append(i, constraintAttribute);
+            }
+        }
+
         @Override // androidx.constraintlayout.motion.widget.SplineSet
         public void setup(int i) {
             Interceptable interceptable = $ic;
@@ -123,13 +132,6 @@ public abstract class SplineSet {
                     }
                 }
                 this.mCurveFit = CurveFit.get(i, dArr, dArr2);
-            }
-        }
-
-        public void setPoint(int i, ConstraintAttribute constraintAttribute) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, constraintAttribute) == null) {
-                this.mConstraintAttributeList.append(i, constraintAttribute);
             }
         }
     }
@@ -156,10 +158,9 @@ public abstract class SplineSet {
         @Override // androidx.constraintlayout.motion.widget.SplineSet
         public void setProperty(View view2, float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) || Build.VERSION.SDK_INT < 21) {
-                return;
+            if ((interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) && Build.VERSION.SDK_INT >= 21) {
+                view2.setElevation(get(f));
             }
-            view2.setElevation(get(f));
         }
     }
 
@@ -167,6 +168,13 @@ public abstract class SplineSet {
     public static class PathRotate extends SplineSet {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // androidx.constraintlayout.motion.widget.SplineSet
+        public void setProperty(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) == null) {
+            }
+        }
 
         public PathRotate() {
             Interceptable interceptable = $ic;
@@ -186,13 +194,6 @@ public abstract class SplineSet {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Float.valueOf(f), Double.valueOf(d), Double.valueOf(d2)}) == null) {
                 view2.setRotation(get(f) + ((float) Math.toDegrees(Math.atan2(d2, d))));
-            }
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.SplineSet
-        public void setProperty(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) == null) {
             }
         }
     }
@@ -599,10 +600,9 @@ public abstract class SplineSet {
         @Override // androidx.constraintlayout.motion.widget.SplineSet
         public void setProperty(View view2, float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) || Build.VERSION.SDK_INT < 21) {
-                return;
+            if ((interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) && Build.VERSION.SDK_INT >= 21) {
+                view2.setTranslationZ(get(f));
             }
-            view2.setTranslationZ(get(f));
         }
     }
 
@@ -623,10 +623,22 @@ public abstract class SplineSet {
         this.mValues = new float[10];
     }
 
+    public CurveFit getCurveFit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCurveFit;
+        }
+        return (CurveFit) invokeV.objValue;
+    }
+
     public static SplineSet makeCustomSpline(String str, SparseArray<ConstraintAttribute> sparseArray) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, sparseArray)) == null) ? new CustomSet(str, sparseArray) : (SplineSet) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, sparseArray)) == null) {
+            return new CustomSet(str, sparseArray);
+        }
+        return (SplineSet) invokeLL.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -795,19 +807,26 @@ public abstract class SplineSet {
     public float get(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? (float) this.mCurveFit.getPos(f, 0) : invokeF.floatValue;
-    }
-
-    public CurveFit getCurveFit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurveFit : (CurveFit) invokeV.objValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return (float) this.mCurveFit.getPos(f, 0);
+        }
+        return invokeF.floatValue;
     }
 
     public float getSlope(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) ? (float) this.mCurveFit.getSlope(f, 0) : invokeF.floatValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
+            return (float) this.mCurveFit.getSlope(f, 0);
+        }
+        return invokeF.floatValue;
+    }
+
+    public void setType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.mType = str;
+        }
     }
 
     public void setPoint(int i, float f) {
@@ -827,41 +846,32 @@ public abstract class SplineSet {
         }
     }
 
-    public abstract void setProperty(View view2, float f);
-
-    public void setType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.mType = str;
-        }
-    }
-
     public void setup(int i) {
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (i2 = this.count) == 0) {
+        if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || (i2 = this.count) == 0) {
             return;
         }
         Sort.doubleQuickSort(this.mTimePoints, this.mValues, 0, i2 - 1);
-        int i4 = 1;
-        for (int i5 = 1; i5 < this.count; i5++) {
+        int i3 = 1;
+        for (int i4 = 1; i4 < this.count; i4++) {
             int[] iArr = this.mTimePoints;
-            if (iArr[i5 - 1] != iArr[i5]) {
-                i4++;
+            if (iArr[i4 - 1] != iArr[i4]) {
+                i3++;
             }
         }
-        double[] dArr = new double[i4];
-        double[][] dArr2 = (double[][]) Array.newInstance(double.class, i4, 1);
-        int i6 = 0;
-        while (i3 < this.count) {
-            if (i3 > 0) {
+        double[] dArr = new double[i3];
+        double[][] dArr2 = (double[][]) Array.newInstance(double.class, i3, 1);
+        int i5 = 0;
+        for (int i6 = 0; i6 < this.count; i6++) {
+            if (i6 > 0) {
                 int[] iArr2 = this.mTimePoints;
-                i3 = iArr2[i3] == iArr2[i3 + (-1)] ? i3 + 1 : 0;
+                if (iArr2[i6] == iArr2[i6 - 1]) {
+                }
             }
-            dArr[i6] = this.mTimePoints[i3] * 0.01d;
-            dArr2[i6][0] = this.mValues[i3];
-            i6++;
+            dArr[i5] = this.mTimePoints[i6] * 0.01d;
+            dArr2[i5][0] = this.mValues[i6];
+            i5++;
         }
         this.mCurveFit = CurveFit.get(i, dArr, dArr2);
     }

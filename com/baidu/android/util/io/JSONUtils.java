@@ -32,42 +32,13 @@ public final class JSONUtils {
         }
     }
 
-    public static <T> T get(JSONObject jSONObject, String str, Class<T> cls) {
-        InterceptResult invokeLLL;
+    public static Object get(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, cls)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            T t = (T) jSONObject.opt(str);
-            if (cls.isInstance(t)) {
-                return t;
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
+            return get(jSONObject, str, Object.class);
         }
-        return (T) invokeLLL.objValue;
-    }
-
-    public static boolean getBoolean(JSONObject jSONObject, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, jSONObject, str, z)) == null) {
-            Boolean bool = (Boolean) get(jSONObject, str, Boolean.class);
-            return bool == null ? z : bool.booleanValue();
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static float getFloat(JSONObject jSONObject, String str, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
-    }
-
-    public static int getInt(JSONObject jSONObject, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, jSONObject, str, i)) == null) ? ((Integer) get(jSONObject, str, Integer.class)) == null ? i : ((Integer) get(jSONObject, str, Integer.class)).intValue() : invokeLLI.intValue;
+        return invokeLL.objValue;
     }
 
     public static String getIntOrString(JSONObject jSONObject, String str) {
@@ -83,41 +54,106 @@ public final class JSONUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static <T> T getItem(JSONArray jSONArray, int i, Class<T> cls) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, jSONArray, i, cls)) == null) {
-            T t = (T) jSONArray.opt(i);
-            if (cls.isInstance(t)) {
-                return t;
-            }
-            return null;
-        }
-        return (T) invokeLIL.objValue;
-    }
-
     public static JSONArray getJSONArray(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jSONObject, str)) == null) ? (JSONArray) get(jSONObject, str, JSONArray.class) : (JSONArray) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jSONObject, str)) == null) {
+            return (JSONArray) get(jSONObject, str, JSONArray.class);
+        }
+        return (JSONArray) invokeLL.objValue;
     }
 
     public static JSONObject getJSONObject(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jSONObject, str)) == null) ? (JSONObject) get(jSONObject, str, JSONObject.class) : (JSONObject) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jSONObject, str)) == null) {
+            return (JSONObject) get(jSONObject, str, JSONObject.class);
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 
     public static JSONObject getJSONObjectItem(JSONArray jSONArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, jSONArray, i)) == null) ? (JSONObject) getItem(jSONArray, i, JSONObject.class) : (JSONObject) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, jSONArray, i)) == null) {
+            return (JSONObject) getItem(jSONArray, i, JSONObject.class);
+        }
+        return (JSONObject) invokeLI.objValue;
     }
 
     public static String getString(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, jSONObject, str)) == null) ? (String) get(jSONObject, str, String.class) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, jSONObject, str)) == null) {
+            return (String) get(jSONObject, str, String.class);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Object get(JSONObject jSONObject, String str, Class cls) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, cls)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            Object opt = jSONObject.opt(str);
+            if (!cls.isInstance(opt)) {
+                return null;
+            }
+            return opt;
+        }
+        return invokeLLL.objValue;
+    }
+
+    public static boolean getBoolean(JSONObject jSONObject, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, jSONObject, str, z)) == null) {
+            Boolean bool = (Boolean) get(jSONObject, str, Boolean.class);
+            if (bool == null) {
+                return z;
+            }
+            return bool.booleanValue();
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static float getFloat(JSONObject jSONObject, String str, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) {
+            if (jSONObject == null) {
+                return f;
+            }
+            return (float) jSONObject.optDouble(str, f);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public static int getInt(JSONObject jSONObject, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, jSONObject, str, i)) == null) {
+            if (((Integer) get(jSONObject, str, Integer.class)) == null) {
+                return i;
+            }
+            return ((Integer) get(jSONObject, str, Integer.class)).intValue();
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static Object getItem(JSONArray jSONArray, int i, Class cls) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, jSONArray, i, cls)) == null) {
+            Object opt = jSONArray.opt(i);
+            if (cls.isInstance(opt)) {
+                return opt;
+            }
+            return null;
+        }
+        return invokeLIL.objValue;
     }
 
     public static JSONObject parseString(String str) {
@@ -134,11 +170,5 @@ public final class JSONUtils {
             }
         }
         return (JSONObject) invokeL.objValue;
-    }
-
-    public static Object get(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) ? get(jSONObject, str, Object.class) : invokeLL.objValue;
     }
 }

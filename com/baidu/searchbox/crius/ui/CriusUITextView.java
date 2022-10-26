@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import view.CriusTextView;
 /* loaded from: classes2.dex */
-public class CriusUITextView extends CriusUI<CriusTextView> {
+public class CriusUITextView extends CriusUI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CriusUITextView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,29 +54,11 @@ public class CriusUITextView extends CriusUI<CriusTextView> {
                 paint.measureText(this.renderObject.text);
                 Paint.FontMetrics fontMetrics = paint.getFontMetrics();
                 float f2 = fontMetrics.ascent;
-                f += getView().getBaseline() + f2 + (((fontMetrics.descent - f2) - i2) / 2.0f);
+                f += ((CriusTextView) getView()).getBaseline() + f2 + (((fontMetrics.descent - f2) - i2) / 2.0f);
             }
             return (int) f;
         }
         return invokeII.intValue;
-    }
-
-    @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
-    public void layout(float f, float f2) {
-        CriusData prefixLabel;
-        View view2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            super.layout(f, f2);
-            CriusData criusData = this.renderObject;
-            if (criusData == null || (prefixLabel = criusData.getPrefixLabel()) == null || prefixLabel.getUI() == null || (view2 = prefixLabel.getUI().getView()) == null || view2.getMeasuredWidth() <= 0 || view2.getMeasuredHeight() <= 0) {
-                return;
-            }
-            CriusNode criusNode = this.renderObject.criusNode;
-            int round = Math.round(f + criusNode.getLayoutX());
-            int labelTop = getLabelTop(Math.round(f2 + criusNode.getLayoutY()), view2.getMeasuredHeight());
-            view2.layout(round, labelTop, view2.getMeasuredWidth() + round, view2.getMeasuredHeight() + labelTop);
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -89,5 +71,22 @@ public class CriusUITextView extends CriusUI<CriusTextView> {
             return new CriusTextView(context);
         }
         return (CriusTextView) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
+    public void layout(float f, float f2) {
+        CriusData prefixLabel;
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            super.layout(f, f2);
+            CriusData criusData = this.renderObject;
+            if (criusData != null && (prefixLabel = criusData.getPrefixLabel()) != null && prefixLabel.getUI() != null && (view2 = prefixLabel.getUI().getView()) != null && view2.getMeasuredWidth() > 0 && view2.getMeasuredHeight() > 0) {
+                CriusNode criusNode = this.renderObject.criusNode;
+                int round = Math.round(f + criusNode.getLayoutX());
+                int labelTop = getLabelTop(Math.round(f2 + criusNode.getLayoutY()), view2.getMeasuredHeight());
+                view2.layout(round, labelTop, view2.getMeasuredWidth() + round, view2.getMeasuredHeight() + labelTop);
+            }
+        }
     }
 }

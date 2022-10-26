@@ -69,16 +69,17 @@ public final class ConnectionSpecSelector {
             int i = this.nextModeIndex;
             int size = this.connectionSpecs.size();
             while (true) {
-                if (i >= size) {
+                if (i < size) {
+                    connectionSpec = this.connectionSpecs.get(i);
+                    if (connectionSpec.isCompatible(sSLSocket)) {
+                        this.nextModeIndex = i + 1;
+                        break;
+                    }
+                    i++;
+                } else {
                     connectionSpec = null;
                     break;
                 }
-                connectionSpec = this.connectionSpecs.get(i);
-                if (connectionSpec.isCompatible(sSLSocket)) {
-                    this.nextModeIndex = i + 1;
-                    break;
-                }
-                i++;
             }
             if (connectionSpec != null) {
                 this.isFallbackPossible = isFallbackPossible(sSLSocket);
@@ -102,7 +103,10 @@ public final class ConnectionSpecSelector {
             if ((z && (iOException.getCause() instanceof CertificateException)) || (iOException instanceof SSLPeerUnverifiedException)) {
                 return false;
             }
-            return z || (iOException instanceof SSLProtocolException);
+            if (z || (iOException instanceof SSLProtocolException)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

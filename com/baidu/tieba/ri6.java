@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface ri6 {
-    void a(boolean z, boolean z2, int i);
+    void g0(boolean z);
 
-    void b(int i);
+    void n1();
 
-    void c(int i, int i2);
+    void x();
 }

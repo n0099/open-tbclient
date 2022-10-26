@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class c<T> extends com.baidu.ar.c.a {
+public abstract class c extends com.baidu.ar.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int cI;
@@ -35,7 +35,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
     }
 
     @Override // com.baidu.ar.c.a
-    public T ay() {
+    public Object ay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -49,8 +49,8 @@ public abstract class c<T> extends com.baidu.ar.c.a {
             }
             return null;
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public abstract T e(FramePixels framePixels);
+    public abstract Object e(FramePixels framePixels);
 }

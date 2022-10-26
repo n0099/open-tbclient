@@ -1,9 +1,7 @@
 package com.baidu.android.common.others.url;
 
-import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.Patterns;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -108,6 +106,73 @@ public class UrlUtil {
         return (String) invokeLLL.objValue;
     }
 
+    public static String addParam(String str, Map map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                String mapToString = mapToString(map);
+                if (!TextUtils.isEmpty(mapToString)) {
+                    if (str.contains("?")) {
+                        return str + "&" + mapToString;
+                    }
+                    return str + "?" + mapToString;
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String deleteParam(String str, Set set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, set)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("http") && set != null && set.size() != 0) {
+                String str2 = null;
+                try {
+                    str2 = new URL(str).getQuery();
+                } catch (MalformedURLException unused) {
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    return str;
+                }
+                CharSequence deleteQueryParam = deleteQueryParam(str2, set);
+                if (TextUtils.isEmpty(deleteQueryParam)) {
+                    return str;
+                }
+                return str.replace(str2, deleteQueryParam);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String deleteParamAllowAll(String str, Set set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, set)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("http") && set != null && set.size() != 0) {
+                String str2 = null;
+                try {
+                    str2 = new URL(str).getQuery();
+                } catch (MalformedURLException unused) {
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    return str;
+                }
+                CharSequence deleteQueryParam = deleteQueryParam(str2, set);
+                if (str == null) {
+                    return str;
+                }
+                return str.replace(str2, deleteQueryParam);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static String addSchemeIfNeed(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -115,67 +180,12 @@ public class UrlUtil {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (str.startsWith("http://") || str.startsWith("https://") || str.startsWith("rtsp://")) {
-                return str;
+            if (!str.startsWith("http://") && !str.startsWith("https://") && !str.startsWith("rtsp://")) {
+                return "http://" + str;
             }
-            return "http://" + str;
+            return str;
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String appendParam(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return str.trim();
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(str2, str3);
-            return appendParams(str, hashMap);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String appendParams(String str, @NonNull Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (map.size() == 0) {
-                return str.trim();
-            }
-            StringBuffer stringBuffer = new StringBuffer();
-            for (String str2 : map.keySet()) {
-                stringBuffer.append(str2);
-                stringBuffer.append("=");
-                stringBuffer.append(map.get(str2));
-                stringBuffer.append("&");
-            }
-            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-            String trim = str.trim();
-            int length = trim.length();
-            int indexOf = trim.indexOf("?");
-            if (indexOf <= -1) {
-                return trim + "?" + stringBuffer.toString();
-            } else if (length - 1 == indexOf) {
-                return trim + stringBuffer.toString();
-            } else {
-                return trim + "&" + stringBuffer.toString();
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String decodeUrl(String str, String str2) throws UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? URLDecoder.decode(str, str2) : (String) invokeLL.objValue;
     }
 
     public static String decodeWithUTF8(String str) {
@@ -198,78 +208,79 @@ public class UrlUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String delAllParamsFromUrl(String str) {
+    public static boolean isBaiduDomain(String str) {
         InterceptResult invokeL;
-        int indexOf;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? (!TextUtils.isEmpty(str) && (indexOf = str.indexOf("?")) > 0) ? str.substring(0, indexOf) : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            String host = Uri.parse(str).getHost();
+            if (TextUtils.isEmpty(host)) {
+                return false;
+            }
+            if (!host.endsWith(".baidu.com") && !host.equals("baidu.com")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static String deleteParam(String str, Set<String> set) {
-        InterceptResult invokeLL;
+    public static String appendParam(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, set)) == null) {
-            if (TextUtils.isEmpty(str) || !str.startsWith("http") || set == null || set.size() == 0) {
-                return str;
-            }
-            String str2 = null;
-            try {
-                str2 = new URL(str).getQuery();
-            } catch (MalformedURLException unused) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
             if (TextUtils.isEmpty(str2)) {
-                return str;
+                return str.trim();
             }
-            CharSequence deleteQueryParam = deleteQueryParam(str2, set);
-            return TextUtils.isEmpty(deleteQueryParam) ? str : str.replace(str2, deleteQueryParam);
+            HashMap hashMap = new HashMap();
+            hashMap.put(str2, str3);
+            return appendParams(str, hashMap);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String appendParams(String str, Map map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, map)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (map.size() == 0) {
+                return str.trim();
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            for (String str2 : map.keySet()) {
+                stringBuffer.append(str2);
+                stringBuffer.append("=");
+                stringBuffer.append((String) map.get(str2));
+                stringBuffer.append("&");
+            }
+            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+            String trim = str.trim();
+            int length = trim.length();
+            int indexOf = trim.indexOf("?");
+            if (indexOf > -1) {
+                if (length - 1 == indexOf) {
+                    return trim + stringBuffer.toString();
+                }
+                return trim + "&" + stringBuffer.toString();
+            }
+            return trim + "?" + stringBuffer.toString();
         }
         return (String) invokeLL.objValue;
     }
 
-    public static String deleteParamAllowAll(String str, Set<String> set) {
+    public static String decodeUrl(String str, String str2) throws UnsupportedEncodingException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, set)) == null) {
-            if (TextUtils.isEmpty(str) || !str.startsWith("http") || set == null || set.size() == 0) {
-                return str;
-            }
-            String str2 = null;
-            try {
-                str2 = new URL(str).getQuery();
-            } catch (MalformedURLException unused) {
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return str;
-            }
-            return str == null ? str : str.replace(str2, deleteQueryParam(str2, set));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String deleteQueryParam(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, set)) == null) {
-            if (TextUtils.isEmpty(str) || set == null || (split = str.split("&")) == null || split.length == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2.length > 0 && !set.contains(split2[0])) {
-                    sb.append(str2);
-                    sb.append("&");
-                }
-            }
-            int length = sb.length();
-            if (length > 0) {
-                int i = length - 1;
-                if (sb.charAt(i) == '&') {
-                    sb.deleteCharAt(i);
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            return URLDecoder.decode(str, str2);
         }
         return (String) invokeLL.objValue;
     }
@@ -277,63 +288,42 @@ public class UrlUtil {
     public static String encodeUrl(String str, String str2) throws UnsupportedEncodingException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) ? URLEncoder.encode(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            return URLEncoder.encode(str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
-    public static String fixUrl(String str) {
+    public static String getUrlField(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) {
+            return getUrlField(str, str2, "=", "&");
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String delAllParamsFromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (str == null) {
-                return "";
-            }
-            int indexOf = str.indexOf(58);
-            boolean z = true;
-            for (int i = 0; i < indexOf; i++) {
-                char charAt = str.charAt(i);
-                if (!Character.isLetter(charAt)) {
-                    break;
-                }
-                z &= Character.isLowerCase(charAt);
-                if (i == indexOf - 1 && !z) {
-                    str = str.substring(0, indexOf).toLowerCase(Locale.getDefault()) + str.substring(indexOf);
-                }
-            }
-            if (str.startsWith("http://") || str.startsWith("https://") || str.startsWith("rtsp://")) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return str;
             }
-            if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS) || str.startsWith("rtsp:")) {
-                if (!str.startsWith("http:/") && !str.startsWith("https:/") && !str.startsWith("rtsp:/")) {
-                    return str.replaceFirst(":", "://");
-                }
-                return str.replaceFirst("/", "//");
+            int indexOf = str.indexOf("?");
+            if (indexOf > 0) {
+                return str.substring(0, indexOf);
             }
             return str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static String getCookieStr(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ParamableElem.DIVIDE_PARAM;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
     public static String getHost(String str) throws MalformedURLException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) ? new URL(str).getHost() : (String) invokeL.objValue;
-    }
-
-    public static String getMime(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            String lowerCase = Uri.parse(str).getPath().toLowerCase(Locale.getDefault());
-            return lowerCase.contains(FileHelper.FILE_CACHE_CSS) ? "text/css" : lowerCase.contains(".js") ? "application/x-javascript" : (lowerCase.contains(".jpg") || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) ? BdUploadHandler.IMAGE_MIME_TYPE : SapiWebView.DATA_MIME_TYPE;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            return new URL(str).getHost();
         }
         return (String) invokeL.objValue;
     }
@@ -346,36 +336,12 @@ public class UrlUtil {
                 return str;
             }
             int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(indexOf + 1);
+            if (indexOf <= 0) {
+                return null;
             }
-            return null;
+            return str.substring(indexOf + 1);
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String getUrlField(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65555, null, str, str2, str3, str4)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-                String str5 = str2 + str3;
-                int indexOf = str.indexOf("?");
-                if (indexOf == -1) {
-                    indexOf = 0;
-                }
-                int indexOf2 = str.indexOf(str5, indexOf);
-                if (indexOf2 != -1) {
-                    int indexOf3 = str.indexOf(str4, indexOf2);
-                    if (indexOf3 != -1) {
-                        return str.substring(indexOf2 + str5.length(), indexOf3);
-                    }
-                    return str.substring(indexOf2 + str5.length());
-                }
-            }
-            return "";
-        }
-        return (String) invokeLLLL.objValue;
     }
 
     public static String getUrlhost(String str) {
@@ -394,29 +360,25 @@ public class UrlUtil {
     public static String handleAbnormalUrlIfNeeded(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) ? (TextUtils.isEmpty(str) || !isUrl(str)) ? str : addSchemeIfNeed(fixUrl(str).trim()) : (String) invokeL.objValue;
-    }
-
-    public static boolean isBaiduDomain(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && isUrl(str)) {
+                return addSchemeIfNeed(fixUrl(str).trim());
             }
-            String host = Uri.parse(str).getHost();
-            if (TextUtils.isEmpty(host)) {
-                return false;
-            }
-            return host.endsWith(".baidu.com") || host.equals("baidu.com");
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
     public static boolean isHttpSecurity(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) ? !TextUtils.isEmpty(str) && str.startsWith("https://") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isUrl(String str) {
@@ -448,62 +410,13 @@ public class UrlUtil {
     public static boolean isValidUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) ? isUrl(str) || isUrlAuxiliary(str) : invokeL.booleanValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static String mapToString(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, map)) == null) {
-            if (map == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
+            if (!isUrl(str) && !isUrlAuxiliary(str)) {
+                return false;
             }
-            StringBuilder sb = new StringBuilder();
-            for (String str : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str2 = map.get(str);
-                if (str != null) {
-                    try {
-                        encode = URLEncoder.encode(str, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                    }
-                } else {
-                    encode = "";
-                }
-                sb.append(encode);
-                sb.append("=");
-                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
-            }
-            return sb.toString();
+            return true;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static Map<String, String> stringToMap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
-                try {
-                    hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
     public static Uri toFileUri(String str) {
@@ -530,28 +443,182 @@ public class UrlUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String getUrlField(String str, String str2) {
+    public static String deleteQueryParam(String str, Set set) {
         InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) ? getUrlField(str, str2, "=", "&") : (String) invokeLL.objValue;
-    }
-
-    public static String addParam(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, set)) == null) {
+            if (TextUtils.isEmpty(str) || set == null || (split = str.split("&")) == null || split.length == 0) {
+                return null;
             }
-            String mapToString = mapToString(map);
-            if (TextUtils.isEmpty(mapToString)) {
-                return str;
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length > 0 && !set.contains(split2[0])) {
+                    sb.append(str2);
+                    sb.append("&");
+                }
             }
-            if (str.contains("?")) {
-                return str + "&" + mapToString;
+            int length = sb.length();
+            if (length > 0) {
+                int i = length - 1;
+                if (sb.charAt(i) == '&') {
+                    sb.deleteCharAt(i);
+                }
             }
-            return str + "?" + mapToString;
+            return sb.toString();
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static String fixUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (str == null) {
+                return "";
+            }
+            int indexOf = str.indexOf(58);
+            boolean z = true;
+            for (int i = 0; i < indexOf; i++) {
+                char charAt = str.charAt(i);
+                if (!Character.isLetter(charAt)) {
+                    break;
+                }
+                z &= Character.isLowerCase(charAt);
+                if (i == indexOf - 1 && !z) {
+                    str = str.substring(0, indexOf).toLowerCase(Locale.getDefault()) + str.substring(indexOf);
+                }
+            }
+            if (!str.startsWith("http://") && !str.startsWith("https://") && !str.startsWith("rtsp://")) {
+                if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS) || str.startsWith("rtsp:")) {
+                    if (!str.startsWith("http:/") && !str.startsWith("https:/") && !str.startsWith("rtsp:/")) {
+                        return str.replaceFirst(":", "://");
+                    }
+                    return str.replaceFirst("/", "//");
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getCookieStr(String str, String str2, String str3, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
+            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ParamableElem.DIVIDE_PARAM;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String getMime(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            String lowerCase = Uri.parse(str).getPath().toLowerCase(Locale.getDefault());
+            if (lowerCase.contains(FileHelper.FILE_CACHE_CSS)) {
+                return "text/css";
+            }
+            if (lowerCase.contains(".js")) {
+                return "application/x-javascript";
+            }
+            if (!lowerCase.contains(".jpg") && !lowerCase.contains(".gif") && !lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !lowerCase.contains(".jpeg")) {
+                return SapiWebView.DATA_MIME_TYPE;
+            }
+            return BdUploadHandler.IMAGE_MIME_TYPE;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Map stringToMap(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            for (String str3 : str.split("&")) {
+                String[] split = str3.split("=");
+                try {
+                    String decode = URLDecoder.decode(split[0], "UTF-8");
+                    if (split.length > 1) {
+                        str2 = URLDecoder.decode(split[1], "UTF-8");
+                    } else {
+                        str2 = "";
+                    }
+                    hashMap.put(decode, str2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static String getUrlField(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65555, null, str, str2, str3, str4)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
+                String str5 = str2 + str3;
+                int indexOf = str.indexOf("?");
+                if (indexOf == -1) {
+                    indexOf = 0;
+                }
+                int indexOf2 = str.indexOf(str5, indexOf);
+                if (indexOf2 != -1) {
+                    int indexOf3 = str.indexOf(str4, indexOf2);
+                    if (indexOf3 != -1) {
+                        return str.substring(indexOf2 + str5.length(), indexOf3);
+                    }
+                    return str.substring(indexOf2 + str5.length());
+                }
+            }
+            return "";
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static String mapToString(Map map) {
+        InterceptResult invokeL;
+        String encode;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, map)) == null) {
+            if (map == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : map.keySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                String str3 = (String) map.get(str2);
+                if (str2 == null) {
+                    encode = "";
+                } else {
+                    try {
+                        encode = URLEncoder.encode(str2, "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException("This method requires UTF-8 encoding support", e);
+                    }
+                }
+                sb.append(encode);
+                sb.append("=");
+                if (str3 == null) {
+                    str = "";
+                } else {
+                    str = URLEncoder.encode(str3, "UTF-8");
+                }
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

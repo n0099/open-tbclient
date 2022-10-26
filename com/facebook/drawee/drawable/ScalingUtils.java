@@ -20,9 +20,33 @@ public class ScalingUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static abstract class AbstractScaleType implements ScaleType {
+    public interface ScaleType {
+        public static final ScaleType FIT_XY = ScaleTypeFitXY.INSTANCE;
+        public static final ScaleType FIT_X = ScaleTypeFitX.INSTANCE;
+        public static final ScaleType FIT_Y = ScaleTypeFitY.INSTANCE;
+        public static final ScaleType FIT_START = ScaleTypeFitStart.INSTANCE;
+        public static final ScaleType FIT_CENTER = ScaleTypeFitCenter.INSTANCE;
+        public static final ScaleType FIT_END = ScaleTypeFitEnd.INSTANCE;
+        public static final ScaleType CENTER = ScaleTypeCenter.INSTANCE;
+        public static final ScaleType CENTER_INSIDE = ScaleTypeCenterInside.INSTANCE;
+        public static final ScaleType CENTER_CROP = ScaleTypeCenterCrop.INSTANCE;
+        public static final ScaleType FOCUS_CROP = ScaleTypeFocusCrop.INSTANCE;
+        public static final ScaleType FIT_BOTTOM_START = ScaleTypeFitBottomStart.INSTANCE;
+
+        Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface StatefulScaleType {
+        Object getState();
+    }
+
+    /* loaded from: classes7.dex */
+    public abstract class AbstractScaleType implements ScaleType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4);
 
         public AbstractScaleType() {
             Interceptable interceptable = $ic;
@@ -48,32 +72,265 @@ public class ScalingUtils {
             }
             return (Matrix) invokeCommon.objValue;
         }
-
-        public abstract void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4);
     }
 
     /* loaded from: classes7.dex */
-    public interface ScaleType {
-        public static final ScaleType FIT_XY = ScaleTypeFitXY.INSTANCE;
-        public static final ScaleType FIT_X = ScaleTypeFitX.INSTANCE;
-        public static final ScaleType FIT_Y = ScaleTypeFitY.INSTANCE;
-        public static final ScaleType FIT_START = ScaleTypeFitStart.INSTANCE;
-        public static final ScaleType FIT_CENTER = ScaleTypeFitCenter.INSTANCE;
-        public static final ScaleType FIT_END = ScaleTypeFitEnd.INSTANCE;
-        public static final ScaleType CENTER = ScaleTypeCenter.INSTANCE;
-        public static final ScaleType CENTER_INSIDE = ScaleTypeCenterInside.INSTANCE;
-        public static final ScaleType CENTER_CROP = ScaleTypeCenterCrop.INSTANCE;
-        public static final ScaleType FOCUS_CROP = ScaleTypeFocusCrop.INSTANCE;
-        public static final ScaleType FIT_BOTTOM_START = ScaleTypeFitBottomStart.INSTANCE;
+    public class InterpolatingScaleType implements ScaleType, StatefulScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public final Rect mBoundsFrom;
+        @Nullable
+        public final Rect mBoundsTo;
+        @Nullable
+        public final PointF mFocusPointFrom;
+        @Nullable
+        public final PointF mFocusPointTo;
+        public float mInterpolatingValue;
+        public final float[] mMatrixValuesFrom;
+        public final float[] mMatrixValuesInterpolated;
+        public final float[] mMatrixValuesTo;
+        public final ScaleType mScaleTypeFrom;
+        public final ScaleType mScaleTypeTo;
 
-        Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public InterpolatingScaleType(ScaleType scaleType, ScaleType scaleType2) {
+            this(scaleType, scaleType2, null, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {scaleType, scaleType2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((ScaleType) objArr2[0], (ScaleType) objArr2[1], (Rect) objArr2[2], (Rect) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public InterpolatingScaleType(ScaleType scaleType, ScaleType scaleType2, @Nullable Rect rect, @Nullable Rect rect2) {
+            this(scaleType, scaleType2, rect, rect2, null, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {scaleType, scaleType2, rect, rect2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((ScaleType) objArr2[0], (ScaleType) objArr2[1], (Rect) objArr2[2], (Rect) objArr2[3], (PointF) objArr2[4], (PointF) objArr2[5]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public InterpolatingScaleType(ScaleType scaleType, ScaleType scaleType2, @Nullable Rect rect, @Nullable Rect rect2, @Nullable PointF pointF, @Nullable PointF pointF2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {scaleType, scaleType2, rect, rect2, pointF, pointF2};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.mMatrixValuesFrom = new float[9];
+            this.mMatrixValuesTo = new float[9];
+            this.mMatrixValuesInterpolated = new float[9];
+            this.mScaleTypeFrom = scaleType;
+            this.mScaleTypeTo = scaleType2;
+            this.mBoundsFrom = rect;
+            this.mBoundsTo = rect2;
+            this.mFocusPointFrom = pointF;
+            this.mFocusPointTo = pointF2;
+        }
+
+        @Nullable
+        public Rect getBoundsFrom() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mBoundsFrom;
+            }
+            return (Rect) invokeV.objValue;
+        }
+
+        @Nullable
+        public Rect getBoundsTo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mBoundsTo;
+            }
+            return (Rect) invokeV.objValue;
+        }
+
+        @Nullable
+        public PointF getFocusPointFrom() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mFocusPointFrom;
+            }
+            return (PointF) invokeV.objValue;
+        }
+
+        @Nullable
+        public PointF getFocusPointTo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mFocusPointTo;
+            }
+            return (PointF) invokeV.objValue;
+        }
+
+        public ScaleType getScaleTypeFrom() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mScaleTypeFrom;
+            }
+            return (ScaleType) invokeV.objValue;
+        }
+
+        public ScaleType getScaleTypeTo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.mScaleTypeTo;
+            }
+            return (ScaleType) invokeV.objValue;
+        }
+
+        @Override // com.facebook.drawee.drawable.ScalingUtils.StatefulScaleType
+        public Object getState() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return Float.valueOf(this.mInterpolatingValue);
+            }
+            return invokeV.objValue;
+        }
+
+        public float getValue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.mInterpolatingValue;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.facebook.drawee.drawable.ScalingUtils.ScaleType
+        public Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f, float f2) {
+            InterceptResult invokeCommon;
+            Rect rect2;
+            Rect rect3;
+            float f3;
+            float f4;
+            float f5;
+            float f6;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                Rect rect4 = this.mBoundsFrom;
+                if (rect4 != null) {
+                    rect2 = rect4;
+                } else {
+                    rect2 = rect;
+                }
+                Rect rect5 = this.mBoundsTo;
+                if (rect5 != null) {
+                    rect3 = rect5;
+                } else {
+                    rect3 = rect;
+                }
+                ScaleType scaleType = this.mScaleTypeFrom;
+                PointF pointF = this.mFocusPointFrom;
+                if (pointF == null) {
+                    f3 = f;
+                } else {
+                    f3 = pointF.x;
+                }
+                PointF pointF2 = this.mFocusPointFrom;
+                if (pointF2 == null) {
+                    f4 = f2;
+                } else {
+                    f4 = pointF2.y;
+                }
+                scaleType.getTransform(matrix, rect2, i, i2, f3, f4);
+                matrix.getValues(this.mMatrixValuesFrom);
+                ScaleType scaleType2 = this.mScaleTypeTo;
+                PointF pointF3 = this.mFocusPointTo;
+                if (pointF3 == null) {
+                    f5 = f;
+                } else {
+                    f5 = pointF3.x;
+                }
+                PointF pointF4 = this.mFocusPointTo;
+                if (pointF4 == null) {
+                    f6 = f2;
+                } else {
+                    f6 = pointF4.y;
+                }
+                scaleType2.getTransform(matrix, rect3, i, i2, f5, f6);
+                matrix.getValues(this.mMatrixValuesTo);
+                for (int i3 = 0; i3 < 9; i3++) {
+                    float[] fArr = this.mMatrixValuesInterpolated;
+                    float f7 = this.mMatrixValuesFrom[i3];
+                    float f8 = this.mInterpolatingValue;
+                    fArr[i3] = (f7 * (1.0f - f8)) + (this.mMatrixValuesTo[i3] * f8);
+                }
+                matrix.setValues(this.mMatrixValuesInterpolated);
+                return matrix;
+            }
+            return (Matrix) invokeCommon.objValue;
+        }
+
+        public void setValue(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+                this.mInterpolatingValue = f;
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return String.format("InterpolatingScaleType(%s (%s) -> %s (%s))", String.valueOf(this.mScaleTypeFrom), String.valueOf(this.mFocusPointFrom), String.valueOf(this.mScaleTypeTo), String.valueOf(this.mFocusPointTo));
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static class ScaleTypeCenter extends AbstractScaleType {
+    public class ScaleTypeCenter extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "center" : (String) invokeV.objValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -112,19 +369,19 @@ public class ScalingUtils {
                 matrix.setTranslate((int) (rect.left + ((rect.width() - i) * 0.5f) + 0.5f), (int) (rect.top + ((rect.height() - i2) * 0.5f) + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeCenterCrop extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "center" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "center_crop" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeCenterCrop extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -174,19 +431,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (f5 + 0.5f), (int) (height + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeCenterInside extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "center_crop" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "center_inside" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeCenterInside extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -229,19 +486,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (width + 0.5f), (int) (height + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeFitBottomStart extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "center_inside" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_bottom_start" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeFitBottomStart extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -282,19 +539,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (rect.left + 0.5f), (int) (rect.top + (rect.height() - (i2 * min)) + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeFitCenter extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_bottom_start" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_center" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeFitCenter extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -337,19 +594,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (width + 0.5f), (int) (height + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeFitEnd extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_center" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_end" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeFitEnd extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -390,19 +647,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (rect.left + (rect.width() - (i * min)) + 0.5f), (int) (rect.top + (rect.height() - (i2 * min)) + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeFitStart extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_end" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_start" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeFitStart extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -443,19 +700,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (rect.left + 0.5f), (int) (rect.top + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeFitX extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_start" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_x" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeFitX extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -496,19 +753,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (rect.left + 0.5f), (int) (height + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeFitXY extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_x" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_xy" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeFitXY extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -548,19 +805,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (rect.left + 0.5f), (int) (rect.top + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeFitY extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_xy" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_y" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeFitY extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -600,19 +857,19 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (rect.left + ((rect.width() - (i * f4)) * 0.5f) + 0.5f), (int) (rect.top + 0.5f));
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class ScaleTypeFocusCrop extends AbstractScaleType {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ScaleType INSTANCE;
+        public transient /* synthetic */ FieldHolder $fh;
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_y" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "focus_crop" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ScaleTypeFocusCrop extends AbstractScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ScaleType INSTANCE;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
@@ -664,17 +921,6 @@ public class ScalingUtils {
                 matrix.postTranslate((int) (f5 + 0.5f), (int) (max + 0.5f));
             }
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "focus_crop" : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface StatefulScaleType {
-        Object getState();
     }
 
     public ScalingUtils() {
@@ -718,192 +964,5 @@ public class ScalingUtils {
             return null;
         }
         return (ScaleTypeDrawable) invokeL.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class InterpolatingScaleType implements ScaleType, StatefulScaleType {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public final Rect mBoundsFrom;
-        @Nullable
-        public final Rect mBoundsTo;
-        @Nullable
-        public final PointF mFocusPointFrom;
-        @Nullable
-        public final PointF mFocusPointTo;
-        public float mInterpolatingValue;
-        public final float[] mMatrixValuesFrom;
-        public final float[] mMatrixValuesInterpolated;
-        public final float[] mMatrixValuesTo;
-        public final ScaleType mScaleTypeFrom;
-        public final ScaleType mScaleTypeTo;
-
-        public InterpolatingScaleType(ScaleType scaleType, ScaleType scaleType2, @Nullable Rect rect, @Nullable Rect rect2, @Nullable PointF pointF, @Nullable PointF pointF2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {scaleType, scaleType2, rect, rect2, pointF, pointF2};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.mMatrixValuesFrom = new float[9];
-            this.mMatrixValuesTo = new float[9];
-            this.mMatrixValuesInterpolated = new float[9];
-            this.mScaleTypeFrom = scaleType;
-            this.mScaleTypeTo = scaleType2;
-            this.mBoundsFrom = rect;
-            this.mBoundsTo = rect2;
-            this.mFocusPointFrom = pointF;
-            this.mFocusPointTo = pointF2;
-        }
-
-        @Nullable
-        public Rect getBoundsFrom() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBoundsFrom : (Rect) invokeV.objValue;
-        }
-
-        @Nullable
-        public Rect getBoundsTo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBoundsTo : (Rect) invokeV.objValue;
-        }
-
-        @Nullable
-        public PointF getFocusPointFrom() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFocusPointFrom : (PointF) invokeV.objValue;
-        }
-
-        @Nullable
-        public PointF getFocusPointTo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFocusPointTo : (PointF) invokeV.objValue;
-        }
-
-        public ScaleType getScaleTypeFrom() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mScaleTypeFrom : (ScaleType) invokeV.objValue;
-        }
-
-        public ScaleType getScaleTypeTo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mScaleTypeTo : (ScaleType) invokeV.objValue;
-        }
-
-        @Override // com.facebook.drawee.drawable.ScalingUtils.StatefulScaleType
-        public Object getState() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Float.valueOf(this.mInterpolatingValue) : invokeV.objValue;
-        }
-
-        @Override // com.facebook.drawee.drawable.ScalingUtils.ScaleType
-        public Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                Rect rect2 = this.mBoundsFrom;
-                Rect rect3 = rect2 != null ? rect2 : rect;
-                Rect rect4 = this.mBoundsTo;
-                Rect rect5 = rect4 != null ? rect4 : rect;
-                ScaleType scaleType = this.mScaleTypeFrom;
-                PointF pointF = this.mFocusPointFrom;
-                float f3 = pointF == null ? f : pointF.x;
-                PointF pointF2 = this.mFocusPointFrom;
-                scaleType.getTransform(matrix, rect3, i, i2, f3, pointF2 == null ? f2 : pointF2.y);
-                matrix.getValues(this.mMatrixValuesFrom);
-                ScaleType scaleType2 = this.mScaleTypeTo;
-                PointF pointF3 = this.mFocusPointTo;
-                float f4 = pointF3 == null ? f : pointF3.x;
-                PointF pointF4 = this.mFocusPointTo;
-                scaleType2.getTransform(matrix, rect5, i, i2, f4, pointF4 == null ? f2 : pointF4.y);
-                matrix.getValues(this.mMatrixValuesTo);
-                for (int i3 = 0; i3 < 9; i3++) {
-                    float[] fArr = this.mMatrixValuesInterpolated;
-                    float f5 = this.mMatrixValuesFrom[i3];
-                    float f6 = this.mInterpolatingValue;
-                    fArr[i3] = (f5 * (1.0f - f6)) + (this.mMatrixValuesTo[i3] * f6);
-                }
-                matrix.setValues(this.mMatrixValuesInterpolated);
-                return matrix;
-            }
-            return (Matrix) invokeCommon.objValue;
-        }
-
-        public float getValue() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mInterpolatingValue : invokeV.floatValue;
-        }
-
-        public void setValue(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-                this.mInterpolatingValue = f;
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? String.format("InterpolatingScaleType(%s (%s) -> %s (%s))", String.valueOf(this.mScaleTypeFrom), String.valueOf(this.mFocusPointFrom), String.valueOf(this.mScaleTypeTo), String.valueOf(this.mFocusPointTo)) : (String) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public InterpolatingScaleType(ScaleType scaleType, ScaleType scaleType2, @Nullable Rect rect, @Nullable Rect rect2) {
-            this(scaleType, scaleType2, rect, rect2, null, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {scaleType, scaleType2, rect, rect2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((ScaleType) objArr2[0], (ScaleType) objArr2[1], (Rect) objArr2[2], (Rect) objArr2[3], (PointF) objArr2[4], (PointF) objArr2[5]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public InterpolatingScaleType(ScaleType scaleType, ScaleType scaleType2) {
-            this(scaleType, scaleType2, null, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {scaleType, scaleType2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((ScaleType) objArr2[0], (ScaleType) objArr2[1], (Rect) objArr2[2], (Rect) objArr2[3]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
     }
 }

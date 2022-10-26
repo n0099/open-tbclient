@@ -55,9 +55,29 @@ public final class CalendarParsedResult extends ParsedResult {
         DATE_TIME = Pattern.compile("[0-9]{8}(T[0-9]{6}Z?)?");
     }
 
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder(100);
+            ParsedResult.maybeAppend(this.summary, sb);
+            ParsedResult.maybeAppend(format(this.startAllDay, this.start), sb);
+            ParsedResult.maybeAppend(format(this.endAllDay, this.end), sb);
+            ParsedResult.maybeAppend(this.location, sb);
+            ParsedResult.maybeAppend(this.organizer, sb);
+            ParsedResult.maybeAppend(this.attendees, sb);
+            ParsedResult.maybeAppend(this.description, sb);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CalendarParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String[] strArr, String str7, double d, double d2) {
         super(ParsedResultType.CALENDAR);
+        boolean z;
+        Date date;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +98,12 @@ public final class CalendarParsedResult extends ParsedResult {
             this.start = parseDate(str2);
             if (str3 == null) {
                 long parseDurationMS = parseDurationMS(str4);
-                this.end = parseDurationMS < 0 ? null : new Date(this.start.getTime() + parseDurationMS);
+                if (parseDurationMS < 0) {
+                    date = null;
+                } else {
+                    date = new Date(this.start.getTime() + parseDurationMS);
+                }
+                this.end = date;
             } else {
                 try {
                     this.end = parseDate(str3);
@@ -86,8 +111,13 @@ public final class CalendarParsedResult extends ParsedResult {
                     throw new IllegalArgumentException(e.toString());
                 }
             }
-            boolean z = true;
-            this.startAllDay = str2.length() == 8;
+            boolean z2 = true;
+            if (str2.length() == 8) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.startAllDay = z;
             this.endAllDay = (str3 == null || str3.length() != 8) ? false : false;
             this.location = str5;
             this.organizer = str6;
@@ -114,7 +144,109 @@ public final class CalendarParsedResult extends ParsedResult {
     public static DateFormat buildDateTimeFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new SimpleDateFormat("yyyyMMdd'T'HHmmss", Locale.ENGLISH) : (DateFormat) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new SimpleDateFormat("yyyyMMdd'T'HHmmss", Locale.ENGLISH);
+        }
+        return (DateFormat) invokeV.objValue;
+    }
+
+    public String[] getAttendees() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.attendees;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.description;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Date getEnd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.end;
+        }
+        return (Date) invokeV.objValue;
+    }
+
+    public double getLatitude() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.latitude;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String getLocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.location;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public double getLongitude() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.longitude;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String getOrganizer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.organizer;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Date getStart() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.start;
+        }
+        return (Date) invokeV.objValue;
+    }
+
+    public String getSummary() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.summary;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isEndAllDay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.endAllDay;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isStartAllDay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.startAllDay;
+        }
+        return invokeV.booleanValue;
     }
 
     public static String format(boolean z, Date date) {
@@ -165,105 +297,21 @@ public final class CalendarParsedResult extends ParsedResult {
                 return -1L;
             }
             Matcher matcher = RFC2445_DURATION.matcher(charSequence);
-            if (matcher.matches()) {
-                long j = 0;
-                int i = 0;
-                while (i < RFC2445_DURATION_FIELD_UNITS.length) {
-                    int i2 = i + 1;
-                    String group = matcher.group(i2);
-                    if (group != null) {
-                        j += RFC2445_DURATION_FIELD_UNITS[i] * Integer.parseInt(group);
-                    }
-                    i = i2;
-                }
-                return j;
+            if (!matcher.matches()) {
+                return -1L;
             }
-            return -1L;
+            long j = 0;
+            int i = 0;
+            while (i < RFC2445_DURATION_FIELD_UNITS.length) {
+                int i2 = i + 1;
+                String group = matcher.group(i2);
+                if (group != null) {
+                    j += RFC2445_DURATION_FIELD_UNITS[i] * Integer.parseInt(group);
+                }
+                i = i2;
+            }
+            return j;
         }
         return invokeL.longValue;
-    }
-
-    public String[] getAttendees() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.attendees : (String[]) invokeV.objValue;
-    }
-
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.description : (String) invokeV.objValue;
-    }
-
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder(100);
-            ParsedResult.maybeAppend(this.summary, sb);
-            ParsedResult.maybeAppend(format(this.startAllDay, this.start), sb);
-            ParsedResult.maybeAppend(format(this.endAllDay, this.end), sb);
-            ParsedResult.maybeAppend(this.location, sb);
-            ParsedResult.maybeAppend(this.organizer, sb);
-            ParsedResult.maybeAppend(this.attendees, sb);
-            ParsedResult.maybeAppend(this.description, sb);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Date getEnd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.end : (Date) invokeV.objValue;
-    }
-
-    public double getLatitude() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.latitude : invokeV.doubleValue;
-    }
-
-    public String getLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.location : (String) invokeV.objValue;
-    }
-
-    public double getLongitude() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.longitude : invokeV.doubleValue;
-    }
-
-    public String getOrganizer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.organizer : (String) invokeV.objValue;
-    }
-
-    public Date getStart() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.start : (Date) invokeV.objValue;
-    }
-
-    public String getSummary() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.summary : (String) invokeV.objValue;
-    }
-
-    public boolean isEndAllDay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.endAllDay : invokeV.booleanValue;
-    }
-
-    public boolean isStartAllDay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.startAllDay : invokeV.booleanValue;
     }
 }

@@ -24,31 +24,13 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
     public final boolean invokeImmediately;
     public final String name;
 
-    public HandlerContext(Handler handler, String str, boolean z) {
-        super(null);
-        this.handler = handler;
-        this.name = str;
-        this.invokeImmediately = z;
-        this._immediate = z ? this : null;
-        HandlerContext handlerContext = this._immediate;
-        if (handlerContext == null) {
-            handlerContext = new HandlerContext(this.handler, this.name, true);
-            this._immediate = handlerContext;
-        }
-        this.immediate = handlerContext;
+    public HandlerContext(Handler handler, String str) {
+        this(handler, str, false);
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         this.handler.post(runnable);
-    }
-
-    public boolean equals(Object obj) {
-        return (obj instanceof HandlerContext) && ((HandlerContext) obj).handler == this.handler;
-    }
-
-    public int hashCode() {
-        return System.identityHashCode(this.handler);
     }
 
     @Override // kotlinx.coroutines.android.HandlerDispatcher, kotlinx.coroutines.Delay
@@ -64,13 +46,8 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
         };
     }
 
-    @Override // kotlinx.coroutines.CoroutineDispatcher
-    public boolean isDispatchNeeded(CoroutineContext coroutineContext) {
-        return !this.invokeImmediately || (Intrinsics.areEqual(Looper.myLooper(), this.handler.getLooper()) ^ true);
-    }
-
     @Override // kotlinx.coroutines.Delay
-    public void scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
+    public void scheduleResumeAfterDelay(long j, final CancellableContinuation cancellableContinuation) {
         Runnable runnable = new Runnable() { // from class: kotlinx.coroutines.android.HandlerContext$scheduleResumeAfterDelay$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {
@@ -79,6 +56,43 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
         };
         this.handler.postDelayed(runnable, RangesKt___RangesKt.coerceAtMost(j, 4611686018427387903L));
         cancellableContinuation.invokeOnCancellation(new HandlerContext$scheduleResumeAfterDelay$1(this, runnable));
+    }
+
+    public /* synthetic */ HandlerContext(Handler handler, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(handler, (i & 2) != 0 ? null : str);
+    }
+
+    public HandlerContext(Handler handler, String str, boolean z) {
+        super(null);
+        this.handler = handler;
+        this.name = str;
+        this.invokeImmediately = z;
+        this._immediate = z ? this : null;
+        HandlerContext handlerContext = this._immediate;
+        if (handlerContext == null) {
+            handlerContext = new HandlerContext(this.handler, this.name, true);
+            this._immediate = handlerContext;
+        }
+        this.immediate = handlerContext;
+    }
+
+    public boolean equals(Object obj) {
+        if ((obj instanceof HandlerContext) && ((HandlerContext) obj).handler == this.handler) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    public boolean isDispatchNeeded(CoroutineContext coroutineContext) {
+        if (!this.invokeImmediately || (!Intrinsics.areEqual(Looper.myLooper(), this.handler.getLooper()))) {
+            return true;
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        return System.identityHashCode(this.handler);
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
@@ -97,13 +111,5 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
     @Override // kotlinx.coroutines.android.HandlerDispatcher, kotlinx.coroutines.MainCoroutineDispatcher
     public HandlerContext getImmediate() {
         return this.immediate;
-    }
-
-    public /* synthetic */ HandlerContext(Handler handler, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(handler, (i & 2) != 0 ? null : str);
-    }
-
-    public HandlerContext(Handler handler, String str) {
-        this(handler, str, false);
     }
 }

@@ -29,7 +29,7 @@ public class NetStateManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class NetState {
+    public final class NetState {
         public static final /* synthetic */ NetState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetState Mobile;
@@ -79,13 +79,19 @@ public class NetStateManager {
         public static NetState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetState) Enum.valueOf(NetState.class, str) : (NetState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetState) Enum.valueOf(NetState.class, str);
+            }
+            return (NetState) invokeL.objValue;
         }
 
         public static NetState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetState[]) $VALUES.clone() : (NetState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetState[]) $VALUES.clone();
+            }
+            return (NetState[]) invokeV.objValue;
         }
     }
 
@@ -159,20 +165,25 @@ public class NetStateManager {
         }
     }
 
-    public static Pair<String, Integer> getAPN() {
+    public static Pair getAPN() {
         InterceptResult invokeV;
+        Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             Uri parse = Uri.parse("content://telephony/carriers/preferapn");
             Context context = mContext;
-            Pair<String, Integer> pair = null;
-            Cursor query = context != null ? context.getContentResolver().query(parse, null, null, null, null) : null;
-            if (query != null && query.moveToFirst()) {
-                String string = query.getString(query.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
+            Pair pair = null;
+            if (context != null) {
+                cursor = context.getContentResolver().query(parse, null, null, null, null);
+            } else {
+                cursor = null;
+            }
+            if (cursor != null && cursor.moveToFirst()) {
+                String string = cursor.getString(cursor.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
                 if (string != null && string.trim().length() > 0) {
-                    pair = new Pair<>(string, 80);
+                    pair = new Pair(string, 80);
                 }
-                query.close();
+                cursor.close();
             }
             return pair;
         }
@@ -194,7 +205,10 @@ public class NetStateManager {
                     networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
                 } catch (NullPointerException unused) {
                 }
-                return networkInfo != null && networkInfo.isAvailable();
+                if (networkInfo == null || !networkInfo.isAvailable()) {
+                    return false;
+                }
+                return true;
             }
         }
         return invokeL.booleanValue;

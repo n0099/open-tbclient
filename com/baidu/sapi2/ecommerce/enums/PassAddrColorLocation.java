@@ -74,12 +74,18 @@ public final class PassAddrColorLocation implements NoProguard {
     public static PassAddrColorLocation valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PassAddrColorLocation) Enum.valueOf(PassAddrColorLocation.class, str) : (PassAddrColorLocation) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PassAddrColorLocation) Enum.valueOf(PassAddrColorLocation.class, str);
+        }
+        return (PassAddrColorLocation) invokeL.objValue;
     }
 
     public static PassAddrColorLocation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PassAddrColorLocation[]) $VALUES.clone() : (PassAddrColorLocation[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PassAddrColorLocation[]) $VALUES.clone();
+        }
+        return (PassAddrColorLocation[]) invokeV.objValue;
     }
 }

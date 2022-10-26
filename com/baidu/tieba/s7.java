@@ -34,39 +34,38 @@ public class s7 {
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.b < 3) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.b >= 3) {
+            f1.a.debug(this.a, str);
         }
-        f1.a.debug(this.a, str);
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.b < 1) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b >= 1) {
+            f1.a.error(this.a, str);
         }
-        f1.a.error(this.a, str);
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.b >= 2) {
+            f1.a.log(this.a, str);
+        }
     }
 
     public void c(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) || this.b < 1) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) && this.b >= 1) {
+            f1.a.error(this.a, str, th);
         }
-        f1.a.error(this.a, str, th);
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.b < 2) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        f1.a.log(this.a, str);
+        return invokeV.intValue;
     }
 }

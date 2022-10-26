@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -49,23 +48,15 @@ public class CommunityConventionView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mContext = context;
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ec, this);
-            this.mWarningImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f092652);
-            this.mConventionTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0906fe);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01eb, this);
+            this.mWarningImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f09263a);
+            this.mConventionTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f090707);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            WebPManager.setPureDrawable(this.mWarningImage, R.drawable.obfuscated_res_0x7f080a4d, R.color.CAM_X0107, null);
-            SkinManager.setViewTextColor(this.mConventionTitle, (int) R.color.CAM_X0107);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommunityConventionView(Context context, @Nullable AttributeSet attributeSet) {
+    public CommunityConventionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,7 +78,7 @@ public class CommunityConventionView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommunityConventionView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CommunityConventionView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -128,5 +119,13 @@ public class CommunityConventionView extends LinearLayout {
             }
         }
         initView(context);
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            WebPManager.setPureDrawable(this.mWarningImage, R.drawable.obfuscated_res_0x7f080a4f, R.color.CAM_X0107, null);
+            SkinManager.setViewTextColor(this.mConventionTitle, (int) R.color.CAM_X0107);
+        }
     }
 }

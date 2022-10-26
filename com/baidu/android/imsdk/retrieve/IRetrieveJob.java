@@ -11,6 +11,10 @@ public abstract class IRetrieveJob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void dispatch(JSONObject jSONObject, Context context);
+
+    public abstract String getRetrieveJobType();
+
     public IRetrieveJob() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,8 +28,4 @@ public abstract class IRetrieveJob {
             }
         }
     }
-
-    public abstract void dispatch(JSONObject jSONObject, Context context);
-
-    public abstract String getRetrieveJobType();
 }

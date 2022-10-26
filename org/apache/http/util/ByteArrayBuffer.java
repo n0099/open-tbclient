@@ -31,9 +31,46 @@ public final class ByteArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
+    public void append(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public int byteAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeI.intValue;
+    }
+
+    public void setLength(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void append(CharArrayBuffer charArrayBuffer, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charArrayBuffer, i, i2) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public void append(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void append(char[] cArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -45,15 +82,6 @@ public final class ByteArrayBuffer {
             throw new RuntimeException("Stub!");
         }
         return (byte[]) invokeV.objValue;
-    }
-
-    public int byteAt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeI.intValue;
     }
 
     public int capacity() {
@@ -99,13 +127,6 @@ public final class ByteArrayBuffer {
         return invokeV.intValue;
     }
 
-    public void setLength(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public byte[] toByteArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,26 +134,5 @@ public final class ByteArrayBuffer {
             throw new RuntimeException("Stub!");
         }
         return (byte[]) invokeV.objValue;
-    }
-
-    public void append(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void append(char[] cArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void append(CharArrayBuffer charArrayBuffer, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charArrayBuffer, i, i2) == null) {
-            throw new RuntimeException("Stub!");
-        }
     }
 }

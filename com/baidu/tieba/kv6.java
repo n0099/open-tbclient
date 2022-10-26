@@ -1,120 +1,173 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.AdMixFloor;
+import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class kv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static boolean a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    public kv6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
-            if ("personalize".equals(str) && bp5.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ("frs_new_tab".equals(str2) && bp5.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
-                return true;
-            }
-            if ("frs_hot_tab".equals(str2) && bp5.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
-                return true;
-            }
-            return "pb".equals(str) && bp5.k().r(i, AbsDataRecorder.Scene.PB);
         }
-        return invokeLLI.booleanValue;
     }
 
-    public static void b(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
-        ViewGroup c;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i)}) == null) {
-            if ("personalize".equals(str) || "frs_new_tab".equals(str2) || "frs_hot_tab".equals(str2)) {
-                if (vipAdFreeGuideLayout != null) {
-                    vipAdFreeGuideLayout.setBottomCornerRound(true);
-                }
-            } else if ("pb".equals(str)) {
-                if (!bp5.k().m() || i != 1) {
-                    if (vipAdFreeGuideLayout != null) {
-                        vipAdFreeGuideLayout.setBottomCornerRound(false);
-                        vipAdFreeGuideLayout.setAllCornerRound(true);
-                        return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return UbsABTestHelper.isFrsFunAdSdkTest();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static kv6 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            if (z && d()) {
+                return new kv6();
+            }
+            return null;
+        }
+        return (kv6) invokeZ.objValue;
+    }
+
+    public static boolean e(FrsTabInfo frsTabInfo, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, frsTabInfo, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return false;
+            }
+            if (frsTabInfo != null && 505 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) {
+                return false;
+            }
+            if ((frsTabInfo == null || 502 != frsTabInfo.tab_id.intValue() || 91 != frsTabInfo.tab_type.intValue()) && i != 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public void b(List<eo> list, boolean z, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), str}) == null) {
+            int h = dv6.m().h();
+            if (z) {
+                i = dv6.m().i() - 1;
+                for (eo eoVar : list) {
+                    if (eoVar instanceof ThreadData) {
+                        if (((ThreadData) eoVar).getIs_top() != 1) {
+                            break;
+                        }
+                        i++;
                     }
-                    return;
                 }
-                vipAdFreeGuideLayout.setBottomCornerRound(false);
-                vipAdFreeGuideLayout.setAllCornerRound(false);
-                if (funAdNativeViewHolder == null || funAdNativeViewHolder.d() == null || (c = funAdNativeViewHolder.d().c(null)) == null) {
-                    return;
+            } else {
+                i = this.a;
+            }
+            this.a = c(i, h, list, str);
+        }
+    }
+
+    public final int c(int i, int i2, List<eo> list, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, str})) == null) {
+            if (list == null || list.size() == 0 || i > list.size() - 1) {
+                return 0;
+            }
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                ThreadData threadData = new ThreadData();
+                pn8 pn8Var = new pn8();
+                pn8Var.n(true);
+                threadData.funAdData = pn8Var;
+                pn8Var.m(str);
+                list.add(i, threadData);
+                i = i + i2 + 1;
+                if (i > list.size() - 1) {
+                    return (i - (list.size() - 1)) - 1;
                 }
-                c.setPadding(c.getPaddingLeft(), c.getPaddingTop(), c.getPaddingRight(), 0);
             }
+            return 0;
         }
+        return invokeCommon.intValue;
     }
 
-    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3) {
+    public void g(List<eo> list, List<AdMixFloor> list2, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, vipAdFreeGuideLayout, str, str2, str3) == null) {
-            if ("personalize".equals(str2)) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
-            } else if ("frs_new_tab".equals(str3)) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
-            } else if ("frs_hot_tab".equals(str3)) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
-            } else if ("pb".equals(str2)) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
-            }
-        }
-    }
-
-    public static void d(FunAdNativeViewHolder funAdNativeViewHolder, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, String str3, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, Integer.valueOf(i)}) == null) || vipAdFreeGuideLayout == null) {
-            return;
-        }
-        vipAdFreeGuideLayout.setVisibility(0);
-        b(funAdNativeViewHolder, vipAdFreeGuideLayout, str2, str3, i);
-        vipAdFreeGuideLayout.f();
-        c(vipAdFreeGuideLayout, str, str2, str3);
-    }
-
-    public static void e(in8 in8Var, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
-        int f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{in8Var, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
-            VipAdFreeGuideLayout vipAdFreeGuideLayout = funAdNativeViewHolder.d().getVipAdFreeGuideLayout();
-            if (in8Var == null || vipAdFreeGuideLayout == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, list2, Boolean.valueOf(z), str}) == null) {
+            if (((AdMixFloor) ListUtils.getItem(list2, 0)) == null) {
                 return;
             }
-            if ("personalize".equals(str2)) {
-                f = bp5.k().j(in8Var.g());
-            } else {
-                f = in8Var.f();
-            }
-            if (f == 1) {
-                vipAdFreeGuideLayout.setVisibility(8);
-            } else if (f == 2) {
-                d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
-            } else if (a(str2, str3, i)) {
-                d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
-                bp5.k().c();
-                if ("personalize".equals(str2)) {
-                    bp5.k().p(in8Var.g(), 2);
-                } else {
-                    in8Var.q(2);
+            int i = 0;
+            for (int i2 = 0; z && i2 < list.size(); i2++) {
+                eo eoVar = list.get(i2);
+                if (eoVar instanceof ThreadData) {
+                    if (((ThreadData) eoVar).getIs_top() != 1) {
+                        break;
+                    }
+                    i++;
                 }
-            } else {
-                vipAdFreeGuideLayout.setVisibility(8);
-                if ("personalize".equals(str2)) {
-                    bp5.k().p(in8Var.g(), 1);
-                } else {
-                    in8Var.q(1);
+            }
+            for (int i3 = 0; i3 < list2.size(); i3++) {
+                AdMixFloor adMixFloor = list2.get(i3);
+                if (adMixFloor.ad_type.intValue() != 1) {
+                    ThreadData threadData = new ThreadData();
+                    pn8 pn8Var = new pn8();
+                    pn8Var.n(true);
+                    threadData.funAdData = pn8Var;
+                    pn8Var.m(str);
+                    ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
                 }
             }
         }

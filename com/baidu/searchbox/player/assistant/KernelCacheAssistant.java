@@ -1,7 +1,6 @@
 package com.baidu.searchbox.player.assistant;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.layer.BaseKernelLayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,17 +16,17 @@ public class KernelCacheAssistant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_REUSE_KERNEL_ID = "videoPlayerReuseID";
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, BaseKernelLayer> mKernelCache;
+    public final HashMap mKernelCache;
 
     /* renamed from: com.baidu.searchbox.player.assistant.KernelCacheAssistant$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static final class Holder {
+    public final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final KernelCacheAssistant mInstance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,35 +62,29 @@ public class KernelCacheAssistant {
         }
     }
 
-    public /* synthetic */ KernelCacheAssistant(AnonymousClass1 anonymousClass1) {
-        this();
+    public KernelCacheAssistant() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mKernelCache = new HashMap(2);
     }
 
     public static KernelCacheAssistant get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.mInstance : (KernelCacheAssistant) invokeV.objValue;
-    }
-
-    @Nullable
-    public BaseKernelLayer getCache(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.mKernelCache.get(str) : (BaseKernelLayer) invokeL.objValue;
-    }
-
-    public boolean isInCache(@Nullable BaseKernelLayer baseKernelLayer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseKernelLayer)) == null) ? this.mKernelCache.containsValue(baseKernelLayer) : invokeL.booleanValue;
-    }
-
-    public void putCache(@Nullable String str, @Nullable BaseKernelLayer baseKernelLayer) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, baseKernelLayer) == null) || baseKernelLayer == null || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Holder.mInstance;
         }
-        this.mKernelCache.put(str, baseKernelLayer);
+        return (KernelCacheAssistant) invokeV.objValue;
     }
 
     public void release() {
@@ -106,26 +99,41 @@ public class KernelCacheAssistant {
         }
     }
 
-    @Nullable
+    public /* synthetic */ KernelCacheAssistant(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public BaseKernelLayer getCache(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return (BaseKernelLayer) this.mKernelCache.get(str);
+        }
+        return (BaseKernelLayer) invokeL.objValue;
+    }
+
+    public boolean isInCache(BaseKernelLayer baseKernelLayer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseKernelLayer)) == null) {
+            return this.mKernelCache.containsValue(baseKernelLayer);
+        }
+        return invokeL.booleanValue;
+    }
+
     public BaseKernelLayer removeCache(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.mKernelCache.remove(str) : (BaseKernelLayer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return (BaseKernelLayer) this.mKernelCache.remove(str);
+        }
+        return (BaseKernelLayer) invokeL.objValue;
     }
 
-    public KernelCacheAssistant() {
+    public void putCache(String str, BaseKernelLayer baseKernelLayer) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, baseKernelLayer) == null) && baseKernelLayer != null && !TextUtils.isEmpty(str)) {
+            this.mKernelCache.put(str, baseKernelLayer);
         }
-        this.mKernelCache = new HashMap<>(2);
     }
 }

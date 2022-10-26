@@ -2,9 +2,6 @@ package com.kwad.components.core.a;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
@@ -22,7 +19,6 @@ public class e implements h {
     public static /* synthetic */ Interceptable $ic;
     public static volatile e Dq;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public String Dr;
     public int Ds;
     public int Dt;
@@ -90,7 +86,7 @@ public class e implements h {
         return (e) invokeL.objValue;
     }
 
-    public static synchronized List<e> a(Cursor cursor) {
+    public static synchronized List a(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cursor)) == null) {
@@ -138,8 +134,6 @@ public class e implements h {
         return (e) invokeL.objValue;
     }
 
-    @NonNull
-    @WorkerThread
     public static e k(long j) {
         InterceptResult invokeJ;
         e af;
@@ -147,7 +141,6 @@ public class e implements h {
         return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) ? (a.lP() == null || (af = a.lP().af(String.valueOf(j))) == null) ? lW() : af : (e) invokeJ.objValue;
     }
 
-    @NonNull
     public static e lW() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co5;
-import com.baidu.tieba.do5;
+import com.baidu.tieba.bh6;
+import com.baidu.tieba.go5;
+import com.baidu.tieba.jo5;
+import com.baidu.tieba.ko5;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.ug6;
-import com.baidu.tieba.vs4;
-import com.baidu.tieba.zn5;
+import com.baidu.tieba.xs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,13 +39,13 @@ import tbclient.ForumRuleStatus;
 public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zn5 a;
+    public final go5 a;
     public TextView b;
     public TextView c;
     public TextView d;
     public View e;
     public View f;
-    public do5 g;
+    public ko5 g;
     public TbPageContext h;
     public boolean i;
     public FrsViewData j;
@@ -71,212 +71,6 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         }
     }
 
-    public void a() {
-        do5 do5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (do5Var = this.g) == null) {
-            return;
-        }
-        do5Var.u();
-    }
-
-    public void b() {
-        do5 do5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (do5Var = this.g) == null) {
-            return;
-        }
-        do5Var.v();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d033c, this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0915a9);
-            this.b = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0375);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0915a8);
-            this.c = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f04b0);
-            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0915aa);
-            this.d = textView3;
-            textView3.setText(R.string.obfuscated_res_0x7f0f04b3);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09081d);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0907f9);
-            this.b.setOnClickListener(this);
-            this.c.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            d();
-            setClickable(true);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.d, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0301);
-            SkinManager.setBackgroundResource(this.c, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-        }
-    }
-
-    public void e() {
-        zn5 zn5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (zn5Var = this.a) == null) {
-            return;
-        }
-        zn5Var.f(null);
-        this.a.d();
-    }
-
-    public final void f(String str) {
-        FrsViewData frsViewData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.h == null) {
-            return;
-        }
-        if (this.g == null && (frsViewData = this.j) != null && frsViewData.getForum() != null && this.j.getForum().getDeletedReasonInfo() != null) {
-            int intValue = this.j.getForum().getDeletedReasonInfo().is_grays_cale_forum.intValue();
-            int intValue2 = this.j.getForum().getDeletedReasonInfo().is_boomgrow.intValue();
-            ForumRuleStatus forumRuleStatus = this.j.forumRule;
-            co5 co5Var = new co5(intValue, intValue2, forumRuleStatus != null ? forumRuleStatus.has_forum_rule.intValue() : 0);
-            co5Var.i(this.j.getForum().getId(), this.j.getForum().getName());
-            co5Var.h(this.j.getForum().getImage_url());
-            co5Var.j(this.j.getForum().getUser_level());
-            do5 do5Var = new do5(this.h, this, co5Var, this.j.getUserData());
-            this.g = do5Var;
-            do5Var.C(this.i);
-        }
-        this.g.G(str);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            this.a.e();
-            if (view2 == this.b) {
-                ug6.f().m();
-                if (this.i) {
-                    StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_CANCEL_CLICK);
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", ug6.f().d());
-                    statisticItem.param("fname", ug6.f().e());
-                    TiebaStatic.log(statisticItem);
-                }
-            } else if (view2 == this.c) {
-                if (ListUtils.isEmpty(ug6.f().g())) {
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 1).param("obj_source", "1"));
-                setData(1);
-                f("2");
-                if (this.i) {
-                    StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_CLICK);
-                    statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem2.param("fid", ug6.f().d());
-                    statisticItem2.param("fname", ug6.f().e());
-                    TiebaStatic.log(statisticItem2);
-                }
-            } else if (view2 != this.d || ListUtils.isEmpty(ug6.f().g())) {
-            } else {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 2).param("obj_source", "1"));
-                setData(2);
-                f("2");
-                if (this.i) {
-                    StatisticItem statisticItem3 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_AND_FORBIDDEN_CLICK);
-                    statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem3.param("fid", ug6.f().d());
-                    statisticItem3.param("fname", ug6.f().e());
-                    TiebaStatic.log(statisticItem3);
-                    StatisticItem statisticItem4 = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_REASON_DIALOG_SHOW);
-                    statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem4.param("fid", ug6.f().d());
-                    statisticItem4.param("fname", ug6.f().e());
-                    statisticItem4.param("obj_source", 2);
-                    TiebaStatic.log(statisticItem4);
-                }
-            }
-        }
-    }
-
-    public void setData(int i) {
-        FrsViewData frsViewData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || this.h == null) {
-            return;
-        }
-        if (this.g == null && (frsViewData = this.j) != null) {
-            int intValue = frsViewData.getForum().getDeletedReasonInfo().is_grays_cale_forum.intValue();
-            int intValue2 = this.j.getForum().getDeletedReasonInfo().is_boomgrow.intValue();
-            ForumRuleStatus forumRuleStatus = this.j.forumRule;
-            co5 co5Var = new co5(intValue, intValue2, forumRuleStatus != null ? forumRuleStatus.has_forum_rule.intValue() : 0);
-            co5Var.i(this.j.getForum().getId(), this.j.getForum().getName());
-            co5Var.h(this.j.getForum().getImage_url());
-            co5Var.j(this.j.getForum().getUser_level());
-            do5 do5Var = new do5(this.h, this, co5Var, this.j.getUserData());
-            this.g = do5Var;
-            do5Var.C(this.i);
-        }
-        SparseArray<String> sparseArray = new SparseArray<>();
-        AntiData c = ug6.f().c();
-        if (c != null && c.getDelThreadInfoList() != null) {
-            List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-            for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
-                if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
-                    sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
-                }
-            }
-        }
-        JSONArray jSONArray = new JSONArray();
-        JSONArray jSONArray2 = new JSONArray();
-        List<ThreadData> g = ug6.f().g();
-        for (int i3 = 0; i3 < g.size(); i3++) {
-            if (g.get(i3) != null) {
-                jSONArray.put(g.get(i3).getTid());
-                if (this.i) {
-                    jSONArray2.put("1");
-                } else if (!g.get(i3).isScoreThread() && !g.get(i3).isWorksInfo()) {
-                    jSONArray2.put("0");
-                } else {
-                    jSONArray2.put("1");
-                }
-            }
-        }
-        vs4 vs4Var = new vs4();
-        vs4Var.j(sparseArray);
-        vs4Var.i(i);
-        vs4Var.p(jSONArray);
-        vs4Var.m(jSONArray2);
-        vs4Var.l(ug6.f().d());
-        this.g.E(new String[]{getContext().getString(R.string.obfuscated_res_0x7f0f04c4), getContext().getString(R.string.obfuscated_res_0x7f0f04c5), getContext().getString(R.string.obfuscated_res_0x7f0f04c6), getContext().getString(R.string.obfuscated_res_0x7f0f04c7), getContext().getString(R.string.obfuscated_res_0x7f0f04c8)});
-        this.g.D(vs4Var);
-    }
-
-    public void setDeleteCallback(zn5.c cVar) {
-        zn5 zn5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) || (zn5Var = this.a) == null) {
-            return;
-        }
-        zn5Var.f(cVar);
-    }
-
-    public void setFrsViewData(FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, frsViewData) == null) {
-            this.j = frsViewData;
-        }
-    }
-
     public void setIsBlockMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
@@ -284,47 +78,26 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
             if (z) {
                 TextView textView = this.c;
                 if (textView != null) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f1195);
+                    textView.setText(R.string.obfuscated_res_0x7f0f11a9);
                 }
                 TextView textView2 = this.d;
                 if (textView2 != null) {
-                    textView2.setText(R.string.obfuscated_res_0x7f0f1196);
+                    textView2.setText(R.string.obfuscated_res_0x7f0f11aa);
                 }
             } else {
                 TextView textView3 = this.c;
                 if (textView3 != null) {
-                    textView3.setText(R.string.obfuscated_res_0x7f0f04b0);
+                    textView3.setText(R.string.obfuscated_res_0x7f0f04b8);
                 }
                 TextView textView4 = this.d;
                 if (textView4 != null) {
-                    textView4.setText(R.string.obfuscated_res_0x7f0f04b3);
+                    textView4.setText(R.string.obfuscated_res_0x7f0f04bb);
                 }
             }
-            do5 do5Var = this.g;
-            if (do5Var != null) {
-                do5Var.C(this.i);
+            ko5 ko5Var = this.g;
+            if (ko5Var != null) {
+                ko5Var.F(this.i);
             }
-        }
-    }
-
-    public void setPageContext(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tbPageContext) == null) {
-            this.h = tbPageContext;
-        }
-    }
-
-    public void setSelectNumber(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f04b0);
-            if (this.i) {
-                string = getContext().getString(R.string.obfuscated_res_0x7f0f1195);
-            }
-            if (i > 0) {
-                string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
-            }
-            this.c.setText(string);
         }
     }
 
@@ -348,6 +121,244 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
             }
         }
         c();
-        this.a = new zn5("0");
+        this.a = new go5("0");
+    }
+
+    public void a() {
+        ko5 ko5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (ko5Var = this.g) == null) {
+            return;
+        }
+        ko5Var.w();
+    }
+
+    public void b() {
+        ko5 ko5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (ko5Var = this.g) == null) {
+            return;
+        }
+        ko5Var.x();
+    }
+
+    public void e() {
+        go5 go5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (go5Var = this.a) != null) {
+            go5Var.f(null);
+            this.a.d();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d033b, this);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09159b);
+            this.b = textView;
+            textView.setText(R.string.obfuscated_res_0x7f0f0375);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09159a);
+            this.c = textView2;
+            textView2.setText(R.string.obfuscated_res_0x7f0f04b8);
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f09159c);
+            this.d = textView3;
+            textView3.setText(R.string.obfuscated_res_0x7f0f04bb);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090826);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090802);
+            this.b.setOnClickListener(this);
+            this.c.setOnClickListener(this);
+            this.d.setOnClickListener(this);
+            d();
+            setClickable(true);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.b, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.d, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0301);
+            SkinManager.setBackgroundResource(this.c, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+        }
+    }
+
+    public final void f(String str) {
+        FrsViewData frsViewData;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.h == null) {
+            return;
+        }
+        if (this.g == null && (frsViewData = this.j) != null && frsViewData.getForum() != null && this.j.getForum().getDeletedReasonInfo() != null) {
+            int intValue = this.j.getForum().getDeletedReasonInfo().is_grays_cale_forum.intValue();
+            int intValue2 = this.j.getForum().getDeletedReasonInfo().is_boomgrow.intValue();
+            ForumRuleStatus forumRuleStatus = this.j.forumRule;
+            if (forumRuleStatus != null) {
+                i = forumRuleStatus.has_forum_rule.intValue();
+            } else {
+                i = 0;
+            }
+            jo5 jo5Var = new jo5(intValue, intValue2, i);
+            jo5Var.i(this.j.getForum().getId(), this.j.getForum().getName());
+            jo5Var.h(this.j.getForum().getImage_url());
+            jo5Var.j(this.j.getForum().getUser_level());
+            ko5 ko5Var = new ko5(this.h, this, jo5Var, this.j.getUserData());
+            this.g = ko5Var;
+            ko5Var.F(this.i);
+        }
+        this.g.J(str);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            this.a.e();
+            if (view2 == this.b) {
+                bh6.f().m();
+                if (this.i) {
+                    StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_CANCEL_CLICK);
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", bh6.f().d());
+                    statisticItem.param("fname", bh6.f().e());
+                    TiebaStatic.log(statisticItem);
+                }
+            } else if (view2 == this.c) {
+                if (ListUtils.isEmpty(bh6.f().g())) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 1).param("obj_source", "1"));
+                setData(1);
+                f("2");
+                if (this.i) {
+                    StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_CLICK);
+                    statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem2.param("fid", bh6.f().d());
+                    statisticItem2.param("fname", bh6.f().e());
+                    TiebaStatic.log(statisticItem2);
+                }
+            } else if (view2 != this.d || ListUtils.isEmpty(bh6.f().g())) {
+            } else {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 2).param("obj_source", "1"));
+                setData(2);
+                f("2");
+                if (this.i) {
+                    StatisticItem statisticItem3 = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_MUSK_AND_FORBIDDEN_CLICK);
+                    statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem3.param("fid", bh6.f().d());
+                    statisticItem3.param("fname", bh6.f().e());
+                    TiebaStatic.log(statisticItem3);
+                    StatisticItem statisticItem4 = new StatisticItem(CommonStatisticKey.KEY_FRS_MUSK_REASON_DIALOG_SHOW);
+                    statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem4.param("fid", bh6.f().d());
+                    statisticItem4.param("fname", bh6.f().e());
+                    statisticItem4.param("obj_source", 2);
+                    TiebaStatic.log(statisticItem4);
+                }
+            }
+        }
+    }
+
+    public void setData(int i) {
+        FrsViewData frsViewData;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.h == null) {
+            return;
+        }
+        if (this.g == null && (frsViewData = this.j) != null) {
+            int intValue = frsViewData.getForum().getDeletedReasonInfo().is_grays_cale_forum.intValue();
+            int intValue2 = this.j.getForum().getDeletedReasonInfo().is_boomgrow.intValue();
+            ForumRuleStatus forumRuleStatus = this.j.forumRule;
+            if (forumRuleStatus != null) {
+                i2 = forumRuleStatus.has_forum_rule.intValue();
+            } else {
+                i2 = 0;
+            }
+            jo5 jo5Var = new jo5(intValue, intValue2, i2);
+            jo5Var.i(this.j.getForum().getId(), this.j.getForum().getName());
+            jo5Var.h(this.j.getForum().getImage_url());
+            jo5Var.j(this.j.getForum().getUser_level());
+            ko5 ko5Var = new ko5(this.h, this, jo5Var, this.j.getUserData());
+            this.g = ko5Var;
+            ko5Var.F(this.i);
+        }
+        SparseArray<String> sparseArray = new SparseArray<>();
+        AntiData c = bh6.f().c();
+        if (c != null && c.getDelThreadInfoList() != null) {
+            List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
+            for (int i3 = 0; i3 < delThreadInfoList.size(); i3++) {
+                if (!TextUtils.isEmpty(delThreadInfoList.get(i3).text_info)) {
+                    sparseArray.put(delThreadInfoList.get(i3).text_id, delThreadInfoList.get(i3).text_info);
+                }
+            }
+        }
+        JSONArray jSONArray = new JSONArray();
+        JSONArray jSONArray2 = new JSONArray();
+        List g = bh6.f().g();
+        for (int i4 = 0; i4 < g.size(); i4++) {
+            if (g.get(i4) != null) {
+                jSONArray.put(((ThreadData) g.get(i4)).getTid());
+                if (this.i) {
+                    jSONArray2.put("1");
+                } else if (!((ThreadData) g.get(i4)).isScoreThread() && !((ThreadData) g.get(i4)).isWorksInfo()) {
+                    jSONArray2.put("0");
+                } else {
+                    jSONArray2.put("1");
+                }
+            }
+        }
+        xs4 xs4Var = new xs4();
+        xs4Var.j(sparseArray);
+        xs4Var.i(i);
+        xs4Var.p(jSONArray);
+        xs4Var.m(jSONArray2);
+        xs4Var.l(bh6.f().d());
+        this.g.H(new String[]{getContext().getString(R.string.obfuscated_res_0x7f0f04cc), getContext().getString(R.string.obfuscated_res_0x7f0f04cd), getContext().getString(R.string.obfuscated_res_0x7f0f04ce), getContext().getString(R.string.obfuscated_res_0x7f0f04cf), getContext().getString(R.string.obfuscated_res_0x7f0f04d0)});
+        this.g.G(xs4Var);
+    }
+
+    public void setDeleteCallback(go5.c cVar) {
+        go5 go5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) != null) || (go5Var = this.a) == null) {
+            return;
+        }
+        go5Var.f(cVar);
+    }
+
+    public void setFrsViewData(FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, frsViewData) == null) {
+            this.j = frsViewData;
+        }
+    }
+
+    public void setPageContext(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, tbPageContext) == null) {
+            this.h = tbPageContext;
+        }
+    }
+
+    public void setSelectNumber(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f04b8);
+            if (this.i) {
+                string = getContext().getString(R.string.obfuscated_res_0x7f0f11a9);
+            }
+            if (i > 0) {
+                string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
+            }
+            this.c.setText(string);
+        }
     }
 }

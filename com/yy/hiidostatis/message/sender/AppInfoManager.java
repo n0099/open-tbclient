@@ -44,6 +44,16 @@ public class AppInfoManager implements AppInfo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public String getDir(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
+            return String.format(Locale.CHINA, "%s/hiido", context.getFilesDir().getAbsolutePath());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void clearDir() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -51,11 +61,10 @@ public class AppInfoManager implements AppInfo {
                 File file = new File(getDir(this.context));
                 file.mkdirs();
                 File[] listFiles = file.listFiles(getFileFilter());
-                if (listFiles == null || listFiles.length <= 0) {
-                    return;
-                }
-                for (File file2 : listFiles) {
-                    file2.delete();
+                if (listFiles != null && listFiles.length > 0) {
+                    for (File file2 : listFiles) {
+                        file2.delete();
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -63,46 +72,71 @@ public class AppInfoManager implements AppInfo {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String getDir(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? String.format(Locale.CHINA, "%s/hiido", context.getFilesDir().getAbsolutePath()) : (String) invokeL.objValue;
-    }
-
     private FilenameFilter getFileFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? new FilenameFilter(this) { // from class: com.yy.hiidostatis.message.sender.AppInfoManager.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AppInfoManager this$0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return new FilenameFilter(this) { // from class: com.yy.hiidostatis.message.sender.AppInfoManager.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AppInfoManager this$0;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.this$0 = this;
                 }
-                this.this$0 = this;
-            }
 
-            @Override // java.io.FilenameFilter
-            public boolean accept(File file, String str) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, str)) == null) ? str.endsWith(".appinfo") : invokeLL.booleanValue;
+                @Override // java.io.FilenameFilter
+                public boolean accept(File file, String str) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, str)) == null) {
+                        return str.endsWith(".appinfo");
+                    }
+                    return invokeLL.booleanValue;
+                }
+            };
+        }
+        return (FilenameFilter) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.message.AppInfo
+    public String getAppAppkey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.init) {
+                load();
             }
-        } : (FilenameFilter) invokeV.objValue;
+            return this.appkey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.message.AppInfo
+    public String getAppVer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!this.init) {
+                load();
+            }
+            return this.ver;
+        }
+        return (String) invokeV.objValue;
     }
 
     private synchronized void load() {
@@ -114,19 +148,20 @@ public class AppInfoManager implements AppInfo {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                if (this.preFetchTime == 0 || System.currentTimeMillis() - this.preFetchTime >= 3000) {
-                    if (this.preFetchTime > 0) {
-                        this.init = true;
-                    }
-                    this.preFetchTime = System.currentTimeMillis();
-                    String[] list = new File(getDir(this.context)).list(getFileFilter());
-                    if (list != null && list.length > 0 && (indexOf = list[0].indexOf("_")) > 0) {
-                        String substring = list[0].substring(0, indexOf);
-                        String substring2 = list[0].substring(indexOf + 1, list[0].length() - 8);
-                        this.appkey = substring;
-                        this.ver = substring2;
-                        this.init = true;
-                    }
+                if (this.preFetchTime != 0 && System.currentTimeMillis() - this.preFetchTime < 3000) {
+                    return;
+                }
+                if (this.preFetchTime > 0) {
+                    this.init = true;
+                }
+                this.preFetchTime = System.currentTimeMillis();
+                String[] list = new File(getDir(this.context)).list(getFileFilter());
+                if (list != null && list.length > 0 && (indexOf = list[0].indexOf("_")) > 0) {
+                    String substring = list[0].substring(0, indexOf);
+                    String substring2 = list[0].substring(indexOf + 1, list[0].length() - 8);
+                    this.appkey = substring;
+                    this.ver = substring2;
+                    this.init = true;
                 }
             }
         }
@@ -169,45 +204,18 @@ public class AppInfoManager implements AppInfo {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         File file = new File(String.format(Locale.CHINA, "%s/%s_%s.appinfo", this.this$0.getDir(this.val$context), this.val$appkey, this.val$ver));
-                        if (file.exists()) {
-                            return;
-                        }
-                        try {
-                            this.this$0.clearDir();
-                            file.createNewFile();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        if (!file.exists()) {
+                            try {
+                                this.this$0.clearDir();
+                                file.createNewFile();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
             });
         }
-    }
-
-    @Override // com.yy.hiidostatis.message.AppInfo
-    public String getAppAppkey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.init) {
-                load();
-            }
-            return this.appkey;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.message.AppInfo
-    public String getAppVer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.init) {
-                load();
-            }
-            return this.ver;
-        }
-        return (String) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.message.AppInfo

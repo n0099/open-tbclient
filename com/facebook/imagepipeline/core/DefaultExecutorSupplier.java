@@ -44,41 +44,59 @@ public class DefaultExecutorSupplier implements ExecutorSupplier {
     public Executor forBackgroundTasks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBackgroundExecutor : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBackgroundExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.core.ExecutorSupplier
     public Executor forDecode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDecodeExecutor : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDecodeExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.core.ExecutorSupplier
     public Executor forLightweightBackgroundTasks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLightWeightBackgroundExecutor : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLightWeightBackgroundExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.core.ExecutorSupplier
     public Executor forLocalStorageRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIoBoundExecutor : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIoBoundExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.core.ExecutorSupplier
     public Executor forLocalStorageWrite() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIoBoundExecutor : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mIoBoundExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.core.ExecutorSupplier
     public Executor forThumbnailProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIoBoundExecutor : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mIoBoundExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 }

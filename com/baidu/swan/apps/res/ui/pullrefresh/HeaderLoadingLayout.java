@@ -54,11 +54,36 @@ public class HeaderLoadingLayout extends LoadingLayout {
         n(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HeaderLoadingLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        n(context);
+    }
+
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c5, viewGroup, false) : (View) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c5, viewGroup, false);
+        }
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -130,12 +155,12 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b00);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afe);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b01);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091b02);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b04);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b06);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091afc);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afa);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091afd);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091afe);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b00);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b02);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);
@@ -149,32 +174,17 @@ public class HeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void setLastUpdatedLabel(CharSequence charSequence) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence) == null) {
-            this.j.setVisibility(TextUtils.isEmpty(charSequence) ? 4 : 0);
+            TextView textView = this.j;
+            if (TextUtils.isEmpty(charSequence)) {
+                i = 4;
+            } else {
+                i = 0;
+            }
+            textView.setVisibility(i);
             this.i.setText(charSequence);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderLoadingLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        n(context);
     }
 }

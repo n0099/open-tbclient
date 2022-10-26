@@ -11,40 +11,6 @@ public final class ArraysKt___ArraysJvmKt$asList$8 extends AbstractList<Characte
         this.$this_asList = cArr;
     }
 
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public final /* bridge */ boolean contains(Object obj) {
-        if (obj instanceof Character) {
-            return contains(((Character) obj).charValue());
-        }
-        return false;
-    }
-
-    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
-    public int getSize() {
-        return this.$this_asList.length;
-    }
-
-    @Override // kotlin.collections.AbstractList, java.util.List
-    public final /* bridge */ int indexOf(Object obj) {
-        if (obj instanceof Character) {
-            return indexOf(((Character) obj).charValue());
-        }
-        return -1;
-    }
-
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        return this.$this_asList.length == 0;
-    }
-
-    @Override // kotlin.collections.AbstractList, java.util.List
-    public final /* bridge */ int lastIndexOf(Object obj) {
-        if (obj instanceof Character) {
-            return lastIndexOf(((Character) obj).charValue());
-        }
-        return -1;
-    }
-
     public boolean contains(char c) {
         return ArraysKt___ArraysKt.contains(this.$this_asList, c);
     }
@@ -61,5 +27,42 @@ public final class ArraysKt___ArraysJvmKt$asList$8 extends AbstractList<Characte
 
     public int lastIndexOf(char c) {
         return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, c);
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public final /* bridge */ boolean contains(Object obj) {
+        if (obj instanceof Character) {
+            return contains(((Character) obj).charValue());
+        }
+        return false;
+    }
+
+    @Override // kotlin.collections.AbstractList, java.util.List
+    public final /* bridge */ int indexOf(Object obj) {
+        if (obj instanceof Character) {
+            return indexOf(((Character) obj).charValue());
+        }
+        return -1;
+    }
+
+    @Override // kotlin.collections.AbstractList, java.util.List
+    public final /* bridge */ int lastIndexOf(Object obj) {
+        if (obj instanceof Character) {
+            return lastIndexOf(((Character) obj).charValue());
+        }
+        return -1;
+    }
+
+    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
+    public int getSize() {
+        return this.$this_asList.length;
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        if (this.$this_asList.length == 0) {
+            return true;
+        }
+        return false;
     }
 }

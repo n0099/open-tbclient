@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
+public class GetPaInfoSliceListener implements IMSliceListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int count;
@@ -18,7 +18,7 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
     public String errorMsg;
     public int maxCount;
     public IGetPaInfosListener paListener;
-    public List<PaInfo> result;
+    public List result;
 
     public GetPaInfoSliceListener(IGetPaInfosListener iGetPaInfosListener, int i) {
         Interceptable interceptable = $ic;
@@ -42,24 +42,33 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
     }
 
     @Override // com.baidu.android.imsdk.IMSliceListener
-    public List<PaInfo> getResult() {
+    public List getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.result : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.result;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.IMSliceListener
     public boolean isComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.count == this.maxCount : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.count == this.maxCount) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.android.imsdk.IMSliceListener
     public void mergeErrorCode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            List<PaInfo> list = this.result;
+            List list = this.result;
             if (list != null && !list.isEmpty()) {
                 this.errorCode = 0;
             } else {
@@ -81,16 +90,15 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
     }
 
     @Override // com.baidu.android.imsdk.IMSliceListener
-    public void mergeSliceData(List<PaInfo> list) {
+    public void mergeSliceData(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.isEmpty()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && !list.isEmpty()) {
+            this.result.addAll(list);
         }
-        this.result.addAll(list);
     }
 
     @Override // com.baidu.android.imsdk.IMSliceListener
-    public synchronized void onResult(int i, String str, List<PaInfo> list) {
+    public synchronized void onResult(int i, String str, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, list) == null) {
             synchronized (this) {
@@ -102,7 +110,7 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
                 mergeErrorCode(i);
                 mergeErrorMsg(str);
                 if (isComplete() && this.paListener != null) {
-                    this.paListener.onResult(this.errorCode, this.errorMsg, new ArrayList<>(this.result));
+                    this.paListener.onResult(this.errorCode, this.errorMsg, new ArrayList(this.result));
                 }
             }
         }

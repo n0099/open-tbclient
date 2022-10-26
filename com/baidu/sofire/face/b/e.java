@@ -22,10 +22,10 @@ public class e {
     public static volatile e d;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
-    public BlockingQueue<Runnable> b;
+    public BlockingQueue b;
 
     /* loaded from: classes2.dex */
-    public static class a implements ThreadFactory {
+    public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger a;
@@ -84,6 +84,25 @@ public class e {
         c = Runtime.getRuntime().availableProcessors();
     }
 
+    public static e a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                try {
+                    synchronized (e.class) {
+                        if (d == null) {
+                            d = new e();
+                        }
+                    }
+                } catch (Throwable unused) {
+                }
+            }
+            return d;
+        }
+        return (e) invokeV.objValue;
+    }
+
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,24 +144,5 @@ public class e {
             }
         }
         return invokeL.intValue;
-    }
-
-    public static e a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                try {
-                    synchronized (e.class) {
-                        if (d == null) {
-                            d = new e();
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-            return d;
-        }
-        return (e) invokeV.objValue;
     }
 }

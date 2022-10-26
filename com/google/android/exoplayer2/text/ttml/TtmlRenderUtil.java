@@ -61,21 +61,28 @@ public final class TtmlRenderUtil {
                 spannableStringBuilder.setSpan(new AlignmentSpan.Standard(ttmlStyle.getTextAlign()), i, i2, 33);
             }
             int fontSizeUnit = ttmlStyle.getFontSizeUnit();
-            if (fontSizeUnit == 1) {
-                spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) ttmlStyle.getFontSize(), true), i, i2, 33);
-            } else if (fontSizeUnit == 2) {
+            if (fontSizeUnit != 1) {
+                if (fontSizeUnit != 2) {
+                    if (fontSizeUnit == 3) {
+                        spannableStringBuilder.setSpan(new RelativeSizeSpan(ttmlStyle.getFontSize() / 100.0f), i, i2, 33);
+                        return;
+                    }
+                    return;
+                }
                 spannableStringBuilder.setSpan(new RelativeSizeSpan(ttmlStyle.getFontSize()), i, i2, 33);
-            } else if (fontSizeUnit != 3) {
-            } else {
-                spannableStringBuilder.setSpan(new RelativeSizeSpan(ttmlStyle.getFontSize() / 100.0f), i, i2, 33);
+                return;
             }
+            spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) ttmlStyle.getFontSize(), true), i, i2, 33);
         }
     }
 
     public static String applyTextElementSpacePolicy(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.replaceAll("\r\n", "\n").replaceAll(" *\n *", "\n").replaceAll("\n", " ").replaceAll("[ \t\\x0B\f\r]+", " ") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return str.replaceAll("\r\n", "\n").replaceAll(" *\n *", "\n").replaceAll("\n", " ").replaceAll("[ \t\\x0B\f\r]+", " ");
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void endParagraph(SpannableStringBuilder spannableStringBuilder) {
@@ -85,14 +92,13 @@ public final class TtmlRenderUtil {
             while (length >= 0 && spannableStringBuilder.charAt(length) == ' ') {
                 length--;
             }
-            if (length < 0 || spannableStringBuilder.charAt(length) == '\n') {
-                return;
+            if (length >= 0 && spannableStringBuilder.charAt(length) != '\n') {
+                spannableStringBuilder.append('\n');
             }
-            spannableStringBuilder.append('\n');
         }
     }
 
-    public static TtmlStyle resolveStyle(TtmlStyle ttmlStyle, String[] strArr, Map<String, TtmlStyle> map) {
+    public static TtmlStyle resolveStyle(TtmlStyle ttmlStyle, String[] strArr, Map map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ttmlStyle, strArr, map)) == null) {
@@ -101,23 +107,23 @@ public final class TtmlRenderUtil {
             }
             int i = 0;
             if (ttmlStyle == null && strArr.length == 1) {
-                return map.get(strArr[0]);
+                return (TtmlStyle) map.get(strArr[0]);
             }
             if (ttmlStyle == null && strArr.length > 1) {
                 TtmlStyle ttmlStyle2 = new TtmlStyle();
                 int length = strArr.length;
                 while (i < length) {
-                    ttmlStyle2.chain(map.get(strArr[i]));
+                    ttmlStyle2.chain((TtmlStyle) map.get(strArr[i]));
                     i++;
                 }
                 return ttmlStyle2;
             } else if (ttmlStyle != null && strArr != null && strArr.length == 1) {
-                return ttmlStyle.chain(map.get(strArr[0]));
+                return ttmlStyle.chain((TtmlStyle) map.get(strArr[0]));
             } else {
                 if (ttmlStyle != null && strArr != null && strArr.length > 1) {
                     int length2 = strArr.length;
                     while (i < length2) {
-                        ttmlStyle.chain(map.get(strArr[i]));
+                        ttmlStyle.chain((TtmlStyle) map.get(strArr[i]));
                         i++;
                     }
                 }

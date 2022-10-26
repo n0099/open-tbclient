@@ -23,6 +23,12 @@ public final class ProcessSnapshotType {
     public static final ProcessSnapshotType PROCESS_UI_TRACE;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -67,21 +73,21 @@ public final class ProcessSnapshotType {
         }
     }
 
-    public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-        }
-    }
-
     public static ProcessSnapshotType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ProcessSnapshotType) Enum.valueOf(ProcessSnapshotType.class, str) : (ProcessSnapshotType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (ProcessSnapshotType) Enum.valueOf(ProcessSnapshotType.class, str);
+        }
+        return (ProcessSnapshotType) invokeL.objValue;
     }
 
     public static ProcessSnapshotType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ProcessSnapshotType[]) $VALUES.clone() : (ProcessSnapshotType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (ProcessSnapshotType[]) $VALUES.clone();
+        }
+        return (ProcessSnapshotType[]) invokeV.objValue;
     }
 }

@@ -4,17 +4,24 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.TbLiveContainer;
-import com.baidu.tieba.ka8;
+import com.baidu.tieba.ua8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ka8 {
+public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ua8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbLiveContainer a;
+
+    @Override // com.baidu.tieba.ua8
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoLiveViewHolder(View view2) {
@@ -36,7 +43,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ka8 {
         }
     }
 
-    @Override // com.baidu.tieba.ka8
+    @Override // com.baidu.tieba.ua8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,7 +57,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ka8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ka8
+    @Override // com.baidu.tieba.ua8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,7 +71,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ka8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ka8
+    @Override // com.baidu.tieba.ua8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +85,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ka8 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ka8
+    @Override // com.baidu.tieba.ua8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,7 +99,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ka8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ka8
+    @Override // com.baidu.tieba.ua8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,7 +113,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ka8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ka8
+    @Override // com.baidu.tieba.ua8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,20 +127,12 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements ka8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ka8
-    public void startPlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ka8
+    @Override // com.baidu.tieba.ua8
     public void stopPlay() {
         TbLiveContainer tbLiveContainer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (tbLiveContainer = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (tbLiveContainer = this.a) != null) {
+            tbLiveContainer.stopPlay();
         }
-        tbLiveContainer.stopPlay();
     }
 }

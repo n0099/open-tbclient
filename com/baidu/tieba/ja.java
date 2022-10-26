@@ -31,7 +31,10 @@ public abstract class ja {
     public int getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPriority : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mPriority;
+        }
+        return invokeV.intValue;
     }
 
     public void setPriority(int i) {

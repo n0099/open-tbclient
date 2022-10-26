@@ -1,18 +1,15 @@
 package com.baidu.nadcore.video.videoplayer.ui.full;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.loading.BdVideoLoadingView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.c41;
-import com.baidu.tieba.dz0;
+import com.baidu.tieba.d41;
+import com.baidu.tieba.ez0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,18 +42,18 @@ public class BdVideoCacheView extends FrameLayout {
                 return;
             }
         }
-        c41.c(18.0f);
-        c41.c(22.0f);
-        e = c41.d(200.0f);
-        f = c41.d(200.0f);
-        c41.d(10.0f);
-        c41.d(25.0f);
-        c41.d(6.0f);
-        c41.d(8.0f);
+        d41.c(18.0f);
+        d41.c(22.0f);
+        e = d41.d(200.0f);
+        f = d41.d(200.0f);
+        d41.d(10.0f);
+        d41.d(25.0f);
+        d41.d(6.0f);
+        d41.d(8.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdVideoCacheView(@NonNull Context context) {
+    public BdVideoCacheView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,6 +71,29 @@ public class BdVideoCacheView extends FrameLayout {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BdVideoCacheView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        b();
     }
 
     public final String a(int i) {
@@ -94,6 +114,21 @@ public class BdVideoCacheView extends FrameLayout {
         return (String) invokeI.objValue;
     }
 
+    public void setCacheHint(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.c.getVisibility() == 0) {
+            if (i < 10) {
+                str = "   " + i;
+            } else if (i < 100) {
+                str = " " + i;
+            } else {
+                str = "";
+            }
+            this.c.setText(str + "%");
+        }
+    }
+
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -102,6 +137,14 @@ public class BdVideoCacheView extends FrameLayout {
             BdVideoLoadingView bdVideoLoadingView = new BdVideoLoadingView(this.a);
             this.b = bdVideoLoadingView;
             addView(bdVideoLoadingView, layoutParams);
+        }
+    }
+
+    @Override // android.view.View, android.view.ViewParent
+    public void requestLayout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.requestLayout();
         }
     }
 
@@ -119,58 +162,24 @@ public class BdVideoCacheView extends FrameLayout {
         }
     }
 
-    @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            setMeasuredDimension(e, f);
-        }
-    }
-
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (i != 0) {
-                dz0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+                ez0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
                 setVisibility(4);
             }
             super.onWindowVisibilityChanged(i);
         }
     }
 
-    @Override // android.view.View, android.view.ViewParent
-    public void requestLayout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.requestLayout();
-        }
-    }
-
-    @SuppressLint({"SetTextI18n"})
-    public void setCacheHint(int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.c.getVisibility() == 0) {
-            if (i < 10) {
-                str = "   " + i;
-            } else if (i < 100) {
-                str = " " + i;
-            } else {
-                str = "";
-            }
-            this.c.setText(str + "%");
-        }
-    }
-
     public void setLoadingAnimListener(BdVideoLoadingView.a aVar) {
         BdVideoLoadingView bdVideoLoadingView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || (bdVideoLoadingView = this.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) && (bdVideoLoadingView = this.b) != null) {
+            bdVideoLoadingView.setLoadingAnimListener(aVar);
         }
-        bdVideoLoadingView.setLoadingAnimListener(aVar);
     }
 
     public void setSpeedHint(int i) {
@@ -180,26 +189,12 @@ public class BdVideoCacheView extends FrameLayout {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoCacheView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            setMeasuredDimension(e, f);
         }
-        this.a = context;
-        b();
     }
 }

@@ -45,6 +45,69 @@ public class MD5Utils {
         return (String) invokeL.objValue;
     }
 
+    public static String fileMd5(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (file == null) {
+                return "";
+            }
+            try {
+                return getFileMD5String(file);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getFileMd5String(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (str != null && str.length() != 0) {
+                return getFileMD5String(new File(str));
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getMD5String(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return getMD5String(str.getBytes());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String bufferToHex(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, bArr, i, i2)) == null) {
+            if (bArr != null && i >= 0 && i2 >= 0) {
+                StringBuilder sb = new StringBuilder(i2 * 2);
+                int i3 = i2 + i;
+                while (i < i3) {
+                    String hexString = Integer.toHexString(bArr[i] & 255);
+                    if (hexString.length() == 1) {
+                        hexString = "0" + hexString;
+                    }
+                    sb.append(hexString);
+                    i++;
+                }
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeLII.objValue;
+    }
+
     public static String fileMd5(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -57,6 +120,25 @@ public class MD5Utils {
             } catch (Exception e) {
                 e.printStackTrace();
                 return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getMD5String(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return bufferToHex(messageDigest.digest());
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
             }
         }
         return (String) invokeL.objValue;
@@ -147,88 +229,6 @@ public class MD5Utils {
                 }
             }
             return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getFileMd5String(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return null;
-            }
-            return getFileMD5String(new File(str));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getMD5String(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return getMD5String(str.getBytes());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String bufferToHex(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, bArr, i, i2)) == null) {
-            if (bArr == null || i < 0 || i2 < 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(i2 * 2);
-            int i3 = i2 + i;
-            while (i < i3) {
-                String hexString = Integer.toHexString(bArr[i] & 255);
-                if (hexString.length() == 1) {
-                    hexString = "0" + hexString;
-                }
-                sb.append(hexString);
-                i++;
-            }
-            return sb.toString();
-        }
-        return (String) invokeLII.objValue;
-    }
-
-    public static String getMD5String(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                return bufferToHex(messageDigest.digest());
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String fileMd5(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            if (file == null) {
-                return "";
-            }
-            try {
-                return getFileMD5String(file);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
         }
         return (String) invokeL.objValue;
     }

@@ -66,10 +66,27 @@ public class IMUserManager {
         sBuidCache = new UKCache(500);
     }
 
+    public void updateUser(ChatUser chatUser) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, chatUser) == null) && chatUser != null) {
+            ChatObject createChatObject = createChatObject(chatUser.getUk());
+            if (ChatUserDBManager.getInstance(this.mContext).updateUser(chatUser) > 0) {
+                synchronized (IMUserManager.class) {
+                    sChatObjectCache.put(createChatObject, chatUser);
+                    sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(chatUser.getUk()));
+                    sBuidCache.put(Long.valueOf(chatUser.getUk()), Long.valueOf(chatUser.getBuid()));
+                }
+            }
+        }
+    }
+
     private ChatObject createChatObject(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) ? new ChatObject(this.mContext, 0, j) : (ChatObject) invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
+            return new ChatObject(this.mContext, 0, j);
+        }
+        return (ChatObject) invokeJ.objValue;
     }
 
     public static IMUserManager getInstance(Context context) {
@@ -151,24 +168,6 @@ public class IMUserManager {
         return invokeJ.longValue;
     }
 
-    public synchronized ArrayList<ChatUser> getUserBatch(List<Long> list) {
-        InterceptResult invokeL;
-        ArrayList<ChatUser> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList<>();
-                if (list != null) {
-                    for (Long l : list) {
-                        arrayList.add(getChatUser(l.longValue()));
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
     public boolean isUserExist(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -198,48 +197,20 @@ public class IMUserManager {
         return invokeJ.booleanValue;
     }
 
-    public void removeChatObject(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            ChatObject createChatObject = createChatObject(j);
-            ChatObjectCache chatObjectCache = sChatObjectCache;
-            if (chatObjectCache == null || chatObjectCache.get(createChatObject) == null) {
-                return;
-            }
-            LogUtils.e(TAG, "removeChatObject uk = " + j);
-            sChatObjectCache.remove(createChatObject);
-        }
-    }
-
-    public void updateUser(ChatUser chatUser) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, chatUser) == null) || chatUser == null) {
-            return;
-        }
-        ChatObject createChatObject = createChatObject(chatUser.getUk());
-        if (ChatUserDBManager.getInstance(this.mContext).updateUser(chatUser) > 0) {
-            synchronized (IMUserManager.class) {
-                sChatObjectCache.put(createChatObject, chatUser);
-                sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(chatUser.getUk()));
-                sBuidCache.put(Long.valueOf(chatUser.getUk()), Long.valueOf(chatUser.getBuid()));
-            }
-        }
-    }
-
-    public synchronized boolean updateUserIpInfo(ArrayList<IpInfo> arrayList) {
+    public synchronized boolean updateUserIpInfo(ArrayList arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, arrayList)) == null) {
             synchronized (this) {
                 if (arrayList != null) {
                     if (ChatUserDBManager.getInstance(this.mContext).updateUserIpInfo(arrayList) >= 0) {
-                        Iterator<IpInfo> it = arrayList.iterator();
+                        Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
-                            IpInfo next = it.next();
-                            ChatObject createChatObject = createChatObject(next.getUid());
+                            IpInfo ipInfo = (IpInfo) it.next();
+                            ChatObject createChatObject = createChatObject(ipInfo.getUid());
                             ChatUser chatUser = (ChatUser) sChatObjectCache.get(createChatObject);
                             if (chatUser != null) {
-                                chatUser.setIpInfo(next);
+                                chatUser.setIpInfo(ipInfo);
                                 chatUser.setIsIpLocationExist(0);
                                 sChatObjectCache.put(createChatObject, chatUser);
                                 sUkCache.put(Long.valueOf(chatUser.getBuid()), Long.valueOf(chatUser.getUk()));
@@ -253,5 +224,36 @@ public class IMUserManager {
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public synchronized ArrayList getUserBatch(List list) {
+        InterceptResult invokeL;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                if (list != null) {
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        arrayList.add(getChatUser(((Long) it.next()).longValue()));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void removeChatObject(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            ChatObject createChatObject = createChatObject(j);
+            ChatObjectCache chatObjectCache = sChatObjectCache;
+            if (chatObjectCache != null && chatObjectCache.get(createChatObject) != null) {
+                LogUtils.e(TAG, "removeChatObject uk = " + j);
+                sChatObjectCache.remove(createChatObject);
+            }
+        }
     }
 }

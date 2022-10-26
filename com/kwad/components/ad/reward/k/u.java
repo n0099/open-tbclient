@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.k;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +12,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public AdTemplate mAdTemplate;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     public u() {
@@ -55,28 +52,26 @@ public final class u {
         return (u) invokeLL.objValue;
     }
 
-    private void setAdTemplate(@Nullable AdTemplate adTemplate) {
+    private void setAdTemplate(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, adTemplate) == null) {
             this.mAdTemplate = adTemplate;
         }
     }
 
-    private void setApkDownloadHelper(@Nullable com.kwad.components.core.c.a.c cVar) {
+    private void setApkDownloadHelper(com.kwad.components.core.c.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cVar) == null) {
             this.mApkDownloadHelper = cVar;
         }
     }
 
-    @Nullable
     public final AdTemplate getAdTemplate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAdTemplate : (AdTemplate) invokeV.objValue;
     }
 
-    @Nullable
     public final com.kwad.components.core.c.a.c getApkDownloadHelper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

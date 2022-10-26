@@ -1,8 +1,8 @@
 package com.baidu.android.imsdk.mcast;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -30,7 +30,22 @@ public class ParseM3u8 {
     public transient /* synthetic */ FieldHolder $fh;
     public int mDuration;
     public boolean mIsend;
-    public ArrayList<TS> mTslist;
+    public ArrayList mTslist;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1841970295, "Lcom/baidu/android/imsdk/mcast/ParseM3u8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1841970295, "Lcom/baidu/android/imsdk/mcast/ParseM3u8;");
+        }
+    }
 
     /* loaded from: classes.dex */
     public class TS {
@@ -62,21 +77,6 @@ public class ParseM3u8 {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1841970295, "Lcom/baidu/android/imsdk/mcast/ParseM3u8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1841970295, "Lcom/baidu/android/imsdk/mcast/ParseM3u8;");
-        }
-    }
-
     public ParseM3u8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -90,14 +90,57 @@ public class ParseM3u8 {
                 return;
             }
         }
-        this.mTslist = new ArrayList<>();
+        this.mTslist = new ArrayList();
         this.mIsend = false;
+    }
+
+    public long getMaxTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mTslist.size() > 0) {
+                ArrayList arrayList = this.mTslist;
+                return ((TS) arrayList.get(arrayList.size() - 1)).time;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getTsSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTslist.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public ArrayList getTslist() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mTslist;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean isEnd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mIsend;
+        }
+        return invokeV.booleanValue;
     }
 
     public static long dateToLong(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, date)) == null) ? date.getTime() : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, date)) == null) {
+            return date.getTime();
+        }
+        return invokeL.longValue;
     }
 
     private void parseTSattr(String str, String str2, String str3) {
@@ -105,53 +148,54 @@ public class ParseM3u8 {
         if (interceptable == null || interceptable.invokeLLL(65539, this, str, str2, str3) == null) {
             String str4 = TAG;
             LogUtils.d(str4, "parseTSline attr:   " + str + GlideException.IndentedAppendable.INDENT + str2 + GlideException.IndentedAppendable.INDENT + str3);
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                return;
-            }
-            TS ts = new TS(this);
-            String trim = str.substring(str.indexOf(":") + 1).replace("T", " ").trim();
-            ts.stime = trim;
-            if (trim.length() >= 20) {
-                try {
-                    ts.time = stringToLong(trim.substring(0, 19), "yyyy-MM-dd HH:mm:ss");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                    LogUtils.e(TAG, "stringToLong execption");
-                }
-                int indexOf = str2.indexOf(":") + 1;
-                if (str2.length() > indexOf) {
-                    String replace = str2.substring(indexOf).trim().replace(",", "");
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                TS ts = new TS(this);
+                String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, " ").trim();
+                ts.stime = trim;
+                if (trim.length() >= 20) {
                     try {
-                        ts.duration = Double.valueOf(replace).doubleValue();
-                    } catch (Exception unused) {
-                        String str5 = TAG;
-                        LogUtils.e(str5, " String to double execption " + replace);
+                        ts.time = stringToLong(trim.substring(0, 19), "yyyy-MM-dd HH:mm:ss");
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        LogUtils.e(TAG, "stringToLong execption");
                     }
-                    ts.tsfile = str3.trim();
-                    String str6 = TAG;
-                    LogUtils.d(str6, " parseTSline: " + ts.tsfile);
-                    if (this.mTslist.size() == 0) {
-                        ts.relativetime = 0L;
-                    } else {
-                        ts.relativetime = (ts.time - this.mTslist.get(0).time) / 1000;
+                    int indexOf = str2.indexOf(":") + 1;
+                    if (str2.length() > indexOf) {
+                        String replace = str2.substring(indexOf).trim().replace(",", "");
+                        try {
+                            ts.duration = Double.valueOf(replace).doubleValue();
+                        } catch (Exception unused) {
+                            String str5 = TAG;
+                            LogUtils.e(str5, " String to double execption " + replace);
+                        }
+                        ts.tsfile = str3.trim();
+                        String str6 = TAG;
+                        LogUtils.d(str6, " parseTSline: " + ts.tsfile);
+                        if (this.mTslist.size() == 0) {
+                            ts.relativetime = 0L;
+                        } else {
+                            ts.relativetime = (ts.time - ((TS) this.mTslist.get(0)).time) / 1000;
+                        }
+                        String str7 = TAG;
+                        LogUtils.d(str7, "  parseTSline attr:   " + ts.time + " " + ts.relativetime + GlideException.IndentedAppendable.INDENT + ts.duration + GlideException.IndentedAppendable.INDENT + str3);
+                        this.mTslist.add(ts);
+                        return;
                     }
-                    String str7 = TAG;
-                    LogUtils.d(str7, "  parseTSline attr:   " + ts.time + " " + ts.relativetime + GlideException.IndentedAppendable.INDENT + ts.duration + GlideException.IndentedAppendable.INDENT + str3);
-                    this.mTslist.add(ts);
+                    LogUtils.e(TAG, "parseTSattr exception 2.");
                     return;
                 }
                 LogUtils.e(TAG, "parseTSattr exception 2.");
-                return;
             }
-            LogUtils.e(TAG, "parseTSattr exception 2.");
         }
     }
 
-    @SuppressLint({"SimpleDateFormat"})
     public static Date stringToDate(String str, String str2) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? new SimpleDateFormat(str2).parse(str) : (Date) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return new SimpleDateFormat(str2).parse(str);
+        }
+        return (Date) invokeLL.objValue;
     }
 
     public static long stringToLong(String str, String str2) throws ParseException {
@@ -167,51 +211,39 @@ public class ParseM3u8 {
         return invokeLL.longValue;
     }
 
-    public List<TS> getLatestTS(long j) {
+    public List getLatestTS(long j) {
         InterceptResult invokeJ;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            Iterator<TS> it = this.mTslist.iterator();
+            Iterator it = this.mTslist.iterator();
             int i = -1;
             while (true) {
-                if (!it.hasNext()) {
+                if (it.hasNext()) {
+                    i++;
+                    if (((TS) it.next()).time == j) {
+                        z = true;
+                        break;
+                    }
+                } else {
                     z = false;
                     break;
                 }
-                i++;
-                if (it.next().time == j) {
-                    z = true;
-                    break;
-                }
             }
-            if (!z || this.mTslist.size() <= i) {
-                return null;
+            if (z && this.mTslist.size() > i) {
+                ArrayList arrayList = this.mTslist;
+                return arrayList.subList(i, arrayList.size());
             }
-            ArrayList<TS> arrayList = this.mTslist;
-            return arrayList.subList(i, arrayList.size());
+            return null;
         }
         return (List) invokeJ.objValue;
     }
 
-    public long getMaxTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mTslist.size() > 0) {
-                ArrayList<TS> arrayList = this.mTslist;
-                return arrayList.get(arrayList.size() - 1).time;
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<TS> getNewAppendTS(long j) {
+    public List getNewAppendTS(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            Iterator<TS> it = this.mTslist.iterator();
+            Iterator it = this.mTslist.iterator();
             boolean z = false;
             int i = 0;
             while (true) {
@@ -219,96 +251,78 @@ public class ParseM3u8 {
                     break;
                 }
                 i++;
-                if (it.next().time == j) {
+                if (((TS) it.next()).time == j) {
                     z = true;
                     break;
                 }
             }
-            if (!z || this.mTslist.size() <= i) {
-                return null;
+            if (z && this.mTslist.size() > i) {
+                ArrayList arrayList = this.mTslist;
+                return arrayList.subList(i, arrayList.size());
             }
-            ArrayList<TS> arrayList = this.mTslist;
-            return arrayList.subList(i, arrayList.size());
+            return null;
         }
         return (List) invokeJ.objValue;
     }
 
-    public int getTsSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTslist.size() : invokeV.intValue;
-    }
-
-    public ArrayList<TS> getTslist() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTslist : (ArrayList) invokeV.objValue;
-    }
-
-    public boolean isEnd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsend : invokeV.booleanValue;
-    }
-
-    public void readByte(byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048583, this, bArr) != null) {
-            return;
-        }
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-        InputStreamReader inputStreamReader = new InputStreamReader(byteArrayInputStream);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                if (readLine.matches("#EXT-X-TARGETDURATION(.*)")) {
-                    String[] split = readLine.split(":");
-                    if (split.length == 2) {
-                        try {
-                            this.mDuration = Integer.valueOf(split[1]).intValue();
-                        } catch (NumberFormatException unused) {
-                            this.mDuration = 0;
-                        }
-                    }
-                } else if (readLine.matches("#EXT-X-PROGRAM-DATE-TIME(.*)")) {
-                    parseTSattr(readLine, bufferedReader.readLine(), bufferedReader.readLine());
-                } else if (readLine.matches("#EXT-X-ENDLIST(.*)")) {
-                    this.mIsend = true;
-                }
-            } else {
-                bufferedReader.close();
-                inputStreamReader.close();
-                byteArrayInputStream.close();
-                return;
-            }
-        }
-    }
-
-    public List<TS> getTslist(int i) {
+    public List getTslist(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            Iterator<TS> it = this.mTslist.iterator();
+            Iterator it = this.mTslist.iterator();
             int i2 = -1;
             while (true) {
-                if (!it.hasNext()) {
+                if (it.hasNext()) {
+                    i2++;
+                    if (((TS) it.next()).relativetime >= i) {
+                        z = true;
+                        break;
+                    }
+                } else {
                     z = false;
-                    break;
-                }
-                i2++;
-                if (it.next().relativetime >= i) {
-                    z = true;
                     break;
                 }
             }
             if (z) {
-                ArrayList<TS> arrayList = this.mTslist;
+                ArrayList arrayList = this.mTslist;
                 return arrayList.subList(i2, arrayList.size());
             }
             return null;
         }
         return (List) invokeI.objValue;
+    }
+
+    public void readByte(byte[] bArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            InputStreamReader inputStreamReader = new InputStreamReader(byteArrayInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    if (readLine.matches("#EXT-X-TARGETDURATION(.*)")) {
+                        String[] split = readLine.split(":");
+                        if (split.length == 2) {
+                            try {
+                                this.mDuration = Integer.valueOf(split[1]).intValue();
+                            } catch (NumberFormatException unused) {
+                                this.mDuration = 0;
+                            }
+                        }
+                    } else if (readLine.matches("#EXT-X-PROGRAM-DATE-TIME(.*)")) {
+                        parseTSattr(readLine, bufferedReader.readLine(), bufferedReader.readLine());
+                    } else if (readLine.matches("#EXT-X-ENDLIST(.*)")) {
+                        this.mIsend = true;
+                    }
+                } else {
+                    bufferedReader.close();
+                    inputStreamReader.close();
+                    byteArrayInputStream.close();
+                    return;
+                }
+            }
+        }
     }
 }

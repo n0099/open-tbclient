@@ -1,6 +1,5 @@
 package com.kwad.components.core.k;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,14 +34,14 @@ public class c extends b {
     }
 
     @Override // com.kwad.components.core.k.g
-    public void a(@NonNull AdResultData adResultData) {
+    public void a(AdResultData adResultData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adResultData) == null) {
         }
     }
 
     @Override // com.kwad.components.core.k.b
-    public void a(@NonNull AdResultData adResultData, boolean z) {
+    public void a(AdResultData adResultData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, adResultData, z) == null) {
             a(adResultData);

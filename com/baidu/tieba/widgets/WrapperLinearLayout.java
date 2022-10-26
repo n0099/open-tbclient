@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,18 +36,8 @@ public class WrapperLinearLayout extends LinearLayout {
         }
     }
 
-    @Override // android.view.View
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
-            hv4 d = hv4.d(this);
-            d.n(R.string.J_X14);
-            d.f(R.color.CAM_X0212);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WrapperLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public WrapperLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,7 +58,7 @@ public class WrapperLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WrapperLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public WrapperLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,6 +75,16 @@ public class WrapperLinearLayout extends LinearLayout {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.view.View
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
+            nv4 d = nv4.d(this);
+            d.n(R.string.J_X14);
+            d.f(R.color.CAM_X0212);
         }
     }
 }

@@ -39,28 +39,28 @@ public final class BinaryShiftToken extends Token {
     @Override // com.google.zxing.aztec.encoder.Token
     public void appendTo(BitArray bitArray, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048576, this, bitArray, bArr) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            short s = this.binaryShiftByteCount;
-            if (i >= s) {
-                return;
-            }
-            if (i == 0 || (i == 31 && s <= 62)) {
-                bitArray.appendBits(31, 5);
-                short s2 = this.binaryShiftByteCount;
-                if (s2 > 62) {
-                    bitArray.appendBits(s2 - 31, 16);
-                } else if (i == 0) {
-                    bitArray.appendBits(Math.min((int) s2, 31), 5);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bitArray, bArr) == null) {
+            int i = 0;
+            while (true) {
+                short s = this.binaryShiftByteCount;
+                if (i < s) {
+                    if (i == 0 || (i == 31 && s <= 62)) {
+                        bitArray.appendBits(31, 5);
+                        short s2 = this.binaryShiftByteCount;
+                        if (s2 > 62) {
+                            bitArray.appendBits(s2 - 31, 16);
+                        } else if (i == 0) {
+                            bitArray.appendBits(Math.min((int) s2, 31), 5);
+                        } else {
+                            bitArray.appendBits(s2 - 31, 5);
+                        }
+                    }
+                    bitArray.appendBits(bArr[this.binaryShiftStart + i], 8);
+                    i++;
                 } else {
-                    bitArray.appendBits(s2 - 31, 5);
+                    return;
                 }
             }
-            bitArray.appendBits(bArr[this.binaryShiftStart + i], 8);
-            i++;
         }
     }
 

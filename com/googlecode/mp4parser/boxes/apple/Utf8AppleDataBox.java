@@ -40,6 +40,37 @@ public abstract class Utf8AppleDataBox extends AppleDataBox {
         ajc$preClinit();
     }
 
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public int getDataLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value.getBytes(Charset.forName("UTF-8")).length;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.value;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    @DoNotParseDetail
+    public byte[] writeData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Utf8.convert(this.value);
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Utf8AppleDataBox(String str) {
         super(str, 1);
@@ -68,23 +99,6 @@ public abstract class Utf8AppleDataBox extends AppleDataBox {
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    public int getDataLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value.getBytes(Charset.forName("UTF-8")).length : invokeV.intValue;
-    }
-
-    public String getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.value;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
     public void parseData(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
@@ -98,13 +112,5 @@ public abstract class Utf8AppleDataBox extends AppleDataBox {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, str));
             this.value = str;
         }
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    @DoNotParseDetail
-    public byte[] writeData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Utf8.convert(this.value) : (byte[]) invokeV.objValue;
     }
 }

@@ -19,10 +19,10 @@ import java.lang.reflect.Array;
 import java.util.AbstractList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class DefaultMp4SampleList extends AbstractList<Sample> {
+public class DefaultMp4SampleList extends AbstractList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SoftReference<Sample>[] cache;
+    public SoftReference[] cache;
     public int[] chunkNumsStartSampleNum;
     public long[] chunkOffsets;
     public int lastChunk;
@@ -60,7 +60,7 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
             this.chunkOffsets = trackBox2.getSampleTableBox().getChunkOffsetBox().getChunkOffsets();
             this.cache = (SoftReference[]) Array.newInstance(SoftReference.class, size());
             this.ssb = this.trackBox.getSampleTableBox().getSampleSizeBox();
-            List<SampleToChunkBox.Entry> entries = this.trackBox.getSampleTableBox().getSampleToChunkBox().getEntries();
+            List entries = this.trackBox.getSampleTableBox().getSampleToChunkBox().getEntries();
             SampleToChunkBox.Entry[] entryArr = (SampleToChunkBox.Entry[]) entries.toArray(new SampleToChunkBox.Entry[entries.size()]);
             SampleToChunkBox.Entry entry = entryArr[0];
             long firstChunk = entry.getFirstChunk();
@@ -122,6 +122,33 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.AbstractList, java.util.List
+    public Sample get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            SoftReference[] softReferenceArr = this.cache;
+            if (i < softReferenceArr.length) {
+                if (softReferenceArr[i] != null && softReferenceArr[i].get() != null) {
+                    return (Sample) this.cache[i].get();
+                }
+                int chunkForSample = getChunkForSample(i);
+                int i2 = this.chunkNumsStartSampleNum[chunkForSample];
+                long j = this.chunkOffsets[CastUtils.l2i(chunkForSample)];
+                while (i2 < i + 1) {
+                    j += this.ssb.getSampleSizeAtIndex(i2 - 1);
+                    i2++;
+                }
+                SampleImpl sampleImpl = new SampleImpl(j, this.ssb.getSampleSizeAtIndex(i2 - 1), this.topLevel);
+                this.cache[i] = new SoftReference(sampleImpl);
+                return sampleImpl;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+        return (Sample) invokeI.objValue;
+    }
+
     public synchronized int getChunkForSample(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -152,33 +179,9 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CastUtils.l2i(this.trackBox.getSampleTableBox().getSampleSizeBox().getSampleCount()) : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.AbstractList, java.util.List
-    public Sample get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            SoftReference<Sample>[] softReferenceArr = this.cache;
-            if (i < softReferenceArr.length) {
-                if (softReferenceArr[i] != null && softReferenceArr[i].get() != null) {
-                    return this.cache[i].get();
-                }
-                int chunkForSample = getChunkForSample(i);
-                int i2 = this.chunkNumsStartSampleNum[chunkForSample];
-                long j = this.chunkOffsets[CastUtils.l2i(chunkForSample)];
-                while (i2 < i + 1) {
-                    j += this.ssb.getSampleSizeAtIndex(i2 - 1);
-                    i2++;
-                }
-                SampleImpl sampleImpl = new SampleImpl(j, this.ssb.getSampleSizeAtIndex(i2 - 1), this.topLevel);
-                this.cache[i] = new SoftReference<>(sampleImpl);
-                return sampleImpl;
-            }
-            throw new IndexOutOfBoundsException();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return CastUtils.l2i(this.trackBox.getSampleTableBox().getSampleSizeBox().getSampleCount());
         }
-        return (Sample) invokeI.objValue;
+        return invokeV.intValue;
     }
 }

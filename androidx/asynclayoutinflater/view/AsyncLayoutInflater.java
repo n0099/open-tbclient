@@ -8,10 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
 import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -31,6 +27,11 @@ public final class AsyncLayoutInflater {
     public Handler.Callback mHandlerCallback;
     public InflateThread mInflateThread;
     public LayoutInflater mInflater;
+
+    /* loaded from: classes.dex */
+    public interface OnInflateFinishedListener {
+        void onInflateFinished(View view2, int i, ViewGroup viewGroup);
+    }
 
     /* loaded from: classes.dex */
     public static class BasicInflater extends LayoutInflater {
@@ -78,7 +79,10 @@ public final class AsyncLayoutInflater {
         public LayoutInflater cloneInContext(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new BasicInflater(context) : (LayoutInflater) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return new BasicInflater(context);
+            }
+            return (LayoutInflater) invokeL.objValue;
         }
 
         @Override // android.view.LayoutInflater
@@ -155,6 +159,39 @@ public final class AsyncLayoutInflater {
             inflateThread.start();
         }
 
+        public static InflateThread getInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return sInstance;
+            }
+            return (InflateThread) invokeV.objValue;
+        }
+
+        public InflateRequest obtainRequest() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                InflateRequest acquire = this.mRequestPool.acquire();
+                if (acquire == null) {
+                    return new InflateRequest();
+                }
+                return acquire;
+            }
+            return (InflateRequest) invokeV.objValue;
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+                return;
+            }
+            while (true) {
+                runInner();
+            }
+        }
+
         public InflateThread() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -170,56 +207,6 @@ public final class AsyncLayoutInflater {
             }
             this.mQueue = new ArrayBlockingQueue<>(10);
             this.mRequestPool = new Pools.SynchronizedPool<>(10);
-        }
-
-        public static InflateThread getInstance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sInstance : (InflateThread) invokeV.objValue;
-        }
-
-        public void enqueue(InflateRequest inflateRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, inflateRequest) == null) {
-                try {
-                    this.mQueue.put(inflateRequest);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException("Failed to enqueue async inflate request", e);
-                }
-            }
-        }
-
-        public InflateRequest obtainRequest() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                InflateRequest acquire = this.mRequestPool.acquire();
-                return acquire == null ? new InflateRequest() : acquire;
-            }
-            return (InflateRequest) invokeV.objValue;
-        }
-
-        public void releaseRequest(InflateRequest inflateRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inflateRequest) == null) {
-                inflateRequest.callback = null;
-                inflateRequest.inflater = null;
-                inflateRequest.parent = null;
-                inflateRequest.resid = 0;
-                inflateRequest.f1026view = null;
-                this.mRequestPool.release(inflateRequest);
-            }
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-                return;
-            }
-            while (true) {
-                runInner();
-            }
         }
 
         public void runInner() {
@@ -238,14 +225,32 @@ public final class AsyncLayoutInflater {
                 }
             }
         }
+
+        public void enqueue(InflateRequest inflateRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, inflateRequest) == null) {
+                try {
+                    this.mQueue.put(inflateRequest);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException("Failed to enqueue async inflate request", e);
+                }
+            }
+        }
+
+        public void releaseRequest(InflateRequest inflateRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inflateRequest) == null) {
+                inflateRequest.callback = null;
+                inflateRequest.inflater = null;
+                inflateRequest.parent = null;
+                inflateRequest.resid = 0;
+                inflateRequest.f1026view = null;
+                this.mRequestPool.release(inflateRequest);
+            }
+        }
     }
 
-    /* loaded from: classes.dex */
-    public interface OnInflateFinishedListener {
-        void onInflateFinished(@NonNull View view2, @LayoutRes int i, @Nullable ViewGroup viewGroup);
-    }
-
-    public AsyncLayoutInflater(@NonNull Context context) {
+    public AsyncLayoutInflater(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -304,8 +309,7 @@ public final class AsyncLayoutInflater {
         this.mInflateThread = InflateThread.getInstance();
     }
 
-    @UiThread
-    public void inflate(@LayoutRes int i, @Nullable ViewGroup viewGroup, @NonNull OnInflateFinishedListener onInflateFinishedListener) {
+    public void inflate(int i, ViewGroup viewGroup, OnInflateFinishedListener onInflateFinishedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, viewGroup, onInflateFinishedListener) == null) {
             if (onInflateFinishedListener != null) {

@@ -86,10 +86,26 @@ public abstract class AbstractPooledConnAdapter extends AbstractClientConnAdapte
         return invokeV.objValue;
     }
 
+    @Override // org.apache.http.HttpConnection
+    public void shutdown() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     @Override // org.apache.http.conn.ManagedClientConnection
     public void layerProtocol(HttpContext httpContext, HttpParams httpParams) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, httpContext, httpParams) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.conn.ManagedClientConnection
+    public void tunnelTarget(boolean z, HttpParams httpParams) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048586, this, z, httpParams) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -103,22 +119,6 @@ public abstract class AbstractPooledConnAdapter extends AbstractClientConnAdapte
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public void setState(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.HttpConnection
-    public void shutdown() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.conn.ManagedClientConnection
     public void tunnelProxy(HttpHost httpHost, boolean z, HttpParams httpParams) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{httpHost, Boolean.valueOf(z), httpParams}) == null) {
@@ -127,9 +127,9 @@ public abstract class AbstractPooledConnAdapter extends AbstractClientConnAdapte
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public void tunnelTarget(boolean z, HttpParams httpParams) throws IOException {
+    public void setState(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048586, this, z, httpParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
             throw new RuntimeException("Stub!");
         }
     }

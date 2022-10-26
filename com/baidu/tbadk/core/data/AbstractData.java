@@ -37,7 +37,7 @@ public class AbstractData extends OrmObject implements Serializable {
 
     public void parser(Abstract r5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || r5 == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, r5) != null) || r5 == null) {
             return;
         }
         this.type = r5.type.intValue();
@@ -51,7 +51,7 @@ public class AbstractData extends OrmObject implements Serializable {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {

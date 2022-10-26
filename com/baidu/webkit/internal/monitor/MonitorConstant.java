@@ -15,7 +15,7 @@ public class MonitorConstant implements INoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class KeySectionType implements INoProGuard {
+    public final class KeySectionType implements INoProGuard {
         public static final /* synthetic */ KeySectionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final KeySectionType DID_FIRST_LAYOUT;

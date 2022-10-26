@@ -34,6 +34,9 @@ public final class DefaultHlsDataSourceFactory implements HlsDataSourceFactory {
     public DataSource createDataSource(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.dataSourceFactory.createDataSource() : (DataSource) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.dataSourceFactory.createDataSource();
+        }
+        return (DataSource) invokeI.objValue;
     }
 }

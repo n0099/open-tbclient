@@ -7,14 +7,14 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 /* loaded from: classes8.dex */
-public interface AjType<T> extends Type, AnnotatedElement {
+public interface AjType extends Type, AnnotatedElement {
     Advice getAdvice(String str) throws NoSuchAdviceException;
 
     Advice[] getAdvice(AdviceKind... adviceKindArr);
 
-    AjType<?>[] getAjTypes();
+    AjType[] getAjTypes();
 
-    Constructor getConstructor(AjType<?>... ajTypeArr) throws NoSuchMethodException;
+    Constructor getConstructor(AjType... ajTypeArr) throws NoSuchMethodException;
 
     Constructor[] getConstructors();
 
@@ -32,9 +32,9 @@ public interface AjType<T> extends Type, AnnotatedElement {
 
     Advice[] getDeclaredAdvice(AdviceKind... adviceKindArr);
 
-    AjType<?>[] getDeclaredAjTypes();
+    AjType[] getDeclaredAjTypes();
 
-    Constructor getDeclaredConstructor(AjType<?>... ajTypeArr) throws NoSuchMethodException;
+    Constructor getDeclaredConstructor(AjType... ajTypeArr) throws NoSuchMethodException;
 
     Constructor[] getDeclaredConstructors();
 
@@ -42,19 +42,19 @@ public interface AjType<T> extends Type, AnnotatedElement {
 
     Field[] getDeclaredFields();
 
-    InterTypeConstructorDeclaration getDeclaredITDConstructor(AjType<?> ajType, AjType<?>... ajTypeArr) throws NoSuchMethodException;
+    InterTypeConstructorDeclaration getDeclaredITDConstructor(AjType ajType, AjType... ajTypeArr) throws NoSuchMethodException;
 
     InterTypeConstructorDeclaration[] getDeclaredITDConstructors();
 
-    InterTypeFieldDeclaration getDeclaredITDField(String str, AjType<?> ajType) throws NoSuchFieldException;
+    InterTypeFieldDeclaration getDeclaredITDField(String str, AjType ajType) throws NoSuchFieldException;
 
     InterTypeFieldDeclaration[] getDeclaredITDFields();
 
-    InterTypeMethodDeclaration getDeclaredITDMethod(String str, AjType<?> ajType, AjType<?>... ajTypeArr) throws NoSuchMethodException;
+    InterTypeMethodDeclaration getDeclaredITDMethod(String str, AjType ajType, AjType... ajTypeArr) throws NoSuchMethodException;
 
     InterTypeMethodDeclaration[] getDeclaredITDMethods();
 
-    Method getDeclaredMethod(String str, AjType<?>... ajTypeArr) throws NoSuchMethodException;
+    Method getDeclaredMethod(String str, AjType... ajTypeArr) throws NoSuchMethodException;
 
     Method[] getDeclaredMethods();
 
@@ -62,15 +62,15 @@ public interface AjType<T> extends Type, AnnotatedElement {
 
     Pointcut[] getDeclaredPointcuts();
 
-    AjType<?> getDeclaringType();
+    AjType getDeclaringType();
 
     Constructor getEnclosingConstructor();
 
     Method getEnclosingMethod();
 
-    AjType<?> getEnclosingType();
+    AjType getEnclosingType();
 
-    T[] getEnumConstants();
+    Object[] getEnumConstants();
 
     Field getField(String str) throws NoSuchFieldException;
 
@@ -78,23 +78,23 @@ public interface AjType<T> extends Type, AnnotatedElement {
 
     Type getGenericSupertype();
 
-    InterTypeConstructorDeclaration getITDConstructor(AjType<?> ajType, AjType<?>... ajTypeArr) throws NoSuchMethodException;
+    InterTypeConstructorDeclaration getITDConstructor(AjType ajType, AjType... ajTypeArr) throws NoSuchMethodException;
 
     InterTypeConstructorDeclaration[] getITDConstructors();
 
-    InterTypeFieldDeclaration getITDField(String str, AjType<?> ajType) throws NoSuchFieldException;
+    InterTypeFieldDeclaration getITDField(String str, AjType ajType) throws NoSuchFieldException;
 
     InterTypeFieldDeclaration[] getITDFields();
 
-    InterTypeMethodDeclaration getITDMethod(String str, AjType<?> ajType, AjType<?>... ajTypeArr) throws NoSuchMethodException;
+    InterTypeMethodDeclaration getITDMethod(String str, AjType ajType, AjType... ajTypeArr) throws NoSuchMethodException;
 
     InterTypeMethodDeclaration[] getITDMethods();
 
-    AjType<?>[] getInterfaces();
+    AjType[] getInterfaces();
 
-    Class<T> getJavaClass();
+    Class getJavaClass();
 
-    Method getMethod(String str, AjType<?>... ajTypeArr) throws NoSuchMethodException;
+    Method getMethod(String str, AjType... ajTypeArr) throws NoSuchMethodException;
 
     Method[] getMethods();
 
@@ -110,9 +110,9 @@ public interface AjType<T> extends Type, AnnotatedElement {
 
     Pointcut[] getPointcuts();
 
-    AjType<?> getSupertype();
+    AjType getSupertype();
 
-    TypeVariable<Class<T>>[] getTypeParameters();
+    TypeVariable[] getTypeParameters();
 
     boolean isArray();
 

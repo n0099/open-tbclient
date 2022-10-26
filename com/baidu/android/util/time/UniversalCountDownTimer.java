@@ -15,23 +15,9 @@ public class UniversalCountDownTimer {
     public CountDownTimer mCountDownTimer;
 
     /* loaded from: classes.dex */
-    public static abstract class StatusListener {
+    public abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public StatusListener() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         public void onCancel() {
             Interceptable interceptable = $ic;
@@ -66,6 +52,20 @@ public class UniversalCountDownTimer {
         public void onTick(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            }
+        }
+
+        public StatusListener() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
@@ -113,6 +113,18 @@ public class UniversalCountDownTimer {
                 this.mCountDownTimer.resume();
             }
         }
+    }
+
+    public final synchronized UniversalCountDownTimer start() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                this.mCountDownTimer.start();
+            }
+            return this;
+        }
+        return (UniversalCountDownTimer) invokeV.objValue;
     }
 
     public void setCountDownMillis(long j) {
@@ -211,17 +223,5 @@ public class UniversalCountDownTimer {
             return this;
         }
         return (UniversalCountDownTimer) invokeL.objValue;
-    }
-
-    public final synchronized UniversalCountDownTimer start() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                this.mCountDownTimer.start();
-            }
-            return this;
-        }
-        return (UniversalCountDownTimer) invokeV.objValue;
     }
 }

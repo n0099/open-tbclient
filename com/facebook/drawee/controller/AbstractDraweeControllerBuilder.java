@@ -18,55 +18,63 @@ import com.facebook.datasource.DataSource;
 import com.facebook.datasource.DataSources;
 import com.facebook.datasource.FirstAvailableDataSourceSupplier;
 import com.facebook.datasource.IncreasingQualityDataSourceSupplier;
-import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.drawee.gestures.GestureDetector;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder;
 import com.facebook.fresco.ui.common.ControllerListener2;
 import com.facebook.fresco.ui.common.LoggingListener;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-import com.facebook.infer.annotation.ReturnsOwnership;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements SimpleDraweeControllerBuilder {
+public abstract class AbstractDraweeControllerBuilder implements SimpleDraweeControllerBuilder {
     public static /* synthetic */ Interceptable $ic;
     public static final NullPointerException NO_REQUEST_EXCEPTION;
-    public static final ControllerListener<Object> sAutoPlayAnimationsListener;
+    public static final ControllerListener sAutoPlayAnimationsListener;
     public static final AtomicLong sIdCounter;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAutoPlayAnimations;
-    public final Set<ControllerListener> mBoundControllerListeners;
-    public final Set<ControllerListener2> mBoundControllerListeners2;
+    public final Set mBoundControllerListeners;
+    public final Set mBoundControllerListeners2;
     @Nullable
     public Object mCallerContext;
     public String mContentDescription;
     public final Context mContext;
     @Nullable
-    public ControllerListener<? super INFO> mControllerListener;
+    public ControllerListener mControllerListener;
     @Nullable
     public ControllerViewportVisibilityListener mControllerViewportVisibilityListener;
     @Nullable
-    public Supplier<DataSource<IMAGE>> mDataSourceSupplier;
+    public Supplier mDataSourceSupplier;
     @Nullable
-    public REQUEST mImageRequest;
+    public Object mImageRequest;
     @Nullable
     public LoggingListener mLoggingListener;
     @Nullable
-    public REQUEST mLowResImageRequest;
+    public Object mLowResImageRequest;
     @Nullable
-    public REQUEST[] mMultiImageRequests;
+    public Object[] mMultiImageRequests;
     @Nullable
     public DraweeController mOldController;
     public boolean mRetainImageOnFailure;
     public boolean mTapToRetryEnabled;
     public boolean mTryCacheOnlyFirst;
 
+    public abstract DataSource getDataSourceForRequest(DraweeController draweeController, String str, Object obj, Object obj2, CacheLevel cacheLevel);
+
+    public final AbstractDraweeControllerBuilder getThis() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this : (AbstractDraweeControllerBuilder) invokeV.objValue;
+    }
+
+    public abstract AbstractDraweeController obtainController();
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class CacheLevel {
+    public final class CacheLevel {
         public static final /* synthetic */ CacheLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CacheLevel BITMAP_MEMORY_CACHE;
@@ -116,13 +124,19 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
         public static CacheLevel valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CacheLevel) Enum.valueOf(CacheLevel.class, str) : (CacheLevel) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CacheLevel) Enum.valueOf(CacheLevel.class, str);
+            }
+            return (CacheLevel) invokeL.objValue;
         }
 
         public static CacheLevel[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CacheLevel[]) $VALUES.clone() : (CacheLevel[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CacheLevel[]) $VALUES.clone();
+            }
+            return (CacheLevel[]) invokeV.objValue;
         }
     }
 
@@ -139,7 +153,7 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
                 return;
             }
         }
-        sAutoPlayAnimationsListener = new BaseControllerListener<Object>() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
+        sAutoPlayAnimationsListener = new BaseControllerListener() { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -160,17 +174,34 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
             @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
             public void onFinalImageSet(String str, @Nullable Object obj, @Nullable Animatable animatable) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, obj, animatable) == null) || animatable == null) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, obj, animatable) == null) && animatable != null) {
+                    animatable.start();
                 }
-                animatable.start();
             }
         };
         NO_REQUEST_EXCEPTION = new NullPointerException("No image request was specified!");
         sIdCounter = new AtomicLong();
     }
 
-    public AbstractDraweeControllerBuilder(Context context, Set<ControllerListener> set, Set<ControllerListener2> set2) {
+    public void validate() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+            boolean z2 = false;
+            if (this.mMultiImageRequests != null && this.mImageRequest != null) {
+                z = false;
+            } else {
+                z = true;
+            }
+            Preconditions.checkState(z, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
+            if (this.mDataSourceSupplier == null || (this.mMultiImageRequests == null && this.mImageRequest == null && this.mLowResImageRequest == null)) {
+                z2 = true;
+            }
+            Preconditions.checkState(z2, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
+        }
+    }
+
+    public AbstractDraweeControllerBuilder(Context context, Set set, Set set2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -194,7 +225,10 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     public static String generateUniqueControllerId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.valueOf(sIdCounter.getAndIncrement()) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return String.valueOf(sIdCounter.getAndIncrement());
+        }
+        return (String) invokeV.objValue;
     }
 
     private void init() {
@@ -213,6 +247,169 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
             this.mOldController = null;
             this.mContentDescription = null;
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
+    public AbstractDraweeController build() {
+        InterceptResult invokeV;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            validate();
+            if (this.mImageRequest == null && this.mMultiImageRequests == null && (obj = this.mLowResImageRequest) != null) {
+                this.mImageRequest = obj;
+                this.mLowResImageRequest = null;
+            }
+            return buildController();
+        }
+        return (AbstractDraweeController) invokeV.objValue;
+    }
+
+    public boolean getAutoPlayAnimations() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAutoPlayAnimations;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Nullable
+    public Object getCallerContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCallerContext;
+        }
+        return invokeV.objValue;
+    }
+
+    @Nullable
+    public String getContentDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mContentDescription;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Nullable
+    public ControllerListener getControllerListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mControllerListener;
+        }
+        return (ControllerListener) invokeV.objValue;
+    }
+
+    @Nullable
+    public ControllerViewportVisibilityListener getControllerViewportVisibilityListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mControllerViewportVisibilityListener;
+        }
+        return (ControllerViewportVisibilityListener) invokeV.objValue;
+    }
+
+    @Nullable
+    public Supplier getDataSourceSupplier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mDataSourceSupplier;
+        }
+        return (Supplier) invokeV.objValue;
+    }
+
+    @Nullable
+    public Object[] getFirstAvailableImageRequests() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mMultiImageRequests;
+        }
+        return (Object[]) invokeV.objValue;
+    }
+
+    @Nullable
+    public Object getImageRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mImageRequest;
+        }
+        return invokeV.objValue;
+    }
+
+    @Nullable
+    public LoggingListener getLoggingListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mLoggingListener;
+        }
+        return (LoggingListener) invokeV.objValue;
+    }
+
+    @Nullable
+    public Object getLowResImageRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mLowResImageRequest;
+        }
+        return invokeV.objValue;
+    }
+
+    @Nullable
+    public DraweeController getOldController() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mOldController;
+        }
+        return (DraweeController) invokeV.objValue;
+    }
+
+    public boolean getRetainImageOnFailure() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mRetainImageOnFailure;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean getTapToRetryEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mTapToRetryEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public AbstractDraweeControllerBuilder reset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            init();
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeV.objValue;
     }
 
     public AbstractDraweeController buildController() {
@@ -236,130 +433,92 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
         return (AbstractDraweeController) invokeV.objValue;
     }
 
-    public boolean getAutoPlayAnimations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAutoPlayAnimations : invokeV.booleanValue;
-    }
-
-    @Nullable
-    public Object getCallerContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCallerContext : invokeV.objValue;
-    }
-
-    @Nullable
-    public String getContentDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContentDescription : (String) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mContext : (Context) invokeV.objValue;
-    }
-
-    @Nullable
-    public ControllerListener<? super INFO> getControllerListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mControllerListener : (ControllerListener) invokeV.objValue;
-    }
-
-    @Nullable
-    public ControllerViewportVisibilityListener getControllerViewportVisibilityListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mControllerViewportVisibilityListener : (ControllerViewportVisibilityListener) invokeV.objValue;
-    }
-
-    public abstract DataSource<IMAGE> getDataSourceForRequest(DraweeController draweeController, String str, REQUEST request, Object obj, CacheLevel cacheLevel);
-
-    @Nullable
-    public Supplier<DataSource<IMAGE>> getDataSourceSupplier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mDataSourceSupplier : (Supplier) invokeV.objValue;
-    }
-
-    public Supplier<DataSource<IMAGE>> getDataSourceSupplierForRequest(DraweeController draweeController, String str, REQUEST request) {
+    public Supplier getDataSourceSupplierForRequest(DraweeController draweeController, String str, Object obj) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, draweeController, str, request)) == null) ? getDataSourceSupplierForRequest(draweeController, str, request, CacheLevel.FULL_FETCH) : (Supplier) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, draweeController, str, obj)) == null) {
+            return getDataSourceSupplierForRequest(draweeController, str, obj, CacheLevel.FULL_FETCH);
+        }
+        return (Supplier) invokeLLL.objValue;
     }
 
-    public Supplier<DataSource<IMAGE>> getFirstAvailableDataSourceSupplier(DraweeController draweeController, String str, REQUEST[] requestArr, boolean z) {
+    public Supplier getDataSourceSupplierForRequest(DraweeController draweeController, String str, Object obj, CacheLevel cacheLevel) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, draweeController, str, obj, cacheLevel)) == null) {
+            return new Supplier(this, draweeController, str, obj, getCallerContext(), cacheLevel) { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AbstractDraweeControllerBuilder this$0;
+                public final /* synthetic */ CacheLevel val$cacheLevel;
+                public final /* synthetic */ Object val$callerContext;
+                public final /* synthetic */ DraweeController val$controller;
+                public final /* synthetic */ String val$controllerId;
+                public final /* synthetic */ Object val$imageRequest;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, draweeController, str, obj, r10, cacheLevel};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$controller = draweeController;
+                    this.val$controllerId = str;
+                    this.val$imageRequest = obj;
+                    this.val$callerContext = r10;
+                    this.val$cacheLevel = cacheLevel;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.facebook.common.internal.Supplier
+                public DataSource get() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.this$0.getDataSourceForRequest(this.val$controller, this.val$controllerId, this.val$imageRequest, this.val$callerContext, this.val$cacheLevel);
+                    }
+                    return (DataSource) invokeV.objValue;
+                }
+
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        return Objects.toStringHelper(this).add("request", this.val$imageRequest.toString()).toString();
+                    }
+                    return (String) invokeV.objValue;
+                }
+            };
+        }
+        return (Supplier) invokeLLLL.objValue;
+    }
+
+    public Supplier getFirstAvailableDataSourceSupplier(DraweeController draweeController, String str, Object[] objArr, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{draweeController, str, requestArr, Boolean.valueOf(z)})) == null) {
-            ArrayList arrayList = new ArrayList(requestArr.length * 2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{draweeController, str, objArr, Boolean.valueOf(z)})) == null) {
+            ArrayList arrayList = new ArrayList(objArr.length * 2);
             if (z) {
-                for (REQUEST request : requestArr) {
-                    arrayList.add(getDataSourceSupplierForRequest(draweeController, str, request, CacheLevel.BITMAP_MEMORY_CACHE));
+                for (Object obj : objArr) {
+                    arrayList.add(getDataSourceSupplierForRequest(draweeController, str, obj, CacheLevel.BITMAP_MEMORY_CACHE));
                 }
             }
-            for (REQUEST request2 : requestArr) {
-                arrayList.add(getDataSourceSupplierForRequest(draweeController, str, request2));
+            for (Object obj2 : objArr) {
+                arrayList.add(getDataSourceSupplierForRequest(draweeController, str, obj2));
             }
             return FirstAvailableDataSourceSupplier.create(arrayList);
         }
         return (Supplier) invokeCommon.objValue;
-    }
-
-    @Nullable
-    public REQUEST[] getFirstAvailableImageRequests() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mMultiImageRequests : (REQUEST[]) ((Object[]) invokeV.objValue);
-    }
-
-    @Nullable
-    public REQUEST getImageRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mImageRequest : (REQUEST) invokeV.objValue;
-    }
-
-    @Nullable
-    public LoggingListener getLoggingListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mLoggingListener : (LoggingListener) invokeV.objValue;
-    }
-
-    @Nullable
-    public REQUEST getLowResImageRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mLowResImageRequest : (REQUEST) invokeV.objValue;
-    }
-
-    @Nullable
-    public DraweeController getOldController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mOldController : (DraweeController) invokeV.objValue;
-    }
-
-    public boolean getRetainImageOnFailure() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mRetainImageOnFailure : invokeV.booleanValue;
-    }
-
-    public boolean getTapToRetryEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mTapToRetryEnabled : invokeV.booleanValue;
-    }
-
-    public final BUILDER getThis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this : (BUILDER) invokeV.objValue;
     }
 
     public void maybeAttachListeners(AbstractDraweeController abstractDraweeController) {
@@ -377,7 +536,7 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
                     abstractDraweeController.addControllerListener2(controllerListener2);
                 }
             }
-            ControllerListener<? super INFO> controllerListener3 = this.mControllerListener;
+            ControllerListener controllerListener3 = this.mControllerListener;
             if (controllerListener3 != null) {
                 abstractDraweeController.addControllerListener(controllerListener3);
             }
@@ -396,31 +555,162 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
 
     public void maybeBuildAndSetRetryManager(AbstractDraweeController abstractDraweeController) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048600, this, abstractDraweeController) == null) && this.mTapToRetryEnabled) {
-            abstractDraweeController.getRetryManager().setTapToRetryEnabled(this.mTapToRetryEnabled);
-            maybeBuildAndSetGestureDetector(abstractDraweeController);
+        if ((interceptable != null && interceptable.invokeL(1048600, this, abstractDraweeController) != null) || !this.mTapToRetryEnabled) {
+            return;
         }
+        abstractDraweeController.getRetryManager().setTapToRetryEnabled(this.mTapToRetryEnabled);
+        maybeBuildAndSetGestureDetector(abstractDraweeController);
     }
 
-    @ReturnsOwnership
-    public abstract AbstractDraweeController obtainController();
+    public AbstractDraweeControllerBuilder setAutoPlayAnimations(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
+            this.mAutoPlayAnimations = z;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeZ.objValue;
+    }
 
-    public Supplier<DataSource<IMAGE>> obtainDataSourceSupplier(DraweeController draweeController, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
+    public AbstractDraweeControllerBuilder setCallerContext(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, obj)) == null) {
+            this.mCallerContext = obj;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setContentDescription(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
+            this.mContentDescription = str;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setControllerListener(@Nullable ControllerListener controllerListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, controllerListener)) == null) {
+            this.mControllerListener = controllerListener;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setControllerViewportVisibilityListener(@Nullable ControllerViewportVisibilityListener controllerViewportVisibilityListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, controllerViewportVisibilityListener)) == null) {
+            this.mControllerViewportVisibilityListener = controllerViewportVisibilityListener;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setDataSourceSupplier(@Nullable Supplier supplier) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, supplier)) == null) {
+            this.mDataSourceSupplier = supplier;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setFirstAvailableImageRequests(Object[] objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, objArr)) == null) {
+            return setFirstAvailableImageRequests(objArr, true);
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setImageRequest(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, obj)) == null) {
+            this.mImageRequest = obj;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setLoggingListener(@Nullable LoggingListener loggingListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, loggingListener)) == null) {
+            this.mLoggingListener = loggingListener;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setLowResImageRequest(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, obj)) == null) {
+            this.mLowResImageRequest = obj;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
+    public AbstractDraweeControllerBuilder setOldController(@Nullable DraweeController draweeController) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, draweeController)) == null) {
+            this.mOldController = draweeController;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeL.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setRetainImageOnFailure(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
+            this.mRetainImageOnFailure = z;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeZ.objValue;
+    }
+
+    public AbstractDraweeControllerBuilder setTapToRetryEnabled(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048619, this, z)) == null) {
+            this.mTapToRetryEnabled = z;
+            return getThis();
+        }
+        return (AbstractDraweeControllerBuilder) invokeZ.objValue;
+    }
+
+    public Supplier obtainDataSourceSupplier(DraweeController draweeController, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, draweeController, str)) == null) {
-            Supplier<DataSource<IMAGE>> supplier = this.mDataSourceSupplier;
+            Supplier supplier = this.mDataSourceSupplier;
             if (supplier != null) {
                 return supplier;
             }
-            Supplier<DataSource<IMAGE>> supplier2 = null;
-            REQUEST request = this.mImageRequest;
-            if (request != null) {
-                supplier2 = getDataSourceSupplierForRequest(draweeController, str, request);
+            Supplier supplier2 = null;
+            Object obj = this.mImageRequest;
+            if (obj != null) {
+                supplier2 = getDataSourceSupplierForRequest(draweeController, str, obj);
             } else {
-                REQUEST[] requestArr = this.mMultiImageRequests;
-                if (requestArr != null) {
-                    supplier2 = getFirstAvailableDataSourceSupplier(draweeController, str, requestArr, this.mTryCacheOnlyFirst);
+                Object[] objArr = this.mMultiImageRequests;
+                if (objArr != null) {
+                    supplier2 = getFirstAvailableDataSourceSupplier(draweeController, str, objArr, this.mTryCacheOnlyFirst);
                 }
             }
             if (supplier2 != null && this.mLowResImageRequest != null) {
@@ -429,243 +719,29 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
                 arrayList.add(getDataSourceSupplierForRequest(draweeController, str, this.mLowResImageRequest));
                 supplier2 = IncreasingQualityDataSourceSupplier.create(arrayList, false);
             }
-            return supplier2 == null ? DataSources.getFailedDataSourceSupplier(NO_REQUEST_EXCEPTION) : supplier2;
+            if (supplier2 == null) {
+                return DataSources.getFailedDataSourceSupplier(NO_REQUEST_EXCEPTION);
+            }
+            return supplier2;
         }
         return (Supplier) invokeLL.objValue;
     }
 
-    public BUILDER reset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            init();
-            return getThis();
-        }
-        return (BUILDER) invokeV.objValue;
-    }
-
-    public BUILDER setAutoPlayAnimations(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
-            this.mAutoPlayAnimations = z;
-            return getThis();
-        }
-        return (BUILDER) invokeZ.objValue;
-    }
-
-    public BUILDER setContentDescription(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
-            this.mContentDescription = str;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setControllerListener(@Nullable ControllerListener<? super INFO> controllerListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, controllerListener)) == null) {
-            this.mControllerListener = controllerListener;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setControllerViewportVisibilityListener(@Nullable ControllerViewportVisibilityListener controllerViewportVisibilityListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, controllerViewportVisibilityListener)) == null) {
-            this.mControllerViewportVisibilityListener = controllerViewportVisibilityListener;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setDataSourceSupplier(@Nullable Supplier<DataSource<IMAGE>> supplier) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, supplier)) == null) {
-            this.mDataSourceSupplier = supplier;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setFirstAvailableImageRequests(REQUEST[] requestArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, requestArr)) == null) ? setFirstAvailableImageRequests(requestArr, true) : (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setImageRequest(REQUEST request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, request)) == null) {
-            this.mImageRequest = request;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setLoggingListener(@Nullable LoggingListener loggingListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, loggingListener)) == null) {
-            this.mLoggingListener = loggingListener;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setLowResImageRequest(REQUEST request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, request)) == null) {
-            this.mLowResImageRequest = request;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setRetainImageOnFailure(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
-            this.mRetainImageOnFailure = z;
-            return getThis();
-        }
-        return (BUILDER) invokeZ.objValue;
-    }
-
-    public BUILDER setTapToRetryEnabled(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048619, this, z)) == null) {
-            this.mTapToRetryEnabled = z;
-            return getThis();
-        }
-        return (BUILDER) invokeZ.objValue;
-    }
-
-    public void validate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            boolean z = false;
-            Preconditions.checkState(this.mMultiImageRequests == null || this.mImageRequest == null, "Cannot specify both ImageRequest and FirstAvailableImageRequests!");
-            if (this.mDataSourceSupplier == null || (this.mMultiImageRequests == null && this.mImageRequest == null && this.mLowResImageRequest == null)) {
-                z = true;
-            }
-            Preconditions.checkState(z, "Cannot specify DataSourceSupplier with other ImageRequests! Use one or the other.");
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
-    public AbstractDraweeController build() {
-        InterceptResult invokeV;
-        REQUEST request;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            validate();
-            if (this.mImageRequest == null && this.mMultiImageRequests == null && (request = this.mLowResImageRequest) != null) {
-                this.mImageRequest = request;
-                this.mLowResImageRequest = null;
-            }
-            return buildController();
-        }
-        return (AbstractDraweeController) invokeV.objValue;
-    }
-
-    public Supplier<DataSource<IMAGE>> getDataSourceSupplierForRequest(DraweeController draweeController, String str, REQUEST request, CacheLevel cacheLevel) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, draweeController, str, request, cacheLevel)) == null) ? new Supplier<DataSource<IMAGE>>(this, draweeController, str, request, getCallerContext(), cacheLevel) { // from class: com.facebook.drawee.controller.AbstractDraweeControllerBuilder.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AbstractDraweeControllerBuilder this$0;
-            public final /* synthetic */ CacheLevel val$cacheLevel;
-            public final /* synthetic */ Object val$callerContext;
-            public final /* synthetic */ DraweeController val$controller;
-            public final /* synthetic */ String val$controllerId;
-            public final /* synthetic */ Object val$imageRequest;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, draweeController, str, request, r10, cacheLevel};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$controller = draweeController;
-                this.val$controllerId = str;
-                this.val$imageRequest = request;
-                this.val$callerContext = r10;
-                this.val$cacheLevel = cacheLevel;
-            }
-
-            public String toString() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.toStringHelper(this).add("request", this.val$imageRequest.toString()).toString() : (String) invokeV.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.facebook.drawee.controller.AbstractDraweeControllerBuilder */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.facebook.common.internal.Supplier
-            public DataSource<IMAGE> get() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.this$0.getDataSourceForRequest(this.val$controller, this.val$controllerId, this.val$imageRequest, this.val$callerContext, this.val$cacheLevel) : (DataSource) invokeV.objValue;
-            }
-        } : (Supplier) invokeLLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
-    public BUILDER setCallerContext(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, obj)) == null) {
-            this.mCallerContext = obj;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
-    }
-
-    public BUILDER setFirstAvailableImageRequests(REQUEST[] requestArr, boolean z) {
+    public AbstractDraweeControllerBuilder setFirstAvailableImageRequests(Object[] objArr, boolean z) {
         InterceptResult invokeLZ;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048612, this, requestArr, z)) == null) {
-            Preconditions.checkArgument(requestArr == null || requestArr.length > 0, "No requests specified!");
-            this.mMultiImageRequests = requestArr;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048612, this, objArr, z)) == null) {
+            if (objArr != null && objArr.length <= 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            Preconditions.checkArgument(z2, "No requests specified!");
+            this.mMultiImageRequests = objArr;
             this.mTryCacheOnlyFirst = z;
             return getThis();
         }
-        return (BUILDER) invokeLZ.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
-    public BUILDER setOldController(@Nullable DraweeController draweeController) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, draweeController)) == null) {
-            this.mOldController = draweeController;
-            return getThis();
-        }
-        return (BUILDER) invokeL.objValue;
+        return (AbstractDraweeControllerBuilder) invokeLZ.objValue;
     }
 }

@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class CompatDecoderFactory<T> implements DecoderFactory<T> {
+public class CompatDecoderFactory implements DecoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class<? extends T> clazz;
+    public Class clazz;
 
-    public CompatDecoderFactory(Class<? extends T> cls) {
+    public CompatDecoderFactory(Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,9 +30,12 @@ public class CompatDecoderFactory<T> implements DecoderFactory<T> {
     }
 
     @Override // com.davemorrissey.labs.subscaleview.decoder.DecoderFactory
-    public T make() throws IllegalAccessException, InstantiationException {
+    public Object make() throws IllegalAccessException, InstantiationException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.clazz.newInstance() : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.clazz.newInstance();
+        }
+        return invokeV.objValue;
     }
 }

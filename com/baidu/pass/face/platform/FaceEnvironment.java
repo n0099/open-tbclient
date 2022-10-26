@@ -53,7 +53,7 @@ public final class FaceEnvironment {
     public static final int VALUE_OUTPUT_IMAGE_TYPE = 1;
     public static final float VALUE_SCALE = 1.0f;
     public static final int VALUE_SEC_TYPE = 1;
-    public static final List<LivenessTypeEnum> livenessTypeDefaultList;
+    public static final List livenessTypeDefaultList;
     public static int[] mSoundIds;
     public static int[] mTipsTextIds;
     public transient /* synthetic */ FieldHolder $fh;

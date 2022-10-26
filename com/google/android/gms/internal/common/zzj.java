@@ -10,11 +10,11 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
-public abstract class zzj<T> implements Iterator<T> {
+public abstract class zzj implements Iterator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @CheckForNull
-    public T zza;
+    public Object zza;
     public int zzb;
 
     public zzj() {
@@ -33,6 +33,20 @@ public abstract class zzj<T> implements Iterator<T> {
         this.zzb = 2;
     }
 
+    @CheckForNull
+    public abstract Object zza();
+
+    @CheckForNull
+    public final Object zzb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.zzb = 3;
+            return null;
+        }
+        return invokeV.objValue;
+    }
+
     @Override // java.util.Iterator
     public final boolean hasNext() {
         InterceptResult invokeV;
@@ -42,18 +56,18 @@ public abstract class zzj<T> implements Iterator<T> {
             if (i != 4) {
                 int i2 = i - 1;
                 if (i != 0) {
-                    if (i2 != 0) {
-                        if (i2 != 2) {
-                            this.zzb = 4;
-                            this.zza = zza();
-                            if (this.zzb != 3) {
-                                this.zzb = 1;
-                                return true;
-                            }
-                        }
-                        return false;
+                    if (i2 == 0) {
+                        return true;
                     }
-                    return true;
+                    if (i2 != 2) {
+                        this.zzb = 4;
+                        this.zza = zza();
+                        if (this.zzb != 3) {
+                            this.zzb = 1;
+                            return true;
+                        }
+                    }
+                    return false;
                 }
                 throw null;
             }
@@ -63,19 +77,19 @@ public abstract class zzj<T> implements Iterator<T> {
     }
 
     @Override // java.util.Iterator
-    public final T next() {
+    public final Object next() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (hasNext()) {
                 this.zzb = 2;
-                T t = this.zza;
+                Object obj = this.zza;
                 this.zza = null;
-                return t;
+                return obj;
             }
             throw new NoSuchElementException();
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
     @Override // java.util.Iterator
@@ -84,19 +98,5 @@ public abstract class zzj<T> implements Iterator<T> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             throw new UnsupportedOperationException();
         }
-    }
-
-    @CheckForNull
-    public abstract T zza();
-
-    @CheckForNull
-    public final T zzb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.zzb = 3;
-            return null;
-        }
-        return (T) invokeV.objValue;
     }
 }

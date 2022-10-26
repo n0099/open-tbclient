@@ -44,7 +44,7 @@ public class e {
     public DuMixInput V;
     public DuMixOutput W;
     public DuMixCallback aa;
-    public List<Integer> ab;
+    public List ab;
     public com.baidu.ar.lua.c ac;
     public b ad;
     public boolean ae;
@@ -62,7 +62,7 @@ public class e {
     public boolean aq;
     public boolean ar;
     public a as;
-    public ConcurrentHashMap<PixelReadParams, PixelReadListener> at;
+    public ConcurrentHashMap at;
     public DefaultParams d;
     public com.baidu.ar.lua.b f;
     public com.baidu.ar.arrender.c g;
@@ -70,7 +70,7 @@ public class e {
 
     /* renamed from: com.baidu.ar.e$8  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass8 {
+    public /* synthetic */ class AnonymousClass8 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] ax;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class e {
         this.mContext = context;
         this.d = defaultParams;
         this.as = new a(this, handlerThread.getLooper());
-        this.at = new ConcurrentHashMap<>();
+        this.at = new ConcurrentHashMap();
     }
 
     private void B() {
@@ -244,7 +244,7 @@ public class e {
                 }
 
                 @Override // com.baidu.ar.lua.c
-                public void a(int i, int i2, HashMap<String, Object> hashMap) {
+                public void a(int i, int i2, HashMap hashMap) {
                     a aVar;
                     a aVar2;
                     int i3;
@@ -315,7 +315,7 @@ public class e {
                 }
 
                 @Override // com.baidu.ar.lua.c
-                public List<Integer> n() {
+                public List n() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.au.ab : (List) invokeV.objValue;
@@ -573,7 +573,7 @@ public class e {
     private void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65555, this, str, str2, str3) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("event_name", str);
             HashMap hashMap2 = new HashMap();
             hashMap2.put(str2, str3);
@@ -681,7 +681,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(List<String> list) {
+    public void c(List list) {
         com.baidu.ar.filter.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65563, this, list) == null) || (aVar = this.B) == null) {
@@ -707,11 +707,11 @@ public class e {
         return (String) invokeL.objValue;
     }
 
-    private HashMap<String, Object> m(String str) {
+    private HashMap m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, this, str)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("gesture_scroll", str);
             hashMap.put("gesture_two_finger_scroll", "interaction_rotate");
             hashMap.put("gesture_two_finger_pinch", "interaction_scale_down");
@@ -789,13 +789,13 @@ public class e {
     }
 
     public void F() {
-        ConcurrentHashMap<PixelReadParams, PixelReadListener> concurrentHashMap;
+        ConcurrentHashMap concurrentHashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (concurrentHashMap = this.at) == null || concurrentHashMap.isEmpty()) {
             return;
         }
-        for (Map.Entry<PixelReadParams, PixelReadListener> entry : this.at.entrySet()) {
-            this.g.createPixelReader(entry.getKey(), entry.getValue());
+        for (Map.Entry entry : this.at.entrySet()) {
+            this.g.createPixelReader((PixelReadParams) entry.getKey(), (PixelReadListener) entry.getValue());
         }
         this.at.clear();
     }
@@ -859,7 +859,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || bVar == null) {
             return;
         }
-        bVar.a(new ICallbackWith<String>(this) { // from class: com.baidu.ar.e.5
+        bVar.a(new ICallbackWith(this) { // from class: com.baidu.ar.e.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e au;
@@ -894,7 +894,7 @@ public class e {
                 duMixCallback.onError(DuMixErrorType.AbilitySchemeFetchFail, str, null);
             }
         });
-        bVar.b(new ICallbackWith<JSONObject>(this, bVar) { // from class: com.baidu.ar.e.6
+        bVar.b(new ICallbackWith(this, bVar) { // from class: com.baidu.ar.e.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e au;
@@ -937,7 +937,7 @@ public class e {
     }
 
     public void a(PixelReadParams pixelReadParams, PixelReadListener pixelReadListener) {
-        ConcurrentHashMap<PixelReadParams, PixelReadListener> concurrentHashMap;
+        ConcurrentHashMap concurrentHashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, pixelReadParams, pixelReadListener) == null) || (concurrentHashMap = this.at) == null) {
             return;
@@ -1042,7 +1042,7 @@ public class e {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ConcurrentHashMap<PixelReadParams, PixelReadListener> concurrentHashMap = this.at;
+            ConcurrentHashMap concurrentHashMap = this.at;
             if (concurrentHashMap != null) {
                 concurrentHashMap.clear();
                 this.at = null;

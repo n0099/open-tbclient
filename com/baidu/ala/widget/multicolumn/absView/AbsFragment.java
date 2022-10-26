@@ -10,6 +10,8 @@ public abstract class AbsFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getTabTitle();
+
     public AbsFragment() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,8 +25,4 @@ public abstract class AbsFragment extends BaseFragment {
             }
         }
     }
-
-    public abstract int getPageType();
-
-    public abstract String getTabTitle();
 }

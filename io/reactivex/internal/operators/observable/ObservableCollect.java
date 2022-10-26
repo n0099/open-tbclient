@@ -16,28 +16,28 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableCollect<T, U> extends AbstractObservableWithUpstream<T, U> {
+public final class ObservableCollect extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiConsumer<? super U, ? super T> collector;
-    public final Callable<? extends U> initialSupplier;
+    public final BiConsumer collector;
+    public final Callable initialSupplier;
 
     /* loaded from: classes8.dex */
-    public static final class CollectObserver<T, U> implements Observer<T>, Disposable {
+    public final class CollectObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super U> actual;
-        public final BiConsumer<? super U, ? super T> collector;
+        public final Observer actual;
+        public final BiConsumer collector;
         public boolean done;
         public Disposable s;
-        public final U u;
+        public final Object u;
 
-        public CollectObserver(Observer<? super U> observer, U u, BiConsumer<? super U, ? super T> biConsumer) {
+        public CollectObserver(Observer observer, Object obj, BiConsumer biConsumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, u, biConsumer};
+                Object[] objArr = {observer, obj, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,7 +49,7 @@ public final class ObservableCollect<T, U> extends AbstractObservableWithUpstrea
             }
             this.actual = observer;
             this.collector = biConsumer;
-            this.u = u;
+            this.u = obj;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -64,18 +64,20 @@ public final class ObservableCollect<T, U> extends AbstractObservableWithUpstrea
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
-        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: U, ? super U */
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
-            this.actual.onNext((U) this.u);
+            this.actual.onNext(this.u);
             this.actual.onComplete();
         }
 
@@ -92,15 +94,14 @@ public final class ObservableCollect<T, U> extends AbstractObservableWithUpstrea
             }
         }
 
-        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: U, ? super U */
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
                 return;
             }
             try {
-                this.collector.accept((U) this.u, t);
+                this.collector.accept(this.u, obj);
             } catch (Throwable th) {
                 this.s.dispose();
                 onError(th);
@@ -118,7 +119,7 @@ public final class ObservableCollect<T, U> extends AbstractObservableWithUpstrea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableCollect(ObservableSource<T> observableSource, Callable<? extends U> callable, BiConsumer<? super U, ? super T> biConsumer) {
+    public ObservableCollect(ObservableSource observableSource, Callable callable, BiConsumer biConsumer) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -140,7 +141,7 @@ public final class ObservableCollect<T, U> extends AbstractObservableWithUpstrea
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super U> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {

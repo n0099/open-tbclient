@@ -1,8 +1,8 @@
 package com.baidu.tieba.wallet;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,25 +34,36 @@ public class YYLiveConfig {
         this.yyIsConvert = 0;
     }
 
-    private void parse(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.yyPayOpen = jSONObject.optInt("yy_pay_open");
-        this.yyIsConvert = jSONObject.optInt("yy_is_convert");
-    }
-
     public boolean isYYPayNeedConfirm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.yyPayOpen == 1 && this.yyIsConvert == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.yyPayOpen == 1 && this.yyIsConvert == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isYyIsConvert() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.yyPayOpen == 1 && this.yyIsConvert == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.yyPayOpen == 1 && this.yyIsConvert == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void parse(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) && jSONObject != null) {
+            this.yyPayOpen = jSONObject.optInt("yy_pay_open");
+            this.yyIsConvert = jSONObject.optInt("yy_is_convert");
+        }
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -60,18 +71,18 @@ public class YYLiveConfig {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             if (jSONObject != null) {
                 parse(jSONObject);
-                ox4.k().y("key_extra_yy_config", jSONObject.toString());
+                ux4.k().y("key_extra_yy_config", jSONObject.toString());
                 return;
             }
-            String q = ox4.k().q("key_extra_yy_config", "");
-            if (!dj.isEmpty(q)) {
+            String q = ux4.k().q("key_extra_yy_config", "");
+            if (!ej.isEmpty(q)) {
                 try {
                     parse(new JSONObject(q));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            ox4.k().y("key_extra_yy_config", "");
+            ux4.k().y("key_extra_yy_config", "");
         }
     }
 
@@ -86,7 +97,7 @@ public class YYLiveConfig {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ox4.k().y("key_extra_yy_config", jSONObject.toString());
+            ux4.k().y("key_extra_yy_config", jSONObject.toString());
         }
     }
 }

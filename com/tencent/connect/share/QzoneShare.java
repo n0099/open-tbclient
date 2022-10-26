@@ -56,6 +56,13 @@ public class QzoneShare extends BaseApi {
     public boolean f;
     public String mViaShareQzoneType;
 
+    @Override // com.tencent.connect.common.BaseApi
+    public void releaseResource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QzoneShare(Context context, QQToken qQToken) {
         super(qQToken);
@@ -341,13 +348,6 @@ public class QzoneShare extends BaseApi {
         }
     }
 
-    @Override // com.tencent.connect.common.BaseApi
-    public void releaseResource() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:106:0x0357  */
     /* JADX WARN: Removed duplicated region for block: B:110:0x0397  */
     /* JADX WARN: Removed duplicated region for block: B:111:0x03a1  */
@@ -384,10 +384,7 @@ public class QzoneShare extends BaseApi {
             String string5 = bundle.getString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH);
             ArrayList<String> stringArrayList = bundle.getStringArrayList("imageUrl");
             String a = l.a(activity);
-            if (a == null) {
-                a = bundle.getString("appName");
-                str = "appName";
-            } else {
+            if (a != null) {
                 str = "appName";
                 if (a.length() > 20) {
                     StringBuilder sb = new StringBuilder();
@@ -397,46 +394,52 @@ public class QzoneShare extends BaseApi {
                     a = sb.toString();
                     i = bundle.getInt("req_type");
                     SLog.e("openSDK_LOG.QzoneShare", "shareToQzone() get SHARE_TO_QZONE_KEY_TYPE: " + i);
-                    if (i != 1) {
-                        this.mViaShareQzoneType = "1";
-                    } else if (i != 5) {
-                        this.mViaShareQzoneType = "1";
+                    if (i == 1) {
+                        if (i != 5) {
+                            this.mViaShareQzoneType = "1";
+                        } else {
+                            this.mViaShareQzoneType = "2";
+                        }
                     } else {
-                        this.mViaShareQzoneType = "2";
+                        this.mViaShareQzoneType = "1";
                     }
-                    if (i != 1) {
+                    if (i == 1) {
+                        if (i != 5) {
+                            if (i != 7) {
+                                if (l.e(string) && l.e(string2)) {
+                                    if (stringArrayList != null && stringArrayList.size() != 0) {
+                                        this.a = false;
+                                    } else {
+                                        string = "来自" + a + "的分享";
+                                        this.a = true;
+                                    }
+                                } else {
+                                    this.a = true;
+                                }
+                                this.d = false;
+                                SLog.e("openSDK_LOG.QzoneShare", "-->shareToQzone, default needTitle = true, shareType = " + i);
+                                this.e = true;
+                                this.f = false;
+                            } else {
+                                if (TextUtils.isEmpty(string4) || TextUtils.isEmpty(string5)) {
+                                    iUiListener.onError(new UiError(-5, Constants.MSG_PARAM_ERROR, "appid or path empty."));
+                                }
+                                this.e = false;
+                                this.f = false;
+                                this.a = false;
+                            }
+                        } else {
+                            iUiListener.onError(new UiError(-5, Constants.MSG_SHARE_TYPE_ERROR, null));
+                            SLog.e("openSDK_LOG.QzoneShare", "shareToQzone() error--end请选择支持的分享类型");
+                            d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.c.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() 请选择支持的分享类型");
+                            return;
+                        }
+                    } else {
                         SLog.e("openSDK_LOG.QzoneShare", "-->shareToQzone, SHARE_TO_QZONE_TYPE_IMAGE_TEXT needTitle = true");
                         this.a = true;
                         this.d = false;
                         this.e = true;
                         this.f = false;
-                    } else if (i == 5) {
-                        iUiListener.onError(new UiError(-5, Constants.MSG_SHARE_TYPE_ERROR, null));
-                        SLog.e("openSDK_LOG.QzoneShare", "shareToQzone() error--end请选择支持的分享类型");
-                        d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.c.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() 请选择支持的分享类型");
-                        return;
-                    } else if (i != 7) {
-                        if (l.e(string) && l.e(string2)) {
-                            if (stringArrayList != null && stringArrayList.size() != 0) {
-                                this.a = false;
-                            } else {
-                                string = "来自" + a + "的分享";
-                                this.a = true;
-                            }
-                        } else {
-                            this.a = true;
-                        }
-                        this.d = false;
-                        SLog.e("openSDK_LOG.QzoneShare", "-->shareToQzone, default needTitle = true, shareType = " + i);
-                        this.e = true;
-                        this.f = false;
-                    } else {
-                        if (TextUtils.isEmpty(string4) || TextUtils.isEmpty(string5)) {
-                            iUiListener.onError(new UiError(-5, Constants.MSG_PARAM_ERROR, "appid or path empty."));
-                        }
-                        this.e = false;
-                        this.f = false;
-                        this.a = false;
                     }
                     if (l.a() && l.g(activity, "4.5.0")) {
                         iUiListener.onError(new UiError(-6, Constants.MSG_SHARE_NOSD_ERROR, null));
@@ -470,11 +473,11 @@ public class QzoneShare extends BaseApi {
                             d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.c.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQzone() title is null");
                             return;
                         }
-                        if (l.e(string) || string.length() <= 200) {
-                            str3 = null;
-                        } else {
+                        if (!l.e(string) && string.length() > 200) {
                             str3 = null;
                             bundle2.putString("title", l.a(string, 200, (String) null, (String) null));
+                        } else {
+                            str3 = null;
                         }
                         if (!l.e(string2) && string2.length() > 600) {
                             bundle2.putString(str4, l.a(string2, 600, str3, str3));
@@ -532,13 +535,16 @@ public class QzoneShare extends BaseApi {
                     }
                     SLog.i("openSDK_LOG.QzoneShare", "shareToQzone() --end");
                 }
+            } else {
+                a = bundle.getString("appName");
+                str = "appName";
             }
             str2 = "summary";
             i = bundle.getInt("req_type");
             SLog.e("openSDK_LOG.QzoneShare", "shareToQzone() get SHARE_TO_QZONE_KEY_TYPE: " + i);
-            if (i != 1) {
+            if (i == 1) {
             }
-            if (i != 1) {
+            if (i == 1) {
             }
             if (l.a()) {
             }

@@ -49,8 +49,8 @@ public class CreateGroupStepActivityConfig extends IntentConfig {
         intent.putExtra("group_type", i);
         intent.putExtra("forumid", i2);
         intent.putExtra(INTENT_SOURCE_FROM, i3);
-        intent.putExtra("num_create_group_normal", i4);
-        intent.putExtra("num_create_group_private", i6);
-        intent.putExtra("num_create_group_offical", i5);
+        intent.putExtra(NUM_CREATE_GROUP_NORMAL, i4);
+        intent.putExtra(NUM_CREATE_GROUP_PERSONAL, i6);
+        intent.putExtra(NUM_CREATE_GROUP_OFFICAL, i5);
     }
 }

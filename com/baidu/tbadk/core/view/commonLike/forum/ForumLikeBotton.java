@@ -1,11 +1,8 @@
 package com.baidu.tbadk.core.view.commonLike.forum;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonLike.CommonLikeButton;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,22 +29,6 @@ public class ForumLikeBotton extends CommonLikeButton {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonLike.CommonLikeButton
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.c) {
-                setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this, (int) R.color.btn_forum_focus_gray_color);
-                SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_gray_border);
-                return;
-            }
-            setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this, (int) R.color.btn_forum_focus_color);
-            SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
         }
     }
 

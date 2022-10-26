@@ -44,13 +44,35 @@ public class Detector {
         this.image = bitMatrix;
     }
 
+    public final DetectorResult detect(Map map) throws NotFoundException, FormatException {
+        InterceptResult invokeL;
+        ResultPointCallback resultPointCallback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
+            if (map == null) {
+                resultPointCallback = null;
+            } else {
+                resultPointCallback = (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
+            }
+            this.resultPointCallback = resultPointCallback;
+            return processFinderPatternInfo(new FinderPatternFinder(this.image, resultPointCallback).find(map));
+        }
+        return (DetectorResult) invokeL.objValue;
+    }
+
     private float calculateModuleSizeOneWay(ResultPoint resultPoint, ResultPoint resultPoint2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, resultPoint, resultPoint2)) == null) {
             float sizeOfBlackWhiteBlackRunBothWays = sizeOfBlackWhiteBlackRunBothWays((int) resultPoint.getX(), (int) resultPoint.getY(), (int) resultPoint2.getX(), (int) resultPoint2.getY());
             float sizeOfBlackWhiteBlackRunBothWays2 = sizeOfBlackWhiteBlackRunBothWays((int) resultPoint2.getX(), (int) resultPoint2.getY(), (int) resultPoint.getX(), (int) resultPoint.getY());
-            return Float.isNaN(sizeOfBlackWhiteBlackRunBothWays) ? sizeOfBlackWhiteBlackRunBothWays2 / 7.0f : Float.isNaN(sizeOfBlackWhiteBlackRunBothWays2) ? sizeOfBlackWhiteBlackRunBothWays / 7.0f : (sizeOfBlackWhiteBlackRunBothWays + sizeOfBlackWhiteBlackRunBothWays2) / 14.0f;
+            if (Float.isNaN(sizeOfBlackWhiteBlackRunBothWays)) {
+                return sizeOfBlackWhiteBlackRunBothWays2 / 7.0f;
+            }
+            if (Float.isNaN(sizeOfBlackWhiteBlackRunBothWays2)) {
+                return sizeOfBlackWhiteBlackRunBothWays / 7.0f;
+            }
+            return (sizeOfBlackWhiteBlackRunBothWays + sizeOfBlackWhiteBlackRunBothWays2) / 14.0f;
         }
         return invokeLL.floatValue;
     }
@@ -63,10 +85,10 @@ public class Detector {
             int i = round & 3;
             if (i != 0) {
                 if (i != 2) {
-                    if (i != 3) {
-                        return round;
+                    if (i == 3) {
+                        throw NotFoundException.getNotFoundInstance();
                     }
-                    throw NotFoundException.getNotFoundInstance();
+                    return round;
                 }
                 return round - 1;
             }
@@ -100,24 +122,44 @@ public class Detector {
     public static BitMatrix sampleGrid(BitMatrix bitMatrix, PerspectiveTransform perspectiveTransform, int i) throws NotFoundException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitMatrix, perspectiveTransform, i)) == null) ? GridSampler.getInstance().sampleGrid(bitMatrix, i, i, perspectiveTransform) : (BitMatrix) invokeLLI.objValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitMatrix, perspectiveTransform, i)) == null) {
+            return GridSampler.getInstance().sampleGrid(bitMatrix, i, i, perspectiveTransform);
+        }
+        return (BitMatrix) invokeLLI.objValue;
+    }
+
+    public final float calculateModuleSize(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, resultPoint, resultPoint2, resultPoint3)) == null) {
+            return (calculateModuleSizeOneWay(resultPoint, resultPoint2) + calculateModuleSizeOneWay(resultPoint, resultPoint3)) / 2.0f;
+        }
+        return invokeLLL.floatValue;
     }
 
     private float sizeOfBlackWhiteBlackRun(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
+        boolean z;
         int i5;
         int i6;
         int i7;
         int i8;
         int i9;
+        int i10;
+        int i11;
+        int i12;
         Detector detector;
-        boolean z;
         boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i, i2, i3, i4)) == null) {
-            int i10 = 1;
-            boolean z3 = Math.abs(i4 - i2) > Math.abs(i3 - i);
-            if (z3) {
+            int i13 = 1;
+            if (Math.abs(i4 - i2) > Math.abs(i3 - i)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 i6 = i;
                 i5 = i2;
                 i8 = i3;
@@ -130,52 +172,68 @@ public class Detector {
             }
             int abs = Math.abs(i7 - i5);
             int abs2 = Math.abs(i8 - i6);
-            int i11 = (-abs) / 2;
-            int i12 = i5 < i7 ? 1 : -1;
-            int i13 = i6 < i8 ? 1 : -1;
-            int i14 = i7 + i12;
-            int i15 = i5;
-            int i16 = i6;
-            int i17 = 0;
+            int i14 = (-abs) / 2;
+            int i15 = -1;
+            if (i5 < i7) {
+                i9 = 1;
+            } else {
+                i9 = -1;
+            }
+            if (i6 < i8) {
+                i15 = 1;
+            }
+            int i16 = i7 + i9;
+            int i17 = i5;
+            int i18 = i6;
+            int i19 = 0;
             while (true) {
-                if (i15 == i14) {
-                    i9 = i14;
+                if (i17 != i16) {
+                    if (z) {
+                        i11 = i18;
+                    } else {
+                        i11 = i17;
+                    }
+                    if (z) {
+                        i12 = i17;
+                    } else {
+                        i12 = i18;
+                    }
+                    if (i19 == i13) {
+                        detector = this;
+                        z2 = z;
+                        i10 = i16;
+                        z3 = true;
+                    } else {
+                        detector = this;
+                        z2 = z;
+                        i10 = i16;
+                        z3 = false;
+                    }
+                    if (z3 == detector.image.get(i11, i12)) {
+                        if (i19 == 2) {
+                            return MathUtils.distance(i17, i18, i5, i6);
+                        }
+                        i19++;
+                    }
+                    i14 += abs2;
+                    if (i14 > 0) {
+                        if (i18 == i8) {
+                            break;
+                        }
+                        i18 += i15;
+                        i14 -= abs;
+                    }
+                    i17 += i9;
+                    i16 = i10;
+                    z = z2;
+                    i13 = 1;
+                } else {
+                    i10 = i16;
                     break;
                 }
-                int i18 = z3 ? i16 : i15;
-                int i19 = z3 ? i15 : i16;
-                if (i17 == i10) {
-                    detector = this;
-                    z = z3;
-                    i9 = i14;
-                    z2 = true;
-                } else {
-                    detector = this;
-                    z = z3;
-                    i9 = i14;
-                    z2 = false;
-                }
-                if (z2 == detector.image.get(i18, i19)) {
-                    if (i17 == 2) {
-                        return MathUtils.distance(i15, i16, i5, i6);
-                    }
-                    i17++;
-                }
-                i11 += abs2;
-                if (i11 > 0) {
-                    if (i16 == i8) {
-                        break;
-                    }
-                    i16 += i13;
-                    i11 -= abs;
-                }
-                i15 += i12;
-                i14 = i9;
-                z3 = z;
-                i10 = 1;
             }
-            if (i17 == 2) {
-                return MathUtils.distance(i9, i8, i5, i6);
+            if (i19 == 2) {
+                return MathUtils.distance(i10, i8, i5, i6);
             }
             return Float.NaN;
         }
@@ -216,18 +274,6 @@ public class Detector {
         return invokeIIII.floatValue;
     }
 
-    public final float calculateModuleSize(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, resultPoint, resultPoint2, resultPoint3)) == null) ? (calculateModuleSizeOneWay(resultPoint, resultPoint2) + calculateModuleSizeOneWay(resultPoint, resultPoint3)) / 2.0f : invokeLLL.floatValue;
-    }
-
-    public DetectorResult detect() throws NotFoundException, FormatException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? detect(null) : (DetectorResult) invokeV.objValue;
-    }
-
     public final AlignmentPattern findAlignmentInRegion(float f, int i, int i2, float f2) throws NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -249,16 +295,31 @@ public class Detector {
         return (AlignmentPattern) invokeCommon.objValue;
     }
 
+    public DetectorResult detect() throws NotFoundException, FormatException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return detect(null);
+        }
+        return (DetectorResult) invokeV.objValue;
+    }
+
     public final BitMatrix getImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.image : (BitMatrix) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.image;
+        }
+        return (BitMatrix) invokeV.objValue;
     }
 
     public final ResultPointCallback getResultPointCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.resultPointCallback : (ResultPointCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.resultPointCallback;
+        }
+        return (ResultPointCallback) invokeV.objValue;
     }
 
     public final DetectorResult processFinderPatternInfo(FinderPatternInfo finderPatternInfo) throws NotFoundException, FormatException {
@@ -291,17 +352,6 @@ public class Detector {
                 return new DetectorResult(sampleGrid(this.image, createTransform(topLeft, topRight, bottomLeft, alignmentPattern, computeDimension), computeDimension), alignmentPattern == null ? new ResultPoint[]{bottomLeft, topLeft, topRight} : new ResultPoint[]{bottomLeft, topLeft, topRight, alignmentPattern});
             }
             throw NotFoundException.getNotFoundInstance();
-        }
-        return (DetectorResult) invokeL.objValue;
-    }
-
-    public final DetectorResult detect(Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-            ResultPointCallback resultPointCallback = map == null ? null : (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
-            this.resultPointCallback = resultPointCallback;
-            return processFinderPatternInfo(new FinderPatternFinder(this.image, resultPointCallback).find(map));
         }
         return (DetectorResult) invokeL.objValue;
     }

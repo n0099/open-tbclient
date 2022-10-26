@@ -2,14 +2,12 @@ package com.squareup.wire2;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.et9;
+import com.baidu.tieba.wt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
 import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.OutputStream;
@@ -18,21 +16,25 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
 /* loaded from: classes8.dex */
-public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implements Serializable {
+public abstract class Message implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final transient ProtoAdapter<M> adapter;
+    public final transient ProtoAdapter adapter;
     public transient int cachedSerializedSize;
     public transient int hashCode;
     public final transient ByteString unknownFields;
 
+    public abstract a newBuilder();
+
     /* loaded from: classes8.dex */
-    public static abstract class a<T extends Message<T, B>, B extends a<T, B>> {
+    public abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Buffer unknownFieldsBuffer;
-        public et9 unknownFieldsWriter;
+        public wt9 unknownFieldsWriter;
+
+        public abstract Message build();
 
         public a() {
             Interceptable interceptable = $ic;
@@ -48,14 +50,38 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
             }
         }
 
-        public final a<T, B> addUnknownField(int i, FieldEncoding fieldEncoding, Object obj) {
+        public final ByteString buildUnknownFields() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                Buffer buffer = this.unknownFieldsBuffer;
+                if (buffer != null) {
+                    return buffer.clone().readByteString();
+                }
+                return ByteString.EMPTY;
+            }
+            return (ByteString) invokeV.objValue;
+        }
+
+        public final a clearUnknownFields() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                this.unknownFieldsWriter = null;
+                this.unknownFieldsBuffer = null;
+                return this;
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public final a addUnknownField(int i, FieldEncoding fieldEncoding, Object obj) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, fieldEncoding, obj)) == null) {
                 if (this.unknownFieldsWriter == null) {
                     Buffer buffer = new Buffer();
                     this.unknownFieldsBuffer = buffer;
-                    this.unknownFieldsWriter = new et9(buffer);
+                    this.unknownFieldsWriter = new wt9(buffer);
                 }
                 try {
                     fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i, obj);
@@ -67,7 +93,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
             return (a) invokeILL.objValue;
         }
 
-        public final a<T, B> addUnknownFields(ByteString byteString) {
+        public final a addUnknownFields(ByteString byteString) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteString)) == null) {
@@ -75,7 +101,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                     if (this.unknownFieldsWriter == null) {
                         Buffer buffer = new Buffer();
                         this.unknownFieldsBuffer = buffer;
-                        this.unknownFieldsWriter = new et9(buffer);
+                        this.unknownFieldsWriter = new wt9(buffer);
                     }
                     try {
                         this.unknownFieldsWriter.k(byteString);
@@ -87,32 +113,9 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
             }
             return (a) invokeL.objValue;
         }
-
-        public abstract T build();
-
-        public final ByteString buildUnknownFields() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Buffer buffer = this.unknownFieldsBuffer;
-                return buffer != null ? buffer.clone().readByteString() : ByteString.EMPTY;
-            }
-            return (ByteString) invokeV.objValue;
-        }
-
-        public final a<T, B> clearUnknownFields() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                this.unknownFieldsWriter = null;
-                this.unknownFieldsBuffer = null;
-                return this;
-            }
-            return (a) invokeV.objValue;
-        }
     }
 
-    public Message(ProtoAdapter<M> protoAdapter, ByteString byteString) {
+    public Message(ProtoAdapter protoAdapter, ByteString byteString) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,36 +132,42 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
         }
         this.cachedSerializedSize = 0;
         this.hashCode = 0;
-        if (protoAdapter == null) {
-            throw new NullPointerException("adapter == null");
+        if (protoAdapter != null) {
+            if (byteString != null) {
+                this.adapter = protoAdapter;
+                this.unknownFields = byteString;
+                return;
+            }
+            throw new NullPointerException("unknownFields == null");
         }
-        if (byteString != null) {
-            this.adapter = protoAdapter;
-            this.unknownFields = byteString;
-            return;
-        }
-        throw new NullPointerException("unknownFields == null");
+        throw new NullPointerException("adapter == null");
     }
 
-    public final ProtoAdapter<M> adapter() {
+    public final ProtoAdapter adapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.adapter : (ProtoAdapter) invokeV.objValue;
-    }
-
-    public final void encode(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            this.adapter.encode(bufferedSink, (BufferedSink) this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.adapter;
         }
+        return (ProtoAdapter) invokeV.objValue;
     }
 
-    public abstract a<M, B> newBuilder();
+    public final byte[] encode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.adapter.encode(this);
+        }
+        return (byte[]) invokeV.objValue;
+    }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.adapter.toString(this) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.adapter.toString(this);
+        }
+        return (String) invokeV.objValue;
     }
 
     public final ByteString unknownFields() {
@@ -166,33 +175,43 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ByteString byteString = this.unknownFields;
-            return byteString != null ? byteString : ByteString.EMPTY;
+            if (byteString == null) {
+                return ByteString.EMPTY;
+            }
+            return byteString;
         }
         return (ByteString) invokeV.objValue;
     }
 
-    public final M withoutUnknownFields() {
+    public final Message withoutUnknownFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? newBuilder().clearUnknownFields().build() : (M) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return newBuilder().clearUnknownFields().build();
+        }
+        return (Message) invokeV.objValue;
     }
 
     public final Object writeReplace() throws ObjectStreamException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new MessageSerializedForm(encode(), getClass()) : invokeV.objValue;
-    }
-
-    public final byte[] encode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.adapter.encode(this) : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return new MessageSerializedForm(encode(), getClass());
+        }
+        return invokeV.objValue;
     }
 
     public final void encode(OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
-            this.adapter.encode(outputStream, (OutputStream) this);
+            this.adapter.encode(outputStream, this);
+        }
+    }
+
+    public final void encode(BufferedSink bufferedSink) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+            this.adapter.encode(bufferedSink, this);
         }
     }
 }

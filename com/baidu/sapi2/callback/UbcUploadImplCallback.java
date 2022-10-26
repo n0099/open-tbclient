@@ -10,6 +10,8 @@ public abstract class UbcUploadImplCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onEvent(String str, JSONObject jSONObject);
+
     public UbcUploadImplCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,6 +25,4 @@ public abstract class UbcUploadImplCallback {
             }
         }
     }
-
-    public abstract void onEvent(String str, JSONObject jSONObject);
 }

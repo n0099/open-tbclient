@@ -1,22 +1,20 @@
 package com.baidu.mobstat;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.Base64;
+import com.bumptech.glide.disklrucache.StrictLineReader;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes2.dex */
-public class bq extends bn {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "__Baidu_Stat_SDK_SendRem";
-    public static bq b;
+public final class bq {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,283 +30,15 @@ public class bq extends bn {
                 return;
             }
         }
-        b = new bq();
+        a = new String[]{"h9YLQoINGWyOBYYk", "30212102dicudiab", "dm1VEmW651QTz4MD"};
     }
 
-    public bq() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static bq a() {
+    public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (bq) invokeV.objValue;
-    }
-
-    public int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? a(context, "sendLogtype", 0) : invokeL.intValue;
-    }
-
-    public int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? a(context, "timeinterval", 1) : invokeL.intValue;
-    }
-
-    public boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) ? a(context, "onlywifi", false) : invokeL.booleanValue;
-    }
-
-    public String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, context)) == null) ? a(context, "device_id_1", (String) null) : (String) invokeL.objValue;
-    }
-
-    public String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? a(context, "setchannelwithcodevalue", (String) null) : (String) invokeL.objValue;
-    }
-
-    public boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, context)) == null) ? a(context, "setchannelwithcode", false) : invokeL.booleanValue;
-    }
-
-    public String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, context)) == null) ? a(context, "mtjsdkmacss2_1", (String) null) : (String) invokeL.objValue;
-    }
-
-    public boolean i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, context)) == null) ? a(context, "mtjtv", false) : invokeL.booleanValue;
-    }
-
-    public String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, context)) == null) ? a(context, "mtjsdkmacsstv_1", (String) null) : (String) invokeL.objValue;
-    }
-
-    public String k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, context)) == null) ? a(context, "he.ext", (String) null) : (String) invokeL.objValue;
-    }
-
-    public String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, context)) == null) ? a(context, "he.push", (String) null) : (String) invokeL.objValue;
-    }
-
-    public boolean m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, context)) == null) ? a(context, "mtjsdkmactrick", true) : invokeL.booleanValue;
-    }
-
-    public long n(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, context)) == null) ? a(context, "autotrace_track_js_fetch_time", 0L) : invokeL.longValue;
-    }
-
-    public long o(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, context)) == null) ? a(context, "autotrace_track_js_fetch_interval", 0L) : invokeL.longValue;
-    }
-
-    public long p(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, context)) == null) ? a(context, "autotrace_config_fetch_time", 0L) : invokeL.longValue;
-    }
-
-    public String q(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, context)) == null) ? a(context, "custom_userid", "") : (String) invokeL.objValue;
-    }
-
-    public String r(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, context)) == null) ? a(context, "scheme_time", "") : (String) invokeL.objValue;
-    }
-
-    public String s(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, context)) == null) ? a(context, "encrypt_device_id", "") : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.mobstat.bn
-    public SharedPreferences a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context.getSharedPreferences(a, 0) : (SharedPreferences) invokeL.objValue;
-    }
-
-    public void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
-            b(context, "timeinterval", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new byte[]{48, -127, -97, 48, StrictLineReader.CR, 6, 9, ExifInterface.START_CODE, -122, 72, -122, -9, StrictLineReader.CR, 1, 1, 1, 5, 0, 3, -127, -115, 0, 48, -127, -119, 2, -127, -127, 0, -79, 21, -34, -73, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, -48, -29, 119, 8, -81, -27, -81, -127, -98, -68, -45, -22, ByteCompanionObject.MAX_VALUE, -82, 126, -122, 87, 8, 122, -21, 108, 69, -10, 70, -1, 123, Constants.GZIP_CAST_TYPE, 90, -11, -5, -4, ExifInterface.MARKER_SOF11, 90, 78, 94, ExifInterface.MARKER_SOF2, 45, 28, -121, -10, 34, ExifInterface.MARKER_APP1, -95, 54, -76, -88, 20, 30, -4, 47, -68, 60, 18, -102, 111, 86, -109, ExifInterface.MARKER_SOF15, -114, -41, 27, -72, 83, 59, -26, -89, -114, -12, -78, 86, 84, -111, -23, 118, 122, 72, 68, 124, 3, -122, -24, -14, 75, -73, -20, -21, -122, 49, -101, 53, -109, ExifInterface.MARKER_SOF3, 8, 10, 82, 0, -100, -94, ExifInterface.MARKER_SOF2, -83, Base64.INTERNAL_PADDING, -93, 117, 40, 66, -80, ByteCompanionObject.MAX_VALUE, -25, ExifInterface.MARKER_EOI, ExifInterface.MARKER_SOF0, -7, 34, -76, 119, 108, -33, -26, -29, -15, 117, 69, -89, 91, 2, 3, 1, 0, 1};
         }
-    }
-
-    public void c(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048588, this, context, z) == null) {
-            b(context, "mtjtv", z);
-        }
-    }
-
-    public void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, context, str) == null) {
-            b(context, "setchannelwithcodevalue", str);
-        }
-    }
-
-    public void e(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, context, str) == null) {
-            b(context, "mtjsdkmacss2_1", str);
-        }
-    }
-
-    public void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, context, str) == null) {
-            b(context, "mtjsdkmacsstv_1", str);
-        }
-    }
-
-    public void g(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, context, str) == null) {
-            b(context, "he.ext", str);
-        }
-    }
-
-    public void h(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, context, str) == null) {
-            b(context, "he.push", str);
-        }
-    }
-
-    public void i(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, context, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            b(context, "custom_userid", str);
-        }
-    }
-
-    public void j(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048603, this, context, str) == null) {
-            b(context, "scheme_time", str);
-        }
-    }
-
-    public void k(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048605, this, context, str) == null) {
-            b(context, "encrypt_device_id", str);
-        }
-    }
-
-    public void a(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            b(context, "sendLogtype", i);
-        }
-    }
-
-    public void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
-            if (a(context, "cuid", (String) null) != null) {
-                c(context, "cuid");
-            }
-            b(context, "cuidsec_1", str);
-            c(context, "cuidsec_1");
-            c(context, "cuidsec_1");
-            c(context, "cuidsec_2");
-        }
-    }
-
-    public void c(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, context, j) == null) {
-            b(context, "autotrace_config_fetch_time", j);
-        }
-    }
-
-    public void d(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048590, this, context, z) == null) {
-            b(context, "mtjsdkmactrick", z);
-        }
-    }
-
-    public void a(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, context, z) == null) {
-            b(context, "onlywifi", z);
-        }
-    }
-
-    public void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
-            b(context, "device_id_1", str);
-        }
-    }
-
-    public void a(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j) == null) {
-            b(context, "autotrace_track_js_fetch_time", j);
-        }
-    }
-
-    public void b(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048585, this, context, z) == null) {
-            b(context, "setchannelwithcode", z);
-        }
-    }
-
-    public void b(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) {
-            b(context, "autotrace_track_js_fetch_interval", j);
-        }
+        return (byte[]) invokeV.objValue;
     }
 }

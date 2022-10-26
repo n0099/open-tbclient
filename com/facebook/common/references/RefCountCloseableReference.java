@@ -9,12 +9,12 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class RefCountCloseableReference<T> extends CloseableReference<T> {
+public class RefCountCloseableReference extends CloseableReference {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RefCountCloseableReference(SharedReference<T> sharedReference, CloseableReference.LeakHandler leakHandler, @Nullable Throwable th) {
+    public RefCountCloseableReference(SharedReference sharedReference, CloseableReference.LeakHandler leakHandler, @Nullable Throwable th) {
         super(sharedReference, leakHandler, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,13 +35,13 @@ public class RefCountCloseableReference<T> extends CloseableReference<T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RefCountCloseableReference(T t, ResourceReleaser<T> resourceReleaser, CloseableReference.LeakHandler leakHandler, @Nullable Throwable th) {
-        super(t, resourceReleaser, leakHandler, th);
+    public RefCountCloseableReference(Object obj, ResourceReleaser resourceReleaser, CloseableReference.LeakHandler leakHandler, @Nullable Throwable th) {
+        super(obj, resourceReleaser, leakHandler, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t, resourceReleaser, leakHandler, th};
+            Object[] objArr = {obj, resourceReleaser, leakHandler, th};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,7 +57,7 @@ public class RefCountCloseableReference<T> extends CloseableReference<T> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
-    public CloseableReference<T> clone() {
+    public CloseableReference clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

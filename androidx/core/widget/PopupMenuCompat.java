@@ -3,8 +3,6 @@ package androidx.core.widget;
 import android.os.Build;
 import android.view.View;
 import android.widget.PopupMenu;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +27,7 @@ public final class PopupMenuCompat {
         }
     }
 
-    @Nullable
-    public static View.OnTouchListener getDragToOpenListener(@NonNull Object obj) {
+    public static View.OnTouchListener getDragToOpenListener(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {

@@ -25,7 +25,13 @@ public final class LabelInfoForLivePost extends Message {
     public final String labelId;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<LabelInfoForLivePost> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String labelContent;
@@ -77,14 +83,11 @@ public final class LabelInfoForLivePost extends Message {
         public LabelInfoForLivePost build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new LabelInfoForLivePost(this, z, null) : (LabelInfoForLivePost) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new LabelInfoForLivePost(this, z, null);
+            }
+            return (LabelInfoForLivePost) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -101,10 +104,6 @@ public final class LabelInfoForLivePost extends Message {
             }
         }
         DEFAULT_LABELHOT = 0;
-    }
-
-    public /* synthetic */ LabelInfoForLivePost(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,5 +149,9 @@ public final class LabelInfoForLivePost extends Message {
         this.labelContent = builder.labelContent;
         this.labelHot = builder.labelHot;
         this.labelId = builder.labelId;
+    }
+
+    public /* synthetic */ LabelInfoForLivePost(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

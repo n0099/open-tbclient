@@ -16,17 +16,16 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ch;
+import com.baidu.tieba.aj;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.yb;
-import com.baidu.tieba.zi;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.zb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
-import com.baidubce.http.Headers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,7 +40,7 @@ import java.net.SocketException;
 import java.net.URL;
 import java.util.UUID;
 /* loaded from: classes3.dex */
-public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
+public class InsertGalleryAsyncTask extends BdAsyncTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_ANNIVERSARY = 3;
     public static final int FROM_DEFAULT = 0;
@@ -58,9 +57,13 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
     public String url;
 
     /* loaded from: classes3.dex */
-    public static abstract class a {
+    public abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void a(int i, String str);
+
+        public abstract void b(String str);
 
         public a() {
             Interceptable interceptable = $ic;
@@ -75,10 +78,6 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                 }
             }
         }
-
-        public abstract void a(int i, String str);
-
-        public abstract void b(String str);
     }
 
     /* loaded from: classes3.dex */
@@ -110,13 +109,19 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -142,6 +147,26 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         this.insertGalleryListener = aVar;
     }
 
+    private boolean download(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i)) == null) {
+            int b2 = zb.d().b().b();
+            int b3 = zb.d().c().b();
+            boolean z = false;
+            for (int i2 = 0; i2 < i; i2++) {
+                try {
+                    z = realDownload(str, str2, b3, b2);
+                    break;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return z;
+        }
+        return invokeLLI.booleanValue;
+    }
+
     private void deleteNoMediaFile(File file) {
         File[] listFiles;
         Interceptable interceptable = $ic;
@@ -160,30 +185,20 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean download(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i)) == null) {
-            int b2 = yb.d().b().b();
-            int b3 = yb.d().c().b();
-            boolean z = false;
-            for (int i2 = 0; i2 < i; i2++) {
-                try {
-                    z = realDownload(str, str2, b3, b2);
-                    break;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
     private boolean downloadFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? download(this.url, this.imagePath, 3) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return download(this.url, this.imagePath, 3);
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void notifyGallery() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.imageFile != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.imageFile)));
+        }
     }
 
     private HttpURLConnection getConnect(URL url, int i, int i2) throws SocketException, ProtocolException {
@@ -197,35 +212,35 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (BdNetTypeUtil.isNetWorkAvailable()) {
-                if (BdNetTypeUtil.isMobileNet() && (curMobileProxyHost = BdNetTypeUtil.curMobileProxyHost()) != null && curMobileProxyHost.length() > 0) {
-                    if (BdNetTypeUtil.isWap(curMobileProxyHost) && BdNetTypeUtil.isSupportWap()) {
-                        StringBuilder sb = new StringBuilder(80);
-                        sb.append("http://");
-                        sb.append(curMobileProxyHost);
-                        String file = url.getFile();
-                        if (file != null && file.startsWith("?")) {
-                            sb.append("/");
-                        }
-                        sb.append(file);
-                        httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
-                    } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(curMobileProxyHost, BdNetTypeUtil.curMobileProxyPort())));
-                    }
-                    httpURLConnection2 = httpURLConnection;
-                }
-                if (httpURLConnection2 == null) {
-                    httpURLConnection2 = (HttpURLConnection) url.openConnection();
-                }
-                if (httpURLConnection2 != null) {
-                    httpURLConnection2.setRequestMethod("GET");
-                    httpURLConnection2.setConnectTimeout(i);
-                    httpURLConnection2.setReadTimeout(i2);
-                    return httpURLConnection2;
-                }
-                throw new SocketException();
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                return null;
             }
-            return null;
+            if (BdNetTypeUtil.isMobileNet() && (curMobileProxyHost = BdNetTypeUtil.curMobileProxyHost()) != null && curMobileProxyHost.length() > 0) {
+                if (BdNetTypeUtil.isWap(curMobileProxyHost) && BdNetTypeUtil.isSupportWap()) {
+                    StringBuilder sb = new StringBuilder(80);
+                    sb.append("http://");
+                    sb.append(curMobileProxyHost);
+                    String file = url.getFile();
+                    if (file != null && file.startsWith("?")) {
+                        sb.append("/");
+                    }
+                    sb.append(file);
+                    httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                } else {
+                    httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(curMobileProxyHost, BdNetTypeUtil.curMobileProxyPort())));
+                }
+                httpURLConnection2 = httpURLConnection;
+            }
+            if (httpURLConnection2 == null) {
+                httpURLConnection2 = (HttpURLConnection) url.openConnection();
+            }
+            if (httpURLConnection2 != null) {
+                httpURLConnection2.setRequestMethod("GET");
+                httpURLConnection2.setConnectTimeout(i);
+                httpURLConnection2.setReadTimeout(i2);
+                return httpURLConnection2;
+            }
+            throw new SocketException();
         }
         return (HttpURLConnection) invokeLII.objValue;
     }
@@ -292,10 +307,41 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            zi.k(str);
+            aj.k(str);
             return new File(str);
         }
         return (File) invokeL.objValue;
+    }
+
+    public InsertGalleryAsyncTask isBase64Type(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.isBase64Type = z;
+            return this;
+        }
+        return (InsertGalleryAsyncTask) invokeZ.objValue;
+    }
+
+    public void setCareHeaderContentLength(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.careHeaderContentLength = z;
+        }
+    }
+
+    public void setFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.from = i;
+        }
+    }
+
+    public void setRenameGif(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.renameGif = z;
+        }
     }
 
     private boolean isGifFile(File file) {
@@ -307,10 +353,13 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                 fileInputStream.skip(fileInputStream.available() - 1);
                 int[] iArr = {fileInputStream.read(), fileInputStream.read(), fileInputStream.read(), fileInputStream.read(), fileInputStream.read()};
                 fileInputStream.close();
-                if (iArr[0] == 71 && iArr[1] == 73 && iArr[2] == 70 && iArr[3] == 56) {
-                    return iArr[4] == 59;
+                if (iArr[0] != 71 || iArr[1] != 73 || iArr[2] != 70 || iArr[3] != 56) {
+                    return false;
                 }
-                return false;
+                if (iArr[4] != 59) {
+                    return false;
+                }
+                return true;
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 return false;
@@ -323,6 +372,38 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             }
         }
         return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            super.onPostExecute((InsertGalleryAsyncTask) bVar);
+            if (bVar == null) {
+                a aVar = this.insertGalleryListener;
+                if (aVar != null) {
+                    aVar.a(-2, "error");
+                }
+            } else if (!bVar.b()) {
+                a aVar2 = this.insertGalleryListener;
+                if (aVar2 != null) {
+                    aVar2.a(-1, bVar.a());
+                }
+            } else {
+                if (this.renameGif && isGifFile(new File(this.imagePath))) {
+                    String replace = this.imagePath.replace(getImageSuffix(this.imagePath), ".gif");
+                    this.imageFile.renameTo(new File(replace));
+                    this.imagePath = replace;
+                    this.imageFile = new File(this.imagePath);
+                }
+                notifyGallery();
+                a aVar3 = this.insertGalleryListener;
+                if (aVar3 != null) {
+                    aVar3.b(this.imagePath);
+                }
+            }
+        }
     }
 
     private boolean makePath() {
@@ -360,8 +441,10 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                 }
                 if (this.from == 1) {
                     lowerCase = "shareDialogTempImg";
+                } else if (this.from == 3) {
+                    lowerCase = "userPortrait";
                 } else {
-                    lowerCase = this.from == 3 ? "userPortrait" : UUID.randomUUID().toString().replace("-", "").toLowerCase();
+                    lowerCase = UUID.randomUUID().toString().replace("-", "").toLowerCase();
                 }
                 this.imagePath = this.dir + lowerCase + getImageSuffix(this.url);
                 File file2 = new File(this.imagePath);
@@ -382,19 +465,12 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         return invokeV.booleanValue;
     }
 
-    private void notifyGallery() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.imageFile == null) {
-            return;
-        }
-        TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.imageFile)));
-    }
-
     private boolean realDownload(String str, String str2, int i, int i2) throws Exception {
         InterceptResult invokeLLII;
         HttpURLConnection httpURLConnection;
         FileOutputStream fileOutputStream;
         int responseCode;
+        int i3;
         String lowerCase;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65546, this, str, str2, i, i2)) == null) {
@@ -407,8 +483,8 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                         httpURLConnection.connect();
                         responseCode = httpURLConnection.getResponseCode();
                         if (responseCode == 302) {
-                            String headerField = httpURLConnection.getHeaderField(Headers.LOCATION);
-                            ch.f(httpURLConnection);
+                            String headerField = httpURLConnection.getHeaderField("Location");
+                            dh.f(httpURLConnection);
                             try {
                                 if (this.imageFile != null) {
                                     this.imageFile.delete();
@@ -417,8 +493,10 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                             }
                             if (this.from == 1) {
                                 lowerCase = "shareDialogTempImg";
+                            } else if (this.from == 3) {
+                                lowerCase = "userPortrait";
                             } else {
-                                lowerCase = this.from == 3 ? "userPortrait" : UUID.randomUUID().toString().replace("-", "").toLowerCase();
+                                lowerCase = UUID.randomUUID().toString().replace("-", "").toLowerCase();
                             }
                             this.imagePath = this.dir + lowerCase + getImageSuffix(headerField);
                             File file = new File(this.imagePath);
@@ -429,7 +507,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                             if (!this.imageFile.exists()) {
                                 this.imageFile.createNewFile();
                             }
-                            ch.d(fileOutputStream);
+                            dh.d(fileOutputStream);
                             FileOutputStream fileOutputStream2 = new FileOutputStream(this.imageFile, true);
                             try {
                                 httpURLConnection = getConnect(new URL(headerField), i, i2);
@@ -455,7 +533,12 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             }
             if (responseCode == 200) {
                 String headerField2 = httpURLConnection.getHeaderField("Content-Length");
-                if ((headerField2 != null ? dh.e(headerField2, 0) : 0) != 0 || !this.careHeaderContentLength) {
+                if (headerField2 != null) {
+                    i3 = eh.e(headerField2, 0);
+                } else {
+                    i3 = 0;
+                }
+                if (i3 != 0 || !this.careHeaderContentLength) {
                     inputStream = httpURLConnection.getInputStream();
                     byte[] bArr = new byte[1024];
                     while (true) {
@@ -469,25 +552,25 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                         } else {
                             try {
                                 fileOutputStream.flush();
-                                ch.c(inputStream);
-                                ch.f(httpURLConnection);
-                                ch.d(fileOutputStream);
+                                dh.c(inputStream);
+                                dh.f(httpURLConnection);
+                                dh.d(fileOutputStream);
                                 return true;
                             } catch (Exception unused3) {
                                 throw new FileNotFoundException();
                             }
                         }
                         th = th2;
-                        ch.c(inputStream);
-                        ch.f(httpURLConnection);
-                        ch.d(fileOutputStream);
+                        dh.c(inputStream);
+                        dh.f(httpURLConnection);
+                        dh.d(fileOutputStream);
                         throw th;
                     }
                 }
             }
-            ch.c(null);
-            ch.f(httpURLConnection);
-            ch.d(fileOutputStream);
+            dh.c(null);
+            dh.f(httpURLConnection);
+            dh.d(fileOutputStream);
             return false;
         }
         return invokeLLII.booleanValue;
@@ -518,53 +601,22 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             try {
                 fileOutputStream.write(decode);
                 fileOutputStream.flush();
-                ch.d(fileOutputStream);
+                dh.d(fileOutputStream);
                 return true;
             } catch (Exception e2) {
                 e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
-                ch.d(fileOutputStream2);
+                dh.d(fileOutputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                ch.d(fileOutputStream2);
+                dh.d(fileOutputStream2);
                 throw th;
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public InsertGalleryAsyncTask isBase64Type(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.isBase64Type = z;
-            return this;
-        }
-        return (InsertGalleryAsyncTask) invokeZ.objValue;
-    }
-
-    public void setCareHeaderContentLength(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.careHeaderContentLength = z;
-        }
-    }
-
-    public void setFrom(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.from = i;
-        }
-    }
-
-    public void setRenameGif(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.renameGif = z;
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -589,37 +641,5 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             return new b(this, true, null);
         }
         return (b) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            super.onPostExecute((InsertGalleryAsyncTask) bVar);
-            if (bVar == null) {
-                a aVar = this.insertGalleryListener;
-                if (aVar != null) {
-                    aVar.a(-2, "error");
-                }
-            } else if (!bVar.b()) {
-                a aVar2 = this.insertGalleryListener;
-                if (aVar2 != null) {
-                    aVar2.a(-1, bVar.a());
-                }
-            } else {
-                if (this.renameGif && isGifFile(new File(this.imagePath))) {
-                    String replace = this.imagePath.replace(getImageSuffix(this.imagePath), ".gif");
-                    this.imageFile.renameTo(new File(replace));
-                    this.imagePath = replace;
-                    this.imageFile = new File(this.imagePath);
-                }
-                notifyGallery();
-                a aVar3 = this.insertGalleryListener;
-                if (aVar3 != null) {
-                    aVar3.b(this.imagePath);
-                }
-            }
-        }
     }
 }

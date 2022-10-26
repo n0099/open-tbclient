@@ -15,7 +15,7 @@ import java.util.List;
 public class k implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
+    public List a;
     public View b;
     public boolean c;
 
@@ -50,10 +50,9 @@ public class k implements ViewTreeObserver.OnGlobalLayoutListener {
     public void a() {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.b) != null) {
+            view2.getViewTreeObserver().addOnGlobalLayoutListener(this);
         }
-        view2.getViewTreeObserver().addOnGlobalLayoutListener(this);
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener

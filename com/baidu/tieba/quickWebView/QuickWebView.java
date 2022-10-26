@@ -30,15 +30,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad8;
-import com.baidu.tieba.bd8;
-import com.baidu.tieba.dx4;
+import com.baidu.tieba.eo8;
+import com.baidu.tieba.fo8;
+import com.baidu.tieba.id8;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.jx4;
+import com.baidu.tieba.kd8;
+import com.baidu.tieba.ld8;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.xn8;
-import com.baidu.tieba.yc8;
-import com.baidu.tieba.yn8;
-import com.baidu.tieba.zc8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public class QuickWebView extends BaseWebView {
     public static /* synthetic */ Interceptable $ic;
     public static String o;
     public transient /* synthetic */ FieldHolder $fh;
-    public yc8 a;
+    public id8 a;
     public QuickWebViewBridge b;
     public ProgressBar c;
     public boolean d;
@@ -100,7 +100,7 @@ public class QuickWebView extends BaseWebView {
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.g
         public void a(WebView webView, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) || this.a.c == null) {
+            if ((interceptable != null && interceptable.invokeLI(1048576, this, webView, i) != null) || this.a.c == null) {
                 return;
             }
             if (this.a.d) {
@@ -208,6 +208,27 @@ public class QuickWebView extends BaseWebView {
         o = QuickWebView.class.getSimpleName();
     }
 
+    private Drawable getProgressDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            if (this.j == null) {
+                this.j = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fe5);
+            }
+            return this.j;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebView
+    public void goBack() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = true;
+            super.goBack();
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QuickWebView(Context context) {
         super(context);
@@ -235,356 +256,6 @@ public class QuickWebView extends BaseWebView {
         k(context);
     }
 
-    private Drawable getProgressDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            if (this.j == null) {
-                this.j = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fd4);
-            }
-            return this.j;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.destroy();
-            yc8 yc8Var = this.a;
-            if (yc8Var != null) {
-                yc8Var.h();
-                this.a = null;
-            }
-            this.n = null;
-            setOnProgressChangedListener(null);
-            ObjectAnimator objectAnimator = this.g;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-                this.g = null;
-            }
-            ObjectAnimator objectAnimator2 = this.h;
-            if (objectAnimator2 != null) {
-                objectAnimator2.cancel();
-                this.h = null;
-            }
-            this.c = null;
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void goBack() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = true;
-            super.goBack();
-        }
-    }
-
-    public void h(xn8 xn8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xn8Var) == null) {
-            this.mJsBridge.a(xn8Var);
-        }
-    }
-
-    public final void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            ProgressBar progressBar = new ProgressBar(context, null, 16842872);
-            this.c = progressBar;
-            progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702d1), 0, 0));
-            this.c.setProgressDrawable(getProgressDrawable());
-            addView(this.c);
-            setOnProgressChangedListener(this.n);
-        }
-    }
-
-    public final String j(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Iterator<String> it;
-        String str3;
-        Iterator<String> it2;
-        String str4;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            HashMap hashMap = new HashMap();
-            String str5 = null;
-            try {
-                URL url = new URL(str);
-                bd8 d = ad8.a().d(url.getPath());
-                if (d == null) {
-                    try {
-                        if (ad8.a().b() != null) {
-                            this.k = 3;
-                        }
-                        return null;
-                    } catch (MalformedURLException unused) {
-                    }
-                } else {
-                    int i = 2;
-                    int i2 = 0;
-                    try {
-                        if (!d.e) {
-                            this.k = 4;
-                            dx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", d.b, "hybridVersion", this.m, "hybridResult", "processing bundle");
-                            return null;
-                        }
-                        try {
-                            String s = zc8.q().s(d.b);
-                            if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(s)) {
-                                this.l = zc8.A(true, d.b);
-                                this.m = zc8.A(false, s);
-                                String str6 = zc8.q().p() + "/" + d.b + "/" + s + "/";
-                                String str7 = d.c;
-                                if (!d.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
-                                    str7 = d.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
-                                }
-                                String str8 = str6 + str7;
-                                File file = new File(str8);
-                                ArrayList<String> arrayList = d.d;
-                                if (!str8.contains("/android_asset/")) {
-                                    if (!file.exists()) {
-                                        this.k = 2;
-                                        dx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "path not found");
-                                        return null;
-                                    } else if (ListUtils.isEmpty(arrayList)) {
-                                        return null;
-                                    } else {
-                                        for (String str9 : arrayList) {
-                                            if (StringUtils.isNull(str9)) {
-                                                dx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "static file path is null");
-                                                this.k = 1;
-                                                return null;
-                                            } else if (!new File(str6, str9).exists()) {
-                                                this.k = 1;
-                                                dx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str9, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "bundle incomplete");
-                                                return null;
-                                            }
-                                        }
-                                    }
-                                }
-                                String query = url.getQuery();
-                                str2 = "file://" + str6 + str7;
-                                try {
-                                    if (!TextUtils.isEmpty(query)) {
-                                        str2 = str2 + "?" + query;
-                                    }
-                                    if (d.a != null && d.a.size() != 0) {
-                                        String str10 = "&";
-                                        if (!TextUtils.isEmpty(query) && (split = query.split("&")) != null) {
-                                            int length = split.length;
-                                            int i3 = 0;
-                                            while (i3 < length) {
-                                                String[] split2 = split[i3].split("=");
-                                                if (split2 != null && split2.length == i) {
-                                                    hashMap.put("{" + split2[0] + "}", split2[1]);
-                                                }
-                                                i3++;
-                                                i = 2;
-                                            }
-                                        }
-                                        hashMap.put("{client_version}", TbConfig.getVersion());
-                                        hashMap.put("{client_type}", "2");
-                                        hashMap.put("{is_yy_user}", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
-                                        Iterator<String> it3 = d.a.iterator();
-                                        while (it3.hasNext()) {
-                                            String next = it3.next();
-                                            StringBuilder sb = new StringBuilder();
-                                            String query2 = new URL(next).getQuery();
-                                            if (TextUtils.isEmpty(query2)) {
-                                                it = it3;
-                                                str3 = str10;
-                                            } else {
-                                                String[] split3 = query2.split(str10);
-                                                if (split3 != null) {
-                                                    int length2 = split3.length;
-                                                    boolean z = true;
-                                                    while (i2 < length2) {
-                                                        String str11 = split3[i2];
-                                                        if (z) {
-                                                            z = false;
-                                                        } else {
-                                                            sb.append(str10);
-                                                        }
-                                                        String[] split4 = str11.split("=");
-                                                        if (split4 != null) {
-                                                            it2 = it3;
-                                                            str4 = str10;
-                                                            if (split4.length == 2) {
-                                                                String str12 = (String) hashMap.get(split4[1]);
-                                                                if (str12 == null) {
-                                                                    str12 = split4[1];
-                                                                    if (str12.contains("{") && str12.contains("}")) {
-                                                                        str12 = null;
-                                                                    }
-                                                                }
-                                                                sb.append(split4[0]);
-                                                                sb.append("=");
-                                                                if (!TextUtils.isEmpty(str12)) {
-                                                                    sb.append(str12);
-                                                                }
-                                                                i2++;
-                                                                it3 = it2;
-                                                                str10 = str4;
-                                                            }
-                                                        } else {
-                                                            it2 = it3;
-                                                            str4 = str10;
-                                                        }
-                                                        i2++;
-                                                        it3 = it2;
-                                                        str10 = str4;
-                                                    }
-                                                }
-                                                it = it3;
-                                                str3 = str10;
-                                                String sb2 = sb.toString();
-                                                if (!TextUtils.isEmpty(sb2)) {
-                                                    next = next.replace(query2, sb2);
-                                                }
-                                            }
-                                            QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
-                                            quickWebViewBridgeData.type = "get";
-                                            quickWebViewBridgeData.url = next;
-                                            quickWebViewBridgeData.module = d.b;
-                                            quickWebViewBridgeData.begin = System.currentTimeMillis();
-                                            if (this.a != null) {
-                                                this.a.i(quickWebViewBridgeData, null);
-                                            }
-                                            it3 = it;
-                                            str10 = str3;
-                                            i2 = 0;
-                                        }
-                                        return str2;
-                                    }
-                                    return str2;
-                                } catch (MalformedURLException unused2) {
-                                    str5 = str2;
-                                    return str5;
-                                }
-                            }
-                            return null;
-                        } catch (MalformedURLException unused3) {
-                            str2 = null;
-                        }
-                    } catch (MalformedURLException unused4) {
-                        str5 = null;
-                    }
-                }
-            } catch (MalformedURLException unused5) {
-            }
-            return str5;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void k(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            this.i = context;
-            initCommonJsBridge(context);
-            yc8 yc8Var = new yc8(this);
-            this.a = yc8Var;
-            yc8Var.l(this.mJsBridge);
-            QuickWebViewBridge quickWebViewBridge = new QuickWebViewBridge(context, this.a);
-            this.b = quickWebViewBridge;
-            this.mJsBridge.a(quickWebViewBridge);
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && z) {
-            i(this.i);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:52:0x016c  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x016f  */
-    @Override // android.webkit.WebView
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void loadUrl(String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            String str2 = str;
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            if (TbSingleton.getInstance().isDebugToolMode() && TbDebugSingleton.getInstance().getUrlSwitchMap() != null) {
-                HashMap<String, String> hashMap = TbDebugSingleton.getInstance().getUrlSwitchMap().a;
-                String str3 = null;
-                for (String str4 : hashMap.keySet()) {
-                    if (!TextUtils.isEmpty(str4) && str2.contains(str4)) {
-                        str3 = str4;
-                    }
-                }
-                if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(hashMap.get(str3))) {
-                    String str5 = hashMap.get(str3);
-                    Uri parse = Uri.parse(str);
-                    String str6 = (TextUtils.isEmpty(parse.getScheme()) || TextUtils.isEmpty(parse.getHost())) ? "" : parse.getScheme() + "://" + parse.getHost();
-                    if (!TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str6)) {
-                        str2 = str2.replace(str6, str5);
-                    }
-                }
-            }
-            if (!str2.contains("javascript:")) {
-                this.d = false;
-                StringBuilder sb = new StringBuilder();
-                sb.append(str2);
-                sb.append(str2.contains("?") ? "&" : "?");
-                sb.append("_webview_time=");
-                sb.append(System.currentTimeMillis());
-                str2 = sb.toString();
-                dx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str2);
-                String substring = str2.length() > 100 ? str2.substring(0, 100) : str2;
-                if (QuickWebViewSwitch.getInOn()) {
-                    String j = j(str2);
-                    if (!TextUtils.isEmpty(j)) {
-                        dx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", j, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "success");
-                        str2 = j;
-                        z = true;
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.k).param("obj_name", zc8.h).param("obj_param1", this.l).param("obj_id", this.m));
-                        this.k = 0;
-                        this.l = "none";
-                        this.m = "0.0.0.0";
-                        dx4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
-                    }
-                } else {
-                    this.k = 5;
-                }
-                z = false;
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.k).param("obj_name", zc8.h).param("obj_param1", this.l).param("obj_id", this.m));
-                this.k = 0;
-                this.l = "none";
-                this.m = "0.0.0.0";
-                dx4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
-            }
-            if (this.b != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.b.setLastLoadUrlTime(currentTimeMillis);
-                this.mCommonJsBridge.setLastLoadUrlTime(currentTimeMillis);
-            }
-            super.loadUrl(str2);
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || StringUtils.isNull(str) || this.mJsBridge == null) {
-            return;
-        }
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
-        linkedHashMap.put("data", str);
-        this.mJsBridge.h(this, SearchJsBridge.METHOD_SET_SEARCH_HISTORY, linkedHashMap);
-    }
-
     public final void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -600,30 +271,6 @@ public class QuickWebView extends BaseWebView {
             this.h.addUpdateListener(new b(this, i));
             this.h.addListener(new c(this));
             this.h.start();
-        }
-    }
-
-    public final void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            ObjectAnimator objectAnimator = this.g;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-                this.g = null;
-            }
-            ObjectAnimator ofInt = ObjectAnimator.ofInt(this.c, "progress", this.f, i);
-            this.g = ofInt;
-            ofInt.setDuration(100L);
-            this.g.setInterpolator(new DecelerateInterpolator());
-            this.g.start();
-        }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView
-    public void setOnJsPromptCallback(yn8 yn8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, yn8Var) == null) {
-            Log.e(o, "QuickWebView do not support setOnJsPromptCallback");
         }
     }
 
@@ -653,5 +300,387 @@ public class QuickWebView extends BaseWebView {
         this.m = "0.0.0.0";
         this.n = new a(this);
         k(context);
+    }
+
+    public void h(eo8 eo8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eo8Var) == null) {
+            this.mJsBridge.a(eo8Var);
+        }
+    }
+
+    public final void k(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            this.i = context;
+            initCommonJsBridge(context);
+            id8 id8Var = new id8(this);
+            this.a = id8Var;
+            id8Var.l(this.mJsBridge);
+            QuickWebViewBridge quickWebViewBridge = new QuickWebViewBridge(context, this.a);
+            this.b = quickWebViewBridge;
+            this.mJsBridge.a(quickWebViewBridge);
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && z) {
+            i(this.i);
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && !StringUtils.isNull(str) && this.mJsBridge != null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("data", str);
+            this.mJsBridge.h(this, SearchJsBridge.METHOD_SET_SEARCH_HISTORY, linkedHashMap);
+        }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView
+    public void setOnJsPromptCallback(fo8 fo8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fo8Var) == null) {
+            Log.e(o, "QuickWebView do not support setOnJsPromptCallback");
+        }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.destroy();
+            id8 id8Var = this.a;
+            if (id8Var != null) {
+                id8Var.h();
+                this.a = null;
+            }
+            this.n = null;
+            setOnProgressChangedListener(null);
+            ObjectAnimator objectAnimator = this.g;
+            if (objectAnimator != null) {
+                objectAnimator.cancel();
+                this.g = null;
+            }
+            ObjectAnimator objectAnimator2 = this.h;
+            if (objectAnimator2 != null) {
+                objectAnimator2.cancel();
+                this.h = null;
+            }
+            this.c = null;
+        }
+    }
+
+    public final void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            ProgressBar progressBar = new ProgressBar(context, null, 16842872);
+            this.c = progressBar;
+            progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702d1), 0, 0));
+            this.c.setProgressDrawable(getProgressDrawable());
+            addView(this.c);
+            setOnProgressChangedListener(this.n);
+        }
+    }
+
+    public final void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            ObjectAnimator objectAnimator = this.g;
+            if (objectAnimator != null) {
+                objectAnimator.cancel();
+                this.g = null;
+            }
+            ObjectAnimator ofInt = ObjectAnimator.ofInt(this.c, "progress", this.f, i);
+            this.g = ofInt;
+            ofInt.setDuration(100L);
+            this.g.setInterpolator(new DecelerateInterpolator());
+            this.g.start();
+        }
+    }
+
+    public final String j(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        Iterator it;
+        String str4;
+        Iterator it2;
+        String str5;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            HashMap hashMap = new HashMap();
+            String str6 = null;
+            try {
+                URL url = new URL(str);
+                ld8 d = kd8.a().d(url.getPath());
+                if (d == null) {
+                    try {
+                        if (kd8.a().b() != null) {
+                            this.k = 3;
+                        }
+                        return null;
+                    } catch (MalformedURLException unused) {
+                    }
+                } else {
+                    int i = 2;
+                    int i2 = 0;
+                    try {
+                        if (!d.e) {
+                            this.k = 4;
+                            jx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", d.b, "hybridVersion", this.m, "hybridResult", "processing bundle");
+                            return null;
+                        }
+                        try {
+                            String s = jd8.q().s(d.b);
+                            if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(s)) {
+                                this.l = jd8.A(true, d.b);
+                                this.m = jd8.A(false, s);
+                                String str7 = jd8.q().p() + "/" + d.b + "/" + s + "/";
+                                String str8 = d.c;
+                                if (!d.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
+                                    str8 = d.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
+                                }
+                                String str9 = str7 + str8;
+                                File file = new File(str9);
+                                ArrayList<String> arrayList = d.d;
+                                if (!str9.contains("/android_asset/")) {
+                                    if (!file.exists()) {
+                                        this.k = 2;
+                                        jx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "path not found");
+                                        return null;
+                                    } else if (ListUtils.isEmpty(arrayList)) {
+                                        return null;
+                                    } else {
+                                        for (String str10 : arrayList) {
+                                            if (StringUtils.isNull(str10)) {
+                                                jx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "static file path is null");
+                                                this.k = 1;
+                                                return null;
+                                            } else if (!new File(str7, str10).exists()) {
+                                                this.k = 1;
+                                                jx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str10, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "bundle incomplete");
+                                                return null;
+                                            }
+                                        }
+                                    }
+                                }
+                                String query = url.getQuery();
+                                str2 = "file://" + str7 + str8;
+                                try {
+                                    if (!TextUtils.isEmpty(query)) {
+                                        str2 = str2 + "?" + query;
+                                    }
+                                    if (d.a != null && d.a.size() != 0) {
+                                        String str11 = "&";
+                                        if (!TextUtils.isEmpty(query) && (split = query.split("&")) != null) {
+                                            int length = split.length;
+                                            int i3 = 0;
+                                            while (i3 < length) {
+                                                String[] split2 = split[i3].split("=");
+                                                if (split2 != null && split2.length == i) {
+                                                    hashMap.put("{" + split2[0] + "}", split2[1]);
+                                                }
+                                                i3++;
+                                                i = 2;
+                                            }
+                                        }
+                                        hashMap.put("{client_version}", TbConfig.getVersion());
+                                        hashMap.put("{client_type}", "2");
+                                        if (TbSingleton.getInstance().getSyncYYSwitch()) {
+                                            str3 = "1";
+                                        } else {
+                                            str3 = "0";
+                                        }
+                                        hashMap.put("{is_yy_user}", str3);
+                                        Iterator it3 = d.a.iterator();
+                                        while (it3.hasNext()) {
+                                            String str12 = (String) it3.next();
+                                            StringBuilder sb = new StringBuilder();
+                                            String query2 = new URL(str12).getQuery();
+                                            if (!TextUtils.isEmpty(query2)) {
+                                                String[] split3 = query2.split(str11);
+                                                if (split3 != null) {
+                                                    int length2 = split3.length;
+                                                    boolean z = true;
+                                                    while (i2 < length2) {
+                                                        String str13 = split3[i2];
+                                                        if (!z) {
+                                                            sb.append(str11);
+                                                        } else {
+                                                            z = false;
+                                                        }
+                                                        String[] split4 = str13.split("=");
+                                                        if (split4 != null) {
+                                                            it2 = it3;
+                                                            str5 = str11;
+                                                            if (split4.length == 2) {
+                                                                String str14 = (String) hashMap.get(split4[1]);
+                                                                if (str14 == null) {
+                                                                    str14 = split4[1];
+                                                                    if (str14.contains("{") && str14.contains("}")) {
+                                                                        str14 = null;
+                                                                    }
+                                                                }
+                                                                sb.append(split4[0]);
+                                                                sb.append("=");
+                                                                if (!TextUtils.isEmpty(str14)) {
+                                                                    sb.append(str14);
+                                                                }
+                                                                i2++;
+                                                                it3 = it2;
+                                                                str11 = str5;
+                                                            }
+                                                        } else {
+                                                            it2 = it3;
+                                                            str5 = str11;
+                                                        }
+                                                        i2++;
+                                                        it3 = it2;
+                                                        str11 = str5;
+                                                    }
+                                                }
+                                                it = it3;
+                                                str4 = str11;
+                                                String sb2 = sb.toString();
+                                                if (!TextUtils.isEmpty(sb2)) {
+                                                    str12 = str12.replace(query2, sb2);
+                                                }
+                                            } else {
+                                                it = it3;
+                                                str4 = str11;
+                                            }
+                                            QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
+                                            quickWebViewBridgeData.type = "get";
+                                            quickWebViewBridgeData.url = str12;
+                                            quickWebViewBridgeData.module = d.b;
+                                            quickWebViewBridgeData.begin = System.currentTimeMillis();
+                                            if (this.a != null) {
+                                                this.a.i(quickWebViewBridgeData, null);
+                                            }
+                                            it3 = it;
+                                            str11 = str4;
+                                            i2 = 0;
+                                        }
+                                        return str2;
+                                    }
+                                    return str2;
+                                } catch (MalformedURLException unused2) {
+                                    str6 = str2;
+                                    return str6;
+                                }
+                            }
+                            return null;
+                        } catch (MalformedURLException unused3) {
+                            str2 = null;
+                        }
+                    } catch (MalformedURLException unused4) {
+                        str6 = null;
+                    }
+                }
+            } catch (MalformedURLException unused5) {
+            }
+            return str6;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:52:0x016c  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x016f  */
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void loadUrl(String str) {
+        String str2;
+        boolean z;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            String str5 = str;
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            if (TbSingleton.getInstance().isDebugToolMode() && TbDebugSingleton.getInstance().getUrlSwitchMap() != null) {
+                HashMap hashMap = TbDebugSingleton.getInstance().getUrlSwitchMap().a;
+                String str6 = null;
+                for (String str7 : hashMap.keySet()) {
+                    if (!TextUtils.isEmpty(str7) && str5.contains(str7)) {
+                        str6 = str7;
+                    }
+                }
+                if (!TextUtils.isEmpty(str6) && !TextUtils.isEmpty((CharSequence) hashMap.get(str6))) {
+                    String str8 = (String) hashMap.get(str6);
+                    Uri parse = Uri.parse(str);
+                    if (!TextUtils.isEmpty(parse.getScheme()) && !TextUtils.isEmpty(parse.getHost())) {
+                        str4 = parse.getScheme() + "://" + parse.getHost();
+                    } else {
+                        str4 = "";
+                    }
+                    if (!TextUtils.isEmpty(str8) && !TextUtils.isEmpty(str4)) {
+                        str5 = str5.replace(str4, str8);
+                    }
+                }
+            }
+            if (!str5.contains("javascript:")) {
+                this.d = false;
+                StringBuilder sb = new StringBuilder();
+                sb.append(str5);
+                String str9 = "?";
+                if (str5.contains("?")) {
+                    str9 = "&";
+                }
+                sb.append(str9);
+                sb.append("_webview_time=");
+                sb.append(System.currentTimeMillis());
+                str5 = sb.toString();
+                jx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str5);
+                if (str5.length() > 100) {
+                    str2 = str5.substring(0, 100);
+                } else {
+                    str2 = str5;
+                }
+                if (QuickWebViewSwitch.getInOn()) {
+                    String j = j(str5);
+                    if (!TextUtils.isEmpty(j)) {
+                        jx4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", j, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "success");
+                        str5 = j;
+                        z = true;
+                        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL);
+                        if (!z) {
+                            str3 = "1";
+                        } else {
+                            str3 = "2";
+                        }
+                        TiebaStatic.log(statisticItem.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.k).param("obj_name", jd8.h).param("obj_param1", this.l).param("obj_id", this.m));
+                        this.k = 0;
+                        this.l = "none";
+                        this.m = "0.0.0.0";
+                        jx4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", str2, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                    }
+                } else {
+                    this.k = 5;
+                }
+                z = false;
+                StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL);
+                if (!z) {
+                }
+                TiebaStatic.log(statisticItem2.param("obj_locate", str3).param("obj_source", str2).param("obj_type", this.k).param("obj_name", jd8.h).param("obj_param1", this.l).param("obj_id", this.m));
+                this.k = 0;
+                this.l = "none";
+                this.m = "0.0.0.0";
+                jx4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", str2, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+            }
+            if (this.b != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                this.b.setLastLoadUrlTime(currentTimeMillis);
+                this.mCommonJsBridge.setLastLoadUrlTime(currentTimeMillis);
+            }
+            super.loadUrl(str5);
+        }
     }
 }

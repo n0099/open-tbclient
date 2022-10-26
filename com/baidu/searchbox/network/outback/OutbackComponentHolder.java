@@ -1,8 +1,7 @@
 package com.baidu.searchbox.network.outback;
 
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.qe1;
-import com.baidu.tieba.se1;
+import com.baidu.tieba.re1;
+import com.baidu.tieba.te1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,8 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class OutbackComponentHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public se1<IOutbackContext> outbackContextHolder;
+    public te1 outbackContextHolder;
+
+    public void initoutbackContextHolder() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            re1 b = re1.b();
+            this.outbackContextHolder = b;
+            b.a(new IOutbackContext_OutbackComponentHolder_Provider());
+        }
+    }
 
     public OutbackComponentHolder() {
         Interceptable interceptable = $ic;
@@ -28,14 +35,5 @@ public class OutbackComponentHolder {
             }
         }
         initoutbackContextHolder();
-    }
-
-    public void initoutbackContextHolder() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qe1 b = qe1.b();
-            this.outbackContextHolder = b;
-            b.a(new IOutbackContext_OutbackComponentHolder_Provider());
-        }
     }
 }

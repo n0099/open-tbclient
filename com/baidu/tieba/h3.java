@@ -30,6 +30,9 @@ public class h3 implements j3 {
     public j3.a a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? new j3.a(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2)) : (j3.a) invokeII.objValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            return new j3.a(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        }
+        return (j3.a) invokeII.objValue;
     }
 }

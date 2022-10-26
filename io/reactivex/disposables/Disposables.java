@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Action;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.Functions;
@@ -34,22 +33,25 @@ public final class Disposables {
         throw new IllegalStateException("No instances!");
     }
 
-    @NonNull
     public static Disposable disposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? EmptyDisposable.INSTANCE : (Disposable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return EmptyDisposable.INSTANCE;
+        }
+        return (Disposable) invokeV.objValue;
     }
 
-    @NonNull
     public static Disposable empty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? fromRunnable(Functions.EMPTY_RUNNABLE) : (Disposable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return fromRunnable(Functions.EMPTY_RUNNABLE);
+        }
+        return (Disposable) invokeV.objValue;
     }
 
-    @NonNull
-    public static Disposable fromAction(@NonNull Action action) {
+    public static Disposable fromAction(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, action)) == null) {
@@ -59,8 +61,7 @@ public final class Disposables {
         return (Disposable) invokeL.objValue;
     }
 
-    @NonNull
-    public static Disposable fromFuture(@NonNull Future<?> future) {
+    public static Disposable fromFuture(Future future) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, future)) == null) {
@@ -70,8 +71,7 @@ public final class Disposables {
         return (Disposable) invokeL.objValue;
     }
 
-    @NonNull
-    public static Disposable fromRunnable(@NonNull Runnable runnable) {
+    public static Disposable fromRunnable(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, runnable)) == null) {
@@ -81,8 +81,7 @@ public final class Disposables {
         return (Disposable) invokeL.objValue;
     }
 
-    @NonNull
-    public static Disposable fromSubscription(@NonNull Subscription subscription) {
+    public static Disposable fromSubscription(Subscription subscription) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, subscription)) == null) {
@@ -92,8 +91,7 @@ public final class Disposables {
         return (Disposable) invokeL.objValue;
     }
 
-    @NonNull
-    public static Disposable fromFuture(@NonNull Future<?> future, boolean z) {
+    public static Disposable fromFuture(Future future, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, future, z)) == null) {

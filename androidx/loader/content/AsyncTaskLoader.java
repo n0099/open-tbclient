@@ -3,9 +3,6 @@ package androidx.loader.content;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.os.OperationCanceledException;
 import androidx.core.util.TimeUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -31,6 +28,20 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     public long mLastLoadCompleteTime;
     public volatile AsyncTaskLoader<D>.LoadTask mTask;
     public long mUpdateThrottle;
+
+    public void cancelLoadInBackground() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public abstract D loadInBackground();
+
+    public void onCanceled(D d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d) == null) {
+        }
+    }
 
     /* loaded from: classes.dex */
     public final class LoadTask extends ModernAsyncTask<Void, Void, D> implements Runnable {
@@ -83,6 +94,24 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.loader.content.ModernAsyncTask
+        public D doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                try {
+                    return (D) this.this$0.onLoadInBackground();
+                } catch (OperationCanceledException e) {
+                    if (isCancelled()) {
+                        return null;
+                    }
+                    throw e;
+                }
+            }
+            return (D) invokeL.objValue;
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
@@ -101,28 +130,10 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
                 }
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.loader.content.ModernAsyncTask
-        public D doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                try {
-                    return (D) this.this$0.onLoadInBackground();
-                } catch (OperationCanceledException e) {
-                    if (isCancelled()) {
-                        return null;
-                    }
-                    throw e;
-                }
-            }
-            return (D) invokeL.objValue;
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AsyncTaskLoader(@NonNull Context context) {
+    public AsyncTaskLoader(Context context) {
         this(context, ModernAsyncTask.THREAD_POOL_EXECUTOR);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -142,10 +153,26 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
-    public void cancelLoadInBackground() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AsyncTaskLoader(Context context, Executor executor) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.mLastLoadCompleteTime = -10000L;
+        this.mExecutor = executor;
     }
 
     public void dispatchOnCancelled(AsyncTaskLoader<D>.LoadTask loadTask, D d) {
@@ -225,55 +252,52 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
-    public boolean isLoadInBackgroundCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCancellingTask != null : invokeV.booleanValue;
-    }
-
-    @Nullable
-    public abstract D loadInBackground();
-
     @Override // androidx.loader.content.Loader
     public boolean onCancelLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.mTask != null) {
-                if (!this.mStarted) {
-                    this.mContentChanged = true;
-                }
-                if (this.mCancellingTask != null) {
-                    if (this.mTask.waiting) {
-                        this.mTask.waiting = false;
-                        this.mHandler.removeCallbacks(this.mTask);
-                    }
-                    this.mTask = null;
-                    return false;
-                } else if (this.mTask.waiting) {
+            if (this.mTask == null) {
+                return false;
+            }
+            if (!this.mStarted) {
+                this.mContentChanged = true;
+            }
+            if (this.mCancellingTask != null) {
+                if (this.mTask.waiting) {
                     this.mTask.waiting = false;
                     this.mHandler.removeCallbacks(this.mTask);
-                    this.mTask = null;
-                    return false;
-                } else {
-                    boolean cancel = this.mTask.cancel(false);
-                    if (cancel) {
-                        this.mCancellingTask = this.mTask;
-                        cancelLoadInBackground();
-                    }
-                    this.mTask = null;
-                    return cancel;
                 }
+                this.mTask = null;
+                return false;
+            } else if (this.mTask.waiting) {
+                this.mTask.waiting = false;
+                this.mHandler.removeCallbacks(this.mTask);
+                this.mTask = null;
+                return false;
+            } else {
+                boolean cancel = this.mTask.cancel(false);
+                if (cancel) {
+                    this.mCancellingTask = this.mTask;
+                    cancelLoadInBackground();
+                }
+                this.mTask = null;
+                return cancel;
             }
-            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void onCanceled(@Nullable D d) {
+    public boolean isLoadInBackgroundCanceled() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mCancellingTask != null) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.loader.content.Loader
@@ -287,11 +311,21 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
-    @Nullable
     public D onLoadInBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? loadInBackground() : (D) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return loadInBackground();
+        }
+        return (D) invokeV.objValue;
+    }
+
+    public void waitForLoader() {
+        AsyncTaskLoader<D>.LoadTask loadTask;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (loadTask = this.mTask) != null) {
+            loadTask.waitForLoader();
+        }
     }
 
     public void setUpdateThrottle(long j) {
@@ -302,37 +336,5 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
                 this.mHandler = new Handler();
             }
         }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void waitForLoader() {
-        AsyncTaskLoader<D>.LoadTask loadTask;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (loadTask = this.mTask) == null) {
-            return;
-        }
-        loadTask.waitForLoader();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AsyncTaskLoader(@NonNull Context context, @NonNull Executor executor) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mLastLoadCompleteTime = -10000L;
-        this.mExecutor = executor;
     }
 }

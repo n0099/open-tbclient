@@ -13,21 +13,21 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class CompletableToSingle<T> extends Single<T> {
+public final class CompletableToSingle extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T completionValue;
-    public final Callable<? extends T> completionValueSupplier;
+    public final Object completionValue;
+    public final Callable completionValueSupplier;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
     public final class ToSingle implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> observer;
+        public final SingleObserver observer;
         public final /* synthetic */ CompletableToSingle this$0;
 
-        public ToSingle(CompletableToSingle completableToSingle, SingleObserver<? super T> singleObserver) {
+        public ToSingle(CompletableToSingle completableToSingle, SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,11 +48,11 @@ public final class CompletableToSingle<T> extends Single<T> {
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
-            T call;
+            Object call;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 CompletableToSingle completableToSingle = this.this$0;
-                Callable<? extends T> callable = completableToSingle.completionValueSupplier;
+                Callable callable = completableToSingle.completionValueSupplier;
                 if (callable != null) {
                     try {
                         call = callable.call();
@@ -89,12 +89,12 @@ public final class CompletableToSingle<T> extends Single<T> {
         }
     }
 
-    public CompletableToSingle(CompletableSource completableSource, Callable<? extends T> callable, T t) {
+    public CompletableToSingle(CompletableSource completableSource, Callable callable, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {completableSource, callable, t};
+            Object[] objArr = {completableSource, callable, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,12 +105,12 @@ public final class CompletableToSingle<T> extends Single<T> {
             }
         }
         this.source = completableSource;
-        this.completionValue = t;
+        this.completionValue = obj;
         this.completionValueSupplier = callable;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new ToSingle(this, singleObserver));

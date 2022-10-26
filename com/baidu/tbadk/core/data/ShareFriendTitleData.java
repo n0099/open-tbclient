@@ -29,7 +29,10 @@ public class ShareFriendTitleData extends MetaData {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setTitle(String str) {

@@ -28,7 +28,7 @@ public class IMTrack {
 
     /* renamed from: com.baidu.android.imsdk.upload.action.IMTrack$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    public /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class IMTrack {
     }
 
     /* loaded from: classes.dex */
-    public static final class AckBuilder {
+    public final class AckBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PROXY_TYPE = "proxy";
         public static final String PUSH_TYPE = "push";
@@ -123,13 +123,6 @@ public class IMTrack {
             return (AckBuilder) invokeJ.objValue;
         }
 
-        public void build() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                IMTrack.reportTracker(this.context, IMPushPb.ActionType.ACK, this.ack);
-            }
-        }
-
         public AckBuilder ext(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -169,10 +162,17 @@ public class IMTrack {
             }
             return (AckBuilder) invokeL.objValue;
         }
+
+        public void build() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                IMTrack.reportTracker(this.context, IMPushPb.ActionType.ACK, this.ack);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static final class ConnectionBuilder {
+    public final class ConnectionBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CONN_TYPE_SOCKET_CONNECTION_ENV_FAIL = 401203;
         public static final int CONN_TYPE_SOCKET_CONNECTION_EXCEPTION = 401205;
@@ -219,13 +219,6 @@ public class IMTrack {
                 return this;
             }
             return (ConnectionBuilder) invokeJ.objValue;
-        }
-
-        public void build() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                IMTrack.reportTracker(this.context, IMPushPb.ActionType.CONNECTION, this.connection);
-            }
         }
 
         public ConnectionBuilder ext(String str) {
@@ -287,10 +280,17 @@ public class IMTrack {
             }
             return (ConnectionBuilder) invokeJ.objValue;
         }
+
+        public void build() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                IMTrack.reportTracker(this.context, IMPushPb.ActionType.CONNECTION, this.connection);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static final class CrashBuilder {
+    public final class CrashBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CRASH_TYPE_CATCH = 201001;
         public static final int CRASH_TYPE_DEFAULT = 201002;
@@ -333,14 +333,6 @@ public class IMTrack {
             return (CrashBuilder) invokeJ.objValue;
         }
 
-        public void build() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.crash.exception)) {
-                return;
-            }
-            IMTrack.reportTracker(this.context, IMPushPb.ActionType.CRASH, this.crash);
-        }
-
         public CrashBuilder exception(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -360,10 +352,17 @@ public class IMTrack {
             }
             return (CrashBuilder) invokeL.objValue;
         }
+
+        public void build() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !TextUtils.isEmpty(this.crash.exception)) {
+                IMTrack.reportTracker(this.context, IMPushPb.ActionType.CRASH, this.crash);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static final class DbBuilder {
+    public final class DbBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ACTION_ADD = "add";
         public static final String ACTION_DELETE = "delete";
@@ -421,13 +420,6 @@ public class IMTrack {
                 return this;
             }
             return (DbBuilder) invokeJ.objValue;
-        }
-
-        public void build() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                IMTrack.reportTracker(this.context, IMPushPb.ActionType.DB, this.db);
-            }
         }
 
         public DbBuilder className(String str) {
@@ -499,10 +491,17 @@ public class IMTrack {
             }
             return (DbBuilder) invokeL.objValue;
         }
+
+        public void build() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                IMTrack.reportTracker(this.context, IMPushPb.ActionType.DB, this.db);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static final class MsgBuilder {
+    public final class MsgBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context context;
@@ -543,13 +542,6 @@ public class IMTrack {
                 return this;
             }
             return (MsgBuilder) invokeJ.objValue;
-        }
-
-        public void build() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                IMTrack.reportTracker(this.context, IMPushPb.ActionType.MSG, this.msg);
-            }
         }
 
         public MsgBuilder duration(long j) {
@@ -611,10 +603,17 @@ public class IMTrack {
             }
             return (MsgBuilder) invokeJ.objValue;
         }
+
+        public void build() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                IMTrack.reportTracker(this.context, IMPushPb.ActionType.MSG, this.msg);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static final class RequestBuilder {
+    public final class RequestBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REQUEST_INIT = 501100;
         public static final int REQUEST_JOIN = 501112;
@@ -659,13 +658,6 @@ public class IMTrack {
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
-        }
-
-        public void build() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                IMTrack.reportTracker(this.context, IMPushPb.ActionType.REQUEST, this.request);
-            }
         }
 
         public RequestBuilder errorCode(long j) {
@@ -727,10 +719,17 @@ public class IMTrack {
             }
             return (RequestBuilder) invokeJ.objValue;
         }
+
+        public void build() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                IMTrack.reportTracker(this.context, IMPushPb.ActionType.REQUEST, this.request);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static final class UiBuilder {
+    public final class UiBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CATEGORY_CLICK = "category_click";
         public static final String CATEGORY_MI = "category_mi";
@@ -774,13 +773,6 @@ public class IMTrack {
                 return this;
             }
             return (UiBuilder) invokeJ.objValue;
-        }
-
-        public void build() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                IMTrack.reportTracker(this.context, IMPushPb.ActionType.UI, this.ui);
-            }
         }
 
         public UiBuilder category(String str) {
@@ -842,6 +834,13 @@ public class IMTrack {
             }
             return (UiBuilder) invokeJ.objValue;
         }
+
+        public void build() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                IMTrack.reportTracker(this.context, IMPushPb.ActionType.UI, this.ui);
+            }
+        }
     }
 
     public IMTrack() {
@@ -862,67 +861,68 @@ public class IMTrack {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, actionType, obj) == null) {
             Context applicationContext = context.getApplicationContext();
-            if (Utility.isUploadIMTrack(applicationContext)) {
-                TaskManager.getInstance(applicationContext).submitForNetWork(new Runnable(actionType, applicationContext, obj) { // from class: com.baidu.android.imsdk.upload.action.IMTrack.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ IMPushPb.ActionType val$actionType;
-                    public final /* synthetic */ Context val$context;
-                    public final /* synthetic */ Object val$tracker;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {actionType, applicationContext, obj};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.val$actionType = actionType;
-                        this.val$context = applicationContext;
-                        this.val$tracker = obj;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            synchronized (IMTrackDatabase.myLock) {
-                                switch (AnonymousClass2.$SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[this.val$actionType.ordinal()]) {
-                                    case 1:
-                                        IMTrackDatabase.getInstance(this.val$context).insertUi((Ui) this.val$tracker);
-                                        break;
-                                    case 2:
-                                        IMTrackDatabase.getInstance(this.val$context).insertCrash((Crash) this.val$tracker);
-                                        break;
-                                    case 3:
-                                        IMTrackDatabase.getInstance(this.val$context).insertDb((Db) this.val$tracker);
-                                        break;
-                                    case 4:
-                                        IMTrackDatabase.getInstance(this.val$context).insertConnection((Connection) this.val$tracker);
-                                        break;
-                                    case 5:
-                                        IMTrackDatabase.getInstance(this.val$context).insertRequest((Request) this.val$tracker);
-                                        break;
-                                    case 6:
-                                        IMTrackDatabase.getInstance(this.val$context).insertAck((Ack) this.val$tracker);
-                                        break;
-                                    case 7:
-                                        IMTrackDatabase.getInstance(this.val$context).insertMsg((Msg) this.val$tracker);
-                                        break;
-                                }
-                            }
-                        }
-                    }
-                });
+            if (!Utility.isUploadIMTrack(applicationContext)) {
+                return;
             }
+            TaskManager.getInstance(applicationContext).submitForNetWork(new Runnable(actionType, applicationContext, obj) { // from class: com.baidu.android.imsdk.upload.action.IMTrack.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ IMPushPb.ActionType val$actionType;
+                public final /* synthetic */ Context val$context;
+                public final /* synthetic */ Object val$tracker;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {actionType, applicationContext, obj};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$actionType = actionType;
+                    this.val$context = applicationContext;
+                    this.val$tracker = obj;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        synchronized (IMTrackDatabase.myLock) {
+                            switch (AnonymousClass2.$SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType[this.val$actionType.ordinal()]) {
+                                case 1:
+                                    IMTrackDatabase.getInstance(this.val$context).insertUi((Ui) this.val$tracker);
+                                    break;
+                                case 2:
+                                    IMTrackDatabase.getInstance(this.val$context).insertCrash((Crash) this.val$tracker);
+                                    break;
+                                case 3:
+                                    IMTrackDatabase.getInstance(this.val$context).insertDb((Db) this.val$tracker);
+                                    break;
+                                case 4:
+                                    IMTrackDatabase.getInstance(this.val$context).insertConnection((Connection) this.val$tracker);
+                                    break;
+                                case 5:
+                                    IMTrackDatabase.getInstance(this.val$context).insertRequest((Request) this.val$tracker);
+                                    break;
+                                case 6:
+                                    IMTrackDatabase.getInstance(this.val$context).insertAck((Ack) this.val$tracker);
+                                    break;
+                                case 7:
+                                    IMTrackDatabase.getInstance(this.val$context).insertMsg((Msg) this.val$tracker);
+                                    break;
+                            }
+                        }
+                    }
+                }
+            });
         }
     }
 }

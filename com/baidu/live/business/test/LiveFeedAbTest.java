@@ -23,6 +23,28 @@ public final class LiveFeedAbTest {
     public static final LiveFeedAbTest d;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Lazy lazy = b;
+            KProperty kProperty = a[1];
+            return ((Boolean) lazy.getValue()).booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Lazy lazy = c;
+            KProperty kProperty = a[2];
+            return ((Boolean) lazy.getValue()).booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -55,27 +77,5 @@ public final class LiveFeedAbTest {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Lazy lazy = b;
-            KProperty kProperty = a[1];
-            return ((Boolean) lazy.getValue()).booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Lazy lazy = c;
-            KProperty kProperty = a[2];
-            return ((Boolean) lazy.getValue()).booleanValue();
-        }
-        return invokeV.booleanValue;
     }
 }

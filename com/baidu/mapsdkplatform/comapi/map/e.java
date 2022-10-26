@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -44,13 +43,12 @@ import java.util.Queue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public static /* synthetic */ Interceptable $ic;
     public static int N;
     public static int O;
-    public static List<JNIBaseMap> ar;
+    public static List ar;
     public static float d;
     public static long m;
     public static final String r;
@@ -59,7 +57,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public aj B;
     public ai C;
     public Context D;
-    public List<d> E;
+    public List E;
     public x F;
     public g G;
     public ae H;
@@ -98,7 +96,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public b ap;
     public c aq;
     public boolean as;
-    public Queue<a> at;
+    public Queue at;
     public boolean au;
     public boolean av;
     public float b;
@@ -106,7 +104,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public boolean e;
     public boolean f;
     public boolean g;
-    public List<l> h;
+    public List h;
     public com.baidu.mapsdkplatform.comjni.map.basemap.a i;
     public long j;
     public boolean k;
@@ -125,7 +123,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public boolean z;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -527,13 +525,13 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public static void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
-            List<JNIBaseMap> b = com.baidu.mapsdkplatform.comjni.map.basemap.a.b();
+            List b = com.baidu.mapsdkplatform.comjni.map.basemap.a.b();
             ar = b;
             if (b == null || b.size() == 0) {
                 com.baidu.mapsdkplatform.comjni.map.basemap.a.b(0L, z);
                 return;
             }
-            com.baidu.mapsdkplatform.comjni.map.basemap.a.b(ar.get(0).a, z);
+            com.baidu.mapsdkplatform.comjni.map.basemap.a.b(((JNIBaseMap) ar.get(0)).a, z);
             for (JNIBaseMap jNIBaseMap : ar) {
                 if (jNIBaseMap != null) {
                     jNIBaseMap.ClearLayer(jNIBaseMap.a, -1L);
@@ -726,7 +724,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         return (float[]) invokeV.objValue;
     }
 
-    public Queue<a> P() {
+    public Queue P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.at : (Queue) invokeV.objValue;
@@ -737,12 +735,12 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || this.at.isEmpty()) {
             return;
         }
-        a poll = this.at.poll();
-        if (poll.e == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a.a(poll.a, poll.b, poll.c, poll.d);
+        a aVar = (a) this.at.poll();
+        if (aVar.e == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a.a(aVar.a, aVar.b, aVar.c, aVar.d);
         } else if (this.i != null) {
             A();
-            this.i.a(poll.e);
+            this.i.a(aVar.e);
         }
     }
 
@@ -1042,7 +1040,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     }
 
     public void a(l lVar) {
-        List<l> list;
+        List list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048609, this, lVar) == null) || lVar == null || (list = this.h) == null) {
             return;
@@ -1116,7 +1114,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         this.i.b(this.F.a);
     }
 
-    public void a(List<Bundle> list) {
+    public void a(List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048613, this, list) == null) || this.i == null || list == null) {
             return;
@@ -1124,8 +1122,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         int size = list.size();
         Bundle[] bundleArr = new Bundle[list.size()];
         for (int i = 0; i < size; i++) {
-            g(list.get(i));
-            bundleArr[i] = list.get(i);
+            g((Bundle) list.get(i));
+            bundleArr[i] = (Bundle) list.get(i);
         }
         this.i.a(bundleArr);
     }
@@ -1304,9 +1302,9 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048616, this, j)) == null) {
-            Iterator<d> it = this.E.iterator();
+            Iterator it = this.E.iterator();
             while (it.hasNext()) {
-                if (it.next().a == j) {
+                if (((d) it.next()).a == j) {
                     return true;
                 }
             }

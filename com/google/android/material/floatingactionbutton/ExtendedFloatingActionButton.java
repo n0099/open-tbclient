@@ -12,10 +12,6 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.AnimatorRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -44,20 +40,26 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     public static final int ANIM_STATE_NONE = 0;
     public static final int ANIM_STATE_SHOWING = 2;
     public static final int DEF_STYLE_RES = 2131755878;
-    public static final Property<View, Float> HEIGHT;
-    public static final Property<View, Float> WIDTH;
+    public static final Property HEIGHT;
+    public static final Property WIDTH;
     public transient /* synthetic */ FieldHolder $fh;
     public int animState;
-    @NonNull
-    public final CoordinatorLayout.Behavior<ExtendedFloatingActionButton> behavior;
+    public final CoordinatorLayout.Behavior behavior;
     public final AnimatorTracker changeVisibilityTracker;
-    @NonNull
     public final MotionStrategy extendStrategy;
     public final MotionStrategy hideStrategy;
     public boolean isExtended;
     public final MotionStrategy showStrategy;
-    @NonNull
     public final MotionStrategy shrinkStrategy;
+
+    /* loaded from: classes7.dex */
+    public interface Size {
+        int getHeight();
+
+        ViewGroup.LayoutParams getLayoutParams();
+
+        int getWidth();
+    }
 
     /* loaded from: classes7.dex */
     public class ChangeSizeStrategy extends BaseMotionStrategy {
@@ -66,6 +68,13 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public final boolean extending;
         public final Size size;
         public final /* synthetic */ ExtendedFloatingActionButton this$0;
+
+        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
+        public int getDefaultMotionSpecResource() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.animator.obfuscated_res_0x7f020007 : invokeV.intValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ChangeSizeStrategy(ExtendedFloatingActionButton extendedFloatingActionButton, AnimatorTracker animatorTracker, Size size, boolean z) {
@@ -92,7 +101,6 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
 
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
-        @NonNull
         public AnimatorSet createAnimator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -113,13 +121,6 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             return (AnimatorSet) invokeV.objValue;
         }
 
-        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public int getDefaultMotionSpecResource() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.animator.obfuscated_res_0x7f020007 : invokeV.intValue;
-        }
-
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
         public void onAnimationEnd() {
             Interceptable interceptable = $ic;
@@ -132,29 +133,6 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 }
                 layoutParams.width = this.size.getLayoutParams().width;
                 layoutParams.height = this.size.getLayoutParams().height;
-            }
-        }
-
-        @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.this$0.isExtended = this.extending;
-                this.this$0.setHorizontallyScrolling(true);
-            }
-        }
-
-        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onChange(@Nullable OnChangedCallback onChangedCallback) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, onChangedCallback) == null) || onChangedCallback == null) {
-                return;
-            }
-            if (this.extending) {
-                onChangedCallback.onExtended(this.this$0);
-            } else {
-                onChangedCallback.onShrunken(this.this$0);
             }
         }
 
@@ -177,21 +155,48 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public boolean shouldCancel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.extending == this.this$0.isExtended || this.this$0.getIcon() == null || TextUtils.isEmpty(this.this$0.getText()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                if (this.extending != this.this$0.isExtended && this.this$0.getIcon() != null && !TextUtils.isEmpty(this.this$0.getText())) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+                super.onAnimationStart(animator);
+                this.this$0.isExtended = this.extending;
+                this.this$0.setHorizontallyScrolling(true);
+            }
+        }
+
+        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
+        public void onChange(OnChangedCallback onChangedCallback) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, onChangedCallback) != null) || onChangedCallback == null) {
+                return;
+            }
+            if (this.extending) {
+                onChangedCallback.onExtended(this.this$0);
+            } else {
+                onChangedCallback.onShrunken(this.this$0);
+            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class ExtendedFloatingActionButtonBehavior<T extends ExtendedFloatingActionButton> extends CoordinatorLayout.Behavior<T> {
+    public class ExtendedFloatingActionButtonBehavior extends CoordinatorLayout.Behavior {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean AUTO_HIDE_DEFAULT = false;
         public static final boolean AUTO_SHRINK_DEFAULT = true;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean autoHideEnabled;
         public boolean autoShrinkEnabled;
-        @Nullable
         public OnChangedCallback internalAutoHideCallback;
-        @Nullable
         public OnChangedCallback internalAutoShrinkCallback;
         public Rect tmpRect;
 
@@ -212,7 +217,50 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             this.autoShrinkEnabled = true;
         }
 
-        public static boolean isBottomSheet(@NonNull View view2) {
+        public boolean isAutoHideEnabled() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.autoHideEnabled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isAutoShrinkEnabled() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.autoShrinkEnabled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ExtendedFloatingActionButtonBehavior(Context context, AttributeSet attributeSet) {
+            super(context, attributeSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.ExtendedFloatingActionButton_Behavior_Layout);
+            this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, false);
+            this.autoShrinkEnabled = obtainStyledAttributes.getBoolean(1, true);
+            obtainStyledAttributes.recycle();
+        }
+
+        public static boolean isBottomSheet(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
@@ -225,75 +273,21 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             return invokeL.booleanValue;
         }
 
-        private boolean shouldUpdateVisibility(@NonNull View view2, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, view2, extendedFloatingActionButton)) == null) {
-                return (this.autoHideEnabled || this.autoShrinkEnabled) && ((CoordinatorLayout.LayoutParams) extendedFloatingActionButton.getLayoutParams()).getAnchorId() == view2.getId();
-            }
-            return invokeLL.booleanValue;
-        }
-
-        private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, coordinatorLayout, appBarLayout, extendedFloatingActionButton)) == null) {
-                if (shouldUpdateVisibility(appBarLayout, extendedFloatingActionButton)) {
-                    if (this.tmpRect == null) {
-                        this.tmpRect = new Rect();
-                    }
-                    Rect rect = this.tmpRect;
-                    DescendantOffsetUtils.getDescendantRect(coordinatorLayout, appBarLayout, rect);
-                    if (rect.bottom <= appBarLayout.getMinimumHeightForVisibleOverlappingContent()) {
-                        shrinkOrHide(extendedFloatingActionButton);
-                        return true;
-                    }
-                    extendOrShow(extendedFloatingActionButton);
-                    return true;
-                }
-                return false;
-            }
-            return invokeLLL.booleanValue;
-        }
-
-        private boolean updateFabVisibilityForBottomSheet(@NonNull View view2, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view2, extendedFloatingActionButton)) == null) {
-                if (shouldUpdateVisibility(view2, extendedFloatingActionButton)) {
-                    if (view2.getTop() < (extendedFloatingActionButton.getHeight() / 2) + ((ViewGroup.MarginLayoutParams) ((CoordinatorLayout.LayoutParams) extendedFloatingActionButton.getLayoutParams())).topMargin) {
-                        shrinkOrHide(extendedFloatingActionButton);
-                        return true;
-                    }
-                    extendOrShow(extendedFloatingActionButton);
-                    return true;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public void extendOrShow(@NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
+        public void extendOrShow(ExtendedFloatingActionButton extendedFloatingActionButton) {
+            OnChangedCallback onChangedCallback;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, extendedFloatingActionButton) == null) {
-                extendedFloatingActionButton.performMotion(this.autoShrinkEnabled ? extendedFloatingActionButton.extendStrategy : extendedFloatingActionButton.showStrategy, this.autoShrinkEnabled ? this.internalAutoShrinkCallback : this.internalAutoHideCallback);
+                if (this.autoShrinkEnabled) {
+                    onChangedCallback = this.internalAutoShrinkCallback;
+                } else {
+                    onChangedCallback = this.internalAutoHideCallback;
+                }
+                extendedFloatingActionButton.performMotion(this.autoShrinkEnabled ? extendedFloatingActionButton.extendStrategy : extendedFloatingActionButton.showStrategy, onChangedCallback);
             }
-        }
-
-        public boolean isAutoHideEnabled() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.autoHideEnabled : invokeV.booleanValue;
-        }
-
-        public boolean isAutoShrinkEnabled() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.autoShrinkEnabled : invokeV.booleanValue;
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
+        public void onAttachedToLayoutParams(CoordinatorLayout.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, layoutParams) == null) && layoutParams.dodgeInsetEdges == 0) {
                 layoutParams.dodgeInsetEdges = 80;
@@ -314,59 +308,71 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             }
         }
 
-        @VisibleForTesting
-        public void setInternalAutoHideCallback(@Nullable OnChangedCallback onChangedCallback) {
+        public void setInternalAutoHideCallback(OnChangedCallback onChangedCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, onChangedCallback) == null) {
                 this.internalAutoHideCallback = onChangedCallback;
             }
         }
 
-        @VisibleForTesting
-        public void setInternalAutoShrinkCallback(@Nullable OnChangedCallback onChangedCallback) {
+        public void setInternalAutoShrinkCallback(OnChangedCallback onChangedCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, onChangedCallback) == null) {
                 this.internalAutoShrinkCallback = onChangedCallback;
             }
         }
 
-        public void shrinkOrHide(@NonNull ExtendedFloatingActionButton extendedFloatingActionButton) {
+        public void shrinkOrHide(ExtendedFloatingActionButton extendedFloatingActionButton) {
+            OnChangedCallback onChangedCallback;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, extendedFloatingActionButton) == null) {
-                extendedFloatingActionButton.performMotion(this.autoShrinkEnabled ? extendedFloatingActionButton.shrinkStrategy : extendedFloatingActionButton.hideStrategy, this.autoShrinkEnabled ? this.internalAutoShrinkCallback : this.internalAutoHideCallback);
+                if (this.autoShrinkEnabled) {
+                    onChangedCallback = this.internalAutoShrinkCallback;
+                } else {
+                    onChangedCallback = this.internalAutoHideCallback;
+                }
+                extendedFloatingActionButton.performMotion(this.autoShrinkEnabled ? extendedFloatingActionButton.shrinkStrategy : extendedFloatingActionButton.hideStrategy, onChangedCallback);
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean getInsetDodgeRect(@NonNull CoordinatorLayout coordinatorLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton, @NonNull Rect rect) {
-            InterceptResult invokeLLL;
+        private boolean shouldUpdateVisibility(View view2, ExtendedFloatingActionButton extendedFloatingActionButton) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, extendedFloatingActionButton, rect)) == null) ? super.getInsetDodgeRect(coordinatorLayout, (CoordinatorLayout) extendedFloatingActionButton, rect) : invokeLLL.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton, View view2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, coordinatorLayout, extendedFloatingActionButton, view2)) == null) {
-                if (view2 instanceof AppBarLayout) {
-                    updateFabVisibilityForAppBarLayout(coordinatorLayout, (AppBarLayout) view2, extendedFloatingActionButton);
-                    return false;
-                } else if (isBottomSheet(view2)) {
-                    updateFabVisibilityForBottomSheet(view2, extendedFloatingActionButton);
-                    return false;
-                } else {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, view2, extendedFloatingActionButton)) == null) {
+                CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) extendedFloatingActionButton.getLayoutParams();
+                if ((!this.autoHideEnabled && !this.autoShrinkEnabled) || layoutParams.getAnchorId() != view2.getId()) {
                     return false;
                 }
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, ExtendedFloatingActionButton extendedFloatingActionButton) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, coordinatorLayout, appBarLayout, extendedFloatingActionButton)) == null) {
+                if (!shouldUpdateVisibility(appBarLayout, extendedFloatingActionButton)) {
+                    return false;
+                }
+                if (this.tmpRect == null) {
+                    this.tmpRect = new Rect();
+                }
+                Rect rect = this.tmpRect;
+                DescendantOffsetUtils.getDescendantRect(coordinatorLayout, appBarLayout, rect);
+                if (rect.bottom <= appBarLayout.getMinimumHeightForVisibleOverlappingContent()) {
+                    shrinkOrHide(extendedFloatingActionButton);
+                    return true;
+                }
+                extendOrShow(extendedFloatingActionButton);
+                return true;
             }
             return invokeLLL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton, int i) {
+        public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, extendedFloatingActionButton, i)) == null) {
@@ -390,29 +396,51 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             return invokeLLI.booleanValue;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ExtendedFloatingActionButtonBehavior(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-            super(context, attributeSet);
+        private boolean updateFabVisibilityForBottomSheet(View view2, ExtendedFloatingActionButton extendedFloatingActionButton) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view2, extendedFloatingActionButton)) == null) {
+                if (!shouldUpdateVisibility(view2, extendedFloatingActionButton)) {
+                    return false;
+                }
+                if (view2.getTop() < (extendedFloatingActionButton.getHeight() / 2) + ((ViewGroup.MarginLayoutParams) ((CoordinatorLayout.LayoutParams) extendedFloatingActionButton.getLayoutParams())).topMargin) {
+                    shrinkOrHide(extendedFloatingActionButton);
+                    return true;
+                }
+                extendOrShow(extendedFloatingActionButton);
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public boolean getInsetDodgeRect(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, Rect rect) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, extendedFloatingActionButton, rect)) == null) {
+                return super.getInsetDodgeRect(coordinatorLayout, (CoordinatorLayout) extendedFloatingActionButton, rect);
+            }
+            return invokeLLL.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, ExtendedFloatingActionButton extendedFloatingActionButton, View view2) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, coordinatorLayout, extendedFloatingActionButton, view2)) == null) {
+                if (view2 instanceof AppBarLayout) {
+                    updateFabVisibilityForAppBarLayout(coordinatorLayout, (AppBarLayout) view2, extendedFloatingActionButton);
+                    return false;
+                } else if (isBottomSheet(view2)) {
+                    updateFabVisibilityForBottomSheet(view2, extendedFloatingActionButton);
+                    return false;
+                } else {
+                    return false;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.ExtendedFloatingActionButton_Behavior_Layout);
-            this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, false);
-            this.autoShrinkEnabled = obtainStyledAttributes.getBoolean(1, true);
-            obtainStyledAttributes.recycle();
+            return invokeLLL.booleanValue;
         }
     }
 
@@ -422,6 +450,13 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isCancelled;
         public final /* synthetic */ ExtendedFloatingActionButton this$0;
+
+        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
+        public int getDefaultMotionSpecResource() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.animator.obfuscated_res_0x7f020008 : invokeV.intValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public HideStrategy(ExtendedFloatingActionButton extendedFloatingActionButton, AnimatorTracker animatorTracker) {
@@ -445,13 +480,6 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             this.this$0 = extendedFloatingActionButton;
         }
 
-        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public int getDefaultMotionSpecResource() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.animator.obfuscated_res_0x7f020008 : invokeV.intValue;
-        }
-
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
         public void onAnimationCancel() {
             Interceptable interceptable = $ic;
@@ -467,31 +495,10 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.onAnimationEnd();
                 this.this$0.animState = 0;
-                if (this.isCancelled) {
-                    return;
+                if (!this.isCancelled) {
+                    this.this$0.setVisibility(8);
                 }
-                this.this$0.setVisibility(8);
             }
-        }
-
-        @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.isCancelled = false;
-                this.this$0.setVisibility(0);
-                this.this$0.animState = 1;
-            }
-        }
-
-        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onChange(@Nullable OnChangedCallback onChangedCallback) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, onChangedCallback) == null) || onChangedCallback == null) {
-                return;
-            }
-            onChangedCallback.onHidden(this.this$0);
         }
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
@@ -506,28 +513,36 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public boolean shouldCancel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.this$0.isOrWillBeHidden() : invokeV.booleanValue;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048582, this)) != null) {
+                return invokeV.booleanValue;
+            }
+            return this.this$0.isOrWillBeHidden();
+        }
+
+        @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+                super.onAnimationStart(animator);
+                this.isCancelled = false;
+                this.this$0.setVisibility(0);
+                this.this$0.animState = 1;
+            }
+        }
+
+        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
+        public void onChange(OnChangedCallback onChangedCallback) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, onChangedCallback) == null) && onChangedCallback != null) {
+                onChangedCallback.onHidden(this.this$0);
+            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class OnChangedCallback {
+    public abstract class OnChangedCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public OnChangedCallback() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         public void onExtended(ExtendedFloatingActionButton extendedFloatingActionButton) {
             Interceptable interceptable = $ic;
@@ -552,6 +567,20 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             if (interceptable == null || interceptable.invokeL(1048579, this, extendedFloatingActionButton) == null) {
             }
         }
+
+        public OnChangedCallback() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes7.dex */
@@ -559,6 +588,13 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExtendedFloatingActionButton this$0;
+
+        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
+        public int getDefaultMotionSpecResource() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.animator.obfuscated_res_0x7f020009 : invokeV.intValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ShowStrategy(ExtendedFloatingActionButton extendedFloatingActionButton, AnimatorTracker animatorTracker) {
@@ -582,13 +618,6 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             this.this$0 = extendedFloatingActionButton;
         }
 
-        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public int getDefaultMotionSpecResource() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.animator.obfuscated_res_0x7f020009 : invokeV.intValue;
-        }
-
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
         public void onAnimationEnd() {
             Interceptable interceptable = $ic;
@@ -596,25 +625,6 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 super.onAnimationEnd();
                 this.this$0.animState = 0;
             }
-        }
-
-        @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.this$0.setVisibility(0);
-                this.this$0.animState = 2;
-            }
-        }
-
-        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
-        public void onChange(@Nullable OnChangedCallback onChangedCallback) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, onChangedCallback) == null) || onChangedCallback == null) {
-                return;
-            }
-            onChangedCallback.onShown(this.this$0);
         }
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
@@ -632,17 +642,29 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public boolean shouldCancel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.this$0.isOrWillBeShown() : invokeV.booleanValue;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048581, this)) != null) {
+                return invokeV.booleanValue;
+            }
+            return this.this$0.isOrWillBeShown();
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public interface Size {
-        int getHeight();
+        @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                super.onAnimationStart(animator);
+                this.this$0.setVisibility(0);
+                this.this$0.animState = 2;
+            }
+        }
 
-        ViewGroup.LayoutParams getLayoutParams();
-
-        int getWidth();
+        @Override // com.google.android.material.floatingactionbutton.MotionStrategy
+        public void onChange(OnChangedCallback onChangedCallback) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, onChangedCallback) == null) && onChangedCallback != null) {
+                onChangedCallback.onShown(this.this$0);
+            }
+        }
     }
 
     static {
@@ -658,7 +680,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 return;
             }
         }
-        WIDTH = new Property<View, Float>(Float.class, "width") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.4
+        WIDTH = new Property(Float.class, "width") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -685,16 +707,18 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            @NonNull
-            public Float get(@NonNull View view2) {
+            public Float get(View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? Float.valueOf(view2.getLayoutParams().width) : (Float) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
+                    return Float.valueOf(view2.getLayoutParams().width);
+                }
+                return (Float) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            public void set(@NonNull View view2, @NonNull Float f) {
+            public void set(View view2, Float f) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
                     view2.getLayoutParams().width = f.intValue();
@@ -702,7 +726,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 }
             }
         };
-        HEIGHT = new Property<View, Float>(Float.class, "height") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.5
+        HEIGHT = new Property(Float.class, "height") { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -729,16 +753,18 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            @NonNull
-            public Float get(@NonNull View view2) {
+            public Float get(View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? Float.valueOf(view2.getLayoutParams().height) : (Float) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) {
+                    return Float.valueOf(view2.getLayoutParams().height);
+                }
+                return (Float) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            public void set(@NonNull View view2, @NonNull Float f) {
+            public void set(View view2, Float f) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
                     view2.getLayoutParams().height = f.intValue();
@@ -749,7 +775,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExtendedFloatingActionButton(@NonNull Context context) {
+    public ExtendedFloatingActionButton(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -769,24 +795,31 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isOrWillBeHidden() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ExtendedFloatingActionButton(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04029c);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? getVisibility() == 0 ? this.animState == 1 : this.animState != 2 : invokeV.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean isOrWillBeShown() {
-        InterceptResult invokeV;
+    public void performMotion(MotionStrategy motionStrategy, OnChangedCallback onChangedCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? getVisibility() != 0 ? this.animState == 2 : this.animState != 1 : invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void performMotion(@NonNull MotionStrategy motionStrategy, @Nullable OnChangedCallback onChangedCallback) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65552, this, motionStrategy, onChangedCallback) == null) || motionStrategy.shouldCancel()) {
+        if ((interceptable != null && interceptable.invokeLL(65552, this, motionStrategy, onChangedCallback) != null) || motionStrategy.shouldCancel()) {
             return;
         }
         if (!shouldAnimateVisibilityChange()) {
@@ -838,10 +871,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                     this.val$strategy.onAnimationEnd();
-                    if (this.cancelled) {
-                        return;
+                    if (!this.cancelled) {
+                        this.val$strategy.onChange(this.val$callback);
                     }
-                    this.val$strategy.onChange(this.val$callback);
                 }
             }
 
@@ -860,276 +892,8 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         createAnimator.start();
     }
 
-    private boolean shouldAnimateVisibilityChange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? ViewCompat.isLaidOut(this) && !isInEditMode() : invokeV.booleanValue;
-    }
-
-    public void addOnExtendAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
-            this.extendStrategy.addAnimationListener(animatorListener);
-        }
-    }
-
-    public void addOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animatorListener) == null) {
-            this.hideStrategy.addAnimationListener(animatorListener);
-        }
-    }
-
-    public void addOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animatorListener) == null) {
-            this.showStrategy.addAnimationListener(animatorListener);
-        }
-    }
-
-    public void addOnShrinkAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animatorListener) == null) {
-            this.shrinkStrategy.addAnimationListener(animatorListener);
-        }
-    }
-
-    public void extend() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            performMotion(this.extendStrategy, null);
-        }
-    }
-
-    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.AttachedBehavior
-    @NonNull
-    public CoordinatorLayout.Behavior<ExtendedFloatingActionButton> getBehavior() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.behavior : (CoordinatorLayout.Behavior) invokeV.objValue;
-    }
-
-    @VisibleForTesting
-    public int getCollapsedSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (Math.min(ViewCompat.getPaddingStart(this), ViewCompat.getPaddingEnd(this)) * 2) + getIconSize() : invokeV.intValue;
-    }
-
-    @Nullable
-    public MotionSpec getExtendMotionSpec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.extendStrategy.getMotionSpec() : (MotionSpec) invokeV.objValue;
-    }
-
-    @Nullable
-    public MotionSpec getHideMotionSpec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.hideStrategy.getMotionSpec() : (MotionSpec) invokeV.objValue;
-    }
-
-    @Nullable
-    public MotionSpec getShowMotionSpec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.showStrategy.getMotionSpec() : (MotionSpec) invokeV.objValue;
-    }
-
-    @Nullable
-    public MotionSpec getShrinkMotionSpec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.shrinkStrategy.getMotionSpec() : (MotionSpec) invokeV.objValue;
-    }
-
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            performMotion(this.hideStrategy, null);
-        }
-    }
-
-    public final boolean isExtended() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.isExtended : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.material.button.MaterialButton, android.widget.TextView, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.onAttachedToWindow();
-            if (this.isExtended && TextUtils.isEmpty(getText()) && getIcon() != null) {
-                this.isExtended = false;
-                this.shrinkStrategy.performNow();
-            }
-        }
-    }
-
-    public void removeOnExtendAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, animatorListener) == null) {
-            this.extendStrategy.removeAnimationListener(animatorListener);
-        }
-    }
-
-    public void removeOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, animatorListener) == null) {
-            this.hideStrategy.removeAnimationListener(animatorListener);
-        }
-    }
-
-    public void removeOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, animatorListener) == null) {
-            this.showStrategy.removeAnimationListener(animatorListener);
-        }
-    }
-
-    public void removeOnShrinkAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, animatorListener) == null) {
-            this.shrinkStrategy.removeAnimationListener(animatorListener);
-        }
-    }
-
-    public void setExtendMotionSpec(@Nullable MotionSpec motionSpec) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, motionSpec) == null) {
-            this.extendStrategy.setMotionSpec(motionSpec);
-        }
-    }
-
-    public void setExtendMotionSpecResource(@AnimatorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            setExtendMotionSpec(MotionSpec.createFromResource(getContext(), i));
-        }
-    }
-
-    public void setExtended(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || this.isExtended == z) {
-            return;
-        }
-        MotionStrategy motionStrategy = z ? this.extendStrategy : this.shrinkStrategy;
-        if (motionStrategy.shouldCancel()) {
-            return;
-        }
-        motionStrategy.performNow();
-    }
-
-    public void setHideMotionSpec(@Nullable MotionSpec motionSpec) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, motionSpec) == null) {
-            this.hideStrategy.setMotionSpec(motionSpec);
-        }
-    }
-
-    public void setHideMotionSpecResource(@AnimatorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            setHideMotionSpec(MotionSpec.createFromResource(getContext(), i));
-        }
-    }
-
-    public void setShowMotionSpec(@Nullable MotionSpec motionSpec) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, motionSpec) == null) {
-            this.showStrategy.setMotionSpec(motionSpec);
-        }
-    }
-
-    public void setShowMotionSpecResource(@AnimatorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            setShowMotionSpec(MotionSpec.createFromResource(getContext(), i));
-        }
-    }
-
-    public void setShrinkMotionSpec(@Nullable MotionSpec motionSpec) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, motionSpec) == null) {
-            this.shrinkStrategy.setMotionSpec(motionSpec);
-        }
-    }
-
-    public void setShrinkMotionSpecResource(@AnimatorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            setShrinkMotionSpec(MotionSpec.createFromResource(getContext(), i));
-        }
-    }
-
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            performMotion(this.showStrategy, null);
-        }
-    }
-
-    public void shrink() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            performMotion(this.shrinkStrategy, null);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04029c);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void extend(@NonNull OnChangedCallback onChangedCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onChangedCallback) == null) {
-            performMotion(this.extendStrategy, onChangedCallback);
-        }
-    }
-
-    public void hide(@NonNull OnChangedCallback onChangedCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onChangedCallback) == null) {
-            performMotion(this.hideStrategy, onChangedCallback);
-        }
-    }
-
-    public void show(@NonNull OnChangedCallback onChangedCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, onChangedCallback) == null) {
-            performMotion(this.showStrategy, onChangedCallback);
-        }
-    }
-
-    public void shrink(@NonNull OnChangedCallback onChangedCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, onChangedCallback) == null) {
-            performMotion(this.shrinkStrategy, onChangedCallback);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ExtendedFloatingActionButton(Context context, AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1188,21 +952,30 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             public int getHeight() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.this$0.getMeasuredHeight() : invokeV.intValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return this.this$0.getMeasuredHeight();
+                }
+                return invokeV.intValue;
             }
 
             @Override // com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.Size
             public ViewGroup.LayoutParams getLayoutParams() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ViewGroup.LayoutParams(-2, -2) : (ViewGroup.LayoutParams) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return new ViewGroup.LayoutParams(-2, -2);
+                }
+                return (ViewGroup.LayoutParams) invokeV.objValue;
             }
 
             @Override // com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.Size
             public int getWidth() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.getMeasuredWidth() : invokeV.intValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.this$0.getMeasuredWidth();
+                }
+                return invokeV.intValue;
             }
         }, true);
         this.shrinkStrategy = new ChangeSizeStrategy(this, animatorTracker2, new Size(this) { // from class: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.2
@@ -1232,21 +1005,30 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             public int getHeight() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.this$0.getCollapsedSize() : invokeV.intValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return this.this$0.getCollapsedSize();
+                }
+                return invokeV.intValue;
             }
 
             @Override // com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.Size
             public ViewGroup.LayoutParams getLayoutParams() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ViewGroup.LayoutParams(getWidth(), getHeight()) : (ViewGroup.LayoutParams) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return new ViewGroup.LayoutParams(getWidth(), getHeight());
+                }
+                return (ViewGroup.LayoutParams) invokeV.objValue;
             }
 
             @Override // com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton.Size
             public int getWidth() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.getCollapsedSize() : invokeV.intValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.this$0.getCollapsedSize();
+                }
+                return invokeV.intValue;
             }
         }, false);
         this.showStrategy.setMotionSpec(createFromAttribute);
@@ -1255,5 +1037,316 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         this.shrinkStrategy.setMotionSpec(createFromAttribute4);
         obtainStyledAttributes.recycle();
         setShapeAppearanceModel(ShapeAppearanceModel.builder(context2, attributeSet, i, DEF_STYLE_RES, ShapeAppearanceModel.PILL).build());
+    }
+
+    public void addOnExtendAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
+            this.extendStrategy.addAnimationListener(animatorListener);
+        }
+    }
+
+    public void addOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animatorListener) == null) {
+            this.hideStrategy.addAnimationListener(animatorListener);
+        }
+    }
+
+    public void addOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animatorListener) == null) {
+            this.showStrategy.addAnimationListener(animatorListener);
+        }
+    }
+
+    public void addOnShrinkAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animatorListener) == null) {
+            this.shrinkStrategy.addAnimationListener(animatorListener);
+        }
+    }
+
+    public void extend(OnChangedCallback onChangedCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onChangedCallback) == null) {
+            performMotion(this.extendStrategy, onChangedCallback);
+        }
+    }
+
+    public void hide(OnChangedCallback onChangedCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onChangedCallback) == null) {
+            performMotion(this.hideStrategy, onChangedCallback);
+        }
+    }
+
+    public void removeOnExtendAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, animatorListener) == null) {
+            this.extendStrategy.removeAnimationListener(animatorListener);
+        }
+    }
+
+    public void removeOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, animatorListener) == null) {
+            this.hideStrategy.removeAnimationListener(animatorListener);
+        }
+    }
+
+    public void removeOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, animatorListener) == null) {
+            this.showStrategy.removeAnimationListener(animatorListener);
+        }
+    }
+
+    public void removeOnShrinkAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, animatorListener) == null) {
+            this.shrinkStrategy.removeAnimationListener(animatorListener);
+        }
+    }
+
+    public void setExtendMotionSpec(MotionSpec motionSpec) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, motionSpec) == null) {
+            this.extendStrategy.setMotionSpec(motionSpec);
+        }
+    }
+
+    public void setExtendMotionSpecResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            setExtendMotionSpec(MotionSpec.createFromResource(getContext(), i));
+        }
+    }
+
+    public void setExtended(boolean z) {
+        MotionStrategy motionStrategy;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048598, this, z) != null) || this.isExtended == z) {
+            return;
+        }
+        if (z) {
+            motionStrategy = this.extendStrategy;
+        } else {
+            motionStrategy = this.shrinkStrategy;
+        }
+        if (motionStrategy.shouldCancel()) {
+            return;
+        }
+        motionStrategy.performNow();
+    }
+
+    public void setHideMotionSpec(MotionSpec motionSpec) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, motionSpec) == null) {
+            this.hideStrategy.setMotionSpec(motionSpec);
+        }
+    }
+
+    public void setHideMotionSpecResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            setHideMotionSpec(MotionSpec.createFromResource(getContext(), i));
+        }
+    }
+
+    public void setShowMotionSpec(MotionSpec motionSpec) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, motionSpec) == null) {
+            this.showStrategy.setMotionSpec(motionSpec);
+        }
+    }
+
+    public void setShowMotionSpecResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            setShowMotionSpec(MotionSpec.createFromResource(getContext(), i));
+        }
+    }
+
+    public void setShrinkMotionSpec(MotionSpec motionSpec) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, motionSpec) == null) {
+            this.shrinkStrategy.setMotionSpec(motionSpec);
+        }
+    }
+
+    public void setShrinkMotionSpecResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            setShrinkMotionSpec(MotionSpec.createFromResource(getContext(), i));
+        }
+    }
+
+    public void show(OnChangedCallback onChangedCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, onChangedCallback) == null) {
+            performMotion(this.showStrategy, onChangedCallback);
+        }
+    }
+
+    public void shrink(OnChangedCallback onChangedCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, onChangedCallback) == null) {
+            performMotion(this.shrinkStrategy, onChangedCallback);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean isOrWillBeHidden() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+            if (getVisibility() == 0) {
+                if (this.animState != 1) {
+                    return false;
+                }
+                return true;
+            } else if (this.animState == 2) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean isOrWillBeShown() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            if (getVisibility() != 0) {
+                if (this.animState != 2) {
+                    return false;
+                }
+                return true;
+            } else if (this.animState == 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    private boolean shouldAnimateVisibilityChange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
+            if (ViewCompat.isLaidOut(this) && !isInEditMode()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void extend() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            performMotion(this.extendStrategy, null);
+        }
+    }
+
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.AttachedBehavior
+    public CoordinatorLayout.Behavior getBehavior() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.behavior;
+        }
+        return (CoordinatorLayout.Behavior) invokeV.objValue;
+    }
+
+    public int getCollapsedSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return (Math.min(ViewCompat.getPaddingStart(this), ViewCompat.getPaddingEnd(this)) * 2) + getIconSize();
+        }
+        return invokeV.intValue;
+    }
+
+    public MotionSpec getExtendMotionSpec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.extendStrategy.getMotionSpec();
+        }
+        return (MotionSpec) invokeV.objValue;
+    }
+
+    public MotionSpec getHideMotionSpec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.hideStrategy.getMotionSpec();
+        }
+        return (MotionSpec) invokeV.objValue;
+    }
+
+    public MotionSpec getShowMotionSpec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.showStrategy.getMotionSpec();
+        }
+        return (MotionSpec) invokeV.objValue;
+    }
+
+    public MotionSpec getShrinkMotionSpec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.shrinkStrategy.getMotionSpec();
+        }
+        return (MotionSpec) invokeV.objValue;
+    }
+
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            performMotion(this.hideStrategy, null);
+        }
+    }
+
+    public final boolean isExtended() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.isExtended;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.material.button.MaterialButton, android.widget.TextView, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onAttachedToWindow();
+            if (this.isExtended && TextUtils.isEmpty(getText()) && getIcon() != null) {
+                this.isExtended = false;
+                this.shrinkStrategy.performNow();
+            }
+        }
+    }
+
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            performMotion(this.showStrategy, null);
+        }
+    }
+
+    public void shrink() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            performMotion(this.shrinkStrategy, null);
+        }
     }
 }

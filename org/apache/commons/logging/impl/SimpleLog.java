@@ -94,61 +94,12 @@ public class SimpleLog implements Log, Serializable {
         }
     }
 
-    public int getLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.intValue;
-    }
-
     @Override // org.apache.commons.logging.Log
     public final void info(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public final boolean isDebugEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public final boolean isErrorEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public final boolean isFatalEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public final boolean isInfoEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
     }
 
     public boolean isLevelEnabled(int i) {
@@ -158,33 +109,6 @@ public class SimpleLog implements Log, Serializable {
             throw new RuntimeException("Stub!");
         }
         return invokeI.booleanValue;
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public final boolean isTraceEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public final boolean isWarnEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void log(int i, Object obj, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048592, this, i, obj, th) == null) {
-            throw new RuntimeException("Stub!");
-        }
     }
 
     public void setLevel(int i) {
@@ -261,6 +185,82 @@ public class SimpleLog implements Log, Serializable {
     public final void warn(Object obj, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, obj, th) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public int getLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public final boolean isDebugEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public final boolean isErrorEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public final boolean isFatalEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public final boolean isInfoEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public final boolean isTraceEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public final boolean isWarnEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void log(int i, Object obj, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048592, this, i, obj, th) == null) {
             throw new RuntimeException("Stub!");
         }
     }

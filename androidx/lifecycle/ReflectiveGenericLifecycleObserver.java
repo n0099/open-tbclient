@@ -1,6 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.ClassesInfoCache;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +33,7 @@ public class ReflectiveGenericLifecycleObserver implements LifecycleEventObserve
     }
 
     @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
+    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, lifecycleOwner, event) == null) {
             this.mInfo.invokeCallbacks(lifecycleOwner, event, this.mWrapped);

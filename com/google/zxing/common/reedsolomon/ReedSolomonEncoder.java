@@ -11,7 +11,7 @@ import java.util.List;
 public final class ReedSolomonEncoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<GenericGFPoly> cachedGenerators;
+    public final List cachedGenerators;
     public final GenericGF field;
 
     public ReedSolomonEncoder(GenericGF genericGF) {
@@ -40,15 +40,15 @@ public final class ReedSolomonEncoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
             if (i >= this.cachedGenerators.size()) {
-                List<GenericGFPoly> list = this.cachedGenerators;
-                GenericGFPoly genericGFPoly = list.get(list.size() - 1);
+                List list = this.cachedGenerators;
+                GenericGFPoly genericGFPoly = (GenericGFPoly) list.get(list.size() - 1);
                 for (int size = this.cachedGenerators.size(); size <= i; size++) {
                     GenericGF genericGF = this.field;
                     genericGFPoly = genericGFPoly.multiply(new GenericGFPoly(genericGF, new int[]{1, genericGF.exp((size - 1) + genericGF.getGeneratorBase())}));
                     this.cachedGenerators.add(genericGFPoly);
                 }
             }
-            return this.cachedGenerators.get(i);
+            return (GenericGFPoly) this.cachedGenerators.get(i);
         }
         return (GenericGFPoly) invokeI.objValue;
     }

@@ -26,13 +26,13 @@ public final class AppCuidHelper {
 
     /* renamed from: com.baidu.android.bdutil.cuid.api.AppCuidHelper$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public static class Singleton {
+    public class Singleton {
         public static /* synthetic */ Interceptable $ic;
         public static final AppCuidHelper INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,37 +68,29 @@ public final class AppCuidHelper {
         }
     }
 
-    public /* synthetic */ AppCuidHelper(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    private String generateUID(Context context) {
-        InterceptResult invokeL;
+    public AppCuidHelper() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) ? CommonParam.getCUID(context) : (String) invokeL.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        initUid();
     }
 
     public static final AppCuidHelper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Singleton.INSTANCE : (AppCuidHelper) invokeV.objValue;
-    }
-
-    private synchronized String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            synchronized (this) {
-                if (AppRuntime.getAppContext() == null) {
-                    return null;
-                }
-                if (TextUtils.isEmpty(this.mUidFromGalaxy)) {
-                    this.mUidFromGalaxy = generateUID(AppRuntime.getAppContext());
-                }
-                return this.mUidFromGalaxy;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Singleton.INSTANCE;
         }
-        return (String) invokeV.objValue;
+        return (AppCuidHelper) invokeV.objValue;
     }
 
     private void initUid() {
@@ -133,19 +125,33 @@ public final class AppCuidHelper {
         return (String) invokeV.objValue;
     }
 
-    public AppCuidHelper() {
+    public /* synthetic */ AppCuidHelper(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    private String generateUID(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
+            return CommonParam.getCUID(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private synchronized String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            synchronized (this) {
+                if (AppRuntime.getAppContext() == null) {
+                    return null;
+                }
+                if (TextUtils.isEmpty(this.mUidFromGalaxy)) {
+                    this.mUidFromGalaxy = generateUID(AppRuntime.getAppContext());
+                }
+                return this.mUidFromGalaxy;
             }
         }
-        initUid();
+        return (String) invokeV.objValue;
     }
 }

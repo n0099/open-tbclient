@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RtpTransceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,27 @@ public class RtpTransceiver {
     public RtpSender cachedSender;
     public long nativeRtpTransceiver;
 
+    public static native RtpTransceiverDirection nativeCurrentDirection(long j);
+
+    public static native RtpTransceiverDirection nativeDirection(long j);
+
+    public static native MediaStreamTrack.MediaType nativeGetMediaType(long j);
+
+    public static native String nativeGetMid(long j);
+
+    public static native RtpReceiver nativeGetReceiver(long j);
+
+    public static native RtpSender nativeGetSender(long j);
+
+    public static native void nativeSetDirection(long j, RtpTransceiverDirection rtpTransceiverDirection);
+
+    public static native void nativeStop(long j);
+
+    public static native boolean nativeStopped(long j);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class RtpTransceiverDirection {
+    /* loaded from: classes8.dex */
+    public final class RtpTransceiverDirection {
         public static final /* synthetic */ RtpTransceiverDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtpTransceiverDirection INACTIVE;
@@ -75,7 +93,6 @@ public class RtpTransceiver {
             this.nativeIndex = i2;
         }
 
-        @CalledByNative("RtpTransceiverDirection")
         public static RtpTransceiverDirection fromNativeIndex(int i) {
             InterceptResult invokeI;
             RtpTransceiverDirection[] values;
@@ -94,29 +111,37 @@ public class RtpTransceiver {
         public static RtpTransceiverDirection valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (RtpTransceiverDirection) Enum.valueOf(RtpTransceiverDirection.class, str) : (RtpTransceiverDirection) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (RtpTransceiverDirection) Enum.valueOf(RtpTransceiverDirection.class, str);
+            }
+            return (RtpTransceiverDirection) invokeL.objValue;
         }
 
         public static RtpTransceiverDirection[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (RtpTransceiverDirection[]) $VALUES.clone() : (RtpTransceiverDirection[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (RtpTransceiverDirection[]) $VALUES.clone();
+            }
+            return (RtpTransceiverDirection[]) invokeV.objValue;
         }
 
-        @CalledByNative("RtpTransceiverDirection")
         public int getNativeIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.nativeIndex : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.nativeIndex;
+            }
+            return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static final class RtpTransceiverInit {
+    /* loaded from: classes8.dex */
+    public final class RtpTransceiverInit {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RtpTransceiverDirection direction;
-        public final List<String> streamIds;
+        public final List streamIds;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public RtpTransceiverInit() {
@@ -136,18 +161,22 @@ public class RtpTransceiver {
             }
         }
 
-        @CalledByNative("RtpTransceiverInit")
         public int getDirectionNativeIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.direction.getNativeIndex() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.direction.getNativeIndex();
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("RtpTransceiverInit")
-        public List<String> getStreamIds() {
+        public List getStreamIds() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.streamIds) : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new ArrayList(this.streamIds);
+            }
+            return (List) invokeV.objValue;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -171,7 +200,7 @@ public class RtpTransceiver {
             }
         }
 
-        public RtpTransceiverInit(RtpTransceiverDirection rtpTransceiverDirection, List<String> list) {
+        public RtpTransceiverInit(RtpTransceiverDirection rtpTransceiverDirection, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,7 +220,6 @@ public class RtpTransceiver {
         }
     }
 
-    @CalledByNative
     public RtpTransceiver(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -214,30 +242,12 @@ public class RtpTransceiver {
 
     private void checkRtpTransceiverExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeRtpTransceiver == 0) {
-            throw new IllegalStateException("RtpTransceiver has been disposed.");
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeRtpTransceiver != 0) {
+            return;
         }
+        throw new IllegalStateException("RtpTransceiver has been disposed.");
     }
 
-    public static native RtpTransceiverDirection nativeCurrentDirection(long j);
-
-    public static native RtpTransceiverDirection nativeDirection(long j);
-
-    public static native MediaStreamTrack.MediaType nativeGetMediaType(long j);
-
-    public static native String nativeGetMid(long j);
-
-    public static native RtpReceiver nativeGetReceiver(long j);
-
-    public static native RtpSender nativeGetSender(long j);
-
-    public static native void nativeSetDirection(long j, RtpTransceiverDirection rtpTransceiverDirection);
-
-    public static native void nativeStop(long j);
-
-    public static native boolean nativeStopped(long j);
-
-    @CalledByNative
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -292,13 +302,19 @@ public class RtpTransceiver {
     public RtpReceiver getReceiver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cachedReceiver : (RtpReceiver) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.cachedReceiver;
+        }
+        return (RtpReceiver) invokeV.objValue;
     }
 
     public RtpSender getSender() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.cachedSender : (RtpSender) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.cachedSender;
+        }
+        return (RtpSender) invokeV.objValue;
     }
 
     public boolean isStopped() {
@@ -311,19 +327,19 @@ public class RtpTransceiver {
         return invokeV.booleanValue;
     }
 
-    public void setDirection(RtpTransceiverDirection rtpTransceiverDirection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rtpTransceiverDirection) == null) {
-            checkRtpTransceiverExists();
-            nativeSetDirection(this.nativeRtpTransceiver, rtpTransceiverDirection);
-        }
-    }
-
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             checkRtpTransceiverExists();
             nativeStop(this.nativeRtpTransceiver);
+        }
+    }
+
+    public void setDirection(RtpTransceiverDirection rtpTransceiverDirection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rtpTransceiverDirection) == null) {
+            checkRtpTransceiverExists();
+            nativeSetDirection(this.nativeRtpTransceiver, rtpTransceiverDirection);
         }
     }
 }

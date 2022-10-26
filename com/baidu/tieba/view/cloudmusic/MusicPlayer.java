@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d09;
+import com.baidu.tieba.n09;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,9 +23,29 @@ public class MusicPlayer {
     public MediaPlayer a;
     public MusicPlayerState b;
 
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-157620808, "Lcom/baidu/tieba/view/cloudmusic/MusicPlayer;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-157620808, "Lcom/baidu/tieba/view/cloudmusic/MusicPlayer;");
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class MusicPlayerState {
+    public final class MusicPlayerState {
         public static final /* synthetic */ MusicPlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MusicPlayerState ERROR;
@@ -81,13 +101,19 @@ public class MusicPlayer {
         public static MusicPlayerState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MusicPlayerState) Enum.valueOf(MusicPlayerState.class, str) : (MusicPlayerState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (MusicPlayerState) Enum.valueOf(MusicPlayerState.class, str);
+            }
+            return (MusicPlayerState) invokeL.objValue;
         }
 
         public static MusicPlayerState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MusicPlayerState[]) $VALUES.clone() : (MusicPlayerState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (MusicPlayerState[]) $VALUES.clone();
+            }
+            return (MusicPlayerState[]) invokeV.objValue;
         }
     }
 
@@ -121,32 +147,12 @@ public class MusicPlayer {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                d09.b().d(this.a);
+                n09.b().d(this.a);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
                 this.b.a.setLooping(true);
                 this.b.a.start();
                 this.b.b = MusicPlayerState.PREPARED;
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-157620808, "Lcom/baidu/tieba/view/cloudmusic/MusicPlayer;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-157620808, "Lcom/baidu/tieba/view/cloudmusic/MusicPlayer;");
         }
     }
 
@@ -193,9 +199,33 @@ public class MusicPlayer {
         }
     }
 
+    public void f() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (mediaPlayer = this.a) != null) {
+            if (mediaPlayer.isPlaying()) {
+                this.a.stop();
+            }
+            this.a.release();
+            this.a = null;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MediaPlayer mediaPlayer = this.a;
+            if (mediaPlayer != null) {
+                mediaPlayer.start();
+                this.a.seekTo(0);
+            }
+            this.b = MusicPlayerState.RESUME;
+        }
+    }
+
     public void e(String str, CloudMusicData.MusicTagList.MusicList musicList, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, musicList, bVar) == null) || this.b == MusicPlayerState.PAUSE) {
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, musicList, bVar) != null) || this.b == MusicPlayerState.PAUSE) {
             return;
         }
         if (this.a == null) {
@@ -215,31 +245,6 @@ public class MusicPlayer {
             if (bVar != null) {
                 bVar.a();
             }
-        }
-    }
-
-    public void f() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        if (mediaPlayer.isPlaying()) {
-            this.a.stop();
-        }
-        this.a.release();
-        this.a = null;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MediaPlayer mediaPlayer = this.a;
-            if (mediaPlayer != null) {
-                mediaPlayer.start();
-                this.a.seekTo(0);
-            }
-            this.b = MusicPlayerState.RESUME;
         }
     }
 }

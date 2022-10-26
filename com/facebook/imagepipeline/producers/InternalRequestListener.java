@@ -56,21 +56,6 @@ public class InternalRequestListener extends InternalProducerListener implements
     }
 
     @Override // com.facebook.imagepipeline.listener.RequestListener2
-    public void onRequestFailure(ProducerContext producerContext, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, producerContext, th) == null) {
-            RequestListener requestListener = this.mRequestListener;
-            if (requestListener != null) {
-                requestListener.onRequestFailure(producerContext.getImageRequest(), producerContext.getId(), th, producerContext.isPrefetch());
-            }
-            RequestListener2 requestListener2 = this.mRequestListener2;
-            if (requestListener2 != null) {
-                requestListener2.onRequestFailure(producerContext, th);
-            }
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.listener.RequestListener2
     public void onRequestStart(ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, producerContext) == null) {
@@ -96,6 +81,21 @@ public class InternalRequestListener extends InternalProducerListener implements
             RequestListener2 requestListener2 = this.mRequestListener2;
             if (requestListener2 != null) {
                 requestListener2.onRequestSuccess(producerContext);
+            }
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener2
+    public void onRequestFailure(ProducerContext producerContext, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, producerContext, th) == null) {
+            RequestListener requestListener = this.mRequestListener;
+            if (requestListener != null) {
+                requestListener.onRequestFailure(producerContext.getImageRequest(), producerContext.getId(), th, producerContext.isPrefetch());
+            }
+            RequestListener2 requestListener2 = this.mRequestListener2;
+            if (requestListener2 != null) {
+                requestListener2.onRequestFailure(producerContext, th);
             }
         }
     }

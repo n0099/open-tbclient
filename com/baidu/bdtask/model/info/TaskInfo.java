@@ -49,30 +49,6 @@ public final class TaskInfo implements ITaskModelData {
     public final String token;
     public final int type;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -106,34 +82,6 @@ public final class TaskInfo implements ITaskModelData {
                 return;
             }
         }
-    }
-
-    public TaskInfo(String str, String str2, int i, String str3, int i2, String str4, String str5, TaskRuleData taskRuleData, TaskGuideData taskGuideData, TaskMeterData taskMeterData, TaskResponseData taskResponseData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, str5, taskRuleData, taskGuideData, taskMeterData, taskResponseData};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.id = str;
-        this.actionId = str2;
-        this.type = i;
-        this.token = str3;
-        this.behavior = i2;
-        this.actTaskId = str4;
-        this.fingerprint = str5;
-        this.taskRule = taskRuleData;
-        this.taskGuide = taskGuideData;
-        this.taskMeter = taskMeterData;
-        this.response = taskResponseData;
     }
 
     public final String component1() {
@@ -208,127 +156,264 @@ public final class TaskInfo implements ITaskModelData {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, str5, taskRuleData, taskGuideData, taskMeterData, taskResponseData})) == null) ? new TaskInfo(str, str2, i, str3, i2, str4, str5, taskRuleData, taskGuideData, taskMeterData, taskResponseData) : (TaskInfo) invokeCommon.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            if (obj != null && (obj instanceof TaskInfo)) {
-                if (obj == this) {
-                    return true;
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return Intrinsics.areEqual(getSingleKey(), ((TaskInfo) obj).getSingleKey());
             }
-            return false;
         }
-        return invokeL.booleanValue;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public TaskInfo(String str, String str2, int i, String str3, int i2, String str4, String str5, TaskRuleData taskRuleData, TaskGuideData taskGuideData, TaskMeterData taskMeterData, TaskResponseData taskResponseData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, str5, taskRuleData, taskGuideData, taskMeterData, taskResponseData};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.id = str;
+        this.actionId = str2;
+        this.type = i;
+        this.token = str3;
+        this.behavior = i2;
+        this.actTaskId = str4;
+        this.fingerprint = str5;
+        this.taskRule = taskRuleData;
+        this.taskGuide = taskGuideData;
+        this.taskMeter = taskMeterData;
+        this.response = taskResponseData;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ TaskInfo(String str, String str2, int i, String str3, int i2, String str4, String str5, TaskRuleData taskRuleData, TaskGuideData taskGuideData, TaskMeterData taskMeterData, TaskResponseData taskResponseData, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r1, r3, r4, r5, r6, r8, r2, r9, r10, r13, r0);
+        String str6;
+        String str7;
+        int i4;
+        String str8;
+        int i5;
+        String str9;
+        TaskRuleData taskRuleData2;
+        TaskGuideData taskGuideData2;
+        TaskMeterData taskMeterData2;
+        TaskResponseData taskResponseData2;
+        if ((i3 & 1) != 0) {
+            str6 = "";
+        } else {
+            str6 = str;
+        }
+        if ((i3 & 2) != 0) {
+            str7 = "";
+        } else {
+            str7 = str2;
+        }
+        if ((i3 & 4) != 0) {
+            i4 = -1;
+        } else {
+            i4 = i;
+        }
+        if ((i3 & 8) != 0) {
+            str8 = "";
+        } else {
+            str8 = str3;
+        }
+        if ((i3 & 16) != 0) {
+            i5 = 0;
+        } else {
+            i5 = i2;
+        }
+        if ((i3 & 32) != 0) {
+            str9 = "";
+        } else {
+            str9 = str4;
+        }
+        String str10 = (i3 & 64) == 0 ? str5 : "";
+        if ((i3 & 128) != 0) {
+            taskRuleData2 = new TaskRuleData(null, null, 0L, 0, 0, false, false, false, 0, 0, 1023, null);
+        } else {
+            taskRuleData2 = taskRuleData;
+        }
+        if ((i3 & 256) != 0) {
+            taskGuideData2 = new TaskGuideData(0, null, 3, null);
+        } else {
+            taskGuideData2 = taskGuideData;
+        }
+        if ((i3 & 512) != 0) {
+            taskMeterData2 = new TaskMeterData(0, null, 3, null);
+        } else {
+            taskMeterData2 = taskMeterData;
+        }
+        if ((i3 & 1024) != 0) {
+            taskResponseData2 = new TaskResponseData(0, null, null, null, 15, null);
+        } else {
+            taskResponseData2 = taskResponseData;
+        }
     }
 
     public final String getActTaskId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.actTaskId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.actTaskId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getActionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.actionId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.actionId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getBehavior() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.behavior : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.behavior;
+        }
+        return invokeV.intValue;
     }
 
     public final String getFingerprint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.fingerprint : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.fingerprint;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final TaskResponseData getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.response : (TaskResponseData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.response;
+        }
+        return (TaskResponseData) invokeV.objValue;
     }
 
     public final String getSingleKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.actTaskId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.actTaskId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final TaskGuideData getTaskGuide() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.taskGuide : (TaskGuideData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.taskGuide;
+        }
+        return (TaskGuideData) invokeV.objValue;
     }
 
     public final TaskMeterData getTaskMeter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.taskMeter : (TaskMeterData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.taskMeter;
+        }
+        return (TaskMeterData) invokeV.objValue;
     }
 
     public final TaskRuleData getTaskRule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.taskRule : (TaskRuleData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.taskRule;
+        }
+        return (TaskRuleData) invokeV.objValue;
     }
 
     public final String getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.token : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.token;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? getSingleKey().hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return getSingleKey().hashCode();
+        }
+        return invokeV.intValue;
     }
 
     public final boolean isClickAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.type == 6 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            if (this.type == 6) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isDone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? !this.response.isEmpty() && this.response.getProcessData().isDone() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? Intrinsics.areEqual(this.id, "") || Intrinsics.areEqual(this.actionId, "") || this.type == -1 || Intrinsics.areEqual(this.token, "") || Intrinsics.areEqual(this.actTaskId, "") : invokeV.booleanValue;
-    }
-
-    public final boolean isEnableActivated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            if (!isPassiveTask() || this.response.isEmpty()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (!this.response.isEmpty() && this.response.getProcessData().isDone()) {
                 return true;
             }
-            NextActive nextActive = this.response.getNextActive();
-            return !nextActive.isForceCleaned() && System.currentTimeMillis() >= nextActive.getUntil();
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -348,32 +433,68 @@ public final class TaskInfo implements ITaskModelData {
     public final boolean isInitiActiveTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.behavior == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            if (this.behavior == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isPassiveTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.behavior == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            if (this.behavior == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? !isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return !isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isVisitAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.type == 7 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            if (this.type == 7) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public final void setResponse(TaskResponseData taskResponseData) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, taskResponseData) == null) {
-            this.response = taskResponseData;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            String jSONObject = toJson().toString();
+            Intrinsics.checkExpressionValueIsNotNull(jSONObject, "toJson().toString()");
+            return jSONObject;
         }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskInfo deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return new TaskInfo(this.id, this.actionId, this.type, this.token, this.behavior, this.actTaskId, this.fingerprint, TaskRuleData.copy$default(this.taskRule, null, null, 0L, 0, 0, false, false, false, 0, 0, 1023, null), TaskGuideData.copy$default(this.taskGuide, 0, null, 3, null), TaskMeterData.copy$default(this.taskMeter, 0, null, 3, null), TaskResponseData.copy$default(this.response, 0, null, null, null, 15, null));
+        }
+        return (TaskInfo) invokeV.objValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -398,26 +519,54 @@ public final class TaskInfo implements ITaskModelData {
         return (JSONObject) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            String jSONObject = toJson().toString();
-            Intrinsics.checkExpressionValueIsNotNull(jSONObject, "toJson().toString()");
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            if (obj == null || !(obj instanceof TaskInfo)) {
+                return false;
+            }
+            if (obj == this) {
+                return true;
+            }
+            return Intrinsics.areEqual(getSingleKey(), ((TaskInfo) obj).getSingleKey());
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public /* synthetic */ TaskInfo(String str, String str2, int i, String str3, int i2, String str4, String str5, TaskRuleData taskRuleData, TaskGuideData taskGuideData, TaskMeterData taskMeterData, TaskResponseData taskResponseData, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i3 & 1) != 0 ? "" : str, (i3 & 2) != 0 ? "" : str2, (i3 & 4) != 0 ? -1 : i, (i3 & 8) != 0 ? "" : str3, (i3 & 16) != 0 ? 0 : i2, (i3 & 32) != 0 ? "" : str4, (i3 & 64) == 0 ? str5 : "", (i3 & 128) != 0 ? new TaskRuleData(null, null, 0L, 0, 0, false, false, false, 0, 0, 1023, null) : taskRuleData, (i3 & 256) != 0 ? new TaskGuideData(0, null, 3, null) : taskGuideData, (i3 & 512) != 0 ? new TaskMeterData(0, null, 3, null) : taskMeterData, (i3 & 1024) != 0 ? new TaskResponseData(0, null, null, null, 15, null) : taskResponseData);
+    public final void setResponse(TaskResponseData taskResponseData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, taskResponseData) == null) {
+            this.response = taskResponseData;
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskInfo deepCopy() {
+    public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? new TaskInfo(this.id, this.actionId, this.type, this.token, this.behavior, this.actTaskId, this.fingerprint, TaskRuleData.copy$default(this.taskRule, null, null, 0L, 0, 0, false, false, false, 0, 0, 1023, null), TaskGuideData.copy$default(this.taskGuide, 0, null, 3, null), TaskMeterData.copy$default(this.taskMeter, 0, null, 3, null), TaskResponseData.copy$default(this.response, 0, null, null, null, 15, null)) : (TaskInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            if (!Intrinsics.areEqual(this.id, "") && !Intrinsics.areEqual(this.actionId, "") && this.type != -1 && !Intrinsics.areEqual(this.token, "") && !Intrinsics.areEqual(this.actTaskId, "")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isEnableActivated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            if (!isPassiveTask() || this.response.isEmpty()) {
+                return true;
+            }
+            NextActive nextActive = this.response.getNextActive();
+            if (!nextActive.isForceCleaned() && System.currentTimeMillis() >= nextActive.getUntil()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

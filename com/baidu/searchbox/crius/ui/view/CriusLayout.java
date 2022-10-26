@@ -46,11 +46,129 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
     public static final String TAG = "CriusLayout";
     public transient /* synthetic */ FieldHolder $fh;
     public CriusData mCriusData;
-    public Map<View, CriusData> mCriusDatas;
+    public Map mCriusDatas;
     public OpacityController mOpacityController;
 
     /* loaded from: classes2.dex */
-    public static class ViewMeasureFunction implements CriusMeasureFunction {
+    public class LayoutParams extends ViewGroup.LayoutParams {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SparseArray numericAttributes;
+        public SparseArray stringAttributes;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.numericAttributes = new SparseArray();
+            this.stringAttributes = new SparseArray();
+            if (i >= 0) {
+                this.numericAttributes.put(55, Float.valueOf(i));
+            }
+            if (i2 >= 0) {
+                this.numericAttributes.put(20, Float.valueOf(i2));
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(Context context, AttributeSet attributeSet) {
+            super(context, attributeSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.numericAttributes = new SparseArray();
+            this.stringAttributes = new SparseArray();
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.crius);
+            int i3 = ((ViewGroup.LayoutParams) this).width;
+            if (i3 >= 0) {
+                this.numericAttributes.put(55, Float.valueOf(i3));
+            }
+            int i4 = ((ViewGroup.LayoutParams) this).height;
+            if (i4 >= 0) {
+                this.numericAttributes.put(20, Float.valueOf(i4));
+            }
+            int indexCount = obtainStyledAttributes.getIndexCount();
+            for (int i5 = 0; i5 < indexCount; i5++) {
+                int index = obtainStyledAttributes.getIndex(i5);
+                TypedValue typedValue = new TypedValue();
+                obtainStyledAttributes.getValue(index, typedValue);
+                int i6 = typedValue.type;
+                if (i6 == 5) {
+                    this.numericAttributes.put(index, Float.valueOf(obtainStyledAttributes.getDimensionPixelSize(index, 0)));
+                } else if (i6 == 3) {
+                    this.stringAttributes.put(index, obtainStyledAttributes.getString(index));
+                } else {
+                    this.numericAttributes.put(index, Float.valueOf(obtainStyledAttributes.getFloat(index, 0.0f)));
+                }
+            }
+            obtainStyledAttributes.recycle();
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
+            super(layoutParams);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutParams};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            if (layoutParams instanceof LayoutParams) {
+                LayoutParams layoutParams2 = (LayoutParams) layoutParams;
+                this.numericAttributes = layoutParams2.numericAttributes.clone();
+                this.stringAttributes = layoutParams2.stringAttributes.clone();
+            } else {
+                this.numericAttributes = new SparseArray();
+                this.stringAttributes = new SparseArray();
+            }
+            if (layoutParams.width >= 0) {
+                this.numericAttributes.put(55, Float.valueOf(((ViewGroup.LayoutParams) this).width));
+            }
+            if (layoutParams.height >= 0) {
+                this.numericAttributes.put(20, Float.valueOf(((ViewGroup.LayoutParams) this).height));
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class ViewMeasureFunction implements CriusMeasureFunction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +193,10 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                 if (criusMeasureMode == CriusMeasureMode.AT_MOST) {
                     return Integer.MIN_VALUE;
                 }
-                return criusMeasureMode == CriusMeasureMode.EXACTLY ? 1073741824 : 0;
+                if (criusMeasureMode == CriusMeasureMode.EXACTLY) {
+                    return 1073741824;
+                }
+                return 0;
             }
             return invokeL.intValue;
         }
@@ -125,6 +246,159 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
         }
     }
 
+    public void invalidate(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            if (this.mCriusDatas.containsKey(view2)) {
+                ((CriusData) this.mCriusDatas.get(view2)).criusNode.dirty();
+                return;
+            }
+            int childCount = this.mCriusData.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                CriusData childAt = this.mCriusData.getChildAt(i);
+                if (childAt.criusNode.getData() instanceof CriusLayout) {
+                    ((CriusLayout) childAt.criusNode.getData()).invalidate(view2);
+                }
+            }
+            invalidate();
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CriusLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    private void calculateLayout(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65542, this, i, i2) == null) {
+            int size = View.MeasureSpec.getSize(i);
+            int size2 = View.MeasureSpec.getSize(i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            if (mode2 == 1073741824) {
+                this.mCriusData.criusNode.setHeight(size2);
+            }
+            if (mode == 1073741824) {
+                this.mCriusData.criusNode.setWidth(size);
+            }
+            if (mode2 == Integer.MIN_VALUE) {
+                this.mCriusData.criusNode.setMaxHeight(size2);
+            }
+            if (mode == Integer.MIN_VALUE) {
+                this.mCriusData.criusNode.setMaxWidth(size);
+            }
+            this.mCriusData.criusNode.calculateLayout(Float.NaN, Float.NaN);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CriusLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        CriusData create = CriusDataFactory.create(context, this);
+        this.mCriusData = create;
+        create.criusNode.setData(this);
+        this.mCriusData.criusNode.setMeasureFunction(new ViewMeasureFunction());
+        this.mCriusDatas = new HashMap();
+        if (attributeSet != null) {
+            layoutParams = new LayoutParams(context, attributeSet);
+        } else {
+            layoutParams = (LayoutParams) generateDefaultLayoutParams();
+        }
+        applyLayoutParams(layoutParams, this.mCriusData.criusNode, this);
+    }
+
+    private void applyLayoutRecursive(CriusData criusData, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{criusData, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            CriusNode criusNode = criusData.criusNode;
+            View view2 = (View) criusNode.getData();
+            if (view2 != null && view2 != this) {
+                criusData.getUI().layout(f, f2);
+            }
+            int childCount = criusData.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                if (equals(view2)) {
+                    applyLayoutRecursive(criusData.getChildAt(i), f, f2);
+                } else if (!(view2 instanceof CriusLayout)) {
+                    applyLayoutRecursive(criusData.getChildAt(i), criusNode.getLayoutX() + f, criusNode.getLayoutY() + f2);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CriusLayout(Context context, CriusData criusData) {
+        super(context, null, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, criusData};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mCriusData = criusData;
+        criusData.criusNode.setData(this);
+        this.mCriusData.criusNode.setMeasureFunction(new ViewMeasureFunction());
+        this.mCriusDatas = new HashMap();
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            if (!(getParent() instanceof CriusLayout) && !(getParent() instanceof CriusRecyclerView)) {
+                calculateLayout(i, i2);
+            }
+            setMeasuredDimension(Math.round(this.mCriusData.criusNode.getLayoutWidth()), Math.round(this.mCriusData.criusNode.getLayoutHeight()));
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "CriusLayout#onMeasure, width=" + getMeasuredWidth() + ", height=" + getMeasuredHeight() + StringUtil.ARRAY_ELEMENT_SEPARATOR + this);
+            }
+        }
+    }
+
     public static void applyLayoutParams(LayoutParams layoutParams, CriusNode criusNode, View view2) {
         int i;
         int i2;
@@ -151,7 +425,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                     break;
                 }
                 int keyAt = layoutParams.numericAttributes.keyAt(i3);
-                float floatValue = layoutParams.numericAttributes.valueAt(i3).floatValue();
+                float floatValue = ((Float) layoutParams.numericAttributes.valueAt(i3)).floatValue();
                 if (keyAt == 0) {
                     criusNode.setAlignContent(CriusAlign.fromInt(Math.round(floatValue)));
                 } else if (keyAt == 1) {
@@ -256,8 +530,8 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
             int i4 = 0;
             while (i4 < layoutParams.stringAttributes.size()) {
                 int keyAt2 = layoutParams.stringAttributes.keyAt(i4);
-                String valueAt = layoutParams.stringAttributes.valueAt(i4);
-                if ("auto".equals(valueAt)) {
+                String str = (String) layoutParams.stringAttributes.valueAt(i4);
+                if ("auto".equals(str)) {
                     if (keyAt2 == 26) {
                         criusNode.setMarginAuto(CriusEdge.LEFT);
                     } else if (keyAt2 == 29) {
@@ -274,8 +548,8 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
                         criusNode.setMarginAuto(CriusEdge.ALL);
                     }
                 }
-                if (valueAt.endsWith("%")) {
-                    float parseFloat = Float.parseFloat(valueAt.substring(0, valueAt.length() - i2));
+                if (str.endsWith("%")) {
+                    float parseFloat = Float.parseFloat(str.substring(0, str.length() - i2));
                     if (keyAt2 == 16) {
                         criusNode.setFlexBasisPercent(parseFloat);
                     } else if (keyAt2 == i) {
@@ -346,58 +620,46 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
         }
     }
 
-    private void applyLayoutRecursive(CriusData criusData, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{criusData, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            CriusNode criusNode = criusData.criusNode;
-            View view2 = (View) criusNode.getData();
-            if (view2 != null && view2 != this) {
-                criusData.getUI().layout(f, f2);
-            }
-            int childCount = criusData.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                if (equals(view2)) {
-                    applyLayoutRecursive(criusData.getChildAt(i), f, f2);
-                } else if (!(view2 instanceof CriusLayout)) {
-                    applyLayoutRecursive(criusData.getChildAt(i), criusNode.getLayoutX() + f, criusNode.getLayoutY() + f2);
-                }
-            }
-        }
-    }
-
-    private void calculateLayout(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65542, this, i, i2) == null) {
-            int size = View.MeasureSpec.getSize(i);
-            int size2 = View.MeasureSpec.getSize(i2);
-            int mode = View.MeasureSpec.getMode(i);
-            int mode2 = View.MeasureSpec.getMode(i2);
-            if (mode2 == 1073741824) {
-                this.mCriusData.criusNode.setHeight(size2);
-            }
-            if (mode == 1073741824) {
-                this.mCriusData.criusNode.setWidth(size);
-            }
-            if (mode2 == Integer.MIN_VALUE) {
-                this.mCriusData.criusNode.setMaxHeight(size2);
-            }
-            if (mode == Integer.MIN_VALUE) {
-                this.mCriusData.criusNode.setMaxWidth(size);
-            }
-            this.mCriusData.criusNode.calculateLayout(Float.NaN, Float.NaN);
-        }
-    }
-
     private void removeViewFromCriusTree(View view2, boolean z) {
         CriusData criusData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65543, this, view2, z) == null) || (criusData = this.mCriusDatas.get(view2)) == null) {
+        if ((interceptable != null && interceptable.invokeLZ(65543, this, view2, z) != null) || (criusData = (CriusData) this.mCriusDatas.get(view2)) == null) {
             return;
         }
         criusData.criusNode.setData(null);
         this.mCriusDatas.remove(view2);
         if (z) {
             this.mCriusData.criusNode.calculateLayout(Float.NaN, Float.NaN);
+        }
+    }
+
+    public void addView(View view2, CriusData criusData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, criusData) == null) {
+            this.mCriusDatas.put(view2, criusData);
+            addView(view2);
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public void removeViews(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+            for (int i3 = i; i3 < i + i2; i3++) {
+                removeViewFromCriusTree(getChildAt(i3), false);
+            }
+            super.removeViews(i, i2);
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public void removeViewsInLayout(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
+            for (int i3 = i; i3 < i + i2; i3++) {
+                removeViewFromCriusTree(getChildAt(i3), true);
+            }
+            super.removeViewsInLayout(i, i2);
         }
     }
 
@@ -410,33 +672,33 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
             if (view2 instanceof VirtualCriusLayout) {
                 VirtualCriusLayout virtualCriusLayout = (VirtualCriusLayout) view2;
                 virtualCriusLayout.transferChildren(this);
-                if (this.mCriusDatas.containsKey(view2)) {
+                if (!this.mCriusDatas.containsKey(view2)) {
+                    CriusData criusData = virtualCriusLayout.getCriusData();
+                    CriusData criusData2 = this.mCriusData;
+                    criusData2.addChildAt(criusData, criusData2.getChildCount());
                     return;
                 }
-                CriusData criusData = virtualCriusLayout.getCriusData();
-                CriusData criusData2 = this.mCriusData;
-                criusData2.addChildAt(criusData, criusData2.getChildCount());
                 return;
             }
             super.addView(view2, i, layoutParams);
             if (this.mCriusDatas.containsKey(view2)) {
-                CriusData criusData3 = this.mCriusDatas.get(view2);
+                CriusData criusData3 = (CriusData) this.mCriusDatas.get(view2);
                 applyLayoutParams((LayoutParams) view2.getLayoutParams(), criusData3.criusNode, view2);
-                if ((view2 instanceof CriusLayout) || (view2 instanceof CriusRecyclerView)) {
+                if (!(view2 instanceof CriusLayout) && !(view2 instanceof CriusRecyclerView)) {
+                    if (AppConfig.isDebug()) {
+                        Log.d(TAG, "CriusLayout, addView child setMeasureFunction : " + view2);
+                    }
+                    criusData3.criusNode.setData(view2);
+                    criusData3.criusNode.setMeasureFunction(new ViewMeasureFunction());
                     return;
                 }
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "CriusLayout, addView child setMeasureFunction : " + view2);
-                }
-                criusData3.criusNode.setData(view2);
-                criusData3.criusNode.setMeasureFunction(new ViewMeasureFunction());
                 return;
             }
             if (view2 instanceof CriusLayout) {
                 create = ((CriusLayout) view2).getCriusData();
             } else {
                 if (this.mCriusDatas.containsKey(view2)) {
-                    create = this.mCriusDatas.get(view2);
+                    create = (CriusData) this.mCriusDatas.get(view2);
                 } else {
                     create = CriusDataFactory.create(getContext(), view2);
                 }
@@ -450,11 +712,22 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
         }
     }
 
+    public void addView(View view2, int i, CriusData criusData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, criusData) == null) {
+            this.mCriusDatas.put(view2, criusData);
+            addView(view2, i);
+        }
+    }
+
     @Override // android.view.ViewGroup
     public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutParams)) == null) ? layoutParams instanceof LayoutParams : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutParams)) == null) {
+            return layoutParams instanceof LayoutParams;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -470,90 +743,13 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
     }
 
     @Override // android.view.ViewGroup
-    public ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new LayoutParams(-1, -1) : (ViewGroup.LayoutParams) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, attributeSet)) == null) ? new LayoutParams(getContext(), attributeSet) : (ViewGroup.LayoutParams) invokeL.objValue;
-    }
-
-    public CriusData getCriusData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mCriusData : (CriusData) invokeV.objValue;
-    }
-
-    public void invalidate(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (this.mCriusDatas.containsKey(view2)) {
-                this.mCriusDatas.get(view2).criusNode.dirty();
-                return;
-            }
-            int childCount = this.mCriusData.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                CriusData childAt = this.mCriusData.getChildAt(i);
-                if (childAt.criusNode.getData() instanceof CriusLayout) {
-                    ((CriusLayout) childAt.criusNode.getData()).invalidate(view2);
-                }
-            }
-            invalidate();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, attributeSet)) == null) {
+            return new LayoutParams(getContext(), attributeSet);
         }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            if (!(getParent() instanceof CriusLayout) && !(getParent() instanceof CriusRecyclerView)) {
-                this.mCriusData.criusNode.calculateLayout(Float.NaN, Float.NaN);
-            }
-            applyLayoutRecursive(this.mCriusData, 0.0f, 0.0f);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            if (!(getParent() instanceof CriusLayout) && !(getParent() instanceof CriusRecyclerView)) {
-                calculateLayout(i, i2);
-            }
-            setMeasuredDimension(Math.round(this.mCriusData.criusNode.getLayoutWidth()), Math.round(this.mCriusData.criusNode.getLayoutHeight()));
-            if (AppConfig.isDebug()) {
-                Log.d(TAG, "CriusLayout#onMeasure, width=" + getMeasuredWidth() + ", height=" + getMeasuredHeight() + StringUtil.ARRAY_ELEMENT_SEPARATOR + this);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public void removeAllViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            int childCount = getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                removeViewFromCriusTree(getChildAt(i), false);
-            }
-            super.removeAllViews();
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public void removeAllViewsInLayout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            int childCount = getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                removeViewFromCriusTree(getChildAt(i), true);
-            }
-            super.removeAllViewsInLayout();
-        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
@@ -583,28 +779,6 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
         }
     }
 
-    @Override // android.view.ViewGroup
-    public void removeViews(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
-            for (int i3 = i; i3 < i + i2; i3++) {
-                removeViewFromCriusTree(getChildAt(i3), false);
-            }
-            super.removeViews(i, i2);
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public void removeViewsInLayout(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
-            for (int i3 = i; i3 < i + i2; i3++) {
-                removeViewFromCriusTree(getChildAt(i3), true);
-            }
-            super.removeViewsInLayout(i, i2);
-        }
-    }
-
     @Override // com.baidu.searchbox.crius.ui.IOpacitySupport
     public void setOpacityController(OpacityController opacityController) {
         Interceptable interceptable = $ic;
@@ -613,24 +787,46 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CriusLayout(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    @Override // android.view.ViewGroup
+    public ViewGroup.LayoutParams generateDefaultLayoutParams() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new LayoutParams(-1, -1);
+        }
+        return (ViewGroup.LayoutParams) invokeV.objValue;
+    }
+
+    public CriusData getCriusData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mCriusData;
+        }
+        return (CriusData) invokeV.objValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public void removeAllViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            int childCount = getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                removeViewFromCriusTree(getChildAt(i), false);
             }
+            super.removeAllViews();
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public void removeAllViewsInLayout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            int childCount = getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                removeViewFromCriusTree(getChildAt(i), true);
+            }
+            super.removeAllViewsInLayout();
         }
     }
 
@@ -638,198 +834,20 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
     public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (ViewGroup.LayoutParams) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, layoutParams)) == null) {
+            return new LayoutParams(layoutParams);
+        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CriusLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        LayoutParams layoutParams;
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            if (!(getParent() instanceof CriusLayout) && !(getParent() instanceof CriusRecyclerView)) {
+                this.mCriusData.criusNode.calculateLayout(Float.NaN, Float.NaN);
             }
-        }
-        CriusData create = CriusDataFactory.create(context, this);
-        this.mCriusData = create;
-        create.criusNode.setData(this);
-        this.mCriusData.criusNode.setMeasureFunction(new ViewMeasureFunction());
-        this.mCriusDatas = new HashMap();
-        if (attributeSet != null) {
-            layoutParams = new LayoutParams(context, attributeSet);
-        } else {
-            layoutParams = (LayoutParams) generateDefaultLayoutParams();
-        }
-        applyLayoutParams(layoutParams, this.mCriusData.criusNode, this);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CriusLayout(Context context, CriusData criusData) {
-        super(context, null, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, criusData};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mCriusData = criusData;
-        criusData.criusNode.setData(this);
-        this.mCriusData.criusNode.setMeasureFunction(new ViewMeasureFunction());
-        this.mCriusDatas = new HashMap();
-    }
-
-    /* loaded from: classes2.dex */
-    public static class LayoutParams extends ViewGroup.LayoutParams {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public SparseArray<Float> numericAttributes;
-        public SparseArray<String> stringAttributes;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(Context context, AttributeSet attributeSet) {
-            super(context, attributeSet);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.numericAttributes = new SparseArray<>();
-            this.stringAttributes = new SparseArray<>();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.crius);
-            int i3 = ((ViewGroup.LayoutParams) this).width;
-            if (i3 >= 0) {
-                this.numericAttributes.put(55, Float.valueOf(i3));
-            }
-            int i4 = ((ViewGroup.LayoutParams) this).height;
-            if (i4 >= 0) {
-                this.numericAttributes.put(20, Float.valueOf(i4));
-            }
-            int indexCount = obtainStyledAttributes.getIndexCount();
-            for (int i5 = 0; i5 < indexCount; i5++) {
-                int index = obtainStyledAttributes.getIndex(i5);
-                TypedValue typedValue = new TypedValue();
-                obtainStyledAttributes.getValue(index, typedValue);
-                int i6 = typedValue.type;
-                if (i6 == 5) {
-                    this.numericAttributes.put(index, Float.valueOf(obtainStyledAttributes.getDimensionPixelSize(index, 0)));
-                } else if (i6 == 3) {
-                    this.stringAttributes.put(index, obtainStyledAttributes.getString(index));
-                } else {
-                    this.numericAttributes.put(index, Float.valueOf(obtainStyledAttributes.getFloat(index, 0.0f)));
-                }
-            }
-            obtainStyledAttributes.recycle();
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.numericAttributes = new SparseArray<>();
-            this.stringAttributes = new SparseArray<>();
-            if (i >= 0) {
-                this.numericAttributes.put(55, Float.valueOf(i));
-            }
-            if (i2 >= 0) {
-                this.numericAttributes.put(20, Float.valueOf(i2));
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
-            super(layoutParams);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            if (layoutParams instanceof LayoutParams) {
-                LayoutParams layoutParams2 = (LayoutParams) layoutParams;
-                this.numericAttributes = layoutParams2.numericAttributes.clone();
-                this.stringAttributes = layoutParams2.stringAttributes.clone();
-            } else {
-                this.numericAttributes = new SparseArray<>();
-                this.stringAttributes = new SparseArray<>();
-            }
-            if (layoutParams.width >= 0) {
-                this.numericAttributes.put(55, Float.valueOf(((ViewGroup.LayoutParams) this).width));
-            }
-            if (layoutParams.height >= 0) {
-                this.numericAttributes.put(20, Float.valueOf(((ViewGroup.LayoutParams) this).height));
-            }
-        }
-    }
-
-    public void addView(View view2, CriusData criusData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, criusData) == null) {
-            this.mCriusDatas.put(view2, criusData);
-            addView(view2);
-        }
-    }
-
-    public void addView(View view2, int i, CriusData criusData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, criusData) == null) {
-            this.mCriusDatas.put(view2, criusData);
-            addView(view2, i);
+            applyLayoutRecursive(this.mCriusData, 0.0f, 0.0f);
         }
     }
 }

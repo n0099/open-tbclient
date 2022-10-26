@@ -35,44 +35,6 @@ public final class FinderPattern extends ResultPoint {
         }
     }
 
-    public boolean aboutEquals(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (Math.abs(f2 - getY()) > f || Math.abs(f3 - getX()) > f) {
-                return false;
-            }
-            float abs = Math.abs(f - this.estimatedModuleSize);
-            return abs <= 1.0f || abs <= this.estimatedModuleSize;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public FinderPattern combineEstimate(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            int i = this.count;
-            int i2 = i + 1;
-            float x = (i * getX()) + f2;
-            float f4 = i2;
-            return new FinderPattern(x / f4, ((this.count * getY()) + f) / f4, ((this.count * this.estimatedModuleSize) + f3) / f4, i2);
-        }
-        return (FinderPattern) invokeCommon.objValue;
-    }
-
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.count : invokeV.intValue;
-    }
-
-    public float getEstimatedModuleSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.estimatedModuleSize : invokeV.floatValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FinderPattern(float f, float f2, float f3, int i) {
         super(f, f2);
@@ -94,5 +56,52 @@ public final class FinderPattern extends ResultPoint {
         }
         this.estimatedModuleSize = f3;
         this.count = i;
+    }
+
+    public boolean aboutEquals(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (Math.abs(f2 - getY()) > f || Math.abs(f3 - getX()) > f) {
+                return false;
+            }
+            float abs = Math.abs(f - this.estimatedModuleSize);
+            if (abs > 1.0f && abs > this.estimatedModuleSize) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public FinderPattern combineEstimate(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            int i = this.count;
+            int i2 = i + 1;
+            float x = (i * getX()) + f2;
+            float f4 = i2;
+            return new FinderPattern(x / f4, ((this.count * getY()) + f) / f4, ((this.count * this.estimatedModuleSize) + f3) / f4, i2);
+        }
+        return (FinderPattern) invokeCommon.objValue;
+    }
+
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.count;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getEstimatedModuleSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.estimatedModuleSize;
+        }
+        return invokeV.floatValue;
     }
 }

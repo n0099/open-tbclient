@@ -81,12 +81,18 @@ public final class PopupExclusionManagerMap$ExclusionType {
     public static PopupExclusionManagerMap$ExclusionType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PopupExclusionManagerMap$ExclusionType) Enum.valueOf(PopupExclusionManagerMap$ExclusionType.class, str) : (PopupExclusionManagerMap$ExclusionType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PopupExclusionManagerMap$ExclusionType) Enum.valueOf(PopupExclusionManagerMap$ExclusionType.class, str);
+        }
+        return (PopupExclusionManagerMap$ExclusionType) invokeL.objValue;
     }
 
     public static PopupExclusionManagerMap$ExclusionType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PopupExclusionManagerMap$ExclusionType[]) $VALUES.clone() : (PopupExclusionManagerMap$ExclusionType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PopupExclusionManagerMap$ExclusionType[]) $VALUES.clone();
+        }
+        return (PopupExclusionManagerMap$ExclusionType[]) invokeV.objValue;
     }
 }

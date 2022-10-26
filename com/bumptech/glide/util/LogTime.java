@@ -1,6 +1,5 @@
 package com.bumptech.glide.util;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.SystemClock;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +28,11 @@ public final class LogTime {
                 return;
             }
         }
-        MILLIS_MULTIPLIER = Build.VERSION.SDK_INT >= 17 ? 1.0d / Math.pow(10.0d, 6.0d) : 1.0d;
+        double d = 1.0d;
+        if (Build.VERSION.SDK_INT >= 17) {
+            d = 1.0d / Math.pow(10.0d, 6.0d);
+        }
+        MILLIS_MULTIPLIER = d;
     }
 
     public LogTime() {
@@ -46,13 +49,6 @@ public final class LogTime {
         }
     }
 
-    public static double getElapsedMillis(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? (getLogTime() - j) * MILLIS_MULTIPLIER : invokeJ.doubleValue;
-    }
-
-    @TargetApi(17)
     public static long getLogTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,5 +59,14 @@ public final class LogTime {
             return SystemClock.uptimeMillis();
         }
         return invokeV.longValue;
+    }
+
+    public static double getElapsedMillis(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return (getLogTime() - j) * MILLIS_MULTIPLIER;
+        }
+        return invokeJ.doubleValue;
     }
 }

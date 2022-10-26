@@ -12,8 +12,7 @@ import org.json.JSONObject;
 public class cu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<SdkLiveInfoData> b;
+    public ArrayList a;
 
     public cu5() {
         Interceptable interceptable = $ic;
@@ -25,29 +24,22 @@ public class cu5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
     }
 
     public void a(JSONObject jSONObject, String str) {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optInt("has_more") == 1;
-        JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        this.b = new ArrayList<>(optJSONArray.length());
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-                sdkLiveInfoData.fromJson(optJSONObject, str);
-                this.b.add(sdkLiveInfoData);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("live_list")) != null && optJSONArray.length() > 0) {
+            this.a = new ArrayList(optJSONArray.length());
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
+                    sdkLiveInfoData.fromJson(optJSONObject, str);
+                    this.a.add(sdkLiveInfoData);
+                }
             }
         }
     }

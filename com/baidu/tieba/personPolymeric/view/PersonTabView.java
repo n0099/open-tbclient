@@ -31,6 +31,11 @@ public class PersonTabView extends LinearLayout {
     public View.OnClickListener l;
 
     /* loaded from: classes5.dex */
+    public interface b {
+        void onTabSelect(int i);
+    }
+
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +63,9 @@ public class PersonTabView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09148d) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09147f) {
                     this.a.setCurrentTab(0);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091be6) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091be2) {
                     this.a.setCurrentTab(1);
                 }
                 if (this.a.k != null) {
@@ -68,11 +73,6 @@ public class PersonTabView extends LinearLayout {
                 }
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onTabSelect(int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -105,23 +105,23 @@ public class PersonTabView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06f4, this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09148d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09147f);
             this.b = textView;
             textView.setOnClickListener(this.l);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091be6);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091be2);
             this.c = textView2;
             textView2.setOnClickListener(this.l);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09148e);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091be8);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09148c);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091be7);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091480);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091be4);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09147e);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091be3);
             setCurrentTab(0);
         }
     }
 
     public void setCurrentTab(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.h) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i == this.h) {
             return;
         }
         this.h = i;
@@ -135,13 +135,6 @@ public class PersonTabView extends LinearLayout {
             this.e.setVisibility(0);
             this.b.setTextColor(this.j);
             this.c.setTextColor(this.i);
-        }
-    }
-
-    public void setOnTabSelectListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.k = bVar;
         }
     }
 
@@ -195,5 +188,12 @@ public class PersonTabView extends LinearLayout {
         this.j = SkinManager.getColor(R.color.CAM_X0106);
         this.l = new a(this);
         c(context);
+    }
+
+    public void setOnTabSelectListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.k = bVar;
+        }
     }
 }

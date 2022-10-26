@@ -38,9 +38,57 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     /* renamed from: view  reason: collision with root package name */
     public final View f1042view;
 
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0007\u0010\u0006¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "Lkotlin/Any;", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "detector", "", "onScaleBegin", "(Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;)V", "onScaleEnd", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public interface OnScaleGestureListener {
+        void onScaleBegin(BdVideoScaleGestureDetector bdVideoScaleGestureDetector);
+
+        void onScaleEnd(BdVideoScaleGestureDetector bdVideoScaleGestureDetector);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(308888595, "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(308888595, "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
+    private final ScaleGestureDetector getScaleGestureDetector() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (ScaleGestureDetector) this.scaleGestureDetector$delegate.getValue() : (ScaleGestureDetector) invokeV.objValue;
+    }
+
+    public float getMaxScale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 3.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getMinScale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0.3f;
+        }
+        return invokeV.floatValue;
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$Companion;", "", "SCALE_MAX", "F", "SCALE_MIN", "SCALE_NORMAL", "<init>", "()V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,33 +111,11 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0007\u0010\u0006¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener;", "Lkotlin/Any;", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "detector", "", "onScaleBegin", "(Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;)V", "onScaleEnd", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public interface OnScaleGestureListener {
-        void onScaleBegin(BdVideoScaleGestureDetector bdVideoScaleGestureDetector);
-
-        void onScaleEnd(BdVideoScaleGestureDetector bdVideoScaleGestureDetector);
-    }
-
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\b\u0016\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0007\u0010\u0006¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$SimpleOnScaleGestureListener;", "com/baidu/searchbox/player/view/BdVideoScaleGestureDetector$OnScaleGestureListener", "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;", "detector", "", "onScaleBegin", "(Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;)V", "onScaleEnd", "<init>", "()V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static class SimpleOnScaleGestureListener implements OnScaleGestureListener {
+    public class SimpleOnScaleGestureListener implements OnScaleGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public SimpleOnScaleGestureListener() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.baidu.searchbox.player.view.BdVideoScaleGestureDetector.OnScaleGestureListener
         public void onScaleBegin(BdVideoScaleGestureDetector detector) {
@@ -106,22 +132,20 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
                 Intrinsics.checkNotNullParameter(detector, "detector");
             }
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(308888595, "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public SimpleOnScaleGestureListener() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(308888595, "Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        Companion = new Companion(null);
     }
 
     public BdVideoScaleGestureDetector(View view2) {
@@ -144,81 +168,6 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
         this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new BdVideoScaleGestureDetector$scaleGestureDetector$2(this));
     }
 
-    private final ScaleGestureDetector getScaleGestureDetector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (ScaleGestureDetector) this.scaleGestureDetector$delegate.getValue() : (ScaleGestureDetector) invokeV.objValue;
-    }
-
-    public float computeScale(ScaleGestureDetector detector) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, detector)) == null) {
-            Intrinsics.checkNotNullParameter(detector, "detector");
-            float scaleFactor = detector.getScaleFactor();
-            float scaleX = this.f1042view.getScaleX();
-            if (scaleFactor < 1.0f && scaleX > getMinScale()) {
-                float f = scaleX * scaleFactor;
-                return f < getMinScale() ? getMinScale() : f;
-            } else if (scaleFactor <= 1.0f || scaleX >= getMaxScale()) {
-                return scaleX;
-            } else {
-                float f2 = scaleX * scaleFactor;
-                return f2 > getMaxScale() ? getMaxScale() : f2;
-            }
-        }
-        return invokeL.floatValue;
-    }
-
-    public final OnScaleGestureListener getListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.listener : (OnScaleGestureListener) invokeV.objValue;
-    }
-
-    public float getMaxScale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 3.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float getMinScale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0.3f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1042view : (View) invokeV.objValue;
-    }
-
-    public final boolean isScaleDetected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isScaleDetected : invokeV.booleanValue;
-    }
-
-    @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-    public boolean onScale(ScaleGestureDetector detector) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, detector)) == null) {
-            Intrinsics.checkNotNullParameter(detector, "detector");
-            BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "onScale");
-            setScale(computeScale(detector));
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
     public boolean onScaleBegin(ScaleGestureDetector detector) {
         InterceptResult invokeL;
@@ -232,6 +181,72 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
             if (onScaleGestureListener != null) {
                 onScaleGestureListener.onScaleBegin(this);
             }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public float computeScale(ScaleGestureDetector detector) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, detector)) == null) {
+            Intrinsics.checkNotNullParameter(detector, "detector");
+            float scaleFactor = detector.getScaleFactor();
+            float scaleX = this.f1042view.getScaleX();
+            if (scaleFactor < 1.0f && scaleX > getMinScale()) {
+                float f = scaleX * scaleFactor;
+                if (f < getMinScale()) {
+                    return getMinScale();
+                }
+                return f;
+            } else if (scaleFactor > 1.0f && scaleX < getMaxScale()) {
+                float f2 = scaleX * scaleFactor;
+                if (f2 > getMaxScale()) {
+                    return getMaxScale();
+                }
+                return f2;
+            } else {
+                return scaleX;
+            }
+        }
+        return invokeL.floatValue;
+    }
+
+    public final OnScaleGestureListener getListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.listener;
+        }
+        return (OnScaleGestureListener) invokeV.objValue;
+    }
+
+    public final View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f1042view;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final boolean isScaleDetected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.isScaleDetected;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+    public boolean onScale(ScaleGestureDetector detector) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, detector)) == null) {
+            Intrinsics.checkNotNullParameter(detector, "detector");
+            BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "onScale");
+            setScale(computeScale(detector));
             return true;
         }
         return invokeL.booleanValue;
@@ -267,17 +282,6 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
         }
     }
 
-    public void setPivot(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            View view2 = this.f1042view;
-            float f3 = 1;
-            BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1042view.getPivotX() - f) * (f3 - this.f1042view.getScaleX())), this.f1042view.getTranslationY() + ((this.f1042view.getPivotY() - f2) * (f3 - this.f1042view.getScaleY())));
-            view2.setPivotX(f);
-            view2.setPivotY(f2);
-        }
-    }
-
     public final void setScale(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
@@ -290,6 +294,17 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.isScaleDetected = z;
+        }
+    }
+
+    public void setPivot(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            View view2 = this.f1042view;
+            float f3 = 1;
+            BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1042view.getPivotX() - f) * (f3 - this.f1042view.getScaleX())), this.f1042view.getTranslationY() + ((this.f1042view.getPivotY() - f2) * (f3 - this.f1042view.getScaleY())));
+            view2.setPivotX(f);
+            view2.setPivotY(f2);
         }
     }
 }

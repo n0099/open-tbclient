@@ -6,7 +6,6 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.q83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,12 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ne2 extends i53 {
+public class ne2 extends j53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements ei3<o83<q83.e>> {
+    public class a implements fi3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -49,44 +48,45 @@ public class ne2 extends i53 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ei3
+        @Override // com.baidu.tieba.fi3
         /* renamed from: b */
-        public void a(o83<q83.e> o83Var) {
+        public void a(p83 p83Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o83Var) == null) {
-                if (!j83.h(o83Var)) {
-                    j83.p(o83Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p83Var) == null) {
+                if (!k83.h(p83Var)) {
+                    k83.p(p83Var, this.a, this.b);
                     return;
                 }
-                if (zd2.b(this.c.optInt("emitReplaceDynamicLib"))) {
-                    if (be2.n().isEmpty()) {
+                if (ae2.b(this.c.optInt("emitReplaceDependency"))) {
+                    if (be2.l().isEmpty()) {
                         Context context = this.d;
                         if (context == null) {
-                            context = sm2.c();
+                            context = tm2.c();
                         }
-                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0142);
-                        d33.g(context, string).G();
+                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0141);
+                        e33.g(context, string).G();
                         this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
                         return;
                     }
-                    be2.p();
+                    be2.n(true);
                 } else {
-                    be2.f();
+                    be2.n(false);
+                    be2.c();
                 }
                 UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                kz2.Z();
+                lz2.Z();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ne2(i43 i43Var) {
-        super(i43Var, "/swanAPI/debug/setReplaceDynamicLibConfig");
+    public ne2(j43 j43Var) {
+        super(j43Var, "/swanAPI/debug/setReplaceDependencyConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
+            Object[] objArr = {j43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -100,22 +100,22 @@ public class ne2 extends i53 {
         }
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+    @Override // com.baidu.tieba.j53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            JSONObject a2 = i53.a(unitedSchemeEntity, "params");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
+            JSONObject a2 = j53.a(unitedSchemeEntity, "params");
             if (a2 == null) {
-                l02.c("setReplaceDynamicLibConfig", "'params' is null");
+                m02.c("setReplaceDependencyConfig", "params is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!a2.has("emitReplaceDynamicLib")) {
-                l02.c("setReplaceDynamicLibConfig", "'emitReplaceSwanCore's is null");
+            } else if (!a2.has("emitReplaceDependency")) {
+                m02.c("setReplaceDependencyConfig", "emitReplaceDependency is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                l33Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                m33Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
                 return true;
             }
         }

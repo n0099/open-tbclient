@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,27 +39,8 @@ public class LoadingView extends LinearLayout {
         }
     }
 
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d7, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dab);
-            setOrientation(1);
-            setBackgroundColor(-1);
-            setGravity(1);
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setBackgroundColor(Color.parseColor("#222222"));
-            this.b.setTextColor(Color.parseColor("#80FFFFFF"));
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoadingView(Context context, @Nullable AttributeSet attributeSet) {
+    public LoadingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,7 +61,7 @@ public class LoadingView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoadingView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public LoadingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,5 +81,24 @@ public class LoadingView extends LinearLayout {
         }
         this.a = context;
         b();
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d4, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091da7);
+            setOrientation(1);
+            setBackgroundColor(-1);
+            setGravity(1);
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setBackgroundColor(Color.parseColor("#222222"));
+            this.b.setTextColor(Color.parseColor("#80FFFFFF"));
+        }
     }
 }

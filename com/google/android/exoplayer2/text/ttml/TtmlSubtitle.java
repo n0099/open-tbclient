@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.Subtitle;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Collections;
@@ -17,11 +16,12 @@ public final class TtmlSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long[] eventTimesUs;
-    public final Map<String, TtmlStyle> globalStyles;
-    public final Map<String, TtmlRegion> regionMap;
+    public final Map globalStyles;
+    public final Map regionMap;
     public final TtmlNode root;
 
-    public TtmlSubtitle(TtmlNode ttmlNode, Map<String, TtmlStyle> map, Map<String, TtmlRegion> map2) {
+    public TtmlSubtitle(TtmlNode ttmlNode, Map map, Map map2) {
+        Map emptyMap;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,35 +38,33 @@ public final class TtmlSubtitle implements Subtitle {
         }
         this.root = ttmlNode;
         this.regionMap = map2;
-        this.globalStyles = map != null ? Collections.unmodifiableMap(map) : Collections.emptyMap();
+        if (map != null) {
+            emptyMap = Collections.unmodifiableMap(map);
+        } else {
+            emptyMap = Collections.emptyMap();
+        }
+        this.globalStyles = emptyMap;
         this.eventTimesUs = ttmlNode.getEventTimesUs();
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List<Cue> getCues(long j) {
+    public List getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.root.getCues(j, this.globalStyles, this.regionMap) : (List) invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.root.getCues(j, this.globalStyles, this.regionMap);
+        }
+        return (List) invokeJ.objValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
     public long getEventTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.eventTimesUs[i] : invokeI.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.text.Subtitle
-    public int getEventTimeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.eventTimesUs.length : invokeV.intValue;
-    }
-
-    public Map<String, TtmlStyle> getGlobalStyles() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.globalStyles : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.eventTimesUs[i];
+        }
+        return invokeI.longValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
@@ -75,17 +73,39 @@ public final class TtmlSubtitle implements Subtitle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
             int binarySearchCeil = Util.binarySearchCeil(this.eventTimesUs, j, false, false);
-            if (binarySearchCeil < this.eventTimesUs.length) {
-                return binarySearchCeil;
+            if (binarySearchCeil >= this.eventTimesUs.length) {
+                return -1;
             }
-            return -1;
+            return binarySearchCeil;
         }
         return invokeJ.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.text.Subtitle
+    public int getEventTimeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.eventTimesUs.length;
+        }
+        return invokeV.intValue;
+    }
+
+    public Map getGlobalStyles() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.globalStyles;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public TtmlNode getRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.root : (TtmlNode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.root;
+        }
+        return (TtmlNode) invokeV.objValue;
     }
 }

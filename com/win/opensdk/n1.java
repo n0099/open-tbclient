@@ -34,6 +34,16 @@ public class n1 implements S0 {
     }
 
     @Override // com.win.opensdk.S0
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = System.currentTimeMillis();
+            r1 r1Var = this.b;
+            r1Var.j.sendEmptyMessageDelayed(100101, r1Var.f * 1000);
+        }
+    }
+
+    @Override // com.win.opensdk.S0
     public void a(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -48,17 +58,8 @@ public class n1 implements S0 {
     }
 
     @Override // com.win.opensdk.S0
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = System.currentTimeMillis();
-            r1 r1Var = this.b;
-            r1Var.j.sendEmptyMessageDelayed(100101, r1Var.f * 1000);
-        }
-    }
-
-    @Override // com.win.opensdk.S0
     public void a(Object obj) {
+        Info info;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             J j = (J) obj;
@@ -67,7 +68,11 @@ public class n1 implements S0 {
             this.b.d = false;
             int size = j.a.size();
             long currentTimeMillis = System.currentTimeMillis() - this.a;
-            Info info = size > 0 ? (Info) j.a.get(0) : null;
+            if (size > 0) {
+                info = (Info) j.a.get(0);
+            } else {
+                info = null;
+            }
             d1 a = e1.a(this.b.a);
             f1 f1Var = new f1(info);
             f1Var.a = this.b.b;
@@ -76,12 +81,13 @@ public class n1 implements S0 {
             l1 l1Var = this.b.c;
             if (l1Var != null && !l1Var.c()) {
                 r1 r1Var = this.b;
-                if (r1Var.h) {
-                    return;
-                }
-                Info b = r1Var.c.b();
-                if (b != null) {
-                    this.b.a(b);
+                if (!r1Var.h) {
+                    Info b = r1Var.c.b();
+                    if (b != null) {
+                        this.b.a(b);
+                        return;
+                    }
+                } else {
                     return;
                 }
             }

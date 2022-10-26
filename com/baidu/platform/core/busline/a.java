@@ -2,7 +2,6 @@ package com.baidu.platform.core.busline;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.busline.BusLineResult;
 import com.baidu.mapapi.search.busline.OnGetBusLineSearchResultListener;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -108,9 +107,9 @@ public class a extends d {
                     busLineResult.setLineDirection(optJSONObject2.optString("line_direction"));
                     busLineResult.setMaxPrice(optJSONObject2.optInt("maxPrice") / 100.0f);
                     ArrayList arrayList = new ArrayList();
-                    List<List<LatLng>> decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString("geo"));
+                    List<List> decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString("geo"));
                     if (decodeLocationList2D != null) {
-                        for (List<LatLng> list : decodeLocationList2D) {
+                        for (List list : decodeLocationList2D) {
                             BusLineResult.BusStep busStep = new BusLineResult.BusStep();
                             busStep.setWayPoints(list);
                             arrayList.add(busStep);

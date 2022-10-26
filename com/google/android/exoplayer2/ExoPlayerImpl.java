@@ -1,11 +1,9 @@
 package com.google.android.exoplayer2;
 
-import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -36,7 +34,7 @@ public final class ExoPlayerImpl implements ExoPlayer {
     public final Handler eventHandler;
     public final ExoPlayerImplInternal internalPlayer;
     public boolean isLoading;
-    public final CopyOnWriteArraySet<Player.EventListener> listeners;
+    public final CopyOnWriteArraySet listeners;
     public int maskingPeriodIndex;
     public int maskingWindowIndex;
     public long maskingWindowPositionMs;
@@ -56,8 +54,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
     public boolean tracksSelected;
     public final Timeline.Window window;
 
-    @SuppressLint({"HandlerLeak"})
     public ExoPlayerImpl(Renderer[] rendererArr, TrackSelector trackSelector, LoadControl loadControl) {
+        boolean z;
+        Looper mainLooper;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,33 +72,43 @@ public final class ExoPlayerImpl implements ExoPlayer {
             }
         }
         Log.i(TAG, "Init " + Integer.toHexString(System.identityHashCode(this)) + " [" + ExoPlayerLibraryInfo.VERSION_SLASHY + "] [" + Util.DEVICE_DEBUG_INFO + PreferencesUtil.RIGHT_MOUNT);
-        Assertions.checkState(rendererArr.length > 0);
+        if (rendererArr.length > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkState(z);
         this.renderers = (Renderer[]) Assertions.checkNotNull(rendererArr);
         this.trackSelector = (TrackSelector) Assertions.checkNotNull(trackSelector);
         this.playWhenReady = false;
         this.repeatMode = 0;
         this.shuffleModeEnabled = false;
         this.playbackState = 1;
-        this.listeners = new CopyOnWriteArraySet<>();
+        this.listeners = new CopyOnWriteArraySet();
         this.emptyTrackSelections = new TrackSelectionArray(new TrackSelection[rendererArr.length]);
         this.window = new Timeline.Window();
         this.period = new Timeline.Period();
         this.trackGroups = TrackGroupArray.EMPTY;
         this.trackSelections = this.emptyTrackSelections;
         this.playbackParameters = PlaybackParameters.DEFAULT;
-        this.eventHandler = new Handler(this, Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper()) { // from class: com.google.android.exoplayer2.ExoPlayerImpl.1
+        if (Looper.myLooper() != null) {
+            mainLooper = Looper.myLooper();
+        } else {
+            mainLooper = Looper.getMainLooper();
+        }
+        this.eventHandler = new Handler(this, mainLooper) { // from class: com.google.android.exoplayer2.ExoPlayerImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ExoPlayerImpl this$0;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
-                super(r8);
+                super(mainLooper);
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext2 = TitanRuntime.newInitContext();
                     newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this, r8};
+                    Object[] objArr2 = {this, mainLooper};
                     interceptable2.invokeUnInit(65536, newInitContext2);
                     int i3 = newInitContext2.flag;
                     if ((i3 & 1) != 0) {
@@ -126,6 +135,7 @@ public final class ExoPlayerImpl implements ExoPlayer {
     }
 
     private void handlePlaybackInfo(PlaybackInfo playbackInfo, int i, int i2, boolean z, int i3) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{playbackInfo, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) {
             Assertions.checkNotNull(playbackInfo.timeline);
@@ -135,7 +145,11 @@ public final class ExoPlayerImpl implements ExoPlayer {
             this.pendingSeekAcks = i5;
             if (i4 == 0 && i5 == 0) {
                 PlaybackInfo playbackInfo2 = this.playbackInfo;
-                boolean z2 = (playbackInfo2.timeline == playbackInfo.timeline && playbackInfo2.manifest == playbackInfo.manifest) ? false : true;
+                if (playbackInfo2.timeline == playbackInfo.timeline && playbackInfo2.manifest == playbackInfo.manifest) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
                 this.playbackInfo = playbackInfo;
                 if (playbackInfo.timeline.isEmpty()) {
                     this.maskingPeriodIndex = 0;
@@ -143,24 +157,23 @@ public final class ExoPlayerImpl implements ExoPlayer {
                     this.maskingWindowPositionMs = 0L;
                 }
                 if (z2) {
-                    Iterator<Player.EventListener> it = this.listeners.iterator();
+                    Iterator it = this.listeners.iterator();
                     while (it.hasNext()) {
-                        it.next().onTimelineChanged(playbackInfo.timeline, playbackInfo.manifest);
+                        ((Player.EventListener) it.next()).onTimelineChanged(playbackInfo.timeline, playbackInfo.manifest);
                     }
                 }
                 if (z) {
-                    Iterator<Player.EventListener> it2 = this.listeners.iterator();
+                    Iterator it2 = this.listeners.iterator();
                     while (it2.hasNext()) {
-                        it2.next().onPositionDiscontinuity(i3);
+                        ((Player.EventListener) it2.next()).onPositionDiscontinuity(i3);
                     }
                 }
             }
-            if (this.pendingSeekAcks != 0 || i2 <= 0) {
-                return;
-            }
-            Iterator<Player.EventListener> it3 = this.listeners.iterator();
-            while (it3.hasNext()) {
-                it3.next().onSeekProcessed();
+            if (this.pendingSeekAcks == 0 && i2 > 0) {
+                Iterator it3 = this.listeners.iterator();
+                while (it3.hasNext()) {
+                    ((Player.EventListener) it3.next()).onSeekProcessed();
+                }
             }
         }
     }
@@ -170,54 +183,39 @@ public final class ExoPlayerImpl implements ExoPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
             long usToMs = C.usToMs(j);
-            if (this.playbackInfo.periodId.isAd()) {
-                return usToMs;
+            if (!this.playbackInfo.periodId.isAd()) {
+                PlaybackInfo playbackInfo = this.playbackInfo;
+                playbackInfo.timeline.getPeriod(playbackInfo.periodId.periodIndex, this.period);
+                return usToMs + this.period.getPositionInWindowMs();
             }
-            PlaybackInfo playbackInfo = this.playbackInfo;
-            playbackInfo.timeline.getPeriod(playbackInfo.periodId.periodIndex, this.period);
-            return usToMs + this.period.getPositionInWindowMs();
+            return usToMs;
         }
         return invokeJ.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void setPlayWhenReady(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048615, this, z) == null) && this.playWhenReady != z) {
+            this.playWhenReady = z;
+            this.internalPlayer.setPlayWhenReady(z);
+            Iterator it = this.listeners.iterator();
+            while (it.hasNext()) {
+                ((Player.EventListener) it.next()).onPlayerStateChanged(z, this.playbackState);
+            }
+        }
     }
 
     private boolean shouldMaskPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.playbackInfo.timeline.isEmpty() || this.pendingSeekAcks > 0 || this.pendingPrepareAcks > 0 : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void addListener(Player.EventListener eventListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eventListener) == null) {
-            this.listeners.add(eventListener);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.ExoPlayer
-    public void blockingSendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exoPlayerMessageArr) == null) {
-            this.internalPlayer.blockingSendMessages(exoPlayerMessageArr);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public int getBufferedPercentage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long bufferedPosition = getBufferedPosition();
-            long duration = getDuration();
-            if (bufferedPosition == C.TIME_UNSET || duration == C.TIME_UNSET) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (!this.playbackInfo.timeline.isEmpty() && this.pendingSeekAcks <= 0 && this.pendingPrepareAcks <= 0) {
+                return false;
             }
-            if (duration == 0) {
-                return 100;
-            }
-            return Util.constrainValue((int) ((bufferedPosition * 100) / duration), 0, 100);
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.Player
@@ -229,21 +227,6 @@ public final class ExoPlayerImpl implements ExoPlayer {
                 return this.maskingWindowPositionMs;
             }
             return playbackInfoPositionUsToWindowPositionMs(this.playbackInfo.bufferedPositionUs);
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public long getContentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (isPlayingAd()) {
-                PlaybackInfo playbackInfo = this.playbackInfo;
-                playbackInfo.timeline.getPeriod(playbackInfo.periodId.periodIndex, this.period);
-                return this.period.getPositionInWindowMs() + C.usToMs(this.playbackInfo.contentPositionUs);
-            }
-            return getCurrentPosition();
         }
         return invokeV.longValue;
     }
@@ -278,7 +261,10 @@ public final class ExoPlayerImpl implements ExoPlayer {
     public Object getCurrentManifest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.playbackInfo.manifest : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.playbackInfo.manifest;
+        }
+        return invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.Player
@@ -311,21 +297,30 @@ public final class ExoPlayerImpl implements ExoPlayer {
     public Timeline getCurrentTimeline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.playbackInfo.timeline : (Timeline) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.playbackInfo.timeline;
+        }
+        return (Timeline) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.Player
     public TrackGroupArray getCurrentTrackGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.trackGroups : (TrackGroupArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.trackGroups;
+        }
+        return (TrackGroupArray) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.Player
     public TrackSelectionArray getCurrentTrackSelections() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.trackSelections : (TrackSelectionArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.trackSelections;
+        }
+        return (TrackSelectionArray) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.Player
@@ -340,6 +335,307 @@ public final class ExoPlayerImpl implements ExoPlayer {
             return playbackInfo.timeline.getPeriod(playbackInfo.periodId.periodIndex, this.period).windowIndex;
         }
         return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public int getNextWindowIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            Timeline timeline = this.playbackInfo.timeline;
+            if (timeline.isEmpty()) {
+                return -1;
+            }
+            return timeline.getNextWindowIndex(getCurrentWindowIndex(), this.repeatMode, this.shuffleModeEnabled);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public boolean getPlayWhenReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.playWhenReady;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.ExoPlayer
+    public Looper getPlaybackLooper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.internalPlayer.getPlaybackLooper();
+        }
+        return (Looper) invokeV.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public PlaybackParameters getPlaybackParameters() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.playbackParameters;
+        }
+        return (PlaybackParameters) invokeV.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public int getPlaybackState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.playbackState;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public int getPreviousWindowIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            Timeline timeline = this.playbackInfo.timeline;
+            if (timeline.isEmpty()) {
+                return -1;
+            }
+            return timeline.getPreviousWindowIndex(getCurrentWindowIndex(), this.repeatMode, this.shuffleModeEnabled);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public int getRendererCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.renderers.length;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public int getRepeatMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.repeatMode;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public boolean getShuffleModeEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.shuffleModeEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public boolean isCurrentWindowDynamic() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            Timeline timeline = this.playbackInfo.timeline;
+            if (!timeline.isEmpty() && timeline.getWindow(getCurrentWindowIndex(), this.window).isDynamic) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public boolean isCurrentWindowSeekable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            Timeline timeline = this.playbackInfo.timeline;
+            if (!timeline.isEmpty() && timeline.getWindow(getCurrentWindowIndex(), this.window).isSeekable) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public boolean isLoading() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.isLoading;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public boolean isPlayingAd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (!shouldMaskPosition() && this.playbackInfo.periodId.isAd()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void seekToDefaultPosition() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+            seekToDefaultPosition(getCurrentWindowIndex());
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+            this.internalPlayer.stop();
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void addListener(Player.EventListener eventListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, eventListener) == null) {
+            this.listeners.add(eventListener);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ExoPlayer
+    public void blockingSendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exoPlayerMessageArr) == null) {
+            this.internalPlayer.blockingSendMessages(exoPlayerMessageArr);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public int getRendererType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            return this.renderers[i].getTrackType();
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.ExoPlayer
+    public void prepare(MediaSource mediaSource) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, mediaSource) == null) {
+            prepare(mediaSource, true, true);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void removeListener(Player.EventListener eventListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, eventListener) == null) {
+            this.listeners.remove(eventListener);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void seekTo(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
+            seekTo(getCurrentWindowIndex(), j);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void seekToDefaultPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            seekTo(i, C.TIME_UNSET);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ExoPlayer
+    public void sendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, exoPlayerMessageArr) == null) {
+            this.internalPlayer.sendMessages(exoPlayerMessageArr);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void setPlaybackParameters(PlaybackParameters playbackParameters) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, playbackParameters) == null) {
+            if (playbackParameters == null) {
+                playbackParameters = PlaybackParameters.DEFAULT;
+            }
+            this.internalPlayer.setPlaybackParameters(playbackParameters);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void setRepeatMode(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048617, this, i) == null) && this.repeatMode != i) {
+            this.repeatMode = i;
+            this.internalPlayer.setRepeatMode(i);
+            Iterator it = this.listeners.iterator();
+            while (it.hasNext()) {
+                ((Player.EventListener) it.next()).onRepeatModeChanged(i);
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public void setShuffleModeEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048618, this, z) == null) && this.shuffleModeEnabled != z) {
+            this.shuffleModeEnabled = z;
+            this.internalPlayer.setShuffleModeEnabled(z);
+            Iterator it = this.listeners.iterator();
+            while (it.hasNext()) {
+                ((Player.EventListener) it.next()).onShuffleModeEnabledChanged(z);
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public int getBufferedPercentage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long bufferedPosition = getBufferedPosition();
+            long duration = getDuration();
+            if (bufferedPosition != C.TIME_UNSET && duration != C.TIME_UNSET) {
+                if (duration == 0) {
+                    return 100;
+                }
+                return Util.constrainValue((int) ((bufferedPosition * 100) / duration), 0, 100);
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.Player
+    public long getContentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (isPlayingAd()) {
+                PlaybackInfo playbackInfo = this.playbackInfo;
+                playbackInfo.timeline.getPeriod(playbackInfo.periodId.periodIndex, this.period);
+                return this.period.getPositionInWindowMs() + C.usToMs(this.playbackInfo.contentPositionUs);
+            }
+            return getCurrentPosition();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.Player
@@ -362,199 +658,6 @@ public final class ExoPlayerImpl implements ExoPlayer {
     }
 
     @Override // com.google.android.exoplayer2.Player
-    public int getNextWindowIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Timeline timeline = this.playbackInfo.timeline;
-            if (timeline.isEmpty()) {
-                return -1;
-            }
-            return timeline.getNextWindowIndex(getCurrentWindowIndex(), this.repeatMode, this.shuffleModeEnabled);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public boolean getPlayWhenReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.playWhenReady : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.ExoPlayer
-    public Looper getPlaybackLooper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.internalPlayer.getPlaybackLooper() : (Looper) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public PlaybackParameters getPlaybackParameters() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.playbackParameters : (PlaybackParameters) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public int getPlaybackState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.playbackState : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public int getPreviousWindowIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            Timeline timeline = this.playbackInfo.timeline;
-            if (timeline.isEmpty()) {
-                return -1;
-            }
-            return timeline.getPreviousWindowIndex(getCurrentWindowIndex(), this.repeatMode, this.shuffleModeEnabled);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public int getRendererCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.renderers.length : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public int getRendererType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) ? this.renderers[i].getTrackType() : invokeI.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public int getRepeatMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.repeatMode : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public boolean getShuffleModeEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.shuffleModeEnabled : invokeV.booleanValue;
-    }
-
-    public void handleEvent(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, message) == null) {
-            switch (message.what) {
-                case 0:
-                    this.playbackState = message.arg1;
-                    Iterator<Player.EventListener> it = this.listeners.iterator();
-                    while (it.hasNext()) {
-                        it.next().onPlayerStateChanged(this.playWhenReady, this.playbackState);
-                    }
-                    return;
-                case 1:
-                    this.isLoading = message.arg1 != 0;
-                    Iterator<Player.EventListener> it2 = this.listeners.iterator();
-                    while (it2.hasNext()) {
-                        it2.next().onLoadingChanged(this.isLoading);
-                    }
-                    return;
-                case 2:
-                    if (this.pendingPrepareAcks == 0) {
-                        TrackSelectorResult trackSelectorResult = (TrackSelectorResult) message.obj;
-                        this.tracksSelected = true;
-                        this.trackGroups = trackSelectorResult.groups;
-                        this.trackSelections = trackSelectorResult.selections;
-                        this.trackSelector.onSelectionActivated(trackSelectorResult.info);
-                        Iterator<Player.EventListener> it3 = this.listeners.iterator();
-                        while (it3.hasNext()) {
-                            it3.next().onTracksChanged(this.trackGroups, this.trackSelections);
-                        }
-                        return;
-                    }
-                    return;
-                case 3:
-                    handlePlaybackInfo((PlaybackInfo) message.obj, 0, 1, message.arg1 != 0, 2);
-                    return;
-                case 4:
-                    handlePlaybackInfo((PlaybackInfo) message.obj, 0, 0, true, message.arg1);
-                    return;
-                case 5:
-                    handlePlaybackInfo((PlaybackInfo) message.obj, message.arg1, message.arg2, false, 3);
-                    return;
-                case 6:
-                    PlaybackParameters playbackParameters = (PlaybackParameters) message.obj;
-                    if (this.playbackParameters.equals(playbackParameters)) {
-                        return;
-                    }
-                    this.playbackParameters = playbackParameters;
-                    Iterator<Player.EventListener> it4 = this.listeners.iterator();
-                    while (it4.hasNext()) {
-                        it4.next().onPlaybackParametersChanged(playbackParameters);
-                    }
-                    return;
-                case 7:
-                    ExoPlaybackException exoPlaybackException = (ExoPlaybackException) message.obj;
-                    Iterator<Player.EventListener> it5 = this.listeners.iterator();
-                    while (it5.hasNext()) {
-                        it5.next().onPlayerError(exoPlaybackException);
-                    }
-                    return;
-                default:
-                    throw new IllegalStateException();
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public boolean isCurrentWindowDynamic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            Timeline timeline = this.playbackInfo.timeline;
-            return !timeline.isEmpty() && timeline.getWindow(getCurrentWindowIndex(), this.window).isDynamic;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public boolean isCurrentWindowSeekable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            Timeline timeline = this.playbackInfo.timeline;
-            return !timeline.isEmpty() && timeline.getWindow(getCurrentWindowIndex(), this.window).isSeekable;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public boolean isLoading() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.isLoading : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public boolean isPlayingAd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? !shouldMaskPosition() && this.playbackInfo.periodId.isAd() : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.ExoPlayer
-    public void prepare(MediaSource mediaSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, mediaSource) == null) {
-            prepare(mediaSource, true, true);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
@@ -564,96 +667,78 @@ public final class ExoPlayerImpl implements ExoPlayer {
         }
     }
 
-    @Override // com.google.android.exoplayer2.Player
-    public void removeListener(Player.EventListener eventListener) {
+    public void handleEvent(Message message) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, eventListener) == null) {
-            this.listeners.remove(eventListener);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void seekTo(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
-            seekTo(getCurrentWindowIndex(), j);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void seekToDefaultPosition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            seekToDefaultPosition(getCurrentWindowIndex());
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.ExoPlayer
-    public void sendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, exoPlayerMessageArr) == null) {
-            this.internalPlayer.sendMessages(exoPlayerMessageArr);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void setPlayWhenReady(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048615, this, z) == null) || this.playWhenReady == z) {
-            return;
-        }
-        this.playWhenReady = z;
-        this.internalPlayer.setPlayWhenReady(z);
-        Iterator<Player.EventListener> it = this.listeners.iterator();
-        while (it.hasNext()) {
-            it.next().onPlayerStateChanged(z, this.playbackState);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void setPlaybackParameters(@Nullable PlaybackParameters playbackParameters) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, playbackParameters) == null) {
-            if (playbackParameters == null) {
-                playbackParameters = PlaybackParameters.DEFAULT;
+        if (interceptable == null || interceptable.invokeL(1048601, this, message) == null) {
+            boolean z2 = false;
+            switch (message.what) {
+                case 0:
+                    this.playbackState = message.arg1;
+                    Iterator it = this.listeners.iterator();
+                    while (it.hasNext()) {
+                        ((Player.EventListener) it.next()).onPlayerStateChanged(this.playWhenReady, this.playbackState);
+                    }
+                    return;
+                case 1:
+                    if (message.arg1 != 0) {
+                        z2 = true;
+                    }
+                    this.isLoading = z2;
+                    Iterator it2 = this.listeners.iterator();
+                    while (it2.hasNext()) {
+                        ((Player.EventListener) it2.next()).onLoadingChanged(this.isLoading);
+                    }
+                    return;
+                case 2:
+                    if (this.pendingPrepareAcks == 0) {
+                        TrackSelectorResult trackSelectorResult = (TrackSelectorResult) message.obj;
+                        this.tracksSelected = true;
+                        this.trackGroups = trackSelectorResult.groups;
+                        this.trackSelections = trackSelectorResult.selections;
+                        this.trackSelector.onSelectionActivated(trackSelectorResult.info);
+                        Iterator it3 = this.listeners.iterator();
+                        while (it3.hasNext()) {
+                            ((Player.EventListener) it3.next()).onTracksChanged(this.trackGroups, this.trackSelections);
+                        }
+                        return;
+                    }
+                    return;
+                case 3:
+                    if (message.arg1 != 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    handlePlaybackInfo((PlaybackInfo) message.obj, 0, 1, z, 2);
+                    return;
+                case 4:
+                    handlePlaybackInfo((PlaybackInfo) message.obj, 0, 0, true, message.arg1);
+                    return;
+                case 5:
+                    handlePlaybackInfo((PlaybackInfo) message.obj, message.arg1, message.arg2, false, 3);
+                    return;
+                case 6:
+                    PlaybackParameters playbackParameters = (PlaybackParameters) message.obj;
+                    if (!this.playbackParameters.equals(playbackParameters)) {
+                        this.playbackParameters = playbackParameters;
+                        Iterator it4 = this.listeners.iterator();
+                        while (it4.hasNext()) {
+                            ((Player.EventListener) it4.next()).onPlaybackParametersChanged(playbackParameters);
+                        }
+                        return;
+                    }
+                    return;
+                case 7:
+                    ExoPlaybackException exoPlaybackException = (ExoPlaybackException) message.obj;
+                    Iterator it5 = this.listeners.iterator();
+                    while (it5.hasNext()) {
+                        ((Player.EventListener) it5.next()).onPlayerError(exoPlaybackException);
+                    }
+                    return;
+                default:
+                    throw new IllegalStateException();
             }
-            this.internalPlayer.setPlaybackParameters(playbackParameters);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void setRepeatMode(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048617, this, i) == null) || this.repeatMode == i) {
-            return;
-        }
-        this.repeatMode = i;
-        this.internalPlayer.setRepeatMode(i);
-        Iterator<Player.EventListener> it = this.listeners.iterator();
-        while (it.hasNext()) {
-            it.next().onRepeatModeChanged(i);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void setShuffleModeEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048618, this, z) == null) || this.shuffleModeEnabled == z) {
-            return;
-        }
-        this.shuffleModeEnabled = z;
-        this.internalPlayer.setShuffleModeEnabled(z);
-        Iterator<Player.EventListener> it = this.listeners.iterator();
-        while (it.hasNext()) {
-            it.next().onShuffleModeEnabledChanged(z);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            this.internalPlayer.stop();
         }
     }
 
@@ -673,10 +758,10 @@ public final class ExoPlayerImpl implements ExoPlayer {
             if (z2) {
                 if (!this.playbackInfo.timeline.isEmpty() || this.playbackInfo.manifest != null) {
                     this.playbackInfo = this.playbackInfo.copyWithTimeline(Timeline.EMPTY, null);
-                    Iterator<Player.EventListener> it = this.listeners.iterator();
+                    Iterator it = this.listeners.iterator();
                     while (it.hasNext()) {
                         PlaybackInfo playbackInfo = this.playbackInfo;
-                        it.next().onTimelineChanged(playbackInfo.timeline, playbackInfo.manifest);
+                        ((Player.EventListener) it.next()).onTimelineChanged(playbackInfo.timeline, playbackInfo.manifest);
                     }
                 }
                 if (this.tracksSelected) {
@@ -684,9 +769,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
                     this.trackGroups = TrackGroupArray.EMPTY;
                     this.trackSelections = this.emptyTrackSelections;
                     this.trackSelector.onSelectionActivated(null);
-                    Iterator<Player.EventListener> it2 = this.listeners.iterator();
+                    Iterator it2 = this.listeners.iterator();
                     while (it2.hasNext()) {
-                        it2.next().onTracksChanged(this.trackGroups, this.trackSelections);
+                        ((Player.EventListener) it2.next()).onTracksChanged(this.trackGroups, this.trackSelections);
                     }
                 }
             }
@@ -698,6 +783,7 @@ public final class ExoPlayerImpl implements ExoPlayer {
     @Override // com.google.android.exoplayer2.Player
     public void seekTo(int i, long j) {
         long msToUs;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             Timeline timeline = this.playbackInfo.timeline;
@@ -705,9 +791,9 @@ public final class ExoPlayerImpl implements ExoPlayer {
                 if (isPlayingAd()) {
                     Log.w(TAG, "seekTo ignored because an ad is playing");
                     if (this.pendingSeekAcks == 0) {
-                        Iterator<Player.EventListener> it = this.listeners.iterator();
+                        Iterator it = this.listeners.iterator();
                         while (it.hasNext()) {
-                            it.next().onSeekProcessed();
+                            ((Player.EventListener) it.next()).onSeekProcessed();
                         }
                         return;
                     }
@@ -716,7 +802,12 @@ public final class ExoPlayerImpl implements ExoPlayer {
                 this.pendingSeekAcks++;
                 this.maskingWindowIndex = i;
                 if (timeline.isEmpty()) {
-                    this.maskingWindowPositionMs = j == C.TIME_UNSET ? 0L : j;
+                    if (j == C.TIME_UNSET) {
+                        j2 = 0;
+                    } else {
+                        j2 = j;
+                    }
+                    this.maskingWindowPositionMs = j2;
                     this.maskingPeriodIndex = 0;
                 } else {
                     timeline.getWindow(i, this.window);
@@ -738,21 +829,13 @@ public final class ExoPlayerImpl implements ExoPlayer {
                     this.maskingPeriodIndex = i2;
                 }
                 this.internalPlayer.seekTo(timeline, i, C.msToUs(j));
-                Iterator<Player.EventListener> it2 = this.listeners.iterator();
+                Iterator it2 = this.listeners.iterator();
                 while (it2.hasNext()) {
-                    it2.next().onPositionDiscontinuity(1);
+                    ((Player.EventListener) it2.next()).onPositionDiscontinuity(1);
                 }
                 return;
             }
             throw new IllegalSeekPositionException(timeline, i, j);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.Player
-    public void seekToDefaultPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
-            seekTo(i, C.TIME_UNSET);
         }
     }
 }

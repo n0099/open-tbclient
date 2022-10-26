@@ -3,7 +3,6 @@ package com.heytap.openid.sdk;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,11 +13,9 @@ import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-@Keep
 /* loaded from: classes7.dex */
 public class m_a {
     public static /* synthetic */ Interceptable $ic;
-    @Keep
     public static final ThreadPoolExecutor m_a;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,19 +35,15 @@ public class m_a {
         m_a = new ThreadPoolExecutor(0, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(2048), new ThreadPoolExecutor.DiscardPolicy());
     }
 
-    @Keep
     public static native int m_a(int i);
 
-    @Keep
     public static native String m_a(Context context, String str);
 
-    @Keep
     public static native String m_a(Context context, String str, String str2);
 
-    @Keep
     public static native String m_a(String str);
 
-    public static void m_a(Context context, Map<String, m_f> map) {
+    public static void m_a(Context context, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, map) == null) {
             try {
@@ -70,10 +63,9 @@ public class m_a {
         }
     }
 
-    @Keep
     public static native void m_a(SharedPreferences.Editor editor, m_f m_fVar, String str, String str2, String str3);
 
-    public static void m_a(SharedPreferences sharedPreferences, Map<String, m_f> map, String str, String str2) {
+    public static void m_a(SharedPreferences sharedPreferences, Map map, String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(65543, null, sharedPreferences, map, str, str2) == null) || map.containsKey(str)) {
             return;
@@ -86,7 +78,7 @@ public class m_a {
         map.put(str, new m_f(string, j));
     }
 
-    public static void m_a(SharedPreferences sharedPreferences, Map<String, m_f> map, String str, String str2, String str3) {
+    public static void m_a(SharedPreferences sharedPreferences, Map map, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLLL(65544, null, sharedPreferences, map, str, str2, str3) == null) || map.containsKey(str)) {
             return;
@@ -107,6 +99,5 @@ public class m_a {
         }
     }
 
-    @Keep
     public static native long m_b(String str);
 }

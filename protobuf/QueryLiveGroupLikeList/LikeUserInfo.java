@@ -28,7 +28,13 @@ public final class LikeUserInfo extends Message {
     public final String userName;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<LikeUserInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String portrait;
@@ -82,14 +88,11 @@ public final class LikeUserInfo extends Message {
         public LikeUserInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new LikeUserInfo(this, z, null) : (LikeUserInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new LikeUserInfo(this, z, null);
+            }
+            return (LikeUserInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -107,10 +110,6 @@ public final class LikeUserInfo extends Message {
         }
         DEFAULT_USERID = 0L;
         DEFAULT_TIME = 0;
-    }
-
-    public /* synthetic */ LikeUserInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -163,5 +162,9 @@ public final class LikeUserInfo extends Message {
         this.userName = builder.userName;
         this.portrait = builder.portrait;
         this.time = builder.time;
+    }
+
+    public /* synthetic */ LikeUserInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

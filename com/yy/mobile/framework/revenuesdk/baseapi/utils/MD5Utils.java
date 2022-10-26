@@ -44,10 +44,10 @@ public class MD5Utils {
                         str2 = str2 + hexString;
                     }
                 } catch (NoSuchAlgorithmException unused) {
-                    if (Env.instance().isTestEnv()) {
-                        throw new RuntimeException("没有md5这个算法！");
+                    if (!Env.instance().isTestEnv()) {
+                        return str2;
                     }
-                    return str2;
+                    throw new RuntimeException("没有md5这个算法！");
                 }
             }
             return str2;

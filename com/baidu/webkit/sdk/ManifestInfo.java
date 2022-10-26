@@ -19,7 +19,7 @@ public final class ManifestInfo {
     public int mThemeColor;
 
     /* loaded from: classes6.dex */
-    public static final class IconInfo {
+    public final class IconInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mHeight1;

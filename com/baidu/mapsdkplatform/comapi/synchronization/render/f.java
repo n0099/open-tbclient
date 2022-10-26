@@ -77,7 +77,7 @@ public class f {
     }
 
     /* loaded from: classes2.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +193,7 @@ public class f {
             RoleOptions e = this.f.e();
             DisplayOptions f = this.f.f();
             try {
-                syncResponseResult = this.f.g().take();
+                syncResponseResult = (SyncResponseResult) this.f.g().take();
             } catch (InterruptedException e2) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "Get result when InterruptedException happened.", e2);
                 syncResponseResult = null;

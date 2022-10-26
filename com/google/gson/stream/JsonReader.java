@@ -125,6 +125,59 @@ public class JsonReader implements Closeable {
         };
     }
 
+    private void checkLenient() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || this.lenient) {
+            return;
+        }
+        throw syntaxError("Use JsonReader.setLenient(true) to accept malformed JSON");
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.peeked = 0;
+            this.stack[0] = 8;
+            this.stackSize = 1;
+            this.in.close();
+        }
+    }
+
+    public boolean hasNext() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            if (i != 2 && i != 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isLenient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.lenient;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return getClass().getSimpleName() + locationString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public JsonReader(Reader reader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -159,40 +212,6 @@ public class JsonReader implements Closeable {
             return;
         }
         throw new NullPointerException("in == null");
-    }
-
-    private void checkLenient() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && !this.lenient) {
-            throw syntaxError("Use JsonReader.setLenient(true) to accept malformed JSON");
-        }
-    }
-
-    private void consumeNonExecutePrefix() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65539, this) != null) {
-            return;
-        }
-        nextNonWhitespace(true);
-        int i = this.pos - 1;
-        this.pos = i;
-        char[] cArr = NON_EXECUTE_PREFIX;
-        if (i + cArr.length > this.limit && !fillBuffer(cArr.length)) {
-            return;
-        }
-        int i2 = 0;
-        while (true) {
-            char[] cArr2 = NON_EXECUTE_PREFIX;
-            if (i2 < cArr2.length) {
-                if (this.buffer[this.pos + i2] != cArr2[i2]) {
-                    return;
-                }
-                i2++;
-            } else {
-                this.pos += cArr2.length;
-                return;
-            }
-        }
     }
 
     private boolean fillBuffer(int i) throws IOException {
@@ -233,35 +252,172 @@ public class JsonReader implements Closeable {
         return invokeI.booleanValue;
     }
 
+    private void skipQuotedValue(char c) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Character.valueOf(c)}) == null) {
+            char[] cArr = this.buffer;
+            do {
+                int i = this.pos;
+                int i2 = this.limit;
+                while (i < i2) {
+                    int i3 = i + 1;
+                    char c2 = cArr[i];
+                    if (c2 == c) {
+                        this.pos = i3;
+                        return;
+                    } else if (c2 == '\\') {
+                        this.pos = i3;
+                        readEscapeCharacter();
+                        i = this.pos;
+                        i2 = this.limit;
+                    } else {
+                        if (c2 == '\n') {
+                            this.lineNumber++;
+                            this.lineStart = i3;
+                        }
+                        i = i3;
+                    }
+                }
+                this.pos = i;
+            } while (fillBuffer(1));
+            throw syntaxError("Unterminated string");
+        }
+    }
+
+    private boolean skipTo(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) {
+            int length = str.length();
+            while (true) {
+                if (this.pos + length > this.limit && !fillBuffer(length)) {
+                    return false;
+                }
+                char[] cArr = this.buffer;
+                int i = this.pos;
+                if (cArr[i] == '\n') {
+                    this.lineNumber++;
+                    this.lineStart = i + 1;
+                } else {
+                    for (int i2 = 0; i2 < length; i2++) {
+                        if (this.buffer[this.pos + i2] != str.charAt(i2)) {
+                            break;
+                        }
+                    }
+                    return true;
+                }
+                this.pos++;
+            }
+        } else {
+            return invokeL.booleanValue;
+        }
+    }
+
+    private void consumeNonExecutePrefix() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            nextNonWhitespace(true);
+            int i = this.pos - 1;
+            this.pos = i;
+            char[] cArr = NON_EXECUTE_PREFIX;
+            if (i + cArr.length > this.limit && !fillBuffer(cArr.length)) {
+                return;
+            }
+            int i2 = 0;
+            while (true) {
+                char[] cArr2 = NON_EXECUTE_PREFIX;
+                if (i2 < cArr2.length) {
+                    if (this.buffer[this.pos + i2] != cArr2[i2]) {
+                        return;
+                    }
+                    i2++;
+                } else {
+                    this.pos += cArr2.length;
+                    return;
+                }
+            }
+        }
+    }
+
+    private void skipToEndOfLine() throws IOException {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            do {
+                if (this.pos < this.limit || fillBuffer(1)) {
+                    char[] cArr = this.buffer;
+                    int i = this.pos;
+                    int i2 = i + 1;
+                    this.pos = i2;
+                    c = cArr[i];
+                    if (c == '\n') {
+                        this.lineNumber++;
+                        this.lineStart = i2;
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            } while (c != '\r');
+        }
+    }
+
+    public void beginObject() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            if (i == 1) {
+                push(3);
+                this.peeked = 0;
+                return;
+            }
+            throw new IllegalStateException("Expected BEGIN_OBJECT but was " + peek() + locationString());
+        }
+    }
+
+    public String locationString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return " at line " + (this.lineNumber + 1) + " column " + ((this.pos - this.lineStart) + 1) + " path " + getPath();
+        }
+        return (String) invokeV.objValue;
+    }
+
     private boolean isLiteral(char c) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Character.valueOf(c)})) == null) {
-            if (c == '\t' || c == '\n' || c == '\f' || c == '\r' || c == ' ') {
-                return false;
-            }
-            if (c != '#') {
-                if (c == ',') {
-                    return false;
-                }
-                if (c != '/' && c != '=') {
-                    if (c == '{' || c == '}' || c == ':') {
+            if (c != '\t' && c != '\n' && c != '\f' && c != '\r' && c != ' ') {
+                if (c != '#') {
+                    if (c != ',') {
+                        if (c != '/' && c != '=') {
+                            if (c != '{' && c != '}' && c != ':') {
+                                if (c != ';') {
+                                    switch (c) {
+                                        case '[':
+                                        case ']':
+                                            return false;
+                                        case '\\':
+                                            break;
+                                        default:
+                                            return true;
+                                    }
+                                }
+                            } else {
+                                return false;
+                            }
+                        }
+                    } else {
                         return false;
                     }
-                    if (c != ';') {
-                        switch (c) {
-                            case '[':
-                            case ']':
-                                return false;
-                            case '\\':
-                                break;
-                            default:
-                                return true;
-                        }
-                    }
                 }
+                checkLenient();
+                return false;
             }
-            checkLenient();
             return false;
         }
         return invokeCommon.booleanValue;
@@ -270,71 +426,73 @@ public class JsonReader implements Closeable {
     private int nextNonWhitespace(boolean z) throws IOException {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeZ = interceptable.invokeZ(65542, this, z)) != null) {
-            return invokeZ.intValue;
-        }
-        char[] cArr = this.buffer;
-        int i = this.pos;
-        int i2 = this.limit;
-        while (true) {
-            if (i == i2) {
-                this.pos = i;
-                if (!fillBuffer(1)) {
-                    if (z) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, this, z)) == null) {
+            char[] cArr = this.buffer;
+            int i = this.pos;
+            int i2 = this.limit;
+            while (true) {
+                if (i == i2) {
+                    this.pos = i;
+                    if (!fillBuffer(1)) {
+                        if (!z) {
+                            return -1;
+                        }
                         throw new EOFException("End of input" + locationString());
                     }
-                    return -1;
+                    i = this.pos;
+                    i2 = this.limit;
                 }
-                i = this.pos;
-                i2 = this.limit;
-            }
-            int i3 = i + 1;
-            char c = cArr[i];
-            if (c == '\n') {
-                this.lineNumber++;
-                this.lineStart = i3;
-            } else if (c != ' ' && c != '\r' && c != '\t') {
-                if (c == '/') {
-                    this.pos = i3;
-                    if (i3 == i2) {
-                        this.pos = i3 - 1;
-                        boolean fillBuffer = fillBuffer(2);
-                        this.pos++;
-                        if (!fillBuffer) {
-                            return c;
+                int i3 = i + 1;
+                char c = cArr[i];
+                if (c == '\n') {
+                    this.lineNumber++;
+                    this.lineStart = i3;
+                } else if (c != ' ' && c != '\r' && c != '\t') {
+                    if (c == '/') {
+                        this.pos = i3;
+                        if (i3 == i2) {
+                            this.pos = i3 - 1;
+                            boolean fillBuffer = fillBuffer(2);
+                            this.pos++;
+                            if (!fillBuffer) {
+                                return c;
+                            }
                         }
-                    }
-                    checkLenient();
-                    int i4 = this.pos;
-                    char c2 = cArr[i4];
-                    if (c2 == '*') {
-                        this.pos = i4 + 1;
-                        if (skipTo("*/")) {
-                            i = this.pos + 2;
+                        checkLenient();
+                        int i4 = this.pos;
+                        char c2 = cArr[i4];
+                        if (c2 != '*') {
+                            if (c2 != '/') {
+                                return c;
+                            }
+                            this.pos = i4 + 1;
+                            skipToEndOfLine();
+                            i = this.pos;
                             i2 = this.limit;
                         } else {
-                            throw syntaxError("Unterminated comment");
+                            this.pos = i4 + 1;
+                            if (skipTo("*/")) {
+                                i = this.pos + 2;
+                                i2 = this.limit;
+                            } else {
+                                throw syntaxError("Unterminated comment");
+                            }
                         }
-                    } else if (c2 != '/') {
-                        return c;
-                    } else {
-                        this.pos = i4 + 1;
+                    } else if (c == '#') {
+                        this.pos = i3;
+                        checkLenient();
                         skipToEndOfLine();
                         i = this.pos;
                         i2 = this.limit;
+                    } else {
+                        this.pos = i3;
+                        return c;
                     }
-                } else if (c == '#') {
-                    this.pos = i3;
-                    checkLenient();
-                    skipToEndOfLine();
-                    i = this.pos;
-                    i2 = this.limit;
-                } else {
-                    this.pos = i3;
-                    return c;
                 }
+                i = i3;
             }
-            i = i3;
+        } else {
+            return invokeZ.intValue;
         }
     }
 
@@ -479,20 +637,23 @@ public class JsonReader implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             char c = this.buffer[this.pos];
-            if (c == 't' || c == 'T') {
+            if (c != 't' && c != 'T') {
+                if (c != 'f' && c != 'F') {
+                    if (c != 'n' && c != 'N') {
+                        return 0;
+                    }
+                    i = 7;
+                    str = StringUtil.NULL_STRING;
+                    str2 = "NULL";
+                } else {
+                    i = 6;
+                    str = "false";
+                    str2 = "FALSE";
+                }
+            } else {
                 i = 5;
                 str = "true";
                 str2 = "TRUE";
-            } else if (c == 'f' || c == 'F') {
-                i = 6;
-                str = "false";
-                str2 = "FALSE";
-            } else if (c != 'n' && c != 'N') {
-                return 0;
-            } else {
-                i = 7;
-                str = StringUtil.NULL_STRING;
-                str2 = "NULL";
             }
             int length = str.length();
             for (int i2 = 1; i2 < length; i2++) {
@@ -512,6 +673,41 @@ public class JsonReader implements Closeable {
             return i;
         }
         return invokeV.intValue;
+    }
+
+    public String nextString() throws IOException {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            if (i == 10) {
+                str = nextUnquotedValue();
+            } else if (i == 8) {
+                str = nextQuotedValue('\'');
+            } else if (i == 9) {
+                str = nextQuotedValue(Typography.quote);
+            } else if (i == 11) {
+                str = this.peekedString;
+                this.peekedString = null;
+            } else if (i == 15) {
+                str = Long.toString(this.peekedLong);
+            } else if (i == 16) {
+                str = new String(this.buffer, this.pos, this.peekedNumberLength);
+                this.pos += this.peekedNumberLength;
+            } else {
+                throw new IllegalStateException("Expected a string but was " + peek() + locationString());
+            }
+            this.peeked = 0;
+            int[] iArr = this.pathIndices;
+            int i2 = this.stackSize - 1;
+            iArr[i2] = iArr[i2] + 1;
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:57:0x0099, code lost:
@@ -576,86 +772,338 @@ public class JsonReader implements Closeable {
     */
     private int peekNumber() throws IOException {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65546, this)) != null) {
-            return invokeV.intValue;
-        }
-        char[] cArr = this.buffer;
-        int i = this.pos;
-        int i2 = this.limit;
-        int i3 = 0;
-        int i4 = 0;
-        char c = 0;
-        boolean z = true;
-        long j = 0;
-        boolean z2 = false;
-        while (true) {
-            if (i + i4 == i2) {
-                if (i4 == cArr.length) {
-                    return i3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            char[] cArr = this.buffer;
+            int i = this.pos;
+            int i2 = this.limit;
+            int i3 = 0;
+            int i4 = 0;
+            char c = 0;
+            boolean z2 = true;
+            long j = 0;
+            boolean z3 = false;
+            while (true) {
+                if (i + i4 == i2) {
+                    if (i4 == cArr.length) {
+                        return i3;
+                    }
+                    if (!fillBuffer(i4 + 1)) {
+                        break;
+                    }
+                    i = this.pos;
+                    i2 = this.limit;
                 }
-                if (!fillBuffer(i4 + 1)) {
-                    break;
-                }
-                i = this.pos;
-                i2 = this.limit;
-            }
-            char c2 = cArr[i + i4];
-            if (c2 != '+') {
-                if (c2 == 'E' || c2 == 'e') {
-                    i3 = 0;
-                    if (c != 2 && c != 4) {
-                        return 0;
-                    }
-                    c = 5;
-                } else if (c2 == '-') {
-                    i3 = 0;
-                    if (c == 0) {
-                        c = 1;
-                        z2 = true;
-                    } else if (c != 5) {
-                        return 0;
-                    }
-                } else if (c2 == '.') {
-                    i3 = 0;
-                    if (c != 2) {
-                        return 0;
-                    }
-                    c = 3;
-                } else if (c2 < '0' || c2 > '9') {
-                    break;
-                } else if (c == 1 || c == 0) {
-                    j = -(c2 - '0');
-                    i3 = 0;
-                    c = 2;
-                } else {
-                    if (c == 2) {
-                        if (j == 0) {
+                char c2 = cArr[i + i4];
+                if (c2 != '+') {
+                    if (c2 != 'E' && c2 != 'e') {
+                        if (c2 != '-') {
+                            if (c2 != '.') {
+                                if (c2 < '0' || c2 > '9') {
+                                    break;
+                                } else if (c != 1 && c != 0) {
+                                    if (c == 2) {
+                                        if (j == 0) {
+                                            return 0;
+                                        }
+                                        long j2 = (10 * j) - (c2 - '0');
+                                        int i5 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
+                                        if (i5 <= 0 && (i5 != 0 || j2 >= j)) {
+                                            z = false;
+                                        } else {
+                                            z = true;
+                                        }
+                                        z2 &= z;
+                                        j = j2;
+                                    } else if (c == 3) {
+                                        i3 = 0;
+                                        c = 4;
+                                    } else if (c == 5 || c == 6) {
+                                        i3 = 0;
+                                        c = 7;
+                                    }
+                                    i3 = 0;
+                                } else {
+                                    j = -(c2 - '0');
+                                    i3 = 0;
+                                    c = 2;
+                                }
+                            } else {
+                                i3 = 0;
+                                if (c != 2) {
+                                    return 0;
+                                }
+                                c = 3;
+                            }
+                        } else {
+                            i3 = 0;
+                            if (c == 0) {
+                                c = 1;
+                                z3 = true;
+                            } else if (c != 5) {
+                                return 0;
+                            }
+                        }
+                    } else {
+                        i3 = 0;
+                        if (c != 2 && c != 4) {
                             return 0;
                         }
-                        long j2 = (10 * j) - (c2 - '0');
-                        int i5 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
-                        z &= i5 > 0 || (i5 == 0 && j2 < j);
-                        j = j2;
-                    } else if (c == 3) {
-                        i3 = 0;
-                        c = 4;
-                    } else if (c == 5 || c == 6) {
-                        i3 = 0;
-                        c = 7;
+                        c = 5;
                     }
+                    i4++;
+                } else {
                     i3 = 0;
+                    if (c != 5) {
+                        return 0;
+                    }
                 }
+                c = 6;
                 i4++;
+            }
+        } else {
+            return invokeV.intValue;
+        }
+    }
+
+    private char readEscapeCharacter() throws IOException {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            if (this.pos == this.limit && !fillBuffer(1)) {
+                throw syntaxError("Unterminated escape sequence");
+            }
+            char[] cArr = this.buffer;
+            int i3 = this.pos;
+            int i4 = i3 + 1;
+            this.pos = i4;
+            char c = cArr[i3];
+            if (c != '\n') {
+                if (c != '\"' && c != '\'' && c != '/' && c != '\\') {
+                    if (c != 'b') {
+                        if (c != 'f') {
+                            if (c == 'n') {
+                                return '\n';
+                            }
+                            if (c != 'r') {
+                                if (c != 't') {
+                                    if (c == 'u') {
+                                        if (i4 + 4 > this.limit && !fillBuffer(4)) {
+                                            throw syntaxError("Unterminated escape sequence");
+                                        }
+                                        char c2 = 0;
+                                        int i5 = this.pos;
+                                        int i6 = i5 + 4;
+                                        while (i5 < i6) {
+                                            char c3 = this.buffer[i5];
+                                            char c4 = (char) (c2 << 4);
+                                            if (c3 >= '0' && c3 <= '9') {
+                                                i2 = c3 - '0';
+                                            } else {
+                                                if (c3 >= 'a' && c3 <= 'f') {
+                                                    i = c3 - 'a';
+                                                } else if (c3 >= 'A' && c3 <= 'F') {
+                                                    i = c3 - 'A';
+                                                } else {
+                                                    throw new NumberFormatException("\\u" + new String(this.buffer, this.pos, 4));
+                                                }
+                                                i2 = i + 10;
+                                            }
+                                            c2 = (char) (c4 + i2);
+                                            i5++;
+                                        }
+                                        this.pos += 4;
+                                        return c2;
+                                    }
+                                    throw syntaxError("Invalid escape sequence");
+                                }
+                                return '\t';
+                            }
+                            return '\r';
+                        }
+                        return '\f';
+                    }
+                    return '\b';
+                }
             } else {
-                i3 = 0;
-                if (c != 5) {
-                    return 0;
+                this.lineNumber++;
+                this.lineStart = i4;
+            }
+            return c;
+        }
+        return invokeV.charValue;
+    }
+
+    public double nextDouble() throws IOException {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            if (i == 15) {
+                this.peeked = 0;
+                int[] iArr = this.pathIndices;
+                int i2 = this.stackSize - 1;
+                iArr[i2] = iArr[i2] + 1;
+                return this.peekedLong;
+            }
+            if (i == 16) {
+                this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
+                this.pos += this.peekedNumberLength;
+            } else if (i != 8 && i != 9) {
+                if (i == 10) {
+                    this.peekedString = nextUnquotedValue();
+                } else if (i != 11) {
+                    throw new IllegalStateException("Expected a double but was " + peek() + locationString());
+                }
+            } else {
+                if (i == 8) {
+                    c = '\'';
+                } else {
+                    c = Typography.quote;
+                }
+                this.peekedString = nextQuotedValue(c);
+            }
+            this.peeked = 11;
+            double parseDouble = Double.parseDouble(this.peekedString);
+            if (!this.lenient && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
+                throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + locationString());
+            }
+            this.peekedString = null;
+            this.peeked = 0;
+            int[] iArr2 = this.pathIndices;
+            int i3 = this.stackSize - 1;
+            iArr2[i3] = iArr2[i3] + 1;
+            return parseDouble;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public int nextInt() throws IOException {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            if (i == 15) {
+                long j = this.peekedLong;
+                int i2 = (int) j;
+                if (j == i2) {
+                    this.peeked = 0;
+                    int[] iArr = this.pathIndices;
+                    int i3 = this.stackSize - 1;
+                    iArr[i3] = iArr[i3] + 1;
+                    return i2;
+                }
+                throw new NumberFormatException("Expected an int but was " + this.peekedLong + locationString());
+            }
+            if (i == 16) {
+                this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
+                this.pos += this.peekedNumberLength;
+            } else if (i != 8 && i != 9 && i != 10) {
+                throw new IllegalStateException("Expected an int but was " + peek() + locationString());
+            } else {
+                if (i == 10) {
+                    this.peekedString = nextUnquotedValue();
+                } else {
+                    if (i == 8) {
+                        c = '\'';
+                    } else {
+                        c = Typography.quote;
+                    }
+                    this.peekedString = nextQuotedValue(c);
+                }
+                try {
+                    int parseInt = Integer.parseInt(this.peekedString);
+                    this.peeked = 0;
+                    int[] iArr2 = this.pathIndices;
+                    int i4 = this.stackSize - 1;
+                    iArr2[i4] = iArr2[i4] + 1;
+                    return parseInt;
+                } catch (NumberFormatException unused) {
                 }
             }
-            c = 6;
-            i4++;
+            this.peeked = 11;
+            double parseDouble = Double.parseDouble(this.peekedString);
+            int i5 = (int) parseDouble;
+            if (i5 == parseDouble) {
+                this.peekedString = null;
+                this.peeked = 0;
+                int[] iArr3 = this.pathIndices;
+                int i6 = this.stackSize - 1;
+                iArr3[i6] = iArr3[i6] + 1;
+                return i5;
+            }
+            throw new NumberFormatException("Expected an int but was " + this.peekedString + locationString());
         }
+        return invokeV.intValue;
+    }
+
+    public long nextLong() throws IOException {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            if (i == 15) {
+                this.peeked = 0;
+                int[] iArr = this.pathIndices;
+                int i2 = this.stackSize - 1;
+                iArr[i2] = iArr[i2] + 1;
+                return this.peekedLong;
+            }
+            if (i == 16) {
+                this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
+                this.pos += this.peekedNumberLength;
+            } else if (i != 8 && i != 9 && i != 10) {
+                throw new IllegalStateException("Expected a long but was " + peek() + locationString());
+            } else {
+                if (i == 10) {
+                    this.peekedString = nextUnquotedValue();
+                } else {
+                    if (i == 8) {
+                        c = '\'';
+                    } else {
+                        c = Typography.quote;
+                    }
+                    this.peekedString = nextQuotedValue(c);
+                }
+                try {
+                    long parseLong = Long.parseLong(this.peekedString);
+                    this.peeked = 0;
+                    int[] iArr2 = this.pathIndices;
+                    int i3 = this.stackSize - 1;
+                    iArr2[i3] = iArr2[i3] + 1;
+                    return parseLong;
+                } catch (NumberFormatException unused) {
+                }
+            }
+            this.peeked = 11;
+            double parseDouble = Double.parseDouble(this.peekedString);
+            long j = (long) parseDouble;
+            if (j == parseDouble) {
+                this.peekedString = null;
+                this.peeked = 0;
+                int[] iArr3 = this.pathIndices;
+                int i4 = this.stackSize - 1;
+                iArr3[i4] = iArr3[i4] + 1;
+                return j;
+            }
+            throw new NumberFormatException("Expected a long but was " + this.peekedString + locationString());
+        }
+        return invokeV.longValue;
     }
 
     private void push(int i) {
@@ -678,155 +1126,6 @@ public class JsonReader implements Closeable {
             int i3 = this.stackSize;
             this.stackSize = i3 + 1;
             iArr4[i3] = i;
-        }
-    }
-
-    private char readEscapeCharacter() throws IOException {
-        InterceptResult invokeV;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            if (this.pos == this.limit && !fillBuffer(1)) {
-                throw syntaxError("Unterminated escape sequence");
-            }
-            char[] cArr = this.buffer;
-            int i3 = this.pos;
-            int i4 = i3 + 1;
-            this.pos = i4;
-            char c = cArr[i3];
-            if (c == '\n') {
-                this.lineNumber++;
-                this.lineStart = i4;
-            } else if (c != '\"' && c != '\'' && c != '/' && c != '\\') {
-                if (c != 'b') {
-                    if (c != 'f') {
-                        if (c != 'n') {
-                            if (c != 'r') {
-                                if (c != 't') {
-                                    if (c == 'u') {
-                                        if (i4 + 4 > this.limit && !fillBuffer(4)) {
-                                            throw syntaxError("Unterminated escape sequence");
-                                        }
-                                        char c2 = 0;
-                                        int i5 = this.pos;
-                                        int i6 = i5 + 4;
-                                        while (i5 < i6) {
-                                            char c3 = this.buffer[i5];
-                                            char c4 = (char) (c2 << 4);
-                                            if (c3 < '0' || c3 > '9') {
-                                                if (c3 >= 'a' && c3 <= 'f') {
-                                                    i = c3 - 'a';
-                                                } else if (c3 < 'A' || c3 > 'F') {
-                                                    throw new NumberFormatException("\\u" + new String(this.buffer, this.pos, 4));
-                                                } else {
-                                                    i = c3 - 'A';
-                                                }
-                                                i2 = i + 10;
-                                            } else {
-                                                i2 = c3 - '0';
-                                            }
-                                            c2 = (char) (c4 + i2);
-                                            i5++;
-                                        }
-                                        this.pos += 4;
-                                        return c2;
-                                    }
-                                    throw syntaxError("Invalid escape sequence");
-                                }
-                                return '\t';
-                            }
-                            return '\r';
-                        }
-                        return '\n';
-                    }
-                    return '\f';
-                }
-                return '\b';
-            }
-            return c;
-        }
-        return invokeV.charValue;
-    }
-
-    private void skipQuotedValue(char c) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Character.valueOf(c)}) == null) {
-            char[] cArr = this.buffer;
-            do {
-                int i = this.pos;
-                int i2 = this.limit;
-                while (i < i2) {
-                    int i3 = i + 1;
-                    char c2 = cArr[i];
-                    if (c2 == c) {
-                        this.pos = i3;
-                        return;
-                    } else if (c2 == '\\') {
-                        this.pos = i3;
-                        readEscapeCharacter();
-                        i = this.pos;
-                        i2 = this.limit;
-                    } else {
-                        if (c2 == '\n') {
-                            this.lineNumber++;
-                            this.lineStart = i3;
-                        }
-                        i = i3;
-                    }
-                }
-                this.pos = i;
-            } while (fillBuffer(1));
-            throw syntaxError("Unterminated string");
-        }
-    }
-
-    private boolean skipTo(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65550, this, str)) != null) {
-            return invokeL.booleanValue;
-        }
-        int length = str.length();
-        while (true) {
-            if (this.pos + length > this.limit && !fillBuffer(length)) {
-                return false;
-            }
-            char[] cArr = this.buffer;
-            int i = this.pos;
-            if (cArr[i] != '\n') {
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (this.buffer[this.pos + i2] != str.charAt(i2)) {
-                        break;
-                    }
-                }
-                return true;
-            }
-            this.lineNumber++;
-            this.lineStart = i + 1;
-            this.pos++;
-        }
-    }
-
-    private void skipToEndOfLine() throws IOException {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            do {
-                if (this.pos >= this.limit && !fillBuffer(1)) {
-                    return;
-                }
-                char[] cArr = this.buffer;
-                int i = this.pos;
-                int i2 = i + 1;
-                this.pos = i2;
-                c = cArr[i];
-                if (c == '\n') {
-                    this.lineNumber++;
-                    this.lineStart = i2;
-                    return;
-                }
-            } while (c != '\r');
         }
     }
 
@@ -876,6 +1175,124 @@ public class JsonReader implements Closeable {
         }
     }
 
+    public String nextName() throws IOException {
+        InterceptResult invokeV;
+        String nextQuotedValue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            if (i == 14) {
+                nextQuotedValue = nextUnquotedValue();
+            } else if (i == 12) {
+                nextQuotedValue = nextQuotedValue('\'');
+            } else if (i == 13) {
+                nextQuotedValue = nextQuotedValue(Typography.quote);
+            } else {
+                throw new IllegalStateException("Expected a name but was " + peek() + locationString());
+            }
+            this.peeked = 0;
+            this.pathNames[this.stackSize - 1] = nextQuotedValue;
+            return nextQuotedValue;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JsonToken peek() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
+            }
+            switch (i) {
+                case 1:
+                    return JsonToken.BEGIN_OBJECT;
+                case 2:
+                    return JsonToken.END_OBJECT;
+                case 3:
+                    return JsonToken.BEGIN_ARRAY;
+                case 4:
+                    return JsonToken.END_ARRAY;
+                case 5:
+                case 6:
+                    return JsonToken.BOOLEAN;
+                case 7:
+                    return JsonToken.NULL;
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                    return JsonToken.STRING;
+                case 12:
+                case 13:
+                case 14:
+                    return JsonToken.NAME;
+                case 15:
+                case 16:
+                    return JsonToken.NUMBER;
+                case 17:
+                    return JsonToken.END_DOCUMENT;
+                default:
+                    throw new AssertionError();
+            }
+        }
+        return (JsonToken) invokeV.objValue;
+    }
+
+    public void skipValue() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            int i = 0;
+            do {
+                int i2 = this.peeked;
+                if (i2 == 0) {
+                    i2 = doPeek();
+                }
+                if (i2 == 3) {
+                    push(1);
+                } else if (i2 == 1) {
+                    push(3);
+                } else {
+                    if (i2 == 4) {
+                        this.stackSize--;
+                    } else if (i2 == 2) {
+                        this.stackSize--;
+                    } else {
+                        if (i2 != 14 && i2 != 10) {
+                            if (i2 != 8 && i2 != 12) {
+                                if (i2 != 9 && i2 != 13) {
+                                    if (i2 == 16) {
+                                        this.pos += this.peekedNumberLength;
+                                    }
+                                } else {
+                                    skipQuotedValue(Typography.quote);
+                                }
+                            } else {
+                                skipQuotedValue('\'');
+                            }
+                        } else {
+                            skipUnquotedValue();
+                        }
+                        this.peeked = 0;
+                    }
+                    i--;
+                    this.peeked = 0;
+                }
+                i++;
+                this.peeked = 0;
+            } while (i != 0);
+            int[] iArr = this.pathIndices;
+            int i3 = this.stackSize;
+            int i4 = i3 - 1;
+            iArr[i4] = iArr[i4] + 1;
+            this.pathNames[i3 - 1] = StringUtil.NULL_STRING;
+        }
+    }
+
     private IOException syntaxError(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -883,6 +1300,13 @@ public class JsonReader implements Closeable {
             throw new MalformedJsonException(str + locationString());
         }
         return (IOException) invokeL.objValue;
+    }
+
+    public final void setLenient(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.lenient = z;
+        }
     }
 
     public void beginArray() throws IOException {
@@ -900,172 +1324,6 @@ public class JsonReader implements Closeable {
             }
             throw new IllegalStateException("Expected BEGIN_ARRAY but was " + peek() + locationString());
         }
-    }
-
-    public void beginObject() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            if (i == 1) {
-                push(3);
-                this.peeked = 0;
-                return;
-            }
-            throw new IllegalStateException("Expected BEGIN_OBJECT but was " + peek() + locationString());
-        }
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.peeked = 0;
-            this.stack[0] = 8;
-            this.stackSize = 1;
-            this.in.close();
-        }
-    }
-
-    public int doPeek() throws IOException {
-        InterceptResult invokeV;
-        int nextNonWhitespace;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int[] iArr = this.stack;
-            int i = this.stackSize;
-            int i2 = iArr[i - 1];
-            if (i2 == 1) {
-                iArr[i - 1] = 2;
-            } else if (i2 == 2) {
-                int nextNonWhitespace2 = nextNonWhitespace(true);
-                if (nextNonWhitespace2 != 44) {
-                    if (nextNonWhitespace2 != 59) {
-                        if (nextNonWhitespace2 == 93) {
-                            this.peeked = 4;
-                            return 4;
-                        }
-                        throw syntaxError("Unterminated array");
-                    }
-                    checkLenient();
-                }
-            } else if (i2 == 3 || i2 == 5) {
-                this.stack[this.stackSize - 1] = 4;
-                if (i2 == 5 && (nextNonWhitespace = nextNonWhitespace(true)) != 44) {
-                    if (nextNonWhitespace != 59) {
-                        if (nextNonWhitespace == 125) {
-                            this.peeked = 2;
-                            return 2;
-                        }
-                        throw syntaxError("Unterminated object");
-                    }
-                    checkLenient();
-                }
-                int nextNonWhitespace3 = nextNonWhitespace(true);
-                if (nextNonWhitespace3 == 34) {
-                    this.peeked = 13;
-                    return 13;
-                } else if (nextNonWhitespace3 == 39) {
-                    checkLenient();
-                    this.peeked = 12;
-                    return 12;
-                } else if (nextNonWhitespace3 == 125) {
-                    if (i2 != 5) {
-                        this.peeked = 2;
-                        return 2;
-                    }
-                    throw syntaxError("Expected name");
-                } else {
-                    checkLenient();
-                    this.pos--;
-                    if (isLiteral((char) nextNonWhitespace3)) {
-                        this.peeked = 14;
-                        return 14;
-                    }
-                    throw syntaxError("Expected name");
-                }
-            } else if (i2 == 4) {
-                iArr[i - 1] = 5;
-                int nextNonWhitespace4 = nextNonWhitespace(true);
-                if (nextNonWhitespace4 != 58) {
-                    if (nextNonWhitespace4 == 61) {
-                        checkLenient();
-                        if (this.pos < this.limit || fillBuffer(1)) {
-                            char[] cArr = this.buffer;
-                            int i3 = this.pos;
-                            if (cArr[i3] == '>') {
-                                this.pos = i3 + 1;
-                            }
-                        }
-                    } else {
-                        throw syntaxError("Expected ':'");
-                    }
-                }
-            } else if (i2 == 6) {
-                if (this.lenient) {
-                    consumeNonExecutePrefix();
-                }
-                this.stack[this.stackSize - 1] = 7;
-            } else if (i2 == 7) {
-                if (nextNonWhitespace(false) == -1) {
-                    this.peeked = 17;
-                    return 17;
-                }
-                checkLenient();
-                this.pos--;
-            } else if (i2 == 8) {
-                throw new IllegalStateException("JsonReader is closed");
-            }
-            int nextNonWhitespace5 = nextNonWhitespace(true);
-            if (nextNonWhitespace5 == 34) {
-                this.peeked = 9;
-                return 9;
-            } else if (nextNonWhitespace5 == 39) {
-                checkLenient();
-                this.peeked = 8;
-                return 8;
-            } else {
-                if (nextNonWhitespace5 != 44 && nextNonWhitespace5 != 59) {
-                    if (nextNonWhitespace5 == 91) {
-                        this.peeked = 3;
-                        return 3;
-                    } else if (nextNonWhitespace5 != 93) {
-                        if (nextNonWhitespace5 != 123) {
-                            this.pos--;
-                            int peekKeyword = peekKeyword();
-                            if (peekKeyword != 0) {
-                                return peekKeyword;
-                            }
-                            int peekNumber = peekNumber();
-                            if (peekNumber != 0) {
-                                return peekNumber;
-                            }
-                            if (isLiteral(this.buffer[this.pos])) {
-                                checkLenient();
-                                this.peeked = 10;
-                                return 10;
-                            }
-                            throw syntaxError("Expected value");
-                        }
-                        this.peeked = 1;
-                        return 1;
-                    } else if (i2 == 1) {
-                        this.peeked = 4;
-                        return 4;
-                    }
-                }
-                if (i2 != 1 && i2 != 2) {
-                    throw syntaxError("Unexpected value");
-                }
-                checkLenient();
-                this.pos--;
-                this.peeked = 7;
-                return 7;
-            }
-        }
-        return invokeV.intValue;
     }
 
     public void endArray() throws IOException {
@@ -1118,47 +1376,21 @@ public class JsonReader implements Closeable {
             int i = this.stackSize;
             for (int i2 = 0; i2 < i; i2++) {
                 int i3 = this.stack[i2];
-                if (i3 == 1 || i3 == 2) {
+                if (i3 != 1 && i3 != 2) {
+                    if (i3 == 3 || i3 == 4 || i3 == 5) {
+                        sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                        String[] strArr = this.pathNames;
+                        if (strArr[i2] != null) {
+                            sb.append(strArr[i2]);
+                        }
+                    }
+                } else {
                     sb.append('[');
                     sb.append(this.pathIndices[i2]);
                     sb.append(']');
-                } else if (i3 == 3 || i3 == 4 || i3 == 5) {
-                    sb.append(IStringUtil.EXTENSION_SEPARATOR);
-                    String[] strArr = this.pathNames;
-                    if (strArr[i2] != null) {
-                        sb.append(strArr[i2]);
-                    }
                 }
             }
             return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean hasNext() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            return (i == 2 || i == 4) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean isLenient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.lenient : invokeV.booleanValue;
-    }
-
-    public String locationString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return " at line " + (this.lineNumber + 1) + " column " + ((this.pos - this.lineStart) + 1) + " path " + getPath();
         }
         return (String) invokeV.objValue;
     }
@@ -1190,180 +1422,6 @@ public class JsonReader implements Closeable {
         return invokeV.booleanValue;
     }
 
-    public double nextDouble() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            if (i == 15) {
-                this.peeked = 0;
-                int[] iArr = this.pathIndices;
-                int i2 = this.stackSize - 1;
-                iArr[i2] = iArr[i2] + 1;
-                return this.peekedLong;
-            }
-            if (i == 16) {
-                this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
-                this.pos += this.peekedNumberLength;
-            } else if (i == 8 || i == 9) {
-                this.peekedString = nextQuotedValue(i == 8 ? '\'' : Typography.quote);
-            } else if (i == 10) {
-                this.peekedString = nextUnquotedValue();
-            } else if (i != 11) {
-                throw new IllegalStateException("Expected a double but was " + peek() + locationString());
-            }
-            this.peeked = 11;
-            double parseDouble = Double.parseDouble(this.peekedString);
-            if (!this.lenient && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
-                throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + locationString());
-            }
-            this.peekedString = null;
-            this.peeked = 0;
-            int[] iArr2 = this.pathIndices;
-            int i3 = this.stackSize - 1;
-            iArr2[i3] = iArr2[i3] + 1;
-            return parseDouble;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public int nextInt() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            if (i == 15) {
-                long j = this.peekedLong;
-                int i2 = (int) j;
-                if (j == i2) {
-                    this.peeked = 0;
-                    int[] iArr = this.pathIndices;
-                    int i3 = this.stackSize - 1;
-                    iArr[i3] = iArr[i3] + 1;
-                    return i2;
-                }
-                throw new NumberFormatException("Expected an int but was " + this.peekedLong + locationString());
-            }
-            if (i == 16) {
-                this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
-                this.pos += this.peekedNumberLength;
-            } else if (i != 8 && i != 9 && i != 10) {
-                throw new IllegalStateException("Expected an int but was " + peek() + locationString());
-            } else {
-                if (i == 10) {
-                    this.peekedString = nextUnquotedValue();
-                } else {
-                    this.peekedString = nextQuotedValue(i == 8 ? '\'' : Typography.quote);
-                }
-                try {
-                    int parseInt = Integer.parseInt(this.peekedString);
-                    this.peeked = 0;
-                    int[] iArr2 = this.pathIndices;
-                    int i4 = this.stackSize - 1;
-                    iArr2[i4] = iArr2[i4] + 1;
-                    return parseInt;
-                } catch (NumberFormatException unused) {
-                }
-            }
-            this.peeked = 11;
-            double parseDouble = Double.parseDouble(this.peekedString);
-            int i5 = (int) parseDouble;
-            if (i5 == parseDouble) {
-                this.peekedString = null;
-                this.peeked = 0;
-                int[] iArr3 = this.pathIndices;
-                int i6 = this.stackSize - 1;
-                iArr3[i6] = iArr3[i6] + 1;
-                return i5;
-            }
-            throw new NumberFormatException("Expected an int but was " + this.peekedString + locationString());
-        }
-        return invokeV.intValue;
-    }
-
-    public long nextLong() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            if (i == 15) {
-                this.peeked = 0;
-                int[] iArr = this.pathIndices;
-                int i2 = this.stackSize - 1;
-                iArr[i2] = iArr[i2] + 1;
-                return this.peekedLong;
-            }
-            if (i == 16) {
-                this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
-                this.pos += this.peekedNumberLength;
-            } else if (i != 8 && i != 9 && i != 10) {
-                throw new IllegalStateException("Expected a long but was " + peek() + locationString());
-            } else {
-                if (i == 10) {
-                    this.peekedString = nextUnquotedValue();
-                } else {
-                    this.peekedString = nextQuotedValue(i == 8 ? '\'' : Typography.quote);
-                }
-                try {
-                    long parseLong = Long.parseLong(this.peekedString);
-                    this.peeked = 0;
-                    int[] iArr2 = this.pathIndices;
-                    int i3 = this.stackSize - 1;
-                    iArr2[i3] = iArr2[i3] + 1;
-                    return parseLong;
-                } catch (NumberFormatException unused) {
-                }
-            }
-            this.peeked = 11;
-            double parseDouble = Double.parseDouble(this.peekedString);
-            long j = (long) parseDouble;
-            if (j == parseDouble) {
-                this.peekedString = null;
-                this.peeked = 0;
-                int[] iArr3 = this.pathIndices;
-                int i4 = this.stackSize - 1;
-                iArr3[i4] = iArr3[i4] + 1;
-                return j;
-            }
-            throw new NumberFormatException("Expected a long but was " + this.peekedString + locationString());
-        }
-        return invokeV.longValue;
-    }
-
-    public String nextName() throws IOException {
-        InterceptResult invokeV;
-        String nextQuotedValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            if (i == 14) {
-                nextQuotedValue = nextUnquotedValue();
-            } else if (i == 12) {
-                nextQuotedValue = nextQuotedValue('\'');
-            } else if (i == 13) {
-                nextQuotedValue = nextQuotedValue(Typography.quote);
-            } else {
-                throw new IllegalStateException("Expected a name but was " + peek() + locationString());
-            }
-            this.peeked = 0;
-            this.pathNames[this.stackSize - 1] = nextQuotedValue;
-            return nextQuotedValue;
-        }
-        return (String) invokeV.objValue;
-    }
-
     public void nextNull() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -1382,141 +1440,147 @@ public class JsonReader implements Closeable {
         }
     }
 
-    public String nextString() throws IOException {
+    public int doPeek() throws IOException {
         InterceptResult invokeV;
-        String str;
+        int nextNonWhitespace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            if (i == 10) {
-                str = nextUnquotedValue();
-            } else if (i == 8) {
-                str = nextQuotedValue('\'');
-            } else if (i == 9) {
-                str = nextQuotedValue(Typography.quote);
-            } else if (i == 11) {
-                str = this.peekedString;
-                this.peekedString = null;
-            } else if (i == 15) {
-                str = Long.toString(this.peekedLong);
-            } else if (i == 16) {
-                str = new String(this.buffer, this.pos, this.peekedNumberLength);
-                this.pos += this.peekedNumberLength;
-            } else {
-                throw new IllegalStateException("Expected a string but was " + peek() + locationString());
-            }
-            this.peeked = 0;
-            int[] iArr = this.pathIndices;
-            int i2 = this.stackSize - 1;
-            iArr[i2] = iArr[i2] + 1;
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public JsonToken peek() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int i = this.peeked;
-            if (i == 0) {
-                i = doPeek();
-            }
-            switch (i) {
-                case 1:
-                    return JsonToken.BEGIN_OBJECT;
-                case 2:
-                    return JsonToken.END_OBJECT;
-                case 3:
-                    return JsonToken.BEGIN_ARRAY;
-                case 4:
-                    return JsonToken.END_ARRAY;
-                case 5:
-                case 6:
-                    return JsonToken.BOOLEAN;
-                case 7:
-                    return JsonToken.NULL;
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                    return JsonToken.STRING;
-                case 12:
-                case 13:
-                case 14:
-                    return JsonToken.NAME;
-                case 15:
-                case 16:
-                    return JsonToken.NUMBER;
-                case 17:
-                    return JsonToken.END_DOCUMENT;
-                default:
-                    throw new AssertionError();
-            }
-        }
-        return (JsonToken) invokeV.objValue;
-    }
-
-    public final void setLenient(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.lenient = z;
-        }
-    }
-
-    public void skipValue() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            int i = 0;
-            do {
-                int i2 = this.peeked;
-                if (i2 == 0) {
-                    i2 = doPeek();
-                }
-                if (i2 == 3) {
-                    push(1);
-                } else if (i2 == 1) {
-                    push(3);
-                } else {
-                    if (i2 == 4) {
-                        this.stackSize--;
-                    } else if (i2 == 2) {
-                        this.stackSize--;
-                    } else {
-                        if (i2 == 14 || i2 == 10) {
-                            skipUnquotedValue();
-                        } else if (i2 == 8 || i2 == 12) {
-                            skipQuotedValue('\'');
-                        } else if (i2 == 9 || i2 == 13) {
-                            skipQuotedValue(Typography.quote);
-                        } else if (i2 == 16) {
-                            this.pos += this.peekedNumberLength;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int[] iArr = this.stack;
+            int i = this.stackSize;
+            int i2 = iArr[i - 1];
+            if (i2 == 1) {
+                iArr[i - 1] = 2;
+            } else if (i2 == 2) {
+                int nextNonWhitespace2 = nextNonWhitespace(true);
+                if (nextNonWhitespace2 != 44) {
+                    if (nextNonWhitespace2 != 59) {
+                        if (nextNonWhitespace2 == 93) {
+                            this.peeked = 4;
+                            return 4;
                         }
-                        this.peeked = 0;
+                        throw syntaxError("Unterminated array");
                     }
-                    i--;
-                    this.peeked = 0;
+                    checkLenient();
                 }
-                i++;
-                this.peeked = 0;
-            } while (i != 0);
-            int[] iArr = this.pathIndices;
-            int i3 = this.stackSize;
-            int i4 = i3 - 1;
-            iArr[i4] = iArr[i4] + 1;
-            this.pathNames[i3 - 1] = StringUtil.NULL_STRING;
+            } else if (i2 != 3 && i2 != 5) {
+                if (i2 == 4) {
+                    iArr[i - 1] = 5;
+                    int nextNonWhitespace3 = nextNonWhitespace(true);
+                    if (nextNonWhitespace3 != 58) {
+                        if (nextNonWhitespace3 == 61) {
+                            checkLenient();
+                            if (this.pos < this.limit || fillBuffer(1)) {
+                                char[] cArr = this.buffer;
+                                int i3 = this.pos;
+                                if (cArr[i3] == '>') {
+                                    this.pos = i3 + 1;
+                                }
+                            }
+                        } else {
+                            throw syntaxError("Expected ':'");
+                        }
+                    }
+                } else if (i2 == 6) {
+                    if (this.lenient) {
+                        consumeNonExecutePrefix();
+                    }
+                    this.stack[this.stackSize - 1] = 7;
+                } else if (i2 == 7) {
+                    if (nextNonWhitespace(false) == -1) {
+                        this.peeked = 17;
+                        return 17;
+                    }
+                    checkLenient();
+                    this.pos--;
+                } else if (i2 == 8) {
+                    throw new IllegalStateException("JsonReader is closed");
+                }
+            } else {
+                this.stack[this.stackSize - 1] = 4;
+                if (i2 == 5 && (nextNonWhitespace = nextNonWhitespace(true)) != 44) {
+                    if (nextNonWhitespace != 59) {
+                        if (nextNonWhitespace == 125) {
+                            this.peeked = 2;
+                            return 2;
+                        }
+                        throw syntaxError("Unterminated object");
+                    }
+                    checkLenient();
+                }
+                int nextNonWhitespace4 = nextNonWhitespace(true);
+                if (nextNonWhitespace4 != 34) {
+                    if (nextNonWhitespace4 != 39) {
+                        if (nextNonWhitespace4 != 125) {
+                            checkLenient();
+                            this.pos--;
+                            if (isLiteral((char) nextNonWhitespace4)) {
+                                this.peeked = 14;
+                                return 14;
+                            }
+                            throw syntaxError("Expected name");
+                        } else if (i2 != 5) {
+                            this.peeked = 2;
+                            return 2;
+                        } else {
+                            throw syntaxError("Expected name");
+                        }
+                    }
+                    checkLenient();
+                    this.peeked = 12;
+                    return 12;
+                }
+                this.peeked = 13;
+                return 13;
+            }
+            int nextNonWhitespace5 = nextNonWhitespace(true);
+            if (nextNonWhitespace5 != 34) {
+                if (nextNonWhitespace5 != 39) {
+                    if (nextNonWhitespace5 != 44 && nextNonWhitespace5 != 59) {
+                        if (nextNonWhitespace5 != 91) {
+                            if (nextNonWhitespace5 != 93) {
+                                if (nextNonWhitespace5 != 123) {
+                                    this.pos--;
+                                    int peekKeyword = peekKeyword();
+                                    if (peekKeyword != 0) {
+                                        return peekKeyword;
+                                    }
+                                    int peekNumber = peekNumber();
+                                    if (peekNumber != 0) {
+                                        return peekNumber;
+                                    }
+                                    if (isLiteral(this.buffer[this.pos])) {
+                                        checkLenient();
+                                        this.peeked = 10;
+                                        return 10;
+                                    }
+                                    throw syntaxError("Expected value");
+                                }
+                                this.peeked = 1;
+                                return 1;
+                            } else if (i2 == 1) {
+                                this.peeked = 4;
+                                return 4;
+                            }
+                        } else {
+                            this.peeked = 3;
+                            return 3;
+                        }
+                    }
+                    if (i2 != 1 && i2 != 2) {
+                        throw syntaxError("Unexpected value");
+                    }
+                    checkLenient();
+                    this.pos--;
+                    this.peeked = 7;
+                    return 7;
+                }
+                checkLenient();
+                this.peeked = 8;
+                return 8;
+            }
+            this.peeked = 9;
+            return 9;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return getClass().getSimpleName() + locationString();
-        }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

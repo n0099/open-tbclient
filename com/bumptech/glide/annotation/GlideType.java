@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 /* loaded from: classes7.dex */
 public @interface GlideType {
-    Class<?> value();
+    Class value();
 }

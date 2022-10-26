@@ -120,7 +120,7 @@ public abstract class UMALogger {
 
     public abstract void addTimesHistogramSample(String str, long j);
 
-    public void record(JSONObject jSONObject, List<String> list, String str) {
+    public void record(JSONObject jSONObject, List list, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048582, this, jSONObject, list, str) == null) || jSONObject == null) {
             return;

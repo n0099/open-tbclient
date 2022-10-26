@@ -32,6 +32,13 @@ public abstract class FunNativeViewInflater extends CustomInflater {
         }
     }
 
+    public void setFunNativeView(FunNativeView funNativeView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funNativeView) == null) {
+            this.b = funNativeView;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.fun.ad.sdk.NativeInflater
     public final FunNativeView inflate() {
@@ -45,12 +52,5 @@ public abstract class FunNativeViewInflater extends CustomInflater {
             throw new IllegalStateException("Please call setFunNativeView(FunNativeView) with a valid FunNativeView");
         }
         return (FunNativeView) invokeV.objValue;
-    }
-
-    public void setFunNativeView(FunNativeView funNativeView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funNativeView) == null) {
-            this.b = funNativeView;
-        }
     }
 }

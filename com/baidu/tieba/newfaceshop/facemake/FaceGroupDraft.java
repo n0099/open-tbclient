@@ -1,7 +1,6 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.face.data.FaceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ public class FaceGroupDraft implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public String mFailMsg;
     public int mForumId;
-    public List<FaceData> mList;
+    public List mList;
     public String mName;
 
     public FaceGroupDraft() {
@@ -35,25 +34,37 @@ public class FaceGroupDraft implements Serializable {
     public String getFailMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFailMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mFailMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mForumId;
+        }
+        return invokeV.intValue;
     }
 
-    public List<FaceData> getList() {
+    public List getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setFailMsg(String str) {
@@ -70,7 +81,7 @@ public class FaceGroupDraft implements Serializable {
         }
     }
 
-    public void setList(List<FaceData> list) {
+    public void setList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.mList = list;

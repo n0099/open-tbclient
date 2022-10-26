@@ -12,7 +12,7 @@ import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends a.C0703a {
+public class c extends a.C0699a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
@@ -42,31 +42,45 @@ public class c extends a.C0703a {
     private void b(String str) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || (webView = this.a.get()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && (webView = (WebView) this.a.get()) != null) {
+            StringBuffer stringBuffer = new StringBuffer("javascript:");
+            stringBuffer.append("if(!!");
+            stringBuffer.append(this.d);
+            stringBuffer.append("){");
+            stringBuffer.append(this.d);
+            stringBuffer.append("(");
+            stringBuffer.append(str);
+            stringBuffer.append(")}");
+            String stringBuffer2 = stringBuffer.toString();
+            SLog.v("openSDK_LOG.SecureJsListener", "-->callback, callback: " + stringBuffer2);
+            webView.loadUrl(stringBuffer2);
         }
-        StringBuffer stringBuffer = new StringBuffer("javascript:");
-        stringBuffer.append("if(!!");
-        stringBuffer.append(this.d);
-        stringBuffer.append("){");
-        stringBuffer.append(this.d);
-        stringBuffer.append("(");
-        stringBuffer.append(str);
-        stringBuffer.append(")}");
-        String stringBuffer2 = stringBuffer.toString();
-        SLog.v("openSDK_LOG.SecureJsListener", "-->callback, callback: " + stringBuffer2);
-        webView.loadUrl(stringBuffer2);
     }
 
-    @Override // com.tencent.open.a.C0703a
-    public void a(Object obj) {
+    @Override // com.tencent.open.a.C0699a
+    public void a(String str) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            SLog.v("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            SLog.v("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
+            JSONObject jSONObject = new JSONObject();
+            if (!com.tencent.open.b.c.a) {
+                i = -4;
+            } else {
+                i = 0;
+            }
+            try {
+                jSONObject.put(TiebaStatic.LogFields.RESULT, i);
+                jSONObject.put("sn", this.b);
+                jSONObject.put("data", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            b(jSONObject.toString());
         }
     }
 
-    @Override // com.tencent.open.a.C0703a
+    @Override // com.tencent.open.a.C0699a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -74,20 +88,11 @@ public class c extends a.C0703a {
         }
     }
 
-    @Override // com.tencent.open.a.C0703a
-    public void a(String str) {
+    @Override // com.tencent.open.a.C0699a
+    public void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            SLog.v("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(TiebaStatic.LogFields.RESULT, !com.tencent.open.b.c.a ? -4 : 0);
-                jSONObject.put("sn", this.b);
-                jSONObject.put("data", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            b(jSONObject.toString());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            SLog.v("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
         }
     }
 }

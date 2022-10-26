@@ -1,6 +1,5 @@
 package com.google.android.material.datepicker;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,9 +16,7 @@ public class TimeSource {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeSource SYSTEM_TIME_SOURCE;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final Long fixedTimeMs;
-    @Nullable
     public final TimeZone fixedTimeZone;
 
     static {
@@ -38,7 +35,25 @@ public class TimeSource {
         SYSTEM_TIME_SOURCE = new TimeSource(null, null);
     }
 
-    public TimeSource(@Nullable Long l, @Nullable TimeZone timeZone) {
+    public static TimeSource system() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return SYSTEM_TIME_SOURCE;
+        }
+        return (TimeSource) invokeV.objValue;
+    }
+
+    public Calendar now() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return now(this.fixedTimeZone);
+        }
+        return (Calendar) invokeV.objValue;
+    }
+
+    public TimeSource(Long l, TimeZone timeZone) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,35 +72,25 @@ public class TimeSource {
         this.fixedTimeZone = timeZone;
     }
 
-    public static TimeSource fixed(long j, @Nullable TimeZone timeZone) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, timeZone)) == null) ? new TimeSource(Long.valueOf(j), timeZone) : (TimeSource) invokeJL.objValue;
-    }
-
-    public static TimeSource system() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? SYSTEM_TIME_SOURCE : (TimeSource) invokeV.objValue;
-    }
-
-    public Calendar now() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? now(this.fixedTimeZone) : (Calendar) invokeV.objValue;
-    }
-
     public static TimeSource fixed(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new TimeSource(Long.valueOf(j), null) : (TimeSource) invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return new TimeSource(Long.valueOf(j), null);
+        }
+        return (TimeSource) invokeJ.objValue;
     }
 
-    public Calendar now(@Nullable TimeZone timeZone) {
+    public Calendar now(TimeZone timeZone) {
         InterceptResult invokeL;
+        Calendar calendar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timeZone)) == null) {
-            Calendar calendar = timeZone == null ? Calendar.getInstance() : Calendar.getInstance(timeZone);
+            if (timeZone == null) {
+                calendar = Calendar.getInstance();
+            } else {
+                calendar = Calendar.getInstance(timeZone);
+            }
             Long l = this.fixedTimeMs;
             if (l != null) {
                 calendar.setTimeInMillis(l.longValue());
@@ -93,5 +98,14 @@ public class TimeSource {
             return calendar;
         }
         return (Calendar) invokeL.objValue;
+    }
+
+    public static TimeSource fixed(long j, TimeZone timeZone) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, timeZone)) == null) {
+            return new TimeSource(Long.valueOf(j), timeZone);
+        }
+        return (TimeSource) invokeJL.objValue;
     }
 }

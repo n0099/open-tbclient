@@ -18,16 +18,22 @@ public class ShapePathParser {
         boolean z = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                i = jsonReader.nextInt();
-            } else if (selectName == 2) {
-                animatableShapeValue = AnimatableValueParser.parseShapeData(jsonReader, lottieComposition);
-            } else if (selectName != 3) {
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        if (selectName != 3) {
+                            jsonReader.skipValue();
+                        } else {
+                            z = jsonReader.nextBoolean();
+                        }
+                    } else {
+                        animatableShapeValue = AnimatableValueParser.parseShapeData(jsonReader, lottieComposition);
+                    }
+                } else {
+                    i = jsonReader.nextInt();
+                }
             } else {
-                z = jsonReader.nextBoolean();
+                str = jsonReader.nextString();
             }
         }
         return new ShapePath(str, i, animatableShapeValue, z);

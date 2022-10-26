@@ -1,7 +1,6 @@
 package com.baidu.searchbox.network.outback.request;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
@@ -21,13 +20,13 @@ public class PostStringRequest extends Request {
 
     /* renamed from: com.baidu.searchbox.network.outback.request.PostStringRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class PostStringRequestBuilder extends Request.Builder<PostStringRequestBuilder> {
+    public class PostStringRequestBuilder extends Request.Builder {
         public static /* synthetic */ Interceptable $ic;
         public static final MediaType MEDIA_TYPE_PLAIN;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,46 +50,6 @@ public class PostStringRequest extends Request {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PostStringRequestBuilder(Map<String, CallFactory> map) {
-            super(map);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Map) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public PostStringRequestBuilder content(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.content = str;
-                return this;
-            }
-            return (PostStringRequestBuilder) invokeL.objValue;
-        }
-
-        public PostStringRequestBuilder mediaType(MediaType mediaType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mediaType)) == null) {
-                this.mediaType = mediaType;
-                return this;
-            }
-            return (PostStringRequestBuilder) invokeL.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PostStringRequestBuilder(PostStringRequest postStringRequest) {
             super(postStringRequest);
             Interceptable interceptable = $ic;
@@ -105,6 +64,26 @@ public class PostStringRequest extends Request {
                     super((Request) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public PostStringRequestBuilder(Map map) {
+            super(map);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Map) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
@@ -128,9 +107,29 @@ public class PostStringRequest extends Request {
                         requestBody = RequestBody.create((MediaType) null, new byte[0]);
                     }
                 }
-                return new PostStringRequest(post(requestBody), null);
+                return new PostStringRequest((PostStringRequestBuilder) post(requestBody), null);
             }
             return (PostStringRequest) invokeV.objValue;
+        }
+
+        public PostStringRequestBuilder content(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.content = str;
+                return this;
+            }
+            return (PostStringRequestBuilder) invokeL.objValue;
+        }
+
+        public PostStringRequestBuilder mediaType(MediaType mediaType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mediaType)) == null) {
+                this.mediaType = mediaType;
+                return this;
+            }
+            return (PostStringRequestBuilder) invokeL.objValue;
         }
 
         public PostStringRequestBuilder mediaType(String str) {
@@ -142,10 +141,6 @@ public class PostStringRequest extends Request {
             }
             return (PostStringRequestBuilder) invokeL.objValue;
         }
-    }
-
-    public /* synthetic */ PostStringRequest(PostStringRequestBuilder postStringRequestBuilder, AnonymousClass1 anonymousClass1) {
-        this(postStringRequestBuilder);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -166,5 +161,9 @@ public class PostStringRequest extends Request {
                 return;
             }
         }
+    }
+
+    public /* synthetic */ PostStringRequest(PostStringRequestBuilder postStringRequestBuilder, AnonymousClass1 anonymousClass1) {
+        this(postStringRequestBuilder);
     }
 }

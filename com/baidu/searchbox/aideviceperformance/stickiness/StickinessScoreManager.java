@@ -61,24 +61,6 @@ public class StickinessScoreManager implements IStickinessScoreManager {
         this.mStickinessScoreDataProvider = iStickinessScoreDataProvider;
     }
 
-    private float getSingleUserStickinessScore(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (i <= 0 || j <= 0) {
-                return 0.0f;
-            }
-            float f = i * 0.2f;
-            if (f > 1.0f) {
-                f = 1.0f;
-            }
-            float f2 = 1.5f - (((float) j) / 60000.0f);
-            float f3 = f2 <= 1.0f ? f2 : 1.0f;
-            return Math.max(f3 >= 0.0f ? f3 : 0.0f, f);
-        }
-        return invokeCommon.floatValue;
-    }
-
     private String getSpKeyStickinessScore(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -99,6 +81,31 @@ public class StickinessScoreManager implements IStickinessScoreManager {
             return DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(getSpKeyStickinessScore(str), -1.0f);
         }
         return invokeL.floatValue;
+    }
+
+    private float getSingleUserStickinessScore(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            float f = 0.0f;
+            if (i <= 0 || j <= 0) {
+                return 0.0f;
+            }
+            float f2 = i * 0.2f;
+            float f3 = 1.0f;
+            if (f2 > 1.0f) {
+                f2 = 1.0f;
+            }
+            float f4 = 1.5f - (((float) j) / 60000.0f);
+            if (f4 <= 1.0f) {
+                f3 = f4;
+            }
+            if (f3 >= 0.0f) {
+                f = f3;
+            }
+            return Math.max(f, f2);
+        }
+        return invokeCommon.floatValue;
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.stickiness.IStickinessScoreManager
@@ -122,22 +129,22 @@ public class StickinessScoreManager implements IStickinessScoreManager {
                 }
                 return false;
             } else {
-                queryLast.remove(0);
+                DBItemModel.UserStickinessItemModel userStickinessItemModel = (DBItemModel.UserStickinessItemModel) queryLast.remove(0);
                 HashMap hashMap = new HashMap();
-                for (DBItemModel.UserStickinessItemModel userStickinessItemModel : queryLast) {
+                for (DBItemModel.UserStickinessItemModel userStickinessItemModel2 : queryLast) {
                     if (DEBUG) {
-                        Log.d(TAG, "userStickinessItem detail : " + userStickinessItemModel.toString());
+                        Log.d(TAG, "userStickinessItem detail : " + userStickinessItemModel2.toString());
                     }
-                    for (Map.Entry<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> entry : userStickinessItemModel.getIdToItemDetailMap().entrySet()) {
-                        String key = entry.getKey();
-                        DBItemModel.UserStickinessItemModel.ItemDetailModel value = entry.getValue();
-                        if (key != null && value != null) {
-                            float singleUserStickinessScore = getSingleUserStickinessScore(value.count, value.firstTime);
-                            Float f = (Float) hashMap.get(key);
+                    for (Map.Entry entry : userStickinessItemModel2.getIdToItemDetailMap().entrySet()) {
+                        String str = (String) entry.getKey();
+                        DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = (DBItemModel.UserStickinessItemModel.ItemDetailModel) entry.getValue();
+                        if (str != null && itemDetailModel != null) {
+                            float singleUserStickinessScore = getSingleUserStickinessScore(itemDetailModel.count, itemDetailModel.firstTime);
+                            Float f = (Float) hashMap.get(str);
                             if (f == null) {
-                                hashMap.put(key, Float.valueOf(singleUserStickinessScore));
+                                hashMap.put(str, Float.valueOf(singleUserStickinessScore));
                             } else {
-                                hashMap.put(key, Float.valueOf(singleUserStickinessScore + f.floatValue()));
+                                hashMap.put(str, Float.valueOf(singleUserStickinessScore + f.floatValue()));
                             }
                         } else {
                             if (DEBUG) {

@@ -27,13 +27,13 @@ public class CommandPostData {
 
     /* renamed from: com.baidu.searchbox.net.update.CommandPostData$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static final class SubPostDataKey {
+    public final class SubPostDataKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String dataKey;
@@ -74,6 +74,41 @@ public class CommandPostData {
         DEBUG = AppConfig.isDebug();
     }
 
+    public void cleanEmptyData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            cleanEmptyData(this.version);
+            cleanEmptyData(this.data);
+        }
+    }
+
+    public JSONObject getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.data;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject getPubData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.pubData;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.version;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
     public CommandPostData(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,6 +130,46 @@ public class CommandPostData {
         this.version = jSONObject == null ? new JSONObject() : jSONObject;
         this.data = jSONObject2 == null ? new JSONObject() : jSONObject2;
         this.pubData = jSONObject3;
+    }
+
+    private void cleanEmptyData(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
+            LinkedList<String> linkedList = new LinkedList();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                JSONObject optJSONObject = jSONObject.optJSONObject(next);
+                if (optJSONObject != null && optJSONObject.length() == 0) {
+                    linkedList.add(next);
+                }
+            }
+            for (String str : linkedList) {
+                jSONObject.remove(str);
+            }
+        }
+    }
+
+    public CommandPostData getSubPostData(String str) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            SubPostDataKey subPostDataKey = getSubPostDataKey(str);
+            JSONObject jSONObject = this.version;
+            JSONObject jSONObject2 = this.data;
+            JSONObject optJSONObject = jSONObject.optJSONObject(subPostDataKey.versionKey);
+            if (optJSONObject == null) {
+                optJSONObject = new JSONObject();
+                jSONObject.put(subPostDataKey.versionKey, optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject2.optJSONObject(subPostDataKey.dataKey);
+            if (optJSONObject2 == null) {
+                optJSONObject2 = new JSONObject();
+                jSONObject2.put(subPostDataKey.dataKey, optJSONObject2);
+            }
+            return new CommandPostData(optJSONObject, optJSONObject2, this.pubData);
+        }
+        return (CommandPostData) invokeL.objValue;
     }
 
     public static String getKey(String str, String str2, String str3) {
@@ -124,54 +199,6 @@ public class CommandPostData {
         return (SubPostDataKey) invokeL.objValue;
     }
 
-    public void cleanEmptyData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cleanEmptyData(this.version);
-            cleanEmptyData(this.data);
-        }
-    }
-
-    public JSONObject getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (JSONObject) invokeV.objValue;
-    }
-
-    public JSONObject getPubData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pubData : (JSONObject) invokeV.objValue;
-    }
-
-    public CommandPostData getSubPostData(String str) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SubPostDataKey subPostDataKey = getSubPostDataKey(str);
-            JSONObject jSONObject = this.version;
-            JSONObject jSONObject2 = this.data;
-            JSONObject optJSONObject = jSONObject.optJSONObject(subPostDataKey.versionKey);
-            if (optJSONObject == null) {
-                optJSONObject = new JSONObject();
-                jSONObject.put(subPostDataKey.versionKey, optJSONObject);
-            }
-            JSONObject optJSONObject2 = jSONObject2.optJSONObject(subPostDataKey.dataKey);
-            if (optJSONObject2 == null) {
-                optJSONObject2 = new JSONObject();
-                jSONObject2.put(subPostDataKey.dataKey, optJSONObject2);
-            }
-            return new CommandPostData(optJSONObject, optJSONObject2, this.pubData);
-        }
-        return (CommandPostData) invokeL.objValue;
-    }
-
-    public JSONObject getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.version : (JSONObject) invokeV.objValue;
-    }
-
     public void removeEmptySubPostData(String str, CommandPostData commandPostData) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, commandPostData) == null) {
@@ -185,24 +212,6 @@ public class CommandPostData {
             }
             if (data.length() <= 0) {
                 jSONObject2.put(subPostDataKey.dataKey, (Object) null);
-            }
-        }
-    }
-
-    private void cleanEmptyData(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
-            LinkedList<String> linkedList = new LinkedList();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                JSONObject optJSONObject = jSONObject.optJSONObject(next);
-                if (optJSONObject != null && optJSONObject.length() == 0) {
-                    linkedList.add(next);
-                }
-            }
-            for (String str : linkedList) {
-                jSONObject.remove(str);
             }
         }
     }

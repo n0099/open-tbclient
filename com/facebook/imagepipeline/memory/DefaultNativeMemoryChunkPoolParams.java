@@ -29,6 +29,19 @@ public class DefaultNativeMemoryChunkPoolParams {
         }
     }
 
+    public static int getMaxSizeHardCap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
+            if (min < 16777216) {
+                return min / 2;
+            }
+            return (min / 4) * 3;
+        }
+        return invokeV.intValue;
+    }
+
     public static PoolParams get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,19 +61,6 @@ public class DefaultNativeMemoryChunkPoolParams {
             return new PoolParams(getMaxSizeSoftCap(), getMaxSizeHardCap(), sparseIntArray);
         }
         return (PoolParams) invokeV.objValue;
-    }
-
-    public static int getMaxSizeHardCap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
-            if (min < 16777216) {
-                return min / 2;
-            }
-            return (min / 4) * 3;
-        }
-        return invokeV.intValue;
     }
 
     public static int getMaxSizeSoftCap() {

@@ -1,7 +1,5 @@
 package com.baidu.searchbox.bddownload.core;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +14,16 @@ public abstract class IdentifiedTask {
     public static final File EMPTY_FILE;
     public static final String EMPTY_URL = "";
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract String getFilename();
+
+    public abstract int getId();
+
+    public abstract File getParentFile();
+
+    public abstract File getProvidedPathFile();
+
+    public abstract String getUrl();
 
     static {
         InterceptResult invokeClinit;
@@ -57,27 +65,16 @@ public abstract class IdentifiedTask {
             if (getProvidedPathFile().equals(identifiedTask.getProvidedPathFile())) {
                 return true;
             }
-            if (getParentFile().equals(identifiedTask.getParentFile())) {
-                String filename = getFilename();
-                String filename2 = identifiedTask.getFilename();
-                return (filename2 == null || filename == null || !filename2.equals(filename)) ? false : true;
+            if (!getParentFile().equals(identifiedTask.getParentFile())) {
+                return false;
             }
-            return false;
+            String filename = getFilename();
+            String filename2 = identifiedTask.getFilename();
+            if (filename2 == null || filename == null || !filename2.equals(filename)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
-
-    @Nullable
-    public abstract String getFilename();
-
-    public abstract int getId();
-
-    @NonNull
-    public abstract File getParentFile();
-
-    @NonNull
-    public abstract File getProvidedPathFile();
-
-    @NonNull
-    public abstract String getUrl();
 }

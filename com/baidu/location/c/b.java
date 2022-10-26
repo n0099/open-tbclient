@@ -1,6 +1,5 @@
 package com.baidu.location.c;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -35,19 +34,18 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
     public static int b;
     public static b c;
-    public static Class<?> k;
+    public static Class k;
     public transient /* synthetic */ FieldHolder $fh;
     public TelephonyManager d;
     public com.baidu.location.c.a e;
     public com.baidu.location.c.a f;
-    public List<com.baidu.location.c.a> g;
+    public List g;
     public a h;
     public boolean i;
     public boolean j;
@@ -166,7 +164,6 @@ public class b {
      */
     /* JADX WARN: Removed duplicated region for block: B:39:0x011b A[ADDED_TO_REGION] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0121 A[Catch: Exception -> 0x015f, TRY_LEAVE, TryCatch #0 {Exception -> 0x015f, blocks: (B:40:0x011d, B:42:0x0121), top: B:52:0x011d }] */
-    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -320,7 +317,7 @@ public class b {
                         return aVar;
                     }
                 }
-                Class<?> cls = k;
+                Class cls = k;
                 if (cls != null && cls.isInstance(cellLocation)) {
                     try {
                         int systemId = ((CdmaCellLocation) cellLocation).getSystemId();
@@ -373,7 +370,7 @@ public class b {
             if (aVar2 == null || !aVar2.a(aVar)) {
                 this.e = aVar;
                 if (!aVar.b()) {
-                    List<com.baidu.location.c.a> list = this.g;
+                    List list = this.g;
                     if (list != null) {
                         list.clear();
                         return;
@@ -381,7 +378,7 @@ public class b {
                     return;
                 }
                 int size = this.g.size();
-                com.baidu.location.c.a aVar3 = size == 0 ? null : this.g.get(size - 1);
+                com.baidu.location.c.a aVar3 = size == 0 ? null : (com.baidu.location.c.a) this.g.get(size - 1);
                 if (aVar3 != null) {
                     int i = aVar3.b;
                     com.baidu.location.c.a aVar4 = this.e;
@@ -399,7 +396,6 @@ public class b {
         }
     }
 
-    @SuppressLint({"NewApi"})
     private String d(com.baidu.location.c.a aVar) {
         InterceptResult invokeL;
         com.baidu.location.c.a a2;
@@ -511,7 +507,7 @@ public class b {
                 file.createNewFile();
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(0L);
-                randomAccessFile.writeLong(this.g.get(size - 1).g);
+                randomAccessFile.writeLong(((com.baidu.location.c.a) this.g.get(size - 1)).g);
                 randomAccessFile.writeInt(size);
                 for (int i2 = 0; i2 < 3 - size; i2++) {
                     randomAccessFile.writeLong(0L);
@@ -522,14 +518,14 @@ public class b {
                     randomAccessFile.writeInt(2);
                 }
                 for (int i3 = 0; i3 < size; i3++) {
-                    randomAccessFile.writeLong(this.g.get(i3).g);
-                    randomAccessFile.writeInt(this.g.get(i3).c);
-                    randomAccessFile.writeInt(this.g.get(i3).d);
-                    randomAccessFile.writeInt(this.g.get(i3).a);
-                    randomAccessFile.writeInt(this.g.get(i3).b);
-                    if (this.g.get(i3).i == 'g') {
+                    randomAccessFile.writeLong(((com.baidu.location.c.a) this.g.get(i3)).g);
+                    randomAccessFile.writeInt(((com.baidu.location.c.a) this.g.get(i3)).c);
+                    randomAccessFile.writeInt(((com.baidu.location.c.a) this.g.get(i3)).d);
+                    randomAccessFile.writeInt(((com.baidu.location.c.a) this.g.get(i3)).a);
+                    randomAccessFile.writeInt(((com.baidu.location.c.a) this.g.get(i3)).b);
+                    if (((com.baidu.location.c.a) this.g.get(i3)).i == 'g') {
                         randomAccessFile.writeInt(1);
-                    } else if (this.g.get(i3).i == 'c') {
+                    } else if (((com.baidu.location.c.a) this.g.get(i3)).i == 'c') {
                         randomAccessFile.writeInt(2);
                     } else {
                         randomAccessFile.writeInt(3);
@@ -563,7 +559,6 @@ public class b {
         }
     }
 
-    @SuppressLint({"NewApi"})
     private com.baidu.location.c.a l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -656,7 +651,7 @@ public class b {
                     int size = this.g.size();
                     stringBuffer.append("&clt=");
                     for (int i2 = 0; i2 < size; i2++) {
-                        com.baidu.location.c.a aVar2 = this.g.get(i2);
+                        com.baidu.location.c.a aVar2 = (com.baidu.location.c.a) this.g.get(i2);
                         if (aVar2 != null) {
                             if (aVar2.c != aVar.c) {
                                 stringBuffer.append(aVar2.c);

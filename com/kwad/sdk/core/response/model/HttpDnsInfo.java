@@ -1,20 +1,17 @@
 package com.kwad.sdk.core.response.model;
 
-import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-@KsJson
 /* loaded from: classes7.dex */
 public class HttpDnsInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
     public static final long serialVersionUID = -6943205584670122267L;
-    public List<IpInfo> recommendList = new ArrayList();
-    public List<IpInfo> backUpList = new ArrayList();
-    public List<IpInfo> otherList = new ArrayList();
+    public List recommendList = new ArrayList();
+    public List backUpList = new ArrayList();
+    public List otherList = new ArrayList();
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static class IpInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    public class IpInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6943205584670122266L;
         public String ip = "";
         public int weight;

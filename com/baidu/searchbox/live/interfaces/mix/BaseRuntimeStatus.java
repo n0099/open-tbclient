@@ -32,7 +32,10 @@ public class BaseRuntimeStatus {
     public final int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.position : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.position;
+        }
+        return invokeV.intValue;
     }
 
     public final void setPosition(int i) {

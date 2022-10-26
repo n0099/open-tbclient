@@ -53,119 +53,6 @@ public class PSCIMessageRequest extends RequestPacket {
         packageRequestJson();
     }
 
-    private void packageHttpRequestJson() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cmd", this.cmd);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
-                jSONObject.put("version", this.version);
-                jSONObject.put("ticket", this.ticket);
-                jSONObject.put("traceid", this.traceid);
-                jSONObject.put("jsonMsg", this.jsonMsg);
-                this.requestJson = jSONObject.toString();
-            } catch (JSONException e) {
-                RLog.error(TAG, "packageRequestJson error", e);
-            }
-        }
-    }
-
-    private void packageRequestJson() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            ProtocolType protocolType = this.protocolType;
-            if (protocolType == ProtocolType.HTTP) {
-                packageHttpRequestJson();
-            } else if (protocolType == ProtocolType.SERVICE) {
-                this.requestJson = this.jsonMsg;
-            } else {
-                RLog.error(TAG, "packageRequestJson ProtocolType error ", new Object[0]);
-            }
-        }
-    }
-
-    public int getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.appId : invokeV.intValue;
-    }
-
-    public int getCmd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cmd : invokeV.intValue;
-    }
-
-    public String getJsonMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.jsonMsg : (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.RequestPacket
-    public int getPacketSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.requestJson;
-            if (str == null) {
-                RLog.error(TAG, "getPacketSize requestJson null", new Object[0]);
-                return 0;
-            }
-            return str.getBytes().length + 4;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getRequestJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.requestJson : (String) invokeV.objValue;
-    }
-
-    public String getTicket() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.ticket : (String) invokeV.objValue;
-    }
-
-    public String getTraceid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.traceid : (String) invokeV.objValue;
-    }
-
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.version : invokeV.intValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.RequestPacket
-    public void pushPacketData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            pushString32(this.requestJson);
-        }
-    }
-
-    public void setTicket(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.ticket = str;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PSCIMessageRequest{cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", traceid=" + this.traceid + ", jsonMsg='" + this.jsonMsg + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
     public PSCIMessageRequest(byte[] bArr, ProtocolType protocolType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -201,6 +88,140 @@ public class PSCIMessageRequest extends RequestPacket {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void packageHttpRequestJson() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cmd", this.cmd);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
+                jSONObject.put("version", this.version);
+                jSONObject.put("ticket", this.ticket);
+                jSONObject.put("traceid", this.traceid);
+                jSONObject.put("jsonMsg", this.jsonMsg);
+                this.requestJson = jSONObject.toString();
+            } catch (JSONException e) {
+                RLog.error(TAG, "packageRequestJson error", e);
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "PSCIMessageRequest{cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", traceid=" + this.traceid + ", jsonMsg='" + this.jsonMsg + "'}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private void packageRequestJson() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            ProtocolType protocolType = this.protocolType;
+            if (protocolType == ProtocolType.HTTP) {
+                packageHttpRequestJson();
+            } else if (protocolType == ProtocolType.SERVICE) {
+                this.requestJson = this.jsonMsg;
+            } else {
+                RLog.error(TAG, "packageRequestJson ProtocolType error ", new Object[0]);
+            }
+        }
+    }
+
+    public int getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.appId;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getCmd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cmd;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getJsonMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.jsonMsg;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.RequestPacket
+    public int getPacketSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.requestJson;
+            if (str == null) {
+                RLog.error(TAG, "getPacketSize requestJson null", new Object[0]);
+                return 0;
+            }
+            return str.getBytes().length + 4;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getRequestJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.requestJson;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTicket() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.ticket;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTraceid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.traceid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.version;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.RequestPacket
+    public void pushPacketData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            pushString32(this.requestJson);
+        }
+    }
+
+    public void setTicket(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.ticket = str;
         }
     }
 }

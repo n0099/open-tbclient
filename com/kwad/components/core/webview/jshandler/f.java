@@ -3,8 +3,6 @@ package com.kwad.components.core.webview.jshandler;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,12 +27,11 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     public int Lm;
     public boolean Ln;
     public final boolean Lo;
-    public List<com.kwad.components.core.c.a.c> Lp;
-    @Nullable
+    public List Lp;
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable com.kwad.sdk.core.webview.a.kwai.a aVar) {
+    public f(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.c.a.c cVar, com.kwad.sdk.core.webview.a.kwai.a aVar) {
         this(bVar, cVar, aVar, false, 0, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +52,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable com.kwad.sdk.core.webview.a.kwai.a aVar, int i) {
+    public f(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.c.a.c cVar, com.kwad.sdk.core.webview.a.kwai.a aVar, int i) {
         this(bVar, cVar, aVar, false, 1, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +73,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable com.kwad.sdk.core.webview.a.kwai.a aVar, int i, boolean z) {
+    public f(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.c.a.c cVar, com.kwad.sdk.core.webview.a.kwai.a aVar, int i, boolean z) {
         this(bVar, cVar, null, false, 2, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -96,7 +93,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    public f(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable com.kwad.sdk.core.webview.a.kwai.a aVar, boolean z, int i, boolean z2) {
+    public f(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.c.a.c cVar, com.kwad.sdk.core.webview.a.kwai.a aVar, boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +123,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public f(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable List<com.kwad.components.core.c.a.c> list, @Nullable com.kwad.sdk.core.webview.a.kwai.a aVar) {
+    public f(com.kwad.sdk.core.webview.b bVar, List list, com.kwad.sdk.core.webview.a.kwai.a aVar) {
         this(bVar, null, aVar, false, 0, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -161,7 +158,6 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, aVar)) == null) ? aVar.Mx == 1 : invokeL.booleanValue;
     }
 
-    @NonNull
     public u.b a(com.kwad.sdk.core.webview.a.a.a aVar, AdTemplate adTemplate) {
         InterceptResult invokeLL;
         com.kwad.sdk.core.webview.a.a.c cVar;
@@ -198,7 +194,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Handler handler;
         Runnable runnable;
         Interceptable interceptable = $ic;
@@ -287,13 +283,13 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                         com.kwad.sdk.core.webview.b bVar = this.Lr.Lk;
                         if (bVar.agg) {
                             if (this.Lq.creativeId >= 0) {
-                                List<AdTemplate> wg = bVar.wg();
+                                List wg = bVar.wg();
                                 com.kwad.sdk.core.webview.a.a.a aVar2 = this.Lq;
                                 adTemplate = com.kwad.sdk.core.response.a.d.a(wg, aVar2.creativeId, aVar2.adStyle);
                             } else {
                                 adTemplate = bVar.getAdTemplate();
                             }
-                            a.C0570a b = new a.C0570a(this.Lr.Lk.Gl.getContext()).L(adTemplate).b(this.Lr.s(this.Lq.creativeId));
+                            a.C0566a b = new a.C0566a(this.Lr.Lk.Gl.getContext()).L(adTemplate).b(this.Lr.s(this.Lq.creativeId));
                             f fVar = this.Lr;
                             com.kwad.components.core.c.a.a.a(b.aj(f.b(this.Lq)).ak(this.Lr.Ln).c(this.Lr.Lk.mReportExtData).ae(this.Lq.Mx).al(this.Lr.Lo || this.Lq.DZ).ag(this.Lr.Lm).a(this.Lr.a(this.Lq, adTemplate)).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.f.1.1
                                 public static /* synthetic */ Interceptable $ic;
@@ -339,7 +335,6 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -361,12 +356,11 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    @Nullable
     public final com.kwad.components.core.c.a.c s(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            List<com.kwad.components.core.c.a.c> list = this.Lp;
+            List list = this.Lp;
             if (list == null) {
                 return null;
             }
@@ -378,7 +372,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                 }
                 return null;
             }
-            return this.Lp.get(0);
+            return (com.kwad.components.core.c.a.c) this.Lp.get(0);
         }
         return (com.kwad.components.core.c.a.c) invokeJ.objValue;
     }

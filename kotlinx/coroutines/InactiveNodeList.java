@@ -6,6 +6,11 @@ import kotlin.Metadata;
 public final class InactiveNodeList implements Incomplete {
     public final NodeList list;
 
+    @Override // kotlinx.coroutines.Incomplete
+    public boolean isActive() {
+        return false;
+    }
+
     public InactiveNodeList(NodeList nodeList) {
         this.list = nodeList;
     }
@@ -15,12 +20,10 @@ public final class InactiveNodeList implements Incomplete {
         return this.list;
     }
 
-    @Override // kotlinx.coroutines.Incomplete
-    public boolean isActive() {
-        return false;
-    }
-
     public String toString() {
-        return DebugKt.getDEBUG() ? getList().getString("New") : super.toString();
+        if (DebugKt.getDEBUG()) {
+            return getList().getString("New");
+        }
+        return super.toString();
     }
 }

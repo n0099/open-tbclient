@@ -21,9 +21,9 @@ import tbclient.GetWorksTags.Tag;
 public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> firstClass;
-    public List<List<String>> secondClass;
-    public List<VideoCategoryClassData> tags;
+    public List firstClass;
+    public List secondClass;
+    public List tags;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetSelectClassHttpResMessage() {
@@ -46,63 +46,71 @@ public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
         this.tags = new ArrayList();
     }
 
-    public List<String> getFirstClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.firstClass : (List) invokeV.objValue;
-    }
-
-    public List<List<String>> getSecondClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.secondClass : (List) invokeV.objValue;
-    }
-
-    public List<VideoCategoryClassData> getTags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tags : (List) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetWorksTagsResIdl getWorksTagsResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getWorksTagsResIdl = (GetWorksTagsResIdl) new Wire(new Class[0]).parseFrom(bArr, GetWorksTagsResIdl.class)) == null) {
-            return;
-        }
-        Error error = getWorksTagsResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getWorksTagsResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
-            }
-        }
-        DataRes dataRes = getWorksTagsResIdl.data;
-        if (dataRes != null) {
-            List<Category> list = dataRes.category;
-            if (list != null) {
-                for (Category category : list) {
-                    this.firstClass.add(category.first_class);
-                    this.secondClass.add(category.second_class);
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (getWorksTagsResIdl = (GetWorksTagsResIdl) new Wire(new Class[0]).parseFrom(bArr, GetWorksTagsResIdl.class)) != null) {
+            Error error = getWorksTagsResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getWorksTagsResIdl.error.usermsg);
+                if (getError() != 0) {
+                    return;
                 }
             }
-            List<Tag> list2 = getWorksTagsResIdl.data.tags;
-            if (list2 != null) {
-                for (Tag tag : list2) {
-                    VideoCategoryClassData videoCategoryClassData = new VideoCategoryClassData();
-                    videoCategoryClassData.setFirstClass(tag.first_class);
-                    videoCategoryClassData.setSecondClass(tag.second_class);
-                    videoCategoryClassData.setTags(tag.tags);
-                    this.tags.add(videoCategoryClassData);
+            DataRes dataRes = getWorksTagsResIdl.data;
+            if (dataRes != null) {
+                List<Category> list = dataRes.category;
+                if (list != null) {
+                    for (Category category : list) {
+                        this.firstClass.add(category.first_class);
+                        this.secondClass.add(category.second_class);
+                    }
+                }
+                List<Tag> list2 = getWorksTagsResIdl.data.tags;
+                if (list2 != null) {
+                    for (Tag tag : list2) {
+                        VideoCategoryClassData videoCategoryClassData = new VideoCategoryClassData();
+                        videoCategoryClassData.setFirstClass(tag.first_class);
+                        videoCategoryClassData.setSecondClass(tag.second_class);
+                        videoCategoryClassData.setTags(tag.tags);
+                        this.tags.add(videoCategoryClassData);
+                    }
                 }
             }
+            this.firstClass.add(0, "一级分类");
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("二级分类");
+            this.secondClass.add(0, arrayList);
         }
-        this.firstClass.add(0, "一级分类");
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("二级分类");
-        this.secondClass.add(0, arrayList);
+    }
+
+    public List getFirstClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.firstClass;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getSecondClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.secondClass;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getTags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.tags;
+        }
+        return (List) invokeV.objValue;
     }
 }

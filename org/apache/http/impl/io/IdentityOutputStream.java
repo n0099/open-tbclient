@@ -49,9 +49,9 @@ public class IdentityOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -65,9 +65,9 @@ public class IdentityOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

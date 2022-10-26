@@ -25,19 +25,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
+public class HttpMessage extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COOKIE = "Cookie";
     public transient /* synthetic */ FieldHolder $fh;
-    public Comparator<Map.Entry<String, Object>> mComparator;
-    public HashMap<String, String> mHeaders;
+    public Comparator mComparator;
+    public HashMap mHeaders;
     public boolean mNeedProgress;
-    public HashMap<String, Object> mParams;
+    public HashMap mParams;
     public String mUserAgent;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class SORT {
+    public final class SORT {
         public static final /* synthetic */ SORT[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SORT ASCEND;
@@ -87,18 +87,24 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         public static SORT valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SORT) Enum.valueOf(SORT.class, str) : (SORT) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SORT) Enum.valueOf(SORT.class, str);
+            }
+            return (SORT) invokeL.objValue;
         }
 
         public static SORT[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SORT[]) $VALUES.clone() : (SORT[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SORT[]) $VALUES.clone();
+            }
+            return (SORT[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static class a implements Comparator<Map.Entry<String, Object>> {
+    public class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SORT a;
@@ -125,14 +131,14 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
+        public int compare(Map.Entry entry, Map.Entry entry2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
                 if (this.a == SORT.ASCEND) {
-                    return entry.getKey().compareTo(entry2.getKey());
+                    return ((String) entry.getKey()).compareTo((String) entry2.getKey());
                 }
-                return entry2.getKey().compareTo(entry.getKey());
+                return ((String) entry2.getKey()).compareTo((String) entry.getKey());
             }
             return invokeLL.intValue;
         }
@@ -163,44 +169,49 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         initial();
     }
 
-    private byte[] getByte(Object obj) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HttpMessage(int i, BdUniqueId bdUniqueId) {
+        super(i, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, obj)) == null) {
-            try {
-                Object invoke = obj.getClass().getMethod("toByteArray", new Class[0]).invoke(obj, new Object[0]);
-                if (invoke == null || !(invoke instanceof byte[])) {
-                    return null;
-                }
-                return (byte[]) invoke;
-            } catch (Exception e) {
-                BdLog.detailException((Throwable) e, true);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (byte[]) invokeL.objValue;
+        this.mHeaders = null;
+        this.mParams = null;
+        this.mComparator = null;
+        this.mNeedProgress = false;
+        initial();
     }
 
-    private void initial() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.mParams = new HashMap<>();
-            this.mHeaders = new HashMap<>();
-            setSort(SORT.ASCEND);
-        }
-    }
-
-    private String map2KVString(String str, Map<?, ?> map) {
+    private String map2KVString(String str, Map map) {
         InterceptResult invokeLL;
+        String obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, map)) == null) {
             StringBuilder sb = new StringBuilder();
             if (str != null && map != null) {
-                for (Map.Entry<?, ?> entry : map.entrySet()) {
+                for (Map.Entry entry : map.entrySet()) {
                     Object key = entry.getKey();
                     Object value = entry.getValue();
                     String str2 = StringUtil.NULL_STRING;
-                    sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
+                    if (key == null) {
+                        obj = StringUtil.NULL_STRING;
+                    } else {
+                        obj = key.toString();
+                    }
+                    sb.append(obj);
                     sb.append('=');
                     if (value != null) {
                         str2 = value.toString();
@@ -214,7 +225,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return (String) invokeLL.objValue;
     }
 
-    private Map<String, String> parseKVString(String str, String str2) {
+    private Map parseKVString(String str, String str2) {
         InterceptResult invokeLL;
         String[] split;
         Interceptable interceptable = $ic;
@@ -237,14 +248,78 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return (Map) invokeLL.objValue;
     }
 
+    private byte[] getByte(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, obj)) == null) {
+            try {
+                Object invoke = obj.getClass().getMethod("toByteArray", new Class[0]).invoke(obj, new Object[0]);
+                if (invoke == null || !(invoke instanceof byte[])) {
+                    return null;
+                }
+                return (byte[]) invoke;
+            } catch (Exception e) {
+                BdLog.detailException((Throwable) e, true);
+                return null;
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    private void initial() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.mParams = new HashMap();
+            this.mHeaders = new HashMap();
+            setSort(SORT.ASCEND);
+        }
+    }
+
+    public HashMap getHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mHeaders;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public HashMap getParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mParams;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mUserAgent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void removeAllParams() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.mParams.clear();
+        }
+    }
+
     public String addCookie(String str, String str2) {
         InterceptResult invokeLL;
-        Map<String, String> parseKVString;
+        Map parseKVString;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String str3 = null;
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString(this.mHeaders.get("Cookie"), ParamableElem.DIVIDE_PARAM)) != null) {
-                    String str3 = parseKVString.containsKey(str) ? parseKVString.get(str) : null;
+                if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString((String) this.mHeaders.get("Cookie"), ParamableElem.DIVIDE_PARAM)) != null) {
+                    if (parseKVString.containsKey(str)) {
+                        str3 = (String) parseKVString.get(str);
+                    }
                     parseKVString.put(str, str2);
                     addHeader("Cookie", map2KVString(ParamableElem.DIVIDE_PARAM, parseKVString));
                     return str3;
@@ -259,7 +334,59 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public String addHeader(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? this.mHeaders.put(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return (String) this.mHeaders.put(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public Object addParam(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return this.mParams.put(str, String.valueOf(i));
+        }
+        return invokeLI.objValue;
+    }
+
+    public Object addParam(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return this.mParams.put(str, String.valueOf(j));
+        }
+        return invokeLJ.objValue;
+    }
+
+    public Object addParam(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, obj)) == null) {
+            if (str != null && obj != null) {
+                return this.mParams.put(str, obj);
+            }
+            return null;
+        }
+        return invokeLL.objValue;
+    }
+
+    public String addParam(String str, String str2) {
+        InterceptResult invokeLL;
+        Object put;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (str == null || str2 == null || (put = this.mParams.put(str, str2)) == null || !(put instanceof String)) {
+                return null;
+            }
+            return (String) put;
+        }
+        return (String) invokeLL.objValue;
     }
 
     public byte[] addParam(String str, byte[] bArr) {
@@ -279,44 +406,28 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public boolean checkCmd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? FrameHelper.b(i) : invokeI.booleanValue;
-    }
-
-    public HashMap<String, String> getHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mHeaders : (HashMap) invokeV.objValue;
-    }
-
-    public HashMap<String, Object> getParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mParams : (HashMap) invokeV.objValue;
-    }
-
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mUserAgent : (String) invokeV.objValue;
-    }
-
-    public void removeAllParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.mParams.clear();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return FrameHelper.b(i);
         }
+        return invokeI.booleanValue;
     }
 
     public String removeHeader(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.mHeaders.remove(str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return (String) this.mHeaders.remove(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public Object removeParam(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? this.mParams.remove(str) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            return this.mParams.remove(str);
+        }
+        return invokeL.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.Message
@@ -349,7 +460,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.Message
-    public synchronized List<Map.Entry<String, Object>> encodeInBackGround() {
+    public synchronized List encodeInBackGround() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -379,80 +490,5 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             return arrayList;
         }
         return (List) invokeV.objValue;
-    }
-
-    public Object addParam(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, obj)) == null) {
-            if (str == null || obj == null) {
-                return null;
-            }
-            return this.mParams.put(str, obj);
-        }
-        return invokeLL.objValue;
-    }
-
-    public Object addParam(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return this.mParams.put(str, String.valueOf(i));
-        }
-        return invokeLI.objValue;
-    }
-
-    public Object addParam(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return this.mParams.put(str, String.valueOf(j));
-        }
-        return invokeLJ.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HttpMessage(int i, BdUniqueId bdUniqueId) {
-        super(i, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mHeaders = null;
-        this.mParams = null;
-        this.mComparator = null;
-        this.mNeedProgress = false;
-        initial();
-    }
-
-    public String addParam(String str, String str2) {
-        InterceptResult invokeLL;
-        Object put;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (str == null || str2 == null || (put = this.mParams.put(str, str2)) == null || !(put instanceof String)) {
-                return null;
-            }
-            return (String) put;
-        }
-        return (String) invokeLL.objValue;
     }
 }

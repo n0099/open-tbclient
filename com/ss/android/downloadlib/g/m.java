@@ -6,7 +6,7 @@ import android.os.Message;
 import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
 public class m extends Handler {
-    public WeakReference<a> a;
+    public WeakReference a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -15,15 +15,14 @@ public class m extends Handler {
 
     public m(Looper looper, a aVar) {
         super(looper);
-        this.a = new WeakReference<>(aVar);
+        this.a = new WeakReference(aVar);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        a aVar = this.a.get();
-        if (aVar == null || message == null) {
-            return;
+        a aVar = (a) this.a.get();
+        if (aVar != null && message != null) {
+            aVar.a(message);
         }
-        aVar.a(message);
     }
 }

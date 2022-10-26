@@ -4,9 +4,8 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class eu implements com.kwad.sdk.core.d<SceneImpl> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(SceneImpl sceneImpl, JSONObject jSONObject) {
+public final class eu implements com.kwad.sdk.core.d {
+    public static void a(SceneImpl sceneImpl, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -36,8 +35,7 @@ public final class eu implements com.kwad.sdk.core.d<SceneImpl> {
         }
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(SceneImpl sceneImpl, JSONObject jSONObject) {
+    public static JSONObject b(SceneImpl sceneImpl, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -93,15 +91,13 @@ public final class eu implements com.kwad.sdk.core.d<SceneImpl> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(SceneImpl sceneImpl, JSONObject jSONObject) {
-        a2(sceneImpl, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((SceneImpl) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(SceneImpl sceneImpl, JSONObject jSONObject) {
-        return b2(sceneImpl, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((SceneImpl) bVar, jSONObject);
     }
 }

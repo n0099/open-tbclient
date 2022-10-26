@@ -1,7 +1,6 @@
 package com.google.android.material.shape;
 
 import android.graphics.RectF;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,27 +39,39 @@ public final class AbsoluteCornerSize implements CornerSize {
             if (this == obj) {
                 return true;
             }
-            return (obj instanceof AbsoluteCornerSize) && this.size == ((AbsoluteCornerSize) obj).size;
+            if ((obj instanceof AbsoluteCornerSize) && this.size == ((AbsoluteCornerSize) obj).size) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.google.android.material.shape.CornerSize
-    public float getCornerSize(@NonNull RectF rectF) {
+    public float getCornerSize(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) ? this.size : invokeL.floatValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.hashCode(new Object[]{Float.valueOf(this.size)}) : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
+            return this.size;
+        }
+        return invokeL.floatValue;
     }
 
     public float getCornerSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.size : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.size;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Arrays.hashCode(new Object[]{Float.valueOf(this.size)});
+        }
+        return invokeV.intValue;
     }
 }

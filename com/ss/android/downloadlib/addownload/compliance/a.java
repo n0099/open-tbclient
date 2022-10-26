@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 import com.ss.android.downloadlib.addownload.compliance.d;
 import com.ss.android.downloadlib.addownload.j;
@@ -31,54 +30,22 @@ public class a extends Dialog {
     public long k;
     public final com.ss.android.downloadlib.addownload.b.b l;
 
-    public a(@NonNull Activity activity, long j) {
+    public a(Activity activity, long j) {
         super(activity);
         this.i = activity;
         this.j = j;
-        this.l = c.a().get(Long.valueOf(j));
-    }
-
-    @Override // android.app.Dialog, android.content.DialogInterface
-    public void dismiss() {
-        super.dismiss();
-        com.ss.android.socialbase.appdownloader.c.a(this.i);
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        if (this.l == null) {
-            dismiss();
-            return;
-        }
-        requestWindowFeature(1);
-        setContentView(R.layout.obfuscated_res_0x7f0d08a3);
-        Window window = getWindow();
-        if (window != null) {
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08124e);
-        }
-        setCancelable(true);
-        setCanceledOnTouchOutside(true);
-        this.k = this.l.b;
-        a();
-        e.b("lp_app_dialog_show", this.k);
-        setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.1
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialogInterface) {
-                e.a("lp_app_dialog_cancel", a.this.k);
-            }
-        });
+        this.l = (com.ss.android.downloadlib.addownload.b.b) c.a().get(Long.valueOf(j));
     }
 
     private void a() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09236c);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09236f);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09236a);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09236d);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a8);
-        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f090ff4);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913f7);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092357);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092356);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092355);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092358);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092393);
+        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f090fe8);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913e8);
         this.a.setText(l.a(this.l.e, "--"));
         TextView textView = this.b;
         textView.setText("版本号：" + l.a(this.l.f, "--"));
@@ -125,6 +92,38 @@ public class a extends Dialog {
                 e.a("lp_app_dialog_click_download", a.this.k);
                 b.a().b(a.this.k);
                 a.this.dismiss();
+            }
+        });
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        super.dismiss();
+        com.ss.android.socialbase.appdownloader.c.a(this.i);
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        if (this.l == null) {
+            dismiss();
+            return;
+        }
+        requestWindowFeature(1);
+        setContentView(R.layout.obfuscated_res_0x7f0d08a4);
+        Window window = getWindow();
+        if (window != null) {
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08125f);
+        }
+        setCancelable(true);
+        setCanceledOnTouchOutside(true);
+        this.k = this.l.b;
+        a();
+        e.b("lp_app_dialog_show", this.k);
+        setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.downloadlib.addownload.compliance.a.1
+            @Override // android.content.DialogInterface.OnCancelListener
+            public void onCancel(DialogInterface dialogInterface) {
+                e.a("lp_app_dialog_cancel", a.this.k);
             }
         });
     }

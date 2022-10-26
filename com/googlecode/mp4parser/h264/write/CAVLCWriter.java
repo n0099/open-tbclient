@@ -43,6 +43,36 @@ public class CAVLCWriter extends BitstreamWriter {
         }
     }
 
+    public void writeSE(int i, String str) throws IOException {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            Debug.print(String.valueOf(str) + "\t");
+            int i3 = i << 1;
+            int i4 = 1;
+            if (i < 0) {
+                i2 = -1;
+            } else {
+                i2 = 1;
+            }
+            int i5 = i3 * i2;
+            if (i <= 0) {
+                i4 = 0;
+            }
+            writeUE(i5 + i4);
+            Debug.println("\t" + i);
+        }
+    }
+
+    public void writeUE(int i, String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
+            Debug.print(String.valueOf(str) + "\t");
+            writeUE(i);
+            Debug.println("\t" + i);
+        }
+    }
+
     public void writeNBit(long j, int i, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
@@ -51,15 +81,6 @@ public class CAVLCWriter extends BitstreamWriter {
                 write1Bit(((int) (j >> ((i - i2) - 1))) & 1);
             }
             Debug.println("\t" + j);
-        }
-    }
-
-    public void writeSE(int i, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            Debug.print(String.valueOf(str) + "\t");
-            writeUE(((i << 1) * (i < 0 ? -1 : 1)) + (i <= 0 ? 0 : 1));
-            Debug.println("\t" + i);
         }
     }
 
@@ -76,6 +97,13 @@ public class CAVLCWriter extends BitstreamWriter {
             write1Bit(1);
             writeRemainingZero();
             flush();
+        }
+    }
+
+    public void writeU(int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            writeNBit(i, i2);
         }
     }
 
@@ -110,22 +138,6 @@ public class CAVLCWriter extends BitstreamWriter {
             writeNBit(0L, i2);
             write1Bit(1);
             writeNBit(i - i4, i2);
-        }
-    }
-
-    public void writeU(int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            writeNBit(i, i2);
-        }
-    }
-
-    public void writeUE(int i, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
-            Debug.print(String.valueOf(str) + "\t");
-            writeUE(i);
-            Debug.println("\t" + i);
         }
     }
 }

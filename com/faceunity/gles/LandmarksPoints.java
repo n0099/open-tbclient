@@ -116,13 +116,18 @@ public class LandmarksPoints {
     }
 
     public void refresh(float[] fArr, int i, int i2, float f, float f2, boolean z) {
+        float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
             for (int i3 = 0; i3 < 150; i3++) {
                 this.pointsCoords[i3] = fArr[i3];
             }
             for (int i4 = 0; i4 < fArr.length; i4 += 2) {
-                float f3 = z ? i - this.pointsCoords[i4] : this.pointsCoords[i4];
+                if (z) {
+                    f3 = i - this.pointsCoords[i4];
+                } else {
+                    f3 = this.pointsCoords[i4];
+                }
                 float[] fArr2 = this.pointsCoords;
                 int i5 = i4 + 1;
                 fArr2[i4] = (-(((fArr2[i5] / i2) * 0.8f) + 0.2f)) * 1.0f;

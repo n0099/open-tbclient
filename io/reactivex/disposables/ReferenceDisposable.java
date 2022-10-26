@@ -6,23 +6,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public abstract class ReferenceDisposable<T> extends AtomicReference<T> implements Disposable {
+public abstract class ReferenceDisposable extends AtomicReference implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6537757548749041217L;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onDisposed(Object obj);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReferenceDisposable(T t) {
-        super(ObjectHelper.requireNonNull(t, "value is null"));
+    public ReferenceDisposable(Object obj) {
+        super(ObjectHelper.requireNonNull(obj, "value is null"));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,20 +38,23 @@ public abstract class ReferenceDisposable<T> extends AtomicReference<T> implemen
 
     @Override // io.reactivex.disposables.Disposable
     public final void dispose() {
-        T andSet;
+        Object andSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || get() == null || (andSet = getAndSet(null)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && get() != null && (andSet = getAndSet(null)) != null) {
+            onDisposed(andSet);
         }
-        onDisposed(andSet);
     }
 
     @Override // io.reactivex.disposables.Disposable
     public final boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (get() == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
-
-    public abstract void onDisposed(@NonNull T t);
 }

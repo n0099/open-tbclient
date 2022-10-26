@@ -1,6 +1,5 @@
 package org.apache.commons.codec.digest4util;
 
-import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
-@SuppressLint({"BDThrowableCheck"})
 @Deprecated
 /* loaded from: classes8.dex */
 public class EncryptUtils {
@@ -41,20 +39,75 @@ public class EncryptUtils {
         }
     }
 
-    public static String encrypt(String str, byte[] bArr, boolean z) {
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x003f, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0041, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0046, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x004a, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x004d, code lost:
+        return null;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String encrypt(String str, File file, boolean z) {
         InterceptResult invokeLLZ;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, bArr, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, str, file, z)) == null) {
+            FileInputStream fileInputStream2 = null;
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance(str);
                 messageDigest.reset();
-                messageDigest.update(bArr);
-                return toHexString(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    String hexString = toHexString(messageDigest.digest(), "", z);
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused) {
+                    }
+                    return hexString;
+                } catch (FileNotFoundException unused2) {
+                } catch (IOException unused3) {
+                } catch (NoSuchAlgorithmException unused4) {
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (FileNotFoundException unused6) {
+                fileInputStream = null;
+            } catch (IOException unused7) {
+                fileInputStream = null;
+            } catch (NoSuchAlgorithmException unused8) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else {
+            return (String) invokeLLZ.objValue;
         }
-        return (String) invokeLLZ.objValue;
     }
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
@@ -78,73 +131,19 @@ public class EncryptUtils {
         return (String) invokeLLZ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x003f, code lost:
-        if (r1 == null) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0041, code lost:
-        r1.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0046, code lost:
-        if (r1 == null) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x004a, code lost:
-        if (r1 == null) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x004d, code lost:
-        return null;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String encrypt(String str, File file, boolean z) {
+    public static String encrypt(String str, byte[] bArr, boolean z) {
         InterceptResult invokeLLZ;
-        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65537, null, str, file, z)) != null) {
-            return (String) invokeLLZ.objValue;
-        }
-        FileInputStream fileInputStream2 = null;
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.reset();
-            fileInputStream = new FileInputStream(file);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, bArr, z)) == null) {
             try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                String hexString = toHexString(messageDigest.digest(), "", z);
-                try {
-                    fileInputStream.close();
-                } catch (IOException unused) {
-                }
-                return hexString;
-            } catch (FileNotFoundException unused2) {
-            } catch (IOException unused3) {
-            } catch (NoSuchAlgorithmException unused4) {
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException unused5) {
-                    }
-                }
-                throw th;
+                MessageDigest messageDigest = MessageDigest.getInstance(str);
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return toHexString(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
-        } catch (FileNotFoundException unused6) {
-            fileInputStream = null;
-        } catch (IOException unused7) {
-            fileInputStream = null;
-        } catch (NoSuchAlgorithmException unused8) {
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (String) invokeLLZ.objValue;
     }
 }

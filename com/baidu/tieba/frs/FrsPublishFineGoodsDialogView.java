@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah6;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.mv4;
-import com.baidu.tieba.pv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh6;
+import com.baidu.tieba.sv4;
+import com.baidu.tieba.vv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,13 +28,20 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public TextView d;
     public TextView e;
     public LocalBannerLayout f;
-    public pv4 g;
+    public vv4 g;
 
     /* loaded from: classes4.dex */
-    public class a implements pv4 {
+    public class a implements vv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPublishFineGoodsDialogView a;
+
+        @Override // com.baidu.tieba.vv4
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            }
+        }
 
         public a(FrsPublishFineGoodsDialogView frsPublishFineGoodsDialogView) {
             Interceptable interceptable = $ic;
@@ -54,18 +61,11 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.a = frsPublishFineGoodsDialogView;
         }
 
-        @Override // com.baidu.tieba.pv4
-        public void a(int i, mv4 mv4Var) {
+        @Override // com.baidu.tieba.vv4
+        public void a(int i, sv4 sv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, mv4Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, sv4Var) == null) {
                 this.a.c(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.pv4
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             }
         }
     }
@@ -96,49 +96,53 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0345, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090afe);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0344, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b08);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090bf1);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bf0);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090bfb);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bfa);
             this.f = (LocalBannerLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090326);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226e);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092258);
             this.e = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0677);
+            textView.setText(R.string.obfuscated_res_0x7f0f0680);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ah6(String.valueOf((int) R.drawable.pic_good_guide1)));
-            arrayList.add(new ah6(String.valueOf((int) R.drawable.pic_good_guide2)));
-            arrayList.add(new ah6(String.valueOf((int) R.drawable.pic_good_guide3)));
+            arrayList.add(new hh6(String.valueOf((int) R.drawable.pic_good_guide1)));
+            arrayList.add(new hh6(String.valueOf((int) R.drawable.pic_good_guide2)));
+            arrayList.add(new hh6(String.valueOf((int) R.drawable.pic_good_guide3)));
             this.f.setData(arrayList);
             this.f.setOnCoverViewCallback(this.g);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(ej.f(this.b, R.dimen.tbds30)).brRadius(ej.f(this.b, R.dimen.tbds30)).tlRadius(ej.f(this.b, R.dimen.tbds32)).trRadius(ej.f(this.b, R.dimen.tbds32)).into(this.a);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(fj.f(this.b, R.dimen.tbds30)).brRadius(fj.f(this.b, R.dimen.tbds30)).tlRadius(fj.f(this.b, R.dimen.tbds32)).trRadius(fj.f(this.b, R.dimen.tbds32)).into(this.a);
         }
     }
 
     public final void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i == 0 || i == 3) {
-                this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0717));
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0716));
-            } else if (i == 1) {
-                this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0719));
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0718));
-            } else if (i == 2) {
-                this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f071b));
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f071a));
+            if (i != 0 && i != 3) {
+                if (i == 1) {
+                    this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0725));
+                    this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0724));
+                    return;
+                } else if (i == 2) {
+                    this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0727));
+                    this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0726));
+                    return;
+                } else {
+                    return;
+                }
             }
+            this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0723));
+            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0722));
         }
     }
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || onClickListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) && onClickListener != null) {
+            this.e.setOnClickListener(onClickListener);
         }
-        this.e.setOnClickListener(onClickListener);
     }
 }

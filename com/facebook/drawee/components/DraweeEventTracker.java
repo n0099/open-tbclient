@@ -17,11 +17,11 @@ public class DraweeEventTracker {
     public static boolean sEnabled;
     public static final DraweeEventTracker sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Event> mEventQueue;
+    public final Queue mEventQueue;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Event {
+    public final class Event {
         public static final /* synthetic */ Event[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Event ON_ACTIVITY_START;
@@ -113,13 +113,19 @@ public class DraweeEventTracker {
         public static Event valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Event) Enum.valueOf(Event.class, str) : (Event) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Event) Enum.valueOf(Event.class, str);
+            }
+            return (Event) invokeL.objValue;
         }
 
         public static Event[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Event[]) $VALUES.clone() : (Event[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Event[]) $VALUES.clone();
+            }
+            return (Event[]) invokeV.objValue;
         }
     }
 
@@ -166,22 +172,32 @@ public class DraweeEventTracker {
     public static DraweeEventTracker newInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sEnabled ? new DraweeEventTracker() : sInstance : (DraweeEventTracker) invokeV.objValue;
-    }
-
-    public void recordEvent(Event event) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, event) == null) && sEnabled) {
-            if (this.mEventQueue.size() + 1 > 20) {
-                this.mEventQueue.poll();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (sEnabled) {
+                return new DraweeEventTracker();
             }
-            this.mEventQueue.add(event);
+            return sInstance;
         }
+        return (DraweeEventTracker) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEventQueue.toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mEventQueue.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void recordEvent(Event event) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, event) != null) || !sEnabled) {
+            return;
+        }
+        if (this.mEventQueue.size() + 1 > 20) {
+            this.mEventQueue.poll();
+        }
+        this.mEventQueue.add(event);
     }
 }

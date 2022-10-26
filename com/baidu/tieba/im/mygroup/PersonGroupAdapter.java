@@ -21,7 +21,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
     public static int c = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
-    public ArrayList<PersonalGroupFragment> b;
+    public ArrayList b;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.b = new ArrayList<>();
+        this.b = new ArrayList();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
@@ -73,23 +73,19 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
             this.a = new int[]{0, 1};
         }
         c = this.a.length;
-        Iterator<PersonalGroupFragment> it = this.b.iterator();
+        Iterator it = this.b.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt(SuggestAddrField.KEY_PAGE_SIZE, this.b.size());
+            ((PersonalGroupFragment) it.next()).getArguments().putInt(SuggestAddrField.KEY_PAGE_SIZE, this.b.size());
         }
     }
 
     public int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a[i] : invokeI.intValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c : invokeV.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a[i];
+        }
+        return invokeI.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -97,11 +93,21 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= c || i < 0) {
-                return null;
+            if (i < c && i >= 0) {
+                return (Fragment) this.b.get(i);
             }
-            return this.b.get(i);
+            return null;
         }
         return (Fragment) invokeI.objValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
     }
 }

@@ -1,20 +1,20 @@
 package com.baidu.swan.apps.res.ui.pullrefresh;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.vj1;
-import com.baidu.tieba.x13;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.wj1;
+import com.baidu.tieba.y13;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
+public abstract class PullToRefreshBase extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean v;
     public transient /* synthetic */ FieldHolder $fh;
     public HEADERTYPE a;
     public float b;
-    public h<T> c;
+    public h c;
     public LoadingLayout d;
     public LoadingLayout e;
     public int f;
@@ -42,16 +42,135 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public int m;
     public ILoadingLayout$State n;
     public ILoadingLayout$State o;
-    public T p;
+    public View p;
     public FrameLayout q;
     public int r;
     public Scroller s;
     public int t;
-    public x13<T> u;
+    public y13 u;
+
+    /* loaded from: classes3.dex */
+    public interface h {
+        void a(PullToRefreshBase pullToRefreshBase);
+
+        void b(PullToRefreshBase pullToRefreshBase);
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public int getSmoothScrollDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return 300;
+        }
+        return invokeV.intValue;
+    }
+
+    public abstract View j(Context context, AttributeSet attributeSet);
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.LinearLayout
+    public void setOrientation(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+        }
+    }
+
+    public abstract boolean t();
+
+    public abstract boolean u();
+
+    public void y(ILoadingLayout$State iLoadingLayout$State, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048631, this, iLoadingLayout$State, z) == null) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PullToRefreshBase a;
+
+        /* loaded from: classes3.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                    return;
+                }
+                this.a.a.setInterceptTouchEventEnabled(true);
+                this.a.a.d.setState(ILoadingLayout$State.RESET);
+            }
+        }
+
+        public c(PullToRefreshBase pullToRefreshBase) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pullToRefreshBase};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pullToRefreshBase;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.postDelayed(new a(this), this.a.getSmoothScrollDuration());
+                this.a.E();
+            }
+        }
+    }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class HEADERTYPE {
+    public final class HEADERTYPE {
         public static final /* synthetic */ HEADERTYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HEADERTYPE BIG_BG_HEADER;
@@ -105,13 +224,19 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         public static HEADERTYPE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HEADERTYPE) Enum.valueOf(HEADERTYPE.class, str) : (HEADERTYPE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (HEADERTYPE) Enum.valueOf(HEADERTYPE.class, str);
+            }
+            return (HEADERTYPE) invokeL.objValue;
         }
 
         public static HEADERTYPE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HEADERTYPE[]) $VALUES.clone() : (HEADERTYPE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (HEADERTYPE[]) $VALUES.clone();
+            }
+            return (HEADERTYPE[]) invokeV.objValue;
         }
     }
 
@@ -142,10 +267,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.B();
-                this.a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.B();
+            this.a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
         }
     }
 
@@ -183,74 +309,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PullToRefreshBase a;
-
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.setInterceptTouchEventEnabled(true);
-                    this.a.a.d.setState(ILoadingLayout$State.RESET);
-                }
-            }
-        }
-
-        public c(PullToRefreshBase pullToRefreshBase) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pullToRefreshBase};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pullToRefreshBase;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.postDelayed(new a(this), this.a.getSmoothScrollDuration());
-                this.a.E();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,12 +338,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
 
         @Override // java.lang.Runnable
         public void run() {
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = -this.c.d.getRefreshingHeight();
-                int i2 = this.a ? 300 : 0;
+                int i2 = -this.c.d.getRefreshingHeight();
+                if (this.a) {
+                    i = 300;
+                } else {
+                    i = 0;
+                }
                 this.c.L();
-                this.c.J(i, i2);
+                this.c.J(i2, i);
                 Runnable runnable = this.b;
                 if (runnable != null) {
                     this.c.post(runnable);
@@ -361,7 +424,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class g {
+    public /* synthetic */ class g {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -404,13 +467,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface h<V extends View> {
-        void a(PullToRefreshBase<V> pullToRefreshBase);
-
-        void b(PullToRefreshBase<V> pullToRefreshBase);
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -424,137 +480,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 return;
             }
         }
-        v = vj1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBase(Context context, x13<T> x13Var, HEADERTYPE headertype) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, x13Var, headertype};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = HEADERTYPE.Common_STYLE_HEADER;
-        this.b = -1.0f;
-        this.h = true;
-        this.i = false;
-        this.j = false;
-        this.k = true;
-        this.l = false;
-        ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.NONE;
-        this.n = iLoadingLayout$State;
-        this.o = iLoadingLayout$State;
-        this.r = -1;
-        this.t = -1;
-        this.u = x13Var;
-        this.a = headertype;
-        m(context, null);
+        v = wj1.a;
     }
 
     private boolean getNgWebViewHeightSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            sm2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
+            tm2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setInterceptTouchEventEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void A(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            int scrollYValue = getScrollYValue();
-            if (f2 < 0.0f && scrollYValue - f2 >= 0.0f) {
-                H(0, 0);
-                LoadingLayout loadingLayout = this.d;
-                if (loadingLayout != null) {
-                    loadingLayout.e(0);
-                }
-            } else if (this.r <= 0 || f2 <= 0.0f || Math.abs(scrollYValue) < this.r) {
-                G(0, -((int) f2));
-                LoadingLayout loadingLayout2 = this.d;
-                if (loadingLayout2 != null) {
-                    loadingLayout2.e(-getScrollY());
-                    if (this.f != 0) {
-                        this.d.d(Math.abs(getScrollYValue()) / this.f);
-                    }
-                }
-                int abs = Math.abs(getScrollYValue());
-                if (!r() || s()) {
-                    return;
-                }
-                LoadingLayout loadingLayout3 = this.d;
-                if (loadingLayout3 != null && abs > loadingLayout3.getCanRefreshPullLength()) {
-                    this.n = ILoadingLayout$State.RELEASE_TO_REFRESH;
-                } else {
-                    this.n = ILoadingLayout$State.PULL_TO_REFRESH;
-                }
-                LoadingLayout loadingLayout4 = this.d;
-                if (loadingLayout4 != null) {
-                    loadingLayout4.setState(this.n);
-                }
-                y(this.n, true);
-            }
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LoadingLayout loadingLayout = this.d;
-            int contentSize = loadingLayout != null ? loadingLayout.getContentSize() : 0;
-            LoadingLayout loadingLayout2 = this.e;
-            int contentSize2 = loadingLayout2 != null ? loadingLayout2.getContentSize() : 0;
-            if (contentSize < 0) {
-                contentSize = 0;
-            }
-            if (contentSize2 < 0) {
-                contentSize2 = 0;
-            }
-            this.f = contentSize;
-            this.g = contentSize2;
-            LoadingLayout loadingLayout3 = this.d;
-            int measuredHeight = loadingLayout3 != null ? loadingLayout3.getMeasuredHeight() : 0;
-            LoadingLayout loadingLayout4 = this.e;
-            int measuredHeight2 = loadingLayout4 != null ? loadingLayout4.getMeasuredHeight() : 0;
-            if (measuredHeight2 == 0) {
-                measuredHeight2 = this.g;
-            }
-            setPadding(getPaddingLeft(), -measuredHeight, getPaddingRight(), -measuredHeight2);
-        }
-    }
-
-    public void C(int i, int i2) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (frameLayout = this.q) == null) {
-            return;
-        }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
-        if (layoutParams.height != i2) {
-            layoutParams.height = i2;
-            this.q.requestLayout();
-        }
     }
 
     public void D() {
@@ -572,78 +508,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int abs = Math.abs(getScrollYValue());
-            boolean s = s();
-            if (s && abs <= this.d.getRefreshingHeight()) {
-                I(0);
-            } else if (s) {
-                I(-this.d.getRefreshingHeight());
-            } else {
-                I(0);
-            }
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public final void G(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-            scrollBy(i, i2);
-        }
-    }
-
-    public final void H(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            scrollTo(i, i2);
-        }
-    }
-
-    public final void I(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            J(i, getSmoothScrollDuration());
-        }
-    }
-
-    public final void J(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            this.s.forceFinished(true);
-            int scrollY = getScrollY();
-            int i3 = i - scrollY;
-            if (i3 != 0) {
-                this.s.startScroll(0, scrollY, 0, i3, i2);
-                postInvalidate();
-            }
-        }
-    }
-
-    public void K() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || q()) {
-            return;
-        }
-        ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.REFRESHING;
-        this.o = iLoadingLayout$State;
-        y(iLoadingLayout$State, false);
-        LoadingLayout loadingLayout = this.e;
-        if (loadingLayout != null) {
-            loadingLayout.setState(ILoadingLayout$State.REFRESHING);
-        }
-        if (this.c != null) {
-            postDelayed(new f(this), getSmoothScrollDuration());
-        }
-    }
-
     public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -651,538 +515,115 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    public final void M(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || s()) {
-            return;
-        }
-        ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.REFRESHING;
-        this.n = iLoadingLayout$State;
-        y(iLoadingLayout$State, true);
-        LoadingLayout loadingLayout = this.d;
-        if (loadingLayout != null) {
-            loadingLayout.setState(ILoadingLayout$State.REFRESHING);
-        }
-        if (!z || this.c == null) {
-            return;
-        }
-        postDelayed(new e(this), getSmoothScrollDuration());
-    }
-
-    @Override // android.view.View
-    public void computeScroll() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.s.computeScrollOffset()) {
-            int currY = this.s.getCurrY();
-            scrollTo(0, currY);
-            this.d.e(-currY);
-            this.e.d(Math.abs(getScrollYValue()) / this.g);
-            postInvalidate();
-        }
-    }
-
-    public void f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            LoadingLayout loadingLayout = this.d;
-            LoadingLayout loadingLayout2 = this.e;
-            if (loadingLayout != null) {
-                if (this == loadingLayout.getParent()) {
-                    removeView(loadingLayout);
-                }
-                addView(loadingLayout, 0, layoutParams);
-            }
-            if (loadingLayout2 != null) {
-                if (this == loadingLayout2.getParent()) {
-                    removeView(loadingLayout2);
-                }
-                addView(loadingLayout2, -1, layoutParams);
-            }
-        }
-    }
-
-    public void g(Context context, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, context, t) == null) {
-            FrameLayout frameLayout = new FrameLayout(context);
-            this.q = frameLayout;
-            frameLayout.addView(t, -1, -1);
-            addView(this.q, new LinearLayout.LayoutParams(-1, getNgWebViewHeightSwitch() ? 10 : -1));
-        }
-    }
-
     public LoadingLayout getFooterLoadingLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.e : (LoadingLayout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.e;
+        }
+        return (LoadingLayout) invokeV.objValue;
     }
 
     public LoadingLayout getHeaderLoadingLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.d : (LoadingLayout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.d;
+        }
+        return (LoadingLayout) invokeV.objValue;
     }
 
-    public x13<T> getRefreshableFactory() {
+    public y13 getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.u : (x13) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.u;
+        }
+        return (y13) invokeV.objValue;
     }
 
-    public T getRefreshableView() {
+    public View getRefreshableView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.p : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.p;
+        }
+        return (View) invokeV.objValue;
     }
 
     public int getScrollYValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? getScrollY() : invokeV.intValue;
-    }
-
-    public int getSmoothScrollDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return 300;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return getScrollY();
         }
         return invokeV.intValue;
-    }
-
-    public LoadingLayout h(Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, context, attributeSet)) == null) ? new FooterLoadingLayout(context) : (LoadingLayout) invokeLL.objValue;
-    }
-
-    public LoadingLayout i(Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLL;
-        LoadingLayout headerLoadingLayout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, context, attributeSet)) == null) {
-            F();
-            int i = g.a[this.a.ordinal()];
-            if (i == 1) {
-                headerLoadingLayout = new HeaderLoadingLayout(context);
-            } else if (i == 2) {
-                headerLoadingLayout = new BigBgHeaderLoadingLayout(context);
-            } else if (i == 3) {
-                headerLoadingLayout = new RotateLoadingLayout(context);
-            } else if (i != 4) {
-                headerLoadingLayout = i != 5 ? null : new NeutralHeaderLoadingLayout(context);
-            } else {
-                headerLoadingLayout = new CommonHeaderLoadingLayout(context);
-            }
-            return headerLoadingLayout == null ? new HeaderLoadingLayout(context) : headerLoadingLayout;
-        }
-        return (LoadingLayout) invokeLL.objValue;
-    }
-
-    public abstract T j(Context context, AttributeSet attributeSet);
-
-    public void k(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            l(z, j, null);
-        }
-    }
-
-    public void l(boolean z, long j, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), runnable}) == null) {
-            postDelayed(new d(this, z, runnable), j);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void m(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048603, this, context, attributeSet) == null) {
-            this.s = new Scroller(context);
-            super.setOrientation(1);
-            this.m = ViewConfiguration.get(context).getScaledTouchSlop();
-            this.d = i(context, attributeSet);
-            this.e = h(context, attributeSet);
-            T j = j(context, attributeSet);
-            this.p = j;
-            if (v && j == null) {
-                throw new NullPointerException("Refreshable view can not be null.");
-            }
-            T t = this.p;
-            if (t != null) {
-                g(context, t);
-            }
-            f(context);
-            getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
-        }
     }
 
     public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.k : invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.k;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, motionEvent)) == null) {
-            boolean z = false;
-            if (n()) {
-                if (p() || r()) {
-                    int action = motionEvent.getAction();
-                    if (action != 3) {
-                        if (action != 1) {
-                            if (action == 0 || !this.l) {
-                                int actionIndex = motionEvent.getActionIndex();
-                                if (action == 0) {
-                                    this.t = motionEvent.getPointerId(actionIndex);
-                                    this.b = motionEvent.getY();
-                                    this.l = false;
-                                } else if (action == 2) {
-                                    int findPointerIndex = motionEvent.findPointerIndex(this.t);
-                                    if (findPointerIndex < 0) {
-                                        this.l = false;
-                                        return false;
-                                    }
-                                    float y = motionEvent.getY(findPointerIndex) - this.b;
-                                    if (Math.abs(y) > this.m || s() || q()) {
-                                        this.b = motionEvent.getY(findPointerIndex);
-                                        if (r() && t()) {
-                                            z = (Math.abs(getScrollYValue()) > 0 || y > 0.5f) ? true : true;
-                                            this.l = z;
-                                            if (z && o() && (t = this.p) != null) {
-                                                t.onTouchEvent(motionEvent);
-                                            }
-                                        } else if (p() && u()) {
-                                            this.l = (Math.abs(getScrollYValue()) > 0 || y < -0.5f) ? true : true;
-                                        }
-                                    }
-                                } else if (action == 5) {
-                                    this.t = motionEvent.getPointerId(actionIndex);
-                                    this.b = motionEvent.getY(actionIndex);
-                                    this.l = false;
-                                } else if (action == 6) {
-                                    int action2 = (motionEvent.getAction() & 65280) >> 8;
-                                    if (motionEvent.getPointerId(action2) == this.t) {
-                                        int i = action2 != 0 ? 0 : 1;
-                                        this.t = motionEvent.getPointerId(i);
-                                        this.b = (int) motionEvent.getY(i);
-                                        this.l = false;
-                                    }
-                                }
-                                return this.l;
-                            }
-                            return true;
-                        }
-                    }
-                    this.l = false;
-                    return false;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048607, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-        }
-    }
-
-    @Override // android.view.View
-    public final void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048608, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            B();
-            C(i, i2);
-            post(new b(this));
-        }
-    }
-
-    @Override // android.view.View
-    public final boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, motionEvent)) == null) {
-            int actionIndex = motionEvent.getActionIndex();
-            int action = motionEvent.getAction();
-            boolean z = false;
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        int findPointerIndex = motionEvent.findPointerIndex(this.t);
-                        if (findPointerIndex < 0) {
-                            this.l = false;
-                            return false;
-                        }
-                        float y = motionEvent.getY(findPointerIndex) - this.b;
-                        this.b = motionEvent.getY(findPointerIndex);
-                        if (r() && t()) {
-                            A(y / 1.5f);
-                        } else if (p() && u()) {
-                            z(y / 1.5f);
-                        } else {
-                            this.l = false;
-                            return false;
-                        }
-                        return true;
-                    } else if (action != 3) {
-                        if (action == 5) {
-                            this.t = motionEvent.getPointerId(actionIndex);
-                            this.b = motionEvent.getY(actionIndex);
-                            return false;
-                        } else if (action != 6) {
-                            return false;
-                        } else {
-                            int action2 = (motionEvent.getAction() & 65280) >> 8;
-                            if (motionEvent.getPointerId(action2) == this.t) {
-                                int i = action2 != 0 ? 0 : 1;
-                                this.t = motionEvent.getPointerId(i);
-                                this.b = (int) motionEvent.getY(i);
-                                return false;
-                            }
-                            return false;
-                        }
-                    }
-                }
-                if (this.l) {
-                    this.l = false;
-                    if (t()) {
-                        if (this.h && this.n == ILoadingLayout$State.RELEASE_TO_REFRESH) {
-                            L();
-                            z = true;
-                        } else if (!s()) {
-                            ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.RESET;
-                            this.n = iLoadingLayout$State;
-                            y(iLoadingLayout$State, true);
-                        }
-                        E();
-                        return z;
-                    } else if (u()) {
-                        if (p() && this.o == ILoadingLayout$State.RELEASE_TO_REFRESH) {
-                            K();
-                            z = true;
-                        }
-                        D();
-                        return z;
-                    } else {
-                        return false;
-                    }
-                }
-                return false;
-            }
-            this.t = motionEvent.getPointerId(actionIndex);
-            this.b = motionEvent.getY();
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.i && this.e != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            if (this.i && this.e != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.o == ILoadingLayout$State.REFRESHING : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if (this.o == ILoadingLayout$State.REFRESHING) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.h && this.d != null : invokeV.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048613, this, z) == null) || getParent() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            if (this.h && this.d != null) {
+                return true;
+            }
+            return false;
         }
-        getParent().requestDisallowInterceptTouchEvent(z);
+        return invokeV.booleanValue;
     }
 
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.n == ILoadingLayout$State.REFRESHING : invokeV.booleanValue;
-    }
-
-    public void setEmptyView(View view2) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048615, this, view2) == null) || (frameLayout = this.q) == null) {
-            return;
-        }
-        frameLayout.addView(view2, -1, -1);
-    }
-
-    public void setHeaderBackgroundColor(int i) {
-        LoadingLayout loadingLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048616, this, i) == null) || (loadingLayout = this.d) == null) {
-            return;
-        }
-        loadingLayout.setHeaderBackgroundColor(getResources().getColor(i));
-    }
-
-    public void setHeaderBackgroundResource(int i) {
-        LoadingLayout loadingLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048617, this, i) == null) || (loadingLayout = this.d) == null) {
-            return;
-        }
-        loadingLayout.setHeaderBackgroundResource(i);
-    }
-
-    public void setHeaderBigBackground(int i) {
-        LoadingLayout loadingLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048618, this, i) == null) || (loadingLayout = this.d) == null) {
-            return;
-        }
-        loadingLayout.setHeaderBigBackground(i);
-    }
-
-    public void setLastUpdatedLabel(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, charSequence) == null) {
-            LoadingLayout loadingLayout = this.d;
-            if (loadingLayout != null) {
-                loadingLayout.setLastUpdatedLabel(charSequence);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (this.n == ILoadingLayout$State.REFRESHING) {
+                return true;
             }
-            LoadingLayout loadingLayout2 = this.e;
-            if (loadingLayout2 != null) {
-                loadingLayout2.setLastUpdatedLabel(charSequence);
-            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
-
-    public void setMaxPullOffset(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
-            this.r = i;
-        }
-    }
-
-    public void setOnRefreshListener(h<T> hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, hVar) == null) {
-            this.c = hVar;
-        }
-    }
-
-    @Override // android.widget.LinearLayout
-    public void setOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
-        }
-    }
-
-    public void setPullLoadEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void setPullRefreshEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void setScrollLoadEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
-            this.j = z;
-        }
-    }
-
-    public abstract boolean t();
-
-    public abstract boolean u();
 
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.j : invokeV.booleanValue;
-    }
-
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
-            x(z, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+            return this.j;
         }
-    }
-
-    public void x(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048630, this, z, str) == null) && s()) {
-            ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.RESET;
-            this.n = iLoadingLayout$State;
-            y(iLoadingLayout$State, true);
-            setInterceptTouchEventEnabled(false);
-            this.d.f(z, str, new c(this));
-        }
-    }
-
-    public void y(ILoadingLayout$State iLoadingLayout$State, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048631, this, iLoadingLayout$State, z) == null) {
-        }
-    }
-
-    public void z(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048632, this, f2) == null) {
-            int scrollYValue = getScrollYValue();
-            if (f2 > 0.0f && scrollYValue - f2 <= 0.0f) {
-                H(0, 0);
-                return;
-            }
-            G(0, -((int) f2));
-            if (this.e != null && this.g != 0) {
-                this.e.d(Math.abs(getScrollYValue()) / this.g);
-            }
-            int abs = Math.abs(getScrollYValue());
-            if (!p() || q()) {
-                return;
-            }
-            if (abs > this.g) {
-                this.o = ILoadingLayout$State.RELEASE_TO_REFRESH;
-            } else {
-                this.o = ILoadingLayout$State.PULL_TO_REFRESH;
-            }
-            LoadingLayout loadingLayout = this.e;
-            if (loadingLayout != null) {
-                loadingLayout.setState(this.o);
-            }
-            y(this.o, false);
-        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1250,5 +691,668 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         this.r = -1;
         this.t = -1;
         m(context, attributeSet);
+    }
+
+    public LoadingLayout i(Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLL;
+        LoadingLayout headerLoadingLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, context, attributeSet)) == null) {
+            F();
+            int i = g.a[this.a.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                headerLoadingLayout = null;
+                            } else {
+                                headerLoadingLayout = new NeutralHeaderLoadingLayout(context);
+                            }
+                        } else {
+                            headerLoadingLayout = new CommonHeaderLoadingLayout(context);
+                        }
+                    } else {
+                        headerLoadingLayout = new RotateLoadingLayout(context);
+                    }
+                } else {
+                    headerLoadingLayout = new BigBgHeaderLoadingLayout(context);
+                }
+            } else {
+                headerLoadingLayout = new HeaderLoadingLayout(context);
+            }
+            if (headerLoadingLayout == null) {
+                return new HeaderLoadingLayout(context);
+            }
+            return headerLoadingLayout;
+        }
+        return (LoadingLayout) invokeLL.objValue;
+    }
+
+    public final void m(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048603, this, context, attributeSet) == null) {
+            this.s = new Scroller(context);
+            super.setOrientation(1);
+            this.m = ViewConfiguration.get(context).getScaledTouchSlop();
+            this.d = i(context, attributeSet);
+            this.e = h(context, attributeSet);
+            View j = j(context, attributeSet);
+            this.p = j;
+            if (v && j == null) {
+                throw new NullPointerException("Refreshable view can not be null.");
+            }
+            View view2 = this.p;
+            if (view2 != null) {
+                g(context, view2);
+            }
+            f(context);
+            getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PullToRefreshBase(Context context, y13 y13Var, HEADERTYPE headertype) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, y13Var, headertype};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = HEADERTYPE.Common_STYLE_HEADER;
+        this.b = -1.0f;
+        this.h = true;
+        this.i = false;
+        this.j = false;
+        this.k = true;
+        this.l = false;
+        ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.NONE;
+        this.n = iLoadingLayout$State;
+        this.o = iLoadingLayout$State;
+        this.r = -1;
+        this.t = -1;
+        this.u = y13Var;
+        this.a = headertype;
+        m(context, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setInterceptTouchEventEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public final void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            J(i, getSmoothScrollDuration());
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent
+    public void requestDisallowInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048613, this, z) == null) && getParent() != null) {
+            getParent().requestDisallowInterceptTouchEvent(z);
+        }
+    }
+
+    public void setEmptyView(View view2) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048615, this, view2) == null) && (frameLayout = this.q) != null) {
+            frameLayout.addView(view2, -1, -1);
+        }
+    }
+
+    public void setHeaderBackgroundColor(int i) {
+        LoadingLayout loadingLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048616, this, i) == null) && (loadingLayout = this.d) != null) {
+            loadingLayout.setHeaderBackgroundColor(getResources().getColor(i));
+        }
+    }
+
+    public void setHeaderBackgroundResource(int i) {
+        LoadingLayout loadingLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048617, this, i) == null) && (loadingLayout = this.d) != null) {
+            loadingLayout.setHeaderBackgroundResource(i);
+        }
+    }
+
+    public void setHeaderBigBackground(int i) {
+        LoadingLayout loadingLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048618, this, i) != null) || (loadingLayout = this.d) == null) {
+            return;
+        }
+        loadingLayout.setHeaderBigBackground(i);
+    }
+
+    public void setLastUpdatedLabel(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, charSequence) == null) {
+            LoadingLayout loadingLayout = this.d;
+            if (loadingLayout != null) {
+                loadingLayout.setLastUpdatedLabel(charSequence);
+            }
+            LoadingLayout loadingLayout2 = this.e;
+            if (loadingLayout2 != null) {
+                loadingLayout2.setLastUpdatedLabel(charSequence);
+            }
+        }
+    }
+
+    public void setMaxPullOffset(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            this.r = i;
+        }
+    }
+
+    public void setOnRefreshListener(h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, hVar) == null) {
+            this.c = hVar;
+        }
+    }
+
+    public void setPullLoadEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void setPullRefreshEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void setScrollLoadEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+            this.j = z;
+        }
+    }
+
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
+            x(z, null);
+        }
+    }
+
+    public void C(int i, int i2) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && (frameLayout = this.q) != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
+            if (layoutParams.height != i2) {
+                layoutParams.height = i2;
+                this.q.requestLayout();
+            }
+        }
+    }
+
+    public final void G(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            scrollBy(i, i2);
+        }
+    }
+
+    public final void H(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            scrollTo(i, i2);
+        }
+    }
+
+    public final void J(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            this.s.forceFinished(true);
+            int scrollY = getScrollY();
+            int i3 = i - scrollY;
+            if (i3 != 0) {
+                this.s.startScroll(0, scrollY, 0, i3, i2);
+                postInvalidate();
+            }
+        }
+    }
+
+    public void g(Context context, View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, context, view2) == null) {
+            FrameLayout frameLayout = new FrameLayout(context);
+            this.q = frameLayout;
+            frameLayout.addView(view2, -1, -1);
+            if (getNgWebViewHeightSwitch()) {
+                i = 10;
+            } else {
+                i = -1;
+            }
+            addView(this.q, new LinearLayout.LayoutParams(-1, i));
+        }
+    }
+
+    public LoadingLayout h(Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, context, attributeSet)) == null) {
+            return new FooterLoadingLayout(context);
+        }
+        return (LoadingLayout) invokeLL.objValue;
+    }
+
+    public void k(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            l(z, j, null);
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048607, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+        }
+    }
+
+    public void x(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(1048630, this, z, str) == null) && s()) {
+            ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.RESET;
+            this.n = iLoadingLayout$State;
+            y(iLoadingLayout$State, true);
+            setInterceptTouchEventEnabled(false);
+            this.d.f(z, str, new c(this));
+        }
+    }
+
+    public void l(boolean z, long j, Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), runnable}) == null) {
+            postDelayed(new d(this, z, runnable), j);
+        }
+    }
+
+    public void A(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
+            int scrollYValue = getScrollYValue();
+            if (f2 < 0.0f && scrollYValue - f2 >= 0.0f) {
+                H(0, 0);
+                LoadingLayout loadingLayout = this.d;
+                if (loadingLayout != null) {
+                    loadingLayout.e(0);
+                }
+            } else if (this.r > 0 && f2 > 0.0f && Math.abs(scrollYValue) >= this.r) {
+            } else {
+                G(0, -((int) f2));
+                LoadingLayout loadingLayout2 = this.d;
+                if (loadingLayout2 != null) {
+                    loadingLayout2.e(-getScrollY());
+                    if (this.f != 0) {
+                        this.d.d(Math.abs(getScrollYValue()) / this.f);
+                    }
+                }
+                int abs = Math.abs(getScrollYValue());
+                if (r() && !s()) {
+                    LoadingLayout loadingLayout3 = this.d;
+                    if (loadingLayout3 != null && abs > loadingLayout3.getCanRefreshPullLength()) {
+                        this.n = ILoadingLayout$State.RELEASE_TO_REFRESH;
+                    } else {
+                        this.n = ILoadingLayout$State.PULL_TO_REFRESH;
+                    }
+                    LoadingLayout loadingLayout4 = this.d;
+                    if (loadingLayout4 != null) {
+                        loadingLayout4.setState(this.n);
+                    }
+                    y(this.n, true);
+                }
+            }
+        }
+    }
+
+    public final void B() {
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LoadingLayout loadingLayout = this.d;
+            int i4 = 0;
+            if (loadingLayout != null) {
+                i = loadingLayout.getContentSize();
+            } else {
+                i = 0;
+            }
+            LoadingLayout loadingLayout2 = this.e;
+            if (loadingLayout2 != null) {
+                i2 = loadingLayout2.getContentSize();
+            } else {
+                i2 = 0;
+            }
+            if (i < 0) {
+                i = 0;
+            }
+            if (i2 < 0) {
+                i2 = 0;
+            }
+            this.f = i;
+            this.g = i2;
+            LoadingLayout loadingLayout3 = this.d;
+            if (loadingLayout3 != null) {
+                i3 = loadingLayout3.getMeasuredHeight();
+            } else {
+                i3 = 0;
+            }
+            LoadingLayout loadingLayout4 = this.e;
+            if (loadingLayout4 != null) {
+                i4 = loadingLayout4.getMeasuredHeight();
+            }
+            if (i4 == 0) {
+                i4 = this.g;
+            }
+            setPadding(getPaddingLeft(), -i3, getPaddingRight(), -i4);
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int abs = Math.abs(getScrollYValue());
+            boolean s = s();
+            if (s && abs <= this.d.getRefreshingHeight()) {
+                I(0);
+            } else if (s) {
+                I(-this.d.getRefreshingHeight());
+            } else {
+                I(0);
+            }
+        }
+    }
+
+    public void K() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || q()) {
+            return;
+        }
+        ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.REFRESHING;
+        this.o = iLoadingLayout$State;
+        y(iLoadingLayout$State, false);
+        LoadingLayout loadingLayout = this.e;
+        if (loadingLayout != null) {
+            loadingLayout.setState(ILoadingLayout$State.REFRESHING);
+        }
+        if (this.c != null) {
+            postDelayed(new f(this), getSmoothScrollDuration());
+        }
+    }
+
+    @Override // android.view.View
+    public void computeScroll() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.s.computeScrollOffset()) {
+            int currY = this.s.getCurrY();
+            scrollTo(0, currY);
+            this.d.e(-currY);
+            this.e.d(Math.abs(getScrollYValue()) / this.g);
+            postInvalidate();
+        }
+    }
+
+    public final void M(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048588, this, z) != null) || s()) {
+            return;
+        }
+        ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.REFRESHING;
+        this.n = iLoadingLayout$State;
+        y(iLoadingLayout$State, true);
+        LoadingLayout loadingLayout = this.d;
+        if (loadingLayout != null) {
+            loadingLayout.setState(ILoadingLayout$State.REFRESHING);
+        }
+        if (z && this.c != null) {
+            postDelayed(new e(this), getSmoothScrollDuration());
+        }
+    }
+
+    public void f(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
+            ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            LoadingLayout loadingLayout = this.d;
+            LoadingLayout loadingLayout2 = this.e;
+            if (loadingLayout != null) {
+                if (this == loadingLayout.getParent()) {
+                    removeView(loadingLayout);
+                }
+                addView(loadingLayout, 0, layoutParams);
+            }
+            if (loadingLayout2 != null) {
+                if (this == loadingLayout2.getParent()) {
+                    removeView(loadingLayout2);
+                }
+                addView(loadingLayout2, -1, layoutParams);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, motionEvent)) == null) {
+            boolean z = false;
+            if (!n()) {
+                return false;
+            }
+            if (!p() && !r()) {
+                return false;
+            }
+            int action = motionEvent.getAction();
+            if (action != 3) {
+                int i = 1;
+                if (action != 1) {
+                    if (action != 0 && this.l) {
+                        return true;
+                    }
+                    int actionIndex = motionEvent.getActionIndex();
+                    if (action != 0) {
+                        if (action != 2) {
+                            if (action != 5) {
+                                if (action == 6) {
+                                    int action2 = (motionEvent.getAction() & 65280) >> 8;
+                                    if (motionEvent.getPointerId(action2) == this.t) {
+                                        if (action2 != 0) {
+                                            i = 0;
+                                        }
+                                        this.t = motionEvent.getPointerId(i);
+                                        this.b = (int) motionEvent.getY(i);
+                                        this.l = false;
+                                    }
+                                }
+                            } else {
+                                this.t = motionEvent.getPointerId(actionIndex);
+                                this.b = motionEvent.getY(actionIndex);
+                                this.l = false;
+                            }
+                        } else {
+                            int findPointerIndex = motionEvent.findPointerIndex(this.t);
+                            if (findPointerIndex < 0) {
+                                this.l = false;
+                                return false;
+                            }
+                            float y = motionEvent.getY(findPointerIndex) - this.b;
+                            if (Math.abs(y) > this.m || s() || q()) {
+                                this.b = motionEvent.getY(findPointerIndex);
+                                if (r() && t()) {
+                                    z = (Math.abs(getScrollYValue()) > 0 || y > 0.5f) ? true : true;
+                                    this.l = z;
+                                    if (z && o() && (view2 = this.p) != null) {
+                                        view2.onTouchEvent(motionEvent);
+                                    }
+                                } else if (p() && u()) {
+                                    this.l = (Math.abs(getScrollYValue()) > 0 || y < -0.5f) ? true : true;
+                                }
+                            }
+                        }
+                    } else {
+                        this.t = motionEvent.getPointerId(actionIndex);
+                        this.b = motionEvent.getY();
+                        this.l = false;
+                    }
+                    return this.l;
+                }
+            }
+            this.l = false;
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public final boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, motionEvent)) == null) {
+            int actionIndex = motionEvent.getActionIndex();
+            int action = motionEvent.getAction();
+            boolean z = false;
+            int i = 1;
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action != 3) {
+                            if (action != 5) {
+                                if (action != 6) {
+                                    return false;
+                                }
+                                int action2 = (motionEvent.getAction() & 65280) >> 8;
+                                if (motionEvent.getPointerId(action2) != this.t) {
+                                    return false;
+                                }
+                                if (action2 != 0) {
+                                    i = 0;
+                                }
+                                this.t = motionEvent.getPointerId(i);
+                                this.b = (int) motionEvent.getY(i);
+                                return false;
+                            }
+                            this.t = motionEvent.getPointerId(actionIndex);
+                            this.b = motionEvent.getY(actionIndex);
+                            return false;
+                        }
+                    } else {
+                        int findPointerIndex = motionEvent.findPointerIndex(this.t);
+                        if (findPointerIndex < 0) {
+                            this.l = false;
+                            return false;
+                        }
+                        float y = motionEvent.getY(findPointerIndex) - this.b;
+                        this.b = motionEvent.getY(findPointerIndex);
+                        if (r() && t()) {
+                            A(y / 1.5f);
+                        } else if (p() && u()) {
+                            z(y / 1.5f);
+                        } else {
+                            this.l = false;
+                            return false;
+                        }
+                        return true;
+                    }
+                }
+                if (!this.l) {
+                    return false;
+                }
+                this.l = false;
+                if (t()) {
+                    if (this.h && this.n == ILoadingLayout$State.RELEASE_TO_REFRESH) {
+                        L();
+                        z = true;
+                    } else if (!s()) {
+                        ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.RESET;
+                        this.n = iLoadingLayout$State;
+                        y(iLoadingLayout$State, true);
+                    }
+                    E();
+                    return z;
+                } else if (!u()) {
+                    return false;
+                } else {
+                    if (p() && this.o == ILoadingLayout$State.RELEASE_TO_REFRESH) {
+                        K();
+                        z = true;
+                    }
+                    D();
+                    return z;
+                }
+            }
+            this.t = motionEvent.getPointerId(actionIndex);
+            this.b = motionEvent.getY();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public final void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048608, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            B();
+            C(i, i2);
+            post(new b(this));
+        }
+    }
+
+    public void z(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048632, this, f2) == null) {
+            int scrollYValue = getScrollYValue();
+            if (f2 > 0.0f && scrollYValue - f2 <= 0.0f) {
+                H(0, 0);
+                return;
+            }
+            G(0, -((int) f2));
+            if (this.e != null && this.g != 0) {
+                this.e.d(Math.abs(getScrollYValue()) / this.g);
+            }
+            int abs = Math.abs(getScrollYValue());
+            if (p() && !q()) {
+                if (abs > this.g) {
+                    this.o = ILoadingLayout$State.RELEASE_TO_REFRESH;
+                } else {
+                    this.o = ILoadingLayout$State.PULL_TO_REFRESH;
+                }
+                LoadingLayout loadingLayout = this.e;
+                if (loadingLayout != null) {
+                    loadingLayout.setState(this.o);
+                }
+                y(this.o, false);
+            }
+        }
     }
 }

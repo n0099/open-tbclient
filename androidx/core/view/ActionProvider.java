@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +20,6 @@ public abstract class ActionProvider {
     public SubUiVisibilityListener mSubUiVisibilityListener;
     public VisibilityListener mVisibilityListener;
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface SubUiVisibilityListener {
         void onSubUiVisibilityChanged(boolean z);
@@ -30,30 +28,6 @@ public abstract class ActionProvider {
     /* loaded from: classes.dex */
     public interface VisibilityListener {
         void onActionProviderVisibilityChanged(boolean z);
-    }
-
-    public ActionProvider(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     public boolean hasSubMenu() {
@@ -75,12 +49,6 @@ public abstract class ActionProvider {
     }
 
     public abstract View onCreateActionView();
-
-    public View onCreateActionView(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, menuItem)) == null) ? onCreateActionView() : (View) invokeL.objValue;
-    }
 
     public boolean onPerformDefaultAction() {
         InterceptResult invokeV;
@@ -106,6 +74,57 @@ public abstract class ActionProvider {
         return invokeV.booleanValue;
     }
 
+    public ActionProvider(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mContext = context;
+    }
+
+    public View onCreateActionView(MenuItem menuItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, menuItem)) == null) {
+            return onCreateActionView();
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void setSubUiVisibilityListener(SubUiVisibilityListener subUiVisibilityListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, subUiVisibilityListener) == null) {
+            this.mSubUiVisibilityListener = subUiVisibilityListener;
+        }
+    }
+
+    public void subUiVisibilityChanged(boolean z) {
+        SubUiVisibilityListener subUiVisibilityListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && (subUiVisibilityListener = this.mSubUiVisibilityListener) != null) {
+            subUiVisibilityListener.onSubUiVisibilityChanged(z);
+        }
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
+    }
+
     public void refreshVisibility() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.mVisibilityListener != null && overridesItemVisibility()) {
@@ -113,20 +132,11 @@ public abstract class ActionProvider {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.mVisibilityListener = null;
             this.mSubUiVisibilityListener = null;
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSubUiVisibilityListener(SubUiVisibilityListener subUiVisibilityListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, subUiVisibilityListener) == null) {
-            this.mSubUiVisibilityListener = subUiVisibilityListener;
         }
     }
 
@@ -138,15 +148,5 @@ public abstract class ActionProvider {
             }
             this.mVisibilityListener = visibilityListener;
         }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void subUiVisibilityChanged(boolean z) {
-        SubUiVisibilityListener subUiVisibilityListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (subUiVisibilityListener = this.mSubUiVisibilityListener) == null) {
-            return;
-        }
-        subUiVisibilityListener.onSubUiVisibilityChanged(z);
     }
 }

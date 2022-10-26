@@ -2,7 +2,6 @@ package com.bytedance.pangle.f;
 
 import android.content.pm.Signature;
 import android.util.ArraySet;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,14 +20,10 @@ public final class o {
     public static /* synthetic */ Interceptable $ic;
     public static final o a;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final Signature[] b;
     public final int c;
-    @Nullable
-    public final ArraySet<PublicKey> d;
-    @Nullable
+    public final ArraySet d;
     public final Signature[] e;
-    @Nullable
     public final int[] f;
 
     static {
@@ -47,33 +42,32 @@ public final class o {
         a = new o(null, 0, null, null, null);
     }
 
-    public o(Signature[] signatureArr, int i, ArraySet<PublicKey> arraySet, Signature[] signatureArr2, int[] iArr) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public o(Signature[] signatureArr) {
+        this(signatureArr, 2, null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {signatureArr, Integer.valueOf(i), arraySet, signatureArr2, iArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {signatureArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Signature[]) objArr2[0], ((Integer) objArr2[1]).intValue(), (Signature[]) objArr2[2], (int[]) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = signatureArr;
-        this.c = i;
-        this.d = arraySet;
-        this.e = signatureArr2;
-        this.f = iArr;
     }
 
-    public static ArraySet<PublicKey> a(Signature[] signatureArr) {
+    public static ArraySet a(Signature[] signatureArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, signatureArr)) == null) {
-            ArraySet<PublicKey> arraySet = new ArraySet<>(signatureArr.length);
+            ArraySet arraySet = new ArraySet(signatureArr.length);
             for (Signature signature : signatureArr) {
                 Method a2 = com.bytedance.pangle.a.a.a.a(Signature.class, "getPublicKey", new Class[0]);
                 if (a2 != null && a2.isAccessible()) {
@@ -100,35 +94,49 @@ public final class o {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof o) {
-                o oVar = (o) obj;
-                if (this.c == oVar.c && a(this.b, oVar.b)) {
-                    ArraySet<PublicKey> arraySet = this.d;
-                    if (arraySet != null) {
-                        if (!arraySet.equals(oVar.d)) {
-                            return false;
-                        }
-                    } else if (oVar.d != null) {
-                        return false;
-                    }
-                    return Arrays.equals(this.e, oVar.e) && Arrays.equals(this.f, oVar.f);
-                }
+            if (!(obj instanceof o)) {
                 return false;
+            }
+            o oVar = (o) obj;
+            if (this.c != oVar.c || !a(this.b, oVar.b)) {
+                return false;
+            }
+            ArraySet arraySet = this.d;
+            if (arraySet != null) {
+                if (!arraySet.equals(oVar.d)) {
+                    return false;
+                }
+            } else if (oVar.d != null) {
+                return false;
+            }
+            if (Arrays.equals(this.e, oVar.e) && Arrays.equals(this.f, oVar.f)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final int hashCode() {
-        InterceptResult invokeV;
+    public o(Signature[] signatureArr, int i, ArraySet arraySet, Signature[] signatureArr2, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int hashCode = ((Arrays.hashCode(this.b) * 31) + this.c) * 31;
-            ArraySet<PublicKey> arraySet = this.d;
-            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.e)) * 31) + Arrays.hashCode(this.f);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {signatureArr, Integer.valueOf(i), arraySet, signatureArr2, iArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.b = signatureArr;
+        this.c = i;
+        this.d = arraySet;
+        this.e = signatureArr2;
+        this.f = iArr;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -152,33 +160,6 @@ public final class o {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public o(Signature[] signatureArr) {
-        this(signatureArr, 2, null, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {signatureArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Signature[]) objArr2[0], ((Integer) objArr2[1]).intValue(), (Signature[]) objArr2[2], (int[]) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static boolean a(Signature[] signatureArr, Signature[] signatureArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, signatureArr, signatureArr2)) == null) ? signatureArr.length == signatureArr2.length && com.bytedance.pangle.util.c.a((Object[]) signatureArr, (Object[]) signatureArr2) && com.bytedance.pangle.util.c.a((Object[]) signatureArr2, (Object[]) signatureArr) : invokeLL.booleanValue;
-    }
-
     public static boolean a(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -194,5 +175,34 @@ public final class o {
             return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    public static boolean a(Signature[] signatureArr, Signature[] signatureArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, signatureArr, signatureArr2)) == null) {
+            if (signatureArr.length == signatureArr2.length && com.bytedance.pangle.util.c.a((Object[]) signatureArr, (Object[]) signatureArr2) && com.bytedance.pangle.util.c.a((Object[]) signatureArr2, (Object[]) signatureArr)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int hashCode = ((Arrays.hashCode(this.b) * 31) + this.c) * 31;
+            ArraySet arraySet = this.d;
+            if (arraySet != null) {
+                i = arraySet.hashCode();
+            } else {
+                i = 0;
+            }
+            return ((((hashCode + i) * 31) + Arrays.hashCode(this.e)) * 31) + Arrays.hashCode(this.f);
+        }
+        return invokeV.intValue;
     }
 }

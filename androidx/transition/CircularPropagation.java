@@ -52,11 +52,11 @@ public class CircularPropagation extends VisibilityPropagation {
             if (transitionValues == null && transitionValues2 == null) {
                 return 0L;
             }
-            if (transitionValues2 == null || getViewVisibility(transitionValues) == 0) {
-                i = -1;
-            } else {
+            if (transitionValues2 != null && getViewVisibility(transitionValues) != 0) {
                 transitionValues = transitionValues2;
                 i = 1;
+            } else {
+                i = -1;
             }
             int viewX = getViewX(transitionValues);
             int viewY = getViewY(transitionValues);

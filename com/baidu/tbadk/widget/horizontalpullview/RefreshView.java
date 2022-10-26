@@ -8,21 +8,19 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sj5;
+import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class RefreshView extends FrameLayout implements sj5 {
+public class RefreshView extends FrameLayout implements zj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -30,8 +28,15 @@ public class RefreshView extends FrameLayout implements sj5 {
     public int c;
     public int d;
 
+    @Override // com.baidu.tieba.zj5
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RefreshView(@NonNull Context context) {
+    public RefreshView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,57 +56,8 @@ public class RefreshView extends FrameLayout implements sj5 {
         }
     }
 
-    @Override // com.baidu.tieba.sj5
-    public void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.d == 2) {
-            return;
-        }
-        this.d = 2;
-        this.b.setText("释放跳转");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f08060e, R.color.CAM_X0109, null);
-    }
-
-    @Override // com.baidu.tieba.sj5
-    public void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.d == 1) {
-            return;
-        }
-        this.d = 1;
-        this.b.setText("查看更多");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f08060f, R.color.CAM_X0109, null);
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d075a, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902be);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
-        }
-    }
-
-    public void d() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.c) {
-            return;
-        }
-        this.d = 0;
-        this.c = skinType;
-        SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-    }
-
-    @Override // com.baidu.tieba.sj5
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public RefreshView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -122,7 +78,7 @@ public class RefreshView extends FrameLayout implements sj5 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public RefreshView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -142,5 +98,44 @@ public class RefreshView extends FrameLayout implements sj5 {
         }
         this.c = 3;
         c(context);
+    }
+
+    @Override // com.baidu.tieba.zj5
+    public void a(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d != 2) {
+            this.d = 2;
+            this.b.setText("释放跳转");
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f08060f, R.color.CAM_X0109, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.zj5
+    public void b(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.d != 1) {
+            this.d = 1;
+            this.b.setText("查看更多");
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080610, R.color.CAM_X0109, null);
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d075a, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902be);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+        }
+    }
+
+    public void d() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (skinType = TbadkCoreApplication.getInst().getSkinType()) != this.c) {
+            this.d = 0;
+            this.c = skinType;
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
+        }
     }
 }

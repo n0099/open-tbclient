@@ -11,10 +11,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tieba.ea7;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.ra7;
-import com.baidu.tieba.v87;
+import com.baidu.tieba.d97;
+import com.baidu.tieba.sa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,15 +23,15 @@ import java.util.List;
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v87 a;
+    public d97 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
-    public oa5 e;
-    public v87.d f;
+    public sa5 e;
+    public d97.d f;
 
     /* loaded from: classes4.dex */
-    public class a extends oa5<TopToastEvent> {
+    public class a extends sa5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,7 +55,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ha5
+        @Override // com.baidu.tieba.la5
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
@@ -74,7 +72,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements v87.d {
+    public class b implements d97.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,16 +95,16 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.baidu.tieba.v87.d
-        public void a(List<ra7> list) {
+        @Override // com.baidu.tieba.d97.d
+        public void a(List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.b.r(list, null);
             }
         }
 
-        @Override // com.baidu.tieba.v87.d
-        public void onReadCountLoad(LongSparseArray<ea7> longSparseArray) {
+        @Override // com.baidu.tieba.d97.d
+        public void onReadCountLoad(LongSparseArray longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
                 this.a.b.s(longSparseArray);
@@ -131,6 +129,19 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         this.f = new b(this);
     }
 
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            d97 d97Var = this.a;
+            if (d97Var != null) {
+                d97Var.e();
+            }
+            unRegisterResponsedEventListener();
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
@@ -145,9 +156,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            v87 v87Var = new v87(getPageContext());
-            this.a = v87Var;
-            v87Var.i(this.f);
+            d97 d97Var = new d97(getPageContext());
+            this.a = d97Var;
+            d97Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");
@@ -156,19 +167,6 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                 this.b.v(this.c, System.currentTimeMillis());
             }
             registerResponsedEventListener(TopToastEvent.class, this.e);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            v87 v87Var = this.a;
-            if (v87Var != null) {
-                v87Var.e();
-            }
-            unRegisterResponsedEventListener();
         }
     }
 

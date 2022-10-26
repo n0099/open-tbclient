@@ -20,7 +20,7 @@ public class FaceBaseDTO extends SapiDTO {
     public boolean needAuthorizeCertInfo;
     public boolean showGuidePage;
     public String subpro;
-    public Map<String, String> transParamsList;
+    public Map transParamsList;
 
     public FaceBaseDTO() {
         Interceptable interceptable = $ic;

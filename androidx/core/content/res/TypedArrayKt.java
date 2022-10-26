@@ -4,11 +4,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.AnyRes;
-import androidx.annotation.ColorInt;
-import androidx.annotation.Dimension;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.StyleableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.tbadk.TbConfig;
@@ -24,14 +19,15 @@ public final class TypedArrayKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void checkAttribute(TypedArray typedArray, @StyleableRes int i) {
+    public static final void checkAttribute(TypedArray typedArray, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, typedArray, i) == null) && !typedArray.hasValue(i)) {
-            throw new IllegalArgumentException("Attribute not defined in set.");
+        if ((interceptable != null && interceptable.invokeLI(65536, null, typedArray, i) != null) || typedArray.hasValue(i)) {
+            return;
         }
+        throw new IllegalArgumentException("Attribute not defined in set.");
     }
 
-    public static final boolean getBooleanOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final boolean getBooleanOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, typedArray, i)) == null) {
@@ -41,8 +37,7 @@ public final class TypedArrayKt {
         return invokeLI.booleanValue;
     }
 
-    @ColorInt
-    public static final int getColorOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final int getColorOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, typedArray, i)) == null) {
@@ -52,7 +47,7 @@ public final class TypedArrayKt {
         return invokeLI.intValue;
     }
 
-    public static final ColorStateList getColorStateListOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final ColorStateList getColorStateListOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, typedArray, i)) == null) {
@@ -66,7 +61,7 @@ public final class TypedArrayKt {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public static final float getDimensionOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final float getDimensionOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, typedArray, i)) == null) {
@@ -76,8 +71,7 @@ public final class TypedArrayKt {
         return invokeLI.floatValue;
     }
 
-    @Dimension
-    public static final int getDimensionPixelOffsetOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final int getDimensionPixelOffsetOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, typedArray, i)) == null) {
@@ -87,8 +81,7 @@ public final class TypedArrayKt {
         return invokeLI.intValue;
     }
 
-    @Dimension
-    public static final int getDimensionPixelSizeOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final int getDimensionPixelSizeOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, typedArray, i)) == null) {
@@ -98,7 +91,7 @@ public final class TypedArrayKt {
         return invokeLI.intValue;
     }
 
-    public static final Drawable getDrawableOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final Drawable getDrawableOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, typedArray, i)) == null) {
@@ -112,7 +105,7 @@ public final class TypedArrayKt {
         return (Drawable) invokeLI.objValue;
     }
 
-    public static final float getFloatOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final float getFloatOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, typedArray, i)) == null) {
@@ -122,8 +115,7 @@ public final class TypedArrayKt {
         return invokeLI.floatValue;
     }
 
-    @RequiresApi(26)
-    public static final Typeface getFontOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final Typeface getFontOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, typedArray, i)) == null) {
@@ -137,7 +129,7 @@ public final class TypedArrayKt {
         return (Typeface) invokeLI.objValue;
     }
 
-    public static final int getIntOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final int getIntOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, typedArray, i)) == null) {
@@ -147,7 +139,7 @@ public final class TypedArrayKt {
         return invokeLI.intValue;
     }
 
-    public static final int getIntegerOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final int getIntegerOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, typedArray, i)) == null) {
@@ -157,8 +149,7 @@ public final class TypedArrayKt {
         return invokeLI.intValue;
     }
 
-    @AnyRes
-    public static final int getResourceIdOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final int getResourceIdOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, typedArray, i)) == null) {
@@ -168,7 +159,7 @@ public final class TypedArrayKt {
         return invokeLI.intValue;
     }
 
-    public static final String getStringOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final String getStringOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, typedArray, i)) == null) {
@@ -182,7 +173,7 @@ public final class TypedArrayKt {
         return (String) invokeLI.objValue;
     }
 
-    public static final CharSequence[] getTextArrayOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final CharSequence[] getTextArrayOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, typedArray, i)) == null) {
@@ -194,7 +185,7 @@ public final class TypedArrayKt {
         return (CharSequence[]) invokeLI.objValue;
     }
 
-    public static final CharSequence getTextOrThrow(TypedArray typedArray, @StyleableRes int i) {
+    public static final CharSequence getTextOrThrow(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, typedArray, i)) == null) {
@@ -212,9 +203,9 @@ public final class TypedArrayKt {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, typedArray, function1)) == null) {
-            R invoke = function1.invoke(typedArray);
+            R r = (R) function1.invoke(typedArray);
             typedArray.recycle();
-            return invoke;
+            return r;
         }
         return (R) invokeLL.objValue;
     }

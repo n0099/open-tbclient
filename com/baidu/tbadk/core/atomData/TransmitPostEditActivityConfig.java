@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPostEditActivityConfig> {
+public class TransmitPostEditActivityConfig extends BaseWriteConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIJIAHAO_DATA = "baijiahao_data";
     public static final String FROM_SHARE = "from_share";
@@ -49,7 +49,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            ej.N(context, antiData.getForbid_info());
+            fj.N(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);
@@ -60,7 +60,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
             getIntent().putExtra("thread_id", str3);
         }
         if (postPrefixData != null) {
-            getIntent().putExtra("prefix_data", postPrefixData);
+            getIntent().putExtra(BaseWriteConfig.PREFIX_DATA, postPrefixData);
         }
         if (shareInfo != null) {
             getIntent().putExtra(KEY_ORIGINAL_THREAD, shareInfo);
@@ -69,66 +69,79 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
 
     public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, baijiahaoData) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, baijiahaoData) == null) && getIntent() != null) {
+            getIntent().putExtra(BAIJIAHAO_DATA, baijiahaoData);
         }
-        getIntent().putExtra(BAIJIAHAO_DATA, baijiahaoData);
     }
 
     public void setCallFrom(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(BaseWriteConfig.KEY_CALL_FROM, str);
         }
-        getIntent().putExtra(BaseWriteConfig.KEY_CALL_FROM, str);
     }
 
     public void setForumLevel(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(BaseWriteConfig.KEY_WRITE_LEVEL, i);
         }
-        getIntent().putExtra(BaseWriteConfig.KEY_WRITE_LEVEL, i);
     }
 
     public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, frsTabInfoData) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, frsTabInfoData) == null) && getIntent() != null) {
+            getIntent().putExtra("tab_list", frsTabInfoData);
         }
-        getIntent().putExtra("tab_list", frsTabInfoData);
     }
 
     public void setIsShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra("from_share", z);
         }
-        getIntent().putExtra("from_share", z);
     }
 
     public void setMoreForumTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("more_forum_title", str);
         }
-        getIntent().putExtra("more_forum_title", str);
     }
 
     public void setMoreForumUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("more_forum_url", str);
         }
-        getIntent().putExtra("more_forum_url", str);
     }
 
     public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(BaseWriteConfig.PRIVATE_THREAD, i);
         }
-        getIntent().putExtra(BaseWriteConfig.PRIVATE_THREAD, i);
+    }
+
+    public void setTopicId(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("topic_id", str);
+        }
+    }
+
+    public void setTransmitOriginThreadComment(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(TRANSMIT_ORIGIN_THREAD_CONTENT, str);
+        }
+    }
+
+    public void setTransmitThreadAuthorNameShow(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
+        }
     }
 
     public void setTitleAndContent(String str, String str2, boolean z) {
@@ -138,29 +151,5 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
             getIntent().putExtra(BaseWriteConfig.CONTENT, str2);
             getIntent().putExtra(BaseWriteConfig.IS_SAVE_DRAFTE, z);
         }
-    }
-
-    public void setTopicId(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("topic_id", str);
-    }
-
-    public void setTransmitOriginThreadComment(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TRANSMIT_ORIGIN_THREAD_CONTENT, str);
-    }
-
-    public void setTransmitThreadAuthorNameShow(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
     }
 }

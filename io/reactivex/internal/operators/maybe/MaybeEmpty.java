@@ -13,10 +13,20 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.fuseable.ScalarCallable;
 /* loaded from: classes8.dex */
-public final class MaybeEmpty extends Maybe<Object> implements ScalarCallable<Object> {
+public final class MaybeEmpty extends Maybe implements ScalarCallable {
     public static /* synthetic */ Interceptable $ic;
     public static final MaybeEmpty INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
+    public Object call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,18 +58,8 @@ public final class MaybeEmpty extends Maybe<Object> implements ScalarCallable<Ob
         }
     }
 
-    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
-    public Object call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return invokeV.objValue;
-    }
-
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super Object> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             EmptyDisposable.complete(maybeObserver);

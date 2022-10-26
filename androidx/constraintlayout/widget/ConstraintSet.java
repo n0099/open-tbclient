@@ -165,6 +165,32 @@ public class ConstraintSet {
     public HashMap<String, ConstraintAttribute> mSavedAttributes;
     public boolean mValidate;
 
+    private String sideToString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "left";
+                case 2:
+                    return "right";
+                case 3:
+                    return "top";
+                case 4:
+                    return "bottom";
+                case 5:
+                    return "baseline";
+                case 6:
+                    return "start";
+                case 7:
+                    return "end";
+                default:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
     /* loaded from: classes.dex */
     public static class Constraint {
         public static /* synthetic */ Interceptable $ic;
@@ -194,6 +220,23 @@ public class ConstraintSet {
             this.layout = new Layout();
             this.transform = new Transform();
             this.mCustomConstraints = new HashMap<>();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* renamed from: clone */
+        public Constraint m2clone() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                Constraint constraint = new Constraint();
+                constraint.layout.copyFrom(this.layout);
+                constraint.motion.copyFrom(this.motion);
+                constraint.propertySet.copyFrom(this.propertySet);
+                constraint.transform.copyFrom(this.transform);
+                constraint.mViewId = this.mViewId;
+                return constraint;
+            }
+            return (Constraint) invokeV.objValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -262,6 +305,46 @@ public class ConstraintSet {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
+        public void fillFromConstraints(int i, Constraints.LayoutParams layoutParams) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(65545, this, i, layoutParams) == null) {
+                fillFrom(i, layoutParams);
+                this.propertySet.alpha = layoutParams.alpha;
+                Transform transform = this.transform;
+                transform.rotation = layoutParams.rotation;
+                transform.rotationX = layoutParams.rotationX;
+                transform.rotationY = layoutParams.rotationY;
+                transform.scaleX = layoutParams.scaleX;
+                transform.scaleY = layoutParams.scaleY;
+                transform.transformPivotX = layoutParams.transformPivotX;
+                transform.transformPivotY = layoutParams.transformPivotY;
+                transform.translationX = layoutParams.translationX;
+                transform.translationY = layoutParams.translationY;
+                transform.translationZ = layoutParams.translationZ;
+                transform.elevation = layoutParams.elevation;
+                transform.applyElevation = layoutParams.applyElevation;
+            }
+        }
+
+        private ConstraintAttribute get(String str, ConstraintAttribute.AttributeType attributeType) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, str, attributeType)) == null) {
+                if (this.mCustomConstraints.containsKey(str)) {
+                    ConstraintAttribute constraintAttribute = this.mCustomConstraints.get(str);
+                    if (constraintAttribute.getType() != attributeType) {
+                        throw new IllegalArgumentException("ConstraintAttribute is already a " + constraintAttribute.getType().name());
+                    }
+                    return constraintAttribute;
+                }
+                ConstraintAttribute constraintAttribute2 = new ConstraintAttribute(str, attributeType);
+                this.mCustomConstraints.put(str, constraintAttribute2);
+                return constraintAttribute2;
+            }
+            return (ConstraintAttribute) invokeLL.objValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
         public void fillFromConstraints(ConstraintHelper constraintHelper, int i, Constraints.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(65546, this, constraintHelper, i, layoutParams) == null) {
@@ -275,24 +358,6 @@ public class ConstraintSet {
                     this.layout.mBarrierMargin = barrier.getMargin();
                 }
             }
-        }
-
-        private ConstraintAttribute get(String str, ConstraintAttribute.AttributeType attributeType) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, str, attributeType)) == null) {
-                if (this.mCustomConstraints.containsKey(str)) {
-                    ConstraintAttribute constraintAttribute = this.mCustomConstraints.get(str);
-                    if (constraintAttribute.getType() == attributeType) {
-                        return constraintAttribute;
-                    }
-                    throw new IllegalArgumentException("ConstraintAttribute is already a " + constraintAttribute.getType().name());
-                }
-                ConstraintAttribute constraintAttribute2 = new ConstraintAttribute(str, attributeType);
-                this.mCustomConstraints.put(str, constraintAttribute2);
-                return constraintAttribute2;
-            }
-            return (ConstraintAttribute) invokeLL.objValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -389,45 +454,6 @@ public class ConstraintSet {
                     layoutParams.setMarginEnd(this.layout.endMargin);
                 }
                 layoutParams.validate();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* renamed from: clone */
-        public Constraint m2clone() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Constraint constraint = new Constraint();
-                constraint.layout.copyFrom(this.layout);
-                constraint.motion.copyFrom(this.motion);
-                constraint.propertySet.copyFrom(this.propertySet);
-                constraint.transform.copyFrom(this.transform);
-                constraint.mViewId = this.mViewId;
-                return constraint;
-            }
-            return (Constraint) invokeV.objValue;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void fillFromConstraints(int i, Constraints.LayoutParams layoutParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65545, this, i, layoutParams) == null) {
-                fillFrom(i, layoutParams);
-                this.propertySet.alpha = layoutParams.alpha;
-                Transform transform = this.transform;
-                transform.rotation = layoutParams.rotation;
-                transform.rotationX = layoutParams.rotationX;
-                transform.rotationY = layoutParams.rotationY;
-                transform.scaleX = layoutParams.scaleX;
-                transform.scaleY = layoutParams.scaleY;
-                transform.transformPivotX = layoutParams.transformPivotX;
-                transform.transformPivotY = layoutParams.transformPivotY;
-                transform.translationX = layoutParams.translationX;
-                transform.translationY = layoutParams.translationY;
-                transform.translationZ = layoutParams.translationZ;
-                transform.elevation = layoutParams.elevation;
-                transform.applyElevation = layoutParams.applyElevation;
             }
         }
     }
@@ -817,210 +843,212 @@ public class ConstraintSet {
                 for (int i = 0; i < indexCount; i++) {
                     int index = obtainStyledAttributes.getIndex(i);
                     int i2 = mapToConstant.get(index);
-                    if (i2 == 80) {
-                        this.constrainedWidth = obtainStyledAttributes.getBoolean(index, this.constrainedWidth);
-                    } else if (i2 != 81) {
-                        switch (i2) {
-                            case 1:
-                                this.baselineToBaseline = ConstraintSet.lookupID(obtainStyledAttributes, index, this.baselineToBaseline);
-                                continue;
-                            case 2:
-                                this.bottomMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.bottomMargin);
-                                continue;
-                            case 3:
-                                this.bottomToBottom = ConstraintSet.lookupID(obtainStyledAttributes, index, this.bottomToBottom);
-                                continue;
-                            case 4:
-                                this.bottomToTop = ConstraintSet.lookupID(obtainStyledAttributes, index, this.bottomToTop);
-                                continue;
-                            case 5:
-                                this.dimensionRatio = obtainStyledAttributes.getString(index);
-                                continue;
-                            case 6:
-                                this.editorAbsoluteX = obtainStyledAttributes.getDimensionPixelOffset(index, this.editorAbsoluteX);
-                                continue;
-                            case 7:
-                                this.editorAbsoluteY = obtainStyledAttributes.getDimensionPixelOffset(index, this.editorAbsoluteY);
-                                continue;
-                            case 8:
-                                if (Build.VERSION.SDK_INT >= 17) {
-                                    this.endMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.endMargin);
-                                    break;
-                                } else {
+                    if (i2 != 80) {
+                        if (i2 != 81) {
+                            switch (i2) {
+                                case 1:
+                                    this.baselineToBaseline = ConstraintSet.lookupID(obtainStyledAttributes, index, this.baselineToBaseline);
                                     continue;
-                                }
-                            case 9:
-                                this.endToEnd = ConstraintSet.lookupID(obtainStyledAttributes, index, this.endToEnd);
-                                continue;
-                            case 10:
-                                this.endToStart = ConstraintSet.lookupID(obtainStyledAttributes, index, this.endToStart);
-                                continue;
-                            case 11:
-                                this.goneBottomMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneBottomMargin);
-                                continue;
-                            case 12:
-                                this.goneEndMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneEndMargin);
-                                continue;
-                            case 13:
-                                this.goneLeftMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneLeftMargin);
-                                continue;
-                            case 14:
-                                this.goneRightMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneRightMargin);
-                                continue;
-                            case 15:
-                                this.goneStartMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneStartMargin);
-                                continue;
-                            case 16:
-                                this.goneTopMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneTopMargin);
-                                continue;
-                            case 17:
-                                this.guideBegin = obtainStyledAttributes.getDimensionPixelOffset(index, this.guideBegin);
-                                continue;
-                            case 18:
-                                this.guideEnd = obtainStyledAttributes.getDimensionPixelOffset(index, this.guideEnd);
-                                continue;
-                            case 19:
-                                this.guidePercent = obtainStyledAttributes.getFloat(index, this.guidePercent);
-                                continue;
-                            case 20:
-                                this.horizontalBias = obtainStyledAttributes.getFloat(index, this.horizontalBias);
-                                continue;
-                            case 21:
-                                this.mHeight = obtainStyledAttributes.getLayoutDimension(index, this.mHeight);
-                                continue;
-                            case 22:
-                                this.mWidth = obtainStyledAttributes.getLayoutDimension(index, this.mWidth);
-                                continue;
-                            case 23:
-                                this.leftMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.leftMargin);
-                                continue;
-                            case 24:
-                                this.leftToLeft = ConstraintSet.lookupID(obtainStyledAttributes, index, this.leftToLeft);
-                                continue;
-                            case 25:
-                                this.leftToRight = ConstraintSet.lookupID(obtainStyledAttributes, index, this.leftToRight);
-                                continue;
-                            case 26:
-                                this.orientation = obtainStyledAttributes.getInt(index, this.orientation);
-                                continue;
-                            case 27:
-                                this.rightMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.rightMargin);
-                                continue;
-                            case 28:
-                                this.rightToLeft = ConstraintSet.lookupID(obtainStyledAttributes, index, this.rightToLeft);
-                                continue;
-                            case 29:
-                                this.rightToRight = ConstraintSet.lookupID(obtainStyledAttributes, index, this.rightToRight);
-                                continue;
-                            case 30:
-                                if (Build.VERSION.SDK_INT >= 17) {
-                                    this.startMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.startMargin);
-                                    break;
-                                } else {
+                                case 2:
+                                    this.bottomMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.bottomMargin);
                                     continue;
-                                }
-                            case 31:
-                                this.startToEnd = ConstraintSet.lookupID(obtainStyledAttributes, index, this.startToEnd);
-                                continue;
-                            case 32:
-                                this.startToStart = ConstraintSet.lookupID(obtainStyledAttributes, index, this.startToStart);
-                                continue;
-                            case 33:
-                                this.topMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.topMargin);
-                                continue;
-                            case 34:
-                                this.topToBottom = ConstraintSet.lookupID(obtainStyledAttributes, index, this.topToBottom);
-                                continue;
-                            case 35:
-                                this.topToTop = ConstraintSet.lookupID(obtainStyledAttributes, index, this.topToTop);
-                                continue;
-                            case 36:
-                                this.verticalBias = obtainStyledAttributes.getFloat(index, this.verticalBias);
-                                continue;
-                            case 37:
-                                this.horizontalWeight = obtainStyledAttributes.getFloat(index, this.horizontalWeight);
-                                continue;
-                            case 38:
-                                this.verticalWeight = obtainStyledAttributes.getFloat(index, this.verticalWeight);
-                                continue;
-                            case 39:
-                                this.horizontalChainStyle = obtainStyledAttributes.getInt(index, this.horizontalChainStyle);
-                                continue;
-                            case 40:
-                                this.verticalChainStyle = obtainStyledAttributes.getInt(index, this.verticalChainStyle);
-                                continue;
-                            default:
-                                switch (i2) {
-                                    case 54:
-                                        this.widthDefault = obtainStyledAttributes.getInt(index, this.widthDefault);
+                                case 3:
+                                    this.bottomToBottom = ConstraintSet.lookupID(obtainStyledAttributes, index, this.bottomToBottom);
+                                    continue;
+                                case 4:
+                                    this.bottomToTop = ConstraintSet.lookupID(obtainStyledAttributes, index, this.bottomToTop);
+                                    continue;
+                                case 5:
+                                    this.dimensionRatio = obtainStyledAttributes.getString(index);
+                                    continue;
+                                case 6:
+                                    this.editorAbsoluteX = obtainStyledAttributes.getDimensionPixelOffset(index, this.editorAbsoluteX);
+                                    continue;
+                                case 7:
+                                    this.editorAbsoluteY = obtainStyledAttributes.getDimensionPixelOffset(index, this.editorAbsoluteY);
+                                    continue;
+                                case 8:
+                                    if (Build.VERSION.SDK_INT >= 17) {
+                                        this.endMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.endMargin);
+                                        break;
+                                    } else {
                                         continue;
-                                    case 55:
-                                        this.heightDefault = obtainStyledAttributes.getInt(index, this.heightDefault);
+                                    }
+                                case 9:
+                                    this.endToEnd = ConstraintSet.lookupID(obtainStyledAttributes, index, this.endToEnd);
+                                    continue;
+                                case 10:
+                                    this.endToStart = ConstraintSet.lookupID(obtainStyledAttributes, index, this.endToStart);
+                                    continue;
+                                case 11:
+                                    this.goneBottomMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneBottomMargin);
+                                    continue;
+                                case 12:
+                                    this.goneEndMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneEndMargin);
+                                    continue;
+                                case 13:
+                                    this.goneLeftMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneLeftMargin);
+                                    continue;
+                                case 14:
+                                    this.goneRightMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneRightMargin);
+                                    continue;
+                                case 15:
+                                    this.goneStartMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneStartMargin);
+                                    continue;
+                                case 16:
+                                    this.goneTopMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.goneTopMargin);
+                                    continue;
+                                case 17:
+                                    this.guideBegin = obtainStyledAttributes.getDimensionPixelOffset(index, this.guideBegin);
+                                    continue;
+                                case 18:
+                                    this.guideEnd = obtainStyledAttributes.getDimensionPixelOffset(index, this.guideEnd);
+                                    continue;
+                                case 19:
+                                    this.guidePercent = obtainStyledAttributes.getFloat(index, this.guidePercent);
+                                    continue;
+                                case 20:
+                                    this.horizontalBias = obtainStyledAttributes.getFloat(index, this.horizontalBias);
+                                    continue;
+                                case 21:
+                                    this.mHeight = obtainStyledAttributes.getLayoutDimension(index, this.mHeight);
+                                    continue;
+                                case 22:
+                                    this.mWidth = obtainStyledAttributes.getLayoutDimension(index, this.mWidth);
+                                    continue;
+                                case 23:
+                                    this.leftMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.leftMargin);
+                                    continue;
+                                case 24:
+                                    this.leftToLeft = ConstraintSet.lookupID(obtainStyledAttributes, index, this.leftToLeft);
+                                    continue;
+                                case 25:
+                                    this.leftToRight = ConstraintSet.lookupID(obtainStyledAttributes, index, this.leftToRight);
+                                    continue;
+                                case 26:
+                                    this.orientation = obtainStyledAttributes.getInt(index, this.orientation);
+                                    continue;
+                                case 27:
+                                    this.rightMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.rightMargin);
+                                    continue;
+                                case 28:
+                                    this.rightToLeft = ConstraintSet.lookupID(obtainStyledAttributes, index, this.rightToLeft);
+                                    continue;
+                                case 29:
+                                    this.rightToRight = ConstraintSet.lookupID(obtainStyledAttributes, index, this.rightToRight);
+                                    continue;
+                                case 30:
+                                    if (Build.VERSION.SDK_INT >= 17) {
+                                        this.startMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.startMargin);
+                                        break;
+                                    } else {
                                         continue;
-                                    case 56:
-                                        this.widthMax = obtainStyledAttributes.getDimensionPixelSize(index, this.widthMax);
-                                        continue;
-                                    case 57:
-                                        this.heightMax = obtainStyledAttributes.getDimensionPixelSize(index, this.heightMax);
-                                        continue;
-                                    case 58:
-                                        this.widthMin = obtainStyledAttributes.getDimensionPixelSize(index, this.widthMin);
-                                        continue;
-                                    case 59:
-                                        this.heightMin = obtainStyledAttributes.getDimensionPixelSize(index, this.heightMin);
-                                        continue;
-                                    default:
-                                        switch (i2) {
-                                            case 61:
-                                                this.circleConstraint = ConstraintSet.lookupID(obtainStyledAttributes, index, this.circleConstraint);
-                                                continue;
-                                            case 62:
-                                                this.circleRadius = obtainStyledAttributes.getDimensionPixelSize(index, this.circleRadius);
-                                                continue;
-                                            case 63:
-                                                this.circleAngle = obtainStyledAttributes.getFloat(index, this.circleAngle);
-                                                continue;
-                                            default:
-                                                switch (i2) {
-                                                    case 69:
-                                                        this.widthPercent = obtainStyledAttributes.getFloat(index, 1.0f);
-                                                        continue;
-                                                    case 70:
-                                                        this.heightPercent = obtainStyledAttributes.getFloat(index, 1.0f);
-                                                        continue;
-                                                    case 71:
-                                                        Log.e(ConstraintSet.TAG, "CURRENTLY UNSUPPORTED");
-                                                        continue;
-                                                    case 72:
-                                                        this.mBarrierDirection = obtainStyledAttributes.getInt(index, this.mBarrierDirection);
-                                                        continue;
-                                                    case 73:
-                                                        this.mBarrierMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.mBarrierMargin);
-                                                        continue;
-                                                    case 74:
-                                                        this.mReferenceIdString = obtainStyledAttributes.getString(index);
-                                                        continue;
-                                                    case 75:
-                                                        this.mBarrierAllowsGoneWidgets = obtainStyledAttributes.getBoolean(index, this.mBarrierAllowsGoneWidgets);
-                                                        continue;
-                                                    case 76:
-                                                        Log.w(ConstraintSet.TAG, "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
-                                                        continue;
-                                                    case 77:
-                                                        this.mConstraintTag = obtainStyledAttributes.getString(index);
-                                                        continue;
-                                                    default:
-                                                        Log.w(ConstraintSet.TAG, "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
-                                                        continue;
-                                                        continue;
-                                                        continue;
-                                                        continue;
-                                                }
-                                        }
-                                }
+                                    }
+                                case 31:
+                                    this.startToEnd = ConstraintSet.lookupID(obtainStyledAttributes, index, this.startToEnd);
+                                    continue;
+                                case 32:
+                                    this.startToStart = ConstraintSet.lookupID(obtainStyledAttributes, index, this.startToStart);
+                                    continue;
+                                case 33:
+                                    this.topMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.topMargin);
+                                    continue;
+                                case 34:
+                                    this.topToBottom = ConstraintSet.lookupID(obtainStyledAttributes, index, this.topToBottom);
+                                    continue;
+                                case 35:
+                                    this.topToTop = ConstraintSet.lookupID(obtainStyledAttributes, index, this.topToTop);
+                                    continue;
+                                case 36:
+                                    this.verticalBias = obtainStyledAttributes.getFloat(index, this.verticalBias);
+                                    continue;
+                                case 37:
+                                    this.horizontalWeight = obtainStyledAttributes.getFloat(index, this.horizontalWeight);
+                                    continue;
+                                case 38:
+                                    this.verticalWeight = obtainStyledAttributes.getFloat(index, this.verticalWeight);
+                                    continue;
+                                case 39:
+                                    this.horizontalChainStyle = obtainStyledAttributes.getInt(index, this.horizontalChainStyle);
+                                    continue;
+                                case 40:
+                                    this.verticalChainStyle = obtainStyledAttributes.getInt(index, this.verticalChainStyle);
+                                    continue;
+                                default:
+                                    switch (i2) {
+                                        case 54:
+                                            this.widthDefault = obtainStyledAttributes.getInt(index, this.widthDefault);
+                                            continue;
+                                        case 55:
+                                            this.heightDefault = obtainStyledAttributes.getInt(index, this.heightDefault);
+                                            continue;
+                                        case 56:
+                                            this.widthMax = obtainStyledAttributes.getDimensionPixelSize(index, this.widthMax);
+                                            continue;
+                                        case 57:
+                                            this.heightMax = obtainStyledAttributes.getDimensionPixelSize(index, this.heightMax);
+                                            continue;
+                                        case 58:
+                                            this.widthMin = obtainStyledAttributes.getDimensionPixelSize(index, this.widthMin);
+                                            continue;
+                                        case 59:
+                                            this.heightMin = obtainStyledAttributes.getDimensionPixelSize(index, this.heightMin);
+                                            continue;
+                                        default:
+                                            switch (i2) {
+                                                case 61:
+                                                    this.circleConstraint = ConstraintSet.lookupID(obtainStyledAttributes, index, this.circleConstraint);
+                                                    continue;
+                                                case 62:
+                                                    this.circleRadius = obtainStyledAttributes.getDimensionPixelSize(index, this.circleRadius);
+                                                    continue;
+                                                case 63:
+                                                    this.circleAngle = obtainStyledAttributes.getFloat(index, this.circleAngle);
+                                                    continue;
+                                                default:
+                                                    switch (i2) {
+                                                        case 69:
+                                                            this.widthPercent = obtainStyledAttributes.getFloat(index, 1.0f);
+                                                            continue;
+                                                        case 70:
+                                                            this.heightPercent = obtainStyledAttributes.getFloat(index, 1.0f);
+                                                            continue;
+                                                        case 71:
+                                                            Log.e(ConstraintSet.TAG, "CURRENTLY UNSUPPORTED");
+                                                            continue;
+                                                        case 72:
+                                                            this.mBarrierDirection = obtainStyledAttributes.getInt(index, this.mBarrierDirection);
+                                                            continue;
+                                                        case 73:
+                                                            this.mBarrierMargin = obtainStyledAttributes.getDimensionPixelSize(index, this.mBarrierMargin);
+                                                            continue;
+                                                        case 74:
+                                                            this.mReferenceIdString = obtainStyledAttributes.getString(index);
+                                                            continue;
+                                                        case 75:
+                                                            this.mBarrierAllowsGoneWidgets = obtainStyledAttributes.getBoolean(index, this.mBarrierAllowsGoneWidgets);
+                                                            continue;
+                                                        case 76:
+                                                            Log.w(ConstraintSet.TAG, "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+                                                            continue;
+                                                        case 77:
+                                                            this.mConstraintTag = obtainStyledAttributes.getString(index);
+                                                            continue;
+                                                        default:
+                                                            Log.w(ConstraintSet.TAG, "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+                                                            continue;
+                                                            continue;
+                                                            continue;
+                                                            continue;
+                                                    }
+                                            }
+                                    }
+                            }
+                        } else {
+                            this.constrainedHeight = obtainStyledAttributes.getBoolean(index, this.constrainedHeight);
                         }
                     } else {
-                        this.constrainedHeight = obtainStyledAttributes.getBoolean(index, this.constrainedHeight);
+                        this.constrainedWidth = obtainStyledAttributes.getBoolean(index, this.constrainedWidth);
                     }
                 }
                 obtainStyledAttributes.recycle();
@@ -1494,6 +1522,80 @@ public class ConstraintSet {
         this.mConstraints = new HashMap<>();
     }
 
+    public int[] getKnownIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            Integer[] numArr = (Integer[]) this.mConstraints.keySet().toArray(new Integer[0]);
+            int length = numArr.length;
+            int[] iArr = new int[length];
+            for (int i = 0; i < length; i++) {
+                iArr[i] = numArr[i].intValue();
+            }
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public static int lookupID(TypedArray typedArray, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, typedArray, i, i2)) == null) {
+            int resourceId = typedArray.getResourceId(i, i2);
+            if (resourceId == -1) {
+                return typedArray.getInt(i, -1);
+            }
+            return resourceId;
+        }
+        return invokeLII.intValue;
+    }
+
+    public void setColorValue(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            get(i).setColorValue(str, i2);
+        }
+    }
+
+    public void setFloatValue(int i, String str, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048653, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) == null) {
+            get(i).setFloatValue(str, f);
+        }
+    }
+
+    public void setIntValue(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048662, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            get(i).setIntValue(str, i2);
+        }
+    }
+
+    public void setStringValue(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048670, this, i, str, str2) == null) {
+            get(i).setStringValue(str, str2);
+        }
+    }
+
+    public HashMap<String, ConstraintAttribute> getCustomAttributeSet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            return this.mSavedAttributes;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public boolean isForceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            return this.mForceId;
+        }
+        return invokeV.booleanValue;
+    }
+
     private void addAttributes(ConstraintAttribute.AttributeType attributeType, String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeType, strArr) == null) {
@@ -1505,6 +1607,82 @@ public class ConstraintSet {
                     }
                 } else {
                     this.mSavedAttributes.put(strArr[i], new ConstraintAttribute(strArr[i], attributeType));
+                }
+            }
+        }
+    }
+
+    public void load(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048634, this, context, i) == null) {
+            XmlResourceParser xml = context.getResources().getXml(i);
+            try {
+                for (int eventType = xml.getEventType(); eventType != 1; eventType = xml.next()) {
+                    if (eventType != 0) {
+                        if (eventType != 2) {
+                            continue;
+                        } else {
+                            String name = xml.getName();
+                            Constraint fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xml));
+                            if (name.equalsIgnoreCase("Guideline")) {
+                                fillFromAttributeList.layout.mIsGuideline = true;
+                            }
+                            this.mConstraints.put(Integer.valueOf(fillFromAttributeList.mViewId), fillFromAttributeList);
+                            continue;
+                        }
+                    } else {
+                        xml.getName();
+                        continue;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (XmlPullParserException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void parseColorAttributes(Constraint constraint, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048636, this, constraint, str) == null) {
+            String[] split = str.split(",");
+            for (int i = 0; i < split.length; i++) {
+                String[] split2 = split[i].split("=");
+                if (split2.length == 2) {
+                    constraint.setColorValue(split2[0], Color.parseColor(split2[1]));
+                } else {
+                    Log.w(TAG, " Unable to parse " + split[i]);
+                }
+            }
+        }
+    }
+
+    public void parseFloatAttributes(Constraint constraint, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048637, this, constraint, str) == null) {
+            String[] split = str.split(",");
+            for (int i = 0; i < split.length; i++) {
+                String[] split2 = split[i].split("=");
+                if (split2.length == 2) {
+                    constraint.setFloatValue(split2[0], Float.parseFloat(split2[1]));
+                } else {
+                    Log.w(TAG, " Unable to parse " + split[i]);
+                }
+            }
+        }
+    }
+
+    public void parseIntAttributes(Constraint constraint, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048638, this, constraint, str) == null) {
+            String[] split = str.split(",");
+            for (int i = 0; i < split.length; i++) {
+                String[] split2 = split[i].split("=");
+                if (split2.length == 2) {
+                    constraint.setFloatValue(split2[0], Integer.decode(split2[1]).intValue());
+                } else {
+                    Log.w(TAG, " Unable to parse " + split[i]);
                 }
             }
         }
@@ -1538,9 +1716,123 @@ public class ConstraintSet {
                 i2++;
                 i3++;
             }
-            return i3 != split.length ? Arrays.copyOf(iArr, i3) : iArr;
+            if (i3 != split.length) {
+                return Arrays.copyOf(iArr, i3);
+            }
+            return iArr;
         }
         return (int[]) invokeLL.objValue;
+    }
+
+    public void clear(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) && this.mConstraints.containsKey(Integer.valueOf(i))) {
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
+            switch (i2) {
+                case 1:
+                    Layout layout = constraint.layout;
+                    layout.leftToRight = -1;
+                    layout.leftToLeft = -1;
+                    layout.leftMargin = -1;
+                    layout.goneLeftMargin = -1;
+                    return;
+                case 2:
+                    Layout layout2 = constraint.layout;
+                    layout2.rightToRight = -1;
+                    layout2.rightToLeft = -1;
+                    layout2.rightMargin = -1;
+                    layout2.goneRightMargin = -1;
+                    return;
+                case 3:
+                    Layout layout3 = constraint.layout;
+                    layout3.topToBottom = -1;
+                    layout3.topToTop = -1;
+                    layout3.topMargin = -1;
+                    layout3.goneTopMargin = -1;
+                    return;
+                case 4:
+                    Layout layout4 = constraint.layout;
+                    layout4.bottomToTop = -1;
+                    layout4.bottomToBottom = -1;
+                    layout4.bottomMargin = -1;
+                    layout4.goneBottomMargin = -1;
+                    return;
+                case 5:
+                    constraint.layout.baselineToBaseline = -1;
+                    return;
+                case 6:
+                    Layout layout5 = constraint.layout;
+                    layout5.startToEnd = -1;
+                    layout5.startToStart = -1;
+                    layout5.startMargin = -1;
+                    layout5.goneStartMargin = -1;
+                    return;
+                case 7:
+                    Layout layout6 = constraint.layout;
+                    layout6.endToStart = -1;
+                    layout6.endToEnd = -1;
+                    layout6.endMargin = -1;
+                    layout6.goneEndMargin = -1;
+                    return;
+                default:
+                    throw new IllegalArgumentException("unknown constraint");
+            }
+        }
+    }
+
+    public void dump(MotionScene motionScene, int... iArr) {
+        HashSet hashSet;
+        Integer[] numArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048622, this, motionScene, iArr) == null) {
+            Set<Integer> keySet = this.mConstraints.keySet();
+            if (iArr.length != 0) {
+                hashSet = new HashSet();
+                for (int i : iArr) {
+                    hashSet.add(Integer.valueOf(i));
+                }
+            } else {
+                hashSet = new HashSet(keySet);
+            }
+            System.out.println(hashSet.size() + " constraints");
+            StringBuilder sb = new StringBuilder();
+            for (Integer num : (Integer[]) hashSet.toArray(new Integer[0])) {
+                sb.append("<Constraint id=");
+                sb.append(num);
+                sb.append(" \n");
+                this.mConstraints.get(num).layout.dump(motionScene, sb);
+                sb.append("/>\n");
+            }
+            System.out.println(sb.toString());
+        }
+    }
+
+    private void createHorizontalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5, int i6, int i7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, fArr, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+            if (iArr.length >= 2) {
+                if (fArr != null && fArr.length != iArr.length) {
+                    throw new IllegalArgumentException("must have 2 or more widgets in a chain");
+                }
+                if (fArr != null) {
+                    get(iArr[0]).layout.horizontalWeight = fArr[0];
+                }
+                get(iArr[0]).layout.horizontalChainStyle = i5;
+                connect(iArr[0], i6, i, i2, -1);
+                for (int i8 = 1; i8 < iArr.length; i8++) {
+                    int i9 = iArr[i8];
+                    int i10 = i8 - 1;
+                    connect(iArr[i8], i6, iArr[i10], i7, -1);
+                    connect(iArr[i10], i7, iArr[i8], i6, -1);
+                    if (fArr != null) {
+                        get(iArr[i8]).layout.horizontalWeight = fArr[i8];
+                    }
+                }
+                connect(iArr[iArr.length - 1], i7, i3, i4, -1);
+                return;
+            }
+            throw new IllegalArgumentException("must have 2 or more widgets in a chain");
+        }
     }
 
     private Constraint fillFromAttributeList(Context context, AttributeSet attributeSet) {
@@ -1556,6 +1848,339 @@ public class ConstraintSet {
         return (Constraint) invokeLL.objValue;
     }
 
+    public void applyToLayoutParams(int i, ConstraintLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048587, this, i, layoutParams) == null) && this.mConstraints.containsKey(Integer.valueOf(i))) {
+            this.mConstraints.get(Integer.valueOf(i)).applyTo(layoutParams);
+        }
+    }
+
+    public void centerHorizontally(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+            if (i2 == 0) {
+                center(i, 0, 1, 0, 0, 2, 0, 0.5f);
+            } else {
+                center(i, i2, 2, 0, i2, 1, 0, 0.5f);
+            }
+        }
+    }
+
+    public void centerHorizontallyRtl(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+            if (i2 == 0) {
+                center(i, 0, 6, 0, 0, 7, 0, 0.5f);
+            } else {
+                center(i, i2, 7, 0, i2, 6, 0, 0.5f);
+            }
+        }
+    }
+
+    public void centerVertically(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
+            if (i2 == 0) {
+                center(i, 0, 3, 0, 0, 4, 0, 0.5f);
+            } else {
+                center(i, i2, 4, 0, i2, 3, 0, 0.5f);
+            }
+        }
+    }
+
+    public void clone(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) {
+            clone((ConstraintLayout) LayoutInflater.from(context).inflate(i, (ViewGroup) null));
+        }
+    }
+
+    public void constrainDefaultHeight(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048605, this, i, i2) == null) {
+            get(i).layout.heightDefault = i2;
+        }
+    }
+
+    public void constrainDefaultWidth(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048606, this, i, i2) == null) {
+            get(i).layout.widthDefault = i2;
+        }
+    }
+
+    public void constrainHeight(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048607, this, i, i2) == null) {
+            get(i).layout.mHeight = i2;
+        }
+    }
+
+    public void constrainMaxHeight(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048608, this, i, i2) == null) {
+            get(i).layout.heightMax = i2;
+        }
+    }
+
+    public void constrainMaxWidth(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048609, this, i, i2) == null) {
+            get(i).layout.widthMax = i2;
+        }
+    }
+
+    public void constrainMinHeight(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048610, this, i, i2) == null) {
+            get(i).layout.heightMin = i2;
+        }
+    }
+
+    public void constrainMinWidth(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048611, this, i, i2) == null) {
+            get(i).layout.widthMin = i2;
+        }
+    }
+
+    public void constrainPercentHeight(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).layout.heightPercent = f;
+        }
+    }
+
+    public void constrainPercentWidth(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).layout.widthPercent = f;
+        }
+    }
+
+    public void constrainWidth(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048614, this, i, i2) == null) {
+            get(i).layout.mWidth = i2;
+        }
+    }
+
+    public void constrainedHeight(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            get(i).layout.constrainedHeight = z;
+        }
+    }
+
+    public void constrainedWidth(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            get(i).layout.constrainedWidth = z;
+        }
+    }
+
+    public void create(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048617, this, i, i2) == null) {
+            Layout layout = get(i).layout;
+            layout.mIsGuideline = true;
+            layout.orientation = i2;
+        }
+    }
+
+    public void setAlpha(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).propertySet.alpha = f;
+        }
+    }
+
+    public void setApplyElevation(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && Build.VERSION.SDK_INT >= 21) {
+            get(i).transform.applyElevation = z;
+        }
+    }
+
+    public void setBarrierType(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048647, this, i, i2) == null) {
+            get(i).layout.mHelperType = i2;
+        }
+    }
+
+    public void setDimensionRatio(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048649, this, i, str) == null) {
+            get(i).layout.dimensionRatio = str;
+        }
+    }
+
+    public void setEditorAbsoluteX(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048650, this, i, i2) == null) {
+            get(i).layout.editorAbsoluteX = i2;
+        }
+    }
+
+    public void setEditorAbsoluteY(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048651, this, i, i2) == null) {
+            get(i).layout.editorAbsoluteY = i2;
+        }
+    }
+
+    public void setGuidelineBegin(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048656, this, i, i2) == null) {
+            get(i).layout.guideBegin = i2;
+            get(i).layout.guideEnd = -1;
+            get(i).layout.guidePercent = -1.0f;
+        }
+    }
+
+    public void setGuidelineEnd(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048657, this, i, i2) == null) {
+            get(i).layout.guideEnd = i2;
+            get(i).layout.guideBegin = -1;
+            get(i).layout.guidePercent = -1.0f;
+        }
+    }
+
+    public void setHorizontalBias(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048659, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).layout.horizontalBias = f;
+        }
+    }
+
+    public void setHorizontalChainStyle(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048660, this, i, i2) == null) {
+            get(i).layout.horizontalChainStyle = i2;
+        }
+    }
+
+    public void setHorizontalWeight(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048661, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).layout.horizontalWeight = f;
+        }
+    }
+
+    public void setReferencedIds(int i, int... iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048664, this, i, iArr) == null) {
+            get(i).layout.mReferenceIds = iArr;
+        }
+    }
+
+    public void setRotation(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048665, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.rotation = f;
+        }
+    }
+
+    public void setRotationX(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048666, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.rotationX = f;
+        }
+    }
+
+    public void setRotationY(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048667, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.rotationY = f;
+        }
+    }
+
+    public void setScaleX(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048668, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.scaleX = f;
+        }
+    }
+
+    public void setScaleY(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048669, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.scaleY = f;
+        }
+    }
+
+    public void setTransformPivotX(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048672, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.transformPivotX = f;
+        }
+    }
+
+    public void setTransformPivotY(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048673, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.transformPivotY = f;
+        }
+    }
+
+    public void setTranslationX(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048675, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.translationX = f;
+        }
+    }
+
+    public void setTranslationY(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048676, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transform.translationY = f;
+        }
+    }
+
+    public void setTranslationZ(int i, float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048677, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) && Build.VERSION.SDK_INT >= 21) {
+            get(i).transform.translationZ = f;
+        }
+    }
+
+    public void setVerticalBias(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048679, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).layout.verticalBias = f;
+        }
+    }
+
+    public void setVerticalChainStyle(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048680, this, i, i2) == null) {
+            get(i).layout.verticalChainStyle = i2;
+        }
+    }
+
+    public void setVerticalWeight(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048681, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).layout.verticalWeight = f;
+        }
+    }
+
+    public void setVisibility(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048682, this, i, i2) == null) {
+            get(i).propertySet.visibility = i2;
+        }
+    }
+
+    public void setVisibilityMode(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048683, this, i, i2) == null) {
+            get(i).propertySet.mVisibilityMode = i2;
+        }
+    }
+
     private Constraint get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -1568,14 +2193,14 @@ public class ConstraintSet {
         return (Constraint) invokeI.objValue;
     }
 
-    public static int lookupID(TypedArray typedArray, int i, int i2) {
-        InterceptResult invokeLII;
+    public void clone(ConstraintSet constraintSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, typedArray, i, i2)) == null) {
-            int resourceId = typedArray.getResourceId(i, i2);
-            return resourceId == -1 ? typedArray.getInt(i, -1) : resourceId;
+        if (interceptable == null || interceptable.invokeL(1048600, this, constraintSet) == null) {
+            this.mConstraints.clear();
+            for (Integer num : constraintSet.mConstraints.keySet()) {
+                this.mConstraints.put(num, constraintSet.mConstraints.get(num).m2clone());
+            }
         }
-        return invokeLII.intValue;
     }
 
     private void populateConstraint(Context context, Constraint constraint, TypedArray typedArray) {
@@ -1941,32 +2566,6 @@ public class ConstraintSet {
         }
     }
 
-    private String sideToString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "left";
-                case 2:
-                    return "right";
-                case 3:
-                    return "top";
-                case 4:
-                    return "bottom";
-                case 5:
-                    return "baseline";
-                case 6:
-                    return "start";
-                case 7:
-                    return "end";
-                default:
-                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
-            }
-        }
-        return (String) invokeI.objValue;
-    }
-
     public static String[] splitString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2017,11 +2616,147 @@ public class ConstraintSet {
         }
     }
 
+    public void applyTo(ConstraintLayout constraintLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, constraintLayout) == null) {
+            applyToInternal(constraintLayout, true);
+            constraintLayout.setConstraintSet(null);
+            constraintLayout.requestLayout();
+        }
+    }
+
+    public void applyToWithoutCustom(ConstraintLayout constraintLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, constraintLayout) == null) {
+            applyToInternal(constraintLayout, false);
+            constraintLayout.setConstraintSet(null);
+        }
+    }
+
+    public void clear(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mConstraints.remove(Integer.valueOf(i));
+        }
+    }
+
+    public boolean getApplyElevation(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i)) == null) {
+            return get(i).transform.applyElevation;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public Constraint getConstraint(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i)) == null) {
+            if (this.mConstraints.containsKey(Integer.valueOf(i))) {
+                return this.mConstraints.get(Integer.valueOf(i));
+            }
+            return null;
+        }
+        return (Constraint) invokeI.objValue;
+    }
+
+    public int getHeight(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i)) == null) {
+            return get(i).layout.mHeight;
+        }
+        return invokeI.intValue;
+    }
+
+    public Constraint getParameters(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i)) == null) {
+            return get(i);
+        }
+        return (Constraint) invokeI.objValue;
+    }
+
+    public int[] getReferencedIds(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i)) == null) {
+            int[] iArr = get(i).layout.mReferenceIds;
+            if (iArr == null) {
+                return new int[0];
+            }
+            return Arrays.copyOf(iArr, iArr.length);
+        }
+        return (int[]) invokeI.objValue;
+    }
+
+    public int getVisibility(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i)) == null) {
+            return get(i).propertySet.visibility;
+        }
+        return invokeI.intValue;
+    }
+
+    public int getVisibilityMode(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i)) == null) {
+            return get(i).propertySet.mVisibilityMode;
+        }
+        return invokeI.intValue;
+    }
+
+    public int getWidth(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048632, this, i)) == null) {
+            return get(i).layout.mWidth;
+        }
+        return invokeI.intValue;
+    }
+
+    public void removeAttribute(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, str) == null) {
+            this.mSavedAttributes.remove(str);
+        }
+    }
+
+    public void setForceId(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048654, this, z) == null) {
+            this.mForceId = z;
+        }
+    }
+
+    public void setValidateOnParse(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048678, this, z) == null) {
+            this.mValidate = z;
+        }
+    }
+
     public void addToHorizontalChain(int i, int i2, int i3) {
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
-            connect(i, 1, i2, i2 == 0 ? 1 : 2, 0);
-            connect(i, 2, i3, i3 == 0 ? 2 : 1, 0);
+            if (i2 == 0) {
+                i4 = 1;
+            } else {
+                i4 = 2;
+            }
+            connect(i, 1, i2, i4, 0);
+            if (i3 == 0) {
+                i5 = 2;
+            } else {
+                i5 = 1;
+            }
+            connect(i, 2, i3, i5, 0);
             if (i2 != 0) {
                 connect(i2, 2, i, 1, 0);
             }
@@ -2032,10 +2767,22 @@ public class ConstraintSet {
     }
 
     public void addToHorizontalChainRTL(int i, int i2, int i3) {
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048581, this, i, i2, i3) == null) {
-            connect(i, 6, i2, i2 == 0 ? 6 : 7, 0);
-            connect(i, 7, i3, i3 == 0 ? 7 : 6, 0);
+            if (i2 == 0) {
+                i4 = 6;
+            } else {
+                i4 = 7;
+            }
+            connect(i, 6, i2, i4, 0);
+            if (i3 == 0) {
+                i5 = 7;
+            } else {
+                i5 = 6;
+            }
+            connect(i, 7, i3, i5, 0);
             if (i2 != 0) {
                 connect(i2, 7, i, 6, 0);
             }
@@ -2046,16 +2793,46 @@ public class ConstraintSet {
     }
 
     public void addToVerticalChain(int i, int i2, int i3) {
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
-            connect(i, 3, i2, i2 == 0 ? 3 : 4, 0);
-            connect(i, 4, i3, i3 == 0 ? 4 : 3, 0);
+            if (i2 == 0) {
+                i4 = 3;
+            } else {
+                i4 = 4;
+            }
+            connect(i, 3, i2, i4, 0);
+            if (i3 == 0) {
+                i5 = 4;
+            } else {
+                i5 = 3;
+            }
+            connect(i, 4, i3, i5, 0);
             if (i2 != 0) {
                 connect(i2, 4, i, 3, 0);
             }
             if (i3 != 0) {
                 connect(i3, 3, i, 4, 0);
             }
+        }
+    }
+
+    public void setTransformPivot(int i, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048671, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            Transform transform = get(i).transform;
+            transform.transformPivotY = f2;
+            transform.transformPivotX = f;
+        }
+    }
+
+    public void setTranslation(int i, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048674, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            Transform transform = get(i).transform;
+            transform.translationX = f;
+            transform.translationY = f2;
         }
     }
 
@@ -2079,12 +2856,58 @@ public class ConstraintSet {
         }
     }
 
-    public void applyTo(ConstraintLayout constraintLayout) {
+    public void clone(Constraints constraints) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, constraintLayout) == null) {
-            applyToInternal(constraintLayout, true);
-            constraintLayout.setConstraintSet(null);
-            constraintLayout.requestLayout();
+        if (interceptable == null || interceptable.invokeL(1048601, this, constraints) == null) {
+            int childCount = constraints.getChildCount();
+            this.mConstraints.clear();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = constraints.getChildAt(i);
+                Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) childAt.getLayoutParams();
+                int id = childAt.getId();
+                if (this.mForceId && id == -1) {
+                    throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
+                }
+                if (!this.mConstraints.containsKey(Integer.valueOf(id))) {
+                    this.mConstraints.put(Integer.valueOf(id), new Constraint());
+                }
+                Constraint constraint = this.mConstraints.get(Integer.valueOf(id));
+                if (childAt instanceof ConstraintHelper) {
+                    constraint.fillFromConstraints((ConstraintHelper) childAt, id, layoutParams);
+                }
+                constraint.fillFromConstraints(id, layoutParams);
+            }
+        }
+    }
+
+    public void removeFromVerticalChain(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
+            if (this.mConstraints.containsKey(Integer.valueOf(i))) {
+                Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
+                Layout layout = constraint.layout;
+                int i2 = layout.topToBottom;
+                int i3 = layout.bottomToTop;
+                if (i2 != -1 || i3 != -1) {
+                    if (i2 != -1 && i3 != -1) {
+                        connect(i2, 4, i3, 3, 0);
+                        connect(i3, 3, i2, 4, 0);
+                    } else if (i2 != -1 || i3 != -1) {
+                        Layout layout2 = constraint.layout;
+                        int i4 = layout2.bottomToBottom;
+                        if (i4 != -1) {
+                            connect(i2, 4, i4, 4, 0);
+                        } else {
+                            int i5 = layout2.topToTop;
+                            if (i5 != -1) {
+                                connect(i3, 3, i5, 3, 0);
+                            }
+                        }
+                    }
+                }
+            }
+            clear(i, 3);
+            clear(i, 4);
         }
     }
 
@@ -2098,6 +2921,28 @@ public class ConstraintSet {
                     constraintHelper.loadParameters(constraint, (HelperWidget) constraintWidget, layoutParams, sparseArray);
                 }
             }
+        }
+    }
+
+    public void constrainCircle(int i, int i2, int i3, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) {
+            Layout layout = get(i).layout;
+            layout.circleConstraint = i2;
+            layout.circleRadius = i3;
+            layout.circleAngle = f;
+        }
+    }
+
+    public void createBarrier(int i, int i2, int i3, int... iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
+            Layout layout = get(i).layout;
+            layout.mHelperType = 1;
+            layout.mBarrierDirection = i2;
+            layout.mBarrierMargin = i3;
+            layout.mIsGuideline = false;
+            layout.mReferenceIds = iArr;
         }
     }
 
@@ -2217,46 +3062,191 @@ public class ConstraintSet {
         }
     }
 
-    public void applyToLayoutParams(int i, ConstraintLayout.LayoutParams layoutParams) {
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x017f, code lost:
+        continue;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void load(Context context, XmlPullParser xmlPullParser) {
+        Constraint fillFromAttributeList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048587, this, i, layoutParams) == null) && this.mConstraints.containsKey(Integer.valueOf(i))) {
-            this.mConstraints.get(Integer.valueOf(i)).applyTo(layoutParams);
-        }
-    }
-
-    public void applyToWithoutCustom(ConstraintLayout constraintLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, constraintLayout) == null) {
-            applyToInternal(constraintLayout, false);
-            constraintLayout.setConstraintSet(null);
+        if (interceptable == null || interceptable.invokeLL(1048635, this, context, xmlPullParser) == null) {
+            try {
+                int eventType = xmlPullParser.getEventType();
+                Constraint constraint = null;
+                while (eventType != 1) {
+                    if (eventType != 0) {
+                        char c = 3;
+                        if (eventType != 2) {
+                            if (eventType != 3) {
+                                continue;
+                            } else {
+                                String name = xmlPullParser.getName();
+                                if (TAG.equals(name)) {
+                                    return;
+                                }
+                                if (name.equalsIgnoreCase("Constraint")) {
+                                    this.mConstraints.put(Integer.valueOf(constraint.mViewId), constraint);
+                                    constraint = null;
+                                }
+                            }
+                        } else {
+                            String name2 = xmlPullParser.getName();
+                            switch (name2.hashCode()) {
+                                case -2025855158:
+                                    if (name2.equals("Layout")) {
+                                        c = 5;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case -1984451626:
+                                    if (name2.equals("Motion")) {
+                                        c = 6;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case -1269513683:
+                                    if (name2.equals("PropertySet")) {
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case -1238332596:
+                                    if (name2.equals("Transform")) {
+                                        c = 4;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case -71750448:
+                                    if (name2.equals("Guideline")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 1331510167:
+                                    if (name2.equals("Barrier")) {
+                                        c = 2;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 1791837707:
+                                    if (name2.equals("CustomAttribute")) {
+                                        c = 7;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                case 1803088381:
+                                    if (name2.equals("Constraint")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    c = 65535;
+                                    break;
+                                default:
+                                    c = 65535;
+                                    break;
+                            }
+                            switch (c) {
+                                case 0:
+                                    fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                    constraint = fillFromAttributeList;
+                                    break;
+                                case 1:
+                                    fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                    fillFromAttributeList.layout.mIsGuideline = true;
+                                    fillFromAttributeList.layout.mApply = true;
+                                    constraint = fillFromAttributeList;
+                                    break;
+                                case 2:
+                                    fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                    fillFromAttributeList.layout.mHelperType = 1;
+                                    constraint = fillFromAttributeList;
+                                    break;
+                                case 3:
+                                    if (constraint != null) {
+                                        constraint.propertySet.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                        break;
+                                    } else {
+                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                    }
+                                case 4:
+                                    if (constraint != null) {
+                                        constraint.transform.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                        break;
+                                    } else {
+                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                    }
+                                case 5:
+                                    if (constraint != null) {
+                                        constraint.layout.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                        break;
+                                    } else {
+                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                    }
+                                case 6:
+                                    if (constraint != null) {
+                                        constraint.motion.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
+                                        break;
+                                    } else {
+                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                    }
+                                case 7:
+                                    if (constraint != null) {
+                                        ConstraintAttribute.parse(context, xmlPullParser, constraint.mCustomConstraints);
+                                        break;
+                                    } else {
+                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
+                                    }
+                            }
+                        }
+                    } else {
+                        xmlPullParser.getName();
+                    }
+                    eventType = xmlPullParser.next();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (XmlPullParserException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
     public void center(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f)}) == null) {
-            if (i4 < 0) {
+            if (i4 >= 0) {
+                if (i7 >= 0) {
+                    if (f > 0.0f && f <= 1.0f) {
+                        if (i3 != 1 && i3 != 2) {
+                            if (i3 != 6 && i3 != 7) {
+                                connect(i, 3, i2, i3, i4);
+                                connect(i, 4, i5, i6, i7);
+                                this.mConstraints.get(Integer.valueOf(i)).layout.verticalBias = f;
+                                return;
+                            }
+                            connect(i, 6, i2, i3, i4);
+                            connect(i, 7, i5, i6, i7);
+                            this.mConstraints.get(Integer.valueOf(i)).layout.horizontalBias = f;
+                            return;
+                        }
+                        connect(i, 1, i2, i3, i4);
+                        connect(i, 2, i5, i6, i7);
+                        this.mConstraints.get(Integer.valueOf(i)).layout.horizontalBias = f;
+                        return;
+                    }
+                    throw new IllegalArgumentException("bias must be between 0 and 1 inclusive");
+                }
                 throw new IllegalArgumentException("margin must be > 0");
             }
-            if (i7 < 0) {
-                throw new IllegalArgumentException("margin must be > 0");
-            }
-            if (f <= 0.0f || f > 1.0f) {
-                throw new IllegalArgumentException("bias must be between 0 and 1 inclusive");
-            }
-            if (i3 == 1 || i3 == 2) {
-                connect(i, 1, i2, i3, i4);
-                connect(i, 2, i5, i6, i7);
-                this.mConstraints.get(Integer.valueOf(i)).layout.horizontalBias = f;
-            } else if (i3 != 6 && i3 != 7) {
-                connect(i, 3, i2, i3, i4);
-                connect(i, 4, i5, i6, i7);
-                this.mConstraints.get(Integer.valueOf(i)).layout.verticalBias = f;
-            } else {
-                connect(i, 6, i2, i3, i4);
-                connect(i, 7, i5, i6, i7);
-                this.mConstraints.get(Integer.valueOf(i)).layout.horizontalBias = f;
-            }
+            throw new IllegalArgumentException("margin must be > 0");
         }
     }
 
@@ -2287,17 +3277,235 @@ public class ConstraintSet {
         }
     }
 
-    public void clear(int i) {
+    public void clone(ConstraintLayout constraintLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.mConstraints.remove(Integer.valueOf(i));
+        if (interceptable == null || interceptable.invokeL(1048599, this, constraintLayout) == null) {
+            int childCount = constraintLayout.getChildCount();
+            this.mConstraints.clear();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = constraintLayout.getChildAt(i);
+                ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) childAt.getLayoutParams();
+                int id = childAt.getId();
+                if (this.mForceId && id == -1) {
+                    throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
+                }
+                if (!this.mConstraints.containsKey(Integer.valueOf(id))) {
+                    this.mConstraints.put(Integer.valueOf(id), new Constraint());
+                }
+                Constraint constraint = this.mConstraints.get(Integer.valueOf(id));
+                constraint.mCustomConstraints = ConstraintAttribute.extractAttributes(this.mSavedAttributes, childAt);
+                constraint.fillFrom(id, layoutParams);
+                constraint.propertySet.visibility = childAt.getVisibility();
+                if (Build.VERSION.SDK_INT >= 17) {
+                    constraint.propertySet.alpha = childAt.getAlpha();
+                    constraint.transform.rotation = childAt.getRotation();
+                    constraint.transform.rotationX = childAt.getRotationX();
+                    constraint.transform.rotationY = childAt.getRotationY();
+                    constraint.transform.scaleX = childAt.getScaleX();
+                    constraint.transform.scaleY = childAt.getScaleY();
+                    float pivotX = childAt.getPivotX();
+                    float pivotY = childAt.getPivotY();
+                    if (pivotX != 0.0d || pivotY != 0.0d) {
+                        Transform transform = constraint.transform;
+                        transform.transformPivotX = pivotX;
+                        transform.transformPivotY = pivotY;
+                    }
+                    constraint.transform.translationX = childAt.getTranslationX();
+                    constraint.transform.translationY = childAt.getTranslationY();
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        constraint.transform.translationZ = childAt.getTranslationZ();
+                        Transform transform2 = constraint.transform;
+                        if (transform2.applyElevation) {
+                            transform2.elevation = childAt.getElevation();
+                        }
+                    }
+                }
+                if (childAt instanceof Barrier) {
+                    Barrier barrier = (Barrier) childAt;
+                    constraint.layout.mBarrierAllowsGoneWidgets = barrier.allowsGoneWidget();
+                    constraint.layout.mReferenceIds = barrier.getReferencedIds();
+                    constraint.layout.mBarrierDirection = barrier.getType();
+                    constraint.layout.mBarrierMargin = barrier.getMargin();
+                }
+            }
         }
     }
 
-    public void clone(Context context, int i) {
+    public void readFallback(ConstraintLayout constraintLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) {
-            clone((ConstraintLayout) LayoutInflater.from(context).inflate(i, (ViewGroup) null));
+        if (interceptable == null || interceptable.invokeL(1048640, this, constraintLayout) == null) {
+            int childCount = constraintLayout.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = constraintLayout.getChildAt(i);
+                ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) childAt.getLayoutParams();
+                int id = childAt.getId();
+                if (this.mForceId && id == -1) {
+                    throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
+                }
+                if (!this.mConstraints.containsKey(Integer.valueOf(id))) {
+                    this.mConstraints.put(Integer.valueOf(id), new Constraint());
+                }
+                Constraint constraint = this.mConstraints.get(Integer.valueOf(id));
+                if (!constraint.layout.mApply) {
+                    constraint.fillFrom(id, layoutParams);
+                    if (childAt instanceof ConstraintHelper) {
+                        constraint.layout.mReferenceIds = ((ConstraintHelper) childAt).getReferencedIds();
+                        if (childAt instanceof Barrier) {
+                            Barrier barrier = (Barrier) childAt;
+                            constraint.layout.mBarrierAllowsGoneWidgets = barrier.allowsGoneWidget();
+                            constraint.layout.mBarrierDirection = barrier.getType();
+                            constraint.layout.mBarrierMargin = barrier.getMargin();
+                        }
+                    }
+                    constraint.layout.mApply = true;
+                }
+                PropertySet propertySet = constraint.propertySet;
+                if (!propertySet.mApply) {
+                    propertySet.visibility = childAt.getVisibility();
+                    constraint.propertySet.alpha = childAt.getAlpha();
+                    constraint.propertySet.mApply = true;
+                }
+                if (Build.VERSION.SDK_INT >= 17) {
+                    Transform transform = constraint.transform;
+                    if (!transform.mApply) {
+                        transform.mApply = true;
+                        transform.rotation = childAt.getRotation();
+                        constraint.transform.rotationX = childAt.getRotationX();
+                        constraint.transform.rotationY = childAt.getRotationY();
+                        constraint.transform.scaleX = childAt.getScaleX();
+                        constraint.transform.scaleY = childAt.getScaleY();
+                        float pivotX = childAt.getPivotX();
+                        float pivotY = childAt.getPivotY();
+                        if (pivotX != 0.0d || pivotY != 0.0d) {
+                            Transform transform2 = constraint.transform;
+                            transform2.transformPivotX = pivotX;
+                            transform2.transformPivotY = pivotY;
+                        }
+                        constraint.transform.translationX = childAt.getTranslationX();
+                        constraint.transform.translationY = childAt.getTranslationY();
+                        if (Build.VERSION.SDK_INT >= 21) {
+                            constraint.transform.translationZ = childAt.getTranslationZ();
+                            Transform transform3 = constraint.transform;
+                            if (transform3.applyElevation) {
+                                transform3.elevation = childAt.getElevation();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void connect(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048602, this, i, i2, i3, i4) == null) {
+            if (!this.mConstraints.containsKey(Integer.valueOf(i))) {
+                this.mConstraints.put(Integer.valueOf(i), new Constraint());
+            }
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
+            switch (i2) {
+                case 1:
+                    if (i4 == 1) {
+                        Layout layout = constraint.layout;
+                        layout.leftToLeft = i3;
+                        layout.leftToRight = -1;
+                        return;
+                    } else if (i4 == 2) {
+                        Layout layout2 = constraint.layout;
+                        layout2.leftToRight = i3;
+                        layout2.leftToLeft = -1;
+                        return;
+                    } else {
+                        throw new IllegalArgumentException("left to " + sideToString(i4) + " undefined");
+                    }
+                case 2:
+                    if (i4 == 1) {
+                        Layout layout3 = constraint.layout;
+                        layout3.rightToLeft = i3;
+                        layout3.rightToRight = -1;
+                        return;
+                    } else if (i4 == 2) {
+                        Layout layout4 = constraint.layout;
+                        layout4.rightToRight = i3;
+                        layout4.rightToLeft = -1;
+                        return;
+                    } else {
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    }
+                case 3:
+                    if (i4 == 3) {
+                        Layout layout5 = constraint.layout;
+                        layout5.topToTop = i3;
+                        layout5.topToBottom = -1;
+                        layout5.baselineToBaseline = -1;
+                        return;
+                    } else if (i4 == 4) {
+                        Layout layout6 = constraint.layout;
+                        layout6.topToBottom = i3;
+                        layout6.topToTop = -1;
+                        layout6.baselineToBaseline = -1;
+                        return;
+                    } else {
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    }
+                case 4:
+                    if (i4 == 4) {
+                        Layout layout7 = constraint.layout;
+                        layout7.bottomToBottom = i3;
+                        layout7.bottomToTop = -1;
+                        layout7.baselineToBaseline = -1;
+                        return;
+                    } else if (i4 == 3) {
+                        Layout layout8 = constraint.layout;
+                        layout8.bottomToTop = i3;
+                        layout8.bottomToBottom = -1;
+                        layout8.baselineToBaseline = -1;
+                        return;
+                    } else {
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    }
+                case 5:
+                    if (i4 == 5) {
+                        Layout layout9 = constraint.layout;
+                        layout9.baselineToBaseline = i3;
+                        layout9.bottomToBottom = -1;
+                        layout9.bottomToTop = -1;
+                        layout9.topToTop = -1;
+                        layout9.topToBottom = -1;
+                        return;
+                    }
+                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                case 6:
+                    if (i4 == 6) {
+                        Layout layout10 = constraint.layout;
+                        layout10.startToStart = i3;
+                        layout10.startToEnd = -1;
+                        return;
+                    } else if (i4 == 7) {
+                        Layout layout11 = constraint.layout;
+                        layout11.startToEnd = i3;
+                        layout11.startToStart = -1;
+                        return;
+                    } else {
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    }
+                case 7:
+                    if (i4 == 7) {
+                        Layout layout12 = constraint.layout;
+                        layout12.endToEnd = i3;
+                        layout12.endToStart = -1;
+                        return;
+                    } else if (i4 == 6) {
+                        Layout layout13 = constraint.layout;
+                        layout13.endToStart = i3;
+                        layout13.endToEnd = -1;
+                        return;
+                    } else {
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    }
+                default:
+                    throw new IllegalArgumentException(sideToString(i2) + " to " + sideToString(i4) + " unknown");
+            }
         }
     }
 
@@ -2414,121 +3622,6 @@ public class ConstraintSet {
         }
     }
 
-    public void constrainCircle(int i, int i2, int i3, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) {
-            Layout layout = get(i).layout;
-            layout.circleConstraint = i2;
-            layout.circleRadius = i3;
-            layout.circleAngle = f;
-        }
-    }
-
-    public void constrainDefaultHeight(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048605, this, i, i2) == null) {
-            get(i).layout.heightDefault = i2;
-        }
-    }
-
-    public void constrainDefaultWidth(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048606, this, i, i2) == null) {
-            get(i).layout.widthDefault = i2;
-        }
-    }
-
-    public void constrainHeight(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048607, this, i, i2) == null) {
-            get(i).layout.mHeight = i2;
-        }
-    }
-
-    public void constrainMaxHeight(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048608, this, i, i2) == null) {
-            get(i).layout.heightMax = i2;
-        }
-    }
-
-    public void constrainMaxWidth(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048609, this, i, i2) == null) {
-            get(i).layout.widthMax = i2;
-        }
-    }
-
-    public void constrainMinHeight(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048610, this, i, i2) == null) {
-            get(i).layout.heightMin = i2;
-        }
-    }
-
-    public void constrainMinWidth(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048611, this, i, i2) == null) {
-            get(i).layout.widthMin = i2;
-        }
-    }
-
-    public void constrainPercentHeight(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).layout.heightPercent = f;
-        }
-    }
-
-    public void constrainPercentWidth(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).layout.widthPercent = f;
-        }
-    }
-
-    public void constrainWidth(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048614, this, i, i2) == null) {
-            get(i).layout.mWidth = i2;
-        }
-    }
-
-    public void constrainedHeight(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            get(i).layout.constrainedHeight = z;
-        }
-    }
-
-    public void constrainedWidth(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            get(i).layout.constrainedWidth = z;
-        }
-    }
-
-    public void create(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048617, this, i, i2) == null) {
-            Layout layout = get(i).layout;
-            layout.mIsGuideline = true;
-            layout.orientation = i2;
-        }
-    }
-
-    public void createBarrier(int i, int i2, int i3, int... iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
-            Layout layout = get(i).layout;
-            layout.mHelperType = 1;
-            layout.mBarrierDirection = i2;
-            layout.mBarrierMargin = i3;
-            layout.mIsGuideline = false;
-            layout.mReferenceIds = iArr;
-        }
-    }
-
     public void createHorizontalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, fArr, Integer.valueOf(i5)}) == null) {
@@ -2571,192 +3664,6 @@ public class ConstraintSet {
         }
     }
 
-    public void dump(MotionScene motionScene, int... iArr) {
-        HashSet hashSet;
-        Integer[] numArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048622, this, motionScene, iArr) == null) {
-            Set<Integer> keySet = this.mConstraints.keySet();
-            if (iArr.length != 0) {
-                hashSet = new HashSet();
-                for (int i : iArr) {
-                    hashSet.add(Integer.valueOf(i));
-                }
-            } else {
-                hashSet = new HashSet(keySet);
-            }
-            System.out.println(hashSet.size() + " constraints");
-            StringBuilder sb = new StringBuilder();
-            for (Integer num : (Integer[]) hashSet.toArray(new Integer[0])) {
-                sb.append("<Constraint id=");
-                sb.append(num);
-                sb.append(" \n");
-                this.mConstraints.get(num).layout.dump(motionScene, sb);
-                sb.append("/>\n");
-            }
-            System.out.println(sb.toString());
-        }
-    }
-
-    public boolean getApplyElevation(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i)) == null) ? get(i).transform.applyElevation : invokeI.booleanValue;
-    }
-
-    public Constraint getConstraint(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i)) == null) {
-            if (this.mConstraints.containsKey(Integer.valueOf(i))) {
-                return this.mConstraints.get(Integer.valueOf(i));
-            }
-            return null;
-        }
-        return (Constraint) invokeI.objValue;
-    }
-
-    public HashMap<String, ConstraintAttribute> getCustomAttributeSet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.mSavedAttributes : (HashMap) invokeV.objValue;
-    }
-
-    public int getHeight(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i)) == null) ? get(i).layout.mHeight : invokeI.intValue;
-    }
-
-    public int[] getKnownIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
-            Integer[] numArr = (Integer[]) this.mConstraints.keySet().toArray(new Integer[0]);
-            int length = numArr.length;
-            int[] iArr = new int[length];
-            for (int i = 0; i < length; i++) {
-                iArr[i] = numArr[i].intValue();
-            }
-            return iArr;
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public Constraint getParameters(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i)) == null) ? get(i) : (Constraint) invokeI.objValue;
-    }
-
-    public int[] getReferencedIds(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i)) == null) {
-            int[] iArr = get(i).layout.mReferenceIds;
-            return iArr == null ? new int[0] : Arrays.copyOf(iArr, iArr.length);
-        }
-        return (int[]) invokeI.objValue;
-    }
-
-    public int getVisibility(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i)) == null) ? get(i).propertySet.visibility : invokeI.intValue;
-    }
-
-    public int getVisibilityMode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i)) == null) ? get(i).propertySet.mVisibilityMode : invokeI.intValue;
-    }
-
-    public int getWidth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048632, this, i)) == null) ? get(i).layout.mWidth : invokeI.intValue;
-    }
-
-    public boolean isForceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.mForceId : invokeV.booleanValue;
-    }
-
-    public void load(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048634, this, context, i) == null) {
-            XmlResourceParser xml = context.getResources().getXml(i);
-            try {
-                for (int eventType = xml.getEventType(); eventType != 1; eventType = xml.next()) {
-                    if (eventType == 0) {
-                        xml.getName();
-                        continue;
-                    } else if (eventType != 2) {
-                        continue;
-                    } else {
-                        String name = xml.getName();
-                        Constraint fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xml));
-                        if (name.equalsIgnoreCase("Guideline")) {
-                            fillFromAttributeList.layout.mIsGuideline = true;
-                        }
-                        this.mConstraints.put(Integer.valueOf(fillFromAttributeList.mViewId), fillFromAttributeList);
-                        continue;
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (XmlPullParserException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void parseColorAttributes(Constraint constraint, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048636, this, constraint, str) == null) {
-            String[] split = str.split(",");
-            for (int i = 0; i < split.length; i++) {
-                String[] split2 = split[i].split("=");
-                if (split2.length == 2) {
-                    constraint.setColorValue(split2[0], Color.parseColor(split2[1]));
-                } else {
-                    Log.w(TAG, " Unable to parse " + split[i]);
-                }
-            }
-        }
-    }
-
-    public void parseFloatAttributes(Constraint constraint, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048637, this, constraint, str) == null) {
-            String[] split = str.split(",");
-            for (int i = 0; i < split.length; i++) {
-                String[] split2 = split[i].split("=");
-                if (split2.length == 2) {
-                    constraint.setFloatValue(split2[0], Float.parseFloat(split2[1]));
-                } else {
-                    Log.w(TAG, " Unable to parse " + split[i]);
-                }
-            }
-        }
-    }
-
-    public void parseIntAttributes(Constraint constraint, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048638, this, constraint, str) == null) {
-            String[] split = str.split(",");
-            for (int i = 0; i < split.length; i++) {
-                String[] split2 = split[i].split("=");
-                if (split2.length == 2) {
-                    constraint.setFloatValue(split2[0], Integer.decode(split2[1]).intValue());
-                } else {
-                    Log.w(TAG, " Unable to parse " + split[i]);
-                }
-            }
-        }
-    }
-
     public void parseStringAttributes(Constraint constraint, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048639, this, constraint, str) == null) {
@@ -2766,6 +3673,23 @@ public class ConstraintSet {
                 Log.w(TAG, " Unable to parse " + splitString[i]);
                 constraint.setStringValue(split[0], split[1]);
             }
+        }
+    }
+
+    public void setElevation(int i, float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048652, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) && Build.VERSION.SDK_INT >= 21) {
+            get(i).transform.elevation = f;
+            get(i).transform.applyElevation = true;
+        }
+    }
+
+    public void setGuidelinePercent(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048658, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).layout.guidePercent = f;
+            get(i).layout.guideEnd = -1;
+            get(i).layout.guideBegin = -1;
         }
     }
 
@@ -2801,13 +3725,6 @@ public class ConstraintSet {
                     }
                 }
             }
-        }
-    }
-
-    public void removeAttribute(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, str) == null) {
-            this.mSavedAttributes.remove(str);
         }
     }
 
@@ -2862,110 +3779,6 @@ public class ConstraintSet {
         }
     }
 
-    public void removeFromVerticalChain(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
-            if (this.mConstraints.containsKey(Integer.valueOf(i))) {
-                Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
-                Layout layout = constraint.layout;
-                int i2 = layout.topToBottom;
-                int i3 = layout.bottomToTop;
-                if (i2 != -1 || i3 != -1) {
-                    if (i2 != -1 && i3 != -1) {
-                        connect(i2, 4, i3, 3, 0);
-                        connect(i3, 3, i2, 4, 0);
-                    } else if (i2 != -1 || i3 != -1) {
-                        Layout layout2 = constraint.layout;
-                        int i4 = layout2.bottomToBottom;
-                        if (i4 != -1) {
-                            connect(i2, 4, i4, 4, 0);
-                        } else {
-                            int i5 = layout2.topToTop;
-                            if (i5 != -1) {
-                                connect(i3, 3, i5, 3, 0);
-                            }
-                        }
-                    }
-                }
-            }
-            clear(i, 3);
-            clear(i, 4);
-        }
-    }
-
-    public void setAlpha(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).propertySet.alpha = f;
-        }
-    }
-
-    public void setApplyElevation(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || Build.VERSION.SDK_INT < 21) {
-            return;
-        }
-        get(i).transform.applyElevation = z;
-    }
-
-    public void setBarrierType(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048647, this, i, i2) == null) {
-            get(i).layout.mHelperType = i2;
-        }
-    }
-
-    public void setColorValue(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            get(i).setColorValue(str, i2);
-        }
-    }
-
-    public void setDimensionRatio(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048649, this, i, str) == null) {
-            get(i).layout.dimensionRatio = str;
-        }
-    }
-
-    public void setEditorAbsoluteX(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048650, this, i, i2) == null) {
-            get(i).layout.editorAbsoluteX = i2;
-        }
-    }
-
-    public void setEditorAbsoluteY(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048651, this, i, i2) == null) {
-            get(i).layout.editorAbsoluteY = i2;
-        }
-    }
-
-    public void setElevation(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048652, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || Build.VERSION.SDK_INT < 21) {
-            return;
-        }
-        get(i).transform.elevation = f;
-        get(i).transform.applyElevation = true;
-    }
-
-    public void setFloatValue(int i, String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048653, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) == null) {
-            get(i).setFloatValue(str, f);
-        }
-    }
-
-    public void setForceId(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048654, this, z) == null) {
-            this.mForceId = z;
-        }
-    }
-
     public void setGoneMargin(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048655, this, i, i2, i3) == null) {
@@ -2997,61 +3810,6 @@ public class ConstraintSet {
         }
     }
 
-    public void setGuidelineBegin(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048656, this, i, i2) == null) {
-            get(i).layout.guideBegin = i2;
-            get(i).layout.guideEnd = -1;
-            get(i).layout.guidePercent = -1.0f;
-        }
-    }
-
-    public void setGuidelineEnd(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048657, this, i, i2) == null) {
-            get(i).layout.guideEnd = i2;
-            get(i).layout.guideBegin = -1;
-            get(i).layout.guidePercent = -1.0f;
-        }
-    }
-
-    public void setGuidelinePercent(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048658, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).layout.guidePercent = f;
-            get(i).layout.guideEnd = -1;
-            get(i).layout.guideBegin = -1;
-        }
-    }
-
-    public void setHorizontalBias(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048659, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).layout.horizontalBias = f;
-        }
-    }
-
-    public void setHorizontalChainStyle(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048660, this, i, i2) == null) {
-            get(i).layout.horizontalChainStyle = i2;
-        }
-    }
-
-    public void setHorizontalWeight(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048661, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).layout.horizontalWeight = f;
-        }
-    }
-
-    public void setIntValue(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048662, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            get(i).setIntValue(str, i2);
-        }
-    }
-
     public void setMargin(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048663, this, i, i2, i3) == null) {
@@ -3079,689 +3837,6 @@ public class ConstraintSet {
                     return;
                 default:
                     throw new IllegalArgumentException("unknown constraint");
-            }
-        }
-    }
-
-    public void setReferencedIds(int i, int... iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048664, this, i, iArr) == null) {
-            get(i).layout.mReferenceIds = iArr;
-        }
-    }
-
-    public void setRotation(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048665, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.rotation = f;
-        }
-    }
-
-    public void setRotationX(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048666, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.rotationX = f;
-        }
-    }
-
-    public void setRotationY(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048667, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.rotationY = f;
-        }
-    }
-
-    public void setScaleX(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048668, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.scaleX = f;
-        }
-    }
-
-    public void setScaleY(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048669, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.scaleY = f;
-        }
-    }
-
-    public void setStringValue(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048670, this, i, str, str2) == null) {
-            get(i).setStringValue(str, str2);
-        }
-    }
-
-    public void setTransformPivot(int i, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048671, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            Transform transform = get(i).transform;
-            transform.transformPivotY = f2;
-            transform.transformPivotX = f;
-        }
-    }
-
-    public void setTransformPivotX(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048672, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.transformPivotX = f;
-        }
-    }
-
-    public void setTransformPivotY(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048673, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.transformPivotY = f;
-        }
-    }
-
-    public void setTranslation(int i, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048674, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            Transform transform = get(i).transform;
-            transform.translationX = f;
-            transform.translationY = f2;
-        }
-    }
-
-    public void setTranslationX(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048675, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.translationX = f;
-        }
-    }
-
-    public void setTranslationY(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048676, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).transform.translationY = f;
-        }
-    }
-
-    public void setTranslationZ(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048677, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || Build.VERSION.SDK_INT < 21) {
-            return;
-        }
-        get(i).transform.translationZ = f;
-    }
-
-    public void setValidateOnParse(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048678, this, z) == null) {
-            this.mValidate = z;
-        }
-    }
-
-    public void setVerticalBias(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048679, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).layout.verticalBias = f;
-        }
-    }
-
-    public void setVerticalChainStyle(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048680, this, i, i2) == null) {
-            get(i).layout.verticalChainStyle = i2;
-        }
-    }
-
-    public void setVerticalWeight(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048681, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            get(i).layout.verticalWeight = f;
-        }
-    }
-
-    public void setVisibility(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048682, this, i, i2) == null) {
-            get(i).propertySet.visibility = i2;
-        }
-    }
-
-    public void setVisibilityMode(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048683, this, i, i2) == null) {
-            get(i).propertySet.mVisibilityMode = i2;
-        }
-    }
-
-    private void createHorizontalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5, int i6, int i7) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, fArr, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            if (iArr.length >= 2) {
-                if (fArr != null && fArr.length != iArr.length) {
-                    throw new IllegalArgumentException("must have 2 or more widgets in a chain");
-                }
-                if (fArr != null) {
-                    get(iArr[0]).layout.horizontalWeight = fArr[0];
-                }
-                get(iArr[0]).layout.horizontalChainStyle = i5;
-                connect(iArr[0], i6, i, i2, -1);
-                for (int i8 = 1; i8 < iArr.length; i8++) {
-                    int i9 = iArr[i8];
-                    int i10 = i8 - 1;
-                    connect(iArr[i8], i6, iArr[i10], i7, -1);
-                    connect(iArr[i10], i7, iArr[i8], i6, -1);
-                    if (fArr != null) {
-                        get(iArr[i8]).layout.horizontalWeight = fArr[i8];
-                    }
-                }
-                connect(iArr[iArr.length - 1], i7, i3, i4, -1);
-                return;
-            }
-            throw new IllegalArgumentException("must have 2 or more widgets in a chain");
-        }
-    }
-
-    public void clear(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) && this.mConstraints.containsKey(Integer.valueOf(i))) {
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
-            switch (i2) {
-                case 1:
-                    Layout layout = constraint.layout;
-                    layout.leftToRight = -1;
-                    layout.leftToLeft = -1;
-                    layout.leftMargin = -1;
-                    layout.goneLeftMargin = -1;
-                    return;
-                case 2:
-                    Layout layout2 = constraint.layout;
-                    layout2.rightToRight = -1;
-                    layout2.rightToLeft = -1;
-                    layout2.rightMargin = -1;
-                    layout2.goneRightMargin = -1;
-                    return;
-                case 3:
-                    Layout layout3 = constraint.layout;
-                    layout3.topToBottom = -1;
-                    layout3.topToTop = -1;
-                    layout3.topMargin = -1;
-                    layout3.goneTopMargin = -1;
-                    return;
-                case 4:
-                    Layout layout4 = constraint.layout;
-                    layout4.bottomToTop = -1;
-                    layout4.bottomToBottom = -1;
-                    layout4.bottomMargin = -1;
-                    layout4.goneBottomMargin = -1;
-                    return;
-                case 5:
-                    constraint.layout.baselineToBaseline = -1;
-                    return;
-                case 6:
-                    Layout layout5 = constraint.layout;
-                    layout5.startToEnd = -1;
-                    layout5.startToStart = -1;
-                    layout5.startMargin = -1;
-                    layout5.goneStartMargin = -1;
-                    return;
-                case 7:
-                    Layout layout6 = constraint.layout;
-                    layout6.endToStart = -1;
-                    layout6.endToEnd = -1;
-                    layout6.endMargin = -1;
-                    layout6.goneEndMargin = -1;
-                    return;
-                default:
-                    throw new IllegalArgumentException("unknown constraint");
-            }
-        }
-    }
-
-    public void clone(ConstraintSet constraintSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, constraintSet) == null) {
-            this.mConstraints.clear();
-            for (Integer num : constraintSet.mConstraints.keySet()) {
-                this.mConstraints.put(num, constraintSet.mConstraints.get(num).m2clone());
-            }
-        }
-    }
-
-    public void centerHorizontally(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
-            if (i2 == 0) {
-                center(i, 0, 1, 0, 0, 2, 0, 0.5f);
-            } else {
-                center(i, i2, 2, 0, i2, 1, 0, 0.5f);
-            }
-        }
-    }
-
-    public void centerHorizontallyRtl(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
-            if (i2 == 0) {
-                center(i, 0, 6, 0, 0, 7, 0, 0.5f);
-            } else {
-                center(i, i2, 7, 0, i2, 6, 0, 0.5f);
-            }
-        }
-    }
-
-    public void centerVertically(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
-            if (i2 == 0) {
-                center(i, 0, 3, 0, 0, 4, 0, 0.5f);
-            } else {
-                center(i, i2, 4, 0, i2, 3, 0, 0.5f);
-            }
-        }
-    }
-
-    public void clone(ConstraintLayout constraintLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, constraintLayout) == null) {
-            int childCount = constraintLayout.getChildCount();
-            this.mConstraints.clear();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = constraintLayout.getChildAt(i);
-                ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) childAt.getLayoutParams();
-                int id = childAt.getId();
-                if (this.mForceId && id == -1) {
-                    throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
-                }
-                if (!this.mConstraints.containsKey(Integer.valueOf(id))) {
-                    this.mConstraints.put(Integer.valueOf(id), new Constraint());
-                }
-                Constraint constraint = this.mConstraints.get(Integer.valueOf(id));
-                constraint.mCustomConstraints = ConstraintAttribute.extractAttributes(this.mSavedAttributes, childAt);
-                constraint.fillFrom(id, layoutParams);
-                constraint.propertySet.visibility = childAt.getVisibility();
-                if (Build.VERSION.SDK_INT >= 17) {
-                    constraint.propertySet.alpha = childAt.getAlpha();
-                    constraint.transform.rotation = childAt.getRotation();
-                    constraint.transform.rotationX = childAt.getRotationX();
-                    constraint.transform.rotationY = childAt.getRotationY();
-                    constraint.transform.scaleX = childAt.getScaleX();
-                    constraint.transform.scaleY = childAt.getScaleY();
-                    float pivotX = childAt.getPivotX();
-                    float pivotY = childAt.getPivotY();
-                    if (pivotX != 0.0d || pivotY != 0.0d) {
-                        Transform transform = constraint.transform;
-                        transform.transformPivotX = pivotX;
-                        transform.transformPivotY = pivotY;
-                    }
-                    constraint.transform.translationX = childAt.getTranslationX();
-                    constraint.transform.translationY = childAt.getTranslationY();
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        constraint.transform.translationZ = childAt.getTranslationZ();
-                        Transform transform2 = constraint.transform;
-                        if (transform2.applyElevation) {
-                            transform2.elevation = childAt.getElevation();
-                        }
-                    }
-                }
-                if (childAt instanceof Barrier) {
-                    Barrier barrier = (Barrier) childAt;
-                    constraint.layout.mBarrierAllowsGoneWidgets = barrier.allowsGoneWidget();
-                    constraint.layout.mReferenceIds = barrier.getReferencedIds();
-                    constraint.layout.mBarrierDirection = barrier.getType();
-                    constraint.layout.mBarrierMargin = barrier.getMargin();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x017f, code lost:
-        continue;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void load(Context context, XmlPullParser xmlPullParser) {
-        Constraint fillFromAttributeList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048635, this, context, xmlPullParser) == null) {
-            try {
-                int eventType = xmlPullParser.getEventType();
-                Constraint constraint = null;
-                while (eventType != 1) {
-                    if (eventType != 0) {
-                        char c = 3;
-                        if (eventType == 2) {
-                            String name = xmlPullParser.getName();
-                            switch (name.hashCode()) {
-                                case -2025855158:
-                                    if (name.equals("Layout")) {
-                                        c = 5;
-                                        break;
-                                    }
-                                    c = 65535;
-                                    break;
-                                case -1984451626:
-                                    if (name.equals("Motion")) {
-                                        c = 6;
-                                        break;
-                                    }
-                                    c = 65535;
-                                    break;
-                                case -1269513683:
-                                    if (name.equals("PropertySet")) {
-                                        break;
-                                    }
-                                    c = 65535;
-                                    break;
-                                case -1238332596:
-                                    if (name.equals("Transform")) {
-                                        c = 4;
-                                        break;
-                                    }
-                                    c = 65535;
-                                    break;
-                                case -71750448:
-                                    if (name.equals("Guideline")) {
-                                        c = 1;
-                                        break;
-                                    }
-                                    c = 65535;
-                                    break;
-                                case 1331510167:
-                                    if (name.equals("Barrier")) {
-                                        c = 2;
-                                        break;
-                                    }
-                                    c = 65535;
-                                    break;
-                                case 1791837707:
-                                    if (name.equals("CustomAttribute")) {
-                                        c = 7;
-                                        break;
-                                    }
-                                    c = 65535;
-                                    break;
-                                case 1803088381:
-                                    if (name.equals("Constraint")) {
-                                        c = 0;
-                                        break;
-                                    }
-                                    c = 65535;
-                                    break;
-                                default:
-                                    c = 65535;
-                                    break;
-                            }
-                            switch (c) {
-                                case 0:
-                                    fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
-                                    constraint = fillFromAttributeList;
-                                    break;
-                                case 1:
-                                    fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
-                                    fillFromAttributeList.layout.mIsGuideline = true;
-                                    fillFromAttributeList.layout.mApply = true;
-                                    constraint = fillFromAttributeList;
-                                    break;
-                                case 2:
-                                    fillFromAttributeList = fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
-                                    fillFromAttributeList.layout.mHelperType = 1;
-                                    constraint = fillFromAttributeList;
-                                    break;
-                                case 3:
-                                    if (constraint != null) {
-                                        constraint.propertySet.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
-                                        break;
-                                    } else {
-                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
-                                    }
-                                case 4:
-                                    if (constraint != null) {
-                                        constraint.transform.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
-                                        break;
-                                    } else {
-                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
-                                    }
-                                case 5:
-                                    if (constraint != null) {
-                                        constraint.layout.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
-                                        break;
-                                    } else {
-                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
-                                    }
-                                case 6:
-                                    if (constraint != null) {
-                                        constraint.motion.fillFromAttributeList(context, Xml.asAttributeSet(xmlPullParser));
-                                        break;
-                                    } else {
-                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
-                                    }
-                                case 7:
-                                    if (constraint != null) {
-                                        ConstraintAttribute.parse(context, xmlPullParser, constraint.mCustomConstraints);
-                                        break;
-                                    } else {
-                                        throw new RuntimeException(ERROR_MESSAGE + xmlPullParser.getLineNumber());
-                                    }
-                            }
-                        } else if (eventType != 3) {
-                            continue;
-                        } else {
-                            String name2 = xmlPullParser.getName();
-                            if (TAG.equals(name2)) {
-                                return;
-                            }
-                            if (name2.equalsIgnoreCase("Constraint")) {
-                                this.mConstraints.put(Integer.valueOf(constraint.mViewId), constraint);
-                                constraint = null;
-                            }
-                        }
-                    } else {
-                        xmlPullParser.getName();
-                    }
-                    eventType = xmlPullParser.next();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (XmlPullParserException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void readFallback(ConstraintLayout constraintLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, constraintLayout) == null) {
-            int childCount = constraintLayout.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = constraintLayout.getChildAt(i);
-                ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) childAt.getLayoutParams();
-                int id = childAt.getId();
-                if (this.mForceId && id == -1) {
-                    throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
-                }
-                if (!this.mConstraints.containsKey(Integer.valueOf(id))) {
-                    this.mConstraints.put(Integer.valueOf(id), new Constraint());
-                }
-                Constraint constraint = this.mConstraints.get(Integer.valueOf(id));
-                if (!constraint.layout.mApply) {
-                    constraint.fillFrom(id, layoutParams);
-                    if (childAt instanceof ConstraintHelper) {
-                        constraint.layout.mReferenceIds = ((ConstraintHelper) childAt).getReferencedIds();
-                        if (childAt instanceof Barrier) {
-                            Barrier barrier = (Barrier) childAt;
-                            constraint.layout.mBarrierAllowsGoneWidgets = barrier.allowsGoneWidget();
-                            constraint.layout.mBarrierDirection = barrier.getType();
-                            constraint.layout.mBarrierMargin = barrier.getMargin();
-                        }
-                    }
-                    constraint.layout.mApply = true;
-                }
-                PropertySet propertySet = constraint.propertySet;
-                if (!propertySet.mApply) {
-                    propertySet.visibility = childAt.getVisibility();
-                    constraint.propertySet.alpha = childAt.getAlpha();
-                    constraint.propertySet.mApply = true;
-                }
-                if (Build.VERSION.SDK_INT >= 17) {
-                    Transform transform = constraint.transform;
-                    if (!transform.mApply) {
-                        transform.mApply = true;
-                        transform.rotation = childAt.getRotation();
-                        constraint.transform.rotationX = childAt.getRotationX();
-                        constraint.transform.rotationY = childAt.getRotationY();
-                        constraint.transform.scaleX = childAt.getScaleX();
-                        constraint.transform.scaleY = childAt.getScaleY();
-                        float pivotX = childAt.getPivotX();
-                        float pivotY = childAt.getPivotY();
-                        if (pivotX != 0.0d || pivotY != 0.0d) {
-                            Transform transform2 = constraint.transform;
-                            transform2.transformPivotX = pivotX;
-                            transform2.transformPivotY = pivotY;
-                        }
-                        constraint.transform.translationX = childAt.getTranslationX();
-                        constraint.transform.translationY = childAt.getTranslationY();
-                        if (Build.VERSION.SDK_INT >= 21) {
-                            constraint.transform.translationZ = childAt.getTranslationZ();
-                            Transform transform3 = constraint.transform;
-                            if (transform3.applyElevation) {
-                                transform3.elevation = childAt.getElevation();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void clone(Constraints constraints) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, constraints) == null) {
-            int childCount = constraints.getChildCount();
-            this.mConstraints.clear();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = constraints.getChildAt(i);
-                Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) childAt.getLayoutParams();
-                int id = childAt.getId();
-                if (this.mForceId && id == -1) {
-                    throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
-                }
-                if (!this.mConstraints.containsKey(Integer.valueOf(id))) {
-                    this.mConstraints.put(Integer.valueOf(id), new Constraint());
-                }
-                Constraint constraint = this.mConstraints.get(Integer.valueOf(id));
-                if (childAt instanceof ConstraintHelper) {
-                    constraint.fillFromConstraints((ConstraintHelper) childAt, id, layoutParams);
-                }
-                constraint.fillFromConstraints(id, layoutParams);
-            }
-        }
-    }
-
-    public void connect(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048602, this, i, i2, i3, i4) == null) {
-            if (!this.mConstraints.containsKey(Integer.valueOf(i))) {
-                this.mConstraints.put(Integer.valueOf(i), new Constraint());
-            }
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
-            switch (i2) {
-                case 1:
-                    if (i4 == 1) {
-                        Layout layout = constraint.layout;
-                        layout.leftToLeft = i3;
-                        layout.leftToRight = -1;
-                        return;
-                    } else if (i4 == 2) {
-                        Layout layout2 = constraint.layout;
-                        layout2.leftToRight = i3;
-                        layout2.leftToLeft = -1;
-                        return;
-                    } else {
-                        throw new IllegalArgumentException("left to " + sideToString(i4) + " undefined");
-                    }
-                case 2:
-                    if (i4 == 1) {
-                        Layout layout3 = constraint.layout;
-                        layout3.rightToLeft = i3;
-                        layout3.rightToRight = -1;
-                        return;
-                    } else if (i4 == 2) {
-                        Layout layout4 = constraint.layout;
-                        layout4.rightToRight = i3;
-                        layout4.rightToLeft = -1;
-                        return;
-                    } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
-                    }
-                case 3:
-                    if (i4 == 3) {
-                        Layout layout5 = constraint.layout;
-                        layout5.topToTop = i3;
-                        layout5.topToBottom = -1;
-                        layout5.baselineToBaseline = -1;
-                        return;
-                    } else if (i4 == 4) {
-                        Layout layout6 = constraint.layout;
-                        layout6.topToBottom = i3;
-                        layout6.topToTop = -1;
-                        layout6.baselineToBaseline = -1;
-                        return;
-                    } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
-                    }
-                case 4:
-                    if (i4 == 4) {
-                        Layout layout7 = constraint.layout;
-                        layout7.bottomToBottom = i3;
-                        layout7.bottomToTop = -1;
-                        layout7.baselineToBaseline = -1;
-                        return;
-                    } else if (i4 == 3) {
-                        Layout layout8 = constraint.layout;
-                        layout8.bottomToTop = i3;
-                        layout8.bottomToBottom = -1;
-                        layout8.baselineToBaseline = -1;
-                        return;
-                    } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
-                    }
-                case 5:
-                    if (i4 == 5) {
-                        Layout layout9 = constraint.layout;
-                        layout9.baselineToBaseline = i3;
-                        layout9.bottomToBottom = -1;
-                        layout9.bottomToTop = -1;
-                        layout9.topToTop = -1;
-                        layout9.topToBottom = -1;
-                        return;
-                    }
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
-                case 6:
-                    if (i4 == 6) {
-                        Layout layout10 = constraint.layout;
-                        layout10.startToStart = i3;
-                        layout10.startToEnd = -1;
-                        return;
-                    } else if (i4 == 7) {
-                        Layout layout11 = constraint.layout;
-                        layout11.startToEnd = i3;
-                        layout11.startToStart = -1;
-                        return;
-                    } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
-                    }
-                case 7:
-                    if (i4 == 7) {
-                        Layout layout12 = constraint.layout;
-                        layout12.endToEnd = i3;
-                        layout12.endToStart = -1;
-                        return;
-                    } else if (i4 == 6) {
-                        Layout layout13 = constraint.layout;
-                        layout13.endToStart = i3;
-                        layout13.endToEnd = -1;
-                        return;
-                    } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
-                    }
-                default:
-                    throw new IllegalArgumentException(sideToString(i2) + " to " + sideToString(i4) + " unknown");
             }
         }
     }

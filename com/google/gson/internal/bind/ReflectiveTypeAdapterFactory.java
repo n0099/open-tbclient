@@ -77,18 +77,18 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                     jsonReader.nextNull();
                     return null;
                 }
-                T construct = this.constructor.construct();
+                T t = (T) this.constructor.construct();
                 try {
                     jsonReader.beginObject();
                     while (jsonReader.hasNext()) {
                         BoundField boundField = this.boundFields.get(jsonReader.nextName());
                         if (boundField != null && boundField.deserialized) {
-                            boundField.read(jsonReader, construct);
+                            boundField.read(jsonReader, t);
                         }
                         jsonReader.skipValue();
                     }
                     jsonReader.endObject();
-                    return construct;
+                    return t;
                 } catch (IllegalAccessException e) {
                     throw new AssertionError(e);
                 } catch (IllegalStateException e2) {
@@ -130,6 +130,12 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         public final String name;
         public final boolean serialized;
 
+        public abstract void read(JsonReader jsonReader, Object obj) throws IOException, IllegalAccessException;
+
+        public abstract void write(JsonWriter jsonWriter, Object obj) throws IOException, IllegalAccessException;
+
+        public abstract boolean writeField(Object obj) throws IOException, IllegalAccessException;
+
         public BoundField(String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -149,12 +155,6 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
             this.serialized = z;
             this.deserialized = z2;
         }
-
-        public abstract void read(JsonReader jsonReader, Object obj) throws IOException, IllegalAccessException;
-
-        public abstract void write(JsonWriter jsonWriter, Object obj) throws IOException, IllegalAccessException;
-
-        public abstract boolean writeField(Object obj) throws IOException, IllegalAccessException;
     }
 
     public ReflectiveTypeAdapterFactory(ConstructorConstructor constructorConstructor, FieldNamingStrategy fieldNamingStrategy, Excluder excluder, JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory) {
@@ -181,12 +181,22 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
 
     private BoundField createBoundField(Gson gson, Field field, String str, TypeToken<?> typeToken, boolean z, boolean z2) {
         InterceptResult invokeCommon;
+        TypeAdapter<?> typeAdapter;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{gson, field, str, typeToken, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             boolean isPrimitive = Primitives.isPrimitive(typeToken.getRawType());
             JsonAdapter jsonAdapter = (JsonAdapter) field.getAnnotation(JsonAdapter.class);
-            TypeAdapter<?> typeAdapter = jsonAdapter != null ? this.jsonAdapterFactory.getTypeAdapter(this.constructorConstructor, gson, typeToken, jsonAdapter) : null;
-            boolean z3 = typeAdapter != null;
+            if (jsonAdapter != null) {
+                typeAdapter = this.jsonAdapterFactory.getTypeAdapter(this.constructorConstructor, gson, typeToken, jsonAdapter);
+            } else {
+                typeAdapter = null;
+            }
+            if (typeAdapter != null) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
             if (typeAdapter == null) {
                 typeAdapter = gson.getAdapter(typeToken);
             }
@@ -234,18 +244,24 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, jsonReader, obj) == null) {
                         Object read = this.val$typeAdapter.read(jsonReader);
-                        if (read == null && this.val$isPrimitive) {
-                            return;
+                        if (read != null || !this.val$isPrimitive) {
+                            this.val$field.set(obj, read);
                         }
-                        this.val$field.set(obj, read);
                     }
                 }
 
                 @Override // com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.BoundField
                 public void write(JsonWriter jsonWriter, Object obj) throws IOException, IllegalAccessException {
+                    TypeAdapter typeAdapterRuntimeTypeWrapper;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonWriter, obj) == null) {
-                        (this.val$jsonAdapterPresent ? this.val$typeAdapter : new TypeAdapterRuntimeTypeWrapper(this.val$context, this.val$typeAdapter, this.val$fieldType.getType())).write(jsonWriter, this.val$field.get(obj));
+                        Object obj2 = this.val$field.get(obj);
+                        if (this.val$jsonAdapterPresent) {
+                            typeAdapterRuntimeTypeWrapper = this.val$typeAdapter;
+                        } else {
+                            typeAdapterRuntimeTypeWrapper = new TypeAdapterRuntimeTypeWrapper(this.val$context, this.val$typeAdapter, this.val$fieldType.getType());
+                        }
+                        typeAdapterRuntimeTypeWrapper.write(jsonWriter, obj2);
                     }
                 }
 
@@ -253,16 +269,35 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 public boolean writeField(Object obj) throws IOException, IllegalAccessException {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.serialized && this.val$field.get(obj) != obj : invokeL.booleanValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                        if (!this.serialized || this.val$field.get(obj) == obj) {
+                            return false;
+                        }
+                        return true;
+                    }
+                    return invokeL.booleanValue;
                 }
             };
         }
         return (BoundField) invokeCommon.objValue;
     }
 
+    public static boolean excludeField(Field field, boolean z, Excluder excluder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{field, Boolean.valueOf(z), excluder})) == null) {
+            if (!excluder.excludeClass(field.getType(), z) && !excluder.excludeField(field, z)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
     private Map<String, BoundField> getBoundFields(Gson gson, TypeToken<?> typeToken, Class<?> cls) {
         InterceptResult invokeLLL;
         BoundField boundField;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, gson, typeToken, cls)) == null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -275,12 +310,12 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
             while (cls2 != Object.class) {
                 Field[] declaredFields = cls2.getDeclaredFields();
                 int length = declaredFields.length;
-                boolean z = false;
+                boolean z2 = false;
                 int i = 0;
                 while (i < length) {
                     Field field = declaredFields[i];
                     boolean excludeField = excludeField(field, true);
-                    boolean excludeField2 = excludeField(field, z);
+                    boolean excludeField2 = excludeField(field, z2);
                     if (excludeField || excludeField2) {
                         this.accessor.makeAccessible(field);
                         Type resolve = C$Gson$Types.resolve(typeToken2.getType(), cls2, field.getGenericType());
@@ -290,15 +325,24 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                         int i2 = 0;
                         while (i2 < size) {
                             String str = fieldNames.get(i2);
-                            boolean z2 = i2 != 0 ? false : excludeField;
+                            if (i2 != 0) {
+                                z = false;
+                            } else {
+                                z = excludeField;
+                            }
                             int i3 = i2;
                             BoundField boundField3 = boundField2;
                             int i4 = size;
                             List<String> list = fieldNames;
                             Field field2 = field;
-                            boundField2 = boundField3 == null ? (BoundField) linkedHashMap.put(str, createBoundField(gson, field, str, TypeToken.get(resolve), z2, excludeField2)) : boundField3;
+                            BoundField boundField4 = (BoundField) linkedHashMap.put(str, createBoundField(gson, field, str, TypeToken.get(resolve), z, excludeField2));
+                            if (boundField3 == null) {
+                                boundField2 = boundField4;
+                            } else {
+                                boundField2 = boundField3;
+                            }
                             i2 = i3 + 1;
-                            excludeField = z2;
+                            excludeField = z;
                             fieldNames = list;
                             size = i4;
                             field = field2;
@@ -308,7 +352,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                         }
                     }
                     i++;
-                    z = false;
+                    z2 = false;
                 }
                 typeToken2 = TypeToken.get(C$Gson$Types.resolve(typeToken2.getType(), cls2, cls2.getGenericSuperclass()));
                 cls2 = typeToken2.getRawType();
@@ -347,10 +391,10 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gson, typeToken)) == null) {
             Class<? super T> rawType = typeToken.getRawType();
-            if (Object.class.isAssignableFrom(rawType)) {
-                return new Adapter(this.constructorConstructor.get(typeToken), getBoundFields(gson, typeToken, rawType));
+            if (!Object.class.isAssignableFrom(rawType)) {
+                return null;
             }
-            return null;
+            return new Adapter(this.constructorConstructor.get(typeToken), getBoundFields(gson, typeToken, rawType));
         }
         return (TypeAdapter) invokeLL.objValue;
     }
@@ -358,12 +402,9 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public boolean excludeField(Field field, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, field, z)) == null) ? excludeField(field, z, this.excluder) : invokeLZ.booleanValue;
-    }
-
-    public static boolean excludeField(Field field, boolean z, Excluder excluder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{field, Boolean.valueOf(z), excluder})) == null) ? (excluder.excludeClass(field.getType(), z) || excluder.excludeField(field, z)) ? false : true : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, field, z)) == null) {
+            return excludeField(field, z, this.excluder);
+        }
+        return invokeLZ.booleanValue;
     }
 }

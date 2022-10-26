@@ -32,6 +32,18 @@ public class BetterImageSpan extends ReplacementSpan {
     public @interface BetterImageSpanAlignment {
     }
 
+    public static final int normalizeAlignment(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 0) {
+                return i != 2 ? 1 : 2;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BetterImageSpan(Drawable drawable) {
         this(drawable, 1);
@@ -53,6 +65,27 @@ public class BetterImageSpan extends ReplacementSpan {
         }
     }
 
+    public BetterImageSpan(Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mFontMetricsInt = new Paint.FontMetricsInt();
+        this.mDrawable = drawable;
+        this.mAlignment = i;
+        updateBounds();
+    }
+
     private int getOffsetAboveBaseline(Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -71,18 +104,6 @@ public class BetterImageSpan extends ReplacementSpan {
         return invokeL.intValue;
     }
 
-    public static final int normalizeAlignment(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i != 0) {
-                return i != 2 ? 1 : 2;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
     @Override // android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
@@ -98,7 +119,20 @@ public class BetterImageSpan extends ReplacementSpan {
     public Drawable getDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDrawable : (Drawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDrawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public void updateBounds() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Rect bounds = this.mDrawable.getBounds();
+            this.mBounds = bounds;
+            this.mWidth = bounds.width();
+            this.mHeight = this.mBounds.height();
+        }
     }
 
     @Override // android.text.style.ReplacementSpan
@@ -127,36 +161,5 @@ public class BetterImageSpan extends ReplacementSpan {
             return this.mWidth;
         }
         return invokeCommon.intValue;
-    }
-
-    public void updateBounds() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Rect bounds = this.mDrawable.getBounds();
-            this.mBounds = bounds;
-            this.mWidth = bounds.width();
-            this.mHeight = this.mBounds.height();
-        }
-    }
-
-    public BetterImageSpan(Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mFontMetricsInt = new Paint.FontMetricsInt();
-        this.mDrawable = drawable;
-        this.mAlignment = i;
-        updateBounds();
     }
 }

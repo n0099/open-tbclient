@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final x0<p0> a;
-    public final x0<p0> b;
+    public final x0 a;
+    public final x0 b;
     public boolean c;
     public boolean d;
     public ComponentOperationHandler e;
-    public y0<m0> f;
-    public b7<m0> g;
+    public y0 f;
+    public b7 g;
     public e7 h;
     public e7 i;
 
@@ -35,12 +35,12 @@ public class p0 {
                 return;
             }
         }
-        this.f = new y0<>();
-        this.g = new b7<>(false, 16);
+        this.f = new y0();
+        this.g = new b7(false, 16);
         this.h = new e7();
         this.i = new e7();
-        this.a = new x0<>();
-        this.b = new x0<>();
+        this.a = new x0();
+        this.b = new x0();
     }
 
     public p0 a(m0 m0Var) {
@@ -60,8 +60,27 @@ public class p0 {
         return (p0) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.p0 */
-    /* JADX WARN: Multi-variable type inference failed */
+    public m0 c(n0 n0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n0Var)) == null) {
+            if (n0Var.c() < this.f.b()) {
+                return (m0) this.f.a(n0Var.c());
+            }
+            return null;
+        }
+        return (m0) invokeL.objValue;
+    }
+
+    public m0 d(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
+            return c(n0.b(cls));
+        }
+        return (m0) invokeL.objValue;
+    }
+
     public boolean b(m0 m0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -83,34 +102,57 @@ public class p0 {
         return invokeL.booleanValue;
     }
 
-    public <T extends m0> T c(n0 n0Var) {
+    public m0 i(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n0Var)) == null) {
-            if (n0Var.c() < this.f.b()) {
-                return (T) this.f.a(n0Var.c());
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
+            m0 m0Var = (m0) this.f.a(n0.b(cls).c());
+            if (m0Var != null && k(cls)) {
+                ComponentOperationHandler componentOperationHandler = this.e;
+                if (componentOperationHandler != null) {
+                    componentOperationHandler.c(this);
+                } else {
+                    h();
+                }
             }
-            return null;
+            return m0Var;
         }
-        return (T) invokeL.objValue;
+        return (m0) invokeL.objValue;
     }
 
-    public <T extends m0> T d(Class<T> cls) {
+    public boolean k(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) ? (T) c(n0.b(cls)) : (T) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) {
+            int c = n0.b(cls).c();
+            m0 m0Var = (m0) this.f.a(c);
+            if (m0Var != null) {
+                this.f.d(c, null);
+                this.g.j(m0Var, true);
+                this.h.c(c);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public e7 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (e7) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
+        }
+        return (e7) invokeV.objValue;
     }
 
     public e7 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (e7) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (e7) invokeV.objValue;
     }
 
     public void g() {
@@ -127,54 +169,18 @@ public class p0 {
         }
     }
 
-    public m0 i(Class<? extends m0> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
-            m0 a = this.f.a(n0.b(cls).c());
-            if (a != null && k(cls)) {
-                ComponentOperationHandler componentOperationHandler = this.e;
-                if (componentOperationHandler != null) {
-                    componentOperationHandler.c(this);
-                } else {
-                    h();
-                }
-            }
-            return a;
-        }
-        return (m0) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.p0 */
-    /* JADX WARN: Multi-variable type inference failed */
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(1048585, this) != null) {
             return;
         }
         while (true) {
-            b7<m0> b7Var = this.g;
-            if (b7Var.b <= 0) {
+            b7 b7Var = this.g;
+            if (b7Var.b > 0) {
+                i(((m0) b7Var.get(0)).getClass());
+            } else {
                 return;
             }
-            i(b7Var.get(0).getClass());
         }
-    }
-
-    public boolean k(Class<? extends m0> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) {
-            int c = n0.b(cls).c();
-            m0 a = this.f.a(c);
-            if (a != null) {
-                this.f.d(c, null);
-                this.g.j(a, true);
-                this.h.c(c);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

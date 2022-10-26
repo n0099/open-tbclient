@@ -10,7 +10,7 @@ public abstract class TbEnum {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static abstract class ChatInputStatus {
+    public abstract class ChatInputStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INPUT_DRAFT_KEY = "input_draft";
         public static final String INPUT_STATUS_KEY = "input_status";
@@ -34,7 +34,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class ChatType {
+    public abstract class ChatType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP_MODE = 0;
         public static final int PERSONAL_MODE = 1;
@@ -56,7 +56,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static class CreateGroupSource {
+    public class CreateGroupSource {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FROM_BAR_GROUP = "bargp";
         public static final String FROM_MY_GROUP = "mygp";
@@ -79,7 +79,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static class CustomGroupId {
+    public class CustomGroupId {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String GROUP_UPDATE = "-1002";
         public static final String GROUP_VALIDATION = "-1003";
@@ -103,7 +103,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static class CustomGroupType {
+    public class CustomGroupType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP = 1;
         public static final int GROUP_VALIDATION = -4;
@@ -136,7 +136,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class GamePlayOrderMsgStatus {
+    public abstract class GamePlayOrderMsgStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LETTER_TYPE_ORDER_ACCEPT = 2;
         public static final int LETTER_TYPE_ORDER_CANCEL = 3;
@@ -166,7 +166,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static class GroupInfoSource {
+    public class GroupInfoSource {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FROM_FORUM_GROUP_HOT = "forumgroup_hot";
         public static final String FROM_FORUM_GROUP_OFFICIAL = "forumgroup_official";
@@ -192,7 +192,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class GroupType {
+    public abstract class GroupType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FORUM_FRIEND_GROUP = 3;
         public static final int GROUP_TYPE_NOTIFY = 8;
@@ -223,7 +223,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class MsgContentSubType {
+    public abstract class MsgContentSubType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short FRS_SUB_TYPE_EXTRA_SHARE = 4;
         public static final short MSG_SUB_TYPE_EXTRA_SHARE = 1;
@@ -246,7 +246,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class MsgContentType {
+    public abstract class MsgContentType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_CONTENT_TYPE_ACTIVITY = 6;
         public static final short MSG_CONTENT_TYPE_BIG_EMOTION = 4;
@@ -288,7 +288,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class MsgStatus {
+    public abstract class MsgStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_STATUS_MY_SENDFAIL = 2;
         public static final short MSG_STATUS_MY_SENDFAIL_ACCOUNT_CANCELLATION = 7;
@@ -318,7 +318,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class MsgVoiceStatus {
+    public abstract class MsgVoiceStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int VOICE_STATUS_DOWNLOADING = 2;
         public static final int VOICE_STATUS_PLAYING = 3;
@@ -341,7 +341,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class ParamKey {
+    public abstract class ParamKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CHAT_MODE = "chat_mode";
         public static final String GID = "gid";
@@ -367,7 +367,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class ResourceType {
+    public abstract class ResourceType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BIGIMAGE = 1;
         public static final int SMALLIMAGE = 0;
@@ -389,7 +389,7 @@ public abstract class TbEnum {
     }
 
     /* loaded from: classes3.dex */
-    public static abstract class SystemMessage {
+    public abstract class SystemMessage {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EVENT_ID_ADD_FRIEND = "406";
         public static final String EVENT_ID_APPLY_ADD_FRIEND = "410";

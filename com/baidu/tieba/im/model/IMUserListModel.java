@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.model;
 
-import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -12,15 +11,16 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.eh;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class IMUserListModel extends BdBaseModel {
@@ -28,6 +28,26 @@ public class IMUserListModel extends BdBaseModel {
     public static final int REQUEST_MAX_SIZE = 200;
     public static final long REQUEST_SPACE = 7200000;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IMUserListModel(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -55,9 +75,12 @@ public class IMUserListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            ox4 k = ox4.k();
+            ux4 k = ux4.k();
             long m = k.m("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            return m == 0 || System.currentTimeMillis() - m > REQUEST_SPACE;
+            if (m == 0 || System.currentTimeMillis() - m > REQUEST_SPACE) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -73,34 +96,16 @@ public class IMUserListModel extends BdBaseModel {
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
+    public void request(boolean z, List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void request(boolean z, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) == null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (String str : list) {
-            if (dh.g(str, 0L) <= 0) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            String str = (String) it.next();
+            if (eh.g(str, 0L) <= 0) {
                 arrayList.add(str);
             }
         }
@@ -112,12 +117,12 @@ public class IMUserListModel extends BdBaseModel {
             sendMessage(new IMUserListHttpReqMessage(list));
         } else if (canRequestIfControl()) {
             sendMessage(new IMUserListHttpReqMessage(list));
-            ox4 k = ox4.k();
+            ux4 k = ux4.k();
             k.x("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
         }
     }
 
-    public void requestFroChatActivity(@NonNull UserData userData) {
+    public void requestFroChatActivity(UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, userData) == null) {
             ArrayList arrayList = new ArrayList();

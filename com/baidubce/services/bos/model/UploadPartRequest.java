@@ -41,37 +41,80 @@ public class UploadPartRequest extends GenericUploadRequest {
     public Long getCrc32() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.crc32 : (Long) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.crc32;
+        }
+        return (Long) invokeV.objValue;
     }
 
     public InputStream getInputStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.inputStream : (InputStream) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.inputStream;
+        }
+        return (InputStream) invokeV.objValue;
     }
 
     public String getMd5Digest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.md5Digest : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.md5Digest;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPartNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.partNumber : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.partNumber;
+        }
+        return invokeV.intValue;
     }
 
     public long getPartSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.partSize : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.partSize;
+        }
+        return invokeV.longValue;
     }
 
     public BosProgressCallback getProgressCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.progressCallback : (BosProgressCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.progressCallback;
+        }
+        return (BosProgressCallback) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public UploadPartRequest(String str, String str2, String str3, int i, long j, InputStream inputStream) {
+        super(str, str2, str3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Long.valueOf(j), inputStream};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.progressCallback = null;
+        setPartNumber(i);
+        setPartSize(j);
+        setInputStream(inputStream);
     }
 
     public void setCrc32(Long l) {
@@ -97,22 +140,34 @@ public class UploadPartRequest extends GenericUploadRequest {
     }
 
     public void setPartNumber(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            CheckUtils.checkArgument(i > 0, "partNumber should be positive, but is %s", Integer.valueOf(i));
+            if (i > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "partNumber should be positive, but is %s", Integer.valueOf(i));
             this.partNumber = i;
         }
     }
 
     public void setPartSize(long j) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            CheckUtils.checkArgument(j >= 0, "partSize should not be negative.");
+            if (j >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "partSize should not be negative.");
             this.partSize = j;
         }
     }
 
-    public <T extends UploadPartRequest> void setProgressCallback(BosProgressCallback<T> bosProgressCallback) {
+    public void setProgressCallback(BosProgressCallback bosProgressCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bosProgressCallback) == null) {
             this.progressCallback = bosProgressCallback;
@@ -169,7 +224,7 @@ public class UploadPartRequest extends GenericUploadRequest {
         return (UploadPartRequest) invokeJ.objValue;
     }
 
-    public <T extends UploadPartRequest> UploadPartRequest withProgressCallback(BosProgressCallback<T> bosProgressCallback) {
+    public UploadPartRequest withProgressCallback(BosProgressCallback bosProgressCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, bosProgressCallback)) == null) {
@@ -225,30 +280,5 @@ public class UploadPartRequest extends GenericUploadRequest {
             return this;
         }
         return (UploadPartRequest) invokeL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UploadPartRequest(String str, String str2, String str3, int i, long j, InputStream inputStream) {
-        super(str, str2, str3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Long.valueOf(j), inputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.progressCallback = null;
-        setPartNumber(i);
-        setPartSize(j);
-        setInputStream(inputStream);
     }
 }

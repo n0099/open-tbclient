@@ -17,6 +17,16 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     public final int top;
     public final byte[] yuvData;
 
+    @Override // com.google.zxing.LuminanceSource
+    public boolean isCropSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlanarYUVLuminanceSource(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, boolean z) {
         super(i5, i6);
@@ -78,7 +88,10 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     public LuminanceSource crop(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? new PlanarYUVLuminanceSource(this.yuvData, this.dataWidth, this.dataHeight, this.left + i, this.top + i2, i3, i4, false) : (LuminanceSource) invokeIIII.objValue;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            return new PlanarYUVLuminanceSource(this.yuvData, this.dataWidth, this.dataHeight, this.left + i, this.top + i2, i3, i4, false);
+        }
+        return (LuminanceSource) invokeIIII.objValue;
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -109,6 +122,27 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         return (byte[]) invokeV.objValue;
     }
 
+    public int[] renderThumbnail() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int width = getWidth() / 2;
+            int height = getHeight() / 2;
+            int[] iArr = new int[width * height];
+            byte[] bArr = this.yuvData;
+            int i = (this.top * this.dataWidth) + this.left;
+            for (int i2 = 0; i2 < height; i2++) {
+                int i3 = i2 * width;
+                for (int i4 = 0; i4 < width; i4++) {
+                    iArr[i3 + i4] = ((bArr[(i4 << 1) + i] & 255) * 65793) | (-16777216);
+                }
+                i += this.dataWidth << 1;
+            }
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
     @Override // com.google.zxing.LuminanceSource
     public byte[] getRow(int i, byte[] bArr) {
         InterceptResult invokeIL;
@@ -130,43 +164,18 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     public int getThumbnailHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getHeight() / 2 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getHeight() / 2;
+        }
+        return invokeV.intValue;
     }
 
     public int getThumbnailWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getWidth() / 2 : invokeV.intValue;
-    }
-
-    @Override // com.google.zxing.LuminanceSource
-    public boolean isCropSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return getWidth() / 2;
         }
-        return invokeV.booleanValue;
-    }
-
-    public int[] renderThumbnail() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int width = getWidth() / 2;
-            int height = getHeight() / 2;
-            int[] iArr = new int[width * height];
-            byte[] bArr = this.yuvData;
-            int i = (this.top * this.dataWidth) + this.left;
-            for (int i2 = 0; i2 < height; i2++) {
-                int i3 = i2 * width;
-                for (int i4 = 0; i4 < width; i4++) {
-                    iArr[i3 + i4] = ((bArr[(i4 << 1) + i] & 255) * 65793) | (-16777216);
-                }
-                i += this.dataWidth << 1;
-            }
-            return iArr;
-        }
-        return (int[]) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

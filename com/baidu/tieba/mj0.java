@@ -8,11 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface mj0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "thirdService");
+    public static final ServiceReference a = new ServiceReference("nad.core", "host.scheme");
     public static final mj0 b = new a();
 
+    String a(String str);
+
     /* loaded from: classes5.dex */
-    public static class a implements mj0 {
+    public final class a implements mj0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,12 +33,13 @@ public interface mj0 {
         }
 
         @Override // com.baidu.tieba.mj0
-        public String a() {
-            InterceptResult invokeV;
+        public String a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return "nadcorevendor://vendor/ad/easybrowse?url=" + str + "&newbrowser=1";
+            }
+            return (String) invokeL.objValue;
         }
     }
-
-    String a();
 }

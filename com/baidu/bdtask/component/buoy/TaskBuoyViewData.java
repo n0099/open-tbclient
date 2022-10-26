@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.tieba.wp;
-import com.baidu.tieba.yp;
+import com.baidu.tieba.xp;
+import com.baidu.tieba.zp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,63 +18,20 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public final class TaskBuoyViewData extends BuoyViewData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yp curProcess;
+    public final zp curProcess;
     public final String extra;
     public final TaskStatus taskStatus;
     public final TaskProcessData totalProcess;
-    public final wp uiConfig;
-
-    public /* synthetic */ TaskBuoyViewData(TaskStatus taskStatus, wp wpVar, yp ypVar, TaskProcessData taskProcessData, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskStatus, wpVar, ypVar, taskProcessData, (i & 16) != 0 ? "" : str);
-    }
-
-    public final yp getCurProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.curProcess : (yp) invokeV.objValue;
-    }
-
-    public final String getExtra() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.extra : (String) invokeV.objValue;
-    }
-
-    public final TaskStatus getTaskStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.taskStatus : (TaskStatus) invokeV.objValue;
-    }
-
-    public final TaskProcessData getTotalProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.totalProcess : (TaskProcessData) invokeV.objValue;
-    }
-
-    public final wp getUiConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.uiConfig : (wp) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "taskStatus:" + this.taskStatus + "\n uiConfig:" + this.uiConfig + "\n curProcess:" + this.curProcess + "\n totalProcess:" + this.totalProcess + "\n " + this.extra;
-        }
-        return (String) invokeV.objValue;
-    }
+    public final xp uiConfig;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskBuoyViewData(TaskStatus taskStatus, wp wpVar, yp ypVar, TaskProcessData taskProcessData, String str) {
-        super(wpVar.c(), wpVar.g(), wpVar.a(), wpVar.e(), wpVar.d(), wpVar.f(), ypVar.a(), ypVar.b(), wpVar.b());
+    public TaskBuoyViewData(TaskStatus taskStatus, xp xpVar, zp zpVar, TaskProcessData taskProcessData, String str) {
+        super(xpVar.c(), xpVar.g(), xpVar.a(), xpVar.e(), xpVar.d(), xpVar.f(), zpVar.a(), zpVar.b(), xpVar.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {taskStatus, wpVar, ypVar, taskProcessData, str};
+            Object[] objArr = {taskStatus, xpVar, zpVar, taskProcessData, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -87,9 +44,67 @@ public final class TaskBuoyViewData extends BuoyViewData {
             }
         }
         this.taskStatus = taskStatus;
-        this.uiConfig = wpVar;
-        this.curProcess = ypVar;
+        this.uiConfig = xpVar;
+        this.curProcess = zpVar;
         this.totalProcess = taskProcessData;
         this.extra = str;
+    }
+
+    public /* synthetic */ TaskBuoyViewData(TaskStatus taskStatus, xp xpVar, zp zpVar, TaskProcessData taskProcessData, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskStatus, xpVar, zpVar, taskProcessData, (i & 16) != 0 ? "" : str);
+    }
+
+    public final zp getCurProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.curProcess;
+        }
+        return (zp) invokeV.objValue;
+    }
+
+    public final String getExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.extra;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final TaskStatus getTaskStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.taskStatus;
+        }
+        return (TaskStatus) invokeV.objValue;
+    }
+
+    public final TaskProcessData getTotalProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.totalProcess;
+        }
+        return (TaskProcessData) invokeV.objValue;
+    }
+
+    public final xp getUiConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.uiConfig;
+        }
+        return (xp) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "taskStatus:" + this.taskStatus + "\n uiConfig:" + this.uiConfig + "\n curProcess:" + this.curProcess + "\n totalProcess:" + this.totalProcess + "\n " + this.extra;
+        }
+        return (String) invokeV.objValue;
     }
 }

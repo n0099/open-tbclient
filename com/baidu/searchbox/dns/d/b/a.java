@@ -13,6 +13,10 @@ public abstract class a implements Runnable {
     public final b Y;
     public final String mName;
 
+    public abstract void m();
+
+    public abstract String n();
+
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,10 +33,6 @@ public abstract class a implements Runnable {
         this.mName = "searchbox task: " + n();
         this.Y = d.N();
     }
-
-    public abstract void m();
-
-    public abstract String n();
 
     @Override // java.lang.Runnable
     public void run() {
@@ -53,9 +53,8 @@ public abstract class a implements Runnable {
     public void start() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.Y) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bVar = this.Y) != null) {
+            bVar.a(this);
         }
-        bVar.a(this);
     }
 }

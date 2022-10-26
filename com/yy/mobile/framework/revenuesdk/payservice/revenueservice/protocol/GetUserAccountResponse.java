@@ -19,8 +19,8 @@ import org.json.JSONObject;
 public class GetUserAccountResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Integer, MyBalanceInfo.Account> accountList;
-    public Map<Integer, MyBalanceInfo.AccountPeriod> accountPeriodList;
+    public Map accountList;
+    public Map accountPeriodList;
     public long imid;
     public String message;
     public long minAmountLimit;
@@ -75,18 +75,17 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("accountPeriodList");
                 this.accountPeriodList = new HashMap();
-                if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
-                    return;
-                }
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                    if (optJSONObject2 != null) {
-                        MyBalanceInfo.AccountPeriod accountPeriod = new MyBalanceInfo.AccountPeriod();
-                        accountPeriod.currencyType = optJSONObject2.optInt("currencyType", 0);
-                        accountPeriod.amount = optJSONObject2.optInt(PayUiEventContent.AMOUNT, 0);
-                        accountPeriod.startTime = optJSONObject2.optLong(FetchLog.START_TIME, 0L);
-                        accountPeriod.endTime = optJSONObject2.optLong(FetchLog.END_TIME, 0L);
-                        this.accountPeriodList.put(Integer.valueOf(accountPeriod.currencyType), accountPeriod);
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
+                        if (optJSONObject2 != null) {
+                            MyBalanceInfo.AccountPeriod accountPeriod = new MyBalanceInfo.AccountPeriod();
+                            accountPeriod.currencyType = optJSONObject2.optInt("currencyType", 0);
+                            accountPeriod.amount = optJSONObject2.optInt(PayUiEventContent.AMOUNT, 0);
+                            accountPeriod.startTime = optJSONObject2.optLong(FetchLog.START_TIME, 0L);
+                            accountPeriod.endTime = optJSONObject2.optLong(FetchLog.END_TIME, 0L);
+                            this.accountPeriodList.put(Integer.valueOf(accountPeriod.currencyType), accountPeriod);
+                        }
                     }
                 }
             } catch (JSONException e) {

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class MemoryGetFromDBMessage extends CustomResponsedMessage<List<ImMessageCenterPojo>> {
+public class MemoryGetFromDBMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String uid;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemoryGetFromDBMessage(List<ImMessageCenterPojo> list, String str) {
+    public MemoryGetFromDBMessage(List list, String str) {
         super(2016008, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,6 +38,9 @@ public class MemoryGetFromDBMessage extends CustomResponsedMessage<List<ImMessag
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.uid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.uid;
+        }
+        return (String) invokeV.objValue;
     }
 }

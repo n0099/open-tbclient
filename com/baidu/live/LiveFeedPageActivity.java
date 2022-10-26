@@ -5,15 +5,14 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
-import com.baidu.tieba.cc0;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.ec0;
-import com.baidu.tieba.r90;
-import com.baidu.tieba.x90;
+import com.baidu.tieba.dc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.fc0;
+import com.baidu.tieba.s90;
+import com.baidu.tieba.y90;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LiveFeedPageActivity extends AppCompatActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r90 a;
+    public s90 a;
     public final int b;
     public Handler c;
     public int d;
@@ -49,25 +48,85 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                 return;
             }
         }
-        this.b = cc0.a().b();
+        this.b = dc0.a().b();
+    }
+
+    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            Handler handler = this.c;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            s90 s90Var = this.a;
+            if (s90Var != null) {
+                s90Var.T();
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onPause();
+            s90 s90Var = this.a;
+            if (s90Var != null) {
+                s90Var.a0();
+                this.a.e0(false);
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onResume();
+            s90 s90Var = this.a;
+            if (s90Var != null) {
+                s90Var.b0();
+                this.a.e0(true);
+            }
+        }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
                 this.e = motionEvent.getX();
                 this.f = motionEvent.getY();
-                boolean z = false;
-                this.i = da0.g(this.a.z(), (int) this.e, (int) this.f) && !this.a.z().canScrollHorizontally(-1);
-                this.k = da0.g(this.a.C(), (int) this.e, (int) this.f) && !this.a.C().canScrollHorizontally(-1);
-                this.l = da0.g(this.a.B(), (int) this.e, (int) this.f) && !this.a.B().canScrollHorizontally(-1);
-                if (da0.g(this.a.D(), (int) this.e, (int) this.f) && this.a.P()) {
+                boolean z4 = false;
+                if (ea0.g(this.a.z(), (int) this.e, (int) this.f) && !this.a.z().canScrollHorizontally(-1)) {
                     z = true;
+                } else {
+                    z = false;
                 }
-                this.j = z;
+                this.i = z;
+                if (ea0.g(this.a.C(), (int) this.e, (int) this.f) && !this.a.C().canScrollHorizontally(-1)) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                this.k = z2;
+                if (ea0.g(this.a.B(), (int) this.e, (int) this.f) && !this.a.B().canScrollHorizontally(-1)) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                this.l = z3;
+                if (ea0.g(this.a.D(), (int) this.e, (int) this.f) && this.a.P()) {
+                    z4 = true;
+                }
+                this.j = z4;
             }
             if (motionEvent.getAction() == 1) {
                 this.g = motionEvent.getX();
@@ -93,21 +152,26 @@ public class LiveFeedPageActivity extends AppCompatActivity {
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         String str;
         String str2;
         String str3;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            ec0.g(this);
+            fc0.g(this);
             super.onCreate(bundle);
             this.d = ViewConfiguration.get(this).getScaledTouchSlop();
             if (bundle != null) {
                 finish();
             }
             String str4 = null;
-            if (getIntent() != null) {
+            if (getIntent() == null) {
+                str = "";
+                str2 = str;
+                str3 = str2;
+                z = false;
+            } else {
                 String stringExtra = getIntent().getStringExtra("source");
                 str4 = getIntent().getStringExtra("scheme_next");
                 String stringExtra2 = getIntent().getStringExtra("tab_extend_subtype");
@@ -116,99 +180,50 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                 z = getIntent().getBooleanExtra("tab_extend_scroll_to_tab", false);
                 str3 = stringExtra;
                 str2 = stringExtra3;
-            } else {
-                str = "";
-                str2 = str;
-                str3 = str2;
-                z = false;
             }
-            r90 r90Var = new r90(this, this.b, getSupportFragmentManager(), LiveFeedPageSdk.IMMERSION, str3, false, str, str2, z);
-            this.a = r90Var;
-            setContentView(r90Var.A());
+            s90 s90Var = new s90(this, this.b, getSupportFragmentManager(), LiveFeedPageSdk.IMMERSION, str3, false, str, str2, z);
+            this.a = s90Var;
+            setContentView(s90Var.A());
             this.a.Q();
-            x90.u(this, str3, "chenjinshi");
-            if (TextUtils.isEmpty(str4)) {
-                return;
-            }
-            if (this.c == null) {
-                this.c = new Handler();
-            }
-            this.c.postDelayed(new Runnable(this, str4) { // from class: com.baidu.live.LiveFeedPageActivity.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ String a;
-                public final /* synthetic */ LiveFeedPageActivity b;
+            y90.u(this, str3, "chenjinshi");
+            if (!TextUtils.isEmpty(str4)) {
+                if (this.c == null) {
+                    this.c = new Handler();
+                }
+                this.c.postDelayed(new Runnable(this, str4) { // from class: com.baidu.live.LiveFeedPageActivity.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ String a;
+                    public final /* synthetic */ LiveFeedPageActivity b;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str4};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str4};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.b = this;
+                        this.a = str4;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        ILiveFeedPageInvoke invoker;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (invoker = LiveFeedPageSdk.getInstance().getInvoker()) != null) {
+                            invoker.invokeScheme(this.b, this.a);
                         }
                     }
-                    this.b = this;
-                    this.a = str4;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    ILiveFeedPageInvoke invoker;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (invoker = LiveFeedPageSdk.getInstance().getInvoker()) == null) {
-                        return;
-                    }
-                    invoker.invokeScheme(this.b, this.a);
-                }
-            }, 350L);
-        }
-    }
-
-    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            Handler handler = this.c;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-            }
-            r90 r90Var = this.a;
-            if (r90Var != null) {
-                r90Var.T();
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onPause();
-            r90 r90Var = this.a;
-            if (r90Var != null) {
-                r90Var.a0();
-                this.a.e0(false);
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onResume();
-            r90 r90Var = this.a;
-            if (r90Var != null) {
-                r90Var.b0();
-                this.a.e0(true);
+                }, 350L);
             }
         }
     }

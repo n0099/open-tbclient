@@ -18,7 +18,7 @@ public final class q {
     public final b aty;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final q atz;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,11 +42,11 @@ public final class q {
     }
 
     /* loaded from: classes8.dex */
-    public static class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ThreadPoolExecutor atA;
-        public LinkedBlockingQueue<Runnable> atB;
+        public LinkedBlockingQueue atB;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public final class q {
         private void init() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                LinkedBlockingQueue<Runnable> linkedBlockingQueue = new LinkedBlockingQueue<>();
+                LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
                 this.atB = linkedBlockingQueue;
                 this.atA = com.kwai.filedownloader.e.b.a(3, linkedBlockingQueue, "LauncherTask");
             }
@@ -89,7 +89,7 @@ public final class q {
     }
 
     /* loaded from: classes8.dex */
-    public static class c implements Runnable {
+    public final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final x.b atC;

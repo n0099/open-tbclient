@@ -10,7 +10,7 @@ public class TiePlusStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class Params {
+    public class Params {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CLI_LOCATE = "cli_locate";
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class TiePlusStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class Values {
+    public class Values {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CLI_LOCATE_TO_DETAIL = 2;
         public static final int CLI_LOCATE_TO_FRS = 3;

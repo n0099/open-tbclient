@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
-import com.baidu.tieba.cw;
+import com.baidu.tieba.dw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,8 +25,24 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
     public final long duration;
     public final TaskInfo taskInfo;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280103505, "Lcom/baidu/bdtask/service/ubc/model/UBCActionTaskInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-280103505, "Lcom/baidu/bdtask/service/ubc/model/UBCActionTaskInfo;");
+                return;
+            }
+        }
+        Companion = new a(null);
+    }
+
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,37 +60,27 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
             }
         }
 
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         public final UBCActionTaskInfo a(long j, String str, TaskInfo taskInfo, TaskStatus taskStatus) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, taskInfo, taskStatus})) == null) ? new UBCActionTaskInfo(j, str, taskInfo, taskStatus) : (UBCActionTaskInfo) invokeCommon.objValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, taskInfo, taskStatus})) == null) {
+                return new UBCActionTaskInfo(j, str, taskInfo, taskStatus);
+            }
+            return (UBCActionTaskInfo) invokeCommon.objValue;
         }
 
         public final UBCActionTaskInfo b(String str, TaskInfo taskInfo, TaskStatus taskStatus) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, taskInfo, taskStatus)) == null) ? new UBCActionTaskInfo(0L, str, taskInfo, taskStatus) : (UBCActionTaskInfo) invokeLLL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280103505, "Lcom/baidu/bdtask/service/ubc/model/UBCActionTaskInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, taskInfo, taskStatus)) == null) {
+                return new UBCActionTaskInfo(0L, str, taskInfo, taskStatus);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-280103505, "Lcom/baidu/bdtask/service/ubc/model/UBCActionTaskInfo;");
-                return;
-            }
+            return (UBCActionTaskInfo) invokeLLL.objValue;
         }
-        Companion = new a(null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -111,7 +117,7 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
             if (this.taskInfo.isVisitAction()) {
                 json.put("duration", this.duration);
             }
-            json.put("duplicateId", cw.a.b(this.duplicateId));
+            json.put("duplicateId", dw.a.b(this.duplicateId));
             return json;
         }
         return (JSONObject) invokeV.objValue;

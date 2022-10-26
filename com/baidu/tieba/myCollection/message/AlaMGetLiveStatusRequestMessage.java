@@ -11,12 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonArray;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> mOriginDatas;
+    public List mOriginDatas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaMGetLiveStatusRequestMessage() {
@@ -37,10 +38,13 @@ public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
         this.mOriginDatas = new ArrayList();
     }
 
-    public List<Object> getOrignData() {
+    public List getOrignData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mOriginDatas : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mOriginDatas;
+        }
+        return (List) invokeV.objValue;
     }
 
     public void setAudienceCount(long j) {
@@ -50,26 +54,27 @@ public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
         }
     }
 
-    public void setListIds(List<Long> list) {
+    public void setOriginData(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && !ListUtils.isEmpty(list)) {
+            this.mOriginDatas.clear();
+            this.mOriginDatas.addAll(list);
+        }
+    }
+
+    public void setListIds(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             JsonArray jsonArray = new JsonArray();
             jsonArray.add((Number) 0L);
-            for (Long l : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                Long l = (Long) it.next();
                 if (l != null) {
                     jsonArray.add(l);
                 }
             }
             addParam("live_ids", jsonArray.toString());
         }
-    }
-
-    public void setOriginData(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.mOriginDatas.clear();
-        this.mOriginDatas.addAll(list);
     }
 }

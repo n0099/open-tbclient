@@ -1,7 +1,6 @@
 package com.baidu.mapapi.map;
 
 import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -70,7 +69,6 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @TargetApi(11)
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
@@ -93,7 +91,6 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
         if (r10.j != false) goto L14;
      */
     @Override // android.view.View.OnTouchListener
-    @TargetApi(12)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

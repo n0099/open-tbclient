@@ -4,7 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public final class AdVideoPlayerViewCache {
-    public HashMap<String, WeakReference<a>> ya;
+    public HashMap ya;
 
     /* loaded from: classes7.dex */
     public enum Holder {
@@ -21,7 +21,7 @@ public final class AdVideoPlayerViewCache {
     }
 
     public AdVideoPlayerViewCache() {
-        this.ya = new HashMap<>(1);
+        this.ya = new HashMap(1);
     }
 
     public /* synthetic */ AdVideoPlayerViewCache(byte b) {
@@ -33,13 +33,13 @@ public final class AdVideoPlayerViewCache {
     }
 
     public final void a(String str, a aVar) {
-        this.ya.put(str, new WeakReference<>(aVar));
+        this.ya.put(str, new WeakReference(aVar));
     }
 
     public final a cw(String str) {
-        WeakReference<a> weakReference = this.ya.get(str);
+        WeakReference weakReference = (WeakReference) this.ya.get(str);
         if (weakReference != null) {
-            a aVar = weakReference.get();
+            a aVar = (a) weakReference.get();
             if (aVar != null) {
                 return aVar;
             }

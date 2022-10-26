@@ -45,6 +45,57 @@ public class AccountToolsActivity extends Activity {
         this.a = new AccountToolsResult();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            AccountToolsCallback accountToolsCallback = this.b;
+            if (accountToolsCallback != null) {
+                accountToolsCallback.onFinish(this.a);
+            }
+            finish();
+        }
+    }
+
+    private String a(int i) {
+        InterceptResult invokeI;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            HashMap hashMap = new HashMap();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 5) {
+                                hashMap.put("u", SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd");
+                                hashMap.put(SpeedStatsUtils.UBC_VALUE_BANNER, "1");
+                                str = "/wp/wappassword";
+                            } else {
+                                throw new RuntimeException("account tools type is not support");
+                            }
+                        } else {
+                            str = "/v4/appeal/";
+                        }
+                    } else {
+                        str = "/wp/v3/ucenter/accountcancelpage";
+                    }
+                } else {
+                    str = "/wp/v3/ucenter/findaccback";
+                }
+            } else {
+                str = "/wp/v3/ucenter/accountfreezeapply";
+            }
+            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+            String str2 = sapiConfiguration.environment.getWap() + str + "?" + ParamsUtil.buildH5CommonParams(sapiConfiguration);
+            if (!hashMap.isEmpty()) {
+                return ParamsUtil.addExtras(str2, hashMap);
+            }
+            return str2;
+        }
+        return (String) invokeI.objValue;
+    }
+
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -59,6 +110,13 @@ public class AccountToolsActivity extends Activity {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AccountToolsActivity a;
+
+                @Override // com.baidu.sapi2.callback.AccountCenterCallback
+                public void onSocialBind(String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -87,54 +145,7 @@ public class AccountToolsActivity extends Activity {
                         this.a.a();
                     }
                 }
-
-                @Override // com.baidu.sapi2.callback.AccountCenterCallback
-                public void onSocialBind(String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    }
-                }
             }, accountCenterDTO);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.b;
-            if (accountToolsCallback != null) {
-                accountToolsCallback.onFinish(this.a);
-            }
-            finish();
-        }
-    }
-
-    private String a(int i) {
-        InterceptResult invokeI;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
-            HashMap hashMap = new HashMap();
-            if (i == 1) {
-                str = "/wp/v3/ucenter/accountfreezeapply";
-            } else if (i == 2) {
-                str = "/wp/v3/ucenter/findaccback";
-            } else if (i == 3) {
-                str = "/wp/v3/ucenter/accountcancelpage";
-            } else if (i == 4) {
-                str = "/v4/appeal/";
-            } else if (i == 5) {
-                hashMap.put("u", SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd");
-                hashMap.put(SpeedStatsUtils.UBC_VALUE_BANNER, "1");
-                str = "/wp/wappassword";
-            } else {
-                throw new RuntimeException("account tools type is not support");
-            }
-            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-            String str2 = sapiConfiguration.environment.getWap() + str + "?" + ParamsUtil.buildH5CommonParams(sapiConfiguration);
-            return !hashMap.isEmpty() ? ParamsUtil.addExtras(str2, hashMap) : str2;
-        }
-        return (String) invokeI.objValue;
     }
 }

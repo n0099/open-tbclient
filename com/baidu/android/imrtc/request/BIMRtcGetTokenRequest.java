@@ -33,6 +33,23 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     public long mRtcUserId;
     public String mSource;
 
+    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -47,6 +64,32 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
             }
         }
         hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    }
+
+    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public Map getHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap hashMap = new HashMap();
+            String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+            hashMap.put("Cookie", "BDUSS=" + bduss);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0) {
+                return "http://rd-im-server.bcc-szth.baidu.com:8080/rtc/rest/1.0/room/get_rtc_token";
+            }
+            return "https://pim.baidu.com/rtc/rest/1.0/room/get_rtc_token";
+        }
+        return (String) invokeV.objValue;
     }
 
     public BIMRtcGetTokenRequest(Context context, String str, String str2, long j, BIMRtcTokenListener bIMRtcTokenListener) {
@@ -105,39 +148,6 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public Map<String, String> getHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-            hashMap.put("Cookie", "BDUSS=" + bduss);
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8080/rtc/rest/1.0/room/get_rtc_token";
-            }
-            return "https://pim.baidu.com/rtc/rest/1.0/room/get_rtc_token";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
     public byte[] getRequestParameter() {
         InterceptResult invokeV;
@@ -178,12 +188,11 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
     public void onFailure(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) || this.mListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && this.mListener != null) {
+            report(-11, i);
+            this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
+            trackRequest(i, "room/get_rtc_token");
         }
-        report(-11, i);
-        this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
-        trackRequest(i, "room/get_rtc_token");
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
@@ -239,15 +248,5 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
                 trackRequest(i, "room/get_rtc_token");
             }
         }
-    }
-
-    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

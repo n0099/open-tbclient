@@ -57,49 +57,48 @@ public class PersonExpandImageView extends ImageView {
         float f;
         float f2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.d == 0 || (drawable = getDrawable()) == null || !(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
-            return;
-        }
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        if (width == 0 || height == 0) {
-            return;
-        }
-        float f3 = width;
-        float f4 = height;
-        float f5 = 0.0f;
-        if ((f3 * 1.0f) / f4 < (getWidth() * 1.0f) / this.d) {
-            float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.d) - getWidth()) * 0.2f) + getWidth();
-            float f6 = ((1.0f * f4) / f3) * width2;
-            if (width2 == 0.0f || f6 == 0.0f) {
-                return;
-            }
-            float width3 = (getWidth() * width) / width2;
-            float height2 = (getHeight() * height) / f6;
-            f = (f3 - width3) / 2.0f;
-            float f7 = (f4 - height2) / 2.0f;
-            f2 = width3 + f;
-            if (f7 < 0.0f) {
-                float abs = Math.abs(f7) + height2;
-                if (abs <= f4) {
-                    f4 = abs;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && this.d != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width != 0 && height != 0) {
+                float f3 = width;
+                float f4 = height;
+                float f5 = 0.0f;
+                if ((f3 * 1.0f) / f4 < (getWidth() * 1.0f) / this.d) {
+                    float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.d) - getWidth()) * 0.2f) + getWidth();
+                    float f6 = ((1.0f * f4) / f3) * width2;
+                    if (width2 != 0.0f && f6 != 0.0f) {
+                        float width3 = (getWidth() * width) / width2;
+                        float height2 = (getHeight() * height) / f6;
+                        f = (f3 - width3) / 2.0f;
+                        float f7 = (f4 - height2) / 2.0f;
+                        f2 = width3 + f;
+                        if (f7 < 0.0f) {
+                            float abs = Math.abs(f7) + height2;
+                            if (abs <= f4) {
+                                f4 = abs;
+                            }
+                        } else {
+                            f4 = f7 + height2;
+                            f5 = f7;
+                        }
+                    } else {
+                        return;
+                    }
+                } else {
+                    float height3 = ((getHeight() * width) * 1.0f) / f4;
+                    if (height3 == 0.0f) {
+                        return;
+                    }
+                    float width4 = (getWidth() * width) / height3;
+                    f = (f3 - width4) / 2.0f;
+                    f2 = width4 + f;
                 }
-            } else {
-                f4 = f7 + height2;
-                f5 = f7;
+                this.a.set((int) f, (int) f5, (int) f2, (int) f4);
+                this.b.set(0, 0, getWidth(), getHeight());
+                canvas.drawBitmap(bitmap, this.a, this.b, this.c);
             }
-        } else {
-            float height3 = ((getHeight() * width) * 1.0f) / f4;
-            if (height3 == 0.0f) {
-                return;
-            }
-            float width4 = (getWidth() * width) / height3;
-            f = (f3 - width4) / 2.0f;
-            f2 = width4 + f;
         }
-        this.a.set((int) f, (int) f5, (int) f2, (int) f4);
-        this.b.set(0, 0, getWidth(), getHeight());
-        canvas.drawBitmap(bitmap, this.a, this.b, this.c);
     }
 
     public void setInitHeight(int i) {

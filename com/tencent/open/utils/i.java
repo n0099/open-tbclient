@@ -1,6 +1,5 @@
 package com.tencent.open.utils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -59,72 +58,34 @@ public class i {
         return (String) invokeI.objValue;
     }
 
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(str, 0).versionName;
-            } catch (PackageManager.NameNotFoundException unused) {
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
-            String str2 = "";
-            SLog.v("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString");
-            try {
-                String packageName = context.getPackageName();
-                Signature[] signatureArr = context.getPackageManager().getPackageInfo(packageName, 64).signatures;
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(signatureArr[0].toByteArray());
-                String a = l.a(messageDigest.digest());
-                messageDigest.reset();
-                SLog.v("openSDK_LOG.SystemUtils", "-->sign: " + a);
-                messageDigest.update(l.i(packageName + "_" + a + "_" + str + ""));
-                str2 = l.a(messageDigest.digest());
-                messageDigest.reset();
-                StringBuilder sb = new StringBuilder();
-                sb.append("-->signEncryped: ");
-                sb.append(str2);
-                SLog.v("openSDK_LOG.SystemUtils", sb.toString());
-                return str2;
-            } catch (Exception e) {
-                e.printStackTrace();
-                SLog.e("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString error", e);
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static int c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) ? a(a(context, "com.tencent.mobileqq"), str) : invokeLL.intValue;
-    }
-
-    public static int d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, str)) == null) ? a(a(context, Constants.PACKAGE_TIM), str) : invokeLL.intValue;
-    }
-
-    public static int e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, context, str)) == null) ? a(a(context, Constants.PACKAGE_QQ_SPEED), str) : invokeLL.intValue;
-    }
-
-    public static boolean c(Context context) {
+    public static int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) ? context != null && context.getApplicationInfo().targetSdkVersion >= 29 && Build.VERSION.SDK_INT >= 29 && !a() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if ("shareToQQ".equals(str)) {
+                return 10103;
+            }
+            if ("shareToQzone".equals(str)) {
+                return Constants.REQUEST_QZONE_SHARE;
+            }
+            if ("addToQQFavorites".equals(str)) {
+                return Constants.REQUEST_QQ_FAVORITES;
+            }
+            if ("sendToMyComputer".equals(str)) {
+                return Constants.REQUEST_SEND_TO_MY_COMPUTER;
+            }
+            if ("shareToTroopBar".equals(str)) {
+                return Constants.REQUEST_SHARE_TO_TROOP_BAR;
+            }
+            if ("action_login".equals(str)) {
+                return Constants.REQUEST_LOGIN;
+            }
+            if ("action_request".equals(str)) {
+                return 10100;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
     }
 
     public static int a(String str, String str2) {
@@ -134,54 +95,79 @@ public class i {
             if (str == null && str2 == null) {
                 return 0;
             }
-            if (str == null || str2 != null) {
-                if (str != null || str2 == null) {
-                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    int i = 0;
-                    while (i < split.length && i < split2.length) {
-                        try {
-                            int parseInt = Integer.parseInt(split[i]);
-                            int parseInt2 = Integer.parseInt(split2[i]);
-                            if (parseInt < parseInt2) {
-                                return -1;
-                            }
-                            if (parseInt > parseInt2) {
-                                return 1;
-                            }
-                            i++;
-                        } catch (NumberFormatException unused) {
-                            return str.compareTo(str2);
-                        }
-                    }
-                    if (split.length > i) {
-                        return 1;
-                    }
-                    return split2.length > i ? -1 : 0;
-                }
+            if (str != null && str2 == null) {
+                return 1;
+            }
+            if (str == null && str2 != null) {
                 return -1;
             }
-            return 1;
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            int i = 0;
+            while (i < split.length && i < split2.length) {
+                try {
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split2[i]);
+                    if (parseInt < parseInt2) {
+                        return -1;
+                    }
+                    if (parseInt > parseInt2) {
+                        return 1;
+                    }
+                    i++;
+                } catch (NumberFormatException unused) {
+                    return str.compareTo(str2);
+                }
+            }
+            if (split.length > i) {
+                return 1;
+            }
+            if (split2.length <= i) {
+                return 0;
+            }
+            return -1;
         }
         return invokeLL.intValue;
     }
 
-    public static boolean a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
+    public static long a(InputStream inputStream, OutputStream outputStream) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) {
-            SLog.v("openSDK_LOG.SystemUtils", "OpenUi, validateAppSignatureForPackage");
-            try {
-                for (Signature signature : context.getPackageManager().getPackageInfo(str, 64).signatures) {
-                    if (l.f(signature.toCharsString()).equals(str2)) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, outputStream)) == null) {
+            byte[] bArr = new byte[8192];
+            long j = 0;
+            while (true) {
+                int read = inputStream.read(bArr, 0, 8192);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                    j += read;
+                } else {
+                    SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j);
+                    return j;
                 }
-            } catch (PackageManager.NameNotFoundException unused) {
             }
-            return false;
+        } else {
+            return invokeLL.longValue;
         }
-        return invokeLLL.booleanValue;
+    }
+
+    public static String a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            try {
+                ApplicationInfo applicationInfo = activity.getPackageManager().getApplicationInfo(activity.getApplicationContext().getPackageName(), 128);
+                SLog.i("openSDK_LOG.SystemUtils", "apkPath=" + applicationInfo.sourceDir);
+                return applicationInfo.sourceDir;
+            } catch (PackageManager.NameNotFoundException e) {
+                SLog.e("openSDK_LOG.SystemUtils", "NameNotFoundException", e);
+                return null;
+            } catch (Exception e2) {
+                SLog.e("openSDK_LOG.SystemUtils", "Exception", e2);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String a(Activity activity, String str) {
@@ -211,40 +197,112 @@ public class i {
         return (String) invokeLL.objValue;
     }
 
-    public static boolean b(Context context) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            try {
-                context.getPackageManager().getPackageInfo("com.tencent.mobileqq", 0);
-                SLog.i("openSDK_LOG.SystemUtils", "isQQInstalled true");
-                return true;
-            } catch (PackageManager.NameNotFoundException e) {
-                SLog.e("openSDK_LOG.SystemUtils", "PackageManager.NameNotFoundException", e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return context.getApplicationInfo().loadLabel(context.getPackageManager()).toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            if (context == null || context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || a()) {
                 return false;
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.SystemUtils", "Exception", e2);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(str, 0).versionName;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static int c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) {
+            return a(a(context, "com.tencent.mobileqq"), str);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, str)) == null) {
+            return a(a(context, Constants.PACKAGE_TIM), str);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, context, str)) == null) {
+            return a(a(context, Constants.PACKAGE_QQ_SPEED), str);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            try {
+                return ((Boolean) Environment.class.getMethod("isExternalStorageLegacy", new Class[0]).invoke(Environment.class, new Object[0])).booleanValue();
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
                 return false;
             }
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
     public static boolean a(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, intent)) == null) ? (context == null || intent == null || context.getPackageManager().queryIntentActivities(intent, 0).size() == 0) ? false : true : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, intent)) == null) {
+            if (context == null || intent == null || context.getPackageManager().queryIntentActivities(intent, 0).size() == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static boolean a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? context.getApplicationInfo().loadLabel(context.getPackageManager()).toString() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) {
+            SLog.v("openSDK_LOG.SystemUtils", "OpenUi, validateAppSignatureForPackage");
+            try {
+                for (Signature signature : context.getPackageManager().getPackageInfo(str, 64).signatures) {
+                    if (l.f(signature.toCharsString()).equals(str2)) {
+                        return true;
+                    }
+                }
+            } catch (PackageManager.NameNotFoundException unused) {
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:66:0x00c2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:76:0x00c9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @SuppressLint({"SdCardPath"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -361,67 +419,53 @@ public class i {
         return invokeLLI.booleanValue;
     }
 
-    public static long a(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static String b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65538, null, inputStream, outputStream)) != null) {
-            return invokeLL.longValue;
-        }
-        byte[] bArr = new byte[8192];
-        long j = 0;
-        while (true) {
-            int read = inputStream.read(bArr, 0, 8192);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-                j += read;
-            } else {
-                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j);
-                return j;
-            }
-        }
-    }
-
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if ("shareToQQ".equals(str)) {
-                return 10103;
-            }
-            return "shareToQzone".equals(str) ? Constants.REQUEST_QZONE_SHARE : "addToQQFavorites".equals(str) ? Constants.REQUEST_QQ_FAVORITES : "sendToMyComputer".equals(str) ? Constants.REQUEST_SEND_TO_MY_COMPUTER : "shareToTroopBar".equals(str) ? Constants.REQUEST_SHARE_TO_TROOP_BAR : "action_login".equals(str) ? Constants.REQUEST_LOGIN : "action_request".equals(str) ? 10100 : -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
+            String str2 = "";
+            SLog.v("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString");
             try {
-                ApplicationInfo applicationInfo = activity.getPackageManager().getApplicationInfo(activity.getApplicationContext().getPackageName(), 128);
-                SLog.i("openSDK_LOG.SystemUtils", "apkPath=" + applicationInfo.sourceDir);
-                return applicationInfo.sourceDir;
+                String packageName = context.getPackageName();
+                Signature[] signatureArr = context.getPackageManager().getPackageInfo(packageName, 64).signatures;
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(signatureArr[0].toByteArray());
+                String a = l.a(messageDigest.digest());
+                messageDigest.reset();
+                SLog.v("openSDK_LOG.SystemUtils", "-->sign: " + a);
+                messageDigest.update(l.i(packageName + "_" + a + "_" + str + ""));
+                str2 = l.a(messageDigest.digest());
+                messageDigest.reset();
+                StringBuilder sb = new StringBuilder();
+                sb.append("-->signEncryped: ");
+                sb.append(str2);
+                SLog.v("openSDK_LOG.SystemUtils", sb.toString());
+                return str2;
+            } catch (Exception e) {
+                e.printStackTrace();
+                SLog.e("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString error", e);
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            try {
+                context.getPackageManager().getPackageInfo("com.tencent.mobileqq", 0);
+                SLog.i("openSDK_LOG.SystemUtils", "isQQInstalled true");
+                return true;
             } catch (PackageManager.NameNotFoundException e) {
-                SLog.e("openSDK_LOG.SystemUtils", "NameNotFoundException", e);
-                return null;
+                SLog.e("openSDK_LOG.SystemUtils", "PackageManager.NameNotFoundException", e);
+                return false;
             } catch (Exception e2) {
                 SLog.e("openSDK_LOG.SystemUtils", "Exception", e2);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            try {
-                return ((Boolean) Environment.class.getMethod("isExternalStorageLegacy", new Class[0]).invoke(Environment.class, new Object[0])).booleanValue();
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
                 return false;
             }
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

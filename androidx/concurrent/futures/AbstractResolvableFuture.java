@@ -1,8 +1,5 @@
 package androidx.concurrent.futures;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -27,7 +24,6 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.util.concurrent.locks.LockSupport;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -37,24 +33,43 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
     public static final long SPIN_THRESHOLD_NANOS = 1000;
     public static final Logger log;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public volatile Listener listeners;
-    @Nullable
     public volatile Object value;
-    @Nullable
     public volatile Waiter waiters;
 
     /* renamed from: androidx.concurrent.futures.AbstractResolvableFuture$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public void afterDone() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void interruptTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
     }
 
     /* loaded from: classes.dex */
     public static abstract class AtomicHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract boolean casListeners(AbstractResolvableFuture<?> abstractResolvableFuture, Listener listener, Listener listener2);
+
+        public abstract boolean casValue(AbstractResolvableFuture<?> abstractResolvableFuture, Object obj, Object obj2);
+
+        public abstract boolean casWaiters(AbstractResolvableFuture<?> abstractResolvableFuture, Waiter waiter, Waiter waiter2);
+
+        public abstract void putNext(Waiter waiter, Waiter waiter2);
+
+        public abstract void putThread(Waiter waiter, Thread thread);
 
         public AtomicHelper() {
             Interceptable interceptable = $ic;
@@ -70,16 +85,6 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
             }
         }
 
-        public abstract boolean casListeners(AbstractResolvableFuture<?> abstractResolvableFuture, Listener listener, Listener listener2);
-
-        public abstract boolean casValue(AbstractResolvableFuture<?> abstractResolvableFuture, Object obj, Object obj2);
-
-        public abstract boolean casWaiters(AbstractResolvableFuture<?> abstractResolvableFuture, Waiter waiter, Waiter waiter2);
-
-        public abstract void putNext(Waiter waiter, Waiter waiter2);
-
-        public abstract void putThread(Waiter waiter, Thread thread);
-
         public /* synthetic */ AtomicHelper(AnonymousClass1 anonymousClass1) {
             this();
         }
@@ -91,7 +96,6 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         public static final Cancellation CAUSELESS_CANCELLED;
         public static final Cancellation CAUSELESS_INTERRUPTED;
         public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
         public final Throwable cause;
         public final boolean wasInterrupted;
 
@@ -117,7 +121,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
             CAUSELESS_INTERRUPTED = new Cancellation(true, null);
         }
 
-        public Cancellation(boolean z, @Nullable Throwable th) {
+        public Cancellation(boolean z, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,7 +224,6 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         public static final Listener TOMBSTONE;
         public transient /* synthetic */ FieldHolder $fh;
         public final Executor executor;
-        @Nullable
         public Listener next;
         public final Runnable task;
 
@@ -299,21 +302,30 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         public boolean casListeners(AbstractResolvableFuture<?> abstractResolvableFuture, Listener listener, Listener listener2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, abstractResolvableFuture, listener, listener2)) == null) ? this.listenersUpdater.compareAndSet(abstractResolvableFuture, listener, listener2) : invokeLLL.booleanValue;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, abstractResolvableFuture, listener, listener2)) == null) {
+                return this.listenersUpdater.compareAndSet(abstractResolvableFuture, listener, listener2);
+            }
+            return invokeLLL.booleanValue;
         }
 
         @Override // androidx.concurrent.futures.AbstractResolvableFuture.AtomicHelper
         public boolean casValue(AbstractResolvableFuture<?> abstractResolvableFuture, Object obj, Object obj2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractResolvableFuture, obj, obj2)) == null) ? this.valueUpdater.compareAndSet(abstractResolvableFuture, obj, obj2) : invokeLLL.booleanValue;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractResolvableFuture, obj, obj2)) == null) {
+                return this.valueUpdater.compareAndSet(abstractResolvableFuture, obj, obj2);
+            }
+            return invokeLLL.booleanValue;
         }
 
         @Override // androidx.concurrent.futures.AbstractResolvableFuture.AtomicHelper
         public boolean casWaiters(AbstractResolvableFuture<?> abstractResolvableFuture, Waiter waiter, Waiter waiter2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, abstractResolvableFuture, waiter, waiter2)) == null) ? this.waitersUpdater.compareAndSet(abstractResolvableFuture, waiter, waiter2) : invokeLLL.booleanValue;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, abstractResolvableFuture, waiter, waiter2)) == null) {
+                return this.waitersUpdater.compareAndSet(abstractResolvableFuture, waiter, waiter2);
+            }
+            return invokeLLL.booleanValue;
         }
 
         @Override // androidx.concurrent.futures.AbstractResolvableFuture.AtomicHelper
@@ -362,10 +374,11 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.owner.value == this) {
-                if (AbstractResolvableFuture.ATOMIC_HELPER.casValue(this.owner, this, AbstractResolvableFuture.getFutureValue(this.future))) {
-                    AbstractResolvableFuture.complete(this.owner);
-                }
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.owner.value != this) {
+                return;
+            }
+            if (AbstractResolvableFuture.ATOMIC_HELPER.casValue(this.owner, this, AbstractResolvableFuture.getFutureValue(this.future))) {
+                AbstractResolvableFuture.complete(this.owner);
             }
         }
     }
@@ -463,9 +476,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         public static /* synthetic */ Interceptable $ic;
         public static final Waiter TOMBSTONE;
         public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
         public volatile Waiter next;
-        @Nullable
         public volatile Thread thread;
 
         static {
@@ -482,6 +493,31 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
                 }
             }
             TOMBSTONE = new Waiter(false);
+        }
+
+        public Waiter() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            AbstractResolvableFuture.ATOMIC_HELPER.putThread(this, Thread.currentThread());
+        }
+
+        public void unpark() {
+            Thread thread;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (thread = this.thread) != null) {
+                this.thread = null;
+                LockSupport.unpark(thread);
+            }
         }
 
         public Waiter(boolean z) {
@@ -505,32 +541,6 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
             if (interceptable == null || interceptable.invokeL(1048576, this, waiter) == null) {
                 AbstractResolvableFuture.ATOMIC_HELPER.putNext(this, waiter);
             }
-        }
-
-        public void unpark() {
-            Thread thread;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (thread = this.thread) == null) {
-                return;
-            }
-            this.thread = null;
-            LockSupport.unpark(thread);
-        }
-
-        public Waiter() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            AbstractResolvableFuture.ATOMIC_HELPER.putThread(this, Thread.currentThread());
         }
     }
 
@@ -564,6 +574,91 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         NULL = new Object();
     }
 
+    @Override // java.util.concurrent.Future
+    public final V get() throws InterruptedException, ExecutionException {
+        InterceptResult invokeV;
+        boolean z;
+        Object obj;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!Thread.interrupted()) {
+                Object obj2 = this.value;
+                if (obj2 != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z & (!(obj2 instanceof SetFuture))) {
+                    return getDoneValue(obj2);
+                }
+                Waiter waiter = this.waiters;
+                if (waiter != Waiter.TOMBSTONE) {
+                    Waiter waiter2 = new Waiter();
+                    do {
+                        waiter2.setNext(waiter);
+                        if (ATOMIC_HELPER.casWaiters(this, waiter, waiter2)) {
+                            do {
+                                LockSupport.park(this);
+                                if (!Thread.interrupted()) {
+                                    obj = this.value;
+                                    if (obj != null) {
+                                        z2 = true;
+                                    } else {
+                                        z2 = false;
+                                    }
+                                } else {
+                                    removeWaiter(waiter2);
+                                    throw new InterruptedException();
+                                }
+                            } while (!(z2 & (!(obj instanceof SetFuture))));
+                            return getDoneValue(obj);
+                        }
+                        waiter = this.waiters;
+                    } while (waiter != Waiter.TOMBSTONE);
+                    return getDoneValue(this.value);
+                }
+                return getDoneValue(this.value);
+            }
+            throw new InterruptedException();
+        }
+        return (V) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(super.toString());
+            sb.append("[status=");
+            if (isCancelled()) {
+                sb.append("CANCELLED");
+            } else if (isDone()) {
+                addDoneString(sb);
+            } else {
+                try {
+                    str = pendingToString();
+                } catch (RuntimeException e) {
+                    str = "Exception thrown from implementation: " + e.getClass();
+                }
+                if (str != null && !str.isEmpty()) {
+                    sb.append("PENDING, info=[");
+                    sb.append(str);
+                    sb.append(PreferencesUtil.RIGHT_MOUNT);
+                } else if (isDone()) {
+                    addDoneString(sb);
+                } else {
+                    sb.append("PENDING");
+                }
+            }
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public AbstractResolvableFuture() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -576,6 +671,60 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    private void releaseWaiters() {
+        Waiter waiter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            do {
+                waiter = this.waiters;
+            } while (!ATOMIC_HELPER.casWaiters(this, waiter, Waiter.TOMBSTONE));
+            while (waiter != null) {
+                waiter.unpark();
+                waiter = waiter.next;
+            }
+        }
+    }
+
+    @Override // java.util.concurrent.Future
+    public final boolean isCancelled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.value instanceof Cancellation;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.Future
+    public final boolean isDone() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Object obj = this.value;
+            if (obj != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return (!(obj instanceof SetFuture)) & z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean wasInterrupted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            Object obj = this.value;
+            if ((obj instanceof Cancellation) && ((Cancellation) obj).wasInterrupted) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     private void addDoneString(StringBuilder sb) {
@@ -600,7 +749,46 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         }
     }
 
-    public static CancellationException cancellationExceptionWithCause(@Nullable String str, @Nullable Throwable th) {
+    public boolean setFuture(ListenableFuture<? extends V> listenableFuture) {
+        InterceptResult invokeL;
+        Failure failure;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, listenableFuture)) == null) {
+            checkNotNull(listenableFuture);
+            Object obj = this.value;
+            if (obj == null) {
+                if (listenableFuture.isDone()) {
+                    if (!ATOMIC_HELPER.casValue(this, null, getFutureValue(listenableFuture))) {
+                        return false;
+                    }
+                    complete(this);
+                    return true;
+                }
+                SetFuture setFuture = new SetFuture(this, listenableFuture);
+                if (ATOMIC_HELPER.casValue(this, null, setFuture)) {
+                    try {
+                        listenableFuture.addListener(setFuture, DirectExecutor.INSTANCE);
+                    } catch (Throwable th) {
+                        try {
+                            failure = new Failure(th);
+                        } catch (Throwable unused) {
+                            failure = Failure.FALLBACK_INSTANCE;
+                        }
+                        ATOMIC_HELPER.casValue(this, setFuture, failure);
+                    }
+                    return true;
+                }
+                obj = this.value;
+            }
+            if (obj instanceof Cancellation) {
+                listenableFuture.cancel(((Cancellation) obj).wasInterrupted);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static CancellationException cancellationExceptionWithCause(String str, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, th)) == null) {
@@ -611,8 +799,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         return (CancellationException) invokeLL.objValue;
     }
 
-    @NonNull
-    public static <T> T checkNotNull(@Nullable T t) {
+    public static <T> T checkNotNull(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
@@ -643,6 +830,89 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
             return listener3;
         }
         return (Listener) invokeL.objValue;
+    }
+
+    public static <V> V getUninterruptibly(Future<V> future) throws ExecutionException {
+        InterceptResult invokeL;
+        V v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, future)) == null) {
+            boolean z = false;
+            while (true) {
+                try {
+                    v = future.get();
+                    break;
+                } catch (InterruptedException unused) {
+                    z = true;
+                } catch (Throwable th) {
+                    if (z) {
+                        Thread.currentThread().interrupt();
+                    }
+                    throw th;
+                }
+            }
+            if (z) {
+                Thread.currentThread().interrupt();
+            }
+            return v;
+        }
+        return (V) invokeL.objValue;
+    }
+
+    private String userObjectToString(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, obj)) == null) {
+            if (obj == this) {
+                return "this future";
+            }
+            return String.valueOf(obj);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void maybePropagateCancellationTo(Future<?> future) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, future) == null) {
+            if (future != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z & isCancelled()) {
+                future.cancel(wasInterrupted());
+            }
+        }
+    }
+
+    public boolean set(V v) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, v)) == null) {
+            if (v == null) {
+                v = (V) NULL;
+            }
+            if (ATOMIC_HELPER.casValue(this, null, v)) {
+                complete(this);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean setException(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, th)) == null) {
+            if (ATOMIC_HELPER.casValue(this, null, new Failure((Throwable) checkNotNull(th)))) {
+                complete(this);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0005 */
@@ -682,19 +952,6 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         }
     }
 
-    public static void executeListener(Runnable runnable, Executor executor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, runnable, executor) == null) {
-            try {
-                executor.execute(runnable);
-            } catch (RuntimeException e) {
-                Logger logger = log;
-                Level level = Level.SEVERE;
-                logger.log(level, "RuntimeException while executing runnable " + runnable + " with executor " + executor, (Throwable) e);
-            }
-        }
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     private V getDoneValue(Object obj) throws ExecutionException {
@@ -713,80 +970,6 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
             throw cancellationExceptionWithCause("Task was cancelled.", ((Cancellation) obj).cause);
         }
         return (V) invokeL.objValue;
-    }
-
-    public static Object getFutureValue(ListenableFuture<?> listenableFuture) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, listenableFuture)) == null) {
-            if (listenableFuture instanceof AbstractResolvableFuture) {
-                Object obj = ((AbstractResolvableFuture) listenableFuture).value;
-                if (obj instanceof Cancellation) {
-                    Cancellation cancellation = (Cancellation) obj;
-                    return cancellation.wasInterrupted ? cancellation.cause != null ? new Cancellation(false, cancellation.cause) : Cancellation.CAUSELESS_CANCELLED : obj;
-                }
-                return obj;
-            }
-            boolean isCancelled = listenableFuture.isCancelled();
-            if ((!GENERATE_CANCELLATION_CAUSES) & isCancelled) {
-                return Cancellation.CAUSELESS_CANCELLED;
-            }
-            try {
-                Object uninterruptibly = getUninterruptibly(listenableFuture);
-                return uninterruptibly == null ? NULL : uninterruptibly;
-            } catch (CancellationException e) {
-                if (!isCancelled) {
-                    return new Failure(new IllegalArgumentException("get() threw CancellationException, despite reporting isCancelled() == false: " + listenableFuture, e));
-                }
-                return new Cancellation(false, e);
-            } catch (ExecutionException e2) {
-                return new Failure(e2.getCause());
-            } catch (Throwable th) {
-                return new Failure(th);
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public static <V> V getUninterruptibly(Future<V> future) throws ExecutionException {
-        InterceptResult invokeL;
-        V v;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, future)) == null) {
-            boolean z = false;
-            while (true) {
-                try {
-                    v = future.get();
-                    break;
-                } catch (InterruptedException unused) {
-                    z = true;
-                } catch (Throwable th) {
-                    if (z) {
-                        Thread.currentThread().interrupt();
-                    }
-                    throw th;
-                }
-            }
-            if (z) {
-                Thread.currentThread().interrupt();
-            }
-            return v;
-        }
-        return (V) invokeL.objValue;
-    }
-
-    private void releaseWaiters() {
-        Waiter waiter;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            do {
-                waiter = this.waiters;
-            } while (!ATOMIC_HELPER.casWaiters(this, waiter, Waiter.TOMBSTONE));
-            while (waiter != null) {
-                waiter.unpark();
-                waiter = waiter.next;
-            }
-        }
     }
 
     private void removeWaiter(Waiter waiter) {
@@ -818,10 +1001,17 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         }
     }
 
-    private String userObjectToString(Object obj) {
-        InterceptResult invokeL;
+    public static void executeListener(Runnable runnable, Executor executor) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, obj)) == null) ? obj == this ? "this future" : String.valueOf(obj) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLL(65543, null, runnable, executor) == null) {
+            try {
+                executor.execute(runnable);
+            } catch (RuntimeException e) {
+                Logger logger = log;
+                Level level = Level.SEVERE;
+                logger.log(level, "RuntimeException while executing runnable " + runnable + " with executor " + executor, (Throwable) e);
+            }
+        }
     }
 
     @Override // com.google.common.util.concurrent.ListenableFuture
@@ -846,68 +1036,139 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         }
     }
 
-    public void afterDone() {
+    public static Object getFutureValue(ListenableFuture<?> listenableFuture) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, listenableFuture)) == null) {
+            if (listenableFuture instanceof AbstractResolvableFuture) {
+                Object obj = ((AbstractResolvableFuture) listenableFuture).value;
+                if (obj instanceof Cancellation) {
+                    Cancellation cancellation = (Cancellation) obj;
+                    if (cancellation.wasInterrupted) {
+                        if (cancellation.cause != null) {
+                            return new Cancellation(false, cancellation.cause);
+                        }
+                        return Cancellation.CAUSELESS_CANCELLED;
+                    }
+                    return obj;
+                }
+                return obj;
+            }
+            boolean isCancelled = listenableFuture.isCancelled();
+            if ((!GENERATE_CANCELLATION_CAUSES) & isCancelled) {
+                return Cancellation.CAUSELESS_CANCELLED;
+            }
+            try {
+                Object uninterruptibly = getUninterruptibly(listenableFuture);
+                if (uninterruptibly == null) {
+                    return NULL;
+                }
+                return uninterruptibly;
+            } catch (CancellationException e) {
+                if (!isCancelled) {
+                    return new Failure(new IllegalArgumentException("get() threw CancellationException, despite reporting isCancelled() == false: " + listenableFuture, e));
+                }
+                return new Cancellation(false, e);
+            } catch (ExecutionException e2) {
+                return new Failure(e2.getCause());
+            } catch (Throwable th) {
+                return new Failure(th);
+            }
         }
+        return invokeL.objValue;
     }
 
     @Override // java.util.concurrent.Future
     public final boolean cancel(boolean z) {
         InterceptResult invokeZ;
+        boolean z2;
+        Cancellation cancellation;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) != null) {
-            return invokeZ.booleanValue;
-        }
-        Object obj = this.value;
-        if (!(obj == null) && !(obj instanceof SetFuture)) {
-            return false;
-        }
-        Cancellation cancellation = GENERATE_CANCELLATION_CAUSES ? new Cancellation(z, new CancellationException("Future.cancel() was called.")) : z ? Cancellation.CAUSELESS_INTERRUPTED : Cancellation.CAUSELESS_CANCELLED;
-        boolean z2 = false;
-        AbstractResolvableFuture<V> abstractResolvableFuture = this;
-        while (true) {
-            if (ATOMIC_HELPER.casValue(abstractResolvableFuture, obj, cancellation)) {
-                if (z) {
-                    abstractResolvableFuture.interruptTask();
-                }
-                complete(abstractResolvableFuture);
-                if (!(obj instanceof SetFuture)) {
-                    return true;
-                }
-                ListenableFuture<? extends V> listenableFuture = ((SetFuture) obj).future;
-                if (listenableFuture instanceof AbstractResolvableFuture) {
-                    abstractResolvableFuture = (AbstractResolvableFuture) listenableFuture;
-                    obj = abstractResolvableFuture.value;
-                    if (!(obj == null) && !(obj instanceof SetFuture)) {
-                        return true;
-                    }
-                    z2 = true;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            Object obj = this.value;
+            if (obj == null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2 | (obj instanceof SetFuture)) {
+                if (GENERATE_CANCELLATION_CAUSES) {
+                    cancellation = new Cancellation(z, new CancellationException("Future.cancel() was called."));
+                } else if (z) {
+                    cancellation = Cancellation.CAUSELESS_INTERRUPTED;
                 } else {
-                    listenableFuture.cancel(z);
-                    return true;
+                    cancellation = Cancellation.CAUSELESS_CANCELLED;
+                }
+                boolean z4 = false;
+                AbstractResolvableFuture<V> abstractResolvableFuture = this;
+                while (true) {
+                    if (ATOMIC_HELPER.casValue(abstractResolvableFuture, obj, cancellation)) {
+                        if (z) {
+                            abstractResolvableFuture.interruptTask();
+                        }
+                        complete(abstractResolvableFuture);
+                        if (!(obj instanceof SetFuture)) {
+                            return true;
+                        }
+                        ListenableFuture<? extends V> listenableFuture = ((SetFuture) obj).future;
+                        if (listenableFuture instanceof AbstractResolvableFuture) {
+                            abstractResolvableFuture = (AbstractResolvableFuture) listenableFuture;
+                            obj = abstractResolvableFuture.value;
+                            if (obj == null) {
+                                z3 = true;
+                            } else {
+                                z3 = false;
+                            }
+                            if (!(z3 | (obj instanceof SetFuture))) {
+                                return true;
+                            }
+                            z4 = true;
+                        } else {
+                            listenableFuture.cancel(z);
+                            return true;
+                        }
+                    } else {
+                        obj = abstractResolvableFuture.value;
+                        if (!(obj instanceof SetFuture)) {
+                            return z4;
+                        }
+                    }
                 }
             } else {
-                obj = abstractResolvableFuture.value;
-                if (!(obj instanceof SetFuture)) {
-                    return z2;
-                }
+                return false;
             }
+        } else {
+            return invokeZ.booleanValue;
         }
     }
 
     @Override // java.util.concurrent.Future
     public final V get(long j, TimeUnit timeUnit) throws InterruptedException, TimeoutException, ExecutionException {
         InterceptResult invokeJL;
+        boolean z;
+        long j2;
+        boolean z2;
+        boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
             long nanos = timeUnit.toNanos(j);
             if (!Thread.interrupted()) {
                 Object obj = this.value;
-                if ((obj != null) & (!(obj instanceof SetFuture))) {
+                if (obj != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z & (!(obj instanceof SetFuture))) {
                     return getDoneValue(obj);
                 }
-                long nanoTime = nanos > 0 ? System.nanoTime() + nanos : 0L;
+                if (nanos > 0) {
+                    j2 = System.nanoTime() + nanos;
+                } else {
+                    j2 = 0;
+                }
                 if (nanos >= 1000) {
                     Waiter waiter = this.waiters;
                     if (waiter != Waiter.TOMBSTONE) {
@@ -919,10 +1180,15 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
                                     LockSupport.parkNanos(this, nanos);
                                     if (!Thread.interrupted()) {
                                         Object obj2 = this.value;
-                                        if ((obj2 != null) & (!(obj2 instanceof SetFuture))) {
+                                        if (obj2 != null) {
+                                            z4 = true;
+                                        } else {
+                                            z4 = false;
+                                        }
+                                        if (z4 & (!(obj2 instanceof SetFuture))) {
                                             return getDoneValue(obj2);
                                         }
-                                        nanos = nanoTime - System.nanoTime();
+                                        nanos = j2 - System.nanoTime();
                                     } else {
                                         removeWaiter(waiter2);
                                         throw new InterruptedException();
@@ -939,11 +1205,16 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
                 }
                 while (nanos > 0) {
                     Object obj3 = this.value;
-                    if ((obj3 != null) & (!(obj3 instanceof SetFuture))) {
+                    if (obj3 != null) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (z3 & (!(obj3 instanceof SetFuture))) {
                         return getDoneValue(obj3);
                     }
                     if (!Thread.interrupted()) {
-                        nanos = nanoTime - System.nanoTime();
+                        nanos = j2 - System.nanoTime();
                     } else {
                         throw new InterruptedException();
                     }
@@ -953,19 +1224,23 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
                 String str = "Waited " + j + " " + timeUnit.toString().toLowerCase(Locale.ROOT);
                 if (nanos + 1000 < 0) {
                     String str2 = str + " (plus ";
-                    long j2 = -nanos;
-                    long convert = timeUnit.convert(j2, TimeUnit.NANOSECONDS);
-                    long nanos2 = j2 - timeUnit.toNanos(convert);
+                    long j3 = -nanos;
+                    long convert = timeUnit.convert(j3, TimeUnit.NANOSECONDS);
+                    long nanos2 = j3 - timeUnit.toNanos(convert);
                     int i = (convert > 0L ? 1 : (convert == 0L ? 0 : -1));
-                    boolean z = i == 0 || nanos2 > 1000;
+                    if (i != 0 && nanos2 <= 1000) {
+                        z2 = false;
+                    } else {
+                        z2 = true;
+                    }
                     if (i > 0) {
                         String str3 = str2 + convert + " " + lowerCase;
-                        if (z) {
+                        if (z2) {
                             str3 = str3 + ",";
                         }
                         str2 = str3 + " ";
                     }
-                    if (z) {
+                    if (z2) {
                         str2 = str2 + nanos2 + " nanoseconds ";
                     }
                     str = str2 + "delay)";
@@ -980,40 +1255,6 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         return (V) invokeJL.objValue;
     }
 
-    public void interruptTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // java.util.concurrent.Future
-    public final boolean isCancelled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.value instanceof Cancellation : invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public final boolean isDone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Object obj = this.value;
-            return (!(obj instanceof SetFuture)) & (obj != null);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void maybePropagateCancellationTo(@Nullable Future<?> future) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, future) == null) {
-            if ((future != null) && isCancelled()) {
-                future.cancel(wasInterrupted());
-            }
-        }
-    }
-
-    @Nullable
     public String pendingToString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1028,156 +1269,5 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    public boolean set(@Nullable V v) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, v)) == null) {
-            if (v == null) {
-                v = (V) NULL;
-            }
-            if (ATOMIC_HELPER.casValue(this, null, v)) {
-                complete(this);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean setException(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, th)) == null) {
-            if (ATOMIC_HELPER.casValue(this, null, new Failure((Throwable) checkNotNull(th)))) {
-                complete(this);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean setFuture(ListenableFuture<? extends V> listenableFuture) {
-        InterceptResult invokeL;
-        Failure failure;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, listenableFuture)) == null) {
-            checkNotNull(listenableFuture);
-            Object obj = this.value;
-            if (obj == null) {
-                if (listenableFuture.isDone()) {
-                    if (ATOMIC_HELPER.casValue(this, null, getFutureValue(listenableFuture))) {
-                        complete(this);
-                        return true;
-                    }
-                    return false;
-                }
-                SetFuture setFuture = new SetFuture(this, listenableFuture);
-                if (ATOMIC_HELPER.casValue(this, null, setFuture)) {
-                    try {
-                        listenableFuture.addListener(setFuture, DirectExecutor.INSTANCE);
-                    } catch (Throwable th) {
-                        try {
-                            failure = new Failure(th);
-                        } catch (Throwable unused) {
-                            failure = Failure.FALLBACK_INSTANCE;
-                        }
-                        ATOMIC_HELPER.casValue(this, setFuture, failure);
-                    }
-                    return true;
-                }
-                obj = this.value;
-            }
-            if (obj instanceof Cancellation) {
-                listenableFuture.cancel(((Cancellation) obj).wasInterrupted);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(super.toString());
-            sb.append("[status=");
-            if (isCancelled()) {
-                sb.append("CANCELLED");
-            } else if (isDone()) {
-                addDoneString(sb);
-            } else {
-                try {
-                    str = pendingToString();
-                } catch (RuntimeException e) {
-                    str = "Exception thrown from implementation: " + e.getClass();
-                }
-                if (str != null && !str.isEmpty()) {
-                    sb.append("PENDING, info=[");
-                    sb.append(str);
-                    sb.append(PreferencesUtil.RIGHT_MOUNT);
-                } else if (isDone()) {
-                    addDoneString(sb);
-                } else {
-                    sb.append("PENDING");
-                }
-            }
-            sb.append(PreferencesUtil.RIGHT_MOUNT);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean wasInterrupted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            Object obj = this.value;
-            return (obj instanceof Cancellation) && ((Cancellation) obj).wasInterrupted;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public final V get() throws InterruptedException, ExecutionException {
-        InterceptResult invokeV;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!Thread.interrupted()) {
-                Object obj2 = this.value;
-                if ((obj2 != null) & (!(obj2 instanceof SetFuture))) {
-                    return getDoneValue(obj2);
-                }
-                Waiter waiter = this.waiters;
-                if (waiter != Waiter.TOMBSTONE) {
-                    Waiter waiter2 = new Waiter();
-                    do {
-                        waiter2.setNext(waiter);
-                        if (ATOMIC_HELPER.casWaiters(this, waiter, waiter2)) {
-                            do {
-                                LockSupport.park(this);
-                                if (!Thread.interrupted()) {
-                                    obj = this.value;
-                                } else {
-                                    removeWaiter(waiter2);
-                                    throw new InterruptedException();
-                                }
-                            } while (!((obj != null) & (!(obj instanceof SetFuture))));
-                            return getDoneValue(obj);
-                        }
-                        waiter = this.waiters;
-                    } while (waiter != Waiter.TOMBSTONE);
-                    return getDoneValue(this.value);
-                }
-                return getDoneValue(this.value);
-            }
-            throw new InterruptedException();
-        }
-        return (V) invokeV.objValue;
     }
 }

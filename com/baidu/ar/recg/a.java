@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 public class a extends d implements IOnDeviceIR {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<IOnDeviceIR> mj;
+    public WeakReference mj;
     public IOnDeviceIRStateChangedListener tT;
 
     public a() {
@@ -34,7 +34,7 @@ public class a extends d implements IOnDeviceIR {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof IOnDeviceIR)) {
             IOnDeviceIR iOnDeviceIR = (IOnDeviceIR) cVar;
-            this.mj = new WeakReference<>(iOnDeviceIR);
+            this.mj = new WeakReference(iOnDeviceIR);
             IOnDeviceIRStateChangedListener iOnDeviceIRStateChangedListener = this.tT;
             if (iOnDeviceIRStateChangedListener != null) {
                 iOnDeviceIR.setStateChangedListener(iOnDeviceIRStateChangedListener);
@@ -46,7 +46,7 @@ public class a extends d implements IOnDeviceIR {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            WeakReference<IOnDeviceIR> weakReference = this.mj;
+            WeakReference weakReference = this.mj;
             if (weakReference != null) {
                 weakReference.clear();
                 this.mj = null;
@@ -57,24 +57,24 @@ public class a extends d implements IOnDeviceIR {
 
     @Override // com.baidu.ar.recg.IOnDeviceIR
     public void retry() {
-        WeakReference<IOnDeviceIR> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (weakReference = this.mj) == null || weakReference.get() == null) {
             return;
         }
-        this.mj.get().retry();
+        ((IOnDeviceIR) this.mj.get()).retry();
     }
 
     @Override // com.baidu.ar.recg.IOnDeviceIR
     public void setStateChangedListener(IOnDeviceIRStateChangedListener iOnDeviceIRStateChangedListener) {
-        WeakReference<IOnDeviceIR> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iOnDeviceIRStateChangedListener) == null) {
             this.tT = iOnDeviceIRStateChangedListener;
             if (iOnDeviceIRStateChangedListener == null || (weakReference = this.mj) == null || weakReference.get() == null) {
                 return;
             }
-            this.mj.get().setStateChangedListener(this.tT);
+            ((IOnDeviceIR) this.mj.get()).setStateChangedListener(this.tT);
         }
     }
 }

@@ -131,6 +131,7 @@ public class i implements e {
 
     public final void c(HttpURLConnection httpURLConnection, boolean z) {
         long contentLength;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, httpURLConnection, z) == null) {
             Log.d("RtcDownSo", "start parse response");
@@ -173,12 +174,15 @@ public class i implements e {
                     if (z) {
                         ArrayList<l> arrayList = new ArrayList();
                         int a = nVar.e.a();
-                        int i = 0;
-                        while (i < a) {
-                            long j = contentLength / a;
-                            long j2 = j * i;
-                            arrayList.add(new l(i, nVar.d, nVar.a.c(), j2, i == a + (-1) ? contentLength : (j + j2) - 1, 0L));
-                            i++;
+                        for (int i = 0; i < a; i++) {
+                            long j2 = contentLength / a;
+                            long j3 = j2 * i;
+                            if (i == a - 1) {
+                                j = contentLength;
+                            } else {
+                                j = (j2 + j3) - 1;
+                            }
+                            arrayList.add(new l(i, nVar.d, nVar.a.c(), j3, j, 0L));
                         }
                         int i2 = 0;
                         for (l lVar : arrayList) {
@@ -205,13 +209,25 @@ public class i implements e {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c == 107 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c == 107) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c == 106 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == 106) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable

@@ -1,9 +1,7 @@
 package com.baidu.nps.stub.component;
 
-import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.ContentProvider;
-import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentValues;
 import android.content.OperationApplicationException;
@@ -36,6 +34,16 @@ public abstract class NPSProvider extends ContentProvider {
     public transient /* synthetic */ FieldHolder $fh;
     public ContentProvider mProviderImpl;
 
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public NPSProvider() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,6 +58,31 @@ public abstract class NPSProvider extends ContentProvider {
             }
         }
         this.mProviderImpl = null;
+    }
+
+    @Override // android.content.ContentProvider, android.content.ComponentCallbacks
+    public void onLowMemory() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.onLowMemory();
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider != null) {
+                contentProvider.onLowMemory();
+            }
+        }
+    }
+
+    @Override // android.content.ContentProvider
+    public void shutdown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                super.shutdown();
+            } else {
+                contentProvider.shutdown();
+            }
+        }
     }
 
     private synchronized boolean bindProviderImpl(Bundle bundle) {
@@ -89,8 +122,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    @TargetApi(29)
-    public ContentProviderResult[] applyBatch(String str, ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
+    public ContentProviderResult[] applyBatch(String str, ArrayList arrayList) throws OperationApplicationException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, arrayList)) == null) {
@@ -118,68 +150,6 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    @TargetApi(29)
-    public Bundle call(String str, String str2, String str3, Bundle bundle) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, bundle)) == null) {
-            if (str2.equals(com.baidu.nps.main.manager.Bundle.METHOD_VALUE_BIND_PROVIDER)) {
-                bindProviderImpl(bundle);
-                return null;
-            }
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return null;
-            }
-            return contentProvider.call(str, str2, str3, bundle);
-        }
-        return (Bundle) invokeLLLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    @TargetApi(19)
-    public Uri canonicalize(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return null;
-            }
-            return contentProvider.canonicalize(uri);
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public int delete(Uri uri, String str, String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, uri, str, strArr)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return 0;
-            }
-            return contentProvider.delete(uri, str, strArr);
-        }
-        return invokeLLL.intValue;
-    }
-
-    @Override // android.content.ContentProvider
-    @TargetApi(18)
-    public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, fileDescriptor, printWriter, strArr) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                super.dump(fileDescriptor, printWriter, strArr);
-            } else {
-                contentProvider.dump(fileDescriptor, printWriter, strArr);
-            }
-        }
-    }
-
-    @Override // android.content.ContentProvider
     public String[] getStreamTypes(Uri uri, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -194,20 +164,6 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public String getType(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, uri)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return null;
-            }
-            return contentProvider.getType(uri);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -219,52 +175,6 @@ public abstract class NPSProvider extends ContentProvider {
             return contentProvider.insert(uri, contentValues);
         }
         return (Uri) invokeLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider != null) {
-                contentProvider.onConfigurationChanged(configuration);
-            }
-        }
-    }
-
-    @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.content.ContentProvider, android.content.ComponentCallbacks
-    public void onLowMemory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onLowMemory();
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider != null) {
-                contentProvider.onLowMemory();
-            }
-        }
-    }
-
-    @Override // android.content.ContentProvider, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            super.onTrimMemory(i);
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider != null) {
-                contentProvider.onTrimMemory(i);
-            }
-        }
     }
 
     @Override // android.content.ContentProvider
@@ -296,106 +206,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public <T> ParcelFileDescriptor openPipeHelper(Uri uri, String str, Bundle bundle, T t, ContentProvider.PipeDataWriter<T> pipeDataWriter) throws FileNotFoundException {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048595, this, uri, str, bundle, t, pipeDataWriter)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return null;
-            }
-            return contentProvider.openPipeHelper(uri, str, bundle, t, pipeDataWriter);
-        }
-        return (ParcelFileDescriptor) invokeLLLLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public AssetFileDescriptor openTypedAssetFile(Uri uri, String str, Bundle bundle) throws FileNotFoundException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, uri, str, bundle)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return null;
-            }
-            return contentProvider.openTypedAssetFile(uri, str, bundle);
-        }
-        return (AssetFileDescriptor) invokeLLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return null;
-            }
-            return contentProvider.query(uri, strArr, str, strArr2, str2, cancellationSignal);
-        }
-        return (Cursor) invokeCommon.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    @TargetApi(26)
-    public boolean refresh(Uri uri, Bundle bundle, CancellationSignal cancellationSignal) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, uri, bundle, cancellationSignal)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return false;
-            }
-            return contentProvider.refresh(uri, bundle, cancellationSignal);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                super.shutdown();
-            } else {
-                contentProvider.shutdown();
-            }
-        }
-    }
-
-    @Override // android.content.ContentProvider
-    @TargetApi(19)
-    public Uri uncanonicalize(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, uri)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return null;
-            }
-            return contentProvider.uncanonicalize(uri);
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048604, this, uri, contentValues, str, strArr)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return 0;
-            }
-            return contentProvider.update(uri, contentValues, str, strArr);
-        }
-        return invokeLLLL.intValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
+    public ContentProviderResult[] applyBatch(ArrayList arrayList) throws OperationApplicationException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
@@ -409,63 +220,69 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    @TargetApi(19)
-    public AssetFileDescriptor openAssetFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
-        InterceptResult invokeLLL;
+    public Uri canonicalize(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, uri, str, cancellationSignal)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
             ContentProvider contentProvider = this.mProviderImpl;
             if (contentProvider == null) {
                 return null;
             }
-            return contentProvider.openAssetFile(uri, str, cancellationSignal);
+            return contentProvider.canonicalize(uri);
         }
-        return (AssetFileDescriptor) invokeLLL.objValue;
+        return (Uri) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
-    @TargetApi(19)
-    public ParcelFileDescriptor openFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
-        InterceptResult invokeLLL;
+    public String getType(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, uri, str, cancellationSignal)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, uri)) == null) {
             ContentProvider contentProvider = this.mProviderImpl;
             if (contentProvider == null) {
                 return null;
             }
-            return contentProvider.openFile(uri, str, cancellationSignal);
+            return contentProvider.getType(uri);
         }
-        return (ParcelFileDescriptor) invokeLLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // android.content.ContentProvider, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider != null) {
+                contentProvider.onConfigurationChanged(configuration);
+            }
+        }
+    }
+
+    @Override // android.content.ContentProvider, android.content.ComponentCallbacks2
+    public void onTrimMemory(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            super.onTrimMemory(i);
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider != null) {
+                contentProvider.onTrimMemory(i);
+            }
+        }
     }
 
     @Override // android.content.ContentProvider
-    @TargetApi(19)
-    public AssetFileDescriptor openTypedAssetFile(Uri uri, String str, Bundle bundle, CancellationSignal cancellationSignal) throws FileNotFoundException {
-        InterceptResult invokeLLLL;
+    public Uri uncanonicalize(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048597, this, uri, str, bundle, cancellationSignal)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, uri)) == null) {
             ContentProvider contentProvider = this.mProviderImpl;
             if (contentProvider == null) {
                 return null;
             }
-            return contentProvider.openTypedAssetFile(uri, str, bundle, cancellationSignal);
+            return contentProvider.uncanonicalize(uri);
         }
-        return (AssetFileDescriptor) invokeLLLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    @TargetApi(26)
-    public Cursor query(Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048598, this, uri, strArr, bundle, cancellationSignal)) == null) {
-            ContentProvider contentProvider = this.mProviderImpl;
-            if (contentProvider == null) {
-                return null;
-            }
-            return contentProvider.query(uri, strArr, bundle, cancellationSignal);
-        }
-        return (Cursor) invokeLLLL.objValue;
+        return (Uri) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -487,6 +304,163 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    public int delete(Uri uri, String str, String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, uri, str, strArr)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return 0;
+            }
+            return contentProvider.delete(uri, str, strArr);
+        }
+        return invokeLLL.intValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, fileDescriptor, printWriter, strArr) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                super.dump(fileDescriptor, printWriter, strArr);
+            } else {
+                contentProvider.dump(fileDescriptor, printWriter, strArr);
+            }
+        }
+    }
+
+    @Override // android.content.ContentProvider
+    public AssetFileDescriptor openAssetFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, uri, str, cancellationSignal)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return null;
+            }
+            return contentProvider.openAssetFile(uri, str, cancellationSignal);
+        }
+        return (AssetFileDescriptor) invokeLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public ParcelFileDescriptor openFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, uri, str, cancellationSignal)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return null;
+            }
+            return contentProvider.openFile(uri, str, cancellationSignal);
+        }
+        return (ParcelFileDescriptor) invokeLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public AssetFileDescriptor openTypedAssetFile(Uri uri, String str, Bundle bundle) throws FileNotFoundException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, uri, str, bundle)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return null;
+            }
+            return contentProvider.openTypedAssetFile(uri, str, bundle);
+        }
+        return (AssetFileDescriptor) invokeLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public boolean refresh(Uri uri, Bundle bundle, CancellationSignal cancellationSignal) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, uri, bundle, cancellationSignal)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return false;
+            }
+            return contentProvider.refresh(uri, bundle, cancellationSignal);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public Bundle call(String str, String str2, String str3, Bundle bundle) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, bundle)) == null) {
+            if (str2.equals(com.baidu.nps.main.manager.Bundle.METHOD_VALUE_BIND_PROVIDER)) {
+                bindProviderImpl(bundle);
+                return null;
+            }
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return null;
+            }
+            return contentProvider.call(str, str2, str3, bundle);
+        }
+        return (Bundle) invokeLLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public AssetFileDescriptor openTypedAssetFile(Uri uri, String str, Bundle bundle, CancellationSignal cancellationSignal) throws FileNotFoundException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048597, this, uri, str, bundle, cancellationSignal)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return null;
+            }
+            return contentProvider.openTypedAssetFile(uri, str, bundle, cancellationSignal);
+        }
+        return (AssetFileDescriptor) invokeLLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public Cursor query(Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048598, this, uri, strArr, bundle, cancellationSignal)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return null;
+            }
+            return contentProvider.query(uri, strArr, bundle, cancellationSignal);
+        }
+        return (Cursor) invokeLLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048604, this, uri, contentValues, str, strArr)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return 0;
+            }
+            return contentProvider.update(uri, contentValues, str, strArr);
+        }
+        return invokeLLLL.intValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public ParcelFileDescriptor openPipeHelper(Uri uri, String str, Bundle bundle, Object obj, ContentProvider.PipeDataWriter pipeDataWriter) throws FileNotFoundException {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048595, this, uri, str, bundle, obj, pipeDataWriter)) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return null;
+            }
+            return contentProvider.openPipeHelper(uri, str, bundle, obj, pipeDataWriter);
+        }
+        return (ParcelFileDescriptor) invokeLLLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -498,5 +472,19 @@ public abstract class NPSProvider extends ContentProvider {
             return contentProvider.query(uri, strArr, str, strArr2, str2);
         }
         return (Cursor) invokeLLLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
+            ContentProvider contentProvider = this.mProviderImpl;
+            if (contentProvider == null) {
+                return null;
+            }
+            return contentProvider.query(uri, strArr, str, strArr2, str2, cancellationSignal);
+        }
+        return (Cursor) invokeCommon.objValue;
     }
 }

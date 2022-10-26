@@ -6,12 +6,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,97 +46,8 @@ public class SaveDraftDialogView extends LinearLayout {
         b(context);
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
-            if (this.e == null) {
-                GradientDrawable gradientDrawable = new GradientDrawable();
-                this.e = gradientDrawable;
-                gradientDrawable.setCornerRadii(new float[]{ej.f(getContext(), R.dimen.tbds31), ej.f(getContext(), R.dimen.tbds31), ej.f(getContext(), R.dimen.tbds31), ej.f(getContext(), R.dimen.tbds31), 0.0f, 0.0f, 0.0f, 0.0f});
-            }
-            this.e.setColor(SkinManager.getColor(R.color.CAM_X0211));
-            setBackground(this.e);
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            setOrientation(1);
-            setPadding(0, ej.f(context, R.dimen.M_H_X003), 0, 0);
-            TextView textView = new TextView(context);
-            this.a = textView;
-            textView.setTextSize(0, ej.f(context, R.dimen.tbds40));
-            this.a.setGravity(17);
-            addView(this.a, -1, ej.f(context, R.dimen.tbds96));
-            int f = ej.f(context, R.dimen.tbds44);
-            int f2 = ej.f(context, R.dimen.tbds125);
-            TextView textView2 = new TextView(context);
-            this.c = textView2;
-            textView2.setId(R.id.obfuscated_res_0x7f091db1);
-            float f3 = f;
-            this.c.setTextSize(0, f3);
-            this.c.setGravity(17);
-            addView(this.c, -1, f2);
-            TextView textView3 = new TextView(context);
-            this.b = textView3;
-            textView3.setId(R.id.obfuscated_res_0x7f091db0);
-            this.b.setTextSize(0, f3);
-            this.b.setGravity(17);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0cc3);
-            addView(this.b, -1, f2);
-            TextView textView4 = new TextView(context);
-            this.d = textView4;
-            textView4.setId(R.id.obfuscated_res_0x7f091daf);
-            this.d.setTextSize(0, f3);
-            this.d.setGravity(17);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0375);
-            addView(this.d, -1, f2);
-            addView(new TextView(context), -1, ej.f(context, R.dimen.tbds36));
-            a();
-        }
-    }
-
-    public void setButtonTag(int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, obj) == null) {
-            this.c.setTag(i, obj);
-            this.b.setTag(i, obj);
-            this.d.setTag(i, obj);
-        }
-    }
-
-    public void setCancelVisible(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setVisibility(i);
-        }
-    }
-
-    @Override // android.view.View
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
-            this.c.setOnClickListener(onClickListener);
-            this.d.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setText(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            this.a.setText(str);
-            this.c.setText(str2);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SaveDraftDialogView(Context context, @Nullable AttributeSet attributeSet) {
+    public SaveDraftDialogView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -158,20 +68,8 @@ public class SaveDraftDialogView extends LinearLayout {
         b(context);
     }
 
-    public void setText(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
-            this.a.setText(str);
-            this.c.setText(str2);
-            if (dj.isEmpty(str3)) {
-                return;
-            }
-            this.b.setText(str3);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SaveDraftDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SaveDraftDialogView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -190,5 +88,105 @@ public class SaveDraftDialogView extends LinearLayout {
             }
         }
         b(context);
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
+            if (this.e == null) {
+                GradientDrawable gradientDrawable = new GradientDrawable();
+                this.e = gradientDrawable;
+                gradientDrawable.setCornerRadii(new float[]{fj.f(getContext(), R.dimen.tbds31), fj.f(getContext(), R.dimen.tbds31), fj.f(getContext(), R.dimen.tbds31), fj.f(getContext(), R.dimen.tbds31), 0.0f, 0.0f, 0.0f, 0.0f});
+            }
+            this.e.setColor(SkinManager.getColor(R.color.CAM_X0211));
+            setBackground(this.e);
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            setOrientation(1);
+            setPadding(0, fj.f(context, R.dimen.M_H_X003), 0, 0);
+            TextView textView = new TextView(context);
+            this.a = textView;
+            textView.setTextSize(0, fj.f(context, R.dimen.tbds40));
+            this.a.setGravity(17);
+            addView(this.a, -1, fj.f(context, R.dimen.tbds96));
+            int f = fj.f(context, R.dimen.tbds44);
+            int f2 = fj.f(context, R.dimen.tbds125);
+            TextView textView2 = new TextView(context);
+            this.c = textView2;
+            textView2.setId(R.id.obfuscated_res_0x7f091dad);
+            float f3 = f;
+            this.c.setTextSize(0, f3);
+            this.c.setGravity(17);
+            addView(this.c, -1, f2);
+            TextView textView3 = new TextView(context);
+            this.b = textView3;
+            textView3.setId(R.id.obfuscated_res_0x7f091dac);
+            this.b.setTextSize(0, f3);
+            this.b.setGravity(17);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0cd4);
+            addView(this.b, -1, f2);
+            TextView textView4 = new TextView(context);
+            this.d = textView4;
+            textView4.setId(R.id.obfuscated_res_0x7f091dab);
+            this.d.setTextSize(0, f3);
+            this.d.setGravity(17);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0375);
+            addView(this.d, -1, f2);
+            addView(new TextView(context), -1, fj.f(context, R.dimen.tbds36));
+            a();
+        }
+    }
+
+    public void setButtonTag(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, obj) == null) {
+            this.c.setTag(i, obj);
+            this.b.setTag(i, obj);
+            this.d.setTag(i, obj);
+        }
+    }
+
+    public void setText(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            this.a.setText(str);
+            this.c.setText(str2);
+        }
+    }
+
+    public void setCancelVisible(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.setVisibility(i);
+        }
+    }
+
+    @Override // android.view.View
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
+            this.c.setOnClickListener(onClickListener);
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setText(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            this.a.setText(str);
+            this.c.setText(str2);
+            if (!ej.isEmpty(str3)) {
+                this.b.setText(str3);
+            }
+        }
     }
 }

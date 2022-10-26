@@ -44,10 +44,9 @@ public class k implements Runnable {
         public void run() {
             RecordCallback recordCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (recordCallback = this.a.a.d) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (recordCallback = this.a.a.d) != null) {
+                recordCallback.onBegin();
             }
-            recordCallback.onBegin();
         }
     }
 
@@ -81,10 +80,9 @@ public class k implements Runnable {
         public void run() {
             RecordCallback recordCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (recordCallback = this.b.a.d) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (recordCallback = this.b.a.d) != null) {
+                recordCallback.onDeviceCheckResult(this.a);
             }
-            recordCallback.onDeviceCheckResult(this.a);
         }
     }
 
@@ -117,7 +115,7 @@ public class k implements Runnable {
     public void run() {
         m mVar;
         int i;
-        Pair<Integer, Object> callSync;
+        Pair callSync;
         char c;
         m mVar2;
         int i2;
@@ -127,90 +125,89 @@ public class k implements Runnable {
         int i3;
         Activity activity2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        try {
-            m mVar5 = this.a;
-            if (mVar5.m) {
-                return;
-            }
-            mVar5.l = com.baidu.sofire.face.b.b.a("3");
-            m mVar6 = this.a;
-            com.baidu.sofire.face.b.b.a(mVar6.a, mVar6.l, 101, 0, null);
-            m mVar7 = this.a;
-            if (mVar7.d != null && (activity2 = mVar7.b) != null) {
-                activity2.runOnUiThread(new a(this));
-            }
-            if (!FH.isInitSuc(1) && this.a.i.a()) {
-                this.a.a(-15);
-                return;
-            }
-            m mVar8 = this.a;
-            if (mVar8.m) {
-                return;
-            }
-            if (mVar8.i.b() && (i3 = (mVar4 = this.a).k) == 0) {
-                FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, mVar4.l, Integer.valueOf(i3));
-            } else if (this.a.i.b() && (i = (mVar = this.a).k) > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, mVar.l, Integer.valueOf(i))) != null && ((Integer) callSync.first).intValue() == 0) {
-                int intValue = ((Integer) callSync.second).intValue();
-                if (intValue == 1) {
-                    c = 1;
-                } else if (intValue == 2) {
-                    c = 65534;
-                }
-                mVar2 = this.a;
-                if (!mVar2.m) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                m mVar5 = this.a;
+                if (mVar5.m) {
                     return;
                 }
-                if (c != 65534) {
-                    if (c == 65535 && mVar2.i.e()) {
+                mVar5.l = com.baidu.sofire.face.b.b.a("3");
+                m mVar6 = this.a;
+                com.baidu.sofire.face.b.b.a(mVar6.a, mVar6.l, 101, 0, null);
+                m mVar7 = this.a;
+                if (mVar7.d != null && (activity2 = mVar7.b) != null) {
+                    activity2.runOnUiThread(new a(this));
+                }
+                if (!FH.isInitSuc(1) && this.a.i.a()) {
+                    this.a.a(-15);
+                    return;
+                }
+                m mVar8 = this.a;
+                if (mVar8.m) {
+                    return;
+                }
+                if (mVar8.i.b() && (i3 = (mVar4 = this.a).k) == 0) {
+                    FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, mVar4.l, Integer.valueOf(i3));
+                } else if (this.a.i.b() && (i = (mVar = this.a).k) > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, mVar.l, Integer.valueOf(i))) != null && ((Integer) callSync.first).intValue() == 0) {
+                    int intValue = ((Integer) callSync.second).intValue();
+                    if (intValue == 1) {
+                        c = 1;
+                    } else if (intValue == 2) {
+                        c = 65534;
                     }
-                    i2 = 1;
+                    mVar2 = this.a;
+                    if (!mVar2.m) {
+                        return;
+                    }
+                    if (c != 65534) {
+                        if (c == 65535 && mVar2.i.e()) {
+                        }
+                        i2 = 1;
+                        mVar3 = this.a;
+                        if (mVar3.d != null && (activity = mVar3.b) != null) {
+                            activity.runOnUiThread(new b(this, i2));
+                        }
+                        if (c != 65534) {
+                            this.a.a(-3);
+                            return;
+                        } else if (i2 == -1) {
+                            this.a.a(-3);
+                            return;
+                        } else {
+                            m mVar9 = this.a;
+                            if (mVar9.m) {
+                                return;
+                            }
+                            ((AudioManager) mVar9.a.getSystemService("audio")).getStreamVolume(3);
+                            DisplayMetrics displayMetrics = new DisplayMetrics();
+                            mVar9.b.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                            mVar9.w = displayMetrics.widthPixels;
+                            mVar9.x = displayMetrics.heightPixels;
+                            m mVar10 = this.a;
+                            if (mVar10.m) {
+                                return;
+                            }
+                            mVar10.a();
+                            return;
+                        }
+                    }
+                    i2 = -1;
                     mVar3 = this.a;
-                    if (mVar3.d != null && (activity = mVar3.b) != null) {
+                    if (mVar3.d != null) {
                         activity.runOnUiThread(new b(this, i2));
                     }
                     if (c != 65534) {
-                        this.a.a(-3);
-                        return;
-                    } else if (i2 == -1) {
-                        this.a.a(-3);
-                        return;
-                    } else {
-                        m mVar9 = this.a;
-                        if (mVar9.m) {
-                            return;
-                        }
-                        ((AudioManager) mVar9.a.getSystemService("audio")).getStreamVolume(3);
-                        DisplayMetrics displayMetrics = new DisplayMetrics();
-                        mVar9.b.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                        mVar9.w = displayMetrics.widthPixels;
-                        mVar9.x = displayMetrics.heightPixels;
-                        m mVar10 = this.a;
-                        if (mVar10.m) {
-                            return;
-                        }
-                        mVar10.a();
-                        return;
                     }
                 }
-                i2 = -1;
-                mVar3 = this.a;
-                if (mVar3.d != null) {
-                    activity.runOnUiThread(new b(this, i2));
+                c = 65535;
+                mVar2 = this.a;
+                if (!mVar2.m) {
                 }
-                if (c != 65534) {
-                }
+            } catch (Throwable th) {
+                m mVar11 = this.a;
+                com.baidu.sofire.face.b.b.a(mVar11.a, mVar11.l, 1, th);
+                this.a.a(-9);
             }
-            c = 65535;
-            mVar2 = this.a;
-            if (!mVar2.m) {
-            }
-        } catch (Throwable th) {
-            m mVar11 = this.a;
-            com.baidu.sofire.face.b.b.a(mVar11.a, mVar11.l, 1, th);
-            this.a.a(-9);
         }
     }
 }

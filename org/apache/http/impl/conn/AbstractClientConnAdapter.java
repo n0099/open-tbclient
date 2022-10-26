@@ -59,13 +59,6 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
         }
     }
 
-    public final void assertValid(OperatedClientConnection operatedClientConnection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operatedClientConnection) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public void detach() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -189,16 +182,6 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
         return invokeV.booleanValue;
     }
 
-    @Override // org.apache.http.HttpClientConnection
-    public boolean isResponseAvailable(int i) throws IOException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeI.booleanValue;
-    }
-
     @Override // org.apache.http.conn.ManagedClientConnection
     public boolean isSecure() {
         InterceptResult invokeV;
@@ -228,14 +211,6 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
     }
 
     @Override // org.apache.http.HttpClientConnection
-    public void receiveResponseEntity(HttpResponse httpResponse) throws HttpException, IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, httpResponse) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.HttpClientConnection
     public HttpResponse receiveResponseHeader() throws HttpException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -249,6 +224,39 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
     public void releaseConnection() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.conn.ManagedClientConnection
+    public void unmarkReusable() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public final void assertValid(OperatedClientConnection operatedClientConnection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operatedClientConnection) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.HttpClientConnection
+    public boolean isResponseAvailable(int i) throws IOException {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // org.apache.http.HttpClientConnection
+    public void receiveResponseEntity(HttpResponse httpResponse) throws HttpException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, httpResponse) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -269,14 +277,6 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
         }
     }
 
-    @Override // org.apache.http.conn.ManagedClientConnection
-    public void setIdleDuration(long j, TimeUnit timeUnit) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048601, this, j, timeUnit) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     @Override // org.apache.http.HttpConnection
     public void setSocketTimeout(int i) {
         Interceptable interceptable = $ic;
@@ -286,9 +286,9 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public void unmarkReusable() {
+    public void setIdleDuration(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048601, this, j, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }

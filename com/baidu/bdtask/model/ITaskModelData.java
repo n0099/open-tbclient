@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public interface ITaskModelData extends Serializable {
 
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

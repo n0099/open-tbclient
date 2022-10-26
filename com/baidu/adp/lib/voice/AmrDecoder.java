@@ -9,6 +9,12 @@ public class AmrDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native void decode(long j, byte[] bArr, short[] sArr);
+
+    public static native void exit(long j);
+
+    public static native long init();
+
     public AmrDecoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,10 +28,4 @@ public class AmrDecoder {
             }
         }
     }
-
-    public static native void decode(long j, byte[] bArr, short[] sArr);
-
-    public static native void exit(long j);
-
-    public static native long init();
 }

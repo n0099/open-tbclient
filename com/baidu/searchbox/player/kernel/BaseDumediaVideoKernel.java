@@ -2,8 +2,6 @@ package com.baidu.searchbox.player.kernel;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.interfaces.IDnsProcessListener;
@@ -21,13 +19,15 @@ public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
     public transient /* synthetic */ FieldHolder $fh;
     public final DumediaInfoConverter mConverter;
 
+    public abstract void setVideoViewCallBack(DumediaInfoConverter dumediaInfoConverter);
+
     /* loaded from: classes2.dex */
-    public static final class CyberPlayerHttpDNS implements CyberPlayerManager.HttpDNS {
+    public final class CyberPlayerHttpDNS implements CyberPlayerManager.HttpDNS {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final IDnsProcessListener dns;
 
-        public CyberPlayerHttpDNS(@NonNull IDnsProcessListener iDnsProcessListener) {
+        public CyberPlayerHttpDNS(IDnsProcessListener iDnsProcessListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,10 +46,13 @@ public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.HttpDNS
-        public List<String> getIpList(String str) {
+        public List getIpList(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.dns.getIpList(str, false) : (List) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return this.dns.getIpList(str, false);
+            }
+            return (List) invokeL.objValue;
         }
     }
 
@@ -69,7 +72,6 @@ public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
         this.mConverter = new DumediaInfoConverter(this);
     }
 
-    @Nullable
     public Uri getVideoUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,14 +79,14 @@ public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
             VideoUrlModel videoUrlModel = this.mUrlModel;
             if (videoUrlModel instanceof MPDUrlModel) {
                 String str = ((MPDUrlModel) videoUrlModel).mpdUrl;
-                if (TextUtils.isEmpty(str)) {
-                    return null;
+                if (!TextUtils.isEmpty(str)) {
+                    return Uri.parse(str);
                 }
-                return Uri.parse(str);
-            } else if (videoUrlModel == null || TextUtils.isEmpty(videoUrlModel.videoUrl)) {
                 return null;
-            } else {
+            } else if (videoUrlModel != null && !TextUtils.isEmpty(videoUrlModel.videoUrl)) {
                 return Uri.parse(this.mUrlModel.videoUrl);
+            } else {
+                return null;
             }
         }
         return (Uri) invokeV.objValue;
@@ -98,6 +100,4 @@ public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
             setVideoViewCallBack(this.mConverter);
         }
     }
-
-    public abstract void setVideoViewCallBack(DumediaInfoConverter dumediaInfoConverter);
 }

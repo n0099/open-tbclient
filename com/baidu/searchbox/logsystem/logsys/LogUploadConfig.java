@@ -1,6 +1,5 @@
 package com.baidu.searchbox.logsystem.logsys;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +14,19 @@ public class LogUploadConfig {
 
     /* renamed from: com.baidu.searchbox.logsystem.logsys.LogUploadConfig$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mUploadWifiOnly;
@@ -42,14 +47,15 @@ public class LogUploadConfig {
             this.mUploadWifiOnly = false;
         }
 
-        @NonNull
         public LogUploadConfig build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LogUploadConfig(this, null) : (LogUploadConfig) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new LogUploadConfig(this, null);
+            }
+            return (LogUploadConfig) invokeV.objValue;
         }
 
-        @NonNull
         public Builder setUploadWifiOnly(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -61,23 +67,7 @@ public class LogUploadConfig {
         }
     }
 
-    public /* synthetic */ LogUploadConfig(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-        }
-    }
-
-    public boolean getUploadWifiOnly() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUploadWifiOnly : invokeV.booleanValue;
-    }
-
-    public LogUploadConfig(@NonNull Builder builder) {
+    public LogUploadConfig(Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,5 +83,18 @@ public class LogUploadConfig {
             }
         }
         this.mUploadWifiOnly = builder.mUploadWifiOnly;
+    }
+
+    public /* synthetic */ LogUploadConfig(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    public boolean getUploadWifiOnly() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mUploadWifiOnly;
+        }
+        return invokeV.booleanValue;
     }
 }

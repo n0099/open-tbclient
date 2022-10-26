@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk.system;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
@@ -16,7 +15,7 @@ import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebSettingsImpl extends WebSettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +54,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(11)
     public final boolean enableSmoothTransition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,7 +67,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(11)
     public final boolean getAllowContentAccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,7 +87,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(16)
     public final boolean getAllowFileAccessFromFileURLs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,7 +100,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(16)
     public final boolean getAllowUniversalAccessFromFileURLs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -195,7 +190,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(24)
     public final int getDisabledActionModeMenuItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,7 +203,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(11)
     public final boolean getDisplayZoomControls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -300,7 +293,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(17)
     public final boolean getMediaPlaybackRequiresUserGesture() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -328,7 +320,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(21)
     public final int getMixedContentMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -342,7 +333,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(23)
     public final boolean getOffscreenPreRaster() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -398,7 +388,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(14)
     public final int getTextZoom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -495,7 +484,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(11)
     public final void setAllowContentAccess(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048624, this, z) == null) || Build.VERSION.SDK_INT < 11) {
@@ -513,7 +501,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(16)
     public final void setAllowFileAccessFromFileURLs(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048626, this, z) == null) || Build.VERSION.SDK_INT < 16) {
@@ -523,7 +510,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(16)
     public final void setAllowUniversalAccessFromFileURLs(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048627, this, z) == null) || Build.VERSION.SDK_INT < 16) {
@@ -645,7 +631,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(24)
     public final void setDisabledActionModeMenuItems(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048642, this, i) == null) || Build.VERSION.SDK_INT < 24) {
@@ -655,7 +640,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(11)
     public final void setDisplayZoomControls(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048643, this, z) == null) || Build.VERSION.SDK_INT < 11) {
@@ -696,7 +680,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(11)
     public final void setEnableSmoothTransition(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048648, this, z) == null) || Build.VERSION.SDK_INT < 11) {
@@ -793,7 +776,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(17)
     public final void setMediaPlaybackRequiresUserGesture(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048660, this, z) == null) || Build.VERSION.SDK_INT < 17) {
@@ -819,7 +801,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(21)
     public final void setMixedContentMode(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048663, this, i) == null) || Build.VERSION.SDK_INT < 21) {
@@ -837,7 +818,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(23)
     public final void setOffscreenPreRaster(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048665, this, z) == null) || Build.VERSION.SDK_INT < 23) {
@@ -919,7 +899,6 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    @TargetApi(14)
     public final void setTextZoom(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048675, this, i) == null) || Build.VERSION.SDK_INT < 14) {

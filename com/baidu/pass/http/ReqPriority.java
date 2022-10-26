@@ -61,12 +61,18 @@ public final class ReqPriority implements com.baidu.pass.a {
     public static ReqPriority valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ReqPriority) Enum.valueOf(ReqPriority.class, str) : (ReqPriority) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ReqPriority) Enum.valueOf(ReqPriority.class, str);
+        }
+        return (ReqPriority) invokeL.objValue;
     }
 
     public static ReqPriority[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ReqPriority[]) a.clone() : (ReqPriority[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ReqPriority[]) a.clone();
+        }
+        return (ReqPriority[]) invokeV.objValue;
     }
 }

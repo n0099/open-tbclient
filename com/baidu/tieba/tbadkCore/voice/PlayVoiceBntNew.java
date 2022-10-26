@@ -22,14 +22,14 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fa5;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.ja5;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.view.AudioAnimationView;
 import com.baidu.tieba.w9;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,9 +54,16 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
     public float j;
     public VoiceManager k;
 
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
-    public static final class PLAY_TYPE {
+    public final class PLAY_TYPE {
         public static final /* synthetic */ PLAY_TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PLAY_TYPE NORMAL;
@@ -104,13 +111,19 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         public static PLAY_TYPE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PLAY_TYPE) Enum.valueOf(PLAY_TYPE.class, str) : (PLAY_TYPE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PLAY_TYPE) Enum.valueOf(PLAY_TYPE.class, str);
+            }
+            return (PLAY_TYPE) invokeL.objValue;
         }
 
         public static PLAY_TYPE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PLAY_TYPE[]) $VALUES.clone() : (PLAY_TYPE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PLAY_TYPE[]) $VALUES.clone();
+            }
+            return (PLAY_TYPE[]) invokeV.objValue;
         }
     }
 
@@ -127,7 +140,68 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
                 return;
             }
         }
-        l = ((ej.k(TbadkCoreApplication.getInst()) - (ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - (ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
+        l = ((fj.k(TbadkCoreApplication.getInst()) - (fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - (fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceManager.i getRealView() {
+        InterceptResult invokeV;
+        TbPageContext tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            Context context = getContext();
+            if (context instanceof VoiceManager.j) {
+                return ((VoiceManager.j) context).d1(this.a);
+            }
+            if ((w9.a(getContext()) instanceof r9) && (tbPageContext = (TbPageContext) w9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).d1(this.a);
+            }
+            return this;
+        }
+        return (VoiceManager.i) invokeV.objValue;
+    }
+
+    public VoiceManager getVoiceManager() {
+        InterceptResult invokeV;
+        TbPageContext tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            Context context = getContext();
+            if (context instanceof VoiceManager.j) {
+                return ((VoiceManager.j) context).t0();
+            }
+            if ((w9.a(getContext()) instanceof r9) && (tbPageContext = (TbPageContext) w9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).t0();
+            }
+            return this.k;
+        }
+        return (VoiceManager) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PlayVoiceBntNew(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.h = 0;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.Voice_play_type);
+        obtainStyledAttributes.getInteger(0, 0);
+        obtainStyledAttributes.recycle();
+        h(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -166,6 +240,92 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         return invokeV.intValue;
     }
 
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f.e(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public ImageView getImgStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public TextView getPlayTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceData.VoiceModel getVoiceModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a;
+        }
+        return (VoiceData.VoiceModel) invokeV.objValue;
+    }
+
+    public RelativeLayout getmVoiceImageContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.a == null) {
+                return false;
+            }
+            VoiceManager voiceManager = getVoiceManager();
+            if (voiceManager != null && !voiceManager.isPlayDoing(this.a)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.a = null;
+            setTag(null);
+            m(1);
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
+            layoutParams.width = -2;
+            this.f.setLayoutParams(layoutParams);
+        }
+    }
+
+    public void p() {
+        VoiceManager voiceManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.a != null && (voiceManager = getVoiceManager()) != null) {
+            voiceManager.stopPlay();
+        }
+    }
+
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
     public void a(int i) {
         Interceptable interceptable = $ic;
@@ -185,7 +345,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
     public void b(VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceModel) == null) || voiceModel == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceModel) != null) || voiceModel == null) {
             return;
         }
         if (this.a != voiceModel) {
@@ -195,17 +355,41 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         }
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public void c() {
+    public void h(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
+            i(context);
+            setOnClickListener(this);
         }
     }
 
-    public final void d() {
+    public void k(View.OnClickListener onClickListener) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f.e(TbadkCoreApplication.getInst().getSkinType());
+        if ((interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) && (relativeLayout = this.b) != null) {
+            relativeLayout.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setAfterClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, onClickListener) == null) {
+            this.i = onClickListener;
+        }
+    }
+
+    public void setPlayTimeTextView(int i) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048602, this, i) == null) && (textView = this.d) != null) {
+            textView.setTextSize(0, fj.f(getContext(), i));
+        }
+    }
+
+    public void setVoiceManager(VoiceManager voiceManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, voiceManager) == null) {
+            this.k = voiceManager;
         }
     }
 
@@ -214,7 +398,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            hv4 d = hv4.d(this.b);
+            nv4 d = nv4.d(this.b);
             d.n(R.string.J_X05);
             d.l(R.dimen.L_X03);
             d.k(R.color.CAM_X0302);
@@ -225,13 +409,30 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
     public final void f(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (imageView = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (imageView = this.c) == null) {
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093f, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093e, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         } else {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080940, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093f, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, view2) == null) && this.a != null && view2 == this.b) {
+            VoiceManager voiceManager = getVoiceManager();
+            if (voiceManager != null) {
+                voiceManager.setAllowChangeVoiceMode(true);
+                voiceManager.startPlay(this);
+            }
+            View.OnClickListener onClickListener = this.i;
+            if (onClickListener != null) {
+                onClickListener.onClick(this);
+            }
+            TiebaStatic.log(this.a.from);
         }
     }
 
@@ -254,143 +455,16 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
                 }
                 d = i * 0.6d * 2.0d;
             }
-            if (d < ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds216)) {
-                d = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds216);
+            if (d < fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds216)) {
+                d = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds216);
             }
-            double f = (d - this.j) - ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds75);
+            double f = (d - this.j) - fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds75);
             if (f > 0.0d) {
                 return (int) f;
             }
             return 0;
         }
         return invokeL.intValue;
-    }
-
-    public ImageView getImgStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (ImageView) invokeV.objValue;
-    }
-
-    public TextView getPlayTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceManager.i getRealView() {
-        InterceptResult invokeV;
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Context context = getContext();
-            if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).e1(this.a);
-            }
-            return ((w9.a(getContext()) instanceof r9) && (tbPageContext = (TbPageContext) w9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) ? ((VoiceManager.j) tbPageContext.getOrignalPage()).e1(this.a) : this;
-        }
-        return (VoiceManager.i) invokeV.objValue;
-    }
-
-    public VoiceManager getVoiceManager() {
-        InterceptResult invokeV;
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Context context = getContext();
-            if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).t0();
-            }
-            if ((w9.a(getContext()) instanceof r9) && (tbPageContext = (TbPageContext) w9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).t0();
-            }
-            return this.k;
-        }
-        return (VoiceManager) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceData.VoiceModel getVoiceModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : (VoiceData.VoiceModel) invokeV.objValue;
-    }
-
-    public RelativeLayout getmVoiceImageContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b : (RelativeLayout) invokeV.objValue;
-    }
-
-    public void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
-            i(context);
-            setOnClickListener(this);
-        }
-    }
-
-    public void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073c, (ViewGroup) this, true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092610);
-            this.b = relativeLayout;
-            relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919fa);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919eb);
-            this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902e6);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abd);
-            this.e = progressBar;
-            if (progressBar != null) {
-                progressBar.setVisibility(4);
-            }
-            this.g = context;
-            e();
-        }
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.a == null) {
-                return false;
-            }
-            VoiceManager voiceManager = getVoiceManager();
-            return voiceManager == null || voiceManager.isPlayDoing(this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k(View.OnClickListener onClickListener) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) || (relativeLayout = this.b) == null) {
-            return;
-        }
-        relativeLayout.setOnClickListener(onClickListener);
-    }
-
-    public void l(int i) {
-        VoiceData.VoiceModel voiceModel;
-        String formatVoiceTime;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i) == null) || (voiceModel = this.a) == null || this.d == null) {
-            return;
-        }
-        int i3 = i / 1000;
-        if (i3 > 0 && i3 < (i2 = voiceModel.duration)) {
-            formatVoiceTime = VoiceManager.formatVoiceTime(i2 - i3);
-        } else {
-            formatVoiceTime = VoiceManager.formatVoiceTime(this.a.duration);
-        }
-        String charSequence2String = dj.charSequence2String(this.d.getText(), null);
-        if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
-            this.d.setText(formatVoiceTime);
-        }
     }
 
     public void m(int i) {
@@ -406,9 +480,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (fa5.b().d()) {
-                fa5.b().n(false);
-                fa5.b().l(false);
+            if (ja5.b().d()) {
+                ja5.b().n(false);
+                ja5.b().l(false);
             }
             f(false);
             if (i == 1) {
@@ -427,80 +501,69 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         }
     }
 
-    public void n() {
+    public void setVoiceModel(VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.a = null;
-            setTag(null);
-            m(1);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
-            layoutParams.width = -2;
-            this.f.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, view2) == null) && this.a != null && view2 == this.b) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, voiceModel) == null) {
+            requestLayout();
+            this.a = voiceModel;
+            if (voiceModel == null) {
+                return;
+            }
             VoiceManager voiceManager = getVoiceManager();
-            if (voiceManager != null) {
-                voiceManager.setAllowChangeVoiceMode(true);
-                voiceManager.startPlay(this);
+            if (voiceManager != null && voiceManager.isPlayDoing(voiceModel)) {
+                voiceManager.resetPlayView(this);
+                l(this.a.elapse);
+                return;
             }
-            View.OnClickListener onClickListener = this.i;
-            if (onClickListener != null) {
-                onClickListener.onClick(this);
+            m(this.a.voice_status.intValue());
+            String formatVoiceTime = VoiceManager.formatVoiceTime(voiceModel.duration);
+            int measureText = (int) this.d.getPaint().measureText(formatVoiceTime);
+            this.h = measureText;
+            this.j = measureText + fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+            this.f.setCertainColumnCount(getAudioVoiceColumnCount());
+            this.f.f();
+            this.b.setPadding(getPaddingLeft(), getPaddingTop(), (int) this.j, getPaddingBottom());
+            this.d.setText(formatVoiceTime);
+        }
+    }
+
+    public void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073c, (ViewGroup) this, true);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925f8);
+            this.b = relativeLayout;
+            relativeLayout.setOnClickListener(this);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919f6);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e7);
+            this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902e6);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ab9);
+            this.e = progressBar;
+            if (progressBar != null) {
+                progressBar.setVisibility(4);
             }
-            TiebaStatic.log(this.a.from);
+            this.g = context;
+            e();
         }
     }
 
-    @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void l(int i) {
+        VoiceData.VoiceModel voiceModel;
+        String formatVoiceTime;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
-            super.onMeasure(i, i2);
+        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && (voiceModel = this.a) != null && this.d != null) {
+            int i3 = i / 1000;
+            if (i3 > 0 && i3 < (i2 = voiceModel.duration)) {
+                formatVoiceTime = VoiceManager.formatVoiceTime(i2 - i3);
+            } else {
+                formatVoiceTime = VoiceManager.formatVoiceTime(this.a.duration);
+            }
+            String charSequence2String = ej.charSequence2String(this.d.getText(), null);
+            if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
+                this.d.setText(formatVoiceTime);
+            }
         }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public void onShowErr(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048599, this, i, str) == null) {
-            ej.K(getContext(), str);
-        }
-    }
-
-    public void p() {
-        VoiceManager voiceManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.a == null || (voiceManager = getVoiceManager()) == null) {
-            return;
-        }
-        voiceManager.stopPlay();
-    }
-
-    public void setAfterClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, onClickListener) == null) {
-            this.i = onClickListener;
-        }
-    }
-
-    public void setPlayTimeTextView(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048602, this, i) == null) || (textView = this.d) == null) {
-            return;
-        }
-        textView.setTextSize(0, ej.f(getContext(), i));
     }
 
     @Override // android.view.View
@@ -530,62 +593,19 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         }
     }
 
-    public void setVoiceManager(VoiceManager voiceManager) {
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, voiceManager) == null) {
-            this.k = voiceManager;
+        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
+            super.onMeasure(i, i2);
         }
     }
 
-    public void setVoiceModel(VoiceData.VoiceModel voiceModel) {
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, voiceModel) == null) {
-            requestLayout();
-            this.a = voiceModel;
-            if (voiceModel == null) {
-                return;
-            }
-            VoiceManager voiceManager = getVoiceManager();
-            if (voiceManager != null && voiceManager.isPlayDoing(voiceModel)) {
-                voiceManager.resetPlayView(this);
-                l(this.a.elapse);
-                return;
-            }
-            m(this.a.voice_status.intValue());
-            String formatVoiceTime = VoiceManager.formatVoiceTime(voiceModel.duration);
-            int measureText = (int) this.d.getPaint().measureText(formatVoiceTime);
-            this.h = measureText;
-            this.j = measureText + ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds58);
-            this.f.setCertainColumnCount(getAudioVoiceColumnCount());
-            this.f.f();
-            this.b.setPadding(getPaddingLeft(), getPaddingTop(), (int) this.j, getPaddingBottom());
-            this.d.setText(formatVoiceTime);
+        if (interceptable == null || interceptable.invokeIL(1048599, this, i, str) == null) {
+            fj.K(getContext(), str);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PlayVoiceBntNew(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.Voice_play_type);
-        obtainStyledAttributes.getInteger(0, 0);
-        obtainStyledAttributes.recycle();
-        h(context);
     }
 }

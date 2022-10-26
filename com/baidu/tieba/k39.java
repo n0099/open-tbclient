@@ -1,53 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tieba.write.write.AtListActivity;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class k39 extends BaseAdapter {
+public class k39 implements i39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public AtListActivity b;
-    public ArrayList<MetaData> c;
-    public TbCheckBox.b d;
-    public c e;
-    public ViewGroup f;
+    public final NewVcodeView a;
+    public final NewWriteModel b;
+    public String c;
+    public String d;
+    public boolean e;
+    public String f;
     public boolean g;
+    public Runnable h;
+    public final NewWriteModel.d i;
+    public NewWriteModel.d j;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MetaData a;
-        public final /* synthetic */ k39 b;
+        public final /* synthetic */ k39 a;
 
-        public a(k39 k39Var, MetaData metaData) {
+        public a(k39 k39Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k39Var, metaData};
+                Object[] objArr = {k39Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,29 +57,28 @@ public class k39 extends BaseAdapter {
                     return;
                 }
             }
-            this.b = k39Var;
-            this.a = metaData;
+            this.a = k39Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.b.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.b.b.getPageContext().getPageActivity(), this.a.getUserId(), this.a.getUserName())));
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.a == null) {
+                return;
+            }
+            if (StringUtils.isNull(this.a.f)) {
+                this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f052f));
+            } else {
+                this.a.a.showToast(false, this.a.f);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b {
+    public class b implements NewWriteModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public LinearLayout b;
-        public HeadImageView c;
-        public TextView d;
-        public TbCheckBox e;
-        public TextView f;
+        public final /* synthetic */ k39 a;
 
         public b(k39 k39Var) {
             Interceptable interceptable = $ic;
@@ -93,26 +92,74 @@ public class k39 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = k39Var;
         }
 
-        public /* synthetic */ b(k39 k39Var, a aVar) {
-            this(k39Var);
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, e25 e25Var, WriteData writeData, AntiData antiData) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, e25Var, writeData, antiData}) != null) || this.a.a == null) {
+                return;
+            }
+            this.a.a.showPostThreadLoadingView(false);
+            if (!z) {
+                if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
+                    this.a.a.getContext().setVisible(false);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                    return;
+                } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && this.a.j != null) {
+                    if (this.a.j != null) {
+                        this.a.j.callback(z, postWriteCallBackData, e25Var, writeData, antiData);
+                        return;
+                    }
+                    return;
+                } else if (postWriteCallBackData == null) {
+                    return;
+                } else {
+                    if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
+                        this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0920));
+                    } else {
+                        this.a.a.showToast(false, postWriteCallBackData.getErrorString());
+                    }
+                    this.a.m();
+                    return;
+                }
+            }
+            this.a.g = true;
+            if (writeData != null && writeData.isAddThread()) {
+                String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1143);
+                String str2 = null;
+                if (postWriteCallBackData != null) {
+                    str2 = postWriteCallBackData.getPreMsg();
+                    str = postWriteCallBackData.getColorMsg();
+                    string = postWriteCallBackData.getErrorString();
+                } else {
+                    str = null;
+                }
+                tp8.b(this.a.a.getContext().getActivity(), string, str2, str);
+            }
+            Intent intent = new Intent();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
+            intent.putExtras(bundle);
+            up8.a(writeData, postWriteCallBackData.getThreadId());
+            BaseActivity context = this.a.a.getContext();
+            this.a.a.getContext();
+            context.setResult(-1, intent);
+            this.a.a.getContext().finish();
         }
     }
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void s0(View view2, MetaData metaData);
-    }
-
-    public k39(AtListActivity atListActivity, boolean z) {
+    public k39(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {atListActivity, Boolean.valueOf(z)};
+            Object[] objArr = {newVcodeView, newWriteModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -122,176 +169,145 @@ public class k39 extends BaseAdapter {
                 return;
             }
         }
-        this.e = null;
+        this.e = false;
         this.f = null;
-        this.g = true;
-        this.b = atListActivity;
-        this.a = atListActivity.getPageContext().getContext();
-        this.g = z;
+        this.h = new a(this);
+        b bVar = new b(this);
+        this.i = bVar;
+        this.a = newVcodeView;
+        this.b = newWriteModel;
+        newWriteModel.b0(bVar);
     }
 
-    public final b b(Object obj, MetaData metaData) {
-        InterceptResult invokeLL;
-        b bVar;
+    @Override // com.baidu.tieba.i39
+    public void c(NewWriteModel.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, metaData)) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (obj == null) {
-                bVar = c(metaData);
-            } else {
-                bVar = (b) obj;
-            }
-            bVar.b.setOnClickListener(new a(this, metaData));
-            c cVar = this.e;
-            if (cVar != null) {
-                cVar.s0(bVar.a, metaData);
-            }
-            String avater = metaData.getAvater();
-            bVar.d.setText(metaData.getName_show());
-            if (metaData.getIsNearlyAt() == 1) {
-                bVar.f.setVisibility(0);
-                bVar.f.setText("最近@过");
-            } else if (metaData.getIsFollower() == 1) {
-                bVar.f.setVisibility(0);
-                bVar.f.setText("互相关注");
-            } else if (metaData.getIsMyFollower() == 1) {
-                bVar.f.setVisibility(0);
-                bVar.f.setText("我的关注");
-            } else {
-                bVar.f.setVisibility(8);
-            }
-            bVar.e.setTagData(metaData);
-            bVar.c.setTag(avater);
-            if (this.g) {
-                bVar.e.setVisibility(0);
-            } else {
-                bVar.e.setVisibility(8);
-            }
-            bVar.c.K(avater, 12, false);
-            UtilHelper.showHeadImageViewBigV(bVar.c, metaData);
-            this.b.getPageContext().getLayoutMode().l(skinType == 1);
-            this.b.getPageContext().getLayoutMode().k(bVar.a);
-            return bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+            this.j = dVar;
         }
-        return (b) invokeLL.objValue;
     }
 
-    public final b c(MetaData metaData) {
+    public final boolean k(String str) {
         InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData)) == null) {
-            b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e6, (ViewGroup) null);
-            bVar.a = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0919be);
-            bVar.c = headImageView;
-            headImageView.setIsRound(true);
-            UtilHelper.showHeadImageViewBigV(bVar.c, metaData);
-            bVar.b = (LinearLayout) bVar.a.findViewById(R.id.obfuscated_res_0x7f0919bf);
-            bVar.d = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f092446);
-            TextView textView = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f091252);
-            bVar.f = textView;
-            hv4 d = hv4.d(textView);
-            d.v(R.color.CAM_X0108);
-            d.z(R.dimen.T_X10);
-            d.n(R.string.J_X04);
-            d.l(R.dimen.L_X01);
-            d.k(R.color.CAM_X0111);
-            TbCheckBox tbCheckBox = (TbCheckBox) bVar.a.findViewById(R.id.obfuscated_res_0x7f090641);
-            bVar.e = tbCheckBox;
-            tbCheckBox.setBackgroundDrawableIdIsWebP(true);
-            bVar.e.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809f9, R.drawable.obfuscated_res_0x7f0809f8);
-            TbCheckBox.b bVar2 = this.d;
-            if (bVar2 != null) {
-                bVar.e.setStatedChangedListener(bVar2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
+                return false;
             }
-            bVar.a.setTag(bVar);
-            return bVar;
+            this.d = split[0];
+            l(split[1]);
+            return true;
         }
-        return (b) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: d */
-    public MetaData getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.i39
+    public void e(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList<MetaData> arrayList = this.c;
-            if (arrayList != null && i < arrayList.size()) {
-                return this.c.get(i);
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+            this.e = z;
+            this.f = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.i39
+    public void onPageFinished(WebView webView, String str) {
+        NewVcodeView newVcodeView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) && (newVcodeView = this.a) != null) {
+            newVcodeView.showWebViewDelay(500);
+            if (this.e) {
+                hh.a().postDelayed(this.h, 500L);
             }
-            return null;
-        }
-        return (MetaData) invokeI.objValue;
-    }
-
-    public void e(TbCheckBox.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.d = bVar;
         }
     }
 
-    public void f(ArrayList<MetaData> arrayList) {
+    @Override // com.baidu.tieba.i39
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.c = arrayList;
-        }
-    }
-
-    public void g(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.e = cVar;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList<MetaData> arrayList = this.c;
-            if (arrayList == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a.setRatio(1.2631578f);
+            this.a.showWebView(false);
+            String str = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/captcha";
+            if (z) {
+                str = str + "?feedback=1";
             }
-            return arrayList.size();
+            this.a.getWebView().loadUrl(str);
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public final void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            if (this.f == null) {
-                this.f = viewGroup;
-            }
-            MetaData item = getItem(i);
-            if (item != null) {
-                bVar = b(view2 != null ? view2.getTag() : null, item);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (!fj.D()) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c68);
+                this.a.getContext().finish();
+            } else if (!StringUtils.isNull(str)) {
+                this.a.showPostThreadLoadingView(true);
+                this.b.S().setVcode(str);
+                this.b.S().setVcodeType("4");
+                this.b.e0();
             } else {
-                bVar = null;
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c68);
+                this.a.getContext().finish();
             }
-            if (bVar != null) {
-                return bVar.a;
-            }
-            return null;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    @Override // com.baidu.tieba.i39
+    public boolean b(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+            if (str.contains("objc:jsChangeVcode")) {
+                String a2 = bj5.a(str);
+                this.c = a2;
+                if (a2 == null || this.b.S() == null) {
+                    return false;
+                }
+                NewVcodeView newVcodeView = this.a;
+                String str2 = this.c;
+                newVcodeView.runJsMethod(str2, "'" + this.b.S().getVcodeUrl() + "'");
+                return true;
+            } else if (str.equals("objc:jumpToFeedback()")) {
+                NewVcodeView newVcodeView2 = this.a;
+                if (newVcodeView2 != null && newVcodeView2.getContext() != null) {
+                    g39.a(this.a.getContext().getPageContext());
+                }
+                return true;
+            } else if (!str.contains("objc:jsSubmit")) {
+                return false;
+            } else {
+                return k(bj5.a(str));
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i39
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.showPostThreadLoadingView(false);
+            this.b.cancelLoadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.i39
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            hh.a().removeCallbacks(this.h);
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            NewVcodeView newVcodeView = this.a;
+            String str = this.d;
+            newVcodeView.runJsMethod(str, "'" + this.b.S().getVcodeUrl() + "'");
+        }
     }
 }

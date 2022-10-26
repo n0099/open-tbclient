@@ -47,13 +47,13 @@ public abstract class WebSettings implements Observer {
     }
 
     /* loaded from: classes6.dex */
-    public static class CodeCacheSetting {
+    public class CodeCacheSetting {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long diskCodeCacheSizeThreshold;
         public String id;
         public int maxCount;
-        public ArrayList<String> pathList;
+        public ArrayList pathList;
         public int sizeLimit;
 
         public CodeCacheSetting() {
@@ -75,7 +75,7 @@ public abstract class WebSettings implements Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class FlingAlgorithm {
+    public final class FlingAlgorithm {
         public static final /* synthetic */ FlingAlgorithm[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FlingAlgorithm CUBIC;
@@ -137,7 +137,7 @@ public abstract class WebSettings implements Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class ImgQuality {
+    public final class ImgQuality {
         public static final /* synthetic */ ImgQuality[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ImgQuality HIGHT_COMPRESS;
@@ -201,7 +201,7 @@ public abstract class WebSettings implements Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class LayoutAlgorithm {
+    public final class LayoutAlgorithm {
         public static final /* synthetic */ LayoutAlgorithm[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         @Deprecated
@@ -273,7 +273,7 @@ public abstract class WebSettings implements Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class PluginState {
+    public final class PluginState {
         public static final /* synthetic */ PluginState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PluginState OFF;
@@ -335,7 +335,7 @@ public abstract class WebSettings implements Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class ProxyType {
+    public final class ProxyType {
         public static final /* synthetic */ ProxyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ProxyType NO_PROXY;
@@ -399,7 +399,7 @@ public abstract class WebSettings implements Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class RemoveAdLevel {
+    public final class RemoveAdLevel {
         public static final /* synthetic */ RemoveAdLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RemoveAdLevel DISABLE;
@@ -461,7 +461,7 @@ public abstract class WebSettings implements Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class RenderPriority {
+    public final class RenderPriority {
         public static final /* synthetic */ RenderPriority[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RenderPriority HIGH;
@@ -524,7 +524,7 @@ public abstract class WebSettings implements Observer {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
     /* loaded from: classes6.dex */
-    public static final class TextSize {
+    public final class TextSize {
         public static final /* synthetic */ TextSize[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TextSize LARGER;
@@ -597,7 +597,7 @@ public abstract class WebSettings implements Observer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class ZoomDensity {
+    public final class ZoomDensity {
         public static final /* synthetic */ ZoomDensity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ZoomDensity CLOSE;

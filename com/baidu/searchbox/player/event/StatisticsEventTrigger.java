@@ -27,6 +27,27 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    public void onPlayerPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            triggerEvent(StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_PAUSE));
+        }
+    }
+
+    public void onPlayerResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            triggerEvent(StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_RESUME));
+        }
+    }
+
+    public void onPlayerStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            triggerEvent(StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_START));
+        }
+    }
+
     public void onError(int i, int i2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
@@ -59,6 +80,17 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    public void onFloatingShow(String str, Point point) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, point) == null) {
+            VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_FLOATING_SHOW);
+            obtainEvent.putExtra(9, str);
+            obtainEvent.putExtra(11, Integer.valueOf(point.x));
+            obtainEvent.putExtra(12, Integer.valueOf(point.y));
+            triggerEvent(obtainEvent);
+        }
+    }
+
     public void onFloatingScale(boolean z, String str, Point point) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), str, point}) == null) {
@@ -71,36 +103,37 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    public void onFloatingShow(String str, Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, point) == null) {
-            VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_FLOATING_SHOW);
-            obtainEvent.putExtra(9, str);
-            obtainEvent.putExtra(11, Integer.valueOf(point.x));
-            obtainEvent.putExtra(12, Integer.valueOf(point.y));
-            triggerEvent(obtainEvent);
-        }
-    }
-
     public void onInfo(int i, int i2, Object obj) {
         VideoEvent obtainEvent;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, obj) == null) {
-            if (i == 701) {
-                obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_START);
-            } else if (i == 702) {
-                obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_END);
-            } else if (i == 904 || i == 956) {
-                obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
-                obtainEvent.putExtra(2, String.valueOf(obj));
-            } else if (i == 10009) {
-                obtainEvent = StatisticsEvent.obtainEvent("statistics_player_carlton");
-                obtainEvent.putExtra(2, String.valueOf(obj));
-            } else if (i != 11004) {
-                obtainEvent = i != 11005 ? null : StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ERROR_RETRY_END);
+            if (i != 701) {
+                if (i != 702) {
+                    if (i != 904 && i != 956) {
+                        if (i != 10009) {
+                            if (i != 11004) {
+                                if (i != 11005) {
+                                    obtainEvent = null;
+                                } else {
+                                    obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ERROR_RETRY_END);
+                                }
+                            } else {
+                                obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ERROR_RETRY_START);
+                                obtainEvent.putExtra(4, Integer.valueOf(i2));
+                            }
+                        } else {
+                            obtainEvent = StatisticsEvent.obtainEvent("statistics_player_carlton");
+                            obtainEvent.putExtra(2, String.valueOf(obj));
+                        }
+                    } else {
+                        obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
+                        obtainEvent.putExtra(2, String.valueOf(obj));
+                    }
+                } else {
+                    obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_END);
+                }
             } else {
-                obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ERROR_RETRY_START);
-                obtainEvent.putExtra(4, Integer.valueOf(i2));
+                obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_START);
             }
             if (obtainEvent != null) {
                 triggerEvent(obtainEvent);
@@ -123,27 +156,6 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
             VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_COMPLETE);
             obtainEvent.putExtra(1, Integer.valueOf(i));
             triggerEvent(obtainEvent);
-        }
-    }
-
-    public void onPlayerPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            triggerEvent(StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_PAUSE));
-        }
-    }
-
-    public void onPlayerResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            triggerEvent(StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_RESUME));
-        }
-    }
-
-    public void onPlayerStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            triggerEvent(StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_START));
         }
     }
 

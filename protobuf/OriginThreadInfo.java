@@ -92,14 +92,20 @@ public final class OriginThreadInfo extends Message {
     public final List<Voice> voiceInfo;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<OriginThreadInfo> {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<Abstract> _abstract;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List _abstract;
         public Agree agree;
         public AlaLiveInfo alaInfo;
         public User author;
-        public List<PbContent> content;
+        public List content;
         public Long fid;
         public String fname;
         public Integer goodTypes;
@@ -108,10 +114,10 @@ public final class OriginThreadInfo extends Message {
         public Integer isNewStyle;
         public Integer isUgc;
         public Item item;
-        public List<HeadItem> itemStar;
-        public List<Media> media;
+        public List itemStar;
+        public List media;
         public Baijiahao oriUgcInfo;
-        public List<PbLinkInfo> pbLinkInfo;
+        public List pbLinkInfo;
         public Long pid;
         public PollInfo pollInfo;
         public Integer replyNum;
@@ -121,7 +127,7 @@ public final class OriginThreadInfo extends Message {
         public String title;
         public Integer topTypes;
         public VideoInfo videoInfo;
-        public List<Voice> voiceInfo;
+        public List voiceInfo;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -192,14 +198,11 @@ public final class OriginThreadInfo extends Message {
         public OriginThreadInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new OriginThreadInfo(this, z, null) : (OriginThreadInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new OriginThreadInfo(this, z, null);
+            }
+            return (OriginThreadInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -234,10 +237,6 @@ public final class OriginThreadInfo extends Message {
         DEFAULT_ISFRSMASK = 0;
     }
 
-    public /* synthetic */ OriginThreadInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OriginThreadInfo(Builder builder, boolean z) {
         super(builder);
@@ -263,13 +262,13 @@ public final class OriginThreadInfo extends Message {
             } else {
                 this.title = str;
             }
-            List<Media> list = builder.media;
+            List list = builder.media;
             if (list == null) {
                 this.media = DEFAULT_MEDIA;
             } else {
                 this.media = Message.immutableCopyOf(list);
             }
-            List<Abstract> list2 = builder._abstract;
+            List list2 = builder._abstract;
             if (list2 == null) {
                 this._abstract = DEFAULT_ABSTRACT;
             } else {
@@ -313,14 +312,14 @@ public final class OriginThreadInfo extends Message {
                 this.isUgc = num3;
             }
             this.oriUgcInfo = builder.oriUgcInfo;
-            List<Voice> list3 = builder.voiceInfo;
+            List list3 = builder.voiceInfo;
             if (list3 == null) {
                 this.voiceInfo = DEFAULT_VOICEINFO;
             } else {
                 this.voiceInfo = Message.immutableCopyOf(list3);
             }
             this.videoInfo = builder.videoInfo;
-            List<PbContent> list4 = builder.content;
+            List list4 = builder.content;
             if (list4 == null) {
                 this.content = DEFAULT_CONTENT;
             } else {
@@ -348,13 +347,13 @@ public final class OriginThreadInfo extends Message {
             }
             this.pollInfo = builder.pollInfo;
             this.item = builder.item;
-            List<HeadItem> list5 = builder.itemStar;
+            List list5 = builder.itemStar;
             if (list5 == null) {
                 this.itemStar = DEFAULT_ITEMSTAR;
             } else {
                 this.itemStar = Message.immutableCopyOf(list5);
             }
-            List<PbLinkInfo> list6 = builder.pbLinkInfo;
+            List list6 = builder.pbLinkInfo;
             if (list6 == null) {
                 this.pbLinkInfo = DEFAULT_PBLINKINFO;
             } else {
@@ -414,5 +413,9 @@ public final class OriginThreadInfo extends Message {
         this.goodTypes = builder.goodTypes;
         this.topTypes = builder.topTypes;
         this.isFrsMask = builder.isFrsMask;
+    }
+
+    public /* synthetic */ OriginThreadInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

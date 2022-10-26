@@ -15,9 +15,11 @@ public class MediaSource {
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeSource;
 
+    public static native State nativeGetState(long j);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State ENDED;
@@ -66,23 +68,31 @@ public class MediaSource {
             }
         }
 
-        @CalledByNative("State")
         public static State fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (State) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                return values()[i];
+            }
+            return (State) invokeI.objValue;
         }
 
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
@@ -106,12 +116,11 @@ public class MediaSource {
 
     private void checkMediaSourceExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeSource == 0) {
-            throw new IllegalStateException("MediaSource has been disposed.");
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeSource != 0) {
+            return;
         }
+        throw new IllegalStateException("MediaSource has been disposed.");
     }
-
-    public static native State nativeGetState(long j);
 
     public void dispose() {
         Interceptable interceptable = $ic;

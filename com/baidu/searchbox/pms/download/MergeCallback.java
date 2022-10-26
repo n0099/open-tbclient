@@ -19,7 +19,7 @@ public class MergeCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MergeCallback";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<MergeBean> list;
+    public final List list;
 
     /* loaded from: classes2.dex */
     public class MergeBean {
@@ -66,120 +66,12 @@ public class MergeCallback {
         this.list = new ArrayList();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void checkCopy(String str, MergeBean mergeBean) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, str, mergeBean) == null) {
-            DebugUtils.log("【下载完成】", mergeBean.info);
-            if (TextUtils.equals(str, mergeBean.info.filePath)) {
-                return;
-            }
-            DebugUtils.log("【复制文件】 from:", str, ",to:", mergeBean.info.filePath);
-            File file = new File(str);
-            File file2 = new File(mergeBean.info.filePath);
-            if (file.exists()) {
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                long copyFile = FileUtils.copyFile(file, file2);
-                Object[] objArr = new Object[2];
-                objArr[0] = copyFile > 0 ? "【复制成功】" : "【复制失败】 to:";
-                objArr[1] = mergeBean.info.filePath;
-                DebugUtils.log(objArr);
-            }
-        }
-    }
-
-    public void add(PackageInfo packageInfo, InnerCallback innerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, innerCallback) == null) {
-            synchronized (this.list) {
-                this.list.add(new MergeBean(this, packageInfo, innerCallback));
-            }
-        }
-    }
-
-    public void onCancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.list) {
-                for (MergeBean mergeBean : this.list) {
-                    mergeBean.info.type = 5;
-                    mergeBean.callback.onCancel(mergeBean.info);
-                }
-                this.list.clear();
-            }
-        }
-    }
-
-    public void onError(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            synchronized (this.list) {
-                for (MergeBean mergeBean : this.list) {
-                    mergeBean.info.type = 6;
-                    mergeBean.callback.onError(mergeBean.info, i, str);
-                }
-                this.list.clear();
-            }
-        }
-    }
-
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.list) {
-                for (MergeBean mergeBean : this.list) {
-                    mergeBean.info.type = 3;
-                    mergeBean.callback.onPause(mergeBean.info);
-                }
-            }
-        }
-    }
-
-    public void onProgress(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            synchronized (this.list) {
-                for (MergeBean mergeBean : this.list) {
-                    mergeBean.info.currentSize = j;
-                    mergeBean.info.totalSize = j2;
-                    mergeBean.callback.onProgress(mergeBean.info, mergeBean.info.currentSize, mergeBean.info.totalSize);
-                }
-            }
-        }
-    }
-
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this.list) {
-                for (MergeBean mergeBean : this.list) {
-                    mergeBean.info.type = 2;
-                    mergeBean.callback.onResume(mergeBean.info);
-                }
-            }
-        }
-    }
-
     public void onRetry() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this.list) {
                 for (MergeBean mergeBean : this.list) {
                     mergeBean.callback.onCancel(mergeBean.info);
-                }
-            }
-        }
-    }
-
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.list) {
-                for (MergeBean mergeBean : this.list) {
-                    mergeBean.info.type = 2;
-                    mergeBean.callback.onStart(mergeBean.info);
                 }
             }
         }
@@ -230,6 +122,119 @@ public class MergeCallback {
                     }
                 }
             }, "MergeCallbackonSuccess");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void checkCopy(String str, MergeBean mergeBean) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, str, mergeBean) == null) {
+            DebugUtils.log("【下载完成】", mergeBean.info);
+            if (!TextUtils.equals(str, mergeBean.info.filePath)) {
+                DebugUtils.log("【复制文件】 from:", str, ",to:", mergeBean.info.filePath);
+                File file = new File(str);
+                File file2 = new File(mergeBean.info.filePath);
+                if (file.exists()) {
+                    if (file2.exists()) {
+                        file2.delete();
+                    }
+                    long copyFile = FileUtils.copyFile(file, file2);
+                    Object[] objArr = new Object[2];
+                    if (copyFile > 0) {
+                        str2 = "【复制成功】";
+                    } else {
+                        str2 = "【复制失败】 to:";
+                    }
+                    objArr[0] = str2;
+                    objArr[1] = mergeBean.info.filePath;
+                    DebugUtils.log(objArr);
+                }
+            }
+        }
+    }
+
+    public void add(PackageInfo packageInfo, InnerCallback innerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, innerCallback) == null) {
+            synchronized (this.list) {
+                this.list.add(new MergeBean(this, packageInfo, innerCallback));
+            }
+        }
+    }
+
+    public void onCancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.list) {
+                for (MergeBean mergeBean : this.list) {
+                    mergeBean.info.type = 5;
+                    mergeBean.callback.onCancel(mergeBean.info);
+                }
+                this.list.clear();
+            }
+        }
+    }
+
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this.list) {
+                for (MergeBean mergeBean : this.list) {
+                    mergeBean.info.type = 3;
+                    mergeBean.callback.onPause(mergeBean.info);
+                }
+            }
+        }
+    }
+
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this.list) {
+                for (MergeBean mergeBean : this.list) {
+                    mergeBean.info.type = 2;
+                    mergeBean.callback.onResume(mergeBean.info);
+                }
+            }
+        }
+    }
+
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.list) {
+                for (MergeBean mergeBean : this.list) {
+                    mergeBean.info.type = 2;
+                    mergeBean.callback.onStart(mergeBean.info);
+                }
+            }
+        }
+    }
+
+    public void onError(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            synchronized (this.list) {
+                for (MergeBean mergeBean : this.list) {
+                    mergeBean.info.type = 6;
+                    mergeBean.callback.onError(mergeBean.info, i, str);
+                }
+                this.list.clear();
+            }
+        }
+    }
+
+    public void onProgress(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            synchronized (this.list) {
+                for (MergeBean mergeBean : this.list) {
+                    mergeBean.info.currentSize = j;
+                    mergeBean.info.totalSize = j2;
+                    mergeBean.callback.onProgress(mergeBean.info, mergeBean.info.currentSize, mergeBean.info.totalSize);
+                }
+            }
         }
     }
 }

@@ -15,7 +15,6 @@ import com.baidu.rtc.internal.BaiduRtcRoomImp;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -66,11 +65,11 @@ public class WebSocketChannel {
     public static OkHttpClient.Builder httpclientBuilder = null;
     public static int kKeepAliveTimeMs = 25000;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, JanusTransaction> ackTransactions;
+    public ConcurrentHashMap ackTransactions;
     public JanusRTCInterface delegate;
-    public ConcurrentHashMap<BigInteger, JanusHandle> feeds;
+    public ConcurrentHashMap feeds;
     public Runnable fireKeepAlive;
-    public ConcurrentHashMap<BigInteger, JanusHandle> handles;
+    public ConcurrentHashMap handles;
     public Handler keepAliveTimer;
     public String mAppId;
     public boolean mAsListener;
@@ -105,13 +104,13 @@ public class WebSocketChannel {
     public BigInteger mSessionId;
     public String mTokenStr;
     public long mUserId;
-    public ConcurrentHashMap<BigInteger, BaiduRtcRoom.RtcRoomUserInfo> mUserInfoList;
+    public ConcurrentHashMap mUserInfoList;
     public volatile BaiduRtcRoom.UserList mUserList;
     public String mVideoCodec;
     public WebSocket mWebSocket;
     public int serverAckTimeout;
     public Runnable serverKeepAliveTimeout;
-    public ConcurrentHashMap<String, JanusTransaction> transactions;
+    public ConcurrentHashMap transactions;
 
     static {
         InterceptResult invokeClinit;
@@ -175,10 +174,10 @@ public class WebSocketChannel {
                 return;
             }
         }
-        this.transactions = new ConcurrentHashMap<>();
-        this.handles = new ConcurrentHashMap<>();
-        this.feeds = new ConcurrentHashMap<>();
-        this.ackTransactions = new ConcurrentHashMap<>();
+        this.transactions = new ConcurrentHashMap();
+        this.handles = new ConcurrentHashMap();
+        this.feeds = new ConcurrentHashMap();
+        this.ackTransactions = new ConcurrentHashMap();
         this.mUserId = (Build.SERIAL.hashCode() % 100000) + 78657895;
         this.mDisplayName = "Android-rtc";
         this.mRoomName = "";
@@ -215,7 +214,7 @@ public class WebSocketChannel {
         this.mMediaServerIP = "";
         this.mIsEnableErrorInfoMonitor = true;
         this.mUserList = null;
-        this.mUserInfoList = new ConcurrentHashMap<>();
+        this.mUserInfoList = new ConcurrentHashMap();
         this.fireKeepAlive = new Runnable(this) { // from class: com.baidu.rtc.WebSocketChannel.32
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -242,10 +241,11 @@ public class WebSocketChannel {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.keepAlive();
-                    this.this$0.mHandler.postDelayed(this.this$0.fireKeepAlive, WebSocketChannel.kKeepAliveTimeMs);
+                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                    return;
                 }
+                this.this$0.keepAlive();
+                this.this$0.mHandler.postDelayed(this.this$0.fireKeepAlive, WebSocketChannel.kKeepAliveTimeMs);
             }
         };
         this.serverKeepAliveTimeout = new Runnable(this) { // from class: com.baidu.rtc.WebSocketChannel.33
@@ -274,14 +274,255 @@ public class WebSocketChannel {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.delegate == null) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.delegate != null) {
+                    this.this$0.delegate.onServerAckTimeout();
                 }
-                this.this$0.delegate.onServerAckTimeout();
             }
         };
         this.mHandler = new Handler(Looper.getMainLooper());
         this.keepAliveTimer = new Handler(Looper.getMainLooper());
+    }
+
+    private void sendMessage(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65567, this, jSONObject) == null) {
+            WebSocket webSocket = this.mWebSocket;
+            if (webSocket != null) {
+                webSocket.send(jSONObject.toString());
+            }
+            if (BaiduRtcRoomImp.mbEnableDebugLog) {
+                Log.i(TAG, jSONObject.toString());
+            }
+        }
+    }
+
+    public BigInteger getFeedByHandle(BigInteger bigInteger) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bigInteger)) == null) {
+            if (this.handles.get(bigInteger) == null) {
+                return BigInteger.valueOf(0L);
+            }
+            return ((JanusHandle) this.handles.get(bigInteger)).feedId;
+        }
+        return (BigInteger) invokeL.objValue;
+    }
+
+    public JanusHandle getHandleByFeed(BigInteger bigInteger) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bigInteger)) == null) {
+            return (JanusHandle) this.feeds.get(bigInteger);
+        }
+        return (JanusHandle) invokeL.objValue;
+    }
+
+    public String getNickNameByFeed(BigInteger bigInteger) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bigInteger)) == null) {
+            if (this.mUserInfoList.get(bigInteger) == null) {
+                return null;
+            }
+            return ((BaiduRtcRoom.RtcRoomUserInfo) this.mUserInfoList.get(bigInteger)).userName;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void setAppId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.mAppId = str;
+        }
+    }
+
+    public void setAsListener(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.mAsListener = z;
+        }
+    }
+
+    public void setAsPublisher(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.mAsPublisher = z;
+        }
+    }
+
+    public void setAutoPublish(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.mAutoPublish = z;
+        }
+    }
+
+    public void setAutoSubScribe(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.mAutoSubScribe = z;
+        }
+    }
+
+    public void setConnectionTimeoutMs(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mConnectionTimeoutMs = i;
+        }
+    }
+
+    public void setDelegate(JanusRTCInterface janusRTCInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, janusRTCInterface) == null) {
+            this.delegate = janusRTCInterface;
+        }
+    }
+
+    public void setDisplayName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.mDisplayName = str;
+        }
+    }
+
+    public void setEnableErrorInfoMonitor(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+            this.mIsEnableErrorInfoMonitor = z;
+        }
+    }
+
+    public void setHasAudio(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            this.mHasAudio = z;
+        }
+    }
+
+    public void setHasData(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            this.mHasData = z;
+        }
+    }
+
+    public void setHasVideo(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.mHasVideo = z;
+        }
+    }
+
+    public void setLssMixTemplate(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+            this.mLiveStreamingMixTemplate = str;
+        }
+    }
+
+    public void setLssRole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+            this.mLiveStreamingRole = str;
+        }
+    }
+
+    public void setLssTransferMode(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, rtcLiveTransferMode) == null) {
+            this.mLiveStreamingTransferMode = rtcLiveTransferMode;
+        }
+    }
+
+    public void setLssURL(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+            this.mLiveStreamingServerURL = str;
+        }
+    }
+
+    public void setMediaServerIP(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+            this.mMediaServerIP = str;
+        }
+    }
+
+    public void setMixLayoutPosition(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+            this.mMixLayoutPosition = str;
+        }
+    }
+
+    public void setMixing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
+            this.mLiveStreamingMix = z;
+        }
+    }
+
+    public void setReadTimeoutMs(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mReadTimeoutMs = i;
+        }
+    }
+
+    public void setRecording(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+            this.mLiveStreamingRecording = z;
+        }
+    }
+
+    public void setRoomId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.mRoomId = i;
+        }
+    }
+
+    public void setRoomName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+            this.mRoomName = str;
+        }
+    }
+
+    public void setSDK(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+            this.mSDKTag = str;
+        }
+    }
+
+    public void setTokenStr(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+            this.mTokenStr = str;
+        }
+    }
+
+    public void setUserId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.mUserId = j;
+        }
+    }
+
+    public void setVideoCodec(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
+            this.mVideoCodec = str.toLowerCase();
+        }
+    }
+
+    public void sendMessageToUser(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048592, this, str, j) == null) {
+            sendMessageToUser(str, j, false);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -330,6 +571,13 @@ public class WebSocketChannel {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebSocketChannel this$0;
 
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -346,13 +594,6 @@ public class WebSocketChannel {
                         }
                     }
                     this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
                 }
             };
             this.transactions.put(randomString, janusTransaction);
@@ -374,39 +615,6 @@ public class WebSocketChannel {
             }
             sendMessage(jSONObject);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void doLeaveRoom(JanusHandle janusHandle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, this, janusHandle) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("request", "leave");
-                jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-                jSONObject2.putOpt("transaction", randomString(12));
-                jSONObject2.putOpt("session_id", this.mSessionId);
-                jSONObject2.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
-        }
-    }
-
-    public static String encodeURIComponent(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
-            try {
-                return URLEncoder.encode(str, "UTF-8").replaceAll("\\+", "%20").replaceAll("\\%21", "!").replaceAll("\\%27", "'").replaceAll("\\%28", "(").replaceAll("\\%29", SmallTailInfo.EMOTION_SUFFIX).replaceAll("\\%7E", Constants.WAVE_SEPARATOR);
-            } catch (UnsupportedEncodingException unused) {
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -494,7 +702,269 @@ public class WebSocketChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void doLeaveRoom(JanusHandle janusHandle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65560, this, janusHandle) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "leave");
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString(12));
+                jSONObject2.putOpt("session_id", this.mSessionId);
+                jSONObject2.putOpt("handle_id", janusHandle.handleId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+        }
+    }
+
+    public static String encodeURIComponent(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+            try {
+                return URLEncoder.encode(str, "UTF-8").replaceAll("\\+", "%20").replaceAll("\\%21", "!").replaceAll("\\%27", "'").replaceAll("\\%28", "(").replaceAll("\\%29", SmallTailInfo.EMOTION_SUFFIX).replaceAll("\\%7E", Constants.WAVE_SEPARATOR);
+            } catch (UnsupportedEncodingException unused) {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void Send(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            String randomString = randomString(12);
+            JanusTransaction janusTransaction = new JanusTransaction();
+            janusTransaction.tid = randomString;
+            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.30
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackSuccess
+                public void success(JSONObject jSONObject2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject2) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.31
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject2) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            this.transactions.put(randomString, janusTransaction);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString);
+                jSONObject2.putOpt("session_id", this.mSessionId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+        }
+    }
+
+    public void stopPublishLiveStream(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, rtcLiveTransferMode) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.putOpt("request", "stopbypass");
+                if (rtcLiveTransferMode != BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION) {
+                    str = "room";
+                } else {
+                    str = "anchor";
+                }
+                jSONObject.putOpt(PollingModel.LEVEL, str);
+                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
+                jSONObject.putOpt("id", Long.valueOf(this.mUserId));
+                Send(jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void subscriberOnLeaving(JanusHandle janusHandle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, janusHandle) == null) {
+            String randomString = randomString(12);
+            JanusTransaction janusTransaction = new JanusTransaction();
+            janusTransaction.tid = randomString;
+            janusTransaction.success = new TransactionCallbackSuccess(this, janusHandle) { // from class: com.baidu.rtc.WebSocketChannel.11
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+                public final /* synthetic */ JanusHandle val$handle;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, janusHandle};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$handle = janusHandle;
+                }
+
+                @Override // com.baidu.rtc.TransactionCallbackSuccess
+                public void success(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, jSONObject) != null) {
+                        return;
+                    }
+                    JanusRTCInterface janusRTCInterface = this.this$0.delegate;
+                    JanusHandle janusHandle2 = this.val$handle;
+                    janusRTCInterface.onLeaving(janusHandle2.handleId, janusHandle2.feedId);
+                    this.this$0.delegate.onRemoteGone(this.val$handle.handleId);
+                    this.this$0.handles.remove(this.val$handle.handleId);
+                    this.this$0.feeds.remove(this.val$handle.feedId);
+                }
+            };
+            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.12
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            this.transactions.put(randomString, janusTransaction);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("janus", "detach");
+                jSONObject.putOpt("transaction", randomString);
+                jSONObject.putOpt("session_id", this.mSessionId);
+                jSONObject.putOpt("handle_id", janusHandle.handleId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject);
+        }
+    }
+
+    public void trickleCandidateComplete(BigInteger bigInteger) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, bigInteger) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("completed", Boolean.TRUE);
+                jSONObject2.putOpt("janus", "trickle");
+                jSONObject2.putOpt("candidate", jSONObject);
+                jSONObject2.putOpt("transaction", randomString(12));
+                jSONObject2.putOpt("session_id", this.mSessionId);
+                jSONObject2.putOpt("handle_id", bigInteger);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void unpublishHandle(BigInteger bigInteger) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, bigInteger) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "unpublish");
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString(12));
+                jSONObject2.putOpt("session_id", this.mSessionId);
+                jSONObject2.putOpt("handle_id", bigInteger);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void onMessage(String str) {
+        int i;
         BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode;
         long optLong;
         JSONArray optJSONArray;
@@ -508,14 +978,14 @@ public class WebSocketChannel {
                 String optString = jSONObject.optString("janus");
                 if (optString.equals("success")) {
                     String optString2 = jSONObject.optString("transaction");
-                    JanusTransaction janusTransaction = this.transactions.get(optString2);
+                    JanusTransaction janusTransaction = (JanusTransaction) this.transactions.get(optString2);
                     if (janusTransaction != null && janusTransaction.success != null) {
                         janusTransaction.success.success(jSONObject);
                     }
                     this.transactions.remove(optString2);
                 } else if (optString.equals("error")) {
                     String optString3 = jSONObject.optString("transaction");
-                    JanusTransaction janusTransaction2 = this.transactions.get(optString3);
+                    JanusTransaction janusTransaction2 = (JanusTransaction) this.transactions.get(optString3);
                     if (janusTransaction2 != null && janusTransaction2.error != null) {
                         janusTransaction2.error.error(jSONObject);
                     }
@@ -532,7 +1002,7 @@ public class WebSocketChannel {
                     }
                 } else if (optString.equals(IMTrackDatabase.AckEnum.TABLE_NAME)) {
                     String optString5 = jSONObject.optString("transaction");
-                    JanusTransaction janusTransaction3 = this.ackTransactions.get(optString5);
+                    JanusTransaction janusTransaction3 = (JanusTransaction) this.ackTransactions.get(optString5);
                     if (janusTransaction3 != null && janusTransaction3.success != null) {
                         janusTransaction3.success.success(jSONObject);
                     }
@@ -552,7 +1022,7 @@ public class WebSocketChannel {
                     if (jSONObject.has("recvdata")) {
                         JSONObject optJSONObject = jSONObject.optJSONObject("recvdata");
                         if (optJSONObject.optBoolean("internal")) {
-                            BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo = this.mUserInfoList.get(BigInteger.valueOf(optJSONObject.optLong("from")));
+                            BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo = (BaiduRtcRoom.RtcRoomUserInfo) this.mUserInfoList.get(BigInteger.valueOf(optJSONObject.optLong("from")));
                             if (rtcRoomUserInfo != null) {
                                 rtcRoomUserInfo.attribute = optJSONObject.optString("data");
                             }
@@ -577,8 +1047,8 @@ public class WebSocketChannel {
                             this.delegate.onUserLeavingRoom(new BigInteger(optJSONObject2.optString("leaving")));
                         } else if (optJSONObject2.has(IMConstants.AT_DATA_TYPE_USER) && (optJSONArray = optJSONObject2.optJSONArray(IMConstants.AT_DATA_TYPE_USER)) != null && optJSONArray.length() > 0) {
                             int length = optJSONArray.length();
-                            for (int i = 0; i <= length - 1; i++) {
-                                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+                            for (int i2 = 0; i2 <= length - 1; i2++) {
+                                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                                 BigInteger bigInteger = new BigInteger(optJSONObject3.optString("id"));
                                 String optString6 = optJSONObject3.optString(CriusAttrConstants.DISPLAY);
                                 BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo3 = new BaiduRtcRoom.RtcRoomUserInfo();
@@ -634,7 +1104,7 @@ public class WebSocketChannel {
                         }
                     }
                 } else if (jSONObject.has("sender")) {
-                    JanusHandle janusHandle = this.handles.get(new BigInteger(jSONObject.optString("sender")));
+                    JanusHandle janusHandle = (JanusHandle) this.handles.get(new BigInteger(jSONObject.optString("sender")));
                     if (janusHandle == null) {
                         Log.e(TAG, "missing handle");
                     } else if (optString.equals("event")) {
@@ -660,9 +1130,9 @@ public class WebSocketChannel {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this, janusHandle};
                                             interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i3 = newInitContext.flag;
+                                            if ((i3 & 1) != 0) {
+                                                int i4 = i3 & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable2.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -675,9 +1145,10 @@ public class WebSocketChannel {
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable2 = $ic;
-                                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                            this.this$0.publisherJoinRoom(this.val$handle);
+                                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                                            return;
                                         }
+                                        this.this$0.publisherJoinRoom(this.val$handle);
                                     }
                                 }, 2000L);
                             }
@@ -685,8 +1156,8 @@ public class WebSocketChannel {
                         JSONArray optJSONArray2 = optJSONObject7.optJSONArray("publishers");
                         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                             int length2 = optJSONArray2.length();
-                            for (int i2 = 0; i2 <= length2 - 1; i2++) {
-                                JSONObject optJSONObject8 = optJSONArray2.optJSONObject(i2);
+                            for (int i3 = 0; i3 <= length2 - 1; i3++) {
+                                JSONObject optJSONObject8 = optJSONArray2.optJSONObject(i3);
                                 BigInteger bigInteger2 = new BigInteger(optJSONObject8.optString("id"));
                                 String optString9 = optJSONObject8.optString(CriusAttrConstants.DISPLAY);
                                 this.delegate.onComing(bigInteger2, optString9);
@@ -698,7 +1169,7 @@ public class WebSocketChannel {
                         String optString10 = optJSONObject7.optString("leaving");
                         if (!TextUtils.isEmpty(optString10) && !optString10.equals("ok")) {
                             this.delegate.onLeaving(janusHandle.handleId, new BigInteger(optString10));
-                            JanusHandle janusHandle2 = this.feeds.get(new BigInteger(optString10));
+                            JanusHandle janusHandle2 = (JanusHandle) this.feeds.get(new BigInteger(optString10));
                             if (janusHandle2 != null && janusHandle2.onLeaving != null) {
                                 janusHandle2.onLeaving.onJoined(janusHandle2);
                             }
@@ -707,7 +1178,7 @@ public class WebSocketChannel {
                         if (!TextUtils.isEmpty(optString11)) {
                             if (!optString11.equals("ok") && !optString11.equals("self")) {
                                 this.delegate.onLeaving(janusHandle.handleId, new BigInteger(optString11));
-                                JanusHandle janusHandle3 = this.feeds.get(new BigInteger(optString11));
+                                JanusHandle janusHandle3 = (JanusHandle) this.feeds.get(new BigInteger(optString11));
                                 if (janusHandle3 != null && janusHandle3.onLeaving != null) {
                                     janusHandle3.onLeaving.onJoined(janusHandle3);
                                 }
@@ -727,7 +1198,14 @@ public class WebSocketChannel {
                         boolean z = jSONObject.getBoolean("receiving");
                         String string = jSONObject.getString("type");
                         if (this.delegate != null) {
-                            this.delegate.onMediaStreamingEvent(janusHandle.handleId, string.contains("video") ? 1 : 0, z);
+                            JanusRTCInterface janusRTCInterface = this.delegate;
+                            BigInteger bigInteger3 = janusHandle.handleId;
+                            if (string.contains("video")) {
+                                i = 1;
+                            } else {
+                                i = 0;
+                            }
+                            janusRTCInterface.onMediaStreamingEvent(bigInteger3, i, z);
                         }
                     } else if (optString.equals("hangup") && this.delegate != null) {
                         this.delegate.onHangUp(janusHandle.handleId);
@@ -801,10 +1279,9 @@ public class WebSocketChannel {
                             @Override // com.baidu.rtc.OnJoined
                             public void onJoined(JanusHandle janusHandle2) {
                                 Interceptable interceptable3 = $ic;
-                                if (!(interceptable3 == null || interceptable3.invokeL(1048576, this, janusHandle2) == null) || this.this$1.this$0.delegate == null) {
-                                    return;
+                                if ((interceptable3 == null || interceptable3.invokeL(1048576, this, janusHandle2) == null) && this.this$1.this$0.delegate != null) {
+                                    this.this$1.this$0.delegate.onPublisherJoined(janusHandle2.handleId);
                                 }
-                                this.this$1.this$0.delegate.onPublisherJoined(janusHandle2.handleId);
                             }
                         };
                         janusHandle.onRemoteJsep = new OnRemoteJsep(this) { // from class: com.baidu.rtc.WebSocketChannel.7.2
@@ -833,10 +1310,9 @@ public class WebSocketChannel {
                             @Override // com.baidu.rtc.OnRemoteJsep
                             public void onRemoteJsep(JanusHandle janusHandle2, JSONObject jSONObject2) {
                                 Interceptable interceptable3 = $ic;
-                                if (!(interceptable3 == null || interceptable3.invokeLL(1048576, this, janusHandle2, jSONObject2) == null) || this.this$1.this$0.delegate == null) {
-                                    return;
+                                if ((interceptable3 == null || interceptable3.invokeLL(1048576, this, janusHandle2, jSONObject2) == null) && this.this$1.this$0.delegate != null) {
+                                    this.this$1.this$0.delegate.onPublisherRemoteJsep(janusHandle2.handleId, jSONObject2);
                                 }
-                                this.this$1.this$0.delegate.onPublisherRemoteJsep(janusHandle2.handleId, jSONObject2);
                             }
                         };
                         this.this$0.handles.put(janusHandle.handleId, janusHandle);
@@ -844,13 +1320,13 @@ public class WebSocketChannel {
                             return;
                         }
                         this.this$0.delegate.onCreatedHandle(janusHandle.handleId, this.this$0.mRoomId);
-                        if (this.this$0.mRoomId != -1160725808) {
-                            ErrorInfoReport.getInstance().setRoomId(this.this$0.mRoomId);
-                            WebSocketChannel webSocketChannel = this.this$0;
-                            webSocketChannel.createRoom(webSocketChannel.mRoomId, this.this$0.mRoomName, janusHandle);
+                        if (this.this$0.mRoomId == -1160725808) {
+                            this.this$0.createRoomWithoutRoomID(janusHandle);
                             return;
                         }
-                        this.this$0.createRoomWithoutRoomID(janusHandle);
+                        ErrorInfoReport.getInstance().setRoomId(this.this$0.mRoomId);
+                        WebSocketChannel webSocketChannel = this.this$0;
+                        webSocketChannel.createRoom(webSocketChannel.mRoomId, this.this$0.mRoomName, janusHandle);
                     }
                 }
             };
@@ -858,6 +1334,13 @@ public class WebSocketChannel {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -876,13 +1359,6 @@ public class WebSocketChannel {
                     }
                     this.this$0 = this;
                 }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
             };
             this.transactions.put(randomString, janusTransaction);
             JSONObject jSONObject = new JSONObject();
@@ -896,6 +1372,27 @@ public class WebSocketChannel {
             }
             sendMessage(jSONObject);
         }
+    }
+
+    public BaiduRtcRoom.RtcRoomUserInfo[] UserInfoList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mUserInfoList.size() < 1) {
+                return null;
+            }
+            BaiduRtcRoom.RtcRoomUserInfo[] rtcRoomUserInfoArr = new BaiduRtcRoom.RtcRoomUserInfo[this.mUserInfoList.size()];
+            int i = 0;
+            for (BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo : this.mUserInfoList.values()) {
+                rtcRoomUserInfoArr[i] = new BaiduRtcRoom.RtcRoomUserInfo();
+                rtcRoomUserInfoArr[i].userId = rtcRoomUserInfo.userId;
+                rtcRoomUserInfoArr[i].userName = rtcRoomUserInfo.userName;
+                rtcRoomUserInfoArr[i].attribute = rtcRoomUserInfo.attribute;
+                i++;
+            }
+            return rtcRoomUserInfoArr;
+        }
+        return (BaiduRtcRoom.RtcRoomUserInfo[]) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -947,390 +1444,6 @@ public class WebSocketChannel {
                 e.printStackTrace();
             }
             sendMessage(jSONObject);
-        }
-    }
-
-    private String randomString(Integer num) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, this, num)) == null) {
-            Random random = new Random();
-            StringBuilder sb = new StringBuilder(num.intValue());
-            for (int i = 0; i < num.intValue(); i++) {
-                sb.append("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(random.nextInt(62)));
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private void sendMessage(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65567, this, jSONObject) == null) {
-            WebSocket webSocket = this.mWebSocket;
-            if (webSocket != null) {
-                webSocket.send(jSONObject.toString());
-            }
-            if (BaiduRtcRoomImp.mbEnableDebugLog) {
-                Log.i(TAG, jSONObject.toString());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void subscriberJoinRoom(JanusHandle janusHandle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65568, this, janusHandle) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.putOpt("request", "join");
-                jSONObject2.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject2.putOpt("ptype", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER);
-                jSONObject2.putOpt(ExternalTransferSpeedStats.FEED_PAGE, janusHandle.feedId);
-                jSONObject2.putOpt("id", Long.valueOf(this.mUserId));
-                jSONObject2.putOpt("app_id", this.mAppId);
-                jSONObject2.putOpt(DpStatConstants.KEY_ROOM_NAME, this.mRoomName);
-                jSONObject2.putOpt("token", this.mTokenStr);
-                jSONObject2.putOpt("role", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER);
-                if (!this.mMixLayoutPosition.isEmpty()) {
-                    jSONObject2.putOpt("window_id_in_bypass", this.mMixLayoutPosition);
-                }
-                jSONObject.putOpt("janus", "message");
-                jSONObject.putOpt(TtmlNode.TAG_BODY, jSONObject2);
-                jSONObject.putOpt("transaction", randomString(12));
-                jSONObject.putOpt("session_id", this.mSessionId);
-                jSONObject.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject);
-        }
-    }
-
-    public void Send(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            String randomString = randomString(12);
-            JanusTransaction janusTransaction = new JanusTransaction();
-            janusTransaction.tid = randomString;
-            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.30
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackSuccess
-                public void success(JSONObject jSONObject2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject2) == null) {
-                    }
-                }
-            };
-            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.31
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject2) == null) {
-                    }
-                }
-            };
-            this.transactions.put(randomString, janusTransaction);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-                jSONObject2.putOpt("transaction", randomString);
-                jSONObject2.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
-        }
-    }
-
-    public BaiduRtcRoom.RtcRoomUserInfo[] UserInfoList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mUserInfoList.size() < 1) {
-                return null;
-            }
-            BaiduRtcRoom.RtcRoomUserInfo[] rtcRoomUserInfoArr = new BaiduRtcRoom.RtcRoomUserInfo[this.mUserInfoList.size()];
-            int i = 0;
-            for (BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo : this.mUserInfoList.values()) {
-                rtcRoomUserInfoArr[i] = new BaiduRtcRoom.RtcRoomUserInfo();
-                rtcRoomUserInfoArr[i].userId = rtcRoomUserInfo.userId;
-                rtcRoomUserInfoArr[i].userName = rtcRoomUserInfo.userName;
-                rtcRoomUserInfoArr[i].attribute = rtcRoomUserInfo.attribute;
-                i++;
-            }
-            return rtcRoomUserInfoArr;
-        }
-        return (BaiduRtcRoom.RtcRoomUserInfo[]) invokeV.objValue;
-    }
-
-    public BaiduRtcRoom.UserList UserListOfRoom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String randomString = randomString(12);
-            JanusTransaction janusTransaction = new JanusTransaction();
-            janusTransaction.tid = randomString;
-            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.19
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackSuccess
-                public void success(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                        JSONArray optJSONArray = jSONObject.optJSONObject("plugindata").optJSONObject("data").optJSONArray("publishers");
-                        JSONArray optJSONArray2 = jSONObject.optJSONObject("plugindata").optJSONObject("data").optJSONArray("listeners");
-                        if (optJSONArray != null) {
-                            BaiduRtcRoom.UserList userList = new BaiduRtcRoom.UserList(optJSONArray.length(), optJSONArray2.length());
-                            for (int i = 0; i < optJSONArray.length(); i++) {
-                                userList.Publishers[i] = optJSONArray.optJSONObject(i).optInt("clientUserId");
-                            }
-                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                                userList.Listeners[i2] = optJSONArray2.optJSONObject(i2).optInt("clientUserId");
-                            }
-                            this.this$0.mUserList = userList;
-                        }
-                        synchronized (this.this$0) {
-                            try {
-                                this.this$0.notifyAll();
-                            } catch (Exception unused) {
-                            }
-                        }
-                    }
-                }
-            };
-            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.20
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
-            };
-            this.transactions.put(randomString, janusTransaction);
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("request", "listparticipants");
-                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-                jSONObject2.putOpt("transaction", randomString);
-                jSONObject2.putOpt("session_id", this.mSessionId);
-                jSONObject2.putOpt("handle_id", ((JanusHandle) this.handles.values().toArray()[0]).handleId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
-            synchronized (this) {
-                try {
-                    wait(1000L);
-                } catch (Exception unused) {
-                }
-            }
-            return this.mUserList;
-        }
-        return (BaiduRtcRoom.UserList) invokeV.objValue;
-    }
-
-    public void createRoom(long j, String str, JanusHandle janusHandle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, janusHandle}) == null) {
-            String randomString = randomString(12);
-            JanusTransaction janusTransaction = new JanusTransaction();
-            janusTransaction.tid = randomString;
-            janusTransaction.success = new TransactionCallbackSuccess(this, janusHandle) { // from class: com.baidu.rtc.WebSocketChannel.15
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-                public final /* synthetic */ JanusHandle val$handle;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, janusHandle};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$handle = janusHandle;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackSuccess
-                public void success(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                        this.this$0.publisherJoinRoom(this.val$handle);
-                    }
-                }
-            };
-            janusTransaction.error = new TransactionCallbackError(this, janusHandle) { // from class: com.baidu.rtc.WebSocketChannel.16
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-                public final /* synthetic */ JanusHandle val$handle;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, janusHandle};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$handle = janusHandle;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                        this.this$0.publisherJoinRoom(this.val$handle);
-                    }
-                }
-            };
-            this.transactions.put(randomString, janusTransaction);
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject.putOpt("request", "create");
-                jSONObject.putOpt("room", Long.valueOf(j));
-                jSONObject.putOpt("description", str);
-                jSONObject.putOpt("publishers", 1000);
-                jSONObject.putOpt("is_private", Boolean.FALSE);
-                jSONObject.putOpt("videocodec", this.mVideoCodec);
-                jSONObject.putOpt("playoutdelay_ext", Boolean.TRUE);
-                if (!this.mLiveStreamingServerURL.isEmpty() && this.mLiveStreamingTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
-                    jSONObject3.putOpt("url", this.mLiveStreamingServerURL);
-                    if (!this.mLiveStreamingMixTemplate.isEmpty()) {
-                        jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplate);
-                    }
-                    jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
-                } else if (!this.mLiveStreamingServerURLSecond.isEmpty() && this.mLiveStreamingTransferModeSecond == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
-                    jSONObject3.putOpt("url", this.mLiveStreamingServerURLSecond);
-                    if (!this.mLiveStreamingMixTemplateSecond.isEmpty()) {
-                        jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplateSecond);
-                    }
-                    jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
-                }
-                if (this.mLiveStreamingRecording) {
-                    jSONObject4.putOpt("rec", Boolean.valueOf(this.mLiveStreamingRecording));
-                    jSONObject.putOpt("recording", jSONObject4);
-                }
-                jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-                jSONObject2.putOpt("transaction", randomString);
-                jSONObject2.putOpt("session_id", this.mSessionId);
-                jSONObject2.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
         }
     }
 
@@ -1404,9 +1517,10 @@ public class WebSocketChannel {
                 @Override // com.baidu.rtc.TransactionCallbackError
                 public void error(JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                        this.this$0.publisherJoinRoom(this.val$handle);
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, jSONObject) != null) {
+                        return;
                     }
+                    this.this$0.publisherJoinRoom(this.val$handle);
                 }
             };
             this.transactions.put(randomString, janusTransaction);
@@ -1427,6 +1541,293 @@ public class WebSocketChannel {
                 if (!this.mLiveStreamingServerURL.isEmpty() && this.mLiveStreamingTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
                     jSONObject3.putOpt("url", this.mLiveStreamingServerURL);
                     jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplate);
+                    jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
+                } else if (!this.mLiveStreamingServerURLSecond.isEmpty() && this.mLiveStreamingTransferModeSecond == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
+                    jSONObject3.putOpt("url", this.mLiveStreamingServerURLSecond);
+                    if (!this.mLiveStreamingMixTemplateSecond.isEmpty()) {
+                        jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplateSecond);
+                    }
+                    jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
+                }
+                if (this.mLiveStreamingRecording) {
+                    jSONObject4.putOpt("rec", Boolean.valueOf(this.mLiveStreamingRecording));
+                    jSONObject.putOpt("recording", jSONObject4);
+                }
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString);
+                jSONObject2.putOpt("session_id", this.mSessionId);
+                jSONObject2.putOpt("handle_id", janusHandle.handleId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+        }
+    }
+
+    private String randomString(Integer num) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, this, num)) == null) {
+            Random random = new Random();
+            StringBuilder sb = new StringBuilder(num.intValue());
+            for (int i = 0; i < num.intValue(); i++) {
+                sb.append("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(random.nextInt(62)));
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void kickOffUserWithId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "kickoutuser");
+                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
+                jSONObject.putOpt("target", Long.valueOf(j));
+                Send(jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void subscriberJoinRoom(JanusHandle janusHandle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65568, this, janusHandle) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.putOpt("request", "join");
+                jSONObject2.putOpt("room", Long.valueOf(this.mRoomId));
+                jSONObject2.putOpt("ptype", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER);
+                jSONObject2.putOpt("feed", janusHandle.feedId);
+                jSONObject2.putOpt("id", Long.valueOf(this.mUserId));
+                jSONObject2.putOpt("app_id", this.mAppId);
+                jSONObject2.putOpt(DpStatConstants.KEY_ROOM_NAME, this.mRoomName);
+                jSONObject2.putOpt("token", this.mTokenStr);
+                jSONObject2.putOpt("role", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER);
+                if (!this.mMixLayoutPosition.isEmpty()) {
+                    jSONObject2.putOpt("window_id_in_bypass", this.mMixLayoutPosition);
+                }
+                jSONObject.putOpt("janus", "message");
+                jSONObject.putOpt(TtmlNode.TAG_BODY, jSONObject2);
+                jSONObject.putOpt("transaction", randomString(12));
+                jSONObject.putOpt("session_id", this.mSessionId);
+                jSONObject.putOpt("handle_id", janusHandle.handleId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject);
+        }
+    }
+
+    public BaiduRtcRoom.UserList UserListOfRoom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String randomString = randomString(12);
+            JanusTransaction janusTransaction = new JanusTransaction();
+            janusTransaction.tid = randomString;
+            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.19
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.baidu.rtc.TransactionCallbackSuccess
+                public void success(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                        JSONArray optJSONArray = jSONObject.optJSONObject("plugindata").optJSONObject("data").optJSONArray("publishers");
+                        JSONArray optJSONArray2 = jSONObject.optJSONObject("plugindata").optJSONObject("data").optJSONArray("listeners");
+                        if (optJSONArray != null) {
+                            BaiduRtcRoom.UserList userList = new BaiduRtcRoom.UserList(optJSONArray.length(), optJSONArray2.length());
+                            for (int i = 0; i < optJSONArray.length(); i++) {
+                                userList.Publishers[i] = optJSONArray.optJSONObject(i).optInt("clientUserId");
+                            }
+                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                                userList.Listeners[i2] = optJSONArray2.optJSONObject(i2).optInt("clientUserId");
+                            }
+                            this.this$0.mUserList = userList;
+                        }
+                        synchronized (this.this$0) {
+                            try {
+                                this.this$0.notifyAll();
+                            } catch (Exception unused) {
+                            }
+                        }
+                    }
+                }
+            };
+            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.20
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            this.transactions.put(randomString, janusTransaction);
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "listparticipants");
+                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString);
+                jSONObject2.putOpt("session_id", this.mSessionId);
+                jSONObject2.putOpt("handle_id", ((JanusHandle) this.handles.values().toArray()[0]).handleId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+            synchronized (this) {
+                try {
+                    wait(1000L);
+                } catch (Exception unused) {
+                }
+            }
+            return this.mUserList;
+        }
+        return (BaiduRtcRoom.UserList) invokeV.objValue;
+    }
+
+    public void createRoom(long j, String str, JanusHandle janusHandle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, janusHandle}) == null) {
+            String randomString = randomString(12);
+            JanusTransaction janusTransaction = new JanusTransaction();
+            janusTransaction.tid = randomString;
+            janusTransaction.success = new TransactionCallbackSuccess(this, janusHandle) { // from class: com.baidu.rtc.WebSocketChannel.15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+                public final /* synthetic */ JanusHandle val$handle;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, janusHandle};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$handle = janusHandle;
+                }
+
+                @Override // com.baidu.rtc.TransactionCallbackSuccess
+                public void success(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, jSONObject) != null) {
+                        return;
+                    }
+                    this.this$0.publisherJoinRoom(this.val$handle);
+                }
+            };
+            janusTransaction.error = new TransactionCallbackError(this, janusHandle) { // from class: com.baidu.rtc.WebSocketChannel.16
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+                public final /* synthetic */ JanusHandle val$handle;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, janusHandle};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$handle = janusHandle;
+                }
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, jSONObject) != null) {
+                        return;
+                    }
+                    this.this$0.publisherJoinRoom(this.val$handle);
+                }
+            };
+            this.transactions.put(randomString, janusTransaction);
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "create");
+                jSONObject.putOpt("room", Long.valueOf(j));
+                jSONObject.putOpt("description", str);
+                jSONObject.putOpt("publishers", 1000);
+                jSONObject.putOpt("is_private", Boolean.FALSE);
+                jSONObject.putOpt("videocodec", this.mVideoCodec);
+                jSONObject.putOpt("playoutdelay_ext", Boolean.TRUE);
+                if (!this.mLiveStreamingServerURL.isEmpty() && this.mLiveStreamingTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
+                    jSONObject3.putOpt("url", this.mLiveStreamingServerURL);
+                    if (!this.mLiveStreamingMixTemplate.isEmpty()) {
+                        jSONObject3.putOpt("mixTemplate", this.mLiveStreamingMixTemplate);
+                    }
                     jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
                 } else if (!this.mLiveStreamingServerURLSecond.isEmpty() && this.mLiveStreamingTransferModeSecond == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
                     jSONObject3.putOpt("url", this.mLiveStreamingServerURLSecond);
@@ -1478,34 +1879,58 @@ public class WebSocketChannel {
         }
     }
 
-    public BigInteger getFeedByHandle(BigInteger bigInteger) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bigInteger)) == null) ? this.handles.get(bigInteger) == null ? BigInteger.valueOf(0L) : this.handles.get(bigInteger).feedId : (BigInteger) invokeL.objValue;
-    }
-
-    public JanusHandle getHandleByFeed(BigInteger bigInteger) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bigInteger)) == null) ? this.feeds.get(bigInteger) : (JanusHandle) invokeL.objValue;
-    }
-
-    public String getNickNameByFeed(BigInteger bigInteger) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bigInteger)) == null) {
-            if (this.mUserInfoList.get(bigInteger) == null) {
-                return null;
-            }
-            return this.mUserInfoList.get(bigInteger).userName;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public long getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mRoomId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mRoomId;
+        }
+        return invokeV.longValue;
+    }
+
+    public void leaveRoom() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.mHandler.post(new Runnable(this) { // from class: com.baidu.rtc.WebSocketChannel.21
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        int size = this.this$0.handles.size();
+                        for (int i = 0; i < size; i++) {
+                            WebSocketChannel webSocketChannel = this.this$0;
+                            webSocketChannel.doLeaveRoom((JanusHandle) webSocketChannel.handles.values().toArray()[i]);
+                            try {
+                                Thread.sleep(50L);
+                            } catch (Exception unused) {
+                            }
+                        }
+                    }
+                }
+            });
+        }
     }
 
     public void getUserAttribute(long j) {
@@ -1544,10 +1969,9 @@ public class WebSocketChannel {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) && jSONObject.has("data")) {
                         String optString = jSONObject.optJSONObject("data").optString("userattribute");
-                        if (optString.isEmpty()) {
-                            return;
+                        if (!optString.isEmpty()) {
+                            this.this$0.delegate.onAttribute(BigInteger.valueOf(this.val$feedid), optString);
                         }
-                        this.this$0.delegate.onAttribute(BigInteger.valueOf(this.val$feedid), optString);
                     }
                 }
             };
@@ -1555,6 +1979,13 @@ public class WebSocketChannel {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1573,13 +2004,6 @@ public class WebSocketChannel {
                     }
                     this.this$0 = this;
                 }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
             };
             this.transactions.put(randomString, janusTransaction);
             JSONObject jSONObject = new JSONObject();
@@ -1588,6 +2012,94 @@ public class WebSocketChannel {
                 jSONObject.putOpt("request", "getuserattribute");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(j));
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString);
+                jSONObject2.putOpt("session_id", this.mSessionId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+        }
+    }
+
+    public void setUserAttribute(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+            String randomString = randomString(12);
+            JanusTransaction janusTransaction = new JanusTransaction();
+            janusTransaction.tid = randomString;
+            janusTransaction.success = new TransactionCallbackSuccess(this, str) { // from class: com.baidu.rtc.WebSocketChannel.26
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+                public final /* synthetic */ String val$a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$a = str;
+                }
+
+                @Override // com.baidu.rtc.TransactionCallbackSuccess
+                public void success(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                        this.this$0.sendMessageToUser(this.val$a, 0L, true);
+                    }
+                }
+            };
+            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.27
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            this.transactions.put(randomString, janusTransaction);
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "setuserattribute");
+                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
+                jSONObject.putOpt("id", Long.valueOf(this.mUserId));
+                jSONObject.putOpt("userattribute", str);
                 jSONObject2.putOpt("janus", "message");
                 jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
@@ -1635,7 +2147,7 @@ public class WebSocketChannel {
                 }
 
                 @Override // okhttp3.Dns
-                public List<InetAddress> lookup(String str3) {
+                public List lookup(String str3) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str3)) == null) {
@@ -1648,7 +2160,7 @@ public class WebSocketChannel {
                             return arrayList;
                         }
                         try {
-                            FutureTask futureTask = new FutureTask(new Callable<List<InetAddress>>(this, str3) { // from class: com.baidu.rtc.WebSocketChannel.2.1
+                            FutureTask futureTask = new FutureTask(new Callable(this, str3) { // from class: com.baidu.rtc.WebSocketChannel.2.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass2 this$1;
@@ -1675,10 +2187,13 @@ public class WebSocketChannel {
 
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // java.util.concurrent.Callable
-                                public List<InetAddress> call() throws Exception {
+                                public List call() throws Exception {
                                     InterceptResult invokeV;
                                     Interceptable interceptable3 = $ic;
-                                    return (interceptable3 == null || (invokeV = interceptable3.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Arrays.asList(InetAddress.getAllByName(this.val$hostname)) : (List) invokeV.objValue;
+                                    if (interceptable3 == null || (invokeV = interceptable3.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                        return Arrays.asList(InetAddress.getAllByName(this.val$hostname));
+                                    }
+                                    return (List) invokeV.objValue;
                                 }
                             });
                             new Thread(futureTask).start();
@@ -1693,6 +2208,13 @@ public class WebSocketChannel {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // okhttp3.WebSocketListener
+                public void onMessage(WebSocket webSocket, ByteString byteString) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, webSocket, byteString) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1753,17 +2275,17 @@ public class WebSocketChannel {
                             Log.e(WebSocketChannel.TAG, "onFailure: java.lang.NumberFormatException");
                         } else if (th instanceof NullPointerException) {
                             Log.e(WebSocketChannel.TAG, "onFailure: java.lang.NullPointerException");
-                        } else if (!(th instanceof SSLException)) {
+                        } else if (th instanceof SSLException) {
+                            Log.e(WebSocketChannel.TAG, "onFailure: SSLException");
+                            if (this.this$0.delegate != null) {
+                                this.this$0.delegate.onConnectError();
+                            }
+                        } else {
                             if (this.this$0.mIsEnableErrorInfoMonitor) {
                                 ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.SIGNAL_CHANNEL_CONNECTION_LOST);
                             }
                             if (this.this$0.delegate != null) {
                                 this.this$0.delegate.onLoginError();
-                            }
-                        } else {
-                            Log.e(WebSocketChannel.TAG, "onFailure: SSLException");
-                            if (this.this$0.delegate != null) {
-                                this.this$0.delegate.onConnectError();
                             }
                         }
                     }
@@ -1778,13 +2300,6 @@ public class WebSocketChannel {
                 }
 
                 @Override // okhttp3.WebSocketListener
-                public void onMessage(WebSocket webSocket, ByteString byteString) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, webSocket, byteString) == null) {
-                    }
-                }
-
-                @Override // okhttp3.WebSocketListener
                 public void onOpen(WebSocket webSocket, Response response) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048581, this, webSocket, response) == null) {
@@ -1792,66 +2307,6 @@ public class WebSocketChannel {
                             Log.i(WebSocketChannel.TAG, "onOpen");
                         }
                         this.this$0.createSession();
-                    }
-                }
-            });
-        }
-    }
-
-    public void kickOffUserWithId(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("request", "kickoutuser");
-                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject.putOpt("target", Long.valueOf(j));
-                Send(jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void leaveRoom() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.mHandler.post(new Runnable(this) { // from class: com.baidu.rtc.WebSocketChannel.21
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int size = this.this$0.handles.size();
-                        for (int i = 0; i < size; i++) {
-                            WebSocketChannel webSocketChannel = this.this$0;
-                            webSocketChannel.doLeaveRoom((JanusHandle) webSocketChannel.handles.values().toArray()[i]);
-                            try {
-                                Thread.sleep(50L);
-                            } catch (Exception unused) {
-                            }
-                        }
                     }
                 }
             });
@@ -1886,393 +2341,9 @@ public class WebSocketChannel {
         }
     }
 
-    public void sendMessageToUser(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048592, this, str, j) == null) {
-            sendMessageToUser(str, j, false);
-        }
-    }
-
-    public void setAppId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.mAppId = str;
-        }
-    }
-
-    public void setAsListener(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.mAsListener = z;
-        }
-    }
-
-    public void setAsPublisher(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.mAsPublisher = z;
-        }
-    }
-
-    public void setAutoPublish(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.mAutoPublish = z;
-        }
-    }
-
-    public void setAutoSubScribe(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.mAutoSubScribe = z;
-        }
-    }
-
-    public void setConnectionTimeoutMs(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.mConnectionTimeoutMs = i;
-        }
-    }
-
-    public void setDelegate(JanusRTCInterface janusRTCInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, janusRTCInterface) == null) {
-            this.delegate = janusRTCInterface;
-        }
-    }
-
-    public void setDisplayName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.mDisplayName = str;
-        }
-    }
-
-    public void setEnableErrorInfoMonitor(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            this.mIsEnableErrorInfoMonitor = z;
-        }
-    }
-
-    public void setHasAudio(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.mHasAudio = z;
-        }
-    }
-
-    public void setHasData(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            this.mHasData = z;
-        }
-    }
-
-    public void setHasVideo(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.mHasVideo = z;
-        }
-    }
-
-    public void setLssConfigSecond(String str, boolean z, boolean z2, String str2, BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2, rtcLiveTransferMode}) == null) {
-            this.mLiveStreamingServerURLSecond = str;
-            this.mLiveStreamingMixSecond = z;
-            this.mLiveStreamingRecordingSecond = z2;
-            this.mLiveStreamingMixTemplateSecond = str2;
-            this.mLiveStreamingTransferModeSecond = rtcLiveTransferMode;
-        }
-    }
-
-    public void setLssMixTemplate(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            this.mLiveStreamingMixTemplate = str;
-        }
-    }
-
-    public void setLssRole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
-            this.mLiveStreamingRole = str;
-        }
-    }
-
-    public void setLssTransferMode(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, rtcLiveTransferMode) == null) {
-            this.mLiveStreamingTransferMode = rtcLiveTransferMode;
-        }
-    }
-
-    public void setLssURL(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
-            this.mLiveStreamingServerURL = str;
-        }
-    }
-
-    public void setMediaServerIP(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
-            this.mMediaServerIP = str;
-        }
-    }
-
-    public void setMixLayoutPosition(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
-            this.mMixLayoutPosition = str;
-        }
-    }
-
-    public void setMixing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
-            this.mLiveStreamingMix = z;
-        }
-    }
-
-    public void setReadTimeoutMs(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
-            this.mReadTimeoutMs = i;
-        }
-    }
-
-    public void setRecording(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
-            this.mLiveStreamingRecording = z;
-        }
-    }
-
-    public void setRemoteStreamPlayState(Boolean bool, Boolean bool2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{bool, bool2, Long.valueOf(j)}) == null) {
-            JanusHandle janusHandle = this.feeds.get(BigInteger.valueOf(j));
-            if (janusHandle == null) {
-                Log.e(TAG, "wrong userID");
-                return;
-            }
-            String randomString = randomString(12);
-            JanusTransaction janusTransaction = new JanusTransaction();
-            janusTransaction.tid = randomString;
-            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.22
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackSuccess
-                public void success(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
-            };
-            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.23
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
-            };
-            this.transactions.put(randomString, janusTransaction);
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("request", "configure");
-                jSONObject.putOpt("audio", bool2);
-                jSONObject.putOpt("video", bool);
-                jSONObject.putOpt("data", Boolean.TRUE);
-                jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-                jSONObject2.putOpt("transaction", randomString);
-                jSONObject2.putOpt("session_id", this.mSessionId);
-                jSONObject2.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
-        }
-    }
-
-    public void setRoomId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
-            this.mRoomId = i;
-        }
-    }
-
-    public void setRoomName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
-            this.mRoomName = str;
-        }
-    }
-
-    public void setSDK(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            this.mSDKTag = str;
-        }
-    }
-
-    public void setTokenStr(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
-            this.mTokenStr = str;
-        }
-    }
-
-    public void setUserAttribute(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
-            String randomString = randomString(12);
-            JanusTransaction janusTransaction = new JanusTransaction();
-            janusTransaction.tid = randomString;
-            janusTransaction.success = new TransactionCallbackSuccess(this, str) { // from class: com.baidu.rtc.WebSocketChannel.26
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-                public final /* synthetic */ String val$a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$a = str;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackSuccess
-                public void success(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                        this.this$0.sendMessageToUser(this.val$a, 0L, true);
-                    }
-                }
-            };
-            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.27
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
-            };
-            this.transactions.put(randomString, janusTransaction);
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("request", "setuserattribute");
-                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject.putOpt("id", Long.valueOf(this.mUserId));
-                jSONObject.putOpt("userattribute", str);
-                jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-                jSONObject2.putOpt("transaction", randomString);
-                jSONObject2.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
-        }
-    }
-
-    public void setUserId(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
-            this.mUserId = j;
-        }
-    }
-
-    public void setVideoCodec(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
-            this.mVideoCodec = str.toLowerCase();
-        }
-    }
-
     public void shutUpUserWithId(long j, boolean z) {
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -2280,55 +2351,23 @@ public class WebSocketChannel {
                 jSONObject.putOpt("request", "forwardconfigure");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("target", Long.valueOf(j));
-                boolean z2 = true;
-                jSONObject.putOpt("audio", Boolean.valueOf(!z));
-                jSONObject.putOpt("video", Boolean.valueOf(!z));
-                if (z) {
+                boolean z4 = true;
+                if (!z) {
+                    z2 = true;
+                } else {
                     z2 = false;
                 }
-                jSONObject.putOpt("data", Boolean.valueOf(z2));
-                Send(jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void startPublishLiveStream(String str, boolean z, boolean z2, String str2, BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2, rtcLiveTransferMode}) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject.putOpt("request", "startbypass");
-                jSONObject.putOpt(PollingModel.LEVEL, rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
-                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject.putOpt("id", Long.valueOf(this.mUserId));
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.putOpt("url", str);
-                jSONObject3.putOpt("mix", Boolean.valueOf(z));
-                jSONObject3.putOpt("mixTemplate", str2);
-                jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
-                if (z2) {
-                    jSONObject2.putOpt("rec", Boolean.valueOf(z2));
-                    jSONObject.putOpt("recording", jSONObject2);
+                jSONObject.putOpt("audio", Boolean.valueOf(z2));
+                if (!z) {
+                    z3 = true;
+                } else {
+                    z3 = false;
                 }
-                Send(jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void stopPublishLiveStream(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, rtcLiveTransferMode) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.putOpt("request", "stopbypass");
-                jSONObject.putOpt(PollingModel.LEVEL, rtcLiveTransferMode == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION ? "anchor" : "room");
-                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject.putOpt("id", Long.valueOf(this.mUserId));
+                jSONObject.putOpt("video", Boolean.valueOf(z3));
+                if (z) {
+                    z4 = false;
+                }
+                jSONObject.putOpt("data", Boolean.valueOf(z4));
                 Send(jSONObject);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -2357,6 +2396,227 @@ public class WebSocketChannel {
                 e.printStackTrace();
             }
             sendMessage(jSONObject3);
+        }
+    }
+
+    public void sendMessageToUser(String str, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            String randomString = randomString(12);
+            JanusTransaction janusTransaction = new JanusTransaction();
+            janusTransaction.tid = randomString;
+            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.24
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackSuccess
+                public void success(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.25
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            this.transactions.put(randomString, janusTransaction);
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "senddata");
+                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
+                jSONObject.putOpt("id", Long.valueOf(this.mUserId));
+                jSONObject.putOpt("to", Long.valueOf(j));
+                jSONObject.putOpt("data", str);
+                jSONObject.putOpt("internal", Boolean.valueOf(z));
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString);
+                jSONObject2.putOpt("session_id", this.mSessionId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+        }
+    }
+
+    public void setRemoteStreamPlayState(Boolean bool, Boolean bool2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{bool, bool2, Long.valueOf(j)}) == null) {
+            JanusHandle janusHandle = (JanusHandle) this.feeds.get(BigInteger.valueOf(j));
+            if (janusHandle == null) {
+                Log.e(TAG, "wrong userID");
+                return;
+            }
+            String randomString = randomString(12);
+            JanusTransaction janusTransaction = new JanusTransaction();
+            janusTransaction.tid = randomString;
+            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.22
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackSuccess
+                public void success(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.23
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
+
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            };
+            this.transactions.put(randomString, janusTransaction);
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "configure");
+                jSONObject.putOpt("audio", bool2);
+                jSONObject.putOpt("video", bool);
+                jSONObject.putOpt("data", Boolean.TRUE);
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString);
+                jSONObject2.putOpt("session_id", this.mSessionId);
+                jSONObject2.putOpt("handle_id", janusHandle.handleId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sendMessage(jSONObject2);
+        }
+    }
+
+    public void setLssConfigSecond(String str, boolean z, boolean z2, String str2, BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2, rtcLiveTransferMode}) == null) {
+            this.mLiveStreamingServerURLSecond = str;
+            this.mLiveStreamingMixSecond = z;
+            this.mLiveStreamingRecordingSecond = z2;
+            this.mLiveStreamingMixTemplateSecond = str2;
+            this.mLiveStreamingTransferModeSecond = rtcLiveTransferMode;
+        }
+    }
+
+    public void startPublishLiveStream(String str, boolean z, boolean z2, String str2, BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2, rtcLiveTransferMode}) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject.putOpt("request", "startbypass");
+                if (rtcLiveTransferMode != BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION) {
+                    obj = "room";
+                } else {
+                    obj = "anchor";
+                }
+                jSONObject.putOpt(PollingModel.LEVEL, obj);
+                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
+                jSONObject.putOpt("id", Long.valueOf(this.mUserId));
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.putOpt("url", str);
+                jSONObject3.putOpt("mix", Boolean.valueOf(z));
+                jSONObject3.putOpt("mixTemplate", str2);
+                jSONObject.putOpt(DefaultDataSource.SCHEME_RTMP, jSONObject3);
+                if (z2) {
+                    jSONObject2.putOpt("rec", Boolean.valueOf(z2));
+                    jSONObject.putOpt("recording", jSONObject2);
+                }
+                Send(jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -2474,6 +2734,13 @@ public class WebSocketChannel {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebSocketChannel this$0;
 
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                    }
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -2490,13 +2757,6 @@ public class WebSocketChannel {
                         }
                     }
                     this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
                 }
             };
             this.transactions.put(randomString, janusTransaction);
@@ -2506,94 +2766,6 @@ public class WebSocketChannel {
                 jSONObject.putOpt("plugin", "janus.plugin.videoroom");
                 jSONObject.putOpt("transaction", randomString);
                 jSONObject.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject);
-        }
-    }
-
-    public void subscriberOnLeaving(JanusHandle janusHandle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, janusHandle) == null) {
-            String randomString = randomString(12);
-            JanusTransaction janusTransaction = new JanusTransaction();
-            janusTransaction.tid = randomString;
-            janusTransaction.success = new TransactionCallbackSuccess(this, janusHandle) { // from class: com.baidu.rtc.WebSocketChannel.11
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-                public final /* synthetic */ JanusHandle val$handle;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, janusHandle};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$handle = janusHandle;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackSuccess
-                public void success(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                        JanusRTCInterface janusRTCInterface = this.this$0.delegate;
-                        JanusHandle janusHandle2 = this.val$handle;
-                        janusRTCInterface.onLeaving(janusHandle2.handleId, janusHandle2.feedId);
-                        this.this$0.delegate.onRemoteGone(this.val$handle.handleId);
-                        this.this$0.handles.remove(this.val$handle.handleId);
-                        this.this$0.feeds.remove(this.val$handle.feedId);
-                    }
-                }
-            };
-            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.12
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
-            };
-            this.transactions.put(randomString, janusTransaction);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("janus", "detach");
-                jSONObject.putOpt("transaction", randomString);
-                jSONObject.putOpt("session_id", this.mSessionId);
-                jSONObject.putOpt("handle_id", janusHandle.handleId);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -2615,130 +2787,6 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", bigInteger);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
-        }
-    }
-
-    public void trickleCandidateComplete(BigInteger bigInteger) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, bigInteger) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("completed", Boolean.TRUE);
-                jSONObject2.putOpt("janus", "trickle");
-                jSONObject2.putOpt("candidate", jSONObject);
-                jSONObject2.putOpt("transaction", randomString(12));
-                jSONObject2.putOpt("session_id", this.mSessionId);
-                jSONObject2.putOpt("handle_id", bigInteger);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void unpublishHandle(BigInteger bigInteger) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, bigInteger) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("request", "unpublish");
-                jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-                jSONObject2.putOpt("transaction", randomString(12));
-                jSONObject2.putOpt("session_id", this.mSessionId);
-                jSONObject2.putOpt("handle_id", bigInteger);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sendMessage(jSONObject2);
-        }
-    }
-
-    public void sendMessageToUser(String str, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            String randomString = randomString(12);
-            JanusTransaction janusTransaction = new JanusTransaction();
-            janusTransaction.tid = randomString;
-            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.24
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackSuccess
-                public void success(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
-            };
-            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.25
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WebSocketChannel this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.rtc.TransactionCallbackError
-                public void error(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                    }
-                }
-            };
-            this.transactions.put(randomString, janusTransaction);
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("request", "senddata");
-                jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject.putOpt("id", Long.valueOf(this.mUserId));
-                jSONObject.putOpt("to", Long.valueOf(j));
-                jSONObject.putOpt("data", str);
-                jSONObject.putOpt("internal", Boolean.valueOf(z));
-                jSONObject2.putOpt("janus", "message");
-                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-                jSONObject2.putOpt("transaction", randomString);
-                jSONObject2.putOpt("session_id", this.mSessionId);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

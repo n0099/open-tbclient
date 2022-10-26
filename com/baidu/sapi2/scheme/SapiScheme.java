@@ -68,25 +68,25 @@ public class SapiScheme {
         return (String) invokeIL.objValue;
     }
 
-    private String buildScheme(String str, String str2, List<PassNameValuePair> list) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, str, str2, list)) == null) {
-            String str3 = "baiduppscapp://v2/" + str + "?";
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            list.add(new PassNameValuePair("minver", str2));
-            return str3 + SapiUtils.createRequestParams(list);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
     private void startActivityForResult(Activity activity, String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, activity, str) == null) {
             activity.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(str)), 3001);
         }
+    }
+
+    private String buildScheme(String str, String str2, List list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, str, str2, list)) == null) {
+            String str3 = "baiduppscapp://v2/" + str + "?";
+            if (list == null) {
+                list = new ArrayList();
+            }
+            list.add(new PassNameValuePair("minver", str2));
+            return str3 + SapiUtils.createRequestParams(list);
+        }
+        return (String) invokeLLL.objValue;
     }
 
     public boolean checkPackageSign(Context context, String str) {
@@ -128,14 +128,17 @@ public class SapiScheme {
                 if (invokeScAppCallback == null) {
                     return 4;
                 }
-                return !checkPackageSign(context, context.getPackageName()) ? 3 : 0;
+                if (checkPackageSign(context, context.getPackageName())) {
+                    return 0;
+                }
+                return 3;
             }
             return 2;
         }
         return invokeLLL.intValue;
     }
 
-    public void invokeScApp(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
+    public void invokeScApp(Activity activity, String str, String str2, List list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, str2, list, invokeScAppResult) == null) {
             this.invokeScAppResult = invokeScAppResult;
@@ -154,9 +157,13 @@ public class SapiScheme {
 
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) || this.invokeScAppResult == null) {
+        if ((interceptable != null && interceptable.invokeIIL(1048579, this, i, i2, intent) != null) || this.invokeScAppResult == null) {
             return;
         }
-        this.invokeScAppResult.setInvokeResult(intent != null ? intent.getExtras().getString(EXTRA_ACHIEVE_SC_APP_DATA) : null);
+        String str = null;
+        if (intent != null) {
+            str = intent.getExtras().getString(EXTRA_ACHIEVE_SC_APP_DATA);
+        }
+        this.invokeScAppResult.setInvokeResult(str);
     }
 }

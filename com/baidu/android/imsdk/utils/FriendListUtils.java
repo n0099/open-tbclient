@@ -91,7 +91,10 @@ public class FriendListUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             long j = mLastTime;
             long j2 = mPenultTime;
-            return j != j2 || j2 == 0;
+            if (j == j2 && j2 != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

@@ -8,7 +8,7 @@ import java.util.List;
 public interface FunAdFactory {
     void destroyAd(String str);
 
-    List<CacheStatistic> getCacheStatistics(String str);
+    List getCacheStatistics(String str);
 
     FunNativeAd2 getNativeAd2(Context context, String str);
 

@@ -7,7 +7,6 @@ import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,8 +55,8 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     public static final String VIDEO_INDEX = "video_index";
     public static final String VIDEO_LIST = "video_list";
     public static final String VIDEO_SHOW_INDEX = "video_show_index";
-    public static Map<String, Integer> frsPageCountMap;
-    public static Map<String, List<VideoItemData>> frsVideoTabListMap;
+    public static Map frsPageCountMap;
+    public static Map frsVideoTabListMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -78,7 +77,7 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
+    public FrsVideoTabPlayActivityConfig(Context context, List list, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,155 +98,8 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("video_index", i);
     }
 
-    public static void addFrsPageCount(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            if (frsPageCountMap == null) {
-                frsPageCountMap = new HashMap();
-            }
-            if (!frsPageCountMap.containsKey(str)) {
-                frsPageCountMap.put(str, 0);
-            }
-            frsPageCountMap.put(str, Integer.valueOf(getSafeInteger(frsPageCountMap.get(str)) + 1));
-        }
-    }
-
-    public static int getSafeInteger(Integer num) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, num)) == null) {
-            if (num == null) {
-                return 0;
-            }
-            return num.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public static List<VideoItemData> getVideoTabListByFid(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            int safeInteger = getSafeInteger(frsPageCountMap.get(str));
-            initVideoTabListByFid(str);
-            Map<String, List<VideoItemData>> map = frsVideoTabListMap;
-            return map.get(str + "_" + safeInteger);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void initVideoTabListByFid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            int safeInteger = getSafeInteger(frsPageCountMap.get(str));
-            if (frsVideoTabListMap == null) {
-                frsVideoTabListMap = new HashMap();
-            }
-            Map<String, List<VideoItemData>> map = frsVideoTabListMap;
-            if (map.containsKey(str + "_" + safeInteger)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            Map<String, List<VideoItemData>> map2 = frsVideoTabListMap;
-            map2.put(str + "_" + safeInteger, arrayList);
-        }
-    }
-
-    public static void putVideoTabListByFid(String str, List<VideoItemData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, list) == null) {
-            int safeInteger = getSafeInteger(frsPageCountMap.get(str));
-            initVideoTabListByFid(str);
-            Map<String, List<VideoItemData>> map = frsVideoTabListMap;
-            map.put(str + "_" + safeInteger, list);
-        }
-    }
-
-    public static void removeVideoTabListByFid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            int safeInteger = getSafeInteger(frsPageCountMap.get(str));
-            Map<String, List<VideoItemData>> map = frsVideoTabListMap;
-            if (map != null) {
-                map.remove(str + "_" + safeInteger);
-            }
-        }
-    }
-
-    public static void subtractFrsPageCount(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            if (frsPageCountMap == null) {
-                frsPageCountMap = new HashMap();
-            }
-            if (frsPageCountMap.containsKey(str)) {
-                int safeInteger = getSafeInteger(frsPageCountMap.get(str)) - 1;
-                if (safeInteger > 0) {
-                    frsPageCountMap.put(str, Integer.valueOf(safeInteger));
-                } else {
-                    frsPageCountMap.remove(str);
-                }
-            }
-        }
-    }
-
-    public void setFid(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("forum_id", str);
-    }
-
-    public void setIsFromBjhPb(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            getIntent().putExtra("is_from_bjh_pb", z);
-        }
-    }
-
-    public void setIsShowPbCommentFloat(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("is_show_pb_comment_float", z);
-    }
-
-    public void setNid(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("key_nid", str);
-    }
-
-    public void setParamIsVertail(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("is_vertail", z);
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
-    public void setVideoShowIndex(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            getIntent().putExtra("video_show_index", i);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
+    public FrsVideoTabPlayActivityConfig(Context context, List list, int i, Rect rect, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -271,30 +123,7 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, str, str2};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("page_from", str);
-        getIntent().putExtra("from", str2);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
+    public FrsVideoTabPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -321,7 +150,7 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public FrsVideoTabPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -346,5 +175,170 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str4);
         getIntent().putExtra("source_from", str5);
         getIntent().putExtra("video_cover_rect", rect);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FrsVideoTabPlayActivityConfig(Context context, List list, String str, String str2) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, str, str2};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("from", str2);
+    }
+
+    public static void addFrsPageCount(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            if (frsPageCountMap == null) {
+                frsPageCountMap = new HashMap();
+            }
+            if (!frsPageCountMap.containsKey(str)) {
+                frsPageCountMap.put(str, 0);
+            }
+            frsPageCountMap.put(str, Integer.valueOf(getSafeInteger((Integer) frsPageCountMap.get(str)) + 1));
+        }
+    }
+
+    public static List getVideoTabListByFid(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            int safeInteger = getSafeInteger((Integer) frsPageCountMap.get(str));
+            initVideoTabListByFid(str);
+            Map map = frsVideoTabListMap;
+            return (List) map.get(str + "_" + safeInteger);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static void removeVideoTabListByFid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            int safeInteger = getSafeInteger((Integer) frsPageCountMap.get(str));
+            Map map = frsVideoTabListMap;
+            if (map != null) {
+                map.remove(str + "_" + safeInteger);
+            }
+        }
+    }
+
+    public static void subtractFrsPageCount(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+            if (frsPageCountMap == null) {
+                frsPageCountMap = new HashMap();
+            }
+            if (!frsPageCountMap.containsKey(str)) {
+                return;
+            }
+            int safeInteger = getSafeInteger((Integer) frsPageCountMap.get(str)) - 1;
+            if (safeInteger > 0) {
+                frsPageCountMap.put(str, Integer.valueOf(safeInteger));
+            } else {
+                frsPageCountMap.remove(str);
+            }
+        }
+    }
+
+    public static int getSafeInteger(Integer num) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, num)) == null) {
+            if (num == null) {
+                return 0;
+            }
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public void setFid(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("forum_id", str);
+        }
+    }
+
+    public void setIsFromBjhPb(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            getIntent().putExtra("is_from_bjh_pb", z);
+        }
+    }
+
+    public void setIsShowPbCommentFloat(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra("is_show_pb_comment_float", z);
+        }
+    }
+
+    public void setNid(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("key_nid", str);
+        }
+    }
+
+    public void setParamIsVertail(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra("is_vertail", z);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
+    public void setVideoShowIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            getIntent().putExtra("video_show_index", i);
+        }
+    }
+
+    public static void initVideoTabListByFid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            int safeInteger = getSafeInteger((Integer) frsPageCountMap.get(str));
+            if (frsVideoTabListMap == null) {
+                frsVideoTabListMap = new HashMap();
+            }
+            Map map = frsVideoTabListMap;
+            if (!map.containsKey(str + "_" + safeInteger)) {
+                ArrayList arrayList = new ArrayList();
+                Map map2 = frsVideoTabListMap;
+                map2.put(str + "_" + safeInteger, arrayList);
+            }
+        }
+    }
+
+    public static void putVideoTabListByFid(String str, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, list) == null) {
+            int safeInteger = getSafeInteger((Integer) frsPageCountMap.get(str));
+            initVideoTabListByFid(str);
+            Map map = frsVideoTabListMap;
+            map.put(str + "_" + safeInteger, list);
+        }
     }
 }

@@ -37,14 +37,49 @@ public class FocusCircleView extends View {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FocusCircleView a;
 
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
         /* renamed from: com.baidu.tieba.view.widget.FocusCircleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0448a implements Animator.AnimatorListener {
+        public class C0434a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0448a(a aVar) {
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                }
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationRepeat(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                }
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+                }
+            }
+
+            public C0434a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,32 +98,12 @@ public class FocusCircleView extends View {
             }
 
             @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.a.a.e = false;
+                if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
+                    return;
                 }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                }
+                this.a.a.e = false;
             }
         }
 
@@ -111,9 +126,10 @@ public class FocusCircleView extends View {
         }
 
         @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+                this.a.setAlpha(1.0f);
             }
         }
 
@@ -125,24 +141,9 @@ public class FocusCircleView extends View {
                     FocusCircleView focusCircleView = this.a;
                     focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, Key.ALPHA, 1.0f, 0.0f);
                     this.a.d.setDuration(960L);
-                    this.a.d.addListener(new C0448a(this));
+                    this.a.d.addListener(new C0434a(this));
                 }
                 this.a.d.start();
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.setAlpha(1.0f);
             }
         }
     }
@@ -167,54 +168,6 @@ public class FocusCircleView extends View {
         }
         this.b = 4;
         e(context);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            AnimatorSet animatorSet = this.c;
-            if (animatorSet == null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.SCALE_X, 3.0f, 2.0f, 1.0f);
-                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, Key.SCALE_Y, 3.0f, 2.0f, 1.0f);
-                AnimatorSet animatorSet2 = new AnimatorSet();
-                this.c = animatorSet2;
-                animatorSet2.play(ofFloat).with(ofFloat2);
-                this.c.setInterpolator(new LinearInterpolator());
-                this.c.setDuration(500L);
-                this.c.addListener(new a(this));
-            } else {
-                if (animatorSet.isRunning()) {
-                    this.c.cancel();
-                }
-                ObjectAnimator objectAnimator = this.d;
-                if (objectAnimator != null && objectAnimator.isRunning()) {
-                    this.d.cancel();
-                }
-            }
-            this.c.start();
-        }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            Paint paint = new Paint();
-            this.a = paint;
-            paint.setAntiAlias(true);
-            this.a.setStyle(Paint.Style.STROKE);
-            this.a.setColor(Color.parseColor("#ffffffff"));
-            this.a.setStrokeWidth(this.b);
-            setAlpha(0.0f);
-            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080433), 180);
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            canvas.drawBitmap(this.f, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.a);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -261,5 +214,53 @@ public class FocusCircleView extends View {
         }
         this.b = 4;
         e(context);
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            canvas.drawBitmap(this.f, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.a);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            AnimatorSet animatorSet = this.c;
+            if (animatorSet == null) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.SCALE_X, 3.0f, 2.0f, 1.0f);
+                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, Key.SCALE_Y, 3.0f, 2.0f, 1.0f);
+                AnimatorSet animatorSet2 = new AnimatorSet();
+                this.c = animatorSet2;
+                animatorSet2.play(ofFloat).with(ofFloat2);
+                this.c.setInterpolator(new LinearInterpolator());
+                this.c.setDuration(500L);
+                this.c.addListener(new a(this));
+            } else {
+                if (animatorSet.isRunning()) {
+                    this.c.cancel();
+                }
+                ObjectAnimator objectAnimator = this.d;
+                if (objectAnimator != null && objectAnimator.isRunning()) {
+                    this.d.cancel();
+                }
+            }
+            this.c.start();
+        }
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            Paint paint = new Paint();
+            this.a = paint;
+            paint.setAntiAlias(true);
+            this.a.setStyle(Paint.Style.STROKE);
+            this.a.setColor(Color.parseColor("#ffffffff"));
+            this.a.setStrokeWidth(this.b);
+            setAlpha(0.0f);
+            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080433), 180);
+        }
     }
 }

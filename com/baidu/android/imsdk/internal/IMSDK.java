@@ -43,7 +43,7 @@ public final class IMSDK {
     public Runnable mConnectRunnable;
     public IMConnection mConnection;
     public Context mContext;
-    public ArrayList<IHeartBeat> mHeartBeatListener;
+    public ArrayList mHeartBeatListener;
     public Heartbeat mHeartbeatOperator;
     public Runnable mHeartbeatRunnable;
     public Boolean mIsAlive;
@@ -88,7 +88,7 @@ public final class IMSDK {
         this.mConnection = null;
         this.mUk = 0L;
         this.mHeartbeatOperator = null;
-        this.mHeartBeatListener = new ArrayList<>();
+        this.mHeartBeatListener = new ArrayList();
         this.mHeartbeatRunnable = new Runnable(this) { // from class: com.baidu.android.imsdk.internal.IMSDK.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -195,6 +195,43 @@ public final class IMSDK {
         this.mHeartbeatOperator = Heartbeat.getInstance(this.mContext, mHandler);
     }
 
+    public static IMSDK getInstance(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            synchronized (IMSDK.class) {
+                if (mIMSDK == null) {
+                    mIMSDK = new IMSDK(context);
+                }
+            }
+            return mIMSDK;
+        }
+        return (IMSDK) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void notifyLogout(String str) {
+        IMListener removeListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65551, this, str) == null) && (removeListener = ListenerManager.getInstance().removeListener(str)) != null && (removeListener instanceof ILoginListener)) {
+            ((ILoginListener) removeListener).onLogoutResult(0, "", BIMManager.getLoginType(this.mContext));
+        }
+    }
+
+    public void registerHeartbeatListener(IHeartBeat iHeartBeat) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, iHeartBeat) == null) && !this.mHeartBeatListener.contains(iHeartBeat)) {
+            this.mHeartBeatListener.add(iHeartBeat);
+        }
+    }
+
+    public void setUk(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mUk = j;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void clearHeartbeatListener() {
         Interceptable interceptable = $ic;
@@ -216,20 +253,6 @@ public final class IMSDK {
                 }
             }
         }
-    }
-
-    public static IMSDK getInstance(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            synchronized (IMSDK.class) {
-                if (mIMSDK == null) {
-                    mIMSDK = new IMSDK(context);
-                }
-            }
-            return mIMSDK;
-        }
-        return (IMSDK) invokeL.objValue;
     }
 
     private boolean heartbeat() {
@@ -259,20 +282,30 @@ public final class IMSDK {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void notifyLogout(String str) {
-        IMListener removeListener;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65551, this, str) == null) && (removeListener = ListenerManager.getInstance().removeListener(str)) != null && (removeListener instanceof ILoginListener)) {
-            ((ILoginListener) removeListener).onLogoutResult(0, "", BIMManager.getLoginType(this.mContext));
-        }
-    }
-
     private void scheduleConnect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             mHandler.removeCallbacks(this.mConnectRunnable);
             mHandler.postDelayed(this.mConnectRunnable, 1000L);
+        }
+    }
+
+    public long getUk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mUk == 0) {
+                this.mUk = Utility.getUK(this.mContext);
+            }
+            return this.mUk;
+        }
+        return invokeV.longValue;
+    }
+
+    public void setAlarmTimeout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mHeartbeatOperator.startHeartbeat();
         }
     }
 
@@ -331,39 +364,36 @@ public final class IMSDK {
         }
     }
 
-    public long getUk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mUk == 0) {
-                this.mUk = Utility.getUK(this.mContext);
-            }
-            return this.mUk;
-        }
-        return invokeV.longValue;
-    }
-
     public boolean handleOnStart(Intent intent) {
         InterceptResult invokeL;
-        int loginType;
+        String str;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("handleOnStart intent action = ");
-            sb.append(intent != null ? intent.getAction() : "");
+            if (intent != null) {
+                str = intent.getAction();
+            } else {
+                str = "";
+            }
+            sb.append(str);
             LogUtils.d(TAG, sb.toString());
             if (intent == null) {
                 intent = new Intent();
                 LogUtils.i(TAG, "--- handleOnStart by null intent!");
             }
             synchronized (this.mIsAlive_lock) {
+                int i = -1;
                 if (!this.mIsAlive.booleanValue()) {
                     if (intent.hasExtra(Constants.EXTRA_LISTENER_ID) && ((intent.hasExtra("method") && intent.getIntExtra("method", -1) == 52) || intent.getIntExtra("method", -1) == 21 || intent.hasExtra(Constants.EXTRA_DISCONNECT))) {
                         IMListener removeListener = ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
-                        loginType = this.mContext != null ? BIMManager.getLoginType(this.mContext) : -1;
+                        if (this.mContext != null) {
+                            i = BIMManager.getLoginType(this.mContext);
+                        }
                         if (removeListener != null) {
                             if (removeListener instanceof ILoginListener) {
-                                ((ILoginListener) removeListener).onLogoutResult(6, "IMSDK not alive", loginType);
+                                ((ILoginListener) removeListener).onLogoutResult(6, "IMSDK not alive", i);
                             } else if (removeListener instanceof IGetUserStatusListener) {
                                 ((IGetUserStatusListener) removeListener).onGetUsersStatusResult(1001, Constants.ERROR_MSG_NETWORK_ERROR, null);
                             }
@@ -392,14 +422,18 @@ public final class IMSDK {
                     } else if (intent.hasExtra(Constants.EXTRA_CANCEL_ALARM)) {
                         this.mHeartbeatOperator.cancelHearbeat();
                         return true;
-                    } else if (intent.hasExtra("method")) {
+                    } else if (!intent.hasExtra("method")) {
+                        return true;
+                    } else {
                         if (this.mConnection == null) {
                             LogUtils.e(TAG, "mConnection is null");
                             if (intent.getIntExtra("method", -1) == 52 && intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
                                 IMListener removeListener2 = ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
-                                loginType = this.mContext != null ? BIMManager.getLoginType(this.mContext) : -1;
+                                if (this.mContext != null) {
+                                    i = BIMManager.getLoginType(this.mContext);
+                                }
                                 if (removeListener2 != null && (removeListener2 instanceof ILoginListener)) {
-                                    ((ILoginListener) removeListener2).onLogoutResult(6, "IMSDK mConnection is null", loginType);
+                                    ((ILoginListener) removeListener2).onLogoutResult(6, "IMSDK mConnection is null", i);
                                 }
                             } else if (intent != null && intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
                                 ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
@@ -412,7 +446,11 @@ public final class IMSDK {
                             if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
                                 createNewMessage.setListenerKey(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
                             }
-                            boolean z = !(createNewMessage instanceof IMSendMsg) || LoginManager.getInstance(this.mContext).getCurrentState().equals(LoginManager.LoginState.LOGINED);
+                            if ((createNewMessage instanceof IMSendMsg) && !LoginManager.getInstance(this.mContext).getCurrentState().equals(LoginManager.LoginState.LOGINED)) {
+                                z = false;
+                            } else {
+                                z = true;
+                            }
                             boolean isNetworkAvailable = RequsetNetworkUtils.isNetworkAvailable(this.mContext);
                             if (isNetworkAvailable) {
                                 if (z) {
@@ -440,9 +478,9 @@ public final class IMSDK {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this, createNewMessage};
                                             interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i = newInitContext.flag;
-                                            if ((i & 1) != 0) {
-                                                int i2 = i & 2;
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable2.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -474,8 +512,6 @@ public final class IMSDK {
                         } else if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
                             ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
                         }
-                        return true;
-                    } else {
                         return true;
                     }
                 }
@@ -529,27 +565,5 @@ public final class IMSDK {
             return true;
         }
         return invokeV.booleanValue;
-    }
-
-    public void registerHeartbeatListener(IHeartBeat iHeartBeat) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iHeartBeat) == null) || this.mHeartBeatListener.contains(iHeartBeat)) {
-            return;
-        }
-        this.mHeartBeatListener.add(iHeartBeat);
-    }
-
-    public void setAlarmTimeout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mHeartbeatOperator.startHeartbeat();
-        }
-    }
-
-    public void setUk(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mUk = j;
-        }
     }
 }

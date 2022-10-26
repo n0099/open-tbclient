@@ -21,6 +21,10 @@ public abstract class TypeAdapter<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract T read(JsonReader jsonReader) throws IOException;
+
+    public abstract void write(JsonWriter jsonWriter, T t) throws IOException;
+
     public TypeAdapter() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,10 +39,70 @@ public abstract class TypeAdapter<T> {
         }
     }
 
+    public final TypeAdapter<T> nullSafe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new TypeAdapter<T>(this) { // from class: com.google.gson.TypeAdapter.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TypeAdapter this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.google.gson.TypeAdapter
+                public T read(JsonReader jsonReader) throws IOException {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jsonReader)) == null) {
+                        if (jsonReader.peek() == JsonToken.NULL) {
+                            jsonReader.nextNull();
+                            return null;
+                        }
+                        return (T) this.this$0.read(jsonReader);
+                    }
+                    return (T) invokeL.objValue;
+                }
+
+                @Override // com.google.gson.TypeAdapter
+                public void write(JsonWriter jsonWriter, T t) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonWriter, t) == null) {
+                        if (t == null) {
+                            jsonWriter.nullValue();
+                        } else {
+                            this.this$0.write(jsonWriter, t);
+                        }
+                    }
+                }
+            };
+        }
+        return (TypeAdapter) invokeV.objValue;
+    }
+
     public final T fromJson(Reader reader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reader)) == null) ? read(new JsonReader(reader)) : (T) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reader)) == null) {
+            return read(new JsonReader(reader));
+        }
+        return (T) invokeL.objValue;
     }
 
     public final T fromJsonTree(JsonElement jsonElement) {
@@ -54,67 +118,19 @@ public abstract class TypeAdapter<T> {
         return (T) invokeL.objValue;
     }
 
-    public final TypeAdapter<T> nullSafe() {
-        InterceptResult invokeV;
+    public final String toJson(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new TypeAdapter<T>(this) { // from class: com.google.gson.TypeAdapter.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ TypeAdapter this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            try {
+                toJson(stringWriter, t);
+                return stringWriter.toString();
+            } catch (IOException e) {
+                throw new AssertionError(e);
             }
-
-            @Override // com.google.gson.TypeAdapter
-            public T read(JsonReader jsonReader) throws IOException {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jsonReader)) == null) {
-                    if (jsonReader.peek() == JsonToken.NULL) {
-                        jsonReader.nextNull();
-                        return null;
-                    }
-                    return (T) this.this$0.read(jsonReader);
-                }
-                return (T) invokeL.objValue;
-            }
-
-            @Override // com.google.gson.TypeAdapter
-            public void write(JsonWriter jsonWriter, T t) throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonWriter, t) == null) {
-                    if (t == null) {
-                        jsonWriter.nullValue();
-                    } else {
-                        this.this$0.write(jsonWriter, t);
-                    }
-                }
-            }
-        } : (TypeAdapter) invokeV.objValue;
-    }
-
-    public abstract T read(JsonReader jsonReader) throws IOException;
-
-    public final void toJson(Writer writer, T t) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, writer, t) == null) {
-            write(new JsonWriter(writer), t);
         }
+        return (String) invokeL.objValue;
     }
 
     public final JsonElement toJsonTree(T t) {
@@ -132,26 +148,19 @@ public abstract class TypeAdapter<T> {
         return (JsonElement) invokeL.objValue;
     }
 
-    public abstract void write(JsonWriter jsonWriter, T t) throws IOException;
-
     public final T fromJson(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? fromJson(new StringReader(str)) : (T) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return fromJson(new StringReader(str));
+        }
+        return (T) invokeL.objValue;
     }
 
-    public final String toJson(T t) {
-        InterceptResult invokeL;
+    public final void toJson(Writer writer, T t) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            try {
-                toJson(stringWriter, t);
-                return stringWriter.toString();
-            } catch (IOException e) {
-                throw new AssertionError(e);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048582, this, writer, t) == null) {
+            write(new JsonWriter(writer), t);
         }
-        return (String) invokeL.objValue;
     }
 }

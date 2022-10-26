@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.NetworkMonitorAutoDetect;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NetworkMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetworkMonitor";
@@ -23,12 +23,32 @@ public class NetworkMonitor {
     public NetworkMonitorAutoDetect autoDetect;
     public final Object autoDetectLock;
     public volatile NetworkMonitorAutoDetect.ConnectionType currentConnectionType;
-    public final ArrayList<Long> nativeNetworkObservers;
-    public final ArrayList<NetworkObserver> networkObservers;
+    public final ArrayList nativeNetworkObservers;
+    public final ArrayList networkObservers;
     public int numObservers;
 
-    /* loaded from: classes9.dex */
-    public static class InstanceHolder {
+    /* loaded from: classes8.dex */
+    public interface NetworkObserver {
+        void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType);
+    }
+
+    @Deprecated
+    public static void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
+        }
+    }
+
+    private native void nativeNotifyConnectionTypeChanged(long j);
+
+    private native void nativeNotifyOfActiveNetworkList(long j, NetworkMonitorAutoDetect.NetworkInformation[] networkInformationArr);
+
+    private native void nativeNotifyOfNetworkConnect(long j, NetworkMonitorAutoDetect.NetworkInformation networkInformation);
+
+    private native void nativeNotifyOfNetworkDisconnect(long j, long j2);
+
+    /* loaded from: classes8.dex */
+    public class InstanceHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final NetworkMonitor instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +84,24 @@ public class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public interface NetworkObserver {
-        void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType);
+    public NetworkMonitor() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.autoDetectLock = new Object();
+        this.nativeNetworkObservers = new ArrayList();
+        this.networkObservers = new ArrayList();
+        this.numObservers = 0;
+        this.currentConnectionType = NetworkMonitorAutoDetect.ConnectionType.CONNECTION_UNKNOWN;
     }
 
     @Deprecated
@@ -77,18 +112,12 @@ public class NetworkMonitor {
         }
     }
 
-    @CalledByNative
-    public static int androidSdkInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
-    }
-
     public static void assertIsTrue(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65543, null, z) == null) && !z) {
-            throw new AssertionError("Expected to be true");
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || z) {
+            return;
         }
+        throw new AssertionError("Expected to be true");
     }
 
     public static NetworkMonitorAutoDetect createAndSetAutoDetectForTest(Context context) {
@@ -106,143 +135,59 @@ public class NetworkMonitor {
     private NetworkMonitorAutoDetect createAutoDetect(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, context)) == null) ? new NetworkMonitorAutoDetect(new NetworkMonitorAutoDetect.Observer(this) { // from class: org.webrtc.NetworkMonitor.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ NetworkMonitor this$0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, context)) == null) {
+            return new NetworkMonitorAutoDetect(new NetworkMonitorAutoDetect.Observer(this) { // from class: org.webrtc.NetworkMonitor.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ NetworkMonitor this$0;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // org.webrtc.NetworkMonitorAutoDetect.Observer
+                public void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, connectionType) != null) {
                         return;
                     }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // org.webrtc.NetworkMonitorAutoDetect.Observer
-            public void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, connectionType) == null) {
                     this.this$0.updateCurrentConnectionType(connectionType);
                 }
-            }
 
-            @Override // org.webrtc.NetworkMonitorAutoDetect.Observer
-            public void onNetworkConnect(NetworkMonitorAutoDetect.NetworkInformation networkInformation) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkInformation) == null) {
+                @Override // org.webrtc.NetworkMonitorAutoDetect.Observer
+                public void onNetworkConnect(NetworkMonitorAutoDetect.NetworkInformation networkInformation) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkInformation) != null) {
+                        return;
+                    }
                     this.this$0.notifyObserversOfNetworkConnect(networkInformation);
                 }
-            }
 
-            @Override // org.webrtc.NetworkMonitorAutoDetect.Observer
-            public void onNetworkDisconnect(long j) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                @Override // org.webrtc.NetworkMonitorAutoDetect.Observer
+                public void onNetworkDisconnect(long j) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) != null) {
+                        return;
+                    }
                     this.this$0.notifyObserversOfNetworkDisconnect(j);
                 }
-            }
-        }, context) : (NetworkMonitorAutoDetect) invokeL.objValue;
-    }
-
-    private NetworkMonitorAutoDetect.ConnectionType getCurrentConnectionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.currentConnectionType : (NetworkMonitorAutoDetect.ConnectionType) invokeV.objValue;
-    }
-
-    private long getCurrentDefaultNetId() {
-        InterceptResult invokeV;
-        long defaultNetId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            synchronized (this.autoDetectLock) {
-                defaultNetId = this.autoDetect == null ? -1L : this.autoDetect.getDefaultNetId();
-            }
-            return defaultNetId;
+            }, context);
         }
-        return invokeV.longValue;
-    }
-
-    @CalledByNative
-    public static NetworkMonitor getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? InstanceHolder.instance : (NetworkMonitor) invokeV.objValue;
-    }
-
-    private List<Long> getNativeNetworkObserversSync() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            synchronized (this.nativeNetworkObservers) {
-                arrayList = new ArrayList(this.nativeNetworkObservers);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Deprecated
-    public static void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-        }
-    }
-
-    public static boolean isOnline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? getInstance().getCurrentConnectionType() != NetworkMonitorAutoDetect.ConnectionType.CONNECTION_NONE : invokeV.booleanValue;
-    }
-
-    private native void nativeNotifyConnectionTypeChanged(long j);
-
-    private native void nativeNotifyOfActiveNetworkList(long j, NetworkMonitorAutoDetect.NetworkInformation[] networkInformationArr);
-
-    private native void nativeNotifyOfNetworkConnect(long j, NetworkMonitorAutoDetect.NetworkInformation networkInformation);
-
-    private native void nativeNotifyOfNetworkDisconnect(long j, long j2);
-
-    @CalledByNative
-    private boolean networkBindingSupported() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
-            synchronized (this.autoDetectLock) {
-                z = this.autoDetect != null && this.autoDetect.supportNetworkCallback();
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void notifyObserversOfConnectionTypeChange(NetworkMonitorAutoDetect.ConnectionType connectionType) {
-        ArrayList<NetworkObserver> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, connectionType) == null) {
-            for (Long l : getNativeNetworkObserversSync()) {
-                nativeNotifyConnectionTypeChanged(l.longValue());
-            }
-            synchronized (this.networkObservers) {
-                arrayList = new ArrayList(this.networkObservers);
-            }
-            for (NetworkObserver networkObserver : arrayList) {
-                networkObserver.onConnectionTypeChanged(connectionType);
-            }
-        }
+        return (NetworkMonitorAutoDetect) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -282,20 +227,6 @@ public class NetworkMonitor {
         }
     }
 
-    private void updateObserverActiveNetworkList(long j) {
-        List<NetworkMonitorAutoDetect.NetworkInformation> activeNetworkList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65564, this, j) == null) {
-            synchronized (this.autoDetectLock) {
-                activeNetworkList = this.autoDetect == null ? null : this.autoDetect.getActiveNetworkList();
-            }
-            if (activeNetworkList == null || activeNetworkList.size() == 0) {
-                return;
-            }
-            nativeNotifyOfActiveNetworkList(j, (NetworkMonitorAutoDetect.NetworkInformation[]) activeNetworkList.toArray(new NetworkMonitorAutoDetect.NetworkInformation[activeNetworkList.size()]));
-        }
-    }
-
     public void addObserver(NetworkObserver networkObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, networkObserver) == null) {
@@ -303,6 +234,101 @@ public class NetworkMonitor {
                 this.networkObservers.add(networkObserver);
             }
         }
+    }
+
+    public void removeObserver(NetworkObserver networkObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, networkObserver) == null) {
+            synchronized (this.networkObservers) {
+                this.networkObservers.remove(networkObserver);
+            }
+        }
+    }
+
+    public static int androidSdkInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return Build.VERSION.SDK_INT;
+        }
+        return invokeV.intValue;
+    }
+
+    private NetworkMonitorAutoDetect.ConnectionType getCurrentConnectionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            return this.currentConnectionType;
+        }
+        return (NetworkMonitorAutoDetect.ConnectionType) invokeV.objValue;
+    }
+
+    private long getCurrentDefaultNetId() {
+        InterceptResult invokeV;
+        long defaultNetId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            synchronized (this.autoDetectLock) {
+                if (this.autoDetect == null) {
+                    defaultNetId = -1;
+                } else {
+                    defaultNetId = this.autoDetect.getDefaultNetId();
+                }
+            }
+            return defaultNetId;
+        }
+        return invokeV.longValue;
+    }
+
+    public static NetworkMonitor getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return InstanceHolder.instance;
+        }
+        return (NetworkMonitor) invokeV.objValue;
+    }
+
+    private List getNativeNetworkObserversSync() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            synchronized (this.nativeNetworkObservers) {
+                arrayList = new ArrayList(this.nativeNetworkObservers);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static boolean isOnline() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (getInstance().getCurrentConnectionType() != NetworkMonitorAutoDetect.ConnectionType.CONNECTION_NONE) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private boolean networkBindingSupported() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
+            synchronized (this.autoDetectLock) {
+                if (this.autoDetect != null && this.autoDetect.supportNetworkCallback()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 
     @Nullable
@@ -332,25 +358,11 @@ public class NetworkMonitor {
         return invokeV.intValue;
     }
 
-    public void removeObserver(NetworkObserver networkObserver) {
+    @Deprecated
+    public void startMonitoring() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, networkObserver) == null) {
-            synchronized (this.networkObservers) {
-                this.networkObservers.remove(networkObserver);
-            }
-        }
-    }
-
-    public void startMonitoring(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            synchronized (this.autoDetectLock) {
-                this.numObservers++;
-                if (this.autoDetect == null) {
-                    this.autoDetect = createAutoDetect(context);
-                }
-                this.currentConnectionType = NetworkMonitorAutoDetect.getConnectionType(this.autoDetect.getCurrentNetworkState());
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            startMonitoring(ContextUtils.getApplicationContext());
         }
     }
 
@@ -368,47 +380,22 @@ public class NetworkMonitor {
         }
     }
 
-    public NetworkMonitor() {
+    private void notifyObserversOfConnectionTypeChange(NetworkMonitorAutoDetect.ConnectionType connectionType) {
+        ArrayList<NetworkObserver> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65557, this, connectionType) == null) {
+            for (Long l : getNativeNetworkObserversSync()) {
+                nativeNotifyConnectionTypeChanged(l.longValue());
             }
-        }
-        this.autoDetectLock = new Object();
-        this.nativeNetworkObservers = new ArrayList<>();
-        this.networkObservers = new ArrayList<>();
-        this.numObservers = 0;
-        this.currentConnectionType = NetworkMonitorAutoDetect.ConnectionType.CONNECTION_UNKNOWN;
-    }
-
-    @CalledByNative
-    private void stopMonitoring(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65562, this, j) == null) {
-            Logging.d(TAG, "Stop monitoring with native observer " + j);
-            stopMonitoring();
-            synchronized (this.nativeNetworkObservers) {
-                this.nativeNetworkObservers.remove(Long.valueOf(j));
+            synchronized (this.networkObservers) {
+                arrayList = new ArrayList(this.networkObservers);
+            }
+            for (NetworkObserver networkObserver : arrayList) {
+                networkObserver.onConnectionTypeChanged(connectionType);
             }
         }
     }
 
-    @Deprecated
-    public void startMonitoring() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            startMonitoring(ContextUtils.getApplicationContext());
-        }
-    }
-
-    @CalledByNative
     private void startMonitoring(@Nullable Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65561, this, context, j) == null) {
@@ -422,6 +409,47 @@ public class NetworkMonitor {
             }
             updateObserverActiveNetworkList(j);
             notifyObserversOfConnectionTypeChange(this.currentConnectionType);
+        }
+    }
+
+    private void stopMonitoring(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65562, this, j) == null) {
+            Logging.d(TAG, "Stop monitoring with native observer " + j);
+            stopMonitoring();
+            synchronized (this.nativeNetworkObservers) {
+                this.nativeNetworkObservers.remove(Long.valueOf(j));
+            }
+        }
+    }
+
+    private void updateObserverActiveNetworkList(long j) {
+        List activeNetworkList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65564, this, j) == null) {
+            synchronized (this.autoDetectLock) {
+                if (this.autoDetect == null) {
+                    activeNetworkList = null;
+                } else {
+                    activeNetworkList = this.autoDetect.getActiveNetworkList();
+                }
+            }
+            if (activeNetworkList != null && activeNetworkList.size() != 0) {
+                nativeNotifyOfActiveNetworkList(j, (NetworkMonitorAutoDetect.NetworkInformation[]) activeNetworkList.toArray(new NetworkMonitorAutoDetect.NetworkInformation[activeNetworkList.size()]));
+            }
+        }
+    }
+
+    public void startMonitoring(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            synchronized (this.autoDetectLock) {
+                this.numObservers++;
+                if (this.autoDetect == null) {
+                    this.autoDetect = createAutoDetect(context);
+                }
+                this.currentConnectionType = NetworkMonitorAutoDetect.getConnectionType(this.autoDetect.getCurrentNetworkState());
+            }
         }
     }
 }

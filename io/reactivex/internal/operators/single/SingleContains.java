@@ -11,21 +11,21 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.BiPredicate;
 /* loaded from: classes8.dex */
-public final class SingleContains<T> extends io.reactivex.Single<Boolean> {
+public final class SingleContains extends io.reactivex.Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate<Object, Object> comparer;
-    public final SingleSource<T> source;
+    public final BiPredicate comparer;
+    public final SingleSource source;
     public final Object value;
 
     /* loaded from: classes8.dex */
-    public final class Single implements SingleObserver<T> {
+    public final class Single implements SingleObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Boolean> s;
+        public final SingleObserver s;
         public final /* synthetic */ SingleContains this$0;
 
-        public Single(SingleContains singleContains, SingleObserver<? super Boolean> singleObserver) {
+        public Single(SingleContains singleContains, SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,11 +61,11 @@ public final class SingleContains<T> extends io.reactivex.Single<Boolean> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 try {
-                    this.s.onSuccess(Boolean.valueOf(this.this$0.comparer.test(t, this.this$0.value)));
+                    this.s.onSuccess(Boolean.valueOf(this.this$0.comparer.test(obj, this.this$0.value)));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.s.onError(th);
@@ -74,7 +74,7 @@ public final class SingleContains<T> extends io.reactivex.Single<Boolean> {
         }
     }
 
-    public SingleContains(SingleSource<T> singleSource, Object obj, BiPredicate<Object, Object> biPredicate) {
+    public SingleContains(SingleSource singleSource, Object obj, BiPredicate biPredicate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public final class SingleContains<T> extends io.reactivex.Single<Boolean> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new Single(this, singleObserver));

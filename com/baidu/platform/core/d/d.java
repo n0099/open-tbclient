@@ -63,12 +63,12 @@ public class d extends com.baidu.platform.base.e {
             if (planNode3 != null) {
                 this.a.a("ec", planNode3.getCity());
             }
-            List<PlanNode> list = drivingRoutePlanOption.mWayPoints;
+            List list = drivingRoutePlanOption.mWayPoints;
             String str2 = new String();
             String str3 = new String();
             if (list != null) {
                 for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) != null) {
+                    if (((PlanNode) list.get(i)) != null) {
                         str2 = str2 + a(planNode);
                         str3 = str3 + planNode.getCity();
                         if (i != list.size() - 1) {

@@ -14,16 +14,16 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes8.dex */
 public class h {
-    public final Queue<Integer> a;
+    public final Queue a;
     public boolean b;
     public long c;
     public long d;
-    public SoftReference<JumpUnknownSourceActivity> e;
+    public SoftReference e;
     public Handler f;
     public Runnable g;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static final h a = new h();
     }
 
@@ -37,8 +37,12 @@ public class h {
                 h.this.c();
             }
         };
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0670a() { // from class: com.ss.android.socialbase.appdownloader.h.2
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0670a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0666a() { // from class: com.ss.android.socialbase.appdownloader.h.2
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+            public void c() {
+            }
+
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
             public void b() {
                 if (h.this.a.isEmpty()) {
                     return;
@@ -46,20 +50,39 @@ public class h {
                 long a2 = com.ss.android.socialbase.downloader.g.a.c().a("install_on_resume_install_interval", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
                 long currentTimeMillis = System.currentTimeMillis() - h.this.d;
                 if (currentTimeMillis < a2) {
-                    if (h.this.f.hasCallbacks(h.this.g)) {
+                    if (!h.this.f.hasCallbacks(h.this.g)) {
+                        h.this.f.postDelayed(h.this.g, a2 - currentTimeMillis);
                         return;
                     }
-                    h.this.f.postDelayed(h.this.g, a2 - currentTimeMillis);
                     return;
                 }
                 h.this.d = System.currentTimeMillis();
                 h.this.c();
             }
-
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0670a
-            public void c() {
-            }
         });
+    }
+
+    public static h a() {
+        return a.a;
+    }
+
+    private boolean d() {
+        if (System.currentTimeMillis() - this.c < 1000) {
+            return true;
+        }
+        return false;
+    }
+
+    public JumpUnknownSourceActivity b() {
+        JumpUnknownSourceActivity jumpUnknownSourceActivity;
+        SoftReference softReference = this.e;
+        if (softReference == null) {
+            jumpUnknownSourceActivity = null;
+        } else {
+            jumpUnknownSourceActivity = (JumpUnknownSourceActivity) softReference.get();
+        }
+        this.e = null;
+        return jumpUnknownSourceActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,54 +97,34 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        final Integer poll;
-        if (Build.VERSION.SDK_INT < 29 || com.ss.android.socialbase.downloader.a.a.a().b()) {
-            synchronized (this.a) {
-                poll = this.a.poll();
-            }
-            this.f.removeCallbacks(this.g);
-            if (poll != null) {
-                final Context N = com.ss.android.socialbase.downloader.downloader.c.N();
-                if (Looper.myLooper() != Looper.getMainLooper()) {
-                    this.f.post(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.h.3
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            h.this.b(N, poll.intValue(), false);
-                        }
-                    });
-                } else {
-                    b(N, poll.intValue(), false);
-                }
-                this.f.postDelayed(this.g, 20000L);
-                return;
-            }
-            this.b = false;
-        }
-    }
-
-    private boolean d() {
-        return System.currentTimeMillis() - this.c < 1000;
-    }
-
-    public void a(DownloadInfo downloadInfo, String str) {
-        if (downloadInfo == null || TextUtils.isEmpty(str)) {
+        final Integer num;
+        if (Build.VERSION.SDK_INT >= 29 && !com.ss.android.socialbase.downloader.a.a.a().b()) {
             return;
         }
-        c();
-    }
-
-    public JumpUnknownSourceActivity b() {
-        SoftReference<JumpUnknownSourceActivity> softReference = this.e;
-        JumpUnknownSourceActivity jumpUnknownSourceActivity = softReference == null ? null : softReference.get();
-        this.e = null;
-        return jumpUnknownSourceActivity;
-    }
-
-    public static h a() {
-        return a.a;
+        synchronized (this.a) {
+            num = (Integer) this.a.poll();
+        }
+        this.f.removeCallbacks(this.g);
+        if (num != null) {
+            final Context N = com.ss.android.socialbase.downloader.downloader.c.N();
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                this.f.post(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.h.3
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        h.this.b(N, num.intValue(), false);
+                    }
+                });
+            } else {
+                b(N, num.intValue(), false);
+            }
+            this.f.postDelayed(this.g, 20000L);
+            return;
+        }
+        this.b = false;
     }
 
     public int a(final Context context, final int i, final boolean z) {
+        boolean z2;
         if (z) {
             return b(context, i, z);
         }
@@ -139,7 +142,11 @@ public class h {
         } else if (b.a()) {
             return 1;
         } else {
-            boolean z2 = Build.VERSION.SDK_INT < 29;
+            if (Build.VERSION.SDK_INT < 29) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
             if (this.a.isEmpty() && !this.b && z2) {
                 return b(context, i, z);
             }
@@ -163,6 +170,12 @@ public class h {
     }
 
     public void a(JumpUnknownSourceActivity jumpUnknownSourceActivity) {
-        this.e = new SoftReference<>(jumpUnknownSourceActivity);
+        this.e = new SoftReference(jumpUnknownSourceActivity);
+    }
+
+    public void a(DownloadInfo downloadInfo, String str) {
+        if (downloadInfo != null && !TextUtils.isEmpty(str)) {
+            c();
+        }
     }
 }

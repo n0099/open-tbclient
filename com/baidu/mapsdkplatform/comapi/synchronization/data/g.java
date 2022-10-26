@@ -34,7 +34,7 @@ public final class g {
     public transient /* synthetic */ FieldHolder $fh;
     public RoleOptions b;
     public DisplayOptions c;
-    public BlockingQueue<SyncResponseResult> d;
+    public BlockingQueue d;
     public i e;
     public String f;
     public String g;
@@ -49,7 +49,7 @@ public final class g {
     public int p;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static final g a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -476,7 +476,7 @@ public final class g {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "There's no section traffic data");
                 return;
             }
-            ArrayList<Integer> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             for (String str2 : split) {
                 String[] split2 = str2.split(",");
                 if (3 != split2.length) {
@@ -754,7 +754,7 @@ public final class g {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c : (DisplayOptions) invokeV.objValue;
     }
 
-    public BlockingQueue<SyncResponseResult> g() {
+    public BlockingQueue g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (BlockingQueue) invokeV.objValue;

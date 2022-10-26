@@ -17,14 +17,14 @@ import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ConsumerSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable, LambdaConsumerIntrospection {
+public final class ConsumerSingleObserver extends AtomicReference implements SingleObserver, Disposable, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7012088219455310787L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<? super Throwable> onError;
-    public final Consumer<? super T> onSuccess;
+    public final Consumer onError;
+    public final Consumer onSuccess;
 
-    public ConsumerSingleObserver(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2) {
+    public ConsumerSingleObserver(Consumer consumer, Consumer consumer2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,14 +55,26 @@ public final class ConsumerSingleObserver<T> extends AtomicReference<Disposable>
     public boolean hasCustomOnError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.onError != Functions.ON_ERROR_MISSING : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.onError != Functions.ON_ERROR_MISSING) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (get() == DisposableHelper.DISPOSED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.SingleObserver
@@ -88,12 +100,12 @@ public final class ConsumerSingleObserver<T> extends AtomicReference<Disposable>
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(T t) {
+    public void onSuccess(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
             lazySet(DisposableHelper.DISPOSED);
             try {
-                this.onSuccess.accept(t);
+                this.onSuccess.accept(obj);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

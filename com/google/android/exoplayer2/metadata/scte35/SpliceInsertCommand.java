@@ -20,13 +20,13 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class SpliceInsertCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<SpliceInsertCommand> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean autoReturn;
     public final int availNum;
     public final int availsExpected;
     public final long breakDurationUs;
-    public final List<ComponentSplice> componentSpliceList;
+    public final List componentSpliceList;
     public final boolean outOfNetworkIndicator;
     public final boolean programSpliceFlag;
     public final long programSplicePlaybackPositionUs;
@@ -37,27 +37,12 @@ public final class SpliceInsertCommand extends SpliceCommand {
     public final int uniqueProgramId;
 
     /* loaded from: classes7.dex */
-    public static final class ComponentSplice {
+    public final class ComponentSplice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long componentSplicePlaybackPositionUs;
         public final long componentSplicePts;
         public final int componentTag;
-
-        public static ComponentSplice createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parcel)) == null) ? new ComponentSplice(parcel.readInt(), parcel.readLong(), parcel.readLong()) : (ComponentSplice) invokeL.objValue;
-        }
-
-        public void writeToParcel(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeInt(this.componentTag);
-                parcel.writeLong(this.componentSplicePts);
-                parcel.writeLong(this.componentSplicePlaybackPositionUs);
-            }
-        }
 
         public ComponentSplice(int i, long j, long j2) {
             Interceptable interceptable = $ic;
@@ -78,6 +63,24 @@ public final class SpliceInsertCommand extends SpliceCommand {
             this.componentSplicePts = j;
             this.componentSplicePlaybackPositionUs = j2;
         }
+
+        public static ComponentSplice createFromParcel(Parcel parcel) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parcel)) == null) {
+                return new ComponentSplice(parcel.readInt(), parcel.readLong(), parcel.readLong());
+            }
+            return (ComponentSplice) invokeL.objValue;
+        }
+
+        public void writeToParcel(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
+                parcel.writeInt(this.componentTag);
+                parcel.writeLong(this.componentSplicePts);
+                parcel.writeLong(this.componentSplicePlaybackPositionUs);
+            }
+        }
     }
 
     static {
@@ -93,7 +96,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<SpliceInsertCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceInsertCommand.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceInsertCommand.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,123 +115,30 @@ public final class SpliceInsertCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SpliceInsertCommand createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SpliceInsertCommand(parcel) : (SpliceInsertCommand) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new SpliceInsertCommand(parcel);
+                }
+                return (SpliceInsertCommand) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SpliceInsertCommand[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SpliceInsertCommand[i] : (SpliceInsertCommand[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new SpliceInsertCommand[i];
+                }
+                return (SpliceInsertCommand[]) invokeI.objValue;
             }
         };
     }
 
-    public static SpliceInsertCommand parseFromSection(ParsableByteArray parsableByteArray, long j, TimestampAdjuster timestampAdjuster) {
-        InterceptResult invokeCommon;
-        List list;
-        boolean z;
-        boolean z2;
-        long j2;
-        boolean z3;
-        long j3;
-        int i;
-        int i2;
-        int i3;
-        boolean z4;
-        boolean z5;
-        long j4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{parsableByteArray, Long.valueOf(j), timestampAdjuster})) == null) {
-            long readUnsignedInt = parsableByteArray.readUnsignedInt();
-            boolean z6 = (parsableByteArray.readUnsignedByte() & 128) != 0;
-            List emptyList = Collections.emptyList();
-            if (z6) {
-                list = emptyList;
-                z = false;
-                z2 = false;
-                j2 = C.TIME_UNSET;
-                z3 = false;
-                j3 = C.TIME_UNSET;
-                i = 0;
-                i2 = 0;
-                i3 = 0;
-                z4 = false;
-            } else {
-                int readUnsignedByte = parsableByteArray.readUnsignedByte();
-                boolean z7 = (readUnsignedByte & 128) != 0;
-                boolean z8 = (readUnsignedByte & 64) != 0;
-                boolean z9 = (readUnsignedByte & 32) != 0;
-                boolean z10 = (readUnsignedByte & 16) != 0;
-                long parseSpliceTime = (!z8 || z10) ? C.TIME_UNSET : TimeSignalCommand.parseSpliceTime(parsableByteArray, j);
-                if (!z8) {
-                    int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
-                    ArrayList arrayList = new ArrayList(readUnsignedByte2);
-                    for (int i4 = 0; i4 < readUnsignedByte2; i4++) {
-                        int readUnsignedByte3 = parsableByteArray.readUnsignedByte();
-                        long parseSpliceTime2 = !z10 ? TimeSignalCommand.parseSpliceTime(parsableByteArray, j) : C.TIME_UNSET;
-                        arrayList.add(new ComponentSplice(readUnsignedByte3, parseSpliceTime2, timestampAdjuster.adjustTsTimestamp(parseSpliceTime2)));
-                    }
-                    emptyList = arrayList;
-                }
-                if (z9) {
-                    long readUnsignedByte4 = parsableByteArray.readUnsignedByte();
-                    boolean z11 = (128 & readUnsignedByte4) != 0;
-                    j4 = ((((readUnsignedByte4 & 1) << 32) | parsableByteArray.readUnsignedInt()) * 1000) / 90;
-                    z5 = z11;
-                } else {
-                    z5 = false;
-                    j4 = C.TIME_UNSET;
-                }
-                i = parsableByteArray.readUnsignedShort();
-                z4 = z8;
-                i2 = parsableByteArray.readUnsignedByte();
-                i3 = parsableByteArray.readUnsignedByte();
-                list = emptyList;
-                long j5 = parseSpliceTime;
-                z3 = z5;
-                j3 = j4;
-                z2 = z10;
-                z = z7;
-                j2 = j5;
-            }
-            return new SpliceInsertCommand(readUnsignedInt, z6, z, z4, z2, j2, timestampAdjuster.adjustTsTimestamp(j2), list, z3, j3, i, i2, i3);
-        }
-        return (SpliceInsertCommand) invokeCommon.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            parcel.writeLong(this.spliceEventId);
-            parcel.writeByte(this.spliceEventCancelIndicator ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.outOfNetworkIndicator ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.programSpliceFlag ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.spliceImmediateFlag ? (byte) 1 : (byte) 0);
-            parcel.writeLong(this.programSplicePts);
-            parcel.writeLong(this.programSplicePlaybackPositionUs);
-            int size = this.componentSpliceList.size();
-            parcel.writeInt(size);
-            for (int i2 = 0; i2 < size; i2++) {
-                this.componentSpliceList.get(i2).writeToParcel(parcel);
-            }
-            parcel.writeByte(this.autoReturn ? (byte) 1 : (byte) 0);
-            parcel.writeLong(this.breakDurationUs);
-            parcel.writeInt(this.uniqueProgramId);
-            parcel.writeInt(this.availNum);
-            parcel.writeInt(this.availsExpected);
-        }
-    }
-
-    public SpliceInsertCommand(long j, boolean z, boolean z2, boolean z3, boolean z4, long j2, long j3, List<ComponentSplice> list, boolean z5, long j4, int i, int i2, int i3) {
+    public SpliceInsertCommand(long j, boolean z, boolean z2, boolean z3, boolean z4, long j2, long j3, List list, boolean z5, long j4, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -259,6 +169,10 @@ public final class SpliceInsertCommand extends SpliceCommand {
     }
 
     public SpliceInsertCommand(Parcel parcel) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -274,10 +188,30 @@ public final class SpliceInsertCommand extends SpliceCommand {
             }
         }
         this.spliceEventId = parcel.readLong();
-        this.spliceEventCancelIndicator = parcel.readByte() == 1;
-        this.outOfNetworkIndicator = parcel.readByte() == 1;
-        this.programSpliceFlag = parcel.readByte() == 1;
-        this.spliceImmediateFlag = parcel.readByte() == 1;
+        if (parcel.readByte() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.spliceEventCancelIndicator = z;
+        if (parcel.readByte() == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.outOfNetworkIndicator = z2;
+        if (parcel.readByte() == 1) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        this.programSpliceFlag = z3;
+        if (parcel.readByte() == 1) {
+            z4 = true;
+        } else {
+            z4 = false;
+        }
+        this.spliceImmediateFlag = z4;
         this.programSplicePts = parcel.readLong();
         this.programSplicePlaybackPositionUs = parcel.readLong();
         int readInt = parcel.readInt();
@@ -291,5 +225,142 @@ public final class SpliceInsertCommand extends SpliceCommand {
         this.uniqueProgramId = parcel.readInt();
         this.availNum = parcel.readInt();
         this.availsExpected = parcel.readInt();
+    }
+
+    public static SpliceInsertCommand parseFromSection(ParsableByteArray parsableByteArray, long j, TimestampAdjuster timestampAdjuster) {
+        InterceptResult invokeCommon;
+        boolean z;
+        List list;
+        boolean z2;
+        boolean z3;
+        long j2;
+        boolean z4;
+        long j3;
+        int i;
+        int i2;
+        int i3;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        boolean z8;
+        boolean z9;
+        long j4;
+        boolean z10;
+        long j5;
+        boolean z11;
+        long j6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{parsableByteArray, Long.valueOf(j), timestampAdjuster})) == null) {
+            long readUnsignedInt = parsableByteArray.readUnsignedInt();
+            if ((parsableByteArray.readUnsignedByte() & 128) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            List emptyList = Collections.emptyList();
+            if (!z) {
+                int readUnsignedByte = parsableByteArray.readUnsignedByte();
+                if ((readUnsignedByte & 128) != 0) {
+                    z6 = true;
+                } else {
+                    z6 = false;
+                }
+                if ((readUnsignedByte & 64) != 0) {
+                    z7 = true;
+                } else {
+                    z7 = false;
+                }
+                if ((readUnsignedByte & 32) != 0) {
+                    z8 = true;
+                } else {
+                    z8 = false;
+                }
+                if ((readUnsignedByte & 16) != 0) {
+                    z9 = true;
+                } else {
+                    z9 = false;
+                }
+                if (z7 && !z9) {
+                    j4 = TimeSignalCommand.parseSpliceTime(parsableByteArray, j);
+                } else {
+                    j4 = C.TIME_UNSET;
+                }
+                if (!z7) {
+                    int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
+                    ArrayList arrayList = new ArrayList(readUnsignedByte2);
+                    for (int i4 = 0; i4 < readUnsignedByte2; i4++) {
+                        int readUnsignedByte3 = parsableByteArray.readUnsignedByte();
+                        if (!z9) {
+                            j6 = TimeSignalCommand.parseSpliceTime(parsableByteArray, j);
+                        } else {
+                            j6 = C.TIME_UNSET;
+                        }
+                        arrayList.add(new ComponentSplice(readUnsignedByte3, j6, timestampAdjuster.adjustTsTimestamp(j6)));
+                    }
+                    emptyList = arrayList;
+                }
+                if (z8) {
+                    long readUnsignedByte4 = parsableByteArray.readUnsignedByte();
+                    if ((128 & readUnsignedByte4) != 0) {
+                        z11 = true;
+                    } else {
+                        z11 = false;
+                    }
+                    j5 = ((((readUnsignedByte4 & 1) << 32) | parsableByteArray.readUnsignedInt()) * 1000) / 90;
+                    z10 = z11;
+                } else {
+                    z10 = false;
+                    j5 = C.TIME_UNSET;
+                }
+                i = parsableByteArray.readUnsignedShort();
+                z5 = z7;
+                i2 = parsableByteArray.readUnsignedByte();
+                i3 = parsableByteArray.readUnsignedByte();
+                list = emptyList;
+                long j7 = j4;
+                z4 = z10;
+                j3 = j5;
+                z3 = z9;
+                z2 = z6;
+                j2 = j7;
+            } else {
+                list = emptyList;
+                z2 = false;
+                z3 = false;
+                j2 = C.TIME_UNSET;
+                z4 = false;
+                j3 = C.TIME_UNSET;
+                i = 0;
+                i2 = 0;
+                i3 = 0;
+                z5 = false;
+            }
+            return new SpliceInsertCommand(readUnsignedInt, z, z2, z5, z3, j2, timestampAdjuster.adjustTsTimestamp(j2), list, z4, j3, i, i2, i3);
+        }
+        return (SpliceInsertCommand) invokeCommon.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
+            parcel.writeLong(this.spliceEventId);
+            parcel.writeByte(this.spliceEventCancelIndicator ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.outOfNetworkIndicator ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.programSpliceFlag ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.spliceImmediateFlag ? (byte) 1 : (byte) 0);
+            parcel.writeLong(this.programSplicePts);
+            parcel.writeLong(this.programSplicePlaybackPositionUs);
+            int size = this.componentSpliceList.size();
+            parcel.writeInt(size);
+            for (int i2 = 0; i2 < size; i2++) {
+                ((ComponentSplice) this.componentSpliceList.get(i2)).writeToParcel(parcel);
+            }
+            parcel.writeByte(this.autoReturn ? (byte) 1 : (byte) 0);
+            parcel.writeLong(this.breakDurationUs);
+            parcel.writeInt(this.uniqueProgramId);
+            parcel.writeInt(this.availNum);
+            parcel.writeInt(this.availsExpected);
+        }
     }
 }

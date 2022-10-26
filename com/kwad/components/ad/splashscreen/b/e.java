@@ -1,6 +1,5 @@
 package com.kwad.components.ad.splashscreen.b;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +9,6 @@ import com.kwad.sdk.mvp.Presenter;
 public class e extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public com.kwad.components.ad.splashscreen.h yF;
 
     public e() {

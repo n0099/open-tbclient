@@ -43,28 +43,25 @@ public class NovelWebViewActivityConfig extends TbWebViewActivityConfig {
     public void setBookId(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_NOVEL_ID, str);
         }
-        intent.putExtra(KEY_NOVEL_ID, str);
-    }
-
-    public void setExtraData(String str, String str2) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(KEY_NOVEL_TID, str);
-        intent.putExtra(KEY_NOVEL_FID, str2);
     }
 
     public void setIsShowTopToast(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_IS_SHOW_TOAST_TIP, z);
         }
-        intent.putExtra(KEY_IS_SHOW_TOAST_TIP, z);
+    }
+
+    public void setExtraData(String str, String str2) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_NOVEL_TID, str);
+            intent.putExtra(KEY_NOVEL_FID, str2);
+        }
     }
 }

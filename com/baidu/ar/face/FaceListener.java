@@ -5,7 +5,7 @@ import java.util.List;
 public interface FaceListener {
     void onFaceResult(Object obj);
 
-    void onStickerLoadingFinished(List<String> list);
+    void onStickerLoadingFinished(List list);
 
     void onTriggerFired(String str);
 }

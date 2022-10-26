@@ -52,56 +52,6 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cd, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905c0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c2);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905bf);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0905c1);
-            setOnClickListener(this);
-            b();
-        }
-    }
-
-    public void b() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-        this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2b, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0210);
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem("c14525"));
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            c();
-            LocalChannelTopicListActivityConfig.forResult(getContext(), 25068).start();
-        }
-    }
-
-    public void setLocalChannelTopic(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a5f, str));
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LocalChannelTopicSelectView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -144,5 +94,55 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
         }
         this.a = 3;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cc, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905c9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905cb);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905c8);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0905ca);
+            setOnClickListener(this);
+            b();
+        }
+    }
+
+    public void b() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
+        this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2c, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0210);
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TiebaStatic.log(new StatisticItem("c14525"));
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            c();
+            LocalChannelTopicListActivityConfig.forResult(getContext(), 25068).start();
+        }
+    }
+
+    public void setLocalChannelTopic(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a6c, str));
+        }
     }
 }

@@ -83,7 +83,7 @@ public class JsUploadTask implements INoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class JumpType {
+    public final class JumpType {
         public static final /* synthetic */ JumpType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final JumpType DefaultJump;
@@ -202,7 +202,7 @@ public class JsUploadTask implements INoProGuard {
     }
 
     public static void addExternalItem(StringBuilder sb) {
-        HashMap<String, String> statisticParams;
+        HashMap statisticParams;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, null, sb) == null) || (statisticParams = WebKitFactory.getStatisticParams()) == null || statisticParams.isEmpty()) {
             return;
@@ -213,7 +213,7 @@ public class JsUploadTask implements INoProGuard {
             }
             sb.append(str);
             sb.append("=");
-            sb.append(statisticParams.get(str));
+            sb.append((String) statisticParams.get(str));
         }
     }
 
@@ -358,7 +358,7 @@ public class JsUploadTask implements INoProGuard {
                         jSONObject.put(ETAG.KEY_WORMHOLE_ENABLE, WebSettingsGlobalBlink.getWormholeEnabled());
                         Log.w(TAG, "NetRecordList size " + CloudSettings.NetRecordList.size());
                         if (CloudSettings.NetRecordList.size() > 0) {
-                            CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
+                            CloudSettings.a aVar = (CloudSettings.a) CloudSettings.NetRecordList.get(0);
                             CloudSettings.NetRecordList.remove(0);
                             Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
                             jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.c);

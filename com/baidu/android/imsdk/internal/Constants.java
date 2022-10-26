@@ -300,6 +300,12 @@ public final class Constants {
     public static final String[] mSdkPermissions;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean dispatchToPimc2(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA : invokeJ.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -339,10 +345,13 @@ public final class Constants {
         }
     }
 
-    public static boolean dispatchToPimc2(long j) {
-        InterceptResult invokeJ;
+    public static boolean isDebugMode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA : invokeJ.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return IMSettings.isDebugMode();
+        }
+        return invokeV.booleanValue;
     }
 
     public static int getEnv(Context context) {
@@ -372,32 +381,30 @@ public final class Constants {
         return invokeL.intValue;
     }
 
-    public static boolean isDebugMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? IMSettings.isDebugMode() : invokeV.booleanValue;
-    }
-
     public static boolean setEnv(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
             long appid = AccountManager.getAppid(context);
             if (i != 0) {
-                if (i == 1) {
-                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
-                    URL_SOCKET_PORT = 8100;
-                } else if (i == 2) {
-                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
-                    URL_SOCKET_PORT = 8100;
-                } else if (i == 3) {
-                    if (dispatchToPimc2(appid)) {
-                        URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
-                        URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            if (dispatchToPimc2(appid)) {
+                                URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
+                                URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
+                            } else {
+                                URL_SOCKET_SERVER = URL_SOCKET_SERVER_TEST_BOX;
+                                URL_SOCKET_PORT = 8100;
+                            }
+                        }
                     } else {
-                        URL_SOCKET_SERVER = URL_SOCKET_SERVER_TEST_BOX;
+                        URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
                         URL_SOCKET_PORT = 8100;
                     }
+                } else {
+                    URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
+                    URL_SOCKET_PORT = 8100;
                 }
             } else if (dispatchToPimc2(appid)) {
                 URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;

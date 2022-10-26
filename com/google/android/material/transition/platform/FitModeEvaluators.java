@@ -1,7 +1,6 @@
 package com.google.android.material.transition.platform;
 
 import android.graphics.RectF;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(21)
 /* loaded from: classes7.dex */
 public class FitModeEvaluators {
     public static /* synthetic */ Interceptable $ic;
@@ -74,7 +72,13 @@ public class FitModeEvaluators {
             public boolean shouldMaskStartBounds(FitModeResult fitModeResult) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, fitModeResult)) == null) ? fitModeResult.currentStartHeight > fitModeResult.currentEndHeight : invokeL.booleanValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, fitModeResult)) == null) {
+                    if (fitModeResult.currentStartHeight > fitModeResult.currentEndHeight) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
         };
         HEIGHT = new FitModeEvaluator() { // from class: com.google.android.material.transition.platform.FitModeEvaluators.2
@@ -122,7 +126,13 @@ public class FitModeEvaluators {
             public boolean shouldMaskStartBounds(FitModeResult fitModeResult) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, fitModeResult)) == null) ? fitModeResult.currentStartWidth > fitModeResult.currentEndWidth : invokeL.booleanValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, fitModeResult)) == null) {
+                    if (fitModeResult.currentStartWidth > fitModeResult.currentEndWidth) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeL.booleanValue;
             }
         };
     }
@@ -145,15 +155,18 @@ public class FitModeEvaluators {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), rectF, rectF2})) == null) {
-            if (i == 0) {
-                return shouldAutoFitToWidth(z, rectF, rectF2) ? WIDTH : HEIGHT;
-            } else if (i != 1) {
-                if (i == 2) {
-                    return HEIGHT;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
+                        return HEIGHT;
+                    }
+                    throw new IllegalArgumentException("Invalid fit mode: " + i);
                 }
-                throw new IllegalArgumentException("Invalid fit mode: " + i);
-            } else {
                 return WIDTH;
+            } else if (shouldAutoFitToWidth(z, rectF, rectF2)) {
+                return WIDTH;
+            } else {
+                return HEIGHT;
             }
         }
         return (FitModeEvaluator) invokeCommon.objValue;

@@ -1,9 +1,9 @@
 package com.google.android.exoplayer2.upstream;
 /* loaded from: classes7.dex */
-public interface TransferListener<S> {
-    void onBytesTransferred(S s, int i);
+public interface TransferListener {
+    void onBytesTransferred(Object obj, int i);
 
-    void onTransferEnd(S s);
+    void onTransferEnd(Object obj);
 
-    void onTransferStart(S s, DataSpec dataSpec);
+    void onTransferStart(Object obj, DataSpec dataSpec);
 }

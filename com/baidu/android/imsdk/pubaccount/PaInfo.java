@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PaInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PaInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean acceptPush;
     public String avatar;
@@ -53,6 +53,16 @@ public class PaInfo implements Parcelable {
     public String url;
     public String vPortrait;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -66,7 +76,7 @@ public class PaInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<PaInfo>() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,23 +95,340 @@ public class PaInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PaInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? PaInfo.readFromParcel(parcel) : (PaInfo) invokeL.objValue;
+                if (interceptable2 != null && (invokeL = interceptable2.invokeL(1048576, this, parcel)) != null) {
+                    return (PaInfo) invokeL.objValue;
+                }
+                return PaInfo.readFromParcel(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PaInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new PaInfo[i] : (PaInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new PaInfo[i];
+                }
+                return (PaInfo[]) invokeI.objValue;
             }
         };
+    }
+
+    public String getAvatar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.avatar;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getClassTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.classtitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getClassType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.classtype;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getClassavatar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.classavatar;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getClassshow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.classshow;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.description;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getDetail() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.detail;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDisturb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.disturb;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getHasIdentity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mHasIdentity;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getIdentity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mIdentity;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getLastRefreshTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mLastRefreshTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getMarkTop() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.markTop;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getMarkTopTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.markTopTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getNickName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.nickName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPaExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.paExt;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getPaId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.paId;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getRejectMenu() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mRejectMenu;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getRepliesStr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mRepliesStr;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getShield() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mShield;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getShieldTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mShieldTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.status;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getSubcribeTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.subcribeTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSubscribe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mSubscribe;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSubsetType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.subsetType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSubtype() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.subtype;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getTPL() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.tpl;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getThirdExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mThirdExt;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getThirdId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (!TextUtils.isEmpty(this.mThirdExt)) {
+                try {
+                    return new JSONObject(this.mThirdExt).optString("third_id", "");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUsername() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVPortrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.vPortrait;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVipId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.mVipId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isAcceptPush() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.acceptPush;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isMsgNotify() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.mMsgNotify;
+        }
+        return invokeV.booleanValue;
     }
 
     public PaInfo() {
@@ -130,167 +457,6 @@ public class PaInfo implements Parcelable {
         this.mSchema = "";
     }
 
-    public static PaInfo readFromParcel(Parcel parcel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) {
-            PaInfo paInfo = new PaInfo();
-            paInfo.setPaId(parcel.readLong());
-            paInfo.setNickName(parcel.readString());
-            paInfo.setAvatar(parcel.readString());
-            paInfo.setAcceptPush(parcel.readInt() == 1);
-            paInfo.setDescription(parcel.readString());
-            paInfo.setUrl(parcel.readString());
-            paInfo.setSubcribeTime(parcel.readLong());
-            paInfo.setDetail(parcel.readString());
-            paInfo.setUsername(parcel.readString());
-            paInfo.setTPL(parcel.readLong());
-            paInfo.setDisturb(parcel.readInt());
-            paInfo.setSubtype(parcel.readInt());
-            paInfo.setClassType(parcel.readInt());
-            paInfo.setClasstitle(parcel.readString());
-            paInfo.setClassAvatar(parcel.readString());
-            paInfo.setStatus(parcel.readInt());
-            paInfo.setMsgNotify(parcel.readInt() == 1);
-            paInfo.setMarkTop(parcel.readInt());
-            paInfo.setMarkTopTime(parcel.readLong());
-            paInfo.setRepliesStr(parcel.readString());
-            paInfo.setLastRefreshTime(parcel.readLong());
-            paInfo.setSubsetType(parcel.readInt());
-            paInfo.setPaExt(parcel.readString());
-            paInfo.setVPortrait(parcel.readString());
-            paInfo.setVipId(parcel.readString());
-            paInfo.setHasIdentity(parcel.readInt());
-            paInfo.setShield(parcel.readInt());
-            paInfo.setShieldTime(parcel.readLong());
-            paInfo.setIdentity(parcel.readString());
-            paInfo.setSubscribe(parcel.readInt());
-            paInfo.setThirdExt(parcel.readString());
-            paInfo.setSchema(parcel.readString());
-            paInfo.setRejectMenu(parcel.readInt());
-            return paInfo;
-        }
-        return (PaInfo) invokeL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getAvatar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.avatar : (String) invokeV.objValue;
-    }
-
-    public String getClassTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.classtitle : (String) invokeV.objValue;
-    }
-
-    public int getClassType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.classtype : invokeV.intValue;
-    }
-
-    public String getClassavatar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.classavatar : (String) invokeV.objValue;
-    }
-
-    public int getClassshow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.classshow : invokeV.intValue;
-    }
-
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.description : (String) invokeV.objValue;
-    }
-
-    public String getDetail() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.detail : (String) invokeV.objValue;
-    }
-
-    public int getDisturb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.disturb : invokeV.intValue;
-    }
-
-    public int getHasIdentity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mHasIdentity : invokeV.intValue;
-    }
-
-    public String getIdentity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIdentity : (String) invokeV.objValue;
-    }
-
-    public long getLastRefreshTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mLastRefreshTime : invokeV.longValue;
-    }
-
-    public int getMarkTop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.markTop : invokeV.intValue;
-    }
-
-    public long getMarkTopTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.markTopTime : invokeV.longValue;
-    }
-
-    public String getNickName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.nickName : (String) invokeV.objValue;
-    }
-
-    public String getPaExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.paExt : (String) invokeV.objValue;
-    }
-
-    public long getPaId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.paId : invokeV.longValue;
-    }
-
-    public int getRejectMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mRejectMenu : invokeV.intValue;
-    }
-
-    public String getRepliesStr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mRepliesStr : (String) invokeV.objValue;
-    }
-
     public String getSchema() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -305,112 +471,6 @@ public class PaInfo implements Parcelable {
             return this.mSchema;
         }
         return (String) invokeV.objValue;
-    }
-
-    public int getShield() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mShield : invokeV.intValue;
-    }
-
-    public long getShieldTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mShieldTime : invokeV.longValue;
-    }
-
-    public int getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.status : invokeV.intValue;
-    }
-
-    public long getSubcribeTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.subcribeTime : invokeV.longValue;
-    }
-
-    public int getSubscribe() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mSubscribe : invokeV.intValue;
-    }
-
-    public int getSubsetType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.subsetType : invokeV.intValue;
-    }
-
-    public int getSubtype() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.subtype : invokeV.intValue;
-    }
-
-    public long getTPL() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.tpl : invokeV.longValue;
-    }
-
-    public String getThirdExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mThirdExt : (String) invokeV.objValue;
-    }
-
-    public String getThirdId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            if (!TextUtils.isEmpty(this.mThirdExt)) {
-                try {
-                    return new JSONObject(this.mThirdExt).optString("third_id", "");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.url : (String) invokeV.objValue;
-    }
-
-    public String getUsername() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public String getVPortrait() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.vPortrait : (String) invokeV.objValue;
-    }
-
-    public String getVipId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mVipId : (String) invokeV.objValue;
-    }
-
-    public boolean isAcceptPush() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.acceptPush : invokeV.booleanValue;
-    }
-
-    public boolean isMsgNotify() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mMsgNotify : invokeV.booleanValue;
     }
 
     public void setAcceptPush(boolean z) {
@@ -620,13 +680,12 @@ public class PaInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048641, this, str) == null) {
             this.mThirdExt = str;
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                setSchema(new JSONObject(str).optString("homepage", ""));
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    setSchema(new JSONObject(str).optString("homepage", ""));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -657,6 +716,59 @@ public class PaInfo implements Parcelable {
         if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
             this.mVipId = str;
         }
+    }
+
+    public static PaInfo readFromParcel(Parcel parcel) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) {
+            PaInfo paInfo = new PaInfo();
+            paInfo.setPaId(parcel.readLong());
+            paInfo.setNickName(parcel.readString());
+            paInfo.setAvatar(parcel.readString());
+            boolean z2 = false;
+            if (parcel.readInt() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            paInfo.setAcceptPush(z);
+            paInfo.setDescription(parcel.readString());
+            paInfo.setUrl(parcel.readString());
+            paInfo.setSubcribeTime(parcel.readLong());
+            paInfo.setDetail(parcel.readString());
+            paInfo.setUsername(parcel.readString());
+            paInfo.setTPL(parcel.readLong());
+            paInfo.setDisturb(parcel.readInt());
+            paInfo.setSubtype(parcel.readInt());
+            paInfo.setClassType(parcel.readInt());
+            paInfo.setClasstitle(parcel.readString());
+            paInfo.setClassAvatar(parcel.readString());
+            paInfo.setStatus(parcel.readInt());
+            if (parcel.readInt() == 1) {
+                z2 = true;
+            }
+            paInfo.setMsgNotify(z2);
+            paInfo.setMarkTop(parcel.readInt());
+            paInfo.setMarkTopTime(parcel.readLong());
+            paInfo.setRepliesStr(parcel.readString());
+            paInfo.setLastRefreshTime(parcel.readLong());
+            paInfo.setSubsetType(parcel.readInt());
+            paInfo.setPaExt(parcel.readString());
+            paInfo.setVPortrait(parcel.readString());
+            paInfo.setVipId(parcel.readString());
+            paInfo.setHasIdentity(parcel.readInt());
+            paInfo.setShield(parcel.readInt());
+            paInfo.setShieldTime(parcel.readLong());
+            paInfo.setIdentity(parcel.readString());
+            paInfo.setSubscribe(parcel.readInt());
+            paInfo.setThirdExt(parcel.readString());
+            paInfo.setSchema(parcel.readString());
+            paInfo.setRejectMenu(parcel.readInt());
+            return paInfo;
+        }
+        return (PaInfo) invokeL.objValue;
     }
 
     public String toString() {

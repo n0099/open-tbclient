@@ -34,16 +34,29 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AbstractFlowableWithUpstream<TLeft, R> {
+public final class FlowableGroupJoin extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super TLeft, ? extends Publisher<TLeftEnd>> leftEnd;
-    public final Publisher<? extends TRight> other;
-    public final BiFunction<? super TLeft, ? super Flowable<TRight>, ? extends R> resultSelector;
-    public final Function<? super TRight, ? extends Publisher<TRightEnd>> rightEnd;
+    public final Function leftEnd;
+    public final Publisher other;
+    public final BiFunction resultSelector;
+    public final Function rightEnd;
 
     /* loaded from: classes8.dex */
-    public static final class GroupJoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements Subscription, JoinSupport {
+    public interface JoinSupport {
+        void innerClose(boolean z, LeftRightEndSubscriber leftRightEndSubscriber);
+
+        void innerCloseError(Throwable th);
+
+        void innerComplete(LeftRightSubscriber leftRightSubscriber);
+
+        void innerError(Throwable th);
+
+        void innerValue(boolean z, Object obj);
+    }
+
+    /* loaded from: classes8.dex */
+    public final class GroupJoinSubscription extends AtomicInteger implements Subscription, JoinSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Integer LEFT_CLOSE;
         public static final Integer LEFT_VALUE;
@@ -52,19 +65,19 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         public static final long serialVersionUID = -6071216598687999801L;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger active;
-        public final Subscriber<? super R> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public final CompositeDisposable disposables;
-        public final AtomicReference<Throwable> error;
-        public final Function<? super TLeft, ? extends Publisher<TLeftEnd>> leftEnd;
+        public final AtomicReference error;
+        public final Function leftEnd;
         public int leftIndex;
-        public final Map<Integer, UnicastProcessor<TRight>> lefts;
-        public final SpscLinkedArrayQueue<Object> queue;
+        public final Map lefts;
+        public final SpscLinkedArrayQueue queue;
         public final AtomicLong requested;
-        public final BiFunction<? super TLeft, ? super Flowable<TRight>, ? extends R> resultSelector;
-        public final Function<? super TRight, ? extends Publisher<TRightEnd>> rightEnd;
+        public final BiFunction resultSelector;
+        public final Function rightEnd;
         public int rightIndex;
-        public final Map<Integer, TRight> rights;
+        public final Map rights;
 
         static {
             InterceptResult invokeClinit;
@@ -85,7 +98,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             RIGHT_CLOSE = 4;
         }
 
-        public GroupJoinSubscription(Subscriber<? super R> subscriber, Function<? super TLeft, ? extends Publisher<TLeftEnd>> function, Function<? super TRight, ? extends Publisher<TRightEnd>> function2, BiFunction<? super TLeft, ? super Flowable<TRight>, ? extends R> biFunction) {
+        public GroupJoinSubscription(Subscriber subscriber, Function function, Function function2, BiFunction biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,10 +116,10 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             this.actual = subscriber;
             this.requested = new AtomicLong();
             this.disposables = new CompositeDisposable();
-            this.queue = new SpscLinkedArrayQueue<>(Flowable.bufferSize());
+            this.queue = new SpscLinkedArrayQueue(Flowable.bufferSize());
             this.lefts = new LinkedHashMap();
             this.rights = new LinkedHashMap();
-            this.error = new AtomicReference<>();
+            this.error = new AtomicReference();
             this.leftEnd = function;
             this.rightEnd = function2;
             this.resultSelector = biFunction;
@@ -116,7 +129,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.cancelled) {
                 return;
             }
             this.cancelled = true;
@@ -133,121 +146,130 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r7v11, resolved type: java.util.Map<java.lang.Integer, TRight> */
-        /* JADX WARN: Multi-variable type inference failed */
         public void drain() {
+            boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
-                Subscriber<? super R> subscriber = this.actual;
-                int i = 1;
-                while (!this.cancelled) {
-                    if (this.error.get() != null) {
-                        spscLinkedArrayQueue.clear();
-                        cancelAll();
-                        errorAll(subscriber);
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            Subscriber subscriber = this.actual;
+            int i = 1;
+            while (!this.cancelled) {
+                if (((Throwable) this.error.get()) != null) {
+                    spscLinkedArrayQueue.clear();
+                    cancelAll();
+                    errorAll(subscriber);
+                    return;
+                }
+                if (this.active.get() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Integer num = (Integer) spscLinkedArrayQueue.poll();
+                if (num == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z && z2) {
+                    for (UnicastProcessor unicastProcessor : this.lefts.values()) {
+                        unicastProcessor.onComplete();
+                    }
+                    this.lefts.clear();
+                    this.rights.clear();
+                    this.disposables.dispose();
+                    subscriber.onComplete();
+                    return;
+                } else if (z2) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
-                    boolean z = this.active.get() == 0;
-                    Integer num = (Integer) spscLinkedArrayQueue.poll();
-                    boolean z2 = num == null;
-                    if (z && z2) {
-                        for (UnicastProcessor<TRight> unicastProcessor : this.lefts.values()) {
-                            unicastProcessor.onComplete();
-                        }
-                        this.lefts.clear();
-                        this.rights.clear();
-                        this.disposables.dispose();
-                        subscriber.onComplete();
-                        return;
-                    } else if (z2) {
-                        i = addAndGet(-i);
-                        if (i == 0) {
+                } else {
+                    Object poll = spscLinkedArrayQueue.poll();
+                    if (num == LEFT_VALUE) {
+                        UnicastProcessor create = UnicastProcessor.create();
+                        int i2 = this.leftIndex;
+                        this.leftIndex = i2 + 1;
+                        this.lefts.put(Integer.valueOf(i2), create);
+                        try {
+                            Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
+                            LeftRightEndSubscriber leftRightEndSubscriber = new LeftRightEndSubscriber(this, true, i2);
+                            this.disposables.add(leftRightEndSubscriber);
+                            publisher.subscribe(leftRightEndSubscriber);
+                            if (((Throwable) this.error.get()) != null) {
+                                spscLinkedArrayQueue.clear();
+                                cancelAll();
+                                errorAll(subscriber);
+                                return;
+                            }
+                            try {
+                                Object requireNonNull = ObjectHelper.requireNonNull(this.resultSelector.apply(poll, create), "The resultSelector returned a null value");
+                                if (this.requested.get() != 0) {
+                                    subscriber.onNext(requireNonNull);
+                                    BackpressureHelper.produced(this.requested, 1L);
+                                    for (Object obj : this.rights.values()) {
+                                        create.onNext(obj);
+                                    }
+                                } else {
+                                    fail(new MissingBackpressureException("Could not emit value due to lack of requests"), subscriber, spscLinkedArrayQueue);
+                                    return;
+                                }
+                            } catch (Throwable th) {
+                                fail(th, subscriber, spscLinkedArrayQueue);
+                                return;
+                            }
+                        } catch (Throwable th2) {
+                            fail(th2, subscriber, spscLinkedArrayQueue);
                             return;
                         }
-                    } else {
-                        Object poll = spscLinkedArrayQueue.poll();
-                        if (num == LEFT_VALUE) {
-                            UnicastProcessor<TRight> create = UnicastProcessor.create();
-                            int i2 = this.leftIndex;
-                            this.leftIndex = i2 + 1;
-                            this.lefts.put(Integer.valueOf(i2), create);
-                            try {
-                                Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
-                                LeftRightEndSubscriber leftRightEndSubscriber = new LeftRightEndSubscriber(this, true, i2);
-                                this.disposables.add(leftRightEndSubscriber);
-                                publisher.subscribe(leftRightEndSubscriber);
-                                if (this.error.get() != null) {
-                                    spscLinkedArrayQueue.clear();
-                                    cancelAll();
-                                    errorAll(subscriber);
-                                    return;
-                                }
-                                try {
-                                    Object obj = (Object) ObjectHelper.requireNonNull(this.resultSelector.apply(poll, create), "The resultSelector returned a null value");
-                                    if (this.requested.get() != 0) {
-                                        subscriber.onNext(obj);
-                                        BackpressureHelper.produced(this.requested, 1L);
-                                        for (TRight tright : this.rights.values()) {
-                                            create.onNext(tright);
-                                        }
-                                    } else {
-                                        fail(new MissingBackpressureException("Could not emit value due to lack of requests"), subscriber, spscLinkedArrayQueue);
-                                        return;
-                                    }
-                                } catch (Throwable th) {
-                                    fail(th, subscriber, spscLinkedArrayQueue);
-                                    return;
-                                }
-                            } catch (Throwable th2) {
-                                fail(th2, subscriber, spscLinkedArrayQueue);
+                    } else if (num == RIGHT_VALUE) {
+                        int i3 = this.rightIndex;
+                        this.rightIndex = i3 + 1;
+                        this.rights.put(Integer.valueOf(i3), poll);
+                        try {
+                            Publisher publisher2 = (Publisher) ObjectHelper.requireNonNull(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
+                            LeftRightEndSubscriber leftRightEndSubscriber2 = new LeftRightEndSubscriber(this, false, i3);
+                            this.disposables.add(leftRightEndSubscriber2);
+                            publisher2.subscribe(leftRightEndSubscriber2);
+                            if (((Throwable) this.error.get()) != null) {
+                                spscLinkedArrayQueue.clear();
+                                cancelAll();
+                                errorAll(subscriber);
                                 return;
                             }
-                        } else if (num == RIGHT_VALUE) {
-                            int i3 = this.rightIndex;
-                            this.rightIndex = i3 + 1;
-                            this.rights.put(Integer.valueOf(i3), poll);
-                            try {
-                                Publisher publisher2 = (Publisher) ObjectHelper.requireNonNull(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
-                                LeftRightEndSubscriber leftRightEndSubscriber2 = new LeftRightEndSubscriber(this, false, i3);
-                                this.disposables.add(leftRightEndSubscriber2);
-                                publisher2.subscribe(leftRightEndSubscriber2);
-                                if (this.error.get() != null) {
-                                    spscLinkedArrayQueue.clear();
-                                    cancelAll();
-                                    errorAll(subscriber);
-                                    return;
-                                }
-                                for (UnicastProcessor<TRight> unicastProcessor2 : this.lefts.values()) {
-                                    unicastProcessor2.onNext(poll);
-                                }
-                            } catch (Throwable th3) {
-                                fail(th3, subscriber, spscLinkedArrayQueue);
-                                return;
+                            for (UnicastProcessor unicastProcessor2 : this.lefts.values()) {
+                                unicastProcessor2.onNext(poll);
                             }
-                        } else if (num == LEFT_CLOSE) {
-                            LeftRightEndSubscriber leftRightEndSubscriber3 = (LeftRightEndSubscriber) poll;
-                            UnicastProcessor<TRight> remove = this.lefts.remove(Integer.valueOf(leftRightEndSubscriber3.index));
-                            this.disposables.remove(leftRightEndSubscriber3);
-                            if (remove != null) {
-                                remove.onComplete();
-                            }
-                        } else if (num == RIGHT_CLOSE) {
-                            LeftRightEndSubscriber leftRightEndSubscriber4 = (LeftRightEndSubscriber) poll;
-                            this.rights.remove(Integer.valueOf(leftRightEndSubscriber4.index));
-                            this.disposables.remove(leftRightEndSubscriber4);
+                        } catch (Throwable th3) {
+                            fail(th3, subscriber, spscLinkedArrayQueue);
+                            return;
                         }
+                    } else if (num == LEFT_CLOSE) {
+                        LeftRightEndSubscriber leftRightEndSubscriber3 = (LeftRightEndSubscriber) poll;
+                        UnicastProcessor unicastProcessor3 = (UnicastProcessor) this.lefts.remove(Integer.valueOf(leftRightEndSubscriber3.index));
+                        this.disposables.remove(leftRightEndSubscriber3);
+                        if (unicastProcessor3 != null) {
+                            unicastProcessor3.onComplete();
+                        }
+                    } else if (num == RIGHT_CLOSE) {
+                        LeftRightEndSubscriber leftRightEndSubscriber4 = (LeftRightEndSubscriber) poll;
+                        this.rights.remove(Integer.valueOf(leftRightEndSubscriber4.index));
+                        this.disposables.remove(leftRightEndSubscriber4);
                     }
                 }
-                spscLinkedArrayQueue.clear();
             }
+            spscLinkedArrayQueue.clear();
         }
 
-        public void errorAll(Subscriber<?> subscriber) {
+        public void errorAll(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, subscriber) == null) {
                 Throwable terminate = ExceptionHelper.terminate(this.error);
-                for (UnicastProcessor<TRight> unicastProcessor : this.lefts.values()) {
+                for (UnicastProcessor unicastProcessor : this.lefts.values()) {
                     unicastProcessor.onError(terminate);
                 }
                 this.lefts.clear();
@@ -256,7 +278,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             }
         }
 
-        public void fail(Throwable th, Subscriber<?> subscriber, SimpleQueue<?> simpleQueue) {
+        public void fail(Throwable th, Subscriber subscriber, SimpleQueue simpleQueue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, th, subscriber, simpleQueue) == null) {
                 Exceptions.throwIfFatal(th);
@@ -269,10 +291,35 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
 
         @Override // io.reactivex.internal.operators.flowable.FlowableGroupJoin.JoinSupport
         public void innerClose(boolean z, LeftRightEndSubscriber leftRightEndSubscriber) {
+            Integer num;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048581, this, z, leftRightEndSubscriber) == null) {
                 synchronized (this) {
-                    this.queue.offer(z ? LEFT_CLOSE : RIGHT_CLOSE, leftRightEndSubscriber);
+                    SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                    if (z) {
+                        num = LEFT_CLOSE;
+                    } else {
+                        num = RIGHT_CLOSE;
+                    }
+                    spscLinkedArrayQueue.offer(num, leftRightEndSubscriber);
+                }
+                drain();
+            }
+        }
+
+        @Override // io.reactivex.internal.operators.flowable.FlowableGroupJoin.JoinSupport
+        public void innerValue(boolean z, Object obj) {
+            Integer num;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048585, this, z, obj) == null) {
+                synchronized (this) {
+                    SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                    if (z) {
+                        num = LEFT_VALUE;
+                    } else {
+                        num = RIGHT_VALUE;
+                    }
+                    spscLinkedArrayQueue.offer(num, obj);
                 }
                 drain();
             }
@@ -313,17 +360,6 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             }
         }
 
-        @Override // io.reactivex.internal.operators.flowable.FlowableGroupJoin.JoinSupport
-        public void innerValue(boolean z, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048585, this, z, obj) == null) {
-                synchronized (this) {
-                    this.queue.offer(z ? LEFT_VALUE : RIGHT_VALUE, obj);
-                }
-                drain();
-            }
-        }
-
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
             Interceptable interceptable = $ic;
@@ -334,20 +370,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
     }
 
     /* loaded from: classes8.dex */
-    public interface JoinSupport {
-        void innerClose(boolean z, LeftRightEndSubscriber leftRightEndSubscriber);
-
-        void innerCloseError(Throwable th);
-
-        void innerComplete(LeftRightSubscriber leftRightSubscriber);
-
-        void innerError(Throwable th);
-
-        void innerValue(boolean z, Object obj);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class LeftRightEndSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object>, Disposable {
+    public final class LeftRightEndSubscriber extends AtomicReference implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1883890389173668373L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -387,7 +410,10 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SubscriptionHelper.isCancelled(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return SubscriptionHelper.isCancelled((Subscription) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -424,7 +450,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
     }
 
     /* loaded from: classes8.dex */
-    public static final class LeftRightSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object>, Disposable {
+    public final class LeftRightSubscriber extends AtomicReference implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1883890389173668373L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -462,7 +488,10 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SubscriptionHelper.isCancelled(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return SubscriptionHelper.isCancelled((Subscription) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -499,7 +528,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableGroupJoin(Flowable<TLeft> flowable, Publisher<? extends TRight> publisher, Function<? super TLeft, ? extends Publisher<TLeftEnd>> function, Function<? super TRight, ? extends Publisher<TRightEnd>> function2, BiFunction<? super TLeft, ? super Flowable<TRight>, ? extends R> biFunction) {
+    public FlowableGroupJoin(Flowable flowable, Publisher publisher, Function function, Function function2, BiFunction biFunction) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -523,7 +552,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             GroupJoinSubscription groupJoinSubscription = new GroupJoinSubscription(subscriber, this.leftEnd, this.rightEnd, this.resultSelector);

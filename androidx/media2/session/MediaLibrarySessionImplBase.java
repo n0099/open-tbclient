@@ -7,8 +7,6 @@ import android.os.RemoteException;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.NonNull;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
@@ -33,7 +31,6 @@ import java.util.concurrent.Executor;
 public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("mLock")
     public final ArrayMap<MediaSession.ControllerCb, Set<String>> mSubscriptions;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,9 +72,45 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, libraryResult)) == null) {
             LibraryResult ensureNonNullResult = ensureNonNullResult(libraryResult);
-            return (ensureNonNullResult.getResultCode() != 0 || isValidItem(ensureNonNullResult.getMediaItem())) ? ensureNonNullResult : new LibraryResult(-1);
+            if (ensureNonNullResult.getResultCode() == 0 && !isValidItem(ensureNonNullResult.getMediaItem())) {
+                return new LibraryResult(-1);
+            }
+            return ensureNonNullResult;
         }
         return (LibraryResult) invokeL.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaSessionImplBase
+    public void dispatchRemoteControllerTaskWithoutReturn(MediaSessionImplBase.RemoteControllerTask remoteControllerTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteControllerTask) == null) {
+            super.dispatchRemoteControllerTaskWithoutReturn(remoteControllerTask);
+            MediaLibraryServiceLegacyStub legacyBrowserService = getLegacyBrowserService();
+            if (legacyBrowserService != null) {
+                try {
+                    remoteControllerTask.run(legacyBrowserService.getBrowserLegacyCbForBroadcast(), 0);
+                } catch (RemoteException e) {
+                    Log.e(MediaSessionImplBase.TAG, "Exception in using media1 API", e);
+                }
+            }
+        }
+    }
+
+    @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
+    public boolean isConnected(MediaSession.ControllerInfo controllerInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, controllerInfo)) == null) {
+            if (super.isConnected(controllerInfo)) {
+                return true;
+            }
+            MediaLibraryServiceLegacyStub legacyBrowserService = getLegacyBrowserService();
+            if (legacyBrowserService != null) {
+                return legacyBrowserService.getConnectedControllersManager().isConnected(controllerInfo);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     private LibraryResult ensureNonNullResultWithValidList(LibraryResult libraryResult, int i) {
@@ -135,91 +168,14 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     public MediaBrowserServiceCompat createLegacyBrowserService(Context context, SessionToken sessionToken, MediaSessionCompat.Token token) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, sessionToken, token)) == null) ? new MediaLibraryServiceLegacyStub(context, this, token) : (MediaBrowserServiceCompat) invokeLLL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaSessionImplBase
-    public void dispatchRemoteControllerTaskWithoutReturn(@NonNull MediaSessionImplBase.RemoteControllerTask remoteControllerTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteControllerTask) == null) {
-            super.dispatchRemoteControllerTaskWithoutReturn(remoteControllerTask);
-            MediaLibraryServiceLegacyStub legacyBrowserService = getLegacyBrowserService();
-            if (legacyBrowserService != null) {
-                try {
-                    remoteControllerTask.run(legacyBrowserService.getBrowserLegacyCbForBroadcast(), 0);
-                } catch (RemoteException e) {
-                    Log.e(MediaSessionImplBase.TAG, "Exception in using media1 API", e);
-                }
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, sessionToken, token)) == null) {
+            return new MediaLibraryServiceLegacyStub(context, this, token);
         }
-    }
-
-    public void dumpSubscription() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && MediaSessionImplBase.DEBUG) {
-            synchronized (this.mLock) {
-                Log.d(MediaSessionImplBase.TAG, "Dumping subscription, controller sz=" + this.mSubscriptions.size());
-                for (int i = 0; i < this.mSubscriptions.size(); i++) {
-                    Log.d(MediaSessionImplBase.TAG, "  controller " + this.mSubscriptions.valueAt(i));
-                    Iterator<String> it = this.mSubscriptions.valueAt(i).iterator();
-                    while (it.hasNext()) {
-                        Log.d(MediaSessionImplBase.TAG, "  - " + it.next());
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
-    @NonNull
-    public List<MediaSession.ControllerInfo> getConnectedControllers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<MediaSession.ControllerInfo> connectedControllers = super.getConnectedControllers();
-            MediaLibraryServiceLegacyStub legacyBrowserService = getLegacyBrowserService();
-            if (legacyBrowserService != null) {
-                connectedControllers.addAll(legacyBrowserService.getConnectedControllersManager().getConnectedControllers());
-            }
-            return connectedControllers;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
-    public boolean isConnected(@NonNull MediaSession.ControllerInfo controllerInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, controllerInfo)) == null) {
-            if (super.isConnected(controllerInfo)) {
-                return true;
-            }
-            MediaLibraryServiceLegacyStub legacyBrowserService = getLegacyBrowserService();
-            if (legacyBrowserService != null) {
-                return legacyBrowserService.getConnectedControllersManager().isConnected(controllerInfo);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean isSubscribed(MediaSession.ControllerCb controllerCb, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, controllerCb, str)) == null) {
-            synchronized (this.mLock) {
-                Set<String> set = this.mSubscriptions.get(controllerCb);
-                if (set != null && set.contains(str)) {
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (MediaBrowserServiceCompat) invokeLLL.objValue;
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public void notifyChildrenChanged(@NonNull String str, int i, MediaLibraryService.LibraryParams libraryParams) {
+    public void notifyChildrenChanged(String str, int i, MediaLibraryService.LibraryParams libraryParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048589, this, str, i, libraryParams) == null) {
             dispatchRemoteControllerTaskWithoutReturn(new MediaSessionImplBase.RemoteControllerTask(this, str, i, libraryParams) { // from class: androidx.media2.session.MediaLibrarySessionImplBase.1
@@ -263,110 +219,117 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public void notifySearchResultChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, MediaLibraryService.LibraryParams libraryParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048590, this, controllerInfo, str, i, libraryParams) == null) {
-            dispatchRemoteControllerTaskWithoutReturn(controllerInfo, new MediaSessionImplBase.RemoteControllerTask(this, str, i, libraryParams) { // from class: androidx.media2.session.MediaLibrarySessionImplBase.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaLibrarySessionImplBase this$0;
-                public final /* synthetic */ int val$itemCount;
-                public final /* synthetic */ MediaLibraryService.LibraryParams val$params;
-                public final /* synthetic */ String val$query;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Integer.valueOf(i), libraryParams};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$query = str;
-                    this.val$itemCount = i;
-                    this.val$params = libraryParams;
-                }
-
-                @Override // androidx.media2.session.MediaSessionImplBase.RemoteControllerTask
-                public void run(MediaSession.ControllerCb controllerCb, int i2) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, controllerCb, i2) == null) {
-                        controllerCb.onSearchResultChanged(i2, this.val$query, this.val$itemCount, this.val$params);
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public LibraryResult onGetChildrenOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) ? ensureNonNullResultWithValidList(getCallback().onGetChildren(getInstance(), controllerInfo, str, i, i2, libraryParams), i2) : (LibraryResult) invokeCommon.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public LibraryResult onGetItemOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, controllerInfo, str)) == null) ? ensureNonNullResultWithValidItem(getCallback().onGetItem(getInstance(), controllerInfo, str)) : (LibraryResult) invokeLL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public LibraryResult onGetLibraryRootOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, MediaLibraryService.LibraryParams libraryParams) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, controllerInfo, libraryParams)) == null) ? ensureNonNullResultWithValidItem(getCallback().onGetLibraryRoot(getInstance(), controllerInfo, libraryParams)) : (LibraryResult) invokeLL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public LibraryResult onGetSearchResultOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) ? ensureNonNullResultWithValidList(getCallback().onGetSearchResult(getInstance(), controllerInfo, str, i, i2, libraryParams), i2) : (LibraryResult) invokeCommon.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public int onSearchOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, MediaLibraryService.LibraryParams libraryParams) {
+    public int onSearchOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, controllerInfo, str, libraryParams)) == null) ? getCallback().onSearch(getInstance(), controllerInfo, str, libraryParams) : invokeLLL.intValue;
-    }
-
-    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public int onSubscribeOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, MediaLibraryService.LibraryParams libraryParams) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, controllerInfo, str, libraryParams)) == null) {
-            synchronized (this.mLock) {
-                Set<String> set = this.mSubscriptions.get(controllerInfo.getControllerCb());
-                if (set == null) {
-                    set = new HashSet<>();
-                    this.mSubscriptions.put(controllerInfo.getControllerCb(), set);
-                }
-                set.add(str);
-            }
-            int onSubscribe = getCallback().onSubscribe(getInstance(), controllerInfo, str, libraryParams);
-            if (onSubscribe != 0) {
-                synchronized (this.mLock) {
-                    this.mSubscriptions.remove(controllerInfo.getControllerCb());
-                }
-            }
-            return onSubscribe;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, controllerInfo, str, libraryParams)) == null) {
+            return getCallback().onSearch(getInstance(), controllerInfo, str, libraryParams);
         }
         return invokeLLL.intValue;
     }
 
+    public void dumpSubscription() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !MediaSessionImplBase.DEBUG) {
+            return;
+        }
+        synchronized (this.mLock) {
+            Log.d(MediaSessionImplBase.TAG, "Dumping subscription, controller sz=" + this.mSubscriptions.size());
+            for (int i = 0; i < this.mSubscriptions.size(); i++) {
+                Log.d(MediaSessionImplBase.TAG, "  controller " + this.mSubscriptions.valueAt(i));
+                Iterator<String> it = this.mSubscriptions.valueAt(i).iterator();
+                while (it.hasNext()) {
+                    Log.d(MediaSessionImplBase.TAG, "  - " + it.next());
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
+    public MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback getCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback) super.getCallback();
+        }
+        return (MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback) invokeV.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
+    public List<MediaSession.ControllerInfo> getConnectedControllers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List<MediaSession.ControllerInfo> connectedControllers = super.getConnectedControllers();
+            MediaLibraryServiceLegacyStub legacyBrowserService = getLegacyBrowserService();
+            if (legacyBrowserService != null) {
+                connectedControllers.addAll(legacyBrowserService.getConnectedControllersManager().getConnectedControllers());
+            }
+            return connectedControllers;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
+    public MediaLibraryService.MediaLibrarySession getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return (MediaLibraryService.MediaLibrarySession) super.getInstance();
+        }
+        return (MediaLibraryService.MediaLibrarySession) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.media2.session.MediaSessionImplBase
+    public MediaLibraryServiceLegacyStub getLegacyBrowserService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return (MediaLibraryServiceLegacyStub) super.getLegacyBrowserService();
+        }
+        return (MediaLibraryServiceLegacyStub) invokeV.objValue;
+    }
+
+    public boolean isSubscribed(MediaSession.ControllerCb controllerCb, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, controllerCb, str)) == null) {
+            synchronized (this.mLock) {
+                Set<String> set = this.mSubscriptions.get(controllerCb);
+                if (set != null && set.contains(str)) {
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public int onUnsubscribeOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str) {
+    public LibraryResult onGetItemOnExecutor(MediaSession.ControllerInfo controllerInfo, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, controllerInfo, str)) == null) {
+            return ensureNonNullResultWithValidItem(getCallback().onGetItem(getInstance(), controllerInfo, str));
+        }
+        return (LibraryResult) invokeLL.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
+    public LibraryResult onGetLibraryRootOnExecutor(MediaSession.ControllerInfo controllerInfo, MediaLibraryService.LibraryParams libraryParams) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, controllerInfo, libraryParams)) == null) {
+            return ensureNonNullResultWithValidItem(getCallback().onGetLibraryRoot(getInstance(), controllerInfo, libraryParams));
+        }
+        return (LibraryResult) invokeLL.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
+    public int onUnsubscribeOnExecutor(MediaSession.ControllerInfo controllerInfo, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, controllerInfo, str)) == null) {
@@ -379,33 +342,8 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
         return invokeLL.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
-    public MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback getCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback) super.getCallback() : (MediaLibraryService.MediaLibrarySession.MediaLibrarySessionCallback) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
-    @NonNull
-    public MediaLibraryService.MediaLibrarySession getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (MediaLibraryService.MediaLibrarySession) super.getInstance() : (MediaLibraryService.MediaLibrarySession) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.media2.session.MediaSessionImplBase
-    public MediaLibraryServiceLegacyStub getLegacyBrowserService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (MediaLibraryServiceLegacyStub) super.getLegacyBrowserService() : (MediaLibraryServiceLegacyStub) invokeV.objValue;
-    }
-
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public void notifyChildrenChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, MediaLibraryService.LibraryParams libraryParams) {
+    public void notifyChildrenChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, MediaLibraryService.LibraryParams libraryParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048588, this, controllerInfo, str, i, libraryParams) == null) {
             dispatchRemoteControllerTaskWithoutReturn(controllerInfo, new MediaSessionImplBase.RemoteControllerTask(this, str, controllerInfo, i, libraryParams) { // from class: androidx.media2.session.MediaLibrarySessionImplBase.2
@@ -456,5 +394,93 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
                 }
             });
         }
+    }
+
+    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
+    public void notifySearchResultChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, MediaLibraryService.LibraryParams libraryParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048590, this, controllerInfo, str, i, libraryParams) == null) {
+            dispatchRemoteControllerTaskWithoutReturn(controllerInfo, new MediaSessionImplBase.RemoteControllerTask(this, str, i, libraryParams) { // from class: androidx.media2.session.MediaLibrarySessionImplBase.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MediaLibrarySessionImplBase this$0;
+                public final /* synthetic */ int val$itemCount;
+                public final /* synthetic */ MediaLibraryService.LibraryParams val$params;
+                public final /* synthetic */ String val$query;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, Integer.valueOf(i), libraryParams};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$query = str;
+                    this.val$itemCount = i;
+                    this.val$params = libraryParams;
+                }
+
+                @Override // androidx.media2.session.MediaSessionImplBase.RemoteControllerTask
+                public void run(MediaSession.ControllerCb controllerCb, int i2) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, controllerCb, i2) == null) {
+                        controllerCb.onSearchResultChanged(i2, this.val$query, this.val$itemCount, this.val$params);
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
+    public LibraryResult onGetChildrenOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
+            return ensureNonNullResultWithValidList(getCallback().onGetChildren(getInstance(), controllerInfo, str, i, i2, libraryParams), i2);
+        }
+        return (LibraryResult) invokeCommon.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
+    public LibraryResult onGetSearchResultOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
+            return ensureNonNullResultWithValidList(getCallback().onGetSearchResult(getInstance(), controllerInfo, str, i, i2, libraryParams), i2);
+        }
+        return (LibraryResult) invokeCommon.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
+    public int onSubscribeOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, MediaLibraryService.LibraryParams libraryParams) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, controllerInfo, str, libraryParams)) == null) {
+            synchronized (this.mLock) {
+                Set<String> set = this.mSubscriptions.get(controllerInfo.getControllerCb());
+                if (set == null) {
+                    set = new HashSet<>();
+                    this.mSubscriptions.put(controllerInfo.getControllerCb(), set);
+                }
+                set.add(str);
+            }
+            int onSubscribe = getCallback().onSubscribe(getInstance(), controllerInfo, str, libraryParams);
+            if (onSubscribe != 0) {
+                synchronized (this.mLock) {
+                    this.mSubscriptions.remove(controllerInfo.getControllerCb());
+                }
+            }
+            return onSubscribe;
+        }
+        return invokeLLL.intValue;
     }
 }

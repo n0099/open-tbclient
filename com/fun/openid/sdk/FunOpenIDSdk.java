@@ -55,25 +55,6 @@ public class FunOpenIDSdk {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? DeviceUtils.getMD5(str) : (String) invokeL.objValue;
     }
 
-    public static synchronized void getOaid(Context context, OnGetOaidListener onGetOaidListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, onGetOaidListener) == null) {
-            synchronized (FunOpenIDSdk.class) {
-                if (context == null) {
-                    if (isLogEnabled()) {
-                        Log.e(TAG, "getOaid context is null !!!");
-                    }
-                } else if (onGetOaidListener != null) {
-                    j.a.execute(new e(context, onGetOaidListener));
-                } else {
-                    if (isLogEnabled()) {
-                        Log.e(TAG, "getOaid onGetOaidListener is null !!!");
-                    }
-                }
-            }
-        }
-    }
-
     public static String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,6 +84,25 @@ public class FunOpenIDSdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
             vivoAppId = str;
+        }
+    }
+
+    public static synchronized void getOaid(Context context, OnGetOaidListener onGetOaidListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, onGetOaidListener) == null) {
+            synchronized (FunOpenIDSdk.class) {
+                if (context == null) {
+                    if (isLogEnabled()) {
+                        Log.e(TAG, "getOaid context is null !!!");
+                    }
+                } else if (onGetOaidListener == null) {
+                    if (isLogEnabled()) {
+                        Log.e(TAG, "getOaid onGetOaidListener is null !!!");
+                    }
+                } else {
+                    j.a.execute(new e(context, onGetOaidListener));
+                }
+            }
         }
     }
 }

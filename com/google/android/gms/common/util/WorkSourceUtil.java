@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Process;
 import android.os.WorkSource;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,13 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.wrappers.Wrappers;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class WorkSourceUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -35,6 +32,20 @@ public class WorkSourceUtil {
     public static final Method zzh;
     public static final Method zzi;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public WorkSourceUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
     /* JADX WARN: Can't wrap try/catch for region: R(27:1|(4:59|(1:61)|62|(2:64|65))|3|4|5|6|(21:51|52|9|10|11|12|13|14|15|(12:43|44|18|(9:38|39|21|(6:33|34|24|(2:29|30)|26|27)|23|24|(0)|26|27)|20|21|(0)|23|24|(0)|26|27)|17|18|(0)|20|21|(0)|23|24|(0)|26|27)|8|9|10|11|12|13|14|15|(0)|17|18|(0)|20|21|(0)|23|24|(0)|26|27) */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0045, code lost:
@@ -165,22 +176,7 @@ public class WorkSourceUtil {
         zzi = method6;
     }
 
-    public WorkSourceUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @KeepForSdk
-    public static void add(@NonNull WorkSource workSource, int i, @NonNull String str) {
+    public static void add(WorkSource workSource, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65538, null, workSource, i, str) == null) {
             Method method = zzc;
@@ -207,17 +203,22 @@ public class WorkSourceUtil {
         }
     }
 
-    @NonNull
-    @KeepForSdk
-    public static WorkSource fromPackage(@NonNull Context context, @NonNull String str) {
+    public static WorkSource fromPackage(Context context, String str) {
         InterceptResult invokeLL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             if (context != null && context.getPackageManager() != null && str != null) {
                 try {
                     ApplicationInfo applicationInfo = Wrappers.packageManager(context).getApplicationInfo(str, 0);
                     if (applicationInfo == null) {
-                        Log.e("WorkSourceUtil", str.length() != 0 ? "Could not get applicationInfo from package: ".concat(str) : new String("Could not get applicationInfo from package: "));
+                        if (str.length() != 0) {
+                            str3 = "Could not get applicationInfo from package: ".concat(str);
+                        } else {
+                            str3 = new String("Could not get applicationInfo from package: ");
+                        }
+                        Log.e("WorkSourceUtil", str3);
                         return null;
                     }
                     int i = applicationInfo.uid;
@@ -225,7 +226,12 @@ public class WorkSourceUtil {
                     add(workSource, i, str);
                     return workSource;
                 } catch (PackageManager.NameNotFoundException unused) {
-                    Log.e("WorkSourceUtil", str.length() != 0 ? "Could not find package: ".concat(str) : new String("Could not find package: "));
+                    if (str.length() != 0) {
+                        str2 = "Could not find package: ".concat(str);
+                    } else {
+                        str2 = new String("Could not find package: ");
+                    }
+                    Log.e("WorkSourceUtil", str2);
                 }
             }
             return null;
@@ -233,9 +239,7 @@ public class WorkSourceUtil {
         return (WorkSource) invokeLL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static WorkSource fromPackageAndModuleExperimentalPi(@NonNull Context context, @NonNull String str, @NonNull String str2) {
+    public static WorkSource fromPackageAndModuleExperimentalPi(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         String str3;
         String str4;
@@ -289,14 +293,17 @@ public class WorkSourceUtil {
         return (WorkSource) invokeLLL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static List<String> getNames(@NonNull WorkSource workSource) {
+    public static List getNames(WorkSource workSource) {
         InterceptResult invokeL;
+        int zza2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, workSource)) == null) {
             ArrayList arrayList = new ArrayList();
-            int zza2 = workSource == null ? 0 : zza(workSource);
+            if (workSource == null) {
+                zza2 = 0;
+            } else {
+                zza2 = zza(workSource);
+            }
             if (zza2 != 0) {
                 for (int i = 0; i < zza2; i++) {
                     Method method = zzf;
@@ -319,34 +326,19 @@ public class WorkSourceUtil {
         return (List) invokeL.objValue;
     }
 
-    @KeepForSdk
-    public static boolean hasWorkSourcePermission(@NonNull Context context) {
+    public static boolean hasWorkSourcePermission(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? (context == null || context.getPackageManager() == null || Wrappers.packageManager(context).checkPermission("android.permission.UPDATE_DEVICE_STATS", context.getPackageName()) != 0) ? false : true : invokeL.booleanValue;
-    }
-
-    @KeepForSdk
-    public static boolean isEmpty(@NonNull WorkSource workSource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, workSource)) == null) {
-            Method method = zzi;
-            if (method != null) {
-                try {
-                    Object invoke = method.invoke(workSource, new Object[0]);
-                    Preconditions.checkNotNull(invoke);
-                    return ((Boolean) invoke).booleanValue();
-                } catch (Exception e) {
-                    Log.e("WorkSourceUtil", "Unable to check WorkSource emptiness", e);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (context == null || context.getPackageManager() == null || Wrappers.packageManager(context).checkPermission("android.permission.UPDATE_DEVICE_STATS", context.getPackageName()) != 0) {
+                return false;
             }
-            return zza(workSource) == 0;
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static int zza(@NonNull WorkSource workSource) {
+    public static int zza(WorkSource workSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, workSource)) == null) {
@@ -363,5 +355,27 @@ public class WorkSourceUtil {
             return 0;
         }
         return invokeL.intValue;
+    }
+
+    public static boolean isEmpty(WorkSource workSource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, workSource)) == null) {
+            Method method = zzi;
+            if (method != null) {
+                try {
+                    Object invoke = method.invoke(workSource, new Object[0]);
+                    Preconditions.checkNotNull(invoke);
+                    return ((Boolean) invoke).booleanValue();
+                } catch (Exception e) {
+                    Log.e("WorkSourceUtil", "Unable to check WorkSource emptiness", e);
+                }
+            }
+            if (zza(workSource) != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

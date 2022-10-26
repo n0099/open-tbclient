@@ -11,10 +11,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel;
-import com.baidu.tieba.g95;
-import com.baidu.tieba.pv5;
-import com.baidu.tieba.qv5;
-import com.baidu.tieba.yx4;
+import com.baidu.tieba.ey4;
+import com.baidu.tieba.k95;
+import com.baidu.tieba.xv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,15 +25,15 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaRecentHistoryModel a;
-    public qv5 b;
+    public xv5 b;
     public int c;
-    public g95 d;
-    public yx4.g e;
+    public k95 d;
+    public ey4.g e;
     public BdListView.p f;
     public AlaRecentHistoryModel.b g;
 
     /* loaded from: classes3.dex */
-    public class a implements yx4.g {
+    public class a implements ey4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaRecentHistoryFragment a;
@@ -57,13 +56,12 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             this.a = alaRecentHistoryFragment;
         }
 
-        @Override // com.baidu.tieba.yx4.g
+        @Override // com.baidu.tieba.ey4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.a == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.a != null) {
+                this.a.a.refresh();
             }
-            this.a.a.refresh();
         }
     }
 
@@ -94,10 +92,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.b();
             }
-            this.a.a.b();
         }
     }
 
@@ -126,20 +123,25 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.b
-        public void a(boolean z, List<pv5> list) {
+        public void a(boolean z, List list) {
+            String string;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
                 this.a.b.e();
                 AlaRecentHistoryFragment alaRecentHistoryFragment = this.a;
                 alaRecentHistoryFragment.hideLoadingView(alaRecentHistoryFragment.b.g());
                 this.a.b.o(list, z);
-                if (!ListUtils.isEmpty(list)) {
-                    this.a.x1(false, null, null);
+                if (ListUtils.isEmpty(list)) {
+                    if (this.a.c == 0) {
+                        string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11fd);
+                    } else {
+                        string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11fe);
+                    }
+                    AlaRecentHistoryFragment alaRecentHistoryFragment2 = this.a;
+                    alaRecentHistoryFragment2.y1(true, alaRecentHistoryFragment2.b.g(), string);
                     return;
                 }
-                String string = this.a.c == 0 ? this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11e9) : this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11ea);
-                AlaRecentHistoryFragment alaRecentHistoryFragment2 = this.a;
-                alaRecentHistoryFragment2.x1(true, alaRecentHistoryFragment2.b.g(), string);
+                this.a.y1(false, null, null);
             }
         }
 
@@ -149,7 +151,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
                 this.a.b.e();
                 if (z) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f11f3);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1207);
                 } else {
                     AlaRecentHistoryFragment alaRecentHistoryFragment = this.a;
                     alaRecentHistoryFragment.showNetRefreshView(alaRecentHistoryFragment.b.g(), str, false);
@@ -177,6 +179,20 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         this.g = new c(this);
     }
 
+    public final void w1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            hideNetRefreshView(this.b.g());
+            if (ListUtils.getCount(this.a.getData()) == 0) {
+                showLoadingView(this.b.g());
+            }
+            AlaRecentHistoryModel alaRecentHistoryModel = this.a;
+            if (alaRecentHistoryModel != null) {
+                alaRecentHistoryModel.refresh();
+            }
+        }
+    }
+
     public static AlaRecentHistoryFragment v1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -195,9 +211,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            qv5 qv5Var = this.b;
-            if (qv5Var != null) {
-                qv5Var.k(i);
+            xv5 xv5Var = this.b;
+            if (xv5Var != null) {
+                xv5Var.k(i);
             }
         }
     }
@@ -213,9 +229,10 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             }
             int i = arguments.getInt("key_type");
             this.c = i;
-            if (i < 0 || i > 1) {
-                getPageContext().getPageActivity().finish();
+            if (i >= 0 && i <= 1) {
+                return;
             }
+            getPageContext().getPageActivity().finish();
         }
     }
 
@@ -225,9 +242,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = new AlaRecentHistoryModel(getPageContext(), this.c, this.g);
-            qv5 qv5Var = new qv5(getPageContext(), this.c);
-            this.b = qv5Var;
-            qv5Var.p(this.e);
+            xv5 xv5Var = new xv5(getPageContext(), this.c);
+            this.b = xv5Var;
+            xv5Var.p(this.e);
             this.b.r(this.f);
             w1();
             if (this.c == 0) {
@@ -247,9 +264,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             if (alaRecentHistoryModel != null) {
                 alaRecentHistoryModel.onDestroy();
             }
-            qv5 qv5Var = this.b;
-            if (qv5Var != null) {
-                qv5Var.l();
+            xv5 xv5Var = this.b;
+            if (xv5Var != null) {
+                xv5Var.l();
             }
         }
     }
@@ -262,25 +279,11 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
     }
 
-    public final void w1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hideNetRefreshView(this.b.g());
-            if (ListUtils.getCount(this.a.getData()) == 0) {
-                showLoadingView(this.b.g());
-            }
-            AlaRecentHistoryModel alaRecentHistoryModel = this.a;
-            if (alaRecentHistoryModel != null) {
-                alaRecentHistoryModel.refresh();
-            }
-        }
-    }
-
-    public final void x1(boolean z, ViewGroup viewGroup, String str) {
+    public final void y1(boolean z, ViewGroup viewGroup, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), viewGroup, str}) == null) {
             if (this.d == null) {
-                this.d = new g95(getPageContext().getPageActivity(), null);
+                this.d = new k95(getPageContext().getPageActivity(), null);
             }
             if (z) {
                 this.d.attachView(viewGroup);

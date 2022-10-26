@@ -1,27 +1,21 @@
 package com.google.android.gms.common.stats;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.ReflectedParcelable;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-@KeepForSdk
 @Deprecated
 /* loaded from: classes7.dex */
 public abstract class StatsEvent extends AbstractSafeParcelable implements ReflectedParcelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @KeepForSdk
     /* loaded from: classes7.dex */
     public interface Types {
-        @KeepForSdk
         public static final int EVENT_TYPE_ACQUIRE_WAKE_LOCK = 7;
-        @KeepForSdk
         public static final int EVENT_TYPE_RELEASE_WAKE_LOCK = 8;
     }
 
@@ -39,7 +33,14 @@ public abstract class StatsEvent extends AbstractSafeParcelable implements Refle
         }
     }
 
-    @NonNull
+    public abstract int zza();
+
+    public abstract long zzb();
+
+    public abstract long zzc();
+
+    public abstract String zzd();
+
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,13 +60,4 @@ public abstract class StatsEvent extends AbstractSafeParcelable implements Refle
         }
         return (String) invokeV.objValue;
     }
-
-    public abstract int zza();
-
-    public abstract long zzb();
-
-    public abstract long zzc();
-
-    @NonNull
-    public abstract String zzd();
 }

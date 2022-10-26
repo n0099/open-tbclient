@@ -1,6 +1,5 @@
 package com.badlogic.gdx.backends.android;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -46,16 +45,23 @@ public class AndroidApplication extends Activity implements h2 {
     public x2 e;
     public c1 f;
     public boolean g;
-    public final b7<Runnable> h;
-    public final b7<Runnable> i;
-    public final h8<h1> j;
-    public final b7<m2> k;
+    public final b7 h;
+    public final b7 i;
+    public final h8 j;
+    public final b7 k;
     public int l;
     public d1 m;
     public boolean n;
     public boolean o;
     public int p;
     public boolean q;
+
+    @Override // com.baidu.tieba.h2
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this : (Context) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -73,6 +79,139 @@ public class AndroidApplication extends Activity implements h2 {
         k7.a();
     }
 
+    public d1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.m;
+        }
+        return (d1) invokeV.objValue;
+    }
+
+    public e1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (e1) invokeV.objValue;
+    }
+
+    public Files c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (Files) invokeV.objValue;
+    }
+
+    public Net d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (Net) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Build.VERSION.SDK_INT;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public c1 getApplicationListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return (c1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h2
+    public Window getApplicationWindow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return getWindow();
+        }
+        return (Window) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h2
+    public b7 getExecutedRunnables() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.i;
+        }
+        return (b7) invokeV.objValue;
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public Graphics getGraphics() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.a;
+        }
+        return (Graphics) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h2
+    public t2 getInput() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.b;
+        }
+        return (t2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h2
+    public h8 getLifecycleListeners() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.j;
+        }
+        return (h8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h2
+    public b7 getRunnables() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.h;
+        }
+        return (b7) invokeV.objValue;
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public Application.ApplicationType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return Application.ApplicationType.Android;
+        }
+        return (Application.ApplicationType) invokeV.objValue;
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            super.onDestroy();
+        }
+    }
+
     public AndroidApplication() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,180 +226,15 @@ public class AndroidApplication extends Activity implements h2 {
             }
         }
         this.g = true;
-        this.h = new b7<>();
-        this.i = new b7<>();
-        this.j = new h8<>(h1.class);
-        this.k = new b7<>();
+        this.h = new b7();
+        this.i = new b7();
+        this.j = new h8(h1.class);
+        this.k = new b7();
         this.l = 2;
         this.n = false;
         this.o = false;
         this.p = -1;
         this.q = false;
-    }
-
-    public d1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : (d1) invokeV.objValue;
-    }
-
-    public e1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (e1) invokeV.objValue;
-    }
-
-    public Files c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (Files) invokeV.objValue;
-    }
-
-    public Net d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (Net) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public void debug(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || this.l < 3) {
-            return;
-        }
-        a().debug(str, str2);
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public void error(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || this.l < 1) {
-            return;
-        }
-        a().error(str, str2);
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && z) {
-            getWindow().getDecorView().setSystemUiVisibility(1);
-        }
-    }
-
-    @TargetApi(19)
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && z && e() >= 19) {
-            getWindow().getDecorView().setSystemUiVisibility(5894);
-        }
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public c1 getApplicationListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (c1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h2
-    public Window getApplicationWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? getWindow() : (Window) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h2
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h2
-    public b7<Runnable> getExecutedRunnables() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.i : (b7) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public Graphics getGraphics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.a : (Graphics) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h2
-    public t2 getInput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.b : (t2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h2
-    public h8<h1> getLifecycleListeners() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.j : (h8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h2
-    public b7<Runnable> getRunnables() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.h : (b7) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public Application.ApplicationType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? Application.ApplicationType.Android : (Application.ApplicationType) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public void log(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) || this.l < 2) {
-            return;
-        }
-        a().log(str, str2);
-    }
-
-    @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048596, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            synchronized (this.k) {
-                for (int i3 = 0; i3 < this.k.b; i3++) {
-                    this.k.get(i3).onActivityResult(i, i2, intent);
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            this.b.r(configuration.hardKeyboardHidden == 1);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            super.onDestroy();
-        }
     }
 
     @Override // android.app.Activity
@@ -314,6 +288,79 @@ public class AndroidApplication extends Activity implements h2 {
         }
     }
 
+    @Override // com.badlogic.gdx.Application
+    public void debug(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.l >= 3) {
+            a().debug(str, str2);
+        }
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public void error(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && this.l >= 1) {
+            a().error(str, str2);
+        }
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public void log(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) && this.l >= 2) {
+            a().log(str, str2);
+        }
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public void error(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, th) == null) && this.l >= 1) {
+            a().error(str, str2, th);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048596, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            synchronized (this.k) {
+                for (int i3 = 0; i3 < this.k.b; i3++) {
+                    ((m2) this.k.get(i3)).onActivityResult(i, i2, intent);
+                }
+            }
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || !z) {
+            return;
+        }
+        getWindow().getDecorView().setSystemUiVisibility(1);
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && z && e() >= 19) {
+            getWindow().getDecorView().setSystemUiVisibility(5894);
+        }
+    }
+
+    @Override // android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            boolean z = true;
+            if (configuration.hardKeyboardHidden != 1) {
+                z = false;
+            }
+            this.b.r(z);
+        }
+    }
+
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
@@ -343,14 +390,5 @@ public class AndroidApplication extends Activity implements h2 {
                 f1.b.c();
             }
         }
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public void error(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, th) == null) || this.l < 1) {
-            return;
-        }
-        a().error(str, str2, th);
     }
 }

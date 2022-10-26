@@ -55,12 +55,18 @@ public class UnitedSchemeStatisticUtil {
     }
 
     public static void doUBCForSchemeInvoke(String str, Uri uri) {
+        String uri2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, uri) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("from", str);
-                jSONObject.put("scheme", uri == null ? StringUtil.NULL_STRING : uri.toString());
+                if (uri == null) {
+                    uri2 = StringUtil.NULL_STRING;
+                } else {
+                    uri2 = uri.toString();
+                }
+                jSONObject.put("scheme", uri2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

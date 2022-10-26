@@ -21,7 +21,7 @@ public final class BdCore {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class EditTextType {
+    public final class EditTextType {
         public static final /* synthetic */ EditTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final EditTextType ADD_BAR;
@@ -75,13 +75,19 @@ public final class BdCore {
         public static EditTextType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EditTextType) Enum.valueOf(EditTextType.class, str) : (EditTextType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (EditTextType) Enum.valueOf(EditTextType.class, str);
+            }
+            return (EditTextType) invokeL.objValue;
         }
 
         public static EditTextType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EditTextType[]) $VALUES.clone() : (EditTextType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (EditTextType[]) $VALUES.clone();
+            }
+            return (EditTextType[]) invokeV.objValue;
         }
     }
 
@@ -118,16 +124,6 @@ public final class BdCore {
         return (BdCore) invokeV.objValue;
     }
 
-    public void b(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) || this.b) {
-            return;
-        }
-        BdLog.f(z);
-        this.a = context.getApplicationContext();
-        this.b = true;
-    }
-
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,5 +135,14 @@ public final class BdCore {
             throw new RuntimeException("context is null");
         }
         return (Context) invokeV.objValue;
+    }
+
+    public void b(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) && !this.b) {
+            BdLog.f(z);
+            this.a = context.getApplicationContext();
+            this.b = true;
+        }
     }
 }

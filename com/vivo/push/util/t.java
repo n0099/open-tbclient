@@ -56,7 +56,7 @@ public final class t {
                 p.d("PushPackageUtils", "get system push info :".concat(String.valueOf(d)));
                 return d;
             }
-            List<String> e = e(applicationContext);
+            List e = e(applicationContext);
             com.vivo.push.model.b f2 = f(applicationContext, applicationContext.getPackageName());
             if (e.size() <= 0) {
                 if (f2 != null && f2.d()) {
@@ -75,15 +75,17 @@ public final class t {
                     f2 = bVar2;
                 }
                 HashMap hashMap = new HashMap();
-                if (f2 == null) {
-                    f2 = null;
-                } else if (f2.c()) {
-                    bVar = f2;
+                if (f2 != null) {
+                    if (f2.c()) {
+                        bVar = f2;
+                        f2 = null;
+                    }
+                } else {
                     f2 = null;
                 }
                 int size = e.size();
                 for (int i = 0; i < size; i++) {
-                    String str = e.get(i);
+                    String str = (String) e.get(i);
                     if (!TextUtils.isEmpty(str) && (f = f(applicationContext, str)) != null) {
                         hashMap.put(str, f);
                         if (f.d()) {
@@ -121,159 +123,115 @@ public final class t {
         return (com.vivo.push.model.b) invokeL.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Cursor query;
+    public static boolean a(Context context, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, context)) != null) {
-            return (String) invokeL.objValue;
-        }
-        if (!TextUtils.isEmpty(b)) {
-            return b;
-        }
-        Cursor cursor = null;
-        try {
-            try {
-                try {
-                    query = context.getContentResolver().query(com.vivo.push.p.a, null, null, null, null);
-                } catch (Exception e) {
-                    p.a("PushPackageUtils", "close", e);
-                }
-            } catch (Exception e2) {
-                e = e2;
-                str = null;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) {
+            com.vivo.push.cache.d a2 = com.vivo.push.cache.b.a().a(context);
+            if (a2 != null) {
+                return a2.isInBlackList(j);
             }
-            try {
-                if (query == null) {
-                    try {
-                        p.a("PushPackageUtils", "cursor is null");
-                        if (query != null) {
-                            try {
-                                query.close();
-                            } catch (Exception e3) {
-                                p.a("PushPackageUtils", "close", e3);
-                            }
-                        }
-                        return null;
-                    } catch (Exception e4) {
-                        e = e4;
-                        str = null;
-                    }
-                } else {
-                    boolean z = false;
-                    str = null;
-                    while (query.moveToNext()) {
-                        try {
-                            if ("pushPkgName".equals(query.getString(query.getColumnIndex("name")))) {
-                                str = query.getString(query.getColumnIndex("value"));
-                            } else if ("pushEnable".equals(query.getString(query.getColumnIndex("name")))) {
-                                z = Boolean.parseBoolean(query.getString(query.getColumnIndex("value")));
-                            }
-                        } catch (Exception e5) {
-                            e = e5;
-                        }
-                    }
-                    b = str;
-                    if (TextUtils.isEmpty(str)) {
-                        if (query != null) {
-                            try {
-                                query.close();
-                            } catch (Exception e6) {
-                                p.a("PushPackageUtils", "close", e6);
-                            }
-                        }
-                        return null;
-                    } else if (z) {
-                        if (query != null) {
-                            query.close();
-                        }
-                        return str;
-                    } else {
-                        if (query != null) {
-                            try {
-                                query.close();
-                            } catch (Exception e7) {
-                                p.a("PushPackageUtils", "close", e7);
-                            }
-                        }
-                        return null;
-                    }
-                }
-                cursor = query;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return str;
-            } catch (Throwable th) {
-                th = th;
-                cursor = query;
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e8) {
-                        p.a("PushPackageUtils", "close", e8);
-                    }
-                }
-                throw th;
-            }
-            p.a("PushPackageUtils", "getSystemPush", e);
-        } catch (Throwable th2) {
-            th = th2;
+            return false;
         }
+        return invokeLJ.booleanValue;
+    }
+
+    public static int b(Context context, String str) {
+        InterceptResult invokeLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            if (a(context, str, "com.vivo.pushservice.action.RECEIVE")) {
+                i = 0;
+            } else {
+                i = -1;
+            }
+            if (a(context, str, "com.vivo.pushclient.action.RECEIVE")) {
+                return 1;
+            }
+            return i;
+        }
+        return invokeLL.intValue;
     }
 
     public static boolean c(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) ? a(context, str, "com.vivo.pushclient.action.RECEIVE") : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            return a(context, str, "com.vivo.pushclient.action.RECEIVE");
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static com.vivo.push.model.b d(Context context) {
-        InterceptResult invokeL;
+    public static boolean d(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            String b2 = b(context);
-            ApplicationInfo applicationInfo = null;
-            if (TextUtils.isEmpty(b2)) {
-                return null;
-            }
-            com.vivo.push.model.b bVar = new com.vivo.push.model.b(b2);
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(b2, 128);
-                if (packageInfo != null) {
-                    bVar.a(packageInfo.versionCode);
-                    bVar.a(packageInfo.versionName);
-                    applicationInfo = packageInfo.applicationInfo;
-                }
-                if (applicationInfo != null) {
-                    bVar.a(z.a(context, b2));
-                }
-                bVar.a(a(context, bVar.b()));
-                bVar.b(a(context, b2));
-                return bVar;
-            } catch (Exception e) {
-                e.printStackTrace();
-                p.b("PushPackageUtils", "PackageManager NameNotFoundException is null", e);
-                return null;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
+            return a(context, str, "com.vivo.pushservice.action.RECEIVE");
         }
-        return (com.vivo.push.model.b) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
     public static boolean e(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) ? a(context, str, "com.vivo.pushservice.action.METHOD") : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
+            return a(context, str, "com.vivo.pushservice.action.METHOD");
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        ServiceInfo serviceInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (!TextUtils.isEmpty(str) && context != null) {
+                Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
+                intent.setPackage(str);
+                PackageManager packageManager = context.getPackageManager();
+                List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 576);
+                if (queryIntentServices != null && queryIntentServices.size() > 0) {
+                    int size = queryIntentServices.size();
+                    boolean z = false;
+                    for (int i = 0; i < size; i++) {
+                        ResolveInfo resolveInfo = queryIntentServices.get(i);
+                        if (resolveInfo != null && (serviceInfo = resolveInfo.serviceInfo) != null) {
+                            String str2 = serviceInfo.name;
+                            boolean z2 = serviceInfo.exported;
+                            if ("com.vivo.push.sdk.service.PushService".equals(str2) && z2) {
+                                boolean z3 = resolveInfo.serviceInfo.enabled;
+                                int componentEnabledSetting = packageManager.getComponentEnabledSetting(new ComponentName(str, "com.vivo.push.sdk.service.PushService"));
+                                if (componentEnabledSetting != 1 && (componentEnabledSetting != 0 || !z3)) {
+                                    z = false;
+                                } else {
+                                    z = true;
+                                }
+                            }
+                        }
+                    }
+                    return z;
+                }
+                p.a("PushPackageUtils", "isEnablePush error: can not find push service.");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static com.vivo.push.model.b f(Context context, String str) {
         InterceptResult invokeLL;
+        boolean z;
         ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                if (a(context, str, "com.vivo.pushservice.action.METHOD") || a(context, str, "com.vivo.pushservice.action.RECEIVE")) {
+                if (!a(context, str, "com.vivo.pushservice.action.METHOD") && !a(context, str, "com.vivo.pushservice.action.RECEIVE")) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
                     com.vivo.push.model.b bVar = new com.vivo.push.model.b(str);
                     try {
                         PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 128);
@@ -325,6 +283,129 @@ public final class t {
         return (String) invokeLL.objValue;
     }
 
+    public static boolean a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        List<ResolveInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
+            Intent intent = new Intent(str2);
+            intent.setPackage(str);
+            try {
+                list = context.getPackageManager().queryBroadcastReceivers(intent, 576);
+            } catch (Exception unused) {
+                list = null;
+            }
+            if (list != null && list.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
+            }
+            Cursor cursor = null;
+            try {
+                try {
+                    try {
+                        query = context.getContentResolver().query(com.vivo.push.p.a, null, null, null, null);
+                    } catch (Exception e) {
+                        p.a("PushPackageUtils", "close", e);
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    str = null;
+                }
+                try {
+                    if (query == null) {
+                        try {
+                            p.a("PushPackageUtils", "cursor is null");
+                            if (query != null) {
+                                try {
+                                    query.close();
+                                } catch (Exception e3) {
+                                    p.a("PushPackageUtils", "close", e3);
+                                }
+                            }
+                            return null;
+                        } catch (Exception e4) {
+                            e = e4;
+                            str = null;
+                        }
+                    } else {
+                        boolean z = false;
+                        str = null;
+                        while (query.moveToNext()) {
+                            try {
+                                if ("pushPkgName".equals(query.getString(query.getColumnIndex("name")))) {
+                                    str = query.getString(query.getColumnIndex("value"));
+                                } else if ("pushEnable".equals(query.getString(query.getColumnIndex("name")))) {
+                                    z = Boolean.parseBoolean(query.getString(query.getColumnIndex("value")));
+                                }
+                            } catch (Exception e5) {
+                                e = e5;
+                            }
+                        }
+                        b = str;
+                        if (TextUtils.isEmpty(str)) {
+                            if (query != null) {
+                                try {
+                                    query.close();
+                                } catch (Exception e6) {
+                                    p.a("PushPackageUtils", "close", e6);
+                                }
+                            }
+                            return null;
+                        } else if (!z) {
+                            if (query != null) {
+                                try {
+                                    query.close();
+                                } catch (Exception e7) {
+                                    p.a("PushPackageUtils", "close", e7);
+                                }
+                            }
+                            return null;
+                        } else {
+                            if (query != null) {
+                                query.close();
+                            }
+                            return str;
+                        }
+                    }
+                    cursor = query;
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return str;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor = query;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e8) {
+                            p.a("PushPackageUtils", "close", e8);
+                        }
+                    }
+                    throw th;
+                }
+                p.a("PushPackageUtils", "getSystemPush", e);
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
     public static boolean c(Context context) {
         InterceptResult invokeL;
         ProviderInfo resolveContentProvider;
@@ -345,7 +426,39 @@ public final class t {
         return invokeL.booleanValue;
     }
 
-    public static List<String> e(Context context) {
+    public static com.vivo.push.model.b d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            String b2 = b(context);
+            ApplicationInfo applicationInfo = null;
+            if (TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            com.vivo.push.model.b bVar = new com.vivo.push.model.b(b2);
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(b2, 128);
+                if (packageInfo != null) {
+                    bVar.a(packageInfo.versionCode);
+                    bVar.a(packageInfo.versionName);
+                    applicationInfo = packageInfo.applicationInfo;
+                }
+                if (applicationInfo != null) {
+                    bVar.a(z.a(context, b2));
+                }
+                bVar.a(a(context, bVar.b()));
+                bVar.b(a(context, b2));
+                return bVar;
+            } catch (Exception e) {
+                e.printStackTrace();
+                p.b("PushPackageUtils", "PackageManager NameNotFoundException is null", e);
+                return null;
+            }
+        }
+        return (com.vivo.push.model.b) invokeL.objValue;
+    }
+
+    public static List e(Context context) {
         InterceptResult invokeL;
         List<ResolveInfo> list;
         Interceptable interceptable = $ic;
@@ -375,88 +488,5 @@ public final class t {
             return arrayList;
         }
         return (List) invokeL.objValue;
-    }
-
-    public static boolean d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? a(context, str, "com.vivo.pushservice.action.RECEIVE") : invokeLL.booleanValue;
-    }
-
-    public static int b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            int i = a(context, str, "com.vivo.pushservice.action.RECEIVE") ? 0 : -1;
-            if (a(context, str, "com.vivo.pushclient.action.RECEIVE")) {
-                return 1;
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        ServiceInfo serviceInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (!TextUtils.isEmpty(str) && context != null) {
-                Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
-                intent.setPackage(str);
-                PackageManager packageManager = context.getPackageManager();
-                List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 576);
-                if (queryIntentServices != null && queryIntentServices.size() > 0) {
-                    int size = queryIntentServices.size();
-                    boolean z = false;
-                    for (int i = 0; i < size; i++) {
-                        ResolveInfo resolveInfo = queryIntentServices.get(i);
-                        if (resolveInfo != null && (serviceInfo = resolveInfo.serviceInfo) != null) {
-                            String str2 = serviceInfo.name;
-                            boolean z2 = serviceInfo.exported;
-                            if ("com.vivo.push.sdk.service.PushService".equals(str2) && z2) {
-                                boolean z3 = resolveInfo.serviceInfo.enabled;
-                                int componentEnabledSetting = packageManager.getComponentEnabledSetting(new ComponentName(str, "com.vivo.push.sdk.service.PushService"));
-                                z = componentEnabledSetting == 1 || (componentEnabledSetting == 0 && z3);
-                            }
-                        }
-                    }
-                    return z;
-                }
-                p.a("PushPackageUtils", "isEnablePush error: can not find push service.");
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean a(Context context, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) {
-            com.vivo.push.cache.d a2 = com.vivo.push.cache.b.a().a(context);
-            if (a2 != null) {
-                return a2.isInBlackList(j);
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static boolean a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        List<ResolveInfo> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
-            Intent intent = new Intent(str2);
-            intent.setPackage(str);
-            try {
-                list = context.getPackageManager().queryBroadcastReceivers(intent, 576);
-            } catch (Exception unused) {
-                list = null;
-            }
-            return list != null && list.size() > 0;
-        }
-        return invokeLLL.booleanValue;
     }
 }

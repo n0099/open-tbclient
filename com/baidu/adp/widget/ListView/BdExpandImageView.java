@@ -32,6 +32,15 @@ public class BdExpandImageView extends AppCompatImageView {
     public final Paint h;
     public float i;
 
+    public boolean getEditable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -68,23 +77,13 @@ public class BdExpandImageView extends AppCompatImageView {
     public final void f() {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (drawable = getDrawable()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (drawable = getDrawable()) != null) {
+            int measuredHeight = getMeasuredHeight();
+            float intrinsicHeight = drawable.getIntrinsicHeight();
+            float f = intrinsicHeight / 10.0f;
+            this.i = f;
+            this.f = (int) (intrinsicHeight - (((f * ((this.c - measuredHeight) / 2.0f)) / this.a) * 2.0f));
         }
-        int measuredHeight = getMeasuredHeight();
-        float intrinsicHeight = drawable.getIntrinsicHeight();
-        float f = intrinsicHeight / 10.0f;
-        this.i = f;
-        this.f = (int) (intrinsicHeight - (((f * ((this.c - measuredHeight) / 2.0f)) / this.a) * 2.0f));
-    }
-
-    public boolean getEditable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -92,21 +91,20 @@ public class BdExpandImageView extends AppCompatImageView {
         Drawable drawable;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || (drawable = getDrawable()) == null || !(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int i = this.f;
+            int i2 = (height - i) / 2;
+            this.d.set(0, i2, width, i + i2);
+            int width2 = getWidth();
+            float f = width;
+            float max = Math.max(width2 / f, getHeight() / this.f);
+            int i3 = (int) (f * max);
+            int i4 = (i3 - width2) / 2;
+            this.e.set(-i4, 0, i3 - (i4 * 2), (int) (this.f * max));
+            canvas.drawBitmap(bitmap, this.d, this.e, this.h);
         }
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        int i = this.f;
-        int i2 = (height - i) / 2;
-        this.d.set(0, i2, width, i + i2);
-        int width2 = getWidth();
-        float f = width;
-        float max = Math.max(width2 / f, getHeight() / this.f);
-        int i3 = (int) (f * max);
-        int i4 = (i3 - width2) / 2;
-        this.e.set(-i4, 0, i3 - (i4 * 2), (int) (this.f * max));
-        canvas.drawBitmap(bitmap, this.d, this.e, this.h);
     }
 
     @Override // android.view.View

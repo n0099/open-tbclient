@@ -1,8 +1,6 @@
 package com.ksad.download;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -24,13 +22,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, DownloadTask> ae;
-    public final Map<String, Integer> af;
+    public final Map ae;
+    public final Map af;
     public c ag;
     public boolean ah;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final d ai;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +110,7 @@ public final class d {
     private void a(int i, DownloadTask.DownloadRequest downloadRequest) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, downloadRequest) == null) || (downloadTask = this.ae.get(Integer.valueOf(i))) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, downloadRequest) == null) || (downloadTask = (DownloadTask) this.ae.get(Integer.valueOf(i))) == null) {
             return;
         }
         downloadTask.resume(downloadRequest);
@@ -121,7 +119,7 @@ public final class d {
     private void a(int i, c... cVarArr) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65541, this, i, cVarArr) == null) || (downloadTask = this.ae.get(Integer.valueOf(i))) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65541, this, i, cVarArr) == null) || (downloadTask = (DownloadTask) this.ae.get(Integer.valueOf(i))) == null) {
             return;
         }
         for (int i2 = 0; i2 < 2; i2++) {
@@ -133,7 +131,7 @@ public final class d {
         }
     }
 
-    public static void a(@NonNull Context context, @NonNull File file, @Nullable f fVar) {
+    public static void a(Context context, File file, f fVar) {
         h.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, context, file, fVar) == null) {
@@ -157,7 +155,7 @@ public final class d {
         }
     }
 
-    private void g(@NonNull DownloadTask downloadTask) {
+    private void g(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, downloadTask) == null) {
             this.ae.remove(Integer.valueOf(downloadTask.getId()));
@@ -168,7 +166,7 @@ public final class d {
     private void t(int i) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65544, this, i) == null) || (downloadTask = this.ae.get(Integer.valueOf(i))) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65544, this, i) == null) || (downloadTask = (DownloadTask) this.ae.get(Integer.valueOf(i))) == null) {
             return;
         }
         downloadTask.clearListener();
@@ -180,11 +178,11 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             while (true) {
                 boolean z = false;
-                for (Map.Entry<Integer, DownloadTask> entry : this.ae.entrySet()) {
-                    DownloadTask value = entry.getValue();
-                    if (value != null) {
-                        int status = value.getStatus();
-                        if (status != -2 && status != 1 && status != 2 && status != 3 && status != 5 && status != 6 && status != 10 && status != 11 && Math.abs(value.getStatusUpdateTime() - System.currentTimeMillis()) > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+                for (Map.Entry entry : this.ae.entrySet()) {
+                    DownloadTask downloadTask = (DownloadTask) entry.getValue();
+                    if (downloadTask != null) {
+                        int status = downloadTask.getStatus();
+                        if (status != -2 && status != 1 && status != 2 && status != 3 && status != 5 && status != 6 && status != 10 && status != 11 && Math.abs(downloadTask.getStatusUpdateTime() - System.currentTimeMillis()) > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                             z = true;
                         }
                     }
@@ -195,7 +193,7 @@ public final class d {
         return invokeV.booleanValue;
     }
 
-    public final int a(@NonNull DownloadTask.DownloadRequest downloadRequest, c cVar) {
+    public final int a(DownloadTask.DownloadRequest downloadRequest, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadRequest, cVar)) == null) {
@@ -229,7 +227,7 @@ public final class d {
     public final void cancel(int i) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (downloadTask = this.ae.get(Integer.valueOf(i))) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (downloadTask = (DownloadTask) this.ae.get(Integer.valueOf(i))) == null) {
             return;
         }
         downloadTask.cancel();
@@ -239,7 +237,7 @@ public final class d {
     public final void pause(int i) {
         DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (downloadTask = this.ae.get(Integer.valueOf(i))) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (downloadTask = (DownloadTask) this.ae.get(Integer.valueOf(i))) == null) {
             return;
         }
         downloadTask.userPause();
@@ -255,7 +253,7 @@ public final class d {
     public final DownloadTask s(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.ae.get(Integer.valueOf(i)) : (DownloadTask) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? (DownloadTask) this.ae.get(Integer.valueOf(i)) : (DownloadTask) invokeI.objValue;
     }
 
     public final void u(int i) {

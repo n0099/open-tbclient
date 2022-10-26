@@ -65,12 +65,18 @@ public final class RecordType {
     public static RecordType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RecordType) Enum.valueOf(RecordType.class, str) : (RecordType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (RecordType) Enum.valueOf(RecordType.class, str);
+        }
+        return (RecordType) invokeL.objValue;
     }
 
     public static RecordType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RecordType[]) $VALUES.clone() : (RecordType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (RecordType[]) $VALUES.clone();
+        }
+        return (RecordType[]) invokeV.objValue;
     }
 }

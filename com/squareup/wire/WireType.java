@@ -70,31 +70,6 @@ public final class WireType {
         this.value = i2;
     }
 
-    public static WireType valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (WireType) Enum.valueOf(WireType.class, str) : (WireType) invokeL.objValue;
-    }
-
-    public static WireType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            WireType[] wireTypeArr = ENUM$VALUES;
-            int length = wireTypeArr.length;
-            WireType[] wireTypeArr2 = new WireType[length];
-            System.arraycopy(wireTypeArr, 0, wireTypeArr2, 0, length);
-            return wireTypeArr2;
-        }
-        return (WireType[]) invokeV.objValue;
-    }
-
-    public int value() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
-    }
-
     public static WireType valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -121,5 +96,36 @@ public final class WireType {
             return VARINT;
         }
         return (WireType) invokeI.objValue;
+    }
+
+    public static WireType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (WireType) Enum.valueOf(WireType.class, str);
+        }
+        return (WireType) invokeL.objValue;
+    }
+
+    public static WireType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            WireType[] wireTypeArr = ENUM$VALUES;
+            int length = wireTypeArr.length;
+            WireType[] wireTypeArr2 = new WireType[length];
+            System.arraycopy(wireTypeArr, 0, wireTypeArr2, 0, length);
+            return wireTypeArr2;
+        }
+        return (WireType[]) invokeV.objValue;
+    }
+
+    public int value() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
     }
 }

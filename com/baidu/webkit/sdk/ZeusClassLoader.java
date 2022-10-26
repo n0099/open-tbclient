@@ -190,7 +190,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
     }
 
     @Override // java.lang.ClassLoader
-    public final Class<?> loadClass(String str) throws ClassNotFoundException {
+    public final Class loadClass(String str) throws ClassNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {

@@ -2,7 +2,6 @@ package com.kwad.components.core.g;
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,9 +16,8 @@ import java.util.List;
 public class a extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<com.kwad.components.core.g.kwai.a> EF;
+    public List EF;
     public IActivityProxy EG;
-    @NonNull
     public AdTemplate mAdTemplate;
     public Context mContext;
 

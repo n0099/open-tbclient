@@ -1,14 +1,25 @@
 package com.baidu.tieba;
 
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fm1 implements qo1 {
+public class fm1 implements mo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.mo1
+    public boolean a(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
     public fm1() {
         Interceptable interceptable = $ic;
@@ -21,14 +32,6 @@ public class fm1 implements qo1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public void b(l33 l33Var, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, l33Var, jSONObject) == null) {
-            uv2.e().b(l33Var, jSONObject);
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class t83 extends w83<JSONObject> {
+public class t83 extends x83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context m;
@@ -36,20 +36,33 @@ public class t83 extends w83<JSONObject> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i83
+    @Override // com.baidu.tieba.j83
     /* renamed from: P */
     public JSONObject m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? j83.c(jSONObject) : (JSONObject) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return k83.c(jSONObject);
+        }
+        return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.i83
+    @Override // com.baidu.tieba.x83
+    public HttpRequest w(x83 x83Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, x83Var)) == null) {
+            return tm2.o().M(this.m, x83Var.B());
+        }
+        return (HttpRequest) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.j83
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            l33 M = l33.M();
+            m33 M = m33.M();
             if (M != null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -65,17 +78,13 @@ public class t83 extends w83<JSONObject> {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w83
-    public HttpRequest w(w83 w83Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, w83Var)) == null) ? sm2.o().g(this.m, w83Var.B()) : (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.w83
+    @Override // com.baidu.tieba.x83
     public SwanInterfaceType z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.SWAN_ID : (SwanInterfaceType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return SwanInterfaceType.OPEN_ID;
+        }
+        return (SwanInterfaceType) invokeV.objValue;
     }
 }

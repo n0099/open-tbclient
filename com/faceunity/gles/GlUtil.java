@@ -57,7 +57,7 @@ public class GlUtil {
     public static void checkGlError(String str) {
         int glGetError;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
         String str2 = str + ": glError 0x" + Integer.toHexString(glGetError);
@@ -67,7 +67,7 @@ public class GlUtil {
 
     public static void checkLocation(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || i >= 0) {
+        if ((interceptable != null && interceptable.invokeIL(65539, null, i, str) != null) || i >= 0) {
             return;
         }
         throw new RuntimeException("Unable to locate '" + str + "' in program");

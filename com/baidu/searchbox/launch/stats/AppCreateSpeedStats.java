@@ -25,7 +25,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public long mCreateStartTimestamp;
     public long mInitIdleTaskEndTimeStamp;
     public long mInitLaunchTaskEndTimestamp;
-    public Hashtable<String, Long> mLaunchTaskDuration;
+    public Hashtable mLaunchTaskDuration;
     public long mSuperEndTimeStamp;
 
     public AppCreateSpeedStats() {
@@ -46,7 +46,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
         this.mInitIdleTaskEndTimeStamp = -1L;
         this.mInitLaunchTaskEndTimestamp = -1L;
         this.mAppCreateEndTimestamp = -1L;
-        this.mLaunchTaskDuration = new Hashtable<>();
+        this.mLaunchTaskDuration = new Hashtable();
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -65,93 +65,6 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             addStatsTimeStamp(i, System.currentTimeMillis());
-        }
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public long getStatsEndTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppCreateEndTimestamp : invokeV.longValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public long getStatsStartTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCreateStartTimestamp : invokeV.longValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public boolean packData(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
-            super.packData(jSONObject);
-            if (jSONObject == null) {
-                return true;
-            }
-            long j = this.mAppCreateEndTimestamp;
-            long j2 = this.mCreateStartTimestamp;
-            long j3 = j - j2;
-            long j4 = this.mSuperEndTimeStamp;
-            long j5 = j4 - j2;
-            long j6 = this.mInitIdleTaskEndTimeStamp;
-            long j7 = j6 - j4;
-            long j8 = this.mInitLaunchTaskEndTimestamp;
-            long j9 = j8 - j6;
-            long j10 = j - j8;
-            long activityStartTime = SpeedStatsManager.getInstance().getActivityStartTime() - this.mAppCreateEndTimestamp;
-            if (j3 < 0 || j3 > 60000 || j5 < 0 || j5 > 60000 || j7 < 0 || j7 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || activityStartTime < 0 || activityStartTime > 60000) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("superOnCreate", String.valueOf(j5));
-            hashMap.put(INIT_IDLE_TASK, String.valueOf(j7));
-            hashMap.put(INIT_LAUNCH_TASK, String.valueOf(j9));
-            hashMap.put(INIT_SPEED_STATUS, String.valueOf(j10));
-            synchronized (this.mLaunchTaskDuration) {
-                for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
-                    hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
-                }
-            }
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
-            if (jsonData != null) {
-                try {
-                    jSONObject.put(SpeedStatsMainTable.APP_CREATE_STAGE, jsonData);
-                } catch (JSONException e) {
-                    if (AppConfig.isDebug()) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            JSONObject jsonData2 = SpeedStatsUtils.getJsonData(activityStartTime, null);
-            if (jsonData2 != null) {
-                try {
-                    jSONObject.put(SpeedStatsMainTable.APP_END_2_ACTIVITY_GAP, jsonData2);
-                    return true;
-                } catch (JSONException e2) {
-                    if (AppConfig.isDebug()) {
-                        e2.printStackTrace();
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.mCreateStartTimestamp = -1L;
-            this.mSuperEndTimeStamp = -1L;
-            this.mInitIdleTaskEndTimeStamp = -1L;
-            this.mInitLaunchTaskEndTimestamp = -1L;
-            this.mAppCreateEndTimestamp = -1L;
         }
     }
 
@@ -180,5 +93,98 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
                     return;
             }
         }
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public long getStatsEndTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAppCreateEndTimestamp;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public long getStatsStartTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCreateStartTimestamp;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.mCreateStartTimestamp = -1L;
+            this.mSuperEndTimeStamp = -1L;
+            this.mInitIdleTaskEndTimeStamp = -1L;
+            this.mInitLaunchTaskEndTimestamp = -1L;
+            this.mAppCreateEndTimestamp = -1L;
+        }
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public boolean packData(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
+            super.packData(jSONObject);
+            if (jSONObject == null) {
+                return true;
+            }
+            long j = this.mAppCreateEndTimestamp;
+            long j2 = this.mCreateStartTimestamp;
+            long j3 = j - j2;
+            long j4 = this.mSuperEndTimeStamp;
+            long j5 = j4 - j2;
+            long j6 = this.mInitIdleTaskEndTimeStamp;
+            long j7 = j6 - j4;
+            long j8 = this.mInitLaunchTaskEndTimestamp;
+            long j9 = j8 - j6;
+            long j10 = j - j8;
+            long activityStartTime = SpeedStatsManager.getInstance().getActivityStartTime() - this.mAppCreateEndTimestamp;
+            if (j3 >= 0 && j3 <= 60000 && j5 >= 0 && j5 <= 60000 && j7 >= 0 && j7 <= 60000 && j9 >= 0 && j9 <= 60000 && j10 >= 0 && j10 <= 60000 && activityStartTime >= 0 && activityStartTime <= 60000) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("superOnCreate", String.valueOf(j5));
+                hashMap.put(INIT_IDLE_TASK, String.valueOf(j7));
+                hashMap.put(INIT_LAUNCH_TASK, String.valueOf(j9));
+                hashMap.put(INIT_SPEED_STATUS, String.valueOf(j10));
+                synchronized (this.mLaunchTaskDuration) {
+                    for (Map.Entry entry : this.mLaunchTaskDuration.entrySet()) {
+                        hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
+                    }
+                }
+                JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
+                if (jsonData != null) {
+                    try {
+                        jSONObject.put(SpeedStatsMainTable.APP_CREATE_STAGE, jsonData);
+                    } catch (JSONException e) {
+                        if (AppConfig.isDebug()) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                JSONObject jsonData2 = SpeedStatsUtils.getJsonData(activityStartTime, null);
+                if (jsonData2 != null) {
+                    try {
+                        jSONObject.put(SpeedStatsMainTable.APP_END_2_ACTIVITY_GAP, jsonData2);
+                        return true;
+                    } catch (JSONException e2) {
+                        if (AppConfig.isDebug()) {
+                            e2.printStackTrace();
+                            return true;
+                        }
+                        return true;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

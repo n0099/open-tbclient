@@ -11,6 +11,16 @@ public class PingMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
+    public Object encode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PingMessage() {
         super(1003);
@@ -27,15 +37,5 @@ public class PingMessage extends TbSocketMessage {
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
-    public Object encode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return invokeV.objValue;
     }
 }

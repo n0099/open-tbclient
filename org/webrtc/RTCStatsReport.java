@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RTCStatsReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, RTCStats> stats;
+    public final Map stats;
     public final long timestampUs;
 
-    public RTCStatsReport(long j, Map<String, RTCStats> map) {
+    public RTCStatsReport(long j, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,23 +33,31 @@ public class RTCStatsReport {
         this.stats = map;
     }
 
-    @CalledByNative
     public static RTCStatsReport create(long j, Map map) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, map)) == null) ? new RTCStatsReport(j, map) : (RTCStatsReport) invokeJL.objValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, map)) == null) {
+            return new RTCStatsReport(j, map);
+        }
+        return (RTCStatsReport) invokeJL.objValue;
     }
 
-    public Map<String, RTCStats> getStatsMap() {
+    public Map getStatsMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.stats : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.stats;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public double getTimestampUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.timestampUs : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.timestampUs;
+        }
+        return invokeV.doubleValue;
     }
 
     public String toString() {

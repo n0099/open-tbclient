@@ -9,14 +9,12 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import androidx.annotation.FloatRange;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,8 +85,8 @@ public class HotTopicDetailPkProcess extends View {
                 return;
             }
         }
-        k = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-        l = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        k = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+        l = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,6 +130,97 @@ public class HotTopicDetailPkProcess extends View {
         }
     }
 
+    public final void d(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            this.c.setColor(this.e);
+            RectF rectF = this.g;
+            int i = this.b;
+            int i2 = k;
+            rectF.set(i - i2, 0.0f, i, i2);
+            canvas.drawArc(this.g, -90.0f, 180.0f, true, this.c);
+            RectF rectF2 = this.g;
+            int i3 = this.i;
+            int i4 = k;
+            rectF2.set(i3 + i4 + l, 0.0f, this.b - (i4 / 2), i4);
+            canvas.drawRect(this.g, this.c);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HotTopicDetailPkProcess(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.f = 50.0f;
+        this.g = new RectF();
+        this.h = new Path();
+        f();
+    }
+
+    public void setProcess(float f, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) == null) {
+            if (f < 0.0f) {
+                f = 0.0f;
+            }
+            if (f > 1.0f) {
+                f = 1.0f;
+            }
+            if (!z) {
+                float f2 = f * 100.0f;
+                this.f = f2;
+                int i = this.b;
+                int i2 = k;
+                this.i = ((int) ((((i - i2) - (l + i2)) * f2) / 100.0f)) + (i2 / 2);
+                invalidate();
+                return;
+            }
+            a(f);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HotTopicDetailPkProcess(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.f = 50.0f;
+        this.g = new RectF();
+        this.h = new Path();
+        f();
+    }
+
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -156,20 +245,27 @@ public class HotTopicDetailPkProcess extends View {
         }
     }
 
-    public final void d(Canvas canvas) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            this.c.setColor(this.e);
-            RectF rectF = this.g;
-            int i = this.b;
-            int i2 = k;
-            rectF.set(i - i2, 0.0f, i, i2);
-            canvas.drawArc(this.g, -90.0f, 180.0f, true, this.c);
-            RectF rectF2 = this.g;
-            int i3 = this.i;
-            int i4 = k;
-            rectF2.set(i3 + i4 + l, 0.0f, this.b - (i4 / 2), i4);
-            canvas.drawRect(this.g, this.c);
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.a != i) {
+            this.d = SkinManager.getColor(R.color.CAM_X0308);
+            this.e = SkinManager.getColor(R.color.CAM_X0303);
+            if (this.a != 3) {
+                invalidate();
+            }
+            this.a = i;
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.b <= 0) {
+                return;
+            }
+            c(canvas);
         }
     }
 
@@ -206,31 +302,6 @@ public class HotTopicDetailPkProcess extends View {
         }
     }
 
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.a == i) {
-            return;
-        }
-        this.d = SkinManager.getColor(R.color.CAM_X0308);
-        this.e = SkinManager.getColor(R.color.CAM_X0303);
-        if (this.a != 3) {
-            invalidate();
-        }
-        this.a = i;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (this.b <= 0) {
-                return;
-            }
-            c(canvas);
-        }
-    }
-
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
@@ -248,79 +319,5 @@ public class HotTopicDetailPkProcess extends View {
             int i5 = k;
             this.i = ((int) ((((i - i5) - (l + i5)) * this.f) / 100.0f)) + (i5 / 2);
         }
-    }
-
-    public void setProcess(@FloatRange(from = 0.0d, to = 1.0d) float f, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) == null) {
-            if (f < 0.0f) {
-                f = 0.0f;
-            }
-            if (f > 1.0f) {
-                f = 1.0f;
-            }
-            if (!z) {
-                float f2 = f * 100.0f;
-                this.f = f2;
-                int i = this.b;
-                int i2 = k;
-                this.i = ((int) ((((i - i2) - (l + i2)) * f2) / 100.0f)) + (i2 / 2);
-                invalidate();
-                return;
-            }
-            a(f);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        this.f = 50.0f;
-        this.g = new RectF();
-        this.h = new Path();
-        f();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        this.f = 50.0f;
-        this.g = new RectF();
-        this.h = new Path();
-        f();
     }
 }

@@ -13,6 +13,8 @@ public abstract class AbsSvgType {
     public int drawableId;
     public SvgManager.SvgResourceStateType stateType;
 
+    public abstract Drawable getDrawable();
+
     public AbsSvgType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,8 +32,6 @@ public abstract class AbsSvgType {
         }
         this.drawableId = i;
     }
-
-    public abstract Drawable getDrawable();
 
     public AbsSvgType(int i, SvgManager.SvgResourceStateType svgResourceStateType) {
         Interceptable interceptable = $ic;

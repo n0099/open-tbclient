@@ -18,14 +18,24 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AlaSquareTabInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<AlaSquareTabInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String bitmapWHRatio;
     public int iconType;
     public String iconUrl;
     public int id;
     public String name;
-    public List<String> sortTypeList;
+    public List sortTypeList;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +50,7 @@ public class AlaSquareTabInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<AlaSquareTabInfo>() { // from class: com.baidu.ala.data.AlaSquareTabInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.ala.data.AlaSquareTabInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,52 +69,55 @@ public class AlaSquareTabInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AlaSquareTabInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new AlaSquareTabInfo(parcel) : (AlaSquareTabInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new AlaSquareTabInfo(parcel);
+                }
+                return (AlaSquareTabInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AlaSquareTabInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new AlaSquareTabInfo[i] : (AlaSquareTabInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new AlaSquareTabInfo[i];
+                }
+                return (AlaSquareTabInfo[]) invokeI.objValue;
             }
         };
     }
 
-    public AlaSquareTabInfo() {
+    public AlaSquareTabInfo(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
+        this.id = parcel.readInt();
+        this.name = parcel.readString();
+        this.iconUrl = parcel.readString();
+        this.bitmapWHRatio = parcel.readString();
+        this.iconType = parcel.readInt();
+        this.sortTypeList = parcel.createStringArrayList();
     }
 
     public void parse(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.id = jSONObject.optInt("id");
@@ -113,13 +126,12 @@ public class AlaSquareTabInfo implements Parcelable {
         this.bitmapWHRatio = jSONObject.optString("bitmap_wh_ratio");
         this.iconType = jSONObject.optInt("icon_type");
         JSONArray optJSONArray = jSONObject.optJSONArray("live_tab_type");
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        int length = optJSONArray.length();
-        this.sortTypeList = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            this.sortTypeList.add(optJSONArray.optString(i));
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            int length = optJSONArray.length();
+            this.sortTypeList = new ArrayList(length);
+            for (int i = 0; i < length; i++) {
+                this.sortTypeList.add(optJSONArray.optString(i));
+            }
         }
     }
 
@@ -134,28 +146,5 @@ public class AlaSquareTabInfo implements Parcelable {
             parcel.writeInt(this.iconType);
             parcel.writeStringList(this.sortTypeList);
         }
-    }
-
-    public AlaSquareTabInfo(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.id = parcel.readInt();
-        this.name = parcel.readString();
-        this.iconUrl = parcel.readString();
-        this.bitmapWHRatio = parcel.readString();
-        this.iconType = parcel.readInt();
-        this.sortTypeList = parcel.createStringArrayList();
     }
 }

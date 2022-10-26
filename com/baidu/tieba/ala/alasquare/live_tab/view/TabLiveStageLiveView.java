@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ji5;
-import com.baidu.tieba.qt5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.oi5;
 import com.baidu.tieba.w9;
+import com.baidu.tieba.xt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,54 +79,53 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!qt5.d(this.a.j)) {
-                    qt5.g(this.a.getContext(), this.a.j);
-                } else if (w9.a(this.a.getContext()) instanceof TbPageContext) {
-                    int i = this.a.i;
-                    String str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_STAGE;
-                    if (i != 101 && this.a.i == 102) {
-                        str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_RECOMMEND;
+                if (xt5.d(this.a.j)) {
+                    if (w9.a(this.a.getContext()) instanceof TbPageContext) {
+                        int i = this.a.i;
+                        String str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_STAGE;
+                        if (i != 101 && this.a.i == 102) {
+                            str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_RECOMMEND;
+                        }
+                        xt5.i((TbPageContext) w9.a(this.a.getContext()), this.a.j, str);
                     }
-                    qt5.i((TbPageContext) w9.a(this.a.getContext()), this.a.j, str);
+                } else {
+                    xt5.g(this.a.getContext(), this.a.j);
                 }
                 int i2 = this.a.i;
                 String str2 = TiebaStatic.YYValues.YY_LIVE;
-                if (i2 != 101) {
-                    if (this.a.i == 102) {
-                        StatisticItem statisticItem = new StatisticItem("c13559");
-                        if (this.a.j.liveInfo != null) {
-                            int a = qt5.a(this.a.j.liveInfo);
-                            if (this.a.j.liveInfo.yyExt != null) {
-                                TiebaStaticHelper.addYYParam(statisticItem, qt5.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
-                            } else {
-                                str2 = "";
-                            }
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, a);
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str2);
+                if (i2 == 101) {
+                    StatisticItem statisticItem = new StatisticItem("c13556");
+                    if (this.a.j.liveInfo != null) {
+                        int a = xt5.a(this.a.j.liveInfo);
+                        if (this.a.j.liveInfo.yyExt == null) {
+                            str2 = "";
+                        } else {
+                            TiebaStaticHelper.addYYParam(statisticItem, xt5.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
                         }
-                        statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-                        statisticItem.param("nid", this.a.j.nid);
-                        statisticItem.param(TiebaStatic.Params.LOGID, this.a.j.logid);
-                        TiebaStatic.log(statisticItem);
-                        return;
+                        statisticItem.param("obj_param1", a);
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
                     }
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c13556");
-                if (this.a.j.liveInfo != null) {
-                    int a2 = qt5.a(this.a.j.liveInfo);
-                    if (this.a.j.liveInfo.yyExt != null) {
-                        TiebaStaticHelper.addYYParam(statisticItem2, qt5.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
-                    } else {
-                        str2 = "";
+                    statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
+                    statisticItem.param("nid", this.a.j.nid);
+                    statisticItem.param(TiebaStatic.Params.LOGID, this.a.j.logid);
+                    TiebaStatic.log(statisticItem);
+                } else if (this.a.i == 102) {
+                    StatisticItem statisticItem2 = new StatisticItem("c13559");
+                    if (this.a.j.liveInfo != null) {
+                        int a2 = xt5.a(this.a.j.liveInfo);
+                        if (this.a.j.liveInfo.yyExt == null) {
+                            str2 = "";
+                        } else {
+                            TiebaStaticHelper.addYYParam(statisticItem2, xt5.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
+                        }
+                        statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, a2);
+                        statisticItem2.param(TiebaStatic.Params.OBJ_PARAM3, str2);
                     }
-                    statisticItem2.param("obj_param1", a2);
-                    statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+                    statisticItem2.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
+                    statisticItem2.param("nid", this.a.j.nid);
+                    statisticItem2.param(TiebaStatic.Params.LOGID, this.a.j.logid);
+                    TiebaStatic.log(statisticItem2);
                 }
-                statisticItem2.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-                statisticItem2.param("nid", this.a.j.nid);
-                statisticItem2.param(TiebaStatic.Params.LOGID, this.a.j.logid);
-                TiebaStatic.log(statisticItem2);
             }
         }
     }
@@ -170,121 +169,6 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         this.i = 101;
         this.k = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
         init();
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
-            Drawable drawable = SkinManager.getDrawable(getContext().getResources(), (int) R.drawable.tab_icon_living_seeding);
-            drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
-            this.f.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                this.h.setAnimation("zan_lottie_anim.json");
-                this.h.setImageAssetsFolder("images/");
-                this.h.loop(true);
-                this.h.playAnimation();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d084c, this);
-            float f = l;
-            setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
-            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f092703);
-            this.h = tabLiveStageLiveZanLottieView;
-            tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090713);
-            this.a = tbImageView;
-            tbImageView.setBackgroundColor(0);
-            this.a.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
-            this.a.setConrers(15);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090d31);
-            this.b = headImageView;
-            headImageView.setAutoChangeStyle(false);
-            this.b.setClickable(true);
-            this.b.setIsRound(true);
-            this.b.setBorderWidth(ej.f(getContext(), R.dimen.tbds1));
-            this.c = findViewById(R.id.obfuscated_res_0x7f090d33);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b7);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e5);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0903ea);
-            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.k);
-            gradientDrawable.setCornerRadii(m);
-            this.g.setBackgroundDrawable(gradientDrawable);
-            setOnClickListener(new a(this));
-            d();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onAttachedToWindow();
-            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = this.h;
-            if (tabLiveStageLiveZanLottieView == null || tabLiveStageLiveZanLottieView.isAnimating()) {
-                return;
-            }
-            this.h.playAnimation();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = this.h;
-            if (tabLiveStageLiveZanLottieView != null && tabLiveStageLiveZanLottieView.isAnimating()) {
-                this.h.pauseAnimation();
-            }
-            super.onDetachedFromWindow();
-        }
-    }
-
-    public void setData(SdkLiveInfoData sdkLiveInfoData, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, sdkLiveInfoData, i) == null) {
-            if (sdkLiveInfoData != null && sdkLiveInfoData.liveInfo != null) {
-                this.j = sdkLiveInfoData;
-                this.i = i;
-                this.a.setPlaceHolder(3);
-                this.a.K(sdkLiveInfoData.liveInfo.cover, 10, false);
-                SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
-                if (liveAuthor != null) {
-                    String name_show = liveAuthor.getName_show();
-                    if (ji5.d(name_show) > 16) {
-                        name_show = ji5.n(name_show, 16) + StringHelper.STRING_MORE;
-                    }
-                    this.e.setText(name_show);
-                    AlaUtilHelper.startLoadPortrait(this.b, sdkLiveInfoData.liveAuthor.portrait, false);
-                    if (1 == TbadkCoreApplication.getInst().getSkinType()) {
-                        this.c.setVisibility(0);
-                    } else {
-                        this.c.setVisibility(8);
-                    }
-                }
-                this.d.setText(sdkLiveInfoData.title);
-                this.f.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11fc, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
-                return;
-            }
-            setVisibility(4);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -333,5 +217,119 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         this.i = 101;
         this.k = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
         init();
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
+            Drawable drawable = SkinManager.getDrawable(getContext().getResources(), (int) R.drawable.tab_icon_living_seeding);
+            drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
+            this.f.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                this.h.setAnimation("zan_lottie_anim.json");
+                this.h.setImageAssetsFolder("images/");
+                this.h.loop(true);
+                this.h.playAnimation();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onAttachedToWindow();
+            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = this.h;
+            if (tabLiveStageLiveZanLottieView != null && !tabLiveStageLiveZanLottieView.isAnimating()) {
+                this.h.playAnimation();
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = this.h;
+            if (tabLiveStageLiveZanLottieView != null && tabLiveStageLiveZanLottieView.isAnimating()) {
+                this.h.pauseAnimation();
+            }
+            super.onDetachedFromWindow();
+        }
+    }
+
+    public final void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d084d, this);
+            float f = l;
+            setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
+            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f0926e7);
+            this.h = tabLiveStageLiveZanLottieView;
+            tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09071c);
+            this.a = tbImageView;
+            tbImageView.setBackgroundColor(0);
+            this.a.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
+            this.a.setConrers(15);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090d3e);
+            this.b = headImageView;
+            headImageView.setAutoChangeStyle(false);
+            this.b.setClickable(true);
+            this.b.setIsRound(true);
+            this.b.setBorderWidth(fj.f(getContext(), R.dimen.tbds1));
+            this.c = findViewById(R.id.obfuscated_res_0x7f090d40);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a1);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e5);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0903f2);
+            GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.k);
+            gradientDrawable.setCornerRadii(m);
+            this.g.setBackgroundDrawable(gradientDrawable);
+            setOnClickListener(new a(this));
+            d();
+        }
+    }
+
+    public void setData(SdkLiveInfoData sdkLiveInfoData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, sdkLiveInfoData, i) == null) {
+            if (sdkLiveInfoData != null && sdkLiveInfoData.liveInfo != null) {
+                this.j = sdkLiveInfoData;
+                this.i = i;
+                this.a.setPlaceHolder(3);
+                this.a.L(sdkLiveInfoData.liveInfo.cover, 10, false);
+                SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
+                if (liveAuthor != null) {
+                    String name_show = liveAuthor.getName_show();
+                    if (oi5.d(name_show) > 16) {
+                        name_show = oi5.l(name_show, 16) + StringHelper.STRING_MORE;
+                    }
+                    this.e.setText(name_show);
+                    AlaUtilHelper.startLoadPortrait(this.b, sdkLiveInfoData.liveAuthor.portrait, false);
+                    if (1 == TbadkCoreApplication.getInst().getSkinType()) {
+                        this.c.setVisibility(0);
+                    } else {
+                        this.c.setVisibility(8);
+                    }
+                }
+                this.d.setText(sdkLiveInfoData.title);
+                this.f.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1210, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
+                return;
+            }
+            setVisibility(4);
+        }
     }
 }

@@ -44,7 +44,7 @@ public class EmotionAPSManager {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsDebugLoadMode;
     public volatile boolean mLoaded;
-    public Map<String, EmotionResourceInfo> mResourceMap;
+    public Map mResourceMap;
 
     /* loaded from: classes2.dex */
     public interface EmotionInstallResultCb {
@@ -52,7 +52,7 @@ public class EmotionAPSManager {
     }
 
     /* loaded from: classes2.dex */
-    public static final class Holder {
+    public final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final EmotionAPSManager sINSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,6 +106,210 @@ public class EmotionAPSManager {
             Class.forName(EmotionUsageUtil.class.getName());
         } catch (ClassNotFoundException unused) {
         }
+    }
+
+    public EmotionAPSManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mIsDebugLoadMode = false;
+        this.mResourceMap = new ConcurrentHashMap();
+    }
+
+    public static File getEmotionDownloadDir() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            File file = new File(getEmotionRootDir(), "download");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static final EmotionAPSManager getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return Holder.sINSTANCE;
+        }
+        return (EmotionAPSManager) invokeV.objValue;
+    }
+
+    public static boolean makeEmotionRootDirIfNeeded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            File emotionRootDir = getEmotionRootDir();
+            if (emotionRootDir.exists()) {
+                return true;
+            }
+            return emotionRootDir.mkdirs();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hasValidProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Map map = this.mResourceMap;
+            if (map != null && !map.isEmpty()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isDebugLoadMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (DEBUG) {
+                return this.mIsDebugLoadMode;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLoaded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mLoaded;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void presetDoAPSProcess() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            doAPSProcess(new EmotionResourceInfo(EMOTION_PACKAGE_NAME_FOR_NORMAL, EMOTION_PRESET_PATH, "", -1L, "0.0.0.0", "255.255.255.255"), new EmotionInstallResultCb(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ EmotionAPSManager this$0;
+
+                @Override // com.baidu.spswitch.emotion.resource.EmotionAPSManager.EmotionInstallResultCb
+                public void onResult(int i, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            }, true);
+        }
+    }
+
+    public static void removeOldResources(EmotionResourceInfo emotionResourceInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, emotionResourceInfo) == null) {
+            removeNoIgnoreResources(emotionResourceInfo.mPkgName, emotionResourceInfo.mVersion);
+        }
+    }
+
+    public static EmotionResourceInfo restoreEmotionResourceInfo(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, file)) == null) {
+            if (file == null || !file.exists()) {
+                return null;
+            }
+            String readFileData = FileUtils.readFileData(file);
+            if (TextUtils.isEmpty(readFileData)) {
+                return null;
+            }
+            return EmotionResourceInfo.valueOf(readFileData);
+        }
+        return (EmotionResourceInfo) invokeL.objValue;
+    }
+
+    public IResourceProvider getProvider(String str) {
+        InterceptResult invokeL;
+        EmotionResourceInfo emotionResourceInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!hasValidProvider() || TextUtils.isEmpty(str) || (emotionResourceInfo = (EmotionResourceInfo) this.mResourceMap.get(str)) == null) {
+                return null;
+            }
+            return emotionResourceInfo.mProvider;
+        }
+        return (IResourceProvider) invokeL.objValue;
+    }
+
+    public void setDebugLoadMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && DEBUG) {
+            this.mIsDebugLoadMode = z;
+            if (EmotionDownloadRuntime.getDownloadImpl() != null) {
+                EmotionDownloadRuntime.getDownloadImpl().downloadRetryImmediately();
+            }
+        }
+    }
+
+    public static boolean willBeRemoved(File file, long... jArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, file, jArr)) == null) {
+            if (jArr == null) {
+                return false;
+            }
+            String name = file.getName();
+            for (long j : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean willBeRemovedButIgnore(File file, long... jArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, file, jArr)) == null) {
+            if (jArr == null) {
+                return false;
+            }
+            String name = file.getName();
+            for (long j : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean copyEmotionResourceFile(EmotionResourceInfo emotionResourceInfo, EmotionInstallResultCb emotionInstallResultCb) {
@@ -184,19 +388,6 @@ public class EmotionAPSManager {
         return invokeLL.booleanValue;
     }
 
-    public static File getEmotionDownloadDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            File file = new File(getEmotionRootDir(), "download");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
     public static File getEmotionResourceDir(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -205,6 +396,104 @@ public class EmotionAPSManager {
             return new File(emotionRootDir, str + File.separator + str2);
         }
         return (File) invokeLL.objValue;
+    }
+
+    public static void removeNoIgnoreResources(String str, long... jArr) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, jArr) == null) {
+            File file = new File(getEmotionRootDir(), str);
+            if (!file.exists() || (listFiles = file.listFiles(new FileFilter(jArr) { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ long[] val$ignoreVersions;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {jArr};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$ignoreVersions = jArr;
+                }
+
+                @Override // java.io.FileFilter
+                public boolean accept(File file2) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
+                        if (file2.isDirectory() && EmotionAPSManager.willBeRemovedButIgnore(file2, this.val$ignoreVersions)) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeL.booleanValue;
+                }
+            })) == null) {
+                return;
+            }
+            for (File file2 : listFiles) {
+                FileUtils.deleteFile(file2);
+            }
+        }
+    }
+
+    public static void removeTargetResources(String str, long... jArr) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, null, str, jArr) == null) {
+            File file = new File(getEmotionRootDir(), str);
+            if (!file.exists() || (listFiles = file.listFiles(new FileFilter(jArr) { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ long[] val$deleteVersions;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {jArr};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$deleteVersions = jArr;
+                }
+
+                @Override // java.io.FileFilter
+                public boolean accept(File file2) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
+                        if (file2.isDirectory() && EmotionAPSManager.willBeRemoved(file2, this.val$deleteVersions)) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeL.booleanValue;
+                }
+            })) == null) {
+                return;
+            }
+            for (File file2 : listFiles) {
+                FileUtils.deleteFile(file2);
+            }
+        }
     }
 
     public static File getEmotionRootDir() {
@@ -218,12 +507,6 @@ public class EmotionAPSManager {
             return new File(path, EMOTION_ROOT_DIR_NAME);
         }
         return (File) invokeV.objValue;
-    }
-
-    public static final EmotionAPSManager getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? Holder.sINSTANCE : (EmotionAPSManager) invokeV.objValue;
     }
 
     public static File[] getRestoreFileList() {
@@ -259,16 +542,22 @@ public class EmotionAPSManager {
                 public boolean accept(File file) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? !file.isDirectory() && EmotionAPSManager.isValidRestoreFileName(file.getName()) : invokeL.booleanValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
+                        if (!file.isDirectory() && EmotionAPSManager.isValidRestoreFileName(file.getName())) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeL.booleanValue;
                 }
             });
-            if (listFiles == null || listFiles.length <= 0) {
-                if (DEBUG) {
-                    Log.d(TAG, "getRestoreFileList return, emotionRootDir.listFiles = empty");
-                }
-                return null;
+            if (listFiles != null && listFiles.length > 0) {
+                return listFiles;
             }
-            return listFiles;
+            if (DEBUG) {
+                Log.d(TAG, "getRestoreFileList return, emotionRootDir.listFiles = empty");
+            }
+            return null;
         }
         return (File[]) invokeV.objValue;
     }
@@ -298,129 +587,23 @@ public class EmotionAPSManager {
                 return false;
             }
             String lowerCase = str.toLowerCase();
-            return lowerCase.endsWith(RESTORE_SUFFIX) && lowerCase.contains(EMOTION_PACKAGE_NAME_FOR_NORMAL);
+            if (!lowerCase.endsWith(RESTORE_SUFFIX) || !lowerCase.contains(EMOTION_PACKAGE_NAME_FOR_NORMAL)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean makeEmotionRootDirIfNeeded() {
-        InterceptResult invokeV;
+    private void saveEmotionResourceInfo(EmotionResourceInfo emotionResourceInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            File emotionRootDir = getEmotionRootDir();
-            if (emotionRootDir.exists()) {
-                return true;
-            }
-            return emotionRootDir.mkdirs();
+        if ((interceptable != null && interceptable.invokeL(65556, this, emotionResourceInfo) != null) || emotionResourceInfo == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static void removeNoIgnoreResources(String str, long... jArr) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, str, jArr) == null) {
-            File file = new File(getEmotionRootDir(), str);
-            if (file.exists() && (listFiles = file.listFiles(new FileFilter(jArr) { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ long[] val$ignoreVersions;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {jArr};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$ignoreVersions = jArr;
-                }
-
-                @Override // java.io.FileFilter
-                public boolean accept(File file2) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) ? file2.isDirectory() && EmotionAPSManager.willBeRemovedButIgnore(file2, this.val$ignoreVersions) : invokeL.booleanValue;
-                }
-            })) != null) {
-                for (File file2 : listFiles) {
-                    FileUtils.deleteFile(file2);
-                }
-            }
-        }
-    }
-
-    public static void removeOldResources(EmotionResourceInfo emotionResourceInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, emotionResourceInfo) == null) {
-            removeNoIgnoreResources(emotionResourceInfo.mPkgName, emotionResourceInfo.mVersion);
-        }
-    }
-
-    public static void removeTargetResources(String str, long... jArr) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, str, jArr) == null) {
-            File file = new File(getEmotionRootDir(), str);
-            if (file.exists() && (listFiles = file.listFiles(new FileFilter(jArr) { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ long[] val$deleteVersions;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {jArr};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$deleteVersions = jArr;
-                }
-
-                @Override // java.io.FileFilter
-                public boolean accept(File file2) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) ? file2.isDirectory() && EmotionAPSManager.willBeRemoved(file2, this.val$deleteVersions) : invokeL.booleanValue;
-                }
-            })) != null) {
-                for (File file2 : listFiles) {
-                    FileUtils.deleteFile(file2);
-                }
-            }
-        }
-    }
-
-    public static EmotionResourceInfo restoreEmotionResourceInfo(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, file)) == null) {
-            if (file == null || !file.exists()) {
-                return null;
-            }
-            String readFileData = FileUtils.readFileData(file);
-            if (TextUtils.isEmpty(readFileData)) {
-                return null;
-            }
-            return EmotionResourceInfo.valueOf(readFileData);
-        }
-        return (EmotionResourceInfo) invokeL.objValue;
+        File emotionRootDir = getEmotionRootDir();
+        File file = new File(emotionRootDir, emotionResourceInfo.mPkgName + RESTORE_SUFFIX);
+        FileUtils.deleteFile(file);
+        FileUtils.saveFile(emotionResourceInfo.toJSONString(), file);
     }
 
     private void saveEmotionResource(EmotionResourceInfo emotionResourceInfo, EmotionInstallResultCb emotionInstallResultCb, boolean z) {
@@ -448,11 +631,9 @@ public class EmotionAPSManager {
                 return;
             }
             emotionResourceInfo.mProvider = build;
-            EmotionResourceInfo emotionResourceInfo2 = this.mResourceMap.get(emotionResourceInfo.mPkgName);
+            EmotionResourceInfo emotionResourceInfo2 = (EmotionResourceInfo) this.mResourceMap.get(emotionResourceInfo.mPkgName);
             if (z) {
-                if (TextUtils.isEmpty(emotionResourceInfo.mPkgName) || !emotionResourceInfo.mPkgName.contains(EMOTION_PACKAGE_NAME_FOR_NORMAL)) {
-                    z2 = false;
-                } else {
+                if (!TextUtils.isEmpty(emotionResourceInfo.mPkgName) && emotionResourceInfo.mPkgName.contains(EMOTION_PACKAGE_NAME_FOR_NORMAL)) {
                     build.loadResource();
                     z2 = EmotionUtils.getInstance().loadEmotionInfo(build);
                     if (z2) {
@@ -465,6 +646,8 @@ public class EmotionAPSManager {
                             Log.d(TAG, "loadToMem success, pkgName = " + emotionResourceInfo.mPkgName);
                         }
                     }
+                } else {
+                    z2 = false;
                 }
                 if (z2) {
                     removeOldResources(emotionResourceInfo);
@@ -494,53 +677,6 @@ public class EmotionAPSManager {
         }
     }
 
-    private void saveEmotionResourceInfo(EmotionResourceInfo emotionResourceInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65556, this, emotionResourceInfo) == null) || emotionResourceInfo == null) {
-            return;
-        }
-        File emotionRootDir = getEmotionRootDir();
-        File file = new File(emotionRootDir, emotionResourceInfo.mPkgName + RESTORE_SUFFIX);
-        FileUtils.deleteFile(file);
-        FileUtils.saveFile(emotionResourceInfo.toJSONString(), file);
-    }
-
-    public static boolean willBeRemoved(File file, long... jArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, file, jArr)) == null) {
-            if (jArr == null) {
-                return false;
-            }
-            String name = file.getName();
-            for (long j : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j))) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean willBeRemovedButIgnore(File file, long... jArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, file, jArr)) == null) {
-            if (jArr == null) {
-                return false;
-            }
-            String name = file.getName();
-            for (long j : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j))) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
     public void doAPSProcess(EmotionResourceInfo emotionResourceInfo, EmotionInstallResultCb emotionInstallResultCb, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, emotionResourceInfo, emotionInstallResultCb, z) == null) {
@@ -564,43 +700,31 @@ public class EmotionAPSManager {
         }
     }
 
-    public IResourceProvider getProvider(String str) {
-        InterceptResult invokeL;
-        EmotionResourceInfo emotionResourceInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!hasValidProvider() || TextUtils.isEmpty(str) || (emotionResourceInfo = this.mResourceMap.get(str)) == null) {
-                return null;
-            }
-            return emotionResourceInfo.mProvider;
-        }
-        return (IResourceProvider) invokeL.objValue;
-    }
-
     public String getResourceDebugInfo() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("表情APS根目录:" + getEmotionRootDir().getPath());
             sb.append("\n合法资源清单:\n");
-            Map<String, EmotionResourceInfo> map = this.mResourceMap;
+            Map map = this.mResourceMap;
             int i = 1;
             if (map != null && !map.isEmpty()) {
-                Iterator<Map.Entry<String, EmotionResourceInfo>> it = this.mResourceMap.entrySet().iterator();
+                Iterator it = this.mResourceMap.entrySet().iterator();
                 while (it != null && it.hasNext()) {
-                    EmotionResourceInfo value = it.next().getValue();
-                    if (value != null) {
+                    EmotionResourceInfo emotionResourceInfo = (EmotionResourceInfo) ((Map.Entry) it.next()).getValue();
+                    if (emotionResourceInfo != null) {
                         sb.append("\n======第" + i + "个资源包======\n");
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("包名:");
-                        sb2.append(value.mPkgName);
+                        sb2.append(emotionResourceInfo.mPkgName);
                         sb.append(sb2.toString());
-                        sb.append("\n包版本号:" + value.mVersion);
-                        sb.append("\n最小宿主版本号:" + value.mMinHostVer);
-                        sb.append("\n最大宿主版本号:" + value.mMaxHostVer);
-                        sb.append("\nAPS下载路径:" + value.mDownloadFilePath);
-                        sb.append("\n包存储路径:" + value.mEmotionResSavePath);
+                        sb.append("\n包版本号:" + emotionResourceInfo.mVersion);
+                        sb.append("\n最小宿主版本号:" + emotionResourceInfo.mMinHostVer);
+                        sb.append("\n最大宿主版本号:" + emotionResourceInfo.mMaxHostVer);
+                        sb.append("\nAPS下载路径:" + emotionResourceInfo.mDownloadFilePath);
+                        sb.append("\n包存储路径:" + emotionResourceInfo.mEmotionResSavePath);
                         i++;
                     }
                 }
@@ -612,40 +736,17 @@ public class EmotionAPSManager {
                 sb.append("\n暂无\n");
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("\n表情资源: ");
-                sb3.append(i != 0 ? "下载失败\n" : "下载成功\n");
+                if (i != 0) {
+                    str = "下载失败\n";
+                } else {
+                    str = "下载成功\n";
+                }
+                sb3.append(str);
                 sb.append(sb3.toString());
             }
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public boolean hasValidProvider() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Map<String, EmotionResourceInfo> map = this.mResourceMap;
-            return (map == null || map.isEmpty()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isDebugLoadMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (DEBUG) {
-                return this.mIsDebugLoadMode;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isLoaded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLoaded : invokeV.booleanValue;
     }
 
     public void loadResourcesIfNeeded() {
@@ -670,7 +771,7 @@ public class EmotionAPSManager {
                     File file = restoreFileList[i];
                     EmotionResourceInfo restoreEmotionResourceInfo = restoreEmotionResourceInfo(file);
                     if (restoreEmotionResourceInfo != null) {
-                        EmotionResourceInfo emotionResourceInfo = this.mResourceMap.get(restoreEmotionResourceInfo.mPkgName);
+                        EmotionResourceInfo emotionResourceInfo = (EmotionResourceInfo) this.mResourceMap.get(restoreEmotionResourceInfo.mPkgName);
                         IResourceProvider build = new EmotionResourceProvider.Builder(AppRuntime.getAppContext()).setZipInputPath(restoreEmotionResourceInfo.mEmotionResSavePath).build();
                         if (build != null) {
                             build.loadResource();
@@ -704,10 +805,9 @@ public class EmotionAPSManager {
                     }
                     i++;
                 }
-                if (this.mLoaded || !DEBUG) {
-                    return;
+                if (!this.mLoaded && DEBUG) {
+                    Log.d(TAG, "loadResourcesIfNeeded failed totally");
                 }
-                Log.d(TAG, "loadResourcesIfNeeded failed totally");
             } else if (DEBUG) {
                 Log.d(TAG, "loadResourcesIfNeeded return, emotionRootDir.listFiles = empty");
             }
@@ -722,41 +822,12 @@ public class EmotionAPSManager {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EmotionAPSManager this$0;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
                 @Override // com.baidu.spswitch.emotion.resource.EmotionAPSManager.EmotionInstallResultCb
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                     }
                 }
-            }, true);
-        }
-    }
-
-    public void presetDoAPSProcess() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            doAPSProcess(new EmotionResourceInfo(EMOTION_PACKAGE_NAME_FOR_NORMAL, EMOTION_PRESET_PATH, "", -1L, "0.0.0.0", "255.255.255.255"), new EmotionInstallResultCb(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ EmotionAPSManager this$0;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -774,13 +845,6 @@ public class EmotionAPSManager {
                         }
                     }
                     this.this$0 = this;
-                }
-
-                @Override // com.baidu.spswitch.emotion.resource.EmotionAPSManager.EmotionInstallResultCb
-                public void onResult(int i, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
-                    }
                 }
             }, true);
         }
@@ -788,47 +852,21 @@ public class EmotionAPSManager {
 
     public void releaseResources() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.mLoaded) {
-            Map<String, EmotionResourceInfo> map = this.mResourceMap;
-            if (map != null && !map.isEmpty()) {
-                Iterator<Map.Entry<String, EmotionResourceInfo>> it = this.mResourceMap.entrySet().iterator();
-                while (it != null && it.hasNext()) {
-                    EmotionResourceInfo value = it.next().getValue();
-                    if (value != null) {
-                        value.mProvider.releaseResource();
-                        value.mProvider = null;
-                    }
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !this.mLoaded) {
+            return;
+        }
+        Map map = this.mResourceMap;
+        if (map != null && !map.isEmpty()) {
+            Iterator it = this.mResourceMap.entrySet().iterator();
+            while (it != null && it.hasNext()) {
+                EmotionResourceInfo emotionResourceInfo = (EmotionResourceInfo) ((Map.Entry) it.next()).getValue();
+                if (emotionResourceInfo != null) {
+                    emotionResourceInfo.mProvider.releaseResource();
+                    emotionResourceInfo.mProvider = null;
                 }
-                this.mResourceMap.clear();
             }
-            this.mLoaded = false;
+            this.mResourceMap.clear();
         }
-    }
-
-    public void setDebugLoadMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && DEBUG) {
-            this.mIsDebugLoadMode = z;
-            if (EmotionDownloadRuntime.getDownloadImpl() != null) {
-                EmotionDownloadRuntime.getDownloadImpl().downloadRetryImmediately();
-            }
-        }
-    }
-
-    public EmotionAPSManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mIsDebugLoadMode = false;
-        this.mResourceMap = new ConcurrentHashMap();
+        this.mLoaded = false;
     }
 }

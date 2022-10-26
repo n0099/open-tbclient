@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<GetShieldAndTopResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "GetShieldAndTopResult";
     public transient /* synthetic */ FieldHolder $fh;
     public int mChatType;
@@ -28,6 +28,16 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
     public long mMarkTopTime;
     public int mShield;
     public long mShieldTime;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +52,7 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<GetShieldAndTopResult>() { // from class: com.baidu.android.imsdk.shield.model.GetShieldAndTopResult.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.shield.model.GetShieldAndTopResult.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,21 +71,25 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GetShieldAndTopResult createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new GetShieldAndTopResult(parcel) : (GetShieldAndTopResult) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new GetShieldAndTopResult(parcel);
+                }
+                return (GetShieldAndTopResult) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GetShieldAndTopResult[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GetShieldAndTopResult[i] : (GetShieldAndTopResult[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new GetShieldAndTopResult[i];
+                }
+                return (GetShieldAndTopResult[]) invokeI.objValue;
             }
         };
     }
@@ -94,74 +108,123 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public int getChatType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mChatType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mChatType;
+        }
+        return invokeV.intValue;
     }
 
     public int getCommodityStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCommodityStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCommodityStatus;
+        }
+        return invokeV.intValue;
     }
 
     public long getContacter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mContacter : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mContacter;
+        }
+        return invokeV.longValue;
     }
 
     public int getDisturbStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDisturbStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDisturbStatus;
+        }
+        return invokeV.intValue;
     }
 
     public long getDisturbTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDisturbTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mDisturbTime;
+        }
+        return invokeV.longValue;
     }
 
     public int getGraphicStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mGraphicStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mGraphicStatus;
+        }
+        return invokeV.intValue;
     }
 
     public int getMarkTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mMarkTop : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mMarkTop;
+        }
+        return invokeV.intValue;
     }
 
     public long getMarkTopTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mMarkTopTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mMarkTopTime;
+        }
+        return invokeV.longValue;
     }
 
     public int getShield() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mShield : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mShield;
+        }
+        return invokeV.intValue;
     }
 
     public long getShieldTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mShieldTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mShieldTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public GetShieldAndTopResult(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mErrorCode = parcel.readInt();
+        this.mErrorMsg = parcel.readString();
+        this.mMarkTop = parcel.readInt();
+        this.mMarkTopTime = parcel.readLong();
+        this.mShield = parcel.readInt();
+        this.mShieldTime = parcel.readLong();
+        this.mContacter = parcel.readLong();
+        this.mChatType = parcel.readInt();
+        this.mDisturbStatus = parcel.readInt();
+        this.mDisturbTime = parcel.readLong();
+        this.mGraphicStatus = parcel.readInt();
+        this.mCommodityStatus = parcel.readInt();
     }
 
     public void setChatType(int i) {
@@ -251,34 +314,5 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
             parcel.writeInt(this.mGraphicStatus);
             parcel.writeInt(this.mCommodityStatus);
         }
-    }
-
-    public GetShieldAndTopResult(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mErrorCode = parcel.readInt();
-        this.mErrorMsg = parcel.readString();
-        this.mMarkTop = parcel.readInt();
-        this.mMarkTopTime = parcel.readLong();
-        this.mShield = parcel.readInt();
-        this.mShieldTime = parcel.readLong();
-        this.mContacter = parcel.readLong();
-        this.mChatType = parcel.readInt();
-        this.mDisturbStatus = parcel.readInt();
-        this.mDisturbTime = parcel.readLong();
-        this.mGraphicStatus = parcel.readInt();
-        this.mCommodityStatus = parcel.readInt();
     }
 }

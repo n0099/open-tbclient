@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableSkipLastTimed extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -28,23 +28,23 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class SkipLastTimedSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
+    public final class SkipLastTimedSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5677354903406201275L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public final boolean delayError;
         public volatile boolean done;
         public Throwable error;
-        public final SpscLinkedArrayQueue<Object> queue;
+        public final SpscLinkedArrayQueue queue;
         public final AtomicLong requested;
         public Subscription s;
         public final Scheduler scheduler;
         public final long time;
         public final TimeUnit unit;
 
-        public SkipLastTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
+        public SkipLastTimedSubscriber(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,24 +64,32 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
             this.time = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
-            this.queue = new SpscLinkedArrayQueue<>(i);
+            this.queue = new SpscLinkedArrayQueue(i);
             this.delayError = z;
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            this.s.cancel();
-            if (getAndIncrement() == 0) {
-                this.queue.clear();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.s.cancel();
+                if (getAndIncrement() == 0) {
+                    this.queue.clear();
+                }
             }
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, Subscriber<? super T> subscriber, boolean z3) {
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.done = true;
+                drain();
+            }
+        }
+
+        public boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber, boolean z3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, Boolean.valueOf(z3)})) == null) {
@@ -120,48 +128,51 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
         }
 
         public void drain() {
+            boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                Subscriber<? super T> subscriber = this.actual;
-                SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
-                boolean z = this.delayError;
-                TimeUnit timeUnit = this.unit;
-                Scheduler scheduler = this.scheduler;
-                long j = this.time;
-                int i = 1;
-                do {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
-                    while (j3 != j2) {
-                        boolean z2 = this.done;
-                        Long l = (Long) spscLinkedArrayQueue.peek();
-                        boolean z3 = l == null;
-                        boolean z4 = (z3 || l.longValue() <= scheduler.now(timeUnit) - j) ? z3 : true;
-                        if (checkTerminated(z2, z4, subscriber, z)) {
-                            return;
-                        }
-                        if (z4) {
-                            break;
-                        }
-                        spscLinkedArrayQueue.poll();
-                        subscriber.onNext(spscLinkedArrayQueue.poll());
-                        j3++;
-                    }
-                    if (j3 != 0) {
-                        BackpressureHelper.produced(this.requested, j3);
-                    }
-                    i = addAndGet(-i);
-                } while (i != 0);
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
+                return;
             }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.done = true;
-                drain();
-            }
+            Subscriber subscriber = this.actual;
+            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            boolean z3 = this.delayError;
+            TimeUnit timeUnit = this.unit;
+            Scheduler scheduler = this.scheduler;
+            long j = this.time;
+            int i = 1;
+            do {
+                long j2 = this.requested.get();
+                long j3 = 0;
+                while (j3 != j2) {
+                    boolean z4 = this.done;
+                    Long l = (Long) spscLinkedArrayQueue.peek();
+                    if (l == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    long now = scheduler.now(timeUnit);
+                    if (!z && l.longValue() > now - j) {
+                        z2 = true;
+                    } else {
+                        z2 = z;
+                    }
+                    if (checkTerminated(z4, z2, subscriber, z3)) {
+                        return;
+                    }
+                    if (z2) {
+                        break;
+                    }
+                    spscLinkedArrayQueue.poll();
+                    subscriber.onNext(spscLinkedArrayQueue.poll());
+                    j3++;
+                }
+                if (j3 != 0) {
+                    BackpressureHelper.produced(this.requested, j3);
+                }
+                i = addAndGet(-i);
+            } while (i != 0);
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -175,10 +186,10 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.queue.offer(Long.valueOf(this.scheduler.now(this.unit)), t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.queue.offer(Long.valueOf(this.scheduler.now(this.unit)), obj);
                 drain();
             }
         }
@@ -204,7 +215,7 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSkipLastTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
+    public FlowableSkipLastTimed(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -229,7 +240,7 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new SkipLastTimedSubscriber(subscriber, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));

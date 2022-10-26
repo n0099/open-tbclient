@@ -24,10 +24,16 @@ public final class PushNotifyResIdl extends Message {
     public final Long pushTime;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<PushNotifyResIdl> {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<PusherMsg> multiMsg;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List multiMsg;
         public Long pushTime;
 
         public Builder() {
@@ -74,14 +80,11 @@ public final class PushNotifyResIdl extends Message {
         public PushNotifyResIdl build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new PushNotifyResIdl(this, z, null) : (PushNotifyResIdl) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new PushNotifyResIdl(this, z, null);
+            }
+            return (PushNotifyResIdl) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -99,10 +102,6 @@ public final class PushNotifyResIdl extends Message {
         }
         DEFAULT_PUSHTIME = 0L;
         DEFAULT_MULTIMSG = Collections.emptyList();
-    }
-
-    public /* synthetic */ PushNotifyResIdl(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,7 +129,7 @@ public final class PushNotifyResIdl extends Message {
             } else {
                 this.pushTime = l;
             }
-            List<PusherMsg> list = builder.multiMsg;
+            List list = builder.multiMsg;
             if (list == null) {
                 this.multiMsg = DEFAULT_MULTIMSG;
                 return;
@@ -141,5 +140,9 @@ public final class PushNotifyResIdl extends Message {
         }
         this.pushTime = builder.pushTime;
         this.multiMsg = Message.immutableCopyOf(builder.multiMsg);
+    }
+
+    public /* synthetic */ PushNotifyResIdl(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

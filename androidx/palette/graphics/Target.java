@@ -1,7 +1,5 @@
 package androidx.palette.graphics;
 
-import androidx.annotation.FloatRange;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -45,6 +43,156 @@ public final class Target {
     public final float[] mLightnessTargets;
     public final float[] mSaturationTargets;
     public final float[] mWeights;
+
+    /* loaded from: classes.dex */
+    public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Target mTarget;
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mTarget = new Target();
+        }
+
+        public Target build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mTarget;
+            }
+            return (Target) invokeV.objValue;
+        }
+
+        public Builder(Target target) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {target};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mTarget = new Target(target);
+        }
+
+        public Builder setExclusive(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.mTarget.mIsExclusive = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder setLightnessWeight(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
+                this.mTarget.mWeights[1] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+
+        public Builder setMaximumLightness(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+                this.mTarget.mLightnessTargets[2] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+
+        public Builder setMaximumSaturation(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+                this.mTarget.mSaturationTargets[2] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+
+        public Builder setMinimumLightness(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+                this.mTarget.mLightnessTargets[0] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+
+        public Builder setMinimumSaturation(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+                this.mTarget.mSaturationTargets[0] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+
+        public Builder setPopulationWeight(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
+                this.mTarget.mWeights[2] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+
+        public Builder setSaturationWeight(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
+                this.mTarget.mWeights[0] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+
+        public Builder setTargetLightness(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f)) == null) {
+                this.mTarget.mLightnessTargets[1] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+
+        public Builder setTargetSaturation(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f)) == null) {
+                this.mTarget.mSaturationTargets[1] = f;
+                return this;
+            }
+            return (Builder) invokeF.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -108,6 +256,58 @@ public final class Target {
         setDefaultWeights();
     }
 
+    public void normalizeWeights() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            int length = this.mWeights.length;
+            float f = 0.0f;
+            for (int i = 0; i < length; i++) {
+                float f2 = this.mWeights[i];
+                if (f2 > 0.0f) {
+                    f += f2;
+                }
+            }
+            if (f != 0.0f) {
+                int length2 = this.mWeights.length;
+                for (int i2 = 0; i2 < length2; i2++) {
+                    float[] fArr = this.mWeights;
+                    if (fArr[i2] > 0.0f) {
+                        fArr[i2] = fArr[i2] / f;
+                    }
+                }
+            }
+        }
+    }
+
+    public Target(Target target) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {target};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        float[] fArr = new float[3];
+        this.mSaturationTargets = fArr;
+        this.mLightnessTargets = new float[3];
+        this.mWeights = new float[3];
+        this.mIsExclusive = true;
+        System.arraycopy(target.mSaturationTargets, 0, fArr, 0, fArr.length);
+        float[] fArr2 = target.mLightnessTargets;
+        float[] fArr3 = this.mLightnessTargets;
+        System.arraycopy(fArr2, 0, fArr3, 0, fArr3.length);
+        float[] fArr4 = target.mWeights;
+        float[] fArr5 = this.mWeights;
+        System.arraycopy(fArr4, 0, fArr5, 0, fArr5.length);
+    }
+
     public static void setDefaultDarkLightnessValues(Target target) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, target) == null) {
@@ -154,6 +354,15 @@ public final class Target {
         }
     }
 
+    public static void setTargetDefaultValues(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, fArr) == null) {
+            fArr[0] = 0.0f;
+            fArr[1] = 0.5f;
+            fArr[2] = 1.0f;
+        }
+    }
+
     private void setDefaultWeights() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
@@ -164,288 +373,93 @@ public final class Target {
         }
     }
 
-    public static void setTargetDefaultValues(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, fArr) == null) {
-            fArr[0] = 0.0f;
-            fArr[1] = 0.5f;
-            fArr[2] = 1.0f;
-        }
-    }
-
     public float getLightnessWeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mWeights[1] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mWeights[1];
+        }
+        return invokeV.floatValue;
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
     public float getMaximumLightness() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLightnessTargets[2] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLightnessTargets[2];
+        }
+        return invokeV.floatValue;
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
     public float getMaximumSaturation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSaturationTargets[2] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSaturationTargets[2];
+        }
+        return invokeV.floatValue;
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
     public float getMinimumLightness() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLightnessTargets[0] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mLightnessTargets[0];
+        }
+        return invokeV.floatValue;
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
     public float getMinimumSaturation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSaturationTargets[0] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSaturationTargets[0];
+        }
+        return invokeV.floatValue;
     }
 
     public float getPopulationWeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mWeights[2] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mWeights[2];
+        }
+        return invokeV.floatValue;
     }
 
     public float getSaturationWeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mWeights[0] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mWeights[0];
+        }
+        return invokeV.floatValue;
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
     public float getTargetLightness() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mLightnessTargets[1] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mLightnessTargets[1];
+        }
+        return invokeV.floatValue;
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
     public float getTargetSaturation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSaturationTargets[1] : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSaturationTargets[1];
+        }
+        return invokeV.floatValue;
     }
 
     public boolean isExclusive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mIsExclusive : invokeV.booleanValue;
-    }
-
-    public void normalizeWeights() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            int length = this.mWeights.length;
-            float f = 0.0f;
-            for (int i = 0; i < length; i++) {
-                float f2 = this.mWeights[i];
-                if (f2 > 0.0f) {
-                    f += f2;
-                }
-            }
-            if (f != 0.0f) {
-                int length2 = this.mWeights.length;
-                for (int i2 = 0; i2 < length2; i2++) {
-                    float[] fArr = this.mWeights;
-                    if (fArr[i2] > 0.0f) {
-                        fArr[i2] = fArr[i2] / f;
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mIsExclusive;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static final class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Target mTarget;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mTarget = new Target();
-        }
-
-        @NonNull
-        public Target build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mTarget : (Target) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder setExclusive(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.mTarget.mIsExclusive = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        @NonNull
-        public Builder setLightnessWeight(@FloatRange(from = 0.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
-                this.mTarget.mWeights[1] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        @NonNull
-        public Builder setMaximumLightness(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-                this.mTarget.mLightnessTargets[2] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        @NonNull
-        public Builder setMaximumSaturation(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-                this.mTarget.mSaturationTargets[2] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        @NonNull
-        public Builder setMinimumLightness(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-                this.mTarget.mLightnessTargets[0] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        @NonNull
-        public Builder setMinimumSaturation(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-                this.mTarget.mSaturationTargets[0] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        @NonNull
-        public Builder setPopulationWeight(@FloatRange(from = 0.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
-                this.mTarget.mWeights[2] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        @NonNull
-        public Builder setSaturationWeight(@FloatRange(from = 0.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-                this.mTarget.mWeights[0] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        @NonNull
-        public Builder setTargetLightness(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f)) == null) {
-                this.mTarget.mLightnessTargets[1] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        @NonNull
-        public Builder setTargetSaturation(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f)) == null) {
-                this.mTarget.mSaturationTargets[1] = f;
-                return this;
-            }
-            return (Builder) invokeF.objValue;
-        }
-
-        public Builder(@NonNull Target target) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {target};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mTarget = new Target(target);
-        }
-    }
-
-    public Target(@NonNull Target target) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {target};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        float[] fArr = new float[3];
-        this.mSaturationTargets = fArr;
-        this.mLightnessTargets = new float[3];
-        this.mWeights = new float[3];
-        this.mIsExclusive = true;
-        System.arraycopy(target.mSaturationTargets, 0, fArr, 0, fArr.length);
-        float[] fArr2 = target.mLightnessTargets;
-        float[] fArr3 = this.mLightnessTargets;
-        System.arraycopy(fArr2, 0, fArr3, 0, fArr3.length);
-        float[] fArr4 = target.mWeights;
-        float[] fArr5 = this.mWeights;
-        System.arraycopy(fArr4, 0, fArr5, 0, fArr5.length);
+        return invokeV.booleanValue;
     }
 }

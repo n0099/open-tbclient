@@ -97,6 +97,22 @@ public final class zzq extends com.google.android.gms.internal.common.zza implem
         return (IObjectWrapper) invokeLLI.objValue;
     }
 
+    public final IObjectWrapper zzj(IObjectWrapper iObjectWrapper, String str, int i) throws RemoteException {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, iObjectWrapper, str, i)) == null) {
+            Parcel zza = zza();
+            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
+            zza.writeString(str);
+            zza.writeInt(i);
+            Parcel zzB = zzB(4, zza);
+            IObjectWrapper asInterface = IObjectWrapper.Stub.asInterface(zzB.readStrongBinder());
+            zzB.recycle();
+            return asInterface;
+        }
+        return (IObjectWrapper) invokeLLI.objValue;
+    }
+
     public final IObjectWrapper zzi(IObjectWrapper iObjectWrapper, String str, int i, IObjectWrapper iObjectWrapper2) throws RemoteException {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
@@ -112,22 +128,6 @@ public final class zzq extends com.google.android.gms.internal.common.zza implem
             return asInterface;
         }
         return (IObjectWrapper) invokeLLIL.objValue;
-    }
-
-    public final IObjectWrapper zzj(IObjectWrapper iObjectWrapper, String str, int i) throws RemoteException {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, iObjectWrapper, str, i)) == null) {
-            Parcel zza = zza();
-            com.google.android.gms.internal.common.zzc.zze(zza, iObjectWrapper);
-            zza.writeString(str);
-            zza.writeInt(i);
-            Parcel zzB = zzB(4, zza);
-            IObjectWrapper asInterface = IObjectWrapper.Stub.asInterface(zzB.readStrongBinder());
-            zzB.recycle();
-            return asInterface;
-        }
-        return (IObjectWrapper) invokeLLI.objValue;
     }
 
     public final IObjectWrapper zzk(IObjectWrapper iObjectWrapper, String str, boolean z, long j) throws RemoteException {

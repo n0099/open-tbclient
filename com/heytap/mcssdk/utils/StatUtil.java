@@ -12,6 +12,7 @@ import com.heytap.mcssdk.PushManager;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.MessageStat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -56,7 +57,7 @@ public class StatUtil {
         }
     }
 
-    public static void statisticMessage(Context context, List<MessageStat> list) {
+    public static void statisticMessage(Context context, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, list) == null) {
             LinkedList linkedList = new LinkedList();
@@ -69,7 +70,7 @@ public class StatUtil {
         }
     }
 
-    public static void statisticMessageByMcs(Context context, List<MessageStat> list) {
+    public static void statisticMessageByMcs(Context context, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
@@ -80,8 +81,9 @@ public class StatUtil {
                 intent.putExtra("type", CommandMessage.COMMAND_STATISTIC);
                 intent.putExtra("count", list.size());
                 ArrayList<String> arrayList = new ArrayList<>();
-                for (MessageStat messageStat : list) {
-                    arrayList.add(messageStat.toJsonObject());
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    arrayList.add(((MessageStat) it.next()).toJsonObject());
                 }
                 intent.putStringArrayListExtra("list", arrayList);
                 context.startService(intent);

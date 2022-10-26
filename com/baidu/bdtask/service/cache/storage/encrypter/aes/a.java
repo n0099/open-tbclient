@@ -29,7 +29,7 @@ public final class a {
 
     /* renamed from: com.baidu.bdtask.service.cache.storage.encrypter.aes.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0077a {
+    public final class C0077a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,6 +45,36 @@ public final class a {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public final int[] d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+                return (int[]) invokeV.objValue;
+            }
+            return a.c;
+        }
+
+        public final byte[] e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
+                return (byte[]) invokeV.objValue;
+            }
+            return a.d;
+        }
+
+        public /* synthetic */ C0077a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final void c(byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) != null) {
+                return;
+            }
+            a.d = bArr;
         }
 
         public final a a() {
@@ -73,30 +103,10 @@ public final class a {
         public final a b(Cipher cipher, Key key) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cipher, key)) == null) ? new a(cipher, key, null) : (a) invokeLL.objValue;
-        }
-
-        public final void c(byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-                a.d = bArr;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cipher, key)) == null) {
+                return new a(cipher, key, null);
             }
-        }
-
-        public final int[] d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.c : (int[]) invokeV.objValue;
-        }
-
-        public final byte[] e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.d : (byte[]) invokeV.objValue;
-        }
-
-        public /* synthetic */ C0077a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+            return (a) invokeLL.objValue;
         }
     }
 
@@ -136,6 +146,10 @@ public final class a {
         this.b = key;
     }
 
+    public /* synthetic */ a(Cipher cipher, Key key, DefaultConstructorMarker defaultConstructorMarker) {
+        this(cipher, key);
+    }
+
     public final void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -164,26 +178,28 @@ public final class a {
 
     public byte[] e(byte[] bArr) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
             try {
                 if (bArr.length == 0) {
-                    return bArr;
+                    z = true;
+                } else {
+                    z = false;
                 }
-                Cipher cipher = this.a;
-                a(2);
-                byte[] doFinal = cipher.doFinal(bArr);
-                Intrinsics.checkExpressionValueIsNotNull(doFinal, "cipher.run {\n           …l(data)\n                }");
-                return doFinal;
+                if (!z) {
+                    Cipher cipher = this.a;
+                    a(2);
+                    byte[] doFinal = cipher.doFinal(bArr);
+                    Intrinsics.checkExpressionValueIsNotNull(doFinal, "cipher.run {\n           …l(data)\n                }");
+                    return doFinal;
+                }
+                return bArr;
             } catch (Throwable th) {
                 DebugTrace.a.c(new AEStorageEncrypter$decrypt$2(th));
                 return new byte[0];
             }
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    public /* synthetic */ a(Cipher cipher, Key key, DefaultConstructorMarker defaultConstructorMarker) {
-        this(cipher, key);
     }
 }

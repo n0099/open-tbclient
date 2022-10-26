@@ -35,21 +35,6 @@ public class PbImageIcon extends ImageView {
         this.a = context;
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int measuredWidth = getMeasuredWidth();
-            Drawable drawable = getDrawable();
-            if (measuredWidth < (drawable != null ? drawable.getIntrinsicWidth() : measuredWidth)) {
-                setVisibility(8);
-            } else {
-                setVisibility(0);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbImageIcon(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -70,5 +55,26 @@ public class PbImageIcon extends ImageView {
             }
         }
         this.a = context;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onMeasure(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int measuredWidth = getMeasuredWidth();
+            Drawable drawable = getDrawable();
+            if (drawable != null) {
+                i3 = drawable.getIntrinsicWidth();
+            } else {
+                i3 = measuredWidth;
+            }
+            if (measuredWidth < i3) {
+                setVisibility(8);
+            } else {
+                setVisibility(0);
+            }
+        }
     }
 }

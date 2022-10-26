@@ -73,12 +73,18 @@ public final class JsonToken {
     public static JsonToken valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (JsonToken) Enum.valueOf(JsonToken.class, str) : (JsonToken) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (JsonToken) Enum.valueOf(JsonToken.class, str);
+        }
+        return (JsonToken) invokeL.objValue;
     }
 
     public static JsonToken[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (JsonToken[]) $VALUES.clone() : (JsonToken[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (JsonToken[]) $VALUES.clone();
+        }
+        return (JsonToken[]) invokeV.objValue;
     }
 }

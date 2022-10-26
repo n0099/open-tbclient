@@ -1,95 +1,197 @@
 package com.baidu.mobstat;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.database.DatabaseErrorHandler;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Environment;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
 /* loaded from: classes2.dex */
-public class l extends ContextWrapper {
+public class l extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public SQLiteDatabase b;
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048587, this, sQLiteDatabase, i, i2) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l() {
-        super(null);
+    public l(Context context, String str) throws SQLiteException {
+        super(context, y.e, (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public File getDatabasePath(String str) {
-        InterceptResult invokeL;
+    public int a(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if ("mounted".equals(bo.a())) {
-                String str2 = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "backups/system";
-                File file = new File(str2);
-                if (!file.exists()) {
-                    file.mkdirs();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) {
+            return this.b.delete(this.a, str, strArr);
+        }
+        return invokeLL.intValue;
+    }
+
+    public long a(String str, ContentValues contentValues) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, contentValues)) == null) {
+            return this.b.insert(this.a, str, contentValues);
+        }
+        return invokeLL.longValue;
+    }
+
+    public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{strArr, str, strArr2, str2, str3, str4, str5})) == null) {
+            return this.b.query(this.a, strArr, str, strArr2, str2, str3, str4, str5);
+        }
+        return (Cursor) invokeCommon.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            getWritableDatabase().execSQL(str);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
+            this.b = sQLiteDatabase;
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onOpen(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, sQLiteDatabase) == null) {
+            super.onOpen(sQLiteDatabase);
+        }
+    }
+
+    public synchronized boolean a() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                z = false;
+                if (this.b == null || !this.b.isOpen()) {
+                    z2 = true;
+                } else {
+                    z2 = false;
                 }
-                File file2 = new File(str2 + File.separator + str);
-                if (!file2.exists()) {
+                if (z2) {
                     try {
-                        file2.createNewFile();
-                    } catch (IOException e) {
-                        bb.c().b(e);
+                        this.b = getWritableDatabase();
+                    } catch (NullPointerException unused) {
+                        throw new NullPointerException("db path is null");
                     }
                 }
-                if (file2.exists()) {
-                    return file2;
+                if (this.b != null && this.b.isOpen()) {
+                    z = true;
                 }
-                return null;
             }
-            return null;
+            return z;
         }
-        return (File) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
-        InterceptResult invokeLIL;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, cursorFactory)) == null) {
-            File databasePath = getDatabasePath(str);
-            if (databasePath != null && databasePath.canWrite()) {
-                return SQLiteDatabase.openOrCreateDatabase(databasePath, (SQLiteDatabase.CursorFactory) null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Cursor cursor = null;
+            try {
+                SQLiteDatabase sQLiteDatabase = this.b;
+                cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.a, null);
+                if (cursor != null && cursor.moveToNext()) {
+                    return cursor.getInt(0);
+                }
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return 0;
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
             }
-            throw new RuntimeException("db path is null or path can not be write");
         }
-        return (SQLiteDatabase) invokeLIL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
-        InterceptResult invokeLILL;
+    @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
+    public synchronized void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i, cursorFactory, databaseErrorHandler)) == null) {
-            File databasePath = getDatabasePath(str);
-            if (databasePath != null && databasePath.canWrite()) {
-                return SQLiteDatabase.openOrCreateDatabase(databasePath, (SQLiteDatabase.CursorFactory) null);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this) {
+                super.close();
+                if (this.b != null) {
+                    this.b.close();
+                    this.b = null;
+                }
             }
-            throw new RuntimeException("db path is null or path can not be write");
         }
-        return (SQLiteDatabase) invokeLILL.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public synchronized SQLiteDatabase getReadableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase readableDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                readableDatabase = super.getReadableDatabase();
+            }
+            return readableDatabase;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public synchronized SQLiteDatabase getWritableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase writableDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this) {
+                writableDatabase = super.getWritableDatabase();
+            }
+            return writableDatabase;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

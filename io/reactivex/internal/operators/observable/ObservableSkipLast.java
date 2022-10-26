@@ -12,22 +12,22 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.ArrayDeque;
 /* loaded from: classes8.dex */
-public final class ObservableSkipLast<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableSkipLast extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int skip;
 
     /* loaded from: classes8.dex */
-    public static final class SkipLastObserver<T> extends ArrayDeque<T> implements Observer<T>, Disposable {
+    public final class SkipLastObserver extends ArrayDeque implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3807491841935125653L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public Disposable s;
         public final int skip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SkipLastObserver(Observer<? super T> observer, int i) {
+        public SkipLastObserver(Observer observer, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -60,7 +60,10 @@ public final class ObservableSkipLast<T> extends AbstractObservableWithUpstream<
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -79,15 +82,14 @@ public final class ObservableSkipLast<T> extends AbstractObservableWithUpstream<
             }
         }
 
-        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 if (this.skip == size()) {
-                    this.actual.onNext((T) poll());
+                    this.actual.onNext(poll());
                 }
-                offer(t);
+                offer(obj);
             }
         }
 
@@ -102,7 +104,7 @@ public final class ObservableSkipLast<T> extends AbstractObservableWithUpstream<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSkipLast(ObservableSource<T> observableSource, int i) {
+    public ObservableSkipLast(ObservableSource observableSource, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -123,7 +125,7 @@ public final class ObservableSkipLast<T> extends AbstractObservableWithUpstream<
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new SkipLastObserver(observer, this.skip));

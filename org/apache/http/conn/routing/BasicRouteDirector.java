@@ -37,15 +37,6 @@ public class BasicRouteDirector implements HttpRouteDirector {
         return invokeLL.intValue;
     }
 
-    public int firstStep(RouteInfo routeInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, routeInfo)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.intValue;
-    }
-
     @Override // org.apache.http.conn.routing.HttpRouteDirector
     public int nextStep(RouteInfo routeInfo, RouteInfo routeInfo2) {
         InterceptResult invokeLL;
@@ -63,5 +54,14 @@ public class BasicRouteDirector implements HttpRouteDirector {
             throw new RuntimeException("Stub!");
         }
         return invokeLL.intValue;
+    }
+
+    public int firstStep(RouteInfo routeInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, routeInfo)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.intValue;
     }
 }

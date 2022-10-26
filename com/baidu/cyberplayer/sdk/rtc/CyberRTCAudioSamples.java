@@ -1,13 +1,11 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes2.dex */
 public class CyberRTCAudioSamples {
     public static /* synthetic */ Interceptable $ic;
@@ -17,7 +15,6 @@ public class CyberRTCAudioSamples {
     public final int c;
     public final byte[] d;
 
-    @Keep
     /* loaded from: classes2.dex */
     public interface CyberRTCSamplesReadyCallback {
         void onRtcAudioRecordSamplesReady(CyberRTCAudioSamples cyberRTCAudioSamples);

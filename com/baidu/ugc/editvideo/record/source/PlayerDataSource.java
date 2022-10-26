@@ -6,9 +6,9 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kh9;
-import com.baidu.tieba.qg9;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.ci9;
+import com.baidu.tieba.ih9;
+import com.baidu.tieba.nh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,6 +52,13 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
         void play();
     }
 
+    @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        }
+    }
+
     public PlayerDataSource(IPlayer iPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,11 +83,150 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
         initPlayer();
     }
 
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public boolean isSameSpeed(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            if (!isInPlaybackState()) {
+                return false;
+            }
+            float playbackSpeed = this.mMediaPlayer.getPlaybackSpeed();
+            if (playbackSpeed > 0.0f && Math.abs((1.0f / playbackSpeed) - f) > 0.05f) {
+                return false;
+            }
+            return true;
+        }
+        return invokeF.booleanValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public void addIPlayerDataSourceView(IDataSourceView.IPlayerDataSourceView iPlayerDataSourceView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iPlayerDataSourceView) == null) {
+            this.mSourceViewList.add(iPlayerDataSourceView);
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource
+    public void onSurfaceHolderCreate(SurfaceHolder surfaceHolder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048591, this, surfaceHolder) != null) || surfaceHolder == null) {
+            return;
+        }
+        Surface surface = surfaceHolder.getSurface();
+        this.mSurface = surface;
+        IPlayer iPlayer = this.mMediaPlayer;
+        if (iPlayer != null) {
+            iPlayer.setSurface(surface);
+            this.mMediaPlayer.prepareAsync();
+            this.mMediaPlayer.seekToEnd();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource
+    public void onSurfaceTextureCreate(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, surfaceTexture) != null) || surfaceTexture == null) {
+            return;
+        }
+        Surface surface = new Surface(surfaceTexture);
+        this.mSurface = surface;
+        IPlayer iPlayer = this.mMediaPlayer;
+        if (iPlayer != null) {
+            iPlayer.setSurface(surface);
+            this.mMediaPlayer.prepareAsync();
+            this.mMediaPlayer.seekToEnd();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public void seekTo(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            if (isInPlaybackState()) {
+                this.mMediaPlayer.seekTo(j);
+                this.mSeekWhenPrepared = 0L;
+                return;
+            }
+            this.mSeekWhenPrepared = j;
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public void seekToForce(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            if (isInPlaybackState()) {
+                this.mMediaPlayer.seekToForce(j);
+                this.mSeekWhenPrepared = 0L;
+                return;
+            }
+            this.mSeekWhenPrepared = j;
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public void setLooping(boolean z) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048598, this, z) == null) && (iPlayer = this.mMediaPlayer) != null) {
+            iPlayer.setLooping(z);
+        }
+    }
+
+    public void setOnPlayStateListener(OnPlayStateListener onPlayStateListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, onPlayStateListener) == null) {
+            this.onPlayStateListener = onPlayStateListener;
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public void setSpeed(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
+            this.mSpeed = f;
+            if (this.mMediaPlayer != null && !isSameSpeed(f)) {
+                this.mMediaPlayer.setPlaybackSpeed(1.0f / this.mSpeed);
+            }
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public void setVideoPath(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.mPath = str;
+            this.mPathList = null;
+            createPlayer(false);
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public void setVideoPathList(List<VideoPlayData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, list) == null) {
+            this.mPathList = list;
+            this.mPath = null;
+            createPlayer(false);
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
+    public void setVolume(float f, float f2) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && (iPlayer = this.mMediaPlayer) != null) {
+            iPlayer.setVolume(f, f2);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void createPlayer(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, this, z) == null) {
-            if (kh9.a(this.mPath) && vg9.e(this.mPathList)) {
+            if (ci9.a(this.mPath) && nh9.e(this.mPathList)) {
                 return;
             }
             pause();
@@ -99,7 +245,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 }
                 this.mCurrentState = 1;
             } catch (Exception e) {
-                qg9.g(e);
+                ih9.g(e);
                 this.mMediaPlayer = null;
                 this.mPath = null;
                 this.mPathList = null;
@@ -116,7 +262,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            if (vg9.e(this.mPathList)) {
+            if (nh9.e(this.mPathList)) {
                 return null;
             }
             long currentPosition = getCurrentPosition();
@@ -205,12 +351,13 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 @Override // com.baidu.ugc.editvideo.player.IPlayer.OnPlayerVideoSizeChangedListener
                 public void onVideoSizeChanged(int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i, i2) == null) {
-                        this.this$0.mVideoWidth = i;
-                        this.this$0.mVideoHeight = i2;
-                        for (int i3 = 0; i3 < this.this$0.mSourceViewList.size(); i3++) {
-                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i3)).onVideoSizeChanged(i, i2);
-                        }
+                    if (interceptable2 != null && interceptable2.invokeII(1048576, this, i, i2) != null) {
+                        return;
+                    }
+                    this.this$0.mVideoWidth = i;
+                    this.this$0.mVideoHeight = i2;
+                    for (int i3 = 0; i3 < this.this$0.mSourceViewList.size(); i3++) {
+                        ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i3)).onVideoSizeChanged(i, i2);
                     }
                 }
             });
@@ -351,23 +498,18 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                             }
                             this.this$0.isReportError = true;
                         }
-                        if (exc != null) {
-                            this.this$0.createPlayer(false);
-                            return this.this$0.mMediaPlayer != null;
+                        if (exc == null) {
+                            return false;
+                        }
+                        this.this$0.createPlayer(false);
+                        if (this.this$0.mMediaPlayer != null) {
+                            return true;
                         }
                         return false;
                     }
                     return invokeCommon.booleanValue;
                 }
             });
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void addIPlayerDataSourceView(IDataSourceView.IPlayerDataSourceView iPlayerDataSourceView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iPlayerDataSourceView) == null) {
-            this.mSourceViewList.add(iPlayerDataSourceView);
         }
     }
 
@@ -401,27 +543,39 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVideoHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mVideoHeight;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
     public String getVideoPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPath : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mPath;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
     public List<VideoPlayData> getVideoPathList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPathList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mPathList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVideoWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mVideoWidth;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
@@ -456,28 +610,26 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public boolean isInPlaybackState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (this.mMediaPlayer == null || this.mCurrentState == 0 || this.mCurrentState == 1 || this.mCurrentState == 6) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.mMediaPlayer != null && this.mCurrentState != 0 && this.mCurrentState != 1 && this.mCurrentState != 6) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? isInPlaybackState() && this.mMediaPlayer.isPlaying() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public boolean isSameSpeed(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
-            if (isInPlaybackState()) {
-                float playbackSpeed = this.mMediaPlayer.getPlaybackSpeed();
-                return playbackSpeed <= 0.0f || Math.abs((1.0f / playbackSpeed) - f) <= 0.05f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (isInPlaybackState() && this.mMediaPlayer.isPlaying()) {
+                return true;
             }
             return false;
         }
-        return invokeF.booleanValue;
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
@@ -502,45 +654,6 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
             if (iPlayer != null) {
                 iPlayer.setSurface(null);
             }
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource
-    public void onSurfaceHolderCreate(SurfaceHolder surfaceHolder) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, surfaceHolder) == null) || surfaceHolder == null) {
-            return;
-        }
-        Surface surface = surfaceHolder.getSurface();
-        this.mSurface = surface;
-        IPlayer iPlayer = this.mMediaPlayer;
-        if (iPlayer != null) {
-            iPlayer.setSurface(surface);
-            this.mMediaPlayer.prepareAsync();
-            this.mMediaPlayer.seekToEnd();
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource
-    public void onSurfaceTextureCreate(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, surfaceTexture) == null) || surfaceTexture == null) {
-            return;
-        }
-        Surface surface = new Surface(surfaceTexture);
-        this.mSurface = surface;
-        IPlayer iPlayer = this.mMediaPlayer;
-        if (iPlayer != null) {
-            iPlayer.setSurface(surface);
-            this.mMediaPlayer.prepareAsync();
-            this.mMediaPlayer.seekToEnd();
         }
     }
 
@@ -591,91 +704,6 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
             this.mCurrentState = 0;
             this.mTargetState = 0;
         }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void seekTo(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            if (isInPlaybackState()) {
-                this.mMediaPlayer.seekTo(j);
-                this.mSeekWhenPrepared = 0L;
-                return;
-            }
-            this.mSeekWhenPrepared = j;
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void seekToForce(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            if (isInPlaybackState()) {
-                this.mMediaPlayer.seekToForce(j);
-                this.mSeekWhenPrepared = 0L;
-                return;
-            }
-            this.mSeekWhenPrepared = j;
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void setLooping(boolean z) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || (iPlayer = this.mMediaPlayer) == null) {
-            return;
-        }
-        iPlayer.setLooping(z);
-    }
-
-    public void setOnPlayStateListener(OnPlayStateListener onPlayStateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, onPlayStateListener) == null) {
-            this.onPlayStateListener = onPlayStateListener;
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void setSpeed(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
-            this.mSpeed = f;
-            if (this.mMediaPlayer == null || isSameSpeed(f)) {
-                return;
-            }
-            this.mMediaPlayer.setPlaybackSpeed(1.0f / this.mSpeed);
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void setVideoPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.mPath = str;
-            this.mPathList = null;
-            createPlayer(false);
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void setVideoPathList(List<VideoPlayData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, list) == null) {
-            this.mPathList = list;
-            this.mPath = null;
-            createPlayer(false);
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void setVolume(float f, float f2) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (iPlayer = this.mMediaPlayer) == null) {
-            return;
-        }
-        iPlayer.setVolume(f, f2);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource

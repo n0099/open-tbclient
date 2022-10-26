@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@NotProguard
 /* loaded from: classes2.dex */
 public class FontParser {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,14 +34,14 @@ public class FontParser {
     public static final Pattern TAG_PATTERN;
     public static boolean first = false;
     public static boolean mIsAndroidPad = false;
-    public static ArrayList<String> sFallbackFonts = null;
+    public static ArrayList sFallbackFonts = null;
     public static final String sFontStyleDefault = "normal";
     public static final String sFontWeightDefault = "400";
-    public static Map<String, String> sSystemFontMap;
+    public static Map sSystemFontMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class Alias {
+    public class Alias {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String name;
@@ -65,7 +64,7 @@ public class FontParser {
     }
 
     /* loaded from: classes2.dex */
-    public static class Axis {
+    public class Axis {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float styleValue;
@@ -92,11 +91,11 @@ public class FontParser {
     }
 
     /* loaded from: classes2.dex */
-    public static class Config {
+    public class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<Alias> aliases;
-        public List<Family> families;
+        public List aliases;
+        public List families;
 
         public Config() {
             Interceptable interceptable = $ic;
@@ -117,15 +116,15 @@ public class FontParser {
     }
 
     /* loaded from: classes2.dex */
-    public static class Family {
+    public class Family {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<Font> fonts;
+        public List fonts;
         public String lang;
         public String name;
         public String variant;
 
-        public Family(String str, List<Font> list, String str2, String str3) {
+        public Family(String str, List list, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,16 +147,16 @@ public class FontParser {
     }
 
     /* loaded from: classes2.dex */
-    public static class Font {
+    public class Font {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<Axis> axes;
+        public final List axes;
         public String fontName;
         public boolean isItalic;
         public int ttcIndex;
         public int weight;
 
-        public Font(String str, int i, List<Axis> list, int i2, boolean z) {
+        public Font(String str, int i, List list, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -194,7 +193,7 @@ public class FontParser {
             }
         }
         sSystemFontMap = new HashMap();
-        sFallbackFonts = new ArrayList<>();
+        sFallbackFonts = new ArrayList();
         first = true;
         FILENAME_WHITESPACE_PATTERN = Pattern.compile("^[ \\n\\r\\t]+|[ \\n\\r\\t]+$");
         TAG_PATTERN = Pattern.compile("[\\x00-\\xFF]{4}");
@@ -231,6 +230,23 @@ public class FontParser {
         return (Config) invokeL.objValue;
     }
 
+    public static void skip(XmlPullParser xmlPullParser) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, xmlPullParser) == null) {
+            int i = 1;
+            while (i > 0) {
+                int next = xmlPullParser.next();
+                if (next != 2) {
+                    if (next == 3) {
+                        i--;
+                    }
+                } else {
+                    i++;
+                }
+            }
+        }
+    }
+
     public static Alias readAlias(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -245,7 +261,7 @@ public class FontParser {
                 alias.weight = Integer.parseInt(attributeValue);
             }
             skip(xmlPullParser);
-            String str = sSystemFontMap.get(alias.toName + "/normal/" + alias.weight);
+            String str = (String) sSystemFontMap.get(alias.toName + "/normal/" + alias.weight);
             if (str != null) {
                 sSystemFontMap.put(alias.name + "/normal/" + sFontWeightDefault, str);
             }
@@ -328,7 +344,6 @@ public class FontParser {
     */
     public static Family readFamily(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
-        String str;
         String lowerCase;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, xmlPullParser)) == null) {
@@ -341,14 +356,17 @@ public class FontParser {
                     if (xmlPullParser.getName().equals("font")) {
                         Font readFont = readFont(xmlPullParser);
                         arrayList.add(readFont);
-                        str = "italic";
+                        String str = "italic";
                         if (first && readFont.weight == 400 && !readFont.isItalic) {
                             first = false;
                             sFallbackFonts.add(readFont.fontName);
                             StringBuilder sb = new StringBuilder();
                             sb.append(attributeValue2);
                             sb.append("/");
-                            sb.append(readFont.isItalic ? "italic" : "normal");
+                            if (!readFont.isItalic) {
+                                str = "normal";
+                            }
+                            sb.append(str);
                             sb.append("/");
                             sb.append(readFont.weight);
                             sSystemFontMap.put(sb.toString(), readFont.fontName);
@@ -367,13 +385,23 @@ public class FontParser {
 
     public static Font readFont(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
+        int parseInt;
+        int parseInt2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, xmlPullParser)) == null) {
             String attributeValue = xmlPullParser.getAttributeValue(null, "index");
-            int parseInt = attributeValue == null ? 0 : Integer.parseInt(attributeValue);
+            if (attributeValue == null) {
+                parseInt = 0;
+            } else {
+                parseInt = Integer.parseInt(attributeValue);
+            }
             ArrayList arrayList = new ArrayList();
             String attributeValue2 = xmlPullParser.getAttributeValue(null, "weight");
-            int parseInt2 = attributeValue2 == null ? 400 : Integer.parseInt(attributeValue2);
+            if (attributeValue2 == null) {
+                parseInt2 = 400;
+            } else {
+                parseInt2 = Integer.parseInt(attributeValue2);
+            }
             boolean equals = "italic".equals(xmlPullParser.getAttributeValue(null, "style"));
             StringBuilder sb = new StringBuilder();
             while (xmlPullParser.next() != 3) {
@@ -391,20 +419,5 @@ public class FontParser {
             return new Font("/system/fonts/" + FILENAME_WHITESPACE_PATTERN.matcher(sb).replaceAll(""), parseInt, arrayList, parseInt2, equals);
         }
         return (Font) invokeL.objValue;
-    }
-
-    public static void skip(XmlPullParser xmlPullParser) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, xmlPullParser) == null) {
-            int i = 1;
-            while (i > 0) {
-                int next = xmlPullParser.next();
-                if (next == 2) {
-                    i++;
-                } else if (next == 3) {
-                    i--;
-                }
-            }
-        }
     }
 }

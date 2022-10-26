@@ -42,35 +42,125 @@ public final class c {
         }
     }
 
+    public static com.bytedance.pangle.util.d a(MappedByteBuffer mappedByteBuffer, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, mappedByteBuffer, i, str)) == null) {
+            if (mappedByteBuffer.getInt(i) == 67324752) {
+                int i2 = mappedByteBuffer.getInt(i + 18);
+                int i3 = mappedByteBuffer.getInt(i + 22);
+                if (i2 == i3) {
+                    byte[] bArr = new byte[i3];
+                    int i4 = i + 30 + mappedByteBuffer.getShort(i + 26) + mappedByteBuffer.getShort(i + 28);
+                    for (int i5 = 0; i5 < i3; i5++) {
+                        bArr[i5] = mappedByteBuffer.get(i4 + i5);
+                    }
+                    return new com.bytedance.pangle.util.d(Integer.valueOf(i4), bArr);
+                }
+                throw new RuntimeException(str + " is compressed. compressSize:" + i2 + " size:" + i3);
+            }
+            throw new RuntimeException("Expected: 0x04034b50, got: " + mappedByteBuffer.getInt(i) + " FileName:" + str);
+        }
+        return (com.bytedance.pangle.util.d) invokeLIL.objValue;
+    }
+
+    public static void a(File file, HashSet hashSet, h hVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, file, hashSet, hVar) == null) {
+            MappedByteBuffer b = b(file);
+            int capacity = b.capacity();
+            if (capacity >= 22) {
+                int i2 = capacity - 22;
+                int min = Math.min(i2, 65535);
+                for (int i3 = 0; i3 < min; i3++) {
+                    i = i2 - i3;
+                    if (b.getInt(i) == 101010256 && b.getShort(i + 20) == i3) {
+                        break;
+                    }
+                }
+            }
+            i = -1;
+            if (i != -1) {
+                int i4 = b.getInt(i + 12);
+                int i5 = b.getInt(i + 16);
+                int i6 = i4 + i5;
+                while (i5 < i6) {
+                    if (b.getInt(i5) == 33639248) {
+                        int i7 = b.getShort(i5 + 28);
+                        short s = b.getShort(i5 + 30);
+                        byte[] bArr = new byte[i7];
+                        for (int i8 = 0; i8 < i7; i8++) {
+                            bArr[i8] = b.get(i5 + 46 + i8);
+                        }
+                        String str = new String(bArr);
+                        int i9 = b.getInt(i5 + 20);
+                        int i10 = b.getInt(i5 + 24);
+                        if (hashSet.contains(str)) {
+                            if (i9 == i10) {
+                                com.bytedance.pangle.util.d a = a(b, b.getInt(i5 + 42), str);
+                                try {
+                                    byte[] bArr2 = (byte[]) a.b;
+                                    if (!TextUtils.isEmpty(str) && hVar.a(str)) {
+                                        if (str.equals("AndroidManifest.xml")) {
+                                            k.a(bArr2, hVar);
+                                        } else if ((str.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION) && str.startsWith("res/")) || TextUtils.equals(str, "AndroidManifest.xml")) {
+                                            k.a(bArr2, hVar);
+                                        } else if (str.equals("resources.arsc")) {
+                                            new a(bArr2, hVar).a();
+                                        }
+                                    }
+                                    for (int i11 = 0; i11 < ((byte[]) a.b).length; i11++) {
+                                        b.put(((Integer) a.a).intValue() + i11, ((byte[]) a.b)[i11]);
+                                    }
+                                } catch (Throwable th) {
+                                    throw new RuntimeException(th);
+                                }
+                            } else {
+                                throw new Throwable(str + " is compressed.");
+                            }
+                        }
+                        i5 += i7 + 46 + s;
+                    } else {
+                        throw new RuntimeException("Expected: 0x02014b50, got: " + b.getInt(i5));
+                    }
+                }
+                return;
+            }
+            throw new Throwable("endOfCentralPosition == -1");
+        }
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static MappedByteBuffer b(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, file)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+            try {
+                FileChannel channel = randomAccessFile.getChannel();
+                long size = channel.size();
+                MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_WRITE, 0L, size);
+                byte[] bArr = new byte[4194304];
+                long j = size / 4194304;
+                int i = (int) (size % 4194304);
+                for (int i2 = 0; i2 < j; i2++) {
+                    map.get(bArr);
+                }
+                if (i > 0) {
+                    map.get(new byte[i]);
+                }
+                map.order(ByteOrder.LITTLE_ENDIAN);
+                if (channel != null) {
+                    channel.close();
+                }
+                randomAccessFile.close();
+                return map;
+            } finally {
+            }
+        } else {
             return (MappedByteBuffer) invokeL.objValue;
-        }
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        try {
-            FileChannel channel = randomAccessFile.getChannel();
-            long size = channel.size();
-            MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_WRITE, 0L, size);
-            byte[] bArr = new byte[4194304];
-            long j = size / 4194304;
-            int i = (int) (size % 4194304);
-            for (int i2 = 0; i2 < j; i2++) {
-                map.get(bArr);
-            }
-            if (i > 0) {
-                map.get(new byte[i]);
-            }
-            map.order(ByteOrder.LITTLE_ENDIAN);
-            if (channel != null) {
-                channel.close();
-            }
-            randomAccessFile.close();
-            return map;
-        } finally {
         }
     }
 
@@ -181,7 +271,10 @@ public final class c {
                     public final boolean a(String str) {
                         InterceptResult invokeL2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.d.contains(str) : invokeL2.booleanValue;
+                        if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                            return this.d.contains(str);
+                        }
+                        return invokeL2.booleanValue;
                     }
                 });
                 ZeusLogger.d(ZeusLogger.TAG_INSTALL, "modifyRes count = " + iArr[0]);
@@ -202,94 +295,5 @@ public final class c {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public static void a(File file, HashSet<String> hashSet, h hVar) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, file, hashSet, hVar) == null) {
-            MappedByteBuffer b = b(file);
-            int capacity = b.capacity();
-            if (capacity >= 22) {
-                int i2 = capacity - 22;
-                int min = Math.min(i2, 65535);
-                for (int i3 = 0; i3 < min; i3++) {
-                    i = i2 - i3;
-                    if (b.getInt(i) == 101010256 && b.getShort(i + 20) == i3) {
-                        break;
-                    }
-                }
-            }
-            i = -1;
-            if (i != -1) {
-                int i4 = b.getInt(i + 12);
-                int i5 = b.getInt(i + 16);
-                int i6 = i4 + i5;
-                while (i5 < i6) {
-                    if (b.getInt(i5) == 33639248) {
-                        int i7 = b.getShort(i5 + 28);
-                        short s = b.getShort(i5 + 30);
-                        byte[] bArr = new byte[i7];
-                        for (int i8 = 0; i8 < i7; i8++) {
-                            bArr[i8] = b.get(i5 + 46 + i8);
-                        }
-                        String str = new String(bArr);
-                        int i9 = b.getInt(i5 + 20);
-                        int i10 = b.getInt(i5 + 24);
-                        if (hashSet.contains(str)) {
-                            if (i9 == i10) {
-                                com.bytedance.pangle.util.d<Integer, byte[]> a = a(b, b.getInt(i5 + 42), str);
-                                try {
-                                    byte[] bArr2 = a.b;
-                                    if (!TextUtils.isEmpty(str) && hVar.a(str)) {
-                                        if (str.equals("AndroidManifest.xml")) {
-                                            k.a(bArr2, hVar);
-                                        } else if ((str.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION) && str.startsWith("res/")) || TextUtils.equals(str, "AndroidManifest.xml")) {
-                                            k.a(bArr2, hVar);
-                                        } else if (str.equals("resources.arsc")) {
-                                            new a(bArr2, hVar).a();
-                                        }
-                                    }
-                                    for (int i11 = 0; i11 < a.b.length; i11++) {
-                                        b.put(a.a.intValue() + i11, a.b[i11]);
-                                    }
-                                } catch (Throwable th) {
-                                    throw new RuntimeException(th);
-                                }
-                            } else {
-                                throw new Throwable(str + " is compressed.");
-                            }
-                        }
-                        i5 += i7 + 46 + s;
-                    } else {
-                        throw new RuntimeException("Expected: 0x02014b50, got: " + b.getInt(i5));
-                    }
-                }
-                return;
-            }
-            throw new Throwable("endOfCentralPosition == -1");
-        }
-    }
-
-    public static com.bytedance.pangle.util.d<Integer, byte[]> a(MappedByteBuffer mappedByteBuffer, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, mappedByteBuffer, i, str)) == null) {
-            if (mappedByteBuffer.getInt(i) == 67324752) {
-                int i2 = mappedByteBuffer.getInt(i + 18);
-                int i3 = mappedByteBuffer.getInt(i + 22);
-                if (i2 == i3) {
-                    byte[] bArr = new byte[i3];
-                    int i4 = i + 30 + mappedByteBuffer.getShort(i + 26) + mappedByteBuffer.getShort(i + 28);
-                    for (int i5 = 0; i5 < i3; i5++) {
-                        bArr[i5] = mappedByteBuffer.get(i4 + i5);
-                    }
-                    return new com.bytedance.pangle.util.d<>(Integer.valueOf(i4), bArr);
-                }
-                throw new RuntimeException(str + " is compressed. compressSize:" + i2 + " size:" + i3);
-            }
-            throw new RuntimeException("Expected: 0x04034b50, got: " + mappedByteBuffer.getInt(i) + " FileName:" + str);
-        }
-        return (com.bytedance.pangle.util.d) invokeLIL.objValue;
     }
 }

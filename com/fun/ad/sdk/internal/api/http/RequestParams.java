@@ -20,7 +20,7 @@ public class RequestParams {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public final ContentType b;
-    public Map<String, Object> c;
+    public Map c;
 
     public RequestParams(ContentType contentType) {
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class RequestParams {
         this.b = contentType;
     }
 
-    public RequestParams(Map<String, Object> map) {
+    public RequestParams(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

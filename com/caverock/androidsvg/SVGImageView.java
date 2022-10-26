@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xj9;
-import com.baidu.tieba.yj9;
+import com.baidu.tieba.pk9;
+import com.baidu.tieba.qk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,16 +32,16 @@ public class SVGImageView extends ImageView {
     public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
     public SVG a;
-    public yj9 b;
+    public qk9 b;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class b extends AsyncTask<Integer, Integer, SVG> {
+    public class b extends AsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -90,15 +90,16 @@ public class SVGImageView extends ImageView {
         /* renamed from: b */
         public void onPostExecute(SVG svg) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, svg) == null) {
-                this.c.a = svg;
-                this.c.c();
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, svg) != null) {
+                return;
             }
+            this.c.a = svg;
+            this.c.c();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c extends AsyncTask<InputStream, Integer, SVG> {
+    public class c extends AsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SVGImageView a;
@@ -119,6 +120,22 @@ public class SVGImageView extends ImageView {
                 }
             }
             this.a = sVGImageView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: b */
+        public void onPostExecute(SVG svg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, svg) != null) {
+                return;
+            }
+            this.a.a = svg;
+            this.a.c();
+        }
+
+        public /* synthetic */ c(SVGImageView sVGImageView, a aVar) {
+            this(sVGImageView);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,21 +172,6 @@ public class SVGImageView extends ImageView {
             }
             return (SVG) invokeL.objValue;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: b */
-        public void onPostExecute(SVG svg) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, svg) == null) {
-                this.a.a = svg;
-                this.a.c();
-            }
-        }
-
-        public /* synthetic */ c(SVGImageView sVGImageView, a aVar) {
-            this(sVGImageView);
-        }
     }
 
     static {
@@ -188,6 +190,18 @@ public class SVGImageView extends ImageView {
         try {
             c = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || c == null) {
+            return;
+        }
+        try {
+            c.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
+        } catch (Exception e) {
+            Log.w("SVGImageView", "Unexpected failure calling setLayerType", e);
         }
     }
 
@@ -210,7 +224,68 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new yj9();
+        this.b = new qk9();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SVGImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = new qk9();
+        d(attributeSet, 0);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SVGImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = new qk9();
+        d(attributeSet, i);
+    }
+
+    public void setSVG(SVG svg, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, svg, str) == null) {
+            if (svg != null) {
+                this.a = svg;
+                this.b.a(str);
+                c();
+                return;
+            }
+            throw new IllegalArgumentException("Null value passed to setSVG()");
+        }
     }
 
     private void setFromString(String str) {
@@ -222,48 +297,6 @@ public class SVGImageView extends ImageView {
             } catch (SVGParseException unused) {
                 Log.e("SVGImageView", "Could not find SVG at: " + str);
             }
-        }
-    }
-
-    public final void c() {
-        SVG svg;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (svg = this.a) == null) {
-            return;
-        }
-        Picture o = svg.o(this.b);
-        g();
-        setImageDrawable(new PictureDrawable(o));
-    }
-
-    public final void d(AttributeSet attributeSet, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i) == null) || isInEditMode()) {
-            return;
-        }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, xj9.SVGImageView, i, 0);
-        try {
-            String string = obtainStyledAttributes.getString(0);
-            if (string != null) {
-                this.b.a(string);
-            }
-            int resourceId = obtainStyledAttributes.getResourceId(1, -1);
-            if (resourceId != -1) {
-                setImageResource(resourceId);
-                return;
-            }
-            String string2 = obtainStyledAttributes.getString(1);
-            if (string2 != null) {
-                if (f(Uri.parse(string2))) {
-                    return;
-                }
-                if (e(string2)) {
-                    return;
-                }
-                setFromString(string2);
-            }
-        } finally {
-            obtainStyledAttributes.recycle();
         }
     }
 
@@ -295,18 +328,6 @@ public class SVGImageView extends ImageView {
         return invokeL.booleanValue;
     }
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || c == null) {
-            return;
-        }
-        try {
-            c.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
-        } catch (Exception e) {
-            Log.w("SVGImageView", "Unexpected failure calling setLayerType", e);
-        }
-    }
-
     public void setCSS(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -317,10 +338,9 @@ public class SVGImageView extends ImageView {
 
     public void setImageAsset(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || e(str)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !e(str)) {
+            Log.e("SVGImageView", "File not found: " + str);
         }
-        Log.e("SVGImageView", "File not found: " + str);
     }
 
     @Override // android.widget.ImageView
@@ -334,10 +354,9 @@ public class SVGImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageURI(Uri uri) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri) == null) || f(uri)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri) == null) && !f(uri)) {
+            Log.e("SVGImageView", "File not found: " + uri);
         }
-        Log.e("SVGImageView", "File not found: " + uri);
     }
 
     public void setSVG(SVG svg) {
@@ -352,64 +371,45 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SVGImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet, 0);
+    public final void c() {
+        SVG svg;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (svg = this.a) == null) {
+            return;
         }
-        this.a = null;
-        this.b = new yj9();
-        d(attributeSet, 0);
+        Picture o = svg.o(this.b);
+        g();
+        setImageDrawable(new PictureDrawable(o));
     }
 
-    public void setSVG(SVG svg, String str) {
+    public final void d(AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, svg, str) == null) {
-            if (svg != null) {
-                this.a = svg;
-                this.b.a(str);
-                c();
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i) != null) || isInEditMode()) {
+            return;
+        }
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, pk9.SVGImageView, i, 0);
+        try {
+            String string = obtainStyledAttributes.getString(0);
+            if (string != null) {
+                this.b.a(string);
+            }
+            int resourceId = obtainStyledAttributes.getResourceId(1, -1);
+            if (resourceId != -1) {
+                setImageResource(resourceId);
                 return;
             }
-            throw new IllegalArgumentException("Null value passed to setSVG()");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SVGImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+            String string2 = obtainStyledAttributes.getString(1);
+            if (string2 != null) {
+                if (f(Uri.parse(string2))) {
+                    return;
+                }
+                if (e(string2)) {
+                    return;
+                }
+                setFromString(string2);
             }
+        } finally {
+            obtainStyledAttributes.recycle();
         }
-        this.a = null;
-        this.b = new yj9();
-        d(attributeSet, i);
     }
 }

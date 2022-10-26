@@ -44,29 +44,6 @@ public class TaskExecutor extends AbstractTaskExecutor {
         }
     }
 
-    @Override // com.yy.hiidostatis.inner.implementation.AbstractTaskExecutor
-    public ITaskExecutor.OnTaskRejectedListener getOnTaskRejectedListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mOnTaskRejectedListener : (ITaskExecutor.OnTaskRejectedListener) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.implementation.AbstractTaskExecutor
-    public void submitTask(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            try {
-                if (this.singleTaskExecutor != null) {
-                    this.singleTaskExecutor.execute(runnable, 0L);
-                } else {
-                    this.mExecutor.execute(runnable);
-                }
-            } catch (Throwable unused) {
-                ThreadPool.getPool().executeQueue(runnable);
-            }
-        }
-    }
-
     public TaskExecutor(ITaskExecutor.OnTaskRejectedListener onTaskRejectedListener, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,6 +107,32 @@ public class TaskExecutor extends AbstractTaskExecutor {
             });
         }
         this.mOnTaskRejectedListener = onTaskRejectedListener;
+    }
+
+    @Override // com.yy.hiidostatis.inner.implementation.AbstractTaskExecutor
+    public ITaskExecutor.OnTaskRejectedListener getOnTaskRejectedListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mOnTaskRejectedListener;
+        }
+        return (ITaskExecutor.OnTaskRejectedListener) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.implementation.AbstractTaskExecutor
+    public void submitTask(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            try {
+                if (this.singleTaskExecutor != null) {
+                    this.singleTaskExecutor.execute(runnable, 0L);
+                } else {
+                    this.mExecutor.execute(runnable);
+                }
+            } catch (Throwable unused) {
+                ThreadPool.getPool().executeQueue(runnable);
+            }
+        }
     }
 
     @Override // com.yy.hiidostatis.inner.implementation.AbstractTaskExecutor

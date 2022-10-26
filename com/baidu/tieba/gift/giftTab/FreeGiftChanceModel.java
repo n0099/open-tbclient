@@ -5,24 +5,49 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
+public class FreeGiftChanceModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public b b;
-    public pb c;
+    public qb c;
 
     /* loaded from: classes4.dex */
-    public class a extends pb {
+    public interface b {
+        void a(int i, String str, int i2);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FreeGiftChanceModel a;
@@ -49,33 +74,29 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             this.a = freeGiftChanceModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
-            if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
-                if (z) {
-                    this.a.a = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
-                } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    this.a.a = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
-                }
-                if (this.a.b != null) {
-                    this.a.b.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
-                }
+            if (!z && !(responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
+                return;
+            }
+            if (z) {
+                this.a.a = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+            } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
+                this.a.a = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+            }
+            if (this.a.b != null) {
+                this.a.b.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(int i, String str, int i2);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FreeGiftChanceModel(r9<GiftTabActivity> r9Var) {
+    public FreeGiftChanceModel(r9 r9Var) {
         super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,26 +134,6 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -143,8 +144,8 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sm8.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            sm8.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            zm8.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            zm8.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

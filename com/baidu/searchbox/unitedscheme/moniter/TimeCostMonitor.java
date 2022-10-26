@@ -18,7 +18,7 @@ public class TimeCostMonitor {
     public static final boolean DEBUG;
     public static final String TAG = "TimeCostMonitor";
     public transient /* synthetic */ FieldHolder $fh;
-    public Hashtable<String, Long> mEventRecorder;
+    public Hashtable mEventRecorder;
     public long mThresholdValue;
     public TimeCostHandler mTimeoutHandler;
 
@@ -55,15 +55,15 @@ public class TimeCostMonitor {
         }
         this.mTimeoutHandler = timeCostHandler;
         this.mThresholdValue = j;
-        this.mEventRecorder = new Hashtable<>();
+        this.mEventRecorder = new Hashtable();
     }
 
     public void recordEnd(String str) {
-        Hashtable<String, Long> hashtable;
+        Hashtable hashtable;
         Long l;
         TimeCostHandler timeCostHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || (hashtable = this.mEventRecorder) == null || (l = hashtable.get(str)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str) || (hashtable = this.mEventRecorder) == null || (l = (Long) hashtable.get(str)) == null) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -78,11 +78,10 @@ public class TimeCostMonitor {
     }
 
     public void recordStart(String str) {
-        Hashtable<String, Long> hashtable;
+        Hashtable hashtable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str) || (hashtable = this.mEventRecorder) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && (hashtable = this.mEventRecorder) != null) {
+            hashtable.put(str, Long.valueOf(System.currentTimeMillis()));
         }
-        hashtable.put(str, Long.valueOf(System.currentTimeMillis()));
     }
 }

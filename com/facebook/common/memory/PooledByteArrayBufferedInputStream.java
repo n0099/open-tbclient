@@ -11,8 +11,6 @@ import com.facebook.common.logging.FLog;
 import com.facebook.common.references.ResourceReleaser;
 import java.io.IOException;
 import java.io.InputStream;
-import javax.annotation.concurrent.NotThreadSafe;
-@NotThreadSafe
 /* loaded from: classes7.dex */
 public class PooledByteArrayBufferedInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic = null;
@@ -23,9 +21,9 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
     public final byte[] mByteArray;
     public boolean mClosed;
     public final InputStream mInputStream;
-    public final ResourceReleaser<byte[]> mResourceReleaser;
+    public final ResourceReleaser mResourceReleaser;
 
-    public PooledByteArrayBufferedInputStream(InputStream inputStream, byte[] bArr, ResourceReleaser<byte[]> resourceReleaser) {
+    public PooledByteArrayBufferedInputStream(InputStream inputStream, byte[] bArr, ResourceReleaser resourceReleaser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,17 +66,24 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
 
     private void ensureNotClosed() throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.mClosed) {
-            throw new IOException("stream already closed");
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || !this.mClosed) {
+            return;
         }
+        throw new IOException("stream already closed");
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Preconditions.checkState(this.mBufferOffset <= this.mBufferedSize);
+            if (this.mBufferOffset <= this.mBufferedSize) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkState(z);
             ensureNotClosed();
             return (this.mBufferedSize - this.mBufferOffset) + this.mInputStream.available();
         }
@@ -88,12 +93,11 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.mClosed) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.mClosed) {
+            this.mClosed = true;
+            this.mResourceReleaser.release(this.mByteArray);
+            super.close();
         }
-        this.mClosed = true;
-        this.mResourceReleaser.release(this.mByteArray);
-        super.close();
     }
 
     public void finalize() throws Throwable {
@@ -110,27 +114,63 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
     @Override // java.io.InputStream
     public int read() throws IOException {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Preconditions.checkState(this.mBufferOffset <= this.mBufferedSize);
-            ensureNotClosed();
-            if (ensureDataInBuffer()) {
-                byte[] bArr = this.mByteArray;
-                int i = this.mBufferOffset;
-                this.mBufferOffset = i + 1;
-                return bArr[i] & 255;
+            if (this.mBufferOffset <= this.mBufferedSize) {
+                z = true;
+            } else {
+                z = false;
             }
-            return -1;
+            Preconditions.checkState(z);
+            ensureNotClosed();
+            if (!ensureDataInBuffer()) {
+                return -1;
+            }
+            byte[] bArr = this.mByteArray;
+            int i = this.mBufferOffset;
+            this.mBufferOffset = i + 1;
+            return bArr[i] & 255;
         }
         return invokeV.intValue;
     }
 
     @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            if (this.mBufferOffset <= this.mBufferedSize) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkState(z);
+            ensureNotClosed();
+            if (!ensureDataInBuffer()) {
+                return -1;
+            }
+            int min = Math.min(this.mBufferedSize - this.mBufferOffset, i2);
+            System.arraycopy(this.mByteArray, this.mBufferOffset, bArr, i, min);
+            this.mBufferOffset += min;
+            return min;
+        }
+        return invokeLII.intValue;
+    }
+
+    @Override // java.io.InputStream
     public long skip(long j) throws IOException {
         InterceptResult invokeJ;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            Preconditions.checkState(this.mBufferOffset <= this.mBufferedSize);
+            if (this.mBufferOffset <= this.mBufferedSize) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkState(z);
             ensureNotClosed();
             int i = this.mBufferedSize;
             int i2 = this.mBufferOffset;
@@ -143,23 +183,5 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
             return j2 + this.mInputStream.skip(j - j2);
         }
         return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            Preconditions.checkState(this.mBufferOffset <= this.mBufferedSize);
-            ensureNotClosed();
-            if (ensureDataInBuffer()) {
-                int min = Math.min(this.mBufferedSize - this.mBufferOffset, i2);
-                System.arraycopy(this.mByteArray, this.mBufferOffset, bArr, i, min);
-                this.mBufferOffset += min;
-                return min;
-            }
-            return -1;
-        }
-        return invokeLII.intValue;
     }
 }

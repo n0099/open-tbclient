@@ -18,6 +18,14 @@ public final class SparseArrayKt$valueIterator$1 implements Iterator<T>, KMapped
     public final /* synthetic */ SparseArrayCompat $this_valueIterator;
     public int index;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+        }
+    }
+
     public SparseArrayKt$valueIterator$1(SparseArrayCompat<T> sparseArrayCompat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,17 +44,33 @@ public final class SparseArrayKt$valueIterator$1 implements Iterator<T>, KMapped
         this.$this_valueIterator = sparseArrayCompat;
     }
 
+    public final void setIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.index = i;
+        }
+    }
+
     public final int getIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.index : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.index;
+        }
+        return invokeV.intValue;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.index < this.$this_valueIterator.size() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.index < this.$this_valueIterator.size()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
@@ -62,20 +86,5 @@ public final class SparseArrayKt$valueIterator$1 implements Iterator<T>, KMapped
             return sparseArrayCompat.valueAt(i);
         }
         return invokeV.objValue;
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-        }
-    }
-
-    public final void setIndex(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.index = i;
-        }
     }
 }

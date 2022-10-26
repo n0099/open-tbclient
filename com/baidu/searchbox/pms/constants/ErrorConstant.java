@@ -15,7 +15,7 @@ public class ErrorConstant {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class Code {
+    public final class Code {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DATA_WRITE_DB = 2407;
         public static final int DOWNLOAD_BULK_DOWNLOADED = 2216;
@@ -63,7 +63,7 @@ public class ErrorConstant {
     }
 
     /* loaded from: classes2.dex */
-    public static final class ErrorMsg {
+    public final class ErrorMsg {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DATA_WRITE_DB = "data:write db error";
         public static final String DOWNLOAD_BULK_DOWNLOADED = "onBulkDownloaded success:%d,error:%d,cancel:%d";
@@ -107,7 +107,7 @@ public class ErrorConstant {
     }
 
     /* loaded from: classes2.dex */
-    public static final class TipMsg {
+    public final class TipMsg {
         public static /* synthetic */ Interceptable $ic;
         public static final String DATA_WRITE_DB;
         public static final String DOWNLOAD_CANCELED;
@@ -202,6 +202,9 @@ public class ErrorConstant {
     public static String getTipMsg(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? AppRuntime.getApplication().getResources().getString(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return AppRuntime.getApplication().getResources().getString(i);
+        }
+        return (String) invokeI.objValue;
     }
 }

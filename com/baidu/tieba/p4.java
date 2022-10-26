@@ -9,7 +9,7 @@ public class p4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-    public b7<s4> b;
+    public b7 b;
 
     public p4() {
         Interceptable interceptable = $ic;
@@ -24,6 +24,6 @@ public class p4 {
                 return;
             }
         }
-        this.b = new b7<>();
+        this.b = new b7();
     }
 }

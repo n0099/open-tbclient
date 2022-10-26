@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
@@ -32,13 +31,19 @@ public class Code93Writer extends OneDimensionalCodeWriter {
 
     public static int appendPattern(boolean[] zArr, int i, int[] iArr, boolean z) {
         InterceptResult invokeCommon;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{zArr, Integer.valueOf(i), iArr, Boolean.valueOf(z)})) == null) {
             int length = iArr.length;
             int i2 = 0;
             while (i2 < length) {
                 int i3 = i + 1;
-                zArr[i] = iArr[i2] != 0;
+                if (iArr[i2] != 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                zArr[i] = z2;
                 i2++;
                 i = i3;
             }
@@ -79,7 +84,7 @@ public class Code93Writer extends OneDimensionalCodeWriter {
     }
 
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {

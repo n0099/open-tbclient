@@ -1,6 +1,5 @@
 package com.airbnb.lottie.model.content;
 
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.MergePathsContent;
@@ -11,6 +10,28 @@ public class MergePaths implements ContentModel {
     public final boolean hidden;
     public final MergePathsMode mode;
     public final String name;
+
+    public MergePaths(String str, MergePathsMode mergePathsMode, boolean z) {
+        this.name = str;
+        this.mode = mergePathsMode;
+        this.hidden = z;
+    }
+
+    public MergePathsMode getMode() {
+        return this.mode;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public boolean isHidden() {
+        return this.hidden;
+    }
+
+    public String toString() {
+        return "MergePaths{mode=" + this.mode + '}';
+    }
 
     /* loaded from: classes.dex */
     public enum MergePathsMode {
@@ -40,35 +61,12 @@ public class MergePaths implements ContentModel {
         }
     }
 
-    public MergePaths(String str, MergePathsMode mergePathsMode, boolean z) {
-        this.name = str;
-        this.mode = mergePathsMode;
-        this.hidden = z;
-    }
-
-    public MergePathsMode getMode() {
-        return this.mode;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public boolean isHidden() {
-        return this.hidden;
-    }
-
     @Override // com.airbnb.lottie.model.content.ContentModel
-    @Nullable
     public Content toContent(LottieDrawable lottieDrawable, BaseLayer baseLayer) {
         if (!lottieDrawable.enableMergePathsForKitKatAndAbove()) {
             Logger.warning("Animation contains merge paths but they are disabled.");
             return null;
         }
         return new MergePathsContent(this);
-    }
-
-    public String toString() {
-        return "MergePaths{mode=" + this.mode + '}';
     }
 }

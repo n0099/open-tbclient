@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.model;
 
 import android.graphics.Bitmap;
-import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,8 +19,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -339604626740227228L;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public Map<String, Object> extraMap;
+    public Map extraMap;
     public String mDName;
     public String mDPath;
     public GetImageTask mImageTask;
@@ -30,13 +28,23 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
 
     /* renamed from: com.baidu.tieba.im.model.LocalPicModel$1  reason: invalid class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes4.dex */
-    public class GetImageTask extends BdAsyncTask<Object, Integer, ResponseData> {
+    public class GetImageTask extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalPicModel this$0;
@@ -59,39 +67,6 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             this.this$0 = localPicModel;
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.cancel(true);
-                this.this$0.mImageTask = null;
-            }
-        }
-
-        public /* synthetic */ GetImageTask(LocalPicModel localPicModel, AnonymousClass1 anonymousClass1) {
-            this(localPicModel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public ResponseData doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
-                String str = "im_" + String.valueOf(System.currentTimeMillis());
-                String renameTo = FileHelper.renameTo(this.this$0.mSPath, this.this$0.mSName, TiebaIMConfig.POST_IMAGE_PATH, str + "_send");
-                String str2 = str + "_display";
-                String renameTo2 = FileHelper.renameTo(this.this$0.mDPath, this.this$0.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
-                Bitmap image = FileHelper.getImage(TiebaIMConfig.POST_IMAGE_PATH, str2);
-                if (renameTo == null || renameTo2 == null || image == null) {
-                    return null;
-                }
-                return new ResponseData(image, renameTo, renameTo2, this.this$0.extraMap);
-            }
-            return (ResponseData) invokeL.objValue;
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(ResponseData responseData) {
@@ -104,19 +79,51 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
                 }
             }
         }
+
+        public /* synthetic */ GetImageTask(LocalPicModel localPicModel, AnonymousClass1 anonymousClass1) {
+            this(localPicModel);
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.cancel(true);
+                this.this$0.mImageTask = null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public ResponseData doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
+                String str = "im_" + String.valueOf(System.currentTimeMillis());
+                String renameTo = FileHelper.renameTo(this.this$0.mSPath, this.this$0.mSName, TiebaIMConfig.POST_IMAGE_PATH, str + "_send");
+                String str2 = str + "_display";
+                String renameTo2 = FileHelper.renameTo(this.this$0.mDPath, this.this$0.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
+                Bitmap image = FileHelper.getImage(TiebaIMConfig.POST_IMAGE_PATH, str2);
+                if (renameTo != null && renameTo2 != null && image != null) {
+                    return new ResponseData(image, renameTo, renameTo2, this.this$0.extraMap);
+                }
+                return null;
+            }
+            return (ResponseData) invokeL.objValue;
+        }
     }
 
     /* loaded from: classes4.dex */
-    public static class ResponseData implements Serializable {
+    public class ResponseData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9099542245580007084L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map<String, Object> extraMap;
+        public final Map extraMap;
         public Bitmap mBitmap;
         public String mDPathGen;
         public String mSPathGen;
 
-        public ResponseData(Bitmap bitmap, String str, String str2, @Nullable Map<String, Object> map) {
+        public ResponseData(Bitmap bitmap, String str, String str2, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,26 +150,37 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         public Bitmap getBitmap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBitmap : (Bitmap) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mBitmap;
+            }
+            return (Bitmap) invokeV.objValue;
         }
 
         public String getDPathGen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDPathGen : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mDPathGen;
+            }
+            return (String) invokeV.objValue;
         }
 
-        @Nullable
-        public Map<String, Object> getExtraMap() {
+        public Map getExtraMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extraMap : (Map) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.extraMap;
+            }
+            return (Map) invokeV.objValue;
         }
 
         public String getSPathGen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSPathGen : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mSPathGen;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -195,6 +213,13 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         this.mDName = str4;
     }
 
+    public void setExtraMap(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            this.extraMap = map;
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
@@ -224,22 +249,5 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             return true;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setExtraMap(@Nullable Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            this.extraMap = map;
-        }
     }
 }

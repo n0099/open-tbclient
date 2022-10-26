@@ -21,7 +21,7 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
     public static final String INTENT_LOCALE_RECEV_CLOSE = "recClose";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mReceiverTag;
-    public WeakReference<Activity> reference;
+    public WeakReference reference;
 
     public WebViewBroadcastReceiver() {
         Interceptable interceptable = $ic;
@@ -41,45 +41,13 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            WeakReference<Activity> weakReference = this.reference;
+            WeakReference weakReference = this.reference;
             if (weakReference != null) {
-                return weakReference.get();
+                return (Activity) weakReference.get();
             }
             return null;
         }
         return (Activity) invokeV.objValue;
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            Activity ref = getRef();
-            if (intent == null || ref == null || !TextUtils.equals(ACTION_CLOSE_WEBVIEW, intent.getAction()) || ref == null) {
-                return;
-            }
-            try {
-                ref.finish();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void register(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || activity == null) {
-            return;
-        }
-        this.reference = new WeakReference<>(activity);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(ACTION_CLOSE_WEBVIEW);
-        try {
-            activity.registerReceiver(this, intentFilter, BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.mReceiverTag = true;
     }
 
     public void unregister() {
@@ -95,5 +63,36 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
             }
             this.mReceiverTag = false;
         }
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            Activity ref = getRef();
+            if (intent != null && ref != null && TextUtils.equals(ACTION_CLOSE_WEBVIEW, intent.getAction()) && ref != null) {
+                try {
+                    ref.finish();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void register(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) != null) || activity == null) {
+            return;
+        }
+        this.reference = new WeakReference(activity);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ACTION_CLOSE_WEBVIEW);
+        try {
+            activity.registerReceiver(this, intentFilter, BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.mReceiverTag = true;
     }
 }

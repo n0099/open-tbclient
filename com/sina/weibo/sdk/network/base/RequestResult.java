@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class RequestResult<T> {
+public class RequestResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Exception e;
-    public ArrayList<Object> interceptResult;
-    public T response;
+    public ArrayList interceptResult;
+    public Object response;
 
     public RequestResult() {
         Interceptable interceptable = $ic;
@@ -32,19 +32,28 @@ public class RequestResult<T> {
     public Exception getE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (Exception) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (Exception) invokeV.objValue;
     }
 
-    public ArrayList<Object> getInterceptResult() {
+    public ArrayList getInterceptResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.interceptResult : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.interceptResult;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public T getResponse() {
+    public Object getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.response : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.response;
+        }
+        return invokeV.objValue;
     }
 
     public void setE(Exception exc) {
@@ -54,17 +63,17 @@ public class RequestResult<T> {
         }
     }
 
-    public void setInterceptResult(ArrayList<Object> arrayList) {
+    public void setInterceptResult(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
             this.interceptResult = arrayList;
         }
     }
 
-    public void setResponse(T t) {
+    public void setResponse(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-            this.response = t;
+        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            this.response = obj;
         }
     }
 }

@@ -2,10 +2,10 @@ package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.hx9;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.oy9;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.ey9;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements hx9, mx9 {
+public final class OperatorPublish$InnerProducer extends AtomicLong implements zx9, ey9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long UNSUBSCRIBED = Long.MIN_VALUE;
     public static final long serialVersionUID = -4453897557930727610L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lx9<? super T> child;
-    public final oy9<T> parent;
+    public final dy9 child;
+    public final gz9 parent;
 
-    public OperatorPublish$InnerProducer(oy9<T> oy9Var, lx9<? super T> lx9Var) {
+    public OperatorPublish$InnerProducer(gz9 gz9Var, dy9 dy9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oy9Var, lx9Var};
+            Object[] objArr = {gz9Var, dy9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,16 +37,31 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
                 return;
             }
         }
-        this.parent = oy9Var;
-        this.child = lx9Var;
+        this.parent = gz9Var;
+        this.child = dy9Var;
         lazySet(-4611686018427387904L);
     }
 
-    @Override // com.baidu.tieba.mx9
+    @Override // com.baidu.tieba.ey9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (get() == Long.MIN_VALUE) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ey9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
+            this.parent.h(this);
+            this.parent.g();
+        }
     }
 
     public long produced(long j) {
@@ -58,15 +73,16 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
             if (j > 0) {
                 do {
                     j2 = get();
-                    if (j2 == -4611686018427387904L) {
+                    if (j2 != -4611686018427387904L) {
+                        if (j2 == Long.MIN_VALUE) {
+                            return Long.MIN_VALUE;
+                        }
+                        j3 = j2 - j;
+                        if (j3 < 0) {
+                            throw new IllegalStateException("More produced (" + j + ") than requested (" + j2 + SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                    } else {
                         throw new IllegalStateException("Produced without request");
-                    }
-                    if (j2 == Long.MIN_VALUE) {
-                        return Long.MIN_VALUE;
-                    }
-                    j3 = j2 - j;
-                    if (j3 < 0) {
-                        throw new IllegalStateException("More produced (" + j + ") than requested (" + j2 + SmallTailInfo.EMOTION_SUFFIX);
                     }
                 } while (!compareAndSet(j2, j3));
                 return j3;
@@ -76,13 +92,13 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         return invokeJ.longValue;
     }
 
-    @Override // com.baidu.tieba.hx9
+    @Override // com.baidu.tieba.zx9
     public void request(long j) {
         int i;
         long j2;
         long j3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || j < 0) {
+        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) != null) || j < 0) {
             return;
         }
         do {
@@ -102,16 +118,6 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
                 }
             }
         } while (!compareAndSet(j2, j3));
-        this.parent.g();
-    }
-
-    @Override // com.baidu.tieba.mx9
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || get() == Long.MIN_VALUE || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
-            return;
-        }
-        this.parent.h(this);
         this.parent.g();
     }
 }

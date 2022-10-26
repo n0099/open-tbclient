@@ -22,8 +22,24 @@ public final class UBCRecoveryTaskInfo extends UBCTaskStatusInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public final String errorMsg;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(62055408, "Lcom/baidu/bdtask/service/ubc/model/UBCRecoveryTaskInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(62055408, "Lcom/baidu/bdtask/service/ubc/model/UBCRecoveryTaskInfo;");
+                return;
+            }
+        }
+        Companion = new a(null);
+    }
+
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,31 +57,18 @@ public final class UBCRecoveryTaskInfo extends UBCTaskStatusInfo {
             }
         }
 
-        public final UBCRecoveryTaskInfo a(String str, SubTaskState subTaskState) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, subTaskState)) == null) ? new UBCRecoveryTaskInfo(str, subTaskState.getTaskInfo(), subTaskState.getTaskStatus()) : (UBCRecoveryTaskInfo) invokeLL.objValue;
-        }
-
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(62055408, "Lcom/baidu/bdtask/service/ubc/model/UBCRecoveryTaskInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        public final UBCRecoveryTaskInfo a(String str, SubTaskState subTaskState) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, subTaskState)) == null) {
+                return new UBCRecoveryTaskInfo(str, subTaskState.getTaskInfo(), subTaskState.getTaskStatus());
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(62055408, "Lcom/baidu/bdtask/service/ubc/model/UBCRecoveryTaskInfo;");
-                return;
-            }
+            return (UBCRecoveryTaskInfo) invokeLL.objValue;
         }
-        Companion = new a(null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

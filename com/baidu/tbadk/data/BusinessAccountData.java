@@ -32,23 +32,43 @@ public class BusinessAccountData implements Serializable {
     }
 
     public void parseJson(JSONObject jSONObject) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.isBusinessAccount = jSONObject.optInt("is_business_account") == 1;
-        this.isForumBusinessAccount = jSONObject.optInt("is_forum_business_account") == 1;
+        boolean z2 = false;
+        if (jSONObject.optInt("is_business_account") == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isBusinessAccount = z;
+        if (jSONObject.optInt("is_forum_business_account") == 1) {
+            z2 = true;
+        }
+        this.isForumBusinessAccount = z2;
         this.businessName = jSONObject.optString("business_name");
         this.identifiExplain = jSONObject.optString("identifi_explain");
     }
 
     public void parseProto(BusinessAccountInfo businessAccountInfo) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessAccountInfo) == null) || businessAccountInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessAccountInfo) != null) || businessAccountInfo == null) {
             return;
         }
-        this.isBusinessAccount = businessAccountInfo.is_business_account.intValue() == 1;
-        this.isForumBusinessAccount = businessAccountInfo.is_forum_business_account.intValue() == 1;
+        boolean z2 = false;
+        if (businessAccountInfo.is_business_account.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isBusinessAccount = z;
+        if (businessAccountInfo.is_forum_business_account.intValue() == 1) {
+            z2 = true;
+        }
+        this.isForumBusinessAccount = z2;
         this.businessName = businessAccountInfo.business_name;
         this.identifiExplain = businessAccountInfo.identifi_explain;
     }

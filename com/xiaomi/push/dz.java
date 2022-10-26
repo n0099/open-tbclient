@@ -19,22 +19,22 @@ public class dz {
         }
     }
 
-    public static void a(Context context, HashMap<String, String> hashMap) {
-        eh m307a;
+    public static void a(Context context, HashMap hashMap) {
+        eh m306a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m307a = ed.a(context).m307a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m306a = ed.a(context).m306a()) == null) {
             return;
         }
-        m307a.a(context, hashMap);
+        m306a.a(context, hashMap);
     }
 
-    public static void b(Context context, HashMap<String, String> hashMap) {
-        eh m307a;
+    public static void b(Context context, HashMap hashMap) {
+        eh m306a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m307a = ed.a(context).m307a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m306a = ed.a(context).m306a()) == null) {
             return;
         }
-        m307a.c(context, hashMap);
+        m306a.c(context, hashMap);
     }
 
     public static void c(Context context, String str, int i, String str2) {
@@ -64,12 +64,12 @@ public class dz {
         }
     }
 
-    public static void c(Context context, HashMap<String, String> hashMap) {
-        eh m307a;
+    public static void c(Context context, HashMap hashMap) {
+        eh m306a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m307a = ed.a(context).m307a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m306a = ed.a(context).m306a()) == null) {
             return;
         }
-        m307a.b(context, hashMap);
+        m306a.b(context, hashMap);
     }
 }

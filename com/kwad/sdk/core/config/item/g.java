@@ -2,15 +2,13 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.ksad.json.annotation.KsJson;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class g extends b<a> {
+public final class g extends b {
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static final class a extends com.kwad.sdk.core.response.kwai.a {
+    public final class a extends com.kwad.sdk.core.response.kwai.a {
         public String VB = "";
         public String VC = "";
     }
@@ -21,28 +19,28 @@ public final class g extends b<a> {
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(SharedPreferences sharedPreferences) {
-        a value = getValue();
-        if (value == null) {
-            value = new a();
+        a aVar = (a) getValue();
+        if (aVar == null) {
+            aVar = new a();
         }
         String string = sharedPreferences.getString(getKey(), "");
         if (!TextUtils.isEmpty(string)) {
             try {
-                value.parseJson(new JSONObject(b.bu(string)));
+                aVar.parseJson(new JSONObject(b.bu(string)));
             } catch (JSONException e) {
                 com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
         }
-        setValue(value);
+        setValue(aVar);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void b(SharedPreferences.Editor editor) {
-        if (getValue() == null || getValue().toJson() == null) {
+        if (getValue() == null || ((a) getValue()).toJson() == null) {
             editor.putString(getKey(), "");
             return;
         }
-        editor.putString(getKey(), b.bt(getValue().toJson().toString()));
+        editor.putString(getKey(), b.bt(((a) getValue()).toJson().toString()));
     }
 
     @Override // com.kwad.sdk.core.config.item.b
@@ -57,12 +55,12 @@ public final class g extends b<a> {
     }
 
     public final String getImei() {
-        a value = getValue();
-        return (value == null || TextUtils.isEmpty(value.VB)) ? "" : value.VB;
+        a aVar = (a) getValue();
+        return (aVar == null || TextUtils.isEmpty(aVar.VB)) ? "" : aVar.VB;
     }
 
     public final String getOaid() {
-        a value = getValue();
-        return (value == null || TextUtils.isEmpty(value.VC)) ? "" : value.VC;
+        a aVar = (a) getValue();
+        return (aVar == null || TextUtils.isEmpty(aVar.VC)) ? "" : aVar.VC;
     }
 }

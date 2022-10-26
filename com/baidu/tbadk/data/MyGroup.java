@@ -38,30 +38,42 @@ public class MyGroup extends OrmObject implements Serializable {
     public long getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mGroupId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mGroupId;
+        }
+        return invokeV.longValue;
     }
 
     public String getGroupPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mGroupPortrait : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mGroupPortrait;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Integer getmGroupMemberNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mGroupMemberNum : (Integer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mGroupMemberNum;
+        }
+        return (Integer) invokeV.objValue;
     }
 
     public String getmGroupName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mGroupName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mGroupName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.mGroupName = jSONObject.optString("group_name");
@@ -72,7 +84,7 @@ public class MyGroup extends OrmObject implements Serializable {
 
     public void parserProtobuf(MyGroupInfo myGroupInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, myGroupInfo) == null) || myGroupInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, myGroupInfo) != null) || myGroupInfo == null) {
             return;
         }
         this.mGroupName = myGroupInfo.group_name;

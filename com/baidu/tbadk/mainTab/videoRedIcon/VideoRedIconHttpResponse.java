@@ -3,7 +3,7 @@ package com.baidu.tbadk.mainTab.videoRedIcon;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.w95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,14 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.VideoRedIcon.DataRes;
-import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes3.dex */
-public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements s95 {
+public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements w95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoRedIconResIdl mData;
-    public List<RedIcon> redIcons;
+    public List redIcons;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoRedIconHttpResponse() {
@@ -39,18 +38,24 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
         }
     }
 
-    @Override // com.baidu.tieba.s95
-    public List<RedIcon> getDataList() {
+    @Override // com.baidu.tieba.w95
+    public List getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.redIcons : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.redIcons;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s95
+    @Override // com.baidu.tieba.w95
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData : (VideoRedIconResIdl) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mData;
+        }
+        return (VideoRedIconResIdl) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,9 +71,10 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
             }
             setError(videoRedIconResIdl.error.errorno.intValue());
             setErrorString(videoRedIconResIdl.error.usermsg);
-            if (getError() == 0 && (dataRes = videoRedIconResIdl.data) != null) {
-                this.redIcons = dataRes.red_icon_list;
+            if (getError() != 0 || (dataRes = videoRedIconResIdl.data) == null) {
+                return;
             }
+            this.redIcons = dataRes.red_icon_list;
         }
     }
 }

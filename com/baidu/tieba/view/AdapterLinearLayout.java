@@ -45,7 +45,7 @@ public class AdapterLinearLayout extends LinearLayout {
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.a == null) {
                 return;
             }
             int count = this.a.a.getCount();
@@ -92,20 +92,6 @@ public class AdapterLinearLayout extends LinearLayout {
         this.b = new a(this);
     }
 
-    public void setAdapter(Adapter adapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adapter) == null) {
-            Adapter adapter2 = this.a;
-            if (adapter2 != null) {
-                adapter2.unregisterDataSetObserver(this.b);
-            }
-            this.a = adapter;
-            if (adapter != null) {
-                adapter.registerDataSetObserver(this.b);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdapterLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -148,5 +134,19 @@ public class AdapterLinearLayout extends LinearLayout {
             }
         }
         this.b = new a(this);
+    }
+
+    public void setAdapter(Adapter adapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adapter) == null) {
+            Adapter adapter2 = this.a;
+            if (adapter2 != null) {
+                adapter2.unregisterDataSetObserver(this.b);
+            }
+            this.a = adapter;
+            if (adapter != null) {
+                adapter.registerDataSetObserver(this.b);
+            }
+        }
     }
 }

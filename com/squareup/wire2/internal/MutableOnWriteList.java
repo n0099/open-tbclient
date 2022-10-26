@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.RandomAccess;
 /* loaded from: classes8.dex */
-public final class MutableOnWriteList<T> extends AbstractList<T> implements RandomAccess, Serializable {
+public final class MutableOnWriteList extends AbstractList implements RandomAccess, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<T> immutableList;
-    public List<T> mutableList;
+    public final List immutableList;
+    public List mutableList;
 
-    public MutableOnWriteList(List<T> list) {
+    public MutableOnWriteList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,32 +38,18 @@ public final class MutableOnWriteList<T> extends AbstractList<T> implements Rand
         this.mutableList = list;
     }
 
-    private Object writeReplace() throws ObjectStreamException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new ArrayList(this.mutableList) : invokeV.objValue;
-    }
-
     @Override // java.util.AbstractList, java.util.List
-    public void add(int i, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
-            if (this.mutableList == this.immutableList) {
-                this.mutableList = new ArrayList(this.immutableList);
-            }
-            this.mutableList.add(i, t);
-        }
-    }
-
-    @Override // java.util.AbstractList, java.util.List
-    public T get(int i) {
+    public Object get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mutableList.get(i) : (T) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.mutableList.get(i);
+        }
+        return invokeI.objValue;
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public T remove(int i) {
+    public Object remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -72,26 +58,49 @@ public final class MutableOnWriteList<T> extends AbstractList<T> implements Rand
             }
             return this.mutableList.remove(i);
         }
-        return (T) invokeI.objValue;
+        return invokeI.objValue;
     }
 
-    @Override // java.util.AbstractList, java.util.List
-    public T set(int i, T t) {
-        InterceptResult invokeIL;
+    private Object writeReplace() throws ObjectStreamException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, t)) == null) {
-            if (this.mutableList == this.immutableList) {
-                this.mutableList = new ArrayList(this.immutableList);
-            }
-            return this.mutableList.set(i, t);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return new ArrayList(this.mutableList);
         }
-        return (T) invokeIL.objValue;
+        return invokeV.objValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mutableList.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mutableList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.util.AbstractList, java.util.List
+    public void add(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+            if (this.mutableList == this.immutableList) {
+                this.mutableList = new ArrayList(this.immutableList);
+            }
+            this.mutableList.add(i, obj);
+        }
+    }
+
+    @Override // java.util.AbstractList, java.util.List
+    public Object set(int i, Object obj) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, obj)) == null) {
+            if (this.mutableList == this.immutableList) {
+                this.mutableList = new ArrayList(this.immutableList);
+            }
+            return this.mutableList.set(i, obj);
+        }
+        return invokeIL.objValue;
     }
 }

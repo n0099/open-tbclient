@@ -59,30 +59,10 @@ public final class DtsUtil {
     public static int getDtsFrameSize(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? (((bArr[7] & 240) >> 4) | ((bArr[5] & 2) << 12) | ((bArr[6] & 255) << 4)) + 1 : invokeL.intValue;
-    }
-
-    public static int parseDtsAudioSampleCount(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? ((((bArr[5] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2) | ((bArr[4] & 1) << 6)) + 1) * 32 : invokeL.intValue;
-    }
-
-    public static Format parseDtsFormat(byte[] bArr, String str, String str2, DrmInitData drmInitData) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, bArr, str, str2, drmInitData)) == null) {
-            ParsableBitArray parsableBitArray = new ParsableBitArray(bArr);
-            parsableBitArray.skipBits(60);
-            int i = CHANNELS_BY_AMODE[parsableBitArray.readBits(6)];
-            int i2 = SAMPLE_RATE_BY_SFREQ[parsableBitArray.readBits(4)];
-            int readBits = parsableBitArray.readBits(5);
-            int[] iArr = TWICE_BITRATE_KBPS_BY_RATE;
-            int i3 = readBits >= iArr.length ? -1 : (iArr[readBits] * 1000) / 2;
-            parsableBitArray.skipBits(10);
-            return Format.createAudioSampleFormat(str, MimeTypes.AUDIO_DTS, null, i3, -1, i + (parsableBitArray.readBits(2) > 0 ? 1 : 0), i2, null, drmInitData, 0, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            return (((bArr[7] & 240) >> 4) | ((bArr[5] & 2) << 12) | ((bArr[6] & 255) << 4)) + 1;
         }
-        return (Format) invokeLLLL.objValue;
+        return invokeL.intValue;
     }
 
     public static int parseDtsAudioSampleCount(ByteBuffer byteBuffer) {
@@ -93,5 +73,42 @@ public final class DtsUtil {
             return ((((byteBuffer.get(position + 5) & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2) | ((byteBuffer.get(position + 4) & 1) << 6)) + 1) * 32;
         }
         return invokeL.intValue;
+    }
+
+    public static int parseDtsAudioSampleCount(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            return ((((bArr[5] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2) | ((bArr[4] & 1) << 6)) + 1) * 32;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Format parseDtsFormat(byte[] bArr, String str, String str2, DrmInitData drmInitData) {
+        InterceptResult invokeLLLL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, bArr, str, str2, drmInitData)) == null) {
+            ParsableBitArray parsableBitArray = new ParsableBitArray(bArr);
+            parsableBitArray.skipBits(60);
+            int i3 = CHANNELS_BY_AMODE[parsableBitArray.readBits(6)];
+            int i4 = SAMPLE_RATE_BY_SFREQ[parsableBitArray.readBits(4)];
+            int readBits = parsableBitArray.readBits(5);
+            int[] iArr = TWICE_BITRATE_KBPS_BY_RATE;
+            if (readBits >= iArr.length) {
+                i = -1;
+            } else {
+                i = (iArr[readBits] * 1000) / 2;
+            }
+            parsableBitArray.skipBits(10);
+            if (parsableBitArray.readBits(2) > 0) {
+                i2 = 1;
+            } else {
+                i2 = 0;
+            }
+            return Format.createAudioSampleFormat(str, MimeTypes.AUDIO_DTS, null, i, -1, i3 + i2, i4, null, drmInitData, 0, str2);
+        }
+        return (Format) invokeLLLL.objValue;
     }
 }

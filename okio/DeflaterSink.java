@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.zip.Deflater;
-import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
 /* loaded from: classes8.dex */
 public final class DeflaterSink implements Sink {
     public static /* synthetic */ Interceptable $ic;
@@ -17,6 +16,55 @@ public final class DeflaterSink implements Sink {
     public boolean closed;
     public final Deflater deflater;
     public final BufferedSink sink;
+
+    public DeflaterSink(BufferedSink bufferedSink, Deflater deflater) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bufferedSink, deflater};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (bufferedSink != null) {
+            if (deflater != null) {
+                this.sink = bufferedSink;
+                this.deflater = deflater;
+                return;
+            }
+            throw new IllegalArgumentException("inflater == null");
+        }
+        throw new IllegalArgumentException("source == null");
+    }
+
+    @Override // okio.Sink
+    public void write(Buffer buffer, long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j) == null) {
+            Util.checkOffsetAndCount(buffer.size, 0L, j);
+            while (j > 0) {
+                Segment segment = buffer.head;
+                int min = (int) Math.min(j, segment.limit - segment.pos);
+                this.deflater.setInput(segment.data, segment.pos, min);
+                deflate(false);
+                long j2 = min;
+                buffer.size -= j2;
+                int i = segment.pos + min;
+                segment.pos = i;
+                if (i == segment.limit) {
+                    buffer.head = segment.pop();
+                    SegmentPool.recycle(segment);
+                }
+                j -= j2;
+            }
+        }
+    }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DeflaterSink(Sink sink, Deflater deflater) {
@@ -39,7 +87,6 @@ public final class DeflaterSink implements Sink {
         }
     }
 
-    @IgnoreJRERequirement
     private void deflate(boolean z) throws IOException {
         Segment writableSegment;
         int deflate;
@@ -77,7 +124,7 @@ public final class DeflaterSink implements Sink {
     @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.closed) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.closed) {
             return;
         }
         Throwable th = null;
@@ -127,7 +174,10 @@ public final class DeflaterSink implements Sink {
     public Timeout timeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sink.timeout() : (Timeout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.sink.timeout();
+        }
+        return (Timeout) invokeV.objValue;
     }
 
     public String toString() {
@@ -137,54 +187,5 @@ public final class DeflaterSink implements Sink {
             return "DeflaterSink(" + this.sink + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // okio.Sink
-    public void write(Buffer buffer, long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j) == null) {
-            Util.checkOffsetAndCount(buffer.size, 0L, j);
-            while (j > 0) {
-                Segment segment = buffer.head;
-                int min = (int) Math.min(j, segment.limit - segment.pos);
-                this.deflater.setInput(segment.data, segment.pos, min);
-                deflate(false);
-                long j2 = min;
-                buffer.size -= j2;
-                int i = segment.pos + min;
-                segment.pos = i;
-                if (i == segment.limit) {
-                    buffer.head = segment.pop();
-                    SegmentPool.recycle(segment);
-                }
-                j -= j2;
-            }
-        }
-    }
-
-    public DeflaterSink(BufferedSink bufferedSink, Deflater deflater) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bufferedSink, deflater};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (bufferedSink == null) {
-            throw new IllegalArgumentException("source == null");
-        }
-        if (deflater != null) {
-            this.sink = bufferedSink;
-            this.deflater = deflater;
-            return;
-        }
-        throw new IllegalArgumentException("inflater == null");
     }
 }

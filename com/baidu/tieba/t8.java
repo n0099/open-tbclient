@@ -12,7 +12,10 @@ public final class t8 {
     public static Object a(Class cls, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, cls, i)) == null) ? Array.newInstance(cls, i) : invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, cls, i)) == null) {
+            return Array.newInstance(cls, i);
+        }
+        return invokeLI.objValue;
     }
 
     public static void b(Object obj, int i, Object obj2) {

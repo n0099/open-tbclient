@@ -1,22 +1,25 @@
 package com.kwad.sdk.utils.kwai;
 
 import com.kwad.sdk.utils.kwai.c;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
-public final class g implements c.b<Set<String>> {
+public final class g implements c.b {
     public static final g aqr = new g();
 
-    public static byte[] c(Set<String> set) {
+    public static byte[] c(Set set) {
         if (set.isEmpty()) {
             return new byte[0];
         }
         int size = set.size();
         int[] iArr = new int[size];
         String[] strArr = new String[size];
+        Iterator it = set.iterator();
         int i = 0;
         int i2 = 0;
-        for (String str : set) {
+        while (it.hasNext()) {
+            String str = (String) it.next();
             if (str == null) {
                 i += 5;
                 iArr[i2] = -1;
@@ -39,7 +42,7 @@ public final class g implements c.b<Set<String>> {
         return bVar.apw;
     }
 
-    public static Set<String> h(byte[] bArr, int i, int i2) {
+    public static Set h(byte[] bArr, int i, int i2) {
         int i3;
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         if (i2 > 0) {
@@ -64,15 +67,13 @@ public final class g implements c.b<Set<String>> {
         return "StringSet";
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.kwad.sdk.utils.kwai.c.b
-    public final /* synthetic */ byte[] f(Set<String> set) {
-        return c(set);
+    public final /* synthetic */ byte[] f(Object obj) {
+        return c((Set) obj);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.kwad.sdk.utils.kwai.c.b
-    public final /* synthetic */ Set<String> g(byte[] bArr, int i, int i2) {
+    public final /* synthetic */ Object g(byte[] bArr, int i, int i2) {
         return h(bArr, i, i2);
     }
 }

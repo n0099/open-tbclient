@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,9 +31,17 @@ public class ShareCallPacking {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static abstract class ShareLoginCallBack {
+    public abstract class ShareLoginCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public void onFailed(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            }
+        }
+
+        public abstract void onSuccess();
 
         public ShareLoginCallBack() {
             Interceptable interceptable = $ic;
@@ -49,18 +56,10 @@ public class ShareCallPacking {
                 }
             }
         }
-
-        public void onFailed(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            }
-        }
-
-        public abstract void onSuccess();
     }
 
     /* loaded from: classes2.dex */
-    public static class StatModel {
+    public class StatModel {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ACCOUNT_APP = "account_app";
         public static final String KEY_ACCOUNT_TPL = "account_tpl";
@@ -141,31 +140,34 @@ public class ShareCallPacking {
         }
     }
 
+    public void syncMarkLoginState(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            new ShareStorage().syncSet(i);
+            ShareUtils.setShareStorageModel();
+        }
+    }
+
     public boolean checkPkgSign(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? ShareUtils.checkCalleeIdentity(context, str) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return ShareUtils.checkCalleeIdentity(context, str);
+        }
+        return invokeLL.booleanValue;
     }
 
-    public void onLoginActivityActivityResult(ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent, List<PassNameValuePair> list, String str) {
+    public void onLoginActivityActivityResult(ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent, List list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{shareLoginCallBack, Integer.valueOf(i), Integer.valueOf(i2), intent, list, str}) == null) {
             ShareUtils.onLoginActivityActivityResult(shareLoginCallBack, i, i2, intent, this, list, str);
         }
     }
 
-    public void startLoginShareActivityForResult(Activity activity, String str, String str2, String str3, String str4, List<PassNameValuePair> list, String str5, String str6) {
+    public void startLoginShareActivityForResult(Activity activity, String str, String str2, String str3, String str4, List list, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, str, str2, str3, str4, list, str5, str6}) == null) {
             ShareUtils.startLoginShareActivityForResult(activity, str, str2, str3, str4, list, str5, str6);
-        }
-    }
-
-    public void syncMarkLoginState(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            new ShareStorage().syncSet(i);
-            ShareUtils.setShareStorageModel();
         }
     }
 }

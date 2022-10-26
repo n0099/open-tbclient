@@ -1,10 +1,7 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,13 +14,19 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
-public class DrawableTransformation implements Transformation<Drawable> {
+public class DrawableTransformation implements Transformation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean isRequired;
-    public final Transformation<Bitmap> wrapped;
+    public final Transformation wrapped;
 
-    public DrawableTransformation(Transformation<Bitmap> transformation, boolean z) {
+    public Transformation asBitmapDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Transformation) invokeV.objValue;
+    }
+
+    public DrawableTransformation(Transformation transformation, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,16 +45,13 @@ public class DrawableTransformation implements Transformation<Drawable> {
         this.isRequired = z;
     }
 
-    private Resource<Drawable> newDrawableResource(Context context, Resource<Bitmap> resource) {
+    private Resource newDrawableResource(Context context, Resource resource) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, context, resource)) == null) ? LazyBitmapDrawableResource.obtain(context.getResources(), resource) : (Resource) invokeLL.objValue;
-    }
-
-    public Transformation<BitmapDrawable> asBitmapDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Transformation) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, context, resource)) == null) {
+            return LazyBitmapDrawableResource.obtain(context.getResources(), resource);
+        }
+        return (Resource) invokeLL.objValue;
     }
 
     @Override // com.bumptech.glide.load.Key
@@ -68,28 +68,38 @@ public class DrawableTransformation implements Transformation<Drawable> {
     }
 
     @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, messageDigest) == null) {
+            this.wrapped.updateDiskCacheKey(messageDigest);
+        }
+    }
+
+    @Override // com.bumptech.glide.load.Key
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.wrapped.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.wrapped.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.bumptech.glide.load.Transformation
-    @NonNull
-    public Resource<Drawable> transform(@NonNull Context context, @NonNull Resource<Drawable> resource, int i, int i2) {
+    public Resource transform(Context context, Resource resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, context, resource, i, i2)) == null) {
             BitmapPool bitmapPool = Glide.get(context).getBitmapPool();
-            Drawable drawable = resource.get();
-            Resource<Bitmap> convert = DrawableToBitmapConverter.convert(bitmapPool, drawable, i, i2);
+            Drawable drawable = (Drawable) resource.get();
+            Resource convert = DrawableToBitmapConverter.convert(bitmapPool, drawable, i, i2);
             if (convert == null) {
-                if (this.isRequired) {
-                    throw new IllegalArgumentException("Unable to convert " + drawable + " to a Bitmap");
+                if (!this.isRequired) {
+                    return resource;
                 }
-                return resource;
+                throw new IllegalArgumentException("Unable to convert " + drawable + " to a Bitmap");
             }
-            Resource<Bitmap> transform = this.wrapped.transform(context, convert, i, i2);
+            Resource transform = this.wrapped.transform(context, convert, i, i2);
             if (transform.equals(convert)) {
                 transform.recycle();
                 return resource;
@@ -97,13 +107,5 @@ public class DrawableTransformation implements Transformation<Drawable> {
             return newDrawableResource(context, transform);
         }
         return (Resource) invokeLLII.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, messageDigest) == null) {
-            this.wrapped.updateDiskCacheKey(messageDigest);
-        }
     }
 }

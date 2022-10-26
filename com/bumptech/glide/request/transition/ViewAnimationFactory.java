@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.ViewTransition;
 /* loaded from: classes7.dex */
-public class ViewAnimationFactory<R> implements TransitionFactory<R> {
+public class ViewAnimationFactory implements TransitionFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Transition<R> transition;
+    public Transition transition;
     public final ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory;
 
     /* loaded from: classes7.dex */
-    public static class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
+    public class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Animation animation;
@@ -45,12 +45,15 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         public Animation build(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? this.animation : (Animation) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return this.animation;
+            }
+            return (Animation) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
+    public class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int animationId;
@@ -77,7 +80,30 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         public Animation build(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? AnimationUtils.loadAnimation(context, this.animationId) : (Animation) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return AnimationUtils.loadAnimation(context, this.animationId);
+            }
+            return (Animation) invokeL.objValue;
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ViewAnimationFactory(int i) {
+        this(new ResourceViewTransitionAnimationFactory(i));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((ViewTransition.ViewTransitionAnimationFactory) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
@@ -101,42 +127,6 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         }
     }
 
-    @Override // com.bumptech.glide.request.transition.TransitionFactory
-    public Transition<R> build(DataSource dataSource, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {
-            if (dataSource != DataSource.MEMORY_CACHE && z) {
-                if (this.transition == null) {
-                    this.transition = new ViewTransition(this.viewTransitionAnimationFactory);
-                }
-                return this.transition;
-            }
-            return NoTransition.get();
-        }
-        return (Transition) invokeLZ.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ViewAnimationFactory(int i) {
-        this(new ResourceViewTransitionAnimationFactory(i));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this((ViewTransition.ViewTransitionAnimationFactory) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
     public ViewAnimationFactory(ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -153,5 +143,21 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
             }
         }
         this.viewTransitionAnimationFactory = viewTransitionAnimationFactory;
+    }
+
+    @Override // com.bumptech.glide.request.transition.TransitionFactory
+    public Transition build(DataSource dataSource, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {
+            if (dataSource != DataSource.MEMORY_CACHE && z) {
+                if (this.transition == null) {
+                    this.transition = new ViewTransition(this.viewTransitionAnimationFactory);
+                }
+                return this.transition;
+            }
+            return NoTransition.get();
+        }
+        return (Transition) invokeLZ.objValue;
     }
 }

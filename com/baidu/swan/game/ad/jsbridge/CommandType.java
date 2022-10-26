@@ -97,18 +97,27 @@ public final class CommandType {
     public static CommandType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (CommandType) Enum.valueOf(CommandType.class, str) : (CommandType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (CommandType) Enum.valueOf(CommandType.class, str);
+        }
+        return (CommandType) invokeL.objValue;
     }
 
     public static CommandType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (CommandType[]) $VALUES.clone() : (CommandType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (CommandType[]) $VALUES.clone();
+        }
+        return (CommandType[]) invokeV.objValue;
     }
 
     public String toJavascriptString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mJavascriptString : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mJavascriptString;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -45,7 +45,9 @@ public class e2 {
             uri.getScheme();
             if (h2.a(uri)) {
                 str = "com.huawei.appmarket";
-            } else if (!h2.b(uri)) {
+            } else if (h2.b(uri)) {
+                str = "com.android.vending";
+            } else {
                 intent = null;
                 try {
                     intent = Intent.parseUri(uri.toString(), 1);
@@ -54,8 +56,6 @@ public class e2 {
                 }
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 context.startActivity(intent);
-            } else {
-                str = "com.android.vending";
             }
             intent.setPackage(str);
             context.startActivity(intent);
@@ -73,30 +73,36 @@ public class e2 {
         InterceptResult invokeLL;
         PackageManager packageManager;
         String b;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, uri)) == null) {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(uri);
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             String str = null;
-            boolean z = false;
+            boolean z2 = false;
             try {
                 b = M.b(context);
+                if (Z1.g(context) == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             } catch (Exception unused) {
             }
-            if (Z1.g(context) == 1) {
+            if (z) {
                 str = b;
                 if (str != null) {
                     intent.setPackage(str);
                 }
                 packageManager = context.getPackageManager();
                 if (packageManager != null) {
-                    z = !packageManager.queryIntentActivities(intent, 0).isEmpty();
+                    z2 = !packageManager.queryIntentActivities(intent, 0).isEmpty();
                 }
-                if (z) {
+                if (z2) {
                     context.startActivity(intent);
                 }
-                return z;
+                return z2;
             }
             LinkedList linkedList = new LinkedList();
             List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
@@ -145,9 +151,9 @@ public class e2 {
             packageManager = context.getPackageManager();
             if (packageManager != null) {
             }
-            if (z) {
+            if (z2) {
             }
-            return z;
+            return z2;
         }
         return invokeLL.booleanValue;
     }

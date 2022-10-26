@@ -11,17 +11,20 @@ public abstract class NetworkQualityListener {
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor a;
 
-    public Executor a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Executor) invokeV.objValue;
-    }
-
     public abstract void b(int i);
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
+    }
+
+    public Executor a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Executor) invokeV.objValue;
     }
 }

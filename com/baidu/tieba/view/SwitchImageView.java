@@ -2,7 +2,6 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.svg.AbsSvgType;
@@ -44,34 +43,6 @@ public class SwitchImageView extends AppCompatImageView {
         init();
     }
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == 0) {
-                this.a = 1;
-                setState(1);
-                return;
-            }
-            this.a = 0;
-            setState(0);
-        }
-    }
-
-    public int getCurrentState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = 0;
-            this.b = 0;
-            this.c = 0;
-        }
-    }
-
     public void setState(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -93,25 +64,8 @@ public class SwitchImageView extends AppCompatImageView {
         }
     }
 
-    public void setStateImage(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.b = i;
-            this.c = i2;
-        }
-    }
-
-    public void setSvgStateImage(AbsSvgType absSvgType, AbsSvgType absSvgType2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, absSvgType, absSvgType2) == null) {
-            this.e = absSvgType;
-            this.f = absSvgType2;
-            this.d = true;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
+    public SwitchImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,7 +88,7 @@ public class SwitchImageView extends AppCompatImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SwitchImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -154,5 +108,53 @@ public class SwitchImageView extends AppCompatImageView {
         }
         this.d = false;
         init();
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == 0) {
+                this.a = 1;
+                setState(1);
+                return;
+            }
+            this.a = 0;
+            setState(0);
+        }
+    }
+
+    public int getCurrentState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = 0;
+        }
+    }
+
+    public void setStateImage(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.b = i;
+            this.c = i2;
+        }
+    }
+
+    public void setSvgStateImage(AbsSvgType absSvgType, AbsSvgType absSvgType2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, absSvgType, absSvgType2) == null) {
+            this.e = absSvgType;
+            this.f = absSvgType2;
+            this.d = true;
+        }
     }
 }

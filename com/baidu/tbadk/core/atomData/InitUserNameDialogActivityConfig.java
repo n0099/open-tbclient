@@ -53,9 +53,8 @@ public class InitUserNameDialogActivityConfig extends IntentConfig {
 
     public void setAccountData(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) && getIntent() != null) {
+            getIntent().putExtra(ACCOUNT_DATA, accountData);
         }
-        getIntent().putExtra(ACCOUNT_DATA, accountData);
     }
 }

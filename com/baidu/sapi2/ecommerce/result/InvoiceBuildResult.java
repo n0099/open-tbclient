@@ -12,7 +12,7 @@ public class InvoiceBuildResult extends SapiResult implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_INVOICE_ID = "invoice_id";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> map;
+    public HashMap map;
 
     public InvoiceBuildResult() {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class InvoiceBuildResult extends SapiResult implements NoProguard {
                 return;
             }
         }
-        this.map = new HashMap<>();
+        this.map = new HashMap();
     }
 }

@@ -26,18 +26,18 @@ public class BdNetTask implements INoProGuard {
     public static final boolean DEBUG = false;
     public static final String LOG_TAG = "BdNetTask";
     public static final int MAX_POOL_SIZE = 10;
-    public static final Map<String, String> NULL_ARRAY;
+    public static final Map NULL_ARRAY;
     public static final int TIMEOUT_CONNECTION = 0;
     public static final int TIMEOUT_READ = 25000;
-    public static Vector<BdNetTask> sTaskPool;
+    public static Vector sTaskPool;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isUseCorenet;
     public HttpURLConnection mConnection;
     public int mConnectionTimeOut;
     public byte[] mContent;
-    public Map<String, String> mCookies;
+    public Map mCookies;
     public boolean mFollowRedirects;
-    public Map<String, String> mHeaders;
+    public Map mHeaders;
     public boolean mIsRedirect;
     public volatile boolean mIsStop;
     public BdNet.HttpMethod mMethod;
@@ -46,14 +46,14 @@ public class BdNetTask implements INoProGuard {
     public int mReadTimeOut;
     public String mRedirectUrl;
     public String mRefer;
-    public Map<String, String> mResHeaders;
+    public Map mResHeaders;
     public SSLContext mSSLContext;
     public Object mSetting;
     public b mTaskPriority;
     public String mUrl;
 
     /* loaded from: classes6.dex */
-    public static class a extends AsyncTask<HttpURLConnection, Void, Void> {
+    public final class a extends AsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,17 +96,15 @@ public class BdNetTask implements INoProGuard {
             return (Void) invokeL.objValue;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // android.os.AsyncTask
-        public final /* synthetic */ Void doInBackground(HttpURLConnection[] httpURLConnectionArr) {
-            return a(httpURLConnectionArr);
+        public final /* synthetic */ Object doInBackground(Object[] objArr) {
+            return a((HttpURLConnection[]) objArr);
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public static final b b;
@@ -182,7 +180,7 @@ public class BdNetTask implements INoProGuard {
             }
         }
         NULL_ARRAY = Collections.emptyMap();
-        sTaskPool = new Vector<>();
+        sTaskPool = new Vector();
     }
 
     public BdNetTask() {
@@ -199,7 +197,7 @@ public class BdNetTask implements INoProGuard {
             }
         }
         this.mMethod = BdNet.HttpMethod.METHOD_GET;
-        Map<String, String> map = NULL_ARRAY;
+        Map map = NULL_ARRAY;
         this.mHeaders = map;
         this.mResHeaders = map;
         this.mCookies = map;
@@ -219,7 +217,7 @@ public class BdNetTask implements INoProGuard {
             this.mRefer = null;
             this.mContent = null;
             this.mMethod = BdNet.HttpMethod.METHOD_GET;
-            Map<String, String> map = NULL_ARRAY;
+            Map map = NULL_ARRAY;
             this.mHeaders = map;
             this.mResHeaders = map;
             this.mCookies = map;
@@ -235,7 +233,7 @@ public class BdNetTask implements INoProGuard {
     }
 
     public static void clearTaskPool() {
-        Vector<BdNetTask> vector;
+        Vector vector;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || (vector = sTaskPool) == null) {
             return;
@@ -262,7 +260,7 @@ public class BdNetTask implements INoProGuard {
             synchronized (BdNetTask.class) {
                 if (sTaskPool.size() > 0) {
                     try {
-                        return sTaskPool.remove(0);
+                        return (BdNetTask) sTaskPool.remove(0);
                     } catch (Exception e) {
                         e.printStackTrace();
                         return new BdNetTask();
@@ -363,13 +361,13 @@ public class BdNetTask implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (byte[]) this.mContent.clone() : (byte[]) invokeV.objValue;
     }
 
-    public Map<String, String> getCookies() {
+    public Map getCookies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mCookies : (Map) invokeV.objValue;
     }
 
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mHeaders : (Map) invokeV.objValue;
@@ -412,7 +410,7 @@ public class BdNetTask implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mRefer : (String) invokeV.objValue;
     }
 
-    public Map<String, String> getResHeaders() {
+    public Map getResHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mResHeaders : (Map) invokeV.objValue;
@@ -512,7 +510,7 @@ public class BdNetTask implements INoProGuard {
         this.mContent = (byte[]) bArr.clone();
     }
 
-    public void setCookies(Map<String, String> map) {
+    public void setCookies(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, map) == null) {
             this.mCookies = map;
@@ -526,7 +524,7 @@ public class BdNetTask implements INoProGuard {
         }
     }
 
-    public void setHeaders(Map<String, String> map) {
+    public void setHeaders(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, map) == null) {
             this.mHeaders = map;

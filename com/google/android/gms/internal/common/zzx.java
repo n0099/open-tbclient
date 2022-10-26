@@ -38,14 +38,8 @@ public final class zzx {
         this.zza = zzoVar;
     }
 
-    public static zzx zzc(zzo zzoVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zzoVar)) == null) ? new zzx(new zzu(zzoVar), false, zzn.zza, Integer.MAX_VALUE, null) : (zzx) invokeL.objValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public final Iterator<String> zzh(CharSequence charSequence) {
+    public final Iterator zzh(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, charSequence)) == null) ? new zzt(this.zzc, this, charSequence) : (Iterator) invokeL.objValue;
@@ -57,21 +51,30 @@ public final class zzx {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new zzx(this.zzc, true, this.zza, Integer.MAX_VALUE, null) : (zzx) invokeV.objValue;
     }
 
-    public final Iterable<String> zzd(CharSequence charSequence) {
+    public final Iterable zzd(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence)) == null) ? new zzv(this, charSequence) : (Iterable) invokeL.objValue;
     }
 
-    public final List<String> zzf(CharSequence charSequence) {
+    public static zzx zzc(zzo zzoVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zzoVar)) == null) {
+            return new zzx(new zzu(zzoVar), false, zzn.zza, Integer.MAX_VALUE, null);
+        }
+        return (zzx) invokeL.objValue;
+    }
+
+    public final List zzf(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence)) == null) {
             if (charSequence != null) {
-                Iterator<String> zzh = zzh(charSequence);
+                Iterator zzh = zzh(charSequence);
                 ArrayList arrayList = new ArrayList();
                 while (zzh.hasNext()) {
-                    arrayList.add(zzh.next());
+                    arrayList.add((String) zzh.next());
                 }
                 return Collections.unmodifiableList(arrayList);
             }

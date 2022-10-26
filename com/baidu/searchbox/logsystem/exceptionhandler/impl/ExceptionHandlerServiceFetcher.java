@@ -2,14 +2,14 @@ package com.baidu.searchbox.logsystem.exceptionhandler.impl;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler;
-import com.baidu.tieba.ff1;
+import com.baidu.tieba.gf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class ExceptionHandlerServiceFetcher extends ff1<ExceptionHandler> {
+public class ExceptionHandlerServiceFetcher extends gf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,11 +28,13 @@ public class ExceptionHandlerServiceFetcher extends ff1<ExceptionHandler> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.ff1
+    @Override // com.baidu.tieba.gf1
     public ExceptionHandler createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ExceptionHandlerImpl(false) : (ExceptionHandler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ExceptionHandlerImpl(false);
+        }
+        return (ExceptionHandler) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.pass.biometrics.face.liveness.activity;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,38 +39,6 @@ public class LivenessBaseActivity extends BaseActivity {
         }
     }
 
-    @TargetApi(27)
-    public void customLiuHai() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 27) {
-            return;
-        }
-        WindowManager.LayoutParams attributes = getWindow().getAttributes();
-        try {
-            Field declaredField = attributes.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-            declaredField.setAccessible(true);
-            declaredField.set(attributes, Integer.valueOf(WindowManager.LayoutParams.class.getField("LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES").getInt(WindowManager.LayoutParams.class)));
-        } catch (Exception unused) {
-        }
-        getWindow().setAttributes(attributes);
-    }
-
-    public String getAtbc(PassFaceRecogDTO passFaceRecogDTO) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogDTO)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (passFaceRecogDTO != null) {
-                sb.append("bduss=");
-                sb.append(passFaceRecogDTO.bduss);
-                sb.append(";stoken=");
-                sb.append(passFaceRecogDTO.stoken);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public String getFaceDetectUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,6 +55,36 @@ public class LivenessBaseActivity extends BaseActivity {
             return this.mConfiguration.passDomain + PassBioEnv.GET_UPLOAD_PHOTO_CONTRAST_URI;
         }
         return (String) invokeV.objValue;
+    }
+
+    public void customLiuHai() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && Build.VERSION.SDK_INT >= 27) {
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            try {
+                Field declaredField = attributes.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+                declaredField.setAccessible(true);
+                declaredField.set(attributes, Integer.valueOf(WindowManager.LayoutParams.class.getField("LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES").getInt(WindowManager.LayoutParams.class)));
+            } catch (Exception unused) {
+            }
+            getWindow().setAttributes(attributes);
+        }
+    }
+
+    public String getAtbc(PassFaceRecogDTO passFaceRecogDTO) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogDTO)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (passFaceRecogDTO != null) {
+                sb.append("bduss=");
+                sb.append(passFaceRecogDTO.bduss);
+                sb.append(";stoken=");
+                sb.append(passFaceRecogDTO.stoken);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.pass.biometrics.base.activity.BaseActivity, android.app.Activity

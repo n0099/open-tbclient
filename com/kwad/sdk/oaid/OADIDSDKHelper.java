@@ -1,16 +1,13 @@
 package com.kwad.sdk.oaid;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Keep;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.e;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
-@Keep
 /* loaded from: classes8.dex */
 public class OADIDSDKHelper {
     public static final String SUB_TAG = "OADIDSDKHelper:";
@@ -18,9 +15,8 @@ public class OADIDSDKHelper {
     public static boolean mIsRequestIng;
     public static boolean sGetOaidFail;
 
-    @Keep
     /* loaded from: classes8.dex */
-    public static class IIdentifierListenerImpl implements IIdentifierListener {
+    public class IIdentifierListenerImpl implements IIdentifierListener {
         public final a mOaidListener;
         public final long mStartTime;
 
@@ -71,7 +67,6 @@ public class OADIDSDKHelper {
         }
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
     public static boolean isSupport() {
         String str;
         if (Build.VERSION.SDK_INT < 16) {

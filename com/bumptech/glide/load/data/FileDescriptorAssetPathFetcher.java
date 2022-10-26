@@ -2,7 +2,6 @@ package com.bumptech.glide.load.data;
 
 import android.content.res.AssetManager;
 import android.os.ParcelFileDescriptor;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public class FileDescriptorAssetPathFetcher extends AssetPathFetcher<ParcelFileDescriptor> {
+public class FileDescriptorAssetPathFetcher extends AssetPathFetcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,14 +35,6 @@ public class FileDescriptorAssetPathFetcher extends AssetPathFetcher<ParcelFileD
         }
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
-    public Class<ParcelFileDescriptor> getDataClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ParcelFileDescriptor.class : (Class) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.data.AssetPathFetcher
     public void close(ParcelFileDescriptor parcelFileDescriptor) throws IOException {
@@ -53,12 +44,24 @@ public class FileDescriptorAssetPathFetcher extends AssetPathFetcher<ParcelFileD
         }
     }
 
+    @Override // com.bumptech.glide.load.data.DataFetcher
+    public Class getDataClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ParcelFileDescriptor.class;
+        }
+        return (Class) invokeV.objValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.AssetPathFetcher
     public ParcelFileDescriptor loadResource(AssetManager assetManager, String str) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, assetManager, str)) == null) ? assetManager.openFd(str).getParcelFileDescriptor() : (ParcelFileDescriptor) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, assetManager, str)) == null) {
+            return assetManager.openFd(str).getParcelFileDescriptor();
+        }
+        return (ParcelFileDescriptor) invokeLL.objValue;
     }
 }

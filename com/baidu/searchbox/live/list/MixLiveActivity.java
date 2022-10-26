@@ -84,41 +84,6 @@ public class MixLiveActivity extends LiveBaseActivity {
         $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixLiveActivity.class), "preStartPlayerService", "getPreStartPlayerService()Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;"))};
     }
 
-    public MixLiveActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.pluginInvokeService = (PluginInvokeService) ServiceManager.getService(PluginInvokeService.Companion.getSERVICE_REFERENCE());
-        this.preStartPlayerService$delegate = LazyKt__LazyJVMKt.lazy(MixLiveActivity$preStartPlayerService$2.INSTANCE);
-        MiniUniqueId gen = MiniUniqueId.gen();
-        Intrinsics.checkExpressionValueIsNotNull(gen, "MiniUniqueId.gen()");
-        this.mixUniqueId = gen;
-        this.matchParent = -1;
-        this.mMixActivity = genMixActInstance();
-    }
-
-    private final IMixActivityInterface genMixActInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            PluginInvokeService pluginInvokeService = this.pluginInvokeService;
-            if (pluginInvokeService != null) {
-                return pluginInvokeService.genFakeActivityImpl();
-            }
-            return null;
-        }
-        return (IMixActivityInterface) invokeV.objValue;
-    }
-
     private final LivePreStartPlayerService getPreStartPlayerService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,24 +93,6 @@ public class MixLiveActivity extends LiveBaseActivity {
             return (LivePreStartPlayerService) lazy.getValue();
         }
         return (LivePreStartPlayerService) invokeV.objValue;
-    }
-
-    private final int isAnimation() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            try {
-                Intent intent = getIntent();
-                if (intent == null || (str = intent.getStringExtra("params")) == null) {
-                    str = "";
-                }
-                return new JSONObject(str).optInt("noAnimation", 0);
-            } catch (Exception unused) {
-                return 0;
-            }
-        }
-        return invokeV.intValue;
     }
 
     public void _$_clearFindViewByIdCache() {
@@ -175,6 +122,248 @@ public class MixLiveActivity extends LiveBaseActivity {
         return (View) invokeI.objValue;
     }
 
+    public int getCaptureBgColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return -16777216;
+        }
+        return invokeV.intValue;
+    }
+
+    public MixLiveActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.pluginInvokeService = (PluginInvokeService) ServiceManager.getService(PluginInvokeService.Companion.getSERVICE_REFERENCE());
+        this.preStartPlayerService$delegate = LazyKt__LazyJVMKt.lazy(MixLiveActivity$preStartPlayerService$2.INSTANCE);
+        MiniUniqueId gen = MiniUniqueId.gen();
+        Intrinsics.checkExpressionValueIsNotNull(gen, "MiniUniqueId.gen()");
+        this.mixUniqueId = gen;
+        this.matchParent = -1;
+        this.mMixActivity = genMixActInstance();
+    }
+
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public AssetManager getAssets() {
+        InterceptResult invokeV;
+        AssetManager pluginAssets;
+        AssetManager pluginAssets2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
+                if (pluginMgrService == null || (pluginAssets2 = pluginMgrService.getPluginAssets("com.baidu.searchbox.livenps")) == null) {
+                    PluginInvokeService pluginMgrService2 = MiniPluginManager.INSTANCE.getPluginMgrService();
+                    if (pluginMgrService2 == null || (pluginAssets = pluginMgrService2.getPluginAssets("com.baidu.searchbox.yylive.entrance")) == null) {
+                        AssetManager assets = super.getAssets();
+                        Intrinsics.checkExpressionValueIsNotNull(assets, "super.getAssets()");
+                        return assets;
+                    }
+                    return pluginAssets;
+                }
+                return pluginAssets2;
+            } catch (Exception e) {
+                AssetManager assets2 = super.getAssets();
+                Intrinsics.checkExpressionValueIsNotNull(assets2, "super.getAssets()");
+                e.printStackTrace();
+                return assets2;
+            }
+        }
+        return (AssetManager) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public ClassLoader getClassLoader() {
+        InterceptResult invokeV;
+        ClassLoader pluginClassLoader;
+        ClassLoader pluginClassLoader2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
+                if (pluginMgrService == null || (pluginClassLoader2 = pluginMgrService.getPluginClassLoader("com.baidu.searchbox.livenps")) == null) {
+                    PluginInvokeService pluginMgrService2 = MiniPluginManager.INSTANCE.getPluginMgrService();
+                    if (pluginMgrService2 == null || (pluginClassLoader = pluginMgrService2.getPluginClassLoader("com.baidu.searchbox.yylive.entrance")) == null) {
+                        ClassLoader classLoader = super.getClassLoader();
+                        Intrinsics.checkExpressionValueIsNotNull(classLoader, "super.getClassLoader()");
+                        return classLoader;
+                    }
+                    return pluginClassLoader;
+                }
+                return pluginClassLoader2;
+            } catch (Exception e) {
+                ClassLoader classLoader2 = super.getClassLoader();
+                Intrinsics.checkExpressionValueIsNotNull(classLoader2, "super.getClassLoader()");
+                e.printStackTrace();
+                return classLoader2;
+            }
+        }
+        return (ClassLoader) invokeV.objValue;
+    }
+
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        InterceptResult invokeV;
+        Resources pluginResource;
+        Resources pluginResource2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            try {
+                PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
+                if (pluginMgrService == null || (pluginResource2 = pluginMgrService.getPluginResource("com.baidu.searchbox.livenps")) == null) {
+                    PluginInvokeService pluginMgrService2 = MiniPluginManager.INSTANCE.getPluginMgrService();
+                    if (pluginMgrService2 == null || (pluginResource = pluginMgrService2.getPluginResource("com.baidu.searchbox.yylive.entrance")) == null) {
+                        Resources resources = super.getResources();
+                        Intrinsics.checkExpressionValueIsNotNull(resources, "super.getResources()");
+                        return resources;
+                    }
+                    return pluginResource;
+                }
+                return pluginResource2;
+            } catch (Exception e) {
+                Resources resources2 = super.getResources();
+                Intrinsics.checkExpressionValueIsNotNull(resources2, "super.getResources()");
+                e.printStackTrace();
+                return resources2;
+            }
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    private final IMixActivityInterface genMixActInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            PluginInvokeService pluginInvokeService = this.pluginInvokeService;
+            if (pluginInvokeService != null) {
+                return pluginInvokeService.genFakeActivityImpl();
+            }
+            return null;
+        }
+        return (IMixActivityInterface) invokeV.objValue;
+    }
+
+    private final int isAnimation() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            try {
+                Intent intent = getIntent();
+                if (intent == null || (str = intent.getStringExtra("params")) == null) {
+                    str = "";
+                }
+                return new JSONObject(str).optInt("noAnimation", 0);
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public final PluginInvokeService getPluginInvokeService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.pluginInvokeService;
+        }
+        return (PluginInvokeService) invokeV.objValue;
+    }
+
+    public final View getRootView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.rootView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.onDestroy();
+            ListController listController = this.mListController;
+            if (listController != null) {
+                listController.onDestroy();
+            }
+            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
+            if (iMixActivityInterface != null) {
+                iMixActivityInterface.onDestroy(this);
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.onPause();
+            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
+            if (iMixActivityInterface != null) {
+                iMixActivityInterface.onPause(this);
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onResume start");
+            super.onResume();
+            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
+            if (iMixActivityInterface != null) {
+                iMixActivityInterface.onResume(this);
+            }
+            ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onResume end");
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onStart start");
+            super.onStart();
+            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
+            if (iMixActivityInterface != null) {
+                iMixActivityInterface.onStart(this);
+            }
+            ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onStart end");
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            super.onStop();
+            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
+            if (iMixActivityInterface != null) {
+                iMixActivityInterface.onStop(this);
+            }
+        }
+    }
+
+    public void overrideEnterAnim() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && isAnimation() == 0) {
+            overridePendingTransition(R.anim.liveshow_slide_in_right, R.anim.liveshow_slide_no_anim);
+        }
+    }
+
     @Override // com.baidu.searchbox.live.shell.LiveBaseActivity, android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
     public void attachBaseContext(Context context) {
         Interceptable interceptable = $ic;
@@ -184,6 +373,47 @@ public class MixLiveActivity extends LiveBaseActivity {
             if (iMixActivityInterface != null) {
                 iMixActivityInterface.attachBaseContext(context);
             }
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, configuration) == null) {
+            Resources resources = getResources();
+            resources.updateConfiguration(new Configuration(configuration), resources.getDisplayMetrics());
+            super.onConfigurationChanged(configuration);
+            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
+            if (iMixActivityInterface != null) {
+                iMixActivityInterface.onConfigurationChanged(this, configuration);
+            }
+            ListController listController = this.mListController;
+            if (listController != null) {
+                listController.onConfigurationChanged(configuration);
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, intent) == null) {
+            super.onNewIntent(intent);
+            ListController listController = this.mListController;
+            if (listController != null) {
+                listController.onNewIntent(intent);
+            }
+            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
+            if (iMixActivityInterface != null) {
+                iMixActivityInterface.onNewIntent(this, intent);
+            }
+        }
+    }
+
+    public final void setRootView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
+            this.rootView = view2;
         }
     }
 
@@ -218,114 +448,6 @@ public class MixLiveActivity extends LiveBaseActivity {
         }
     }
 
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public AssetManager getAssets() {
-        InterceptResult invokeV;
-        AssetManager pluginAssets;
-        AssetManager pluginAssets2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
-                if (pluginMgrService == null || (pluginAssets2 = pluginMgrService.getPluginAssets("com.baidu.searchbox.livenps")) == null) {
-                    PluginInvokeService pluginMgrService2 = MiniPluginManager.INSTANCE.getPluginMgrService();
-                    if (pluginMgrService2 == null || (pluginAssets = pluginMgrService2.getPluginAssets("com.baidu.searchbox.yylive.entrance")) == null) {
-                        AssetManager assets = super.getAssets();
-                        Intrinsics.checkExpressionValueIsNotNull(assets, "super.getAssets()");
-                        return assets;
-                    }
-                    return pluginAssets;
-                }
-                return pluginAssets2;
-            } catch (Exception e) {
-                AssetManager assets2 = super.getAssets();
-                Intrinsics.checkExpressionValueIsNotNull(assets2, "super.getAssets()");
-                e.printStackTrace();
-                return assets2;
-            }
-        }
-        return (AssetManager) invokeV.objValue;
-    }
-
-    public int getCaptureBgColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return -16777216;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public ClassLoader getClassLoader() {
-        InterceptResult invokeV;
-        ClassLoader pluginClassLoader;
-        ClassLoader pluginClassLoader2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            try {
-                PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
-                if (pluginMgrService == null || (pluginClassLoader2 = pluginMgrService.getPluginClassLoader("com.baidu.searchbox.livenps")) == null) {
-                    PluginInvokeService pluginMgrService2 = MiniPluginManager.INSTANCE.getPluginMgrService();
-                    if (pluginMgrService2 == null || (pluginClassLoader = pluginMgrService2.getPluginClassLoader("com.baidu.searchbox.yylive.entrance")) == null) {
-                        ClassLoader classLoader = super.getClassLoader();
-                        Intrinsics.checkExpressionValueIsNotNull(classLoader, "super.getClassLoader()");
-                        return classLoader;
-                    }
-                    return pluginClassLoader;
-                }
-                return pluginClassLoader2;
-            } catch (Exception e) {
-                ClassLoader classLoader2 = super.getClassLoader();
-                Intrinsics.checkExpressionValueIsNotNull(classLoader2, "super.getClassLoader()");
-                e.printStackTrace();
-                return classLoader2;
-            }
-        }
-        return (ClassLoader) invokeV.objValue;
-    }
-
-    public final PluginInvokeService getPluginInvokeService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.pluginInvokeService : (PluginInvokeService) invokeV.objValue;
-    }
-
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        InterceptResult invokeV;
-        Resources pluginResource;
-        Resources pluginResource2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            try {
-                PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
-                if (pluginMgrService == null || (pluginResource2 = pluginMgrService.getPluginResource("com.baidu.searchbox.livenps")) == null) {
-                    PluginInvokeService pluginMgrService2 = MiniPluginManager.INSTANCE.getPluginMgrService();
-                    if (pluginMgrService2 == null || (pluginResource = pluginMgrService2.getPluginResource("com.baidu.searchbox.yylive.entrance")) == null) {
-                        Resources resources = super.getResources();
-                        Intrinsics.checkExpressionValueIsNotNull(resources, "super.getResources()");
-                        return resources;
-                    }
-                    return pluginResource;
-                }
-                return pluginResource2;
-            } catch (Exception e) {
-                Resources resources2 = super.getResources();
-                Intrinsics.checkExpressionValueIsNotNull(resources2, "super.getResources()");
-                e.printStackTrace();
-                return resources2;
-            }
-        }
-        return (Resources) invokeV.objValue;
-    }
-
-    public final View getRootView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.rootView : (View) invokeV.objValue;
-    }
-
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
@@ -342,20 +464,18 @@ public class MixLiveActivity extends LiveBaseActivity {
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, configuration) == null) {
-            Resources resources = getResources();
-            resources.updateConfiguration(new Configuration(configuration), resources.getDisplayMetrics());
-            super.onConfigurationChanged(configuration);
+        if (interceptable == null || interceptable.invokeILL(1048593, this, i, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i, strArr, iArr);
             IMixActivityInterface iMixActivityInterface = this.mMixActivity;
             if (iMixActivityInterface != null) {
-                iMixActivityInterface.onConfigurationChanged(this, configuration);
+                iMixActivityInterface.onRequestPermissionsResult(this, i, strArr, iArr);
             }
             ListController listController = this.mListController;
             if (listController != null) {
-                listController.onConfigurationChanged(configuration);
+                listController.onRequestPermissionsResult(i, strArr, iArr);
             }
         }
     }
@@ -408,16 +528,18 @@ public class MixLiveActivity extends LiveBaseActivity {
             if (listController != null && (createView = listController.createView()) != null) {
                 if (createView.getParent() != null) {
                     ViewParent parent = createView.getParent();
-                    if (parent == null) {
+                    if (parent != null) {
+                        ((ViewGroup) parent).removeView(createView);
+                    } else {
                         throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
                     }
-                    ((ViewGroup) parent).removeView(createView);
                 }
                 View view2 = this.rootView;
-                if (view2 == null) {
+                if (view2 != null) {
+                    ((ViewGroup) view2).addView(createView);
+                } else {
                     throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
                 }
-                ((ViewGroup) view2).addView(createView);
             }
             IMixActivityInterface iMixActivityInterface4 = this.mMixActivity;
             if (iMixActivityInterface4 != null) {
@@ -436,22 +558,6 @@ public class MixLiveActivity extends LiveBaseActivity {
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onDestroy();
-            ListController listController = this.mListController;
-            if (listController != null) {
-                listController.onDestroy();
-            }
-            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-            if (iMixActivityInterface != null) {
-                iMixActivityInterface.onDestroy(this);
-            }
-        }
-    }
-
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
@@ -459,112 +565,14 @@ public class MixLiveActivity extends LiveBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i, keyEvent)) == null) {
             IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-            if (iMixActivityInterface == null || !iMixActivityInterface.onKeyDown(this, i, keyEvent)) {
-                if (keyEvent == null || (listController = this.mListController) == null || !listController.onKeyDown(i, keyEvent)) {
-                    return super.onKeyDown(i, keyEvent);
-                }
+            if (iMixActivityInterface != null && iMixActivityInterface.onKeyDown(this, i, keyEvent)) {
                 return true;
             }
-            return true;
+            if (keyEvent != null && (listController = this.mListController) != null && listController.onKeyDown(i, keyEvent)) {
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, intent) == null) {
-            super.onNewIntent(intent);
-            ListController listController = this.mListController;
-            if (listController != null) {
-                listController.onNewIntent(intent);
-            }
-            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-            if (iMixActivityInterface != null) {
-                iMixActivityInterface.onNewIntent(this, intent);
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onPause();
-            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-            if (iMixActivityInterface != null) {
-                iMixActivityInterface.onPause(this);
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048593, this, i, strArr, iArr) == null) {
-            super.onRequestPermissionsResult(i, strArr, iArr);
-            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-            if (iMixActivityInterface != null) {
-                iMixActivityInterface.onRequestPermissionsResult(this, i, strArr, iArr);
-            }
-            ListController listController = this.mListController;
-            if (listController != null) {
-                listController.onRequestPermissionsResult(i, strArr, iArr);
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onResume start");
-            super.onResume();
-            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-            if (iMixActivityInterface != null) {
-                iMixActivityInterface.onResume(this);
-            }
-            ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onResume end");
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onStart start");
-            super.onStart();
-            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-            if (iMixActivityInterface != null) {
-                iMixActivityInterface.onStart(this);
-            }
-            ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onStart end");
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            super.onStop();
-            IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-            if (iMixActivityInterface != null) {
-                iMixActivityInterface.onStop(this);
-            }
-        }
-    }
-
-    public void overrideEnterAnim() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && isAnimation() == 0) {
-            overridePendingTransition(R.anim.liveshow_slide_in_right, R.anim.liveshow_slide_no_anim);
-        }
-    }
-
-    public final void setRootView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
-            this.rootView = view2;
-        }
     }
 }

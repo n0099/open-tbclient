@@ -58,15 +58,6 @@ public final class CompletableTimeout extends Completable {
                 this.this$1 = disposeTask;
             }
 
-            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.set.dispose();
-                    this.this$1.s.onComplete();
-                }
-            }
-
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
@@ -81,6 +72,15 @@ public final class CompletableTimeout extends Completable {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) {
                     this.this$1.set.add(disposable);
+                }
+            }
+
+            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.this$1.set.dispose();
+                    this.this$1.s.onComplete();
                 }
             }
         }
@@ -122,7 +122,7 @@ public final class CompletableTimeout extends Completable {
     }
 
     /* loaded from: classes8.dex */
-    public static final class TimeOutObserver implements CompletableObserver {
+    public final class TimeOutObserver implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicBoolean once;

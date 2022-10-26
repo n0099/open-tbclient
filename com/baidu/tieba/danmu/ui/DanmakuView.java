@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q66;
+import com.baidu.tieba.x66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public final class DanmakuView extends View {
     public final a e;
 
     /* loaded from: classes3.dex */
-    public static final class a implements q66 {
+    public final class a implements x66 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -35,6 +35,12 @@ public final class DanmakuView extends View {
         public float d;
         public float e;
         public int f;
+
+        public void h(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            }
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -54,39 +60,74 @@ public final class DanmakuView extends View {
             this.f = 160;
         }
 
-        @Override // com.baidu.tieba.q66
+        @Override // com.baidu.tieba.x66
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.f;
+            }
+            return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.q66
+        @Override // com.baidu.tieba.x66
         public float b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.e;
+            }
+            return invokeV.floatValue;
         }
 
-        @Override // com.baidu.tieba.q66
+        @Override // com.baidu.tieba.x66
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.q66
+        @Override // com.baidu.tieba.x66
         public float d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q66.a.a(this) : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return x66.a.a(this);
+            }
+            return invokeV.floatValue;
         }
 
-        @Override // com.baidu.tieba.q66
+        @Override // com.baidu.tieba.x66
         public float e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.d;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.tieba.x66
+        public int getHeight() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.x66
+        public int getWidth() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
         }
 
         public void f(float f) {
@@ -103,27 +144,7 @@ public final class DanmakuView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.q66
-        public int getHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.q66
-        public int getWidth() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public void h(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.q66
+        @Override // com.baidu.tieba.x66
         public void setHeight(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -131,7 +152,7 @@ public final class DanmakuView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.q66
+        @Override // com.baidu.tieba.x66
         public void setWidth(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
@@ -166,88 +187,6 @@ public final class DanmakuView extends View {
         aVar.f(this.a);
         this.e.h(this.b);
         this.e.g(this.c);
-    }
-
-    public final float getDEFAULT_DENSITY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
-    }
-
-    public final int getDEFAULT_DENSITY_DPI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final float getDEFAULT_SCALE_DENSITY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.floatValue;
-    }
-
-    public final DanmakuPlayer getDanmakuPlayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (DanmakuPlayer) invokeV.objValue;
-    }
-
-    public final a getDisplayer$danmu_release() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (a) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            int measuredWidth = getMeasuredWidth();
-            int measuredHeight = getMeasuredHeight();
-            if (measuredWidth == 0 || measuredHeight == 0) {
-                return;
-            }
-            DanmakuPlayer danmakuPlayer = this.d;
-            if (danmakuPlayer != null) {
-                danmakuPlayer.o(measuredWidth, measuredHeight);
-            }
-            DanmakuPlayer danmakuPlayer2 = this.d;
-            if (danmakuPlayer2 == null) {
-                return;
-            }
-            danmakuPlayer2.f(canvas);
-        }
-    }
-
-    @Override // android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            DanmakuPlayer danmakuPlayer = this.d;
-            if (danmakuPlayer == null) {
-                return;
-            }
-            danmakuPlayer.o(i3 - i, i4 - i2);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        DanmakuPlayer danmakuPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) || (danmakuPlayer = this.d) == null) {
-            return;
-        }
-        danmakuPlayer.o(i, i2);
-    }
-
-    public final void setDanmakuPlayer(DanmakuPlayer danmakuPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, danmakuPlayer) == null) {
-            this.d = danmakuPlayer;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -306,5 +245,98 @@ public final class DanmakuView extends View {
         aVar.f(this.a);
         this.e.h(this.b);
         this.e.g(this.c);
+    }
+
+    public final float getDEFAULT_DENSITY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final int getDEFAULT_DENSITY_DPI() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final float getDEFAULT_SCALE_DENSITY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final DanmakuPlayer getDanmakuPlayer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (DanmakuPlayer) invokeV.objValue;
+    }
+
+    public final a getDisplayer$danmu_release() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            int measuredWidth = getMeasuredWidth();
+            int measuredHeight = getMeasuredHeight();
+            if (measuredWidth != 0 && measuredHeight != 0) {
+                DanmakuPlayer danmakuPlayer = this.d;
+                if (danmakuPlayer != null) {
+                    danmakuPlayer.o(measuredWidth, measuredHeight);
+                }
+                DanmakuPlayer danmakuPlayer2 = this.d;
+                if (danmakuPlayer2 != null) {
+                    danmakuPlayer2.f(canvas);
+                }
+            }
+        }
+    }
+
+    public final void setDanmakuPlayer(DanmakuPlayer danmakuPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, danmakuPlayer) == null) {
+            this.d = danmakuPlayer;
+        }
+    }
+
+    @Override // android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            DanmakuPlayer danmakuPlayer = this.d;
+            if (danmakuPlayer != null) {
+                danmakuPlayer.o(i3 - i, i4 - i2);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        DanmakuPlayer danmakuPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) && (danmakuPlayer = this.d) != null) {
+            danmakuPlayer.o(i, i2);
+        }
     }
 }

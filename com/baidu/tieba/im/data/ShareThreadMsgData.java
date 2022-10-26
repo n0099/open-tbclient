@@ -1,7 +1,5 @@
 package com.baidu.tieba.im.data;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
@@ -12,8 +10,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.aa7;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.ia7;
 import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.tieba.im.db.pojo.GraffitiInfoPojo;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
@@ -22,7 +20,7 @@ import com.baidu.tieba.im.db.pojo.PbContentPojo;
 import com.baidu.tieba.im.db.pojo.PluginUserPojo;
 import com.baidu.tieba.im.db.pojo.TiebaPlusInfoPojo;
 import com.baidu.tieba.im.db.pojo.TogetherHiPojo;
-import com.baidu.tieba.xt4;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,17 +62,23 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
     public int hasRead;
     public long id;
     public boolean is_share_thread;
-    public List<MediaPojo> media_list;
+    public List media_list;
     public ShareThreadMsgData origin_thread_info;
     public int play_count;
-    public List<PbContentPojo> rich_abstract;
-    public List<PbContentPojo> rich_title;
+    public List rich_abstract;
+    public List rich_title;
     public int thread_type;
     public int thumbnail_height;
     public String thumbnail_url;
     public int thumbnail_width;
     public String title;
     public int video_duration;
+
+    public static long getSerialVersionUID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? serialVersionUID : invokeV.longValue;
+    }
 
     public ShareThreadMsgData() {
         Interceptable interceptable = $ic;
@@ -92,13 +96,204 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         this.hasRead = 0;
     }
 
-    public static long getSerialVersionUID() {
+    public String getAuthor_name_show() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? serialVersionUID : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.author_name_show;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
+    public String getAuthor_portrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.author_portrait;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDuring_time() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.during_time;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getForum_avatar() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.forum_avatar;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getForum_id() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.forum_id;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getForum_name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.forum_name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.id;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getMedia_list() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.media_list;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ShareThreadMsgData getOrigin_thread_info() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.origin_thread_info;
+        }
+        return (ShareThreadMsgData) invokeV.objValue;
+    }
+
+    public int getPlay_count() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.play_count;
+        }
+        return invokeV.intValue;
+    }
+
+    public List getRich_abstract() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.rich_abstract;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getRich_title() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.rich_title;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getThread_type() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.thread_type;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getThumbnail_height() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.thumbnail_height;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getThumbnail_url() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.thumbnail_url;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getThumbnail_width() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.thumbnail_width;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getVideo_duration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.video_duration;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean hasRead() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (this.hasRead == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isIs_share_thread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.is_share_thread;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toEncodeContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("tid", getId());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static ShareThreadMsgData ofImShareThreadInfo(ImShareThreadInfo imShareThreadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -112,7 +307,11 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             shareThreadMsgData.title = imShareThreadInfo.title;
             shareThreadMsgData.rich_title = parseContentPojo(imShareThreadInfo.richTitle);
             shareThreadMsgData.rich_abstract = parseContentPojo(imShareThreadInfo.richAbstract);
-            shareThreadMsgData.is_share_thread = imShareThreadInfo.isShareThread.intValue() == 1;
+            boolean z = true;
+            if (imShareThreadInfo.isShareThread.intValue() != 1) {
+                z = false;
+            }
+            shareThreadMsgData.is_share_thread = z;
             parseOriginalThread(shareThreadMsgData, imShareThreadInfo.originThreadInfo);
             parseUserInfo(shareThreadMsgData, imShareThreadInfo.author);
             parseForumInfo(shareThreadMsgData, imShareThreadInfo.forumInfo);
@@ -127,7 +326,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         return (ShareThreadMsgData) invokeL.objValue;
     }
 
-    public static ShareThreadMsgData ofThreadData(@NonNull ThreadData threadData) {
+    public static ShareThreadMsgData ofThreadData(ThreadData threadData) {
         InterceptResult invokeL;
         VoiceData.VoiceModel voiceModel;
         Interceptable interceptable = $ic;
@@ -137,7 +336,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             }
             ShareThreadMsgData shareThreadMsgData = new ShareThreadMsgData();
             shareThreadMsgData.thread_type = threadData.threadType;
-            shareThreadMsgData.id = dh.g(threadData.getTid(), 0L);
+            shareThreadMsgData.id = eh.g(threadData.getTid(), 0L);
             if (threadData.isImShareFromPb()) {
                 shareThreadMsgData.rich_abstract = parseContentTb(threadData.getPbFirstShareData().h0);
             } else {
@@ -150,8 +349,8 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 ShareThreadMsgData shareThreadMsgData2 = new ShareThreadMsgData();
                 OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
                 shareThreadMsgData2.thread_type = originalThreadInfo.k;
-                shareThreadMsgData2.id = dh.g(originalThreadInfo.f, 0L);
-                List<PbContentPojo> parseContentTb = parseContentTb(threadData.originalThreadData.s);
+                shareThreadMsgData2.id = eh.g(originalThreadInfo.f, 0L);
+                List parseContentTb = parseContentTb(threadData.originalThreadData.s);
                 shareThreadMsgData2.rich_abstract = parseContentTb;
                 if (ListUtils.isEmpty(parseContentTb)) {
                     shareThreadMsgData2.rich_title = parseContentTb(threadData.originalThreadData.f());
@@ -178,8 +377,8 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 shareThreadMsgData.author_name_show = threadData.getAuthor().getName_show();
             }
             if (threadData.getForumData() != null) {
-                xt4 forumData = threadData.getForumData();
-                shareThreadMsgData.forum_id = dh.g(forumData.a, 0L);
+                zt4 forumData = threadData.getForumData();
+                shareThreadMsgData.forum_id = eh.g(forumData.a, 0L);
                 shareThreadMsgData.forum_avatar = forumData.c;
                 shareThreadMsgData.forum_name = forumData.b;
             }
@@ -199,9 +398,9 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             }
             if (!ListUtils.isEmpty(threadData.getMedias())) {
                 parseMediaDataList(shareThreadMsgData, threadData.getMedias());
-            } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().W() != null) {
+            } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().X() != null) {
                 shareThreadMsgData.media_list = new ArrayList();
-                Iterator<TbRichTextImageInfo> it = threadData.getPbFirstShareData().W().D().iterator();
+                Iterator<TbRichTextImageInfo> it = threadData.getPbFirstShareData().X().D().iterator();
                 while (it.hasNext()) {
                     TbRichTextImageInfo next = it.next();
                     MediaPojo mediaPojo = new MediaPojo();
@@ -216,13 +415,15 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         return (ShareThreadMsgData) invokeL.objValue;
     }
 
-    public static List<PbContent> parseContent(List<PbContentPojo> list) {
+    public static List parseContent(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(list)) {
-                for (PbContentPojo pbContentPojo : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    PbContentPojo pbContentPojo = (PbContentPojo) it.next();
                     PbContent.Builder builder = new PbContent.Builder();
                     builder.type = pbContentPojo.type;
                     builder.text = pbContentPojo.text;
@@ -341,23 +542,23 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                     }
                     if (pbContentPojo.item != null) {
                         Item.Builder builder8 = new Item.Builder();
-                        aa7 aa7Var = pbContentPojo.item;
-                        builder8.item_id = aa7Var.a;
-                        builder8.item_name = aa7Var.b;
-                        builder8.icon_size = aa7Var.c;
-                        builder8.icon_url = aa7Var.d;
+                        ia7 ia7Var = pbContentPojo.item;
+                        builder8.item_id = ia7Var.a;
+                        builder8.item_name = ia7Var.b;
+                        builder8.icon_size = ia7Var.c;
+                        builder8.icon_url = ia7Var.d;
                         builder8.tags = new ArrayList(pbContentPojo.item.e);
-                        aa7 aa7Var2 = pbContentPojo.item;
-                        builder8.score = aa7Var2.f;
-                        builder8.star = aa7Var2.g;
-                        builder8.button_name = aa7Var2.h;
-                        builder8.button_link = aa7Var2.i;
-                        builder8.item_appid = aa7Var2.j;
-                        builder8.category_id = aa7Var2.k;
-                        builder8.button_link_type = aa7Var2.l;
-                        builder8.apk_name = aa7Var2.m;
-                        builder8.forum_name = aa7Var2.n;
-                        if (aa7Var2.o != null) {
+                        ia7 ia7Var2 = pbContentPojo.item;
+                        builder8.score = ia7Var2.f;
+                        builder8.star = ia7Var2.g;
+                        builder8.button_name = ia7Var2.h;
+                        builder8.button_link = ia7Var2.i;
+                        builder8.item_appid = ia7Var2.j;
+                        builder8.category_id = ia7Var2.k;
+                        builder8.button_link_type = ia7Var2.l;
+                        builder8.apk_name = ia7Var2.m;
+                        builder8.forum_name = ia7Var2.n;
+                        if (ia7Var2.o != null) {
                             ApkDetail.Builder builder9 = new ApkDetail.Builder();
                             ApkDetailPojo apkDetailPojo = pbContentPojo.item.o;
                             builder9.developer = apkDetailPojo.developer;
@@ -384,15 +585,16 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         return (List) invokeL.objValue;
     }
 
-    public static List<PbContentPojo> parseContentPojo(List<protobuf.PbContent> list) {
+    public static List parseContentPojo(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             if (list != null && list.size() > 0) {
                 ArrayList arrayList = new ArrayList();
-                for (protobuf.PbContent pbContent : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
                     PbContentPojo pbContentPojo = new PbContentPojo();
-                    pbContentPojo.z(pbContent);
+                    pbContentPojo.z((protobuf.PbContent) it.next());
                     arrayList.add(pbContentPojo);
                 }
                 return arrayList;
@@ -402,15 +604,16 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         return (List) invokeL.objValue;
     }
 
-    public static List<PbContentPojo> parseContentTb(List<PbContent> list) {
+    public static List parseContentTb(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
             if (list != null && list.size() > 0) {
                 ArrayList arrayList = new ArrayList();
-                for (PbContent pbContent : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
                     PbContentPojo pbContentPojo = new PbContentPojo();
-                    pbContentPojo.A(pbContent);
+                    pbContentPojo.A((PbContent) it.next());
                     arrayList.add(pbContentPojo);
                 }
                 return arrayList;
@@ -422,7 +625,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
 
     public static void parseForumInfo(ShareThreadMsgData shareThreadMsgData, SimpleForum simpleForum) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, shareThreadMsgData, simpleForum) == null) || simpleForum == null) {
+        if ((interceptable != null && interceptable.invokeLL(65543, null, shareThreadMsgData, simpleForum) != null) || simpleForum == null) {
             return;
         }
         shareThreadMsgData.forum_id = simpleForum.id.longValue();
@@ -430,52 +633,70 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         shareThreadMsgData.forum_name = simpleForum.name;
     }
 
-    public static void parseMediaDataList(ShareThreadMsgData shareThreadMsgData, List<MediaData> list) {
+    public static void parseUserInfo(ShareThreadMsgData shareThreadMsgData, User user) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, shareThreadMsgData, list) == null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(65547, null, shareThreadMsgData, user) != null) || user == null) {
             return;
         }
-        shareThreadMsgData.media_list = new ArrayList();
-        for (MediaData mediaData : list) {
-            MediaPojo mediaPojo = new MediaPojo();
-            mediaPojo.srcPic = mediaData.getSrc_pic();
-            mediaPojo.width = mediaData.picWidth;
-            mediaPojo.height = mediaData.picHeight;
-            shareThreadMsgData.media_list.add(mediaPojo);
+        shareThreadMsgData.author_portrait = user.portrait;
+        shareThreadMsgData.author_name_show = user.nameShow;
+    }
+
+    public static void parseVoiceInfo(ShareThreadMsgData shareThreadMsgData, Voice voice) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65549, null, shareThreadMsgData, voice) != null) || voice == null) {
+            return;
+        }
+        shareThreadMsgData.during_time = voice.duringTime.intValue();
+    }
+
+    public static void parseMediaDataList(ShareThreadMsgData shareThreadMsgData, List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, shareThreadMsgData, list) == null) && !ListUtils.isEmpty(list)) {
+            shareThreadMsgData.media_list = new ArrayList();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                MediaData mediaData = (MediaData) it.next();
+                MediaPojo mediaPojo = new MediaPojo();
+                mediaPojo.srcPic = mediaData.getSrc_pic();
+                mediaPojo.width = mediaData.picWidth;
+                mediaPojo.height = mediaData.picHeight;
+                shareThreadMsgData.media_list.add(mediaPojo);
+            }
         }
     }
 
-    public static void parseMediaList(ShareThreadMsgData shareThreadMsgData, List<Media> list) {
+    public static void parseMediaList(ShareThreadMsgData shareThreadMsgData, List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, shareThreadMsgData, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        shareThreadMsgData.media_list = new ArrayList();
-        for (Media media : list) {
-            MediaPojo mediaPojo = new MediaPojo();
-            mediaPojo.A(media);
-            if (StringUtils.isNull(mediaPojo.srcPic)) {
-                if (!StringUtils.isNull(mediaPojo.originPic)) {
-                    mediaPojo.srcPic = mediaPojo.originPic;
-                } else if (!StringUtils.isNull(mediaPojo.bigPic)) {
-                    mediaPojo.srcPic = mediaPojo.bigPic;
-                } else if (!StringUtils.isNull(mediaPojo.smallPic)) {
-                    mediaPojo.srcPic = mediaPojo.smallPic;
+        if ((interceptable == null || interceptable.invokeLL(65545, null, shareThreadMsgData, list) == null) && list != null && list.size() != 0) {
+            shareThreadMsgData.media_list = new ArrayList();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                MediaPojo mediaPojo = new MediaPojo();
+                mediaPojo.A((Media) it.next());
+                if (StringUtils.isNull(mediaPojo.srcPic)) {
+                    if (!StringUtils.isNull(mediaPojo.originPic)) {
+                        mediaPojo.srcPic = mediaPojo.originPic;
+                    } else if (!StringUtils.isNull(mediaPojo.bigPic)) {
+                        mediaPojo.srcPic = mediaPojo.bigPic;
+                    } else if (!StringUtils.isNull(mediaPojo.smallPic)) {
+                        mediaPojo.srcPic = mediaPojo.smallPic;
+                    }
                 }
+                shareThreadMsgData.media_list.add(mediaPojo);
             }
-            shareThreadMsgData.media_list.add(mediaPojo);
         }
     }
 
     public static void parseOriginalThread(ShareThreadMsgData shareThreadMsgData, OriginThreadInfo originThreadInfo) {
         Voice voice;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, shareThreadMsgData, originThreadInfo) == null) || originThreadInfo == null) {
+        if ((interceptable != null && interceptable.invokeLL(65546, null, shareThreadMsgData, originThreadInfo) != null) || originThreadInfo == null) {
             return;
         }
         ShareThreadMsgData shareThreadMsgData2 = new ShareThreadMsgData();
         shareThreadMsgData2.thread_type = originThreadInfo.threadType.intValue();
-        shareThreadMsgData2.id = dh.g(originThreadInfo.tid, 0L);
+        shareThreadMsgData2.id = eh.g(originThreadInfo.tid, 0L);
         shareThreadMsgData2.title = originThreadInfo.title;
         shareThreadMsgData2.rich_abstract = parseContentPojo(originThreadInfo.content);
         protobuf.VideoInfo videoInfo = originThreadInfo.videoInfo;
@@ -496,18 +717,9 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         shareThreadMsgData.origin_thread_info = shareThreadMsgData2;
     }
 
-    public static void parseUserInfo(ShareThreadMsgData shareThreadMsgData, User user) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65547, null, shareThreadMsgData, user) == null) || user == null) {
-            return;
-        }
-        shareThreadMsgData.author_portrait = user.portrait;
-        shareThreadMsgData.author_name_show = user.nameShow;
-    }
-
     public static void parseVedioInfo(ShareThreadMsgData shareThreadMsgData, protobuf.VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, shareThreadMsgData, videoInfo) == null) || videoInfo == null) {
+        if ((interceptable != null && interceptable.invokeLL(65548, null, shareThreadMsgData, videoInfo) != null) || videoInfo == null) {
             return;
         }
         shareThreadMsgData.video_duration = videoInfo.videoDuration.intValue();
@@ -515,134 +727,6 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         shareThreadMsgData.thumbnail_url = videoInfo.thumbnailUrl;
         shareThreadMsgData.thumbnail_width = videoInfo.thumbnailWidth.intValue();
         shareThreadMsgData.thumbnail_height = videoInfo.thumbnailHeight.intValue();
-    }
-
-    public static void parseVoiceInfo(ShareThreadMsgData shareThreadMsgData, Voice voice) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, null, shareThreadMsgData, voice) == null) || voice == null) {
-            return;
-        }
-        shareThreadMsgData.during_time = voice.duringTime.intValue();
-    }
-
-    public String getAuthor_name_show() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.author_name_show : (String) invokeV.objValue;
-    }
-
-    public String getAuthor_portrait() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.author_portrait : (String) invokeV.objValue;
-    }
-
-    public int getDuring_time() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.during_time : invokeV.intValue;
-    }
-
-    public String getForum_avatar() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.forum_avatar : (String) invokeV.objValue;
-    }
-
-    public long getForum_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.forum_id : invokeV.longValue;
-    }
-
-    public String getForum_name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.forum_name : (String) invokeV.objValue;
-    }
-
-    public long getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.id : invokeV.longValue;
-    }
-
-    public List<MediaPojo> getMedia_list() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.media_list : (List) invokeV.objValue;
-    }
-
-    public ShareThreadMsgData getOrigin_thread_info() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.origin_thread_info : (ShareThreadMsgData) invokeV.objValue;
-    }
-
-    public int getPlay_count() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.play_count : invokeV.intValue;
-    }
-
-    public List<PbContentPojo> getRich_abstract() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.rich_abstract : (List) invokeV.objValue;
-    }
-
-    public List<PbContentPojo> getRich_title() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.rich_title : (List) invokeV.objValue;
-    }
-
-    public int getThread_type() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.thread_type : invokeV.intValue;
-    }
-
-    public int getThumbnail_height() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.thumbnail_height : invokeV.intValue;
-    }
-
-    public String getThumbnail_url() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.thumbnail_url : (String) invokeV.objValue;
-    }
-
-    public int getThumbnail_width() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.thumbnail_width : invokeV.intValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.title : (String) invokeV.objValue;
-    }
-
-    public int getVideo_duration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.video_duration : invokeV.intValue;
-    }
-
-    public boolean hasRead() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.hasRead == 1 : invokeV.booleanValue;
-    }
-
-    public boolean isIs_share_thread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.is_share_thread : invokeV.booleanValue;
     }
 
     public void setAuthor_name_show(String str) {
@@ -708,7 +792,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         }
     }
 
-    public void setMedia_list(List<MediaPojo> list) {
+    public void setMedia_list(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, list) == null) {
             this.media_list = list;
@@ -729,14 +813,14 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         }
     }
 
-    public void setRich_abstract(List<PbContentPojo> list) {
+    public void setRich_abstract(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, list) == null) {
             this.rich_abstract = list;
         }
     }
 
-    public void setRich_title(List<PbContentPojo> list) {
+    public void setRich_title(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, list) == null) {
             this.rich_title = list;
@@ -783,20 +867,5 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
         if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
             this.video_duration = i;
         }
-    }
-
-    public String toEncodeContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("tid", getId());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

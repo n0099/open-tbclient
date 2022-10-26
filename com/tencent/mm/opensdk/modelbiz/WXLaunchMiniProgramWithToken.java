@@ -17,7 +17,7 @@ public class WXLaunchMiniProgramWithToken {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class Req extends BaseReq {
+    public final class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.WXLaunchMiniProgramWithToken.Req";
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class WXLaunchMiniProgramWithToken {
     }
 
     /* loaded from: classes8.dex */
-    public static final class Resp extends BaseResp {
+    public final class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERR_INVALID_TOKEN = -1000;
         public transient /* synthetic */ FieldHolder $fh;

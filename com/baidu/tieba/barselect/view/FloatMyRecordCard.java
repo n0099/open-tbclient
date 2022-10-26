@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.l06;
-import com.baidu.tieba.m06;
-import com.baidu.tieba.n06;
-import com.baidu.tieba.w06;
+import com.baidu.tieba.d16;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.s06;
+import com.baidu.tieba.t06;
+import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public n06 c;
-    public l06 d;
+    public u06 c;
+    public s06 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -70,14 +70,20 @@ public class FloatMyRecordCard extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d == null || this.a.d.l() == 0) {
-                return;
-            }
-            long g = dh.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = this.a.d.l();
-            if (this.a.getContext() instanceof Activity) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(l, l == g, false)));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.d.l() != 0) {
+                long g = eh.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+                long l = this.a.d.l();
+                if (this.a.getContext() instanceof Activity) {
+                    PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(this.a.getContext());
+                    if (l == g) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personPolymericActivityConfig.createNormalConfig(l, z, false)));
+                }
             }
         }
     }
@@ -103,19 +109,49 @@ public class FloatMyRecordCard extends LinearLayout {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FloatMyRecordCard(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.k = new a(this);
+        c();
+    }
+
+    public void setGrade(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            SkinManager.setImageResource(this.h, BitmapHelper.getGradeResourceIdInEnterForum(i));
+        }
+    }
+
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09242b);
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092489);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092415);
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092473);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b7);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce6);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09262a);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f0915cc);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a1);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cf3);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092612);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f0915be);
         }
     }
 
@@ -125,18 +161,18 @@ public class FloatMyRecordCard extends LinearLayout {
             this.a = getContext();
             setOrientation(0);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d028f, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d028e, (ViewGroup) this, true);
             b();
         }
     }
 
     public void d(int i) {
-        l06 l06Var;
+        s06 s06Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (l06Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (s06Var = this.d) == null) {
             return;
         }
-        if (l06Var.i() > 3) {
+        if (s06Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -147,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(n06 n06Var) {
-        l06 l06Var;
+    public void setData(u06 u06Var) {
+        s06 s06Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n06Var) == null) {
-            this.c = n06Var;
-            if (n06Var != null && n06Var.a() != null) {
-                m06 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, u06Var) == null) {
+            this.c = u06Var;
+            if (u06Var != null && u06Var.a() != null) {
+                t06 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (l06Var = this.d) != null && this.b == w06.c) {
-                int i = l06Var.i();
+            if (this.c != null && (s06Var = this.d) != null && this.b == d16.c) {
+                int i = s06Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {
@@ -188,35 +224,5 @@ public class FloatMyRecordCard extends LinearLayout {
             }
             setVisibility(8);
         }
-    }
-
-    public void setGrade(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            SkinManager.setImageResource(this.h, BitmapHelper.getGradeResourceIdInEnterForum(i));
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FloatMyRecordCard(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.k = new a(this);
-        c();
     }
 }

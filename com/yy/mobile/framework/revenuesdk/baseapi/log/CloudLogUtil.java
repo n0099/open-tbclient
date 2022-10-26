@@ -36,7 +36,7 @@ public class CloudLogUtil {
     public static String mSdkVersion = "";
     public static String mUid = "";
     public static volatile boolean startLogLoop;
-    public static List<JSONObject> waitingJsonList;
+    public static List waitingJsonList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,6 +57,46 @@ public class CloudLogUtil {
         LOG_LOOP_TIME_INTERVAL = 30;
         LOP_LOPP_START_TIME_DELAY = 5;
         startLogLoop = false;
+    }
+
+    public static synchronized void startLogLoop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            synchronized (CloudLogUtil.class) {
+                if (startLogLoop) {
+                    return;
+                }
+                startLogLoop = true;
+                Log.d(TAG, "addLogContent startLogLoop()");
+                ThreadPool.getDefault().scheduledIO().scheduleAtFixedRate(new Runnable() { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            Log.d(CloudLogUtil.TAG, "do logLoop force send log");
+                            CloudLogUtil.addLogContent((JSONObject) null, true);
+                        }
+                    }
+                }, LOP_LOPP_START_TIME_DELAY, LOG_LOOP_TIME_INTERVAL, TimeUnit.SECONDS);
+            }
+        }
     }
 
     public CloudLogUtil() {
@@ -128,6 +168,43 @@ public class CloudLogUtil {
                     }
                 });
                 startLogLoop();
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0054 A[Catch: all -> 0x008a, TryCatch #0 {, blocks: (B:7:0x0009, B:8:0x000e, B:11:0x001a, B:16:0x0026, B:18:0x0054, B:19:0x0064, B:21:0x006a, B:22:0x0077), top: B:31:0x0009 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized void addLogContent(JSONObject jSONObject, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, jSONObject, z) == null) {
+            synchronized (CloudLogUtil.class) {
+                if (jSONObject != null) {
+                    waitingJsonList.add(jSONObject);
+                }
+                if (waitingJsonList.size() < QUEUE_MAX_WAITING_NUM && (!z || waitingJsonList.size() <= 0)) {
+                    z2 = false;
+                    Log.d(TAG, "addLogContent waiting size:" + waitingJsonList.size() + " upload:" + z2 + " force:" + z);
+                    if (z2) {
+                        JSONArray jSONArray = new JSONArray();
+                        ArrayList arrayList = new ArrayList();
+                        for (JSONObject jSONObject2 : waitingJsonList) {
+                            jSONArray.put(jSONObject2);
+                            arrayList.add(jSONObject2);
+                        }
+                        waitingJsonList.clear();
+                        LogContent logContent = new LogContent();
+                        logContent.content = jSONArray;
+                        logContent.copyWaitingJsonList = arrayList;
+                        sendLog(logContent);
+                    }
+                }
+                z2 = true;
+                Log.d(TAG, "addLogContent waiting size:" + waitingJsonList.size() + " upload:" + z2 + " force:" + z);
+                if (z2) {
+                }
             }
         }
     }
@@ -231,16 +308,17 @@ public class CloudLogUtil {
                             }
                             String postJson = HttpLoader.postJson("https://cloud-log.yy.com/api/log/put", jSONObject.toString());
                             Log.d(CloudLogUtil.TAG, "sendLog res=" + postJson);
+                            boolean z = true;
                             if (postJson != null && !postJson.isEmpty()) {
                                 try {
                                     int i = new JSONObject(postJson).getInt("code");
                                     Log.d(CloudLogUtil.TAG, "sendLog code=" + i);
                                     if (i != 1000) {
                                         if (this.val$logContent.retryCount.get() > 3) {
-                                            r3 = false;
+                                            z = false;
                                         }
-                                        Log.d(CloudLogUtil.TAG, "sendLog->2 isRetry=" + r3 + " retryCount=" + this.val$logContent.retryCount);
-                                        if (r3) {
+                                        Log.d(CloudLogUtil.TAG, "sendLog->2 isRetry=" + z + " retryCount=" + this.val$logContent.retryCount);
+                                        if (z) {
                                             CloudLogUtil.retrySendLog(this.val$logContent);
                                             return;
                                         }
@@ -251,91 +329,16 @@ public class CloudLogUtil {
                                     return;
                                 }
                             }
-                            r3 = this.val$logContent.retryCount.get() <= 3;
-                            Log.d(CloudLogUtil.TAG, "sendLog->1 isRetry=" + r3 + " retryCount=" + this.val$logContent.retryCount);
-                            if (r3) {
+                            if (this.val$logContent.retryCount.get() > 3) {
+                                z = false;
+                            }
+                            Log.d(CloudLogUtil.TAG, "sendLog->1 isRetry=" + z + " retryCount=" + this.val$logContent.retryCount);
+                            if (z) {
                                 CloudLogUtil.retrySendLog(this.val$logContent);
                             }
                         }
                     }
                 });
-            }
-        }
-    }
-
-    public static synchronized void startLogLoop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            synchronized (CloudLogUtil.class) {
-                if (startLogLoop) {
-                    return;
-                }
-                startLogLoop = true;
-                Log.d(TAG, "addLogContent startLogLoop()");
-                ThreadPool.getDefault().scheduledIO().scheduleAtFixedRate(new Runnable() { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            Log.d(CloudLogUtil.TAG, "do logLoop force send log");
-                            CloudLogUtil.addLogContent((JSONObject) null, true);
-                        }
-                    }
-                }, LOP_LOPP_START_TIME_DELAY, LOG_LOOP_TIME_INTERVAL, TimeUnit.SECONDS);
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0054 A[Catch: all -> 0x008a, TryCatch #0 {, blocks: (B:7:0x0009, B:8:0x000e, B:11:0x001a, B:16:0x0026, B:18:0x0054, B:19:0x0064, B:21:0x006a, B:22:0x0077), top: B:31:0x0009 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized void addLogContent(JSONObject jSONObject, boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, jSONObject, z) == null) {
-            synchronized (CloudLogUtil.class) {
-                if (jSONObject != null) {
-                    waitingJsonList.add(jSONObject);
-                }
-                if (waitingJsonList.size() < QUEUE_MAX_WAITING_NUM && (!z || waitingJsonList.size() <= 0)) {
-                    z2 = false;
-                    Log.d(TAG, "addLogContent waiting size:" + waitingJsonList.size() + " upload:" + z2 + " force:" + z);
-                    if (z2) {
-                        JSONArray jSONArray = new JSONArray();
-                        ArrayList arrayList = new ArrayList();
-                        for (JSONObject jSONObject2 : waitingJsonList) {
-                            jSONArray.put(jSONObject2);
-                            arrayList.add(jSONObject2);
-                        }
-                        waitingJsonList.clear();
-                        LogContent logContent = new LogContent();
-                        logContent.content = jSONArray;
-                        logContent.copyWaitingJsonList = arrayList;
-                        sendLog(logContent);
-                    }
-                }
-                z2 = true;
-                Log.d(TAG, "addLogContent waiting size:" + waitingJsonList.size() + " upload:" + z2 + " force:" + z);
-                if (z2) {
-                }
             }
         }
     }

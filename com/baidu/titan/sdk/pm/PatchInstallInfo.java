@@ -34,19 +34,20 @@ public class PatchInstallInfo {
     }
 
     private void deleteFile(File file) {
-        if (file.exists()) {
-            if (file.isFile()) {
-                file.delete();
-                return;
-            }
-            File[] listFiles = file.listFiles();
-            if (listFiles != null) {
-                for (File file2 : listFiles) {
-                    deleteFile(file2);
-                }
-            }
-            file.delete();
+        if (!file.exists()) {
+            return;
         }
+        if (file.isFile()) {
+            file.delete();
+            return;
+        }
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                deleteFile(file2);
+            }
+        }
+        file.delete();
     }
 
     public void cleanIfNeed() {
@@ -54,11 +55,116 @@ public class PatchInstallInfo {
     }
 
     public boolean exist() {
-        return this.mPatchDir.exists() && this.mPatchDir.isDirectory() && this.mPatchDir.list() != null;
+        if (this.mPatchDir.exists() && this.mPatchDir.isDirectory() && this.mPatchDir.list() != null) {
+            return true;
+        }
+        return false;
     }
 
     public boolean finished() {
-        return getStatusFile().exists();
+        if (getStatusFile().exists()) {
+            return true;
+        }
+        return false;
+    }
+
+    public File getDexOptDir() {
+        return new File(this.mPatchDir, "dexopt");
+    }
+
+    public String getId() {
+        return this.mPatchDir.getName();
+    }
+
+    public File getLockFile() {
+        File file = new File(this.mPatchDir, ".lock");
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return file;
+    }
+
+    public File getPatchDir() {
+        return this.mPatchDir;
+    }
+
+    public File getPatchFile() {
+        return new File(this.mPatchDir, "patch.apk");
+    }
+
+    public FileLock getShareLock() {
+        return this.mShareFileLock;
+    }
+
+    public File getStatusFile() {
+        return new File(this.mPatchDir, "status");
+    }
+
+    public FileLock getWriteLock() {
+        return this.mWriteFileLock;
+    }
+
+    public void prepare() {
+        this.mPatchDir.mkdirs();
+    }
+
+    public boolean releaseShareLock() {
+        FileLock fileLock = this.mShareFileLock;
+        if (fileLock != null) {
+            try {
+                fileLock.release();
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public boolean releaseWriteLock() {
+        FileLock fileLock = this.mWriteFileLock;
+        if (fileLock != null) {
+            try {
+                fileLock.release();
+                Closes.closeQuiet(fileLock.channel());
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public boolean shareLock() {
+        try {
+            FileLock tryLock = new RandomAccessFile(getLockFile(), "r").getChannel().tryLock(0L, 0L, true);
+            this.mShareFileLock = tryLock;
+            if (tryLock == null) {
+                return false;
+            }
+            return true;
+        } catch (IOException unused) {
+            return false;
+        }
+    }
+
+    public boolean writeLock() {
+        try {
+            FileLock tryLock = new RandomAccessFile(getLockFile(), "rw").getChannel().tryLock(0L, 0L, false);
+            this.mWriteFileLock = tryLock;
+            if (tryLock == null) {
+                return false;
+            }
+            return true;
+        } catch (IOException unused) {
+            return false;
+        }
     }
 
     public int getDexCount() {
@@ -99,46 +205,7 @@ public class PatchInstallInfo {
         }
     }
 
-    public File getDexOptDir() {
-        return new File(this.mPatchDir, "dexopt");
-    }
-
-    public String getDexPath() {
-        if (Build.VERSION.SDK_INT <= 19 && getDexCount() > 1) {
-            List<File> orderedDexList = getOrderedDexList();
-            if (orderedDexList == null || orderedDexList.size() == 0) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            Iterator<File> it = orderedDexList.iterator();
-            while (it.hasNext()) {
-                sb.append(it.next().getAbsoluteFile());
-                if (it.hasNext()) {
-                    sb.append(File.pathSeparator);
-                }
-            }
-            return sb.toString();
-        }
-        return getPatchFile().getAbsolutePath();
-    }
-
-    public String getId() {
-        return this.mPatchDir.getName();
-    }
-
-    public File getLockFile() {
-        File file = new File(this.mPatchDir, ".lock");
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return file;
-    }
-
-    public List<File> getOrderedDexList() {
+    public List getOrderedDexList() {
         ArrayList arrayList = new ArrayList();
         File file = new File(this.mPatchDir, "classes.jar");
         if (file.exists()) {
@@ -156,33 +223,28 @@ public class PatchInstallInfo {
         }
     }
 
-    public File getPatchDir() {
-        return this.mPatchDir;
+    public String getDexPath() {
+        if (Build.VERSION.SDK_INT <= 19 && getDexCount() > 1) {
+            List orderedDexList = getOrderedDexList();
+            if (orderedDexList != null && orderedDexList.size() != 0) {
+                StringBuilder sb = new StringBuilder();
+                Iterator it = orderedDexList.iterator();
+                while (it.hasNext()) {
+                    sb.append(((File) it.next()).getAbsoluteFile());
+                    if (it.hasNext()) {
+                        sb.append(File.pathSeparator);
+                    }
+                }
+                return sb.toString();
+            }
+            return "";
+        }
+        return getPatchFile().getAbsolutePath();
     }
 
-    public File getPatchFile() {
-        return new File(this.mPatchDir, "patch.apk");
-    }
-
-    public FileLock getShareLock() {
-        return this.mShareFileLock;
-    }
-
-    public File getStatusFile() {
-        return new File(this.mPatchDir, "status");
-    }
-
-    public FileLock getWriteLock() {
-        return this.mWriteFileLock;
-    }
-
-    public void prepare() {
-        this.mPatchDir.mkdirs();
-    }
-
-    public HashMap<String, String> readOptDigests() {
+    public HashMap readOptDigests() {
         File file = new File(getPatchDir(), ".opt_dig");
-        HashMap<String, String> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         BufferedReader bufferedReader = null;
         try {
             try {
@@ -218,35 +280,6 @@ public class PatchInstallInfo {
         } catch (Throwable th2) {
             th = th2;
         }
-    }
-
-    public boolean releaseShareLock() {
-        FileLock fileLock = this.mShareFileLock;
-        if (fileLock != null) {
-            try {
-                fileLock.release();
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public boolean releaseWriteLock() {
-        FileLock fileLock = this.mWriteFileLock;
-        if (fileLock != null) {
-            try {
-                fileLock.release();
-                Closes.closeQuiet(fileLock.channel());
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return false;
     }
 
     public boolean saveDexCount(int i) {
@@ -324,26 +357,6 @@ public class PatchInstallInfo {
             fileWriter2 = fileWriter;
             Closes.closeQuiet(fileWriter2);
             throw th;
-        }
-    }
-
-    public boolean shareLock() {
-        try {
-            FileLock tryLock = new RandomAccessFile(getLockFile(), "r").getChannel().tryLock(0L, 0L, true);
-            this.mShareFileLock = tryLock;
-            return tryLock != null;
-        } catch (IOException unused) {
-            return false;
-        }
-    }
-
-    public boolean writeLock() {
-        try {
-            FileLock tryLock = new RandomAccessFile(getLockFile(), "rw").getChannel().tryLock(0L, 0L, false);
-            this.mWriteFileLock = tryLock;
-            return tryLock != null;
-        } catch (IOException unused) {
-            return false;
         }
     }
 }

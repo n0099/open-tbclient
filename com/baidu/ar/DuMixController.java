@@ -806,7 +806,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         return invokeLLL.booleanValue;
     }
 
-    public boolean addAbility(String str, List<String> list) {
+    public boolean addAbility(String str, List list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list)) == null) {
@@ -852,7 +852,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         cVar.addOutputSurface(duMixOutput);
     }
 
-    public boolean adjustAbility(AbilityType abilityType, HashMap<String, Object> hashMap) {
+    public boolean adjustAbility(AbilityType abilityType, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, abilityType, hashMap)) == null) {
@@ -864,7 +864,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         return invokeLL.booleanValue;
     }
 
-    public boolean adjustAbility(String str, HashMap<String, Object> hashMap) {
+    public boolean adjustAbility(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, hashMap)) == null) {
@@ -933,14 +933,14 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     }
 
     @Deprecated
-    public List<Integer> checkAuth(byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
+    public List checkAuth(byte[] bArr, IDuMixAuthCallback iDuMixAuthCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, bArr, iDuMixAuthCallback)) == null) ? ARAuth.checkAuth(this.mContext, bArr, iDuMixAuthCallback) : (List) invokeLL.objValue;
     }
 
     @Deprecated
-    public List<Integer> checkAuth(byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2) {
+    public List checkAuth(byte[] bArr, ICallbackWith iCallbackWith, ICallbackWith iCallbackWith2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, bArr, iCallbackWith, iCallbackWith2)) == null) ? ARAuth.checkAuth(this.mContext, bArr, iCallbackWith, iCallbackWith2) : (List) invokeLLL.objValue;
@@ -1015,7 +1015,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         return (l) invokeV.objValue;
     }
 
-    public List<String> getActiveAbilities() {
+    public List getActiveAbilities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
@@ -1065,7 +1065,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         return (IStepLoading) invokeV.objValue;
     }
 
-    public List<String> getSupportedAbilities() {
+    public List getSupportedAbilities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
@@ -1297,7 +1297,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         return invokeL.booleanValue;
     }
 
-    public boolean sendMsg2Lua(HashMap<String, Object> hashMap) {
+    public boolean sendMsg2Lua(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, hashMap)) == null) {
@@ -1427,7 +1427,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         }
     }
 
-    public boolean startAbility(AbilityType abilityType, HashMap<String, Object> hashMap) {
+    public boolean startAbility(AbilityType abilityType, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048632, this, abilityType, hashMap)) == null) {
@@ -1439,7 +1439,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
         return invokeLL.booleanValue;
     }
 
-    public boolean startAbility(String str, HashMap<String, Object> hashMap) {
+    public boolean startAbility(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048633, this, str, hashMap)) == null) {
@@ -1545,14 +1545,14 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     }
 
     @Override // com.baidu.ar.filter.IFilter
-    public void updateFilter(FilterParam filterParam, List<Point> list) {
+    public void updateFilter(FilterParam filterParam, List list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048642, this, filterParam, list) == null) && list != null && aW == 2) {
             float[] fArr = new float[list.size() * 2];
             for (int i = 0; i < list.size(); i++) {
                 int i2 = i * 2;
-                fArr[i2] = list.get(i).x;
-                fArr[i2 + 1] = list.get(i).y;
+                fArr[i2] = ((Point) list.get(i)).x;
+                fArr[i2 + 1] = ((Point) list.get(i)).y;
             }
             com.baidu.ar.filter.a aVar = this.B;
             if (aVar != null) {

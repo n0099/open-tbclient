@@ -21,7 +21,7 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
     public volatile boolean cancelled;
     public final AtomicLong missedProduced;
     public final AtomicLong missedRequested;
-    public final AtomicReference<Subscription> missedSubscription;
+    public final AtomicReference missedSubscription;
     public long requested;
     public boolean unbounded;
 
@@ -38,25 +38,43 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
                 return;
             }
         }
-        this.missedSubscription = new AtomicReference<>();
+        this.missedSubscription = new AtomicReference();
         this.missedRequested = new AtomicLong();
         this.missedProduced = new AtomicLong();
     }
 
     public void cancel() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+            this.cancelled = true;
+            drain();
         }
-        this.cancelled = true;
-        drain();
     }
 
     public final void drain() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
-            drainLoop();
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
+            return;
         }
+        drainLoop();
+    }
+
+    public final boolean isCancelled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.cancelled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isUnbounded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.unbounded;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void drainLoop() {
@@ -66,9 +84,9 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
             Subscription subscription = null;
             long j = 0;
             do {
-                Subscription subscription2 = this.missedSubscription.get();
+                Subscription subscription2 = (Subscription) this.missedSubscription.get();
                 if (subscription2 != null) {
-                    subscription2 = this.missedSubscription.getAndSet(null);
+                    subscription2 = (Subscription) this.missedSubscription.getAndSet(null);
                 }
                 long j2 = this.missedRequested.get();
                 if (j2 != 0) {
@@ -122,21 +140,9 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
         }
     }
 
-    public final boolean isCancelled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cancelled : invokeV.booleanValue;
-    }
-
-    public final boolean isUnbounded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.unbounded : invokeV.booleanValue;
-    }
-
     public final void produced(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || this.unbounded) {
+        if ((interceptable != null && interceptable.invokeJ(1048581, this, j) != null) || this.unbounded) {
             return;
         }
         if (get() == 0 && compareAndSet(0, 1)) {
@@ -162,29 +168,30 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
     @Override // org.reactivestreams.Subscription
     public final void request(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j) && !this.unbounded) {
-            if (get() == 0 && compareAndSet(0, 1)) {
-                long j2 = this.requested;
-                if (j2 != Long.MAX_VALUE) {
-                    long addCap = BackpressureHelper.addCap(j2, j);
-                    this.requested = addCap;
-                    if (addCap == Long.MAX_VALUE) {
-                        this.unbounded = true;
-                    }
+        if ((interceptable != null && interceptable.invokeJ(1048582, this, j) != null) || !SubscriptionHelper.validate(j) || this.unbounded) {
+            return;
+        }
+        if (get() == 0 && compareAndSet(0, 1)) {
+            long j2 = this.requested;
+            if (j2 != Long.MAX_VALUE) {
+                long addCap = BackpressureHelper.addCap(j2, j);
+                this.requested = addCap;
+                if (addCap == Long.MAX_VALUE) {
+                    this.unbounded = true;
                 }
-                Subscription subscription = this.actual;
-                if (decrementAndGet() != 0) {
-                    drainLoop();
-                }
-                if (subscription != null) {
-                    subscription.request(j);
-                    return;
-                }
+            }
+            Subscription subscription = this.actual;
+            if (decrementAndGet() != 0) {
+                drainLoop();
+            }
+            if (subscription != null) {
+                subscription.request(j);
                 return;
             }
-            BackpressureHelper.add(this.missedRequested, j);
-            drain();
+            return;
         }
+        BackpressureHelper.add(this.missedRequested, j);
+        drain();
     }
 
     public final void setSubscription(Subscription subscription) {
@@ -211,9 +218,9 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
                 }
                 return;
             }
-            Subscription andSet = this.missedSubscription.getAndSet(subscription);
-            if (andSet != null) {
-                andSet.cancel();
+            Subscription subscription3 = (Subscription) this.missedSubscription.getAndSet(subscription);
+            if (subscription3 != null) {
+                subscription3.cancel();
             }
             drain();
         }

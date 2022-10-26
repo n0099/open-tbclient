@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class lf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public long createTime;
-    @V8JavascriptField
-    public String filePath;
-    @V8JavascriptField
-    public long size;
+    public int a;
+    public String b;
+    public List c;
+    public sf2 d;
+    public long e;
+    public List f;
+    public String g;
+    public byte[] h;
 
     public lf2() {
         Interceptable interceptable = $ic;

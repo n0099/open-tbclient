@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.framework;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -64,72 +63,114 @@ public final class FrameLifeState {
     public static FrameLifeState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FrameLifeState) Enum.valueOf(FrameLifeState.class, str) : (FrameLifeState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (FrameLifeState) Enum.valueOf(FrameLifeState.class, str);
+        }
+        return (FrameLifeState) invokeL.objValue;
+    }
+
+    public final boolean moreActiveThan(FrameLifeState frameLifeState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, frameLifeState)) == null) {
+            if (compareTo(frameLifeState) > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean moreInactiveThan(FrameLifeState frameLifeState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, frameLifeState)) == null) {
+            if (compareTo(frameLifeState) < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean noMoreActiveThan(FrameLifeState frameLifeState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, frameLifeState)) == null) {
+            return !moreActiveThan(frameLifeState);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean noMoreInactiveThan(FrameLifeState frameLifeState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, frameLifeState)) == null) {
+            return !moreInactiveThan(frameLifeState);
+        }
+        return invokeL.booleanValue;
     }
 
     public static FrameLifeState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FrameLifeState[]) $VALUES.clone() : (FrameLifeState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (FrameLifeState[]) $VALUES.clone();
+        }
+        return (FrameLifeState[]) invokeV.objValue;
     }
 
     public final boolean activated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? moreActiveThan(INACTIVATED) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return moreActiveThan(INACTIVATED);
+        }
+        return invokeV.booleanValue;
     }
 
     public final int activatedLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ordinal() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ordinal();
+        }
+        return invokeV.intValue;
     }
 
     public final boolean hasCreated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? noMoreInactiveThan(JUST_CREATED) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return noMoreInactiveThan(JUST_CREATED);
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean hasResumed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? noMoreInactiveThan(JUST_RESUMED) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return noMoreInactiveThan(JUST_RESUMED);
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean hasStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? noMoreInactiveThan(JUST_STARTED) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return noMoreInactiveThan(JUST_STARTED);
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean inactivated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? !activated() : invokeV.booleanValue;
-    }
-
-    public final boolean moreActiveThan(@NonNull FrameLifeState frameLifeState) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, frameLifeState)) == null) ? compareTo(frameLifeState) > 0 : invokeL.booleanValue;
-    }
-
-    public final boolean moreInactiveThan(@NonNull FrameLifeState frameLifeState) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, frameLifeState)) == null) ? compareTo(frameLifeState) < 0 : invokeL.booleanValue;
-    }
-
-    public final boolean noMoreActiveThan(@NonNull FrameLifeState frameLifeState) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, frameLifeState)) == null) ? !moreActiveThan(frameLifeState) : invokeL.booleanValue;
-    }
-
-    public final boolean noMoreInactiveThan(@NonNull FrameLifeState frameLifeState) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, frameLifeState)) == null) ? !moreInactiveThan(frameLifeState) : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return !activated();
+        }
+        return invokeV.booleanValue;
     }
 }

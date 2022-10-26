@@ -40,11 +40,11 @@ public class DnsParseResult {
     public static final int TYPE_LOCAL_ASYNC_HTTP = 1000;
     public transient /* synthetic */ FieldHolder $fh;
     public int k;
-    public List<String> l;
+    public List l;
     public int stackType;
     public int type;
 
-    public DnsParseResult(List<String> list, int i, int i2, int i3) {
+    public DnsParseResult(List list, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,28 +70,40 @@ public class DnsParseResult {
         this.stackType = i3;
     }
 
-    public List<String> getIpList() {
+    public List getIpList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.l;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getStackType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.stackType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.stackType;
+        }
+        return invokeV.intValue;
     }
 
     public int getSubType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public JSONObject toJson() {

@@ -22,7 +22,7 @@ public final class ExoSoSource extends UnpackingSoSource {
 
     /* renamed from: com.facebook.soloader.ExoSoSource$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -59,11 +59,21 @@ public final class ExoSoSource extends UnpackingSoSource {
                 this.this$1 = exoUnpacker;
             }
 
+            public /* synthetic */ FileBackedInputDsoIterator(ExoUnpacker exoUnpacker, AnonymousClass1 anonymousClass1) {
+                this(exoUnpacker);
+            }
+
             @Override // com.facebook.soloader.UnpackingSoSource.InputDsoIterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCurrentDso < this.this$1.mDsos.length : invokeV.booleanValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    if (this.mCurrentDso < this.this$1.mDsos.length) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeV.booleanValue;
             }
 
             @Override // com.facebook.soloader.UnpackingSoSource.InputDsoIterator
@@ -84,10 +94,6 @@ public final class ExoSoSource extends UnpackingSoSource {
                     }
                 }
                 return (UnpackingSoSource.InputDso) invokeV.objValue;
-            }
-
-            public /* synthetic */ FileBackedInputDsoIterator(ExoUnpacker exoUnpacker, AnonymousClass1 anonymousClass1) {
-                this(exoUnpacker);
             }
         }
 
@@ -146,14 +152,15 @@ public final class ExoSoSource extends UnpackingSoSource {
                                         int size = arrayList.size();
                                         int i5 = 0;
                                         while (true) {
-                                            if (i5 >= size) {
+                                            if (i5 < size) {
+                                                if (((FileDso) arrayList.get(i5)).name.equals(str2)) {
+                                                    z = true;
+                                                    break;
+                                                }
+                                                i5++;
+                                            } else {
                                                 z = false;
                                                 break;
-                                            } else if (((FileDso) arrayList.get(i5)).name.equals(str2)) {
-                                                z = true;
-                                                break;
-                                            } else {
-                                                i5++;
                                             }
                                         }
                                         if (!z) {
@@ -185,19 +192,25 @@ public final class ExoSoSource extends UnpackingSoSource {
         public UnpackingSoSource.DsoManifest getDsoManifest() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new UnpackingSoSource.DsoManifest(this.mDsos) : (UnpackingSoSource.DsoManifest) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new UnpackingSoSource.DsoManifest(this.mDsos);
+            }
+            return (UnpackingSoSource.DsoManifest) invokeV.objValue;
         }
 
         @Override // com.facebook.soloader.UnpackingSoSource.Unpacker
         public UnpackingSoSource.InputDsoIterator openDsoIterator() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new FileBackedInputDsoIterator(this, null) : (UnpackingSoSource.InputDsoIterator) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new FileBackedInputDsoIterator(this, null);
+            }
+            return (UnpackingSoSource.InputDsoIterator) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class FileDso extends UnpackingSoSource.Dso {
+    public final class FileDso extends UnpackingSoSource.Dso {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final File backingFile;
@@ -250,6 +263,9 @@ public final class ExoSoSource extends UnpackingSoSource {
     public UnpackingSoSource.Unpacker makeUnpacker() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ExoUnpacker(this, this) : (UnpackingSoSource.Unpacker) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ExoUnpacker(this, this);
+        }
+        return (UnpackingSoSource.Unpacker) invokeV.objValue;
     }
 }

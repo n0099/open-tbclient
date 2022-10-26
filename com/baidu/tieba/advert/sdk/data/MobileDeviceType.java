@@ -68,18 +68,27 @@ public final class MobileDeviceType {
     public static MobileDeviceType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MobileDeviceType) Enum.valueOf(MobileDeviceType.class, str) : (MobileDeviceType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (MobileDeviceType) Enum.valueOf(MobileDeviceType.class, str);
+        }
+        return (MobileDeviceType) invokeL.objValue;
     }
 
     public static MobileDeviceType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MobileDeviceType[]) $VALUES.clone() : (MobileDeviceType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (MobileDeviceType[]) $VALUES.clone();
+        }
+        return (MobileDeviceType[]) invokeV.objValue;
     }
 
     public int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 }

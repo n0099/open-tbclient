@@ -1,266 +1,122 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cx4 {
+public class cx4 extends vw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile cx4 g;
-    public static int h;
-    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public tw4 c;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-875552851, "Lcom/baidu/tieba/cx4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-875552851, "Lcom/baidu/tieba/cx4$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[LiveRemindConfig.Scene.values().length];
-            a = iArr;
-            try {
-                iArr[LiveRemindConfig.Scene.LIVE_BUBBLE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LiveRemindConfig.Scene.LIVE_FLOAT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
+    @Override // com.baidu.tieba.vw4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Image" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947690122, "Lcom/baidu/tieba/cx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947690122, "Lcom/baidu/tieba/cx4;");
-                return;
-            }
-        }
-        new Date();
-        new Date();
-    }
-
-    public cx4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cx4(tw4 tw4Var) {
+        super(tw4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tw4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((tw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        h();
+        this.c = tw4Var;
     }
 
-    public static cx4 b() {
-        InterceptResult invokeV;
+    @ww4(isAsync = false, value = "scanBigImages")
+    public void sanBigImages(JSONObject jSONObject) throws JSONException {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (cx4.class) {
-                    if (g == null) {
-                        g = new cx4();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
+        int optInt = jSONObject.optInt("clickIndex");
+        int length = optJSONArray.length();
+        ArrayList arrayList = new ArrayList();
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+        for (int i = 0; i < length; i++) {
+            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+            if (jSONObject2 != null) {
+                String string = jSONObject2.getString("bigImageUrl");
+                String string2 = jSONObject2.getString("originImageUrl");
+                if (!TextUtils.isEmpty(string)) {
+                    arrayList.add(string);
+                    if (!TextUtils.isEmpty(string2)) {
+                        ImageUrlData imageUrlData = new ImageUrlData();
+                        imageUrlData.imageUrl = string;
+                        imageUrlData.originalUrl = string2;
+                        concurrentHashMap.put(string, imageUrlData);
                     }
                 }
             }
-            return g;
         }
-        return (cx4) invokeV.objValue;
+        ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
+        builder.A(arrayList);
+        builder.E(optInt);
+        builder.F(true);
+        if (arrayList.size() > 0) {
+            str = (String) arrayList.get(0);
+        } else {
+            str = "";
+        }
+        builder.M(str);
+        builder.I(true);
+        builder.y(concurrentHashMap);
+        builder.K(true);
+        c(new CustomMessage(2010000, builder.x(this.c.getContext())));
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @ww4("selectPhotos")
+    public void selectPhotos(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ox4.k().l(c(LiveRemindConfig.Scene.LIVE_BUBBLE), 0) : invokeV.intValue;
-    }
-
-    public final String c(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+            LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
+            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("selectPhotos")) != null && optJSONArray.length() > 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    ImageFileInfo imageFileInfo = new ImageFileInfo();
+                    imageFileInfo.setFilePath(((JSONObject) optJSONArray.get(i)).optString("filePath"));
+                    linkedList.add(imageFileInfo);
+                }
             }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.d;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String d(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.c;
-            }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.f;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String e(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.b;
-            }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.e;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void f(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, scene) == null) {
-            int i2 = a.a[scene.ordinal()];
-            if (i2 == 1) {
-                ox4.k().x(d(scene), System.currentTimeMillis());
-                i++;
-                g(LiveRemindConfig.Scene.LIVE_BUBBLE);
-            } else if (i2 != 2) {
-            } else {
-                ox4.k().x(d(scene), System.currentTimeMillis());
-                h++;
-                g(LiveRemindConfig.Scene.LIVE_FLOAT);
-            }
-        }
-    }
-
-    public final void g(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scene) == null) {
-            ox4.k().w(c(scene), ox4.k().l(c(scene), 0) + 1);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = "key_live_bubble_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
-            this.b = "key_live_bubble_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.c = "key_live_bubble_last_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.d = "key_live_top_float_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
-            this.e = "key_live_top_float_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.f = "key_live_top_float_last_show_time" + TbadkCoreApplication.getCurrentAccount();
-        }
-    }
-
-    public final boolean i(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                i2 = i;
-            } else {
-                i2 = scene == LiveRemindConfig.Scene.LIVE_FLOAT ? h : 0;
-            }
-            return ox4.k().l(c(scene), 0) < LiveRemindConfig.c().b() && i2 < LiveRemindConfig.c().a();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean j(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
-            if (!StringHelper.isTaday(ox4.k().m(e(scene), 0L))) {
-                ox4.k().x(e(scene), System.currentTimeMillis());
-                m(scene);
-            }
-            return i(scene) && k(scene);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean k(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long m = ox4.k().m(d(scene), currentTimeMillis);
-            return currentTimeMillis == m || (currentTimeMillis - m) / 1000 >= LiveRemindConfig.c().d();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            i = 0;
-            h = 0;
-            if (TbadkCoreApplication.isLogin()) {
-                h();
-            }
-        }
-    }
-
-    public void m(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, scene) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                i = 0;
-            } else if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                h = 0;
-            }
-            ox4.k().w(c(scene), 0);
-        }
-    }
-
-    public void n(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            ox4.k().w(c(LiveRemindConfig.Scene.LIVE_BUBBLE), i2);
+            writeImagesInfo.setChosedFiles(linkedList);
+            writeImagesInfo.setMaxImagesAllowed(9);
+            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
+            albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
+            albumActivityConfig.setRequestCode(12015);
+            c(new CustomMessage(2002001, albumActivityConfig));
         }
     }
 }

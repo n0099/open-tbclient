@@ -58,49 +58,65 @@ public class a {
             if (this == obj) {
                 return true;
             }
-            if (obj != null && a.class == obj.getClass()) {
-                a aVar = (a) obj;
-                String str = this.d;
-                if (str == null) {
-                    if (aVar.d != null) {
-                        return false;
-                    }
-                } else if (!str.equals(aVar.d)) {
-                    return false;
-                }
-                String str2 = this.e;
-                if (str2 == null) {
-                    if (aVar.e != null) {
-                        return false;
-                    }
-                } else if (!str2.equals(aVar.e)) {
-                    return false;
-                }
-                String str3 = this.b;
-                if (str3 == null) {
-                    if (aVar.b != null) {
-                        return false;
-                    }
-                } else if (!str3.equals(aVar.b)) {
-                    return false;
-                }
-                return true;
+            if (obj == null || a.class != obj.getClass()) {
+                return false;
             }
-            return false;
+            a aVar = (a) obj;
+            String str = this.d;
+            if (str == null) {
+                if (aVar.d != null) {
+                    return false;
+                }
+            } else if (!str.equals(aVar.d)) {
+                return false;
+            }
+            String str2 = this.e;
+            if (str2 == null) {
+                if (aVar.e != null) {
+                    return false;
+                }
+            } else if (!str2.equals(aVar.e)) {
+                return false;
+            }
+            String str3 = this.b;
+            if (str3 == null) {
+                if (aVar.b != null) {
+                    return false;
+                }
+            } else if (!str3.equals(aVar.b)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int hashCode;
+        int hashCode2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.d;
-            int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
+            int i = 0;
+            if (str == null) {
+                hashCode = 0;
+            } else {
+                hashCode = str.hashCode();
+            }
+            int i2 = (hashCode + 31) * 31;
             String str2 = this.e;
-            int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
+            if (str2 == null) {
+                hashCode2 = 0;
+            } else {
+                hashCode2 = str2.hashCode();
+            }
+            int i3 = (i2 + hashCode2) * 31;
             String str3 = this.b;
-            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
+            if (str3 != null) {
+                i = str3.hashCode();
+            }
+            return i3 + i;
         }
         return invokeV.intValue;
     }

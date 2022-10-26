@@ -15,6 +15,8 @@ public abstract class AroundClosure {
     public Object[] preInitializationState;
     public Object[] state;
 
+    public abstract Object run(Object[] objArr) throws Throwable;
+
     public AroundClosure() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,19 +36,28 @@ public abstract class AroundClosure {
     public int getFlags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bitflags : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bitflags;
+        }
+        return invokeV.intValue;
     }
 
     public Object[] getPreInitializationState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.preInitializationState : (Object[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.preInitializationState;
+        }
+        return (Object[]) invokeV.objValue;
     }
 
     public Object[] getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.state : (Object[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.state;
+        }
+        return (Object[]) invokeV.objValue;
     }
 
     public ProceedingJoinPoint linkClosureAndJoinPoint() {
@@ -60,8 +71,6 @@ public abstract class AroundClosure {
         }
         return (ProceedingJoinPoint) invokeV.objValue;
     }
-
-    public abstract Object run(Object[] objArr) throws Throwable;
 
     public AroundClosure(Object[] objArr) {
         Interceptable interceptable = $ic;

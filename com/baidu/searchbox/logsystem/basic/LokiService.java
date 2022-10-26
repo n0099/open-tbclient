@@ -26,8 +26,14 @@ public class LokiService extends Service {
     public static LogSystemProcessor mProcessor;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static final class Constant {
+    public final class Constant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LOG_BASIC_DATA = "logbasicdata";
         public static final String LOG_BASIC_DATA_FILE = "logbasicdatafile";
@@ -68,9 +74,14 @@ public class LokiService extends Service {
         }
     }
 
-    public static void init() {
+    @Override // android.app.Service
+    public void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+            if (LLog.sDebug) {
+                Log.d(TAG, "LokiService.onCreate(), pid = " + Process.myPid());
+            }
         }
     }
 
@@ -86,17 +97,6 @@ public class LokiService extends Service {
             return null;
         }
         return (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onCreate();
-            if (LLog.sDebug) {
-                Log.d(TAG, "LokiService.onCreate(), pid = " + Process.myPid());
-            }
-        }
     }
 
     @Override // android.app.Service
@@ -123,39 +123,51 @@ public class LokiService extends Service {
         LogType logType;
         File file2;
         LogBaseObject logObject;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLII = interceptable.invokeLII(1048579, this, intent, i, i2)) != null) {
-            return invokeLII.intValue;
-        }
-        if (LLog.sDebug) {
-            Log.d(TAG, "LokiService.onStartCommand(), pid = " + Process.myPid());
-        }
-        if (intent == null) {
-            return 2;
-        }
-        String stringExtra = intent.getStringExtra(Constant.LOG_BASIC_DATA);
-        String stringExtra2 = intent.getStringExtra(Constant.LOG_BASIC_DATA_FILE);
-        if (!TextUtils.isEmpty(stringExtra2)) {
-            File file3 = new File(stringExtra2);
-            if (file3.exists() && file3.isFile()) {
-                file = file3;
-                logType = (LogType) intent.getSerializableExtra("logtype");
-                String stringExtra3 = intent.getStringExtra(Constant.LOG_PROCESS_NAME);
-                if (logType != null) {
-                    return 2;
-                }
-                if (LogType.NONE == logType || ((!TextUtils.isEmpty(stringExtra) || (file != null && file.exists() && file.isFile())) && !TextUtils.isEmpty(stringExtra3))) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i, i2)) == null) {
+            if (LLog.sDebug) {
+                Log.d(TAG, "LokiService.onStartCommand(), pid = " + Process.myPid());
+            }
+            if (intent == null) {
+                return 2;
+            }
+            String stringExtra = intent.getStringExtra(Constant.LOG_BASIC_DATA);
+            String stringExtra2 = intent.getStringExtra(Constant.LOG_BASIC_DATA_FILE);
+            if (!TextUtils.isEmpty(stringExtra2)) {
+                File file3 = new File(stringExtra2);
+                if (file3.exists() && file3.isFile()) {
+                    file = file3;
+                    logType = (LogType) intent.getSerializableExtra("logtype");
+                    String stringExtra3 = intent.getStringExtra(Constant.LOG_PROCESS_NAME);
+                    if (logType != null) {
+                        return 2;
+                    }
+                    if (LogType.NONE != logType && ((TextUtils.isEmpty(stringExtra) && (file == null || !file.exists() || !file.isFile())) || TextUtils.isEmpty(stringExtra3))) {
+                        return 2;
+                    }
                     String stringExtra4 = intent.getStringExtra(Constant.LOG_EXTRA_PATHNAME_KEEPER);
                     String stringExtra5 = intent.getStringExtra(Constant.LOG_CRASH_TAG);
                     if (LLog.sDebug) {
                         Log.d(TAG, "logType = " + logType.getTypeName());
                         StringBuilder sb = new StringBuilder();
                         sb.append("logBasicData = ");
-                        sb.append(TextUtils.isEmpty(stringExtra) ? "logBasicData is empty or null" : stringExtra);
+                        if (TextUtils.isEmpty(stringExtra)) {
+                            str = "logBasicData is empty or null";
+                        } else {
+                            str = stringExtra;
+                        }
+                        sb.append(str);
                         Log.d(TAG, sb.toString());
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("processName = ");
-                        sb2.append(TextUtils.isEmpty(stringExtra3) ? "process name is empty or null" : stringExtra3);
+                        if (TextUtils.isEmpty(stringExtra3)) {
+                            str2 = "process name is empty or null";
+                        } else {
+                            str2 = stringExtra3;
+                        }
+                        sb2.append(str2);
                         Log.d(TAG, sb2.toString());
                         if (!TextUtils.isEmpty(stringExtra4)) {
                             Log.d(TAG, "logExtraPathNameKeeper = " + stringExtra4);
@@ -183,13 +195,14 @@ public class LokiService extends Service {
                     }
                     return 2;
                 }
-                return 2;
             }
-        }
-        file = null;
-        logType = (LogType) intent.getSerializableExtra("logtype");
-        String stringExtra32 = intent.getStringExtra(Constant.LOG_PROCESS_NAME);
-        if (logType != null) {
+            file = null;
+            logType = (LogType) intent.getSerializableExtra("logtype");
+            String stringExtra32 = intent.getStringExtra(Constant.LOG_PROCESS_NAME);
+            if (logType != null) {
+            }
+        } else {
+            return invokeLII.intValue;
         }
     }
 }

@@ -19,7 +19,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
     public int is;
     public final ReentrantLock it;
-    public Map<String, a> iu;
+    public Map iu;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -27,7 +27,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
         public final Thread iv;
         public com.baidu.ar.c.a iw;
-        public BlockingQueue<com.baidu.ar.c.a> ix;
+        public BlockingQueue ix;
         public final /* synthetic */ b iy;
         public String tag;
 
@@ -53,7 +53,7 @@ public class b {
             this.tag = str;
         }
 
-        public a(b bVar, String str, BlockingQueue<com.baidu.ar.c.a> blockingQueue) {
+        public a(b bVar, String str, BlockingQueue blockingQueue) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class b {
             while (true) {
                 if (aVar == null) {
                     try {
-                        aVar = this.ix.poll(this.iy.is, TimeUnit.MILLISECONDS);
+                        aVar = (com.baidu.ar.c.a) this.ix.poll(this.iy.is, TimeUnit.MILLISECONDS);
                         if (aVar == null) {
                             return;
                         }
@@ -156,10 +156,10 @@ public class b {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (aVar = this.iu.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || (aVar = (a) this.iu.get(str)) == null) {
                 return 0;
             }
-            BlockingQueue<com.baidu.ar.c.a> blockingQueue = aVar.ix;
+            BlockingQueue blockingQueue = aVar.ix;
             int size = blockingQueue.size();
             blockingQueue.clear();
             return size;
@@ -182,7 +182,7 @@ public class b {
                 if (tag == null) {
                     tag = "";
                 }
-                a aVar2 = this.iu.get(tag);
+                a aVar2 = (a) this.iu.get(tag);
                 if (aVar2 == null) {
                     a aVar3 = new a(this, tag, aVar);
                     this.iu.put(tag, aVar3);

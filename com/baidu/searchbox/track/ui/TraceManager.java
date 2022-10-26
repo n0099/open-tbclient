@@ -8,8 +8,6 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -51,18 +49,6 @@ public class TraceManager {
         this.mIsRegistered = false;
     }
 
-    public static boolean checkAPSActivity(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) ? activity.getClass().getName().startsWith("com.baidu.megapp.proxy.activity") : invokeL.booleanValue;
-    }
-
-    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @NonNull String str2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, activity, str, obj, str2)) == null) ? createTraceInfo(activity, str, obj, null, null, "native", str2) : (TrackUI) invokeLLLL.objValue;
-    }
-
     public static TraceManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,102 +65,53 @@ public class TraceManager {
         return (TraceManager) invokeV.objValue;
     }
 
-    public String getActivityToken(Activity activity) {
-        InterceptResult invokeL;
-        WindowManager.LayoutParams attributes;
-        IBinder iBinder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-            if (activity == null) {
-                return null;
-            }
-            if (Build.VERSION.SDK_INT <= 26) {
-                try {
-                    Object invoke = Activity.class.getDeclaredMethod("getActivityToken", new Class[0]).invoke(activity, new Object[0]);
-                    if (invoke != null) {
-                        return invoke.toString();
-                    }
-                } catch (Throwable th) {
-                    if (AppConfig.isDebug()) {
-                        th.printStackTrace();
-                    }
-                }
-            }
-            Window window = activity.getWindow();
-            if (window == null || (attributes = window.getAttributes()) == null || (iBinder = attributes.token) == null) {
-                return null;
-            }
-            return iBinder.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public boolean isRegistered() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIsRegistered : invokeV.booleanValue;
-    }
-
-    public void register(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.mIsRegistered || context == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mIsRegistered;
         }
-        if (BdBoxActivityManager.getMainGlobalActivityLifecycle() == null) {
-            BdBoxActivityManager.setMainGlobalActivityLifecycle(GlobalActivityLifecycle.getInstance());
-        }
-        TraceActivityCallbacks traceActivityCallbacks = new TraceActivityCallbacks();
-        this.mTraceActivityCallbacks = traceActivityCallbacks;
-        BdBoxActivityManager.registerLifeCycle(traceActivityCallbacks);
-        if (context instanceof Activity) {
-            Activity activity = (Activity) context;
-            if (activity.isFinishing()) {
-                return;
-            }
-            this.mIsRegistered = true;
-            TraceActivityCallbacks traceActivityCallbacks2 = this.mTraceActivityCallbacks;
-            if (traceActivityCallbacks2 != null) {
-                traceActivityCallbacks2.registerTraceFragment(activity);
-            }
-            saveTraceInfo(activity, null, null, MiPushClient.COMMAND_REGISTER);
-            return;
-        }
-        this.mIsRegistered = true;
+        return invokeV.booleanValue;
     }
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || sInstance == null) {
-            return;
-        }
-        if (sInstance.mTraceActivityCallbacks != null) {
-            BdBoxActivityManager.unregisterLifeCycle(sInstance.mTraceActivityCallbacks);
-            sInstance.mTraceActivityCallbacks = null;
-        }
-        this.mIsRegistered = false;
-        sInstance = null;
-    }
-
-    public void saveTraceInfo(@NonNull Activity activity, @Nullable Object obj, @Nullable String str, @Nullable String str2, @Nullable String str3, @NonNull String str4) {
-        TrackUI createTraceInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{activity, obj, str, str2, str3, str4}) == null) && this.mIsRegistered && (createTraceInfo = createTraceInfo(activity, null, obj, str, str2, str3, str4)) != null) {
-            Track.getInstance().addTrackUI(createTraceInfo);
-            Iterator<Track.OnTrackUIListener> it = Track.getInstance().getTrackUIListeners().iterator();
-            while (it.hasNext()) {
-                it.next().onAddTrackUI(createTraceInfo);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && sInstance != null) {
+            if (sInstance.mTraceActivityCallbacks != null) {
+                BdBoxActivityManager.unregisterLifeCycle(sInstance.mTraceActivityCallbacks);
+                sInstance.mTraceActivityCallbacks = null;
             }
+            this.mIsRegistered = false;
+            sInstance = null;
         }
     }
 
-    public void setOnFragmentListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
+    public static boolean checkAPSActivity(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            return activity.getClass().getName().startsWith("com.baidu.megapp.proxy.activity");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setOnFragmentListener(OnFragmentTraceListener onFragmentTraceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onFragmentTraceListener) == null) {
             this.mOnFragmentListener = onFragmentTraceListener;
         }
     }
 
-    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @Nullable String str2, @Nullable String str3, @Nullable String str4, @NonNull String str5) {
+    private TrackUI createTraceInfo(Activity activity, String str, Object obj, String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, activity, str, obj, str2)) == null) {
+            return createTraceInfo(activity, str, obj, null, null, "native", str2);
+        }
+        return (TrackUI) invokeLLLL.objValue;
+    }
+
+    private TrackUI createTraceInfo(Activity activity, String str, Object obj, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         StringBuilder sb;
         String str6;
@@ -182,6 +119,7 @@ public class TraceManager {
         Intent intent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{activity, str, obj, str2, str3, str4, str5})) == null) {
+            String str7 = null;
             if (activity == null || TextUtils.isEmpty(str5)) {
                 return null;
             }
@@ -222,9 +160,81 @@ public class TraceManager {
                 sb = null;
                 str6 = null;
             }
-            return new TrackUI(name, sb2.toString(), str6, sb != null ? sb.toString() : null, str2, str3, str4, currentTimeMillis, str5);
+            String sb4 = sb2.toString();
+            if (sb != null) {
+                str7 = sb.toString();
+            }
+            return new TrackUI(name, sb4, str6, str7, str2, str3, str4, currentTimeMillis, str5);
         }
         return (TrackUI) invokeCommon.objValue;
+    }
+
+    public String getActivityToken(Activity activity) {
+        InterceptResult invokeL;
+        WindowManager.LayoutParams attributes;
+        IBinder iBinder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            if (activity == null) {
+                return null;
+            }
+            if (Build.VERSION.SDK_INT <= 26) {
+                try {
+                    Object invoke = Activity.class.getDeclaredMethod("getActivityToken", new Class[0]).invoke(activity, new Object[0]);
+                    if (invoke != null) {
+                        return invoke.toString();
+                    }
+                } catch (Throwable th) {
+                    if (AppConfig.isDebug()) {
+                        th.printStackTrace();
+                    }
+                }
+            }
+            Window window = activity.getWindow();
+            if (window == null || (attributes = window.getAttributes()) == null || (iBinder = attributes.token) == null) {
+                return null;
+            }
+            return iBinder.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void register(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.mIsRegistered && context != null) {
+            if (BdBoxActivityManager.getMainGlobalActivityLifecycle() == null) {
+                BdBoxActivityManager.setMainGlobalActivityLifecycle(GlobalActivityLifecycle.getInstance());
+            }
+            TraceActivityCallbacks traceActivityCallbacks = new TraceActivityCallbacks();
+            this.mTraceActivityCallbacks = traceActivityCallbacks;
+            BdBoxActivityManager.registerLifeCycle(traceActivityCallbacks);
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (activity.isFinishing()) {
+                    return;
+                }
+                this.mIsRegistered = true;
+                TraceActivityCallbacks traceActivityCallbacks2 = this.mTraceActivityCallbacks;
+                if (traceActivityCallbacks2 != null) {
+                    traceActivityCallbacks2.registerTraceFragment(activity);
+                }
+                saveTraceInfo(activity, null, null, MiPushClient.COMMAND_REGISTER);
+                return;
+            }
+            this.mIsRegistered = true;
+        }
+    }
+
+    public void saveTraceInfo(Activity activity, Object obj, String str, String str2, String str3, String str4) {
+        TrackUI createTraceInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{activity, obj, str, str2, str3, str4}) == null) && this.mIsRegistered && (createTraceInfo = createTraceInfo(activity, null, obj, str, str2, str3, str4)) != null) {
+            Track.getInstance().addTrackUI(createTraceInfo);
+            Iterator it = Track.getInstance().getTrackUIListeners().iterator();
+            while (it.hasNext()) {
+                ((Track.OnTrackUIListener) it.next()).onAddTrackUI(createTraceInfo);
+            }
+        }
     }
 
     public void saveTraceInfo(Activity activity, String str, Object obj, String str2) {
@@ -232,23 +242,30 @@ public class TraceManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(1048581, this, activity, str, obj, str2) == null) && this.mIsRegistered && (createTraceInfo = createTraceInfo(activity, str, obj, str2)) != null) {
             Track.getInstance().addTrackUI(createTraceInfo);
-            Iterator<Track.OnTrackUIListener> it = Track.getInstance().getTrackUIListeners().iterator();
+            Iterator it = Track.getInstance().getTrackUIListeners().iterator();
             while (it.hasNext()) {
-                it.next().onAddTrackUI(createTraceInfo);
+                ((Track.OnTrackUIListener) it.next()).onAddTrackUI(createTraceInfo);
             }
         }
     }
 
-    public void saveTraceInfo(@NonNull Activity activity, boolean z) {
+    public void saveTraceInfo(Activity activity, boolean z) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048582, this, activity, z) == null) && this.mIsRegistered) {
-            TrackUI createTraceInfo = createTraceInfo(activity, null, null, z ? TO_FOREGROUND : TO_BACKGROUND);
-            if (createTraceInfo != null) {
-                Track.getInstance().addTrackUI(createTraceInfo);
-                Iterator<Track.OnTrackUIListener> it = Track.getInstance().getTrackUIListeners().iterator();
-                while (it.hasNext()) {
-                    it.next().onAddTrackUI(createTraceInfo);
-                }
+        if ((interceptable != null && interceptable.invokeLZ(1048582, this, activity, z) != null) || !this.mIsRegistered) {
+            return;
+        }
+        if (z) {
+            str = TO_FOREGROUND;
+        } else {
+            str = TO_BACKGROUND;
+        }
+        TrackUI createTraceInfo = createTraceInfo(activity, null, null, str);
+        if (createTraceInfo != null) {
+            Track.getInstance().addTrackUI(createTraceInfo);
+            Iterator it = Track.getInstance().getTrackUIListeners().iterator();
+            while (it.hasNext()) {
+                ((Track.OnTrackUIListener) it.next()).onAddTrackUI(createTraceInfo);
             }
         }
     }

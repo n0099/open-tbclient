@@ -54,7 +54,10 @@ public class RequestGetAddressListMessage extends TbSocketMessage {
     public int getTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTimestamp : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTimestamp;
+        }
+        return invokeV.intValue;
     }
 
     @Deprecated

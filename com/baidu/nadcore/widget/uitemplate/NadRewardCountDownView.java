@@ -9,14 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a81;
-import com.baidu.tieba.mp0;
-import com.baidu.tieba.n21;
-import com.baidu.tieba.r21;
+import com.baidu.tieba.b81;
+import com.baidu.tieba.np0;
+import com.baidu.tieba.o21;
+import com.baidu.tieba.s21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,7 +27,7 @@ public class NadRewardCountDownView extends RelativeLayout {
     public TextView a;
     public TextView b;
     public TextView c;
-    public r21 d;
+    public s21 d;
     public int e;
     public int f;
     public int g;
@@ -37,7 +36,24 @@ public class NadRewardCountDownView extends RelativeLayout {
     public String j;
     public int k;
     public g l;
-    public a81 m;
+    public b81 m;
+
+    /* loaded from: classes2.dex */
+    public interface g {
+        void a();
+
+        void b();
+
+        void c();
+
+        void d();
+
+        void e();
+
+        void f();
+
+        void g();
+    }
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -66,22 +82,19 @@ public class NadRewardCountDownView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.k == 1) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.k == 1) {
                 return;
             }
-            if (this.a.k != 2) {
-                if (this.a.k != 3 || this.a.l == null) {
-                    return;
+            if (this.a.k == 2) {
+                this.a.r();
+                if (this.a.m != null) {
+                    o21.b(this.a.m);
+                    if (this.a.l != null) {
+                        this.a.l.d();
+                    }
                 }
+            } else if (this.a.k == 3 && this.a.l != null) {
                 this.a.l.f();
-                return;
-            }
-            this.a.r();
-            if (this.a.m != null) {
-                n21.b(this.a.m);
-                if (this.a.l != null) {
-                    this.a.l.d();
-                }
             }
         }
     }
@@ -120,7 +133,7 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c extends r21.c {
+    public class c extends s21.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadRewardCountDownView a;
@@ -143,7 +156,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             this.a = nadRewardCountDownView;
         }
 
-        @Override // com.baidu.tieba.r21.c
+        @Override // com.baidu.tieba.s21.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -161,7 +174,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.r21.c
+        @Override // com.baidu.tieba.s21.c
         public void f(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -180,7 +193,7 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class d implements a81.b {
+    public class d implements b81.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadRewardCountDownView a;
@@ -203,7 +216,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             this.a = nadRewardCountDownView;
         }
 
-        @Override // com.baidu.tieba.a81.b
+        @Override // com.baidu.tieba.b81.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -243,15 +256,14 @@ public class NadRewardCountDownView extends RelativeLayout {
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.a.l == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.l != null) {
+                this.a.l.g();
             }
-            this.a.l.g();
         }
     }
 
     /* loaded from: classes2.dex */
-    public class f extends r21.c {
+    public class f extends s21.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadRewardCountDownView a;
@@ -274,7 +286,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             this.a = nadRewardCountDownView;
         }
 
-        @Override // com.baidu.tieba.r21.c
+        @Override // com.baidu.tieba.s21.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -284,12 +296,12 @@ public class NadRewardCountDownView extends RelativeLayout {
                     this.a.k = 4;
                 }
                 this.a.c.setText(this.a.j);
-                this.a.c.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df9));
+                this.a.c.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e0a));
                 this.a.requestLayout();
             }
         }
 
-        @Override // com.baidu.tieba.r21.c
+        @Override // com.baidu.tieba.s21.c
         public void f(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -299,23 +311,6 @@ public class NadRewardCountDownView extends RelativeLayout {
                 this.a.invalidate();
             }
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface g {
-        void a();
-
-        void b();
-
-        void c();
-
-        void d();
-
-        void e();
-
-        void f();
-
-        void g();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -339,132 +334,8 @@ public class NadRewardCountDownView extends RelativeLayout {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchWindowVisibilityChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.dispatchWindowVisibilityChanged(i);
-            boolean z = i == 0;
-            if (z) {
-                t();
-            }
-            if (z) {
-                return;
-            }
-            r();
-        }
-    }
-
-    public final void q(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060e, (ViewGroup) this, true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091616);
-            this.b = textView;
-            textView.setText("跳过");
-            this.b.setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d8);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091617);
-            this.a.setClickable(true);
-            this.b.setOnClickListener(new a(this));
-            this.c.setOnClickListener(new b(this));
-            setVisibility(8);
-        }
-    }
-
-    public void r() {
-        r21 r21Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (r21Var = this.d) == null) {
-            return;
-        }
-        r21Var.d();
-        g gVar = this.l;
-        if (gVar != null) {
-            gVar.b();
-        }
-    }
-
-    public void s() {
-        r21 r21Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (r21Var = this.d) == null) {
-            return;
-        }
-        r21Var.b();
-        this.d = null;
-    }
-
-    public void setRewardDownInnerListener(g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
-            this.l = gVar;
-        }
-    }
-
-    public void t() {
-        r21 r21Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (r21Var = this.d) == null) {
-            return;
-        }
-        r21Var.e();
-        g gVar = this.l;
-        if (gVar != null) {
-            gVar.a();
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s();
-            this.b.setVisibility(8);
-            this.a.setVisibility(8);
-            this.c.setVisibility(0);
-            r21 r21Var = new r21(3000L, 1000L);
-            this.d = r21Var;
-            r21Var.f(new f(this));
-            this.d.g();
-        }
-    }
-
-    public void update(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) || adBaseModel == null || adBaseModel.j == null) {
-            return;
-        }
-        setTag(adBaseModel);
-        mp0 mp0Var = adBaseModel.p;
-        float f2 = 1.0f;
-        if (mp0Var != null) {
-            this.g = mp0Var.e;
-            String str = mp0Var.i;
-            if (!TextUtils.isEmpty(str) && str.length() <= 4) {
-                this.h = str;
-                this.i = "%2ss后可以领取" + this.h;
-            }
-            float f3 = adBaseModel.p.g;
-            if (f3 > 0.0f && f3 <= 1.0f) {
-                f2 = f3;
-            }
-        }
-        int floor = (int) Math.floor(adBaseModel.j.b * f2);
-        this.e = floor;
-        this.f = floor;
-        r21 r21Var = new r21(floor * 1000, 1000L);
-        this.d = r21Var;
-        r21Var.f(new c(this));
-        a81 a81Var = new a81(getContext(), adBaseModel, new d(this));
-        this.m = a81Var;
-        a81Var.setOnDismissListener(new e(this));
-        this.a.setVisibility(0);
-        setVisibility(0);
-        this.d.g();
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadRewardCountDownView(Context context, @Nullable AttributeSet attributeSet) {
+    public NadRewardCountDownView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -485,7 +356,7 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadRewardCountDownView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public NadRewardCountDownView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -509,5 +380,129 @@ public class NadRewardCountDownView extends RelativeLayout {
         this.j = "%2ss";
         this.k = 1;
         q(context);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchWindowVisibilityChanged(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.dispatchWindowVisibilityChanged(i);
+            if (i == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                t();
+            }
+            if (!z) {
+                r();
+            }
+        }
+    }
+
+    public void setRewardDownInnerListener(g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
+            this.l = gVar;
+        }
+    }
+
+    public final void q(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060e, (ViewGroup) this, true);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091608);
+            this.b = textView;
+            textView.setText("跳过");
+            this.b.setVisibility(8);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0915ca);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091609);
+            this.a.setClickable(true);
+            this.b.setOnClickListener(new a(this));
+            this.c.setOnClickListener(new b(this));
+            setVisibility(8);
+        }
+    }
+
+    public void r() {
+        s21 s21Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (s21Var = this.d) != null) {
+            s21Var.d();
+            g gVar = this.l;
+            if (gVar != null) {
+                gVar.b();
+            }
+        }
+    }
+
+    public void s() {
+        s21 s21Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (s21Var = this.d) != null) {
+            s21Var.b();
+            this.d = null;
+        }
+    }
+
+    public void t() {
+        s21 s21Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (s21Var = this.d) != null) {
+            s21Var.e();
+            g gVar = this.l;
+            if (gVar != null) {
+                gVar.a();
+            }
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            s();
+            this.b.setVisibility(8);
+            this.a.setVisibility(8);
+            this.c.setVisibility(0);
+            s21 s21Var = new s21(3000L, 1000L);
+            this.d = s21Var;
+            s21Var.f(new f(this));
+            this.d.g();
+        }
+    }
+
+    public void update(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) && adBaseModel != null && adBaseModel.j != null) {
+            setTag(adBaseModel);
+            np0 np0Var = adBaseModel.p;
+            float f2 = 1.0f;
+            if (np0Var != null) {
+                this.g = np0Var.e;
+                String str = np0Var.i;
+                if (!TextUtils.isEmpty(str) && str.length() <= 4) {
+                    this.h = str;
+                    this.i = "%2ss后可以领取" + this.h;
+                }
+                float f3 = adBaseModel.p.g;
+                if (f3 > 0.0f && f3 <= 1.0f) {
+                    f2 = f3;
+                }
+            }
+            int floor = (int) Math.floor(adBaseModel.j.b * f2);
+            this.e = floor;
+            this.f = floor;
+            s21 s21Var = new s21(floor * 1000, 1000L);
+            this.d = s21Var;
+            s21Var.f(new c(this));
+            b81 b81Var = new b81(getContext(), adBaseModel, new d(this));
+            this.m = b81Var;
+            b81Var.setOnDismissListener(new e(this));
+            this.a.setVisibility(0);
+            setVisibility(0);
+            this.d.g();
+        }
     }
 }

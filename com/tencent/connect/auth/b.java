@@ -17,11 +17,11 @@ public class b {
     public static final /* synthetic */ boolean d;
     public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, a> b;
+    public HashMap b;
     public final String c;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IUiListener a;
@@ -73,7 +73,7 @@ public class b {
                 return;
             }
         }
-        this.b = new HashMap<>();
+        this.b = new HashMap();
         this.c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }
 
@@ -100,6 +100,22 @@ public class b {
         return invokeV.intValue;
     }
 
+    public String a(a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            int b = b();
+            try {
+                HashMap hashMap = this.b;
+                hashMap.put("" + b, aVar);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            return "" + b;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,21 +130,5 @@ public class b {
             return stringBuffer.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public String a(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            int b = b();
-            try {
-                HashMap<String, a> hashMap = this.b;
-                hashMap.put("" + b, aVar);
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            return "" + b;
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -350,7 +350,13 @@ public final class User extends Message {
     public final CreationData workcreationData;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<User> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ActivitySponsor activitySponsor;
@@ -384,17 +390,17 @@ public final class User extends Message {
         public Integer fansNum;
         public Integer favoriteNum;
         public String followFrom;
-        public List<ForumToolPerm> forumToolAuth;
+        public List forumToolAuth;
         public Long friendNum;
         public Integer gender;
-        public List<GiftInfo> giftList;
+        public List giftList;
         public Integer giftNum;
         public GodInfo godData;
-        public List<MyGroupInfo> groupList;
+        public List groupList;
         public Integer hasBottleEnter;
         public Integer hasConcerned;
         public Integer heavyUser;
-        public List<Icon> iconinfo;
+        public List iconinfo;
         public Long id;
         public Integer influence;
         public String intro;
@@ -422,17 +428,17 @@ public final class User extends Message {
         public Integer levelId;
         public String levelInfluence;
         public String levelName;
-        public List<LikeForumInfo> likeForum;
+        public List likeForum;
         public LiveRoomInfo liveRoomInfo;
-        public List<BazhuSign> managerForum;
+        public List managerForum;
         public Integer meizhiLevel;
         public String modifyAvatarDesc;
-        public List<SimpleUser> muteUser;
+        public List muteUser;
         public Integer myLikeNum;
         public String name;
         public String nameShow;
         public NewGodInfo newGodData;
-        public List<TshowInfo> newTshowIcon;
+        public List newTshowIcon;
         public NewUser newUserInfo;
         public Integer nicknameUpdateTime;
         public Integer noPostHigh;
@@ -447,7 +453,7 @@ public final class User extends Message {
         public Integer postNum;
         public PrivSets privSets;
         public Integer privThread;
-        public List<TwAnchorProfitItem> profitList;
+        public List profitList;
         public String rank;
         public String sealPrefix;
         public Integer sex;
@@ -460,11 +466,11 @@ public final class User extends Message {
         public String tiebaUid;
         public Integer totalAgreeNum;
         public Integer totalVisitorNum;
-        public List<TshowInfo> tshowIcon;
+        public List tshowIcon;
         public TwZhiBoUser twAnchorInfo;
         public Integer type;
         public String uk;
-        public List<UserPics> userPics;
+        public List userPics;
         public Integer userType;
         public Integer userhide;
         public UserVideoChannelInfo videoChannelInfo;
@@ -640,14 +646,11 @@ public final class User extends Message {
         public User build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new User(this, z, null) : (User) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new User(this, z, null);
+            }
+            return (User) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -729,10 +732,6 @@ public final class User extends Message {
         DEFAULT_TOTALAGREENUM = 0;
         DEFAULT_MANAGERFORUM = Collections.emptyList();
         DEFAULT_DISPLAYAUTHTYPE = 0;
-    }
-
-    public /* synthetic */ User(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -840,13 +839,13 @@ public final class User extends Message {
             } else {
                 this.isInterestman = num8;
             }
-            List<Icon> list = builder.iconinfo;
+            List list = builder.iconinfo;
             if (list == null) {
                 this.iconinfo = DEFAULT_ICONINFO;
             } else {
                 this.iconinfo = Message.immutableCopyOf(list);
             }
-            List<TshowInfo> list2 = builder.tshowIcon;
+            List list2 = builder.tshowIcon;
             if (list2 == null) {
                 this.tshowIcon = DEFAULT_TSHOWICON;
             } else {
@@ -991,7 +990,7 @@ public final class User extends Message {
             } else {
                 this.isMask = num24;
             }
-            List<UserPics> list3 = builder.userPics;
+            List list3 = builder.userPics;
             if (list3 == null) {
                 this.userPics = DEFAULT_USERPICS;
             } else {
@@ -1004,13 +1003,13 @@ public final class User extends Message {
             } else {
                 this.isFriend = num25;
             }
-            List<LikeForumInfo> list4 = builder.likeForum;
+            List list4 = builder.likeForum;
             if (list4 == null) {
                 this.likeForum = DEFAULT_LIKEFORUM;
             } else {
                 this.likeForum = Message.immutableCopyOf(list4);
             }
-            List<MyGroupInfo> list5 = builder.groupList;
+            List list5 = builder.groupList;
             if (list5 == null) {
                 this.groupList = DEFAULT_GROUPLIST;
             } else {
@@ -1022,7 +1021,7 @@ public final class User extends Message {
             } else {
                 this.giftNum = num26;
             }
-            List<GiftInfo> list6 = builder.giftList;
+            List list6 = builder.giftList;
             if (list6 == null) {
                 this.giftList = DEFAULT_GIFTLIST;
             } else {
@@ -1052,7 +1051,7 @@ public final class User extends Message {
             } else {
                 this.bookmarkNewCount = num30;
             }
-            List<SimpleUser> list7 = builder.muteUser;
+            List list7 = builder.muteUser;
             if (list7 == null) {
                 this.muteUser = DEFAULT_MUTEUSER;
             } else {
@@ -1087,14 +1086,14 @@ public final class User extends Message {
                 this.heavyUser = num31;
             }
             this.vipShowInfo = builder.vipShowInfo;
-            List<TshowInfo> list8 = builder.newTshowIcon;
+            List list8 = builder.newTshowIcon;
             if (list8 == null) {
                 this.newTshowIcon = DEFAULT_NEWTSHOWICON;
             } else {
                 this.newTshowIcon = Message.immutableCopyOf(list8);
             }
             this.twAnchorInfo = builder.twAnchorInfo;
-            List<TwAnchorProfitItem> list9 = builder.profitList;
+            List list9 = builder.profitList;
             if (list9 == null) {
                 this.profitList = DEFAULT_PROFITLIST;
             } else {
@@ -1259,7 +1258,7 @@ public final class User extends Message {
             } else {
                 this.appealThreadPopover = str19;
             }
-            List<ForumToolPerm> list10 = builder.forumToolAuth;
+            List list10 = builder.forumToolAuth;
             if (list10 == null) {
                 this.forumToolAuth = DEFAULT_FORUMTOOLAUTH;
             } else {
@@ -1296,7 +1295,7 @@ public final class User extends Message {
             } else {
                 this.followFrom = str21;
             }
-            List<BazhuSign> list11 = builder.managerForum;
+            List list11 = builder.managerForum;
             if (list11 == null) {
                 this.managerForum = DEFAULT_MANAGERFORUM;
             } else {
@@ -1440,5 +1439,9 @@ public final class User extends Message {
         this.workCreatorInfo = builder.workCreatorInfo;
         this.levelName = builder.levelName;
         this.editConfig = builder.editConfig;
+    }
+
+    public /* synthetic */ User(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes8.dex */
 public class g {
     public Object a = new Object();
-    public Queue<b> b = new ConcurrentLinkedQueue();
+    public Queue b = new ConcurrentLinkedQueue();
     public a c;
     public Handler d;
 
@@ -47,12 +47,12 @@ public class g {
         this.c = new a(str);
     }
 
-    public void b() {
-        this.c.quit();
-    }
-
     public void a() {
         this.c.start();
+    }
+
+    public void b() {
+        this.c.quit();
     }
 
     public void a(Runnable runnable) {

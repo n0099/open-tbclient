@@ -54,6 +54,43 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         DEFAULT = new Excluder();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public Excluder m77clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (Excluder) super.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return (Excluder) invokeV.objValue;
+    }
+
+    public Excluder disableInnerClassSerialization() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Excluder m77clone = m77clone();
+            m77clone.serializeInnerClasses = false;
+            return m77clone;
+        }
+        return (Excluder) invokeV.objValue;
+    }
+
+    public Excluder excludeFieldsWithoutExposeAnnotation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Excluder m77clone = m77clone();
+            m77clone.requireExpose = true;
+            return m77clone;
+        }
+        return (Excluder) invokeV.objValue;
+    }
+
     public Excluder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,19 +115,28 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, cls)) == null) {
-            if (this.version == -1.0d || isValidVersion((Since) cls.getAnnotation(Since.class), (Until) cls.getAnnotation(Until.class))) {
-                return (!this.serializeInnerClasses && isInnerClass(cls)) || isAnonymousOrLocal(cls);
+            if (this.version != -1.0d && !isValidVersion((Since) cls.getAnnotation(Since.class), (Until) cls.getAnnotation(Until.class))) {
+                return true;
             }
-            return true;
+            if ((!this.serializeInnerClasses && isInnerClass(cls)) || isAnonymousOrLocal(cls)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
     private boolean excludeClassInStrategy(Class<?> cls, boolean z) {
         InterceptResult invokeLZ;
+        List<ExclusionStrategy> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, cls, z)) == null) {
-            for (ExclusionStrategy exclusionStrategy : z ? this.serializationStrategies : this.deserializationStrategies) {
+            if (z) {
+                list = this.serializationStrategies;
+            } else {
+                list = this.deserializationStrategies;
+            }
+            for (ExclusionStrategy exclusionStrategy : list) {
                 if (exclusionStrategy.shouldSkipClass(cls)) {
                     return true;
                 }
@@ -100,223 +146,100 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return invokeLZ.booleanValue;
     }
 
-    private boolean isAnonymousOrLocal(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cls)) == null) ? !Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass()) : invokeL.booleanValue;
-    }
-
-    private boolean isInnerClass(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, cls)) == null) ? cls.isMemberClass() && !isStatic(cls) : invokeL.booleanValue;
-    }
-
-    private boolean isStatic(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, cls)) == null) ? (cls.getModifiers() & 8) != 0 : invokeL.booleanValue;
-    }
-
-    private boolean isValidSince(Since since) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, this, since)) == null) ? since == null || since.value() <= this.version : invokeL.booleanValue;
-    }
-
-    private boolean isValidUntil(Until until) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, this, until)) == null) ? until == null || until.value() > this.version : invokeL.booleanValue;
-    }
-
     private boolean isValidVersion(Since since, Until until) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, since, until)) == null) ? isValidSince(since) && isValidUntil(until) : invokeLL.booleanValue;
-    }
-
-    @Override // com.google.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gson, typeToken)) == null) {
-            Class<? super T> rawType = typeToken.getRawType();
-            boolean excludeClassChecks = excludeClassChecks(rawType);
-            boolean z = excludeClassChecks || excludeClassInStrategy(rawType, true);
-            boolean z2 = excludeClassChecks || excludeClassInStrategy(rawType, false);
-            if (z || z2) {
-                return new TypeAdapter<T>(this, z2, z, gson, typeToken) { // from class: com.google.gson.internal.Excluder.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public TypeAdapter<T> delegate;
-                    public final /* synthetic */ Excluder this$0;
-                    public final /* synthetic */ Gson val$gson;
-                    public final /* synthetic */ boolean val$skipDeserialize;
-                    public final /* synthetic */ boolean val$skipSerialize;
-                    public final /* synthetic */ TypeToken val$type;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Boolean.valueOf(z2), Boolean.valueOf(z), gson, typeToken};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$skipDeserialize = z2;
-                        this.val$skipSerialize = z;
-                        this.val$gson = gson;
-                        this.val$type = typeToken;
-                    }
-
-                    private TypeAdapter<T> delegate() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(65537, this)) == null) {
-                            TypeAdapter<T> typeAdapter = this.delegate;
-                            if (typeAdapter != 0) {
-                                return typeAdapter;
-                            }
-                            TypeAdapter<T> delegateAdapter = this.val$gson.getDelegateAdapter(this.this$0, this.val$type);
-                            this.delegate = delegateAdapter;
-                            return delegateAdapter;
-                        }
-                        return (TypeAdapter) invokeV.objValue;
-                    }
-
-                    /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
-                    /* JADX WARN: Type inference failed for: r5v1, types: [T, java.lang.Object] */
-                    @Override // com.google.gson.TypeAdapter
-                    public T read(JsonReader jsonReader) throws IOException {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jsonReader)) == null) {
-                            if (this.val$skipDeserialize) {
-                                jsonReader.skipValue();
-                                return null;
-                            }
-                            return delegate().read(jsonReader);
-                        }
-                        return invokeL.objValue;
-                    }
-
-                    @Override // com.google.gson.TypeAdapter
-                    public void write(JsonWriter jsonWriter, T t) throws IOException {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonWriter, t) == null) {
-                            if (this.val$skipSerialize) {
-                                jsonWriter.nullValue();
-                            } else {
-                                delegate().write(jsonWriter, t);
-                            }
-                        }
-                    }
-                };
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, since, until)) == null) {
+            if (isValidSince(since) && isValidUntil(until)) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (TypeAdapter) invokeLL.objValue;
-    }
-
-    public Excluder disableInnerClassSerialization() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Excluder m78clone = m78clone();
-            m78clone.serializeInnerClasses = false;
-            return m78clone;
-        }
-        return (Excluder) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
     public boolean excludeClass(Class<?> cls, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, cls, z)) == null) ? excludeClassChecks(cls) || excludeClassInStrategy(cls, z) : invokeLZ.booleanValue;
-    }
-
-    public boolean excludeField(Field field, boolean z) {
-        InterceptResult invokeLZ;
-        Expose expose;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, field, z)) == null) {
-            if ((this.modifiers & field.getModifiers()) != 0) {
-                return true;
-            }
-            if ((this.version == -1.0d || isValidVersion((Since) field.getAnnotation(Since.class), (Until) field.getAnnotation(Until.class))) && !field.isSynthetic()) {
-                if (!this.requireExpose || ((expose = (Expose) field.getAnnotation(Expose.class)) != null && (!z ? !expose.deserialize() : !expose.serialize()))) {
-                    if ((this.serializeInnerClasses || !isInnerClass(field.getType())) && !isAnonymousOrLocal(field.getType())) {
-                        List<ExclusionStrategy> list = z ? this.serializationStrategies : this.deserializationStrategies;
-                        if (list.isEmpty()) {
-                            return false;
-                        }
-                        FieldAttributes fieldAttributes = new FieldAttributes(field);
-                        for (ExclusionStrategy exclusionStrategy : list) {
-                            if (exclusionStrategy.shouldSkipField(fieldAttributes)) {
-                                return true;
-                            }
-                        }
-                        return false;
-                    }
-                    return true;
-                }
-                return true;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, cls, z)) == null) {
+            if (!excludeClassChecks(cls) && !excludeClassInStrategy(cls, z)) {
+                return false;
             }
             return true;
         }
         return invokeLZ.booleanValue;
     }
 
-    public Excluder excludeFieldsWithoutExposeAnnotation() {
-        InterceptResult invokeV;
+    private boolean isAnonymousOrLocal(Class<?> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Excluder m78clone = m78clone();
-            m78clone.requireExpose = true;
-            return m78clone;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cls)) == null) {
+            if (!Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass())) {
+                return true;
+            }
+            return false;
         }
-        return (Excluder) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    private boolean isInnerClass(Class<?> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{exclusionStrategy, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            Excluder m78clone = m78clone();
-            if (z) {
-                ArrayList arrayList = new ArrayList(this.serializationStrategies);
-                m78clone.serializationStrategies = arrayList;
-                arrayList.add(exclusionStrategy);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, cls)) == null) {
+            if (cls.isMemberClass() && !isStatic(cls)) {
+                return true;
             }
-            if (z2) {
-                ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
-                m78clone.deserializationStrategies = arrayList2;
-                arrayList2.add(exclusionStrategy);
-            }
-            return m78clone;
+            return false;
         }
-        return (Excluder) invokeCommon.objValue;
+        return invokeL.booleanValue;
+    }
+
+    private boolean isStatic(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, cls)) == null) {
+            if ((cls.getModifiers() & 8) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private boolean isValidSince(Since since) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, since)) == null) {
+            if (since != null && since.value() > this.version) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private boolean isValidUntil(Until until) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, until)) == null) {
+            if (until != null && until.value() <= this.version) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public Excluder withModifiers(int... iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
-            Excluder m78clone = m78clone();
-            m78clone.modifiers = 0;
+            Excluder m77clone = m77clone();
+            m77clone.modifiers = 0;
             for (int i : iArr) {
-                m78clone.modifiers = i | m78clone.modifiers;
+                m77clone.modifiers = i | m77clone.modifiers;
             }
-            return m78clone;
+            return m77clone;
         }
         return (Excluder) invokeL.objValue;
     }
@@ -325,25 +248,168 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)})) == null) {
-            Excluder m78clone = m78clone();
-            m78clone.version = d;
-            return m78clone;
+            Excluder m77clone = m77clone();
+            m77clone.version = d;
+            return m77clone;
         }
         return (Excluder) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public Excluder m78clone() {
-        InterceptResult invokeV;
+    @Override // com.google.gson.TypeAdapterFactory
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+        InterceptResult invokeLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (Excluder) super.clone();
-            } catch (CloneNotSupportedException e) {
-                throw new AssertionError(e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gson, typeToken)) == null) {
+            Class<? super T> rawType = typeToken.getRawType();
+            boolean excludeClassChecks = excludeClassChecks(rawType);
+            if (!excludeClassChecks && !excludeClassInStrategy(rawType, true)) {
+                z = false;
+            } else {
+                z = true;
             }
+            if (!excludeClassChecks && !excludeClassInStrategy(rawType, false)) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (!z && !z2) {
+                return null;
+            }
+            return new TypeAdapter<T>(this, z2, z, gson, typeToken) { // from class: com.google.gson.internal.Excluder.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public TypeAdapter<T> delegate;
+                public final /* synthetic */ Excluder this$0;
+                public final /* synthetic */ Gson val$gson;
+                public final /* synthetic */ boolean val$skipDeserialize;
+                public final /* synthetic */ boolean val$skipSerialize;
+                public final /* synthetic */ TypeToken val$type;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Boolean.valueOf(z2), Boolean.valueOf(z), gson, typeToken};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$skipDeserialize = z2;
+                    this.val$skipSerialize = z;
+                    this.val$gson = gson;
+                    this.val$type = typeToken;
+                }
+
+                private TypeAdapter<T> delegate() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(65537, this)) == null) {
+                        TypeAdapter<T> typeAdapter = this.delegate;
+                        if (typeAdapter == 0) {
+                            TypeAdapter<T> delegateAdapter = this.val$gson.getDelegateAdapter(this.this$0, this.val$type);
+                            this.delegate = delegateAdapter;
+                            return delegateAdapter;
+                        }
+                        return typeAdapter;
+                    }
+                    return (TypeAdapter) invokeV.objValue;
+                }
+
+                /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
+                /* JADX WARN: Type inference failed for: r5v1, types: [T, java.lang.Object] */
+                @Override // com.google.gson.TypeAdapter
+                public T read(JsonReader jsonReader) throws IOException {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jsonReader)) == null) {
+                        if (this.val$skipDeserialize) {
+                            jsonReader.skipValue();
+                            return null;
+                        }
+                        return delegate().read(jsonReader);
+                    }
+                    return invokeL.objValue;
+                }
+
+                @Override // com.google.gson.TypeAdapter
+                public void write(JsonWriter jsonWriter, T t) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonWriter, t) == null) {
+                        if (this.val$skipSerialize) {
+                            jsonWriter.nullValue();
+                        } else {
+                            delegate().write(jsonWriter, t);
+                        }
+                    }
+                }
+            };
         }
-        return (Excluder) invokeV.objValue;
+        return (TypeAdapter) invokeLL.objValue;
+    }
+
+    public boolean excludeField(Field field, boolean z) {
+        InterceptResult invokeLZ;
+        List<ExclusionStrategy> list;
+        Expose expose;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, field, z)) == null) {
+            if ((this.modifiers & field.getModifiers()) != 0) {
+                return true;
+            }
+            if ((this.version != -1.0d && !isValidVersion((Since) field.getAnnotation(Since.class), (Until) field.getAnnotation(Until.class))) || field.isSynthetic()) {
+                return true;
+            }
+            if (this.requireExpose && ((expose = (Expose) field.getAnnotation(Expose.class)) == null || (!z ? !expose.deserialize() : !expose.serialize()))) {
+                return true;
+            }
+            if ((!this.serializeInnerClasses && isInnerClass(field.getType())) || isAnonymousOrLocal(field.getType())) {
+                return true;
+            }
+            if (z) {
+                list = this.serializationStrategies;
+            } else {
+                list = this.deserializationStrategies;
+            }
+            if (!list.isEmpty()) {
+                FieldAttributes fieldAttributes = new FieldAttributes(field);
+                for (ExclusionStrategy exclusionStrategy : list) {
+                    if (exclusionStrategy.shouldSkipField(fieldAttributes)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{exclusionStrategy, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            Excluder m77clone = m77clone();
+            if (z) {
+                ArrayList arrayList = new ArrayList(this.serializationStrategies);
+                m77clone.serializationStrategies = arrayList;
+                arrayList.add(exclusionStrategy);
+            }
+            if (z2) {
+                ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
+                m77clone.deserializationStrategies = arrayList2;
+                arrayList2.add(exclusionStrategy);
+            }
+            return m77clone;
+        }
+        return (Excluder) invokeCommon.objValue;
     }
 }

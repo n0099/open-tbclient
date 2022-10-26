@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 /* loaded from: classes.dex */
-public class AsyncImageLoader extends AsyncTask<Uri, Integer, Bitmap> {
+public class AsyncImageLoader extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,12 @@ public class AsyncImageLoader extends AsyncTask<Uri, Integer, Bitmap> {
     public int mMaxNumOfPixels;
 
     /* loaded from: classes.dex */
-    public static class FlushedInputStream extends FilterInputStream {
+    public interface IAsyncImageLoaderListener {
+        void onComplete(Bitmap bitmap);
+    }
+
+    /* loaded from: classes.dex */
+    public class FlushedInputStream extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,11 +82,6 @@ public class AsyncImageLoader extends AsyncTask<Uri, Integer, Bitmap> {
         }
     }
 
-    /* loaded from: classes.dex */
-    public interface IAsyncImageLoaderListener {
-        void onComplete(Bitmap bitmap);
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -121,12 +121,17 @@ public class AsyncImageLoader extends AsyncTask<Uri, Integer, Bitmap> {
 
     public static int computeInitialSampleSize(BitmapFactory.Options options, int i, int i2) {
         InterceptResult invokeLII;
+        int ceil;
         int min;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, options, i, i2)) == null) {
             double d = options.outWidth;
             double d2 = options.outHeight;
-            int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d * d2) / i2));
+            if (i2 == -1) {
+                ceil = 1;
+            } else {
+                ceil = (int) Math.ceil(Math.sqrt((d * d2) / i2));
+            }
             if (i == -1) {
                 min = 128;
             } else {
@@ -139,7 +144,10 @@ public class AsyncImageLoader extends AsyncTask<Uri, Integer, Bitmap> {
             if (i2 == -1 && i == -1) {
                 return 1;
             }
-            return i == -1 ? ceil : min;
+            if (i == -1) {
+                return ceil;
+            }
+            return min;
         }
         return invokeLII.intValue;
     }

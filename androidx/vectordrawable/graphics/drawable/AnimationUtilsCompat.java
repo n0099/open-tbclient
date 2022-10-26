@@ -17,7 +17,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
-import androidx.annotation.RestrictTo;
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
@@ -29,7 +28,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AnimationUtilsCompat {
     public static /* synthetic */ Interceptable $ic;
@@ -59,45 +57,46 @@ public class AnimationUtilsCompat {
         InterceptResult invokeLLLL;
         Interpolator accelerateInterpolator;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65537, null, context, resources, theme, xmlPullParser)) != null) {
-            return (Interpolator) invokeLLLL.objValue;
-        }
-        int depth = xmlPullParser.getDepth();
-        Interpolator interpolator = null;
-        while (true) {
-            int next = xmlPullParser.next();
-            if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
-                if (next == 2) {
-                    AttributeSet asAttributeSet = Xml.asAttributeSet(xmlPullParser);
-                    String name = xmlPullParser.getName();
-                    if (name.equals("linearInterpolator")) {
-                        interpolator = new LinearInterpolator();
-                    } else {
-                        if (name.equals("accelerateInterpolator")) {
-                            accelerateInterpolator = new AccelerateInterpolator(context, asAttributeSet);
-                        } else if (name.equals("decelerateInterpolator")) {
-                            accelerateInterpolator = new DecelerateInterpolator(context, asAttributeSet);
-                        } else if (name.equals("accelerateDecelerateInterpolator")) {
-                            interpolator = new AccelerateDecelerateInterpolator();
-                        } else if (name.equals("cycleInterpolator")) {
-                            accelerateInterpolator = new CycleInterpolator(context, asAttributeSet);
-                        } else if (name.equals("anticipateInterpolator")) {
-                            accelerateInterpolator = new AnticipateInterpolator(context, asAttributeSet);
-                        } else if (name.equals("overshootInterpolator")) {
-                            accelerateInterpolator = new OvershootInterpolator(context, asAttributeSet);
-                        } else if (name.equals("anticipateOvershootInterpolator")) {
-                            accelerateInterpolator = new AnticipateOvershootInterpolator(context, asAttributeSet);
-                        } else if (name.equals("bounceInterpolator")) {
-                            interpolator = new BounceInterpolator();
-                        } else if (name.equals("pathInterpolator")) {
-                            accelerateInterpolator = new PathInterpolatorCompat(context, asAttributeSet, xmlPullParser);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, resources, theme, xmlPullParser)) == null) {
+            int depth = xmlPullParser.getDepth();
+            Interpolator interpolator = null;
+            while (true) {
+                int next = xmlPullParser.next();
+                if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
+                    if (next == 2) {
+                        AttributeSet asAttributeSet = Xml.asAttributeSet(xmlPullParser);
+                        String name = xmlPullParser.getName();
+                        if (name.equals("linearInterpolator")) {
+                            interpolator = new LinearInterpolator();
                         } else {
-                            throw new RuntimeException("Unknown interpolator name: " + xmlPullParser.getName());
+                            if (name.equals("accelerateInterpolator")) {
+                                accelerateInterpolator = new AccelerateInterpolator(context, asAttributeSet);
+                            } else if (name.equals("decelerateInterpolator")) {
+                                accelerateInterpolator = new DecelerateInterpolator(context, asAttributeSet);
+                            } else if (name.equals("accelerateDecelerateInterpolator")) {
+                                interpolator = new AccelerateDecelerateInterpolator();
+                            } else if (name.equals("cycleInterpolator")) {
+                                accelerateInterpolator = new CycleInterpolator(context, asAttributeSet);
+                            } else if (name.equals("anticipateInterpolator")) {
+                                accelerateInterpolator = new AnticipateInterpolator(context, asAttributeSet);
+                            } else if (name.equals("overshootInterpolator")) {
+                                accelerateInterpolator = new OvershootInterpolator(context, asAttributeSet);
+                            } else if (name.equals("anticipateOvershootInterpolator")) {
+                                accelerateInterpolator = new AnticipateOvershootInterpolator(context, asAttributeSet);
+                            } else if (name.equals("bounceInterpolator")) {
+                                interpolator = new BounceInterpolator();
+                            } else if (name.equals("pathInterpolator")) {
+                                accelerateInterpolator = new PathInterpolatorCompat(context, asAttributeSet, xmlPullParser);
+                            } else {
+                                throw new RuntimeException("Unknown interpolator name: " + xmlPullParser.getName());
+                            }
+                            interpolator = accelerateInterpolator;
                         }
-                        interpolator = accelerateInterpolator;
                     }
                 }
             }
+        } else {
+            return (Interpolator) invokeLLLL.objValue;
         }
     }
 

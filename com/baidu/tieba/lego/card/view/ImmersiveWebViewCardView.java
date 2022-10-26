@@ -1,6 +1,5 @@
 package com.baidu.tieba.lego.card.view;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.do8;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.wn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +29,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
+public class ImmersiveWebViewCardView extends BaseCardView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public BaseWebView n;
-    public wn8 o;
+    public do8 o;
     public XiubaTbJsBridge p;
 
     /* loaded from: classes4.dex */
@@ -66,7 +65,10 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.a.G(str2, jsPromptResult) : invokeLLLLL.booleanValue;
+            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) {
+                return this.a.G(str2, jsPromptResult);
+            }
+            return invokeLLLLL.booleanValue;
         }
     }
 
@@ -125,21 +127,41 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             }
         }
         this.i = tbPageContext;
-        wn8 wn8Var = new wn8();
-        this.o = wn8Var;
-        wn8Var.a(new XiubaTbJsBridge(this.i));
+        do8 do8Var = new do8();
+        this.o = do8Var;
+        do8Var.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    /* renamed from: H */
+    public void u(ImmersiveWebViewCard immersiveWebViewCard) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, immersiveWebViewCard) != null) || this.n == null) {
+            return;
+        }
+        if (immersiveWebViewCard.getHeight() > 0) {
+            setWebviewHeight(immersiveWebViewCard.getHeight());
+        } else {
+            setWebviewHeight(fj.i(getContext()));
+        }
+        if (!immersiveWebViewCard.mHasShown) {
+            if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
+                CompatibleUtile.getInstance().loadUrl(this.n, immersiveWebViewCard.getPageUrl());
+            }
+            immersiveWebViewCard.mHasShown = true;
+        }
     }
 
     private void setWebviewHeight(int i) {
         BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65538, this, i) == null) || (baseWebView = this.n) == null || i <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(65538, this, i) == null) && (baseWebView = this.n) != null && i > 0) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) baseWebView.getLayoutParams();
+            layoutParams.height = i;
+            this.n.setLayoutParams(layoutParams);
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) baseWebView.getLayoutParams();
-        layoutParams.height = i;
-        this.n.setLayoutParams(layoutParams);
     }
 
     public View D() {
@@ -160,7 +182,6 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         return (View) invokeV.objValue;
     }
 
-    @SuppressLint({"ClickableViewAccessibility"})
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -206,34 +227,12 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         return invokeLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: H */
-    public void u(ImmersiveWebViewCard immersiveWebViewCard) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, immersiveWebViewCard) == null) || this.n == null) {
-            return;
-        }
-        if (immersiveWebViewCard.getHeight() > 0) {
-            setWebviewHeight(immersiveWebViewCard.getHeight());
-        } else {
-            setWebviewHeight(ej.i(getContext()));
-        }
-        if (immersiveWebViewCard.mHasShown) {
-            return;
-        }
-        if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
-            CompatibleUtile.getInstance().loadUrl(this.n, immersiveWebViewCard.getPageUrl());
-        }
-        immersiveWebViewCard.mHasShown = true;
-    }
-
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public View q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c6, (ViewGroup) null);
+            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c5, (ViewGroup) null);
             E();
             return this.m;
         }

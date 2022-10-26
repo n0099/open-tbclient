@@ -76,6 +76,20 @@ public class FlatPackageWriterImpl implements PackageWriter {
         this.timeScale = 10000000L;
     }
 
+    public Movie correctTimescale(Movie movie) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, movie)) == null) {
+            LinkedList linkedList = new LinkedList();
+            for (Track track : movie.getTracks()) {
+                linkedList.add(new ChangeTimeScaleTrack(track, this.timeScale, this.ismvBuilder.getFragmentIntersectionFinder().sampleNumbers(track)));
+            }
+            movie.setTracks(linkedList);
+            return movie;
+        }
+        return (Movie) invokeL.objValue;
+    }
+
     private Movie removeUnknownTracks(Movie movie) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -88,20 +102,6 @@ public class FlatPackageWriterImpl implements PackageWriter {
                 } else {
                     linkedList.add(track);
                 }
-            }
-            movie.setTracks(linkedList);
-            return movie;
-        }
-        return (Movie) invokeL.objValue;
-    }
-
-    public Movie correctTimescale(Movie movie) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, movie)) == null) {
-            LinkedList linkedList = new LinkedList();
-            for (Track track : movie.getTracks()) {
-                linkedList.add(new ChangeTimeScaleTrack(track, this.timeScale, this.ismvBuilder.getFragmentIntersectionFinder().sampleNumbers(track)));
             }
             movie.setTracks(linkedList);
             return movie;
@@ -152,14 +152,14 @@ public class FlatPackageWriterImpl implements PackageWriter {
         if (interceptable == null || interceptable.invokeL(1048582, this, movie) == null) {
             if (this.intersectionFinder == null) {
                 Track track = null;
-                Iterator<Track> it = movie.getTracks().iterator();
+                Iterator it = movie.getTracks().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    Track next = it.next();
-                    if (next.getHandler().equals("vide")) {
-                        track = next;
+                    Track track2 = (Track) it.next();
+                    if (track2.getHandler().equals("vide")) {
+                        track = track2;
                         break;
                     }
                 }
@@ -190,35 +190,35 @@ public class FlatPackageWriterImpl implements PackageWriter {
                 build3.writeContainer(fileOutputStream3.getChannel());
                 fileOutputStream3.close();
             }
-            for (Track track2 : correctTimescale.getTracks()) {
-                String l = Long.toString(this.manifestWriter.getBitrate(track2));
-                long trackId = track2.getTrackMetaData().getTrackId();
-                Iterator<Box> it2 = build3.getBoxes().iterator();
-                if (track2.getMediaHeaderBox() instanceof SoundMediaHeaderBox) {
+            for (Track track3 : correctTimescale.getTracks()) {
+                String l = Long.toString(this.manifestWriter.getBitrate(track3));
+                long trackId = track3.getTrackMetaData().getTrackId();
+                Iterator it2 = build3.getBoxes().iterator();
+                if (track3.getMediaHeaderBox() instanceof SoundMediaHeaderBox) {
                     file = new File(this.outputDirectory, "audio");
-                } else if (track2.getMediaHeaderBox() instanceof VideoMediaHeaderBox) {
+                } else if (track3.getMediaHeaderBox() instanceof VideoMediaHeaderBox) {
                     file = new File(this.outputDirectory, "video");
                 } else {
                     PrintStream printStream = System.err;
-                    printStream.println("Skipping Track with handler " + track2.getHandler() + " and " + track2.getMediaHeaderBox().getClass().getSimpleName());
+                    printStream.println("Skipping Track with handler " + track3.getHandler() + " and " + track3.getMediaHeaderBox().getClass().getSimpleName());
                 }
                 File file2 = new File(file, l);
                 file2.mkdirs();
                 Logger logger = LOG;
                 logger.finer("Created : " + file2.getCanonicalPath());
-                long[] calculateFragmentDurations = this.manifestWriter.calculateFragmentDurations(track2, correctTimescale);
+                long[] calculateFragmentDurations = this.manifestWriter.calculateFragmentDurations(track3, correctTimescale);
                 long j = 0;
                 char c = 0;
                 int i = 0;
                 while (it2.hasNext()) {
-                    Box next2 = it2.next();
-                    if ((next2 instanceof MovieFragmentBox) && ((MovieFragmentBox) next2).getTrackNumbers()[c] == trackId) {
+                    Box box = (Box) it2.next();
+                    if ((box instanceof MovieFragmentBox) && ((MovieFragmentBox) box).getTrackNumbers()[c] == trackId) {
                         FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file2, Long.toString(j)));
                         int i2 = i + 1;
                         j += calculateFragmentDurations[i];
                         FileChannel channel = fileOutputStream4.getChannel();
-                        next2.getBox(channel);
-                        it2.next().getBox(channel);
+                        box.getBox(channel);
+                        ((Box) it2.next()).getBox(channel);
                         channel.truncate(channel.position());
                         channel.close();
                         i = i2;

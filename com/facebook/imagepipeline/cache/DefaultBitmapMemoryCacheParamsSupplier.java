@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCacheParams> {
+public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_ENTRIES = 256;
     public static final int MAX_CACHE_ENTRY_SIZE = Integer.MAX_VALUE;
@@ -37,6 +37,17 @@ public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCa
             }
         }
         PARAMS_CHECK_INTERVAL_MS = TimeUnit.MINUTES.toMillis(5L);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.common.internal.Supplier
+    public MemoryCacheParams get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new MemoryCacheParams(getMaxCacheSize(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, PARAMS_CHECK_INTERVAL_MS);
+        }
+        return (MemoryCacheParams) invokeV.objValue;
     }
 
     public DefaultBitmapMemoryCacheParamsSupplier(ActivityManager activityManager) {
@@ -74,14 +85,5 @@ public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCa
             return min / 4;
         }
         return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.facebook.common.internal.Supplier
-    public MemoryCacheParams get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MemoryCacheParams(getMaxCacheSize(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, PARAMS_CHECK_INTERVAL_MS) : (MemoryCacheParams) invokeV.objValue;
     }
 }

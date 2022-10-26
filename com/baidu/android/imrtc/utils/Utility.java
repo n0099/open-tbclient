@@ -28,18 +28,27 @@ public class Utility {
     public static String getCuid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? RtcUtility.getCuid(context) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return RtcUtility.getCuid(context);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getRtcAppId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? RtcUtility.getRtcAppId(context) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return RtcUtility.getRtcAppId(context);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getRtcRoomToken(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? RtcUtility.getRtcRoomToken(context) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return RtcUtility.getRtcRoomToken(context);
+        }
+        return (String) invokeL.objValue;
     }
 }

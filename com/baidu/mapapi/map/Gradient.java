@@ -131,11 +131,11 @@ public class Gradient {
         return invokeCommon.intValue;
     }
 
-    private HashMap<Integer, a> a() {
+    private HashMap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            HashMap<Integer, a> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             if (this.c[0] != 0.0f) {
                 hashMap.put(0, new a(this, Color.argb(0, Color.red(this.b[0]), Color.green(this.b[0]), Color.blue(this.b[0])), this.b[0], this.a * this.c[0], null));
             }
@@ -164,13 +164,13 @@ public class Gradient {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)})) == null) {
-            HashMap<Integer, a> a2 = a();
+            HashMap a2 = a();
             int[] iArr = new int[this.a];
-            a aVar = a2.get(0);
+            a aVar = (a) a2.get(0);
             int i = 0;
             for (int i2 = 0; i2 < this.a; i2++) {
                 if (a2.containsKey(Integer.valueOf(i2))) {
-                    aVar = a2.get(Integer.valueOf(i2));
+                    aVar = (a) a2.get(Integer.valueOf(i2));
                     i = i2;
                 }
                 iArr[i2] = a(aVar.b, aVar.c, (i2 - i) / aVar.d);

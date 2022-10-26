@@ -16,8 +16,8 @@ public class v {
     public a d;
 
     /* loaded from: classes7.dex */
-    public interface a<T> {
-        void a(T t, v vVar);
+    public interface a {
+        void a(Object obj, v vVar);
     }
 
     public v() {

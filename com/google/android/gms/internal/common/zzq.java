@@ -14,7 +14,10 @@ public final class zzq {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) {
             obj.getClass();
-            return obj instanceof CharSequence ? (CharSequence) obj : obj.toString();
+            if (obj instanceof CharSequence) {
+                return (CharSequence) obj;
+            }
+            return obj.toString();
         }
         return (CharSequence) invokeLL.objValue;
     }

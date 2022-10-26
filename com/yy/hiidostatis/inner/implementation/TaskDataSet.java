@@ -19,20 +19,20 @@ import java.util.TreeSet;
 /* loaded from: classes8.dex */
 public class TaskDataSet implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Comparator<TaskData> DATA_COMPARATOR;
+    public static final Comparator DATA_COMPARATOR;
     public static final long serialVersionUID = -8880276834197410994L;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<TaskData> dataSet;
+    public Set dataSet;
 
     /* renamed from: com.yy.hiidostatis.inner.implementation.TaskDataSet$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public static final class MyComparator implements Comparator<TaskData>, Serializable {
+    public final class MyComparator implements Comparator, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 605434724079570979L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,10 @@ public class TaskDataSet implements Serializable {
                     return -1;
                 }
                 int time = (int) (taskData.getTime() - taskData2.getTime());
-                return time == 0 ? taskData.hashCode() - taskData2.hashCode() : time;
+                if (time == 0) {
+                    return taskData.hashCode() - taskData2.hashCode();
+                }
+                return time;
             }
             return invokeLL.intValue;
         }
@@ -109,19 +112,6 @@ public class TaskDataSet implements Serializable {
         this.dataSet = new TreeSet(DATA_COMPARATOR);
     }
 
-    public boolean add(TaskData taskData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskData)) == null) ? this.dataSet.add(taskData) : invokeL.booleanValue;
-    }
-
-    public void addAll(Collection<TaskData> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) {
-            this.dataSet.addAll(collection);
-        }
-    }
-
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -145,7 +135,7 @@ public class TaskDataSet implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.dataSet.size() > 0) {
-                return this.dataSet.iterator().next();
+                return (TaskData) this.dataSet.iterator().next();
             }
             return null;
         }
@@ -156,33 +146,9 @@ public class TaskDataSet implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TaskData taskData = null;
+            r1 = null;
             if (this.dataSet.size() > 0) {
-                Iterator<TaskData> it = this.dataSet.iterator();
-                while (it.hasNext()) {
-                    taskData = it.next();
-                }
-            }
-            return taskData;
-        }
-        return (TaskData) invokeV.objValue;
-    }
-
-    public TaskData getRandom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            TaskData taskData = null;
-            if (this.dataSet.size() > 0) {
-                int nextInt = new Random().nextInt(this.dataSet.size());
-                Iterator<TaskData> it = this.dataSet.iterator();
-                while (it.hasNext()) {
-                    taskData = it.next();
-                    int i = nextInt - 1;
-                    if (nextInt <= 0) {
-                        break;
-                    }
-                    nextInt = i;
+                for (TaskData taskData : this.dataSet) {
                 }
             }
             return taskData;
@@ -193,32 +159,19 @@ public class TaskDataSet implements Serializable {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.dataSet.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.dataSet.isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 
-    public Iterator<TaskData> iterator() {
+    public Iterator iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.dataSet.iterator() : (Iterator) invokeV.objValue;
-    }
-
-    public boolean remove(TaskData taskData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, taskData)) == null) {
-            if (this.dataSet.size() > 0) {
-                Iterator<TaskData> it = this.dataSet.iterator();
-                while (it.hasNext()) {
-                    if (it.next().equals(taskData)) {
-                        it.remove();
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.dataSet.iterator();
         }
-        return invokeL.booleanValue;
+        return (Iterator) invokeV.objValue;
     }
 
     public TaskData removeFirst() {
@@ -226,10 +179,10 @@ public class TaskDataSet implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (this.dataSet.size() > 0) {
-                Iterator<TaskData> it = this.dataSet.iterator();
-                TaskData next = it.next();
+                Iterator it = this.dataSet.iterator();
+                TaskData taskData = (TaskData) it.next();
                 it.remove();
-                return next;
+                return taskData;
             }
             return null;
         }
@@ -249,6 +202,31 @@ public class TaskDataSet implements Serializable {
         return (TaskData) invokeV.objValue;
     }
 
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.dataSet.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean add(TaskData taskData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskData)) == null) {
+            return this.dataSet.add(taskData);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void addAll(Collection collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) {
+            this.dataSet.addAll(collection);
+        }
+    }
+
     public boolean save(TaskData taskData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -259,18 +237,51 @@ public class TaskDataSet implements Serializable {
         return invokeL.booleanValue;
     }
 
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.dataSet.size() : invokeV.intValue;
-    }
-
     public boolean update(TaskData taskData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, taskData)) == null) {
             remove(taskData);
             return this.dataSet.add(taskData);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public TaskData getRandom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            r1 = null;
+            if (this.dataSet.size() > 0) {
+                int nextInt = new Random().nextInt(this.dataSet.size());
+                for (TaskData taskData : this.dataSet) {
+                    int i = nextInt - 1;
+                    if (nextInt <= 0) {
+                        break;
+                    }
+                    nextInt = i;
+                }
+            }
+            return taskData;
+        }
+        return (TaskData) invokeV.objValue;
+    }
+
+    public boolean remove(TaskData taskData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, taskData)) == null) {
+            if (this.dataSet.size() <= 0) {
+                return false;
+            }
+            Iterator it = this.dataSet.iterator();
+            while (it.hasNext()) {
+                if (((TaskData) it.next()).equals(taskData)) {
+                    it.remove();
+                    return true;
+                }
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

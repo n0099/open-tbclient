@@ -7,7 +7,6 @@ import kotlin.Metadata;
 import kotlin.collections.ArraysKt___ArraysJvmKt;
 import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.FallbackThreadLocalRandom;
 import kotlin.random.Random;
@@ -20,9 +19,7 @@ public class PlatformImplementations {
     /* loaded from: classes8.dex */
     public static final class ReflectThrowable {
         public static final ReflectThrowable INSTANCE = new ReflectThrowable();
-        @JvmField
         public static final Method addSuppressed;
-        @JvmField
         public static final Method getSuppressed;
 
         /* JADX WARN: Removed duplicated region for block: B:13:0x0046 A[LOOP:0: B:3:0x0015->B:13:0x0046, LOOP_END] */
@@ -38,25 +35,26 @@ public class PlatformImplementations {
             int i2 = 0;
             while (true) {
                 method = null;
-                if (i2 >= length) {
+                if (i2 < length) {
+                    it = throwableMethods[i2];
+                    Intrinsics.checkNotNullExpressionValue(it, "it");
+                    if (Intrinsics.areEqual(it.getName(), "addSuppressed")) {
+                        Class<?>[] parameterTypes = it.getParameterTypes();
+                        Intrinsics.checkNotNullExpressionValue(parameterTypes, "it.parameterTypes");
+                        if (Intrinsics.areEqual((Class) ArraysKt___ArraysKt.singleOrNull(parameterTypes), Throwable.class)) {
+                            z = true;
+                            if (!z) {
+                                break;
+                            }
+                            i2++;
+                        }
+                    }
+                    z = false;
+                    if (!z) {
+                    }
+                } else {
                     it = null;
                     break;
-                }
-                it = throwableMethods[i2];
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                if (Intrinsics.areEqual(it.getName(), "addSuppressed")) {
-                    Class<?>[] parameterTypes = it.getParameterTypes();
-                    Intrinsics.checkNotNullExpressionValue(parameterTypes, "it.parameterTypes");
-                    if (Intrinsics.areEqual((Class) ArraysKt___ArraysKt.singleOrNull(parameterTypes), Throwable.class)) {
-                        z = true;
-                        if (!z) {
-                            break;
-                        }
-                        i2++;
-                    }
-                }
-                z = false;
-                if (!z) {
                 }
             }
             addSuppressed = it;
@@ -77,6 +75,10 @@ public class PlatformImplementations {
         }
     }
 
+    public Random defaultPlatformRandom() {
+        return new FallbackThreadLocalRandom();
+    }
+
     public void addSuppressed(Throwable cause, Throwable exception) {
         Intrinsics.checkNotNullParameter(cause, "cause");
         Intrinsics.checkNotNullParameter(exception, "exception");
@@ -84,10 +86,6 @@ public class PlatformImplementations {
         if (method != null) {
             method.invoke(cause, exception);
         }
-    }
-
-    public Random defaultPlatformRandom() {
-        return new FallbackThreadLocalRandom();
     }
 
     public MatchGroup getMatchResultNamedGroup(MatchResult matchResult, String name) {
@@ -101,12 +99,13 @@ public class PlatformImplementations {
         Intrinsics.checkNotNullParameter(exception, "exception");
         Method method = ReflectThrowable.getSuppressed;
         if (method != null && (invoke = method.invoke(exception, new Object[0])) != null) {
-            if (invoke == null) {
+            if (invoke != null) {
+                List<Throwable> asList = ArraysKt___ArraysJvmKt.asList((Throwable[]) invoke);
+                if (asList != null) {
+                    return asList;
+                }
+            } else {
                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<kotlin.Throwable>");
-            }
-            List<Throwable> asList = ArraysKt___ArraysJvmKt.asList((Throwable[]) invoke);
-            if (asList != null) {
-                return asList;
             }
         }
         return CollectionsKt__CollectionsKt.emptyList();

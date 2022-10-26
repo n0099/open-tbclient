@@ -33,10 +33,10 @@ public final class k implements Runnable {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(8:3|(4:25|26|27|(5:29|(1:31)|32|15|16))|5|6|(1:8)(1:22)|9|10|(2:12|(3:14|15|16)(2:18|19))(1:20)) */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0056, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0057, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0057, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0058, code lost:
         r6 = cn.com.chinatelecom.gateway.lib.c.j.a;
         cn.com.chinatelecom.gateway.lib.CtAuth.warn(r6, "timeoutCheckRunnable exception!", r0);
      */

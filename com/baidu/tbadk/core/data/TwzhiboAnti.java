@@ -41,19 +41,28 @@ public class TwzhiboAnti implements Serializable {
     public int getCanShowPBHeadline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.canShowPBHeadline : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.canShowPBHeadline;
+        }
+        return invokeV.intValue;
     }
 
     public int getCan_add_live_post() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.can_add_live_post : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.can_add_live_post;
+        }
+        return invokeV.intValue;
     }
 
     public int getCan_del_live_post() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.can_del_live_post : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.can_del_live_post;
+        }
+        return invokeV.intValue;
     }
 
     public void parserJson(String str) {
@@ -69,7 +78,7 @@ public class TwzhiboAnti implements Serializable {
 
     public void parserProtobuf(TwZhiBoAnti twZhiBoAnti) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, twZhiBoAnti) == null) || twZhiBoAnti == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, twZhiBoAnti) != null) || twZhiBoAnti == null) {
             return;
         }
         this.can_add_live_post = twZhiBoAnti.can_add_live_post.intValue();
@@ -79,7 +88,7 @@ public class TwzhiboAnti implements Serializable {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {

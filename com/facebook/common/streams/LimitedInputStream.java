@@ -34,31 +34,25 @@ public class LimitedInputStream extends FilterInputStream {
                 return;
             }
         }
-        if (inputStream == null) {
-            throw null;
+        if (inputStream != null) {
+            if (i >= 0) {
+                this.mBytesToRead = i;
+                this.mBytesToReadWhenMarked = -1;
+                return;
+            }
+            throw new IllegalArgumentException("limit must be >= 0");
         }
-        if (i >= 0) {
-            this.mBytesToRead = i;
-            this.mBytesToReadWhenMarked = -1;
-            return;
-        }
-        throw new IllegalArgumentException("limit must be >= 0");
+        throw null;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int available() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.min(((FilterInputStream) this).in.available(), this.mBytesToRead) : invokeV.intValue;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && ((FilterInputStream) this).in.markSupported()) {
-            ((FilterInputStream) this).in.mark(i);
-            this.mBytesToReadWhenMarked = this.mBytesToRead;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Math.min(((FilterInputStream) this).in.available(), this.mBytesToRead);
         }
+        return invokeV.intValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -79,18 +73,11 @@ public class LimitedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void reset() throws IOException {
+    public void mark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (((FilterInputStream) this).in.markSupported()) {
-                if (this.mBytesToReadWhenMarked != -1) {
-                    ((FilterInputStream) this).in.reset();
-                    this.mBytesToRead = this.mBytesToReadWhenMarked;
-                    return;
-                }
-                throw new IOException("mark not set");
-            }
-            throw new IOException("mark is not supported");
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && ((FilterInputStream) this).in.markSupported()) {
+            ((FilterInputStream) this).in.mark(i);
+            this.mBytesToReadWhenMarked = this.mBytesToRead;
         }
     }
 
@@ -122,5 +109,21 @@ public class LimitedInputStream extends FilterInputStream {
             return read;
         }
         return invokeLII.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (((FilterInputStream) this).in.markSupported()) {
+                if (this.mBytesToReadWhenMarked != -1) {
+                    ((FilterInputStream) this).in.reset();
+                    this.mBytesToRead = this.mBytesToReadWhenMarked;
+                    return;
+                }
+                throw new IOException("mark not set");
+            }
+            throw new IOException("mark is not supported");
+        }
     }
 }

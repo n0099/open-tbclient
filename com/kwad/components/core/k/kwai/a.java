@@ -1,7 +1,5 @@
 package com.kwad.components.core.k.kwai;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,20 +14,16 @@ import java.util.List;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final b EI;
-    @NonNull
     public final com.kwad.components.core.k.b HN;
-    @Nullable
-    public List<String> HO;
+    public List HO;
     public boolean HP;
     public boolean HQ;
-    @Nullable
     public d HR;
 
     /* renamed from: com.kwad.components.core.k.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0575a {
+    public final class C0571a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b EI;
@@ -37,7 +31,7 @@ public final class a {
         public boolean HP;
         public boolean HQ;
 
-        public C0575a() {
+        public C0571a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,44 +45,44 @@ public final class a {
             }
         }
 
-        public final C0575a a(@NonNull com.kwad.components.core.k.b bVar) {
+        public final C0571a a(com.kwad.components.core.k.b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
                 this.HN = bVar;
                 return this;
             }
-            return (C0575a) invokeL.objValue;
+            return (C0571a) invokeL.objValue;
         }
 
-        public final C0575a aw(boolean z) {
+        public final C0571a aw(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
                 this.HP = true;
                 return this;
             }
-            return (C0575a) invokeZ.objValue;
+            return (C0571a) invokeZ.objValue;
         }
 
-        public final C0575a ax(boolean z) {
+        public final C0571a ax(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
                 this.HQ = z;
                 return this;
             }
-            return (C0575a) invokeZ.objValue;
+            return (C0571a) invokeZ.objValue;
         }
 
-        public final C0575a c(b bVar) {
+        public final C0571a c(b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
                 this.EI = bVar;
                 return this;
             }
-            return (C0575a) invokeL.objValue;
+            return (C0571a) invokeL.objValue;
         }
 
         public final a oo() {
@@ -104,12 +98,12 @@ public final class a {
         }
     }
 
-    public a(C0575a c0575a) {
+    public a(C0571a c0571a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0575a};
+            Object[] objArr = {c0571a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -119,24 +113,24 @@ public final class a {
                 return;
             }
         }
-        this.EI = c0575a.EI;
-        this.HN = c0575a.HN;
-        this.HP = c0575a.HP;
-        this.HQ = c0575a.HQ;
+        this.EI = c0571a.EI;
+        this.HN = c0571a.HN;
+        this.HP = c0571a.HP;
+        this.HQ = c0571a.HQ;
     }
 
-    public /* synthetic */ a(C0575a c0575a, byte b) {
-        this(c0575a);
+    public /* synthetic */ a(C0571a c0571a, byte b) {
+        this(c0571a);
     }
 
-    public static void a(@NonNull a aVar, int i, String str, boolean z) {
+    public static void a(a aVar, int i, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aVar, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             aVar.HN.a(i, str, z);
         }
     }
 
-    public static void a(@NonNull a aVar, AdResultData adResultData, boolean z) {
+    public static void a(a aVar, AdResultData adResultData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65539, null, aVar, adResultData, z) == null) {
             boolean isAdResultDataEmpty = adResultData.isAdResultDataEmpty();

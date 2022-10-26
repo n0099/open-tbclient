@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +16,7 @@ import com.baidu.browser.sailor.platform.nativeability.BdGeoLocationInfo;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
 import com.baidu.browser.sailor.webkit.loader.IWebkitLoaderListener;
 import com.baidu.browser.sailor.webkit.update.BdZeusUpdate;
-import com.baidu.tieba.ax;
+import com.baidu.tieba.bx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +35,6 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewDatabase;
 import com.baidu.webkit.sdk.WebViewFactory;
-import com.baidu.webkit.sdk.dumper.CrashCallback;
 import com.baidu.webkit.sdk.dumper.ZwDebug;
 import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
@@ -52,7 +50,7 @@ public class BdSailor implements INoProGuard {
     public BdSailorWebView mCurSailorWebView;
     public boolean mIsInit;
     public BdSailorSettings mSettings;
-    public HashMap<String, Object> mStaticWebSettings;
+    public HashMap mStaticWebSettings;
 
     static {
         InterceptResult invokeClinit;
@@ -257,7 +255,7 @@ public class BdSailor implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mCurSailorWebView : (BdSailorWebView) invokeV.objValue;
     }
 
-    public List<String> getCurrentPagePictureList() {
+    public List getCurrentPagePictureList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -289,7 +287,6 @@ public class BdSailor implements INoProGuard {
         return (BdSailorClient) invokeV.objValue;
     }
 
-    @Nullable
     public ISailorCronetListenerInterface getSailorCronetListenerInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -303,7 +300,6 @@ public class BdSailor implements INoProGuard {
         return (ISailorCronetListenerInterface) invokeV.objValue;
     }
 
-    @Nullable
     public ISailorNetProbeInterface getSailorNetProbeInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -333,14 +329,14 @@ public class BdSailor implements INoProGuard {
         return (BdSailorSettings) invokeV.objValue;
     }
 
-    public ax getStatic() {
+    public bx getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             BdSailorPlatform.getInstance();
             return BdSailorPlatform.getStatic();
         }
-        return (ax) invokeV.objValue;
+        return (bx) invokeV.objValue;
     }
 
     public String getZeusVersionName() {
@@ -353,7 +349,7 @@ public class BdSailor implements INoProGuard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            List<String> currentPagePictureList = getCurrentPagePictureList();
+            List currentPagePictureList = getCurrentPagePictureList();
             if (currentPagePictureList != null) {
                 return currentPagePictureList.contains(str);
             }
@@ -410,7 +406,7 @@ public class BdSailor implements INoProGuard {
     public void initWebkit(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048601, this, str, z) == null) {
-            initWebkit(str, z, (Class<? extends CrashCallback>) null);
+            initWebkit(str, z, (Class) null);
         }
     }
 
@@ -432,7 +428,7 @@ public class BdSailor implements INoProGuard {
         }
     }
 
-    public void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
+    public void initWebkit(String str, boolean z, Class cls) {
         StringBuilder sb;
         String zeusInitTiming;
         Interceptable interceptable = $ic;

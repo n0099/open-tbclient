@@ -35,17 +35,46 @@ public class WrapContentHeightViewPager extends ViewPager {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public WrapContentHeightViewPager(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
     public final int a(int i, View view2) {
         InterceptResult invokeIL;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, view2)) == null) {
             int mode = View.MeasureSpec.getMode(i);
             int size = View.MeasureSpec.getSize(i);
-            if (mode == 1073741824) {
-                return size;
+            if (mode != 1073741824) {
+                if (view2 != null) {
+                    i2 = view2.getMeasuredHeight();
+                } else {
+                    i2 = 0;
+                }
+                if (mode == Integer.MIN_VALUE) {
+                    return Math.min(i2, size);
+                }
+                return i2;
             }
-            int measuredHeight = view2 != null ? view2.getMeasuredHeight() : 0;
-            return mode == Integer.MIN_VALUE ? Math.min(measuredHeight, size) : measuredHeight;
+            return size;
         }
         return invokeIL.intValue;
     }
@@ -77,27 +106,6 @@ public class WrapContentHeightViewPager extends ViewPager {
                     view2.measure(i, i2);
                 }
                 setMeasuredDimension(getMeasuredWidth(), a(i2, view2));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WrapContentHeightViewPager(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }

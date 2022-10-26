@@ -43,26 +43,6 @@ public class BasicClientCookie implements SetCookie, ClientCookie {
         return invokeV.objValue;
     }
 
-    @Override // org.apache.http.cookie.ClientCookie
-    public boolean containsAttribute(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // org.apache.http.cookie.ClientCookie
-    public String getAttribute(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeL.objValue;
-    }
-
     @Override // org.apache.http.cookie.Cookie
     public String getComment() {
         InterceptResult invokeV;
@@ -154,16 +134,6 @@ public class BasicClientCookie implements SetCookie, ClientCookie {
     }
 
     @Override // org.apache.http.cookie.Cookie
-    public boolean isExpired(Date date) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, date)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // org.apache.http.cookie.Cookie
     public boolean isPersistent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -183,11 +153,43 @@ public class BasicClientCookie implements SetCookie, ClientCookie {
         return invokeV.booleanValue;
     }
 
-    public void setAttribute(String str, String str2) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             throw new RuntimeException("Stub!");
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.cookie.ClientCookie
+    public boolean containsAttribute(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // org.apache.http.cookie.ClientCookie
+    public String getAttribute(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // org.apache.http.cookie.Cookie
+    public boolean isExpired(Date date) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, date)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // org.apache.http.cookie.SetCookie
@@ -246,12 +248,10 @@ public class BasicClientCookie implements SetCookie, ClientCookie {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void setAttribute(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (String) invokeV.objValue;
     }
 }

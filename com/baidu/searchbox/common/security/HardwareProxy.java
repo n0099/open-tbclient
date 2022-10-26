@@ -54,7 +54,41 @@ public class HardwareProxy {
     public static DeviceIdBag getHardwareAddress(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? getHardwareAddress(context, false) : (DeviceIdBag) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return getHardwareAddress(context, false);
+        }
+        return (DeviceIdBag) invokeL.objValue;
+    }
+
+    public static DeviceIdBag getHardwareAddress(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, context, z)) == null) {
+            DeviceIdBag deviceIdBag = new DeviceIdBag();
+            if (!HostAbilityRuntime.getHostAbility().hasAgreedPrivacyPolicy()) {
+                deviceIdBag.errorCode = -3;
+                return deviceIdBag;
+            }
+            int i = 2;
+            if (TextUtils.isEmpty(mac) && !hasInvoked) {
+                if (!z && !HostAbilityRuntime.getHostAbility().isForeground()) {
+                    i = -1;
+                } else {
+                    String macByNetwork = getMacByNetwork();
+                    mac = macByNetwork;
+                    if (!TextUtils.isEmpty(macByNetwork)) {
+                        i = 0;
+                    }
+                    hasInvoked = true;
+                }
+            } else if (!hasInvoked || !TextUtils.isEmpty(mac)) {
+                i = 1;
+            }
+            deviceIdBag.deviceId = mac;
+            deviceIdBag.errorCode = i;
+            return deviceIdBag;
+        }
+        return (DeviceIdBag) invokeLZ.objValue;
     }
 
     public static String getMacByNetwork() {
@@ -67,8 +101,14 @@ public class HardwareProxy {
                     NetworkInterface nextElement = networkInterfaces.nextElement();
                     if (nextElement.getName().equalsIgnoreCase("wlan0")) {
                         byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(nextElement);
-                        String byte2MacString = hardwareAddress != null ? byte2MacString(hardwareAddress) : null;
-                        return TextUtils.isEmpty(byte2MacString) ? "" : byte2MacString;
+                        String str = null;
+                        if (hardwareAddress != null) {
+                            str = byte2MacString(hardwareAddress);
+                        }
+                        if (TextUtils.isEmpty(str)) {
+                            return "";
+                        }
+                        return str;
                     }
                 }
             } catch (Throwable th) {
@@ -77,33 +117,5 @@ public class HardwareProxy {
             return "";
         }
         return (String) invokeV.objValue;
-    }
-
-    public static DeviceIdBag getHardwareAddress(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, context, z)) == null) {
-            DeviceIdBag deviceIdBag = new DeviceIdBag();
-            if (!HostAbilityRuntime.getHostAbility().hasAgreedPrivacyPolicy()) {
-                deviceIdBag.errorCode = -3;
-                return deviceIdBag;
-            }
-            if (TextUtils.isEmpty(mac) && !hasInvoked) {
-                if (z || HostAbilityRuntime.getHostAbility().isForeground()) {
-                    String macByNetwork = getMacByNetwork();
-                    mac = macByNetwork;
-                    r1 = TextUtils.isEmpty(macByNetwork) ? 2 : 0;
-                    hasInvoked = true;
-                } else {
-                    r1 = -1;
-                }
-            } else if (!hasInvoked || !TextUtils.isEmpty(mac)) {
-                r1 = 1;
-            }
-            deviceIdBag.deviceId = mac;
-            deviceIdBag.errorCode = r1;
-            return deviceIdBag;
-        }
-        return (DeviceIdBag) invokeLZ.objValue;
     }
 }

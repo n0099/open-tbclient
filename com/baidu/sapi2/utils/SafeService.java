@@ -22,13 +22,13 @@ public class SafeService {
 
     /* renamed from: com.baidu.sapi2.utils.SafeService$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class SingletonContainer {
+    public class SingletonContainer {
         public static /* synthetic */ Interceptable $ic;
         public static SafeService mSingleInstance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,30 +64,40 @@ public class SafeService {
         }
     }
 
-    public /* synthetic */ SafeService(AnonymousClass1 anonymousClass1) {
-        this();
+    public SafeService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public static SafeService getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? SingletonContainer.mSingleInstance : (SafeService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return SingletonContainer.mSingleInstance;
+        }
+        return (SafeService) invokeV.objValue;
+    }
+
+    public /* synthetic */ SafeService(AnonymousClass1 anonymousClass1) {
+        this();
     }
 
     public String getDeviceAuthToken(Context context, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, str, str2, i)) == null) ? FH.gt(context, str, str2, i, null) : (String) invokeLLLI.objValue;
-    }
-
-    public String getZidAndCheckSafe(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i)) == null) {
-            String gzfi = FH.gzfi(context, str, i);
-            return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, str, str2, i)) == null) {
+            return FH.gt(context, str, str2, i, null);
         }
-        return (String) invokeLLI.objValue;
+        return (String) invokeLLLI.objValue;
     }
 
     public boolean init(Context context, String str, String str2, int... iArr) {
@@ -105,17 +115,16 @@ public class SafeService {
         return invokeLLLL.booleanValue;
     }
 
-    public SafeService() {
+    public String getZidAndCheckSafe(Context context, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i)) == null) {
+            String gzfi = FH.gzfi(context, str, i);
+            if (TextUtils.isEmpty(gzfi)) {
+                return "NoZidYet";
             }
+            return gzfi;
         }
+        return (String) invokeLLI.objValue;
     }
 }

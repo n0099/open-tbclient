@@ -9,9 +9,6 @@ import android.os.Build;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBarDrawerToggleHoneycomb;
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 import androidx.appcompat.widget.Toolbar;
@@ -48,15 +45,21 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
         boolean isNavigationVisible();
 
-        void setActionBarDescription(@StringRes int i);
+        void setActionBarDescription(int i);
 
-        void setActionBarUpIndicator(Drawable drawable, @StringRes int i);
+        void setActionBarUpIndicator(Drawable drawable, int i);
     }
 
     /* loaded from: classes.dex */
     public interface DelegateProvider {
-        @Nullable
         Delegate getDrawerToggleDelegate();
+    }
+
+    @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+    public void onDrawerStateChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        }
     }
 
     /* loaded from: classes.dex */
@@ -85,6 +88,22 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
+        public void setActionBarDescription(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                if (Build.VERSION.SDK_INT >= 18) {
+                    android.app.ActionBar actionBar = this.mActivity.getActionBar();
+                    if (actionBar != null) {
+                        actionBar.setHomeActionContentDescription(i);
+                        return;
+                    }
+                    return;
+                }
+                this.mSetIndicatorInfo = ActionBarDrawerToggleHoneycomb.setActionBarDescription(this.mSetIndicatorInfo, this.mActivity, i);
+            }
+        }
+
+        @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
         public Context getActionBarThemedContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -96,6 +115,20 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                 return this.mActivity;
             }
             return (Context) invokeV.objValue;
+        }
+
+        @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
+        public boolean isNavigationVisible() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                android.app.ActionBar actionBar = this.mActivity.getActionBar();
+                if (actionBar != null && (actionBar.getDisplayOptions() & 4) != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
@@ -115,47 +148,19 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public boolean isNavigationVisible() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                android.app.ActionBar actionBar = this.mActivity.getActionBar();
-                return (actionBar == null || (actionBar.getDisplayOptions() & 4) == 0) ? false : true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarDescription(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                if (Build.VERSION.SDK_INT >= 18) {
-                    android.app.ActionBar actionBar = this.mActivity.getActionBar();
-                    if (actionBar != null) {
-                        actionBar.setHomeActionContentDescription(i);
-                        return;
-                    }
-                    return;
-                }
-                this.mSetIndicatorInfo = ActionBarDrawerToggleHoneycomb.setActionBarDescription(this.mSetIndicatorInfo, this.mActivity, i);
-            }
-        }
-
-        @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
         public void setActionBarUpIndicator(Drawable drawable, int i) {
             android.app.ActionBar actionBar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048580, this, drawable, i) == null) || (actionBar = this.mActivity.getActionBar()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeLI(1048580, this, drawable, i) == null) && (actionBar = this.mActivity.getActionBar()) != null) {
+                if (Build.VERSION.SDK_INT >= 18) {
+                    actionBar.setHomeAsUpIndicator(drawable);
+                    actionBar.setHomeActionContentDescription(i);
+                    return;
+                }
+                actionBar.setDisplayShowHomeEnabled(true);
+                this.mSetIndicatorInfo = ActionBarDrawerToggleHoneycomb.setActionBarUpIndicator(this.mActivity, drawable, i);
+                actionBar.setDisplayShowHomeEnabled(false);
             }
-            if (Build.VERSION.SDK_INT >= 18) {
-                actionBar.setHomeAsUpIndicator(drawable);
-                actionBar.setHomeActionContentDescription(i);
-                return;
-            }
-            actionBar.setDisplayShowHomeEnabled(true);
-            this.mSetIndicatorInfo = ActionBarDrawerToggleHoneycomb.setActionBarUpIndicator(this.mActivity, drawable, i);
-            actionBar.setDisplayShowHomeEnabled(false);
         }
     }
 
@@ -166,6 +171,16 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         public final CharSequence mDefaultContentDescription;
         public final Drawable mDefaultUpIndicator;
         public final Toolbar mToolbar;
+
+        @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
+        public boolean isNavigationVisible() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         public ToolbarCompatDelegate(Toolbar toolbar) {
             Interceptable interceptable = $ic;
@@ -191,28 +206,24 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         public Context getActionBarThemedContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mToolbar.getContext() : (Context) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mToolbar.getContext();
+            }
+            return (Context) invokeV.objValue;
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
         public Drawable getThemeUpIndicator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDefaultUpIndicator : (Drawable) invokeV.objValue;
-        }
-
-        @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public boolean isNavigationVisible() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mDefaultUpIndicator;
             }
-            return invokeV.booleanValue;
+            return (Drawable) invokeV.objValue;
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarDescription(@StringRes int i) {
+        public void setActionBarDescription(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
                 if (i == 0) {
@@ -224,7 +235,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarUpIndicator(Drawable drawable, @StringRes int i) {
+        public void setActionBarUpIndicator(Drawable drawable, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, drawable, i) == null) {
                 this.mToolbar.setNavigationIcon(drawable);
@@ -233,256 +244,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, @StringRes int i, @StringRes int i2) {
-        this(activity, null, drawerLayout, null, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, drawerLayout, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Activity) objArr2[0], (Toolbar) objArr2[1], (DrawerLayout) objArr2[2], (DrawerArrowDrawable) objArr2[3], ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private void setPosition(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
-            if (f == 1.0f) {
-                this.mSlider.setVerticalMirror(true);
-            } else if (f == 0.0f) {
-                this.mSlider.setVerticalMirror(false);
-            }
-            this.mSlider.setProgress(f);
-        }
-    }
-
-    @NonNull
-    public DrawerArrowDrawable getDrawerArrowDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSlider : (DrawerArrowDrawable) invokeV.objValue;
-    }
-
-    public Drawable getThemeUpIndicator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActivityImpl.getThemeUpIndicator() : (Drawable) invokeV.objValue;
-    }
-
-    public View.OnClickListener getToolbarNavigationClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mToolbarNavigationClickListener : (View.OnClickListener) invokeV.objValue;
-    }
-
-    public boolean isDrawerIndicatorEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDrawerIndicatorEnabled : invokeV.booleanValue;
-    }
-
-    public boolean isDrawerSlideAnimationEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDrawerSlideAnimationEnabled : invokeV.booleanValue;
-    }
-
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, configuration) == null) {
-            if (!this.mHasCustomUpIndicator) {
-                this.mHomeAsUpIndicator = getThemeUpIndicator();
-            }
-            syncState();
-        }
-    }
-
-    @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerClosed(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            setPosition(0.0f);
-            if (this.mDrawerIndicatorEnabled) {
-                setActionBarDescription(this.mOpenDrawerContentDescRes);
-            }
-        }
-    }
-
-    @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerOpened(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            setPosition(1.0f);
-            if (this.mDrawerIndicatorEnabled) {
-                setActionBarDescription(this.mCloseDrawerContentDescRes);
-            }
-        }
-    }
-
-    @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerSlide(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, f) == null) {
-            if (this.mDrawerSlideAnimationEnabled) {
-                setPosition(Math.min(1.0f, Math.max(0.0f, f)));
-            } else {
-                setPosition(0.0f);
-            }
-        }
-    }
-
-    @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerStateChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
-
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, menuItem)) == null) {
-            if (menuItem != null && menuItem.getItemId() == 16908332 && this.mDrawerIndicatorEnabled) {
-                toggle();
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setActionBarDescription(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.mActivityImpl.setActionBarDescription(i);
-        }
-    }
-
-    public void setActionBarUpIndicator(Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, drawable, i) == null) {
-            if (!this.mWarnedForDisplayHomeAsUp && !this.mActivityImpl.isNavigationVisible()) {
-                Log.w(androidx.legacy.app.ActionBarDrawerToggle.TAG, "DrawerToggle may not show up because NavigationIcon is not visible. You may need to call actionbar.setDisplayHomeAsUpEnabled(true);");
-                this.mWarnedForDisplayHomeAsUp = true;
-            }
-            this.mActivityImpl.setActionBarUpIndicator(drawable, i);
-        }
-    }
-
-    public void setDrawerArrowDrawable(@NonNull DrawerArrowDrawable drawerArrowDrawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, drawerArrowDrawable) == null) {
-            this.mSlider = drawerArrowDrawable;
-            syncState();
-        }
-    }
-
-    public void setDrawerIndicatorEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || z == this.mDrawerIndicatorEnabled) {
-            return;
-        }
-        if (z) {
-            setActionBarUpIndicator(this.mSlider, this.mDrawerLayout.isDrawerOpen(GravityCompat.START) ? this.mCloseDrawerContentDescRes : this.mOpenDrawerContentDescRes);
-        } else {
-            setActionBarUpIndicator(this.mHomeAsUpIndicator, 0);
-        }
-        this.mDrawerIndicatorEnabled = z;
-    }
-
-    public void setDrawerSlideAnimationEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.mDrawerSlideAnimationEnabled = z;
-            if (z) {
-                return;
-            }
-            setPosition(0.0f);
-        }
-    }
-
-    public void setHomeAsUpIndicator(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, drawable) == null) {
-            if (drawable == null) {
-                this.mHomeAsUpIndicator = getThemeUpIndicator();
-                this.mHasCustomUpIndicator = false;
-            } else {
-                this.mHomeAsUpIndicator = drawable;
-                this.mHasCustomUpIndicator = true;
-            }
-            if (this.mDrawerIndicatorEnabled) {
-                return;
-            }
-            setActionBarUpIndicator(this.mHomeAsUpIndicator, 0);
-        }
-    }
-
-    public void setToolbarNavigationClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
-            this.mToolbarNavigationClickListener = onClickListener;
-        }
-    }
-
-    public void syncState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (this.mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-                setPosition(1.0f);
-            } else {
-                setPosition(0.0f);
-            }
-            if (this.mDrawerIndicatorEnabled) {
-                setActionBarUpIndicator(this.mSlider, this.mDrawerLayout.isDrawerOpen(GravityCompat.START) ? this.mCloseDrawerContentDescRes : this.mOpenDrawerContentDescRes);
-            }
-        }
-    }
-
-    public void toggle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            int drawerLockMode = this.mDrawerLayout.getDrawerLockMode(GravityCompat.START);
-            if (this.mDrawerLayout.isDrawerVisible(GravityCompat.START) && drawerLockMode != 2) {
-                this.mDrawerLayout.closeDrawer(GravityCompat.START);
-            } else if (drawerLockMode != 1) {
-                this.mDrawerLayout.openDrawer(GravityCompat.START);
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, Toolbar toolbar, @StringRes int i, @StringRes int i2) {
-        this(activity, toolbar, drawerLayout, null, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, drawerLayout, toolbar, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Activity) objArr2[0], (Toolbar) objArr2[1], (DrawerLayout) objArr2[2], (DrawerArrowDrawable) objArr2[3], ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public ActionBarDrawerToggle(Activity activity, Toolbar toolbar, DrawerLayout drawerLayout, DrawerArrowDrawable drawerArrowDrawable, @StringRes int i, @StringRes int i2) {
+    public ActionBarDrawerToggle(Activity activity, Toolbar toolbar, DrawerLayout drawerLayout, DrawerArrowDrawable drawerArrowDrawable, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -557,10 +319,283 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         this.mHomeAsUpIndicator = getThemeUpIndicator();
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, int i, int i2) {
+        this(activity, null, drawerLayout, null, i, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, drawerLayout, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Activity) objArr2[0], (Toolbar) objArr2[1], (DrawerLayout) objArr2[2], (DrawerArrowDrawable) objArr2[3], ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, Toolbar toolbar, int i, int i2) {
+        this(activity, toolbar, drawerLayout, null, i, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, drawerLayout, toolbar, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Activity) objArr2[0], (Toolbar) objArr2[1], (DrawerLayout) objArr2[2], (DrawerArrowDrawable) objArr2[3], ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    private void setPosition(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
+            if (f == 1.0f) {
+                this.mSlider.setVerticalMirror(true);
+            } else if (f == 0.0f) {
+                this.mSlider.setVerticalMirror(false);
+            }
+            this.mSlider.setProgress(f);
+        }
+    }
+
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, configuration) == null) {
+            if (!this.mHasCustomUpIndicator) {
+                this.mHomeAsUpIndicator = getThemeUpIndicator();
+            }
+            syncState();
+        }
+    }
+
+    @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+    public void onDrawerClosed(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            setPosition(0.0f);
+            if (this.mDrawerIndicatorEnabled) {
+                setActionBarDescription(this.mOpenDrawerContentDescRes);
+            }
+        }
+    }
+
+    @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+    public void onDrawerOpened(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            setPosition(1.0f);
+            if (this.mDrawerIndicatorEnabled) {
+                setActionBarDescription(this.mCloseDrawerContentDescRes);
+            }
+        }
+    }
+
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, menuItem)) == null) {
+            if (menuItem != null && menuItem.getItemId() == 16908332 && this.mDrawerIndicatorEnabled) {
+                toggle();
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setActionBarDescription(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mActivityImpl.setActionBarDescription(i);
+        }
+    }
+
+    public void setDrawerArrowDrawable(DrawerArrowDrawable drawerArrowDrawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, drawerArrowDrawable) == null) {
+            this.mSlider = drawerArrowDrawable;
+            syncState();
+        }
+    }
+
+    public void setDrawerSlideAnimationEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.mDrawerSlideAnimationEnabled = z;
+            if (!z) {
+                setPosition(0.0f);
+            }
+        }
+    }
+
     public void setHomeAsUpIndicator(int i) {
+        Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            setHomeAsUpIndicator(i != 0 ? this.mDrawerLayout.getResources().getDrawable(i) : null);
+            if (i != 0) {
+                drawable = this.mDrawerLayout.getResources().getDrawable(i);
+            } else {
+                drawable = null;
+            }
+            setHomeAsUpIndicator(drawable);
+        }
+    }
+
+    public void setToolbarNavigationClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
+            this.mToolbarNavigationClickListener = onClickListener;
+        }
+    }
+
+    public DrawerArrowDrawable getDrawerArrowDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mSlider;
+        }
+        return (DrawerArrowDrawable) invokeV.objValue;
+    }
+
+    public Drawable getThemeUpIndicator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mActivityImpl.getThemeUpIndicator();
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public View.OnClickListener getToolbarNavigationClickListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mToolbarNavigationClickListener;
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public boolean isDrawerIndicatorEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDrawerIndicatorEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isDrawerSlideAnimationEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDrawerSlideAnimationEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void toggle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            int drawerLockMode = this.mDrawerLayout.getDrawerLockMode(GravityCompat.START);
+            if (this.mDrawerLayout.isDrawerVisible(GravityCompat.START) && drawerLockMode != 2) {
+                this.mDrawerLayout.closeDrawer(GravityCompat.START);
+            } else if (drawerLockMode != 1) {
+                this.mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        }
+    }
+
+    @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+    public void onDrawerSlide(View view2, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, f) == null) {
+            if (this.mDrawerSlideAnimationEnabled) {
+                setPosition(Math.min(1.0f, Math.max(0.0f, f)));
+            } else {
+                setPosition(0.0f);
+            }
+        }
+    }
+
+    public void setActionBarUpIndicator(Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, drawable, i) == null) {
+            if (!this.mWarnedForDisplayHomeAsUp && !this.mActivityImpl.isNavigationVisible()) {
+                Log.w(androidx.legacy.app.ActionBarDrawerToggle.TAG, "DrawerToggle may not show up because NavigationIcon is not visible. You may need to call actionbar.setDisplayHomeAsUpEnabled(true);");
+                this.mWarnedForDisplayHomeAsUp = true;
+            }
+            this.mActivityImpl.setActionBarUpIndicator(drawable, i);
+        }
+    }
+
+    public void setDrawerIndicatorEnabled(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && z != this.mDrawerIndicatorEnabled) {
+            if (z) {
+                DrawerArrowDrawable drawerArrowDrawable = this.mSlider;
+                if (this.mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    i = this.mCloseDrawerContentDescRes;
+                } else {
+                    i = this.mOpenDrawerContentDescRes;
+                }
+                setActionBarUpIndicator(drawerArrowDrawable, i);
+            } else {
+                setActionBarUpIndicator(this.mHomeAsUpIndicator, 0);
+            }
+            this.mDrawerIndicatorEnabled = z;
+        }
+    }
+
+    public void setHomeAsUpIndicator(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, drawable) == null) {
+            if (drawable == null) {
+                this.mHomeAsUpIndicator = getThemeUpIndicator();
+                this.mHasCustomUpIndicator = false;
+            } else {
+                this.mHomeAsUpIndicator = drawable;
+                this.mHasCustomUpIndicator = true;
+            }
+            if (!this.mDrawerIndicatorEnabled) {
+                setActionBarUpIndicator(this.mHomeAsUpIndicator, 0);
+            }
+        }
+    }
+
+    public void syncState() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            if (this.mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                setPosition(1.0f);
+            } else {
+                setPosition(0.0f);
+            }
+            if (this.mDrawerIndicatorEnabled) {
+                DrawerArrowDrawable drawerArrowDrawable = this.mSlider;
+                if (this.mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    i = this.mCloseDrawerContentDescRes;
+                } else {
+                    i = this.mOpenDrawerContentDescRes;
+                }
+                setActionBarUpIndicator(drawerArrowDrawable, i);
+            }
         }
     }
 }

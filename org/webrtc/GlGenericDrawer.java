@@ -44,7 +44,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class ShaderType {
+    public final class ShaderType {
         public static final /* synthetic */ ShaderType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ShaderType OES;
@@ -94,13 +94,19 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         public static ShaderType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ShaderType) Enum.valueOf(ShaderType.class, str) : (ShaderType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ShaderType) Enum.valueOf(ShaderType.class, str);
+            }
+            return (ShaderType) invokeL.objValue;
         }
 
         public static ShaderType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ShaderType[]) $VALUES.clone() : (ShaderType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ShaderType[]) $VALUES.clone();
+            }
+            return (ShaderType[]) invokeV.objValue;
         }
     }
 
@@ -119,6 +125,26 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         }
         FULL_RECTANGLE_BUFFER = GlUtil.createFloatBuffer(new float[]{-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f});
         FULL_RECTANGLE_TEXTURE_BUFFER = GlUtil.createFloatBuffer(new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f});
+    }
+
+    public GlGenericDrawer(String str, String str2, ShaderCallbacks shaderCallbacks) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, shaderCallbacks};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.vertexShader = str;
+        this.genericFragmentSource = str2;
+        this.shaderCallbacks = shaderCallbacks;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -144,6 +170,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
 
     public static String createFragmentShaderString(String str, ShaderType shaderType) {
         InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, shaderType)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -166,7 +193,11 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
                 sb.append("}\n");
                 sb.append(str);
             } else {
-                String str2 = shaderType == ShaderType.OES ? "samplerExternalOES" : "sampler2D";
+                if (shaderType == ShaderType.OES) {
+                    str2 = "samplerExternalOES";
+                } else {
+                    str2 = "sampler2D";
+                }
                 sb.append("uniform ");
                 sb.append(str2);
                 sb.append(" tex;\n");
@@ -220,7 +251,10 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public GlShader createShader(ShaderType shaderType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shaderType)) == null) ? new GlShader(this.vertexShader, createFragmentShaderString(this.genericFragmentSource, shaderType)) : (GlShader) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shaderType)) == null) {
+            return new GlShader(this.vertexShader, createFragmentShaderString(this.genericFragmentSource, shaderType));
+        }
+        return (GlShader) invokeL.objValue;
     }
 
     @Override // org.webrtc.RendererCommon.GlDrawer
@@ -271,31 +305,10 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public void release() {
         GlShader glShader;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (glShader = this.currentShader) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (glShader = this.currentShader) != null) {
+            glShader.release();
+            this.currentShader = null;
+            this.currentShaderType = null;
         }
-        glShader.release();
-        this.currentShader = null;
-        this.currentShaderType = null;
-    }
-
-    public GlGenericDrawer(String str, String str2, ShaderCallbacks shaderCallbacks) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, shaderCallbacks};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.vertexShader = str;
-        this.genericFragmentSource = str2;
-        this.shaderCallbacks = shaderCallbacks;
     }
 }

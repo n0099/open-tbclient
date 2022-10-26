@@ -23,13 +23,13 @@ public class ModuleConfigCsj extends ModuleAdConfig {
 
     /* renamed from: com.fun.ad.sdk.channel.ModuleConfigCsj$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TTCustomController mTTCustomCtr;

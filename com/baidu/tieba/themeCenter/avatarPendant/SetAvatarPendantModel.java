@@ -4,19 +4,18 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb;
-import com.baidu.tieba.ps8;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.zm8;
+import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
+public class SetAvatarPendantModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_SET_USE = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,10 +24,35 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public int c;
     public boolean d;
     public b e;
-    public pb f;
+    public qb f;
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public interface b {
+        void k1(boolean z, long j, int i, String str, int i2);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SetAvatarPendantModel a;
@@ -55,42 +79,38 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
             this.a = setAvatarPendantModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof SetPendantHttpResponse;
-            if (z || (responsedMessage instanceof SetPendantSocketResponse)) {
-                if (responsedMessage.getError() == 0) {
-                    this.a.H(true);
-                } else {
-                    this.a.H(false);
+            if (!z && !(responsedMessage instanceof SetPendantSocketResponse)) {
+                return;
+            }
+            if (responsedMessage.getError() == 0) {
+                this.a.H(true);
+            } else {
+                this.a.H(false);
+            }
+            if (z) {
+                SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
+                this.a.F(setPendantHttpResponse.getPendantId());
+                this.a.c = setPendantHttpResponse.getFreeUseLevel();
+            } else if (responsedMessage instanceof SetPendantSocketResponse) {
+                SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
+                this.a.F(setPendantSocketResponse.getPendantId());
+                this.a.c = setPendantSocketResponse.getFreeUseLevel();
+            }
+            if (this.a.e != null) {
+                int i = zs8.b;
+                if (responsedMessage.getError() == zs8.c) {
+                    i = zs8.a;
                 }
-                if (z) {
-                    SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
-                    this.a.F(setPendantHttpResponse.getPendantId());
-                    this.a.c = setPendantHttpResponse.getFreeUseLevel();
-                } else if (responsedMessage instanceof SetPendantSocketResponse) {
-                    SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
-                    this.a.F(setPendantSocketResponse.getPendantId());
-                    this.a.c = setPendantSocketResponse.getFreeUseLevel();
-                }
-                if (this.a.e != null) {
-                    int i = ps8.b;
-                    if (responsedMessage.getError() == ps8.c) {
-                        i = ps8.a;
-                    }
-                    this.a.e.l1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
-                }
+                this.a.e.k1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void l1(boolean z, long j, int i, String str, int i2);
     }
 
     public SetAvatarPendantModel() {
@@ -108,20 +128,9 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        sm8.h(309412, SetPendantSocketResponse.class, false, false);
-        sm8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        zm8.h(309412, SetPendantSocketResponse.class, false, false);
+        zm8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
-    }
-
-    public void E(long j, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            SetPendantRequest setPendantRequest = new SetPendantRequest();
-            setPendantRequest.setPendantId(j);
-            setPendantRequest.setType(i);
-            setPendantRequest.setFreeUseLevel(i2);
-            MessageManager.getInstance().sendMessage(setPendantRequest);
-        }
     }
 
     public void F(long j) {
@@ -145,30 +154,24 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
+    public void E(long j, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            SetPendantRequest setPendantRequest = new SetPendantRequest();
+            setPendantRequest.setPendantId(j);
+            setPendantRequest.setType(i);
+            setPendantRequest.setFreeUseLevel(i2);
+            MessageManager.getInstance().sendMessage(setPendantRequest);
         }
-        return invokeV.booleanValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
     public void onDestroy() {

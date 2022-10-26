@@ -1,138 +1,96 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fe9;
-import com.baidu.tieba.me9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ee9 implements me9.a {
+public class ee9 extends ce9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ee9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, me9> a;
-    public de9 b;
-    public ExecutorService c;
-    public ke9 d;
-    public Handler e;
+    public oe9 h;
+    public int i;
+    public int j;
 
     /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    public class a extends dg9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ ee9 b;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ AudioPlayData c;
+        public final /* synthetic */ xd9 d;
+        public final /* synthetic */ ee9 e;
 
-        public a(ee9 ee9Var, String str) {
+        public a(ee9 ee9Var, String str, int i, AudioPlayData audioPlayData, xd9 xd9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ee9Var, str};
+                Object[] objArr = {ee9Var, str, Integer.valueOf(i), audioPlayData, xd9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ee9Var;
+            this.e = ee9Var;
             this.a = str;
+            this.b = i;
+            this.c = audioPlayData;
+            this.d = xd9Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.dg9, com.baidu.tieba.cg9
+        public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.containsKey(this.a)) {
-                this.b.a.remove(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ee9 a;
-
-        public b(ee9 ee9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ee9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.e.h.cancel();
+                AudioPlayData audioPlayData = this.c;
+                if (audioPlayData.mSpeed != 1.0f || he9.o(audioPlayData.mSoundTypes)) {
+                    this.e.g(str);
+                    this.e.h.cancel();
+                } else {
+                    this.e.h.cancel();
+                    this.e.q(this.d, this.b);
                 }
-            }
-            this.a = ee9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (me9 me9Var : this.a.a.values()) {
-                    if (me9Var != null && me9Var.isRunning()) {
-                        me9Var.pause();
-                    }
+                synchronized (this.e) {
+                    this.e.notifyAll();
                 }
             }
         }
-    }
 
-    /* loaded from: classes3.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ee9 a;
-
-        public c(ee9 ee9Var) {
+        @Override // com.baidu.tieba.dg9
+        public void onFinishedWriting(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ee9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                if (z) {
+                    this.e.q(new xd9(new AudioPlayData(this.a, 0, -1, 1.0f)), this.b);
+                }
+                synchronized (this.e) {
+                    this.e.notifyAll();
                 }
             }
-            this.a = ee9Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.dg9, com.baidu.tieba.cg9
+        public void onProgressChanged(int i, double d, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (me9 me9Var : this.a.a.values()) {
-                    if (me9Var != null && me9Var.isRunning()) {
-                        me9Var.cancel();
-                    }
-                }
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+                ee9 ee9Var = this.e;
+                ee9Var.i((int) (((((ee9Var.j - 1) + d) * 1.0d) / this.e.i) * 100.0d));
             }
         }
     }
@@ -147,160 +105,172 @@ public class ee9 implements me9.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new Handler(Looper.getMainLooper());
-        this.a = new LinkedHashMap();
-        i(new de9());
     }
 
-    public static ee9 h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ce9
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (ee9.class) {
-                    if (f == null) {
-                        f = new ee9();
-                    }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f = true;
+            oe9 oe9Var = this.h;
+            if (oe9Var != null) {
+                oe9Var.cancel();
+            }
+            synchronized (this) {
+                notifyAll();
+            }
+            o();
+        }
+    }
+
+    @Override // com.baidu.tieba.ce9
+    public void d(zd9 zd9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd9Var) == null) {
+            if (zd9Var == null || nh9.e(zd9Var.c())) {
+                g("input data error: null or length=0");
+            } else if (!j(zd9Var)) {
+                l(zd9Var);
+            } else {
+                String a2 = zd9Var.a();
+                this.g = a2;
+                if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.g)) {
+                    new File(this.g).mkdir();
                 }
-            }
-            return f;
-        }
-        return (ee9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.me9.a
-    public void a(String str, me9 me9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, me9Var) == null) {
-            this.e.post(new a(this, str));
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                me9 me9Var = this.a.get(e);
-                if (me9Var != null) {
-                    me9Var.cancel();
+                this.e = false;
+                this.f = false;
+                y(zd9Var);
+                x(zd9Var);
+                List<be9> c = zd9Var.c();
+                int size = c.size();
+                for (int i = 0; i < size; i++) {
+                    r(c.get(i), i);
                 }
-                this.a.remove(e);
+                if (this.e || this.f) {
+                    return;
+                }
+                l(this.d);
             }
         }
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.ce9
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.post(new c(this));
-        }
-    }
-
-    public void delete(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public final String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null) {
-                return String.valueOf(str.hashCode());
+            oe9 oe9Var = this.h;
+            if (oe9Var != null) {
+                oe9Var.J();
             }
-            throw new IllegalArgumentException("Tag can't be null!");
+            synchronized (this) {
+                notifyAll();
+            }
         }
-        return (String) invokeL.objValue;
     }
 
-    public void f(fe9 fe9Var, String str, he9 he9Var) {
+    public final void q(xd9 xd9Var, int i) {
+        zd9 zd9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, fe9Var, str, he9Var) == null) {
-            String e = e(str);
-            if (j(e)) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, xd9Var, i) == null) || (zd9Var = this.d) == null || zd9Var.c() == null || this.d.c().get(i) == null) {
+            return;
+        }
+        this.d.c().get(i).a().add(xd9Var);
+    }
+
+    public final void r(be9 be9Var, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, be9Var, i) == null) || be9Var == null || nh9.e(be9Var.a()) || this.f || this.e) {
+            return;
+        }
+        for (xd9 xd9Var : be9Var.a()) {
+            if (this.e || this.f) {
                 return;
             }
-            se9 se9Var = new se9(fe9Var, new pe9(this.d, he9Var), this.c, e, this.b, this);
-            this.a.put(e, se9Var);
-            se9Var.start();
-        }
-    }
-
-    public void g(String str, String str2, String str3, he9 he9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, he9Var) == null) {
-            fe9.b bVar = new fe9.b();
-            bVar.d(str);
-            bVar.b(new File(str2));
-            bVar.c(str3);
-            f(bVar.a(), str, he9Var);
-        }
-    }
-
-    public final void i(@NonNull de9 de9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, de9Var) == null) {
-            if (de9Var.b() <= de9Var.a()) {
-                this.b = de9Var;
-                this.c = Executors.newFixedThreadPool(de9Var.a());
-                this.d = new qe9(this.e);
-                return;
+            this.j++;
+            if (t(xd9Var)) {
+                v(xd9Var, i);
+            } else {
+                q(xd9Var, i);
+                i((int) (((this.j * 1.0f) / this.i) * 100.0f));
             }
-            throw new IllegalArgumentException("thread num must < max thread num");
         }
     }
 
-    public final boolean j(String str) {
+    public final boolean t(xd9 xd9Var) {
         InterceptResult invokeL;
-        me9 me9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.a.containsKey(str) && (me9Var = this.a.get(str)) != null && me9Var.isRunning()) {
-                wg9.d("DownloadInfo has been started!");
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean k(String str) {
-        InterceptResult invokeL;
-        me9 me9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            String e = e(str);
-            if (!this.a.containsKey(e) || (me9Var = this.a.get(e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, xd9Var)) == null) {
+            if (xd9Var == null || xd9Var.b() == null || !xd9Var.c()) {
                 return false;
             }
-            return me9Var.isRunning();
+            if (!he9.o(xd9Var.b().mSoundTypes) && xd9Var.b().mSpeed == 1.0f && xd9Var.b().start == 0 && xd9Var.b().end == -1 && xd9Var.b().volume == 1.0f) {
+                return (xd9Var.a() == null || "audio/mp4a-latm".equals(xd9Var.a().f())) ? false : true;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void l(String str) {
+    public final void v(xd9 xd9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                me9 me9Var = this.a.get(e);
-                if (me9Var != null && me9Var.isRunning()) {
-                    me9Var.pause();
-                }
-                this.a.remove(e);
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, xd9Var, i) == null) || this.f || this.e) {
+            return;
+        }
+        AudioPlayData b = xd9Var.b();
+        if (b == null || !FileUtils.isExists(b.audioPath)) {
+            g("dealAudioPlayData,trackIndx:inputerror");
+            return;
+        }
+        String str = b.audioPath;
+        String a2 = a(str, System.currentTimeMillis() + "_mediacodec.aac");
+        try {
+            oe9 oe9Var = new oe9(b.audioPath, a2, b.mSoundTypes);
+            this.h = oe9Var;
+            oe9Var.S(new a(this, a2, i, b, xd9Var));
+            this.h.D(b.mSoundTypes);
+            this.h.G(b.mSpeed);
+            this.h.H(b.volume);
+            this.h.B(b.start);
+            this.h.R(b.end);
+            this.h.I();
+            synchronized (this) {
+                wait();
             }
+        } catch (Exception e) {
+            g("dealAudioPlayData exception:" + sh9.g(e));
+            e.printStackTrace();
         }
     }
 
-    public void m() {
+    public final void x(zd9 zd9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.e.post(new b(this));
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, zd9Var) == null) || zd9Var == null || nh9.e(zd9Var.c())) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < zd9Var.c().size(); i++) {
+            arrayList.add(new be9(new ArrayList()));
+        }
+        zd9 zd9Var2 = new zd9(arrayList);
+        this.d = zd9Var2;
+        zd9Var2.e(zd9Var.b());
+        this.d.d(zd9Var.a());
+    }
+
+    public final void y(zd9 zd9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zd9Var) == null) {
+            this.i = 0;
+            this.j = 0;
+            List<be9> c = zd9Var.c();
+            int size = c.size();
+            for (int i = 0; i < size; i++) {
+                if (c.get(i) != null && c.get(i).a() != null) {
+                    this.i += c.get(i).a().size();
+                }
+            }
         }
     }
 }

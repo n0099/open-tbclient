@@ -1,13 +1,10 @@
 package com.bytedance.pangle.wrapper;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,8 +15,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.PluginContext;
 import com.bytedance.pangle.util.FieldUtils;
 import java.io.File;
-@Keep
-@SuppressLint({"MissingSuperCall", "NewApi"})
 /* loaded from: classes7.dex */
 public class PluginApplicationWrapper extends Application {
     public static /* synthetic */ Interceptable $ic;
@@ -55,15 +50,10 @@ public class PluginApplicationWrapper extends Application {
     public File getDataDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPluginContext.getDataDir() : (File) invokeV.objValue;
-    }
-
-    @Override // android.app.Application, android.content.ComponentCallbacks
-    public void onConfigurationChanged(@NonNull Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) {
-            this.mOriginApplication.onConfigurationChanged(configuration);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mPluginContext.getDataDir();
         }
+        return (File) invokeV.objValue;
     }
 
     @Override // android.app.Application
@@ -87,6 +77,14 @@ public class PluginApplicationWrapper extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.mOriginApplication.onTerminate();
+        }
+    }
+
+    @Override // android.app.Application, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) {
+            this.mOriginApplication.onConfigurationChanged(configuration);
         }
     }
 
@@ -138,14 +136,6 @@ public class PluginApplicationWrapper extends Application {
         }
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.mOriginApplication.startIntentSender(intentSender, intent, i, i2, i3);
-        }
-    }
-
     @Override // android.app.Application
     public void unregisterActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks activityLifecycleCallbacks) {
         Interceptable interceptable = $ic;
@@ -175,6 +165,14 @@ public class PluginApplicationWrapper extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, intent, bundle) == null) {
             this.mOriginApplication.startActivity(intent, bundle);
+        }
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mOriginApplication.startIntentSender(intentSender, intent, i, i2, i3);
         }
     }
 

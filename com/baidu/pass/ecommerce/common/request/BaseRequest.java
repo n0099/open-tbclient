@@ -44,8 +44,19 @@ public abstract class BaseRequest {
     public Handler actionTimeHandler;
     public AddressManageDTO addressManageDTO;
     public SapiConfiguration configuration;
-    public List<HttpCookie> cookies;
+    public List cookies;
     public HttpHashMapWrap paramsMap;
+
+    public abstract String getRelativeUrl();
+
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
 
     public BaseRequest() {
         Interceptable interceptable = $ic;
@@ -94,7 +105,7 @@ public abstract class BaseRequest {
                 }
             }
         };
-        this.cookies = new ArrayList<HttpCookie>(this) { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.2
+        this.cookies = new ArrayList(this) { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaseRequest this$0;
@@ -128,6 +139,13 @@ public abstract class BaseRequest {
         };
     }
 
+    public void addCookie(HttpCookie httpCookie) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, httpCookie) == null) {
+            this.cookies.add(httpCookie);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public HttpCookie buildCookie(String str, String str2) {
         InterceptResult invokeLL;
@@ -141,6 +159,13 @@ public abstract class BaseRequest {
         return (HttpCookie) invokeLL.objValue;
     }
 
+    public void addParams(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            this.paramsMap.put(str, str2);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public String getPPSToken() {
         InterceptResult invokeV;
@@ -148,28 +173,10 @@ public abstract class BaseRequest {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             ArrayList arrayList = new ArrayList(1);
             arrayList.add("pp");
-            return SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this) { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.3
+            return (String) SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this) { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseRequest this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -200,6 +207,24 @@ public abstract class BaseRequest {
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) {
                     }
                 }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
             }, this.account.bduss, arrayList).get("pp");
         }
         return (String) invokeV.objValue;
@@ -208,37 +233,11 @@ public abstract class BaseRequest {
     /* JADX INFO: Access modifiers changed from: private */
     public void releaseActionTimeHandler() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.actionTimeHandler == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.actionTimeHandler != null) {
+            Log.d(TAG, "releaseActionTimeHandler");
+            this.actionTimeHandler.removeCallbacksAndMessages(null);
+            this.actionTimeHandler = null;
         }
-        Log.d(TAG, "releaseActionTimeHandler");
-        this.actionTimeHandler.removeCallbacksAndMessages(null);
-        this.actionTimeHandler = null;
-    }
-
-    public void addCookie(HttpCookie httpCookie) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, httpCookie) == null) {
-            this.cookies.add(httpCookie);
-        }
-    }
-
-    public void addParams(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            this.paramsMap.put(str, str2);
-        }
-    }
-
-    public abstract String getRelativeUrl();
-
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 
     public void submit(NetCallback netCallback) {
@@ -325,23 +324,22 @@ public abstract class BaseRequest {
                 */
                 public void onFailure(Throwable th, int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeLIL(1048576, this, th, i, str) != null) {
-                        return;
-                    }
-                    this.this$0.releaseActionTimeHandler();
-                    Log.d(BaseRequest.TAG, "Failure: url=" + this.this$0.getRelativeUrl() + " code=" + i + " response=" + str);
-                    if (this.val$callback == null) {
-                        return;
-                    }
-                    if (th != null) {
-                        str = th.getMessage();
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i, str) == null) {
+                        this.this$0.releaseActionTimeHandler();
+                        Log.d(BaseRequest.TAG, "Failure: url=" + this.this$0.getRelativeUrl() + " code=" + i + " response=" + str);
+                        if (this.val$callback == null) {
+                            return;
+                        }
+                        if (th != null) {
+                            str = th.getMessage();
+                        }
                     }
                 }
 
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                 public void onSuccess(int i, String str) {
-                    int optInt;
-                    String optString;
+                    int i2;
+                    String str2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                         this.this$0.releaseActionTimeHandler();
@@ -357,20 +355,24 @@ public abstract class BaseRequest {
                         try {
                             JSONObject jSONObject = new JSONObject(str);
                             if (jSONObject.has("errno")) {
-                                optInt = jSONObject.optInt("errno", -10000);
+                                i2 = jSONObject.optInt("errno", -10000);
+                            } else if (jSONObject.has("code")) {
+                                i2 = jSONObject.optInt("code", -10000);
                             } else {
-                                optInt = jSONObject.has("code") ? jSONObject.optInt("code", -10000) : -10000;
+                                i2 = -10000;
                             }
-                            if (optInt == 0) {
+                            if (i2 == 0) {
                                 this.val$callback.onSuccess(jSONObject);
                                 return;
                             }
                             if (jSONObject.has("errmsg")) {
-                                optString = jSONObject.optString("errmsg");
+                                str2 = jSONObject.optString("errmsg");
+                            } else if (jSONObject.has("msg")) {
+                                str2 = jSONObject.optString("msg");
                             } else {
-                                optString = jSONObject.has("msg") ? jSONObject.optString("msg") : "未知错误";
+                                str2 = "未知错误";
                             }
-                            this.val$callback.onFailure(optInt, optString);
+                            this.val$callback.onFailure(i2, str2);
                         } catch (JSONException e) {
                             this.val$callback.onFailure(-10000, e.getMessage());
                         }

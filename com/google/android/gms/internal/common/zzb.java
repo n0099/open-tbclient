@@ -16,6 +16,22 @@ public class zzb extends Binder implements IInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // android.os.IInterface
+    public final IBinder asBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+    }
+
+    public boolean zza(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
     public zzb(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,13 +50,6 @@ public class zzb extends Binder implements IInterface {
         attachInterface(this, str);
     }
 
-    @Override // android.os.IInterface
-    public final IBinder asBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
-    }
-
     @Override // android.os.Binder
     public final boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
         InterceptResult invokeCommon;
@@ -54,15 +63,6 @@ public class zzb extends Binder implements IInterface {
                 parcel.enforceInterface(getInterfaceDescriptor());
             }
             return zza(i, parcel, parcel2, i2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public boolean zza(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
-            return false;
         }
         return invokeCommon.booleanValue;
     }

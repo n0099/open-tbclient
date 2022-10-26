@@ -25,7 +25,7 @@ public class PatchMetaInfo {
     public int bootLoadSyncPolicy = 0;
 
     /* loaded from: classes6.dex */
-    public static class VersionInfo {
+    public class VersionInfo {
         public static final String KEY_HOST_VERSIONCODE = "hostVersionCode";
         public static final String KEY_HOST_VERSIONNAME = "hostVersionName";
         public static final String KEY_PATCH_VERSIONCODE = "patchVersionCode";
@@ -61,6 +61,22 @@ public class PatchMetaInfo {
                 e.printStackTrace();
                 return jSONObject.toString();
             }
+        }
+    }
+
+    public JSONObject toJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("targetId", this.targetId);
+            jSONObject.put("status", this.status);
+            jSONObject.put("loadPolicy", this.loadPolicy);
+            if (this.versionInfo != null) {
+                jSONObject.put("versionInfo", this.versionInfo.toJson());
+            }
+            return jSONObject;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return jSONObject;
         }
     }
 
@@ -129,22 +145,6 @@ public class PatchMetaInfo {
         } catch (Throwable th3) {
             th = th3;
             zipFile = null;
-        }
-    }
-
-    public JSONObject toJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("targetId", this.targetId);
-            jSONObject.put("status", this.status);
-            jSONObject.put("loadPolicy", this.loadPolicy);
-            if (this.versionInfo != null) {
-                jSONObject.put("versionInfo", this.versionInfo.toJson());
-            }
-            return jSONObject;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return jSONObject;
         }
     }
 

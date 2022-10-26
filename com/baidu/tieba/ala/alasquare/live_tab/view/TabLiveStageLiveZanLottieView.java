@@ -35,31 +35,6 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
         this.h = false;
     }
 
-    @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.h) {
-            return;
-        }
-        super.onAttachedToWindow();
-    }
-
-    @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.h) {
-            return;
-        }
-        super.onDetachedFromWindow();
-    }
-
-    public void setForbidAutoUpdateState(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.h = z;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabLiveStageLiveZanLottieView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -102,5 +77,30 @@ public class TabLiveStageLiveZanLottieView extends TBLottieAnimationView {
             }
         }
         this.h = false;
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.h) {
+            return;
+        }
+        super.onAttachedToWindow();
+    }
+
+    @Override // com.airbnb.lottie.LottieAnimationView, android.widget.ImageView, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.h) {
+            return;
+        }
+        super.onDetachedFromWindow();
+    }
+
+    public void setForbidAutoUpdateState(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.h = z;
+        }
     }
 }

@@ -9,12 +9,12 @@ import io.reactivex.Maybe;
 import io.reactivex.MaybeSource;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 /* loaded from: classes8.dex */
-public abstract class AbstractMaybeWithUpstream<T, R> extends Maybe<R> implements HasUpstreamMaybeSource<T> {
+public abstract class AbstractMaybeWithUpstream extends Maybe implements HasUpstreamMaybeSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource<T> source;
+    public final MaybeSource source;
 
-    public AbstractMaybeWithUpstream(MaybeSource<T> maybeSource) {
+    public AbstractMaybeWithUpstream(MaybeSource maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,9 +33,12 @@ public abstract class AbstractMaybeWithUpstream<T, R> extends Maybe<R> implement
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public final MaybeSource<T> source() {
+    public final MaybeSource source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.source : (MaybeSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.source;
+        }
+        return (MaybeSource) invokeV.objValue;
     }
 }

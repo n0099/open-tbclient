@@ -15,25 +15,6 @@ public final class p {
     public static final Uri d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1612095337, "Lcom/vivo/push/p;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1612095337, "Lcom/vivo/push/p;");
-                return;
-            }
-        }
-        a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
-        b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
-        c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
-        d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
-    }
-
     public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -58,5 +39,24 @@ public final class p {
             }
         }
         return (String) invokeI.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1612095337, "Lcom/vivo/push/p;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1612095337, "Lcom/vivo/push/p;");
+                return;
+            }
+        }
+        a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+        b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+        c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
+        d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
     }
 }

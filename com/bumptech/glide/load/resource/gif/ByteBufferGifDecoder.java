@@ -3,9 +3,6 @@ package com.bumptech.glide.load.resource.gif;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -36,7 +33,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
 /* loaded from: classes7.dex */
-public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
+public class ByteBufferGifDecoder implements ResourceDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final GifDecoderFactory GIF_DECODER_FACTORY;
     public static final GifHeaderParserPool PARSER_POOL;
@@ -45,12 +42,11 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     public final Context context;
     public final GifDecoderFactory gifDecoderFactory;
     public final GifHeaderParserPool parserPool;
-    public final List<ImageHeaderParser> parsers;
+    public final List parsers;
     public final GifBitmapProvider provider;
 
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static class GifDecoderFactory {
+    public class GifDecoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,16 +67,18 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         public GifDecoder build(GifDecoder.BitmapProvider bitmapProvider, GifHeader gifHeader, ByteBuffer byteBuffer, int i) {
             InterceptResult invokeLLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, bitmapProvider, gifHeader, byteBuffer, i)) == null) ? new StandardGifDecoder(bitmapProvider, gifHeader, byteBuffer, i) : (GifDecoder) invokeLLLI.objValue;
+            if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, bitmapProvider, gifHeader, byteBuffer, i)) == null) {
+                return new StandardGifDecoder(bitmapProvider, gifHeader, byteBuffer, i);
+            }
+            return (GifDecoder) invokeLLLI.objValue;
         }
     }
 
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static class GifHeaderParserPool {
+    public class GifHeaderParserPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue<GifHeaderParser> pool;
+        public final Queue pool;
 
         public GifHeaderParserPool() {
             Interceptable interceptable = $ic;
@@ -104,11 +102,11 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
                 synchronized (this) {
-                    GifHeaderParser poll = this.pool.poll();
-                    if (poll == null) {
-                        poll = new GifHeaderParser();
+                    GifHeaderParser gifHeaderParser = (GifHeaderParser) this.pool.poll();
+                    if (gifHeaderParser == null) {
+                        gifHeaderParser = new GifHeaderParser();
                     }
-                    data = poll.setData(byteBuffer);
+                    data = gifHeaderParser.setData(byteBuffer);
                 }
                 return data;
             }
@@ -164,46 +162,8 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         }
     }
 
-    public static int getSampleSize(GifHeader gifHeader, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, gifHeader, i, i2)) == null) {
-            int min = Math.min(gifHeader.getHeight() / i2, gifHeader.getWidth() / i);
-            int max = Math.max(1, min == 0 ? 0 : Integer.highestOneBit(min));
-            if (Log.isLoggable(TAG, 2) && max > 1) {
-                Log.v(TAG, "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i + "x" + i2 + "], actual dimens: [" + gifHeader.getWidth() + "x" + gifHeader.getHeight() + PreferencesUtil.RIGHT_MOUNT);
-            }
-            return max;
-        }
-        return invokeLII.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.ResourceDecoder
-    public GifDrawableResource decode(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull Options options) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            GifHeaderParser obtain = this.parserPool.obtain(byteBuffer);
-            try {
-                return decode(byteBuffer, i, i2, obtain, options);
-            } finally {
-                this.parserPool.release(obtain);
-            }
-        }
-        return (GifDrawableResource) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(@NonNull ByteBuffer byteBuffer, @NonNull Options options) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, byteBuffer, options)) == null) ? !((Boolean) options.get(GifOptions.DISABLE_ANIMATION)).booleanValue() && ImageHeaderParserUtils.getType(this.parsers, byteBuffer) == ImageHeaderParser.ImageType.GIF : invokeLL.booleanValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ByteBufferGifDecoder(Context context, List<ImageHeaderParser> list, BitmapPool bitmapPool, ArrayPool arrayPool) {
+    public ByteBufferGifDecoder(Context context, List list, BitmapPool bitmapPool, ArrayPool arrayPool) {
         this(context, list, bitmapPool, arrayPool, PARSER_POOL, GIF_DECODER_FACTORY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -223,8 +183,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         }
     }
 
-    @VisibleForTesting
-    public ByteBufferGifDecoder(Context context, List<ImageHeaderParser> list, BitmapPool bitmapPool, ArrayPool arrayPool, GifHeaderParserPool gifHeaderParserPool, GifDecoderFactory gifDecoderFactory) {
+    public ByteBufferGifDecoder(Context context, List list, BitmapPool bitmapPool, ArrayPool arrayPool, GifHeaderParserPool gifHeaderParserPool, GifDecoderFactory gifDecoderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -247,16 +206,20 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
-    @Nullable
     private GifDrawableResource decode(ByteBuffer byteBuffer, int i, int i2, GifHeaderParser gifHeaderParser, Options options) {
         InterceptResult invokeCommon;
+        Bitmap.Config config;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), gifHeaderParser, options})) == null) {
             long logTime = LogTime.getLogTime();
             try {
                 GifHeader parseHeader = gifHeaderParser.parseHeader();
                 if (parseHeader.getNumFrames() > 0 && parseHeader.getStatus() == 0) {
-                    Bitmap.Config config = options.get(GifOptions.DECODE_FORMAT) == DecodeFormat.PREFER_RGB_565 ? Bitmap.Config.RGB_565 : Bitmap.Config.ARGB_8888;
+                    if (options.get(GifOptions.DECODE_FORMAT) == DecodeFormat.PREFER_RGB_565) {
+                        config = Bitmap.Config.RGB_565;
+                    } else {
+                        config = Bitmap.Config.ARGB_8888;
+                    }
                     GifDecoder build = this.gifDecoderFactory.build(this.provider, parseHeader, byteBuffer, getSampleSize(parseHeader, i, i2));
                     build.setDefaultBitmapConfig(config);
                     build.advance();
@@ -281,5 +244,55 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
             }
         }
         return (GifDrawableResource) invokeCommon.objValue;
+    }
+
+    public static int getSampleSize(GifHeader gifHeader, int i, int i2) {
+        InterceptResult invokeLII;
+        int highestOneBit;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, gifHeader, i, i2)) == null) {
+            int min = Math.min(gifHeader.getHeight() / i2, gifHeader.getWidth() / i);
+            if (min == 0) {
+                highestOneBit = 0;
+            } else {
+                highestOneBit = Integer.highestOneBit(min);
+            }
+            int max = Math.max(1, highestOneBit);
+            if (Log.isLoggable(TAG, 2) && max > 1) {
+                Log.v(TAG, "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i + "x" + i2 + "], actual dimens: [" + gifHeader.getWidth() + "x" + gifHeader.getHeight() + PreferencesUtil.RIGHT_MOUNT);
+            }
+            return max;
+        }
+        return invokeLII.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.ResourceDecoder
+    public GifDrawableResource decode(ByteBuffer byteBuffer, int i, int i2, Options options) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            GifHeaderParser obtain = this.parserPool.obtain(byteBuffer);
+            try {
+                return decode(byteBuffer, i, i2, obtain, options);
+            } finally {
+                this.parserPool.release(obtain);
+            }
+        }
+        return (GifDrawableResource) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.ResourceDecoder
+    public boolean handles(ByteBuffer byteBuffer, Options options) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, byteBuffer, options)) == null) {
+            if (!((Boolean) options.get(GifOptions.DISABLE_ANIMATION)).booleanValue() && ImageHeaderParserUtils.getType(this.parsers, byteBuffer) == ImageHeaderParser.ImageType.GIF) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

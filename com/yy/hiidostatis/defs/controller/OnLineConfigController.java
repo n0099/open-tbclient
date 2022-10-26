@@ -43,6 +43,15 @@ public class OnLineConfigController {
         preference = new Preference("hd_online_config_pref", true);
     }
 
+    public boolean isFinishUpdateConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isFinishUpdateConfig;
+        }
+        return invokeV.booleanValue;
+    }
+
     public OnLineConfigController(IConfigAPI iConfigAPI) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,33 +81,12 @@ public class OnLineConfigController {
                 return null;
             }
             JSONObject jSONObject = new JSONObject(prefString);
-            if (jSONObject.get("onlineParams") instanceof JSONObject) {
-                return jSONObject.getJSONObject("onlineParams");
+            if (!(jSONObject.get("onlineParams") instanceof JSONObject)) {
+                return null;
             }
-            return null;
+            return jSONObject.getJSONObject("onlineParams");
         }
         return (JSONObject) invokeL.objValue;
-    }
-
-    public String getOnlineConfigParams(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            try {
-                JSONObject onlineParamsJSON = getOnlineParamsJSON(context);
-                return (onlineParamsJSON == null || !onlineParamsJSON.has(str)) ? "" : onlineParamsJSON.getString(str);
-            } catch (Throwable th) {
-                L.debug("OnLineConfigController", "getOnlineConfigParams error! %s", th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public boolean isFinishUpdateConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isFinishUpdateConfig : invokeV.booleanValue;
     }
 
     public void setOnLineConfigListener(IOnLineConfigListener iOnLineConfigListener) {
@@ -184,21 +172,40 @@ public class OnLineConfigController {
                                 throw th2;
                             }
                         }
-                        if (this.this$0.onLineConfigListener != null) {
-                            try {
-                                jSONObject = this.this$0.getOnlineParamsJSON(this.val$context);
-                            } catch (JSONException e3) {
-                                L.debug(this, "get getOnlineParamsJSON error! %s", e3);
-                            }
-                            if (jSONObject == null) {
-                                jSONObject = new JSONObject();
-                            }
-                            L.debug("OnLineConfigController", "call onLineConfigListener.onDataReceived(data)", new Object[0]);
-                            this.this$0.onLineConfigListener.onDataReceived(jSONObject);
+                        if (this.this$0.onLineConfigListener == null) {
+                            return;
                         }
+                        try {
+                            jSONObject = this.this$0.getOnlineParamsJSON(this.val$context);
+                        } catch (JSONException e3) {
+                            L.debug(this, "get getOnlineParamsJSON error! %s", e3);
+                        }
+                        if (jSONObject == null) {
+                            jSONObject = new JSONObject();
+                        }
+                        L.debug("OnLineConfigController", "call onLineConfigListener.onDataReceived(data)", new Object[0]);
+                        this.this$0.onLineConfigListener.onDataReceived(jSONObject);
                     }
                 }
             });
         }
+    }
+
+    public String getOnlineConfigParams(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            try {
+                JSONObject onlineParamsJSON = getOnlineParamsJSON(context);
+                if (onlineParamsJSON == null || !onlineParamsJSON.has(str)) {
+                    return "";
+                }
+                return onlineParamsJSON.getString(str);
+            } catch (Throwable th) {
+                L.debug("OnLineConfigController", "getOnlineConfigParams error! %s", th);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

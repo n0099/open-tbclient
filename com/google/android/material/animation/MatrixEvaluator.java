@@ -2,14 +2,13 @@ package com.google.android.material.animation;
 
 import android.animation.TypeEvaluator;
 import android.graphics.Matrix;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class MatrixEvaluator implements TypeEvaluator<Matrix> {
+public class MatrixEvaluator implements TypeEvaluator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float[] tempEndValues;
@@ -36,8 +35,7 @@ public class MatrixEvaluator implements TypeEvaluator<Matrix> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
-    @NonNull
-    public Matrix evaluate(float f, @NonNull Matrix matrix, @NonNull Matrix matrix2) {
+    public Matrix evaluate(float f, Matrix matrix, Matrix matrix2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), matrix, matrix2})) == null) {

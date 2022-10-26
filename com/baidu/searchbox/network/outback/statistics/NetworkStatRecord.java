@@ -54,7 +54,7 @@ public class NetworkStatRecord {
     public boolean isConnected;
     public boolean isProxyConnect;
     public boolean isVPNConnect;
-    public List<String> localDnsIpList;
+    public List localDnsIpList;
     public String localIP;
     public int netEngine;
     public String netType;
@@ -146,42 +146,49 @@ public class NetworkStatRecord {
         return (JSONObject) invokeL.objValue;
     }
 
-    private String getExceptionMsg(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, th)) == null) ? (th == null || th.getMessage() == null) ? "" : th.getMessage() : (String) invokeL.objValue;
-    }
-
     private String getStackTraceString(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, this, th)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, th)) == null) {
+            if (th == null) {
+                return "";
+            }
+            PrintWriter printWriter = null;
+            try {
+                StringWriter stringWriter = new StringWriter();
+                PrintWriter printWriter2 = new PrintWriter(stringWriter);
+                try {
+                    th.printStackTrace(printWriter2);
+                    printWriter2.flush();
+                    String stringWriter2 = stringWriter.toString();
+                    printWriter2.close();
+                    return stringWriter2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    printWriter = printWriter2;
+                    if (printWriter != null) {
+                        printWriter.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+            }
+        } else {
             return (String) invokeL.objValue;
         }
-        if (th == null) {
-            return "";
-        }
-        PrintWriter printWriter = null;
-        try {
-            StringWriter stringWriter = new StringWriter();
-            PrintWriter printWriter2 = new PrintWriter(stringWriter);
-            try {
-                th.printStackTrace(printWriter2);
-                printWriter2.flush();
-                String stringWriter2 = stringWriter.toString();
-                printWriter2.close();
-                return stringWriter2;
-            } catch (Throwable th2) {
-                th = th2;
-                printWriter = printWriter2;
-                if (printWriter != null) {
-                    printWriter.close();
-                }
-                throw th;
+    }
+
+    private String getExceptionMsg(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, th)) == null) {
+            if (th == null || th.getMessage() == null) {
+                return "";
             }
-        } catch (Throwable th3) {
-            th = th3;
+            return th.getMessage();
         }
+        return (String) invokeL.objValue;
     }
 
     public long getDnsTime() {
@@ -189,13 +196,20 @@ public class NetworkStatRecord {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long j = this.dnsTs;
-            return j == -1 ? this.dnsEndTs - this.dnsStartTs : j;
+            if (j == -1) {
+                return this.dnsEndTs - this.dnsStartTs;
+            }
+            return j;
         }
         return invokeV.longValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
+        long j;
+        long j2;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -248,11 +262,21 @@ public class NetworkStatRecord {
             sb.append(", localIP=");
             sb.append(this.localIP);
             sb.append(", connectConsume=");
-            long j = this.connTs;
-            sb.append(j <= 0 ? 0L : j - this.startTs);
+            long j3 = this.connTs;
+            if (j3 <= 0) {
+                j = 0;
+            } else {
+                j = j3 - this.startTs;
+            }
+            sb.append(j);
             sb.append(", responseConsume=");
-            long j2 = this.connTs;
-            sb.append(j2 <= 0 ? this.responseTs - this.startTs : this.responseTs - j2);
+            long j4 = this.connTs;
+            if (j4 <= 0) {
+                j2 = this.responseTs - this.startTs;
+            } else {
+                j2 = this.responseTs - j4;
+            }
+            sb.append(j2);
             sb.append(", totalConsume=");
             sb.append(this.responseTs - this.startTs);
             sb.append(", errheaders=");
@@ -266,7 +290,12 @@ public class NetworkStatRecord {
             sb.append(", clientIPv6=");
             sb.append(this.clientIPv6);
             sb.append(", isConnReused=");
-            sb.append(this.isConnReused ? "1" : "0");
+            if (this.isConnReused) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            sb.append(str);
             sb.append(", contentType=");
             sb.append(this.contentType);
             sb.append(", realResponseLength=");
@@ -311,7 +340,12 @@ public class NetworkStatRecord {
             sb.append(this.switchThreadInQueue);
             sb.append(", extraUserInfo=");
             JSONObject jSONObject = this.extraUserInfo;
-            sb.append(jSONObject != null ? jSONObject.toString() : "");
+            if (jSONObject != null) {
+                str2 = jSONObject.toString();
+            } else {
+                str2 = "";
+            }
+            sb.append(str2);
             sb.append(", freeCardProduct=");
             sb.append(this.freeCardProduct);
             sb.append(", freeCardIsp=");
@@ -324,6 +358,10 @@ public class NetworkStatRecord {
 
     public JSONObject toUBCJson() {
         InterceptResult invokeV;
+        Object obj;
+        Object obj2;
+        Object obj3;
+        Object obj4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -430,18 +468,38 @@ public class NetworkStatRecord {
                 jSONObject.put("from", this.from);
                 jSONObject.put("subFrom", this.subFrom);
                 String str = "1";
-                jSONObject.put("socketReuse", this.isConnReused ? "1" : "0");
+                if (this.isConnReused) {
+                    obj = "1";
+                } else {
+                    obj = "0";
+                }
+                jSONObject.put("socketReuse", obj);
                 jSONObject.put(CloudStabilityUBCUtils.KEY_WEAK_QUALITY, this.networkQuality);
                 if (this.extraUserInfo != null) {
                     jSONObject.put("user_log", this.extraUserInfo.toString());
                 }
                 jSONObject.put("ipStack", this.ipStack);
-                jSONObject.put("useFallback", this.useFallbackConn ? "1" : "0");
+                if (this.useFallbackConn) {
+                    obj2 = "1";
+                } else {
+                    obj2 = "0";
+                }
+                jSONObject.put("useFallback", obj2);
                 if (!TextUtils.isEmpty(this.bdTraceId)) {
                     jSONObject.put("bdTraceId", this.bdTraceId);
                 }
-                jSONObject.put("isConnected", this.isConnected ? "1" : "0");
-                jSONObject.put("viaVPN", this.isVPNConnect ? "1" : "0");
+                if (this.isConnected) {
+                    obj3 = "1";
+                } else {
+                    obj3 = "0";
+                }
+                jSONObject.put("isConnected", obj3);
+                if (this.isVPNConnect) {
+                    obj4 = "1";
+                } else {
+                    obj4 = "0";
+                }
+                jSONObject.put("viaVPN", obj4);
                 if (!this.isProxyConnect) {
                     str = "0";
                 }

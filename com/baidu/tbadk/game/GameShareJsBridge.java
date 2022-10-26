@@ -69,43 +69,77 @@ public class GameShareJsBridge {
     public String getGameId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mGameId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mGameId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIconUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mIconUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getShareContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mShareContent : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mShareContent;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getShareContentUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mShareContentUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mShareContentUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getShareImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mShareImage : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mShareImage;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getShareName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mShareName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mShareName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getShareTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mShareTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mShareTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void startShare() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mShareContent = null;
+            this.mShareTitle = null;
+            this.mShareContentUrl = null;
+            this.mIconUrl = null;
+            this.mGameId = null;
+            this.mShareImage = null;
+            this.mShareName = null;
+        }
     }
 
     public void set_share_info(String str) {
@@ -125,19 +159,6 @@ public class GameShareJsBridge {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-        }
-    }
-
-    public void startShare() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mShareContent = null;
-            this.mShareTitle = null;
-            this.mShareContentUrl = null;
-            this.mIconUrl = null;
-            this.mGameId = null;
-            this.mShareImage = null;
-            this.mShareName = null;
         }
     }
 }

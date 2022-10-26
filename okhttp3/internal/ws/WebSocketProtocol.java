@@ -64,13 +64,13 @@ public final class WebSocketProtocol {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i < 1000 || i >= 5000) {
-                return "Code must be in range [1000,5000): " + i;
-            } else if ((i < 1004 || i > 1006) && (i < 1012 || i > 2999)) {
+            if (i >= 1000 && i < 5000) {
+                if ((i >= 1004 && i <= 1006) || (i >= 1012 && i <= 2999)) {
+                    return "Code " + i + " is reserved and may not be used.";
+                }
                 return null;
-            } else {
-                return "Code " + i + " is reserved and may not be used.";
             }
+            return "Code must be in range [1000,5000): " + i;
         }
         return (String) invokeI.objValue;
     }
@@ -97,8 +97,9 @@ public final class WebSocketProtocol {
     public static void validateCloseCode(int i) {
         String closeCodeExceptionMessage;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && (closeCodeExceptionMessage = closeCodeExceptionMessage(i)) != null) {
-            throw new IllegalArgumentException(closeCodeExceptionMessage);
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) != null) || (closeCodeExceptionMessage = closeCodeExceptionMessage(i)) == null) {
+            return;
         }
+        throw new IllegalArgumentException(closeCodeExceptionMessage);
     }
 }

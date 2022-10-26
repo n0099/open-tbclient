@@ -1,6 +1,5 @@
 package com.baidubce.services.bos;
 
-import android.annotation.SuppressLint;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -74,7 +73,6 @@ import com.baidubce.services.bos.model.ListObjectsResponse;
 import com.baidubce.services.bos.model.ListPartsRequest;
 import com.baidubce.services.bos.model.ListPartsResponse;
 import com.baidubce.services.bos.model.ObjectMetadata;
-import com.baidubce.services.bos.model.PartETag;
 import com.baidubce.services.bos.model.PutObjectRequest;
 import com.baidubce.services.bos.model.PutObjectResponse;
 import com.baidubce.services.bos.model.ResponseHeaderOverrides;
@@ -105,7 +103,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
-@SuppressLint({"NewApi"})
 /* loaded from: classes7.dex */
 public class BosClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
@@ -149,48 +146,252 @@ public class BosClient extends AbstractBceClient {
         }
     }
 
+    private int getStreamBufferSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            return ((BosClientConfiguration) this.config).getStreamBufferSize();
+        }
+        return invokeV.intValue;
+    }
+
+    public User getBosAccountOwner() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return getBosAccountOwner(new GetBosAccountOwnerRequest());
+        }
+        return (User) invokeV.objValue;
+    }
+
+    public ListBucketsResponse listBuckets() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            return listBuckets(new ListBucketsRequest());
+        }
+        return (ListBucketsResponse) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BosClient(BosClientConfiguration bosClientConfiguration) {
+        super(bosClientConfiguration, bos_handlers);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bosClientConfiguration};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BceClientConfiguration) objArr2[0], (HttpResponseHandler[]) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public CreateBucketResponse createBucket(CreateBucketRequest createBucketRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, createBucketRequest)) == null) {
+            CheckUtils.isNotNull(createBucketRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(createBucketRequest, HttpMethodName.PUT);
+            setZeroContentLength(createRequest);
+            CreateBucketResponse createBucketResponse = new CreateBucketResponse();
+            createBucketResponse.setName(createBucketRequest.getBucketName());
+            createBucketResponse.setLocation(((BosResponse) invokeHttpClient(createRequest, BosResponse.class)).getMetadata().getLocation());
+            return createBucketResponse;
+        }
+        return (CreateBucketResponse) invokeL.objValue;
+    }
+
+    public boolean doesBucketExist(DoesBucketExistRequest doesBucketExistRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, doesBucketExistRequest)) == null) {
+            CheckUtils.isNotNull(doesBucketExistRequest, "request should not be null.");
+            try {
+                invokeHttpClient(createRequest(doesBucketExistRequest, HttpMethodName.HEAD), BosResponse.class);
+                return true;
+            } catch (BceServiceException e) {
+                if (e.getStatusCode() == 403) {
+                    return true;
+                }
+                if (e.getStatusCode() == 404) {
+                    return false;
+                }
+                throw e;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public GetBucketAclResponse getBucketAcl(GetBucketAclRequest getBucketAclRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, getBucketAclRequest)) == null) {
+            CheckUtils.isNotNull(getBucketAclRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(getBucketAclRequest, HttpMethodName.GET);
+            createRequest.addParameter("acl", null);
+            GetBucketAclResponse getBucketAclResponse = (GetBucketAclResponse) invokeHttpClient(createRequest, GetBucketAclResponse.class);
+            if (getBucketAclResponse.getVersion() <= 1) {
+                return getBucketAclResponse;
+            }
+            throw new BceClientException("Unsupported acl version.");
+        }
+        return (GetBucketAclResponse) invokeL.objValue;
+    }
+
     private void addResponseHeaderParameters(InternalRequest internalRequest, ResponseHeaderOverrides responseHeaderOverrides) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, this, internalRequest, responseHeaderOverrides) == null) || responseHeaderOverrides == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65539, this, internalRequest, responseHeaderOverrides) == null) && responseHeaderOverrides != null) {
+            if (responseHeaderOverrides.getCacheControl() != null) {
+                internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CACHE_CONTROL, responseHeaderOverrides.getCacheControl());
+            }
+            if (responseHeaderOverrides.getContentDisposition() != null) {
+                internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CONTENT_DISPOSITION, responseHeaderOverrides.getContentDisposition());
+            }
+            if (responseHeaderOverrides.getContentEncoding() != null) {
+                internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CONTENT_ENCODING, responseHeaderOverrides.getContentEncoding());
+            }
+            if (responseHeaderOverrides.getContentLanguage() != null) {
+                internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CONTENT_LANGUAGE, responseHeaderOverrides.getContentLanguage());
+            }
+            if (responseHeaderOverrides.getContentType() != null) {
+                internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CONTENT_TYPE, responseHeaderOverrides.getContentType());
+            }
+            if (responseHeaderOverrides.getExpires() != null) {
+                internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_EXPIRES, responseHeaderOverrides.getExpires());
+            }
         }
-        if (responseHeaderOverrides.getCacheControl() != null) {
-            internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CACHE_CONTROL, responseHeaderOverrides.getCacheControl());
+    }
+
+    private InternalRequest createRequest(AbstractBceRequest abstractBceRequest, HttpMethodName httpMethodName) {
+        InterceptResult invokeLL;
+        String str;
+        Boolean isCnameEnabled;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, abstractBceRequest, httpMethodName)) == null) {
+            String str2 = null;
+            if ((abstractBceRequest instanceof GenericBucketRequest) && ((isCnameEnabled = ((BosClientConfiguration) this.config).isCnameEnabled()) == Boolean.FALSE || (isCnameEnabled == null && !BosUtils.isCnameLikeHost(getEndpoint().getHost())))) {
+                str = ((GenericBucketRequest) abstractBceRequest).getBucketName();
+            } else {
+                str = null;
+            }
+            if (abstractBceRequest instanceof GenericObjectRequest) {
+                str2 = ((GenericObjectRequest) abstractBceRequest).getKey();
+            }
+            InternalRequest internalRequest = new InternalRequest(httpMethodName, HttpUtils.appendUri(getEndpoint(), "v1", str, str2));
+            internalRequest.setCredentials(abstractBceRequest.getRequestCredentials());
+            internalRequest.setRequest(abstractBceRequest);
+            return internalRequest;
         }
-        if (responseHeaderOverrides.getContentDisposition() != null) {
-            internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CONTENT_DISPOSITION, responseHeaderOverrides.getContentDisposition());
-        }
-        if (responseHeaderOverrides.getContentEncoding() != null) {
-            internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CONTENT_ENCODING, responseHeaderOverrides.getContentEncoding());
-        }
-        if (responseHeaderOverrides.getContentLanguage() != null) {
-            internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CONTENT_LANGUAGE, responseHeaderOverrides.getContentLanguage());
-        }
-        if (responseHeaderOverrides.getContentType() != null) {
-            internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_CONTENT_TYPE, responseHeaderOverrides.getContentType());
-        }
-        if (responseHeaderOverrides.getExpires() != null) {
-            internalRequest.addParameter(ResponseHeaderOverrides.RESPONSE_HEADER_EXPIRES, responseHeaderOverrides.getExpires());
-        }
+        return (InternalRequest) invokeLL.objValue;
     }
 
     private void assertStringNotNullOrEmpty(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2) == null) {
             if (str != null) {
-                if (str.isEmpty()) {
-                    throw new IllegalArgumentException(str2);
+                if (!str.isEmpty()) {
+                    return;
                 }
-                return;
+                throw new IllegalArgumentException(str2);
             }
             throw new IllegalArgumentException(str2);
         }
     }
 
-    private URL convertRequestToUrl(InternalRequest<AbstractBceRequest> internalRequest) {
+    public void deleteObject(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) {
+            deleteObject(new DeleteObjectRequest(str, str2));
+        }
+    }
+
+    public BosObject getObject(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, str, str2)) == null) {
+            return getObject(new GetObjectRequest(str, str2));
+        }
+        return (BosObject) invokeLL.objValue;
+    }
+
+    public byte[] getObjectContent(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, str, str2)) == null) {
+            return getObjectContent(new GetObjectRequest(str, str2));
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public ObjectMetadata getObjectMetadata(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, str, str2)) == null) {
+            return getObjectMetadata(new GetObjectMetadataRequest(str, str2));
+        }
+        return (ObjectMetadata) invokeLL.objValue;
+    }
+
+    public InitiateMultipartUploadResponse initiateMultipartUpload(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048618, this, str, str2)) == null) {
+            return initiateMultipartUpload(new InitiateMultipartUploadRequest(str, str2));
+        }
+        return (InitiateMultipartUploadResponse) invokeLL.objValue;
+    }
+
+    public ListObjectsResponse listObjects(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048626, this, str, str2)) == null) {
+            return listObjects(new ListObjectsRequest(str, str2));
+        }
+        return (ListObjectsResponse) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public PutObjectResponse putObject(PutObjectRequest putObjectRequest, BosProgressCallback bosProgressCallback) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048630, this, putObjectRequest, bosProgressCallback)) == null) {
+            putObjectRequest.setProgressCallback(bosProgressCallback);
+            return putObject(putObjectRequest);
+        }
+        return (PutObjectResponse) invokeLL.objValue;
+    }
+
+    public void setBucketAcl(String str, CannedAccessControlList cannedAccessControlList) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048640, this, str, cannedAccessControlList) == null) {
+            setBucketAcl(new SetBucketAclRequest(str, cannedAccessControlList));
+        }
+    }
+
+    @Deprecated
+    public UploadPartResponse uploadPart(UploadPartRequest uploadPartRequest, BosProgressCallback bosProgressCallback) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048642, this, uploadPartRequest, bosProgressCallback)) == null) {
+            uploadPartRequest.setProgressCallback(bosProgressCallback);
+            return uploadPart(uploadPartRequest);
+        }
+        return (UploadPartResponse) invokeLL.objValue;
+    }
+
+    private URL convertRequestToUrl(InternalRequest internalRequest) {
         InterceptResult invokeL;
         String str;
         String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, internalRequest)) == null) {
             String normalizePath = HttpUtils.normalizePath(internalRequest.getUri().getPath());
@@ -198,21 +399,26 @@ public class BosClient extends AbstractBceClient {
             if (normalizePath.startsWith("/")) {
                 normalizePath = normalizePath.substring(1);
             }
-            String str3 = getEndpoint() + ("/" + normalizePath).replaceAll("(?<=/)/", "%2F");
-            for (String str4 : internalRequest.getParameters().keySet()) {
+            String str4 = getEndpoint() + ("/" + normalizePath).replaceAll("(?<=/)/", "%2F");
+            for (String str5 : internalRequest.getParameters().keySet()) {
                 if (z) {
-                    str2 = str3 + "?";
+                    str3 = str4 + "?";
                     z = false;
                 } else {
-                    str2 = str3 + "&";
+                    str3 = str4 + "&";
                 }
-                str3 = str2 + str4 + "=" + HttpUtils.normalize(internalRequest.getParameters().get(str4));
+                str4 = str3 + str5 + "=" + HttpUtils.normalize((String) internalRequest.getParameters().get(str5));
             }
-            if (internalRequest.getHeaders().get("Authorization") != null) {
-                str3 = (z ? str3 + "?" : str3 + "&") + "authorization=" + HttpUtils.normalize(str);
+            if (((String) internalRequest.getHeaders().get("Authorization")) != null) {
+                if (z) {
+                    str2 = str4 + "?";
+                } else {
+                    str2 = str4 + "&";
+                }
+                str4 = str2 + "authorization=" + HttpUtils.normalize(str);
             }
             try {
-                return new URL(str3);
+                return new URL(str4);
             } catch (MalformedURLException e) {
                 throw new BceClientException("Unable to convert request to well formed URL: " + e.getMessage(), e);
             }
@@ -220,17 +426,97 @@ public class BosClient extends AbstractBceClient {
         return (URL) invokeL.objValue;
     }
 
-    private <T extends AbstractBceRequest> InternalRequest createRequest(T t, HttpMethodName httpMethodName) {
-        InterceptResult invokeLL;
-        Boolean isCnameEnabled;
+    public CopyObjectResponse copyObject(CopyObjectRequest copyObjectRequest) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, t, httpMethodName)) == null) {
-            InternalRequest internalRequest = new InternalRequest(httpMethodName, HttpUtils.appendUri(getEndpoint(), "v1", (!(t instanceof GenericBucketRequest) || ((isCnameEnabled = ((BosClientConfiguration) this.config).isCnameEnabled()) != Boolean.FALSE && (isCnameEnabled != null || BosUtils.isCnameLikeHost(getEndpoint().getHost())))) ? null : ((GenericBucketRequest) t).getBucketName(), t instanceof GenericObjectRequest ? ((GenericObjectRequest) t).getKey() : null));
-            internalRequest.setCredentials(t.getRequestCredentials());
-            internalRequest.setRequest(t);
-            return internalRequest;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, copyObjectRequest)) == null) {
+            CheckUtils.isNotNull(copyObjectRequest, "request should not be null.");
+            assertStringNotNullOrEmpty(copyObjectRequest.getSourceKey(), "object key should not be null or empty");
+            InternalRequest createRequest = createRequest(copyObjectRequest, HttpMethodName.PUT);
+            createRequest.addHeader(Headers.BCE_COPY_SOURCE, HttpUtils.normalizePath("/" + copyObjectRequest.getSourceBucketName() + "/" + copyObjectRequest.getSourceKey()));
+            if (copyObjectRequest.getETag() != null) {
+                createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_MATCH, "\"" + copyObjectRequest.getETag() + "\"");
+            }
+            if (copyObjectRequest.getNoneMatchETagConstraint() != null) {
+                createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_NONE_MATCH, "\"" + copyObjectRequest.getNoneMatchETagConstraint() + "\"");
+            }
+            if (copyObjectRequest.getUnmodifiedSinceConstraint() != null) {
+                createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_UNMODIFIED_SINCE, copyObjectRequest.getUnmodifiedSinceConstraint());
+            }
+            if (copyObjectRequest.getModifiedSinceConstraint() != null) {
+                createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_MODIFIED_SINCE, copyObjectRequest.getModifiedSinceConstraint());
+            }
+            if (copyObjectRequest.getStorageClass() != null) {
+                createRequest.addHeader(Headers.BCE_STORAGE_CLASS, copyObjectRequest.getStorageClass());
+            }
+            ObjectMetadata newObjectMetadata = copyObjectRequest.getNewObjectMetadata();
+            if (newObjectMetadata != null) {
+                createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, StickerDataChangeType.REPLACE);
+                populateRequestMetadata(createRequest, newObjectMetadata);
+            } else {
+                createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, "copy");
+            }
+            setZeroContentLength(createRequest);
+            CopyObjectResponseWithExceptionInfo copyObjectResponseWithExceptionInfo = (CopyObjectResponseWithExceptionInfo) invokeHttpClient(createRequest, CopyObjectResponseWithExceptionInfo.class);
+            if (copyObjectResponseWithExceptionInfo.getETag() == null && copyObjectResponseWithExceptionInfo.getLastModified() == null && copyObjectResponseWithExceptionInfo.getMessage() != null) {
+                BceServiceException bceServiceException = new BceServiceException(copyObjectResponseWithExceptionInfo.getMessage());
+                bceServiceException.setErrorCode(copyObjectResponseWithExceptionInfo.getCode());
+                bceServiceException.setRequestId(copyObjectResponseWithExceptionInfo.getRequestId());
+                if (bceServiceException.getErrorCode() == "InternalError") {
+                    bceServiceException.setErrorType(BceServiceException.ErrorType.Service);
+                } else {
+                    bceServiceException.setErrorType(BceServiceException.ErrorType.Client);
+                }
+                bceServiceException.setStatusCode(500);
+                throw bceServiceException;
+            }
+            return copyObjectResponseWithExceptionInfo;
         }
-        return (InternalRequest) invokeLL.objValue;
+        return (CopyObjectResponse) invokeL.objValue;
+    }
+
+    public URL generatePresignedUrl(GeneratePresignedUrlRequest generatePresignedUrlRequest) {
+        InterceptResult invokeL;
+        String bucketName;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, generatePresignedUrlRequest)) == null) {
+            CheckUtils.isNotNull(generatePresignedUrlRequest, "The request parameter must be specified when generating a pre-signed URL");
+            HttpMethodName valueOf = HttpMethodName.valueOf(generatePresignedUrlRequest.getMethod().toString());
+            Boolean isCnameEnabled = ((BosClientConfiguration) this.config).isCnameEnabled();
+            if (isCnameEnabled != Boolean.FALSE && (isCnameEnabled != null || BosUtils.isCnameLikeHost(getEndpoint().getHost()))) {
+                bucketName = null;
+            } else {
+                bucketName = generatePresignedUrlRequest.getBucketName();
+            }
+            InternalRequest internalRequest = new InternalRequest(valueOf, HttpUtils.appendUri(getEndpoint(), "v1", bucketName, generatePresignedUrlRequest.getKey()));
+            internalRequest.setCredentials(generatePresignedUrlRequest.getRequestCredentials());
+            SignOptions signOptions = new SignOptions();
+            signOptions.setExpirationInSeconds(generatePresignedUrlRequest.getExpiration());
+            for (Map.Entry entry : generatePresignedUrlRequest.getRequestHeaders().entrySet()) {
+                if (entry.getValue() == null) {
+                    internalRequest.addHeader((String) entry.getKey(), "");
+                } else {
+                    internalRequest.addHeader((String) entry.getKey(), (String) entry.getValue());
+                }
+            }
+            for (Map.Entry entry2 : generatePresignedUrlRequest.getRequestParameters().entrySet()) {
+                if (entry2.getValue() == null) {
+                    internalRequest.addParameter((String) entry2.getKey(), "");
+                } else {
+                    internalRequest.addParameter((String) entry2.getKey(), (String) entry2.getValue());
+                }
+            }
+            if (generatePresignedUrlRequest.getContentType() != null) {
+                internalRequest.addHeader("Content-Type", generatePresignedUrlRequest.getContentType());
+            }
+            if (generatePresignedUrlRequest.getContentMd5() != null) {
+                internalRequest.addHeader(Headers.CONTENT_MD5, generatePresignedUrlRequest.getContentMd5());
+            }
+            addResponseHeaderParameters(internalRequest, generatePresignedUrlRequest.getResponseHeaders());
+            new BceV1Signer().sign(internalRequest, this.config.getCredentials(), signOptions);
+            return convertRequestToUrl(internalRequest);
+        }
+        return (URL) invokeL.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0076 */
@@ -301,7 +587,7 @@ public class BosClient extends AbstractBceClient {
                         BLog.error("Unable to verify the integrity of the downloaded file", (Throwable) e);
                         bArr = null;
                         bArr2 = objectMetadata;
-                        if (bArr2 == null) {
+                        if (bArr2 != null) {
                         }
                     }
                     if (objectMetadata.getBceContentSha256() != null) {
@@ -314,13 +600,13 @@ public class BosClient extends AbstractBceClient {
                         objectMetadata = decode;
                     } else {
                         bArr = null;
-                        if (bArr2 == null || bArr == null || Arrays.equals(bArr, bArr2)) {
-                            return;
+                        if (bArr2 != null && bArr != null && !Arrays.equals(bArr, bArr2)) {
+                            throw new BceClientException("Integrity verification failed! Client calculated content hash didn't match hash from server. The data stored in '" + file.getAbsolutePath() + "' may be corrupt.");
                         }
-                        throw new BceClientException("Integrity verification failed! Client calculated content hash didn't match hash from server. The data stored in '" + file.getAbsolutePath() + "' may be corrupt.");
+                        return;
                     }
                     bArr2 = objectMetadata;
-                    if (bArr2 == null) {
+                    if (bArr2 != null) {
                     }
                 }
             } catch (IOException e6) {
@@ -350,12 +636,6 @@ public class BosClient extends AbstractBceClient {
                 throw th;
             }
         }
-    }
-
-    private int getStreamBufferSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? ((BosClientConfiguration) this.config).getStreamBufferSize() : invokeV.intValue;
     }
 
     public static void populateRequestMetadata(InternalRequest internalRequest, ObjectMetadata objectMetadata) {
@@ -391,17 +671,17 @@ public class BosClient extends AbstractBceClient {
             if (objectMetadata.getCrc32() != null) {
                 internalRequest.addHeader(Headers.BCE_CRC32, String.valueOf(objectMetadata.getCrc32()));
             }
-            Map<String, String> userMetadata = objectMetadata.getUserMetadata();
+            Map userMetadata = objectMetadata.getUserMetadata();
             if (userMetadata != null) {
-                for (Map.Entry<String, String> entry : userMetadata.entrySet()) {
-                    String key = entry.getKey();
-                    if (key != null) {
-                        String value = entry.getValue();
-                        if (value == null) {
-                            value = "";
+                for (Map.Entry entry : userMetadata.entrySet()) {
+                    String str = (String) entry.getKey();
+                    if (str != null) {
+                        String str2 = (String) entry.getValue();
+                        if (str2 == null) {
+                            str2 = "";
                         }
-                        if (key.length() + value.length() <= 32768) {
-                            internalRequest.addHeader(Headers.BCE_USER_METADATA_PREFIX + HttpUtils.normalize(key.trim()), HttpUtils.normalize(value));
+                        if (str.length() + str2.length() <= 32768) {
+                            internalRequest.addHeader(Headers.BCE_USER_METADATA_PREFIX + HttpUtils.normalize(str.trim()), HttpUtils.normalize(str2));
                         } else {
                             throw new BceClientException("MetadataTooLarge");
                         }
@@ -411,32 +691,33 @@ public class BosClient extends AbstractBceClient {
         }
     }
 
-    private List<byte[]> readAll(InputStream inputStream, ObjectMetadata objectMetadata) {
+    private List readAll(InputStream inputStream, ObjectMetadata objectMetadata) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65546, this, inputStream, objectMetadata)) != null) {
-            return (List) invokeLL.objValue;
-        }
-        ArrayList arrayList = new ArrayList();
-        int streamBufferSize = getStreamBufferSize();
-        long j = 0;
-        while (true) {
-            byte[] bArr = new byte[streamBufferSize];
-            arrayList.add(bArr);
-            int i = 0;
-            while (i < streamBufferSize) {
-                try {
-                    int read = inputStream.read(bArr, i, streamBufferSize - i);
-                    if (read < 0) {
-                        objectMetadata.setContentLength(j);
-                        return arrayList;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, inputStream, objectMetadata)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int streamBufferSize = getStreamBufferSize();
+            long j = 0;
+            while (true) {
+                byte[] bArr = new byte[streamBufferSize];
+                arrayList.add(bArr);
+                int i = 0;
+                while (i < streamBufferSize) {
+                    try {
+                        int read = inputStream.read(bArr, i, streamBufferSize - i);
+                        if (read < 0) {
+                            objectMetadata.setContentLength(j);
+                            return arrayList;
+                        }
+                        j += read;
+                        i += read;
+                    } catch (IOException e) {
+                        throw new BceClientException("Fail to read data:" + e.getMessage(), e);
                     }
-                    j += read;
-                    i += read;
-                } catch (IOException e) {
-                    throw new BceClientException("Fail to read data:" + e.getMessage(), e);
                 }
             }
+        } else {
+            return (List) invokeLL.objValue;
         }
     }
 
@@ -445,6 +726,132 @@ public class BosClient extends AbstractBceClient {
         if (interceptable == null || interceptable.invokeL(65547, this, internalRequest) == null) {
             internalRequest.addHeader("Content-Length", String.valueOf(0));
         }
+    }
+
+    private RestartableInputStream wrapRestartableInputStream(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, inputStream)) == null) {
+            if (inputStream.markSupported()) {
+                return new RestartableResettableInputStream(inputStream);
+            }
+            return new RestartableNonResettableInputStream(inputStream, getStreamBufferSize());
+        }
+        return (RestartableInputStream) invokeL.objValue;
+    }
+
+    public void abortMultipartUpload(AbortMultipartUploadRequest abortMultipartUploadRequest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, abortMultipartUploadRequest) == null) {
+            CheckUtils.isNotNull(abortMultipartUploadRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(abortMultipartUploadRequest, HttpMethodName.DELETE);
+            createRequest.addParameter("uploadId", abortMultipartUploadRequest.getUploadId());
+            invokeHttpClient(createRequest, BosResponse.class);
+        }
+    }
+
+    public CreateBucketResponse createBucket(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            return createBucket(new CreateBucketRequest(str));
+        }
+        return (CreateBucketResponse) invokeL.objValue;
+    }
+
+    public void deleteBucket(DeleteBucketRequest deleteBucketRequest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, deleteBucketRequest) == null) {
+            CheckUtils.isNotNull(deleteBucketRequest, "request should not be null.");
+            invokeHttpClient(createRequest(deleteBucketRequest, HttpMethodName.DELETE), BosResponse.class);
+        }
+    }
+
+    public void deleteObject(DeleteObjectRequest deleteObjectRequest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, deleteObjectRequest) == null) {
+            CheckUtils.isNotNull(deleteObjectRequest, "request should not be null.");
+            assertStringNotNullOrEmpty(deleteObjectRequest.getKey(), "object key should not be null or empty");
+            invokeHttpClient(createRequest(deleteObjectRequest, HttpMethodName.DELETE), BosResponse.class);
+        }
+    }
+
+    public boolean doesBucketExist(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            return doesBucketExist(new DoesBucketExistRequest(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public User getBosAccountOwner(GetBosAccountOwnerRequest getBosAccountOwnerRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, getBosAccountOwnerRequest)) == null) {
+            CheckUtils.isNotNull(getBosAccountOwnerRequest, "request should not be null.");
+            return ((ListBucketsResponse) invokeHttpClient(createRequest(getBosAccountOwnerRequest, HttpMethodName.GET), ListBucketsResponse.class)).getOwner();
+        }
+        return (User) invokeL.objValue;
+    }
+
+    public GetBucketAclResponse getBucketAcl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+            return getBucketAcl(new GetBucketAclRequest(str));
+        }
+        return (GetBucketAclResponse) invokeL.objValue;
+    }
+
+    public GetBucketLocationResponse getBucketLocation(GetBucketLocationRequest getBucketLocationRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, getBucketLocationRequest)) == null) {
+            CheckUtils.isNotNull(getBucketLocationRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(getBucketLocationRequest, HttpMethodName.GET);
+            createRequest.addParameter("location", null);
+            return (GetBucketLocationResponse) invokeHttpClient(createRequest, GetBucketLocationResponse.class);
+        }
+        return (GetBucketLocationResponse) invokeL.objValue;
+    }
+
+    public ObjectMetadata getObjectMetadata(GetObjectMetadataRequest getObjectMetadataRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, getObjectMetadataRequest)) == null) {
+            CheckUtils.isNotNull(getObjectMetadataRequest, "request should not be null.");
+            return ((GetObjectResponse) invokeHttpClient(createRequest(getObjectMetadataRequest, HttpMethodName.HEAD), GetObjectResponse.class)).getObject().getObjectMetadata();
+        }
+        return (ObjectMetadata) invokeL.objValue;
+    }
+
+    public ListBucketsResponse listBuckets(ListBucketsRequest listBucketsRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, listBucketsRequest)) == null) {
+            CheckUtils.isNotNull(listBucketsRequest, "request should not be null.");
+            return (ListBucketsResponse) invokeHttpClient(createRequest(listBucketsRequest, HttpMethodName.GET), ListBucketsResponse.class);
+        }
+        return (ListBucketsResponse) invokeL.objValue;
+    }
+
+    public ListMultipartUploadsResponse listMultipartUploads(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, str)) == null) {
+            return listMultipartUploads(new ListMultipartUploadsRequest(str));
+        }
+        return (ListMultipartUploadsResponse) invokeL.objValue;
+    }
+
+    public ListObjectsResponse listObjects(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) {
+            return listObjects(new ListObjectsRequest(str));
+        }
+        return (ListObjectsResponse) invokeL.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -543,16 +950,22 @@ public class BosClient extends AbstractBceClient {
         return (BosResponse) invokeLL.objValue;
     }
 
-    private RestartableInputStream wrapRestartableInputStream(InputStream inputStream) {
-        InterceptResult invokeL;
+    private RestartableInputStream wrapRestartableInputStream(InputStream inputStream, Long l) {
+        InterceptResult invokeLL;
+        int intValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, inputStream)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, inputStream, l)) == null) {
             if (inputStream.markSupported()) {
                 return new RestartableResettableInputStream(inputStream);
             }
-            return new RestartableNonResettableInputStream(inputStream, getStreamBufferSize());
+            if (l.longValue() > getStreamBufferSize()) {
+                intValue = getStreamBufferSize();
+            } else {
+                intValue = l.intValue();
+            }
+            return new RestartableNonResettableInputStream(inputStream, intValue);
         }
-        return (RestartableInputStream) invokeL.objValue;
+        return (RestartableInputStream) invokeLL.objValue;
     }
 
     public void abortMultipartUpload(String str, String str2, String str3) {
@@ -565,105 +978,96 @@ public class BosClient extends AbstractBceClient {
     public AppendObjectResponse appendObject(String str, String str2, File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, file)) == null) ? appendObject(new AppendObjectRequest(str, str2, file)) : (AppendObjectResponse) invokeLLL.objValue;
-    }
-
-    public CompleteMultipartUploadResponse completeMultipartUpload(String str, String str2, String str3, List<PartETag> list) throws JSONException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, str2, str3, list)) == null) ? completeMultipartUpload(new CompleteMultipartUploadRequest(str, str2, str3, list)) : (CompleteMultipartUploadResponse) invokeLLLL.objValue;
-    }
-
-    public CopyObjectResponse copyObject(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048591, this, str, str2, str3, str4)) == null) ? copyObject(new CopyObjectRequest(str, str2, str3, str4)) : (CopyObjectResponse) invokeLLLL.objValue;
-    }
-
-    public CreateBucketResponse createBucket(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? createBucket(new CreateBucketRequest(str)) : (CreateBucketResponse) invokeL.objValue;
-    }
-
-    public void deleteBucket(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            deleteBucket(new DeleteBucketRequest(str));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, file)) == null) {
+            return appendObject(new AppendObjectRequest(str, str2, file));
         }
-    }
-
-    public void deleteObject(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) {
-            deleteObject(new DeleteObjectRequest(str, str2));
-        }
-    }
-
-    public boolean doesBucketExist(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) ? doesBucketExist(new DoesBucketExistRequest(str)) : invokeL.booleanValue;
+        return (AppendObjectResponse) invokeLLL.objValue;
     }
 
     public URL generatePresignedUrl(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048601, this, str, str2, i)) == null) ? generatePresignedUrl(str, str2, i, HttpMethodName.GET) : (URL) invokeLLI.objValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048601, this, str, str2, i)) == null) {
+            return generatePresignedUrl(str, str2, i, HttpMethodName.GET);
+        }
+        return (URL) invokeLLI.objValue;
     }
 
-    public User getBosAccountOwner() {
-        InterceptResult invokeV;
+    public ObjectMetadata getObject(String str, String str2, File file) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? getBosAccountOwner(new GetBosAccountOwnerRequest()) : (User) invokeV.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048612, this, str, str2, file)) == null) {
+            return getObject(new GetObjectRequest(str, str2), file);
+        }
+        return (ObjectMetadata) invokeLLL.objValue;
     }
 
-    public GetBucketAclResponse getBucketAcl(String str) {
+    public ListPartsResponse listParts(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048628, this, str, str2, str3)) == null) {
+            return listParts(new ListPartsRequest(str, str2, str3));
+        }
+        return (ListPartsResponse) invokeLLL.objValue;
+    }
+
+    public PutObjectResponse putObject(String str, String str2, File file) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048631, this, str, str2, file)) == null) {
+            return putObject(new PutObjectRequest(str, str2, file));
+        }
+        return (PutObjectResponse) invokeLLL.objValue;
+    }
+
+    public AppendObjectResponse appendObject(AppendObjectRequest appendObjectRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) ? getBucketAcl(new GetBucketAclRequest(str)) : (GetBucketAclResponse) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appendObjectRequest)) == null) {
+            CheckUtils.isNotNull(appendObjectRequest, "request should not be null.");
+            assertStringNotNullOrEmpty(appendObjectRequest.getKey(), "object key should not be null or empty");
+            InternalRequest createRequest = createRequest(appendObjectRequest, HttpMethodName.POST);
+            createRequest.addParameter("append", null);
+            if (appendObjectRequest.getOffset() != null) {
+                createRequest.addParameter("offset", appendObjectRequest.getOffset().toString());
+            }
+            BosResponse uploadObject = uploadObject(appendObjectRequest, createRequest);
+            AppendObjectResponse appendObjectResponse = new AppendObjectResponse();
+            appendObjectResponse.setNextAppendOffset(uploadObject.getMetadata().getNextAppendOffset());
+            appendObjectResponse.setContentMd5(uploadObject.getMetadata().getContentMd5());
+            appendObjectResponse.setETag(uploadObject.getMetadata().getETag());
+            appendObjectResponse.setCrc32(uploadObject.getMetadata().getCrc32());
+            appendObjectResponse.setNextAppendOffset(uploadObject.getMetadata().getNextAppendOffset());
+            return appendObjectResponse;
+        }
+        return (AppendObjectResponse) invokeL.objValue;
     }
 
-    public GetBucketLocationResponse getBucketLocation(String str) {
+    public CompleteMultipartUploadResponse completeMultipartUpload(CompleteMultipartUploadRequest completeMultipartUploadRequest) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) ? getBucketLocation(new GetBucketLocationRequest(str)) : (GetBucketLocationResponse) invokeL.objValue;
-    }
-
-    public BosObject getObject(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, str, str2)) == null) ? getObject(new GetObjectRequest(str, str2)) : (BosObject) invokeLL.objValue;
-    }
-
-    public byte[] getObjectContent(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, str, str2)) == null) ? getObjectContent(new GetObjectRequest(str, str2)) : (byte[]) invokeLL.objValue;
-    }
-
-    public ObjectMetadata getObjectMetadata(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, str, str2)) == null) ? getObjectMetadata(new GetObjectMetadataRequest(str, str2)) : (ObjectMetadata) invokeLL.objValue;
-    }
-
-    public InitiateMultipartUploadResponse initiateMultipartUpload(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048618, this, str, str2)) == null) ? initiateMultipartUpload(new InitiateMultipartUploadRequest(str, str2)) : (InitiateMultipartUploadResponse) invokeLL.objValue;
-    }
-
-    public ListBucketsResponse listBuckets() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? listBuckets(new ListBucketsRequest()) : (ListBucketsResponse) invokeV.objValue;
-    }
-
-    public ListMultipartUploadsResponse listMultipartUploads(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, str)) == null) ? listMultipartUploads(new ListMultipartUploadsRequest(str)) : (ListMultipartUploadsResponse) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, completeMultipartUploadRequest)) == null) {
+            CheckUtils.isNotNull(completeMultipartUploadRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(completeMultipartUploadRequest, HttpMethodName.POST);
+            createRequest.addParameter("uploadId", completeMultipartUploadRequest.getUploadId());
+            ObjectMetadata objectMetadata = completeMultipartUploadRequest.getObjectMetadata();
+            if (objectMetadata != null) {
+                populateRequestMetadata(createRequest, objectMetadata);
+            }
+            try {
+                byte[] bytes = JsonUtils.setPartETag(completeMultipartUploadRequest.getPartETags()).getBytes("UTF-8");
+                createRequest.addHeader("Content-Length", String.valueOf(bytes.length));
+                createRequest.addHeader("Content-Type", "application/json");
+                createRequest.setContent(RestartableInputStream.wrap(bytes));
+                CompleteMultipartUploadResponse completeMultipartUploadResponse = (CompleteMultipartUploadResponse) invokeHttpClient(createRequest, CompleteMultipartUploadResponse.class);
+                completeMultipartUploadResponse.setBucketName(completeMultipartUploadRequest.getBucketName());
+                completeMultipartUploadResponse.setCrc32(completeMultipartUploadResponse.getMetadata().getCrc32());
+                return completeMultipartUploadResponse;
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get UTF-8 bytes:" + e.getMessage(), e);
+            }
+        }
+        return (CompleteMultipartUploadResponse) invokeL.objValue;
     }
 
     public ListObjectsResponse listNextBatchOfObjects(ListObjectsResponse listObjectsResponse) {
@@ -686,69 +1090,55 @@ public class BosClient extends AbstractBceClient {
         return (ListObjectsResponse) invokeL.objValue;
     }
 
-    public ListObjectsResponse listObjects(String str) {
+    public ListObjectsResponse listObjects(ListObjectsRequest listObjectsRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) ? listObjects(new ListObjectsRequest(str)) : (ListObjectsResponse) invokeL.objValue;
-    }
-
-    public ListPartsResponse listParts(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048628, this, str, str2, str3)) == null) ? listParts(new ListPartsRequest(str, str2, str3)) : (ListPartsResponse) invokeLLL.objValue;
-    }
-
-    public PutObjectResponse putObject(String str, String str2, File file) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048631, this, str, str2, file)) == null) ? putObject(new PutObjectRequest(str, str2, file)) : (PutObjectResponse) invokeLLL.objValue;
-    }
-
-    public void setBucketAcl(String str, CannedAccessControlList cannedAccessControlList) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048640, this, str, cannedAccessControlList) == null) {
-            setBucketAcl(new SetBucketAclRequest(str, cannedAccessControlList));
-        }
-    }
-
-    @Deprecated
-    public UploadPartResponse uploadPart(UploadPartRequest uploadPartRequest, BosProgressCallback bosProgressCallback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048642, this, uploadPartRequest, bosProgressCallback)) == null) {
-            uploadPartRequest.setProgressCallback(bosProgressCallback);
-            return uploadPart(uploadPartRequest);
-        }
-        return (UploadPartResponse) invokeLL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BosClient(BosClientConfiguration bosClientConfiguration) {
-        super(bosClientConfiguration, bos_handlers);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bosClientConfiguration};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((BceClientConfiguration) objArr2[0], (HttpResponseHandler[]) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, listObjectsRequest)) == null) {
+            CheckUtils.isNotNull(listObjectsRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(listObjectsRequest, HttpMethodName.GET);
+            if (listObjectsRequest.getPrefix() != null) {
+                createRequest.addParameter("prefix", listObjectsRequest.getPrefix());
             }
+            if (listObjectsRequest.getMarker() != null) {
+                createRequest.addParameter("marker", listObjectsRequest.getMarker());
+            }
+            if (listObjectsRequest.getDelimiter() != null) {
+                createRequest.addParameter("delimiter", listObjectsRequest.getDelimiter());
+            }
+            if (listObjectsRequest.getMaxKeys() >= 0) {
+                createRequest.addParameter("maxKeys", String.valueOf(listObjectsRequest.getMaxKeys()));
+            }
+            ListObjectsResponse listObjectsResponse = (ListObjectsResponse) invokeHttpClient(createRequest, ListObjectsResponse.class);
+            listObjectsResponse.setBucketName(listObjectsRequest.getBucketName());
+            for (BosObjectSummary bosObjectSummary : listObjectsResponse.getContents()) {
+                bosObjectSummary.setBucketName(listObjectsRequest.getBucketName());
+            }
+            return listObjectsResponse;
         }
+        return (ListObjectsResponse) invokeL.objValue;
     }
 
-    public void abortMultipartUpload(AbortMultipartUploadRequest abortMultipartUploadRequest) {
+    public void setBucketAcl(SetBucketAclRequest setBucketAclRequest) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, abortMultipartUploadRequest) == null) {
-            CheckUtils.isNotNull(abortMultipartUploadRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(abortMultipartUploadRequest, HttpMethodName.DELETE);
-            createRequest.addParameter("uploadId", abortMultipartUploadRequest.getUploadId());
+        if (interceptable == null || interceptable.invokeL(1048639, this, setBucketAclRequest) == null) {
+            CheckUtils.isNotNull(setBucketAclRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(setBucketAclRequest, HttpMethodName.PUT);
+            createRequest.addParameter("acl", null);
+            if (setBucketAclRequest.getCannedAcl() != null) {
+                createRequest.addHeader(Headers.BCE_ACL, setBucketAclRequest.getCannedAcl().toString());
+                setZeroContentLength(createRequest);
+            } else if (setBucketAclRequest.getAccessControlList() != null) {
+                try {
+                    byte[] bytes = JsonUtils.setAclJson(setBucketAclRequest.getAccessControlList()).getBytes("UTF-8");
+                    createRequest.addHeader("Content-Length", String.valueOf(bytes.length));
+                    createRequest.addHeader("Content-Type", "application/json");
+                    createRequest.setContent(RestartableInputStream.wrap(bytes));
+                } catch (UnsupportedEncodingException e) {
+                    throw new BceClientException("Fail to get UTF-8 bytes:" + e.getMessage(), e);
+                }
+            } else {
+                CheckUtils.isNotNull(null, "request.acl should not be null.");
+            }
             invokeHttpClient(createRequest, BosResponse.class);
         }
     }
@@ -756,66 +1146,28 @@ public class BosClient extends AbstractBceClient {
     public AppendObjectResponse appendObject(String str, String str2, File file, ObjectMetadata objectMetadata) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, file, objectMetadata)) == null) ? appendObject(new AppendObjectRequest(str, str2, file, objectMetadata)) : (AppendObjectResponse) invokeLLLL.objValue;
-    }
-
-    public CompleteMultipartUploadResponse completeMultipartUpload(String str, String str2, String str3, List<PartETag> list, ObjectMetadata objectMetadata) throws JSONException {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048589, this, str, str2, str3, list, objectMetadata)) == null) ? completeMultipartUpload(new CompleteMultipartUploadRequest(str, str2, str3, list, objectMetadata)) : (CompleteMultipartUploadResponse) invokeLLLLL.objValue;
-    }
-
-    public CreateBucketResponse createBucket(CreateBucketRequest createBucketRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, createBucketRequest)) == null) {
-            CheckUtils.isNotNull(createBucketRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(createBucketRequest, HttpMethodName.PUT);
-            setZeroContentLength(createRequest);
-            CreateBucketResponse createBucketResponse = new CreateBucketResponse();
-            createBucketResponse.setName(createBucketRequest.getBucketName());
-            createBucketResponse.setLocation(((BosResponse) invokeHttpClient(createRequest, BosResponse.class)).getMetadata().getLocation());
-            return createBucketResponse;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, file, objectMetadata)) == null) {
+            return appendObject(new AppendObjectRequest(str, str2, file, objectMetadata));
         }
-        return (CreateBucketResponse) invokeL.objValue;
+        return (AppendObjectResponse) invokeLLLL.objValue;
     }
 
-    public void deleteBucket(DeleteBucketRequest deleteBucketRequest) {
+    public CompleteMultipartUploadResponse completeMultipartUpload(String str, String str2, String str3, List list) throws JSONException {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, deleteBucketRequest) == null) {
-            CheckUtils.isNotNull(deleteBucketRequest, "request should not be null.");
-            invokeHttpClient(createRequest(deleteBucketRequest, HttpMethodName.DELETE), BosResponse.class);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, str2, str3, list)) == null) {
+            return completeMultipartUpload(new CompleteMultipartUploadRequest(str, str2, str3, list));
         }
+        return (CompleteMultipartUploadResponse) invokeLLLL.objValue;
     }
 
-    public void deleteObject(DeleteObjectRequest deleteObjectRequest) {
+    public CopyObjectResponse copyObject(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, deleteObjectRequest) == null) {
-            CheckUtils.isNotNull(deleteObjectRequest, "request should not be null.");
-            assertStringNotNullOrEmpty(deleteObjectRequest.getKey(), "object key should not be null or empty");
-            invokeHttpClient(createRequest(deleteObjectRequest, HttpMethodName.DELETE), BosResponse.class);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048591, this, str, str2, str3, str4)) == null) {
+            return copyObject(new CopyObjectRequest(str, str2, str3, str4));
         }
-    }
-
-    public boolean doesBucketExist(DoesBucketExistRequest doesBucketExistRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, doesBucketExistRequest)) == null) {
-            CheckUtils.isNotNull(doesBucketExistRequest, "request should not be null.");
-            try {
-                invokeHttpClient(createRequest(doesBucketExistRequest, HttpMethodName.HEAD), BosResponse.class);
-                return true;
-            } catch (BceServiceException e) {
-                if (e.getStatusCode() == 403) {
-                    return true;
-                }
-                if (e.getStatusCode() == 404) {
-                    return false;
-                }
-                throw e;
-            }
-        }
-        return invokeL.booleanValue;
+        return (CopyObjectResponse) invokeLLLL.objValue;
     }
 
     public URL generatePresignedUrl(String str, String str2, int i, HttpMethodName httpMethodName) {
@@ -829,48 +1181,174 @@ public class BosClient extends AbstractBceClient {
         return (URL) invokeLLIL.objValue;
     }
 
-    public User getBosAccountOwner(GetBosAccountOwnerRequest getBosAccountOwnerRequest) {
-        InterceptResult invokeL;
+    public PutObjectResponse putObject(String str, String str2, File file, ObjectMetadata objectMetadata) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, getBosAccountOwnerRequest)) == null) {
-            CheckUtils.isNotNull(getBosAccountOwnerRequest, "request should not be null.");
-            return ((ListBucketsResponse) invokeHttpClient(createRequest(getBosAccountOwnerRequest, HttpMethodName.GET), ListBucketsResponse.class)).getOwner();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048632, this, str, str2, file, objectMetadata)) == null) {
+            return putObject(new PutObjectRequest(str, str2, file, objectMetadata));
         }
-        return (User) invokeL.objValue;
+        return (PutObjectResponse) invokeLLLL.objValue;
     }
 
-    public GetBucketAclResponse getBucketAcl(GetBucketAclRequest getBucketAclRequest) {
-        InterceptResult invokeL;
+    public AppendObjectResponse appendObject(String str, String str2, InputStream inputStream) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, getBucketAclRequest)) == null) {
-            CheckUtils.isNotNull(getBucketAclRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(getBucketAclRequest, HttpMethodName.GET);
-            createRequest.addParameter("acl", null);
-            GetBucketAclResponse getBucketAclResponse = (GetBucketAclResponse) invokeHttpClient(createRequest, GetBucketAclResponse.class);
-            if (getBucketAclResponse.getVersion() <= 1) {
-                return getBucketAclResponse;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, inputStream)) == null) {
+            return appendObject(new AppendObjectRequest(str, str2, inputStream));
+        }
+        return (AppendObjectResponse) invokeLLL.objValue;
+    }
+
+    public PutObjectResponse putObject(String str, String str2, InputStream inputStream) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048633, this, str, str2, inputStream)) == null) {
+            return putObject(new PutObjectRequest(str, str2, inputStream));
+        }
+        return (PutObjectResponse) invokeLLL.objValue;
+    }
+
+    public AppendObjectResponse appendObject(String str, String str2, InputStream inputStream, ObjectMetadata objectMetadata) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, str, str2, inputStream, objectMetadata)) == null) {
+            return appendObject(new AppendObjectRequest(str, str2, inputStream, objectMetadata));
+        }
+        return (AppendObjectResponse) invokeLLLL.objValue;
+    }
+
+    public PutObjectResponse putObject(String str, String str2, InputStream inputStream, ObjectMetadata objectMetadata) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048634, this, str, str2, inputStream, objectMetadata)) == null) {
+            return putObject(new PutObjectRequest(str, str2, inputStream, objectMetadata));
+        }
+        return (PutObjectResponse) invokeLLLL.objValue;
+    }
+
+    public AppendObjectResponse appendObject(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, str3)) == null) {
+            try {
+                return appendObject(str, str2, str3.getBytes("UTF-8"), new ObjectMetadata());
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get bytes.", e);
             }
-            throw new BceClientException("Unsupported acl version.");
         }
-        return (GetBucketAclResponse) invokeL.objValue;
+        return (AppendObjectResponse) invokeLLL.objValue;
     }
 
-    public GetBucketLocationResponse getBucketLocation(GetBucketLocationRequest getBucketLocationRequest) {
+    public PutObjectResponse putObject(String str, String str2, byte[] bArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048637, this, str, str2, bArr)) == null) {
+            return putObject(str, str2, bArr, new ObjectMetadata());
+        }
+        return (PutObjectResponse) invokeLLL.objValue;
+    }
+
+    public AppendObjectResponse appendObject(String str, String str2, String str3, ObjectMetadata objectMetadata) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, objectMetadata)) == null) {
+            try {
+                return appendObject(str, str2, str3.getBytes("UTF-8"), objectMetadata);
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get bytes.", e);
+            }
+        }
+        return (AppendObjectResponse) invokeLLLL.objValue;
+    }
+
+    public PutObjectResponse putObject(String str, String str2, byte[] bArr, ObjectMetadata objectMetadata) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048638, this, str, str2, bArr, objectMetadata)) == null) {
+            if (objectMetadata.getContentLength() == -1) {
+                objectMetadata.setContentLength(bArr.length);
+            }
+            return putObject(new PutObjectRequest(str, str2, RestartableInputStream.wrap(bArr), objectMetadata));
+        }
+        return (PutObjectResponse) invokeLLLL.objValue;
+    }
+
+    public AppendObjectResponse appendObject(String str, String str2, byte[] bArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, str, str2, bArr)) == null) {
+            return appendObject(str, str2, bArr, new ObjectMetadata());
+        }
+        return (AppendObjectResponse) invokeLLL.objValue;
+    }
+
+    public AppendObjectResponse appendObject(String str, String str2, byte[] bArr, ObjectMetadata objectMetadata) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, str, str2, bArr, objectMetadata)) == null) {
+            CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
+            if (objectMetadata.getContentLength() == -1) {
+                objectMetadata.setContentLength(bArr.length);
+            }
+            return appendObject(new AppendObjectRequest(str, str2, RestartableInputStream.wrap(bArr), objectMetadata));
+        }
+        return (AppendObjectResponse) invokeLLLL.objValue;
+    }
+
+    public PutObjectResponse putObject(String str, String str2, String str3, ObjectMetadata objectMetadata) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048636, this, str, str2, str3, objectMetadata)) == null) {
+            try {
+                return putObject(str, str2, str3.getBytes("UTF-8"), objectMetadata);
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get bytes:" + e.getMessage(), e);
+            }
+        }
+        return (PutObjectResponse) invokeLLLL.objValue;
+    }
+
+    public CompleteMultipartUploadResponse completeMultipartUpload(String str, String str2, String str3, List list, ObjectMetadata objectMetadata) throws JSONException {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048589, this, str, str2, str3, list, objectMetadata)) == null) {
+            return completeMultipartUpload(new CompleteMultipartUploadRequest(str, str2, str3, list, objectMetadata));
+        }
+        return (CompleteMultipartUploadResponse) invokeLLLLL.objValue;
+    }
+
+    public void deleteBucket(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            deleteBucket(new DeleteBucketRequest(str));
+        }
+    }
+
+    public GetBucketLocationResponse getBucketLocation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, getBucketLocationRequest)) == null) {
-            CheckUtils.isNotNull(getBucketLocationRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(getBucketLocationRequest, HttpMethodName.GET);
-            createRequest.addParameter("location", null);
-            return (GetBucketLocationResponse) invokeHttpClient(createRequest, GetBucketLocationResponse.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, str)) == null) {
+            return getBucketLocation(new GetBucketLocationRequest(str));
         }
         return (GetBucketLocationResponse) invokeL.objValue;
     }
 
-    public ObjectMetadata getObject(String str, String str2, File file) {
-        InterceptResult invokeLLL;
+    public BosObject getObject(GetObjectRequest getObjectRequest) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048612, this, str, str2, file)) == null) ? getObject(new GetObjectRequest(str, str2), file) : (ObjectMetadata) invokeLLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, getObjectRequest)) == null) {
+            CheckUtils.isNotNull(getObjectRequest, "request should not be null.");
+            InternalRequest createRequest = createRequest(getObjectRequest, HttpMethodName.GET);
+            long[] range = getObjectRequest.getRange();
+            if (range != null) {
+                createRequest.addHeader("Range", "bytes=" + range[0] + "-" + range[1]);
+            }
+            BosObject object = ((GetObjectResponse) invokeHttpClient(createRequest, GetObjectResponse.class)).getObject();
+            object.setBucketName(getObjectRequest.getBucketName());
+            object.setKey(getObjectRequest.getKey());
+            return object;
+        }
+        return (BosObject) invokeL.objValue;
     }
 
     public byte[] getObjectContent(GetObjectRequest getObjectRequest) {
@@ -904,16 +1382,6 @@ public class BosClient extends AbstractBceClient {
         return (byte[]) invokeL.objValue;
     }
 
-    public ObjectMetadata getObjectMetadata(GetObjectMetadataRequest getObjectMetadataRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, getObjectMetadataRequest)) == null) {
-            CheckUtils.isNotNull(getObjectMetadataRequest, "request should not be null.");
-            return ((GetObjectResponse) invokeHttpClient(createRequest(getObjectMetadataRequest, HttpMethodName.HEAD), GetObjectResponse.class)).getObject().getObjectMetadata();
-        }
-        return (ObjectMetadata) invokeL.objValue;
-    }
-
     public InitiateMultipartUploadResponse initiateMultipartUpload(InitiateMultipartUploadRequest initiateMultipartUploadRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -931,16 +1399,6 @@ public class BosClient extends AbstractBceClient {
             return (InitiateMultipartUploadResponse) invokeHttpClient(createRequest, InitiateMultipartUploadResponse.class);
         }
         return (InitiateMultipartUploadResponse) invokeL.objValue;
-    }
-
-    public ListBucketsResponse listBuckets(ListBucketsRequest listBucketsRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, listBucketsRequest)) == null) {
-            CheckUtils.isNotNull(listBucketsRequest, "request should not be null.");
-            return (ListBucketsResponse) invokeHttpClient(createRequest(listBucketsRequest, HttpMethodName.GET), ListBucketsResponse.class);
-        }
-        return (ListBucketsResponse) invokeL.objValue;
     }
 
     public ListMultipartUploadsResponse listMultipartUploads(ListMultipartUploadsRequest listMultipartUploadsRequest) {
@@ -973,12 +1431,6 @@ public class BosClient extends AbstractBceClient {
         return (ListMultipartUploadsResponse) invokeL.objValue;
     }
 
-    public ListObjectsResponse listObjects(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048626, this, str, str2)) == null) ? listObjects(new ListObjectsRequest(str, str2)) : (ListObjectsResponse) invokeLL.objValue;
-    }
-
     public ListPartsResponse listParts(ListPartsRequest listPartsRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -998,170 +1450,38 @@ public class BosClient extends AbstractBceClient {
         return (ListPartsResponse) invokeL.objValue;
     }
 
-    public PutObjectResponse putObject(String str, String str2, File file, ObjectMetadata objectMetadata) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048632, this, str, str2, file, objectMetadata)) == null) ? putObject(new PutObjectRequest(str, str2, file, objectMetadata)) : (PutObjectResponse) invokeLLLL.objValue;
-    }
-
-    public void setBucketAcl(SetBucketAclRequest setBucketAclRequest) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, setBucketAclRequest) == null) {
-            CheckUtils.isNotNull(setBucketAclRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(setBucketAclRequest, HttpMethodName.PUT);
-            createRequest.addParameter("acl", null);
-            if (setBucketAclRequest.getCannedAcl() != null) {
-                createRequest.addHeader(Headers.BCE_ACL, setBucketAclRequest.getCannedAcl().toString());
-                setZeroContentLength(createRequest);
-            } else if (setBucketAclRequest.getAccessControlList() != null) {
-                try {
-                    byte[] bytes = JsonUtils.setAclJson(setBucketAclRequest.getAccessControlList()).getBytes("UTF-8");
-                    createRequest.addHeader("Content-Length", String.valueOf(bytes.length));
-                    createRequest.addHeader("Content-Type", "application/json");
-                    createRequest.setContent(RestartableInputStream.wrap(bytes));
-                } catch (UnsupportedEncodingException e) {
-                    throw new BceClientException("Fail to get UTF-8 bytes:" + e.getMessage(), e);
-                }
-            } else {
-                CheckUtils.isNotNull(null, "request.acl should not be null.");
-            }
-            invokeHttpClient(createRequest, BosResponse.class);
-        }
-    }
-
-    public AppendObjectResponse appendObject(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, str3)) == null) {
-            try {
-                return appendObject(str, str2, str3.getBytes("UTF-8"), new ObjectMetadata());
-            } catch (UnsupportedEncodingException e) {
-                throw new BceClientException("Fail to get bytes.", e);
-            }
-        }
-        return (AppendObjectResponse) invokeLLL.objValue;
-    }
-
-    public CompleteMultipartUploadResponse completeMultipartUpload(CompleteMultipartUploadRequest completeMultipartUploadRequest) throws JSONException {
+    public PutObjectResponse putObject(PutObjectRequest putObjectRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, completeMultipartUploadRequest)) == null) {
-            CheckUtils.isNotNull(completeMultipartUploadRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(completeMultipartUploadRequest, HttpMethodName.POST);
-            createRequest.addParameter("uploadId", completeMultipartUploadRequest.getUploadId());
-            ObjectMetadata objectMetadata = completeMultipartUploadRequest.getObjectMetadata();
-            if (objectMetadata != null) {
-                populateRequestMetadata(createRequest, objectMetadata);
-            }
-            try {
-                byte[] bytes = JsonUtils.setPartETag(completeMultipartUploadRequest.getPartETags()).getBytes("UTF-8");
-                createRequest.addHeader("Content-Length", String.valueOf(bytes.length));
-                createRequest.addHeader("Content-Type", "application/json");
-                createRequest.setContent(RestartableInputStream.wrap(bytes));
-                CompleteMultipartUploadResponse completeMultipartUploadResponse = (CompleteMultipartUploadResponse) invokeHttpClient(createRequest, CompleteMultipartUploadResponse.class);
-                completeMultipartUploadResponse.setBucketName(completeMultipartUploadRequest.getBucketName());
-                completeMultipartUploadResponse.setCrc32(completeMultipartUploadResponse.getMetadata().getCrc32());
-                return completeMultipartUploadResponse;
-            } catch (UnsupportedEncodingException e) {
-                throw new BceClientException("Fail to get UTF-8 bytes:" + e.getMessage(), e);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, putObjectRequest)) == null) {
+            CheckUtils.isNotNull(putObjectRequest, "request should not be null.");
+            assertStringNotNullOrEmpty(putObjectRequest.getKey(), "object key should not be null or empty");
+            BosResponse uploadObject = uploadObject(putObjectRequest, createRequest(putObjectRequest, HttpMethodName.PUT));
+            PutObjectResponse putObjectResponse = new PutObjectResponse();
+            putObjectResponse.setETag(uploadObject.getMetadata().getETag());
+            putObjectResponse.setCrc32(uploadObject.getMetadata().getCrc32());
+            return putObjectResponse;
         }
-        return (CompleteMultipartUploadResponse) invokeL.objValue;
+        return (PutObjectResponse) invokeL.objValue;
     }
 
-    public CopyObjectResponse copyObject(CopyObjectRequest copyObjectRequest) {
-        InterceptResult invokeL;
+    public ObjectMetadata getObject(GetObjectRequest getObjectRequest, File file) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, copyObjectRequest)) == null) {
-            CheckUtils.isNotNull(copyObjectRequest, "request should not be null.");
-            assertStringNotNullOrEmpty(copyObjectRequest.getSourceKey(), "object key should not be null or empty");
-            InternalRequest createRequest = createRequest(copyObjectRequest, HttpMethodName.PUT);
-            createRequest.addHeader(Headers.BCE_COPY_SOURCE, HttpUtils.normalizePath("/" + copyObjectRequest.getSourceBucketName() + "/" + copyObjectRequest.getSourceKey()));
-            if (copyObjectRequest.getETag() != null) {
-                createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_MATCH, "\"" + copyObjectRequest.getETag() + "\"");
-            }
-            if (copyObjectRequest.getNoneMatchETagConstraint() != null) {
-                createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_NONE_MATCH, "\"" + copyObjectRequest.getNoneMatchETagConstraint() + "\"");
-            }
-            if (copyObjectRequest.getUnmodifiedSinceConstraint() != null) {
-                createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_UNMODIFIED_SINCE, copyObjectRequest.getUnmodifiedSinceConstraint());
-            }
-            if (copyObjectRequest.getModifiedSinceConstraint() != null) {
-                createRequest.addHeader(Headers.BCE_COPY_SOURCE_IF_MODIFIED_SINCE, copyObjectRequest.getModifiedSinceConstraint());
-            }
-            if (copyObjectRequest.getStorageClass() != null) {
-                createRequest.addHeader(Headers.BCE_STORAGE_CLASS, copyObjectRequest.getStorageClass());
-            }
-            ObjectMetadata newObjectMetadata = copyObjectRequest.getNewObjectMetadata();
-            if (newObjectMetadata != null) {
-                createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, StickerDataChangeType.REPLACE);
-                populateRequestMetadata(createRequest, newObjectMetadata);
-            } else {
-                createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, "copy");
-            }
-            setZeroContentLength(createRequest);
-            CopyObjectResponseWithExceptionInfo copyObjectResponseWithExceptionInfo = (CopyObjectResponseWithExceptionInfo) invokeHttpClient(createRequest, CopyObjectResponseWithExceptionInfo.class);
-            if (copyObjectResponseWithExceptionInfo.getETag() == null && copyObjectResponseWithExceptionInfo.getLastModified() == null && copyObjectResponseWithExceptionInfo.getMessage() != null) {
-                BceServiceException bceServiceException = new BceServiceException(copyObjectResponseWithExceptionInfo.getMessage());
-                bceServiceException.setErrorCode(copyObjectResponseWithExceptionInfo.getCode());
-                bceServiceException.setRequestId(copyObjectResponseWithExceptionInfo.getRequestId());
-                if (bceServiceException.getErrorCode() == "InternalError") {
-                    bceServiceException.setErrorType(BceServiceException.ErrorType.Service);
-                } else {
-                    bceServiceException.setErrorType(BceServiceException.ErrorType.Client);
-                }
-                bceServiceException.setStatusCode(500);
-                throw bceServiceException;
-            }
-            return copyObjectResponseWithExceptionInfo;
-        }
-        return (CopyObjectResponse) invokeL.objValue;
-    }
-
-    public BosObject getObject(GetObjectRequest getObjectRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, getObjectRequest)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, getObjectRequest, file)) == null) {
             CheckUtils.isNotNull(getObjectRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(getObjectRequest, HttpMethodName.GET);
-            long[] range = getObjectRequest.getRange();
-            if (range != null) {
-                createRequest.addHeader("Range", "bytes=" + range[0] + "-" + range[1]);
+            CheckUtils.isNotNull(file, "destinationFile should not be null.");
+            BosObject object = getObject(getObjectRequest);
+            if (getObjectRequest.getRange() == null) {
+                z = true;
+            } else {
+                z = false;
             }
-            BosObject object = ((GetObjectResponse) invokeHttpClient(createRequest, GetObjectResponse.class)).getObject();
-            object.setBucketName(getObjectRequest.getBucketName());
-            object.setKey(getObjectRequest.getKey());
-            return object;
+            downloadObjectToFile(object, file, z);
+            return object.getObjectMetadata();
         }
-        return (BosObject) invokeL.objValue;
-    }
-
-    public ListObjectsResponse listObjects(ListObjectsRequest listObjectsRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, listObjectsRequest)) == null) {
-            CheckUtils.isNotNull(listObjectsRequest, "request should not be null.");
-            InternalRequest createRequest = createRequest(listObjectsRequest, HttpMethodName.GET);
-            if (listObjectsRequest.getPrefix() != null) {
-                createRequest.addParameter("prefix", listObjectsRequest.getPrefix());
-            }
-            if (listObjectsRequest.getMarker() != null) {
-                createRequest.addParameter("marker", listObjectsRequest.getMarker());
-            }
-            if (listObjectsRequest.getDelimiter() != null) {
-                createRequest.addParameter("delimiter", listObjectsRequest.getDelimiter());
-            }
-            if (listObjectsRequest.getMaxKeys() >= 0) {
-                createRequest.addParameter("maxKeys", String.valueOf(listObjectsRequest.getMaxKeys()));
-            }
-            ListObjectsResponse listObjectsResponse = (ListObjectsResponse) invokeHttpClient(createRequest, ListObjectsResponse.class);
-            listObjectsResponse.setBucketName(listObjectsRequest.getBucketName());
-            for (BosObjectSummary bosObjectSummary : listObjectsResponse.getContents()) {
-                bosObjectSummary.setBucketName(listObjectsRequest.getBucketName());
-            }
-            return listObjectsResponse;
-        }
-        return (ListObjectsResponse) invokeL.objValue;
+        return (ObjectMetadata) invokeLL.objValue;
     }
 
     public PutObjectResponse putObject(String str, String str2, String str3) {
@@ -1244,204 +1564,5 @@ public class BosClient extends AbstractBceClient {
             throw new BceClientException("PartNumber " + uploadPartRequest.getPartNumber() + " : Part Size should not be more than 5GB.");
         }
         return (UploadPartResponse) invokeL.objValue;
-    }
-
-    private RestartableInputStream wrapRestartableInputStream(InputStream inputStream, Long l) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, inputStream, l)) == null) {
-            if (inputStream.markSupported()) {
-                return new RestartableResettableInputStream(inputStream);
-            }
-            return new RestartableNonResettableInputStream(inputStream, l.longValue() > ((long) getStreamBufferSize()) ? getStreamBufferSize() : l.intValue());
-        }
-        return (RestartableInputStream) invokeLL.objValue;
-    }
-
-    public AppendObjectResponse appendObject(String str, String str2, String str3, ObjectMetadata objectMetadata) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, objectMetadata)) == null) {
-            try {
-                return appendObject(str, str2, str3.getBytes("UTF-8"), objectMetadata);
-            } catch (UnsupportedEncodingException e) {
-                throw new BceClientException("Fail to get bytes.", e);
-            }
-        }
-        return (AppendObjectResponse) invokeLLLL.objValue;
-    }
-
-    public URL generatePresignedUrl(GeneratePresignedUrlRequest generatePresignedUrlRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, generatePresignedUrlRequest)) == null) {
-            CheckUtils.isNotNull(generatePresignedUrlRequest, "The request parameter must be specified when generating a pre-signed URL");
-            HttpMethodName valueOf = HttpMethodName.valueOf(generatePresignedUrlRequest.getMethod().toString());
-            Boolean isCnameEnabled = ((BosClientConfiguration) this.config).isCnameEnabled();
-            InternalRequest internalRequest = new InternalRequest(valueOf, HttpUtils.appendUri(getEndpoint(), "v1", (isCnameEnabled == Boolean.FALSE || (isCnameEnabled == null && !BosUtils.isCnameLikeHost(getEndpoint().getHost()))) ? generatePresignedUrlRequest.getBucketName() : null, generatePresignedUrlRequest.getKey()));
-            internalRequest.setCredentials(generatePresignedUrlRequest.getRequestCredentials());
-            SignOptions signOptions = new SignOptions();
-            signOptions.setExpirationInSeconds(generatePresignedUrlRequest.getExpiration());
-            for (Map.Entry<String, String> entry : generatePresignedUrlRequest.getRequestHeaders().entrySet()) {
-                if (entry.getValue() == null) {
-                    internalRequest.addHeader(entry.getKey(), "");
-                } else {
-                    internalRequest.addHeader(entry.getKey(), entry.getValue());
-                }
-            }
-            for (Map.Entry<String, String> entry2 : generatePresignedUrlRequest.getRequestParameters().entrySet()) {
-                if (entry2.getValue() == null) {
-                    internalRequest.addParameter(entry2.getKey(), "");
-                } else {
-                    internalRequest.addParameter(entry2.getKey(), entry2.getValue());
-                }
-            }
-            if (generatePresignedUrlRequest.getContentType() != null) {
-                internalRequest.addHeader("Content-Type", generatePresignedUrlRequest.getContentType());
-            }
-            if (generatePresignedUrlRequest.getContentMd5() != null) {
-                internalRequest.addHeader(Headers.CONTENT_MD5, generatePresignedUrlRequest.getContentMd5());
-            }
-            addResponseHeaderParameters(internalRequest, generatePresignedUrlRequest.getResponseHeaders());
-            new BceV1Signer().sign(internalRequest, this.config.getCredentials(), signOptions);
-            return convertRequestToUrl(internalRequest);
-        }
-        return (URL) invokeL.objValue;
-    }
-
-    public PutObjectResponse putObject(String str, String str2, String str3, ObjectMetadata objectMetadata) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048636, this, str, str2, str3, objectMetadata)) == null) {
-            try {
-                return putObject(str, str2, str3.getBytes("UTF-8"), objectMetadata);
-            } catch (UnsupportedEncodingException e) {
-                throw new BceClientException("Fail to get bytes:" + e.getMessage(), e);
-            }
-        }
-        return (PutObjectResponse) invokeLLLL.objValue;
-    }
-
-    public AppendObjectResponse appendObject(String str, String str2, byte[] bArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, str, str2, bArr)) == null) ? appendObject(str, str2, bArr, new ObjectMetadata()) : (AppendObjectResponse) invokeLLL.objValue;
-    }
-
-    public PutObjectResponse putObject(String str, String str2, byte[] bArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048637, this, str, str2, bArr)) == null) ? putObject(str, str2, bArr, new ObjectMetadata()) : (PutObjectResponse) invokeLLL.objValue;
-    }
-
-    public AppendObjectResponse appendObject(String str, String str2, byte[] bArr, ObjectMetadata objectMetadata) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, str, str2, bArr, objectMetadata)) == null) {
-            CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
-            if (objectMetadata.getContentLength() == -1) {
-                objectMetadata.setContentLength(bArr.length);
-            }
-            return appendObject(new AppendObjectRequest(str, str2, RestartableInputStream.wrap(bArr), objectMetadata));
-        }
-        return (AppendObjectResponse) invokeLLLL.objValue;
-    }
-
-    public PutObjectResponse putObject(String str, String str2, byte[] bArr, ObjectMetadata objectMetadata) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048638, this, str, str2, bArr, objectMetadata)) == null) {
-            if (objectMetadata.getContentLength() == -1) {
-                objectMetadata.setContentLength(bArr.length);
-            }
-            return putObject(new PutObjectRequest(str, str2, RestartableInputStream.wrap(bArr), objectMetadata));
-        }
-        return (PutObjectResponse) invokeLLLL.objValue;
-    }
-
-    public ObjectMetadata getObject(GetObjectRequest getObjectRequest, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, getObjectRequest, file)) == null) {
-            CheckUtils.isNotNull(getObjectRequest, "request should not be null.");
-            CheckUtils.isNotNull(file, "destinationFile should not be null.");
-            BosObject object = getObject(getObjectRequest);
-            downloadObjectToFile(object, file, getObjectRequest.getRange() == null);
-            return object.getObjectMetadata();
-        }
-        return (ObjectMetadata) invokeLL.objValue;
-    }
-
-    public PutObjectResponse putObject(String str, String str2, InputStream inputStream) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048633, this, str, str2, inputStream)) == null) ? putObject(new PutObjectRequest(str, str2, inputStream)) : (PutObjectResponse) invokeLLL.objValue;
-    }
-
-    public PutObjectResponse putObject(String str, String str2, InputStream inputStream, ObjectMetadata objectMetadata) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048634, this, str, str2, inputStream, objectMetadata)) == null) ? putObject(new PutObjectRequest(str, str2, inputStream, objectMetadata)) : (PutObjectResponse) invokeLLLL.objValue;
-    }
-
-    public PutObjectResponse putObject(PutObjectRequest putObjectRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, putObjectRequest)) == null) {
-            CheckUtils.isNotNull(putObjectRequest, "request should not be null.");
-            assertStringNotNullOrEmpty(putObjectRequest.getKey(), "object key should not be null or empty");
-            BosResponse uploadObject = uploadObject(putObjectRequest, createRequest(putObjectRequest, HttpMethodName.PUT));
-            PutObjectResponse putObjectResponse = new PutObjectResponse();
-            putObjectResponse.setETag(uploadObject.getMetadata().getETag());
-            putObjectResponse.setCrc32(uploadObject.getMetadata().getCrc32());
-            return putObjectResponse;
-        }
-        return (PutObjectResponse) invokeL.objValue;
-    }
-
-    public AppendObjectResponse appendObject(String str, String str2, InputStream inputStream) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, inputStream)) == null) ? appendObject(new AppendObjectRequest(str, str2, inputStream)) : (AppendObjectResponse) invokeLLL.objValue;
-    }
-
-    public AppendObjectResponse appendObject(String str, String str2, InputStream inputStream, ObjectMetadata objectMetadata) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, str, str2, inputStream, objectMetadata)) == null) ? appendObject(new AppendObjectRequest(str, str2, inputStream, objectMetadata)) : (AppendObjectResponse) invokeLLLL.objValue;
-    }
-
-    public AppendObjectResponse appendObject(AppendObjectRequest appendObjectRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appendObjectRequest)) == null) {
-            CheckUtils.isNotNull(appendObjectRequest, "request should not be null.");
-            assertStringNotNullOrEmpty(appendObjectRequest.getKey(), "object key should not be null or empty");
-            InternalRequest createRequest = createRequest(appendObjectRequest, HttpMethodName.POST);
-            createRequest.addParameter("append", null);
-            if (appendObjectRequest.getOffset() != null) {
-                createRequest.addParameter("offset", appendObjectRequest.getOffset().toString());
-            }
-            BosResponse uploadObject = uploadObject(appendObjectRequest, createRequest);
-            AppendObjectResponse appendObjectResponse = new AppendObjectResponse();
-            appendObjectResponse.setNextAppendOffset(uploadObject.getMetadata().getNextAppendOffset());
-            appendObjectResponse.setContentMd5(uploadObject.getMetadata().getContentMd5());
-            appendObjectResponse.setETag(uploadObject.getMetadata().getETag());
-            appendObjectResponse.setCrc32(uploadObject.getMetadata().getCrc32());
-            appendObjectResponse.setNextAppendOffset(uploadObject.getMetadata().getNextAppendOffset());
-            return appendObjectResponse;
-        }
-        return (AppendObjectResponse) invokeL.objValue;
-    }
-
-    @Deprecated
-    public PutObjectResponse putObject(PutObjectRequest putObjectRequest, BosProgressCallback bosProgressCallback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048630, this, putObjectRequest, bosProgressCallback)) == null) {
-            putObjectRequest.setProgressCallback(bosProgressCallback);
-            return putObject(putObjectRequest);
-        }
-        return (PutObjectResponse) invokeLL.objValue;
     }
 }

@@ -1,12 +1,10 @@
 package com.google.android.material.transition.platform;
 
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(21)
 /* loaded from: classes7.dex */
 public class FadeModeResult {
     public static /* synthetic */ Interceptable $ic;
@@ -38,12 +36,18 @@ public class FadeModeResult {
     public static FadeModeResult endOnTop(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) ? new FadeModeResult(i, i2, true) : (FadeModeResult) invokeII.objValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            return new FadeModeResult(i, i2, true);
+        }
+        return (FadeModeResult) invokeII.objValue;
     }
 
     public static FadeModeResult startOnTop(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? new FadeModeResult(i, i2, false) : (FadeModeResult) invokeII.objValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            return new FadeModeResult(i, i2, false);
+        }
+        return (FadeModeResult) invokeII.objValue;
     }
 }

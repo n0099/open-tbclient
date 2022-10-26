@@ -35,9 +35,10 @@ public class a {
     public Context g;
     public int h;
     public String i;
-    public Map<String, SharedPreferences> j;
+    public Map j;
 
     public a(Context context) {
+        SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +58,12 @@ public class a {
         this.g = context;
         int k2 = com.baidu.sofire.k.a.k(context);
         this.h = k2;
-        c cVar = new c(this.g, k2 == 1 ? context.getSharedPreferences("leroadcfg", 0) : null, "leroadcfg", false, this.h);
+        if (k2 == 1) {
+            sharedPreferences = context.getSharedPreferences("leroadcfg", 0);
+        } else {
+            sharedPreferences = null;
+        }
+        c cVar = new c(this.g, sharedPreferences, "leroadcfg", false, this.h);
         this.a = cVar;
         SharedPreferences.Editor edit = cVar.edit();
         this.b = edit;
@@ -101,103 +107,117 @@ public class a {
         }
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.c.getString("xyusec", "") : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.b.putInt("rtqe", i);
+            this.b.commit();
+        }
     }
 
-    public List<Integer> e() {
-        InterceptResult invokeV;
-        String[] split;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String string = this.a.getString("hcpk", "");
-            if (!TextUtils.isEmpty(string) && (split = string.split("-")) != null && split.length > 0) {
-                for (String str : split) {
-                    try {
-                        arrayList.add(Integer.valueOf(Integer.parseInt(str)));
-                    } catch (NumberFormatException e) {
-                        e.getMessage();
-                        int i = com.baidu.sofire.a.b.a;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.b.putInt("sufzfd", i);
+            this.b.commit();
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.b.putInt("sustfd", i);
+            this.b.commit();
+        }
+    }
+
+    public int a(int i, int i2) {
+        InterceptResult invokeII;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    str = "";
+                } else {
+                    str = "suetfite";
+                }
+            } else {
+                str = "sustfits";
+            }
+            if (TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            SharedPreferences sharedPreferences = this.a;
+            return sharedPreferences.getInt(str + i2, 0);
+        }
+        return invokeII.intValue;
+    }
+
+    public SharedPreferences a(String str) {
+        InterceptResult invokeL;
+        SharedPreferences sharedPreferences;
+        SharedPreferences sharedPreferences2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                synchronized (this.j) {
+                    sharedPreferences = (SharedPreferences) this.j.get(str);
+                    if (sharedPreferences == null) {
+                        if (this.h == 1) {
+                            sharedPreferences2 = this.g.getSharedPreferences(str, 0);
+                        } else {
+                            sharedPreferences2 = null;
+                        }
+                        c cVar = new c(this.g, sharedPreferences2, str, false, this.h, null);
+                        this.j.put(str, cVar);
+                        sharedPreferences = cVar;
                     }
                 }
+                return sharedPreferences;
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return null;
             }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
+        return (SharedPreferences) invokeL.objValue;
     }
 
-    public void f(String str) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.d.putString("rpnewuidn", "");
-                this.d.commit();
+                this.b.putString("p_s_a_i_t", "");
+                this.b.commit();
                 return;
             }
             try {
-                this.d.putString("rpnewuidn", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                this.d.commit();
+                this.b.putString("p_s_a_i_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                this.b.commit();
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
             }
         }
     }
 
-    public SharedPreferences g() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.c : (SharedPreferences) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.a.getInt("mo_fa_pu_ap", 0) : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.a.getInt("wi_fa_pu_ap", 0) : invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.a.getInt("mo_fa_pu_cl", 0) : invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.a.getInt("wi_fa_pu_cl", 0) : invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            if ("com.baidu.BaiduMap.meizu".equals(this.g.getPackageName())) {
-                return this.e.getInt("re_net_hr", 24);
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.b.putString("p_s_e_c_t", "");
+                this.b.commit();
+                return;
             }
-            return this.e.getInt("re_net_hr", 3);
+            try {
+                this.b.putString("p_s_e_c_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                this.b.commit();
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.a.getInt("rtqe", 0) : invokeV.intValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.a.getBoolean("bka", true) : invokeV.booleanValue;
     }
 
     public void d(String str) {
@@ -217,6 +237,40 @@ public class a {
         }
     }
 
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.b.putString("p_s_i_t", "");
+                this.b.commit();
+                return;
+            }
+            try {
+                this.b.putString("p_s_i_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                this.b.commit();
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.d.putString("rpnewuidn", "");
+                this.d.commit();
+                return;
+            }
+            try {
+                this.d.putString("rpnewuidn", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
+                this.d.commit();
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+        }
+    }
+
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
@@ -227,63 +281,6 @@ public class a {
             }
             try {
                 this.b.putString("p_s_s_c_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                this.b.commit();
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.a.getBoolean("s_c_c", true) : invokeV.booleanValue;
-    }
-
-    public List<com.baidu.sofire.e.a> c() {
-        InterceptResult invokeV;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            String string = this.e.getString("re_con", "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (String str : string.split("\\|\\|")) {
-                if (!TextUtils.isEmpty(str)) {
-                    com.baidu.sofire.e.a aVar = new com.baidu.sofire.e.a();
-                    try {
-                        JSONObject jSONObject = new JSONObject(str);
-                        aVar.a = jSONObject.optString("0");
-                        aVar.c = jSONObject.optString("1");
-                        aVar.d = jSONObject.optString("2");
-                        aVar.e = jSONObject.optString("3");
-                        aVar.b = jSONObject.optString("4");
-                    } catch (Exception unused) {
-                        int i = com.baidu.sofire.a.b.a;
-                        aVar = null;
-                    }
-                    if (aVar != null) {
-                        arrayList.add(aVar);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.b.putString("p_s_a_i_t", "");
-                this.b.commit();
-                return;
-            }
-            try {
-                this.b.putString("p_s_a_i_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
                 this.b.commit();
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
@@ -330,61 +327,69 @@ public class a {
             char c = 0;
             if (string.startsWith("get")) {
                 String string4 = bundle.getString("defult_value");
-                if (("getString".equals(string) || !TextUtils.isEmpty(string4)) && a != null) {
-                    Bundle bundle3 = new Bundle();
-                    switch (string.hashCode()) {
-                        case -1249359687:
-                            if (string.equals("getInt")) {
-                                c = 1;
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case -75354382:
-                            if (string.equals("getLong")) {
-                                c = 2;
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case 804029191:
-                            if (string.equals("getString")) {
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case 1101572082:
-                            if (string.equals("getBoolean")) {
-                                c = 4;
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case 1953351846:
-                            if (string.equals("getFloat")) {
-                                c = 3;
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        default:
-                            c = 65535;
-                            break;
-                    }
-                    if (c == 0) {
-                        bundle3.putString(TiebaStatic.LogFields.RESULT, a.getString(string3, string4));
-                    } else if (c == 1) {
-                        bundle3.putInt(TiebaStatic.LogFields.RESULT, a.getInt(string3, Integer.parseInt(string4)));
-                    } else if (c == 2) {
-                        bundle3.putLong(TiebaStatic.LogFields.RESULT, a.getLong(string3, Long.parseLong(string4)));
-                    } else if (c == 3) {
-                        bundle3.putFloat(TiebaStatic.LogFields.RESULT, a.getFloat(string3, Float.parseFloat(string4)));
-                    } else if (c == 4) {
-                        bundle3.putBoolean(TiebaStatic.LogFields.RESULT, a.getBoolean(string3, Boolean.parseBoolean(string4)));
-                    }
-                    return bundle3;
+                if ((!"getString".equals(string) && TextUtils.isEmpty(string4)) || a == null) {
+                    return null;
                 }
-                return null;
+                Bundle bundle3 = new Bundle();
+                switch (string.hashCode()) {
+                    case -1249359687:
+                        if (string.equals("getInt")) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -75354382:
+                        if (string.equals("getLong")) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 804029191:
+                        if (string.equals("getString")) {
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1101572082:
+                        if (string.equals("getBoolean")) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1953351846:
+                        if (string.equals("getFloat")) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (c == 4) {
+                                    bundle3.putBoolean(TiebaStatic.LogFields.RESULT, a.getBoolean(string3, Boolean.parseBoolean(string4)));
+                                }
+                            } else {
+                                bundle3.putFloat(TiebaStatic.LogFields.RESULT, a.getFloat(string3, Float.parseFloat(string4)));
+                            }
+                        } else {
+                            bundle3.putLong(TiebaStatic.LogFields.RESULT, a.getLong(string3, Long.parseLong(string4)));
+                        }
+                    } else {
+                        bundle3.putInt(TiebaStatic.LogFields.RESULT, a.getInt(string3, Integer.parseInt(string4)));
+                    }
+                } else {
+                    bundle3.putString(TiebaStatic.LogFields.RESULT, a.getString(string3, string4));
+                }
+                return bundle3;
             }
             if (string.startsWith("put")) {
                 SharedPreferences.Editor edit = a.edit();
@@ -427,16 +432,24 @@ public class a {
                         c = 65535;
                         break;
                 }
-                if (c == 0) {
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (c == 4) {
+                                    edit.putBoolean(string3, bundle.getBoolean("value"));
+                                }
+                            } else {
+                                edit.putFloat(string3, bundle.getFloat("value"));
+                            }
+                        } else {
+                            edit.putLong(string3, bundle.getLong("value"));
+                        }
+                    } else {
+                        edit.putInt(string3, bundle.getInt("value"));
+                    }
+                } else {
                     edit.putString(string3, bundle.getString("value"));
-                } else if (c == 1) {
-                    edit.putInt(string3, bundle.getInt("value"));
-                } else if (c == 2) {
-                    edit.putLong(string3, bundle.getLong("value"));
-                } else if (c == 3) {
-                    edit.putFloat(string3, bundle.getFloat("value"));
-                } else if (c == 4) {
-                    edit.putBoolean(string3, bundle.getBoolean("value"));
                 }
                 edit.apply();
             }
@@ -445,58 +458,113 @@ public class a {
         return (Bundle) invokeL.objValue;
     }
 
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.b.putInt("sufzfd", i);
-            this.b.commit();
-        }
-    }
-
-    public List<Integer> f() {
+    public String a() {
         InterceptResult invokeV;
-        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String string = this.a.getString("glspk", "");
-            if (!TextUtils.isEmpty(string) && (split = string.split("-")) != null && split.length > 0) {
-                for (String str : split) {
-                    try {
-                        arrayList.add(Integer.valueOf(Integer.parseInt(str)));
-                    } catch (NumberFormatException e) {
-                        e.getMessage();
-                        int i = com.baidu.sofire.a.b.a;
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.getString("xyus", "");
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void d(int i) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.b.putInt("rtqe", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.a.getBoolean("s_c_c", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.c.getString("xyusec", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public SharedPreferences g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.c;
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return this.a.getInt("mo_fa_pu_ap", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.a.getInt("wi_fa_pu_ap", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return this.a.getInt("mo_fa_pu_cl", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.a.getInt("wi_fa_pu_cl", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if ("com.baidu.BaiduMap.meizu".equals(this.g.getPackageName())) {
+                return this.e.getInt("re_net_hr", 24);
+            }
+            return this.e.getInt("re_net_hr", 3);
+        }
+        return invokeV.intValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return this.a.getInt("rtqe", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.a.getBoolean("bka", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && i > this.a.getInt("opi", 0)) {
+            this.b.putInt("opi", i);
             this.b.commit();
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.b.putString("p_s_i_t", "");
-                this.b.commit();
-                return;
-            }
-            try {
-                this.b.putString("p_s_i_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                this.b.commit();
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-            }
         }
     }
 
@@ -504,14 +572,6 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
             this.b.putLong("p_s_e_c_t_t", j);
-            this.b.commit();
-        }
-    }
-
-    public void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.b.putLong("p_s_s_c_t_t", j);
             this.b.commit();
         }
     }
@@ -524,70 +584,83 @@ public class a {
         }
     }
 
-    public void c(String str) {
+    public void d(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.b.putString("p_s_e_c_t", "");
-                this.b.commit();
-                return;
-            }
-            try {
-                this.b.putString("p_s_e_c_t", new String(Base64.encode(e.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                this.b.commit();
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-            }
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.b.putInt("sustfd", i);
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.b.putLong("p_s_s_c_t_t", j);
             this.b.commit();
         }
     }
 
-    public SharedPreferences a(String str) {
-        InterceptResult invokeL;
-        SharedPreferences sharedPreferences;
+    public void a(int i, int i2, int i3) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeIII(1048581, this, i, i2, i3) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    str = "";
+                } else {
+                    str = "suetfite";
+                }
+            } else {
+                str = "sustfits";
             }
-            try {
-                synchronized (this.j) {
-                    sharedPreferences = this.j.get(str);
-                    if (sharedPreferences == null) {
-                        c cVar = new c(this.g, this.h == 1 ? this.g.getSharedPreferences(str, 0) : null, str, false, this.h, null);
-                        this.j.put(str, cVar);
-                        sharedPreferences = cVar;
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            SharedPreferences.Editor editor = this.b;
+            editor.putInt(str + i2, i3);
+            this.b.commit();
+        }
+    }
+
+    public void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.b.putLong("p_s_a_i_t_t", j);
+            this.b.commit();
+        }
+    }
+
+    public void a(com.baidu.sofire.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            String string = this.e.getString("re_con", "");
+            SharedPreferences.Editor editor = this.f;
+            editor.putString("re_con", string + "||" + com.baidu.sofire.e.a.a(aVar));
+            this.f.commit();
+        }
+    }
+
+    public void a(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            if (list.size() == 0) {
+                this.b.putString("glspk", "");
+            } else {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < list.size(); i++) {
+                    sb.append(list.get(i));
+                    if (i != list.size() - 1) {
+                        sb.append("-");
                     }
                 }
-                return sharedPreferences;
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return null;
+                this.b.putString("glspk", sb.toString());
+            }
+            this.b.commit();
+        }
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.b.putBoolean("s_c_c", z);
+            if (Build.VERSION.SDK_INT >= 9) {
+                this.b.apply();
+            } else {
+                this.b.commit();
             }
         }
-        return (SharedPreferences) invokeL.objValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i <= this.a.getInt("opi", 0)) {
-            return;
-        }
-        this.b.putInt("opi", i);
-        this.b.commit();
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getString("xyus", "") : (String) invokeV.objValue;
     }
 
     public void a(int... iArr) {
@@ -609,79 +682,81 @@ public class a {
         }
     }
 
-    public void a(List<Integer> list) {
+    public List c() {
+        InterceptResult invokeV;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            if (list.size() == 0) {
-                this.b.putString("glspk", "");
-            } else {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < list.size(); i++) {
-                    sb.append(list.get(i));
-                    if (i != list.size() - 1) {
-                        sb.append("-");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            String string = this.e.getString("re_con", "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (String str : string.split("\\|\\|")) {
+                if (!TextUtils.isEmpty(str)) {
+                    com.baidu.sofire.e.a aVar = new com.baidu.sofire.e.a();
+                    try {
+                        JSONObject jSONObject = new JSONObject(str);
+                        aVar.a = jSONObject.optString("0");
+                        aVar.c = jSONObject.optString("1");
+                        aVar.d = jSONObject.optString("2");
+                        aVar.e = jSONObject.optString("3");
+                        aVar.b = jSONObject.optString("4");
+                    } catch (Exception unused) {
+                        int i = com.baidu.sofire.a.b.a;
+                        aVar = null;
+                    }
+                    if (aVar != null) {
+                        arrayList.add(aVar);
                     }
                 }
-                this.b.putString("glspk", sb.toString());
             }
-            this.b.commit();
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void a(int i, int i2, int i3) {
+    public List e() {
+        InterceptResult invokeV;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048581, this, i, i2, i3) == null) {
-            String str = i != 0 ? i != 1 ? "" : "suetfite" : "sustfits";
-            if (TextUtils.isEmpty(str)) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String string = this.a.getString("hcpk", "");
+            if (!TextUtils.isEmpty(string) && (split = string.split("-")) != null && split.length > 0) {
+                for (String str : split) {
+                    try {
+                        arrayList.add(Integer.valueOf(Integer.parseInt(str)));
+                    } catch (NumberFormatException e) {
+                        e.getMessage();
+                        int i = com.baidu.sofire.a.b.a;
+                    }
+                }
             }
-            SharedPreferences.Editor editor = this.b;
-            editor.putInt(str + i2, i3);
-            this.b.commit();
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public int a(int i, int i2) {
-        InterceptResult invokeII;
+    public List f() {
+        InterceptResult invokeV;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            String str = i != 0 ? i != 1 ? "" : "suetfite" : "sustfits";
-            if (TextUtils.isEmpty(str)) {
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String string = this.a.getString("glspk", "");
+            if (!TextUtils.isEmpty(string) && (split = string.split("-")) != null && split.length > 0) {
+                for (String str : split) {
+                    try {
+                        arrayList.add(Integer.valueOf(Integer.parseInt(str)));
+                    } catch (NumberFormatException e) {
+                        e.getMessage();
+                        int i = com.baidu.sofire.a.b.a;
+                    }
+                }
             }
-            SharedPreferences sharedPreferences = this.a;
-            return sharedPreferences.getInt(str + i2, 0);
+            return arrayList;
         }
-        return invokeII.intValue;
-    }
-
-    public void a(com.baidu.sofire.e.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            String string = this.e.getString("re_con", "");
-            SharedPreferences.Editor editor = this.f;
-            editor.putString("re_con", string + "||" + com.baidu.sofire.e.a.a(aVar));
-            this.f.commit();
-        }
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.b.putBoolean("s_c_c", z);
-            if (Build.VERSION.SDK_INT >= 9) {
-                this.b.apply();
-            } else {
-                this.b.commit();
-            }
-        }
-    }
-
-    public void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.b.putLong("p_s_a_i_t_t", j);
-            this.b.commit();
-        }
+        return (List) invokeV.objValue;
     }
 }

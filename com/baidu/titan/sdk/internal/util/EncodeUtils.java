@@ -26,18 +26,6 @@ public class EncodeUtils {
         }
     }
 
-    public static byte[] sha256(byte[] bArr) {
-        try {
-            return MessageDigest.getInstance("SHA-256").digest(bArr);
-        } catch (Exception unused) {
-            return null;
-        }
-    }
-
-    public static String sha256ToHex(byte[] bArr) {
-        return bytesToHex(sha256(bArr));
-    }
-
     public static byte[] sha256(File file) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
@@ -74,6 +62,10 @@ public class EncodeUtils {
             }
             throw th;
         }
+    }
+
+    public static String sha256ToHex(byte[] bArr) {
+        return bytesToHex(sha256(bArr));
     }
 
     public static byte[] sha256(InputStream inputStream) {
@@ -113,6 +105,14 @@ public class EncodeUtils {
                 }
             }
             throw th;
+        }
+    }
+
+    public static byte[] sha256(byte[] bArr) {
+        try {
+            return MessageDigest.getInstance("SHA-256").digest(bArr);
+        } catch (Exception unused) {
+            return null;
         }
     }
 }

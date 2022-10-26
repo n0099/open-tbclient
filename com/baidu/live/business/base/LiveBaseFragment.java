@@ -1,7 +1,6 @@
 package com.baidu.live.business.base;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +16,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.tb0;
+import com.baidu.tieba.ub0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,6 +77,10 @@ public abstract class LiveBaseFragment extends Fragment {
         void onTabPageShowLog(String str, String str2);
     }
 
+    public abstract RecyclerView r1();
+
+    public abstract void u1(boolean z);
+
     public LiveBaseFragment() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -97,6 +100,23 @@ public abstract class LiveBaseFragment extends Fragment {
         this.n = "";
         this.o = "";
         this.q = "";
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            t1(null);
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDestroy();
+            this.b = null;
+            ub0.a().e(this);
+        }
     }
 
     public void A1(String str) {
@@ -134,28 +154,18 @@ public abstract class LiveBaseFragment extends Fragment {
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            t1(null);
-        }
-    }
-
     @Override // androidx.fragment.app.Fragment
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
 
-    @Override // androidx.fragment.app.Fragment
-    public void onDestroy() {
+    public void v1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDestroy();
-            this.b = null;
-            tb0.a().e(this);
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            u1(z);
         }
     }
 
@@ -167,16 +177,14 @@ public abstract class LiveBaseFragment extends Fragment {
             if (layoutManager instanceof LinearLayoutManager) {
                 return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
             }
-            if (layoutManager instanceof StaggeredGridLayoutManager) {
-                int[] findLastVisibleItemPositions = ((StaggeredGridLayoutManager) layoutManager).findLastVisibleItemPositions(null);
-                return Math.max(findLastVisibleItemPositions[0], findLastVisibleItemPositions[1]);
+            if (!(layoutManager instanceof StaggeredGridLayoutManager)) {
+                return 0;
             }
-            return 0;
+            int[] findLastVisibleItemPositions = ((StaggeredGridLayoutManager) layoutManager).findLastVisibleItemPositions(null);
+            return Math.max(findLastVisibleItemPositions[0], findLastVisibleItemPositions[1]);
         }
         return invokeV.intValue;
     }
-
-    public abstract RecyclerView r1();
 
     public boolean s1(String str, String str2, int i) {
         InterceptResult invokeLLI;
@@ -212,15 +220,6 @@ public abstract class LiveBaseFragment extends Fragment {
         }
     }
 
-    public abstract void u1(boolean z);
-
-    public void v1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            u1(z);
-        }
-    }
-
     public boolean w1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -243,7 +242,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return invokeV.booleanValue;
     }
 
-    public boolean x1() {
+    public boolean y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {

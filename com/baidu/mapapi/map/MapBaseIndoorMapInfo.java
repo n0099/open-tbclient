@@ -16,11 +16,11 @@ public final class MapBaseIndoorMapInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public ArrayList<String> c;
+    public ArrayList c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class SwitchFloorError {
+    public final class SwitchFloorError {
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchFloorError FLOOR_INFO_ERROR;
         public static final SwitchFloorError FLOOR_OVERLFLOW;
@@ -133,7 +133,7 @@ public final class MapBaseIndoorMapInfo {
         this.c = mapBaseIndoorMapInfo.c;
     }
 
-    public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
+    public MapBaseIndoorMapInfo(String str, String str2, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,7 +159,7 @@ public final class MapBaseIndoorMapInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public ArrayList<String> getFloors() {
+    public ArrayList getFloors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;

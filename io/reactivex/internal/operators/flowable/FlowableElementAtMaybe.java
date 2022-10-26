@@ -16,23 +16,23 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToFlowable<T> {
+public final class FlowableElementAtMaybe extends Maybe implements FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long index;
-    public final Flowable<T> source;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class ElementAtSubscriber<T> implements FlowableSubscriber<T>, Disposable {
+    public final class ElementAtSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public long count;
         public boolean done;
         public final long index;
         public Subscription s;
 
-        public ElementAtSubscriber(MaybeObserver<? super T> maybeObserver, long j) {
+        public ElementAtSubscriber(MaybeObserver maybeObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,13 @@ public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToF
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == SubscriptionHelper.CANCELLED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -72,11 +78,10 @@ public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToF
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.s = SubscriptionHelper.CANCELLED;
-                if (this.done) {
-                    return;
+                if (!this.done) {
+                    this.done = true;
+                    this.actual.onComplete();
                 }
-                this.done = true;
-                this.actual.onComplete();
             }
         }
 
@@ -94,23 +99,6 @@ public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToF
             }
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            long j = this.count;
-            if (j == this.index) {
-                this.done = true;
-                this.s.cancel();
-                this.s = SubscriptionHelper.CANCELLED;
-                this.actual.onSuccess(t);
-                return;
-            }
-            this.count = j + 1;
-        }
-
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
@@ -120,9 +108,26 @@ public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToF
                 subscription.request(Long.MAX_VALUE);
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+                return;
+            }
+            long j = this.count;
+            if (j == this.index) {
+                this.done = true;
+                this.s.cancel();
+                this.s = SubscriptionHelper.CANCELLED;
+                this.actual.onSuccess(obj);
+                return;
+            }
+            this.count = j + 1;
+        }
     }
 
-    public FlowableElementAtMaybe(Flowable<T> flowable, long j) {
+    public FlowableElementAtMaybe(Flowable flowable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,14 +147,17 @@ public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToF
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<T> fuseToFlowable() {
+    public Flowable fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableElementAt(this.source, this.index, null, false)) : (Flowable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableElementAt(this.source, this.index, null, false));
+        }
+        return (Flowable) invokeV.objValue;
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new ElementAtSubscriber(maybeObserver, this.index));

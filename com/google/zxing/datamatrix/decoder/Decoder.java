@@ -54,24 +54,6 @@ public final class Decoder {
         }
     }
 
-    public DecoderResult decode(boolean[][] zArr) throws FormatException, ChecksumException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zArr)) == null) {
-            int length = zArr.length;
-            BitMatrix bitMatrix = new BitMatrix(length);
-            for (int i = 0; i < length; i++) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (zArr[i][i2]) {
-                        bitMatrix.set(i2, i);
-                    }
-                }
-            }
-            return decode(bitMatrix);
-        }
-        return (DecoderResult) invokeL.objValue;
-    }
-
     public DecoderResult decode(BitMatrix bitMatrix) throws FormatException, ChecksumException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -94,6 +76,24 @@ public final class Decoder {
                 }
             }
             return DecodedBitStreamParser.decode(bArr);
+        }
+        return (DecoderResult) invokeL.objValue;
+    }
+
+    public DecoderResult decode(boolean[][] zArr) throws FormatException, ChecksumException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zArr)) == null) {
+            int length = zArr.length;
+            BitMatrix bitMatrix = new BitMatrix(length);
+            for (int i = 0; i < length; i++) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (zArr[i][i2]) {
+                        bitMatrix.set(i2, i);
+                    }
+                }
+            }
+            return decode(bitMatrix);
         }
         return (DecoderResult) invokeL.objValue;
     }

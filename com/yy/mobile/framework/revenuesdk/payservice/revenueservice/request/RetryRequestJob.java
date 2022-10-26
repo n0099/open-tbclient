@@ -47,9 +47,25 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
     public String seq;
     public int timeOutMs;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2054993313, "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2054993313, "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0014\u0010\u0015JU\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\u00012\u0006\u0010\f\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\u0001¢\u0006\u0004\b\u000f\u0010\u0010R\u0016\u0010\u0012\u001a\u00020\u00118\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0013¨\u0006\u0016"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob$Companion;", "", "command", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "params", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "encoder", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;", "iDataSender", "retryCount", "intervalMs", "timeOutMs", "retryType", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;", "obtain", "(IILcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;IIII)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;", "", "TAG", "Ljava/lang/String;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,6 +81,10 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
         public final RetryRequestJob obtain(int i, int i2, RequestParams requestParams, ProtocolEncoder protocolEncoder, IDataSender iDataSender, int i3, int i4, int i5, int i6) {
@@ -86,26 +106,6 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
             }
             return (RetryRequestJob) invokeCommon.objValue;
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2054993313, "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2054993313, "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -155,84 +155,6 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
-    public Object getExtParam() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.extParam : invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
-    public int getReqCommand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.command : invokeV.intValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
-    public String getReqSeq() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.seq : (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
-    public int getRetryCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? super.getCurrentRetryCount() : invokeV.intValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
-    public int getRetryInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.intervalMs : invokeV.intValue;
-    }
-
-    public final String getSeq() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.seq : (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
-    public int getTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.timeOutMs : invokeV.intValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
-    public int getTotalRetryCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.retryCount : invokeV.intValue;
-    }
-
-    public final void onRequestError(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
-            switch (i) {
-                case 408:
-                case 504:
-                case 110001:
-                case ServiceFailResult.Code.SDK_TIMEOUT /* 110003 */:
-                case 200408:
-                case ServiceFailResult.Code.SVR_GATEWAYTIMEOUT /* 200504 */:
-                    retry();
-                    return;
-                default:
-                    IDataSender iDataSender = this.iDataSender;
-                    if (iDataSender != null) {
-                        iDataSender.cancel(this.command, this.seq, i, str);
-                    }
-                    done();
-                    return;
-            }
-        }
-    }
-
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.DefaultRetryPolicy
     public void onRetry() {
         Interceptable interceptable = $ic;
@@ -274,6 +196,7 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
     public boolean run() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (this.iDataSender == null || this.encoder == null) {
@@ -286,6 +209,11 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
             BaseJsonRequest encodeProtocol = this.encoder.encodeProtocol(this.command, this.appId, this.params);
             this.req = encodeProtocol;
             if (encodeProtocol == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 return false;
             }
             this.isRun = true;
@@ -293,6 +221,116 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
             return this.isRun;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
+    public Object getExtParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.extParam;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
+    public int getReqCommand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.command;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
+    public String getReqSeq() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.seq;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
+    public int getRetryCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return super.getCurrentRetryCount();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
+    public int getRetryInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.intervalMs;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String getSeq() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.seq;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
+    public int getTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.timeOutMs;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
+    public int getTotalRetryCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.retryCount;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            cancel();
+        }
+    }
+
+    public final void onRequestError(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
+            switch (i) {
+                case 408:
+                case 504:
+                case 110001:
+                case ServiceFailResult.Code.SDK_TIMEOUT /* 110003 */:
+                case 200408:
+                case ServiceFailResult.Code.SVR_GATEWAYTIMEOUT /* 200504 */:
+                    retry();
+                    return;
+                default:
+                    IDataSender iDataSender = this.iDataSender;
+                    if (iDataSender != null) {
+                        iDataSender.cancel(this.command, this.seq, i, str);
+                    }
+                    done();
+                    return;
+            }
+        }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
@@ -307,14 +345,6 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             this.seq = str;
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            cancel();
         }
     }
 }

@@ -13,16 +13,56 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.MaybeObserver;
 import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueDisposable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class EmptyDisposable implements QueueDisposable<Object> {
+public final class EmptyDisposable implements QueueDisposable {
     public static final /* synthetic */ EmptyDisposable[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final EmptyDisposable INSTANCE;
     public static final EmptyDisposable NEVER;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public Object poll() throws Exception {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.QueueFuseable
+    public int requestFusion(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i & 2 : invokeI.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -62,63 +102,21 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
         }
     }
 
-    public static void complete(Observer<?> observer) {
+    public static void complete(CompletableObserver completableObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, observer) == null) {
-            observer.onSubscribe(INSTANCE);
-            observer.onComplete();
-        }
-    }
-
-    public static void error(Throwable th, Observer<?> observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, th, observer) == null) {
-            observer.onSubscribe(INSTANCE);
-            observer.onError(th);
+        if (interceptable == null || interceptable.invokeL(65538, null, completableObserver) == null) {
+            completableObserver.onSubscribe(INSTANCE);
+            completableObserver.onComplete();
         }
     }
 
     public static EmptyDisposable valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? (EmptyDisposable) Enum.valueOf(EmptyDisposable.class, str) : (EmptyDisposable) invokeL.objValue;
-    }
-
-    public static EmptyDisposable[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? (EmptyDisposable[]) $VALUES.clone() : (EmptyDisposable[]) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            return (EmptyDisposable) Enum.valueOf(EmptyDisposable.class, str);
         }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this == INSTANCE : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (EmptyDisposable) invokeL.objValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -131,22 +129,28 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
         return invokeL.booleanValue;
     }
 
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    @Nullable
-    public Object poll() throws Exception {
-        InterceptResult invokeV;
+    public static void complete(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(65539, null, maybeObserver) == null) {
+            maybeObserver.onSubscribe(INSTANCE);
+            maybeObserver.onComplete();
         }
-        return invokeV.objValue;
     }
 
-    @Override // io.reactivex.internal.fuseable.QueueFuseable
-    public int requestFusion(int i) {
-        InterceptResult invokeI;
+    public static void complete(Observer observer) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i & 2 : invokeI.intValue;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, observer) == null) {
+            observer.onSubscribe(INSTANCE);
+            observer.onComplete();
+        }
+    }
+
+    public static void error(Throwable th, CompletableObserver completableObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, th, completableObserver) == null) {
+            completableObserver.onSubscribe(INSTANCE);
+            completableObserver.onError(th);
+        }
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -159,31 +163,23 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
         return invokeLL.booleanValue;
     }
 
-    public static void complete(MaybeObserver<?> maybeObserver) {
+    public static void error(Throwable th, MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, maybeObserver) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, th, maybeObserver) == null) {
             maybeObserver.onSubscribe(INSTANCE);
-            maybeObserver.onComplete();
+            maybeObserver.onError(th);
         }
     }
 
-    public static void error(Throwable th, CompletableObserver completableObserver) {
+    public static void error(Throwable th, Observer observer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, completableObserver) == null) {
-            completableObserver.onSubscribe(INSTANCE);
-            completableObserver.onError(th);
+        if (interceptable == null || interceptable.invokeLL(65543, null, th, observer) == null) {
+            observer.onSubscribe(INSTANCE);
+            observer.onError(th);
         }
     }
 
-    public static void complete(CompletableObserver completableObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, completableObserver) == null) {
-            completableObserver.onSubscribe(INSTANCE);
-            completableObserver.onComplete();
-        }
-    }
-
-    public static void error(Throwable th, SingleObserver<?> singleObserver) {
+    public static void error(Throwable th, SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, th, singleObserver) == null) {
             singleObserver.onSubscribe(INSTANCE);
@@ -191,11 +187,25 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
         }
     }
 
-    public static void error(Throwable th, MaybeObserver<?> maybeObserver) {
+    public static EmptyDisposable[] values() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, th, maybeObserver) == null) {
-            maybeObserver.onSubscribe(INSTANCE);
-            maybeObserver.onError(th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return (EmptyDisposable[]) $VALUES.clone();
         }
+        return (EmptyDisposable[]) invokeV.objValue;
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this == INSTANCE) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

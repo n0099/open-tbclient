@@ -35,6 +35,35 @@ public class ErrorLogInfo implements Jsonable {
         }
     }
 
+    public ErrorLogInfo(int i, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        set(i, str, str2, str3, str4);
+    }
+
+    public void set(int i, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
+            this.type = i;
+            this.name = str;
+            this.code = str2;
+            this.msg = str3;
+            this.data = str4;
+        }
+    }
+
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
     public boolean parse(String str) {
         InterceptResult invokeL;
@@ -58,14 +87,15 @@ public class ErrorLogInfo implements Jsonable {
         return invokeL.booleanValue;
     }
 
-    public void set(int i, String str, String str2, String str3, String str4) {
+    public void set(int i, String str, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Boolean.valueOf(z)}) == null) {
             this.type = i;
             this.name = str;
             this.code = str2;
             this.msg = str3;
             this.data = str4;
+            this.doReport = z;
         }
     }
 
@@ -108,35 +138,5 @@ public class ErrorLogInfo implements Jsonable {
             return "type:" + this.type + "name:" + this.name + "code:" + this.code + "msg:" + this.msg + "data" + this.data + "doReport : " + this.doReport;
         }
         return (String) invokeV.objValue;
-    }
-
-    public ErrorLogInfo(int i, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        set(i, str, str2, str3, str4);
-    }
-
-    public void set(int i, String str, String str2, String str3, String str4, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Boolean.valueOf(z)}) == null) {
-            this.type = i;
-            this.name = str;
-            this.code = str2;
-            this.msg = str3;
-            this.data = str4;
-            this.doReport = z;
-        }
     }
 }

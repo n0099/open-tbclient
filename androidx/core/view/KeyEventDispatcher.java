@@ -8,9 +8,6 @@ import android.os.Build;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +18,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class KeyEventDispatcher {
     public static /* synthetic */ Interceptable $ic;
@@ -90,6 +86,7 @@ public class KeyEventDispatcher {
 
     public static boolean activitySuperDispatchKeyEventPre28(Activity activity, KeyEvent keyEvent) {
         InterceptResult invokeLL;
+        KeyEvent.DispatcherState dispatcherState;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, activity, keyEvent)) == null) {
             activity.onUserInteraction();
@@ -107,39 +104,53 @@ public class KeyEventDispatcher {
             if (ViewCompat.dispatchUnhandledKeyEventBeforeCallback(decorView, keyEvent)) {
                 return true;
             }
-            return keyEvent.dispatch(activity, decorView != null ? decorView.getKeyDispatcherState() : null, activity);
+            if (decorView != null) {
+                dispatcherState = decorView.getKeyDispatcherState();
+            } else {
+                dispatcherState = null;
+            }
+            return keyEvent.dispatch(activity, dispatcherState, activity);
         }
         return invokeLL.booleanValue;
     }
 
     public static boolean dialogSuperDispatchKeyEventPre28(Dialog dialog, KeyEvent keyEvent) {
         InterceptResult invokeLL;
+        KeyEvent.DispatcherState dispatcherState;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, dialog, keyEvent)) == null) {
             DialogInterface.OnKeyListener dialogKeyListenerPre28 = getDialogKeyListenerPre28(dialog);
-            if (dialogKeyListenerPre28 == null || !dialogKeyListenerPre28.onKey(dialog, keyEvent.getKeyCode(), keyEvent)) {
-                Window window = dialog.getWindow();
-                if (window.superDispatchKeyEvent(keyEvent)) {
-                    return true;
-                }
-                View decorView = window.getDecorView();
-                if (ViewCompat.dispatchUnhandledKeyEventBeforeCallback(decorView, keyEvent)) {
-                    return true;
-                }
-                return keyEvent.dispatch(dialog, decorView != null ? decorView.getKeyDispatcherState() : null, dialog);
+            if (dialogKeyListenerPre28 != null && dialogKeyListenerPre28.onKey(dialog, keyEvent.getKeyCode(), keyEvent)) {
+                return true;
             }
-            return true;
+            Window window = dialog.getWindow();
+            if (window.superDispatchKeyEvent(keyEvent)) {
+                return true;
+            }
+            View decorView = window.getDecorView();
+            if (ViewCompat.dispatchUnhandledKeyEventBeforeCallback(decorView, keyEvent)) {
+                return true;
+            }
+            if (decorView != null) {
+                dispatcherState = decorView.getKeyDispatcherState();
+            } else {
+                dispatcherState = null;
+            }
+            return keyEvent.dispatch(dialog, dispatcherState, dialog);
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean dispatchBeforeHierarchy(@NonNull View view2, @NonNull KeyEvent keyEvent) {
+    public static boolean dispatchBeforeHierarchy(View view2, KeyEvent keyEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, keyEvent)) == null) ? ViewCompat.dispatchUnhandledKeyEventBeforeHierarchy(view2, keyEvent) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, keyEvent)) == null) {
+            return ViewCompat.dispatchUnhandledKeyEventBeforeHierarchy(view2, keyEvent);
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static boolean dispatchKeyEvent(@NonNull Component component, @Nullable View view2, @Nullable Window.Callback callback, @NonNull KeyEvent keyEvent) {
+    public static boolean dispatchKeyEvent(Component component, View view2, Window.Callback callback, KeyEvent keyEvent) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, component, view2, callback, keyEvent)) == null) {
@@ -155,7 +166,10 @@ public class KeyEventDispatcher {
             if (callback instanceof Dialog) {
                 return dialogSuperDispatchKeyEventPre28((Dialog) callback, keyEvent);
             }
-            return (view2 != null && ViewCompat.dispatchUnhandledKeyEventBeforeCallback(view2, keyEvent)) || component.superDispatchKeyEvent(keyEvent);
+            if ((view2 == null || !ViewCompat.dispatchUnhandledKeyEventBeforeCallback(view2, keyEvent)) && !component.superDispatchKeyEvent(keyEvent)) {
+                return false;
+            }
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

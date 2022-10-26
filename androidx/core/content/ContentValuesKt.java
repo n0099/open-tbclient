@@ -39,10 +39,10 @@ public final class ContentValuesKt {
                     contentValues.put(component1, (byte[]) component2);
                 } else if (component2 instanceof Byte) {
                     contentValues.put(component1, (Byte) component2);
-                } else if (!(component2 instanceof Short)) {
-                    throw new IllegalArgumentException("Illegal value type " + component2.getClass().getCanonicalName() + " for key \"" + component1 + Typography.quote);
-                } else {
+                } else if (component2 instanceof Short) {
                     contentValues.put(component1, (Short) component2);
+                } else {
+                    throw new IllegalArgumentException("Illegal value type " + component2.getClass().getCanonicalName() + " for key \"" + component1 + Typography.quote);
                 }
             }
             return contentValues;

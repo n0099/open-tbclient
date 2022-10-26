@@ -40,6 +40,12 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
     public final NotificationCompat.Action mSkipToPrevAction;
     public final Intent mStartSelfIntent;
 
+    public static boolean isPlaybackStopped(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == 1 || i == 0 || i == 3 : invokeI.booleanValue;
+    }
+
     public MediaNotificationHandler(MediaSessionService mediaSessionService) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,7 +75,10 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
     private NotificationCompat.Action createNotificationAction(int i, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) ? new NotificationCompat.Action(i, this.mServiceInstance.getResources().getText(i2), createPendingIntent(j)) : (NotificationCompat.Action) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            return new NotificationCompat.Action(i, this.mServiceInstance.getResources().getText(i2), createPendingIntent(j));
+        }
+        return (NotificationCompat.Action) invokeCommon.objValue;
     }
 
     private PendingIntent createPendingIntent(long j) {
@@ -101,27 +110,28 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i = this.mServiceInstance.getApplicationInfo().icon;
-            return i != 0 ? i : com.baidu.tieba.R.drawable.media_session_service_notification_ic_music_note;
+            if (i != 0) {
+                return i;
+            }
+            return com.baidu.tieba.R.drawable.media_session_service_notification_ic_music_note;
         }
         return invokeV.intValue;
-    }
-
-    public static boolean isPlaybackStopped(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == 1 || i == 0 || i == 3 : invokeI.booleanValue;
     }
 
     private void stopForegroundServiceIfNeeded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             List<MediaSession> sessions = this.mServiceInstance.getSessions();
+            boolean z = false;
             for (int i = 0; i < sessions.size(); i++) {
                 if (!isPlaybackStopped(sessions.get(i).getPlayer().getPlayerState())) {
                     return;
                 }
             }
-            this.mServiceInstance.stopForeground(Build.VERSION.SDK_INT < 21);
+            if (Build.VERSION.SDK_INT < 21) {
+                z = true;
+            }
+            this.mServiceInstance.stopForeground(z);
         }
     }
 
@@ -129,7 +139,7 @@ public class MediaNotificationHandler extends MediaSession.SessionCallback.Foreg
     public void onPlayerStateChanged(MediaSession mediaSession, int i) {
         MediaSessionService.MediaNotification onUpdateNotification;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, mediaSession, i) == null) || (onUpdateNotification = this.mServiceInstance.onUpdateNotification(mediaSession)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, mediaSession, i) != null) || (onUpdateNotification = this.mServiceInstance.onUpdateNotification(mediaSession)) == null) {
             return;
         }
         int notificationId = onUpdateNotification.getNotificationId();

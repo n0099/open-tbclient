@@ -4,13 +4,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.vq9;
+import com.baidu.tieba.nr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,8 +20,6 @@ import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.Locale;
-@Singleton
-@Service
 /* loaded from: classes2.dex */
 public class BlockMonitor implements IBlockMonitor {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,18 +29,18 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER;
     public static String sBlockTimeStamp;
     public transient /* synthetic */ FieldHolder $fh;
-    public vq9 mBlockWatchDog;
+    public nr9 mBlockWatchDog;
     public boolean mMonitorStarted;
 
     /* renamed from: com.baidu.searchbox.block.impl.BlockMonitor$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class BlockListenerImpl implements vq9.f {
+    public class BlockListenerImpl implements nr9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,17 +58,17 @@ public class BlockMonitor implements IBlockMonitor {
             }
         }
 
-        @Override // com.baidu.tieba.vq9.f
+        public /* synthetic */ BlockListenerImpl(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.nr9.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
                 Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
                 BlockMonitor.collectData(aNRError.getSTStackMap());
             }
-        }
-
-        public /* synthetic */ BlockListenerImpl(AnonymousClass1 anonymousClass1) {
-            this();
         }
     }
 
@@ -109,9 +105,29 @@ public class BlockMonitor implements IBlockMonitor {
         this.mBlockWatchDog = null;
     }
 
-    public static void collectData(LinkedHashMap<Long, StackTraceElement[]> linkedHashMap) {
+    @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
+    public boolean enableMonitor() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, linkedHashMap) == null) || AppRuntime.getAppContext() == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return BlockRuntime.getInstance().enableBlock();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
+    public void stopBlockMonitor() {
+        nr9 nr9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (nr9Var = this.mBlockWatchDog) != null) {
+            nr9Var.interrupt();
+            this.mMonitorStarted = false;
+        }
+    }
+
+    public static void collectData(LinkedHashMap linkedHashMap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, linkedHashMap) != null) || AppRuntime.getAppContext() == null) {
             return;
         }
         sBlockTimeStamp = String.valueOf(System.currentTimeMillis());
@@ -125,7 +141,7 @@ public class BlockMonitor implements IBlockMonitor {
         BlockContext.getBlockContext().onAppBlock(AppRuntime.getAppContext(), new BlockInfo(sBlockTimeStamp, str));
     }
 
-    public static String getThreadStackEntries(LinkedHashMap<Long, StackTraceElement[]> linkedHashMap) {
+    public static String getThreadStackEntries(LinkedHashMap linkedHashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedHashMap)) == null) {
@@ -133,7 +149,7 @@ public class BlockMonitor implements IBlockMonitor {
             for (Long l : linkedHashMap.keySet()) {
                 sb.append(TIME_FORMATTER.format(l));
                 sb.append("\r\n");
-                sb.append(stack2String(linkedHashMap.get(l)));
+                sb.append(stack2String((StackTraceElement[]) linkedHashMap.get(l)));
                 sb.append("\r\n");
                 sb.append("\r\n");
             }
@@ -164,37 +180,20 @@ public class BlockMonitor implements IBlockMonitor {
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
-    public boolean enableMonitor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? BlockRuntime.getInstance().enableBlock() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void startBlockMonitor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.mMonitorStarted) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.mMonitorStarted) {
             return;
         }
         this.mMonitorStarted = true;
-        vq9 vq9Var = new vq9(i);
-        this.mBlockWatchDog = vq9Var;
-        vq9Var.e();
+        nr9 nr9Var = new nr9(i);
+        this.mBlockWatchDog = nr9Var;
+        nr9Var.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl(null));
         if (AppConfig.isDebug()) {
             Log.d(TAG, "start mBlockWatchDog = " + this.mBlockWatchDog.getName() + " Monitor");
         }
         this.mBlockWatchDog.start();
-    }
-
-    @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
-    public void stopBlockMonitor() {
-        vq9 vq9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (vq9Var = this.mBlockWatchDog) != null) {
-            vq9Var.interrupt();
-            this.mMonitorStarted = false;
-        }
     }
 }

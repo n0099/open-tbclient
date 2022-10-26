@@ -34,8 +34,23 @@ public class VideoPlatformStatic {
     public static CustomMessageListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != -400) {
+                if (i != -200) {
+                    return i != -100 ? 3 : 2;
+                }
+                return 1;
+            }
+            return 4;
+        }
+        return invokeI.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a extends CustomMessageListener {
+    public final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,17 +76,17 @@ public class VideoPlatformStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                gu8.h().o();
-                du8.d().k();
+                qu8.h().o();
+                nu8.d().k();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<mp7> {
+    public final class b implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,12 +104,14 @@ public class VideoPlatformStatic {
             }
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<mp7> run(CustomMessage<mp7> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921309, new np7()) : (CustomResponsedMessage) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                return new CustomResponsedMessage(2921309, new yp7());
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -117,6 +134,38 @@ public class VideoPlatformStatic {
         e();
     }
 
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return "WIFI";
+            }
+            if (BdNetTypeUtil.is2GNet()) {
+                return "2G";
+            }
+            if (BdNetTypeUtil.is3GNet()) {
+                return "3G";
+            }
+            if (BdNetTypeUtil.is4GNet() || BdNetTypeUtil.isNetWorkAvailable()) {
+                return "4G";
+            }
+            return HlsPlaylistParser.METHOD_NONE;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_MOOV_UPLOAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
+            tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            messageManager.registerTask(tbHttpMessageTask);
+        }
+    }
+
     public VideoPlatformStatic() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,25 +180,46 @@ public class VideoPlatformStatic {
         }
     }
 
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921309, new b());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(customMessageTask);
+        }
+    }
+
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TextUtils.equals(str, "1") ? "index" : TextUtils.equals(str, "2") ? "frs" : TextUtils.equals(str, "6") ? "pb" : TextUtils.equals(str, "12") ? "frs_bavideotab" : TextUtils.equals(str, "3") ? "floor5" : TextUtils.equals(str, "10") ? "floor10" : TextUtils.equals(str, "11") ? "floor15" : TextUtils.equals(str, "13") ? "auto_midpage" : str : (String) invokeL.objValue;
-    }
-
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i != -400) {
-                if (i != -200) {
-                    return i != -100 ? 3 : 2;
-                }
-                return 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.equals(str, "1")) {
+                return "index";
             }
-            return 4;
+            if (TextUtils.equals(str, "2")) {
+                return "frs";
+            }
+            if (TextUtils.equals(str, "6")) {
+                return "pb";
+            }
+            if (TextUtils.equals(str, "12")) {
+                return "frs_bavideotab";
+            }
+            if (TextUtils.equals(str, "3")) {
+                return "floor5";
+            }
+            if (TextUtils.equals(str, "10")) {
+                return "floor10";
+            }
+            if (TextUtils.equals(str, "11")) {
+                return "floor15";
+            }
+            if (TextUtils.equals(str, "13")) {
+                return "auto_midpage";
+            }
+            return str;
         }
-        return invokeI.intValue;
+        return (String) invokeL.objValue;
     }
 
     public static JSONObject c() {
@@ -164,7 +234,7 @@ public class VideoPlatformStatic {
                 jSONObject.put("deviceId", TbadkCoreApplication.getInst().getImei());
                 jSONObject.put("network", d());
                 jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, "AND");
-                jSONObject.put("osVer", gj.k());
+                jSONObject.put("osVer", hj.k());
                 if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                     jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
                 } else {
@@ -175,7 +245,7 @@ public class VideoPlatformStatic {
                     jSONObject.put("location", new StringBuilder().toString());
                 }
                 jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
-                jSONObject.put("model", gj.g());
+                jSONObject.put("model", hj.g());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -184,53 +254,27 @@ public class VideoPlatformStatic {
         return (JSONObject) invokeV.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? BdNetTypeUtil.isWifiNet() ? "WIFI" : BdNetTypeUtil.is2GNet() ? "2G" : BdNetTypeUtil.is3GNet() ? "3G" : (BdNetTypeUtil.is4GNet() || BdNetTypeUtil.isNetWorkAvailable()) ? "4G" : HlsPlaylistParser.METHOD_NONE : (String) invokeV.objValue;
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_MOOV_UPLOAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
-            tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921309, new b());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
-        }
-    }
-
     public static String g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
             switch (i) {
                 case 101:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ef8);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f0a);
                 case 102:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ef7);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f09);
                 case 103:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ef4);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f06);
                 case 104:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ef3);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f05);
                 case 105:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ef9);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f0b);
                 case 106:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ef5);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f07);
                 case 107:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ef6);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f08);
                 default:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05b9) + i;
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05c1) + i;
             }
         }
         return (String) invokeI.objValue;

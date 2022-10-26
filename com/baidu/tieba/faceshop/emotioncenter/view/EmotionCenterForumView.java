@@ -30,64 +30,6 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public EmotionCenterData.EmotionForumData e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionCenterForumView(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0253, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090abb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a97);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a48);
-            setOnClickListener(this);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, i);
-            SkinManager.setViewTextColor(this.c, R.color.cp_cont_r, i);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0804c5, i);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2 == this && this.e != null) {
-            this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(this.e.forum_name, null)));
-        }
-    }
-
-    public void setData(EmotionCenterData.EmotionForumData emotionForumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, emotionForumData) == null) {
-            b(TbadkCoreApplication.getInst().getSkinType());
-            this.e = emotionForumData;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmotionCenterForumView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -129,5 +71,64 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
             }
         }
         a();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public EmotionCenterForumView(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        a();
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || view2 != this || this.e == null) {
+            return;
+        }
+        this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(this.e.forum_name, null)));
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0252, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090ac5);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090aa1);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a52);
+            setOnClickListener(this);
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, i);
+            SkinManager.setViewTextColor(this.c, R.color.cp_cont_r, i);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0804c5, i);
+        }
+    }
+
+    public void setData(EmotionCenterData.EmotionForumData emotionForumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, emotionForumData) == null) {
+            b(TbadkCoreApplication.getInst().getSkinType());
+            this.e = emotionForumData;
+        }
     }
 }

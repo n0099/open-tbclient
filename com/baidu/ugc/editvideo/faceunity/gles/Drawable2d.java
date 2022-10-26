@@ -135,13 +135,19 @@ public class Drawable2d {
         public static Prefab valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Prefab) Enum.valueOf(Prefab.class, str) : (Prefab) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Prefab) Enum.valueOf(Prefab.class, str);
+            }
+            return (Prefab) invokeL.objValue;
         }
 
         public static Prefab[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Prefab[]) $VALUES.clone() : (Prefab[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Prefab[]) $VALUES.clone();
+            }
+            return (Prefab[]) invokeV.objValue;
         }
     }
 
@@ -194,29 +200,35 @@ public class Drawable2d {
             }
         }
         int i3 = AnonymousClass1.$SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Drawable2d$Prefab[prefab.ordinal()];
-        if (i3 == 1) {
+        if (i3 != 1) {
+            if (i3 != 2) {
+                if (i3 != 3) {
+                    if (i3 == 4) {
+                        this.mVertexArray = FULL_RECTANGLE_LINE_BUF;
+                    } else {
+                        throw new RuntimeException("Unknown shape " + prefab);
+                    }
+                } else {
+                    this.mVertexArray = FULL_RECTANGLE_BUF;
+                    this.mTexCoordArray = FULL_RECTANGLE_TEX_BUF;
+                    this.mTexCoordArray2 = FULL_RECTANGLE_TEX_BUF2;
+                    this.mCoordsPerVertex = 2;
+                    this.mVertexStride = 2 * 4;
+                    this.mVertexCount = FULL_RECTANGLE_COORDS.length / 2;
+                }
+            } else {
+                this.mVertexArray = RECTANGLE_BUF;
+                this.mTexCoordArray = RECTANGLE_TEX_BUF;
+                this.mCoordsPerVertex = 2;
+                this.mVertexStride = 2 * 4;
+                this.mVertexCount = RECTANGLE_COORDS.length / 2;
+            }
+        } else {
             this.mVertexArray = TRIANGLE_BUF;
             this.mTexCoordArray = TRIANGLE_TEX_BUF;
             this.mCoordsPerVertex = 2;
             this.mVertexStride = 2 * 4;
             this.mVertexCount = TRIANGLE_COORDS.length / 2;
-        } else if (i3 == 2) {
-            this.mVertexArray = RECTANGLE_BUF;
-            this.mTexCoordArray = RECTANGLE_TEX_BUF;
-            this.mCoordsPerVertex = 2;
-            this.mVertexStride = 2 * 4;
-            this.mVertexCount = RECTANGLE_COORDS.length / 2;
-        } else if (i3 == 3) {
-            this.mVertexArray = FULL_RECTANGLE_BUF;
-            this.mTexCoordArray = FULL_RECTANGLE_TEX_BUF;
-            this.mTexCoordArray2 = FULL_RECTANGLE_TEX_BUF2;
-            this.mCoordsPerVertex = 2;
-            this.mVertexStride = 2 * 4;
-            this.mVertexCount = FULL_RECTANGLE_COORDS.length / 2;
-        } else if (i3 == 4) {
-            this.mVertexArray = FULL_RECTANGLE_LINE_BUF;
-        } else {
-            throw new RuntimeException("Unknown shape " + prefab);
         }
         this.mTexCoordStride = 8;
         this.mPrefab = prefab;
@@ -225,43 +237,64 @@ public class Drawable2d {
     public int getCoordsPerVertex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCoordsPerVertex : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCoordsPerVertex;
+        }
+        return invokeV.intValue;
     }
 
     public FloatBuffer getTexCoordArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTexCoordArray : (FloatBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTexCoordArray;
+        }
+        return (FloatBuffer) invokeV.objValue;
     }
 
     public FloatBuffer getTexCoordArray2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTexCoordArray2 : (FloatBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mTexCoordArray2;
+        }
+        return (FloatBuffer) invokeV.objValue;
     }
 
     public int getTexCoordStride() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTexCoordStride : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTexCoordStride;
+        }
+        return invokeV.intValue;
     }
 
     public FloatBuffer getVertexArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mVertexArray : (FloatBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mVertexArray;
+        }
+        return (FloatBuffer) invokeV.objValue;
     }
 
     public int getVertexCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mVertexCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mVertexCount;
+        }
+        return invokeV.intValue;
     }
 
     public int getVertexStride() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVertexStride : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mVertexStride;
+        }
+        return invokeV.intValue;
     }
 
     public void setScale(float f, float f2) {

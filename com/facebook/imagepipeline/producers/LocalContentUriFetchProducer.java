@@ -30,6 +30,13 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
     public transient /* synthetic */ FieldHolder $fh;
     public final ContentResolver mContentResolver;
 
+    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
+    public String getProducerName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -83,10 +90,10 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
                 }
                 query.moveToFirst();
                 String string = query.getString(query.getColumnIndex("_data"));
-                if (string != null) {
-                    return getEncodedImage(new FileInputStream(this.mContentResolver.openFileDescriptor(uri, "r").getFileDescriptor()), getLength(string));
+                if (string == null) {
+                    return null;
                 }
-                return null;
+                return getEncodedImage(new FileInputStream(this.mContentResolver.openFileDescriptor(uri, "r").getFileDescriptor()), getLength(string));
             } finally {
                 query.close();
             }
@@ -114,33 +121,30 @@ public class LocalContentUriFetchProducer extends LocalFetchProducer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageRequest)) == null) {
             Uri sourceUri = imageRequest.getSourceUri();
-            if (!UriUtil.isLocalContactUri(sourceUri)) {
-                return (!UriUtil.isLocalCameraUri(sourceUri) || (cameraImage = getCameraImage(sourceUri)) == null) ? getEncodedImage(this.mContentResolver.openInputStream(sourceUri), -1) : cameraImage;
-            }
-            if (sourceUri.toString().endsWith("/photo")) {
-                createInputStream = this.mContentResolver.openInputStream(sourceUri);
-            } else if (sourceUri.toString().endsWith("/display_photo")) {
-                try {
-                    createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, "r").createInputStream();
-                } catch (IOException unused) {
-                    throw new IOException("Contact photo does not exist: " + sourceUri);
+            if (UriUtil.isLocalContactUri(sourceUri)) {
+                if (sourceUri.toString().endsWith("/photo")) {
+                    createInputStream = this.mContentResolver.openInputStream(sourceUri);
+                } else if (sourceUri.toString().endsWith("/display_photo")) {
+                    try {
+                        createInputStream = this.mContentResolver.openAssetFileDescriptor(sourceUri, "r").createInputStream();
+                    } catch (IOException unused) {
+                        throw new IOException("Contact photo does not exist: " + sourceUri);
+                    }
+                } else {
+                    InputStream openContactPhotoInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, sourceUri);
+                    if (openContactPhotoInputStream != null) {
+                        createInputStream = openContactPhotoInputStream;
+                    } else {
+                        throw new IOException("Contact photo does not exist: " + sourceUri);
+                    }
                 }
+                return getEncodedImage(createInputStream, -1);
+            } else if (UriUtil.isLocalCameraUri(sourceUri) && (cameraImage = getCameraImage(sourceUri)) != null) {
+                return cameraImage;
             } else {
-                InputStream openContactPhotoInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, sourceUri);
-                if (openContactPhotoInputStream == null) {
-                    throw new IOException("Contact photo does not exist: " + sourceUri);
-                }
-                createInputStream = openContactPhotoInputStream;
+                return getEncodedImage(this.mContentResolver.openInputStream(sourceUri), -1);
             }
-            return getEncodedImage(createInputStream, -1);
         }
         return (EncodedImage) invokeL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.LocalFetchProducer
-    public String getProducerName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
     }
 }

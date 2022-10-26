@@ -47,22 +47,23 @@ public class FiltersView extends HorizontalScrollView {
         public void run() {
             int i;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.b == null) {
                 return;
             }
             int childCount = ((LinearLayout) this.a.getChildAt(0)).getChildCount();
             int i2 = 0;
             while (true) {
-                if (i2 >= childCount) {
+                if (i2 < childCount) {
+                    View childAt = ((LinearLayout) this.a.getChildAt(0)).getChildAt(i2);
+                    if (childAt == this.a.b) {
+                        i = childAt.getRight();
+                        break;
+                    }
+                    i2++;
+                } else {
                     i = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) this.a.getChildAt(0)).getChildAt(i2);
-                if (childAt == this.a.b) {
-                    i = childAt.getRight();
-                    break;
-                }
-                i2++;
             }
             this.a.b = null;
             int width = i - this.a.getWidth();
@@ -96,16 +97,6 @@ public class FiltersView extends HorizontalScrollView {
         this.c = null;
     }
 
-    public String getSelectedFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View view2 = this.c;
-            return view2 != null ? (String) ((View) view2.getTag()).getTag() : "normal";
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
@@ -115,5 +106,18 @@ public class FiltersView extends HorizontalScrollView {
                 post(this.a);
             }
         }
+    }
+
+    public String getSelectedFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            View view2 = this.c;
+            if (view2 != null) {
+                return (String) ((View) view2.getTag()).getTag();
+            }
+            return "normal";
+        }
+        return (String) invokeV.objValue;
     }
 }

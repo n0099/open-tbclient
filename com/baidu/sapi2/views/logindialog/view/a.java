@@ -40,16 +40,35 @@ public class a extends ViewGroup {
     public Drawable g;
     public int h;
     public c i;
-    public List<EditText> j;
+    public List j;
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a(String str);
+    }
 
     /* renamed from: com.baidu.sapi2.views.logindialog.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0138a implements TextWatcher {
+    public class C0139a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0138a(a aVar) {
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        public C0139a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,25 +89,11 @@ public class a extends ViewGroup {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable.length() == 0) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || editable.length() == 0) {
                 return;
             }
             this.a.f();
             this.a.e();
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
         }
     }
 
@@ -132,11 +137,6 @@ public class a extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface c {
-        void a(String str);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
         super(context);
@@ -165,116 +165,14 @@ public class a extends ViewGroup {
         this.a = context;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
-                EditText editText = (EditText) getChildAt(childCount);
-                if (editText.getText().length() == 1) {
-                    editText.requestFocus();
-                    editText.setSelection(1);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            boolean z = false;
-            int i = 0;
-            while (true) {
-                if (i >= this.b) {
-                    z = true;
-                    break;
-                }
-                String obj = ((EditText) getChildAt(i)).getText().toString();
-                if (obj.length() == 0) {
-                    break;
-                }
-                sb.append(obj);
-                i++;
-            }
-            if (!z || (cVar = this.i) == null) {
-                return;
-            }
-            cVar.a(sb.toString());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            int childCount = getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                EditText editText = (EditText) getChildAt(i);
-                if (editText.getText().length() < 1) {
-                    editText.requestFocus();
-                    return;
-                }
-            }
-        }
-    }
-
-    private int getScreenWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? getResources().getDisplayMetrics().widthPixels : invokeV.intValue;
-    }
-
     @Override // android.view.ViewGroup
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, attributeSet)) == null) ? new LinearLayout.LayoutParams(getContext(), attributeSet) : (ViewGroup.LayoutParams) invokeL.objValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int childCount = getChildCount();
-            for (int i5 = 0; i5 < childCount; i5++) {
-                View childAt = getChildAt(i5);
-                childAt.setVisibility(0);
-                int measuredWidth = childAt.getMeasuredWidth();
-                int measuredHeight = childAt.getMeasuredHeight();
-                int i6 = this.c;
-                int i7 = i6 + ((measuredWidth + i6) * i5);
-                int i8 = this.d;
-                childAt.layout(i7, i8, measuredWidth + i7, measuredHeight + i8);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, attributeSet)) == null) {
+            return new LinearLayout.LayoutParams(getContext(), attributeSet);
         }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int measuredWidth = getMeasuredWidth();
-            if (measuredWidth == -1) {
-                measuredWidth = getScreenWidth();
-            }
-            int childCount = getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
-                measureChild(getChildAt(i3), i, i2);
-            }
-            if (childCount > 0) {
-                View childAt = getChildAt(0);
-                int measuredWidth2 = childAt.getMeasuredWidth();
-                if (measuredWidth != -2) {
-                    this.c = (measuredWidth - (measuredWidth2 * childCount)) / (childCount + 1);
-                }
-                setMeasuredDimension(ViewGroup.resolveSize((measuredWidth2 * childCount) + (this.c * (childCount + 1)), i), ViewGroup.resolveSize(childAt.getMeasuredHeight() + (this.d * 2), i2));
-            }
-        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
     public void setBox(int i) {
@@ -337,6 +235,45 @@ public class a extends ViewGroup {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
+                EditText editText = (EditText) getChildAt(childCount);
+                if (editText.getText().length() == 1) {
+                    editText.requestFocus();
+                    editText.setSelection(1);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            int childCount = getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                EditText editText = (EditText) getChildAt(i);
+                if (editText.getText().length() < 1) {
+                    editText.requestFocus();
+                    return;
+                }
+            }
+        }
+    }
+
+    private int getScreenWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            return getResources().getDisplayMetrics().widthPixels;
+        }
+        return invokeV.intValue;
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -346,10 +283,51 @@ public class a extends ViewGroup {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            boolean z = false;
+            int i = 0;
+            while (true) {
+                if (i < this.b) {
+                    String obj = ((EditText) getChildAt(i)).getText().toString();
+                    if (obj.length() == 0) {
+                        break;
+                    }
+                    sb.append(obj);
+                    i++;
+                } else {
+                    z = true;
+                    break;
+                }
+            }
+            if (z && (cVar = this.i) != null) {
+                cVar.a(sb.toString());
+            }
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (EditText editText : this.j) {
+                editText.setBackground(this.f);
+                editText.setText("");
+            }
+            EditText editText2 = (EditText) this.j.get(0);
+            if (editText2 != null) {
+                editText2.requestFocus();
+            }
+        }
+    }
+
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            C0138a c0138a = new C0138a(this);
+            C0139a c0139a = new C0139a(this);
             b bVar = new b(this);
             this.j.clear();
             for (int i = 0; i < this.b; i++) {
@@ -380,23 +358,51 @@ public class a extends ViewGroup {
                 }
                 editText.setId(i);
                 editText.setEms(1);
-                editText.addTextChangedListener(c0138a);
+                editText.addTextChangedListener(c0139a);
                 addView(editText, i);
                 this.j.add(editText);
             }
         }
     }
 
-    public void c() {
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (EditText editText : this.j) {
-                editText.setBackground(this.f);
-                editText.setText("");
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int childCount = getChildCount();
+            for (int i5 = 0; i5 < childCount; i5++) {
+                View childAt = getChildAt(i5);
+                childAt.setVisibility(0);
+                int measuredWidth = childAt.getMeasuredWidth();
+                int measuredHeight = childAt.getMeasuredHeight();
+                int i6 = this.c;
+                int i7 = i6 + ((measuredWidth + i6) * i5);
+                int i8 = this.d;
+                childAt.layout(i7, i8, measuredWidth + i7, measuredHeight + i8);
             }
-            EditText editText2 = this.j.get(0);
-            if (editText2 != null) {
-                editText2.requestFocus();
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int measuredWidth = getMeasuredWidth();
+            if (measuredWidth == -1) {
+                measuredWidth = getScreenWidth();
+            }
+            int childCount = getChildCount();
+            for (int i3 = 0; i3 < childCount; i3++) {
+                measureChild(getChildAt(i3), i, i2);
+            }
+            if (childCount > 0) {
+                View childAt = getChildAt(0);
+                int measuredWidth2 = childAt.getMeasuredWidth();
+                if (measuredWidth != -2) {
+                    this.c = (measuredWidth - (measuredWidth2 * childCount)) / (childCount + 1);
+                }
+                setMeasuredDimension(ViewGroup.resolveSize((measuredWidth2 * childCount) + (this.c * (childCount + 1)), i), ViewGroup.resolveSize(childAt.getMeasuredHeight() + (this.d * 2), i2));
             }
         }
     }

@@ -15,20 +15,20 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnBackpressureError<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableOnBackpressureError extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class BackpressureErrorSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
+    public final class BackpressureErrorSubscriber extends AtomicLong implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3176480756392482682L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public boolean done;
         public Subscription s;
 
-        public BackpressureErrorSubscriber(Subscriber<? super T> subscriber) {
+        public BackpressureErrorSubscriber(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,24 +46,6 @@ public final class FlowableOnBackpressureError<T> extends AbstractFlowableWithUp
             this.actual = subscriber;
         }
 
-        @Override // org.reactivestreams.Subscription
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.s.cancel();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            this.actual.onComplete();
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -75,20 +57,6 @@ public final class FlowableOnBackpressureError<T> extends AbstractFlowableWithUp
                 this.done = true;
                 this.actual.onError(th);
             }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
-                return;
-            }
-            if (get() != 0) {
-                this.actual.onNext(t);
-                BackpressureHelper.produced(this, 1L);
-                return;
-            }
-            onError(new MissingBackpressureException("could not emit value due to lack of requests"));
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -108,10 +76,42 @@ public final class FlowableOnBackpressureError<T> extends AbstractFlowableWithUp
                 BackpressureHelper.add(this, j);
             }
         }
+
+        @Override // org.reactivestreams.Subscription
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.s.cancel();
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
+                return;
+            }
+            this.done = true;
+            this.actual.onComplete();
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+                return;
+            }
+            if (get() != 0) {
+                this.actual.onNext(obj);
+                BackpressureHelper.produced(this, 1L);
+                return;
+            }
+            onError(new MissingBackpressureException("could not emit value due to lack of requests"));
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureError(Flowable<T> flowable) {
+    public FlowableOnBackpressureError(Flowable flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,7 +131,7 @@ public final class FlowableOnBackpressureError<T> extends AbstractFlowableWithUp
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new BackpressureErrorSubscriber(subscriber));

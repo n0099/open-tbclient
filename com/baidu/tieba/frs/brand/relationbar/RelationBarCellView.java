@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,70 +56,6 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
         }
         this.a = 3;
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fe, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090afa);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090afb);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090af9);
-            this.b.setDefaultResource(17170445);
-            this.b.setDefaultBgResource(R.color.CAM_X0205);
-            this.b.setBorderColor(0);
-            this.b.setRadius(ej.f(getContext(), R.dimen.tbds20));
-            this.b.setConrers(5);
-            this.e = ej.f(context, R.dimen.tbds471);
-            this.f = ej.f(context, R.dimen.tbds164);
-            setOnClickListener(this);
-            b();
-        }
-    }
-
-    public void b() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        SkinManager.setBackgroundResource(this, R.drawable.cp_bg_line_d_e_selector);
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0106);
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            TiebaStatic.log(new StatisticItem("c13110").param("obj_id", this.g.ori_fid.longValue()));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.g.ori_fname, "")));
-        }
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            setMeasuredDimension(this.e, this.f);
-        }
-    }
-
-    public void setData(OriForumInfo oriForumInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, oriForumInfo) == null) {
-            if (oriForumInfo == null) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            this.g = oriForumInfo;
-            this.b.K(oriForumInfo.ori_avatar, 10, false);
-            this.c.setText(oriForumInfo.ori_fname);
-            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06e7), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -166,5 +102,69 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
         }
         this.a = 3;
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fd, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090b04);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b05);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b03);
+            this.b.setDefaultResource(17170445);
+            this.b.setDefaultBgResource(R.color.CAM_X0205);
+            this.b.setBorderColor(0);
+            this.b.setRadius(fj.f(getContext(), R.dimen.tbds20));
+            this.b.setConrers(5);
+            this.e = fj.f(context, R.dimen.tbds471);
+            this.f = fj.f(context, R.dimen.tbds164);
+            setOnClickListener(this);
+            b();
+        }
+    }
+
+    public void b() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        SkinManager.setBackgroundResource(this, R.drawable.cp_bg_line_d_e_selector);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            TiebaStatic.log(new StatisticItem("c13110").param("obj_id", this.g.ori_fid.longValue()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.g.ori_fname, "")));
+        }
+    }
+
+    public void setData(OriForumInfo oriForumInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, oriForumInfo) == null) {
+            if (oriForumInfo == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            this.g = oriForumInfo;
+            this.b.L(oriForumInfo.ori_avatar, 10, false);
+            this.c.setText(oriForumInfo.ori_fname);
+            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06f3), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
+        }
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            setMeasuredDimension(this.e, this.f);
+        }
     }
 }

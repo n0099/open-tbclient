@@ -23,8 +23,8 @@ import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.n35;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.t35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,11 +53,11 @@ public class MultiImageView extends RelativeLayout {
     public boolean o;
     public boolean p;
     public int q;
-    public ArrayList<String> r;
-    public Map<String, ImageUrlData> s;
+    public ArrayList r;
+    public Map s;
     public boolean t;
     public boolean u;
-    public n35 v;
+    public t35 v;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -88,14 +88,16 @@ public class MultiImageView extends RelativeLayout {
             DragImageView currentImageView;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.b) {
-                    DragImageView currentImageView2 = this.a.getCurrentImageView();
-                    if (currentImageView2 != null) {
-                        currentImageView2.t0();
+                if (view2 != this.a.b) {
+                    if (view2 == this.a.c && (currentImageView = this.a.getCurrentImageView()) != null) {
+                        currentImageView.u0();
+                        return;
                     }
-                } else if (view2 != this.a.c || (currentImageView = this.a.getCurrentImageView()) == null) {
-                } else {
-                    currentImageView.u0();
+                    return;
+                }
+                DragImageView currentImageView2 = this.a.getCurrentImageView();
+                if (currentImageView2 != null) {
+                    currentImageView2.t0();
                 }
             }
         }
@@ -128,19 +130,17 @@ public class MultiImageView extends RelativeLayout {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.j == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.j != null) {
+                this.a.j.onPageScrollStateChanged(i);
             }
-            this.a.j.onPageScrollStateChanged(i);
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.a.j == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && this.a.j != null) {
+                this.a.j.onPageScrolled(i, f, i2);
             }
-            this.a.j.onPageScrolled(i, f, i2);
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -273,28 +273,28 @@ public class MultiImageView extends RelativeLayout {
         public void a(int i, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
-                if (!(obj instanceof UrlDragImageView)) {
-                    if (this.a.e != null) {
-                        this.a.e.setCurrentView(null);
+                if (obj instanceof UrlDragImageView) {
+                    UrlDragImageView urlDragImageView = (UrlDragImageView) obj;
+                    DragImageView imageView = urlDragImageView.getImageView();
+                    if (imageView != null) {
+                        imageView.p0();
+                        if (this.a.e != null) {
+                            this.a.e.setCurrentView(imageView);
+                        }
+                        if (imageView.getImageType() == 1 && this.a.h != null) {
+                            this.a.h.a(imageView);
+                        }
                     }
-                    this.a.A(false);
+                    urlDragImageView.F();
+                    urlDragImageView.H();
+                    urlDragImageView.D(this.a.p, true);
+                    this.a.z(urlDragImageView.getmAssistUrlData());
                     return;
                 }
-                UrlDragImageView urlDragImageView = (UrlDragImageView) obj;
-                DragImageView imageView = urlDragImageView.getImageView();
-                if (imageView != null) {
-                    imageView.p0();
-                    if (this.a.e != null) {
-                        this.a.e.setCurrentView(imageView);
-                    }
-                    if (imageView.getImageType() == 1 && this.a.h != null) {
-                        this.a.h.a(imageView);
-                    }
+                if (this.a.e != null) {
+                    this.a.e.setCurrentView(null);
                 }
-                urlDragImageView.F();
-                urlDragImageView.H();
-                urlDragImageView.D(this.a.p, true);
-                this.a.z(urlDragImageView.getmAssistUrlData());
+                this.a.A(false);
             }
         }
     }
@@ -340,6 +340,447 @@ public class MultiImageView extends RelativeLayout {
         q();
     }
 
+    public void u(int i) {
+        GalleryViewPager galleryViewPager;
+        View findViewWithTag;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048633, this, i) == null) && (galleryViewPager = this.e) != null && (findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i))) != null && (findViewWithTag instanceof UrlDragImageView)) {
+            UrlDragImageView urlDragImageView = (UrlDragImageView) findViewWithTag;
+            ImageUrlData imageUrlData = urlDragImageView.getmAssistUrlData();
+            if (imageUrlData == null) {
+                urlDragImageView.D(this.p, true);
+                return;
+            }
+            String str = imageUrlData.imageUrl;
+            if (!StringUtils.isNull(str)) {
+                ImageUrlData n = n(str);
+                urlDragImageView.setAssistUrl(n);
+                z(n);
+            }
+            urlDragImageView.D(this.p, true);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MultiImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = 0;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.q = 1;
+        this.s = null;
+        this.t = false;
+        this.u = true;
+        q();
+    }
+
+    public void setOffscreenPageLimit(int i, int i2) {
+        GalleryViewPager galleryViewPager;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(1048616, this, i, i2) != null) || (galleryViewPager = this.e) == null) {
+            return;
+        }
+        galleryViewPager.setOffscreenPageLimit(i);
+        int bitmapMaxMemory = UtilHelper.getBitmapMaxMemory(getContext()) - ((((i * 2) + 1) * i2) * 2);
+        this.m = bitmapMaxMemory;
+        int i3 = (int) (bitmapMaxMemory * 0.8d);
+        this.m = i3;
+        if (i3 < 6291456) {
+            this.n = true;
+            this.m = (int) (UtilHelper.getBitmapMaxMemory(getContext()) * 0.7d);
+        } else {
+            this.n = false;
+        }
+        PagerAdapter adapter = this.e.getAdapter();
+        if (adapter != null && (adapter instanceof ImagePagerAdapter)) {
+            ((ImagePagerAdapter) adapter).m(this.m);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MultiImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = 0;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.q = 1;
+        this.s = null;
+        this.t = false;
+        this.u = true;
+        q();
+    }
+
+    private void setAdapter(ImagePagerAdapter imagePagerAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, this, imagePagerAdapter) == null) {
+            if (imagePagerAdapter != null) {
+                imagePagerAdapter.w(this.k);
+            }
+            GalleryViewPager galleryViewPager = this.e;
+            if (galleryViewPager != null) {
+                galleryViewPager.setAdapter(imagePagerAdapter);
+            }
+        }
+    }
+
+    public void A(boolean z) {
+        t35 t35Var;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (t35Var = this.v) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            t35Var.o(i);
+        }
+    }
+
+    public void k(ImagePagerAdapter.a aVar) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.b(aVar);
+        }
+    }
+
+    public void l(int i) {
+        GalleryViewPager galleryViewPager;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048593, this, i) != null) || (galleryViewPager = this.e) == null) {
+            return;
+        }
+        View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
+        if (findViewWithTag != null && (findViewWithTag instanceof UrlDragImageView)) {
+            z(((UrlDragImageView) findViewWithTag).getmAssistUrlData());
+        } else {
+            A(false);
+        }
+    }
+
+    public void m(int i) {
+        GalleryViewPager galleryViewPager;
+        View findViewWithTag;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && (galleryViewPager = this.e) != null && (findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i))) != null && (findViewWithTag instanceof UrlDragImageView)) {
+            ((UrlDragImageView) findViewWithTag).I();
+        }
+    }
+
+    public String o(int i) {
+        InterceptResult invokeI;
+        View findViewWithTag;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            GalleryViewPager galleryViewPager = this.e;
+            if (galleryViewPager == null || (findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i))) == null || !(findViewWithTag instanceof UrlDragImageView)) {
+                return null;
+            }
+            return ((UrlDragImageView) findViewWithTag).getmCheckOriginPicText();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, motionEvent)) == null) {
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setAddSize(int i) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048602, this, i) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.h(i);
+        }
+    }
+
+    public void setAllowLocalUrl(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            this.p = z;
+            ImagePagerAdapter imagePagerAdapter = this.f;
+            if (imagePagerAdapter != null) {
+                imagePagerAdapter.i(z);
+            }
+        }
+    }
+
+    public void setAssistUrls(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, map) == null) {
+            this.s = map;
+            ImagePagerAdapter imagePagerAdapter = this.f;
+            if (imagePagerAdapter != null) {
+                imagePagerAdapter.j(map);
+            }
+        }
+    }
+
+    public void setCurrentImageQRInfo(String str) {
+        GalleryViewPager galleryViewPager;
+        DragImageView currentView;
+        ImageUrlData imageUrlData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048605, this, str) != null) || (galleryViewPager = this.e) == null || (currentView = galleryViewPager.getCurrentView()) == null || (imageUrlData = currentView.getImageUrlData()) == null) {
+            return;
+        }
+        imageUrlData.qrInfo = str;
+    }
+
+    public void setDragToExitListener(DragImageView.h hVar) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048607, this, hVar) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.l(hVar);
+        }
+    }
+
+    public void setHasNext(boolean z) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048608, this, z) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.n(z);
+        }
+    }
+
+    public void setHeadImage(boolean z) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048609, this, z) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.o(z);
+        }
+    }
+
+    public void setIsCanDrag(boolean z) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048610, this, z) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.p(z);
+        }
+    }
+
+    public void setIsFromCDN(boolean z) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048611, this, z) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.q(z);
+        }
+    }
+
+    public void setItemOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048612, this, onLongClickListener) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.u(onLongClickListener);
+        }
+    }
+
+    public void setItemOnclickListener(View.OnClickListener onClickListener) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048613, this, onClickListener) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.t(onClickListener);
+        }
+    }
+
+    public void setLiveSize(int i) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048614, this, i) != null) || (imagePagerAdapter = this.f) == null) {
+            return;
+        }
+        imagePagerAdapter.r(i);
+    }
+
+    public void setNextTitle(String str) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048615, this, str) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.s(str);
+        }
+    }
+
+    public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
+        t35 t35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048617, this, bVar) == null) && (t35Var = this.v) != null) {
+            t35Var.k(bVar);
+        }
+    }
+
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, onPageChangeListener) == null) {
+            this.j = onPageChangeListener;
+        }
+    }
+
+    public void setOnReplyClickListener(View.OnClickListener onClickListener) {
+        t35 t35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048619, this, onClickListener) == null) && (t35Var = this.v) != null) {
+            t35Var.l(onClickListener);
+        }
+    }
+
+    public void setOnScrollOutListener(BaseViewPager.a aVar) {
+        GalleryViewPager galleryViewPager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048620, this, aVar) == null) && (galleryViewPager = this.e) != null) {
+            galleryViewPager.setOnFlipOutListener(aVar);
+        }
+    }
+
+    public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
+        t35 t35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048621, this, cVar) == null) && (t35Var = this.v) != null) {
+            t35Var.m(cVar);
+        }
+    }
+
+    public void setOriImgSelectedCallback(UrlDragImageView.p pVar) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048622, this, pVar) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.x(pVar);
+        }
+    }
+
+    public void setOuterOnTouchListener(View.OnTouchListener onTouchListener) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048623, this, onTouchListener) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.y(onTouchListener);
+        }
+    }
+
+    public void setPageMargin(int i) {
+        GalleryViewPager galleryViewPager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048624, this, i) == null) && (galleryViewPager = this.e) != null) {
+            galleryViewPager.setPageMargin(i);
+        }
+    }
+
+    public void setShowBottomContainer(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+            this.u = z;
+            A(z);
+        }
+    }
+
+    public void setTempSize(int i) {
+        ImagePagerAdapter imagePagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048626, this, i) == null) && (imagePagerAdapter = this.f) != null) {
+            imagePagerAdapter.z(i);
+        }
+    }
+
+    public void setUrlData(ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, arrayList) == null) {
+            this.r = arrayList;
+            ImagePagerAdapter imagePagerAdapter = this.f;
+            if (imagePagerAdapter != null) {
+                imagePagerAdapter.k(arrayList);
+            }
+        }
+    }
+
+    public void setViewPagerTouchListener(View.OnTouchListener onTouchListener) {
+        GalleryViewPager galleryViewPager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048629, this, onTouchListener) == null) && (galleryViewPager = this.e) != null) {
+            galleryViewPager.setOnTouchListener(onTouchListener);
+        }
+    }
+
+    public void setYoungterCoverSomeView(boolean z) {
+        t35 t35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048630, this, z) == null) && (t35Var = this.v) != null) {
+            t35Var.q(z);
+        }
+    }
+
+    public void setCurrentItem(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            setAdapter(this.f);
+            GalleryViewPager galleryViewPager = this.e;
+            if (galleryViewPager != null) {
+                galleryViewPager.setCurrentItem(i, z);
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public DragImageView getCurrentImageView() {
         InterceptResult invokeV;
@@ -354,39 +795,9 @@ public class MultiImageView extends RelativeLayout {
         return (DragImageView) invokeV.objValue;
     }
 
-    private void setAdapter(ImagePagerAdapter imagePagerAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, this, imagePagerAdapter) == null) {
-            if (imagePagerAdapter != null) {
-                imagePagerAdapter.v(this.k);
-            }
-            GalleryViewPager galleryViewPager = this.e;
-            if (galleryViewPager != null) {
-                galleryViewPager.setAdapter(imagePagerAdapter);
-            }
-        }
-    }
-
-    public void A(boolean z) {
-        n35 n35Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (n35Var = this.v) == null) {
-            return;
-        }
-        n35Var.o(z ? 0 : 8);
-    }
-
-    public void B(boolean z, int i) {
-        n35 n35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (n35Var = this.v) != null) {
-            n35Var.p(z ? 0 : 8, i);
-        }
-    }
-
     public void C() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.o) {
             return;
         }
         this.d.setVisibility(0);
@@ -394,31 +805,15 @@ public class MultiImageView extends RelativeLayout {
 
     public int getBottomHeight() {
         InterceptResult invokeV;
-        n35 n35Var;
+        t35 t35Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.u || (n35Var = this.v) == null) {
-                return 0;
+            if (this.u && (t35Var = this.v) != null) {
+                return t35Var.c();
             }
-            return n35Var.c();
+            return 0;
         }
         return invokeV.intValue;
-    }
-
-    public byte[] getCurrentImageData() {
-        InterceptResult invokeV;
-        DragImageView currentView;
-        Bitmap imageBitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            GalleryViewPager galleryViewPager = this.e;
-            if (galleryViewPager == null || (currentView = galleryViewPager.getCurrentView()) == null) {
-                return null;
-            }
-            byte[] imageData = currentView.getImageData();
-            return (imageData != null || currentView.getImageType() == 2 || (imageBitmap = currentView.getImageBitmap()) == null) ? imageData : BitmapHelper.Bitmap2Bytes(imageBitmap, 100);
-        }
-        return (byte[]) invokeV.objValue;
     }
 
     public String getCurrentImageQRInfo() {
@@ -466,7 +861,10 @@ public class MultiImageView extends RelativeLayout {
     public int getCurrentMaxIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.q : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.q;
+        }
+        return invokeV.intValue;
     }
 
     public String getCurrentOriginalUrl() {
@@ -567,42 +965,102 @@ public class MultiImageView extends RelativeLayout {
         return invokeV.intValue;
     }
 
-    public void k(ImagePagerAdapter.a aVar) {
-        ImagePagerAdapter imagePagerAdapter;
+    public void p() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) || (imagePagerAdapter = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048598, this) != null) || this.o) {
             return;
         }
-        imagePagerAdapter.b(aVar);
+        this.d.setVisibility(8);
     }
 
-    public void l(int i) {
-        GalleryViewPager galleryViewPager;
+    public void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i) == null) || (galleryViewPager = this.e) == null) {
-            return;
-        }
-        View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
-        if (findViewWithTag != null && (findViewWithTag instanceof UrlDragImageView)) {
-            z(((UrlDragImageView) findViewWithTag).getmAssistUrlData());
-        } else {
-            A(false);
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.o = UtilHelper.isSupportGesture(getContext());
+            r();
+            s();
         }
     }
 
-    public void m(int i) {
-        GalleryViewPager galleryViewPager;
-        View findViewWithTag;
+    public boolean t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || (galleryViewPager = this.e) == null || (findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i))) == null || !(findViewWithTag instanceof UrlDragImageView)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            return this.t;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void v() {
+        GalleryViewPager galleryViewPager;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048634, this) != null) || (galleryViewPager = this.e) == null) {
             return;
         }
-        ((UrlDragImageView) findViewWithTag).I();
+        int childCount = galleryViewPager.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = this.e.getChildAt(i);
+            if (childAt != null && (childAt instanceof UrlDragImageView)) {
+                ((UrlDragImageView) childAt).Y();
+            }
+        }
+    }
+
+    public void w() {
+        GalleryViewPager galleryViewPager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048635, this) == null) && (galleryViewPager = this.e) != null && galleryViewPager.getCurrentView() != null) {
+            this.e.getCurrentView().g0();
+        }
+    }
+
+    public void B(boolean z, int i) {
+        t35 t35Var;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (t35Var = this.v) != null) {
+            if (z) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            t35Var.p(i2, i);
+        }
+    }
+
+    public byte[] getCurrentImageData() {
+        InterceptResult invokeV;
+        DragImageView currentView;
+        Bitmap imageBitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            GalleryViewPager galleryViewPager = this.e;
+            if (galleryViewPager == null || (currentView = galleryViewPager.getCurrentView()) == null) {
+                return null;
+            }
+            byte[] imageData = currentView.getImageData();
+            if (imageData == null && currentView.getImageType() != 2 && (imageBitmap = currentView.getImageBitmap()) != null) {
+                return BitmapHelper.Bitmap2Bytes(imageBitmap, 100);
+            }
+            return imageData;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            this.g = new a(this);
+            this.i = new b(this);
+            this.k = new c(this);
+            this.h = new d(this);
+            this.l = new e(this);
+        }
     }
 
     public final ImageUrlData n(String str) {
         InterceptResult invokeL;
-        Map<String, ImageUrlData> map;
+        Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             if (!TextUtils.isEmpty(str) && (map = this.s) != null) {
@@ -618,347 +1076,10 @@ public class MultiImageView extends RelativeLayout {
         return (ImageUrlData) invokeL.objValue;
     }
 
-    public String o(int i) {
-        InterceptResult invokeI;
-        View findViewWithTag;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            GalleryViewPager galleryViewPager = this.e;
-            if (galleryViewPager == null || (findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i))) == null || !(findViewWithTag instanceof UrlDragImageView)) {
-                return null;
-            }
-            return ((UrlDragImageView) findViewWithTag).getmCheckOriginPicText();
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || this.o) {
-            return;
-        }
-        this.d.setVisibility(8);
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.o = UtilHelper.isSupportGesture(getContext());
-            r();
-            s();
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.g = new a(this);
-            this.i = new b(this);
-            this.k = new c(this);
-            this.h = new d(this);
-            this.l = new e(this);
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.e = new GalleryViewPager(getContext());
-            this.e.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.e.setOnPageChangeListener(this.i);
-            addView(this.e);
-            this.d = new LinearLayout(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.bottomMargin = ej.d(getContext(), 10.0f);
-            layoutParams.addRule(12);
-            layoutParams.addRule(14);
-            this.d.setOrientation(0);
-            this.d.setLayoutParams(layoutParams);
-            addView(this.d);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            Button button = new Button(getContext());
-            this.c = button;
-            SkinManager.setBackgroundResource(button, R.drawable.obfuscated_res_0x7f080bdf, 0);
-            this.c.setLayoutParams(layoutParams2);
-            this.c.setOnClickListener(this.g);
-            this.c.setEnabled(false);
-            this.d.addView(this.c);
-            Button button2 = new Button(getContext());
-            this.b = button2;
-            SkinManager.setBackgroundResource(button2, R.drawable.obfuscated_res_0x7f080bdb, 0);
-            this.b.setLayoutParams(layoutParams2);
-            this.b.setOnClickListener(this.g);
-            this.b.setEnabled(false);
-            this.d.addView(this.b);
-            if (this.o) {
-                this.d.setVisibility(8);
-            }
-            ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(getContext(), this.h);
-            this.f = imagePagerAdapter;
-            imagePagerAdapter.u(this.l);
-            setAdapter(this.f);
-            this.v = new n35(getContext(), this);
-        }
-    }
-
-    public void setAddSize(int i) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048602, this, i) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.h(i);
-    }
-
-    public void setAllowLocalUrl(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.p = z;
-            ImagePagerAdapter imagePagerAdapter = this.f;
-            if (imagePagerAdapter != null) {
-                imagePagerAdapter.i(z);
-            }
-        }
-    }
-
-    public void setAssistUrls(Map<String, ImageUrlData> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, map) == null) {
-            this.s = map;
-            ImagePagerAdapter imagePagerAdapter = this.f;
-            if (imagePagerAdapter != null) {
-                imagePagerAdapter.j(map);
-            }
-        }
-    }
-
-    public void setCurrentImageQRInfo(String str) {
-        GalleryViewPager galleryViewPager;
-        DragImageView currentView;
-        ImageUrlData imageUrlData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, str) == null) || (galleryViewPager = this.e) == null || (currentView = galleryViewPager.getCurrentView()) == null || (imageUrlData = currentView.getImageUrlData()) == null) {
-            return;
-        }
-        imageUrlData.qrInfo = str;
-    }
-
-    public void setCurrentItem(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            setAdapter(this.f);
-            GalleryViewPager galleryViewPager = this.e;
-            if (galleryViewPager != null) {
-                galleryViewPager.setCurrentItem(i, z);
-            }
-        }
-    }
-
-    public void setDragToExitListener(DragImageView.h hVar) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048607, this, hVar) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.l(hVar);
-    }
-
-    public void setHasNext(boolean z) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048608, this, z) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.n(z);
-    }
-
-    public void setHeadImage(boolean z) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048609, this, z) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.o(z);
-    }
-
-    public void setIsCanDrag(boolean z) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.p(z);
-    }
-
-    public void setIsFromCDN(boolean z) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048611, this, z) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.q(z);
-    }
-
-    public void setItemOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048612, this, onLongClickListener) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.t(onLongClickListener);
-    }
-
-    public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048613, this, onClickListener) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.s(onClickListener);
-    }
-
-    public void setNextTitle(String str) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048614, this, str) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.r(str);
-    }
-
-    public void setOffscreenPageLimit(int i, int i2) {
-        GalleryViewPager galleryViewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048615, this, i, i2) == null) || (galleryViewPager = this.e) == null) {
-            return;
-        }
-        galleryViewPager.setOffscreenPageLimit(i);
-        int bitmapMaxMemory = UtilHelper.getBitmapMaxMemory(getContext()) - ((((i * 2) + 1) * i2) * 2);
-        this.m = bitmapMaxMemory;
-        int i3 = (int) (bitmapMaxMemory * 0.8d);
-        this.m = i3;
-        if (i3 < 6291456) {
-            this.n = true;
-            this.m = (int) (UtilHelper.getBitmapMaxMemory(getContext()) * 0.7d);
-        } else {
-            this.n = false;
-        }
-        PagerAdapter adapter = this.e.getAdapter();
-        if (adapter == null || !(adapter instanceof ImagePagerAdapter)) {
-            return;
-        }
-        ((ImagePagerAdapter) adapter).m(this.m);
-    }
-
-    public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        n35 n35Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, bVar) == null) || (n35Var = this.v) == null) {
-            return;
-        }
-        n35Var.k(bVar);
-    }
-
-    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, onPageChangeListener) == null) {
-            this.j = onPageChangeListener;
-        }
-    }
-
-    public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        n35 n35Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, onClickListener) == null) || (n35Var = this.v) == null) {
-            return;
-        }
-        n35Var.l(onClickListener);
-    }
-
-    public void setOnScrollOutListener(BaseViewPager.a aVar) {
-        GalleryViewPager galleryViewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, aVar) == null) || (galleryViewPager = this.e) == null) {
-            return;
-        }
-        galleryViewPager.setOnFlipOutListener(aVar);
-    }
-
-    public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        n35 n35Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, cVar) == null) || (n35Var = this.v) == null) {
-            return;
-        }
-        n35Var.m(cVar);
-    }
-
-    public void setOriImgSelectedCallback(UrlDragImageView.p pVar) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048621, this, pVar) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.w(pVar);
-    }
-
-    public void setOuterOnTouchListener(View.OnTouchListener onTouchListener) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048622, this, onTouchListener) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.x(onTouchListener);
-    }
-
-    public void setPageMargin(int i) {
-        GalleryViewPager galleryViewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048623, this, i) == null) || (galleryViewPager = this.e) == null) {
-            return;
-        }
-        galleryViewPager.setPageMargin(i);
-    }
-
-    public void setShowBottomContainer(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
-            this.u = z;
-            A(z);
-        }
-    }
-
-    public void setTempSize(int i) {
-        ImagePagerAdapter imagePagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048625, this, i) == null) || (imagePagerAdapter = this.f) == null) {
-            return;
-        }
-        imagePagerAdapter.y(i);
-    }
-
-    public void setUrlData(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, arrayList) == null) {
-            this.r = arrayList;
-            ImagePagerAdapter imagePagerAdapter = this.f;
-            if (imagePagerAdapter != null) {
-                imagePagerAdapter.k(arrayList);
-            }
-        }
-    }
-
     public void setUserId(String str) {
         GalleryViewPager galleryViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048627, this, str) == null) || (galleryViewPager = this.e) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048628, this, str) != null) || (galleryViewPager = this.e) == null) {
             return;
         }
         int childCount = galleryViewPager.getChildCount();
@@ -968,33 +1089,15 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).setUserId(str);
             }
         }
-        n35 n35Var = this.v;
-        if (n35Var != null) {
-            n35Var.n(str);
+        t35 t35Var = this.v;
+        if (t35Var != null) {
+            t35Var.n(str);
         }
-    }
-
-    public void setViewPagerTouchListener(View.OnTouchListener onTouchListener) {
-        GalleryViewPager galleryViewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048628, this, onTouchListener) == null) || (galleryViewPager = this.e) == null) {
-            return;
-        }
-        galleryViewPager.setOnTouchListener(onTouchListener);
-    }
-
-    public void setYoungterCoverSomeView(boolean z) {
-        n35 n35Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048629, this, z) == null) || (n35Var = this.v) == null) {
-            return;
-        }
-        n35Var.q(z);
     }
 
     public void setZoomButton(DragImageView dragImageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, dragImageView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, dragImageView) == null) {
             if (dragImageView != null) {
                 if (dragImageView.Q()) {
                     this.b.setEnabled(true);
@@ -1014,92 +1117,10 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.t : invokeV.booleanValue;
-    }
-
-    public void u(int i) {
-        GalleryViewPager galleryViewPager;
-        View findViewWithTag;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048632, this, i) == null) || (galleryViewPager = this.e) == null || (findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i))) == null || !(findViewWithTag instanceof UrlDragImageView)) {
-            return;
-        }
-        UrlDragImageView urlDragImageView = (UrlDragImageView) findViewWithTag;
-        ImageUrlData imageUrlData = urlDragImageView.getmAssistUrlData();
-        if (imageUrlData == null) {
-            urlDragImageView.D(this.p, true);
-            return;
-        }
-        String str = imageUrlData.imageUrl;
-        if (!StringUtils.isNull(str)) {
-            ImageUrlData n = n(str);
-            urlDragImageView.setAssistUrl(n);
-            z(n);
-        }
-        urlDragImageView.D(this.p, true);
-    }
-
-    public void v() {
-        GalleryViewPager galleryViewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048633, this) == null) || (galleryViewPager = this.e) == null) {
-            return;
-        }
-        int childCount = galleryViewPager.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = this.e.getChildAt(i);
-            if (childAt != null && (childAt instanceof UrlDragImageView)) {
-                ((UrlDragImageView) childAt).Y();
-            }
-        }
-    }
-
-    public void w() {
-        GalleryViewPager galleryViewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048634, this) == null) || (galleryViewPager = this.e) == null || galleryViewPager.getCurrentView() == null) {
-            return;
-        }
-        this.e.getCurrentView().g0();
-    }
-
-    public void x() {
-        GalleryViewPager galleryViewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048635, this) == null) || (galleryViewPager = this.e) == null || galleryViewPager.getCurrentView() == null) {
-            return;
-        }
-        if (this.n) {
-            int childCount = this.e.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof UrlDragImageView)) {
-                    UrlDragImageView urlDragImageView = (UrlDragImageView) childAt;
-                    if (urlDragImageView.getImageView() != this.e.getCurrentView()) {
-                        urlDragImageView.Z();
-                    }
-                }
-            }
-        }
-        View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-        if (findViewWithTag != null && (findViewWithTag instanceof UrlDragImageView)) {
-            UrlDragImageView urlDragImageView2 = (UrlDragImageView) findViewWithTag;
-            if (urlDragImageView2.N()) {
-                this.f.notifyDataSetChanged();
-            } else {
-                urlDragImageView2.D(this.p, true);
-            }
-        }
-        this.e.getCurrentView().h0();
-    }
-
     public void y(int i) {
         GalleryViewPager galleryViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048636, this, i) == null) || this.a == i || (galleryViewPager = this.e) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048637, this, i) != null) || this.a == i || (galleryViewPager = this.e) == null) {
             return;
         }
         int childCount = galleryViewPager.getChildCount();
@@ -1113,106 +1134,91 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void z(ImageUrlData imageUrlData) {
-        n35 n35Var;
+        t35 t35Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048637, this, imageUrlData) == null) || (n35Var = this.v) == null) {
-            return;
-        }
-        n35Var.j(imageUrlData);
-        if (!this.t && imageUrlData != null) {
-            if (!this.v.g()) {
-                this.v.r(false);
-            }
-            if (this.v.h()) {
+        if ((interceptable == null || interceptable.invokeL(1048638, this, imageUrlData) == null) && (t35Var = this.v) != null) {
+            t35Var.j(imageUrlData);
+            if (!this.t && imageUrlData != null) {
+                if (!this.v.g()) {
+                    this.v.r(false);
+                }
+                if (!this.v.h()) {
+                    B(true, 150);
+                    return;
+                }
                 return;
             }
-            B(true, 150);
-            return;
+            A(false);
         }
-        A(false);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.e = new GalleryViewPager(getContext());
+            this.e.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            this.e.setOnPageChangeListener(this.i);
+            addView(this.e);
+            this.d = new LinearLayout(getContext());
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.bottomMargin = fj.d(getContext(), 10.0f);
+            layoutParams.addRule(12);
+            layoutParams.addRule(14);
+            this.d.setOrientation(0);
+            this.d.setLayoutParams(layoutParams);
+            addView(this.d);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+            Button button = new Button(getContext());
+            this.c = button;
+            SkinManager.setBackgroundResource(button, R.drawable.obfuscated_res_0x7f080bef, 0);
+            this.c.setLayoutParams(layoutParams2);
+            this.c.setOnClickListener(this.g);
+            this.c.setEnabled(false);
+            this.d.addView(this.c);
+            Button button2 = new Button(getContext());
+            this.b = button2;
+            SkinManager.setBackgroundResource(button2, R.drawable.obfuscated_res_0x7f080beb, 0);
+            this.b.setLayoutParams(layoutParams2);
+            this.b.setOnClickListener(this.g);
+            this.b.setEnabled(false);
+            this.d.addView(this.b);
+            if (this.o) {
+                this.d.setVisibility(8);
             }
+            ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(getContext(), this.h);
+            this.f = imagePagerAdapter;
+            imagePagerAdapter.v(this.l);
+            setAdapter(this.f);
+            this.v = new t35(getContext(), this);
         }
-        this.a = 3;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = 0;
-        this.n = true;
-        this.o = false;
-        this.p = false;
-        this.q = 1;
-        this.s = null;
-        this.t = false;
-        this.u = true;
-        q();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public void x() {
+        GalleryViewPager galleryViewPager;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeV(1048636, this) == null) && (galleryViewPager = this.e) != null && galleryViewPager.getCurrentView() != null) {
+            if (this.n) {
+                int childCount = this.e.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = this.e.getChildAt(i);
+                    if (childAt != null && (childAt instanceof UrlDragImageView)) {
+                        UrlDragImageView urlDragImageView = (UrlDragImageView) childAt;
+                        if (urlDragImageView.getImageView() != this.e.getCurrentView()) {
+                            urlDragImageView.Z();
+                        }
+                    }
+                }
             }
+            View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
+            if (findViewWithTag != null && (findViewWithTag instanceof UrlDragImageView)) {
+                UrlDragImageView urlDragImageView2 = (UrlDragImageView) findViewWithTag;
+                if (urlDragImageView2.N()) {
+                    this.f.notifyDataSetChanged();
+                } else {
+                    urlDragImageView2.D(this.p, true);
+                }
+            }
+            this.e.getCurrentView().h0();
         }
-        this.a = 3;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = 0;
-        this.n = true;
-        this.o = false;
-        this.p = false;
-        this.q = 1;
-        this.s = null;
-        this.t = false;
-        this.u = true;
-        q();
     }
 }

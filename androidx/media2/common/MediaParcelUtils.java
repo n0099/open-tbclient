@@ -1,9 +1,5 @@
 package androidx.media2.common;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.ParcelImpl;
 import androidx.versionedparcelable.ParcelUtils;
@@ -15,14 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class MediaParcelUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaParcelUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"RestrictedApi"})
     /* loaded from: classes.dex */
     public static class MediaItemParcelImpl extends ParcelImpl {
         public static /* synthetic */ Interceptable $ic;
@@ -55,7 +49,10 @@ public class MediaParcelUtils {
         public MediaItem getVersionedParcel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mItem : (MediaItem) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mItem;
+            }
+            return (MediaItem) invokeV.objValue;
         }
     }
 
@@ -73,15 +70,16 @@ public class MediaParcelUtils {
         }
     }
 
-    @Nullable
-    public static <T extends VersionedParcelable> T fromParcelable(@NonNull ParcelImpl parcelImpl) {
+    public static <T extends VersionedParcelable> T fromParcelable(ParcelImpl parcelImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parcelImpl)) == null) ? (T) ParcelUtils.fromParcelable(parcelImpl) : (T) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parcelImpl)) == null) {
+            return (T) ParcelUtils.fromParcelable(parcelImpl);
+        }
+        return (T) invokeL.objValue;
     }
 
-    @NonNull
-    public static <T extends VersionedParcelable> List<T> fromParcelableList(@NonNull List<ParcelImpl> list) {
+    public static <T extends VersionedParcelable> List<T> fromParcelableList(List<ParcelImpl> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
@@ -94,8 +92,7 @@ public class MediaParcelUtils {
         return (List) invokeL.objValue;
     }
 
-    @NonNull
-    public static ParcelImpl toParcelable(@Nullable VersionedParcelable versionedParcelable) {
+    public static ParcelImpl toParcelable(VersionedParcelable versionedParcelable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, versionedParcelable)) == null) {
@@ -107,8 +104,7 @@ public class MediaParcelUtils {
         return (ParcelImpl) invokeL.objValue;
     }
 
-    @NonNull
-    public static List<ParcelImpl> toParcelableList(@NonNull List<? extends VersionedParcelable> list) {
+    public static List<ParcelImpl> toParcelableList(List<? extends VersionedParcelable> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {

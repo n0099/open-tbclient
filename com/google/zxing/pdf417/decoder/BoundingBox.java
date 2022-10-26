@@ -45,6 +45,24 @@ public final class BoundingBox {
         init(bitMatrix, resultPoint, resultPoint2, resultPoint3, resultPoint4);
     }
 
+    public BoundingBox(BoundingBox boundingBox) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {boundingBox};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        init(boundingBox.image, boundingBox.topLeft, boundingBox.bottomLeft, boundingBox.topRight, boundingBox.bottomRight);
+    }
+
     private void calculateMinMaxValues() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -77,7 +95,16 @@ public final class BoundingBox {
     public static BoundingBox merge(BoundingBox boundingBox, BoundingBox boundingBox2) throws NotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, boundingBox, boundingBox2)) == null) ? boundingBox == null ? boundingBox2 : boundingBox2 == null ? boundingBox : new BoundingBox(boundingBox.image, boundingBox.topLeft, boundingBox.bottomLeft, boundingBox2.topRight, boundingBox2.bottomRight) : (BoundingBox) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, boundingBox, boundingBox2)) == null) {
+            if (boundingBox == null) {
+                return boundingBox2;
+            }
+            if (boundingBox2 == null) {
+                return boundingBox;
+            }
+            return new BoundingBox(boundingBox.image, boundingBox.topLeft, boundingBox.bottomLeft, boundingBox2.topRight, boundingBox2.bottomRight);
+        }
+        return (BoundingBox) invokeLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0031  */
@@ -91,51 +118,63 @@ public final class BoundingBox {
         ResultPoint resultPoint2;
         ResultPoint resultPoint3;
         ResultPoint resultPoint4;
+        ResultPoint resultPoint5;
+        ResultPoint resultPoint6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            ResultPoint resultPoint5 = this.topLeft;
-            ResultPoint resultPoint6 = this.bottomLeft;
-            ResultPoint resultPoint7 = this.topRight;
-            ResultPoint resultPoint8 = this.bottomRight;
+            ResultPoint resultPoint7 = this.topLeft;
+            ResultPoint resultPoint8 = this.bottomLeft;
+            ResultPoint resultPoint9 = this.topRight;
+            ResultPoint resultPoint10 = this.bottomRight;
             if (i > 0) {
-                ResultPoint resultPoint9 = z ? resultPoint5 : resultPoint7;
-                int y = ((int) resultPoint9.getY()) - i;
+                if (z) {
+                    resultPoint6 = resultPoint7;
+                } else {
+                    resultPoint6 = resultPoint9;
+                }
+                int y = ((int) resultPoint6.getY()) - i;
                 if (y < 0) {
                     y = 0;
                 }
-                ResultPoint resultPoint10 = new ResultPoint(resultPoint9.getX(), y);
-                if (!z) {
-                    resultPoint2 = resultPoint10;
-                    resultPoint = resultPoint5;
+                ResultPoint resultPoint11 = new ResultPoint(resultPoint6.getX(), y);
+                if (z) {
+                    resultPoint = resultPoint11;
+                } else {
+                    resultPoint2 = resultPoint11;
+                    resultPoint = resultPoint7;
                     if (i2 <= 0) {
-                        ResultPoint resultPoint11 = z ? this.bottomLeft : this.bottomRight;
-                        int y2 = ((int) resultPoint11.getY()) + i2;
+                        if (z) {
+                            resultPoint5 = this.bottomLeft;
+                        } else {
+                            resultPoint5 = this.bottomRight;
+                        }
+                        int y2 = ((int) resultPoint5.getY()) + i2;
                         if (y2 >= this.image.getHeight()) {
                             y2 = this.image.getHeight() - 1;
                         }
-                        ResultPoint resultPoint12 = new ResultPoint(resultPoint11.getX(), y2);
-                        if (!z) {
+                        ResultPoint resultPoint12 = new ResultPoint(resultPoint5.getX(), y2);
+                        if (z) {
+                            resultPoint3 = resultPoint12;
+                        } else {
                             resultPoint4 = resultPoint12;
-                            resultPoint3 = resultPoint6;
+                            resultPoint3 = resultPoint8;
                             calculateMinMaxValues();
                             return new BoundingBox(this.image, resultPoint, resultPoint3, resultPoint2, resultPoint4);
                         }
-                        resultPoint3 = resultPoint12;
                     } else {
-                        resultPoint3 = resultPoint6;
+                        resultPoint3 = resultPoint8;
                     }
-                    resultPoint4 = resultPoint8;
+                    resultPoint4 = resultPoint10;
                     calculateMinMaxValues();
                     return new BoundingBox(this.image, resultPoint, resultPoint3, resultPoint2, resultPoint4);
                 }
-                resultPoint = resultPoint10;
             } else {
-                resultPoint = resultPoint5;
+                resultPoint = resultPoint7;
             }
-            resultPoint2 = resultPoint7;
+            resultPoint2 = resultPoint9;
             if (i2 <= 0) {
             }
-            resultPoint4 = resultPoint8;
+            resultPoint4 = resultPoint10;
             calculateMinMaxValues();
             return new BoundingBox(this.image, resultPoint, resultPoint3, resultPoint2, resultPoint4);
         }
@@ -145,66 +184,72 @@ public final class BoundingBox {
     public ResultPoint getBottomLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bottomLeft : (ResultPoint) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bottomLeft;
+        }
+        return (ResultPoint) invokeV.objValue;
     }
 
     public ResultPoint getBottomRight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bottomRight : (ResultPoint) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bottomRight;
+        }
+        return (ResultPoint) invokeV.objValue;
     }
 
     public int getMaxX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.maxX : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.maxX;
+        }
+        return invokeV.intValue;
     }
 
     public int getMaxY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.maxY : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.maxY;
+        }
+        return invokeV.intValue;
     }
 
     public int getMinX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.minX : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.minX;
+        }
+        return invokeV.intValue;
     }
 
     public int getMinY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.minY : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.minY;
+        }
+        return invokeV.intValue;
     }
 
     public ResultPoint getTopLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.topLeft : (ResultPoint) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.topLeft;
+        }
+        return (ResultPoint) invokeV.objValue;
     }
 
     public ResultPoint getTopRight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.topRight : (ResultPoint) invokeV.objValue;
-    }
-
-    public BoundingBox(BoundingBox boundingBox) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {boundingBox};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.topRight;
         }
-        init(boundingBox.image, boundingBox.topLeft, boundingBox.bottomLeft, boundingBox.topRight, boundingBox.bottomRight);
+        return (ResultPoint) invokeV.objValue;
     }
 }

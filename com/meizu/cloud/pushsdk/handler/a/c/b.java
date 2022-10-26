@@ -13,7 +13,7 @@ import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
+public class b extends com.meizu.cloud.pushsdk.handler.a.a {
     public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
     }
@@ -28,20 +28,20 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
         if (messageV3.getClickType() == 0) {
             intent = context.getPackageManager().getLaunchIntentForPackage(uriPackageName);
             if (intent != null && messageV3.getParamsMap() != null) {
-                for (Map.Entry<String, String> entry : messageV3.getParamsMap().entrySet()) {
-                    DebugLogger.i("AbstractMessageHandler", " launcher activity key " + entry.getKey() + " value " + entry.getValue());
-                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                        intent.putExtra(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : messageV3.getParamsMap().entrySet()) {
+                    DebugLogger.i("AbstractMessageHandler", " launcher activity key " + ((String) entry.getKey()) + " value " + ((String) entry.getValue()));
+                    if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
+                        intent.putExtra((String) entry.getKey(), (String) entry.getValue());
                     }
                 }
             }
         } else if (1 == messageV3.getClickType()) {
             intent = new Intent();
             if (messageV3.getParamsMap() != null) {
-                for (Map.Entry<String, String> entry2 : messageV3.getParamsMap().entrySet()) {
-                    DebugLogger.i("AbstractMessageHandler", " key " + entry2.getKey() + " value " + entry2.getValue());
-                    if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
-                        intent.putExtra(entry2.getKey(), entry2.getValue());
+                for (Map.Entry entry2 : messageV3.getParamsMap().entrySet()) {
+                    DebugLogger.i("AbstractMessageHandler", " key " + ((String) entry2.getKey()) + " value " + ((String) entry2.getValue()));
+                    if (!TextUtils.isEmpty((CharSequence) entry2.getKey()) && !TextUtils.isEmpty((CharSequence) entry2.getValue())) {
+                        intent.putExtra((String) entry2.getKey(), (String) entry2.getValue());
                     }
                 }
             }

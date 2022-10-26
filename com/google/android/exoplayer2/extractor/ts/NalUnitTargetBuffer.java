@@ -41,38 +41,58 @@ public final class NalUnitTargetBuffer {
 
     public void appendToNalUnit(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i, i2) == null) && this.isFilling) {
-            int i3 = i2 - i;
-            byte[] bArr2 = this.nalData;
-            int length = bArr2.length;
-            int i4 = this.nalLength;
-            if (length < i4 + i3) {
-                this.nalData = Arrays.copyOf(bArr2, (i4 + i3) * 2);
-            }
-            System.arraycopy(bArr, i, this.nalData, this.nalLength, i3);
-            this.nalLength += i3;
+        if ((interceptable != null && interceptable.invokeLII(1048576, this, bArr, i, i2) != null) || !this.isFilling) {
+            return;
         }
+        int i3 = i2 - i;
+        byte[] bArr2 = this.nalData;
+        int length = bArr2.length;
+        int i4 = this.nalLength;
+        if (length < i4 + i3) {
+            this.nalData = Arrays.copyOf(bArr2, (i4 + i3) * 2);
+        }
+        System.arraycopy(bArr, i, this.nalData, this.nalLength, i3);
+        this.nalLength += i3;
     }
 
     public boolean endNalUnit(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.isFilling) {
-                this.nalLength -= i;
-                this.isFilling = false;
-                this.isCompleted = true;
-                return true;
+            if (!this.isFilling) {
+                return false;
             }
-            return false;
+            this.nalLength -= i;
+            this.isFilling = false;
+            this.isCompleted = true;
+            return true;
         }
         return invokeI.booleanValue;
+    }
+
+    public void startNalUnit(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            boolean z = true;
+            Assertions.checkState(!this.isFilling);
+            if (i != this.targetType) {
+                z = false;
+            }
+            this.isFilling = z;
+            if (z) {
+                this.nalLength = 3;
+                this.isCompleted = false;
+            }
+        }
     }
 
     public boolean isCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isCompleted : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isCompleted;
+        }
+        return invokeV.booleanValue;
     }
 
     public void reset() {
@@ -80,19 +100,6 @@ public final class NalUnitTargetBuffer {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.isFilling = false;
             this.isCompleted = false;
-        }
-    }
-
-    public void startNalUnit(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            Assertions.checkState(!this.isFilling);
-            boolean z = i == this.targetType;
-            this.isFilling = z;
-            if (z) {
-                this.nalLength = 3;
-                this.isCompleted = false;
-            }
         }
     }
 }

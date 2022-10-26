@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.permission.PermissionRequestDialog;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nu4;
+import com.baidu.tieba.pu4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -51,6 +51,28 @@ public class PermissionJudgePolicy {
     public PermissionRequestDialog mPermissionRequestDialog;
     public int mRequestCode;
     public ArrayList<String> requestPermissionList;
+
+    /* loaded from: classes3.dex */
+    public interface IExtraDialogCloseCallback {
+        void onClose();
+    }
+
+    /* loaded from: classes3.dex */
+    public interface ISystemPermissionDialogShowCallBack {
+        void onShow();
+    }
+
+    /* loaded from: classes3.dex */
+    public interface OnPermissionsGrantedListener {
+        void onPermissionsGranted();
+    }
+
+    /* loaded from: classes3.dex */
+    public interface PermissionDialogClickListener {
+        void onDialogCaneled(String str);
+
+        void onDialogComfirmed(String str);
+    }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -102,36 +124,20 @@ public class PermissionJudgePolicy {
         public static EXTRA_DIALOG_REFUSE_POLICY valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EXTRA_DIALOG_REFUSE_POLICY) Enum.valueOf(EXTRA_DIALOG_REFUSE_POLICY.class, str) : (EXTRA_DIALOG_REFUSE_POLICY) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (EXTRA_DIALOG_REFUSE_POLICY) Enum.valueOf(EXTRA_DIALOG_REFUSE_POLICY.class, str);
+            }
+            return (EXTRA_DIALOG_REFUSE_POLICY) invokeL.objValue;
         }
 
         public static EXTRA_DIALOG_REFUSE_POLICY[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EXTRA_DIALOG_REFUSE_POLICY[]) $VALUES.clone() : (EXTRA_DIALOG_REFUSE_POLICY[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (EXTRA_DIALOG_REFUSE_POLICY[]) $VALUES.clone();
+            }
+            return (EXTRA_DIALOG_REFUSE_POLICY[]) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface IExtraDialogCloseCallback {
-        void onClose();
-    }
-
-    /* loaded from: classes3.dex */
-    public interface ISystemPermissionDialogShowCallBack {
-        void onShow();
-    }
-
-    /* loaded from: classes3.dex */
-    public interface OnPermissionsGrantedListener {
-        void onPermissionsGranted();
-    }
-
-    /* loaded from: classes3.dex */
-    public interface PermissionDialogClickListener {
-        void onDialogCaneled(String str);
-
-        void onDialogComfirmed(String str);
     }
 
     static {
@@ -191,7 +197,7 @@ public class PermissionJudgePolicy {
             @Override // com.baidu.tbadk.core.util.permission.PermissionRequestDialog.OnClickCallback
             public void onClickClose(Activity activity, String str) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, str) == null) || this.this$0.mPermissionRequestDialog == null) {
+                if ((interceptable2 != null && interceptable2.invokeLL(1048576, this, activity, str) != null) || this.this$0.mPermissionRequestDialog == null) {
                     return;
                 }
                 this.this$0.mPermissionRequestDialog.dismiss();
@@ -203,7 +209,7 @@ public class PermissionJudgePolicy {
             @Override // com.baidu.tbadk.core.util.permission.PermissionRequestDialog.OnClickCallback
             public void onClickContinue(Activity activity, String str) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str) == null) || this.this$0.mPermissionRequestDialog == null) {
+                if ((interceptable2 != null && interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str) != null) || this.this$0.mPermissionRequestDialog == null) {
                     return;
                 }
                 this.this$0.mNeedExtraDialogPermissionList.remove(str);
@@ -245,13 +251,13 @@ public class PermissionJudgePolicy {
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, str) == null) {
                     this.this$0.requestPermissionList.remove(str);
                     this.this$0.mNeedExtraDialogPermissionList.remove(str);
-                    if (!ListUtils.isEmpty(this.this$0.mNeedExtraDialogPermissionList)) {
-                        this.this$0.processExtraPermissionDialog(activity);
+                    if (ListUtils.isEmpty(this.this$0.mNeedExtraDialogPermissionList)) {
+                        this.this$0.mPermissionRequestDialog.dismiss();
+                        PermissionJudgePolicy permissionJudgePolicy = this.this$0;
+                        permissionJudgePolicy.startRequestPermissionForSystem(activity, permissionJudgePolicy.mRequestCode);
                         return;
                     }
-                    this.this$0.mPermissionRequestDialog.dismiss();
-                    PermissionJudgePolicy permissionJudgePolicy = this.this$0;
-                    permissionJudgePolicy.startRequestPermissionForSystem(activity, permissionJudgePolicy.mRequestCode);
+                    this.this$0.processExtraPermissionDialog(activity);
                 }
             }
 
@@ -260,13 +266,13 @@ public class PermissionJudgePolicy {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str) == null) {
                     this.this$0.mNeedExtraDialogPermissionList.remove(str);
-                    if (!ListUtils.isEmpty(this.this$0.mNeedExtraDialogPermissionList)) {
-                        this.this$0.processExtraPermissionDialog(activity);
+                    if (ListUtils.isEmpty(this.this$0.mNeedExtraDialogPermissionList)) {
+                        this.this$0.mPermissionRequestDialog.dismiss();
+                        PermissionJudgePolicy permissionJudgePolicy = this.this$0;
+                        permissionJudgePolicy.startRequestPermissionForSystem(activity, permissionJudgePolicy.mRequestCode);
                         return;
                     }
-                    this.this$0.mPermissionRequestDialog.dismiss();
-                    PermissionJudgePolicy permissionJudgePolicy = this.this$0;
-                    permissionJudgePolicy.startRequestPermissionForSystem(activity, permissionJudgePolicy.mRequestCode);
+                    this.this$0.processExtraPermissionDialog(activity);
                 }
             }
         };
@@ -305,53 +311,9 @@ public class PermissionJudgePolicy {
         return (r9) invokeL.objValue;
     }
 
-    private int getPermissionDescriptionId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f101d : (h.g.equals(str) || h.h.equals(str)) ? R.string.obfuscated_res_0x7f0f1022 : PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f101a : PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f1023 : h.c.equals(str) ? R.string.obfuscated_res_0x7f0f101c : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f1024 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f101b : R.string.obfuscated_res_0x7f0f101d : invokeL.intValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void processExtraPermissionDialog(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, this, activity) == null) || getPageContext(activity) == null || ListUtils.isEmpty(this.mNeedExtraDialogPermissionList)) {
-            return;
-        }
-        if (this.mPermissionRequestDialog == null) {
-            PermissionRequestDialog permissionRequestDialog = new PermissionRequestDialog(activity);
-            this.mPermissionRequestDialog = permissionRequestDialog;
-            if (this.mExtraDialogRefusePolicy == EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one) {
-                permissionRequestDialog.setOnClickCallback(this.mExtraDialogRefuseOneByOneCallback);
-            } else {
-                permissionRequestDialog.setOnClickCallback(this.mExtraDialogRejectAllCallback);
-            }
-        }
-        this.mPermissionRequestDialog.setRequestPermission(this.mNeedExtraDialogPermissionList.get(0));
-        this.mPermissionRequestDialog.create(getPageContext(activity));
-        this.mPermissionRequestDialog.onChangeSkinType();
-        this.mPermissionRequestDialog.show();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startRequestPermissionForSystem(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65550, this, activity, i) == null) || ListUtils.isEmpty(this.requestPermissionList)) {
-            return;
-        }
-        ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack = this.mISystemPermissionDialogShowCallBack;
-        if (iSystemPermissionDialogShowCallBack != null) {
-            iSystemPermissionDialogShowCallBack.onShow();
-        }
-        if (i == -1) {
-            startRequestPermissionInternal(activity);
-        } else {
-            startRequestPermissionInternal(activity, i);
-        }
-    }
-
     private void startRequestPermissionInternal(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, activity) == null) || activity == null) {
+        if ((interceptable != null && interceptable.invokeL(65551, this, activity) != null) || activity == null) {
             return;
         }
         try {
@@ -359,147 +321,6 @@ public class PermissionJudgePolicy {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-    }
-
-    public void appendRequestPermission(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, activity, str) == null) || TextUtils.isEmpty(str) || checkPermissionGranted(activity, str)) {
-            return;
-        }
-        this.requestPermissionList.add(str);
-    }
-
-    public void appendRequestPermissionWithoutGrantedCheck(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.requestPermissionList.add(str);
-    }
-
-    public boolean checkPermissionForbidden(Activity activity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, str)) == null) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, str)) {
-                return true;
-            }
-            nu4 nu4Var = new nu4(activity);
-            nu4Var.setCanceledOnTouchOutside(false);
-            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101e);
-            nu4Var.setMessageId(getPermissionDescriptionId(str));
-            nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0997, new nu4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PermissionJudgePolicy this$0;
-                public final /* synthetic */ Activity val$context;
-                public final /* synthetic */ String val$permission;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, activity, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = activity;
-                    this.val$permission = str;
-                }
-
-                @Override // com.baidu.tieba.nu4.e
-                public void onClick(nu4 nu4Var2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, nu4Var2) == null) {
-                        nu4Var2.dismiss();
-                        Intent intent = new Intent();
-                        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                        intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                        intent.setData(Uri.fromParts("package", this.val$context.getPackageName(), null));
-                        this.val$context.startActivity(intent);
-                        if (this.this$0.mDialogClickListener != null) {
-                            this.this$0.mDialogClickListener.onDialogComfirmed(this.val$permission);
-                        }
-                    }
-                }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new nu4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PermissionJudgePolicy this$0;
-                public final /* synthetic */ String val$permission;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$permission = str;
-                }
-
-                @Override // com.baidu.tieba.nu4.e
-                public void onClick(nu4 nu4Var2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, nu4Var2) == null) {
-                        nu4Var2.dismiss();
-                        if (this.this$0.mDialogClickListener != null) {
-                            this.this$0.mDialogClickListener.onDialogCaneled(this.val$permission);
-                        }
-                    }
-                }
-            }).create(w9.a(activity));
-            nu4Var.show();
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean checkPermissionGranted(Activity activity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, activity, str)) == null) {
-            if (activity == null) {
-                return false;
-            }
-            return ContextCompat.checkPermissionGranted(activity, str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void clearRequestPermissionList() {
-        ArrayList<String> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (arrayList = this.requestPermissionList) == null) {
-            return;
-        }
-        arrayList.clear();
-    }
-
-    public void onPermissionsGranted() {
-        OnPermissionsGrantedListener onPermissionsGrantedListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (onPermissionsGrantedListener = this.mOnPermissionsGrantedListener) == null) {
-            return;
-        }
-        onPermissionsGrantedListener.onPermissionsGranted();
     }
 
     public void setDialogClickListener(PermissionDialogClickListener permissionDialogClickListener) {
@@ -519,34 +340,236 @@ public class PermissionJudgePolicy {
     public boolean startRequestPermission(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) ? startRequestPermission(activity, -1) : invokeL.booleanValue;
-    }
-
-    public boolean startRequestPermission(Activity activity, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, activity, i)) == null) ? startRequestPermission(activity, i, EXTRA_DIALOG_REFUSE_POLICY.Reject_all, null) : invokeLI.booleanValue;
-    }
-
-    public boolean startRequestPermission(Activity activity, int i, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy, IExtraDialogCloseCallback iExtraDialogCloseCallback, ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{activity, Integer.valueOf(i), extra_dialog_refuse_policy, iExtraDialogCloseCallback, iSystemPermissionDialogShowCallBack})) == null) {
-            this.mISystemPermissionDialogShowCallBack = iSystemPermissionDialogShowCallBack;
-            return startRequestPermission(activity, i, extra_dialog_refuse_policy, iExtraDialogCloseCallback);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) {
+            return startRequestPermission(activity, -1);
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void startRequestPermissionForSystem(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65550, this, activity, i) != null) || ListUtils.isEmpty(this.requestPermissionList)) {
+            return;
+        }
+        ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack = this.mISystemPermissionDialogShowCallBack;
+        if (iSystemPermissionDialogShowCallBack != null) {
+            iSystemPermissionDialogShowCallBack.onShow();
+        }
+        if (i == -1) {
+            startRequestPermissionInternal(activity);
+        } else {
+            startRequestPermissionInternal(activity, i);
+        }
     }
 
     private void startRequestPermissionInternal(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65552, this, activity, i) == null) || activity == null) {
+        if ((interceptable != null && interceptable.invokeLI(65552, this, activity, i) != null) || activity == null) {
             return;
         }
         try {
             ActivityCompat.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
+        }
+    }
+
+    public void appendRequestPermission(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, str) != null) || TextUtils.isEmpty(str) || checkPermissionGranted(activity, str)) {
+            return;
+        }
+        this.requestPermissionList.add(str);
+    }
+
+    public void appendRequestPermissionWithoutGrantedCheck(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.requestPermissionList.add(str);
+    }
+
+    public boolean checkPermissionGranted(Activity activity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, activity, str)) == null) {
+            if (activity == null) {
+                return false;
+            }
+            return ContextCompat.checkPermissionGranted(activity, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean startRequestPermission(Activity activity, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, activity, i)) == null) {
+            return startRequestPermission(activity, i, EXTRA_DIALOG_REFUSE_POLICY.Reject_all, null);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    private int getPermissionDescriptionId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
+                return R.string.obfuscated_res_0x7f0f102f;
+            }
+            if (!h.g.equals(str) && !h.h.equals(str)) {
+                if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str)) {
+                    return R.string.obfuscated_res_0x7f0f102c;
+                }
+                if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str)) {
+                    return R.string.obfuscated_res_0x7f0f1035;
+                }
+                if (h.c.equals(str)) {
+                    return R.string.obfuscated_res_0x7f0f102e;
+                }
+                if ("android.permission.SEND_SMS".equals(str)) {
+                    return R.string.obfuscated_res_0x7f0f1036;
+                }
+                if (!"android.permission.CALL_PHONE".equals(str)) {
+                    return R.string.obfuscated_res_0x7f0f102f;
+                }
+                return R.string.obfuscated_res_0x7f0f102d;
+            }
+            return R.string.obfuscated_res_0x7f0f1034;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void processExtraPermissionDialog(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, this, activity) == null) && getPageContext(activity) != null && !ListUtils.isEmpty(this.mNeedExtraDialogPermissionList)) {
+            if (this.mPermissionRequestDialog == null) {
+                PermissionRequestDialog permissionRequestDialog = new PermissionRequestDialog(activity);
+                this.mPermissionRequestDialog = permissionRequestDialog;
+                if (this.mExtraDialogRefusePolicy == EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one) {
+                    permissionRequestDialog.setOnClickCallback(this.mExtraDialogRefuseOneByOneCallback);
+                } else {
+                    permissionRequestDialog.setOnClickCallback(this.mExtraDialogRejectAllCallback);
+                }
+            }
+            this.mPermissionRequestDialog.setRequestPermission(this.mNeedExtraDialogPermissionList.get(0));
+            this.mPermissionRequestDialog.create(getPageContext(activity));
+            this.mPermissionRequestDialog.onChangeSkinType();
+            this.mPermissionRequestDialog.show();
+        }
+    }
+
+    public boolean checkPermissionForbidden(Activity activity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, str)) == null) {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(activity, str)) {
+                pu4 pu4Var = new pu4(activity);
+                pu4Var.setCanceledOnTouchOutside(false);
+                pu4Var.setTitle(R.string.obfuscated_res_0x7f0f1030);
+                pu4Var.setMessageId(getPermissionDescriptionId(str));
+                pu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09a4, new pu4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ PermissionJudgePolicy this$0;
+                    public final /* synthetic */ Activity val$context;
+                    public final /* synthetic */ String val$permission;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, activity, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$context = activity;
+                        this.val$permission = str;
+                    }
+
+                    @Override // com.baidu.tieba.pu4.e
+                    public void onClick(pu4 pu4Var2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, pu4Var2) == null) {
+                            pu4Var2.dismiss();
+                            Intent intent = new Intent();
+                            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                            intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                            intent.setData(Uri.fromParts("package", this.val$context.getPackageName(), null));
+                            this.val$context.startActivity(intent);
+                            if (this.this$0.mDialogClickListener != null) {
+                                this.this$0.mDialogClickListener.onDialogComfirmed(this.val$permission);
+                            }
+                        }
+                    }
+                }).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new pu4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ PermissionJudgePolicy this$0;
+                    public final /* synthetic */ String val$permission;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$permission = str;
+                    }
+
+                    @Override // com.baidu.tieba.pu4.e
+                    public void onClick(pu4 pu4Var2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, pu4Var2) == null) {
+                            pu4Var2.dismiss();
+                            if (this.this$0.mDialogClickListener != null) {
+                                this.this$0.mDialogClickListener.onDialogCaneled(this.val$permission);
+                            }
+                        }
+                    }
+                }).create(w9.a(activity));
+                pu4Var.show();
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void clearRequestPermissionList() {
+        ArrayList<String> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (arrayList = this.requestPermissionList) != null) {
+            arrayList.clear();
+        }
+    }
+
+    public void onPermissionsGranted() {
+        OnPermissionsGrantedListener onPermissionsGrantedListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (onPermissionsGrantedListener = this.mOnPermissionsGrantedListener) != null) {
+            onPermissionsGrantedListener.onPermissionsGranted();
         }
     }
 
@@ -581,5 +604,15 @@ public class PermissionJudgePolicy {
             }
         }
         return invokeLILL.booleanValue;
+    }
+
+    public boolean startRequestPermission(Activity activity, int i, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy, IExtraDialogCloseCallback iExtraDialogCloseCallback, ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{activity, Integer.valueOf(i), extra_dialog_refuse_policy, iExtraDialogCloseCallback, iSystemPermissionDialogShowCallBack})) == null) {
+            this.mISystemPermissionDialogShowCallBack = iSystemPermissionDialogShowCallBack;
+            return startRequestPermission(activity, i, extra_dialog_refuse_policy, iExtraDialogCloseCallback);
+        }
+        return invokeCommon.booleanValue;
     }
 }

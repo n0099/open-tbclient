@@ -29,7 +29,7 @@ public class HUDStatistics {
     public static final int FLAG_STATES_STREAMING_SEND_VIDEO = 8;
     public static int mLastCpuCoreCount = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Long> audioStuckList;
+    public ArrayList audioStuckList;
     public long firstFrameTime;
     public String mActualEncBitrate;
     public String mAudioCurrentDelay;
@@ -84,7 +84,7 @@ public class HUDStatistics {
     public String mVideoSendPacketLost;
     public String mVideoSendWidth;
     public long requestSubscribeTime;
-    public ArrayList<Long> videoStuckList;
+    public ArrayList videoStuckList;
 
     static {
         InterceptResult invokeClinit;
@@ -115,8 +115,8 @@ public class HUDStatistics {
             }
         }
         this.mVideoRecvPacketLost = "0";
-        this.audioStuckList = new ArrayList<>();
-        this.videoStuckList = new ArrayList<>();
+        this.audioStuckList = new ArrayList();
+        this.videoStuckList = new ArrayList();
         this.mVideoQPSum = 0;
         this.mFrameEncoded = 0;
         this.mAudioRecvBitrateTracker = new RTCBitrateTracker();
@@ -143,7 +143,87 @@ public class HUDStatistics {
         return invokeV.intValue;
     }
 
-    private Map<String, String> getReportMap(StatsReport statsReport) {
+    public void clearSLIStuckData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.audioStuckList.clear();
+            this.videoStuckList.clear();
+        }
+    }
+
+    public RTCBitrateTracker getAudioRecvBitrateTracker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAudioRecvBitrateTracker;
+        }
+        return (RTCBitrateTracker) invokeV.objValue;
+    }
+
+    public long getFirstFrameTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.firstFrameTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getRecvResolution() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mVideoRecvWidth + "*" + this.mVideoRecvHeight;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getRequestSubscribeTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.requestSubscribeTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getSendResolution() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mVideoSendWidth + "*" + this.mVideoSendHeight;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public RTCBitrateTracker getVideoRecvBitrateTracker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mVideoRecvBitrateTracker;
+        }
+        return (RTCBitrateTracker) invokeV.objValue;
+    }
+
+    public boolean hasAudio() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mHasAudio;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hasVideo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mHasVideo;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private Map getReportMap(StatsReport statsReport) {
         InterceptResult invokeL;
         StatsReport.Value[] valueArr;
         Interceptable interceptable = $ic;
@@ -157,73 +237,114 @@ public class HUDStatistics {
         return (Map) invokeL.objValue;
     }
 
-    private void parseAudioRecvStatsReport(Map<String, String> map) {
+    public void getSlIStuckData(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
+            map.put("aStuck", this.audioStuckList);
+            map.put("vStuck", this.videoStuckList);
+        }
+    }
+
+    public void setFirstFrameTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.firstFrameTime = j;
+        }
+    }
+
+    public void setRequestSubscribeTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.requestSubscribeTime = j;
+        }
+    }
+
+    private void parseAudioRecvStatsReport(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, map) == null) {
             try {
-                this.mAudioRecvBitrateTracker.updataBitrateWidhCurrentByteCount(Integer.parseInt(map.get("bytesReceived")));
+                this.mAudioRecvBitrateTracker.updataBitrateWidhCurrentByteCount(Integer.parseInt((String) map.get("bytesReceived")));
                 this.mAudioRecvBitrate = this.mAudioRecvBitrateTracker.bitRateString();
-                String str = map.get("googJitterBufferMs");
+                String str = (String) map.get("googJitterBufferMs");
                 if (!TextUtils.isEmpty(str)) {
                     this.mAudioJitterBufferMs = Integer.valueOf(str).intValue();
                 }
             } catch (NumberFormatException e) {
                 Log.e("HUDStatistic", "parseAudioRecvStatsReport" + e);
             }
-            this.mAudioCurrentDelay = map.get("googCurrentDelayMs");
-            this.mAudioRecvCodec = map.get("googCodecName");
-            this.mAudioExpandRate = map.get("googSpeechExpandRate");
+            this.mAudioCurrentDelay = (String) map.get("googCurrentDelayMs");
+            this.mAudioRecvCodec = (String) map.get("googCodecName");
+            this.mAudioExpandRate = (String) map.get("googSpeechExpandRate");
         }
     }
 
-    private void parseAudioSendStatsReport(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, map) == null) {
-            try {
-                this.mAudioSendBitrateTracker.updataBitrateWidhCurrentByteCount(Long.parseLong(map.get("bytesSent")));
-                this.mAudioSendBitrate = this.mAudioSendBitrateTracker.bitRateString();
-            } catch (NumberFormatException unused) {
-            }
-            this.mAudioSendCodec = map.get("googCodecName");
-        }
-    }
-
-    private void parseBweStatsReport(Map<String, String> map) {
+    private void parseBweStatsReport(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, map) == null) {
             try {
-                this.mTargetEncBitrate = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googTargetEncBitrate")));
-                this.mActualEncBitrate = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googActualEncBitrate")));
-                this.mAvailableSendBW = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googAvailableSendBandwidth")));
-                this.mAvailableRevBW = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googAvailableReceiveBandwidth")));
+                this.mTargetEncBitrate = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble((String) map.get("googTargetEncBitrate")));
+                this.mActualEncBitrate = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble((String) map.get("googActualEncBitrate")));
+                this.mAvailableSendBW = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble((String) map.get("googAvailableSendBandwidth")));
+                this.mAvailableRevBW = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble((String) map.get("googAvailableReceiveBandwidth")));
             } catch (NumberFormatException e) {
                 Log.e("HUDStatistics", "parseBweStatsReport: " + e);
             }
         }
     }
 
-    private void parseConnectionStatsReport(Map<String, String> map) {
+    private void parseVideoRecvStatsReport(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, map) == null) {
+            this.mVideoDecodeMs = (String) map.get("googDecodeMs");
+            this.mVideoDecodFps = (String) map.get("googFrameRateDecoded");
+            this.mVideoOutputFps = (String) map.get("googFrameRateOutput");
+            this.mVideoRecvFps = (String) map.get("googFrameRateReceived");
+            this.mVideoRecvBitrateTracker.updataBitrateWidhCurrentByteCount(Long.parseLong((String) map.get("bytesReceived")));
+            this.mVideoRecvBitrate = this.mVideoRecvBitrateTracker.bitRateString();
+            this.mVideoRecvHeight = (String) map.get("googFrameHeightReceived");
+            this.mVideoRecvWidth = (String) map.get("googFrameWidthReceived");
+            if (map.containsKey("googEndToEndTime")) {
+                this.mEndToEndTime = (String) map.get("googEndToEndTime");
+            }
+            this.mVideoRecvPacketLost = (String) map.get("packetsLost");
+            this.mVideoPacketRecv = (String) map.get("packetsReceived");
+        }
+    }
+
+    private void parseAudioSendStatsReport(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, map) == null) {
+            try {
+                this.mAudioSendBitrateTracker.updataBitrateWidhCurrentByteCount(Long.parseLong((String) map.get("bytesSent")));
+                this.mAudioSendBitrate = this.mAudioSendBitrateTracker.bitRateString();
+            } catch (NumberFormatException unused) {
+            }
+            this.mAudioSendCodec = (String) map.get("googCodecName");
+        }
+    }
+
+    private void parseConnectionStatsReport(Map map) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, map) == null) && (str = map.get("googActiveConnection")) != null && str.equals("true")) {
+        if ((interceptable == null || interceptable.invokeL(65543, this, map) == null) && (str = (String) map.get("googActiveConnection")) != null && str.equals("true")) {
             try {
-                this.mConnRecvBitrateTracker.updataBitrateWidhCurrentByteCount(Long.parseLong(map.get("bytesReceived")));
+                this.mConnRecvBitrateTracker.updataBitrateWidhCurrentByteCount(Long.parseLong((String) map.get("bytesReceived")));
                 this.mConnRecvBitrate = this.mConnRecvBitrateTracker.bitRateString();
-                this.mConnSendBitrateTradker.updataBitrateWidhCurrentByteCount(Long.parseLong(map.get("bytesSent")));
+                this.mConnSendBitrateTradker.updataBitrateWidhCurrentByteCount(Long.parseLong((String) map.get("bytesSent")));
                 this.mConnSendBitrate = this.mConnSendBitrateTradker.bitRateString();
             } catch (NumberFormatException e) {
                 Log.e("HUDStatistics", "parseConnectionStatsReport" + e);
             }
-            this.mConnRtt = map.get("googRtt");
-            this.mLocalCandType = map.get("googLocalCandidateType");
-            this.mRemoteCandType = map.get("googRemoteCandidateType");
-            this.mTransPortType = map.get("googTransportType");
-            if (map.containsKey("googLocalAddress") && (str2 = map.get("googLocalAddress").split(":")[0]) != null) {
+            this.mConnRtt = (String) map.get("googRtt");
+            this.mLocalCandType = (String) map.get("googLocalCandidateType");
+            this.mRemoteCandType = (String) map.get("googRemoteCandidateType");
+            this.mTransPortType = (String) map.get("googTransportType");
+            if (map.containsKey("googLocalAddress") && (str2 = ((String) map.get("googLocalAddress")).split(":")[0]) != null) {
                 ErrorInfoReport.getInstance().setClientIp(str2);
             }
             if (map.containsKey("googRemoteAddress")) {
-                String str3 = map.get("googRemoteAddress").split(":")[0];
+                String str3 = ((String) map.get("googRemoteAddress")).split(":")[0];
                 this.mRemoteIp = str3;
                 if (str3 != null) {
                     ErrorInfoReport.getInstance().setRemoteIp(this.mRemoteIp);
@@ -232,56 +353,72 @@ public class HUDStatistics {
         }
     }
 
-    private void parseVideoRecvStatsReport(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, map) == null) {
-            this.mVideoDecodeMs = map.get("googDecodeMs");
-            this.mVideoDecodFps = map.get("googFrameRateDecoded");
-            this.mVideoOutputFps = map.get("googFrameRateOutput");
-            this.mVideoRecvFps = map.get("googFrameRateReceived");
-            this.mVideoRecvBitrateTracker.updataBitrateWidhCurrentByteCount(Long.parseLong(map.get("bytesReceived")));
-            this.mVideoRecvBitrate = this.mVideoRecvBitrateTracker.bitRateString();
-            this.mVideoRecvHeight = map.get("googFrameHeightReceived");
-            this.mVideoRecvWidth = map.get("googFrameWidthReceived");
-            if (map.containsKey("googEndToEndTime")) {
-                this.mEndToEndTime = map.get("googEndToEndTime");
-            }
-            this.mVideoRecvPacketLost = map.get("packetsLost");
-            this.mVideoPacketRecv = map.get("packetsReceived");
-        }
-    }
-
-    private void parseVideoSendStatsReport(Map<String, String> map) {
+    private void parseVideoSendStatsReport(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, map) == null) {
-            this.mVideoEncodeMs = map.get("googAvgEncodeMs");
-            this.mVideoInputFps = map.get("googFrameRateInput");
-            this.mVideoInputHeight = map.get("googFrameHeightInput");
-            this.mVideoInputWidth = map.get("googFrameWidthInput");
-            this.mVideoSendFps = map.get("googFrameRateSent");
-            this.mVideoSendCodec = map.get("googCodecName");
-            this.mVideoSendWidth = map.get("googFrameWidthSent");
-            this.mVideoSendHeight = map.get("googFrameHeightSent");
-            this.mVideoSendPacketLost = map.get("packetsLost");
-            this.mVideoPacketSend = map.get("packetsSent");
+            this.mVideoEncodeMs = (String) map.get("googAvgEncodeMs");
+            this.mVideoInputFps = (String) map.get("googFrameRateInput");
+            this.mVideoInputHeight = (String) map.get("googFrameHeightInput");
+            this.mVideoInputWidth = (String) map.get("googFrameWidthInput");
+            this.mVideoSendFps = (String) map.get("googFrameRateSent");
+            this.mVideoSendCodec = (String) map.get("googCodecName");
+            this.mVideoSendWidth = (String) map.get("googFrameWidthSent");
+            this.mVideoSendHeight = (String) map.get("googFrameHeightSent");
+            this.mVideoSendPacketLost = (String) map.get("packetsLost");
+            this.mVideoPacketSend = (String) map.get("packetsSent");
             try {
-                String str = map.get("bytesSent");
+                String str = (String) map.get("bytesSent");
                 if (str != null) {
                     this.mVideoSendBitrateTracker.updataBitrateWidhCurrentByteCount(Integer.parseInt(str));
                 }
                 this.mVideoSendBitrate = this.mVideoSendBitrateTracker.bitRateString();
                 this.mOldVideoQPSum = this.mVideoQPSum;
-                String str2 = map.get("qpSum");
+                String str2 = (String) map.get("qpSum");
                 if (str2 != null) {
                     this.mVideoQPSum = Integer.parseInt(str2);
                 }
                 this.mOldFrameEncoded = this.mFrameEncoded;
-                String str3 = map.get("framesEncoded");
+                String str3 = (String) map.get("framesEncoded");
                 if (str3 != null) {
                     this.mFrameEncoded = Integer.parseInt(str3);
                 }
             } catch (NumberFormatException e) {
                 Log.e("HUDStatistic", "parseVideoSendStatsReport: " + e);
+            }
+        }
+    }
+
+    public void updateEncoderStatistics(StatsReport[] statsReportArr) {
+        Map reportMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, statsReportArr) == null) {
+            for (StatsReport statsReport : statsReportArr) {
+                if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains("send")) {
+                    Map reportMap2 = getReportMap(statsReport);
+                    String str = (String) reportMap2.get("googTrackId");
+                    if (str != null && str.contains(PeerConnectionClient.VIDEO_TRACK_ID)) {
+                        parseVideoSendStatsReport(reportMap2);
+                    } else if (str != null && str.contains(PeerConnectionClient.AUDIO_TRACK_ID)) {
+                        parseAudioSendStatsReport(reportMap2);
+                    }
+                } else if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains("recv")) {
+                    Map reportMap3 = getReportMap(statsReport);
+                    if (((String) reportMap3.get("googFrameWidthReceived")) != null) {
+                        parseVideoRecvStatsReport(reportMap3);
+                        this.mHasVideo = true;
+                    }
+                    if (((String) reportMap3.get("audioOutputLevel")) != null) {
+                        parseAudioRecvStatsReport(reportMap3);
+                        this.mHasAudio = true;
+                    }
+                } else if (statsReport.id.equals("bweforvideo")) {
+                    Map reportMap4 = getReportMap(statsReport);
+                    if (reportMap4.size() > 3) {
+                        parseBweStatsReport(reportMap4);
+                    }
+                } else if (statsReport.type.equals("googCandidatePair") && (reportMap = getReportMap(statsReport)) != null) {
+                    parseConnectionStatsReport(reportMap);
+                }
             }
         }
     }
@@ -298,20 +435,6 @@ public class HUDStatistics {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.videoStuckList.add(Long.valueOf(j2 - j));
         }
-    }
-
-    public void clearSLIStuckData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.audioStuckList.clear();
-            this.videoStuckList.clear();
-        }
-    }
-
-    public RTCBitrateTracker getAudioRecvBitrateTracker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAudioRecvBitrateTracker : (RTCBitrateTracker) invokeV.objValue;
     }
 
     public int getEndTOEndTime() {
@@ -331,45 +454,7 @@ public class HUDStatistics {
         return invokeV.intValue;
     }
 
-    public long getFirstFrameTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.firstFrameTime : invokeV.longValue;
-    }
-
-    public String getRecvResolution() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mVideoRecvWidth + "*" + this.mVideoRecvHeight;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long getRequestSubscribeTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.requestSubscribeTime : invokeV.longValue;
-    }
-
-    public String getSendResolution() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mVideoSendWidth + "*" + this.mVideoSendHeight;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void getSlIStuckData(Map<String, ArrayList<Long>> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-            map.put("aStuck", this.audioStuckList);
-            map.put("vStuck", this.videoStuckList);
-        }
-    }
-
-    public void getStatsRecvInfo(Map<String, Integer> map) {
+    public void getStatsRecvInfo(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
             if (this.mVideoRecvBitrate != null && this.mVideoRecvPacketLost != null && this.mVideoRecvFps != null && map != null) {
@@ -392,7 +477,7 @@ public class HUDStatistics {
         }
     }
 
-    public void getStatsSendInfo(Map<String, Integer> map) {
+    public void getStatsSendInfo(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, map) == null) {
             String str = this.mVideoSendBitrate;
@@ -415,38 +500,6 @@ public class HUDStatistics {
                 }
             }
             Log.e("HUDStatistics", "getStatsSendInfo null");
-        }
-    }
-
-    public RTCBitrateTracker getVideoRecvBitrateTracker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mVideoRecvBitrateTracker : (RTCBitrateTracker) invokeV.objValue;
-    }
-
-    public boolean hasAudio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mHasAudio : invokeV.booleanValue;
-    }
-
-    public boolean hasVideo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mHasVideo : invokeV.booleanValue;
-    }
-
-    public void setFirstFrameTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.firstFrameTime = j;
-        }
-    }
-
-    public void setRequestSubscribeTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.requestSubscribeTime = j;
         }
     }
 
@@ -553,40 +606,5 @@ public class HUDStatistics {
             return sb.toString();
         }
         return (String) invokeI.objValue;
-    }
-
-    public void updateEncoderStatistics(StatsReport[] statsReportArr) {
-        Map<String, String> reportMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, statsReportArr) == null) {
-            for (StatsReport statsReport : statsReportArr) {
-                if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains("send")) {
-                    Map<String, String> reportMap2 = getReportMap(statsReport);
-                    String str = reportMap2.get("googTrackId");
-                    if (str != null && str.contains(PeerConnectionClient.VIDEO_TRACK_ID)) {
-                        parseVideoSendStatsReport(reportMap2);
-                    } else if (str != null && str.contains(PeerConnectionClient.AUDIO_TRACK_ID)) {
-                        parseAudioSendStatsReport(reportMap2);
-                    }
-                } else if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains("recv")) {
-                    Map<String, String> reportMap3 = getReportMap(statsReport);
-                    if (reportMap3.get("googFrameWidthReceived") != null) {
-                        parseVideoRecvStatsReport(reportMap3);
-                        this.mHasVideo = true;
-                    }
-                    if (reportMap3.get("audioOutputLevel") != null) {
-                        parseAudioRecvStatsReport(reportMap3);
-                        this.mHasAudio = true;
-                    }
-                } else if (statsReport.id.equals("bweforvideo")) {
-                    Map<String, String> reportMap4 = getReportMap(statsReport);
-                    if (reportMap4.size() > 3) {
-                        parseBweStatsReport(reportMap4);
-                    }
-                } else if (statsReport.type.equals("googCandidatePair") && (reportMap = getReportMap(statsReport)) != null) {
-                    parseConnectionStatsReport(reportMap);
-                }
-            }
-        }
     }
 }

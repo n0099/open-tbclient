@@ -24,7 +24,7 @@ public class f {
     public static final int e = -1;
     public static int f = -1;
     public static int g;
-    public static ThreadLocal<StringBuilder> h;
+    public static ThreadLocal h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class f {
                 return;
             }
         }
-        h = new ThreadLocal<>();
+        h = new ThreadLocal();
     }
 
     public f() {
@@ -91,7 +91,7 @@ public class f {
         if (fileName.length() > 5) {
             fileName = fileName.substring(0, fileName.length() - 5);
         }
-        StringBuilder sb = h.get();
+        StringBuilder sb = (StringBuilder) h.get();
         if (sb == null) {
             sb = new StringBuilder();
             h.set(sb);

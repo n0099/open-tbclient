@@ -45,24 +45,48 @@ public final class XmlPullParserUtil {
     public static boolean isEndTag(XmlPullParser xmlPullParser, String str) throws XmlPullParserException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, xmlPullParser, str)) == null) ? isEndTag(xmlPullParser) && xmlPullParser.getName().equals(str) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, xmlPullParser, str)) == null) {
+            if (isEndTag(xmlPullParser) && xmlPullParser.getName().equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean isStartTag(XmlPullParser xmlPullParser, String str) throws XmlPullParserException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, xmlPullParser, str)) == null) ? isStartTag(xmlPullParser) && xmlPullParser.getName().equals(str) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, xmlPullParser, str)) == null) {
+            if (isStartTag(xmlPullParser) && xmlPullParser.getName().equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean isEndTag(XmlPullParser xmlPullParser) throws XmlPullParserException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xmlPullParser)) == null) ? xmlPullParser.getEventType() == 3 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xmlPullParser)) == null) {
+            if (xmlPullParser.getEventType() == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isStartTag(XmlPullParser xmlPullParser) throws XmlPullParserException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) ? xmlPullParser.getEventType() == 2 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) {
+            if (xmlPullParser.getEventType() == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

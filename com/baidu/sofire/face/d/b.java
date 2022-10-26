@@ -38,22 +38,51 @@ public class b {
         "free".getBytes();
     }
 
+    public static int a(byte[] bArr, int i) throws Exception {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i)) == null) {
+            if (bArr.length - i < 4) {
+                return -1;
+            }
+            byte[] a = a(bArr, i, 4);
+            if (a.length != 4) {
+                return -1;
+            }
+            ByteBuffer wrap = ByteBuffer.wrap(a, 0, 4);
+            wrap.order(ByteOrder.BIG_ENDIAN);
+            return wrap.getInt();
+        }
+        return invokeLI.intValue;
+    }
+
     public static int a(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (bArr == null || bArr.length < 1) {
-                return -1;
+            if (bArr != null && bArr.length >= 1) {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    messageDigest.update(bArr, i, i2);
+                    return messageDigest.digest(bArr2, i3, i4);
+                } catch (DigestException | NoSuchAlgorithmException e) {
+                    throw new RuntimeException("NoSuchAlgorithmException", e);
+                }
             }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr, i, i2);
-                return messageDigest.digest(bArr2, i3, i4);
-            } catch (DigestException | NoSuchAlgorithmException e) {
-                throw new RuntimeException("NoSuchAlgorithmException", e);
-            }
+            return -1;
         }
         return invokeCommon.intValue;
+    }
+
+    public static byte[] a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
     }
 
     public static byte[] a(byte[] bArr, int i, int i2, int i3) {
@@ -68,76 +97,72 @@ public class b {
         return (byte[]) invokeLIII.objValue;
     }
 
-    public static byte[] a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
-            byte[] bArr2 = new byte[i2];
-            System.arraycopy(bArr, i, bArr2, 0, i2);
-            return bArr2;
-        }
-        return (byte[]) invokeLII.objValue;
-    }
-
     public static byte[][] a(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         int i;
         int i2;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr == null || bArr.length < 4) {
-                return null;
-            }
-            int length = bArr.length;
-            byte[][] bArr2 = new byte[2];
-            int i3 = 0;
-            int a = a(bArr, 0);
-            int i4 = a - 8;
-            int i5 = i4 + 16 + 4 + 4;
-            int i6 = a + 0;
-            int i7 = 0;
-            int i8 = 0;
-            int i9 = 0;
-            int i10 = 0;
-            int i11 = 0;
-            int i12 = 0;
-            while (i6 < length) {
-                int a2 = a(bArr, i6);
-                if (a2 == 1) {
-                    int i13 = i6 + 8;
-                    long j = -1;
-                    if (bArr.length - i13 >= 8) {
-                        byte[] a3 = a(bArr, i13, 8);
-                        if (a3.length == 8) {
-                            ByteBuffer wrap = ByteBuffer.wrap(a3, i3, 8);
-                            wrap.order(ByteOrder.BIG_ENDIAN);
-                            j = wrap.getLong();
+            if (bArr != null && bArr.length >= 4) {
+                int length = bArr.length;
+                byte[][] bArr2 = new byte[2];
+                int i3 = 0;
+                int a = a(bArr, 0);
+                int i4 = a - 8;
+                int i5 = i4 + 16 + 4 + 4;
+                int i6 = a + 0;
+                int i7 = 0;
+                int i8 = 0;
+                int i9 = 0;
+                int i10 = 0;
+                int i11 = 0;
+                int i12 = 0;
+                while (i6 < length) {
+                    int a2 = a(bArr, i6);
+                    if (a2 == 1) {
+                        int i13 = i6 + 8;
+                        long j = -1;
+                        if (bArr.length - i13 >= 8) {
+                            byte[] a3 = a(bArr, i13, 8);
+                            if (a3.length == 8) {
+                                ByteBuffer wrap = ByteBuffer.wrap(a3, i3, 8);
+                                wrap.order(ByteOrder.BIG_ENDIAN);
+                                j = wrap.getLong();
+                            }
                         }
+                        i = length;
+                        a2 = (int) j;
+                        i2 = 8;
+                    } else {
+                        i = length;
+                        i2 = 0;
                     }
-                    i = length;
-                    a2 = (int) j;
-                    i2 = 8;
-                } else {
-                    i = length;
-                    i2 = 0;
+                    int i14 = i6 + 4;
+                    if (bArr.length - i14 < 4) {
+                        str = null;
+                    } else {
+                        str = new String(a(bArr, i14, 4));
+                    }
+                    str.hashCode();
+                    if (!str.equals(MediaDataBox.TYPE)) {
+                        if (str.equals(MovieBox.TYPE)) {
+                            i11 = (a2 - 8) - i2;
+                            i8 = a2;
+                            i7 = i6;
+                        }
+                    } else {
+                        i12 = (a2 - 8) - i2;
+                        i10 = a2;
+                        i9 = i6;
+                    }
+                    i6 += a2;
+                    length = i;
+                    i3 = 0;
                 }
-                int i14 = i6 + 4;
-                String str = bArr.length - i14 < 4 ? null : new String(a(bArr, i14, 4));
-                str.hashCode();
-                if (str.equals(MediaDataBox.TYPE)) {
-                    i12 = (a2 - 8) - i2;
-                    i10 = a2;
-                    i9 = i6;
-                } else if (str.equals(MovieBox.TYPE)) {
-                    i11 = (a2 - 8) - i2;
-                    i8 = a2;
-                    i7 = i6;
+                if (i7 + i8 > length || i9 + i10 > length) {
+                    return null;
                 }
-                i6 += a2;
-                length = i;
-                i3 = 0;
-            }
-            if (i7 + i8 <= length && i9 + i10 <= length) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i15 = i11 + i5;
                 int i16 = i15 + 40;
@@ -168,23 +193,5 @@ public class b {
             return null;
         }
         return (byte[][]) invokeL.objValue;
-    }
-
-    public static int a(byte[] bArr, int i) throws Exception {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i)) == null) {
-            if (bArr.length - i < 4) {
-                return -1;
-            }
-            byte[] a = a(bArr, i, 4);
-            if (a.length != 4) {
-                return -1;
-            }
-            ByteBuffer wrap = ByteBuffer.wrap(a, 0, 4);
-            wrap.order(ByteOrder.BIG_ENDIAN);
-            return wrap.getInt();
-        }
-        return invokeLI.intValue;
     }
 }

@@ -12,11 +12,36 @@ import io.reactivex.functions.BiPredicate;
 /* loaded from: classes8.dex */
 public final class ObjectHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final BiPredicate<Object, Object> EQUALS;
+    public static final BiPredicate EQUALS;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int compare(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            if (i < i2) {
+                return -1;
+            }
+            return i > i2 ? 1 : 0;
+        }
+        return invokeII.intValue;
+    }
+
+    public static int compare(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            if (i < 0) {
+                return -1;
+            }
+            return i > 0 ? 1 : 0;
+        }
+        return invokeCommon.intValue;
+    }
+
     /* loaded from: classes8.dex */
-    public static final class BiObjectPredicate implements BiPredicate<Object, Object> {
+    public final class BiObjectPredicate implements BiPredicate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,7 +63,10 @@ public final class ObjectHelper {
         public boolean test(Object obj, Object obj2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? ObjectHelper.equals(obj, obj2) : invokeLL.booleanValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+                return ObjectHelper.equals(obj, obj2);
+            }
+            return invokeLL.booleanValue;
         }
     }
 
@@ -74,65 +102,37 @@ public final class ObjectHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static int compare(int i, int i2) {
-        InterceptResult invokeII;
+    public static BiPredicate equalsPredicate() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            if (i < i2) {
-                return -1;
-            }
-            return i > i2 ? 1 : 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return EQUALS;
         }
-        return invokeII.intValue;
-    }
-
-    public static int compare(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-            if (i < 0) {
-                return -1;
-            }
-            return i > 0 ? 1 : 0;
-        }
-        return invokeCommon.intValue;
+        return (BiPredicate) invokeV.objValue;
     }
 
     public static boolean equals(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
-    }
-
-    public static <T> BiPredicate<T, T> equalsPredicate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (BiPredicate<T, T>) EQUALS : (BiPredicate) invokeV.objValue;
-    }
-
-    public static int hashCode(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
-            if (obj != null) {
-                return obj.hashCode();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2)) == null) {
+            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
+                return false;
             }
-            return 0;
+            return true;
         }
-        return invokeL.intValue;
+        return invokeLL.booleanValue;
     }
 
-    public static <T> T requireNonNull(T t, String str) {
+    public static Object requireNonNull(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, t, str)) == null) {
-            if (t != null) {
-                return t;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, obj, str)) == null) {
+            if (obj != null) {
+                return obj;
             }
             throw new NullPointerException(str);
         }
-        return (T) invokeLL.objValue;
+        return invokeLL.objValue;
     }
 
     public static int verifyPositive(int i, String str) {
@@ -145,6 +145,18 @@ public final class ObjectHelper {
             throw new IllegalArgumentException(str + " > 0 required but it was " + i);
         }
         return invokeIL.intValue;
+    }
+
+    public static int hashCode(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
+            if (obj != null) {
+                return obj.hashCode();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 
     public static long verifyPositive(long j, String str) {

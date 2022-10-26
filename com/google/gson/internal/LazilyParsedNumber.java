@@ -32,19 +32,6 @@ public final class LazilyParsedNumber extends Number {
         this.value = str;
     }
 
-    private Object writeReplace() throws ObjectStreamException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new BigDecimal(this.value) : invokeV.objValue;
-    }
-
-    @Override // java.lang.Number
-    public double doubleValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Double.parseDouble(this.value) : invokeV.doubleValue;
-    }
-
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -52,27 +39,55 @@ public final class LazilyParsedNumber extends Number {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof LazilyParsedNumber) {
-                String str = this.value;
-                String str2 = ((LazilyParsedNumber) obj).value;
-                return str == str2 || str.equals(str2);
+            if (!(obj instanceof LazilyParsedNumber)) {
+                return false;
+            }
+            String str = this.value;
+            String str2 = ((LazilyParsedNumber) obj).value;
+            if (str == str2 || str.equals(str2)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
+    private Object writeReplace() throws ObjectStreamException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return new BigDecimal(this.value);
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // java.lang.Number
+    public double doubleValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Double.parseDouble(this.value);
+        }
+        return invokeV.doubleValue;
+    }
+
     @Override // java.lang.Number
     public float floatValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Float.parseFloat(this.value) : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Float.parseFloat(this.value);
+        }
+        return invokeV.floatValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.value.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.value.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     @Override // java.lang.Number
@@ -110,6 +125,9 @@ public final class LazilyParsedNumber extends Number {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.value : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
     }
 }

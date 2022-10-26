@@ -1,11 +1,8 @@
 package com.kwad.components.core.a;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
@@ -24,7 +21,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class g implements h, Comparable<g> {
+public final class g implements h, Comparable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String DA;
@@ -61,7 +58,7 @@ public final class g implements h, Comparable<g> {
         this.DB = j2;
     }
 
-    public static List<g> a(Cursor cursor) {
+    public static List a(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cursor)) == null) {
@@ -81,27 +78,27 @@ public final class g implements h, Comparable<g> {
         return (List) invokeL.objValue;
     }
 
-    public static List<g> a(e eVar, AdResultData adResultData) {
+    public static List a(e eVar, AdResultData adResultData) {
         InterceptResult invokeLL;
         AdResultData adResultData2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, eVar, adResultData)) == null) {
             AdResultData adResultData3 = adResultData;
-            List<AdTemplate> proceedTemplateList = adResultData.getProceedTemplateList();
+            List proceedTemplateList = adResultData.getProceedTemplateList();
             int size = proceedTemplateList.size();
             long currentTimeMillis = System.currentTimeMillis();
             long lZ = (currentTimeMillis / 1000) + eVar.lZ();
             ArrayList arrayList = new ArrayList();
             SceneImpl defaultAdScene = adResultData.getDefaultAdScene();
-            Iterator<AdTemplate> it = proceedTemplateList.iterator();
+            Iterator it = proceedTemplateList.iterator();
             while (it.hasNext()) {
-                AdTemplate next = it.next();
-                Iterator<AdTemplate> it2 = it;
+                AdTemplate adTemplate = (AdTemplate) it.next();
+                Iterator it2 = it;
                 ArrayList arrayList2 = arrayList;
-                g gVar = new g(String.valueOf(com.kwad.sdk.core.response.a.d.ca(next)), String.valueOf(adResultData.getPosId()), new AdResultData(adResultData3, defaultAdScene, Collections.singletonList(next)).getResponseJson(), com.kwad.sdk.core.response.a.d.cf(next), adResultData.getDefaultAdScene().toJson().toString(), size + currentTimeMillis, lZ);
-                if (next.hasPlayAgain()) {
+                g gVar = new g(String.valueOf(com.kwad.sdk.core.response.a.d.ca(adTemplate)), String.valueOf(adResultData.getPosId()), new AdResultData(adResultData3, defaultAdScene, Collections.singletonList(adTemplate)).getResponseJson(), com.kwad.sdk.core.response.a.d.cf(adTemplate), adResultData.getDefaultAdScene().toJson().toString(), size + currentTimeMillis, lZ);
+                if (adTemplate.hasPlayAgain()) {
                     adResultData2 = adResultData;
-                    gVar.ai(new AdResultData(adResultData2, defaultAdScene, Collections.singletonList(next.mPlayAgain)).getResponseJson());
+                    gVar.ai(new AdResultData(adResultData2, defaultAdScene, Collections.singletonList(adTemplate.mPlayAgain)).getResponseJson());
                 } else {
                     adResultData2 = adResultData;
                 }
@@ -123,8 +120,7 @@ public final class g implements h, Comparable<g> {
         }
     }
 
-    @SuppressLint({"Range"})
-    public static synchronized g c(@NonNull Cursor cursor) {
+    public static synchronized g c(Cursor cursor) {
         InterceptResult invokeL;
         g gVar;
         Interceptable interceptable = $ic;
@@ -146,7 +142,6 @@ public final class g implements h, Comparable<g> {
         return (g) invokeL.objValue;
     }
 
-    @Nullable
     public static AdResultData c(g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -194,7 +189,7 @@ public final class g implements h, Comparable<g> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, gVar)) == null) ? gVar.me() == me() ? (int) (gVar.mf() - mf()) : gVar.me() - me() : invokeL.intValue;
     }
 
-    public static AdResultData j(List<g> list) {
+    public static AdResultData j(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
@@ -203,9 +198,10 @@ public final class g implements h, Comparable<g> {
             if (list == null || list.size() == 0) {
                 return null;
             }
+            Iterator it = list.iterator();
             SceneImpl sceneImpl = null;
-            for (g gVar : list) {
-                adResultData = c(gVar);
+            while (it.hasNext()) {
+                adResultData = c((g) it.next());
                 if (adResultData != null) {
                     if (sceneImpl == null) {
                         sceneImpl = adResultData.getDefaultAdScene();

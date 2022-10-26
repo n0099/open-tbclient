@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.xt4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,14 +109,15 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.a.e != null && this.a.e.getFid() == longValue && this.a.i) {
-                    this.a.h = false;
-                    this.a.j();
+                if (this.a.e == null || this.a.e.getFid() != longValue || !this.a.i) {
+                    return;
                 }
+                this.a.h = false;
+                this.a.j();
             }
         }
     }
@@ -150,14 +151,15 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.a.e != null && this.a.e.getFid() == longValue && this.a.i) {
-                    this.a.h = true;
-                    this.a.j();
+                if (this.a.e == null || this.a.e.getFid() != longValue || !this.a.i) {
+                    return;
                 }
+                this.a.h = true;
+                this.a.j();
             }
         }
     }
@@ -179,6 +181,21 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
     }
 
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.a, R.drawable.pb_business_promotion_bg);
+            if (this.h) {
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.d, 17170445);
+                return;
+            }
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.d, R.drawable.pb_business_promotion_attention_bg);
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbBusinessPromotionContainer(Context context) {
         this(context, null);
@@ -197,114 +214,6 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-        }
-    }
-
-    public void f(ThreadData threadData, xt4 xt4Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, xt4Var, z) == null) {
-            if (threadData != null && xt4Var != null && !StringUtils.isNull(xt4Var.c())) {
-                this.e = threadData;
-                i(z);
-                this.i = true;
-                setVisibility(0);
-                this.b.K(xt4Var.a(), 10, false);
-                this.c.setText(xt4Var.c());
-                if (this.g) {
-                    return;
-                }
-                this.g = true;
-                this.h = xt4Var.getIsLike();
-                j();
-                return;
-            }
-            this.i = false;
-            setVisibility(8);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = false;
-            this.h = false;
-            this.i = false;
-            if (this.l != null) {
-                MessageManager.getInstance().unRegisterListener(this.l);
-            }
-            if (this.k != null) {
-                MessageManager.getInstance().unRegisterListener(this.k);
-            }
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.a, R.drawable.pb_business_promotion_bg);
-            if (this.h) {
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.d, 17170445);
-                return;
-            }
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.d, R.drawable.pb_business_promotion_attention_bg);
-        }
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (z) {
-                setPadding(0, 0, 0, 0);
-            } else {
-                setPadding(0, m, 0, n);
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.h) {
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0659));
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.d, 17170445);
-                this.d.setOnClickListener(null);
-                return;
-            }
-            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f02b0));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.d, R.drawable.pb_business_promotion_attention_bg);
-            this.d.setOnClickListener(this.j);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.l);
-            MessageManager.getInstance().registerListener(this.k);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.l);
-            MessageManager.getInstance().unRegisterListener(this.k);
-        }
-    }
-
-    public void setAfterItemClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f = onClickListener;
         }
     }
 
@@ -354,17 +263,110 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.j = new a(this);
         this.k = new b(this, 2001336);
         this.l = new c(this, 2001335);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04bb, this);
-        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090e49);
-        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e47);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e48);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e46);
-        this.b.setRadius(ej.f(context, R.dimen.tbds24));
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b8, this);
+        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090e3d);
+        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e3b);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e3c);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e3a);
+        this.b.setRadius(fj.f(context, R.dimen.tbds24));
         this.b.setConrers(5);
         this.b.setDefaultResource(17170445);
         this.b.setDefaultBgResource(17170445);
         this.a.setOnClickListener(this.j);
         MessageManager.getInstance().registerListener(this.l);
         MessageManager.getInstance().registerListener(this.k);
+    }
+
+    public final void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                setPadding(0, 0, 0, 0);
+            } else {
+                setPadding(0, m, 0, n);
+            }
+        }
+    }
+
+    public void setAfterItemClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    public void f(ThreadData threadData, zt4 zt4Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, zt4Var, z) == null) {
+            if (threadData != null && zt4Var != null && !StringUtils.isNull(zt4Var.d())) {
+                this.e = threadData;
+                i(z);
+                this.i = true;
+                setVisibility(0);
+                this.b.L(zt4Var.a(), 10, false);
+                this.c.setText(zt4Var.d());
+                if (!this.g) {
+                    this.g = true;
+                    this.h = zt4Var.e();
+                    j();
+                    return;
+                }
+                return;
+            }
+            this.i = false;
+            setVisibility(8);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.g = false;
+            this.h = false;
+            this.i = false;
+            if (this.l != null) {
+                MessageManager.getInstance().unRegisterListener(this.l);
+            }
+            if (this.k != null) {
+                MessageManager.getInstance().unRegisterListener(this.k);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onAttachedToWindow();
+            MessageManager.getInstance().registerListener(this.l);
+            MessageManager.getInstance().registerListener(this.k);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDetachedFromWindow();
+            MessageManager.getInstance().unRegisterListener(this.l);
+            MessageManager.getInstance().unRegisterListener(this.k);
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.h) {
+                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0662));
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.d, 17170445);
+                this.d.setOnClickListener(null);
+                return;
+            }
+            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f02b0));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.d, R.drawable.pb_business_promotion_attention_bg);
+            this.d.setOnClickListener(this.j);
+        }
     }
 }

@@ -62,9 +62,8 @@ public class CommonUtils {
 
     public static void verifyStoragePermissions(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, activity) == null) || ContextCompat.checkSelfPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE") == 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65539, null, activity) == null) && ContextCompat.checkSelfPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
+            ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, 1);
         }
-        ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, 1);
     }
 }

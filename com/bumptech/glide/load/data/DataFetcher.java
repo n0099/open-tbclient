@@ -1,28 +1,24 @@
 package com.bumptech.glide.load.data;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 /* loaded from: classes7.dex */
-public interface DataFetcher<T> {
+public interface DataFetcher {
 
     /* loaded from: classes7.dex */
-    public interface DataCallback<T> {
-        void onDataReady(@Nullable T t);
+    public interface DataCallback {
+        void onDataReady(Object obj);
 
-        void onLoadFailed(@NonNull Exception exc);
+        void onLoadFailed(Exception exc);
     }
 
     void cancel();
 
     void cleanup();
 
-    @NonNull
-    Class<T> getDataClass();
+    Class getDataClass();
 
-    @NonNull
     DataSource getDataSource();
 
-    void loadData(@NonNull Priority priority, @NonNull DataCallback<? super T> dataCallback);
+    void loadData(Priority priority, DataCallback dataCallback);
 }

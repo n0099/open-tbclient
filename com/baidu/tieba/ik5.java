@@ -1,117 +1,133 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ik5 {
+public class ik5 implements jk5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ik5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk5 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947856406, "Lcom/baidu/tieba/ik5;")) == null) {
-            return;
+    @Override // com.baidu.tieba.jk5
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 4) {
+                return 1;
+            }
+            return (i < 4 || i >= 7) ? 3 : 2;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947856406, "Lcom/baidu/tieba/ik5;");
-        }
+        return invokeI.intValue;
     }
 
     public ik5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ik5 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jk5
+    public int a(ConstrainImageLayout constrainImageLayout, List list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = new ik5();
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return i2;
             }
-            return b;
+            if (i == 0) {
+                return e(constrainImageLayout, list, i2);
+            }
+            if (i == 1) {
+                return d(constrainImageLayout, list, i2);
+            }
+            if (i == 2) {
+                return c(constrainImageLayout, list, i2);
+            }
+            return i2;
         }
-        return (ik5) invokeV.objValue;
+        return invokeLLII.intValue;
     }
 
-    public void a() {
-        vk5 vk5Var;
+    public final int c(ConstrainImageLayout constrainImageLayout, List list, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (vk5Var = this.a) == null || vk5Var.b() == null) {
-            return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                constrainImageLayout.setImageMaxChildCount(3);
+                int i2 = count - 9;
+                if (i2 > 0) {
+                    int i3 = i + 3;
+                    List subList = ListUtils.subList(list, i, i3);
+                    constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f044a, new Object[]{Integer.valueOf(i2)}));
+                    constrainImageLayout.setUrls(subList, i, true);
+                    return i3;
+                }
+                constrainImageLayout.setUrls(ListUtils.subList(list, i, count), i);
+                constrainImageLayout.setExtraCenterText(null);
+                return count;
+            }
+            return i;
         }
-        this.a.b().dismiss();
+        return invokeLLI.intValue;
     }
 
-    public boolean c(nk5 nk5Var) {
-        InterceptResult invokeL;
+    public final int d(ConstrainImageLayout constrainImageLayout, List list, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nk5Var)) == null) {
-            vk5 vk5Var = this.a;
-            if (vk5Var == null || vk5Var.b() == null) {
-                return false;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                if (ListUtils.getCount(list) == 4) {
+                    int i2 = i + 2;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
+                    return i2;
+                }
+                int i3 = i + 3;
+                constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
+                return i3;
             }
-            return this.a.b().c(nk5Var);
+            return i;
         }
-        return invokeL.booleanValue;
+        return invokeLLI.intValue;
     }
 
-    public void d(int i) {
-        vk5 vk5Var;
+    public final int e(ConstrainImageLayout constrainImageLayout, List list, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (vk5Var = this.a) == null || vk5Var.b() == null) {
-            return;
-        }
-        this.a.b().b(i);
-    }
-
-    public void e(TbPageContext tbPageContext, ViewGroup viewGroup, lk5 lk5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, viewGroup, lk5Var) == null) {
-            vk5 vk5Var = this.a;
-            if (vk5Var == null || !vk5Var.a) {
-                this.a = new wk5(tbPageContext, viewGroup, lk5Var);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, constrainImageLayout, list, i)) == null) {
+            if (constrainImageLayout != null && !ListUtils.isEmpty(list)) {
+                int count = ListUtils.getCount(list);
+                if (count == 1) {
+                    constrainImageLayout.setUrls(list, i);
+                    return 0;
+                } else if (count != 2 && count != 4 && count != 5) {
+                    int i2 = i + 3;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i2), i);
+                    return i2;
+                } else {
+                    int i3 = i + 2;
+                    constrainImageLayout.setUrls(ListUtils.subList(list, i, i3), i);
+                    return i3;
+                }
             }
-            if (this.a.b() != null) {
-                this.a.b().show();
-            }
+            return i;
         }
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            vk5 vk5Var = this.a;
-            if (vk5Var == null || vk5Var.b() == null) {
-                return false;
-            }
-            return this.a.b().a(str);
-        }
-        return invokeL.booleanValue;
+        return invokeLLI.intValue;
     }
 }

@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SchemeActionHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> NEED_MAIN_TAB_SCHEMA_LIST;
+    public static final List NEED_MAIN_TAB_SCHEMA_LIST;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,7 +62,87 @@ public class SchemeActionHelper {
     public static JSONObject getParams(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) ? getParams(uri, "params") : (JSONObject) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            return getParams(uri, "params");
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String getSchemeAction(UriBuilder uriBuilder) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uriBuilder)) == null) {
+            if (uriBuilder != null && uriBuilder.isValidated()) {
+                return parserSchemeAction(uriBuilder.getUriString());
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean isPushPbUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (ej.isEmpty(str) || !Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isTieBaAppSchemeHeader(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (!ej.isEmpty(str) && str.startsWith("tiebaapp")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean needMainTabActivity(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            for (String str2 : NEED_MAIN_TAB_SCHEMA_LIST) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void printLog(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65550, null, str) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
+            Log.d("TiebaSchemeAction", str);
+        }
+    }
+
+    public static JSONObject getParams(Uri uri, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, str)) == null) {
+            if (uri == null) {
+                return new JSONObject();
+            }
+            String queryParameter = uri.getQueryParameter(str);
+            if (ej.isEmpty(queryParameter)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(queryParameter);
+            } catch (Exception unused) {
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 
     public static String getSafeQueryParameter(Uri uri, String str) {
@@ -79,16 +158,33 @@ public class SchemeActionHelper {
         return (String) invokeLL.objValue;
     }
 
-    public static String getSchemeAction(UriBuilder uriBuilder) {
-        InterceptResult invokeL;
+    public static String getValueFromParams(Uri uri, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uriBuilder)) == null) {
-            if (uriBuilder == null || !uriBuilder.isValidated()) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, uri, str)) == null) {
+            JSONObject params = getParams(uri);
+            if (params == null) {
+                return "";
             }
-            return parserSchemeAction(uriBuilder.getUriString());
+            return params.optString(str, "");
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean isSchemeAction(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            if (ej.isEmpty(str)) {
+                return false;
+            }
+            String parserSchemeAction = parserSchemeAction(str);
+            if (ej.isEmpty(parserSchemeAction)) {
+                return false;
+            }
+            return str2.equalsIgnoreCase(parserSchemeAction);
+        }
+        return invokeLL.booleanValue;
     }
 
     public static String getSchemeHeaderFromLink(String str) {
@@ -97,7 +193,7 @@ public class SchemeActionHelper {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (dj.isEmpty(str) || (split = str.split("\\:\\/\\/")) == null || split.length == 0 || (str2 = split[0]) == null || str2.length() <= 0) {
+            if (ej.isEmpty(str) || (split = str.split("\\:\\/\\/")) == null || split.length == 0 || (str2 = split[0]) == null || str2.length() <= 0) {
                 return null;
             }
             return str2;
@@ -105,42 +201,25 @@ public class SchemeActionHelper {
         return (String) invokeL.objValue;
     }
 
-    public static String getValueFromParams(Uri uri, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, uri, str)) == null) {
-            JSONObject params = getParams(uri);
-            return params != null ? params.optString(str, "") : "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean isPushPbUrl(String str) {
+    public static String parserSchemeAction(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? !dj.isEmpty(str) && Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() : invokeL.booleanValue;
-    }
-
-    public static boolean isSchemeAction(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            if (dj.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (ej.isEmpty(str)) {
+                return null;
             }
-            String parserSchemeAction = parserSchemeAction(str);
-            if (dj.isEmpty(parserSchemeAction)) {
-                return false;
+            String[] split = str.split("\\?");
+            if (split != null && split.length != 0) {
+                String str2 = split[0];
+                String[] split2 = str2.split("\\/\\/");
+                if (split2 == null || split2.length < 2) {
+                    return null;
+                }
+                return str2;
             }
-            return str2.equalsIgnoreCase(parserSchemeAction);
+            return str;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean isTieBaAppSchemeHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? !dj.isEmpty(str) && str.startsWith("tiebaapp") : invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
     public static boolean isToMaintab(Intent intent) {
@@ -151,74 +230,41 @@ public class SchemeActionHelper {
                 String action = intent.getAction();
                 Set<String> categories = intent.getCategories();
                 String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME_BAK);
-                if (dj.isEmpty(stringExtra)) {
+                if (ej.isEmpty(stringExtra)) {
                     stringExtra = intent.getStringExtra("target_scheme");
                 }
-                if ((TextUtils.equals(action, "android.intent.action.MAIN") && categories != null && categories.contains("android.intent.category.LAUNCHER")) || dj.isEmpty(stringExtra)) {
+                if ((!TextUtils.equals(action, "android.intent.action.MAIN") || categories == null || !categories.contains("android.intent.category.LAUNCHER")) && !ej.isEmpty(stringExtra)) {
+                    if (isPushPbUrl(stringExtra) || needMainTabActivity(stringExtra)) {
+                        return false;
+                    }
                     return true;
                 }
-                return (isPushPbUrl(stringExtra) || needMainTabActivity(stringExtra)) ? false : true;
+                return true;
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean needMainTabActivity(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            for (String str2 : NEED_MAIN_TAB_SCHEMA_LIST) {
-                if (str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String parserSchemeAction(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (dj.isEmpty(str)) {
-                return null;
-            }
-            String[] split = str.split("\\?");
-            if (split == null || split.length == 0) {
-                return str;
-            }
-            String str2 = split[0];
-            String[] split2 = str2.split("\\/\\/");
-            if (split2 == null || split2.length < 2) {
-                return null;
-            }
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void printLog(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65550, null, str) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
-            Log.d("TiebaSchemeAction", str);
-        }
-    }
-
     public static Uri replaceUriParameter(Uri uri, String str, String str2) {
         InterceptResult invokeLLL;
+        String queryParameter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, uri, str, str2)) == null) {
-            if (uri == null || TextUtils.isEmpty(str)) {
-                return null;
+            if (uri != null && !TextUtils.isEmpty(str)) {
+                Set<String> queryParameterNames = uri.getQueryParameterNames();
+                Uri.Builder clearQuery = uri.buildUpon().clearQuery();
+                for (String str3 : queryParameterNames) {
+                    if (str3.equals(str)) {
+                        queryParameter = str2;
+                    } else {
+                        queryParameter = uri.getQueryParameter(str3);
+                    }
+                    clearQuery.appendQueryParameter(str3, queryParameter);
+                }
+                return clearQuery.build();
             }
-            Set<String> queryParameterNames = uri.getQueryParameterNames();
-            Uri.Builder clearQuery = uri.buildUpon().clearQuery();
-            for (String str3 : queryParameterNames) {
-                clearQuery.appendQueryParameter(str3, str3.equals(str) ? str2 : uri.getQueryParameter(str3));
-            }
-            return clearQuery.build();
+            return null;
         }
         return (Uri) invokeLLL.objValue;
     }
@@ -234,25 +280,5 @@ public class SchemeActionHelper {
             return replaceUriParameter.toString();
         }
         return (String) invokeLLL.objValue;
-    }
-
-    public static JSONObject getParams(Uri uri, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, str)) == null) {
-            if (uri == null) {
-                return new JSONObject();
-            }
-            String queryParameter = uri.getQueryParameter(str);
-            if (dj.isEmpty(queryParameter)) {
-                return new JSONObject();
-            }
-            try {
-                return new JSONObject(queryParameter);
-            } catch (Exception unused) {
-                return new JSONObject();
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
     }
 }

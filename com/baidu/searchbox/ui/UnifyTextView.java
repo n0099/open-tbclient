@@ -1,6 +1,5 @@
 package com.baidu.searchbox.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
@@ -38,9 +37,36 @@ public class UnifyTextView extends TextView {
     public int mTopBuffer;
     public int mTopPadding;
 
+    public void _$_clearFindViewByIdCache() {
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this._$_findViewCache) == null) {
+            return;
+        }
+        hashMap.clear();
+    }
+
+    public View _$_findCachedViewById(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (this._$_findViewCache == null) {
+                this._$_findViewCache = new HashMap();
+            }
+            View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
+            if (view2 == null) {
+                View findViewById = findViewById(i);
+                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
+                return findViewById;
+            }
+            return view2;
+        }
+        return (View) invokeI.objValue;
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\r\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B7\u0012\u0006\u0010\u0018\u001a\u00020\u0017\u0012\u0006\u0010\u0013\u001a\u00020\u0004\u0012\u0006\u0010\u000e\u001a\u00020\u0004\u0012\u0006\u0010\u0014\u001a\u00020\u0004\u0012\u0006\u0010\u0016\u001a\u00020\u0004\u0012\u0006\u0010\u0015\u001a\u00020\u0004¢\u0006\u0004\b\u001a\u0010\u001bJ?\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0006\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u00042\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u000e\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0011\u001a\u00020\u00108\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u0011\u0010\u0012R\u0016\u0010\u0013\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0013\u0010\u000fR\u0016\u0010\u0014\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0014\u0010\u000fR\u0016\u0010\u0015\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0015\u0010\u000fR\u0016\u0010\u0016\u001a\u00020\u00048\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0016\u0010\u000fR\u0016\u0010\u0018\u001a\u00020\u00178\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0018\u0010\u0019¨\u0006\u001c"}, d2 = {"Lcom/baidu/searchbox/ui/UnifyTextView$ExcludeInnerPaddingSpan;", "Landroid/text/style/LineHeightSpan;", "", "text", "", "start", "end", "spanstartv", "lineHeight", "Landroid/graphics/Paint$FontMetricsInt;", "fm", "", "chooseHeight", "(Ljava/lang/CharSequence;IIIILandroid/graphics/Paint$FontMetricsInt;)V", "BOTTOM_BUFFER", "I", "", "MEIZU_15", "Ljava/lang/String;", "TOP_BUFFER", "lineSpace", "mBottomPadding", "mTopPadding", "Landroid/widget/TextView;", "textView", "Landroid/widget/TextView;", "<init>", "(Landroid/widget/TextView;IIIII)V", "lib-spannable_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class ExcludeInnerPaddingSpan implements LineHeightSpan {
+    public final class ExcludeInnerPaddingSpan implements LineHeightSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int BOTTOM_BUFFER;
@@ -133,107 +159,6 @@ public class UnifyTextView extends TextView {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    private final void topAndBottomCompatable(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, charSequence) == null) {
-            if (hasEmoji(charSequence)) {
-                Context context = getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "context");
-                this.mTopBuffer = Math.round(getDimensionPixelSize(context, R.dimen.spannable_exclude_padding_text_top_buffer) * 1.5f);
-                if (this.DEBUG) {
-                    String str = this.TAG;
-                    Log.d(str, "has emoji, mTopBuffer: " + this.mTopBuffer);
-                }
-            } else {
-                Context context2 = getContext();
-                Intrinsics.checkNotNullExpressionValue(context2, "context");
-                this.mTopBuffer = getDimensionPixelSize(context2, R.dimen.spannable_exclude_padding_text_top_buffer);
-                if (this.DEBUG) {
-                    String str2 = this.TAG;
-                    Log.d(str2, "has no emoji, mTopBuffer: " + this.mTopBuffer);
-                }
-            }
-            Context context3 = getContext();
-            Intrinsics.checkNotNullExpressionValue(context3, "context");
-            this.mBottomBuffer = getDimensionPixelSize(context3, R.dimen.spannable_exclude_padding_text_bottom_buffer);
-        }
-    }
-
-    public void _$_clearFindViewByIdCache() {
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this._$_findViewCache) == null) {
-            return;
-        }
-        hashMap.clear();
-    }
-
-    public View _$_findCachedViewById(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this._$_findViewCache == null) {
-                this._$_findViewCache = new HashMap();
-            }
-            View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
-            if (view2 == null) {
-                View findViewById = findViewById(i);
-                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
-                return findViewById;
-            }
-            return view2;
-        }
-        return (View) invokeI.objValue;
-    }
-
-    public final int getDimensionPixelSize(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return context.getResources().getDimensionPixelSize(i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public final boolean hasEmoji(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) ? Pattern.compile("[🀀-🏿]|[🐀-\u1f7ff]|[☀-⟿]").matcher(charSequence).find() : invokeL.booleanValue;
-    }
-
-    public final void setBottomPadding(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mBottomPadding = i;
-        }
-    }
-
-    public final void setTextWithUnifiedPadding(CharSequence charSequence, TextView.BufferType bufferType) {
-        SpannableStringBuilder spannableStringBuilder;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, charSequence, bufferType) == null) || charSequence == null) {
-            return;
-        }
-        topAndBottomCompatable(charSequence);
-        float lineSpacingExtra = getLineSpacingExtra();
-        if (charSequence instanceof SpannableStringBuilder) {
-            spannableStringBuilder = (SpannableStringBuilder) charSequence;
-            spannableStringBuilder.setSpan(new ExcludeInnerPaddingSpan(this, this.mTopBuffer, this.mBottomBuffer, (int) lineSpacingExtra, this.mTopPadding, this.mBottomPadding), 0, charSequence.length(), 33);
-        } else {
-            spannableStringBuilder = new SpannableStringBuilder(charSequence);
-            spannableStringBuilder.setSpan(new ExcludeInnerPaddingSpan(this, this.mTopBuffer, this.mBottomBuffer, (int) lineSpacingExtra, this.mTopPadding, this.mBottomPadding), 0, charSequence.length(), 33);
-        }
-        setText(spannableStringBuilder, bufferType);
-    }
-
-    public final void setTopPadding(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.mTopPadding = i;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UnifyTextView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -256,8 +181,25 @@ public class UnifyTextView extends TextView {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
+    public final void setTextWithUnifiedPadding(CharSequence charSequence, TextView.BufferType bufferType) {
+        SpannableStringBuilder spannableStringBuilder;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, charSequence, bufferType) != null) || charSequence == null) {
+            return;
+        }
+        topAndBottomCompatable(charSequence);
+        float lineSpacingExtra = getLineSpacingExtra();
+        if (charSequence instanceof SpannableStringBuilder) {
+            spannableStringBuilder = (SpannableStringBuilder) charSequence;
+            spannableStringBuilder.setSpan(new ExcludeInnerPaddingSpan(this, this.mTopBuffer, this.mBottomBuffer, (int) lineSpacingExtra, this.mTopPadding, this.mBottomPadding), 0, charSequence.length(), 33);
+        } else {
+            spannableStringBuilder = new SpannableStringBuilder(charSequence);
+            spannableStringBuilder.setSpan(new ExcludeInnerPaddingSpan(this, this.mTopBuffer, this.mBottomBuffer, (int) lineSpacingExtra, this.mTopPadding, this.mBottomPadding), 0, charSequence.length(), 33);
+        }
+        setText(spannableStringBuilder, bufferType);
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"CustomViewStyleable"})
     public UnifyTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -284,5 +226,64 @@ public class UnifyTextView extends TextView {
         this.mTopPadding = obtainStyledAttributes.getDimensionPixelSize(1, this.DEFAULT_TOP_BOTTOM_PADDING);
         this.mBottomPadding = obtainStyledAttributes.getDimensionPixelSize(0, this.DEFAULT_TOP_BOTTOM_PADDING);
         obtainStyledAttributes.recycle();
+    }
+
+    private final void topAndBottomCompatable(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, charSequence) == null) {
+            if (hasEmoji(charSequence)) {
+                Context context = getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "context");
+                this.mTopBuffer = Math.round(getDimensionPixelSize(context, R.dimen.spannable_exclude_padding_text_top_buffer) * 1.5f);
+                if (this.DEBUG) {
+                    String str = this.TAG;
+                    Log.d(str, "has emoji, mTopBuffer: " + this.mTopBuffer);
+                }
+            } else {
+                Context context2 = getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "context");
+                this.mTopBuffer = getDimensionPixelSize(context2, R.dimen.spannable_exclude_padding_text_top_buffer);
+                if (this.DEBUG) {
+                    String str2 = this.TAG;
+                    Log.d(str2, "has no emoji, mTopBuffer: " + this.mTopBuffer);
+                }
+            }
+            Context context3 = getContext();
+            Intrinsics.checkNotNullExpressionValue(context3, "context");
+            this.mBottomBuffer = getDimensionPixelSize(context3, R.dimen.spannable_exclude_padding_text_bottom_buffer);
+        }
+    }
+
+    public final int getDimensionPixelSize(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return context.getResources().getDimensionPixelSize(i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public final boolean hasEmoji(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
+            return Pattern.compile("[🀀-🏿]|[🐀-\u1f7ff]|[☀-⟿]").matcher(charSequence).find();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void setBottomPadding(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mBottomPadding = i;
+        }
+    }
+
+    public final void setTopPadding(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mTopPadding = i;
+        }
     }
 }

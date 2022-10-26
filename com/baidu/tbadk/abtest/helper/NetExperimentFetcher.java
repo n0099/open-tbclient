@@ -3,27 +3,27 @@ package com.baidu.tbadk.abtest.helper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.ff1;
+import com.baidu.tieba.dg;
+import com.baidu.tieba.gf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NetExperimentFetcher extends ff1<cg> {
+public class NetExperimentFetcher extends gf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.tbadk.abtest.helper.NetExperimentFetcher$1  reason: invalid class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public static final class NetExperimentImpl implements cg {
+    public final class NetExperimentImpl implements dg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,25 +41,34 @@ public class NetExperimentFetcher extends ff1<cg> {
             }
         }
 
-        @Override // com.baidu.tieba.cg
+        @Override // com.baidu.tieba.dg
         public boolean netABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UbsABTestHelper.isNetABTest() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return UbsABTestHelper.isNetABTest();
+            }
+            return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.cg
+        @Override // com.baidu.tieba.dg
         public boolean netBdABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UbsABTestHelper.isBdNetABTest() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return UbsABTestHelper.isBdNetABTest();
+            }
+            return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.cg
+        @Override // com.baidu.tieba.dg
         public boolean qaHttpsTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UbsABTestHelper.isQaHttpsTest() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return UbsABTestHelper.isQaHttpsTest();
+            }
+            return invokeV.booleanValue;
         }
 
         public /* synthetic */ NetExperimentImpl(AnonymousClass1 anonymousClass1) {
@@ -82,11 +91,13 @@ public class NetExperimentFetcher extends ff1<cg> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.ff1
-    public cg createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.gf1
+    public dg createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (cg) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new NetExperimentImpl(null);
+        }
+        return (dg) invokeV.objValue;
     }
 }

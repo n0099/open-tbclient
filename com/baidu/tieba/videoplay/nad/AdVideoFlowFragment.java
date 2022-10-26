@@ -17,23 +17,23 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qd8;
-import com.baidu.tieba.qm5;
+import com.baidu.tieba.ae8;
+import com.baidu.tieba.fz8;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.view.GestureInterceptTouchFrameLayout;
-import com.baidu.tieba.vy8;
+import com.baidu.tieba.xm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class AdVideoFlowFragment extends BaseFragment implements qm5.b, vy8 {
+public class AdVideoFlowFragment extends BaseFragment implements xm5.b, fz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public qd8 c;
+    public ae8 c;
     public VideoItemModel d;
     public int e;
     public int f;
@@ -68,7 +68,7 @@ public class AdVideoFlowFragment extends BaseFragment implements qm5.b, vy8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921612 && this.a.isResumed() && this.a.isVisible()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921611));
@@ -107,7 +107,13 @@ public class AdVideoFlowFragment extends BaseFragment implements qm5.b, vy8 {
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? motionEvent2.getX() - motionEvent.getX() > 50.0f : invokeCommon.booleanValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                if (motionEvent2.getX() - motionEvent.getX() > 50.0f) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
         }
     }
 
@@ -128,24 +134,108 @@ public class AdVideoFlowFragment extends BaseFragment implements qm5.b, vy8 {
         this.g = new a(this, 2921612);
     }
 
-    @Override // com.baidu.tieba.vy8
+    @Override // com.baidu.tieba.fz8
     public VideoItemModel D0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (VideoItemModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (VideoItemModel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qm5.b
-    public void j0(float f, float f2) {
-        qd8 qd8Var;
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (qd8Var = this.c) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDestroy();
+            ae8 ae8Var = this.c;
+            if (ae8Var == null) {
+                return;
+            }
+            ae8Var.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroyView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            FrameLayout frameLayout = this.b;
+            if (frameLayout != null) {
+                frameLayout.removeAllViews();
+            }
+            super.onDestroyView();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onPause();
+            ae8 ae8Var = this.c;
+            if (ae8Var == null) {
+                return;
+            }
+            ae8Var.onPause();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onPrimary();
+            ae8 ae8Var = this.c;
+            if (ae8Var == null) {
+                return;
+            }
+            ae8Var.onPrimary(isPrimary());
+        }
+    }
+
+    @Override // com.baidu.tieba.xm5.b
+    public void onViewClick() {
+        ae8 ae8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (ae8Var = this.c) == null) {
             return;
         }
-        qd8Var.onViewDoubleClick();
+        ae8Var.onViewClick();
     }
 
-    @Override // com.baidu.tieba.vy8
+    @Override // com.baidu.tieba.xm5.b
+    public void onViewDragToRight() {
+        ae8 ae8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (ae8Var = this.c) == null) {
+            return;
+        }
+        ae8Var.onViewDragToRight();
+    }
+
+    @Override // com.baidu.tieba.fz8
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.xm5.b
+    public void j0(float f, float f2) {
+        ae8 ae8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (ae8Var = this.c) == null) {
+            return;
+        }
+        ae8Var.onViewDoubleClick();
+    }
+
+    @Override // com.baidu.tieba.fz8
     public void m0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -169,6 +259,26 @@ public class AdVideoFlowFragment extends BaseFragment implements qm5.b, vy8 {
         }
     }
 
+    public void q1(ae8 ae8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, ae8Var) == null) {
+            this.c = ae8Var;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void setUserVisibleHint(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            super.setUserVisibleHint(z);
+            ae8 ae8Var = this.c;
+            if (ae8Var == null) {
+                return;
+            }
+            ae8Var.onUserVisibleHint(z);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
@@ -182,7 +292,7 @@ public class AdVideoFlowFragment extends BaseFragment implements qm5.b, vy8 {
                 this.d = (VideoItemModel) arguments.get("video_data");
                 this.f = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a44, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a21, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08084a, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080848, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08084f, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080850, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080a45, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a22, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080848, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080846, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08084d, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08084e, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.c.updateTiebaData(this.f, this.d);
             GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0074, (ViewGroup) null);
             this.a = gestureInterceptTouchFrameLayout;
@@ -195,103 +305,5 @@ public class AdVideoFlowFragment extends BaseFragment implements qm5.b, vy8 {
             return this.a;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDestroy();
-            qd8 qd8Var = this.c;
-            if (qd8Var == null) {
-                return;
-            }
-            qd8Var.onDestroy();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroyView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            FrameLayout frameLayout = this.b;
-            if (frameLayout != null) {
-                frameLayout.removeAllViews();
-            }
-            super.onDestroyView();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onPause();
-            qd8 qd8Var = this.c;
-            if (qd8Var == null) {
-                return;
-            }
-            qd8Var.onPause();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onPrimary();
-            qd8 qd8Var = this.c;
-            if (qd8Var == null) {
-                return;
-            }
-            qd8Var.onPrimary(isPrimary());
-        }
-    }
-
-    @Override // com.baidu.tieba.qm5.b
-    public void onViewClick() {
-        qd8 qd8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (qd8Var = this.c) == null) {
-            return;
-        }
-        qd8Var.onViewClick();
-    }
-
-    @Override // com.baidu.tieba.qm5.b
-    public void onViewDragToRight() {
-        qd8 qd8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (qd8Var = this.c) == null) {
-            return;
-        }
-        qd8Var.onViewDragToRight();
-    }
-
-    @Override // com.baidu.tieba.vy8
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public void q1(qd8 qd8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, qd8Var) == null) {
-            this.c = qd8Var;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void setUserVisibleHint(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            super.setUserVisibleHint(z);
-            qd8 qd8Var = this.c;
-            if (qd8Var == null) {
-                return;
-            }
-            qd8Var.onUserVisibleHint(z);
-        }
     }
 }

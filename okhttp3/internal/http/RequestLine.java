@@ -49,7 +49,13 @@ public final class RequestLine {
     public static boolean includeAuthorityInRequestLine(Request request, Proxy.Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, request, type)) == null) ? !request.isHttps() && type == Proxy.Type.HTTP : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, request, type)) == null) {
+            if (!request.isHttps() && type == Proxy.Type.HTTP) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static String requestPath(HttpUrl httpUrl) {

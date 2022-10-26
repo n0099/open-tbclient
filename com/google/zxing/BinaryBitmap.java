@@ -41,7 +41,10 @@ public final class BinaryBitmap {
     public BinaryBitmap crop(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i, i2, i3, i4))) : (BinaryBitmap) invokeIIII.objValue;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i, i2, i3, i4)));
+        }
+        return (BinaryBitmap) invokeIIII.objValue;
     }
 
     public BitMatrix getBlackMatrix() throws NotFoundException {
@@ -56,46 +59,58 @@ public final class BinaryBitmap {
         return (BitMatrix) invokeV.objValue;
     }
 
-    public BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bitArray)) == null) ? this.binarizer.getBlackRow(i, bitArray) : (BitArray) invokeIL.objValue;
-    }
-
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.binarizer.getHeight() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.binarizer.getHeight();
+        }
+        return invokeV.intValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.binarizer.getWidth() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.binarizer.getWidth();
+        }
+        return invokeV.intValue;
     }
 
     public boolean isCropSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.binarizer.getLuminanceSource().isCropSupported() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.binarizer.getLuminanceSource().isCropSupported();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isRotateSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.binarizer.getLuminanceSource().isRotateSupported() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.binarizer.getLuminanceSource().isRotateSupported();
+        }
+        return invokeV.booleanValue;
     }
 
     public BinaryBitmap rotateCounterClockwise() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().rotateCounterClockwise())) : (BinaryBitmap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().rotateCounterClockwise()));
+        }
+        return (BinaryBitmap) invokeV.objValue;
     }
 
     public BinaryBitmap rotateCounterClockwise45() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().rotateCounterClockwise45())) : (BinaryBitmap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().rotateCounterClockwise45()));
+        }
+        return (BinaryBitmap) invokeV.objValue;
     }
 
     public String toString() {
@@ -109,5 +124,14 @@ public final class BinaryBitmap {
             }
         }
         return (String) invokeV.objValue;
+    }
+
+    public BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bitArray)) == null) {
+            return this.binarizer.getBlackRow(i, bitArray);
+        }
+        return (BitArray) invokeIL.objValue;
     }
 }

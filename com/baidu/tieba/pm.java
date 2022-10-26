@@ -1,97 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.callback.PackageCallback;
-import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class pm extends RequestParams.Channel {
+public class pm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm() {
-        super("137", true, (PackageCallback) new tm(null));
+    public static void a(Object obj, String str, Object[] objArr) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Boolean) objArr[1]).booleanValue(), (PackageCallback) objArr[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, obj, str, objArr) == null) {
+            Field b = b(obj, str);
+            Object[] objArr2 = (Object[]) b.get(obj);
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr2.length + objArr.length);
+            System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
+            System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
+            b.set(obj, objArr3);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm(String str, DefaultDownloadCallback defaultDownloadCallback) {
-        super("137", str, new tm(defaultDownloadCallback));
+    public static Field b(Object obj, String str) throws NoSuchFieldException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, defaultDownloadCallback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+                try {
+                    Field declaredField = cls.getDeclaredField(str);
+                    if (!declaredField.isAccessible()) {
+                        declaredField.setAccessible(true);
+                    }
+                    return declaredField;
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                }
             }
+            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
         }
+        return (Field) invokeLL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm(List<String> list, DefaultDownloadCallback defaultDownloadCallback) {
-        super("137", list, new tm(defaultDownloadCallback));
+    public static Method c(Object obj, String str, Class... clsArr) throws NoSuchMethodException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, defaultDownloadCallback};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (List) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, obj, str, clsArr)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+                try {
+                    Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+                    if (!declaredMethod.isAccessible()) {
+                        declaredMethod.setAccessible(true);
+                    }
+                    return declaredMethod;
+                } catch (NoSuchMethodException unused) {
+                }
             }
+            throw new NoSuchMethodException("Method " + str + " with parameters " + Arrays.asList(clsArr) + " not found in " + obj.getClass());
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm(String str, DefaultDownloadCallback defaultDownloadCallback, vm vmVar) {
-        super("137", str, new tm(defaultDownloadCallback, vmVar));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, defaultDownloadCallback, vmVar};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (PackageCallback) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
+        return (Method) invokeLLL.objValue;
     }
 }

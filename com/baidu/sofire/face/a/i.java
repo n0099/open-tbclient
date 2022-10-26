@@ -31,9 +31,8 @@ public class i implements com.baidu.sofire.face.d.a {
     @Override // com.baidu.sofire.face.d.a
     public void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i >= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i < 0) {
+            this.a.a(-17);
         }
-        this.a.a(-17);
     }
 }

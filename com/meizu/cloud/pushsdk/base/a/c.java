@@ -6,23 +6,23 @@ import java.util.Arrays;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class c {
-    public static HashMap<String, Method> b = new HashMap<>();
+    public static HashMap b = new HashMap();
     public String a = "ReflectMethod";
     public com.meizu.cloud.pushsdk.base.a.a c;
     public String d;
-    public Class<?>[] e;
+    public Class[] e;
 
     /* loaded from: classes8.dex */
     public class a {
     }
 
-    public c(com.meizu.cloud.pushsdk.base.a.a aVar, String str, Class<?>... clsArr) {
+    public c(com.meizu.cloud.pushsdk.base.a.a aVar, String str, Class... clsArr) {
         this.c = aVar;
         this.d = str;
         this.e = clsArr;
     }
 
-    private Class<?> a(Class<?> cls) {
+    private Class a(Class cls) {
         if (cls == null) {
             return null;
         }
@@ -32,7 +32,7 @@ public class c {
     private Method a() throws NoSuchMethodException, ClassNotFoundException {
         Method[] methods;
         Method[] declaredMethods;
-        Class<?> a2 = this.c.a();
+        Class a2 = this.c.a();
         for (Method method : a2.getMethods()) {
             if (a(method, this.d, this.e)) {
                 return method;
@@ -46,11 +46,11 @@ public class c {
         throw new NoSuchMethodException("No similar method " + this.d + " with params " + Arrays.toString(this.e) + " could be found on type " + a2);
     }
 
-    private boolean a(Method method, String str, Class<?>[] clsArr) {
-        return method.getName().equals(str) && a(method.getParameterTypes(), clsArr);
+    private boolean a(Method method, String str, Class[] clsArr) {
+        return method.getName().equals(str) && a((Class[]) method.getParameterTypes(), clsArr);
     }
 
-    private boolean a(Class<?>[] clsArr, Class<?>[] clsArr2) {
+    private boolean a(Class[] clsArr, Class[] clsArr2) {
         if (clsArr.length == clsArr2.length) {
             for (int i = 0; i < clsArr2.length; i++) {
                 if (clsArr2[i] != a.class && !a(clsArr[i]).isAssignableFrom(a(clsArr2[i]))) {
@@ -65,17 +65,17 @@ public class c {
     private String b() throws ClassNotFoundException {
         StringBuffer stringBuffer = new StringBuffer(this.c.a().getName());
         stringBuffer.append(this.d);
-        for (Class<?> cls : this.e) {
+        for (Class cls : this.e) {
             stringBuffer.append(cls.getName());
         }
         return stringBuffer.toString();
     }
 
-    public <T> d<T> a(Object obj, Object... objArr) {
-        d<T> dVar = new d<>();
+    public d a(Object obj, Object... objArr) {
+        d dVar = new d();
         try {
             String b2 = b();
-            Method method = b.get(b2);
+            Method method = (Method) b.get(b2);
             if (method == null) {
                 if (this.e.length == objArr.length) {
                     method = this.c.a().getMethod(this.d, this.e);
@@ -91,7 +91,7 @@ public class c {
                 b.put(b2, method);
             }
             method.setAccessible(true);
-            dVar.b = (T) method.invoke(obj, objArr);
+            dVar.b = method.invoke(obj, objArr);
             dVar.a = true;
         } catch (Exception e) {
             h.b().a(this.a, "invoke", e);
@@ -99,11 +99,11 @@ public class c {
         return dVar;
     }
 
-    public <T> d<T> a(Object... objArr) {
+    public d a(Object... objArr) {
         try {
             return a(this.c.a(), objArr);
         } catch (ClassNotFoundException unused) {
-            return new d<>();
+            return new d();
         }
     }
 }

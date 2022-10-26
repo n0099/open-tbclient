@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PatchRequest extends HttpCommonRequest<PatchRequestBuilder> {
+public class PatchRequest extends HttpCommonRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class PatchRequestBuilder extends HttpCommonRequestBuilder<PatchRequestBuilder> {
+    public class PatchRequestBuilder extends HttpCommonRequestBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,14 +60,6 @@ public class PatchRequest extends HttpCommonRequest<PatchRequestBuilder> {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        public PatchRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new PatchRequest(this) : (PatchRequest) invokeV.objValue;
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PatchRequestBuilder(PatchRequest patchRequest, AbstractHttpManager abstractHttpManager) {
             super(patchRequest, abstractHttpManager);
@@ -87,6 +79,17 @@ public class PatchRequest extends HttpCommonRequest<PatchRequestBuilder> {
                     return;
                 }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        public PatchRequest build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new PatchRequest(this);
+            }
+            return (PatchRequest) invokeV.objValue;
         }
     }
 
@@ -114,7 +117,10 @@ public class PatchRequest extends HttpCommonRequest<PatchRequestBuilder> {
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? this.okRequestBuilder.patch(requestBody).build() : (Request) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
+            return this.okRequestBuilder.patch(requestBody).build();
+        }
+        return (Request) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +128,10 @@ public class PatchRequest extends HttpCommonRequest<PatchRequestBuilder> {
     public PatchRequestBuilder newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new PatchRequestBuilder(this) : (PatchRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new PatchRequestBuilder(this);
+        }
+        return (PatchRequestBuilder) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -130,6 +139,9 @@ public class PatchRequest extends HttpCommonRequest<PatchRequestBuilder> {
     public PatchRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, abstractHttpManager)) == null) ? new PatchRequestBuilder(this, abstractHttpManager) : (PatchRequestBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, abstractHttpManager)) == null) {
+            return new PatchRequestBuilder(this, abstractHttpManager);
+        }
+        return (PatchRequestBuilder) invokeL.objValue;
     }
 }

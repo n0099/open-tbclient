@@ -32,32 +32,59 @@ public class c {
     }
 
     public boolean b() {
-        return com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) == 1;
+        if (com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) != 1) {
+            return false;
+        }
+        return true;
     }
 
     public boolean c() {
-        return com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) == 2;
+        if (com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) != 2) {
+            return false;
+        }
+        return true;
     }
 
     private void c(long j, String str) {
         SQLiteDatabase sQLiteDatabase = this.a;
-        if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
-            return;
+        if (sQLiteDatabase != null && sQLiteDatabase.isOpen() && j > 0 && !TextUtils.isEmpty(str)) {
+            try {
+                String optString = new JSONObject(str).optString("req_id");
+                if (TextUtils.isEmpty(optString)) {
+                    return;
+                }
+                this.a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        try {
-            String optString = new JSONObject(str).optString("req_id");
+    }
+
+    public void a(long j, String str) {
+        String optString;
+        SQLiteDatabase sQLiteDatabase = this.a;
+        if (sQLiteDatabase != null && sQLiteDatabase.isOpen() && j > 0 && !TextUtils.isEmpty(str)) {
+            try {
+                optString = new JSONObject(str).optString("req_id");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
-            this.a.delete("click_event", "time < ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString});
-        } catch (Exception e) {
-            e.printStackTrace();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(LegoListActivityConfig.AD_ID, Long.valueOf(j));
+            contentValues.put("req_id", optString);
+            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
+            this.a.insert("click_event", null, contentValues);
+            c(j, str);
         }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     public boolean b(long j, String str) {
         SQLiteDatabase sQLiteDatabase = this.a;
+        boolean z = false;
         if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
             return false;
         }
@@ -69,7 +96,9 @@ public class c {
                     return false;
                 }
                 cursor = this.a.query("click_event", b.a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j), optString}, null, null, null, null);
-                boolean z = cursor.getCount() > 0;
+                if (cursor.getCount() > 0) {
+                    z = true;
+                }
                 if (cursor != null) {
                     cursor.close();
                 }
@@ -87,27 +116,5 @@ public class c {
             }
             throw th;
         }
-    }
-
-    public void a(long j, String str) {
-        String optString;
-        SQLiteDatabase sQLiteDatabase = this.a;
-        if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j <= 0 || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            optString = new JSONObject(str).optString("req_id");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (TextUtils.isEmpty(optString)) {
-            return;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(LegoListActivityConfig.AD_ID, Long.valueOf(j));
-        contentValues.put("req_id", optString);
-        contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-        this.a.insert("click_event", null, contentValues);
-        c(j, str);
     }
 }

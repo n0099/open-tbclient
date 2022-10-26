@@ -16,11 +16,25 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0619 : invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdFullTailFrameView a;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
+        }
 
         public a(AdFullTailFrameView adFullTailFrameView) {
             Interceptable interceptable = $ic;
@@ -38,13 +52,6 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
                 }
             }
             this.a = adFullTailFrameView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
         }
     }
 
@@ -66,22 +73,6 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            super.e(context);
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f1c)).setOnClickListener(new a(this));
-        }
-    }
-
-    @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0619 : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,6 +114,15 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
+    public void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            super.e(context);
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f10)).setOnClickListener(new a(this));
         }
     }
 }

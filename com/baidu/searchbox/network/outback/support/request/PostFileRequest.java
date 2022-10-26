@@ -1,7 +1,6 @@
 package com.baidu.searchbox.network.outback.support.request;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
@@ -21,13 +20,13 @@ public class PostFileRequest extends Request {
 
     /* renamed from: com.baidu.searchbox.network.outback.support.request.PostFileRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class PostFileRequestBuilder extends Request.Builder<PostFileRequestBuilder> {
+    public class PostFileRequestBuilder extends Request.Builder {
         public static /* synthetic */ Interceptable $ic;
         public static final MediaType MEDIA_TYPE_STREAM;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,46 +50,6 @@ public class PostFileRequest extends Request {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PostFileRequestBuilder(Map<String, CallFactory> map) {
-            super(map);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Map) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public PostFileRequestBuilder file(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-                this.file = file;
-                return this;
-            }
-            return (PostFileRequestBuilder) invokeL.objValue;
-        }
-
-        public PostFileRequestBuilder mediaType(MediaType mediaType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mediaType)) == null) {
-                this.mediaType = mediaType;
-                return this;
-            }
-            return (PostFileRequestBuilder) invokeL.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PostFileRequestBuilder(PostFileRequest postFileRequest) {
             super(postFileRequest);
             Interceptable interceptable = $ic;
@@ -105,6 +64,26 @@ public class PostFileRequest extends Request {
                     super((Request) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public PostFileRequestBuilder(Map map) {
+            super(map);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Map) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
@@ -125,9 +104,29 @@ public class PostFileRequest extends Request {
                 } else {
                     create = RequestBody.create((MediaType) null, new byte[0]);
                 }
-                return new PostFileRequest(post(create), null);
+                return new PostFileRequest((PostFileRequestBuilder) post(create), null);
             }
             return (PostFileRequest) invokeV.objValue;
+        }
+
+        public PostFileRequestBuilder file(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+                this.file = file;
+                return this;
+            }
+            return (PostFileRequestBuilder) invokeL.objValue;
+        }
+
+        public PostFileRequestBuilder mediaType(MediaType mediaType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mediaType)) == null) {
+                this.mediaType = mediaType;
+                return this;
+            }
+            return (PostFileRequestBuilder) invokeL.objValue;
         }
 
         public PostFileRequestBuilder file(String str) {
@@ -151,10 +150,6 @@ public class PostFileRequest extends Request {
         }
     }
 
-    public /* synthetic */ PostFileRequest(PostFileRequestBuilder postFileRequestBuilder, AnonymousClass1 anonymousClass1) {
-        this(postFileRequestBuilder);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PostFileRequest(PostFileRequestBuilder postFileRequestBuilder) {
         super(postFileRequestBuilder);
@@ -173,5 +168,9 @@ public class PostFileRequest extends Request {
                 return;
             }
         }
+    }
+
+    public /* synthetic */ PostFileRequest(PostFileRequestBuilder postFileRequestBuilder, AnonymousClass1 anonymousClass1) {
+        this(postFileRequestBuilder);
     }
 }

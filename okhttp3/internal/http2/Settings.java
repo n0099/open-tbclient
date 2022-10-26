@@ -47,21 +47,6 @@ public final class Settings {
         }
     }
 
-    public int get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.values[i] : invokeI.intValue;
-    }
-
-    public boolean getEnablePush(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            return ((this.set & 4) != 0 ? this.values[2] : z ? 1 : 0) == 1;
-        }
-        return invokeZ.booleanValue;
-    }
-
     public int getHeaderTableSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,28 +71,90 @@ public final class Settings {
         return invokeV.intValue;
     }
 
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return Integer.bitCount(this.set);
+        }
+        return invokeV.intValue;
+    }
+
+    public int get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.values[i];
+        }
+        return invokeI.intValue;
+    }
+
+    public boolean getEnablePush(boolean z) {
+        InterceptResult invokeZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if ((this.set & 4) != 0) {
+                i = this.values[2];
+            } else if (z) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            if (i != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
     public int getMaxConcurrentStreams(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? (this.set & 16) != 0 ? this.values[4] : i : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if ((this.set & 16) != 0) {
+                return this.values[4];
+            }
+            return i;
+        }
+        return invokeI.intValue;
     }
 
     public int getMaxFrameSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? (this.set & 32) != 0 ? this.values[5] : i : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if ((this.set & 32) != 0) {
+                return this.values[5];
+            }
+            return i;
+        }
+        return invokeI.intValue;
     }
 
     public int getMaxHeaderListSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (this.set & 64) != 0 ? this.values[6] : i : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if ((this.set & 64) != 0) {
+                return this.values[6];
+            }
+            return i;
+        }
+        return invokeI.intValue;
     }
 
     public boolean isSet(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? ((1 << i) & this.set) != 0 : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (((1 << i) & this.set) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 
     public void merge(Settings settings) {
@@ -135,11 +182,5 @@ public final class Settings {
             return this;
         }
         return (Settings) invokeII.objValue;
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? Integer.bitCount(this.set) : invokeV.intValue;
     }
 }

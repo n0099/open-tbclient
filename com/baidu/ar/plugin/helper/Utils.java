@@ -64,62 +64,61 @@ public class Utils {
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, str2, Boolean.valueOf(z), context}) != null) {
-            return;
-        }
-        BufferedInputStream bufferedInputStream2 = null;
-        try {
-            if (z) {
-                bufferedInputStream = new BufferedInputStream(context.getAssets().open(str));
-            } else {
-                bufferedInputStream = new BufferedInputStream(new FileInputStream(str));
-            }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, Boolean.valueOf(z), context}) == null) {
+            BufferedInputStream bufferedInputStream2 = null;
             try {
-                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(str2));
+                if (z) {
+                    bufferedInputStream = new BufferedInputStream(context.getAssets().open(str));
+                } else {
+                    bufferedInputStream = new BufferedInputStream(new FileInputStream(str));
+                }
                 try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = bufferedInputStream.read(bArr);
-                        if (read != -1) {
-                            bufferedOutputStream2.write(bArr, 0, read);
-                        } else {
-                            try {
-                                break;
-                            } catch (Exception unused) {
+                    BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(str2));
+                    try {
+                        byte[] bArr = new byte[8192];
+                        while (true) {
+                            int read = bufferedInputStream.read(bArr);
+                            if (read != -1) {
+                                bufferedOutputStream2.write(bArr, 0, read);
+                            } else {
+                                try {
+                                    break;
+                                } catch (Exception unused) {
+                                }
                             }
                         }
+                        bufferedInputStream.close();
+                        try {
+                            bufferedOutputStream2.close();
+                        } catch (Exception unused2) {
+                        }
+                    } catch (Throwable th) {
+                        bufferedInputStream2 = bufferedInputStream;
+                        bufferedOutputStream = bufferedOutputStream2;
+                        th = th;
+                        if (bufferedInputStream2 != null) {
+                            try {
+                                bufferedInputStream2.close();
+                            } catch (Exception unused3) {
+                            }
+                        }
+                        if (bufferedOutputStream != null) {
+                            try {
+                                bufferedOutputStream.close();
+                            } catch (Exception unused4) {
+                            }
+                        }
+                        throw th;
                     }
-                    bufferedInputStream.close();
-                    try {
-                        bufferedOutputStream2.close();
-                    } catch (Exception unused2) {
-                    }
-                } catch (Throwable th) {
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedOutputStream = null;
                     bufferedInputStream2 = bufferedInputStream;
-                    bufferedOutputStream = bufferedOutputStream2;
-                    th = th;
-                    if (bufferedInputStream2 != null) {
-                        try {
-                            bufferedInputStream2.close();
-                        } catch (Exception unused3) {
-                        }
-                    }
-                    if (bufferedOutputStream != null) {
-                        try {
-                            bufferedOutputStream.close();
-                        } catch (Exception unused4) {
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
                 bufferedOutputStream = null;
-                bufferedInputStream2 = bufferedInputStream;
             }
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedOutputStream = null;
         }
     }
 
@@ -142,6 +141,28 @@ public class Utils {
         }
     }
 
+    public static String md5(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            try {
+                return toHex(MessageDigest.getInstance("MD5").digest(bArr));
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean validateJavaIdentifier(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            return ANDROID_DATA_PATTERN.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
     public static String getProcessName(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -156,58 +177,46 @@ public class Utils {
         return (String) invokeLI.objValue;
     }
 
-    public static String md5(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
-            try {
-                return toHex(MessageDigest.getInstance("MD5").digest(bArr));
-            } catch (NoSuchAlgorithmException unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static byte[] readFromFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, file)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            FileInputStream fileInputStream2 = new FileInputStream(file);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            FileInputStream fileInputStream = null;
             try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = fileInputStream2.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                }
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.close();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                FileInputStream fileInputStream2 = new FileInputStream(file);
                 try {
-                    fileInputStream2.close();
-                } catch (IOException unused) {
-                }
-                return byteArray;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException unused2) {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream2.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream.write(bArr, 0, read);
                     }
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    byteArrayOutputStream.close();
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException unused) {
+                    }
+                    return byteArray;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return (byte[]) invokeL.objValue;
         }
     }
 
@@ -225,39 +234,32 @@ public class Utils {
         return (String) invokeL.objValue;
     }
 
-    public static boolean validateJavaIdentifier(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? ANDROID_DATA_PATTERN.matcher(str).matches() : invokeL.booleanValue;
-    }
-
     public static void writeToFile(File file, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65546, null, file, bArr) != null) {
-            return;
-        }
-        FileOutputStream fileOutputStream = null;
-        try {
-            FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+        if (interceptable == null || interceptable.invokeLL(65546, null, file, bArr) == null) {
+            FileOutputStream fileOutputStream = null;
             try {
-                fileOutputStream2.write(bArr);
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                 try {
-                    fileOutputStream2.close();
-                } catch (IOException unused) {
-                }
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = fileOutputStream2;
-                if (fileOutputStream != null) {
+                    fileOutputStream2.write(bArr);
                     try {
-                        fileOutputStream.close();
-                    } catch (IOException unused2) {
+                        fileOutputStream2.close();
+                    } catch (IOException unused) {
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 }

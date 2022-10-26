@@ -31,6 +31,12 @@ public class Optimizer {
     public static boolean[] flags;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static final boolean enabled(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? (i & i2) == i2 : invokeII.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -78,30 +84,23 @@ public class Optimizer {
                 constraintWidget.mHorizontalResolution = 2;
                 constraintWidget.setHorizontalDimension(i, width);
             }
-            if (constraintWidgetContainer.mListDimensionBehaviors[1] == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT || constraintWidget.mListDimensionBehaviors[1] != ConstraintWidget.DimensionBehaviour.MATCH_PARENT) {
-                return;
+            if (constraintWidgetContainer.mListDimensionBehaviors[1] != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT && constraintWidget.mListDimensionBehaviors[1] == ConstraintWidget.DimensionBehaviour.MATCH_PARENT) {
+                int i2 = constraintWidget.mTop.mMargin;
+                int height = constraintWidgetContainer.getHeight() - constraintWidget.mBottom.mMargin;
+                ConstraintAnchor constraintAnchor3 = constraintWidget.mTop;
+                constraintAnchor3.mSolverVariable = linearSystem.createObjectVariable(constraintAnchor3);
+                ConstraintAnchor constraintAnchor4 = constraintWidget.mBottom;
+                constraintAnchor4.mSolverVariable = linearSystem.createObjectVariable(constraintAnchor4);
+                linearSystem.addEquality(constraintWidget.mTop.mSolverVariable, i2);
+                linearSystem.addEquality(constraintWidget.mBottom.mSolverVariable, height);
+                if (constraintWidget.mBaselineDistance > 0 || constraintWidget.getVisibility() == 8) {
+                    ConstraintAnchor constraintAnchor5 = constraintWidget.mBaseline;
+                    constraintAnchor5.mSolverVariable = linearSystem.createObjectVariable(constraintAnchor5);
+                    linearSystem.addEquality(constraintWidget.mBaseline.mSolverVariable, constraintWidget.mBaselineDistance + i2);
+                }
+                constraintWidget.mVerticalResolution = 2;
+                constraintWidget.setVerticalDimension(i2, height);
             }
-            int i2 = constraintWidget.mTop.mMargin;
-            int height = constraintWidgetContainer.getHeight() - constraintWidget.mBottom.mMargin;
-            ConstraintAnchor constraintAnchor3 = constraintWidget.mTop;
-            constraintAnchor3.mSolverVariable = linearSystem.createObjectVariable(constraintAnchor3);
-            ConstraintAnchor constraintAnchor4 = constraintWidget.mBottom;
-            constraintAnchor4.mSolverVariable = linearSystem.createObjectVariable(constraintAnchor4);
-            linearSystem.addEquality(constraintWidget.mTop.mSolverVariable, i2);
-            linearSystem.addEquality(constraintWidget.mBottom.mSolverVariable, height);
-            if (constraintWidget.mBaselineDistance > 0 || constraintWidget.getVisibility() == 8) {
-                ConstraintAnchor constraintAnchor5 = constraintWidget.mBaseline;
-                constraintAnchor5.mSolverVariable = linearSystem.createObjectVariable(constraintAnchor5);
-                linearSystem.addEquality(constraintWidget.mBaseline.mSolverVariable, constraintWidget.mBaselineDistance + i2);
-            }
-            constraintWidget.mVerticalResolution = 2;
-            constraintWidget.setVerticalDimension(i2, height);
         }
-    }
-
-    public static final boolean enabled(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? (i & i2) == i2 : invokeII.booleanValue;
     }
 }

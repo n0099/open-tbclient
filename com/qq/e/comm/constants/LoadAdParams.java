@@ -16,7 +16,7 @@ public class LoadAdParams {
     public String b;
     public String c;
     public String d;
-    public Map<String, String> e;
+    public Map e;
     public JSONObject f;
 
     public LoadAdParams() {
@@ -83,7 +83,7 @@ public class LoadAdParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public void setDevExtra(Map<String, String> map) {
+    public void setDevExtra(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
             this.e = map;

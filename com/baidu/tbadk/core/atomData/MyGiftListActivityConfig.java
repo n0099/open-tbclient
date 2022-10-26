@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,6 +20,32 @@ public class MyGiftListActivityConfig extends IntentConfig {
     public static final String USER_SEX = "sex";
     public static final String USER_TPYE = "user_type";
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MyGiftListActivityConfig(Context context, Uri uri) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, uri};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (uri != null) {
+            getIntent().putExtra("id", uri.getQueryParameter("id"));
+            getIntent().putExtra("sex", eh.e(uri.getQueryParameter("sex"), 0));
+            getIntent().putExtra("user_name", uri.getQueryParameter("user_name"));
+            getIntent().putExtra("name_show", uri.getQueryParameter("name_show"));
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MyGiftListActivityConfig(Context context, String str, String str2, String str3, int i) {
@@ -93,31 +119,5 @@ public class MyGiftListActivityConfig extends IntentConfig {
         getIntent().putExtra("st_type", str4);
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra("name_show", str3);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MyGiftListActivityConfig(Context context, Uri uri) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, uri};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (uri != null) {
-            getIntent().putExtra("id", uri.getQueryParameter("id"));
-            getIntent().putExtra("sex", dh.e(uri.getQueryParameter("sex"), 0));
-            getIntent().putExtra("user_name", uri.getQueryParameter("user_name"));
-            getIntent().putExtra("name_show", uri.getQueryParameter("name_show"));
-        }
     }
 }

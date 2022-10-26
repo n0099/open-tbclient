@@ -11,43 +11,15 @@ public final class ArraysKt___ArraysJvmKt$asList$5 extends AbstractList<Float> i
         this.$this_asList = fArr;
     }
 
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public final /* bridge */ boolean contains(Object obj) {
-        if (obj instanceof Float) {
-            return contains(((Number) obj).floatValue());
-        }
-        return false;
-    }
-
-    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
-    public int getSize() {
-        return this.$this_asList.length;
-    }
-
-    @Override // kotlin.collections.AbstractList, java.util.List
-    public final /* bridge */ int indexOf(Object obj) {
-        if (obj instanceof Float) {
-            return indexOf(((Number) obj).floatValue());
-        }
-        return -1;
-    }
-
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        return this.$this_asList.length == 0;
-    }
-
-    @Override // kotlin.collections.AbstractList, java.util.List
-    public final /* bridge */ int lastIndexOf(Object obj) {
-        if (obj instanceof Float) {
-            return lastIndexOf(((Number) obj).floatValue());
-        }
-        return -1;
-    }
-
     public boolean contains(float f) {
+        boolean z;
         for (float f2 : this.$this_asList) {
             if (Float.floatToIntBits(f2) == Float.floatToIntBits(f)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 return true;
             }
         }
@@ -61,10 +33,16 @@ public final class ArraysKt___ArraysJvmKt$asList$5 extends AbstractList<Float> i
     }
 
     public int indexOf(float f) {
+        boolean z;
         float[] fArr = this.$this_asList;
         int length = fArr.length;
         for (int i = 0; i < length; i++) {
             if (Float.floatToIntBits(fArr[i]) == Float.floatToIntBits(f)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 return i;
             }
         }
@@ -72,12 +50,55 @@ public final class ArraysKt___ArraysJvmKt$asList$5 extends AbstractList<Float> i
     }
 
     public int lastIndexOf(float f) {
+        boolean z;
         float[] fArr = this.$this_asList;
         for (int length = fArr.length - 1; length >= 0; length--) {
             if (Float.floatToIntBits(fArr[length]) == Float.floatToIntBits(f)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 return length;
             }
         }
         return -1;
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public final /* bridge */ boolean contains(Object obj) {
+        if (obj instanceof Float) {
+            return contains(((Number) obj).floatValue());
+        }
+        return false;
+    }
+
+    @Override // kotlin.collections.AbstractList, java.util.List
+    public final /* bridge */ int indexOf(Object obj) {
+        if (obj instanceof Float) {
+            return indexOf(((Number) obj).floatValue());
+        }
+        return -1;
+    }
+
+    @Override // kotlin.collections.AbstractList, java.util.List
+    public final /* bridge */ int lastIndexOf(Object obj) {
+        if (obj instanceof Float) {
+            return lastIndexOf(((Number) obj).floatValue());
+        }
+        return -1;
+    }
+
+    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
+    public int getSize() {
+        return this.$this_asList.length;
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        if (this.$this_asList.length == 0) {
+            return true;
+        }
+        return false;
     }
 }

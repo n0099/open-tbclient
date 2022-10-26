@@ -37,24 +37,25 @@ public class z implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.b.a(false);
-            for (Map.Entry<String, x> entry : this.b.q.entrySet()) {
-                this.b.i.drawRect(entry.getValue().a, entry.getValue().b, entry.getValue().c, entry.getValue().d, this.b.j);
-            }
-            this.a.setClickable(false);
-            ScreenCapEditActivity screenCapEditActivity = this.b;
-            if (screenCapEditActivity.G) {
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
+        }
+        this.b.a(false);
+        for (Map.Entry entry : this.b.q.entrySet()) {
+            this.b.i.drawRect(((x) entry.getValue()).a, ((x) entry.getValue()).b, ((x) entry.getValue()).c, ((x) entry.getValue()).d, this.b.j);
+        }
+        this.a.setClickable(false);
+        ScreenCapEditActivity screenCapEditActivity = this.b;
+        if (screenCapEditActivity.G) {
+            ScreenCapEditActivity.a(screenCapEditActivity);
+        } else if (screenCapEditActivity.F) {
+            if (!screenCapEditActivity.J) {
                 ScreenCapEditActivity.a(screenCapEditActivity);
-            } else if (screenCapEditActivity.F) {
-                if (!screenCapEditActivity.J) {
-                    ScreenCapEditActivity.a(screenCapEditActivity);
-                } else {
-                    ScreenCapEditActivity.a(screenCapEditActivity, screenCapEditActivity.K);
-                }
             } else {
                 ScreenCapEditActivity.a(screenCapEditActivity, screenCapEditActivity.K);
             }
+        } else {
+            ScreenCapEditActivity.a(screenCapEditActivity, screenCapEditActivity.K);
         }
     }
 }

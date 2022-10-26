@@ -10,7 +10,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.a20;
+import com.baidu.tieba.b20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,26 +54,6 @@ public class CuidCookieSync {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void errorUBC(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-            try {
-                HashMap hashMap = new HashMap();
-                hashMap.put("from", "search");
-                hashMap.put("page", "browser");
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("error", str);
-                hashMap.put("ext", jSONObject.toString());
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("811", hashMap);
-            } catch (Exception e) {
-                if (DEBUG) {
-                    Log.e(TAG, "searchErrorUBC  error", e);
-                }
             }
         }
     }
@@ -132,17 +112,36 @@ public class CuidCookieSync {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void errorUBC(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
+            try {
+                HashMap hashMap = new HashMap();
+                hashMap.put("from", "search");
+                hashMap.put("page", "browser");
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("error", str);
+                hashMap.put("ext", jSONObject.toString());
+                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("811", hashMap);
+            } catch (Exception e) {
+                if (DEBUG) {
+                    Log.e(TAG, "searchErrorUBC  error", e);
+                }
+            }
+        }
+    }
+
     public void setCUIDCookie() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             IBaiduIdentityContext baiduIdentityContext = BaiduIdentityRuntime.getBaiduIdentityContext();
-            if (new CT().isDefaultCtv()) {
-                return;
-            }
-            String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", a20.a(BaiduIdentityManager.getInstance().getEnUid()), 31449600L);
-            baiduIdentityContext.setCookieManualNoBdussOperate("www.baidu.com", cookieStr, true);
-            if (baiduIdentityContext.isBlinkEnable()) {
-                setCUIDToSystemWebView("www.baidu.com", cookieStr);
+            if (!new CT().isDefaultCtv()) {
+                String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", b20.a(BaiduIdentityManager.getInstance().getEnUid()), 31449600L);
+                baiduIdentityContext.setCookieManualNoBdussOperate("www.baidu.com", cookieStr, true);
+                if (baiduIdentityContext.isBlinkEnable()) {
+                    setCUIDToSystemWebView("www.baidu.com", cookieStr);
+                }
             }
         }
     }

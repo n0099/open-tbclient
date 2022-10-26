@@ -58,6 +58,52 @@ public class TfxdBox extends AbstractFullBox {
         }
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getVersion() == 1) {
+                i = 20;
+            } else {
+                i = 12;
+            }
+            return i;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getFragmentAbsoluteDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
+            return this.fragmentAbsoluteDuration;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getFragmentAbsoluteTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.fragmentAbsoluteTime;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public byte[] getUserType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new byte[]{109, 29, -101, 5, 66, -43, 68, -26, Byte.MIN_VALUE, -30, 20, 29, -81, -9, 87, -78};
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("TfxdBox.java", TfxdBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFragmentAbsoluteTime", "com.googlecode.mp4parser.boxes.piff.TfxdBox", "", "", "", "long"), 79);
@@ -92,42 +138,5 @@ public class TfxdBox extends AbstractFullBox {
             IsoTypeWriter.writeUInt32(byteBuffer, this.fragmentAbsoluteTime);
             IsoTypeWriter.writeUInt32(byteBuffer, this.fragmentAbsoluteDuration);
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return getVersion() == 1 ? 20 : 12;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getFragmentAbsoluteDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
-            return this.fragmentAbsoluteDuration;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getFragmentAbsoluteTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.fragmentAbsoluteTime;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public byte[] getUserType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new byte[]{109, 29, -101, 5, 66, -43, 68, -26, Byte.MIN_VALUE, -30, 20, 29, -81, -9, 87, -78} : (byte[]) invokeV.objValue;
     }
 }

@@ -44,18 +44,6 @@ public class BceHttpResponse {
         }
     }
 
-    public InputStream getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.content : (InputStream) invokeV.objValue;
-    }
-
-    public String getHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.httpResponse.header(str, null) : (String) invokeL.objValue;
-    }
-
     public long getHeaderAsLong(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -92,7 +80,52 @@ public class BceHttpResponse {
         return (Date) invokeL.objValue;
     }
 
-    public Map<String, String> getHeaders() {
+    public InputStream getContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.content;
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    public Response getHttpResponse() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.httpResponse;
+        }
+        return (Response) invokeV.objValue;
+    }
+
+    public int getStatusCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.httpResponse.code();
+        }
+        return invokeV.intValue;
+    }
+
+    public String getStatusText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.httpResponse.message();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getHeader(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.httpResponse.header(str, null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -104,23 +137,5 @@ public class BceHttpResponse {
             return hashMap;
         }
         return (Map) invokeV.objValue;
-    }
-
-    public Response getHttpResponse() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.httpResponse : (Response) invokeV.objValue;
-    }
-
-    public int getStatusCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.httpResponse.code() : invokeV.intValue;
-    }
-
-    public String getStatusText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.httpResponse.message() : (String) invokeV.objValue;
     }
 }

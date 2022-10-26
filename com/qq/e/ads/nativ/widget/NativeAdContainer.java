@@ -23,7 +23,7 @@ public class NativeAdContainer extends FrameLayout {
 
     /* renamed from: com.qq.e.ads.nativ.widget.NativeAdContainer$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class NativeAdContainer extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class ViewStatus {
+    public final class ViewStatus {
         public static /* synthetic */ Interceptable $ic;
         public static final ViewStatus ATTACHED;
         public static final ViewStatus DETACHED;

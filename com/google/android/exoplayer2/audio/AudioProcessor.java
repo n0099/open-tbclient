@@ -10,8 +10,30 @@ import java.nio.ByteOrder;
 public interface AudioProcessor {
     public static final ByteBuffer EMPTY_BUFFER = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
 
+    boolean configure(int i, int i2, int i3) throws UnhandledFormatException;
+
+    void flush();
+
+    ByteBuffer getOutput();
+
+    int getOutputChannelCount();
+
+    int getOutputEncoding();
+
+    int getOutputSampleRateHz();
+
+    boolean isActive();
+
+    boolean isEnded();
+
+    void queueEndOfStream();
+
+    void queueInput(ByteBuffer byteBuffer);
+
+    void reset();
+
     /* loaded from: classes7.dex */
-    public static final class UnhandledFormatException extends Exception {
+    public final class UnhandledFormatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +57,4 @@ public interface AudioProcessor {
             }
         }
     }
-
-    boolean configure(int i, int i2, int i3) throws UnhandledFormatException;
-
-    void flush();
-
-    ByteBuffer getOutput();
-
-    int getOutputChannelCount();
-
-    int getOutputEncoding();
-
-    int getOutputSampleRateHz();
-
-    boolean isActive();
-
-    boolean isEnded();
-
-    void queueEndOfStream();
-
-    void queueInput(ByteBuffer byteBuffer);
-
-    void reset();
 }

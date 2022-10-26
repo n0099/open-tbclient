@@ -12,6 +12,8 @@ public class Inet {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native long ping4(int i, int i2, short s);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -41,6 +43,4 @@ public class Inet {
             }
         }
     }
-
-    public static native long ping4(int i, int i2, short s);
 }

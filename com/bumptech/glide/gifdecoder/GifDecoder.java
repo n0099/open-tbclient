@@ -1,8 +1,6 @@
 package com.bumptech.glide.gifdecoder;
 
 import android.graphics.Bitmap;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -17,20 +15,17 @@ public interface GifDecoder {
 
     /* loaded from: classes7.dex */
     public interface BitmapProvider {
-        @NonNull
-        Bitmap obtain(int i, int i2, @NonNull Bitmap.Config config);
+        Bitmap obtain(int i, int i2, Bitmap.Config config);
 
-        @NonNull
         byte[] obtainByteArray(int i);
 
-        @NonNull
         int[] obtainIntArray(int i);
 
-        void release(@NonNull Bitmap bitmap);
+        void release(Bitmap bitmap);
 
-        void release(@NonNull byte[] bArr);
+        void release(byte[] bArr);
 
-        void release(@NonNull int[] iArr);
+        void release(int[] iArr);
     }
 
     @Retention(RetentionPolicy.SOURCE)
@@ -46,7 +41,6 @@ public interface GifDecoder {
 
     int getCurrentFrameIndex();
 
-    @NonNull
     ByteBuffer getData();
 
     int getDelay(int i);
@@ -62,7 +56,6 @@ public interface GifDecoder {
 
     int getNextDelay();
 
-    @Nullable
     Bitmap getNextFrame();
 
     int getStatus();
@@ -71,17 +64,17 @@ public interface GifDecoder {
 
     int getWidth();
 
-    int read(@Nullable InputStream inputStream, int i);
+    int read(InputStream inputStream, int i);
 
-    int read(@Nullable byte[] bArr);
+    int read(byte[] bArr);
 
     void resetFrameIndex();
 
-    void setData(@NonNull GifHeader gifHeader, @NonNull ByteBuffer byteBuffer);
+    void setData(GifHeader gifHeader, ByteBuffer byteBuffer);
 
-    void setData(@NonNull GifHeader gifHeader, @NonNull ByteBuffer byteBuffer, int i);
+    void setData(GifHeader gifHeader, ByteBuffer byteBuffer, int i);
 
-    void setData(@NonNull GifHeader gifHeader, @NonNull byte[] bArr);
+    void setData(GifHeader gifHeader, byte[] bArr);
 
-    void setDefaultBitmapConfig(@NonNull Bitmap.Config config);
+    void setDefaultBitmapConfig(Bitmap.Config config);
 }

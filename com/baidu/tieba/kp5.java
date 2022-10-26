@@ -1,119 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class kp5 extends pw4 {
+public class kp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kp5(nw4 nw4Var) {
-        super(nw4Var);
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nw4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((nw4) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return b(str, null);
         }
+        return invokeL.booleanValue;
     }
 
-    @qw4(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        InterceptResult invokeV;
+    public static boolean b(String str, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            String h = pj0.c().h(false);
-            String e = pj0.c().e(false);
-            int k = ej.k(getContext());
-            int i = ej.i(getContext());
-            String str = String.valueOf(k) + "," + String.valueOf(i);
-            String versionName = TbadkCoreApplication.getInst().getVersionName();
-            try {
-                jSONObject.put("systemName", "android");
-                if (!TextUtils.isEmpty(h)) {
-                    jSONObject.put("systemVersion", h);
-                }
-                if (!TextUtils.isEmpty(e)) {
-                    jSONObject.put("model", e);
-                }
-                jSONObject.put("cuid", cuid);
-                jSONObject.put("resolution", str);
-                jSONObject.put("appVersion", versionName);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, context)) == null) {
+            return c(str, context, null);
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @qw4(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        InterceptResult invokeV;
-        int i;
-        String str;
+    public static boolean c(String str, Context context, Map map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (BdNetTypeUtil.isWifiNet()) {
-                i = 1;
-                str = "WIFI";
-            } else if (BdNetTypeUtil.is2GNet()) {
-                i = 3;
-                str = "2G";
-            } else if (BdNetTypeUtil.is3GNet()) {
-                i = 4;
-                str = "3G";
-            } else if (BdNetTypeUtil.is4GNet()) {
-                i = 5;
-                str = "4G";
-            } else {
-                i = 0;
-                str = "NotReachable";
-            }
-            try {
-                jSONObject.put("netStatus", i);
-                jSONObject.put("netDesc", str);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, context, map)) == null) {
+            return ji0.e(str, context, map, null);
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @qw4(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        BdToast.b(getContext(), jSONObject.optString("message")).i();
-    }
-
-    @Override // com.baidu.tieba.pw4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 }

@@ -58,6 +58,34 @@ public class e1 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new d1(new e1(), context) : (d1) invokeL.objValue;
     }
 
+    public static JSONStringer b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new JSONStringer().object() : (JSONStringer) invokeV.objValue;
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            try {
+                return M.a(valueOf);
+            } catch (Exception unused) {
+                return valueOf;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static /* synthetic */ String a(String str) {
+        try {
+            return M.a(str);
+        } catch (Exception unused) {
+            return str;
+        }
+    }
+
     public static /* synthetic */ JSONStringer a(String str, f1 f1Var) {
         JSONStringer b2 = b();
         b2.key("e").value(str).key("timeis").value(a());
@@ -80,33 +108,5 @@ public class e1 {
             }
         }
         return b2;
-    }
-
-    public static JSONStringer b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new JSONStringer().object() : (JSONStringer) invokeV.objValue;
-    }
-
-    public static /* synthetic */ String a(String str) {
-        try {
-            return M.a(str);
-        } catch (Exception unused) {
-            return str;
-        }
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            try {
-                return M.a(valueOf);
-            } catch (Exception unused) {
-                return valueOf;
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

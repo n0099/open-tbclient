@@ -75,15 +75,21 @@ public final class LifecycleProcessType {
         return (LifecycleProcessType) invokeV.objValue;
     }
 
-    public static LifecycleProcessType valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (LifecycleProcessType) Enum.valueOf(LifecycleProcessType.class, str) : (LifecycleProcessType) invokeL.objValue;
-    }
-
     public static LifecycleProcessType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (LifecycleProcessType[]) $VALUES.clone() : (LifecycleProcessType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (LifecycleProcessType[]) $VALUES.clone();
+        }
+        return (LifecycleProcessType[]) invokeV.objValue;
+    }
+
+    public static LifecycleProcessType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (LifecycleProcessType) Enum.valueOf(LifecycleProcessType.class, str);
+        }
+        return (LifecycleProcessType) invokeL.objValue;
     }
 }

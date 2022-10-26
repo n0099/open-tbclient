@@ -1,285 +1,300 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class io8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public String c;
+    public String d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947860343, "Lcom/baidu/tieba/io8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public io8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947860343, "Lcom/baidu/tieba/io8;");
-        }
-    }
-
-    public static boolean a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            mainDBDatabaseManager.e("delete from cash_data where type=?", new String[]{String.valueOf(i)});
-            return mainDBDatabaseManager.e("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            c(0);
-        }
-    }
-
-    public static void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (i == 0) {
-                mainDBDatabaseManager.d("delete from search_data");
-            } else if (i != 1) {
-            } else {
-                mainDBDatabaseManager.d("delete from search_post_data");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = -1;
+        this.g = true;
+        this.h = false;
     }
 
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            c(1);
-        }
-    }
-
-    public static void e(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65541, null, i) == null) || TbadkCoreApplication.getCurrentAccount() == null) {
-            return;
-        }
-        TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
-    }
-
-    public static void f(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65542, null, i, str) == null) {
-            TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f(13, str);
-        }
-    }
-
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            i(0, str);
-        }
-    }
-
-    public static void i(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65545, null, i, str) == null) {
-            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (str != null) {
-                if (i == 0) {
-                    mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
-                } else if (i != 1) {
-                } else {
-                    mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
-                }
-            }
-        }
-    }
-
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            e(2);
-        }
-    }
-
-    public static ArrayList<String> k() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? l(0) : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public static ArrayList<String> l(int i) {
-        InterceptResult invokeI;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
-            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            ArrayList<String> arrayList = new ArrayList<>();
-            Cursor cursor = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.b > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.b != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b88));
+            y(401);
+        }
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.h) {
+                return m();
+            }
+            JSONObject jSONObject = new JSONObject();
             try {
-                try {
-                    if (i == 0) {
-                        cursor = mainDBDatabaseManager.j("select * from search_data order by time desc limit 20", null);
-                    } else if (i == 1) {
-                        cursor = mainDBDatabaseManager.j("select * from search_post_data order by time desc limit 5", null);
-                    }
-                    while (cursor.moveToNext()) {
-                        String string = cursor.getString(0);
-                        if (string != null && string.length() > 0) {
-                            arrayList.add(string);
+                jSONObject.put("status", this.b);
+                jSONObject.put("message", this.c);
+                if (StringHelper.isJSONObject(this.d)) {
+                    jSONObject.put("data", new JSONObject(this.d));
+                } else if (StringHelper.isJSONArray(this.d)) {
+                    jSONObject.put("data", new JSONArray(this.d));
+                } else {
+                    jSONObject.put("data", this.d);
+                }
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "{\"status\":\"" + this.b + "\",\"message\":\"" + this.c + "\",\"data\":" + this.d + "}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            u(str);
+            y(401);
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && ej.isEmpty(this.c)) {
+            this.c = str;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void w(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048600, this, i) == null) && this.b == -1) {
+            x(i);
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.b = i;
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 301) {
+                        if (i != 201) {
+                            if (i == 202) {
+                                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10c9));
+                                return;
+                            }
+                            return;
                         }
+                        u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10ca));
+                        return;
                     }
-                } catch (Exception e) {
-                    mainDBDatabaseManager.i(e, "getAllSearchData");
+                    u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10cb));
+                    return;
                 }
-                return arrayList;
-            } finally {
-                ch.a(cursor);
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10cd));
+                return;
             }
+            u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10cc));
         }
-        return (ArrayList) invokeI.objValue;
-    }
-
-    public static ArrayList<String> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? l(1) : (ArrayList) invokeV.objValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65550, null) == null) || TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getCurrentAccount().length() <= 0 || TbadkCoreApplication.getCurrentAccountName() == null) {
-            return;
-        }
-        y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        Cursor cursor = null;
-        try {
-            try {
-                cursor = mainDBDatabaseManager.j("select * from setting where account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
-                if (cursor != null && cursor.moveToFirst()) {
-                    k25.d().K(cursor.getInt(cursor.getColumnIndex("frequency")));
-                    k25.d().M(cursor.getInt(cursor.getColumnIndex("fans_switch")) == 1);
-                    if (cursor.getInt(cursor.getColumnIndex("reply_me_switch")) == 0) {
-                        k25.d().N(false);
-                    } else {
-                        k25.d().N(true);
-                    }
-                    if (cursor.getInt(cursor.getColumnIndex("at_me_switch")) == 0) {
-                        k25.d().I(false);
-                    } else {
-                        k25.d().I(true);
-                    }
-                    if (cursor.getInt(cursor.getColumnIndex("zan_me_switch")) == 0) {
-                        k25.d().Q(false);
-                    } else {
-                        k25.d().Q(true);
-                    }
-                    k25.d().a(cursor.getInt(cursor.getColumnIndex("remind_tone")));
-                    if (cursor.getInt(cursor.getColumnIndex("msg_chat_switch")) == 0) {
-                        k25.d().J(false);
-                    } else {
-                        k25.d().J(true);
-                    }
-                    if (cursor.getInt(cursor.getColumnIndex("nodisturb_switch")) == 0) {
-                        k25.d().S(false);
-                    } else {
-                        k25.d().S(true);
-                    }
-                    k25.d().T(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                    k25.d().R(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
-                    if (cursor.getInt(cursor.getColumnIndex("remind_light")) == 0) {
-                        k25.d().L(false);
-                    } else {
-                        k25.d().L(true);
-                    }
-                    if (cursor.getInt(cursor.getColumnIndex("stranger_chat_switch")) == 0) {
-                        k25.d().Z(false);
-                    } else {
-                        k25.d().Z(true);
-                    }
-                } else {
-                    k25.d().K(300);
-                    k25.d().M(true);
-                    k25.d().N(true);
-                    k25.d().I(true);
-                    k25.d().Q(true);
-                    k25.d().O(true);
-                    k25.d().P(false);
-                    k25.d().L(true);
-                    k25.d().Z(false);
-                    k25.d().J(true);
-                    k25.d().S(false);
-                    k25.d().T(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                    k25.d().R(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
-                }
-            } catch (Exception e) {
-                mainDBDatabaseManager.i(e, "getSettingData");
-            }
-            ch.a(cursor);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001311));
-        } catch (Throwable th) {
-            ch.a(null);
-            throw th;
-        }
-    }
-
-    public static void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
-            p(0, str);
-        }
-    }
-
-    public static void p(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65552, null, i, str) == null) {
-            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (str != null) {
-                if (i == 0) {
-                    mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
-                    mainDBDatabaseManager.e("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
-                } else if (i != 1) {
-                } else {
-                    mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
-                    mainDBDatabaseManager.e("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
-                }
-            }
-        }
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            p(1, str);
-        }
-    }
-
-    public static void r() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, null) == null) || TbadkCoreApplication.getCurrentAccount() == null) {
-            return;
-        }
-        y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{TbadkCoreApplication.getCurrentAccount()});
-        mainDBDatabaseManager.e("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{TbadkCoreApplication.getCurrentAccount(), Integer.valueOf(k25.d().f()), Integer.valueOf(k25.d().w() ? 1 : 0), Integer.valueOf(k25.d().y() ? 1 : 0), Integer.valueOf(k25.d().t() ? 1 : 0), Integer.valueOf(k25.d().c()), Integer.valueOf(k25.d().u() ? 1 : 0), Integer.valueOf(k25.d().C() ? 1 : 0), k25.d().h(), k25.d().g(), Integer.valueOf(k25.d().v() ? 1 : 0), Integer.valueOf(k25.d().E() ? 1 : 0), Integer.valueOf(k25.d().B() ? 1 : 0)});
     }
 }

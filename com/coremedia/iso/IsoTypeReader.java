@@ -19,6 +19,12 @@ public final class IsoTypeReader {
     public static IntHashMap codeCache;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int byte2int(byte b) {
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) ? b < 0 ? b + 256 : b : invokeB.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -48,12 +54,6 @@ public final class IsoTypeReader {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static int byte2int(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) ? b < 0 ? b + 256 : b : invokeB.intValue;
     }
 
     public static String read4cc(ByteBuffer byteBuffer) {
@@ -100,17 +100,6 @@ public final class IsoTypeReader {
         return invokeL.doubleValue;
     }
 
-    public static float readFixedPoint88(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) {
-            byte[] bArr = new byte[2];
-            byteBuffer.get(bArr);
-            return ((short) (((short) (0 | ((bArr[0] << 8) & 65280))) | (bArr[1] & 255))) / 256.0f;
-        }
-        return invokeL.floatValue;
-    }
-
     public static String readIso639(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -125,38 +114,68 @@ public final class IsoTypeReader {
         return (String) invokeL.objValue;
     }
 
+    public static long readUInt32BE(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) {
+            return (readUInt8(byteBuffer) << 24) + (readUInt8(byteBuffer) << 16) + (readUInt8(byteBuffer) << 8) + (readUInt8(byteBuffer) << 0);
+        }
+        return invokeL.longValue;
+    }
+
+    public static float readFixedPoint88(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) {
+            byte[] bArr = new byte[2];
+            byteBuffer.get(bArr);
+            return ((short) (((short) (0 | ((bArr[0] << 8) & 65280))) | (bArr[1] & 255))) / 256.0f;
+        }
+        return invokeL.floatValue;
+    }
+
     public static String readString(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65544, null, byteBuffer)) != null) {
-            return (String) invokeL.objValue;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        while (true) {
-            byte b = byteBuffer.get();
-            if (b == 0) {
-                return Utf8.convert(byteArrayOutputStream.toByteArray());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, byteBuffer)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            while (true) {
+                byte b = byteBuffer.get();
+                if (b == 0) {
+                    return Utf8.convert(byteArrayOutputStream.toByteArray());
+                }
+                byteArrayOutputStream.write(b);
             }
-            byteArrayOutputStream.write(b);
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
     public static int readUInt16(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, byteBuffer)) == null) ? (byte2int(byteBuffer.get()) << 8) + 0 + byte2int(byteBuffer.get()) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, byteBuffer)) == null) {
+            return (byte2int(byteBuffer.get()) << 8) + 0 + byte2int(byteBuffer.get());
+        }
+        return invokeL.intValue;
     }
 
     public static int readUInt16BE(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, byteBuffer)) == null) ? byte2int(byteBuffer.get()) + 0 + (byte2int(byteBuffer.get()) << 8) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, byteBuffer)) == null) {
+            return byte2int(byteBuffer.get()) + 0 + (byte2int(byteBuffer.get()) << 8);
+        }
+        return invokeL.intValue;
     }
 
     public static int readUInt24(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, byteBuffer)) == null) ? (readUInt16(byteBuffer) << 8) + 0 + byte2int(byteBuffer.get()) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, byteBuffer)) == null) {
+            return (readUInt16(byteBuffer) << 8) + 0 + byte2int(byteBuffer.get());
+        }
+        return invokeL.intValue;
     }
 
     public static long readUInt32(ByteBuffer byteBuffer) {
@@ -164,15 +183,12 @@ public final class IsoTypeReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, byteBuffer)) == null) {
             long j = byteBuffer.getInt();
-            return j < 0 ? j + 4294967296L : j;
+            if (j < 0) {
+                return j + 4294967296L;
+            }
+            return j;
         }
         return invokeL.longValue;
-    }
-
-    public static long readUInt32BE(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? (readUInt8(byteBuffer) << 24) + (readUInt8(byteBuffer) << 16) + (readUInt8(byteBuffer) << 8) + (readUInt8(byteBuffer) << 0) : invokeL.longValue;
     }
 
     public static long readUInt64(ByteBuffer byteBuffer) {
@@ -191,7 +207,10 @@ public final class IsoTypeReader {
     public static int readUInt8(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, byteBuffer)) == null) ? byte2int(byteBuffer.get()) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, byteBuffer)) == null) {
+            return byte2int(byteBuffer.get());
+        }
+        return invokeL.intValue;
     }
 
     public static String readString(ByteBuffer byteBuffer, int i) {

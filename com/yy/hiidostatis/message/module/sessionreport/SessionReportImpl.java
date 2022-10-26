@@ -24,7 +24,7 @@ public class SessionReportImpl implements SessionReport {
     public transient /* synthetic */ FieldHolder $fh;
     public MessageConfig config;
     public Packer packer;
-    public Map<String, Session> sessions;
+    public Map sessions;
 
     /* loaded from: classes8.dex */
     public class Session {
@@ -35,7 +35,7 @@ public class SessionReportImpl implements SessionReport {
         public final SessionReport.Processor processor;
         public final String session;
         public final /* synthetic */ SessionReportImpl this$0;
-        public Map<String, SessionReport.StatisContentAble> values;
+        public Map values;
 
         public Session(SessionReportImpl sessionReportImpl, String str, String str2, SessionReport.Processor processor, SessionReport.AfterFlush afterFlush) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class SessionReportImpl implements SessionReport {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
                 synchronized (this) {
-                    SessionReport.StatisContentAble statisContentAble = this.values.get(str);
+                    SessionReport.StatisContentAble statisContentAble = (SessionReport.StatisContentAble) this.values.get(str);
                     if (statisContentAble == null) {
                         return;
                     }
@@ -85,26 +85,11 @@ public class SessionReportImpl implements SessionReport {
         private void send(String str, SessionReport.StatisContentAble statisContentAble) {
             List<StatisContent> statisContent;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, statisContentAble) == null) || (statisContent = statisContentAble.toStatisContent(this.act, str)) == null || statisContent.isEmpty()) {
-                return;
-            }
-            for (StatisContent statisContent2 : statisContent) {
-                statisContent2.put("session", this.session);
-                this.this$0.packer.addMessage(statisContent2);
-            }
-        }
-
-        public void close() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || NoNull.isEmpty(this.values)) {
-                return;
-            }
-            try {
-                for (Map.Entry<String, SessionReport.StatisContentAble> entry : this.values.entrySet()) {
-                    send(entry.getKey(), entry.getValue());
+            if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, statisContentAble) == null) && (statisContent = statisContentAble.toStatisContent(this.act, str)) != null && !statisContent.isEmpty()) {
+                for (StatisContent statisContent2 : statisContent) {
+                    statisContent2.put("session", this.session);
+                    this.this$0.packer.addMessage(statisContent2);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
 
@@ -114,7 +99,7 @@ public class SessionReportImpl implements SessionReport {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
                 synchronized (this) {
                     try {
-                        this.values.put(str, this.processor.process(this.values.get(str), str, obj));
+                        this.values.put(str, this.processor.process((SessionReport.StatisContentAble) this.values.get(str), str, obj));
                     } catch (Exception e) {
                         e.printStackTrace();
                         return false;
@@ -123,6 +108,19 @@ public class SessionReportImpl implements SessionReport {
                 return true;
             }
             return invokeLL.booleanValue;
+        }
+
+        public void close() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !NoNull.isEmpty(this.values)) {
+                try {
+                    for (Map.Entry entry : this.values.entrySet()) {
+                        send((String) entry.getKey(), (SessionReport.StatisContentAble) entry.getValue());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -147,6 +145,26 @@ public class SessionReportImpl implements SessionReport {
     }
 
     @Override // com.yy.hiidostatis.message.SessionReport
+    public void closeSession(String str) {
+        Session session;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || (session = (Session) this.sessions.remove(str)) == null) {
+            return;
+        }
+        session.close();
+    }
+
+    @Override // com.yy.hiidostatis.message.SessionReport
+    public boolean flushSessionAll(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return flushSessionAll(str, null);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.yy.hiidostatis.message.SessionReport
     public void beginSession(String str, String str2, SessionReport.Processor processor, SessionReport.AfterFlush afterFlush) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, processor, afterFlush) == null) {
@@ -155,57 +173,26 @@ public class SessionReportImpl implements SessionReport {
     }
 
     @Override // com.yy.hiidostatis.message.SessionReport
-    public void closeSession(String str) {
-        Session remove;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (remove = this.sessions.remove(str)) == null) {
-            return;
-        }
-        remove.close();
-    }
-
-    @Override // com.yy.hiidostatis.message.SessionReport
     public boolean flushSession(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Session session = this.sessions.get(str);
-            if (session == null) {
-                return false;
+            Session session = (Session) this.sessions.get(str);
+            if (session != null) {
+                session.flushSession(str2);
+                return true;
             }
-            session.flushSession(str2);
-            return true;
+            return false;
         }
         return invokeLL.booleanValue;
     }
 
     @Override // com.yy.hiidostatis.message.SessionReport
-    public boolean flushSessionAll(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? flushSessionAll(str, null) : invokeL.booleanValue;
-    }
-
-    @Override // com.yy.hiidostatis.message.SessionReport
-    public boolean pushToSession(String str, String str2, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, obj)) == null) {
-            Session session = this.sessions.get(str);
-            if (session != null) {
-                return session.pushToSession(str2, obj);
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.yy.hiidostatis.message.SessionReport
-    public boolean flushSessionAll(String str, Set<String> set) {
+    public boolean flushSessionAll(String str, Set set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, set)) == null) {
-            Session session = this.sessions.get(str);
+            Session session = (Session) this.sessions.get(str);
             if (session == null) {
                 return false;
             }
@@ -217,5 +204,19 @@ public class SessionReportImpl implements SessionReport {
             return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    @Override // com.yy.hiidostatis.message.SessionReport
+    public boolean pushToSession(String str, String str2, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, obj)) == null) {
+            Session session = (Session) this.sessions.get(str);
+            if (session != null) {
+                return session.pushToSession(str2, obj);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

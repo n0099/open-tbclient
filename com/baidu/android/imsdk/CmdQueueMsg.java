@@ -14,12 +14,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class CmdQueueMsg implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<CmdQueueMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String body;
     public String extra;
     public int methodId;
     public String uuid;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +44,7 @@ public class CmdQueueMsg implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<CmdQueueMsg>() { // from class: com.baidu.android.imsdk.CmdQueueMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.CmdQueueMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,21 +63,25 @@ public class CmdQueueMsg implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CmdQueueMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? CmdQueueMsg.readFromParcel(parcel) : (CmdQueueMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return CmdQueueMsg.readFromParcel(parcel);
+                }
+                return (CmdQueueMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CmdQueueMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new CmdQueueMsg[i] : (CmdQueueMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new CmdQueueMsg[i];
+                }
+                return (CmdQueueMsg[]) invokeI.objValue;
             }
         };
     }
@@ -86,52 +100,40 @@ public class CmdQueueMsg implements Parcelable {
         }
     }
 
-    public static CmdQueueMsg readFromParcel(Parcel parcel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) {
-            CmdQueueMsg cmdQueueMsg = new CmdQueueMsg();
-            cmdQueueMsg.setUuid(parcel.readString());
-            cmdQueueMsg.setBody(parcel.readString());
-            cmdQueueMsg.setMethodId(parcel.readInt());
-            cmdQueueMsg.setExtra(parcel.readString());
-            return cmdQueueMsg;
-        }
-        return (CmdQueueMsg) invokeL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public String getBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.body : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.body;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extra : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.extra;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getMethodId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.methodId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.methodId;
+        }
+        return invokeV.intValue;
     }
 
     public String getUuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.uuid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.uuid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setBody(String str) {
@@ -160,6 +162,20 @@ public class CmdQueueMsg implements Parcelable {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.uuid = str;
         }
+    }
+
+    public static CmdQueueMsg readFromParcel(Parcel parcel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) {
+            CmdQueueMsg cmdQueueMsg = new CmdQueueMsg();
+            cmdQueueMsg.setUuid(parcel.readString());
+            cmdQueueMsg.setBody(parcel.readString());
+            cmdQueueMsg.setMethodId(parcel.readInt());
+            cmdQueueMsg.setExtra(parcel.readString());
+            return cmdQueueMsg;
+        }
+        return (CmdQueueMsg) invokeL.objValue;
     }
 
     @Override // android.os.Parcelable

@@ -32,7 +32,7 @@ public class OpenBdussResult extends SapiResult implements NoProguard {
     public String displayname;
     public String flag;
     public String openBduss;
-    public Map<String, String> tplStokenMap;
+    public Map tplStokenMap;
     public String uid;
     public String unionid;
 
@@ -108,8 +108,8 @@ public class OpenBdussResult extends SapiResult implements NoProguard {
                 jSONObject.put(PARAMS_OPEN_BDUSS, this.openBduss);
                 if (this.tplStokenMap != null && this.tplStokenMap.size() > 0) {
                     JSONObject jSONObject2 = new JSONObject();
-                    for (Map.Entry<String, String> entry : this.tplStokenMap.entrySet()) {
-                        jSONObject2.put(entry.getKey(), entry.getValue());
+                    for (Map.Entry entry : this.tplStokenMap.entrySet()) {
+                        jSONObject2.put((String) entry.getKey(), entry.getValue());
                     }
                     jSONObject.put("stoken_list", jSONObject2);
                 }

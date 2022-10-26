@@ -20,8 +20,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Object, List<Class<?>>> kq;
-    public final Map<Class<?>, CopyOnWriteArrayList<g>> kr;
+    public final Map kq;
+    public final Map kr;
     public f ks;
     public b kt;
     public b ku;
@@ -29,7 +29,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.bus.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] kw;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,39 +111,39 @@ public class a {
     private void a(Object obj, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, obj, eVar) == null) {
-            Class<?> cls = eVar.kK;
+            Class cls = eVar.kK;
             g gVar = new g(obj, eVar);
-            CopyOnWriteArrayList<g> copyOnWriteArrayList = this.kr.get(cls);
+            CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.kr.get(cls);
             if (copyOnWriteArrayList == null) {
-                copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+                copyOnWriteArrayList = new CopyOnWriteArrayList();
                 this.kr.put(cls, copyOnWriteArrayList);
             } else if (copyOnWriteArrayList.contains(gVar)) {
                 com.baidu.ar.h.b.aS("Subscriber " + obj.getClass() + " already registered to event " + cls);
                 return;
             }
             copyOnWriteArrayList.add(gVar);
-            List<Class<?>> list = this.kq.get(obj);
+            List list = (List) this.kq.get(obj);
             if (list == null) {
-                list = new ArrayList<>();
+                list = new ArrayList();
                 this.kq.put(obj, list);
             }
             list.add(cls);
         }
     }
 
-    private void a(Object obj, Class<?> cls) {
-        CopyOnWriteArrayList<g> copyOnWriteArrayList;
+    private void a(Object obj, Class cls) {
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, this, obj, cls) == null) || (copyOnWriteArrayList = this.kr.get(cls)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, this, obj, cls) == null) || (list = (List) this.kr.get(cls)) == null) {
             return;
         }
-        int size = copyOnWriteArrayList.size();
+        int size = list.size();
         int i = 0;
         while (i < size) {
-            g gVar = copyOnWriteArrayList.get(i);
+            g gVar = (g) list.get(i);
             if (gVar.kV == obj) {
                 gVar.kX = false;
-                copyOnWriteArrayList.remove(i);
+                list.remove(i);
                 i--;
                 size--;
             }
@@ -151,20 +151,20 @@ public class a {
         }
     }
 
-    private boolean b(Object obj, Class<?> cls) {
+    private boolean b(Object obj, Class cls) {
         InterceptResult invokeLL;
-        CopyOnWriteArrayList<g> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj, cls)) == null) {
             synchronized (this) {
-                copyOnWriteArrayList = this.kr.get(cls);
+                copyOnWriteArrayList = (CopyOnWriteArrayList) this.kr.get(cls);
             }
             if (copyOnWriteArrayList == null || copyOnWriteArrayList.isEmpty()) {
                 return false;
             }
-            Iterator<g> it = copyOnWriteArrayList.iterator();
+            Iterator it = copyOnWriteArrayList.iterator();
             while (it.hasNext()) {
-                a(it.next(), obj);
+                a((g) it.next(), obj);
             }
             return true;
         }
@@ -232,9 +232,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
             synchronized (this) {
-                List<Class<?>> list = this.kq.get(obj);
+                List<Class> list = (List) this.kq.get(obj);
                 if (list != null) {
-                    for (Class<?> cls : list) {
+                    for (Class cls : list) {
                         a(obj, cls);
                     }
                     this.kq.remove(obj);

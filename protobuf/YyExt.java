@@ -40,7 +40,13 @@ public final class YyExt extends Message {
     public final String yyUid;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<YyExt> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String iconUrl;
@@ -102,14 +108,11 @@ public final class YyExt extends Message {
         public YyExt build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new YyExt(this, z, null) : (YyExt) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new YyExt(this, z, null);
+            }
+            return (YyExt) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -126,10 +129,6 @@ public final class YyExt extends Message {
             }
         }
         DEFAULT_ISYYGAME = 0;
-    }
-
-    public /* synthetic */ YyExt(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -210,5 +209,9 @@ public final class YyExt extends Message {
         this.streamInfo = builder.streamInfo;
         this.rankShow = builder.rankShow;
         this.iconUrl = builder.iconUrl;
+    }
+
+    public /* synthetic */ YyExt(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

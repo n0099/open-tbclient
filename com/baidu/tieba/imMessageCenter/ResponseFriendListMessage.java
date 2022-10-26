@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.v25;
+import com.baidu.tieba.b35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<v25> friendList;
+    public LinkedList friendList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseFriendListMessage(int i) {
@@ -39,7 +39,7 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                 return;
             }
         }
-        this.friendList = new LinkedList<>();
+        this.friendList = new LinkedList();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -57,12 +57,12 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         MetaData metaData = new MetaData();
                         metaData.parserJson(optJSONArray.getJSONObject(i2));
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
-                            v25 v25Var = new v25();
-                            v25Var.n(metaData.getUserName());
-                            v25Var.o(metaData.getName_show());
-                            v25Var.p(metaData.getPortrait());
-                            v25Var.m(metaData.getUserIdLong());
-                            this.friendList.add(v25Var);
+                            b35 b35Var = new b35();
+                            b35Var.n(metaData.getUserName());
+                            b35Var.o(metaData.getName_show());
+                            b35Var.p(metaData.getPortrait());
+                            b35Var.m(metaData.getUserIdLong());
+                            this.friendList.add(b35Var);
                         }
                     }
                 }
@@ -72,9 +72,12 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public LinkedList<v25> getFriendList() {
+    public LinkedList getFriendList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.friendList : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.friendList;
+        }
+        return (LinkedList) invokeV.objValue;
     }
 }

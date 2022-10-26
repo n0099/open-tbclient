@@ -58,6 +58,7 @@ public class CmdConfigHttp {
     public static final int CMD_CHECK_BAIDU_SIM = 1003392;
     public static final int CMD_CHECK_CARD_INFO = 1003442;
     public static final int CMD_CHECK_INTEREST_COMMIT = 1003514;
+    public static final int CMD_CHECK_IS_QUESTION_THREAD = 1003544;
     public static final int CMD_CHECK_POST = 1003451;
     public static final int CMD_CHECK_REAL_NAME = 1003325;
     public static final int CMD_CHECK_SHARE_SDK = 1003417;
@@ -252,6 +253,7 @@ public class CmdConfigHttp {
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_POST_VIDEO_MARK_RED_ICON = 1003500;
     public static final int CMD_PROFESSION_PERMISSION = 1003427;
+    public static final int CMD_QINGHUDONG_EMOTION = 1003545;
     public static final int CMD_QUESTION_THREAD_CREATE_TAG = 1003541;
     public static final int CMD_QUESTION_THREAD_TAG_LIST = 1003538;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;

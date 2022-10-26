@@ -7,7 +7,7 @@ public class e {
     public int d = 10;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public long a;
         public long b;
         public a c;
@@ -15,6 +15,34 @@ public class e {
 
         public a() {
         }
+    }
+
+    private a a() {
+        a aVar;
+        if (this.c >= this.d && (aVar = this.b) != null) {
+            a aVar2 = aVar.d;
+            aVar.d = null;
+            this.b = aVar2;
+            if (aVar2 != null) {
+                aVar2.c = null;
+            }
+            return aVar;
+        }
+        this.c++;
+        return new a();
+    }
+
+    private a a(long j) {
+        a aVar = this.a;
+        a aVar2 = null;
+        while (aVar != null && aVar.b > j) {
+            aVar2 = aVar;
+            aVar = aVar.c;
+        }
+        if (aVar != null && aVar2 != null && aVar != aVar2 && j - aVar.b < aVar2.b - j) {
+            return aVar;
+        }
+        return aVar2;
     }
 
     public boolean a(long j, long j2) {
@@ -60,30 +88,5 @@ public class e {
             }
             return j3 / j4;
         }
-    }
-
-    private a a() {
-        a aVar;
-        if (this.c >= this.d && (aVar = this.b) != null) {
-            a aVar2 = aVar.d;
-            aVar.d = null;
-            this.b = aVar2;
-            if (aVar2 != null) {
-                aVar2.c = null;
-            }
-            return aVar;
-        }
-        this.c++;
-        return new a();
-    }
-
-    private a a(long j) {
-        a aVar = this.a;
-        a aVar2 = null;
-        while (aVar != null && aVar.b > j) {
-            aVar2 = aVar;
-            aVar = aVar.c;
-        }
-        return (aVar == null || aVar2 == null || aVar == aVar2 || j - aVar.b >= aVar2.b - j) ? aVar2 : aVar;
     }
 }

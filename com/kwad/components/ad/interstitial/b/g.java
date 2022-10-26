@@ -1,6 +1,5 @@
 package com.kwad.components.ad.interstitial.b;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,13 +20,12 @@ public final class g extends b implements a.b {
     public static long hs = 1000;
     public transient /* synthetic */ FieldHolder $fh;
     public c gh;
-    @Nullable
     public a ht;
     public int hu;
     public AdTemplate mAdTemplate;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int hv;

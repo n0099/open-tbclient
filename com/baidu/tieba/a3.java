@@ -14,6 +14,27 @@ public class a3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public final int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i == 0 || i == 1) {
+                return 0;
+            }
+            if (i == 2) {
+                return 1;
+            }
+            if (i == 4) {
+                return 2;
+            }
+            if (i == 8) {
+                return 3;
+            }
+            return i == 16 ? 4 : -1;
+        }
+        return invokeI.intValue;
+    }
+
     public a3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,6 +66,7 @@ public class a3 {
             long nanoTime = System.nanoTime();
             synchronized (f3Var) {
                 int i9 = 20;
+                boolean z = false;
                 switch (action) {
                     case 0:
                     case 5:
@@ -70,8 +92,12 @@ public class a3 {
                             f3Var.l[d] = i3;
                             f3Var.m[d] = 0;
                             f3Var.n[d] = 0;
+                            boolean[] zArr = f3Var.o;
                             int i10 = i;
-                            f3Var.o[d] = i10 != -1;
+                            if (i10 != -1) {
+                                z = true;
+                            }
+                            zArr[d] = z;
                             f3Var.p[d] = i10;
                             f3Var.r[d] = motionEvent.getPressure(action2);
                             break;
@@ -159,41 +185,23 @@ public class a3 {
     public final void b(f3 f3Var, int i, int i2, int i3, int i4, int i5, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{f3Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
-            f3.f e = f3Var.g.e();
-            e.a = j;
-            e.h = i4;
-            e.c = i2;
-            e.d = i3;
-            e.b = i;
-            e.g = i5;
-            f3Var.j.add(e);
+            f3.f fVar = (f3.f) f3Var.g.e();
+            fVar.a = j;
+            fVar.h = i4;
+            fVar.c = i2;
+            fVar.d = i3;
+            fVar.b = i;
+            fVar.g = i5;
+            f3Var.j.add(fVar);
         }
     }
 
     public boolean c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? context.getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch") : invokeL.booleanValue;
-    }
-
-    public final int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i == 0 || i == 1) {
-                return 0;
-            }
-            if (i == 2) {
-                return 1;
-            }
-            if (i == 4) {
-                return 2;
-            }
-            if (i == 8) {
-                return 3;
-            }
-            return i == 16 ? 4 : -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return context.getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch");
         }
-        return invokeI.intValue;
+        return invokeL.booleanValue;
     }
 }

@@ -3,7 +3,6 @@ package com.kwad.components.ad.reward.h.kwai;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
 public final class b extends com.kwad.components.core.webview.b.b.d {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakReference<b> tT;
+    public static WeakReference tT;
     public transient /* synthetic */ FieldHolder $fh;
     public long tS;
 
@@ -35,7 +34,6 @@ public final class b extends com.kwad.components.core.webview.b.b.d {
         }
     }
 
-    @Nullable
     public static b a(Activity activity, AdTemplate adTemplate, long j, DialogInterface.OnDismissListener onDismissListener, com.kwad.components.core.webview.b.d.c cVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -51,13 +49,12 @@ public final class b extends com.kwad.components.core.webview.b.b.d {
             a.On = onDismissListener;
             a.g(j);
             a.show(activity.getFragmentManager(), "tkExtraReward");
-            tT = new WeakReference<>(a);
+            tT = new WeakReference(a);
             return a;
         }
         return (b) invokeCommon.objValue;
     }
 
-    @Nullable
     public static b a(b bVar, Activity activity, long j, com.kwad.components.core.webview.b.d.c cVar, d.a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -108,7 +105,7 @@ public final class b extends com.kwad.components.core.webview.b.b.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            WeakReference<b> weakReference = tT;
+            WeakReference weakReference = tT;
             return (weakReference == null || weakReference.get() == null) ? false : true;
         }
         return invokeV.booleanValue;

@@ -41,6 +41,39 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
         this.mId = System.identityHashCode(this);
     }
 
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public synchronized byte read(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        boolean z2;
+        byte b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            synchronized (this) {
+                boolean z3 = true;
+                if (!isClosed()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkState(z);
+                if (i >= 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                Preconditions.checkArgument(z2);
+                if (i >= this.mSize) {
+                    z3 = false;
+                }
+                Preconditions.checkArgument(z3);
+                b = this.mBuffer.get(i);
+            }
+            return b;
+        }
+        return invokeI.byteValue;
+    }
+
     private void doCopy(int i, MemoryChunk memoryChunk, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), memoryChunk, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
@@ -65,31 +98,6 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 this.mBuffer = null;
-            }
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.memory.MemoryChunk
-    public void copy(int i, MemoryChunk memoryChunk, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), memoryChunk, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            Preconditions.checkNotNull(memoryChunk);
-            if (memoryChunk.getUniqueId() == getUniqueId()) {
-                Log.w(TAG, "Copying from BufferMemoryChunk " + Long.toHexString(getUniqueId()) + " to BufferMemoryChunk " + Long.toHexString(memoryChunk.getUniqueId()) + " which are the same ");
-                Preconditions.checkArgument(false);
-            }
-            if (memoryChunk.getUniqueId() < getUniqueId()) {
-                synchronized (memoryChunk) {
-                    synchronized (this) {
-                        doCopy(i, memoryChunk, i2, i3);
-                    }
-                }
-                return;
-            }
-            synchronized (this) {
-                synchronized (memoryChunk) {
-                    doCopy(i, memoryChunk, i2, i3);
-                }
             }
         }
     }
@@ -123,14 +131,20 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
     public int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSize;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public long getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mId;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
@@ -140,7 +154,11 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.mBuffer == null;
+                if (this.mBuffer == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
             return z;
         }
@@ -148,14 +166,45 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
     }
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public void copy(int i, MemoryChunk memoryChunk, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), memoryChunk, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            Preconditions.checkNotNull(memoryChunk);
+            if (memoryChunk.getUniqueId() == getUniqueId()) {
+                Log.w(TAG, "Copying from BufferMemoryChunk " + Long.toHexString(getUniqueId()) + " to BufferMemoryChunk " + Long.toHexString(memoryChunk.getUniqueId()) + " which are the same ");
+                Preconditions.checkArgument(false);
+            }
+            if (memoryChunk.getUniqueId() < getUniqueId()) {
+                synchronized (memoryChunk) {
+                    synchronized (this) {
+                        doCopy(i, memoryChunk, i2, i3);
+                    }
+                }
+                return;
+            }
+            synchronized (this) {
+                synchronized (memoryChunk) {
+                    doCopy(i, memoryChunk, i2, i3);
+                }
+            }
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public synchronized int read(int i, byte[] bArr, int i2, int i3) {
         InterceptResult invokeCommon;
+        boolean z;
         int adjustByteCount;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(bArr);
-                Preconditions.checkState(!isClosed());
+                if (!isClosed()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkState(z);
                 adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
                 MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
                 this.mBuffer.position(i);
@@ -169,12 +218,18 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public synchronized int write(int i, byte[] bArr, int i2, int i3) {
         InterceptResult invokeCommon;
+        boolean z;
         int adjustByteCount;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(bArr);
-                Preconditions.checkState(!isClosed());
+                if (!isClosed()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkState(z);
                 adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
                 MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
                 this.mBuffer.position(i);
@@ -183,26 +238,5 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
             return adjustByteCount;
         }
         return invokeCommon.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.memory.MemoryChunk
-    public synchronized byte read(int i) {
-        InterceptResult invokeI;
-        byte b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            synchronized (this) {
-                boolean z = true;
-                Preconditions.checkState(!isClosed());
-                Preconditions.checkArgument(i >= 0);
-                if (i >= this.mSize) {
-                    z = false;
-                }
-                Preconditions.checkArgument(z);
-                b = this.mBuffer.get(i);
-            }
-            return b;
-        }
-        return invokeI.byteValue;
     }
 }

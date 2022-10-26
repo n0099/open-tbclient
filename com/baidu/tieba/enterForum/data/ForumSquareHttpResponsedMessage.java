@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.h96;
+import com.baidu.tieba.o96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetForumSquare.GetForumSquareResIdl;
 public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h96 mForumSquareRespData;
+    public o96 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareHttpResponsedMessage() {
@@ -36,10 +36,13 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public h96 getData() {
+    public o96 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumSquareRespData : (h96) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mForumSquareRespData;
+        }
+        return (o96) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,11 +61,12 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
             if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
                 setErrorString(getForumSquareResIdl.error.usermsg);
             }
-            if (getError() == 0 && getForumSquareResIdl.data != null) {
-                h96 h96Var = new h96();
-                this.mForumSquareRespData = h96Var;
-                h96Var.a(getForumSquareResIdl.data);
+            if (getError() != 0 || getForumSquareResIdl.data == null) {
+                return;
             }
+            o96 o96Var = new o96();
+            this.mForumSquareRespData = o96Var;
+            o96Var.a(getForumSquareResIdl.data);
         }
     }
 }

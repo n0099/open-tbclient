@@ -48,6 +48,18 @@ public abstract class Part {
         }
     }
 
+    public abstract String getCharSet();
+
+    public abstract String getContentType();
+
+    public abstract String getName();
+
+    public abstract String getTransferEncoding();
+
+    public abstract long lengthOfData() throws IOException;
+
+    public abstract void sendData(OutputStream outputStream) throws IOException;
+
     public Part() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,28 +86,6 @@ public abstract class Part {
         return (String) invokeV.objValue;
     }
 
-    public static long getLengthOfParts(Part[] partArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, partArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.longValue;
-    }
-
-    public static void sendParts(OutputStream outputStream, Part[] partArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, outputStream, partArr) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public abstract String getCharSet();
-
-    public abstract String getContentType();
-
-    public abstract String getName();
-
     public byte[] getPartBoundary() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,8 +94,6 @@ public abstract class Part {
         }
         return (byte[]) invokeV.objValue;
     }
-
-    public abstract String getTransferEncoding();
 
     public boolean isRepeatable() {
         InterceptResult invokeV;
@@ -125,7 +113,23 @@ public abstract class Part {
         return invokeV.longValue;
     }
 
-    public abstract long lengthOfData() throws IOException;
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static long getLengthOfParts(Part[] partArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, partArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.longValue;
+    }
 
     public void send(OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
@@ -140,8 +144,6 @@ public abstract class Part {
             throw new RuntimeException("Stub!");
         }
     }
-
-    public abstract void sendData(OutputStream outputStream) throws IOException;
 
     public void sendDispositionHeader(OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
@@ -178,15 +180,6 @@ public abstract class Part {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
-    }
-
     public static long getLengthOfParts(Part[] partArr, byte[] bArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -194,6 +187,13 @@ public abstract class Part {
             throw new RuntimeException("Stub!");
         }
         return invokeLL.longValue;
+    }
+
+    public static void sendParts(OutputStream outputStream, Part[] partArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, outputStream, partArr) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public static void sendParts(OutputStream outputStream, Part[] partArr, byte[] bArr) throws IOException {

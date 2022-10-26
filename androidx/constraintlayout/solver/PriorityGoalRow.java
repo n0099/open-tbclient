@@ -69,34 +69,34 @@ public class PriorityGoalRow extends ArrayRow {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, solverVariable, f)) == null) {
                 boolean z = true;
-                if (!this.variable.inGoal) {
+                if (this.variable.inGoal) {
                     for (int i = 0; i < 9; i++) {
-                        float f2 = solverVariable.goalStrengthVector[i];
-                        if (f2 != 0.0f) {
-                            float f3 = f2 * f;
-                            if (Math.abs(f3) < 1.0E-4f) {
-                                f3 = 0.0f;
-                            }
-                            this.variable.goalStrengthVector[i] = f3;
-                        } else {
+                        float[] fArr = this.variable.goalStrengthVector;
+                        fArr[i] = fArr[i] + (solverVariable.goalStrengthVector[i] * f);
+                        if (Math.abs(fArr[i]) < 1.0E-4f) {
                             this.variable.goalStrengthVector[i] = 0.0f;
+                        } else {
+                            z = false;
                         }
                     }
-                    return true;
+                    if (z) {
+                        this.this$0.removeGoal(this.variable);
+                    }
+                    return false;
                 }
                 for (int i2 = 0; i2 < 9; i2++) {
-                    float[] fArr = this.variable.goalStrengthVector;
-                    fArr[i2] = fArr[i2] + (solverVariable.goalStrengthVector[i2] * f);
-                    if (Math.abs(fArr[i2]) < 1.0E-4f) {
-                        this.variable.goalStrengthVector[i2] = 0.0f;
+                    float f2 = solverVariable.goalStrengthVector[i2];
+                    if (f2 != 0.0f) {
+                        float f3 = f2 * f;
+                        if (Math.abs(f3) < 1.0E-4f) {
+                            f3 = 0.0f;
+                        }
+                        this.variable.goalStrengthVector[i2] = f3;
                     } else {
-                        z = false;
+                        this.variable.goalStrengthVector[i2] = 0.0f;
                     }
                 }
-                if (z) {
-                    this.this$0.removeGoal(this.variable);
-                }
-                return false;
+                return true;
             }
             return invokeLF.booleanValue;
         }
@@ -105,7 +105,10 @@ public class PriorityGoalRow extends ArrayRow {
         public int compareTo(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.variable.id - ((SolverVariable) obj).id : invokeL.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                return this.variable.id - ((SolverVariable) obj).id;
+            }
+            return invokeL.intValue;
         }
 
         public void init(SolverVariable solverVariable) {
@@ -113,6 +116,28 @@ public class PriorityGoalRow extends ArrayRow {
             if (interceptable == null || interceptable.invokeL(1048579, this, solverVariable) == null) {
                 this.variable = solverVariable;
             }
+        }
+
+        public final boolean isSmallerThan(SolverVariable solverVariable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, solverVariable)) == null) {
+                int i = 8;
+                while (true) {
+                    if (i < 0) {
+                        break;
+                    }
+                    float f = solverVariable.goalStrengthVector[i];
+                    float f2 = this.variable.goalStrengthVector[i];
+                    if (f2 == f) {
+                        i--;
+                    } else if (f2 < f) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
 
         public final boolean isNegative() {
@@ -145,28 +170,6 @@ public class PriorityGoalRow extends ArrayRow {
                 return true;
             }
             return invokeV.booleanValue;
-        }
-
-        public final boolean isSmallerThan(SolverVariable solverVariable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, solverVariable)) == null) {
-                int i = 8;
-                while (true) {
-                    if (i < 0) {
-                        break;
-                    }
-                    float f = solverVariable.goalStrengthVector[i];
-                    float f2 = this.variable.goalStrengthVector[i];
-                    if (f2 == f) {
-                        i--;
-                    } else if (f2 < f) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
         }
 
         public void reset() {
@@ -272,7 +275,10 @@ public class PriorityGoalRow extends ArrayRow {
                     public int compare(SolverVariable solverVariable2, SolverVariable solverVariable3) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, solverVariable2, solverVariable3)) == null) ? solverVariable2.id - solverVariable3.id : invokeLL.intValue;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, solverVariable2, solverVariable3)) == null) {
+                            return solverVariable2.id - solverVariable3.id;
+                        }
+                        return invokeLL.intValue;
                     }
                 });
                 for (int i6 = 0; i6 < this.numGoals; i6++) {
@@ -332,6 +338,19 @@ public class PriorityGoalRow extends ArrayRow {
     }
 
     @Override // androidx.constraintlayout.solver.ArrayRow, androidx.constraintlayout.solver.LinearSystem.Row
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.numGoals == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.ArrayRow, androidx.constraintlayout.solver.LinearSystem.Row
     public SolverVariable getPivotCandidate(LinearSystem linearSystem, boolean[] zArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -360,13 +379,6 @@ public class PriorityGoalRow extends ArrayRow {
         return (SolverVariable) invokeLL.objValue;
     }
 
-    @Override // androidx.constraintlayout.solver.ArrayRow, androidx.constraintlayout.solver.LinearSystem.Row
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.numGoals == 0 : invokeV.booleanValue;
-    }
-
     @Override // androidx.constraintlayout.solver.ArrayRow
     public String toString() {
         InterceptResult invokeV;
@@ -386,7 +398,7 @@ public class PriorityGoalRow extends ArrayRow {
     public void updateFromRow(LinearSystem linearSystem, ArrayRow arrayRow, boolean z) {
         SolverVariable solverVariable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048581, this, linearSystem, arrayRow, z) == null) || (solverVariable = arrayRow.variable) == null) {
+        if ((interceptable != null && interceptable.invokeLLZ(1048581, this, linearSystem, arrayRow, z) != null) || (solverVariable = arrayRow.variable) == null) {
             return;
         }
         ArrayRow.ArrayRowVariables arrayRowVariables = arrayRow.variables;

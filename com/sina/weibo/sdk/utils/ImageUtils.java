@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,10 +43,9 @@ public class ImageUtils {
 
     public static void delete(File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, file) == null) || file == null || !file.exists() || file.delete()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, null, file) == null) && file != null && file.exists() && !file.delete()) {
+            throw new RuntimeException(file.getAbsolutePath() + " doesn't be deleted!");
         }
-        throw new RuntimeException(file.getAbsolutePath() + " doesn't be deleted!");
     }
 
     public static boolean deleteDependon(String str) {
@@ -71,29 +69,22 @@ public class ImageUtils {
         return invokeL.booleanValue;
     }
 
-    @TargetApi(10)
     public static long getVideoDuring(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (new File(str).exists()) {
-                try {
-                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                    mediaMetadataRetriever.setDataSource(str);
-                    return Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
-                } catch (Exception unused) {
-                    return 0L;
-                }
+            if (!new File(str).exists()) {
+                return 0L;
             }
-            return 0L;
+            try {
+                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                mediaMetadataRetriever.setDataSource(str);
+                return Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
+            } catch (Exception unused) {
+                return 0L;
+            }
         }
         return invokeL.longValue;
-    }
-
-    public static boolean isFileExisted(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !TextUtils.isEmpty(str) && new File(str).exists() : invokeL.booleanValue;
     }
 
     public static boolean isParentExist(File file) {
@@ -104,7 +95,40 @@ public class ImageUtils {
             if (file == null || (parentFile = file.getParentFile()) == null || parentFile.exists()) {
                 return false;
             }
-            return file.exists() || file.mkdirs();
+            if (!file.exists() && !file.mkdirs()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void makesureFileExist(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || str == null) {
+            return;
+        }
+        File file = new File(str);
+        if (!file.exists() && isParentExist(file)) {
+            if (file.exists()) {
+                delete(file);
+            }
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static boolean isFileExisted(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || !new File(str).exists()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -114,28 +138,12 @@ public class ImageUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.getType() == 1;
+            if (activeNetworkInfo != null && activeNetworkInfo.getType() == 1) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public static void makesureFileExist(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || str == null) {
-            return;
-        }
-        File file = new File(str);
-        if (file.exists() || !isParentExist(file)) {
-            return;
-        }
-        if (file.exists()) {
-            delete(file);
-        }
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void revitionImageSize(String str, int i, int i2) throws IOException {
@@ -195,6 +203,7 @@ public class ImageUtils {
     }
 
     public static void revitionImageSizeHD(String str, int i, int i2) throws IOException {
+        int height;
         Bitmap createBitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65545, null, str, i, i2) == null) {
@@ -228,15 +237,20 @@ public class ImageUtils {
                     if (safeDecodeBimtapFile != null) {
                         deleteDependon(str);
                         makesureFileExist(str);
-                        float width = i / (safeDecodeBimtapFile.getWidth() > safeDecodeBimtapFile.getHeight() ? safeDecodeBimtapFile.getWidth() : safeDecodeBimtapFile.getHeight());
-                        if (width < 1.0f) {
+                        if (safeDecodeBimtapFile.getWidth() > safeDecodeBimtapFile.getHeight()) {
+                            height = safeDecodeBimtapFile.getWidth();
+                        } else {
+                            height = safeDecodeBimtapFile.getHeight();
+                        }
+                        float f = i / height;
+                        if (f < 1.0f) {
                             while (true) {
                                 try {
-                                    createBitmap = Bitmap.createBitmap((int) (safeDecodeBimtapFile.getWidth() * width), (int) (safeDecodeBimtapFile.getHeight() * width), Bitmap.Config.ARGB_8888);
+                                    createBitmap = Bitmap.createBitmap((int) (safeDecodeBimtapFile.getWidth() * f), (int) (safeDecodeBimtapFile.getHeight() * f), Bitmap.Config.ARGB_8888);
                                     break;
                                 } catch (OutOfMemoryError unused) {
                                     System.gc();
-                                    width = (float) (width * 0.8d);
+                                    f = (float) (f * 0.8d);
                                 }
                             }
                             if (createBitmap == null) {
@@ -244,7 +258,7 @@ public class ImageUtils {
                             }
                             Canvas canvas = new Canvas(createBitmap);
                             Matrix matrix = new Matrix();
-                            matrix.setScale(width, width);
+                            matrix.setScale(f, f);
                             canvas.drawBitmap(safeDecodeBimtapFile, matrix, new Paint());
                             safeDecodeBimtapFile.recycle();
                             safeDecodeBimtapFile = createBitmap;

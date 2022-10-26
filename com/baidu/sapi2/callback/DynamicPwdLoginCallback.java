@@ -6,9 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class DynamicPwdLoginCallback implements SapiCallbackInterceptor<DynamicPwdLoginResult> {
+public abstract class DynamicPwdLoginCallback implements SapiCallbackInterceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.callback.SapiCallbackInterceptor
+    public void beforeSuccess(DynamicPwdLoginResult dynamicPwdLoginResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dynamicPwdLoginResult) == null) {
+        }
+    }
 
     public DynamicPwdLoginCallback() {
         Interceptable interceptable = $ic;
@@ -21,14 +29,6 @@ public abstract class DynamicPwdLoginCallback implements SapiCallbackInterceptor
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.sapi2.callback.SapiCallbackInterceptor
-    public void beforeSuccess(DynamicPwdLoginResult dynamicPwdLoginResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dynamicPwdLoginResult) == null) {
         }
     }
 }

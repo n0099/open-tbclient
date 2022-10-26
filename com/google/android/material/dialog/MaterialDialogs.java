@@ -6,10 +6,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class MaterialDialogs {
     public static /* synthetic */ Interceptable $ic;
@@ -37,8 +32,7 @@ public class MaterialDialogs {
         }
     }
 
-    @NonNull
-    public static Rect getDialogBackgroundInsets(@NonNull Context context, @AttrRes int i, int i2) {
+    public static Rect getDialogBackgroundInsets(Context context, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, context, i, i2)) == null) {
@@ -57,10 +51,12 @@ public class MaterialDialogs {
         return (Rect) invokeLII.objValue;
     }
 
-    @NonNull
-    public static InsetDrawable insetDrawable(@Nullable Drawable drawable, @NonNull Rect rect) {
+    public static InsetDrawable insetDrawable(Drawable drawable, Rect rect) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, drawable, rect)) == null) ? new InsetDrawable(drawable, rect.left, rect.top, rect.right, rect.bottom) : (InsetDrawable) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, drawable, rect)) == null) {
+            return new InsetDrawable(drawable, rect.left, rect.top, rect.right, rect.bottom);
+        }
+        return (InsetDrawable) invokeLL.objValue;
     }
 }

@@ -21,21 +21,21 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservablePublish<T> extends ConnectableObservable<T> implements HasUpstreamObservableSource<T> {
+public final class ObservablePublish extends ConnectableObservable implements HasUpstreamObservableSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<PublishObserver<T>> current;
-    public final ObservableSource<T> onSubscribe;
-    public final ObservableSource<T> source;
+    public final AtomicReference current;
+    public final ObservableSource onSubscribe;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class InnerDisposable<T> extends AtomicReference<Object> implements Disposable {
+    public final class InnerDisposable extends AtomicReference implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1100270633763673112L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> child;
+        public final Observer child;
 
-        public InnerDisposable(Observer<? super T> observer) {
+        public InnerDisposable(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,41 +53,45 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
             this.child = observer;
         }
 
+        public void setParent(PublishObserver publishObserver) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, publishObserver) == null) && !compareAndSet(null, publishObserver)) {
+                publishObserver.remove(this);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Object andSet;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (andSet = getAndSet(this)) == null || andSet == this) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (andSet = getAndSet(this)) != null && andSet != this) {
+                ((PublishObserver) andSet).remove(this);
             }
-            ((PublishObserver) andSet).remove(this);
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == this : invokeV.booleanValue;
-        }
-
-        public void setParent(PublishObserver<T> publishObserver) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, publishObserver) == null) || compareAndSet(null, publishObserver)) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (get() == this) {
+                    return true;
+                }
+                return false;
             }
-            publishObserver.remove(this);
+            return invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class PublishObserver<T> implements Observer<T>, Disposable {
+    public final class PublishObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public static final InnerDisposable[] EMPTY;
         public static final InnerDisposable[] TERMINATED;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference<PublishObserver<T>> current;
-        public final AtomicReference<InnerDisposable<T>[]> observers;
-        public final AtomicReference<Disposable> s;
+        public final AtomicReference current;
+        public final AtomicReference observers;
+        public final AtomicReference s;
         public final AtomicBoolean shouldConnect;
 
         static {
@@ -107,7 +111,40 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
             TERMINATED = new InnerDisposable[0];
         }
 
-        public PublishObserver(AtomicReference<PublishObserver<T>> atomicReference) {
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ((InnerDisposable[]) this.observers.getAndSet(TERMINATED)) != TERMINATED) {
+                this.current.compareAndSet(this, null);
+                DisposableHelper.dispose(this.s);
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.observers.get() == TERMINATED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.current.compareAndSet(this, null);
+                for (InnerDisposable innerDisposable : (InnerDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                    innerDisposable.child.onComplete();
+                }
+            }
+        }
+
+        public PublishObserver(AtomicReference atomicReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,104 +159,19 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
                     return;
                 }
             }
-            this.s = new AtomicReference<>();
-            this.observers = new AtomicReference<>(EMPTY);
+            this.s = new AtomicReference();
+            this.observers = new AtomicReference(EMPTY);
             this.current = atomicReference;
             this.shouldConnect = new AtomicBoolean();
         }
 
-        public boolean add(InnerDisposable<T> innerDisposable) {
-            InnerDisposable<T>[] innerDisposableArr;
-            InnerDisposable<T>[] innerDisposableArr2;
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerDisposable)) == null) {
-                do {
-                    innerDisposableArr = this.observers.get();
-                    if (innerDisposableArr == TERMINATED) {
-                        return false;
-                    }
-                    int length = innerDisposableArr.length;
-                    innerDisposableArr2 = new InnerDisposable[length + 1];
-                    System.arraycopy(innerDisposableArr, 0, innerDisposableArr2, 0, length);
-                    innerDisposableArr2[length] = innerDisposable;
-                } while (!this.observers.compareAndSet(innerDisposableArr, innerDisposableArr2));
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.observers.getAndSet(TERMINATED) == TERMINATED) {
-                return;
-            }
-            this.current.compareAndSet(this, null);
-            DisposableHelper.dispose(this.s);
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.observers.get() == TERMINATED : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.current.compareAndSet(this, null);
-                for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(TERMINATED)) {
-                    innerDisposable.child.onComplete();
-                }
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                this.current.compareAndSet(this, null);
-                InnerDisposable<T>[] andSet = this.observers.getAndSet(TERMINATED);
-                if (andSet.length != 0) {
-                    for (InnerDisposable<T> innerDisposable : andSet) {
-                        innerDisposable.child.onError(th);
-                    }
-                    return;
-                }
-                RxJavaPlugins.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                for (InnerDisposable<T> innerDisposable : this.observers.get()) {
-                    innerDisposable.child.onNext(t);
-                }
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) {
-                DisposableHelper.setOnce(this.s, disposable);
-            }
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.observable.ObservablePublish$InnerDisposable<T>[]> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public void remove(InnerDisposable<T> innerDisposable) {
-            InnerDisposable<T>[] innerDisposableArr;
+        public void remove(InnerDisposable innerDisposable) {
+            InnerDisposable[] innerDisposableArr;
             InnerDisposable[] innerDisposableArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, innerDisposable) == null) {
                 do {
-                    innerDisposableArr = this.observers.get();
+                    innerDisposableArr = (InnerDisposable[]) this.observers.get();
                     int length = innerDisposableArr.length;
                     if (length == 0) {
                         return;
@@ -250,15 +202,70 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
                 } while (!this.observers.compareAndSet(innerDisposableArr, innerDisposableArr2));
             }
         }
+
+        public boolean add(InnerDisposable innerDisposable) {
+            InnerDisposable[] innerDisposableArr;
+            InnerDisposable[] innerDisposableArr2;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerDisposable)) == null) {
+                do {
+                    innerDisposableArr = (InnerDisposable[]) this.observers.get();
+                    if (innerDisposableArr == TERMINATED) {
+                        return false;
+                    }
+                    int length = innerDisposableArr.length;
+                    innerDisposableArr2 = new InnerDisposable[length + 1];
+                    System.arraycopy(innerDisposableArr, 0, innerDisposableArr2, 0, length);
+                    innerDisposableArr2[length] = innerDisposable;
+                } while (!this.observers.compareAndSet(innerDisposableArr, innerDisposableArr2));
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                for (InnerDisposable innerDisposable : (InnerDisposable[]) this.observers.get()) {
+                    innerDisposable.child.onNext(obj);
+                }
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) {
+                DisposableHelper.setOnce(this.s, disposable);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
+                this.current.compareAndSet(this, null);
+                InnerDisposable[] innerDisposableArr = (InnerDisposable[]) this.observers.getAndSet(TERMINATED);
+                if (innerDisposableArr.length != 0) {
+                    for (InnerDisposable innerDisposable : innerDisposableArr) {
+                        innerDisposable.child.onError(th);
+                    }
+                    return;
+                }
+                RxJavaPlugins.onError(th);
+            }
+        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class PublishSource<T> implements ObservableSource<T> {
+    public final class PublishSource implements ObservableSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference<PublishObserver<T>> curr;
+        public final AtomicReference curr;
 
-        public PublishSource(AtomicReference<PublishObserver<T>> atomicReference) {
+        public PublishSource(AtomicReference atomicReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -277,32 +284,31 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
         }
 
         @Override // io.reactivex.ObservableSource
-        public void subscribe(Observer<? super T> observer) {
+        public void subscribe(Observer observer) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, observer) != null) {
-                return;
-            }
-            InnerDisposable innerDisposable = new InnerDisposable(observer);
-            observer.onSubscribe(innerDisposable);
-            while (true) {
-                PublishObserver<T> publishObserver = this.curr.get();
-                if (publishObserver == null || publishObserver.isDisposed()) {
-                    PublishObserver<T> publishObserver2 = new PublishObserver<>(this.curr);
-                    if (this.curr.compareAndSet(publishObserver, publishObserver2)) {
-                        publishObserver = publishObserver2;
-                    } else {
-                        continue;
+            if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
+                InnerDisposable innerDisposable = new InnerDisposable(observer);
+                observer.onSubscribe(innerDisposable);
+                while (true) {
+                    PublishObserver publishObserver = (PublishObserver) this.curr.get();
+                    if (publishObserver == null || publishObserver.isDisposed()) {
+                        PublishObserver publishObserver2 = new PublishObserver(this.curr);
+                        if (this.curr.compareAndSet(publishObserver, publishObserver2)) {
+                            publishObserver = publishObserver2;
+                        } else {
+                            continue;
+                        }
                     }
-                }
-                if (publishObserver.add(innerDisposable)) {
-                    innerDisposable.setParent(publishObserver);
-                    return;
+                    if (publishObserver.add(innerDisposable)) {
+                        innerDisposable.setParent(publishObserver);
+                        return;
+                    }
                 }
             }
         }
     }
 
-    public ObservablePublish(ObservableSource<T> observableSource, ObservableSource<T> observableSource2, AtomicReference<PublishObserver<T>> atomicReference) {
+    public ObservablePublish(ObservableSource observableSource, ObservableSource observableSource2, AtomicReference atomicReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -322,7 +328,7 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
         this.current = atomicReference;
     }
 
-    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource) {
+    public static ConnectableObservable create(ObservableSource observableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, observableSource)) == null) {
@@ -332,17 +338,25 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
         return (ConnectableObservable) invokeL.objValue;
     }
 
+    @Override // io.reactivex.Observable
+    public void subscribeActual(Observer observer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observer) == null) {
+            this.onSubscribe.subscribe(observer);
+        }
+    }
+
     @Override // io.reactivex.observables.ConnectableObservable
-    public void connect(Consumer<? super Disposable> consumer) {
-        PublishObserver<T> publishObserver;
+    public void connect(Consumer consumer) {
+        PublishObserver publishObserver;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, consumer) == null) {
             while (true) {
-                publishObserver = this.current.get();
+                publishObserver = (PublishObserver) this.current.get();
                 if (publishObserver != null && !publishObserver.isDisposed()) {
                     break;
                 }
-                PublishObserver<T> publishObserver2 = new PublishObserver<>(this.current);
+                PublishObserver publishObserver2 = new PublishObserver(this.current);
                 if (this.current.compareAndSet(publishObserver, publishObserver2)) {
                     publishObserver = publishObserver2;
                     break;
@@ -363,17 +377,12 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamObservableSource
-    public ObservableSource<T> source() {
+    public ObservableSource source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source : (ObservableSource) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observer) == null) {
-            this.onSubscribe.subscribe(observer);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.source;
         }
+        return (ObservableSource) invokeV.objValue;
     }
 }

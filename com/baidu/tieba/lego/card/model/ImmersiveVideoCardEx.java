@@ -17,7 +17,7 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
     public final a videoInfo;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -48,6 +48,7 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImmersiveVideoCardEx(JSONObject jSONObject) {
         super(jSONObject);
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +76,11 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
             int optInt5 = optJSONObject.optInt("thumb_height");
             optJSONObject.optInt("video_length");
             int optInt6 = optJSONObject.optInt("play_count");
-            boolean z = optJSONObject.optInt("full_screen", 0) == 1;
+            if (optJSONObject.optInt("full_screen", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
             boolean z2 = optJSONObject.optInt("show_progress", 1) == 1;
             if (optInt > 0 && !TextUtils.isEmpty(optString)) {
                 a aVar = new a();
@@ -115,6 +120,9 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
     public a getVideoInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.videoInfo : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.videoInfo;
+        }
+        return (a) invokeV.objValue;
     }
 }

@@ -1,46 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes6.dex */
-public class ye8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+public interface ye8 extends IAdBaseAsyncController {
+    View b(String str, boolean z);
 
-    public ye8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    AdvertAppInfo d(String str);
 
-    public static ye8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ye8 ye8Var = new ye8();
-            ye8Var.a = jSONObject.optString("apk_name");
-            ye8Var.b = jSONObject.optString("apk_url");
-            ye8Var.c = jSONObject.optString("download_key");
-            return ye8Var;
-        }
-        return (ye8) invokeL.objValue;
-    }
+    void e(String str, AdvertAppInfo advertAppInfo);
+
+    boolean f(String str);
+
+    void g(ah5 ah5Var);
+
+    int getAdCount();
+
+    void h(TbPageContext tbPageContext, DragImageView.h hVar, boolean z);
+
+    void j(String str);
+
+    void k(AdvertAppInfo advertAppInfo);
+
+    void l();
+
+    boolean n();
+
+    void o(String str);
+
+    void onDestroy();
 }

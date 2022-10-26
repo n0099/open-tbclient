@@ -1,13 +1,12 @@
 package com.baidu.tieba.im.data;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.sc7;
+import com.baidu.tieba.ad7;
+import com.baidu.tieba.eh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +42,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
     public long user_id;
 
     /* loaded from: classes4.dex */
-    public static final class ButtonActionParams extends OrmObject implements Serializable {
+    public final class ButtonActionParams extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -335888920495926025L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,73 +76,109 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
         public String getAvatar() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.avatar : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.avatar;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getFinish_example_image() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.finish_example_image : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.finish_example_image;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getGame_id() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.game_id : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.game_id;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getGame_name() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.game_name : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.game_name;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getMethod() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.method : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.method;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getOrder_amount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.order_amount : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.order_amount;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getOrder_status() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.order_status : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.order_status;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getPlay_price() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.play_price : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.play_price;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getPlay_times() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.play_times : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.play_times;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUnit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.unit : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.unit;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.uri : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.uri;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUser_name() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.user_name : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.user_name;
+            }
+            return (String) invokeV.objValue;
         }
 
         public void setAvatar(String str) {
@@ -232,7 +267,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
     }
 
     /* loaded from: classes4.dex */
-    public static final class ContentInfo extends OrmObject implements Serializable {
+    public final class ContentInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -539795134006538216L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,13 +291,19 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
         public String getAmount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.amount : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.amount;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getPrice() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.price : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.price;
+            }
+            return (String) invokeV.objValue;
         }
 
         public void setAmount(String str) {
@@ -298,6 +339,204 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
         this.hasRead = 0;
     }
 
+    public int getClickBtn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.clickBtn;
+        }
+        return invokeV.intValue;
+    }
+
+    public ContentInfo getContent_info() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content_info;
+        }
+        return (ContentInfo) invokeV.objValue;
+    }
+
+    public String getContent_title() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.content_title;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getGid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.gid;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getGod_id() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.god_id;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getHasRead() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.hasRead;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.icon;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getIs_god() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.is_god;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getMain_btn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.main_btn;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ButtonActionParams getMain_btn_action_params() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.main_btn_action_params;
+        }
+        return (ButtonActionParams) invokeV.objValue;
+    }
+
+    public long getMid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mid;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getOrder_id() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.order_id;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getPeiwan_msg_type() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.peiwan_msg_type;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getSecond_btn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.second_btn;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ButtonActionParams getSecond_btn_action_params() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.second_btn_action_params;
+        }
+        return (ButtonActionParams) invokeV.objValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTitle_intro() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.title_intro;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getUser_id() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.user_id;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean hasRead() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (this.hasRead == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.isLast;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toEncodeContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("order_id", getOrder_id());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static GamePlayOrderMsgData parseFromJsonStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -308,152 +547,6 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
             return (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(str, GamePlayOrderMsgData.class);
         }
         return (GamePlayOrderMsgData) invokeL.objValue;
-    }
-
-    @Nullable
-    public static GamePlayOrderMsgData parseFromMsgInfo(MsgInfo msgInfo, boolean z) {
-        InterceptResult invokeLZ;
-        long longValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, msgInfo, z)) == null) {
-            if (msgInfo == null || StringUtils.isNull(msgInfo.content)) {
-                return null;
-            }
-            GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(msgInfo.content, GamePlayOrderMsgData.class);
-            if (gamePlayOrderMsgData != null) {
-                if (dh.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
-                    longValue = msgInfo.userId.longValue();
-                } else {
-                    longValue = msgInfo.toUid.longValue();
-                }
-                gamePlayOrderMsgData.setGid(longValue);
-                gamePlayOrderMsgData.setUser_id(msgInfo.userId.longValue());
-                gamePlayOrderMsgData.setLast(z);
-                gamePlayOrderMsgData.setMid(sc7.a(msgInfo.msgId.longValue()));
-            }
-            return gamePlayOrderMsgData;
-        }
-        return (GamePlayOrderMsgData) invokeLZ.objValue;
-    }
-
-    public int getClickBtn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.clickBtn : invokeV.intValue;
-    }
-
-    public ContentInfo getContent_info() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content_info : (ContentInfo) invokeV.objValue;
-    }
-
-    public String getContent_title() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.content_title : (String) invokeV.objValue;
-    }
-
-    public long getGid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.gid : invokeV.longValue;
-    }
-
-    public long getGod_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.god_id : invokeV.longValue;
-    }
-
-    public int getHasRead() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.hasRead : invokeV.intValue;
-    }
-
-    public String getIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.icon : (String) invokeV.objValue;
-    }
-
-    public int getIs_god() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.is_god : invokeV.intValue;
-    }
-
-    public String getMain_btn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.main_btn : (String) invokeV.objValue;
-    }
-
-    public ButtonActionParams getMain_btn_action_params() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.main_btn_action_params : (ButtonActionParams) invokeV.objValue;
-    }
-
-    public long getMid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mid : invokeV.longValue;
-    }
-
-    public String getOrder_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.order_id : (String) invokeV.objValue;
-    }
-
-    public long getPeiwan_msg_type() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.peiwan_msg_type : invokeV.longValue;
-    }
-
-    public String getSecond_btn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.second_btn : (String) invokeV.objValue;
-    }
-
-    public ButtonActionParams getSecond_btn_action_params() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.second_btn_action_params : (ButtonActionParams) invokeV.objValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.title : (String) invokeV.objValue;
-    }
-
-    public String getTitle_intro() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.title_intro : (String) invokeV.objValue;
-    }
-
-    public long getUser_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.user_id : invokeV.longValue;
-    }
-
-    public boolean hasRead() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.hasRead == 1 : invokeV.booleanValue;
-    }
-
-    public boolean isLast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.isLast : invokeV.booleanValue;
     }
 
     public void setClickBtn(int i) {
@@ -589,19 +682,29 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
         }
     }
 
-    public String toEncodeContent() {
-        InterceptResult invokeV;
+    public static GamePlayOrderMsgData parseFromMsgInfo(MsgInfo msgInfo, boolean z) {
+        InterceptResult invokeLZ;
+        long longValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("order_id", getOrder_id());
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, msgInfo, z)) == null) {
+            if (msgInfo != null && !StringUtils.isNull(msgInfo.content)) {
+                GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(msgInfo.content, GamePlayOrderMsgData.class);
+                if (gamePlayOrderMsgData != null) {
+                    if (eh.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+                        longValue = msgInfo.userId.longValue();
+                    } else {
+                        longValue = msgInfo.toUid.longValue();
+                    }
+                    gamePlayOrderMsgData.setGid(longValue);
+                    gamePlayOrderMsgData.setUser_id(msgInfo.userId.longValue());
+                    gamePlayOrderMsgData.setLast(z);
+                    gamePlayOrderMsgData.setMid(ad7.a(msgInfo.msgId.longValue()));
+                }
+                return gamePlayOrderMsgData;
             }
-            return jSONObject.toString();
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (GamePlayOrderMsgData) invokeLZ.objValue;
     }
 
     public void setHasRead(boolean z) {

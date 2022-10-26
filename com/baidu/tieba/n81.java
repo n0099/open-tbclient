@@ -1,20 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
+import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISharePrefsWrapper;
-import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
+import java.io.File;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class n81 implements ISharePrefsWrapper {
+public class n81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Class a;
+    public Class b;
+    public Method c;
+    public Method d;
+    public Method e;
+    public Method f;
+    public boolean g;
 
     public n81() {
         Interceptable interceptable = $ic;
@@ -26,112 +32,159 @@ public class n81 implements ISharePrefsWrapper {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        e();
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
+            }
+            if (i < 21) {
+                return false;
+            }
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length <= 0) {
+                return false;
+            }
+            return Build.CPU_ABI.equals(strArr[0]);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            try {
+                this.f.invoke(obj, new Object[0]);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
     }
 
-    public final SharedPreferences a() {
-        InterceptResult invokeV;
+    public final Object c(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ContextHolder.getApplicationContext().getSharedPreferences("nps_frame", 0) : (SharedPreferences) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
+            try {
+                return this.c.invoke(null, file);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
+            }
+        }
+        return invokeL.objValue;
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public boolean b(Object obj, String str, File file) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) ? a().getBoolean(str, z) : invokeLZ.booleanValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str, file)) == null) {
+            try {
+                if (((Integer) this.e.invoke(null, obj, file, str)).intValue() != 1) {
+                    return false;
+                }
+                return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) ? a().getFloat(str, f) : invokeLF.floatValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) ? a().getInt(str, i) : invokeLI.intValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) ? a().getLong(str, j) : invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public String getString(String str, String str2) {
+    public int d(Object obj, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) ? a().getString(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, obj, strArr)) == null) {
+            try {
+                System.currentTimeMillis();
+                return ((Integer) this.d.invoke(null, obj, strArr)).intValue();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1;
+            }
+        }
+        return invokeLL.intValue;
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public Set<String> getStringSet(String str, Set<String> set) {
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !s81.d()) {
+            return;
+        }
+        try {
+            Class a = s81.a("com.android.internal.content.NativeLibraryHelper$Handle");
+            this.a = a;
+            Method b = s81.b(a, "create", File.class);
+            this.c = b;
+            b.setAccessible(true);
+            Method b2 = s81.b(this.a, "close", new Class[0]);
+            this.f = b2;
+            b2.setAccessible(true);
+            Class a2 = s81.a("com.android.internal.content.NativeLibraryHelper");
+            this.b = a2;
+            Method b3 = s81.b(a2, "copyNativeBinaries", this.a, File.class, String.class);
+            this.e = b3;
+            b3.setAccessible(true);
+            Method b4 = s81.b(this.b, "findSupportedAbi", this.a, String[].class);
+            this.d = b4;
+            b4.setAccessible(true);
+            this.g = true;
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public boolean f(String str, File file) {
         InterceptResult invokeLL;
+        String[] strArr;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, set)) == null) {
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
+            Object c = c(new File(str));
+            if (c == null) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= 21) {
+                if (g()) {
+                    strArr = Build.SUPPORTED_64_BIT_ABIS;
+                } else {
+                    strArr = Build.SUPPORTED_32_BIT_ABIS;
+                }
+            } else {
+                strArr = new String[]{Build.CPU_ABI, Build.CPU_ABI2};
+            }
+            int d = d(c, strArr);
+            if (d == -114) {
+                a(c);
+                return true;
+            }
+            if (d >= 0 && d < strArr.length) {
+                str2 = strArr[d];
+            } else {
+                str2 = null;
+            }
+            boolean b = b(c, str2, file);
+            a(c);
+            return b;
         }
-        return (Set) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putBoolean(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
-            a().edit().putBoolean(str, z).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putFloat(String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f) == null) {
-            a().edit().putFloat(str, f).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putInt(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
-            a().edit().putInt(str, i).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putLong(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
-            a().edit().putLong(str, j).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putString(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            a().edit().putString(str, str2).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putStringSet(String str, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, set) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-        }
+        return invokeLL.booleanValue;
     }
 }

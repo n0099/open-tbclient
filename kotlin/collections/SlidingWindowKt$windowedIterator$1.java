@@ -1,5 +1,6 @@
 package kotlin.collections;
 
+import androidx.exifinterface.media.ExifInterface;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,7 +16,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.sequences.SequenceScope;
-@Metadata(d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "Lkotlin/sequences/SequenceScope;", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
+@Metadata(d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
 @DebugMetadata(c = "kotlin.collections.SlidingWindowKt$windowedIterator$1", f = "SlidingWindow.kt", i = {}, l = {34, 40, 49, 55, 58}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes8.dex */
 public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super List<? extends T>>, Continuation<? super Unit>, Object> {
@@ -48,10 +49,9 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
         return slidingWindowKt$windowedIterator$1;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((SlidingWindowKt$windowedIterator$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2) {
+        return ((SlidingWindowKt$windowedIterator$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0082  */
@@ -82,52 +82,107 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
         Iterator it2;
         RingBuffer ringBuffer2;
         SequenceScope sequenceScope3;
+        RandomAccess arrayList2;
+        RandomAccess arrayList3;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i3 = this.label;
-        if (i3 == 0) {
-            ResultKt.throwOnFailure(obj);
-            SequenceScope sequenceScope4 = (SequenceScope) this.L$0;
-            int coerceAtMost = RangesKt___RangesKt.coerceAtMost(this.$size, 1024);
-            i = this.$step - this.$size;
-            if (i >= 0) {
-                ArrayList arrayList2 = new ArrayList(coerceAtMost);
-                i2 = 0;
-                sequenceScope2 = sequenceScope4;
-                slidingWindowKt$windowedIterator$12 = this;
-                arrayList = arrayList2;
-                it2 = this.$iterator;
-                while (it2.hasNext()) {
-                }
-                if (!arrayList.isEmpty()) {
-                    slidingWindowKt$windowedIterator$12.L$0 = null;
-                    slidingWindowKt$windowedIterator$12.L$1 = null;
-                    slidingWindowKt$windowedIterator$12.L$2 = null;
-                    slidingWindowKt$windowedIterator$12.label = 2;
-                    if (sequenceScope2.yield(arrayList, slidingWindowKt$windowedIterator$12) == coroutine_suspended) {
+        if (i3 != 0) {
+            if (i3 != 1) {
+                if (i3 != 2) {
+                    if (i3 != 3) {
+                        if (i3 != 4) {
+                            if (i3 != 5) {
+                                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                            }
+                        } else {
+                            ringBuffer2 = (RingBuffer) this.L$1;
+                            sequenceScope3 = (SequenceScope) this.L$0;
+                            ResultKt.throwOnFailure(obj);
+                            slidingWindowKt$windowedIterator$1 = this;
+                            ringBuffer2.removeFirst(slidingWindowKt$windowedIterator$1.$step);
+                            if (ringBuffer2.size() <= slidingWindowKt$windowedIterator$1.$step) {
+                                if (slidingWindowKt$windowedIterator$1.$reuseBuffer) {
+                                    arrayList3 = ringBuffer2;
+                                } else {
+                                    arrayList3 = new ArrayList(ringBuffer2);
+                                }
+                                slidingWindowKt$windowedIterator$1.L$0 = sequenceScope3;
+                                slidingWindowKt$windowedIterator$1.L$1 = ringBuffer2;
+                                slidingWindowKt$windowedIterator$1.L$2 = null;
+                                slidingWindowKt$windowedIterator$1.label = 4;
+                                if (sequenceScope3.yield(arrayList3, slidingWindowKt$windowedIterator$1) == coroutine_suspended) {
+                                    return coroutine_suspended;
+                                }
+                                ringBuffer2.removeFirst(slidingWindowKt$windowedIterator$1.$step);
+                                if (ringBuffer2.size() <= slidingWindowKt$windowedIterator$1.$step) {
+                                    if (!ringBuffer2.isEmpty()) {
+                                        slidingWindowKt$windowedIterator$1.L$0 = null;
+                                        slidingWindowKt$windowedIterator$1.L$1 = null;
+                                        slidingWindowKt$windowedIterator$1.L$2 = null;
+                                        slidingWindowKt$windowedIterator$1.label = 5;
+                                        if (sequenceScope3.yield(ringBuffer2, slidingWindowKt$windowedIterator$1) == coroutine_suspended) {
+                                            return coroutine_suspended;
+                                        }
+                                    }
+                                    return Unit.INSTANCE;
+                                }
+                            }
+                        }
+                    } else {
+                        it = (Iterator) this.L$2;
+                        ringBuffer = (RingBuffer) this.L$1;
+                        sequenceScope = (SequenceScope) this.L$0;
+                        ResultKt.throwOnFailure(obj);
+                        slidingWindowKt$windowedIterator$1 = this;
+                        ringBuffer.removeFirst(slidingWindowKt$windowedIterator$1.$step);
+                        while (it.hasNext()) {
+                            ringBuffer.add((RingBuffer) it.next());
+                            if (ringBuffer.isFull()) {
+                                int size = ringBuffer.size();
+                                int i4 = slidingWindowKt$windowedIterator$1.$size;
+                                if (size < i4) {
+                                    ringBuffer = ringBuffer.expanded(i4);
+                                } else {
+                                    if (slidingWindowKt$windowedIterator$1.$reuseBuffer) {
+                                        arrayList2 = ringBuffer;
+                                    } else {
+                                        arrayList2 = new ArrayList(ringBuffer);
+                                    }
+                                    slidingWindowKt$windowedIterator$1.L$0 = sequenceScope;
+                                    slidingWindowKt$windowedIterator$1.L$1 = ringBuffer;
+                                    slidingWindowKt$windowedIterator$1.L$2 = it;
+                                    slidingWindowKt$windowedIterator$1.label = 3;
+                                    if (sequenceScope.yield(arrayList2, slidingWindowKt$windowedIterator$1) == coroutine_suspended) {
+                                        return coroutine_suspended;
+                                    }
+                                    ringBuffer.removeFirst(slidingWindowKt$windowedIterator$1.$step);
+                                    while (it.hasNext()) {
+                                    }
+                                }
+                            }
+                        }
+                        if (slidingWindowKt$windowedIterator$1.$partialWindows) {
+                            ringBuffer2 = ringBuffer;
+                            sequenceScope3 = sequenceScope;
+                            if (ringBuffer2.size() <= slidingWindowKt$windowedIterator$1.$step) {
+                            }
+                        }
+                        return Unit.INSTANCE;
                     }
                 }
+                ResultKt.throwOnFailure(obj);
                 return Unit.INSTANCE;
             }
-            ringBuffer = new RingBuffer(coerceAtMost);
-            it = this.$iterator;
-            sequenceScope = sequenceScope4;
-            slidingWindowKt$windowedIterator$1 = this;
-            while (it.hasNext()) {
-            }
-            if (slidingWindowKt$windowedIterator$1.$partialWindows) {
-            }
-            return Unit.INSTANCE;
-        } else if (i3 == 1) {
             i2 = this.I$0;
             it2 = (Iterator) this.L$2;
             arrayList = (ArrayList) this.L$1;
             sequenceScope2 = (SequenceScope) this.L$0;
             ResultKt.throwOnFailure(obj);
             slidingWindowKt$windowedIterator$12 = this;
-            if (slidingWindowKt$windowedIterator$12.$reuseBuffer) {
-                arrayList = new ArrayList(slidingWindowKt$windowedIterator$12.$size);
-            } else {
+            if (!slidingWindowKt$windowedIterator$12.$reuseBuffer) {
                 arrayList.clear();
+            } else {
+                arrayList = new ArrayList(slidingWindowKt$windowedIterator$12.$size);
             }
             i = i2;
             while (it2.hasNext()) {
@@ -146,7 +201,7 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
                             return coroutine_suspended;
                         }
                         i2 = i;
-                        if (slidingWindowKt$windowedIterator$12.$reuseBuffer) {
+                        if (!slidingWindowKt$windowedIterator$12.$reuseBuffer) {
                         }
                         i = i2;
                         while (it2.hasNext()) {
@@ -164,79 +219,38 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
                 }
             }
             return Unit.INSTANCE;
-        } else {
-            if (i3 != 2) {
-                if (i3 == 3) {
-                    it = (Iterator) this.L$2;
-                    ringBuffer = (RingBuffer) this.L$1;
-                    sequenceScope = (SequenceScope) this.L$0;
-                    ResultKt.throwOnFailure(obj);
-                    slidingWindowKt$windowedIterator$1 = this;
-                    ringBuffer.removeFirst(slidingWindowKt$windowedIterator$1.$step);
-                    while (it.hasNext()) {
-                        ringBuffer.add((RingBuffer) it.next());
-                        if (ringBuffer.isFull()) {
-                            int size = ringBuffer.size();
-                            int i4 = slidingWindowKt$windowedIterator$1.$size;
-                            if (size >= i4) {
-                                RandomAccess arrayList3 = slidingWindowKt$windowedIterator$1.$reuseBuffer ? ringBuffer : new ArrayList(ringBuffer);
-                                slidingWindowKt$windowedIterator$1.L$0 = sequenceScope;
-                                slidingWindowKt$windowedIterator$1.L$1 = ringBuffer;
-                                slidingWindowKt$windowedIterator$1.L$2 = it;
-                                slidingWindowKt$windowedIterator$1.label = 3;
-                                if (sequenceScope.yield(arrayList3, slidingWindowKt$windowedIterator$1) == coroutine_suspended) {
-                                    return coroutine_suspended;
-                                }
-                                ringBuffer.removeFirst(slidingWindowKt$windowedIterator$1.$step);
-                                while (it.hasNext()) {
-                                }
-                            } else {
-                                ringBuffer = ringBuffer.expanded(i4);
-                            }
-                        }
-                    }
-                    if (slidingWindowKt$windowedIterator$1.$partialWindows) {
-                        ringBuffer2 = ringBuffer;
-                        sequenceScope3 = sequenceScope;
-                        if (ringBuffer2.size() <= slidingWindowKt$windowedIterator$1.$step) {
-                        }
-                    }
-                    return Unit.INSTANCE;
-                } else if (i3 == 4) {
-                    ringBuffer2 = (RingBuffer) this.L$1;
-                    sequenceScope3 = (SequenceScope) this.L$0;
-                    ResultKt.throwOnFailure(obj);
-                    slidingWindowKt$windowedIterator$1 = this;
-                    ringBuffer2.removeFirst(slidingWindowKt$windowedIterator$1.$step);
-                    if (ringBuffer2.size() <= slidingWindowKt$windowedIterator$1.$step) {
-                        RandomAccess arrayList4 = slidingWindowKt$windowedIterator$1.$reuseBuffer ? ringBuffer2 : new ArrayList(ringBuffer2);
-                        slidingWindowKt$windowedIterator$1.L$0 = sequenceScope3;
-                        slidingWindowKt$windowedIterator$1.L$1 = ringBuffer2;
-                        slidingWindowKt$windowedIterator$1.L$2 = null;
-                        slidingWindowKt$windowedIterator$1.label = 4;
-                        if (sequenceScope3.yield(arrayList4, slidingWindowKt$windowedIterator$1) == coroutine_suspended) {
-                            return coroutine_suspended;
-                        }
-                        ringBuffer2.removeFirst(slidingWindowKt$windowedIterator$1.$step);
-                        if (ringBuffer2.size() <= slidingWindowKt$windowedIterator$1.$step) {
-                            if (!ringBuffer2.isEmpty()) {
-                                slidingWindowKt$windowedIterator$1.L$0 = null;
-                                slidingWindowKt$windowedIterator$1.L$1 = null;
-                                slidingWindowKt$windowedIterator$1.L$2 = null;
-                                slidingWindowKt$windowedIterator$1.label = 5;
-                                if (sequenceScope3.yield(ringBuffer2, slidingWindowKt$windowedIterator$1) == coroutine_suspended) {
-                                    return coroutine_suspended;
-                                }
-                            }
-                            return Unit.INSTANCE;
-                        }
-                    }
-                } else if (i3 != 5) {
-                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+        }
+        ResultKt.throwOnFailure(obj);
+        SequenceScope sequenceScope4 = (SequenceScope) this.L$0;
+        int coerceAtMost = RangesKt___RangesKt.coerceAtMost(this.$size, 1024);
+        i = this.$step - this.$size;
+        if (i >= 0) {
+            ArrayList arrayList4 = new ArrayList(coerceAtMost);
+            i2 = 0;
+            sequenceScope2 = sequenceScope4;
+            slidingWindowKt$windowedIterator$12 = this;
+            arrayList = arrayList4;
+            it2 = this.$iterator;
+            while (it2.hasNext()) {
+            }
+            if (!arrayList.isEmpty()) {
+                slidingWindowKt$windowedIterator$12.L$0 = null;
+                slidingWindowKt$windowedIterator$12.L$1 = null;
+                slidingWindowKt$windowedIterator$12.L$2 = null;
+                slidingWindowKt$windowedIterator$12.label = 2;
+                if (sequenceScope2.yield(arrayList, slidingWindowKt$windowedIterator$12) == coroutine_suspended) {
                 }
             }
-            ResultKt.throwOnFailure(obj);
             return Unit.INSTANCE;
         }
+        ringBuffer = new RingBuffer(coerceAtMost);
+        it = this.$iterator;
+        sequenceScope = sequenceScope4;
+        slidingWindowKt$windowedIterator$1 = this;
+        while (it.hasNext()) {
+        }
+        if (slidingWindowKt$windowedIterator$1.$partialWindows) {
+        }
+        return Unit.INSTANCE;
     }
 }

@@ -41,6 +41,21 @@ public class a {
         this.b = b.d();
     }
 
+    public final String a(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String a = f.a(a());
+            String a2 = f.a(b());
+            byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
+            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes(IMAudioTransRequest.CHARSET), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes(IMAudioTransRequest.CHARSET)));
+            return Base64.encodeToString(cipher.doFinal(bytes), 2);
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -60,30 +75,8 @@ public class a {
     public final String b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new String(f.a(f.a(a()), f.a(b()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET) : (String) invokeL.objValue;
-    }
-
-    private byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            byte[] bArr = this.b;
-            return (bArr == null || bArr.length <= 0) ? w.b().d() : bArr;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final String a(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String a = f.a(a());
-            String a2 = f.a(b());
-            byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
-            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes(IMAudioTransRequest.CHARSET), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes(IMAudioTransRequest.CHARSET)));
-            return Base64.encodeToString(cipher.doFinal(bytes), 2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return new String(f.a(f.a(a()), f.a(b()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
         }
         return (String) invokeL.objValue;
     }
@@ -93,7 +86,23 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             byte[] bArr = this.a;
-            return (bArr == null || bArr.length <= 0) ? w.b().c() : bArr;
+            if (bArr != null && bArr.length > 0) {
+                return bArr;
+            }
+            return w.b().c();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    private byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            byte[] bArr = this.b;
+            if (bArr != null && bArr.length > 0) {
+                return bArr;
+            }
+            return w.b().d();
         }
         return (byte[]) invokeV.objValue;
     }

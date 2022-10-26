@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class ImageUrlData extends OrmObject implements Serializable, Comparable<ImageUrlData> {
+public class ImageUrlData extends OrmObject implements Serializable, Comparable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_CHUDIAN = 1;
     public static final long serialVersionUID = 2037469186418617574L;
@@ -86,19 +86,19 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (StringUtils.isNull(this.mSourceImageRectInScreenStr)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(this.mSourceImageRectInScreenStr);
-                if (jSONArray.length() == 8) {
-                    return new Rect(((Integer) jSONArray.get(4)).intValue(), ((Integer) jSONArray.get(5)).intValue(), ((Integer) jSONArray.get(6)).intValue(), ((Integer) jSONArray.get(7)).intValue());
+            if (!StringUtils.isNull(this.mSourceImageRectInScreenStr)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(this.mSourceImageRectInScreenStr);
+                    if (jSONArray.length() == 8) {
+                        return new Rect(((Integer) jSONArray.get(4)).intValue(), ((Integer) jSONArray.get(5)).intValue(), ((Integer) jSONArray.get(6)).intValue(), ((Integer) jSONArray.get(7)).intValue());
+                    }
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
                 }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
             }
+            return null;
         }
         return (Rect) invokeV.objValue;
     }
@@ -107,29 +107,21 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.mSourceImageRectInScreenStr)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(this.mSourceImageRectInScreenStr);
-                if (jSONArray.length() == 8) {
-                    return new Rect(((Integer) jSONArray.get(0)).intValue(), ((Integer) jSONArray.get(1)).intValue(), ((Integer) jSONArray.get(2)).intValue(), ((Integer) jSONArray.get(3)).intValue());
+            if (!StringUtils.isNull(this.mSourceImageRectInScreenStr)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(this.mSourceImageRectInScreenStr);
+                    if (jSONArray.length() == 8) {
+                        return new Rect(((Integer) jSONArray.get(0)).intValue(), ((Integer) jSONArray.get(1)).intValue(), ((Integer) jSONArray.get(2)).intValue(), ((Integer) jSONArray.get(3)).intValue());
+                    }
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
                 }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
             }
+            return null;
         }
         return (Rect) invokeV.objValue;
-    }
-
-    public void setSourceImageRectInScreen(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
-            return;
-        }
-        this.mSourceImageRectInScreenStr = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -137,6 +129,17 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public int compareTo(ImageUrlData imageUrlData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageUrlData)) == null) ? (int) (this.overAllIndex - imageUrlData.overAllIndex) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageUrlData)) == null) {
+            return (int) (this.overAllIndex - imageUrlData.overAllIndex);
+        }
+        return invokeL.intValue;
+    }
+
+    public void setSourceImageRectInScreen(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || str == null) {
+            return;
+        }
+        this.mSourceImageRectInScreenStr = str;
     }
 }

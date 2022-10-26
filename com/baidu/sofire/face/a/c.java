@@ -35,39 +35,40 @@ public class c implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.D = false;
-                Camera camera = this.a.x;
-                if (camera != null) {
-                    camera.setErrorCallback(null);
-                    this.a.x.setPreviewCallback(null);
-                    this.a.x.stopPreview();
-                    a.a(this.a.x);
-                    this.a.x = null;
-                }
-                b bVar = this.a;
-                SurfaceHolder surfaceHolder = bVar.c;
-                if (surfaceHolder != null) {
-                    surfaceHolder.removeCallback(bVar);
-                }
-                b bVar2 = this.a;
-                if (bVar2.h) {
-                    ILivenessStrategy iLivenessStrategy = bVar2.N;
-                    if (iLivenessStrategy != null) {
-                        iLivenessStrategy.reset();
-                        this.a.N = null;
-                        return;
-                    }
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        try {
+            this.a.D = false;
+            Camera camera = this.a.x;
+            if (camera != null) {
+                camera.setErrorCallback(null);
+                this.a.x.setPreviewCallback(null);
+                this.a.x.stopPreview();
+                a.a(this.a.x);
+                this.a.x = null;
+            }
+            b bVar = this.a;
+            SurfaceHolder surfaceHolder = bVar.c;
+            if (surfaceHolder != null) {
+                surfaceHolder.removeCallback(bVar);
+            }
+            b bVar2 = this.a;
+            if (bVar2.h) {
+                ILivenessStrategy iLivenessStrategy = bVar2.N;
+                if (iLivenessStrategy != null) {
+                    iLivenessStrategy.reset();
+                    this.a.N = null;
                     return;
                 }
-                IDetectStrategy iDetectStrategy = bVar2.O;
-                if (iDetectStrategy != null) {
-                    iDetectStrategy.reset();
-                    this.a.O = null;
-                }
-            } catch (Throwable unused) {
+                return;
             }
+            IDetectStrategy iDetectStrategy = bVar2.O;
+            if (iDetectStrategy != null) {
+                iDetectStrategy.reset();
+                this.a.O = null;
+            }
+        } catch (Throwable unused) {
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.kwad.components.ad.splashscreen.b;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Vibrator;
 import com.baidu.android.imsdk.internal.Constants;
@@ -87,7 +86,6 @@ public abstract class h extends e {
                 }
 
                 @Override // com.kwad.components.ad.splashscreen.d.a
-                @SuppressLint({"SetTextI18n"})
                 public final void Z(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {

@@ -101,7 +101,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         this.aL = str;
         ARPEngine aRPEngine = ARPEngine.getInstance();
         this.hx = aRPEngine;
-        aRPEngine.setContext(new SoftReference<>(context));
+        aRPEngine.setContext(new SoftReference(context));
         com.baidu.ar.h.b.c("AbstractRenderer", "create end!!!");
     }
 

@@ -53,6 +53,8 @@ public class NetworkUtil {
     public static boolean isNetworkStrictlyAvailable(Context context) {
         InterceptResult invokeL;
         String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
@@ -69,15 +71,25 @@ public class NetworkUtil {
                     sb.append("network type = ");
                     sb.append(activeNetworkFromService.getType());
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(activeNetworkFromService.isAvailable() ? "available" : "inavailable");
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    String str2 = "";
-                    sb.append(activeNetworkFromService.isConnected() ? "" : "not");
-                    sb.append(" connected, ");
-                    if (!activeNetworkFromService.isConnectedOrConnecting()) {
-                        str2 = "not";
+                    if (activeNetworkFromService.isAvailable()) {
+                        str2 = "available";
+                    } else {
+                        str2 = "inavailable";
                     }
                     sb.append(str2);
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    String str4 = "";
+                    if (activeNetworkFromService.isConnected()) {
+                        str3 = "";
+                    } else {
+                        str3 = "not";
+                    }
+                    sb.append(str3);
+                    sb.append(" connected, ");
+                    if (!activeNetworkFromService.isConnectedOrConnecting()) {
+                        str4 = "not";
+                    }
+                    sb.append(str4);
                     sb.append(" isConnectedOrConnecting");
                     str = sb.toString();
                 } else {

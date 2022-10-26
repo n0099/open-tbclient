@@ -13,6 +13,11 @@ public class a implements b {
     }
 
     @Override // com.ss.android.a.b
+    public int a(byte[] bArr, int i, int i2) throws IOException {
+        return this.a.read(bArr, i, i2);
+    }
+
+    @Override // com.ss.android.a.b
     public long a() throws IOException {
         return this.a.length();
     }
@@ -20,11 +25,6 @@ public class a implements b {
     @Override // com.ss.android.a.b
     public void b() throws IOException {
         this.a.close();
-    }
-
-    @Override // com.ss.android.a.b
-    public int a(byte[] bArr, int i, int i2) throws IOException {
-        return this.a.read(bArr, i, i2);
     }
 
     @Override // com.ss.android.a.b

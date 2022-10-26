@@ -23,14 +23,14 @@ public final class MergingMediaSource implements MediaSource {
     public MediaSource.Listener listener;
     public final MediaSource[] mediaSources;
     public IllegalMergeException mergeError;
-    public final ArrayList<MediaSource> pendingTimelineSources;
+    public final ArrayList pendingTimelineSources;
     public int periodCount;
     public Object primaryManifest;
     public Timeline primaryTimeline;
     public final Timeline.Window window;
 
     /* loaded from: classes7.dex */
-    public static final class IllegalMergeException extends IOException {
+    public final class IllegalMergeException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REASON_PERIOD_COUNT_MISMATCH = 1;
         public static final int REASON_WINDOWS_ARE_DYNAMIC = 0;
@@ -77,7 +77,7 @@ public final class MergingMediaSource implements MediaSource {
             }
         }
         this.mediaSources = mediaSourceArr;
-        this.pendingTimelineSources = new ArrayList<>(Arrays.asList(mediaSourceArr));
+        this.pendingTimelineSources = new ArrayList(Arrays.asList(mediaSourceArr));
         this.window = new Timeline.Window();
         this.periodCount = -1;
     }
@@ -126,6 +126,56 @@ public final class MergingMediaSource implements MediaSource {
     }
 
     @Override // com.google.android.exoplayer2.source.MediaSource
+    public void prepareSource(ExoPlayer exoPlayer, boolean z, MediaSource.Listener listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{exoPlayer, Boolean.valueOf(z), listener}) == null) {
+            this.listener = listener;
+            int i = 0;
+            while (true) {
+                MediaSource[] mediaSourceArr = this.mediaSources;
+                if (i < mediaSourceArr.length) {
+                    mediaSourceArr[i].prepareSource(exoPlayer, false, new MediaSource.Listener(this, i) { // from class: com.google.android.exoplayer2.source.MergingMediaSource.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ MergingMediaSource this$0;
+                        public final /* synthetic */ int val$sourceIndex;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, Integer.valueOf(i)};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$sourceIndex = i;
+                        }
+
+                        @Override // com.google.android.exoplayer2.source.MediaSource.Listener
+                        public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) == null) {
+                                this.this$0.handleSourceInfoRefreshed(this.val$sourceIndex, timeline, obj);
+                            }
+                        }
+                    });
+                    i++;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
     public MediaPeriod createPeriod(MediaSource.MediaPeriodId mediaPeriodId, Allocator allocator) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -156,79 +206,29 @@ public final class MergingMediaSource implements MediaSource {
     }
 
     @Override // com.google.android.exoplayer2.source.MediaSource
-    public void prepareSource(ExoPlayer exoPlayer, boolean z, MediaSource.Listener listener) {
+    public void releaseSource() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{exoPlayer, Boolean.valueOf(z), listener}) != null) {
-            return;
-        }
-        this.listener = listener;
-        int i = 0;
-        while (true) {
-            MediaSource[] mediaSourceArr = this.mediaSources;
-            if (i >= mediaSourceArr.length) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (MediaSource mediaSource : this.mediaSources) {
+                mediaSource.releaseSource();
             }
-            mediaSourceArr[i].prepareSource(exoPlayer, false, new MediaSource.Listener(this, i) { // from class: com.google.android.exoplayer2.source.MergingMediaSource.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MergingMediaSource this$0;
-                public final /* synthetic */ int val$sourceIndex;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$sourceIndex = i;
-                }
-
-                @Override // com.google.android.exoplayer2.source.MediaSource.Listener
-                public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) == null) {
-                        this.this$0.handleSourceInfoRefreshed(this.val$sourceIndex, timeline, obj);
-                    }
-                }
-            });
-            i++;
         }
     }
 
     @Override // com.google.android.exoplayer2.source.MediaSource
     public void releasePeriod(MediaPeriod mediaPeriod) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048579, this, mediaPeriod) != null) {
-            return;
-        }
-        MergingMediaPeriod mergingMediaPeriod = (MergingMediaPeriod) mediaPeriod;
-        int i = 0;
-        while (true) {
-            MediaSource[] mediaSourceArr = this.mediaSources;
-            if (i >= mediaSourceArr.length) {
-                return;
-            }
-            mediaSourceArr[i].releasePeriod(mergingMediaPeriod.periods[i]);
-            i++;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void releaseSource() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (MediaSource mediaSource : this.mediaSources) {
-                mediaSource.releaseSource();
+        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
+            MergingMediaPeriod mergingMediaPeriod = (MergingMediaPeriod) mediaPeriod;
+            int i = 0;
+            while (true) {
+                MediaSource[] mediaSourceArr = this.mediaSources;
+                if (i < mediaSourceArr.length) {
+                    mediaSourceArr[i].releasePeriod(mergingMediaPeriod.periods[i]);
+                    i++;
+                } else {
+                    return;
+                }
             }
         }
     }

@@ -19,16 +19,32 @@ import com.sdk.base.framework.utils.app.AppUtils;
 import com.sdk.f.g;
 import com.sdk.o.f;
 /* loaded from: classes8.dex */
-public class d<T> {
+public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.w.d";
     public static Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallBack<T> c;
+    public CallBack c;
     public Context d;
-    public d<T>.a e;
+    public a e;
     public com.sdk.a.e f;
     public int g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1592660802, "Lcom/sdk/w/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1592660802, "Lcom/sdk/w/d;");
+                return;
+            }
+        }
+        b = Boolean.valueOf(g.b);
+    }
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -71,23 +87,7 @@ public class d<T> {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1592660802, "Lcom/sdk/w/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1592660802, "Lcom/sdk/w/d;");
-                return;
-            }
-        }
-        b = Boolean.valueOf(g.b);
-    }
-
-    public d(Context context, int i, CallBack<T> callBack) {
+    public d(Context context, int i, CallBack callBack) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class d<T> {
         this.d = context;
         i = i <= 0 ? 30 : i;
         this.g = i;
-        d<T>.a aVar = new a(this, i * 1000);
+        a aVar = new a(this, i * 1000);
         this.e = aVar;
         aVar.a.postDelayed(aVar, aVar.b);
         com.sdk.n.b.b();
@@ -120,47 +120,46 @@ public class d<T> {
     public void a(int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
-            return;
-        }
-        String a2 = com.sdk.b.a.a(this.d, i, f.b.b.a());
-        if (com.sdk.n.a.b(a2).booleanValue()) {
-            a(0, "成功", 100, com.sdk.b.a.a(a2), com.sdk.b.a.b(a2));
-            return;
-        }
-        Context context = this.d;
-        if (!com.sdk.q.b.a) {
-            Long b2 = com.sdk.j.a.b(context, "access_limit_time");
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b2 == null) {
-                com.sdk.j.a.a(context, "access_limit_time", Long.valueOf(currentTimeMillis));
-            } else {
-                if (currentTimeMillis - b2.longValue() > 600000) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            String a2 = com.sdk.b.a.a(this.d, i, f.b.b.a());
+            if (com.sdk.n.a.b(a2).booleanValue()) {
+                a(0, "成功", 100, com.sdk.b.a.a(a2), com.sdk.b.a.b(a2));
+                return;
+            }
+            Context context = this.d;
+            if (!com.sdk.q.b.a) {
+                Long b2 = com.sdk.j.a.b(context, "access_limit_time");
+                long currentTimeMillis = System.currentTimeMillis();
+                if (b2 == null) {
                     com.sdk.j.a.a(context, "access_limit_time", Long.valueOf(currentTimeMillis));
                 } else {
-                    Long b3 = com.sdk.j.a.b(context, "access_limit_count");
-                    if (b3 != null) {
-                        if (b3.longValue() > 30) {
-                            z = false;
-                            if (z) {
-                                a(1, IMTrack.CrashBuilder.CRASH_TYPE_CATCH, "操作频繁请,稍后再试");
+                    if (currentTimeMillis - b2.longValue() > 600000) {
+                        com.sdk.j.a.a(context, "access_limit_time", Long.valueOf(currentTimeMillis));
+                    } else {
+                        Long b3 = com.sdk.j.a.b(context, "access_limit_count");
+                        if (b3 != null) {
+                            if (b3.longValue() > 30) {
+                                z = false;
+                                if (z) {
+                                    a(1, IMTrack.CrashBuilder.CRASH_TYPE_CATCH, "操作频繁请,稍后再试");
+                                    return;
+                                }
+                                com.sdk.x.a aVar = new com.sdk.x.a(this.d, new com.sdk.w.a(this, i));
+                                DataInfo dataInfo = new DataInfo();
+                                dataInfo.putData("serviceType", Integer.valueOf(i));
+                                dataInfo.putData("privateIp", AppUtils.getLocalIPAddress());
+                                dataInfo.putData("newVersion", "10");
+                                this.f = aVar.a(aVar.i, "/dro/netm/v1.0/qc", dataInfo, new com.sdk.g.a(aVar), 0, g.a.b);
                                 return;
                             }
-                            com.sdk.x.a aVar = new com.sdk.x.a(this.d, new com.sdk.w.a(this, i));
-                            DataInfo dataInfo = new DataInfo();
-                            dataInfo.putData("serviceType", Integer.valueOf(i));
-                            dataInfo.putData("privateIp", AppUtils.getLocalIPAddress());
-                            dataInfo.putData("newVersion", "10");
-                            this.f = aVar.a(aVar.i, "/dro/netm/v1.0/qc", dataInfo, new com.sdk.g.a(aVar), 0, g.a.b);
-                            return;
                         }
                     }
+                    com.sdk.j.a.a(context, "access_limit_count", (Long) 0L);
                 }
-                com.sdk.j.a.a(context, "access_limit_count", (Long) 0L);
             }
-        }
-        z = true;
-        if (z) {
+            z = true;
+            if (z) {
+            }
         }
     }
 
@@ -171,11 +170,11 @@ public class d<T> {
             if (com.sdk.n.a.a(str2).booleanValue()) {
                 str2 = com.sdk.q.a.a(20);
             }
-            d<T>.a aVar = this.e;
+            a aVar = this.e;
             if (aVar != null) {
                 aVar.a.removeCallbacks(aVar);
             }
-            CallBack<T> callBack = this.c;
+            CallBack callBack = this.c;
             if (callBack != null) {
                 callBack.onFailed(i, i2, str, str2);
                 this.c = null;
@@ -184,20 +183,20 @@ public class d<T> {
         }
     }
 
-    public final void a(int i, String str, int i2, T t, String str2) {
+    public final void a(int i, String str, int i2, Object obj, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
             if (com.sdk.n.a.a(str2).booleanValue()) {
                 str2 = com.sdk.q.a.a(20);
             }
             String str3 = str2;
-            d<T>.a aVar = this.e;
+            a aVar = this.e;
             if (aVar != null) {
                 aVar.a.removeCallbacks(aVar);
             }
-            CallBack<T> callBack = this.c;
+            CallBack callBack = this.c;
             if (callBack != null) {
-                callBack.onSuccess(i, str, i2, t, str3);
+                callBack.onSuccess(i, str, i2, obj, str3);
                 this.c = null;
             }
             com.sdk.t.a.a();

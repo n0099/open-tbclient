@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.SDKVersion;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
@@ -39,7 +38,7 @@ public class CyberCoreLoaderManager {
     public static /* synthetic */ Interceptable $ic;
     public static CyberCoreLoaderManager a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> b;
+    public List b;
     public final Object c;
     public ExecutorService d;
     public volatile int e;
@@ -197,13 +196,13 @@ public class CyberCoreLoaderManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, String> a(Map<String, String> map) {
+    public Map a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, map)) == null) {
             if (o.m() && map != null) {
                 map.put("cyber-media-dex", d.a());
-                Map<String, String> a2 = d.a(CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION);
+                Map a2 = d.a(CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION);
                 if (a2 != null) {
                     map.putAll(a2);
                 }
@@ -223,7 +222,7 @@ public class CyberCoreLoaderManager {
                 hashMap.put("detail", str);
             }
             hashMap.put(LokiService.Constant.LOG_PROCESS_NAME, o.l());
-            Map<String, String> a2 = d.a(CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION);
+            Map a2 = d.a(CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION);
             if (a2 != null) {
                 hashMap.putAll(a2);
             }
@@ -266,7 +265,7 @@ public class CyberCoreLoaderManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, int i, Map<String, String> map) {
+    public void a(String str, int i, Map map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLIL(65545, this, str, i, map) == null) || CyberPlayerManager.isCoreLoaded(i)) {
             return;
@@ -382,9 +381,9 @@ public class CyberCoreLoaderManager {
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65548, this, i) == null) {
-            Iterator<a> it = this.b.iterator();
+            Iterator it = this.b.iterator();
             while (it.hasNext()) {
-                if (it.next().b == i) {
+                if (((a) it.next()).b == i) {
                     it.remove();
                 }
             }
@@ -398,23 +397,22 @@ public class CyberCoreLoaderManager {
         if ((interceptable == null || interceptable.invokeV(65550, this) == null) && o.m()) {
             CyberCfgManager.getInstance().removePref("latest_success_loaded_cyber-media-dex");
             CyberCfgManager.getInstance().setPrefStr("latest_success_loaded_cyber-media-dex", d.a());
-            Map<String, String> a2 = d.a(CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION);
-            Map<String, String> a3 = d.a(CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION);
+            Map a2 = d.a(CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION);
+            Map a3 = d.a(CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION);
             if (a2 == null || a3 == null) {
                 return;
             }
-            for (Map.Entry<String, String> entry : a2.entrySet()) {
+            for (Map.Entry entry : a2.entrySet()) {
                 CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
-                cyberCfgManager.removePref("latest_success_loaded_" + entry.getKey());
-                if (!TextUtils.isEmpty(a3.get(entry.getKey()))) {
+                cyberCfgManager.removePref("latest_success_loaded_" + ((String) entry.getKey()));
+                if (!TextUtils.isEmpty((CharSequence) a3.get(entry.getKey()))) {
                     CyberCfgManager cyberCfgManager2 = CyberCfgManager.getInstance();
-                    cyberCfgManager2.setPrefStr("latest_success_loaded_" + entry.getKey(), a3.get(entry.getKey()));
+                    cyberCfgManager2.setPrefStr("latest_success_loaded_" + ((String) entry.getKey()), (String) a3.get(entry.getKey()));
                 }
             }
         }
     }
 
-    @Keep
     public static String getLatestLoadedVersion(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -425,7 +423,7 @@ public class CyberCoreLoaderManager {
         return (String) invokeL.objValue;
     }
 
-    public void a(String str, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
+    public void a(String str, int i, Map map, CyberPlayerManager.InstallListener installListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048576, this, str, i, map, installListener) == null) {
             if (this.g == -1) {
@@ -449,7 +447,7 @@ public class CyberCoreLoaderManager {
                 if (a(i)) {
                     boolean z = false;
                     if (map != null) {
-                        String str2 = map.get("enable_sync_install");
+                        String str2 = (String) map.get("enable_sync_install");
                         if (!TextUtils.isEmpty(str2)) {
                             try {
                                 if (Integer.parseInt(str2) == 1) {

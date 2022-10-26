@@ -99,7 +99,25 @@ public class DefaultPlacement {
     private boolean hasBit(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i, i2)) == null) ? this.bits[(i2 * this.numcols) + i] >= 0 : invokeII.booleanValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i, i2)) == null) {
+            if (this.bits[(i2 * this.numcols) + i] >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
+    }
+
+    public final boolean getBit(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            if (this.bits[(i2 * this.numcols) + i] == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
     }
 
     private void module(int i, int i2, int i3, int i4) {
@@ -115,7 +133,11 @@ public class DefaultPlacement {
                 i2 += i6;
                 i += 4 - ((i6 + 4) % 8);
             }
-            setBit(i2, i, (this.codewords.charAt(i3) & (1 << (8 - i4))) != 0);
+            boolean z = true;
+            if ((this.codewords.charAt(i3) & (1 << (8 - i4))) == 0) {
+                z = false;
+            }
+            setBit(i2, i, z);
         }
     }
 
@@ -144,28 +166,31 @@ public class DefaultPlacement {
         }
     }
 
-    public final boolean getBit(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? this.bits[(i2 * this.numcols) + i] == 1 : invokeII.booleanValue;
-    }
-
     public final byte[] getBits() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bits : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bits;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public final int getNumcols() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.numcols : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.numcols;
+        }
+        return invokeV.intValue;
     }
 
     public final int getNumrows() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.numrows : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.numrows;
+        }
+        return invokeV.intValue;
     }
 
     public final void place() {
@@ -224,11 +249,10 @@ public class DefaultPlacement {
                     break;
                 }
             }
-            if (hasBit(i2 - 1, i - 1)) {
-                return;
+            if (!hasBit(i2 - 1, i - 1)) {
+                setBit(this.numcols - 1, this.numrows - 1, true);
+                setBit(this.numcols - 2, this.numrows - 2, true);
             }
-            setBit(this.numcols - 1, this.numrows - 1, true);
-            setBit(this.numcols - 2, this.numrows - 2, true);
         }
     }
 }

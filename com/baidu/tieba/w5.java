@@ -36,6 +36,16 @@ public class w5 implements TextureData, m3 {
     public ByteBuffer l;
     public boolean m;
 
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public w5(k3 k3Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,16 +69,6 @@ public class w5 implements TextureData, m3 {
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
     public void b(int i) {
         boolean z;
         int i2;
@@ -83,10 +83,10 @@ public class w5 implements TextureData, m3 {
                 int i6 = 1;
                 if (this.b != 0 && this.c != 0) {
                     z = false;
-                } else if (this.b + this.c != 0) {
-                    throw new GdxRuntimeException("either both or none of glType, glFormat must be zero");
-                } else {
+                } else if (this.b + this.c == 0) {
                     z = true;
+                } else {
+                    throw new GdxRuntimeException("either both or none of glType, glFormat must be zero");
                 }
                 if (this.f > 0) {
                     i2 = 2;
@@ -101,23 +101,31 @@ public class w5 implements TextureData, m3 {
                 }
                 int i7 = this.i;
                 if (i7 == 6) {
-                    if (i2 != 2) {
+                    if (i2 == 2) {
+                        i3 = 34067;
+                    } else {
                         throw new GdxRuntimeException("cube map needs 2D faces");
                     }
-                    i3 = 34067;
                 } else if (i7 != 1) {
                     throw new GdxRuntimeException("numberOfFaces must be either 1 or 6");
                 }
                 if (this.h > 0) {
-                    if (i3 != 4660 && i3 != 3553) {
+                    if (i3 == 4660 || i3 == 3553) {
+                        i2++;
+                        i3 = 4660;
+                    } else {
                         throw new GdxRuntimeException("No API for 3D and cube arrays yet");
                     }
-                    i2++;
-                    i3 = 4660;
                 }
                 if (i3 != 4660) {
                     int i8 = 34069;
-                    if (this.i != 6 || i == 34067) {
+                    if (this.i == 6 && i != 34067) {
+                        if (34069 <= i && i <= 34074) {
+                            i4 = i - 34069;
+                        } else {
+                            throw new GdxRuntimeException("You must specify either GL_TEXTURE_CUBE_MAP to bind all 6 faces of the cube or the requested face GL_TEXTURE_CUBE_MAP_POSITIVE_X and followings.");
+                        }
+                    } else {
                         if (this.i != 6 || i != 34067) {
                             if (i != i3 && (34069 > i || i > 34074 || i != 3553)) {
                                 throw new GdxRuntimeException("Invalid target requested : 0x" + Integer.toHexString(i) + ", expecting : 0x" + Integer.toHexString(i3));
@@ -125,10 +133,6 @@ public class w5 implements TextureData, m3 {
                             i8 = i;
                         }
                         i4 = -1;
-                    } else if (34069 > i || i > 34074) {
-                        throw new GdxRuntimeException("You must specify either GL_TEXTURE_CUBE_MAP to bind all 6 faces of the cube or the requested face GL_TEXTURE_CUBE_MAP_POSITIVE_X and followings.");
-                    } else {
-                        i4 = i - 34069;
                     }
                     f1.e.C(3317, d);
                     int i9 = d.get(0);
@@ -152,7 +156,9 @@ public class w5 implements TextureData, m3 {
                         while (i17 < this.i) {
                             this.l.position(i13);
                             i13 += i16;
-                            if (i4 == -1 || i4 == i17) {
+                            if (i4 != -1 && i4 != i17) {
+                                i5 = i4;
+                            } else {
                                 ByteBuffer slice = this.l.slice();
                                 slice.limit(i16);
                                 i5 = i4;
@@ -190,8 +196,6 @@ public class w5 implements TextureData, m3 {
                                     i4 = i5;
                                     z = z2;
                                 }
-                            } else {
-                                i5 = i4;
                             }
                             z2 = z;
                             i17++;
@@ -251,7 +255,10 @@ public class w5 implements TextureData, m3 {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.m : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.m;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -268,21 +275,30 @@ public class w5 implements TextureData, m3 {
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public TextureData.TextureDataType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? TextureData.TextureDataType.Custom : (TextureData.TextureDataType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return TextureData.TextureDataType.Custom;
+        }
+        return (TextureData.TextureDataType) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
     }
 
     public void h() {
@@ -300,7 +316,13 @@ public class w5 implements TextureData, m3 {
     public boolean isPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.l != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -389,19 +411,19 @@ public class w5 implements TextureData, m3 {
                                                                         this.m = true;
                                                                     }
                                                                     this.k = this.l.position() + this.l.getInt();
-                                                                    if (this.l.isDirect()) {
+                                                                    if (!this.l.isDirect()) {
+                                                                        int i3 = this.k;
+                                                                        for (int i4 = 0; i4 < this.j; i4++) {
+                                                                            i3 += (((this.l.getInt(i3) + 3) & (-4)) * this.i) + 4;
+                                                                        }
+                                                                        this.l.limit(i3);
+                                                                        this.l.position(0);
+                                                                        ByteBuffer e3 = BufferUtils.e(i3);
+                                                                        e3.order(this.l.order());
+                                                                        e3.put(this.l);
+                                                                        this.l = e3;
                                                                         return;
                                                                     }
-                                                                    int i3 = this.k;
-                                                                    for (int i4 = 0; i4 < this.j; i4++) {
-                                                                        i3 += (((this.l.getInt(i3) + 3) & (-4)) * this.i) + 4;
-                                                                    }
-                                                                    this.l.limit(i3);
-                                                                    this.l.position(0);
-                                                                    ByteBuffer e3 = BufferUtils.e(i3);
-                                                                    e3.order(this.l.order());
-                                                                    e3.put(this.l);
-                                                                    this.l = e3;
                                                                     return;
                                                                 }
                                                                 throw new GdxRuntimeException("Invalid KTX Header");

@@ -49,13 +49,13 @@ public class CoordUtil {
         return (LatLng) invokeL.objValue;
     }
 
-    public static List<LatLng> decodeLocationList(String str) {
+    public static List decodeLocationList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? com.baidu.mapsdkplatform.comapi.util.b.c(str) : (List) invokeL.objValue;
     }
 
-    public static List<List<LatLng>> decodeLocationList2D(String str) {
+    public static List decodeLocationList2D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? com.baidu.mapsdkplatform.comapi.util.b.d(str) : (List) invokeL.objValue;

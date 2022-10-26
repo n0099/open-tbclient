@@ -12,7 +12,7 @@ import java.util.jar.JarFile;
 public class ApkSignatureSchemeV1Verifier {
     public static final String TAG = "SignatureVerifierV1";
     public static Object mSync = new Object();
-    public static WeakReference<byte[]> sReadBuffer;
+    public static WeakReference sReadBuffer;
 
     /* JADX WARN: Code restructure failed: missing block: B:21:0x002d, code lost:
         if (r1 == null) goto L21;
@@ -32,6 +32,7 @@ public class ApkSignatureSchemeV1Verifier {
     public static Certificate[] loadCertificates(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
         BufferedInputStream bufferedInputStream;
         BufferedInputStream bufferedInputStream2 = null;
+        Certificate[] certificateArr = null;
         try {
             bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
             while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
@@ -50,12 +51,14 @@ public class ApkSignatureSchemeV1Verifier {
                     throw th;
                 }
             }
-            Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
+            if (jarEntry != null) {
+                certificateArr = jarEntry.getCertificates();
+            }
             try {
                 bufferedInputStream.close();
             } catch (IOException unused4) {
             }
-            return certificates;
+            return certificateArr;
         } catch (IOException unused5) {
             bufferedInputStream = null;
         } catch (RuntimeException unused6) {
@@ -66,7 +69,7 @@ public class ApkSignatureSchemeV1Verifier {
     }
 
     public static Certificate[] verify(File file) {
-        WeakReference<byte[]> weakReference;
+        WeakReference weakReference;
         JarFile jarFile;
         byte[] bArr;
         JarFile jarFile2;
@@ -76,13 +79,13 @@ public class ApkSignatureSchemeV1Verifier {
             jarFile = null;
             if (weakReference != null) {
                 sReadBuffer = null;
-                bArr = weakReference.get();
+                bArr = (byte[]) weakReference.get();
             } else {
                 bArr = null;
             }
             if (bArr == null) {
                 bArr = new byte[8192];
-                weakReference = new WeakReference<>(bArr);
+                weakReference = new WeakReference(bArr);
             }
         }
         try {
@@ -106,14 +109,15 @@ public class ApkSignatureSchemeV1Verifier {
                             for (int i = 0; i < certificateArr.length; i++) {
                                 int i2 = 0;
                                 while (true) {
-                                    if (i2 >= loadCertificates.length) {
+                                    if (i2 < loadCertificates.length) {
+                                        if (certificateArr[i] != null && certificateArr[i].equals(loadCertificates[i2])) {
+                                            z = true;
+                                            break;
+                                        }
+                                        i2++;
+                                    } else {
                                         z = false;
                                         break;
-                                    } else if (certificateArr[i] != null && certificateArr[i].equals(loadCertificates[i2])) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        i2++;
                                     }
                                 }
                                 if (!z || certificateArr.length != loadCertificates.length) {
@@ -131,18 +135,18 @@ public class ApkSignatureSchemeV1Verifier {
                 synchronized (mSync) {
                     sReadBuffer = weakReference;
                 }
-                if (certificateArr == null || certificateArr.length <= 0) {
+                if (certificateArr != null && certificateArr.length > 0) {
                     try {
                         jarFile2.close();
                     } catch (IOException unused3) {
                     }
-                    return null;
+                    return certificateArr;
                 }
                 try {
                     jarFile2.close();
                 } catch (IOException unused4) {
                 }
-                return certificateArr;
+                return null;
             } catch (Exception unused5) {
                 if (jarFile2 != null) {
                     try {

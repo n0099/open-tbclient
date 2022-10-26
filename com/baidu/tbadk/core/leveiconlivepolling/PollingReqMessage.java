@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,36 +38,6 @@ public class PollingReqMessage extends NetMessage {
         }
     }
 
-    @Override // com.baidu.adp.framework.message.NetMessage
-    public Object encode(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.data_type = this.dataType;
-            if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
-            }
-            LoopReqIdl.Builder builder2 = new LoopReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        }
-        return invokeZ.objValue;
-    }
-
-    public String getDataType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataType : (String) invokeV.objValue;
-    }
-
-    public void setDataType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.dataType = str;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PollingReqMessage(int i, int i2, BdUniqueId bdUniqueId) {
         super(i, i2, bdUniqueId);
@@ -86,6 +56,39 @@ public class PollingReqMessage extends NetMessage {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.data_type = this.dataType;
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                yh5.a(builder, true);
+            }
+            LoopReqIdl.Builder builder2 = new LoopReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        }
+        return invokeZ.objValue;
+    }
+
+    public String getDataType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dataType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void setDataType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.dataType = str;
         }
     }
 }

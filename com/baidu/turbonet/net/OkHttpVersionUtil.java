@@ -28,6 +28,20 @@ public class OkHttpVersionUtil {
         }
     }
 
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                Class.forName("okhttp3.OkHttpClient");
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,20 +55,6 @@ public class OkHttpVersionUtil {
             return "";
         }
         return (String) invokeV.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                Class.forName("okhttp3.OkHttpClient");
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
     }
 
     public static boolean c() throws RuntimeException {

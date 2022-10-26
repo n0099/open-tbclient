@@ -3,10 +3,6 @@ package com.google.android.material.theme.overlay;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
@@ -55,8 +51,7 @@ public class MaterialThemeOverlay {
         }
     }
 
-    @StyleRes
-    public static int obtainAndroidThemeOverlayId(@NonNull Context context, AttributeSet attributeSet) {
+    public static int obtainAndroidThemeOverlayId(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, attributeSet)) == null) {
@@ -64,13 +59,15 @@ public class MaterialThemeOverlay {
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             int resourceId2 = obtainStyledAttributes.getResourceId(1, 0);
             obtainStyledAttributes.recycle();
-            return resourceId != 0 ? resourceId : resourceId2;
+            if (resourceId == 0) {
+                return resourceId2;
+            }
+            return resourceId;
         }
         return invokeLL.intValue;
     }
 
-    @StyleRes
-    public static int obtainMaterialThemeOverlayId(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
+    public static int obtainMaterialThemeOverlayId(Context context, AttributeSet attributeSet, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, context, attributeSet, i, i2)) == null) {
@@ -82,22 +79,26 @@ public class MaterialThemeOverlay {
         return invokeLLII.intValue;
     }
 
-    @NonNull
-    public static Context wrap(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
+    public static Context wrap(Context context, AttributeSet attributeSet, int i, int i2) {
         InterceptResult invokeLLII;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, attributeSet, i, i2)) == null) {
             int obtainMaterialThemeOverlayId = obtainMaterialThemeOverlayId(context, attributeSet, i, i2);
-            boolean z = (context instanceof ContextThemeWrapper) && ((ContextThemeWrapper) context).getThemeResId() == obtainMaterialThemeOverlayId;
-            if (obtainMaterialThemeOverlayId == 0 || z) {
-                return context;
+            if ((context instanceof ContextThemeWrapper) && ((ContextThemeWrapper) context).getThemeResId() == obtainMaterialThemeOverlayId) {
+                z = true;
+            } else {
+                z = false;
             }
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, obtainMaterialThemeOverlayId);
-            int obtainAndroidThemeOverlayId = obtainAndroidThemeOverlayId(context, attributeSet);
-            if (obtainAndroidThemeOverlayId != 0) {
-                contextThemeWrapper.getTheme().applyStyle(obtainAndroidThemeOverlayId, true);
+            if (obtainMaterialThemeOverlayId != 0 && !z) {
+                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, obtainMaterialThemeOverlayId);
+                int obtainAndroidThemeOverlayId = obtainAndroidThemeOverlayId(context, attributeSet);
+                if (obtainAndroidThemeOverlayId != 0) {
+                    contextThemeWrapper.getTheme().applyStyle(obtainAndroidThemeOverlayId, true);
+                }
+                return contextThemeWrapper;
             }
-            return contextThemeWrapper;
+            return context;
         }
         return (Context) invokeLLII.objValue;
     }

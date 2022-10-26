@@ -7,10 +7,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.nc;
 import com.baidu.tieba.oc;
-import com.baidu.tieba.on;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.pc;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,70 +22,11 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public transient /* synthetic */ FieldHolder $fh;
     public int procType;
 
-    public NinePatchLoaderProc(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.procType = 0;
-        this.procType = i;
-    }
-
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public Bitmap checkBitmapSize(Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bitmap, i, i2)) == null) ? bitmap : (Bitmap) invokeLII.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public boolean checkBitmapValid(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) ? bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk()) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public oc createDiskPicOperate(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new nc("images", str, DiskFileOperate.Action.READ) : (oc) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public on createImageFromDiskPicOperate(oc ocVar, String str, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, ocVar, str, i, i2)) == null) {
-            if (ocVar instanceof nc) {
-                nc ncVar = (nc) ocVar;
-                ocVar.formatData(ocVar.getData());
-                Bitmap bitmap = ocVar.getBitmap();
-                if (bitmap != null) {
-                    return new on(bitmap, false, str, ncVar.g());
-                }
-                return null;
-            }
-            return null;
-        }
-        return (on) invokeLLII.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public int getProcType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.procType : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -125,17 +66,92 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
         return (interceptable == null || (invokeLII = interceptable.invokeLII(1048586, this, bitmap, i, i2)) == null) ? bitmap : (Bitmap) invokeLII.objValue;
     }
 
+    public NinePatchLoaderProc(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.procType = 0;
+        this.procType = i;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
+    public boolean checkBitmapValid(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            if (bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
+    public pc createDiskPicOperate(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new oc("images", str, DiskFileOperate.Action.READ);
+        }
+        return (pc) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
+    public pn createImageFromDiskPicOperate(pc pcVar, String str, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, pcVar, str, i, i2)) == null) {
+            if (!(pcVar instanceof oc)) {
+                return null;
+            }
+            oc ocVar = (oc) pcVar;
+            pcVar.formatData(pcVar.getData());
+            Bitmap bitmap = pcVar.getBitmap();
+            if (bitmap == null) {
+                return null;
+            }
+            return new pn(bitmap, false, str, ocVar.g());
+        }
+        return (pn) invokeLLII.objValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public on decodeToResource(byte[] bArr, Object... objArr) {
+    public pn decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
+            boolean z = false;
             Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(bArr, (Rect) objArr[0]);
-            wg.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
-            return new on(Bytes2NineBitmap);
+            if (Bytes2NineBitmap != null) {
+                z = true;
+            }
+            xg.c(z, System.currentTimeMillis() - currentTimeMillis);
+            return new pn(Bytes2NineBitmap);
         }
-        return (on) invokeLL.objValue;
+        return (pn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
+    public int getProcType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.procType;
+        }
+        return invokeV.intValue;
     }
 }

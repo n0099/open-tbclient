@@ -47,19 +47,28 @@ public class ThreadInfo implements Runnable {
     public ThreadEndOper getThreadEndOper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.threadEndOper : (ThreadEndOper) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.threadEndOper;
+        }
+        return (ThreadEndOper) invokeV.objValue;
     }
 
     public ThreadMainOper getThreadMainOper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.threadMainOper : (ThreadMainOper) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.threadMainOper;
+        }
+        return (ThreadMainOper) invokeV.objValue;
     }
 
     public String getThreadName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.threadName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.threadName;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
@@ -75,6 +84,15 @@ public class ThreadInfo implements Runnable {
                 threadEndOper.handleOper(this.threadName);
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "GslbThreadInfo{" + this.threadName + '}';
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setThreadEndOper(ThreadEndOper threadEndOper) {
@@ -96,14 +114,5 @@ public class ThreadInfo implements Runnable {
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.threadName = str;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "GslbThreadInfo{" + this.threadName + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

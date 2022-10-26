@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
 /* loaded from: classes3.dex */
 public interface a14 {
-    void a(z34 z34Var, y34 y34Var);
-
-    void b(q34 q34Var, p34 p34Var);
+    void a(Activity activity, zz3 zz3Var, d14 d14Var);
 }

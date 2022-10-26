@@ -48,15 +48,6 @@ public class LogFactoryImpl extends LogFactory {
         throw new RuntimeException("Stub!");
     }
 
-    public static ClassLoader getClassLoader(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (ClassLoader) invokeL.objValue;
-    }
-
     public static ClassLoader getContextClassLoader() throws LogConfigurationException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,16 +67,6 @@ public class LogFactoryImpl extends LogFactory {
     }
 
     @Override // org.apache.commons.logging.LogFactory
-    public Object getAttribute(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.logging.LogFactory
     public String[] getAttributeNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,16 +74,6 @@ public class LogFactoryImpl extends LogFactory {
             throw new RuntimeException("Stub!");
         }
         return (String[]) invokeV.objValue;
-    }
-
-    @Override // org.apache.commons.logging.LogFactory
-    public Log getInstance(Class cls) throws LogConfigurationException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Log) invokeL.objValue;
     }
 
     @Deprecated
@@ -155,6 +126,43 @@ public class LogFactoryImpl extends LogFactory {
         return invokeV.booleanValue;
     }
 
+    @Override // org.apache.commons.logging.LogFactory
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public static ClassLoader getClassLoader(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (ClassLoader) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.logging.LogFactory
+    public Object getAttribute(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.logging.LogFactory
+    public Log getInstance(Class cls) throws LogConfigurationException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Log) invokeL.objValue;
+    }
+
     public void logDiagnostic(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
@@ -172,25 +180,9 @@ public class LogFactoryImpl extends LogFactory {
     }
 
     @Override // org.apache.commons.logging.LogFactory
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.commons.logging.LogFactory
     public void removeAttribute(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.commons.logging.LogFactory
-    public void setAttribute(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, obj) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -203,5 +195,13 @@ public class LogFactoryImpl extends LogFactory {
             throw new RuntimeException("Stub!");
         }
         return (Log) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.logging.LogFactory
+    public void setAttribute(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, obj) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 }

@@ -2,7 +2,6 @@ package com.google.android.material.datepicker;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,10 +16,19 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class CompositeDateValidator implements CalendarConstraints.DateValidator {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<CompositeDateValidator> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final List<CalendarConstraints.DateValidator> validators;
+    public final List validators;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +43,7 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<CompositeDateValidator>() { // from class: com.google.android.material.datepicker.CompositeDateValidator.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.datepicker.CompositeDateValidator.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,42 +62,63 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            @NonNull
-            public CompositeDateValidator createFromParcel(@NonNull Parcel parcel) {
+            public CompositeDateValidator createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new CompositeDateValidator((List) Preconditions.checkNotNull(parcel.readArrayList(CalendarConstraints.DateValidator.class.getClassLoader()))) : (CompositeDateValidator) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new CompositeDateValidator((List) Preconditions.checkNotNull(parcel.readArrayList(CalendarConstraints.DateValidator.class.getClassLoader())));
+                }
+                return (CompositeDateValidator) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            @NonNull
             public CompositeDateValidator[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new CompositeDateValidator[i] : (CompositeDateValidator[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new CompositeDateValidator[i];
+                }
+                return (CompositeDateValidator[]) invokeI.objValue;
             }
         };
     }
 
-    @NonNull
-    public static CalendarConstraints.DateValidator allOf(@NonNull List<CalendarConstraints.DateValidator> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) ? new CompositeDateValidator(list) : (CalendarConstraints.DateValidator) invokeL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.validators.hashCode();
         }
         return invokeV.intValue;
+    }
+
+    public CompositeDateValidator(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.validators = list;
+    }
+
+    public static CalendarConstraints.DateValidator allOf(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
+            return new CompositeDateValidator(list);
+        }
+        return (CalendarConstraints.DateValidator) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -99,18 +128,12 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof CompositeDateValidator) {
-                return this.validators.equals(((CompositeDateValidator) obj).validators);
+            if (!(obj instanceof CompositeDateValidator)) {
+                return false;
             }
-            return false;
+            return this.validators.equals(((CompositeDateValidator) obj).validators);
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.validators.hashCode() : invokeV.intValue;
     }
 
     @Override // com.google.android.material.datepicker.CalendarConstraints.DateValidator
@@ -129,28 +152,10 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeList(this.validators);
         }
-    }
-
-    public CompositeDateValidator(@NonNull List<CalendarConstraints.DateValidator> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.validators = list;
     }
 }

@@ -58,12 +58,13 @@ public class k {
         boolean z;
         boolean z2;
         boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (TextUtils.isEmpty(a)) {
                 k kVar = new k();
                 String b = kVar.b(context);
-                boolean z4 = true;
+                boolean z5 = true;
                 if (TextUtils.isEmpty(b)) {
                     b = kVar.d(context);
                     if (TextUtils.isEmpty(b)) {
@@ -78,6 +79,11 @@ public class k {
                             }
                             if (!z2 || TextUtils.isEmpty(kVar.d(context))) {
                                 if (!m.n && m.d(context)) {
+                                    z4 = true;
+                                } else {
+                                    z4 = false;
+                                }
+                                if (z4) {
                                     Settings.System.putString(context.getContentResolver(), "com.q.zi.i", b);
                                 }
                             }
@@ -86,9 +92,9 @@ public class k {
                                 try {
                                     if (Build.VERSION.SDK_INT < 29) {
                                         if (!m.o || !m.d(context)) {
-                                            z4 = false;
+                                            z5 = false;
                                         }
-                                        if (z4) {
+                                        if (z5) {
                                             File file = new File(Environment.getExternalStorageDirectory(), ".zp");
                                             File file2 = new File(file, ".icosc");
                                             if (file.exists()) {
@@ -140,7 +146,10 @@ public class k {
                             com.baidu.sofire.j.a.a(context).f(b);
                             if (!z2) {
                             }
-                            if (!m.n && m.d(context)) {
+                            if (!m.n) {
+                            }
+                            z4 = false;
+                            if (z4) {
                             }
                             if (kVar.a(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                                 FileWriter fileWriter3 = null;
@@ -162,77 +171,16 @@ public class k {
                 com.baidu.sofire.j.a.a(context).f(b);
                 if (!z2) {
                 }
-                if (!m.n && m.d(context)) {
+                if (!m.n) {
+                }
+                z4 = false;
+                if (z4) {
                 }
                 if (kVar.a(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                 }
                 a = b;
             }
             return a;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            try {
-                com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context);
-                String string = a2.c.getString("rpnewuidn", "");
-                String str = TextUtils.isEmpty(string) ? "" : new String(e.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), "UTF-8");
-                if (TextUtils.isEmpty(str)) {
-                    String string2 = a2.c.getString("rpnewuid", "");
-                    if (TextUtils.isEmpty(string2)) {
-                        return "";
-                    }
-                    a2.f(string2);
-                    return string2;
-                }
-                return str;
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            try {
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-            }
-            if (m.b(context) && a(context, com.kuaishou.weapon.p0.h.i)) {
-                File file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");
-                if (file.exists()) {
-                    return a(file);
-                }
-                return "";
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            try {
-                try {
-                    return m.c(context) ? ApiReplaceUtil.getString(context.getContentResolver(), "com.q.zi.i") : "";
-                } catch (Throwable unused) {
-                    int i = com.baidu.sofire.a.b.a;
-                    return null;
-                }
-            } catch (Throwable unused2) {
-                int i2 = com.baidu.sofire.a.b.a;
-                return "";
-            }
         }
         return (String) invokeL.objValue;
     }
@@ -282,17 +230,92 @@ public class k {
         return (String) invokeL.objValue;
     }
 
+    public String b(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            try {
+                com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context);
+                String string = a2.c.getString("rpnewuidn", "");
+                if (TextUtils.isEmpty(string)) {
+                    str = "";
+                } else {
+                    str = new String(e.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(string, 10), true), "UTF-8");
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    return str;
+                }
+                String string2 = a2.c.getString("rpnewuid", "");
+                if (TextUtils.isEmpty(string2)) {
+                    return "";
+                }
+                a2.f(string2);
+                return string2;
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     public final boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
             try {
-                return context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+                if (context.checkPermission(str, Process.myPid(), Process.myUid()) != 0) {
+                    return false;
+                }
+                return true;
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
                 return false;
             }
         }
         return invokeLL.booleanValue;
+    }
+
+    public String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            try {
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+            if (!m.b(context) || !a(context, com.kuaishou.weapon.p0.h.i)) {
+                return "";
+            }
+            File file = new File(Environment.getExternalStorageDirectory(), ".zp/.icosc");
+            if (file.exists()) {
+                return a(file);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            try {
+                try {
+                    if (!m.c(context)) {
+                        return "";
+                    }
+                    return ApiReplaceUtil.getString(context.getContentResolver(), "com.q.zi.i");
+                } catch (Throwable unused) {
+                    int i = com.baidu.sofire.a.b.a;
+                    return null;
+                }
+            } catch (Throwable unused2) {
+                int i2 = com.baidu.sofire.a.b.a;
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

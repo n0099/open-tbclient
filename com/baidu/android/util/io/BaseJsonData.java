@@ -47,6 +47,71 @@ public class BaseJsonData {
         this.mErrorCode = -1;
     }
 
+    public JSONObject getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public int getErrorCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mErrorCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getErrorMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mErrorMessage;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRequestId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRequestId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getTimestamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mTimestamp;
+        }
+        return invokeV.longValue;
+    }
+
+    public BaseJsonData(int i, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mErrorCode = -1;
+        this.mErrorCode = i;
+        this.mData = jSONObject;
+    }
+
     public static BaseJsonData fromJson(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -61,52 +126,6 @@ public class BaseJsonData {
             }
         }
         return (BaseJsonData) invokeL.objValue;
-    }
-
-    public ActionJsonData getAction(String str, String str2) {
-        InterceptResult invokeLL;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.mData == null || TextUtils.isEmpty(str) || !this.mData.has(str) || this.mData.isNull(str) || (optJSONObject = this.mData.optJSONObject(str)) == null) {
-                return null;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return ActionJsonData.fromJson(optJSONObject);
-            }
-            return ActionJsonData.fromJson(optJSONObject.optJSONObject(str2));
-        }
-        return (ActionJsonData) invokeLL.objValue;
-    }
-
-    public JSONObject getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (JSONObject) invokeV.objValue;
-    }
-
-    public int getErrorCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mErrorCode : invokeV.intValue;
-    }
-
-    public String getErrorMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mErrorMessage : (String) invokeV.objValue;
-    }
-
-    public String getRequestId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRequestId : (String) invokeV.objValue;
-    }
-
-    public long getTimestamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTimestamp : invokeV.longValue;
     }
 
     public void setData(JSONObject jSONObject) {
@@ -144,63 +163,64 @@ public class BaseJsonData {
         }
     }
 
-    public BaseJsonData(int i, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mErrorCode = -1;
-        this.mErrorCode = i;
-        this.mData = jSONObject;
-    }
-
     public static BaseJsonData fromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, jSONObject)) != null) {
-            return (BaseJsonData) invokeL.objValue;
-        }
-        BaseJsonData baseJsonData = null;
-        try {
-            int i = jSONObject.getInt("errno");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            JSONArray optJSONArray = jSONObject.optJSONArray("data");
-            if (optJSONObject == null) {
-                optJSONObject = (optJSONArray == null || optJSONArray.length() <= 0) ? null : optJSONArray.getJSONObject(0);
-            }
-            BaseJsonData baseJsonData2 = new BaseJsonData(i, optJSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            BaseJsonData baseJsonData = null;
             try {
-                if (jSONObject.has("errmsg") && !jSONObject.isNull("errmsg")) {
-                    baseJsonData2.setErrorMessage(jSONObject.getString("errmsg"));
-                }
-                if (jSONObject.has("timestamp") && !jSONObject.isNull("timestamp")) {
-                    try {
-                        baseJsonData2.setTimestamp(Long.valueOf(jSONObject.getString("timestamp")).longValue());
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                        baseJsonData2.setTimestamp(0L);
+                int i = jSONObject.getInt("errno");
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                JSONArray optJSONArray = jSONObject.optJSONArray("data");
+                if (optJSONObject == null) {
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        optJSONObject = optJSONArray.getJSONObject(0);
+                    } else {
+                        optJSONObject = null;
                     }
                 }
-                if (!jSONObject.has(TAG_REQUESTID) || jSONObject.isNull(TAG_REQUESTID)) {
+                BaseJsonData baseJsonData2 = new BaseJsonData(i, optJSONObject);
+                try {
+                    if (jSONObject.has("errmsg") && !jSONObject.isNull("errmsg")) {
+                        baseJsonData2.setErrorMessage(jSONObject.getString("errmsg"));
+                    }
+                    if (jSONObject.has("timestamp") && !jSONObject.isNull("timestamp")) {
+                        try {
+                            baseJsonData2.setTimestamp(Long.valueOf(jSONObject.getString("timestamp")).longValue());
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                            baseJsonData2.setTimestamp(0L);
+                        }
+                    }
+                    if (jSONObject.has(TAG_REQUESTID) && !jSONObject.isNull(TAG_REQUESTID)) {
+                        baseJsonData2.setRequestId(jSONObject.optString(TAG_REQUESTID));
+                        return baseJsonData2;
+                    }
                     return baseJsonData2;
+                } catch (JSONException unused) {
+                    baseJsonData = baseJsonData2;
+                    return baseJsonData;
                 }
-                baseJsonData2.setRequestId(jSONObject.optString(TAG_REQUESTID));
-                return baseJsonData2;
-            } catch (JSONException unused) {
-                baseJsonData = baseJsonData2;
-                return baseJsonData;
+            } catch (JSONException unused2) {
             }
-        } catch (JSONException unused2) {
+        } else {
+            return (BaseJsonData) invokeL.objValue;
         }
+    }
+
+    public ActionJsonData getAction(String str, String str2) {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.mData == null || TextUtils.isEmpty(str) || !this.mData.has(str) || this.mData.isNull(str) || (optJSONObject = this.mData.optJSONObject(str)) == null) {
+                return null;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                return ActionJsonData.fromJson(optJSONObject);
+            }
+            return ActionJsonData.fromJson(optJSONObject.optJSONObject(str2));
+        }
+        return (ActionJsonData) invokeLL.objValue;
     }
 }

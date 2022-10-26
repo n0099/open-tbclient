@@ -16,7 +16,7 @@ import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class d extends AsyncTask<Void, Void, a> {
+public final class d extends AsyncTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static String h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     public String signature;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public OAuthErrCode m;
@@ -162,10 +162,8 @@ public final class d extends AsyncTask<Void, Void, a> {
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.AsyncTask
-    public final /* synthetic */ a doInBackground(Void[] voidArr) {
+    public final /* synthetic */ Object doInBackground(Object[] objArr) {
         Thread.currentThread().setName("OpenSdkGetQRCodeTask");
         Log.i("MicroMsg.SDK.GetQRCodeTask", "doInBackground");
         String format = String.format(h, this.appId, this.i, this.j, this.scope, this.signature);
@@ -175,19 +173,18 @@ public final class d extends AsyncTask<Void, Void, a> {
         return a.a(a2);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // android.os.AsyncTask
-    public final /* synthetic */ void onPostExecute(a aVar) {
-        a aVar2 = aVar;
-        OAuthErrCode oAuthErrCode = aVar2.m;
+    public final /* synthetic */ void onPostExecute(Object obj) {
+        a aVar = (a) obj;
+        OAuthErrCode oAuthErrCode = aVar.m;
         if (oAuthErrCode != OAuthErrCode.WechatAuth_Err_OK) {
             Log.e("MicroMsg.SDK.GetQRCodeTask", String.format("onPostExecute, get qrcode fail, OAuthErrCode = %s", oAuthErrCode));
-            this.k.onAuthFinish(aVar2.m, null);
+            this.k.onAuthFinish(aVar.m, null);
             return;
         }
-        Log.d("MicroMsg.SDK.GetQRCodeTask", "onPostExecute, get qrcode success imgBufSize = " + aVar2.s.length);
-        this.k.onAuthGotQrcode(aVar2.p, aVar2.s);
-        f fVar = new f(aVar2.n, this.k);
+        Log.d("MicroMsg.SDK.GetQRCodeTask", "onPostExecute, get qrcode success imgBufSize = " + aVar.s.length);
+        this.k.onAuthGotQrcode(aVar.p, aVar.s);
+        f fVar = new f(aVar.n, this.k);
         this.l = fVar;
         if (Build.VERSION.SDK_INT >= 11) {
             fVar.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);

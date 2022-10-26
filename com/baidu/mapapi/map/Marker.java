@@ -41,7 +41,7 @@ public final class Marker extends Overlay {
     public float l;
     public int m;
     public boolean n;
-    public ArrayList<BitmapDescriptor> o;
+    public ArrayList o;
     public int p;
     public Animation q;
     public float r;
@@ -76,12 +76,12 @@ public final class Marker extends Overlay {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.c;
     }
 
-    private void a(ArrayList<BitmapDescriptor> arrayList, Bundle bundle) {
+    private void a(ArrayList arrayList, Bundle bundle) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, arrayList, bundle) == null) {
             ArrayList arrayList2 = new ArrayList();
-            Iterator<BitmapDescriptor> it = arrayList.iterator();
+            Iterator it = arrayList.iterator();
             while (true) {
                 i = 0;
                 if (!it.hasNext()) {
@@ -89,7 +89,7 @@ public final class Marker extends Overlay {
                 }
                 ParcelItem parcelItem = new ParcelItem();
                 Bundle bundle2 = new Bundle();
-                Bitmap bitmap = it.next().a;
+                Bitmap bitmap = ((BitmapDescriptor) it.next()).a;
                 ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
                 bitmap.copyPixelsToBuffer(allocate);
                 byte[] array = allocate.array();
@@ -158,7 +158,7 @@ public final class Marker extends Overlay {
                 bundle.putInt("fix_y", this.u.y);
             }
             bundle.putInt("isfixed", this.n ? 1 : 0);
-            ArrayList<BitmapDescriptor> arrayList = this.o;
+            ArrayList arrayList = this.o;
             if (arrayList != null && arrayList.size() > 0) {
                 a(this.o, bundle);
             }
@@ -207,7 +207,7 @@ public final class Marker extends Overlay {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (BitmapDescriptor) invokeV.objValue;
     }
 
-    public ArrayList<BitmapDescriptor> getIcons() {
+    public ArrayList getIcons() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : (ArrayList) invokeV.objValue;
@@ -391,7 +391,7 @@ public final class Marker extends Overlay {
         }
     }
 
-    public void setIcons(ArrayList<BitmapDescriptor> arrayList) {
+    public void setIcons(ArrayList arrayList) {
         BitmapDescriptor bitmapDescriptor;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, arrayList) == null) {
@@ -402,10 +402,10 @@ public final class Marker extends Overlay {
                 return;
             }
             if (arrayList.size() == 1) {
-                bitmapDescriptor = arrayList.get(0);
+                bitmapDescriptor = (BitmapDescriptor) arrayList.get(0);
             } else {
                 for (int i = 0; i < arrayList.size(); i++) {
-                    if (arrayList.get(i) == null || arrayList.get(i).a == null) {
+                    if (arrayList.get(i) == null || ((BitmapDescriptor) arrayList.get(i)).a == null) {
                         return;
                     }
                 }

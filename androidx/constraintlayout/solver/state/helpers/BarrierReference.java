@@ -126,10 +126,10 @@ public class BarrierReference extends HelperReference {
         return (HelperWidget) invokeV.objValue;
     }
 
-    public void margin(Object obj) {
+    public void margin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            margin(this.mState.convertDimension(obj));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mMargin = i;
         }
     }
 
@@ -140,10 +140,10 @@ public class BarrierReference extends HelperReference {
         }
     }
 
-    public void margin(int i) {
+    public void margin(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mMargin = i;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            margin(this.mState.convertDimension(obj));
         }
     }
 }

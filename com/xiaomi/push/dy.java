@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,10 +29,10 @@ public class dy {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bp.m206a(str), 2) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bp.m205a(str), 2) : (String) invokeL.objValue;
     }
 
-    public static String a(HashMap<String, String> hashMap) {
+    public static String a(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
@@ -57,15 +58,15 @@ public class dy {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? bp.b(Base64.decode(str, 2)) : (String) invokeL.objValue;
     }
 
-    public static String b(HashMap<String, String> hashMap) {
+    public static String b(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hashMap)) == null) {
             HashMap hashMap2 = new HashMap();
             if (hashMap != null) {
-                hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY) + "");
-                hashMap2.put("description", hashMap.get("description") + "");
-                String str = hashMap.get("awake_info");
+                hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, ((String) hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY)) + "");
+                hashMap2.put("description", ((String) hashMap.get("description")) + "");
+                String str = (String) hashMap.get("awake_info");
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
@@ -73,7 +74,7 @@ public class dy {
                         hashMap2.put("flow_id", String.valueOf(jSONObject.opt("flow_id")));
                         hashMap2.put("jobkey", String.valueOf(jSONObject.opt("jobkey")));
                         hashMap2.put("msg_id", String.valueOf(jSONObject.opt("msg_id")));
-                        hashMap2.put("A", String.valueOf(jSONObject.opt("awake_app")));
+                        hashMap2.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, String.valueOf(jSONObject.opt("awake_app")));
                         hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
                         hashMap2.put("module", String.valueOf(jSONObject.opt("awake_type")));
                     } catch (JSONException e) {

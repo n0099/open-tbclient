@@ -69,7 +69,7 @@ public final class Relay {
         @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.fileOperator == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.fileOperator == null) {
                 return;
             }
             RandomAccessFile randomAccessFile = null;
@@ -187,16 +187,16 @@ public final class Relay {
             InterceptResult invokeLJ;
             char c;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) != null) {
-                return invokeLJ.longValue;
-            }
-            if (this.fileOperator != null) {
-                synchronized (this.this$0) {
-                    while (true) {
-                        long j2 = this.sourcePos;
-                        long j3 = this.this$0.upstreamPos;
-                        if (j2 == j3) {
-                            if (!this.this$0.complete) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                if (this.fileOperator != null) {
+                    synchronized (this.this$0) {
+                        while (true) {
+                            long j2 = this.sourcePos;
+                            long j3 = this.this$0.upstreamPos;
+                            if (j2 == j3) {
+                                if (this.this$0.complete) {
+                                    return -1L;
+                                }
                                 if (this.this$0.upstreamReader != null) {
                                     this.timeout.waitUntilNotified(this.this$0);
                                 } else {
@@ -205,22 +205,23 @@ public final class Relay {
                                     break;
                                 }
                             } else {
-                                return -1L;
+                                long size = j3 - this.this$0.buffer.size();
+                                if (this.sourcePos < size) {
+                                    c = 2;
+                                } else {
+                                    long min = Math.min(j, j3 - this.sourcePos);
+                                    this.this$0.buffer.copyTo(buffer, this.sourcePos - size, min);
+                                    this.sourcePos += min;
+                                    return min;
+                                }
                             }
-                        } else {
-                            long size = j3 - this.this$0.buffer.size();
-                            if (this.sourcePos >= size) {
-                                long min = Math.min(j, j3 - this.sourcePos);
-                                this.this$0.buffer.copyTo(buffer, this.sourcePos - size, min);
-                                this.sourcePos += min;
-                                return min;
-                            }
-                            c = 2;
                         }
                     }
+                } else {
+                    throw new IllegalStateException("closed");
                 }
             } else {
-                throw new IllegalStateException("closed");
+                return invokeLJ.longValue;
             }
         }
 
@@ -228,7 +229,10 @@ public final class Relay {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeout : (Timeout) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.timeout;
+            }
+            return (Timeout) invokeV.objValue;
         }
     }
 
@@ -249,7 +253,44 @@ public final class Relay {
         PREFIX_DIRTY = ByteString.encodeUtf8("OkHttp DIRTY :(\n");
     }
 
+    public boolean isClosed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.file == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ByteString metadata() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.metadata;
+        }
+        return (ByteString) invokeV.objValue;
+    }
+
+    public Source newSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (this.file == null) {
+                    return null;
+                }
+                this.sourceCount++;
+                return new RelaySource(this);
+            }
+        }
+        return (Source) invokeV.objValue;
+    }
+
     public Relay(RandomAccessFile randomAccessFile, Source source, long j, ByteString byteString, long j2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +309,12 @@ public final class Relay {
         this.buffer = new Buffer();
         this.file = randomAccessFile;
         this.upstream = source;
-        this.complete = source == null;
+        if (source == null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.complete = z;
         this.upstreamPos = j;
         this.metadata = byteString;
         this.bufferMaxSize = j2;
@@ -344,32 +390,5 @@ public final class Relay {
             Util.closeQuietly(this.upstream);
             this.upstream = null;
         }
-    }
-
-    public boolean isClosed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.file == null : invokeV.booleanValue;
-    }
-
-    public ByteString metadata() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.metadata : (ByteString) invokeV.objValue;
-    }
-
-    public Source newSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (this.file == null) {
-                    return null;
-                }
-                this.sourceCount++;
-                return new RelaySource(this);
-            }
-        }
-        return (Source) invokeV.objValue;
     }
 }

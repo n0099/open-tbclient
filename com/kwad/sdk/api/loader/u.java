@@ -15,12 +15,11 @@ public final class u {
                 Object dM = iKsAdSDK.dM("TRANSFORM_API_HOST", "https://open.e.kuaishou.com/rest/e/v3/open/sdk2");
                 String obj = dM != null ? dM.toString() : "https://open.e.kuaishou.com/rest/e/v3/open/sdk2";
                 Context context2 = Loader.get().getContext();
-                new n.e(new n.g(new n.d(new n.h(new n.b(obj, iKsAdSDK), context2), context2), context2), context2).a(new n.c<Boolean>() { // from class: com.kwad.sdk.api.loader.u.1
-                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                new n.e(new n.g(new n.d(new n.h(new n.b(obj, iKsAdSDK), context2), context2), context2), context2).a(new n.c() { // from class: com.kwad.sdk.api.loader.u.1
                     @Override // com.kwad.sdk.api.loader.n.c
-                    public final /* synthetic */ void c(Boolean bool) {
+                    public final /* synthetic */ void c(Object obj2) {
                         u.SJ.set(false);
-                        new StringBuilder("checkAndUpdate onNewResult: ").append(bool);
+                        new StringBuilder("checkAndUpdate onNewResult: ").append((Boolean) obj2);
                     }
 
                     @Override // com.kwad.sdk.api.loader.n.c

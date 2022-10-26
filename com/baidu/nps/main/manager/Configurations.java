@@ -30,7 +30,7 @@ public class Configurations {
     public IWebViewDataDirectoryManager webViewDataDirectoryManager;
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IAlertManager alertManager;
@@ -74,12 +74,6 @@ public class Configurations {
                 return this;
             }
             return (Builder) invokeL.objValue;
-        }
-
-        public Configurations build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new Configurations(this.alertManager, this.packageChangeNotifier, this.packageGetter, this.signatureVerifier, this.statisticManager, this.threadManager, this.resourcesFetcher, this.webViewDataDirectoryManager, this.debug) : (Configurations) invokeV.objValue;
         }
 
         public Builder debug(boolean z) {
@@ -160,6 +154,15 @@ public class Configurations {
                 return this;
             }
             return (Builder) invokeL.objValue;
+        }
+
+        public Configurations build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new Configurations(this.alertManager, this.packageChangeNotifier, this.packageGetter, this.signatureVerifier, this.statisticManager, this.threadManager, this.resourcesFetcher, this.webViewDataDirectoryManager, this.debug);
+            }
+            return (Configurations) invokeV.objValue;
         }
     }
 

@@ -1,49 +1,193 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
-import androidx.constraintlayout.motion.widget.Key;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
 public class z4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c4a a;
+    public p3a b;
 
-    public static void a(View view2, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, view2, imageView) == null) || view2 == null || imageView == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements c4a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z4a a;
+
+        public a(z4a z4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z4aVar;
         }
-        view2.setVisibility(8);
-        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
-        if (objectAnimator != null) {
-            objectAnimator.cancel();
-            imageView.setTag(null);
-            RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
+
+        @Override // com.baidu.tieba.c4a
+        public void b(PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType) != null) {
+                return;
+            }
+            this.a.g(payFlowType);
+        }
+
+        @Override // com.baidu.tieba.c4a
+        public void a(String str, PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(1048576, this, str, payFlowType) != null) {
+                return;
+            }
+            this.a.i(str, payFlowType);
+        }
+
+        @Override // com.baidu.tieba.c4a
+        public void c(String str, PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, payFlowType) != null) {
+                return;
+            }
+            this.a.h(str, payFlowType);
+        }
+
+        @Override // com.baidu.tieba.c4a
+        public void d(PayFlowType payFlowType, PayDialogType payDialogType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(1048579, this, payFlowType, payDialogType) != null) {
+                return;
+            }
+            this.a.f(payFlowType, payDialogType);
         }
     }
 
-    public static void b(View view2, ImageView imageView) {
+    public z4a(p3a p3aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, view2, imageView) == null) || view2 == null || imageView == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p3aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
-        if (objectAnimator != null) {
-            objectAnimator.cancel();
-            imageView.setTag(null);
-            RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
+        this.b = p3aVar;
+        j();
+    }
+
+    public c4a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        view2.setVisibility(0);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, Key.ROTATION, 0.0f, 360.0f);
-        ofFloat.setDuration(1000L);
-        ofFloat.setInterpolator(new LinearInterpolator());
-        ofFloat.setRepeatCount(-1);
-        ofFloat.start();
-        imageView.setTag(ofFloat);
+        return (c4a) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            RLog.info("ViewLifecycleManager", "preparePayFlowLifecycle");
+            this.a = new a(this);
+        }
+    }
+
+    public final void f(PayFlowType payFlowType, PayDialogType payDialogType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType, payDialogType) == null) {
+            RLog.info("ViewLifecycleManager", "notifyPayDialogTypeChange payFlowType:" + payFlowType.name() + " payDialogType:" + payDialogType + " mYYPayController:" + this.b.getCurPayController());
+            if (payDialogType == PayDialogType.PAY_NONE_DIALOG) {
+                l(payFlowType);
+            }
+        }
+    }
+
+    public final synchronized void h(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, payFlowType) == null) {
+            synchronized (this) {
+                RLog.info("ViewLifecycleManager", "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+                if (this.b.getCurPayController() != null) {
+                    this.b.getCurPayController().j(str, payFlowType);
+                }
+                l(payFlowType);
+            }
+        }
+    }
+
+    public final synchronized void i(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, payFlowType) == null) {
+            synchronized (this) {
+                RLog.info("ViewLifecycleManager", "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+                if (this.b.getCurPayController() != null) {
+                    this.b.getCurPayController().f(str, payFlowType);
+                }
+            }
+        }
+    }
+
+    public final void g(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payFlowType) == null) {
+            RLog.info("ViewLifecycleManager", "notifyPayFlowWork payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+        }
+    }
+
+    public final void k(PayFlowType payFlowType) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, payFlowType) == null) {
+            if (this.b.getCurPayController() != null && this.b.getCurPayController().g()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            RLog.info("ViewLifecycleManager", "tryReleasePayController payFlowType:" + payFlowType.name() + " release:" + z + " mYYPayController:" + this.b.getCurPayController());
+            if (z) {
+                this.b.releasePayController();
+                this.b.cancelAllRequest();
+            }
+        }
+    }
+
+    public final synchronized void l(PayFlowType payFlowType) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, payFlowType) == null) {
+            synchronized (this) {
+                if (this.b.getCurPayController() != null && this.b.getCurPayController().b(payFlowType)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                RLog.info("ViewLifecycleManager", "tryReleasePayFlow payFlowType:" + payFlowType.name() + " release:" + z + " mYYPayController:" + this.b.getCurPayController());
+                if (z) {
+                    this.b.getCurPayController().e(payFlowType);
+                }
+                k(payFlowType);
+            }
+        }
     }
 }

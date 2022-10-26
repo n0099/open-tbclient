@@ -117,6 +117,41 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
         this.mMainActivityNetDataLoadedTimeStamp = -1L;
     }
 
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.mLogoActivityStartTimeStamp = -1L;
+            this.mLogoActivityOnCreateEndTimeStamp = -1L;
+            this.mLogoActivityOnResumeStartTimeStamp = -1L;
+            this.mLogoActivityOnResumeEndTimeStamp = -1L;
+            this.mLogoActivityOnDestroyStartTimeStamp = -1L;
+            this.mLogoActivityOnDestroyEndTimeStamp = -1L;
+            this.mLogoActivityEndTimeStamp = -1L;
+            this.mMainActivityCreateStartTimeStamp = -1L;
+            this.mMainActivityCreateEndTimeStamp = -1L;
+            this.mMainActivitySuperCreateEndTimeStamp = -1L;
+            this.mInitHomeFragmentControllerStartTimeStamp = -1L;
+            this.mInitHomeFragmentControllerEndTimeStamp = -1L;
+            this.mRegReceiverStartTimeStamp = -1L;
+            this.mRegReceiverEndTimeStamp = -1L;
+            this.mCheckClientConfigMessageStartTimeStamp = -1L;
+            this.mCheckClientConfigMessageEndTimeStamp = -1L;
+            this.mInitTabsOnActivityCreatedStartTimeStamp = -1L;
+            this.mInitTabsOnActivityCreatedEndTimeStamp = -1L;
+            this.mUpdateProfileInfoStartTimeStamp = -1L;
+            this.mUpdateProfileInfoEndTimeStamp = -1L;
+            this.mTryLoadNativeFunAdStartTimeStamp = -1L;
+            this.mTryLoadNativeFunAdEndTimeStamp = -1L;
+            this.mMainActivityOnstartStartTimeStamp = -1L;
+            this.mMainActivityOnstartEndTimeStamp = -1L;
+            this.mMainActivityOnResumeStartTimeStamp = -1L;
+            this.mMainActivityOnResumeEndTimeStamp = -1L;
+            this.mMainActivityCacheDataLoadedTimeStamp = -1L;
+            this.mMainActivityNetDataLoadedTimeStamp = -1L;
+        }
+    }
+
     private long getMainDataLoaded2EndDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,6 +175,65 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
                 j = this.mMainActivityNetDataLoadedTimeStamp;
             }
             return Math.max(0L, j - this.mMainActivityCreateStartTimeStamp);
+        }
+        return invokeV.longValue;
+    }
+
+    public long getExtraSecondCreateDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.mMainActivitySecondCreateStartTimeStamp;
+            if (j > this.mMainActivityOnResumeEndTimeStamp) {
+                long j2 = this.mMainActivitySecondCreateEndTimeStamp;
+                if (j2 > j) {
+                    return j2 - j;
+                }
+                return 0L;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getMainActivityCreateStartTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMainActivityCreateStartTimeStamp;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getMainActivityOnResumeEndTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mMainActivityOnResumeEndTimeStamp;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public long getStatsEndTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mMainActivityOnResumeEndTimeStamp;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public long getStatsStartTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            long j = this.mLogoActivityStartTimeStamp;
+            if (j > 0) {
+                return j;
+            }
+            return this.mMainActivityCreateStartTimeStamp;
         }
         return invokeV.longValue;
     }
@@ -275,56 +369,10 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
         }
     }
 
-    public long getExtraSecondCreateDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.mMainActivitySecondCreateStartTimeStamp;
-            if (j > this.mMainActivityOnResumeEndTimeStamp) {
-                long j2 = this.mMainActivitySecondCreateEndTimeStamp;
-                if (j2 > j) {
-                    return j2 - j;
-                }
-                return 0L;
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getMainActivityCreateStartTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMainActivityCreateStartTimeStamp : invokeV.longValue;
-    }
-
-    public long getMainActivityOnResumeEndTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMainActivityOnResumeEndTimeStamp : invokeV.longValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public long getStatsEndTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mMainActivityOnResumeEndTimeStamp : invokeV.longValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public long getStatsStartTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j = this.mLogoActivityStartTimeStamp;
-            return j > 0 ? j : this.mMainActivityCreateStartTimeStamp;
-        }
-        return invokeV.longValue;
-    }
-
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public boolean packData(JSONObject jSONObject) {
         InterceptResult invokeL;
+        long j;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
@@ -332,25 +380,29 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
             if (jSONObject == null) {
                 return false;
             }
-            long j = this.mMainActivityOnResumeEndTimeStamp - this.mLogoActivityStartTimeStamp;
-            if (j < 0 || j > 60000) {
-                j = this.mMainActivityOnResumeEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
-            }
-            long j2 = this.mLogoActivityEndTimeStamp - this.mLogoActivityStartTimeStamp;
+            long j2 = this.mMainActivityOnResumeEndTimeStamp - this.mLogoActivityStartTimeStamp;
             if (j2 < 0 || j2 > 60000) {
-                j2 = this.mLogoActivityEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
+                j2 = this.mMainActivityOnResumeEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
             }
-            long j3 = this.mLogoActivityOnCreateEndTimeStamp - this.mLogoActivityStartTimeStamp;
+            long j3 = this.mLogoActivityEndTimeStamp - this.mLogoActivityStartTimeStamp;
             if (j3 < 0 || j3 > 60000) {
-                j3 = this.mLogoActivityOnCreateEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
+                j3 = this.mLogoActivityEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
             }
-            long j4 = j;
-            long j5 = this.mLogoActivityOnResumeEndTimeStamp - this.mLogoActivityOnResumeStartTimeStamp;
-            long j6 = this.mLogoActivityOnDestroyEndTimeStamp - this.mLogoActivityOnDestroyStartTimeStamp;
-            long j7 = this.mLogoActivityEndTimeStamp;
-            long j8 = j7 < 0 ? 0L : this.mMainActivityCreateStartTimeStamp - j7;
+            long j4 = this.mLogoActivityOnCreateEndTimeStamp - this.mLogoActivityStartTimeStamp;
+            if (j4 < 0 || j4 > 60000) {
+                j4 = this.mLogoActivityOnCreateEndTimeStamp - this.mMainActivityCreateStartTimeStamp;
+            }
+            long j5 = j2;
+            long j6 = this.mLogoActivityOnResumeEndTimeStamp - this.mLogoActivityOnResumeStartTimeStamp;
+            long j7 = this.mLogoActivityOnDestroyEndTimeStamp - this.mLogoActivityOnDestroyStartTimeStamp;
+            long j8 = this.mLogoActivityEndTimeStamp;
+            if (j8 < 0) {
+                j = 0;
+            } else {
+                j = this.mMainActivityCreateStartTimeStamp - j8;
+            }
             long j9 = this.mMainActivityCreateEndTimeStamp;
-            long j10 = j8;
+            long j10 = j;
             long j11 = this.mMainActivityCreateStartTimeStamp;
             long j12 = j9 - j11;
             long j13 = this.mMainActivitySuperCreateEndTimeStamp - j11;
@@ -378,84 +430,49 @@ public final class ActivitySpeedStats extends AbstractSpeedStats {
             if (this.mMainActivitySecondCreateStartTimeStamp > this.mMainActivityOnResumeEndTimeStamp) {
                 durationWithoutAD += j28;
             }
-            if (j4 < 0 || j4 > 60000 || durationWithoutAD < 0 || durationWithoutAD > 60000 || j2 < 0 || j2 > 60000 || j3 < 0 || j3 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j10 < 0 || j10 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000 || j20 < 0 || j20 > 60000 || j22 < 0 || j22 > 60000 || j24 < 0 || j24 > 60000 || j26 < 0 || j26 > 60000 || j27 < 0 || j27 > 60000 || mainOnCreate2DataLoadedDuration < 0 || mainOnCreate2DataLoadedDuration > 60000 || mainDataLoaded2EndDuration < 0 || mainDataLoaded2EndDuration > 60000) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(MAIN_ACTIVITY_TOTAL_DURATION, String.valueOf(j4));
-            if (i > 0) {
-                hashMap.put(LOGO_ACTIVITY_DURATION, String.valueOf(j2));
-                hashMap.put(LOGO_ONCREATE_DURATION, String.valueOf(j3));
-                hashMap.put(LOGO_ONRESUME_DURATION, String.valueOf(j5));
-                hashMap.put(LOGO_ONDESTROY_DURATION, String.valueOf(j6));
-                hashMap.put(LOGO_TO_MAIN_GAP, String.valueOf(j10));
-            }
-            hashMap.put("onCreate", String.valueOf(j12));
-            hashMap.put(MAINACTIVITY_ONSECONDCREATE_DURAION, String.valueOf(j28));
-            hashMap.put("superOnCreate", String.valueOf(j13));
-            hashMap.put(INIT_HOME_FRAGMENT_CONTROLLER_DURATION, String.valueOf(j14));
-            hashMap.put(REG_RECEIVER_DURATION, String.valueOf(j15));
-            hashMap.put(CHECK_CLIENT_CONFIG_MESSAGE_DURATION, String.valueOf(j16));
-            hashMap.put(INIT_TABS_ON_ACTIVITY_CREATED_DURATION, String.valueOf(j17));
-            hashMap.put(INIT_COOKIE_DURATION, String.valueOf(j18));
-            hashMap.put(UPDATE_PROFILE_INFO_DURATION, String.valueOf(j19));
-            hashMap.put(TRY_LOAD_NATIVE_FUN_AD_DURATION, String.valueOf(j20));
-            hashMap.put(CREATE_START_GAP_DURATION, String.valueOf(j22));
-            hashMap.put("onStart", String.valueOf(j24));
-            hashMap.put(START_RESUME_GAP_DURATION, String.valueOf(j26));
-            hashMap.put("onResume", String.valueOf(j27));
-            hashMap.put(MAIN_ACTIVITY_CREATE_TO_DATA_LOADED_DURATION, String.valueOf(mainOnCreate2DataLoadedDuration));
-            hashMap.put(MAIN_ACTIVITY_DATA_LOADED_TO_END_DURATION, String.valueOf(mainDataLoaded2EndDuration));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(durationWithoutAD, hashMap);
-            if (jsonData != null) {
-                try {
-                    jSONObject.put("activity", jsonData);
-                    return true;
-                } catch (JSONException e) {
-                    if (AppConfig.isDebug()) {
-                        e.printStackTrace();
+            if (j5 >= 0 && j5 <= 60000 && durationWithoutAD >= 0 && durationWithoutAD <= 60000 && j3 >= 0 && j3 <= 60000 && j4 >= 0 && j4 <= 60000 && j6 >= 0 && j6 <= 60000 && j7 >= 0 && j7 <= 60000 && j10 >= 0 && j10 <= 60000 && j12 >= 0 && j12 <= 60000 && j13 >= 0 && j13 <= 60000 && j14 >= 0 && j14 <= 60000 && j15 >= 0 && j15 <= 60000 && j16 >= 0 && j16 <= 60000 && j17 >= 0 && j17 <= 60000 && j18 >= 0 && j18 <= 60000 && j19 >= 0 && j19 <= 60000 && j20 >= 0 && j20 <= 60000 && j22 >= 0 && j22 <= 60000 && j24 >= 0 && j24 <= 60000 && j26 >= 0 && j26 <= 60000 && j27 >= 0 && j27 <= 60000 && mainOnCreate2DataLoadedDuration >= 0 && mainOnCreate2DataLoadedDuration <= 60000 && mainDataLoaded2EndDuration >= 0 && mainDataLoaded2EndDuration <= 60000) {
+                HashMap hashMap = new HashMap();
+                hashMap.put(MAIN_ACTIVITY_TOTAL_DURATION, String.valueOf(j5));
+                if (i > 0) {
+                    hashMap.put(LOGO_ACTIVITY_DURATION, String.valueOf(j3));
+                    hashMap.put(LOGO_ONCREATE_DURATION, String.valueOf(j4));
+                    hashMap.put(LOGO_ONRESUME_DURATION, String.valueOf(j6));
+                    hashMap.put(LOGO_ONDESTROY_DURATION, String.valueOf(j7));
+                    hashMap.put(LOGO_TO_MAIN_GAP, String.valueOf(j10));
+                }
+                hashMap.put("onCreate", String.valueOf(j12));
+                hashMap.put(MAINACTIVITY_ONSECONDCREATE_DURAION, String.valueOf(j28));
+                hashMap.put("superOnCreate", String.valueOf(j13));
+                hashMap.put(INIT_HOME_FRAGMENT_CONTROLLER_DURATION, String.valueOf(j14));
+                hashMap.put(REG_RECEIVER_DURATION, String.valueOf(j15));
+                hashMap.put(CHECK_CLIENT_CONFIG_MESSAGE_DURATION, String.valueOf(j16));
+                hashMap.put(INIT_TABS_ON_ACTIVITY_CREATED_DURATION, String.valueOf(j17));
+                hashMap.put(INIT_COOKIE_DURATION, String.valueOf(j18));
+                hashMap.put(UPDATE_PROFILE_INFO_DURATION, String.valueOf(j19));
+                hashMap.put(TRY_LOAD_NATIVE_FUN_AD_DURATION, String.valueOf(j20));
+                hashMap.put(CREATE_START_GAP_DURATION, String.valueOf(j22));
+                hashMap.put("onStart", String.valueOf(j24));
+                hashMap.put(START_RESUME_GAP_DURATION, String.valueOf(j26));
+                hashMap.put("onResume", String.valueOf(j27));
+                hashMap.put(MAIN_ACTIVITY_CREATE_TO_DATA_LOADED_DURATION, String.valueOf(mainOnCreate2DataLoadedDuration));
+                hashMap.put(MAIN_ACTIVITY_DATA_LOADED_TO_END_DURATION, String.valueOf(mainDataLoaded2EndDuration));
+                JSONObject jsonData = SpeedStatsUtils.getJsonData(durationWithoutAD, hashMap);
+                if (jsonData != null) {
+                    try {
+                        jSONObject.put("activity", jsonData);
+                        return true;
+                    } catch (JSONException e) {
+                        if (AppConfig.isDebug()) {
+                            e.printStackTrace();
+                            return true;
+                        }
                         return true;
                     }
-                    return true;
                 }
+                return true;
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.mLogoActivityStartTimeStamp = -1L;
-            this.mLogoActivityOnCreateEndTimeStamp = -1L;
-            this.mLogoActivityOnResumeStartTimeStamp = -1L;
-            this.mLogoActivityOnResumeEndTimeStamp = -1L;
-            this.mLogoActivityOnDestroyStartTimeStamp = -1L;
-            this.mLogoActivityOnDestroyEndTimeStamp = -1L;
-            this.mLogoActivityEndTimeStamp = -1L;
-            this.mMainActivityCreateStartTimeStamp = -1L;
-            this.mMainActivityCreateEndTimeStamp = -1L;
-            this.mMainActivitySuperCreateEndTimeStamp = -1L;
-            this.mInitHomeFragmentControllerStartTimeStamp = -1L;
-            this.mInitHomeFragmentControllerEndTimeStamp = -1L;
-            this.mRegReceiverStartTimeStamp = -1L;
-            this.mRegReceiverEndTimeStamp = -1L;
-            this.mCheckClientConfigMessageStartTimeStamp = -1L;
-            this.mCheckClientConfigMessageEndTimeStamp = -1L;
-            this.mInitTabsOnActivityCreatedStartTimeStamp = -1L;
-            this.mInitTabsOnActivityCreatedEndTimeStamp = -1L;
-            this.mUpdateProfileInfoStartTimeStamp = -1L;
-            this.mUpdateProfileInfoEndTimeStamp = -1L;
-            this.mTryLoadNativeFunAdStartTimeStamp = -1L;
-            this.mTryLoadNativeFunAdEndTimeStamp = -1L;
-            this.mMainActivityOnstartStartTimeStamp = -1L;
-            this.mMainActivityOnstartEndTimeStamp = -1L;
-            this.mMainActivityOnResumeStartTimeStamp = -1L;
-            this.mMainActivityOnResumeEndTimeStamp = -1L;
-            this.mMainActivityCacheDataLoadedTimeStamp = -1L;
-            this.mMainActivityNetDataLoadedTimeStamp = -1L;
-        }
     }
 }

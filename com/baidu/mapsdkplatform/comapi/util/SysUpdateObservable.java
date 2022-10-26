@@ -14,7 +14,7 @@ public class SysUpdateObservable {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SysUpdateObservable a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<SysUpdateObserver> b;
+    public List b;
 
     public SysUpdateObservable() {
         Interceptable interceptable = $ic;

@@ -67,7 +67,10 @@ public class CloudControlUrlConfig {
                 appendParam = UrlUtil.addParam(appendParam, KEY_RUN_TYPE, str);
             }
             String valueOf = String.valueOf(mOEMTypeId);
-            return !TextUtils.isEmpty(valueOf) ? UrlUtil.addParam(appendParam, KEY_TYPE_ID, valueOf) : appendParam;
+            if (!TextUtils.isEmpty(valueOf)) {
+                return UrlUtil.addParam(appendParam, KEY_TYPE_ID, valueOf);
+            }
+            return appendParam;
         }
         return (String) invokeL.objValue;
     }

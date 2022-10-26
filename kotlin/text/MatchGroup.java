@@ -12,13 +12,6 @@ public final class MatchGroup {
     public final IntRange range;
     public final String value;
 
-    public MatchGroup(String value, IntRange range) {
-        Intrinsics.checkNotNullParameter(value, "value");
-        Intrinsics.checkNotNullParameter(range, "range");
-        this.value = value;
-        this.range = range;
-    }
-
     public static /* synthetic */ MatchGroup copy$default(MatchGroup matchGroup, String str, IntRange intRange, int i, Object obj) {
         if ((i & 1) != 0) {
             str = matchGroup.value;
@@ -54,14 +47,6 @@ public final class MatchGroup {
         return true;
     }
 
-    public final IntRange getRange() {
-        return this.range;
-    }
-
-    public final String getValue() {
-        return this.value;
-    }
-
     public int hashCode() {
         String str = this.value;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
@@ -71,5 +56,20 @@ public final class MatchGroup {
 
     public String toString() {
         return "MatchGroup(value=" + this.value + ", range=" + this.range + SmallTailInfo.EMOTION_SUFFIX;
+    }
+
+    public MatchGroup(String value, IntRange range) {
+        Intrinsics.checkNotNullParameter(value, "value");
+        Intrinsics.checkNotNullParameter(range, "range");
+        this.value = value;
+        this.range = range;
+    }
+
+    public final IntRange getRange() {
+        return this.range;
+    }
+
+    public final String getValue() {
+        return this.value;
     }
 }

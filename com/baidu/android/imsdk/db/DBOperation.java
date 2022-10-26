@@ -34,18 +34,25 @@ public class DBOperation {
     public Context mContext;
     public DBConnection mDBConnection;
     public SQLiteDatabase mDb;
-    public HashMap<String, Object> mKeyObject;
+    public HashMap mKeyObject;
     public Object mSyncObject;
 
     /* renamed from: com.baidu.android.imsdk.db.DBOperation$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void closeDbInternal() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+        }
+    }
+
     /* loaded from: classes.dex */
-    public class DeleteTask implements Callable<Integer> {
+    public class DeleteTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mOperationId;
@@ -53,10 +60,6 @@ public class DBOperation {
         public String[] mWhereArgs;
         public String mWhereClause;
         public final /* synthetic */ DBOperation this$0;
-
-        public /* synthetic */ DeleteTask(DBOperation dBOperation, String str, String str2, String str3, String[] strArr, AnonymousClass1 anonymousClass1) {
-            this(dBOperation, str, str2, str3, strArr);
-        }
 
         public DeleteTask(DBOperation dBOperation, String str, String str2, String str3, String[] strArr) {
             Interceptable interceptable = $ic;
@@ -80,8 +83,11 @@ public class DBOperation {
             this.mWhereArgs = strArr;
         }
 
+        public /* synthetic */ DeleteTask(DBOperation dBOperation, String str, String str2, String str3, String[] strArr, AnonymousClass1 anonymousClass1) {
+            this(dBOperation, str, str2, str3, strArr);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
             InterceptResult invokeV;
@@ -117,16 +123,12 @@ public class DBOperation {
     }
 
     /* loaded from: classes.dex */
-    public class ExecSQLTask implements Callable<Integer> {
+    public class ExecSQLTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mOperationId;
         public String mSql;
         public final /* synthetic */ DBOperation this$0;
-
-        public /* synthetic */ ExecSQLTask(DBOperation dBOperation, String str, String str2, AnonymousClass1 anonymousClass1) {
-            this(dBOperation, str, str2);
-        }
 
         public ExecSQLTask(DBOperation dBOperation, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -148,8 +150,11 @@ public class DBOperation {
             this.mSql = str2;
         }
 
+        public /* synthetic */ ExecSQLTask(DBOperation dBOperation, String str, String str2, AnonymousClass1 anonymousClass1) {
+            this(dBOperation, str, str2);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
             InterceptResult invokeV;
@@ -184,16 +189,12 @@ public class DBOperation {
     }
 
     /* loaded from: classes.dex */
-    public class ExecTransaction implements Callable<Integer> {
+    public class ExecTransaction implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mOperationId;
         public ITransaction mTransaction;
         public final /* synthetic */ DBOperation this$0;
-
-        public /* synthetic */ ExecTransaction(DBOperation dBOperation, String str, ITransaction iTransaction, AnonymousClass1 anonymousClass1) {
-            this(dBOperation, str, iTransaction);
-        }
 
         public ExecTransaction(DBOperation dBOperation, String str, ITransaction iTransaction) {
             Interceptable interceptable = $ic;
@@ -215,8 +216,11 @@ public class DBOperation {
             this.mTransaction = iTransaction;
         }
 
+        public /* synthetic */ ExecTransaction(DBOperation dBOperation, String str, ITransaction iTransaction, AnonymousClass1 anonymousClass1) {
+            this(dBOperation, str, iTransaction);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
             InterceptResult invokeV;
@@ -254,19 +258,15 @@ public class DBOperation {
     }
 
     /* loaded from: classes.dex */
-    public class InsertBatchTask implements Callable<List<Long>> {
+    public class InsertBatchTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<ContentValues> mCvs;
+        public List mCvs;
         public String mOperationId;
         public String mTable;
         public final /* synthetic */ DBOperation this$0;
 
-        public /* synthetic */ InsertBatchTask(DBOperation dBOperation, String str, String str2, List list, AnonymousClass1 anonymousClass1) {
-            this(dBOperation, str, str2, list);
-        }
-
-        public InsertBatchTask(DBOperation dBOperation, String str, String str2, List<ContentValues> list) {
+        public InsertBatchTask(DBOperation dBOperation, String str, String str2, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -287,9 +287,13 @@ public class DBOperation {
             this.mCvs = list;
         }
 
+        public /* synthetic */ InsertBatchTask(DBOperation dBOperation, String str, String str2, List list, AnonymousClass1 anonymousClass1) {
+            this(dBOperation, str, str2, list);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public List<Long> call() throws Exception {
+        public List call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -325,17 +329,13 @@ public class DBOperation {
     }
 
     /* loaded from: classes.dex */
-    public class InsertTask implements Callable<Long> {
+    public class InsertTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ContentValues mCv;
         public String mOperationId;
         public String mTable;
         public final /* synthetic */ DBOperation this$0;
-
-        public /* synthetic */ InsertTask(DBOperation dBOperation, String str, String str2, ContentValues contentValues, AnonymousClass1 anonymousClass1) {
-            this(dBOperation, str, str2, contentValues);
-        }
 
         public InsertTask(DBOperation dBOperation, String str, String str2, ContentValues contentValues) {
             Interceptable interceptable = $ic;
@@ -358,8 +358,11 @@ public class DBOperation {
             this.mCv = contentValues;
         }
 
+        public /* synthetic */ InsertTask(DBOperation dBOperation, String str, String str2, ContentValues contentValues, AnonymousClass1 anonymousClass1) {
+            this(dBOperation, str, str2, contentValues);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Long call() throws Exception {
             InterceptResult invokeV;
@@ -391,7 +394,7 @@ public class DBOperation {
     }
 
     /* loaded from: classes.dex */
-    public class QueryTask<T> implements Callable<ArrayList<T>> {
+    public class QueryTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String[] mColumns;
@@ -400,17 +403,13 @@ public class DBOperation {
         public String mLimit;
         public String mOperationId;
         public String mOrderBy;
-        public IResultParse<T> mParse;
+        public IResultParse mParse;
         public String mSelection;
         public String[] mSelectionArgs;
         public String mTable;
         public final /* synthetic */ DBOperation this$0;
 
-        public /* synthetic */ QueryTask(DBOperation dBOperation, String str, IResultParse iResultParse, String str2, String[] strArr, String str3, String[] strArr2, String str4, String str5, String str6, String str7, AnonymousClass1 anonymousClass1) {
-            this(dBOperation, str, iResultParse, str2, strArr, str3, strArr2, str4, str5, str6, str7);
-        }
-
-        public QueryTask(DBOperation dBOperation, String str, IResultParse<T> iResultParse, String str2, String[] strArr, String str3, String[] strArr2, String str4, String str5, String str6, String str7) {
+        public QueryTask(DBOperation dBOperation, String str, IResultParse iResultParse, String str2, String[] strArr, String str3, String[] strArr2, String str4, String str5, String str6, String str7) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -438,15 +437,22 @@ public class DBOperation {
             this.mParse = iResultParse;
         }
 
+        public /* synthetic */ QueryTask(DBOperation dBOperation, String str, IResultParse iResultParse, String str2, String[] strArr, String str3, String[] strArr2, String str4, String str5, String str6, String str7, AnonymousClass1 anonymousClass1) {
+            this(dBOperation, str, iResultParse, str2, strArr, str3, strArr2, str4, str5, str6, str7);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: java.util.ArrayList */
         /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r1v10, types: [java.util.ArrayList] */
+        /* JADX WARN: Type inference failed for: r1v11 */
+        /* JADX WARN: Type inference failed for: r1v8 */
+        /* JADX WARN: Type inference failed for: r2v6, types: [java.util.ArrayList] */
         @Override // java.util.concurrent.Callable
-        public ArrayList<T> call() throws Exception {
+        public ArrayList call() throws Exception {
             InterceptResult invokeV;
             SQLException e;
             Cursor cursor;
-            ArrayList<T> arrayList;
+            ?? r1;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 LogUtils.enter(this.mOperationId);
@@ -464,34 +470,34 @@ public class DBOperation {
                             cursor = openDb.query(this.mTable, this.mColumns, this.mSelection, this.mSelectionArgs, this.mGroupBy, this.mHaving, this.mOrderBy, this.mLimit);
                             if (cursor != null) {
                                 try {
-                                    ArrayList arrayList2 = new ArrayList();
+                                    ?? arrayList = new ArrayList();
                                     try {
                                         if (cursor.moveToFirst()) {
                                             do {
-                                                T onParse = this.mParse.onParse(cursor);
+                                                Object onParse = this.mParse.onParse(cursor);
                                                 if (onParse != null) {
-                                                    arrayList2.add(onParse);
+                                                    arrayList.add(onParse);
                                                 } else {
                                                     LogUtils.d(DBOperation.TAG, this.mTable + ", mOperationId : " + this.mOperationId + " item onParse is null");
                                                 }
                                             } while (cursor.moveToNext());
                                             cursor.close();
-                                            cursor2 = arrayList2;
+                                            cursor2 = arrayList;
                                         } else {
                                             cursor.close();
-                                            cursor2 = arrayList2;
+                                            cursor2 = arrayList;
                                         }
                                     } catch (SQLException e2) {
                                         e = e2;
-                                        cursor2 = arrayList2;
+                                        cursor2 = arrayList;
                                         LogUtils.e(DBOperation.TAG, "query", e);
                                         this.this$0.closeDbInternal();
                                         Cursor cursor3 = cursor;
-                                        arrayList = (ArrayList<T>) cursor2;
+                                        r1 = cursor2;
                                         cursor2 = cursor3;
                                         LogUtils.d(DBOperation.TAG, "ret : " + cursor2);
                                         LogUtils.leave(this.mOperationId);
-                                        return arrayList;
+                                        return r1;
                                     }
                                 } catch (SQLException e3) {
                                     e = e3;
@@ -503,25 +509,25 @@ public class DBOperation {
                         }
                         this.this$0.closeDbInternal();
                         Cursor cursor32 = cursor;
-                        arrayList = (ArrayList<T>) cursor2;
+                        r1 = cursor2;
                         cursor2 = cursor32;
                     } catch (Throwable th) {
                         this.this$0.closeDbInternal();
                         throw th;
                     }
                 } else {
-                    arrayList = null;
+                    r1 = 0;
                 }
                 LogUtils.d(DBOperation.TAG, "ret : " + cursor2);
                 LogUtils.leave(this.mOperationId);
-                return arrayList;
+                return r1;
             }
             return (ArrayList) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public class UpdateTask implements Callable<Integer> {
+    public class UpdateTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ContentValues mCv;
@@ -530,10 +536,6 @@ public class DBOperation {
         public String[] mWhereArgs;
         public String mWhereClause;
         public final /* synthetic */ DBOperation this$0;
-
-        public /* synthetic */ UpdateTask(DBOperation dBOperation, String str, String str2, ContentValues contentValues, String str3, String[] strArr, AnonymousClass1 anonymousClass1) {
-            this(dBOperation, str, str2, contentValues, str3, strArr);
-        }
 
         public UpdateTask(DBOperation dBOperation, String str, String str2, ContentValues contentValues, String str3, String[] strArr) {
             Interceptable interceptable = $ic;
@@ -558,8 +560,11 @@ public class DBOperation {
             this.mCv = contentValues;
         }
 
+        public /* synthetic */ UpdateTask(DBOperation dBOperation, String str, String str2, ContentValues contentValues, String str3, String[] strArr, AnonymousClass1 anonymousClass1) {
+            this(dBOperation, str, str2, contentValues, str3, strArr);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
             InterceptResult invokeV;
@@ -608,34 +613,6 @@ public class DBOperation {
         sOperationId = new AtomicInteger(0);
     }
 
-    public DBOperation(Context context, DBConnection dBConnection) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, dBConnection};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mSyncObject = new Object();
-        this.mKeyObject = new HashMap<>();
-        this.mContext = context;
-        this.mDBConnection = dBConnection;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void closeDbInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public SQLiteDatabase openDb() {
         InterceptResult invokeV;
@@ -654,11 +631,40 @@ public class DBOperation {
     public void closeDb() {
         SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sQLiteDatabase = this.mDb) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sQLiteDatabase = this.mDb) != null) {
+            sQLiteDatabase.close();
+            this.mDb = null;
         }
-        sQLiteDatabase.close();
-        this.mDb = null;
+    }
+
+    public DBOperation(Context context, DBConnection dBConnection) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, dBConnection};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mSyncObject = new Object();
+        this.mKeyObject = new HashMap();
+        this.mContext = context;
+        this.mDBConnection = dBConnection;
+    }
+
+    public Object getTag(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.mKeyObject.get(str);
+        }
+        return invokeL.objValue;
     }
 
     public Integer delete(String str, String str2, String[] strArr) {
@@ -735,12 +741,6 @@ public class DBOperation {
         return (Integer) invokeL.objValue;
     }
 
-    public Object getTag(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.mKeyObject.get(str) : invokeL.objValue;
-    }
-
     public Long insert(String str, ContentValues contentValues) {
         InterceptResult invokeLL;
         Long l;
@@ -765,9 +765,36 @@ public class DBOperation {
         return (Long) invokeLL.objValue;
     }
 
-    public <T> ArrayList<T> query(IResultParse<T> iResultParse, String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5, String str6) {
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r11v9, types: [java.util.List] */
+    public List insert(String str, List list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, list)) == null) {
+            String valueOf = String.valueOf(sOperationId.incrementAndGet());
+            LogUtils.enter(valueOf);
+            ArrayList arrayList = new ArrayList();
+            if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+                LogUtils.d(TAG, str + " insertbacth: " + str + " " + valueOf);
+                try {
+                    arrayList = (List) TaskManager.getInstance(this.mContext).submitForLocalCallable(new InsertBatchTask(this, valueOf, str, list, null)).get(10L, TimeUnit.SECONDS);
+                } catch (Exception e) {
+                    arrayList.add(-7005L);
+                    LogUtils.e(TAG, "Exception ", e);
+                }
+                LogUtils.leave(valueOf);
+                return arrayList;
+            }
+            LogUtils.e(TAG, "parameter is null");
+            arrayList.add(-7001L);
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public ArrayList query(IResultParse iResultParse, String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5, String str6) {
         InterceptResult invokeCommon;
-        ArrayList<T> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{iResultParse, str, strArr, str2, strArr2, str3, str4, str5, str6})) == null) {
             String valueOf = String.valueOf(sOperationId.incrementAndGet());
@@ -822,32 +849,5 @@ public class DBOperation {
             return Integer.valueOf((int) DBResponseCode.ERROR_PARAMETER);
         }
         return (Integer) invokeLLLL.objValue;
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r11v9, types: [java.util.List] */
-    public List<Long> insert(String str, List<ContentValues> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, list)) == null) {
-            String valueOf = String.valueOf(sOperationId.incrementAndGet());
-            LogUtils.enter(valueOf);
-            ArrayList arrayList = new ArrayList();
-            if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
-                LogUtils.d(TAG, str + " insertbacth: " + str + " " + valueOf);
-                try {
-                    arrayList = (List) TaskManager.getInstance(this.mContext).submitForLocalCallable(new InsertBatchTask(this, valueOf, str, list, null)).get(10L, TimeUnit.SECONDS);
-                } catch (Exception e) {
-                    arrayList.add(-7005L);
-                    LogUtils.e(TAG, "Exception ", e);
-                }
-                LogUtils.leave(valueOf);
-                return arrayList;
-            }
-            LogUtils.e(TAG, "parameter is null");
-            arrayList.add(-7001L);
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
     }
 }

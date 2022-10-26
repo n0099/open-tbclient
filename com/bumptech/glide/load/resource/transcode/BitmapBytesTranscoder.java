@@ -1,8 +1,6 @@
 package com.bumptech.glide.load.resource.transcode;
 
 import android.graphics.Bitmap;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +11,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.bytes.BytesResource;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes7.dex */
-public class BitmapBytesTranscoder implements ResourceTranscoder<Bitmap, byte[]> {
+public class BitmapBytesTranscoder implements ResourceTranscoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Bitmap.CompressFormat compressFormat;
@@ -38,21 +36,7 @@ public class BitmapBytesTranscoder implements ResourceTranscoder<Bitmap, byte[]>
         }
     }
 
-    @Override // com.bumptech.glide.load.resource.transcode.ResourceTranscoder
-    @Nullable
-    public Resource<byte[]> transcode(@NonNull Resource<Bitmap> resource, @NonNull Options options) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, resource, options)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            resource.get().compress(this.compressFormat, this.quality, byteArrayOutputStream);
-            resource.recycle();
-            return new BytesResource(byteArrayOutputStream.toByteArray());
-        }
-        return (Resource) invokeLL.objValue;
-    }
-
-    public BitmapBytesTranscoder(@NonNull Bitmap.CompressFormat compressFormat, int i) {
+    public BitmapBytesTranscoder(Bitmap.CompressFormat compressFormat, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,5 +53,18 @@ public class BitmapBytesTranscoder implements ResourceTranscoder<Bitmap, byte[]>
         }
         this.compressFormat = compressFormat;
         this.quality = i;
+    }
+
+    @Override // com.bumptech.glide.load.resource.transcode.ResourceTranscoder
+    public Resource transcode(Resource resource, Options options) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, resource, options)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ((Bitmap) resource.get()).compress(this.compressFormat, this.quality, byteArrayOutputStream);
+            resource.recycle();
+            return new BytesResource(byteArrayOutputStream.toByteArray());
+        }
+        return (Resource) invokeLL.objValue;
     }
 }

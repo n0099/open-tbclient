@@ -10,20 +10,24 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class c implements g {
-    public static final ArrayList<String> e;
+    public static final ArrayList e;
     public final String a;
     public final long b;
-    public List<com.ss.android.socialbase.downloader.model.c> c;
+    public List c;
     public int g;
     public long h;
     public boolean i;
     public boolean j;
     public g k;
-    public Map<String, String> f = null;
+    public Map f = null;
     public final Object d = new Object();
 
+    public boolean a(int i) {
+        return i >= 200 && i < 300;
+    }
+
     static {
-        ArrayList<String> arrayList = new ArrayList<>(6);
+        ArrayList arrayList = new ArrayList(6);
         e = arrayList;
         arrayList.add("Content-Length");
         e.add("Content-Range");
@@ -33,10 +37,77 @@ public class c implements g {
         e.add("Content-Disposition");
     }
 
-    public c(String str, List<com.ss.android.socialbase.downloader.model.c> list, long j) {
+    @Override // com.ss.android.socialbase.downloader.network.g
+    public int b() throws IOException {
+        return this.g;
+    }
+
+    @Override // com.ss.android.socialbase.downloader.network.g
+    public void c() {
+        g gVar = this.k;
+        if (gVar != null) {
+            gVar.c();
+        }
+    }
+
+    public void d() throws InterruptedException {
+        synchronized (this.d) {
+            if (this.j && this.f == null) {
+                this.d.wait();
+            }
+        }
+    }
+
+    public boolean e() {
+        return this.i;
+    }
+
+    public boolean f() {
+        if (System.currentTimeMillis() - this.h < b.b) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean g() {
+        return this.j;
+    }
+
+    public List h() {
+        return this.c;
+    }
+
+    public Map i() {
+        return this.f;
+    }
+
+    public c(String str, List list, long j) {
         this.a = str;
         this.c = list;
         this.b = j;
+    }
+
+    private void a(g gVar, Map map) {
+        if (gVar != null && map != null) {
+            Iterator it = e.iterator();
+            while (it.hasNext()) {
+                String str = (String) it.next();
+                map.put(str, gVar.a(str));
+            }
+        }
+    }
+
+    @Override // com.ss.android.socialbase.downloader.network.g
+    public String a(String str) {
+        Map map = this.f;
+        if (map != null) {
+            return (String) map.get(str);
+        }
+        g gVar = this.k;
+        if (gVar != null) {
+            return gVar.a(str);
+        }
+        return null;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -74,74 +145,5 @@ public class c implements g {
                 throw th;
             }
         }
-    }
-
-    public boolean a(int i) {
-        return i >= 200 && i < 300;
-    }
-
-    @Override // com.ss.android.socialbase.downloader.network.g
-    public int b() throws IOException {
-        return this.g;
-    }
-
-    @Override // com.ss.android.socialbase.downloader.network.g
-    public void c() {
-        g gVar = this.k;
-        if (gVar != null) {
-            gVar.c();
-        }
-    }
-
-    public void d() throws InterruptedException {
-        synchronized (this.d) {
-            if (this.j && this.f == null) {
-                this.d.wait();
-            }
-        }
-    }
-
-    public boolean e() {
-        return this.i;
-    }
-
-    public boolean f() {
-        return System.currentTimeMillis() - this.h < b.b;
-    }
-
-    public boolean g() {
-        return this.j;
-    }
-
-    public List<com.ss.android.socialbase.downloader.model.c> h() {
-        return this.c;
-    }
-
-    public Map<String, String> i() {
-        return this.f;
-    }
-
-    private void a(g gVar, Map<String, String> map) {
-        if (gVar == null || map == null) {
-            return;
-        }
-        Iterator<String> it = e.iterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            map.put(next, gVar.a(next));
-        }
-    }
-
-    @Override // com.ss.android.socialbase.downloader.network.g
-    public String a(String str) {
-        Map<String, String> map = this.f;
-        if (map != null) {
-            return map.get(str);
-        }
-        g gVar = this.k;
-        if (gVar != null) {
-            return gVar.a(str);
-        }
-        return null;
     }
 }

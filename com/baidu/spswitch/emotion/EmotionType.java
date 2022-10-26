@@ -33,6 +33,15 @@ public final class EmotionType {
         $VALUES = new EmotionType[]{emotionType};
     }
 
+    public static EmotionType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (EmotionType[]) $VALUES.clone();
+        }
+        return (EmotionType[]) invokeV.objValue;
+    }
+
     public EmotionType(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,12 +64,9 @@ public final class EmotionType {
     public static EmotionType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EmotionType) Enum.valueOf(EmotionType.class, str) : (EmotionType) invokeL.objValue;
-    }
-
-    public static EmotionType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EmotionType[]) $VALUES.clone() : (EmotionType[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (EmotionType) Enum.valueOf(EmotionType.class, str);
+        }
+        return (EmotionType) invokeL.objValue;
     }
 }

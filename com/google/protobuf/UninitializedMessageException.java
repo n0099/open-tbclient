@@ -8,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class UninitializedMessageException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7466929953374883507L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> missingFields;
+    public final List missingFields;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UninitializedMessageException(MessageLite messageLite) {
@@ -37,13 +38,15 @@ public class UninitializedMessageException extends RuntimeException {
         this.missingFields = null;
     }
 
-    public static String buildDescription(List<String> list) {
+    public static String buildDescription(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             StringBuilder sb = new StringBuilder("Message missing required fields: ");
+            Iterator it = list.iterator();
             boolean z = true;
-            for (String str : list) {
+            while (it.hasNext()) {
+                String str = (String) it.next();
                 if (z) {
                     z = false;
                 } else {
@@ -56,20 +59,8 @@ public class UninitializedMessageException extends RuntimeException {
         return (String) invokeL.objValue;
     }
 
-    public InvalidProtocolBufferException asInvalidProtocolBufferException() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new InvalidProtocolBufferException(getMessage()) : (InvalidProtocolBufferException) invokeV.objValue;
-    }
-
-    public List<String> getMissingFields() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Collections.unmodifiableList(this.missingFields) : (List) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UninitializedMessageException(List<String> list) {
+    public UninitializedMessageException(List list) {
         super(buildDescription(list));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,5 +78,23 @@ public class UninitializedMessageException extends RuntimeException {
             }
         }
         this.missingFields = list;
+    }
+
+    public InvalidProtocolBufferException asInvalidProtocolBufferException() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new InvalidProtocolBufferException(getMessage());
+        }
+        return (InvalidProtocolBufferException) invokeV.objValue;
+    }
+
+    public List getMissingFields() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Collections.unmodifiableList(this.missingFields);
+        }
+        return (List) invokeV.objValue;
     }
 }

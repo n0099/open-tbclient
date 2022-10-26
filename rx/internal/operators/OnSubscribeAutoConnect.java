@@ -1,30 +1,29 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.d1a;
-import com.baidu.tieba.fx9;
-import com.baidu.tieba.j1a;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.tx9;
+import com.baidu.tieba.b2a;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.ly9;
+import com.baidu.tieba.v1a;
+import com.baidu.tieba.xx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements fx9.a<T> {
+public final class OnSubscribeAutoConnect extends AtomicInteger implements xx9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tx9<? super mx9> connection;
+    public final ly9 connection;
     public final int numberOfSubscribers;
-    public final d1a<? extends T> source;
+    public final v1a source;
 
-    public OnSubscribeAutoConnect(d1a<? extends T> d1aVar, int i, tx9<? super mx9> tx9Var) {
+    public OnSubscribeAutoConnect(v1a v1aVar, int i, ly9 ly9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d1aVar, Integer.valueOf(i), tx9Var};
+            Object[] objArr = {v1aVar, Integer.valueOf(i), ly9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,23 +34,20 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements fx
             }
         }
         if (i > 0) {
-            this.source = d1aVar;
+            this.source = v1aVar;
             this.numberOfSubscribers = i;
-            this.connection = tx9Var;
+            this.connection = ly9Var;
             return;
         }
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((lx9) ((lx9) obj));
-    }
-
-    public void call(lx9<? super T> lx9Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
+    public void call(dy9 dy9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lx9Var) == null) {
-            this.source.B(j1a.c(lx9Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, dy9Var) == null) {
+            this.source.B(b2a.c(dy9Var));
             if (incrementAndGet() == this.numberOfSubscribers) {
                 this.source.C(this.connection);
             }

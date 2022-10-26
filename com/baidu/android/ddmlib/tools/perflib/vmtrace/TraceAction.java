@@ -59,12 +59,18 @@ public final class TraceAction {
     public static TraceAction valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TraceAction) Enum.valueOf(TraceAction.class, str) : (TraceAction) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (TraceAction) Enum.valueOf(TraceAction.class, str);
+        }
+        return (TraceAction) invokeL.objValue;
     }
 
     public static TraceAction[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TraceAction[]) $VALUES.clone() : (TraceAction[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (TraceAction[]) $VALUES.clone();
+        }
+        return (TraceAction[]) invokeV.objValue;
     }
 }

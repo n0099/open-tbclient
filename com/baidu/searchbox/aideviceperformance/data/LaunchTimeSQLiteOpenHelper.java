@@ -27,6 +27,23 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
     public static LaunchTimeSQLiteOpenHelper instance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
+    public String getBatchDeleteSqlStr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "delete from app_launch_time where event_time in ( select event_time from app_launch_time order by event_time limit 50)" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
+    public int getRestrictionNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 150;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -41,6 +58,32 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
             }
         }
         DEBUG = Config.isDebug();
+    }
+
+    public void deleteAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            deleteAll("app_launch_time");
+        }
+    }
+
+    @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
+    public Boolean isEnableCountRestriction() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return Boolean.TRUE;
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public List queryAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return query(null);
+        }
+        return (List) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,6 +107,31 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
         }
     }
 
+    public void delete(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, launchTimeItemModel) == null) {
+            if (DEBUG) {
+                String str = TAG;
+                Log.d(str, "delete item: " + launchTimeItemModel.launchTime + " " + launchTimeItemModel.timeStamp);
+            }
+            delete("app_launch_time", "app_launch_time=? AND event_time=?", new String[]{String.valueOf(launchTimeItemModel.launchTime), String.valueOf(launchTimeItemModel.timeStamp)});
+        }
+    }
+
+    public void insert(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, launchTimeItemModel) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("app_launch_time", Long.valueOf(launchTimeItemModel.launchTime));
+            contentValues.put("event_time", Long.valueOf(launchTimeItemModel.timeStamp));
+            if (DEBUG) {
+                String str = TAG;
+                Log.d(str, "insert item launchTime: " + launchTimeItemModel.launchTime + " timeStamp: " + launchTimeItemModel.timeStamp);
+            }
+            insert(contentValues);
+        }
+    }
+
     public static LaunchTimeSQLiteOpenHelper getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -76,41 +144,6 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
         return (LaunchTimeSQLiteOpenHelper) invokeL.objValue;
     }
 
-    public void delete(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, launchTimeItemModel) == null) {
-            if (DEBUG) {
-                String str = TAG;
-                Log.d(str, "delete item: " + launchTimeItemModel.launchTime + " " + launchTimeItemModel.timeStamp);
-            }
-            delete("app_launch_time", "app_launch_time=? AND event_time=?", new String[]{String.valueOf(launchTimeItemModel.launchTime), String.valueOf(launchTimeItemModel.timeStamp)});
-        }
-    }
-
-    public void deleteAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            deleteAll("app_launch_time");
-        }
-    }
-
-    @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
-    public String getBatchDeleteSqlStr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "delete from app_launch_time where event_time in ( select event_time from app_launch_time order by event_time limit 50)" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
-    public int getRestrictionNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 150;
-        }
-        return invokeV.intValue;
-    }
-
     public void insert(ContentValues contentValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, contentValues) == null) {
@@ -118,27 +151,19 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
         }
     }
 
-    @Override // com.baidu.searchbox.aideviceperformance.data.DataBaseOpenHelper
-    public Boolean isEnableCountRestriction() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Boolean.TRUE : (Boolean) invokeV.objValue;
-    }
-
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) || sQLiteDatabase == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
+            sQLiteDatabase.execSQL(DBTableConfig.LaunchTimeDBTable.CREATE_TABLE_SQL);
         }
-        sQLiteDatabase.execSQL(DBTableConfig.LaunchTimeDBTable.CREATE_TABLE_SQL);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:55:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List<DBItemModel.LaunchTimeItemModel> query(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
+    public List query(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
         InterceptResult invokeL;
         Cursor cursor;
         Cursor query;
@@ -194,35 +219,29 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
             } catch (Throwable th3) {
                 th = th3;
             }
-            if (query == null) {
-                if (query != null) {
-                    query.close();
+            if (query != null) {
+                while (query.moveToNext()) {
+                    arrayList.add(new DBItemModel.LaunchTimeItemModel(query.getLong(query.getColumnIndex("app_launch_time")), query.getLong(query.getColumnIndex("event_time"))));
                 }
-                return null;
-            }
-            while (query.moveToNext()) {
-                arrayList.add(new DBItemModel.LaunchTimeItemModel(query.getLong(query.getColumnIndex("app_launch_time")), query.getLong(query.getColumnIndex("event_time"))));
+                if (query != null) {
+                    try {
+                        query.close();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                return arrayList;
             }
             if (query != null) {
-                try {
-                    query.close();
-                } catch (Exception e5) {
-                    e5.printStackTrace();
-                }
+                query.close();
             }
-            return arrayList;
+            return null;
         }
         return (List) invokeL.objValue;
     }
 
-    public List<DBItemModel.LaunchTimeItemModel> queryAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? query(null) : (List) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<DBItemModel.LaunchTimeItemModel> queryLast(int i) {
+    public List queryLast(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
@@ -277,20 +296,6 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
                 Log.d(str, "update origin item: " + launchTimeItemModel.launchTime + " " + launchTimeItemModel.timeStamp + " change item : " + launchTimeItemModel2.launchTime + " " + launchTimeItemModel2.timeStamp);
             }
             update("app_launch_time", contentValues, "app_launch_time=? AND event_time=?", new String[]{String.valueOf(launchTimeItemModel.launchTime), String.valueOf(launchTimeItemModel.timeStamp)});
-        }
-    }
-
-    public void insert(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, launchTimeItemModel) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("app_launch_time", Long.valueOf(launchTimeItemModel.launchTime));
-            contentValues.put("event_time", Long.valueOf(launchTimeItemModel.timeStamp));
-            if (DEBUG) {
-                String str = TAG;
-                Log.d(str, "insert item launchTime: " + launchTimeItemModel.launchTime + " timeStamp: " + launchTimeItemModel.timeStamp);
-            }
-            insert(contentValues);
         }
     }
 }

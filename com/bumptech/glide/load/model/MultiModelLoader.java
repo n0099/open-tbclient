@@ -1,7 +1,5 @@
 package com.bumptech.glide.load.model;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,25 +19,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
+public class MultiModelLoader implements ModelLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Pools.Pool<List<Throwable>> exceptionListPool;
-    public final List<ModelLoader<Model, Data>> modelLoaders;
+    public final Pools.Pool exceptionListPool;
+    public final List modelLoaders;
 
     /* loaded from: classes7.dex */
-    public static class MultiFetcher<Data> implements DataFetcher<Data>, DataFetcher.DataCallback<Data> {
+    public class MultiFetcher implements DataFetcher, DataFetcher.DataCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public DataFetcher.DataCallback<? super Data> callback;
+        public DataFetcher.DataCallback callback;
         public int currentIndex;
-        @Nullable
-        public List<Throwable> exceptions;
-        public final List<DataFetcher<Data>> fetchers;
+        public List exceptions;
+        public final List fetchers;
+        public boolean isCancelled;
         public Priority priority;
-        public final Pools.Pool<List<Throwable>> throwableListPool;
+        public final Pools.Pool throwableListPool;
 
-        public MultiFetcher(@NonNull List<DataFetcher<Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {
+        public MultiFetcher(List list, Pools.Pool pool) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,22 +60,24 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
 
         private void startNextOrFail() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                if (this.currentIndex < this.fetchers.size() - 1) {
-                    this.currentIndex++;
-                    loadData(this.priority, this.callback);
-                    return;
-                }
-                Preconditions.checkNotNull(this.exceptions);
-                this.callback.onLoadFailed(new GlideException("Fetch failed", new ArrayList(this.exceptions)));
+            if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.isCancelled) {
+                return;
             }
+            if (this.currentIndex < this.fetchers.size() - 1) {
+                this.currentIndex++;
+                loadData(this.priority, this.callback);
+                return;
+            }
+            Preconditions.checkNotNull(this.exceptions);
+            this.callback.onLoadFailed(new GlideException("Fetch failed", new ArrayList(this.exceptions)));
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (DataFetcher<Data> dataFetcher : this.fetchers) {
+                this.isCancelled = true;
+                for (DataFetcher dataFetcher : this.fetchers) {
                     dataFetcher.cancel();
                 }
             }
@@ -87,50 +87,57 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
         public void cleanup() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                List<Throwable> list = this.exceptions;
+                List list = this.exceptions;
                 if (list != null) {
                     this.throwableListPool.release(list);
                 }
                 this.exceptions = null;
-                for (DataFetcher<Data> dataFetcher : this.fetchers) {
+                for (DataFetcher dataFetcher : this.fetchers) {
                     dataFetcher.cleanup();
                 }
             }
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
-        public Class<Data> getDataClass() {
+        public Class getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.fetchers.get(0).getDataClass() : (Class) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return ((DataFetcher) this.fetchers.get(0)).getDataClass();
+            }
+            return (Class) invokeV.objValue;
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.fetchers.get(0).getDataSource() : (DataSource) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return ((DataFetcher) this.fetchers.get(0)).getDataSource();
+            }
+            return (DataSource) invokeV.objValue;
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super Data> dataCallback) {
+        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
                 this.priority = priority;
                 this.callback = dataCallback;
-                this.exceptions = this.throwableListPool.acquire();
-                this.fetchers.get(this.currentIndex).loadData(priority, this);
+                this.exceptions = (List) this.throwableListPool.acquire();
+                ((DataFetcher) this.fetchers.get(this.currentIndex)).loadData(priority, this);
+                if (this.isCancelled) {
+                    cancel();
+                }
             }
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
-        public void onDataReady(@Nullable Data data) {
+        public void onDataReady(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
-                if (data != null) {
-                    this.callback.onDataReady(data);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                if (obj != null) {
+                    this.callback.onDataReady(obj);
                 } else {
                     startNextOrFail();
                 }
@@ -138,7 +145,7 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
-        public void onLoadFailed(@NonNull Exception exc) {
+        public void onLoadFailed(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, exc) == null) {
                 ((List) Preconditions.checkNotNull(this.exceptions)).add(exc);
@@ -147,7 +154,7 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
         }
     }
 
-    public MultiModelLoader(@NonNull List<ModelLoader<Model, Data>> list, @NonNull Pools.Pool<List<Throwable>> pool) {
+    public MultiModelLoader(List list, Pools.Pool pool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,17 +174,17 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData buildLoadData(Object obj, int i, int i2, Options options) {
         InterceptResult invokeCommon;
-        ModelLoader.LoadData<Data> buildLoadData;
+        ModelLoader.LoadData buildLoadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
             int size = this.modelLoaders.size();
             ArrayList arrayList = new ArrayList(size);
             Key key = null;
             for (int i3 = 0; i3 < size; i3++) {
-                ModelLoader<Model, Data> modelLoader = this.modelLoaders.get(i3);
-                if (modelLoader.handles(model) && (buildLoadData = modelLoader.buildLoadData(model, i, i2, options)) != null) {
+                ModelLoader modelLoader = (ModelLoader) this.modelLoaders.get(i3);
+                if (modelLoader.handles(obj) && (buildLoadData = modelLoader.buildLoadData(obj, i, i2, options)) != null) {
                     key = buildLoadData.sourceKey;
                     arrayList.add(buildLoadData.fetcher);
                 }
@@ -185,18 +192,18 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
             if (arrayList.isEmpty() || key == null) {
                 return null;
             }
-            return new ModelLoader.LoadData<>(key, new MultiFetcher(arrayList, this.exceptionListPool));
+            return new ModelLoader.LoadData(key, new MultiFetcher(arrayList, this.exceptionListPool));
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(@NonNull Model model) {
+    public boolean handles(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, model)) == null) {
-            for (ModelLoader<Model, Data> modelLoader : this.modelLoaders) {
-                if (modelLoader.handles(model)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            for (ModelLoader modelLoader : this.modelLoaders) {
+                if (modelLoader.handles(obj)) {
                     return true;
                 }
             }

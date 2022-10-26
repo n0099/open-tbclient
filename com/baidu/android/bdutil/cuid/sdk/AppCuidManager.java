@@ -45,12 +45,18 @@ public class AppCuidManager {
     public String getCuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? AppCuidRuntime.getAppCuidManager().getCuid() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return AppCuidRuntime.getAppCuidManager().getCuid();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getEnCuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? AppCuidRuntime.getAppCuidManager().getEnCuid() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return AppCuidRuntime.getAppCuidManager().getEnCuid();
+        }
+        return (String) invokeV.objValue;
     }
 }

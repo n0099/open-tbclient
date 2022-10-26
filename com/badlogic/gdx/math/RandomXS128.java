@@ -17,6 +17,17 @@ public class RandomXS128 extends Random {
     public long seed0;
     public long seed1;
 
+    public static final long murmurHash3(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            long j2 = (j ^ (j >>> 33)) * (-49064778989728563L);
+            long j3 = (j2 ^ (j2 >>> 33)) * (-4265267296055464877L);
+            return j3 ^ (j3 >>> 33);
+        }
+        return invokeJ.longValue;
+    }
+
     public RandomXS128() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,77 +44,47 @@ public class RandomXS128 extends Random {
         setSeed(new Random().nextLong());
     }
 
-    public static final long murmurHash3(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            long j2 = (j ^ (j >>> 33)) * (-49064778989728563L);
-            long j3 = (j2 ^ (j2 >>> 33)) * (-4265267296055464877L);
-            return j3 ^ (j3 >>> 33);
-        }
-        return invokeJ.longValue;
-    }
-
-    public long getState(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 ? this.seed0 : this.seed1 : invokeI.longValue;
-    }
-
-    @Override // java.util.Random
-    public final int next(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (int) (nextLong() & ((1 << i) - 1)) : invokeI.intValue;
-    }
-
     @Override // java.util.Random
     public boolean nextBoolean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (nextLong() & 1) != 0 : invokeV.booleanValue;
-    }
-
-    @Override // java.util.Random
-    public void nextBytes(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            int length = bArr.length;
-            while (length != 0) {
-                int i = length < 8 ? length : 8;
-                long nextLong = nextLong();
-                while (true) {
-                    int i2 = i - 1;
-                    if (i != 0) {
-                        length--;
-                        bArr[length] = (byte) nextLong;
-                        nextLong >>= 8;
-                        i = i2;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if ((nextLong() & 1) != 0) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     @Override // java.util.Random
     public double nextDouble() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (nextLong() >>> 11) * 1.1102230246251565E-16d : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (nextLong() >>> 11) * 1.1102230246251565E-16d;
+        }
+        return invokeV.doubleValue;
     }
 
     @Override // java.util.Random
     public float nextFloat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (float) ((nextLong() >>> 40) * 5.960464477539063E-8d) : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return (float) ((nextLong() >>> 40) * 5.960464477539063E-8d);
+        }
+        return invokeV.floatValue;
     }
 
     @Override // java.util.Random
     public int nextInt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (int) nextLong() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return (int) nextLong();
+        }
+        return invokeV.intValue;
     }
 
     @Override // java.util.Random
@@ -120,33 +101,6 @@ public class RandomXS128 extends Random {
             return j4 + j2;
         }
         return invokeV.longValue;
-    }
-
-    @Override // java.util.Random
-    public void setSeed(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            if (j == 0) {
-                j = Long.MIN_VALUE;
-            }
-            long murmurHash3 = murmurHash3(j);
-            setState(murmurHash3, murmurHash3(murmurHash3));
-        }
-    }
-
-    public void setState(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.seed0 = j;
-            this.seed1 = j2;
-        }
-    }
-
-    @Override // java.util.Random
-    public int nextInt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (int) nextLong(i) : invokeI.intValue;
     }
 
     public RandomXS128(long j) {
@@ -185,6 +139,64 @@ public class RandomXS128 extends Random {
         setState(j, j2);
     }
 
+    public long getState(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                return this.seed0;
+            }
+            return this.seed1;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // java.util.Random
+    public final int next(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return (int) (nextLong() & ((1 << i) - 1));
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // java.util.Random
+    public void nextBytes(byte[] bArr) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            int length = bArr.length;
+            while (length != 0) {
+                if (length < 8) {
+                    i = length;
+                } else {
+                    i = 8;
+                }
+                long nextLong = nextLong();
+                while (true) {
+                    int i2 = i - 1;
+                    if (i != 0) {
+                        length--;
+                        bArr[length] = (byte) nextLong;
+                        nextLong >>= 8;
+                        i = i2;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // java.util.Random
+    public int nextInt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return (int) nextLong(i);
+        }
+        return invokeI.intValue;
+    }
+
     public long nextLong(long j) {
         InterceptResult invokeJ;
         long nextLong;
@@ -201,5 +213,25 @@ public class RandomXS128 extends Random {
             throw new IllegalArgumentException("n must be positive");
         }
         return invokeJ.longValue;
+    }
+
+    @Override // java.util.Random
+    public void setSeed(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            if (j == 0) {
+                j = Long.MIN_VALUE;
+            }
+            long murmurHash3 = murmurHash3(j);
+            setState(murmurHash3, murmurHash3(murmurHash3));
+        }
+    }
+
+    public void setState(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.seed0 = j;
+            this.seed1 = j2;
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.searchbox.bddownload.core.interceptor.connect;
 
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
 import com.baidu.searchbox.bddownload.core.download.DownloadChain;
@@ -31,7 +30,6 @@ public class CallServerInterceptor implements Interceptor.Connect {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Connect
-    @NonNull
     public DownloadConnection.Connected interceptConnect(DownloadChain downloadChain) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

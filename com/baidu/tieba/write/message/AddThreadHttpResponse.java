@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.r19;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.z19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,16 +55,10 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
 
     private void showToast(Toast toast) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, toast) == null) || toast == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(r19.a(toast));
-    }
-
-    public JSONObject getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultJSON : (JSONObject) invokeV.objValue;
+        BdToastHelper.toast(z19.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,7 +76,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
             addThreadHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addThreadResIdl.data;
             if (dataRes != null) {
-                BdToastData a = r19.a(dataRes.toast);
+                BdToastData a = z19.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addThreadHttpResponse.resultJSON.put(DI.TOAST_NAME, json);
                 }
@@ -168,9 +162,13 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
                     jSONObject8.put("stamp_type", addThreadResIdl.data.icon_stamp_info.stamp_type);
                     addThreadHttpResponse.resultJSON.put("icon_stamp_info", jSONObject8);
                 }
-                if (addThreadResIdl.data.info != null) {
+                if (addThreadResIdl.data.info == null) {
+                    str = "content";
+                } else {
                     JSONObject jSONObject9 = new JSONObject();
-                    if (addThreadResIdl.data.info.access_state != null) {
+                    if (addThreadResIdl.data.info.access_state == null) {
+                        str = "content";
+                    } else {
                         JSONObject jSONObject10 = new JSONObject();
                         str = "content";
                         jSONObject10.put("type", addThreadResIdl.data.info.access_state.type);
@@ -183,8 +181,6 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
                             jSONObject10.put(TableDefine.DB_TABLE_USERINFO, jSONObject11);
                         }
                         jSONObject9.put(AccountAccessActivityConfig.KEY_ACCESS_STATE, jSONObject10);
-                    } else {
-                        str = "content";
                     }
                     if (addThreadResIdl.data.info.confilter_hitwords != null) {
                         JSONArray jSONArray2 = new JSONArray();
@@ -213,8 +209,6 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
                     }
                     addThreadHttpResponse = this;
                     addThreadHttpResponse.resultJSON.put("info", jSONObject9);
-                } else {
-                    str = "content";
                 }
                 if (addThreadResIdl.data.anti_stat != null) {
                     JSONObject jSONObject13 = new JSONObject();
@@ -285,5 +279,14 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
                 addThreadHttpResponse.resultJSON.put("error", jSONObject18);
             }
         }
+    }
+
+    public JSONObject getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.resultJSON;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

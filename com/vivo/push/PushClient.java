@@ -18,6 +18,12 @@ public class PushClient {
     public static volatile PushClient sPushClient;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public String getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "3.4.0.0" : (String) invokeV.objValue;
+    }
+
     public PushClient(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,9 +44,10 @@ public class PushClient {
 
     private void checkParam(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && str == null) {
-            throw new IllegalArgumentException("PushManager String param should not be ".concat(String.valueOf(str)));
+        if ((interceptable != null && interceptable.invokeL(65537, this, str) != null) || str != null) {
+            return;
         }
+        throw new IllegalArgumentException("PushManager String param should not be ".concat(String.valueOf(str)));
     }
 
     public static synchronized PushClient getInstance(Context context) {
@@ -59,81 +66,10 @@ public class PushClient {
         return (PushClient) invokeL.objValue;
     }
 
-    public void bindAlias(String str, IPushActionListener iPushActionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, iPushActionListener) == null) {
-            checkParam(str);
-            e.a().a(str, iPushActionListener);
-        }
-    }
-
-    public void checkManifest() throws VivoPushException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e.a().b();
-        }
-    }
-
-    public void delTopic(String str, IPushActionListener iPushActionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iPushActionListener) == null) {
-            ArrayList<String> arrayList = new ArrayList<>(1);
-            arrayList.add(str);
-            e.a().b(arrayList, iPushActionListener);
-        }
-    }
-
-    public String getAlias() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e.a().j() : (String) invokeV.objValue;
-    }
-
-    public String getRegId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e.a().f() : (String) invokeV.objValue;
-    }
-
-    public List<String> getTopics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? e.a().c() : (List) invokeV.objValue;
-    }
-
-    public String getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "3.4.0.0" : (String) invokeV.objValue;
-    }
-
-    public void initialize() throws VivoPushException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            checkManifest();
-            e.a().a(new com.vivo.push.b.f());
-        }
-    }
-
-    public boolean isSupport() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? e.a().d() : invokeV.booleanValue;
-    }
-
     public void setSystemModel(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             e.a().a(z);
-        }
-    }
-
-    public void setTopic(String str, IPushActionListener iPushActionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, iPushActionListener) == null) {
-            ArrayList<String> arrayList = new ArrayList<>(1);
-            arrayList.add(str);
-            e.a().a(arrayList, iPushActionListener);
         }
     }
 
@@ -151,11 +87,88 @@ public class PushClient {
         }
     }
 
+    public void bindAlias(String str, IPushActionListener iPushActionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, iPushActionListener) == null) {
+            checkParam(str);
+            e.a().a(str, iPushActionListener);
+        }
+    }
+
+    public void delTopic(String str, IPushActionListener iPushActionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iPushActionListener) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            arrayList.add(str);
+            e.a().b(arrayList, iPushActionListener);
+        }
+    }
+
+    public void setTopic(String str, IPushActionListener iPushActionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, iPushActionListener) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            arrayList.add(str);
+            e.a().a(arrayList, iPushActionListener);
+        }
+    }
+
     public void unBindAlias(String str, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, iPushActionListener) == null) {
             checkParam(str);
             e.a().b(str, iPushActionListener);
         }
+    }
+
+    public void checkManifest() throws VivoPushException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            e.a().b();
+        }
+    }
+
+    public String getAlias() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return e.a().j();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRegId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return e.a().f();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List getTopics() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return e.a().c();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void initialize() throws VivoPushException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            checkManifest();
+            e.a().a(new com.vivo.push.b.f());
+        }
+    }
+
+    public boolean isSupport() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return e.a().d();
+        }
+        return invokeV.booleanValue;
     }
 }

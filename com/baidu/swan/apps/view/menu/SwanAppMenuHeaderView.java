@@ -9,19 +9,16 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fh3;
-import com.baidu.tieba.ig3;
-import com.baidu.tieba.io2;
-import com.baidu.tieba.ja2;
-import com.baidu.tieba.k33;
-import com.baidu.tieba.oh4;
-import com.baidu.tieba.sm2;
+import com.baidu.tieba.gh3;
+import com.baidu.tieba.jg3;
+import com.baidu.tieba.jo2;
+import com.baidu.tieba.ka2;
+import com.baidu.tieba.l33;
+import com.baidu.tieba.ph4;
+import com.baidu.tieba.tm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +44,17 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     public Runnable n;
 
     /* loaded from: classes3.dex */
-    public class a implements ig3.b {
+    public interface e {
+        void onClick(View view2);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface f {
+        boolean onLongClick(View view2);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements jg3.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppMenuHeaderView a;
@@ -70,13 +77,12 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
             this.a = swanAppMenuHeaderView;
         }
 
-        @Override // com.baidu.tieba.ig3.b
+        @Override // com.baidu.tieba.jg3.b
         public void a(String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || bitmap == null || this.a.b == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) && bitmap != null && this.a.b != null) {
+                this.a.b.setImageBitmap(bitmap);
             }
-            this.a.b.setImageBitmap(bitmap);
         }
     }
 
@@ -107,11 +113,10 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null) {
+                this.a.f.onClick(view2);
+                view2.setPressed(true);
             }
-            this.a.f.onClick(view2);
-            view2.setPressed(true);
         }
     }
 
@@ -142,10 +147,9 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.h == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
+                this.a.h.onClick(view2);
             }
-            this.a.h.onClick(view2);
         }
     }
 
@@ -176,22 +180,12 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.g == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.g == null) {
                 return;
             }
             SwanAppMenuHeaderView swanAppMenuHeaderView = this.a;
             swanAppMenuHeaderView.k = swanAppMenuHeaderView.g.onLongClick(this.a.d);
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface e {
-        void onClick(View view2);
-    }
-
-    /* loaded from: classes3.dex */
-    public interface f {
-        boolean onLongClick(View view2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -215,25 +209,127 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SwanAppMenuHeaderView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SwanAppMenuHeaderView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.k = false;
+        this.n = new d(this);
+        g(FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0814, this));
+        setAttentionBtnStates(ka2.n(l33.K().getAppId()));
+    }
+
+    public void setAttentionBtnShow(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            TextView textView = this.e;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            textView.setVisibility(i);
+        }
+    }
+
+    public void setOnAttentionBtnClickListener(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
+            this.h = eVar;
+        }
+    }
+
+    public void setOnMenuHeaderClickListener(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
+            this.f = eVar;
+        }
+    }
+
+    public void setOnMenuHeaderLongClickListener(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
+            this.g = fVar;
+        }
+    }
+
     public final void g(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.d = view2.findViewById(R.id.obfuscated_res_0x7f090d48);
-            this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc4);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc8);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09043b);
+            this.d = view2.findViewById(R.id.obfuscated_res_0x7f090d55);
+            this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc3);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc7);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090444);
             this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902b5);
-            io2.a W = k33.K().q().W();
-            this.b.setImageBitmap(fh3.k(W.Q(), "SwanAppMenuHeaderView", false, new a(this)));
+            jo2.a W = l33.K().q().W();
+            this.b.setImageBitmap(gh3.k(W.Q(), "SwanAppMenuHeaderView", false, new a(this)));
             this.a.setText(W.K());
             this.a.setMaxWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07068c));
-            if (fh3.P()) {
+            if (gh3.P()) {
                 this.c.setVisibility(0);
                 this.a.setMaxWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07068d));
             }
             this.d.setOnTouchListener(this);
             this.d.setOnClickListener(new b(this));
             this.e.setOnClickListener(new c(this));
+        }
+    }
+
+    public void setAttentionBtnStates(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            if (tm2.y0().d()) {
+                this.e.setText(R.string.obfuscated_res_0x7f0f0161);
+                this.e.setBackground(ph4.d(getContext(), R.drawable.obfuscated_res_0x7f0811d1));
+                this.e.setTextColor(ph4.b(getContext(), R.color.obfuscated_res_0x7f060ab5));
+            } else if (!z) {
+                this.e.setText(R.string.obfuscated_res_0x7f0f0161);
+                this.e.setTypeface(Typeface.create("sans-serif-medium", 1));
+                this.e.setBackground(ph4.d(getContext(), R.drawable.obfuscated_res_0x7f0811a5));
+                this.e.setTextColor(ph4.c(getContext(), R.color.obfuscated_res_0x7f060aa4));
+            } else {
+                this.e.setText(R.string.obfuscated_res_0x7f0f12ee);
+                this.e.setTypeface(Typeface.create("sans-serif", 0));
+                this.e.setBackground(ph4.d(getContext(), R.drawable.obfuscated_res_0x7f0811ac));
+                this.e.setTextColor(ph4.c(getContext(), R.color.obfuscated_res_0x7f060aa5));
+            }
         }
     }
 
@@ -268,7 +364,18 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
             int y = (int) motionEvent.getY();
             int action = motionEvent.getAction();
             if (action != 0) {
-                if (action == 1) {
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action == 3) {
+                            removeCallbacks(this.n);
+                            this.k = false;
+                            view2.setPressed(false);
+                        }
+                    } else if (Math.abs(this.i - x) > 10 || Math.abs(this.j - y) > 10) {
+                        removeCallbacks(this.n);
+                        this.k = false;
+                    }
+                } else {
                     removeCallbacks(this.n);
                     if (!this.k && (eVar = this.f) != null) {
                         eVar.onClick(this.d);
@@ -276,15 +383,6 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
                     this.k = false;
                     view2.setPressed(false);
                     return false;
-                } else if (action != 2) {
-                    if (action == 3) {
-                        removeCallbacks(this.n);
-                        this.k = false;
-                        view2.setPressed(false);
-                    }
-                } else if (Math.abs(this.i - x) > 10 || Math.abs(this.j - y) > 10) {
-                    removeCallbacks(this.n);
-                    this.k = false;
                 }
             } else if (this.g == null) {
                 return super.onTouchEvent(motionEvent);
@@ -299,100 +397,5 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    public void setAttentionBtnShow(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.e.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public void setAttentionBtnStates(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (sm2.y0().d()) {
-                this.e.setText(R.string.obfuscated_res_0x7f0f0161);
-                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f0811c0));
-                this.e.setTextColor(oh4.b(getContext(), R.color.obfuscated_res_0x7f060ab5));
-            } else if (!z) {
-                this.e.setText(R.string.obfuscated_res_0x7f0f0161);
-                this.e.setTypeface(Typeface.create("sans-serif-medium", 1));
-                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f081194));
-                this.e.setTextColor(oh4.c(getContext(), R.color.obfuscated_res_0x7f060aa4));
-            } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f12da);
-                this.e.setTypeface(Typeface.create("sans-serif", 0));
-                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f08119b));
-                this.e.setTextColor(oh4.c(getContext(), R.color.obfuscated_res_0x7f060aa5));
-            }
-        }
-    }
-
-    public void setOnAttentionBtnClickListener(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.h = eVar;
-        }
-    }
-
-    public void setOnMenuHeaderClickListener(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            this.f = eVar;
-        }
-    }
-
-    public void setOnMenuHeaderLongClickListener(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.g = fVar;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwanAppMenuHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppMenuHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.k = false;
-        this.n = new d(this);
-        g(FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0813, this));
-        setAttentionBtnStates(ja2.n(k33.K().getAppId()));
     }
 }

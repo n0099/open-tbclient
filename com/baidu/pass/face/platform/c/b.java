@@ -12,7 +12,6 @@ import com.baidu.pass.face.platform.IDetectStrategy;
 import com.baidu.pass.face.platform.IDetectStrategyCallback;
 import com.baidu.pass.face.platform.listener.ISecurityCallback;
 import com.baidu.pass.face.platform.model.FaceExtInfo;
-import com.baidu.pass.face.platform.model.ImageInfo;
 import com.baidu.pass.main.facesdk.FaceInfo;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
@@ -48,9 +47,9 @@ public class b implements IDetectStrategy {
     public final com.baidu.pass.face.platform.a.b o;
     public int q;
     public long r;
-    public Map<FaceStatusNewEnum, String> s;
-    public HashMap<String, ImageInfo> t;
-    public HashMap<String, ImageInfo> u;
+    public Map s;
+    public HashMap t;
+    public HashMap u;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -124,8 +123,8 @@ public class b implements IDetectStrategy {
         this.q = 0;
         this.r = 0L;
         this.s = new HashMap();
-        this.t = new HashMap<>();
-        this.u = new HashMap<>();
+        this.t = new HashMap();
+        this.u = new HashMap();
         com.baidu.pass.face.platform.a.a.b();
         com.baidu.pass.face.platform.a.a.b("ca", "Baidu-IDL-FaceSDK4.1.1");
         com.baidu.pass.face.platform.a.a.b("version", "4.1.1");
@@ -165,7 +164,7 @@ public class b implements IDetectStrategy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, faceStatusNewEnum)) == null) {
             if (this.s.containsKey(faceStatusNewEnum)) {
-                return this.s.get(faceStatusNewEnum);
+                return (String) this.s.get(faceStatusNewEnum);
             }
             int tipsId = FaceEnvironment.getTipsId(faceStatusNewEnum);
             if (tipsId <= 0 || (context = this.b) == null) {
@@ -179,12 +178,12 @@ public class b implements IDetectStrategy {
     }
 
     private void a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f) {
-        ArrayList<ImageInfo> a2;
+        ArrayList a2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f)}) == null) || (a2 = this.h.a(faceExtInfo, bDFaceImageInstance)) == null || a2.size() <= 0) {
             return;
         }
-        HashMap<String, ImageInfo> hashMap = this.t;
+        HashMap hashMap = this.t;
         hashMap.put("bestCropDetectImage_" + i + "_" + f + "_" + System.currentTimeMillis(), a2.get(0));
     }
 
@@ -346,12 +345,12 @@ public class b implements IDetectStrategy {
     }
 
     private void b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f) {
-        ArrayList<ImageInfo> b;
+        ArrayList b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f)}) == null) || (b = this.h.b(faceExtInfo, bDFaceImageInstance)) == null || b.size() <= 0) {
             return;
         }
-        HashMap<String, ImageInfo> hashMap = this.u;
+        HashMap hashMap = this.u;
         hashMap.put("bestSrcDetectImage_" + i + "_" + f + "_" + System.currentTimeMillis(), b.get(0));
     }
 
@@ -403,11 +402,11 @@ public class b implements IDetectStrategy {
             if (bVar != null) {
                 bVar.a();
             }
-            HashMap<String, ImageInfo> hashMap = this.t;
+            HashMap hashMap = this.t;
             if (hashMap != null) {
                 hashMap.clear();
             }
-            HashMap<String, ImageInfo> hashMap2 = this.u;
+            HashMap hashMap2 = this.u;
             if (hashMap2 != null) {
                 hashMap2.clear();
             }

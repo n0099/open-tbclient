@@ -46,12 +46,24 @@ public class CriusConstants {
     public static boolean isUndefined(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? Float.compare(f, Float.NaN) == 0 : invokeF.booleanValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) {
+            if (Float.compare(f, Float.NaN) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeF.booleanValue;
     }
 
     public static boolean isUndefined(CriusValue criusValue) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, criusValue)) == null) ? criusValue.unit == CriusUnit.UNDEFINED : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, criusValue)) == null) {
+            if (criusValue.unit == CriusUnit.UNDEFINED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

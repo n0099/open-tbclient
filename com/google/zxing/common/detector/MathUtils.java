@@ -11,6 +11,15 @@ public final class MathUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int round(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
+            return (int) (f + (f < 0.0f ? -0.5f : 0.5f));
+        }
+        return invokeF.intValue;
+    }
+
     public MathUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,13 +45,15 @@ public final class MathUtils {
         return invokeCommon.floatValue;
     }
 
-    public static int round(float f) {
-        InterceptResult invokeF;
+    public static float distance(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
-            return (int) (f + (f < 0.0f ? -0.5f : 0.5f));
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
+            int i5 = i - i3;
+            int i6 = i2 - i4;
+            return (float) Math.sqrt((i5 * i5) + (i6 * i6));
         }
-        return invokeF.intValue;
+        return invokeIIII.floatValue;
     }
 
     public static int sum(int[] iArr) {
@@ -56,16 +67,5 @@ public final class MathUtils {
             return i;
         }
         return invokeL.intValue;
-    }
-
-    public static float distance(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
-            int i5 = i - i3;
-            int i6 = i2 - i4;
-            return (float) Math.sqrt((i5 * i5) + (i6 * i6));
-        }
-        return invokeIIII.floatValue;
     }
 }

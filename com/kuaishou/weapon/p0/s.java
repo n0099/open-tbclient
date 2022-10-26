@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.searchbox.v8engine.V8Engine;
@@ -43,9 +44,9 @@ public class s {
     public static s c;
     public static Application d;
     public static Random e;
-    public static Map<String, t> f;
-    public static Map<String, t> g;
-    public static List<Integer> h;
+    public static Map f;
+    public static Map g;
+    public static List h;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
@@ -83,19 +84,19 @@ public class s {
         }
     }
 
-    private Pair<Boolean, String> a(String str, String str2) {
+    private Pair a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return new Pair<>(Boolean.FALSE, "");
+                return new Pair(Boolean.FALSE, "");
             }
             File file = new File(str2);
             if (n3.a(file)) {
                 String a = g.a(file);
-                return TextUtils.isEmpty(a) ? new Pair<>(Boolean.FALSE, "") : !a.equalsIgnoreCase(str) ? new Pair<>(Boolean.FALSE, a) : new Pair<>(Boolean.TRUE, "");
+                return TextUtils.isEmpty(a) ? new Pair(Boolean.FALSE, "") : !a.equalsIgnoreCase(str) ? new Pair(Boolean.FALSE, a) : new Pair(Boolean.TRUE, "");
             }
-            return new Pair<>(Boolean.FALSE, "");
+            return new Pair(Boolean.FALSE, "");
         }
         return (Pair) invokeLL.objValue;
     }
@@ -122,7 +123,7 @@ public class s {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(t tVar, String str, String str2, HashSet<String> hashSet, byte[] bArr, StringBuilder sb, boolean z) {
+    private void a(t tVar, String str, String str2, HashSet hashSet, byte[] bArr, StringBuilder sb, boolean z) {
         FileOutputStream fileOutputStream;
         String str3;
         int read;
@@ -345,7 +346,7 @@ public class s {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(t tVar, String str, String str2, boolean z) {
-        HashSet<String> hashSet;
+        HashSet hashSet;
         boolean z2;
         String replace;
         StringBuilder sb;
@@ -371,7 +372,7 @@ public class s {
             return;
         }
         String str6 = str;
-        hashSet = new HashSet<>();
+        hashSet = new HashSet();
         try {
             try {
                 try {
@@ -703,7 +704,7 @@ public class s {
                 hashMap.put("m", b);
                 hashMap.put("m1", Build.CPU_ABI);
                 hashMap.put("m2", Build.CPU_ABI2);
-                hashMap.put("l", "S");
+                hashMap.put("l", ExifInterface.LATITUDE_SOUTH);
                 h1.a(d, "1002001", hashMap);
                 return;
             }
@@ -739,7 +740,7 @@ public class s {
             synchronized (this) {
                 if (tVar != null) {
                     if (!TextUtils.isEmpty(tVar.e)) {
-                        t tVar2 = f.get(tVar.e);
+                        t tVar2 = (t) f.get(tVar.e);
                         if (tVar2 != null) {
                             if (tVar2.d.equals(tVar.d)) {
                                 return true;
@@ -840,7 +841,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                return g.get(str);
+                return (t) g.get(str);
             } catch (Throwable unused) {
                 return null;
             }
@@ -848,7 +849,7 @@ public class s {
         return (t) invokeL.objValue;
     }
 
-    public Map<String, t> a() {
+    public Map a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g : (Map) invokeV.objValue;
@@ -870,7 +871,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                return f.get(str);
+                return (t) f.get(str);
             } catch (Throwable unused) {
                 return null;
             }
@@ -882,7 +883,7 @@ public class s {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            t tVar = g.get(str);
+            t tVar = (t) g.get(str);
             if (tVar != null) {
                 f.remove(tVar.e);
                 g.remove(str);
@@ -903,7 +904,7 @@ public class s {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            t tVar = f.get(str);
+            t tVar = (t) f.get(str);
             if (tVar != null) {
                 f.remove(str);
                 g.remove(tVar.c);

@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs.commontab;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.hk6;
+import com.baidu.tieba.ok6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
 /* loaded from: classes4.dex */
-public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<hk6, GeneralTabListResIdl> {
+public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,16 +34,25 @@ public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage
         }
     }
 
+    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
+    public Class getProtobufResponseIdlClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return GeneralTabListResIdl.class;
+        }
+        return (Class) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            hk6 hk6Var = new hk6();
+            ok6 ok6Var = new ok6();
             GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-            hk6Var.a(generalTabListResIdl.data);
+            ok6Var.a(generalTabListResIdl.data);
             if (generalTabListResIdl != null && (error = generalTabListResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -52,17 +60,9 @@ public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage
                 }
                 setErrorString(generalTabListResIdl.error.usermsg);
             }
-            setData(hk6Var);
+            setData(ok6Var);
             return generalTabListResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
-    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class<GeneralTabListResIdl> getProtobufResponseIdlClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? GeneralTabListResIdl.class : (Class) invokeV.objValue;
     }
 }

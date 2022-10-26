@@ -21,6 +21,8 @@ public abstract class AbstractMessageParser implements HttpMessageParser {
     public transient /* synthetic */ FieldHolder $fh;
     public final LineParser lineParser;
 
+    public abstract HttpMessage parseHead(SessionInputBuffer sessionInputBuffer) throws IOException, HttpException, ParseException;
+
     public AbstractMessageParser(SessionInputBuffer sessionInputBuffer, LineParser lineParser, HttpParams httpParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,6 +59,4 @@ public abstract class AbstractMessageParser implements HttpMessageParser {
         }
         return (HttpMessage) invokeV.objValue;
     }
-
-    public abstract HttpMessage parseHead(SessionInputBuffer sessionInputBuffer) throws IOException, HttpException, ParseException;
 }

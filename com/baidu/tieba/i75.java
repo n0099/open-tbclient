@@ -1,189 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.editortools.EditorTools;
+import android.app.Activity;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes4.dex */
-public class i75 extends l75 {
+public class i75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements i55 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j75 a;
-        public final /* synthetic */ EditorTools b;
-        public final /* synthetic */ i75 c;
-
-        public a(i75 i75Var, j75 j75Var, EditorTools editorTools) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i75Var, j75Var, editorTools};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 16) {
+                return false;
             }
-            this.c = i75Var;
-            this.a = j75Var;
-            this.b = editorTools;
+            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
         }
-
-        @Override // com.baidu.tieba.i55
-        public void B(h55 h55Var) {
-            j75 j75Var;
-            int size;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || (j75Var = this.a) == null || j75Var.a() == null || h55Var == null) {
-                return;
-            }
-            int i = h55Var.a;
-            if (i == 4) {
-                this.a.e0(h55Var.c.toString());
-            } else if (i == 5) {
-                if (this.b.u()) {
-                    return;
-                }
-                TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
-            } else if (i == 7) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d37);
-            } else if (i == 8) {
-                if (this.c.k(this.a.getContext(), 11001)) {
-                    this.a.G(null, null);
-                }
-            } else if (i != 14) {
-                if (i != 15) {
-                    return;
-                }
-                int intValue = ((Integer) h55Var.c).intValue();
-                if (this.a.v() != null && this.a.v().getChosedFiles() != null && (size = this.a.v().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.getContext().getPageActivity(), 12012, this.a.v(), intValue)));
-                }
-            } else {
-                if (this.a.v() != null) {
-                    this.a.v().setMaxImagesAllowed(1);
-                }
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.a.getContext().getPageActivity(), this.a.v().toJsonString(), true, true);
-                if (!StringUtils.isNull(this.c.m(), true)) {
-                    albumActivityConfig.getIntent().putExtra("from", this.c.m());
-                }
-                if (this.c.l() != null && !StringUtils.isNull(this.c.l().getId(), true)) {
-                    albumActivityConfig.getIntent().putExtra("forum_id", this.c.l().getId());
-                }
-                albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-                ej.x(this.a.getContext().getPageActivity(), this.a.getContext().getPageActivity().getCurrentFocus());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-            }
-        }
+        return invokeL.booleanValue;
     }
 
-    public i75() {
+    public static boolean b(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean k(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
                 return false;
             }
             return true;
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.l75, com.baidu.tieba.j55
-    public l55 b(Context context) {
-        InterceptResult invokeL;
+    public static boolean d(View view2, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setIsFromPb(true);
-            editorTools.setBarMaxLauCount(5);
-            editorTools.setBarLauncherType(5);
-            editorTools.setBackgroundColorId(0);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0201);
-            editorTools.D(false);
-            editorTools.setMoreButtonAtEnd(true);
-            j75 j75Var = new j75(editorTools);
-            j75Var.b0(n());
-            j75Var.t = true;
-            return j75Var;
-        }
-        return (l55) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l75, com.baidu.tieba.j55
-    public void c(l55 l55Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l55Var) == null) && (l55Var instanceof j75)) {
-            EditorTools a2 = l55Var.a();
-            a aVar = new a(this, (j75) l55Var, a2);
-            a2.setActionListener(5, aVar);
-            a2.setActionListener(4, aVar);
-            a2.setActionListener(7, aVar);
-            a2.setActionListener(14, aVar);
-            a2.setActionListener(15, aVar);
-            a2.setActionListener(8, aVar);
-            a2.setActionListener(32, aVar);
-            a2.setActionListener(45, aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.l75, com.baidu.tieba.j55
-    public void d(l55 l55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l55Var) == null) {
-            EditorTools a2 = l55Var.a();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            a2.d(new d65(a2.getContext(), 1));
-            a2.d(new k75(a2.getContext(), true, false, 12004));
-            a2.h(arrayList);
-            s55 n = a2.n(5);
-            if (n != null) {
-                n.l = 2;
-                n.e(false);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == h75.a(view2.getContext())) {
+                return false;
             }
-            a2.f();
-            a2.A(new h55(35, 5, Boolean.FALSE));
+            int h = g75.h(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
+                return true;
+            }
+            layoutParams.height = h;
+            view2.requestLayout();
+            return true;
         }
+        return invokeLI.booleanValue;
     }
 }

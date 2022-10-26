@@ -38,6 +38,32 @@ public class UriHelper {
         }
     }
 
+    public UriHelper(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mUriObj = null;
+        this.mUri = "";
+        this.mUriQueryObj = null;
+        if (uri != null) {
+            this.mUriObj = uri;
+            init(uri);
+            return;
+        }
+        throw new NullPointerException("uri is null");
+    }
+
     public UriHelper(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,16 +117,9 @@ public class UriHelper {
         }
     }
 
-    public void addParameterReplaceIfExist(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.mUriQueryObj.addParam(str, str2);
-        }
-    }
-
     public void addWholeParameterReplaceIfExist(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         String[] split = str.split("=");
@@ -112,19 +131,10 @@ public class UriHelper {
     public String getParameter(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.mUriQueryObj.getParameter(str) : (String) invokeL.objValue;
-    }
-
-    public String getQuery() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUriQueryObj.getQuery() : (String) invokeV.objValue;
-    }
-
-    public String getServerUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUri : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.mUriQueryObj.getParameter(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public void removeParameter(String str) {
@@ -134,42 +144,41 @@ public class UriHelper {
         }
     }
 
+    public void addParameterReplaceIfExist(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.mUriQueryObj.addParam(str, str2);
+        }
+    }
+
+    public String getQuery() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mUriQueryObj.getQuery();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getServerUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mUri;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             String str = this.mUri;
-            if (TextUtils.isEmpty(this.mUriQueryObj.getQuery())) {
-                return str;
+            if (!TextUtils.isEmpty(this.mUriQueryObj.getQuery())) {
+                return str + "?" + this.mUriQueryObj.getQuery();
             }
-            return str + "?" + this.mUriQueryObj.getQuery();
+            return str;
         }
         return (String) invokeV.objValue;
-    }
-
-    public UriHelper(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mUriObj = null;
-        this.mUri = "";
-        this.mUriQueryObj = null;
-        if (uri != null) {
-            this.mUriObj = uri;
-            init(uri);
-            return;
-        }
-        throw new NullPointerException("uri is null");
     }
 }

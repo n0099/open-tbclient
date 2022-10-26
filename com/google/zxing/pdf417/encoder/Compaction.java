@@ -61,12 +61,18 @@ public final class Compaction {
     public static Compaction valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Compaction) Enum.valueOf(Compaction.class, str) : (Compaction) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Compaction) Enum.valueOf(Compaction.class, str);
+        }
+        return (Compaction) invokeL.objValue;
     }
 
     public static Compaction[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Compaction[]) $VALUES.clone() : (Compaction[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Compaction[]) $VALUES.clone();
+        }
+        return (Compaction[]) invokeV.objValue;
     }
 }

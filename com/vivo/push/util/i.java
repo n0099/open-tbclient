@@ -35,7 +35,10 @@ public final class i implements BaseNotifyLayoutAdapter {
     public final int getNotificationLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getIdentifier("push_notify", TtmlNode.TAG_LAYOUT, this.b) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getIdentifier("push_notify", TtmlNode.TAG_LAYOUT, this.b);
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -83,10 +86,10 @@ public final class i implements BaseNotifyLayoutAdapter {
                 return -1;
             }
             if (j.b) {
-                if (j.c) {
-                    return Color.parseColor("#ff999999");
+                if (!j.c) {
+                    return -1;
                 }
-                return -1;
+                return Color.parseColor("#ff999999");
             }
             return -16777216;
         }

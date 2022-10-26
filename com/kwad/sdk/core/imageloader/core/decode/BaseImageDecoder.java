@@ -23,7 +23,7 @@ public class BaseImageDecoder implements ImageDecoder {
     public final boolean loggingEnabled;
 
     /* loaded from: classes7.dex */
-    public static class ExifInfo {
+    public class ExifInfo {
         public final boolean flipHorizontal;
         public final int rotation;
 
@@ -39,7 +39,7 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     /* loaded from: classes7.dex */
-    public static class ImageFileInfo {
+    public class ImageFileInfo {
         public final ExifInfo exif;
         public final ImageSize imageSize;
 
@@ -131,7 +131,7 @@ public class BaseImageDecoder implements ImageDecoder {
         } catch (IOException unused) {
             L.w("Can't read EXIF tags from file [%s]", str);
         }
-        switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt("Orientation", 1)) {
+        switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
             case 1:
                 z2 = false;
                 z = z2;

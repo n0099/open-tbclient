@@ -3,6 +3,8 @@ package com.baidu.titan.sdk.runtime;
 public abstract class ClassClinitInterceptorDelegate implements ClassClinitInterceptable {
     public volatile ClassClinitInterceptable delegate;
 
+    public abstract boolean waitLoad(int i, String str);
+
     @Override // com.baidu.titan.sdk.runtime.ClassClinitInterceptable
     public InterceptResult invokeClinit(int i, String str) {
         if (this.delegate == null) {
@@ -24,6 +26,4 @@ public abstract class ClassClinitInterceptorDelegate implements ClassClinitInter
         }
         return this.delegate.invokePostClinit(i, str);
     }
-
-    public abstract boolean waitLoad(int i, String str);
 }

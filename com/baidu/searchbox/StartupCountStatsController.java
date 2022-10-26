@@ -44,27 +44,26 @@ public class StartupCountStatsController {
         }
     }
 
-    public static void init() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || hasInit) {
-            return;
-        }
-        synchronized (StartupCountStatsController.class) {
-            if (!hasInit) {
-                if (BdBoxActivityManager.getMainGlobalActivityLifecycle() == null) {
-                    BdBoxActivityManager.setMainGlobalActivityLifecycle(GlobalActivityLifecycle.getInstance());
-                }
-                BdBoxActivityManager.registerLifeCycle(new StartupCountStats());
-                hasInit = true;
-            }
-        }
-    }
-
     public static void resetDefaultUploadID() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             StartupCountStats.setStartupCountUploadId(StartupCountStatsUtils.MEG_STARTUP_UBC_ID);
             StartupCountStats.setUseDurationUploadId("18");
+        }
+    }
+
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !hasInit) {
+            synchronized (StartupCountStatsController.class) {
+                if (!hasInit) {
+                    if (BdBoxActivityManager.getMainGlobalActivityLifecycle() == null) {
+                        BdBoxActivityManager.setMainGlobalActivityLifecycle(GlobalActivityLifecycle.getInstance());
+                    }
+                    BdBoxActivityManager.registerLifeCycle(new StartupCountStats());
+                    hasInit = true;
+                }
+            }
         }
     }
 }

@@ -10,6 +10,16 @@ public class DefaultLaunchType implements ILaunchType {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.aperf.param.launch.ILaunchType
+    public String getLaunchType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public DefaultLaunchType() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,15 +32,5 @@ public class DefaultLaunchType implements ILaunchType {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.aperf.param.launch.ILaunchType
-    public String getLaunchType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 }

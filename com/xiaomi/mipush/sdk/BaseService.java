@@ -18,12 +18,12 @@ public abstract class BaseService extends Service {
     public a a;
 
     /* loaded from: classes8.dex */
-    public static class a extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<BaseService> a;
+        public WeakReference a;
 
-        public a(WeakReference<BaseService> weakReference) {
+        public a(WeakReference weakReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,14 +53,14 @@ public abstract class BaseService extends Service {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            WeakReference<BaseService> weakReference;
+            WeakReference weakReference;
             BaseService baseService;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message.what != 1001 || (weakReference = this.a) == null || (baseService = weakReference.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || message.what != 1001 || (weakReference = this.a) == null || (baseService = (BaseService) weakReference.get()) == null) {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler " + baseService.toString() + " kill self");
-            if (!baseService.mo110a()) {
+            if (!baseService.mo109a()) {
                 baseService.stopSelf();
                 return;
             }
@@ -84,7 +84,7 @@ public abstract class BaseService extends Service {
     }
 
     /* renamed from: a */
-    public abstract boolean mo110a();
+    public abstract boolean mo109a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

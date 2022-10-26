@@ -1,7 +1,5 @@
 package androidx.webkit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,12 +12,14 @@ public abstract class WebResourceErrorCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface NetErrorCode {
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public abstract CharSequence getDescription();
+
+    public abstract int getErrorCode();
+
     public WebResourceErrorCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,9 +33,4 @@ public abstract class WebResourceErrorCompat {
             }
         }
     }
-
-    @NonNull
-    public abstract CharSequence getDescription();
-
-    public abstract int getErrorCode();
 }

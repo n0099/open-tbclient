@@ -47,14 +47,48 @@ public class WebRtcAudioRecord {
 
     /* renamed from: org.webrtc.voiceengine.WebRtcAudioRecord$1  reason: invalid class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    /* loaded from: classes9.dex */
+    public interface WebRtcAudioRecordErrorCallback {
+        void onWebRtcAudioRecordError(String str);
+
+        void onWebRtcAudioRecordInitError(String str);
+
+        void onWebRtcAudioRecordStartError(AudioRecordStartErrorCode audioRecordStartErrorCode, String str);
+    }
+
+    /* loaded from: classes9.dex */
+    public interface WebRtcAudioRecordSamplesReadyCallback {
+        void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
+    }
+
+    private int channelCountToConfiguration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) ? i == 1 ? 16 : 12 : invokeI.intValue;
+    }
+
+    public static int getDefaultAudioSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return 7;
+        }
+        return invokeV.intValue;
+    }
+
+    private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void nativeDataIsRecorded(int i, long j);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class AudioRecordStartErrorCode {
+    public final class AudioRecordStartErrorCode {
         public static final /* synthetic */ AudioRecordStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AudioRecordStartErrorCode AUDIO_RECORD_START_EXCEPTION;
@@ -102,13 +136,19 @@ public class WebRtcAudioRecord {
         public static AudioRecordStartErrorCode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AudioRecordStartErrorCode) Enum.valueOf(AudioRecordStartErrorCode.class, str) : (AudioRecordStartErrorCode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AudioRecordStartErrorCode) Enum.valueOf(AudioRecordStartErrorCode.class, str);
+            }
+            return (AudioRecordStartErrorCode) invokeL.objValue;
         }
 
         public static AudioRecordStartErrorCode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AudioRecordStartErrorCode[]) $VALUES.clone() : (AudioRecordStartErrorCode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AudioRecordStartErrorCode[]) $VALUES.clone();
+            }
+            return (AudioRecordStartErrorCode[]) invokeV.objValue;
         }
     }
 
@@ -143,11 +183,17 @@ public class WebRtcAudioRecord {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Process.setThreadPriority(-19);
                 Logging.d(WebRtcAudioRecord.TAG, "AudioRecordThread" + WebRtcAudioUtils.getThreadInfo());
-                WebRtcAudioRecord.assertTrue(this.this$0.audioRecord.getRecordingState() == 3);
+                if (this.this$0.audioRecord.getRecordingState() == 3) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                WebRtcAudioRecord.assertTrue(z);
                 System.nanoTime();
                 while (this.keepAlive) {
                     int read = this.this$0.audioRecord.read(this.this$0.byteBuffer, this.this$0.byteBuffer.capacity());
@@ -192,41 +238,13 @@ public class WebRtcAudioRecord {
     }
 
     /* loaded from: classes9.dex */
-    public static class AudioSamples {
+    public class AudioSamples {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int audioFormat;
         public final int channelCount;
         public final byte[] data;
         public final int sampleRate;
-
-        public /* synthetic */ AudioSamples(AudioRecord audioRecord, byte[] bArr, AnonymousClass1 anonymousClass1) {
-            this(audioRecord, bArr);
-        }
-
-        public int getAudioFormat() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.audioFormat : invokeV.intValue;
-        }
-
-        public int getChannelCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.channelCount : invokeV.intValue;
-        }
-
-        public byte[] getData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.data : (byte[]) invokeV.objValue;
-        }
-
-        public int getSampleRate() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sampleRate : invokeV.intValue;
-        }
 
         public AudioSamples(AudioRecord audioRecord, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -248,20 +266,46 @@ public class WebRtcAudioRecord {
             this.sampleRate = audioRecord.getSampleRate();
             this.data = bArr;
         }
-    }
 
-    /* loaded from: classes9.dex */
-    public interface WebRtcAudioRecordErrorCallback {
-        void onWebRtcAudioRecordError(String str);
+        public /* synthetic */ AudioSamples(AudioRecord audioRecord, byte[] bArr, AnonymousClass1 anonymousClass1) {
+            this(audioRecord, bArr);
+        }
 
-        void onWebRtcAudioRecordInitError(String str);
+        public int getAudioFormat() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.audioFormat;
+            }
+            return invokeV.intValue;
+        }
 
-        void onWebRtcAudioRecordStartError(AudioRecordStartErrorCode audioRecordStartErrorCode, String str);
-    }
+        public int getChannelCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.channelCount;
+            }
+            return invokeV.intValue;
+        }
 
-    /* loaded from: classes9.dex */
-    public interface WebRtcAudioRecordSamplesReadyCallback {
-        void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
+        public byte[] getData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.data;
+            }
+            return (byte[]) invokeV.objValue;
+        }
+
+        public int getSampleRate() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.sampleRate;
+            }
+            return invokeV.intValue;
+        }
     }
 
     static {
@@ -280,6 +324,25 @@ public class WebRtcAudioRecord {
         int defaultAudioSource = getDefaultAudioSource();
         DEFAULT_AUDIO_SOURCE = defaultAudioSource;
         audioSource = defaultAudioSource;
+    }
+
+    private void logMainParametersExtended() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && Build.VERSION.SDK_INT >= 23) {
+            Logging.d(TAG, "AudioRecord: buffer size in frames: " + this.audioRecord.getBufferSizeInFrames());
+        }
+    }
+
+    private void releaseAudioResources() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            Logging.d(TAG, "releaseAudioResources");
+            AudioRecord audioRecord = this.audioRecord;
+            if (audioRecord != null) {
+                audioRecord.release();
+                this.audioRecord = null;
+            }
+        }
     }
 
     public WebRtcAudioRecord(long j) {
@@ -304,15 +367,58 @@ public class WebRtcAudioRecord {
 
     public static void assertTrue(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65547, null, z) == null) && !z) {
-            throw new AssertionError("Expected condition to be true");
+        if ((interceptable != null && interceptable.invokeZ(65547, null, z) != null) || z) {
+            return;
+        }
+        throw new AssertionError("Expected condition to be true");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void reportWebRtcAudioRecordError(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, this, str) == null) {
+            Logging.e(TAG, "Run-time recording error: " + str);
+            WebRtcAudioUtils.logAudioState(TAG);
+            WebRtcAudioRecordErrorCallback webRtcAudioRecordErrorCallback = errorCallback;
+            if (webRtcAudioRecordErrorCallback != null) {
+                webRtcAudioRecordErrorCallback.onWebRtcAudioRecordError(str);
+            }
         }
     }
 
-    private int channelCountToConfiguration(int i) {
-        InterceptResult invokeI;
+    private void reportWebRtcAudioRecordInitError(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) ? i == 1 ? 16 : 12 : invokeI.intValue;
+        if (interceptable == null || interceptable.invokeL(65559, this, str) == null) {
+            Logging.e(TAG, "Init recording error: " + str);
+            WebRtcAudioUtils.logAudioState(TAG);
+            WebRtcAudioRecordErrorCallback webRtcAudioRecordErrorCallback = errorCallback;
+            if (webRtcAudioRecordErrorCallback != null) {
+                webRtcAudioRecordErrorCallback.onWebRtcAudioRecordInitError(str);
+            }
+        }
+    }
+
+    public static void setErrorCallback(WebRtcAudioRecordErrorCallback webRtcAudioRecordErrorCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65562, null, webRtcAudioRecordErrorCallback) == null) {
+            Logging.d(TAG, "Set error callback");
+            errorCallback = webRtcAudioRecordErrorCallback;
+        }
+    }
+
+    public static void setMicrophoneMute(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65563, null, z) == null) {
+            Logging.w(TAG, "setMicrophoneMute(" + z + SmallTailInfo.EMOTION_SUFFIX);
+            microphoneMute = z;
+        }
+    }
+
+    public static void setOnAudioSamplesReady(WebRtcAudioRecordSamplesReadyCallback webRtcAudioRecordSamplesReadyCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65564, null, webRtcAudioRecordSamplesReadyCallback) == null) {
+            audioSamplesReadyCallback = webRtcAudioRecordSamplesReadyCallback;
+        }
     }
 
     private boolean enableBuiltInAEC(boolean z) {
@@ -345,13 +451,14 @@ public class WebRtcAudioRecord {
         return invokeZ.booleanValue;
     }
 
-    public static int getDefaultAudioSource() {
-        InterceptResult invokeV;
+    public static synchronized void setAudioSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return 7;
+        if (interceptable == null || interceptable.invokeI(65561, null, i) == null) {
+            synchronized (WebRtcAudioRecord.class) {
+                Logging.w(TAG, "Audio source is changed from: " + audioSource + " to " + i);
+                audioSource = i;
+            }
         }
-        return invokeV.intValue;
     }
 
     private int initRecording(int i, int i2) {
@@ -408,54 +515,32 @@ public class WebRtcAudioRecord {
         }
     }
 
-    private void logMainParametersExtended() {
+    private boolean stopRecording() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || Build.VERSION.SDK_INT < 23) {
-            return;
-        }
-        Logging.d(TAG, "AudioRecord: buffer size in frames: " + this.audioRecord.getBufferSizeInFrames());
-    }
-
-    private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeDataIsRecorded(int i, long j);
-
-    private void releaseAudioResources() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            Logging.d(TAG, "releaseAudioResources");
-            AudioRecord audioRecord = this.audioRecord;
-            if (audioRecord != null) {
-                audioRecord.release();
-                this.audioRecord = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
+            Logging.d(TAG, "stopRecording");
+            if (this.audioThread != null) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void reportWebRtcAudioRecordError(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, this, str) == null) {
-            Logging.e(TAG, "Run-time recording error: " + str);
-            WebRtcAudioUtils.logAudioState(TAG);
-            WebRtcAudioRecordErrorCallback webRtcAudioRecordErrorCallback = errorCallback;
-            if (webRtcAudioRecordErrorCallback != null) {
-                webRtcAudioRecordErrorCallback.onWebRtcAudioRecordError(str);
+            assertTrue(z);
+            this.audioThread.stopThread();
+            if (!ThreadUtils.joinUninterruptibly(this.audioThread, 2000L)) {
+                Logging.e(TAG, "Join of AudioRecordJavaThread timed out");
+                WebRtcAudioUtils.logAudioState(TAG);
             }
-        }
-    }
-
-    private void reportWebRtcAudioRecordInitError(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, this, str) == null) {
-            Logging.e(TAG, "Init recording error: " + str);
-            WebRtcAudioUtils.logAudioState(TAG);
-            WebRtcAudioRecordErrorCallback webRtcAudioRecordErrorCallback = errorCallback;
-            if (webRtcAudioRecordErrorCallback != null) {
-                webRtcAudioRecordErrorCallback.onWebRtcAudioRecordInitError(str);
+            this.audioThread = null;
+            WebRtcAudioEffects webRtcAudioEffects = this.effects;
+            if (webRtcAudioEffects != null) {
+                webRtcAudioEffects.release();
             }
+            releaseAudioResources();
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
     private void reportWebRtcAudioRecordStartError(AudioRecordStartErrorCode audioRecordStartErrorCode, String str) {
@@ -470,46 +555,25 @@ public class WebRtcAudioRecord {
         }
     }
 
-    public static synchronized void setAudioSource(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65561, null, i) == null) {
-            synchronized (WebRtcAudioRecord.class) {
-                Logging.w(TAG, "Audio source is changed from: " + audioSource + " to " + i);
-                audioSource = i;
-            }
-        }
-    }
-
-    public static void setErrorCallback(WebRtcAudioRecordErrorCallback webRtcAudioRecordErrorCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, webRtcAudioRecordErrorCallback) == null) {
-            Logging.d(TAG, "Set error callback");
-            errorCallback = webRtcAudioRecordErrorCallback;
-        }
-    }
-
-    public static void setMicrophoneMute(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65563, null, z) == null) {
-            Logging.w(TAG, "setMicrophoneMute(" + z + SmallTailInfo.EMOTION_SUFFIX);
-            microphoneMute = z;
-        }
-    }
-
-    public static void setOnAudioSamplesReady(WebRtcAudioRecordSamplesReadyCallback webRtcAudioRecordSamplesReadyCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65564, null, webRtcAudioRecordSamplesReadyCallback) == null) {
-            audioSamplesReadyCallback = webRtcAudioRecordSamplesReadyCallback;
-        }
-    }
-
     private boolean startRecording() {
         InterceptResult invokeV;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
             Logging.d(TAG, "startRecording");
-            assertTrue(this.audioRecord != null);
-            assertTrue(this.audioThread == null);
+            if (this.audioRecord != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            assertTrue(z);
+            if (this.audioThread == null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            assertTrue(z2);
             try {
                 this.audioRecord.startRecording();
                 if (this.audioRecord.getRecordingState() != 3) {
@@ -526,28 +590,6 @@ public class WebRtcAudioRecord {
                 reportWebRtcAudioRecordStartError(audioRecordStartErrorCode2, "AudioRecord.startRecording failed: " + e.getMessage());
                 return false;
             }
-        }
-        return invokeV.booleanValue;
-    }
-
-    private boolean stopRecording() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            Logging.d(TAG, "stopRecording");
-            assertTrue(this.audioThread != null);
-            this.audioThread.stopThread();
-            if (!ThreadUtils.joinUninterruptibly(this.audioThread, 2000L)) {
-                Logging.e(TAG, "Join of AudioRecordJavaThread timed out");
-                WebRtcAudioUtils.logAudioState(TAG);
-            }
-            this.audioThread = null;
-            WebRtcAudioEffects webRtcAudioEffects = this.effects;
-            if (webRtcAudioEffects != null) {
-                webRtcAudioEffects.release();
-            }
-            releaseAudioResources();
-            return true;
         }
         return invokeV.booleanValue;
     }

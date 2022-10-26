@@ -24,10 +24,10 @@ public class PayMethodProxyFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public Map<String, IPaySdkServiceProxy> payMethodProxyMap;
+    public Map payMethodProxyMap;
 
     /* loaded from: classes8.dex */
-    public static class Holder {
+    public class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final PayMethodProxyFactory instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,10 @@ public class PayMethodProxyFactory {
     public static PayMethodProxyFactory instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Holder.instance : (PayMethodProxyFactory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Holder.instance;
+        }
+        return (PayMethodProxyFactory) invokeV.objValue;
     }
 
     public synchronized void addPayServiceProxyMap(PayType payType, IPaySdkServiceProxy iPaySdkServiceProxy) {
@@ -121,13 +124,13 @@ public class PayMethodProxyFactory {
                     }
                     RLog.error("PayMethodProxyFactory", "paySdkServiceProxy is not IWechatSdkProxy ", new Object[0]);
                     return null;
-                } else if (payType == PayType.DXM_PAY) {
+                } else if (payType != PayType.DXM_PAY) {
+                    return null;
+                } else {
                     if (findProxyPayService instanceof IDxmSdkServiceProxy) {
                         return new DxmPayProxy((IDxmSdkServiceProxy) findProxyPayService);
                     }
                     RLog.error("PayMethodProxyFactory", "paySdkServiceProxy is not IDxmSdkServiceProxy ", new Object[0]);
-                    return null;
-                } else {
                     return null;
                 }
             }
@@ -140,7 +143,7 @@ public class PayMethodProxyFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payType)) == null) {
             synchronized (this) {
-                IPaySdkServiceProxy iPaySdkServiceProxy = this.payMethodProxyMap.get(payType.getChannel());
+                IPaySdkServiceProxy iPaySdkServiceProxy = (IPaySdkServiceProxy) this.payMethodProxyMap.get(payType.getChannel());
                 if (iPaySdkServiceProxy == null) {
                     RLog.info("PayMethodProxyFactory", "findProxyPayMethod null paychannel:" + payType.getChannel());
                     return null;

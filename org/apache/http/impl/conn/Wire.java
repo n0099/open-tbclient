@@ -43,6 +43,20 @@ public class Wire {
         return invokeV.booleanValue;
     }
 
+    public void input(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void output(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public void input(InputStream inputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) {
@@ -57,16 +71,16 @@ public class Wire {
         }
     }
 
-    public void input(byte[] bArr, int i, int i2) throws IOException {
+    public void input(String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void output(byte[] bArr, int i, int i2) throws IOException {
+    public void output(String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048586, this, bArr, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -85,30 +99,16 @@ public class Wire {
         }
     }
 
-    public void input(int i) throws IOException {
+    public void input(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void output(int i) throws IOException {
+    public void output(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void input(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void output(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048586, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

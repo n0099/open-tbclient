@@ -3,7 +3,8 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.util.CommonParam;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.mobstat.util.CuidUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,33 +18,6 @@ public final class bx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                str = CommonParam.getCUID(context);
-            } catch (Throwable unused) {
-                str = "";
-            }
-            return TextUtils.isEmpty(str) ? "" : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static HashMap<String, String> a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map != null) {
-                return new HashMap<>(map);
-            }
-            return null;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
     public static String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -56,7 +30,54 @@ public final class bx {
         return (String) invokeJ.objValue;
     }
 
-    public static boolean a(Class<?> cls, String str) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            String str = "";
+            if (!bu.a().a(false)) {
+                return "";
+            }
+            try {
+                str = DeviceId.getCUID(context);
+            } catch (Throwable unused) {
+            }
+            if (TextUtils.isEmpty(str)) {
+                return CuidUtil.getCuid3(context);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (str.length() > i) {
+                return str.substring(0, i);
+            }
+            return str;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static HashMap a(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            if (map != null) {
+                return new HashMap(map);
+            }
+            return null;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static boolean a(Class cls, String str) {
         InterceptResult invokeLL;
         StackTraceElement[] stackTrace;
         Interceptable interceptable = $ic;
@@ -77,17 +98,5 @@ public final class bx {
             return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            return str.length() > i ? str.substring(0, i) : str;
-        }
-        return (String) invokeLI.objValue;
     }
 }

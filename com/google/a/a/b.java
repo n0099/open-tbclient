@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kr9;
+import com.baidu.tieba.cs9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class b extends Binder implements IInterface {
     public static /* synthetic */ Interceptable $ic;
-    public static kr9 a;
+    public static cs9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,6 +32,22 @@ public class b extends Binder implements IInterface {
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(572222257, "Lcom/google/a/a/b;");
         }
+    }
+
+    public boolean a(int i, Parcel parcel) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, parcel)) == null) {
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.os.IInterface
+    public IBinder asBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (IBinder) invokeV.objValue;
     }
 
     public b(String str) {
@@ -50,22 +66,6 @@ public class b extends Binder implements IInterface {
             }
         }
         attachInterface(this, str);
-    }
-
-    public boolean a(int i, Parcel parcel) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, parcel)) == null) {
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.os.IInterface
-    public IBinder asBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (IBinder) invokeV.objValue;
     }
 
     @Override // android.os.Binder

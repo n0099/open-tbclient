@@ -1,6 +1,5 @@
 package com.baidu.tieba.lego.card.view;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -23,7 +22,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.lego.card.model.WebViewCard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,7 +34,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class WebViewCardView extends BaseCardView<WebViewCard> {
+public class WebViewCardView extends BaseCardView {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean r = true;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,6 +43,21 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     public BaseWebView o;
     public XiubaTbJsBridge p;
     public final CustomMessageListener q;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-295244648, "Lcom/baidu/tieba/lego/card/view/WebViewCardView;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-295244648, "Lcom/baidu/tieba/lego/card/view/WebViewCardView;");
+        }
+    }
 
     /* loaded from: classes4.dex */
     public class a extends WebChromeClient {
@@ -73,7 +87,10 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.a.I(str2, jsPromptResult) : invokeLLLLL.booleanValue;
+            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) {
+                return this.a.I(str2, jsPromptResult);
+            }
+            return invokeLLLLL.booleanValue;
         }
     }
 
@@ -180,27 +197,12 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             boolean unused = WebViewCardView.r = ((Boolean) customResponsedMessage.getData()).booleanValue();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-295244648, "Lcom/baidu/tieba/lego/card/view/WebViewCardView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-295244648, "Lcom/baidu/tieba/lego/card/view/WebViewCardView;");
         }
     }
 
@@ -230,15 +232,35 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     private void setWebviewHeight(int i) {
         BaseWebView baseWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65542, this, i) == null) || (baseWebView = this.o) == null || i <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(65542, this, i) == null) && (baseWebView = this.o) != null && i > 0) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) baseWebView.getLayoutParams();
+            layoutParams.height = i;
+            this.o.setLayoutParams(layoutParams);
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) baseWebView.getLayoutParams();
-        layoutParams.height = i;
-        this.o.setLayoutParams(layoutParams);
     }
 
-    @SuppressLint({"ClickableViewAccessibility"})
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.uh7
+    public void c(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
+        }
+        this.q.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.q);
+    }
+
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    public View q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c5, (ViewGroup) null);
+            G();
+            return this.n;
+        }
+        return (View) invokeV.objValue;
+    }
+
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -291,46 +313,25 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     /* renamed from: J */
     public void u(WebViewCard webViewCard) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, webViewCard) == null) || this.o == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, webViewCard) != null) || this.o == null) {
             return;
         }
         this.m = webViewCard.isEnableTouchFromNet();
         if (webViewCard.getHeight() > 0) {
             setWebviewHeight(webViewCard.getHeight());
         } else if (webViewCard.getContainer() > 0) {
-            int i = ej.i(getContext());
+            int i = fj.i(getContext());
             int container = webViewCard.getContainer();
-            if (container == 1) {
-                setWebviewHeight(i - ej.f(getContext(), R.dimen.obfuscated_res_0x7f070280));
-            } else if (container == 2) {
-                setWebviewHeight(i - ej.f(getContext(), R.dimen.obfuscated_res_0x7f07029e));
+            if (container != 1) {
+                if (container == 2) {
+                    setWebviewHeight(i - fj.f(getContext(), R.dimen.obfuscated_res_0x7f07029e));
+                }
+            } else {
+                setWebviewHeight(i - fj.f(getContext(), R.dimen.obfuscated_res_0x7f070280));
             }
         }
-        if (TextUtils.isEmpty(webViewCard.getPageUrl())) {
-            return;
+        if (!TextUtils.isEmpty(webViewCard.getPageUrl())) {
+            CompatibleUtile.getInstance().loadUrl(this.o, webViewCard.getPageUrl());
         }
-        CompatibleUtile.getInstance().loadUrl(this.o, webViewCard.getPageUrl());
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.jh7
-    public void c(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {
-            return;
-        }
-        this.q.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.q);
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.n = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c6, (ViewGroup) null);
-            G();
-            return this.n;
-        }
-        return (View) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
@@ -26,7 +25,7 @@ public class AsyncPublishVideoStatData implements Serializable {
     public long startTime;
     public String url;
 
-    public AsyncPublishVideoStatData(@NonNull VideoInfo videoInfo) {
+    public AsyncPublishVideoStatData(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

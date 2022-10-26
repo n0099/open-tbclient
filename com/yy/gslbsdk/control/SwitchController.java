@@ -64,6 +64,50 @@ public class SwitchController {
         this.mInit = new AtomicBoolean(false);
     }
 
+    private boolean init() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (this.mInit.get()) {
+                return true;
+            }
+            synchronized (this.mInit) {
+                if (this.mInit.get()) {
+                    return true;
+                }
+                if (!readCache()) {
+                    return false;
+                }
+                this.mInit.set(true);
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean switchGslb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!init()) {
+                return true;
+            }
+            int i = this.mSwitchHttp.get();
+            int i2 = this.mSwitchCache.get();
+            if (i != 0) {
+                if (i == 1) {
+                    return true;
+                }
+                return false;
+            } else if (i2 == 0 || i2 == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
     public static SwitchController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,39 +120,18 @@ public class SwitchController {
         return (SwitchController) invokeV.objValue;
     }
 
-    private boolean init() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (this.mInit.get()) {
-                return true;
-            }
-            synchronized (this.mInit) {
-                if (this.mInit.get()) {
-                    return true;
-                }
-                if (readCache()) {
-                    this.mInit.set(true);
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
     private boolean readCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
                 int i = PreferenceManager.getDefaultSharedPreferences(GlobalTools.APP_CONTEXT).getInt(SHARED_KEY, 1);
-                if (i == 0 || i == 1 || i == -1) {
-                    this.mSwitchCache.compareAndSet(0, i);
-                    return true;
+                if (i != 0 && i != 1 && i != -1) {
+                    LogTools.printWarning(TAG, String.format(Locale.US, "SwitchController readCache, switchCache is illegal. switchCache: %d", Integer.valueOf(i)));
+                    return false;
                 }
-                LogTools.printWarning(TAG, String.format(Locale.US, "SwitchController readCache, switchCache is illegal. switchCache: %d", Integer.valueOf(i)));
-                return false;
+                this.mSwitchCache.compareAndSet(0, i);
+                return true;
             } catch (Exception e) {
                 LogTools.printWarning(TAG, e);
                 return false;
@@ -152,19 +175,5 @@ public class SwitchController {
             return writeCache();
         }
         return invokeI.booleanValue;
-    }
-
-    public boolean switchGslb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (init()) {
-                int i = this.mSwitchHttp.get();
-                int i2 = this.mSwitchCache.get();
-                return i != 0 ? i == 1 : i2 == 0 || i2 == 1;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

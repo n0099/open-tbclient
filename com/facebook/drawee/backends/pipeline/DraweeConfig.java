@@ -20,8 +20,8 @@ public class DraweeConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public final ImmutableList<DrawableFactory> mCustomDrawableFactories;
-    public final Supplier<Boolean> mDebugOverlayEnabledSupplier;
+    public final ImmutableList mCustomDrawableFactories;
+    public final Supplier mDebugOverlayEnabledSupplier;
     @Nullable
     public final ImagePerfDataListener mImagePerfDataListener;
     @Nullable
@@ -29,17 +29,17 @@ public class DraweeConfig {
 
     /* renamed from: com.facebook.drawee.backends.pipeline.DraweeConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<DrawableFactory> mCustomDrawableFactories;
-        public Supplier<Boolean> mDebugOverlayEnabledSupplier;
+        public List mCustomDrawableFactories;
+        public Supplier mDebugOverlayEnabledSupplier;
         @Nullable
         public ImagePerfDataListener mImagePerfDataListener;
         public PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
@@ -58,6 +58,15 @@ public class DraweeConfig {
             }
         }
 
+        public DraweeConfig build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new DraweeConfig(this, null);
+            }
+            return (DraweeConfig) invokeV.objValue;
+        }
+
         public Builder addCustomDrawableFactory(DrawableFactory drawableFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -71,13 +80,7 @@ public class DraweeConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public DraweeConfig build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new DraweeConfig(this, null) : (DraweeConfig) invokeV.objValue;
-        }
-
-        public Builder setDebugOverlayEnabledSupplier(Supplier<Boolean> supplier) {
+        public Builder setDebugOverlayEnabledSupplier(Supplier supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, supplier)) == null) {
@@ -91,7 +94,10 @@ public class DraweeConfig {
         public Builder setDrawDebugOverlay(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? setDebugOverlayEnabledSupplier(Suppliers.of(Boolean.valueOf(z))) : (Builder) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                return setDebugOverlayEnabledSupplier(Suppliers.of(Boolean.valueOf(z)));
+            }
+            return (Builder) invokeZ.objValue;
         }
 
         public Builder setImagePerfDataListener(@Nullable ImagePerfDataListener imagePerfDataListener) {
@@ -115,45 +121,9 @@ public class DraweeConfig {
         }
     }
 
-    public /* synthetic */ DraweeConfig(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    public static Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new Builder() : (Builder) invokeV.objValue;
-    }
-
-    @Nullable
-    public ImmutableList<DrawableFactory> getCustomDrawableFactories() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCustomDrawableFactories : (ImmutableList) invokeV.objValue;
-    }
-
-    public Supplier<Boolean> getDebugOverlayEnabledSupplier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDebugOverlayEnabledSupplier : (Supplier) invokeV.objValue;
-    }
-
-    @Nullable
-    public ImagePerfDataListener getImagePerfDataListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImagePerfDataListener : (ImagePerfDataListener) invokeV.objValue;
-    }
-
-    @Nullable
-    public PipelineDraweeControllerFactory getPipelineDraweeControllerFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPipelineDraweeControllerFactory : (PipelineDraweeControllerFactory) invokeV.objValue;
-    }
-
     public DraweeConfig(Builder builder) {
-        Supplier<Boolean> of;
+        ImmutableList immutableList;
+        Supplier of;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,14 +138,71 @@ public class DraweeConfig {
                 return;
             }
         }
-        this.mCustomDrawableFactories = builder.mCustomDrawableFactories != null ? ImmutableList.copyOf(builder.mCustomDrawableFactories) : null;
-        if (builder.mDebugOverlayEnabledSupplier != null) {
-            of = builder.mDebugOverlayEnabledSupplier;
+        if (builder.mCustomDrawableFactories != null) {
+            immutableList = ImmutableList.copyOf(builder.mCustomDrawableFactories);
         } else {
+            immutableList = null;
+        }
+        this.mCustomDrawableFactories = immutableList;
+        if (builder.mDebugOverlayEnabledSupplier == null) {
             of = Suppliers.of(Boolean.FALSE);
+        } else {
+            of = builder.mDebugOverlayEnabledSupplier;
         }
         this.mDebugOverlayEnabledSupplier = of;
         this.mPipelineDraweeControllerFactory = builder.mPipelineDraweeControllerFactory;
         this.mImagePerfDataListener = builder.mImagePerfDataListener;
+    }
+
+    public /* synthetic */ DraweeConfig(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    public static Builder newBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new Builder();
+        }
+        return (Builder) invokeV.objValue;
+    }
+
+    @Nullable
+    public ImmutableList getCustomDrawableFactories() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCustomDrawableFactories;
+        }
+        return (ImmutableList) invokeV.objValue;
+    }
+
+    public Supplier getDebugOverlayEnabledSupplier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDebugOverlayEnabledSupplier;
+        }
+        return (Supplier) invokeV.objValue;
+    }
+
+    @Nullable
+    public ImagePerfDataListener getImagePerfDataListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mImagePerfDataListener;
+        }
+        return (ImagePerfDataListener) invokeV.objValue;
+    }
+
+    @Nullable
+    public PipelineDraweeControllerFactory getPipelineDraweeControllerFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPipelineDraweeControllerFactory;
+        }
+        return (PipelineDraweeControllerFactory) invokeV.objValue;
     }
 }

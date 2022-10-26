@@ -1,7 +1,6 @@
 package com.kwad.components.ad.reward.presenter.c;
 
 import android.content.DialogInterface;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,6 +26,7 @@ import com.kwad.components.core.webview.b.kwai.i;
 import com.kwad.components.core.webview.b.kwai.j;
 import com.kwad.components.core.webview.jshandler.aa;
 import com.kwad.components.core.webview.jshandler.q;
+import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.bd;
 import com.kwad.sdk.utils.h;
 /* loaded from: classes7.dex */
@@ -272,7 +272,7 @@ public abstract class a extends com.kwad.components.ad.reward.presenter.a implem
     public void b(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long min = Math.min(com.kwad.sdk.core.response.a.a.T(this.nM.mAdTemplate.adInfoList.get(0)), j);
+            long min = Math.min(com.kwad.sdk.core.response.a.a.T((AdInfo) this.nM.mAdTemplate.adInfoList.get(0)), j);
             if (j2 < min - 800) {
                 this.nM.mM = (int) ((((float) (min - j2)) / 1000.0f) + 0.5f);
             }
@@ -594,7 +594,7 @@ public abstract class a extends com.kwad.components.ad.reward.presenter.a implem
                 public final void a(m mVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, mVar) == null) {
-                        com.kwad.components.core.c.a.a.a(new a.C0570a(this.te.getContext()).L(this.te.nM.mAdTemplate).b(this.te.nM.mApkDownloadHelper).ae(1).a(new a.b(this, mVar) { // from class: com.kwad.components.ad.reward.presenter.c.a.9.1
+                        com.kwad.components.core.c.a.a.a(new a.C0566a(this.te.getContext()).L(this.te.nM.mAdTemplate).b(this.te.nM.mApkDownloadHelper).ae(1).a(new a.b(this, mVar) { // from class: com.kwad.components.ad.reward.presenter.c.a.9.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ m tg;
@@ -663,7 +663,7 @@ public abstract class a extends com.kwad.components.ad.reward.presenter.a implem
                 public final void id() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.components.core.c.a.a.a(new a.C0570a(this.te.getContext()).L(this.te.nM.mAdTemplate).b(this.te.nM.mApkDownloadHelper).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.c.a.10.1
+                        com.kwad.components.core.c.a.a.a(new a.C0566a(this.te.getContext()).L(this.te.nM.mAdTemplate).b(this.te.nM.mApkDownloadHelper).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.c.a.10.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass10 ti;
@@ -928,7 +928,7 @@ public abstract class a extends com.kwad.components.ad.reward.presenter.a implem
             }
 
             @Override // com.kwad.sdk.core.webview.a.kwai.a
-            public final void a(@Nullable com.kwad.sdk.core.webview.a.a.a aVar) {
+            public final void a(com.kwad.sdk.core.webview.a.a.a aVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
                     this.te.nM.mAdOpenInteractionListener.bB();

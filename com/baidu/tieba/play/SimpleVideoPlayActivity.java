@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jb8;
+import com.baidu.tieba.tb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public jb8 c;
+    public tb8 c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -74,55 +74,10 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         }
     }
 
-    public final void A1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout frameLayout = new FrameLayout(this);
-            this.d = frameLayout;
-            SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0611);
-            this.d.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            FrameLayout frameLayout2 = new FrameLayout(this);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.gravity = 17;
-            this.d.addView(frameLayout2, layoutParams);
-            jb8 jb8Var = new jb8(this, frameLayout2);
-            this.c = jb8Var;
-            jb8Var.setStageType("2006");
-            NavigationBar navigationBar = new NavigationBar(this);
-            this.e = navigationBar;
-            navigationBar.hideBottomLine();
-            this.e.getTopCoverBgView().setVisibility(8);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams2.gravity = 48;
-            this.d.addView(this.e, layoutParams2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this)).findViewById(R.id.obfuscated_res_0x7f092680), R.drawable.obfuscated_res_0x7f080628, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.onChangeSkinType(i);
-            UtilHelper.changeStatusBarIconAndTextColor(true, this);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            A1();
-            z1(bundle);
-            setContentView(this.d);
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onPause();
             this.c.stopPlay();
         }
@@ -131,25 +86,45 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
             this.c.startPlay();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            UtilHelper.changeStatusBarIconAndTextColor(true, this);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            z1();
+            y1(bundle);
+            setContentView(this.d);
         }
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putString("video_url", this.a);
             bundle.putString("thumb_url", this.b);
         }
     }
 
-    public final void z1(Bundle bundle) {
+    public final void y1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             if (bundle != null) {
                 this.a = bundle.getString("video_url", "");
                 this.b = bundle.getString("thumb_url", "");
@@ -158,6 +133,31 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                 this.b = getIntent().getStringExtra("thumb_url");
             }
             this.c.w0(this.b, this.a);
+        }
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            FrameLayout frameLayout = new FrameLayout(this);
+            this.d = frameLayout;
+            SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0611);
+            this.d.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            FrameLayout frameLayout2 = new FrameLayout(this);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.gravity = 17;
+            this.d.addView(frameLayout2, layoutParams);
+            tb8 tb8Var = new tb8(this, frameLayout2);
+            this.c = tb8Var;
+            tb8Var.setStageType("2006");
+            NavigationBar navigationBar = new NavigationBar(this);
+            this.e = navigationBar;
+            navigationBar.hideBottomLine();
+            this.e.getTopCoverBgView().setVisibility(8);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams2.gravity = 48;
+            this.d.addView(this.e, layoutParams2);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this)).findViewById(R.id.obfuscated_res_0x7f092668), R.drawable.obfuscated_res_0x7f080629, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

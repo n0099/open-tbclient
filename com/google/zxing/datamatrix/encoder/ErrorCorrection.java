@@ -76,7 +76,66 @@ public final class ErrorCorrection {
     public static String createECCBlock(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i)) == null) ? createECCBlock(charSequence, 0, charSequence.length(), i) : (String) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i)) == null) {
+            return createECCBlock(charSequence, 0, charSequence.length(), i);
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static String createECCBlock(CharSequence charSequence, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65539, null, charSequence, i, i2, i3)) == null) {
+            int i4 = 0;
+            while (true) {
+                int[] iArr = FACTOR_SETS;
+                if (i4 < iArr.length) {
+                    if (iArr[i4] == i3) {
+                        break;
+                    }
+                    i4++;
+                } else {
+                    i4 = -1;
+                    break;
+                }
+            }
+            if (i4 >= 0) {
+                int[] iArr2 = FACTORS[i4];
+                char[] cArr = new char[i3];
+                for (int i5 = 0; i5 < i3; i5++) {
+                    cArr[i5] = 0;
+                }
+                for (int i6 = i; i6 < i + i2; i6++) {
+                    int i7 = i3 - 1;
+                    int charAt = cArr[i7] ^ charSequence.charAt(i6);
+                    while (i7 > 0) {
+                        if (charAt != 0 && iArr2[i7] != 0) {
+                            char c = cArr[i7 - 1];
+                            int[] iArr3 = ALOG;
+                            int[] iArr4 = LOG;
+                            cArr[i7] = (char) (c ^ iArr3[(iArr4[charAt] + iArr4[iArr2[i7]]) % 255]);
+                        } else {
+                            cArr[i7] = cArr[i7 - 1];
+                        }
+                        i7--;
+                    }
+                    if (charAt != 0 && iArr2[0] != 0) {
+                        int[] iArr5 = ALOG;
+                        int[] iArr6 = LOG;
+                        cArr[0] = (char) iArr5[(iArr6[charAt] + iArr6[iArr2[0]]) % 255];
+                    } else {
+                        cArr[0] = 0;
+                    }
+                }
+                char[] cArr2 = new char[i3];
+                for (int i8 = 0; i8 < i3; i8++) {
+                    cArr2[i8] = cArr[(i3 - i8) - 1];
+                }
+                return String.valueOf(cArr2);
+            }
+            throw new IllegalArgumentException("Illegal number of error correction codewords specified: " + i3);
+        }
+        return (String) invokeLIII.objValue;
     }
 
     public static String encodeECC200(String str, SymbolInfo symbolInfo) {
@@ -125,60 +184,5 @@ public final class ErrorCorrection {
             throw new IllegalArgumentException("The number of codewords does not match the selected symbol");
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static String createECCBlock(CharSequence charSequence, int i, int i2, int i3) {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65539, null, charSequence, i, i2, i3)) == null) {
-            int i4 = 0;
-            while (true) {
-                int[] iArr = FACTOR_SETS;
-                if (i4 >= iArr.length) {
-                    i4 = -1;
-                    break;
-                } else if (iArr[i4] == i3) {
-                    break;
-                } else {
-                    i4++;
-                }
-            }
-            if (i4 >= 0) {
-                int[] iArr2 = FACTORS[i4];
-                char[] cArr = new char[i3];
-                for (int i5 = 0; i5 < i3; i5++) {
-                    cArr[i5] = 0;
-                }
-                for (int i6 = i; i6 < i + i2; i6++) {
-                    int i7 = i3 - 1;
-                    int charAt = cArr[i7] ^ charSequence.charAt(i6);
-                    while (i7 > 0) {
-                        if (charAt != 0 && iArr2[i7] != 0) {
-                            char c = cArr[i7 - 1];
-                            int[] iArr3 = ALOG;
-                            int[] iArr4 = LOG;
-                            cArr[i7] = (char) (c ^ iArr3[(iArr4[charAt] + iArr4[iArr2[i7]]) % 255]);
-                        } else {
-                            cArr[i7] = cArr[i7 - 1];
-                        }
-                        i7--;
-                    }
-                    if (charAt != 0 && iArr2[0] != 0) {
-                        int[] iArr5 = ALOG;
-                        int[] iArr6 = LOG;
-                        cArr[0] = (char) iArr5[(iArr6[charAt] + iArr6[iArr2[0]]) % 255];
-                    } else {
-                        cArr[0] = 0;
-                    }
-                }
-                char[] cArr2 = new char[i3];
-                for (int i8 = 0; i8 < i3; i8++) {
-                    cArr2[i8] = cArr[(i3 - i8) - 1];
-                }
-                return String.valueOf(cArr2);
-            }
-            throw new IllegalArgumentException("Illegal number of error correction codewords specified: " + i3);
-        }
-        return (String) invokeLIII.objValue;
     }
 }

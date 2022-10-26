@@ -11,6 +11,16 @@ public final class ASCIIEncoder implements Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     public ASCIIEncoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,43 +58,40 @@ public final class ASCIIEncoder implements Encoder {
             }
             char currentChar = encoderContext.getCurrentChar();
             int lookAheadTest = HighLevelEncoder.lookAheadTest(encoderContext.getMessage(), encoderContext.pos, getEncodingMode());
-            if (lookAheadTest == getEncodingMode()) {
-                if (HighLevelEncoder.isExtendedASCII(currentChar)) {
-                    encoderContext.writeCodeword(HighLevelEncoder.UPPER_SHIFT);
-                    encoderContext.writeCodeword((char) ((currentChar - 128) + 1));
-                    encoderContext.pos++;
+            if (lookAheadTest != getEncodingMode()) {
+                if (lookAheadTest != 1) {
+                    if (lookAheadTest != 2) {
+                        if (lookAheadTest != 3) {
+                            if (lookAheadTest != 4) {
+                                if (lookAheadTest == 5) {
+                                    encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_BASE256);
+                                    encoderContext.signalEncoderChange(5);
+                                    return;
+                                }
+                                throw new IllegalStateException("Illegal mode: " + lookAheadTest);
+                            }
+                            encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_EDIFACT);
+                            encoderContext.signalEncoderChange(4);
+                            return;
+                        }
+                        encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_ANSIX12);
+                        encoderContext.signalEncoderChange(3);
+                        return;
+                    }
+                    encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_TEXT);
+                    encoderContext.signalEncoderChange(2);
                     return;
                 }
-                encoderContext.writeCodeword((char) (currentChar + 1));
-                encoderContext.pos++;
-            } else if (lookAheadTest == 1) {
                 encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_C40);
                 encoderContext.signalEncoderChange(1);
-            } else if (lookAheadTest == 2) {
-                encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_TEXT);
-                encoderContext.signalEncoderChange(2);
-            } else if (lookAheadTest == 3) {
-                encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_ANSIX12);
-                encoderContext.signalEncoderChange(3);
-            } else if (lookAheadTest == 4) {
-                encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_EDIFACT);
-                encoderContext.signalEncoderChange(4);
-            } else if (lookAheadTest == 5) {
-                encoderContext.writeCodeword(HighLevelEncoder.LATCH_TO_BASE256);
-                encoderContext.signalEncoderChange(5);
+            } else if (HighLevelEncoder.isExtendedASCII(currentChar)) {
+                encoderContext.writeCodeword(HighLevelEncoder.UPPER_SHIFT);
+                encoderContext.writeCodeword((char) ((currentChar - 128) + 1));
+                encoderContext.pos++;
             } else {
-                throw new IllegalStateException("Illegal mode: " + lookAheadTest);
+                encoderContext.writeCodeword((char) (currentChar + 1));
+                encoderContext.pos++;
             }
         }
-    }
-
-    @Override // com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 }

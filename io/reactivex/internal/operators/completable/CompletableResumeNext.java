@@ -17,7 +17,7 @@ import io.reactivex.internal.disposables.SequentialDisposable;
 public final class CompletableResumeNext extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super Throwable, ? extends CompletableSource> errorMapper;
+    public final Function errorMapper;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
@@ -52,14 +52,6 @@ public final class CompletableResumeNext extends Completable {
                 this.this$1 = resumeNext;
             }
 
-            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.s.onComplete();
-                }
-            }
-
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
@@ -73,6 +65,14 @@ public final class CompletableResumeNext extends Completable {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) {
                     this.this$1.sd.update(disposable);
+                }
+            }
+
+            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.this$1.s.onComplete();
                 }
             }
         }
@@ -110,14 +110,14 @@ public final class CompletableResumeNext extends Completable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 try {
-                    CompletableSource apply = this.this$0.errorMapper.apply(th);
-                    if (apply == null) {
+                    CompletableSource completableSource = (CompletableSource) this.this$0.errorMapper.apply(th);
+                    if (completableSource == null) {
                         NullPointerException nullPointerException = new NullPointerException("The CompletableConsumable returned is null");
                         nullPointerException.initCause(th);
                         this.s.onError(nullPointerException);
                         return;
                     }
-                    apply.subscribe(new OnErrorObserver(this));
+                    completableSource.subscribe(new OnErrorObserver(this));
                 } catch (Throwable th2) {
                     Exceptions.throwIfFatal(th2);
                     this.s.onError(new CompositeException(th2, th));
@@ -134,7 +134,7 @@ public final class CompletableResumeNext extends Completable {
         }
     }
 
-    public CompletableResumeNext(CompletableSource completableSource, Function<? super Throwable, ? extends CompletableSource> function) {
+    public CompletableResumeNext(CompletableSource completableSource, Function function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

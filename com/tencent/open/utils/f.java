@@ -28,7 +28,13 @@ public final class f {
     public static final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a() == null ? "" : a().getPackageName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a() == null) {
+                return "";
+            }
+            return a().getPackageName();
+        }
+        return (String) invokeV.objValue;
     }
 
     public static final File c() {
@@ -59,7 +65,19 @@ public final class f {
     public static final File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a((String) null) : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return a((String) null);
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static final File a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return l.h(a(), str);
+        }
+        return (File) invokeL.objValue;
     }
 
     public static final void a(Context context) {
@@ -67,11 +85,5 @@ public final class f {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             a = context;
         }
-    }
-
-    public static final File a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? l.h(a(), str) : (File) invokeL.objValue;
     }
 }

@@ -42,16 +42,19 @@ public class SPConfig {
         }
     }
 
+    public static boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sDebug;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void init(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
             sDebug = z;
         }
-    }
-
-    public static boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sDebug : invokeV.booleanValue;
     }
 }

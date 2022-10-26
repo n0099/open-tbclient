@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.tbtitle.model.res;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
-import com.baidu.tieba.qf6;
+import com.baidu.tieba.xf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,21 +39,20 @@ public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public DataRes getResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mResult : (DataRes) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
+        GetLevelInfoRequestMessage getLevelInfoRequestMessage;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            GetLevelInfoRequestMessage getLevelInfoRequestMessage = (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) ? null : (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
+            if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
+                getLevelInfoRequestMessage = (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
+            } else {
+                getLevelInfoRequestMessage = null;
+            }
             if (getLevelInfoRequestMessage != null) {
-                qf6 qf6Var = new qf6();
-                qf6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+                xf6 xf6Var = new xf6();
+                xf6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
             }
         }
     }
@@ -74,5 +73,14 @@ public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
                 this.mResult = dataRes;
             }
         }
+    }
+
+    public DataRes getResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mResult;
+        }
+        return (DataRes) invokeV.objValue;
     }
 }

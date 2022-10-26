@@ -3,6 +3,8 @@ package com.baidu.titan.sdk.runtime;
 public abstract class InterceptableDelegate implements Interceptable {
     public Interceptable delegate;
 
+    public abstract boolean waitLoad();
+
     @Override // com.baidu.titan.sdk.runtime.Interceptable
     public InterceptResult invokeB(int i, Object obj, byte b) {
         if (this.delegate == null) {
@@ -52,6 +54,42 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeJ(int i, Object obj, long j) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeJ(i, obj, j);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeL(int i, Object obj, Object obj2) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeL(i, obj, obj2);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeZ(int i, Object obj, boolean z) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeZ(i, obj, z);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
     public InterceptResult invokeII(int i, Object obj, int i2, int i3) {
         if (this.delegate == null) {
             waitLoad();
@@ -61,42 +99,6 @@ public abstract class InterceptableDelegate implements Interceptable {
             return null;
         }
         return interceptable.invokeII(i, obj, i2, i3);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeIII(int i, Object obj, int i2, int i3, int i4) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeIII(i, obj, i2, i3, i4);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeIIII(int i, Object obj, int i2, int i3, int i4, int i5) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeIIII(i, obj, i2, i3, i4, i5);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeIIL(int i, Object obj, int i2, int i3, Object obj2) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeIIL(i, obj, i2, i3, obj2);
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
@@ -112,42 +114,6 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeILL(int i, Object obj, int i2, Object obj2, Object obj3) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeILL(i, obj, i2, obj2, obj3);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public void invokeInitBody(int i, InitContext initContext) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return;
-        }
-        interceptable.invokeInitBody(i, initContext);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeJ(int i, Object obj, long j) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeJ(i, obj, j);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
     public InterceptResult invokeJL(int i, Object obj, long j, Object obj2) {
         if (this.delegate == null) {
             waitLoad();
@@ -157,18 +123,6 @@ public abstract class InterceptableDelegate implements Interceptable {
             return null;
         }
         return interceptable.invokeJL(i, obj, j, obj2);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeL(int i, Object obj, Object obj2) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeL(i, obj, obj2);
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
@@ -196,54 +150,6 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLII(int i, Object obj, Object obj2, int i2, int i3) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeLII(i, obj, obj2, i2, i3);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLIII(int i, Object obj, Object obj2, int i2, int i3, int i4) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeLIII(i, obj, obj2, i2, i3, i4);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLIL(int i, Object obj, Object obj2, int i2, Object obj3) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeLIL(i, obj, obj2, i2, obj3);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLILL(int i, Object obj, Object obj2, int i2, Object obj3, Object obj4) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeLILL(i, obj, obj2, i2, obj3, obj4);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
     public InterceptResult invokeLJ(int i, Object obj, Object obj2, long j) {
         if (this.delegate == null) {
             waitLoad();
@@ -268,6 +174,90 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeLZ(int i, Object obj, Object obj2, boolean z) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeLZ(i, obj, obj2, z);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeZL(int i, Object obj, boolean z, Object obj2) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeZL(i, obj, z, obj2);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeIII(int i, Object obj, int i2, int i3, int i4) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeIII(i, obj, i2, i3, i4);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeIIL(int i, Object obj, int i2, int i3, Object obj2) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeIIL(i, obj, i2, i3, obj2);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeILL(int i, Object obj, int i2, Object obj2, Object obj3) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeILL(i, obj, i2, obj2, obj3);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeLII(int i, Object obj, Object obj2, int i2, int i3) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeLII(i, obj, obj2, i2, i3);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeLIL(int i, Object obj, Object obj2, int i2, Object obj3) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeLIL(i, obj, obj2, i2, obj3);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
     public InterceptResult invokeLLI(int i, Object obj, Object obj2, Object obj3, int i2) {
         if (this.delegate == null) {
             waitLoad();
@@ -277,6 +267,66 @@ public abstract class InterceptableDelegate implements Interceptable {
             return null;
         }
         return interceptable.invokeLLI(i, obj, obj2, obj3, i2);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeLLL(int i, Object obj, Object obj2, Object obj3, Object obj4) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeLLL(i, obj, obj2, obj3, obj4);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeLLZ(int i, Object obj, Object obj2, Object obj3, boolean z) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeLLZ(i, obj, obj2, obj3, z);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeIIII(int i, Object obj, int i2, int i3, int i4, int i5) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeIIII(i, obj, i2, i3, i4, i5);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeLIII(int i, Object obj, Object obj2, int i2, int i3, int i4) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeLIII(i, obj, obj2, i2, i3, i4);
+    }
+
+    @Override // com.baidu.titan.sdk.runtime.Interceptable
+    public InterceptResult invokeLILL(int i, Object obj, Object obj2, int i2, Object obj3, Object obj4) {
+        if (this.delegate == null) {
+            waitLoad();
+        }
+        Interceptable interceptable = this.delegate;
+        if (interceptable == null) {
+            return null;
+        }
+        return interceptable.invokeLILL(i, obj, obj2, i2, obj3, obj4);
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
@@ -304,18 +354,6 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLLL(int i, Object obj, Object obj2, Object obj3, Object obj4) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeLLL(i, obj, obj2, obj3, obj4);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
     public InterceptResult invokeLLLI(int i, Object obj, Object obj2, Object obj3, Object obj4, int i2) {
         if (this.delegate == null) {
             waitLoad();
@@ -340,39 +378,15 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLLLLL(int i, Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6) {
+    public void invokeInitBody(int i, InitContext initContext) {
         if (this.delegate == null) {
             waitLoad();
         }
         Interceptable interceptable = this.delegate;
         if (interceptable == null) {
-            return null;
+            return;
         }
-        return interceptable.invokeLLLLL(i, obj, obj2, obj3, obj4, obj5, obj6);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLLZ(int i, Object obj, Object obj2, Object obj3, boolean z) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeLLZ(i, obj, obj2, obj3, z);
-    }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeLZ(int i, Object obj, Object obj2, boolean z) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeLZ(i, obj, obj2, z);
+        interceptable.invokeInitBody(i, initContext);
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
@@ -400,7 +414,7 @@ public abstract class InterceptableDelegate implements Interceptable {
     }
 
     @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeZ(int i, Object obj, boolean z) {
+    public InterceptResult invokeLLLLL(int i, Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6) {
         if (this.delegate == null) {
             waitLoad();
         }
@@ -408,20 +422,6 @@ public abstract class InterceptableDelegate implements Interceptable {
         if (interceptable == null) {
             return null;
         }
-        return interceptable.invokeZ(i, obj, z);
+        return interceptable.invokeLLLLL(i, obj, obj2, obj3, obj4, obj5, obj6);
     }
-
-    @Override // com.baidu.titan.sdk.runtime.Interceptable
-    public InterceptResult invokeZL(int i, Object obj, boolean z, Object obj2) {
-        if (this.delegate == null) {
-            waitLoad();
-        }
-        Interceptable interceptable = this.delegate;
-        if (interceptable == null) {
-            return null;
-        }
-        return interceptable.invokeZL(i, obj, z, obj2);
-    }
-
-    public abstract boolean waitLoad();
 }

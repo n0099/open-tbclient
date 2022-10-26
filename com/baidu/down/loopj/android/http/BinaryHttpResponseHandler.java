@@ -36,13 +36,43 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     public static final int TEST_SPEED_STAGE_EXE = 1;
     public static Pattern mContentRangPattern;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<UrlDNSInfo> mDomainNameAndIpList;
+    public List mDomainNameAndIpList;
     public long mFileTotalBytes;
     public String mHeaderETag;
     public int mTestSpeedStage;
     public long mTestSpeedStartTime;
     public AbstractTask mtask;
     public long totalLen;
+
+    public void handleRedirectUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        }
+    }
+
+    public void onDownload(ByteArrayInfo byteArrayInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, byteArrayInfo) == null) {
+        }
+    }
+
+    public void onFileLengthRec(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048591, this, j, str) == null) {
+        }
+    }
+
+    public void onPaused(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        }
+    }
+
+    public void onSuccess(byte[] bArr, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048594, this, bArr, j) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -58,6 +88,85 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
             }
         }
         mContentRangPattern = Pattern.compile("\\s*(bytes)?\\s*(\\d+)\\s*\\-+\\s*\\d+\\s*/\\s*(\\d+)\\s*");
+    }
+
+    public void cleanDomainNameAndIpInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mDomainNameAndIpList = new CopyOnWriteArrayList();
+        }
+    }
+
+    public List getDomainNameAndIpInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDomainNameAndIpList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long getFileLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFileTotalBytes;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getTestSpeedStage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTestSpeedStage;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getTestSpeedStartTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mTestSpeedStartTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getTotalLen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.totalLen;
+        }
+        return invokeV.longValue;
+    }
+
+    public void sendFileLengthMessage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 6;
+            Bundle bundle = new Bundle();
+            bundle.putLong("filetotalbytes", this.mFileTotalBytes);
+            bundle.putString("etag", this.mHeaderETag);
+            obtain.setData(bundle);
+            sendMessage(obtain);
+        }
+    }
+
+    public void setRunning() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            this.mRunning = true;
+        }
+    }
+
+    public void stopRunning() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            this.mRunning = false;
+        }
     }
 
     public BinaryHttpResponseHandler() {
@@ -80,43 +189,6 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         this.mtask = null;
     }
 
-    public void cleanDomainNameAndIpInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mDomainNameAndIpList = new CopyOnWriteArrayList();
-        }
-    }
-
-    public List<UrlDNSInfo> getDomainNameAndIpInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDomainNameAndIpList : (List) invokeV.objValue;
-    }
-
-    public long getFileLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFileTotalBytes : invokeV.longValue;
-    }
-
-    public int getTestSpeedStage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTestSpeedStage : invokeV.intValue;
-    }
-
-    public long getTestSpeedStartTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTestSpeedStartTime : invokeV.longValue;
-    }
-
-    public long getTotalLen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.totalLen : invokeV.longValue;
-    }
-
     public void handleDownloadMessage(ByteArrayInfo byteArrayInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, byteArrayInfo) == null) {
@@ -124,10 +196,74 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         }
     }
 
+    public void handlePausedMessage(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            onPaused(i);
+        }
+    }
+
+    public void sendDownloadMessage(ByteArrayInfo byteArrayInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, byteArrayInfo) == null) {
+            sendMessage(obtainMessage(4, new Object[]{byteArrayInfo}));
+        }
+    }
+
+    public void sendRedirectMessage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 7;
+            Bundle bundle = new Bundle();
+            bundle.putString("redirect_url", str);
+            obtain.setData(bundle);
+            sendMessage(obtain);
+        }
+    }
+
+    public void setCurTask(AbstractTask abstractTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, abstractTask) == null) {
+            this.mtask = abstractTask;
+        }
+    }
+
+    public void setTestSpeedStage(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.mTestSpeedStage = i;
+            if (i == 1) {
+                this.mTestSpeedStartTime = System.currentTimeMillis();
+            }
+        }
+    }
+
     public void handleFailureMessage(Throwable th, byte[] bArr, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048583, this, th, bArr, i) == null) {
             onFailure(th, bArr, i);
+        }
+    }
+
+    public void handleSuccessMessage(int i, byte[] bArr, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), bArr, Long.valueOf(j)}) == null) {
+            onSuccess(i, bArr, j);
+        }
+    }
+
+    public void onFailure(Throwable th, byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048590, this, th, bArr, i) == null) {
+            onFailure(th, i);
+        }
+    }
+
+    public void onSuccess(int i, byte[] bArr, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), bArr, Long.valueOf(j)}) == null) {
+            onSuccess(bArr, j);
         }
     }
 
@@ -143,95 +279,54 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, message) == null) {
             int i = message.what;
-            if (i == 0) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 4) {
+                        if (i != 5) {
+                            if (i != 6) {
+                                if (i != 7) {
+                                    super.handleMessage(message);
+                                    return;
+                                } else if (message.getData() != null) {
+                                    handleRedirectUrl(message.getData().getString("redirect_url", ""));
+                                    return;
+                                } else {
+                                    return;
+                                }
+                            }
+                            Bundle data = message.getData();
+                            handleFileLengthMessage(data.getLong("filetotalbytes"), data.getString("etag"));
+                            return;
+                        }
+                        Object obj = message.obj;
+                        if (obj == null) {
+                            handlePausedMessage(0);
+                            return;
+                        } else {
+                            handlePausedMessage(((Integer) obj).intValue());
+                            return;
+                        }
+                    }
+                    handleDownloadMessage((ByteArrayInfo) ((Object[]) message.obj)[0]);
+                    return;
+                }
                 Object[] objArr = (Object[]) message.obj;
-                handleSuccessMessage(((Integer) objArr[0]).intValue(), (byte[]) objArr[1], ((Long) objArr[2]).longValue());
-            } else if (i == 1) {
-                Object[] objArr2 = (Object[]) message.obj;
-                if (objArr2[0] != null && objArr2[1] != null) {
-                    handleFailureMessage((Throwable) objArr2[0], objArr2[1].toString(), ((Integer) objArr2[2]).intValue());
-                } else if (objArr2[1] == null) {
-                    handleFailureMessage((Throwable) objArr2[0], "error", ((Integer) objArr2[2]).intValue());
-                } else if (objArr2[0] == null) {
-                    handleFailureMessage((Throwable) null, objArr2[1].toString(), ((Integer) objArr2[2]).intValue());
+                if (objArr[0] != null && objArr[1] != null) {
+                    handleFailureMessage((Throwable) objArr[0], objArr[1].toString(), ((Integer) objArr[2]).intValue());
+                    return;
+                } else if (objArr[1] == null) {
+                    handleFailureMessage((Throwable) objArr[0], "error", ((Integer) objArr[2]).intValue());
+                    return;
+                } else if (objArr[0] == null) {
+                    handleFailureMessage((Throwable) null, objArr[1].toString(), ((Integer) objArr[2]).intValue());
+                    return;
                 } else {
-                    handleFailureMessage((Throwable) null, "error", ((Integer) objArr2[2]).intValue());
+                    handleFailureMessage((Throwable) null, "error", ((Integer) objArr[2]).intValue());
+                    return;
                 }
-            } else if (i == 4) {
-                handleDownloadMessage((ByteArrayInfo) ((Object[]) message.obj)[0]);
-            } else if (i == 5) {
-                Object obj = message.obj;
-                if (obj == null) {
-                    handlePausedMessage(0);
-                } else {
-                    handlePausedMessage(((Integer) obj).intValue());
-                }
-            } else if (i == 6) {
-                Bundle data = message.getData();
-                handleFileLengthMessage(data.getLong("filetotalbytes"), data.getString("etag"));
-            } else if (i != 7) {
-                super.handleMessage(message);
-            } else if (message.getData() != null) {
-                handleRedirectUrl(message.getData().getString("redirect_url", ""));
             }
-        }
-    }
-
-    public void handlePausedMessage(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            onPaused(i);
-        }
-    }
-
-    public void handleRedirectUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-        }
-    }
-
-    public void handleSuccessMessage(int i, byte[] bArr, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), bArr, Long.valueOf(j)}) == null) {
-            onSuccess(i, bArr, j);
-        }
-    }
-
-    public void onDownload(ByteArrayInfo byteArrayInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, byteArrayInfo) == null) {
-        }
-    }
-
-    public void onFailure(Throwable th, byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048590, this, th, bArr, i) == null) {
-            onFailure(th, i);
-        }
-    }
-
-    public void onFileLengthRec(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048591, this, j, str) == null) {
-        }
-    }
-
-    public void onPaused(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-        }
-    }
-
-    public void onSuccess(int i, byte[] bArr, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), bArr, Long.valueOf(j)}) == null) {
-            onSuccess(bArr, j);
-        }
-    }
-
-    public void onSuccess(byte[] bArr, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048594, this, bArr, j) == null) {
+            Object[] objArr2 = (Object[]) message.obj;
+            handleSuccessMessage(((Integer) objArr2[0]).intValue(), (byte[]) objArr2[1], ((Long) objArr2[2]).longValue());
         }
     }
 
@@ -340,38 +435,6 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         }
     }
 
-    public void sendDownloadMessage(ByteArrayInfo byteArrayInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, byteArrayInfo) == null) {
-            sendMessage(obtainMessage(4, new Object[]{byteArrayInfo}));
-        }
-    }
-
-    public void sendFileLengthMessage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 6;
-            Bundle bundle = new Bundle();
-            bundle.putLong("filetotalbytes", this.mFileTotalBytes);
-            bundle.putString("etag", this.mHeaderETag);
-            obtain.setData(bundle);
-            sendMessage(obtain);
-        }
-    }
-
-    public void sendRedirectMessage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 7;
-            Bundle bundle = new Bundle();
-            bundle.putString("redirect_url", str);
-            obtain.setData(bundle);
-            sendMessage(obtain);
-        }
-    }
-
     public long sendResponseMessage(ICommonRequestHandler iCommonRequestHandler, AsyncHttpRequest asyncHttpRequest) throws IOException {
         InterceptResult invokeLL;
         long j;
@@ -431,37 +494,6 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
             sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}));
-        }
-    }
-
-    public void setCurTask(AbstractTask abstractTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, abstractTask) == null) {
-            this.mtask = abstractTask;
-        }
-    }
-
-    public void setRunning() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.mRunning = true;
-        }
-    }
-
-    public void setTestSpeedStage(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            this.mTestSpeedStage = i;
-            if (i == 1) {
-                this.mTestSpeedStartTime = System.currentTimeMillis();
-            }
-        }
-    }
-
-    public void stopRunning() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            this.mRunning = false;
         }
     }
 }

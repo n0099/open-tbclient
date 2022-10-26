@@ -1,9 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes4.dex */
-public interface io<T> extends eo<T> {
-    int b(int i, int i2);
+public interface io {
+    void cancelRefresh();
 
-    qn<Cdo, TypeAdapter.ViewHolder> c(Cdo cdo);
+    fo getAdapter();
+
+    int getFirstVisiblePosition();
+
+    int getLastVisiblePosition();
 }

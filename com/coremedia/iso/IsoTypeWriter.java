@@ -67,15 +67,6 @@ public final class IsoTypeWriter {
         }
     }
 
-    public static void writeFixedPoint88(ByteBuffer byteBuffer, double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Double.valueOf(d)}) == null) {
-            short s = (short) (d * 256.0d);
-            byteBuffer.put((byte) ((65280 & s) >> 8));
-            byteBuffer.put((byte) (s & 255));
-        }
-    }
-
     public static void writeIso639(ByteBuffer byteBuffer, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, byteBuffer, str) == null) {
@@ -88,6 +79,15 @@ public final class IsoTypeWriter {
                 return;
             }
             throw new IllegalArgumentException("\"" + str + "\" language string isn't exactly 3 characters long!");
+        }
+    }
+
+    public static void writeFixedPoint88(ByteBuffer byteBuffer, double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Double.valueOf(d)}) == null) {
+            short s = (short) (d * 256.0d);
+            byteBuffer.put((byte) ((65280 & s) >> 8));
+            byteBuffer.put((byte) (s & 255));
         }
     }
 

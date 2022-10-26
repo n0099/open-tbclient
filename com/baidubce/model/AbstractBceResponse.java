@@ -31,6 +31,9 @@ public class AbstractBceResponse {
     public BceResponseMetadata getMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.metadata : (BceResponseMetadata) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.metadata;
+        }
+        return (BceResponseMetadata) invokeV.objValue;
     }
 }

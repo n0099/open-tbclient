@@ -17,11 +17,11 @@ public class SearchFriendResult extends OrmObject implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public String errmsg;
     public int errorno;
-    public List<UserInfo> user_info;
+    public List user_info;
     public String usermsg;
 
     /* loaded from: classes3.dex */
-    public static class UserInfo extends OrmObject implements Serializable {
+    public class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4475845825063348182L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,19 +46,28 @@ public class SearchFriendResult extends OrmObject implements Serializable {
         public String getPortrait() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.portrait : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.portrait;
+            }
+            return (String) invokeV.objValue;
         }
 
         public long getUserId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.user_id : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.user_id;
+            }
+            return invokeV.longValue;
         }
 
         public String getUserName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.user_name : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.user_name;
+            }
+            return (String) invokeV.objValue;
         }
 
         public void setPortrait(String str) {
@@ -100,16 +109,22 @@ public class SearchFriendResult extends OrmObject implements Serializable {
     public String getErrMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errmsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.errmsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getErrorNo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errorno : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.errorno;
+        }
+        return invokeV.intValue;
     }
 
-    public List<UserInfo> getUserInfo() {
+    public List getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -124,7 +139,10 @@ public class SearchFriendResult extends OrmObject implements Serializable {
     public String getUserMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.usermsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.usermsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setErrMsg(String str) {
@@ -141,7 +159,7 @@ public class SearchFriendResult extends OrmObject implements Serializable {
         }
     }
 
-    public void setUserInfo(List<UserInfo> list) {
+    public void setUserInfo(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.user_info = list;

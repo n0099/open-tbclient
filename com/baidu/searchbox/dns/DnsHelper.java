@@ -42,78 +42,22 @@ public class DnsHelper {
         }
     }
 
-    public void enableIPv6Test(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            DnsUtil.iPv6TestEnable = true;
-            DnsUtil.iPv6Perfer = z;
-        }
-    }
-
-    public void forceUpdateDomain(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.j) {
-            b.forceUpdateDomain(str);
-        }
-    }
-
-    public List<String> getIpList(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.j) {
-                DnsParseResult parseResult = b.getParseResult(str);
-                if (parseResult != null) {
-                    return parseResult.getIpList();
-                }
-                throw new UnknownHostException(str);
-            }
-            return com.baidu.searchbox.dns.b.b.a(com.baidu.searchbox.dns.b.b.h(str));
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<String> getIpListForceHttp(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.j) {
-                DnsParseResult b = b.b(str, true);
-                if (b != null) {
-                    return b.getIpList();
-                }
-                throw new UnknownHostException(str);
-            }
-            return com.baidu.searchbox.dns.b.b.a(com.baidu.searchbox.dns.b.b.h(str));
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<String> getIpListOnlyCache(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.j) {
-                DnsParseResult a = b.a(str, true);
-                if (a != null) {
-                    return a.getIpList();
-                }
-                return new ArrayList();
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
     public DnsParseResult getParseResult(String str) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (this.j) {
                 return b.getParseResult(str);
             }
-            Map<String, List<String>> h = com.baidu.searchbox.dns.b.b.h(str);
-            return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h), 0, com.baidu.searchbox.dns.b.b.b(h) ? 5 : 1, DnsUtil.stackType);
+            Map h = com.baidu.searchbox.dns.b.b.h(str);
+            List a = com.baidu.searchbox.dns.b.b.a(h);
+            if (com.baidu.searchbox.dns.b.b.b(h)) {
+                i = 5;
+            } else {
+                i = 1;
+            }
+            return new DnsParseResult(a, 0, i, DnsUtil.stackType);
         }
         return (DnsParseResult) invokeL.objValue;
     }
@@ -122,52 +66,18 @@ public class DnsHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            int i = 1;
             if (this.j) {
                 return b.b(str, true);
             }
-            Map<String, List<String>> h = com.baidu.searchbox.dns.b.b.h(str);
-            return new DnsParseResult(com.baidu.searchbox.dns.b.b.a(h), 0, com.baidu.searchbox.dns.b.b.b(h) ? 5 : 1, DnsUtil.stackType);
+            Map h = com.baidu.searchbox.dns.b.b.h(str);
+            List a = com.baidu.searchbox.dns.b.b.a(h);
+            if (com.baidu.searchbox.dns.b.b.b(h)) {
+                i = 5;
+            }
+            return new DnsParseResult(a, 0, i, DnsUtil.stackType);
         }
         return (DnsParseResult) invokeL.objValue;
-    }
-
-    public DnsParseResult getParseResultOnlyCache(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.j) {
-                return b.a(str, true);
-            }
-            return new DnsParseResult(new ArrayList(), 0, 1, DnsUtil.stackType);
-        }
-        return (DnsParseResult) invokeL.objValue;
-    }
-
-    public boolean isHttpDnsEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : invokeV.booleanValue;
-    }
-
-    public void setHttpDnsEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.j = z;
-            if (z) {
-                a.b().a();
-            } else {
-                a.b().exit();
-            }
-        }
-    }
-
-    public void setHttpDnsState(boolean z, HttpDNSStat httpDNSStat, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), httpDNSStat, Boolean.valueOf(z2)}) == null) {
-            c.b(z);
-            c.a(httpDNSStat);
-            com.baidu.searchbox.dns.b.b.v = z2;
-        }
     }
 
     public DnsHelper(Context context, boolean z) {
@@ -189,5 +99,110 @@ public class DnsHelper {
         com.baidu.searchbox.dns.a.a.b(context);
         a.a(context);
         this.j = z;
+    }
+
+    public void enableIPv6Test(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            DnsUtil.iPv6TestEnable = true;
+            DnsUtil.iPv6Perfer = z;
+        }
+    }
+
+    public void forceUpdateDomain(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.j) {
+            b.forceUpdateDomain(str);
+        }
+    }
+
+    public List getIpList(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.j) {
+                DnsParseResult parseResult = b.getParseResult(str);
+                if (parseResult != null) {
+                    return parseResult.getIpList();
+                }
+                throw new UnknownHostException(str);
+            }
+            return com.baidu.searchbox.dns.b.b.a(com.baidu.searchbox.dns.b.b.h(str));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List getIpListForceHttp(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.j) {
+                DnsParseResult b = b.b(str, true);
+                if (b != null) {
+                    return b.getIpList();
+                }
+                throw new UnknownHostException(str);
+            }
+            return com.baidu.searchbox.dns.b.b.a(com.baidu.searchbox.dns.b.b.h(str));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List getIpListOnlyCache(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (this.j) {
+                DnsParseResult a = b.a(str, true);
+                if (a != null) {
+                    return a.getIpList();
+                }
+                return new ArrayList();
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public DnsParseResult getParseResultOnlyCache(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (this.j) {
+                return b.a(str, true);
+            }
+            return new DnsParseResult(new ArrayList(), 0, 1, DnsUtil.stackType);
+        }
+        return (DnsParseResult) invokeL.objValue;
+    }
+
+    public void setHttpDnsEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.j = z;
+            if (z) {
+                a.b().a();
+            } else {
+                a.b().exit();
+            }
+        }
+    }
+
+    public boolean isHttpDnsEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setHttpDnsState(boolean z, HttpDNSStat httpDNSStat, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), httpDNSStat, Boolean.valueOf(z2)}) == null) {
+            c.b(z);
+            c.a(httpDNSStat);
+            com.baidu.searchbox.dns.b.b.v = z2;
+        }
     }
 }

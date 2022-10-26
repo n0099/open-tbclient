@@ -20,11 +20,27 @@ public abstract class CeaDecoder implements SubtitleDecoder {
     public static final int NUM_INPUT_BUFFERS = 10;
     public static final int NUM_OUTPUT_BUFFERS = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<SubtitleInputBuffer> availableInputBuffers;
-    public final LinkedList<SubtitleOutputBuffer> availableOutputBuffers;
+    public final LinkedList availableInputBuffers;
+    public final LinkedList availableOutputBuffers;
     public SubtitleInputBuffer dequeuedInputBuffer;
     public long playbackPositionUs;
-    public final PriorityQueue<SubtitleInputBuffer> queuedInputBuffers;
+    public final PriorityQueue queuedInputBuffers;
+
+    public abstract Subtitle createSubtitle();
+
+    public abstract void decode(SubtitleInputBuffer subtitleInputBuffer);
+
+    @Override // com.google.android.exoplayer2.decoder.Decoder
+    public abstract String getName();
+
+    public abstract boolean isNewSubtitleDataAvailable();
+
+    @Override // com.google.android.exoplayer2.decoder.Decoder
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
 
     public CeaDecoder() {
         Interceptable interceptable = $ic;
@@ -39,15 +55,15 @@ public abstract class CeaDecoder implements SubtitleDecoder {
                 return;
             }
         }
-        this.availableInputBuffers = new LinkedList<>();
+        this.availableInputBuffers = new LinkedList();
         for (int i3 = 0; i3 < 10; i3++) {
             this.availableInputBuffers.add(new SubtitleInputBuffer());
         }
-        this.availableOutputBuffers = new LinkedList<>();
+        this.availableOutputBuffers = new LinkedList();
         for (int i4 = 0; i4 < 2; i4++) {
             this.availableOutputBuffers.add(new CeaOutputBuffer(this));
         }
-        this.queuedInputBuffers = new PriorityQueue<>();
+        this.queuedInputBuffers = new PriorityQueue();
     }
 
     private void releaseInputBuffer(SubtitleInputBuffer subtitleInputBuffer) {
@@ -58,35 +74,24 @@ public abstract class CeaDecoder implements SubtitleDecoder {
         }
     }
 
-    public abstract Subtitle createSubtitle();
-
-    public abstract void decode(SubtitleInputBuffer subtitleInputBuffer);
-
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.decoder.Decoder
-    public void flush() {
+    public void queueInputBuffer(SubtitleInputBuffer subtitleInputBuffer) throws SubtitleDecoderException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.playbackPositionUs = 0L;
-            while (!this.queuedInputBuffers.isEmpty()) {
-                releaseInputBuffer(this.queuedInputBuffers.poll());
+        if (interceptable == null || interceptable.invokeL(1048585, this, subtitleInputBuffer) == null) {
+            if (subtitleInputBuffer == this.dequeuedInputBuffer) {
+                z = true;
+            } else {
+                z = false;
             }
-            SubtitleInputBuffer subtitleInputBuffer = this.dequeuedInputBuffer;
-            if (subtitleInputBuffer != null) {
+            Assertions.checkArgument(z);
+            if (subtitleInputBuffer.isDecodeOnly()) {
                 releaseInputBuffer(subtitleInputBuffer);
-                this.dequeuedInputBuffer = null;
+            } else {
+                this.queuedInputBuffers.add(subtitleInputBuffer);
             }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.decoder.Decoder
-    public abstract String getName();
-
-    public abstract boolean isNewSubtitleDataAvailable();
-
-    @Override // com.google.android.exoplayer2.decoder.Decoder
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.dequeuedInputBuffer = null;
         }
     }
 
@@ -107,25 +112,45 @@ public abstract class CeaDecoder implements SubtitleDecoder {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public SubtitleInputBuffer dequeueInputBuffer() throws SubtitleDecoderException {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Assertions.checkState(this.dequeuedInputBuffer == null);
+            if (this.dequeuedInputBuffer == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             if (this.availableInputBuffers.isEmpty()) {
                 return null;
             }
-            SubtitleInputBuffer pollFirst = this.availableInputBuffers.pollFirst();
-            this.dequeuedInputBuffer = pollFirst;
-            return pollFirst;
+            SubtitleInputBuffer subtitleInputBuffer = (SubtitleInputBuffer) this.availableInputBuffers.pollFirst();
+            this.dequeuedInputBuffer = subtitleInputBuffer;
+            return subtitleInputBuffer;
         }
         return (SubtitleInputBuffer) invokeV.objValue;
     }
 
+    @Override // com.google.android.exoplayer2.decoder.Decoder
+    public void flush() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.playbackPositionUs = 0L;
+            while (!this.queuedInputBuffers.isEmpty()) {
+                releaseInputBuffer((SubtitleInputBuffer) this.queuedInputBuffers.poll());
+            }
+            SubtitleInputBuffer subtitleInputBuffer = this.dequeuedInputBuffer;
+            if (subtitleInputBuffer != null) {
+                releaseInputBuffer(subtitleInputBuffer);
+                this.dequeuedInputBuffer = null;
+            }
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public SubtitleOutputBuffer dequeueOutputBuffer() throws SubtitleDecoderException {
         InterceptResult invokeV;
@@ -134,44 +159,28 @@ public abstract class CeaDecoder implements SubtitleDecoder {
             if (this.availableOutputBuffers.isEmpty()) {
                 return null;
             }
-            while (!this.queuedInputBuffers.isEmpty() && this.queuedInputBuffers.peek().timeUs <= this.playbackPositionUs) {
-                SubtitleInputBuffer poll = this.queuedInputBuffers.poll();
-                if (poll.isEndOfStream()) {
-                    SubtitleOutputBuffer pollFirst = this.availableOutputBuffers.pollFirst();
-                    pollFirst.addFlag(4);
-                    releaseInputBuffer(poll);
-                    return pollFirst;
+            while (!this.queuedInputBuffers.isEmpty() && ((SubtitleInputBuffer) this.queuedInputBuffers.peek()).timeUs <= this.playbackPositionUs) {
+                SubtitleInputBuffer subtitleInputBuffer = (SubtitleInputBuffer) this.queuedInputBuffers.poll();
+                if (subtitleInputBuffer.isEndOfStream()) {
+                    SubtitleOutputBuffer subtitleOutputBuffer = (SubtitleOutputBuffer) this.availableOutputBuffers.pollFirst();
+                    subtitleOutputBuffer.addFlag(4);
+                    releaseInputBuffer(subtitleInputBuffer);
+                    return subtitleOutputBuffer;
                 }
-                decode(poll);
+                decode(subtitleInputBuffer);
                 if (isNewSubtitleDataAvailable()) {
                     Subtitle createSubtitle = createSubtitle();
-                    if (!poll.isDecodeOnly()) {
-                        SubtitleOutputBuffer pollFirst2 = this.availableOutputBuffers.pollFirst();
-                        pollFirst2.setContent(poll.timeUs, createSubtitle, Long.MAX_VALUE);
-                        releaseInputBuffer(poll);
-                        return pollFirst2;
+                    if (!subtitleInputBuffer.isDecodeOnly()) {
+                        SubtitleOutputBuffer subtitleOutputBuffer2 = (SubtitleOutputBuffer) this.availableOutputBuffers.pollFirst();
+                        subtitleOutputBuffer2.setContent(subtitleInputBuffer.timeUs, createSubtitle, Long.MAX_VALUE);
+                        releaseInputBuffer(subtitleInputBuffer);
+                        return subtitleOutputBuffer2;
                     }
                 }
-                releaseInputBuffer(poll);
+                releaseInputBuffer(subtitleInputBuffer);
             }
             return null;
         }
         return (SubtitleOutputBuffer) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.google.android.exoplayer2.decoder.Decoder
-    public void queueInputBuffer(SubtitleInputBuffer subtitleInputBuffer) throws SubtitleDecoderException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, subtitleInputBuffer) == null) {
-            Assertions.checkArgument(subtitleInputBuffer == this.dequeuedInputBuffer);
-            if (subtitleInputBuffer.isDecodeOnly()) {
-                releaseInputBuffer(subtitleInputBuffer);
-            } else {
-                this.queuedInputBuffers.add(subtitleInputBuffer);
-            }
-            this.dequeuedInputBuffer = null;
-        }
     }
 }

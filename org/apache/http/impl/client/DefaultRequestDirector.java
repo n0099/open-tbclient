@@ -71,15 +71,6 @@ public class DefaultRequestDirector implements RequestDirector {
         return (HttpRequest) invokeLL.objValue;
     }
 
-    public boolean createTunnelToProxy(HttpRoute httpRoute, int i, HttpContext httpContext) throws HttpException, IOException {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpRoute, i, httpContext)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeLIL.booleanValue;
-    }
-
     public boolean createTunnelToTarget(HttpRoute httpRoute, HttpContext httpContext) throws HttpException, IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -89,6 +80,29 @@ public class DefaultRequestDirector implements RequestDirector {
         return invokeLL.booleanValue;
     }
 
+    public void establishRoute(HttpRoute httpRoute, HttpContext httpContext) throws HttpException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, httpRoute, httpContext) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void rewriteRequestURI(RequestWrapper requestWrapper, HttpRoute httpRoute) throws ProtocolException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, requestWrapper, httpRoute) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public boolean createTunnelToProxy(HttpRoute httpRoute, int i, HttpContext httpContext) throws HttpException, IOException {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpRoute, i, httpContext)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLIL.booleanValue;
+    }
+
     public HttpRoute determineRoute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws HttpException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -96,13 +110,6 @@ public class DefaultRequestDirector implements RequestDirector {
             throw new RuntimeException("Stub!");
         }
         return (HttpRoute) invokeLLL.objValue;
-    }
-
-    public void establishRoute(HttpRoute httpRoute, HttpContext httpContext) throws HttpException, IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, httpRoute, httpContext) == null) {
-            throw new RuntimeException("Stub!");
-        }
     }
 
     @Override // org.apache.http.client.RequestDirector
@@ -127,13 +134,6 @@ public class DefaultRequestDirector implements RequestDirector {
     public void releaseConnection() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void rewriteRequestURI(RequestWrapper requestWrapper, HttpRoute httpRoute) throws ProtocolException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, requestWrapper, httpRoute) == null) {
             throw new RuntimeException("Stub!");
         }
     }

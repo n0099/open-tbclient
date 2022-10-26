@@ -36,31 +36,46 @@ public class AnimatedDrawableOptionsBuilder {
     public AnimatedDrawableOptions build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AnimatedDrawableOptions(this) : (AnimatedDrawableOptions) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new AnimatedDrawableOptions(this);
+        }
+        return (AnimatedDrawableOptions) invokeV.objValue;
     }
 
     public boolean getAllowPrefetching() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAllowPrefetching : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAllowPrefetching;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean getEnableDebugging() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mEnableDebugging : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mEnableDebugging;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean getForceKeepAllFramesInMemory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mForceKeepAllFramesInMemory : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mForceKeepAllFramesInMemory;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getMaximumBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mMaximumBytes : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mMaximumBytes;
+        }
+        return invokeV.intValue;
     }
 
     public AnimatedDrawableOptionsBuilder setAllowPrefetching(boolean z) {

@@ -26,7 +26,7 @@ public class CommonViewUtility implements com.baidu.pass.a {
 
     public static void setViewClickAlpha(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(65537, null, view2, f) == null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeLF(65537, null, view2, f) != null) || view2 == null) {
             return;
         }
         view2.setOnTouchListener(new a(f));

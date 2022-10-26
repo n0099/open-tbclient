@@ -48,7 +48,10 @@ public class l {
                         IntentFilter intentFilter = lVar.d;
                         if (intentFilter != null) {
                             IntentFilter intentFilter2 = this.d;
-                            return intentFilter2 == null || intentFilter2 == intentFilter;
+                            if (intentFilter2 != null && intentFilter2 != intentFilter) {
+                                return false;
+                            }
+                            return true;
                         }
                         return true;
                     }

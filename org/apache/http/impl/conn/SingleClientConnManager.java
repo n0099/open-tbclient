@@ -138,26 +138,42 @@ public class SingleClientConnManager implements ClientConnectionManager {
         }
     }
 
+    public void finalize() throws Throwable {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.conn.ClientConnectionManager
+    public SchemeRegistry getSchemeRegistry() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (SchemeRegistry) invokeV.objValue;
+    }
+
+    public void revokeConnection() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.conn.ClientConnectionManager
+    public void shutdown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     @Override // org.apache.http.conn.ClientConnectionManager
     public void closeIdleConnections(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public ClientConnectionOperator createConnectionOperator(SchemeRegistry schemeRegistry) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, schemeRegistry)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (ClientConnectionOperator) invokeL.objValue;
-    }
-
-    public void finalize() throws Throwable {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -172,24 +188,6 @@ public class SingleClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public SchemeRegistry getSchemeRegistry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (SchemeRegistry) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.conn.ClientConnectionManager
-    public void releaseConnection(ManagedClientConnection managedClientConnection, long j, TimeUnit timeUnit) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{managedClientConnection, Long.valueOf(j), timeUnit}) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.conn.ClientConnectionManager
     public final ClientConnectionRequest requestConnection(HttpRoute httpRoute, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -199,17 +197,19 @@ public class SingleClientConnManager implements ClientConnectionManager {
         return (ClientConnectionRequest) invokeLL.objValue;
     }
 
-    public void revokeConnection() {
+    public ClientConnectionOperator createConnectionOperator(SchemeRegistry schemeRegistry) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, schemeRegistry)) == null) {
             throw new RuntimeException("Stub!");
         }
+        return (ClientConnectionOperator) invokeL.objValue;
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void shutdown() {
+    public void releaseConnection(ManagedClientConnection managedClientConnection, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{managedClientConnection, Long.valueOf(j), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
     }

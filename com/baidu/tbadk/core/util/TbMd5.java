@@ -4,7 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.lj;
+import com.baidu.tieba.mj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,19 +59,19 @@ public class TbMd5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, packageInfo)) == null) {
             String signMd5 = getSignMd5(packageInfo);
-            if (signMd5 == null || signMd5.length() < 32) {
-                return "-1";
+            if (signMd5 != null && signMd5.length() >= 32) {
+                String substring = signMd5.substring(8, 24);
+                long j = 0;
+                long j2 = 0;
+                for (int i3 = 0; i3 < 8; i3++) {
+                    j2 = (j2 * 16) + Integer.parseInt(substring.substring(i3, i2), 16);
+                }
+                for (int i4 = 8; i4 < substring.length(); i4++) {
+                    j = (j * 16) + Integer.parseInt(substring.substring(i4, i), 16);
+                }
+                return String.valueOf(4294967295L & (j + j2));
             }
-            String substring = signMd5.substring(8, 24);
-            long j = 0;
-            long j2 = 0;
-            for (int i3 = 0; i3 < 8; i3++) {
-                j2 = (j2 * 16) + Integer.parseInt(substring.substring(i3, i2), 16);
-            }
-            for (int i4 = 8; i4 < substring.length(); i4++) {
-                j = (j * 16) + Integer.parseInt(substring.substring(i4, i), 16);
-            }
-            return String.valueOf(4294967295L & (j + j2));
+            return "-1";
         }
         return (String) invokeL.objValue;
     }
@@ -112,7 +112,7 @@ public class TbMd5 {
             File file = new File(packageInfo.applicationInfo.publicSourceDir);
             if (file.exists()) {
                 try {
-                    return lj.b(new FileInputStream(file));
+                    return mj.b(new FileInputStream(file));
                 } catch (FileNotFoundException e) {
                     BdLog.detailException(e);
                 }
@@ -120,12 +120,6 @@ public class TbMd5 {
             return null;
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String getNameMd5FromUrl(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? lj.c(str) : (String) invokeL.objValue;
     }
 
     public static String getSignMd5(PackageInfo packageInfo) {
@@ -137,11 +131,20 @@ public class TbMd5 {
                 return null;
             }
             try {
-                return lj.d(signatureArr[0].toCharsString().getBytes());
+                return mj.d(signatureArr[0].toCharsString().getBytes());
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
             }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getNameMd5FromUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return mj.c(str);
         }
         return (String) invokeL.objValue;
     }

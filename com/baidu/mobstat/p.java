@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,17 +16,19 @@ public class p extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p() {
-        super("app_change3", "Create table if not exists app_change3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");
+    public p(Context context) {
+        super(context, "app_list3", "Create table if not exists app_list3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,26 +36,26 @@ public class p extends j {
         }
     }
 
-    @Override // com.baidu.mobstat.j
-    public ArrayList<i> a(int i, int i2) {
-        InterceptResult invokeII;
+    private ArrayList a(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            Cursor a = a("time", i, i2);
-            ArrayList<i> a2 = a(a);
-            if (a != null) {
-                a.close();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null) {
+                return arrayList;
             }
-            return a2;
+            if (cursor.getCount() == 0) {
+                return arrayList;
+            }
+            int columnIndex = cursor.getColumnIndex("_id");
+            int columnIndex2 = cursor.getColumnIndex("time");
+            int columnIndex3 = cursor.getColumnIndex("content");
+            while (cursor.moveToNext()) {
+                arrayList.add(new i(cursor.getLong(columnIndex), cursor.getString(columnIndex2), cursor.getString(columnIndex3)));
+            }
+            return arrayList;
         }
-        return (ArrayList) invokeII.objValue;
-    }
-
-    @Override // com.baidu.mobstat.j
-    public boolean b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? a(j) : invokeJ.booleanValue;
+        return (ArrayList) invokeL.objValue;
     }
 
     @Override // com.baidu.mobstat.j
@@ -68,22 +71,28 @@ public class p extends j {
         return invokeLL.longValue;
     }
 
-    private ArrayList<i> a(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.baidu.mobstat.j
+    public ArrayList a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cursor)) == null) {
-            ArrayList<i> arrayList = new ArrayList<>();
-            if (cursor == null || cursor.getCount() == 0) {
-                return arrayList;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            Cursor a = a("time", i, i2);
+            ArrayList a2 = a(a);
+            if (a != null) {
+                a.close();
             }
-            int columnIndex = cursor.getColumnIndex("_id");
-            int columnIndex2 = cursor.getColumnIndex("time");
-            int columnIndex3 = cursor.getColumnIndex("content");
-            while (cursor.moveToNext()) {
-                arrayList.add(new i(cursor.getLong(columnIndex), cursor.getString(columnIndex2), cursor.getString(columnIndex3)));
-            }
-            return arrayList;
+            return a2;
         }
-        return (ArrayList) invokeL.objValue;
+        return (ArrayList) invokeII.objValue;
+    }
+
+    @Override // com.baidu.mobstat.j
+    public boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return a(j);
+        }
+        return invokeJ.booleanValue;
     }
 }

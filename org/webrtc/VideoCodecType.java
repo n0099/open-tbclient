@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class VideoCodecType {
     public static final /* synthetic */ VideoCodecType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -63,18 +63,27 @@ public final class VideoCodecType {
     public static VideoCodecType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VideoCodecType) Enum.valueOf(VideoCodecType.class, str) : (VideoCodecType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (VideoCodecType) Enum.valueOf(VideoCodecType.class, str);
+        }
+        return (VideoCodecType) invokeL.objValue;
     }
 
     public static VideoCodecType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoCodecType[]) $VALUES.clone() : (VideoCodecType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (VideoCodecType[]) $VALUES.clone();
+        }
+        return (VideoCodecType[]) invokeV.objValue;
     }
 
     public String mimeType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mimeType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mimeType;
+        }
+        return (String) invokeV.objValue;
     }
 }

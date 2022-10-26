@@ -1,6 +1,5 @@
 package com.baidu.android.util.connect;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
@@ -44,6 +43,36 @@ public class ConnectManager {
             }
         }
         checkNetworkType(context);
+    }
+
+    @Deprecated
+    public static NetworkInfo getInfo(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return NetWorkUtils.getActiveNetworkInfo(context);
+        }
+        return (NetworkInfo) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static boolean isNetworkConnected(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return NetWorkUtils.isConnected(context);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isWifi(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return NetWorkUtils.isWifiConnected(context);
+        }
+        return invokeL.booleanValue;
     }
 
     private void checkApn(NetworkInfo networkInfo) {
@@ -96,32 +125,24 @@ public class ConnectManager {
     private void checkNetworkType(Context context) {
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, context) == null) || (activeNetworkInfo = NetWorkUtils.getActiveNetworkInfo(context)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65538, this, context) == null) && (activeNetworkInfo = NetWorkUtils.getActiveNetworkInfo(context)) != null) {
+            if ("wifi".equals(activeNetworkInfo.getTypeName().toLowerCase(Locale.getDefault()))) {
+                this.mNetType = "wifi";
+                this.mUseWap = false;
+            } else {
+                checkApn(activeNetworkInfo);
+                this.mNetType = this.mApn;
+            }
+            this.mSubType = activeNetworkInfo.getSubtype();
+            this.mSubTypeName = activeNetworkInfo.getSubtypeName();
         }
-        if ("wifi".equals(activeNetworkInfo.getTypeName().toLowerCase(Locale.getDefault()))) {
-            this.mNetType = "wifi";
-            this.mUseWap = false;
-        } else {
-            checkApn(activeNetworkInfo);
-            this.mNetType = this.mApn;
-        }
-        this.mSubType = activeNetworkInfo.getSubtype();
-        this.mSubTypeName = activeNetworkInfo.getSubtypeName();
-    }
-
-    @SuppressLint({"MissingPermission"})
-    @Deprecated
-    public static NetworkInfo getInfo(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? NetWorkUtils.getActiveNetworkInfo(context) : (NetworkInfo) invokeL.objValue;
     }
 
     @Deprecated
     public static String getNetworkInfo(Context context) {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
+        String lowerCase;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null || (activeNetworkInfo = NetWorkUtils.getActiveNetworkInfo(context)) == null || !activeNetworkInfo.isConnected()) {
@@ -132,7 +153,11 @@ public class ConnectManager {
             }
             if (activeNetworkInfo.getType() == 0) {
                 int subtype = activeNetworkInfo.getSubtype();
-                String lowerCase = activeNetworkInfo.getExtraInfo() == null ? "none" : activeNetworkInfo.getExtraInfo().toLowerCase(Locale.getDefault());
+                if (activeNetworkInfo.getExtraInfo() == null) {
+                    lowerCase = "none";
+                } else {
+                    lowerCase = activeNetworkInfo.getExtraInfo().toLowerCase(Locale.getDefault());
+                }
                 StringBuilder sb = new StringBuilder();
                 String subtypeName = activeNetworkInfo.getSubtypeName();
                 if (subtype != 20) {
@@ -176,59 +201,66 @@ public class ConnectManager {
         return (String) invokeL.objValue;
     }
 
-    @Deprecated
-    public static boolean isNetworkConnected(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? NetWorkUtils.isConnected(context) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isWifi(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? NetWorkUtils.isWifiConnected(context) : invokeL.booleanValue;
-    }
-
     public String getApn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mApn : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mApn;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getNetType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mNetType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mNetType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProxy : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mProxy;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getProxyPort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPort : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPort;
+        }
+        return invokeV.intValue;
     }
 
     public int getSubType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSubType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSubType;
+        }
+        return invokeV.intValue;
     }
 
     public String getSubTypeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSubTypeName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mSubTypeName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isWapNetwork() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mUseWap : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mUseWap;
+        }
+        return invokeV.booleanValue;
     }
 }

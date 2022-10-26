@@ -1,7 +1,6 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,110 +50,111 @@ public class BOSTokenRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static STSInfo getBosStsInfo(@NonNull String str) {
+    public static STSInfo getBosStsInfo(String str) {
         InterceptResult invokeL;
         Closeable closeable;
         HttpURLConnection httpURLConnection;
         Closeable closeable2;
         OutputStream outputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
-            return (STSInfo) invokeL.objValue;
-        }
-        StringBuilder sb = new StringBuilder();
-        OutputStream outputStream2 = null;
-        try {
-            httpURLConnection = (HttpURLConnection) new URL(UploadUrlProvider.getInstance().getUploadUrl()).openConnection();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            OutputStream outputStream2 = null;
             try {
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setReadTimeout(30000);
-                httpURLConnection.setConnectTimeout(30000);
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setInstanceFollowRedirects(true);
-                httpURLConnection.setUseCaches(false);
-                httpURLConnection.setRequestProperty(CHARSET, "UTF-8");
-                httpURLConnection.setRequestProperty("Content-type", "application/json");
-                httpURLConnection.setRequestProperty(ACCEPT, "application/json");
-                String createRequest = ContentUtil.createRequest(str);
-                if (createRequest == null || TextUtils.isEmpty(createRequest)) {
-                    outputStream = null;
-                } else {
-                    httpURLConnection.setRequestProperty("Content-Length", String.valueOf(createRequest.getBytes("UTF-8").length));
-                    outputStream = httpURLConnection.getOutputStream();
-                    try {
-                        outputStream.write(createRequest.getBytes());
-                        outputStream.flush();
-                    } catch (IOException unused) {
-                        closeable2 = null;
-                        Closeables.closeSafely(outputStream);
-                        Closeables.closeSafely(closeable2);
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                        return null;
-                    } catch (Throwable th) {
-                        th = th;
-                        outputStream2 = outputStream;
-                        closeable = null;
-                        Closeables.closeSafely(outputStream2);
-                        Closeables.closeSafely(closeable);
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                        throw th;
-                    }
-                }
-                if (httpURLConnection.getResponseCode() == 200) {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
-                    while (true) {
+                httpURLConnection = (HttpURLConnection) new URL(UploadUrlProvider.getInstance().getUploadUrl()).openConnection();
+                try {
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setReadTimeout(30000);
+                    httpURLConnection.setConnectTimeout(30000);
+                    httpURLConnection.setDoInput(true);
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setInstanceFollowRedirects(true);
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setRequestProperty(CHARSET, "UTF-8");
+                    httpURLConnection.setRequestProperty("Content-type", "application/json");
+                    httpURLConnection.setRequestProperty(ACCEPT, "application/json");
+                    String createRequest = ContentUtil.createRequest(str);
+                    if (createRequest != null && !TextUtils.isEmpty(createRequest)) {
+                        httpURLConnection.setRequestProperty("Content-Length", String.valueOf(createRequest.getBytes("UTF-8").length));
+                        outputStream = httpURLConnection.getOutputStream();
                         try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            sb.append(readLine);
-                        } catch (IOException unused2) {
-                            closeable2 = bufferedReader;
+                            outputStream.write(createRequest.getBytes());
+                            outputStream.flush();
+                        } catch (IOException unused) {
+                            closeable2 = null;
                             Closeables.closeSafely(outputStream);
                             Closeables.closeSafely(closeable2);
                             if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
                             }
                             return null;
-                        } catch (Throwable th2) {
+                        } catch (Throwable th) {
+                            th = th;
                             outputStream2 = outputStream;
-                            closeable = bufferedReader;
-                            th = th2;
+                            closeable = null;
                             Closeables.closeSafely(outputStream2);
                             Closeables.closeSafely(closeable);
                             if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
                             }
                             throw th;
                         }
+                    } else {
+                        outputStream = null;
                     }
-                    outputStream2 = bufferedReader;
+                    if (httpURLConnection.getResponseCode() == 200) {
+                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                sb.append(readLine);
+                            } catch (IOException unused2) {
+                                closeable2 = bufferedReader;
+                                Closeables.closeSafely(outputStream);
+                                Closeables.closeSafely(closeable2);
+                                if (httpURLConnection != null) {
+                                }
+                                return null;
+                            } catch (Throwable th2) {
+                                outputStream2 = outputStream;
+                                closeable = bufferedReader;
+                                th = th2;
+                                Closeables.closeSafely(outputStream2);
+                                Closeables.closeSafely(closeable);
+                                if (httpURLConnection != null) {
+                                }
+                                throw th;
+                            }
+                        }
+                        outputStream2 = bufferedReader;
+                    }
+                    Closeables.closeSafely(outputStream);
+                    Closeables.closeSafely(outputStream2);
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    return ContentUtil.createSTSFromResponse(sb.toString());
+                } catch (IOException unused3) {
+                    closeable2 = null;
+                    outputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    closeable = null;
                 }
-                Closeables.closeSafely(outputStream);
-                Closeables.closeSafely(outputStream2);
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                return ContentUtil.createSTSFromResponse(sb.toString());
-            } catch (IOException unused3) {
+            } catch (IOException unused4) {
                 closeable2 = null;
                 outputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
+                httpURLConnection = null;
+            } catch (Throwable th4) {
+                th = th4;
                 closeable = null;
+                httpURLConnection = null;
             }
-        } catch (IOException unused4) {
-            closeable2 = null;
-            outputStream = null;
-            httpURLConnection = null;
-        } catch (Throwable th4) {
-            th = th4;
-            closeable = null;
-            httpURLConnection = null;
+        } else {
+            return (STSInfo) invokeL.objValue;
         }
     }
 }

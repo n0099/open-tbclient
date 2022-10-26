@@ -10,9 +10,9 @@ import android.net.wifi.WifiManager;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.McastConfig;
-import com.baidu.tieba.ce3;
 import com.baidu.tieba.de3;
 import com.baidu.tieba.ee3;
+import com.baidu.tieba.fe3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ce3 mConnectListener;
-    public de3 mConnectSuccessListener;
+    public de3 mConnectListener;
+    public ee3 mConnectSuccessListener;
     public boolean mIsRegistered;
     public boolean mIsWifiDisconnected;
-    public ee3 mScanListener;
+    public fe3 mScanListener;
     public WifiManager mWifiManager;
 
     public SwanWifiBroadcastReceiver(WifiManager wifiManager) {
@@ -48,67 +48,6 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
         this.mWifiManager = wifiManager;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        char c;
-        ce3 ce3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent.getAction() == null) {
-            return;
-        }
-        String action = intent.getAction();
-        int hashCode = action.hashCode();
-        if (hashCode == -343630553) {
-            if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED)) {
-                c = 2;
-            }
-            c = 65535;
-        } else if (hashCode != 233521600) {
-            if (hashCode == 1878357501 && action.equals("android.net.wifi.SCAN_RESULTS")) {
-                c = 0;
-            }
-            c = 65535;
-        } else {
-            if (action.equals("android.net.wifi.supplicant.STATE_CHANGE")) {
-                c = 1;
-            }
-            c = 65535;
-        }
-        if (c == 0) {
-            ee3 ee3Var = this.mScanListener;
-            if (ee3Var != null) {
-                ee3Var.a(this.mWifiManager.getScanResults());
-            }
-        } else if (c == 1) {
-            if (intent.getIntExtra("supplicantError", -1) != 1 || (ce3Var = this.mConnectListener) == null) {
-                return;
-            }
-            ce3Var.onError(1);
-        } else if (c != 2) {
-        } else {
-            Parcelable parcelableExtra = intent.getParcelableExtra("networkInfo");
-            WifiInfo wifiInfo = (WifiInfo) intent.getParcelableExtra("wifiInfo");
-            if (parcelableExtra != null && ((NetworkInfo) parcelableExtra).getDetailedState() == NetworkInfo.DetailedState.CONNECTED) {
-                if (!this.mIsWifiDisconnected) {
-                    return;
-                }
-                ce3 ce3Var2 = this.mConnectListener;
-                if (ce3Var2 != null) {
-                    ce3Var2.a(wifiInfo);
-                }
-                de3 de3Var = this.mConnectSuccessListener;
-                if (de3Var != null && this.mIsWifiDisconnected) {
-                    de3Var.a(wifiInfo);
-                }
-                this.mIsWifiDisconnected = false;
-            }
-            if (parcelableExtra == null || ((NetworkInfo) parcelableExtra).getDetailedState() != NetworkInfo.DetailedState.DISCONNECTED) {
-                return;
-            }
-            this.mIsWifiDisconnected = true;
-        }
-    }
-
     public synchronized void registerSelf(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
@@ -127,24 +66,91 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-    public void setConnectListener(ce3 ce3Var) {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        char c;
+        de3 de3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ce3Var) == null) {
-            this.mConnectListener = ce3Var;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent.getAction() == null) {
+            return;
+        }
+        String action = intent.getAction();
+        int hashCode = action.hashCode();
+        if (hashCode != -343630553) {
+            if (hashCode != 233521600) {
+                if (hashCode == 1878357501 && action.equals("android.net.wifi.SCAN_RESULTS")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (action.equals("android.net.wifi.supplicant.STATE_CHANGE")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+        } else {
+            if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED)) {
+                c = 2;
+            }
+            c = 65535;
+        }
+        if (c != 0) {
+            if (c != 1) {
+                if (c == 2) {
+                    Parcelable parcelableExtra = intent.getParcelableExtra("networkInfo");
+                    WifiInfo wifiInfo = (WifiInfo) intent.getParcelableExtra("wifiInfo");
+                    if (parcelableExtra != null && ((NetworkInfo) parcelableExtra).getDetailedState() == NetworkInfo.DetailedState.CONNECTED) {
+                        if (!this.mIsWifiDisconnected) {
+                            return;
+                        }
+                        de3 de3Var2 = this.mConnectListener;
+                        if (de3Var2 != null) {
+                            de3Var2.a(wifiInfo);
+                        }
+                        ee3 ee3Var = this.mConnectSuccessListener;
+                        if (ee3Var != null && this.mIsWifiDisconnected) {
+                            ee3Var.a(wifiInfo);
+                        }
+                        this.mIsWifiDisconnected = false;
+                    }
+                    if (parcelableExtra != null && ((NetworkInfo) parcelableExtra).getDetailedState() == NetworkInfo.DetailedState.DISCONNECTED) {
+                        this.mIsWifiDisconnected = true;
+                        return;
+                    }
+                    return;
+                }
+                return;
+            } else if (intent.getIntExtra("supplicantError", -1) == 1 && (de3Var = this.mConnectListener) != null) {
+                de3Var.onError(1);
+                return;
+            } else {
+                return;
+            }
+        }
+        fe3 fe3Var = this.mScanListener;
+        if (fe3Var != null) {
+            fe3Var.a(this.mWifiManager.getScanResults());
         }
     }
 
-    public void setConnectSuccessListener(de3 de3Var) {
+    public void setConnectListener(de3 de3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, de3Var) == null) {
-            this.mConnectSuccessListener = de3Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, de3Var) == null) {
+            this.mConnectListener = de3Var;
         }
     }
 
-    public void setScanListener(ee3 ee3Var) {
+    public void setConnectSuccessListener(ee3 ee3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ee3Var) == null) {
-            this.mScanListener = ee3Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ee3Var) == null) {
+            this.mConnectSuccessListener = ee3Var;
+        }
+    }
+
+    public void setScanListener(fe3 fe3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fe3Var) == null) {
+            this.mScanListener = fe3Var;
         }
     }
 

@@ -82,12 +82,18 @@ public final class TrackingState {
     public static TrackingState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TrackingState) Enum.valueOf(TrackingState.class, str) : (TrackingState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (TrackingState) Enum.valueOf(TrackingState.class, str);
+        }
+        return (TrackingState) invokeL.objValue;
     }
 
     public static TrackingState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TrackingState[]) $VALUES.clone() : (TrackingState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (TrackingState[]) $VALUES.clone();
+        }
+        return (TrackingState[]) invokeV.objValue;
     }
 }

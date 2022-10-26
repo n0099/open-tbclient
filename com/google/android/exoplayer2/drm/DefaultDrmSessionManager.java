@@ -1,12 +1,9 @@
 package com.google.android.exoplayer2.drm;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +15,6 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.drm.DefaultDrmSession;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.drm.DrmSession;
-import com.google.android.exoplayer2.drm.ExoMediaCrypto;
 import com.google.android.exoplayer2.drm.ExoMediaDrm;
 import com.google.android.exoplayer2.extractor.mp4.PsshAtomUtil;
 import com.google.android.exoplayer2.util.Assertions;
@@ -31,9 +27,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-@TargetApi(18)
 /* loaded from: classes7.dex */
-public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSessionManager<T>, DefaultDrmSession.ProvisioningManager<T> {
+public class DefaultDrmSessionManager implements DrmSessionManager, DefaultDrmSession.ProvisioningManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CENC_SCHEME_MIME_TYPE = "cenc";
     public static final int INITIAL_DRM_REQUEST_RETRY_COUNT = 3;
@@ -47,15 +42,15 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
     public final Handler eventHandler;
     public final EventListener eventListener;
     public final int initialDrmRequestRetryCount;
-    public final ExoMediaDrm<T> mediaDrm;
-    public volatile DefaultDrmSessionManager<T>.MediaDrmHandler mediaDrmHandler;
+    public final ExoMediaDrm mediaDrm;
+    public volatile MediaDrmHandler mediaDrmHandler;
     public int mode;
     public final boolean multiSession;
     public byte[] offlineLicenseKeySetId;
-    public final HashMap<String, String> optionalKeyRequestParameters;
+    public final HashMap optionalKeyRequestParameters;
     public Looper playbackLooper;
-    public final List<DefaultDrmSession<T>> provisioningSessions;
-    public final List<DefaultDrmSession<T>> sessions;
+    public final List provisioningSessions;
+    public final List sessions;
     public final UUID uuid;
 
     /* loaded from: classes7.dex */
@@ -69,8 +64,13 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         void onDrmSessionManagerError(Exception exc);
     }
 
+    @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
-    public class MediaDrmEventListener implements ExoMediaDrm.OnEventListener<T> {
+    public @interface Mode {
+    }
+
+    /* loaded from: classes7.dex */
+    public class MediaDrmEventListener implements ExoMediaDrm.OnEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultDrmSessionManager this$0;
@@ -94,7 +94,7 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         }
 
         @Override // com.google.android.exoplayer2.drm.ExoMediaDrm.OnEventListener
-        public void onEvent(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, int i, int i2, byte[] bArr2) {
+        public void onEvent(ExoMediaDrm exoMediaDrm, byte[] bArr, int i, int i2, byte[] bArr2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{exoMediaDrm, bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2}) == null) && this.this$0.mode == 0) {
                 this.this$0.mediaDrmHandler.obtainMessage(i, bArr).sendToTarget();
@@ -102,7 +102,6 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         }
     }
 
-    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes7.dex */
     public class MediaDrmHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
@@ -145,13 +144,8 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         }
     }
 
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
-    public @interface Mode {
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDrmSessionManager(UUID uuid, ExoMediaDrm<T> exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap<String, String> hashMap, Handler handler, EventListener eventListener) {
+    public DefaultDrmSessionManager(UUID uuid, ExoMediaDrm exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap hashMap, Handler handler, EventListener eventListener) {
         this(uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, false, 3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -171,37 +165,138 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public DefaultDrmSessionManager(UUID uuid, ExoMediaDrm exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap hashMap, Handler handler, EventListener eventListener, boolean z) {
+        this(uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, z, 3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((UUID) objArr2[0], (ExoMediaDrm) objArr2[1], (MediaDrmCallback) objArr2[2], (HashMap) objArr2[3], (Handler) objArr2[4], (EventListener) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Integer) objArr2[7]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public DefaultDrmSessionManager(UUID uuid, ExoMediaDrm exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap hashMap, Handler handler, EventListener eventListener, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        Assertions.checkNotNull(uuid);
+        Assertions.checkNotNull(exoMediaDrm);
+        Assertions.checkArgument(!C.COMMON_PSSH_UUID.equals(uuid), "Use C.CLEARKEY_UUID instead");
+        this.uuid = uuid;
+        this.mediaDrm = exoMediaDrm;
+        this.callback = mediaDrmCallback;
+        this.optionalKeyRequestParameters = hashMap;
+        this.eventHandler = handler;
+        this.eventListener = eventListener;
+        this.multiSession = z;
+        this.initialDrmRequestRetryCount = i;
+        this.mode = 0;
+        this.sessions = new ArrayList();
+        this.provisioningSessions = new ArrayList();
+        if (z) {
+            exoMediaDrm.setPropertyString("sessionSharing", "enable");
+        }
+        exoMediaDrm.setOnEventListener(new MediaDrmEventListener());
+    }
+
+    public final byte[] getPropertyByteArray(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.mediaDrm.getPropertyByteArray(str);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final String getPropertyString(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.mediaDrm.getPropertyString(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.drm.DefaultDrmSession.ProvisioningManager
+    public void onProvisionError(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, exc) == null) {
+            for (DefaultDrmSession defaultDrmSession : this.provisioningSessions) {
+                defaultDrmSession.onProvisionError(exc);
+            }
+            this.provisioningSessions.clear();
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.drm.DefaultDrmSession.ProvisioningManager
+    public void provisionRequired(DefaultDrmSession defaultDrmSession) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, defaultDrmSession) == null) {
+            this.provisioningSessions.add(defaultDrmSession);
+            if (this.provisioningSessions.size() == 1) {
+                defaultDrmSession.provision();
+            }
+        }
+    }
+
     public static DrmInitData.SchemeData getSchemeData(DrmInitData drmInitData, UUID uuid, boolean z) {
         InterceptResult invokeLLZ;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, drmInitData, uuid, z)) == null) {
             ArrayList arrayList = new ArrayList(drmInitData.schemeDataCount);
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 boolean z2 = true;
-                if (i >= drmInitData.schemeDataCount) {
+                if (i2 >= drmInitData.schemeDataCount) {
                     break;
                 }
-                DrmInitData.SchemeData schemeData = drmInitData.get(i);
+                DrmInitData.SchemeData schemeData = drmInitData.get(i2);
                 if (!schemeData.matches(uuid) && (!C.CLEARKEY_UUID.equals(uuid) || !schemeData.matches(C.COMMON_PSSH_UUID))) {
                     z2 = false;
                 }
                 if (z2 && (schemeData.data != null || z)) {
                     arrayList.add(schemeData);
                 }
-                i++;
+                i2++;
             }
             if (arrayList.isEmpty()) {
                 return null;
             }
             if (C.WIDEVINE_UUID.equals(uuid)) {
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    DrmInitData.SchemeData schemeData2 = (DrmInitData.SchemeData) arrayList.get(i2);
-                    int parseVersion = schemeData2.hasData() ? PsshAtomUtil.parseVersion(schemeData2.data) : -1;
-                    if (Util.SDK_INT < 23 && parseVersion == 0) {
+                for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                    DrmInitData.SchemeData schemeData2 = (DrmInitData.SchemeData) arrayList.get(i3);
+                    if (schemeData2.hasData()) {
+                        i = PsshAtomUtil.parseVersion(schemeData2.data);
+                    } else {
+                        i = -1;
+                    }
+                    if (Util.SDK_INT < 23 && i == 0) {
                         return schemeData2;
                     }
-                    if (Util.SDK_INT >= 23 && parseVersion == 1) {
+                    if (Util.SDK_INT >= 23 && i == 1) {
                         return schemeData2;
                     }
                 }
@@ -217,9 +312,38 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, schemeData, uuid)) == null) {
             byte[] bArr = schemeData.data;
-            return (Util.SDK_INT >= 21 || (parseSchemeSpecificData = PsshAtomUtil.parseSchemeSpecificData(bArr, uuid)) == null) ? bArr : parseSchemeSpecificData;
+            if (Util.SDK_INT < 21 && (parseSchemeSpecificData = PsshAtomUtil.parseSchemeSpecificData(bArr, uuid)) != null) {
+                return parseSchemeSpecificData;
+            }
+            return bArr;
         }
         return (byte[]) invokeLL.objValue;
+    }
+
+    public void setMode(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bArr) == null) {
+            Assertions.checkState(this.sessions.isEmpty());
+            if (i == 1 || i == 3) {
+                Assertions.checkNotNull(bArr);
+            }
+            this.mode = i;
+            this.offlineLicenseKeySetId = bArr;
+        }
+    }
+
+    public final void setPropertyByteArray(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, bArr) == null) {
+            this.mediaDrm.setPropertyByteArray(str, bArr);
+        }
+    }
+
+    public final void setPropertyString(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
+            this.mediaDrm.setPropertyString(str, str2);
+        }
     }
 
     public static String getSchemeMimeType(DrmInitData.SchemeData schemeData, UUID uuid) {
@@ -227,55 +351,73 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, schemeData, uuid)) == null) {
             String str = schemeData.mimeType;
-            return (Util.SDK_INT >= 26 || !C.CLEARKEY_UUID.equals(uuid)) ? str : (MimeTypes.VIDEO_MP4.equals(str) || MimeTypes.AUDIO_MP4.equals(str)) ? "cenc" : str;
+            if (Util.SDK_INT < 26 && C.CLEARKEY_UUID.equals(uuid)) {
+                if (MimeTypes.VIDEO_MP4.equals(str) || MimeTypes.AUDIO_MP4.equals(str)) {
+                    return "cenc";
+                }
+                return str;
+            }
+            return str;
         }
         return (String) invokeLL.objValue;
     }
 
-    public static DefaultDrmSessionManager<FrameworkMediaCrypto> newFrameworkInstance(UUID uuid, MediaDrmCallback mediaDrmCallback, HashMap<String, String> hashMap, Handler handler, EventListener eventListener) throws UnsupportedDrmException {
+    public static DefaultDrmSessionManager newFrameworkInstance(UUID uuid, MediaDrmCallback mediaDrmCallback, HashMap hashMap, Handler handler, EventListener eventListener) throws UnsupportedDrmException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65545, null, uuid, mediaDrmCallback, hashMap, handler, eventListener)) == null) ? new DefaultDrmSessionManager<>(uuid, FrameworkMediaDrm.newInstance(uuid), mediaDrmCallback, hashMap, handler, eventListener, false, 3) : (DefaultDrmSessionManager) invokeLLLLL.objValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65545, null, uuid, mediaDrmCallback, hashMap, handler, eventListener)) == null) {
+            return new DefaultDrmSessionManager(uuid, FrameworkMediaDrm.newInstance(uuid), mediaDrmCallback, hashMap, handler, eventListener, false, 3);
+        }
+        return (DefaultDrmSessionManager) invokeLLLLL.objValue;
     }
 
-    public static DefaultDrmSessionManager<FrameworkMediaCrypto> newPlayReadyInstance(MediaDrmCallback mediaDrmCallback, String str, Handler handler, EventListener eventListener) throws UnsupportedDrmException {
+    public static DefaultDrmSessionManager newPlayReadyInstance(MediaDrmCallback mediaDrmCallback, String str, Handler handler, EventListener eventListener) throws UnsupportedDrmException {
         InterceptResult invokeLLLL;
         HashMap hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, mediaDrmCallback, str, handler, eventListener)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                hashMap = null;
-            } else {
+            if (!TextUtils.isEmpty(str)) {
                 hashMap = new HashMap();
                 hashMap.put(PLAYREADY_CUSTOM_DATA_KEY, str);
+            } else {
+                hashMap = null;
             }
             return newFrameworkInstance(C.PLAYREADY_UUID, mediaDrmCallback, hashMap, handler, eventListener);
         }
         return (DefaultDrmSessionManager) invokeLLLL.objValue;
     }
 
-    public static DefaultDrmSessionManager<FrameworkMediaCrypto> newWidevineInstance(MediaDrmCallback mediaDrmCallback, HashMap<String, String> hashMap, Handler handler, EventListener eventListener) throws UnsupportedDrmException {
+    public static DefaultDrmSessionManager newWidevineInstance(MediaDrmCallback mediaDrmCallback, HashMap hashMap, Handler handler, EventListener eventListener) throws UnsupportedDrmException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, mediaDrmCallback, hashMap, handler, eventListener)) == null) ? newFrameworkInstance(C.WIDEVINE_UUID, mediaDrmCallback, hashMap, handler, eventListener) : (DefaultDrmSessionManager) invokeLLLL.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, mediaDrmCallback, hashMap, handler, eventListener)) == null) {
+            return newFrameworkInstance(C.WIDEVINE_UUID, mediaDrmCallback, hashMap, handler, eventListener);
+        }
+        return (DefaultDrmSessionManager) invokeLLLL.objValue;
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSessionManager
-    public DrmSession<T> acquireSession(Looper looper, DrmInitData drmInitData) {
+    public DrmSession acquireSession(Looper looper, DrmInitData drmInitData) {
         InterceptResult invokeLL;
+        boolean z;
         byte[] bArr;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, looper, drmInitData)) == null) {
             Looper looper2 = this.playbackLooper;
-            Assertions.checkState(looper2 == null || looper2 == looper);
+            if (looper2 != null && looper2 != looper) {
+                z = false;
+            } else {
+                z = true;
+            }
+            Assertions.checkState(z);
             if (this.sessions.isEmpty()) {
                 this.playbackLooper = looper;
                 if (this.mediaDrmHandler == null) {
                     this.mediaDrmHandler = new MediaDrmHandler(this, looper);
                 }
             }
-            DefaultDrmSession<T> defaultDrmSession = null;
+            DefaultDrmSession defaultDrmSession = null;
             if (this.offlineLicenseKeySetId == null) {
                 DrmInitData.SchemeData schemeData = getSchemeData(drmInitData, this.uuid, false);
                 if (schemeData == null) {
@@ -327,25 +469,25 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
             }
             if (!this.multiSession) {
                 if (!this.sessions.isEmpty()) {
-                    defaultDrmSession = this.sessions.get(0);
+                    defaultDrmSession = (DefaultDrmSession) this.sessions.get(0);
                 }
             } else {
-                Iterator<DefaultDrmSession<T>> it = this.sessions.iterator();
+                Iterator it = this.sessions.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    DefaultDrmSession<T> next = it.next();
-                    if (next.hasInitData(bArr)) {
-                        defaultDrmSession = next;
+                    DefaultDrmSession defaultDrmSession2 = (DefaultDrmSession) it.next();
+                    if (defaultDrmSession2.hasInitData(bArr)) {
+                        defaultDrmSession = defaultDrmSession2;
                         break;
                     }
                 }
             }
             if (defaultDrmSession == null) {
-                DefaultDrmSession<T> defaultDrmSession2 = new DefaultDrmSession<>(this.uuid, this.mediaDrm, this, bArr, str, this.mode, this.offlineLicenseKeySetId, this.optionalKeyRequestParameters, this.callback, looper, this.eventHandler, this.eventListener, this.initialDrmRequestRetryCount);
-                this.sessions.add(defaultDrmSession2);
-                defaultDrmSession = defaultDrmSession2;
+                DefaultDrmSession defaultDrmSession3 = new DefaultDrmSession(this.uuid, this.mediaDrm, this, bArr, str, this.mode, this.offlineLicenseKeySetId, this.optionalKeyRequestParameters, this.callback, looper, this.eventHandler, this.eventListener, this.initialDrmRequestRetryCount);
+                this.sessions.add(defaultDrmSession3);
+                defaultDrmSession = defaultDrmSession3;
             }
             defaultDrmSession.acquire();
             return defaultDrmSession;
@@ -354,7 +496,7 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSessionManager
-    public boolean canAcquireSession(@NonNull DrmInitData drmInitData) {
+    public boolean canAcquireSession(DrmInitData drmInitData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drmInitData)) == null) {
@@ -365,151 +507,38 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
             if (str == null || "cenc".equals(str)) {
                 return true;
             }
-            return !(C.CENC_TYPE_cbc1.equals(str) || C.CENC_TYPE_cbcs.equals(str) || C.CENC_TYPE_cens.equals(str)) || Util.SDK_INT >= 24;
+            if ((!C.CENC_TYPE_cbc1.equals(str) && !C.CENC_TYPE_cbcs.equals(str) && !C.CENC_TYPE_cens.equals(str)) || Util.SDK_INT >= 24) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public final byte[] getPropertyByteArray(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.mediaDrm.getPropertyByteArray(str) : (byte[]) invokeL.objValue;
-    }
-
-    public final String getPropertyString(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mediaDrm.getPropertyString(str) : (String) invokeL.objValue;
     }
 
     @Override // com.google.android.exoplayer2.drm.DefaultDrmSession.ProvisioningManager
     public void onProvisionCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (DefaultDrmSession<T> defaultDrmSession : this.provisioningSessions) {
+            for (DefaultDrmSession defaultDrmSession : this.provisioningSessions) {
                 defaultDrmSession.onProvisionCompleted();
             }
             this.provisioningSessions.clear();
         }
     }
 
-    @Override // com.google.android.exoplayer2.drm.DefaultDrmSession.ProvisioningManager
-    public void onProvisionError(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, exc) == null) {
-            for (DefaultDrmSession<T> defaultDrmSession : this.provisioningSessions) {
-                defaultDrmSession.onProvisionError(exc);
-            }
-            this.provisioningSessions.clear();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.drm.DefaultDrmSession.ProvisioningManager
-    public void provisionRequired(DefaultDrmSession<T> defaultDrmSession) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, defaultDrmSession) == null) {
-            this.provisioningSessions.add(defaultDrmSession);
-            if (this.provisioningSessions.size() == 1) {
-                defaultDrmSession.provision();
-            }
-        }
-    }
-
     @Override // com.google.android.exoplayer2.drm.DrmSessionManager
-    public void releaseSession(DrmSession<T> drmSession) {
+    public void releaseSession(DrmSession drmSession) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, drmSession) == null) || (drmSession instanceof ErrorStateDrmSession)) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, drmSession) != null) || (drmSession instanceof ErrorStateDrmSession)) {
             return;
         }
-        DefaultDrmSession<T> defaultDrmSession = (DefaultDrmSession) drmSession;
+        DefaultDrmSession defaultDrmSession = (DefaultDrmSession) drmSession;
         if (defaultDrmSession.release()) {
             this.sessions.remove(defaultDrmSession);
             if (this.provisioningSessions.size() > 1 && this.provisioningSessions.get(0) == defaultDrmSession) {
-                this.provisioningSessions.get(1).provision();
+                ((DefaultDrmSession) this.provisioningSessions.get(1)).provision();
             }
             this.provisioningSessions.remove(defaultDrmSession);
         }
-    }
-
-    public void setMode(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bArr) == null) {
-            Assertions.checkState(this.sessions.isEmpty());
-            if (i == 1 || i == 3) {
-                Assertions.checkNotNull(bArr);
-            }
-            this.mode = i;
-            this.offlineLicenseKeySetId = bArr;
-        }
-    }
-
-    public final void setPropertyByteArray(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, bArr) == null) {
-            this.mediaDrm.setPropertyByteArray(str, bArr);
-        }
-    }
-
-    public final void setPropertyString(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            this.mediaDrm.setPropertyString(str, str2);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDrmSessionManager(UUID uuid, ExoMediaDrm<T> exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap<String, String> hashMap, Handler handler, EventListener eventListener, boolean z) {
-        this(uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, z, 3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((UUID) objArr2[0], (ExoMediaDrm) objArr2[1], (MediaDrmCallback) objArr2[2], (HashMap) objArr2[3], (Handler) objArr2[4], (EventListener) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Integer) objArr2[7]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public DefaultDrmSessionManager(UUID uuid, ExoMediaDrm<T> exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap<String, String> hashMap, Handler handler, EventListener eventListener, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        Assertions.checkNotNull(uuid);
-        Assertions.checkNotNull(exoMediaDrm);
-        Assertions.checkArgument(!C.COMMON_PSSH_UUID.equals(uuid), "Use C.CLEARKEY_UUID instead");
-        this.uuid = uuid;
-        this.mediaDrm = exoMediaDrm;
-        this.callback = mediaDrmCallback;
-        this.optionalKeyRequestParameters = hashMap;
-        this.eventHandler = handler;
-        this.eventListener = eventListener;
-        this.multiSession = z;
-        this.initialDrmRequestRetryCount = i;
-        this.mode = 0;
-        this.sessions = new ArrayList();
-        this.provisioningSessions = new ArrayList();
-        if (z) {
-            exoMediaDrm.setPropertyString("sessionSharing", "enable");
-        }
-        exoMediaDrm.setOnEventListener(new MediaDrmEventListener());
     }
 }

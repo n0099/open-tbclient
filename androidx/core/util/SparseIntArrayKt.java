@@ -23,19 +23,37 @@ public final class SparseIntArrayKt {
     public static final boolean contains(SparseIntArray sparseIntArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseIntArray, i)) == null) ? sparseIntArray.indexOfKey(i) >= 0 : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseIntArray, i)) == null) {
+            if (sparseIntArray.indexOfKey(i) >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 
     public static final boolean containsKey(SparseIntArray sparseIntArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, sparseIntArray, i)) == null) ? sparseIntArray.indexOfKey(i) >= 0 : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, sparseIntArray, i)) == null) {
+            if (sparseIntArray.indexOfKey(i) >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 
     public static final boolean containsValue(SparseIntArray sparseIntArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, sparseIntArray, i)) == null) ? sparseIntArray.indexOfValue(i) >= 0 : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, sparseIntArray, i)) == null) {
+            if (sparseIntArray.indexOfValue(i) >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 
     public static final void forEach(SparseIntArray sparseIntArray, Function2<? super Integer, ? super Integer, Unit> function2) {
@@ -46,102 +64,6 @@ public final class SparseIntArrayKt {
                 function2.invoke(Integer.valueOf(sparseIntArray.keyAt(i)), Integer.valueOf(sparseIntArray.valueAt(i)));
             }
         }
-    }
-
-    public static final int getOrDefault(SparseIntArray sparseIntArray, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseIntArray, i, i2)) == null) ? sparseIntArray.get(i, i2) : invokeLII.intValue;
-    }
-
-    public static final int getOrElse(SparseIntArray sparseIntArray, int i, Function0<Integer> function0) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseIntArray, i, function0)) == null) {
-            int indexOfKey = sparseIntArray.indexOfKey(i);
-            return indexOfKey >= 0 ? sparseIntArray.valueAt(indexOfKey) : function0.invoke().intValue();
-        }
-        return invokeLIL.intValue;
-    }
-
-    public static final int getSize(SparseIntArray sparseIntArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sparseIntArray)) == null) ? sparseIntArray.size() : invokeL.intValue;
-    }
-
-    public static final boolean isEmpty(SparseIntArray sparseIntArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sparseIntArray)) == null) ? sparseIntArray.size() == 0 : invokeL.booleanValue;
-    }
-
-    public static final boolean isNotEmpty(SparseIntArray sparseIntArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, sparseIntArray)) == null) ? sparseIntArray.size() != 0 : invokeL.booleanValue;
-    }
-
-    public static final IntIterator keyIterator(final SparseIntArray sparseIntArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, sparseIntArray)) == null) ? new IntIterator(sparseIntArray) { // from class: androidx.core.util.SparseIntArrayKt$keyIterator$1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SparseIntArray $this_keyIterator;
-            public int index;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {sparseIntArray};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.$this_keyIterator = sparseIntArray;
-            }
-
-            public final int getIndex() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.index : invokeV.intValue;
-            }
-
-            @Override // java.util.Iterator
-            public boolean hasNext() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.index < this.$this_keyIterator.size() : invokeV.booleanValue;
-            }
-
-            @Override // kotlin.collections.IntIterator
-            public int nextInt() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    SparseIntArray sparseIntArray2 = this.$this_keyIterator;
-                    int i = this.index;
-                    this.index = i + 1;
-                    return sparseIntArray2.keyAt(i);
-                }
-                return invokeV.intValue;
-            }
-
-            public final void setIndex(int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
-                    this.index = i;
-                }
-            }
-        } : (IntIterator) invokeL.objValue;
     }
 
     public static final SparseIntArray plus(SparseIntArray sparseIntArray, SparseIntArray sparseIntArray2) {
@@ -166,16 +88,38 @@ public final class SparseIntArrayKt {
         }
     }
 
+    public static final int getOrDefault(SparseIntArray sparseIntArray, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseIntArray, i, i2)) == null) {
+            return sparseIntArray.get(i, i2);
+        }
+        return invokeLII.intValue;
+    }
+
+    public static final int getOrElse(SparseIntArray sparseIntArray, int i, Function0<Integer> function0) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseIntArray, i, function0)) == null) {
+            int indexOfKey = sparseIntArray.indexOfKey(i);
+            if (indexOfKey >= 0) {
+                return sparseIntArray.valueAt(indexOfKey);
+            }
+            return ((Number) function0.invoke()).intValue();
+        }
+        return invokeLIL.intValue;
+    }
+
     public static final boolean remove(SparseIntArray sparseIntArray, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65548, null, sparseIntArray, i, i2)) == null) {
             int indexOfKey = sparseIntArray.indexOfKey(i);
-            if (indexOfKey < 0 || i2 != sparseIntArray.valueAt(indexOfKey)) {
-                return false;
+            if (indexOfKey >= 0 && i2 == sparseIntArray.valueAt(indexOfKey)) {
+                sparseIntArray.removeAt(indexOfKey);
+                return true;
             }
-            sparseIntArray.removeAt(indexOfKey);
-            return true;
+            return false;
         }
         return invokeLII.booleanValue;
     }
@@ -187,65 +131,184 @@ public final class SparseIntArrayKt {
         }
     }
 
+    public static final int getSize(SparseIntArray sparseIntArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sparseIntArray)) == null) {
+            return sparseIntArray.size();
+        }
+        return invokeL.intValue;
+    }
+
+    public static final boolean isEmpty(SparseIntArray sparseIntArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sparseIntArray)) == null) {
+            if (sparseIntArray.size() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean isNotEmpty(SparseIntArray sparseIntArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, sparseIntArray)) == null) {
+            if (sparseIntArray.size() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final IntIterator keyIterator(final SparseIntArray sparseIntArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, sparseIntArray)) == null) {
+            return new IntIterator(sparseIntArray) { // from class: androidx.core.util.SparseIntArrayKt$keyIterator$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SparseIntArray $this_keyIterator;
+                public int index;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {sparseIntArray};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$this_keyIterator = sparseIntArray;
+                }
+
+                public final void setIndex(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                        this.index = i;
+                    }
+                }
+
+                public final int getIndex() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.index;
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // java.util.Iterator
+                public boolean hasNext() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        if (this.index < this.$this_keyIterator.size()) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeV.booleanValue;
+                }
+
+                @Override // kotlin.collections.IntIterator
+                public int nextInt() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        SparseIntArray sparseIntArray2 = this.$this_keyIterator;
+                        int i = this.index;
+                        this.index = i + 1;
+                        return sparseIntArray2.keyAt(i);
+                    }
+                    return invokeV.intValue;
+                }
+            };
+        }
+        return (IntIterator) invokeL.objValue;
+    }
+
     public static final IntIterator valueIterator(final SparseIntArray sparseIntArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, sparseIntArray)) == null) ? new IntIterator(sparseIntArray) { // from class: androidx.core.util.SparseIntArrayKt$valueIterator$1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SparseIntArray $this_valueIterator;
-            public int index;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, sparseIntArray)) == null) {
+            return new IntIterator(sparseIntArray) { // from class: androidx.core.util.SparseIntArrayKt$valueIterator$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SparseIntArray $this_valueIterator;
+                public int index;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {sparseIntArray};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {sparseIntArray};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$this_valueIterator = sparseIntArray;
+                }
+
+                public final void setIndex(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                        this.index = i;
                     }
                 }
-                this.$this_valueIterator = sparseIntArray;
-            }
 
-            public final int getIndex() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.index : invokeV.intValue;
-            }
-
-            @Override // java.util.Iterator
-            public boolean hasNext() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.index < this.$this_valueIterator.size() : invokeV.booleanValue;
-            }
-
-            @Override // kotlin.collections.IntIterator
-            public int nextInt() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    SparseIntArray sparseIntArray2 = this.$this_valueIterator;
-                    int i = this.index;
-                    this.index = i + 1;
-                    return sparseIntArray2.valueAt(i);
+                public final int getIndex() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.index;
+                    }
+                    return invokeV.intValue;
                 }
-                return invokeV.intValue;
-            }
 
-            public final void setIndex(int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
-                    this.index = i;
+                @Override // java.util.Iterator
+                public boolean hasNext() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        if (this.index < this.$this_valueIterator.size()) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeV.booleanValue;
                 }
-            }
-        } : (IntIterator) invokeL.objValue;
+
+                @Override // kotlin.collections.IntIterator
+                public int nextInt() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        SparseIntArray sparseIntArray2 = this.$this_valueIterator;
+                        int i = this.index;
+                        this.index = i + 1;
+                        return sparseIntArray2.valueAt(i);
+                    }
+                    return invokeV.intValue;
+                }
+            };
+        }
+        return (IntIterator) invokeL.objValue;
     }
 }

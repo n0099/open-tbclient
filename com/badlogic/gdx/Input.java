@@ -13,7 +13,7 @@ public interface Input {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class OnscreenKeyboardType {
+    public final class OnscreenKeyboardType {
         public static final /* synthetic */ OnscreenKeyboardType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OnscreenKeyboardType Default;
@@ -69,19 +69,25 @@ public interface Input {
         public static OnscreenKeyboardType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (OnscreenKeyboardType) Enum.valueOf(OnscreenKeyboardType.class, str) : (OnscreenKeyboardType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (OnscreenKeyboardType) Enum.valueOf(OnscreenKeyboardType.class, str);
+            }
+            return (OnscreenKeyboardType) invokeL.objValue;
         }
 
         public static OnscreenKeyboardType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OnscreenKeyboardType[]) $VALUES.clone() : (OnscreenKeyboardType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (OnscreenKeyboardType[]) $VALUES.clone();
+            }
+            return (OnscreenKeyboardType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class Orientation {
+    public final class Orientation {
         public static final /* synthetic */ Orientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Orientation Landscape;
@@ -129,19 +135,25 @@ public interface Input {
         public static Orientation valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Orientation) Enum.valueOf(Orientation.class, str) : (Orientation) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Orientation) Enum.valueOf(Orientation.class, str);
+            }
+            return (Orientation) invokeL.objValue;
         }
 
         public static Orientation[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Orientation[]) $VALUES.clone() : (Orientation[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Orientation[]) $VALUES.clone();
+            }
+            return (Orientation[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class Peripheral {
+    public final class Peripheral {
         public static final /* synthetic */ Peripheral[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Peripheral Accelerometer;
@@ -203,13 +215,19 @@ public interface Input {
         public static Peripheral valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Peripheral) Enum.valueOf(Peripheral.class, str) : (Peripheral) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Peripheral) Enum.valueOf(Peripheral.class, str);
+            }
+            return (Peripheral) invokeL.objValue;
         }
 
         public static Peripheral[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Peripheral[]) $VALUES.clone() : (Peripheral[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Peripheral[]) $VALUES.clone();
+            }
+            return (Peripheral[]) invokeV.objValue;
         }
     }
 }

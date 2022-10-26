@@ -57,6 +57,20 @@ public abstract class Key {
         }
     }
 
+    public abstract void addValues(HashMap<String, SplineSet> hashMap);
+
+    public abstract void getAttributeNames(HashSet<String> hashSet);
+
+    public abstract void load(Context context, AttributeSet attributeSet);
+
+    public void setInterpolation(HashMap<String, Integer> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) {
+        }
+    }
+
+    public abstract void setValue(String str, Object obj);
+
     public Key() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,48 +90,52 @@ public abstract class Key {
         this.mTargetString = null;
     }
 
-    public abstract void addValues(HashMap<String, SplineSet> hashMap);
-
-    public abstract void getAttributeNames(HashSet<String> hashSet);
-
-    public abstract void load(Context context, AttributeSet attributeSet);
-
     public boolean matches(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             String str2 = this.mTargetString;
-            if (str2 == null || str == null) {
-                return false;
+            if (str2 != null && str != null) {
+                return str.matches(str2);
             }
-            return str.matches(str2);
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public void setInterpolation(HashMap<String, Integer> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) {
-        }
-    }
-
-    public abstract void setValue(String str, Object obj);
-
     public boolean toBoolean(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? obj instanceof Boolean ? ((Boolean) obj).booleanValue() : Boolean.parseBoolean(obj.toString()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj instanceof Boolean) {
+                return ((Boolean) obj).booleanValue();
+            }
+            return Boolean.parseBoolean(obj.toString());
+        }
+        return invokeL.booleanValue;
     }
 
     public float toFloat(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? obj instanceof Float ? ((Float) obj).floatValue() : Float.parseFloat(obj.toString()) : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+            if (obj instanceof Float) {
+                return ((Float) obj).floatValue();
+            }
+            return Float.parseFloat(obj.toString());
+        }
+        return invokeL.floatValue;
     }
 
     public int toInt(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) ? obj instanceof Integer ? ((Integer) obj).intValue() : Integer.parseInt(obj.toString()) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
+            if (obj instanceof Integer) {
+                return ((Integer) obj).intValue();
+            }
+            return Integer.parseInt(obj.toString());
+        }
+        return invokeL.intValue;
     }
 }

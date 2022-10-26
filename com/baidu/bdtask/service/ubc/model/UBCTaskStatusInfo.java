@@ -49,6 +49,10 @@ public class UBCTaskStatusInfo implements ITaskModelData {
         this.interruptErrorNo = this.taskInfoStatus.getInterruptErrorNo();
     }
 
+    public /* synthetic */ UBCTaskStatusInfo(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, taskStatus, (i2 & 4) != 0 ? taskStatus.getCurStatusCode() : i, (i2 & 8) != 0 ? taskStatus.getCurStatusCodeMsg() : str);
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public ITaskModelData deepCopy() {
         InterceptResult invokeV;
@@ -64,7 +68,10 @@ public class UBCTaskStatusInfo implements ITaskModelData {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ITaskModelData.a.a(this) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ITaskModelData.a.a(this);
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -87,9 +94,5 @@ public class UBCTaskStatusInfo implements ITaskModelData {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public /* synthetic */ UBCTaskStatusInfo(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, taskStatus, (i2 & 4) != 0 ? taskStatus.getCurStatusCode() : i, (i2 & 8) != 0 ? taskStatus.getCurStatusCodeMsg() : str);
     }
 }

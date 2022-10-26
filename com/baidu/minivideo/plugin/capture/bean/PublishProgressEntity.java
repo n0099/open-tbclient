@@ -56,34 +56,28 @@ public class PublishProgressEntity implements Jsonable {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof PublishProgressEntity) {
-                PublishProgressEntity publishProgressEntity = (PublishProgressEntity) obj;
-                if (this.mProgress == publishProgressEntity.mProgress && this.type == publishProgressEntity.type && this.showWhere == publishProgressEntity.showWhere) {
-                    String str = this.mVideoCover;
-                    if (str == null ? publishProgressEntity.mVideoCover == null : str.equals(publishProgressEntity.mVideoCover)) {
-                        String str2 = this.mVideoPath;
-                        String str3 = publishProgressEntity.mVideoPath;
-                        return str2 != null ? str2.equals(str3) : str3 == null;
-                    }
-                    return false;
-                }
+            if (!(obj instanceof PublishProgressEntity)) {
                 return false;
+            }
+            PublishProgressEntity publishProgressEntity = (PublishProgressEntity) obj;
+            if (this.mProgress != publishProgressEntity.mProgress || this.type != publishProgressEntity.type || this.showWhere != publishProgressEntity.showWhere) {
+                return false;
+            }
+            String str = this.mVideoCover;
+            if (str == null ? publishProgressEntity.mVideoCover != null : !str.equals(publishProgressEntity.mVideoCover)) {
+                return false;
+            }
+            String str2 = this.mVideoPath;
+            String str3 = publishProgressEntity.mVideoPath;
+            if (str2 != null) {
+                return str2.equals(str3);
+            }
+            if (str3 == null) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.mVideoCover;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.mVideoPath;
-            return ((((((hashCode + (str2 != null ? str2.hashCode() : 0)) * 31) + this.mProgress) * 31) + this.type) * 31) + this.showWhere;
-        }
-        return invokeV.intValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
@@ -107,6 +101,28 @@ public class PublishProgressEntity implements Jsonable {
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.mVideoCover;
+            int i2 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i3 = i * 31;
+            String str2 = this.mVideoPath;
+            if (str2 != null) {
+                i2 = str2.hashCode();
+            }
+            return ((((((i3 + i2) * 31) + this.mProgress) * 31) + this.type) * 31) + this.showWhere;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable

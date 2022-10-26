@@ -7,9 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.MotionEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@VisibleForTesting
 /* loaded from: classes.dex */
 public class FastScroller extends RecyclerView.ItemDecoration implements RecyclerView.OnItemTouchListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -46,14 +42,11 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     public int mAnimationState;
     public int mDragState;
     public final Runnable mHideRunnable;
-    @VisibleForTesting
     public float mHorizontalDragX;
     public final int[] mHorizontalRange;
-    @VisibleForTesting
     public int mHorizontalThumbCenterX;
     public final StateListDrawable mHorizontalThumbDrawable;
     public final int mHorizontalThumbHeight;
-    @VisibleForTesting
     public int mHorizontalThumbWidth;
     public final Drawable mHorizontalTrackDrawable;
     public final int mHorizontalTrackHeight;
@@ -67,17 +60,21 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     public final int mScrollbarMinimumRange;
     public final ValueAnimator mShowHideAnimator;
     public int mState;
-    @VisibleForTesting
     public float mVerticalDragY;
     public final int[] mVerticalRange;
-    @VisibleForTesting
     public int mVerticalThumbCenterY;
     public final StateListDrawable mVerticalThumbDrawable;
-    @VisibleForTesting
     public int mVerticalThumbHeight;
     public final int mVerticalThumbWidth;
     public final Drawable mVerticalTrackDrawable;
     public final int mVerticalTrackWidth;
+
+    @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+    public void onRequestDisallowInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        }
+    }
 
     /* loaded from: classes.dex */
     public class AnimatorListener extends AnimatorListenerAdapter {
@@ -185,6 +182,137 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         EMPTY_STATE_SET = new int[0];
     }
 
+    private void cancelHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.mRecyclerView.removeCallbacks(this.mHideRunnable);
+        }
+    }
+
+    private void destroyCallbacks() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.mRecyclerView.removeItemDecoration(this);
+            this.mRecyclerView.removeOnItemTouchListener(this);
+            this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
+            cancelHide();
+        }
+    }
+
+    private int[] getHorizontalRange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            int[] iArr = this.mHorizontalRange;
+            int i = this.mMargin;
+            iArr[0] = i;
+            iArr[1] = this.mRecyclerViewWidth - i;
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    private int[] getVerticalRange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            int[] iArr = this.mVerticalRange;
+            int i = this.mMargin;
+            iArr[0] = i;
+            iArr[1] = this.mRecyclerViewHeight - i;
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    private boolean isLayoutRTL() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            if (ViewCompat.getLayoutDirection(this.mRecyclerView) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void setupCallbacks() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            this.mRecyclerView.addItemDecoration(this);
+            this.mRecyclerView.addOnItemTouchListener(this);
+            this.mRecyclerView.addOnScrollListener(this.mOnScrollListener);
+        }
+    }
+
+    public Drawable getHorizontalThumbDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mHorizontalThumbDrawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public Drawable getHorizontalTrackDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mHorizontalTrackDrawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public Drawable getVerticalThumbDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mVerticalThumbDrawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public Drawable getVerticalTrackDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mVerticalTrackDrawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public boolean isDragging() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mState == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isVisible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.mState == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void requestRedraw() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.mRecyclerView.invalidate();
+        }
+    }
+
     public FastScroller(RecyclerView recyclerView, StateListDrawable stateListDrawable, Drawable drawable, StateListDrawable stateListDrawable2, Drawable drawable2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -289,23 +417,6 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         attachToRecyclerView(recyclerView);
     }
 
-    private void cancelHide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRecyclerView.removeCallbacks(this.mHideRunnable);
-        }
-    }
-
-    private void destroyCallbacks() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.mRecyclerView.removeItemDecoration(this);
-            this.mRecyclerView.removeOnItemTouchListener(this);
-            this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-            cancelHide();
-        }
-    }
-
     private void drawHorizontalScrollbar(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
@@ -322,6 +433,25 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
             canvas.translate(i6, 0.0f);
             this.mHorizontalThumbDrawable.draw(canvas);
             canvas.translate(-i6, -i3);
+        }
+    }
+
+    public void hide(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            int i2 = this.mAnimationState;
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    return;
+                }
+            } else {
+                this.mShowHideAnimator.cancel();
+            }
+            this.mAnimationState = 3;
+            ValueAnimator valueAnimator = this.mShowHideAnimator;
+            valueAnimator.setFloatValues(((Float) valueAnimator.getAnimatedValue()).floatValue(), 0.0f);
+            this.mShowHideAnimator.setDuration(i);
+            this.mShowHideAnimator.start();
         }
     }
 
@@ -353,32 +483,6 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
-    private int[] getHorizontalRange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            int[] iArr = this.mHorizontalRange;
-            int i = this.mMargin;
-            iArr[0] = i;
-            iArr[1] = this.mRecyclerViewWidth - i;
-            return iArr;
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    private int[] getVerticalRange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int[] iArr = this.mVerticalRange;
-            int i = this.mMargin;
-            iArr[0] = i;
-            iArr[1] = this.mRecyclerViewHeight - i;
-            return iArr;
-        }
-        return (int[]) invokeV.objValue;
-    }
-
     private void horizontalScrollTo(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65544, this, f) == null) {
@@ -395,10 +499,42 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
-    private boolean isLayoutRTL() {
-        InterceptResult invokeV;
+    private void verticalScrollTo(float f) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? ViewCompat.getLayoutDirection(this.mRecyclerView) == 1 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeF(65549, this, f) == null) {
+            int[] verticalRange = getVerticalRange();
+            float max = Math.max(verticalRange[0], Math.min(verticalRange[1], f));
+            if (Math.abs(this.mVerticalThumbCenterY - max) < 2.0f) {
+                return;
+            }
+            int scrollTo = scrollTo(this.mVerticalDragY, max, verticalRange, this.mRecyclerView.computeVerticalScrollRange(), this.mRecyclerView.computeVerticalScrollOffset(), this.mRecyclerViewHeight);
+            if (scrollTo != 0) {
+                this.mRecyclerView.scrollBy(0, scrollTo);
+            }
+            this.mVerticalDragY = max;
+        }
+    }
+
+    public void setState(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            if (i == 2 && this.mState != 2) {
+                this.mVerticalThumbDrawable.setState(PRESSED_STATE_SET);
+                cancelHide();
+            }
+            if (i == 0) {
+                requestRedraw();
+            } else {
+                show();
+            }
+            if (this.mState == 2 && i != 2) {
+                this.mVerticalThumbDrawable.setState(EMPTY_STATE_SET);
+                resetHideDelay(1200);
+            } else if (i == 1) {
+                resetHideDelay(1500);
+            }
+            this.mState = i;
+        }
     }
 
     private void resetHideDelay(int i) {
@@ -406,6 +542,21 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         if (interceptable == null || interceptable.invokeI(65546, this, i) == null) {
             cancelHide();
             this.mRecyclerView.postDelayed(this.mHideRunnable, i);
+        }
+    }
+
+    public void attachToRecyclerView(RecyclerView recyclerView) {
+        RecyclerView recyclerView2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, recyclerView) != null) || (recyclerView2 = this.mRecyclerView) == recyclerView) {
+            return;
+        }
+        if (recyclerView2 != null) {
+            destroyCallbacks();
+        }
+        this.mRecyclerView = recyclerView;
+        if (recyclerView != null) {
+            setupCallbacks();
         }
     }
 
@@ -428,99 +579,6 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return invokeCommon.intValue;
     }
 
-    private void setupCallbacks() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.mRecyclerView.addItemDecoration(this);
-            this.mRecyclerView.addOnItemTouchListener(this);
-            this.mRecyclerView.addOnScrollListener(this.mOnScrollListener);
-        }
-    }
-
-    private void verticalScrollTo(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65549, this, f) == null) {
-            int[] verticalRange = getVerticalRange();
-            float max = Math.max(verticalRange[0], Math.min(verticalRange[1], f));
-            if (Math.abs(this.mVerticalThumbCenterY - max) < 2.0f) {
-                return;
-            }
-            int scrollTo = scrollTo(this.mVerticalDragY, max, verticalRange, this.mRecyclerView.computeVerticalScrollRange(), this.mRecyclerView.computeVerticalScrollOffset(), this.mRecyclerViewHeight);
-            if (scrollTo != 0) {
-                this.mRecyclerView.scrollBy(0, scrollTo);
-            }
-            this.mVerticalDragY = max;
-        }
-    }
-
-    public void attachToRecyclerView(@Nullable RecyclerView recyclerView) {
-        RecyclerView recyclerView2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, recyclerView) == null) || (recyclerView2 = this.mRecyclerView) == recyclerView) {
-            return;
-        }
-        if (recyclerView2 != null) {
-            destroyCallbacks();
-        }
-        this.mRecyclerView = recyclerView;
-        if (recyclerView != null) {
-            setupCallbacks();
-        }
-    }
-
-    @VisibleForTesting
-    public Drawable getHorizontalThumbDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHorizontalThumbDrawable : (Drawable) invokeV.objValue;
-    }
-
-    @VisibleForTesting
-    public Drawable getHorizontalTrackDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHorizontalTrackDrawable : (Drawable) invokeV.objValue;
-    }
-
-    @VisibleForTesting
-    public Drawable getVerticalThumbDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVerticalThumbDrawable : (Drawable) invokeV.objValue;
-    }
-
-    @VisibleForTesting
-    public Drawable getVerticalTrackDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mVerticalTrackDrawable : (Drawable) invokeV.objValue;
-    }
-
-    @VisibleForTesting
-    public void hide(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            int i2 = this.mAnimationState;
-            if (i2 == 1) {
-                this.mShowHideAnimator.cancel();
-            } else if (i2 != 2) {
-                return;
-            }
-            this.mAnimationState = 3;
-            ValueAnimator valueAnimator = this.mShowHideAnimator;
-            valueAnimator.setFloatValues(((Float) valueAnimator.getAnimatedValue()).floatValue(), 0.0f);
-            this.mShowHideAnimator.setDuration(i);
-            this.mShowHideAnimator.start();
-        }
-    }
-
-    public boolean isDragging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mState == 2 : invokeV.booleanValue;
-    }
-
-    @VisibleForTesting
     public boolean isPointInsideHorizontalThumb(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -537,7 +595,6 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return invokeCommon.booleanValue;
     }
 
-    @VisibleForTesting
     public boolean isPointInsideVerticalThumb(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -554,38 +611,8 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return invokeCommon.booleanValue;
     }
 
-    @VisibleForTesting
-    public boolean isVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mState == 1 : invokeV.booleanValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, RecyclerView.State state) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, canvas, recyclerView, state) == null) {
-            if (this.mRecyclerViewWidth == this.mRecyclerView.getWidth() && this.mRecyclerViewHeight == this.mRecyclerView.getHeight()) {
-                if (this.mAnimationState != 0) {
-                    if (this.mNeedVerticalScrollbar) {
-                        drawVerticalScrollbar(canvas);
-                    }
-                    if (this.mNeedHorizontalScrollbar) {
-                        drawHorizontalScrollbar(canvas);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            this.mRecyclerViewWidth = this.mRecyclerView.getWidth();
-            this.mRecyclerViewHeight = this.mRecyclerView.getHeight();
-            setState(0);
-        }
-    }
-
     @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-    public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+    public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, recyclerView, motionEvent)) == null) {
@@ -615,17 +642,33 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         return invokeLL.booleanValue;
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-    public void onRequestDisallowInterceptTouchEvent(boolean z) {
+    @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
+    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, canvas, recyclerView, state) == null) {
+            if (this.mRecyclerViewWidth == this.mRecyclerView.getWidth() && this.mRecyclerViewHeight == this.mRecyclerView.getHeight()) {
+                if (this.mAnimationState != 0) {
+                    if (this.mNeedVerticalScrollbar) {
+                        drawVerticalScrollbar(canvas);
+                    }
+                    if (this.mNeedHorizontalScrollbar) {
+                        drawHorizontalScrollbar(canvas);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            this.mRecyclerViewWidth = this.mRecyclerView.getWidth();
+            this.mRecyclerViewHeight = this.mRecyclerView.getHeight();
+            setState(0);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-    public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+    public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, recyclerView, motionEvent) == null) || this.mState == 0) {
+        if ((interceptable != null && interceptable.invokeLL(1048589, this, recyclerView, motionEvent) != null) || this.mState == 0) {
             return;
         }
         if (motionEvent.getAction() == 0) {
@@ -657,65 +700,28 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
     }
 
-    public void requestRedraw() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.mRecyclerView.invalidate();
-        }
-    }
-
-    public void setState(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            if (i == 2 && this.mState != 2) {
-                this.mVerticalThumbDrawable.setState(PRESSED_STATE_SET);
-                cancelHide();
-            }
-            if (i == 0) {
-                requestRedraw();
-            } else {
-                show();
-            }
-            if (this.mState == 2 && i != 2) {
-                this.mVerticalThumbDrawable.setState(EMPTY_STATE_SET);
-                resetHideDelay(1200);
-            } else if (i == 1) {
-                resetHideDelay(1500);
-            }
-            this.mState = i;
-        }
-    }
-
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            int i = this.mAnimationState;
-            if (i != 0) {
-                if (i != 3) {
-                    return;
-                }
-                this.mShowHideAnimator.cancel();
-            }
-            this.mAnimationState = 1;
-            ValueAnimator valueAnimator = this.mShowHideAnimator;
-            valueAnimator.setFloatValues(((Float) valueAnimator.getAnimatedValue()).floatValue(), 1.0f);
-            this.mShowHideAnimator.setDuration(500L);
-            this.mShowHideAnimator.setStartDelay(0L);
-            this.mShowHideAnimator.start();
-        }
-    }
-
     public void updateScrollPosition(int i, int i2) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
             int computeVerticalScrollRange = this.mRecyclerView.computeVerticalScrollRange();
             int i3 = this.mRecyclerViewHeight;
-            this.mNeedVerticalScrollbar = computeVerticalScrollRange - i3 > 0 && i3 >= this.mScrollbarMinimumRange;
+            if (computeVerticalScrollRange - i3 > 0 && i3 >= this.mScrollbarMinimumRange) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.mNeedVerticalScrollbar = z;
             int computeHorizontalScrollRange = this.mRecyclerView.computeHorizontalScrollRange();
             int i4 = this.mRecyclerViewWidth;
-            boolean z = computeHorizontalScrollRange - i4 > 0 && i4 >= this.mScrollbarMinimumRange;
-            this.mNeedHorizontalScrollbar = z;
-            if (!this.mNeedVerticalScrollbar && !z) {
+            if (computeHorizontalScrollRange - i4 > 0 && i4 >= this.mScrollbarMinimumRange) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.mNeedHorizontalScrollbar = z2;
+            if (!this.mNeedVerticalScrollbar && !z2) {
                 if (this.mState != 0) {
                     setState(0);
                     return;
@@ -736,6 +742,26 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
             if (i5 == 0 || i5 == 1) {
                 setState(1);
             }
+        }
+    }
+
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            int i = this.mAnimationState;
+            if (i != 0) {
+                if (i == 3) {
+                    this.mShowHideAnimator.cancel();
+                } else {
+                    return;
+                }
+            }
+            this.mAnimationState = 1;
+            ValueAnimator valueAnimator = this.mShowHideAnimator;
+            valueAnimator.setFloatValues(((Float) valueAnimator.getAnimatedValue()).floatValue(), 1.0f);
+            this.mShowHideAnimator.setDuration(500L);
+            this.mShowHideAnimator.setStartDelay(0L);
+            this.mShowHideAnimator.start();
         }
     }
 }

@@ -1,131 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class qd9 implements yd9 {
+public class qd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dd9 a;
-    public float b;
-    public boolean c;
 
-    public qd9() {
+    public static void a(String str, ud9 ud9Var, td9 td9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, ud9Var, td9Var) == null) {
+            if (ih9.a) {
+                ih9.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + td9Var.toString());
             }
-        }
-        this.b = 1.0f;
-        this.c = true;
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            dd9 dd9Var = this.a;
-            if (dd9Var == null || !dd9Var.putBytes(bArr, i)) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (dd9) gh9.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
-            }
-            dd9 dd9Var = this.a;
-            if (dd9Var != null) {
-                dd9Var.init(i3, i2);
-                this.a.setSpeed(1.0f);
-                return false;
-            }
-            return false;
-        }
-        return invokeIIII.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public byte[] a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            dd9 dd9Var = this.a;
-            return dd9Var != null ? dd9Var.getOutPutBytes() : new byte[0];
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public void b(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.b = f;
-            dd9 dd9Var = this.a;
-            if (dd9Var != null) {
-                dd9Var.setSpeed(f);
+            od9 g = ld9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (td9Var != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", td9Var.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", td9Var.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", td9Var.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", td9Var.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", td9Var.d + ""));
+                }
+                g.a("perf_record_arperf", str, ud9Var.a, ud9Var.b, ud9Var.c, ud9Var.d, ud9Var.e, null, arrayList);
             }
         }
     }
 
-    @Override // com.baidu.tieba.yd9
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public void c() {
-        dd9 dd9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (dd9Var = this.a) == null) {
-            return;
-        }
-        dd9Var.flush();
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public void d() {
-        dd9 dd9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (dd9Var = this.a) == null) {
-            return;
-        }
-        dd9Var.close();
-        this.a = null;
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (ih9.a) {
+                ih9.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+            }
+            od9 g = ld9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", gh9.a(ld9.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(gh9.b(ld9.c().getContext()))));
+                }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+            }
         }
     }
 }

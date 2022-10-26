@@ -10,8 +10,8 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.refresh.LoadAnimStrategy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,87 +43,6 @@ public class LoadingView extends LinearLayout {
         }
         this.a = true;
         b();
-    }
-
-    public void a() {
-        LottieAnimationView lottieAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lottieAnimationView = this.b) == null) {
-            return;
-        }
-        lottieAnimationView.cancelAnimation();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setGravity(17);
-            setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0542, (ViewGroup) this, true);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091415);
-            this.b = lottieAnimationView;
-            if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
-                return;
-            }
-            this.b.cancelAnimation();
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = da0.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieWidth);
-            layoutParams.height = da0.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieHeight);
-            this.b.setLayoutParams(layoutParams);
-            this.b.setImageAssetsFolder(LoadAnimStrategy.getInstance().loadingLottieImgRes);
-            String j = uc0.f().j(str);
-            if (TextUtils.isEmpty(j)) {
-                int k = uc0.f().k(str);
-                if (k != 0) {
-                    this.b.setAnimation(k);
-                    return;
-                }
-                return;
-            }
-            this.b.setAnimation(j);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = false;
-            if (this.b.isAnimating()) {
-                this.b.cancelAnimation();
-            }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = true;
-            if (getVisibility() != 0 || this.b.isAnimating()) {
-                return;
-            }
-            this.b.playAnimation();
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            if (i == 0) {
-                if (this.a) {
-                    this.b.playAnimation();
-                }
-            } else {
-                this.b.cancelAnimation();
-            }
-            super.setVisibility(i);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -170,5 +89,83 @@ public class LoadingView extends LinearLayout {
         }
         this.a = true;
         b();
+    }
+
+    public void a() {
+        LottieAnimationView lottieAnimationView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lottieAnimationView = this.b) != null) {
+            lottieAnimationView.cancelAnimation();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a = false;
+            if (this.b.isAnimating()) {
+                this.b.cancelAnimation();
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = true;
+            if (getVisibility() == 0 && !this.b.isAnimating()) {
+                this.b.playAnimation();
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setGravity(17);
+            setOrientation(1);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0541, (ViewGroup) this, true);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091407);
+            this.b = lottieAnimationView;
+            if (lottieAnimationView != null && lottieAnimationView.isAnimating()) {
+                this.b.cancelAnimation();
+            }
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+            layoutParams.width = ea0.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieWidth);
+            layoutParams.height = ea0.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieHeight);
+            this.b.setLayoutParams(layoutParams);
+            this.b.setImageAssetsFolder(LoadAnimStrategy.getInstance().loadingLottieImgRes);
+            String j = vc0.f().j(str);
+            if (TextUtils.isEmpty(j)) {
+                int k = vc0.f().k(str);
+                if (k != 0) {
+                    this.b.setAnimation(k);
+                    return;
+                }
+                return;
+            }
+            this.b.setAnimation(j);
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (i == 0) {
+                if (this.a) {
+                    this.b.playAnimation();
+                }
+            } else {
+                this.b.cancelAnimation();
+            }
+            super.setVisibility(i);
+        }
     }
 }

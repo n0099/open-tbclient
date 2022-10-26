@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,9 +9,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lj2 extends fh2<wj2> {
+public class lj2 extends gh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.gh2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
+    }
 
     public lj2() {
         Interceptable interceptable = $ic;
@@ -28,30 +34,22 @@ public class lj2 extends fh2<wj2> {
         }
     }
 
-    @Override // com.baidu.tieba.fh2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteVideoPlayState" : (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fh2
+    @Override // com.baidu.tieba.gh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull wj2 wj2Var) {
+    public void a(ZeusPlugin.Command command, xj2 xj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wj2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xj2Var) == null) {
             String str = command.what;
-            d(wj2Var, str, "" + command.obj, true);
+            d(xj2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof JSONObject) {
                 JSONObject jSONObject = (JSONObject) obj;
                 if (jSONObject.has("status") && jSONObject.has("userId")) {
                     long optLong = jSONObject.optLong("userId", -1L);
                     boolean optBoolean = jSONObject.optBoolean("status");
-                    if (uj2.a(optLong)) {
-                        wj2Var.e0(optLong, optBoolean);
+                    if (vj2.a(optLong)) {
+                        xj2Var.p(optLong, optBoolean);
                     }
                 }
             }

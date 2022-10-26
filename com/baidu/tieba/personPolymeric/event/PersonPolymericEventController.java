@@ -36,14 +36,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.MembershipUserInfo;
-import com.baidu.tieba.d98;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.h88;
-import com.baidu.tieba.rb6;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.n98;
+import com.baidu.tieba.r88;
 import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.u45;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import com.baidu.tieba.yo4;
+import com.baidu.tieba.yb6;
+import com.baidu.tieba.z45;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,19 +57,19 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes5.dex */
-public class PersonPolymericEventController extends d98 {
+public class PersonPolymericEventController extends n98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h88 e;
+    public r88 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, h88 h88Var) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, r88 r88Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, h88Var};
+            Object[] objArr = {tbPageContext, r88Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,40 +80,46 @@ public class PersonPolymericEventController extends d98 {
                 return;
             }
         }
-        this.e = h88Var;
+        this.e = r88Var;
     }
 
-    @Override // com.baidu.tieba.d98, com.baidu.tieba.cz8
-    public void a(View view2, rb6 rb6Var) {
+    @Override // com.baidu.tieba.n98, com.baidu.tieba.mz8
+    public void a(View view2, yb6 yb6Var) {
+        UserData userData;
         String str;
         int i;
         MembershipUserInfo membershipUserInfo;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, rb6Var) == null) {
-            super.a(view2, rb6Var);
-            if (rb6Var == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, yb6Var) == null) {
+            super.a(view2, yb6Var);
+            if (yb6Var == null) {
                 return;
             }
-            Bundle bundle = rb6Var.b;
-            String str2 = null;
-            UserData userData = bundle != null ? (UserData) bundle.getSerializable(UserData.TYPE_USER) : null;
+            Bundle bundle = yb6Var.b;
+            String str3 = null;
+            if (bundle != null) {
+                userData = (UserData) bundle.getSerializable(UserData.TYPE_USER);
+            } else {
+                userData = null;
+            }
             int i2 = 1;
-            switch (rb6Var.a) {
+            switch (yb6Var.a) {
                 case 1:
                     if (userData == null) {
                         return;
                     }
-                    u45 u45Var = new u45();
+                    z45 z45Var = new z45();
                     if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith("http")) {
-                        u45Var.f(userData.getPortrait());
+                        z45Var.f(userData.getPortrait());
                     } else {
-                        u45Var.f(userData.getPortraitH());
+                        z45Var.f(userData.getPortraitH());
                     }
-                    u45Var.h(userData.getPortrait());
-                    u45Var.g(true);
+                    z45Var.h(userData.getPortrait());
+                    z45Var.g(true);
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(u45Var);
-                    this.e.n().q(u45Var, arrayList, 0);
+                    arrayList.add(z45Var);
+                    this.e.n().q(z45Var, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -135,24 +141,24 @@ public class PersonPolymericEventController extends d98 {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    h88 h88Var = this.e;
-                    if (h88Var == null || h88Var.l() == null) {
+                    r88 r88Var = this.e;
+                    if (r88Var != null && r88Var.l() != null) {
+                        TiebaStatic.log("c12207");
+                        this.e.l().e();
                         return;
                     }
-                    TiebaStatic.log("c12207");
-                    this.e.l().e();
                     return;
                 case 10:
                     if (userData != null) {
                         str = userData.getUserId();
-                        str2 = userData.getBg_pic();
+                        str3 = userData.getBg_pic();
                         try {
-                            i = dh.e(c(str2).get("props_id"), -1);
+                            i = eh.e((String) c(str3).get("props_id"), -1);
                         } catch (URISyntaxException unused) {
                         }
                         if (i == -1 && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
                             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), i, (currentAccountInfo == null || StringUtils.isNull(str2) || StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) || !str2.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) ? 0 : 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), i, (currentAccountInfo == null || StringUtils.isNull(str3) || StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) || !str3.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) ? 0 : 0)));
                             return;
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.a.getPageActivity())));
@@ -179,7 +185,7 @@ public class PersonPolymericEventController extends d98 {
                         personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                         personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
                         personChangeData.setTiebaId(userData.getmTiebaUid());
-                        Bundle bundle2 = rb6Var.b;
+                        Bundle bundle2 = yb6Var.b;
                         if (bundle2 != null) {
                             personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                         }
@@ -206,14 +212,14 @@ public class PersonPolymericEventController extends d98 {
                     return;
                 case 15:
                     b(8);
-                    if (userData == null || (membershipUserInfo = userData.membershipInfo) == null) {
+                    if (userData != null && (membershipUserInfo = userData.membershipInfo) != null) {
+                        String str4 = membershipUserInfo.mLink;
+                        if (StringUtils.isNull(str4)) {
+                            return;
+                        }
+                        UrlManager.getInstance().dealOneLink(this.a, new String[]{str4});
                         return;
                     }
-                    String str3 = membershipUserInfo.mLink;
-                    if (StringUtils.isNull(str3)) {
-                        return;
-                    }
-                    UrlManager.getInstance().dealOneLink(this.a, new String[]{str3});
                     return;
                 case 16:
                     b(7);
@@ -267,15 +273,15 @@ public class PersonPolymericEventController extends d98 {
                     return;
                 case 31:
                     b(9);
-                    UrlManager.getInstance().dealOneLink(this.a, new String[]{rb6Var.b.getString("book_jump_link")}, true);
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{yb6Var.b.getString("book_jump_link")}, true);
                     return;
                 case 32:
-                    if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
-                        b(4);
-                        PersonRedTipManager.getInstance().updateRedTipState(1, false, this.d);
-                        if (userData == null || !TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
-                            return;
-                        }
+                    if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                        return;
+                    }
+                    b(4);
+                    PersonRedTipManager.getInstance().updateRedTipState(1, false, this.d);
+                    if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.a.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                         return;
                     }
@@ -303,33 +309,38 @@ public class PersonPolymericEventController extends d98 {
                     StringBuilder sb = new StringBuilder();
                     sb.append(TbConfig.URL_UEG_SERVICE_CENTER);
                     sb.append("?is_yy_user=");
-                    sb.append(TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
-                    yo4.o(this.a.getPageActivity(), sb.toString());
+                    if (TbSingleton.getInstance().getSyncYYSwitch()) {
+                        str2 = "1";
+                    } else {
+                        str2 = "0";
+                    }
+                    sb.append(str2);
+                    zo4.o(this.a.getPageActivity(), sb.toString());
                     return;
                 case 40:
-                    if (userData == null || !ViewHelper.checkUpIsLogin(this.a.getPageActivity()) || userData == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                        return;
+                    if (userData != null && ViewHelper.checkUpIsLogin(this.a.getPageActivity()) && userData != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                        try {
+                            TiebaStatic.log(new StatisticItem("c11593"));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.a.getPageActivity(), Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getName_show(), userData.getPortrait(), userData.getSex(), userData.getIsFriend(), userData.getUserType())));
+                            return;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            return;
+                        }
                     }
-                    try {
-                        TiebaStatic.log(new StatisticItem("c11593"));
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.a.getPageActivity(), Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getName_show(), userData.getPortrait(), userData.getSex(), userData.getIsFriend(), userData.getUserType())));
-                        return;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return;
-                    }
+                    return;
                 case 41:
-                    if (userData == null || userData.getBaijiahaoInfo() == null) {
-                        return;
-                    }
-                    u45 u45Var2 = new u45();
-                    u45Var2.f(userData.getBaijiahaoInfo().avatar_h);
-                    u45Var2.h(userData.getBaijiahaoInfo().avatar);
-                    u45Var2.g(false);
-                    ArrayList arrayList2 = new ArrayList();
-                    arrayList2.add(u45Var2);
-                    if (this.e.n() != null) {
-                        this.e.n().r(u45Var2, arrayList2, 0, true);
+                    if (userData != null && userData.getBaijiahaoInfo() != null) {
+                        z45 z45Var2 = new z45();
+                        z45Var2.f(userData.getBaijiahaoInfo().avatar_h);
+                        z45Var2.h(userData.getBaijiahaoInfo().avatar);
+                        z45Var2.g(false);
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.add(z45Var2);
+                        if (this.e.n() != null) {
+                            this.e.n().r(z45Var2, arrayList2, 0, true);
+                            return;
+                        }
                         return;
                     }
                     return;
@@ -344,36 +355,39 @@ public class PersonPolymericEventController extends d98 {
         }
     }
 
-    public final Map<String, String> c(String str) throws URISyntaxException {
+    public final Map c(String str) throws URISyntaxException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new HashMap<String, String>(this, str) { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ PersonPolymericEventController this$0;
-            public final /* synthetic */ String val$url;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new HashMap(this, str) { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PersonPolymericEventController this$0;
+                public final /* synthetic */ String val$url;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, str};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$url = str;
+                    for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(this.val$url), "UTF-8")) {
+                        put(nameValuePair.getName(), nameValuePair.getValue());
                     }
                 }
-                this.this$0 = this;
-                this.val$url = str;
-                for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(this.val$url), "UTF-8")) {
-                    put(nameValuePair.getName(), nameValuePair.getValue());
-                }
-            }
-        } : (Map) invokeL.objValue;
+            };
+        }
+        return (Map) invokeL.objValue;
     }
 }

@@ -29,7 +29,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.ko5;
+import com.baidu.tieba.ro5;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class UpdateDialog extends BaseActivity<UpdateDialog> {
+public class UpdateDialog extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -50,9 +50,76 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public VersionData g;
     public CombineDownload h;
     public String i;
-    public ko5 j;
+    public ro5 j;
     public f k;
     public PermissionJudgePolicy l;
+
+    /* loaded from: classes3.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UpdateDialog a;
+
+        /* loaded from: classes3.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.g.forceUpdate()) {
+                    px4.e(this.a.a.getPageContext().getPageActivity(), 200);
+                }
+            }
+        }
+
+        public b(UpdateDialog updateDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {updateDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = updateDialog;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.j.dismiss();
+                this.a.mHandler.postDelayed(new a(this), 100L);
+            }
+        }
+    }
 
     /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -89,73 +156,6 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UpdateDialog a;
-
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.g.forceUpdate()) {
-                    jx4.e(this.a.a.getPageContext().getPageActivity(), 200);
-                }
-            }
-        }
-
-        public b(UpdateDialog updateDialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {updateDialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = updateDialog;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.j.dismiss();
-                this.a.mHandler.postDelayed(new a(this), 100L);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +184,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.a) {
-                    this.a.R1();
+                    this.a.Q1();
                 }
                 this.a.j.dismiss();
                 this.a.finish();
@@ -222,13 +222,13 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.j.r();
                 UpdateDialog updateDialog = this.a;
-                updateDialog.Q1(updateDialog.c, this.a.d, this.a.e);
+                updateDialog.P1(updateDialog.c, this.a.d, this.a.e);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements ko5.f {
+    public class e implements ro5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateDialog a;
@@ -251,45 +251,60 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this.a = updateDialog;
         }
 
-        @Override // com.baidu.tieba.ko5.f
+        public /* synthetic */ e(UpdateDialog updateDialog, a aVar) {
+            this(updateDialog);
+        }
+
+        @Override // com.baidu.tieba.ro5.f
         public void a(boolean z) {
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
                 this.a.a = true;
                 UpdateDialog updateDialog = this.a;
-                if (updateDialog.Q1(true, false, z && no5.c(updateDialog.getPageContext().getPageActivity(), this.a.h))) {
-                    this.a.j.t(false);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f050b);
-                    if (this.a.f) {
-                        return;
-                    }
+                if (z && uo5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!updateDialog.P1(true, false, z2)) {
+                    return;
+                }
+                this.a.j.t(false);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0513);
+                if (!this.a.f) {
                     this.a.j.dismiss();
                     this.a.finish();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.ko5.f
+        @Override // com.baidu.tieba.ro5.f
         public void b(boolean z) {
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                if (this.a.N1()) {
+                if (this.a.M1()) {
                     this.a.j.dismiss();
                     this.a.finish();
                     return;
                 }
                 UpdateDialog updateDialog = this.a;
-                updateDialog.Q1(false, true, z && no5.c(updateDialog.getPageContext().getPageActivity(), this.a.h));
-                if (this.a.f) {
-                    return;
+                if (z && uo5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                    z2 = true;
+                } else {
+                    z2 = false;
                 }
-                this.a.j.dismiss();
-                this.a.finish();
+                updateDialog.P1(false, true, z2);
+                if (!this.a.f) {
+                    this.a.j.dismiss();
+                    this.a.finish();
+                }
             }
         }
 
-        @Override // com.baidu.tieba.ko5.f
+        @Override // com.baidu.tieba.ro5.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -298,7 +313,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.ko5.f
+        @Override // com.baidu.tieba.ro5.f
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -308,16 +323,12 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.ko5.f
+        @Override // com.baidu.tieba.ro5.f
         public void stopService() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.a.R1();
+                this.a.Q1();
             }
-        }
-
-        public /* synthetic */ e(UpdateDialog updateDialog, a aVar) {
-            this(updateDialog);
         }
     }
 
@@ -345,6 +356,10 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this.this$0 = updateDialog;
         }
 
+        public /* synthetic */ f(UpdateDialog updateDialog, a aVar) {
+            this(updateDialog);
+        }
+
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
@@ -360,9 +375,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
                     this.this$0.j.dismiss();
                     UpdateDialog updateDialog = this.this$0;
-                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f14e5));
+                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f14fe));
                     this.this$0.finish();
-                    this.this$0.R1();
+                    this.this$0.Q1();
                 } else {
                     int intExtra = intent.getIntExtra("action_update_download_progress", 0);
                     if (this.this$0.j != null) {
@@ -370,10 +385,6 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     }
                 }
             }
-        }
-
-        public /* synthetic */ f(UpdateDialog updateDialog, a aVar) {
-            this(updateDialog);
         }
     }
 
@@ -391,11 +402,90 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
     }
 
+    public final void O1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.k = new f(this, null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
+            registerReceiver(this.k, intentFilter);
+        }
+    }
+
+    public final void Q1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
+            intent.setAction("action_stop");
+            getPageContext().getPageActivity().startService(intent);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onDestroy();
+            ro5 ro5Var = this.j;
+            if (ro5Var != null) {
+                ro5Var.dismiss();
+            }
+            f fVar = this.k;
+            if (fVar != null) {
+                unregisterReceiver(fVar);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.onChangeSkinType(i);
+            ro5 ro5Var = this.j;
+            if (ro5Var != null) {
+                ro5Var.m(getPageContext(), i);
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            VersionData versionData = this.g;
+            if (versionData != null) {
+                bundle.putSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA, versionData);
+            }
+            CombineDownload combineDownload = this.h;
+            if (combineDownload != null) {
+                bundle.putSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA, combineDownload);
+            }
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:29:0x0092  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final boolean N1() {
+    public final boolean M1() {
         InterceptResult invokeV;
         boolean z;
         File GetFile;
@@ -431,7 +521,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         return invokeV.booleanValue;
     }
 
-    public final void O1(Bundle bundle) {
+    public final void N1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (bundle != null) {
@@ -474,32 +564,21 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.f = versionData3.forceUpdate();
             }
-            ko5 ko5Var = new ko5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
-            this.j = ko5Var;
-            ko5Var.setCancelable(false);
+            ro5 ro5Var = new ro5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
+            this.j = ro5Var;
+            ro5Var.setCancelable(false);
             this.j.q(this.g, this.h, new e(this, null));
             this.j.setOnCancelListener(new a(this));
             this.j.setOnDismissListener(new b(this));
             this.j.p(new c(this));
             this.j.u(new d(this));
-            if (isFinishing()) {
-                return;
+            if (!isFinishing()) {
+                jh.j(this.j, getPageContext());
             }
-            ih.j(this.j, getPageContext());
         }
     }
 
-    public final void P1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.k = new f(this, null);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
-            registerReceiver(this.k, intentFilter);
-        }
-    }
-
-    public final boolean Q1(boolean z, boolean z2, boolean z3) {
+    public final boolean P1(boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         CombineDownload combineDownload;
         VersionData versionData;
@@ -544,43 +623,6 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         return invokeCommon.booleanValue;
     }
 
-    public final void R1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
-            intent.setAction("action_stop");
-            getPageContext().getPageActivity().startService(intent);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void closeAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void enterExitAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            super.onChangeSkinType(i);
-            ko5 ko5Var = this.j;
-            if (ko5Var != null) {
-                ko5Var.m(getPageContext(), i);
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -590,41 +632,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.alpha = 0.0f;
             getWindow().setAttributes(attributes);
-            O1(bundle);
-            P1();
+            N1(bundle);
+            O1();
             TiebaStatic.log(new StatisticItem("c14383").addParam("obj_locate", 1));
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onDestroy();
-            ko5 ko5Var = this.j;
-            if (ko5Var != null) {
-                ko5Var.dismiss();
-            }
-            f fVar = this.k;
-            if (fVar != null) {
-                unregisterReceiver(fVar);
-            }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            VersionData versionData = this.g;
-            if (versionData != null) {
-                bundle.putSerializable(UpdateDialogConfig.KEY_TIEBA_APK_DATA, versionData);
-            }
-            CombineDownload combineDownload = this.h;
-            if (combineDownload != null) {
-                bundle.putSerializable(UpdateDialogConfig.KEY_OTHER_APK_DATA, combineDownload);
-            }
         }
     }
 }

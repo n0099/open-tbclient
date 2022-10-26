@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.memory.PooledByteBuffer;
@@ -28,11 +27,11 @@ public class EncodedCountingMemoryCacheFactory {
         }
     }
 
-    public static CountingMemoryCache<CacheKey, PooledByteBuffer> get(Supplier<MemoryCacheParams> supplier, MemoryTrimmableRegistry memoryTrimmableRegistry) {
+    public static CountingMemoryCache get(Supplier supplier, MemoryTrimmableRegistry memoryTrimmableRegistry) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, supplier, memoryTrimmableRegistry)) == null) {
-            CountingMemoryCache<CacheKey, PooledByteBuffer> countingMemoryCache = new CountingMemoryCache<>(new ValueDescriptor<PooledByteBuffer>() { // from class: com.facebook.imagepipeline.cache.EncodedCountingMemoryCacheFactory.1
+            CountingMemoryCache countingMemoryCache = new CountingMemoryCache(new ValueDescriptor() { // from class: com.facebook.imagepipeline.cache.EncodedCountingMemoryCacheFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +54,10 @@ public class EncodedCountingMemoryCacheFactory {
                 public int getSizeInBytes(PooledByteBuffer pooledByteBuffer) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, pooledByteBuffer)) == null) ? pooledByteBuffer.size() : invokeL.intValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, pooledByteBuffer)) == null) {
+                        return pooledByteBuffer.size();
+                    }
+                    return invokeL.intValue;
                 }
             }, new NativeMemoryCacheTrimStrategy(), supplier, null);
             memoryTrimmableRegistry.registerMemoryTrimmable(countingMemoryCache);

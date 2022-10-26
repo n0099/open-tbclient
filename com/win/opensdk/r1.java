@@ -64,13 +64,56 @@ public class r1 {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i != 100 ? i != 101 ? (i == 406 || i == 2003) ? PBError.PID_INVALID : PBError.UNKNOWN : PBError.JSON_ERROR : PBError.SERVER_ERROR : (PBError) invokeI.objValue;
     }
 
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                if (this.i != null) {
+                    this.i.d = null;
+                }
+                if (this.j != null) {
+                    this.j.removeCallbacksAndMessages(null);
+                }
+                if (this.c != null) {
+                    this.c.a();
+                }
+                if (this.g != null) {
+                    this.g = null;
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public final void a(J j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j != null) {
+            try {
+                List list = j.a;
+                if (list != null && list.size() > 0) {
+                    this.c.a(j.a);
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
     public final void a(PBError pBError) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || this.h) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, pBError) != null) || this.h) {
             return;
         }
         this.h = true;
         c2.a.post(new o1(this, pBError));
+    }
+
+    public final void a(Info info) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, info) != null) || this.h) {
+            return;
+        }
+        this.h = true;
+        c2.a.post(new p1(this, info));
     }
 
     public void b() {
@@ -149,51 +192,6 @@ public class r1 {
                 }
             }
             a(b);
-        }
-    }
-
-    public final void a(Info info) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, info) == null) || this.h) {
-            return;
-        }
-        this.h = true;
-        c2.a.post(new p1(this, info));
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                if (this.i != null) {
-                    this.i.d = null;
-                }
-                if (this.j != null) {
-                    this.j.removeCallbacksAndMessages(null);
-                }
-                if (this.c != null) {
-                    this.c.a();
-                }
-                if (this.g != null) {
-                    this.g = null;
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public final void a(J j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j) == null) || j == null) {
-            return;
-        }
-        try {
-            List list = j.a;
-            if (list == null || list.size() <= 0) {
-                return;
-            }
-            this.c.a(j.a);
-        } catch (Exception unused) {
         }
     }
 }

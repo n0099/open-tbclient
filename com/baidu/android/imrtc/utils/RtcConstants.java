@@ -70,7 +70,7 @@ public class RtcConstants {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class RoomEventType {
+    public final class RoomEventType {
         public static final /* synthetic */ RoomEventType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RoomEventType CALLEE_RING;
@@ -123,19 +123,28 @@ public class RtcConstants {
         public static RoomEventType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RoomEventType) Enum.valueOf(RoomEventType.class, str) : (RoomEventType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RoomEventType) Enum.valueOf(RoomEventType.class, str);
+            }
+            return (RoomEventType) invokeL.objValue;
         }
 
         public static RoomEventType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RoomEventType[]) $VALUES.clone() : (RoomEventType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RoomEventType[]) $VALUES.clone();
+            }
+            return (RoomEventType[]) invokeV.objValue;
         }
 
         public int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.value;
+            }
+            return invokeV.intValue;
         }
     }
 

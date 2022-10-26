@@ -1,19 +1,122 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class fp2 implements cp2 {
+public class fp2 implements dp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ta2 a;
+    public final long a;
+    public final boolean b;
+    public long c;
+    public volatile boolean d;
+    public final List e;
+    public final Runnable f;
+    public final Runnable g;
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fp2 a;
+
+        public a(fp2 fp2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fp2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fp2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fp2 a;
+
+        public b(fp2 fp2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fp2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fp2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final fp2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-797113086, "Lcom/baidu/tieba/fp2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-797113086, "Lcom/baidu/tieba/fp2$c;");
+                    return;
+                }
+            }
+            a = new fp2(null);
+        }
+    }
 
     public fp2() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,41 +126,112 @@ public class fp2 implements cp2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        long millis = TimeUnit.SECONDS.toMillis(kp2.b.a());
+        this.a = millis;
+        if (millis >= 0 && kp2.b.e()) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.b = z;
+        this.c = 0L;
+        this.d = false;
+        this.f = new a(this);
+        this.g = new b(this);
+        this.e = new ArrayList();
+        if (kp2.b.e()) {
+            if (kp2.b.d()) {
+                this.e.add(new gp2());
+            }
+            if (kp2.b.b()) {
+                this.e.add(new hp2());
+            }
+            if (kp2.b.c()) {
+                this.e.add(new ep2());
             }
         }
     }
 
-    public final void a() {
-        h52 W;
+    public /* synthetic */ fp2(a aVar) {
+        this();
+    }
+
+    public static dp2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c.a;
+        }
+        return (dp2) invokeV.objValue;
+    }
+
+    public final void d() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ta2 ta2Var = this.a;
-            if ((ta2Var == null || ta2Var.isDestroyed()) && (W = fa2.U().W()) != null && (W.f() instanceof ta2)) {
-                this.a = (ta2) W.f();
+            long currentTimeMillis = System.currentTimeMillis() - this.c;
+            if (this.b && !this.d && ProcessUtils.isSwanProcess() && dh3.C(true)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            m02.i("SwanBackStageManager", "performPause: shouldPerform=" + z + " for " + currentTimeMillis + "/" + this.a);
+            if (z) {
+                for (dp2 dp2Var : this.e) {
+                    m02.i("SwanBackStageManager", "performPause for strategy=" + dp2Var);
+                    dp2Var.onPause();
+                }
+                this.d = true;
             }
         }
     }
 
-    @Override // com.baidu.tieba.cp2
-    public void onPause() {
+    public final void e() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
-            ta2 ta2Var = this.a;
-            if (ta2Var != null) {
-                ta2Var.suspendTimer();
+            if (this.b && this.d) {
+                z = true;
+            } else {
+                z = false;
+            }
+            m02.i("SwanBackStageManager", "performResume: shouldPerform=" + z);
+            for (dp2 dp2Var : this.e) {
+                m02.i("SwanBackStageManager", "performResume for strategy=" + dp2Var);
+                dp2Var.onResume();
+            }
+            this.d = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.dp2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            m02.i("SwanBackStageManager", "onPause: enable=" + this.b + " delay=" + this.a);
+            if (this.b) {
+                this.c = System.currentTimeMillis();
+                Handler M = l33.M();
+                M.removeCallbacks(this.f);
+                M.removeCallbacks(this.g);
+                M.postDelayed(this.f, this.a);
             }
         }
     }
 
-    @Override // com.baidu.tieba.cp2
+    @Override // com.baidu.tieba.dp2
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-            ta2 ta2Var = this.a;
-            if (ta2Var != null) {
-                ta2Var.continueTimer();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            m02.i("SwanBackStageManager", "onResume: enable=" + this.b);
+            if (this.b) {
+                Handler M = l33.M();
+                M.removeCallbacks(this.f);
+                M.removeCallbacks(this.g);
+                gh3.e0(this.g);
             }
         }
     }

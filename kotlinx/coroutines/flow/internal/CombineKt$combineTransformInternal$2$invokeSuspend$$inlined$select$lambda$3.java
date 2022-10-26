@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.internal.Symbol;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u008a@¢\u0006\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "value", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/internal/CombineKt$combineTransformInternal$2$1$4"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 extends SuspendLambda implements Function2<Object, Continuation<? super Unit>, Object> {
+public final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 extends SuspendLambda implements Function2 {
     public final /* synthetic */ ReceiveChannel $firstChannel$inlined;
     public final /* synthetic */ Ref.BooleanRef $firstIsClosed$inlined;
     public final /* synthetic */ Ref.ObjectRef $firstValue$inlined;
@@ -39,16 +39,15 @@ public final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$s
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+    public final Continuation create(Object obj, Continuation continuation) {
         CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3 = new CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3(continuation, this.this$0, this.$firstIsClosed$inlined, this.$firstChannel$inlined, this.$firstValue$inlined, this.$secondValue$inlined, this.$secondIsClosed$inlined, this.$secondChannel$inlined);
         combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3.p$0 = obj;
         return combineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2) {
+        return ((CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$3) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Type inference failed for: r9v1, types: [T, java.lang.Object] */
@@ -56,7 +55,13 @@ public final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$s
     public final Object invokeSuspend(Object obj) {
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
-        if (i == 0) {
+        if (i != 0) {
+            if (i == 1) {
+                ResultKt.throwOnFailure(obj);
+            } else {
+                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+            }
+        } else {
             ResultKt.throwOnFailure(obj);
             ?? r9 = this.p$0;
             this.$secondValue$inlined.element = r9;
@@ -66,22 +71,21 @@ public final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$s
                 FlowCollector flowCollector = combineKt$combineTransformInternal$2.$this_combineTransformInternal;
                 Symbol symbol = CombineKt.getNull();
                 Object obj2 = this.$firstValue$inlined.element;
+                Object obj3 = null;
                 if (obj2 == symbol) {
                     obj2 = null;
                 }
                 Symbol symbol2 = CombineKt.getNull();
-                Object obj3 = this.$secondValue$inlined.element;
-                Object obj4 = obj3 != symbol2 ? obj3 : null;
+                Object obj4 = this.$secondValue$inlined.element;
+                if (obj4 != symbol2) {
+                    obj3 = obj4;
+                }
                 this.L$0 = r9;
                 this.label = 1;
-                if (function4.invoke(flowCollector, obj2, obj4, this) == coroutine_suspended) {
+                if (function4.invoke(flowCollector, obj2, obj3, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             }
-        } else if (i != 1) {
-            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-        } else {
-            ResultKt.throwOnFailure(obj);
         }
         return Unit.INSTANCE;
     }

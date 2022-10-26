@@ -3,7 +3,6 @@ package com.baidu.searchbox.player.callback;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,50 +31,93 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
     public IUniversalPlayerCallback getUniversalPlayerCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUniversalCallback : (IUniversalPlayerCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mUniversalCallback;
+        }
+        return (IUniversalPlayerCallback) invokeV.objValue;
     }
 
-    @PublicMethod
     public void onBeforeSwitchToFull() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onBeforeSwitchToFull();
         }
-        iUniversalPlayerCallback.onBeforeSwitchToFull();
     }
 
-    @PublicMethod
     public void onBeforeSwitchToHalf() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onBeforeSwitchToHalf();
         }
-        iUniversalPlayerCallback.onBeforeSwitchToHalf();
     }
 
-    @PublicMethod
     public void onGestureActionEnd() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onGestureActionEnd();
         }
-        iUniversalPlayerCallback.onGestureActionEnd();
     }
 
-    @PublicMethod
     public void onGestureActionStart() {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onGestureActionStart();
         }
-        iUniversalPlayerCallback.onGestureActionStart();
     }
 
-    @PublicMethod
+    public void onPauseBtnClick() {
+        IUniversalPlayerCallback iUniversalPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onPauseBtnClick();
+        }
+    }
+
+    public void onReplayBtnClick() {
+        IUniversalPlayerCallback iUniversalPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onReplayBtnClick();
+        }
+    }
+
+    public void onStartBtnClick() {
+        IUniversalPlayerCallback iUniversalPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onStartBtnClick();
+        }
+    }
+
+    public void onVideoSwitchToFull() {
+        IUniversalPlayerCallback iUniversalPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onVideoSwitchToFull();
+        }
+    }
+
+    public void onVideoSwitchToHalf() {
+        IUniversalPlayerCallback iUniversalPlayerCallback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onVideoSwitchToHalf();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.release();
+            this.mUniversalCallback = null;
+        }
+    }
+
     public boolean onGestureDoubleClick(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -89,73 +131,11 @@ public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManag
         return invokeL.booleanValue;
     }
 
-    @PublicMethod
     public void onPanelVisibilityChanged(boolean z) {
         IUniversalPlayerCallback iUniversalPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
-        }
-        iUniversalPlayerCallback.onPanelVisibilityChanged(z);
-    }
-
-    @PublicMethod
-    public void onPauseBtnClick() {
-        IUniversalPlayerCallback iUniversalPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
-        }
-        iUniversalPlayerCallback.onPauseBtnClick();
-    }
-
-    @PublicMethod
-    public void onReplayBtnClick() {
-        IUniversalPlayerCallback iUniversalPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
-        }
-        iUniversalPlayerCallback.onReplayBtnClick();
-    }
-
-    @PublicMethod
-    public void onStartBtnClick() {
-        IUniversalPlayerCallback iUniversalPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
-        }
-        iUniversalPlayerCallback.onStartBtnClick();
-    }
-
-    @PublicMethod
-    public void onVideoSwitchToFull() {
-        IUniversalPlayerCallback iUniversalPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
-        }
-        iUniversalPlayerCallback.onVideoSwitchToFull();
-    }
-
-    @PublicMethod
-    public void onVideoSwitchToHalf() {
-        IUniversalPlayerCallback iUniversalPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iUniversalPlayerCallback = this.mUniversalCallback) == null) {
-            return;
-        }
-        iUniversalPlayerCallback.onVideoSwitchToHalf();
-    }
-
-    @Override // com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager
-    @PublicMethod
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.release();
-            this.mUniversalCallback = null;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (iUniversalPlayerCallback = this.mUniversalCallback) != null) {
+            iUniversalPlayerCallback.onPanelVisibilityChanged(z);
         }
     }
 

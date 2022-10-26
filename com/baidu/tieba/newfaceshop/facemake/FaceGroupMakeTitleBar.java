@@ -79,50 +79,6 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0283, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ff);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff9);
-            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080628, R.color.CAM_X0105, null);
-            this.c.setOnClickListener(new a(this));
-        }
-    }
-
-    public void setCloseListener(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (imageView = this.c) == null) {
-            return;
-        }
-        imageView.setOnClickListener(onClickListener);
-    }
-
-    public void setRightListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setRightText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b.setText(str);
-        }
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a.setText(str);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FaceGroupMakeTitleBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -165,5 +121,48 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0282, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092405);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ea);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fed);
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080629, R.color.CAM_X0105, null);
+            this.c.setOnClickListener(new a(this));
+        }
+    }
+
+    public void setCloseListener(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && (imageView = this.c) != null) {
+            imageView.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setRightListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setRightText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b.setText(str);
+        }
+    }
+
+    public void setTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a.setText(str);
+        }
     }
 }

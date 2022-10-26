@@ -18,121 +18,6 @@ public class AlaSquareRefreshManager {
     public RefreshRunnable[] mPageRefreshRunnables;
     public ISquareRefreshHandler mSquareRefreshHandler;
 
-    public AlaSquareRefreshManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    private boolean checkIndex(int i) {
-        InterceptResult invokeI;
-        long[] jArr;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) ? i >= 0 && (jArr = this.mPageRefreshInterval) != null && jArr.length > i : invokeI.booleanValue;
-    }
-
-    private void createPageRefreshRunnables() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            long[] jArr = this.mPageRefreshInterval;
-            int length = jArr.length;
-            this.mPageRefreshRunnables = new RefreshRunnable[jArr.length];
-            for (int i = 0; i < length; i++) {
-                RefreshRunnable refreshRunnable = new RefreshRunnable(this, i, getTimeByIndex(this.mPageRefreshInterval, i));
-                refreshRunnable.postDelay();
-                this.mPageRefreshRunnables[i] = refreshRunnable;
-            }
-        }
-    }
-
-    private long getTimeByIndex(long[] jArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, jArr, i)) == null) {
-            if (jArr == null || i < 0 || jArr.length <= i) {
-                return -1L;
-            }
-            return jArr[i];
-        }
-        return invokeLI.longValue;
-    }
-
-    private void releasePageRefreshRunnables() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            int length = this.mPageRefreshRunnables.length;
-            for (int i = 0; i < length; i++) {
-                this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i]);
-            }
-        }
-    }
-
-    public void init(ISquareRefreshHandler iSquareRefreshHandler, long[] jArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, iSquareRefreshHandler, jArr) == null) || iSquareRefreshHandler == null || jArr == null || jArr.length == 0) {
-            return;
-        }
-        this.mSquareRefreshHandler = iSquareRefreshHandler;
-        if (this.mHandler == null) {
-            this.mHandler = new Handler();
-        }
-        if (this.mPageRefreshInterval != null) {
-            releasePageRefreshRunnables();
-        }
-        this.mPageRefreshInterval = jArr;
-        this.mCurRefreshTimes = new long[jArr.length];
-        if (this.mPageRefreshRunnables == null) {
-            createPageRefreshRunnables();
-        }
-    }
-
-    public void onDestory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mHandler.removeCallbacksAndMessages(null);
-            this.mPageRefreshRunnables = null;
-            this.mPageRefreshInterval = null;
-            this.mCurRefreshTimes = null;
-        }
-    }
-
-    public void onPageForeground(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && checkIndex(i)) {
-            long currentTimeMillis = System.currentTimeMillis() - this.mCurRefreshTimes[i];
-            if (currentTimeMillis > this.mPageRefreshInterval[i]) {
-                this.mPageRefreshRunnables[i].post();
-            } else {
-                this.mPageRefreshRunnables[i].postDelay(currentTimeMillis);
-            }
-        }
-    }
-
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (RefreshRunnable refreshRunnable : this.mPageRefreshRunnables) {
-                this.mHandler.removeCallbacks(refreshRunnable);
-            }
-        }
-    }
-
-    public void reset(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && checkIndex(i)) {
-            this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i]);
-            this.mPageRefreshRunnables[i].postDelay();
-        }
-    }
-
     /* loaded from: classes.dex */
     public class RefreshRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
@@ -165,20 +50,26 @@ public class AlaSquareRefreshManager {
 
         public void post() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mInterval <= 0) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mInterval > 0) {
+                this.this$0.mHandler.removeCallbacks(this);
+                this.this$0.mHandler.post(this);
             }
-            this.this$0.mHandler.removeCallbacks(this);
-            this.this$0.mHandler.post(this);
         }
 
         public void postDelay() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.mInterval <= 0) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mInterval > 0) {
+                this.this$0.mHandler.removeCallbacks(this);
+                this.this$0.mHandler.postDelayed(this, this.mInterval);
             }
-            this.this$0.mHandler.removeCallbacks(this);
-            this.this$0.mHandler.postDelayed(this, this.mInterval);
+        }
+
+        public void postDelay(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && this.mInterval > 0) {
+                this.this$0.mHandler.removeCallbacks(this);
+                this.this$0.mHandler.postDelayed(this, j);
+            }
         }
 
         @Override // java.lang.Runnable
@@ -190,14 +81,127 @@ public class AlaSquareRefreshManager {
                 postDelay();
             }
         }
+    }
 
-        public void postDelay(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.mInterval <= 0) {
-                return;
+    public AlaSquareRefreshManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            this.this$0.mHandler.removeCallbacks(this);
-            this.this$0.mHandler.postDelayed(this, j);
+        }
+    }
+
+    private void createPageRefreshRunnables() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            long[] jArr = this.mPageRefreshInterval;
+            int length = jArr.length;
+            this.mPageRefreshRunnables = new RefreshRunnable[jArr.length];
+            for (int i = 0; i < length; i++) {
+                RefreshRunnable refreshRunnable = new RefreshRunnable(this, i, getTimeByIndex(this.mPageRefreshInterval, i));
+                refreshRunnable.postDelay();
+                this.mPageRefreshRunnables[i] = refreshRunnable;
+            }
+        }
+    }
+
+    private void releasePageRefreshRunnables() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            int length = this.mPageRefreshRunnables.length;
+            for (int i = 0; i < length; i++) {
+                this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i]);
+            }
+        }
+    }
+
+    public void onDestory() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mHandler.removeCallbacksAndMessages(null);
+            this.mPageRefreshRunnables = null;
+            this.mPageRefreshInterval = null;
+            this.mCurRefreshTimes = null;
+        }
+    }
+
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (RefreshRunnable refreshRunnable : this.mPageRefreshRunnables) {
+                this.mHandler.removeCallbacks(refreshRunnable);
+            }
+        }
+    }
+
+    private boolean checkIndex(int i) {
+        InterceptResult invokeI;
+        long[] jArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
+            if (i >= 0 && (jArr = this.mPageRefreshInterval) != null && jArr.length > i) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void reset(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || !checkIndex(i)) {
+            return;
+        }
+        this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i]);
+        this.mPageRefreshRunnables[i].postDelay();
+    }
+
+    private long getTimeByIndex(long[] jArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, jArr, i)) == null) {
+            if (jArr != null && i >= 0 && jArr.length > i) {
+                return jArr[i];
+            }
+            return -1L;
+        }
+        return invokeLI.longValue;
+    }
+
+    public void init(ISquareRefreshHandler iSquareRefreshHandler, long[] jArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, iSquareRefreshHandler, jArr) == null) && iSquareRefreshHandler != null && jArr != null && jArr.length != 0) {
+            this.mSquareRefreshHandler = iSquareRefreshHandler;
+            if (this.mHandler == null) {
+                this.mHandler = new Handler();
+            }
+            if (this.mPageRefreshInterval != null) {
+                releasePageRefreshRunnables();
+            }
+            this.mPageRefreshInterval = jArr;
+            this.mCurRefreshTimes = new long[jArr.length];
+            if (this.mPageRefreshRunnables == null) {
+                createPageRefreshRunnables();
+            }
+        }
+    }
+
+    public void onPageForeground(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || !checkIndex(i)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis() - this.mCurRefreshTimes[i];
+        if (currentTimeMillis > this.mPageRefreshInterval[i]) {
+            this.mPageRefreshRunnables[i].post();
+        } else {
+            this.mPageRefreshRunnables[i].postDelay(currentTimeMillis);
         }
     }
 }

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gd8;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
-import com.baidu.tieba.wc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,47 +43,6 @@ public class ZXingView extends QRCodeView {
         }
     }
 
-    @Override // com.baidu.tieba.vc8.a
-    public String a(byte[] bArr, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Result result;
-        PlanarYUVLuminanceSource planarYUVLuminanceSource;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            try {
-                try {
-                    Rect h = this.c.h(i2);
-                    if (h != null) {
-                        planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, h.left, h.top, h.width(), h.height(), false);
-                    } else {
-                        planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
-                    }
-                    result = this.j.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    this.j.reset();
-                    result = null;
-                }
-                if (result != null) {
-                    return result.getText();
-                }
-                return null;
-            } finally {
-                this.j.reset();
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MultiFormatReader multiFormatReader = new MultiFormatReader();
-            this.j = multiFormatReader;
-            multiFormatReader.setHints(wc8.a);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -104,5 +63,46 @@ public class ZXingView extends QRCodeView {
             }
         }
         o();
+    }
+
+    @Override // com.baidu.tieba.fd8.a
+    public String a(byte[] bArr, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Result result;
+        PlanarYUVLuminanceSource planarYUVLuminanceSource;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            try {
+                try {
+                    Rect h = this.c.h(i2);
+                    if (h != null) {
+                        planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, h.left, h.top, h.width(), h.height(), false);
+                    } else {
+                        planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
+                    }
+                    result = this.j.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    this.j.reset();
+                    result = null;
+                }
+                if (result == null) {
+                    return null;
+                }
+                return result.getText();
+            } finally {
+                this.j.reset();
+            }
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MultiFormatReader multiFormatReader = new MultiFormatReader();
+            this.j = multiFormatReader;
+            multiFormatReader.setHints(gd8.a);
+        }
     }
 }

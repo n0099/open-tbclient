@@ -22,6 +22,16 @@ public class BackButtonElement extends AbsElement implements View.OnClickListene
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView backButton;
 
+    @Override // com.baidu.searchbox.player.element.AbsElement
+    public boolean attachToRootAtOnce() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public BackButtonElement() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,16 +44,6 @@ public class BackButtonElement extends AbsElement implements View.OnClickListene
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.player.element.AbsElement
-    public boolean attachToRootAtOnce() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.player.element.IElement

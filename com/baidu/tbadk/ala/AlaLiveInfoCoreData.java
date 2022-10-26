@@ -3,7 +3,7 @@ package com.baidu.tbadk.ala;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tieba.or4;
+import com.baidu.tieba.qr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
 /* loaded from: classes3.dex */
-public class AlaLiveInfoCoreData extends or4 implements Serializable {
+public class AlaLiveInfoCoreData extends qr4 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5768965545624138312L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,6 +34,13 @@ public class AlaLiveInfoCoreData extends or4 implements Serializable {
     public AlaLiveUserInfoData userInfo;
     public String userName;
 
+    @Override // com.baidu.tieba.qr4
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        }
+    }
+
     public AlaLiveInfoCoreData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +57,7 @@ public class AlaLiveInfoCoreData extends or4 implements Serializable {
 
     public void fillWithInfoData(AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, alaInfoData) == null) || alaInfoData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, alaInfoData) != null) || alaInfoData == null) {
             return;
         }
         this.liveID = alaInfoData.live_id;
@@ -78,16 +85,9 @@ public class AlaLiveInfoCoreData extends or4 implements Serializable {
         this.threadId = alaInfoData.thread_id;
     }
 
-    @Override // com.baidu.tieba.or4
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-        }
-    }
-
     public void parserProtoBuf(AlaLiveInfo alaLiveInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaLiveInfo) == null) || alaLiveInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaLiveInfo) != null) || alaLiveInfo == null) {
             return;
         }
         this.liveID = alaLiveInfo.live_id.longValue();

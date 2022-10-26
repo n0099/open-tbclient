@@ -30,7 +30,7 @@ public final class AssociatedItemContainer extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public a b;
-    public final ArrayList<ItemData> c;
+    public final ArrayList c;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -78,116 +78,6 @@ public final class AssociatedItemContainer extends LinearLayout {
         }
     }
 
-    public static final void b(ItemCardView itemCardView, AssociatedItemContainer this$0, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, itemCardView, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(itemCardView, "$itemCardView");
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ViewParent parent = itemCardView.getParent();
-            if (parent == null) {
-                return;
-            }
-            int indexOfChild = ((ViewGroup) parent).indexOfChild(itemCardView);
-            this$0.removeViewsInLayout(indexOfChild, this$0.getChildCount() == indexOfChild + 1 ? 1 : 2);
-            if (this$0.getChildCount() > 0 && !(this$0.getChildAt(this$0.getChildCount() - 1) instanceof ItemCardView)) {
-                this$0.removeViewAt(this$0.getChildCount() - 1);
-            }
-            this$0.requestLayout();
-            Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f09103b);
-            if (tag != null) {
-                ItemData itemData = (ItemData) tag;
-                this$0.getItemDataList().remove(itemData);
-                b onDeletedListener = this$0.getOnDeletedListener();
-                if (onDeletedListener == null) {
-                    return;
-                }
-                onDeletedListener.a(itemData);
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.data.ItemData");
-        }
-    }
-
-    public final void a(ItemData itemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) {
-            Intrinsics.checkNotNullParameter(itemData, "itemData");
-            boolean z = getChildCount() == 0;
-            if (getChildCount() != 0) {
-                View view2 = new View(getContext());
-                view2.setLayoutParams(new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004)));
-                addView(view2);
-            }
-            final ItemCardView itemCardView = new ItemCardView(getContext());
-            itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            itemCardView.N();
-            itemCardView.setTag(R.id.obfuscated_res_0x7f09103b, itemData);
-            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.f39
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        AssociatedItemContainer.b(ItemCardView.this, this, view3);
-                    }
-                }
-            });
-            itemCardView.setData(itemData, 10, "", false);
-            addView(itemCardView);
-            this.c.add(itemData);
-            a aVar = this.b;
-            if (aVar == null) {
-                return;
-            }
-            aVar.a(z);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (View view2 : ViewGroupKt.getChildren(this)) {
-                if (view2 instanceof ItemCardView) {
-                    ((ItemCardView) view2).G();
-                }
-            }
-        }
-    }
-
-    public final ArrayList<ItemData> getItemDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public final a getOnAddedListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (a) invokeV.objValue;
-    }
-
-    public final b getOnDeletedListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (b) invokeV.objValue;
-    }
-
-    public final void setOnAddedListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public final void setOnDeletedListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.a = bVar;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AssociatedItemContainer(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -228,8 +118,136 @@ public final class AssociatedItemContainer extends LinearLayout {
                 return;
             }
         }
-        this.c = new ArrayList<>();
+        this.c = new ArrayList();
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
+    }
+
+    public static final void b(ItemCardView itemCardView, AssociatedItemContainer this$0, View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, itemCardView, this$0, view2) == null) {
+            Intrinsics.checkNotNullParameter(itemCardView, "$itemCardView");
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            ViewParent parent = itemCardView.getParent();
+            if (parent != null) {
+                int indexOfChild = ((ViewGroup) parent).indexOfChild(itemCardView);
+                if (this$0.getChildCount() == indexOfChild + 1) {
+                    i = 1;
+                } else {
+                    i = 2;
+                }
+                this$0.removeViewsInLayout(indexOfChild, i);
+                if (this$0.getChildCount() > 0 && !(this$0.getChildAt(this$0.getChildCount() - 1) instanceof ItemCardView)) {
+                    this$0.removeViewAt(this$0.getChildCount() - 1);
+                }
+                this$0.requestLayout();
+                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f09102f);
+                if (tag != null) {
+                    ItemData itemData = (ItemData) tag;
+                    this$0.getItemDataList().remove(itemData);
+                    b onDeletedListener = this$0.getOnDeletedListener();
+                    if (onDeletedListener != null) {
+                        onDeletedListener.a(itemData);
+                        return;
+                    }
+                    return;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.data.ItemData");
+            }
+        }
+    }
+
+    public final void a(ItemData itemData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) {
+            Intrinsics.checkNotNullParameter(itemData, "itemData");
+            if (getChildCount() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (getChildCount() != 0) {
+                View view2 = new View(getContext());
+                view2.setLayoutParams(new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004)));
+                addView(view2);
+            }
+            final ItemCardView itemCardView = new ItemCardView(getContext());
+            itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            itemCardView.N();
+            itemCardView.setTag(R.id.obfuscated_res_0x7f09102f, itemData);
+            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.l39
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view3) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                        AssociatedItemContainer.b(ItemCardView.this, this, view3);
+                    }
+                }
+            });
+            itemCardView.setData(itemData, 10, "", false);
+            addView(itemCardView);
+            this.c.add(itemData);
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.a(z);
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (View view2 : ViewGroupKt.getChildren(this)) {
+                if (view2 instanceof ItemCardView) {
+                    ((ItemCardView) view2).G();
+                }
+            }
+        }
+    }
+
+    public final ArrayList getItemDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final a getOnAddedListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public final b getOnDeletedListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public final void setOnAddedListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public final void setOnDeletedListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.a = bVar;
+        }
     }
 }

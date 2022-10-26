@@ -34,6 +34,120 @@ public final class CircularIntArray {
         }
     }
 
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mTail = this.mHead;
+        }
+    }
+
+    public int getFirst() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.mHead;
+            if (i != this.mTail) {
+                return this.mElements[i];
+            }
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.mHead;
+            int i2 = this.mTail;
+            if (i != i2) {
+                return this.mElements[(i2 - 1) & this.mCapacityBitmask];
+            }
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mHead == this.mTail) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int popFirst() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.mHead;
+            if (i != this.mTail) {
+                int i2 = this.mElements[i];
+                this.mHead = (i + 1) & this.mCapacityBitmask;
+                return i2;
+            }
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        return invokeV.intValue;
+    }
+
+    public int popLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i = this.mHead;
+            int i2 = this.mTail;
+            if (i != i2) {
+                int i3 = this.mCapacityBitmask & (i2 - 1);
+                int i4 = this.mElements[i3];
+                this.mTail = i3;
+                return i4;
+            }
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        return invokeV.intValue;
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return (this.mTail - this.mHead) & this.mCapacityBitmask;
+        }
+        return invokeV.intValue;
+    }
+
+    public CircularIntArray(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (i >= 1) {
+            if (i <= 1073741824) {
+                i = Integer.bitCount(i) != 1 ? Integer.highestOneBit(i - 1) << 1 : i;
+                this.mCapacityBitmask = i - 1;
+                this.mElements = new int[i];
+                return;
+            }
+            throw new IllegalArgumentException("capacity must be <= 2^30");
+        }
+        throw new IllegalArgumentException("capacity must be >= 1");
+    }
+
     private void doubleCapacity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -82,93 +196,21 @@ public final class CircularIntArray {
         }
     }
 
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mTail = this.mHead;
-        }
-    }
-
     public int get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i < 0 || i >= size()) {
-                throw new ArrayIndexOutOfBoundsException();
+            if (i >= 0 && i < size()) {
+                return this.mElements[this.mCapacityBitmask & (this.mHead + i)];
             }
-            return this.mElements[this.mCapacityBitmask & (this.mHead + i)];
+            throw new ArrayIndexOutOfBoundsException();
         }
         return invokeI.intValue;
     }
 
-    public int getFirst() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.mHead;
-            if (i != this.mTail) {
-                return this.mElements[i];
-            }
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        return invokeV.intValue;
-    }
-
-    public int getLast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = this.mHead;
-            int i2 = this.mTail;
-            if (i != i2) {
-                return this.mElements[(i2 - 1) & this.mCapacityBitmask];
-            }
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mHead == this.mTail : invokeV.booleanValue;
-    }
-
-    public int popFirst() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.mHead;
-            if (i != this.mTail) {
-                int i2 = this.mElements[i];
-                this.mHead = (i + 1) & this.mCapacityBitmask;
-                return i2;
-            }
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        return invokeV.intValue;
-    }
-
-    public int popLast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i = this.mHead;
-            int i2 = this.mTail;
-            if (i != i2) {
-                int i3 = this.mCapacityBitmask & (i2 - 1);
-                int i4 = this.mElements[i3];
-                this.mTail = i3;
-                return i4;
-            }
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        return invokeV.intValue;
-    }
-
     public void removeFromEnd(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || i <= 0) {
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || i <= 0) {
             return;
         }
         if (i <= size()) {
@@ -180,7 +222,7 @@ public final class CircularIntArray {
 
     public void removeFromStart(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || i <= 0) {
+        if ((interceptable != null && interceptable.invokeI(1048586, this, i) != null) || i <= 0) {
             return;
         }
         if (i <= size()) {
@@ -188,38 +230,5 @@ public final class CircularIntArray {
             return;
         }
         throw new ArrayIndexOutOfBoundsException();
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (this.mTail - this.mHead) & this.mCapacityBitmask : invokeV.intValue;
-    }
-
-    public CircularIntArray(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (i < 1) {
-            throw new IllegalArgumentException("capacity must be >= 1");
-        }
-        if (i <= 1073741824) {
-            i = Integer.bitCount(i) != 1 ? Integer.highestOneBit(i - 1) << 1 : i;
-            this.mCapacityBitmask = i - 1;
-            this.mElements = new int[i];
-            return;
-        }
-        throw new IllegalArgumentException("capacity must be <= 2^30");
     }
 }

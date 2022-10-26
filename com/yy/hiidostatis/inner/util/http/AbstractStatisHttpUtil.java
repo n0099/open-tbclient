@@ -27,6 +27,14 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
     public int statusCode;
     public String testServer;
 
+    public abstract String[] getUrlAddress();
+
+    public abstract String getUrlFormat();
+
+    public abstract String getUrlService();
+
+    public abstract boolean sendContent(String str, String str2, int i);
+
     public AbstractStatisHttpUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,6 +50,52 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
         }
         this.mRetryTimeHost = 2;
         this.mTryTimeIp = 2;
+    }
+
+    public String[] getFallbackIps() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (HiidoSDK.isDebugMode) {
+                return TConst.TEST_IP;
+            }
+            String str = this.testServer;
+            if (str != null && str.length() != 0) {
+                return new String[0];
+            }
+            return getUrlAddress();
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public Throwable getLastError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mThrowable;
+        }
+        return (Throwable) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public int getLastStatusCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.statusCode;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public int getLastTryTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.lastTryTimes;
+        }
+        return invokeV.intValue;
     }
 
     private boolean getByUrlConn(String str, String str2) throws IOException {
@@ -73,80 +127,32 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
         return invokeLL.booleanValue;
     }
 
-    public String asUrl(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? String.format(getUrlFormat(), str) : (String) invokeL.objValue;
-    }
-
     public boolean get(String str, String str2) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? getByUrlConn(str, str2) : invokeLL.booleanValue;
-    }
-
-    public String[] getFallbackIps() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (HiidoSDK.isDebugMode) {
-                return TConst.TEST_IP;
-            }
-            String str = this.testServer;
-            return (str == null || str.length() == 0) ? getUrlAddress() : new String[0];
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return getByUrlConn(str, str2);
         }
-        return (String[]) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public Throwable getLastError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mThrowable : (Throwable) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public int getLastStatusCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.statusCode : invokeV.intValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public int getLastTryTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.lastTryTimes : invokeV.intValue;
-    }
-
-    public String getServerAddr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (HiidoSDK.isDebugMode) {
-                return TConst.TEST_URL;
-            }
-            String str = this.testServer;
-            String urlService = (str == null || str.length() == 0) ? getUrlService() : this.testServer;
-            L.brief("return hiido server %s", urlService);
-            return urlService;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public abstract String[] getUrlAddress();
-
-    public abstract String getUrlFormat();
-
-    public abstract String getUrlService();
 
     public boolean post(String str, String str2) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? postByUrlConn(str, str2) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
+            return postByUrlConn(str, str2);
+        }
+        return invokeLL.booleanValue;
     }
 
-    public abstract boolean sendContent(String str, String str2, int i);
+    public String asUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return String.format(getUrlFormat(), str);
+        }
+        return (String) invokeL.objValue;
+    }
 
     @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
     public boolean sendSync(String str) {
@@ -157,6 +163,66 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
             return sendSyncByTrying(str);
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public void setCacheIp(CacheIp cacheIp) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, cacheIp) == null) {
+            this.mCacheIp = cacheIp;
+        }
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public void setLastTryTimes(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.lastTryTimes = i;
+        }
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public void setRetryTimeHost(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mRetryTimeHost = i;
+        }
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public void setTestServer(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.testServer = str;
+        }
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public void setTryTimeIp(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mTryTimeIp = i;
+        }
+    }
+
+    public String getServerAddr() {
+        InterceptResult invokeV;
+        String urlService;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (HiidoSDK.isDebugMode) {
+                return TConst.TEST_URL;
+            }
+            String str = this.testServer;
+            if (str != null && str.length() != 0) {
+                urlService = this.testServer;
+            } else {
+                urlService = getUrlService();
+            }
+            L.brief("return hiido server %s", urlService);
+            return urlService;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean sendSyncByTrying(String str) {
@@ -204,45 +270,5 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public void setCacheIp(CacheIp cacheIp) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, cacheIp) == null) {
-            this.mCacheIp = cacheIp;
-        }
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public void setLastTryTimes(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.lastTryTimes = i;
-        }
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public void setRetryTimeHost(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.mRetryTimeHost = i;
-        }
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public void setTestServer(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.testServer = str;
-        }
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public void setTryTimeIp(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.mTryTimeIp = i;
-        }
     }
 }

@@ -15,7 +15,7 @@ import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableSkipLastTimed extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -25,22 +25,22 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class SkipLastTimedObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
+    public final class SkipLastTimedObserver extends AtomicInteger implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5677354903406201275L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public volatile boolean cancelled;
         public final boolean delayError;
         public volatile boolean done;
         public Throwable error;
-        public final SpscLinkedArrayQueue<Object> queue;
+        public final SpscLinkedArrayQueue queue;
         public Disposable s;
         public final Scheduler scheduler;
         public final long time;
         public final TimeUnit unit;
 
-        public SkipLastTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
+        public SkipLastTimedObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,74 +59,19 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
             this.time = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
-            this.queue = new SpscLinkedArrayQueue<>(i);
+            this.queue = new SpscLinkedArrayQueue(i);
             this.delayError = z;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            this.s.dispose();
-            if (getAndIncrement() == 0) {
-                this.queue.clear();
-            }
-        }
-
-        public void drain() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
-                Observer<? super T> observer = this.actual;
-                SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
-                boolean z = this.delayError;
-                TimeUnit timeUnit = this.unit;
-                Scheduler scheduler = this.scheduler;
-                long j = this.time;
-                int i = 1;
-                while (!this.cancelled) {
-                    boolean z2 = this.done;
-                    Long l = (Long) spscLinkedArrayQueue.peek();
-                    boolean z3 = l == null;
-                    long now = scheduler.now(timeUnit);
-                    if (!z3 && l.longValue() > now - j) {
-                        z3 = true;
-                    }
-                    if (z2) {
-                        if (!z) {
-                            Throwable th = this.error;
-                            if (th != null) {
-                                this.queue.clear();
-                                observer.onError(th);
-                                return;
-                            } else if (z3) {
-                                observer.onComplete();
-                                return;
-                            }
-                        } else if (z3) {
-                            Throwable th2 = this.error;
-                            if (th2 != null) {
-                                observer.onError(th2);
-                                return;
-                            } else {
-                                observer.onComplete();
-                                return;
-                            }
-                        }
-                    }
-                    if (z3) {
-                        i = addAndGet(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    } else {
-                        spscLinkedArrayQueue.poll();
-                        observer.onNext(spscLinkedArrayQueue.poll());
-                    }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.s.dispose();
+                if (getAndIncrement() == 0) {
+                    this.queue.clear();
                 }
-                this.queue.clear();
             }
         }
 
@@ -134,7 +79,10 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cancelled : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -144,6 +92,68 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
                 this.done = true;
                 drain();
             }
+        }
+
+        public void drain() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            Observer observer = this.actual;
+            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            boolean z2 = this.delayError;
+            TimeUnit timeUnit = this.unit;
+            Scheduler scheduler = this.scheduler;
+            long j = this.time;
+            int i = 1;
+            while (!this.cancelled) {
+                boolean z3 = this.done;
+                Long l = (Long) spscLinkedArrayQueue.peek();
+                if (l == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                long now = scheduler.now(timeUnit);
+                if (!z && l.longValue() > now - j) {
+                    z = true;
+                }
+                if (z3) {
+                    if (z2) {
+                        if (z) {
+                            Throwable th = this.error;
+                            if (th != null) {
+                                observer.onError(th);
+                                return;
+                            } else {
+                                observer.onComplete();
+                                return;
+                            }
+                        }
+                    } else {
+                        Throwable th2 = this.error;
+                        if (th2 != null) {
+                            this.queue.clear();
+                            observer.onError(th2);
+                            return;
+                        } else if (z) {
+                            observer.onComplete();
+                            return;
+                        }
+                    }
+                }
+                if (z) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
+                        return;
+                    }
+                } else {
+                    spscLinkedArrayQueue.poll();
+                    observer.onNext(spscLinkedArrayQueue.poll());
+                }
+            }
+            this.queue.clear();
         }
 
         @Override // io.reactivex.Observer
@@ -157,10 +167,10 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.queue.offer(Long.valueOf(this.scheduler.now(this.unit)), t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.queue.offer(Long.valueOf(this.scheduler.now(this.unit)), obj);
                 drain();
             }
         }
@@ -176,7 +186,7 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSkipLastTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
+    public ObservableSkipLastTimed(ObservableSource observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -201,7 +211,7 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new SkipLastTimedObserver(observer, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));

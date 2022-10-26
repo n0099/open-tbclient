@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
-import com.baidu.tieba.ic0;
+import com.baidu.tieba.jc0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveBannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<LiveBannerEntity> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int TYPE_LIVE = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int audienceCount;
@@ -36,6 +36,16 @@ public class LiveBannerEntity implements Parcelable {
     public String roomId;
     public long startTime;
     public LiveStatInfo statInfo;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes2.dex */
     public class BannerCmdInfo {
@@ -65,7 +75,7 @@ public class LiveBannerEntity implements Parcelable {
 
         public void parserJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.type = jSONObject.optInt("type");
@@ -86,7 +96,7 @@ public class LiveBannerEntity implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<LiveBannerEntity>() { // from class: com.baidu.live.business.model.data.LiveBannerEntity.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveBannerEntity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,21 +115,25 @@ public class LiveBannerEntity implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveBannerEntity createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LiveBannerEntity(parcel) : (LiveBannerEntity) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new LiveBannerEntity(parcel);
+                }
+                return (LiveBannerEntity) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveBannerEntity[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LiveBannerEntity[i] : (LiveBannerEntity[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new LiveBannerEntity[i];
+                }
+                return (LiveBannerEntity[]) invokeI.objValue;
             }
         };
     }
@@ -140,25 +154,51 @@ public class LiveBannerEntity implements Parcelable {
         this.needLogShow = true;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !ic0.a(this.pic) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !jc0.a(this.pic);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public LiveBannerEntity(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.needLogShow = true;
+        this.name = parcel.readString();
+        this.pic = parcel.readString();
+        this.nid = parcel.readString();
+        this.roomId = parcel.readString();
+        this.audienceCount = parcel.readInt();
+        this.liveStatus = parcel.readInt();
+        this.startTime = parcel.readLong();
+        this.endTime = parcel.readLong();
+        this.hostInfo = (LiveHostInfo) parcel.readParcelable(LiveHostInfo.class.getClassLoader());
+        this.leftLabel = (LeftLableInfo) parcel.readParcelable(LeftLableInfo.class.getClassLoader());
+        this.bannerType = parcel.readInt();
+        this.statInfo = (LiveStatInfo) parcel.readParcelable(LiveStatInfo.class.getClassLoader());
+        this.position = parcel.readInt();
+        this.needLogShow = parcel.readByte() != 0;
+        this.roomEntity = (LiveRoomEntity) parcel.readParcelable(LiveRoomEntity.class.getClassLoader());
     }
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.name = jSONObject.optString("name");
@@ -217,38 +257,5 @@ public class LiveBannerEntity implements Parcelable {
             parcel.writeByte(this.needLogShow ? (byte) 1 : (byte) 0);
             parcel.writeParcelable(this.roomEntity, i);
         }
-    }
-
-    public LiveBannerEntity(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.needLogShow = true;
-        this.name = parcel.readString();
-        this.pic = parcel.readString();
-        this.nid = parcel.readString();
-        this.roomId = parcel.readString();
-        this.audienceCount = parcel.readInt();
-        this.liveStatus = parcel.readInt();
-        this.startTime = parcel.readLong();
-        this.endTime = parcel.readLong();
-        this.hostInfo = (LiveHostInfo) parcel.readParcelable(LiveHostInfo.class.getClassLoader());
-        this.leftLabel = (LeftLableInfo) parcel.readParcelable(LeftLableInfo.class.getClassLoader());
-        this.bannerType = parcel.readInt();
-        this.statInfo = (LiveStatInfo) parcel.readParcelable(LiveStatInfo.class.getClassLoader());
-        this.position = parcel.readInt();
-        this.needLogShow = parcel.readByte() != 0;
-        this.roomEntity = (LiveRoomEntity) parcel.readParcelable(LiveRoomEntity.class.getClassLoader());
     }
 }

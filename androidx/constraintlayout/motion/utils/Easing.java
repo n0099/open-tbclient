@@ -28,94 +28,6 @@ public class Easing {
     public transient /* synthetic */ FieldHolder $fh;
     public String str;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(412636615, "Landroidx/constraintlayout/motion/utils/Easing;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(412636615, "Landroidx/constraintlayout/motion/utils/Easing;");
-                return;
-            }
-        }
-        sDefault = new Easing();
-        NAMED_EASING = new String[]{STANDARD_NAME, ACCELERATE_NAME, DECELERATE_NAME, LINEAR_NAME};
-    }
-
-    public Easing() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.str = "identity";
-    }
-
-    public static Easing getInterpolator(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            if (str.startsWith("cubic")) {
-                return new CubicEasing(str);
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1354466595:
-                    if (str.equals(ACCELERATE_NAME)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -1263948740:
-                    if (str.equals(DECELERATE_NAME)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -1102672091:
-                    if (str.equals(LINEAR_NAME)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1312628413:
-                    if (str.equals(STANDARD_NAME)) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            Log.e(ConstraintSet.TAG, "transitionEasing syntax error syntax:transitionEasing=\"cubic(1.0,0.5,0.0,0.6)\" or " + Arrays.toString(NAMED_EASING));
-                            return sDefault;
-                        }
-                        return new CubicEasing(LINEAR);
-                    }
-                    return new CubicEasing(DECELERATE);
-                }
-                return new CubicEasing(ACCELERATE);
-            }
-            return new CubicEasing(STANDARD);
-        }
-        return (Easing) invokeL.objValue;
-    }
-
     public double get(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -129,12 +41,6 @@ public class Easing {
             return 1.0d;
         }
         return invokeCommon.doubleValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.str : (String) invokeV.objValue;
     }
 
     /* loaded from: classes.dex */
@@ -161,6 +67,24 @@ public class Easing {
             if ((invokeClinit.flags & 1) != 0) {
                 classClinitInterceptable.invokePostClinit(-298420330, "Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;");
             }
+        }
+
+        public CubicEasing(double d, double d2, double d3, double d4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            setup(d, d2, d3, d4);
         }
 
         public CubicEasing(String str) {
@@ -253,7 +177,11 @@ public class Easing {
                 double d3 = 0.5d;
                 while (d2 > error) {
                     d2 *= 0.5d;
-                    d3 = getX(d3) < d ? d3 + d2 : d3 - d2;
+                    if (getX(d3) < d) {
+                        d3 += d2;
+                    } else {
+                        d3 -= d2;
+                    }
                 }
                 double d4 = d3 - d2;
                 double x = getX(d4);
@@ -274,7 +202,11 @@ public class Easing {
                 double d3 = 0.5d;
                 while (d2 > d_error) {
                     d2 *= 0.5d;
-                    d3 = getX(d3) < d ? d3 + d2 : d3 - d2;
+                    if (getX(d3) < d) {
+                        d3 += d2;
+                    } else {
+                        d3 -= d2;
+                    }
                 }
                 double d4 = d3 - d2;
                 double d5 = d3 + d2;
@@ -292,23 +224,102 @@ public class Easing {
                 this.y2 = d4;
             }
         }
+    }
 
-        public CubicEasing(double d, double d2, double d3, double d4) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(412636615, "Landroidx/constraintlayout/motion/utils/Easing;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            setup(d, d2, d3, d4);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(412636615, "Landroidx/constraintlayout/motion/utils/Easing;");
+                return;
+            }
         }
+        sDefault = new Easing();
+        NAMED_EASING = new String[]{STANDARD_NAME, ACCELERATE_NAME, DECELERATE_NAME, LINEAR_NAME};
+    }
+
+    public Easing() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.str = "identity";
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static Easing getInterpolator(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            if (str.startsWith("cubic")) {
+                return new CubicEasing(str);
+            }
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1354466595:
+                    if (str.equals(ACCELERATE_NAME)) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -1263948740:
+                    if (str.equals(DECELERATE_NAME)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -1102672091:
+                    if (str.equals(LINEAR_NAME)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1312628413:
+                    if (str.equals(STANDARD_NAME)) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            Log.e(ConstraintSet.TAG, "transitionEasing syntax error syntax:transitionEasing=\"cubic(1.0,0.5,0.0,0.6)\" or " + Arrays.toString(NAMED_EASING));
+                            return sDefault;
+                        }
+                        return new CubicEasing(LINEAR);
+                    }
+                    return new CubicEasing(DECELERATE);
+                }
+                return new CubicEasing(ACCELERATE);
+            }
+            return new CubicEasing(STANDARD);
+        }
+        return (Easing) invokeL.objValue;
     }
 }

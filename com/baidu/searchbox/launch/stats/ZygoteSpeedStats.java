@@ -80,6 +80,18 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         DEBUG = AppConfig.isDebug();
     }
 
+    public long getAppUserPerceptionLaunchDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mFixUserPerceptionCost == -1) {
+                calculate();
+            }
+            return this.mFixUserPerceptionCost;
+        }
+        return invokeV.longValue;
+    }
+
     public ZygoteSpeedStats() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,6 +117,26 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         this.mElapsedSecondDrawTimeStamp = -1L;
         this.mLaunchStartStamp = -1L;
         this.isSwitchOn = false;
+    }
+
+    public long getProcessLaunchDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (getStartTimeFromStats() <= 0) {
+                return 0L;
+            }
+            long j = this.appOnCreateRealTime - this.mStartTimeFromStats;
+            if (j >= 1000 && Build.VERSION.SDK_INT >= 29) {
+                return this.appOnCreateRealTime - Process.getStartElapsedRealtime();
+            }
+            long appOnCreateDuration = j - SpeedStatsManager.getInstance().getAppOnCreateDuration();
+            if (appOnCreateDuration < 0) {
+                return 0L;
+            }
+            return appOnCreateDuration;
+        }
+        return invokeV.longValue;
     }
 
     private void calculate() {
@@ -227,6 +259,28 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void addStatsTimeStamp(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.addStatsTimeStamp(i, System.currentTimeMillis());
+            if (i == 6000) {
+                this.mElapsedRealtimeEnd = SystemClock.elapsedRealtime();
+                this.mElapsedCpuTimeEnd = Process.getElapsedCpuTime();
+            }
+            if (i == 2000) {
+                this.appOnCreateRealTime = SystemClock.elapsedRealtime();
+            }
+        }
+    }
+
+    public void setIsSwitchOn(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.isSwitchOn = z;
+        }
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void addStatsTimeStamp(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
@@ -241,41 +295,10 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
         }
     }
 
-    public long getAppUserPerceptionLaunchDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mFixUserPerceptionCost == -1) {
-                calculate();
-            }
-            return this.mFixUserPerceptionCost;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getProcessLaunchDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (getStartTimeFromStats() <= 0) {
-                return 0L;
-            }
-            long j = this.appOnCreateRealTime - this.mStartTimeFromStats;
-            if (j >= 1000 && Build.VERSION.SDK_INT >= 29) {
-                return this.appOnCreateRealTime - Process.getStartElapsedRealtime();
-            }
-            long appOnCreateDuration = j - SpeedStatsManager.getInstance().getAppOnCreateDuration();
-            if (appOnCreateDuration >= 0) {
-                return appOnCreateDuration;
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public boolean packData(JSONObject jSONObject) {
         InterceptResult invokeL;
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
             super.packData(jSONObject);
@@ -312,7 +335,13 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     }
                 }
             }
-            hashMap.put(APP_HAS_BACKGROUND, SpeedStats.getInstance().getAppInBackgroundDuration() > 0 ? "1" : "0");
+            String str = "1";
+            if (SpeedStats.getInstance().getAppInBackgroundDuration() > 0) {
+                obj = "1";
+            } else {
+                obj = "0";
+            }
+            hashMap.put(APP_HAS_BACKGROUND, obj);
             long adShowDuration2 = (this.mFixUserPerceptionCost - SpeedStatsManager.getInstance().getAdShowDuration()) - SpeedStats.getInstance().getAppInBackgroundDuration();
             if (adShowDuration2 > 50 && adShowDuration2 < 60000) {
                 hashMap.put(ELAPSED_NO_BACKGROUND_COST, String.valueOf(adShowDuration2));
@@ -369,7 +398,10 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
                     }
                 }
             }
-            hashMap.put(IS_SWITCH_ON, this.isSwitchOn ? "1" : "0");
+            if (!this.isSwitchOn) {
+                str = "0";
+            }
+            hashMap.put(IS_SWITCH_ON, str);
             JSONObject jsonData6 = SpeedStatsUtils.getJsonData(this.mUnFixUserPerceptionCost, hashMap);
             if (jsonData6 != null) {
                 try {
@@ -386,27 +418,5 @@ public final class ZygoteSpeedStats extends AbstractSpeedStats {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public void setIsSwitchOn(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.isSwitchOn = z;
-        }
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.addStatsTimeStamp(i, System.currentTimeMillis());
-            if (i == 6000) {
-                this.mElapsedRealtimeEnd = SystemClock.elapsedRealtime();
-                this.mElapsedCpuTimeEnd = Process.getElapsedCpuTime();
-            }
-            if (i == 2000) {
-                this.appOnCreateRealTime = SystemClock.elapsedRealtime();
-            }
-        }
     }
 }

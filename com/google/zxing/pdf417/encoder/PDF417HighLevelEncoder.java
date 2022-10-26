@@ -1,6 +1,7 @@
 package com.google.zxing.pdf417.encoder;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,6 +45,48 @@ public final class PDF417HighLevelEncoder {
     public static final byte[] TEXT_PUNCTUATION_RAW;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isAlphaLower(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c != ' ') {
+                return c >= 'a' && c <= 'z';
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean isAlphaUpper(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c != ' ') {
+                return c >= 'A' && c <= 'Z';
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean isDigit(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) ? c >= '0' && c <= '9' : invokeCommon.booleanValue;
+    }
+
+    public static boolean isText(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c == '\t' || c == '\n' || c == '\r') {
+                return true;
+            }
+            return c >= ' ' && c <= '~';
+        }
+        return invokeCommon.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -57,8 +100,8 @@ public final class PDF417HighLevelEncoder {
                 return;
             }
         }
-        TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, StrictLineReader.CR, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, Base64.INTERNAL_PADDING, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_END_OF_CAPTION, 43, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 42, BaseNCodec.PAD_DEFAULT, 94, 0, 32, 0, 0, 0};
-        TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, 33, StrictLineReader.CR, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, 10, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_END_OF_CAPTION, 34, 124, 42, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 63, 123, 125, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 0};
+        TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, StrictLineReader.CR, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, Base64.INTERNAL_PADDING, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, 43, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, ExifInterface.START_CODE, BaseNCodec.PAD_DEFAULT, 94, 0, 32, 0, 0, 0};
+        TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, 33, StrictLineReader.CR, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, 10, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, 34, 124, ExifInterface.START_CODE, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 63, 123, 125, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 0};
         MIXED = new byte[128];
         PUNCTUATION = new byte[128];
         DEFAULT_ENCODING = Charset.forName("ISO-8859-1");
@@ -79,14 +122,15 @@ public final class PDF417HighLevelEncoder {
         Arrays.fill(PUNCTUATION, (byte) -1);
         while (true) {
             byte[] bArr2 = TEXT_PUNCTUATION_RAW;
-            if (i >= bArr2.length) {
+            if (i < bArr2.length) {
+                byte b2 = bArr2[i];
+                if (b2 > 0) {
+                    PUNCTUATION[b2] = (byte) i;
+                }
+                i++;
+            } else {
                 return;
             }
-            byte b2 = bArr2[i];
-            if (b2 > 0) {
-                PUNCTUATION[b2] = (byte) i;
-            }
-            i++;
         }
     }
 
@@ -125,10 +169,11 @@ public final class PDF417HighLevelEncoder {
                     charAt = str.charAt(i2);
                 }
                 char charAt2 = str.charAt(i3);
-                if (!newEncoder.canEncode(charAt2)) {
+                if (newEncoder.canEncode(charAt2)) {
+                    i3++;
+                } else {
                     throw new WriterException("Non-encodable character detected: " + charAt2 + " (Unicode: " + ((int) charAt2) + ')');
                 }
-                i3++;
             }
             return i3 - i;
         }
@@ -188,6 +233,25 @@ public final class PDF417HighLevelEncoder {
             return i2 - i;
         }
         return invokeLI.intValue;
+    }
+
+    public static void encodingECI(int i, StringBuilder sb) throws WriterException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, sb) == null) {
+            if (i >= 0 && i < 900) {
+                sb.append((char) 927);
+                sb.append((char) i);
+            } else if (i < 810900) {
+                sb.append((char) 926);
+                sb.append((char) ((i / 900) - 1));
+                sb.append((char) (i % 900));
+            } else if (i < 811800) {
+                sb.append((char) 925);
+                sb.append((char) (810900 - i));
+            } else {
+                throw new WriterException("ECI number not in valid range from 0..811799, but was " + i);
+            }
+        }
     }
 
     public static void encodeBinary(byte[] bArr, int i, int i2, int i3, StringBuilder sb) {
@@ -327,6 +391,7 @@ public final class PDF417HighLevelEncoder {
     */
     public static int encodeText(CharSequence charSequence, int i, int i2, StringBuilder sb, int i3) {
         InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), sb, Integer.valueOf(i3)})) == null) {
             StringBuilder sb2 = new StringBuilder(i2);
@@ -408,6 +473,11 @@ public final class PDF417HighLevelEncoder {
             char c = 0;
             for (int i8 = 0; i8 < length; i8++) {
                 if (i8 % 2 != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
                     c = (char) ((c * DecodedBitStreamParser.RS) + sb2.charAt(i8));
                     sb.append(c);
                 } else {
@@ -422,75 +492,26 @@ public final class PDF417HighLevelEncoder {
         return invokeCommon.intValue;
     }
 
-    public static void encodingECI(int i, StringBuilder sb) throws WriterException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65545, null, i, sb) == null) {
-            if (i >= 0 && i < 900) {
-                sb.append((char) 927);
-                sb.append((char) i);
-            } else if (i < 810900) {
-                sb.append((char) 926);
-                sb.append((char) ((i / 900) - 1));
-                sb.append((char) (i % 900));
-            } else if (i < 811800) {
-                sb.append((char) 925);
-                sb.append((char) (810900 - i));
-            } else {
-                throw new WriterException("ECI number not in valid range from 0..811799, but was " + i);
-            }
-        }
-    }
-
-    public static boolean isAlphaLower(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c != ' ') {
-                return c >= 'a' && c <= 'z';
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean isAlphaUpper(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c != ' ') {
-                return c >= 'A' && c <= 'Z';
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean isDigit(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) ? c >= '0' && c <= '9' : invokeCommon.booleanValue;
-    }
-
     public static boolean isMixed(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c)})) == null) ? MIXED[c] != -1 : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (MIXED[c] != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 
     public static boolean isPunctuation(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Character.valueOf(c)})) == null) ? PUNCTUATION[c] != -1 : invokeCommon.booleanValue;
-    }
-
-    public static boolean isText(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c == '\t' || c == '\n' || c == '\r') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (PUNCTUATION[c] != -1) {
                 return true;
             }
-            return c >= ' ' && c <= '~';
+            return false;
         }
         return invokeCommon.booleanValue;
     }

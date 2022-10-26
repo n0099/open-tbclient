@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.item.d;
 import com.kwad.sdk.core.config.item.j;
 /* loaded from: classes7.dex */
@@ -34,7 +33,6 @@ public final class a {
         dc = new j("feedNativeRenderSwitch", 0);
     }
 
-    @InvokeBy(invokerClass = com.kwad.sdk.core.config.d.class, methodId = "initConfigList")
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {

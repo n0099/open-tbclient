@@ -47,32 +47,6 @@ public class q2 implements L1 {
         this.a = str;
     }
 
-    public final void a(Info info) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, info) == null) {
-            boolean z = false;
-            this.e = false;
-            this.f = info;
-            this.j = System.currentTimeMillis();
-            if (b() && this.f.getType() == 41) {
-                z = true;
-            }
-            if (z) {
-                if (a()) {
-                    this.h.onLoaded();
-                    return;
-                }
-                g0 g0Var = new g0(this.b);
-                this.g = g0Var;
-                g0Var.a = new p2(this);
-                this.g.a(this.f.getLoad(), this.f);
-                this.k.sendEmptyMessageDelayed(11, this.f.getWt() * 1000);
-                return;
-            }
-            this.h.onFail(PBError.PID_TYPE_ERROR);
-        }
-    }
-
     @Override // com.win.opensdk.L1
     public void a(String str, String str2, Object obj) {
         long j;
@@ -156,5 +130,31 @@ public class q2 implements L1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b() && this.f.getType() == 41 : invokeV.booleanValue;
+    }
+
+    public final void a(Info info) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, info) == null) {
+            boolean z = false;
+            this.e = false;
+            this.f = info;
+            this.j = System.currentTimeMillis();
+            if (b() && this.f.getType() == 41) {
+                z = true;
+            }
+            if (z) {
+                if (a()) {
+                    this.h.onLoaded();
+                    return;
+                }
+                g0 g0Var = new g0(this.b);
+                this.g = g0Var;
+                g0Var.a = new p2(this);
+                this.g.a(this.f.getLoad(), this.f);
+                this.k.sendEmptyMessageDelayed(11, this.f.getWt() * 1000);
+                return;
+            }
+            this.h.onFail(PBError.PID_TYPE_ERROR);
+        }
     }
 }

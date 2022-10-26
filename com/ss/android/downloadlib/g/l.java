@@ -1,6 +1,5 @@
 package com.ss.android.downloadlib.g;
 
-import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -15,8 +14,6 @@ import android.os.Environment;
 import android.os.Looper;
 import android.os.StatFs;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ss.android.download.api.config.n;
@@ -36,15 +33,30 @@ public class l {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static String d = null;
 
-    public static boolean a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+    public static boolean a() {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            return true;
         }
-        return new File(str).exists();
+        return false;
     }
 
-    public static boolean b(String str) {
-        return !TextUtils.isEmpty(str) && new File(str).exists();
+    public static int a(Context context, float f) {
+        return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
+    }
+
+    public static int b(Context context, String str) {
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
+                if (packageInfo != null) {
+                    return packageInfo.versionCode;
+                }
+                return -1;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return -1;
+            }
+        }
+        return -1;
     }
 
     public static Drawable c(Context context, String str) {
@@ -66,36 +78,11 @@ public class l {
             return false;
         }
         try {
-            return context.getPackageManager().getPackageInfo(str, 0) != null;
+            if (context.getPackageManager().getPackageInfo(str, 0) == null) {
+                return false;
+            }
+            return true;
         } catch (Exception unused) {
-            return false;
-        }
-    }
-
-    public static boolean e(Context context, String str) {
-        PackageInfo packageArchiveInfo;
-        PackageInfo packageInfo;
-        if (context == null || str == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            File file = new File(str);
-            if (!file.exists() || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 0)) == null) {
-                return false;
-            }
-            String str2 = packageArchiveInfo.packageName;
-            int i = packageArchiveInfo.versionCode;
-            try {
-                packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
-            } catch (PackageManager.NameNotFoundException unused) {
-                packageInfo = null;
-            }
-            if (packageInfo == null) {
-                return false;
-            }
-            return i <= packageInfo.versionCode;
-        } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }
@@ -140,94 +127,87 @@ public class l {
         }
     }
 
-    public static File i(Context context, String str) {
-        File parentFile = context.getExternalFilesDir(null).getParentFile();
-        String parent = parentFile != null ? parentFile.getParent() : null;
-        File file = new File(parent + File.separator + str);
-        StringBuilder sb = new StringBuilder();
-        sb.append("getExtDir: file.toString()-->");
-        sb.append(file.toString());
-        com.ss.android.socialbase.downloader.c.a.b("ToolUtils", sb.toString());
-        return file;
-    }
-
-    public static long a(JSONObject jSONObject, String str) {
-        return com.ss.android.download.api.c.b.a(jSONObject, str);
-    }
-
-    public static int b(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return -1;
-        }
+    public static int a(String str, String str2) {
         try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-            if (packageInfo != null) {
-                return packageInfo.versionCode;
-            }
-            return -1;
-        } catch (PackageManager.NameNotFoundException unused) {
-            return -1;
-        }
-    }
-
-    public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
-        return com.ss.android.download.api.c.b.a(jSONObject, jSONObject2);
-    }
-
-    @WorkerThread
-    public static boolean c(String str) {
-        File file;
-        Context context = com.ss.android.downloadlib.addownload.j.getContext();
-        if (!TextUtils.isEmpty(str) && d(context, str)) {
-            int i = context.getApplicationInfo().targetSdkVersion;
-            if (com.ss.android.downloadlib.addownload.j.i().optInt("get_ext_dir_mode") != 0 || Build.VERSION.SDK_INT < 29 || ((i != 29 || Environment.isExternalStorageLegacy()) && i <= 29)) {
-                try {
-                    if (Build.VERSION.SDK_INT >= 29 && context.getApplicationInfo().targetSdkVersion >= 29 && com.ss.android.downloadlib.addownload.j.i().optInt("get_ext_dir_mode") == 1) {
-                        file = i(context, str);
-                    } else {
-                        String path = Environment.getExternalStorageDirectory().getPath();
-                        file = new File(path, "android/data/" + str);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (str.equals(str2)) {
+                    return 0;
+                }
+                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                int min = Math.min(split.length, split2.length);
+                int i = 0;
+                int i2 = 0;
+                while (i < min) {
+                    i2 = Integer.parseInt(split[i]) - Integer.parseInt(split2[i]);
+                    if (i2 != 0) {
+                        break;
                     }
-                    if (file.exists()) {
-                        long a2 = g.a(file);
-                        PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-                        if (packageInfo != null) {
-                            if (packageInfo.lastUpdateTime < a2) {
-                                return true;
-                            }
+                    i++;
+                }
+                if (i2 == 0) {
+                    for (int i3 = i; i3 < split.length; i3++) {
+                        if (Integer.parseInt(split[i3]) > 0) {
+                            return 1;
                         }
-                        return false;
                     }
-                    return false;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return true;
+                    while (i < split2.length) {
+                        if (Integer.parseInt(split2[i]) > 0) {
+                            return -1;
+                        }
+                        i++;
+                    }
+                    return 0;
+                } else if (i2 <= 0) {
+                    return -1;
+                } else {
+                    return 1;
                 }
             }
-            return true;
-        }
-        return false;
-    }
-
-    @NonNull
-    public static JSONObject a(JSONObject jSONObject) {
-        return com.ss.android.download.api.c.b.a(jSONObject);
-    }
-
-    @NonNull
-    public static JSONObject a(JSONObject... jSONObjectArr) {
-        return com.ss.android.download.api.c.b.a(jSONObjectArr);
-    }
-
-    public static boolean a(Context context, Intent intent) {
-        try {
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
-            if (queryIntentActivities != null) {
-                return !queryIntentActivities.isEmpty();
-            }
-            return false;
         } catch (Exception unused) {
-            return false;
+        }
+        return -2;
+    }
+
+    public static long a(long j) {
+        try {
+            return a(Environment.getExternalStorageDirectory(), j);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return j;
+        }
+    }
+
+    public static HashMap b(JSONObject jSONObject) {
+        HashMap hashMap = new HashMap();
+        if (jSONObject != null) {
+            try {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
+                }
+                return hashMap;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return hashMap;
+    }
+
+    public static long a(File file) {
+        if (file == null) {
+            return -1L;
+        }
+        try {
+            StatFs statFs = new StatFs(file.getAbsolutePath());
+            if (Build.VERSION.SDK_INT < 18) {
+                return -1L;
+            }
+            return statFs.getTotalBytes();
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return -1L;
         }
     }
 
@@ -238,6 +218,18 @@ public class l {
         return a(bVar.e(), bVar.I(), bVar.J()).a();
     }
 
+    public static long a(File file, long j) {
+        if (file == null) {
+            return j;
+        }
+        try {
+            return com.ss.android.socialbase.downloader.i.f.d(file.getAbsolutePath());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return j;
+        }
+    }
+
     public static boolean b(Context context, Intent intent) {
         if (intent == null) {
             return false;
@@ -246,7 +238,14 @@ public class l {
             context = com.ss.android.downloadlib.addownload.j.getContext();
         }
         List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
-        return queryIntentActivities != null && queryIntentActivities.size() > 0;
+        if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public static long a(JSONObject jSONObject, String str) {
+        return com.ss.android.download.api.c.b.a(jSONObject, str);
     }
 
     public static PackageInfo a(com.ss.android.downloadad.api.a.b bVar) {
@@ -259,6 +258,13 @@ public class l {
         } catch (Throwable unused) {
             return null;
         }
+    }
+
+    public static boolean b(String str) {
+        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
+            return false;
+        }
+        return true;
     }
 
     public static Drawable a(Context context, String str) {
@@ -275,41 +281,6 @@ public class l {
             }
         }
         return null;
-    }
-
-    @SuppressLint({"MissingPermission"})
-    public static void b() {
-        try {
-            if (com.ss.android.downloadlib.addownload.j.e().a(com.ss.android.downloadlib.addownload.j.getContext(), "android.permission.REORDER_TASKS")) {
-                ActivityManager activityManager = (ActivityManager) com.ss.android.downloadlib.addownload.j.getContext().getSystemService("activity");
-                for (ActivityManager.RunningTaskInfo runningTaskInfo : activityManager.getRunningTasks(20)) {
-                    if (com.ss.android.downloadlib.addownload.j.getContext().getPackageName().equals(runningTaskInfo.topActivity.getPackageName())) {
-                        activityManager.moveTaskToFront(runningTaskInfo.id, 1);
-                        return;
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @NonNull
-    public static HashMap<String, String> b(JSONObject jSONObject) {
-        HashMap<String, String> hashMap = new HashMap<>();
-        if (jSONObject != null) {
-            try {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
-                }
-                return hashMap;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return hashMap;
     }
 
     public static com.ss.android.downloadlib.addownload.b.c a(String str, int i, String str2) {
@@ -333,18 +304,77 @@ public class l {
         return cVar;
     }
 
+    public static Object a(Object... objArr) {
+        if (objArr != null) {
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    return obj;
+                }
+            }
+            throw new IllegalArgumentException("args is null");
+        }
+        throw new IllegalArgumentException("args is null");
+    }
+
+    public static String a(String str, int i) {
+        if (i == 0) {
+            return "";
+        }
+        if (!TextUtils.isEmpty(str) && str.length() > i) {
+            return str.substring(0, i);
+        }
+        return str;
+    }
+
+    public static String a(String... strArr) {
+        return com.ss.android.download.api.c.b.a(strArr);
+    }
+
+    public static JSONObject a(JSONObject jSONObject) {
+        return com.ss.android.download.api.c.b.a(jSONObject);
+    }
+
+    public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
+        return com.ss.android.download.api.c.b.a(jSONObject, jSONObject2);
+    }
+
+    public static JSONObject a(JSONObject... jSONObjectArr) {
+        return com.ss.android.download.api.c.b.a(jSONObjectArr);
+    }
+
+    public static void a(JSONObject jSONObject, String str, Object obj) {
+        if (jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.putOpt(str, obj);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static boolean a(int i, int i2, String str, String str2) {
         if (i2 == 0 && TextUtils.isEmpty(str2)) {
             return true;
         }
-        return (i2 > 0 && i >= i2) || a(str, str2) >= 0;
+        if ((i2 > 0 && i >= i2) || a(str, str2) >= 0) {
+            return true;
+        }
+        return false;
     }
 
-    public static boolean a(DownloadModel downloadModel) {
-        if (downloadModel == null) {
+    public static boolean a(Context context, Intent intent) {
+        try {
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
+            if (queryIntentActivities == null) {
+                return false;
+            }
+            if (queryIntentActivities.isEmpty()) {
+                return false;
+            }
+            return true;
+        } catch (Exception unused) {
             return false;
         }
-        return a(downloadModel.getPackageName(), downloadModel.getVersionCode(), downloadModel.getVersionName()).a();
     }
 
     public static boolean a(Context context, String str, String str2) {
@@ -355,23 +385,40 @@ public class l {
         }
         try {
             File file = new File(str);
-            if (file.exists() && (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 0)) != null && packageArchiveInfo.packageName.equals(str2)) {
-                int i = packageArchiveInfo.versionCode;
-                try {
-                    packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
-                } catch (PackageManager.NameNotFoundException unused) {
-                    packageInfo = null;
-                }
-                if (packageInfo == null) {
-                    return false;
-                }
-                return i == packageInfo.versionCode;
+            if (!file.exists() || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 0)) == null || !packageArchiveInfo.packageName.equals(str2)) {
+                return false;
             }
-            return false;
+            int i = packageArchiveInfo.versionCode;
+            try {
+                packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                packageInfo = null;
+            }
+            if (packageInfo == null) {
+                return false;
+            }
+            if (i != packageInfo.versionCode) {
+                return false;
+            }
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static boolean a(DownloadModel downloadModel) {
+        if (downloadModel == null) {
+            return false;
+        }
+        return a(downloadModel.getPackageName(), downloadModel.getVersionCode(), downloadModel.getVersionName()).a();
+    }
+
+    public static boolean a(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            return new File(str).exists();
+        }
+        return false;
     }
 
     public static boolean a(Signature[] signatureArr, Signature[] signatureArr2) {
@@ -389,119 +436,99 @@ public class l {
         return true;
     }
 
-    public static int a(Context context, float f) {
-        return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
-    }
-
-    public static String a(String str, int i) {
-        return i == 0 ? "" : (TextUtils.isEmpty(str) || str.length() <= i) ? str : str.substring(0, i);
-    }
-
-    public static int a(String str, String str2) {
+    public static void b() {
         try {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (str.equals(str2)) {
-                    return 0;
-                }
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                int min = Math.min(split.length, split2.length);
-                int i = 0;
-                int i2 = 0;
-                while (i < min) {
-                    i2 = Integer.parseInt(split[i]) - Integer.parseInt(split2[i]);
-                    if (i2 != 0) {
-                        break;
-                    }
-                    i++;
-                }
-                if (i2 != 0) {
-                    return i2 > 0 ? 1 : -1;
-                }
-                for (int i3 = i; i3 < split.length; i3++) {
-                    if (Integer.parseInt(split[i3]) > 0) {
-                        return 1;
-                    }
-                }
-                while (i < split2.length) {
-                    if (Integer.parseInt(split2[i]) > 0) {
-                        return -1;
-                    }
-                    i++;
-                }
-                return 0;
+            if (!com.ss.android.downloadlib.addownload.j.e().a(com.ss.android.downloadlib.addownload.j.getContext(), "android.permission.REORDER_TASKS")) {
+                return;
             }
-        } catch (Exception unused) {
-        }
-        return -2;
-    }
-
-    public static String a(String... strArr) {
-        return com.ss.android.download.api.c.b.a(strArr);
-    }
-
-    @NonNull
-    public static <T> T a(T... tArr) {
-        if (tArr != null) {
-            for (T t : tArr) {
-                if (t != null) {
-                    return t;
+            ActivityManager activityManager = (ActivityManager) com.ss.android.downloadlib.addownload.j.getContext().getSystemService("activity");
+            for (ActivityManager.RunningTaskInfo runningTaskInfo : activityManager.getRunningTasks(20)) {
+                if (com.ss.android.downloadlib.addownload.j.getContext().getPackageName().equals(runningTaskInfo.topActivity.getPackageName())) {
+                    activityManager.moveTaskToFront(runningTaskInfo.id, 1);
+                    return;
                 }
             }
-            throw new IllegalArgumentException("args is null");
-        }
-        throw new IllegalArgumentException("args is null");
-    }
-
-    public static long a(long j) {
-        try {
-            return a(Environment.getExternalStorageDirectory(), j);
         } catch (Exception e) {
             e.printStackTrace();
-            return j;
         }
     }
 
-    public static long a(File file, long j) {
-        if (file == null) {
-            return j;
+    public static boolean c(String str) {
+        File file;
+        Context context = com.ss.android.downloadlib.addownload.j.getContext();
+        if (TextUtils.isEmpty(str) || !d(context, str)) {
+            return false;
+        }
+        int i = context.getApplicationInfo().targetSdkVersion;
+        if (com.ss.android.downloadlib.addownload.j.i().optInt("get_ext_dir_mode") == 0 && Build.VERSION.SDK_INT >= 29 && ((i == 29 && !Environment.isExternalStorageLegacy()) || i > 29)) {
+            return true;
         }
         try {
-            return com.ss.android.socialbase.downloader.i.f.d(file.getAbsolutePath());
+            if (Build.VERSION.SDK_INT >= 29 && context.getApplicationInfo().targetSdkVersion >= 29 && com.ss.android.downloadlib.addownload.j.i().optInt("get_ext_dir_mode") == 1) {
+                file = i(context, str);
+            } else {
+                String path = Environment.getExternalStorageDirectory().getPath();
+                file = new File(path, "android/data/" + str);
+            }
+            if (!file.exists()) {
+                return false;
+            }
+            long a2 = g.a(file);
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
+            if (packageInfo != null) {
+                if (packageInfo.lastUpdateTime < a2) {
+                    return true;
+                }
+            }
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
-            return j;
+            return true;
         }
     }
 
-    public static long a(File file) {
-        if (file == null) {
-            return -1L;
+    public static boolean e(Context context, String str) {
+        PackageInfo packageArchiveInfo;
+        PackageInfo packageInfo;
+        if (context == null || str == null || TextUtils.isEmpty(str)) {
+            return false;
         }
         try {
-            StatFs statFs = new StatFs(file.getAbsolutePath());
-            if (Build.VERSION.SDK_INT >= 18) {
-                return statFs.getTotalBytes();
+            File file = new File(str);
+            if (!file.exists() || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 0)) == null) {
+                return false;
             }
-            return -1L;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return -1L;
-        }
-    }
-
-    public static boolean a() {
-        return Looper.myLooper() == Looper.getMainLooper();
-    }
-
-    public static void a(JSONObject jSONObject, String str, Object obj) {
-        if (jSONObject == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            jSONObject.putOpt(str, obj);
-        } catch (JSONException e) {
+            String str2 = packageArchiveInfo.packageName;
+            int i = packageArchiveInfo.versionCode;
+            try {
+                packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
+            } catch (PackageManager.NameNotFoundException unused) {
+                packageInfo = null;
+            }
+            if (packageInfo == null) {
+                return false;
+            }
+            if (i > packageInfo.versionCode) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
+    }
+
+    public static File i(Context context, String str) {
+        String str2 = null;
+        File parentFile = context.getExternalFilesDir(null).getParentFile();
+        if (parentFile != null) {
+            str2 = parentFile.getParent();
+        }
+        File file = new File(str2 + File.separator + str);
+        StringBuilder sb = new StringBuilder();
+        sb.append("getExtDir: file.toString()-->");
+        sb.append(file.toString());
+        com.ss.android.socialbase.downloader.c.a.b("ToolUtils", sb.toString());
+        return file;
     }
 }

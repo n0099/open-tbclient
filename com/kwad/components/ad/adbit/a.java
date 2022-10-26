@@ -1,6 +1,5 @@
 package com.kwad.components.ad.adbit;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,12 +12,10 @@ import org.json.JSONObject;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Map<String, String> aA;
-    @NonNull
+    public Map aA;
     public JSONObject az;
 
-    public a(@NonNull JSONObject jSONObject, @NonNull Map<String, String> map) {
+    public a(JSONObject jSONObject, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +39,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             for (String str : this.aA.keySet()) {
-                r.putValue(this.az, str, this.aA.get(str));
+                r.putValue(this.az, str, (String) this.aA.get(str));
             }
             return this.az.toString();
         }

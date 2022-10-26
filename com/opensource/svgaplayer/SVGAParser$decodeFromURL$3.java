@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\n\u0010\u0002\u001a\u00060\u0003j\u0002`\u0004H\n¢\u0006\u0002\b\u0005"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Ljava/lang/Exception;", "Lkotlin/Exception;", "invoke"}, k = 3, mv = {1, 1, 13}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class SVGAParser$decodeFromURL$3 extends Lambda implements Function1<Exception, Unit> {
+public final class SVGAParser$decodeFromURL$3 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ SVGAParser.b $callback;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,19 +41,17 @@ public final class SVGAParser$decodeFromURL$3 extends Lambda implements Function
         this.$callback = bVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Unit invoke(Exception exc) {
-        invoke2(exc);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        invoke((Exception) obj);
         return Unit.INSTANCE;
     }
 
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(Exception exc) {
+    public final void invoke(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.this$0.t(exc, this.$callback);
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) != null) {
+            return;
         }
+        this.this$0.t(exc, this.$callback);
     }
 }

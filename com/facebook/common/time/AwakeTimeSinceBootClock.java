@@ -8,12 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.DoNotStrip;
-@DoNotStrip
 /* loaded from: classes7.dex */
 public class AwakeTimeSinceBootClock implements MonotonicClock, MonotonicNanoClock {
     public static /* synthetic */ Interceptable $ic;
-    @DoNotStrip
     public static final AwakeTimeSinceBootClock INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,26 +44,32 @@ public class AwakeTimeSinceBootClock implements MonotonicClock, MonotonicNanoClo
         }
     }
 
-    @DoNotStrip
     public static AwakeTimeSinceBootClock get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? INSTANCE : (AwakeTimeSinceBootClock) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return INSTANCE;
+        }
+        return (AwakeTimeSinceBootClock) invokeV.objValue;
     }
 
     @Override // com.facebook.common.time.MonotonicClock
-    @DoNotStrip
     public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? android.os.SystemClock.uptimeMillis() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return android.os.SystemClock.uptimeMillis();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.facebook.common.time.MonotonicNanoClock
-    @DoNotStrip
     public long nowNanos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.nanoTime() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return System.nanoTime();
+        }
+        return invokeV.longValue;
     }
 }

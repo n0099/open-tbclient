@@ -19,7 +19,7 @@ public class DelegatingSSLSession implements SSLSession {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class CertificateWrap extends DelegatingSSLSession {
+    public class CertificateWrap extends DelegatingSSLSession {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -219,16 +219,6 @@ public class DelegatingSSLSession implements SSLSession {
     }
 
     @Override // javax.net.ssl.SSLSession
-    public Object getValue(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSession
     public String[] getValueNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -257,17 +247,27 @@ public class DelegatingSSLSession implements SSLSession {
     }
 
     @Override // javax.net.ssl.SSLSession
-    public void putValue(String str, Object obj) {
+    public Object getValue(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, str, obj) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             throw new RuntimeException("Stub!");
         }
+        return invokeL.objValue;
     }
 
     @Override // javax.net.ssl.SSLSession
     public void removeValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // javax.net.ssl.SSLSession
+    public void putValue(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, str, obj) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -48,6 +48,27 @@ public class KeyTrigger extends Key {
     public int mTriggerReceiver;
     public float mTriggerSlack;
 
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void addValues(HashMap<String, SplineSet> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+        }
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void getAttributeNames(HashSet<String> hashSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashSet) == null) {
+        }
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void setValue(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
+        }
+    }
+
     /* loaded from: classes.dex */
     public static class Loader {
         public static /* synthetic */ Interceptable $ic = null;
@@ -196,6 +217,14 @@ public class KeyTrigger extends Key {
         this.mCustomConstraints = new HashMap<>();
     }
 
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void load(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
+            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyTrigger), context);
+        }
+    }
+
     private void setUpRect(RectF rectF, View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65549, this, rectF, view2, z) == null) {
@@ -206,13 +235,6 @@ public class KeyTrigger extends Key {
             if (z) {
                 view2.getMatrix().mapRect(rectF);
             }
-        }
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
-    public void addValues(HashMap<String, SplineSet> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
         }
     }
 
@@ -254,11 +276,11 @@ public class KeyTrigger extends Key {
                     z5 = z4;
                     z3 = false;
                 } else {
-                    if (this.mFireCrossReset) {
-                        z = false;
-                    } else {
+                    if (!this.mFireCrossReset) {
                         this.mFireCrossReset = true;
                         z = true;
+                    } else {
+                        z = false;
                     }
                     if (this.mFireNegativeReset) {
                         this.mFireNegativeReset = false;
@@ -284,10 +306,10 @@ public class KeyTrigger extends Key {
                                 if (this.mFirePositiveReset) {
                                     float f5 = this.mFireThreshold;
                                     float f6 = f - f5;
-                                    if ((this.mFireLastPos - f5) * f6 >= 0.0f || f6 <= 0.0f) {
-                                        z5 = false;
-                                    } else {
+                                    if ((this.mFireLastPos - f5) * f6 < 0.0f && f6 > 0.0f) {
                                         this.mFirePositiveReset = false;
+                                    } else {
+                                        z5 = false;
                                     }
                                     z3 = z2;
                                 } else {
@@ -350,49 +372,29 @@ public class KeyTrigger extends Key {
                     Log.e("KeyTrigger", "Exception in call \"" + this.mPositiveCross + "\"on class " + view2.getClass().getSimpleName() + " " + Debug.getName(view2));
                 }
             }
-            if (!z || this.mCross == null) {
-                return;
-            }
-            if (this.mFireCross == null) {
+            if (z && this.mCross != null) {
+                if (this.mFireCross == null) {
+                    try {
+                        this.mFireCross = view2.getClass().getMethod(this.mCross, new Class[0]);
+                    } catch (NoSuchMethodException unused5) {
+                        Log.e("KeyTrigger", "Could not find method \"" + this.mCross + "\"on class " + view2.getClass().getSimpleName() + " " + Debug.getName(view2));
+                    }
+                }
                 try {
-                    this.mFireCross = view2.getClass().getMethod(this.mCross, new Class[0]);
-                } catch (NoSuchMethodException unused5) {
-                    Log.e("KeyTrigger", "Could not find method \"" + this.mCross + "\"on class " + view2.getClass().getSimpleName() + " " + Debug.getName(view2));
+                    this.mFireCross.invoke(view2, new Object[0]);
+                } catch (Exception unused6) {
+                    Log.e("KeyTrigger", "Exception in call \"" + this.mCross + "\"on class " + view2.getClass().getSimpleName() + " " + Debug.getName(view2));
                 }
             }
-            try {
-                this.mFireCross.invoke(view2, new Object[0]);
-            } catch (Exception unused6) {
-                Log.e("KeyTrigger", "Exception in call \"" + this.mCross + "\"on class " + view2.getClass().getSimpleName() + " " + Debug.getName(view2));
-            }
-        }
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
-    public void getAttributeNames(HashSet<String> hashSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashSet) == null) {
         }
     }
 
     public int getCurveFit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCurveFit : invokeV.intValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
-    public void load(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyTrigger), context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCurveFit;
         }
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
-    public void setValue(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
-        }
+        return invokeV.intValue;
     }
 }

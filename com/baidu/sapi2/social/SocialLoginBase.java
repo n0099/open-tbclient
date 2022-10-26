@@ -34,7 +34,10 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
     public static WXInvokeCallback getWXinvokeCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? t : (WXInvokeCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return t;
+        }
+        return (WXInvokeCallback) invokeV.objValue;
     }
 
     public static void setWXLoginCallback(WXInvokeCallback wXInvokeCallback) {
@@ -50,10 +53,10 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
             } catch (Throwable unused) {
             }
-            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c80);
         }
     }
 }

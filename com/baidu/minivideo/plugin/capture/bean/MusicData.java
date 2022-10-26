@@ -51,6 +51,16 @@ public class MusicData extends MusicBaseBean implements Serializable {
     public String url;
     public String what;
 
+    @Override // com.baidu.minivideo.plugin.capture.bean.MusicBaseBean
+    public int getSpanSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
+    }
+
     public MusicData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,7 +136,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             MusicCategoryBean musicCategoryBean = new MusicCategoryBean();
-            ArrayList<MusicBaseBean> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("musicList");
                 if (jSONArray != null && jSONArray.length() > 0) {
@@ -187,7 +197,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
             MusicCategoryBean musicCategoryBean = new MusicCategoryBean();
-            ArrayList<MusicBaseBean> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("musicList");
                 if (jSONArray != null && jSONArray.length() > 0) {
@@ -213,6 +223,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
 
     public static String toJSON(MusicData musicData) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, musicData)) == null) {
             if (musicData == null) {
@@ -230,7 +241,12 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 jSONObject.put("ext", musicData.ext);
                 jSONObject.put("start_position", musicData.startPosition);
                 jSONObject.put("music_local_transcode_path", musicData.localTransCodePath);
-                jSONObject.put(TiebaStatic.Params.IS_FOLLOW, musicData.isFollow ? 1 : 0);
+                if (musicData.isFollow) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put(TiebaStatic.Params.IS_FOLLOW, i);
                 jSONObject.put("author_uk", musicData.authorUk);
                 jSONObject.put("sound_src", musicData.soundSrc);
                 jSONObject.put("bg_sound", musicData.bgSound);
@@ -278,15 +294,5 @@ public class MusicData extends MusicBaseBean implements Serializable {
             return 0L;
         }
         return invokeV.longValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.MusicBaseBean
-    public int getSpanSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
     }
 }

@@ -22,7 +22,7 @@ public final class CompletableTimer extends Completable {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class TimerDisposable extends AtomicReference<Disposable> implements Disposable, Runnable {
+    public final class TimerDisposable extends AtomicReference implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3167244060586201109L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,6 +46,13 @@ public final class CompletableTimer extends Completable {
             this.actual = completableObserver;
         }
 
+        public void setFuture(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+                DisposableHelper.replace(this, disposable);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -58,7 +65,10 @@ public final class CompletableTimer extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
@@ -66,13 +76,6 @@ public final class CompletableTimer extends Completable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.actual.onComplete();
-            }
-        }
-
-        public void setFuture(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
-                DisposableHelper.replace(this, disposable);
             }
         }
     }

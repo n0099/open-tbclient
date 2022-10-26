@@ -1,6 +1,5 @@
 package com.baidu.swan.gamecenter.appmanager.install;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,21 +7,18 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av3;
-import com.baidu.tieba.fh3;
-import com.baidu.tieba.kv3;
-import com.baidu.tieba.lg3;
-import com.baidu.tieba.mv3;
-import com.baidu.tieba.ug3;
+import com.baidu.tieba.bv3;
+import com.baidu.tieba.gh3;
+import com.baidu.tieba.lv3;
+import com.baidu.tieba.mg3;
+import com.baidu.tieba.nv3;
+import com.baidu.tieba.vg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.share.BaseActivity;
 import org.json.JSONObject;
-@SuppressLint({BaseActivity.TAG})
 /* loaded from: classes3.dex */
 public class InstallAntiBlockingActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -57,9 +53,15 @@ public class InstallAntiBlockingActivity extends Activity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                mv3.a(this.a.a, TextUtils.equals(this.a.c, "authorize") ? "authorizeClick" : "continueClick", "success", null, new kv3(this.a.b));
+                if (TextUtils.equals(this.a.c, "authorize")) {
+                    str = "authorizeClick";
+                } else {
+                    str = "continueClick";
+                }
+                nv3.a(this.a.a, str, "success", null, new lv3(this.a.b));
                 this.a.finish();
             }
         }
@@ -80,49 +82,49 @@ public class InstallAntiBlockingActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = fh3.c0(this);
+            int c0 = gh3.c0(this);
             super.onCreate(bundle);
-            fh3.g(this, c0);
-            av3.t();
+            gh3.g(this, c0);
+            bv3.t();
             setContentView(R.layout.obfuscated_res_0x7f0d00b1);
             Intent intent = getIntent();
             if (intent != null) {
                 this.c = intent.getStringExtra("type");
                 this.a = intent.getStringExtra("packageName");
-                this.b = lg3.d(intent.getStringExtra("ubc_params"));
+                this.b = mg3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f3d);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090f3f);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f31);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090f33);
             if (TextUtils.equals(this.c, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014d));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f090f3e).setVisibility(0);
+                findViewById(R.id.obfuscated_res_0x7f090f32).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-                findViewById(R.id.obfuscated_res_0x7f090f3b).setBackgroundResource(R.color.obfuscated_res_0x7f0603c9);
-                av3.o();
+                findViewById(R.id.obfuscated_res_0x7f090f2f).setBackgroundResource(R.color.obfuscated_res_0x7f0603c9);
+                bv3.o();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014c));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f090f3e).setVisibility(8);
-                if (ug3.m()) {
+                findViewById(R.id.obfuscated_res_0x7f090f32).setVisibility(8);
+                if (vg3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
-                } else if (ug3.n()) {
+                } else if (vg3.n()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-                } else if (ug3.r()) {
+                } else if (vg3.r()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017f);
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
                 }
-                findViewById(R.id.obfuscated_res_0x7f090f3b).setBackgroundResource(R.color.obfuscated_res_0x7f060398);
-                av3.p();
+                findViewById(R.id.obfuscated_res_0x7f090f2f).setBackgroundResource(R.color.obfuscated_res_0x7f060398);
+                bv3.p();
             }
             findViewById.setOnClickListener(new a(this));
-            mv3.a(this.a, this.c, "success", null, new kv3(this.b));
+            nv3.a(this.a, this.c, "success", null, new lv3(this.b));
         }
     }
 }

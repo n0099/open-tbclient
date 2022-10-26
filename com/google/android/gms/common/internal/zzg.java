@@ -1,8 +1,6 @@
 package com.google.android.gms.common.internal;
 
 import android.os.Bundle;
-import androidx.annotation.BinderThread;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,8 +14,7 @@ public final class zzg extends zza {
     public final /* synthetic */ BaseGmsClient zze;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @BinderThread
-    public zzg(BaseGmsClient baseGmsClient, @Nullable int i, Bundle bundle) {
+    public zzg(BaseGmsClient baseGmsClient, int i, Bundle bundle) {
         super(baseGmsClient, i, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

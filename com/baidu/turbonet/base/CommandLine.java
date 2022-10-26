@@ -12,8 +12,22 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public abstract class CommandLine {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<CommandLine> a;
+    public static final AtomicReference a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native void nativeAppendSwitch(String str);
+
+    public static native void nativeAppendSwitchWithValue(String str, String str2);
+
+    public static native void nativeAppendSwitchesAndArguments(String[] strArr);
+
+    public static native String nativeGetSwitchValue(String str);
+
+    public static native boolean nativeHasSwitch(String str);
+
+    public static native void nativeReset();
+
+    public abstract boolean b(String str);
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +43,7 @@ public abstract class CommandLine {
             }
         }
         new ArrayList();
-        a = new AtomicReference<>();
+        a = new AtomicReference();
     }
 
     public CommandLine() {
@@ -49,20 +63,9 @@ public abstract class CommandLine {
     public static CommandLine a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.get() : (CommandLine) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return (CommandLine) a.get();
+        }
+        return (CommandLine) invokeV.objValue;
     }
-
-    public static native void nativeAppendSwitch(String str);
-
-    public static native void nativeAppendSwitchWithValue(String str, String str2);
-
-    public static native void nativeAppendSwitchesAndArguments(String[] strArr);
-
-    public static native String nativeGetSwitchValue(String str);
-
-    public static native boolean nativeHasSwitch(String str);
-
-    public static native void nativeReset();
-
-    public abstract boolean b(String str);
 }

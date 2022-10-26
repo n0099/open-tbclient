@@ -13,8 +13,8 @@ import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
 public final class RxAndroidPlugins {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Function<Callable<Scheduler>, Scheduler> onInitMainThreadHandler;
-    public static volatile Function<Scheduler, Scheduler> onMainThreadHandler;
+    public static volatile Function onInitMainThreadHandler;
+    public static volatile Function onMainThreadHandler;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RxAndroidPlugins() {
@@ -33,20 +33,46 @@ public final class RxAndroidPlugins {
         throw new AssertionError("No instances.");
     }
 
-    public static <T, R> R apply(Function<T, R> function, T t) {
+    public static Function getInitMainThreadSchedulerHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return onInitMainThreadHandler;
+        }
+        return (Function) invokeV.objValue;
+    }
+
+    public static Function getOnMainThreadSchedulerHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return onMainThreadHandler;
+        }
+        return (Function) invokeV.objValue;
+    }
+
+    public static void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            setInitMainThreadSchedulerHandler(null);
+            setMainThreadSchedulerHandler(null);
+        }
+    }
+
+    public static Object apply(Function function, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, function, t)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, function, obj)) == null) {
             try {
-                return function.apply(t);
+                return function.apply(obj);
             } catch (Throwable th) {
                 throw Exceptions.propagate(th);
             }
         }
-        return (R) invokeLL.objValue;
+        return invokeLL.objValue;
     }
 
-    public static Scheduler applyRequireNonNull(Function<Callable<Scheduler>, Scheduler> function, Callable<Scheduler> callable) {
+    public static Scheduler applyRequireNonNull(Function function, Callable callable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, function, callable)) == null) {
@@ -59,14 +85,14 @@ public final class RxAndroidPlugins {
         return (Scheduler) invokeLL.objValue;
     }
 
-    public static Scheduler callRequireNonNull(Callable<Scheduler> callable) {
+    public static Scheduler callRequireNonNull(Callable callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) {
             try {
-                Scheduler call = callable.call();
-                if (call != null) {
-                    return call;
+                Scheduler scheduler = (Scheduler) callable.call();
+                if (scheduler != null) {
+                    return scheduler;
                 }
                 throw new NullPointerException("Scheduler Callable returned null");
             } catch (Throwable th) {
@@ -76,24 +102,12 @@ public final class RxAndroidPlugins {
         return (Scheduler) invokeL.objValue;
     }
 
-    public static Function<Callable<Scheduler>, Scheduler> getInitMainThreadSchedulerHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? onInitMainThreadHandler : (Function) invokeV.objValue;
-    }
-
-    public static Function<Scheduler, Scheduler> getOnMainThreadSchedulerHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? onMainThreadHandler : (Function) invokeV.objValue;
-    }
-
-    public static Scheduler initMainThreadScheduler(Callable<Scheduler> callable) {
+    public static Scheduler initMainThreadScheduler(Callable callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, callable)) == null) {
             if (callable != null) {
-                Function<Callable<Scheduler>, Scheduler> function = onInitMainThreadHandler;
+                Function function = onInitMainThreadHandler;
                 if (function == null) {
                     return callRequireNonNull(callable);
                 }
@@ -109,30 +123,25 @@ public final class RxAndroidPlugins {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, scheduler)) == null) {
             if (scheduler != null) {
-                Function<Scheduler, Scheduler> function = onMainThreadHandler;
-                return function == null ? scheduler : (Scheduler) apply(function, scheduler);
+                Function function = onMainThreadHandler;
+                if (function == null) {
+                    return scheduler;
+                }
+                return (Scheduler) apply(function, scheduler);
             }
             throw new NullPointerException("scheduler == null");
         }
         return (Scheduler) invokeL.objValue;
     }
 
-    public static void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            setInitMainThreadSchedulerHandler(null);
-            setMainThreadSchedulerHandler(null);
-        }
-    }
-
-    public static void setInitMainThreadSchedulerHandler(Function<Callable<Scheduler>, Scheduler> function) {
+    public static void setInitMainThreadSchedulerHandler(Function function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, function) == null) {
             onInitMainThreadHandler = function;
         }
     }
 
-    public static void setMainThreadSchedulerHandler(Function<Scheduler, Scheduler> function) {
+    public static void setMainThreadSchedulerHandler(Function function) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, function) == null) {
             onMainThreadHandler = function;

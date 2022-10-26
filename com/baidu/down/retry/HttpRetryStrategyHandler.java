@@ -1,6 +1,5 @@
 package com.baidu.down.retry;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,12 +31,12 @@ public class HttpRetryStrategyHandler {
     public static final String TAG = "HttpRetryStrategyHandler";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public ConcurrentHashMap<Integer, String> mDownDetail;
+    public ConcurrentHashMap mDownDetail;
     public boolean mHostIsMatch;
     public HttpDNSCacheInfo mHttpDNSCacheInfo;
-    public List<OnFetchDataResultListener> mOnFetchDataRequestListener;
+    public List mOnFetchDataRequestListener;
     public Exception mRetryException;
-    public List<RetryRequestInfo> mRetryRequestInfoList;
+    public List mRetryRequestInfoList;
     public int mRetryType;
     public AbstractTask mtask;
     public boolean requestRetryStrategyData;
@@ -64,117 +63,26 @@ public class HttpRetryStrategyHandler {
         }
         this.mtask = null;
         this.requestRetryStrategyData = false;
-        this.mDownDetail = new ConcurrentHashMap<>();
+        this.mDownDetail = new ConcurrentHashMap();
         this.mRetryType = 0;
         this.mContext = context;
         this.mtask = abstractTask;
         this.mHostIsMatch = URLRegUtils.matchRetryHostReg(abstractTask.mUri);
     }
 
-    public boolean HttpDNSCacheAvailable() {
-        InterceptResult invokeV;
-        HttpDNSCacheInfo httpDNSCacheInfo;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHostIsMatch && (httpDNSCacheInfo = this.mHttpDNSCacheInfo) != null && httpDNSCacheInfo.isRetryStrategyCacheAvailable(this.mContext) && continueRetryStrategy(0) : invokeV.booleanValue;
-    }
-
-    @SuppressLint({"LongLogTag"})
     public void appendDownDetail(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             if (this.mDownDetail.containsKey(Integer.valueOf(i))) {
-                ConcurrentHashMap<Integer, String> concurrentHashMap = this.mDownDetail;
+                ConcurrentHashMap concurrentHashMap = this.mDownDetail;
                 Integer valueOf = Integer.valueOf(i);
-                concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i)) + str);
+                concurrentHashMap.put(valueOf, ((String) this.mDownDetail.get(Integer.valueOf(i))) + str);
                 return;
             }
             this.mDownDetail.put(Integer.valueOf(i), str);
         }
     }
 
-    public boolean continueRetryStrategy(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? !Utils.isEmpty(this.mRetryRequestInfoList) && i < this.mRetryRequestInfoList.size() : invokeI.booleanValue;
-    }
-
-    public ConcurrentHashMap<Integer, String> getDownDetail() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDownDetail : (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public long getDownFlowCostTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
-            if (httpDNSCacheInfo != null) {
-                return httpDNSCacheInfo.mDownFlowCostTime;
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public int getDownFlowMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
-            if (httpDNSCacheInfo != null) {
-                return httpDNSCacheInfo.mMode;
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public HttpDNSCacheInfo getHttpDNSCacheInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mHttpDNSCacheInfo : (HttpDNSCacheInfo) invokeV.objValue;
-    }
-
-    public String getRequestId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
-            return httpDNSCacheInfo != null ? httpDNSCacheInfo.mRequestId : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getRetryExceptionName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Exception exc = this.mRetryException;
-            return exc != null ? exc.getClass().getName() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<RetryRequestInfo> getRetryRequestInfoList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mRetryRequestInfoList : (List) invokeV.objValue;
-    }
-
-    public int getRetryType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mRetryType : invokeV.intValue;
-    }
-
-    public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), exc, Integer.valueOf(i)})) == null) ? TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i)) : invokeCommon.booleanValue;
-    }
-
-    @SuppressLint({"LongLogTag"})
     public void retryStrategy(Exception exc, OnFetchDataResultListener onFetchDataResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, exc, onFetchDataResultListener) == null) {
@@ -252,6 +160,18 @@ public class HttpRetryStrategyHandler {
         }
     }
 
+    public boolean continueRetryStrategy(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (Utils.isEmpty(this.mRetryRequestInfoList) || i >= this.mRetryRequestInfoList.size()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
     public void setHttpDNSCacheInfo(HttpDNSCacheInfo httpDNSCacheInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, httpDNSCacheInfo) == null) {
@@ -271,5 +191,118 @@ public class HttpRetryStrategyHandler {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.mRetryType = i;
         }
+    }
+
+    public boolean HttpDNSCacheAvailable() {
+        InterceptResult invokeV;
+        HttpDNSCacheInfo httpDNSCacheInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.mHostIsMatch || (httpDNSCacheInfo = this.mHttpDNSCacheInfo) == null || !httpDNSCacheInfo.isRetryStrategyCacheAvailable(this.mContext) || !continueRetryStrategy(0)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ConcurrentHashMap getDownDetail() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDownDetail;
+        }
+        return (ConcurrentHashMap) invokeV.objValue;
+    }
+
+    public long getDownFlowCostTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+            if (httpDNSCacheInfo != null) {
+                return httpDNSCacheInfo.mDownFlowCostTime;
+            }
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getDownFlowMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+            if (httpDNSCacheInfo != null) {
+                return httpDNSCacheInfo.mMode;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public HttpDNSCacheInfo getHttpDNSCacheInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mHttpDNSCacheInfo;
+        }
+        return (HttpDNSCacheInfo) invokeV.objValue;
+    }
+
+    public String getRequestId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            HttpDNSCacheInfo httpDNSCacheInfo = this.mHttpDNSCacheInfo;
+            if (httpDNSCacheInfo != null) {
+                return httpDNSCacheInfo.mRequestId;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRetryExceptionName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Exception exc = this.mRetryException;
+            if (exc != null) {
+                return exc.getClass().getName();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List getRetryRequestInfoList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mRetryRequestInfoList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getRetryType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mRetryType;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), exc, Integer.valueOf(i)})) == null) {
+            if (TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

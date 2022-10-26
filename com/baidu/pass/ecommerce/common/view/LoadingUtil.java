@@ -37,10 +37,9 @@ public class LoadingUtil {
     public static void cancel() {
         Toast toast;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (toast = mToast) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (toast = mToast) != null) {
+            toast.cancel();
         }
-        toast.cancel();
     }
 
     public static View createView(Context context, String str) {
@@ -64,7 +63,7 @@ public class LoadingUtil {
     public static void show(String str) {
         SapiConfiguration confignation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
             return;
         }
         Toast toast = mToast;

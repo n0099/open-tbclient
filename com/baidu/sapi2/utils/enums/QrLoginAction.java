@@ -62,18 +62,27 @@ public final class QrLoginAction {
     public static QrLoginAction valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (QrLoginAction) Enum.valueOf(QrLoginAction.class, str) : (QrLoginAction) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (QrLoginAction) Enum.valueOf(QrLoginAction.class, str);
+        }
+        return (QrLoginAction) invokeL.objValue;
     }
 
     public static QrLoginAction[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (QrLoginAction[]) $VALUES.clone() : (QrLoginAction[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (QrLoginAction[]) $VALUES.clone();
+        }
+        return (QrLoginAction[]) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 }

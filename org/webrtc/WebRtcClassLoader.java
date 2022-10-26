@@ -24,10 +24,12 @@ public class WebRtcClassLoader {
         }
     }
 
-    @CalledByNative
     public static Object getClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? WebRtcClassLoader.class.getClassLoader() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return WebRtcClassLoader.class.getClassLoader();
+        }
+        return invokeV.objValue;
     }
 }

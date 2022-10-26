@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.view;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -10,10 +9,9 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ListView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,8 +44,8 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        f = vj1.a;
-        g = ch3.h(11.0f);
+        f = wj1.a;
+        g = dh3.h(11.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,56 +71,6 @@ public class SwanAppRoundCornerListView extends ListView {
         this.c = new RectF();
         float f2 = g;
         this.d = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
-    }
-
-    @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            super.dispatchDraw(canvas);
-            canvas.save();
-            this.b.setColor(-1);
-            this.b.setXfermode(this.e);
-            canvas.drawPath(this.a, this.b);
-            this.b.setXfermode(null);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            this.c.set(0.0f, 0.0f, i, i2 + 1);
-            this.a.reset();
-            this.a.addRoundRect(this.c, this.d, Path.Direction.CW);
-            this.e = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
-        }
-    }
-
-    public void setListViewRadius(float f2, float f3, float f4, float f5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            setListViewRadius(new float[]{f2, f2, f3, f3, f4, f4, f5, f5});
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void setListViewRadius(@NonNull float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
-            if (fArr.length < 8) {
-                if (f) {
-                    throw new IllegalStateException("radii[] needs 8 values");
-                }
-                return;
-            }
-            this.d = new float[8];
-            for (int i = 0; i < 8; i++) {
-                this.d[i] = fArr[i];
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -175,5 +123,54 @@ public class SwanAppRoundCornerListView extends ListView {
         this.c = new RectF();
         float f2 = g;
         this.d = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            super.dispatchDraw(canvas);
+            canvas.save();
+            this.b.setColor(-1);
+            this.b.setXfermode(this.e);
+            canvas.drawPath(this.a, this.b);
+            this.b.setXfermode(null);
+            canvas.restore();
+        }
+    }
+
+    public void setListViewRadius(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
+            if (fArr.length < 8) {
+                if (!f) {
+                    return;
+                }
+                throw new IllegalStateException("radii[] needs 8 values");
+            }
+            this.d = new float[8];
+            for (int i = 0; i < 8; i++) {
+                this.d[i] = fArr[i];
+            }
+        }
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.c.set(0.0f, 0.0f, i, i2 + 1);
+            this.a.reset();
+            this.a.addRoundRect(this.c, this.d, Path.Direction.CW);
+            this.e = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+        }
+    }
+
+    public void setListViewRadius(float f2, float f3, float f4, float f5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            setListViewRadius(new float[]{f2, f2, f3, f3, f4, f4, f5, f5});
+        }
     }
 }

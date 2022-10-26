@@ -19,6 +19,44 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String a(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return "";
+            }
+            return obj.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            if (obj == null) {
+                return -1;
+            }
+            return j.a(obj.toString());
+        }
+        return invokeL.intValue;
+    }
+
+    public static String a(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
+            if (th == null) {
+                return "";
+            }
+            StringWriter stringWriter = new StringWriter();
+            th.printStackTrace(new PrintWriter(stringWriter));
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, str, jSONObject, jSONObject2, jSONObject3) == null) {
@@ -43,7 +81,11 @@ public final class c {
                 jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.a.a(Zeus.getAppApplication()).h)));
                 jSONObject.putOpt(ContentProviderManager.PLUGIN_PROCESS_NAME, a(str2));
                 Plugin plugin = Zeus.getPlugin(jSONObject.optString("plugin_package_name", ""), false);
-                jSONObject.putOpt("plugin_api_version", a(Integer.valueOf(plugin != null ? plugin.getApiVersionCode() : -1)));
+                int i = -1;
+                if (plugin != null) {
+                    i = plugin.getApiVersionCode();
+                }
+                jSONObject.putOpt("plugin_api_version", a(Integer.valueOf(i)));
                 jSONObject.putOpt("zeus_sdk_version", a("0.0.1-beta.4200.55-systemconfig-pangle"));
                 ZeusLogger.v(ZeusLogger.TAG_REPORTER, "eventName: " + str + "\ncategoryData:" + jSONObject.toString(1) + "\nmetricData:" + jSONObject2.toString(1) + "\nlogExtrData:" + jSONObject3.toString(1));
                 IZeusReporter reporter = GlobalParam.getInstance().getReporter();
@@ -72,37 +114,5 @@ public final class c {
                 ZeusLogger.e(ZeusLogger.TAG_REPORTER, e.getMessage(), e);
             }
         }
-    }
-
-    public static int b(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj == null) {
-                return -1;
-            }
-            return j.a(obj.toString());
-        }
-        return invokeL.intValue;
-    }
-
-    public static String a(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) ? obj == null ? "" : obj.toString() : (String) invokeL.objValue;
-    }
-
-    public static String a(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            if (th == null) {
-                return "";
-            }
-            StringWriter stringWriter = new StringWriter();
-            th.printStackTrace(new PrintWriter(stringWriter));
-            return stringWriter.toString();
-        }
-        return (String) invokeL.objValue;
     }
 }

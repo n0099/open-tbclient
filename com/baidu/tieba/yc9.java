@@ -1,54 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.minivideo.plugin.capture.report.ReportConfig;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.AbstractMap;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public class yc9 {
+public final class yc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LinkedHashMap a;
 
-    public static void a(String str, cd9 cd9Var, bd9 bd9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, cd9Var, bd9Var) == null) {
-            if (qg9.a) {
-                qg9.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + bd9Var.toString());
-            }
-            wc9 g = tc9.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (bd9Var != null) {
-                    arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", bd9Var.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", bd9Var.b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", bd9Var.f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", bd9Var.c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", bd9Var.d + ""));
+    /* loaded from: classes6.dex */
+    public final class a extends cd9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
+
+        public a(yc9 yc9Var, com.baidu.ubs.analytics.a.l lVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yc9Var, lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                g.a("perf_record_arperf", str, cd9Var.a, cd9Var.b, cd9Var.c, cd9Var.d, cd9Var.e, null, arrayList);
+            }
+            this.a = lVar;
+        }
+
+        @Override // com.baidu.tieba.cd9
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new ic9().c(this.a);
             }
         }
     }
 
-    public static void b(String str, String str2) {
+    public yc9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (qg9.a) {
-                qg9.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            wc9 g = tc9.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (str2 != null) {
-                    arrayList = new ArrayList(3);
-                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", og9.a(tc9.c().getContext())));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(og9.b(tc9.c().getContext()))));
+        }
+        this.a = new LinkedHashMap();
+    }
+
+    public final void a(String str) {
+        qc9 qc9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
+            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+            synchronized (this.a) {
+                Long l = (Long) this.a.remove(str);
+                if (l == null) {
+                    return;
                 }
-                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+                try {
+                    lVar.setStartTime(String.valueOf(l));
+                    lVar.t(str);
+                    lVar.z(String.valueOf(System.currentTimeMillis()));
+                    qc9Var = qc9.a.a;
+                    lVar.setPath(qc9Var.b());
+                    lVar.x(zc9.e().I());
+                } catch (Exception e) {
+                    id9.a(e.toString());
+                    ad9.b(e.toString());
+                }
+                bd9.c(new a(this, lVar));
+            }
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+            synchronized (this.a) {
+                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                String.valueOf(System.currentTimeMillis());
             }
         }
     }

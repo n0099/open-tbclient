@@ -7,10 +7,6 @@ import android.text.TextDirectionHeuristic;
 import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class StaticLayoutBuilderCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,14 +22,11 @@ public final class StaticLayoutBuilderCompat {
     public static final String TEXT_DIR_CLASS = "android.text.TextDirectionHeuristic";
     public static final String TEXT_DIR_CLASS_LTR = "LTR";
     public static final String TEXT_DIR_CLASS_RTL = "RTL";
-    @Nullable
-    public static Constructor<StaticLayout> constructor;
+    public static Constructor constructor;
     public static boolean initialized;
-    @Nullable
     public static Object textDirection;
     public transient /* synthetic */ FieldHolder $fh;
     public Layout.Alignment alignment;
-    @Nullable
     public TextUtils.TruncateAt ellipsize;
     public int end;
     public boolean includePad;
@@ -46,7 +38,7 @@ public final class StaticLayoutBuilderCompat {
     public final int width;
 
     /* loaded from: classes7.dex */
-    public static class StaticLayoutBuilderCompatException extends Exception {
+    public class StaticLayoutBuilderCompatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,25 +91,41 @@ public final class StaticLayoutBuilderCompat {
     }
 
     private void createConstructorWithReflection() throws StaticLayoutBuilderCompatException {
+        boolean z;
+        String str;
         Class<?> cls;
+        TextDirectionHeuristic textDirectionHeuristic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || initialized) {
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || initialized) {
             return;
         }
         try {
-            boolean z = this.isRtl && Build.VERSION.SDK_INT >= 23;
+            if (this.isRtl && Build.VERSION.SDK_INT >= 23) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (Build.VERSION.SDK_INT >= 18) {
                 cls = TextDirectionHeuristic.class;
-                textDirection = z ? TextDirectionHeuristics.RTL : TextDirectionHeuristics.LTR;
+                if (z) {
+                    textDirectionHeuristic = TextDirectionHeuristics.RTL;
+                } else {
+                    textDirectionHeuristic = TextDirectionHeuristics.LTR;
+                }
+                textDirection = textDirectionHeuristic;
             } else {
                 ClassLoader classLoader = StaticLayoutBuilderCompat.class.getClassLoader();
-                String str = this.isRtl ? TEXT_DIR_CLASS_RTL : TEXT_DIR_CLASS_LTR;
+                if (this.isRtl) {
+                    str = TEXT_DIR_CLASS_RTL;
+                } else {
+                    str = TEXT_DIR_CLASS_LTR;
+                }
                 Class<?> loadClass = classLoader.loadClass(TEXT_DIR_CLASS);
                 Class<?> loadClass2 = classLoader.loadClass(TEXT_DIRS_CLASS);
                 textDirection = loadClass2.getField(str).get(loadClass2);
                 cls = loadClass;
             }
-            Constructor<StaticLayout> declaredConstructor = StaticLayout.class.getDeclaredConstructor(CharSequence.class, Integer.TYPE, Integer.TYPE, TextPaint.class, Integer.TYPE, Layout.Alignment.class, cls, Float.TYPE, Float.TYPE, Boolean.TYPE, TextUtils.TruncateAt.class, Integer.TYPE, Integer.TYPE);
+            Constructor declaredConstructor = StaticLayout.class.getDeclaredConstructor(CharSequence.class, Integer.TYPE, Integer.TYPE, TextPaint.class, Integer.TYPE, Layout.Alignment.class, cls, Float.TYPE, Float.TYPE, Boolean.TYPE, TextUtils.TruncateAt.class, Integer.TYPE, Integer.TYPE);
             constructor = declaredConstructor;
             declaredConstructor.setAccessible(true);
             initialized = true;
@@ -126,15 +134,18 @@ public final class StaticLayoutBuilderCompat {
         }
     }
 
-    @NonNull
-    public static StaticLayoutBuilderCompat obtain(@NonNull CharSequence charSequence, @NonNull TextPaint textPaint, @IntRange(from = 0) int i) {
+    public static StaticLayoutBuilderCompat obtain(CharSequence charSequence, TextPaint textPaint, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, charSequence, textPaint, i)) == null) ? new StaticLayoutBuilderCompat(charSequence, textPaint, i) : (StaticLayoutBuilderCompat) invokeLLI.objValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, charSequence, textPaint, i)) == null) {
+            return new StaticLayoutBuilderCompat(charSequence, textPaint, i);
+        }
+        return (StaticLayoutBuilderCompat) invokeLLI.objValue;
     }
 
     public StaticLayout build() throws StaticLayoutBuilderCompatException {
         InterceptResult invokeV;
+        TextDirectionHeuristic textDirectionHeuristic;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.source == null) {
@@ -153,7 +164,12 @@ public final class StaticLayoutBuilderCompat {
                 StaticLayout.Builder obtain = StaticLayout.Builder.obtain(charSequence, this.start, this.end, this.paint, max);
                 obtain.setAlignment(this.alignment);
                 obtain.setIncludePad(this.includePad);
-                obtain.setTextDirection(this.isRtl ? TextDirectionHeuristics.RTL : TextDirectionHeuristics.LTR);
+                if (this.isRtl) {
+                    textDirectionHeuristic = TextDirectionHeuristics.RTL;
+                } else {
+                    textDirectionHeuristic = TextDirectionHeuristics.LTR;
+                }
+                obtain.setTextDirection(textDirectionHeuristic);
                 TextUtils.TruncateAt truncateAt = this.ellipsize;
                 if (truncateAt != null) {
                     obtain.setEllipsize(truncateAt);
@@ -171,8 +187,7 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayout) invokeV.objValue;
     }
 
-    @NonNull
-    public StaticLayoutBuilderCompat setAlignment(@NonNull Layout.Alignment alignment) {
+    public StaticLayoutBuilderCompat setAlignment(Layout.Alignment alignment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alignment)) == null) {
@@ -182,8 +197,7 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeL.objValue;
     }
 
-    @NonNull
-    public StaticLayoutBuilderCompat setEllipsize(@Nullable TextUtils.TruncateAt truncateAt) {
+    public StaticLayoutBuilderCompat setEllipsize(TextUtils.TruncateAt truncateAt) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, truncateAt)) == null) {
@@ -193,8 +207,7 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeL.objValue;
     }
 
-    @NonNull
-    public StaticLayoutBuilderCompat setEnd(@IntRange(from = 0) int i) {
+    public StaticLayoutBuilderCompat setEnd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -204,7 +217,6 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeI.objValue;
     }
 
-    @NonNull
     public StaticLayoutBuilderCompat setIncludePad(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -225,8 +237,7 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeZ.objValue;
     }
 
-    @NonNull
-    public StaticLayoutBuilderCompat setMaxLines(@IntRange(from = 0) int i) {
+    public StaticLayoutBuilderCompat setMaxLines(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -236,8 +247,7 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeI.objValue;
     }
 
-    @NonNull
-    public StaticLayoutBuilderCompat setStart(@IntRange(from = 0) int i) {
+    public StaticLayoutBuilderCompat setStart(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {

@@ -2,7 +2,6 @@ package com.baidu.searchbox.crius.data;
 
 import android.graphics.Typeface;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.parser.GradientAttrs;
 import com.baidu.searchbox.crius.parser.PraiseAttrs;
@@ -71,7 +70,7 @@ public class RenderData {
     public int width;
 
     /* loaded from: classes2.dex */
-    public static class BackgroundData {
+    public class BackgroundData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String backgroundColor;
@@ -97,7 +96,7 @@ public class RenderData {
             }
         }
 
-        public static BackgroundData initFrom(@Nullable CriusData criusData) {
+        public static BackgroundData initFrom(CriusData criusData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, criusData)) == null) {
@@ -120,7 +119,7 @@ public class RenderData {
     }
 
     /* loaded from: classes2.dex */
-    public static class BackgroundImgData {
+    public class BackgroundImgData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String backgroundImage;
@@ -146,7 +145,7 @@ public class RenderData {
             }
         }
 
-        public static BackgroundImgData initFrom(@Nullable CriusData criusData) {
+        public static BackgroundImgData initFrom(CriusData criusData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, criusData)) == null) {
@@ -169,7 +168,7 @@ public class RenderData {
     }
 
     /* loaded from: classes2.dex */
-    public static class BorderData {
+    public class BorderData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String borderColor;
@@ -198,7 +197,7 @@ public class RenderData {
             }
         }
 
-        public static BorderData initFrom(@Nullable CriusData criusData) {
+        public static BorderData initFrom(CriusData criusData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, criusData)) == null) {
@@ -224,7 +223,7 @@ public class RenderData {
     }
 
     /* loaded from: classes2.dex */
-    public static class Opacities {
+    public class Opacities {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double opacity;
@@ -259,7 +258,7 @@ public class RenderData {
             this.opacityNightVisitedActive = -10000.0d;
         }
 
-        public static Opacities initFrom(@Nullable CriusData criusData) {
+        public static Opacities initFrom(CriusData criusData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, criusData)) == null) {
@@ -282,7 +281,7 @@ public class RenderData {
     }
 
     /* loaded from: classes2.dex */
-    public static class TextColor {
+    public class TextColor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String color;
@@ -308,7 +307,7 @@ public class RenderData {
             }
         }
 
-        public static TextColor initFrom(@Nullable CriusData criusData) {
+        public static TextColor initFrom(CriusData criusData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, criusData)) == null) {
@@ -348,7 +347,7 @@ public class RenderData {
         this.imageTemplateFlag = 1;
     }
 
-    public static RenderData initFrom(@Nullable CriusData criusData, boolean z, boolean z2) {
+    public static RenderData initFrom(CriusData criusData, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         CriusData criusData2;
         CriusData dataById;

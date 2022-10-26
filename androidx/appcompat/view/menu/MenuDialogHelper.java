@@ -6,7 +6,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.menu.MenuPresenter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -43,13 +42,41 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
         this.mMenu = menuBuilder;
     }
 
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dialogInterface) == null) {
+            this.mPresenter.onCloseMenu(this.mMenu, true);
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
+    public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, menuBuilder)) == null) {
+            MenuPresenter.Callback callback = this.mPresenterCallback;
+            if (callback != null) {
+                return callback.onOpenSubMenu(menuBuilder);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setPresenterCallback(MenuPresenter.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
+            this.mPresenterCallback = callback;
+        }
+    }
+
     public void dismiss() {
         AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (alertDialog = this.mDialog) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.mDialog) != null) {
+            alertDialog.dismiss();
         }
-        alertDialog.dismiss();
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -61,7 +88,7 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-    public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
+    public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, menuBuilder, z) == null) {
             if (z || menuBuilder == this.mMenu) {
@@ -71,14 +98,6 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
             if (callback != null) {
                 callback.onCloseMenu(menuBuilder, z);
             }
-        }
-    }
-
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dialogInterface) == null) {
-            this.mPresenter.onCloseMenu(this.mMenu, true);
         }
     }
 
@@ -108,27 +127,6 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
             return this.mMenu.performShortcut(i, keyEvent, 0);
         }
         return invokeLIL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-    public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, menuBuilder)) == null) {
-            MenuPresenter.Callback callback = this.mPresenterCallback;
-            if (callback != null) {
-                return callback.onOpenSubMenu(menuBuilder);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setPresenterCallback(MenuPresenter.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
-            this.mPresenterCallback = callback;
-        }
     }
 
     public void show(IBinder iBinder) {

@@ -3,9 +3,9 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.xb5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,10 +15,30 @@ import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabRequestData extends OrmObject implements sb5 {
+public class FrsItemTabRequestData extends OrmObject implements xb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
+
+    @Override // com.baidu.tieba.wb5
+    public HashMap v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wb5
+    public HashMap x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
 
     public FrsItemTabRequestData() {
         Interceptable interceptable = $ic;
@@ -34,41 +54,21 @@ public class FrsItemTabRequestData extends OrmObject implements sb5 {
         }
     }
 
-    @Override // com.baidu.tieba.ub5
+    @Override // com.baidu.tieba.zb5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.item_id = Integer.valueOf(this.itemId);
-            builder.scr_h = Integer.valueOf(ej.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(ej.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) ej.h(TbadkCoreApplication.getInst()));
-            sh5.c(builder, true, false, true);
+            builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) fj.h(TbadkCoreApplication.getInst()));
+            yh5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
         }
         return invokeZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.rb5
-    public HashMap<String, Object> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rb5
-    public HashMap<String, String> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
     }
 }

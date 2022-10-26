@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch3;
+import com.baidu.tieba.dh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -92,99 +92,6 @@ public class LoadingAnimView extends View {
         b();
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Paint paint = new Paint();
-            this.g = paint;
-            paint.setAntiAlias(true);
-            this.e = new Camera();
-            this.f = new Matrix();
-            d();
-        }
-    }
-
-    public final void c() {
-        ValueAnimator valueAnimator;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (valueAnimator = this.b) == null) {
-            return;
-        }
-        valueAnimator.setRepeatCount(0);
-        this.b.removeAllUpdateListeners();
-        this.b.removeAllListeners();
-        this.b.end();
-        this.b.cancel();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.b != null) {
-                c();
-            }
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.b = ofFloat;
-            ofFloat.setDuration(750L);
-            this.b.setRepeatCount(20);
-            this.b.setRepeatMode(1);
-            this.b.setInterpolator(new LinearInterpolator());
-            this.b.addUpdateListener(new a(this));
-            if (this.b.isRunning()) {
-                return;
-            }
-            this.b.start();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c();
-            clearAnimation();
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (this.c == null || this.d == null) {
-                return;
-            }
-            int measuredWidth = getMeasuredWidth();
-            int measuredHeight = getMeasuredHeight();
-            int f = ch3.f(getContext(), 6.0f);
-            this.c.eraseColor(0);
-            this.g.setStyle(Paint.Style.FILL);
-            this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e7));
-            this.g.setAlpha((int) ((((1.0d - (Math.abs(this.a - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));
-            float f2 = measuredWidth / 2.0f;
-            float f3 = measuredHeight / 2.0f;
-            this.d.drawCircle(f2, f3, f, this.g);
-            this.f.reset();
-            this.e.save();
-            this.e.setLocation(0.0f, 0.0f, -100.0f);
-            this.e.rotateY(this.a * 360.0f);
-            this.e.getMatrix(this.f);
-            this.e.restore();
-            this.f.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
-            this.f.postTranslate(f2, f3);
-            canvas.drawBitmap(this.c, this.f, null);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            this.c = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-            this.d = new Canvas(this.c);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -229,5 +136,95 @@ public class LoadingAnimView extends View {
         }
         this.a = 0.0f;
         b();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Paint paint = new Paint();
+            this.g = paint;
+            paint.setAntiAlias(true);
+            this.e = new Camera();
+            this.f = new Matrix();
+            d();
+        }
+    }
+
+    public final void c() {
+        ValueAnimator valueAnimator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (valueAnimator = this.b) != null) {
+            valueAnimator.setRepeatCount(0);
+            this.b.removeAllUpdateListeners();
+            this.b.removeAllListeners();
+            this.b.end();
+            this.b.cancel();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
+            clearAnimation();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.b != null) {
+                c();
+            }
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.b = ofFloat;
+            ofFloat.setDuration(750L);
+            this.b.setRepeatCount(20);
+            this.b.setRepeatMode(1);
+            this.b.setInterpolator(new LinearInterpolator());
+            this.b.addUpdateListener(new a(this));
+            if (!this.b.isRunning()) {
+                this.b.start();
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.c != null && this.d != null) {
+                int measuredWidth = getMeasuredWidth();
+                int measuredHeight = getMeasuredHeight();
+                int f = dh3.f(getContext(), 6.0f);
+                this.c.eraseColor(0);
+                this.g.setStyle(Paint.Style.FILL);
+                this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e7));
+                this.g.setAlpha((int) ((((1.0d - (Math.abs(this.a - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));
+                float f2 = measuredWidth / 2.0f;
+                float f3 = measuredHeight / 2.0f;
+                this.d.drawCircle(f2, f3, f, this.g);
+                this.f.reset();
+                this.e.save();
+                this.e.setLocation(0.0f, 0.0f, -100.0f);
+                this.e.rotateY(this.a * 360.0f);
+                this.e.getMatrix(this.f);
+                this.e.restore();
+                this.f.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
+                this.f.postTranslate(f2, f3);
+                canvas.drawBitmap(this.c, this.f, null);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.c = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+            this.d = new Canvas(this.c);
+        }
     }
 }

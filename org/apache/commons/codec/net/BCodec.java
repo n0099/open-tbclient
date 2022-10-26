@@ -33,45 +33,6 @@ public class BCodec extends RFC1522Codec implements StringEncoder, StringDecoder
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.StringDecoder
-    public String decode(String str) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.net.RFC1522Codec
-    public byte[] doDecoding(byte[] bArr) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.net.RFC1522Codec
-    public byte[] doEncoding(byte[] bArr) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public String encode(String str, String str2) throws EncoderException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public String getDefaultCharset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -119,14 +80,24 @@ public class BCodec extends RFC1522Codec implements StringEncoder, StringDecoder
         return invokeL.objValue;
     }
 
-    @Override // org.apache.commons.codec.StringEncoder
-    public String encode(String str) throws EncoderException {
+    @Override // org.apache.commons.codec.net.RFC1522Codec
+    public byte[] doDecoding(byte[] bArr) throws DecoderException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.codec.net.RFC1522Codec
+    public byte[] doEncoding(byte[] bArr) throws EncoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
     @Override // org.apache.commons.codec.Encoder
@@ -137,5 +108,34 @@ public class BCodec extends RFC1522Codec implements StringEncoder, StringDecoder
             throw new RuntimeException("Stub!");
         }
         return invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.codec.StringDecoder
+    public String decode(String str) throws DecoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.codec.StringEncoder
+    public String encode(String str) throws EncoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String encode(String str, String str2) throws EncoderException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeLL.objValue;
     }
 }

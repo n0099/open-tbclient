@@ -29,7 +29,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double a;
@@ -283,9 +283,9 @@ public class b {
         return (Point) invokeL.objValue;
     }
 
-    public static List<LatLng> c(String str) {
+    public static List c(String str) {
         InterceptResult invokeL;
-        ArrayList<ArrayList<Point>> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             com.baidu.mapapi.model.inner.a a2 = com.baidu.mapsdkplatform.comjni.tools.a.a(str);
@@ -294,9 +294,9 @@ public class b {
                 return null;
             }
             if (arrayList.size() > 0) {
-                ArrayList<Point> arrayList3 = arrayList.get(0);
+                ArrayList arrayList3 = (ArrayList) arrayList.get(0);
                 for (int i = 0; i < arrayList3.size(); i++) {
-                    Point point = arrayList3.get(i);
+                    Point point = (Point) arrayList3.get(i);
                     arrayList2.add(SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(a(new GeoPoint(point.y / 100, point.x / 100))) : a(new GeoPoint(point.y / 100, point.x / 100)));
                 }
             }
@@ -305,9 +305,9 @@ public class b {
         return (List) invokeL.objValue;
     }
 
-    public static List<List<LatLng>> d(String str) {
+    public static List d(String str) {
         InterceptResult invokeL;
-        ArrayList<ArrayList<Point>> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             com.baidu.mapapi.model.inner.a a2 = com.baidu.mapsdkplatform.comjni.tools.a.a(str);
@@ -315,13 +315,13 @@ public class b {
                 return null;
             }
             ArrayList arrayList2 = new ArrayList();
-            Iterator<ArrayList<Point>> it = arrayList.iterator();
+            Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 ArrayList arrayList3 = new ArrayList();
-                Iterator<Point> it2 = it.next().iterator();
+                Iterator it2 = ((ArrayList) it.next()).iterator();
                 while (it2.hasNext()) {
-                    Point next = it2.next();
-                    arrayList3.add(SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(a(new GeoPoint(next.y / 100, next.x / 100))) : a(new GeoPoint(next.y / 100, next.x / 100)));
+                    Point point = (Point) it2.next();
+                    arrayList3.add(SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(a(new GeoPoint(point.y / 100, point.x / 100))) : a(new GeoPoint(point.y / 100, point.x / 100)));
                 }
                 arrayList2.add(arrayList3);
             }

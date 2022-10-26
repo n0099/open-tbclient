@@ -13,6 +13,16 @@ public abstract class Id3Frame implements Metadata.Entry {
     public transient /* synthetic */ FieldHolder $fh;
     public final String id;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     public Id3Frame(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,15 +39,5 @@ public abstract class Id3Frame implements Metadata.Entry {
             }
         }
         this.id = (String) Assertions.checkNotNull(str);
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 }

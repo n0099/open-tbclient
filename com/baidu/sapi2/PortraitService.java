@@ -38,6 +38,12 @@ public class PortraitService extends AbstractService implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "/v2/sapi/center/setportrait" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes2.dex */
     public class a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
@@ -101,26 +107,33 @@ public class PortraitService extends AbstractService implements NoProguard {
                 this.b.setResultCode(this.c.getErrorCode(str));
                 this.b.setResultMsg(this.c.getErrorMsg(str));
                 int resultCode = this.b.getResultCode();
-                if (resultCode == 0) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(str);
-                        this.b.portraitSign = jSONObject.optString("portrait_tag");
-                        String optString = jSONObject.optString("portrait");
-                        if (!TextUtils.isEmpty(optString)) {
-                            this.b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.b.portraitSign);
+                if (resultCode != 0) {
+                    if (resultCode != 160103) {
+                        if (resultCode != 991613) {
+                            if (resultCode != 991616) {
+                                this.a.onFailure(this.b);
+                                return;
+                            } else {
+                                this.a.onSuccess(this.b);
+                                return;
+                            }
                         }
-                    } catch (JSONException unused) {
+                        this.a.onFailure(this.b);
+                        return;
                     }
-                    this.a.onSuccess(this.b);
-                } else if (resultCode == 160103) {
                     this.a.onBdussExpired(this.b);
-                } else if (resultCode == 991613) {
-                    this.a.onFailure(this.b);
-                } else if (resultCode != 991616) {
-                    this.a.onFailure(this.b);
-                } else {
-                    this.a.onSuccess(this.b);
+                    return;
                 }
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    this.b.portraitSign = jSONObject.optString("portrait_tag");
+                    String optString = jSONObject.optString("portrait");
+                    if (!TextUtils.isEmpty(optString)) {
+                        this.b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.b.portraitSign);
+                    }
+                } catch (JSONException unused) {
+                }
+                this.a.onSuccess(this.b);
             }
         }
     }
@@ -417,12 +430,6 @@ public class PortraitService extends AbstractService implements NoProguard {
         return (String) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "/v2/sapi/center/setportrait" : (String) invokeV.objValue;
-    }
-
     public void getHistoryPortraits(GetHistoryPortraitsCallback getHistoryPortraitsCallback, GetHistoryPortraitsDTO getHistoryPortraitsDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, getHistoryPortraitsCallback, getHistoryPortraitsDTO) == null) {
@@ -439,21 +446,6 @@ public class PortraitService extends AbstractService implements NoProguard {
                 return;
             }
             throw new IllegalArgumentException("abnormal request history number");
-        }
-    }
-
-    public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str, PortraitCategory portraitCategory) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, getPopularPortraitsCallback, str, portraitCategory) == null) {
-            SapiUtils.notNull(getPopularPortraitsCallback, GetPopularPortraitsCallback.class.getSimpleName() + " can't be null");
-            SapiUtils.notEmpty(str, "bduss can't be empty");
-            GetPopularPortraitsInfoResult getPopularPortraitsInfoResult = new GetPopularPortraitsInfoResult();
-            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put("bduss", str);
-            if (portraitCategory != null) {
-                httpHashMapWrap.put("category", portraitCategory.getValue());
-            }
-            new HttpClientWrap().post(b(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new d(this, Looper.getMainLooper(), getPopularPortraitsCallback, getPopularPortraitsInfoResult));
         }
     }
 
@@ -476,6 +468,7 @@ public class PortraitService extends AbstractService implements NoProguard {
     }
 
     public void setPortrait(SetPortraitDTO setPortraitDTO, SetPortraitCallback setPortraitCallback) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, setPortraitDTO, setPortraitCallback) == null) {
             SapiUtils.notNull(setPortraitDTO, "SetPortraitDTO can't be null");
@@ -487,11 +480,31 @@ public class PortraitService extends AbstractService implements NoProguard {
                 MultipartHashMapWrap multipartHashMapWrap = new MultipartHashMapWrap();
                 multipartHashMapWrap.put("bduss", setPortraitDTO.bduss);
                 multipartHashMapWrap.put("portrait_type", setPortraitDTO.portraitType + "");
-                multipartHashMapWrap.put("file", new ByteArrayInputStream(setPortraitDTO.file), "portrait.jpg", TextUtils.isEmpty(setPortraitDTO.contentType) ? "image/jpeg" : setPortraitDTO.contentType);
+                if (TextUtils.isEmpty(setPortraitDTO.contentType)) {
+                    str = "image/jpeg";
+                } else {
+                    str = setPortraitDTO.contentType;
+                }
+                multipartHashMapWrap.put("file", new ByteArrayInputStream(setPortraitDTO.file), "portrait.jpg", str);
                 new HttpClientWrap().post(d(), ReqPriority.HIGH, multipartHashMapWrap, null, getUaInfo(), new a(this, Looper.getMainLooper(), setPortraitCallback, setPortraitResult));
                 return;
             }
             throw new IllegalArgumentException("file can't be empty");
+        }
+    }
+
+    public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str, PortraitCategory portraitCategory) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, getPopularPortraitsCallback, str, portraitCategory) == null) {
+            SapiUtils.notNull(getPopularPortraitsCallback, GetPopularPortraitsCallback.class.getSimpleName() + " can't be null");
+            SapiUtils.notEmpty(str, "bduss can't be empty");
+            GetPopularPortraitsInfoResult getPopularPortraitsInfoResult = new GetPopularPortraitsInfoResult();
+            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+            httpHashMapWrap.put("bduss", str);
+            if (portraitCategory != null) {
+                httpHashMapWrap.put("category", portraitCategory.getValue());
+            }
+            new HttpClientWrap().post(b(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new d(this, Looper.getMainLooper(), getPopularPortraitsCallback, getPopularPortraitsInfoResult));
         }
     }
 }

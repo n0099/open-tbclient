@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 /* loaded from: classes8.dex */
-public final class MaybeUnsafeCreate<T> extends AbstractMaybeWithUpstream<T, T> {
+public final class MaybeUnsafeCreate extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeUnsafeCreate(MaybeSource<T> maybeSource) {
+    public MaybeUnsafeCreate(MaybeSource maybeSource) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,7 +32,7 @@ public final class MaybeUnsafeCreate<T> extends AbstractMaybeWithUpstream<T, T> 
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(maybeObserver);

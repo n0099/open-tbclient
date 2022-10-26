@@ -35,18 +35,38 @@ public class CommonUtils {
         }
     }
 
+    public static String getCpuAbi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Build.CPU_ABI;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static void closeSafely(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            if (AppConfig.isDebug()) {
-                e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                if (AppConfig.isDebug()) {
+                    e.printStackTrace();
+                }
             }
         }
+    }
+
+    public static boolean isEmpty(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
+            if (collection != null && collection.size() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static String createErrorJson(String... strArr) {
@@ -74,22 +94,32 @@ public class CommonUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String getCpuAbi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.CPU_ABI : (String) invokeV.objValue;
-    }
-
-    public static boolean isEmpty(Collection collection) {
+    public static boolean isEmpty(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) ? collection == null || collection.size() == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            if (map != null && map.size() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static String mergePath(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? pathCombine(str, str2, File.separator) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            return pathCombine(str, str2, File.separator);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void postThread(Runnable runnable, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, runnable, str) == null) {
+            ExecutorUtilsExt.postOnElastic(runnable, str, 3);
+        }
     }
 
     public static String pathCombine(String str, String str2, String str3) {
@@ -114,18 +144,5 @@ public class CommonUtils {
             }
         }
         return (String) invokeLLL.objValue;
-    }
-
-    public static void postThread(Runnable runnable, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, runnable, str) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, str, 3);
-        }
-    }
-
-    public static boolean isEmpty(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) ? map == null || map.size() == 0 : invokeL.booleanValue;
     }
 }

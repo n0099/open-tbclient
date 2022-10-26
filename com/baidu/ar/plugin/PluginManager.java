@@ -32,12 +32,12 @@ import java.util.WeakHashMap;
 /* loaded from: classes.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, ClassLoader> sPluginClassLoaderCache;
-    public static Map<String, Object> sPluginLoadedApkCache;
+    public static Map sPluginClassLoaderCache;
+    public static Map sPluginLoadedApkCache;
     public static PluginManager sPluginManager;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public Map<String, PluginPackageParser> mPluginCache;
+    public Map mPluginCache;
 
     static {
         InterceptResult invokeClinit;
@@ -75,6 +75,16 @@ public class PluginManager {
         this.mContext = context;
     }
 
+    private void hookPackageManager(PluginPackageParser pluginPackageParser) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, pluginPackageParser) == null) {
+            Object currentActivityThread = ActivityThreadCompat.currentActivityThread();
+            Object readField = FieldUtils.readField(currentActivityThread, "sPackageManager");
+            Class<?> cls = Class.forName("android.content.pm.IPackageManager");
+            FieldUtils.writeField(currentActivityThread, "sPackageManager", Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new PackageManagerHookHandler(readField, pluginPackageParser)));
+        }
+    }
+
     private int copyNativeLibs(Context context, String str, ApplicationInfo applicationInfo) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -98,16 +108,6 @@ public class PluginManager {
             return sPluginManager;
         }
         return (PluginManager) invokeL.objValue;
-    }
-
-    private void hookPackageManager(PluginPackageParser pluginPackageParser) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, pluginPackageParser) == null) {
-            Object currentActivityThread = ActivityThreadCompat.currentActivityThread();
-            Object readField = FieldUtils.readField(currentActivityThread, "sPackageManager");
-            Class<?> cls = Class.forName("android.content.pm.IPackageManager");
-            FieldUtils.writeField(currentActivityThread, "sPackageManager", Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new PackageManagerHookHandler(readField, pluginPackageParser)));
-        }
     }
 
     private void preLoadAPK(String str, ApplicationInfo applicationInfo) {
@@ -158,20 +158,19 @@ public class PluginManager {
     private void saveSignatures(PackageInfo packageInfo) {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, packageInfo) == null) || packageInfo == null || (signatureArr = packageInfo.signatures) == null) {
-            return;
-        }
-        int i = 0;
-        for (Signature signature : signatureArr) {
-            File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i));
-            try {
-                Utils.writeToFile(file, signature.toByteArray());
-                i++;
-            } catch (Exception e) {
-                e.printStackTrace();
-                file.delete();
-                Utils.deleteDir(PluginDirHelper.getPluginSignatureDir(this.mContext, packageInfo.packageName));
-                return;
+        if ((interceptable == null || interceptable.invokeL(65542, this, packageInfo) == null) && packageInfo != null && (signatureArr = packageInfo.signatures) != null) {
+            int i = 0;
+            for (Signature signature : signatureArr) {
+                File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i));
+                try {
+                    Utils.writeToFile(file, signature.toByteArray());
+                    i++;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    file.delete();
+                    Utils.deleteDir(PluginDirHelper.getPluginSignatureDir(this.mContext, packageInfo.packageName));
+                    return;
+                }
             }
         }
     }

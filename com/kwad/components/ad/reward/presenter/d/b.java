@@ -3,7 +3,6 @@ package com.kwad.components.ad.reward.presenter.d;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -35,20 +34,17 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     public com.kwad.components.ad.reward.i.a.a mK;
     public final h mRewardVerifyListener;
     public f pJ;
-    @Nullable
     public t sV;
     public int tC;
     public long tD;
     public boolean tE;
     public com.kwad.sdk.core.c.c tF;
-    @Nullable
 
     /* renamed from: tv  reason: collision with root package name */
     public ViewGroup f1082tv;
     public ViewGroup tw;
     public e tx;
     public c ty;
-    @Nullable
     public c tz;
 
     static {
@@ -213,12 +209,12 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 com.kwad.sdk.core.e.b.d("LaunchAppTaskPresenter", "initBottomActionBar screen is horizontal");
                 return;
             }
-            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09115f)).inflate();
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091155);
+            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091153)).inflate();
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091149);
             this.tw = viewGroup;
             viewGroup.setClickable(true);
             new com.kwad.sdk.widget.f(this.tw, this);
-            KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091156);
+            KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09114a);
             kSFrameLayout.setRadius(getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a7));
             kSFrameLayout.post(new Runnable(this, kSFrameLayout, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a2)) { // from class: com.kwad.components.ad.reward.presenter.d.b.1
                 public static /* synthetic */ Interceptable $ic;
@@ -255,14 +251,14 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                     }
                 }
             });
-            ViewGroup viewGroup2 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091155);
+            ViewGroup viewGroup2 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091149);
             this.tw = viewGroup2;
             c cVar = new c(viewGroup2);
             this.ty = cVar;
             cVar.a(this.nM.mApkDownloadHelper);
             this.ty.a(this);
             this.ty.c(this.nM.mAdTemplate, false);
-            e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091154), this.tw, this.nM.mApkDownloadHelper, this);
+            e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091148), this.tw, this.nM.mApkDownloadHelper, this);
             this.tx = eVar;
             eVar.a(new com.kwad.components.ad.reward.k.f(this) { // from class: com.kwad.components.ad.reward.presenter.d.b.2
                 public static /* synthetic */ Interceptable $ic;
@@ -312,7 +308,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     }
 
     @Override // com.kwad.sdk.core.webview.a.kwai.a
-    public final void a(@Nullable com.kwad.sdk.core.webview.a.a.a aVar) {
+    public final void a(com.kwad.sdk.core.webview.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
         }
@@ -334,8 +330,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                 this.mK = iz;
                 this.nM.mK = iz;
                 com.kwad.components.ad.reward.i.a.a.a(iz, getContext(), this.nM.mAdTemplate);
-                AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d6);
-                ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091045);
+                AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ca);
+                ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091039);
                 this.f1082tv = viewGroup;
                 if (viewGroup != null) {
                     viewGroup.setVisibility(8);
@@ -344,8 +340,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
                     cVar.a(this.nM.mApkDownloadHelper);
                     this.tz.a(this);
                     this.tz.c(this.nM.mAdTemplate, false);
-                    ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d3)).setWidthBasedRatio(false);
-                    t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911d2), this.f1082tv, this.nM.mApkDownloadHelper, this);
+                    ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911c7)).setWidthBasedRatio(false);
+                    t tVar = new t((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911c6), this.f1082tv, this.nM.mApkDownloadHelper, this);
                     this.sV = tVar;
                     tVar.a(this.nM.mAdTemplate, adBaseFrameLayout);
                 }

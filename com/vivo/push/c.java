@@ -45,20 +45,22 @@ public final class c implements Handler.Callback {
                 return false;
             }
             int i = message.what;
-            if (i == 1) {
+            if (i != 1) {
+                if (i != 2) {
+                    com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + PreferencesUtil.RIGHT_MOUNT);
+                } else {
+                    atomicInteger2 = this.a.f;
+                    if (atomicInteger2.get() == 4) {
+                        this.a.f();
+                    }
+                    this.a.a(1);
+                }
+            } else {
                 com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
                 atomicInteger = this.a.f;
                 if (atomicInteger.get() == 2) {
                     this.a.a(1);
                 }
-            } else if (i == 2) {
-                atomicInteger2 = this.a.f;
-                if (atomicInteger2.get() == 4) {
-                    this.a.f();
-                }
-                this.a.a(1);
-            } else {
-                com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + PreferencesUtil.RIGHT_MOUNT);
             }
             return true;
         }

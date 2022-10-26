@@ -1,6 +1,5 @@
 package com.kwad.components.ad.splashscreen.b;
 
-import android.annotation.SuppressLint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -136,7 +135,7 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
     private void q(AdInfo adInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, adInfo) == null) {
-            TextView textView = (TextView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911fa);
+            TextView textView = (TextView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911ee);
             this.yx = textView;
             this.yz = adInfo.adPreloadInfo;
             textView.setVisibility(8);
@@ -153,7 +152,7 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
     private void r(AdInfo adInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, adInfo) == null) {
-            this.yB = this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911e9);
+            this.yB = this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911dd);
             if (!com.kwad.sdk.core.response.a.a.by(adInfo)) {
                 this.yB.setVisibility(8);
                 return;
@@ -277,7 +276,6 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
     }
 
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
-    @SuppressLint({"SetTextI18n"})
     public final void aq() {
         AdBaseFrameLayout adBaseFrameLayout;
         int i;
@@ -290,10 +288,10 @@ public final class c extends e implements com.kwad.sdk.core.h.b {
             q(bQ);
             if (p(this.py)) {
                 adBaseFrameLayout = this.yF.mRootContainer;
-                i = R.id.obfuscated_res_0x7f0911fc;
+                i = R.id.obfuscated_res_0x7f0911f0;
             } else {
                 adBaseFrameLayout = this.yF.mRootContainer;
-                i = R.id.obfuscated_res_0x7f0911f5;
+                i = R.id.obfuscated_res_0x7f0911e9;
             }
             this.yy = (com.kwad.components.ad.splashscreen.widget.a) adBaseFrameLayout.findViewById(i);
             this.yy.a(jW(), this.py);

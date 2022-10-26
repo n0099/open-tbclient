@@ -39,10 +39,10 @@ public final class ISBNResultParser extends ResultParser {
             if (massagedText.length() != 13) {
                 return null;
             }
-            if (massagedText.startsWith("978") || massagedText.startsWith("979")) {
-                return new ISBNParsedResult(massagedText);
+            if (!massagedText.startsWith("978") && !massagedText.startsWith("979")) {
+                return null;
             }
-            return null;
+            return new ISBNParsedResult(massagedText);
         }
         return (ISBNParsedResult) invokeL.objValue;
     }

@@ -30,19 +30,19 @@ public class FormBodyPart {
                 return;
             }
         }
-        if (str == null) {
-            throw new IllegalArgumentException("Name may not be null");
+        if (str != null) {
+            if (contentBody != null) {
+                this.name = str;
+                this.body = contentBody;
+                this.header = new Header();
+                generateContentDisp(contentBody);
+                generateContentType(contentBody);
+                generateTransferEncoding(contentBody);
+                return;
+            }
+            throw new IllegalArgumentException("Body may not be null");
         }
-        if (contentBody != null) {
-            this.name = str;
-            this.body = contentBody;
-            this.header = new Header();
-            generateContentDisp(contentBody);
-            generateContentType(contentBody);
-            generateTransferEncoding(contentBody);
-            return;
-        }
-        throw new IllegalArgumentException("Body may not be null");
+        throw new IllegalArgumentException("Name may not be null");
     }
 
     public void addField(String str, String str2) {
@@ -95,18 +95,27 @@ public class FormBodyPart {
     public ContentBody getBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.body : (ContentBody) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.body;
+        }
+        return (ContentBody) invokeV.objValue;
     }
 
     public Header getHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.header : (Header) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.header;
+        }
+        return (Header) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 }

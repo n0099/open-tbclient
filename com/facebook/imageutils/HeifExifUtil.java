@@ -2,14 +2,12 @@ package com.facebook.imageutils;
 
 import android.media.ExifInterface;
 import android.os.Build;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
-import com.facebook.soloader.DoNotOptimize;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
@@ -18,9 +16,8 @@ public class HeifExifUtil {
     public static final String TAG = "HeifExifUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @DoNotOptimize
     /* loaded from: classes7.dex */
-    public static class HeifExifUtilAndroidN {
+    public class HeifExifUtilAndroidN {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,13 +35,12 @@ public class HeifExifUtil {
             }
         }
 
-        @RequiresApi(api = 24)
         public static int getOrientation(InputStream inputStream) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
                 try {
-                    return new ExifInterface(inputStream).getAttributeInt("Orientation", 1);
+                    return new ExifInterface(inputStream).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
                 } catch (IOException e) {
                     FLog.d(HeifExifUtil.TAG, "Failed reading Heif Exif orientation -> ignoring", (Throwable) e);
                     return 0;

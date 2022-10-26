@@ -9,7 +9,7 @@ public interface IPMSDownloadInterface {
 
     IPMSDownloadListener getListener();
 
-    List<String> getPackages();
+    List getPackages();
 
     boolean getRegistered();
 

@@ -24,11 +24,17 @@ public final class NewpushRepair extends Message {
     public final List<NewpushGroupRepair> groups;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<NewpushRepair> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String followType;
-        public List<NewpushGroupRepair> groups;
+        public List groups;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -74,14 +80,11 @@ public final class NewpushRepair extends Message {
         public NewpushRepair build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new NewpushRepair(this, z, null) : (NewpushRepair) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new NewpushRepair(this, z, null);
+            }
+            return (NewpushRepair) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -98,10 +101,6 @@ public final class NewpushRepair extends Message {
             }
         }
         DEFAULT_GROUPS = Collections.emptyList();
-    }
-
-    public /* synthetic */ NewpushRepair(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -129,7 +128,7 @@ public final class NewpushRepair extends Message {
             } else {
                 this.followType = str;
             }
-            List<NewpushGroupRepair> list = builder.groups;
+            List list = builder.groups;
             if (list == null) {
                 this.groups = DEFAULT_GROUPS;
                 return;
@@ -140,5 +139,9 @@ public final class NewpushRepair extends Message {
         }
         this.followType = builder.followType;
         this.groups = Message.immutableCopyOf(builder.groups);
+    }
+
+    public /* synthetic */ NewpushRepair(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

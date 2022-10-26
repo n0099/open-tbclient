@@ -49,7 +49,7 @@ public final class i implements Runnable {
             if (callback != null) {
                 callback.onBegin(new Object[0]);
             }
-            Pair<Integer, Object> a = e.a(this.b, this.c, 0, this.d, this.e, this.f);
+            Pair a = e.a(this.b, this.c, 0, this.d, this.e, this.f);
             if (this.a != null) {
                 if (((Integer) a.first).intValue() != 0) {
                     this.a.onError(a.first);

@@ -17,7 +17,7 @@ public class g implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadFactory a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BlockingQueue<Runnable> b;
+    public final BlockingQueue b;
     public final ThreadPoolExecutor c;
 
     static {
@@ -36,6 +36,14 @@ public class g implements Executor {
         a = new f();
     }
 
+    @Override // java.util.concurrent.Executor
+    public void execute(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.c.execute(runnable);
+        }
+    }
+
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,13 +59,5 @@ public class g implements Executor {
         }
         this.b = new i();
         this.c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.b, a);
-    }
-
-    @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.c.execute(runnable);
-        }
     }
 }

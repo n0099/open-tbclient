@@ -32,10 +32,10 @@ public final class HttpsHelper {
     public SSLSocketFactory mSSLSocketFactory;
 
     /* loaded from: classes8.dex */
-    public static class CustomX509TrustManager implements X509TrustManager {
+    public class CustomX509TrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<X509TrustManager> mTrustManagers;
+        public List mTrustManagers;
 
         public CustomX509TrustManager(KeyStore... keyStoreArr) {
             TrustManager[] trustManagers;
@@ -71,10 +71,9 @@ public final class HttpsHelper {
                         }
                     }
                 }
-                if (this.mTrustManagers.size() != 0) {
-                    return;
+                if (this.mTrustManagers.size() == 0) {
+                    throw new RuntimeException("Couldn't find any X509TrustManagers");
                 }
-                throw new RuntimeException("Couldn't find any X509TrustManagers");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -84,7 +83,7 @@ public final class HttpsHelper {
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-                this.mTrustManagers.get(0).checkClientTrusted(x509CertificateArr, str);
+                ((X509TrustManager) this.mTrustManagers.get(0)).checkClientTrusted(x509CertificateArr, str);
             }
         }
 

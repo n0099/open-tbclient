@@ -1,8 +1,8 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bh7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.mh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,12 +19,12 @@ public class FocusListCard extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
-    public final List<a> focusItemList;
+    public final List focusItemList;
     public final int titleColor;
     public final int titleColorNight;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -53,6 +53,7 @@ public class FocusListCard extends BaseCardInfo {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FocusListCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
+        int length;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,12 +70,16 @@ public class FocusListCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = bh7.b(jSONObject.optString("titleColor", ""));
-        this.titleColorNight = bh7.b(jSONObject.optString("titleColorNight", ""));
-        this.bgColor = bh7.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = bh7.b(jSONObject.optString("bgColorNight", ""));
+        this.titleColor = mh7.b(jSONObject.optString("titleColor", ""));
+        this.titleColorNight = mh7.b(jSONObject.optString("titleColorNight", ""));
+        this.bgColor = mh7.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = mh7.b(jSONObject.optString("bgColorNight", ""));
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
-        int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
+        if (optJSONArray2 == null) {
+            length = 0;
+        } else {
+            length = optJSONArray2.length();
+        }
         this.focusItemList = new ArrayList(length);
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
@@ -90,8 +95,8 @@ public class FocusListCard extends BaseCardInfo {
                     if (optJSONArray.length() > 2) {
                         aVar.c = optJSONArray.getString(2);
                     }
-                    aVar.d = bh7.b(optJSONObject.optString("focusColor", ""));
-                    aVar.e = bh7.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.d = mh7.b(optJSONObject.optString("focusColor", ""));
+                    aVar.e = mh7.b(optJSONObject.optString("focusColorNight", ""));
                     aVar.f = optJSONObject.optString("scheme");
                     aVar.g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
@@ -104,37 +109,58 @@ public class FocusListCard extends BaseCardInfo {
     public int getBgColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bgColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bgColor;
+        }
+        return invokeV.intValue;
     }
 
     public int getBgColorNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bgColorNight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bgColorNight;
+        }
+        return invokeV.intValue;
     }
 
-    public List<a> getFocusItemList() {
+    public List getFocusItemList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.focusItemList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.focusItemList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getTitleColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.titleColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.titleColor;
+        }
+        return invokeV.intValue;
     }
 
     public int getTitleColorNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.titleColorNight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.titleColorNight;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.focusItemList.size() >= 3 && super.isValid() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.focusItemList.size() >= 3 && super.isValid()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

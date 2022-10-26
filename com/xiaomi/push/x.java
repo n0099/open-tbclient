@@ -18,7 +18,7 @@ import java.util.Set;
 /* loaded from: classes8.dex */
 public final class x {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
+    public static final Set a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */

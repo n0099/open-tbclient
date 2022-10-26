@@ -34,10 +34,10 @@ public class DownloadTask implements Serializable {
     public transient com.kwai.filedownloader.a mBaseDownloadTask;
     public String mDestinationDir;
     public String mDestinationFileName;
-    public transient List<c> mDownloadListeners;
+    public transient List mDownloadListeners;
     public boolean mIsCanceled;
     public int mNotificationVisibility;
-    public Map<String, String> mRequestHeaders;
+    public Map mRequestHeaders;
     public Serializable mTag;
     public String mUrl;
     public boolean mUserPause;
@@ -45,7 +45,7 @@ public class DownloadTask implements Serializable {
     public boolean notificationRemoved;
 
     /* loaded from: classes7.dex */
-    public static class DownloadRequest implements Serializable {
+    public class DownloadRequest implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3638290207248829674L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class DownloadTask implements Serializable {
         @Deprecated
         public boolean mIsPhotoAdDownloadRequest;
         public int mNotificationVisibility;
-        public final Map<String, String> mRequestHeaders;
+        public final Map mRequestHeaders;
         public Serializable mTag;
 
         public DownloadRequest(String str) {
@@ -273,9 +273,9 @@ public class DownloadTask implements Serializable {
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             this.mBaseDownloadTask.g(this.mTag);
             this.mBaseDownloadTask.bA((this.mAllowedNetworkTypes ^ 2) == 0);
-            for (Map.Entry<String, String> entry : this.mRequestHeaders.entrySet()) {
-                this.mBaseDownloadTask.eo(entry.getKey());
-                this.mBaseDownloadTask.Y(entry.getKey(), entry.getValue());
+            for (Map.Entry entry : this.mRequestHeaders.entrySet()) {
+                this.mBaseDownloadTask.eo((String) entry.getKey());
+                this.mBaseDownloadTask.Y((String) entry.getKey(), (String) entry.getValue());
             }
         }
     }
@@ -319,7 +319,7 @@ public class DownloadTask implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, aVar) == null) {
             try {
-                Iterator<c> it = this.mDownloadListeners.iterator();
+                Iterator it = this.mDownloadListeners.iterator();
                 while (it.hasNext()) {
                     it.next();
                 }
@@ -384,7 +384,7 @@ public class DownloadTask implements Serializable {
                 return;
             }
             try {
-                Iterator<c> it = this.mDownloadListeners.iterator();
+                Iterator it = this.mDownloadListeners.iterator();
                 while (it.hasNext()) {
                     it.next();
                 }
@@ -458,7 +458,7 @@ public class DownloadTask implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65560, this, aVar, i, i2) == null) {
             try {
-                Iterator<c> it = this.mDownloadListeners.iterator();
+                Iterator it = this.mDownloadListeners.iterator();
                 while (it.hasNext()) {
                     it.next();
                 }
@@ -502,7 +502,7 @@ public class DownloadTask implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65563, this, aVar) == null) {
             try {
-                Iterator<c> it = this.mDownloadListeners.iterator();
+                Iterator it = this.mDownloadListeners.iterator();
                 while (it.hasNext()) {
                     it.next();
                 }

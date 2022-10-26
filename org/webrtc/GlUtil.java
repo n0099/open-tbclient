@@ -31,7 +31,7 @@ public class GlUtil {
     public static void checkNoGLES2Error(String str) {
         int glGetError;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
         throw new RuntimeException(str + ": GLES20 error: " + glGetError);

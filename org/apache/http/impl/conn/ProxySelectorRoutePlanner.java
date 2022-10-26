@@ -43,7 +43,7 @@ public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
         throw new RuntimeException("Stub!");
     }
 
-    public Proxy chooseProxy(List<Proxy> list, HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
+    public Proxy chooseProxy(List list, HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, list, httpHost, httpRequest, httpContext)) == null) {
@@ -80,6 +80,13 @@ public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
         return (String) invokeL.objValue;
     }
 
+    public void setProxySelector(ProxySelector proxySelector) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, proxySelector) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public ProxySelector getProxySelector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,12 +94,5 @@ public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
             throw new RuntimeException("Stub!");
         }
         return (ProxySelector) invokeV.objValue;
-    }
-
-    public void setProxySelector(ProxySelector proxySelector) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, proxySelector) == null) {
-            throw new RuntimeException("Stub!");
-        }
     }
 }

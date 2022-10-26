@@ -1,6 +1,5 @@
 package tv.athena.revenue.payui.model;
 
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tv.athena.revenue.api.MiddleRevenueConfig;
-@Keep
 /* loaded from: classes9.dex */
 public class PayUIKitConfig {
     public static /* synthetic */ Interceptable $ic;
@@ -17,9 +15,8 @@ public class PayUIKitConfig {
     public MiddleRevenueConfig revenueConfig;
     public ThemeColorConfig themeColorConfig;
 
-    @Keep
     /* loaded from: classes9.dex */
-    public static class PayUIKitConfigBuilder {
+    public class PayUIKitConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageLoaderSupplier imageLoaderSupplier;
@@ -43,7 +40,10 @@ public class PayUIKitConfig {
         public PayUIKitConfig builder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PayUIKitConfig(this) : (PayUIKitConfig) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new PayUIKitConfig(this);
+            }
+            return (PayUIKitConfig) invokeV.objValue;
         }
 
         public PayUIKitConfigBuilder setImageLoaderSupplier(ImageLoaderSupplier imageLoaderSupplier) {

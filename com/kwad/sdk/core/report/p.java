@@ -4,17 +4,16 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class p implements j<m> {
+public class p implements j {
     public static volatile p abr;
     public final SQLiteDatabase CR;
-    public final List<n> abs = new ArrayList();
+    public final List abs = new ArrayList();
 
     public p(Context context) {
         this.CR = new o(context, o.CU).getWritableDatabase();
@@ -53,8 +52,7 @@ public class p implements j<m> {
         }
     }
 
-    /* renamed from: d  reason: avoid collision after fix types in other method */
-    private synchronized void d2(m mVar) {
+    private synchronized void d(m mVar) {
         com.kwad.sdk.core.e.b.d("ReportActionDBManager", "deleteAction action = " + mVar);
         try {
             this.CR.delete("ksad_actions", "actionId=?", new String[]{mVar.ZR});
@@ -63,12 +61,12 @@ public class p implements j<m> {
         }
     }
 
-    private synchronized m e(@NonNull Cursor cursor) {
+    private synchronized m e(Cursor cursor) {
         try {
             JSONObject jSONObject = new JSONObject(cursor.getString(cursor.getColumnIndex("aLog")));
             int size = this.abs.size() - 1;
             if (size >= 0) {
-                return this.abs.get(size).f(jSONObject);
+                return ((n) this.abs.get(size)).f(jSONObject);
             }
             return new m(jSONObject);
         } catch (JSONException e) {
@@ -78,12 +76,13 @@ public class p implements j<m> {
     }
 
     @Override // com.kwad.sdk.core.report.j
-    public final synchronized void q(List<m> list) {
+    public final synchronized void q(List list) {
         com.kwad.sdk.core.e.b.d("ReportActionDBManager", "delete size= " + list.size());
         try {
             this.CR.beginTransaction();
-            for (m mVar : list) {
-                d2(mVar);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                d((m) it.next());
             }
             this.CR.setTransactionSuccessful();
             if (this.CR != null) {
@@ -123,7 +122,7 @@ public class p implements j<m> {
     }
 
     @Override // com.kwad.sdk.core.report.j
-    public final synchronized List<m> uy() {
+    public final synchronized List uy() {
         Cursor cursor = null;
         try {
             cursor = this.CR.rawQuery("select  * from ksad_actions", null);

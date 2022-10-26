@@ -68,6 +68,18 @@ public class HiidoSDKApi {
         }
     }
 
+    public static void reportCount(int i, String str, String str2, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            StatisAPI statisAPI = mStatisAPI;
+            if (statisAPI == null) {
+                RLog.error(TAG, "reportCount error mStatisAPI null", new Object[0]);
+            } else {
+                statisAPI.reportCount(i, str, str2, j);
+            }
+        }
+    }
+
     public static void reportReturnCode(int i, String str, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2}) == null) {
@@ -89,18 +101,6 @@ public class HiidoSDKApi {
             }
             RLog.debug(TAG, "reportStatisticContent content:" + statisContent);
             mStatisAPI.reportStatisticContent(str, statisContent, true, true);
-        }
-    }
-
-    public static void reportCount(int i, String str, String str2, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            StatisAPI statisAPI = mStatisAPI;
-            if (statisAPI == null) {
-                RLog.error(TAG, "reportCount error mStatisAPI null", new Object[0]);
-            } else {
-                statisAPI.reportCount(i, str, str2, j);
-            }
         }
     }
 }

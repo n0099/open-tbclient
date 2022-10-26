@@ -1,7 +1,5 @@
 package com.kwad.components.core.m;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +28,6 @@ public class c {
         }
     }
 
-    @NonNull
     public static c ox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,7 +44,7 @@ public class c {
         return (c) invokeV.objValue;
     }
 
-    public final void a(AdTemplate adTemplate, @Nullable JSONObject jSONObject, @Nullable com.kwad.sdk.core.report.f fVar) {
+    public final void a(AdTemplate adTemplate, JSONObject jSONObject, com.kwad.sdk.core.report.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, jSONObject, fVar) == null) {
             if (((DevelopMangerComponents) com.kwad.sdk.components.c.f(DevelopMangerComponents.class)) != null) {

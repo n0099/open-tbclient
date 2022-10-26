@@ -45,7 +45,7 @@ public class Download {
     public String mRealUrl;
     public String mRedownloadReason;
     public String mRequestHeader;
-    public List<Pair<String, String>> mRequestHeaders;
+    public List mRequestHeaders;
     public String mSavedPathForUser;
     public String mSize;
     public Integer mStatus;
@@ -55,7 +55,7 @@ public class Download {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class DownloadState {
+    public final class DownloadState {
         public static final /* synthetic */ DownloadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DownloadState CANCEL;
@@ -140,13 +140,19 @@ public class Download {
         public static DownloadState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (DownloadState) Enum.valueOf(DownloadState.class, str) : (DownloadState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (DownloadState) Enum.valueOf(DownloadState.class, str);
+            }
+            return (DownloadState) invokeL.objValue;
         }
 
         public static DownloadState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (DownloadState[]) $VALUES.clone() : (DownloadState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (DownloadState[]) $VALUES.clone();
+            }
+            return (DownloadState[]) invokeV.objValue;
         }
     }
 
@@ -164,6 +170,258 @@ public class Download {
             }
         }
         DFOEMAT = new DecimalFormat("###0.0");
+    }
+
+    public Long getControlFlag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mControlFlag;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public Long getCurrentbytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCurrentbytes;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String getDownloadFileName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new File(this.mSavedPathForUser, this.mFileName).getPath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getEtag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mEtag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getExactProgressString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return DFOEMAT.format(getCurrentProgress());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFailedReason() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mFailedReason;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Integer getFailedType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mFailedType;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public String getFileName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mFileName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFromParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mFromParam;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Long getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mId;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String getKeyByUser() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mKeyByUser;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getMimetype() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mMimetype;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean getNotificationNeeded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mNotificationNeeded;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mPriority;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getProgressmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mProgressmap;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRealDownloadDir() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mDownDir;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRealUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mRealUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRedownloadReason() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mRedownloadReason;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSavedPathForUser() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mSavedPathForUser;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public DownloadState getState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return DownloadState.values()[this.mStatus.intValue()];
+        }
+        return (DownloadState) invokeV.objValue;
+    }
+
+    public Integer getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mStatus;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public Boolean getSupportrange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return Boolean.valueOf(hasControlFlag(1L));
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public Long getTotalbytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.mTotalbytes;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String getUrihost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.mUrihost;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Boolean isAutoPause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return Boolean.valueOf(hasControlFlag(2L));
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public boolean isCheckConentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return hasControlFlag(8L);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isWifiOnly() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return hasControlFlag(4L);
+        }
+        return invokeV.booleanValue;
     }
 
     public Download() {
@@ -217,7 +475,13 @@ public class Download {
     private boolean hasControlFlag(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) ? (j & this.mControlFlag.longValue()) > 0 : invokeJ.booleanValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
+            if ((j & this.mControlFlag.longValue()) > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 
     private void removeControlFlag(long j) {
@@ -225,223 +489,6 @@ public class Download {
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             this.mControlFlag = Long.valueOf((~j) & this.mControlFlag.longValue());
         }
-    }
-
-    public void addRequestHeader(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (str != null) {
-                if (!str.contains(":")) {
-                    if (str2 == null) {
-                        str2 = "";
-                    }
-                    this.mRequestHeaders.add(Pair.create(str, str2));
-                    return;
-                }
-                throw new IllegalArgumentException("header may not contain ':'");
-            }
-            throw new NullPointerException("header cannot be null");
-        }
-    }
-
-    public Long getControlFlag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mControlFlag : (Long) invokeV.objValue;
-    }
-
-    public float getCurrentProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mCurrentbytes.longValue() == 0 || this.mTotalbytes.longValue() == 0) {
-                return 0.0f;
-            }
-            float longValue = ((float) (this.mCurrentbytes.longValue() * 100)) / ((float) this.mTotalbytes.longValue());
-            if (longValue >= 100.0f) {
-                return 99.99f;
-            }
-            return longValue;
-        }
-        return invokeV.floatValue;
-    }
-
-    public Long getCurrentbytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCurrentbytes : (Long) invokeV.objValue;
-    }
-
-    public String getDownloadFileName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new File(this.mSavedPathForUser, this.mFileName).getPath() : (String) invokeV.objValue;
-    }
-
-    public String getEtag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mEtag : (String) invokeV.objValue;
-    }
-
-    public String getExactProgressString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? DFOEMAT.format(getCurrentProgress()) : (String) invokeV.objValue;
-    }
-
-    public String getFailedReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mFailedReason : (String) invokeV.objValue;
-    }
-
-    public Integer getFailedType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mFailedType : (Integer) invokeV.objValue;
-    }
-
-    public String getFileName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mFileName : (String) invokeV.objValue;
-    }
-
-    public String getFromParam() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mFromParam : (String) invokeV.objValue;
-    }
-
-    public Long getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mId : (Long) invokeV.objValue;
-    }
-
-    public String getKeyByUser() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mKeyByUser : (String) invokeV.objValue;
-    }
-
-    public String getMimetype() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mMimetype : (String) invokeV.objValue;
-    }
-
-    public boolean getNotificationNeeded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mNotificationNeeded : invokeV.booleanValue;
-    }
-
-    public int getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mPriority : invokeV.intValue;
-    }
-
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.mCurrentbytes.longValue() == 0 || this.mTotalbytes.longValue() == 0) {
-                return 0;
-            }
-            int longValue = (int) ((this.mCurrentbytes.longValue() * 100) / this.mTotalbytes.longValue());
-            if (longValue >= 100) {
-                return 99;
-            }
-            return longValue;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getProgressmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mProgressmap : (String) invokeV.objValue;
-    }
-
-    public String getRealDownloadDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mDownDir : (String) invokeV.objValue;
-    }
-
-    public String getRealUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mRealUrl : (String) invokeV.objValue;
-    }
-
-    public String getRedownloadReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mRedownloadReason : (String) invokeV.objValue;
-    }
-
-    public String getSavedPathForUser() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mSavedPathForUser : (String) invokeV.objValue;
-    }
-
-    public DownloadState getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? DownloadState.values()[this.mStatus.intValue()] : (DownloadState) invokeV.objValue;
-    }
-
-    public Integer getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mStatus : (Integer) invokeV.objValue;
-    }
-
-    public Boolean getSupportrange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? Boolean.valueOf(hasControlFlag(1L)) : (Boolean) invokeV.objValue;
-    }
-
-    public Long getTotalbytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mTotalbytes : (Long) invokeV.objValue;
-    }
-
-    public String getUrihost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mUrihost : (String) invokeV.objValue;
-    }
-
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mUrl : (String) invokeV.objValue;
-    }
-
-    public Boolean isAutoPause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? Boolean.valueOf(hasControlFlag(2L)) : (Boolean) invokeV.objValue;
-    }
-
-    public boolean isCheckConentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? hasControlFlag(8L) : invokeV.booleanValue;
-    }
-
-    public boolean isWifiOnly() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? hasControlFlag(4L) : invokeV.booleanValue;
     }
 
     public void setAutoPause(Boolean bool) {
@@ -647,6 +694,55 @@ public class Download {
                 removeControlFlag(4L);
             }
         }
+    }
+
+    public void addRequestHeader(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            if (str != null) {
+                if (!str.contains(":")) {
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    this.mRequestHeaders.add(Pair.create(str, str2));
+                    return;
+                }
+                throw new IllegalArgumentException("header may not contain ':'");
+            }
+            throw new NullPointerException("header cannot be null");
+        }
+    }
+
+    public float getCurrentProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mCurrentbytes.longValue() != 0 && this.mTotalbytes.longValue() != 0) {
+                float longValue = ((float) (this.mCurrentbytes.longValue() * 100)) / ((float) this.mTotalbytes.longValue());
+                if (longValue >= 100.0f) {
+                    return 99.99f;
+                }
+                return longValue;
+            }
+            return 0.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (this.mCurrentbytes.longValue() != 0 && this.mTotalbytes.longValue() != 0) {
+                int longValue = (int) ((this.mCurrentbytes.longValue() * 100) / this.mTotalbytes.longValue());
+                if (longValue >= 100) {
+                    return 99;
+                }
+                return longValue;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {

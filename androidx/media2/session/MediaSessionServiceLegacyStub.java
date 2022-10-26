@@ -48,13 +48,19 @@ public class MediaSessionServiceLegacyStub extends MediaBrowserServiceCompat {
     public MediaSession.ControllerInfo createControllerInfo(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, remoteUserInfo)) == null) ? new MediaSession.ControllerInfo(remoteUserInfo, -1, this.mManager.isTrustedForMediaControl(remoteUserInfo), null, null) : (MediaSession.ControllerInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, remoteUserInfo)) == null) {
+            return new MediaSession.ControllerInfo(remoteUserInfo, -1, this.mManager.isTrustedForMediaControl(remoteUserInfo), null, null);
+        }
+        return (MediaSession.ControllerInfo) invokeL.objValue;
     }
 
     public ConnectedControllersManager<MediaSessionManager.RemoteUserInfo> getConnectedControllersManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mConnectedControllersManager : (ConnectedControllersManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mConnectedControllersManager;
+        }
+        return (ConnectedControllersManager) invokeV.objValue;
     }
 
     @Override // androidx.media.MediaBrowserServiceCompat

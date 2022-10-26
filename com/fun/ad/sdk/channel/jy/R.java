@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class attr {
+    public final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int alpha = 0x7f04008a;
         public static final int coordinatorLayoutStyle = 0x7f04019d;
@@ -55,7 +55,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class color {
+    public final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int notification_action_color_filter = 0x7f0608b4;
         public static final int notification_icon_bg_color = 0x7f0608b5;
@@ -82,7 +82,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class dimen {
+    public final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int compat_button_inset_horizontal_material = 0x7f0701ca;
         public static final int compat_button_inset_vertical_material = 0x7f0701cb;
@@ -124,34 +124,34 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class drawable {
+    public final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int fun_btn_bg_creative = 0x7f0805a8;
-        public static final int notification_action_background = 0x7f080e6d;
-        public static final int notification_bg = 0x7f080e6e;
-        public static final int notification_bg_low = 0x7f080e6f;
-        public static final int notification_bg_low_normal = 0x7f080e70;
-        public static final int notification_bg_low_pressed = 0x7f080e71;
-        public static final int notification_bg_normal = 0x7f080e72;
-        public static final int notification_bg_normal_pressed = 0x7f080e73;
-        public static final int notification_icon_background = 0x7f080e74;
-        public static final int notification_template_icon_bg = 0x7f080e75;
-        public static final int notification_template_icon_low_bg = 0x7f080e76;
-        public static final int notification_tile_bg = 0x7f080e77;
-        public static final int notify_panel_notification_icon_bg = 0x7f080e79;
-        public static final int win_black_circle = 0x7f0812aa;
-        public static final int win_btn_close_dark = 0x7f0812ab;
-        public static final int win_btn_op = 0x7f0812ac;
-        public static final int win_close_parent_bg = 0x7f0812ad;
-        public static final int win_default_app_icon = 0x7f0812ae;
-        public static final int win_downloadicon = 0x7f0812af;
-        public static final int win_draw_card_close = 0x7f0812b0;
-        public static final int win_draw_card_white_bg = 0x7f0812b1;
-        public static final int win_draw_concert_light_bg = 0x7f0812b2;
-        public static final int win_draw_convert_light_press = 0x7f0812b3;
-        public static final int win_draw_convert_light_unpress = 0x7f0812b4;
-        public static final int win_progress_bar_states = 0x7f0812b5;
-        public static final int win_w_sw = 0x7f0812b6;
+        public static final int fun_btn_bg_creative = 0x7f0805a9;
+        public static final int notification_action_background = 0x7f080e7e;
+        public static final int notification_bg = 0x7f080e7f;
+        public static final int notification_bg_low = 0x7f080e80;
+        public static final int notification_bg_low_normal = 0x7f080e81;
+        public static final int notification_bg_low_pressed = 0x7f080e82;
+        public static final int notification_bg_normal = 0x7f080e83;
+        public static final int notification_bg_normal_pressed = 0x7f080e84;
+        public static final int notification_icon_background = 0x7f080e85;
+        public static final int notification_template_icon_bg = 0x7f080e86;
+        public static final int notification_template_icon_low_bg = 0x7f080e87;
+        public static final int notification_tile_bg = 0x7f080e88;
+        public static final int notify_panel_notification_icon_bg = 0x7f080e8a;
+        public static final int win_black_circle = 0x7f0812bb;
+        public static final int win_btn_close_dark = 0x7f0812bc;
+        public static final int win_btn_op = 0x7f0812bd;
+        public static final int win_close_parent_bg = 0x7f0812be;
+        public static final int win_default_app_icon = 0x7f0812c0;
+        public static final int win_downloadicon = 0x7f0812c1;
+        public static final int win_draw_card_close = 0x7f0812c2;
+        public static final int win_draw_card_white_bg = 0x7f0812c3;
+        public static final int win_draw_concert_light_bg = 0x7f0812c4;
+        public static final int win_draw_convert_light_press = 0x7f0812c5;
+        public static final int win_draw_convert_light_unpress = 0x7f0812c6;
+        public static final int win_progress_bar_states = 0x7f0812c7;
+        public static final int win_w_sw = 0x7f0812c8;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -170,7 +170,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class id {
+    public final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int accessibility_action_clickable_span = 0x7f090030;
         public static final int accessibility_custom_action_0 = 0x7f090031;
@@ -217,71 +217,71 @@ public final class R {
         public static final int ad_img_container = 0x7f0900b1;
         public static final int ad_title = 0x7f0900f9;
         public static final int async = 0x7f0902ca;
-        public static final int blocking = 0x7f0903b0;
-        public static final int bottom = 0x7f0903d6;
-        public static final int cancel_action = 0x7f090498;
-        public static final int chronometer = 0x7f09063e;
-        public static final int dialog_button = 0x7f0907b7;
-        public static final int end = 0x7f0908f5;
-        public static final int end_padder = 0x7f0908f7;
-        public static final int forever = 0x7f090a42;
-        public static final int glide_custom_view_target_tag = 0x7f090cc9;
-        public static final int icon = 0x7f090e20;
-        public static final int icon_group = 0x7f090e28;
-        public static final int info = 0x7f090f25;
-        public static final int italic = 0x7f090f8d;
-        public static final int left = 0x7f0912bd;
-        public static final int line1 = 0x7f091308;
-        public static final int line3 = 0x7f09130a;
-        public static final int media_actions = 0x7f0914d4;
-        public static final int none = 0x7f0916ea;
-        public static final int normal = 0x7f0916f0;
-        public static final int notification_background = 0x7f091704;
-        public static final int notification_main_column = 0x7f091706;
-        public static final int notification_main_column_container = 0x7f091707;
-        public static final int right = 0x7f091c24;
-        public static final int right_icon = 0x7f091c3c;
-        public static final int right_side = 0x7f091c42;
-        public static final int start = 0x7f091f73;
-        public static final int status_bar_latest_event_content = 0x7f091f87;
-        public static final int tag_accessibility_actions = 0x7f092035;
-        public static final int tag_accessibility_clickable_spans = 0x7f092036;
-        public static final int tag_accessibility_heading = 0x7f092037;
-        public static final int tag_accessibility_pane_title = 0x7f092038;
-        public static final int tag_screen_reader_focusable = 0x7f092080;
-        public static final int tag_transition_group = 0x7f09208e;
-        public static final int tag_unhandled_key_event_manager = 0x7f092090;
-        public static final int tag_unhandled_key_listeners = 0x7f092091;
-        public static final int text = 0x7f092100;
-        public static final int text2 = 0x7f092101;
-        public static final int time = 0x7f0921e8;
-        public static final int title = 0x7f092219;
-        public static final int top = 0x7f092287;
-        public static final int win_ad_video_view = 0x7f092685;
-        public static final int win_card_app_close = 0x7f092686;
-        public static final int win_card_app_desc = 0x7f092687;
-        public static final int win_card_app_icon = 0x7f092688;
-        public static final int win_card_app_name = 0x7f092689;
-        public static final int win_card_app_score_container = 0x7f09268a;
-        public static final int win_card_h5_open_btn = 0x7f09268b;
-        public static final int win_close_parent = 0x7f09268c;
-        public static final int win_draw_video_main = 0x7f09268d;
-        public static final int win_draw_video_view = 0x7f09268e;
-        public static final int win_gifImageView = 0x7f09268f;
-        public static final int win_h5_open_webview = 0x7f092690;
-        public static final int win_h5_open_webview_process = 0x7f092691;
-        public static final int win_iv_clct = 0x7f092692;
-        public static final int win_iv_close = 0x7f092693;
-        public static final int win_layout_draw_ad_card = 0x7f092694;
-        public static final int win_parent = 0x7f092695;
-        public static final int win_parent_close = 0x7f092696;
-        public static final int win_splash_iv = 0x7f092697;
-        public static final int win_splash_logo = 0x7f092698;
-        public static final int win_splash_main = 0x7f092699;
-        public static final int win_splash_skip = 0x7f09269a;
-        public static final int win_splash_view = 0x7f09269b;
-        public static final int win_tv_area = 0x7f09269c;
-        public static final int wn_tv_cdt = 0x7f0926a0;
+        public static final int blocking = 0x7f0903b9;
+        public static final int bottom = 0x7f0903df;
+        public static final int cancel_action = 0x7f0904a1;
+        public static final int chronometer = 0x7f090647;
+        public static final int dialog_button = 0x7f0907c0;
+        public static final int end = 0x7f0908ff;
+        public static final int end_padder = 0x7f090901;
+        public static final int forever = 0x7f090a4c;
+        public static final int glide_custom_view_target_tag = 0x7f090cd3;
+        public static final int icon = 0x7f090e14;
+        public static final int icon_group = 0x7f090e1c;
+        public static final int info = 0x7f090f19;
+        public static final int italic = 0x7f090f81;
+        public static final int left = 0x7f0912b1;
+        public static final int line1 = 0x7f0912fe;
+        public static final int line3 = 0x7f091300;
+        public static final int media_actions = 0x7f0914c6;
+        public static final int none = 0x7f0916dc;
+        public static final int normal = 0x7f0916e2;
+        public static final int notification_background = 0x7f0916f6;
+        public static final int notification_main_column = 0x7f0916f8;
+        public static final int notification_main_column_container = 0x7f0916f9;
+        public static final int right = 0x7f091c20;
+        public static final int right_icon = 0x7f091c38;
+        public static final int right_side = 0x7f091c3e;
+        public static final int start = 0x7f091f72;
+        public static final int status_bar_latest_event_content = 0x7f091f86;
+        public static final int tag_accessibility_actions = 0x7f092034;
+        public static final int tag_accessibility_clickable_spans = 0x7f092035;
+        public static final int tag_accessibility_heading = 0x7f092036;
+        public static final int tag_accessibility_pane_title = 0x7f092037;
+        public static final int tag_screen_reader_focusable = 0x7f09207f;
+        public static final int tag_transition_group = 0x7f09208d;
+        public static final int tag_unhandled_key_event_manager = 0x7f09208f;
+        public static final int tag_unhandled_key_listeners = 0x7f092090;
+        public static final int text = 0x7f0920ff;
+        public static final int text2 = 0x7f092100;
+        public static final int time = 0x7f0921d2;
+        public static final int title = 0x7f092203;
+        public static final int top = 0x7f092271;
+        public static final int win_ad_video_view = 0x7f09266d;
+        public static final int win_card_app_close = 0x7f09266e;
+        public static final int win_card_app_desc = 0x7f09266f;
+        public static final int win_card_app_icon = 0x7f092670;
+        public static final int win_card_app_name = 0x7f092671;
+        public static final int win_card_app_score_container = 0x7f092672;
+        public static final int win_card_h5_open_btn = 0x7f092673;
+        public static final int win_close_parent = 0x7f092674;
+        public static final int win_draw_video_main = 0x7f092675;
+        public static final int win_draw_video_view = 0x7f092676;
+        public static final int win_gifImageView = 0x7f092677;
+        public static final int win_h5_open_webview = 0x7f092678;
+        public static final int win_h5_open_webview_process = 0x7f092679;
+        public static final int win_iv_clct = 0x7f09267a;
+        public static final int win_iv_close = 0x7f09267b;
+        public static final int win_layout_draw_ad_card = 0x7f09267c;
+        public static final int win_parent = 0x7f09267d;
+        public static final int win_parent_close = 0x7f09267e;
+        public static final int win_splash_iv = 0x7f09267f;
+        public static final int win_splash_logo = 0x7f092680;
+        public static final int win_splash_main = 0x7f092681;
+        public static final int win_splash_skip = 0x7f092682;
+        public static final int win_splash_view = 0x7f092683;
+        public static final int win_tv_area = 0x7f092684;
+        public static final int wn_tv_cdt = 0x7f092688;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -300,7 +300,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class integer {
+    public final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int cancel_button_image_alpha = 0x7f0a0008;
         public static final int google_play_services_version = 0x7f0a000e;
@@ -323,10 +323,10 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class layout {
+    public final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int custom_dialog = 0x7f0d0208;
-        public static final int fun_jy_ad_native_view = 0x7f0d036c;
+        public static final int custom_dialog = 0x7f0d0207;
+        public static final int fun_jy_ad_native_view = 0x7f0d036b;
         public static final int notification_action = 0x7f0d0669;
         public static final int notification_action_tombstone = 0x7f0d066a;
         public static final int notification_media_action = 0x7f0d066b;
@@ -342,11 +342,11 @@ public final class R {
         public static final int notification_template_media_custom = 0x7f0d0675;
         public static final int notification_template_part_chronometer = 0x7f0d0676;
         public static final int notification_template_part_time = 0x7f0d0677;
-        public static final int win_layout_activity_h5 = 0x7f0d092c;
-        public static final int win_layout_close = 0x7f0d092d;
-        public static final int win_layout_h5_open_activity = 0x7f0d092e;
-        public static final int win_layout_win_draw_video = 0x7f0d092f;
-        public static final int win_layout_win_splash = 0x7f0d0930;
+        public static final int win_layout_activity_h5 = 0x7f0d092d;
+        public static final int win_layout_close = 0x7f0d092e;
+        public static final int win_layout_h5_open_activity = 0x7f0d092f;
+        public static final int win_layout_win_draw_video = 0x7f0d0930;
+        public static final int win_layout_win_splash = 0x7f0d0931;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -365,9 +365,9 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class raw {
+    public final class raw {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int win_mraid = 0x7f110072;
+        public static final int win_mraid = 0x7f110075;
         public transient /* synthetic */ FieldHolder $fh;
 
         public raw() {
@@ -386,45 +386,45 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class string {
+    public final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int common_google_play_services_unknown_issue = 0x7f0f041b;
-        public static final int fun_ad_interaction_type_browser = 0x7f0f078a;
-        public static final int fun_ad_interaction_type_dial = 0x7f0f078b;
-        public static final int fun_ad_interaction_type_download = 0x7f0f078c;
-        public static final int fun_ad_interaction_type_downloading = 0x7f0f078d;
-        public static final int fun_ad_interaction_type_downloading_without_progress = 0x7f0f078e;
-        public static final int fun_ad_interaction_type_install = 0x7f0f078f;
-        public static final int fun_ad_interaction_type_open = 0x7f0f0790;
-        public static final int fun_ad_interaction_type_redownload = 0x7f0f0791;
-        public static final int fun_ad_interaction_type_resume_download = 0x7f0f0792;
-        public static final int fun_ad_interaction_type_start = 0x7f0f0793;
-        public static final int fun_ad_interaction_type_tap_download = 0x7f0f0794;
-        public static final int fun_ad_interaction_type_tap_install = 0x7f0f0795;
-        public static final int fun_ad_interaction_type_tap_open = 0x7f0f0796;
-        public static final int fun_ad_interaction_type_update = 0x7f0f0797;
-        public static final int fun_ad_interaction_type_view = 0x7f0f0798;
-        public static final int fun_ad_title_favourite = 0x7f0f079f;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1212;
-        public static final int win_cancel = 0x7f0f15c5;
-        public static final int win_cyc_process_color = 0x7f0f15c6;
-        public static final int win_cyclecolor = 0x7f0f15c7;
-        public static final int win_jump_title = 0x7f0f15c8;
-        public static final int win_loadp_error = 0x7f0f15c9;
-        public static final int win_store_picture_accept = 0x7f0f15ca;
-        public static final int win_store_picture_decline = 0x7f0f15cb;
-        public static final int win_store_picture_message = 0x7f0f15cc;
-        public static final int win_store_picture_title = 0x7f0f15cd;
-        public static final int win_toast_network_error = 0x7f0f15ce;
-        public static final int win_toast_network_error2 = 0x7f0f15cf;
-        public static final int win_wdownload_download_finish = 0x7f0f15d0;
-        public static final int win_wdownload_failed = 0x7f0f15d1;
-        public static final int win_wdownload_failed_msg = 0x7f0f15d2;
-        public static final int win_wdownload_loading = 0x7f0f15d3;
-        public static final int win_wdownload_no_netwrok = 0x7f0f15d4;
-        public static final int win_wdownload_processing = 0x7f0f15d5;
-        public static final int win_wdownload_start = 0x7f0f15d6;
-        public static final int win_wdownload_start_load = 0x7f0f15d7;
+        public static final int common_google_play_services_unknown_issue = 0x7f0f0422;
+        public static final int fun_ad_interaction_type_browser = 0x7f0f0796;
+        public static final int fun_ad_interaction_type_dial = 0x7f0f0797;
+        public static final int fun_ad_interaction_type_download = 0x7f0f0798;
+        public static final int fun_ad_interaction_type_downloading = 0x7f0f0799;
+        public static final int fun_ad_interaction_type_downloading_without_progress = 0x7f0f079a;
+        public static final int fun_ad_interaction_type_install = 0x7f0f079b;
+        public static final int fun_ad_interaction_type_open = 0x7f0f079c;
+        public static final int fun_ad_interaction_type_redownload = 0x7f0f079d;
+        public static final int fun_ad_interaction_type_resume_download = 0x7f0f079e;
+        public static final int fun_ad_interaction_type_start = 0x7f0f079f;
+        public static final int fun_ad_interaction_type_tap_download = 0x7f0f07a0;
+        public static final int fun_ad_interaction_type_tap_install = 0x7f0f07a1;
+        public static final int fun_ad_interaction_type_tap_open = 0x7f0f07a2;
+        public static final int fun_ad_interaction_type_update = 0x7f0f07a3;
+        public static final int fun_ad_interaction_type_view = 0x7f0f07a4;
+        public static final int fun_ad_title_favourite = 0x7f0f07ab;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1226;
+        public static final int win_cancel = 0x7f0f15df;
+        public static final int win_cyc_process_color = 0x7f0f15e0;
+        public static final int win_cyclecolor = 0x7f0f15e1;
+        public static final int win_jump_title = 0x7f0f15e2;
+        public static final int win_loadp_error = 0x7f0f15e3;
+        public static final int win_store_picture_accept = 0x7f0f15e4;
+        public static final int win_store_picture_decline = 0x7f0f15e5;
+        public static final int win_store_picture_message = 0x7f0f15e6;
+        public static final int win_store_picture_title = 0x7f0f15e7;
+        public static final int win_toast_network_error = 0x7f0f15e8;
+        public static final int win_toast_network_error2 = 0x7f0f15e9;
+        public static final int win_wdownload_download_finish = 0x7f0f15ea;
+        public static final int win_wdownload_failed = 0x7f0f15eb;
+        public static final int win_wdownload_failed_msg = 0x7f0f15ec;
+        public static final int win_wdownload_loading = 0x7f0f15ed;
+        public static final int win_wdownload_no_netwrok = 0x7f0f15ee;
+        public static final int win_wdownload_processing = 0x7f0f15ef;
+        public static final int win_wdownload_start = 0x7f0f15f0;
+        public static final int win_wdownload_start_load = 0x7f0f15f1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -443,7 +443,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class style {
+    public final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TextAppearance_Compat_Notification = 0x7f1001ee;
         public static final int TextAppearance_Compat_Notification_Info = 0x7f1001ef;
@@ -476,7 +476,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class styleable {
+    public final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] ColorStateListItem;
         public static final int ColorStateListItem_alpha = 0x00000002;
@@ -570,7 +570,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class xml {
+    public final class xml {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int file_paths = 0x7f130002;
         public transient /* synthetic */ FieldHolder $fh;

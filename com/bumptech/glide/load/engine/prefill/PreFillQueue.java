@@ -13,12 +13,12 @@ import java.util.Map;
 public final class PreFillQueue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<PreFillType, Integer> bitmapsPerType;
+    public final Map bitmapsPerType;
     public int bitmapsRemaining;
     public int keyIndex;
-    public final List<PreFillType> keyList;
+    public final List keyList;
 
-    public PreFillQueue(Map<PreFillType, Integer> map) {
+    public PreFillQueue(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,21 +43,31 @@ public final class PreFillQueue {
     public int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bitmapsRemaining : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bitmapsRemaining;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bitmapsRemaining == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.bitmapsRemaining == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public PreFillType remove() {
         InterceptResult invokeV;
+        int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            PreFillType preFillType = this.keyList.get(this.keyIndex);
-            Integer num = this.bitmapsPerType.get(preFillType);
+            PreFillType preFillType = (PreFillType) this.keyList.get(this.keyIndex);
+            Integer num = (Integer) this.bitmapsPerType.get(preFillType);
             if (num.intValue() == 1) {
                 this.bitmapsPerType.remove(preFillType);
                 this.keyList.remove(this.keyIndex);
@@ -65,7 +75,12 @@ public final class PreFillQueue {
                 this.bitmapsPerType.put(preFillType, Integer.valueOf(num.intValue() - 1));
             }
             this.bitmapsRemaining--;
-            this.keyIndex = this.keyList.isEmpty() ? 0 : (this.keyIndex + 1) % this.keyList.size();
+            if (this.keyList.isEmpty()) {
+                size = 0;
+            } else {
+                size = (this.keyIndex + 1) % this.keyList.size();
+            }
+            this.keyIndex = size;
             return preFillType;
         }
         return (PreFillType) invokeV.objValue;

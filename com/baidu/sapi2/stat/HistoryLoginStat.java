@@ -24,8 +24,23 @@ public class HistoryLoginStat implements NoProguard {
     public static final String UBC_ID = "4921";
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1513372521, "Lcom/baidu/sapi2/stat/HistoryLoginStat;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1513372521, "Lcom/baidu/sapi2/stat/HistoryLoginStat;");
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class HistoryClickLoginStat implements NoProguard {
+    public class HistoryClickLoginStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -40,7 +55,7 @@ public class HistoryLoginStat implements NoProguard {
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
         public static String sValueSence;
-        public static Map<String, Object> statExtMap;
+        public static Map statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -122,7 +137,7 @@ public class HistoryLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public static class HistoryShowStat implements NoProguard {
+    public class HistoryShowStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_AVAILABLE_COUNT = "available_count";
@@ -132,7 +147,7 @@ public class HistoryLoginStat implements NoProguard {
         public static final String KEY_VALUE = "value";
         public static final String VALUE_PAGE = "getdpass";
         public static String sValue;
-        public static Map<String, Object> statExtMap;
+        public static Map statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -208,21 +223,6 @@ public class HistoryLoginStat implements NoProguard {
                 ubcUploadImplCallback.onEvent(HistoryLoginStat.UBC_ID, jSONObject2);
                 resetData();
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1513372521, "Lcom/baidu/sapi2/stat/HistoryLoginStat;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1513372521, "Lcom/baidu/sapi2/stat/HistoryLoginStat;");
         }
     }
 

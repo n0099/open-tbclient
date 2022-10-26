@@ -24,6 +24,13 @@ public class SimpleNavigationBar extends FrameLayout {
     public c d;
 
     /* loaded from: classes9.dex */
+    public interface c {
+        void onBackPress();
+
+        void onRightClick();
+    }
+
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,10 +57,9 @@ public class SimpleNavigationBar extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
+                this.a.d.onBackPress();
             }
-            this.a.d.onBackPress();
         }
     }
 
@@ -84,18 +90,10 @@ public class SimpleNavigationBar extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
+                this.a.d.onRightClick();
             }
-            this.a.d.onRightClick();
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public interface c {
-        void onBackPress();
-
-        void onRightClick();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -116,44 +114,6 @@ public class SimpleNavigationBar extends FrameLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void b(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06aa, (ViewGroup) this, true);
-            this.c = (ImageView) findViewById(R.id.iv_back);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ff);
-            this.c.setOnClickListener(new a(this));
-            this.b.setOnClickListener(new b(this));
-        }
-    }
-
-    public void setCallback(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.d = cVar;
-        }
-    }
-
-    public void setRight(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null || str.isEmpty()) {
-            return;
-        }
-        this.b.setText(str);
-        this.b.setVisibility(0);
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (str != null && !str.isEmpty()) {
-                this.a.setText(str);
-            }
-            this.a.setVisibility(0);
         }
     }
 
@@ -178,6 +138,18 @@ public class SimpleNavigationBar extends FrameLayout {
         }
     }
 
+    public final void b(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06aa, (ViewGroup) this, true);
+            this.c = (ImageView) findViewById(R.id.iv_back);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092405);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ea);
+            this.c.setOnClickListener(new a(this));
+            this.b.setOnClickListener(new b(this));
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SimpleNavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -198,5 +170,30 @@ public class SimpleNavigationBar extends FrameLayout {
             }
         }
         b(context, attributeSet);
+    }
+
+    public void setCallback(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.d = cVar;
+        }
+    }
+
+    public void setRight(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && str != null && !str.isEmpty()) {
+            this.b.setText(str);
+            this.b.setVisibility(0);
+        }
+    }
+
+    public void setTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (str != null && !str.isEmpty()) {
+                this.a.setText(str);
+            }
+            this.a.setVisibility(0);
+        }
     }
 }

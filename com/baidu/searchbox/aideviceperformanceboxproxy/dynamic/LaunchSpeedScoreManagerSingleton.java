@@ -53,6 +53,9 @@ public class LaunchSpeedScoreManagerSingleton extends LaunchSpeedScoreManager {
     public static LaunchSpeedScoreManagerSingleton getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sInstance : (LaunchSpeedScoreManagerSingleton) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sInstance;
+        }
+        return (LaunchSpeedScoreManagerSingleton) invokeV.objValue;
     }
 }

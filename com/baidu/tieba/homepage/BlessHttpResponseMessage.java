@@ -42,10 +42,9 @@ public class BlessHttpResponseMessage extends HttpResponsedMessage {
         UserPkResIdl userPkResIdl;
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (userPkResIdl = (UserPkResIdl) new Wire(new Class[0]).parseFrom(bArr, UserPkResIdl.class)) == null || (dataRes = userPkResIdl.data) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (userPkResIdl = (UserPkResIdl) new Wire(new Class[0]).parseFrom(bArr, UserPkResIdl.class)) != null && (dataRes = userPkResIdl.data) != null) {
+            this.userPkId = dataRes.user_pk_id.longValue();
+            this.pkID = userPkResIdl.data.pk_id.longValue();
         }
-        this.userPkId = dataRes.user_pk_id.longValue();
-        this.pkID = userPkResIdl.data.pk_id.longValue();
     }
 }

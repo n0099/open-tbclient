@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,10 +20,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.q26;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ri5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,9 +48,9 @@ public class MultiLinkCardView extends RelativeLayout {
     public TextView j;
     public TextView k;
     public ImageView l;
-    public List<RelativeLayout> m;
-    public List<TbImageView> n;
-    public List<TextView> o;
+    public List m;
+    public List n;
+    public List o;
 
     static {
         InterceptResult invokeClinit;
@@ -65,8 +65,8 @@ public class MultiLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds136);
-        ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds136);
+        fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -86,64 +86,6 @@ public class MultiLinkCardView extends RelativeLayout {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
-            }
-        }
-    }
-
-    public void a(List<PbLinkData> list, List<PbGoodsData> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
-            new ArrayList();
-            mi5 mi5Var = new mi5();
-            List<q26> a = mi5Var.a(list, list2);
-            boolean c = mi5Var.c();
-            if (ListUtils.isEmpty(a)) {
-                return;
-            }
-            if (UbsABTestHelper.showNewUI()) {
-                TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(ej.f(getContext(), R.dimen.tbds10)).into(this.j);
-            }
-            this.d.setVisibility(8);
-            this.e.setVisibility(8);
-            this.f.setVisibility(8);
-            this.j.setVisibility(8);
-            int size = a.size() > 3 ? 3 : a.size();
-            for (int i = 0; i < size; i++) {
-                if (a.get(i) instanceof PbLinkData) {
-                    PbLinkData pbLinkData = (PbLinkData) a.get(i);
-                    if (i < a.size() && pbLinkData != null) {
-                        this.m.get(i).setVisibility(0);
-                        this.n.get(i).K(pbLinkData.picUrl, 10, false);
-                        if (pbLinkData.urlType == 2 && !TextUtils.isEmpty(pbLinkData.linkFrom)) {
-                            this.o.get(i).setText(pbLinkData.linkFrom);
-                            this.o.get(i).setVisibility(0);
-                        }
-                    }
-                } else if (a.get(i) instanceof PbGoodsData) {
-                    PbGoodsData pbGoodsData = (PbGoodsData) a.get(i);
-                    if (i < a.size() && pbGoodsData != null) {
-                        this.m.get(i).setVisibility(0);
-                        this.n.get(i).K(pbGoodsData.picUrl, 10, false);
-                    }
-                }
-                if (a.size() > 3 && i == 2) {
-                    this.j.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0443, Integer.valueOf(a.size() - 3)));
-                    this.j.setVisibility(0);
-                }
-            }
-            this.k.setText(getContext().getString(c ? R.string.obfuscated_res_0x7f0f0b3e : R.string.obfuscated_res_0x7f0f0b3f, Integer.valueOf(a.size())));
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0107);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-            for (int i = 0; i < this.o.size(); i++) {
-                SkinManager.setViewTextColor(this.o.get(i), (int) R.color.CAM_X0101);
-                TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.cp_link_tip_d_alpha66).blRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).brRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds10)).tlRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).trRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).into(this.o.get(i));
             }
         }
     }
@@ -189,41 +131,41 @@ public class MultiLinkCardView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ce, this);
-        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c60);
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c61);
-        this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c62);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce2);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce3);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091017);
+        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5c);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5d);
+        this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5e);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ceb);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090cec);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ced);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09100b);
         this.g = tbImageView;
         tbImageView.setDrawCorner(true);
         this.g.setGifIconSupport(false);
         this.g.setLongIconSupport(false);
         this.g.setConrers(15);
         this.g.setPlaceHolder(1);
-        this.g.setRadius(ej.f(getContext(), R.dimen.tbds10));
-        TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091019);
+        this.g.setRadius(fj.f(getContext(), R.dimen.tbds10));
+        TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09100d);
         this.h = tbImageView2;
         tbImageView2.setDrawCorner(true);
         this.h.setGifIconSupport(false);
         this.h.setLongIconSupport(false);
         this.h.setConrers(15);
         this.h.setPlaceHolder(1);
-        this.h.setRadius(ej.f(getContext(), R.dimen.tbds10));
-        TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09101a);
+        this.h.setRadius(fj.f(getContext(), R.dimen.tbds10));
+        TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09100e);
         this.i = tbImageView3;
         tbImageView3.setDrawCorner(true);
         this.i.setGifIconSupport(false);
         this.i.setLongIconSupport(false);
         this.i.setPlaceHolder(1);
         this.i.setConrers(15);
-        this.i.setRadius(ej.f(getContext(), R.dimen.tbds10));
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cc);
+        this.i.setRadius(fj.f(getContext(), R.dimen.tbds10));
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b7);
         this.j = textView;
-        hv4.d(textView).y(R.array.S_O_X001);
-        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cb);
-        this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f091018);
+        nv4.d(textView).y(R.array.S_O_X001);
+        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b6);
+        this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f09100c);
         this.o = new ArrayList();
         this.n = new ArrayList();
         ArrayList arrayList = new ArrayList();
@@ -238,5 +180,76 @@ public class MultiLinkCardView extends RelativeLayout {
         this.o.add(this.b);
         this.o.add(this.c);
         b();
+    }
+
+    public void a(List list, List list2) {
+        int size;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
+            new ArrayList();
+            ri5 ri5Var = new ri5();
+            List a = ri5Var.a(list, list2);
+            boolean c = ri5Var.c();
+            if (ListUtils.isEmpty(a)) {
+                return;
+            }
+            if (UbsABTestHelper.showNewUI()) {
+                TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(fj.f(getContext(), R.dimen.tbds10)).into(this.j);
+            }
+            this.d.setVisibility(8);
+            this.e.setVisibility(8);
+            this.f.setVisibility(8);
+            this.j.setVisibility(8);
+            if (a.size() > 3) {
+                size = 3;
+            } else {
+                size = a.size();
+            }
+            for (int i2 = 0; i2 < size; i2++) {
+                if (a.get(i2) instanceof PbLinkData) {
+                    PbLinkData pbLinkData = (PbLinkData) a.get(i2);
+                    if (i2 < a.size() && pbLinkData != null) {
+                        ((RelativeLayout) this.m.get(i2)).setVisibility(0);
+                        ((TbImageView) this.n.get(i2)).L(pbLinkData.picUrl, 10, false);
+                        if (pbLinkData.urlType == 2 && !TextUtils.isEmpty(pbLinkData.linkFrom)) {
+                            ((TextView) this.o.get(i2)).setText(pbLinkData.linkFrom);
+                            ((TextView) this.o.get(i2)).setVisibility(0);
+                        }
+                    }
+                } else if (a.get(i2) instanceof PbGoodsData) {
+                    PbGoodsData pbGoodsData = (PbGoodsData) a.get(i2);
+                    if (i2 < a.size() && pbGoodsData != null) {
+                        ((RelativeLayout) this.m.get(i2)).setVisibility(0);
+                        ((TbImageView) this.n.get(i2)).L(pbGoodsData.picUrl, 10, false);
+                    }
+                }
+                if (a.size() > 3 && i2 == 2) {
+                    this.j.setText(getContext().getString(R.string.obfuscated_res_0x7f0f044a, Integer.valueOf(a.size() - 3)));
+                    this.j.setVisibility(0);
+                }
+            }
+            TextView textView = this.k;
+            Context context = getContext();
+            if (c) {
+                i = R.string.obfuscated_res_0x7f0f0b4d;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f0b4e;
+            }
+            textView.setText(context.getString(i, Integer.valueOf(a.size())));
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0107);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            for (int i = 0; i < this.o.size(); i++) {
+                SkinManager.setViewTextColor((View) this.o.get(i), (int) R.color.CAM_X0101);
+                TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.cp_link_tip_d_alpha66).blRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).brRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds10)).tlRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).trRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).into((View) this.o.get(i));
+            }
+        }
     }
 }

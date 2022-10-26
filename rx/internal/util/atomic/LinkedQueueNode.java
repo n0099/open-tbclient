@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>> {
+public final class LinkedQueueNode extends AtomicReference {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2404266111789071508L;
     public transient /* synthetic */ FieldHolder $fh;
-    public E value;
+    public Object value;
 
     public LinkedQueueNode() {
         Interceptable interceptable = $ic;
@@ -28,49 +28,41 @@ public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>
         }
     }
 
-    public E getAndNullValue() {
+    public Object getAndNullValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            E lpValue = lpValue();
+            Object lpValue = lpValue();
             spValue(null);
             return lpValue;
         }
-        return (E) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public E lpValue() {
+    public Object lpValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : (E) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.value;
+        }
+        return invokeV.objValue;
     }
 
-    public LinkedQueueNode<E> lvNext() {
+    public LinkedQueueNode lvNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() : (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public void soNext(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, linkedQueueNode) == null) {
-            lazySet(linkedQueueNode);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (LinkedQueueNode) get();
         }
+        return (LinkedQueueNode) invokeV.objValue;
     }
 
-    public void spValue(E e) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e) == null) {
-            this.value = e;
-        }
-    }
-
-    public LinkedQueueNode(E e) {
+    public LinkedQueueNode(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,6 +72,20 @@ public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>
                 return;
             }
         }
-        spValue(e);
+        spValue(obj);
+    }
+
+    public void soNext(LinkedQueueNode linkedQueueNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, linkedQueueNode) == null) {
+            lazySet(linkedQueueNode);
+        }
+    }
+
+    public void spValue(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            this.value = obj;
+        }
     }
 }

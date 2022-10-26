@@ -40,24 +40,6 @@ public class f0 extends WebViewClient {
         this.d = g0Var;
     }
 
-    public final boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            g0 g0Var = this.d;
-            if (g0Var.d) {
-                g0Var.d = false;
-                g0 g0Var2 = this.d;
-                E2 e2 = g0Var2.b;
-                if (e2 != null) {
-                    return e2.a(str, g0Var2.e);
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
@@ -66,20 +48,6 @@ public class f0 extends WebViewClient {
             if (TextUtils.isEmpty(this.b)) {
                 this.b = str;
             }
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
-            super.onPageStarted(webView, str, bitmap);
-            G2 g2 = this.d.a;
-            if (g2 != null && !this.c) {
-                this.c = true;
-                g2.onLoaded();
-            }
-            this.a = webView.getUrl();
         }
     }
 
@@ -119,5 +87,37 @@ public class f0 extends WebViewClient {
             return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    public final boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            g0 g0Var = this.d;
+            if (g0Var.d) {
+                g0Var.d = false;
+                g0 g0Var2 = this.d;
+                E2 e2 = g0Var2.b;
+                if (e2 != null) {
+                    return e2.a(str, g0Var2.e);
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+            G2 g2 = this.d.a;
+            if (g2 != null && !this.c) {
+                this.c = true;
+                g2.onLoaded();
+            }
+            this.a = webView.getUrl();
+        }
     }
 }

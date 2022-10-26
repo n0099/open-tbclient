@@ -18,6 +18,12 @@ public abstract class VirtualLayout extends ConstraintHelper {
     public boolean mApplyElevationOnAttach;
     public boolean mApplyVisibilityOnAttach;
 
+    public void onMeasure(androidx.constraintlayout.solver.widgets.VirtualLayout virtualLayout, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, virtualLayout, i, i2) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VirtualLayout(Context context) {
         super(context);
@@ -56,55 +62,6 @@ public abstract class VirtualLayout extends ConstraintHelper {
                 }
                 obtainStyledAttributes.recycle();
             }
-        }
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintHelper, android.view.View
-    public void onAttachedToWindow() {
-        ViewParent parent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onAttachedToWindow();
-            if ((this.mApplyVisibilityOnAttach || this.mApplyElevationOnAttach) && (parent = getParent()) != null && (parent instanceof ConstraintLayout)) {
-                ConstraintLayout constraintLayout = (ConstraintLayout) parent;
-                int visibility = getVisibility();
-                float elevation = Build.VERSION.SDK_INT >= 21 ? getElevation() : 0.0f;
-                for (int i = 0; i < this.mCount; i++) {
-                    View viewById = constraintLayout.getViewById(this.mIds[i]);
-                    if (viewById != null) {
-                        if (this.mApplyVisibilityOnAttach) {
-                            viewById.setVisibility(visibility);
-                        }
-                        if (this.mApplyElevationOnAttach && elevation > 0.0f && Build.VERSION.SDK_INT >= 21) {
-                            viewById.setTranslationZ(viewById.getTranslationZ() + elevation);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void onMeasure(androidx.constraintlayout.solver.widgets.VirtualLayout virtualLayout, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, virtualLayout, i, i2) == null) {
-        }
-    }
-
-    @Override // android.view.View
-    public void setElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            super.setElevation(f);
-            applyLayoutFeatures();
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            super.setVisibility(i);
-            applyLayoutFeatures();
         }
     }
 
@@ -147,6 +104,54 @@ public abstract class VirtualLayout extends ConstraintHelper {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintHelper, android.view.View
+    public void onAttachedToWindow() {
+        ViewParent parent;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onAttachedToWindow();
+            if ((this.mApplyVisibilityOnAttach || this.mApplyElevationOnAttach) && (parent = getParent()) != null && (parent instanceof ConstraintLayout)) {
+                ConstraintLayout constraintLayout = (ConstraintLayout) parent;
+                int visibility = getVisibility();
+                if (Build.VERSION.SDK_INT >= 21) {
+                    f = getElevation();
+                } else {
+                    f = 0.0f;
+                }
+                for (int i = 0; i < this.mCount; i++) {
+                    View viewById = constraintLayout.getViewById(this.mIds[i]);
+                    if (viewById != null) {
+                        if (this.mApplyVisibilityOnAttach) {
+                            viewById.setVisibility(visibility);
+                        }
+                        if (this.mApplyElevationOnAttach && f > 0.0f && Build.VERSION.SDK_INT >= 21) {
+                            viewById.setTranslationZ(viewById.getTranslationZ() + f);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void setElevation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            super.setElevation(f);
+            applyLayoutFeatures();
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.setVisibility(i);
+            applyLayoutFeatures();
         }
     }
 }

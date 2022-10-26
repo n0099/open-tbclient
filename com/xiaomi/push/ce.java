@@ -12,7 +12,7 @@ import com.xiaomi.push.cj;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ce extends cj.b<Long> {
+public class ce extends cj.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
@@ -21,7 +21,7 @@ public class ce extends cj.b<Long> {
     public String f162a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ce(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
+    public ce(String str, List list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
         super(str, list, str2, strArr, str3, str4, str5, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +55,6 @@ public class ce extends cj.b<Long> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.xiaomi.push.cj.b
     public Long a(Context context, Cursor cursor) {
         InterceptResult invokeLL;
@@ -71,11 +70,11 @@ public class ce extends cj.b<Long> {
     }
 
     @Override // com.xiaomi.push.cj.b
-    public void a(Context context, List<Long> list) {
+    public void a(Context context, List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, list) == null) || context == null || list == null || list.size() <= 0) {
             return;
         }
-        this.a = list.get(0).longValue();
+        this.a = ((Long) list.get(0)).longValue();
     }
 }

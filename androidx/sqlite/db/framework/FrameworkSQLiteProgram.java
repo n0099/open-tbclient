@@ -32,6 +32,14 @@ public class FrameworkSQLiteProgram implements SupportSQLiteProgram {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
+    public void bindNull(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mDelegate.bindNull(i);
+        }
+    }
+
+    @Override // androidx.sqlite.db.SupportSQLiteProgram
     public void bindBlob(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
@@ -52,14 +60,6 @@ public class FrameworkSQLiteProgram implements SupportSQLiteProgram {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             this.mDelegate.bindLong(i, j);
-        }
-    }
-
-    @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindNull(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.mDelegate.bindNull(i);
         }
     }
 

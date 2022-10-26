@@ -26,6 +26,15 @@ public class Crypto {
         }
     }
 
+    public static String sha1(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return sha1(str.getBytes());
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String sha1(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -49,11 +58,5 @@ public class Crypto {
             }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String sha1(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? sha1(str.getBytes()) : (String) invokeL.objValue;
     }
 }

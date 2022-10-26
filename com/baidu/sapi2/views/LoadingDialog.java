@@ -20,7 +20,7 @@ public class LoadingDialog extends Dialog implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class Builder implements NoProguard {
+    public class Builder implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -54,9 +54,9 @@ public class LoadingDialog extends Dialog implements NoProguard {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04ff, (ViewGroup) null);
-                LoadingDialog loadingDialog = new LoadingDialog(this.a, R.style.obfuscated_res_0x7f1003e8);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f3);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04fc, (ViewGroup) null);
+                LoadingDialog loadingDialog = new LoadingDialog(this.a, R.style.obfuscated_res_0x7f1003e9);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921dd);
                 if (this.c) {
                     textView.setText(this.b);
                 } else {

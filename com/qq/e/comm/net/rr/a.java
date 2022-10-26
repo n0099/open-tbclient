@@ -1,8 +1,8 @@
 package com.qq.e.comm.net.rr;
 
-import android.annotation.TargetApi;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,12 +31,12 @@ public class a {
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0648a extends Exception {
+    public class C0644a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0648a(String str, Throwable th) {
+        public C0644a(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -58,7 +58,7 @@ public class a {
     }
 
     /* loaded from: classes8.dex */
-    public static class b extends Exception {
+    public class b extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,61 +97,9 @@ public class a {
                 return;
             }
         }
-        a = new byte[]{91, -62};
+        a = new byte[]{91, ExifInterface.MARKER_SOF2};
         d = String.format("AES/%s/PKCS7Padding", "ECB");
         e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
-    }
-
-    public static byte[] a(byte[] bArr) throws C0648a {
-        InterceptResult invokeL;
-        Cipher cipher;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            synchronized (a.class) {
-                cipher = c;
-                if (cipher == null) {
-                    try {
-                        cipher = Cipher.getInstance(d);
-                        cipher.init(2, new SecretKeySpec(e, "AES"));
-                        c = cipher;
-                    } catch (Exception e2) {
-                        throw new C0648a("Fail To Init Cipher", e2);
-                    }
-                }
-            }
-            try {
-                return cipher.doFinal(bArr);
-            } catch (Exception e3) {
-                throw new C0648a("Exception While dencrypt byte array", e3);
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] b(byte[] bArr) throws C0648a {
-        InterceptResult invokeL;
-        Cipher cipher;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            synchronized (a.class) {
-                cipher = b;
-                if (cipher == null) {
-                    try {
-                        cipher = Cipher.getInstance(d);
-                        cipher.init(1, new SecretKeySpec(e, "AES"));
-                        b = cipher;
-                    } catch (Exception e2) {
-                        throw new C0648a("Fail To Init Cipher", e2);
-                    }
-                }
-            }
-            try {
-                return cipher.doFinal(bArr);
-            } catch (Exception e3) {
-                throw new C0648a("Exception While encrypt byte array", e3);
-            }
-        }
-        return (byte[]) invokeL.objValue;
     }
 
     public static byte[] c(byte[] bArr) throws b {
@@ -174,7 +122,6 @@ public class a {
         return (byte[]) invokeL.objValue;
     }
 
-    @TargetApi(9)
     public static byte[] d(byte[] bArr) throws b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -196,6 +143,58 @@ public class a {
         return (byte[]) invokeL.objValue;
     }
 
+    public static byte[] a(byte[] bArr) throws C0644a {
+        InterceptResult invokeL;
+        Cipher cipher;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            synchronized (a.class) {
+                cipher = c;
+                if (cipher == null) {
+                    try {
+                        cipher = Cipher.getInstance(d);
+                        cipher.init(2, new SecretKeySpec(e, "AES"));
+                        c = cipher;
+                    } catch (Exception e2) {
+                        throw new C0644a("Fail To Init Cipher", e2);
+                    }
+                }
+            }
+            try {
+                return cipher.doFinal(bArr);
+            } catch (Exception e3) {
+                throw new C0644a("Exception While dencrypt byte array", e3);
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] b(byte[] bArr) throws C0644a {
+        InterceptResult invokeL;
+        Cipher cipher;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            synchronized (a.class) {
+                cipher = b;
+                if (cipher == null) {
+                    try {
+                        cipher = Cipher.getInstance(d);
+                        cipher.init(1, new SecretKeySpec(e, "AES"));
+                        b = cipher;
+                    } catch (Exception e2) {
+                        throw new C0644a("Fail To Init Cipher", e2);
+                    }
+                }
+            }
+            try {
+                return cipher.doFinal(bArr);
+            } catch (Exception e3) {
+                throw new C0644a("Exception While encrypt byte array", e3);
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:52:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -208,77 +207,77 @@ public class a {
             GZIPInputStream gZIPInputStream2 = null;
             r0 = null;
             byte[] bArr2 = null;
-            if (bArr == null || bArr.length == 0) {
-                return bArr;
-            }
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr3 = new byte[1024];
-            try {
-                gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
-                while (true) {
-                    try {
+            if (bArr != null && bArr.length != 0) {
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr3 = new byte[1024];
+                try {
+                    gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                    while (true) {
                         try {
-                            int read = gZIPInputStream.read(bArr3);
-                            if (read == -1) {
-                                break;
+                            try {
+                                int read = gZIPInputStream.read(bArr3);
+                                if (read == -1) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr3, 0, read);
+                            } catch (Exception e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                if (gZIPInputStream != null) {
+                                    try {
+                                        gZIPInputStream.close();
+                                    } catch (Exception e3) {
+                                        e = e3;
+                                        e.printStackTrace();
+                                        return bArr2;
+                                    }
+                                }
+                                byteArrayInputStream.close();
+                                byteArrayOutputStream.close();
+                                return bArr2;
                             }
-                            byteArrayOutputStream.write(bArr3, 0, read);
-                        } catch (Exception e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            if (gZIPInputStream != null) {
+                        } catch (Throwable th) {
+                            th = th;
+                            gZIPInputStream2 = gZIPInputStream;
+                            if (gZIPInputStream2 != null) {
                                 try {
-                                    gZIPInputStream.close();
-                                } catch (Exception e3) {
-                                    e = e3;
-                                    e.printStackTrace();
-                                    return bArr2;
+                                    gZIPInputStream2.close();
+                                } catch (Exception e4) {
+                                    e4.printStackTrace();
+                                    throw th;
                                 }
                             }
                             byteArrayInputStream.close();
                             byteArrayOutputStream.close();
-                            return bArr2;
+                            throw th;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        gZIPInputStream2 = gZIPInputStream;
-                        if (gZIPInputStream2 != null) {
-                            try {
-                                gZIPInputStream2.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
-                                throw th;
-                            }
-                        }
+                    }
+                    byteArrayOutputStream.flush();
+                    bArr2 = byteArrayOutputStream.toByteArray();
+                    try {
+                        gZIPInputStream.close();
                         byteArrayInputStream.close();
                         byteArrayOutputStream.close();
-                        throw th;
+                    } catch (Exception e5) {
+                        e = e5;
+                        e.printStackTrace();
+                        return bArr2;
                     }
-                }
-                byteArrayOutputStream.flush();
-                bArr2 = byteArrayOutputStream.toByteArray();
-                try {
-                    gZIPInputStream.close();
+                } catch (Exception e6) {
+                    e = e6;
+                    gZIPInputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (gZIPInputStream2 != null) {
+                    }
                     byteArrayInputStream.close();
                     byteArrayOutputStream.close();
-                } catch (Exception e5) {
-                    e = e5;
-                    e.printStackTrace();
-                    return bArr2;
+                    throw th;
                 }
-            } catch (Exception e6) {
-                e = e6;
-                gZIPInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (gZIPInputStream2 != null) {
-                }
-                byteArrayInputStream.close();
-                byteArrayOutputStream.close();
-                throw th;
+                return bArr2;
             }
-            return bArr2;
+            return bArr;
         }
         return (byte[]) invokeL.objValue;
     }

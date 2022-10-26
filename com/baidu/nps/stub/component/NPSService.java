@@ -17,6 +17,15 @@ public abstract class NPSService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public Resources mNPSResources;
 
+    private String getBundlePackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public NPSService() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,20 +40,14 @@ public abstract class NPSService extends Service {
         }
     }
 
-    private String getBundlePackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // android.content.ContextWrapper, android.content.Context
     public AssetManager getAssets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getResources().getAssets() : (AssetManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getResources().getAssets();
+        }
+        return (AssetManager) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

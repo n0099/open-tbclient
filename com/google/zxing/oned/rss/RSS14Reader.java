@@ -34,8 +34,8 @@ public final class RSS14Reader extends AbstractRSSReader {
     public static final int[] OUTSIDE_GSUM;
     public static final int[] OUTSIDE_ODD_WIDEST;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<Pair> possibleLeftPairs;
-    public final List<Pair> possibleRightPairs;
+    public final List possibleLeftPairs;
+    public final List possibleRightPairs;
 
     static {
         InterceptResult invokeClinit;
@@ -76,28 +76,56 @@ public final class RSS14Reader extends AbstractRSSReader {
         this.possibleRightPairs = new ArrayList();
     }
 
-    public static void addOrTally(Collection<Pair> collection, Pair pair) {
+    @Override // com.google.zxing.oned.OneDReader, com.google.zxing.Reader
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, collection, pair) == null) || pair == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.possibleLeftPairs.clear();
+            this.possibleRightPairs.clear();
+        }
+    }
+
+    public static void addOrTally(Collection collection, Pair pair) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, collection, pair) != null) || pair == null) {
             return;
         }
         boolean z = false;
-        Iterator<Pair> it = collection.iterator();
+        Iterator it = collection.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            Pair next = it.next();
-            if (next.getValue() == pair.getValue()) {
-                next.incrementCount();
+            Pair pair2 = (Pair) it.next();
+            if (pair2.getValue() == pair.getValue()) {
+                pair2.incrementCount();
                 z = true;
                 break;
             }
         }
-        if (z) {
-            return;
+        if (!z) {
+            collection.add(pair);
         }
-        collection.add(pair);
+    }
+
+    public static boolean checkChecksum(Pair pair, Pair pair2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pair, pair2)) == null) {
+            int checksumPortion = (pair.getChecksumPortion() + (pair2.getChecksumPortion() * 16)) % 79;
+            int value = (pair.getFinderPattern().getValue() * 9) + pair2.getFinderPattern().getValue();
+            if (value > 72) {
+                value--;
+            }
+            if (value > 8) {
+                value--;
+            }
+            if (checksumPortion == value) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0029, code lost:
@@ -134,137 +162,137 @@ public final class RSS14Reader extends AbstractRSSReader {
         boolean z4;
         boolean z5;
         int i2;
+        boolean z6;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) {
-            return;
-        }
-        int sum = MathUtils.sum(getOddCounts());
-        int sum2 = MathUtils.sum(getEvenCounts());
-        boolean z6 = true;
-        if (z) {
-            if (sum > 12) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            int sum = MathUtils.sum(getOddCounts());
+            int sum2 = MathUtils.sum(getEvenCounts());
+            boolean z7 = false;
+            boolean z8 = true;
+            if (z) {
+                if (sum > 12) {
+                    z2 = false;
+                    z3 = true;
+                } else {
+                    if (sum < 4) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    z3 = false;
+                }
+                if (sum2 <= 12) {
+                }
+                z4 = false;
+                z5 = true;
+                i2 = (sum + sum2) - i;
+                if ((sum & 1) != z) {
+                    z6 = true;
+                } else {
+                    z6 = false;
+                }
+                if ((sum2 & 1) == 1) {
+                    z7 = true;
+                }
+                if (i2 != 1) {
+                    if (z6) {
+                        if (!z7) {
+                            z8 = z2;
+                            z3 = true;
+                        } else {
+                            throw NotFoundException.getNotFoundInstance();
+                        }
+                    } else if (z7) {
+                        z8 = z2;
+                        z5 = true;
+                    } else {
+                        throw NotFoundException.getNotFoundInstance();
+                    }
+                } else if (i2 == -1) {
+                    if (z6) {
+                        if (z7) {
+                            throw NotFoundException.getNotFoundInstance();
+                        }
+                    } else if (z7) {
+                        z8 = z2;
+                        z4 = true;
+                    } else {
+                        throw NotFoundException.getNotFoundInstance();
+                    }
+                } else if (i2 == 0) {
+                    if (z6) {
+                        if (z7) {
+                            if (sum >= sum2) {
+                                z8 = z2;
+                                z4 = true;
+                                z3 = true;
+                            }
+                            z5 = true;
+                        } else {
+                            throw NotFoundException.getNotFoundInstance();
+                        }
+                    } else if (!z7) {
+                        z8 = z2;
+                    } else {
+                        throw NotFoundException.getNotFoundInstance();
+                    }
+                } else {
+                    throw NotFoundException.getNotFoundInstance();
+                }
+                if (z8) {
+                    if (!z3) {
+                        AbstractRSSReader.increment(getOddCounts(), getOddRoundingErrors());
+                    } else {
+                        throw NotFoundException.getNotFoundInstance();
+                    }
+                }
+                if (z3) {
+                    AbstractRSSReader.decrement(getOddCounts(), getOddRoundingErrors());
+                }
+                if (z4) {
+                    if (!z5) {
+                        AbstractRSSReader.increment(getEvenCounts(), getOddRoundingErrors());
+                    } else {
+                        throw NotFoundException.getNotFoundInstance();
+                    }
+                }
+                if (!z5) {
+                    AbstractRSSReader.decrement(getEvenCounts(), getEvenRoundingErrors());
+                    return;
+                }
+                return;
+            }
+            if (sum > 11) {
                 z2 = false;
                 z3 = true;
             } else {
-                z2 = sum < 4;
+                if (sum < 5) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
                 z3 = false;
             }
-            if (sum2 <= 12) {
+            if (sum2 <= 10) {
             }
             z4 = false;
             z5 = true;
             i2 = (sum + sum2) - i;
-            boolean z7 = (sum & 1) != z;
-            boolean z8 = (sum2 & 1) == 1;
-            if (i2 != 1) {
-                if (z7) {
-                    if (z8) {
-                        throw NotFoundException.getNotFoundInstance();
-                    }
-                    z6 = z2;
-                    z3 = true;
-                } else if (!z8) {
-                    throw NotFoundException.getNotFoundInstance();
-                } else {
-                    z6 = z2;
-                    z5 = true;
-                }
-            } else if (i2 == -1) {
-                if (z7) {
-                    if (z8) {
-                        throw NotFoundException.getNotFoundInstance();
-                    }
-                } else if (!z8) {
-                    throw NotFoundException.getNotFoundInstance();
-                } else {
-                    z6 = z2;
-                    z4 = true;
-                }
-            } else if (i2 != 0) {
-                throw NotFoundException.getNotFoundInstance();
-            } else {
-                if (z7) {
-                    if (!z8) {
-                        throw NotFoundException.getNotFoundInstance();
-                    }
-                    if (sum >= sum2) {
-                        z6 = z2;
-                        z4 = true;
-                        z3 = true;
-                    }
-                    z5 = true;
-                } else if (z8) {
-                    throw NotFoundException.getNotFoundInstance();
-                } else {
-                    z6 = z2;
-                }
+            if ((sum & 1) != z) {
             }
-            if (z6) {
-                if (!z3) {
-                    AbstractRSSReader.increment(getOddCounts(), getOddRoundingErrors());
-                } else {
-                    throw NotFoundException.getNotFoundInstance();
-                }
+            if ((sum2 & 1) == 1) {
+            }
+            if (i2 != 1) {
+            }
+            if (z8) {
             }
             if (z3) {
-                AbstractRSSReader.decrement(getOddCounts(), getOddRoundingErrors());
             }
             if (z4) {
-                if (!z5) {
-                    AbstractRSSReader.increment(getEvenCounts(), getOddRoundingErrors());
-                } else {
-                    throw NotFoundException.getNotFoundInstance();
-                }
             }
-            if (z5) {
-                return;
+            if (!z5) {
             }
-            AbstractRSSReader.decrement(getEvenCounts(), getEvenRoundingErrors());
-            return;
         }
-        if (sum > 11) {
-            z2 = false;
-            z3 = true;
-        } else {
-            z2 = sum < 5;
-            z3 = false;
-        }
-        if (sum2 <= 10) {
-        }
-        z4 = false;
-        z5 = true;
-        i2 = (sum + sum2) - i;
-        if ((sum & 1) != z) {
-        }
-        if ((sum2 & 1) == 1) {
-        }
-        if (i2 != 1) {
-        }
-        if (z6) {
-        }
-        if (z3) {
-        }
-        if (z4) {
-        }
-        if (z5) {
-        }
-    }
-
-    public static boolean checkChecksum(Pair pair, Pair pair2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pair, pair2)) == null) {
-            int checksumPortion = (pair.getChecksumPortion() + (pair2.getChecksumPortion() * 16)) % 79;
-            int value = (pair.getFinderPattern().getValue() * 9) + pair2.getFinderPattern().getValue();
-            if (value > 72) {
-                value--;
-            }
-            if (value > 8) {
-                value--;
-            }
-            return checksumPortion == value;
-        }
-        return invokeLL.booleanValue;
     }
 
     public static Result constructResult(Pair pair, Pair pair2) {
@@ -299,6 +327,7 @@ public final class RSS14Reader extends AbstractRSSReader {
 
     private DataCharacter decodeDataCharacter(BitArray bitArray, FinderPattern finderPattern, boolean z) throws NotFoundException {
         InterceptResult invokeLLZ;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, this, bitArray, finderPattern, z)) == null) {
             int[] dataCharacterCounters = getDataCharacterCounters();
@@ -314,16 +343,20 @@ public final class RSS14Reader extends AbstractRSSReader {
                 OneDReader.recordPatternInReverse(bitArray, finderPattern.getStartEnd()[0], dataCharacterCounters);
             } else {
                 OneDReader.recordPattern(bitArray, finderPattern.getStartEnd()[1] + 1, dataCharacterCounters);
-                int i = 0;
-                for (int length = dataCharacterCounters.length - 1; i < length; length--) {
-                    int i2 = dataCharacterCounters[i];
-                    dataCharacterCounters[i] = dataCharacterCounters[length];
-                    dataCharacterCounters[length] = i2;
-                    i++;
+                int i2 = 0;
+                for (int length = dataCharacterCounters.length - 1; i2 < length; length--) {
+                    int i3 = dataCharacterCounters[i2];
+                    dataCharacterCounters[i2] = dataCharacterCounters[length];
+                    dataCharacterCounters[length] = i3;
+                    i2++;
                 }
             }
-            int i3 = z ? 16 : 15;
-            float sum = MathUtils.sum(dataCharacterCounters) / i3;
+            if (z) {
+                i = 16;
+            } else {
+                i = 15;
+            }
+            float sum = MathUtils.sum(dataCharacterCounters) / i;
             int[] oddCounts = getOddCounts();
             int[] evenCounts = getEvenCounts();
             float[] oddRoundingErrors = getOddRoundingErrors();
@@ -345,7 +378,7 @@ public final class RSS14Reader extends AbstractRSSReader {
                     evenRoundingErrors[i6] = f - i5;
                 }
             }
-            adjustOddEvenCounts(z, i3);
+            adjustOddEvenCounts(z, i);
             int i7 = 0;
             int i8 = 0;
             for (int length2 = oddCounts.length - 1; length2 >= 0; length2--) {
@@ -359,17 +392,17 @@ public final class RSS14Reader extends AbstractRSSReader {
                 i10 += evenCounts[length3];
             }
             int i11 = i7 + (i9 * 3);
-            if (!z) {
-                if ((i10 & 1) == 0 && i10 <= 10 && i10 >= 4) {
-                    int i12 = (10 - i10) / 2;
-                    int i13 = INSIDE_ODD_WIDEST[i12];
-                    return new DataCharacter((RSSUtils.getRSSvalue(evenCounts, 9 - i13, false) * INSIDE_ODD_TOTAL_SUBSET[i12]) + RSSUtils.getRSSvalue(oddCounts, i13, true) + INSIDE_GSUM[i12], i11);
+            if (z) {
+                if ((i8 & 1) == 0 && i8 <= 12 && i8 >= 4) {
+                    int i12 = (12 - i8) / 2;
+                    int i13 = OUTSIDE_ODD_WIDEST[i12];
+                    return new DataCharacter((RSSUtils.getRSSvalue(oddCounts, i13, false) * OUTSIDE_EVEN_TOTAL_SUBSET[i12]) + RSSUtils.getRSSvalue(evenCounts, 9 - i13, true) + OUTSIDE_GSUM[i12], i11);
                 }
                 throw NotFoundException.getNotFoundInstance();
-            } else if ((i8 & 1) == 0 && i8 <= 12 && i8 >= 4) {
-                int i14 = (12 - i8) / 2;
-                int i15 = OUTSIDE_ODD_WIDEST[i14];
-                return new DataCharacter((RSSUtils.getRSSvalue(oddCounts, i15, false) * OUTSIDE_EVEN_TOTAL_SUBSET[i14]) + RSSUtils.getRSSvalue(evenCounts, 9 - i15, true) + OUTSIDE_GSUM[i14], i11);
+            } else if ((i10 & 1) == 0 && i10 <= 10 && i10 >= 4) {
+                int i14 = (10 - i10) / 2;
+                int i15 = INSIDE_ODD_WIDEST[i14];
+                return new DataCharacter((RSSUtils.getRSSvalue(evenCounts, 9 - i15, false) * INSIDE_ODD_TOTAL_SUBSET[i14]) + RSSUtils.getRSSvalue(oddCounts, i15, true) + INSIDE_GSUM[i14], i11);
             } else {
                 throw NotFoundException.getNotFoundInstance();
             }
@@ -377,14 +410,19 @@ public final class RSS14Reader extends AbstractRSSReader {
         return (DataCharacter) invokeLLZ.objValue;
     }
 
-    private Pair decodePair(BitArray bitArray, boolean z, int i, Map<DecodeHintType, ?> map) {
+    private Pair decodePair(BitArray bitArray, boolean z, int i, Map map) {
         InterceptResult invokeCommon;
+        int[] findFinderPattern;
+        ResultPointCallback resultPointCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{bitArray, Boolean.valueOf(z), Integer.valueOf(i), map})) == null) {
             try {
-                int[] findFinderPattern = findFinderPattern(bitArray, 0, z);
-                FinderPattern parseFoundFinderPattern = parseFoundFinderPattern(bitArray, i, z, findFinderPattern);
-                ResultPointCallback resultPointCallback = map == null ? null : (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
+                FinderPattern parseFoundFinderPattern = parseFoundFinderPattern(bitArray, i, z, findFinderPattern(bitArray, 0, z));
+                if (map == null) {
+                    resultPointCallback = null;
+                } else {
+                    resultPointCallback = (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
+                }
                 if (resultPointCallback != null) {
                     float f = (findFinderPattern[0] + findFinderPattern[1]) / 2.0f;
                     if (z) {
@@ -400,52 +438,6 @@ public final class RSS14Reader extends AbstractRSSReader {
             }
         }
         return (Pair) invokeCommon.objValue;
-    }
-
-    private int[] findFinderPattern(BitArray bitArray, int i, boolean z) throws NotFoundException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, this, new Object[]{bitArray, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int[] decodeFinderCounters = getDecodeFinderCounters();
-            decodeFinderCounters[0] = 0;
-            decodeFinderCounters[1] = 0;
-            decodeFinderCounters[2] = 0;
-            decodeFinderCounters[3] = 0;
-            int size = bitArray.getSize();
-            boolean z2 = false;
-            while (i < size) {
-                z2 = !bitArray.get(i);
-                if (z == z2) {
-                    break;
-                }
-                i++;
-            }
-            int i2 = i;
-            int i3 = 0;
-            while (i < size) {
-                if (bitArray.get(i) ^ z2) {
-                    decodeFinderCounters[i3] = decodeFinderCounters[i3] + 1;
-                } else {
-                    if (i3 != 3) {
-                        i3++;
-                    } else if (AbstractRSSReader.isFinderPattern(decodeFinderCounters)) {
-                        return new int[]{i2, i};
-                    } else {
-                        i2 += decodeFinderCounters[0] + decodeFinderCounters[1];
-                        decodeFinderCounters[0] = decodeFinderCounters[2];
-                        decodeFinderCounters[1] = decodeFinderCounters[3];
-                        decodeFinderCounters[2] = 0;
-                        decodeFinderCounters[3] = 0;
-                        i3--;
-                    }
-                    decodeFinderCounters[i3] = 1;
-                    z2 = !z2;
-                }
-                i++;
-            }
-            throw NotFoundException.getNotFoundInstance();
-        }
-        return (int[]) invokeCommon.objValue;
     }
 
     private FinderPattern parseFoundFinderPattern(BitArray bitArray, int i, boolean z, int[] iArr) throws NotFoundException {
@@ -477,8 +469,55 @@ public final class RSS14Reader extends AbstractRSSReader {
         return (FinderPattern) invokeCommon.objValue;
     }
 
+    private int[] findFinderPattern(BitArray bitArray, int i, boolean z) throws NotFoundException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, this, new Object[]{bitArray, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int[] decodeFinderCounters = getDecodeFinderCounters();
+            decodeFinderCounters[0] = 0;
+            decodeFinderCounters[1] = 0;
+            decodeFinderCounters[2] = 0;
+            decodeFinderCounters[3] = 0;
+            int size = bitArray.getSize();
+            boolean z2 = false;
+            while (i < size) {
+                z2 = !bitArray.get(i);
+                if (z == z2) {
+                    break;
+                }
+                i++;
+            }
+            int i2 = i;
+            int i3 = 0;
+            while (i < size) {
+                if (bitArray.get(i) ^ z2) {
+                    decodeFinderCounters[i3] = decodeFinderCounters[i3] + 1;
+                } else {
+                    if (i3 == 3) {
+                        if (AbstractRSSReader.isFinderPattern(decodeFinderCounters)) {
+                            return new int[]{i2, i};
+                        }
+                        i2 += decodeFinderCounters[0] + decodeFinderCounters[1];
+                        decodeFinderCounters[0] = decodeFinderCounters[2];
+                        decodeFinderCounters[1] = decodeFinderCounters[3];
+                        decodeFinderCounters[2] = 0;
+                        decodeFinderCounters[3] = 0;
+                        i3--;
+                    } else {
+                        i3++;
+                    }
+                    decodeFinderCounters[i3] = 1;
+                    z2 = !z2;
+                }
+                i++;
+            }
+            throw NotFoundException.getNotFoundInstance();
+        }
+        return (int[]) invokeCommon.objValue;
+    }
+
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
@@ -499,14 +538,5 @@ public final class RSS14Reader extends AbstractRSSReader {
             throw NotFoundException.getNotFoundInstance();
         }
         return (Result) invokeILL.objValue;
-    }
-
-    @Override // com.google.zxing.oned.OneDReader, com.google.zxing.Reader
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.possibleLeftPairs.clear();
-            this.possibleRightPairs.clear();
-        }
     }
 }

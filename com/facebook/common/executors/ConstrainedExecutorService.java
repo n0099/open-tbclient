@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
 public class ConstrainedExecutorService extends AbstractExecutorService {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
     public volatile int mMaxConcurrency;
@@ -28,13 +28,33 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     public final String mName;
     public final AtomicInteger mPendingWorkers;
     public final Worker mTaskRunner;
-    public final BlockingQueue<Runnable> mWorkQueue;
+    public final BlockingQueue mWorkQueue;
 
     /* renamed from: com.facebook.common.executors.ConstrainedExecutorService$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // java.util.concurrent.ExecutorService
+    public boolean isShutdown() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.ExecutorService
+    public boolean isTerminated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes7.dex */
@@ -61,16 +81,20 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
             this.this$0 = constrainedExecutorService;
         }
 
+        public /* synthetic */ Worker(ConstrainedExecutorService constrainedExecutorService, AnonymousClass1 anonymousClass1) {
+            this(constrainedExecutorService);
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     Runnable runnable = (Runnable) this.this$0.mWorkQueue.poll();
-                    if (runnable == null) {
-                        FLog.v(ConstrainedExecutorService.TAG, "%s: Worker has nothing to run", this.this$0.mName);
-                    } else {
+                    if (runnable != null) {
                         runnable.run();
+                    } else {
+                        FLog.v(ConstrainedExecutorService.TAG, "%s: Worker has nothing to run", this.this$0.mName);
                     }
                     int decrementAndGet = this.this$0.mPendingWorkers.decrementAndGet();
                     if (!this.this$0.mWorkQueue.isEmpty()) {
@@ -88,10 +112,6 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
                     throw th;
                 }
             }
-        }
-
-        public /* synthetic */ Worker(ConstrainedExecutorService constrainedExecutorService, AnonymousClass1 anonymousClass1) {
-            this(constrainedExecutorService);
         }
     }
 
@@ -111,7 +131,37 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
         TAG = ConstrainedExecutorService.class;
     }
 
-    public ConstrainedExecutorService(String str, int i, Executor executor, BlockingQueue<Runnable> blockingQueue) {
+    public boolean isIdle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mWorkQueue.isEmpty() && this.mPendingWorkers.get() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.ExecutorService
+    public void shutdown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    @Override // java.util.concurrent.ExecutorService
+    public List shutdownNow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ConstrainedExecutorService(String str, int i, Executor executor, BlockingQueue blockingQueue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +192,10 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     public static ConstrainedExecutorService newConstrainedExecutor(String str, int i, int i2, Executor executor) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), executor})) == null) ? new ConstrainedExecutorService(str, i, executor, new LinkedBlockingQueue(i2)) : (ConstrainedExecutorService) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), executor})) == null) {
+            return new ConstrainedExecutorService(str, i, executor, new LinkedBlockingQueue(i2));
+        }
+        return (ConstrainedExecutorService) invokeCommon.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -191,49 +244,5 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
             }
             throw new NullPointerException("runnable parameter is null");
         }
-    }
-
-    public boolean isIdle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mWorkQueue.isEmpty() && this.mPendingWorkers.get() == 0 : invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.ExecutorService
-    public boolean isShutdown() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.ExecutorService
-    public boolean isTerminated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.ExecutorService
-    public void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            throw new UnsupportedOperationException();
-        }
-    }
-
-    @Override // java.util.concurrent.ExecutorService
-    public List<Runnable> shutdownNow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (List) invokeV.objValue;
     }
 }

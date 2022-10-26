@@ -1,7 +1,6 @@
 package com.kwad.components.core.offline.init;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +17,7 @@ public abstract class DefaultOfflineCompo extends d implements IOfflineCompo {
     public transient /* synthetic */ FieldHolder $fh;
     public final IOfflineCompo mOfflineComponents;
 
-    public DefaultOfflineCompo(@NonNull IOfflineCompo iOfflineCompo) {
+    public DefaultOfflineCompo(IOfflineCompo iOfflineCompo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

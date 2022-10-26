@@ -65,34 +65,37 @@ public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
     public long getSegBeginPos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSegBeginPos : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mSegBeginPos;
+        }
+        return invokeV.longValue;
     }
 
     public long getSegEndPos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSegEndPos : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mSegEndPos;
+        }
+        return invokeV.longValue;
     }
 
     public boolean isTestSpeedRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsTestSpeedRequest : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIsTestSpeedRequest;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean requestIsRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRequestIsRunning : invokeV.booleanValue;
-    }
-
-    public void resetHttpRequestData(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.mRequestUrl = str;
-            this.mRequestStartTime = SystemClock.elapsedRealtime();
-            this.mRequestLastNotifyTimes = SystemClock.elapsedRealtime();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRequestIsRunning;
         }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.down.loopj.android.http.AsyncHttpRequest, java.lang.Runnable
@@ -101,6 +104,22 @@ public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.mRequestStartTime = SystemClock.elapsedRealtime();
             super.run();
+        }
+    }
+
+    public void stopRequestRunning() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.mRequestIsRunning = false;
+        }
+    }
+
+    public void resetHttpRequestData(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.mRequestUrl = str;
+            this.mRequestStartTime = SystemClock.elapsedRealtime();
+            this.mRequestLastNotifyTimes = SystemClock.elapsedRealtime();
         }
     }
 
@@ -122,13 +141,6 @@ public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bool) == null) {
             this.mIsTestSpeedRequest = bool.booleanValue();
-        }
-    }
-
-    public void stopRequestRunning() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.mRequestIsRunning = false;
         }
     }
 

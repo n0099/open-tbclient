@@ -13,8 +13,8 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n2a;
-import com.baidu.tieba.u5a;
+import com.baidu.tieba.f3a;
+import com.baidu.tieba.m6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -38,14 +37,29 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public PluginCenterBannerGallery a;
     public RadioGroup b;
-    public final List<BannerConfigItem.BannerInfo> c;
+    public final List c;
     public View d;
     public float e;
     public BannerItemSelectListener f;
     public final AdapterView.OnItemSelectedListener g;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1145595668, "Ltv/athena/revenue/payui/view/banner/PluginCenterTopBanner;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1145595668, "Ltv/athena/revenue/payui/view/banner/PluginCenterTopBanner;");
+        }
+    }
+
     /* loaded from: classes9.dex */
-    public static final class a implements RadioGroup.OnCheckedChangeListener {
+    public final class a implements RadioGroup.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PluginCenterTopBanner a;
@@ -75,22 +89,29 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 int size = this.a.c.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     View childAt = radioGroup.getChildAt(i2);
-                    if (childAt == null) {
+                    if (childAt != null) {
+                        RadioButton radioButton = (RadioButton) childAt;
+                    } else {
                         throw new TypeCastException("null cannot be cast to non-null type android.widget.RadioButton");
                     }
-                    RadioButton radioButton = (RadioButton) childAt;
                 }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class b implements AdapterView.OnItemSelectedListener {
+    public final class b implements AdapterView.OnItemSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PluginCenterTopBanner a;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        @Override // android.widget.AdapterView.OnItemSelectedListener
+        public void onNothingSelected(AdapterView adapterView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
+            }
+        }
+
         public b(PluginCenterTopBanner pluginCenterTopBanner) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -110,16 +131,16 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         }
 
         @Override // android.widget.AdapterView.OnItemSelectedListener
-        public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
+        public void onItemSelected(AdapterView adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i >= u5a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i >= m6a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
                 return;
             }
             RadioGroup radioGroup = this.a.b;
             if (radioGroup == null) {
                 Intrinsics.throwNpe();
             }
-            List<BannerConfigItem.BannerInfo> data = PluginCenterTopBanner.c(this.a).getData();
+            List data = PluginCenterTopBanner.c(this.a).getData();
             if (data == null) {
                 Intrinsics.throwNpe();
             }
@@ -135,28 +156,6 @@ public final class PluginCenterTopBanner extends RelativeLayout {
             if (bannerItemSelectListener != null) {
                 bannerItemSelectListener.onItemSelected(i);
             }
-        }
-
-        @Override // android.widget.AdapterView.OnItemSelectedListener
-        public void onNothingSelected(AdapterView<?> adapterView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1145595668, "Ltv/athena/revenue/payui/view/banner/PluginCenterTopBanner;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1145595668, "Ltv/athena/revenue/payui/view/banner/PluginCenterTopBanner;");
         }
     }
 
@@ -177,205 +176,6 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
-            }
-        }
-    }
-
-    public static final /* synthetic */ PluginCenterBannerGallery c(PluginCenterTopBanner pluginCenterTopBanner) {
-        PluginCenterBannerGallery pluginCenterBannerGallery = pluginCenterTopBanner.a;
-        if (pluginCenterBannerGallery == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mGallery");
-        }
-        return pluginCenterBannerGallery;
-    }
-
-    public final void e(List<? extends BannerConfigItem.BannerInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            RadioGroup radioGroup = this.b;
-            if (radioGroup == null) {
-                Intrinsics.throwNpe();
-            }
-            radioGroup.removeAllViews();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                RadioButton radioButton = new RadioButton(getContext());
-                radioButton.setId(i + 4660);
-                Context context = getContext();
-                Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eb8));
-                RadioGroup radioGroup2 = this.b;
-                if (radioGroup2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                radioGroup2.addView(radioButton, f());
-            }
-            RadioGroup radioGroup3 = this.b;
-            if (radioGroup3 == null) {
-                Intrinsics.throwNpe();
-            }
-            radioGroup3.setOnCheckedChangeListener(new a(this));
-        }
-    }
-
-    public final RadioGroup.LayoutParams f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f4);
-            return new RadioGroup.LayoutParams(dimension + 12, dimension);
-        }
-        return (RadioGroup.LayoutParams) invokeV.objValue;
-    }
-
-    public final void g(Context context, AttributeSet attributeSet, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n2a.Pay_Ui_Banner, i, 0);
-            this.e = obtainStyledAttributes.getFloat(0, 0.0f);
-            obtainStyledAttributes.recycle();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b3, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0912b3);
-            if (findViewById != null) {
-                this.a = (PluginCenterBannerGallery) findViewById;
-                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912b2);
-                if (findViewById2 != null) {
-                    this.b = (RadioGroup) findViewById2;
-                    this.d = findViewById(R.id.obfuscated_res_0x7f090328);
-                    PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
-                    if (pluginCenterBannerGallery == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("mGallery");
-                    }
-                    pluginCenterBannerGallery.setOnItemSelectedListener(this.g);
-                    return;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type android.widget.RadioGroup");
-            }
-            throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerGallery");
-        }
-    }
-
-    public final List<BannerConfigItem.BannerInfo> getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            if (this.e > 0) {
-                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) / this.e), 1073741824);
-            }
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public final void setBannerItemSelectListener(BannerItemSelectListener bannerItemSelectListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bannerItemSelectListener) == null) {
-            this.f = bannerItemSelectListener;
-        }
-    }
-
-    public final void setData(List<? extends BannerConfigItem.BannerInfo> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || Intrinsics.areEqual(this.c, list) || list == null) {
-            return;
-        }
-        this.c.clear();
-        this.c.addAll(list);
-        if (this.b != null) {
-            if (this.c.size() <= 1) {
-                RadioGroup radioGroup = this.b;
-                if (radioGroup == null) {
-                    Intrinsics.throwNpe();
-                }
-                radioGroup.setVisibility(8);
-            } else {
-                RadioGroup radioGroup2 = this.b;
-                if (radioGroup2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                radioGroup2.setVisibility(0);
-            }
-        }
-        PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
-        if (pluginCenterBannerGallery == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mGallery");
-        }
-        pluginCenterBannerGallery.setData(list);
-        e(list);
-        RadioGroup radioGroup3 = this.b;
-        if (radioGroup3 == null) {
-            Intrinsics.throwNpe();
-        }
-        RadioGroup radioGroup4 = this.b;
-        if (radioGroup4 == null) {
-            Intrinsics.throwNpe();
-        }
-        View childAt = radioGroup4.getChildAt(0);
-        Intrinsics.checkExpressionValueIsNotNull(childAt, "mRadios!!.getChildAt(0)");
-        radioGroup3.check(childAt.getId());
-    }
-
-    public final void setFlipInterval(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
-            if (pluginCenterBannerGallery == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mGallery");
-            }
-            pluginCenterBannerGallery.setFlipInterval(i);
-        }
-    }
-
-    public final void setImageLoaderSupplier(ImageLoaderSupplier imageLoaderSupplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageLoaderSupplier) == null) {
-            PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
-            if (pluginCenterBannerGallery == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mGallery");
-            }
-            pluginCenterBannerGallery.setImageLoaderSupplier(imageLoaderSupplier);
-        }
-    }
-
-    public final void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onItemClickListener) == null) {
-            PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
-            if (pluginCenterBannerGallery == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mGallery");
-            }
-            pluginCenterBannerGallery.setOnItemClickListener(onItemClickListener);
-        }
-    }
-
-    public final void setOnPlaceHolderClickListener(View.OnClickListener onClickListener) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) || (view2 = this.d) == null) {
-            return;
-        }
-        view2.setOnClickListener(onClickListener);
-    }
-
-    public final void setPlaceHolderVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (z) {
-                View view2 = this.d;
-                if (view2 != null) {
-                    view2.setVisibility(0);
-                    return;
-                }
-                return;
-            }
-            View view3 = this.d;
-            if (view3 != null) {
-                view3.setVisibility(8);
             }
         }
     }
@@ -423,5 +223,205 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         this.c = new ArrayList();
         this.g = new b(this);
         g(context, attributeSet, i);
+    }
+
+    public static final /* synthetic */ PluginCenterBannerGallery c(PluginCenterTopBanner pluginCenterTopBanner) {
+        PluginCenterBannerGallery pluginCenterBannerGallery = pluginCenterTopBanner.a;
+        if (pluginCenterBannerGallery == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("mGallery");
+        }
+        return pluginCenterBannerGallery;
+    }
+
+    public final void setBannerItemSelectListener(BannerItemSelectListener bannerItemSelectListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bannerItemSelectListener) == null) {
+            this.f = bannerItemSelectListener;
+        }
+    }
+
+    public final void setFlipInterval(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
+            if (pluginCenterBannerGallery == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mGallery");
+            }
+            pluginCenterBannerGallery.setFlipInterval(i);
+        }
+    }
+
+    public final void setImageLoaderSupplier(ImageLoaderSupplier imageLoaderSupplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageLoaderSupplier) == null) {
+            PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
+            if (pluginCenterBannerGallery == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mGallery");
+            }
+            pluginCenterBannerGallery.setImageLoaderSupplier(imageLoaderSupplier);
+        }
+    }
+
+    public final void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, onItemClickListener) == null) {
+            PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
+            if (pluginCenterBannerGallery == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mGallery");
+            }
+            pluginCenterBannerGallery.setOnItemClickListener(onItemClickListener);
+        }
+    }
+
+    public final void setOnPlaceHolderClickListener(View.OnClickListener onClickListener) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) && (view2 = this.d) != null) {
+            view2.setOnClickListener(onClickListener);
+        }
+    }
+
+    public final void setPlaceHolderVisible(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            if (z) {
+                View view2 = this.d;
+                if (view2 != null) {
+                    view2.setVisibility(0);
+                    return;
+                }
+                return;
+            }
+            View view3 = this.d;
+            if (view3 != null) {
+                view3.setVisibility(8);
+            }
+        }
+    }
+
+    public final void e(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            RadioGroup radioGroup = this.b;
+            if (radioGroup == null) {
+                Intrinsics.throwNpe();
+            }
+            radioGroup.removeAllViews();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                RadioButton radioButton = new RadioButton(getContext());
+                radioButton.setId(i + 4660);
+                Context context = getContext();
+                Intrinsics.checkExpressionValueIsNotNull(context, "context");
+                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ec9));
+                RadioGroup radioGroup2 = this.b;
+                if (radioGroup2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                radioGroup2.addView(radioButton, f());
+            }
+            RadioGroup radioGroup3 = this.b;
+            if (radioGroup3 == null) {
+                Intrinsics.throwNpe();
+            }
+            radioGroup3.setOnCheckedChangeListener(new a(this));
+        }
+    }
+
+    public final void setData(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && !Intrinsics.areEqual(this.c, list) && list != null) {
+            this.c.clear();
+            this.c.addAll(list);
+            if (this.b != null) {
+                if (this.c.size() <= 1) {
+                    RadioGroup radioGroup = this.b;
+                    if (radioGroup == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    radioGroup.setVisibility(8);
+                } else {
+                    RadioGroup radioGroup2 = this.b;
+                    if (radioGroup2 == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    radioGroup2.setVisibility(0);
+                }
+            }
+            PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
+            if (pluginCenterBannerGallery == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mGallery");
+            }
+            pluginCenterBannerGallery.setData(list);
+            e(list);
+            RadioGroup radioGroup3 = this.b;
+            if (radioGroup3 == null) {
+                Intrinsics.throwNpe();
+            }
+            RadioGroup radioGroup4 = this.b;
+            if (radioGroup4 == null) {
+                Intrinsics.throwNpe();
+            }
+            View childAt = radioGroup4.getChildAt(0);
+            Intrinsics.checkExpressionValueIsNotNull(childAt, "mRadios!!.getChildAt(0)");
+            radioGroup3.check(childAt.getId());
+        }
+    }
+
+    public final RadioGroup.LayoutParams f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f4);
+            return new RadioGroup.LayoutParams(dimension + 12, dimension);
+        }
+        return (RadioGroup.LayoutParams) invokeV.objValue;
+    }
+
+    public final List getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void g(Context context, AttributeSet attributeSet, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet, i) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f3a.Pay_Ui_Banner, i, 0);
+            this.e = obtainStyledAttributes.getFloat(0, 0.0f);
+            obtainStyledAttributes.recycle();
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b3, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0912a7);
+            if (findViewById != null) {
+                this.a = (PluginCenterBannerGallery) findViewById;
+                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912a6);
+                if (findViewById2 != null) {
+                    this.b = (RadioGroup) findViewById2;
+                    this.d = findViewById(R.id.obfuscated_res_0x7f090328);
+                    PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
+                    if (pluginCenterBannerGallery == null) {
+                        Intrinsics.throwUninitializedPropertyAccessException("mGallery");
+                    }
+                    pluginCenterBannerGallery.setOnItemSelectedListener(this.g);
+                    return;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type android.widget.RadioGroup");
+            }
+            throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerGallery");
+        }
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            if (this.e > 0) {
+                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) / this.e), 1073741824);
+            }
+            super.onMeasure(i, i2);
+        }
     }
 }

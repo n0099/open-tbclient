@@ -1,48 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface ua0 {
+    void K();
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void P(List list, List list2);
 
-        public static /* synthetic */ void a(ua0 ua0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj != null) {
-                throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
-            }
-            if ((i & 4) != 0) {
-                requestSearchData = new RequestSearchData();
-            }
-            ua0Var.g(str, str2, requestSearchData);
-        }
-    }
+    void b(int i);
 
-    void a(Context context, String str);
+    void e();
 
-    void b(Context context);
+    void h0(List list);
 
-    void c();
+    void j(va0 va0Var);
 
-    void d();
+    void k0();
 
-    void e(Context context);
+    void m(List list);
 
-    void f(Context context, int i);
+    void o(SearchResultBean searchResultBean);
 
-    void g(String str, String str2, RequestSearchData requestSearchData);
+    void showToast(String str);
 
-    void h();
-
-    void i(String str);
-
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
-
-    void onDetach();
+    void x0(List list);
 }

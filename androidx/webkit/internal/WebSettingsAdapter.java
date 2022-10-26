@@ -32,30 +32,6 @@ public class WebSettingsAdapter {
         this.mBoundaryInterface = webSettingsBoundaryInterface;
     }
 
-    public int getDisabledActionModeMenuItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBoundaryInterface.getDisabledActionModeMenuItems() : invokeV.intValue;
-    }
-
-    public int getForceDark() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBoundaryInterface.getForceDark() : invokeV.intValue;
-    }
-
-    public boolean getOffscreenPreRaster() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBoundaryInterface.getOffscreenPreRaster() : invokeV.booleanValue;
-    }
-
-    public boolean getSafeBrowsingEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBoundaryInterface.getSafeBrowsingEnabled() : invokeV.booleanValue;
-    }
-
     public void setDisabledActionModeMenuItems(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -91,9 +67,48 @@ public class WebSettingsAdapter {
         }
     }
 
+    public int getDisabledActionModeMenuItems() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBoundaryInterface.getDisabledActionModeMenuItems();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getForceDark() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBoundaryInterface.getForceDark();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean getOffscreenPreRaster() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBoundaryInterface.getOffscreenPreRaster();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean getSafeBrowsingEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mBoundaryInterface.getSafeBrowsingEnabled();
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean willSuppressErrorPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mBoundaryInterface.getWillSuppressErrorPage() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mBoundaryInterface.getWillSuppressErrorPage();
+        }
+        return invokeV.booleanValue;
     }
 }

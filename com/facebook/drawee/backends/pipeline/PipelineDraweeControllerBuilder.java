@@ -15,21 +15,15 @@ import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableList;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Suppliers;
-import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
 import com.facebook.drawee.backends.pipeline.info.ImageOriginListener;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfDataListener;
 import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
-import com.facebook.drawee.controller.ControllerListener;
 import com.facebook.drawee.interfaces.DraweeController;
-import com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder;
-import com.facebook.fresco.ui.common.ControllerListener2;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.drawable.DrawableFactory;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
@@ -38,11 +32,11 @@ import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBuilder<PipelineDraweeControllerBuilder, ImageRequest, CloseableReference<CloseableImage>, ImageInfo> {
+public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public ImmutableList<DrawableFactory> mCustomDrawableFactories;
+    public ImmutableList mCustomDrawableFactories;
     @Nullable
     public ImageOriginListener mImageOriginListener;
     @Nullable
@@ -52,7 +46,7 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
 
     /* renamed from: com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$controller$AbstractDraweeControllerBuilder$CacheLevel;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +82,7 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PipelineDraweeControllerBuilder(Context context, PipelineDraweeControllerFactory pipelineDraweeControllerFactory, ImagePipeline imagePipeline, Set<ControllerListener> set, Set<ControllerListener2> set2) {
+    public PipelineDraweeControllerBuilder(Context context, PipelineDraweeControllerFactory pipelineDraweeControllerFactory, ImagePipeline imagePipeline, Set set, Set set2) {
         super(context, set, set2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,17 +128,28 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            ImageRequest imageRequest = getImageRequest();
+            ImageRequest imageRequest = (ImageRequest) getImageRequest();
             CacheKeyFactory cacheKeyFactory = this.mImagePipeline.getCacheKeyFactory();
-            if (cacheKeyFactory == null || imageRequest == null) {
-                return null;
+            if (cacheKeyFactory != null && imageRequest != null) {
+                if (imageRequest.getPostprocessor() != null) {
+                    return cacheKeyFactory.getPostprocessedBitmapCacheKey(imageRequest, getCallerContext());
+                }
+                return cacheKeyFactory.getBitmapCacheKey(imageRequest, getCallerContext());
             }
-            if (imageRequest.getPostprocessor() != null) {
-                return cacheKeyFactory.getPostprocessedBitmapCacheKey(imageRequest, getCallerContext());
-            }
-            return cacheKeyFactory.getBitmapCacheKey(imageRequest, getCallerContext());
+            return null;
         }
         return (CacheKey) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
+    public DataSource getDataSourceForRequest(DraweeController draweeController, String str, ImageRequest imageRequest, Object obj, AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, draweeController, str, imageRequest, obj, cacheLevel)) == null) {
+            return this.mImagePipeline.fetchDecodedImage(imageRequest, obj, convertCacheLevelToRequestLevel(cacheLevel), getRequestListener(draweeController), str);
+        }
+        return (DataSource) invokeLLLLL.objValue;
     }
 
     @Nullable
@@ -160,12 +165,12 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
         return (RequestListener) invokeL.objValue;
     }
 
-    public PipelineDraweeControllerBuilder setCustomDrawableFactories(@Nullable ImmutableList<DrawableFactory> immutableList) {
+    public PipelineDraweeControllerBuilder setCustomDrawableFactories(@Nullable ImmutableList immutableList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, immutableList)) == null) {
             this.mCustomDrawableFactories = immutableList;
-            return getThis();
+            return (PipelineDraweeControllerBuilder) getThis();
         }
         return (PipelineDraweeControllerBuilder) invokeL.objValue;
     }
@@ -185,7 +190,7 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageOriginListener)) == null) {
             this.mImageOriginListener = imageOriginListener;
-            return getThis();
+            return (PipelineDraweeControllerBuilder) getThis();
         }
         return (PipelineDraweeControllerBuilder) invokeL.objValue;
     }
@@ -195,17 +200,23 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, imagePerfDataListener)) == null) {
             this.mImagePerfDataListener = imagePerfDataListener;
-            return getThis();
+            return (PipelineDraweeControllerBuilder) getThis();
         }
         return (PipelineDraweeControllerBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    public DataSource<CloseableReference<CloseableImage>> getDataSourceForRequest(DraweeController draweeController, String str, ImageRequest imageRequest, Object obj, AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
-        InterceptResult invokeLLLLL;
+    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
+    public PipelineDraweeControllerBuilder setUri(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, draweeController, str, imageRequest, obj, cacheLevel)) == null) ? this.mImagePipeline.fetchDecodedImage(imageRequest, obj, convertCacheLevelToRequestLevel(cacheLevel), getRequestListener(draweeController), str) : (DataSource) invokeLLLLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                return setUri(Uri.parse(str));
+            }
+            return (PipelineDraweeControllerBuilder) super.setImageRequest(ImageRequest.fromUri(str));
+        }
+        return (PipelineDraweeControllerBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -238,11 +249,6 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
         return (PipelineDraweeController) invokeV.objValue;
     }
 
-    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
-    public /* bridge */ /* synthetic */ SimpleDraweeControllerBuilder setUri(Uri uri, Map map) {
-        return setUri(uri, (Map<String, String>) map);
-    }
-
     public PipelineDraweeControllerBuilder setCustomDrawableFactories(DrawableFactory... drawableFactoryArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -269,22 +275,12 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
-    public PipelineDraweeControllerBuilder setUri(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (str != null && !str.isEmpty()) {
-                return setUri(Uri.parse(str));
-            }
-            return (PipelineDraweeControllerBuilder) super.setImageRequest(ImageRequest.fromUri(str));
-        }
-        return (PipelineDraweeControllerBuilder) invokeL.objValue;
-    }
-
-    @Override // com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder
-    public PipelineDraweeControllerBuilder setUri(Uri uri, Map<String, String> map) {
+    public PipelineDraweeControllerBuilder setUri(Uri uri, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, uri, map)) == null) ? (PipelineDraweeControllerBuilder) super.setImageRequest(ImageRequestBuilder.newBuilderWithSource(uri).setNetRequestHeader(map).build()) : (PipelineDraweeControllerBuilder) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, uri, map)) == null) {
+            return (PipelineDraweeControllerBuilder) super.setImageRequest(ImageRequestBuilder.newBuilderWithSource(uri).setNetRequestHeader(map).build());
+        }
+        return (PipelineDraweeControllerBuilder) invokeLL.objValue;
     }
 }

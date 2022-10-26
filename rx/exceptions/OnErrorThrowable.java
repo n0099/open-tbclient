@@ -2,8 +2,8 @@ package rx.exceptions;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p1a;
-import com.baidu.tieba.rx9;
+import com.baidu.tieba.h2a;
+import com.baidu.tieba.jy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,16 +23,16 @@ public final class OnErrorThrowable extends RuntimeException {
     public final Object value;
 
     /* loaded from: classes9.dex */
-    public static class OnNextValue extends RuntimeException {
+    public class OnNextValue extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3454462756050397899L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object value;
 
         /* loaded from: classes9.dex */
-        public static final class a {
+        public final class a {
             public static /* synthetic */ Interceptable $ic;
-            public static final Set<Class<?>> a;
+            public static final Set a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -51,7 +51,7 @@ public final class OnErrorThrowable extends RuntimeException {
                 a = a();
             }
 
-            public static Set<Class<?>> a() {
+            public static Set a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -114,7 +114,7 @@ public final class OnErrorThrowable extends RuntimeException {
                 if (obj instanceof Enum) {
                     return ((Enum) obj).name();
                 }
-                String b = p1a.c().b().b(obj);
+                String b = h2a.c().b().b(obj);
                 if (b != null) {
                     return b;
                 }
@@ -126,7 +126,10 @@ public final class OnErrorThrowable extends RuntimeException {
         public Object getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.value;
+            }
+            return invokeV.objValue;
         }
     }
 
@@ -152,23 +155,6 @@ public final class OnErrorThrowable extends RuntimeException {
         this.value = null;
     }
 
-    public static Throwable addValueAsLastCause(Throwable th, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, th, obj)) == null) {
-            if (th == null) {
-                th = new NullPointerException();
-            }
-            Throwable b = rx9.b(th);
-            if ((b instanceof OnNextValue) && ((OnNextValue) b).getValue() == obj) {
-                return th;
-            }
-            rx9.a(th, new OnNextValue(obj));
-            return th;
-        }
-        return (Throwable) invokeLL.objValue;
-    }
-
     public static OnErrorThrowable from(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -176,25 +162,13 @@ public final class OnErrorThrowable extends RuntimeException {
             if (th == null) {
                 th = new NullPointerException();
             }
-            Throwable b = rx9.b(th);
+            Throwable b = jy9.b(th);
             if (b instanceof OnNextValue) {
                 return new OnErrorThrowable(th, ((OnNextValue) b).getValue());
             }
             return new OnErrorThrowable(th);
         }
         return (OnErrorThrowable) invokeL.objValue;
-    }
-
-    public Object getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.objValue;
-    }
-
-    public boolean isValueNull() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hasValue : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -224,5 +198,40 @@ public final class OnErrorThrowable extends RuntimeException {
             }
         }
         this.value = obj;
+    }
+
+    public static Throwable addValueAsLastCause(Throwable th, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, th, obj)) == null) {
+            if (th == null) {
+                th = new NullPointerException();
+            }
+            Throwable b = jy9.b(th);
+            if ((b instanceof OnNextValue) && ((OnNextValue) b).getValue() == obj) {
+                return th;
+            }
+            jy9.a(th, new OnNextValue(obj));
+            return th;
+        }
+        return (Throwable) invokeLL.objValue;
+    }
+
+    public Object getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.objValue;
+    }
+
+    public boolean isValueNull() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.hasValue;
+        }
+        return invokeV.booleanValue;
     }
 }

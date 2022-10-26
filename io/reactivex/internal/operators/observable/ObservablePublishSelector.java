@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -18,19 +17,19 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.subjects.PublishSubject;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservablePublishSelector<T, R> extends AbstractObservableWithUpstream<T, R> {
+public final class ObservablePublishSelector extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super Observable<T>, ? extends ObservableSource<R>> selector;
+    public final Function selector;
 
     /* loaded from: classes8.dex */
-    public static final class SourceObserver<T, R> implements Observer<T> {
+    public final class SourceObserver implements Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final PublishSubject<T> subject;
-        public final AtomicReference<Disposable> target;
+        public final PublishSubject subject;
+        public final AtomicReference target;
 
-        public SourceObserver(PublishSubject<T> publishSubject, AtomicReference<Disposable> atomicReference) {
+        public SourceObserver(PublishSubject publishSubject, AtomicReference atomicReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,10 +65,10 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.subject.onNext(t);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.subject.onNext(obj);
             }
         }
 
@@ -83,14 +82,14 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
     }
 
     /* loaded from: classes8.dex */
-    public static final class TargetObserver<T, R> extends AtomicReference<Disposable> implements Observer<R>, Disposable {
+    public final class TargetObserver extends AtomicReference implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 854110278590336484L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super R> actual;
+        public final Observer actual;
         public Disposable d;
 
-        public TargetObserver(Observer<? super R> observer) {
+        public TargetObserver(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,6 +107,32 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
             this.actual = observer;
         }
 
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                DisposableHelper.dispose(this);
+                this.actual.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.actual.onNext(obj);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
+                this.actual.onSubscribe(this);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -121,7 +146,10 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -132,36 +160,10 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
                 this.actual.onComplete();
             }
         }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                DisposableHelper.dispose(this);
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(R r) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, r) == null) {
-                this.actual.onNext(r);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
-                this.d = disposable;
-                this.actual.onSubscribe(this);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservablePublishSelector(ObservableSource<T> observableSource, Function<? super Observable<T>, ? extends ObservableSource<R>> function) {
+    public ObservablePublishSelector(ObservableSource observableSource, Function function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -182,7 +184,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super R> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             PublishSubject create = PublishSubject.create();

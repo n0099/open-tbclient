@@ -21,20 +21,6 @@ public class a {
         return jSONObject;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.put("ah_plan_type", this.a);
-            jSONObject.put("error_code", String.valueOf(this.b));
-            jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.c);
-            jSONObject.put("real_device_plan", this.d);
-            jSONObject.put("device_plans", this.e);
-        } catch (Throwable unused) {
-        }
-    }
-
     public static a a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -56,5 +42,19 @@ public class a {
             th.printStackTrace();
         }
         return aVar;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.put("ah_plan_type", this.a);
+            jSONObject.put("error_code", String.valueOf(this.b));
+            jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.c);
+            jSONObject.put("real_device_plan", this.d);
+            jSONObject.put("device_plans", this.e);
+        } catch (Throwable unused) {
+        }
     }
 }

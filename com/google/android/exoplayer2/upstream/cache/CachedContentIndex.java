@@ -49,8 +49,8 @@ public class CachedContentIndex {
     public boolean changed;
     public final Cipher cipher;
     public final boolean encrypt;
-    public final SparseArray<String> idToKey;
-    public final HashMap<String, CachedContent> keyToContent;
+    public final SparseArray idToKey;
+    public final HashMap keyToContent;
     public final SecretKeySpec secretKeySpec;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -74,28 +74,18 @@ public class CachedContentIndex {
         }
     }
 
-    public static Cipher getCipher() throws NoSuchPaddingException, NoSuchAlgorithmException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Util.SDK_INT == 18) {
-                try {
-                    return Cipher.getInstance("AES/CBC/PKCS5PADDING", "BC");
-                } catch (Throwable unused) {
-                }
-            }
-            return Cipher.getInstance("AES/CBC/PKCS5PADDING");
-        }
-        return (Cipher) invokeV.objValue;
-    }
-
-    public static int getNewId(SparseArray<String> sparseArray) {
+    public static int getNewId(SparseArray sparseArray) {
         InterceptResult invokeL;
+        int keyAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sparseArray)) == null) {
             int size = sparseArray.size();
             int i = 0;
-            int keyAt = size == 0 ? 0 : sparseArray.keyAt(size - 1) + 1;
+            if (size == 0) {
+                keyAt = 0;
+            } else {
+                keyAt = sparseArray.keyAt(size - 1) + 1;
+            }
             if (keyAt < 0) {
                 while (i < size && i == sparseArray.keyAt(i)) {
                     i++;
@@ -107,272 +97,13 @@ public class CachedContentIndex {
         return invokeL.intValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 3, insn: 0x009e: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:51:0x009e */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00a1  */
+    /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean readFile() {
-        InterceptResult invokeV;
-        DataInputStream dataInputStream;
-        IOException e;
-        DataInputStream dataInputStream2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65543, this)) != null) {
-            return invokeV.booleanValue;
-        }
-        DataInputStream dataInputStream3 = null;
-        try {
-            try {
-                BufferedInputStream bufferedInputStream = new BufferedInputStream(this.atomicFile.openRead());
-                dataInputStream = new DataInputStream(bufferedInputStream);
-                try {
-                    if (dataInputStream.readInt() != 1) {
-                        Util.closeQuietly(dataInputStream);
-                        return false;
-                    }
-                    if ((dataInputStream.readInt() & 1) != 0) {
-                        if (this.cipher == null) {
-                            Util.closeQuietly(dataInputStream);
-                            return false;
-                        }
-                        byte[] bArr = new byte[16];
-                        dataInputStream.readFully(bArr);
-                        try {
-                            this.cipher.init(2, this.secretKeySpec, new IvParameterSpec(bArr));
-                            dataInputStream3 = new DataInputStream(new CipherInputStream(bufferedInputStream, this.cipher));
-                        } catch (InvalidAlgorithmParameterException e2) {
-                            e = e2;
-                            throw new IllegalStateException(e);
-                        } catch (InvalidKeyException e3) {
-                            e = e3;
-                            throw new IllegalStateException(e);
-                        }
-                    } else {
-                        if (this.encrypt) {
-                            this.changed = true;
-                        }
-                        dataInputStream3 = dataInputStream;
-                    }
-                    int readInt = dataInputStream3.readInt();
-                    int i = 0;
-                    for (int i2 = 0; i2 < readInt; i2++) {
-                        CachedContent cachedContent = new CachedContent(dataInputStream3);
-                        add(cachedContent);
-                        i += cachedContent.headerHashCode();
-                    }
-                    if (dataInputStream3.readInt() != i) {
-                        Util.closeQuietly(dataInputStream3);
-                        return false;
-                    }
-                    Util.closeQuietly(dataInputStream3);
-                    return true;
-                } catch (FileNotFoundException unused) {
-                    dataInputStream3 = dataInputStream;
-                    if (dataInputStream3 != null) {
-                        Util.closeQuietly(dataInputStream3);
-                    }
-                    return false;
-                } catch (IOException e4) {
-                    e = e4;
-                    Log.e(TAG, "Error reading cache content index file.", e);
-                    if (dataInputStream != null) {
-                        Util.closeQuietly(dataInputStream);
-                    }
-                    return false;
-                }
-            } catch (Throwable th) {
-                th = th;
-                dataInputStream3 = dataInputStream2;
-                if (dataInputStream3 != null) {
-                    Util.closeQuietly(dataInputStream3);
-                }
-                throw th;
-            }
-        } catch (FileNotFoundException unused2) {
-        } catch (IOException e5) {
-            dataInputStream = dataInputStream3;
-            e = e5;
-        } catch (Throwable th2) {
-            th = th2;
-            if (dataInputStream3 != null) {
-            }
-            throw th;
-        }
-    }
-
-    private void writeFile() throws Cache.CacheException {
-        DataOutputStream dataOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            DataOutputStream dataOutputStream2 = null;
-            try {
-                try {
-                    OutputStream startWrite = this.atomicFile.startWrite();
-                    if (this.bufferedOutputStream == null) {
-                        this.bufferedOutputStream = new ReusableBufferedOutputStream(startWrite);
-                    } else {
-                        this.bufferedOutputStream.reset(startWrite);
-                    }
-                    dataOutputStream = new DataOutputStream(this.bufferedOutputStream);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException e) {
-                e = e;
-            }
-            try {
-                dataOutputStream.writeInt(1);
-                int i = 0;
-                dataOutputStream.writeInt(this.encrypt ? 1 : 0);
-                if (this.encrypt) {
-                    byte[] bArr = new byte[16];
-                    new Random().nextBytes(bArr);
-                    dataOutputStream.write(bArr);
-                    try {
-                        this.cipher.init(1, this.secretKeySpec, new IvParameterSpec(bArr));
-                        dataOutputStream.flush();
-                        dataOutputStream = new DataOutputStream(new CipherOutputStream(this.bufferedOutputStream, this.cipher));
-                    } catch (InvalidAlgorithmParameterException e2) {
-                        e = e2;
-                        throw new IllegalStateException(e);
-                    } catch (InvalidKeyException e3) {
-                        e = e3;
-                        throw new IllegalStateException(e);
-                    }
-                }
-                dataOutputStream.writeInt(this.keyToContent.size());
-                for (CachedContent cachedContent : this.keyToContent.values()) {
-                    cachedContent.writeToStream(dataOutputStream);
-                    i += cachedContent.headerHashCode();
-                }
-                dataOutputStream.writeInt(i);
-                this.atomicFile.endWrite(dataOutputStream);
-                Util.closeQuietly((Closeable) null);
-            } catch (IOException e4) {
-                e = e4;
-                throw new Cache.CacheException(e);
-            } catch (Throwable th2) {
-                th = th2;
-                dataOutputStream2 = dataOutputStream;
-                Util.closeQuietly(dataOutputStream2);
-                throw th;
-            }
-        }
-    }
-
-    public CachedContent add(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            CachedContent cachedContent = this.keyToContent.get(str);
-            return cachedContent == null ? addNew(str, -1L) : cachedContent;
-        }
-        return (CachedContent) invokeL.objValue;
-    }
-
-    public void addNew(CachedContent cachedContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cachedContent) == null) {
-            add(cachedContent);
-            this.changed = true;
-        }
-    }
-
-    public int assignIdForKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? add(str).id : invokeL.intValue;
-    }
-
-    public CachedContent get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.keyToContent.get(str) : (CachedContent) invokeL.objValue;
-    }
-
-    public Collection<CachedContent> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.keyToContent.values() : (Collection) invokeV.objValue;
-    }
-
-    public long getContentLength(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            CachedContent cachedContent = get(str);
-            if (cachedContent == null) {
-                return -1L;
-            }
-            return cachedContent.getLength();
-        }
-        return invokeL.longValue;
-    }
-
-    public String getKeyForId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.idToKey.get(i) : (String) invokeI.objValue;
-    }
-
-    public Set<String> getKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.keyToContent.keySet() : (Set) invokeV.objValue;
-    }
-
-    public void load() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Assertions.checkState(!this.changed);
-            if (readFile()) {
-                return;
-            }
-            this.atomicFile.delete();
-            this.keyToContent.clear();
-            this.idToKey.clear();
-        }
-    }
-
-    public void removeEmpty(String str) {
-        CachedContent remove;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (remove = this.keyToContent.remove(str)) == null) {
-            return;
-        }
-        Assertions.checkState(remove.isEmpty());
-        this.idToKey.remove(remove.id);
-        this.changed = true;
-    }
-
-    public void setContentLength(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j) == null) {
-            CachedContent cachedContent = get(str);
-            if (cachedContent != null) {
-                if (cachedContent.getLength() != j) {
-                    cachedContent.setLength(j);
-                    this.changed = true;
-                    return;
-                }
-                return;
-            }
-            addNew(str, j);
-        }
-    }
-
-    public void store() throws Cache.CacheException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.changed) {
-            writeFile();
-            this.changed = false;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CachedContentIndex(File file, byte[] bArr) {
-        this(file, bArr, bArr != null);
+        this(file, bArr, r0);
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -388,6 +119,11 @@ public class CachedContentIndex {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        if (bArr != null) {
+            z = true;
+        } else {
+            z = false;
         }
     }
 
@@ -420,8 +156,8 @@ public class CachedContentIndex {
             this.cipher = null;
             this.secretKeySpec = null;
         }
-        this.keyToContent = new HashMap<>();
-        this.idToKey = new SparseArray<>();
+        this.keyToContent = new HashMap();
+        this.idToKey = new SparseArray();
         this.atomicFile = new AtomicFile(new File(file, FILE_NAME));
     }
 
@@ -430,6 +166,64 @@ public class CachedContentIndex {
         if (interceptable == null || interceptable.invokeL(65539, this, cachedContent) == null) {
             this.keyToContent.put(cachedContent.key, cachedContent);
             this.idToKey.put(cachedContent.id, cachedContent.key);
+        }
+    }
+
+    public void addNew(CachedContent cachedContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cachedContent) == null) {
+            add(cachedContent);
+            this.changed = true;
+        }
+    }
+
+    public int assignIdForKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return add(str).id;
+        }
+        return invokeL.intValue;
+    }
+
+    public CachedContent get(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return (CachedContent) this.keyToContent.get(str);
+        }
+        return (CachedContent) invokeL.objValue;
+    }
+
+    public long getContentLength(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            CachedContent cachedContent = get(str);
+            if (cachedContent == null) {
+                return -1L;
+            }
+            return cachedContent.getLength();
+        }
+        return invokeL.longValue;
+    }
+
+    public String getKeyForId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return (String) this.idToKey.get(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void removeEmpty(String str) {
+        CachedContent cachedContent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (cachedContent = (CachedContent) this.keyToContent.remove(str)) != null) {
+            Assertions.checkState(cachedContent.isEmpty());
+            this.idToKey.remove(cachedContent.id);
+            this.changed = true;
         }
     }
 
@@ -442,6 +236,250 @@ public class CachedContentIndex {
             return cachedContent;
         }
         return (CachedContent) invokeLJ.objValue;
+    }
+
+    public void setContentLength(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j) == null) {
+            CachedContent cachedContent = get(str);
+            if (cachedContent != null) {
+                if (cachedContent.getLength() != j) {
+                    cachedContent.setLength(j);
+                    this.changed = true;
+                    return;
+                }
+                return;
+            }
+            addNew(str, j);
+        }
+    }
+
+    public static Cipher getCipher() throws NoSuchPaddingException, NoSuchAlgorithmException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (Util.SDK_INT == 18) {
+                try {
+                    return Cipher.getInstance("AES/CBC/PKCS5PADDING", "BC");
+                } catch (Throwable unused) {
+                }
+            }
+            return Cipher.getInstance("AES/CBC/PKCS5PADDING");
+        }
+        return (Cipher) invokeV.objValue;
+    }
+
+    public Collection getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.keyToContent.values();
+        }
+        return (Collection) invokeV.objValue;
+    }
+
+    public Set getKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.keyToContent.keySet();
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public void load() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Assertions.checkState(!this.changed);
+            if (!readFile()) {
+                this.atomicFile.delete();
+                this.keyToContent.clear();
+                this.idToKey.clear();
+            }
+        }
+    }
+
+    public void store() throws Cache.CacheException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.changed) {
+            return;
+        }
+        writeFile();
+        this.changed = false;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 3, insn: 0x009e: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:51:0x009e */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00a1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private boolean readFile() {
+        InterceptResult invokeV;
+        DataInputStream dataInputStream;
+        IOException e;
+        DataInputStream dataInputStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            DataInputStream dataInputStream3 = null;
+            try {
+                try {
+                    BufferedInputStream bufferedInputStream = new BufferedInputStream(this.atomicFile.openRead());
+                    dataInputStream = new DataInputStream(bufferedInputStream);
+                    try {
+                        if (dataInputStream.readInt() != 1) {
+                            Util.closeQuietly(dataInputStream);
+                            return false;
+                        }
+                        if ((dataInputStream.readInt() & 1) != 0) {
+                            if (this.cipher == null) {
+                                Util.closeQuietly(dataInputStream);
+                                return false;
+                            }
+                            byte[] bArr = new byte[16];
+                            dataInputStream.readFully(bArr);
+                            try {
+                                this.cipher.init(2, this.secretKeySpec, new IvParameterSpec(bArr));
+                                dataInputStream3 = new DataInputStream(new CipherInputStream(bufferedInputStream, this.cipher));
+                            } catch (InvalidAlgorithmParameterException e2) {
+                                e = e2;
+                                throw new IllegalStateException(e);
+                            } catch (InvalidKeyException e3) {
+                                e = e3;
+                                throw new IllegalStateException(e);
+                            }
+                        } else {
+                            if (this.encrypt) {
+                                this.changed = true;
+                            }
+                            dataInputStream3 = dataInputStream;
+                        }
+                        int readInt = dataInputStream3.readInt();
+                        int i = 0;
+                        for (int i2 = 0; i2 < readInt; i2++) {
+                            CachedContent cachedContent = new CachedContent(dataInputStream3);
+                            add(cachedContent);
+                            i += cachedContent.headerHashCode();
+                        }
+                        if (dataInputStream3.readInt() != i) {
+                            Util.closeQuietly(dataInputStream3);
+                            return false;
+                        }
+                        Util.closeQuietly(dataInputStream3);
+                        return true;
+                    } catch (FileNotFoundException unused) {
+                        dataInputStream3 = dataInputStream;
+                        if (dataInputStream3 != null) {
+                            Util.closeQuietly(dataInputStream3);
+                        }
+                        return false;
+                    } catch (IOException e4) {
+                        e = e4;
+                        Log.e(TAG, "Error reading cache content index file.", e);
+                        if (dataInputStream != null) {
+                            Util.closeQuietly(dataInputStream);
+                        }
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    dataInputStream3 = dataInputStream2;
+                    if (dataInputStream3 != null) {
+                        Util.closeQuietly(dataInputStream3);
+                    }
+                    throw th;
+                }
+            } catch (FileNotFoundException unused2) {
+            } catch (IOException e5) {
+                dataInputStream = dataInputStream3;
+                e = e5;
+            } catch (Throwable th2) {
+                th = th2;
+                if (dataInputStream3 != null) {
+                }
+                throw th;
+            }
+        } else {
+            return invokeV.booleanValue;
+        }
+    }
+
+    private void writeFile() throws Cache.CacheException {
+        DataOutputStream dataOutputStream;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            DataOutputStream dataOutputStream2 = null;
+            try {
+                try {
+                    OutputStream startWrite = this.atomicFile.startWrite();
+                    if (this.bufferedOutputStream == null) {
+                        this.bufferedOutputStream = new ReusableBufferedOutputStream(startWrite);
+                    } else {
+                        this.bufferedOutputStream.reset(startWrite);
+                    }
+                    dataOutputStream = new DataOutputStream(this.bufferedOutputStream);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException e) {
+                e = e;
+            }
+            try {
+                dataOutputStream.writeInt(1);
+                int i2 = 0;
+                if (this.encrypt) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                dataOutputStream.writeInt(i);
+                if (this.encrypt) {
+                    byte[] bArr = new byte[16];
+                    new Random().nextBytes(bArr);
+                    dataOutputStream.write(bArr);
+                    try {
+                        this.cipher.init(1, this.secretKeySpec, new IvParameterSpec(bArr));
+                        dataOutputStream.flush();
+                        dataOutputStream = new DataOutputStream(new CipherOutputStream(this.bufferedOutputStream, this.cipher));
+                    } catch (InvalidAlgorithmParameterException e2) {
+                        e = e2;
+                        throw new IllegalStateException(e);
+                    } catch (InvalidKeyException e3) {
+                        e = e3;
+                        throw new IllegalStateException(e);
+                    }
+                }
+                dataOutputStream.writeInt(this.keyToContent.size());
+                for (CachedContent cachedContent : this.keyToContent.values()) {
+                    cachedContent.writeToStream(dataOutputStream);
+                    i2 += cachedContent.headerHashCode();
+                }
+                dataOutputStream.writeInt(i2);
+                this.atomicFile.endWrite(dataOutputStream);
+                Util.closeQuietly((Closeable) null);
+            } catch (IOException e4) {
+                e = e4;
+                throw new Cache.CacheException(e);
+            } catch (Throwable th2) {
+                th = th2;
+                dataOutputStream2 = dataOutputStream;
+                Util.closeQuietly(dataOutputStream2);
+                throw th;
+            }
+        }
+    }
+
+    public CachedContent add(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            CachedContent cachedContent = (CachedContent) this.keyToContent.get(str);
+            if (cachedContent == null) {
+                return addNew(str, -1L);
+            }
+            return cachedContent;
+        }
+        return (CachedContent) invokeL.objValue;
     }
 
     public void removeEmpty() {

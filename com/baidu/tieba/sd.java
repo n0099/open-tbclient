@@ -6,25 +6,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.lang.reflect.Field;
 import java.lang.reflect.Type;
-import java.util.HashSet;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 /* loaded from: classes5.dex */
-public class sd implements od {
+public class sd implements pd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Message a;
-    public Set<String> b;
+    public Map a;
 
-    public sd(Message message) {
+    public sd(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {message};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,53 +30,52 @@ public class sd implements od {
                 return;
             }
         }
-        this.a = message;
-        List<Field> b = rc.b(message.getClass());
-        this.b = new HashSet();
-        if (b == null || b.size() <= 0) {
-            return;
-        }
-        for (Field field : b) {
-            if (field != null) {
-                this.b.add(field.getName());
-            }
-        }
+        this.a = map;
     }
 
-    @Override // com.baidu.tieba.od
+    public Object c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.a.get(str);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pd
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
-            rc.i(this.a, str, obj);
+            this.a.put(str, obj);
         }
     }
 
-    @Override // com.baidu.tieba.od
+    @Override // com.baidu.tieba.pd
     public Object b(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
             Object c = c(str);
             if (c != null) {
-                re reVar = new re(type);
-                be a = ve.a(c);
-                return a != null ? a.a(reVar) : c;
+                se seVar = new se(type);
+                ce a = we.a(c);
+                if (a != null) {
+                    return a.a(seVar);
+                }
+                return c;
             }
             return c;
         }
         return invokeLL.objValue;
     }
 
-    public Object c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? rc.d(this.a, str) : invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.od
-    public Set<String> getKeys() {
+    @Override // com.baidu.tieba.pd
+    public Set getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.keySet();
+        }
+        return (Set) invokeV.objValue;
     }
 }

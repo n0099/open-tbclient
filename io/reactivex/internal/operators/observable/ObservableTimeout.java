@@ -22,15 +22,20 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableTimeout extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<U> firstTimeoutIndicator;
-    public final Function<? super T, ? extends ObservableSource<V>> itemTimeoutIndicator;
-    public final ObservableSource<? extends T> other;
+    public final ObservableSource firstTimeoutIndicator;
+    public final Function itemTimeoutIndicator;
+    public final ObservableSource other;
 
     /* loaded from: classes8.dex */
-    public static final class TimeoutConsumer extends AtomicReference<Disposable> implements Observer<Object>, Disposable {
+    public interface TimeoutSelectorSupport extends ObservableTimeoutTimed.TimeoutSupport {
+        void onTimeoutError(long j, Throwable th);
+    }
+
+    /* loaded from: classes8.dex */
+    public final class TimeoutConsumer extends AtomicReference implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8708641127342403073L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +73,10 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -103,12 +111,11 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         public void onNext(Object obj) {
             Disposable disposable;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, obj) == null) || (disposable = (Disposable) get()) == DisposableHelper.DISPOSED) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (disposable = (Disposable) get()) != DisposableHelper.DISPOSED) {
+                disposable.dispose();
+                lazySet(DisposableHelper.DISPOSED);
+                this.parent.onTimeout(this.idx);
             }
-            disposable.dispose();
-            lazySet(DisposableHelper.DISPOSED);
-            this.parent.onTimeout(this.idx);
         }
 
         @Override // io.reactivex.Observer
@@ -121,18 +128,18 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
     }
 
     /* loaded from: classes8.dex */
-    public static final class TimeoutFallbackObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, TimeoutSelectorSupport {
+    public final class TimeoutFallbackObserver extends AtomicReference implements Observer, Disposable, TimeoutSelectorSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7508389464265974549L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
-        public ObservableSource<? extends T> fallback;
+        public final Observer actual;
+        public ObservableSource fallback;
         public final AtomicLong index;
-        public final Function<? super T, ? extends ObservableSource<?>> itemTimeoutIndicator;
+        public final Function itemTimeoutIndicator;
         public final SequentialDisposable task;
-        public final AtomicReference<Disposable> upstream;
+        public final AtomicReference upstream;
 
-        public TimeoutFallbackObserver(Observer<? super T> observer, Function<? super T, ? extends ObservableSource<?>> function, ObservableSource<? extends T> observableSource) {
+        public TimeoutFallbackObserver(Observer observer, Function function, ObservableSource observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,7 +159,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
             this.task = new SequentialDisposable();
             this.fallback = observableSource;
             this.index = new AtomicLong();
-            this.upstream = new AtomicReference<>();
+            this.upstream = new AtomicReference();
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -169,18 +176,20 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.index.getAndSet(Long.MAX_VALUE) == Long.MAX_VALUE) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                this.task.dispose();
+                this.actual.onComplete();
+                this.task.dispose();
             }
-            this.task.dispose();
-            this.actual.onComplete();
-            this.task.dispose();
         }
 
         @Override // io.reactivex.Observer
@@ -198,36 +207,6 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                long j = this.index.get();
-                if (j != Long.MAX_VALUE) {
-                    long j2 = 1 + j;
-                    if (this.index.compareAndSet(j, j2)) {
-                        Disposable disposable = this.task.get();
-                        if (disposable != null) {
-                            disposable.dispose();
-                        }
-                        this.actual.onNext(t);
-                        try {
-                            ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null ObservableSource.");
-                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
-                            if (this.task.replace(timeoutConsumer)) {
-                                observableSource.subscribe(timeoutConsumer);
-                            }
-                        } catch (Throwable th) {
-                            Exceptions.throwIfFatal(th);
-                            this.upstream.get().dispose();
-                            this.index.getAndSet(Long.MAX_VALUE);
-                            this.actual.onError(th);
-                        }
-                    }
-                }
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
@@ -240,9 +219,49 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && this.index.compareAndSet(j, Long.MAX_VALUE)) {
                 DisposableHelper.dispose(this.upstream);
-                ObservableSource<? extends T> observableSource = this.fallback;
+                ObservableSource observableSource = this.fallback;
                 this.fallback = null;
                 observableSource.subscribe(new ObservableTimeoutTimed.FallbackObserver(this.actual, this));
+            }
+        }
+
+        public void startFirstTimeout(ObservableSource observableSource) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, observableSource) == null) && observableSource != null) {
+                TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
+                if (this.task.replace(timeoutConsumer)) {
+                    observableSource.subscribe(timeoutConsumer);
+                }
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                long j = this.index.get();
+                if (j != Long.MAX_VALUE) {
+                    long j2 = 1 + j;
+                    if (this.index.compareAndSet(j, j2)) {
+                        Disposable disposable = (Disposable) this.task.get();
+                        if (disposable != null) {
+                            disposable.dispose();
+                        }
+                        this.actual.onNext(obj);
+                        try {
+                            ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(obj), "The itemTimeoutIndicator returned a null ObservableSource.");
+                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
+                            if (this.task.replace(timeoutConsumer)) {
+                                observableSource.subscribe(timeoutConsumer);
+                            }
+                        } catch (Throwable th) {
+                            Exceptions.throwIfFatal(th);
+                            ((Disposable) this.upstream.get()).dispose();
+                            this.index.getAndSet(Long.MAX_VALUE);
+                            this.actual.onError(th);
+                        }
+                    }
+                }
             }
         }
 
@@ -258,30 +277,19 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
                 RxJavaPlugins.onError(th);
             }
         }
-
-        public void startFirstTimeout(ObservableSource<?> observableSource) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, observableSource) == null) || observableSource == null) {
-                return;
-            }
-            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
-            if (this.task.replace(timeoutConsumer)) {
-                observableSource.subscribe(timeoutConsumer);
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class TimeoutObserver<T> extends AtomicLong implements Observer<T>, Disposable, TimeoutSelectorSupport {
+    public final class TimeoutObserver extends AtomicLong implements Observer, Disposable, TimeoutSelectorSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
-        public final Function<? super T, ? extends ObservableSource<?>> itemTimeoutIndicator;
+        public final Observer actual;
+        public final Function itemTimeoutIndicator;
         public final SequentialDisposable task;
-        public final AtomicReference<Disposable> upstream;
+        public final AtomicReference upstream;
 
-        public TimeoutObserver(Observer<? super T> observer, Function<? super T, ? extends ObservableSource<?>> function) {
+        public TimeoutObserver(Observer observer, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -299,7 +307,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
             this.actual = observer;
             this.itemTimeoutIndicator = function;
             this.task = new SequentialDisposable();
-            this.upstream = new AtomicReference<>();
+            this.upstream = new AtomicReference();
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -315,17 +323,19 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(this.upstream.get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) this.upstream.get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getAndSet(Long.MAX_VALUE) == Long.MAX_VALUE) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
+                this.task.dispose();
+                this.actual.onComplete();
             }
-            this.task.dispose();
-            this.actual.onComplete();
         }
 
         @Override // io.reactivex.Observer
@@ -338,36 +348,6 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
                     return;
                 }
                 RxJavaPlugins.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                long j = get();
-                if (j != Long.MAX_VALUE) {
-                    long j2 = 1 + j;
-                    if (compareAndSet(j, j2)) {
-                        Disposable disposable = this.task.get();
-                        if (disposable != null) {
-                            disposable.dispose();
-                        }
-                        this.actual.onNext(t);
-                        try {
-                            ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null ObservableSource.");
-                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
-                            if (this.task.replace(timeoutConsumer)) {
-                                observableSource.subscribe(timeoutConsumer);
-                            }
-                        } catch (Throwable th) {
-                            Exceptions.throwIfFatal(th);
-                            this.upstream.get().dispose();
-                            getAndSet(Long.MAX_VALUE);
-                            this.actual.onError(th);
-                        }
-                    }
-                }
             }
         }
 
@@ -388,6 +368,46 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
             }
         }
 
+        public void startFirstTimeout(ObservableSource observableSource) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, observableSource) == null) && observableSource != null) {
+                TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
+                if (this.task.replace(timeoutConsumer)) {
+                    observableSource.subscribe(timeoutConsumer);
+                }
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                long j = get();
+                if (j != Long.MAX_VALUE) {
+                    long j2 = 1 + j;
+                    if (compareAndSet(j, j2)) {
+                        Disposable disposable = (Disposable) this.task.get();
+                        if (disposable != null) {
+                            disposable.dispose();
+                        }
+                        this.actual.onNext(obj);
+                        try {
+                            ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(obj), "The itemTimeoutIndicator returned a null ObservableSource.");
+                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
+                            if (this.task.replace(timeoutConsumer)) {
+                                observableSource.subscribe(timeoutConsumer);
+                            }
+                        } catch (Throwable th) {
+                            Exceptions.throwIfFatal(th);
+                            ((Disposable) this.upstream.get()).dispose();
+                            getAndSet(Long.MAX_VALUE);
+                            this.actual.onError(th);
+                        }
+                    }
+                }
+            }
+        }
+
         @Override // io.reactivex.internal.operators.observable.ObservableTimeout.TimeoutSelectorSupport
         public void onTimeoutError(long j, Throwable th) {
             Interceptable interceptable = $ic;
@@ -400,26 +420,10 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
                 RxJavaPlugins.onError(th);
             }
         }
-
-        public void startFirstTimeout(ObservableSource<?> observableSource) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, observableSource) == null) || observableSource == null) {
-                return;
-            }
-            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(0L, this);
-            if (this.task.replace(timeoutConsumer)) {
-                observableSource.subscribe(timeoutConsumer);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public interface TimeoutSelectorSupport extends ObservableTimeoutTimed.TimeoutSupport {
-        void onTimeoutError(long j, Throwable th);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTimeout(Observable<T> observable, ObservableSource<U> observableSource, Function<? super T, ? extends ObservableSource<V>> function, ObservableSource<? extends T> observableSource2) {
+    public ObservableTimeout(Observable observable, ObservableSource observableSource, Function function, ObservableSource observableSource2) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -442,7 +446,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             if (this.other == null) {

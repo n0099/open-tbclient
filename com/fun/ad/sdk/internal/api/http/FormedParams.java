@@ -15,7 +15,7 @@ import java.util.Map;
 public class FormedParams extends RequestParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> d;
+    public final Map d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FormedParams() {
@@ -54,7 +54,7 @@ public class FormedParams extends RequestParams {
                     sb.append("&");
                 }
                 sb.append(str);
-                String str2 = this.d.get(str);
+                String str2 = (String) this.d.get(str);
                 if (str2 != null) {
                     sb.append("=");
                     try {
@@ -82,7 +82,7 @@ public class FormedParams extends RequestParams {
         }
     }
 
-    public void put(Map<String, String> map) {
+    public void put(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.d.putAll(map);

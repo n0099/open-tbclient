@@ -15,13 +15,13 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class BiConsumerSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
+public final class BiConsumerSingleObserver extends AtomicReference implements SingleObserver, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4943102778943297569L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiConsumer<? super T, ? super Throwable> onCallback;
+    public final BiConsumer onCallback;
 
-    public BiConsumerSingleObserver(BiConsumer<? super T, ? super Throwable> biConsumer) {
+    public BiConsumerSingleObserver(BiConsumer biConsumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,21 +37,6 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<Disposabl
             }
         }
         this.onCallback = biConsumer;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            DisposableHelper.dispose(this);
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
     }
 
     @Override // io.reactivex.SingleObserver
@@ -77,16 +62,37 @@ public final class BiConsumerSingleObserver<T> extends AtomicReference<Disposabl
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(T t) {
+    public void onSuccess(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
             try {
                 lazySet(DisposableHelper.DISPOSED);
-                this.onCallback.accept(t, null);
+                this.onCallback.accept(obj, null);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);
             }
         }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            DisposableHelper.dispose(this);
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (get() == DisposableHelper.DISPOSED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

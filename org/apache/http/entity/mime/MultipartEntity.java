@@ -28,6 +28,16 @@ public class MultipartEntity implements HttpEntity {
     public long length;
     public final HttpMultipart multipart;
 
+    @Override // org.apache.http.HttpEntity
+    public org.apache.http.Header getContentEncoding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (org.apache.http.Header) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -44,73 +54,13 @@ public class MultipartEntity implements HttpEntity {
         MULTIPART_CHARS = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
-    public MultipartEntity(HttpMultipartMode httpMultipartMode, String str, Charset charset) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {httpMultipartMode, str, charset};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        str = str == null ? generateBoundary() : str;
-        this.multipart = new HttpMultipart("form-data", charset, str, httpMultipartMode == null ? HttpMultipartMode.STRICT : httpMultipartMode);
-        this.contentType = new BasicHeader("Content-Type", generateContentType(str, charset));
-        this.dirty = true;
-    }
-
-    public void addPart(FormBodyPart formBodyPart) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, formBodyPart) == null) {
-            this.multipart.addBodyPart(formBodyPart);
-            this.dirty = true;
-        }
-    }
-
     @Override // org.apache.http.HttpEntity
     public void consumeContent() throws IOException, UnsupportedOperationException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && isStreaming()) {
-            throw new UnsupportedOperationException("Streaming entity does not implement #consumeContent()");
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !isStreaming()) {
+            return;
         }
-    }
-
-    public String generateBoundary() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            Random random = new Random();
-            int nextInt = random.nextInt(11) + 30;
-            for (int i = 0; i < nextInt; i++) {
-                char[] cArr = MULTIPART_CHARS;
-                sb.append(cArr[random.nextInt(cArr.length)]);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String generateContentType(String str, Charset charset) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, charset)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("multipart/form-data; boundary=");
-            sb.append(str);
-            if (charset != null) {
-                sb.append("; charset=");
-                sb.append(charset.name());
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
+        throw new UnsupportedOperationException("Streaming entity does not implement #consumeContent()");
     }
 
     @Override // org.apache.http.HttpEntity
@@ -121,16 +71,6 @@ public class MultipartEntity implements HttpEntity {
             throw new UnsupportedOperationException("Multipart form entity does not implement #getContent()");
         }
         return (InputStream) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.HttpEntity
-    public org.apache.http.Header getContentEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (org.apache.http.Header) invokeV.objValue;
     }
 
     @Override // org.apache.http.HttpEntity
@@ -151,28 +91,18 @@ public class MultipartEntity implements HttpEntity {
     public org.apache.http.Header getContentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.contentType : (org.apache.http.Header) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.contentType;
+        }
+        return (org.apache.http.Header) invokeV.objValue;
     }
 
     @Override // org.apache.http.HttpEntity
     public boolean isChunked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !isRepeatable() : invokeV.booleanValue;
-    }
-
-    @Override // org.apache.http.HttpEntity
-    public boolean isRepeatable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Iterator<FormBodyPart> it = this.multipart.getBodyParts().iterator();
-            while (it.hasNext()) {
-                if (it.next().getBody().getContentLength() < 0) {
-                    return false;
-                }
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return !isRepeatable();
         }
         return invokeV.booleanValue;
     }
@@ -181,22 +111,61 @@ public class MultipartEntity implements HttpEntity {
     public boolean isStreaming() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? !isRepeatable() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return !isRepeatable();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public MultipartEntity() {
+        this(HttpMultipartMode.STRICT, null, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((HttpMultipartMode) objArr[0], (String) objArr[1], (Charset) objArr[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public String generateBoundary() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            Random random = new Random();
+            int nextInt = random.nextInt(11) + 30;
+            for (int i = 0; i < nextInt; i++) {
+                char[] cArr = MULTIPART_CHARS;
+                sb.append(cArr[random.nextInt(cArr.length)]);
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.apache.http.HttpEntity
-    public void writeTo(OutputStream outputStream) throws IOException {
+    public boolean isRepeatable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, outputStream) == null) {
-            this.multipart.writeTo(outputStream);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            Iterator it = this.multipart.getBodyParts().iterator();
+            while (it.hasNext()) {
+                if (((FormBodyPart) it.next()).getBody().getContentLength() < 0) {
+                    return false;
+                }
+            }
+            return true;
         }
-    }
-
-    public void addPart(String str, ContentBody contentBody) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, contentBody) == null) {
-            addPart(new FormBodyPart(str, contentBody));
-        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -220,22 +189,63 @@ public class MultipartEntity implements HttpEntity {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MultipartEntity() {
-        this(HttpMultipartMode.STRICT, null, null);
+    public MultipartEntity(HttpMultipartMode httpMultipartMode, String str, Charset charset) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpMultipartMode, str, charset};
+            interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((HttpMultipartMode) objArr[0], (String) objArr[1], (Charset) objArr[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
+        str = str == null ? generateBoundary() : str;
+        this.multipart = new HttpMultipart("form-data", charset, str, httpMultipartMode == null ? HttpMultipartMode.STRICT : httpMultipartMode);
+        this.contentType = new BasicHeader("Content-Type", generateContentType(str, charset));
+        this.dirty = true;
+    }
+
+    public void addPart(String str, ContentBody contentBody) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, contentBody) == null) {
+            addPart(new FormBodyPart(str, contentBody));
+        }
+    }
+
+    public void addPart(FormBodyPart formBodyPart) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, formBodyPart) == null) {
+            this.multipart.addBodyPart(formBodyPart);
+            this.dirty = true;
+        }
+    }
+
+    @Override // org.apache.http.HttpEntity
+    public void writeTo(OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, outputStream) == null) {
+            this.multipart.writeTo(outputStream);
+        }
+    }
+
+    public String generateContentType(String str, Charset charset) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, charset)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("multipart/form-data; boundary=");
+            sb.append(str);
+            if (charset != null) {
+                sb.append("; charset=");
+                sb.append(charset.name());
+            }
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

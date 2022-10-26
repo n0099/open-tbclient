@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
-public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> {
+public class RelationBarAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<OriForumInfo> b;
+    public List b;
 
     public RelationBarAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -37,13 +37,21 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
         this.a = context;
     }
 
+    public void setData(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.b = list;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i) {
         OriForumInfo oriForumInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, relationBarHolder, i) == null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.b, i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, relationBarHolder, i) != null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
         RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.a();
@@ -57,21 +65,19 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new RelationBarHolder(new RelationBarCellView(this.a)) : (RelationBarHolder) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+            return new RelationBarHolder(new RelationBarCellView(this.a));
+        }
+        return (RelationBarHolder) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.b) : invokeV.intValue;
-    }
-
-    public void setData(List<OriForumInfo> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ListUtils.getCount(this.b);
         }
-        this.b = list;
+        return invokeV.intValue;
     }
 }

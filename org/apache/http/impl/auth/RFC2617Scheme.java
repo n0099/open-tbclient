@@ -31,17 +31,7 @@ public abstract class RFC2617Scheme extends AuthSchemeBase {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.auth.AuthScheme
-    public String getParameter(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Map<String, String> getParameters() {
+    public Map getParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -58,6 +48,16 @@ public abstract class RFC2617Scheme extends AuthSchemeBase {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.auth.AuthScheme
+    public String getParameter(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // org.apache.http.impl.auth.AuthSchemeBase

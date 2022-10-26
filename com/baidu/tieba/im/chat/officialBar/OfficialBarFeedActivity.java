@@ -11,17 +11,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
-import com.baidu.tieba.ba7;
-import com.baidu.tieba.ea7;
 import com.baidu.tieba.im.model.OfficialBarFeedMsglistModel;
-import com.baidu.tieba.ra7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
+public class OfficialBarFeedActivity extends BaseActivity implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OfficialBarFeedMsglistView a;
@@ -60,30 +57,6 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.d == i) {
-            return;
-        }
-        this.d = i;
-        super.onChangeSkinType(i);
-        OfficialBarFeedMsglistView officialBarFeedMsglistView = this.a;
-        if (officialBarFeedMsglistView != null) {
-            officialBarFeedMsglistView.onChangeSkinType(i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            z1();
-            initData();
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
@@ -93,14 +66,6 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
             if (officialBarFeedMsglistModel != null) {
                 officialBarFeedMsglistModel.onDestroy();
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onListDataLoad(List<ra7> list, List<ba7> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, list2) == null) {
-            this.a.r(list, list2);
         }
     }
 
@@ -117,11 +82,50 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
         }
     }
 
+    public final void y1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a = new OfficialBarFeedMsglistView(this);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.d == i) {
+            return;
+        }
+        this.d = i;
+        super.onChangeSkinType(i);
+        OfficialBarFeedMsglistView officialBarFeedMsglistView = this.a;
+        if (officialBarFeedMsglistView != null) {
+            officialBarFeedMsglistView.onChangeSkinType(i);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            y1();
+            initData();
+        }
+    }
+
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray<ea7> longSparseArray) {
+    public void onReadCountLoad(LongSparseArray longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, longSparseArray) == null) {
             this.a.s(longSparseArray);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
+    public void onListDataLoad(List list, List list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, list2) == null) {
+            this.a.r(list, list2);
         }
     }
 
@@ -138,13 +142,6 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
             StatisticItem statisticItem = new StatisticItem("c13861");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void z1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = new OfficialBarFeedMsglistView(this);
         }
     }
 }

@@ -40,9 +40,25 @@ public final class CacheDeviceInfo {
     public String operator;
     public String osVersion;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1215369574, "Lcom/baidu/searchbox/common/security/CacheDeviceInfo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1215369574, "Lcom/baidu/searchbox/common/security/CacheDeviceInfo;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/common/security/CacheDeviceInfo$Companion;", "", "JSON_KEY_ANDROID_ID", "Ljava/lang/String;", "JSON_KEY_HARMONY_VERSION", "JSON_KEY_IMEI", "JSON_KEY_MAC", "JSON_KEY_MANUFACTURER", "JSON_KEY_MODEL", "JSON_KEY_OAID", "JSON_KEY_OPERATOR", "JSON_KEY_OS_VERSION", "<init>", "()V", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,22 +81,6 @@ public final class CacheDeviceInfo {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1215369574, "Lcom/baidu/searchbox/common/security/CacheDeviceInfo;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1215369574, "Lcom/baidu/searchbox/common/security/CacheDeviceInfo;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
-    }
-
     public CacheDeviceInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,55 +98,113 @@ public final class CacheDeviceInfo {
     public final String getAndroidId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.androidId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.androidId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getHarmonyVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.harmonyVersion : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.harmonyVersion;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getImei() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.imei : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.imei;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getMacAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.macAddress : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.macAddress;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getManufacturer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.manufacturer : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.manufacturer;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.model : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.model;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getOaid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.oaid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.oaid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getOperator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.operator : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.operator;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getOsVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.osVersion : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.osVersion;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CacheDeviceInfo(String jsonString) {
+        this();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsonString};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(jsonString, "jsonString");
+        JSONObject jSONObject = new JSONObject(jsonString);
+        this.macAddress = jSONObject.optString("ma", null);
+        this.imei = jSONObject.optString("im", null);
+        this.androidId = jSONObject.optString(JSON_KEY_ANDROID_ID, null);
+        this.oaid = jSONObject.optString(JSON_KEY_OAID, null);
+        this.model = jSONObject.optString(JSON_KEY_MODEL, null);
+        this.osVersion = jSONObject.optString("ov", null);
+        this.operator = jSONObject.optString("op", null);
+        this.harmonyVersion = jSONObject.optString(JSON_KEY_HARMONY_VERSION, null);
+        this.manufacturer = jSONObject.optString(JSON_KEY_MANUFACTURER, null);
     }
 
     public final boolean isDeviceInfoSyncMapping(int i, String str) {
@@ -156,89 +214,108 @@ public final class CacheDeviceInfo {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (i == 1) {
-                String str2 = this.macAddress;
-                Intrinsics.checkNotNull(str);
-                return TextUtils.equals(str2, DeviceInfoUtilKt.crcSign(str));
-            } else if (i == 2) {
-                String str3 = this.imei;
-                Intrinsics.checkNotNull(str);
-                return TextUtils.equals(str3, DeviceInfoUtilKt.crcSign(str));
-            } else if (i == 4) {
-                String str4 = this.androidId;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 4) {
+                        if (i != 8) {
+                            if (i != 16) {
+                                if (i != 32) {
+                                    if (i != 64) {
+                                        if (i != 128) {
+                                            if (i != 256) {
+                                                return false;
+                                            }
+                                            return TextUtils.equals(this.manufacturer, str);
+                                        }
+                                        return TextUtils.equals(this.harmonyVersion, str);
+                                    }
+                                    return TextUtils.equals(this.operator, str);
+                                }
+                                return TextUtils.equals(this.osVersion, str);
+                            }
+                            return TextUtils.equals(this.model, str);
+                        }
+                        String str2 = this.oaid;
+                        Intrinsics.checkNotNull(str);
+                        return TextUtils.equals(str2, DeviceInfoUtilKt.crcSign(str));
+                    }
+                    String str3 = this.androidId;
+                    Intrinsics.checkNotNull(str);
+                    return TextUtils.equals(str3, DeviceInfoUtilKt.crcSign(str));
+                }
+                String str4 = this.imei;
                 Intrinsics.checkNotNull(str);
                 return TextUtils.equals(str4, DeviceInfoUtilKt.crcSign(str));
-            } else if (i == 8) {
-                String str5 = this.oaid;
-                Intrinsics.checkNotNull(str);
-                return TextUtils.equals(str5, DeviceInfoUtilKt.crcSign(str));
-            } else if (i != 16) {
-                if (i != 32) {
-                    if (i != 64) {
-                        if (i != 128) {
-                            if (i != 256) {
-                                return false;
-                            }
-                            return TextUtils.equals(this.manufacturer, str);
-                        }
-                        return TextUtils.equals(this.harmonyVersion, str);
-                    }
-                    return TextUtils.equals(this.operator, str);
-                }
-                return TextUtils.equals(this.osVersion, str);
-            } else {
-                return TextUtils.equals(this.model, str);
             }
+            String str5 = this.macAddress;
+            Intrinsics.checkNotNull(str);
+            return TextUtils.equals(str5, DeviceInfoUtilKt.crcSign(str));
         }
         return invokeIL.booleanValue;
+    }
+
+    public final void setDeviceInfo(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 4) {
+                        if (i != 8) {
+                            if (i != 16) {
+                                if (i != 32) {
+                                    if (i != 64) {
+                                        if (i != 128) {
+                                            if (i == 256) {
+                                                this.manufacturer = str;
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                        this.harmonyVersion = str;
+                                        return;
+                                    }
+                                    this.operator = str;
+                                    return;
+                                }
+                                this.osVersion = str;
+                                return;
+                            }
+                            this.model = str;
+                            return;
+                        }
+                        if (!TextUtils.isEmpty(str)) {
+                            Intrinsics.checkNotNull(str);
+                            str = DeviceInfoUtilKt.crcSign(str);
+                        }
+                        this.oaid = str;
+                        return;
+                    }
+                    if (!TextUtils.isEmpty(str)) {
+                        Intrinsics.checkNotNull(str);
+                        str = DeviceInfoUtilKt.crcSign(str);
+                    }
+                    this.androidId = str;
+                    return;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    Intrinsics.checkNotNull(str);
+                    str = DeviceInfoUtilKt.crcSign(str);
+                }
+                this.imei = str;
+                return;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                Intrinsics.checkNotNull(str);
+                str = DeviceInfoUtilKt.crcSign(str);
+            }
+            this.macAddress = str;
+        }
     }
 
     public final void setAndroidId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.androidId = str;
-        }
-    }
-
-    public final void setDeviceInfo(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
-            if (i == 1) {
-                if (!TextUtils.isEmpty(str)) {
-                    Intrinsics.checkNotNull(str);
-                    str = DeviceInfoUtilKt.crcSign(str);
-                }
-                this.macAddress = str;
-            } else if (i == 2) {
-                if (!TextUtils.isEmpty(str)) {
-                    Intrinsics.checkNotNull(str);
-                    str = DeviceInfoUtilKt.crcSign(str);
-                }
-                this.imei = str;
-            } else if (i == 4) {
-                if (!TextUtils.isEmpty(str)) {
-                    Intrinsics.checkNotNull(str);
-                    str = DeviceInfoUtilKt.crcSign(str);
-                }
-                this.androidId = str;
-            } else if (i == 8) {
-                if (!TextUtils.isEmpty(str)) {
-                    Intrinsics.checkNotNull(str);
-                    str = DeviceInfoUtilKt.crcSign(str);
-                }
-                this.oaid = str;
-            } else if (i == 16) {
-                this.model = str;
-            } else if (i == 32) {
-                this.osVersion = str;
-            } else if (i == 64) {
-                this.operator = str;
-            } else if (i == 128) {
-                this.harmonyVersion = str;
-            } else if (i != 256) {
-            } else {
-                this.manufacturer = str;
-            }
         }
     }
 
@@ -317,36 +394,5 @@ public final class CacheDeviceInfo {
             return jSONObject2;
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CacheDeviceInfo(String jsonString) {
-        this();
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsonString};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(jsonString, "jsonString");
-        JSONObject jSONObject = new JSONObject(jsonString);
-        this.macAddress = jSONObject.optString("ma", null);
-        this.imei = jSONObject.optString("im", null);
-        this.androidId = jSONObject.optString(JSON_KEY_ANDROID_ID, null);
-        this.oaid = jSONObject.optString(JSON_KEY_OAID, null);
-        this.model = jSONObject.optString(JSON_KEY_MODEL, null);
-        this.osVersion = jSONObject.optString("ov", null);
-        this.operator = jSONObject.optString("op", null);
-        this.harmonyVersion = jSONObject.optString(JSON_KEY_HARMONY_VERSION, null);
-        this.manufacturer = jSONObject.optString(JSON_KEY_MANUFACTURER, null);
     }
 }

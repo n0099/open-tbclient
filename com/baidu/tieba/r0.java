@@ -14,6 +14,24 @@ public abstract class r0 {
     public boolean b;
     public o0 c;
 
+    public void c(o0 o0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, o0Var) == null) {
+        }
+    }
+
+    public void g(o0 o0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, o0Var) == null) {
+        }
+    }
+
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public r0() {
         this(0);
@@ -32,50 +50,22 @@ public abstract class r0 {
         }
     }
 
-    public void c(o0 o0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o0Var) == null) {
-        }
-    }
-
-    public final void d(o0 o0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o0Var) == null) {
-            this.c = o0Var;
-            c(o0Var);
-        }
-    }
-
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 
     public o0 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (o0) invokeV.objValue;
-    }
-
-    public void g(o0 o0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, o0Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
-    }
-
-    public final void h(o0 o0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, o0Var) == null) {
-            this.c = null;
-            g(o0Var);
-        }
-    }
-
-    public void update(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-        }
+        return (o0) invokeV.objValue;
     }
 
     public r0(int i) {
@@ -95,5 +85,21 @@ public abstract class r0 {
         }
         this.a = i;
         this.b = true;
+    }
+
+    public final void d(o0 o0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o0Var) == null) {
+            this.c = o0Var;
+            c(o0Var);
+        }
+    }
+
+    public final void h(o0 o0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, o0Var) == null) {
+            this.c = null;
+            g(o0Var);
+        }
     }
 }

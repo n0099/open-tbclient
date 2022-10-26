@@ -5,8 +5,6 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.util.Log;
 import android.util.TypedValue;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -27,10 +25,9 @@ public class AssetHelper {
     public static final String DEFAULT_MIME_TYPE = "text/plain";
     public static final String TAG = "AssetHelper";
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public Context mContext;
 
-    public AssetHelper(@NonNull Context context) {
+    public AssetHelper(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,22 +45,20 @@ public class AssetHelper {
         this.mContext = context;
     }
 
-    @NonNull
-    public static String getCanonicalPath(@NonNull File file) throws IOException {
+    public static String getCanonicalPath(File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
             String canonicalPath = file.getCanonicalPath();
-            if (canonicalPath.endsWith("/")) {
-                return canonicalPath;
+            if (!canonicalPath.endsWith("/")) {
+                return canonicalPath + "/";
             }
-            return canonicalPath + "/";
+            return canonicalPath;
         }
         return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static File getDataDir(@NonNull Context context) {
+    public static File getDataDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -73,12 +68,6 @@ public class AssetHelper {
             return context.getCacheDir().getParentFile();
         }
         return (File) invokeL.objValue;
-    }
-
-    private int getFieldId(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) ? this.mContext.getResources().getIdentifier(str2, str, this.mContext.getPackageName()) : invokeLL.intValue;
     }
 
     private int getValueType(int i) {
@@ -92,36 +81,58 @@ public class AssetHelper {
         return invokeI.intValue;
     }
 
-    @NonNull
-    public static String guessMimeType(@NonNull String str) {
+    public static String guessMimeType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
-            return guessContentTypeFromName == null ? "text/plain" : guessContentTypeFromName;
+            if (guessContentTypeFromName == null) {
+                return "text/plain";
+            }
+            return guessContentTypeFromName;
         }
         return (String) invokeL.objValue;
     }
 
-    @Nullable
-    public static InputStream handleSvgzStream(@NonNull String str, @Nullable InputStream inputStream) {
+    public static String removeLeadingSlash(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str.length() > 1 && str.charAt(0) == '/') {
+                return str.substring(1);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private int getFieldId(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) {
+            return this.mContext.getResources().getIdentifier(str2, str, this.mContext.getPackageName());
+        }
+        return invokeLL.intValue;
+    }
+
+    public static InputStream handleSvgzStream(String str, InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, inputStream)) == null) {
-            if (inputStream == null || !str.endsWith(".svgz")) {
-                return inputStream;
+            if (inputStream != null && str.endsWith(".svgz")) {
+                try {
+                    return new GZIPInputStream(inputStream);
+                } catch (IOException e) {
+                    Log.e(TAG, "Error decompressing " + str + " - " + e.getMessage());
+                    return null;
+                }
             }
-            try {
-                return new GZIPInputStream(inputStream);
-            } catch (IOException e) {
-                Log.e(TAG, "Error decompressing " + str + " - " + e.getMessage());
-                return null;
-            }
+            return inputStream;
         }
         return (InputStream) invokeLL.objValue;
     }
 
-    public static boolean isCanonicalChildOf(@NonNull File file, @NonNull File file2) {
+    public static boolean isCanonicalChildOf(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, file2)) == null) {
@@ -140,8 +151,7 @@ public class AssetHelper {
         return invokeLL.booleanValue;
     }
 
-    @Nullable
-    public static InputStream openFile(@NonNull File file) {
+    public static InputStream openFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, file)) == null) {
@@ -155,15 +165,7 @@ public class AssetHelper {
         return (InputStream) invokeL.objValue;
     }
 
-    @NonNull
-    public static String removeLeadingSlash(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? (str.length() <= 1 || str.charAt(0) != '/') ? str : str.substring(1) : (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public InputStream openAsset(@NonNull String str) {
+    public InputStream openAsset(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -178,8 +180,7 @@ public class AssetHelper {
         return (InputStream) invokeL.objValue;
     }
 
-    @Nullable
-    public InputStream openResource(@NonNull String str) {
+    public InputStream openResource(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {

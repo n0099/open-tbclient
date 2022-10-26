@@ -10,6 +10,8 @@ public abstract class VodBceRequest extends AbstractBceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String toJsonString();
+
     public VodBceRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,6 +25,4 @@ public abstract class VodBceRequest extends AbstractBceRequest {
             }
         }
     }
-
-    public abstract String toJsonString();
 }

@@ -2,8 +2,6 @@ package com.baidu.searchbox.logsystem.basic.upload;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.logsystem.util.LLog;
@@ -78,7 +76,7 @@ public class DefaultContentUploader extends BaseContentUploader {
     /* JADX WARN: Type inference failed for: r13v18 */
     /* JADX WARN: Type inference failed for: r13v3 */
     /* JADX WARN: Type inference failed for: r13v6, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r14v0, types: [java.util.Map<java.lang.String, java.lang.String>, java.util.Map, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r14v0, types: [java.util.Map, java.lang.Object] */
     /* JADX WARN: Type inference failed for: r14v37 */
     /* JADX WARN: Type inference failed for: r14v38 */
     /* JADX WARN: Type inference failed for: r14v39 */
@@ -102,7 +100,7 @@ public class DefaultContentUploader extends BaseContentUploader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ResponseEntity uploadDataRequestSync(@NonNull String str, @NonNull File file, @Nullable Map<String, String> map) {
+    public ResponseEntity uploadDataRequestSync(String str, File file, Map map) {
         InterceptResult invokeLLL;
         InputStream inputStream;
         FileInputStream fileInputStream;
@@ -124,6 +122,7 @@ public class DefaultContentUploader extends BaseContentUploader {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, file, map)) == null) {
             boolean z = false;
             FileInputStream fileInputStream2 = null;
+            String str2 = null;
             r2 = null;
             fileInputStream2 = null;
             fileInputStream2 = null;
@@ -138,8 +137,8 @@ public class DefaultContentUploader extends BaseContentUploader {
                     httpURLConnection.setReadTimeout(30000);
                     httpURLConnection.setConnectTimeout(30000);
                     if (map != 0) {
-                        for (String str2 : map.keySet()) {
-                            httpURLConnection.setRequestProperty(str2, (String) map.get(str2));
+                        for (String str3 : map.keySet()) {
+                            httpURLConnection.setRequestProperty(str3, (String) map.get(str3));
                         }
                     }
                     httpURLConnection.setDoOutput(true);
@@ -310,10 +309,12 @@ public class DefaultContentUploader extends BaseContentUploader {
                 } else {
                     inputStream2 = null;
                 }
-                String byteArrayOutputStream = inputStream2 != null ? inputStream2.toString(IMAudioTransRequest.CHARSET) : null;
-                if (responseCode == 200 && !TextUtils.isEmpty(byteArrayOutputStream)) {
+                if (inputStream2 != null) {
+                    str2 = inputStream2.toString(IMAudioTransRequest.CHARSET);
+                }
+                if (responseCode == 200 && !TextUtils.isEmpty(str2)) {
                     try {
-                        if (new JSONObject(byteArrayOutputStream).optInt("error", -1) == 0) {
+                        if (new JSONObject(str2).optInt("error", -1) == 0) {
                             z = true;
                         }
                     } catch (JSONException e9) {
@@ -321,9 +322,9 @@ public class DefaultContentUploader extends BaseContentUploader {
                     }
                 }
                 if (DEBUG) {
-                    Log.d("LSStrategy", "DefaultContentUploader: success = " + z + ", resultStr= " + byteArrayOutputStream);
+                    Log.d("LSStrategy", "DefaultContentUploader: success = " + z + ", resultStr= " + str2);
                 }
-                ResponseEntity responseEntity = new ResponseEntity(z, byteArrayOutputStream);
+                ResponseEntity responseEntity = new ResponseEntity(z, str2);
                 Closeables.closeSafely(outputStream6);
                 Closeables.closeSafely(fileInputStream);
                 Closeables.closeSafely((Closeable) inputStream2);

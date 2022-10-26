@@ -11,13 +11,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.imagepipeline.memory.BasePool;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
-public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
+public abstract class MemoryChunkPool extends BasePool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int[] mBucketSizes;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.imagepipeline.memory.BasePool
+    public abstract MemoryChunk alloc(int i);
+
+    @Override // com.facebook.imagepipeline.memory.BasePool
+    public int getSizeInBytes(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MemoryChunkPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {
@@ -54,9 +63,14 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public abstract MemoryChunk alloc(int i);
+    public void free(MemoryChunk memoryChunk) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memoryChunk) == null) {
+            Preconditions.checkNotNull(memoryChunk);
+            memoryChunk.close();
+        }
+    }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
     public int getBucketedSize(int i) {
@@ -75,29 +89,6 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
             throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
         return invokeI.intValue;
-    }
-
-    public int getMinBufferSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mBucketSizes[0] : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getSizeInBytes(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    public void free(MemoryChunk memoryChunk) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memoryChunk) == null) {
-            Preconditions.checkNotNull(memoryChunk);
-            memoryChunk.close();
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -122,5 +113,14 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
             return !memoryChunk.isClosed();
         }
         return invokeL.booleanValue;
+    }
+
+    public int getMinBufferSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mBucketSizes[0];
+        }
+        return invokeV.intValue;
     }
 }

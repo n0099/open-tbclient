@@ -95,7 +95,10 @@ public class InvoiceBuildActivity extends SlideActiviy {
     public SapiWebDTO getWebDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? EcommerceRouter.getInstance().getInvoiceBuildDTO() : (SapiWebDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return EcommerceRouter.getInstance().getInvoiceBuildDTO();
+        }
+        return (SapiWebDTO) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -112,28 +115,26 @@ public class InvoiceBuildActivity extends SlideActiviy {
         }
     }
 
-    public void loadInvoiceUrl(List<PassNameValuePair> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.sapiWebView.loadInvoiceBuild(list);
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.SlideActiviy
-    public void loadSlideWebview(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) && SlideActiviy.INVOICE_PAGE_NAME.equals(str) && !TextUtils.isEmpty(str2)) {
-            Intent intent = new Intent(this, InvoiceBuildExternalActivity.class);
-            intent.putExtra("extra_external_url", str2);
-            startActivity(intent);
-        }
-    }
-
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             back();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            back();
+        }
+    }
+
+    public void loadInvoiceUrl(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.sapiWebView.loadInvoiceBuild(list);
         }
     }
 
@@ -153,11 +154,13 @@ public class InvoiceBuildActivity extends SlideActiviy {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
+    @Override // com.baidu.sapi2.activity.SlideActiviy
+    public void loadSlideWebview(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            back();
+        if ((interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) && SlideActiviy.INVOICE_PAGE_NAME.equals(str) && !TextUtils.isEmpty(str2)) {
+            Intent intent = new Intent(this, InvoiceBuildExternalActivity.class);
+            intent.putExtra("extra_external_url", str2);
+            startActivity(intent);
         }
     }
 

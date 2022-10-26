@@ -30,7 +30,7 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
     public final SlidingTabStrip e;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -71,17 +71,26 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
             }
         }
 
+        public /* synthetic */ b(SlidingTabLayout slidingTabLayout, a aVar) {
+            this(slidingTabLayout);
+        }
+
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
             int childCount;
+            int i3;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || (childCount = this.b.e.getChildCount()) == 0 || i < 0 || i >= childCount) {
-                return;
-            }
-            View childAt = this.b.e.getChildAt(i);
-            this.b.k(i, childAt != null ? (int) (childAt.getWidth() * f) : 0);
-            if (this.b.c != null) {
-                this.b.c.onPageScrolled(i, f, i2);
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && (childCount = this.b.e.getChildCount()) != 0 && i >= 0 && i < childCount) {
+                View childAt = this.b.e.getChildAt(i);
+                if (childAt != null) {
+                    i3 = (int) (childAt.getWidth() * f);
+                } else {
+                    i3 = 0;
+                }
+                this.b.k(i, i3);
+                if (this.b.c != null) {
+                    this.b.c.onPageScrolled(i, f, i2);
+                }
             }
         }
 
@@ -100,10 +109,6 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
                     this.b.c.onPageSelected(i);
                 }
             }
-        }
-
-        public /* synthetic */ b(SlidingTabLayout slidingTabLayout, a aVar) {
-            this(slidingTabLayout);
         }
     }
 
@@ -131,6 +136,10 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
             this.a = slidingTabLayout;
         }
 
+        public /* synthetic */ c(SlidingTabLayout slidingTabLayout, a aVar) {
+            this(slidingTabLayout);
+        }
+
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
@@ -142,10 +151,6 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
                     }
                 }
             }
-        }
-
-        public /* synthetic */ c(SlidingTabLayout slidingTabLayout, a aVar) {
-            this(slidingTabLayout);
         }
     }
 
@@ -183,89 +188,6 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
             return textView;
         }
         return (TextView) invokeL.objValue;
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            PagerAdapter adapter = this.b.getAdapter();
-            c cVar = new c(this, null);
-            for (int i2 = 0; i2 < adapter.getCount(); i2++) {
-                TextView i3 = i(getContext());
-                i3.setText(StringHelper.cutChineseAndEnglishWithSuffix(((Object) adapter.getPageTitle(i2)) + "", 8, (String) null));
-                i3.setOnClickListener(cVar);
-                if (adapter.getCount() < 8) {
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
-                    layoutParams.weight = 1.0f;
-                    int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
-                    i3.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
-                    this.e.addView(i3, layoutParams);
-                } else {
-                    int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
-                    int dimensionPixelSize3 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
-                    i3.setPadding(dimensionPixelSize3, dimensionPixelSize2, dimensionPixelSize3, dimensionPixelSize2);
-                    this.e.addView(i3);
-                }
-                if (i2 == i) {
-                    i3.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f070207));
-                    SkinManager.setViewTextColor(i3, R.color.CAM_X0308, 1);
-                }
-            }
-        }
-    }
-
-    public final void k(int i, int i2) {
-        int childCount;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (childCount = this.e.getChildCount()) == 0 || i < 0 || i >= childCount || (childAt = this.e.getChildAt(i)) == null) {
-            return;
-        }
-        int left = childAt.getLeft() + i2;
-        if (i > 0 || i2 > 0) {
-            left -= this.a;
-        }
-        scrollTo(left, 0);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onAttachedToWindow();
-            ViewPager viewPager = this.b;
-            if (viewPager != null) {
-                k(viewPager.getCurrentItem(), 0);
-            }
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        SlidingTabStrip slidingTabStrip;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (slidingTabStrip = this.e) == null) {
-            return;
-        }
-        slidingTabStrip.a(i);
-    }
-
-    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onPageChangeListener) == null) {
-            this.c = onPageChangeListener;
-        }
-    }
-
-    public void setViewPager(ViewPager viewPager, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, viewPager, i) == null) {
-            this.e.removeAllViews();
-            this.b = viewPager;
-            if (viewPager != null) {
-                viewPager.setOnPageChangeListener(new b(this, null));
-                j(i);
-            }
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -315,5 +237,86 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
         SlidingTabStrip slidingTabStrip = new SlidingTabStrip(context);
         this.e = slidingTabStrip;
         addView(slidingTabStrip, -1, -2);
+    }
+
+    public void onChangeSkinType(int i) {
+        SlidingTabStrip slidingTabStrip;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (slidingTabStrip = this.e) != null) {
+            slidingTabStrip.a(i);
+        }
+    }
+
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onPageChangeListener) == null) {
+            this.c = onPageChangeListener;
+        }
+    }
+
+    public void setViewPager(ViewPager viewPager, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, viewPager, i) == null) {
+            this.e.removeAllViews();
+            this.b = viewPager;
+            if (viewPager != null) {
+                viewPager.setOnPageChangeListener(new b(this, null));
+                j(i);
+            }
+        }
+    }
+
+    public final void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            PagerAdapter adapter = this.b.getAdapter();
+            c cVar = new c(this, null);
+            for (int i2 = 0; i2 < adapter.getCount(); i2++) {
+                TextView i3 = i(getContext());
+                i3.setText(StringHelper.cutChineseAndEnglishWithSuffix(((Object) adapter.getPageTitle(i2)) + "", 8, (String) null));
+                i3.setOnClickListener(cVar);
+                if (adapter.getCount() < 8) {
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
+                    layoutParams.weight = 1.0f;
+                    int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
+                    i3.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+                    this.e.addView(i3, layoutParams);
+                } else {
+                    int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
+                    int dimensionPixelSize3 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
+                    i3.setPadding(dimensionPixelSize3, dimensionPixelSize2, dimensionPixelSize3, dimensionPixelSize2);
+                    this.e.addView(i3);
+                }
+                if (i2 == i) {
+                    i3.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f070207));
+                    SkinManager.setViewTextColor(i3, R.color.CAM_X0308, 1);
+                }
+            }
+        }
+    }
+
+    public final void k(int i, int i2) {
+        int childCount;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && (childCount = this.e.getChildCount()) != 0 && i >= 0 && i < childCount && (childAt = this.e.getChildAt(i)) != null) {
+            int left = childAt.getLeft() + i2;
+            if (i > 0 || i2 > 0) {
+                left -= this.a;
+            }
+            scrollTo(left, 0);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onAttachedToWindow();
+            ViewPager viewPager = this.b;
+            if (viewPager != null) {
+                k(viewPager.getCurrentItem(), 0);
+            }
+        }
     }
 }

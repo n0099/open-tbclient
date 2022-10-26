@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -23,27 +22,27 @@ import io.reactivex.subjects.Subject;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableRepeatWhen extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super Observable<Object>, ? extends ObservableSource<?>> handler;
+    public final Function handler;
 
     /* loaded from: classes8.dex */
-    public static final class RepeatWhenObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
+    public final class RepeatWhenObserver extends AtomicInteger implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 802743776666017014L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean active;
-        public final Observer<? super T> actual;
-        public final AtomicReference<Disposable> d;
+        public final Observer actual;
+        public final AtomicReference d;
         public final AtomicThrowable error;
-        public final RepeatWhenObserver<T>.InnerRepeatObserver inner;
-        public final Subject<Object> signaller;
-        public final ObservableSource<T> source;
+        public final InnerRepeatObserver inner;
+        public final Subject signaller;
+        public final ObservableSource source;
         public final AtomicInteger wip;
 
         /* loaded from: classes8.dex */
-        public final class InnerRepeatObserver extends AtomicReference<Disposable> implements Observer<Object> {
+        public final class InnerRepeatObserver extends AtomicReference implements Observer {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 3254781284376480842L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -65,14 +64,6 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
                     }
                 }
                 this.this$0 = repeatWhenObserver;
-            }
-
-            @Override // io.reactivex.Observer
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$0.innerComplete();
-                }
             }
 
             @Override // io.reactivex.Observer
@@ -98,9 +89,17 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
                     DisposableHelper.setOnce(this, disposable);
                 }
             }
+
+            @Override // io.reactivex.Observer
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.this$0.innerComplete();
+                }
+            }
         }
 
-        public RepeatWhenObserver(Observer<? super T> observer, Subject<Object> subject, ObservableSource<T> observableSource) {
+        public RepeatWhenObserver(Observer observer, Subject subject, ObservableSource observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +120,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
             this.wip = new AtomicInteger();
             this.error = new AtomicThrowable();
             this.inner = new InnerRepeatObserver(this);
-            this.d = new AtomicReference<>();
+            this.d = new AtomicReference();
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -141,14 +140,6 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
             }
         }
 
-        public void innerError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                DisposableHelper.dispose(this.d);
-                HalfSerializer.onError(this.actual, th, this, this.error);
-            }
-        }
-
         public void innerNext() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -160,7 +151,10 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.d.get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) this.d.get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -169,6 +163,14 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 this.active = false;
                 this.signaller.onNext(0);
+            }
+        }
+
+        public void innerError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                DisposableHelper.dispose(this.d);
+                HalfSerializer.onError(this.actual, th, this, this.error);
             }
         }
 
@@ -182,10 +184,10 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                HalfSerializer.onNext(this.actual, t, this, this.error);
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+                HalfSerializer.onNext(this.actual, obj, this, this.error);
             }
         }
 
@@ -214,7 +216,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableRepeatWhen(ObservableSource<T> observableSource, Function<? super Observable<Object>, ? extends ObservableSource<?>> function) {
+    public ObservableRepeatWhen(ObservableSource observableSource, Function function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -235,10 +237,10 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            Subject<T> serialized = PublishSubject.create().toSerialized();
+            Subject serialized = PublishSubject.create().toSerialized();
             try {
                 ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.handler.apply(serialized), "The handler returned a null ObservableSource");
                 RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(observer, serialized, this.source);

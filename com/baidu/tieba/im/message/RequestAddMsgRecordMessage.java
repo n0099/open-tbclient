@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
     public static final int LIST = 1;
     public static final int VIEW = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<MsgRecord> msgRecords;
+    public List msgRecords;
     public int type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,35 +45,8 @@ public class RequestAddMsgRecordMessage extends NetMessage {
         this.type = 1;
     }
 
-    @Override // com.baidu.adp.framework.message.NetMessage
-    public Object encode(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.records = this.msgRecords;
-            if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
-            }
-            AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        }
-        return invokeZ.objValue;
-    }
-
-    public boolean isList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdLog.e("type " + this.type);
-            return this.type == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestAddMsgRecordMessage(List<MsgRecord> list) {
+    public RequestAddMsgRecordMessage(List list) {
         super(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,9 +66,38 @@ public class RequestAddMsgRecordMessage extends NetMessage {
         }
         this.type = 1;
         this.msgRecords = list;
-        if (list == null || list.size() <= 0) {
-            return;
+        if (list != null && list.size() > 0) {
+            this.type = ((MsgRecord) list.get(0)).type.intValue();
         }
-        this.type = list.get(0).type.intValue();
+    }
+
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.records = this.msgRecords;
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                yh5.a(builder, true);
+            }
+            AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        }
+        return invokeZ.objValue;
+    }
+
+    public boolean isList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BdLog.e("type " + this.type);
+            if (this.type == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

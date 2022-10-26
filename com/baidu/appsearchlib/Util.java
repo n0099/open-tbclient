@@ -50,14 +50,93 @@ public class Util {
         }
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0009: SGET  (r1v3 int A[REMOVE]) =  android.os.Build.VERSION.SDK_INT int)] */
+    public static String getOSVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(Build.VERSION.SDK_INT);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getPlatformCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String str = Build.MODEL;
+            if (str != null) {
+                return str;
+            }
+            return "unknown";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static long getTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return System.currentTimeMillis() / 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0009: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: com.baidu.appsearchlib.Util.getTime():long)] */
+    public static String getTimeStr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getTime());
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String getCurrentVersion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             PackageInfo packageInfo2 = getPackageInfo(context);
-            return packageInfo2 == null ? "0" : packageInfo2.versionName;
+            if (packageInfo2 == null) {
+                return "0";
+            }
+            return packageInfo2.versionName;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static PackageInfo getPackageInfo(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            PackageInfo packageInfo2 = packageInfo;
+            if (packageInfo2 != null) {
+                return packageInfo2;
+            }
+            try {
+                packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return packageInfo;
+        }
+        return (PackageInfo) invokeL.objValue;
+    }
+
+    public static boolean isEmpty(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str != null && !str.equals("")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static String getDeviceId(Context context) {
@@ -88,69 +167,5 @@ public class Util {
             return sb2;
         }
         return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0009: SGET  (r1v3 int A[REMOVE]) =  android.os.Build.VERSION.SDK_INT int)] */
-    public static String getOSVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(Build.VERSION.SDK_INT);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static PackageInfo getPackageInfo(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            PackageInfo packageInfo2 = packageInfo;
-            if (packageInfo2 != null) {
-                return packageInfo2;
-            }
-            try {
-                packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return packageInfo;
-        }
-        return (PackageInfo) invokeL.objValue;
-    }
-
-    public static String getPlatformCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String str = Build.MODEL;
-            return str != null ? str : "unknown";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static long getTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? System.currentTimeMillis() / 1000 : invokeV.longValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0009: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: com.baidu.appsearchlib.Util.getTime():long)] */
-    public static String getTimeStr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(getTime());
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean isEmpty(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? str == null || str.equals("") : invokeL.booleanValue;
     }
 }

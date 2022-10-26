@@ -60,13 +60,22 @@ public class InetAddressValidator implements Serializable {
     public static InetAddressValidator getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? VALIDATOR : (InetAddressValidator) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return VALIDATOR;
+        }
+        return (InetAddressValidator) invokeV.objValue;
     }
 
     public boolean isValid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? isValidInet4Address(str) || isValidInet6Address(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!isValidInet4Address(str) && !isValidInet6Address(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean isValidInet4Address(String str) {
@@ -101,52 +110,55 @@ public class InetAddressValidator implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             boolean contains = str.contains("::");
-            if (!contains || str.indexOf("::") == str.lastIndexOf("::")) {
-                if ((!str.startsWith(":") || str.startsWith("::")) && (!str.endsWith(":") || str.endsWith("::"))) {
-                    String[] split = str.split(":");
-                    if (contains) {
-                        ArrayList arrayList = new ArrayList(Arrays.asList(split));
-                        if (str.endsWith("::")) {
-                            arrayList.add("");
-                        } else if (str.startsWith("::") && !arrayList.isEmpty()) {
-                            arrayList.remove(0);
-                        }
-                        split = (String[]) arrayList.toArray(new String[arrayList.size()]);
-                    }
-                    if (split.length > 8) {
-                        return false;
-                    }
-                    int i = 0;
-                    int i2 = 0;
-                    for (int i3 = 0; i3 < split.length; i3++) {
-                        String str2 = split[i3];
-                        if (str2.length() == 0) {
-                            if (i2 + 1 > 1) {
-                                return false;
-                            }
-                        } else if (i3 == split.length - 1 && str2.contains(".")) {
-                            if (!isValidInet4Address(str2)) {
-                                return false;
-                            }
-                            i += 2;
-                            i2 = 0;
-                        } else if (str2.length() > 4) {
-                            return false;
-                        } else {
-                            try {
-                                int parseInt = Integer.parseInt(str2, 16);
-                                i2 = (parseInt >= 0 && parseInt <= 65535) ? 0 : 0;
-                            } catch (NumberFormatException unused) {
-                            }
-                            return false;
-                        }
-                        i++;
-                    }
-                    return i <= 8 && (i >= 8 || contains);
-                }
+            if (contains && str.indexOf("::") != str.lastIndexOf("::")) {
                 return false;
             }
-            return false;
+            if ((str.startsWith(":") && !str.startsWith("::")) || (str.endsWith(":") && !str.endsWith("::"))) {
+                return false;
+            }
+            String[] split = str.split(":");
+            if (contains) {
+                ArrayList arrayList = new ArrayList(Arrays.asList(split));
+                if (str.endsWith("::")) {
+                    arrayList.add("");
+                } else if (str.startsWith("::") && !arrayList.isEmpty()) {
+                    arrayList.remove(0);
+                }
+                split = (String[]) arrayList.toArray(new String[arrayList.size()]);
+            }
+            if (split.length > 8) {
+                return false;
+            }
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < split.length; i3++) {
+                String str2 = split[i3];
+                if (str2.length() == 0) {
+                    if (i2 + 1 > 1) {
+                        return false;
+                    }
+                } else if (i3 == split.length - 1 && str2.contains(".")) {
+                    if (!isValidInet4Address(str2)) {
+                        return false;
+                    }
+                    i += 2;
+                    i2 = 0;
+                } else if (str2.length() > 4) {
+                    return false;
+                } else {
+                    try {
+                        int parseInt = Integer.parseInt(str2, 16);
+                        i2 = (parseInt >= 0 && parseInt <= 65535) ? 0 : 0;
+                    } catch (NumberFormatException unused) {
+                    }
+                    return false;
+                }
+                i++;
+            }
+            if (i > 8 || (i < 8 && !contains)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

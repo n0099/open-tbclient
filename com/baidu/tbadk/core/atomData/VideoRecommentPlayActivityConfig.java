@@ -4,14 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
-import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,9 +62,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static final String VIDEO_INDEX = "video_index";
     public static final String VIDEO_LIST = "video_list";
     public static final String VIDEO_SHOW_INDEX = "video_show_index";
-    @Nullable
     public static PersonalPageParams bigPersonalPageParams;
-    @Nullable
     public static VideoHotTopicParams bigVideoHotTopicParams;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,7 +78,6 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         public List<Map<String, Object>> dataList;
         @SerializedName("enter_type")
         public String enterType;
-        @NonNull
         @SerializedName("pageId")
         public String flutterPageId;
         public boolean hasMore;
@@ -115,65 +109,94 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         public int getCurrentPn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.currentPn : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.currentPn;
+            }
+            return invokeV.intValue;
         }
 
         public List<Map<String, Object>> getDataList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataList : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.dataList;
+            }
+            return (List) invokeV.objValue;
         }
 
-        @NonNull
         public String getFlutterPageId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.flutterPageId : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.flutterPageId;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getPersonalPageUid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.personalPageUid : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.personalPageUid;
+            }
+            return (String) invokeV.objValue;
         }
 
-        @NonNull
         public String getStatPageFromIdentifier() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isVideoTab ? "14" : "15" : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.isVideoTab) {
+                    return "14";
+                }
+                return "15";
+            }
+            return (String) invokeV.objValue;
         }
 
-        @NonNull
         public String getThreadId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.threadId : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.threadId;
+            }
+            return (String) invokeV.objValue;
         }
 
-        @NonNull
         public int getWorkTabId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.workTabId : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.workTabId;
+            }
+            return invokeV.intValue;
         }
 
         public boolean isHasMore() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.hasMore : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.hasMore;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isShareThread() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isShareThread : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.isShareThread;
+            }
+            return invokeV.booleanValue;
         }
 
         public boolean isVideoTab() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isVideoTab : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.isVideoTab;
+            }
+            return invokeV.booleanValue;
         }
 
         public void setCurrentPn(int i) {
@@ -185,7 +208,30 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
+    public VideoRecommentPlayActivityConfig(Context context, int i, String str) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("video_show_index", i);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("from", str);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VideoRecommentPlayActivityConfig(Context context, List list, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -206,47 +252,8 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("video_index", i);
     }
 
-    public void setIsFromBjhPb(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            getIntent().putExtra("is_from_bjh_pb", z);
-        }
-    }
-
-    public void setNid(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("key_nid", str);
-    }
-
-    public void setParamIsVertail(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("is_vertail", z);
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
-    public void setVideoShowIndex(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            getIntent().putExtra("video_show_index", i);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
+    public VideoRecommentPlayActivityConfig(Context context, List list, int i, Rect rect, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -270,54 +277,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2, boolean z) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65542, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65542, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("page_from", str);
-        getIntent().putExtra("from", str2);
-        TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, str, str2};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("page_from", str);
-        getIntent().putExtra("from", str2);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
+    public VideoRecommentPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -344,7 +304,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public VideoRecommentPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -372,25 +332,85 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(@NonNull Context context, int i, String str) {
+    public VideoRecommentPlayActivityConfig(Context context, List list, String str, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context, list, str, str2};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("video_show_index", i);
+        getIntent().putExtra("video_list", (Serializable) list);
         getIntent().putExtra("page_from", str);
-        getIntent().putExtra("from", str);
+        getIntent().putExtra("from", str2);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VideoRecommentPlayActivityConfig(Context context, List list, String str, String str2, boolean z) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65542, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65542, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("from", str2);
+        TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z);
+    }
+
+    public void setIsFromBjhPb(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            getIntent().putExtra("is_from_bjh_pb", z);
+        }
+    }
+
+    public void setNid(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("key_nid", str);
+        }
+    }
+
+    public void setParamIsVertail(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra("is_vertail", z);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
+    public void setVideoShowIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            getIntent().putExtra("video_show_index", i);
+        }
     }
 }

@@ -52,10 +52,9 @@ public class LengthCheckInputStream extends FilterInputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, this, z) == null) {
             if (z) {
-                if (this.dataLength == this.expectedLength) {
-                    return;
+                if (this.dataLength != this.expectedLength) {
+                    throw new BceClientException("Data read (" + this.dataLength + ") has a different length than the expected (" + this.expectedLength + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                throw new BceClientException("Data read (" + this.dataLength + ") has a different length than the expected (" + this.expectedLength + SmallTailInfo.EMOTION_SUFFIX);
             } else if (this.dataLength <= this.expectedLength) {
             } else {
                 throw new BceClientException("More data read (" + this.dataLength + ") than expected (" + this.expectedLength + SmallTailInfo.EMOTION_SUFFIX);
@@ -69,32 +68,6 @@ public class LengthCheckInputStream extends FilterInputStream {
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.mark(i);
             this.marked = this.dataLength;
-        }
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int read = super.read();
-            if (read >= 0) {
-                this.dataLength++;
-            }
-            checkLength(read == -1);
-            return read;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.reset();
-            if (super.markSupported()) {
-                this.dataLength = this.marked;
-            }
         }
     }
 
@@ -114,13 +87,58 @@ public class LengthCheckInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int read = super.read();
+            if (read >= 0) {
+                this.dataLength++;
+            }
+            if (read == -1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            checkLength(z);
+            return read;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.reset();
+            if (super.markSupported()) {
+                this.dataLength = this.marked;
+            }
+        }
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
+        long j;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
             int read = super.read(bArr, i, i2);
-            this.dataLength += read >= 0 ? read : 0L;
-            checkLength(read == -1);
+            long j2 = this.dataLength;
+            if (read >= 0) {
+                j = read;
+            } else {
+                j = 0;
+            }
+            this.dataLength = j2 + j;
+            if (read == -1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            checkLength(z);
             return read;
         }
         return invokeLII.intValue;

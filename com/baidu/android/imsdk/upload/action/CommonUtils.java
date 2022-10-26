@@ -52,9 +52,17 @@ public class CommonUtils {
 
     public static IMPushPb.Common getIMCommon(Context context, String str) {
         InterceptResult invokeLL;
+        String appVersionName;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            return IMPushPb.Common.newBuilder().setDeviceId(IMPushPb.DeviceID.newBuilder().setCuid(str).build()).setTimestamp(-1L).setUserTimestamp(System.currentTimeMillis()).setTerminalInfo(getTerminalInfo(context)).setNetInfo(getNetInfo(context)).setAppInfo(IMPushPb.AppInfo.newBuilder().setAppName(context.getPackageName()).setAppVersion(TextUtils.isEmpty(getAppVersionName(context)) ? "" : getAppVersionName(context)).setAppChannel("").build()).build();
+            IMPushPb.DeviceID build = IMPushPb.DeviceID.newBuilder().setCuid(str).build();
+            IMPushPb.AppInfo.Builder appName = IMPushPb.AppInfo.newBuilder().setAppName(context.getPackageName());
+            if (TextUtils.isEmpty(getAppVersionName(context))) {
+                appVersionName = "";
+            } else {
+                appVersionName = getAppVersionName(context);
+            }
+            return IMPushPb.Common.newBuilder().setDeviceId(build).setTimestamp(-1L).setUserTimestamp(System.currentTimeMillis()).setTerminalInfo(getTerminalInfo(context)).setNetInfo(getNetInfo(context)).setAppInfo(appName.setAppVersion(appVersionName).setAppChannel("").build()).build();
         }
         return (IMPushPb.Common) invokeLL.objValue;
     }

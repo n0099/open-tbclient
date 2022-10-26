@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.atomData.PushDialogActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nc8;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.pu4;
 import com.baidu.tieba.pushdialog.data.PullTidHttpRespMessage;
 import com.baidu.tieba.pushdialog.data.PullTidSocketResponseMessage;
 import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.xc8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,43 +37,12 @@ public class PushDialogStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                PushDialogLoopManager.i();
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable {
+    public final class b implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes5.dex */
-        public class a implements nu4.e {
+        public class a implements pu4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbPageContextSupport a;
@@ -96,11 +65,11 @@ public class PushDialogStatic {
                 this.a = tbPageContextSupport;
             }
 
-            @Override // com.baidu.tieba.nu4.e
-            public void onClick(nu4 nu4Var) {
+            @Override // com.baidu.tieba.pu4.e
+            public void onClick(pu4 pu4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                    nu4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+                    pu4Var.dismiss();
                     Intent intent = new Intent();
                     intent.setAction("miui.intent.action.APP_PERM_EDITOR_PRIVATE");
                     intent.putExtra("extra_pkgname", this.a.getPageContext().getPageActivity().getPackageName());
@@ -115,12 +84,12 @@ public class PushDialogStatic {
 
         /* renamed from: com.baidu.tieba.pushdialog.PushDialogStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0386b implements nu4.e {
+        public class C0380b implements pu4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbPageContextSupport a;
 
-            public C0386b(b bVar, TbPageContextSupport tbPageContextSupport) {
+            public C0380b(b bVar, TbPageContextSupport tbPageContextSupport) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,11 +107,11 @@ public class PushDialogStatic {
                 this.a = tbPageContextSupport;
             }
 
-            @Override // com.baidu.tieba.nu4.e
-            public void onClick(nu4 nu4Var) {
+            @Override // com.baidu.tieba.pu4.e
+            public void onClick(pu4 pu4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                    nu4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+                    pu4Var.dismiss();
                     Intent intent = new Intent();
                     intent.setAction("com.iqoo.secure.PERMISSION_MANAGER");
                     intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -155,7 +124,7 @@ public class PushDialogStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class c implements nu4.e {
+        public class c implements pu4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,11 +144,11 @@ public class PushDialogStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.nu4.e
-            public void onClick(nu4 nu4Var) {
+            @Override // com.baidu.tieba.pu4.e
+            public void onClick(pu4 pu4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                    nu4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+                    pu4Var.dismiss();
                 }
             }
         }
@@ -199,43 +168,80 @@ public class PushDialogStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
-            nu4.e eVar;
+            boolean z;
+            pu4.e eVar;
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof TbPageContextSupport)) {
-                    int l = ox4.k().l("lock_permission_guide_set", 0);
-                    if (!(l >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
+                    int l = ux4.k().l("lock_permission_guide_set", 0);
+                    if (l >= 2) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!z && TbSingleton.getInstance().canShowPermDialog()) {
                         TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                            if (nc8.a()) {
+                            if (xc8.a()) {
                                 eVar = new a(this, tbPageContextSupport);
-                                i = R.string.obfuscated_res_0x7f0f0f6b;
-                            } else if (nc8.b()) {
-                                eVar = new C0386b(this, tbPageContextSupport);
-                                i = R.string.obfuscated_res_0x7f0f0f6c;
+                                i = R.string.obfuscated_res_0x7f0f0f7d;
+                            } else if (xc8.b()) {
+                                eVar = new C0380b(this, tbPageContextSupport);
+                                i = R.string.obfuscated_res_0x7f0f0f7e;
                             } else {
                                 eVar = null;
                                 i = 0;
                             }
                             if (eVar != null) {
-                                nu4 nu4Var = new nu4(tbPageContextSupport.getPageContext().getPageActivity());
-                                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f0f6d);
-                                nu4Var.setMessageId(i);
-                                nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07e5, eVar);
-                                nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0849, new c(this));
-                                nu4Var.create(tbPageContextSupport.getPageContext());
-                                nu4Var.show();
+                                pu4 pu4Var = new pu4(tbPageContextSupport.getPageContext().getPageActivity());
+                                pu4Var.setTitle(R.string.obfuscated_res_0x7f0f0f7f);
+                                pu4Var.setMessageId(i);
+                                pu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07f1, eVar);
+                                pu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0855, new c(this));
+                                pu4Var.create(tbPageContextSupport.getPageContext());
+                                pu4Var.show();
                                 TbSingleton.getInstance().setHasShowPermDlg(true);
                                 TbSingleton.getInstance();
                                 TbSingleton.setExceptInsertAdDiaShow(true);
                             }
-                            ox4.k().w("lock_permission_guide_set", l + 1);
+                            ux4.k().w("lock_permission_guide_set", l + 1);
                         }
                     }
                 }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public final class a implements CustomMessageTask.CustomRunnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage run(CustomMessage customMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                PushDialogLoopManager.i();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -277,12 +283,12 @@ public class PushDialogStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            sm8.h(309614, PushDialogSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, sm8.a(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
+            zm8.h(309614, PushDialogSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, zm8.a(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
             tbHttpMessageTask.setResponsedClass(PushDialogHttpResMsg.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            sm8.h(309618, PullTidSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, sm8.a(TbConfig.GET_PUSH_DIALOG_TID, 309618));
+            zm8.h(309618, PullTidSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, zm8.a(TbConfig.GET_PUSH_DIALOG_TID, 309618));
             tbHttpMessageTask2.setResponsedClass(PullTidHttpRespMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask2);
             CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new a());

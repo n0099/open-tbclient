@@ -20,7 +20,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayFlowEventType;
 /* loaded from: classes8.dex */
-public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
+public class PayCallbackProxy implements IPayCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;

@@ -29,6 +29,24 @@ public class PlayableUrl {
         }
     }
 
+    public String getTranscodingPresetName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.transcodingPresetName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static PlayableUrl formatFromJson(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -39,18 +57,6 @@ public class PlayableUrl {
             return playableUrl;
         }
         return (PlayableUrl) invokeL.objValue;
-    }
-
-    public String getTranscodingPresetName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.transcodingPresetName : (String) invokeV.objValue;
-    }
-
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
     public void setTranscodingPresetName(String str) {

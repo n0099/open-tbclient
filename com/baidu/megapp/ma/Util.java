@@ -14,6 +14,30 @@ public class Util {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void quitApp(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+        }
+    }
+
+    public static void remapReceiverIntent(String str, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, intent) == null) {
+        }
+    }
+
+    public static void remapStartActivityIntent(String str, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, intent) == null) {
+        }
+    }
+
+    public static void remapStartServiceIntent(String str, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, intent) == null) {
+        }
+    }
+
     public Util() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,31 +78,10 @@ public class Util {
     public static String getTargetPackageName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getPackageName() : (String) invokeL.objValue;
-    }
-
-    public static void quitApp(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return context.getPackageName();
         }
-    }
-
-    public static void remapReceiverIntent(String str, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, intent) == null) {
-        }
-    }
-
-    public static void remapStartActivityIntent(String str, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, intent) == null) {
-        }
-    }
-
-    public static void remapStartServiceIntent(String str, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, intent) == null) {
-        }
+        return (String) invokeL.objValue;
     }
 
     public MAActivity getMAActivityByProxy(Activity activity) {

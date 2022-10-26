@@ -1,8 +1,6 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.player.widget.BdPlayerProgressView;
@@ -25,6 +23,19 @@ public class StringUtils {
     public static final String TIMEFORMAT = "yyyy-MM-dd HH:mm";
     public static final String lineSeparator;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Deprecated
+    public static boolean isNULL(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? str == null : invokeL.booleanValue;
+    }
+
+    public static String tryFixDefaultValue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,32 +81,18 @@ public class StringUtils {
 
     public static final void clearStringBuilder(StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sb) == null) || sb == null || sb.length() <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sb) == null) && sb != null && sb.length() > 0) {
+            sb.delete(0, sb.length());
         }
-        sb.delete(0, sb.length());
-    }
-
-    public static long getyyyyMMddHHTimeForNow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            return (calendar.get(1) * 1000000) + 0 + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100) + calendar.get(11);
-        }
-        return invokeV.longValue;
     }
 
     public static Date handleDate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? handleDate(str, "yyyy-MM-dd HH:mm") : (Date) invokeL.objValue;
-    }
-
-    public static boolean isChinese(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c)})) == null) ? Pattern.compile("[一-龥]").matcher(String.valueOf(c)).find() : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return handleDate(str, "yyyy-MM-dd HH:mm");
+        }
+        return (Date) invokeL.objValue;
     }
 
     public static boolean isJSONArray(String str) {
@@ -119,29 +116,83 @@ public class StringUtils {
         return invokeL.booleanValue;
     }
 
-    @Deprecated
-    public static boolean isNULL(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? str == null : invokeL.booleanValue;
-    }
-
     public static boolean isNull(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? str == null || str.trim().length() == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (str != null && str.trim().length() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isValidPassWord(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.contains(" ")) {
-                return false;
+            if (!TextUtils.isEmpty(str) && !str.contains(" ")) {
+                return str.matches(PASSWORD_PREFIX);
             }
-            return str.matches(PASSWORD_PREFIX);
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static String SimpleDateFormat(Date date, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, date, str)) == null) {
+            if (date == null) {
+                return null;
+            }
+            if (str == null) {
+                str = "yyyy-MM-dd HH:mm";
+            }
+            return new SimpleDateFormat(str).format(date);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Date handleDate(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+            if (str2 == null) {
+                str2 = "yyyy-MM-dd HH:mm";
+            }
+            if (str != null && str.length() != 0) {
+                try {
+                    return new SimpleDateFormat(str2).parse(str);
+                } catch (Exception unused) {
+                }
+            }
+            return null;
+        }
+        return (Date) invokeLL.objValue;
+    }
+
+    public static long getyyyyMMddHHTimeForNow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            return (calendar.get(1) * 1000000) + 0 + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100) + calendar.get(11);
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean isChinese(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (Pattern.compile("[一-龥]").matcher(String.valueOf(c)).find()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 
     public static final String string(Object... objArr) {
@@ -166,6 +217,36 @@ public class StringUtils {
         return (String) invokeL.objValue;
     }
 
+    public static String unitFormat(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
+            if (i >= 0 && i < 10) {
+                return "0" + Integer.toString(i);
+            }
+            return "" + i;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static boolean isNull(String str, boolean z) {
+        InterceptResult invokeLZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65548, null, str, z)) == null) {
+            if (str != null && str.trim().length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (!z2 && z && str != null && str.equalsIgnoreCase(StringUtil.NULL_STRING)) {
+                return true;
+            }
+            return z2;
+        }
+        return invokeLZ.booleanValue;
+    }
+
     public static String translateSecondsToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -185,70 +266,5 @@ public class StringUtils {
             return unitFormat(i3) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * 3600)) - (i4 * 60));
         }
         return (String) invokeI.objValue;
-    }
-
-    @NonNull
-    public static String tryFixDefaultValue(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
-    }
-
-    public static String unitFormat(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
-            if (i >= 0 && i < 10) {
-                return "0" + Integer.toString(i);
-            }
-            return "" + i;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static Date handleDate(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
-            if (str2 == null) {
-                str2 = "yyyy-MM-dd HH:mm";
-            }
-            if (str != null && str.length() != 0) {
-                try {
-                    return new SimpleDateFormat(str2).parse(str);
-                } catch (Exception unused) {
-                }
-            }
-            return null;
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static boolean isNull(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65548, null, str, z)) == null) {
-            boolean z2 = str == null || str.trim().length() == 0;
-            if (z2 || !z || str == null || !str.equalsIgnoreCase(StringUtil.NULL_STRING)) {
-                return z2;
-            }
-            return true;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static String SimpleDateFormat(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, date, str)) == null) {
-            if (date == null) {
-                return null;
-            }
-            if (str == null) {
-                str = "yyyy-MM-dd HH:mm";
-            }
-            return new SimpleDateFormat(str).format(date);
-        }
-        return (String) invokeLL.objValue;
     }
 }

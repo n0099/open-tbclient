@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
-import com.baidu.tieba.ny0;
+import com.baidu.tieba.oy0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,14 +33,20 @@ public class BDRemotePlayerService extends RemotePlayerService {
     public long getKernelNetHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ny0.c.a().getNetHandle() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return oy0.c.a().getNetHandle();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getPCDNNetHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ny0.c.a().getNetHandle() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return oy0.c.a().getNetHandle();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService, android.app.Service
@@ -48,7 +54,7 @@ public class BDRemotePlayerService extends RemotePlayerService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
-            ny0.c.a().onServiceBind(this);
+            oy0.c.a().onServiceBind(this);
             return super.onBind(intent);
         }
         return (IBinder) invokeL.objValue;

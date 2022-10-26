@@ -21,26 +21,6 @@ public final class LiveMasterSwitchBean {
     public final String errmsg;
     public final int errno;
 
-    public LiveMasterSwitchBean(Data data, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.data = data;
-        this.errmsg = str;
-        this.errno = i;
-    }
-
     public static /* synthetic */ LiveMasterSwitchBean copy$default(LiveMasterSwitchBean liveMasterSwitchBean, Data data, String str, int i, int i2, Object obj) {
         if ((i2 & 1) != 0) {
             data = liveMasterSwitchBean.data;
@@ -94,24 +74,6 @@ public final class LiveMasterSwitchBean {
         return invokeL.booleanValue;
     }
 
-    public final Data getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.data : (Data) invokeV.objValue;
-    }
-
-    public final String getErrmsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.errmsg : (String) invokeV.objValue;
-    }
-
-    public final int getErrno() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.errno : invokeV.intValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,5 +93,52 @@ public final class LiveMasterSwitchBean {
             return "LiveMasterSwitchBean(data=" + this.data + ", errmsg=" + this.errmsg + ", errno=" + this.errno + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
+    }
+
+    public LiveMasterSwitchBean(Data data, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.data = data;
+        this.errmsg = str;
+        this.errno = i;
+    }
+
+    public final Data getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.data;
+        }
+        return (Data) invokeV.objValue;
+    }
+
+    public final String getErrmsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.errmsg;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int getErrno() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.errno;
+        }
+        return invokeV.intValue;
     }
 }

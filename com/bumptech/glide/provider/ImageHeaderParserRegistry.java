@@ -1,6 +1,5 @@
 package com.bumptech.glide.provider;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +13,7 @@ import java.util.List;
 public final class ImageHeaderParserRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ImageHeaderParser> parsers;
+    public final List parsers;
 
     public ImageHeaderParserRegistry() {
         Interceptable interceptable = $ic;
@@ -32,19 +31,9 @@ public final class ImageHeaderParserRegistry {
         this.parsers = new ArrayList();
     }
 
-    public synchronized void add(@NonNull ImageHeaderParser imageHeaderParser) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, imageHeaderParser) == null) {
-            synchronized (this) {
-                this.parsers.add(imageHeaderParser);
-            }
-        }
-    }
-
-    @NonNull
-    public synchronized List<ImageHeaderParser> getParsers() {
+    public synchronized List getParsers() {
         InterceptResult invokeV;
-        List<ImageHeaderParser> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
@@ -53,5 +42,14 @@ public final class ImageHeaderParserRegistry {
             return list;
         }
         return (List) invokeV.objValue;
+    }
+
+    public synchronized void add(ImageHeaderParser imageHeaderParser) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, imageHeaderParser) == null) {
+            synchronized (this) {
+                this.parsers.add(imageHeaderParser);
+            }
+        }
     }
 }

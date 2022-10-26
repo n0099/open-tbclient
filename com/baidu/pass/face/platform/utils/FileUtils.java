@@ -615,7 +615,7 @@ public final class FileUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static Map<String, String> readConfig(File file) {
+    public static Map readConfig(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, file)) == null) {

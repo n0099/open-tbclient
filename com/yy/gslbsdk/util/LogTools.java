@@ -50,7 +50,7 @@ public class LogTools {
 
     public static void printDebug(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
+        if ((interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) || TextUtils.isEmpty(str2)) {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
@@ -61,7 +61,7 @@ public class LogTools {
 
     public static void printError(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
+        if ((interceptable != null && interceptable.invokeLL(65539, null, str, str2) != null) || TextUtils.isEmpty(str2)) {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
@@ -72,13 +72,24 @@ public class LogTools {
 
     public static void printInfo(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) != null) || TextUtils.isEmpty(str2)) {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
             Log.i(TAG, String.format(Locale.US, "[%s] %s", str, str2));
         }
         printMsgEvent("info", str, str2);
+    }
+
+    public static void printWarning(String str, Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, str, exc) != null) || exc == null) {
+            return;
+        }
+        if (GlobalTools.LOG_IS_OPEN) {
+            Log.w(TAG, String.format(Locale.US, "[%s] %s", str, exc));
+        }
+        printMsgEvent("warn", str, exc.getLocalizedMessage());
     }
 
     public static void printMsgEvent(String str, String str2, String str3) {
@@ -88,20 +99,9 @@ public class LogTools {
         }
     }
 
-    public static void printWarning(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, exc) == null) || exc == null) {
-            return;
-        }
-        if (GlobalTools.LOG_IS_OPEN) {
-            Log.w(TAG, String.format(Locale.US, "[%s] %s", str, exc));
-        }
-        printMsgEvent("warn", str, exc.getLocalizedMessage());
-    }
-
     public static void printWarning(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
+        if ((interceptable != null && interceptable.invokeLL(65543, null, str, str2) != null) || TextUtils.isEmpty(str2)) {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {

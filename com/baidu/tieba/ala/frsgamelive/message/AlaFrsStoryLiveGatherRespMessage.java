@@ -19,8 +19,8 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<ThreadData> liveList;
-    public List<ThreadData> recommandList;
+    public List liveList;
+    public List recommandList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaFrsStoryLiveGatherRespMessage() {
@@ -49,7 +49,11 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             if (optJSONObject != null) {
-                this.hasMore = optJSONObject.optInt("has_more") == 1;
+                boolean z = true;
+                if (optJSONObject.optInt("has_more") != 1) {
+                    z = false;
+                }
+                this.hasMore = z;
             } else {
                 this.hasMore = false;
             }
@@ -84,24 +88,36 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     public int getLiveCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.liveCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.liveCount;
+        }
+        return invokeV.intValue;
     }
 
-    public List<ThreadData> getLiveList() {
+    public List getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.liveList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.liveList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<ThreadData> getRecommandList() {
+    public List getRecommandList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommandList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.recommandList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.hasMore : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.hasMore;
+        }
+        return invokeV.booleanValue;
     }
 }

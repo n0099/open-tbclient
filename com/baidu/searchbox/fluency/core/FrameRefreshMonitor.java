@@ -2,7 +2,6 @@ package com.baidu.searchbox.fluency.core;
 
 import android.app.Activity;
 import android.view.Choreographer;
-import androidx.annotation.CallSuper;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
@@ -49,17 +48,30 @@ public final class FrameRefreshMonitor implements Runnable {
     public static boolean isVsyncFrame;
     public static final FrameRefreshMonitor$looperListener$1 looperListener;
     public static final Lazy mainLooperMonitor$delegate;
-    public static final HashSet<FrameRefreshObserver> observers;
+    public static final HashSet observers;
     public static long[] queueCost;
     public static Object vsyncRecevier;
     public transient /* synthetic */ FieldHolder $fh;
 
+    private final MainLooperMonitor getMainLooperMonitor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? (MainLooperMonitor) mainLooperMonitor$delegate.getValue() : (MainLooperMonitor) invokeV.objValue;
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\f\b&\u0018\u0000B\u0007¢\u0006\u0004\b\u0016\u0010\u0017J\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\u0007\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0007\u0010\bJG\u0010\u0011\u001a\u00020\u00032\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\u00012\u0006\u0010\u000f\u001a\u00020\u00012\u0006\u0010\u0010\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\f¢\u0006\u0004\b\u0013\u0010\u0014R\u0016\u0010\u0013\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0013\u0010\u0015¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/fluency/core/FrameRefreshMonitor$FrameRefreshObserver;", "", "beginNs", "", "dispatchBegin", "(J)V", "endNs", "dispatchEnd", "(JJ)V", "", "topPage", "startNs", "", "isVsyncFrame", "inputCostNs", "animationCostNs", "traversalCostNs", "doFrame", "(Ljava/lang/String;JJZJJJ)V", "isDispatchBegin", "()Z", "Z", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static abstract class FrameRefreshObserver {
+    public abstract class FrameRefreshObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isDispatchBegin;
+
+        public void doFrame(String topPage, long j, long j2, boolean z, long j3, long j4, long j5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+                Intrinsics.checkNotNullParameter(topPage, "topPage");
+            }
+        }
 
         public FrameRefreshObserver() {
             Interceptable interceptable = $ic;
@@ -75,6 +87,15 @@ public final class FrameRefreshMonitor implements Runnable {
             }
         }
 
+        public final boolean isDispatchBegin() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.isDispatchBegin;
+            }
+            return invokeV.booleanValue;
+        }
+
         public final void dispatchBegin(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -82,25 +103,11 @@ public final class FrameRefreshMonitor implements Runnable {
             }
         }
 
-        @CallSuper
         public final void dispatchEnd(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 this.isDispatchBegin = false;
             }
-        }
-
-        public void doFrame(String topPage, long j, long j2, boolean z, long j3, long j4, long j5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
-                Intrinsics.checkNotNullParameter(topPage, "topPage");
-            }
-        }
-
-        public final boolean isDispatchBegin() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isDispatchBegin : invokeV.booleanValue;
         }
     }
 
@@ -123,7 +130,7 @@ public final class FrameRefreshMonitor implements Runnable {
         CALLBACK_TRAVERSAL = 2;
         CALLBACK_COMMIT = 4;
         CALLBACK_LAST = 4;
-        observers = new HashSet<>();
+        observers = new HashSet();
         dispatchTimeNs = new long[2];
         mainLooperMonitor$delegate = LazyKt__LazyJVMKt.lazy(FrameRefreshMonitor$mainLooperMonitor$2.INSTANCE);
         looperListener = new MainLooperMonitor.LopperDispatchListener() { // from class: com.baidu.searchbox.fluency.core.FrameRefreshMonitor$looperListener$1
@@ -218,6 +225,100 @@ public final class FrameRefreshMonitor implements Runnable {
         }
     }
 
+    private final void startMonitor() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && !isAlive) {
+            isAlive = true;
+            getMainLooperMonitor().register(looperListener);
+            int i = CALLBACK_LAST;
+            queueCost = new long[i + 1];
+            callbackExist = new boolean[i + 1];
+            addCallbackToQueue(0, this);
+        }
+    }
+
+    private final void stopMonitor() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && isAlive) {
+            isAlive = false;
+            getMainLooperMonitor().unregister(looperListener);
+            looperListener.resetDispatchListener();
+        }
+    }
+
+    public final boolean isAlive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return isAlive;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            isVsyncFrame = true;
+            doQueueBegin(0);
+            addCallbackToQueue(CALLBACK_ANIMATION, FrameRefreshMonitor$run$1.INSTANCE);
+            addCallbackToQueue(CALLBACK_TRAVERSAL, FrameRefreshMonitor$run$2.INSTANCE);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void doQueueBegin(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65551, this, i) == null) {
+            long[] jArr = queueCost;
+            Intrinsics.checkNotNull(jArr);
+            jArr[i] = System.nanoTime();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void doQueueEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65552, this, i) == null) {
+            long[] jArr = queueCost;
+            Intrinsics.checkNotNull(jArr);
+            long nanoTime = System.nanoTime();
+            long[] jArr2 = queueCost;
+            Intrinsics.checkNotNull(jArr2);
+            jArr[i] = nanoTime - jArr2[i];
+            boolean[] zArr = callbackExist;
+            Intrinsics.checkNotNull(zArr);
+            zArr[i] = false;
+        }
+    }
+
+    public final void addFrameRefreshObserver(FrameRefreshObserver observer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
+            Intrinsics.checkNotNullParameter(observer, "observer");
+            if (!isAlive) {
+                startMonitor();
+            }
+            synchronized (observers) {
+                observers.add(observer);
+            }
+        }
+    }
+
+    public final void removeFrameRefreshObserver(FrameRefreshObserver observer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observer) == null) {
+            Intrinsics.checkNotNullParameter(observer, "observer");
+            synchronized (observers) {
+                observers.remove(observer);
+                if (observers.isEmpty()) {
+                    INSTANCE.stopMonitor();
+                }
+                Unit unit = Unit.INSTANCE;
+            }
+        }
+    }
+
     private final synchronized void addCallbackToQueue(int i, Runnable runnable) {
         Method method;
         Interceptable interceptable = $ic;
@@ -240,8 +341,10 @@ public final class FrameRefreshMonitor implements Runnable {
                             method = addInputQueue;
                         } else if (i == CALLBACK_ANIMATION) {
                             method = addAnimationQueue;
+                        } else if (i == CALLBACK_TRAVERSAL) {
+                            method = addTraversalQueue;
                         } else {
-                            method = i == CALLBACK_TRAVERSAL ? addTraversalQueue : null;
+                            method = null;
                         }
                         if (method != null) {
                             Object[] objArr = callbackQueues;
@@ -254,8 +357,7 @@ public final class FrameRefreshMonitor implements Runnable {
                         Unit unit = Unit.INSTANCE;
                     }
                 } catch (Exception e) {
-                    Logcat logcat = Logcat.INSTANCE;
-                    logcat.e(TAG, "[addCallbackToQueue] " + e);
+                    Logcat.INSTANCE.e(TAG, "[addCallbackToQueue] " + e);
                 }
             }
         }
@@ -269,11 +371,11 @@ public final class FrameRefreshMonitor implements Runnable {
             Logcat logcat = Logcat.INSTANCE;
             logcat.d(TAG, "[dispatchBegin] " + dispatchTimeNs[0]);
             synchronized (observers) {
-                Iterator<FrameRefreshObserver> it = observers.iterator();
+                Iterator it = observers.iterator();
                 while (it.hasNext()) {
-                    FrameRefreshObserver next = it.next();
-                    if (!next.isDispatchBegin()) {
-                        next.dispatchBegin(dispatchTimeNs[0]);
+                    FrameRefreshObserver frameRefreshObserver = (FrameRefreshObserver) it.next();
+                    if (!frameRefreshObserver.isDispatchBegin()) {
+                        frameRefreshObserver.dispatchBegin(dispatchTimeNs[0]);
                     }
                 }
                 Unit unit = Unit.INSTANCE;
@@ -333,10 +435,10 @@ public final class FrameRefreshMonitor implements Runnable {
             sb.append(jArr3[CALLBACK_TRAVERSAL]);
             logcat.d(TAG, sb.toString());
             synchronized (observers) {
-                Iterator<FrameRefreshObserver> it = observers.iterator();
+                Iterator it = observers.iterator();
                 while (it.hasNext()) {
-                    FrameRefreshObserver next = it.next();
-                    if (next.isDispatchBegin()) {
+                    FrameRefreshObserver frameRefreshObserver = (FrameRefreshObserver) it.next();
+                    if (frameRefreshObserver.isDispatchBegin()) {
                         Activity topActivity = BdBoxActivityManager.getTopActivity();
                         if (topActivity == null || (cls = topActivity.getClass()) == null || (str = cls.getName()) == null) {
                             str = "unknown";
@@ -352,7 +454,7 @@ public final class FrameRefreshMonitor implements Runnable {
                         long[] jArr6 = queueCost;
                         Intrinsics.checkNotNull(jArr6);
                         j2 = nanoTime;
-                        next.doFrame(str2, j, nanoTime, z, j5, j6, jArr6[CALLBACK_TRAVERSAL]);
+                        frameRefreshObserver.doFrame(str2, j, nanoTime, z, j5, j6, jArr6[CALLBACK_TRAVERSAL]);
                     } else {
                         j2 = nanoTime;
                     }
@@ -362,42 +464,16 @@ public final class FrameRefreshMonitor implements Runnable {
             }
             dispatchTimeNs[1] = System.nanoTime();
             synchronized (observers) {
-                Iterator<FrameRefreshObserver> it2 = observers.iterator();
+                Iterator it2 = observers.iterator();
                 while (it2.hasNext()) {
-                    FrameRefreshObserver next2 = it2.next();
-                    if (next2.isDispatchBegin()) {
-                        next2.dispatchEnd(dispatchTimeNs[0], dispatchTimeNs[1]);
+                    FrameRefreshObserver frameRefreshObserver2 = (FrameRefreshObserver) it2.next();
+                    if (frameRefreshObserver2.isDispatchBegin()) {
+                        frameRefreshObserver2.dispatchEnd(dispatchTimeNs[0], dispatchTimeNs[1]);
                     }
                 }
                 Unit unit2 = Unit.INSTANCE;
             }
             isVsyncFrame = false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void doQueueBegin(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65551, this, i) == null) {
-            long[] jArr = queueCost;
-            Intrinsics.checkNotNull(jArr);
-            jArr[i] = System.nanoTime();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void doQueueEnd(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65552, this, i) == null) {
-            long[] jArr = queueCost;
-            Intrinsics.checkNotNull(jArr);
-            long nanoTime = System.nanoTime();
-            long[] jArr2 = queueCost;
-            Intrinsics.checkNotNull(jArr2);
-            jArr[i] = nanoTime - jArr2[i];
-            boolean[] zArr = callbackExist;
-            Intrinsics.checkNotNull(zArr);
-            zArr[i] = false;
         }
     }
 
@@ -418,77 +494,5 @@ public final class FrameRefreshMonitor implements Runnable {
             }
         }
         return invokeJ.longValue;
-    }
-
-    private final MainLooperMonitor getMainLooperMonitor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? (MainLooperMonitor) mainLooperMonitor$delegate.getValue() : (MainLooperMonitor) invokeV.objValue;
-    }
-
-    private final void startMonitor() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65555, this) == null) || isAlive) {
-            return;
-        }
-        isAlive = true;
-        getMainLooperMonitor().register(looperListener);
-        int i = CALLBACK_LAST;
-        queueCost = new long[i + 1];
-        callbackExist = new boolean[i + 1];
-        addCallbackToQueue(0, this);
-    }
-
-    private final void stopMonitor() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65556, this) == null) && isAlive) {
-            isAlive = false;
-            getMainLooperMonitor().unregister(looperListener);
-            looperListener.resetDispatchListener();
-        }
-    }
-
-    public final void addFrameRefreshObserver(FrameRefreshObserver observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            Intrinsics.checkNotNullParameter(observer, "observer");
-            if (!isAlive) {
-                startMonitor();
-            }
-            synchronized (observers) {
-                observers.add(observer);
-            }
-        }
-    }
-
-    public final boolean isAlive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? isAlive : invokeV.booleanValue;
-    }
-
-    public final void removeFrameRefreshObserver(FrameRefreshObserver observer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observer) == null) {
-            Intrinsics.checkNotNullParameter(observer, "observer");
-            synchronized (observers) {
-                observers.remove(observer);
-                if (observers.isEmpty()) {
-                    INSTANCE.stopMonitor();
-                }
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            isVsyncFrame = true;
-            doQueueBegin(0);
-            addCallbackToQueue(CALLBACK_ANIMATION, FrameRefreshMonitor$run$1.INSTANCE);
-            addCallbackToQueue(CALLBACK_TRAVERSAL, FrameRefreshMonitor$run$2.INSTANCE);
-        }
     }
 }

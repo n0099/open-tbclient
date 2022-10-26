@@ -1,7 +1,5 @@
 package com.kwad.sdk.collector.model.jni;
 
-import androidx.annotation.Keep;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.d;
 import com.kwad.sdk.core.e.b;
@@ -10,7 +8,6 @@ import com.kwad.sdk.utils.r;
 import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes7.dex */
 public class RulesTargetNative extends NativeObject implements d {
     public static final long serialVersionUID = -4726982809581153390L;
@@ -33,7 +30,7 @@ public class RulesTargetNative extends NativeObject implements d {
     }
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }

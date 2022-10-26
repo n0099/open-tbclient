@@ -28,19 +28,26 @@ public final class IsoTypeWriterVariable {
     public static void write(long j, ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), byteBuffer, Integer.valueOf(i)}) == null) {
-            if (i == 1) {
-                IsoTypeWriter.writeUInt8(byteBuffer, (int) (j & 255));
-            } else if (i == 2) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 8) {
+                                IsoTypeWriter.writeUInt64(byteBuffer, j);
+                                return;
+                            }
+                            throw new RuntimeException("I don't know how to read " + i + " bytes");
+                        }
+                        IsoTypeWriter.writeUInt32(byteBuffer, j);
+                        return;
+                    }
+                    IsoTypeWriter.writeUInt24(byteBuffer, (int) (j & 16777215));
+                    return;
+                }
                 IsoTypeWriter.writeUInt16(byteBuffer, (int) (j & WebSocketProtocol.PAYLOAD_SHORT_MAX));
-            } else if (i == 3) {
-                IsoTypeWriter.writeUInt24(byteBuffer, (int) (j & 16777215));
-            } else if (i == 4) {
-                IsoTypeWriter.writeUInt32(byteBuffer, j);
-            } else if (i == 8) {
-                IsoTypeWriter.writeUInt64(byteBuffer, j);
-            } else {
-                throw new RuntimeException("I don't know how to read " + i + " bytes");
+                return;
             }
+            IsoTypeWriter.writeUInt8(byteBuffer, (int) (j & 255));
         }
     }
 }

@@ -10,12 +10,12 @@ import io.reactivex.parallel.ParallelFlowable;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class ParallelFromArray<T> extends ParallelFlowable<T> {
+public final class ParallelFromArray extends ParallelFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher<T>[] sources;
+    public final Publisher[] sources;
 
-    public ParallelFromArray(Publisher<T>[] publisherArr) {
+    public ParallelFromArray(Publisher[] publisherArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,20 +34,24 @@ public final class ParallelFromArray<T> extends ParallelFlowable<T> {
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public int parallelism() {
-        InterceptResult invokeV;
+    public void subscribe(Subscriber[] subscriberArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sources.length : invokeV.intValue;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) != null) || !validate(subscriberArr)) {
+            return;
+        }
+        int length = subscriberArr.length;
+        for (int i = 0; i < length; i++) {
+            this.sources[i].subscribe(subscriberArr[i]);
+        }
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber<? super T>[] subscriberArr) {
+    public int parallelism() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
-            int length = subscriberArr.length;
-            for (int i = 0; i < length; i++) {
-                this.sources[i].subscribe(subscriberArr[i]);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sources.length;
         }
+        return invokeV.intValue;
     }
 }

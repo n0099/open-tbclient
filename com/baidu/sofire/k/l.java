@@ -107,67 +107,13 @@ public class l {
         this.a = context;
     }
 
-    public OkHttpClient a() {
-        InterceptResult invokeV;
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (c == null) {
-                synchronized (l.class) {
-                    if (c == null) {
-                        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                        builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                        builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
-                        builder.addInterceptor(new a(this));
-                        c = builder.build();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return context.getPackageName().contains("com.baidu.searchbox");
         }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public String b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bArr)) == null) {
-            try {
-                if (m.a(this.a)) {
-                    Response execute = a().newCall(a(str, bArr)).execute();
-                    int code = execute.code();
-                    if (code == 200) {
-                        return execute.body().string();
-                    }
-                    throw new NetworkErrorException(String.valueOf(code));
-                }
-                throw new NetworkErrorException("Not allow background connect.");
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final Request a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr)) == null) {
-            try {
-                MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-                String str2 = com.baidu.sofire.k.a.p(this.a)[0];
-                Request.Builder url = new Request.Builder().url(str);
-                if (bArr != null) {
-                    url.post(RequestBody.create(parse, bArr));
-                }
-                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + q.a(this.a) + "/3.5.9.6").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
-                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", j.a(c.a(this.a))).build();
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return null;
-            }
-        }
-        return (Request) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
     public String a(String str) {
@@ -192,6 +138,47 @@ public class l {
         return (String) invokeL.objValue;
     }
 
+    public OkHttpClient a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (c == null) {
+                synchronized (l.class) {
+                    if (c == null) {
+                        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                        builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+                        builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
+                        builder.addInterceptor(new a(this));
+                        c = builder.build();
+                    }
+                }
+            }
+            return c;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public final Request a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr)) == null) {
+            try {
+                MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
+                String str2 = com.baidu.sofire.k.a.p(this.a)[0];
+                Request.Builder url = new Request.Builder().url(str);
+                if (bArr != null) {
+                    url.post(RequestBody.create(parse, bArr));
+                }
+                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + q.a(this.a) + "/3.5.9.6").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
+                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", j.a(c.a(this.a))).build();
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return null;
+            }
+        }
+        return (Request) invokeLL.objValue;
+    }
+
     public boolean a(String str, File file) {
         InterceptResult invokeLL;
         boolean z;
@@ -203,9 +190,7 @@ public class l {
                     int code = execute.code();
                     if (code == 200) {
                         InputStream byteStream = execute.body().byteStream();
-                        if (byteStream == null) {
-                            z = false;
-                        } else {
+                        if (byteStream != null) {
                             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
                             while (true) {
                                 byte[] bArr = b;
@@ -219,6 +204,8 @@ public class l {
                             bufferedOutputStream.flush();
                             bufferedOutputStream.close();
                             z = true;
+                        } else {
+                            z = false;
                         }
                         byteStream.close();
                         return z;
@@ -234,9 +221,25 @@ public class l {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public String b(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getPackageName().contains("com.baidu.searchbox") : invokeL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bArr)) == null) {
+            try {
+                if (m.a(this.a)) {
+                    Response execute = a().newCall(a(str, bArr)).execute();
+                    int code = execute.code();
+                    if (code == 200) {
+                        return execute.body().string();
+                    }
+                    throw new NetworkErrorException(String.valueOf(code));
+                }
+                throw new NetworkErrorException("Not allow background connect.");
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -134,128 +134,6 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
         init();
     }
 
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            super.setOnPageChangeListener(this.onPageChangeListener);
-        }
-    }
-
-    public static int toRealPosition(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
-            int i3 = i - 1;
-            return i3 < 0 ? i3 + i2 : i3 % i2;
-        }
-        return invokeII.intValue;
-    }
-
-    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
-    public PagerAdapter getAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AlaLoopPagerAdapterWrapper alaLoopPagerAdapterWrapper = this.mAdapter;
-            return alaLoopPagerAdapterWrapper != null ? alaLoopPagerAdapterWrapper.getRealAdapter() : alaLoopPagerAdapterWrapper;
-        }
-        return (PagerAdapter) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
-    public int getCurrentItem() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AlaLoopPagerAdapterWrapper alaLoopPagerAdapterWrapper = this.mAdapter;
-            if (alaLoopPagerAdapterWrapper != null) {
-                return alaLoopPagerAdapterWrapper.toRealPosition(super.getCurrentItem());
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        IScrollControl iScrollControl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 2) {
-                if (motionEvent.getY() > this.startY) {
-                    IScrollControl iScrollControl2 = this.scrollControl;
-                    if (iScrollControl2 != null && !iScrollControl2.isEnableScrollDown(motionEvent)) {
-                        return false;
-                    }
-                } else if (motionEvent.getY() < this.startY && (iScrollControl = this.scrollControl) != null && !iScrollControl.isEnableScrollUp(motionEvent)) {
-                    return false;
-                }
-            } else if (motionEvent.getAction() == 0) {
-                this.startY = motionEvent.getY();
-            } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1 || motionEvent.getAction() == 4) {
-                this.startY = 0.0f;
-            }
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
-    public void setAdapter(PagerAdapter pagerAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pagerAdapter) == null) {
-            AlaLoopPagerAdapterWrapper alaLoopPagerAdapterWrapper = new AlaLoopPagerAdapterWrapper(pagerAdapter);
-            this.mAdapter = alaLoopPagerAdapterWrapper;
-            alaLoopPagerAdapterWrapper.setBoundaryCaching(this.mBoundaryCaching);
-            super.setAdapter(this.mAdapter);
-            setCurrentItem(0, false);
-        }
-    }
-
-    public void setBoundaryCaching(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.mBoundaryCaching = z;
-            AlaLoopPagerAdapterWrapper alaLoopPagerAdapterWrapper = this.mAdapter;
-            if (alaLoopPagerAdapterWrapper != null) {
-                alaLoopPagerAdapterWrapper.setBoundaryCaching(z);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
-    public void setCurrentItem(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            super.setCurrentItem(this.mAdapter.toInnerPosition(i), z);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
-    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onPageChangeListener) == null) {
-            this.mOuterPageChangeListener = onPageChangeListener;
-        }
-    }
-
-    public void setScrollControl(IScrollControl iScrollControl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iScrollControl) == null) {
-            this.scrollControl = iScrollControl;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
-    public void setCurrentItem(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || getCurrentItem() == i) {
-            return;
-        }
-        setCurrentItem(i, true);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaLoopViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -358,5 +236,132 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
         };
         this.startY = 0.0f;
         init();
+    }
+
+    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
+    public void setAdapter(PagerAdapter pagerAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pagerAdapter) == null) {
+            AlaLoopPagerAdapterWrapper alaLoopPagerAdapterWrapper = new AlaLoopPagerAdapterWrapper(pagerAdapter);
+            this.mAdapter = alaLoopPagerAdapterWrapper;
+            alaLoopPagerAdapterWrapper.setBoundaryCaching(this.mBoundaryCaching);
+            super.setAdapter(this.mAdapter);
+            setCurrentItem(0, false);
+        }
+    }
+
+    public void setBoundaryCaching(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.mBoundaryCaching = z;
+            AlaLoopPagerAdapterWrapper alaLoopPagerAdapterWrapper = this.mAdapter;
+            if (alaLoopPagerAdapterWrapper != null) {
+                alaLoopPagerAdapterWrapper.setBoundaryCaching(z);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
+    public void setCurrentItem(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && getCurrentItem() != i) {
+            setCurrentItem(i, true);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onPageChangeListener) == null) {
+            this.mOuterPageChangeListener = onPageChangeListener;
+        }
+    }
+
+    public void setScrollControl(IScrollControl iScrollControl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iScrollControl) == null) {
+            this.scrollControl = iScrollControl;
+        }
+    }
+
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            super.setOnPageChangeListener(this.onPageChangeListener);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
+    public PagerAdapter getAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AlaLoopPagerAdapterWrapper alaLoopPagerAdapterWrapper = this.mAdapter;
+            if (alaLoopPagerAdapterWrapper != null) {
+                return alaLoopPagerAdapterWrapper.getRealAdapter();
+            }
+            return alaLoopPagerAdapterWrapper;
+        }
+        return (PagerAdapter) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
+    public int getCurrentItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AlaLoopPagerAdapterWrapper alaLoopPagerAdapterWrapper = this.mAdapter;
+            if (alaLoopPagerAdapterWrapper != null) {
+                return alaLoopPagerAdapterWrapper.toRealPosition(super.getCurrentItem());
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int toRealPosition(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            int i3 = i - 1;
+            if (i3 < 0) {
+                return i3 + i2;
+            }
+            return i3 % i2;
+        }
+        return invokeII.intValue;
+    }
+
+    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew
+    public void setCurrentItem(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            super.setCurrentItem(this.mAdapter.toInnerPosition(i), z);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        IScrollControl iScrollControl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 2) {
+                if (motionEvent.getY() > this.startY) {
+                    IScrollControl iScrollControl2 = this.scrollControl;
+                    if (iScrollControl2 != null && !iScrollControl2.isEnableScrollDown(motionEvent)) {
+                        return false;
+                    }
+                } else if (motionEvent.getY() < this.startY && (iScrollControl = this.scrollControl) != null && !iScrollControl.isEnableScrollUp(motionEvent)) {
+                    return false;
+                }
+            } else if (motionEvent.getAction() == 0) {
+                this.startY = motionEvent.getY();
+            } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1 || motionEvent.getAction() == 4) {
+                this.startY = 0.0f;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -33,10 +33,20 @@ public final class v8 {
         this.a = constructor;
     }
 
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a.setAccessible(z);
+        }
+    }
+
     public Class a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getDeclaringClass() : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getDeclaringClass();
+        }
+        return (Class) invokeV.objValue;
     }
 
     public Object b(Object... objArr) throws ReflectionException {
@@ -56,12 +66,5 @@ public final class v8 {
             }
         }
         return invokeL.objValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a.setAccessible(z);
-        }
     }
 }

@@ -11,10 +11,19 @@ import com.google.android.exoplayer2.decoder.OutputBuffer;
 import com.google.android.exoplayer2.decoder.SimpleDecoder;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputBuffer, SubtitleOutputBuffer, SubtitleDecoderException> implements SubtitleDecoder {
+public abstract class SimpleSubtitleDecoder extends SimpleDecoder implements SubtitleDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String name;
+
+    public abstract Subtitle decode(byte[] bArr, int i, boolean z) throws SubtitleDecoderException;
+
+    @Override // com.google.android.exoplayer2.text.SubtitleDecoder
+    public void setPositionUs(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SimpleSubtitleDecoder(String str) {
@@ -39,20 +48,14 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputB
         setInitialInputBufferSize(1024);
     }
 
-    public abstract Subtitle decode(byte[] bArr, int i, boolean z) throws SubtitleDecoderException;
-
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public final String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.text.SubtitleDecoder
-    public void setPositionUs(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.name;
         }
+        return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +63,10 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputB
     public final SubtitleInputBuffer createInputBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new SubtitleInputBuffer() : (SubtitleInputBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new SubtitleInputBuffer();
+        }
+        return (SubtitleInputBuffer) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +74,10 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputB
     public final SubtitleOutputBuffer createOutputBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new SimpleSubtitleOutputBuffer(this) : (SubtitleOutputBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new SimpleSubtitleOutputBuffer(this);
+        }
+        return (SubtitleOutputBuffer) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -94,7 +103,7 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputB
     public final void releaseOutputBuffer(SubtitleOutputBuffer subtitleOutputBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, subtitleOutputBuffer) == null) {
-            super.releaseOutputBuffer((SimpleSubtitleDecoder) subtitleOutputBuffer);
+            super.releaseOutputBuffer((OutputBuffer) subtitleOutputBuffer);
         }
     }
 }

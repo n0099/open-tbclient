@@ -63,6 +63,57 @@ public class EcommerceRouter implements NoProguard {
         return (EcommerceRouter) invokeV.objValue;
     }
 
+    public AddressManageCallback getAddressManageCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.addressManageCallback;
+        }
+        return (AddressManageCallback) invokeV.objValue;
+    }
+
+    public AddressManageDTO getAddressManageDTO() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.addressManageDTO;
+        }
+        return (AddressManageDTO) invokeV.objValue;
+    }
+
+    public InvoiceBuildCallback getInvoiceBuildCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.invoiceBuildCallback;
+        }
+        return (InvoiceBuildCallback) invokeV.objValue;
+    }
+
+    public InvoiceBuildDTO getInvoiceBuildDTO() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.invoiceBuildDTO;
+        }
+        return (InvoiceBuildDTO) invokeV.objValue;
+    }
+
+    public synchronized void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this) {
+                this.addressManageDTO = null;
+                this.invoiceBuildDTO = null;
+                this.addressManageCallback = null;
+                this.invoiceBuildCallback = null;
+                PassportViewManager.getInstance().release();
+                instance.context = null;
+                instance = null;
+            }
+        }
+    }
+
     private void loadNaAddressManage(Context context) {
         Intent intent;
         Interceptable interceptable = $ic;
@@ -77,30 +128,6 @@ public class EcommerceRouter implements NoProguard {
             }
             context.startActivity(intent);
         }
-    }
-
-    public AddressManageCallback getAddressManageCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.addressManageCallback : (AddressManageCallback) invokeV.objValue;
-    }
-
-    public AddressManageDTO getAddressManageDTO() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addressManageDTO : (AddressManageDTO) invokeV.objValue;
-    }
-
-    public InvoiceBuildCallback getInvoiceBuildCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.invoiceBuildCallback : (InvoiceBuildCallback) invokeV.objValue;
-    }
-
-    public InvoiceBuildDTO getInvoiceBuildDTO() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.invoiceBuildDTO : (InvoiceBuildDTO) invokeV.objValue;
     }
 
     public void loadAddressManage(Context context, AddressManageDTO addressManageDTO, AddressManageCallback addressManageCallback) {
@@ -128,21 +155,6 @@ public class EcommerceRouter implements NoProguard {
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             context.startActivity(intent);
-        }
-    }
-
-    public synchronized void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this) {
-                this.addressManageDTO = null;
-                this.invoiceBuildDTO = null;
-                this.addressManageCallback = null;
-                this.invoiceBuildCallback = null;
-                PassportViewManager.getInstance().release();
-                instance.context = null;
-                instance = null;
-            }
         }
     }
 }

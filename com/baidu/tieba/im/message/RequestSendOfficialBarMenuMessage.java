@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,38 +36,47 @@ public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
         }
     }
 
+    public String getForum_id() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.forum_id;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.rid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUser_id() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.user_id;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.rid = Integer.valueOf(dh.e(this.rid, 0));
+            builder.rid = Integer.valueOf(eh.e(this.rid, 0));
             builder.forum_id = getForum_id();
-            builder.user_id = Long.valueOf(dh.g(this.user_id, 0L));
+            builder.user_id = Long.valueOf(eh.g(this.user_id, 0L));
             SendMenuMsgReqIdl.Builder builder2 = new SendMenuMsgReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
         }
         return invokeV.objValue;
-    }
-
-    public String getForum_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forum_id : (String) invokeV.objValue;
-    }
-
-    public String getRid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.rid : (String) invokeV.objValue;
-    }
-
-    public String getUser_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.user_id : (String) invokeV.objValue;
     }
 
     public void setForum_id(String str) {

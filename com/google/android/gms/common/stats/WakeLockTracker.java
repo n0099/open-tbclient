@@ -2,7 +2,6 @@ package com.google.android.gms.common.stats;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,9 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import java.util.List;
-@KeepForSdk
 @Deprecated
 /* loaded from: classes7.dex */
 public class WakeLockTracker {
@@ -51,44 +48,37 @@ public class WakeLockTracker {
         }
     }
 
-    @NonNull
-    @KeepForSdk
     public static WakeLockTracker getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? zza : (WakeLockTracker) invokeV.objValue;
     }
 
-    @KeepForSdk
-    public void registerAcquireEvent(@NonNull Context context, @NonNull Intent intent, @NonNull String str, @NonNull String str2, @NonNull String str3, int i, @NonNull String str4) {
+    public void registerAcquireEvent(Context context, Intent intent, String str, String str2, String str3, int i, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, intent, str, str2, str3, Integer.valueOf(i), str4}) == null) {
         }
     }
 
-    @KeepForSdk
-    public void registerDeadlineEvent(@NonNull Context context, @NonNull String str, @NonNull String str2, @NonNull String str3, int i, @NonNull List<String> list, boolean z, long j) {
+    public void registerDeadlineEvent(Context context, String str, String str2, String str3, int i, List list, boolean z, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, str3, Integer.valueOf(i), list, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
         }
     }
 
-    @KeepForSdk
-    public void registerEvent(@NonNull Context context, @NonNull String str, int i, @NonNull String str2, @NonNull String str3, @NonNull String str4, int i2, @NonNull List<String> list) {
+    public void registerEvent(Context context, String str, int i, String str2, String str3, String str4, int i2, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2), list}) == null) {
         }
     }
 
-    @KeepForSdk
-    public void registerEvent(@NonNull Context context, @NonNull String str, int i, @NonNull String str2, @NonNull String str3, @NonNull String str4, int i2, @NonNull List<String> list, long j) {
+    public void registerEvent(Context context, String str, int i, String str2, String str3, String str4, int i2, List list, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2), list, Long.valueOf(j)}) == null) {
         }
     }
 
-    @KeepForSdk
-    public void registerReleaseEvent(@NonNull Context context, @NonNull Intent intent) {
+    public void registerReleaseEvent(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, intent) == null) {
         }

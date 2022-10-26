@@ -13,8 +13,14 @@ public abstract class TagPayloadReader {
     public transient /* synthetic */ FieldHolder $fh;
     public final TrackOutput output;
 
+    public abstract boolean parseHeader(ParsableByteArray parsableByteArray) throws ParserException;
+
+    public abstract void parsePayload(ParsableByteArray parsableByteArray, long j) throws ParserException;
+
+    public abstract void seek();
+
     /* loaded from: classes7.dex */
-    public static final class UnsupportedFormatException extends ParserException {
+    public final class UnsupportedFormatException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,10 +69,4 @@ public abstract class TagPayloadReader {
             parsePayload(parsableByteArray, j);
         }
     }
-
-    public abstract boolean parseHeader(ParsableByteArray parsableByteArray) throws ParserException;
-
-    public abstract void parsePayload(ParsableByteArray parsableByteArray, long j) throws ParserException;
-
-    public abstract void seek();
 }

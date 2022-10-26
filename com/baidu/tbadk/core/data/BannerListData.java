@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b36;
-import com.baidu.tieba.be8;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.i36;
+import com.baidu.tieba.le8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,10 +29,10 @@ public class BannerListData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AdvertAppInfo> advertAppList;
     public ArrayList<FeedForumData> feedForumList;
-    public b36 recomTopicData;
+    public i36 recomTopicData;
 
     /* loaded from: classes3.dex */
-    public class a implements Comparator<AdvertAppInfo> {
+    public class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,9 +57,19 @@ public class BannerListData implements Serializable {
         /* renamed from: a */
         public int compare(AdvertAppInfo advertAppInfo, AdvertAppInfo advertAppInfo2) {
             InterceptResult invokeLL;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? dh.e(advertAppInfo.f, 0) : 0) - (advertAppInfo2 != null ? dh.e(advertAppInfo2.f, 0) : 0);
+                int i2 = 0;
+                if (advertAppInfo != null) {
+                    i = eh.e(advertAppInfo.f, 0);
+                } else {
+                    i = 0;
+                }
+                if (advertAppInfo2 != null) {
+                    i2 = eh.e(advertAppInfo2.f, 0);
+                }
+                return i - i2;
             }
             return invokeLL.intValue;
         }
@@ -85,13 +95,28 @@ public class BannerListData implements Serializable {
     public ArrayList<AdvertAppInfo> getAllAdvertList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.advertAppList : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.advertAppList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public List<FeedForumData> getFeedForumList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.feedForumList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.feedForumList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public i36 getRecomTopicData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.recomTopicData;
+        }
+        return (i36) invokeV.objValue;
     }
 
     public String getLastIds() {
@@ -99,28 +124,22 @@ public class BannerListData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList<AdvertAppInfo> arrayList = this.advertAppList;
-            if (arrayList == null || arrayList.size() <= 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            int size = this.advertAppList.size();
-            for (int i = 0; i < size; i++) {
-                if (!TextUtils.isEmpty(this.advertAppList.get(i).a)) {
-                    sb.append(this.advertAppList.get(i).a);
-                    if (i != size - 1) {
-                        sb.append(",");
+            if (arrayList != null && arrayList.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                int size = this.advertAppList.size();
+                for (int i = 0; i < size; i++) {
+                    if (!TextUtils.isEmpty(this.advertAppList.get(i).a)) {
+                        sb.append(this.advertAppList.get(i).a);
+                        if (i != size - 1) {
+                            sb.append(",");
+                        }
                     }
                 }
+                return sb.toString();
             }
-            return sb.toString();
+            return null;
         }
         return (String) invokeV.objValue;
-    }
-
-    public b36 getRecomTopicData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (b36) invokeV.objValue;
     }
 
     public void parserJson(String str) {
@@ -134,10 +153,26 @@ public class BannerListData implements Serializable {
         }
     }
 
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("app");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
     public void parserProtobuf(BannerList bannerList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bannerList) == null) {
-            List<AdvertAppInfo> f = be8.l().f();
+            List f = le8.l().f();
             if (f != null) {
                 f.clear();
             }
@@ -157,7 +192,7 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            be8.l().e();
+            le8.l().e();
             Collections.sort(this.advertAppList, new a(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {
@@ -180,33 +215,15 @@ public class BannerListData implements Serializable {
     public void setFeedForumLiked(String str, int i) {
         ArrayList<FeedForumData> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) || (arrayList = this.feedForumList) == null || str == null) {
-            return;
-        }
-        Iterator<FeedForumData> it = arrayList.iterator();
-        while (it.hasNext()) {
-            FeedForumData next = it.next();
-            if (next != null && next.getForumId() != null && next.getForumId().equals(str)) {
-                next.setIsLike(i);
-                return;
+        if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && (arrayList = this.feedForumList) != null && str != null) {
+            Iterator<FeedForumData> it = arrayList.iterator();
+            while (it.hasNext()) {
+                FeedForumData next = it.next();
+                if (next != null && next.getForumId() != null && next.getForumId().equals(str)) {
+                    next.setIsLike(i);
+                    return;
+                }
             }
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("app");
-            if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return;
-            }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

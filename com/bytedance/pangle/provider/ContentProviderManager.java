@@ -9,8 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.text.TextUtils;
-import androidx.annotation.Keep;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -29,10 +27,10 @@ import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-@Keep
 /* loaded from: classes7.dex */
 public class ContentProviderManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,12 +42,27 @@ public class ContentProviderManager {
     public static final String PROVIDER_URI = "uri";
     public static ContentProviderManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> mAuthorityProcessNameMap;
-    public final Map<b, a> mContentProviderMap;
-    public final Map<String, c> mSystemProviderInfoMap;
+    public final Map mAuthorityProcessNameMap;
+    public final Map mContentProviderMap;
+    public final Map mSystemProviderInfoMap;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1397482888, "Lcom/bytedance/pangle/provider/ContentProviderManager;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1397482888, "Lcom/bytedance/pangle/provider/ContentProviderManager;");
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final b a;
@@ -78,7 +91,7 @@ public class ContentProviderManager {
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -134,7 +147,7 @@ public class ContentProviderManager {
     }
 
     /* loaded from: classes7.dex */
-    public static final class c extends b {
+    public final class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ProviderInfo d;
@@ -159,21 +172,6 @@ public class ContentProviderManager {
                 }
             }
             this.d = providerInfo;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1397482888, "Lcom/bytedance/pangle/provider/ContentProviderManager;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1397482888, "Lcom/bytedance/pangle/provider/ContentProviderManager;");
         }
     }
 
@@ -211,6 +209,15 @@ public class ContentProviderManager {
         return (ContentProviderManager) invokeV.objValue;
     }
 
+    public Map getSystemProviderInfoMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mSystemProviderInfoMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
     private void installProvider(ProviderInfo providerInfo, Plugin plugin) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, providerInfo, plugin) == null) {
@@ -235,103 +242,104 @@ public class ContentProviderManager {
     private PluginContentProvider instantiateProvider(ClassLoader classLoader, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, classLoader, str)) == null) ? (PluginContentProvider) classLoader.loadClass(str).newInstance() : (PluginContentProvider) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, classLoader, str)) == null) {
+            return (PluginContentProvider) classLoader.loadClass(str).newInstance();
+        }
+        return (PluginContentProvider) invokeLL.objValue;
     }
 
     public Bundle call(ContentResolver contentResolver, Uri uri, String str, String str2, Bundle bundle, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{contentResolver, uri, str, str2, bundle, str3})) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, str, str2, bundle, str3) : (Bundle) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{contentResolver, uri, str, str2, bundle, str3})) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, str, str2, bundle, str3);
+        }
+        return (Bundle) invokeCommon.objValue;
+    }
+
+    public Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{contentResolver, uri, strArr, bundle, cancellationSignal, str})) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, strArr, bundle, cancellationSignal, str);
+        }
+        return (Cursor) invokeCommon.objValue;
+    }
+
+    public final Bundle call(ContentResolver contentResolver, String str, String str2, String str3, Bundle bundle, String str4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{contentResolver, str, str2, str3, bundle, str4})) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, str, str2, str3, bundle, str4);
+        }
+        return (Bundle) invokeCommon.objValue;
+    }
+
+    public int delete(ContentResolver contentResolver, Uri uri, Bundle bundle, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, contentResolver, uri, bundle, str)) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, bundle, str);
+        }
+        return invokeLLLL.intValue;
+    }
+
+    public Uri insert(ContentResolver contentResolver, Uri uri, ContentValues contentValues, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, contentResolver, uri, contentValues, str)) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, contentValues, str);
+        }
+        return (Uri) invokeLLLL.objValue;
     }
 
     public int delete(ContentResolver contentResolver, Uri uri, String str, String[] strArr, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, contentResolver, uri, str, strArr, str2)) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, str, strArr, str2) : invokeLLLLL.intValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, contentResolver, uri, str, strArr, str2)) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, str, strArr, str2);
+        }
+        return invokeLLLLL.intValue;
+    }
+
+    public Uri insert(ContentResolver contentResolver, Uri uri, ContentValues contentValues, Bundle bundle, String str) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048585, this, contentResolver, uri, contentValues, bundle, str)) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, contentValues, bundle, str);
+        }
+        return (Uri) invokeLLLLL.objValue;
+    }
+
+    public int update(ContentResolver contentResolver, Uri uri, ContentValues contentValues, Bundle bundle, String str) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048592, this, contentResolver, uri, contentValues, bundle, str)) == null) {
+            return com.bytedance.pangle.provider.a.b(contentResolver, uri, contentValues, bundle, str);
+        }
+        return invokeLLLLL.intValue;
     }
 
     public String getPluginProcessNameByAuthority(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.mAuthorityProcessNameMap.get(str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return (String) this.mAuthorityProcessNameMap.get(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public PluginContentProvider getPluginProvider(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            a aVar = this.mContentProviderMap.get(bVar);
+            a aVar = (a) this.mContentProviderMap.get(bVar);
             if (aVar == null) {
                 return null;
             }
             return aVar.c;
         }
         return (PluginContentProvider) invokeL.objValue;
-    }
-
-    public Map<String, c> getSystemProviderInfoMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mSystemProviderInfoMap : (Map) invokeV.objValue;
-    }
-
-    public String getType(ContentResolver contentResolver, Uri uri, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, contentResolver, uri, str)) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, str) : (String) invokeLLL.objValue;
-    }
-
-    public void initSystemContentProviderInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            try {
-                ProviderInfo[] providerInfoArr = Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 8).providers;
-                if (providerInfoArr == null || providerInfoArr.length == 0) {
-                    return;
-                }
-                for (ProviderInfo providerInfo : providerInfoArr) {
-                    if (providerInfo != null && providerInfo.authority != null && providerInfo.authority.contains(ZeusConstants.f)) {
-                        try {
-                            ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Need to init system provider info start [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);
-                            if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.f)) {
-                                String a2 = d.a(providerInfo.processName);
-                                this.mSystemProviderInfoMap.put(a2, new c(Zeus.getAppApplication().getPackageName(), a2, providerInfo));
-                                ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Init system provider info finish [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);
-                            }
-                        } catch (Exception e) {
-                            ZeusLogger.e(ZeusLogger.TAG_PROVIDER, "Init system contentProviderInfo [authority:" + providerInfo.authority + "],exception：", e);
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                ZeusLogger.e(ZeusLogger.TAG_PROVIDER, "init System ContentProviderInfo exception：", th);
-            }
-        }
-    }
-
-    public Uri insert(ContentResolver contentResolver, Uri uri, ContentValues contentValues, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, contentResolver, uri, contentValues, str)) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, contentValues, str) : (Uri) invokeLLLL.objValue;
-    }
-
-    public void installContentProviders(Collection<ProviderInfo> collection, Plugin plugin) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, collection, plugin) == null) || collection == null || collection.size() == 0 || plugin == null) {
-            return;
-        }
-        for (ProviderInfo providerInfo : collection) {
-            if (ZeusLogger.isDebug()) {
-                StringBuilder sb = new StringBuilder(128);
-                sb.append("Install plugin provider [authority:");
-                sb.append(providerInfo.authority);
-                sb.append("] - [className:");
-                sb.append(providerInfo.name);
-                sb.append(PreferencesUtil.RIGHT_MOUNT);
-                ZeusLogger.v(ZeusLogger.TAG_PROVIDER, sb.toString());
-            }
-            installProvider(providerInfo, plugin);
-        }
     }
 
     public boolean isPluginProvider(Uri uri) {
@@ -342,59 +350,95 @@ public class ContentProviderManager {
                 return true;
             }
             String authority = uri.getAuthority();
-            Set<String> keySet = this.mAuthorityProcessNameMap.keySet();
-            return keySet != null && keySet.contains(authority);
+            Set keySet = this.mAuthorityProcessNameMap.keySet();
+            if (keySet != null && keySet.contains(authority)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @RequiresApi(api = 16)
+    public String getType(ContentResolver contentResolver, Uri uri, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, contentResolver, uri, str)) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, str);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public void initSystemContentProviderInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            try {
+                ProviderInfo[] providerInfoArr = Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 8).providers;
+                if (providerInfoArr != null && providerInfoArr.length != 0) {
+                    for (ProviderInfo providerInfo : providerInfoArr) {
+                        if (providerInfo != null && providerInfo.authority != null && providerInfo.authority.contains(ZeusConstants.f)) {
+                            try {
+                                ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Need to init system provider info start [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);
+                                if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.f)) {
+                                    String a2 = d.a(providerInfo.processName);
+                                    this.mSystemProviderInfoMap.put(a2, new c(Zeus.getAppApplication().getPackageName(), a2, providerInfo));
+                                    ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Init system provider info finish [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);
+                                }
+                            } catch (Exception e) {
+                                ZeusLogger.e(ZeusLogger.TAG_PROVIDER, "Init system contentProviderInfo [authority:" + providerInfo.authority + "],exception：", e);
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th) {
+                ZeusLogger.e(ZeusLogger.TAG_PROVIDER, "init System ContentProviderInfo exception：", th);
+            }
+        }
+    }
+
+    public void installContentProviders(Collection collection, Plugin plugin) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048587, this, collection, plugin) == null) && collection != null && collection.size() != 0 && plugin != null) {
+            Iterator it = collection.iterator();
+            while (it.hasNext()) {
+                ProviderInfo providerInfo = (ProviderInfo) it.next();
+                if (ZeusLogger.isDebug()) {
+                    StringBuilder sb = new StringBuilder(128);
+                    sb.append("Install plugin provider [authority:");
+                    sb.append(providerInfo.authority);
+                    sb.append("] - [className:");
+                    sb.append(providerInfo.name);
+                    sb.append(PreferencesUtil.RIGHT_MOUNT);
+                    ZeusLogger.v(ZeusLogger.TAG_PROVIDER, sb.toString());
+                }
+                installProvider(providerInfo, plugin);
+            }
+        }
+    }
+
     public Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{contentResolver, uri, strArr, str, strArr2, str2, cancellationSignal, str3})) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, strArr, str, strArr2, str2, cancellationSignal, str3) : (Cursor) invokeCommon.objValue;
-    }
-
-    public int update(ContentResolver contentResolver, Uri uri, ContentValues contentValues, String str, String[] strArr, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{contentResolver, uri, contentValues, str, strArr, str2})) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, contentValues, str, strArr, str2) : invokeCommon.intValue;
-    }
-
-    public final Bundle call(ContentResolver contentResolver, String str, String str2, String str3, Bundle bundle, String str4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{contentResolver, str, str2, str3, bundle, str4})) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, str, str2, str3, bundle, str4) : (Bundle) invokeCommon.objValue;
-    }
-
-    public int delete(ContentResolver contentResolver, Uri uri, Bundle bundle, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, contentResolver, uri, bundle, str)) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, bundle, str) : invokeLLLL.intValue;
-    }
-
-    public Uri insert(ContentResolver contentResolver, Uri uri, ContentValues contentValues, Bundle bundle, String str) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048585, this, contentResolver, uri, contentValues, bundle, str)) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, contentValues, bundle, str) : (Uri) invokeLLLLL.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{contentResolver, uri, strArr, str, strArr2, str2, cancellationSignal, str3})) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, strArr, str, strArr2, str2, cancellationSignal, str3);
+        }
+        return (Cursor) invokeCommon.objValue;
     }
 
     public Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{contentResolver, uri, strArr, str, strArr2, str2, str3})) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, strArr, str, strArr2, str2, str3) : (Cursor) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{contentResolver, uri, strArr, str, strArr2, str2, str3})) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, strArr, str, strArr2, str2, str3);
+        }
+        return (Cursor) invokeCommon.objValue;
     }
 
-    public int update(ContentResolver contentResolver, Uri uri, ContentValues contentValues, Bundle bundle, String str) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048592, this, contentResolver, uri, contentValues, bundle, str)) == null) ? com.bytedance.pangle.provider.a.b(contentResolver, uri, contentValues, bundle, str) : invokeLLLLL.intValue;
-    }
-
-    @RequiresApi(api = 26)
-    public Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal, String str) {
+    public int update(ContentResolver contentResolver, Uri uri, ContentValues contentValues, String str, String[] strArr, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{contentResolver, uri, strArr, bundle, cancellationSignal, str})) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, strArr, bundle, cancellationSignal, str) : (Cursor) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{contentResolver, uri, contentValues, str, strArr, str2})) == null) {
+            return com.bytedance.pangle.provider.a.a(contentResolver, uri, contentValues, str, strArr, str2);
+        }
+        return invokeCommon.intValue;
     }
 }

@@ -5,13 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@NotProguard
 /* loaded from: classes2.dex */
 public class InspectorNativeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InspectorNativeChannel mChannel;
     public long mNativePtr;
+
+    private native void nativeDestroyInspector(long j);
+
+    private native void nativeDispatchProtocolMessage(long j, String str);
+
+    private native long nativeInitInspector(long j, InspectorNativeChannel inspectorNativeChannel);
+
+    private native void nativeScheduleBreak(long j);
 
     public InspectorNativeClient(long j, InspectorNativeChannel inspectorNativeChannel) {
         Interceptable interceptable = $ic;
@@ -32,14 +39,6 @@ public class InspectorNativeClient {
         this.mNativePtr = nativeInitInspector(j, inspectorNativeChannel);
     }
 
-    private native void nativeDestroyInspector(long j);
-
-    private native void nativeDispatchProtocolMessage(long j, String str);
-
-    private native long nativeInitInspector(long j, InspectorNativeChannel inspectorNativeChannel);
-
-    private native void nativeScheduleBreak(long j);
-
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -47,17 +46,17 @@ public class InspectorNativeClient {
         }
     }
 
-    public void dispatchProtocolMessage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            nativeDispatchProtocolMessage(this.mNativePtr, str);
-        }
-    }
-
     public void scheduleBreak() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             nativeScheduleBreak(this.mNativePtr);
+        }
+    }
+
+    public void dispatchProtocolMessage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            nativeDispatchProtocolMessage(this.mNativePtr, str);
         }
     }
 }

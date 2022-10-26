@@ -39,7 +39,7 @@ public class MiPushMessage implements PushMessageHandler.a {
     public String category;
     public String content;
     public String description;
-    public HashMap<String, String> extra;
+    public HashMap extra;
     public boolean isNotified;
     public String messageId;
     public int messageType;
@@ -64,7 +64,7 @@ public class MiPushMessage implements PushMessageHandler.a {
             }
         }
         this.arrived = false;
-        this.extra = new HashMap<>();
+        this.extra = new HashMap();
     }
 
     public static MiPushMessage fromBundle(Bundle bundle) {
@@ -115,7 +115,7 @@ public class MiPushMessage implements PushMessageHandler.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.description : (String) invokeV.objValue;
     }
 
-    public Map<String, String> getExtra() {
+    public Map getExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.extra : (Map) invokeV.objValue;
@@ -216,7 +216,7 @@ public class MiPushMessage implements PushMessageHandler.a {
         }
     }
 
-    public void setExtra(Map<String, String> map) {
+    public void setExtra(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, map) == null) {
             this.extra.clear();
@@ -319,7 +319,7 @@ public class MiPushMessage implements PushMessageHandler.a {
             if (!TextUtils.isEmpty(this.category)) {
                 bundle.putString("category", this.category);
             }
-            HashMap<String, String> hashMap = this.extra;
+            HashMap hashMap = this.extra;
             if (hashMap != null) {
                 bundle.putSerializable("extra", hashMap);
             }

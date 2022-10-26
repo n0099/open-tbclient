@@ -33,7 +33,7 @@ public class EmotionLoader {
     public static final long WAITING_FOR_LOAD_MS = 350;
     public static EmotionLoader sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> mLruCache;
+    public LruCache mLruCache;
     public Handler mUIHandler;
 
     /* loaded from: classes2.dex */
@@ -98,28 +98,6 @@ public class EmotionLoader {
         init();
     }
 
-    private void addBitmapToLruCache(String str, Bitmap bitmap) {
-        LruCache<String, Bitmap> lruCache;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, bitmap) == null) || (lruCache = this.mLruCache) == null || bitmap == null) {
-            return;
-        }
-        lruCache.put(str, bitmap);
-    }
-
-    private Bitmap getBitmapFromLruCache(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            LruCache<String, Bitmap> lruCache = this.mLruCache;
-            if (lruCache != null) {
-                return lruCache.get(str);
-            }
-            return null;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
     public static EmotionLoader getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,7 +117,7 @@ public class EmotionLoader {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mLruCache = new LruCache<String, Bitmap>(this, ((int) Runtime.getRuntime().maxMemory()) / 16) { // from class: com.baidu.spswitch.emotion.EmotionLoader.1
+            this.mLruCache = new LruCache(this, ((int) Runtime.getRuntime().maxMemory()) / 16) { // from class: com.baidu.spswitch.emotion.EmotionLoader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EmotionLoader this$0;
@@ -170,19 +148,51 @@ public class EmotionLoader {
                 public int sizeOf(String str, Bitmap bitmap) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) ? bitmap.getRowBytes() * bitmap.getHeight() : invokeLL.intValue;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+                        return bitmap.getRowBytes() * bitmap.getHeight();
+                    }
+                    return invokeLL.intValue;
                 }
             };
         }
     }
 
     public void invalidCache() {
-        LruCache<String, Bitmap> lruCache;
+        LruCache lruCache;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lruCache = this.mLruCache) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lruCache = this.mLruCache) != null) {
+            lruCache.evictAll();
         }
-        lruCache.evictAll();
+    }
+
+    private Bitmap getBitmapFromLruCache(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            LruCache lruCache = this.mLruCache;
+            if (lruCache != null) {
+                return (Bitmap) lruCache.get(str);
+            }
+            return null;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    private void addBitmapToLruCache(String str, Bitmap bitmap) {
+        LruCache lruCache;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, bitmap) == null) && (lruCache = this.mLruCache) != null && bitmap != null) {
+            lruCache.put(str, bitmap);
+        }
+    }
+
+    public SpannableString parseEmotion(EmotionType emotionType, Context context, CharSequence charSequence, TextView textView) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionType, context, charSequence, textView)) == null) {
+            return parseEmotion(emotionType, context, charSequence, textView, 1.15f);
+        }
+        return (SpannableString) invokeLLLL.objValue;
     }
 
     public SpannableString parseEmotion(EmotionType emotionType, Context context, CharSequence charSequence, TextView textView, float f) {
@@ -320,11 +330,5 @@ public class EmotionLoader {
                 }
             }, "parseEmotionAsync", 1);
         }
-    }
-
-    public SpannableString parseEmotion(EmotionType emotionType, Context context, CharSequence charSequence, TextView textView) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionType, context, charSequence, textView)) == null) ? parseEmotion(emotionType, context, charSequence, textView, 1.15f) : (SpannableString) invokeLLLL.objValue;
     }
 }

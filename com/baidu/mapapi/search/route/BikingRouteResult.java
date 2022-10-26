@@ -16,9 +16,9 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class BikingRouteResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<BikingRouteResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BikingRouteLine> a;
+    public List a;
     public SuggestAddrInfo b;
 
     static {
@@ -82,7 +82,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
         return invokeV.intValue;
     }
 
-    public List<BikingRouteLine> getRouteLines() {
+    public List getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -94,7 +94,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SuggestAddrInfo) invokeV.objValue;
     }
 
-    public void setRouteLines(List<BikingRouteLine> list) {
+    public void setRouteLines(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a = list;

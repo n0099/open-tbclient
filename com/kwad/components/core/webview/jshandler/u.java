@@ -1,13 +1,11 @@
 package com.kwad.components.core.webview.jshandler;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.components.core.webview.jshandler.ac;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
@@ -17,10 +15,10 @@ import org.json.JSONObject;
 public final class u implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c> mHolders;
+    public List mHolders;
 
     /* loaded from: classes7.dex */
-    public static class a extends com.kwad.sdk.core.download.kwai.a {
+    public final class a extends com.kwad.sdk.core.download.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public c Mz;
@@ -92,9 +90,8 @@ public final class u implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static class b extends com.kwad.sdk.core.response.kwai.a {
+    public class b extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long creativeId;
@@ -117,7 +114,7 @@ public final class u implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     /* loaded from: classes7.dex */
-    public static class c {
+    public final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public com.kwad.components.core.c.a.c MA;
@@ -176,7 +173,7 @@ public final class u implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    public u(List<AdTemplate> list, List<com.kwad.components.core.c.a.c> list2) {
+    public u(List list, List list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,7 +194,7 @@ public final class u implements com.kwad.sdk.core.webview.kwai.a {
         }
         int size = list.size();
         for (int i3 = 0; i3 < size; i3++) {
-            this.mHolders.add(new c(list2.get(i3), list.get(i3)));
+            this.mHolders.add(new c((com.kwad.components.core.c.a.c) list2.get(i3), (AdTemplate) list.get(i3)));
         }
     }
 
@@ -234,7 +231,7 @@ public final class u implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || str == null) {
             return;
@@ -253,7 +250,6 @@ public final class u implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,13 +1,11 @@
 package com.kwad.components.core.webview.jshandler;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.components.core.playable.PlayableSource;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -17,15 +15,14 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c Lb;
     public com.kwad.components.core.webview.jshandler.b Lc;
 
-    @KsJson
     /* renamed from: com.kwad.components.core.webview.jshandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0587a extends com.kwad.sdk.core.response.kwai.a {
+    public class C0583a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String Ld;
 
-        public C0587a() {
+        public C0583a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,9 +43,8 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static class b extends com.kwad.sdk.core.response.kwai.a {
+    public class b extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int Le;
@@ -99,14 +95,14 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             this.Lb = cVar;
             try {
-                C0587a c0587a = new C0587a();
-                c0587a.parseJson(new JSONObject(str));
-                String target = c0587a.getTarget();
+                C0583a c0583a = new C0583a();
+                c0583a.parseJson(new JSONObject(str));
+                String target = c0583a.getTarget();
                 if (this.Lc != null) {
                     this.Lc.a(this, target);
                 }
@@ -135,7 +131,6 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

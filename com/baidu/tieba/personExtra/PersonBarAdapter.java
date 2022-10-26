@@ -36,6 +36,9 @@ public class PersonBarAdapter extends BasePersonInfoAdapter {
     public BaseFragment b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PersonBarFragment() : (BaseFragment) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new PersonBarFragment();
+        }
+        return (BaseFragment) invokeV.objValue;
     }
 }

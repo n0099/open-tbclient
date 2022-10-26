@@ -40,8 +40,8 @@ public class a implements a.InterfaceC0090a {
     public String g;
     public boolean h;
     public volatile int i;
-    public Map<String, String> j;
-    public ArrayList<String> k;
+    public Map j;
+    public ArrayList k;
     public CyberPlayerManager.InstallListener2 l;
     public long o;
     public long p;
@@ -357,7 +357,7 @@ public class a implements a.InterfaceC0090a {
         return invokeI.longValue;
     }
 
-    public synchronized void a(String str, int i, Map<String, String> map, CyberPlayerManager.InstallListener2 installListener2) {
+    public synchronized void a(String str, int i, Map map, CyberPlayerManager.InstallListener2 installListener2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, map, installListener2) == null) {
             synchronized (this) {
@@ -425,7 +425,7 @@ public class a implements a.InterfaceC0090a {
     }
 
     @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
-    public void a(String str, long j, ArrayList<String> arrayList) {
+    public void a(String str, long j, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), arrayList}) == null) {
             this.k = arrayList;

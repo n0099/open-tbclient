@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,6 +42,23 @@ public class ImageLoggerHelper {
         this.IP_EXPIRE_TIME = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
     }
 
+    public String getTiebaIp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.lastGetTiebaIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+                if (fj.C()) {
+                    return "";
+                }
+                this.lastGetTiebaIpTime = currentTimeMillis;
+                this.cachedTiebaIp = UtilHelper.getIpFromDomain("tiebac.baidu.com");
+            }
+            return this.cachedTiebaIp;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static ImageLoggerHelper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,10 +81,10 @@ public class ImageLoggerHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
                 String host = new URL(str).getHost();
-                if (TextUtils.isEmpty(host)) {
-                    return null;
+                if (!TextUtils.isEmpty(host)) {
+                    return UtilHelper.getIpFromDomain(host);
                 }
-                return UtilHelper.getIpFromDomain(host);
+                return null;
             } catch (Exception e) {
                 BdLog.e(e, true);
                 return null;
@@ -83,7 +100,7 @@ public class ImageLoggerHelper {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetCdnIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 int indexOf = str.indexOf("hiphotos.baidu.com");
-                if (indexOf <= 0 || ej.C()) {
+                if (indexOf <= 0 || fj.C()) {
                     return "";
                 }
                 this.lastGetCdnIpTime = currentTimeMillis;
@@ -95,22 +112,5 @@ public class ImageLoggerHelper {
             return this.cachedCdnIp;
         }
         return (String) invokeL.objValue;
-    }
-
-    public String getTiebaIp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.lastGetTiebaIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                if (ej.C()) {
-                    return "";
-                }
-                this.lastGetTiebaIpTime = currentTimeMillis;
-                this.cachedTiebaIp = UtilHelper.getIpFromDomain("tiebac.baidu.com");
-            }
-            return this.cachedTiebaIp;
-        }
-        return (String) invokeV.objValue;
     }
 }

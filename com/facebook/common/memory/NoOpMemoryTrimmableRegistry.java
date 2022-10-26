@@ -29,6 +29,20 @@ public class NoOpMemoryTrimmableRegistry implements MemoryTrimmableRegistry {
         }
     }
 
+    @Override // com.facebook.common.memory.MemoryTrimmableRegistry
+    public void registerMemoryTrimmable(MemoryTrimmable memoryTrimmable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, memoryTrimmable) == null) {
+        }
+    }
+
+    @Override // com.facebook.common.memory.MemoryTrimmableRegistry
+    public void unregisterMemoryTrimmable(MemoryTrimmable memoryTrimmable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memoryTrimmable) == null) {
+        }
+    }
+
     public NoOpMemoryTrimmableRegistry() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,19 +71,5 @@ public class NoOpMemoryTrimmableRegistry implements MemoryTrimmableRegistry {
             return noOpMemoryTrimmableRegistry;
         }
         return (NoOpMemoryTrimmableRegistry) invokeV.objValue;
-    }
-
-    @Override // com.facebook.common.memory.MemoryTrimmableRegistry
-    public void registerMemoryTrimmable(MemoryTrimmable memoryTrimmable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, memoryTrimmable) == null) {
-        }
-    }
-
-    @Override // com.facebook.common.memory.MemoryTrimmableRegistry
-    public void unregisterMemoryTrimmable(MemoryTrimmable memoryTrimmable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memoryTrimmable) == null) {
-        }
     }
 }

@@ -53,22 +53,6 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.io.SessionOutputBuffer
-    public void writeLine(CharArrayBuffer charArrayBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, charArrayBuffer) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.io.SessionOutputBuffer
     public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -88,6 +72,22 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     public void write(byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.io.SessionOutputBuffer
+    public void writeLine(CharArrayBuffer charArrayBuffer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, charArrayBuffer) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.io.SessionOutputBuffer
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

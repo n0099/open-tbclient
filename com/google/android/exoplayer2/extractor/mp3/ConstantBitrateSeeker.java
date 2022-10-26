@@ -19,6 +19,7 @@ public final class ConstantBitrateSeeker implements Mp3Extractor.Seeker {
     public final long firstFramePosition;
 
     public ConstantBitrateSeeker(long j, int i, long j2) {
+        long timeUs;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,14 +36,35 @@ public final class ConstantBitrateSeeker implements Mp3Extractor.Seeker {
         }
         this.firstFramePosition = j;
         this.bitrate = i;
-        this.durationUs = j2 == -1 ? C.TIME_UNSET : getTimeUs(j2);
+        if (j2 == -1) {
+            timeUs = C.TIME_UNSET;
+        } else {
+            timeUs = getTimeUs(j2);
+        }
+        this.durationUs = timeUs;
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
     public long getDurationUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.durationUs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.durationUs;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.SeekMap
+    public boolean isSeekable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.durationUs != C.TIME_UNSET) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
@@ -63,13 +85,9 @@ public final class ConstantBitrateSeeker implements Mp3Extractor.Seeker {
     public long getTimeUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? ((Math.max(0L, j - this.firstFramePosition) * 1000000) * 8) / this.bitrate : invokeJ.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public boolean isSeekable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.durationUs != C.TIME_UNSET : invokeV.booleanValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return ((Math.max(0L, j - this.firstFramePosition) * 1000000) * 8) / this.bitrate;
+        }
+        return invokeJ.longValue;
     }
 }

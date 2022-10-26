@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class TaskStateQueue$passiveTaskCanActiveAble$1 extends Lambda implements Function0<String> {
+public final class TaskStateQueue$passiveTaskCanActiveAble$1 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ boolean $forceJudgeInterrupted;
@@ -44,13 +44,19 @@ public final class TaskStateQueue$passiveTaskCanActiveAble$1 extends Lambda impl
     @Override // kotlin.jvm.functions.Function0
     public final String invoke() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("isEnableActivated:");
             sb.append(this.$tempItem.getTaskInfo().isEnableActivated());
             sb.append(" isInterrupted ");
-            sb.append(!this.$forceJudgeInterrupted || this.$tempItem.getTaskStatus().isInterrupted());
+            if (this.$forceJudgeInterrupted && !this.$tempItem.getTaskStatus().isInterrupted()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            sb.append(z);
             sb.append(" !isDone:");
             sb.append(!this.$tempItem.getTaskInfo().isDone());
             sb.append(" !hasFailed:");

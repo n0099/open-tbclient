@@ -133,12 +133,19 @@ public final class MetadataUtil {
 
     public static ApicFrame parseCoverArt(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parsableByteArray)) == null) {
             int readInt = parsableByteArray.readInt();
             if (parsableByteArray.readInt() == Atom.TYPE_data) {
                 int parseFullAtomFlags = Atom.parseFullAtomFlags(parsableByteArray.readInt());
-                String str = parseFullAtomFlags == 13 ? "image/jpeg" : parseFullAtomFlags == 14 ? "image/png" : null;
+                if (parseFullAtomFlags == 13) {
+                    str = "image/jpeg";
+                } else if (parseFullAtomFlags == 14) {
+                    str = "image/png";
+                } else {
+                    str = null;
+                }
                 if (str == null) {
                     Log.w(TAG, "Unrecognized cover art flags: " + parseFullAtomFlags);
                     return null;
@@ -305,12 +312,12 @@ public final class MetadataUtil {
                     parsableByteArray.skipBytes(readInt - 12);
                 }
             }
-            if ("com.apple.iTunes".equals(str) && GaplessInfoHolder.GAPLESS_COMMENT_ID.equals(str2) && i2 != -1) {
-                parsableByteArray.setPosition(i2);
-                parsableByteArray.skipBytes(16);
-                return new CommentFrame(LANGUAGE_UNDEFINED, str2, parsableByteArray.readNullTerminatedString(i3 - 16));
+            if (!"com.apple.iTunes".equals(str) || !GaplessInfoHolder.GAPLESS_COMMENT_ID.equals(str2) || i2 == -1) {
+                return null;
             }
-            return null;
+            parsableByteArray.setPosition(i2);
+            parsableByteArray.skipBytes(16);
+            return new CommentFrame(LANGUAGE_UNDEFINED, str2, parsableByteArray.readNullTerminatedString(i3 - 16));
         }
         return (Id3Frame) invokeLI.objValue;
     }
@@ -324,23 +331,24 @@ public final class MetadataUtil {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, parsableByteArray)) != null) {
-            return (TextInformationFrame) invokeL.objValue;
-        }
-        int parseUint8AttributeValue = parseUint8AttributeValue(parsableByteArray);
-        if (parseUint8AttributeValue > 0) {
-            String[] strArr = STANDARD_GENRES;
-            if (parseUint8AttributeValue <= strArr.length) {
-                str = strArr[parseUint8AttributeValue - 1];
-                if (str == null) {
-                    return new TextInformationFrame("TCON", null, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, parsableByteArray)) == null) {
+            int parseUint8AttributeValue = parseUint8AttributeValue(parsableByteArray);
+            if (parseUint8AttributeValue > 0) {
+                String[] strArr = STANDARD_GENRES;
+                if (parseUint8AttributeValue <= strArr.length) {
+                    str = strArr[parseUint8AttributeValue - 1];
+                    if (str == null) {
+                        return new TextInformationFrame("TCON", null, str);
+                    }
+                    Log.w(TAG, "Failed to parse standard genre code");
+                    return null;
                 }
-                Log.w(TAG, "Failed to parse standard genre code");
-                return null;
             }
-        }
-        str = null;
-        if (str == null) {
+            str = null;
+            if (str == null) {
+            }
+        } else {
+            return (TextInformationFrame) invokeL.objValue;
         }
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.work.videoview;
 
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0010\b\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", ""}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class WorkPublishVideoView$MAX_VIDEO_HEIGHT$2 extends Lambda implements Function0<Integer> {
+public final class WorkPublishVideoView$MAX_VIDEO_HEIGHT$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ WorkPublishVideoView this$0;
@@ -39,11 +39,13 @@ public final class WorkPublishVideoView$MAX_VIDEO_HEIGHT$2 extends Lambda implem
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final Integer invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Integer.valueOf(ej.f(this.this$0.getContext(), R.dimen.tbds866)) : (Integer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Integer.valueOf(fj.f(this.this$0.getContext(), R.dimen.tbds866));
+        }
+        return (Integer) invokeV.objValue;
     }
 }

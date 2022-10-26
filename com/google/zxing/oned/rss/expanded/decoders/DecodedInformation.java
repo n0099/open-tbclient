@@ -37,24 +37,6 @@ public final class DecodedInformation extends DecodedObject {
         this.remainingValue = 0;
     }
 
-    public String getNewString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.newString : (String) invokeV.objValue;
-    }
-
-    public int getRemainingValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.remainingValue : invokeV.intValue;
-    }
-
-    public boolean isRemaining() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.remaining : invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecodedInformation(int i, String str, int i2) {
         super(i);
@@ -76,5 +58,32 @@ public final class DecodedInformation extends DecodedObject {
         this.remaining = true;
         this.remainingValue = i2;
         this.newString = str;
+    }
+
+    public String getNewString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.newString;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getRemainingValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.remainingValue;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isRemaining() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.remaining;
+        }
+        return invokeV.booleanValue;
     }
 }

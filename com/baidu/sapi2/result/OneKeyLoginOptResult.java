@@ -45,6 +45,51 @@ public class OneKeyLoginOptResult implements NoProguard {
         }
     }
 
+    public int getCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.code;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getExtraStr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.extraStr;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getOperateType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.operateType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSecurityPhone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.securityPhone;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getSubCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.subCode;
+        }
+        return invokeV.intValue;
+    }
+
     public static OneKeyLoginOptResult formatOptResult(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -69,52 +114,13 @@ public class OneKeyLoginOptResult implements NoProguard {
     public static boolean isValid(OneKeyLoginOptResult oneKeyLoginOptResult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, oneKeyLoginOptResult)) == null) ? (oneKeyLoginOptResult == null || oneKeyLoginOptResult.code != 0 || oneKeyLoginOptResult.subCode != 0 || TextUtils.isEmpty(oneKeyLoginOptResult.operateType) || TextUtils.isEmpty(oneKeyLoginOptResult.extraStr)) ? false : true : invokeL.booleanValue;
-    }
-
-    public void generateSecurityPhone() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.d(TAG, "generateSecurityPhone extraStr=" + this.extraStr);
-            if (TextUtils.isEmpty(this.extraStr)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, oneKeyLoginOptResult)) == null) {
+            if (oneKeyLoginOptResult != null && oneKeyLoginOptResult.code == 0 && oneKeyLoginOptResult.subCode == 0 && !TextUtils.isEmpty(oneKeyLoginOptResult.operateType) && !TextUtils.isEmpty(oneKeyLoginOptResult.extraStr)) {
+                return true;
             }
-            try {
-                this.securityPhone = new JSONObject(this.extraStr).optString(OptResultFields.SECURITY_PHONE);
-            } catch (JSONException e) {
-                Log.e(TAG, e.getMessage());
-            }
+            return false;
         }
-    }
-
-    public int getCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.code : invokeV.intValue;
-    }
-
-    public String getExtraStr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extraStr : (String) invokeV.objValue;
-    }
-
-    public String getOperateType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.operateType : (String) invokeV.objValue;
-    }
-
-    public String getSecurityPhone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.securityPhone : (String) invokeV.objValue;
-    }
-
-    public int getSubCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.subCode : invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
     public void setCode(int i) {
@@ -128,6 +134,20 @@ public class OneKeyLoginOptResult implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.subCode = i;
+        }
+    }
+
+    public void generateSecurityPhone() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Log.d(TAG, "generateSecurityPhone extraStr=" + this.extraStr);
+            if (!TextUtils.isEmpty(this.extraStr)) {
+                try {
+                    this.securityPhone = new JSONObject(this.extraStr).optString(OptResultFields.SECURITY_PHONE);
+                } catch (JSONException e) {
+                    Log.e(TAG, e.getMessage());
+                }
+            }
         }
     }
 }

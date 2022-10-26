@@ -3,8 +3,6 @@ package androidx.core.app;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +32,7 @@ public final class AppOpsManagerCompat {
         }
     }
 
-    public static int noteOp(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
+    public static int noteOp(Context context, String str, int i, String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65537, null, context, str, i, str2)) == null) {
@@ -46,7 +44,7 @@ public final class AppOpsManagerCompat {
         return invokeLLIL.intValue;
     }
 
-    public static int noteOpNoThrow(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
+    public static int noteOpNoThrow(Context context, String str, int i, String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i, str2)) == null) {
@@ -58,7 +56,7 @@ public final class AppOpsManagerCompat {
         return invokeLLIL.intValue;
     }
 
-    public static int noteProxyOp(@NonNull Context context, @NonNull String str, @NonNull String str2) {
+    public static int noteProxyOp(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
@@ -70,7 +68,7 @@ public final class AppOpsManagerCompat {
         return invokeLLL.intValue;
     }
 
-    public static int noteProxyOpNoThrow(@NonNull Context context, @NonNull String str, @NonNull String str2) {
+    public static int noteProxyOpNoThrow(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
@@ -82,8 +80,7 @@ public final class AppOpsManagerCompat {
         return invokeLLL.intValue;
     }
 
-    @Nullable
-    public static String permissionToOp(@NonNull String str) {
+    public static String permissionToOp(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {

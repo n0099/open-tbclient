@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.Scheduler;
@@ -26,7 +25,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstream<T, Observable<T>> {
+public final class ObservableWindowTimed extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -38,7 +37,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class WindowExactBoundedObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Disposable {
+    public final class WindowExactBoundedObserver extends QueueDrainObserver implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -49,20 +48,20 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         public Disposable s;
         public final Scheduler scheduler;
         public volatile boolean terminated;
-        public final AtomicReference<Disposable> timer;
+        public final AtomicReference timer;
         public final long timespan;
         public final TimeUnit unit;
-        public UnicastSubject<T> window;
+        public UnicastSubject window;
         public final Scheduler.Worker worker;
 
         /* loaded from: classes8.dex */
-        public static final class ConsumerIndexHolder implements Runnable {
+        public final class ConsumerIndexHolder implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final long index;
-            public final WindowExactBoundedObserver<?> parent;
+            public final WindowExactBoundedObserver parent;
 
-            public ConsumerIndexHolder(long j, WindowExactBoundedObserver<?> windowExactBoundedObserver) {
+            public ConsumerIndexHolder(long j, WindowExactBoundedObserver windowExactBoundedObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +84,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    WindowExactBoundedObserver<?> windowExactBoundedObserver = this.parent;
+                    WindowExactBoundedObserver windowExactBoundedObserver = this.parent;
                     if (!windowExactBoundedObserver.cancelled) {
                         windowExactBoundedObserver.queue.offer(this);
                     } else {
@@ -100,7 +99,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactBoundedObserver(Observer<? super Observable<T>> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i, long j2, boolean z) {
+        public WindowExactBoundedObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i, long j2, boolean z) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -118,7 +117,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                     return;
                 }
             }
-            this.timer = new AtomicReference<>();
+            this.timer = new AtomicReference();
             this.timespan = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
@@ -129,6 +128,20 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 this.worker = scheduler.createWorker();
             } else {
                 this.worker = null;
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                this.error = th;
+                this.done = true;
+                if (enter()) {
+                    drainLoop();
+                }
+                this.actual.onError(th);
+                disposeTimer();
             }
         }
 
@@ -151,21 +164,47 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v9, resolved type: io.reactivex.subjects.UnicastSubject */
-        /* JADX WARN: Multi-variable type inference failed */
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.done = true;
+                if (enter()) {
+                    drainLoop();
+                }
+                this.actual.onComplete();
+                disposeTimer();
+            }
+        }
+
         public void drainLoop() {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
-                Observer<? super V> observer = this.actual;
-                UnicastSubject<T> unicastSubject = this.window;
+                Observer observer = this.actual;
+                UnicastSubject unicastSubject = this.window;
                 int i = 1;
                 while (!this.terminated) {
-                    boolean z = this.done;
+                    boolean z2 = this.done;
                     Object poll = mpscLinkedQueue.poll();
-                    boolean z2 = poll == null;
+                    if (poll == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     boolean z3 = poll instanceof ConsumerIndexHolder;
-                    if (z && (z2 || z3)) {
+                    if (z2 && (z || z3)) {
                         this.window = null;
                         mpscLinkedQueue.clear();
                         disposeTimer();
@@ -177,7 +216,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                             unicastSubject.onComplete();
                             return;
                         }
-                    } else if (z2) {
+                    } else if (z) {
                         i = leave(-i);
                         if (i == 0) {
                             return;
@@ -187,7 +226,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                         if (this.restartTimerOnMaxSize || this.producerIndex == consumerIndexHolder.index) {
                             unicastSubject.onComplete();
                             this.count = 0L;
-                            unicastSubject = (UnicastSubject<T>) UnicastSubject.create(this.bufferSize);
+                            unicastSubject = UnicastSubject.create(this.bufferSize);
                             this.window = unicastSubject;
                             observer.onNext(unicastSubject);
                         }
@@ -198,11 +237,11 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                             this.producerIndex++;
                             this.count = 0L;
                             unicastSubject.onComplete();
-                            unicastSubject = (UnicastSubject<T>) UnicastSubject.create(this.bufferSize);
+                            unicastSubject = UnicastSubject.create(this.bufferSize);
                             this.window = unicastSubject;
                             this.actual.onNext(unicastSubject);
                             if (this.restartTimerOnMaxSize) {
-                                Disposable disposable = this.timer.get();
+                                Disposable disposable = (Disposable) this.timer.get();
                                 disposable.dispose();
                                 Scheduler.Worker worker = this.worker;
                                 ConsumerIndexHolder consumerIndexHolder2 = new ConsumerIndexHolder(this.producerIndex, this);
@@ -223,59 +262,25 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             }
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
         @Override // io.reactivex.Observer
-        public void onComplete() {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.done = true;
-                if (enter()) {
-                    drainLoop();
-                }
-                this.actual.onComplete();
-                disposeTimer();
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                this.error = th;
-                this.done = true;
-                if (enter()) {
-                    drainLoop();
-                }
-                this.actual.onError(th);
-                disposeTimer();
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, t) == null) || this.terminated) {
+            if ((interceptable != null && interceptable.invokeL(1048582, this, obj) != null) || this.terminated) {
                 return;
             }
             if (fastEnter()) {
-                UnicastSubject<T> unicastSubject = this.window;
-                unicastSubject.onNext(t);
+                UnicastSubject unicastSubject = this.window;
+                unicastSubject.onNext(obj);
                 long j = this.count + 1;
                 if (j >= this.maxSize) {
                     this.producerIndex++;
                     this.count = 0L;
                     unicastSubject.onComplete();
-                    UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
+                    UnicastSubject create = UnicastSubject.create(this.bufferSize);
                     this.window = create;
                     this.actual.onNext(create);
                     if (this.restartTimerOnMaxSize) {
-                        this.timer.get().dispose();
+                        ((Disposable) this.timer.get()).dispose();
                         Scheduler.Worker worker = this.worker;
                         ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
                         long j2 = this.timespan;
@@ -288,7 +293,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                     return;
                 }
             } else {
-                this.queue.offer(NotificationLite.next(t));
+                this.queue.offer(NotificationLite.next(obj));
                 if (!enter()) {
                     return;
                 }
@@ -302,12 +307,12 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
                 this.s = disposable;
-                Observer<? super V> observer = this.actual;
+                Observer observer = this.actual;
                 observer.onSubscribe(this);
                 if (this.cancelled) {
                     return;
                 }
-                UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
+                UnicastSubject create = UnicastSubject.create(this.bufferSize);
                 this.window = create;
                 observer.onNext(create);
                 ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
@@ -326,227 +331,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
     }
 
     /* loaded from: classes8.dex */
-    public static final class WindowExactUnboundedObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Observer<T>, Disposable, Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public static final Object NEXT;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int bufferSize;
-        public Disposable s;
-        public final Scheduler scheduler;
-        public volatile boolean terminated;
-        public final AtomicReference<Disposable> timer;
-        public final long timespan;
-        public final TimeUnit unit;
-        public UnicastSubject<T> window;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1036442775, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1036442775, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;");
-                    return;
-                }
-            }
-            NEXT = new Object();
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactUnboundedObserver(Observer<? super Observable<T>> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
-            super(observer, new MpscLinkedQueue());
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Observer) objArr2[0], (SimplePlainQueue) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.timer = new AtomicReference<>();
-            this.timespan = j;
-            this.unit = timeUnit;
-            this.scheduler = scheduler;
-            this.bufferSize = i;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.cancelled = true;
-            }
-        }
-
-        public void disposeTimer() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                DisposableHelper.dispose(this.timer);
-            }
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: io.reactivex.subjects.UnicastSubject */
-        /* JADX WARN: Code restructure failed: missing block: B:10:0x001d, code lost:
-            r7.window = null;
-            r0.clear();
-            disposeTimer();
-            r0 = r7.error;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
-            if (r0 == null) goto L15;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x002a, code lost:
-            r2.onError(r0);
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x002e, code lost:
-            r2.onComplete();
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:43:?, code lost:
-            return;
-         */
-        /* JADX WARN: Multi-variable type inference failed */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void drainLoop() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-                return;
-            }
-            MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
-            Observer<? super V> observer = this.actual;
-            UnicastSubject<T> unicastSubject = this.window;
-            int i = 1;
-            while (true) {
-                boolean z = this.terminated;
-                boolean z2 = this.done;
-                Object poll = mpscLinkedQueue.poll();
-                if (!z2 || (poll != null && poll != NEXT)) {
-                    if (poll == null) {
-                        i = leave(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    } else if (poll == NEXT) {
-                        unicastSubject.onComplete();
-                        if (!z) {
-                            unicastSubject = (UnicastSubject<T>) UnicastSubject.create(this.bufferSize);
-                            this.window = unicastSubject;
-                            observer.onNext(unicastSubject);
-                        } else {
-                            this.s.dispose();
-                        }
-                    } else {
-                        unicastSubject.onNext(NotificationLite.getValue(poll));
-                    }
-                }
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.done = true;
-                if (enter()) {
-                    drainLoop();
-                }
-                disposeTimer();
-                this.actual.onComplete();
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                this.error = th;
-                this.done = true;
-                if (enter()) {
-                    drainLoop();
-                }
-                disposeTimer();
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, t) == null) || this.terminated) {
-                return;
-            }
-            if (fastEnter()) {
-                this.window.onNext(t);
-                if (leave(-1) == 0) {
-                    return;
-                }
-            } else {
-                this.queue.offer(NotificationLite.next(t));
-                if (!enter()) {
-                    return;
-                }
-            }
-            drainLoop();
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
-                this.s = disposable;
-                this.window = UnicastSubject.create(this.bufferSize);
-                Observer<? super V> observer = this.actual;
-                observer.onSubscribe(this);
-                observer.onNext(this.window);
-                if (this.cancelled) {
-                    return;
-                }
-                Scheduler scheduler = this.scheduler;
-                long j = this.timespan;
-                DisposableHelper.replace(this.timer, scheduler.schedulePeriodicallyDirect(this, j, j, this.unit));
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                if (this.cancelled) {
-                    this.terminated = true;
-                    disposeTimer();
-                }
-                this.queue.offer(NEXT);
-                if (enter()) {
-                    drainLoop();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class WindowSkipObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Disposable, Runnable {
+    public final class WindowSkipObserver extends QueueDrainObserver implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -555,7 +340,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         public final long timeskip;
         public final long timespan;
         public final TimeUnit unit;
-        public final List<UnicastSubject<T>> windows;
+        public final List windows;
         public final Scheduler.Worker worker;
 
         /* loaded from: classes8.dex */
@@ -563,9 +348,9 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WindowSkipObserver this$0;
-            public final UnicastSubject<T> w;
+            public final UnicastSubject w;
 
-            public CompletionTask(WindowSkipObserver windowSkipObserver, UnicastSubject<T> unicastSubject) {
+            public CompletionTask(WindowSkipObserver windowSkipObserver, UnicastSubject unicastSubject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -594,13 +379,13 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         }
 
         /* loaded from: classes8.dex */
-        public static final class SubjectWork<T> {
+        public final class SubjectWork {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final boolean open;
-            public final UnicastSubject<T> w;
+            public final UnicastSubject w;
 
-            public SubjectWork(UnicastSubject<T> unicastSubject, boolean z) {
+            public SubjectWork(UnicastSubject unicastSubject, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -621,7 +406,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowSkipObserver(Observer<? super Observable<T>> observer, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker, int i) {
+        public WindowSkipObserver(Observer observer, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker, int i) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -647,13 +432,27 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             this.windows = new LinkedList();
         }
 
-        public void complete(UnicastSubject<T> unicastSubject) {
+        public void complete(UnicastSubject unicastSubject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, unicastSubject) == null) {
                 this.queue.offer(new SubjectWork(unicastSubject, false));
                 if (enter()) {
                     drainLoop();
                 }
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
+                this.error = th;
+                this.done = true;
+                if (enter()) {
+                    drainLoop();
+                }
+                this.actual.onError(th);
+                disposeWorker();
             }
         }
 
@@ -672,72 +471,14 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             }
         }
 
-        public void drainLoop() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
-                Observer<? super V> observer = this.actual;
-                List<UnicastSubject<T>> list = this.windows;
-                int i = 1;
-                while (!this.terminated) {
-                    boolean z = this.done;
-                    T t = (T) mpscLinkedQueue.poll();
-                    boolean z2 = t == null;
-                    boolean z3 = t instanceof SubjectWork;
-                    if (z && (z2 || z3)) {
-                        mpscLinkedQueue.clear();
-                        Throwable th = this.error;
-                        if (th != null) {
-                            for (UnicastSubject<T> unicastSubject : list) {
-                                unicastSubject.onError(th);
-                            }
-                        } else {
-                            for (UnicastSubject<T> unicastSubject2 : list) {
-                                unicastSubject2.onComplete();
-                            }
-                        }
-                        disposeWorker();
-                        list.clear();
-                        return;
-                    } else if (z2) {
-                        i = leave(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    } else if (z3) {
-                        SubjectWork subjectWork = (SubjectWork) t;
-                        if (subjectWork.open) {
-                            if (!this.cancelled) {
-                                UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
-                                list.add(create);
-                                observer.onNext(create);
-                                this.worker.schedule(new CompletionTask(this, create), this.timespan, this.unit);
-                            }
-                        } else {
-                            list.remove(subjectWork.w);
-                            subjectWork.w.onComplete();
-                            if (list.isEmpty() && this.cancelled) {
-                                this.terminated = true;
-                            }
-                        }
-                    } else {
-                        for (UnicastSubject<T> unicastSubject3 : list) {
-                            unicastSubject3.onNext(t);
-                        }
-                    }
-                }
-                this.s.dispose();
-                disposeWorker();
-                mpscLinkedQueue.clear();
-                list.clear();
-            }
-        }
-
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cancelled : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -753,33 +494,99 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             }
         }
 
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-                this.error = th;
-                this.done = true;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                SubjectWork subjectWork = new SubjectWork(UnicastSubject.create(this.bufferSize), true);
+                if (!this.cancelled) {
+                    this.queue.offer(subjectWork);
+                }
                 if (enter()) {
                     drainLoop();
                 }
-                this.actual.onError(th);
+            }
+        }
+
+        public void drainLoop() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
+                Observer observer = this.actual;
+                List<UnicastSubject> list = this.windows;
+                int i = 1;
+                while (!this.terminated) {
+                    boolean z2 = this.done;
+                    Object poll = mpscLinkedQueue.poll();
+                    if (poll == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    boolean z3 = poll instanceof SubjectWork;
+                    if (z2 && (z || z3)) {
+                        mpscLinkedQueue.clear();
+                        Throwable th = this.error;
+                        if (th != null) {
+                            for (UnicastSubject unicastSubject : list) {
+                                unicastSubject.onError(th);
+                            }
+                        } else {
+                            for (UnicastSubject unicastSubject2 : list) {
+                                unicastSubject2.onComplete();
+                            }
+                        }
+                        disposeWorker();
+                        list.clear();
+                        return;
+                    } else if (z) {
+                        i = leave(-i);
+                        if (i == 0) {
+                            return;
+                        }
+                    } else if (z3) {
+                        SubjectWork subjectWork = (SubjectWork) poll;
+                        if (subjectWork.open) {
+                            if (!this.cancelled) {
+                                UnicastSubject create = UnicastSubject.create(this.bufferSize);
+                                list.add(create);
+                                observer.onNext(create);
+                                this.worker.schedule(new CompletionTask(this, create), this.timespan, this.unit);
+                            }
+                        } else {
+                            list.remove(subjectWork.w);
+                            subjectWork.w.onComplete();
+                            if (list.isEmpty() && this.cancelled) {
+                                this.terminated = true;
+                            }
+                        }
+                    } else {
+                        for (UnicastSubject unicastSubject3 : list) {
+                            unicastSubject3.onNext(poll);
+                        }
+                    }
+                }
+                this.s.dispose();
                 disposeWorker();
+                mpscLinkedQueue.clear();
+                list.clear();
             }
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
                 if (fastEnter()) {
-                    for (UnicastSubject<T> unicastSubject : this.windows) {
-                        unicastSubject.onNext(t);
+                    for (UnicastSubject unicastSubject : this.windows) {
+                        unicastSubject.onNext(obj);
                     }
                     if (leave(-1) == 0) {
                         return;
                     }
                 } else {
-                    this.queue.offer(t);
+                    this.queue.offer(obj);
                     if (!enter()) {
                         return;
                     }
@@ -797,7 +604,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 if (this.cancelled) {
                     return;
                 }
-                UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
+                UnicastSubject create = UnicastSubject.create(this.bufferSize);
                 this.windows.add(create);
                 this.actual.onNext(create);
                 this.worker.schedule(new CompletionTask(this, create), this.timespan, this.unit);
@@ -806,24 +613,229 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 worker.schedulePeriodically(this, j, j, this.unit);
             }
         }
+    }
+
+    /* loaded from: classes8.dex */
+    public final class WindowExactUnboundedObserver extends QueueDrainObserver implements Observer, Disposable, Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public static final Object NEXT;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int bufferSize;
+        public Disposable s;
+        public final Scheduler scheduler;
+        public volatile boolean terminated;
+        public final AtomicReference timer;
+        public final long timespan;
+        public final TimeUnit unit;
+        public UnicastSubject window;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1036442775, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1036442775, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;");
+                    return;
+                }
+            }
+            NEXT = new Object();
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.cancelled = true;
+            }
+        }
+
+        public void disposeTimer() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                DisposableHelper.dispose(this.timer);
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.done = true;
+                if (enter()) {
+                    drainLoop();
+                }
+                disposeTimer();
+                this.actual.onComplete();
+            }
+        }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                SubjectWork subjectWork = new SubjectWork(UnicastSubject.create(this.bufferSize), true);
-                if (!this.cancelled) {
-                    this.queue.offer(subjectWork);
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                if (this.cancelled) {
+                    this.terminated = true;
+                    disposeTimer();
                 }
+                this.queue.offer(NEXT);
                 if (enter()) {
                     drainLoop();
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public WindowExactUnboundedObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
+            super(observer, new MpscLinkedQueue());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Observer) objArr2[0], (SimplePlainQueue) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.timer = new AtomicReference();
+            this.timespan = j;
+            this.unit = timeUnit;
+            this.scheduler = scheduler;
+            this.bufferSize = i;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:10:0x001d, code lost:
+            r7.window = null;
+            r0.clear();
+            disposeTimer();
+            r0 = r7.error;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
+            if (r0 == null) goto L15;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x002a, code lost:
+            r2.onError(r0);
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x002e, code lost:
+            r2.onComplete();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
+            return;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:43:?, code lost:
+            return;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void drainLoop() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
+                Observer observer = this.actual;
+                UnicastSubject unicastSubject = this.window;
+                int i = 1;
+                while (true) {
+                    boolean z = this.terminated;
+                    boolean z2 = this.done;
+                    Object poll = mpscLinkedQueue.poll();
+                    if (!z2 || (poll != null && poll != NEXT)) {
+                        if (poll == null) {
+                            i = leave(-i);
+                            if (i == 0) {
+                                return;
+                            }
+                        } else if (poll == NEXT) {
+                            unicastSubject.onComplete();
+                            if (!z) {
+                                unicastSubject = UnicastSubject.create(this.bufferSize);
+                                this.window = unicastSubject;
+                                observer.onNext(unicastSubject);
+                            } else {
+                                this.s.dispose();
+                            }
+                        } else {
+                            unicastSubject.onNext(NotificationLite.getValue(poll));
+                        }
+                    }
+                }
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                this.error = th;
+                this.done = true;
+                if (enter()) {
+                    drainLoop();
+                }
+                disposeTimer();
+                this.actual.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048582, this, obj) != null) || this.terminated) {
+                return;
+            }
+            if (fastEnter()) {
+                this.window.onNext(obj);
+                if (leave(-1) == 0) {
+                    return;
+                }
+            } else {
+                this.queue.offer(NotificationLite.next(obj));
+                if (!enter()) {
+                    return;
+                }
+            }
+            drainLoop();
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
+                this.s = disposable;
+                this.window = UnicastSubject.create(this.bufferSize);
+                Observer observer = this.actual;
+                observer.onSubscribe(this);
+                observer.onNext(this.window);
+                if (!this.cancelled) {
+                    Scheduler scheduler = this.scheduler;
+                    long j = this.timespan;
+                    DisposableHelper.replace(this.timer, scheduler.schedulePeriodicallyDirect(this, j, j, this.unit));
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWindowTimed(ObservableSource<T> observableSource, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, int i, boolean z) {
+    public ObservableWindowTimed(ObservableSource observableSource, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -850,7 +862,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super Observable<T>> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SerializedObserver serializedObserver = new SerializedObserver(observer);

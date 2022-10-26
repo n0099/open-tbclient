@@ -1,8 +1,6 @@
 package com.baidu.searchbox.bddownload.core.download;
 
 import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -37,23 +35,27 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
-public class DownloadCall extends NamedRunnable implements Comparable<DownloadCall> {
+public class DownloadCall extends NamedRunnable implements Comparable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService EXECUTOR;
     public static final int MAX_COUNT_RETRY_FOR_PRECONDITION_FAILED = 1;
     public static final String TAG = "DownloadCall";
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean asyncExecuted;
-    @NonNull
-    public final ArrayList<DownloadChain> blockChainList;
-    @Nullable
+    public final ArrayList blockChainList;
     public volatile DownloadCache cache;
     public volatile boolean canceled;
     public volatile Thread currentThread;
     public volatile boolean finishing;
-    @NonNull
     public final DownloadStore store;
     public final DownloadTask task;
+
+    @Override // com.baidu.searchbox.bddownload.core.NamedRunnable
+    public void interrupted(InterruptedException interruptedException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, interruptedException) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -71,8 +73,17 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload Block", false));
     }
 
+    @Override // com.baidu.searchbox.bddownload.core.NamedRunnable
+    public void finished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            BdDownload.with().downloadDispatcher().finish(this);
+            Util.d(TAG, "call is finished " + this.task.getId());
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DownloadCall(DownloadTask downloadTask, boolean z, @NonNull DownloadStore downloadStore) {
+    public DownloadCall(DownloadTask downloadTask, boolean z, DownloadStore downloadStore) {
         this(downloadTask, z, new ArrayList(), downloadStore);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,13 +103,48 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         }
     }
 
-    public static DownloadCall create(DownloadTask downloadTask, boolean z, @NonNull DownloadStore downloadStore) {
-        InterceptResult invokeCommon;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public DownloadCall(DownloadTask downloadTask, boolean z, ArrayList arrayList, DownloadStore downloadStore) {
+        super("download call: " + downloadTask.getId());
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{downloadTask, Boolean.valueOf(z), downloadStore})) == null) ? new DownloadCall(downloadTask, z, downloadStore) : (DownloadCall) invokeCommon.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {downloadTask, Boolean.valueOf(z), arrayList, downloadStore};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.task = downloadTask;
+        this.asyncExecuted = z;
+        this.blockChainList = arrayList;
+        this.store = downloadStore;
     }
 
-    private void inspectTaskEnd(DownloadCache downloadCache, @NonNull EndCause endCause, @Nullable Exception exc) {
+    public static DownloadCall create(DownloadTask downloadTask, boolean z, DownloadStore downloadStore) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{downloadTask, Boolean.valueOf(z), downloadStore})) == null) {
+            return new DownloadCall(downloadTask, z, downloadStore);
+        }
+        return (DownloadCall) invokeCommon.objValue;
+    }
+
+    public void assembleBlockAndCallbackFromBeginning(BreakpointInfo breakpointInfo, BreakpointRemoteCheck breakpointRemoteCheck, ResumeFailedCause resumeFailedCause) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, breakpointInfo, breakpointRemoteCheck, resumeFailedCause) == null) {
+            Util.assembleBlock(this.task, breakpointInfo, breakpointRemoteCheck.getInstanceLength(), breakpointRemoteCheck.isAcceptRange());
+            BdDownload.with().callbackDispatcher().dispatch().downloadFromBeginning(this.task, breakpointInfo, resumeFailedCause);
+        }
+    }
+
+    private void inspectTaskEnd(DownloadCache downloadCache, EndCause endCause, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, downloadCache, endCause, exc) == null) {
             if (endCause != EndCause.CANCELED) {
@@ -128,12 +174,40 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         }
     }
 
-    public void assembleBlockAndCallbackFromBeginning(@NonNull BreakpointInfo breakpointInfo, @NonNull BreakpointRemoteCheck breakpointRemoteCheck, @NonNull ResumeFailedCause resumeFailedCause) {
+    public File getFile() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, breakpointInfo, breakpointRemoteCheck, resumeFailedCause) == null) {
-            Util.assembleBlock(this.task, breakpointInfo, breakpointRemoteCheck.getInstanceLength(), breakpointRemoteCheck.isAcceptRange());
-            BdDownload.with().callbackDispatcher().dispatch().downloadFromBeginning(this.task, breakpointInfo, resumeFailedCause);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.task.getFile();
         }
+        return (File) invokeV.objValue;
+    }
+
+    public int getPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.task.getPriority();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.canceled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isFinishing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.finishing;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean cancel() {
@@ -174,30 +248,67 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         return invokeV.booleanValue;
     }
 
-    public DownloadCache createCache(@NonNull BreakpointInfo breakpointInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(DownloadCall downloadCall) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, breakpointInfo)) == null) ? new DownloadCache(BdDownload.with().processFileStrategy().createProcessStream(this.task, breakpointInfo, this.store)) : (DownloadCache) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadCall)) == null) {
+            return PriorityStrategy.compareTaskPriority(downloadCall.task, this.task);
+        }
+        return invokeL.intValue;
     }
 
-    @NonNull
-    public BreakpointLocalCheck createLocalCheck(@NonNull BreakpointInfo breakpointInfo, long j) {
+    public DownloadCache createCache(BreakpointInfo breakpointInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, breakpointInfo)) == null) {
+            return new DownloadCache(BdDownload.with().processFileStrategy().createProcessStream(this.task, breakpointInfo, this.store));
+        }
+        return (DownloadCache) invokeL.objValue;
+    }
+
+    public BreakpointRemoteCheck createRemoteCheck(BreakpointInfo breakpointInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, breakpointInfo)) == null) {
+            return new BreakpointRemoteCheck(this.task, breakpointInfo);
+        }
+        return (BreakpointRemoteCheck) invokeL.objValue;
+    }
+
+    public boolean equalsTask(DownloadTask downloadTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadTask)) == null) {
+            return this.task.equals(downloadTask);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setInfoToTask(BreakpointInfo breakpointInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, breakpointInfo) == null) {
+            DownloadTask.TaskHideWrapper.setBreakpointInfo(this.task, breakpointInfo);
+        }
+    }
+
+    public Future submitChain(DownloadChain downloadChain) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, downloadChain)) == null) {
+            return EXECUTOR.submit(downloadChain);
+        }
+        return (Future) invokeL.objValue;
+    }
+
+    public BreakpointLocalCheck createLocalCheck(BreakpointInfo breakpointInfo, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, breakpointInfo, j)) == null) ? new BreakpointLocalCheck(this.task, breakpointInfo, j) : (BreakpointLocalCheck) invokeLJ.objValue;
-    }
-
-    @NonNull
-    public BreakpointRemoteCheck createRemoteCheck(@NonNull BreakpointInfo breakpointInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, breakpointInfo)) == null) ? new BreakpointRemoteCheck(this.task, breakpointInfo) : (BreakpointRemoteCheck) invokeL.objValue;
-    }
-
-    public boolean equalsTask(@NonNull DownloadTask downloadTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadTask)) == null) ? this.task.equals(downloadTask) : invokeL.booleanValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, breakpointInfo, j)) == null) {
+            return new BreakpointLocalCheck(this.task, breakpointInfo, j);
+        }
+        return (BreakpointLocalCheck) invokeLJ.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:77:0x0160 A[EDGE_INSN: B:77:0x0160->B:47:0x0160 ?: BREAK  , SYNTHETIC] */
@@ -291,72 +402,23 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
             this.finishing = true;
             this.blockChainList.clear();
             DownloadCache downloadCache = this.cache;
-            if (this.canceled || downloadCache == null) {
-                return;
-            }
-            IOException iOException = null;
-            if (!downloadCache.isServerCanceled() && !downloadCache.isUnknownError() && !downloadCache.isPreconditionFailed()) {
-                if (downloadCache.isFileBusyAfterRun()) {
-                    endCause = EndCause.FILE_BUSY;
-                } else if (downloadCache.isPreAllocateFailed()) {
-                    endCause = EndCause.PRE_ALLOCATE_FAILED;
-                    iOException = downloadCache.getRealCause();
+            if (!this.canceled && downloadCache != null) {
+                IOException iOException = null;
+                if (!downloadCache.isServerCanceled() && !downloadCache.isUnknownError() && !downloadCache.isPreconditionFailed()) {
+                    if (downloadCache.isFileBusyAfterRun()) {
+                        endCause = EndCause.FILE_BUSY;
+                    } else if (downloadCache.isPreAllocateFailed()) {
+                        endCause = EndCause.PRE_ALLOCATE_FAILED;
+                        iOException = downloadCache.getRealCause();
+                    } else {
+                        endCause = EndCause.COMPLETED;
+                    }
                 } else {
-                    endCause = EndCause.COMPLETED;
+                    endCause = EndCause.ERROR;
+                    iOException = downloadCache.getRealCause();
                 }
-            } else {
-                endCause = EndCause.ERROR;
-                iOException = downloadCache.getRealCause();
+                inspectTaskEnd(downloadCache, endCause, iOException);
             }
-            inspectTaskEnd(downloadCache, endCause, iOException);
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.NamedRunnable
-    public void finished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            BdDownload.with().downloadDispatcher().finish(this);
-            Util.d(TAG, "call is finished " + this.task.getId());
-        }
-    }
-
-    @Nullable
-    public File getFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.task.getFile() : (File) invokeV.objValue;
-    }
-
-    public int getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.task.getPriority() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.NamedRunnable
-    public void interrupted(InterruptedException interruptedException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, interruptedException) == null) {
-        }
-    }
-
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.canceled : invokeV.booleanValue;
-    }
-
-    public boolean isFinishing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.finishing : invokeV.booleanValue;
-    }
-
-    public void setInfoToTask(@NonNull BreakpointInfo breakpointInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, breakpointInfo) == null) {
-            DownloadTask.TaskHideWrapper.setBreakpointInfo(this.task, breakpointInfo);
         }
     }
 
@@ -384,66 +446,28 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void startBlocks(List<DownloadChain> list) throws InterruptedException {
+    public void startBlocks(List list) throws InterruptedException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048593, this, list) != null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList(list.size());
-        try {
-            for (DownloadChain downloadChain : list) {
-                arrayList.add(submitChain(downloadChain));
-            }
-            this.blockChainList.addAll(list);
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                Future future = (Future) it.next();
-                if (!future.isDone()) {
-                    try {
-                        future.get();
-                    } catch (CancellationException | ExecutionException unused) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
+            ArrayList arrayList = new ArrayList(list.size());
+            try {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    arrayList.add(submitChain((DownloadChain) it.next()));
+                }
+                this.blockChainList.addAll(list);
+                Iterator it2 = arrayList.iterator();
+                while (it2.hasNext()) {
+                    Future future = (Future) it2.next();
+                    if (!future.isDone()) {
+                        try {
+                            future.get();
+                        } catch (CancellationException | ExecutionException unused) {
+                        }
                     }
                 }
-            }
-        } finally {
-        }
-    }
-
-    public Future<?> submitChain(DownloadChain downloadChain) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, downloadChain)) == null) ? EXECUTOR.submit(downloadChain) : (Future) invokeL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadCall(DownloadTask downloadTask, boolean z, @NonNull ArrayList<DownloadChain> arrayList, @NonNull DownloadStore downloadStore) {
-        super("download call: " + downloadTask.getId());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadTask, Boolean.valueOf(z), arrayList, downloadStore};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            } finally {
             }
         }
-        this.task = downloadTask;
-        this.asyncExecuted = z;
-        this.blockChainList = arrayList;
-        this.store = downloadStore;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(@NonNull DownloadCall downloadCall) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadCall)) == null) ? PriorityStrategy.compareTaskPriority(downloadCall.task, this.task) : invokeL.intValue;
     }
 }

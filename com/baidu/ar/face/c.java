@@ -57,7 +57,7 @@ public class c {
         return invokeLLLL.intValue;
     }
 
-    public static int a(HashMap<String, Object> hashMap, i iVar) {
+    public static int a(HashMap hashMap, i iVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, hashMap, iVar)) == null) {
@@ -268,10 +268,10 @@ public class c {
             if (mVar.eC() != null && mVar.eC().getFaceFrame() != null) {
                 FaceFrame faceFrame = mVar.eC().getFaceFrame();
                 if (faceFrame.getFaceBoxes() != null && faceFrame.getFaceBoxes().size() > 0) {
-                    List<FAUFaceBox> faceBoxes = faceFrame.getFaceBoxes();
+                    List faceBoxes = faceFrame.getFaceBoxes();
                     float[] fArr = new float[faceBoxes.size() * 4];
                     for (int i = 0; i < faceBoxes.size(); i++) {
-                        FAUFaceBox fAUFaceBox = faceBoxes.get(i);
+                        FAUFaceBox fAUFaceBox = (FAUFaceBox) faceBoxes.get(i);
                         int i2 = i * 4;
                         fArr[i2] = fAUFaceBox.getX();
                         fArr[i2 + 1] = fAUFaceBox.getY();

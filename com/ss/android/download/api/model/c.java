@@ -19,7 +19,7 @@ public class c {
     public final long g;
     public final JSONObject h;
     public final JSONObject i;
-    public final List<String> j;
+    public final List j;
     public final int k;
     public final Object l;
     public final String m;
@@ -27,8 +27,27 @@ public class c {
     public final String o;
     public final JSONObject p;
 
+    public c(a aVar) {
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = aVar.d;
+        this.e = aVar.e;
+        this.f = aVar.f;
+        this.g = aVar.g;
+        this.h = aVar.h;
+        this.i = aVar.i;
+        this.j = aVar.k;
+        this.k = aVar.l;
+        this.l = aVar.m;
+        this.n = aVar.o;
+        this.o = aVar.p;
+        this.p = aVar.q;
+        this.m = aVar.n;
+    }
+
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public String a;
         public String b;
         public String c;
@@ -37,8 +56,8 @@ public class c {
         public long g;
         public JSONObject h;
         public JSONObject i;
-        public Map<String, Object> j;
-        public List<String> k;
+        public Map j;
+        public List k;
         public int l;
         public Object m;
         public String n;
@@ -47,13 +66,13 @@ public class c {
         public boolean d = false;
         public boolean o = false;
 
-        public a a(boolean z) {
-            this.o = z;
+        public a a(int i) {
+            this.l = i;
             return this;
         }
 
-        public a b(String str) {
-            this.c = str;
+        public a b(long j) {
+            this.g = j;
             return this;
         }
 
@@ -67,28 +86,18 @@ public class c {
             return this;
         }
 
-        public a a(String str) {
-            this.b = str;
-            return this;
-        }
-
-        public a b(long j) {
-            this.g = j;
-            return this;
-        }
-
         public a a(long j) {
             this.e = j;
             return this;
         }
 
-        public a b(boolean z) {
-            this.d = z;
+        public a b(String str) {
+            this.c = str;
             return this;
         }
 
-        public a a(JSONObject jSONObject) {
-            this.h = jSONObject;
+        public a a(Object obj) {
+            this.m = obj;
             return this;
         }
 
@@ -97,18 +106,28 @@ public class c {
             return this;
         }
 
-        public a a(List<String> list) {
+        public a a(String str) {
+            this.b = str;
+            return this;
+        }
+
+        public a b(boolean z) {
+            this.d = z;
+            return this;
+        }
+
+        public a a(List list) {
             this.k = list;
             return this;
         }
 
-        public a a(int i) {
-            this.l = i;
+        public a a(JSONObject jSONObject) {
+            this.h = jSONObject;
             return this;
         }
 
-        public a a(Object obj) {
-            this.m = obj;
+        public a a(boolean z) {
+            this.o = z;
             return this;
         }
 
@@ -122,9 +141,9 @@ public class c {
             }
             try {
                 if (this.j != null && !this.j.isEmpty()) {
-                    for (Map.Entry<String, Object> entry : this.j.entrySet()) {
-                        if (!this.h.has(entry.getKey())) {
-                            this.h.putOpt(entry.getKey(), entry.getValue());
+                    for (Map.Entry entry : this.j.entrySet()) {
+                        if (!this.h.has((String) entry.getKey())) {
+                            this.h.putOpt((String) entry.getKey(), entry.getValue());
                         }
                     }
                 }
@@ -181,25 +200,6 @@ public class c {
         }
     }
 
-    public c(a aVar) {
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
-        this.f = aVar.f;
-        this.g = aVar.g;
-        this.h = aVar.h;
-        this.i = aVar.i;
-        this.j = aVar.k;
-        this.k = aVar.l;
-        this.l = aVar.m;
-        this.n = aVar.o;
-        this.o = aVar.p;
-        this.p = aVar.q;
-        this.m = aVar.n;
-    }
-
     public String a() {
         return this.a;
     }
@@ -236,7 +236,7 @@ public class c {
         return this.i;
     }
 
-    public List<String> j() {
+    public List j() {
         return this.j;
     }
 
@@ -261,6 +261,8 @@ public class c {
     }
 
     public String toString() {
+        String str;
+        String str2;
         StringBuilder sb = new StringBuilder();
         sb.append("category: ");
         sb.append(this.a);
@@ -281,20 +283,34 @@ public class c {
         sb.append("\nparamsJson: ");
         sb.append(this.i);
         sb.append("\nclickTrackUrl: ");
-        List<String> list = this.j;
-        sb.append(list != null ? list.toString() : "");
+        List list = this.j;
+        String str3 = "";
+        if (list == null) {
+            str = "";
+        } else {
+            str = list.toString();
+        }
+        sb.append(str);
         sb.append("\teventSource: ");
         sb.append(this.k);
         sb.append("\textraObject: ");
         Object obj = this.l;
-        sb.append(obj != null ? obj.toString() : "");
+        if (obj == null) {
+            str2 = "";
+        } else {
+            str2 = obj.toString();
+        }
+        sb.append(str2);
         sb.append("\nisV3: ");
         sb.append(this.n);
         sb.append("\tV3EventName: ");
         sb.append(this.o);
         sb.append("\tV3EventParams: ");
         JSONObject jSONObject = this.p;
-        sb.append(jSONObject != null ? jSONObject.toString() : "");
+        if (jSONObject != null) {
+            str3 = jSONObject.toString();
+        }
+        sb.append(str3);
         return sb.toString();
     }
 }

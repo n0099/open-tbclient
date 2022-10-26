@@ -7,7 +7,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.aq4;
+import com.baidu.tieba.bq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ public class NightResourceStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<Integer> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,21 +40,26 @@ public class NightResourceStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<String> run(CustomMessage<Integer> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                int intValue = (customMessage == null || customMessage.getData() == null) ? -927 : customMessage.getData().intValue();
+                if (customMessage != null && customMessage.getData() != null) {
+                    i = ((Integer) customMessage.getData()).intValue();
+                } else {
+                    i = -927;
+                }
                 String packageName = BdBaseApplication.getInst().getPackageName();
-                if (aq4.c().contains("-Night")) {
-                    packageName = NightPluginManager.getInstance().getNightPluginPackageName(intValue);
+                if (bq4.c().contains("-Night")) {
+                    packageName = NightPluginManager.getInstance().getNightPluginPackageName(i);
                     if (!NightPluginManager.getInstance().isInvokePlugin()) {
                         TbadkCoreApplication.getInst().setSkinType(0);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(intValue)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(i)));
                     }
                 }
                 SkinManager.setPackageName(packageName);
-                return new CustomResponsedMessage<>(2001281, packageName);
+                return new CustomResponsedMessage(2001281, packageName);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

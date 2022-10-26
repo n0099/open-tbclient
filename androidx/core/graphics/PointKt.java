@@ -13,96 +13,76 @@ public final class PointKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final int component1(Point point) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, point)) == null) ? point.x : invokeL.intValue;
-    }
-
-    public static final int component2(Point point) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, point)) == null) ? point.y : invokeL.intValue;
-    }
-
-    public static final Point minus(Point point, Point point2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, point, point2)) == null) {
-            Point point3 = new Point(point.x, point.y);
-            point3.offset(-point2.x, -point2.y);
-            return point3;
-        }
-        return (Point) invokeLL.objValue;
-    }
-
-    public static final Point plus(Point point, Point point2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, point, point2)) == null) {
-            Point point3 = new Point(point.x, point.y);
-            point3.offset(point2.x, point2.y);
-            return point3;
-        }
-        return (Point) invokeLL.objValue;
-    }
-
-    public static final Point toPoint(PointF pointF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, pointF)) == null) ? new Point((int) pointF.x, (int) pointF.y) : (Point) invokeL.objValue;
-    }
-
-    public static final PointF toPointF(Point point) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, point)) == null) ? new PointF(point) : (PointF) invokeL.objValue;
-    }
-
-    public static final Point unaryMinus(Point point) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, point)) == null) ? new Point(-point.x, -point.y) : (Point) invokeL.objValue;
-    }
-
     public static final float component1(PointF pointF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pointF)) == null) ? pointF.x : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pointF)) == null) {
+            return pointF.x;
+        }
+        return invokeL.floatValue;
     }
 
     public static final float component2(PointF pointF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, pointF)) == null) ? pointF.y : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, pointF)) == null) {
+            return pointF.y;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static final Point toPoint(PointF pointF) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, pointF)) == null) {
+            return new Point((int) pointF.x, (int) pointF.y);
+        }
+        return (Point) invokeL.objValue;
+    }
+
+    public static final PointF toPointF(Point point) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, point)) == null) {
+            return new PointF(point);
+        }
+        return (PointF) invokeL.objValue;
+    }
+
+    public static final Point unaryMinus(Point point) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, point)) == null) {
+            return new Point(-point.x, -point.y);
+        }
+        return (Point) invokeL.objValue;
+    }
+
+    public static final int component1(Point point) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, point)) == null) {
+            return point.x;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final int component2(Point point) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, point)) == null) {
+            return point.y;
+        }
+        return invokeL.intValue;
     }
 
     public static final PointF unaryMinus(PointF pointF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, pointF)) == null) ? new PointF(-pointF.x, -pointF.y) : (PointF) invokeL.objValue;
-    }
-
-    public static final PointF minus(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, pointF, pointF2)) == null) {
-            PointF pointF3 = new PointF(pointF.x, pointF.y);
-            pointF3.offset(-pointF2.x, -pointF2.y);
-            return pointF3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, pointF)) == null) {
+            return new PointF(-pointF.x, -pointF.y);
         }
-        return (PointF) invokeLL.objValue;
-    }
-
-    public static final PointF plus(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, pointF, pointF2)) == null) {
-            PointF pointF3 = new PointF(pointF.x, pointF.y);
-            pointF3.offset(pointF2.x, pointF2.y);
-            return pointF3;
-        }
-        return (PointF) invokeLL.objValue;
+        return (PointF) invokeL.objValue;
     }
 
     public static final Point minus(Point point, int i) {
@@ -128,6 +108,28 @@ public final class PointKt {
         return (Point) invokeLI.objValue;
     }
 
+    public static final Point minus(Point point, Point point2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, point, point2)) == null) {
+            Point point3 = new Point(point.x, point.y);
+            point3.offset(-point2.x, -point2.y);
+            return point3;
+        }
+        return (Point) invokeLL.objValue;
+    }
+
+    public static final Point plus(Point point, Point point2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, point, point2)) == null) {
+            Point point3 = new Point(point.x, point.y);
+            point3.offset(point2.x, point2.y);
+            return point3;
+        }
+        return (Point) invokeLL.objValue;
+    }
+
     public static final PointF minus(PointF pointF, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
@@ -149,5 +151,27 @@ public final class PointKt {
             return pointF2;
         }
         return (PointF) invokeLF.objValue;
+    }
+
+    public static final PointF minus(PointF pointF, PointF pointF2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, pointF, pointF2)) == null) {
+            PointF pointF3 = new PointF(pointF.x, pointF.y);
+            pointF3.offset(-pointF2.x, -pointF2.y);
+            return pointF3;
+        }
+        return (PointF) invokeLL.objValue;
+    }
+
+    public static final PointF plus(PointF pointF, PointF pointF2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, pointF, pointF2)) == null) {
+            PointF pointF3 = new PointF(pointF.x, pointF.y);
+            pointF3.offset(pointF2.x, pointF2.y);
+            return pointF3;
+        }
+        return (PointF) invokeLL.objValue;
     }
 }

@@ -10,13 +10,13 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.kg3;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.sp1;
-import com.baidu.tieba.up1;
-import com.baidu.tieba.vj1;
-import com.baidu.tieba.w42;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.lg3;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.tp1;
+import com.baidu.tieba.vp1;
+import com.baidu.tieba.wj1;
+import com.baidu.tieba.x42;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean q;
     public transient /* synthetic */ FieldHolder $fh;
-    public sp1 m;
+    public tp1 m;
     public String n;
     public int o;
     public int p;
@@ -68,7 +68,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends w42 {
+    public class b extends x42 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppScopeDetailActivity c;
@@ -91,15 +91,14 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
             this.c = swanAppScopeDetailActivity;
         }
 
-        @Override // com.baidu.tieba.w42, com.baidu.tieba.z42
+        @Override // com.baidu.tieba.x42, com.baidu.tieba.a52
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.d(str);
-                if (TextUtils.isEmpty(str)) {
-                    return;
+                if (!TextUtils.isEmpty(str)) {
+                    ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092203)).setText(str);
                 }
-                ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092219)).setText(str);
             }
         }
     }
@@ -117,7 +116,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 return;
             }
         }
-        q = vj1.a;
+        q = wj1.a;
     }
 
     public SwanAppScopeDetailActivity() {
@@ -144,25 +143,58 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.sp1] */
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.o != 0 || this.p != 0) {
+                overridePendingTransition(this.o, this.p);
+                this.o = 0;
+                this.p = 0;
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.finish();
+            E();
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDestroy();
+            tp1 tp1Var = this.m;
+            if (tp1Var != null) {
+                tp1Var.destroy();
+                this.m = null;
+            }
+            this.n = null;
+        }
+    }
+
     public final void B() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.n)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TextUtils.isEmpty(this.n)) {
             return;
         }
-        up1 c = sm2.F0().c(this);
+        vp1 c = tm2.F0().c(this);
         c.Y(new b(this));
         this.m = c.r();
         c.loadUrl(this.n);
-        c.j((FrameLayout) findViewById(R.id.obfuscated_res_0x7f09265c), this.m.covertToView());
+        c.j((FrameLayout) findViewById(R.id.obfuscated_res_0x7f092644), this.m.covertToView());
     }
 
     public void C(Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) != null) || intent == null) {
             return;
         }
-        this.n = kg3.h(intent, "url");
+        this.n = lg3.h(intent, "url");
         if (q) {
             Log.d("ScopeDetailActivity", "mUrl=" + this.n);
         }
@@ -176,52 +208,17 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.o == 0 && this.p == 0) {
-                return;
-            }
-            overridePendingTransition(this.o, this.p);
-            this.o = 0;
-            this.p = 0;
-        }
-    }
-
-    @Override // android.app.Activity
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.finish();
-            E();
-        }
-    }
-
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.bh4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.ch4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             D(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010025);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0832);
-            ch3.a(this);
+            setContentView(R.layout.obfuscated_res_0x7f0d0833);
+            dh3.a(this);
             C(getIntent());
             A();
             B();
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDestroy();
-            sp1 sp1Var = this.m;
-            if (sp1Var != null) {
-                sp1Var.destroy();
-                this.m = null;
-            }
-            this.n = null;
         }
     }
 

@@ -74,9 +74,11 @@ public final class DeviceManager {
 
     private Device createNewDevice(Context context) {
         InterceptResult invokeL;
+        int i;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            String str = "";
+            String str2 = "";
             Device device = new Device();
             device.imei = ArdUtil.getImei(context);
             device.mac = ArdUtil.getMacAddrV23(context);
@@ -91,14 +93,23 @@ public final class DeviceManager {
                     return device;
                 }
                 StringBuilder sb = new StringBuilder();
-                sb.append(isValidArid | (isValidMac ? 2 : 0));
+                if (isValidMac) {
+                    i = 2;
+                } else {
+                    i = 0;
+                }
+                sb.append(isValidArid | i);
                 sb.append("");
                 device.type = sb.toString();
-                String str2 = device.arid == null ? "" : device.arid;
-                if (device.mac != null) {
-                    str = device.mac;
+                if (device.arid == null) {
+                    str = "";
+                } else {
+                    str = device.arid;
                 }
-                device.hdid = Coder.encryptMD5(str2 + "_" + str);
+                if (device.mac != null) {
+                    str2 = device.mac;
+                }
+                device.hdid = Coder.encryptMD5(str + "_" + str2);
                 return device;
             } catch (Throwable unused) {
                 device.type = "0";
@@ -111,10 +122,18 @@ public final class DeviceManager {
 
     private String d2s(Device device) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, device)) == null) {
-            String str = TextUtils.isEmpty(device.imei) ? "-" : device.imei;
-            String str2 = TextUtils.isEmpty(device.mac) ? "-" : device.mac;
+            String str2 = "-";
+            if (TextUtils.isEmpty(device.imei)) {
+                str = "-";
+            } else {
+                str = device.imei;
+            }
+            if (!TextUtils.isEmpty(device.mac)) {
+                str2 = device.mac;
+            }
             return String.format("%s,%s,%s,%s", device.hdid, str, str2, key(device.hdid + str + str2));
         }
         return (String) invokeL.objValue;
@@ -157,6 +176,20 @@ public final class DeviceManager {
         return (String) invokeL.objValue;
     }
 
+    private String key(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
+            try {
+                return Coder.encryptMD5(str + KEY_MAGIC1 + KEY_MAGIC2);
+            } catch (Throwable th) {
+                L.debug(this, th.getMessage(), new Object[0]);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     private String getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -191,74 +224,28 @@ public final class DeviceManager {
     private boolean isValidArid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
+        }
+        return invokeL.booleanValue;
     }
 
     private boolean isValidMac(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) ? ArdUtil.isValidMac(str) : invokeL.booleanValue;
-    }
-
-    private String key(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
-            try {
-                return Coder.encryptMD5(str + KEY_MAGIC1 + KEY_MAGIC2);
-            } catch (Throwable th) {
-                L.debug(this, th.getMessage(), new Object[0]);
-                return "";
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
+            return ArdUtil.isValidMac(str);
         }
-        return (String) invokeL.objValue;
-    }
-
-    private Device s2d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            String[] split = str.split(",", -1);
-            if (split.length >= 4) {
-                if (key(split[0] + split[1] + split[2]).equals(split[3])) {
-                    Device device = new Device();
-                    device.hdid = split[0];
-                    device.imei = "-".equals(split[1]) ? null : split[1];
-                    device.mac = "-".equals(split[2]) ? null : split[2];
-                    return device;
-                }
-                L.debug("DeviceProxy", "verify fail. %s", str + "");
-                return null;
-            }
-            return null;
-        }
-        return (Device) invokeL.objValue;
-    }
-
-    private void saveInner(Context context, Device device) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, this, context, device) == null) {
-            try {
-                FileUtil.saveFile(getInnerPath(context), Coder.encryptDES(d2s(device), "!qazxsw@#edcvfr$"));
-            } catch (Throwable th) {
-                L.debug(this, "saveInner exception = %s", th);
-            }
-        }
+        return invokeL.booleanValue;
     }
 
     public static DeviceManager valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? (DeviceManager) Enum.valueOf(DeviceManager.class, str) : (DeviceManager) invokeL.objValue;
-    }
-
-    public static DeviceManager[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? (DeviceManager[]) $VALUES.clone() : (DeviceManager[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            return (DeviceManager) Enum.valueOf(DeviceManager.class, str);
+        }
+        return (DeviceManager) invokeL.objValue;
     }
 
     public Device getDevice(Context context) {
@@ -281,11 +268,65 @@ public final class DeviceManager {
         return (Device) invokeL.objValue;
     }
 
+    private Device s2d(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, str)) == null) {
+            String str3 = null;
+            if (str == null) {
+                return null;
+            }
+            String[] split = str.split(",", -1);
+            if (split.length < 4) {
+                return null;
+            }
+            if (key(split[0] + split[1] + split[2]).equals(split[3])) {
+                Device device = new Device();
+                device.hdid = split[0];
+                if ("-".equals(split[1])) {
+                    str2 = null;
+                } else {
+                    str2 = split[1];
+                }
+                device.imei = str2;
+                if (!"-".equals(split[2])) {
+                    str3 = split[2];
+                }
+                device.mac = str3;
+                return device;
+            }
+            L.debug("DeviceProxy", "verify fail. %s", str + "");
+            return null;
+        }
+        return (Device) invokeL.objValue;
+    }
+
+    private void saveInner(Context context, Device device) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, this, context, device) == null) {
+            try {
+                FileUtil.saveFile(getInnerPath(context), Coder.encryptDES(d2s(device), "!qazxsw@#edcvfr$"));
+            } catch (Throwable th) {
+                L.debug(this, "saveInner exception = %s", th);
+            }
+        }
+    }
+
     public void syncAll(Context context, Device device) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, device) == null) && getInner(context) == null) {
             saveInner(context, device);
             L.debug(this, "syncAll", new Object[0]);
         }
+    }
+
+    public static DeviceManager[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return (DeviceManager[]) $VALUES.clone();
+        }
+        return (DeviceManager[]) invokeV.objValue;
     }
 }

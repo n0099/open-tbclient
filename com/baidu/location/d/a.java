@@ -50,10 +50,10 @@ public class a extends Service implements LLSInterface {
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class HandlerC0102a extends Handler {
+    public class HandlerC0102a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<a> a;
+        public final WeakReference a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public HandlerC0102a(Looper looper, a aVar) {
@@ -73,14 +73,14 @@ public class a extends Service implements LLSInterface {
                     return;
                 }
             }
-            this.a = new WeakReference<>(aVar);
+            this.a = new WeakReference(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = (a) this.a.get()) == null) {
                 return;
             }
             if (f.isServing) {

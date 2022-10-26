@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class zzv implements Iterable<String> {
+public final class zzv implements Iterable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ CharSequence zza;
@@ -36,9 +36,9 @@ public final class zzv implements Iterable<String> {
     }
 
     @Override // java.lang.Iterable
-    public final Iterator<String> iterator() {
+    public final Iterator iterator() {
         InterceptResult invokeV;
-        Iterator<String> zzh;
+        Iterator zzh;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             zzh = this.zzb.zzh(this.zza);
@@ -53,7 +53,7 @@ public final class zzv implements Iterable<String> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append('[');
-            Iterator<String> it = iterator();
+            Iterator it = iterator();
             try {
                 if (it.hasNext()) {
                     sb.append(zzq.zza(it.next(), StringUtil.ARRAY_ELEMENT_SEPARATOR));

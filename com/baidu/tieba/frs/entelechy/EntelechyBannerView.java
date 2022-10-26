@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,17 +37,6 @@ public class EntelechyBannerView extends BannerView {
         l();
     }
 
-    public final void l() {
-        Button button;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.c) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.topMargin = (ej.f(getContext(), R.dimen.obfuscated_res_0x7f07019a) - ej.d(getContext(), 20.0f)) / 2;
-            layoutParams.addRule(10);
-            this.c.requestLayout();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EntelechyBannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -68,5 +57,16 @@ public class EntelechyBannerView extends BannerView {
             }
         }
         l();
+    }
+
+    public final void l() {
+        Button button;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.c) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.topMargin = (fj.f(getContext(), R.dimen.obfuscated_res_0x7f07019a) - fj.d(getContext(), 20.0f)) / 2;
+            layoutParams.addRule(10);
+            this.c.requestLayout();
+        }
     }
 }

@@ -52,19 +52,6 @@ public class FaceItem implements Jsonable {
         }
     }
 
-    public static File getBaiDuUgcCacheFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(FileUtils.isSDMounted() ? Application.get().getExternalFilesDir(null) : null, DIR_UGC_DEFAULT);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
     public static String getFolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,6 +62,48 @@ public class FaceItem implements Jsonable {
             return sFolder;
         }
         return (String) invokeV.objValue;
+    }
+
+    public void checkResFile() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!"none".equals(getFilePath()) && !FileUtils.getExistFile(new File(getFilePath()))) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.mResLoaded = z;
+        }
+    }
+
+    public String getLoadingFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.mLoadingFile)) {
+                this.mLoadingFile = getFilePath();
+            }
+            return this.mLoadingFile;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static File getBaiDuUgcCacheFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = null;
+            if (FileUtils.isSDMounted()) {
+                file = Application.get().getExternalFilesDir(null);
+            }
+            File file2 = new File(file, DIR_UGC_DEFAULT);
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            return file2;
+        }
+        return (File) invokeV.objValue;
     }
 
     public static File getPrivateCaptureRootChildDir(String str) {
@@ -89,11 +118,14 @@ public class FaceItem implements Jsonable {
         return (File) invokeL.objValue;
     }
 
-    public void checkResFile() {
+    public boolean onResLoaded(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mResLoaded = "none".equals(getFilePath()) || FileUtils.getExistFile(new File(getFilePath()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            checkResFile();
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
     public String generateResFileName() {
@@ -140,52 +172,6 @@ public class FaceItem implements Jsonable {
         return (String) invokeV.objValue;
     }
 
-    public String getLoadingFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.mLoadingFile)) {
-                this.mLoadingFile = getFilePath();
-            }
-            return this.mLoadingFile;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean onResLoaded(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            checkResFile();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
-    public boolean parse(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.id = jSONObject.optString("id");
-                this.name = jSONObject.optString("name");
-                this.bgurl = jSONObject.optString("bgurl");
-                this.file = jSONObject.optString("file");
-                this.sk = jSONObject.optString("sk");
-                this.tip = jSONObject.optString("tip");
-                return true;
-            } catch (JSONException unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
     public JSONObject toJson() {
         InterceptResult invokeV;
@@ -229,5 +215,29 @@ public class FaceItem implements Jsonable {
             getFolder();
             getLoadingFile();
         }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
+    public boolean parse(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.id = jSONObject.optString("id");
+                this.name = jSONObject.optString("name");
+                this.bgurl = jSONObject.optString("bgurl");
+                this.file = jSONObject.optString("file");
+                this.sk = jSONObject.optString("sk");
+                this.tip = jSONObject.optString("tip");
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

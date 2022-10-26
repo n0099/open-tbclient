@@ -85,18 +85,27 @@ public final class ErrorCorrectionLevel {
     public static ErrorCorrectionLevel valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ErrorCorrectionLevel) Enum.valueOf(ErrorCorrectionLevel.class, str) : (ErrorCorrectionLevel) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (ErrorCorrectionLevel) Enum.valueOf(ErrorCorrectionLevel.class, str);
+        }
+        return (ErrorCorrectionLevel) invokeL.objValue;
     }
 
     public static ErrorCorrectionLevel[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ErrorCorrectionLevel[]) $VALUES.clone() : (ErrorCorrectionLevel[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (ErrorCorrectionLevel[]) $VALUES.clone();
+        }
+        return (ErrorCorrectionLevel[]) invokeV.objValue;
     }
 
     public int getBits() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bits : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bits;
+        }
+        return invokeV.intValue;
     }
 }

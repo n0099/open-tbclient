@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class attr {
+    public final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int cr_alignContent = 0x7f0401b5;
         public static final int cr_alignItems = 0x7f0401b6;
@@ -90,7 +90,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color {
+    public final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int children_background = 0x7f06045a;
         public static final int children_stroke = 0x7f06045b;
@@ -120,7 +120,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen {
+    public final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int crius_swiper_indicator_bottom_margin = 0x7f0701ea;
         public static final int crius_swiper_indicator_dot_left_margin = 0x7f0701eb;
@@ -150,7 +150,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable {
+    public final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: crius */
@@ -173,58 +173,58 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id {
+    public final class id {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: absolute */
         public static final int obfuscated = 0x7f090028;
         public static final int auto = 0x7f0902fa;
-        public static final int baseline = 0x7f090350;
-        public static final int benchmarkSelect = 0x7f09037d;
+        public static final int baseline = 0x7f09034f;
+        public static final int benchmarkSelect = 0x7f09037c;
 
         /* renamed from: btn */
-        public static final int obfuscated = 0x7f09041b;
-        public static final int center = 0x7f0905d5;
+        public static final int obfuscated = 0x7f090424;
+        public static final int center = 0x7f0905de;
 
         /* renamed from: column */
-        public static final int obfuscated = 0x7f090679;
-        public static final int column_reverse = 0x7f09067a;
+        public static final int obfuscated = 0x7f090682;
+        public static final int column_reverse = 0x7f090683;
 
         /* renamed from: flex */
-        public static final int obfuscated = 0x7f0909e7;
-        public static final int flex_end = 0x7f0909e8;
-        public static final int flex_start = 0x7f0909e9;
+        public static final int obfuscated = 0x7f0909f1;
+        public static final int flex_end = 0x7f0909f2;
+        public static final int flex_start = 0x7f0909f3;
 
         /* renamed from: hidden */
-        public static final int obfuscated = 0x7f090d5e;
+        public static final int obfuscated = 0x7f090d6b;
 
         /* renamed from: inherit */
-        public static final int obfuscated = 0x7f090f2a;
+        public static final int obfuscated = 0x7f090f1e;
 
         /* renamed from: ltr */
-        public static final int obfuscated = 0x7f091469;
-        public static final int no_wrap = 0x7f0916e7;
-        public static final int none = 0x7f0916ea;
+        public static final int obfuscated = 0x7f09145b;
+        public static final int no_wrap = 0x7f0916d9;
+        public static final int none = 0x7f0916dc;
 
         /* renamed from: relative */
-        public static final int obfuscated = 0x7f091bcc;
-        public static final int root = 0x7f091c6d;
+        public static final int obfuscated = 0x7f091bc8;
+        public static final int root = 0x7f091c69;
 
         /* renamed from: row */
-        public static final int obfuscated = 0x7f091c92;
-        public static final int row_reverse = 0x7f091c94;
+        public static final int obfuscated = 0x7f091c8e;
+        public static final int row_reverse = 0x7f091c90;
 
         /* renamed from: rtl */
-        public static final int obfuscated = 0x7f091c95;
+        public static final int obfuscated = 0x7f091c91;
 
         /* renamed from: scroll */
-        public static final int obfuscated = 0x7f091dca;
-        public static final int space_around = 0x7f091f20;
-        public static final int space_between = 0x7f091f21;
-        public static final int stretch = 0x7f091f90;
-        public static final int text = 0x7f092100;
-        public static final int visible = 0x7f09260c;
-        public static final int wrap = 0x7f0926aa;
+        public static final int obfuscated = 0x7f091dc6;
+        public static final int space_around = 0x7f091f1f;
+        public static final int space_between = 0x7f091f20;
+        public static final int stretch = 0x7f091f8f;
+        public static final int text = 0x7f0920ff;
+        public static final int visible = 0x7f0925f4;
+        public static final int wrap = 0x7f092692;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -243,7 +243,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout {
+    public final class layout {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int activity_benchmark = 0x7f0d002d;
         public static final int activity_crius = 0x7f0d0032;
@@ -268,16 +268,16 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string {
+    public final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
         public static final int bm_child_6_text = 0x7f0f032b;
-        public static final int child_1_text = 0x7f0f03be;
-        public static final int child_2_text = 0x7f0f03bf;
-        public static final int child_3_text = 0x7f0f03c0;
-        public static final int child_4_text = 0x7f0f03c1;
-        public static final int child_5_text = 0x7f0f03c2;
-        public static final int run_benchmark = 0x7f0f103a;
+        public static final int child_1_text = 0x7f0f03c5;
+        public static final int child_2_text = 0x7f0f03c6;
+        public static final int child_3_text = 0x7f0f03c7;
+        public static final int child_4_text = 0x7f0f03c8;
+        public static final int child_5_text = 0x7f0f03c9;
+        public static final int run_benchmark = 0x7f0f104c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -296,7 +296,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable {
+    public final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] crius;
         public static final int crius_cr_alignContent = 0x00000000;

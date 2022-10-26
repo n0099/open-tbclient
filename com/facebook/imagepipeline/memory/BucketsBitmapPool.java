@@ -1,6 +1,5 @@
 package com.facebook.imagepipeline.memory;
 
-import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,13 +11,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
-@TargetApi(21)
 /* loaded from: classes7.dex */
-public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
+public class BucketsBitmapPool extends BasePool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.facebook.imagepipeline.memory.BasePool
+    public int getBucketedSize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.memory.BasePool
+    public int getSizeInBytes(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BucketsBitmapPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker, boolean z) {
@@ -42,27 +52,15 @@ public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
         initialize();
     }
 
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getBucketedSize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getSizeInBytes(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.intValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
     public Bitmap alloc(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565) : (Bitmap) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
+        }
+        return (Bitmap) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -88,14 +86,13 @@ public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
     @Nullable
-    public Bitmap getValue(Bucket<Bitmap> bucket) {
+    public Bitmap getValue(Bucket bucket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bucket)) == null) {
-            Bitmap bitmap = (Bitmap) super.getValue((Bucket<Object>) bucket);
+            Bitmap bitmap = (Bitmap) super.getValue(bucket);
             if (bitmap != null) {
                 bitmap.eraseColor(0);
             }
@@ -111,7 +108,10 @@ public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bitmap)) == null) {
             Preconditions.checkNotNull(bitmap);
-            return !bitmap.isRecycled() && bitmap.isMutable();
+            if (!bitmap.isRecycled() && bitmap.isMutable()) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

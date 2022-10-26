@@ -1,13 +1,12 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.ep8;
+import com.baidu.tieba.lp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,6 +41,49 @@ public class PublishProgressData {
         MessageManager.getInstance().registerStickyMode(2921526);
     }
 
+    public int getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.progress;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(Long.valueOf(this.ID));
+        }
+        return invokeV.intValue;
+    }
+
+    public void hideRunning() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.isRunning = false;
+        }
+    }
+
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.isRunning;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isWork() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.isWork;
+        }
+        return invokeV.booleanValue;
+    }
+
     public PublishProgressData(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,7 +103,7 @@ public class PublishProgressData {
         this.ID = j;
     }
 
-    public static PublishProgressData valueOf(@NonNull WriteData writeData, int i) {
+    public static PublishProgressData valueOf(WriteData writeData, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, writeData, i)) == null) {
@@ -83,46 +125,31 @@ public class PublishProgressData {
             if (this == obj) {
                 return true;
             }
-            return (obj instanceof PublishProgressData) && this.ID == ((PublishProgressData) obj).ID;
+            if ((obj instanceof PublishProgressData) && this.ID == ((PublishProgressData) obj).ID) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.progress : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(Long.valueOf(this.ID)) : invokeV.intValue;
-    }
-
-    public void hideRunning() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.isRunning = false;
-        }
     }
 
     public boolean isCurrentForum(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.forumId.equals(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.forumId.equals(str);
+        }
+        return invokeL.booleanValue;
     }
 
-    public boolean isRunning() {
-        InterceptResult invokeV;
+    public void update(PublishProgressData publishProgressData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isRunning : invokeV.booleanValue;
-    }
-
-    public boolean isWork() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isWork : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, publishProgressData) == null) {
+            if (!publishProgressData.isRunning) {
+                this.isRunning = false;
+            }
+            this.progress = publishProgressData.getProgress();
+        }
     }
 
     public void send(boolean z) {
@@ -133,20 +160,10 @@ public class PublishProgressData {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
                 if (this.isWork && this.progress == 93) {
                     WorkPostNotifyFlutterData notifyFlutterVideoUploadSucc = WorkPostNotifyFlutterData.notifyFlutterVideoUploadSucc();
-                    notifyFlutterVideoUploadSucc.setFlutterPageId(ep8.k().j());
+                    notifyFlutterVideoUploadSucc.setFlutterPageId(lp8.k().j());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, notifyFlutterVideoUploadSucc));
                 }
             }
-        }
-    }
-
-    public void update(@NonNull PublishProgressData publishProgressData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, publishProgressData) == null) {
-            if (!publishProgressData.isRunning) {
-                this.isRunning = false;
-            }
-            this.progress = publishProgressData.getProgress();
         }
     }
 }

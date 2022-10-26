@@ -66,88 +66,37 @@ public class InferenceWrapper implements AutoCloseable {
     */
     public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        try {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.mInference != null) {
-                    this.mInference.close();
-                    this.mInference = null;
+                try {
+                    if (this.mInference != null) {
+                        this.mInference.close();
+                        this.mInference = null;
+                    }
+                } catch (Exception e) {
+                    if (InferenceConfig.DEBUG) {
+                        e.printStackTrace();
+                    }
                 }
-            } catch (Exception e) {
-                if (InferenceConfig.DEBUG) {
-                    e.printStackTrace();
+            } catch (Throwable th) {
+                if (this.mModel != null) {
+                    InferenceRecorder.getInstance().inferenceStop(this.mModel.getModelPath());
                 }
+                this.mInference = null;
+                this.mModel = null;
+                throw th;
             }
-        } catch (Throwable th) {
-            if (this.mModel != null) {
-                InferenceRecorder.getInstance().inferenceStop(this.mModel.getModelPath());
-            }
-            this.mInference = null;
-            this.mModel = null;
-            throw th;
         }
     }
 
     public void init(AlgorithmType algorithmType, DevicePerformanceModelInfo devicePerformanceModelInfo) throws ModelLoadException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, algorithmType, devicePerformanceModelInfo) == null) && innerCheck(algorithmType, devicePerformanceModelInfo)) {
-            this.mInference = Inference.getInstance(algorithmType.value(), devicePerformanceModelInfo.modelPath);
-            this.mModel = devicePerformanceModelInfo;
-            InferenceRecorder.getInstance().inferenceStart(devicePerformanceModelInfo.modelPath);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, algorithmType, devicePerformanceModelInfo) != null) || !innerCheck(algorithmType, devicePerformanceModelInfo)) {
+            return;
         }
-    }
-
-    public void initAndPreload(AlgorithmType algorithmType, DevicePerformanceModelInfo devicePerformanceModelInfo, DataType dataType) throws ModelLoadException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, algorithmType, devicePerformanceModelInfo, dataType) == null) && innerCheck(algorithmType, devicePerformanceModelInfo)) {
-            Inference inference = Inference.getInstance(algorithmType.value(), devicePerformanceModelInfo.modelPath);
-            this.mInference = inference;
-            inference.preloadModel(dataType);
-            this.mModel = devicePerformanceModelInfo;
-            InferenceRecorder.getInstance().inferenceStart(devicePerformanceModelInfo.modelPath);
-        }
-    }
-
-    public boolean innerCheck(AlgorithmType algorithmType, DevicePerformanceModelInfo devicePerformanceModelInfo) throws ModelLoadException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, algorithmType, devicePerformanceModelInfo)) == null) {
-            if (devicePerformanceModelInfo != null && algorithmType != null) {
-                if (Common.getSDKVersion() != null) {
-                    if (TextUtils.isEmpty(devicePerformanceModelInfo.modelPath)) {
-                        if (InferenceConfig.DEBUG) {
-                            Log.d(TAG, "has no model for id: " + devicePerformanceModelInfo.modelPath);
-                        }
-                        throw new ModelLoadException(-1, "has no model");
-                    } else if (new File(devicePerformanceModelInfo.modelPath).exists()) {
-                        return true;
-                    } else {
-                        if (InferenceConfig.DEBUG) {
-                            Log.d(TAG, "has no model for id: " + devicePerformanceModelInfo.modelPath);
-                        }
-                        throw new ModelLoadException(-1, "has no model");
-                    }
-                }
-                throw new ModelLoadException();
-            }
-            throw new ModelLoadException();
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public <T> T[] predictForClassArray(Tensor tensor, float f, Class<T> cls) throws com.baidu.searchbox.ai.InferenceException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{tensor, Float.valueOf(f), cls})) == null) {
-            Inference inference = this.mInference;
-            if (inference != null) {
-                return (T[]) inference.predictForClassArray(tensor, f, cls);
-            }
-            throw new IllegalStateException("not init!!!");
-        }
-        return (T[]) ((Object[]) invokeCommon.objValue);
+        this.mInference = Inference.getInstance(algorithmType.value(), devicePerformanceModelInfo.modelPath);
+        this.mModel = devicePerformanceModelInfo;
+        InferenceRecorder.getInstance().inferenceStart(devicePerformanceModelInfo.modelPath);
     }
 
     public int predictForClassId(Tensor tensor, float f) {
@@ -176,29 +125,81 @@ public class InferenceWrapper implements AutoCloseable {
         return (String) invokeLF.objValue;
     }
 
-    public <T> T predictForRegressorTarget(Tensor tensor, float f, Class<T> cls) throws com.baidu.searchbox.ai.InferenceException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{tensor, Float.valueOf(f), cls})) == null) {
-            Inference inference = this.mInference;
-            if (inference != null) {
-                return (T) inference.predictForRegressorTarget(tensor, f, cls);
-            }
-            throw new IllegalStateException("not init!!!");
-        }
-        return (T) invokeCommon.objValue;
-    }
-
-    public <T> T[] predictForRegressorTargetArray(Tensor tensor, float f) {
+    public Object[] predictForRegressorTargetArray(Tensor tensor, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, tensor, f)) == null) {
             Inference inference = this.mInference;
             if (inference != null) {
-                return (T[]) inference.predictForRegressorTargetArray(tensor, f);
+                return inference.predictForRegressorTargetArray(tensor, f);
             }
             throw new IllegalStateException("not init!!!");
         }
-        return (T[]) ((Object[]) invokeLF.objValue);
+        return (Object[]) invokeLF.objValue;
+    }
+
+    public void initAndPreload(AlgorithmType algorithmType, DevicePerformanceModelInfo devicePerformanceModelInfo, DataType dataType) throws ModelLoadException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, algorithmType, devicePerformanceModelInfo, dataType) != null) || !innerCheck(algorithmType, devicePerformanceModelInfo)) {
+            return;
+        }
+        Inference inference = Inference.getInstance(algorithmType.value(), devicePerformanceModelInfo.modelPath);
+        this.mInference = inference;
+        inference.preloadModel(dataType);
+        this.mModel = devicePerformanceModelInfo;
+        InferenceRecorder.getInstance().inferenceStart(devicePerformanceModelInfo.modelPath);
+    }
+
+    public boolean innerCheck(AlgorithmType algorithmType, DevicePerformanceModelInfo devicePerformanceModelInfo) throws ModelLoadException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, algorithmType, devicePerformanceModelInfo)) == null) {
+            if (devicePerformanceModelInfo != null && algorithmType != null) {
+                if (Common.getSDKVersion() != null) {
+                    if (TextUtils.isEmpty(devicePerformanceModelInfo.modelPath)) {
+                        if (InferenceConfig.DEBUG) {
+                            Log.d(TAG, "has no model for id: " + devicePerformanceModelInfo.modelPath);
+                        }
+                        throw new ModelLoadException(-1, "has no model");
+                    } else if (!new File(devicePerformanceModelInfo.modelPath).exists()) {
+                        if (InferenceConfig.DEBUG) {
+                            Log.d(TAG, "has no model for id: " + devicePerformanceModelInfo.modelPath);
+                        }
+                        throw new ModelLoadException(-1, "has no model");
+                    } else {
+                        return true;
+                    }
+                }
+                throw new ModelLoadException();
+            }
+            throw new ModelLoadException();
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public Object[] predictForClassArray(Tensor tensor, float f, Class cls) throws com.baidu.searchbox.ai.InferenceException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{tensor, Float.valueOf(f), cls})) == null) {
+            Inference inference = this.mInference;
+            if (inference != null) {
+                return inference.predictForClassArray(tensor, f, cls);
+            }
+            throw new IllegalStateException("not init!!!");
+        }
+        return (Object[]) invokeCommon.objValue;
+    }
+
+    public Object predictForRegressorTarget(Tensor tensor, float f, Class cls) throws com.baidu.searchbox.ai.InferenceException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{tensor, Float.valueOf(f), cls})) == null) {
+            Inference inference = this.mInference;
+            if (inference != null) {
+                return inference.predictForRegressorTarget(tensor, f, cls);
+            }
+            throw new IllegalStateException("not init!!!");
+        }
+        return invokeCommon.objValue;
     }
 }

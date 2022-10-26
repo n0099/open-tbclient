@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.ubc;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -32,6 +30,13 @@ public class DurationStatPlugin extends AbsPlugin {
     public int durationSlotIndex;
     public Flow mFlow;
     public BDVideoPlayerUbcContent mUBCContent;
+
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +76,10 @@ public class DurationStatPlugin extends AbsPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             BDVideoPlayer bindPlayer = getBindPlayer();
-            return bindPlayer == null || bindPlayer.isStop() || bindPlayer.isComplete() || bindPlayer.isIdle();
+            if (bindPlayer != null && !bindPlayer.isStop() && !bindPlayer.isComplete() && !bindPlayer.isIdle()) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -79,22 +87,40 @@ public class DurationStatPlugin extends AbsPlugin {
     private void startDurationSlot() {
         Flow flow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (flow = this.mFlow) == null) {
+        if ((interceptable != null && interceptable.invokeV(65539, this) != null) || (flow = this.mFlow) == null) {
             return;
         }
         UBCManager uBCManager = UBC_MANAGER;
         uBCManager.flowStartSlot(flow, "PlayerDurationPause_P" + this.durationSlotIndex, null);
     }
 
+    public void createFlow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || isNeedFilter()) {
+            return;
+        }
+        this.mFlow = UBC_MANAGER.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_DURATION);
+    }
+
     private void uploadDurationFlow(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
             uploadDurationSlot();
             try {
                 JSONObject extStatisticsLogClone = this.mUBCContent.getExtStatisticsLogClone();
                 extStatisticsLogClone.putOpt("image", this.mUBCContent.getPoster());
-                extStatisticsLogClone.putOpt("closeReason", Integer.valueOf(z ? 1 : 0));
-                extStatisticsLogClone.putOpt("cycleCount", Integer.valueOf((getBindPlayer() != null ? getBindPlayer().getLoopCount() : 0) + 1));
+                int i2 = 0;
+                if (z) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                extStatisticsLogClone.putOpt("closeReason", Integer.valueOf(i));
+                if (getBindPlayer() != null) {
+                    i2 = getBindPlayer().getLoopCount();
+                }
+                extStatisticsLogClone.putOpt("cycleCount", Integer.valueOf(i2 + 1));
                 extStatisticsLogClone.putOpt("clarity", this.mUBCContent.getClarityKey());
                 extStatisticsLogClone.putOpt("selectedType", Integer.valueOf(this.mUBCContent.getSelectType()));
                 String ubcContent = BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, this.mUBCContent, (JSONObject) null);
@@ -112,40 +138,22 @@ public class DurationStatPlugin extends AbsPlugin {
 
     private void uploadDurationSlot() {
         Flow flow;
-        HashMap<String, Slot> slotMaps;
+        HashMap slotMaps;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (flow = this.mFlow) == null || (slotMaps = flow.getSlotMaps()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && (flow = this.mFlow) != null && (slotMaps = flow.getSlotMaps()) != null) {
+            Slot slot = (Slot) slotMaps.get("PlayerDurationPause_P" + this.durationSlotIndex);
+            if (slot != null && slot.getStart() > 0 && System.currentTimeMillis() - slot.getStart() > 500) {
+                UBCManager uBCManager = UBC_MANAGER;
+                Flow flow2 = this.mFlow;
+                uBCManager.flowEndSlot(flow2, "PlayerDurationPause_P" + this.durationSlotIndex);
+                this.durationSlotIndex = this.durationSlotIndex + 1;
+            }
         }
-        Slot slot = slotMaps.get("PlayerDurationPause_P" + this.durationSlotIndex);
-        if (slot == null || slot.getStart() <= 0 || System.currentTimeMillis() - slot.getStart() <= 500) {
-            return;
-        }
-        UBCManager uBCManager = UBC_MANAGER;
-        Flow flow2 = this.mFlow;
-        uBCManager.flowEndSlot(flow2, "PlayerDurationPause_P" + this.durationSlotIndex);
-        this.durationSlotIndex = this.durationSlotIndex + 1;
-    }
-
-    public void createFlow() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || isNeedFilter()) {
-            return;
-        }
-        this.mFlow = UBC_MANAGER.beginFlow(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_DURATION);
-    }
-
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onVideoEventNotify(VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) == null) {

@@ -36,9 +36,9 @@ public class SearchSuggestCommonViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091c85);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e11);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091de1);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091e12);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091c81);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e0d);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ddd);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091e0e);
     }
 }

@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class ActionResult implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> moreinfo;
+    public Map moreinfo;
     public long reqTime;
     public String ret;
     public long rtime;
@@ -44,36 +44,8 @@ public class ActionResult implements IJsonSerialize {
         this.rtime = System.currentTimeMillis();
     }
 
-    @Override // com.yy.hiidostatis.defs.obj.IJsonSerialize
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("scode", this.scode);
-                jSONObject.put("uri", URLEncoder.encode(this.uri, IMAudioTransRequest.CHARSET));
-                jSONObject.put("reqtime", this.reqTime);
-                jSONObject.put(Constants.KEYS.RET, URLEncoder.encode(this.ret, IMAudioTransRequest.CHARSET));
-                jSONObject.put("rtime", this.rtime);
-                if (this.moreinfo != null && !this.moreinfo.isEmpty()) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    for (Map.Entry<String, String> entry : this.moreinfo.entrySet()) {
-                        jSONObject2.put(entry.getKey(), entry.getValue());
-                    }
-                    jSONObject.put("moreinfo", jSONObject2);
-                }
-                return jSONObject;
-            } catch (Exception e) {
-                L.debug(this, e.getMessage(), new Object[0]);
-                return null;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionResult(int i, String str, long j, String str2, Map<String, String> map) {
+    public ActionResult(int i, String str, long j, String str2, Map map) {
         this(i, str, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,5 +64,33 @@ public class ActionResult implements IJsonSerialize {
             }
         }
         this.moreinfo = map;
+    }
+
+    @Override // com.yy.hiidostatis.defs.obj.IJsonSerialize
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("scode", this.scode);
+                jSONObject.put("uri", URLEncoder.encode(this.uri, IMAudioTransRequest.CHARSET));
+                jSONObject.put("reqtime", this.reqTime);
+                jSONObject.put(Constants.KEYS.RET, URLEncoder.encode(this.ret, IMAudioTransRequest.CHARSET));
+                jSONObject.put("rtime", this.rtime);
+                if (this.moreinfo != null && !this.moreinfo.isEmpty()) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    for (Map.Entry entry : this.moreinfo.entrySet()) {
+                        jSONObject2.put((String) entry.getKey(), entry.getValue());
+                    }
+                    jSONObject.put("moreinfo", jSONObject2);
+                }
+                return jSONObject;
+            } catch (Exception e) {
+                L.debug(this, e.getMessage(), new Object[0]);
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

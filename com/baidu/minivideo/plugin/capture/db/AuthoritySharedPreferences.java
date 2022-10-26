@@ -70,37 +70,64 @@ public class AuthoritySharedPreferences {
     public static boolean getAuthorityAlbumResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sPref.getBoolean(KEY_AUTHORITY_AUDIO_RESULT, true) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sPref.getBoolean(KEY_AUTHORITY_AUDIO_RESULT, true);
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean getAuthorityAudioResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sPref.getBoolean(KEY_AUTHORITY_AUDIO_RATIONALE, true) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sPref.getBoolean(KEY_AUTHORITY_AUDIO_RATIONALE, true);
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean getAuthorityCameraResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sPref.getBoolean(KEY_AUTHORITY_CAMERA_RATIONALE, true) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return sPref.getBoolean(KEY_AUTHORITY_CAMERA_RATIONALE, true);
+        }
+        return invokeV.booleanValue;
     }
 
     public static long getAuthorityConfigTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sPref.getLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, 0L) : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return sPref.getLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, 0L);
+        }
+        return invokeV.longValue;
     }
 
     public static boolean getAuthorityStorageResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sPref.getBoolean(KEY_AUTHORITY_STORAGE_RATIONALE, true) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return sPref.getBoolean(KEY_AUTHORITY_STORAGE_RATIONALE, true);
+        }
+        return invokeV.booleanValue;
     }
 
     public static String getFirstShotConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sPref.getString(FIRSTSHOT_CONFIG, "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return sPref.getString(FIRSTSHOT_CONFIG, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getPrivilegeConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return sPref.getString(PRIVILEGE_CONFIG, "");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String getFirstShotImage() {
@@ -114,18 +141,15 @@ public class AuthoritySharedPreferences {
             }
             try {
                 JSONObject jSONObject2 = new JSONObject(firstShotConfig);
-                return (!jSONObject2.has("guide") || (jSONObject = jSONObject2.getJSONObject("guide")) == null) ? "" : jSONObject.optString("image");
+                if (!jSONObject2.has("guide") || (jSONObject = jSONObject2.getJSONObject("guide")) == null) {
+                    return "";
+                }
+                return jSONObject.optString("image");
             } catch (JSONException | Exception unused) {
                 return "";
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    public static String getPrivilegeConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? sPref.getString(PRIVILEGE_CONFIG, "") : (String) invokeV.objValue;
     }
 
     public static void setAuthorityAlbumResult(boolean z) {
@@ -165,7 +189,7 @@ public class AuthoritySharedPreferences {
 
     public static void setFirstShotConfig(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, null, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65551, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         sPref.edit().putString(FIRSTSHOT_CONFIG, str).apply();
@@ -173,7 +197,7 @@ public class AuthoritySharedPreferences {
 
     public static void setPrivilegeConfig(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, null, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65552, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         sPref.edit().putString(PRIVILEGE_CONFIG, str).apply();

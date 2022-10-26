@@ -1,7 +1,6 @@
 package com.baidu.sofire.a;
 
 import android.accounts.NetworkErrorException;
-import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -57,11 +56,11 @@ public class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0154a extends Callback {
+    public final class C0155a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0154a() {
+        public C0155a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,258 +78,10 @@ public class a {
         public Object onEnd(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? super.onEnd(objArr) : invokeL.objValue;
-        }
-    }
-
-    public static void a(Context context, JSONObject jSONObject) {
-        com.baidu.sofire.l.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, context, jSONObject) == null) || context == null) {
-            return;
-        }
-        try {
-            synchronized (com.baidu.sofire.l.a.class) {
-                if (com.baidu.sofire.l.a.c == null) {
-                    com.baidu.sofire.l.a.c = new com.baidu.sofire.l.a(context);
-                }
-                aVar = com.baidu.sofire.l.a.c;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                return super.onEnd(objArr);
             }
-            try {
-                aVar.b.putBoolean("lt_sdcf", jSONObject.getInt("1") == 1);
-                aVar.b.commit();
-            } catch (JSONException unused) {
-                int i = b.a;
-            }
-            try {
-                aVar.b.putBoolean("lt_sucf", jSONObject.getInt("2") == 1);
-                aVar.b.commit();
-            } catch (JSONException unused2) {
-                int i2 = b.a;
-            }
-            try {
-                aVar.b.putBoolean("lt_sbff", jSONObject.getInt("3") == 1);
-                aVar.b.commit();
-            } catch (JSONException unused3) {
-                int i3 = b.a;
-            }
-            try {
-                aVar.b.putBoolean("lt_sppf", jSONObject.getInt("4") == 1);
-                aVar.b.commit();
-            } catch (JSONException unused4) {
-                int i4 = b.a;
-            }
-            try {
-                aVar.b.putBoolean("lt_sssf", jSONObject.getInt("5") == 1);
-                aVar.b.commit();
-            } catch (JSONException unused5) {
-                int i5 = b.a;
-            }
-            try {
-                aVar.b.putBoolean("lt_sssf", jSONObject.getInt("5") == 1);
-                aVar.b.commit();
-            } catch (JSONException unused6) {
-                int i6 = b.a;
-            }
-            try {
-                aVar.b.putLong("lt_sfii", jSONObject.getLong("7"));
-                aVar.b.commit();
-            } catch (JSONException unused7) {
-                int i7 = b.a;
-            }
-            try {
-                aVar.b.putBoolean("lt_sfff", jSONObject.getInt("8") == 1);
-                aVar.b.commit();
-            } catch (JSONException unused8) {
-                int i8 = b.a;
-            }
-            try {
-                aVar.b.putString("lt_sha", jSONObject.getJSONArray("9").toString());
-                aVar.b.commit();
-            } catch (JSONException unused9) {
-                int i9 = b.a;
-            }
-            try {
-                aVar.b.putBoolean("lt_sbwnp", jSONObject.getInt("10") == 1);
-                aVar.b.commit();
-            } catch (JSONException unused10) {
-                int i10 = b.a;
-            }
-        } catch (Throwable unused11) {
-            int i11 = b.a;
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 15) {
-                    TrafficStats.setThreadStatsTag(155648);
-                }
-            } catch (Throwable unused) {
-                int i = b.a;
-            }
-        }
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            try {
-                com.baidu.sofire.c.a a = com.baidu.sofire.c.a.a(context);
-                com.baidu.sofire.b.d a2 = com.baidu.sofire.b.d.a(context);
-                Iterator it = ((ArrayList) a.b()).iterator();
-                while (it.hasNext()) {
-                    ApkInfo apkInfo = (ApkInfo) it.next();
-                    int i = apkInfo.duration;
-                    if (i != 0 && apkInfo.startTime + (i * 60 * 1000) < System.currentTimeMillis()) {
-                        a2.b(apkInfo.packageName);
-                    }
-                }
-            } catch (Throwable unused) {
-                int i2 = b.a;
-            }
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 15) {
-                    TrafficStats.clearThreadStatsTag();
-                }
-            } catch (Throwable unused) {
-                int i = b.a;
-            }
-        }
-    }
-
-    public static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
-        InterceptResult invokeLLL;
-        BufferedInputStream bufferedInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65546, null, jarFile, jarEntry, bArr)) != null) {
-            return (Certificate[]) invokeLLL.objValue;
-        }
-        try {
-            bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
-            while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
-                try {
-                } catch (Throwable unused) {
-                    try {
-                        int i = b.a;
-                        return new Certificate[0];
-                    } finally {
-                        if (bufferedInputStream != null) {
-                            try {
-                                bufferedInputStream.close();
-                            } catch (Throwable unused2) {
-                                int i2 = b.a;
-                            }
-                        }
-                    }
-                }
-            }
-            Certificate[] certificates = jarEntry.getCertificates();
-            try {
-                bufferedInputStream.close();
-            } catch (Throwable unused3) {
-                int i3 = b.a;
-            }
-            return certificates;
-        } catch (Throwable unused4) {
-            bufferedInputStream = null;
-        }
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(16:7|8|9|10|11|12|(1:14)(1:33)|15|(8:17|(1:19)|21|22|23|24|25|27)(1:32)|20|21|22|23|24|25|27) */
-    @SuppressLint({"WrongConstant"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(Context context, boolean z) {
-        PendingIntent service;
-        long currentTimeMillis;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLZ(65544, null, context, z) != null) {
-            return;
-        }
-        try {
-            com.baidu.sofire.j.a a = com.baidu.sofire.j.a.a(context);
-            long j2 = a.a.getInt("appal_te", 24) * 3600000;
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
-            intent.setClass(context, MyService.class);
-            intent.setPackage(context.getPackageName());
-            intent.addCategory("com.baidu.category.SOFIRE");
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.putExtra("from_plugin_package", context.getPackageName());
-            intent.putExtra("target_class", U.class.getCanonicalName());
-            intent.putExtra("target_method", "handleWork");
-            intent.putExtra("from", 6);
-            if (com.baidu.sofire.k.a.i(context)) {
-                service = PendingIntent.getService(context, 1000, intent, 201326592);
-            } else {
-                service = PendingIntent.getService(context, 1000, intent, 134217728);
-            }
-            try {
-                if (z) {
-                    j = a.a.getLong("npuct", 0L);
-                    if (j <= 0) {
-                        currentTimeMillis = System.currentTimeMillis() + j2;
-                        a.b.putLong("npuct", currentTimeMillis);
-                        a.b.commit();
-                    }
-                    alarmManager.cancel(service);
-                    alarmManager.set(1, j, service);
-                    return;
-                }
-                currentTimeMillis = ((System.currentTimeMillis() + j2) - 600000) + ((long) (Math.random() * 1200000.0d));
-                a.b.putLong("npuct", currentTimeMillis);
-                a.b.commit();
-                alarmManager.set(1, j, service);
-                return;
-            } catch (Throwable unused) {
-                return;
-            }
-            j = currentTimeMillis;
-            alarmManager.cancel(service);
-        } catch (Throwable unused2) {
-            int i = b.a;
-        }
-    }
-
-    public static void a(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, intent) == null) {
-            try {
-                String[] p = com.baidu.sofire.k.a.p(context);
-                com.baidu.sofire.b.e.a(context, 0, p[0], p[1], 100028);
-                int i = 0;
-                while (true) {
-                    Thread.sleep(500L);
-                    i++;
-                    if (i > 60) {
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("0", "152");
-                        hashMap.put("1", p[0]);
-                        com.baidu.sofire.k.a.a(context.getApplicationContext(), "1014115", (Map<String, Object>) hashMap, false);
-                        break;
-                    }
-                    k kVar = k.f;
-                    if (kVar != null && kVar.b("com.baidu.sofire.x24") != null) {
-                        break;
-                    }
-                }
-                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0154a(), new Class[]{Context.class, Intent.class}, context, intent);
-            } catch (Throwable unused) {
-                int i2 = b.a;
-            }
+            return invokeL.objValue;
         }
     }
 
@@ -423,7 +174,7 @@ public class a {
                         a2.b.commit();
                         a2.b.putLong("pu_cl_fd", System.currentTimeMillis());
                         a2.b.commit();
-                        com.baidu.sofire.k.a.a(context, "1003112", (Map<String, Object>) hashMap, false);
+                        com.baidu.sofire.k.a.a(context, "1003112", (Map) hashMap, false);
                     } else if (com.baidu.sofire.k.a.m(context)) {
                         a2.c(a2.k() + 1);
                     } else {
@@ -456,7 +207,7 @@ public class a {
                         a3.b.commit();
                         a3.b.putLong("se_ae_fd", System.currentTimeMillis());
                         a3.b.commit();
-                        com.baidu.sofire.k.a.a(context, "1003119", (Map<String, Object>) hashMap2, false);
+                        com.baidu.sofire.k.a.a(context, "1003119", (Map) hashMap2, false);
                     } else {
                         a3.b.putInt("mo_ae_fa_ct", a3.a.getInt("mo_ae_fa_ct", 0) + 1);
                         a3.b.commit();
@@ -469,45 +220,6 @@ public class a {
             }
         }
         return (String) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"WrongConstant"})
-    public static void a(Context context, int i, boolean z) {
-        PendingIntent service;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            try {
-                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-                Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
-                intent.setClass(context, MyService.class);
-                intent.setPackage(context.getPackageName());
-                intent.addCategory("com.baidu.category.SOFIRE");
-                intent.addCategory("android.intent.category.DEFAULT");
-                intent.putExtra("from_plugin_package", context.getPackageName());
-                intent.putExtra("target_class", U.class.getCanonicalName());
-                intent.putExtra("target_method", "handleWork");
-                intent.putExtra("from", 2);
-                if (com.baidu.sofire.k.a.i(context)) {
-                    service = PendingIntent.getService(context, 1001, intent, 201326592);
-                } else {
-                    service = PendingIntent.getService(context, 1001, intent, 134217728);
-                }
-                long currentTimeMillis = System.currentTimeMillis() + (i != 0 ? i != 1 ? i != 2 ? 600000L : 300000L : LiveFeedPageSdk.REFRESH_TIME : 30000L);
-                try {
-                    alarmManager.cancel(service);
-                } catch (Throwable unused) {
-                }
-                if (z) {
-                    return;
-                }
-                try {
-                    alarmManager.set(1, currentTimeMillis, service);
-                } catch (Throwable unused2) {
-                }
-            } catch (Throwable unused3) {
-                int i2 = b.a;
-            }
-        }
     }
 
     public static String a(Context context, boolean z, StringBuilder sb, byte[] bArr) {
@@ -534,18 +246,6 @@ public class a {
             }
         }
         return (String) invokeCommon.objValue;
-    }
-
-    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLLL.objValue;
     }
 
     public static String a(byte[] bArr, boolean z) {
@@ -575,5 +275,363 @@ public class a {
             }
         }
         return (String) invokeLZ.objValue;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 15) {
+                    TrafficStats.clearThreadStatsTag();
+                }
+            } catch (Throwable unused) {
+                int i = b.a;
+            }
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 15) {
+                    TrafficStats.setThreadStatsTag(155648);
+                }
+            } catch (Throwable unused) {
+                int i = b.a;
+            }
+        }
+    }
+
+    public static void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            try {
+                com.baidu.sofire.c.a a = com.baidu.sofire.c.a.a(context);
+                com.baidu.sofire.b.d a2 = com.baidu.sofire.b.d.a(context);
+                Iterator it = ((ArrayList) a.b()).iterator();
+                while (it.hasNext()) {
+                    ApkInfo apkInfo = (ApkInfo) it.next();
+                    int i = apkInfo.duration;
+                    if (i != 0 && apkInfo.startTime + (i * 60 * 1000) < System.currentTimeMillis()) {
+                        a2.b(apkInfo.packageName);
+                    }
+                }
+            } catch (Throwable unused) {
+                int i2 = b.a;
+            }
+        }
+    }
+
+    public static void a(Context context, int i, boolean z) {
+        PendingIntent service;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            try {
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
+                intent.setClass(context, MyService.class);
+                intent.setPackage(context.getPackageName());
+                intent.addCategory("com.baidu.category.SOFIRE");
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.putExtra("from_plugin_package", context.getPackageName());
+                intent.putExtra("target_class", U.class.getCanonicalName());
+                intent.putExtra("target_method", "handleWork");
+                intent.putExtra("from", 2);
+                if (com.baidu.sofire.k.a.i(context)) {
+                    service = PendingIntent.getService(context, 1001, intent, 201326592);
+                } else {
+                    service = PendingIntent.getService(context, 1001, intent, 134217728);
+                }
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            j = 600000;
+                        } else {
+                            j = 300000;
+                        }
+                    } else {
+                        j = LiveFeedPageSdk.REFRESH_TIME;
+                    }
+                } else {
+                    j = 30000;
+                }
+                long currentTimeMillis = System.currentTimeMillis() + j;
+                try {
+                    alarmManager.cancel(service);
+                } catch (Throwable unused) {
+                }
+                if (z) {
+                    return;
+                }
+                try {
+                    alarmManager.set(1, currentTimeMillis, service);
+                } catch (Throwable unused2) {
+                }
+            } catch (Throwable unused3) {
+                int i2 = b.a;
+            }
+        }
+    }
+
+    public static void a(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, intent) == null) {
+            try {
+                String[] p = com.baidu.sofire.k.a.p(context);
+                com.baidu.sofire.b.e.a(context, 0, p[0], p[1], 100028);
+                int i = 0;
+                while (true) {
+                    Thread.sleep(500L);
+                    i++;
+                    if (i > 60) {
+                        HashMap hashMap = new HashMap();
+                        hashMap.put("0", "152");
+                        hashMap.put("1", p[0]);
+                        com.baidu.sofire.k.a.a(context.getApplicationContext(), "1014115", (Map) hashMap, false);
+                        break;
+                    }
+                    k kVar = k.f;
+                    if (kVar != null && kVar.b("com.baidu.sofire.x24") != null) {
+                        break;
+                    }
+                }
+                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0155a(), new Class[]{Context.class, Intent.class}, context, intent);
+            } catch (Throwable unused) {
+                int i2 = b.a;
+            }
+        }
+    }
+
+    public static void a(Context context, JSONObject jSONObject) {
+        com.baidu.sofire.l.a aVar;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65543, null, context, jSONObject) != null) || context == null) {
+            return;
+        }
+        try {
+            synchronized (com.baidu.sofire.l.a.class) {
+                if (com.baidu.sofire.l.a.c == null) {
+                    com.baidu.sofire.l.a.c = new com.baidu.sofire.l.a(context);
+                }
+                aVar = com.baidu.sofire.l.a.c;
+            }
+            boolean z8 = false;
+            try {
+                if (jSONObject.getInt("1") == 1) {
+                    z7 = true;
+                } else {
+                    z7 = false;
+                }
+                aVar.b.putBoolean("lt_sdcf", z7);
+                aVar.b.commit();
+            } catch (JSONException unused) {
+                int i = b.a;
+            }
+            try {
+                if (jSONObject.getInt("2") == 1) {
+                    z6 = true;
+                } else {
+                    z6 = false;
+                }
+                aVar.b.putBoolean("lt_sucf", z6);
+                aVar.b.commit();
+            } catch (JSONException unused2) {
+                int i2 = b.a;
+            }
+            try {
+                if (jSONObject.getInt("3") == 1) {
+                    z5 = true;
+                } else {
+                    z5 = false;
+                }
+                aVar.b.putBoolean("lt_sbff", z5);
+                aVar.b.commit();
+            } catch (JSONException unused3) {
+                int i3 = b.a;
+            }
+            try {
+                if (jSONObject.getInt("4") == 1) {
+                    z4 = true;
+                } else {
+                    z4 = false;
+                }
+                aVar.b.putBoolean("lt_sppf", z4);
+                aVar.b.commit();
+            } catch (JSONException unused4) {
+                int i4 = b.a;
+            }
+            try {
+                if (jSONObject.getInt("5") == 1) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                aVar.b.putBoolean("lt_sssf", z3);
+                aVar.b.commit();
+            } catch (JSONException unused5) {
+                int i5 = b.a;
+            }
+            try {
+                if (jSONObject.getInt("5") == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                aVar.b.putBoolean("lt_sssf", z2);
+                aVar.b.commit();
+            } catch (JSONException unused6) {
+                int i6 = b.a;
+            }
+            try {
+                aVar.b.putLong("lt_sfii", jSONObject.getLong("7"));
+                aVar.b.commit();
+            } catch (JSONException unused7) {
+                int i7 = b.a;
+            }
+            try {
+                if (jSONObject.getInt("8") == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                aVar.b.putBoolean("lt_sfff", z);
+                aVar.b.commit();
+            } catch (JSONException unused8) {
+                int i8 = b.a;
+            }
+            try {
+                aVar.b.putString("lt_sha", jSONObject.getJSONArray("9").toString());
+                aVar.b.commit();
+            } catch (JSONException unused9) {
+                int i9 = b.a;
+            }
+            try {
+                if (jSONObject.getInt("10") == 1) {
+                    z8 = true;
+                }
+                aVar.b.putBoolean("lt_sbwnp", z8);
+                aVar.b.commit();
+            } catch (JSONException unused10) {
+                int i10 = b.a;
+            }
+        } catch (Throwable unused11) {
+            int i11 = b.a;
+        }
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(16:7|8|9|10|11|12|(1:14)(1:33)|15|(8:17|(1:19)|21|22|23|24|25|27)(1:32)|20|21|22|23|24|25|27) */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(Context context, boolean z) {
+        PendingIntent service;
+        long currentTimeMillis;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
+            try {
+                com.baidu.sofire.j.a a = com.baidu.sofire.j.a.a(context);
+                long j2 = a.a.getInt("appal_te", 24) * 3600000;
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
+                intent.setClass(context, MyService.class);
+                intent.setPackage(context.getPackageName());
+                intent.addCategory("com.baidu.category.SOFIRE");
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.putExtra("from_plugin_package", context.getPackageName());
+                intent.putExtra("target_class", U.class.getCanonicalName());
+                intent.putExtra("target_method", "handleWork");
+                intent.putExtra("from", 6);
+                if (com.baidu.sofire.k.a.i(context)) {
+                    service = PendingIntent.getService(context, 1000, intent, 201326592);
+                } else {
+                    service = PendingIntent.getService(context, 1000, intent, 134217728);
+                }
+                try {
+                    if (z) {
+                        j = a.a.getLong("npuct", 0L);
+                        if (j <= 0) {
+                            currentTimeMillis = System.currentTimeMillis() + j2;
+                            a.b.putLong("npuct", currentTimeMillis);
+                            a.b.commit();
+                        }
+                        alarmManager.cancel(service);
+                        alarmManager.set(1, j, service);
+                        return;
+                    }
+                    currentTimeMillis = ((System.currentTimeMillis() + j2) - 600000) + ((long) (Math.random() * 1200000.0d));
+                    a.b.putLong("npuct", currentTimeMillis);
+                    a.b.commit();
+                    alarmManager.set(1, j, service);
+                    return;
+                } catch (Throwable unused) {
+                    return;
+                }
+                j = currentTimeMillis;
+                alarmManager.cancel(service);
+            } catch (Throwable unused2) {
+                int i = b.a;
+            }
+        }
+    }
+
+    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
+        InterceptResult invokeLLL;
+        BufferedInputStream bufferedInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, jarFile, jarEntry, bArr)) == null) {
+            try {
+                bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
+                while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
+                    try {
+                    } catch (Throwable unused) {
+                        try {
+                            int i = b.a;
+                            return new Certificate[0];
+                        } finally {
+                            if (bufferedInputStream != null) {
+                                try {
+                                    bufferedInputStream.close();
+                                } catch (Throwable unused2) {
+                                    int i2 = b.a;
+                                }
+                            }
+                        }
+                    }
+                }
+                Certificate[] certificates = jarEntry.getCertificates();
+                try {
+                    bufferedInputStream.close();
+                } catch (Throwable unused3) {
+                    int i3 = b.a;
+                }
+                return certificates;
+            } catch (Throwable unused4) {
+                bufferedInputStream = null;
+            }
+        } else {
+            return (Certificate[]) invokeLLL.objValue;
+        }
     }
 }

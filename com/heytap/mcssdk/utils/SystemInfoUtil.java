@@ -1,6 +1,5 @@
 package com.heytap.mcssdk.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.SystemProperties;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"DefaultLocale"})
 /* loaded from: classes7.dex */
 public class SystemInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;

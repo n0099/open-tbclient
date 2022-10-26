@@ -19,15 +19,19 @@ public abstract class SegmentBase {
     public final long timescale;
 
     /* loaded from: classes7.dex */
-    public static abstract class MultiSegmentBase extends SegmentBase {
+    public abstract class MultiSegmentBase extends SegmentBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long duration;
-        public final List<SegmentTimelineElement> segmentTimeline;
+        public final List segmentTimeline;
         public final int startNumber;
 
+        public abstract int getSegmentCount(long j);
+
+        public abstract RangedUri getSegmentUrl(Representation representation, int i);
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MultiSegmentBase(RangedUri rangedUri, long j, long j2, int i, long j3, List<SegmentTimelineElement> list) {
+        public MultiSegmentBase(RangedUri rangedUri, long j, long j2, int i, long j3, List list) {
             super(rangedUri, j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -53,21 +57,37 @@ public abstract class SegmentBase {
         public int getFirstSegmentNum() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.startNumber : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.startNumber;
+            }
+            return invokeV.intValue;
         }
 
-        public abstract int getSegmentCount(long j);
+        public boolean isExplicit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                if (this.segmentTimeline != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
         public final long getSegmentDurationUs(int i, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                List<SegmentTimelineElement> list = this.segmentTimeline;
+                List list = this.segmentTimeline;
                 if (list != null) {
-                    return (list.get(i - this.startNumber).duration * 1000000) / this.timescale;
+                    return (((SegmentTimelineElement) list.get(i - this.startNumber)).duration * 1000000) / this.timescale;
                 }
                 int segmentCount = getSegmentCount(j);
-                return (segmentCount == -1 || i != (getFirstSegmentNum() + segmentCount) + (-1)) ? (this.duration * 1000000) / this.timescale : j - getSegmentTimeUs(i);
+                if (segmentCount != -1 && i == (getFirstSegmentNum() + segmentCount) - 1) {
+                    return j - getSegmentTimeUs(i);
+                }
+                return (this.duration * 1000000) / this.timescale;
             }
             return invokeCommon.longValue;
         }
@@ -83,7 +103,13 @@ public abstract class SegmentBase {
                 }
                 if (this.segmentTimeline == null) {
                     int i = this.startNumber + ((int) (j / ((this.duration * 1000000) / this.timescale)));
-                    return i < firstSegmentNum ? firstSegmentNum : segmentCount == -1 ? i : Math.min(i, (firstSegmentNum + segmentCount) - 1);
+                    if (i >= firstSegmentNum) {
+                        if (segmentCount == -1) {
+                            return i;
+                        }
+                        return Math.min(i, (firstSegmentNum + segmentCount) - 1);
+                    }
+                    return firstSegmentNum;
                 }
                 int i2 = (segmentCount + firstSegmentNum) - 1;
                 int i3 = firstSegmentNum;
@@ -92,13 +118,16 @@ public abstract class SegmentBase {
                     int i5 = (getSegmentTimeUs(i4) > j ? 1 : (getSegmentTimeUs(i4) == j ? 0 : -1));
                     if (i5 < 0) {
                         i3 = i4 + 1;
-                    } else if (i5 <= 0) {
-                        return i4;
-                    } else {
+                    } else if (i5 > 0) {
                         i2 = i4 - 1;
+                    } else {
+                        return i4;
                     }
                 }
-                return i3 == firstSegmentNum ? i3 : i2;
+                if (i3 == firstSegmentNum) {
+                    return i3;
+                }
+                return i2;
             }
             return invokeCommon.intValue;
         }
@@ -108,9 +137,9 @@ public abstract class SegmentBase {
             long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                List<SegmentTimelineElement> list = this.segmentTimeline;
+                List list = this.segmentTimeline;
                 if (list != null) {
-                    j = list.get(i - this.startNumber).startTime - this.presentationTimeOffset;
+                    j = ((SegmentTimelineElement) list.get(i - this.startNumber)).startTime - this.presentationTimeOffset;
                 } else {
                     j = (i - this.startNumber) * this.duration;
                 }
@@ -118,24 +147,26 @@ public abstract class SegmentBase {
             }
             return invokeI.longValue;
         }
-
-        public abstract RangedUri getSegmentUrl(Representation representation, int i);
-
-        public boolean isExplicit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.segmentTimeline != null : invokeV.booleanValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class SegmentList extends MultiSegmentBase {
+    public class SegmentList extends MultiSegmentBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<RangedUri> mediaSegments;
+        public final List mediaSegments;
+
+        @Override // com.google.android.exoplayer2.source.dash.manifest.SegmentBase.MultiSegmentBase
+        public boolean isExplicit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SegmentList(RangedUri rangedUri, long j, long j2, int i, long j3, List<SegmentTimelineElement> list, List<RangedUri> list2) {
+        public SegmentList(RangedUri rangedUri, long j, long j2, int i, long j3, List list, List list2) {
             super(rangedUri, j, j2, i, j3, list);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -160,36 +191,32 @@ public abstract class SegmentBase {
         public int getSegmentCount(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.mediaSegments.size() : invokeJ.intValue;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                return this.mediaSegments.size();
+            }
+            return invokeJ.intValue;
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.SegmentBase.MultiSegmentBase
         public RangedUri getSegmentUrl(Representation representation, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, representation, i)) == null) ? this.mediaSegments.get(i - this.startNumber) : (RangedUri) invokeLI.objValue;
-        }
-
-        @Override // com.google.android.exoplayer2.source.dash.manifest.SegmentBase.MultiSegmentBase
-        public boolean isExplicit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, representation, i)) == null) {
+                return (RangedUri) this.mediaSegments.get(i - this.startNumber);
             }
-            return invokeV.booleanValue;
+            return (RangedUri) invokeLI.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class SegmentTemplate extends MultiSegmentBase {
+    public class SegmentTemplate extends MultiSegmentBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final UrlTemplate initializationTemplate;
         public final UrlTemplate mediaTemplate;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SegmentTemplate(RangedUri rangedUri, long j, long j2, int i, long j3, List<SegmentTimelineElement> list, UrlTemplate urlTemplate, UrlTemplate urlTemplate2) {
+        public SegmentTemplate(RangedUri rangedUri, long j, long j2, int i, long j3, List list, UrlTemplate urlTemplate, UrlTemplate urlTemplate2) {
             super(rangedUri, j, j2, i, j3, list);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -231,7 +258,7 @@ public abstract class SegmentBase {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                List<SegmentTimelineElement> list = this.segmentTimeline;
+                List list = this.segmentTimeline;
                 if (list != null) {
                     return list.size();
                 }
@@ -249,9 +276,9 @@ public abstract class SegmentBase {
             long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, representation, i)) == null) {
-                List<SegmentTimelineElement> list = this.segmentTimeline;
+                List list = this.segmentTimeline;
                 if (list != null) {
-                    j = list.get(i - this.startNumber).startTime;
+                    j = ((SegmentTimelineElement) list.get(i - this.startNumber)).startTime;
                 } else {
                     j = (i - this.startNumber) * this.duration;
                 }
@@ -265,7 +292,7 @@ public abstract class SegmentBase {
     }
 
     /* loaded from: classes7.dex */
-    public static class SegmentTimelineElement {
+    public class SegmentTimelineElement {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long duration;
@@ -291,44 +318,31 @@ public abstract class SegmentBase {
         }
     }
 
-    public SegmentBase(RangedUri rangedUri, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rangedUri, Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.initialization = rangedUri;
-        this.timescale = j;
-        this.presentationTimeOffset = j2;
-    }
-
-    public RangedUri getInitialization(Representation representation) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, representation)) == null) ? this.initialization : (RangedUri) invokeL.objValue;
-    }
-
-    public long getPresentationTimeOffsetUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Util.scaleLargeTimestamp(this.presentationTimeOffset, 1000000L, this.timescale) : invokeV.longValue;
-    }
-
     /* loaded from: classes7.dex */
-    public static class SingleSegmentBase extends SegmentBase {
+    public class SingleSegmentBase extends SegmentBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long indexLength;
         public final long indexStart;
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public SingleSegmentBase() {
+            this(null, 1L, 0L, 0L, 0L);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr = newInitContext.callArgs;
+                    this((RangedUri) objArr[0], ((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue(), ((Long) objArr[3]).longValue(), ((Long) objArr[4]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SingleSegmentBase(RangedUri rangedUri, long j, long j2, long j3, long j4) {
@@ -365,24 +379,43 @@ public abstract class SegmentBase {
             }
             return (RangedUri) invokeV.objValue;
         }
+    }
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public SingleSegmentBase() {
-            this(null, 1L, 0L, 0L, 0L);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr = newInitContext.callArgs;
-                    this((RangedUri) objArr[0], ((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue(), ((Long) objArr[3]).longValue(), ((Long) objArr[4]).longValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public SegmentBase(RangedUri rangedUri, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rangedUri, Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.initialization = rangedUri;
+        this.timescale = j;
+        this.presentationTimeOffset = j2;
+    }
+
+    public RangedUri getInitialization(Representation representation) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, representation)) == null) {
+            return this.initialization;
+        }
+        return (RangedUri) invokeL.objValue;
+    }
+
+    public long getPresentationTimeOffsetUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Util.scaleLargeTimestamp(this.presentationTimeOffset, 1000000L, this.timescale);
+        }
+        return invokeV.longValue;
     }
 }

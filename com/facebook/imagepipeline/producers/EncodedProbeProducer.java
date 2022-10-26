@@ -15,30 +15,36 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 /* loaded from: classes7.dex */
-public class EncodedProbeProducer implements Producer<EncodedImage> {
+public class EncodedProbeProducer implements Producer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "EncodedProbeProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
     public final BufferedDiskCache mDefaultBufferedDiskCache;
-    public final BoundedLinkedHashSet<CacheKey> mDiskCacheHistory;
-    public final BoundedLinkedHashSet<CacheKey> mEncodedMemoryCacheHistory;
-    public final Producer<EncodedImage> mInputProducer;
+    public final BoundedLinkedHashSet mDiskCacheHistory;
+    public final BoundedLinkedHashSet mEncodedMemoryCacheHistory;
+    public final Producer mInputProducer;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
+    public String getProducerName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class ProbeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
+    public class ProbeConsumer extends DelegatingConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CacheKeyFactory mCacheKeyFactory;
         public final BufferedDiskCache mDefaultBufferedDiskCache;
-        public final BoundedLinkedHashSet<CacheKey> mDiskCacheHistory;
-        public final BoundedLinkedHashSet<CacheKey> mEncodedMemoryCacheHistory;
+        public final BoundedLinkedHashSet mDiskCacheHistory;
+        public final BoundedLinkedHashSet mEncodedMemoryCacheHistory;
         public final ProducerContext mProducerContext;
         public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ProbeConsumer(Consumer<EncodedImage> consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet<CacheKey> boundedLinkedHashSet, BoundedLinkedHashSet<CacheKey> boundedLinkedHashSet2) {
+        public ProbeConsumer(Consumer consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet boundedLinkedHashSet, BoundedLinkedHashSet boundedLinkedHashSet2) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -68,6 +74,8 @@ public class EncodedProbeProducer implements Producer<EncodedImage> {
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
         public void onNewResultImpl(EncodedImage encodedImage, int i) {
             boolean isTracing;
+            boolean z;
+            BufferedDiskCache bufferedDiskCache;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) {
                 try {
@@ -80,7 +88,17 @@ public class EncodedProbeProducer implements Producer<EncodedImage> {
                         this.mEncodedMemoryCacheHistory.add(encodedCacheKey);
                         if (this.mProducerContext.getExtra("origin").equals("memory_encoded")) {
                             if (!this.mDiskCacheHistory.contains(encodedCacheKey)) {
-                                (imageRequest.getCacheChoice() == ImageRequest.CacheChoice.SMALL ? this.mSmallImageBufferedDiskCache : this.mDefaultBufferedDiskCache).addKeyForAsyncProbing(encodedCacheKey);
+                                if (imageRequest.getCacheChoice() == ImageRequest.CacheChoice.SMALL) {
+                                    z = true;
+                                } else {
+                                    z = false;
+                                }
+                                if (z) {
+                                    bufferedDiskCache = this.mSmallImageBufferedDiskCache;
+                                } else {
+                                    bufferedDiskCache = this.mDefaultBufferedDiskCache;
+                                }
+                                bufferedDiskCache.addKeyForAsyncProbing(encodedCacheKey);
                                 this.mDiskCacheHistory.add(encodedCacheKey);
                             }
                         } else if (this.mProducerContext.getExtra("origin").equals("disk")) {
@@ -105,7 +123,7 @@ public class EncodedProbeProducer implements Producer<EncodedImage> {
         }
     }
 
-    public EncodedProbeProducer(BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet boundedLinkedHashSet, BoundedLinkedHashSet boundedLinkedHashSet2, Producer<EncodedImage> producer) {
+    public EncodedProbeProducer(BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet boundedLinkedHashSet, BoundedLinkedHashSet boundedLinkedHashSet2, Producer producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,14 +146,8 @@ public class EncodedProbeProducer implements Producer<EncodedImage> {
         this.mInputProducer = producer;
     }
 
-    public String getProducerName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
-    }
-
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
             try {

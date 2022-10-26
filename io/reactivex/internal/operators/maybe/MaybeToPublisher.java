@@ -14,7 +14,7 @@ import io.reactivex.functions.Function;
 import org.reactivestreams.Publisher;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class MaybeToPublisher implements Function<MaybeSource<Object>, Publisher<Object>> {
+public final class MaybeToPublisher implements Function {
     public static final /* synthetic */ MaybeToPublisher[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final MaybeToPublisher INSTANCE;
@@ -38,6 +38,24 @@ public final class MaybeToPublisher implements Function<MaybeSource<Object>, Pub
         $VALUES = new MaybeToPublisher[]{maybeToPublisher};
     }
 
+    public static Function instance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return INSTANCE;
+        }
+        return (Function) invokeV.objValue;
+    }
+
+    public static MaybeToPublisher[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (MaybeToPublisher[]) $VALUES.clone();
+        }
+        return (MaybeToPublisher[]) invokeV.objValue;
+    }
+
     public MaybeToPublisher(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,29 +75,23 @@ public final class MaybeToPublisher implements Function<MaybeSource<Object>, Pub
         }
     }
 
-    public static <T> Function<MaybeSource<T>, Publisher<T>> instance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? INSTANCE : (Function) invokeV.objValue;
-    }
-
     public static MaybeToPublisher valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (MaybeToPublisher) Enum.valueOf(MaybeToPublisher.class, str) : (MaybeToPublisher) invokeL.objValue;
-    }
-
-    public static MaybeToPublisher[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (MaybeToPublisher[]) $VALUES.clone() : (MaybeToPublisher[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (MaybeToPublisher) Enum.valueOf(MaybeToPublisher.class, str);
+        }
+        return (MaybeToPublisher) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.functions.Function
-    public Publisher<Object> apply(MaybeSource<Object> maybeSource) throws Exception {
+    public Publisher apply(MaybeSource maybeSource) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeSource)) == null) ? new MaybeToFlowable(maybeSource) : (Publisher) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeSource)) == null) {
+            return new MaybeToFlowable(maybeSource);
+        }
+        return (Publisher) invokeL.objValue;
     }
 }

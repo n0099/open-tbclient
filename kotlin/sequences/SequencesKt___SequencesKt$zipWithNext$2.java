@@ -1,5 +1,6 @@
 package kotlin.sequences;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.Iterator;
 import kotlin.Metadata;
@@ -11,7 +12,7 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
+@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
 @DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$zipWithNext$2", f = "_Sequences.kt", i = {0}, l = {2690}, m = "invokeSuspend", n = {UnitedSchemeConstants.UNITED_SCHEME_NEXT}, s = {"L$2"})
 /* loaded from: classes8.dex */
 public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
@@ -37,10 +38,9 @@ public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSus
         return sequencesKt___SequencesKt$zipWithNext$2;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2) {
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -50,7 +50,17 @@ public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSus
         Iterator it;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
-        if (i == 0) {
+        if (i != 0) {
+            if (i == 1) {
+                Object obj2 = this.L$2;
+                it = (Iterator) this.L$1;
+                sequenceScope = (SequenceScope) this.L$0;
+                ResultKt.throwOnFailure(obj);
+                next = obj2;
+            } else {
+                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+            }
+        } else {
             ResultKt.throwOnFailure(obj);
             SequenceScope sequenceScope2 = (SequenceScope) this.L$0;
             Iterator it2 = this.$this_zipWithNext.iterator();
@@ -60,14 +70,6 @@ public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSus
             sequenceScope = sequenceScope2;
             next = it2.next();
             it = it2;
-        } else if (i != 1) {
-            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-        } else {
-            Object obj2 = this.L$2;
-            it = (Iterator) this.L$1;
-            sequenceScope = (SequenceScope) this.L$0;
-            ResultKt.throwOnFailure(obj);
-            next = obj2;
         }
         while (it.hasNext()) {
             Object next2 = it.next();

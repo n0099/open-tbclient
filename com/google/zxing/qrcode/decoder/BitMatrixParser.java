@@ -42,9 +42,18 @@ public final class BitMatrixParser {
 
     private int copyBit(int i, int i2, int i3) {
         InterceptResult invokeIII;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, this, i, i2, i3)) == null) {
-            return this.mirror ? this.bitMatrix.get(i2, i) : this.bitMatrix.get(i, i2) ? (i3 << 1) | 1 : i3 << 1;
+            if (this.mirror) {
+                z = this.bitMatrix.get(i2, i);
+            } else {
+                z = this.bitMatrix.get(i, i2);
+            }
+            if (z) {
+                return (i3 << 1) | 1;
+            }
+            return i3 << 1;
         }
         return invokeIII.intValue;
     }
@@ -68,6 +77,7 @@ public final class BitMatrixParser {
 
     public byte[] readCodewords() throws FormatException {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             FormatInformation readFormatInformation = readFormatInformation();
@@ -77,39 +87,43 @@ public final class BitMatrixParser {
             dataMask.unmaskBitMatrix(this.bitMatrix, height);
             BitMatrix buildFunctionPattern = readVersion.buildFunctionPattern();
             byte[] bArr = new byte[readVersion.getTotalCodewords()];
-            int i = height - 1;
+            int i2 = height - 1;
             boolean z = true;
-            int i2 = i;
-            int i3 = 0;
+            int i3 = i2;
             int i4 = 0;
             int i5 = 0;
-            while (i2 > 0) {
-                if (i2 == 6) {
-                    i2--;
+            int i6 = 0;
+            while (i3 > 0) {
+                if (i3 == 6) {
+                    i3--;
                 }
-                for (int i6 = 0; i6 < height; i6++) {
-                    int i7 = z ? i - i6 : i6;
+                for (int i7 = 0; i7 < height; i7++) {
+                    if (z) {
+                        i = i2 - i7;
+                    } else {
+                        i = i7;
+                    }
                     for (int i8 = 0; i8 < 2; i8++) {
-                        int i9 = i2 - i8;
-                        if (!buildFunctionPattern.get(i9, i7)) {
-                            i4++;
-                            i5 <<= 1;
-                            if (this.bitMatrix.get(i9, i7)) {
-                                i5 |= 1;
+                        int i9 = i3 - i8;
+                        if (!buildFunctionPattern.get(i9, i)) {
+                            i5++;
+                            i6 <<= 1;
+                            if (this.bitMatrix.get(i9, i)) {
+                                i6 |= 1;
                             }
-                            if (i4 == 8) {
-                                bArr[i3] = (byte) i5;
-                                i3++;
-                                i4 = 0;
+                            if (i5 == 8) {
+                                bArr[i4] = (byte) i6;
+                                i4++;
                                 i5 = 0;
+                                i6 = 0;
                             }
                         }
                     }
                 }
                 z = !z;
-                i2 -= 2;
+                i3 -= 2;
             }
-            if (i3 == readVersion.getTotalCodewords()) {
+            if (i4 == readVersion.getTotalCodewords()) {
                 return bArr;
             }
             throw FormatException.getFormatInstance();
@@ -195,7 +209,7 @@ public final class BitMatrixParser {
 
     public void remask() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.parsedFormatInfo == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.parsedFormatInfo == null) {
             return;
         }
         DataMask.values()[this.parsedFormatInfo.getDataMask()].unmaskBitMatrix(this.bitMatrix, this.bitMatrix.getHeight());

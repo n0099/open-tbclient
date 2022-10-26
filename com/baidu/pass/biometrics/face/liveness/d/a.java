@@ -67,14 +67,53 @@ public class a extends Dialog {
             this.g = (TextView) findViewById(R.id.pass_bio_dialog_time_left);
             this.h = (TextView) findViewById(R.id.pass_bio_dialog_time_center);
             this.i = (TextView) findViewById(R.id.pass_bio_dialog_time_right);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091a38);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091672);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091a34);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091664);
             this.l = (TextView) findViewById(R.id.neutral_btn);
             this.m = (LinearLayout) findViewById(R.id.time_out_dialog_msg);
             this.c = (LinearLayout) findViewById(R.id.pass_bio_dialog_ll_content);
             CommonViewUtility.setViewClickAlpha(this.j, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.k, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.l, 0.2f);
+        }
+    }
+
+    public void a(int i) {
+        int min;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i < 1) {
+                min = 1;
+            } else {
+                min = Math.min(i, 2);
+            }
+            if (min == 2) {
+                this.b.setDisplayedChild(0);
+            } else {
+                this.b.setDisplayedChild(1);
+            }
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f.setText(i);
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.m.setVisibility(0);
+        }
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f.setVisibility(0);
+            this.f.setText(str);
         }
     }
 
@@ -93,36 +132,11 @@ public class a extends Dialog {
         }
     }
 
-    public void b(boolean z) {
+    public void a(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (z) {
-                this.d.setVisibility(0);
-            } else {
-                this.d.setVisibility(8);
-            }
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.m.setVisibility(0);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f.setText(i);
-        }
-    }
-
-    public void c(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, onClickListener) == null) {
-            this.j.setText(str);
-            this.j.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
+            this.k.setText(str);
+            this.k.setOnClickListener(onClickListener);
         }
     }
 
@@ -134,30 +148,11 @@ public class a extends Dialog {
         }
     }
 
-    public void a(int i) {
+    public void c(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if ((i < 1 ? 1 : Math.min(i, 2)) == 2) {
-                this.b.setDisplayedChild(0);
-            } else {
-                this.b.setDisplayedChild(1);
-            }
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f.setVisibility(0);
-            this.f.setText(str);
-        }
-    }
-
-    public void a(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.k.setText(str);
-            this.k.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, onClickListener) == null) {
+            this.j.setText(str);
+            this.j.setOnClickListener(onClickListener);
         }
     }
 
@@ -193,6 +188,17 @@ public class a extends Dialog {
             this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
             this.j.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
             this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (z) {
+                this.d.setVisibility(0);
+            } else {
+                this.d.setVisibility(8);
+            }
         }
     }
 }

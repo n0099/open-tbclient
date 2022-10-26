@@ -26,10 +26,31 @@ public class Crypt {
         }
     }
 
+    public static String crypt(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return crypt(str, (String) null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String crypt(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return crypt(str.getBytes(Charsets.UTF_8), str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static String crypt(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? crypt(bArr, (String) null) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            return crypt(bArr, (String) null);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String crypt(byte[] bArr, String str) {
@@ -51,17 +72,5 @@ public class Crypt {
             return UnixCrypt.crypt(bArr, str);
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static String crypt(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? crypt(str, (String) null) : (String) invokeL.objValue;
-    }
-
-    public static String crypt(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? crypt(str.getBytes(Charsets.UTF_8), str2) : (String) invokeLL.objValue;
     }
 }

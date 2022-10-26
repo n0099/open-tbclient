@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ho5;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,10 +79,68 @@ public class OCRCameraLayout extends FrameLayout {
         this.k.setColor(Color.argb(83, 0, 0, 0));
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public OCRCameraLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = l;
+        setWillNotDraw(false);
+        this.j = new Rect();
+        Paint paint = new Paint();
+        this.k = paint;
+        paint.setStyle(Paint.Style.FILL);
+        this.k.setColor(Color.argb(83, 0, 0, 0));
+        a(attributeSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public OCRCameraLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = l;
+        setWillNotDraw(false);
+        this.j = new Rect();
+        Paint paint = new Paint();
+        this.k = paint;
+        paint.setStyle(Paint.Style.FILL);
+        this.k.setColor(Color.argb(83, 0, 0, 0));
+        a(attributeSet);
+    }
+
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, ho5.OCRCameraLayout, 0, 0);
+            TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, oo5.OCRCameraLayout, 0, 0);
             try {
                 this.f = obtainStyledAttributes.getResourceId(1, -1);
                 this.g = obtainStyledAttributes.getResourceId(0, -1);
@@ -116,6 +174,15 @@ public class OCRCameraLayout extends FrameLayout {
             super.onDraw(canvas);
             canvas.drawRect(this.j, this.k);
         }
+    }
+
+    public void setOrientation(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        requestLayout();
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -176,72 +243,5 @@ public class OCRCameraLayout extends FrameLayout {
             View view9 = this.e;
             view9.layout(measuredWidth5, i10, view9.getMeasuredWidth() + measuredWidth5, this.e.getMeasuredHeight() + i10);
         }
-    }
-
-    public void setOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        requestLayout();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OCRCameraLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = l;
-        setWillNotDraw(false);
-        this.j = new Rect();
-        Paint paint = new Paint();
-        this.k = paint;
-        paint.setStyle(Paint.Style.FILL);
-        this.k.setColor(Color.argb(83, 0, 0, 0));
-        a(attributeSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OCRCameraLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = l;
-        setWillNotDraw(false);
-        this.j = new Rect();
-        Paint paint = new Paint();
-        this.k = paint;
-        paint.setStyle(Paint.Style.FILL);
-        this.k.setColor(Color.argb(83, 0, 0, 0));
-        a(attributeSet);
     }
 }

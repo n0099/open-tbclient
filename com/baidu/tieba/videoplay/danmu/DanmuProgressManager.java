@@ -21,14 +21,22 @@ import kotlin.jvm.internal.Intrinsics;
 public final class DanmuProgressManager {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
-    public static final Lazy<DanmuProgressManager> c;
+    public static final Lazy c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Long> a;
+    public HashMap a;
+
+    public /* synthetic */ DanmuProgressManager(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -44,14 +52,13 @@ public final class DanmuProgressManager {
             }
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
         public final DanmuProgressManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuProgressManager) DanmuProgressManager.c.getValue() : (DanmuProgressManager) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return (DanmuProgressManager) DanmuProgressManager.c.getValue();
+            }
+            return (DanmuProgressManager) invokeV.objValue;
         }
     }
 
@@ -85,20 +92,15 @@ public final class DanmuProgressManager {
                 return;
             }
         }
-        this.a = new HashMap<>();
-    }
-
-    public /* synthetic */ DanmuProgressManager(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
+        this.a = new HashMap();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.size() <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.size() > 0) {
+            this.a.clear();
+            this.a = new HashMap();
         }
-        this.a.clear();
-        this.a = new HashMap<>();
     }
 
     public final long c(String url) {
@@ -106,7 +108,7 @@ public final class DanmuProgressManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
             Intrinsics.checkNotNullParameter(url, "url");
-            Long l = this.a.get(url);
+            Long l = (Long) this.a.get(url);
             if (l == null) {
                 return 0L;
             }

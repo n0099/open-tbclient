@@ -1,7 +1,5 @@
 package com.baidu.searchbox.pms.init.request;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
@@ -26,7 +24,7 @@ public class RequestTask implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
     public RequestParams requestParams;
 
-    public RequestTask(@NonNull RequestParams requestParams) {
+    public RequestTask(RequestParams requestParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,22 +42,20 @@ public class RequestTask implements Runnable {
         this.requestParams = requestParams;
     }
 
-    private void removeValidChannel(@NonNull RequestParams requestParams) {
+    private void removeValidChannel(RequestParams requestParams) {
         IPmsContext pmsContext;
-        List<RequestParams.Channel> channelList;
+        List channelList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, requestParams) == null) || (pmsContext = PmsRuntime.getPmsContext()) == null || requestParams == null || (channelList = requestParams.getChannelList()) == null) {
-            return;
-        }
-        Iterator<RequestParams.Channel> it = channelList.iterator();
-        while (it.hasNext()) {
-            if (!pmsContext.checkChannelAllow(it.next().getChannelId(), requestParams.getRunType())) {
-                it.remove();
+        if ((interceptable == null || interceptable.invokeL(65537, this, requestParams) == null) && (pmsContext = PmsRuntime.getPmsContext()) != null && requestParams != null && (channelList = requestParams.getChannelList()) != null) {
+            Iterator it = channelList.iterator();
+            while (it.hasNext()) {
+                if (!pmsContext.checkChannelAllow(((RequestParams.Channel) it.next()).getChannelId(), requestParams.getRunType())) {
+                    it.remove();
+                }
             }
         }
     }
 
-    @Nullable
     public CloudControlRequestInfo createPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,11 +66,13 @@ public class RequestTask implements Runnable {
         return (CloudControlRequestInfo) invokeV.objValue;
     }
 
-    @NonNull
     public RequestParams getRequestParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.requestParams : (RequestParams) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.requestParams;
+        }
+        return (RequestParams) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
@@ -87,7 +85,7 @@ public class RequestTask implements Runnable {
                     DebugUtils.log("requestInfo is empty");
                     return;
                 }
-                ArrayList<CloudControlRequestInfo> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 arrayList.add(createPostData);
                 try {
                     CloudControlManager.getInstance().fetchCloudControl(this.requestParams.getRunType(), arrayList);

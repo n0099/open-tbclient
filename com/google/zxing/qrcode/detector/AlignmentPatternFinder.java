@@ -19,7 +19,7 @@ public final class AlignmentPatternFinder {
     public final int height;
     public final BitMatrix image;
     public final float moduleSize;
-    public final List<AlignmentPattern> possibleCenters;
+    public final List possibleCenters;
     public final ResultPointCallback resultPointCallback;
     public final int startX;
     public final int startY;
@@ -54,7 +54,10 @@ public final class AlignmentPatternFinder {
     public static float centerFromEnd(int[] iArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, iArr, i)) == null) ? (i - iArr[2]) - (iArr[1] / 2.0f) : invokeLI.floatValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, iArr, i)) == null) {
+            return (i - iArr[2]) - (iArr[1] / 2.0f);
+        }
+        return invokeLI.floatValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x0066, code lost:
@@ -151,20 +154,20 @@ public final class AlignmentPatternFinder {
             int i3 = iArr[0] + iArr[1] + iArr[2];
             float centerFromEnd = centerFromEnd(iArr, i2);
             float crossCheckVertical = crossCheckVertical(i, (int) centerFromEnd, iArr[1] * 2, i3);
-            if (Float.isNaN(crossCheckVertical)) {
-                return null;
-            }
-            float f = ((iArr[0] + iArr[1]) + iArr[2]) / 3.0f;
-            for (AlignmentPattern alignmentPattern : this.possibleCenters) {
-                if (alignmentPattern.aboutEquals(f, crossCheckVertical, centerFromEnd)) {
-                    return alignmentPattern.combineEstimate(crossCheckVertical, centerFromEnd, f);
+            if (!Float.isNaN(crossCheckVertical)) {
+                float f = ((iArr[0] + iArr[1]) + iArr[2]) / 3.0f;
+                for (AlignmentPattern alignmentPattern : this.possibleCenters) {
+                    if (alignmentPattern.aboutEquals(f, crossCheckVertical, centerFromEnd)) {
+                        return alignmentPattern.combineEstimate(crossCheckVertical, centerFromEnd, f);
+                    }
                 }
-            }
-            AlignmentPattern alignmentPattern2 = new AlignmentPattern(centerFromEnd, crossCheckVertical, f);
-            this.possibleCenters.add(alignmentPattern2);
-            ResultPointCallback resultPointCallback = this.resultPointCallback;
-            if (resultPointCallback != null) {
-                resultPointCallback.foundPossibleResultPoint(alignmentPattern2);
+                AlignmentPattern alignmentPattern2 = new AlignmentPattern(centerFromEnd, crossCheckVertical, f);
+                this.possibleCenters.add(alignmentPattern2);
+                ResultPointCallback resultPointCallback = this.resultPointCallback;
+                if (resultPointCallback != null) {
+                    resultPointCallback.foundPossibleResultPoint(alignmentPattern2);
+                    return null;
+                }
                 return null;
             }
             return null;
@@ -174,53 +177,61 @@ public final class AlignmentPatternFinder {
 
     public AlignmentPattern find() throws NotFoundException {
         InterceptResult invokeV;
+        int i;
         AlignmentPattern handlePossibleCenter;
         AlignmentPattern handlePossibleCenter2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.startX;
-            int i2 = this.height;
-            int i3 = this.width + i;
-            int i4 = this.startY + (i2 / 2);
+            int i2 = this.startX;
+            int i3 = this.height;
+            int i4 = this.width + i2;
+            int i5 = this.startY + (i3 / 2);
             int[] iArr = new int[3];
-            for (int i5 = 0; i5 < i2; i5++) {
-                int i6 = ((i5 & 1) == 0 ? (i5 + 1) / 2 : -((i5 + 1) / 2)) + i4;
+            for (int i6 = 0; i6 < i3; i6++) {
+                if ((i6 & 1) == 0) {
+                    i = (i6 + 1) / 2;
+                } else {
+                    i = -((i6 + 1) / 2);
+                }
+                int i7 = i + i5;
                 iArr[0] = 0;
                 iArr[1] = 0;
                 iArr[2] = 0;
-                int i7 = i;
-                while (i7 < i3 && !this.image.get(i7, i6)) {
-                    i7++;
+                int i8 = i2;
+                while (i8 < i4 && !this.image.get(i8, i7)) {
+                    i8++;
                 }
-                int i8 = 0;
-                while (i7 < i3) {
-                    if (!this.image.get(i7, i6)) {
-                        if (i8 == 1) {
-                            i8++;
+                int i9 = 0;
+                while (i8 < i4) {
+                    if (this.image.get(i8, i7)) {
+                        if (i9 == 1) {
+                            iArr[1] = iArr[1] + 1;
+                        } else if (i9 == 2) {
+                            if (foundPatternCross(iArr) && (handlePossibleCenter2 = handlePossibleCenter(iArr, i7, i8)) != null) {
+                                return handlePossibleCenter2;
+                            }
+                            iArr[0] = iArr[2];
+                            iArr[1] = 1;
+                            iArr[2] = 0;
+                            i9 = 1;
+                        } else {
+                            i9++;
+                            iArr[i9] = iArr[i9] + 1;
                         }
-                        iArr[i8] = iArr[i8] + 1;
-                    } else if (i8 == 1) {
-                        iArr[1] = iArr[1] + 1;
-                    } else if (i8 == 2) {
-                        if (foundPatternCross(iArr) && (handlePossibleCenter2 = handlePossibleCenter(iArr, i6, i7)) != null) {
-                            return handlePossibleCenter2;
-                        }
-                        iArr[0] = iArr[2];
-                        iArr[1] = 1;
-                        iArr[2] = 0;
-                        i8 = 1;
                     } else {
-                        i8++;
-                        iArr[i8] = iArr[i8] + 1;
+                        if (i9 == 1) {
+                            i9++;
+                        }
+                        iArr[i9] = iArr[i9] + 1;
                     }
-                    i7++;
+                    i8++;
                 }
-                if (foundPatternCross(iArr) && (handlePossibleCenter = handlePossibleCenter(iArr, i6, i3)) != null) {
+                if (foundPatternCross(iArr) && (handlePossibleCenter = handlePossibleCenter(iArr, i7, i4)) != null) {
                     return handlePossibleCenter;
                 }
             }
             if (!this.possibleCenters.isEmpty()) {
-                return this.possibleCenters.get(0);
+                return (AlignmentPattern) this.possibleCenters.get(0);
             }
             throw NotFoundException.getNotFoundInstance();
         }

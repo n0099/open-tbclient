@@ -33,7 +33,7 @@ import kotlin.UShort;
 /* loaded from: classes.dex */
 public class Mesh implements i7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Application, b7<Mesh>> e;
+    public static final Map e;
     public transient /* synthetic */ FieldHolder $fh;
     public final b6 a;
     public final u5 b;
@@ -42,7 +42,7 @@ public class Mesh implements i7 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class VertexDataType {
+    public final class VertexDataType {
         public static final /* synthetic */ VertexDataType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final VertexDataType VertexArray;
@@ -94,13 +94,19 @@ public class Mesh implements i7 {
         public static VertexDataType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VertexDataType) Enum.valueOf(VertexDataType.class, str) : (VertexDataType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (VertexDataType) Enum.valueOf(VertexDataType.class, str);
+            }
+            return (VertexDataType) invokeL.objValue;
         }
 
         public static VertexDataType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VertexDataType[]) $VALUES.clone() : (VertexDataType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (VertexDataType[]) $VALUES.clone();
+            }
+            return (VertexDataType[]) invokeV.objValue;
         }
     }
 
@@ -118,6 +124,42 @@ public class Mesh implements i7 {
             }
         }
         e = new HashMap();
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.c();
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.e();
+        }
+        return invokeV.intValue;
+    }
+
+    public ShortBuffer j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b.getBuffer();
+        }
+        return (ShortBuffer) invokeV.objValue;
+    }
+
+    public FloatBuffer m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.getBuffer();
+        }
+        return (FloatBuffer) invokeV.objValue;
     }
 
     public Mesh(boolean z, int i, int i2, u3 u3Var) {
@@ -144,9 +186,9 @@ public class Mesh implements i7 {
     public static void a(Application application, Mesh mesh) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, mesh) == null) {
-            b7<Mesh> b7Var = e.get(application);
+            b7 b7Var = (b7) e.get(application);
             if (b7Var == null) {
-                b7Var = new b7<>();
+                b7Var = new b7();
             }
             b7Var.a(mesh);
             e.put(application, b7Var);
@@ -160,6 +202,22 @@ public class Mesh implements i7 {
         }
     }
 
+    public t3 l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            u3 b = this.a.b();
+            int size = b.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (b.c(i2).a == i) {
+                    return b.c(i2);
+                }
+            }
+            return null;
+        }
+        return (t3) invokeI.objValue;
+    }
+
     public static String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -167,7 +225,7 @@ public class Mesh implements i7 {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed meshes/app: { ");
             for (Application application : e.keySet()) {
-                sb.append(e.get(application).b);
+                sb.append(((b7) e.get(application)).b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -177,21 +235,15 @@ public class Mesh implements i7 {
     }
 
     public static void n(Application application) {
-        b7<Mesh> b7Var;
+        b7 b7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, application) == null) || (b7Var = e.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (b7Var = (b7) e.get(application)) == null) {
             return;
         }
         for (int i = 0; i < b7Var.b; i++) {
-            b7Var.get(i).a.invalidate();
-            b7Var.get(i).b.invalidate();
+            ((Mesh) b7Var.get(i)).a.invalidate();
+            ((Mesh) b7Var.get(i)).b.invalidate();
         }
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.c() : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.i7
@@ -199,7 +251,7 @@ public class Mesh implements i7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (e.get(f1.a) != null) {
-                e.get(f1.a).j(this, true);
+                ((b7) e.get(f1.a)).j(this, true);
             }
             this.a.dispose();
             v5 v5Var = this.c;
@@ -208,12 +260,6 @@ public class Mesh implements i7 {
             }
             this.b.dispose();
         }
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.e() : invokeV.intValue;
     }
 
     public BoundingBox f(BoundingBox boundingBox, int i, int i2) {
@@ -324,34 +370,6 @@ public class Mesh implements i7 {
             throw new GdxRuntimeException("Invalid part specified ( offset=" + i + ", count=" + i2 + ", max=" + c + " )");
         }
         return (BoundingBox) invokeCommon.objValue;
-    }
-
-    public ShortBuffer j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b.getBuffer() : (ShortBuffer) invokeV.objValue;
-    }
-
-    public t3 l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            u3 b = this.a.b();
-            int size = b.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (b.c(i2).a == i) {
-                    return b.c(i2);
-                }
-            }
-            return null;
-        }
-        return (t3) invokeI.objValue;
-    }
-
-    public FloatBuffer m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getBuffer() : (FloatBuffer) invokeV.objValue;
     }
 
     public final b6 o(boolean z, int i, u3 u3Var) {

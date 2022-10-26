@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.send;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -37,13 +36,41 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     public long getFetchTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFetchTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mFetchTime;
+        }
+        return invokeV.longValue;
     }
 
     public int getLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLimit : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLimit;
+        }
+        return invokeV.intValue;
+    }
+
+    public BIMFetchSignalRtcInfo(BIMRtcInfo bIMRtcInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bIMRtcInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mLimit = 100;
+        setAction(bIMRtcInfo.getAction());
+        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
+        setRtcExt(bIMRtcInfo.getRtcExt());
+        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 
     public void setFetchTime(long j) {
@@ -61,7 +88,6 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -80,7 +106,6 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,27 +131,5 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
             return "BIMFetchSignalRtcInfo{" + super.toString() + "mLimit=" + this.mLimit + ", mFetchTime=" + this.mFetchTime + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    public BIMFetchSignalRtcInfo(BIMRtcInfo bIMRtcInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bIMRtcInfo};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mLimit = 100;
-        setAction(bIMRtcInfo.getAction());
-        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
-        setRtcExt(bIMRtcInfo.getRtcExt());
-        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 }

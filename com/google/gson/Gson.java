@@ -158,6 +158,51 @@ public final class Gson {
         NULL_KEY_SURROGATE = TypeToken.get(Object.class);
     }
 
+    public Excluder excluder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.excluder;
+        }
+        return (Excluder) invokeV.objValue;
+    }
+
+    public FieldNamingStrategy fieldNamingStrategy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.fieldNamingStrategy;
+        }
+        return (FieldNamingStrategy) invokeV.objValue;
+    }
+
+    public boolean htmlSafe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.htmlSafe;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public GsonBuilder newBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return new GsonBuilder(this);
+        }
+        return (GsonBuilder) invokeV.objValue;
+    }
+
+    public boolean serializeNulls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.serializeNulls;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Gson() {
         this(Excluder.DEFAULT, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
@@ -177,139 +222,220 @@ public final class Gson {
         }
     }
 
-    public static void assertFullConsumption(Object obj, JsonReader jsonReader) {
+    public Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy, Map<Type, InstanceCreator<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, LongSerializationPolicy longSerializationPolicy, String str, int i, int i2, List<TypeAdapterFactory> list, List<TypeAdapterFactory> list2, List<TypeAdapterFactory> list3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, obj, jsonReader) == null) || obj == null) {
-            return;
-        }
-        try {
-            if (jsonReader.peek() == JsonToken.END_DOCUMENT) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {excluder, fieldNamingStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7), longSerializationPolicy, str, Integer.valueOf(i), Integer.valueOf(i2), list, list2, list3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
-            throw new JsonIOException("JSON document was not fully consumed.");
-        } catch (MalformedJsonException e) {
-            throw new JsonSyntaxException(e);
-        } catch (IOException e2) {
-            throw new JsonIOException(e2);
+        }
+        this.calls = new ThreadLocal<>();
+        this.typeTokenCache = new ConcurrentHashMap();
+        this.excluder = excluder;
+        this.fieldNamingStrategy = fieldNamingStrategy;
+        this.instanceCreators = map;
+        this.constructorConstructor = new ConstructorConstructor(map);
+        this.serializeNulls = z;
+        this.complexMapKeySerialization = z2;
+        this.generateNonExecutableJson = z3;
+        this.htmlSafe = z4;
+        this.prettyPrinting = z5;
+        this.lenient = z6;
+        this.serializeSpecialFloatingPointValues = z7;
+        this.longSerializationPolicy = longSerializationPolicy;
+        this.datePattern = str;
+        this.dateStyle = i;
+        this.timeStyle = i2;
+        this.builderFactories = list;
+        this.builderHierarchyFactories = list2;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(TypeAdapters.JSON_ELEMENT_FACTORY);
+        arrayList.add(ObjectTypeAdapter.FACTORY);
+        arrayList.add(excluder);
+        arrayList.addAll(list3);
+        arrayList.add(TypeAdapters.STRING_FACTORY);
+        arrayList.add(TypeAdapters.INTEGER_FACTORY);
+        arrayList.add(TypeAdapters.BOOLEAN_FACTORY);
+        arrayList.add(TypeAdapters.BYTE_FACTORY);
+        arrayList.add(TypeAdapters.SHORT_FACTORY);
+        TypeAdapter<Number> longAdapter = longAdapter(longSerializationPolicy);
+        arrayList.add(TypeAdapters.newFactory(Long.TYPE, Long.class, longAdapter));
+        arrayList.add(TypeAdapters.newFactory(Double.TYPE, Double.class, doubleAdapter(z7)));
+        arrayList.add(TypeAdapters.newFactory(Float.TYPE, Float.class, floatAdapter(z7)));
+        arrayList.add(TypeAdapters.NUMBER_FACTORY);
+        arrayList.add(TypeAdapters.ATOMIC_INTEGER_FACTORY);
+        arrayList.add(TypeAdapters.ATOMIC_BOOLEAN_FACTORY);
+        arrayList.add(TypeAdapters.newFactory(AtomicLong.class, atomicLongAdapter(longAdapter)));
+        arrayList.add(TypeAdapters.newFactory(AtomicLongArray.class, atomicLongArrayAdapter(longAdapter)));
+        arrayList.add(TypeAdapters.ATOMIC_INTEGER_ARRAY_FACTORY);
+        arrayList.add(TypeAdapters.CHARACTER_FACTORY);
+        arrayList.add(TypeAdapters.STRING_BUILDER_FACTORY);
+        arrayList.add(TypeAdapters.STRING_BUFFER_FACTORY);
+        arrayList.add(TypeAdapters.newFactory(BigDecimal.class, TypeAdapters.BIG_DECIMAL));
+        arrayList.add(TypeAdapters.newFactory(BigInteger.class, TypeAdapters.BIG_INTEGER));
+        arrayList.add(TypeAdapters.URL_FACTORY);
+        arrayList.add(TypeAdapters.URI_FACTORY);
+        arrayList.add(TypeAdapters.UUID_FACTORY);
+        arrayList.add(TypeAdapters.CURRENCY_FACTORY);
+        arrayList.add(TypeAdapters.LOCALE_FACTORY);
+        arrayList.add(TypeAdapters.INET_ADDRESS_FACTORY);
+        arrayList.add(TypeAdapters.BIT_SET_FACTORY);
+        arrayList.add(DateTypeAdapter.FACTORY);
+        arrayList.add(TypeAdapters.CALENDAR_FACTORY);
+        arrayList.add(TimeTypeAdapter.FACTORY);
+        arrayList.add(SqlDateTypeAdapter.FACTORY);
+        arrayList.add(TypeAdapters.TIMESTAMP_FACTORY);
+        arrayList.add(ArrayTypeAdapter.FACTORY);
+        arrayList.add(TypeAdapters.CLASS_FACTORY);
+        arrayList.add(new CollectionTypeAdapterFactory(this.constructorConstructor));
+        arrayList.add(new MapTypeAdapterFactory(this.constructorConstructor, z2));
+        JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory = new JsonAdapterAnnotationTypeAdapterFactory(this.constructorConstructor);
+        this.jsonAdapterFactory = jsonAdapterAnnotationTypeAdapterFactory;
+        arrayList.add(jsonAdapterAnnotationTypeAdapterFactory);
+        arrayList.add(TypeAdapters.ENUM_FACTORY);
+        arrayList.add(new ReflectiveTypeAdapterFactory(this.constructorConstructor, fieldNamingStrategy, excluder, this.jsonAdapterFactory));
+        this.factories = Collections.unmodifiableList(arrayList);
+    }
+
+    public static void assertFullConsumption(Object obj, JsonReader jsonReader) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, obj, jsonReader) == null) && obj != null) {
+            try {
+                if (jsonReader.peek() != JsonToken.END_DOCUMENT) {
+                    throw new JsonIOException("JSON document was not fully consumed.");
+                }
+            } catch (MalformedJsonException e) {
+                throw new JsonSyntaxException(e);
+            } catch (IOException e2) {
+                throw new JsonIOException(e2);
+            }
         }
     }
 
     public static TypeAdapter<AtomicLong> atomicLongAdapter(TypeAdapter<Number> typeAdapter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, typeAdapter)) == null) ? new TypeAdapter<AtomicLong>(typeAdapter) { // from class: com.google.gson.Gson.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ TypeAdapter val$longAdapter;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, typeAdapter)) == null) {
+            return new TypeAdapter<AtomicLong>(typeAdapter) { // from class: com.google.gson.Gson.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TypeAdapter val$longAdapter;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {typeAdapter};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {typeAdapter};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$longAdapter = typeAdapter;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.gson.TypeAdapter
+                public AtomicLong read(JsonReader jsonReader) throws IOException {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
+                        return new AtomicLong(((Number) this.val$longAdapter.read(jsonReader)).longValue());
+                    }
+                    return (AtomicLong) invokeL2.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.gson.TypeAdapter
+                public void write(JsonWriter jsonWriter, AtomicLong atomicLong) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, atomicLong) == null) {
+                        this.val$longAdapter.write(jsonWriter, Long.valueOf(atomicLong.get()));
                     }
                 }
-                this.val$longAdapter = typeAdapter;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.gson.TypeAdapter
-            public AtomicLong read(JsonReader jsonReader) throws IOException {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) ? new AtomicLong(((Number) this.val$longAdapter.read(jsonReader)).longValue()) : (AtomicLong) invokeL2.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.gson.TypeAdapter
-            public void write(JsonWriter jsonWriter, AtomicLong atomicLong) throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, atomicLong) == null) {
-                    this.val$longAdapter.write(jsonWriter, Long.valueOf(atomicLong.get()));
-                }
-            }
-        }.nullSafe() : (TypeAdapter) invokeL.objValue;
+            }.nullSafe();
+        }
+        return (TypeAdapter) invokeL.objValue;
     }
 
     public static TypeAdapter<AtomicLongArray> atomicLongArrayAdapter(TypeAdapter<Number> typeAdapter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, typeAdapter)) == null) ? new TypeAdapter<AtomicLongArray>(typeAdapter) { // from class: com.google.gson.Gson.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ TypeAdapter val$longAdapter;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, typeAdapter)) == null) {
+            return new TypeAdapter<AtomicLongArray>(typeAdapter) { // from class: com.google.gson.Gson.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TypeAdapter val$longAdapter;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {typeAdapter};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {typeAdapter};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$longAdapter = typeAdapter;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.gson.TypeAdapter
+                public AtomicLongArray read(JsonReader jsonReader) throws IOException {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
+                        ArrayList arrayList = new ArrayList();
+                        jsonReader.beginArray();
+                        while (jsonReader.hasNext()) {
+                            arrayList.add(Long.valueOf(((Number) this.val$longAdapter.read(jsonReader)).longValue()));
+                        }
+                        jsonReader.endArray();
+                        int size = arrayList.size();
+                        AtomicLongArray atomicLongArray = new AtomicLongArray(size);
+                        for (int i = 0; i < size; i++) {
+                            atomicLongArray.set(i, ((Long) arrayList.get(i)).longValue());
+                        }
+                        return atomicLongArray;
+                    }
+                    return (AtomicLongArray) invokeL2.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.google.gson.TypeAdapter
+                public void write(JsonWriter jsonWriter, AtomicLongArray atomicLongArray) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, atomicLongArray) == null) {
+                        jsonWriter.beginArray();
+                        int length = atomicLongArray.length();
+                        for (int i = 0; i < length; i++) {
+                            this.val$longAdapter.write(jsonWriter, Long.valueOf(atomicLongArray.get(i)));
+                        }
+                        jsonWriter.endArray();
                     }
                 }
-                this.val$longAdapter = typeAdapter;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.gson.TypeAdapter
-            public AtomicLongArray read(JsonReader jsonReader) throws IOException {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
-                    ArrayList arrayList = new ArrayList();
-                    jsonReader.beginArray();
-                    while (jsonReader.hasNext()) {
-                        arrayList.add(Long.valueOf(((Number) this.val$longAdapter.read(jsonReader)).longValue()));
-                    }
-                    jsonReader.endArray();
-                    int size = arrayList.size();
-                    AtomicLongArray atomicLongArray = new AtomicLongArray(size);
-                    for (int i = 0; i < size; i++) {
-                        atomicLongArray.set(i, ((Long) arrayList.get(i)).longValue());
-                    }
-                    return atomicLongArray;
-                }
-                return (AtomicLongArray) invokeL2.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.gson.TypeAdapter
-            public void write(JsonWriter jsonWriter, AtomicLongArray atomicLongArray) throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, atomicLongArray) == null) {
-                    jsonWriter.beginArray();
-                    int length = atomicLongArray.length();
-                    for (int i = 0; i < length; i++) {
-                        this.val$longAdapter.write(jsonWriter, Long.valueOf(atomicLongArray.get(i)));
-                    }
-                    jsonWriter.endArray();
-                }
-            }
-        }.nullSafe() : (TypeAdapter) invokeL.objValue;
-    }
-
-    public static void checkValidFloatingPoint(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d)}) == null) {
-            if (Double.isNaN(d) || Double.isInfinite(d)) {
-                throw new IllegalArgumentException(d + " is not a valid double value as per JSON specification. To override this behavior, use GsonBuilder.serializeSpecialFloatingPointValues() method.");
-            }
+            }.nullSafe();
         }
+        return (TypeAdapter) invokeL.objValue;
     }
 
     private TypeAdapter<Number> doubleAdapter(boolean z) {
@@ -500,101 +626,13 @@ public final class Gson {
         return (TypeAdapter) invokeL.objValue;
     }
 
-    public Excluder excluder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.excluder : (Excluder) invokeV.objValue;
-    }
-
-    public FieldNamingStrategy fieldNamingStrategy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fieldNamingStrategy : (FieldNamingStrategy) invokeV.objValue;
-    }
-
-    public <T> T fromJson(String str, Class<T> cls) throws JsonSyntaxException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, cls)) == null) ? (T) Primitives.wrap(cls).cast(fromJson(str, (Type) cls)) : (T) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.util.Map<com.google.gson.reflect.TypeToken<?>, com.google.gson.TypeAdapter<?>> */
-    /* JADX DEBUG: Type inference failed for r4v5. Raw type applied. Possible types: com.google.gson.TypeAdapter<T>, com.google.gson.TypeAdapter<?> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public <T> TypeAdapter<T> getAdapter(TypeToken<T> typeToken) {
+    public <T> TypeAdapter<T> getAdapter(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, typeToken)) == null) {
-            TypeAdapter<T> typeAdapter = (TypeAdapter<T>) this.typeTokenCache.get(typeToken == null ? NULL_KEY_SURROGATE : typeToken);
-            if (typeAdapter != null) {
-                return typeAdapter;
-            }
-            Map<TypeToken<?>, FutureTypeAdapter<?>> map = this.calls.get();
-            boolean z = false;
-            if (map == null) {
-                map = new HashMap<>();
-                this.calls.set(map);
-                z = true;
-            }
-            FutureTypeAdapter<?> futureTypeAdapter = map.get(typeToken);
-            if (futureTypeAdapter != null) {
-                return futureTypeAdapter;
-            }
-            try {
-                FutureTypeAdapter<?> futureTypeAdapter2 = new FutureTypeAdapter<>();
-                map.put(typeToken, futureTypeAdapter2);
-                for (TypeAdapterFactory typeAdapterFactory : this.factories) {
-                    TypeAdapter typeAdapter2 = (TypeAdapter<T>) typeAdapterFactory.create(this, typeToken);
-                    if (typeAdapter2 != null) {
-                        futureTypeAdapter2.setDelegate(typeAdapter2);
-                        this.typeTokenCache.put(typeToken, typeAdapter2);
-                        return typeAdapter2;
-                    }
-                }
-                throw new IllegalArgumentException("GSON (2.8.5) cannot handle " + typeToken);
-            } finally {
-                map.remove(typeToken);
-                if (z) {
-                    this.calls.remove();
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) {
+            return getAdapter(TypeToken.get((Class) cls));
         }
         return (TypeAdapter) invokeL.objValue;
-    }
-
-    public <T> TypeAdapter<T> getDelegateAdapter(TypeAdapterFactory typeAdapterFactory, TypeToken<T> typeToken) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, typeAdapterFactory, typeToken)) == null) {
-            if (!this.factories.contains(typeAdapterFactory)) {
-                typeAdapterFactory = this.jsonAdapterFactory;
-            }
-            boolean z = false;
-            for (TypeAdapterFactory typeAdapterFactory2 : this.factories) {
-                if (z) {
-                    TypeAdapter<T> create = typeAdapterFactory2.create(this, typeToken);
-                    if (create != null) {
-                        return create;
-                    }
-                } else if (typeAdapterFactory2 == typeAdapterFactory) {
-                    z = true;
-                }
-            }
-            throw new IllegalArgumentException("GSON cannot serialize " + typeToken);
-        }
-        return (TypeAdapter) invokeLL.objValue;
-    }
-
-    public boolean htmlSafe() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.htmlSafe : invokeV.booleanValue;
-    }
-
-    public GsonBuilder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? new GsonBuilder(this) : (GsonBuilder) invokeV.objValue;
     }
 
     public JsonReader newJsonReader(Reader reader) {
@@ -625,20 +663,13 @@ public final class Gson {
         return (JsonWriter) invokeL.objValue;
     }
 
-    public boolean serializeNulls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.serializeNulls : invokeV.booleanValue;
-    }
-
-    public String toJson(Object obj) {
+    public String toJson(JsonElement jsonElement) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
-            if (obj == null) {
-                return toJson((JsonElement) JsonNull.INSTANCE);
-            }
-            return toJson(obj, obj.getClass());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, jsonElement)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            toJson(jsonElement, (Appendable) stringWriter);
+            return stringWriter.toString();
         }
         return (String) invokeL.objValue;
     }
@@ -655,23 +686,21 @@ public final class Gson {
         return (JsonElement) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void checkValidFloatingPoint(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return "{serializeNulls:" + this.serializeNulls + ",factories:" + this.factories + ",instanceCreators:" + this.constructorConstructor + "}";
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d)}) == null) {
+            if (!Double.isNaN(d) && !Double.isInfinite(d)) {
+                return;
+            }
+            throw new IllegalArgumentException(d + " is not a valid double value as per JSON specification. To override this behavior, use GsonBuilder.serializeSpecialFloatingPointValues() method.");
         }
-        return (String) invokeV.objValue;
     }
 
-    public <T> T fromJson(String str, Type type) throws JsonSyntaxException {
+    public <T> T fromJson(JsonElement jsonElement, Class<T> cls) throws JsonSyntaxException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, type)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return (T) fromJson(new StringReader(str), type);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jsonElement, cls)) == null) {
+            return (T) Primitives.wrap(cls).cast(fromJson(jsonElement, (Type) cls));
         }
         return (T) invokeLL.objValue;
     }
@@ -698,159 +727,25 @@ public final class Gson {
         return (JsonElement) invokeLL.objValue;
     }
 
-    public <T> T fromJson(Reader reader, Class<T> cls) throws JsonSyntaxException, JsonIOException {
+    public <T> T fromJson(JsonElement jsonElement, Type type) throws JsonSyntaxException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, reader, cls)) == null) {
-            JsonReader newJsonReader = newJsonReader(reader);
-            Object fromJson = fromJson(newJsonReader, cls);
-            assertFullConsumption(fromJson, newJsonReader);
-            return (T) Primitives.wrap(cls).cast(fromJson);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jsonElement, type)) == null) {
+            if (jsonElement == null) {
+                return null;
+            }
+            return (T) fromJson(new JsonTreeReader(jsonElement), type);
         }
         return (T) invokeLL.objValue;
     }
 
-    public Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy, Map<Type, InstanceCreator<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, LongSerializationPolicy longSerializationPolicy, String str, int i, int i2, List<TypeAdapterFactory> list, List<TypeAdapterFactory> list2, List<TypeAdapterFactory> list3) {
+    public void toJson(JsonElement jsonElement, Appendable appendable) throws JsonIOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {excluder, fieldNamingStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7), longSerializationPolicy, str, Integer.valueOf(i), Integer.valueOf(i2), list, list2, list3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.calls = new ThreadLocal<>();
-        this.typeTokenCache = new ConcurrentHashMap();
-        this.excluder = excluder;
-        this.fieldNamingStrategy = fieldNamingStrategy;
-        this.instanceCreators = map;
-        this.constructorConstructor = new ConstructorConstructor(map);
-        this.serializeNulls = z;
-        this.complexMapKeySerialization = z2;
-        this.generateNonExecutableJson = z3;
-        this.htmlSafe = z4;
-        this.prettyPrinting = z5;
-        this.lenient = z6;
-        this.serializeSpecialFloatingPointValues = z7;
-        this.longSerializationPolicy = longSerializationPolicy;
-        this.datePattern = str;
-        this.dateStyle = i;
-        this.timeStyle = i2;
-        this.builderFactories = list;
-        this.builderHierarchyFactories = list2;
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(TypeAdapters.JSON_ELEMENT_FACTORY);
-        arrayList.add(ObjectTypeAdapter.FACTORY);
-        arrayList.add(excluder);
-        arrayList.addAll(list3);
-        arrayList.add(TypeAdapters.STRING_FACTORY);
-        arrayList.add(TypeAdapters.INTEGER_FACTORY);
-        arrayList.add(TypeAdapters.BOOLEAN_FACTORY);
-        arrayList.add(TypeAdapters.BYTE_FACTORY);
-        arrayList.add(TypeAdapters.SHORT_FACTORY);
-        TypeAdapter<Number> longAdapter = longAdapter(longSerializationPolicy);
-        arrayList.add(TypeAdapters.newFactory(Long.TYPE, Long.class, longAdapter));
-        arrayList.add(TypeAdapters.newFactory(Double.TYPE, Double.class, doubleAdapter(z7)));
-        arrayList.add(TypeAdapters.newFactory(Float.TYPE, Float.class, floatAdapter(z7)));
-        arrayList.add(TypeAdapters.NUMBER_FACTORY);
-        arrayList.add(TypeAdapters.ATOMIC_INTEGER_FACTORY);
-        arrayList.add(TypeAdapters.ATOMIC_BOOLEAN_FACTORY);
-        arrayList.add(TypeAdapters.newFactory(AtomicLong.class, atomicLongAdapter(longAdapter)));
-        arrayList.add(TypeAdapters.newFactory(AtomicLongArray.class, atomicLongArrayAdapter(longAdapter)));
-        arrayList.add(TypeAdapters.ATOMIC_INTEGER_ARRAY_FACTORY);
-        arrayList.add(TypeAdapters.CHARACTER_FACTORY);
-        arrayList.add(TypeAdapters.STRING_BUILDER_FACTORY);
-        arrayList.add(TypeAdapters.STRING_BUFFER_FACTORY);
-        arrayList.add(TypeAdapters.newFactory(BigDecimal.class, TypeAdapters.BIG_DECIMAL));
-        arrayList.add(TypeAdapters.newFactory(BigInteger.class, TypeAdapters.BIG_INTEGER));
-        arrayList.add(TypeAdapters.URL_FACTORY);
-        arrayList.add(TypeAdapters.URI_FACTORY);
-        arrayList.add(TypeAdapters.UUID_FACTORY);
-        arrayList.add(TypeAdapters.CURRENCY_FACTORY);
-        arrayList.add(TypeAdapters.LOCALE_FACTORY);
-        arrayList.add(TypeAdapters.INET_ADDRESS_FACTORY);
-        arrayList.add(TypeAdapters.BIT_SET_FACTORY);
-        arrayList.add(DateTypeAdapter.FACTORY);
-        arrayList.add(TypeAdapters.CALENDAR_FACTORY);
-        arrayList.add(TimeTypeAdapter.FACTORY);
-        arrayList.add(SqlDateTypeAdapter.FACTORY);
-        arrayList.add(TypeAdapters.TIMESTAMP_FACTORY);
-        arrayList.add(ArrayTypeAdapter.FACTORY);
-        arrayList.add(TypeAdapters.CLASS_FACTORY);
-        arrayList.add(new CollectionTypeAdapterFactory(this.constructorConstructor));
-        arrayList.add(new MapTypeAdapterFactory(this.constructorConstructor, z2));
-        JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory = new JsonAdapterAnnotationTypeAdapterFactory(this.constructorConstructor);
-        this.jsonAdapterFactory = jsonAdapterAnnotationTypeAdapterFactory;
-        arrayList.add(jsonAdapterAnnotationTypeAdapterFactory);
-        arrayList.add(TypeAdapters.ENUM_FACTORY);
-        arrayList.add(new ReflectiveTypeAdapterFactory(this.constructorConstructor, fieldNamingStrategy, excluder, this.jsonAdapterFactory));
-        this.factories = Collections.unmodifiableList(arrayList);
-    }
-
-    public void toJson(Object obj, Appendable appendable) throws JsonIOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, obj, appendable) == null) {
-            if (obj != null) {
-                toJson(obj, obj.getClass(), appendable);
-            } else {
-                toJson((JsonElement) JsonNull.INSTANCE, appendable);
-            }
-        }
-    }
-
-    public void toJson(Object obj, Type type, Appendable appendable) throws JsonIOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048600, this, obj, type, appendable) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048597, this, jsonElement, appendable) == null) {
             try {
-                toJson(obj, type, newJsonWriter(Streams.writerForAppendable(appendable)));
+                toJson(jsonElement, newJsonWriter(Streams.writerForAppendable(appendable)));
             } catch (IOException e) {
                 throw new JsonIOException(e);
-            }
-        }
-    }
-
-    public <T> T fromJson(Reader reader, Type type) throws JsonIOException, JsonSyntaxException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, reader, type)) == null) {
-            JsonReader newJsonReader = newJsonReader(reader);
-            T t = (T) fromJson(newJsonReader, type);
-            assertFullConsumption(t, newJsonReader);
-            return t;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public void toJson(Object obj, Type type, JsonWriter jsonWriter) throws JsonIOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048599, this, obj, type, jsonWriter) == null) {
-            TypeAdapter adapter = getAdapter(TypeToken.get(type));
-            boolean isLenient = jsonWriter.isLenient();
-            jsonWriter.setLenient(true);
-            boolean isHtmlSafe = jsonWriter.isHtmlSafe();
-            jsonWriter.setHtmlSafe(this.htmlSafe);
-            boolean serializeNulls = jsonWriter.getSerializeNulls();
-            jsonWriter.setSerializeNulls(this.serializeNulls);
-            try {
-                try {
-                    try {
-                        adapter.write(jsonWriter, obj);
-                    } catch (IOException e) {
-                        throw new JsonIOException(e);
-                    }
-                } catch (AssertionError e2) {
-                    throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
-                }
-            } finally {
-                jsonWriter.setLenient(isLenient);
-                jsonWriter.setHtmlSafe(isHtmlSafe);
-                jsonWriter.setSerializeNulls(serializeNulls);
             }
         }
     }
@@ -896,52 +791,6 @@ public final class Gson {
         return (T) invokeLL.objValue;
     }
 
-    public <T> TypeAdapter<T> getAdapter(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) ? getAdapter(TypeToken.get((Class) cls)) : (TypeAdapter) invokeL.objValue;
-    }
-
-    public <T> T fromJson(JsonElement jsonElement, Class<T> cls) throws JsonSyntaxException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jsonElement, cls)) == null) ? (T) Primitives.wrap(cls).cast(fromJson(jsonElement, (Type) cls)) : (T) invokeLL.objValue;
-    }
-
-    public <T> T fromJson(JsonElement jsonElement, Type type) throws JsonSyntaxException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jsonElement, type)) == null) {
-            if (jsonElement == null) {
-                return null;
-            }
-            return (T) fromJson(new JsonTreeReader(jsonElement), type);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public String toJson(JsonElement jsonElement) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, jsonElement)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            toJson(jsonElement, (Appendable) stringWriter);
-            return stringWriter.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void toJson(JsonElement jsonElement, Appendable appendable) throws JsonIOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, jsonElement, appendable) == null) {
-            try {
-                toJson(jsonElement, newJsonWriter(Streams.writerForAppendable(appendable)));
-            } catch (IOException e) {
-                throw new JsonIOException(e);
-            }
-        }
-    }
-
     public void toJson(JsonElement jsonElement, JsonWriter jsonWriter) throws JsonIOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, jsonElement, jsonWriter) == null) {
@@ -965,5 +814,196 @@ public final class Gson {
                 jsonWriter.setSerializeNulls(serializeNulls);
             }
         }
+    }
+
+    public <T> T fromJson(Reader reader, Class<T> cls) throws JsonSyntaxException, JsonIOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, reader, cls)) == null) {
+            JsonReader newJsonReader = newJsonReader(reader);
+            Object fromJson = fromJson(newJsonReader, cls);
+            assertFullConsumption(fromJson, newJsonReader);
+            return (T) Primitives.wrap(cls).cast(fromJson);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public void toJson(Object obj, Appendable appendable) throws JsonIOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, obj, appendable) == null) {
+            if (obj != null) {
+                toJson(obj, obj.getClass(), appendable);
+            } else {
+                toJson((JsonElement) JsonNull.INSTANCE, appendable);
+            }
+        }
+    }
+
+    public <T> T fromJson(Reader reader, Type type) throws JsonIOException, JsonSyntaxException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, reader, type)) == null) {
+            JsonReader newJsonReader = newJsonReader(reader);
+            T t = (T) fromJson(newJsonReader, type);
+            assertFullConsumption(t, newJsonReader);
+            return t;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public <T> T fromJson(String str, Class<T> cls) throws JsonSyntaxException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, cls)) == null) {
+            return (T) Primitives.wrap(cls).cast(fromJson(str, (Type) cls));
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public <T> T fromJson(String str, Type type) throws JsonSyntaxException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, type)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return (T) fromJson(new StringReader(str), type);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.util.Map<com.google.gson.reflect.TypeToken<?>, com.google.gson.TypeAdapter<?>> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T> TypeAdapter<T> getAdapter(TypeToken<T> typeToken) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, typeToken)) == null) {
+            Map<TypeToken<?>, TypeAdapter<?>> map = this.typeTokenCache;
+            if (typeToken == null) {
+                obj = NULL_KEY_SURROGATE;
+            } else {
+                obj = typeToken;
+            }
+            TypeAdapter<T> typeAdapter = (TypeAdapter<T>) map.get(obj);
+            if (typeAdapter != null) {
+                return typeAdapter;
+            }
+            Map<TypeToken<?>, FutureTypeAdapter<?>> map2 = this.calls.get();
+            boolean z = false;
+            if (map2 == null) {
+                map2 = new HashMap<>();
+                this.calls.set(map2);
+                z = true;
+            }
+            FutureTypeAdapter<?> futureTypeAdapter = map2.get(typeToken);
+            if (futureTypeAdapter != null) {
+                return futureTypeAdapter;
+            }
+            try {
+                FutureTypeAdapter<?> futureTypeAdapter2 = new FutureTypeAdapter<>();
+                map2.put(typeToken, futureTypeAdapter2);
+                for (TypeAdapterFactory typeAdapterFactory : this.factories) {
+                    TypeAdapter create = typeAdapterFactory.create(this, typeToken);
+                    if (create != null) {
+                        futureTypeAdapter2.setDelegate(create);
+                        this.typeTokenCache.put(typeToken, create);
+                        return create;
+                    }
+                }
+                throw new IllegalArgumentException("GSON (2.8.5) cannot handle " + typeToken);
+            } finally {
+                map2.remove(typeToken);
+                if (z) {
+                    this.calls.remove();
+                }
+            }
+        }
+        return (TypeAdapter) invokeL.objValue;
+    }
+
+    public <T> TypeAdapter<T> getDelegateAdapter(TypeAdapterFactory typeAdapterFactory, TypeToken<T> typeToken) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, typeAdapterFactory, typeToken)) == null) {
+            if (!this.factories.contains(typeAdapterFactory)) {
+                typeAdapterFactory = this.jsonAdapterFactory;
+            }
+            boolean z = false;
+            for (TypeAdapterFactory typeAdapterFactory2 : this.factories) {
+                if (!z) {
+                    if (typeAdapterFactory2 == typeAdapterFactory) {
+                        z = true;
+                    }
+                } else {
+                    TypeAdapter<T> create = typeAdapterFactory2.create(this, typeToken);
+                    if (create != null) {
+                        return create;
+                    }
+                }
+            }
+            throw new IllegalArgumentException("GSON cannot serialize " + typeToken);
+        }
+        return (TypeAdapter) invokeLL.objValue;
+    }
+
+    public String toJson(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
+            if (obj == null) {
+                return toJson((JsonElement) JsonNull.INSTANCE);
+            }
+            return toJson(obj, obj.getClass());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void toJson(Object obj, Type type, JsonWriter jsonWriter) throws JsonIOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048599, this, obj, type, jsonWriter) == null) {
+            TypeAdapter adapter = getAdapter(TypeToken.get(type));
+            boolean isLenient = jsonWriter.isLenient();
+            jsonWriter.setLenient(true);
+            boolean isHtmlSafe = jsonWriter.isHtmlSafe();
+            jsonWriter.setHtmlSafe(this.htmlSafe);
+            boolean serializeNulls = jsonWriter.getSerializeNulls();
+            jsonWriter.setSerializeNulls(this.serializeNulls);
+            try {
+                try {
+                    try {
+                        adapter.write(jsonWriter, obj);
+                    } catch (IOException e) {
+                        throw new JsonIOException(e);
+                    }
+                } catch (AssertionError e2) {
+                    throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
+                }
+            } finally {
+                jsonWriter.setLenient(isLenient);
+                jsonWriter.setHtmlSafe(isHtmlSafe);
+                jsonWriter.setSerializeNulls(serializeNulls);
+            }
+        }
+    }
+
+    public void toJson(Object obj, Type type, Appendable appendable) throws JsonIOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048600, this, obj, type, appendable) == null) {
+            try {
+                toJson(obj, type, newJsonWriter(Streams.writerForAppendable(appendable)));
+            } catch (IOException e) {
+                throw new JsonIOException(e);
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return "{serializeNulls:" + this.serializeNulls + ",factories:" + this.factories + ",instanceCreators:" + this.constructorConstructor + "}";
+        }
+        return (String) invokeV.objValue;
     }
 }

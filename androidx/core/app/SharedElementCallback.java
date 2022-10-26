@@ -35,6 +35,30 @@ public abstract class SharedElementCallback {
         void onSharedElementsReady();
     }
 
+    public void onMapSharedElements(List<String> list, Map<String, View> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
+        }
+    }
+
+    public void onRejectSharedElements(List<View> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+        }
+    }
+
+    public void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, list3) == null) {
+        }
+    }
+
+    public void onSharedElementStart(List<String> list, List<View> list2, List<View> list3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, list, list2, list3) == null) {
+        }
+    }
+
     public SharedElementCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,26 +79,26 @@ public abstract class SharedElementCallback {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
             int intrinsicWidth = drawable.getIntrinsicWidth();
             int intrinsicHeight = drawable.getIntrinsicHeight();
-            if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
-                return null;
+            if (intrinsicWidth > 0 && intrinsicHeight > 0) {
+                float min = Math.min(1.0f, 1048576.0f / (intrinsicWidth * intrinsicHeight));
+                if ((drawable instanceof BitmapDrawable) && min == 1.0f) {
+                    return ((BitmapDrawable) drawable).getBitmap();
+                }
+                int i = (int) (intrinsicWidth * min);
+                int i2 = (int) (intrinsicHeight * min);
+                Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(createBitmap);
+                Rect bounds = drawable.getBounds();
+                int i3 = bounds.left;
+                int i4 = bounds.top;
+                int i5 = bounds.right;
+                int i6 = bounds.bottom;
+                drawable.setBounds(0, 0, i, i2);
+                drawable.draw(canvas);
+                drawable.setBounds(i3, i4, i5, i6);
+                return createBitmap;
             }
-            float min = Math.min(1.0f, 1048576.0f / (intrinsicWidth * intrinsicHeight));
-            if ((drawable instanceof BitmapDrawable) && min == 1.0f) {
-                return ((BitmapDrawable) drawable).getBitmap();
-            }
-            int i = (int) (intrinsicWidth * min);
-            int i2 = (int) (intrinsicHeight * min);
-            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(createBitmap);
-            Rect bounds = drawable.getBounds();
-            int i3 = bounds.left;
-            int i4 = bounds.top;
-            int i5 = bounds.right;
-            int i6 = bounds.bottom;
-            drawable.setBounds(0, 0, i, i2);
-            drawable.draw(canvas);
-            drawable.setBounds(i3, i4, i5, i6);
-            return createBitmap;
+            return null;
         }
         return (Bitmap) invokeL.objValue;
     }
@@ -144,39 +168,15 @@ public abstract class SharedElementCallback {
                     return imageView;
                 }
                 return imageView;
-            } else if (parcelable instanceof Bitmap) {
+            } else if (!(parcelable instanceof Bitmap)) {
+                return null;
+            } else {
                 ImageView imageView2 = new ImageView(context);
                 imageView2.setImageBitmap((Bitmap) parcelable);
                 return imageView2;
-            } else {
-                return null;
             }
         }
         return (View) invokeLL.objValue;
-    }
-
-    public void onMapSharedElements(List<String> list, Map<String, View> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
-        }
-    }
-
-    public void onRejectSharedElements(List<View> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-        }
-    }
-
-    public void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, list3) == null) {
-        }
-    }
-
-    public void onSharedElementStart(List<String> list, List<View> list2, List<View> list3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, list, list2, list3) == null) {
-        }
     }
 
     public void onSharedElementsArrived(List<String> list, List<View> list2, OnSharedElementsReadyListener onSharedElementsReadyListener) {

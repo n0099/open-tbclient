@@ -3,7 +3,6 @@ package com.baidu.sapi2.views.logindialog.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,15 +35,8 @@ public class LoginComfirmButton extends TextView {
         }
     }
 
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c9));
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginComfirmButton(Context context, @Nullable AttributeSet attributeSet) {
+    public LoginComfirmButton(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +57,7 @@ public class LoginComfirmButton extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoginComfirmButton(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public LoginComfirmButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,5 +77,12 @@ public class LoginComfirmButton extends TextView {
         }
         this.a = context;
         a();
+    }
+
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810da));
+        }
     }
 }

@@ -1,25 +1,45 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.tbadk.editortools.BLauncher;
-import com.baidu.tbadk.editortools.DLauncher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n55 {
+public abstract class n55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static o55 a(Context context, s55 s55Var, int i) {
-        InterceptResult invokeLLI;
+    public abstract p55 b(Context context);
+
+    public abstract void c(p55 p55Var);
+
+    public abstract void d(p55 p55Var);
+
+    public n55() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, s55Var, i)) == null) {
-            if (i != 1) {
-                return new DLauncher(context, s55Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return new BLauncher(context, s55Var);
         }
-        return (o55) invokeLLI.objValue;
+    }
+
+    public p55 a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            p55 b = b(context);
+            d(b);
+            c(b);
+            return b;
+        }
+        return (p55) invokeL.objValue;
     }
 }

@@ -15,6 +15,9 @@ public abstract class SubtitleOutputBuffer extends OutputBuffer implements Subti
     public long subsampleOffsetUs;
     public Subtitle subtitle;
 
+    @Override // com.google.android.exoplayer2.decoder.OutputBuffer
+    public abstract void release();
+
     public SubtitleOutputBuffer() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,35 +42,44 @@ public abstract class SubtitleOutputBuffer extends OutputBuffer implements Subti
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List<Cue> getCues(long j) {
+    public int getEventTimeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.subtitle.getEventTimeCount();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.text.Subtitle
+    public List getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.subtitle.getCues(j - this.subsampleOffsetUs) : (List) invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return this.subtitle.getCues(j - this.subsampleOffsetUs);
+        }
+        return (List) invokeJ.objValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
     public long getEventTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.subtitle.getEventTime(i) + this.subsampleOffsetUs : invokeI.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.text.Subtitle
-    public int getEventTimeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.subtitle.getEventTimeCount() : invokeV.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.subtitle.getEventTime(i) + this.subsampleOffsetUs;
+        }
+        return invokeI.longValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
     public int getNextEventTimeIndex(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? this.subtitle.getNextEventTimeIndex(j - this.subsampleOffsetUs) : invokeJ.intValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            return this.subtitle.getNextEventTimeIndex(j - this.subsampleOffsetUs);
+        }
+        return invokeJ.intValue;
     }
-
-    @Override // com.google.android.exoplayer2.decoder.OutputBuffer
-    public abstract void release();
 
     public void setContent(long j, Subtitle subtitle, long j2) {
         Interceptable interceptable = $ic;

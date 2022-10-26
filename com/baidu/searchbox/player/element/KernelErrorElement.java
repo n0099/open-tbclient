@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
@@ -22,6 +21,23 @@ public class KernelErrorElement extends AbsElement {
     public LinearLayout mRootView;
     public TextView mTextNetError;
 
+    @Override // com.baidu.searchbox.player.element.AbsElement
+    public boolean attachToRootAtOnce() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
+    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, playerStatus, playerStatus2) == null) {
+        }
+    }
+
     public KernelErrorElement() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,6 +49,28 @@ public class KernelErrorElement extends AbsElement {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.element.IElement
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRootView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.player.element.AbsElement
+    public void initElement() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0153, null);
+            this.mRootView = linearLayout;
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0919ee);
+            this.mTextNetError = textView;
+            textView.setOnClickListener(this.mParent);
         }
     }
 
@@ -56,38 +94,8 @@ public class KernelErrorElement extends AbsElement {
         }
     }
 
-    @Override // com.baidu.searchbox.player.element.AbsElement
-    public boolean attachToRootAtOnce() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.player.element.IElement
-    @NonNull
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRootView : (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.player.element.AbsElement
-    public void initElement() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0153, null);
-            this.mRootView = linearLayout;
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0919f2);
-            this.mTextNetError = textView;
-            textView.setOnClickListener(this.mParent);
-        }
-    }
-
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
-    public void onEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onEventNotify(VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
@@ -104,19 +112,14 @@ public class KernelErrorElement extends AbsElement {
                 }
                 c = 65535;
             }
-            if (c == 0) {
-                onSwitchFullStyle();
-            } else if (c != 1) {
-            } else {
-                onSwitchHalfStyle();
+            if (c != 0) {
+                if (c == 1) {
+                    onSwitchHalfStyle();
+                    return;
+                }
+                return;
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
-    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, playerStatus, playerStatus2) == null) {
+            onSwitchFullStyle();
         }
     }
 }

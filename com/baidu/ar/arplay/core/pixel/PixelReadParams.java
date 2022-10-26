@@ -33,7 +33,7 @@ public class PixelReadParams {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class FrameType {
+    public final class FrameType {
         public static final /* synthetic */ FrameType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FrameType SINGLE_FRAME;
@@ -114,7 +114,7 @@ public class PixelReadParams {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class ScaleType {
+    public final class ScaleType {
         public static final /* synthetic */ ScaleType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType CENTER_CROP;

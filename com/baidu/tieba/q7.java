@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.SerializationException;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -34,8 +35,8 @@ public class q7 implements d7 {
     public static final byte[] m;
     public static final byte[] n;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b7<JsonValue> a;
-    public final b7<JsonValue> b;
+    public final b7 a;
+    public final b7 b;
     public JsonValue c;
     public JsonValue d;
 
@@ -64,6 +65,42 @@ public class q7 implements d7 {
         n = e();
     }
 
+    public static short[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new short[]{0, 0, 11, 14, 16, 19, 28, 34, 40, 43, 54, 62, 70, 79, 81, 90, 93, 96, 105, 108, 111, 113, 116, 119, 130, 138, 146, 157, 159, 170, 173, 176, 187, 190, 193, 196, 201, 206, 207};
+        }
+        return (short[]) invokeV.objValue;
+    }
+
+    public static short[] h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new short[]{0, 0, 11, 13, 14, 16, 25, 31, 37, 39, 50, 57, 64, 73, 74, 83, 85, 87, 96, 98, 100, 101, 103, 105, 116, 123, 130, 141, 142, 153, 155, 157, 168, 170, 172, 174, 179, 184, 184};
+        }
+        return (short[]) invokeV.objValue;
+    }
+
+    public static byte[] k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new byte[]{StrictLineReader.CR, 0, 15, 0, 0, 7, 3, Constants.GZIP_CAST_TYPE, 1, Constants.GZIP_CAST_TYPE, 17, 0, 20, 0, 0, 5, 1, 1, 1, 0, 0, 0, Constants.GZIP_CAST_TYPE, StrictLineReader.CR, 15, 0, 7, 3, 1, 1, 1, 1, 23, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, StrictLineReader.CR, 0, 15, 0, 0, 7, 9, 3, 1, 1, 1, 1, 26, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 1, 0, 0};
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public static byte[] m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return new byte[]{Base64.INTERNAL_PADDING, 1, 3, 0, 4, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 1, 6, 5, StrictLineReader.CR, 17, 22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 7, 8, 9, 7, 8, 9, 7, 10, 20, 21, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, 17, 19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Constants.GZIP_CAST_TYPE, 12, 19, 14, 16, 15, 14, 12, 18, 17, Constants.GZIP_CAST_TYPE, 9, 5, 24, 23, 27, 31, 34, 25, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 25, 26, 31, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 26, 33, 28, 30, 29, 28, 26, 32, 31, 25, 23, 2, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 2};
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     public q7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,68 +114,80 @@ public class q7 implements d7 {
                 return;
             }
         }
-        this.a = new b7<>(8);
-        this.b = new b7<>(8);
-    }
-
-    public static byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{0, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 2, 0, 7, 2, 0, 8, 2, 1, 3, 2, 1, 5} : (byte[]) invokeV.objValue;
+        this.a = new b7(8);
+        this.b = new b7(8);
     }
 
     public static byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0} : (byte[]) invokeV.objValue;
-    }
-
-    public static short[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new short[]{0, 0, 11, 14, 16, 19, 28, 34, 40, 43, 54, 62, 70, 79, 81, 90, 93, 96, 105, 108, 111, 113, 116, 119, 130, 138, 146, 157, 159, 170, 173, 176, 187, 190, 193, 196, 201, 206, 207} : (short[]) invokeV.objValue;
-    }
-
-    public static byte[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{1, 1, 2, 3, 4, 3, 5, 3, 6, 1, 0, 7, 7, 3, 8, 3, 9, 9, 3, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 3, 15, Constants.GZIP_CAST_TYPE, 10, 16, 16, 17, 18, 16, 3, 19, 19, 20, 21, 19, 3, 22, 22, 3, 21, 21, 24, 3, 25, 3, 26, 3, 27, 21, 23, 28, 29, 29, 28, 30, 31, 32, 3, 33, 34, 34, 33, StrictLineReader.CR, Base64.INTERNAL_PADDING, 15, 3, 34, 34, 12, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 3, 15, 34, 10, 16, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 12, 3, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 3, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 10, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 3, 40, 40, 3, StrictLineReader.CR, StrictLineReader.CR, 12, 3, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 3, 15, StrictLineReader.CR, 10, 42, 42, 3, 43, 43, 3, 28, 3, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 3, 45, 45, 3, Cea608Decoder.CTRL_END_OF_CAPTION, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 3, 51, 52, 53, Cea608Decoder.CTRL_END_OF_CAPTION, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 55, 55, 54, 56, 57, 58, 3, 59, 60, 60, 59, 49, BaseNCodec.PAD_DEFAULT, 52, 3, 60, 60, 48, 62, 63, 3, 51, 52, 53, 60, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 3, 62, 62, 48, 3, 64, 3, 51, 3, 53, 62, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 65, 65, 3, 66, 66, 3, 49, 49, 48, 3, 67, 3, 51, 52, 53, 49, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 68, 68, 3, 69, 69, 3, 70, 70, 3, 8, 8, 71, 8, 3, 72, 72, 73, 72, 3, 3, 3, 0} : (byte[]) invokeV.objValue;
-    }
-
-    public static short[] h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new short[]{0, 0, 11, 13, 14, 16, 25, 31, 37, 39, 50, 57, 64, 73, 74, 83, 85, 87, 96, 98, 100, 101, 103, 105, 116, 123, 130, 141, 142, 153, 155, 157, 168, 170, 172, 174, 179, 184, 184} : (short[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0};
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public static byte[] i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new byte[]{0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new byte[]{0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0};
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public static byte[] j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new byte[]{0, 9, 2, 1, 2, 7, 4, 4, 2, 9, 7, 7, 7, 1, 7, 2, 2, 7, 2, 2, 1, 2, 2, 9, 7, 7, 9, 1, 9, 2, 2, 9, 2, 2, 2, 3, 3, 0, 0} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new byte[]{0, 9, 2, 1, 2, 7, 4, 4, 2, 9, 7, 7, 7, 1, 7, 2, 2, 7, 2, 2, 1, 2, 2, 9, 7, 7, 9, 1, 9, 2, 2, 9, 2, 2, 2, 3, 3, 0, 0};
+        }
+        return (byte[]) invokeV.objValue;
     }
 
-    public static byte[] k() {
+    public void r() {
+        JsonValue jsonValue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = (JsonValue) this.a.pop();
+            if (this.d.j > 0) {
+                this.b.pop();
+            }
+            b7 b7Var = this.a;
+            if (b7Var.b > 0) {
+                jsonValue = (JsonValue) b7Var.peek();
+            } else {
+                jsonValue = null;
+            }
+            this.d = jsonValue;
+        }
+    }
+
+    public static byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new byte[]{StrictLineReader.CR, 0, 15, 0, 0, 7, 3, Constants.GZIP_CAST_TYPE, 1, Constants.GZIP_CAST_TYPE, 17, 0, 20, 0, 0, 5, 1, 1, 1, 0, 0, 0, Constants.GZIP_CAST_TYPE, StrictLineReader.CR, 15, 0, 7, 3, 1, 1, 1, 1, 23, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, StrictLineReader.CR, 0, 15, 0, 0, 7, 9, 3, 1, 1, 1, 1, 26, 0, 0, 0, 0, 0, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 0, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 1, 0, 0} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new byte[]{0, 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 2, 0, 7, 2, 0, 8, 2, 1, 3, 2, 1, 5};
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public static byte[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return new byte[]{1, 1, 2, 3, 4, 3, 5, 3, 6, 1, 0, 7, 7, 3, 8, 3, 9, 9, 3, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 3, 15, Constants.GZIP_CAST_TYPE, 10, 16, 16, 17, 18, 16, 3, 19, 19, 20, 21, 19, 3, 22, 22, 3, 21, 21, 24, 3, 25, 3, 26, 3, 27, 21, 23, 28, 29, 29, 28, 30, 31, 32, 3, 33, 34, 34, 33, StrictLineReader.CR, Base64.INTERNAL_PADDING, 15, 3, 34, 34, 12, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 3, 15, 34, 10, 16, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 12, 3, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 3, 3, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 10, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 3, 40, 40, 3, StrictLineReader.CR, StrictLineReader.CR, 12, 3, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 3, 15, StrictLineReader.CR, 10, ExifInterface.START_CODE, ExifInterface.START_CODE, 3, 43, 43, 3, 28, 3, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 3, 45, 45, 3, 47, 47, 48, 49, 50, 3, 51, 52, 53, 47, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 55, 55, 54, 56, 57, 58, 3, 59, 60, 60, 59, 49, BaseNCodec.PAD_DEFAULT, 52, 3, 60, 60, 48, 62, 63, 3, 51, 52, 53, 60, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 54, 3, 62, 62, 48, 3, 64, 3, 51, 3, 53, 62, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 65, 65, 3, 66, 66, 3, 49, 49, 48, 3, 67, 3, 51, 52, 53, 49, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 68, 68, 3, 69, 69, 3, 70, 70, 3, 8, 8, 71, 8, 3, 72, 72, 73, 72, 3, 3, 3, 0};
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public static char[] l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new char[]{'\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, Typography.quote, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, ':', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, ':', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, '}', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, '}', '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', Typography.quote, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, Typography.quote, '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ']', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ']', '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', Typography.quote, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, '\t', '\n', 0} : (char[]) invokeV.objValue;
-    }
-
-    public static byte[] m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new byte[]{Base64.INTERNAL_PADDING, 1, 3, 0, 4, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 1, 6, 5, StrictLineReader.CR, 17, 22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 7, 8, 9, 7, 8, 9, 7, 10, 20, 21, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, 12, 17, 19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Constants.GZIP_CAST_TYPE, 12, 19, 14, 16, 15, 14, 12, 18, 17, Constants.GZIP_CAST_TYPE, 9, 5, 24, 23, 27, 31, 34, 25, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 25, 26, 31, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 25, 26, 33, 28, 30, 29, 28, 26, 32, 31, 25, 23, 2, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 2} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return new char[]{'\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, Typography.quote, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, ':', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, ':', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, '}', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, '}', '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', Typography.quote, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '}', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, Typography.quote, '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ']', '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, ',', WebvttCueParser.CHAR_SLASH, ']', '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', Typography.quote, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, Typography.quote, ',', WebvttCueParser.CHAR_SLASH, ':', '[', ']', '{', '\t', '\n', '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '*', WebvttCueParser.CHAR_SLASH, '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, '\t', '\n', '\r', WebvttCueParser.CHAR_SPACE, WebvttCueParser.CHAR_SLASH, '\t', '\n', 0};
+        }
+        return (char[]) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.d7
@@ -159,6 +208,39 @@ public class q7 implements d7 {
         return (JsonValue) invokeL.objValue;
     }
 
+    public JsonValue p(Reader reader) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, reader)) == null) {
+            char[] cArr = new char[1024];
+            int i2 = 0;
+            while (true) {
+                try {
+                    try {
+                        int read = reader.read(cArr, i2, cArr.length - i2);
+                        if (read == -1) {
+                            j8.a(reader);
+                            return q(cArr, 0, i2);
+                        } else if (read == 0) {
+                            char[] cArr2 = new char[cArr.length * 2];
+                            System.arraycopy(cArr, 0, cArr2, 0, cArr.length);
+                            cArr = cArr2;
+                        } else {
+                            i2 += read;
+                        }
+                    } catch (IOException e2) {
+                        throw new SerializationException("Error reading input.", e2);
+                    }
+                } catch (Throwable th) {
+                    j8.a(reader);
+                    throw th;
+                }
+            }
+        } else {
+            return (JsonValue) invokeL.objValue;
+        }
+    }
+
     public final void b(String str, JsonValue jsonValue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jsonValue) == null) {
@@ -175,9 +257,9 @@ public class q7 implements d7 {
                 if (jsonValue3.j == 0) {
                     jsonValue3.f = jsonValue;
                 } else {
-                    JsonValue pop = this.b.pop();
-                    pop.h = jsonValue;
-                    jsonValue.i = pop;
+                    JsonValue jsonValue4 = (JsonValue) this.b.pop();
+                    jsonValue4.h = jsonValue;
+                    jsonValue.i = jsonValue4;
                 }
                 this.b.a(jsonValue);
                 this.d.j++;
@@ -192,6 +274,13 @@ public class q7 implements d7 {
         }
     }
 
+    public void u(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
+            b(str, new JsonValue(str2));
+        }
+    }
+
     public void n(String str, double d, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Double.valueOf(d), str2}) == null) {
@@ -203,38 +292,6 @@ public class q7 implements d7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
             b(str, new JsonValue(j2, str2));
-        }
-    }
-
-    public JsonValue p(Reader reader) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, reader)) != null) {
-            return (JsonValue) invokeL.objValue;
-        }
-        char[] cArr = new char[1024];
-        int i2 = 0;
-        while (true) {
-            try {
-                try {
-                    int read = reader.read(cArr, i2, cArr.length - i2);
-                    if (read == -1) {
-                        j8.a(reader);
-                        return q(cArr, 0, i2);
-                    } else if (read == 0) {
-                        char[] cArr2 = new char[cArr.length * 2];
-                        System.arraycopy(cArr, 0, cArr2, 0, cArr.length);
-                        cArr = cArr2;
-                    } else {
-                        i2 += read;
-                    }
-                } catch (IOException e2) {
-                    throw new SerializationException("Error reading input.", e2);
-                }
-            } catch (Throwable th) {
-                j8.a(reader);
-                throw th;
-            }
         }
     }
 
@@ -277,6 +334,7 @@ public class q7 implements d7 {
         byte[] bArr;
         RuntimeException runtimeException;
         String str2;
+        String str3;
         int i5;
         b7 b7Var;
         boolean z;
@@ -284,9 +342,12 @@ public class q7 implements d7 {
         short s;
         short s2;
         byte b;
+        String str4;
+        String str5;
         int i7;
         byte[] bArr2;
         byte b2;
+        String str6;
         int i8;
         boolean z2;
         int i9;
@@ -376,27 +437,31 @@ public class q7 implements d7 {
                                                         i11 = i7;
                                                         bArr3 = bArr2;
                                                     case 1:
-                                                        String str3 = new String(cArr, i12, i13 - i12);
+                                                        String str7 = new String(cArr, i12, i13 - i12);
                                                         if (z4) {
-                                                            str3 = v(str3);
+                                                            str7 = v(str7);
                                                         }
                                                         if (z5) {
-                                                            b7Var2.a(str3);
+                                                            b7Var2.a(str7);
                                                             i8 = i13;
                                                             i7 = i11;
                                                             bArr2 = bArr3;
                                                             b2 = b5;
                                                             z5 = false;
                                                         } else {
-                                                            String str4 = b7Var2.b > 0 ? (String) b7Var2.pop() : null;
+                                                            if (b7Var2.b > 0) {
+                                                                str6 = (String) b7Var2.pop();
+                                                            } else {
+                                                                str6 = null;
+                                                            }
                                                             if (z6) {
-                                                                if (str3.equals("true")) {
-                                                                    c(str4, true);
-                                                                } else if (str3.equals("false")) {
-                                                                    c(str4, false);
-                                                                } else if (str3.equals(StringUtil.NULL_STRING)) {
+                                                                if (str7.equals("true")) {
+                                                                    c(str6, true);
+                                                                } else if (str7.equals("false")) {
+                                                                    c(str6, false);
+                                                                } else if (str7.equals(StringUtil.NULL_STRING)) {
                                                                     i7 = i11;
-                                                                    u(str4, null);
+                                                                    u(str6, null);
                                                                     i8 = i13;
                                                                     bArr2 = bArr3;
                                                                     b2 = b5;
@@ -450,14 +515,14 @@ public class q7 implements d7 {
                                                                         bArr2 = bArr3;
                                                                         b2 = b5;
                                                                         try {
-                                                                            n(str4, Double.parseDouble(str3), str3);
+                                                                            n(str6, Double.parseDouble(str7), str7);
                                                                         } catch (NumberFormatException unused) {
                                                                         }
                                                                     } else {
                                                                         bArr2 = bArr3;
                                                                         b2 = b5;
                                                                         if (z8) {
-                                                                            o(str4, Long.parseLong(str3), str3);
+                                                                            o(str6, Long.parseLong(str7), str7);
                                                                         }
                                                                     }
                                                                 }
@@ -471,7 +536,7 @@ public class q7 implements d7 {
                                                                 bArr2 = bArr3;
                                                                 b2 = b5;
                                                             }
-                                                            u(str4, str3);
+                                                            u(str6, str7);
                                                         }
                                                         i13 = i8;
                                                         i12 = i13;
@@ -483,7 +548,12 @@ public class q7 implements d7 {
                                                         bArr3 = bArr2;
                                                         break;
                                                     case 2:
-                                                        t(b7Var2.b > 0 ? (String) b7Var2.pop() : null);
+                                                        if (b7Var2.b > 0) {
+                                                            str4 = (String) b7Var2.pop();
+                                                        } else {
+                                                            str4 = null;
+                                                        }
+                                                        t(str4);
                                                         if (i11 == bArr3.length) {
                                                             ?? r0 = new int[bArr3.length * 2];
                                                             System.arraycopy(bArr3, 0, r0, 0, bArr3.length);
@@ -501,7 +571,12 @@ public class q7 implements d7 {
                                                         b3 = bArr3[i11];
                                                         break;
                                                     case 4:
-                                                        s(b7Var2.b > 0 ? (String) b7Var2.pop() : null);
+                                                        if (b7Var2.b > 0) {
+                                                            str5 = (String) b7Var2.pop();
+                                                        } else {
+                                                            str5 = null;
+                                                        }
+                                                        s(str5);
                                                         if (i11 == bArr3.length) {
                                                             ?? r02 = new int[bArr3.length * 2];
                                                             System.arraycopy(bArr3, 0, r02, 0, bArr3.length);
@@ -565,7 +640,17 @@ public class q7 implements d7 {
                                                                     char c4 = cArr[i10];
                                                                     z3 = z4;
                                                                     if (c4 != '\n' && c4 != '\r') {
-                                                                        if (c4 == '/') {
+                                                                        if (c4 != '/') {
+                                                                            if (c4 != ':') {
+                                                                                if (c4 == '\\') {
+                                                                                    z4 = true;
+                                                                                    i10++;
+                                                                                } else {
+                                                                                    z4 = z3;
+                                                                                    i10++;
+                                                                                }
+                                                                            }
+                                                                        } else {
                                                                             int i27 = i10 + 1;
                                                                             if (i27 != i3) {
                                                                                 char c5 = cArr[i27];
@@ -576,14 +661,6 @@ public class q7 implements d7 {
                                                                             }
                                                                             z4 = z3;
                                                                             i10++;
-                                                                        } else if (c4 != ':') {
-                                                                            if (c4 != '\\') {
-                                                                                z4 = z3;
-                                                                                i10++;
-                                                                            } else {
-                                                                                z4 = true;
-                                                                                i10++;
-                                                                            }
                                                                         }
                                                                         b5 = b2;
                                                                         b7 = r18;
@@ -619,7 +696,21 @@ public class q7 implements d7 {
                                                                     char c6 = cArr[i28];
                                                                     z3 = z10;
                                                                     if (c6 != '\n' && c6 != c3 && c6 != ',') {
-                                                                        if (c6 == '/') {
+                                                                        if (c6 != '/') {
+                                                                            if (c6 != '}') {
+                                                                                if (c6 != '\\') {
+                                                                                    if (c6 != ']') {
+                                                                                    }
+                                                                                } else {
+                                                                                    z3 = true;
+                                                                                }
+                                                                                i28++;
+                                                                                if (i28 == i3) {
+                                                                                    z10 = z3;
+                                                                                    c3 = '\r';
+                                                                                }
+                                                                            }
+                                                                        } else {
                                                                             int i29 = i28 + 1;
                                                                             if (i29 != i3) {
                                                                                 char c7 = cArr[i29];
@@ -630,16 +721,6 @@ public class q7 implements d7 {
                                                                             }
                                                                             i28++;
                                                                             if (i28 == i3) {
-                                                                            }
-                                                                        } else if (c6 != '}') {
-                                                                            if (c6 == '\\') {
-                                                                                z3 = true;
-                                                                            } else if (c6 != ']') {
-                                                                            }
-                                                                            i28++;
-                                                                            if (i28 == i3) {
-                                                                                z10 = z3;
-                                                                                c3 = '\r';
                                                                             }
                                                                         }
                                                                     }
@@ -799,30 +880,34 @@ public class q7 implements d7 {
                                 i5 = i13;
                                 b7Var = b7Var2;
                                 boolean z12 = z6;
-                                str2 = str;
+                                str3 = str;
                                 z = z12;
                             } else {
-                                String str5 = new String(cArr, i12, i13 - i12);
+                                String str8 = new String(cArr, i12, i13 - i12);
                                 if (z4) {
-                                    str5 = v(str5);
+                                    str8 = v(str8);
                                 }
                                 if (z5) {
-                                    b7Var2.a(str5);
-                                    str2 = str;
+                                    b7Var2.a(str8);
+                                    str3 = str;
                                     i5 = i13;
                                     b7Var = b7Var2;
                                     z5 = false;
                                 } else {
-                                    String str6 = b7Var2.b > 0 ? (String) b7Var2.pop() : null;
+                                    if (b7Var2.b > 0) {
+                                        str2 = (String) b7Var2.pop();
+                                    } else {
+                                        str2 = null;
+                                    }
                                     if (z6) {
-                                        if (str5.equals("true")) {
-                                            c(str6, true);
-                                        } else if (str5.equals(str)) {
-                                            c(str6, false);
-                                        } else if (str5.equals(StringUtil.NULL_STRING)) {
-                                            u(str6, null);
+                                        if (str8.equals("true")) {
+                                            c(str2, true);
+                                        } else if (str8.equals(str)) {
+                                            c(str2, false);
+                                        } else if (str8.equals(StringUtil.NULL_STRING)) {
+                                            u(str2, null);
                                         } else {
-                                            str2 = str;
+                                            str3 = str;
                                             int i38 = i12;
                                             boolean z13 = false;
                                             boolean z14 = true;
@@ -878,22 +963,22 @@ public class q7 implements d7 {
                                             }
                                             if (z13) {
                                                 try {
-                                                    n(str6, Double.parseDouble(str5), str5);
+                                                    n(str2, Double.parseDouble(str8), str8);
                                                 } catch (NumberFormatException unused2) {
                                                 }
                                             } else if (z14) {
-                                                o(str6, Long.parseLong(str5), str5);
+                                                o(str2, Long.parseLong(str8), str8);
                                             }
                                         }
-                                        str2 = str;
+                                        str3 = str;
                                         i5 = i13;
                                         b7Var = b7Var2;
                                     } else {
-                                        str2 = str;
+                                        str3 = str;
                                         i5 = i13;
                                         b7Var = b7Var2;
                                     }
-                                    u(str6, str5);
+                                    u(str2, str8);
                                 }
                                 i12 = i5;
                                 z = false;
@@ -902,9 +987,9 @@ public class q7 implements d7 {
                             i36 = i37;
                             i13 = i5;
                             b7Var2 = b7Var;
-                            String str7 = str2;
+                            String str9 = str3;
                             z6 = z;
-                            str = str7;
+                            str = str9;
                         }
                     }
                 } catch (RuntimeException e9) {
@@ -934,34 +1019,21 @@ public class q7 implements d7 {
                 int max = Math.max(0, i13 - 32);
                 throw new SerializationException("Error parsing JSON on line " + i39 + " near: " + new String(cArr, max, i13 - max) + "*ERROR*" + new String(cArr, i13, Math.min(64, i3 - i13)), runtimeException);
             }
-            b7<JsonValue> b7Var3 = this.a;
-            if (b7Var3.b == 0) {
-                if (runtimeException == null) {
-                    return jsonValue22;
-                } else {
-                    throw new SerializationException("Error parsing JSON: " + new String(cArr), runtimeException);
+            b7 b7Var3 = this.a;
+            if (b7Var3.b != 0) {
+                JsonValue jsonValue3 = (JsonValue) b7Var3.peek();
+                this.a.clear();
+                if (jsonValue3 != null && jsonValue3.C()) {
+                    throw new SerializationException("Error parsing JSON, unmatched brace.");
                 }
+                throw new SerializationException("Error parsing JSON, unmatched bracket.");
+            } else if (runtimeException == null) {
+                return jsonValue22;
+            } else {
+                throw new SerializationException("Error parsing JSON: " + new String(cArr), runtimeException);
             }
-            JsonValue peek = b7Var3.peek();
-            this.a.clear();
-            if (peek != null && peek.C()) {
-                throw new SerializationException("Error parsing JSON, unmatched brace.");
-            }
-            throw new SerializationException("Error parsing JSON, unmatched bracket.");
         }
         return (JsonValue) invokeLII.objValue;
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = this.a.pop();
-            if (this.d.j > 0) {
-                this.b.pop();
-            }
-            b7<JsonValue> b7Var = this.a;
-            this.d = b7Var.b > 0 ? b7Var.peek() : null;
-        }
     }
 
     public void s(String str) {
@@ -988,13 +1060,6 @@ public class q7 implements d7 {
         }
     }
 
-    public void u(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            b(str, new JsonValue(str2));
-        }
-    }
-
     public final String v(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1017,18 +1082,26 @@ public class q7 implements d7 {
                         k8Var.p(Character.toChars(Integer.parseInt(str.substring(i2, i3), 16)));
                     } else {
                         if (charAt2 != '\"' && charAt2 != '/' && charAt2 != '\\') {
-                            if (charAt2 == 'b') {
-                                charAt2 = '\b';
-                            } else if (charAt2 == 'f') {
-                                charAt2 = '\f';
-                            } else if (charAt2 == 'n') {
-                                charAt2 = '\n';
-                            } else if (charAt2 == 'r') {
-                                charAt2 = '\r';
-                            } else if (charAt2 != 't') {
-                                throw new SerializationException("Illegal escaped character: \\" + charAt2);
+                            if (charAt2 != 'b') {
+                                if (charAt2 != 'f') {
+                                    if (charAt2 != 'n') {
+                                        if (charAt2 != 'r') {
+                                            if (charAt2 == 't') {
+                                                charAt2 = '\t';
+                                            } else {
+                                                throw new SerializationException("Illegal escaped character: \\" + charAt2);
+                                            }
+                                        } else {
+                                            charAt2 = '\r';
+                                        }
+                                    } else {
+                                        charAt2 = '\n';
+                                    }
+                                } else {
+                                    charAt2 = '\f';
+                                }
                             } else {
-                                charAt2 = '\t';
+                                charAt2 = '\b';
                             }
                         }
                         k8Var.a(charAt2);

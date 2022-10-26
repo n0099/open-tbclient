@@ -33,21 +33,6 @@ public class PullToRefreshAndPinnedHeaderListView extends PullToRefreshListView 
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshListView, com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    /* renamed from: R */
-    public PinnedHeaderListView j(Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
-            PinnedHeaderListView pinnedHeaderListView = new PinnedHeaderListView(context);
-            pinnedHeaderListView.setOnScrollListener(this);
-            setRefreshableView(pinnedHeaderListView);
-            return pinnedHeaderListView;
-        }
-        return (PinnedHeaderListView) invokeLL.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullToRefreshAndPinnedHeaderListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -67,5 +52,20 @@ public class PullToRefreshAndPinnedHeaderListView extends PullToRefreshListView 
                 return;
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshListView, com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
+    /* renamed from: R */
+    public PinnedHeaderListView j(Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
+            PinnedHeaderListView pinnedHeaderListView = new PinnedHeaderListView(context);
+            pinnedHeaderListView.setOnScrollListener(this);
+            setRefreshableView(pinnedHeaderListView);
+            return pinnedHeaderListView;
+        }
+        return (PinnedHeaderListView) invokeLL.objValue;
     }
 }

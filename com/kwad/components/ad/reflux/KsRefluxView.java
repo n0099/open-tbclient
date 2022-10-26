@@ -12,10 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -49,7 +45,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRefluxView(@NonNull Context context) {
+    public KsRefluxView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +67,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRefluxView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public KsRefluxView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -94,7 +90,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRefluxView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KsRefluxView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -117,8 +113,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @RequiresApi(api = 21)
-    public KsRefluxView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+    public KsRefluxView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -140,23 +135,22 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
         L(context);
     }
 
-    private void L(@NonNull Context context) {
+    private void L(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d044c, this);
-            this.kN = findViewById(R.id.obfuscated_res_0x7f091152);
-            this.kO = (ImageView) findViewById(R.id.obfuscated_res_0x7f091145);
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091153);
-            this.kM = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f09114e);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09114c);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0449, this);
+            this.kN = findViewById(R.id.obfuscated_res_0x7f091146);
+            this.kO = (ImageView) findViewById(R.id.obfuscated_res_0x7f091139);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091147);
+            this.kM = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f091142);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091140);
             this.kP = findViewById;
             findViewById.setOnClickListener(this);
             this.kO.setOnClickListener(this);
-            ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f09114d)).setContentViewListener(this);
+            ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f091141)).setContentViewListener(this);
         }
     }
 
-    @Nullable
     private Animator a(View view2, View view3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -255,7 +249,6 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
         return (Animator) invokeLL.objValue;
     }
 
-    @MainThread
     private void eG() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || eH() || this.kR) {

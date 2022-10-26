@@ -1,13 +1,11 @@
 package com.kwad.components.ad.splashscreen;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.SystemClock;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -33,7 +31,7 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes7.dex */
-public final class d extends com.kwad.components.core.g.c<h> implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
+public final class d extends com.kwad.components.core.g.c implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public KsScene fn;
@@ -49,7 +47,6 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
     public int xV;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"WrongConstant"})
     public d(Context context, int i) {
         super(context);
         Interceptable interceptable = $ic;
@@ -76,8 +73,8 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
             this.xV = i;
             ViewGroup jt = jt();
             this.iB = jt;
-            this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f0911fb);
-            DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f091204);
+            this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f0911ef);
+            DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f0911f8);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
             this.mDetailVideoView.setVisibility(8);
@@ -116,13 +113,13 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         }
     }
 
-    public static d a(Context context, @NonNull KsScene ksScene, @NonNull AdResultData adResultData) {
+    public static d a(Context context, KsScene ksScene, AdResultData adResultData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, ksScene, adResultData)) == null) {
             AdTemplate adTemplate = new AdTemplate();
             if (!adResultData.getAdTemplateList().isEmpty()) {
-                adTemplate = adResultData.getAdTemplateList().get(0);
+                adTemplate = (AdTemplate) adResultData.getAdTemplateList().get(0);
             }
             adTemplate.showStartTime = SystemClock.elapsedRealtime();
             com.kwad.components.splash.monitor.a.qG();
@@ -215,7 +212,7 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             int i = this.xV;
-            return i == 1 ? R.layout.obfuscated_res_0x7f0d0470 : i == 0 ? R.layout.obfuscated_res_0x7f0d0471 : i == 2 ? R.layout.obfuscated_res_0x7f0d046e : i == 3 ? R.layout.obfuscated_res_0x7f0d046f : R.layout.obfuscated_res_0x7f0d0471;
+            return i == 1 ? R.layout.obfuscated_res_0x7f0d046d : i == 0 ? R.layout.obfuscated_res_0x7f0d046e : i == 2 ? R.layout.obfuscated_res_0x7f0d046b : i == 3 ? R.layout.obfuscated_res_0x7f0d046c : R.layout.obfuscated_res_0x7f0d046e;
         }
         return invokeV.intValue;
     }
@@ -260,14 +257,14 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && com.kwad.components.ad.splashscreen.d.c.d(getContext(), getWidth(), getHeight()) && this.xV != 0) {
             if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 2) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911f9), -1, 16, 16, -1);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911ed), -1, 16, 16, -1);
             } else if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 3) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911f9), -1, 16, -1, 16);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911ed), -1, 16, -1, 16);
             }
         }
     }
 
-    public static boolean n(@NonNull AdInfo adInfo) {
+    public static boolean n(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, adInfo)) == null) {
@@ -338,15 +335,14 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
                     }
                 }
             });
-            T t = this.EH;
-            if (((h) t).yc != null) {
-                ((h) t).yc.kA();
+            com.kwad.sdk.mvp.a aVar = this.EH;
+            if (((h) aVar).yc != null) {
+                ((h) aVar).yc.kA();
             }
         }
     }
 
     @Override // com.kwad.components.core.g.c
-    @NonNull
     public final Presenter onCreatePresenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -398,7 +394,7 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
     }
 
     @Override // android.view.View
-    public final void onVisibilityChanged(@NonNull View view2, int i) {
+    public final void onVisibilityChanged(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) == null) {
             super.onVisibilityChanged(view2, i);
@@ -417,9 +413,9 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, splashScreenAdInteractionListener) == null) {
             this.xT = splashScreenAdInteractionListener;
-            T t = this.EH;
-            if (t != 0) {
-                ((h) t).setSplashScreenAdListener(splashScreenAdInteractionListener);
+            com.kwad.sdk.mvp.a aVar = this.EH;
+            if (aVar != null) {
+                ((h) aVar).setSplashScreenAdListener(splashScreenAdInteractionListener);
             }
         }
     }

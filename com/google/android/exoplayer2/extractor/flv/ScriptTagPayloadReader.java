@@ -30,6 +30,23 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
     public transient /* synthetic */ FieldHolder $fh;
     public long durationUs;
 
+    @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
+    public boolean parseHeader(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parsableByteArray)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
+    public void seek() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScriptTagPayloadReader(TrackOutput trackOutput) {
         super(trackOutput);
@@ -51,13 +68,104 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         this.durationUs = C.TIME_UNSET;
     }
 
+    public static HashMap readAmfEcmaArray(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, parsableByteArray)) == null) {
+            int readUnsignedIntToInt = parsableByteArray.readUnsignedIntToInt();
+            HashMap hashMap = new HashMap(readUnsignedIntToInt);
+            for (int i = 0; i < readUnsignedIntToInt; i++) {
+                hashMap.put(readAmfString(parsableByteArray), readAmfData(parsableByteArray, readAmfType(parsableByteArray)));
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
     public static Boolean readAmfBoolean(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parsableByteArray)) == null) {
-            return Boolean.valueOf(parsableByteArray.readUnsignedByte() == 1);
+            boolean z = true;
+            if (parsableByteArray.readUnsignedByte() != 1) {
+                z = false;
+            }
+            return Boolean.valueOf(z);
         }
         return (Boolean) invokeL.objValue;
+    }
+
+    public static Date readAmfDate(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parsableByteArray)) == null) {
+            Date date = new Date((long) readAmfDouble(parsableByteArray).doubleValue());
+            parsableByteArray.skipBytes(2);
+            return date;
+        }
+        return (Date) invokeL.objValue;
+    }
+
+    public static Double readAmfDouble(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
+            return Double.valueOf(Double.longBitsToDouble(parsableByteArray.readLong()));
+        }
+        return (Double) invokeL.objValue;
+    }
+
+    public static HashMap readAmfObject(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, parsableByteArray)) == null) {
+            HashMap hashMap = new HashMap();
+            while (true) {
+                String readAmfString = readAmfString(parsableByteArray);
+                int readAmfType = readAmfType(parsableByteArray);
+                if (readAmfType == 9) {
+                    return hashMap;
+                }
+                hashMap.put(readAmfString, readAmfData(parsableByteArray, readAmfType));
+            }
+        } else {
+            return (HashMap) invokeL.objValue;
+        }
+    }
+
+    public static ArrayList readAmfStrictArray(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, parsableByteArray)) == null) {
+            int readUnsignedIntToInt = parsableByteArray.readUnsignedIntToInt();
+            ArrayList arrayList = new ArrayList(readUnsignedIntToInt);
+            for (int i = 0; i < readUnsignedIntToInt; i++) {
+                arrayList.add(readAmfData(parsableByteArray, readAmfType(parsableByteArray)));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public static String readAmfString(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, parsableByteArray)) == null) {
+            int readUnsignedShort = parsableByteArray.readUnsignedShort();
+            int position = parsableByteArray.getPosition();
+            parsableByteArray.skipBytes(readUnsignedShort);
+            return new String(parsableByteArray.data, position, readUnsignedShort);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int readAmfType(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, parsableByteArray)) == null) {
+            return parsableByteArray.readUnsignedByte();
+        }
+        return invokeL.intValue;
     }
 
     public static Object readAmfData(ParsableByteArray parsableByteArray, int i) {
@@ -90,115 +198,19 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         return invokeLI.objValue;
     }
 
-    public static Date readAmfDate(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parsableByteArray)) == null) {
-            Date date = new Date((long) readAmfDouble(parsableByteArray).doubleValue());
-            parsableByteArray.skipBytes(2);
-            return date;
-        }
-        return (Date) invokeL.objValue;
-    }
-
-    public static Double readAmfDouble(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) ? Double.valueOf(Double.longBitsToDouble(parsableByteArray.readLong())) : (Double) invokeL.objValue;
-    }
-
-    public static HashMap<String, Object> readAmfEcmaArray(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, parsableByteArray)) == null) {
-            int readUnsignedIntToInt = parsableByteArray.readUnsignedIntToInt();
-            HashMap<String, Object> hashMap = new HashMap<>(readUnsignedIntToInt);
-            for (int i = 0; i < readUnsignedIntToInt; i++) {
-                hashMap.put(readAmfString(parsableByteArray), readAmfData(parsableByteArray, readAmfType(parsableByteArray)));
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static HashMap<String, Object> readAmfObject(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, parsableByteArray)) != null) {
-            return (HashMap) invokeL.objValue;
-        }
-        HashMap<String, Object> hashMap = new HashMap<>();
-        while (true) {
-            String readAmfString = readAmfString(parsableByteArray);
-            int readAmfType = readAmfType(parsableByteArray);
-            if (readAmfType == 9) {
-                return hashMap;
-            }
-            hashMap.put(readAmfString, readAmfData(parsableByteArray, readAmfType));
-        }
-    }
-
-    public static ArrayList<Object> readAmfStrictArray(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, parsableByteArray)) == null) {
-            int readUnsignedIntToInt = parsableByteArray.readUnsignedIntToInt();
-            ArrayList<Object> arrayList = new ArrayList<>(readUnsignedIntToInt);
-            for (int i = 0; i < readUnsignedIntToInt; i++) {
-                arrayList.add(readAmfData(parsableByteArray, readAmfType(parsableByteArray)));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public static String readAmfString(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, parsableByteArray)) == null) {
-            int readUnsignedShort = parsableByteArray.readUnsignedShort();
-            int position = parsableByteArray.getPosition();
-            parsableByteArray.skipBytes(readUnsignedShort);
-            return new String(parsableByteArray.data, position, readUnsignedShort);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int readAmfType(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, parsableByteArray)) == null) ? parsableByteArray.readUnsignedByte() : invokeL.intValue;
-    }
-
-    public long getDurationUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.durationUs : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
-    public boolean parseHeader(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parsableByteArray)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
     public void parsePayload(ParsableByteArray parsableByteArray, long j) throws ParserException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, parsableByteArray, j) == null) {
             if (readAmfType(parsableByteArray) == 2) {
-                if (NAME_METADATA.equals(readAmfString(parsableByteArray)) && readAmfType(parsableByteArray) == 8) {
-                    HashMap<String, Object> readAmfEcmaArray = readAmfEcmaArray(parsableByteArray);
-                    if (readAmfEcmaArray.containsKey("duration")) {
-                        double doubleValue = ((Double) readAmfEcmaArray.get("duration")).doubleValue();
-                        if (doubleValue > 0.0d) {
-                            this.durationUs = (long) (doubleValue * 1000000.0d);
-                            return;
-                        }
+                if (!NAME_METADATA.equals(readAmfString(parsableByteArray)) || readAmfType(parsableByteArray) != 8) {
+                    return;
+                }
+                HashMap readAmfEcmaArray = readAmfEcmaArray(parsableByteArray);
+                if (readAmfEcmaArray.containsKey("duration")) {
+                    double doubleValue = ((Double) readAmfEcmaArray.get("duration")).doubleValue();
+                    if (doubleValue > 0.0d) {
+                        this.durationUs = (long) (doubleValue * 1000000.0d);
                         return;
                     }
                     return;
@@ -209,10 +221,12 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         }
     }
 
-    @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
-    public void seek() {
+    public long getDurationUs() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.durationUs;
         }
+        return invokeV.longValue;
     }
 }

@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class SelectedLocationInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS = "address";
-    public static final Parcelable.Creator<SelectedLocationInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String LATITUDE = "latitude";
     public static final String LOCATION_KEY = "SelectedLocationInfo";
     public static final String LONGITUDE = "longitude";
@@ -29,8 +29,18 @@ public class SelectedLocationInfo implements Parcelable {
     public double mLongitude;
     public String mName;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<SelectedLocationInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +64,10 @@ public class SelectedLocationInfo implements Parcelable {
         public SelectedLocationInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SelectedLocationInfo(parcel, null) : (SelectedLocationInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new SelectedLocationInfo(parcel, null);
+            }
+            return (SelectedLocationInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +76,10 @@ public class SelectedLocationInfo implements Parcelable {
         public SelectedLocationInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SelectedLocationInfo[i] : (SelectedLocationInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new SelectedLocationInfo[i];
+            }
+            return (SelectedLocationInfo[]) invokeI.objValue;
         }
     }
 
@@ -83,36 +99,29 @@ public class SelectedLocationInfo implements Parcelable {
         CREATOR = new a();
     }
 
+    public SelectedLocationInfo(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mName = parcel.readString();
+        this.mAddress = parcel.readString();
+        this.mLatitude = parcel.readDouble();
+        this.mLongitude = parcel.readDouble();
+    }
+
     public /* synthetic */ SelectedLocationInfo(Parcel parcel, a aVar) {
         this(parcel);
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.mName);
-                jSONObject.put("address", this.mAddress);
-                jSONObject.put("latitude", this.mLatitude);
-                jSONObject.put("longitude", this.mLongitude);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -171,24 +180,21 @@ public class SelectedLocationInfo implements Parcelable {
         this.mLongitude = latLng.longitude;
     }
 
-    public SelectedLocationInfo(Parcel parcel) {
+    public JSONObject toJson() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", this.mName);
+                jSONObject.put("address", this.mAddress);
+                jSONObject.put("latitude", this.mLatitude);
+                jSONObject.put("longitude", this.mLongitude);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
-        this.mName = parcel.readString();
-        this.mAddress = parcel.readString();
-        this.mLatitude = parcel.readDouble();
-        this.mLongitude = parcel.readDouble();
+        return (JSONObject) invokeV.objValue;
     }
 }

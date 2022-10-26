@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.logging.FLog;
-import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
@@ -21,13 +20,13 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class Fresco {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public static DraweeControllerBuilderSupplierFactory mFactory;
     public static volatile boolean sIsInitialized;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class DraweeControllerBuilderSupplierFactory implements Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> {
+    public class DraweeControllerBuilderSupplierFactory implements Supplier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
@@ -55,10 +54,8 @@ public class Fresco {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Return type fixed from 'com.facebook.common.internal.Supplier<com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder>' to match base method */
         @Override // com.facebook.common.internal.Supplier
-        /* renamed from: get */
-        public Supplier<? extends AbstractDraweeControllerBuilder> get2() {
+        public Supplier get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -108,31 +105,68 @@ public class Fresco {
     public static PipelineDraweeControllerBuilderSupplier getDraweeControllerBuilderSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (PipelineDraweeControllerBuilderSupplier) mFactory.get2() : (PipelineDraweeControllerBuilderSupplier) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return (PipelineDraweeControllerBuilderSupplier) mFactory.get();
+        }
+        return (PipelineDraweeControllerBuilderSupplier) invokeV.objValue;
     }
 
     public static ImagePipeline getImagePipeline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getImagePipelineFactory().getImagePipeline() : (ImagePipeline) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return getImagePipelineFactory().getImagePipeline();
+        }
+        return (ImagePipeline) invokeV.objValue;
     }
 
     public static ImagePipelineFactory getImagePipelineFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ImagePipelineFactory.getInstance() : (ImagePipelineFactory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return ImagePipelineFactory.getInstance();
+        }
+        return (ImagePipelineFactory) invokeV.objValue;
     }
 
     public static boolean hasBeenInitialized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sIsInitialized : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return sIsInitialized;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static PipelineDraweeControllerBuilder newDraweeControllerBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return (PipelineDraweeControllerBuilder) mFactory.get().get();
+        }
+        return (PipelineDraweeControllerBuilder) invokeV.objValue;
+    }
+
+    public static void shutDown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            mFactory = null;
+            SimpleDraweeView.shutDown();
+            ImagePipelineFactory.shutDown();
+        }
     }
 
     public static void initialize(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             initialize(context, null, null);
+        }
+    }
+
+    public static void initialize(Context context, @Nullable ImagePipelineConfig imagePipelineConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, imagePipelineConfig) == null) {
+            initialize(context, imagePipelineConfig, null);
         }
     }
 
@@ -148,28 +182,6 @@ public class Fresco {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.endSection();
             }
-        }
-    }
-
-    public static PipelineDraweeControllerBuilder newDraweeControllerBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? (PipelineDraweeControllerBuilder) mFactory.get2().get() : (PipelineDraweeControllerBuilder) invokeV.objValue;
-    }
-
-    public static void shutDown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            mFactory = null;
-            SimpleDraweeView.shutDown();
-            ImagePipelineFactory.shutDown();
-        }
-    }
-
-    public static void initialize(Context context, @Nullable ImagePipelineConfig imagePipelineConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, imagePipelineConfig) == null) {
-            initialize(context, imagePipelineConfig, null);
         }
     }
 

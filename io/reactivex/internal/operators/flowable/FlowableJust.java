@@ -11,17 +11,17 @@ import io.reactivex.internal.fuseable.ScalarCallable;
 import io.reactivex.internal.subscriptions.ScalarSubscription;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableJust<T> extends Flowable<T> implements ScalarCallable<T> {
+public final class FlowableJust extends Flowable implements ScalarCallable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T value;
+    public final Object value;
 
-    public FlowableJust(T t) {
+    public FlowableJust(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,21 +31,24 @@ public final class FlowableJust<T> extends Flowable<T> implements ScalarCallable
                 return;
             }
         }
-        this.value = t;
-    }
-
-    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
-    public T call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (T) invokeV.objValue;
+        this.value = obj;
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber) == null) {
             subscriber.onSubscribe(new ScalarSubscription(subscriber, this.value));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
+    public Object call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.objValue;
     }
 }

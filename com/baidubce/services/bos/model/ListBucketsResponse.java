@@ -13,7 +13,7 @@ import java.util.List;
 public class ListBucketsResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BucketSummary> buckets;
+    public List buckets;
     public User owner;
 
     public ListBucketsResponse() {
@@ -32,19 +32,25 @@ public class ListBucketsResponse extends BosResponse {
         this.buckets = new ArrayList();
     }
 
-    public List<BucketSummary> getBuckets() {
+    public List getBuckets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.buckets : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.buckets;
+        }
+        return (List) invokeV.objValue;
     }
 
     public User getOwner() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.owner : (User) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.owner;
+        }
+        return (User) invokeV.objValue;
     }
 
-    public void setBuckets(List<BucketSummary> list) {
+    public void setBuckets(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.buckets = list;

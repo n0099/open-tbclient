@@ -1,8 +1,6 @@
 package com.baidu.searchbox.track.ui;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -47,7 +45,88 @@ public class TrackUI {
         simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss:SSS");
     }
 
-    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, long j, @NonNull String str5) {
+    public String getActivityPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mActivityPage;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getActivityPageTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mActivityPageTag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mEvent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFragmentPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFragmentPage;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFragmentPageTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mFragmentPageTag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mPageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPageTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mPageTag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mTimeStamp;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public TrackUI(String str, String str2, String str3, String str4, long j, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,13 +149,41 @@ public class TrackUI {
         this.mEvent = str5;
     }
 
+    public TrackUI(String str, String str2, String str3, String str4, String str5, String str6, String str7, long j, String str8) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, str5, str6, str7, Long.valueOf(j), str8};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mActivityPage = str;
+        this.mActivityPageTag = str2;
+        this.mFragmentPage = str3;
+        this.mFragmentPageTag = str4;
+        this.mPageName = str5;
+        this.mPageTag = str6;
+        this.mType = str7;
+        this.mTimeStamp = j;
+        this.mEvent = str8;
+    }
+
     public static String getTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? simpleDateFormat.format(new Date(j)) : (String) invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            return simpleDateFormat.format(new Date(j));
+        }
+        return (String) invokeJ.objValue;
     }
 
-    @Nullable
     public static String[] parse(String str) {
         InterceptResult invokeL;
         String[] split;
@@ -90,61 +197,6 @@ public class TrackUI {
         return (String[]) invokeL.objValue;
     }
 
-    public String getActivityPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mActivityPage : (String) invokeV.objValue;
-    }
-
-    public String getActivityPageTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActivityPageTag : (String) invokeV.objValue;
-    }
-
-    public String getEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mEvent : (String) invokeV.objValue;
-    }
-
-    public String getFragmentPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFragmentPage : (String) invokeV.objValue;
-    }
-
-    public String getFragmentPageTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFragmentPageTag : (String) invokeV.objValue;
-    }
-
-    public String getPageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPageName : (String) invokeV.objValue;
-    }
-
-    public String getPageTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPageTag : (String) invokeV.objValue;
-    }
-
-    public long getTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTimeStamp : invokeV.longValue;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mType : (String) invokeV.objValue;
-    }
-
-    @NonNull
     @Deprecated
     public String toString() {
         InterceptResult invokeV;
@@ -188,31 +240,5 @@ public class TrackUI {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, @Nullable String str5, @Nullable String str6, @Nullable String str7, long j, @NonNull String str8) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, str7, Long.valueOf(j), str8};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mActivityPage = str;
-        this.mActivityPageTag = str2;
-        this.mFragmentPage = str3;
-        this.mFragmentPageTag = str4;
-        this.mPageName = str5;
-        this.mPageTag = str6;
-        this.mType = str7;
-        this.mTimeStamp = j;
-        this.mEvent = str8;
     }
 }

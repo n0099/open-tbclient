@@ -26,7 +26,7 @@ public class d3 implements k2 {
     public transient /* synthetic */ FieldHolder $fh;
     public final SoundPool a;
     public final AudioManager b;
-    public final List<w2> c;
+    public final List c;
 
     public d3(Context context, i2 i2Var) {
         Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class d3 implements k2 {
     @Override // com.baidu.tieba.i7
     public void dispose() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
             return;
         }
         synchronized (this.c) {
@@ -112,6 +112,41 @@ public class d3 implements k2 {
             }
         }
         this.a.release();
+    }
+
+    @Override // com.baidu.tieba.k2
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
+            return;
+        }
+        synchronized (this.c) {
+            for (w2 w2Var : this.c) {
+                if (w2Var.a()) {
+                    w2Var.pause();
+                    w2Var.d = true;
+                } else {
+                    w2Var.d = false;
+                }
+            }
+        }
+        this.a.autoPause();
+    }
+
+    @Override // com.baidu.tieba.k2
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.a == null) {
+            return;
+        }
+        synchronized (this.c) {
+            for (int i = 0; i < this.c.size(); i++) {
+                if (((w2) this.c.get(i)).d) {
+                    ((w2) this.c.get(i)).f();
+                }
+            }
+        }
+        this.a.autoResume();
     }
 
     @Override // com.baidu.tieba.e1
@@ -152,40 +187,5 @@ public class d3 implements k2 {
             throw new GdxRuntimeException("Android audio is not enabled by the application config.");
         }
         return (f2) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.k2
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (this.c) {
-            for (w2 w2Var : this.c) {
-                if (w2Var.a()) {
-                    w2Var.pause();
-                    w2Var.d = true;
-                } else {
-                    w2Var.d = false;
-                }
-            }
-        }
-        this.a.autoPause();
-    }
-
-    @Override // com.baidu.tieba.k2
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (this.c) {
-            for (int i = 0; i < this.c.size(); i++) {
-                if (this.c.get(i).d) {
-                    this.c.get(i).f();
-                }
-            }
-        }
-        this.a.autoResume();
     }
 }

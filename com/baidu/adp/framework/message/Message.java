@@ -23,6 +23,10 @@ public abstract class Message<T> extends OrmObject {
     public BdUniqueId mTag;
     public int squencedId;
 
+    public abstract boolean checkCmd(int i);
+
+    public abstract /* synthetic */ T encodeInBackGround();
+
     public Message(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,57 +51,100 @@ public abstract class Message<T> extends OrmObject {
         this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
 
-    private void check() {
+    public Message(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && !checkCmd(this.mCmd)) {
-            throw new InvalidParameterException("cmd invalid");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.mExtra = null;
+        this.mSelf = null;
+        this.mStartTime = 0L;
+        this.squencedId = 0;
+        this.mCmd = i;
+        this.mTag = bdUniqueId;
+        check();
+        this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
 
-    public abstract boolean checkCmd(int i);
-
-    public abstract /* synthetic */ T encodeInBackGround();
+    private void check() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || checkCmd(this.mCmd)) {
+            return;
+        }
+        throw new InvalidParameterException("cmd invalid");
+    }
 
     public long getClientLogID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.clientLogID : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.clientLogID;
+        }
+        return invokeV.longValue;
     }
 
     public int getCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCmd : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCmd;
+        }
+        return invokeV.intValue;
     }
 
     public Object getExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mExtra : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mExtra;
+        }
+        return invokeV.objValue;
     }
 
     public Object getSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSelf : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mSelf;
+        }
+        return invokeV.objValue;
     }
 
     public int getSquencedId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.squencedId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.squencedId;
+        }
+        return invokeV.intValue;
     }
 
     public long getStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mStartTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mStartTime;
+        }
+        return invokeV.longValue;
     }
 
     public BdUniqueId getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTag : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mTag;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
     public void setClientLogID(long j) {
@@ -140,30 +187,5 @@ public abstract class Message<T> extends OrmObject {
         if (interceptable == null || interceptable.invokeL(1048590, this, bdUniqueId) == null) {
             this.mTag = bdUniqueId;
         }
-    }
-
-    public Message(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mExtra = null;
-        this.mSelf = null;
-        this.mStartTime = 0L;
-        this.squencedId = 0;
-        this.mCmd = i;
-        this.mTag = bdUniqueId;
-        check();
-        this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
 }

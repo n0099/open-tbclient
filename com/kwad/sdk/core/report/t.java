@@ -1,8 +1,6 @@
 package com.kwad.sdk.core.report;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.ReportResultData;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
@@ -16,15 +14,14 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class t extends com.kwad.sdk.core.network.a<u> {
+public abstract class t extends com.kwad.sdk.core.network.a {
     public ReportResultData abv;
 
-    @NonNull
     private ReportResultData a(com.kwad.sdk.core.network.c cVar) {
         if (this.abv == null) {
             this.abv = new ReportResultData() { // from class: com.kwad.sdk.core.report.ReportNetwork$1
                 @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
-                public void parseJson(@Nullable JSONObject jSONObject) {
+                public void parseJson(JSONObject jSONObject) {
                     super.parseJson(jSONObject);
                 }
             };
@@ -54,17 +51,17 @@ public abstract class t extends com.kwad.sdk.core.network.a<u> {
         }
     }
 
-    public static void a(@NonNull AdTemplate adTemplate, List<String> list) {
+    public static void a(AdTemplate adTemplate, List list) {
         if (adTemplate.mTrackUrlReported || list == null || list.isEmpty()) {
             return;
         }
         adTemplate.mTrackUrlReported = true;
         m mVar = new m(10217L, adTemplate);
         mVar.aba = com.kwad.sdk.utils.r.toJsonArray(list);
-        e.a2(mVar);
+        e.a(mVar);
     }
 
-    public static void e(@NonNull AdTemplate adTemplate, int i, String str) {
+    public static void e(AdTemplate adTemplate, int i, String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -72,7 +69,7 @@ public abstract class t extends com.kwad.sdk.core.network.a<u> {
         mVar.creativeId = com.kwad.sdk.core.response.a.d.bQ(adTemplate).adBaseInfo.creativeId;
         mVar.aaZ = i;
         mVar.aba = com.kwad.sdk.utils.r.toJsonArray(Collections.singletonList(str));
-        e.a2(mVar);
+        e.a(mVar);
     }
 
     public static AdHttpProxy getProxyForHttp() {
@@ -113,20 +110,20 @@ public abstract class t extends com.kwad.sdk.core.network.a<u> {
         String str;
         ReportResultData a;
         String str2;
-        u createRequest = createRequest();
+        u uVar = (u) createRequest();
         com.kwad.sdk.core.network.c cVar = null;
         try {
-            str = createRequest.getUrl();
+            str = uVar.getUrl();
         } catch (Exception e) {
             e = e;
             str = null;
         }
         try {
-            cVar = getProxyForHttp().doPost(str, (Map<String, String>) null, createRequest.getBody());
+            cVar = getProxyForHttp().doPost(str, (Map) null, uVar.getBody());
             if (cVar == null || cVar.code != 200) {
                 str2 = "report fail result is null";
             } else {
-                str2 = "report success actionType:" + createRequest.abw;
+                str2 = "report success actionType:" + uVar.abw;
             }
             com.kwad.sdk.core.e.b.d("ReportNetwork", str2);
         } catch (Exception e2) {
@@ -135,7 +132,7 @@ public abstract class t extends com.kwad.sdk.core.network.a<u> {
             a = a(cVar);
             if (a.isCheatingFlow()) {
             }
-            if (!createRequest.getAdTemplate().mCheatingFlow) {
+            if (!uVar.getAdTemplate().mCheatingFlow) {
             }
             if (com.kwad.b.kwai.a.aw.booleanValue()) {
                 return;
@@ -144,10 +141,10 @@ public abstract class t extends com.kwad.sdk.core.network.a<u> {
         }
         a = a(cVar);
         if (a.isCheatingFlow()) {
-            createRequest.getAdTemplate().setCheatingFlow(a.isCheatingFlow());
+            uVar.getAdTemplate().setCheatingFlow(a.isCheatingFlow());
         }
-        if (!createRequest.getAdTemplate().mCheatingFlow) {
-            a(createRequest);
+        if (!uVar.getAdTemplate().mCheatingFlow) {
+            a(uVar);
         }
         if (com.kwad.b.kwai.a.aw.booleanValue() || a.isResultOk()) {
             return;
@@ -155,8 +152,7 @@ public abstract class t extends com.kwad.sdk.core.network.a<u> {
         throw new RuntimeException("请求返回失败 code:" + a.result + ", errorMsg:" + a.errorMsg + "\n url=" + str);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.network.g, com.kwad.sdk.core.network.c] */
     @Override // com.kwad.sdk.core.network.a
-    public /* bridge */ /* synthetic */ void onResponse(u uVar, com.kwad.sdk.core.network.c cVar) {
+    public /* bridge */ /* synthetic */ void onResponse(com.kwad.sdk.core.network.g gVar, com.kwad.sdk.core.network.c cVar) {
     }
 }

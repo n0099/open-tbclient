@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.app.Application;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 /* loaded from: classes4.dex */
-public final class ju1 extends fu1 {
+public final class ju1 extends gu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,43 +27,47 @@ public final class ju1 extends fu1 {
         }
     }
 
-    @Override // com.baidu.tieba.fu1
-    public lv1 c(@NonNull r22 r22Var) {
+    @Override // com.baidu.tieba.gu1
+    public mv1 c(s22 s22Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r22Var)) == null) {
-            View q = tm2.i().q(r22Var);
-            if (q == null) {
-                return new lv1(1001);
-            }
-            return e(q);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s22Var)) == null) {
+            return e();
         }
-        return (lv1) invokeL.objValue;
+        return (mv1) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fu1
-    public lv1 d(int i) {
+    @Override // com.baidu.tieba.gu1
+    public mv1 d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new lv1(1001) : (lv1) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return e();
+        }
+        return (mv1) invokeI.objValue;
     }
 
-    public final lv1 e(@NonNull View view2) {
-        InterceptResult invokeL;
-        lv1 lv1Var;
+    public mv1 e() {
+        InterceptResult invokeV;
+        mv1 mv1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Application c = tm2.c();
+            int i = (int) 28.4d;
+            int P = (int) dh3.P(dh3.o(c) - c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700ef));
+            int i2 = P - ((int) 75.53d);
+            int P2 = ((int) (dh3.P(dh3.t()) + 0.5f)) + ((38 - i) / 2);
             try {
-                lv1Var = new lv1(0, b((int) (ch3.P(view2.getLeft()) + 0.5f), (int) (ch3.P(view2.getTop()) + 0.5f), (int) (ch3.P(view2.getRight()) + 0.5f), (int) (ch3.P(view2.getBottom()) + 0.5f)));
+                mv1Var = new mv1(0, b(i2, P2, P, i + P2));
             } catch (JSONException e) {
-                if (fu1.a) {
+                if (gu1.a) {
                     e.printStackTrace();
                 }
-                lv1Var = new lv1(1001, "result JSONException");
+                mv1Var = new mv1(1001, "result JSONException");
             }
-            l02.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param normally, result = " + lv1Var);
-            return lv1Var;
+            m02.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param abnormally, result = " + mv1Var);
+            return mv1Var;
         }
-        return (lv1) invokeL.objValue;
+        return (mv1) invokeV.objValue;
     }
 }
